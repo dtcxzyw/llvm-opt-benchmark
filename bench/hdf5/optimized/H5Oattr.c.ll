@@ -962,13 +962,13 @@ define internal i64 @H5O__attr_shared_size(ptr noundef %0, i1 noundef zeroext %1
 6:                                                ; preds = %3
   %7 = tail call i64 @H5O__shared_size(ptr noundef %0, ptr noundef nonnull %2) #11
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %H5O__attr_size.exit.thread
+  br i1 %8, label %9, label %H5O__attr_size.argprom.exit.thread
 
 9:                                                ; preds = %6
   %10 = load i64, ptr @H5E_OHDR_g, align 8
   %11 = load i64, ptr @H5E_CANTGET_g, align 8
   %12 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O__attr_shared_size, i32 noundef 167, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.26) #11
-  br label %H5O__attr_size.exit.thread
+  br label %H5O__attr_size.argprom.exit.thread
 
 13:                                               ; preds = %3
   %14 = getelementptr i8, ptr %2, i64 96
@@ -977,7 +977,7 @@ define internal i64 @H5O__attr_shared_size(ptr noundef %0, i1 noundef zeroext %1
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #12
   %18 = load i8, ptr %.val, align 8
-  switch i8 %18, label %H5O__attr_size.exit.thread [
+  switch i8 %18, label %H5O__attr_size.argprom.exit.thread [
     i8 1, label %19
     i8 2, label %35
     i8 3, label %46
@@ -999,7 +999,7 @@ define internal i64 @H5O__attr_shared_size(ptr noundef %0, i1 noundef zeroext %1
   %32 = add i64 %31, %24
   %33 = add i64 %32, %30
   %34 = add i64 %33, %28
-  br label %H5O__attr_size.exit
+  br label %H5O__attr_size.argprom.exit
 
 35:                                               ; preds = %13
   %36 = getelementptr inbounds i8, ptr %.val, i64 32
@@ -1012,7 +1012,7 @@ define internal i64 @H5O__attr_shared_size(ptr noundef %0, i1 noundef zeroext %1
   %43 = add i64 %42, %37
   %44 = add i64 %43, %39
   %45 = add i64 %44, %41
-  br label %H5O__attr_size.exit
+  br label %H5O__attr_size.argprom.exit
 
 46:                                               ; preds = %13
   %47 = getelementptr inbounds i8, ptr %.val, i64 32
@@ -1025,21 +1025,21 @@ define internal i64 @H5O__attr_shared_size(ptr noundef %0, i1 noundef zeroext %1
   %54 = add i64 %53, %48
   %55 = add i64 %54, %50
   %56 = add i64 %55, %52
-  br label %H5O__attr_size.exit
+  br label %H5O__attr_size.argprom.exit
 
-H5O__attr_size.exit:                              ; preds = %19, %35, %46
+H5O__attr_size.argprom.exit:                      ; preds = %19, %35, %46
   %.0.i = phi i64 [ %34, %19 ], [ %45, %35 ], [ %56, %46 ]
   %57 = icmp eq i64 %.0.i, 0
-  br i1 %57, label %58, label %H5O__attr_size.exit.thread
+  br i1 %57, label %58, label %H5O__attr_size.argprom.exit.thread
 
-58:                                               ; preds = %H5O__attr_size.exit
+58:                                               ; preds = %H5O__attr_size.argprom.exit
   %59 = load i64, ptr @H5E_OHDR_g, align 8
   %60 = load i64, ptr @H5E_CANTGET_g, align 8
   %61 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O__attr_shared_size, i32 noundef 172, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.27) #11
-  br label %H5O__attr_size.exit.thread
+  br label %H5O__attr_size.argprom.exit.thread
 
-H5O__attr_size.exit.thread:                       ; preds = %13, %6, %H5O__attr_size.exit, %58, %9
-  %.0 = phi i64 [ 0, %58 ], [ %.0.i, %H5O__attr_size.exit ], [ 0, %9 ], [ %7, %6 ], [ 8, %13 ]
+H5O__attr_size.argprom.exit.thread:               ; preds = %13, %6, %H5O__attr_size.argprom.exit, %58, %9
+  %.0 = phi i64 [ 0, %58 ], [ %.0.i, %H5O__attr_size.argprom.exit ], [ 0, %9 ], [ %7, %6 ], [ 8, %13 ]
   ret i64 %.0
 }
 
@@ -1239,7 +1239,7 @@ define internal ptr @H5O__attr_shared_copy_file(ptr noundef %0, ptr noundef %1, 
 19:                                               ; preds = %7
   %20 = tail call ptr @H5A__attr_copy_file(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %5) #11
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %H5O__attr_copy_file.exit
+  br i1 %21, label %22, label %H5O__attr_copy_file.argprom.exit
 
 22:                                               ; preds = %19
   %23 = load i64, ptr @H5E_ATTR_g, align 8
@@ -1253,21 +1253,21 @@ define internal ptr @H5O__attr_shared_copy_file(ptr noundef %0, ptr noundef %1, 
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O__attr_shared_copy_file, i32 noundef 303, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.32) #11
   br label %.thread
 
-H5O__attr_copy_file.exit:                         ; preds = %19
+H5O__attr_copy_file.argprom.exit:                 ; preds = %19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %20, i8 0, i64 40, i1 false)
   %30 = tail call i32 @H5O__shared_copy_file(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @H5O_MSG_ATTR, ptr noundef nonnull %1, ptr noundef nonnull %20, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #11
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %32, label %.thread
 
-32:                                               ; preds = %H5O__attr_copy_file.exit
+32:                                               ; preds = %H5O__attr_copy_file.argprom.exit
   %33 = load i64, ptr @H5E_OHDR_g, align 8
   %34 = load i64, ptr @H5E_WRITEERROR_g, align 8
   %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O__attr_shared_copy_file, i32 noundef 316, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.33) #11
   %36 = tail call ptr @H5O_msg_free(i32 noundef 12, ptr noundef nonnull %20) #11
   br label %.thread
 
-.thread:                                          ; preds = %26, %H5O__attr_copy_file.exit, %32
-  %.029 = phi ptr [ null, %32 ], [ %20, %H5O__attr_copy_file.exit ], [ null, %26 ]
+.thread:                                          ; preds = %26, %H5O__attr_copy_file.argprom.exit, %32
+  %.029 = phi ptr [ null, %32 ], [ %20, %H5O__attr_copy_file.argprom.exit ], [ null, %26 ]
   ret ptr %.029
 }
 

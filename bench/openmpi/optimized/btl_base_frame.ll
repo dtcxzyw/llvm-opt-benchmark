@@ -135,7 +135,7 @@ define internal i32 @mca_btl_base_open(i32 noundef %0) #2 {
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not1.i = icmp eq ptr %9, null
-  br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
   %10 = phi ptr [ %12, %.lr.ph.i ], [ %9, %7 ]
@@ -144,16 +144,16 @@ define internal i32 @mca_btl_base_open(i32 noundef %0) #2 {
   %11 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i, !llvm.loop !4
 
-opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
+opal_obj_run_constructors.argprom.exit:           ; preds = %.lr.ph.i, %7
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @opal_btl_base_framework, i64 76), align 4
   %14 = tail call i32 @opal_output_get_verbosity(i32 noundef %13) #6
   store i32 %14, ptr @mca_btl_base_verbose, align 4
   br label %15
 
-15:                                               ; preds = %1, %opal_obj_run_constructors.exit
-  %.0 = phi i32 [ 0, %opal_obj_run_constructors.exit ], [ %2, %1 ]
+15:                                               ; preds = %1, %opal_obj_run_constructors.argprom.exit
+  %.0 = phi i32 [ 0, %opal_obj_run_constructors.argprom.exit ], [ %2, %1 ]
   ret i32 %.0
 }
 
@@ -200,7 +200,7 @@ define internal noundef i32 @mca_btl_base_close() #2 {
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
   %.not1.i = icmp eq ptr %21, null
-  br i1 %.not1.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %opal_obj_run_destructors.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %22 = phi ptr [ %24, %.lr.ph.i ], [ %21, %._crit_edge ]
@@ -209,9 +209,9 @@ define internal noundef i32 @mca_btl_base_close() #2 {
   %23 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %opal_obj_run_destructors.argprom.exit, label %.lr.ph.i, !llvm.loop !7
 
-opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %._crit_edge
+opal_obj_run_destructors.argprom.exit:            ; preds = %.lr.ph.i, %._crit_edge
   ret i32 0
 }
 

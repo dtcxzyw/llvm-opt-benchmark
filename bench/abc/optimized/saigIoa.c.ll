@@ -540,7 +540,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define ptr @Saig_ManReadNode(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   %4 = load i8, ptr %2, align 1
-  switch i8 %4, label %Aig_ManObj.exit [
+  switch i8 %4, label %Aig_ManObj.argprom.exit [
     i8 110, label %5
     i8 112, label %14
     i8 108, label %22
@@ -550,7 +550,7 @@ define ptr @Saig_ManReadNode(ptr nocapture noundef readonly %0, ptr nocapture no
   %6 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %Aig_ManObj.exit, label %7
+  br i1 %.not.i, label %Aig_ManObj.argprom.exit, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %2, i64 1
@@ -559,13 +559,13 @@ define ptr @Saig_ManReadNode(ptr nocapture noundef readonly %0, ptr nocapture no
   %11 = getelementptr inbounds i32, ptr %1, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr i8, ptr %.val, i64 8
-  br label %Aig_ManObj.exit.sink.split
+  br label %Aig_ManObj.argprom.exit.sink.split
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds i8, ptr %2, i64 1
   %16 = load i8, ptr %15, align 1
   %cond = icmp eq i8 %16, 105
-  br i1 %cond, label %17, label %Aig_ManObj.exit
+  br i1 %cond, label %17, label %Aig_ManObj.argprom.exit
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %2, i64 2
@@ -573,13 +573,13 @@ define ptr @Saig_ManReadNode(ptr nocapture noundef readonly %0, ptr nocapture no
   %20 = getelementptr i8, ptr %0, i64 16
   %.val23 = load ptr, ptr %20, align 8
   %21 = getelementptr i8, ptr %.val23, i64 8
-  br label %Aig_ManObj.exit.sink.split
+  br label %Aig_ManObj.argprom.exit.sink.split
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds i8, ptr %2, i64 1
   %24 = load i8, ptr %23, align 1
   %cond22 = icmp eq i8 %24, 111
-  br i1 %cond22, label %25, label %Aig_ManObj.exit
+  br i1 %cond22, label %25, label %Aig_ManObj.argprom.exit
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %2, i64 2
@@ -590,19 +590,19 @@ define ptr @Saig_ManReadNode(ptr nocapture noundef readonly %0, ptr nocapture no
   %.val25 = load i32, ptr %29, align 4
   %30 = getelementptr i8, ptr %.val24, i64 8
   %31 = add nsw i32 %.val25, %27
-  br label %Aig_ManObj.exit.sink.split
+  br label %Aig_ManObj.argprom.exit.sink.split
 
-Aig_ManObj.exit.sink.split:                       ; preds = %17, %25, %7
+Aig_ManObj.argprom.exit.sink.split:               ; preds = %17, %25, %7
   %.sink = phi i32 [ %12, %7 ], [ %31, %25 ], [ %19, %17 ]
   %.val.i.sink.in = phi ptr [ %13, %7 ], [ %30, %25 ], [ %21, %17 ]
   %.val.i.sink = load ptr, ptr %.val.i.sink.in, align 8
   %32 = sext i32 %.sink to i64
   %33 = getelementptr inbounds ptr, ptr %.val.i.sink, i64 %32
   %34 = load ptr, ptr %33, align 8
-  br label %Aig_ManObj.exit
+  br label %Aig_ManObj.argprom.exit
 
-Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.sink.split, %5, %22, %14, %3
-  %.0 = phi ptr [ null, %14 ], [ null, %22 ], [ null, %3 ], [ null, %5 ], [ %34, %Aig_ManObj.exit.sink.split ]
+Aig_ManObj.argprom.exit:                          ; preds = %Aig_ManObj.argprom.exit.sink.split, %5, %22, %14, %3
+  %.0 = phi ptr [ null, %14 ], [ null, %22 ], [ null, %3 ], [ null, %5 ], [ %34, %Aig_ManObj.argprom.exit.sink.split ]
   ret ptr %.0
 }
 

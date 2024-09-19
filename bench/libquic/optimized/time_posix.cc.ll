@@ -435,19 +435,19 @@ _ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i: ; preds = %if.else.i.
   %tobool.i.i.i.i.i.i = icmp sgt i64 %and.i.i.i.i.i, -1
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i.i.i)
   %cmp.i.i.i.i = and i1 %validity.0.i.i.i.i, %tobool.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.exit.i, label %cond.false.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.argprom.exit.i, label %cond.false.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i
   call void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i.i.i, ptr noundef nonnull @.str.4, i32 noundef 90, ptr noundef nonnull @.str.5)
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i.i.i) #13
-  br label %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.exit.i
+  br label %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.argprom.exit.i
 
-_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.exit.i: ; preds = %cond.false.i.i.i, %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i
+_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.argprom.exit.i: ; preds = %cond.false.i.i.i, %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i.i.i)
   br label %_ZN12_GLOBAL__N_18ClockNowEi.exit
 
-_ZN12_GLOBAL__N_18ClockNowEi.exit:                ; preds = %entry, %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.exit.i
-  %retval.0.i = phi i64 [ %add.i.i.i.i.i, %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.exit.i ], [ 0, %entry ]
+_ZN12_GLOBAL__N_18ClockNowEi.exit:                ; preds = %entry, %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.argprom.exit.i
+  %retval.0.i = phi i64 [ %add.i.i.i.i.i, %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.argprom.exit.i ], [ 0, %entry ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
   ret i64 %retval.0.i
 }
@@ -510,19 +510,19 @@ _ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i: ; preds = %if.else.i.
   %tobool.i.i.i.i.i.i = icmp sgt i64 %and.i.i.i.i.i, -1
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i.i.i)
   %cmp.i.i.i.i = and i1 %validity.0.i.i.i.i, %tobool.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.exit.i, label %cond.false.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.argprom.exit.i, label %cond.false.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i
   call void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i.i.i, ptr noundef nonnull @.str.4, i32 noundef 90, ptr noundef nonnull @.str.5)
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i.i.i) #13
-  br label %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.exit.i
+  br label %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.argprom.exit.i
 
-_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.exit.i: ; preds = %cond.false.i.i.i, %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i
+_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.argprom.exit.i: ; preds = %cond.false.i.i.i, %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i.i.i)
   br label %_ZN12_GLOBAL__N_18ClockNowEi.exit
 
-_ZN12_GLOBAL__N_18ClockNowEi.exit:                ; preds = %entry, %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.exit.i
-  %retval.0.i = phi i64 [ %add.i.i.i.i.i, %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.exit.i ], [ 0, %entry ]
+_ZN12_GLOBAL__N_18ClockNowEi.exit:                ; preds = %entry, %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.argprom.exit.i
+  %retval.0.i = phi i64 [ %add.i.i.i.i.i, %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.argprom.exit.i ], [ 0, %entry ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
   ret i64 %retval.0.i
 }

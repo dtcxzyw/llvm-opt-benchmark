@@ -427,13 +427,13 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   %.sroa.02.1.i = phi i32 [ %53, %51 ], [ %.sroa.02.07.i, %54 ], [ %.sroa.02.07.i, %.lr.ph.i ]
   %59 = getelementptr inbounds i8, ptr %.08.i, i64 32
   %.not.i = icmp eq ptr %59, %44
-  br i1 %.not.i, label %_ZL15findLocalRegDefRN4llvm12MachineInstrE.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZL15findLocalRegDefRN4llvm12MachineInstrE.argprom.exit, label %.lr.ph.i
 
-_ZL15findLocalRegDefRN4llvm12MachineInstrE.exit:  ; preds = %58
+_ZL15findLocalRegDefRN4llvm12MachineInstrE.argprom.exit: ; preds = %58
   %.not14 = icmp eq i32 %.sroa.02.1.i, 0
   br i1 %.not14, label %_ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5countERKS2_.exit, label %60
 
-60:                                               ; preds = %_ZL15findLocalRegDefRN4llvm12MachineInstrE.exit
+60:                                               ; preds = %_ZL15findLocalRegDefRN4llvm12MachineInstrE.argprom.exit
   %61 = load ptr, ptr %27, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 440
   %63 = load ptr, ptr %62, align 8
@@ -547,7 +547,7 @@ _ZL15findLocalRegDefRN4llvm12MachineInstrE.exit:  ; preds = %58
   tail call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.051.083) #21
   br label %_ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5countERKS2_.exit
 
-_ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5countERKS2_.exit: ; preds = %50, %54, %76, %.lr.ph.i22, %104, %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb1EEEEdeEv.exit, %101, %67, %117, %_ZL15findLocalRegDefRN4llvm12MachineInstrE.exit
+_ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5countERKS2_.exit: ; preds = %50, %54, %76, %.lr.ph.i22, %104, %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb1EEEEdeEv.exit, %101, %67, %117, %_ZL15findLocalRegDefRN4llvm12MachineInstrE.argprom.exit
   %.not69 = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i, %.sroa.056.0
   br i1 %.not69, label %._crit_edge, label %29
 

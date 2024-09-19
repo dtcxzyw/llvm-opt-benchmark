@@ -63,7 +63,7 @@ define hidden noundef ptr @_ZN12JfrDcmdEvent11thread_dumpEv() local_unnamed_addr
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %_ZL12execute_dcmdR14bufferedStreamPKc.exit, label %6
+  br i1 %.not.i, label %_ZL12execute_dcmdR14bufferedStreamPKc.argprom.exit, label %6
 
 6:                                                ; preds = %0
   %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -116,9 +116,9 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %26, %16
   store i64 0, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 16
   store i32 0, ptr %32, align 8
-  br label %_ZL12execute_dcmdR14bufferedStreamPKc.exit
+  br label %_ZL12execute_dcmdR14bufferedStreamPKc.argprom.exit
 
-_ZL12execute_dcmdR14bufferedStreamPKc.exit:       ; preds = %0, %29
+_ZL12execute_dcmdR14bufferedStreamPKc.argprom.exit: ; preds = %0, %29
   %33 = call noundef ptr @_ZN14bufferedStream9as_stringEv(ptr noundef nonnull align 8 dereferenceable(89) %1) #6
   call void @_ZN14bufferedStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(89) %1) #6
   ret ptr %33

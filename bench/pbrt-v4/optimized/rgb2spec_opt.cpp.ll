@@ -485,14 +485,14 @@ for.end:                                          ; preds = %for.body
 
 if.then.i:                                        ; preds = %for.end
   %call.i = tail call double @cbrt(double noundef %div) #32
-  br label %"_ZZ7cie_labPdENK3$_0clEd.exit"
+  br label %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit"
 
 if.else.i:                                        ; preds = %for.end
   %div.i = fdiv double %div, 0x3FC07004DED20922
   %add.i = fadd double %div.i, 0x3FC1A7B9611A7B96
-  br label %"_ZZ7cie_labPdENK3$_0clEd.exit"
+  br label %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit"
 
-"_ZZ7cie_labPdENK3$_0clEd.exit":                  ; preds = %if.then.i, %if.else.i
+"_ZZ7cie_labPdENK3$_0clEd.argprom.exit":          ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi double [ %call.i, %if.then.i ], [ %add.i, %if.else.i ]
   %mul15 = fmul double %retval.0.i, 1.160000e+02
   %sub = fadd double %mul15, -1.600000e+01
@@ -501,29 +501,29 @@ if.else.i:                                        ; preds = %for.end
   %cmp.i20 = fcmp ogt double %div17, 0x3F822354D28F7CD6
   br i1 %cmp.i20, label %if.then.i25, label %if.else.i21
 
-if.then.i25:                                      ; preds = %"_ZZ7cie_labPdENK3$_0clEd.exit"
+if.then.i25:                                      ; preds = %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit"
   %call.i26 = tail call double @cbrt(double noundef %div17) #32
-  br label %"_ZZ7cie_labPdENK3$_0clEd.exit27"
+  br label %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit27"
 
-if.else.i21:                                      ; preds = %"_ZZ7cie_labPdENK3$_0clEd.exit"
+if.else.i21:                                      ; preds = %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit"
   %div.i22 = fdiv double %div17, 0x3FC07004DED20922
   %add.i23 = fadd double %div.i22, 0x3FC1A7B9611A7B96
-  br label %"_ZZ7cie_labPdENK3$_0clEd.exit27"
+  br label %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit27"
 
-"_ZZ7cie_labPdENK3$_0clEd.exit27":                ; preds = %if.then.i25, %if.else.i21
+"_ZZ7cie_labPdENK3$_0clEd.argprom.exit27":        ; preds = %if.then.i25, %if.else.i21
   %retval.0.i24 = phi double [ %call.i26, %if.then.i25 ], [ %add.i23, %if.else.i21 ]
   br i1 %cmp.i, label %if.then.i41, label %if.else.i37
 
-if.then.i41:                                      ; preds = %"_ZZ7cie_labPdENK3$_0clEd.exit27"
+if.then.i41:                                      ; preds = %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit27"
   %call.i34 = tail call double @cbrt(double noundef %div) #32
-  br label %"_ZZ7cie_labPdENK3$_0clEd.exit43"
+  br label %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit43"
 
-if.else.i37:                                      ; preds = %"_ZZ7cie_labPdENK3$_0clEd.exit27"
+if.else.i37:                                      ; preds = %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit27"
   %div.i30 = fdiv double %div, 0x3FC07004DED20922
   %add.i31 = fadd double %div.i30, 0x3FC1A7B9611A7B96
-  br label %"_ZZ7cie_labPdENK3$_0clEd.exit43"
+  br label %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit43"
 
-"_ZZ7cie_labPdENK3$_0clEd.exit43":                ; preds = %if.then.i41, %if.else.i37
+"_ZZ7cie_labPdENK3$_0clEd.argprom.exit43":        ; preds = %if.then.i41, %if.else.i37
   %retval.0.i40 = phi double [ %call.i34, %if.then.i41 ], [ %add.i31, %if.else.i37 ]
   %mul22.sink.in = fsub double %retval.0.i24, %retval.0.i40
   %mul22.sink = fmul double %mul22.sink.in, 5.000000e+02
@@ -533,16 +533,16 @@ if.else.i37:                                      ; preds = %"_ZZ7cie_labPdENK3$
   %cmp.i44 = fcmp ogt double %div26, 0x3F822354D28F7CD6
   br i1 %cmp.i44, label %if.then.i49, label %if.else.i45
 
-if.then.i49:                                      ; preds = %"_ZZ7cie_labPdENK3$_0clEd.exit43"
+if.then.i49:                                      ; preds = %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit43"
   %call.i50 = tail call double @cbrt(double noundef %div26) #32
-  br label %"_ZZ7cie_labPdENK3$_0clEd.exit51"
+  br label %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit51"
 
-if.else.i45:                                      ; preds = %"_ZZ7cie_labPdENK3$_0clEd.exit43"
+if.else.i45:                                      ; preds = %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit43"
   %div.i46 = fdiv double %div26, 0x3FC07004DED20922
   %add.i47 = fadd double %div.i46, 0x3FC1A7B9611A7B96
-  br label %"_ZZ7cie_labPdENK3$_0clEd.exit51"
+  br label %"_ZZ7cie_labPdENK3$_0clEd.argprom.exit51"
 
-"_ZZ7cie_labPdENK3$_0clEd.exit51":                ; preds = %if.then.i49, %if.else.i45
+"_ZZ7cie_labPdENK3$_0clEd.argprom.exit51":        ; preds = %if.then.i49, %if.else.i45
   %retval.0.i48 = phi double [ %call.i50, %if.then.i49 ], [ %add.i47, %if.else.i45 ]
   %sub28 = fsub double %retval.0.i40, %retval.0.i48
   %mul29 = fmul double %sub28, 2.000000e+02
@@ -2983,7 +2983,7 @@ entry:
   %3 = load ptr, ptr %__functor.val, align 8
   %4 = load i32, ptr %3, align 4
   %cmp46.i.i.i = icmp sgt i32 %4, 0
-  br i1 %cmp46.i.i.i, label %for.body.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit"
+  br i1 %cmp46.i.i.i, label %for.body.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.argprom.exit"
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %5 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -3179,9 +3179,9 @@ for.inc140.i.i.i:                                 ; preds = %for.inc140.loopexit
   %inc141.i.i.i = add nuw nsw i32 %i.047.i.i.i, 1
   %64 = load i32, ptr %63, align 4
   %cmp.i.i.i = icmp slt i32 %inc141.i.i.i, %64
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit", !llvm.loop !58
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.argprom.exit", !llvm.loop !58
 
-"_ZSt10__invoke_rIvRZ4mainE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit": ; preds = %for.inc140.i.i.i, %entry
+"_ZSt10__invoke_rIvRZ4mainE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.argprom.exit": ; preds = %for.inc140.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %coeffs.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rgb.i.i.i)
   ret void

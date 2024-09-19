@@ -203,9 +203,9 @@ define void @Cnf_CutDeref(ptr nocapture noundef readonly %0, ptr nocapture nound
   %7 = getelementptr i8, ptr %6, i64 32
   %.val = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %.critedge, label %Aig_ManObj.exit
+  br i1 %.not.i, label %.critedge, label %Aig_ManObj.argprom.exit
 
-Aig_ManObj.exit:                                  ; preds = %.lr.ph
+Aig_ManObj.argprom.exit:                          ; preds = %.lr.ph
   %8 = getelementptr inbounds [0 x i32], ptr %3, i64 0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr i8, ptr %.val, i64 8
@@ -216,7 +216,7 @@ Aig_ManObj.exit:                                  ; preds = %.lr.ph
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.critedge, label %14
 
-14:                                               ; preds = %Aig_ManObj.exit
+14:                                               ; preds = %Aig_ManObj.argprom.exit
   %15 = getelementptr inbounds i8, ptr %13, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 4294967232
@@ -230,7 +230,7 @@ Aig_ManObj.exit:                                  ; preds = %.lr.ph
   %23 = icmp slt i64 %indvars.iv.next, %22
   br i1 %23, label %.lr.ph, label %.critedge, !llvm.loop !7
 
-.critedge:                                        ; preds = %Aig_ManObj.exit, %14, %.lr.ph, %2
+.critedge:                                        ; preds = %Aig_ManObj.argprom.exit, %14, %.lr.ph, %2
   ret void
 }
 
@@ -247,9 +247,9 @@ define void @Cnf_CutRef(ptr nocapture noundef readonly %0, ptr nocapture noundef
   %7 = getelementptr i8, ptr %6, i64 32
   %.val = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %.critedge, label %Aig_ManObj.exit
+  br i1 %.not.i, label %.critedge, label %Aig_ManObj.argprom.exit
 
-Aig_ManObj.exit:                                  ; preds = %.lr.ph
+Aig_ManObj.argprom.exit:                          ; preds = %.lr.ph
   %8 = getelementptr inbounds [0 x i32], ptr %3, i64 0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr i8, ptr %.val, i64 8
@@ -260,7 +260,7 @@ Aig_ManObj.exit:                                  ; preds = %.lr.ph
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.critedge, label %14
 
-14:                                               ; preds = %Aig_ManObj.exit
+14:                                               ; preds = %Aig_ManObj.argprom.exit
   %15 = getelementptr inbounds i8, ptr %13, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 64
@@ -274,7 +274,7 @@ Aig_ManObj.exit:                                  ; preds = %.lr.ph
   %23 = icmp slt i64 %indvars.iv.next, %22
   br i1 %23, label %.lr.ph, label %.critedge, !llvm.loop !8
 
-.critedge:                                        ; preds = %Aig_ManObj.exit, %14, %.lr.ph, %2
+.critedge:                                        ; preds = %Aig_ManObj.argprom.exit, %14, %.lr.ph, %2
   ret void
 }
 
@@ -291,9 +291,9 @@ define void @Cnf_CutUpdateRefs(ptr nocapture noundef readonly %0, ptr nocapture 
   %9 = getelementptr i8, ptr %8, i64 32
   %.val.i = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %Cnf_CutDeref.exit, label %Aig_ManObj.exit.i
+  br i1 %.not.i.i, label %Cnf_CutDeref.exit, label %Aig_ManObj.argprom.exit.i
 
-Aig_ManObj.exit.i:                                ; preds = %.lr.ph.i
+Aig_ManObj.argprom.exit.i:                        ; preds = %.lr.ph.i
   %10 = getelementptr inbounds [0 x i32], ptr %5, i64 0, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr i8, ptr %.val.i, i64 8
@@ -304,7 +304,7 @@ Aig_ManObj.exit.i:                                ; preds = %.lr.ph.i
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %Cnf_CutDeref.exit, label %16
 
-16:                                               ; preds = %Aig_ManObj.exit.i
+16:                                               ; preds = %Aig_ManObj.argprom.exit.i
   %17 = getelementptr inbounds i8, ptr %15, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 4294967232
@@ -318,7 +318,7 @@ Aig_ManObj.exit.i:                                ; preds = %.lr.ph.i
   %25 = icmp slt i64 %indvars.iv.next.i, %24
   br i1 %25, label %.lr.ph.i, label %Cnf_CutDeref.exit, !llvm.loop !7
 
-Cnf_CutDeref.exit:                                ; preds = %.lr.ph.i, %Aig_ManObj.exit.i, %16, %4
+Cnf_CutDeref.exit:                                ; preds = %.lr.ph.i, %Aig_ManObj.argprom.exit.i, %16, %4
   %26 = getelementptr inbounds i8, ptr %2, i64 24
   %27 = load i8, ptr %2, align 8
   %28 = icmp sgt i8 %27, 0
@@ -330,9 +330,9 @@ Cnf_CutDeref.exit:                                ; preds = %.lr.ph.i, %Aig_ManO
   %30 = getelementptr i8, ptr %29, i64 32
   %.val.i8 = load ptr, ptr %30, align 8
   %.not.i.i9 = icmp eq ptr %.val.i8, null
-  br i1 %.not.i.i9, label %Cnf_CutDeref.exit14, label %Aig_ManObj.exit.i10
+  br i1 %.not.i.i9, label %Cnf_CutDeref.exit14, label %Aig_ManObj.argprom.exit.i10
 
-Aig_ManObj.exit.i10:                              ; preds = %.lr.ph.i6
+Aig_ManObj.argprom.exit.i10:                      ; preds = %.lr.ph.i6
   %31 = getelementptr inbounds [0 x i32], ptr %26, i64 0, i64 %indvars.iv.i7
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr i8, ptr %.val.i8, i64 8
@@ -343,7 +343,7 @@ Aig_ManObj.exit.i10:                              ; preds = %.lr.ph.i6
   %.not.i12 = icmp eq ptr %36, null
   br i1 %.not.i12, label %Cnf_CutDeref.exit14, label %37
 
-37:                                               ; preds = %Aig_ManObj.exit.i10
+37:                                               ; preds = %Aig_ManObj.argprom.exit.i10
   %38 = getelementptr inbounds i8, ptr %36, i64 24
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, 4294967232
@@ -357,7 +357,7 @@ Aig_ManObj.exit.i10:                              ; preds = %.lr.ph.i6
   %46 = icmp slt i64 %indvars.iv.next.i13, %45
   br i1 %46, label %.lr.ph.i6, label %Cnf_CutDeref.exit14, !llvm.loop !7
 
-Cnf_CutDeref.exit14:                              ; preds = %.lr.ph.i6, %Aig_ManObj.exit.i10, %37, %Cnf_CutDeref.exit
+Cnf_CutDeref.exit14:                              ; preds = %.lr.ph.i6, %Aig_ManObj.argprom.exit.i10, %37, %Cnf_CutDeref.exit
   %47 = getelementptr inbounds i8, ptr %3, i64 24
   %48 = load i8, ptr %3, align 8
   %49 = icmp sgt i8 %48, 0
@@ -369,9 +369,9 @@ Cnf_CutDeref.exit14:                              ; preds = %.lr.ph.i6, %Aig_Man
   %51 = getelementptr i8, ptr %50, i64 32
   %.val.i17 = load ptr, ptr %51, align 8
   %.not.i.i18 = icmp eq ptr %.val.i17, null
-  br i1 %.not.i.i18, label %Cnf_CutRef.exit, label %Aig_ManObj.exit.i19
+  br i1 %.not.i.i18, label %Cnf_CutRef.exit, label %Aig_ManObj.argprom.exit.i19
 
-Aig_ManObj.exit.i19:                              ; preds = %.lr.ph.i15
+Aig_ManObj.argprom.exit.i19:                      ; preds = %.lr.ph.i15
   %52 = getelementptr inbounds [0 x i32], ptr %47, i64 0, i64 %indvars.iv.i16
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr i8, ptr %.val.i17, i64 8
@@ -382,7 +382,7 @@ Aig_ManObj.exit.i19:                              ; preds = %.lr.ph.i15
   %.not.i21 = icmp eq ptr %57, null
   br i1 %.not.i21, label %Cnf_CutRef.exit, label %58
 
-58:                                               ; preds = %Aig_ManObj.exit.i19
+58:                                               ; preds = %Aig_ManObj.argprom.exit.i19
   %59 = getelementptr inbounds i8, ptr %57, i64 24
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, 64
@@ -396,7 +396,7 @@ Aig_ManObj.exit.i19:                              ; preds = %.lr.ph.i15
   %67 = icmp slt i64 %indvars.iv.next.i22, %66
   br i1 %67, label %.lr.ph.i15, label %Cnf_CutRef.exit, !llvm.loop !8
 
-Cnf_CutRef.exit:                                  ; preds = %.lr.ph.i15, %Aig_ManObj.exit.i19, %58, %Cnf_CutDeref.exit14
+Cnf_CutRef.exit:                                  ; preds = %.lr.ph.i15, %Aig_ManObj.argprom.exit.i19, %58, %Cnf_CutDeref.exit14
   ret void
 }
 
@@ -616,7 +616,7 @@ Cnf_CutRemoveIthVar.exit:                         ; preds = %25, %._crit_edge
   %67 = load i8, ptr %2, align 8
   %68 = sext i8 %67 to i32
   %69 = icmp slt i32 %.042.lcssa.i, %68
-  br i1 %69, label %.lr.ph16.i, label %Cnf_CutMergeLeaves.exit
+  br i1 %69, label %.lr.ph16.i, label %Cnf_CutMergeLeaves.argprom.exit
 
 .lr.ph16.i:                                       ; preds = %.preheader.i
   %70 = getelementptr inbounds i8, ptr %2, i64 24
@@ -652,16 +652,16 @@ Cnf_CutRemoveIthVar.exit:                         ; preds = %25, %._crit_edge
 
 ._crit_edge.loopexit.i:                           ; preds = %80
   %85 = trunc nuw i64 %indvars.iv.next29.i to i32
-  br label %Cnf_CutMergeLeaves.exit
+  br label %Cnf_CutMergeLeaves.argprom.exit
 
-Cnf_CutMergeLeaves.exit:                          ; preds = %.preheader.i, %._crit_edge.loopexit.i
+Cnf_CutMergeLeaves.argprom.exit:                  ; preds = %.preheader.i, %._crit_edge.loopexit.i
   %.3.lcssa.i = phi i32 [ %.2.lcssa.i, %.preheader.i ], [ %85, %._crit_edge.loopexit.i ]
   %86 = getelementptr inbounds i8, ptr %0, i64 40
   %87 = load i32, ptr %86, align 8
   %.not = icmp slt i32 %.3.lcssa.i, %87
   br i1 %.not, label %102, label %88
 
-88:                                               ; preds = %Cnf_CutMergeLeaves.exit
+88:                                               ; preds = %Cnf_CutMergeLeaves.argprom.exit
   %89 = load i8, ptr %1, align 8
   %90 = sext i8 %89 to i32
   %91 = icmp slt i32 %.0108.lcssa, %90
@@ -699,7 +699,7 @@ Cnf_CutInsertIthVar.exit:                         ; preds = %Cnf_CutInsertIthVar
   store i8 %101, ptr %1, align 8
   br label %342
 
-102:                                              ; preds = %Cnf_CutMergeLeaves.exit
+102:                                              ; preds = %Cnf_CutMergeLeaves.argprom.exit
   %103 = icmp slt i32 %.3.lcssa.i, 6
   %104 = add nsw i32 %.3.lcssa.i, -5
   %105 = shl nuw i32 1, %104

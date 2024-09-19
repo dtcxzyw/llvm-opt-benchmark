@@ -1407,7 +1407,7 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
 
 549:                                              ; preds = %541, %543, %544
   %550 = phi i32 [ -2, %541 ], [ %548, %544 ], [ 2, %543 ]
-  %551 = call fastcc i32 @yysyntax_error(ptr noundef %10, ptr nonnull %9, ptr %.2357, i32 %550)
+  %551 = call fastcc i32 @yysyntax_error.argprom(ptr noundef %10, ptr nonnull %9, ptr %.2357, i32 %550)
   switch i32 %551, label %.thread [
     i32 0, label %.thread457
     i32 -1, label %552
@@ -1432,7 +1432,7 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
   br label %.loopexit500
 
 556:                                              ; preds = %552
-  %557 = call fastcc i32 @yysyntax_error(ptr noundef %10, ptr nonnull %554, ptr %.2357, i32 %550)
+  %557 = call fastcc i32 @yysyntax_error.argprom(ptr noundef %10, ptr nonnull %554, ptr %.2357, i32 %550)
   call fastcc void @ini_error(ptr noundef nonnull %554)
   %558 = icmp eq i32 %557, -2
   br i1 %558, label %.loopexit500, label %.loopexit502
@@ -1451,7 +1451,7 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
   %561 = getelementptr inbounds [76 x i8], ptr @yystos, i64 0, i64 %560
   %562 = load i8, ptr %561, align 1
   %563 = sext i8 %562 to i32
-  call fastcc void @yydestruct(i32 noundef %563, ptr noundef %.5350529)
+  call fastcc void @yydestruct.argprom(i32 noundef %563, ptr noundef %.5350529)
   %564 = getelementptr inbounds i8, ptr %.5350529, i64 -16
   %565 = getelementptr inbounds i8, ptr %.5360528, i64 -1
   %566 = load i8, ptr %565, align 1
@@ -1491,7 +1491,7 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
 
 574:                                              ; preds = %569, %.thread481
   %575 = phi i32 [ %573, %.thread481 ], [ 2, %569 ]
-  call fastcc void @yydestruct(i32 noundef %575, ptr noundef %5)
+  call fastcc void @yydestruct.argprom(i32 noundef %575, ptr noundef %5)
   br label %576
 
 576:                                              ; preds = %574, %.loopexit
@@ -1506,7 +1506,7 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
   %579 = getelementptr inbounds [76 x i8], ptr @yystos, i64 0, i64 %578
   %580 = load i8, ptr %579, align 1
   %581 = sext i8 %580 to i32
-  call fastcc void @yydestruct(i32 noundef %581, ptr noundef %.7352534)
+  call fastcc void @yydestruct.argprom(i32 noundef %581, ptr noundef %.7352534)
   %582 = getelementptr inbounds i8, ptr %.7352534, i64 -16
   %583 = getelementptr inbounds i8, ptr %.7362533, i64 -1
   %.not418 = icmp eq ptr %583, %.4339
@@ -2118,7 +2118,7 @@ define internal fastcc void @zend_ini_get_var(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #5 {
+define internal fastcc range(i32 -2, 1) i32 @yysyntax_error.argprom(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #5 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread6, label %3
@@ -2410,7 +2410,7 @@ define internal fastcc void @ini_error(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @yydestruct.argprom(i32 noundef range(i32 -128, 128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   switch i32 %0, label %zval_ini_dtor.exit [
     i32 4, label %3
     i32 5, label %21

@@ -1254,7 +1254,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
   %519 = load i16, ptr %518, align 8
   %520 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %521 = load double, ptr %520, align 8
-  %522 = call fastcc noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S3_btbbdbPb(ptr noundef %11, ptr noundef %517, i1 noundef zeroext %.0151, i16 noundef zeroext %519, i1 noundef zeroext %16, double noundef %521, i1 noundef zeroext %3, ptr noundef %10)
+  %522 = call fastcc noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S3_btbbdbPb.argelim(ptr noundef %11, ptr noundef %517, i1 noundef zeroext %.0151, i16 noundef zeroext %519, i1 noundef zeroext %16, double noundef %521, i1 noundef zeroext %3, ptr noundef %10)
   %523 = load ptr, ptr %6, align 8
   %524 = ptrtoint ptr %523 to i64
   %525 = ptrtoint ptr %1 to i64
@@ -2474,7 +2474,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
   %508 = load i16, ptr %507, align 8
   %509 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %510 = load double, ptr %509, align 8
-  %511 = call fastcc noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S3_btbbdbPb(ptr noundef %11, ptr noundef %506, i1 noundef zeroext %.0151, i16 noundef zeroext %508, i1 noundef zeroext %16, double noundef %510, i1 noundef zeroext %3, ptr noundef %10)
+  %511 = call fastcc noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S3_btbbdbPb.argelim(ptr noundef %11, ptr noundef %506, i1 noundef zeroext %.0151, i16 noundef zeroext %508, i1 noundef zeroext %16, double noundef %510, i1 noundef zeroext %3, ptr noundef %10)
   %512 = load ptr, ptr %6, align 8
   %513 = ptrtoint ptr %512 to i64
   %514 = ptrtoint ptr %1 to i64
@@ -4152,7 +4152,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S3_btbbdbPb(ptr nocapture noundef nonnull %0, ptr noundef nonnull readnone %1, i1 noundef zeroext %2, i16 noundef zeroext %3, i1 noundef zeroext %4, double noundef %5, i1 noundef zeroext %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #3 {
+define internal fastcc noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S3_btbbdbPb.argelim(ptr nocapture noundef nonnull %0, ptr noundef nonnull readnone %1, i1 noundef zeroext %2, i16 noundef zeroext %3, i1 noundef zeroext %4, double noundef %5, i1 noundef zeroext %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #3 {
   store i8 1, ptr %7, align 1
   %.promoted = load ptr, ptr %0, align 8
   %9 = load i8, ptr %.promoted, align 1

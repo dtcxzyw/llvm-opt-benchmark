@@ -183,13 +183,13 @@ close_tempfile_gently.exit:                       ; preds = %if.then6.i, %if.the
   %5 = getelementptr i8, ptr %0, i64 64
   %.val = load ptr, ptr %5, align 8
   %tobool.not.i = icmp eq ptr %.val, null
-  br i1 %tobool.not.i, label %remove_template_directory.exit, label %if.then.i
+  br i1 %tobool.not.i, label %remove_template_directory.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %close_tempfile_gently.exit
   %call5.i = tail call i32 @rmdir_or_warn(ptr noundef nonnull %.val) #14
-  br label %remove_template_directory.exit
+  br label %remove_template_directory.argprom.exit
 
-remove_template_directory.exit:                   ; preds = %close_tempfile_gently.exit, %if.then.i
+remove_template_directory.argprom.exit:           ; preds = %close_tempfile_gently.exit, %if.then.i
   %prev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load volatile ptr, ptr %prev.i.i, align 8
   %7 = load volatile ptr, ptr %0, align 8
@@ -204,7 +204,7 @@ remove_template_directory.exit:                   ; preds = %close_tempfile_gent
   store ptr null, ptr %tempfile_p, align 8
   br label %return
 
-return:                                           ; preds = %entry, %remove_template_directory.exit
+return:                                           ; preds = %entry, %remove_template_directory.argprom.exit
   ret void
 }
 
@@ -396,21 +396,21 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.xmks_tempfile_m.full_template, i64 24, i1 false)
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %directory_template) #16
   %cmp.i.i.i = icmp ult i64 %call.i.i, 6
-  br i1 %cmp.i.i.i, label %if.then, label %ends_with.exit
+  br i1 %cmp.i.i.i, label %if.then, label %ends_with.argprom.exit
 
-ends_with.exit:                                   ; preds = %entry
+ends_with.argprom.exit:                           ; preds = %entry
   %0 = getelementptr i8, ptr %directory_template, i64 %call.i.i
   %add.ptr.i.i.i = getelementptr i8, ptr %0, i64 -6
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.4, i64 6)
   %tobool.not.i.i.i.not = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %tobool.not.i.i.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %entry, %ends_with.exit
+if.then:                                          ; preds = %entry, %ends_with.argprom.exit
   %call1 = tail call ptr @__errno_location() #15
   store i32 22, ptr %call1, align 4
   br label %return
 
-if.end:                                           ; preds = %ends_with.exit
+if.end:                                           ; preds = %ends_with.argprom.exit
   %call2 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #14
   %tobool3.not = icmp eq ptr %call2, null
   %spec.store.select = select i1 %tobool3.not, ptr @.str.2, ptr %call2

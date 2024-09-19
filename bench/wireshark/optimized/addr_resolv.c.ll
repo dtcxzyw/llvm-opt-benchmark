@@ -2509,7 +2509,7 @@ initialize_vlans.exit:                            ; preds = %initialize_ipxnets.
 
 142:                                              ; preds = %140, %initialize_vlans.exit
   %143 = phi ptr [ %141, %140 ], [ %138, %initialize_vlans.exit ]
-  tail call fastcc void @parse_enterprises_file(ptr noundef %143)
+  tail call fastcc void @parse_enterprises_file.argelim(ptr noundef %143)
   %144 = load ptr, ptr @g_penterprises_path, align 8
   %145 = icmp eq ptr %144, null
   br i1 %145, label %146, label %initialize_enterprises.exit
@@ -2529,7 +2529,7 @@ initialize_vlans.exit:                            ; preds = %initialize_ipxnets.
 
 initialize_enterprises.exit:                      ; preds = %142, %146, %149
   %151 = phi ptr [ %.pre.i2, %146 ], [ %150, %149 ], [ %144, %142 ]
-  tail call fastcc void @parse_enterprises_file(ptr noundef %151)
+  tail call fastcc void @parse_enterprises_file.argelim(ptr noundef %151)
   %152 = load ptr, ptr @addr_resolv_scope, align 8
   %153 = tail call noalias ptr @wmem_map_new(ptr noundef %152, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #20
   store ptr %153, ptr @ipxnet_hash_table, align 8
@@ -3601,7 +3601,7 @@ set_vlanent.exit.split.i.i:                       ; preds = %set_vlanent.exit.i.
   %.not.i5.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i5.i.i.i, label %.split.i.i, label %fgetline.exit.i.i.i
 
-fgetline.exit.i.i.i:                              ; preds = %.preheader.i.i.i, %parse_vlan_line.exit.i.i.i
+fgetline.exit.i.i.i:                              ; preds = %.preheader.i.i.i, %parse_vlan_line.argprom.exit.i.i.i
   %28 = call i64 @strcspn(ptr noundef nonnull %4, ptr noundef nonnull @.str.54) #23
   %sext.i.i.i.i = shl i64 %28, 32
   %29 = ashr exact i64 %sext.i.i.i.i, 32
@@ -3624,12 +3624,12 @@ fgetline.exit.i.i.i:                              ; preds = %.preheader.i.i.i, %
 36:                                               ; preds = %35, %33
   %37 = call ptr @strtok(ptr noundef nonnull %4, ptr noundef nonnull @.str.72) #20
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %parse_vlan_line.exit.i.i.i, label %39
+  br i1 %38, label %parse_vlan_line.argprom.exit.i.i.i, label %39
 
 39:                                               ; preds = %36
   %40 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %37, ptr noundef nonnull @.str.78, ptr noundef nonnull %3) #20
   %41 = icmp eq i32 %40, 1
-  br i1 %41, label %42, label %parse_vlan_line.exit.i.i.i
+  br i1 %41, label %42, label %parse_vlan_line.argprom.exit.i.i.i
 
 42:                                               ; preds = %39
   %43 = load i16, ptr %3, align 2
@@ -3637,9 +3637,9 @@ fgetline.exit.i.i.i:                              ; preds = %.preheader.i.i.i, %
   store i32 %44, ptr @get_vlanent.vlan, align 4
   %45 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.79) #20
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %parse_vlan_line.exit.i.i.i, label %49
+  br i1 %46, label %parse_vlan_line.argprom.exit.i.i.i, label %49
 
-parse_vlan_line.exit.i.i.i:                       ; preds = %42, %39, %36
+parse_vlan_line.argprom.exit.i.i.i:               ; preds = %42, %39, %36
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   %47 = load ptr, ptr @vlan_p, align 8
   %48 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef %47)
@@ -3654,7 +3654,7 @@ parse_vlan_line.exit.i.i.i:                       ; preds = %42, %39, %36
   %.not3.i.i = icmp eq i32 %51, %7
   br i1 %.not3.i.i, label %get_vlannamebyid.exit.i, label %set_vlanent.exit.split.i.i, !llvm.loop !28
 
-.split.i.i:                                       ; preds = %.preheader.i.i.i, %parse_vlan_line.exit.i.i.i, %fgetline.exit.i.i.i
+.split.i.i:                                       ; preds = %.preheader.i.i.i, %parse_vlan_line.argprom.exit.i.i.i, %fgetline.exit.i.i.i
   %.pre9.pr.i.i = load ptr, ptr @vlan_p, align 8
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
   %.not.i4.i.i = icmp eq ptr %.pre9.pr.i.i, null
@@ -3688,7 +3688,7 @@ vlan_name_lookup.exit:                            ; preds = %6, %54, %get_vlanna
 
 ; Function Attrs: nounwind uwtable
 define hidden nonnull ptr @get_manuf_name(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
-  %3 = tail call fastcc ptr @manuf_name_lookup(ptr noundef %0)
+  %3 = tail call fastcc ptr @manuf_name_lookup.argelim(ptr noundef %0)
   %4 = load i32, ptr @gbl_resolv_flags, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
@@ -3709,7 +3709,7 @@ define hidden nonnull ptr @get_manuf_name(ptr noundef %0, i64 noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @manuf_name_lookup(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc noundef ptr @manuf_name_lookup.argelim(ptr noundef %0) unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i32
@@ -3795,7 +3795,7 @@ define nonnull ptr @tvb_get_manuf_name(ptr noundef %0, i32 noundef %1) local_unn
   %3 = alloca [3 x i8], align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, i8 0, i64 3, i1 false)
   %4 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %1, i64 noundef 3) #20
-  %5 = call fastcc ptr @manuf_name_lookup(ptr noundef nonnull %3)
+  %5 = call fastcc ptr @manuf_name_lookup.argelim(ptr noundef nonnull %3)
   %6 = load i32, ptr @gbl_resolv_flags, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %10, label %7
@@ -3820,7 +3820,7 @@ declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 ; Function Attrs: nounwind uwtable
 define ptr @get_manuf_name_if_known(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
-  %4 = tail call fastcc ptr @manuf_name_lookup(ptr noundef %0)
+  %4 = tail call fastcc ptr @manuf_name_lookup.argelim(ptr noundef %0)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
@@ -3869,7 +3869,7 @@ define hidden ptr @uint_get_manuf_name_if_known(i32 noundef %0) local_unnamed_ad
   %11 = getelementptr inbounds i8, ptr %3, i64 2
   store i8 %10, ptr %11, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %12 = call fastcc ptr @manuf_name_lookup(ptr noundef nonnull %3)
+  %12 = call fastcc ptr @manuf_name_lookup.argelim(ptr noundef nonnull %3)
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %18, label %13
 
@@ -3901,7 +3901,7 @@ define ptr @tvb_get_manuf_name_if_known(ptr noundef %0, i32 noundef %1) local_un
   %3 = alloca [3 x i8], align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, i8 0, i64 3, i1 false)
   %4 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %1, i64 noundef 3) #20
-  %5 = call fastcc ptr @manuf_name_lookup(ptr noundef nonnull %3)
+  %5 = call fastcc ptr @manuf_name_lookup.argelim(ptr noundef nonnull %3)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %get_manuf_name_if_known.exit, label %6
 
@@ -3939,7 +3939,7 @@ define hidden noalias ptr @eui64_to_display(ptr noundef %0, i64 noundef %1) loca
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 8) #20
   %6 = tail call i64 @llvm.bswap.i64(i64 %1)
   store i64 %6, ptr %5, align 8
-  %7 = tail call fastcc ptr @manuf_name_lookup(ptr noundef nonnull %5)
+  %7 = tail call fastcc ptr @manuf_name_lookup.argelim(ptr noundef nonnull %5)
   %8 = load i32, ptr @gbl_resolv_flags, align 4
   %9 = icmp ne i32 %8, 0
   %10 = icmp ne ptr %7, null
@@ -5287,7 +5287,7 @@ wka_name_lookup.exit139:                          ; preds = %._crit_edge28.i127
   br i1 %.not93, label %191, label %138, !llvm.loop !38
 
 191:                                              ; preds = %187
-  %192 = call fastcc ptr @manuf_name_lookup(ptr noundef nonnull %11)
+  %192 = call fastcc ptr @manuf_name_lookup.argelim(ptr noundef nonnull %11)
   %.not94 = icmp eq ptr %192, null
   br i1 %.not94, label %211, label %193
 
@@ -5830,7 +5830,7 @@ fgetline.exit.lr.ph:                              ; preds = %.preheader
   %7 = icmp ne i32 %1, 0
   br label %fgetline.exit
 
-fgetline.exit:                                    ; preds = %fgetline.exit.lr.ph, %parse_ether_line.exit
+fgetline.exit:                                    ; preds = %fgetline.exit.lr.ph, %parse_ether_line.argprom.exit
   %8 = call i64 @strcspn(ptr noundef nonnull %3, ptr noundef nonnull @.str.54) #23
   %sext.i = shl i64 %8, 32
   %9 = ashr exact i64 %sext.i, 32
@@ -5845,8 +5845,8 @@ fgetline.exit:                                    ; preds = %fgetline.exit.lr.ph
   %15 = call ptr @g_strchomp(ptr noundef %14) #20
   %16 = load i8, ptr %15, align 1
   switch i8 %16, label %17 [
-    i8 0, label %parse_ether_line.exit
-    i8 35, label %parse_ether_line.exit
+    i8 0, label %parse_ether_line.argprom.exit
+    i8 35, label %parse_ether_line.argprom.exit
   ]
 
 17:                                               ; preds = %13
@@ -5862,7 +5862,7 @@ fgetline.exit:                                    ; preds = %fgetline.exit.lr.ph
 21:                                               ; preds = %19, %17
   %22 = call ptr @strtok(ptr noundef nonnull %15, ptr noundef nonnull @.str.53) #20
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %parse_ether_line.exit, label %24
+  br i1 %23, label %parse_ether_line.argprom.exit, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr i8, ptr %22, i64 2
@@ -5937,7 +5937,7 @@ fgetline.exit:                                    ; preds = %fgetline.exit.lr.ph
   %80 = load i8, ptr %79, align 1
   %81 = icmp eq i8 %80, 0
   %or.cond4.i.i = and i1 %7, %81
-  br i1 %or.cond4.i.i, label %parse_ether_address_fast.exit.i, label %82
+  br i1 %or.cond4.i.i, label %parse_ether_address_fast.argprom.exit.i, label %82
 
 82:                                               ; preds = %75
   %83 = icmp eq i8 %80, %26
@@ -6015,7 +6015,7 @@ fgetline.exit:                                    ; preds = %fgetline.exit.lr.ph
   %140 = getelementptr i8, ptr %22, i64 17
   %141 = load i8, ptr %140, align 1
   switch i8 %141, label %159 [
-    i8 0, label %parse_ether_address_fast.exit.i
+    i8 0, label %parse_ether_address_fast.argprom.exit.i
     i8 47, label %142
   ]
 
@@ -6055,9 +6055,9 @@ fgetline.exit:                                    ; preds = %fgetline.exit.lr.ph
   %.sink.ph.i.i = phi i32 [ 36, %152 ], [ 28, %157 ]
   store i8 %.sink1.i.i, ptr getelementptr inbounds (i8, ptr @get_ethent.eth, i64 4), align 1
   store i8 0, ptr getelementptr inbounds (i8, ptr @get_ethent.eth, i64 5), align 1
-  br label %parse_ether_address_fast.exit.i
+  br label %parse_ether_address_fast.argprom.exit.i
 
-parse_ether_address_fast.exit.i:                  ; preds = %.sink.split.sink.split.i.i, %136, %75
+parse_ether_address_fast.argprom.exit.i:          ; preds = %.sink.split.sink.split.i.i, %136, %75
   %.sink.i.i = phi i32 [ 0, %75 ], [ 48, %136 ], [ %.sink.ph.i.i, %.sink.split.sink.split.i.i ]
   store i32 %.sink.i.i, ptr %0, align 4
   br label %161
@@ -6065,14 +6065,14 @@ parse_ether_address_fast.exit.i:                  ; preds = %.sink.split.sink.sp
 159:                                              ; preds = %154, %142, %136, %133, %130, %84, %82, %30, %27, %24
   %160 = call fastcc i32 @parse_ether_address(ptr noundef nonnull %22, ptr noundef nonnull @get_ethent.eth, ptr noundef %0, i32 noundef %1)
   %.not27.i = icmp eq i32 %160, 0
-  br i1 %.not27.i, label %parse_ether_line.exit, label %161
+  br i1 %.not27.i, label %parse_ether_line.argprom.exit, label %161
 
-161:                                              ; preds = %159, %parse_ether_address_fast.exit.i
+161:                                              ; preds = %159, %parse_ether_address_fast.argprom.exit.i
   %162 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.53) #20
   %163 = icmp eq ptr %162, null
-  br i1 %163, label %parse_ether_line.exit, label %parse_ether_line.exit.thread
+  br i1 %163, label %parse_ether_line.argprom.exit, label %parse_ether_line.argprom.exit.thread
 
-parse_ether_line.exit.thread:                     ; preds = %161
+parse_ether_line.argprom.exit.thread:             ; preds = %161
   %164 = call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @get_ethent.eth, i64 6), ptr noundef nonnull %162, i64 noundef 64) #20
   %165 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.64) #20
   %.not28.i = icmp eq ptr %165, null
@@ -6080,14 +6080,14 @@ parse_ether_line.exit.thread:                     ; preds = %161
   %166 = call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @get_ethent.eth, i64 70), ptr noundef nonnull %..i, i64 noundef 64) #20
   br label %fgetline.exit.thread
 
-parse_ether_line.exit:                            ; preds = %13, %13, %21, %159, %161
+parse_ether_line.argprom.exit:                    ; preds = %13, %13, %21, %159, %161
   %167 = load ptr, ptr @eth_p, align 8
   %168 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 1024, ptr noundef %167)
   %.not.i = icmp eq ptr %168, null
   br i1 %.not.i, label %fgetline.exit.thread, label %fgetline.exit, !llvm.loop !43
 
-fgetline.exit.thread:                             ; preds = %fgetline.exit, %parse_ether_line.exit, %.preheader, %parse_ether_line.exit.thread, %2
-  %.0 = phi ptr [ null, %2 ], [ @get_ethent.eth, %parse_ether_line.exit.thread ], [ null, %.preheader ], [ null, %parse_ether_line.exit ], [ null, %fgetline.exit ]
+fgetline.exit.thread:                             ; preds = %fgetline.exit, %parse_ether_line.argprom.exit, %.preheader, %parse_ether_line.argprom.exit.thread, %2
+  %.0 = phi ptr [ null, %2 ], [ @get_ethent.eth, %parse_ether_line.argprom.exit.thread ], [ null, %.preheader ], [ null, %parse_ether_line.argprom.exit ], [ null, %fgetline.exit ]
   ret ptr %.0
 }
 
@@ -6115,7 +6115,7 @@ define internal fastcc noundef ptr @get_ipxnetent() unnamed_addr #2 {
   %.not.i5 = icmp eq ptr %9, null
   br i1 %.not.i5, label %fgetline.exit.thread, label %fgetline.exit
 
-fgetline.exit:                                    ; preds = %.preheader, %parse_ipxnets_line.exit
+fgetline.exit:                                    ; preds = %.preheader, %parse_ipxnets_line.argprom.exit
   %10 = call i64 @strcspn(ptr noundef nonnull %6, ptr noundef nonnull @.str.54) #23
   %sext.i = shl i64 %10, 32
   %11 = ashr exact i64 %sext.i, 32
@@ -6142,7 +6142,7 @@ fgetline.exit:                                    ; preds = %.preheader, %parse_
 18:                                               ; preds = %17, %15
   %19 = call ptr @strtok(ptr noundef nonnull %6, ptr noundef nonnull @.str.72) #20
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %parse_ipxnets_line.exit, label %21
+  br i1 %20, label %parse_ipxnets_line.argprom.exit, label %21
 
 21:                                               ; preds = %18
   %22 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %19, ptr noundef nonnull @.str.73, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
@@ -6162,21 +6162,21 @@ fgetline.exit:                                    ; preds = %.preheader, %parse_
 27:                                               ; preds = %25
   %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %19, ptr noundef nonnull @.str.76, ptr noundef nonnull %1) #20
   %29 = icmp eq i32 %28, 1
-  br i1 %29, label %.thread.i, label %parse_ipxnets_line.exit
+  br i1 %29, label %.thread.i, label %parse_ipxnets_line.argprom.exit
 
 30:                                               ; preds = %25, %23, %21
   %31 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.72) #20
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %parse_ipxnets_line.exit, label %37
+  br i1 %32, label %parse_ipxnets_line.argprom.exit, label %37
 
 .thread.i:                                        ; preds = %27
   %33 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.72) #20
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %parse_ipxnets_line.exit, label %35
+  br i1 %34, label %parse_ipxnets_line.argprom.exit, label %35
 
 35:                                               ; preds = %.thread.i
   %36 = load i32, ptr %1, align 4
-  br label %parse_ipxnets_line.exit.thread
+  br label %parse_ipxnets_line.argprom.exit.thread
 
 37:                                               ; preds = %30
   %38 = load i32, ptr %2, align 4
@@ -6189,9 +6189,9 @@ fgetline.exit:                                    ; preds = %.preheader, %parse_
   %45 = or i32 %42, %44
   %46 = load i32, ptr %5, align 4
   %47 = or i32 %45, %46
-  br label %parse_ipxnets_line.exit.thread
+  br label %parse_ipxnets_line.argprom.exit.thread
 
-parse_ipxnets_line.exit.thread:                   ; preds = %35, %37
+parse_ipxnets_line.argprom.exit.thread:           ; preds = %35, %37
   %48 = phi ptr [ %31, %37 ], [ %33, %35 ]
   %storemerge.i = phi i32 [ %47, %37 ], [ %36, %35 ]
   store i32 %storemerge.i, ptr @get_ipxnetent.ipxnet, align 4
@@ -6203,7 +6203,7 @@ parse_ipxnets_line.exit.thread:                   ; preds = %35, %37
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %fgetline.exit.thread
 
-parse_ipxnets_line.exit:                          ; preds = %18, %27, %30, %.thread.i
+parse_ipxnets_line.argprom.exit:                  ; preds = %18, %27, %30, %.thread.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -6214,8 +6214,8 @@ parse_ipxnets_line.exit:                          ; preds = %18, %27, %30, %.thr
   %.not.i = icmp eq ptr %51, null
   br i1 %.not.i, label %fgetline.exit.thread, label %fgetline.exit, !llvm.loop !44
 
-fgetline.exit.thread:                             ; preds = %fgetline.exit, %parse_ipxnets_line.exit, %.preheader, %parse_ipxnets_line.exit.thread, %0
-  %.0 = phi ptr [ null, %0 ], [ @get_ipxnetent.ipxnet, %parse_ipxnets_line.exit.thread ], [ null, %.preheader ], [ null, %parse_ipxnets_line.exit ], [ null, %fgetline.exit ]
+fgetline.exit.thread:                             ; preds = %fgetline.exit, %parse_ipxnets_line.argprom.exit, %.preheader, %parse_ipxnets_line.argprom.exit.thread, %0
+  %.0 = phi ptr [ null, %0 ], [ @get_ipxnetent.ipxnet, %parse_ipxnets_line.argprom.exit.thread ], [ null, %.preheader ], [ null, %parse_ipxnets_line.argprom.exit ], [ null, %fgetline.exit ]
   ret ptr %.0
 }
 
@@ -6541,7 +6541,7 @@ declare i32 @wmem_strong_hash(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_enterprises_file(ptr nocapture noundef readonly %0) unnamed_addr #2 {
+define internal fastcc void @parse_enterprises_file.argelim(ptr nocapture noundef readonly %0) unnamed_addr #2 {
   %2 = alloca i32, align 4
   %3 = alloca [1024 x i8], align 16
   %4 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.52)

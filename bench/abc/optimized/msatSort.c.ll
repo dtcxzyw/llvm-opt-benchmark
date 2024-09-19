@@ -8,7 +8,7 @@ define void @Msat_SolverSortDB(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @Msat_SolverReadLearned(ptr noundef %0) #2
   %3 = tail call i32 @Msat_ClauseVecReadSize(ptr noundef %2) #2
   %4 = tail call ptr @Msat_ClauseVecReadArray(ptr noundef %2) #2
-  tail call fastcc void @Msat_SolverSort(ptr noundef %4, i32 noundef %3)
+  tail call fastcc void @Msat_SolverSort.argelim(ptr noundef %4, i32 noundef %3)
   ret void
 }
 
@@ -19,7 +19,7 @@ declare i32 @Msat_ClauseVecReadSize(ptr noundef) local_unnamed_addr #1
 declare ptr @Msat_ClauseVecReadArray(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Msat_SolverSort(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Msat_SolverSort.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp slt i32 %1, 16
   br i1 %3, label %tailrecurse._crit_edge, label %.lr.ph
 
@@ -129,7 +129,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 
 tailrecurse:                                      ; preds = %43
   %49 = trunc nsw i64 %indvars.iv.next to i32
-  tail call fastcc void @Msat_SolverSort(ptr noundef nonnull %.tr46, i32 noundef %49)
+  tail call fastcc void @Msat_SolverSort.argelim(ptr noundef nonnull %.tr46, i32 noundef %49)
   %50 = sub nsw i32 %.tr4047, %49
   %51 = icmp slt i32 %50, 16
   br i1 %51, label %tailrecurse._crit_edge, label %.lr.ph

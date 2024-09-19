@@ -1484,7 +1484,7 @@ define dso_local zeroext i1 @expression_returns_set(ptr noundef %0) local_unname
   br i1 %switch.i, label %expression_returns_set_walker.exit, label %.thread15.i
 
 .thread15.i:                                      ; preds = %13, %9, %5
-  %14 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef nonnull %0) #13
+  %14 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef nonnull %0) #13
   br label %expression_returns_set_walker.exit
 
 expression_returns_set_walker.exit:               ; preds = %1, %5, %9, %13, %.thread15.i
@@ -1493,7 +1493,7 @@ expression_returns_set_walker.exit:               ; preds = %1, %5, %9, %13, %.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %0) unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 
@@ -1522,7 +1522,7 @@ define internal fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %0)
   br i1 %switch, label %15, label %.thread15
 
 .thread15:                                        ; preds = %5, %9, %13
-  %14 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef nonnull %0)
+  %14 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef nonnull %0)
   br label %15
 
 15:                                               ; preds = %13, %9, %5, %1, %.thread15
@@ -2554,7 +2554,7 @@ set_opfuncid.exit.sink.split.i:                   ; preds = %17, %13, %9, %5
   br label %set_opfuncid.exit.i
 
 set_opfuncid.exit.i:                              ; preds = %set_opfuncid.exit.sink.split.i, %17, %13, %9, %5, %3
-  %24 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef nonnull %0) #13
+  %24 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef nonnull %0) #13
   br label %fix_opfuncids_walker.exit
 
 fix_opfuncids_walker.exit:                        ; preds = %1, %set_opfuncid.exit.i
@@ -2562,7 +2562,7 @@ fix_opfuncids_walker.exit:                        ; preds = %1, %set_opfuncid.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %0) unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %25, label %3
 
@@ -2608,7 +2608,7 @@ set_opfuncid.exit.sink.split:                     ; preds = %17, %13, %9, %5
   br label %set_opfuncid.exit
 
 set_opfuncid.exit:                                ; preds = %set_opfuncid.exit.sink.split, %17, %13, %9, %5, %3
-  %24 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef nonnull %0)
+  %24 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef nonnull %0)
   br label %25
 
 25:                                               ; preds = %1, %set_opfuncid.exit
@@ -6470,7 +6470,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %expression_returns_set_walker.exit.thread, label %.lr.ph
 
@@ -6571,133 +6571,133 @@ define internal fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %9)
+  %10 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %9)
   br label %expression_returns_set_walker.exit.thread
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %13)
+  %14 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %13)
   br i1 %14, label %expression_returns_set_walker.exit.thread, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %.tr99, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %17)
+  %18 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %17)
   br i1 %18, label %expression_returns_set_walker.exit.thread, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %.tr99, i64 48
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %21)
+  %22 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %21)
   br i1 %22, label %expression_returns_set_walker.exit.thread, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %.tr99, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %25)
+  %26 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %25)
   br i1 %26, label %expression_returns_set_walker.exit.thread, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %.tr99, i64 64
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %29)
+  %30 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %29)
   br i1 %30, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 31:                                               ; preds = %.lr.ph
   %32 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %33)
+  %34 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %33)
   br i1 %34, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 35:                                               ; preds = %.lr.ph
   %36 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %37)
+  %38 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %37)
   br i1 %38, label %expression_returns_set_walker.exit.thread, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %41)
+  %42 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %41)
   br i1 %42, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %45)
+  %46 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %45)
   br i1 %46, label %expression_returns_set_walker.exit.thread, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %49)
+  %50 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %49)
   br i1 %50, label %expression_returns_set_walker.exit.thread, label %51
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds i8, ptr %.tr99, i64 40
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %53)
+  %54 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %53)
   br i1 %54, label %expression_returns_set_walker.exit.thread, label %55
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds i8, ptr %.tr99, i64 48
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %57)
+  %58 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %57)
   br i1 %58, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 59:                                               ; preds = %.lr.ph
   %60 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %61)
+  %62 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %61)
   br i1 %62, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 63:                                               ; preds = %.lr.ph
   %64 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %65)
+  %66 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %65)
   br label %expression_returns_set_walker.exit.thread
 
 67:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   %68 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %69)
+  %70 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %69)
   br i1 %70, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 71:                                               ; preds = %.lr.ph
   %72 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %73 = load ptr, ptr %72, align 8
-  %74 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %73)
+  %74 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %73)
   br i1 %74, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 75:                                               ; preds = %.lr.ph
   %76 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %77 = load ptr, ptr %76, align 8
-  %78 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %77)
+  %78 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %77)
   br i1 %78, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 79:                                               ; preds = %.lr.ph
   %80 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %81)
+  %82 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %81)
   br i1 %82, label %expression_returns_set_walker.exit.thread, label %83
 
 83:                                               ; preds = %79
   %84 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %85 = load ptr, ptr %84, align 8
-  %86 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %85)
+  %86 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %85)
   br label %expression_returns_set_walker.exit.thread
 
 87:                                               ; preds = %.lr.ph
   %88 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %89)
+  %90 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %89)
   br i1 %90, label %expression_returns_set_walker.exit.thread, label %91
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds i8, ptr %.tr99, i64 72
   %93 = load ptr, ptr %92, align 8
-  %94 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %93)
+  %94 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %93)
   br i1 %94, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 tailrecurse:                                      ; preds = %.lr.ph
@@ -6709,61 +6709,61 @@ tailrecurse:                                      ; preds = %.lr.ph
 98:                                               ; preds = %.lr.ph
   %99 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %100 = load ptr, ptr %99, align 8
-  %101 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %100)
+  %101 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %100)
   br label %expression_returns_set_walker.exit.thread
 
 102:                                              ; preds = %.lr.ph
   %103 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %104 = load ptr, ptr %103, align 8
-  %105 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %104)
+  %105 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %104)
   br i1 %105, label %expression_returns_set_walker.exit.thread, label %106
 
 106:                                              ; preds = %102
   %107 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %108)
+  %109 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %108)
   br i1 %109, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 110:                                              ; preds = %.lr.ph
   %111 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %112 = load ptr, ptr %111, align 8
-  %113 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %112)
+  %113 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %112)
   br label %expression_returns_set_walker.exit.thread
 
 114:                                              ; preds = %.lr.ph
   %115 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %116 = load ptr, ptr %115, align 8
-  %117 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %116)
+  %117 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %116)
   br label %expression_returns_set_walker.exit.thread
 
 118:                                              ; preds = %.lr.ph
   %119 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %120 = load ptr, ptr %119, align 8
-  %121 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %120)
+  %121 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %120)
   br i1 %121, label %expression_returns_set_walker.exit.thread, label %122
 
 122:                                              ; preds = %118
   %123 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %124 = load ptr, ptr %123, align 8
-  %125 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %124)
+  %125 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %124)
   br i1 %125, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 126:                                              ; preds = %.lr.ph
   %127 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %128 = load ptr, ptr %127, align 8
-  %129 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %128)
+  %129 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %128)
   br label %expression_returns_set_walker.exit.thread
 
 130:                                              ; preds = %.lr.ph
   %131 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %132 = load ptr, ptr %131, align 8
-  %133 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %132)
+  %133 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %132)
   br label %expression_returns_set_walker.exit.thread
 
 134:                                              ; preds = %.lr.ph
   %135 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %136 = load ptr, ptr %135, align 8
-  %137 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %136)
+  %137 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %136)
   br i1 %137, label %expression_returns_set_walker.exit.thread, label %138
 
 138:                                              ; preds = %134
@@ -6814,7 +6814,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   br i1 %switch.i, label %expression_returns_set_walker.exit.thread10, label %expression_returns_set_walker.exit
 
 expression_returns_set_walker.exit:               ; preds = %153, %157, %161
-  %162 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef nonnull %149)
+  %162 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef nonnull %149)
   br i1 %162, label %expression_returns_set_walker.exit.thread, label %expression_returns_set_walker.exit.thread10
 
 expression_returns_set_walker.exit.thread10:      ; preds = %161, %.lr.ph107, %expression_returns_set_walker.exit
@@ -6848,7 +6848,7 @@ expression_returns_set_walker.exit.thread10:      ; preds = %161, %.lr.ph107, %e
   br i1 %switch.i4, label %expression_returns_set_walker.exit6.thread19, label %expression_returns_set_walker.exit6
 
 expression_returns_set_walker.exit6:              ; preds = %168, %172, %176
-  %177 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef nonnull %164)
+  %177 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef nonnull %164)
   br i1 %177, label %expression_returns_set_walker.exit.thread, label %expression_returns_set_walker.exit6.thread19
 
 expression_returns_set_walker.exit6.thread19:     ; preds = %176, %expression_returns_set_walker.exit.thread10, %expression_returns_set_walker.exit6
@@ -6861,271 +6861,271 @@ expression_returns_set_walker.exit6.thread19:     ; preds = %176, %expression_re
 ._crit_edge:                                      ; preds = %expression_returns_set_walker.exit6.thread19, %.lr.ph104, %138
   %181 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %182 = load ptr, ptr %181, align 8
-  %183 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %182)
+  %183 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %182)
   br i1 %183, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 184:                                              ; preds = %.lr.ph
   %185 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %186 = load ptr, ptr %185, align 8
-  %187 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %186)
+  %187 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %186)
   br label %expression_returns_set_walker.exit.thread
 
 188:                                              ; preds = %.lr.ph
   %189 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %190 = load ptr, ptr %189, align 8
-  %191 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %190)
+  %191 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %190)
   br label %expression_returns_set_walker.exit.thread
 
 192:                                              ; preds = %.lr.ph
   %193 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %194 = load ptr, ptr %193, align 8
-  %195 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %194)
+  %195 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %194)
   br i1 %195, label %expression_returns_set_walker.exit.thread, label %196
 
 196:                                              ; preds = %192
   %197 = getelementptr inbounds i8, ptr %.tr99, i64 40
   %198 = load ptr, ptr %197, align 8
-  %199 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %198)
+  %199 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %198)
   br i1 %199, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 200:                                              ; preds = %.lr.ph
   %201 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %202 = load ptr, ptr %201, align 8
-  %203 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %202)
+  %203 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %202)
   br label %expression_returns_set_walker.exit.thread
 
 204:                                              ; preds = %.lr.ph
   %205 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %206 = load ptr, ptr %205, align 8
-  %207 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %206)
+  %207 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %206)
   br label %expression_returns_set_walker.exit.thread
 
 208:                                              ; preds = %.lr.ph
   %209 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %210 = load ptr, ptr %209, align 8
-  %211 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %210)
+  %211 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %210)
   br i1 %211, label %expression_returns_set_walker.exit.thread, label %212
 
 212:                                              ; preds = %208
   %213 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %214 = load ptr, ptr %213, align 8
-  %215 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %214)
+  %215 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %214)
   br i1 %215, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 216:                                              ; preds = %.lr.ph
   %217 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %218 = load ptr, ptr %217, align 8
-  %219 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %218)
+  %219 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %218)
   br i1 %219, label %expression_returns_set_walker.exit.thread, label %220
 
 220:                                              ; preds = %216
   %221 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %222 = load ptr, ptr %221, align 8
-  %223 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %222)
+  %223 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %222)
   br i1 %223, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 224:                                              ; preds = %.lr.ph
   %225 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %226 = load ptr, ptr %225, align 8
-  %227 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %226)
+  %227 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %226)
   br i1 %227, label %expression_returns_set_walker.exit.thread, label %228
 
 228:                                              ; preds = %224
   %229 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %230 = load ptr, ptr %229, align 8
-  %231 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %230)
+  %231 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %230)
   br i1 %231, label %expression_returns_set_walker.exit.thread, label %232
 
 232:                                              ; preds = %228
   %233 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %234 = load ptr, ptr %233, align 8
-  %235 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %234)
+  %235 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %234)
   br i1 %235, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 236:                                              ; preds = %.lr.ph
   %237 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %238 = load ptr, ptr %237, align 8
-  %239 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %238)
+  %239 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %238)
   br label %expression_returns_set_walker.exit.thread
 
 240:                                              ; preds = %.lr.ph
   %241 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %242 = load ptr, ptr %241, align 8
-  %243 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %242)
+  %243 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %242)
   br label %expression_returns_set_walker.exit.thread
 
 244:                                              ; preds = %.lr.ph
   %245 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %246 = load ptr, ptr %245, align 8
-  %247 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %246)
+  %247 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %246)
   br label %expression_returns_set_walker.exit.thread
 
 248:                                              ; preds = %.lr.ph
   %249 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %250 = load ptr, ptr %249, align 8
-  %251 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %250)
+  %251 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %250)
   br label %expression_returns_set_walker.exit.thread
 
 252:                                              ; preds = %.lr.ph
   %253 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %254 = load ptr, ptr %253, align 8
-  %255 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %254)
+  %255 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %254)
   br label %expression_returns_set_walker.exit.thread
 
 256:                                              ; preds = %.lr.ph
   %257 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %258 = load ptr, ptr %257, align 8
-  %259 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %258)
+  %259 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %258)
   br i1 %259, label %expression_returns_set_walker.exit.thread, label %260
 
 260:                                              ; preds = %256
   %261 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %262 = load ptr, ptr %261, align 8
-  %263 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %262)
+  %263 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %262)
   br i1 %263, label %expression_returns_set_walker.exit.thread, label %264
 
 264:                                              ; preds = %260
   %265 = getelementptr inbounds i8, ptr %.tr99, i64 48
   %266 = load ptr, ptr %265, align 8
-  %267 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %266)
+  %267 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %266)
   br i1 %267, label %expression_returns_set_walker.exit.thread, label %268
 
 268:                                              ; preds = %264
   %269 = getelementptr inbounds i8, ptr %.tr99, i64 56
   %270 = load ptr, ptr %269, align 8
-  %271 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %270)
+  %271 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %270)
   br i1 %271, label %expression_returns_set_walker.exit.thread, label %272
 
 272:                                              ; preds = %268
   %273 = getelementptr inbounds i8, ptr %.tr99, i64 64
   %274 = load ptr, ptr %273, align 8
-  %275 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %274)
+  %275 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %274)
   br i1 %275, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 276:                                              ; preds = %.lr.ph
   %277 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %278 = load ptr, ptr %277, align 8
-  %279 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %278)
+  %279 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %278)
   br i1 %279, label %expression_returns_set_walker.exit.thread, label %280
 
 280:                                              ; preds = %276
   %281 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %282 = load ptr, ptr %281, align 8
-  %283 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %282)
+  %283 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %282)
   br i1 %283, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 284:                                              ; preds = %.lr.ph
   %285 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %286 = load ptr, ptr %285, align 8
-  %287 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %286)
+  %287 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %286)
   br i1 %287, label %expression_returns_set_walker.exit.thread, label %288
 
 288:                                              ; preds = %284
   %289 = getelementptr inbounds i8, ptr %.tr99, i64 40
   %290 = load ptr, ptr %289, align 8
-  %291 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %290)
+  %291 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %290)
   br i1 %291, label %expression_returns_set_walker.exit.thread, label %292
 
 292:                                              ; preds = %288
   %293 = getelementptr inbounds i8, ptr %.tr99, i64 48
   %294 = load ptr, ptr %293, align 8
-  %295 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %294)
+  %295 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %294)
   br i1 %295, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 296:                                              ; preds = %.lr.ph
   %297 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %298 = load ptr, ptr %297, align 8
-  %299 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %298)
+  %299 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %298)
   br i1 %299, label %expression_returns_set_walker.exit.thread, label %300
 
 300:                                              ; preds = %296
   %301 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %302 = load ptr, ptr %301, align 8
-  %303 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %302)
+  %303 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %302)
   br i1 %303, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 304:                                              ; preds = %.lr.ph
   %305 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %306 = load ptr, ptr %305, align 8
-  %307 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %306)
+  %307 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %306)
   br i1 %307, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 308:                                              ; preds = %.lr.ph
   %309 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %310 = load ptr, ptr %309, align 8
-  %311 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %310)
+  %311 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %310)
   br i1 %311, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 312:                                              ; preds = %.lr.ph
   %313 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %314 = load ptr, ptr %313, align 8
-  %315 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %314)
+  %315 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %314)
   br i1 %315, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 316:                                              ; preds = %.lr.ph
   %317 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %318 = load ptr, ptr %317, align 8
-  %319 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %318)
+  %319 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %318)
   br i1 %319, label %expression_returns_set_walker.exit.thread, label %320
 
 320:                                              ; preds = %316
   %321 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %322 = load ptr, ptr %321, align 8
-  %323 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %322)
+  %323 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %322)
   br i1 %323, label %expression_returns_set_walker.exit.thread, label %324
 
 324:                                              ; preds = %320
   %325 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %326 = load ptr, ptr %325, align 8
-  %327 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %326)
+  %327 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %326)
   br i1 %327, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 328:                                              ; preds = %.lr.ph
   %329 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %330 = load ptr, ptr %329, align 8
-  %331 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %330)
+  %331 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %330)
   br i1 %331, label %expression_returns_set_walker.exit.thread, label %332
 
 332:                                              ; preds = %328
   %333 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %334 = load ptr, ptr %333, align 8
-  %335 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %334)
+  %335 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %334)
   br i1 %335, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 336:                                              ; preds = %.lr.ph
   %337 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %338 = load ptr, ptr %337, align 8
-  %339 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %338)
+  %339 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %338)
   br i1 %339, label %expression_returns_set_walker.exit.thread, label %340
 
 340:                                              ; preds = %336
   %341 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %342 = load ptr, ptr %341, align 8
-  %343 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %342)
+  %343 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %342)
   br i1 %343, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 344:                                              ; preds = %.lr.ph
   %345 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %346 = load ptr, ptr %345, align 8
-  %347 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %346)
+  %347 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %346)
   br i1 %347, label %expression_returns_set_walker.exit.thread, label %348
 
 348:                                              ; preds = %344
   %349 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %350 = load ptr, ptr %349, align 8
-  %351 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %350)
+  %351 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %350)
   br i1 %351, label %expression_returns_set_walker.exit.thread, label %352
 
 352:                                              ; preds = %348
   %353 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %354 = load ptr, ptr %353, align 8
-  %355 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %354)
+  %355 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %354)
   br i1 %355, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 356:                                              ; preds = %.lr.ph
   %357 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %358 = load ptr, ptr %357, align 8
-  %359 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %358)
+  %359 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %358)
   br i1 %359, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 360:                                              ; preds = %.lr.ph102, %expression_returns_set_walker.exit10.thread31
@@ -7162,7 +7162,7 @@ expression_returns_set_walker.exit6.thread19:     ; preds = %176, %expression_re
   br i1 %switch.i8, label %expression_returns_set_walker.exit10.thread31, label %expression_returns_set_walker.exit10
 
 expression_returns_set_walker.exit10:             ; preds = %368, %372, %376
-  %377 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef nonnull %364)
+  %377 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef nonnull %364)
   br i1 %377, label %expression_returns_set_walker.exit.thread, label %expression_returns_set_walker.exit10.expression_returns_set_walker.exit10.thread31_crit_edge
 
 expression_returns_set_walker.exit10.expression_returns_set_walker.exit10.thread31_crit_edge: ; preds = %expression_returns_set_walker.exit10
@@ -7179,175 +7179,175 @@ expression_returns_set_walker.exit10.thread31:    ; preds = %expression_returns_
 380:                                              ; preds = %.lr.ph
   %381 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %382 = load ptr, ptr %381, align 8
-  %383 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %382)
+  %383 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %382)
   br i1 %383, label %expression_returns_set_walker.exit.thread, label %384
 
 384:                                              ; preds = %380
   %385 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %386 = load ptr, ptr %385, align 8
-  %387 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %386)
+  %387 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %386)
   br i1 %387, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 388:                                              ; preds = %.lr.ph
   %389 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %390 = load ptr, ptr %389, align 8
-  %391 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %390)
+  %391 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %390)
   br i1 %391, label %expression_returns_set_walker.exit.thread, label %392
 
 392:                                              ; preds = %388
   %393 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %394 = load ptr, ptr %393, align 8
-  %395 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %394)
+  %395 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %394)
   br i1 %395, label %expression_returns_set_walker.exit.thread, label %396
 
 396:                                              ; preds = %392
   %397 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %398 = load ptr, ptr %397, align 8
-  %399 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %398)
+  %399 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %398)
   br i1 %399, label %expression_returns_set_walker.exit.thread, label %400
 
 400:                                              ; preds = %396
   %401 = getelementptr inbounds i8, ptr %.tr99, i64 40
   %402 = load ptr, ptr %401, align 8
-  %403 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %402)
+  %403 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %402)
   br i1 %403, label %expression_returns_set_walker.exit.thread, label %404
 
 404:                                              ; preds = %400
   %405 = getelementptr inbounds i8, ptr %.tr99, i64 56
   %406 = load ptr, ptr %405, align 8
-  %407 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %406)
+  %407 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %406)
   br i1 %407, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 408:                                              ; preds = %.lr.ph
   %409 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %410 = load ptr, ptr %409, align 8
-  %411 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %410)
+  %411 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %410)
   br i1 %411, label %expression_returns_set_walker.exit.thread, label %412
 
 412:                                              ; preds = %408
   %413 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %414 = load ptr, ptr %413, align 8
-  %415 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %414)
+  %415 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %414)
   br i1 %415, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 416:                                              ; preds = %.lr.ph
   %417 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %418 = load ptr, ptr %417, align 8
-  %419 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %418)
+  %419 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %418)
   br i1 %419, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 420:                                              ; preds = %.lr.ph
   %421 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %422 = load ptr, ptr %421, align 8
-  %423 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %422)
+  %423 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %422)
   br i1 %423, label %expression_returns_set_walker.exit.thread, label %424
 
 424:                                              ; preds = %420
   %425 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %426 = load ptr, ptr %425, align 8
-  %427 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %426)
+  %427 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %426)
   br i1 %427, label %expression_returns_set_walker.exit.thread, label %428
 
 428:                                              ; preds = %424
   %429 = getelementptr inbounds i8, ptr %.tr99, i64 48
   %430 = load ptr, ptr %429, align 8
-  %431 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %430)
+  %431 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %430)
   br i1 %431, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 432:                                              ; preds = %.lr.ph
   %433 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %434 = load ptr, ptr %433, align 8
-  %435 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %434)
+  %435 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %434)
   br i1 %435, label %expression_returns_set_walker.exit.thread, label %436
 
 436:                                              ; preds = %432
   %437 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %438 = load ptr, ptr %437, align 8
-  %439 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %438)
+  %439 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %438)
   br i1 %439, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 440:                                              ; preds = %.lr.ph
   %441 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %442 = load ptr, ptr %441, align 8
-  %443 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %442)
+  %443 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %442)
   br i1 %443, label %expression_returns_set_walker.exit.thread, label %444
 
 444:                                              ; preds = %440
   %445 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %446 = load ptr, ptr %445, align 8
-  %447 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %446)
+  %447 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %446)
   br i1 %447, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 448:                                              ; preds = %.lr.ph
   %449 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %450 = load ptr, ptr %449, align 8
-  %451 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %450)
+  %451 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %450)
   br label %expression_returns_set_walker.exit.thread
 
 452:                                              ; preds = %.lr.ph
   %453 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %454 = load ptr, ptr %453, align 8
-  %455 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %454)
+  %455 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %454)
   br label %expression_returns_set_walker.exit.thread
 
 456:                                              ; preds = %.lr.ph
   %457 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %458 = load ptr, ptr %457, align 8
-  %459 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %458)
+  %459 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %458)
   br i1 %459, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 460:                                              ; preds = %.lr.ph
   %461 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %462 = load ptr, ptr %461, align 8
-  %463 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %462)
+  %463 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %462)
   br label %expression_returns_set_walker.exit.thread
 
 464:                                              ; preds = %.lr.ph
   %465 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %466 = load ptr, ptr %465, align 8
-  %467 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %466)
+  %467 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %466)
   br label %expression_returns_set_walker.exit.thread
 
 468:                                              ; preds = %.lr.ph
   %469 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %470 = load ptr, ptr %469, align 8
-  %471 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1(ptr noundef %470)
+  %471 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.1.argprom.argelim(ptr noundef %470)
   br i1 %471, label %expression_returns_set_walker.exit.thread, label %472
 
 472:                                              ; preds = %468
   %473 = getelementptr inbounds i8, ptr %.tr99, i64 16
   %474 = load ptr, ptr %473, align 8
-  %475 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %474)
+  %475 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %474)
   br i1 %475, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 476:                                              ; preds = %.lr.ph
   %477 = getelementptr inbounds i8, ptr %.tr99, i64 8
   %478 = load ptr, ptr %477, align 8
-  %479 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %478)
+  %479 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %478)
   br i1 %479, label %expression_returns_set_walker.exit.thread, label %480
 
 480:                                              ; preds = %476
   %481 = getelementptr inbounds i8, ptr %.tr99, i64 24
   %482 = load ptr, ptr %481, align 8
-  %483 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %482)
+  %483 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %482)
   br i1 %483, label %expression_returns_set_walker.exit.thread, label %484
 
 484:                                              ; preds = %480
   %485 = getelementptr inbounds i8, ptr %.tr99, i64 32
   %486 = load ptr, ptr %485, align 8
-  %487 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %486)
+  %487 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %486)
   br i1 %487, label %expression_returns_set_walker.exit.thread, label %488
 
 488:                                              ; preds = %484
   %489 = getelementptr inbounds i8, ptr %.tr99, i64 72
   %490 = load ptr, ptr %489, align 8
-  %491 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %490)
+  %491 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %490)
   br i1 %491, label %expression_returns_set_walker.exit.thread, label %492
 
 492:                                              ; preds = %488
   %493 = getelementptr inbounds i8, ptr %.tr99, i64 80
   %494 = load ptr, ptr %493, align 8
-  %495 = tail call fastcc zeroext i1 @expression_returns_set_walker(ptr noundef %494)
+  %495 = tail call fastcc zeroext i1 @expression_returns_set_walker.argelim(ptr noundef %494)
   br i1 %495, label %expression_returns_set_walker.exit.thread, label %.loopexit
 
 496:                                              ; preds = %.lr.ph
@@ -7367,7 +7367,7 @@ expression_returns_set_walker.exit.thread:        ; preds = %tailrecurse, %372, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.lr.ph
 
@@ -7468,133 +7468,133 @@ define internal fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds i8, ptr %.tr73, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %9)
+  %10 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %9)
   br label %.loopexit
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %13)
+  %14 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %13)
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %.tr73, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %17)
+  %18 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %17)
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %.tr73, i64 48
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %21)
+  %22 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %21)
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %.tr73, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %25)
+  %26 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %25)
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %.tr73, i64 64
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %29)
+  %30 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %29)
   br i1 %30, label %.loopexit, label %.loopexit7
 
 31:                                               ; preds = %.lr.ph
   %32 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %33)
+  %34 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %33)
   br i1 %34, label %.loopexit, label %.loopexit7
 
 35:                                               ; preds = %.lr.ph
   %36 = getelementptr inbounds i8, ptr %.tr73, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %37)
+  %38 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %37)
   br i1 %38, label %.loopexit, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %41)
+  %42 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %41)
   br i1 %42, label %.loopexit, label %.loopexit7
 
 43:                                               ; preds = %.lr.ph
   %44 = getelementptr inbounds i8, ptr %.tr73, i64 24
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %45)
+  %46 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %45)
   br i1 %46, label %.loopexit, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %49)
+  %50 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %49)
   br i1 %50, label %.loopexit, label %51
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds i8, ptr %.tr73, i64 40
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %53)
+  %54 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %53)
   br i1 %54, label %.loopexit, label %55
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds i8, ptr %.tr73, i64 48
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %57)
+  %58 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %57)
   br i1 %58, label %.loopexit, label %.loopexit7
 
 59:                                               ; preds = %.lr.ph
   %60 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %61)
+  %62 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %61)
   br i1 %62, label %.loopexit, label %.loopexit7
 
 63:                                               ; preds = %.lr.ph
   %64 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %65)
+  %66 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %65)
   br label %.loopexit
 
 67:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   %68 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %69)
+  %70 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %69)
   br i1 %70, label %.loopexit, label %.loopexit7
 
 71:                                               ; preds = %.lr.ph
   %72 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %73 = load ptr, ptr %72, align 8
-  %74 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %73)
+  %74 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %73)
   br i1 %74, label %.loopexit, label %.loopexit7
 
 75:                                               ; preds = %.lr.ph
   %76 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %77 = load ptr, ptr %76, align 8
-  %78 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %77)
+  %78 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %77)
   br i1 %78, label %.loopexit, label %.loopexit7
 
 79:                                               ; preds = %.lr.ph
   %80 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %81)
+  %82 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %81)
   br i1 %82, label %.loopexit, label %83
 
 83:                                               ; preds = %79
   %84 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %85 = load ptr, ptr %84, align 8
-  %86 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %85)
+  %86 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %85)
   br label %.loopexit
 
 87:                                               ; preds = %.lr.ph
   %88 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %89)
+  %90 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %89)
   br i1 %90, label %.loopexit, label %91
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds i8, ptr %.tr73, i64 72
   %93 = load ptr, ptr %92, align 8
-  %94 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %93)
+  %94 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %93)
   br i1 %94, label %.loopexit, label %.loopexit7
 
 tailrecurse:                                      ; preds = %.lr.ph
@@ -7606,61 +7606,61 @@ tailrecurse:                                      ; preds = %.lr.ph
 98:                                               ; preds = %.lr.ph
   %99 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %100 = load ptr, ptr %99, align 8
-  %101 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %100)
+  %101 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %100)
   br label %.loopexit
 
 102:                                              ; preds = %.lr.ph
   %103 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %104 = load ptr, ptr %103, align 8
-  %105 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %104)
+  %105 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %104)
   br i1 %105, label %.loopexit, label %106
 
 106:                                              ; preds = %102
   %107 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %108)
+  %109 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %108)
   br i1 %109, label %.loopexit, label %.loopexit7
 
 110:                                              ; preds = %.lr.ph
   %111 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %112 = load ptr, ptr %111, align 8
-  %113 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %112)
+  %113 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %112)
   br label %.loopexit
 
 114:                                              ; preds = %.lr.ph
   %115 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %116 = load ptr, ptr %115, align 8
-  %117 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %116)
+  %117 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %116)
   br label %.loopexit
 
 118:                                              ; preds = %.lr.ph
   %119 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %120 = load ptr, ptr %119, align 8
-  %121 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %120)
+  %121 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %120)
   br i1 %121, label %.loopexit, label %122
 
 122:                                              ; preds = %118
   %123 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %124 = load ptr, ptr %123, align 8
-  %125 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %124)
+  %125 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %124)
   br i1 %125, label %.loopexit, label %.loopexit7
 
 126:                                              ; preds = %.lr.ph
   %127 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %128 = load ptr, ptr %127, align 8
-  %129 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %128)
+  %129 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %128)
   br label %.loopexit
 
 130:                                              ; preds = %.lr.ph
   %131 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %132 = load ptr, ptr %131, align 8
-  %133 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %132)
+  %133 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %132)
   br label %.loopexit
 
 134:                                              ; preds = %.lr.ph
   %135 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %136 = load ptr, ptr %135, align 8
-  %137 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %136)
+  %137 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %136)
   br i1 %137, label %.loopexit, label %138
 
 138:                                              ; preds = %134
@@ -7690,283 +7690,283 @@ tailrecurse:                                      ; preds = %.lr.ph
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 8
   %153 = load ptr, ptr %152, align 8
-  %154 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %153)
+  %154 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %153)
   br i1 %154, label %.loopexit, label %155
 
 155:                                              ; preds = %.lr.ph81
   %156 = getelementptr inbounds i8, ptr %151, i64 16
   %157 = load ptr, ptr %156, align 8
-  %158 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %157)
+  %158 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %157)
   br i1 %158, label %.loopexit, label %145
 
 ._crit_edge:                                      ; preds = %145, %.lr.ph78, %138
   %159 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %160 = load ptr, ptr %159, align 8
-  %161 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %160)
+  %161 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %160)
   br i1 %161, label %.loopexit, label %.loopexit7
 
 162:                                              ; preds = %.lr.ph
   %163 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %164 = load ptr, ptr %163, align 8
-  %165 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %164)
+  %165 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %164)
   br label %.loopexit
 
 166:                                              ; preds = %.lr.ph
   %167 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %168 = load ptr, ptr %167, align 8
-  %169 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %168)
+  %169 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %168)
   br label %.loopexit
 
 170:                                              ; preds = %.lr.ph
   %171 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %172 = load ptr, ptr %171, align 8
-  %173 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %172)
+  %173 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %172)
   br i1 %173, label %.loopexit, label %174
 
 174:                                              ; preds = %170
   %175 = getelementptr inbounds i8, ptr %.tr73, i64 40
   %176 = load ptr, ptr %175, align 8
-  %177 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %176)
+  %177 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %176)
   br i1 %177, label %.loopexit, label %.loopexit7
 
 178:                                              ; preds = %.lr.ph
   %179 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %180 = load ptr, ptr %179, align 8
-  %181 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %180)
+  %181 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %180)
   br label %.loopexit
 
 182:                                              ; preds = %.lr.ph
   %183 = getelementptr inbounds i8, ptr %.tr73, i64 24
   %184 = load ptr, ptr %183, align 8
-  %185 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %184)
+  %185 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %184)
   br label %.loopexit
 
 186:                                              ; preds = %.lr.ph
   %187 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %188 = load ptr, ptr %187, align 8
-  %189 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %188)
+  %189 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %188)
   br i1 %189, label %.loopexit, label %190
 
 190:                                              ; preds = %186
   %191 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %192 = load ptr, ptr %191, align 8
-  %193 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %192)
+  %193 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %192)
   br i1 %193, label %.loopexit, label %.loopexit7
 
 194:                                              ; preds = %.lr.ph
   %195 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %196 = load ptr, ptr %195, align 8
-  %197 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %196)
+  %197 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %196)
   br i1 %197, label %.loopexit, label %198
 
 198:                                              ; preds = %194
   %199 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %200 = load ptr, ptr %199, align 8
-  %201 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %200)
+  %201 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %200)
   br i1 %201, label %.loopexit, label %.loopexit7
 
 202:                                              ; preds = %.lr.ph
   %203 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %204 = load ptr, ptr %203, align 8
-  %205 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %204)
+  %205 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %204)
   br i1 %205, label %.loopexit, label %206
 
 206:                                              ; preds = %202
   %207 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %208 = load ptr, ptr %207, align 8
-  %209 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %208)
+  %209 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %208)
   br i1 %209, label %.loopexit, label %210
 
 210:                                              ; preds = %206
   %211 = getelementptr inbounds i8, ptr %.tr73, i64 24
   %212 = load ptr, ptr %211, align 8
-  %213 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %212)
+  %213 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %212)
   br i1 %213, label %.loopexit, label %.loopexit7
 
 214:                                              ; preds = %.lr.ph
   %215 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %216 = load ptr, ptr %215, align 8
-  %217 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %216)
+  %217 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %216)
   br label %.loopexit
 
 218:                                              ; preds = %.lr.ph
   %219 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %220 = load ptr, ptr %219, align 8
-  %221 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %220)
+  %221 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %220)
   br label %.loopexit
 
 222:                                              ; preds = %.lr.ph
   %223 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %224 = load ptr, ptr %223, align 8
-  %225 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %224)
+  %225 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %224)
   br label %.loopexit
 
 226:                                              ; preds = %.lr.ph
   %227 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %228 = load ptr, ptr %227, align 8
-  %229 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %228)
+  %229 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %228)
   br label %.loopexit
 
 230:                                              ; preds = %.lr.ph
   %231 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %232 = load ptr, ptr %231, align 8
-  %233 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %232)
+  %233 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %232)
   br label %.loopexit
 
 234:                                              ; preds = %.lr.ph
   %235 = getelementptr inbounds i8, ptr %.tr73, i64 24
   %236 = load ptr, ptr %235, align 8
-  %237 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %236)
+  %237 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %236)
   br i1 %237, label %.loopexit, label %238
 
 238:                                              ; preds = %234
   %239 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %240 = load ptr, ptr %239, align 8
-  %241 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %240)
+  %241 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %240)
   br i1 %241, label %.loopexit, label %242
 
 242:                                              ; preds = %238
   %243 = getelementptr inbounds i8, ptr %.tr73, i64 48
   %244 = load ptr, ptr %243, align 8
-  %245 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %244)
+  %245 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %244)
   br i1 %245, label %.loopexit, label %246
 
 246:                                              ; preds = %242
   %247 = getelementptr inbounds i8, ptr %.tr73, i64 56
   %248 = load ptr, ptr %247, align 8
-  %249 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %248)
+  %249 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %248)
   br i1 %249, label %.loopexit, label %250
 
 250:                                              ; preds = %246
   %251 = getelementptr inbounds i8, ptr %.tr73, i64 64
   %252 = load ptr, ptr %251, align 8
-  %253 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %252)
+  %253 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %252)
   br i1 %253, label %.loopexit, label %.loopexit7
 
 254:                                              ; preds = %.lr.ph
   %255 = getelementptr inbounds i8, ptr %.tr73, i64 24
   %256 = load ptr, ptr %255, align 8
-  %257 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %256)
+  %257 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %256)
   br i1 %257, label %.loopexit, label %258
 
 258:                                              ; preds = %254
   %259 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %260 = load ptr, ptr %259, align 8
-  %261 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %260)
+  %261 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %260)
   br i1 %261, label %.loopexit, label %.loopexit7
 
 262:                                              ; preds = %.lr.ph
   %263 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %264 = load ptr, ptr %263, align 8
-  %265 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %264)
+  %265 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %264)
   br i1 %265, label %.loopexit, label %266
 
 266:                                              ; preds = %262
   %267 = getelementptr inbounds i8, ptr %.tr73, i64 40
   %268 = load ptr, ptr %267, align 8
-  %269 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %268)
+  %269 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %268)
   br i1 %269, label %.loopexit, label %270
 
 270:                                              ; preds = %266
   %271 = getelementptr inbounds i8, ptr %.tr73, i64 48
   %272 = load ptr, ptr %271, align 8
-  %273 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %272)
+  %273 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %272)
   br i1 %273, label %.loopexit, label %.loopexit7
 
 274:                                              ; preds = %.lr.ph
   %275 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %276 = load ptr, ptr %275, align 8
-  %277 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %276)
+  %277 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %276)
   br i1 %277, label %.loopexit, label %278
 
 278:                                              ; preds = %274
   %279 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %280 = load ptr, ptr %279, align 8
-  %281 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %280)
+  %281 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %280)
   br i1 %281, label %.loopexit, label %.loopexit7
 
 282:                                              ; preds = %.lr.ph
   %283 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %284 = load ptr, ptr %283, align 8
-  %285 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %284)
+  %285 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %284)
   br i1 %285, label %.loopexit, label %.loopexit7
 
 286:                                              ; preds = %.lr.ph
   %287 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %288 = load ptr, ptr %287, align 8
-  %289 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %288)
+  %289 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %288)
   br i1 %289, label %.loopexit, label %.loopexit7
 
 290:                                              ; preds = %.lr.ph
   %291 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %292 = load ptr, ptr %291, align 8
-  %293 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %292)
+  %293 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %292)
   br i1 %293, label %.loopexit, label %.loopexit7
 
 294:                                              ; preds = %.lr.ph
   %295 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %296 = load ptr, ptr %295, align 8
-  %297 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %296)
+  %297 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %296)
   br i1 %297, label %.loopexit, label %298
 
 298:                                              ; preds = %294
   %299 = getelementptr inbounds i8, ptr %.tr73, i64 24
   %300 = load ptr, ptr %299, align 8
-  %301 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %300)
+  %301 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %300)
   br i1 %301, label %.loopexit, label %302
 
 302:                                              ; preds = %298
   %303 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %304 = load ptr, ptr %303, align 8
-  %305 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %304)
+  %305 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %304)
   br i1 %305, label %.loopexit, label %.loopexit7
 
 306:                                              ; preds = %.lr.ph
   %307 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %308 = load ptr, ptr %307, align 8
-  %309 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %308)
+  %309 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %308)
   br i1 %309, label %.loopexit, label %310
 
 310:                                              ; preds = %306
   %311 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %312 = load ptr, ptr %311, align 8
-  %313 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %312)
+  %313 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %312)
   br i1 %313, label %.loopexit, label %.loopexit7
 
 314:                                              ; preds = %.lr.ph
   %315 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %316 = load ptr, ptr %315, align 8
-  %317 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %316)
+  %317 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %316)
   br i1 %317, label %.loopexit, label %318
 
 318:                                              ; preds = %314
   %319 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %320 = load ptr, ptr %319, align 8
-  %321 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %320)
+  %321 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %320)
   br i1 %321, label %.loopexit, label %.loopexit7
 
 322:                                              ; preds = %.lr.ph
   %323 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %324 = load ptr, ptr %323, align 8
-  %325 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %324)
+  %325 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %324)
   br i1 %325, label %.loopexit, label %326
 
 326:                                              ; preds = %322
   %327 = getelementptr inbounds i8, ptr %.tr73, i64 24
   %328 = load ptr, ptr %327, align 8
-  %329 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %328)
+  %329 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %328)
   br i1 %329, label %.loopexit, label %330
 
 330:                                              ; preds = %326
   %331 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %332 = load ptr, ptr %331, align 8
-  %333 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %332)
+  %333 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %332)
   br i1 %333, label %.loopexit, label %.loopexit7
 
 334:                                              ; preds = %.lr.ph
   %335 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %336 = load ptr, ptr %335, align 8
-  %337 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %336)
+  %337 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %336)
   br i1 %337, label %.loopexit, label %.loopexit7
 
 338:                                              ; preds = %341
@@ -7981,181 +7981,181 @@ tailrecurse:                                      ; preds = %.lr.ph
   %342 = load ptr, ptr %6, align 8
   %343 = getelementptr %union.ListCell, ptr %342, i64 %indvars.iv
   %344 = load ptr, ptr %343, align 8
-  %345 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %344)
+  %345 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %344)
   br i1 %345, label %.loopexit, label %338
 
 346:                                              ; preds = %.lr.ph
   %347 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %348 = load ptr, ptr %347, align 8
-  %349 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %348)
+  %349 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %348)
   br i1 %349, label %.loopexit, label %350
 
 350:                                              ; preds = %346
   %351 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %352 = load ptr, ptr %351, align 8
-  %353 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %352)
+  %353 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %352)
   br i1 %353, label %.loopexit, label %.loopexit7
 
 354:                                              ; preds = %.lr.ph
   %355 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %356 = load ptr, ptr %355, align 8
-  %357 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %356)
+  %357 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %356)
   br i1 %357, label %.loopexit, label %358
 
 358:                                              ; preds = %354
   %359 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %360 = load ptr, ptr %359, align 8
-  %361 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %360)
+  %361 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %360)
   br i1 %361, label %.loopexit, label %362
 
 362:                                              ; preds = %358
   %363 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %364 = load ptr, ptr %363, align 8
-  %365 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %364)
+  %365 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %364)
   br i1 %365, label %.loopexit, label %366
 
 366:                                              ; preds = %362
   %367 = getelementptr inbounds i8, ptr %.tr73, i64 40
   %368 = load ptr, ptr %367, align 8
-  %369 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %368)
+  %369 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %368)
   br i1 %369, label %.loopexit, label %370
 
 370:                                              ; preds = %366
   %371 = getelementptr inbounds i8, ptr %.tr73, i64 56
   %372 = load ptr, ptr %371, align 8
-  %373 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %372)
+  %373 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %372)
   br i1 %373, label %.loopexit, label %.loopexit7
 
 374:                                              ; preds = %.lr.ph
   %375 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %376 = load ptr, ptr %375, align 8
-  %377 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %376)
+  %377 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %376)
   br i1 %377, label %.loopexit, label %378
 
 378:                                              ; preds = %374
   %379 = getelementptr inbounds i8, ptr %.tr73, i64 24
   %380 = load ptr, ptr %379, align 8
-  %381 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %380)
+  %381 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %380)
   br i1 %381, label %.loopexit, label %.loopexit7
 
 382:                                              ; preds = %.lr.ph
   %383 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %384 = load ptr, ptr %383, align 8
-  %385 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %384)
+  %385 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %384)
   br i1 %385, label %.loopexit, label %.loopexit7
 
 386:                                              ; preds = %.lr.ph
   %387 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %388 = load ptr, ptr %387, align 8
-  %389 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %388)
+  %389 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %388)
   br i1 %389, label %.loopexit, label %390
 
 390:                                              ; preds = %386
   %391 = getelementptr inbounds i8, ptr %.tr73, i64 24
   %392 = load ptr, ptr %391, align 8
-  %393 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %392)
+  %393 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %392)
   br i1 %393, label %.loopexit, label %394
 
 394:                                              ; preds = %390
   %395 = getelementptr inbounds i8, ptr %.tr73, i64 48
   %396 = load ptr, ptr %395, align 8
-  %397 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %396)
+  %397 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %396)
   br i1 %397, label %.loopexit, label %.loopexit7
 
 398:                                              ; preds = %.lr.ph
   %399 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %400 = load ptr, ptr %399, align 8
-  %401 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %400)
+  %401 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %400)
   br i1 %401, label %.loopexit, label %402
 
 402:                                              ; preds = %398
   %403 = getelementptr inbounds i8, ptr %.tr73, i64 24
   %404 = load ptr, ptr %403, align 8
-  %405 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %404)
+  %405 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %404)
   br i1 %405, label %.loopexit, label %.loopexit7
 
 406:                                              ; preds = %.lr.ph
   %407 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %408 = load ptr, ptr %407, align 8
-  %409 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %408)
+  %409 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %408)
   br i1 %409, label %.loopexit, label %410
 
 410:                                              ; preds = %406
   %411 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %412 = load ptr, ptr %411, align 8
-  %413 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %412)
+  %413 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %412)
   br i1 %413, label %.loopexit, label %.loopexit7
 
 414:                                              ; preds = %.lr.ph
   %415 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %416 = load ptr, ptr %415, align 8
-  %417 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %416)
+  %417 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %416)
   br label %.loopexit
 
 418:                                              ; preds = %.lr.ph
   %419 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %420 = load ptr, ptr %419, align 8
-  %421 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %420)
+  %421 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %420)
   br label %.loopexit
 
 422:                                              ; preds = %.lr.ph
   %423 = getelementptr inbounds i8, ptr %.tr73, i64 24
   %424 = load ptr, ptr %423, align 8
-  %425 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %424)
+  %425 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %424)
   br i1 %425, label %.loopexit, label %.loopexit7
 
 426:                                              ; preds = %.lr.ph
   %427 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %428 = load ptr, ptr %427, align 8
-  %429 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %428)
+  %429 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %428)
   br label %.loopexit
 
 430:                                              ; preds = %.lr.ph
   %431 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %432 = load ptr, ptr %431, align 8
-  %433 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %432)
+  %433 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %432)
   br label %.loopexit
 
 434:                                              ; preds = %.lr.ph
   %435 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %436 = load ptr, ptr %435, align 8
-  %437 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2(ptr noundef %436)
+  %437 = tail call fastcc zeroext i1 @expression_tree_walker_impl.specialized.2.argprom.argelim(ptr noundef %436)
   br i1 %437, label %.loopexit, label %438
 
 438:                                              ; preds = %434
   %439 = getelementptr inbounds i8, ptr %.tr73, i64 16
   %440 = load ptr, ptr %439, align 8
-  %441 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %440)
+  %441 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %440)
   br i1 %441, label %.loopexit, label %.loopexit7
 
 442:                                              ; preds = %.lr.ph
   %443 = getelementptr inbounds i8, ptr %.tr73, i64 8
   %444 = load ptr, ptr %443, align 8
-  %445 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %444)
+  %445 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %444)
   br i1 %445, label %.loopexit, label %446
 
 446:                                              ; preds = %442
   %447 = getelementptr inbounds i8, ptr %.tr73, i64 24
   %448 = load ptr, ptr %447, align 8
-  %449 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %448)
+  %449 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %448)
   br i1 %449, label %.loopexit, label %450
 
 450:                                              ; preds = %446
   %451 = getelementptr inbounds i8, ptr %.tr73, i64 32
   %452 = load ptr, ptr %451, align 8
-  %453 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %452)
+  %453 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %452)
   br i1 %453, label %.loopexit, label %454
 
 454:                                              ; preds = %450
   %455 = getelementptr inbounds i8, ptr %.tr73, i64 72
   %456 = load ptr, ptr %455, align 8
-  %457 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %456)
+  %457 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %456)
   br i1 %457, label %.loopexit, label %458
 
 458:                                              ; preds = %454
   %459 = getelementptr inbounds i8, ptr %.tr73, i64 80
   %460 = load ptr, ptr %459, align 8
-  %461 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %460)
+  %461 = tail call fastcc zeroext i1 @fix_opfuncids_walker.argelim(ptr noundef %460)
   br i1 %461, label %.loopexit, label %.loopexit7
 
 462:                                              ; preds = %.lr.ph

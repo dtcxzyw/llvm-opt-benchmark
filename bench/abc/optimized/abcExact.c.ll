@@ -379,7 +379,7 @@ Ses_StoreTimesCopy.exit:                          ; preds = %.lr.ph.preheader.i9
   br i1 %.not74, label %108, label %107
 
 107:                                              ; preds = %104
-  tail call fastcc void @Ses_StoreWrite(ptr noundef nonnull %0, ptr noundef %106)
+  tail call fastcc void @Ses_StoreWrite.argelim(ptr noundef nonnull %0, ptr noundef %106)
   br label %108
 
 108:                                              ; preds = %71, %88, %80, %107, %104, %96
@@ -569,7 +569,7 @@ Vec_IntFree.exit:                                 ; preds = %.lr.ph30.i, %._crit
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Ses_StoreWrite(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc void @Ses_StoreWrite.argelim(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.46)
   %5 = icmp eq ptr %4, null
@@ -2315,32 +2315,32 @@ Ses_ManComputeMaxGates.exit:                      ; preds = %._crit_edge.us.i, %
   %224 = getelementptr inbounds i8, ptr %0, i64 108
   %225 = load i32, ptr %224, align 4
   %.not.i.i = icmp eq i32 %225, 0
-  br i1 %.not.i.i, label %Abc_DebugPrintIntInt.exit.i.preheader, label %226
+  br i1 %.not.i.i, label %Abc_DebugPrintIntInt.argprom.exit.i.preheader, label %226
 
 226:                                              ; preds = %Ses_ManComputeMaxGates.exit
   %227 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef %.0.i40, i32 noundef %214)
   %228 = load ptr, ptr @stdout, align 8
   %229 = tail call i32 @fflush(ptr noundef %228)
-  br label %Abc_DebugPrintIntInt.exit.i.preheader
+  br label %Abc_DebugPrintIntInt.argprom.exit.i.preheader
 
-Abc_DebugPrintIntInt.exit.i.preheader:            ; preds = %226, %Ses_ManComputeMaxGates.exit
-  br label %Abc_DebugPrintIntInt.exit.i
+Abc_DebugPrintIntInt.argprom.exit.i.preheader:    ; preds = %226, %Ses_ManComputeMaxGates.exit
+  br label %Abc_DebugPrintIntInt.argprom.exit.i
 
-Abc_DebugPrintIntInt.exit.i:                      ; preds = %Abc_DebugPrintIntInt.exit.i.preheader, %234
-  %.1.i41 = phi i32 [ %230, %234 ], [ %.0.i40, %Abc_DebugPrintIntInt.exit.i.preheader ]
+Abc_DebugPrintIntInt.argprom.exit.i:              ; preds = %Abc_DebugPrintIntInt.argprom.exit.i.preheader, %234
+  %.1.i41 = phi i32 [ %230, %234 ], [ %.0.i40, %Abc_DebugPrintIntInt.argprom.exit.i.preheader ]
   %230 = add nsw i32 %.1.i41, 1
   %231 = call fastcc i32 @Ses_ManFindNetworkExactCEGAR(ptr noundef %0, i32 noundef %230, ptr noundef %3)
   %232 = icmp eq i32 %231, 0
   br i1 %232, label %233, label %234
 
-233:                                              ; preds = %Abc_DebugPrintIntInt.exit.i
+233:                                              ; preds = %Abc_DebugPrintIntInt.argprom.exit.i
   store i32 1, ptr %212, align 8
   br label %.loopexit.i
 
-234:                                              ; preds = %Abc_DebugPrintIntInt.exit.i
+234:                                              ; preds = %Abc_DebugPrintIntInt.argprom.exit.i
   %235 = and i32 %231, 1
   %or.cond.not.i = icmp eq i32 %235, 0
-  br i1 %or.cond.not.i, label %Abc_DebugPrintIntInt.exit.i, label %.loopexit.i
+  br i1 %or.cond.not.i, label %Abc_DebugPrintIntInt.argprom.exit.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %234, %233
   %236 = load i32, ptr %217, align 4
@@ -2397,42 +2397,42 @@ Ses_ManFindMinimumSizeBottomUp.exit:              ; preds = %.loopexit.i, %._cri
   store i32 0, ptr %212, align 8
   %256 = load i32, ptr %224, align 4
   %.not.i.i42 = icmp eq i32 %256, 0
-  br i1 %.not.i.i42, label %Abc_DebugPrintIntInt.exit.i43.preheader, label %257
+  br i1 %.not.i.i42, label %Abc_DebugPrintIntInt.argprom.exit.i43.preheader, label %257
 
 257:                                              ; preds = %254
   %258 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef %253, i32 noundef %253)
   %259 = load ptr, ptr @stdout, align 8
   %260 = tail call i32 @fflush(ptr noundef %259)
-  br label %Abc_DebugPrintIntInt.exit.i43.preheader
+  br label %Abc_DebugPrintIntInt.argprom.exit.i43.preheader
 
-Abc_DebugPrintIntInt.exit.i43.preheader:          ; preds = %257, %254
-  br label %Abc_DebugPrintIntInt.exit.i43
+Abc_DebugPrintIntInt.argprom.exit.i43.preheader:  ; preds = %257, %254
+  br label %Abc_DebugPrintIntInt.argprom.exit.i43
 
-Abc_DebugPrintIntInt.exit.i43:                    ; preds = %Abc_DebugPrintIntInt.exit.i43.preheader, %266
-  %.018.i = phi i32 [ %267, %266 ], [ %253, %Abc_DebugPrintIntInt.exit.i43.preheader ]
-  %.0.i44 = phi ptr [ %264, %266 ], [ null, %Abc_DebugPrintIntInt.exit.i43.preheader ]
+Abc_DebugPrintIntInt.argprom.exit.i43:            ; preds = %Abc_DebugPrintIntInt.argprom.exit.i43.preheader, %266
+  %.018.i = phi i32 [ %267, %266 ], [ %253, %Abc_DebugPrintIntInt.argprom.exit.i43.preheader ]
+  %.0.i44 = phi ptr [ %264, %266 ], [ null, %Abc_DebugPrintIntInt.argprom.exit.i43.preheader ]
   %261 = call fastcc i32 @Ses_ManFindNetworkExactCEGAR(ptr noundef %0, i32 noundef %.018.i, ptr noundef %2)
   switch i32 %261, label %.loopexit.i45 [
     i32 0, label %262
     i32 1, label %263
   ]
 
-262:                                              ; preds = %Abc_DebugPrintIntInt.exit.i43
+262:                                              ; preds = %Abc_DebugPrintIntInt.argprom.exit.i43
   store i32 1, ptr %212, align 8
   br label %.loopexit.i45
 
-263:                                              ; preds = %Abc_DebugPrintIntInt.exit.i43
+263:                                              ; preds = %Abc_DebugPrintIntInt.argprom.exit.i43
   %264 = load ptr, ptr %2, align 8
   %265 = icmp eq i32 %.018.i, %255
   br i1 %265, label %.loopexit.i45, label %266
 
 266:                                              ; preds = %263
   %267 = add nsw i32 %.018.i, -1
-  br label %Abc_DebugPrintIntInt.exit.i43
+  br label %Abc_DebugPrintIntInt.argprom.exit.i43
 
-.loopexit.i45:                                    ; preds = %263, %Abc_DebugPrintIntInt.exit.i43, %262
-  %.01826.i = phi i32 [ %.018.i, %262 ], [ %255, %263 ], [ %.018.i, %Abc_DebugPrintIntInt.exit.i43 ]
-  %.1.i46 = phi ptr [ %.0.i44, %262 ], [ %264, %263 ], [ %.0.i44, %Abc_DebugPrintIntInt.exit.i43 ]
+.loopexit.i45:                                    ; preds = %263, %Abc_DebugPrintIntInt.argprom.exit.i43, %262
+  %.01826.i = phi i32 [ %.018.i, %262 ], [ %255, %263 ], [ %.018.i, %Abc_DebugPrintIntInt.argprom.exit.i43 ]
+  %.1.i46 = phi ptr [ %.0.i44, %262 ], [ %264, %263 ], [ %.0.i44, %Abc_DebugPrintIntInt.argprom.exit.i43 ]
   %268 = load i32, ptr %217, align 4
   %269 = icmp sgt i32 %.01826.i, 9
   %270 = select i1 %269, i32 5, i32 4
@@ -3646,7 +3646,7 @@ define void @Abc_ExactStop(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %5, label %4
 
 4:                                                ; preds = %3
-  tail call fastcc void @Ses_StoreWrite(ptr noundef nonnull %2, ptr noundef %0)
+  tail call fastcc void @Ses_StoreWrite.argelim(ptr noundef nonnull %2, ptr noundef %0)
   %.pre = load ptr, ptr @s_pSesStore, align 8
   br label %5
 
@@ -5805,9 +5805,9 @@ Ses_ManCreateVars.exit:                           ; preds = %80, %81
   %110 = add nsw i32 %109, %.02.i.i
   %111 = add nsw i32 %.0151.i.i, 1
   %112 = icmp slt i32 %111, %106
-  br i1 %112, label %.lr.ph.i.i, label %Ses_ManSelectVar.exit.loopexit.i, !llvm.loop !72
+  br i1 %112, label %.lr.ph.i.i, label %Ses_ManSelectVar.argprom.exit.loopexit.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit.loopexit.i:                 ; preds = %.lr.ph.i.i
+Ses_ManSelectVar.argprom.exit.loopexit.i:         ; preds = %.lr.ph.i.i
   %113 = add nsw i32 %105, %.0108181.i
   %114 = add nsw i32 %105, %.0107182.i
   %.neg18.i.i = xor i32 %113, -1
@@ -5827,7 +5827,7 @@ Ses_ManSelectVar.exit.loopexit.i:                 ; preds = %.lr.ph.i.i
   %.pre224.i = add nuw nsw i32 %.0108181.i, 1
   br i1 %.not121179.i, label %._crit_edge.i32, label %.lr.ph.i31
 
-.lr.ph.i31:                                       ; preds = %Ses_ManSelectVar.exit.loopexit.i
+.lr.ph.i31:                                       ; preds = %Ses_ManSelectVar.argprom.exit.loopexit.i
   %124 = mul nuw nsw i32 %.pre224.i, %.0108181.i
   br label %125
 
@@ -5857,7 +5857,7 @@ Ses_ManSelectVar.exit.loopexit.i:                 ; preds = %.lr.ph.i.i
   %.not121.not.i = icmp slt i32 %.0106180.i, %143
   br i1 %.not121.not.i, label %125, label %._crit_edge.i32, !llvm.loop !73
 
-._crit_edge.i32:                                  ; preds = %125, %Ses_ManSelectVar.exit.loopexit.i
+._crit_edge.i32:                                  ; preds = %125, %Ses_ManSelectVar.argprom.exit.loopexit.i
   %exitcond.not.i = icmp eq i32 %.pre224.i, %.0107182.i
   br i1 %exitcond.not.i, label %144, label %.lr.ph.i.preheader.i, !llvm.loop !74
 
@@ -5898,9 +5898,9 @@ Ses_ManSelectVar.exit.loopexit.i:                 ; preds = %.lr.ph.i.i
   %159 = add nsw i32 %158, %.02.i152.i
   %160 = add nsw i32 %.0151.i153.i, 1
   %161 = icmp slt i32 %160, %155
-  br i1 %161, label %.lr.ph.i151.i, label %Ses_ManSelectVar.exit154.loopexit.i, !llvm.loop !72
+  br i1 %161, label %.lr.ph.i151.i, label %Ses_ManSelectVar.argprom.exit154.loopexit.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit154.loopexit.i:              ; preds = %.lr.ph.i151.i
+Ses_ManSelectVar.argprom.exit154.loopexit.i:      ; preds = %.lr.ph.i151.i
   %.neg18.i148.i = xor i32 %.1109187.i, -1
   %162 = shl nsw i32 %155, 1
   %.neg.i149.i = add i32 %162, %.neg18.i148.i
@@ -5916,9 +5916,9 @@ Ses_ManSelectVar.exit154.loopexit.i:              ; preds = %.lr.ph.i151.i
   %.not120183.i = icmp slt i32 %169, %invariant.op.i
   br i1 %.not120183.i, label %._crit_edge186.i, label %.lr.ph185.i
 
-.lr.ph185.i:                                      ; preds = %Ses_ManSelectVar.exit154.loopexit.i, %.lr.ph185.i
-  %170 = phi i32 [ %186, %.lr.ph185.i ], [ %169, %Ses_ManSelectVar.exit154.loopexit.i ]
-  %.0105184.i = phi i32 [ %177, %.lr.ph185.i ], [ 0, %Ses_ManSelectVar.exit154.loopexit.i ]
+.lr.ph185.i:                                      ; preds = %Ses_ManSelectVar.argprom.exit154.loopexit.i, %.lr.ph185.i
+  %170 = phi i32 [ %186, %.lr.ph185.i ], [ %169, %Ses_ManSelectVar.argprom.exit154.loopexit.i ]
+  %.0105184.i = phi i32 [ %177, %.lr.ph185.i ], [ 0, %Ses_ManSelectVar.argprom.exit154.loopexit.i ]
   %.val132.i = load i32, ptr %71, align 4
   %171 = mul nsw i32 %170, %.1189.i
   %172 = add i32 %171, %.0105184.i
@@ -5946,8 +5946,8 @@ Ses_ManSelectVar.exit154.loopexit.i:              ; preds = %.lr.ph.i151.i
   %.pre223.i = load i32, ptr %44, align 4
   br label %._crit_edge186.i
 
-._crit_edge186.i:                                 ; preds = %._crit_edge186.loopexit.i, %Ses_ManSelectVar.exit154.loopexit.i
-  %188 = phi i32 [ %.pre223.i, %._crit_edge186.loopexit.i ], [ %152, %Ses_ManSelectVar.exit154.loopexit.i ]
+._crit_edge186.i:                                 ; preds = %._crit_edge186.loopexit.i, %Ses_ManSelectVar.argprom.exit154.loopexit.i
+  %188 = phi i32 [ %.pre223.i, %._crit_edge186.loopexit.i ], [ %152, %Ses_ManSelectVar.argprom.exit154.loopexit.i ]
   %189 = add nuw nsw i32 %.1109187.i, 1
   %190 = add nsw i32 %188, %.1189.i
   %191 = icmp slt i32 %189, %190
@@ -5986,23 +5986,23 @@ Ses_ManSelectVar.exit154.loopexit.i:              ; preds = %.lr.ph.i151.i
   %202 = trunc nuw nsw i64 %indvars.iv220.i.us to i32
   br label %.lr.ph193.split.us.i.us
 
-.lr.ph193.split.us.i.us:                          ; preds = %.lr.ph193.i.us, %Ses_ManSelectVar.exit162.us.i.us
-  %indvars.iv216.i.us = phi i64 [ %indvars.iv.next217.i.us, %Ses_ManSelectVar.exit162.us.i.us ], [ 0, %.lr.ph193.i.us ]
-  %203 = phi i32 [ %224, %Ses_ManSelectVar.exit162.us.i.us ], [ %200, %.lr.ph193.i.us ]
+.lr.ph193.split.us.i.us:                          ; preds = %.lr.ph193.i.us, %Ses_ManSelectVar.argprom.exit162.us.i.us
+  %indvars.iv216.i.us = phi i64 [ %indvars.iv.next217.i.us, %Ses_ManSelectVar.argprom.exit162.us.i.us ], [ 0, %.lr.ph193.i.us ]
+  %203 = phi i32 [ %224, %Ses_ManSelectVar.argprom.exit162.us.i.us ], [ %200, %.lr.ph193.i.us ]
   %204 = sext i32 %203 to i64
   %205 = icmp slt i64 %indvars.iv220.i.us, %204
   %206 = load ptr, ptr %101, align 8
   %207 = getelementptr inbounds i32, ptr %206, i64 %indvars.iv216.i.us
   %208 = load i32, ptr %207, align 4
-  br i1 %205, label %209, label %Ses_ManSelectVar.exit162.us.i.us
+  br i1 %205, label %209, label %Ses_ManSelectVar.argprom.exit162.us.i.us
 
 209:                                              ; preds = %.lr.ph193.split.us.i.us
   %210 = getelementptr inbounds i32, ptr %206, i64 %indvars.iv220.i.us
   %211 = load i32, ptr %210, align 4
   %spec.select.us.i.us = call i32 @llvm.smax.i32(i32 %211, i32 %208)
-  br label %Ses_ManSelectVar.exit162.us.i.us
+  br label %Ses_ManSelectVar.argprom.exit162.us.i.us
 
-Ses_ManSelectVar.exit162.us.i.us:                 ; preds = %209, %.lr.ph193.split.us.i.us
+Ses_ManSelectVar.argprom.exit162.us.i.us:         ; preds = %209, %.lr.ph193.split.us.i.us
   %.0104.us.i.us = phi i32 [ %208, %.lr.ph193.split.us.i.us ], [ %spec.select.us.i.us, %209 ]
   %.val126.us.i.us = load i32, ptr %72, align 8
   %212 = trunc nuw nsw i64 %indvars.iv216.i.us to i32
@@ -6030,8 +6030,8 @@ Ses_ManSelectVar.exit162.us.i.us:                 ; preds = %209, %.lr.ph193.spl
   %226 = icmp slt i64 %indvars.iv.next217.i.us, %225
   br i1 %226, label %.lr.ph193.split.us.i.us, label %._crit_edge194.i.us, !llvm.loop !79
 
-._crit_edge194.i.us:                              ; preds = %Ses_ManSelectVar.exit162.us.i.us, %.preheader.i.us
-  %227 = phi i32 [ %200, %.preheader.i.us ], [ %224, %Ses_ManSelectVar.exit162.us.i.us ]
+._crit_edge194.i.us:                              ; preds = %Ses_ManSelectVar.argprom.exit162.us.i.us, %.preheader.i.us
+  %227 = phi i32 [ %200, %.preheader.i.us ], [ %224, %Ses_ManSelectVar.argprom.exit162.us.i.us ]
   %indvars.iv.next221.i.us = add nuw nsw i64 %indvars.iv220.i.us, 1
   %228 = add nsw i32 %227, %.0111204.i
   %229 = sext i32 %228 to i64
@@ -6048,9 +6048,9 @@ Ses_ManSelectVar.exit162.us.i.us:                 ; preds = %209, %.lr.ph193.spl
   %233 = trunc nuw nsw i64 %indvars.iv220.i to i32
   br label %.lr.ph193.split.i
 
-.lr.ph193.split.i:                                ; preds = %.lr.ph193.i, %Ses_ManSelectVar.exit162.loopexit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %Ses_ManSelectVar.exit162.loopexit.i ], [ 0, %.lr.ph193.i ]
-  %234 = phi i32 [ %266, %Ses_ManSelectVar.exit162.loopexit.i ], [ %231, %.lr.ph193.i ]
+.lr.ph193.split.i:                                ; preds = %.lr.ph193.i, %Ses_ManSelectVar.argprom.exit162.loopexit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %Ses_ManSelectVar.argprom.exit162.loopexit.i ], [ 0, %.lr.ph193.i ]
+  %234 = phi i32 [ %266, %Ses_ManSelectVar.argprom.exit162.loopexit.i ], [ %231, %.lr.ph193.i ]
   %235 = sext i32 %234 to i64
   %236 = icmp slt i64 %indvars.iv220.i, %235
   %237 = load ptr, ptr %101, align 8
@@ -6079,9 +6079,9 @@ Ses_ManSelectVar.exit162.us.i.us:                 ; preds = %209, %.lr.ph193.spl
   %247 = add nsw i32 %246, %.02.i160.i
   %248 = add nsw i32 %.0151.i161.i, 1
   %249 = icmp slt i32 %248, %243
-  br i1 %249, label %.lr.ph.i159.i, label %Ses_ManSelectVar.exit162.loopexit.i, !llvm.loop !72
+  br i1 %249, label %.lr.ph.i159.i, label %Ses_ManSelectVar.argprom.exit162.loopexit.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit162.loopexit.i:              ; preds = %.lr.ph.i159.i
+Ses_ManSelectVar.argprom.exit162.loopexit.i:      ; preds = %.lr.ph.i159.i
   %250 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.neg18.i156.i = xor i32 %250, -1
   %251 = shl nsw i32 %243, 1
@@ -6112,8 +6112,8 @@ Ses_ManSelectVar.exit162.loopexit.i:              ; preds = %.lr.ph.i159.i
   %268 = icmp slt i64 %indvars.iv.next.i, %267
   br i1 %268, label %.lr.ph193.split.i, label %._crit_edge194.i, !llvm.loop !79
 
-._crit_edge194.i:                                 ; preds = %Ses_ManSelectVar.exit162.loopexit.i, %.preheader.i
-  %269 = phi i32 [ %231, %.preheader.i ], [ %266, %Ses_ManSelectVar.exit162.loopexit.i ]
+._crit_edge194.i:                                 ; preds = %Ses_ManSelectVar.argprom.exit162.loopexit.i, %.preheader.i
+  %269 = phi i32 [ %231, %.preheader.i ], [ %266, %Ses_ManSelectVar.argprom.exit162.loopexit.i ]
   %indvars.iv.next221.i = add nuw nsw i64 %indvars.iv220.i, 1
   %270 = add nsw i32 %269, %.0111204.i
   %271 = sext i32 %270 to i64
@@ -6842,7 +6842,7 @@ Vec_IntGrowResize.exit543.i:                      ; preds = %585, %570
   %607 = add i64 %606, 4
   %indvars.iv.next1065.i = add nsw i64 %indvars.iv1064.i, 1
   %.val459.i = load i32, ptr %72, align 8
-  br i1 %.not843.i, label %Ses_ManSelectVar.exit.i, label %.lr.ph.i.i52
+  br i1 %.not843.i, label %Ses_ManSelectVar.argprom.exit.i, label %.lr.ph.i.i52
 
 .lr.ph.i.i52:                                     ; preds = %601, %.lr.ph.i.i52
   %.02.i.i53 = phi i32 [ %611, %.lr.ph.i.i52 ], [ %.val459.i, %601 ]
@@ -6853,9 +6853,9 @@ Vec_IntGrowResize.exit543.i:                      ; preds = %585, %570
   %611 = add nsw i32 %610, %.02.i.i53
   %612 = add nsw i32 %.0151.i.i54, 1
   %613 = icmp slt i32 %612, %603
-  br i1 %613, label %.lr.ph.i.i52, label %Ses_ManSelectVar.exit.i, !llvm.loop !72
+  br i1 %613, label %.lr.ph.i.i52, label %Ses_ManSelectVar.argprom.exit.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit.i:                          ; preds = %.lr.ph.i.i52, %601
+Ses_ManSelectVar.argprom.exit.i:                  ; preds = %.lr.ph.i.i52, %601
   %.0.lcssa.i.i = phi i32 [ %.val459.i, %601 ], [ %611, %.lr.ph.i.i52 ]
   %614 = shl nsw i32 %603, 1
   %.neg.i.i55 = add i32 %614, %.neg18.i.i51
@@ -6870,7 +6870,7 @@ Ses_ManSelectVar.exit.i:                          ; preds = %.lr.ph.i.i52, %601
   %.not.i.not.i544.i = icmp slt i64 %indvars.iv1064.i, %621
   br i1 %.not.i.not.i544.i, label %Vec_IntSetEntry.exit561.i, label %622
 
-622:                                              ; preds = %Ses_ManSelectVar.exit.i
+622:                                              ; preds = %Ses_ManSelectVar.argprom.exit.i
   %623 = shl nsw i32 %602, 1
   %624 = sext i32 %623 to i64
   %.not.i545.i = icmp slt i64 %indvars.iv1064.i, %624
@@ -6949,8 +6949,8 @@ Vec_IntGrow.exit.i.i551.i:                        ; preds = %Vec_IntGrow.exit.si
   store i32 %651, ptr %568, align 4
   br label %Vec_IntSetEntry.exit561.i
 
-Vec_IntSetEntry.exit561.i:                        ; preds = %._crit_edge.i.i558.i, %Ses_ManSelectVar.exit.i
-  %652 = phi i32 [ %647, %._crit_edge.i.i558.i ], [ %602, %Ses_ManSelectVar.exit.i ]
+Vec_IntSetEntry.exit561.i:                        ; preds = %._crit_edge.i.i558.i, %Ses_ManSelectVar.argprom.exit.i
+  %652 = phi i32 [ %647, %._crit_edge.i.i558.i ], [ %602, %Ses_ManSelectVar.argprom.exit.i ]
   %.val.i559.i = load ptr, ptr %569, align 8
   %653 = getelementptr inbounds i32, ptr %.val.i559.i, i64 %indvars.iv1064.i
   store i32 %619, ptr %653, align 4
@@ -7125,9 +7125,9 @@ Vec_IntSetEntry.exit561.i:                        ; preds = %._crit_edge.i.i558.
   %indvars.iv1068.i = phi i32 [ %indvars.iv.next1069.i, %.split946.us.us.i ], [ 0, %.preheader869.lr.ph.i ]
   %.1413955.us.i = phi i32 [ %793, %.split946.us.us.i ], [ 1, %.preheader869.lr.ph.i ]
   %747 = icmp sgt i32 %.val460.us.us.us.i, %invariant.op.i49
-  br i1 %747, label %Ses_ManSelectVar.exit569.us.us958.i, label %.preheader869.split.us.split.us.us.i
+  br i1 %747, label %Ses_ManSelectVar.argprom.exit569.us.us958.i, label %.preheader869.split.us.split.us.us.i
 
-Ses_ManSelectVar.exit569.us.us958.i:              ; preds = %.preheader869.us.i, %._crit_edge932.split.us.us.us.i
+Ses_ManSelectVar.argprom.exit569.us.us958.i:      ; preds = %.preheader869.us.i, %._crit_edge932.split.us.us.us.i
   %748 = phi i32 [ %758, %._crit_edge932.split.us.us.us.i ], [ %746, %.preheader869.us.i ]
   %749 = phi i32 [ %759, %._crit_edge932.split.us.us.us.i ], [ %.val460.us.us.us.i, %.preheader869.us.i ]
   %.1418933.us.us959.i = phi i32 [ %760, %._crit_edge932.split.us.us.us.i ], [ 0, %.preheader869.us.i ]
@@ -7146,25 +7146,25 @@ Ses_ManSelectVar.exit569.us.us958.i:              ; preds = %.preheader869.us.i,
   %757 = icmp sgt i32 %749, %invariant.op.i49
   br i1 %757, label %.preheader868.us.us.us.i, label %._crit_edge932.split.us.us.us.i
 
-._crit_edge932.split.us.us.us.i:                  ; preds = %.split.us.us.us.us.i, %Ses_ManSelectVar.exit569.us.us958.i
-  %758 = phi i32 [ %748, %Ses_ManSelectVar.exit569.us.us958.i ], [ %777, %.split.us.us.us.us.i ]
-  %759 = phi i32 [ %749, %Ses_ManSelectVar.exit569.us.us958.i ], [ %777, %.split.us.us.us.us.i ]
+._crit_edge932.split.us.us.us.i:                  ; preds = %.split.us.us.us.us.i, %Ses_ManSelectVar.argprom.exit569.us.us958.i
+  %758 = phi i32 [ %748, %Ses_ManSelectVar.argprom.exit569.us.us958.i ], [ %777, %.split.us.us.us.us.i ]
+  %759 = phi i32 [ %749, %Ses_ManSelectVar.argprom.exit569.us.us958.i ], [ %777, %.split.us.us.us.us.i ]
   %760 = add nuw nsw i32 %.1418933.us.us959.i, 1
   %exitcond1072.not.i = icmp eq i32 %760, %.1413955.us.i
-  br i1 %exitcond1072.not.i, label %.split946.us.us.i, label %Ses_ManSelectVar.exit569.us.us958.i, !llvm.loop !95
+  br i1 %exitcond1072.not.i, label %.split946.us.us.i, label %Ses_ManSelectVar.argprom.exit569.us.us958.i, !llvm.loop !95
 
-.preheader868.us.us.us.i:                         ; preds = %Ses_ManSelectVar.exit569.us.us958.i, %.split.us.us.us.us.i
-  %.0403931.us.us.us.i = phi i32 [ %776, %.split.us.us.us.us.i ], [ 1, %Ses_ManSelectVar.exit569.us.us958.i ]
+.preheader868.us.us.us.i:                         ; preds = %Ses_ManSelectVar.argprom.exit569.us.us958.i, %.split.us.us.us.us.i
+  %.0403931.us.us.us.i = phi i32 [ %776, %.split.us.us.us.us.i ], [ 1, %Ses_ManSelectVar.argprom.exit569.us.us958.i ]
   %761 = icmp eq i32 %.1413955.us.i, %.0403931.us.us.us.i
   %.fr.us.us.i = freeze i1 %761
-  br i1 %.fr.us.us.i, label %.preheader868.split.us.us.split.us944.us.i, label %Ses_ManSelectVar.exit577.us.us.us.us.us.i
+  br i1 %.fr.us.us.i, label %.preheader868.split.us.us.split.us944.us.i, label %Ses_ManSelectVar.argprom.exit577.us.us.us.us.us.i
 
 .preheader868.split.us.us.split.us944.us.i:       ; preds = %.preheader868.us.us.us.i, %774
   %.2406930.us.us.us935.us.i = phi i32 [ %775, %774 ], [ 0, %.preheader868.us.us.us.i ]
   %762 = icmp eq i32 %.1418933.us.us959.i, %.2406930.us.us.us935.us.i
-  br i1 %762, label %774, label %Ses_ManSelectVar.exit577.us.us.us936.us.i
+  br i1 %762, label %774, label %Ses_ManSelectVar.argprom.exit577.us.us.us936.us.i
 
-Ses_ManSelectVar.exit577.us.us.us936.us.i:        ; preds = %.preheader868.split.us.us.split.us944.us.i
+Ses_ManSelectVar.argprom.exit577.us.us.us936.us.i: ; preds = %.preheader868.split.us.us.split.us944.us.i
   %.val462.us.us.us937.us.i = load i32, ptr %44, align 4
   %.val463.us.us.us938.us.i = load i32, ptr %72, align 8
   %.neg18.i571.us.us.us939.us.i = xor i32 %.2406930.us.us.us935.us.i, -1
@@ -7182,12 +7182,12 @@ Ses_ManSelectVar.exit577.us.us.us936.us.i:        ; preds = %.preheader868.split
   %.not842.us.us.us942.us.i = icmp sgt i32 %770, %768
   br i1 %.not842.us.us.us942.us.i, label %774, label %771
 
-771:                                              ; preds = %Ses_ManSelectVar.exit577.us.us.us936.us.i
+771:                                              ; preds = %Ses_ManSelectVar.argprom.exit577.us.us.us936.us.i
   %772 = load ptr, ptr %0, align 8
   %773 = call i32 @sat_solver_addclause(ptr noundef %772, ptr noundef nonnull %4, ptr noundef nonnull %707) #27
   br label %774
 
-774:                                              ; preds = %771, %Ses_ManSelectVar.exit577.us.us.us936.us.i, %.preheader868.split.us.us.split.us944.us.i
+774:                                              ; preds = %771, %Ses_ManSelectVar.argprom.exit577.us.us.us936.us.i, %.preheader868.split.us.us.split.us944.us.i
   %775 = add nuw nsw i32 %.2406930.us.us.us935.us.i, 1
   %exitcond1071.not.i = icmp eq i32 %775, %.0403931.us.us.us.i
   br i1 %exitcond1071.not.i, label %.split.us.us.us.us.i, label %.preheader868.split.us.us.split.us944.us.i, !llvm.loop !96
@@ -7198,7 +7198,7 @@ Ses_ManSelectVar.exit577.us.us.us936.us.i:        ; preds = %.preheader868.split
   %778 = icmp slt i32 %776, %777
   br i1 %778, label %.preheader868.us.us.us.i, label %._crit_edge932.split.us.us.us.i, !llvm.loop !97
 
-Ses_ManSelectVar.exit577.us.us.us.us.us.i:        ; preds = %.preheader868.us.us.us.i, %790
+Ses_ManSelectVar.argprom.exit577.us.us.us.us.us.i: ; preds = %.preheader868.us.us.us.i, %790
   %.2406930.us.us.us.us.us.i = phi i32 [ %791, %790 ], [ 0, %.preheader868.us.us.us.i ]
   %.val462.us.us.us.us.us.i = load i32, ptr %44, align 4
   %.val463.us.us.us.us.us.i = load i32, ptr %72, align 8
@@ -7217,15 +7217,15 @@ Ses_ManSelectVar.exit577.us.us.us.us.us.i:        ; preds = %.preheader868.us.us
   %.not842.us.us.us.us.us.i = icmp sgt i32 %786, %784
   br i1 %.not842.us.us.us.us.us.i, label %790, label %787
 
-787:                                              ; preds = %Ses_ManSelectVar.exit577.us.us.us.us.us.i
+787:                                              ; preds = %Ses_ManSelectVar.argprom.exit577.us.us.us.us.us.i
   %788 = load ptr, ptr %0, align 8
   %789 = call i32 @sat_solver_addclause(ptr noundef %788, ptr noundef nonnull %4, ptr noundef nonnull %707) #27
   br label %790
 
-790:                                              ; preds = %787, %Ses_ManSelectVar.exit577.us.us.us.us.us.i
+790:                                              ; preds = %787, %Ses_ManSelectVar.argprom.exit577.us.us.us.us.us.i
   %791 = add nuw nsw i32 %.2406930.us.us.us.us.us.i, 1
   %exitcond1070.not.i = icmp eq i32 %791, %.0403931.us.us.us.i
-  br i1 %exitcond1070.not.i, label %.split.us.us.us.us.i, label %Ses_ManSelectVar.exit577.us.us.us.us.us.i, !llvm.loop !96
+  br i1 %exitcond1070.not.i, label %.split.us.us.us.us.i, label %Ses_ManSelectVar.argprom.exit577.us.us.us.us.us.i, !llvm.loop !96
 
 .split946.us.us.i:                                ; preds = %._crit_edge932.split.us.us.us.i, %.preheader869.split.us.split.us.us.i
   %792 = phi i32 [ %746, %.preheader869.split.us.split.us.us.i ], [ %758, %._crit_edge932.split.us.us.us.i ]
@@ -7272,9 +7272,9 @@ Ses_ManSelectVar.exit577.us.us.us.us.us.i:        ; preds = %.preheader868.us.us
   %809 = add nsw i32 %808, %.02.i567.i
   %810 = add nsw i32 %.0151.i568.i, 1
   %811 = icmp slt i32 %810, %805
-  br i1 %811, label %.lr.ph.i566.i, label %Ses_ManSelectVar.exit569.loopexit.i, !llvm.loop !72
+  br i1 %811, label %.lr.ph.i566.i, label %Ses_ManSelectVar.argprom.exit569.loopexit.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit569.loopexit.i:              ; preds = %.lr.ph.i566.i
+Ses_ManSelectVar.argprom.exit569.loopexit.i:      ; preds = %.lr.ph.i566.i
   %.neg18.i563.i = xor i32 %.1418933.i, -1
   %812 = shl nsw i32 %805, 1
   %.neg.i564.i = add i32 %812, %.neg18.i563.i
@@ -7289,8 +7289,8 @@ Ses_ManSelectVar.exit569.loopexit.i:              ; preds = %.lr.ph.i566.i
   %819 = icmp sgt i32 %804, %invariant.op.i49
   br i1 %819, label %.preheader868.i, label %._crit_edge932.split.i
 
-.preheader868.i:                                  ; preds = %Ses_ManSelectVar.exit569.loopexit.i, %.split.i
-  %.0403931.i = phi i32 [ %862, %.split.i ], [ 1, %Ses_ManSelectVar.exit569.loopexit.i ]
+.preheader868.i:                                  ; preds = %Ses_ManSelectVar.argprom.exit569.loopexit.i, %.split.i
+  %.0403931.i = phi i32 [ %862, %.split.i ], [ 1, %Ses_ManSelectVar.argprom.exit569.loopexit.i ]
   %820 = icmp eq i32 %.1413955.i, %.0403931.i
   %.fr = freeze i1 %820
   br i1 %.fr, label %.preheader868.i.split, label %.lr.ph.i574.preheader.i.us
@@ -7311,9 +7311,9 @@ Ses_ManSelectVar.exit569.loopexit.i:              ; preds = %.lr.ph.i566.i
   %825 = add nsw i32 %824, %.02.i575.i.us
   %826 = add nsw i32 %.0151.i576.i.us, 1
   %827 = icmp slt i32 %826, %821
-  br i1 %827, label %.lr.ph.i574.i.us, label %Ses_ManSelectVar.exit577.loopexit.i.us, !llvm.loop !72
+  br i1 %827, label %.lr.ph.i574.i.us, label %Ses_ManSelectVar.argprom.exit577.loopexit.i.us, !llvm.loop !72
 
-Ses_ManSelectVar.exit577.loopexit.i.us:           ; preds = %.lr.ph.i574.i.us
+Ses_ManSelectVar.argprom.exit577.loopexit.i.us:   ; preds = %.lr.ph.i574.i.us
   %.neg18.i571.i.us = xor i32 %.2406930.i.us, -1
   %828 = shl nsw i32 %821, 1
   %.neg.i572.i.us = add i32 %828, %.neg18.i571.i.us
@@ -7329,12 +7329,12 @@ Ses_ManSelectVar.exit577.loopexit.i.us:           ; preds = %.lr.ph.i574.i.us
   %.not842.i.us = icmp sgt i32 %835, %833
   br i1 %.not842.i.us, label %839, label %836
 
-836:                                              ; preds = %Ses_ManSelectVar.exit577.loopexit.i.us
+836:                                              ; preds = %Ses_ManSelectVar.argprom.exit577.loopexit.i.us
   %837 = load ptr, ptr %0, align 8
   %838 = call i32 @sat_solver_addclause(ptr noundef %837, ptr noundef nonnull %4, ptr noundef nonnull %707) #27
   br label %839
 
-839:                                              ; preds = %836, %Ses_ManSelectVar.exit577.loopexit.i.us
+839:                                              ; preds = %836, %Ses_ManSelectVar.argprom.exit577.loopexit.i.us
   %840 = add nuw nsw i32 %.2406930.i.us, 1
   %exitcond.not.i50.us = icmp eq i32 %840, %.0403931.i
   br i1 %exitcond.not.i50.us, label %.split.i, label %.lr.ph.i574.preheader.i.us, !llvm.loop !96
@@ -7359,9 +7359,9 @@ Ses_ManSelectVar.exit577.loopexit.i.us:           ; preds = %.lr.ph.i574.i.us
   %846 = add nsw i32 %845, %.02.i575.i
   %847 = add nsw i32 %.0151.i576.i, 1
   %848 = icmp slt i32 %847, %842
-  br i1 %848, label %.lr.ph.i574.i, label %Ses_ManSelectVar.exit577.loopexit.i, !llvm.loop !72
+  br i1 %848, label %.lr.ph.i574.i, label %Ses_ManSelectVar.argprom.exit577.loopexit.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit577.loopexit.i:              ; preds = %.lr.ph.i574.i
+Ses_ManSelectVar.argprom.exit577.loopexit.i:      ; preds = %.lr.ph.i574.i
   %.neg18.i571.i = xor i32 %.2406930.i, -1
   %849 = shl nsw i32 %842, 1
   %.neg.i572.i = add i32 %849, %.neg18.i571.i
@@ -7377,12 +7377,12 @@ Ses_ManSelectVar.exit577.loopexit.i:              ; preds = %.lr.ph.i574.i
   %.not842.i = icmp sgt i32 %856, %854
   br i1 %.not842.i, label %860, label %857
 
-857:                                              ; preds = %Ses_ManSelectVar.exit577.loopexit.i
+857:                                              ; preds = %Ses_ManSelectVar.argprom.exit577.loopexit.i
   %858 = load ptr, ptr %0, align 8
   %859 = call i32 @sat_solver_addclause(ptr noundef %858, ptr noundef nonnull %4, ptr noundef nonnull %707) #27
   br label %860
 
-860:                                              ; preds = %857, %Ses_ManSelectVar.exit577.loopexit.i, %.preheader868.i.split
+860:                                              ; preds = %857, %Ses_ManSelectVar.argprom.exit577.loopexit.i, %.preheader868.i.split
   %861 = add nuw nsw i32 %.2406930.i, 1
   %exitcond.not.i50 = icmp eq i32 %861, %.0403931.i
   br i1 %exitcond.not.i50, label %.split.i, label %.preheader868.i.split, !llvm.loop !96
@@ -7394,10 +7394,10 @@ Ses_ManSelectVar.exit577.loopexit.i:              ; preds = %.lr.ph.i574.i
   %865 = icmp slt i32 %862, %864
   br i1 %865, label %.preheader868.i, label %._crit_edge932.split.i, !llvm.loop !97
 
-._crit_edge932.split.i:                           ; preds = %.split.i, %Ses_ManSelectVar.exit569.loopexit.i
-  %866 = phi i32 [ %802, %Ses_ManSelectVar.exit569.loopexit.i ], [ %863, %.split.i ]
-  %867 = phi i32 [ %803, %Ses_ManSelectVar.exit569.loopexit.i ], [ %863, %.split.i ]
-  %868 = phi i32 [ %804, %Ses_ManSelectVar.exit569.loopexit.i ], [ %863, %.split.i ]
+._crit_edge932.split.i:                           ; preds = %.split.i, %Ses_ManSelectVar.argprom.exit569.loopexit.i
+  %866 = phi i32 [ %802, %Ses_ManSelectVar.argprom.exit569.loopexit.i ], [ %863, %.split.i ]
+  %867 = phi i32 [ %803, %Ses_ManSelectVar.argprom.exit569.loopexit.i ], [ %863, %.split.i ]
+  %868 = phi i32 [ %804, %Ses_ManSelectVar.argprom.exit569.loopexit.i ], [ %863, %.split.i ]
   %869 = add nuw nsw i32 %.1418933.i, 1
   %exitcond1067.not.i = icmp eq i32 %869, %.1413955.i
   br i1 %exitcond1067.not.i, label %.split946.i, label %.lr.ph.i566.preheader.i, !llvm.loop !99
@@ -7458,7 +7458,7 @@ Ses_ManSelectVar.exit577.loopexit.i:              ; preds = %.lr.ph.i574.i
   %.val465.i = load i32, ptr %72, align 8
   %900 = add nsw i32 %899, %898
   %901 = icmp sgt i32 %898, 0
-  br i1 %901, label %.lr.ph.i582.i, label %Ses_ManSelectVar.exit585.i
+  br i1 %901, label %.lr.ph.i582.i, label %Ses_ManSelectVar.argprom.exit585.i
 
 .lr.ph.i582.i:                                    ; preds = %894, %.lr.ph.i582.i
   %.02.i583.i = phi i32 [ %905, %.lr.ph.i582.i ], [ %.val465.i, %894 ]
@@ -7469,9 +7469,9 @@ Ses_ManSelectVar.exit577.loopexit.i:              ; preds = %.lr.ph.i574.i
   %905 = add nsw i32 %904, %.02.i583.i
   %906 = add nsw i32 %.0151.i584.i, 1
   %907 = icmp slt i32 %906, %900
-  br i1 %907, label %.lr.ph.i582.i, label %Ses_ManSelectVar.exit585.i, !llvm.loop !72
+  br i1 %907, label %.lr.ph.i582.i, label %Ses_ManSelectVar.argprom.exit585.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit585.i:                       ; preds = %.lr.ph.i582.i, %894
+Ses_ManSelectVar.argprom.exit585.i:               ; preds = %.lr.ph.i582.i, %894
   %.0.lcssa.i578.i = phi i32 [ %.val465.i, %894 ], [ %905, %.lr.ph.i582.i ]
   %.neg18.i579.i = xor i32 %889, -1
   %908 = shl nsw i32 %900, 1
@@ -7490,12 +7490,12 @@ Ses_ManSelectVar.exit585.i:                       ; preds = %.lr.ph.i582.i, %894
   %919 = icmp eq i32 %917, %918
   br i1 %919, label %920, label %.Vec_IntGrow.exit10_crit_edge.i586.i
 
-.Vec_IntGrow.exit10_crit_edge.i586.i:             ; preds = %Ses_ManSelectVar.exit585.i
+.Vec_IntGrow.exit10_crit_edge.i586.i:             ; preds = %Ses_ManSelectVar.argprom.exit585.i
   %.phi.trans.insert.i587.i = getelementptr inbounds i8, ptr %895, i64 8
   %.pre.i588.i = load ptr, ptr %.phi.trans.insert.i587.i, align 8
   br label %Vec_IntPush.exit592.i
 
-920:                                              ; preds = %Ses_ManSelectVar.exit585.i
+920:                                              ; preds = %Ses_ManSelectVar.argprom.exit585.i
   %921 = icmp slt i32 %917, 16
   br i1 %921, label %922, label %930
 
@@ -8407,9 +8407,9 @@ Vec_IntSetEntry.exit669.i:                        ; preds = %._crit_edge.i.i666.
   %1352 = add nsw i32 %1351, %.02.i675.i
   %1353 = add nsw i32 %.0151.i676.i, 1
   %1354 = icmp slt i32 %1353, %1348
-  br i1 %1354, label %.lr.ph.i674.i, label %Ses_ManSelectVar.exit677.i, !llvm.loop !72
+  br i1 %1354, label %.lr.ph.i674.i, label %Ses_ManSelectVar.argprom.exit677.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit677.i:                       ; preds = %.lr.ph.i674.i
+Ses_ManSelectVar.argprom.exit677.i:               ; preds = %.lr.ph.i674.i
   %indvars.iv.next1083.i = add nsw i64 %indvars.iv1082.i, 1
   %.neg18.i671.i = xor i32 %indvars202, -1
   %1355 = shl nsw i32 %1348, 1
@@ -8425,7 +8425,7 @@ Ses_ManSelectVar.exit677.i:                       ; preds = %.lr.ph.i674.i
   %.not.i.not.i678.i = icmp slt i64 %indvars.iv1082.i, %1362
   br i1 %.not.i.not.i678.i, label %Vec_IntSetEntry.exit695.i, label %1363
 
-1363:                                             ; preds = %Ses_ManSelectVar.exit677.i
+1363:                                             ; preds = %Ses_ManSelectVar.argprom.exit677.i
   %1364 = load i32, ptr %.0.i44, align 8
   %1365 = shl nsw i32 %1364, 1
   %1366 = sext i32 %1365 to i64
@@ -8504,7 +8504,7 @@ Vec_IntGrow.exit.i.i685.i:                        ; preds = %Vec_IntGrow.exit.si
   store i32 %1392, ptr %1276, align 4
   br label %Vec_IntSetEntry.exit695.i
 
-Vec_IntSetEntry.exit695.i:                        ; preds = %._crit_edge.i.i692.i, %Ses_ManSelectVar.exit677.i
+Vec_IntSetEntry.exit695.i:                        ; preds = %._crit_edge.i.i692.i, %Ses_ManSelectVar.argprom.exit677.i
   %.val.i693.i = load ptr, ptr %1291, align 8
   %1393 = getelementptr inbounds i32, ptr %.val.i693.i, i64 %indvars.iv1082.i
   store i32 %1360, ptr %1393, align 4
@@ -8537,9 +8537,9 @@ Vec_IntSetEntry.exit695.i:                        ; preds = %._crit_edge.i.i692.
   %1405 = add nsw i32 %1404, %.02.i701.i
   %1406 = add nsw i32 %.0151.i702.i, 1
   %1407 = icmp slt i32 %1406, %1397
-  br i1 %1407, label %.lr.ph.i700.i, label %Ses_ManSelectVar.exit703.i, !llvm.loop !72
+  br i1 %1407, label %.lr.ph.i700.i, label %Ses_ManSelectVar.argprom.exit703.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit703.i:                       ; preds = %.lr.ph.i700.i
+Ses_ManSelectVar.argprom.exit703.i:               ; preds = %.lr.ph.i700.i
   %indvars.iv.next1086.i = add nsw i64 %indvars.iv1085.i, 1
   %1408 = add nsw i32 %1398, %.7433992.i
   %.neg18.i697.i = xor i32 %1408, -1
@@ -8556,7 +8556,7 @@ Ses_ManSelectVar.exit703.i:                       ; preds = %.lr.ph.i700.i
   %.not.i.not.i704.i = icmp slt i64 %indvars.iv1085.i, %1416
   br i1 %.not.i.not.i704.i, label %Vec_IntSetEntry.exit721.i, label %1417
 
-1417:                                             ; preds = %Ses_ManSelectVar.exit703.i
+1417:                                             ; preds = %Ses_ManSelectVar.argprom.exit703.i
   %1418 = load i32, ptr %.0.i44, align 8
   %1419 = shl nsw i32 %1418, 1
   %1420 = sext i32 %1419 to i64
@@ -8635,7 +8635,7 @@ Vec_IntGrow.exit.i.i711.i:                        ; preds = %Vec_IntGrow.exit.si
   store i32 %1446, ptr %1276, align 4
   br label %Vec_IntSetEntry.exit721.i
 
-Vec_IntSetEntry.exit721.i:                        ; preds = %._crit_edge.i.i718.i, %Ses_ManSelectVar.exit703.i
+Vec_IntSetEntry.exit721.i:                        ; preds = %._crit_edge.i.i718.i, %Ses_ManSelectVar.argprom.exit703.i
   %.val.i719.i = load ptr, ptr %1291, align 8
   %1447 = getelementptr inbounds i32, ptr %.val.i719.i, i64 %indvars.iv1085.i
   store i32 %1414, ptr %1447, align 4
@@ -8726,12 +8726,12 @@ Vec_IntFree.exit.i:                               ; preds = %1465, %._crit_edge9
   %1483 = add nsw i32 %.8434999.i, %.neg18.i740.i
   br label %1484
 
-1484:                                             ; preds = %Ses_ManSelectVar.exit746.i, %.preheader860.i
-  %.4421994.i = phi i32 [ 0, %.preheader860.i ], [ %1532, %Ses_ManSelectVar.exit746.i ]
+1484:                                             ; preds = %Ses_ManSelectVar.argprom.exit746.i, %.preheader860.i
+  %.4421994.i = phi i32 [ 0, %.preheader860.i ], [ %1532, %Ses_ManSelectVar.argprom.exit746.i ]
   %.val470.i = load i32, ptr %44, align 4
   %.val471.i = load i32, ptr %72, align 8
   %1485 = add nsw i32 %.val470.i, %.8434999.i
-  br i1 %.not840.i, label %Ses_ManSelectVar.exit730.i, label %.lr.ph.i727.i
+  br i1 %.not840.i, label %Ses_ManSelectVar.argprom.exit730.i, label %.lr.ph.i727.i
 
 .lr.ph.i727.i:                                    ; preds = %1484, %.lr.ph.i727.i
   %.02.i728.i = phi i32 [ %1489, %.lr.ph.i727.i ], [ %.val471.i, %1484 ]
@@ -8742,9 +8742,9 @@ Vec_IntFree.exit.i:                               ; preds = %1465, %._crit_edge9
   %1489 = add nsw i32 %1488, %.02.i728.i
   %1490 = add nsw i32 %.0151.i729.i, 1
   %1491 = icmp slt i32 %1490, %1485
-  br i1 %1491, label %.lr.ph.i727.i, label %Ses_ManSelectVar.exit730.i, !llvm.loop !72
+  br i1 %1491, label %.lr.ph.i727.i, label %Ses_ManSelectVar.argprom.exit730.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit730.i:                       ; preds = %.lr.ph.i727.i, %1484
+Ses_ManSelectVar.argprom.exit730.i:               ; preds = %.lr.ph.i727.i, %1484
   %.0.lcssa.i723.i = phi i32 [ %.val471.i, %1484 ], [ %1489, %.lr.ph.i727.i ]
   %.neg18.i724.i = xor i32 %.4421994.i, -1
   %1492 = shl nsw i32 %1485, 1
@@ -8760,18 +8760,18 @@ Ses_ManSelectVar.exit730.i:                       ; preds = %.lr.ph.i727.i, %148
   %1499 = add nsw i32 %.val470.i, %.1408998.i
   br label %.lr.ph.i735.i
 
-.lr.ph.i735.i:                                    ; preds = %.lr.ph.i735.i, %Ses_ManSelectVar.exit730.i
-  %.02.i736.i = phi i32 [ %1503, %.lr.ph.i735.i ], [ %.val471.i, %Ses_ManSelectVar.exit730.i ]
-  %.0151.i737.i = phi i32 [ %1504, %.lr.ph.i735.i ], [ %.val470.i, %Ses_ManSelectVar.exit730.i ]
+.lr.ph.i735.i:                                    ; preds = %.lr.ph.i735.i, %Ses_ManSelectVar.argprom.exit730.i
+  %.02.i736.i = phi i32 [ %1503, %.lr.ph.i735.i ], [ %.val471.i, %Ses_ManSelectVar.argprom.exit730.i ]
+  %.0151.i737.i = phi i32 [ %1504, %.lr.ph.i735.i ], [ %.val470.i, %Ses_ManSelectVar.argprom.exit730.i ]
   %1500 = add nsw i32 %.0151.i737.i, -1
   %1501 = mul nsw i32 %1500, %.0151.i737.i
   %1502 = sdiv i32 %1501, 2
   %1503 = add nsw i32 %1502, %.02.i736.i
   %1504 = add nsw i32 %.0151.i737.i, 1
   %1505 = icmp slt i32 %1504, %1499
-  br i1 %1505, label %.lr.ph.i735.i, label %Ses_ManSelectVar.exit738.i, !llvm.loop !72
+  br i1 %1505, label %.lr.ph.i735.i, label %Ses_ManSelectVar.argprom.exit738.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit738.i:                       ; preds = %.lr.ph.i735.i
+Ses_ManSelectVar.argprom.exit738.i:               ; preds = %.lr.ph.i735.i
   %1506 = shl nsw i32 %1499, 1
   %.neg.i733.i = add i32 %1506, %.neg18.i724.i
   %.neg17.i734.i = mul i32 %.neg.i733.i, %.4421994.i
@@ -8789,18 +8789,18 @@ Ses_ManSelectVar.exit738.i:                       ; preds = %.lr.ph.i735.i
   %1516 = add nsw i32 %1515, %.1408998.i
   br label %.lr.ph.i743.i
 
-.lr.ph.i743.i:                                    ; preds = %.lr.ph.i743.i, %Ses_ManSelectVar.exit738.i
-  %.02.i744.i = phi i32 [ %1520, %.lr.ph.i743.i ], [ %.val475.i, %Ses_ManSelectVar.exit738.i ]
-  %.0151.i745.i = phi i32 [ %1521, %.lr.ph.i743.i ], [ %1515, %Ses_ManSelectVar.exit738.i ]
+.lr.ph.i743.i:                                    ; preds = %.lr.ph.i743.i, %Ses_ManSelectVar.argprom.exit738.i
+  %.02.i744.i = phi i32 [ %1520, %.lr.ph.i743.i ], [ %.val475.i, %Ses_ManSelectVar.argprom.exit738.i ]
+  %.0151.i745.i = phi i32 [ %1521, %.lr.ph.i743.i ], [ %1515, %Ses_ManSelectVar.argprom.exit738.i ]
   %1517 = add nsw i32 %.0151.i745.i, -1
   %1518 = mul nsw i32 %1517, %.0151.i745.i
   %1519 = sdiv i32 %1518, 2
   %1520 = add nsw i32 %1519, %.02.i744.i
   %1521 = add nsw i32 %.0151.i745.i, 1
   %1522 = icmp slt i32 %1521, %1516
-  br i1 %1522, label %.lr.ph.i743.i, label %Ses_ManSelectVar.exit746.i, !llvm.loop !72
+  br i1 %1522, label %.lr.ph.i743.i, label %Ses_ManSelectVar.argprom.exit746.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit746.i:                       ; preds = %.lr.ph.i743.i
+Ses_ManSelectVar.argprom.exit746.i:               ; preds = %.lr.ph.i743.i
   %1523 = shl nsw i32 %1516, 1
   %.neg.i741.i = add i32 %1523, %.neg18.i740.i
   %.neg17.i742.i = mul i32 %.neg.i741.i, %.2414995.i
@@ -8817,7 +8817,7 @@ Ses_ManSelectVar.exit746.i:                       ; preds = %.lr.ph.i743.i
   %exitcond1088.not.i = icmp eq i32 %1532, %.2414995.i
   br i1 %exitcond1088.not.i, label %1533, label %1484, !llvm.loop !108
 
-1533:                                             ; preds = %Ses_ManSelectVar.exit746.i
+1533:                                             ; preds = %Ses_ManSelectVar.argprom.exit746.i
   %1534 = add nuw nsw i32 %.2414995.i, 1
   %1535 = load i32, ptr %44, align 4
   %1536 = add nsw i32 %1535, %.8434999.i
@@ -8898,12 +8898,12 @@ Ses_ManSelectVar.exit746.i:                       ; preds = %.lr.ph.i743.i
   %.34151004.i = phi i32 [ %1615, %1614 ], [ 1, %.preheader856.i ]
   br label %1570
 
-1570:                                             ; preds = %Ses_ManSelectVar.exit770.i, %.preheader855.i
-  %.54221003.i = phi i32 [ 0, %.preheader855.i ], [ %1613, %Ses_ManSelectVar.exit770.i ]
+1570:                                             ; preds = %Ses_ManSelectVar.argprom.exit770.i, %.preheader855.i
+  %.54221003.i = phi i32 [ 0, %.preheader855.i ], [ %1613, %Ses_ManSelectVar.argprom.exit770.i ]
   %.val476.i = load i32, ptr %44, align 4
   %.val477.i = load i32, ptr %72, align 8
   %1571 = add nsw i32 %.val476.i, %.94351011.i
-  br i1 %.not839.i, label %Ses_ManSelectVar.exit754.i, label %.lr.ph.i751.i
+  br i1 %.not839.i, label %Ses_ManSelectVar.argprom.exit754.i, label %.lr.ph.i751.i
 
 .lr.ph.i751.i:                                    ; preds = %1570, %.lr.ph.i751.i
   %.02.i752.i = phi i32 [ %1575, %.lr.ph.i751.i ], [ %.val477.i, %1570 ]
@@ -8914,9 +8914,9 @@ Ses_ManSelectVar.exit746.i:                       ; preds = %.lr.ph.i743.i
   %1575 = add nsw i32 %1574, %.02.i752.i
   %1576 = add nsw i32 %.0151.i753.i, 1
   %1577 = icmp slt i32 %1576, %1571
-  br i1 %1577, label %.lr.ph.i751.i, label %Ses_ManSelectVar.exit754.i, !llvm.loop !72
+  br i1 %1577, label %.lr.ph.i751.i, label %Ses_ManSelectVar.argprom.exit754.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit754.i:                       ; preds = %.lr.ph.i751.i, %1570
+Ses_ManSelectVar.argprom.exit754.i:               ; preds = %.lr.ph.i751.i, %1570
   %.0.lcssa.i747.i = phi i32 [ %.val477.i, %1570 ], [ %1575, %.lr.ph.i751.i ]
   %.neg18.i748.i = xor i32 %.54221003.i, -1
   %1578 = shl nsw i32 %1571, 1
@@ -8932,18 +8932,18 @@ Ses_ManSelectVar.exit754.i:                       ; preds = %.lr.ph.i751.i, %157
   %1585 = add nsw i32 %.val476.i, %.24091008.i
   br label %.lr.ph.i759.i
 
-.lr.ph.i759.i:                                    ; preds = %.lr.ph.i759.i, %Ses_ManSelectVar.exit754.i
-  %.02.i760.i = phi i32 [ %1589, %.lr.ph.i759.i ], [ %.val477.i, %Ses_ManSelectVar.exit754.i ]
-  %.0151.i761.i = phi i32 [ %1590, %.lr.ph.i759.i ], [ %.val476.i, %Ses_ManSelectVar.exit754.i ]
+.lr.ph.i759.i:                                    ; preds = %.lr.ph.i759.i, %Ses_ManSelectVar.argprom.exit754.i
+  %.02.i760.i = phi i32 [ %1589, %.lr.ph.i759.i ], [ %.val477.i, %Ses_ManSelectVar.argprom.exit754.i ]
+  %.0151.i761.i = phi i32 [ %1590, %.lr.ph.i759.i ], [ %.val476.i, %Ses_ManSelectVar.argprom.exit754.i ]
   %1586 = add nsw i32 %.0151.i761.i, -1
   %1587 = mul nsw i32 %1586, %.0151.i761.i
   %1588 = sdiv i32 %1587, 2
   %1589 = add nsw i32 %1588, %.02.i760.i
   %1590 = add nsw i32 %.0151.i761.i, 1
   %1591 = icmp slt i32 %1590, %1585
-  br i1 %1591, label %.lr.ph.i759.i, label %Ses_ManSelectVar.exit762.i, !llvm.loop !72
+  br i1 %1591, label %.lr.ph.i759.i, label %Ses_ManSelectVar.argprom.exit762.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit762.i:                       ; preds = %.lr.ph.i759.i
+Ses_ManSelectVar.argprom.exit762.i:               ; preds = %.lr.ph.i759.i
   %1592 = shl nsw i32 %1585, 1
   %.neg.i757.i = add i32 %1592, %.neg18.i748.i
   %.neg17.i758.i = mul i32 %.neg.i757.i, %.54221003.i
@@ -8956,18 +8956,18 @@ Ses_ManSelectVar.exit762.i:                       ; preds = %.lr.ph.i759.i
   %1598 = add nsw i32 %.val476.i, %.04021007.i
   br label %.lr.ph.i767.i
 
-.lr.ph.i767.i:                                    ; preds = %.lr.ph.i767.i, %Ses_ManSelectVar.exit762.i
-  %.02.i768.i = phi i32 [ %1602, %.lr.ph.i767.i ], [ %.val477.i, %Ses_ManSelectVar.exit762.i ]
-  %.0151.i769.i = phi i32 [ %1603, %.lr.ph.i767.i ], [ %.val476.i, %Ses_ManSelectVar.exit762.i ]
+.lr.ph.i767.i:                                    ; preds = %.lr.ph.i767.i, %Ses_ManSelectVar.argprom.exit762.i
+  %.02.i768.i = phi i32 [ %1602, %.lr.ph.i767.i ], [ %.val477.i, %Ses_ManSelectVar.argprom.exit762.i ]
+  %.0151.i769.i = phi i32 [ %1603, %.lr.ph.i767.i ], [ %.val476.i, %Ses_ManSelectVar.argprom.exit762.i ]
   %1599 = add nsw i32 %.0151.i769.i, -1
   %1600 = mul nsw i32 %1599, %.0151.i769.i
   %1601 = sdiv i32 %1600, 2
   %1602 = add nsw i32 %1601, %.02.i768.i
   %1603 = add nsw i32 %.0151.i769.i, 1
   %1604 = icmp slt i32 %1603, %1598
-  br i1 %1604, label %.lr.ph.i767.i, label %Ses_ManSelectVar.exit770.i, !llvm.loop !72
+  br i1 %1604, label %.lr.ph.i767.i, label %Ses_ManSelectVar.argprom.exit770.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit770.i:                       ; preds = %.lr.ph.i767.i
+Ses_ManSelectVar.argprom.exit770.i:               ; preds = %.lr.ph.i767.i
   %1605 = shl nsw i32 %1598, 1
   %.neg.i765.i = add i32 %1605, %.neg18.i764.i
   %.neg17.i766.i = mul i32 %.neg.i765.i, %.94351011.i
@@ -8983,7 +8983,7 @@ Ses_ManSelectVar.exit770.i:                       ; preds = %.lr.ph.i767.i
   %exitcond1089.not.i = icmp eq i32 %1613, %.34151004.i
   br i1 %exitcond1089.not.i, label %1614, label %1570, !llvm.loop !113
 
-1614:                                             ; preds = %Ses_ManSelectVar.exit770.i
+1614:                                             ; preds = %Ses_ManSelectVar.argprom.exit770.i
   %1615 = add nuw nsw i32 %.34151004.i, 1
   %1616 = load i32, ptr %44, align 4
   %1617 = add nsw i32 %1616, %.94351011.i
@@ -9039,12 +9039,12 @@ Ses_ManSelectVar.exit770.i:                       ; preds = %.lr.ph.i767.i
   %1632 = add nsw i32 %.44161018.i, %.neg18.i772.i
   br label %1633
 
-1633:                                             ; preds = %Ses_ManSelectVar.exit786.i, %.preheader851.i
-  %.71013.i = phi i32 [ 0, %.preheader851.i ], [ %1663, %Ses_ManSelectVar.exit786.i ]
+1633:                                             ; preds = %Ses_ManSelectVar.argprom.exit786.i, %.preheader851.i
+  %.71013.i = phi i32 [ 0, %.preheader851.i ], [ %1663, %Ses_ManSelectVar.argprom.exit786.i ]
   %.val482.i = load i32, ptr %44, align 4
   %.val483.i = load i32, ptr %72, align 8
   %1634 = add nsw i32 %.val482.i, %.101020.i
-  br i1 %.not838.i, label %Ses_ManSelectVar.exit778.i, label %.lr.ph.i775.i
+  br i1 %.not838.i, label %Ses_ManSelectVar.argprom.exit778.i, label %.lr.ph.i775.i
 
 .lr.ph.i775.i:                                    ; preds = %1633, %.lr.ph.i775.i
   %.02.i776.i = phi i32 [ %1638, %.lr.ph.i775.i ], [ %.val483.i, %1633 ]
@@ -9055,9 +9055,9 @@ Ses_ManSelectVar.exit770.i:                       ; preds = %.lr.ph.i767.i
   %1638 = add nsw i32 %1637, %.02.i776.i
   %1639 = add nsw i32 %.0151.i777.i, 1
   %1640 = icmp slt i32 %1639, %1634
-  br i1 %1640, label %.lr.ph.i775.i, label %Ses_ManSelectVar.exit778.i, !llvm.loop !72
+  br i1 %1640, label %.lr.ph.i775.i, label %Ses_ManSelectVar.argprom.exit778.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit778.i:                       ; preds = %.lr.ph.i775.i, %1633
+Ses_ManSelectVar.argprom.exit778.i:               ; preds = %.lr.ph.i775.i, %1633
   %.0.lcssa.i771.i = phi i32 [ %.val483.i, %1633 ], [ %1638, %.lr.ph.i775.i ]
   %1641 = shl nsw i32 %1634, 1
   %.neg.i773.i = add i32 %1641, %.neg18.i772.i
@@ -9071,18 +9071,18 @@ Ses_ManSelectVar.exit778.i:                       ; preds = %.lr.ph.i775.i, %163
   %1647 = add nsw i32 %.val482.i, %1631
   br label %.lr.ph.i783.i
 
-.lr.ph.i783.i:                                    ; preds = %.lr.ph.i783.i, %Ses_ManSelectVar.exit778.i
-  %.02.i784.i = phi i32 [ %1651, %.lr.ph.i783.i ], [ %.val483.i, %Ses_ManSelectVar.exit778.i ]
-  %.0151.i785.i = phi i32 [ %1652, %.lr.ph.i783.i ], [ %.val482.i, %Ses_ManSelectVar.exit778.i ]
+.lr.ph.i783.i:                                    ; preds = %.lr.ph.i783.i, %Ses_ManSelectVar.argprom.exit778.i
+  %.02.i784.i = phi i32 [ %1651, %.lr.ph.i783.i ], [ %.val483.i, %Ses_ManSelectVar.argprom.exit778.i ]
+  %.0151.i785.i = phi i32 [ %1652, %.lr.ph.i783.i ], [ %.val482.i, %Ses_ManSelectVar.argprom.exit778.i ]
   %1648 = add nsw i32 %.0151.i785.i, -1
   %1649 = mul nsw i32 %1648, %.0151.i785.i
   %1650 = sdiv i32 %1649, 2
   %1651 = add nsw i32 %1650, %.02.i784.i
   %1652 = add nsw i32 %.0151.i785.i, 1
   %1653 = icmp slt i32 %1652, %1647
-  br i1 %1653, label %.lr.ph.i783.i, label %Ses_ManSelectVar.exit786.i, !llvm.loop !72
+  br i1 %1653, label %.lr.ph.i783.i, label %Ses_ManSelectVar.argprom.exit786.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit786.i:                       ; preds = %.lr.ph.i783.i
+Ses_ManSelectVar.argprom.exit786.i:               ; preds = %.lr.ph.i783.i
   %.neg18.i780.i = xor i32 %.71013.i, -1
   %1654 = shl nsw i32 %1647, 1
   %.neg.i781.i = add i32 %1654, %.neg18.i780.i
@@ -9100,7 +9100,7 @@ Ses_ManSelectVar.exit786.i:                       ; preds = %.lr.ph.i783.i
   %exitcond1090.not.i = icmp eq i32 %1663, %.64231014.i
   br i1 %exitcond1090.not.i, label %1664, label %1633, !llvm.loop !116
 
-1664:                                             ; preds = %Ses_ManSelectVar.exit786.i
+1664:                                             ; preds = %Ses_ManSelectVar.argprom.exit786.i
   %1665 = add nuw nsw i32 %.64231014.i, 1
   %exitcond1091.not.i = icmp eq i32 %1665, %.44161018.i
   br i1 %exitcond1091.not.i, label %.preheader850.i, label %.preheader851.i, !llvm.loop !117
@@ -9115,12 +9115,12 @@ Ses_ManSelectVar.exit786.i:                       ; preds = %.lr.ph.i783.i
   %.11016.i = phi i32 [ 1, %.preheader850.i ], [ %1699, %1698 ]
   br label %1667
 
-1667:                                             ; preds = %Ses_ManSelectVar.exit802.i, %.preheader849.i
-  %.81015.i = phi i32 [ 0, %.preheader849.i ], [ %1697, %Ses_ManSelectVar.exit802.i ]
+1667:                                             ; preds = %Ses_ManSelectVar.argprom.exit802.i, %.preheader849.i
+  %.81015.i = phi i32 [ 0, %.preheader849.i ], [ %1697, %Ses_ManSelectVar.argprom.exit802.i ]
   %.val486.i = load i32, ptr %44, align 4
   %.val487.i = load i32, ptr %72, align 8
   %1668 = add nsw i32 %.val486.i, %.101020.i
-  br i1 %.not838.i, label %Ses_ManSelectVar.exit794.i, label %.lr.ph.i791.i
+  br i1 %.not838.i, label %Ses_ManSelectVar.argprom.exit794.i, label %.lr.ph.i791.i
 
 .lr.ph.i791.i:                                    ; preds = %1667, %.lr.ph.i791.i
   %.02.i792.i = phi i32 [ %1672, %.lr.ph.i791.i ], [ %.val487.i, %1667 ]
@@ -9131,9 +9131,9 @@ Ses_ManSelectVar.exit786.i:                       ; preds = %.lr.ph.i783.i
   %1672 = add nsw i32 %1671, %.02.i792.i
   %1673 = add nsw i32 %.0151.i793.i, 1
   %1674 = icmp slt i32 %1673, %1668
-  br i1 %1674, label %.lr.ph.i791.i, label %Ses_ManSelectVar.exit794.i, !llvm.loop !72
+  br i1 %1674, label %.lr.ph.i791.i, label %Ses_ManSelectVar.argprom.exit794.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit794.i:                       ; preds = %.lr.ph.i791.i, %1667
+Ses_ManSelectVar.argprom.exit794.i:               ; preds = %.lr.ph.i791.i, %1667
   %.0.lcssa.i787.i = phi i32 [ %.val487.i, %1667 ], [ %1672, %.lr.ph.i791.i ]
   %1675 = shl nsw i32 %1668, 1
   %.neg.i789.i = add i32 %1675, %.neg18.i788.i
@@ -9147,18 +9147,18 @@ Ses_ManSelectVar.exit794.i:                       ; preds = %.lr.ph.i791.i, %166
   %1681 = add nsw i32 %.val486.i, %1631
   br label %.lr.ph.i799.i
 
-.lr.ph.i799.i:                                    ; preds = %.lr.ph.i799.i, %Ses_ManSelectVar.exit794.i
-  %.02.i800.i = phi i32 [ %1685, %.lr.ph.i799.i ], [ %.val487.i, %Ses_ManSelectVar.exit794.i ]
-  %.0151.i801.i = phi i32 [ %1686, %.lr.ph.i799.i ], [ %.val486.i, %Ses_ManSelectVar.exit794.i ]
+.lr.ph.i799.i:                                    ; preds = %.lr.ph.i799.i, %Ses_ManSelectVar.argprom.exit794.i
+  %.02.i800.i = phi i32 [ %1685, %.lr.ph.i799.i ], [ %.val487.i, %Ses_ManSelectVar.argprom.exit794.i ]
+  %.0151.i801.i = phi i32 [ %1686, %.lr.ph.i799.i ], [ %.val486.i, %Ses_ManSelectVar.argprom.exit794.i ]
   %1682 = add nsw i32 %.0151.i801.i, -1
   %1683 = mul nsw i32 %1682, %.0151.i801.i
   %1684 = sdiv i32 %1683, 2
   %1685 = add nsw i32 %1684, %.02.i800.i
   %1686 = add nsw i32 %.0151.i801.i, 1
   %1687 = icmp slt i32 %1686, %1681
-  br i1 %1687, label %.lr.ph.i799.i, label %Ses_ManSelectVar.exit802.i, !llvm.loop !72
+  br i1 %1687, label %.lr.ph.i799.i, label %Ses_ManSelectVar.argprom.exit802.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit802.i:                       ; preds = %.lr.ph.i799.i
+Ses_ManSelectVar.argprom.exit802.i:               ; preds = %.lr.ph.i799.i
   %.neg18.i796.i = xor i32 %.81015.i, -1
   %1688 = shl nsw i32 %1681, 1
   %.neg.i797.i = add i32 %1688, %.neg18.i796.i
@@ -9176,7 +9176,7 @@ Ses_ManSelectVar.exit802.i:                       ; preds = %.lr.ph.i799.i
   %exitcond1092.not.i = icmp eq i32 %1697, %.11016.i
   br i1 %exitcond1092.not.i, label %1698, label %1667, !llvm.loop !118
 
-1698:                                             ; preds = %Ses_ManSelectVar.exit802.i
+1698:                                             ; preds = %Ses_ManSelectVar.argprom.exit802.i
   %1699 = add nuw nsw i32 %.11016.i, 1
   %exitcond1093.not.i = icmp eq i32 %1699, %.44161018.i
   br i1 %exitcond1093.not.i, label %1700, label %.preheader849.i, !llvm.loop !119
@@ -9369,7 +9369,7 @@ Vec_IntPush.exit817.i.loopexit:                   ; preds = %.lr.ph.i807.i
   %.val492.i = load i32, ptr %44, align 4
   %.val493.i = load i32, ptr %72, align 8
   %1779 = add nsw i32 %.val492.i, %.34101025.i
-  br i1 %.not836.i, label %Ses_ManSelectVar.exit825.i, label %.lr.ph.i822.i
+  br i1 %.not836.i, label %Ses_ManSelectVar.argprom.exit825.i, label %.lr.ph.i822.i
 
 .lr.ph.i822.i:                                    ; preds = %1778, %.lr.ph.i822.i
   %.02.i823.i = phi i32 [ %1783, %.lr.ph.i822.i ], [ %.val493.i, %1778 ]
@@ -9380,9 +9380,9 @@ Vec_IntPush.exit817.i.loopexit:                   ; preds = %.lr.ph.i807.i
   %1783 = add nsw i32 %1782, %.02.i823.i
   %1784 = add nsw i32 %.0151.i824.i, 1
   %1785 = icmp slt i32 %1784, %1779
-  br i1 %1785, label %.lr.ph.i822.i, label %Ses_ManSelectVar.exit825.i, !llvm.loop !72
+  br i1 %1785, label %.lr.ph.i822.i, label %Ses_ManSelectVar.argprom.exit825.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit825.i:                       ; preds = %.lr.ph.i822.i, %1778
+Ses_ManSelectVar.argprom.exit825.i:               ; preds = %.lr.ph.i822.i, %1778
   %.0.lcssa.i818.i = phi i32 [ %.val493.i, %1778 ], [ %1783, %.lr.ph.i822.i ]
   %1786 = trunc nuw nsw i64 %indvars.iv to i32
   %.neg18.i819.i = xor i32 %1786, -1
@@ -9399,11 +9399,11 @@ Ses_ManSelectVar.exit825.i:                       ; preds = %.lr.ph.i822.i, %177
   %1795 = icmp eq i32 %1793, %1794
   br i1 %1795, label %1796, label %.Vec_IntGrow.exit10_crit_edge.i826.i
 
-.Vec_IntGrow.exit10_crit_edge.i826.i:             ; preds = %Ses_ManSelectVar.exit825.i
+.Vec_IntGrow.exit10_crit_edge.i826.i:             ; preds = %Ses_ManSelectVar.argprom.exit825.i
   %.pre.i828.i = load ptr, ptr %1761, align 8
   br label %Vec_IntPush.exit832.i
 
-1796:                                             ; preds = %Ses_ManSelectVar.exit825.i
+1796:                                             ; preds = %Ses_ManSelectVar.argprom.exit825.i
   %1797 = icmp slt i32 %1793, 16
   br i1 %1797, label %1798, label %1805
 
@@ -9667,9 +9667,9 @@ define internal fastcc noalias noundef ptr @Ses_ManExtractSolution(ptr nocapture
   %66 = shl nsw i32 %63, 1
   %67 = getelementptr i8, ptr %65, i64 328
   %.val215 = load ptr, ptr %67, align 8
-  br i1 %.not219, label %Ses_ManSelectVar.exit.us, label %.lr.ph.i.preheader
+  br i1 %.not219, label %Ses_ManSelectVar.argprom.exit.us, label %.lr.ph.i.preheader
 
-Ses_ManSelectVar.exit.us:                         ; preds = %.lr.ph, %75
+Ses_ManSelectVar.argprom.exit.us:                 ; preds = %.lr.ph, %75
   %.0175229.us = phi i32 [ %76, %75 ], [ 0, %.lr.ph ]
   %.neg18.i.us = xor i32 %.0175229.us, -1
   %.neg.i.us = add i32 %66, %.neg18.i.us
@@ -9684,10 +9684,10 @@ Ses_ManSelectVar.exit.us:                         ; preds = %.lr.ph, %75
   %.not220.us = icmp eq i32 %74, 1
   br i1 %.not220.us, label %.split.us, label %75
 
-75:                                               ; preds = %Ses_ManSelectVar.exit.us
+75:                                               ; preds = %Ses_ManSelectVar.argprom.exit.us
   %76 = add nuw nsw i32 %.0175229.us, 1
   %exitcond293.not = icmp eq i32 %76, %.0180230
-  br i1 %exitcond293.not, label %.loopexit225, label %Ses_ManSelectVar.exit.us, !llvm.loop !130
+  br i1 %exitcond293.not, label %.loopexit225, label %Ses_ManSelectVar.argprom.exit.us, !llvm.loop !130
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %100
   %.0175229 = phi i32 [ %101, %100 ], [ 0, %.lr.ph ]
@@ -9702,9 +9702,9 @@ Ses_ManSelectVar.exit.us:                         ; preds = %.lr.ph, %75
   %80 = add nsw i32 %79, %.02.i
   %81 = add nsw i32 %.0151.i, 1
   %82 = icmp slt i32 %81, %63
-  br i1 %82, label %.lr.ph.i, label %Ses_ManSelectVar.exit.loopexit, !llvm.loop !72
+  br i1 %82, label %.lr.ph.i, label %Ses_ManSelectVar.argprom.exit.loopexit, !llvm.loop !72
 
-Ses_ManSelectVar.exit.loopexit:                   ; preds = %.lr.ph.i
+Ses_ManSelectVar.argprom.exit.loopexit:           ; preds = %.lr.ph.i
   %.neg18.i = xor i32 %.0175229, -1
   %.neg.i = add i32 %66, %.neg18.i
   %.neg17.i = mul i32 %.neg.i, %.0175229
@@ -9718,8 +9718,8 @@ Ses_ManSelectVar.exit.loopexit:                   ; preds = %.lr.ph.i
   %.not220 = icmp eq i32 %89, 1
   br i1 %.not220, label %.split.us, label %100
 
-.split.us:                                        ; preds = %Ses_ManSelectVar.exit.loopexit, %Ses_ManSelectVar.exit.us
-  %.us-phi = phi i32 [ %.0175229.us, %Ses_ManSelectVar.exit.us ], [ %.0175229, %Ses_ManSelectVar.exit.loopexit ]
+.split.us:                                        ; preds = %Ses_ManSelectVar.argprom.exit.loopexit, %Ses_ManSelectVar.argprom.exit.us
+  %.us-phi = phi i32 [ %.0175229.us, %Ses_ManSelectVar.argprom.exit.us ], [ %.0175229, %Ses_ManSelectVar.argprom.exit.loopexit ]
   %90 = load i32, ptr %23, align 8
   %.not203 = icmp eq i32 %90, 0
   br i1 %.not203, label %93, label %91
@@ -9739,7 +9739,7 @@ Ses_ManSelectVar.exit.loopexit:                   ; preds = %.lr.ph.i
   %99 = add nsw i32 %98, %.0172238
   br label %.loopexit225
 
-100:                                              ; preds = %Ses_ManSelectVar.exit.loopexit
+100:                                              ; preds = %Ses_ManSelectVar.argprom.exit.loopexit
   %101 = add nuw nsw i32 %.0175229, 1
   %exitcond.not = icmp eq i32 %101, %.0180230
   br i1 %exitcond.not, label %.loopexit225, label %.lr.ph.i.preheader, !llvm.loop !130
@@ -10445,7 +10445,7 @@ define internal fastcc range(i32 0, 2) i32 @Ses_ManCreateTruthTableClause(ptr no
   %.068208 = phi i32 [ %47, %.lr.ph ], [ %392, %Ses_ManCreateMainClause.exit185 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9)
   %.val50.i = load i32, ptr %15, align 8
-  br i1 %.not186, label %Ses_ManSelectVar.exit.i, label %.lr.ph.i.i
+  br i1 %.not186, label %Ses_ManSelectVar.argprom.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %52, %.lr.ph.i.i
   %.02.i.i = phi i32 [ %59, %.lr.ph.i.i ], [ %.val50.i, %52 ]
@@ -10456,9 +10456,9 @@ define internal fastcc range(i32 0, 2) i32 @Ses_ManCreateTruthTableClause(ptr no
   %59 = add nsw i32 %58, %.02.i.i
   %60 = add nsw i32 %.0151.i.i, 1
   %61 = icmp slt i32 %60, %55
-  br i1 %61, label %.lr.ph.i.i, label %Ses_ManSelectVar.exit.i, !llvm.loop !72
+  br i1 %61, label %.lr.ph.i.i, label %Ses_ManSelectVar.argprom.exit.i, !llvm.loop !72
 
-Ses_ManSelectVar.exit.i:                          ; preds = %.lr.ph.i.i, %52
+Ses_ManSelectVar.argprom.exit.i:                  ; preds = %.lr.ph.i.i, %52
   %.0.lcssa.i.i = phi i32 [ %.val50.i, %52 ], [ %59, %.lr.ph.i.i ]
   %62 = shl nsw i32 %55, 1
   %.neg.i.i = add i32 %62, %.neg18.i.i
@@ -10480,10 +10480,10 @@ Ses_ManSelectVar.exit.i:                          ; preds = %.lr.ph.i.i, %52
   %73 = icmp slt i32 %.069210, %54
   br i1 %73, label %74, label %75
 
-74:                                               ; preds = %Ses_ManSelectVar.exit.i
+74:                                               ; preds = %Ses_ManSelectVar.argprom.exit.i
   br i1 %.not.i, label %80, label %Ses_ManCreateMainClause.exit
 
-75:                                               ; preds = %Ses_ManSelectVar.exit.i
+75:                                               ; preds = %Ses_ManSelectVar.argprom.exit.i
   %76 = sub nsw i32 %.069210, %54
   %77 = mul nsw i32 %.val51.i, %76
   %78 = add i32 %70, %77
@@ -10538,7 +10538,7 @@ Ses_ManCreateMainClause.exit:                     ; preds = %74, %82, %94
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
   %105 = add nsw i32 %104, %.070214
-  br i1 %.not186, label %Ses_ManSelectVar.exit.i81, label %.lr.ph.i.i93
+  br i1 %.not186, label %Ses_ManSelectVar.argprom.exit.i81, label %.lr.ph.i.i93
 
 .lr.ph.i.i93:                                     ; preds = %Ses_ManCreateMainClause.exit, %.lr.ph.i.i93
   %.02.i.i94 = phi i32 [ %109, %.lr.ph.i.i93 ], [ %.val50.i80, %Ses_ManCreateMainClause.exit ]
@@ -10549,9 +10549,9 @@ Ses_ManCreateMainClause.exit:                     ; preds = %74, %82, %94
   %109 = add nsw i32 %108, %.02.i.i94
   %110 = add nsw i32 %.0151.i.i95, 1
   %111 = icmp slt i32 %110, %105
-  br i1 %111, label %.lr.ph.i.i93, label %Ses_ManSelectVar.exit.i81, !llvm.loop !72
+  br i1 %111, label %.lr.ph.i.i93, label %Ses_ManSelectVar.argprom.exit.i81, !llvm.loop !72
 
-Ses_ManSelectVar.exit.i81:                        ; preds = %.lr.ph.i.i93, %Ses_ManCreateMainClause.exit
+Ses_ManSelectVar.argprom.exit.i81:                ; preds = %.lr.ph.i.i93, %Ses_ManCreateMainClause.exit
   %.0.lcssa.i.i82 = phi i32 [ %.val50.i80, %Ses_ManCreateMainClause.exit ], [ %109, %.lr.ph.i.i93 ]
   %112 = shl nsw i32 %105, 1
   %.neg.i.i84 = add i32 %112, %.neg18.i.i
@@ -10572,10 +10572,10 @@ Ses_ManSelectVar.exit.i81:                        ; preds = %.lr.ph.i.i93, %Ses_
   %122 = icmp slt i32 %.069210, %104
   br i1 %122, label %123, label %124
 
-123:                                              ; preds = %Ses_ManSelectVar.exit.i81
+123:                                              ; preds = %Ses_ManSelectVar.argprom.exit.i81
   br i1 %.not.i, label %Ses_ManCreateMainClause.exit96, label %130
 
-124:                                              ; preds = %Ses_ManSelectVar.exit.i81
+124:                                              ; preds = %Ses_ManSelectVar.argprom.exit.i81
   %125 = sub nsw i32 %.069210, %104
   %126 = mul nsw i32 %.val51.i86, %125
   %127 = add i32 %119, %126
@@ -10631,7 +10631,7 @@ Ses_ManCreateMainClause.exit96:                   ; preds = %123, %132, %143
   %.val50.i98 = phi i32 [ %.val50.i80, %123 ], [ %.val50.i80, %132 ], [ %.val50.i98.pre, %143 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7)
-  br i1 %.not186, label %Ses_ManSelectVar.exit.i99, label %.lr.ph.i.i111
+  br i1 %.not186, label %Ses_ManSelectVar.argprom.exit.i99, label %.lr.ph.i.i111
 
 .lr.ph.i.i111:                                    ; preds = %Ses_ManCreateMainClause.exit96, %.lr.ph.i.i111
   %.02.i.i112 = phi i32 [ %157, %.lr.ph.i.i111 ], [ %.val50.i98, %Ses_ManCreateMainClause.exit96 ]
@@ -10642,9 +10642,9 @@ Ses_ManCreateMainClause.exit96:                   ; preds = %123, %132, %143
   %157 = add nsw i32 %156, %.02.i.i112
   %158 = add nsw i32 %.0151.i.i113, 1
   %159 = icmp slt i32 %158, %.pre-phi
-  br i1 %159, label %.lr.ph.i.i111, label %Ses_ManSelectVar.exit.i99, !llvm.loop !72
+  br i1 %159, label %.lr.ph.i.i111, label %Ses_ManSelectVar.argprom.exit.i99, !llvm.loop !72
 
-Ses_ManSelectVar.exit.i99:                        ; preds = %.lr.ph.i.i111, %Ses_ManCreateMainClause.exit96
+Ses_ManSelectVar.argprom.exit.i99:                ; preds = %.lr.ph.i.i111, %Ses_ManCreateMainClause.exit96
   %.0.lcssa.i.i100 = phi i32 [ %.val50.i98, %Ses_ManCreateMainClause.exit96 ], [ %157, %.lr.ph.i.i111 ]
   %160 = shl nsw i32 %.pre-phi, 1
   %.neg.i.i102 = add i32 %160, %.neg18.i.i
@@ -10665,10 +10665,10 @@ Ses_ManSelectVar.exit.i99:                        ; preds = %.lr.ph.i.i111, %Ses
   %170 = icmp slt i32 %.069210, %153
   br i1 %170, label %171, label %172
 
-171:                                              ; preds = %Ses_ManSelectVar.exit.i99
+171:                                              ; preds = %Ses_ManSelectVar.argprom.exit.i99
   br i1 %.not.i, label %Ses_ManCreateMainClause.exit114, label %178
 
-172:                                              ; preds = %Ses_ManSelectVar.exit.i99
+172:                                              ; preds = %Ses_ManSelectVar.argprom.exit.i99
   %173 = sub nsw i32 %.069210, %153
   %174 = mul nsw i32 %.val51.i104, %173
   %175 = add i32 %167, %174
@@ -10725,7 +10725,7 @@ Ses_ManCreateMainClause.exit114:                  ; preds = %171, %180, %192
   %.val50.i116 = phi i32 [ %.val50.i98, %171 ], [ %.val50.i98, %180 ], [ %.val50.i116.pre, %192 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6)
-  br i1 %.not186, label %Ses_ManSelectVar.exit.i117, label %.lr.ph.i.i128
+  br i1 %.not186, label %Ses_ManSelectVar.argprom.exit.i117, label %.lr.ph.i.i128
 
 .lr.ph.i.i128:                                    ; preds = %Ses_ManCreateMainClause.exit114, %.lr.ph.i.i128
   %.02.i.i129 = phi i32 [ %206, %.lr.ph.i.i128 ], [ %.val50.i116, %Ses_ManCreateMainClause.exit114 ]
@@ -10736,9 +10736,9 @@ Ses_ManCreateMainClause.exit114:                  ; preds = %171, %180, %192
   %206 = add nsw i32 %205, %.02.i.i129
   %207 = add nsw i32 %.0151.i.i130, 1
   %208 = icmp slt i32 %207, %.pre-phi240
-  br i1 %208, label %.lr.ph.i.i128, label %Ses_ManSelectVar.exit.i117, !llvm.loop !72
+  br i1 %208, label %.lr.ph.i.i128, label %Ses_ManSelectVar.argprom.exit.i117, !llvm.loop !72
 
-Ses_ManSelectVar.exit.i117:                       ; preds = %.lr.ph.i.i128, %Ses_ManCreateMainClause.exit114
+Ses_ManSelectVar.argprom.exit.i117:               ; preds = %.lr.ph.i.i128, %Ses_ManCreateMainClause.exit114
   %.0.lcssa.i.i118 = phi i32 [ %.val50.i116, %Ses_ManCreateMainClause.exit114 ], [ %206, %.lr.ph.i.i128 ]
   %209 = shl nsw i32 %.pre-phi240, 1
   %.neg.i.i120 = add i32 %209, %.neg18.i.i
@@ -10760,10 +10760,10 @@ Ses_ManSelectVar.exit.i117:                       ; preds = %.lr.ph.i.i128, %Ses
   %220 = icmp slt i32 %.069210, %202
   br i1 %220, label %221, label %222
 
-221:                                              ; preds = %Ses_ManSelectVar.exit.i117
+221:                                              ; preds = %Ses_ManSelectVar.argprom.exit.i117
   br i1 %.not.i, label %227, label %Ses_ManCreateMainClause.exit131
 
-222:                                              ; preds = %Ses_ManSelectVar.exit.i117
+222:                                              ; preds = %Ses_ManSelectVar.argprom.exit.i117
   %223 = sub nsw i32 %.069210, %202
   %224 = mul nsw i32 %.val51.i122, %223
   %225 = add i32 %216, %224
@@ -10811,7 +10811,7 @@ Ses_ManCreateMainClause.exit131:                  ; preds = %221, %229, %240
   %.val50.i133 = phi i32 [ %.val50.i116, %221 ], [ %.val50.i116, %229 ], [ %.val50.i133.pre, %240 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
-  br i1 %.not186, label %Ses_ManSelectVar.exit.i134, label %.lr.ph.i.i146
+  br i1 %.not186, label %Ses_ManSelectVar.argprom.exit.i134, label %.lr.ph.i.i146
 
 .lr.ph.i.i146:                                    ; preds = %Ses_ManCreateMainClause.exit131, %.lr.ph.i.i146
   %.02.i.i147 = phi i32 [ %250, %.lr.ph.i.i146 ], [ %.val50.i133, %Ses_ManCreateMainClause.exit131 ]
@@ -10822,9 +10822,9 @@ Ses_ManCreateMainClause.exit131:                  ; preds = %221, %229, %240
   %250 = add nsw i32 %249, %.02.i.i147
   %251 = add nsw i32 %.0151.i.i148, 1
   %252 = icmp slt i32 %251, %.pre-phi242
-  br i1 %252, label %.lr.ph.i.i146, label %Ses_ManSelectVar.exit.i134, !llvm.loop !72
+  br i1 %252, label %.lr.ph.i.i146, label %Ses_ManSelectVar.argprom.exit.i134, !llvm.loop !72
 
-Ses_ManSelectVar.exit.i134:                       ; preds = %.lr.ph.i.i146, %Ses_ManCreateMainClause.exit131
+Ses_ManSelectVar.argprom.exit.i134:               ; preds = %.lr.ph.i.i146, %Ses_ManCreateMainClause.exit131
   %.0.lcssa.i.i135 = phi i32 [ %.val50.i133, %Ses_ManCreateMainClause.exit131 ], [ %250, %.lr.ph.i.i146 ]
   %253 = shl nsw i32 %.pre-phi242, 1
   %.neg.i.i137 = add i32 %253, %.neg18.i.i
@@ -10846,10 +10846,10 @@ Ses_ManSelectVar.exit.i134:                       ; preds = %.lr.ph.i.i146, %Ses
   %264 = icmp slt i32 %.069210, %246
   br i1 %264, label %265, label %266
 
-265:                                              ; preds = %Ses_ManSelectVar.exit.i134
+265:                                              ; preds = %Ses_ManSelectVar.argprom.exit.i134
   br i1 %.not.i, label %271, label %Ses_ManCreateMainClause.exit149
 
-266:                                              ; preds = %Ses_ManSelectVar.exit.i134
+266:                                              ; preds = %Ses_ManSelectVar.argprom.exit.i134
   %267 = sub nsw i32 %.069210, %246
   %268 = mul nsw i32 %.val51.i139, %267
   %269 = add i32 %260, %268
@@ -10904,7 +10904,7 @@ Ses_ManCreateMainClause.exit149:                  ; preds = %265, %273, %285
   %.val50.i151 = phi i32 [ %.val50.i133, %265 ], [ %.val50.i133, %273 ], [ %.val50.i151.pre, %285 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  br i1 %.not186, label %Ses_ManSelectVar.exit.i152, label %.lr.ph.i.i164
+  br i1 %.not186, label %Ses_ManSelectVar.argprom.exit.i152, label %.lr.ph.i.i164
 
 .lr.ph.i.i164:                                    ; preds = %Ses_ManCreateMainClause.exit149, %.lr.ph.i.i164
   %.02.i.i165 = phi i32 [ %298, %.lr.ph.i.i164 ], [ %.val50.i151, %Ses_ManCreateMainClause.exit149 ]
@@ -10915,9 +10915,9 @@ Ses_ManCreateMainClause.exit149:                  ; preds = %265, %273, %285
   %298 = add nsw i32 %297, %.02.i.i165
   %299 = add nsw i32 %.0151.i.i166, 1
   %300 = icmp slt i32 %299, %.pre-phi244
-  br i1 %300, label %.lr.ph.i.i164, label %Ses_ManSelectVar.exit.i152, !llvm.loop !72
+  br i1 %300, label %.lr.ph.i.i164, label %Ses_ManSelectVar.argprom.exit.i152, !llvm.loop !72
 
-Ses_ManSelectVar.exit.i152:                       ; preds = %.lr.ph.i.i164, %Ses_ManCreateMainClause.exit149
+Ses_ManSelectVar.argprom.exit.i152:               ; preds = %.lr.ph.i.i164, %Ses_ManCreateMainClause.exit149
   %.0.lcssa.i.i153 = phi i32 [ %.val50.i151, %Ses_ManCreateMainClause.exit149 ], [ %298, %.lr.ph.i.i164 ]
   %301 = shl nsw i32 %.pre-phi244, 1
   %.neg.i.i155 = add i32 %301, %.neg18.i.i
@@ -10939,10 +10939,10 @@ Ses_ManSelectVar.exit.i152:                       ; preds = %.lr.ph.i.i164, %Ses
   %312 = icmp slt i32 %.069210, %294
   br i1 %312, label %313, label %314
 
-313:                                              ; preds = %Ses_ManSelectVar.exit.i152
+313:                                              ; preds = %Ses_ManSelectVar.argprom.exit.i152
   br i1 %.not.i, label %Ses_ManCreateMainClause.exit167, label %320
 
-314:                                              ; preds = %Ses_ManSelectVar.exit.i152
+314:                                              ; preds = %Ses_ManSelectVar.argprom.exit.i152
   %315 = sub nsw i32 %.069210, %294
   %316 = mul nsw i32 %.val51.i157, %315
   %317 = add i32 %308, %316
@@ -10997,7 +10997,7 @@ Ses_ManCreateMainClause.exit167:                  ; preds = %313, %322, %333
   %.val50.i169 = phi i32 [ %.val50.i151, %313 ], [ %.val50.i151, %322 ], [ %.val50.i169.pre, %333 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
-  br i1 %.not186, label %Ses_ManSelectVar.exit.i170, label %.lr.ph.i.i182
+  br i1 %.not186, label %Ses_ManSelectVar.argprom.exit.i170, label %.lr.ph.i.i182
 
 .lr.ph.i.i182:                                    ; preds = %Ses_ManCreateMainClause.exit167, %.lr.ph.i.i182
   %.02.i.i183 = phi i32 [ %346, %.lr.ph.i.i182 ], [ %.val50.i169, %Ses_ManCreateMainClause.exit167 ]
@@ -11008,9 +11008,9 @@ Ses_ManCreateMainClause.exit167:                  ; preds = %313, %322, %333
   %346 = add nsw i32 %345, %.02.i.i183
   %347 = add nsw i32 %.0151.i.i184, 1
   %348 = icmp slt i32 %347, %.pre-phi246
-  br i1 %348, label %.lr.ph.i.i182, label %Ses_ManSelectVar.exit.i170, !llvm.loop !72
+  br i1 %348, label %.lr.ph.i.i182, label %Ses_ManSelectVar.argprom.exit.i170, !llvm.loop !72
 
-Ses_ManSelectVar.exit.i170:                       ; preds = %.lr.ph.i.i182, %Ses_ManCreateMainClause.exit167
+Ses_ManSelectVar.argprom.exit.i170:               ; preds = %.lr.ph.i.i182, %Ses_ManCreateMainClause.exit167
   %.0.lcssa.i.i171 = phi i32 [ %.val50.i169, %Ses_ManCreateMainClause.exit167 ], [ %346, %.lr.ph.i.i182 ]
   %349 = shl nsw i32 %.pre-phi246, 1
   %.neg.i.i173 = add i32 %349, %.neg18.i.i
@@ -11032,10 +11032,10 @@ Ses_ManSelectVar.exit.i170:                       ; preds = %.lr.ph.i.i182, %Ses
   %360 = icmp slt i32 %.069210, %342
   br i1 %360, label %361, label %362
 
-361:                                              ; preds = %Ses_ManSelectVar.exit.i170
+361:                                              ; preds = %Ses_ManSelectVar.argprom.exit.i170
   br i1 %.not.i, label %Ses_ManCreateMainClause.exit185, label %368
 
-362:                                              ; preds = %Ses_ManSelectVar.exit.i170
+362:                                              ; preds = %Ses_ManSelectVar.argprom.exit.i170
   %363 = sub nsw i32 %.069210, %342
   %364 = mul nsw i32 %.val51.i175, %363
   %365 = add i32 %356, %364
@@ -11451,7 +11451,7 @@ define internal fastcc range(i32 0, 4) i32 @Ses_ManFindNetworkExactCEGAR(ptr nou
 
 Abc_DebugErase.exit.thread:                       ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 192
-  br label %Abc_DebugPrintIntInt.exit
+  br label %Abc_DebugPrintIntInt.argprom.exit
 
 .preheader.i:                                     ; preds = %3
   %13 = icmp sgt i32 %9, 0
@@ -11470,16 +11470,16 @@ Abc_DebugErase.exit:                              ; preds = %.lr.ph.i, %.prehead
   %.pr = load i32, ptr %10, align 4
   %17 = getelementptr inbounds i8, ptr %0, i64 192
   %.not.i47 = icmp eq i32 %.pr, 0
-  br i1 %.not.i47, label %Abc_DebugPrintIntInt.exit, label %18
+  br i1 %.not.i47, label %Abc_DebugPrintIntInt.argprom.exit, label %18
 
 18:                                               ; preds = %Abc_DebugErase.exit
   %19 = load i32, ptr %17, align 8
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef %1, i32 noundef %19)
   %21 = load ptr, ptr @stdout, align 8
   %22 = tail call i32 @fflush(ptr noundef %21)
-  br label %Abc_DebugPrintIntInt.exit
+  br label %Abc_DebugPrintIntInt.argprom.exit
 
-Abc_DebugPrintIntInt.exit:                        ; preds = %Abc_DebugErase.exit.thread, %Abc_DebugErase.exit, %18
+Abc_DebugPrintIntInt.argprom.exit:                ; preds = %Abc_DebugErase.exit.thread, %Abc_DebugErase.exit, %18
   %23 = phi ptr [ %12, %Abc_DebugErase.exit.thread ], [ %17, %Abc_DebugErase.exit ], [ %17, %18 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 36
   %25 = load i32, ptr %24, align 4
@@ -11489,7 +11489,7 @@ Abc_DebugPrintIntInt.exit:                        ; preds = %Abc_DebugErase.exit
   %or.cond.i = select i1 %.not.i48, i1 true, i1 %.not25.i
   br i1 %or.cond.i, label %32, label %27
 
-27:                                               ; preds = %Abc_DebugPrintIntInt.exit
+27:                                               ; preds = %Abc_DebugPrintIntInt.argprom.exit
   %28 = getelementptr inbounds i8, ptr %0, i64 120
   %29 = load i32, ptr %28, align 8
   %.not34.i = icmp eq i32 %29, 0
@@ -11499,7 +11499,7 @@ Abc_DebugPrintIntInt.exit:                        ; preds = %Abc_DebugErase.exit
   %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, i32 noundef %25, i32 noundef %1)
   br label %Ses_CheckGatesConsistency.exit.thread
 
-32:                                               ; preds = %Abc_DebugPrintIntInt.exit
+32:                                               ; preds = %Abc_DebugPrintIntInt.argprom.exit
   br i1 %.not.i48, label %44, label %33
 
 33:                                               ; preds = %32
@@ -11923,7 +11923,7 @@ define internal fastcc void @Vec_PtrSetEntry(ptr nocapture noundef %0, i32 nound
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.not.i.not = icmp slt i32 %1, %6
-  br i1 %.not.i.not, label %Vec_PtrFillExtra.exit, label %7
+  br i1 %.not.i.not, label %Vec_PtrFillExtra.argprom.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %0, align 8
@@ -12008,9 +12008,9 @@ Vec_PtrGrow.exit.i:                               ; preds = %Vec_PtrGrow.exit.si
 
 ._crit_edge.i:                                    ; preds = %37, %Vec_PtrGrow.exit.i
   store i32 %4, ptr %5, align 4
-  br label %Vec_PtrFillExtra.exit
+  br label %Vec_PtrFillExtra.argprom.exit
 
-Vec_PtrFillExtra.exit:                            ; preds = %3, %._crit_edge.i
+Vec_PtrFillExtra.argprom.exit:                    ; preds = %3, %._crit_edge.i
   %40 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %40, align 8
   %41 = sext i32 %1 to i64

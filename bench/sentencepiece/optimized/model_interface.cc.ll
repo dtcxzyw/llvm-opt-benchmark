@@ -1458,7 +1458,7 @@ define noundef range(i32 -1, 256) i32 @_ZN13sentencepiece11PieceToByteESt17basic
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = invoke fastcc noundef ptr @"_ZZN13sentencepiece11PieceToByteESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clB5cxx11Ev"()
+  %11 = invoke fastcc noundef ptr @"_ZZN13sentencepiece11PieceToByteESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clB5cxx11Ev.argprom"()
           to label %12 unwind label %24
 
 12:                                               ; preds = %10
@@ -2016,7 +2016,7 @@ define linkonce_odr void @_ZN4absl9StrFormatIJhEEENSt7__cxx1112basic_stringIcSt1
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @"_ZZN13sentencepiece11PieceToByteESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clB5cxx11Ev"() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @"_ZZN13sentencepiece11PieceToByteESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clB5cxx11Ev.argprom"() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca i8, align 1
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25

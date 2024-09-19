@@ -209,9 +209,9 @@ land.lhs.true.i.i:                                ; preds = %for.body12
   %field_count_.i.i.i.i = getelementptr inbounds i8, ptr %call13.val69, i64 4
   %20 = load i32, ptr %field_count_.i.i.i.i, align 4
   %cmp.i.i.i = icmp eq i32 %20, 1
-  br i1 %cmp.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit, label %for.inc113
+  br i1 %cmp.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.argprom.exit, label %for.inc113
 
-_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit: ; preds = %land.lhs.true.i.i
+_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.argprom.exit: ; preds = %land.lhs.true.i.i
   %fields_.i.i.i.i = getelementptr inbounds i8, ptr %call13.val69, i64 48
   %21 = load ptr, ptr %fields_.i.i.i.i, align 8
   %proto3_optional_.i.i.i = getelementptr inbounds i8, ptr %21, i64 1
@@ -221,7 +221,7 @@ _ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit: ; 
   %bf.cast.i.not.i.i = icmp eq i8 %22, 0
   br i1 %bf.cast.i.not.i.i, label %for.inc113, label %if.end17
 
-if.end17:                                         ; preds = %for.body12, %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit
+if.end17:                                         ; preds = %for.body12, %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.argprom.exit
   %type_once_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %23 = load ptr, ptr %type_once_.i.i, align 8
   %tobool.not.i.i76 = icmp eq ptr %23, null
@@ -538,7 +538,7 @@ if.else109:                                       ; preds = %_ZNK6google8protobu
   store ptr %retval.i.0.i, ptr %arena_.i.i121, align 8
   br label %for.inc113
 
-for.inc113:                                       ; preds = %land.lhs.true.i.i, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %if.else, %if.then20, %if.else27, %if.then25, %if.else33, %if.then31, %if.else39, %if.then37, %if.else45, %if.then43, %if.else51, %if.then49, %if.else58, %if.then55, %if.else65, %if.then62, %if.then72, %if.else73, %if.else109, %if.then97, %if.else102, %if.then83, %if.else87, %if.then77, %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit
+for.inc113:                                       ; preds = %land.lhs.true.i.i, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %if.else, %if.then20, %if.else27, %if.then25, %if.else33, %if.then31, %if.else39, %if.then37, %if.else45, %if.then43, %if.else51, %if.then49, %if.else58, %if.then55, %if.else65, %if.then62, %if.then72, %if.else73, %if.else109, %if.then97, %if.else102, %if.then83, %if.else87, %if.then77, %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.argprom.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = load i32, ptr %field_count_.i, align 4
   %65 = sext i32 %64 to i64
@@ -918,9 +918,9 @@ land.lhs.true.i.i:                                ; preds = %for.body80
   %field_count_.i.i.i.i = getelementptr inbounds i8, ptr %call81.val75, i64 4
   %54 = load i32, ptr %field_count_.i.i.i.i, align 4
   %cmp.i.i.i = icmp eq i32 %54, 1
-  br i1 %cmp.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit, label %for.inc92
+  br i1 %cmp.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.argprom.exit, label %for.inc92
 
-_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit: ; preds = %land.lhs.true.i.i
+_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.argprom.exit: ; preds = %land.lhs.true.i.i
   %fields_.i.i.i.i = getelementptr inbounds i8, ptr %call81.val75, i64 48
   %55 = load ptr, ptr %fields_.i.i.i.i, align 8
   %proto3_optional_.i.i.i = getelementptr inbounds i8, ptr %55, i64 1
@@ -930,7 +930,7 @@ _ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit: ; 
   %bf.cast.i.not.i.i = icmp eq i8 %56, 0
   br i1 %bf.cast.i.not.i.i, label %for.inc92, label %if.then83
 
-if.then83:                                        ; preds = %for.body80, %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit
+if.then83:                                        ; preds = %for.body80, %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.argprom.exit
   %57 = and i8 %call81.val, 96
   %cmp.i = icmp eq i8 %57, 96
   %type_once_.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i91, i64 24
@@ -1087,9 +1087,9 @@ _ZN6google8protobuf12_GLOBAL__N_114FieldSpaceUsedEPKNS0_15FieldDescriptorE.exit:
   %.pre190 = load i32, ptr %field_count_.i, align 4
   br label %for.inc92
 
-for.inc92:                                        ; preds = %land.lhs.true.i.i, %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit, %_ZN6google8protobuf12_GLOBAL__N_114FieldSpaceUsedEPKNS0_15FieldDescriptorE.exit
-  %81 = phi i32 [ %49, %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit ], [ %.pre190, %_ZN6google8protobuf12_GLOBAL__N_114FieldSpaceUsedEPKNS0_15FieldDescriptorE.exit ], [ %49, %land.lhs.true.i.i ]
-  %size.4 = phi i32 [ %size.3160, %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit ], [ %add90, %_ZN6google8protobuf12_GLOBAL__N_114FieldSpaceUsedEPKNS0_15FieldDescriptorE.exit ], [ %size.3160, %land.lhs.true.i.i ]
+for.inc92:                                        ; preds = %land.lhs.true.i.i, %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.argprom.exit, %_ZN6google8protobuf12_GLOBAL__N_114FieldSpaceUsedEPKNS0_15FieldDescriptorE.exit
+  %81 = phi i32 [ %49, %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.argprom.exit ], [ %.pre190, %_ZN6google8protobuf12_GLOBAL__N_114FieldSpaceUsedEPKNS0_15FieldDescriptorE.exit ], [ %49, %land.lhs.true.i.i ]
+  %size.4 = phi i32 [ %size.3160, %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.argprom.exit ], [ %add90, %_ZN6google8protobuf12_GLOBAL__N_114FieldSpaceUsedEPKNS0_15FieldDescriptorE.exit ], [ %size.3160, %land.lhs.true.i.i ]
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %82 = sext i32 %81 to i64
   %cmp79 = icmp slt i64 %indvars.iv.next176, %82
@@ -2100,9 +2100,9 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true16
   %field_count_.i.i.i.i = getelementptr inbounds i8, ptr %call11.val9, i64 4
   %18 = load i32, ptr %field_count_.i.i.i.i, align 4
   %cmp.i.i.i = icmp eq i32 %18, 1
-  br i1 %cmp.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit, label %for.inc
+  br i1 %cmp.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.argprom.exit, label %for.inc
 
-_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit: ; preds = %land.lhs.true.i.i
+_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.argprom.exit: ; preds = %land.lhs.true.i.i
   %fields_.i.i.i.i = getelementptr inbounds i8, ptr %call11.val9, i64 48
   %19 = load ptr, ptr %fields_.i.i.i.i, align 8
   %proto3_optional_.i.i.i = getelementptr inbounds i8, ptr %19, i64 1
@@ -2120,7 +2120,7 @@ land.lhs.true18:                                  ; preds = %land.lhs.true16
   %cmp.i11.old = icmp eq i8 %.old, 96
   br i1 %cmp.i11.old, label %for.inc, label %if.then
 
-if.then:                                          ; preds = %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit, %land.lhs.true18
+if.then:                                          ; preds = %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.argprom.exit, %land.lhs.true18
   %22 = load ptr, ptr %type_info_.i, align 8
   %offsets.i = getelementptr inbounds i8, ptr %22, i64 40
   %23 = load ptr, ptr %offsets.i, align 8
@@ -2133,7 +2133,7 @@ if.then:                                          ; preds = %_ZN6google8protobuf
   store ptr %call22, ptr %add.ptr.i.i, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %land.lhs.true.i.i, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %land.lhs.true, %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit, %land.lhs.true18, %if.then
+for.inc:                                          ; preds = %land.lhs.true.i.i, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %land.lhs.true, %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.argprom.exit, %land.lhs.true18, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %field_count_.i, align 4
   %26 = sext i32 %25 to i64

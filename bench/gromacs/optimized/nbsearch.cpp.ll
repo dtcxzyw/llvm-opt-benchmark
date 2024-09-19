@@ -5779,14 +5779,14 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29Analysi
   store ptr %4, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %6, ptr %.sroa.3.0..sroa_idx, align 8
-  call fastcc void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10searchNextINS_12_GLOBAL__N_113MindistActionEEEbT_(ptr noundef nonnull align 8 dereferenceable(140) %3, ptr noundef nonnull byval(%"class.gmx::(anonymous namespace)::MindistAction") align 8 %7)
+  call fastcc void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10searchNextINS_12_GLOBAL__N_113MindistActionEEEbT_.retelim(ptr noundef nonnull align 8 dereferenceable(140) %3, ptr noundef nonnull byval(%"class.gmx::(anonymous namespace)::MindistAction") align 8 %7)
   %49 = load float, ptr %4, align 4
   %50 = call noundef float @sqrtf(float noundef %49) #33
   ret float %50
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10searchNextINS_12_GLOBAL__N_113MindistActionEEEbT_(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr nocapture noundef readonly byval(%"class.gmx::(anonymous namespace)::MindistAction") align 8 %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10searchNextINS_12_GLOBAL__N_113MindistActionEEEbT_.retelim(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr nocapture noundef readonly byval(%"class.gmx::(anonymous namespace)::MindistAction") align 8 %1) unnamed_addr #8 align 2 {
   %3 = alloca %"class.gmx::BasicVector", align 8
   %4 = alloca %"class.gmx::BasicVector", align 8
   %5 = alloca [3 x i32], align 4
@@ -6689,7 +6689,7 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29Analysi
   store ptr %5, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %7, ptr %.sroa.3.0..sroa_idx, align 8
-  call fastcc void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10searchNextINS_12_GLOBAL__N_113MindistActionEEEbT_(ptr noundef nonnull align 8 dereferenceable(140) %4, ptr noundef nonnull byval(%"class.gmx::(anonymous namespace)::MindistAction") align 8 %8)
+  call fastcc void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10searchNextINS_12_GLOBAL__N_113MindistActionEEEbT_.retelim(ptr noundef nonnull align 8 dereferenceable(140) %4, ptr noundef nonnull byval(%"class.gmx::(anonymous namespace)::MindistAction") align 8 %8)
   %50 = load i32, ptr %6, align 4
   %51 = load float, ptr %5, align 4
   store i32 %50, ptr %0, align 4

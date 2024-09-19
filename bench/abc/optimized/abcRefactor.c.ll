@@ -1201,21 +1201,21 @@ Abc_Clock.exit:                                   ; preds = %8, %19
   %63 = load i32, ptr %37, align 4
   %64 = sext i32 %63 to i64
   %65 = icmp slt i64 %indvars.iv, %64
-  br i1 %65, label %Extra_ProgressBarUpdate.exit, label %66
+  br i1 %65, label %Extra_ProgressBarUpdate.argprom.exit, label %66
 
 66:                                               ; preds = %62, %61
   %67 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %37, i32 noundef %67, ptr noundef null) #15
   %.val84.pre = load i32, ptr %59, align 4
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %62, %66
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %62, %66
   %.val84 = phi i32 [ %.val83, %62 ], [ %.val84.pre, %66 ]
   %68 = and i32 %.val84, 512
   %.not73 = icmp eq i32 %68, 0
   br i1 %.not73, label %69, label %136
 
-69:                                               ; preds = %Extra_ProgressBarUpdate.exit
+69:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %70 = getelementptr i8, ptr %56, i64 44
   %.val85 = load i32, ptr %70, align 4
   %71 = icmp sgt i32 %.val85, 1000
@@ -1373,7 +1373,7 @@ Dec_GraphFree.exit100:                            ; preds = %Abc_Clock.exit98, %
   call void @free(ptr noundef nonnull %96) #15
   br label %136
 
-136:                                              ; preds = %Dec_GraphFree.exit100, %58, %52, %Abc_Clock.exit93, %69, %Extra_ProgressBarUpdate.exit
+136:                                              ; preds = %Dec_GraphFree.exit100, %58, %52, %Abc_Clock.exit93, %69, %Extra_ProgressBarUpdate.argprom.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %137 = load ptr, ptr %34, align 8
   %138 = getelementptr i8, ptr %137, i64 4

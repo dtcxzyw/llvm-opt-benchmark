@@ -94,7 +94,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 define internal ptr @proc_lookupfd(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %4, align 8
-  %5 = tail call fastcc ptr @proc_lookupfd_common(ptr %.val, ptr noundef %1, ptr noundef nonnull @proc_fd_instantiate)
+  %5 = tail call fastcc ptr @proc_lookupfd_common.argprom(ptr %.val, ptr noundef %1, ptr noundef nonnull @proc_fd_instantiate)
   ret ptr %5
 }
 
@@ -172,7 +172,7 @@ define internal noundef range(i32 -2, 1) i32 @proc_fd_getattr(ptr nocapture read
 define internal ptr @proc_lookupfdinfo(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %4, align 8
-  %5 = tail call fastcc ptr @proc_lookupfd_common(ptr %.val, ptr noundef %1, ptr noundef nonnull @proc_fdinfo_instantiate)
+  %5 = tail call fastcc ptr @proc_lookupfd_common.argprom(ptr %.val, ptr noundef %1, ptr noundef nonnull @proc_fdinfo_instantiate)
   ret ptr %5
 }
 
@@ -626,7 +626,7 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #0
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @proc_lookupfd_common(ptr %.-72.val, ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc ptr @proc_lookupfd_common.argprom(ptr %.-72.val, ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.fd_data, align 8
   %4 = tail call ptr @get_pid_task(ptr noundef %.-72.val, i32 noundef 0) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7

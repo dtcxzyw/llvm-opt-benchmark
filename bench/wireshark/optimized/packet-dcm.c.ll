@@ -6779,7 +6779,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6627 = private unnamed_addr constant [117 x i8] c"Matches are continuing - Warning that one or more Optional Keys were not supported for existence for this Identifier\00", align 1
 @switch.table.dissect_dcm_main = private unnamed_addr constant [7 x ptr] [ptr @.str.364, ptr @.str.365, ptr @.str.366, ptr @.str.257, ptr @.str.257, ptr @.str.257, ptr @.str.367], align 8
 @switch.table.dissect_dcm_main.6 = private unnamed_addr constant [7 x ptr] [ptr @.str.378, ptr @.str.379, ptr @.str.380, ptr @.str.257, ptr @.str.381, ptr @.str.382, ptr @.str.383], align 8
-@switch.table.dissect_dcm_pctx = private unnamed_addr constant [5 x ptr] [ptr @.str.390, ptr @.str.391, ptr @.str.392, ptr @.str.393, ptr @.str.394], align 8
+@switch.table.dissect_dcm_pctx.argprom = private unnamed_addr constant [5 x ptr] [ptr @.str.390, ptr @.str.391, ptr @.str.392, ptr @.str.393, ptr @.str.394], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_dcm() local_unnamed_addr #0 {
@@ -7167,13 +7167,13 @@ dcm_state_assoc_get.exit.i:                       ; preds = %68, %dcm_state_asso
 89:                                               ; preds = %85
   %90 = call i32 @g_str_has_prefix(ptr noundef nonnull %87, ptr noundef nonnull @.str.214) #10
   %.not.i.i = icmp eq i32 %90, 0
-  br i1 %.not.i.i, label %91, label %col_set_str_conditional.exit.i
+  br i1 %.not.i.i, label %91, label %col_set_str_conditional.argprom.exit.i
 
 91:                                               ; preds = %89, %85
   call void @col_add_str(ptr noundef %86, i32 noundef 25, ptr noundef nonnull @.str.214) #10
-  br label %col_set_str_conditional.exit.i
+  br label %col_set_str_conditional.argprom.exit.i
 
-col_set_str_conditional.exit.i:                   ; preds = %91, %89
+col_set_str_conditional.argprom.exit.i:           ; preds = %91, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr null, ptr %11, align 8
@@ -7181,7 +7181,7 @@ col_set_str_conditional.exit.i:                   ; preds = %91, %89
   %93 = icmp ult i32 %62, %92
   br i1 %93, label %.lr.ph.i46.i, label %dissect_dcm_pdu_data.exit.thread.i
 
-.lr.ph.i46.i:                                     ; preds = %col_set_str_conditional.exit.i
+.lr.ph.i46.i:                                     ; preds = %col_set_str_conditional.argprom.exit.i
   %94 = getelementptr inbounds i8, ptr %.1.i.i, i64 16
   %95 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
   br label %96
@@ -7660,8 +7660,8 @@ dissect_dcm_pdu_data.exit.thread.i.sink.split:    ; preds = %108, %106, %96
   %324 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %102, ptr noundef nonnull @ei_dcm_pdv_len, ptr noundef nonnull %.str.219.sink) #10
   br label %dissect_dcm_pdu_data.exit.thread.i
 
-dissect_dcm_pdu_data.exit.thread.i:               ; preds = %dissect_dcm_pdu_data.exit.thread.i.sink.split, %col_set_str_conditional.exit.i
-  %.044.i.ph.i = phi i32 [ %62, %col_set_str_conditional.exit.i ], [ %92, %dissect_dcm_pdu_data.exit.thread.i.sink.split ]
+dissect_dcm_pdu_data.exit.thread.i:               ; preds = %dissect_dcm_pdu_data.exit.thread.i.sink.split, %col_set_str_conditional.argprom.exit.i
+  %.044.i.ph.i = phi i32 [ %62, %col_set_str_conditional.argprom.exit.i ], [ %92, %dissect_dcm_pdu_data.exit.thread.i.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %dissect_dcm_pdu.exit
@@ -8507,13 +8507,13 @@ dcm_state_pctx_get.exit.i:                        ; preds = %200, %199
 253:                                              ; preds = %252
   %254 = getelementptr i8, ptr %1, i64 408
   %.val.i = load ptr, ptr %254, align 8
-  %255 = call fastcc ptr @dcm_export_create_header(ptr %.val.i, ptr noundef %9, ptr noundef %.084.i, ptr noundef %.0.i, ptr noundef nonnull %251)
+  %255 = call fastcc ptr @dcm_export_create_header.argprom(ptr %.val.i, ptr noundef %9, ptr noundef %.084.i, ptr noundef %.0.i, ptr noundef nonnull %251)
   br label %259
 
 256:                                              ; preds = %252, %249, %248
   %257 = getelementptr i8, ptr %1, i64 408
   %.val126.i = load ptr, ptr %257, align 8
-  %258 = call fastcc ptr @dcm_export_create_header(ptr %.val126.i, ptr noundef %9, ptr noundef %.084.i, ptr noundef %.0.i, ptr noundef null)
+  %258 = call fastcc ptr @dcm_export_create_header.argprom(ptr %.val126.i, ptr noundef %9, ptr noundef %.084.i, ptr noundef %.0.i, ptr noundef null)
   br label %259
 
 259:                                              ; preds = %256, %253, %242
@@ -10177,7 +10177,7 @@ define internal fastcc ptr @dcm_rsp2str(i16 noundef zeroext %0) unnamed_addr #0 
 declare ptr @g_strcanon(ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dcm_export_create_header(ptr %.408.val, ptr nocapture noundef nonnull writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc ptr @dcm_export_create_header.argprom(ptr %.408.val, ptr nocapture noundef nonnull writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = tail call noalias ptr @wmem_alloc0(ptr noundef %.408.val, i64 noundef 512) #10
   %6 = getelementptr i8, ptr %5, i64 128
   store i32 1296255300, ptr %6, align 1
@@ -10478,15 +10478,15 @@ define internal fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef
 
 28:                                               ; preds = %26
   %29 = load i32, ptr @ett_assoc_actx, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %15, i32 noundef %.04751, ptr noundef nonnull @.str.386, i32 noundef 1, ptr noundef %11, ptr noundef %12, ptr noundef nonnull @hf_dcm_actx, i32 noundef %29)
+  call fastcc void @dissect_dcm_assoc_item.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %15, i32 noundef %.04751, ptr noundef nonnull @.str.386, i32 noundef 1, ptr noundef %11, ptr noundef %12, ptr noundef nonnull @hf_dcm_actx, i32 noundef %29)
   br label %277
 
 30:                                               ; preds = %26
-  tail call fastcc void @dissect_dcm_pctx(ptr noundef %0, ptr noundef %1, ptr noundef %15, ptr noundef %3, i32 noundef %27, i32 noundef %22, i32 noundef 1)
+  tail call fastcc void @dissect_dcm_pctx.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %15, ptr noundef %3, i32 noundef %27, i32 noundef %22, i32 noundef 1)
   br label %277
 
 31:                                               ; preds = %26
-  tail call fastcc void @dissect_dcm_pctx(ptr noundef %0, ptr noundef %1, ptr noundef %15, ptr noundef %3, i32 noundef %27, i32 noundef %22, i32 noundef 0)
+  tail call fastcc void @dissect_dcm_pctx.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %15, ptr noundef %3, i32 noundef %27, i32 noundef %22, i32 noundef 0)
   br label %277
 
 32:                                               ; preds = %26
@@ -10514,7 +10514,7 @@ define internal fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef
   %45 = load i32, ptr @hf_dcm_assoc_item_len, align 4
   %46 = tail call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %45, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef %37) #10
   %47 = icmp ult i32 %27, %33
-  br i1 %47, label %.lr.ph.i, label %dissect_dcm_userinfo.exit
+  br i1 %47, label %.lr.ph.i, label %dissect_dcm_userinfo.argprom.exit
 
 .lr.ph.i:                                         ; preds = %32, %dissect_dcm_assoc_async_negotiation.exit.i
   %.02.i = phi i32 [ %.1.i, %dissect_dcm_assoc_async_negotiation.exit.i ], [ %27, %32 ]
@@ -10535,7 +10535,7 @@ define internal fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef
 
 52:                                               ; preds = %.lr.ph.i
   %53 = load i32, ptr @ett_assoc_info_uid, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef readonly %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.407, i32 noundef 3, ptr noundef %7, ptr noundef %10, ptr noundef nonnull @hf_dcm_pdu_maxlen, i32 noundef %53)
+  call fastcc void @dissect_dcm_assoc_item.argprom(ptr noundef %0, ptr noundef readonly %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.407, i32 noundef 3, ptr noundef %7, ptr noundef %10, ptr noundef nonnull @hf_dcm_pdu_maxlen, i32 noundef %53)
   %.not86.i = icmp eq i32 %.0831.i, 0
   br i1 %.not86.i, label %54, label %55
 
@@ -10550,7 +10550,7 @@ define internal fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef
 
 57:                                               ; preds = %.lr.ph.i
   %58 = load i32, ptr @ett_assoc_info_uid, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef readonly %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.410, i32 noundef 2, ptr noundef %8, ptr noundef %10, ptr noundef nonnull @hf_dcm_info_uid, i32 noundef %58)
+  call fastcc void @dissect_dcm_assoc_item.argprom(ptr noundef %0, ptr noundef readonly %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.410, i32 noundef 2, ptr noundef %8, ptr noundef %10, ptr noundef nonnull @hf_dcm_info_uid, i32 noundef %58)
   %.not85.i = icmp eq i32 %.0831.i, 0
   br i1 %.not85.i, label %59, label %60
 
@@ -10565,7 +10565,7 @@ define internal fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef
 
 62:                                               ; preds = %.lr.ph.i
   %63 = load i32, ptr @ett_assoc_info_version, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef readonly %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.412, i32 noundef 2, ptr noundef %9, ptr noundef %10, ptr noundef nonnull @hf_dcm_info_version, i32 noundef %63)
+  call fastcc void @dissect_dcm_assoc_item.argprom(ptr noundef %0, ptr noundef readonly %1, ptr noundef %41, i32 noundef %.02.i, ptr noundef nonnull @.str.412, i32 noundef 2, ptr noundef %9, ptr noundef %10, ptr noundef nonnull @hf_dcm_info_version, i32 noundef %63)
   %.not.i = icmp eq i32 %.0831.i, 0
   br i1 %.not.i, label %64, label %65
 
@@ -10876,16 +10876,16 @@ dissect_dcm_assoc_async_negotiation.exit.i:       ; preds = %262, %251, %222, %2
   %.pn.i = zext i16 %50 to i32
   %.1.i = add i32 %51, %.pn.i
   %276 = icmp ult i32 %.1.i, %33
-  br i1 %276, label %.lr.ph.i, label %dissect_dcm_userinfo.exit, !llvm.loop !22
+  br i1 %276, label %.lr.ph.i, label %dissect_dcm_userinfo.argprom.exit, !llvm.loop !22
 
-dissect_dcm_userinfo.exit:                        ; preds = %dissect_dcm_assoc_async_negotiation.exit.i, %32
+dissect_dcm_userinfo.argprom.exit:                ; preds = %dissect_dcm_assoc_async_negotiation.exit.i, %32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %277
 
-277:                                              ; preds = %26, %dissect_dcm_userinfo.exit, %31, %30, %28
+277:                                              ; preds = %26, %dissect_dcm_userinfo.argprom.exit, %31, %30, %28
   %.1 = add i32 %27, %22
   %278 = icmp ult i32 %.1, %13
   br i1 %278, label %18, label %.loopexit, !llvm.loop !23
@@ -10900,7 +10900,7 @@ declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 1, 4) %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef readonly %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc void @dissect_dcm_assoc_item.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 1, 4) %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef readonly %8, i32 noundef %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
@@ -10986,7 +10986,7 @@ default.unreachable1:                             ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcm_pctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4, i32 noundef range(i32 1, 65536) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc void @dissect_dcm_pctx.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4, i32 noundef range(i32 1, 65536) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -11071,7 +11071,7 @@ dcm_state_pctx_get.exit:                          ; preds = %27, %dcm_state_pctx
 
 switch.lookup:                                    ; preds = %50
   %53 = zext nneg i8 %.fr7 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_dcm_pctx, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_dcm_pctx.argprom, i64 0, i64 %53
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %54
 
@@ -11115,7 +11115,7 @@ switch.lookup:                                    ; preds = %50
 
 70:                                               ; preds = %.lr.ph.split.us
   %71 = load i32, ptr @ett_assoc_pctx_xfer, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %.01022.us, ptr noundef nonnull @.str.397, i32 noundef 1, ptr noundef %11, ptr noundef %12, ptr noundef nonnull @hf_dcm_pctx_xfer_syntax, i32 noundef %71)
+  call fastcc void @dissect_dcm_assoc_item.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %.01022.us, ptr noundef nonnull @.str.397, i32 noundef 1, ptr noundef %11, ptr noundef %12, ptr noundef nonnull @hf_dcm_pctx_xfer_syntax, i32 noundef %71)
   %72 = load ptr, ptr %11, align 8
   %73 = load ptr, ptr %12, align 8
   %74 = icmp eq ptr %72, null
@@ -11182,7 +11182,7 @@ dcm_set_syntax.exit.us:                           ; preds = %.sink.split.i.us, %
 
 106:                                              ; preds = %.lr.ph.split.us
   %107 = load i32, ptr @ett_assoc_pctx_abss, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %.01022.us, ptr noundef nonnull @.str.396, i32 noundef 1, ptr noundef %9, ptr noundef %10, ptr noundef nonnull @hf_dcm_pctx_abss_syntax, i32 noundef %107)
+  call fastcc void @dissect_dcm_assoc_item.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %.01022.us, ptr noundef nonnull @.str.396, i32 noundef 1, ptr noundef %9, ptr noundef %10, ptr noundef nonnull @hf_dcm_pctx_abss_syntax, i32 noundef %107)
   %108 = add i32 %.0973.us, 1
   br label %109
 
@@ -11209,13 +11209,13 @@ dcm_set_syntax.exit.us:                           ; preds = %.sink.split.i.us, %
 
 115:                                              ; preds = %.lr.ph.split
   %116 = load i32, ptr @ett_assoc_pctx_abss, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %.01022, ptr noundef nonnull @.str.396, i32 noundef 1, ptr noundef %9, ptr noundef %10, ptr noundef nonnull @hf_dcm_pctx_abss_syntax, i32 noundef %116)
+  call fastcc void @dissect_dcm_assoc_item.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %.01022, ptr noundef nonnull @.str.396, i32 noundef 1, ptr noundef %9, ptr noundef %10, ptr noundef nonnull @hf_dcm_pctx_abss_syntax, i32 noundef %116)
   %117 = add i32 %.0973, 1
   br label %120
 
 dcm_set_syntax.exit:                              ; preds = %.lr.ph.split
   %118 = load i32, ptr @ett_assoc_pctx_xfer, align 4
-  call fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %.01022, ptr noundef nonnull @.str.397, i32 noundef 1, ptr noundef %11, ptr noundef %12, ptr noundef nonnull @hf_dcm_pctx_xfer_syntax, i32 noundef %118)
+  call fastcc void @dissect_dcm_assoc_item.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %21, i32 noundef %.01022, ptr noundef nonnull @.str.397, i32 noundef 1, ptr noundef %11, ptr noundef %12, ptr noundef nonnull @hf_dcm_pctx_xfer_syntax, i32 noundef %118)
   %119 = add i32 %.04, 1
   br label %120
 

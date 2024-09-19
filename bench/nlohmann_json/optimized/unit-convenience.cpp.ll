@@ -1270,155 +1270,155 @@ invoke.cont239:                                   ; preds = %invoke.cont236
   br i1 %call240, label %if.then241, label %if.end354
 
 if.then241:                                       ; preds = %invoke.cont239
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25)
           to label %invoke.cont242 unwind label %lpad238
 
 invoke.cont242:                                   ; preds = %if.then241
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27)
           to label %invoke.cont243 unwind label %lpad238
 
 invoke.cont243:                                   ; preds = %invoke.cont242
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29)
           to label %invoke.cont244 unwind label %lpad238
 
 invoke.cont244:                                   ; preds = %invoke.cont243
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31)
           to label %invoke.cont245 unwind label %lpad238
 
 invoke.cont245:                                   ; preds = %invoke.cont244
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33)
           to label %invoke.cont246 unwind label %lpad238
 
 invoke.cont246:                                   ; preds = %invoke.cont245
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35)
           to label %invoke.cont247 unwind label %lpad238
 
 invoke.cont247:                                   ; preds = %invoke.cont246
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37)
           to label %invoke.cont248 unwind label %lpad238
 
 invoke.cont248:                                   ; preds = %invoke.cont247
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39)
           to label %invoke.cont249 unwind label %lpad238
 
 invoke.cont249:                                   ; preds = %invoke.cont248
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41)
           to label %invoke.cont250 unwind label %lpad238
 
 invoke.cont250:                                   ; preds = %invoke.cont249
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43)
           to label %invoke.cont251 unwind label %lpad238
 
 invoke.cont251:                                   ; preds = %invoke.cont250
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45)
           to label %invoke.cont252 unwind label %lpad238
 
 invoke.cont252:                                   ; preds = %invoke.cont251
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47)
           to label %invoke.cont253 unwind label %lpad238
 
 invoke.cont253:                                   ; preds = %invoke.cont252
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49)
           to label %invoke.cont254 unwind label %lpad238
 
 invoke.cont254:                                   ; preds = %invoke.cont253
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51)
           to label %invoke.cont255 unwind label %lpad238
 
 invoke.cont255:                                   ; preds = %invoke.cont254
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29)
           to label %invoke.cont256 unwind label %lpad238
 
 invoke.cont256:                                   ; preds = %invoke.cont255
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37)
           to label %invoke.cont257 unwind label %lpad238
 
 invoke.cont257:                                   ; preds = %invoke.cont256
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33)
           to label %invoke.cont258 unwind label %lpad238
 
 invoke.cont258:                                   ; preds = %invoke.cont257
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53)
           to label %invoke.cont259 unwind label %lpad238
 
 invoke.cont259:                                   ; preds = %invoke.cont258
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31)
           to label %invoke.cont260 unwind label %lpad238
 
 invoke.cont260:                                   ; preds = %invoke.cont259
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35)
           to label %invoke.cont261 unwind label %lpad238
 
 invoke.cont261:                                   ; preds = %invoke.cont260
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55)
           to label %invoke.cont262 unwind label %lpad238
 
 invoke.cont262:                                   ; preds = %invoke.cont261
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57)
           to label %invoke.cont263 unwind label %lpad238
 
 invoke.cont263:                                   ; preds = %invoke.cont262
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59)
           to label %invoke.cont264 unwind label %lpad238
 
 invoke.cont264:                                   ; preds = %invoke.cont263
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61)
           to label %invoke.cont265 unwind label %lpad238
 
 invoke.cont265:                                   ; preds = %invoke.cont264
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63)
           to label %invoke.cont266 unwind label %lpad238
 
 invoke.cont266:                                   ; preds = %invoke.cont265
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65)
           to label %invoke.cont267 unwind label %lpad238
 
 invoke.cont267:                                   ; preds = %invoke.cont266
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67)
           to label %invoke.cont268 unwind label %lpad238
 
 invoke.cont268:                                   ; preds = %invoke.cont267
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69)
           to label %invoke.cont269 unwind label %lpad238
 
 invoke.cont269:                                   ; preds = %invoke.cont268
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71)
           to label %invoke.cont270 unwind label %lpad238
 
 invoke.cont270:                                   ; preds = %invoke.cont269
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73)
           to label %invoke.cont271 unwind label %lpad238
 
 invoke.cont271:                                   ; preds = %invoke.cont270
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75)
           to label %invoke.cont272 unwind label %lpad238
 
 invoke.cont272:                                   ; preds = %invoke.cont271
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77)
           to label %invoke.cont273 unwind label %lpad238
 
 invoke.cont273:                                   ; preds = %invoke.cont272
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79)
           to label %invoke.cont274 unwind label %lpad238
 
 invoke.cont274:                                   ; preds = %invoke.cont273
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81)
           to label %invoke.cont275 unwind label %lpad238
 
 invoke.cont275:                                   ; preds = %invoke.cont274
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83)
           to label %invoke.cont276 unwind label %lpad238
 
 invoke.cont276:                                   ; preds = %invoke.cont275
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85)
           to label %invoke.cont277 unwind label %lpad238
 
 invoke.cont277:                                   ; preds = %invoke.cont276
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87)
           to label %invoke.cont278 unwind label %lpad238
 
 invoke.cont278:                                   ; preds = %invoke.cont277
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89)
           to label %do.body unwind label %lpad238
 
 do.body:                                          ; preds = %invoke.cont278
@@ -1441,7 +1441,7 @@ invoke.cont284:                                   ; preds = %if.then282
 
 invoke.cont286:                                   ; preds = %invoke.cont284
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp283) #20
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.93, ptr noundef nonnull @.str)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.93, ptr noundef nonnull @.str)
           to label %try.cont unwind label %lpad288
 
 ehcleanup232:                                     ; preds = %lpad2, %lpad.i.i.i.i, %ehcleanup230, %ehcleanup207, %ehcleanup184, %ehcleanup161, %ehcleanup138, %ehcleanup115, %ehcleanup92, %ehcleanup69, %ehcleanup46, %ehcleanup23
@@ -1560,7 +1560,7 @@ invoke.cont318:                                   ; preds = %if.then315
 
 invoke.cont320:                                   ; preds = %invoke.cont318
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp317) #20
-  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str)
+  invoke fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str)
           to label %try.cont343 unwind label %lpad322
 
 lpad319:                                          ; preds = %invoke.cont318
@@ -2504,7 +2504,7 @@ eh.resume:                                        ; preds = %lpad15, %lpad
 declare void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b(ptr noundef %original, ptr noundef %escaped) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113check_escapedEPKcS1_b.argelim(ptr noundef %original, ptr noundef %escaped) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %escaped.addr = alloca ptr, align 8
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8

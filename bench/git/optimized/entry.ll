@@ -535,13 +535,13 @@ if.end10:                                         ; preds = %if.end3
   store i64 0, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 8), align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %4, @strbuf_slopbuf
-  br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
+  br i1 %cmp3.not.i, label %strbuf_setlen.argprom.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end10
   store i8 0, ptr %4, align 1
-  br label %strbuf_setlen.exit
+  br label %strbuf_setlen.argprom.exit
 
-strbuf_setlen.exit:                               ; preds = %if.end10, %if.then4.i
+strbuf_setlen.argprom.exit:                       ; preds = %if.end10, %if.then4.i
   %base_dir = getelementptr inbounds i8, ptr %state, i64 8
   %5 = load ptr, ptr %base_dir, align 8
   %base_dir_len = getelementptr inbounds i8, ptr %state, i64 16
@@ -563,8 +563,8 @@ strbuf_setlen.exit:                               ; preds = %if.end10, %if.then4
   %cmp8.i = icmp sgt i32 %conv14, 0
   br i1 %cmp8.i, label %land.rhs.i, label %while.end.i
 
-land.rhs.i:                                       ; preds = %strbuf_setlen.exit, %while.body.i
-  %slash.09.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr.i, %strbuf_setlen.exit ]
+land.rhs.i:                                       ; preds = %strbuf_setlen.argprom.exit, %while.body.i
+  %slash.09.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr.i, %strbuf_setlen.argprom.exit ]
   %11 = load i8, ptr %slash.09.i, align 1
   %cmp1.not.i = icmp eq i8 %11, 47
   br i1 %cmp1.not.i, label %while.end.i, label %while.body.i
@@ -574,8 +574,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   %cmp.i = icmp ult ptr %8, %incdec.ptr.i
   br i1 %cmp.i, label %land.rhs.i, label %while.end.i, !llvm.loop !9
 
-while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %strbuf_setlen.exit
-  %slash.0.lcssa.i = phi ptr [ %add.ptr.i, %strbuf_setlen.exit ], [ %slash.09.i, %land.rhs.i ], [ %incdec.ptr.i, %while.body.i ]
+while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %strbuf_setlen.argprom.exit
+  %slash.0.lcssa.i = phi ptr [ %add.ptr.i, %strbuf_setlen.argprom.exit ], [ %slash.09.i, %land.rhs.i ], [ %incdec.ptr.i, %while.body.i ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %slash.0.lcssa.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -694,7 +694,7 @@ if.then86:                                        ; preds = %if.end81
   br i1 %cmp89, label %return, label %if.end92
 
 if.end92:                                         ; preds = %if.then86
-  call fastcc void @remove_subtree()
+  call fastcc void @remove_subtree.argprom()
   br label %if.end109
 
 if.else93:                                        ; preds = %if.end81
@@ -923,21 +923,21 @@ if.then.i.i:                                      ; preds = %land.lhs.true
   %cond.i.i = select i1 %cmp.not.not.i.i, ptr @.str.23, ptr @.str.22
   %call.i.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef %path, i64 noundef 25, ptr noundef nonnull @.str.21, ptr noundef nonnull %cond.i.i) #14
   %call2.i.i = call i32 @mkstemp64(ptr noundef %path) #14
-  br label %open_output_fd.exit.i
+  br label %open_output_fd.argprom.exit.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true
   %2 = and i32 %ce.val.i, 61504
   %tobool.not.i.not.i.i = icmp eq i32 %2, 32832
   %cond.i.i.i = select i1 %tobool.not.i.not.i.i, i32 511, i32 438
   %call.i.i.i = call noundef i32 (ptr, i32, ...) @open64(ptr noundef readonly %path, i32 noundef 193, i32 noundef %cond.i.i.i) #14
-  br label %open_output_fd.exit.i
+  br label %open_output_fd.argprom.exit.i
 
-open_output_fd.exit.i:                            ; preds = %if.else.i.i, %if.then.i.i
+open_output_fd.argprom.exit.i:                    ; preds = %if.else.i.i, %if.then.i.i
   %retval.0.i.i = phi i32 [ %call2.i.i, %if.then.i.i ], [ %call.i.i.i, %if.else.i.i ]
   %cmp.i = icmp slt i32 %retval.0.i.i, 0
   br i1 %cmp.i, label %sw.bb25, label %if.end.i
 
-if.end.i:                                         ; preds = %open_output_fd.exit.i
+if.end.i:                                         ; preds = %open_output_fd.argprom.exit.i
   %call1.i = call i32 @stream_blob_to_fd(i32 noundef %retval.0.i.i, ptr noundef nonnull %oid, ptr noundef nonnull %call, i32 noundef 1) #14
   %refresh_cache.i.i = getelementptr inbounds i8, ptr %state, i64 120
   %bf.load.i.i = load i8, ptr %refresh_cache.i.i, align 8
@@ -1021,8 +1021,8 @@ if.then21:                                        ; preds = %if.end18
   %call22 = call i32 (ptr, ...) @error_errno(ptr noundef nonnull @.str.14, ptr noundef %path) #14
   br label %return
 
-sw.bb25:                                          ; preds = %if.then5.i, %open_output_fd.exit.i, %if.then, %if.end6
-  %fstat_done.0101 = phi i32 [ 0, %if.end6 ], [ 0, %if.then ], [ %retval.0.i10.i, %if.then5.i ], [ 0, %open_output_fd.exit.i ]
+sw.bb25:                                          ; preds = %if.then5.i, %open_output_fd.argprom.exit.i, %if.then, %if.end6
+  %fstat_done.0101 = phi i32 [ 0, %if.end6 ], [ 0, %if.then ], [ %retval.0.i10.i, %if.then5.i ], [ 0, %open_output_fd.argprom.exit.i ]
   %tobool26.not = icmp eq ptr %1, null
   br i1 %tobool26.not, label %if.else, label %land.lhs.true27
 
@@ -1108,9 +1108,9 @@ write_file_entry:                                 ; preds = %if.then46, %if.else
   %new_blob.0 = phi ptr [ %call.i76, %if.else60 ], [ %call67, %if.then66 ], [ %new_blob.1110116, %if.then46 ], [ %call.i, %if.end14 ]
   %ce.val = load i32, ptr %ce_mode, align 4
   %tobool.not.i83 = icmp eq i32 %to_tempfile, 0
-  br i1 %tobool.not.i83, label %open_output_fd.exit, label %open_output_fd.exit.thread
+  br i1 %tobool.not.i83, label %open_output_fd.argprom.exit, label %open_output_fd.argprom.exit.thread
 
-open_output_fd.exit:                              ; preds = %write_file_entry
+open_output_fd.argprom.exit:                      ; preds = %write_file_entry
   %15 = and i32 %ce.val, 61504
   %tobool.not.i.not.i = icmp eq i32 %15, 32832
   %cond.i.i87 = select i1 %tobool.not.i.not.i, i32 511, i32 438
@@ -1118,7 +1118,7 @@ open_output_fd.exit:                              ; preds = %write_file_entry
   %cmp70 = icmp slt i32 %call.i.i88, 0
   br i1 %cmp70, label %if.then71, label %if.then77
 
-open_output_fd.exit.thread:                       ; preds = %write_file_entry
+open_output_fd.argprom.exit.thread:               ; preds = %write_file_entry
   %and.i = and i32 %ce.val, 61440
   %cmp.not.not.i = icmp eq i32 %and.i, 32768
   %cond.i = select i1 %cmp.not.not.i, ptr @.str.23, ptr @.str.22
@@ -1127,16 +1127,16 @@ open_output_fd.exit.thread:                       ; preds = %write_file_entry
   %cmp70119 = icmp slt i32 %call2.i, 0
   br i1 %cmp70119, label %if.then71, label %if.end74.thread
 
-if.end74.thread:                                  ; preds = %open_output_fd.exit.thread
+if.end74.thread:                                  ; preds = %open_output_fd.argprom.exit.thread
   %call75122 = call i64 @write_in_full(i32 noundef %call2.i, ptr noundef %new_blob.0, i64 noundef %size.0) #14
   br label %if.end79
 
-if.then71:                                        ; preds = %open_output_fd.exit.thread, %open_output_fd.exit
+if.then71:                                        ; preds = %open_output_fd.argprom.exit.thread, %open_output_fd.argprom.exit
   call void @free(ptr noundef %new_blob.0) #14
   %call72 = call i32 (ptr, ...) @error_errno(ptr noundef nonnull @.str.15, ptr noundef %path) #14
   br label %return
 
-if.then77:                                        ; preds = %open_output_fd.exit
+if.then77:                                        ; preds = %open_output_fd.argprom.exit
   %call75 = call i64 @write_in_full(i32 noundef %call.i.i88, ptr noundef %new_blob.0, i64 noundef %size.0) #14
   %refresh_cache.i = getelementptr inbounds i8, ptr %state, i64 120
   %bf.load.i = load i8, ptr %refresh_cache.i, align 8
@@ -1381,7 +1381,7 @@ for.end:                                          ; preds = %for.inc, %if.then, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @remove_subtree() unnamed_addr #0 {
+define internal fastcc void @remove_subtree.argprom() unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
@@ -1406,23 +1406,23 @@ if.then:                                          ; preds = %entry
   tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.26, ptr noundef %2) #16
   unreachable
 
-while.body:                                       ; preds = %while.body.lr.ph, %strbuf_setlen.exit
-  %call24 = phi ptr [ %call22, %while.body.lr.ph ], [ %call2, %strbuf_setlen.exit ]
+while.body:                                       ; preds = %while.body.lr.ph, %strbuf_setlen.argprom.exit
+  %call24 = phi ptr [ %call22, %while.body.lr.ph ], [ %call2, %strbuf_setlen.argprom.exit ]
   %3 = load i64, ptr @checkout_entry_ca.path, align 8
   %tobool.not.i.i = icmp eq i64 %3, 0
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 8), align 8
   %.neg.i = add i64 %4, 1
   %tobool.not1.i = icmp eq i64 %3, %.neg.i
   %tobool.not.i = select i1 %tobool.not.i.i, i1 true, i1 %tobool.not1.i
-  br i1 %tobool.not.i, label %if.then.i, label %strbuf_addch.exit
+  br i1 %tobool.not.i, label %if.then.i, label %strbuf_addch.argprom.exit
 
 if.then.i:                                        ; preds = %while.body
   tail call void @strbuf_grow(ptr noundef nonnull @checkout_entry_ca.path, i64 noundef 1) #14
   %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 8), align 8
   %.pre2.i = add i64 %.pre.i, 1
-  br label %strbuf_addch.exit
+  br label %strbuf_addch.argprom.exit
 
-strbuf_addch.exit:                                ; preds = %while.body, %if.then.i
+strbuf_addch.argprom.exit:                        ; preds = %while.body, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre2.i, %if.then.i ], [ %.neg.i, %while.body ]
   %5 = phi i64 [ %.pre.i, %if.then.i ], [ %4, %while.body ]
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
@@ -1441,19 +1441,19 @@ strbuf_addch.exit:                                ; preds = %while.body, %if.the
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end9, label %if.then7
 
-if.then7:                                         ; preds = %strbuf_addch.exit
+if.then7:                                         ; preds = %strbuf_addch.argprom.exit
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.27, ptr noundef %10) #16
   unreachable
 
-if.end9:                                          ; preds = %strbuf_addch.exit
+if.end9:                                          ; preds = %strbuf_addch.argprom.exit
   %11 = load i32, ptr %st_mode, align 8
   %and = and i32 %11, 61440
   %cmp10 = icmp eq i32 %and, 16384
   br i1 %cmp10, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.end9
-  tail call fastcc void @remove_subtree()
+  tail call fastcc void @remove_subtree.argprom()
   br label %if.end19
 
 if.else:                                          ; preds = %if.end9
@@ -1481,19 +1481,19 @@ if.end.i:                                         ; preds = %if.end19
   store i64 %conv20, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 8), align 8
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %15, @strbuf_slopbuf
-  br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
+  br i1 %cmp3.not.i, label %strbuf_setlen.argprom.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %arrayidx.i15 = getelementptr inbounds i8, ptr %15, i64 %conv20
   store i8 0, ptr %arrayidx.i15, align 1
-  br label %strbuf_setlen.exit
+  br label %strbuf_setlen.argprom.exit
 
-strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4.i
+strbuf_setlen.argprom.exit:                       ; preds = %if.end.i, %if.then4.i
   %call2 = tail call ptr @readdir_skip_dot_and_dotdot(ptr noundef nonnull %call) #14
   %cmp.not = icmp eq ptr %call2, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !13
 
-while.end:                                        ; preds = %strbuf_setlen.exit, %while.cond.preheader
+while.end:                                        ; preds = %strbuf_setlen.argprom.exit, %while.cond.preheader
   %call21 = tail call i32 @closedir(ptr noundef nonnull %call)
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @checkout_entry_ca.path, i64 16), align 8
   %call23 = tail call i32 @lstat_cache_aware_rmdir(ptr noundef %16) #14

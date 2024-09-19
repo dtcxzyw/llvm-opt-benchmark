@@ -1569,24 +1569,24 @@ define hidden noundef ptr @pbl_create_field_node(ptr noundef %0, i32 noundef %1,
   %30 = getelementptr inbounds i8, ptr %9, i64 92
   store i32 %29, ptr %30, align 4
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %pbl_get_option_by_name.exit.thread, label %31
+  br i1 %.not.i, label %pbl_get_option_by_name.argprom.exit.thread, label %31
 
 31:                                               ; preds = %7
   %32 = getelementptr inbounds i8, ptr %6, i64 40
   %33 = load ptr, ptr %32, align 8
   %.not7.i = icmp eq ptr %33, null
-  br i1 %.not7.i, label %pbl_get_option_by_name.exit.thread, label %pbl_get_option_by_name.exit
+  br i1 %.not7.i, label %pbl_get_option_by_name.argprom.exit.thread, label %pbl_get_option_by_name.argprom.exit
 
-pbl_get_option_by_name.exit:                      ; preds = %31
+pbl_get_option_by_name.argprom.exit:              ; preds = %31
   %34 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %33, ptr noundef nonnull @.str.9) #14
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %pbl_get_option_by_name.exit.thread, label %35
+  br i1 %.not, label %pbl_get_option_by_name.argprom.exit.thread, label %35
 
-35:                                               ; preds = %pbl_get_option_by_name.exit
+35:                                               ; preds = %pbl_get_option_by_name.argprom.exit
   %36 = getelementptr inbounds i8, ptr %34, i64 64
   %37 = load ptr, ptr %36, align 8
   %.not40 = icmp eq ptr %37, null
-  br i1 %.not40, label %pbl_get_option_by_name.exit.thread, label %38
+  br i1 %.not40, label %pbl_get_option_by_name.argprom.exit.thread, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %9, i64 96
@@ -1594,7 +1594,7 @@ pbl_get_option_by_name.exit:                      ; preds = %31
   %40 = tail call noalias ptr @g_strdup(ptr noundef nonnull %37) #14
   %41 = getelementptr inbounds i8, ptr %9, i64 104
   store ptr %40, ptr %41, align 8
-  switch i32 %spec.store.select.i, label %pbl_get_option_by_name.exit.thread [
+  switch i32 %spec.store.select.i, label %pbl_get_option_by_name.argprom.exit.thread [
     i32 5, label %42
     i32 17, label %42
     i32 15, label %42
@@ -1615,24 +1615,24 @@ pbl_get_option_by_name.exit:                      ; preds = %31
 42:                                               ; preds = %38, %38, %38
   %43 = getelementptr inbounds i8, ptr %9, i64 120
   %44 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %40, ptr noundef nonnull @.str.10, ptr noundef nonnull %43) #14
-  br label %pbl_get_option_by_name.exit.thread
+  br label %pbl_get_option_by_name.argprom.exit.thread
 
 45:                                               ; preds = %38, %38, %38
   %46 = tail call i64 @g_ascii_strtoll(ptr noundef %40, ptr noundef null, i32 noundef 10) #14
   %47 = getelementptr inbounds i8, ptr %9, i64 120
   store i64 %46, ptr %47, align 8
-  br label %pbl_get_option_by_name.exit.thread
+  br label %pbl_get_option_by_name.argprom.exit.thread
 
 48:                                               ; preds = %38, %38
   %49 = getelementptr inbounds i8, ptr %9, i64 120
   %50 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %40, ptr noundef nonnull @.str.11, ptr noundef nonnull %49) #14
-  br label %pbl_get_option_by_name.exit.thread
+  br label %pbl_get_option_by_name.argprom.exit.thread
 
 51:                                               ; preds = %38, %38
   %52 = tail call i64 @g_ascii_strtoull(ptr noundef %40, ptr noundef null, i32 noundef 10) #14
   %53 = getelementptr inbounds i8, ptr %9, i64 120
   store i64 %52, ptr %53, align 8
-  br label %pbl_get_option_by_name.exit.thread
+  br label %pbl_get_option_by_name.argprom.exit.thread
 
 54:                                               ; preds = %38
   %55 = tail call i32 @g_strcmp0(ptr noundef %40, ptr noundef nonnull @.str.5) #14
@@ -1640,20 +1640,20 @@ pbl_get_option_by_name.exit:                      ; preds = %31
   %57 = zext i1 %56 to i32
   %58 = getelementptr inbounds i8, ptr %9, i64 120
   store i32 %57, ptr %58, align 8
-  br label %pbl_get_option_by_name.exit.thread
+  br label %pbl_get_option_by_name.argprom.exit.thread
 
 59:                                               ; preds = %38
   %60 = tail call double @g_ascii_strtod(ptr noundef %40, ptr noundef null) #14
   %61 = getelementptr inbounds i8, ptr %9, i64 120
   store double %60, ptr %61, align 8
-  br label %pbl_get_option_by_name.exit.thread
+  br label %pbl_get_option_by_name.argprom.exit.thread
 
 62:                                               ; preds = %38
   %63 = tail call double @g_ascii_strtod(ptr noundef %40, ptr noundef null) #14
   %64 = fptrunc double %63 to float
   %65 = getelementptr inbounds i8, ptr %9, i64 120
   store float %64, ptr %65, align 8
-  br label %pbl_get_option_by_name.exit.thread
+  br label %pbl_get_option_by_name.argprom.exit.thread
 
 66:                                               ; preds = %38, %38
   %67 = getelementptr inbounds i8, ptr %9, i64 112
@@ -1774,9 +1774,9 @@ protobuf_string_unescape.exit:                    ; preds = %66, %68, %.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %109 = getelementptr inbounds i8, ptr %9, i64 120
   store ptr %.024.i, ptr %109, align 8
-  br label %pbl_get_option_by_name.exit.thread
+  br label %pbl_get_option_by_name.argprom.exit.thread
 
-pbl_get_option_by_name.exit.thread:               ; preds = %7, %31, %42, %45, %48, %51, %54, %59, %62, %protobuf_string_unescape.exit, %38, %35, %pbl_get_option_by_name.exit
+pbl_get_option_by_name.argprom.exit.thread:       ; preds = %7, %31, %42, %45, %48, %51, %54, %59, %62, %protobuf_string_unescape.exit, %38, %35, %pbl_get_option_by_name.argprom.exit
   ret ptr %9
 }
 

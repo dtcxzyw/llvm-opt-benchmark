@@ -697,7 +697,7 @@ define internal void @_ZN5clang4ento5check4Bind10_checkBindIN12_GLOBAL__N_126Und
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12)
   %13 = icmp eq i8 %4, 0
-  br i1 %13, label %14, label %_ZNK12_GLOBAL__N_126UndefinedAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit
+  br i1 %13, label %14, label %_ZNK12_GLOBAL__N_126UndefinedAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -730,7 +730,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %29
   %32 = extractvalue { ptr, i64 } %30, 0
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %32, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
   %33 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %33, label %_ZNK12_GLOBAL__N_126UndefinedAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread19.i
+  br i1 %33, label %_ZNK12_GLOBAL__N_126UndefinedAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread19.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread19.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %29, %14
   %34 = load ptr, ptr %15, align 8
@@ -762,7 +762,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i: ;
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds = %42, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %.not55.i = icmp eq ptr %40, null
-  br i1 %.not55.i, label %_ZNK12_GLOBAL__N_126UndefinedAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit, label %43
+  br i1 %.not55.i, label %_ZNK12_GLOBAL__N_126UndefinedAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit, label %43
 
 43:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
   %44 = getelementptr inbounds i8, ptr %11, i64 24
@@ -1036,13 +1036,13 @@ _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED
   %189 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
   %190 = load ptr, ptr %11, align 8
   %191 = icmp eq ptr %190, %44
-  br i1 %191, label %_ZNK12_GLOBAL__N_126UndefinedAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit, label %192
+  br i1 %191, label %_ZNK12_GLOBAL__N_126UndefinedAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit, label %192
 
 192:                                              ; preds = %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i
   call void @free(ptr noundef %190) #18
-  br label %_ZNK12_GLOBAL__N_126UndefinedAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit
+  br label %_ZNK12_GLOBAL__N_126UndefinedAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit
 
-_ZNK12_GLOBAL__N_126UndefinedAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit: ; preds = %7, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i, %192
+_ZNK12_GLOBAL__N_126UndefinedAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit: ; preds = %7, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i, %192
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12)
   ret void

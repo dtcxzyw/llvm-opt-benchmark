@@ -10818,9 +10818,9 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i: ; pre
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i, %arraydestroy.body.i.i
   store ptr null, ptr %arraydestroy.element.i.i, align 8
   %arraydestroy.done.i.i = icmp eq ptr %arraydestroy.element.i.i, %arg_convertibles.i.i
-  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit, label %arraydestroy.body.i.i
+  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argprom.exit, label %arraydestroy.body.i.i
 
-_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
+_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argprom.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
   %data_.i = getelementptr inbounds i8, ptr %trace_event_unique_tracer214, i64 8
   store ptr %trace_event_unique_category_group_enabled214.0, ptr %data_.i, align 8
@@ -10831,7 +10831,7 @@ _ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit: ; preds = %_ZNSt10unique_pt
   store ptr %data_.i, ptr %trace_event_unique_tracer214, align 8
   br label %if.end6
 
-if.end6:                                          ; preds = %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit, %if.end
+if.end6:                                          ; preds = %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argprom.exit, %if.end
   %binding_data_store_ = getelementptr inbounds i8, ptr %this, i64 704
   br label %for.body
 
@@ -11202,17 +11202,17 @@ for.end.loopexit.i.i:                             ; preds = %for.inc.i.i
 for.end.i.i:                                      ; preds = %for.end.loopexit.i.i, %if.end
   %29 = phi ptr [ %.pre.i.i, %for.end.loopexit.i.i ], [ %18, %if.end ]
   %tobool.not.i.i.i.i.i = icmp eq ptr %29, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZNK4node5Realm17ForEachBaseObjectIZNS0_25VerifyNoStrongBaseObjectsEvE3$_0EEvOT_.exit", label %if.then.i.i.i.i.i2
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZNK4node5Realm17ForEachBaseObjectIZNS0_25VerifyNoStrongBaseObjectsEvE3$_0EEvOT_.argprom.exit", label %if.then.i.i.i.i.i2
 
 if.then.i.i.i.i.i2:                               ; preds = %for.end.i.i
   call void @_ZdlPv(ptr noundef nonnull %29) #21
-  br label %"_ZNK4node5Realm17ForEachBaseObjectIZNS0_25VerifyNoStrongBaseObjectsEvE3$_0EEvOT_.exit"
+  br label %"_ZNK4node5Realm17ForEachBaseObjectIZNS0_25VerifyNoStrongBaseObjectsEvE3$_0EEvOT_.argprom.exit"
 
-"_ZNK4node5Realm17ForEachBaseObjectIZNS0_25VerifyNoStrongBaseObjectsEvE3$_0EEvOT_.exit": ; preds = %for.end.i.i, %if.then.i.i.i.i.i2
+"_ZNK4node5Realm17ForEachBaseObjectIZNS0_25VerifyNoStrongBaseObjectsEvE3$_0EEvOT_.argprom.exit": ; preds = %for.end.i.i, %if.then.i.i.i.i.i2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %callbacks.i.i)
   br label %return
 
-return:                                           ; preds = %if.end8.sink.split.i.i.i.i, %_ZN4node11Environment7optionsEv.exit, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit, %"_ZNK4node5Realm17ForEachBaseObjectIZNS0_25VerifyNoStrongBaseObjectsEvE3$_0EEvOT_.exit"
+return:                                           ; preds = %if.end8.sink.split.i.i.i.i, %_ZN4node11Environment7optionsEv.exit, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit, %"_ZNK4node5Realm17ForEachBaseObjectIZNS0_25VerifyNoStrongBaseObjectsEvE3$_0EEvOT_.argprom.exit"
   ret void
 }
 

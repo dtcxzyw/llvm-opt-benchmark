@@ -798,10 +798,10 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %141, %144
   %163 = getelementptr inbounds i8, ptr %4, i64 808
   br label %164
 
-164:                                              ; preds = %.lr.ph61, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit"
-  %.058 = phi ptr [ %152, %.lr.ph61 ], [ %441, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit" ]
-  %.sroa.6.057 = phi ptr [ %2, %.lr.ph61 ], [ %.sroa.6.4, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit" ]
-  %.sroa.0.056 = phi ptr [ null, %.lr.ph61 ], [ %.sroa.0.4, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit" ]
+164:                                              ; preds = %.lr.ph61, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.argprom.exit"
+  %.058 = phi ptr [ %152, %.lr.ph61 ], [ %441, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.argprom.exit" ]
+  %.sroa.6.057 = phi ptr [ %2, %.lr.ph61 ], [ %.sroa.6.4, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.argprom.exit" ]
+  %.sroa.0.056 = phi ptr [ null, %.lr.ph61 ], [ %.sroa.0.4, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.argprom.exit" ]
   %165 = getelementptr inbounds ptr, ptr %.058, i64 %149
   %166 = icmp ult ptr %165, %3
   %167 = select i1 %166, ptr %165, ptr %3
@@ -838,7 +838,7 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %141, %144
   %191 = getelementptr inbounds i8, ptr %188, i64 %190
   %192 = getelementptr inbounds i8, ptr %191, i64 1
   %193 = icmp ult ptr %.058, %167
-  br i1 %193, label %.lr.ph.i23, label %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit"
+  br i1 %193, label %.lr.ph.i23, label %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.argprom.exit"
 
 .lr.ph.i23:                                       ; preds = %164, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i
   %.sroa.0.3 = phi ptr [ %.sroa.0.6, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.0.056, %164 ]
@@ -851,7 +851,7 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %141, %144
   %198 = lshr i64 %195, %197
   %199 = getelementptr inbounds i8, ptr %194, i64 %198
   %200 = icmp ult ptr %199, %192
-  br i1 %200, label %.lr.ph.i.i, label %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit"
+  br i1 %200, label %.lr.ph.i.i, label %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.argprom.exit"
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i23, %202
   %.011.i.i = phi ptr [ %203, %202 ], [ %199, %.lr.ph.i23 ]
@@ -862,7 +862,7 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %141, %144
 202:                                              ; preds = %.lr.ph.i.i
   %203 = getelementptr inbounds i8, ptr %.011.i.i, i64 1
   %exitcond.not.i.i = icmp eq ptr %.011.i.i, %191
-  br i1 %exitcond.not.i.i, label %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit", label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.argprom.exit", label %.lr.ph.i.i, !llvm.loop !12
 
 _ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i: ; preds = %.lr.ph.i.i
   %204 = icmp ult ptr %.011.i.i, %192
@@ -882,7 +882,7 @@ _ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i: ; preds = %.l
 _ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i: ; preds = %.lr.ph.i48thread-pre-split.i, %.lr.ph54, %_ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i
   %.09.i47.i = phi ptr [ %192, %_ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i ], [ %205, %.lr.ph.i48thread-pre-split.i ], [ %192, %.lr.ph54 ]
   %207 = icmp eq ptr %.011.i.i, %.09.i47.i
-  br i1 %207, label %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit", label %208
+  br i1 %207, label %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.argprom.exit", label %208
 
 208:                                              ; preds = %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i
   %209 = ptrtoint ptr %.011.i.i to i64
@@ -1260,9 +1260,9 @@ _ZN11PSCardTable19scan_obj_with_limitEP18PSPromotionManagerP7oopDescPP12HeapWord
 
 _ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i: ; preds = %439, %429
   %440 = icmp ult ptr %430, %167
-  br i1 %440, label %.lr.ph.i23, label %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit", !llvm.loop !15
+  br i1 %440, label %.lr.ph.i23, label %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.argprom.exit", !llvm.loop !15
 
-"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit": ; preds = %.lr.ph.i23, %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i, %202, %164
+"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.argprom.exit": ; preds = %.lr.ph.i23, %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i, %202, %164
   %.sroa.0.4 = phi ptr [ %.sroa.0.056, %164 ], [ %.sroa.0.3, %202 ], [ %.sroa.0.3, %.lr.ph.i23 ], [ %.sroa.0.6, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.0.3, %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i ]
   %.sroa.6.4 = phi ptr [ %.sroa.6.057, %164 ], [ %.sroa.6.3, %202 ], [ %.sroa.6.3, %.lr.ph.i23 ], [ %.sroa.6.6, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.6.3, %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10)
@@ -1270,7 +1270,7 @@ _ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i: ; preds = %439, %429
   %442 = icmp ult ptr %441, %3
   br i1 %442, label %164, label %._crit_edge62, !llvm.loop !16
 
-._crit_edge62:                                    ; preds = %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit", %._crit_edge
+._crit_edge62:                                    ; preds = %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.argprom.exit", %._crit_edge
   ret void
 }
 

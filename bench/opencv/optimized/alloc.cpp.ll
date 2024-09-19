@@ -101,7 +101,7 @@ _ZN2cvL26isAlignedAllocationEnabledEv.exit:       ; preds = %1, %5, %_ZN2cvL28re
   br i1 %.not12, label %17, label %29
 
 17:                                               ; preds = %.thread, %16
-  call fastcc void @_ZN2cvL16OutOfMemoryErrorEm(i64 noundef %0)
+  call fastcc void @_ZN2cvL16OutOfMemoryErrorEm.retelim(i64 noundef %0)
   unreachable
 
 18:                                               ; preds = %_ZN2cvL26isAlignedAllocationEnabledEv.exit
@@ -111,7 +111,7 @@ _ZN2cvL26isAlignedAllocationEnabledEv.exit:       ; preds = %1, %5, %_ZN2cvL28re
   br i1 %.not, label %21, label %22
 
 21:                                               ; preds = %18
-  tail call fastcc void @_ZN2cvL16OutOfMemoryErrorEm(i64 noundef %0)
+  tail call fastcc void @_ZN2cvL16OutOfMemoryErrorEm.retelim(i64 noundef %0)
   unreachable
 
 22:                                               ; preds = %18
@@ -133,7 +133,7 @@ _ZN2cvL26isAlignedAllocationEnabledEv.exit:       ; preds = %1, %5, %_ZN2cvL28re
 declare i32 @posix_memalign(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN2cvL16OutOfMemoryErrorEm(i64 noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL16OutOfMemoryErrorEm.retelim(i64 noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull @.str.3, i64 noundef %0)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -4, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__func__._ZN2cvL16OutOfMemoryErrorEm, ptr noundef nonnull @.str.4, i32 noundef 73) #16

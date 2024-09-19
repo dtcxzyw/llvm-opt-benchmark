@@ -1254,7 +1254,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
   %.not152 = icmp ult i32 %90, 16777216
   br i1 %.not152, label %._crit_edge141.split.us.us.us, label %.lr.ph140.us.us
 
-._crit_edge141.split.us.us.us:                    ; preds = %_ZL11pointInPolyiPKfS0_.exit.thread.us.us.us, %86
+._crit_edge141.split.us.us.us:                    ; preds = %_ZL11pointInPolyiPKfS0_.argprom.exit.thread.us.us.us, %86
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count168
   br i1 %exitcond169.not, label %._crit_edge145.split.us.us, label %86, !llvm.loop !26
@@ -1271,13 +1271,13 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
   %99 = zext nneg i32 %93 to i64
   br label %100
 
-100:                                              ; preds = %_ZL11pointInPolyiPKfS0_.exit.thread.us.us.us, %.lr.ph140.us.us
-  %indvars.iv162 = phi i64 [ %indvars.iv.next163, %_ZL11pointInPolyiPKfS0_.exit.thread.us.us.us ], [ %98, %.lr.ph140.us.us ]
+100:                                              ; preds = %_ZL11pointInPolyiPKfS0_.argprom.exit.thread.us.us.us, %.lr.ph140.us.us
+  %indvars.iv162 = phi i64 [ %indvars.iv.next163, %_ZL11pointInPolyiPKfS0_.argprom.exit.thread.us.us.us ], [ %98, %.lr.ph140.us.us ]
   %101 = load ptr, ptr %73, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 %indvars.iv162
   %103 = load i8, ptr %102, align 1
   %104 = icmp eq i8 %103, 0
-  br i1 %104, label %_ZL11pointInPolyiPKfS0_.exit.thread.us.us.us, label %105
+  br i1 %104, label %_ZL11pointInPolyiPKfS0_.argprom.exit.thread.us.us.us, label %105
 
 105:                                              ; preds = %100
   %106 = load ptr, ptr %74, align 8
@@ -1287,7 +1287,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
   %110 = icmp slt i32 %109, %52
   %111 = icmp sgt i32 %109, %63
   %or.cond103.us.us.us = select i1 %110, i1 true, i1 %111
-  br i1 %or.cond103.us.us.us, label %_ZL11pointInPolyiPKfS0_.exit.thread.us.us.us, label %.lr.ph.preheader.i.us.us.us
+  br i1 %or.cond103.us.us.us, label %_ZL11pointInPolyiPKfS0_.argprom.exit.thread.us.us.us, label %.lr.ph.preheader.i.us.us.us
 
 .lr.ph.preheader.i.us.us.us:                      ; preds = %105
   %112 = load float, ptr %39, align 4
@@ -1336,16 +1336,16 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
   %indvars.iv.next.i.us.us.us = add nuw nsw i64 %indvars.iv.i.us.us.us, 1
   %141 = trunc nuw nsw i64 %indvars.iv.i.us.us.us to i32
   %exitcond.not.i.us.us.us = icmp eq i64 %indvars.iv.next.i.us.us.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us.us.us, label %_ZL11pointInPolyiPKfS0_.exit.us.us.us, label %.lr.ph.i.us.us.us, !llvm.loop !27
+  br i1 %exitcond.not.i.us.us.us, label %_ZL11pointInPolyiPKfS0_.argprom.exit.us.us.us, label %.lr.ph.i.us.us.us, !llvm.loop !27
 
-_ZL11pointInPolyiPKfS0_.exit.us.us.us:            ; preds = %140
-  br i1 %.1.i.us.us.us, label %142, label %_ZL11pointInPolyiPKfS0_.exit.thread.us.us.us
+_ZL11pointInPolyiPKfS0_.argprom.exit.us.us.us:    ; preds = %140
+  br i1 %.1.i.us.us.us, label %142, label %_ZL11pointInPolyiPKfS0_.argprom.exit.thread.us.us.us
 
-142:                                              ; preds = %_ZL11pointInPolyiPKfS0_.exit.us.us.us
+142:                                              ; preds = %_ZL11pointInPolyiPKfS0_.argprom.exit.us.us.us
   store i8 %5, ptr %102, align 1
-  br label %_ZL11pointInPolyiPKfS0_.exit.thread.us.us.us
+  br label %_ZL11pointInPolyiPKfS0_.argprom.exit.thread.us.us.us
 
-_ZL11pointInPolyiPKfS0_.exit.thread.us.us.us:     ; preds = %142, %_ZL11pointInPolyiPKfS0_.exit.us.us.us, %105, %100
+_ZL11pointInPolyiPKfS0_.argprom.exit.thread.us.us.us: ; preds = %142, %_ZL11pointInPolyiPKfS0_.argprom.exit.us.us.us, %105, %100
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %143 = icmp ult i64 %indvars.iv.next163, %99
   br i1 %143, label %100, label %._crit_edge141.split.us.us.us, !llvm.loop !28

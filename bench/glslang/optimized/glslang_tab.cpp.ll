@@ -1894,7 +1894,7 @@ define noundef range(i32 0, 3) i32 @_Z7yyparsePN7glslang13TParseContextE(ptr nou
 
 300:                                              ; preds = %293
   %301 = icmp eq i32 %.5, 256
-  br i1 %301, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit, label %302
+  br i1 %301, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit, label %302
 
 302:                                              ; preds = %300
   %303 = icmp ult i32 %.5, 720
@@ -1964,7 +1964,7 @@ define noundef range(i32 0, 3) i32 @_Z7yyparsePN7glslang13TParseContextE(ptr nou
   %339 = load ptr, ptr @stderr, align 8
   %340 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %339, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8) #23
   %341 = load ptr, ptr @stderr, align 8
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK7YYSTYPEPN7glslang13TParseContextE(ptr noundef %341, i32 noundef %.03215)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK7YYSTYPEPN7glslang13TParseContextE.argprom(ptr noundef %341, i32 noundef %.03215)
   %342 = load ptr, ptr @stderr, align 8
   %fputc3275 = call i32 @fputc(i32 10, ptr %342)
   br label %343
@@ -1997,7 +1997,7 @@ define noundef range(i32 0, 3) i32 @_Z7yyparsePN7glslang13TParseContextE(ptr nou
   br i1 %.not3276, label %359, label %358
 
 358:                                              ; preds = %350
-  call fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEiPN7glslang13TParseContextE(ptr noundef %.23193, i32 noundef %.03213)
+  call fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEiPN7glslang13TParseContextE.argprom(ptr noundef %.23193, i32 noundef %.03213)
   br label %359
 
 359:                                              ; preds = %350, %358
@@ -41621,13 +41621,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 
 16411:                                            ; preds = %16406, %16405, %16403
   %16412 = phi i32 [ -2, %16403 ], [ %16410, %16406 ], [ 2, %16405 ]
-  switch i32 %.03181, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit [
+  switch i32 %.03181, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit [
     i32 0, label %16413
     i32 3, label %16424
   ]
 
 16413:                                            ; preds = %16411
-  %16414 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %7, ptr %.03724, ptr nonnull %.23193, i32 %16412)
+  %16414 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t.argprom(ptr noundef %7, ptr %.03724, ptr nonnull %.23193, i32 %16412)
   switch i32 %16414, label %.thread3734 [
     i32 0, label %.thread3738
     i32 -1, label %16415
@@ -41635,7 +41635,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 
 .thread3738:                                      ; preds = %16413
   call void @_ZN7glslang13TParseContext11parserErrorEPKc(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef %.03724) #25
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit
 
 16415:                                            ; preds = %16413
   %.not3331 = icmp eq ptr %.03724, %6
@@ -41661,10 +41661,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   br label %.loopexit3802
 
 16421:                                            ; preds = %16417
-  %16422 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %7, ptr nonnull %16419, ptr nonnull %.23193, i32 %16412)
+  %16422 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t.argprom(ptr noundef %7, ptr nonnull %16419, ptr nonnull %.23193, i32 %16412)
   call void @_ZN7glslang13TParseContext11parserErrorEPKc(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull %16419) #25
   %16423 = icmp eq i32 %16422, -2
-  br i1 %16423, label %.loopexit3802, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit
+  br i1 %16423, label %.loopexit3802, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit
 
 16424:                                            ; preds = %16411
   %16425 = icmp slt i32 %.4, 1
@@ -41672,12 +41672,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 
 16426:                                            ; preds = %16424
   %16427 = icmp eq i32 %.4, 0
-  br i1 %16427, label %.thread3767, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit
+  br i1 %16427, label %.thread3767, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit
 
 16428:                                            ; preds = %16424
   %16429 = load i32, ptr @yydebug, align 4
   %.not4.i = icmp eq i32 %16429, 0
-  br i1 %.not4.i, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit, label %16430
+  br i1 %.not4.i, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit, label %16430
 
 16430:                                            ; preds = %16428
   %16431 = load ptr, ptr @stderr, align 8
@@ -41692,18 +41692,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %fputc.i.i = call i32 @fputc(i32 41, ptr %16433)
   %16439 = load ptr, ptr @stderr, align 8
   %fputc.i3704 = call i32 @fputc(i32 10, ptr %16439)
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit
 
-_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit: ; preds = %16411, %16421, %.thread3738, %16430, %16428, %300, %16426
+_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit: ; preds = %16411, %16421, %.thread3738, %16430, %16428, %300, %16426
   %.3 = phi ptr [ %.03724, %16426 ], [ %.03724, %300 ], [ %.03724, %16428 ], [ %.03724, %16430 ], [ %.03724, %.thread3738 ], [ %16419, %16421 ], [ %.03724, %16411 ]
   %.7 = phi i32 [ %.4, %16426 ], [ 257, %300 ], [ -2, %16428 ], [ -2, %16430 ], [ %.4, %.thread3738 ], [ %.4, %16421 ], [ %.4, %16411 ]
   br label %16440
 
-16440:                                            ; preds = %16474, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit
-  %16441 = phi i16 [ %281, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit ], [ %.pre3976, %16474 ]
-  %.53206 = phi ptr [ %.23203, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit ], [ %16476, %16474 ]
-  %.53196 = phi ptr [ %.23193, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit ], [ %16475, %16474 ]
-  %.23180 = phi i32 [ %.03178, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit ], [ %16477, %16474 ]
+16440:                                            ; preds = %16474, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit
+  %16441 = phi i16 [ %281, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit ], [ %.pre3976, %16474 ]
+  %.53206 = phi ptr [ %.23203, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit ], [ %16476, %16474 ]
+  %.53196 = phi ptr [ %.23193, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit ], [ %16475, %16474 ]
+  %.23180 = phi i32 [ %.03178, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit ], [ %16477, %16474 ]
   %16442 = sext i32 %.23180 to i64
   %16443 = icmp sgt i16 %16441, -2
   br i1 %16443, label %16444, label %16454
@@ -41729,14 +41729,14 @@ _ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit: ; p
 16456:                                            ; preds = %16454
   %16457 = load i32, ptr @yydebug, align 4
   %.not4.i3705 = icmp eq i32 %16457, 0
-  br i1 %.not4.i3705, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709.thread, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709
+  br i1 %.not4.i3705, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3709.thread, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3709
 
-_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709.thread: ; preds = %16456
+_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3709.thread: ; preds = %16456
   %16458 = getelementptr inbounds i8, ptr %.53196, i64 -2
   %16459 = load i16, ptr %16458, align 2
   br label %16474
 
-_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709: ; preds = %16456
+_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3709: ; preds = %16456
   %16460 = getelementptr inbounds [946 x i16], ptr @_ZL6yystos, i64 0, i64 %16442
   %16461 = load i16, ptr %16460, align 2
   %16462 = load ptr, ptr @stderr, align 8
@@ -41757,13 +41757,13 @@ _ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709:
   %.not3335 = icmp eq i32 %.pr3746, 0
   br i1 %.not3335, label %16474, label %16473
 
-16473:                                            ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709
+16473:                                            ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3709
   call fastcc void @_ZL14yy_stack_printPsS_(ptr noundef %.13187, ptr noundef %16471)
   br label %16474
 
-16474:                                            ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709.thread, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709, %16473
-  %.in3799 = phi i16 [ %16459, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709.thread ], [ %16472, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709 ], [ %16472, %16473 ]
-  %16475 = phi ptr [ %16458, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709.thread ], [ %16471, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709 ], [ %16471, %16473 ]
+16474:                                            ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3709.thread, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3709, %16473
+  %.in3799 = phi i16 [ %16459, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3709.thread ], [ %16472, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3709 ], [ %16472, %16473 ]
+  %16475 = phi ptr [ %16458, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3709.thread ], [ %16471, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3709 ], [ %16471, %16473 ]
   %16476 = getelementptr inbounds i8, ptr %.53206, i64 -304
   %16477 = sext i16 %.in3799 to i32
   %.phi.trans.insert3974 = sext i16 %.in3799 to i64
@@ -41787,7 +41787,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709:
   %16487 = getelementptr inbounds [946 x i16], ptr @_ZL6yystos, i64 0, i64 %16486
   %16488 = load i16, ptr %16487, align 2
   %16489 = sext i16 %16488 to i32
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK7YYSTYPEPN7glslang13TParseContextE(ptr noundef %16485, i32 noundef %16489)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK7YYSTYPEPN7glslang13TParseContextE.argprom(ptr noundef %16485, i32 noundef %16489)
   %16490 = load ptr, ptr @stderr, align 8
   %fputc3334 = call i32 @fputc(i32 10, ptr %16490)
   br label %232
@@ -41807,7 +41807,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709:
   %.43190 = phi ptr [ %.23188, %.loopexit3802 ], [ %.13187, %16454 ], [ %257, %275 ], [ %.13187, %276 ]
   %.9 = phi i32 [ %.2, %.loopexit3802 ], [ %.7, %16454 ], [ %.03173, %276 ], [ %.03173, %275 ]
   %.not3336 = icmp eq i32 %.9, -2
-  br i1 %.not3336, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714, label %16491
+  br i1 %.not3336, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714, label %16491
 
 16491:                                            ; preds = %.loopexit
   %or.cond11 = icmp ult i32 %.9, 720
@@ -41833,7 +41833,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709:
   %16497 = phi i32 [ %16495, %.thread3767 ], [ 2, %16491 ]
   %16498 = load i32, ptr @yydebug, align 4
   %.not4.i3710 = icmp eq i32 %16498, 0
-  br i1 %.not4.i3710, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714.thread, label %16499
+  br i1 %.not4.i3710, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714.thread, label %16499
 
 16499:                                            ; preds = %16496
   %16500 = load ptr, ptr @stderr, align 8
@@ -41848,37 +41848,37 @@ _ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709:
   %fputc.i.i3712 = call i32 @fputc(i32 41, ptr %16502)
   %16508 = load ptr, ptr @stderr, align 8
   %fputc.i3713 = call i32 @fputc(i32 10, ptr %16508)
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714
 
-_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714: ; preds = %16499, %.loopexit
+_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714: ; preds = %16499, %.loopexit
   %.431903765.ph = phi ptr [ %.4319037643776, %16499 ], [ %.43190, %.loopexit ]
   %.631973763.ph = phi ptr [ %.6319737623778, %16499 ], [ %.63197, %.loopexit ]
   %.032143759.ph = phi i32 [ %.0321437583782, %16499 ], [ %.03214, %.loopexit ]
   %.637293757.ph = phi ptr [ %.6372937563784, %16499 ], [ %.63729, %.loopexit ]
   %.pr3786 = load i32, ptr @yydebug, align 4
   %.not3337 = icmp eq i32 %.pr3786, 0
-  br i1 %.not3337, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714.thread, label %16509
+  br i1 %.not3337, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714.thread, label %16509
 
-16509:                                            ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714
+16509:                                            ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714
   call fastcc void @_ZL14yy_stack_printPsS_(ptr noundef %.431903765.ph, ptr noundef %.631973763.ph)
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714.thread
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714.thread
 
-_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714.thread: ; preds = %16496, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714, %16509
-  %.6372937573797 = phi ptr [ %.637293757.ph, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714 ], [ %.637293757.ph, %16509 ], [ %.6372937563784, %16496 ]
-  %.0321437593796 = phi i32 [ %.032143759.ph, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714 ], [ %.032143759.ph, %16509 ], [ %.0321437583782, %16496 ]
-  %.6319737633794 = phi ptr [ %.631973763.ph, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714 ], [ %.631973763.ph, %16509 ], [ %.6319737623778, %16496 ]
-  %.4319037653793 = phi ptr [ %.431903765.ph, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714 ], [ %.431903765.ph, %16509 ], [ %.4319037643776, %16496 ]
+_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714.thread: ; preds = %16496, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714, %16509
+  %.6372937573797 = phi ptr [ %.637293757.ph, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714 ], [ %.637293757.ph, %16509 ], [ %.6372937563784, %16496 ]
+  %.0321437593796 = phi i32 [ %.032143759.ph, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714 ], [ %.032143759.ph, %16509 ], [ %.0321437583782, %16496 ]
+  %.6319737633794 = phi ptr [ %.631973763.ph, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714 ], [ %.631973763.ph, %16509 ], [ %.6319737623778, %16496 ]
+  %.4319037653793 = phi ptr [ %.431903765.ph, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714 ], [ %.431903765.ph, %16509 ], [ %.4319037643776, %16496 ]
   %.not33383854 = icmp eq ptr %.6319737633794, %.4319037653793
   %16510 = load i32, ptr @yydebug, align 4
   %16511 = icmp eq i32 %16510, 0
   %or.cond4201 = select i1 %.not33383854, i1 true, i1 %16511
   br i1 %or.cond4201, label %._crit_edge3857, label %.lr.ph3856.split
 
-.lr.ph3856.split:                                 ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714.thread, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3719
-  %16512 = phi i32 [ %16527, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3719 ], [ 1, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714.thread ]
-  %.731983855 = phi ptr [ %16528, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3719 ], [ %.6319737633794, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714.thread ]
+.lr.ph3856.split:                                 ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714.thread, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3719
+  %16512 = phi i32 [ %16527, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3719 ], [ 1, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714.thread ]
+  %.731983855 = phi ptr [ %16528, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3719 ], [ %.6319737633794, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714.thread ]
   %.not4.i3715 = icmp eq i32 %16512, 0
-  br i1 %.not4.i3715, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3719, label %16513
+  br i1 %.not4.i3715, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3719, label %16513
 
 16513:                                            ; preds = %.lr.ph3856.split
   %16514 = load i16, ptr %.731983855, align 2
@@ -41898,15 +41898,15 @@ _ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714.
   %16526 = load ptr, ptr @stderr, align 8
   %fputc.i3718 = call i32 @fputc(i32 10, ptr %16526)
   %.pre3977 = load i32, ptr @yydebug, align 4
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3719
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3719
 
-_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3719: ; preds = %.lr.ph3856.split, %16513
+_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3719: ; preds = %.lr.ph3856.split, %16513
   %16527 = phi i32 [ 0, %.lr.ph3856.split ], [ %.pre3977, %16513 ]
   %16528 = getelementptr inbounds i8, ptr %.731983855, i64 -2
   %.not3338 = icmp eq ptr %16528, %.4319037653793
   br i1 %.not3338, label %._crit_edge3857, label %.lr.ph3856.split, !llvm.loop !11
 
-._crit_edge3857:                                  ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3719, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714.thread
+._crit_edge3857:                                  ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3719, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.argprom.exit3714.thread
   %.not3339 = icmp eq ptr %.4319037653793, %3
   br i1 %.not3339, label %16530, label %16529
 
@@ -41964,7 +41964,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 declare noundef i32 @_Z5yylexP7YYSTYPERN7glslang13TParseContextE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(30232)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK7YYSTYPEPN7glslang13TParseContextE(ptr nocapture noundef %0, i32 noundef range(i32 -32768, 32768) %1) unnamed_addr #7 {
+define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK7YYSTYPEPN7glslang13TParseContextE.argprom(ptr nocapture noundef %0, i32 noundef range(i32 -32768, 32768) %1) unnamed_addr #7 {
   %3 = icmp slt i32 %1, 465
   %.str.222..str.223 = select i1 %3, ptr @.str.222, ptr @.str.223
   %4 = sext i32 %1 to i64
@@ -41976,7 +41976,7 @@ define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK7Y
 }
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEiPN7glslang13TParseContextE(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 -32768, 32769) %1) unnamed_addr #3 {
+define internal fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEiPN7glslang13TParseContextE.argprom(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 -32768, 32769) %1) unnamed_addr #3 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [701 x i16], ptr @_ZL7yyrline, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -44501,7 +44501,7 @@ declare noundef ptr @_ZN7glslang13TParseContext20makeSpirvInstructionERKNS_10TSo
 declare noundef ptr @_ZN7glslang13TParseContext20makeSpirvInstructionERKNS_10TSourceLocERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEi(ptr noundef nonnull align 8 dereferenceable(30232), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #9 {
+define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t.argprom(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #9 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6, label %3

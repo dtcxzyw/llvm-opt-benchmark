@@ -130,15 +130,15 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %1 = load ptr, ptr %arrayidx.i, align 16
   %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #8
   %cmp2.i = icmp eq i32 %call.i, 0
-  br i1 %cmp2.i, label %_ZN12_GLOBAL__N_19FindFieldIbLm50EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit, label %for.cond.i
+  br i1 %cmp2.i, label %_ZN12_GLOBAL__N_19FindFieldIbLm50EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.argprom.exit, label %for.cond.i
 
-_ZN12_GLOBAL__N_19FindFieldIbLm50EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit: ; preds = %for.body.i
+_ZN12_GLOBAL__N_19FindFieldIbLm50EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.argprom.exit: ; preds = %for.body.i
   br i1 %cmp1.not, label %for.body.i41.preheader, label %if.then
 
-for.body.i41.preheader:                           ; preds = %for.cond.i, %_ZN12_GLOBAL__N_19FindFieldIbLm50EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit
+for.body.i41.preheader:                           ; preds = %for.cond.i, %_ZN12_GLOBAL__N_19FindFieldIbLm50EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.argprom.exit
   br label %for.body.i41
 
-if.then:                                          ; preds = %_ZN12_GLOBAL__N_19FindFieldIbLm50EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit
+if.then:                                          ; preds = %_ZN12_GLOBAL__N_19FindFieldIbLm50EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.argprom.exit
   %member.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %2 = load i64, ptr %member.i, align 8
   %memptr.offset.i = getelementptr inbounds i8, ptr %out_config, i64 %2
@@ -156,18 +156,18 @@ for.body.i41:                                     ; preds = %for.body.i41.prehea
   %3 = load ptr, ptr %arrayidx.i43, align 16
   %call.i44 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %3) #8
   %cmp2.i45 = icmp eq i32 %call.i44, 0
-  br i1 %cmp2.i45, label %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm21EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit, label %for.cond.i46
+  br i1 %cmp2.i45, label %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm21EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.argprom.exit, label %for.cond.i46
 
-_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm21EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit: ; preds = %for.body.i41
+_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm21EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.argprom.exit: ; preds = %for.body.i41
   %member.i51 = getelementptr inbounds i8, ptr %arrayidx.i43, i64 8
   %4 = load i64, ptr %member.i51, align 8
   %memptr.offset.i52 = getelementptr inbounds i8, ptr %out_config, i64 %4
   br i1 %cmp1.not, label %for.body.i53.preheader, label %if.then6
 
-for.body.i53.preheader:                           ; preds = %for.cond.i46, %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm21EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit
+for.body.i53.preheader:                           ; preds = %for.cond.i46, %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm21EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.argprom.exit
   br label %for.body.i53
 
-if.then6:                                         ; preds = %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm21EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit
+if.then6:                                         ; preds = %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm21EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.argprom.exit
   %inc = add nsw i32 %i.0120, 1
   %cmp7.not = icmp slt i32 %inc, %argc
   br i1 %cmp7.not, label %if.end10, label %if.then8
@@ -195,18 +195,18 @@ for.body.i53:                                     ; preds = %for.body.i53.prehea
   %8 = load ptr, ptr %arrayidx.i55, align 16
   %call.i56 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %8) #8
   %cmp2.i57 = icmp eq i32 %call.i56, 0
-  br i1 %cmp2.i57, label %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit, label %for.cond.i58
+  br i1 %cmp2.i57, label %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.argprom.exit, label %for.cond.i58
 
-_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit: ; preds = %for.body.i53
+_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.argprom.exit: ; preds = %for.body.i53
   %member.i63 = getelementptr inbounds i8, ptr %arrayidx.i55, i64 8
   %9 = load i64, ptr %member.i63, align 8
   %memptr.offset.i64 = getelementptr inbounds i8, ptr %out_config, i64 %9
   br i1 %cmp1.not, label %for.body.i68.preheader, label %if.then19
 
-for.body.i68.preheader:                           ; preds = %for.cond.i58, %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit
+for.body.i68.preheader:                           ; preds = %for.cond.i58, %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.argprom.exit
   br label %for.body.i68
 
-if.then19:                                        ; preds = %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit
+if.then19:                                        ; preds = %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.argprom.exit
   %inc20 = add nsw i32 %i.0120, 1
   %cmp21.not = icmp slt i32 %inc20, %argc
   br i1 %cmp21.not, label %if.end24, label %if.then22
@@ -276,15 +276,15 @@ for.body.i68:                                     ; preds = %for.body.i68.prehea
   %21 = load ptr, ptr %arrayidx.i70, align 16
   %call.i71 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %21) #8
   %cmp2.i72 = icmp eq i32 %call.i71, 0
-  br i1 %cmp2.i72, label %_ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit, label %for.cond.i73
+  br i1 %cmp2.i72, label %_ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.argprom.exit, label %for.cond.i73
 
-_ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit: ; preds = %for.body.i68
+_ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.argprom.exit: ; preds = %for.body.i68
   %member.i78 = getelementptr inbounds i8, ptr %arrayidx.i70, i64 8
   %22 = load i64, ptr %member.i78, align 8
   %memptr.offset.i79 = getelementptr inbounds i8, ptr %out_config, i64 %22
   br i1 %cmp1.not, label %if.end66, label %if.then57
 
-if.then57:                                        ; preds = %_ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit
+if.then57:                                        ; preds = %_ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.argprom.exit
   %inc58 = add nsw i32 %i.0120, 1
   %cmp59.not = icmp slt i32 %inc58, %argc
   br i1 %cmp59.not, label %if.end62, label %if.then60
@@ -302,7 +302,7 @@ if.end62:                                         ; preds = %if.then57
   store i32 %call65, ptr %memptr.offset.i79, align 4
   br label %for.inc
 
-if.end66:                                         ; preds = %_ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit, %for.cond.i73
+if.end66:                                         ; preds = %_ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.argprom.exit, %for.cond.i73
   %26 = load ptr, ptr @stderr, align 8
   %call69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.2, ptr noundef %0) #9
   br label %return

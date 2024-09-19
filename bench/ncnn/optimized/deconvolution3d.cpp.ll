@@ -940,7 +940,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn15Deconvolution3D7forward
   %or.cond112 = select i1 %or.cond109, i1 %96, i1 false
   br i1 %or.cond112, label %.invoke, label %116
 
-97:                                               ; preds = %.invoke, %.noexc326.i, %.noexc.i, %_ZN4ncnnL15deconvolution3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiS2_RKNS_6OptionE.exit, %129
+97:                                               ; preds = %.invoke, %.noexc326.i, %.noexc.i, %_ZN4ncnnL15deconvolution3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiS2_RKNS_6OptionE.argprom.exit, %129
   %98 = landingpad { ptr, i32 }
           cleanup
   %99 = load ptr, ptr %59, align 8
@@ -1483,20 +1483,20 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPimiET_
 
 ._crit_edge87.i:                                  ; preds = %._crit_edge84.i, %.preheader16.i
   %.not.i.i.i.i = icmp eq ptr %.sroa.0.0.i, null
-  br i1 %.not.i.i.i.i, label %_ZN4ncnnL15deconvolution3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiS2_RKNS_6OptionE.exit, label %356
+  br i1 %.not.i.i.i.i, label %_ZN4ncnnL15deconvolution3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiS2_RKNS_6OptionE.argprom.exit, label %356
 
 356:                                              ; preds = %._crit_edge87.i
   %357 = ptrtoint ptr %.sroa.6.0.i to i64
   %358 = ptrtoint ptr %.sroa.0.0.i to i64
   %359 = sub i64 %357, %358
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0.i, i64 noundef %359) #17
-  br label %_ZN4ncnnL15deconvolution3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiS2_RKNS_6OptionE.exit
+  br label %_ZN4ncnnL15deconvolution3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiS2_RKNS_6OptionE.argprom.exit
 
-_ZN4ncnnL15deconvolution3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiS2_RKNS_6OptionE.exit: ; preds = %356, %._crit_edge87.i
+_ZN4ncnnL15deconvolution3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiS2_RKNS_6OptionE.argprom.exit: ; preds = %356, %._crit_edge87.i
   invoke void @_ZNK4ncnn15Deconvolution3D11cut_paddingERKNS_3MatERS1_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %360 unwind label %97
 
-360:                                              ; preds = %_ZN4ncnnL15deconvolution3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiS2_RKNS_6OptionE.exit
+360:                                              ; preds = %_ZN4ncnnL15deconvolution3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiS2_RKNS_6OptionE.argprom.exit
   %361 = load ptr, ptr %2, align 8
   %362 = icmp eq ptr %361, null
   br i1 %362, label %.critedge, label %363

@@ -22434,9 +22434,9 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.end.i.i.i:                                     ; preds = %for.body.i
   %cmp8.i.i.i = icmp sgt i32 %2, %3
-  br i1 %cmp8.i.i.i, label %if.else.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i
+  br i1 %cmp8.i.i.i, label %if.else.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i: ; preds = %if.end.i.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i: ; preds = %if.end.i.i.i
   %type_.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 4
   %4 = load i32, ptr %type_.i.i.i.i, align 4
   %type_.i5.i.i.i = getelementptr inbounds i8, ptr %call3.val.i.i, i64 4
@@ -22444,7 +22444,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120Unkno
   %cmp15.i.i.i = icmp slt i32 %4, %5
   br i1 %cmp15.i.i.i, label %if.then9.i, label %if.else.i
 
-if.then9.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i, %for.body.i
+if.then9.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i, %for.body.i
   %__val.sroa.0.0.copyload.i = load i32, ptr %__i.sroa.0.016.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.sroa.0.016.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
@@ -22476,7 +22476,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf
   store i32 %__val.sroa.0.0.copyload.i, ptr %__first.coerce, align 8
   br label %for.inc.i
 
-if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i, %if.end.i.i.i
+if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i, %if.end.i.i.i
   %__val.sroa.0.0.copyload.i.i = load i32, ptr %__i.sroa.0.016.i, align 8
   %type_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 4
   br label %while.cond.i.i
@@ -22493,16 +22493,16 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %if
 
 if.end.i.i.i.i:                                   ; preds = %while.cond.i.i
   %cmp8.i.i.i.i = icmp sgt i32 %8, %10
-  br i1 %cmp8.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i
+  br i1 %cmp8.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i: ; preds = %if.end.i.i.i.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i.i: ; preds = %if.end.i.i.i.i
   %11 = load i32, ptr %type_.i.i.i.i.i, align 4
   %type_.i5.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i.i.i, i64 4
   %12 = load i32, ptr %type_.i5.i.i.i.i, align 4
   %cmp15.i.i.i.i = icmp slt i32 %11, %12
   br i1 %cmp15.i.i.i.i, label %while.body.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_T0_.exit.i
 
-while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i, %while.cond.i.i
+while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i.i, %while.cond.i.i
   %13 = load i32, ptr %__next.sroa.0.0.i.i, align 4
   store i32 %13, ptr %__last.sroa.0.0.i.i, align 8
   %second3.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i, i64 8
@@ -22510,7 +22510,7 @@ while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops
   %.pre.i = load i32, ptr %call.val.i.i, align 8
   br label %while.cond.i.i, !llvm.loop !381
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i, %if.end.i.i.i.i
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i.i, %if.end.i.i.i.i
   store i32 %__val.sroa.0.0.copyload.i.i, ptr %__last.sroa.0.0.i.i, align 8
   %second3.i3.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i, i64 8
   br label %for.inc.i
@@ -22604,9 +22604,9 @@ if.then5:                                         ; preds = %if.end
 
 if.end.i.i:                                       ; preds = %if.then5
   %cmp8.i.i = icmp sgt i32 %2, %3
-  br i1 %cmp8.i.i, label %return, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit
+  br i1 %cmp8.i.i, label %return, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit: ; preds = %if.end.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit: ; preds = %if.end.i.i
   %type_.i.i.i = getelementptr inbounds i8, ptr %call.val.i, i64 4
   %4 = load i32, ptr %type_.i.i.i, align 4
   %type_.i5.i.i = getelementptr inbounds i8, ptr %call3.val.i, i64 4
@@ -22614,7 +22614,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120Unkno
   %cmp15.i.i = icmp slt i32 %4, %5
   br i1 %cmp15.i.i, label %if.then9, label %return
 
-if.then9:                                         ; preds = %if.then5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit
+if.then9:                                         ; preds = %if.then5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit
   %6 = load i32, ptr %__first.coerce.tr72, align 4
   %7 = load i32, ptr %__middle.coerce.tr73, align 4
   store i32 %7, ptr %__first.coerce.tr72, align 4
@@ -22636,7 +22636,7 @@ if.then17:                                        ; preds = %if.end15
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
   %cmp5.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
-  br i1 %cmp5.i, label %while.body.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit
+  br i1 %cmp5.i, label %while.body.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit
 
 while.body.lr.ph.i:                               ; preds = %if.then17
   %10 = getelementptr i8, ptr %add.ptr.i.i.i, i64 8
@@ -22658,34 +22658,34 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
 
 if.end.i.i.i:                                     ; preds = %while.body.i
   %cmp8.i.i.i = icmp sgt i32 %13, %11
-  br i1 %cmp8.i.i.i, label %if.end.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.exit.i
+  br i1 %cmp8.i.i.i, label %if.end.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.argprom.exit.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.exit.i: ; preds = %if.end.i.i.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.argprom.exit.i: ; preds = %if.end.i.i.i
   %type_.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 4
   %14 = load i32, ptr %type_.i.i.i.i, align 4
   %15 = load i32, ptr %type_.i5.i.i.i, align 4
   %cmp15.i.i.i = icmp slt i32 %14, %15
   br i1 %cmp15.i.i.i, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.exit.i, %while.body.i
+if.then.i:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.argprom.exit.i, %while.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 16
   %16 = xor i64 %shr.i, -1
   %sub9.i = add nsw i64 %__len.07.i, %16
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.exit.i, %if.end.i.i.i
-  %__first.sroa.0.1.i = phi ptr [ %incdec.ptr.i.i, %if.then.i ], [ %__first.sroa.0.06.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.exit.i ], [ %__first.sroa.0.06.i, %if.end.i.i.i ]
-  %__len.1.i = phi i64 [ %sub9.i, %if.then.i ], [ %shr.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.exit.i ], [ %shr.i, %if.end.i.i.i ]
+if.end.i:                                         ; preds = %if.then.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.argprom.exit.i, %if.end.i.i.i
+  %__first.sroa.0.1.i = phi ptr [ %incdec.ptr.i.i, %if.then.i ], [ %__first.sroa.0.06.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.argprom.exit.i ], [ %__first.sroa.0.06.i, %if.end.i.i.i ]
+  %__len.1.i = phi i64 [ %sub9.i, %if.then.i ], [ %shr.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.argprom.exit.i ], [ %shr.i, %if.end.i.i.i ]
   %cmp.i = icmp sgt i64 %__len.1.i, 0
-  br i1 %cmp.i, label %while.body.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit, !llvm.loop !383
+  br i1 %cmp.i, label %while.body.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit, !llvm.loop !383
 
-_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit: ; preds = %if.end.i
+_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit: ; preds = %if.end.i
   %.pre = ptrtoint ptr %__first.sroa.0.1.i to i64
-  br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit
+  br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit
 
-_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit, %if.then17
-  %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i, %if.then17 ]
-  %__first.sroa.0.0.lcssa.i = phi ptr [ %__first.sroa.0.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit ], [ %__middle.coerce.tr73, %if.then17 ]
+_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit, %if.then17
+  %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i, %if.then17 ]
+  %__first.sroa.0.0.lcssa.i = phi ptr [ %__first.sroa.0.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit ], [ %__middle.coerce.tr73, %if.then17 ]
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.pre-phi, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
   br label %if.end49
@@ -22697,7 +22697,7 @@ if.else:                                          ; preds = %if.end15
   %sub.ptr.sub.i.i.i.i29 = sub i64 %sub.ptr.rhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i28
   %sub.ptr.div.i.i.i.i30 = ashr exact i64 %sub.ptr.sub.i.i.i.i29, 4
   %cmp5.i31 = icmp sgt i64 %sub.ptr.div.i.i.i.i30, 0
-  br i1 %cmp5.i31, label %while.body.lr.ph.i33, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit
+  br i1 %cmp5.i31, label %while.body.lr.ph.i33, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit
 
 while.body.lr.ph.i33:                             ; preds = %if.else
   %17 = getelementptr i8, ptr %add.ptr.i.i.i20, i64 8
@@ -22719,43 +22719,43 @@ while.body.i35:                                   ; preds = %if.end.i52, %while.
 
 if.end.i.i.i46:                                   ; preds = %while.body.i35
   %cmp8.i.i.i47 = icmp sgt i32 %18, %20
-  br i1 %cmp8.i.i.i47, label %if.else.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i
+  br i1 %cmp8.i.i.i47, label %if.else.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i: ; preds = %if.end.i.i.i46
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i: ; preds = %if.end.i.i.i46
   %21 = load i32, ptr %type_.i.i.i.i34, align 4
   %type_.i5.i.i.i48 = getelementptr inbounds i8, ptr %call.val.i.i44, i64 4
   %22 = load i32, ptr %type_.i5.i.i.i48, align 4
   %cmp15.i.i.i49 = icmp slt i32 %21, %22
   br i1 %cmp15.i.i.i49, label %if.end.i52, label %if.else.i
 
-if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i, %if.end.i.i.i46
+if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i, %if.end.i.i.i46
   %incdec.ptr.i.i50 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i41, i64 16
   %23 = xor i64 %shr.i38, -1
   %sub9.i51 = add nsw i64 %__len.07.i36, %23
   br label %if.end.i52
 
-if.end.i52:                                       ; preds = %if.else.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i, %while.body.i35
-  %__first.sroa.0.1.i53 = phi ptr [ %__first.sroa.0.06.i37, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i ], [ %incdec.ptr.i.i50, %if.else.i ], [ %__first.sroa.0.06.i37, %while.body.i35 ]
-  %__len.1.i54 = phi i64 [ %shr.i38, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i ], [ %sub9.i51, %if.else.i ], [ %shr.i38, %while.body.i35 ]
+if.end.i52:                                       ; preds = %if.else.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i, %while.body.i35
+  %__first.sroa.0.1.i53 = phi ptr [ %__first.sroa.0.06.i37, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i ], [ %incdec.ptr.i.i50, %if.else.i ], [ %__first.sroa.0.06.i37, %while.body.i35 ]
+  %__len.1.i54 = phi i64 [ %shr.i38, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i ], [ %sub9.i51, %if.else.i ], [ %shr.i38, %while.body.i35 ]
   %cmp.i55 = icmp sgt i64 %__len.1.i54, 0
-  br i1 %cmp.i55, label %while.body.i35, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit, !llvm.loop !384
+  br i1 %cmp.i55, label %while.body.i35, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit, !llvm.loop !384
 
-_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit: ; preds = %if.end.i52
+_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit: ; preds = %if.end.i52
   %.pre79 = ptrtoint ptr %__first.sroa.0.1.i53 to i64
-  br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit
+  br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit
 
-_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit, %if.else
-  %sub.ptr.lhs.cast.i.i.i56.pre-phi = phi i64 [ %.pre79, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i28, %if.else ]
-  %__first.sroa.0.0.lcssa.i32 = phi ptr [ %__first.sroa.0.1.i53, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit ], [ %__first.coerce.tr72, %if.else ]
+_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit, %if.else
+  %sub.ptr.lhs.cast.i.i.i56.pre-phi = phi i64 [ %.pre79, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i28, %if.else ]
+  %__first.sroa.0.0.lcssa.i32 = phi ptr [ %__first.sroa.0.1.i53, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit ], [ %__first.coerce.tr72, %if.else ]
   %sub.ptr.sub.i.i.i58 = sub i64 %sub.ptr.lhs.cast.i.i.i56.pre-phi, %sub.ptr.rhs.cast.i.i.i.i28
   %sub.ptr.div.i.i.i59 = ashr exact i64 %sub.ptr.sub.i.i.i58, 4
   br label %if.end49
 
-if.end49:                                         ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit
-  %__first_cut.sroa.0.0 = phi ptr [ %add.ptr.i.i.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit ], [ %__first.sroa.0.0.lcssa.i32, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit ]
-  %__second_cut.sroa.0.0 = phi ptr [ %__first.sroa.0.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit ], [ %add.ptr.i.i.i20, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit ]
-  %__len22.0 = phi i64 [ %sub.ptr.div.i.i.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit ], [ %div32, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit ]
-  %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit ], [ %sub.ptr.div.i.i.i59, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit ]
+if.end49:                                         ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit
+  %__first_cut.sroa.0.0 = phi ptr [ %add.ptr.i.i.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit ], [ %__first.sroa.0.0.lcssa.i32, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit ]
+  %__second_cut.sroa.0.0 = phi ptr [ %__first.sroa.0.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit ], [ %add.ptr.i.i.i20, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit ]
+  %__len22.0 = phi i64 [ %sub.ptr.div.i.i.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit ], [ %div32, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit ]
+  %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit ], [ %sub.ptr.div.i.i.i59, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit ]
   %call.i = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_St26random_access_iterator_tag(ptr %__first_cut.sroa.0.0, ptr %__middle.coerce.tr73, ptr %__second_cut.sroa.0.0)
   tail call fastcc void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEElNS0_5__ops15_Iter_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_SK_SK_T0_SL_T1_(ptr %__first.coerce.tr72, ptr %__first_cut.sroa.0.0, ptr %call.i, i64 noundef %__len11.0, i64 noundef %__len22.0)
   %sub = sub nsw i64 %__len1.tr75, %__len11.0
@@ -22765,7 +22765,7 @@ if.end49:                                         ; preds = %_ZSt13__upper_bound
   %or.cond = or i1 %cmp, %cmp3
   br i1 %or.cond, label %return, label %if.end
 
-return:                                           ; preds = %if.end49, %entry, %if.end.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit, %if.then9
+return:                                           ; preds = %if.end49, %entry, %if.end.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit, %if.then9
   ret void
 }
 
@@ -22935,9 +22935,9 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i
   %cmp8.i.i.i.i = icmp sgt i32 %2, %3
-  br i1 %cmp8.i.i.i.i, label %if.else.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i.i
+  br i1 %cmp8.i.i.i.i, label %if.else.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i.i: ; preds = %if.end.i.i.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i.i: ; preds = %if.end.i.i.i.i
   %type_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i.i.i, i64 4
   %4 = load i32, ptr %type_.i.i.i.i.i, align 4
   %type_.i5.i.i.i.i = getelementptr inbounds i8, ptr %call3.val.i.i.i, i64 4
@@ -22945,7 +22945,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120Unkno
   %cmp15.i.i.i.i = icmp slt i32 %4, %5
   br i1 %cmp15.i.i.i.i, label %if.then9.i.i, label %if.else.i.i
 
-if.then9.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i.i, %for.body.i.i
+if.then9.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i.i, %for.body.i.i
   %__val.sroa.0.0.copyload.i.i = load i32, ptr %__i.sroa.0.016.i.ptr.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %__i.sroa.0.016.i.ptr.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i71.i
@@ -22977,7 +22977,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf
   store i32 %__val.sroa.0.0.copyload.i.i, ptr %__first.sroa.0.070.i, align 8
   br label %for.inc.i.i
 
-if.else.i.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i.i, %if.end.i.i.i.i
+if.else.i.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i.i, %if.end.i.i.i.i
   %__val.sroa.0.0.copyload.i.i.i = load i32, ptr %__i.sroa.0.016.i.ptr.i, align 8
   %type_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i.i.i, i64 4
   br label %while.cond.i.i.i
@@ -22994,16 +22994,16 @@ while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 if.end.i.i.i.i.i:                                 ; preds = %while.cond.i.i.i
   %cmp8.i.i.i.i.i = icmp sgt i32 %8, %10
-  br i1 %cmp8.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_T0_.exit.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i.i
+  br i1 %cmp8.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_T0_.exit.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i.i.i: ; preds = %if.end.i.i.i.i.i
   %11 = load i32, ptr %type_.i.i.i.i.i.i, align 4
   %type_.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i.i.i.i, i64 4
   %12 = load i32, ptr %type_.i5.i.i.i.i.i, align 4
   %cmp15.i.i.i.i.i = icmp slt i32 %11, %12
   br i1 %cmp15.i.i.i.i.i, label %while.body.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_T0_.exit.i.i
 
-while.body.i.i.i:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i.i, %while.cond.i.i.i
+while.body.i.i.i:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i.i.i, %while.cond.i.i.i
   %13 = load i32, ptr %__next.sroa.0.0.i.i.i, align 4
   store i32 %13, ptr %__last.sroa.0.0.i.i.i, align 8
   %second3.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i.i, i64 8
@@ -23011,7 +23011,7 @@ while.body.i.i.i:                                 ; preds = %_ZN9__gnu_cxx5__ops
   %.pre.i.i = load i32, ptr %call.val.i.i.i, align 8
   br label %while.cond.i.i.i, !llvm.loop !381
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i.i, %if.end.i.i.i.i.i
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i.i.i, %if.end.i.i.i.i.i
   store i32 %__val.sroa.0.0.copyload.i.i.i, ptr %__last.sroa.0.0.i.i.i, align 8
   %second3.i3.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i.i, i64 8
   br label %for.inc.i.i
@@ -23058,9 +23058,9 @@ for.body.i11.i:                                   ; preds = %for.inc.i38.i, %for
 
 if.end.i.i.i17.i:                                 ; preds = %for.body.i11.i
   %cmp8.i.i.i18.i = icmp sgt i32 %16, %17
-  br i1 %cmp8.i.i.i18.i, label %if.else.i23.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i19.i
+  br i1 %cmp8.i.i.i18.i, label %if.else.i23.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i19.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i19.i: ; preds = %if.end.i.i.i17.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i19.i: ; preds = %if.end.i.i.i17.i
   %type_.i.i.i.i20.i = getelementptr inbounds i8, ptr %call.val.i.i14.i, i64 4
   %18 = load i32, ptr %type_.i.i.i.i20.i, align 4
   %type_.i5.i.i.i21.i = getelementptr inbounds i8, ptr %call3.val.i.i15.i, i64 4
@@ -23068,7 +23068,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120Unkno
   %cmp15.i.i.i22.i = icmp slt i32 %18, %19
   br i1 %cmp15.i.i.i22.i, label %if.then9.i45.i, label %if.else.i23.i
 
-if.then9.i45.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i19.i, %for.body.i11.i
+if.then9.i45.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i19.i, %for.body.i11.i
   %__val.sroa.0.0.copyload.i46.i = load i32, ptr %__i.sroa.0.016.i12.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i47.i = ptrtoint ptr %__i.sroa.0.016.i12.i to i64
   %sub.ptr.sub.i.i.i.i.i.i48.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i47.i, %sub.ptr.rhs.cast.i.lcssa.i
@@ -23100,7 +23100,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf
   store i32 %__val.sroa.0.0.copyload.i46.i, ptr %__first.sroa.0.0.lcssa.i, align 8
   br label %for.inc.i38.i
 
-if.else.i23.i:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i19.i, %if.end.i.i.i17.i
+if.else.i23.i:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i19.i, %if.end.i.i.i17.i
   %__val.sroa.0.0.copyload.i.i24.i = load i32, ptr %__i.sroa.0.016.i12.i, align 8
   %type_.i.i.i.i.i25.i = getelementptr inbounds i8, ptr %call.val.i.i14.i, i64 4
   br label %while.cond.i.i26.i
@@ -23117,16 +23117,16 @@ while.cond.i.i26.i:                               ; preds = %while.body.i.i42.i,
 
 if.end.i.i.i.i31.i:                               ; preds = %while.cond.i.i26.i
   %cmp8.i.i.i.i32.i = icmp sgt i32 %22, %24
-  br i1 %cmp8.i.i.i.i32.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_T0_.exit.i36.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i33.i
+  br i1 %cmp8.i.i.i.i32.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_T0_.exit.i36.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i.i33.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i33.i: ; preds = %if.end.i.i.i.i31.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i.i33.i: ; preds = %if.end.i.i.i.i31.i
   %25 = load i32, ptr %type_.i.i.i.i.i25.i, align 4
   %type_.i5.i.i.i.i34.i = getelementptr inbounds i8, ptr %call.val.i.i.i29.i, i64 4
   %26 = load i32, ptr %type_.i5.i.i.i.i34.i, align 4
   %cmp15.i.i.i.i35.i = icmp slt i32 %25, %26
   br i1 %cmp15.i.i.i.i35.i, label %while.body.i.i42.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_T0_.exit.i36.i
 
-while.body.i.i42.i:                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i33.i, %while.cond.i.i26.i
+while.body.i.i42.i:                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i.i33.i, %while.cond.i.i26.i
   %27 = load i32, ptr %__next.sroa.0.0.i.i28.i, align 4
   store i32 %27, ptr %__last.sroa.0.0.i.i27.i, align 8
   %second3.i.i.i43.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i27.i, i64 8
@@ -23134,7 +23134,7 @@ while.body.i.i42.i:                               ; preds = %_ZN9__gnu_cxx5__ops
   %.pre.i44.i = load i32, ptr %call.val.i.i14.i, align 8
   br label %while.cond.i.i26.i, !llvm.loop !381
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_T0_.exit.i36.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i33.i, %if.end.i.i.i.i31.i
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_T0_.exit.i36.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclISt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i.i33.i, %if.end.i.i.i.i31.i
   store i32 %__val.sroa.0.0.copyload.i.i24.i, ptr %__last.sroa.0.0.i.i27.i, align 8
   %second3.i3.i.i37.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i27.i, i64 8
   br label %for.inc.i38.i
@@ -23182,9 +23182,9 @@ while.body.i.i:                                   ; preds = %while.body.i, %if.e
 
 if.end.i.i.i.i16:                                 ; preds = %while.body.i.i
   %cmp8.i.i.i.i17 = icmp sgt i32 %30, %31
-  br i1 %cmp8.i.i.i.i17, label %if.else.i.i22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i.i18
+  br i1 %cmp8.i.i.i.i17, label %if.else.i.i22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i.i18
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i.i18: ; preds = %if.end.i.i.i.i16
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i.i18: ; preds = %if.end.i.i.i.i16
   %type_.i.i.i.i.i19 = getelementptr inbounds i8, ptr %call.val.i.i.i13, i64 4
   %32 = load i32, ptr %type_.i.i.i.i.i19, align 4
   %type_.i5.i.i.i.i20 = getelementptr inbounds i8, ptr %call3.val.i.i.i14, i64 4
@@ -23192,7 +23192,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120Unkno
   %cmp15.i.i.i.i21 = icmp slt i32 %32, %33
   br i1 %cmp15.i.i.i.i21, label %if.then.i.i, label %if.else.i.i22
 
-if.then.i.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i.i18, %while.body.i.i
+if.then.i.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i.i18, %while.body.i.i
   %34 = load i32, ptr %__first2.sroa.0.035.i.i, align 4
   store i32 %34, ptr %__result.addr.037.i.i, align 8
   %35 = load ptr, ptr %28, align 8
@@ -23201,7 +23201,7 @@ if.then.i.i:                                      ; preds = %_ZN9__gnu_cxx5__ops
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.035.i.i, i64 16
   br label %if.end.i.i
 
-if.else.i.i22:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i.i18, %if.end.i.i.i.i16
+if.else.i.i22:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i.i18, %if.end.i.i.i.i16
   %36 = load i32, ptr %__first1.sroa.0.036.i.i, align 4
   store i32 %36, ptr %__result.addr.037.i.i, align 8
   %37 = load ptr, ptr %29, align 8
@@ -23301,9 +23301,9 @@ while.body.i54.i:                                 ; preds = %while.end.i27, %if.
 
 if.end.i.i.i61.i:                                 ; preds = %while.body.i54.i
   %cmp8.i.i.i62.i = icmp sgt i32 %44, %45
-  br i1 %cmp8.i.i.i62.i, label %if.else.i67.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i63.i
+  br i1 %cmp8.i.i.i62.i, label %if.else.i67.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i63.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i63.i: ; preds = %if.end.i.i.i61.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i63.i: ; preds = %if.end.i.i.i61.i
   %type_.i.i.i.i64.i = getelementptr inbounds i8, ptr %call.val.i.i58.i, i64 4
   %46 = load i32, ptr %type_.i.i.i.i64.i, align 4
   %type_.i5.i.i.i65.i = getelementptr inbounds i8, ptr %call3.val.i.i59.i, i64 4
@@ -23311,7 +23311,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120Unkno
   %cmp15.i.i.i66.i = icmp slt i32 %46, %47
   br i1 %cmp15.i.i.i66.i, label %if.then.i77.i, label %if.else.i67.i
 
-if.then.i77.i:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i63.i, %while.body.i54.i
+if.then.i77.i:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i63.i, %while.body.i54.i
   %48 = load i32, ptr %__first2.sroa.0.035.i57.i, align 4
   store i32 %48, ptr %__result.addr.037.i55.i, align 8
   %49 = load ptr, ptr %42, align 8
@@ -23320,7 +23320,7 @@ if.then.i77.i:                                    ; preds = %_ZN9__gnu_cxx5__ops
   %incdec.ptr.i.i79.i = getelementptr inbounds i8, ptr %__first2.sroa.0.035.i57.i, i64 16
   br label %if.end.i70.i
 
-if.else.i67.i:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i63.i, %if.end.i.i.i61.i
+if.else.i67.i:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESJ_EEbT_T0_.argprom.exit.i63.i, %if.end.i.i.i61.i
   %50 = load i32, ptr %__first1.sroa.0.036.i56.i, align 4
   store i32 %50, ptr %__result.addr.037.i55.i, align 8
   %51 = load ptr, ptr %43, align 8
@@ -23416,9 +23416,9 @@ while.body.i.i40:                                 ; preds = %while.body.i39, %if
 
 if.end.i.i.i.i42:                                 ; preds = %while.body.i.i40
   %cmp8.i.i.i.i43 = icmp sgt i32 %58, %59
-  br i1 %cmp8.i.i.i.i43, label %if.else.i.i47, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEESE_EEbT_T0_.exit.i.i
+  br i1 %cmp8.i.i.i.i43, label %if.else.i.i47, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEESE_EEbT_T0_.argprom.exit.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEESE_EEbT_T0_.exit.i.i: ; preds = %if.end.i.i.i.i42
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEESE_EEbT_T0_.argprom.exit.i.i: ; preds = %if.end.i.i.i.i42
   %type_.i.i.i.i.i44 = getelementptr inbounds i8, ptr %__first2.addr.0.val.i.i, i64 4
   %60 = load i32, ptr %type_.i.i.i.i.i44, align 4
   %type_.i5.i.i.i.i45 = getelementptr inbounds i8, ptr %__first1.addr.0.val.i.i, i64 4
@@ -23426,7 +23426,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120Unkno
   %cmp15.i.i.i.i46 = icmp slt i32 %60, %61
   br i1 %cmp15.i.i.i.i46, label %if.then.i.i74, label %if.else.i.i47
 
-if.then.i.i74:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEESE_EEbT_T0_.exit.i.i, %while.body.i.i40
+if.then.i.i74:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEESE_EEbT_T0_.argprom.exit.i.i, %while.body.i.i40
   %62 = load i32, ptr %__first2.addr.043.i.i, align 4
   store i32 %62, ptr %__result.sroa.0.041.i.i, align 8
   %63 = load ptr, ptr %56, align 8
@@ -23435,7 +23435,7 @@ if.then.i.i74:                                    ; preds = %_ZN9__gnu_cxx5__ops
   %incdec.ptr.i.i76 = getelementptr inbounds i8, ptr %__first2.addr.043.i.i, i64 16
   br label %if.end.i.i48
 
-if.else.i.i47:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEESE_EEbT_T0_.exit.i.i, %if.end.i.i.i.i42
+if.else.i.i47:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEESE_EEbT_T0_.argprom.exit.i.i, %if.end.i.i.i.i42
   %64 = load i32, ptr %__first1.addr.044.i.i, align 4
   store i32 %64, ptr %__result.sroa.0.041.i.i, align 8
   %65 = load ptr, ptr %57, align 8
@@ -23545,9 +23545,9 @@ while.body.i62.i:                                 ; preds = %while.end.i60, %if.
 
 if.end.i.i.i69.i:                                 ; preds = %while.body.i62.i
   %cmp8.i.i.i70.i = icmp sgt i32 %75, %76
-  br i1 %cmp8.i.i.i70.i, label %if.else.i75.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEESE_EEbT_T0_.exit.i71.i
+  br i1 %cmp8.i.i.i70.i, label %if.else.i75.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEESE_EEbT_T0_.argprom.exit.i71.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEESE_EEbT_T0_.exit.i71.i: ; preds = %if.end.i.i.i69.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEESE_EEbT_T0_.argprom.exit.i71.i: ; preds = %if.end.i.i.i69.i
   %type_.i.i.i.i72.i = getelementptr inbounds i8, ptr %__first2.addr.0.val.i66.i, i64 4
   %77 = load i32, ptr %type_.i.i.i.i72.i, align 4
   %type_.i5.i.i.i73.i = getelementptr inbounds i8, ptr %__first1.addr.0.val.i67.i, i64 4
@@ -23555,7 +23555,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120Unkno
   %cmp15.i.i.i74.i = icmp slt i32 %77, %78
   br i1 %cmp15.i.i.i74.i, label %if.then.i84.i, label %if.else.i75.i
 
-if.then.i84.i:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEESE_EEbT_T0_.exit.i71.i, %while.body.i62.i
+if.then.i84.i:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEESE_EEbT_T0_.argprom.exit.i71.i, %while.body.i62.i
   %79 = load i32, ptr %__first2.addr.043.i64.i, align 4
   store i32 %79, ptr %__result.sroa.0.041.i65.i, align 8
   %80 = load ptr, ptr %73, align 8
@@ -23564,7 +23564,7 @@ if.then.i84.i:                                    ; preds = %_ZN9__gnu_cxx5__ops
   %incdec.ptr.i86.i = getelementptr inbounds i8, ptr %__first2.addr.043.i64.i, i64 16
   br label %if.end.i78.i
 
-if.else.i75.i:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEESE_EEbT_T0_.exit.i71.i, %if.end.i.i.i69.i
+if.else.i75.i:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEESE_EEbT_T0_.argprom.exit.i71.i, %if.end.i.i.i69.i
   %81 = load i32, ptr %__first1.addr.044.i63.i, align 4
   store i32 %81, ptr %__result.sroa.0.041.i65.i, align 8
   %82 = load ptr, ptr %74, align 8
@@ -23705,9 +23705,9 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 if.end.i.i.i:                                     ; preds = %while.body.i
   %cmp8.i.i.i = icmp sgt i32 %4, %5
-  br i1 %cmp8.i.i.i, label %if.else.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESF_EEbT_T0_.exit.i
+  br i1 %cmp8.i.i.i, label %if.else.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESF_EEbT_T0_.argprom.exit.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESF_EEbT_T0_.exit.i: ; preds = %if.end.i.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESF_EEbT_T0_.argprom.exit.i: ; preds = %if.end.i.i.i
   %type_.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 4
   %6 = load i32, ptr %type_.i.i.i.i, align 4
   %type_.i5.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.0.val.i, i64 4
@@ -23715,7 +23715,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120Unkno
   %cmp15.i.i.i = icmp slt i32 %6, %7
   br i1 %cmp15.i.i.i, label %if.then.i, label %if.else.i
 
-if.then.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESF_EEbT_T0_.exit.i, %while.body.i
+if.then.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESF_EEbT_T0_.argprom.exit.i, %while.body.i
   %8 = load i32, ptr %__first2.sroa.0.022.i, align 4
   store i32 %8, ptr %__result.sroa.0.023.i, align 8
   %9 = load ptr, ptr %3, align 8
@@ -23724,7 +23724,7 @@ if.then.i:                                        ; preds = %_ZN9__gnu_cxx5__ops
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.022.i, i64 16
   br label %if.end.i
 
-if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESF_EEbT_T0_.exit.i, %if.end.i.i.i
+if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEESF_EEbT_T0_.argprom.exit.i, %if.end.i.i.i
   %10 = load i32, ptr %__first1.addr.025.i, align 4
   store i32 %10, ptr %__result.sroa.0.023.i, align 8
   %11 = load ptr, ptr %2, align 8
@@ -23854,9 +23854,9 @@ while.body.i51:                                   ; preds = %while.body.i51.oute
 
 if.end.i.i.i54:                                   ; preds = %while.body.i51
   %cmp8.i.i.i55 = icmp sgt i32 %20, %21
-  br i1 %cmp8.i.i.i55, label %if.else27.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorISE_St6vectorISD_SaISD_EEEEEEbT_T0_.exit.i
+  br i1 %cmp8.i.i.i55, label %if.else27.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorISE_St6vectorISD_SaISD_EEEEEEbT_T0_.argprom.exit.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorISE_St6vectorISD_SaISD_EEEEEEbT_T0_.exit.i: ; preds = %if.end.i.i.i54
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorISE_St6vectorISD_SaISD_EEEEEEbT_T0_.argprom.exit.i: ; preds = %if.end.i.i.i54
   %type_.i.i.i.i56 = getelementptr inbounds i8, ptr %__last2.addr.0.val.i, i64 4
   %22 = load i32, ptr %type_.i.i.i.i56, align 4
   %type_.i5.i.i.i57 = getelementptr inbounds i8, ptr %call.val.i.i52, i64 4
@@ -23864,7 +23864,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120Unkno
   %cmp15.i.i.i58 = icmp slt i32 %22, %23
   br i1 %cmp15.i.i.i58, label %if.then12.i, label %if.else27.i
 
-if.then12.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorISE_St6vectorISD_SaISD_EEEEEEbT_T0_.exit.i, %while.body.i51
+if.then12.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorISE_St6vectorISD_SaISD_EEEEEEbT_T0_.argprom.exit.i, %while.body.i51
   %24 = getelementptr i8, ptr %__last1.sroa.0.0.i.ph.pn, i64 -8
   %incdec.ptr.i11.i = getelementptr inbounds i8, ptr %__result.sroa.0.0.i, i64 -16
   %25 = load i32, ptr %__last1.sroa.0.0.i.ph, align 4
@@ -23900,7 +23900,7 @@ for.body.i.i.i.i.i23.i:                           ; preds = %if.then18.i, %for.b
   %cmp.i.i.i.i.i32.i = icmp ugt i64 %__n.07.i.i.i.i.i24.i, 1
   br i1 %cmp.i.i.i.i.i32.i, label %for.body.i.i.i.i.i23.i, label %if.end89, !llvm.loop !380
 
-if.else27.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorISE_St6vectorISD_SaISD_EEEEEEbT_T0_.exit.i, %if.end.i.i.i54
+if.else27.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorISE_St6vectorISD_SaISD_EEEEEEbT_T0_.argprom.exit.i, %if.end.i.i.i54
   %incdec.ptr.i35.i = getelementptr inbounds i8, ptr %__result.sroa.0.0.i, i64 -16
   %29 = load i32, ptr %__last2.addr.0.i, align 4
   store i32 %29, ptr %incdec.ptr.i35.i, align 8
@@ -23923,7 +23923,7 @@ if.then31:                                        ; preds = %if.else29
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
   %cmp5.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
-  br i1 %cmp5.i, label %while.body.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit
+  br i1 %cmp5.i, label %while.body.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit
 
 while.body.lr.ph.i:                               ; preds = %if.then31
   %31 = getelementptr i8, ptr %add.ptr.i.i.i, i64 8
@@ -23945,34 +23945,34 @@ while.body.i74:                                   ; preds = %if.end.i81, %while.
 
 if.end.i.i.i77:                                   ; preds = %while.body.i74
   %cmp8.i.i.i78 = icmp sgt i32 %34, %32
-  br i1 %cmp8.i.i.i78, label %if.end.i81, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.exit.i
+  br i1 %cmp8.i.i.i78, label %if.end.i81, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.argprom.exit.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.exit.i: ; preds = %if.end.i.i.i77
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.argprom.exit.i: ; preds = %if.end.i.i.i77
   %type_.i.i.i.i79 = getelementptr inbounds i8, ptr %call.val.i.i76, i64 4
   %35 = load i32, ptr %type_.i.i.i.i79, align 4
   %36 = load i32, ptr %type_.i5.i.i.i73, align 4
   %cmp15.i.i.i80 = icmp slt i32 %35, %36
   br i1 %cmp15.i.i.i80, label %if.then.i83, label %if.end.i81
 
-if.then.i83:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.exit.i, %while.body.i74
+if.then.i83:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.argprom.exit.i, %while.body.i74
   %incdec.ptr.i.i84 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 16
   %37 = xor i64 %shr.i, -1
   %sub9.i = add nsw i64 %__len.07.i, %37
   br label %if.end.i81
 
-if.end.i81:                                       ; preds = %if.then.i83, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.exit.i, %if.end.i.i.i77
-  %__first.sroa.0.1.i = phi ptr [ %incdec.ptr.i.i84, %if.then.i83 ], [ %__first.sroa.0.06.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.exit.i ], [ %__first.sroa.0.06.i, %if.end.i.i.i77 ]
-  %__len.1.i = phi i64 [ %sub9.i, %if.then.i83 ], [ %shr.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.exit.i ], [ %shr.i, %if.end.i.i.i77 ]
+if.end.i81:                                       ; preds = %if.then.i83, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.argprom.exit.i, %if.end.i.i.i77
+  %__first.sroa.0.1.i = phi ptr [ %incdec.ptr.i.i84, %if.then.i83 ], [ %__first.sroa.0.06.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.argprom.exit.i ], [ %__first.sroa.0.06.i, %if.end.i.i.i77 ]
+  %__len.1.i = phi i64 [ %sub9.i, %if.then.i83 ], [ %shr.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclINS_17__normal_iteratorIPSt4pairIiPKNS3_12UnknownFieldEESt6vectorISE_SaISE_EEEEKSE_EEbT_RT0_.argprom.exit.i ], [ %shr.i, %if.end.i.i.i77 ]
   %cmp.i82 = icmp sgt i64 %__len.1.i, 0
-  br i1 %cmp.i82, label %while.body.i74, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit, !llvm.loop !383
+  br i1 %cmp.i82, label %while.body.i74, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit, !llvm.loop !383
 
-_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit: ; preds = %if.end.i81
+_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit: ; preds = %if.end.i81
   %.pre = ptrtoint ptr %__first.sroa.0.1.i to i64
-  br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit
+  br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit
 
-_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit, %if.then31
-  %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i, %if.then31 ]
-  %__first.sroa.0.0.lcssa.i = phi ptr [ %__first.sroa.0.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit ], [ %__middle.coerce.tr151, %if.then31 ]
+_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit, %if.then31
+  %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i, %if.then31 ]
+  %__first.sroa.0.0.lcssa.i = phi ptr [ %__first.sroa.0.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit ], [ %__middle.coerce.tr151, %if.then31 ]
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.pre-phi, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
   br label %if.end
@@ -23984,7 +23984,7 @@ if.else46:                                        ; preds = %if.else29
   %sub.ptr.sub.i.i.i.i100 = sub i64 %sub.ptr.rhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i99
   %sub.ptr.div.i.i.i.i101 = ashr exact i64 %sub.ptr.sub.i.i.i.i100, 4
   %cmp5.i102 = icmp sgt i64 %sub.ptr.div.i.i.i.i101, 0
-  br i1 %cmp5.i102, label %while.body.lr.ph.i104, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit
+  br i1 %cmp5.i102, label %while.body.lr.ph.i104, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit
 
 while.body.lr.ph.i104:                            ; preds = %if.else46
   %38 = getelementptr i8, ptr %add.ptr.i.i.i91, i64 8
@@ -24006,43 +24006,43 @@ while.body.i106:                                  ; preds = %if.end.i124, %while
 
 if.end.i.i.i117:                                  ; preds = %while.body.i106
   %cmp8.i.i.i118 = icmp sgt i32 %39, %41
-  br i1 %cmp8.i.i.i118, label %if.else.i121, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i
+  br i1 %cmp8.i.i.i118, label %if.else.i121, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i: ; preds = %if.end.i.i.i117
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i: ; preds = %if.end.i.i.i117
   %42 = load i32, ptr %type_.i.i.i.i105, align 4
   %type_.i5.i.i.i119 = getelementptr inbounds i8, ptr %call.val.i.i115, i64 4
   %43 = load i32, ptr %type_.i5.i.i.i119, align 4
   %cmp15.i.i.i120 = icmp slt i32 %42, %43
   br i1 %cmp15.i.i.i120, label %if.end.i124, label %if.else.i121
 
-if.else.i121:                                     ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i, %if.end.i.i.i117
+if.else.i121:                                     ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i, %if.end.i.i.i117
   %incdec.ptr.i.i122 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i112, i64 16
   %44 = xor i64 %shr.i109, -1
   %sub9.i123 = add nsw i64 %__len.07.i107, %44
   br label %if.end.i124
 
-if.end.i124:                                      ; preds = %if.else.i121, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i, %while.body.i106
-  %__first.sroa.0.1.i125 = phi ptr [ %__first.sroa.0.06.i108, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i ], [ %incdec.ptr.i.i122, %if.else.i121 ], [ %__first.sroa.0.06.i108, %while.body.i106 ]
-  %__len.1.i126 = phi i64 [ %shr.i109, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i ], [ %sub9.i123, %if.else.i121 ], [ %shr.i109, %while.body.i106 ]
+if.end.i124:                                      ; preds = %if.else.i121, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i, %while.body.i106
+  %__first.sroa.0.1.i125 = phi ptr [ %__first.sroa.0.06.i108, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i ], [ %incdec.ptr.i.i122, %if.else.i121 ], [ %__first.sroa.0.06.i108, %while.body.i106 ]
+  %__len.1.i126 = phi i64 [ %shr.i109, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIKSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.argprom.exit.i ], [ %sub9.i123, %if.else.i121 ], [ %shr.i109, %while.body.i106 ]
   %cmp.i127 = icmp sgt i64 %__len.1.i126, 0
-  br i1 %cmp.i127, label %while.body.i106, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit, !llvm.loop !384
+  br i1 %cmp.i127, label %while.body.i106, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit, !llvm.loop !384
 
-_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit: ; preds = %if.end.i124
+_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit: ; preds = %if.end.i124
   %.pre165 = ptrtoint ptr %__first.sroa.0.1.i125 to i64
-  br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit
+  br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit
 
-_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit, %if.else46
-  %sub.ptr.lhs.cast.i.i.i128.pre-phi = phi i64 [ %.pre165, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i99, %if.else46 ]
-  %__first.sroa.0.0.lcssa.i103 = phi ptr [ %__first.sroa.0.1.i125, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit.loopexit ], [ %__first.coerce.tr150, %if.else46 ]
+_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit, %if.else46
+  %sub.ptr.lhs.cast.i.i.i128.pre-phi = phi i64 [ %.pre165, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i99, %if.else46 ]
+  %__first.sroa.0.0.lcssa.i103 = phi ptr [ %__first.sroa.0.1.i125, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit.loopexit ], [ %__first.coerce.tr150, %if.else46 ]
   %sub.ptr.sub.i.i.i130 = sub i64 %sub.ptr.lhs.cast.i.i.i128.pre-phi, %sub.ptr.rhs.cast.i.i.i.i99
   %sub.ptr.div.i.i.i131 = ashr exact i64 %sub.ptr.sub.i.i.i130, 4
   br label %if.end
 
-if.end:                                           ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit
-  %__first_cut.sroa.0.0 = phi ptr [ %add.ptr.i.i.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit ], [ %__first.sroa.0.0.lcssa.i103, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit ]
-  %__second_cut.sroa.0.0 = phi ptr [ %__first.sroa.0.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit ], [ %add.ptr.i.i.i91, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit ]
-  %__len22.0 = phi i64 [ %sub.ptr.div.i.i.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit ], [ %div47, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit ]
-  %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit ], [ %sub.ptr.div.i.i.i131, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.exit ]
+if.end:                                           ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit
+  %__first_cut.sroa.0.0 = phi ptr [ %add.ptr.i.i.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit ], [ %__first.sroa.0.0.lcssa.i103, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit ]
+  %__second_cut.sroa.0.0 = phi ptr [ %__first.sroa.0.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit ], [ %add.ptr.i.i.i91, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit ]
+  %__len22.0 = phi i64 [ %sub.ptr.div.i.i.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit ], [ %div47, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit ]
+  %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit ], [ %sub.ptr.div.i.i.i131, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET_SK_SK_RKT0_T1_.argprom.exit ]
   %sub = sub nsw i64 %__len1.tr152, %__len11.0
   %call70 = tail call ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_lET_SE_SE_SE_T1_SF_T0_SF_(ptr %__first_cut.sroa.0.0, ptr %__middle.coerce.tr151, ptr %__second_cut.sroa.0.0, i64 noundef %sub, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)
   tail call fastcc void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEElS9_NS0_5__ops15_Iter_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_SK_SK_T0_SL_T1_SL_T2_(ptr %__first.coerce.tr150, ptr %__first_cut.sroa.0.0, ptr %call70, i64 noundef %__len11.0, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)

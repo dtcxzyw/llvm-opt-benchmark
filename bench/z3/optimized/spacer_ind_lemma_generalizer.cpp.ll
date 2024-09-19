@@ -1296,18 +1296,18 @@ land.rhs.i.i.i.i:                                 ; preds = %lor.rhs.i.i
   %m_info.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %m_info.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %cmp.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.exit.i, label %cond.false.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.argprom.exit.i, label %cond.false.i.i.i.i.i.i
 
 cond.false.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i
   %7 = load i32, ptr %6, align 8
-  br label %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.exit.i
+  br label %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.argprom.exit.i
 
-_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.exit.i: ; preds = %cond.false.i.i.i.i.i.i, %land.rhs.i.i.i.i
+_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.argprom.exit.i: ; preds = %cond.false.i.i.i.i.i.i, %land.rhs.i.i.i.i
   %cond.i.i.i.i.i.i = phi i32 [ %7, %cond.false.i.i.i.i.i.i ], [ -1, %land.rhs.i.i.i.i ]
   %cmp.i.i.i.i = icmp eq i32 %cond.i.i.i.i.i.i, %this.val7.i
   br i1 %cmp.i.i.i.i, label %if.end.i, label %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11generalize1Ej.exit
 
-if.end.i:                                         ; preds = %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.exit.i, %for.body
+if.end.i:                                         ; preds = %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.argprom.exit.i, %for.body
   %8 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
@@ -1730,8 +1730,8 @@ _ZN12_GLOBAL__N_127lemma_inductive_generalizer15generalize_coreEj.exit.i: ; pred
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %used_level.i.i)
   br label %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11generalize1Ej.exit
 
-_ZN12_GLOBAL__N_127lemma_inductive_generalizer11generalize1Ej.exit: ; preds = %lor.rhs.i.i, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.exit.i, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer15generalize_coreEj.exit.i
-  %retval.0.i = phi i32 [ %retval.0.i18.i, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer15generalize_coreEj.exit.i ], [ 0, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.exit.i ], [ 0, %lor.rhs.i.i ]
+_ZN12_GLOBAL__N_127lemma_inductive_generalizer11generalize1Ej.exit: ; preds = %lor.rhs.i.i, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.argprom.exit.i, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer15generalize_coreEj.exit.i
+  %retval.0.i = phi i32 [ %retval.0.i18.i, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer15generalize_coreEj.exit.i ], [ 0, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.argprom.exit.i ], [ 0, %lor.rhs.i.i ]
   %add = add i32 %retval.0.i, %success.09
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1798,18 +1798,18 @@ land.rhs.i.i.i.i:                                 ; preds = %lor.rhs.i.i
   %m_info.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %m_info.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %cmp.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.exit.i, label %cond.false.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.argprom.exit.i, label %cond.false.i.i.i.i.i.i
 
 cond.false.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i
   %7 = load i32, ptr %6, align 8
-  br label %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.exit.i
+  br label %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.argprom.exit.i
 
-_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.exit.i: ; preds = %cond.false.i.i.i.i.i.i, %land.rhs.i.i.i.i
+_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.argprom.exit.i: ; preds = %cond.false.i.i.i.i.i.i, %land.rhs.i.i.i.i
   %cond.i.i.i.i.i.i = phi i32 [ %7, %cond.false.i.i.i.i.i.i ], [ -1, %land.rhs.i.i.i.i ]
   %cmp.i.i.i.i = icmp eq i32 %cond.i.i.i.i.i.i, %this.val15.i
   br i1 %cmp.i.i.i.i, label %if.end.i, label %_ZN12_GLOBAL__N_127lemma_inductive_generalizer7weaken1Ej.exit
 
-if.end.i:                                         ; preds = %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.exit.i, %for.body
+if.end.i:                                         ; preds = %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.argprom.exit.i, %for.body
   %8 = load ptr, ptr %m_true.i, align 8
   %cmp.i = icmp eq ptr %4, %8
   br i1 %cmp.i, label %_ZN12_GLOBAL__N_127lemma_inductive_generalizer7weaken1Ej.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i
@@ -2388,8 +2388,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then2.i.i.i.i.i.
   call void @__clang_call_terminate(ptr %84) #19
   unreachable
 
-_ZN12_GLOBAL__N_127lemma_inductive_generalizer7weaken1Ej.exit: ; preds = %lor.rhs.i.i, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.exit.i, %if.end.i, %if.end55.i, %invoke.cont8.i.i.i, %if.then.i.i.i.i.i.i
-  %retval.0.i = phi i32 [ 0, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.exit.i ], [ 0, %if.end.i ], [ %success.097.i, %if.end55.i ], [ %success.097.i, %invoke.cont8.i.i.i ], [ %success.097.i, %if.then.i.i.i.i.i.i ], [ 0, %lor.rhs.i.i ]
+_ZN12_GLOBAL__N_127lemma_inductive_generalizer7weaken1Ej.exit: ; preds = %lor.rhs.i.i, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.argprom.exit.i, %if.end.i, %if.end55.i, %invoke.cont8.i.i.i, %if.then.i.i.i.i.i.i
+  %retval.0.i = phi i32 [ 0, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11is_eligibleEP4expr.argprom.exit.i ], [ 0, %if.end.i ], [ %success.097.i, %if.end55.i ], [ %success.097.i, %invoke.cont8.i.i.i ], [ %success.097.i, %if.then.i.i.i.i.i.i ], [ 0, %lor.rhs.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %weakening.i)
   %add = add i32 %retval.0.i, %success.057
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

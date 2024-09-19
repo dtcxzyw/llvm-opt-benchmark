@@ -1650,7 +1650,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
 _ZN5folly22WriteFileAtomicOptionsD2Ev.exit:       ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp) #23
   %conv = sext i32 %call4 to i64
-  call fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l(ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %conv)
+  call fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l.argprom(ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %conv)
   ret void
 
 lpad:                                             ; preds = %entry
@@ -1676,7 +1676,7 @@ _ZN5folly22WriteFileAtomicOptionsD2Ev.exit14:     ; preds = %if.then.i.i.i10, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l(ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef range(i64 -2147483648, 2147483648) %rc) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l.argprom(ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef range(i64 -2147483648, 2147483648) %rc) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %function = alloca %"class.folly::Range", align 8
   %filename = alloca %"class.folly::Range", align 8
@@ -2520,7 +2520,7 @@ _ZN5folly22WriteFileAtomicOptionsD2Ev.exit14.i:   ; preds = %if.then.i.i.i10.i, 
 _ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE.exit: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i) #23
   %conv.i = sext i32 %call4.i to i64
-  call fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l(ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %conv.i)
+  call fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l.argprom(ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %conv.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov) #23
   ret void
 }
@@ -2589,7 +2589,7 @@ _ZN5folly22WriteFileAtomicOptionsD2Ev.exit14.i.i: ; preds = %if.then.i.i.i10.i.i
 _ZN5folly15writeFileAtomicENS_5RangeIPKcEENS0_IPKhEEjNS_8SyncTypeE.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i.i) #23
   %conv.i.i = sext i32 %call4.i.i to i64
-  call fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l(ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %conv.i.i)
+  call fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l.argprom(ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %conv.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov.i) #23
   ret void
 }
@@ -2607,7 +2607,7 @@ entry:
   store i64 %sub.ptr.sub.i.i, ptr %0, align 8
   %call2 = call fastcc noundef i32 @_ZN5folly12_GLOBAL__N_126writeFileAtomicNoThrowImplENS_5RangeIPKcEEP5ioveciRKNS_22WriteFileAtomicOptionsE(ptr %filename.coerce0, ptr %filename.coerce1, ptr noundef nonnull %iov, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(40) %options)
   %conv = sext i32 %call2 to i64
-  call fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l(ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %conv)
+  call fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l.argprom(ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %conv)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov) #23
   ret void
 }

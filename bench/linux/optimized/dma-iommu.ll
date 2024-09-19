@@ -2151,7 +2151,7 @@ iommu_dma_sync_sg_for_device.exit:                ; preds = %111, %74, %71
 
 .thread:                                          ; preds = %iommu_dma_sync_sg_for_device.exit, %162
   %.val = load ptr, ptr %21, align 8
-  %164 = tail call fastcc i32 @__finalise_sg(ptr %.val, ptr noundef %1, i32 noundef %2, i64 noundef 0)
+  %164 = tail call fastcc i32 @__finalise_sg.argprom(ptr %.val, ptr noundef %1, i32 noundef %2, i64 noundef 0)
   br label %.loopexit14
 
 165:                                              ; preds = %162
@@ -2183,7 +2183,7 @@ iommu_dma_sync_sg_for_device.exit:                ; preds = %111, %74, %71
 
 182:                                              ; preds = %177
   %.val13 = load ptr, ptr %21, align 8
-  %183 = tail call fastcc i32 @__finalise_sg(ptr %.val13, ptr noundef %1, i32 noundef %2, i64 noundef %175)
+  %183 = tail call fastcc i32 @__finalise_sg.argprom(ptr %.val13, ptr noundef %1, i32 noundef %2, i64 noundef %175)
   br label %.loopexit14
 
 184:                                              ; preds = %177
@@ -3577,7 +3577,7 @@ declare void @llvm.write_register.i64(metadata, i64) #14
 declare dso_local i64 @iommu_iova_to_phys(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__finalise_sg(ptr readonly %.592.val, ptr noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @__finalise_sg.argprom(ptr readonly %.592.val, ptr noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #1 align 16 {
   %4 = icmp eq ptr %.592.val, null
   br i1 %4, label %.thread1, label %.thread
 

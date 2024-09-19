@@ -325,19 +325,19 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false
   %addr.i.i = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load ptr, ptr %addr.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %3, null
-  br i1 %tobool1.not.i.i, label %if.else10, label %connAddrPeerName.exit
+  br i1 %tobool1.not.i.i, label %if.else10, label %connAddrPeerName.argprom.exit
 
-connAddrPeerName.exit:                            ; preds = %land.lhs.true.i.i
+connAddrPeerName.argprom.exit:                    ; preds = %land.lhs.true.i.i
   %call.i.i = call i32 %3(ptr noundef nonnull %1, ptr noundef nonnull %ip, i64 noundef 46, ptr noundef null, i32 noundef 1) #22
   %cmp.not = icmp eq i32 %call.i.i, -1
-  br i1 %cmp.not, label %if.else10, label %connAddrPeerName.exit.if.then_crit_edge
+  br i1 %cmp.not, label %if.else10, label %connAddrPeerName.argprom.exit.if.then_crit_edge
 
-connAddrPeerName.exit.if.then_crit_edge:          ; preds = %connAddrPeerName.exit
+connAddrPeerName.argprom.exit.if.then_crit_edge:  ; preds = %connAddrPeerName.argprom.exit
   %.pre = load ptr, ptr %slave_addr, align 8
   br label %if.then
 
-if.then:                                          ; preds = %connAddrPeerName.exit.if.then_crit_edge, %entry
-  %4 = phi ptr [ %.pre, %connAddrPeerName.exit.if.then_crit_edge ], [ %0, %entry ]
+if.then:                                          ; preds = %connAddrPeerName.argprom.exit.if.then_crit_edge, %entry
+  %4 = phi ptr [ %.pre, %connAddrPeerName.argprom.exit.if.then_crit_edge ], [ %0, %entry ]
   %tobool2.not = icmp eq ptr %4, null
   %ip. = select i1 %tobool2.not, ptr %ip, ptr %4
   %slave_listening_port = getelementptr inbounds i8, ptr %c, i64 404
@@ -356,7 +356,7 @@ if.else:                                          ; preds = %if.then
   %call9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @replicationGetSlaveName.buf, i64 noundef 288, ptr noundef nonnull @.str, ptr noundef nonnull %ip.) #22
   br label %if.end12
 
-if.else10:                                        ; preds = %lor.lhs.false, %land.lhs.true.i.i, %connAddrPeerName.exit
+if.else10:                                        ; preds = %lor.lhs.false, %land.lhs.true.i.i, %connAddrPeerName.argprom.exit
   %6 = load i64, ptr %c, align 8
   %call11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @replicationGetSlaveName.buf, i64 noundef 288, ptr noundef nonnull @.str.1, i64 noundef %6) #22
   br label %if.end12

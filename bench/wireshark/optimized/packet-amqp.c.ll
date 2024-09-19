@@ -3211,47 +3211,47 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   ]
 
 71:                                               ; preds = %58
-  tail call fastcc void @dissect_amqp_0_9_method_connection_start(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66)
+  tail call fastcc void @dissect_amqp_0_9_method_connection_start.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 72:                                               ; preds = %58
-  tail call fastcc void @dissect_amqp_0_9_method_connection_start_ok(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66)
+  tail call fastcc void @dissect_amqp_0_9_method_connection_start_ok.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 73:                                               ; preds = %58
-  tail call fastcc void @dissect_amqp_0_9_method_connection_secure(ptr noundef %0, ptr noundef %66)
+  tail call fastcc void @dissect_amqp_0_9_method_connection_secure.argelim(ptr noundef %0, ptr noundef %66)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 74:                                               ; preds = %58
-  tail call fastcc void @dissect_amqp_0_9_method_connection_secure_ok(ptr noundef %0, ptr noundef %66)
+  tail call fastcc void @dissect_amqp_0_9_method_connection_secure_ok.argelim(ptr noundef %0, ptr noundef %66)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 75:                                               ; preds = %58
-  tail call fastcc void @dissect_amqp_0_9_method_connection_tune(ptr noundef %0, ptr noundef %66)
+  tail call fastcc void @dissect_amqp_0_9_method_connection_tune.argelim(ptr noundef %0, ptr noundef %66)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 76:                                               ; preds = %58
-  tail call fastcc void @dissect_amqp_0_9_method_connection_tune_ok(ptr noundef %0, ptr noundef %66)
+  tail call fastcc void @dissect_amqp_0_9_method_connection_tune_ok.argelim(ptr noundef %0, ptr noundef %66)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 77:                                               ; preds = %58
-  tail call fastcc void @dissect_amqp_0_9_method_connection_open(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66)
+  tail call fastcc void @dissect_amqp_0_9_method_connection_open.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 78:                                               ; preds = %58
-  tail call fastcc void @dissect_amqp_0_9_method_connection_open_ok(ptr noundef %0, ptr noundef %66)
+  tail call fastcc void @dissect_amqp_0_9_method_connection_open_ok.argelim(ptr noundef %0, ptr noundef %66)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 79:                                               ; preds = %58
-  tail call fastcc void @dissect_amqp_0_9_method_connection_redirect(ptr noundef %0, ptr noundef %66)
+  tail call fastcc void @dissect_amqp_0_9_method_connection_redirect.argelim(ptr noundef %0, ptr noundef %66)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 80:                                               ; preds = %58
-  tail call fastcc void @dissect_amqp_0_9_method_connection_close(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66)
+  tail call fastcc void @dissect_amqp_0_9_method_connection_close.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 81:                                               ; preds = %58
-  tail call fastcc void @dissect_amqp_0_9_method_connection_blocked(ptr noundef %0, ptr noundef %66)
+  tail call fastcc void @dissect_amqp_0_9_method_connection_blocked.argelim(ptr noundef %0, ptr noundef %66)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 82:                                               ; preds = %58
@@ -3286,11 +3286,11 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   ]
 
 97:                                               ; preds = %84
-  tail call fastcc void @dissect_amqp_0_9_method_channel_open(ptr noundef %0, ptr noundef %92)
+  tail call fastcc void @dissect_amqp_0_9_method_channel_open.argelim(ptr noundef %0, ptr noundef %92)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 98:                                               ; preds = %84
-  tail call fastcc void @dissect_amqp_0_9_method_channel_open_ok(ptr noundef %0, ptr noundef %92)
+  tail call fastcc void @dissect_amqp_0_9_method_channel_open_ok.argelim(ptr noundef %0, ptr noundef %92)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 99:                                               ; preds = %84
@@ -3304,11 +3304,11 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 105:                                              ; preds = %84
-  tail call fastcc void @dissect_amqp_0_9_method_channel_close(i16 noundef zeroext %52, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %92)
+  tail call fastcc void @dissect_amqp_0_9_method_channel_close.argelim(i16 noundef zeroext %52, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %92)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 106:                                              ; preds = %84
-  tail call fastcc void @dissect_amqp_0_9_method_channel_resume(ptr noundef %0, ptr noundef %92)
+  tail call fastcc void @dissect_amqp_0_9_method_channel_resume.argelim(ptr noundef %0, ptr noundef %92)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 107:                                              ; preds = %84
@@ -3330,7 +3330,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   ]
 
 118:                                              ; preds = %109
-  tail call fastcc void @dissect_amqp_0_9_method_access_request(ptr noundef %0, ptr noundef %117)
+  tail call fastcc void @dissect_amqp_0_9_method_access_request.argelim(ptr noundef %0, ptr noundef %117)
   %119 = getelementptr inbounds i8, ptr %1, i64 8
   %120 = load ptr, ptr %119, align 8
   tail call void @col_append_str(ptr noundef %120, i32 noundef 25, ptr noundef nonnull @.str.1388) #12
@@ -3375,19 +3375,19 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   ]
 
 142:                                              ; preds = %129
-  tail call fastcc void @dissect_amqp_0_9_method_exchange_declare(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %137)
+  tail call fastcc void @dissect_amqp_0_9_method_exchange_declare.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %137)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 143:                                              ; preds = %129
-  tail call fastcc void @dissect_amqp_0_9_method_exchange_bind(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %137)
+  tail call fastcc void @dissect_amqp_0_9_method_exchange_bind.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %137)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 144:                                              ; preds = %129
-  tail call fastcc void @dissect_amqp_0_9_method_exchange_delete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %137)
+  tail call fastcc void @dissect_amqp_0_9_method_exchange_delete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %137)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 145:                                              ; preds = %129
-  tail call fastcc void @dissect_amqp_0_9_method_exchange_bind(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %137)
+  tail call fastcc void @dissect_amqp_0_9_method_exchange_bind.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %137)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 146:                                              ; preds = %129
@@ -3422,23 +3422,23 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   ]
 
 161:                                              ; preds = %148
-  tail call fastcc void @dissect_amqp_0_9_method_queue_declare(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %156)
+  tail call fastcc void @dissect_amqp_0_9_method_queue_declare.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %156)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 162:                                              ; preds = %148
-  tail call fastcc void @dissect_amqp_0_9_method_queue_declare_ok(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %156)
+  tail call fastcc void @dissect_amqp_0_9_method_queue_declare_ok.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %156)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 163:                                              ; preds = %148
-  tail call fastcc void @dissect_amqp_0_9_method_queue_bind(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %156)
+  tail call fastcc void @dissect_amqp_0_9_method_queue_bind.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %156)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 164:                                              ; preds = %148
-  tail call fastcc void @dissect_amqp_0_9_method_queue_unbind(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %156)
+  tail call fastcc void @dissect_amqp_0_9_method_queue_unbind.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %156)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 165:                                              ; preds = %148
-  tail call fastcc void @dissect_amqp_0_9_method_queue_purge(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %156)
+  tail call fastcc void @dissect_amqp_0_9_method_queue_purge.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %156)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 166:                                              ; preds = %148
@@ -3447,7 +3447,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 169:                                              ; preds = %148
-  tail call fastcc void @dissect_amqp_0_9_method_queue_delete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %156)
+  tail call fastcc void @dissect_amqp_0_9_method_queue_delete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %156)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 170:                                              ; preds = %148
@@ -3495,59 +3495,59 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   ]
 
 188:                                              ; preds = %175
-  tail call fastcc void @dissect_amqp_0_9_method_basic_qos(ptr noundef %0, ptr noundef %183)
+  tail call fastcc void @dissect_amqp_0_9_method_basic_qos.argelim(ptr noundef %0, ptr noundef %183)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 189:                                              ; preds = %175
-  tail call fastcc void @dissect_amqp_0_9_method_basic_consume(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
+  tail call fastcc void @dissect_amqp_0_9_method_basic_consume.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 190:                                              ; preds = %175
-  tail call fastcc void @dissect_amqp_0_9_method_basic_consume_ok(ptr noundef %0, ptr noundef %183)
+  tail call fastcc void @dissect_amqp_0_9_method_basic_consume_ok.argelim(ptr noundef %0, ptr noundef %183)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 191:                                              ; preds = %175
-  tail call fastcc void @dissect_amqp_0_9_method_basic_cancel(ptr noundef %0, ptr noundef %183)
+  tail call fastcc void @dissect_amqp_0_9_method_basic_cancel.argelim(ptr noundef %0, ptr noundef %183)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 192:                                              ; preds = %175
-  tail call fastcc void @dissect_amqp_0_9_method_basic_cancel_ok(ptr noundef %0, ptr noundef %183)
+  tail call fastcc void @dissect_amqp_0_9_method_basic_cancel_ok.argelim(ptr noundef %0, ptr noundef %183)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 193:                                              ; preds = %175
-  tail call fastcc void @dissect_amqp_0_9_method_basic_publish(i16 noundef zeroext %52, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
+  tail call fastcc void @dissect_amqp_0_9_method_basic_publish.argelim(i16 noundef zeroext %52, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
   tail call fastcc void @generate_ack_reference(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0502)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 194:                                              ; preds = %175
-  tail call fastcc void @dissect_amqp_0_9_method_basic_return(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
+  tail call fastcc void @dissect_amqp_0_9_method_basic_return.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 195:                                              ; preds = %175
-  tail call fastcc void @dissect_amqp_0_9_method_basic_deliver(i16 noundef zeroext %52, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
+  tail call fastcc void @dissect_amqp_0_9_method_basic_deliver.argelim(i16 noundef zeroext %52, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
   tail call fastcc void @generate_ack_reference(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0502)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 196:                                              ; preds = %175
-  tail call fastcc void @dissect_amqp_0_9_method_basic_get(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
+  tail call fastcc void @dissect_amqp_0_9_method_basic_get.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 197:                                              ; preds = %175
-  tail call fastcc void @dissect_amqp_0_9_method_basic_get_ok(i16 noundef zeroext %52, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
+  tail call fastcc void @dissect_amqp_0_9_method_basic_get_ok.argelim(i16 noundef zeroext %52, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
   tail call fastcc void @generate_ack_reference(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0502)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 198:                                              ; preds = %175
-  tail call fastcc void @dissect_amqp_0_9_method_basic_get_empty(ptr noundef %0, ptr noundef %183)
+  tail call fastcc void @dissect_amqp_0_9_method_basic_get_empty.argelim(ptr noundef %0, ptr noundef %183)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 199:                                              ; preds = %175
-  tail call fastcc void @dissect_amqp_0_9_method_basic_ack(i16 noundef zeroext %52, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
+  tail call fastcc void @dissect_amqp_0_9_method_basic_ack.argelim(i16 noundef zeroext %52, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
   tail call fastcc void @generate_msg_reference(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0502)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 200:                                              ; preds = %175
-  tail call fastcc void @dissect_amqp_0_9_method_basic_reject(i16 noundef zeroext %52, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
+  tail call fastcc void @dissect_amqp_0_9_method_basic_reject.argelim(i16 noundef zeroext %52, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
   tail call fastcc void @generate_msg_reference(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0502)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
@@ -3562,7 +3562,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 207:                                              ; preds = %175
-  tail call fastcc void @dissect_amqp_0_9_method_basic_nack(i16 noundef zeroext %52, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
+  tail call fastcc void @dissect_amqp_0_9_method_basic_nack.argelim(i16 noundef zeroext %52, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %183)
   tail call fastcc void @generate_msg_reference(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0502)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
@@ -3602,27 +3602,27 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   ]
 
 223:                                              ; preds = %210
-  tail call fastcc void @dissect_amqp_0_9_method_file_qos(ptr noundef %0, ptr noundef %218)
+  tail call fastcc void @dissect_amqp_0_9_method_file_qos.argelim(ptr noundef %0, ptr noundef %218)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 224:                                              ; preds = %210
-  tail call fastcc void @dissect_amqp_0_9_method_file_consume(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %218)
+  tail call fastcc void @dissect_amqp_0_9_method_file_consume.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %218)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 225:                                              ; preds = %210
-  tail call fastcc void @dissect_amqp_0_9_method_file_consume_ok(ptr noundef %0, ptr noundef %218)
+  tail call fastcc void @dissect_amqp_0_9_method_file_consume_ok.argelim(ptr noundef %0, ptr noundef %218)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 226:                                              ; preds = %210
-  tail call fastcc void @dissect_amqp_0_9_method_file_cancel(ptr noundef %0, ptr noundef %218)
+  tail call fastcc void @dissect_amqp_0_9_method_file_cancel.argelim(ptr noundef %0, ptr noundef %218)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 227:                                              ; preds = %210
-  tail call fastcc void @dissect_amqp_0_9_method_file_cancel_ok(ptr noundef %0, ptr noundef %218)
+  tail call fastcc void @dissect_amqp_0_9_method_file_cancel_ok.argelim(ptr noundef %0, ptr noundef %218)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 228:                                              ; preds = %210
-  tail call fastcc void @dissect_amqp_0_9_method_file_open(ptr noundef %0, ptr noundef %218)
+  tail call fastcc void @dissect_amqp_0_9_method_file_open.argelim(ptr noundef %0, ptr noundef %218)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 229:                                              ; preds = %210
@@ -3631,23 +3631,23 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 232:                                              ; preds = %210
-  tail call fastcc void @dissect_amqp_0_9_method_file_publish(ptr noundef %0, ptr noundef %218)
+  tail call fastcc void @dissect_amqp_0_9_method_file_publish.argelim(ptr noundef %0, ptr noundef %218)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 233:                                              ; preds = %210
-  tail call fastcc void @dissect_amqp_0_9_method_file_return(ptr noundef %0, ptr noundef %218)
+  tail call fastcc void @dissect_amqp_0_9_method_file_return.argelim(ptr noundef %0, ptr noundef %218)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 234:                                              ; preds = %210
-  tail call fastcc void @dissect_amqp_0_9_method_file_deliver(ptr noundef %0, ptr noundef %218)
+  tail call fastcc void @dissect_amqp_0_9_method_file_deliver.argelim(ptr noundef %0, ptr noundef %218)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 235:                                              ; preds = %210
-  tail call fastcc void @dissect_amqp_0_9_method_file_ack(ptr noundef %0, ptr noundef %218)
+  tail call fastcc void @dissect_amqp_0_9_method_file_ack.argelim(ptr noundef %0, ptr noundef %218)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 236:                                              ; preds = %210
-  tail call fastcc void @dissect_amqp_0_9_method_file_reject(ptr noundef %0, ptr noundef %218)
+  tail call fastcc void @dissect_amqp_0_9_method_file_reject.argelim(ptr noundef %0, ptr noundef %218)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 237:                                              ; preds = %210
@@ -3681,35 +3681,35 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   ]
 
 252:                                              ; preds = %239
-  tail call fastcc void @dissect_amqp_0_9_method_stream_qos(ptr noundef %0, ptr noundef %247)
+  tail call fastcc void @dissect_amqp_0_9_method_stream_qos.argelim(ptr noundef %0, ptr noundef %247)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 253:                                              ; preds = %239
-  tail call fastcc void @dissect_amqp_0_9_method_stream_consume(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %247)
+  tail call fastcc void @dissect_amqp_0_9_method_stream_consume.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %247)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 254:                                              ; preds = %239
-  tail call fastcc void @dissect_amqp_0_9_method_stream_consume_ok(ptr noundef %0, ptr noundef %247)
+  tail call fastcc void @dissect_amqp_0_9_method_stream_consume_ok.argelim(ptr noundef %0, ptr noundef %247)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 255:                                              ; preds = %239
-  tail call fastcc void @dissect_amqp_0_9_method_stream_cancel(ptr noundef %0, ptr noundef %247)
+  tail call fastcc void @dissect_amqp_0_9_method_stream_cancel.argelim(ptr noundef %0, ptr noundef %247)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 256:                                              ; preds = %239
-  tail call fastcc void @dissect_amqp_0_9_method_stream_cancel_ok(ptr noundef %0, ptr noundef %247)
+  tail call fastcc void @dissect_amqp_0_9_method_stream_cancel_ok.argelim(ptr noundef %0, ptr noundef %247)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 257:                                              ; preds = %239
-  tail call fastcc void @dissect_amqp_0_9_method_stream_publish(ptr noundef %0, ptr noundef %247)
+  tail call fastcc void @dissect_amqp_0_9_method_stream_publish.argelim(ptr noundef %0, ptr noundef %247)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 258:                                              ; preds = %239
-  tail call fastcc void @dissect_amqp_0_9_method_stream_return(ptr noundef %0, ptr noundef %247)
+  tail call fastcc void @dissect_amqp_0_9_method_stream_return.argelim(ptr noundef %0, ptr noundef %247)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 259:                                              ; preds = %239
-  tail call fastcc void @dissect_amqp_0_9_method_stream_deliver(ptr noundef %0, ptr noundef %247)
+  tail call fastcc void @dissect_amqp_0_9_method_stream_deliver.argelim(ptr noundef %0, ptr noundef %247)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 260:                                              ; preds = %239
@@ -3765,7 +3765,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   ]
 
 290:                                              ; preds = %277
-  tail call fastcc void @dissect_amqp_0_9_method_dtx_start(ptr noundef %0, ptr noundef %285)
+  tail call fastcc void @dissect_amqp_0_9_method_dtx_start.argelim(ptr noundef %0, ptr noundef %285)
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 291:                                              ; preds = %277
@@ -3785,7 +3785,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %cond, label %302, label %305
 
 302:                                              ; preds = %293
-  tail call fastcc void @dissect_amqp_0_9_method_tunnel_request(ptr noundef %0, ptr noundef %1, ptr noundef %301)
+  tail call fastcc void @dissect_amqp_0_9_method_tunnel_request.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %301)
   %303 = getelementptr inbounds i8, ptr %1, i64 8
   %304 = load ptr, ptr %303, align 8
   tail call void @col_append_str(ptr noundef %304, i32 noundef 25, ptr noundef nonnull @.str.1405) #12
@@ -3819,7 +3819,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 322:                                              ; preds = %308
-  tail call fastcc void @dissect_amqp_0_9_method_confirm_select_ok(i16 noundef zeroext %52, ptr noundef %1)
+  tail call fastcc void @dissect_amqp_0_9_method_confirm_select_ok.argprom.argelim(i16 noundef zeroext %52, ptr noundef %1)
   %323 = getelementptr inbounds i8, ptr %1, i64 8
   %324 = load ptr, ptr %323, align 8
   tail call void @col_append_str(ptr noundef %324, i32 noundef 25, ptr noundef nonnull @.str.1408) #12
@@ -4541,7 +4541,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_connection_start(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_connection_start.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_amqp_method_connection_start_version_major, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #12
   %6 = load i32, ptr @hf_amqp_method_connection_start_version_minor, align 4
@@ -4568,7 +4568,7 @@ define internal fastcc void @dissect_amqp_0_9_method_connection_start(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_connection_start_ok(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_connection_start_ok.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_amqp_method_connection_start_ok_client_properties, align 4
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 11) #12
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 15, i32 noundef %5, i32 noundef 0) #12
@@ -4594,7 +4594,7 @@ define internal fastcc void @dissect_amqp_0_9_method_connection_start_ok(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_connection_secure(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_connection_secure.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_connection_secure_challenge, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 11, i32 noundef 4, i32 noundef 0) #12
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 11) #12
@@ -4602,7 +4602,7 @@ define internal fastcc void @dissect_amqp_0_9_method_connection_secure(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_connection_secure_ok(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_connection_secure_ok.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_connection_secure_ok_response, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 11, i32 noundef 4, i32 noundef 0) #12
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 11) #12
@@ -4610,7 +4610,7 @@ define internal fastcc void @dissect_amqp_0_9_method_connection_secure_ok(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_connection_tune(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_connection_tune.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_connection_tune_channel_max, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
   %5 = load i32, ptr @hf_amqp_0_9_method_connection_tune_frame_max, align 4
@@ -4621,7 +4621,7 @@ define internal fastcc void @dissect_amqp_0_9_method_connection_tune(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_connection_tune_ok(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_connection_tune_ok.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_connection_tune_ok_channel_max, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
   %5 = load i32, ptr @hf_amqp_0_9_method_connection_tune_ok_frame_max, align 4
@@ -4632,7 +4632,7 @@ define internal fastcc void @dissect_amqp_0_9_method_connection_tune_ok(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_connection_open(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_connection_open.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_amqp_method_connection_open_virtual_host, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 408
@@ -4659,7 +4659,7 @@ define internal fastcc void @dissect_amqp_0_9_method_connection_open(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_connection_open_ok(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_connection_open_ok.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_0_9_method_connection_open_ok_known_hosts, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -4669,7 +4669,7 @@ define internal fastcc void @dissect_amqp_0_9_method_connection_open_ok(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_connection_redirect(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_connection_redirect.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_connection_redirect_host, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #12
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
@@ -4685,7 +4685,7 @@ define internal fastcc void @dissect_amqp_0_9_method_connection_redirect(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_connection_close(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_connection_close.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_amqp_0_9_method_connection_close_reply_code, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
@@ -4718,7 +4718,7 @@ define internal fastcc void @dissect_amqp_0_9_method_connection_close(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_connection_blocked(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_connection_blocked.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_connection_blocked_reason, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -4730,7 +4730,7 @@ define internal fastcc void @dissect_amqp_0_9_method_connection_blocked(ptr noun
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_channel_open(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_channel_open.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_channel_open_out_of_band, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -4740,7 +4740,7 @@ define internal fastcc void @dissect_amqp_0_9_method_channel_open(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_channel_open_ok(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_channel_open_ok.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_channel_open_ok_channel_id, align 4
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 11) #12
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 15, i32 noundef %4, i32 noundef 0) #12
@@ -4749,7 +4749,7 @@ define internal fastcc void @dissect_amqp_0_9_method_channel_open_ok(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_channel_close(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_channel_close.argelim(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_amqp_method_channel_close_reply_code, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %1, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
@@ -4808,7 +4808,7 @@ define internal fastcc void @dissect_amqp_0_9_method_channel_close(i16 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_channel_resume(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_channel_resume.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_channel_resume_channel_id, align 4
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 11) #12
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 15, i32 noundef %4, i32 noundef 0) #12
@@ -4817,7 +4817,7 @@ define internal fastcc void @dissect_amqp_0_9_method_channel_resume(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_access_request(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_access_request.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_access_request_realm, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -4839,7 +4839,7 @@ define internal fastcc void @dissect_amqp_0_9_method_access_request(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_exchange_declare(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_exchange_declare.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_amqp_method_exchange_declare_ticket, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
@@ -4886,7 +4886,7 @@ define internal fastcc void @dissect_amqp_0_9_method_exchange_declare(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_exchange_bind(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_exchange_bind.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_amqp_method_exchange_declare_ticket, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
@@ -4941,7 +4941,7 @@ define internal fastcc void @dissect_amqp_0_9_method_exchange_bind(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_exchange_delete(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_exchange_delete.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_amqp_method_exchange_delete_ticket, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
@@ -4966,7 +4966,7 @@ define internal fastcc void @dissect_amqp_0_9_method_exchange_delete(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_queue_declare(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_queue_declare.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_amqp_method_queue_declare_ticket, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
@@ -5005,7 +5005,7 @@ define internal fastcc void @dissect_amqp_0_9_method_queue_declare(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_queue_declare_ok(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_queue_declare_ok.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_amqp_method_queue_declare_ok_queue, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
@@ -5029,7 +5029,7 @@ define internal fastcc void @dissect_amqp_0_9_method_queue_declare_ok(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_queue_bind(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_queue_bind.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_amqp_method_queue_bind_ticket, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
@@ -5084,7 +5084,7 @@ define internal fastcc void @dissect_amqp_0_9_method_queue_bind(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_queue_unbind(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_queue_unbind.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_amqp_method_queue_unbind_ticket, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
@@ -5136,7 +5136,7 @@ define internal fastcc void @dissect_amqp_0_9_method_queue_unbind(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_queue_purge(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_queue_purge.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_amqp_method_queue_purge_ticket, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
@@ -5159,7 +5159,7 @@ define internal fastcc void @dissect_amqp_0_9_method_queue_purge(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_queue_delete(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_queue_delete.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_amqp_method_queue_delete_ticket, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
@@ -5186,7 +5186,7 @@ define internal fastcc void @dissect_amqp_0_9_method_queue_delete(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_basic_qos(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_basic_qos.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_basic_qos_prefetch_size, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 11, i32 noundef 4, i32 noundef 0) #12
   %5 = load i32, ptr @hf_amqp_method_basic_qos_prefetch_count, align 4
@@ -5197,7 +5197,7 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_qos(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_basic_consume(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_basic_consume.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_amqp_method_basic_consume_ticket, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
@@ -5242,7 +5242,7 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_consume(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_basic_consume_ok(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_basic_consume_ok.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_basic_consume_ok_consumer_tag, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -5252,7 +5252,7 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_consume_ok(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_basic_cancel(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_basic_cancel.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_basic_cancel_consumer_tag, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -5266,7 +5266,7 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_cancel(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_basic_cancel_ok(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_basic_cancel_ok.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_basic_cancel_ok_consumer_tag, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -5276,7 +5276,7 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_cancel_ok(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_basic_publish(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_basic_publish.argelim(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 80
   %7 = load ptr, ptr %6, align 8
@@ -5445,7 +5445,7 @@ proto_item_set_generated.exit:                    ; preds = %18, %15, %12, %9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_basic_return(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_basic_return.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_amqp_method_basic_return_reply_code, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 11) #12
@@ -5482,7 +5482,7 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_return(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_basic_deliver(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_basic_deliver.argelim(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_amqp_method_basic_deliver_consumer_tag, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 11) #12
@@ -5539,7 +5539,7 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_deliver(i16 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_basic_get(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_basic_get.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_amqp_method_basic_get_ticket, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
@@ -5562,7 +5562,7 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_get(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_basic_get_ok(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_basic_get_ok.argelim(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_amqp_method_basic_get_ok_delivery_tag, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %1, i32 noundef 11, i32 noundef 8, i32 noundef 0) #12
@@ -5613,7 +5613,7 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_get_ok(i16 noundef ze
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_basic_get_empty(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_basic_get_empty.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_basic_get_empty_cluster_id, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -5623,7 +5623,7 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_get_empty(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_basic_ack(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_basic_ack.argelim(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_amqp_method_basic_ack_delivery_tag, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %1, i32 noundef 11, i32 noundef 8, i32 noundef 0) #12
   %7 = tail call i64 @tvb_get_ntoh64(ptr noundef %1, i32 noundef 11) #12
@@ -5695,7 +5695,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %14, %11, %.lr.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_basic_reject(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_basic_reject.argelim(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_amqp_method_basic_reject_delivery_tag, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %1, i32 noundef 11, i32 noundef 8, i32 noundef 0) #12
   %7 = tail call i64 @tvb_get_ntoh64(ptr noundef %1, i32 noundef 11) #12
@@ -5718,7 +5718,7 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_reject(i16 noundef ze
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_basic_nack(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_basic_nack.argelim(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_amqp_method_basic_nack_delivery_tag, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %1, i32 noundef 11, i32 noundef 8, i32 noundef 0) #12
   %7 = tail call i64 @tvb_get_ntoh64(ptr noundef %1, i32 noundef 11) #12
@@ -5746,7 +5746,7 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_nack(i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_file_qos(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_file_qos.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_file_qos_prefetch_size, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 11, i32 noundef 4, i32 noundef 0) #12
   %5 = load i32, ptr @hf_amqp_method_file_qos_prefetch_count, align 4
@@ -5757,7 +5757,7 @@ define internal fastcc void @dissect_amqp_0_9_method_file_qos(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_file_consume(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_file_consume.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_amqp_method_file_consume_ticket, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
   %6 = load i32, ptr @hf_amqp_method_file_consume_queue, align 4
@@ -5795,7 +5795,7 @@ define internal fastcc void @dissect_amqp_0_9_method_file_consume(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_file_consume_ok(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_file_consume_ok.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_file_consume_ok_consumer_tag, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -5805,7 +5805,7 @@ define internal fastcc void @dissect_amqp_0_9_method_file_consume_ok(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_file_cancel(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_file_cancel.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_file_cancel_consumer_tag, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -5819,7 +5819,7 @@ define internal fastcc void @dissect_amqp_0_9_method_file_cancel(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_file_cancel_ok(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_file_cancel_ok.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_file_cancel_ok_consumer_tag, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -5829,7 +5829,7 @@ define internal fastcc void @dissect_amqp_0_9_method_file_cancel_ok(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_file_open(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_file_open.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_file_open_identifier, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -5843,7 +5843,7 @@ define internal fastcc void @dissect_amqp_0_9_method_file_open(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_file_publish(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_file_publish.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_file_publish_ticket, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
   %5 = load i32, ptr @hf_amqp_method_file_publish_exchange, align 4
@@ -5876,7 +5876,7 @@ define internal fastcc void @dissect_amqp_0_9_method_file_publish(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_file_return(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_file_return.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_file_return_reply_code, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
   %5 = load i32, ptr @hf_amqp_method_file_return_reply_text, align 4
@@ -5904,7 +5904,7 @@ define internal fastcc void @dissect_amqp_0_9_method_file_return(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_file_deliver(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_file_deliver.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_file_deliver_consumer_tag, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -5944,7 +5944,7 @@ define internal fastcc void @dissect_amqp_0_9_method_file_deliver(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_file_ack(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_file_ack.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_file_ack_delivery_tag, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 11, i32 noundef 8, i32 noundef 0) #12
   %5 = load i32, ptr @hf_amqp_method_file_ack_multiple, align 4
@@ -5953,7 +5953,7 @@ define internal fastcc void @dissect_amqp_0_9_method_file_ack(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_file_reject(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_file_reject.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_file_reject_delivery_tag, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 11, i32 noundef 8, i32 noundef 0) #12
   %5 = load i32, ptr @hf_amqp_method_file_reject_requeue, align 4
@@ -5962,7 +5962,7 @@ define internal fastcc void @dissect_amqp_0_9_method_file_reject(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_stream_qos(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_stream_qos.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_stream_qos_prefetch_size, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 11, i32 noundef 4, i32 noundef 0) #12
   %5 = load i32, ptr @hf_amqp_method_stream_qos_prefetch_count, align 4
@@ -5975,7 +5975,7 @@ define internal fastcc void @dissect_amqp_0_9_method_stream_qos(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_stream_consume(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_stream_consume.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_amqp_method_stream_consume_ticket, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
   %6 = load i32, ptr @hf_amqp_method_stream_consume_queue, align 4
@@ -6011,7 +6011,7 @@ define internal fastcc void @dissect_amqp_0_9_method_stream_consume(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_stream_consume_ok(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_stream_consume_ok.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_stream_consume_ok_consumer_tag, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -6021,7 +6021,7 @@ define internal fastcc void @dissect_amqp_0_9_method_stream_consume_ok(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_stream_cancel(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_stream_cancel.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_stream_cancel_consumer_tag, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -6035,7 +6035,7 @@ define internal fastcc void @dissect_amqp_0_9_method_stream_cancel(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_stream_cancel_ok(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_stream_cancel_ok.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_stream_cancel_ok_consumer_tag, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -6045,7 +6045,7 @@ define internal fastcc void @dissect_amqp_0_9_method_stream_cancel_ok(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_stream_publish(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_stream_publish.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_stream_publish_ticket, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
   %5 = load i32, ptr @hf_amqp_method_stream_publish_exchange, align 4
@@ -6071,7 +6071,7 @@ define internal fastcc void @dissect_amqp_0_9_method_stream_publish(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_stream_return(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_stream_return.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_stream_return_reply_code, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
   %5 = load i32, ptr @hf_amqp_method_stream_return_reply_text, align 4
@@ -6099,7 +6099,7 @@ define internal fastcc void @dissect_amqp_0_9_method_stream_return(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_stream_deliver(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_stream_deliver.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_stream_deliver_consumer_tag, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -6128,7 +6128,7 @@ define internal fastcc void @dissect_amqp_0_9_method_stream_deliver(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_dtx_start(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_dtx_start.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_amqp_method_dtx_start_dtx_identifier, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %5 = zext i8 %4 to i32
@@ -6138,7 +6138,7 @@ define internal fastcc void @dissect_amqp_0_9_method_dtx_start(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_tunnel_request(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_tunnel_request.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_amqp_method_tunnel_request_meta_data, align 4
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 11) #12
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 15, i32 noundef %5, i32 noundef 0) #12
@@ -6149,7 +6149,7 @@ define internal fastcc void @dissect_amqp_0_9_method_tunnel_request(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_method_confirm_select_ok(i16 noundef zeroext %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_method_confirm_select_ok.argprom.argelim(i16 noundef zeroext %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 50
@@ -6231,7 +6231,7 @@ define internal fastcc void @dissect_amqp_0_9_field_table(ptr noundef %0, ptr no
   %25 = add i32 %15, %14
   %26 = sub nuw i32 %16, %14
   call void @increment_dissection_depth(ptr noundef %1) #12
-  %27 = call fastcc i32 @dissect_amqp_0_9_field_value(ptr noundef %0, ptr noundef %1, i32 noundef %25, i32 noundef %26, ptr noundef %20)
+  %27 = call fastcc i32 @dissect_amqp_0_9_field_value.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %25, i32 noundef %26, ptr noundef %20)
   call void @decrement_dissection_depth(ptr noundef %1) #12
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %32, label %29
@@ -6259,7 +6259,7 @@ declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_amqp_0_9_field_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_amqp_0_9_field_value.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = icmp eq i32 %3, 0
   br i1 %7, label %136, label %8
@@ -6459,7 +6459,7 @@ define internal fastcc noundef i32 @dissect_amqp_0_9_field_value(ptr noundef %0,
 
 117:                                              ; preds = %113
   %118 = add i32 %2, 5
-  tail call fastcc void @dissect_amqp_0_9_field_array(ptr noundef %0, ptr noundef %1, i32 noundef %118, i32 noundef %114)
+  tail call fastcc void @dissect_amqp_0_9_field_array.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %118, i32 noundef %114)
   %119 = add i32 %114, %118
   br label %.thread
 
@@ -6525,7 +6525,7 @@ declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @proto_tree_add_item_ret_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_field_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -5) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_field_array.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -5) %3) unnamed_addr #0 {
   %5 = load i32, ptr @ett_amqp, align 4
   %6 = tail call ptr @proto_item_add_subtree(ptr noundef null, i32 noundef %5) #12
   %.not2 = icmp eq i32 %3, 0
@@ -6546,7 +6546,7 @@ define internal fastcc void @dissect_amqp_0_9_field_array(ptr noundef %0, ptr no
   %13 = load ptr, ptr %7, align 8
   %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %13, ptr noundef nonnull @.str.1420, i32 noundef %.0303) #12
   tail call void @increment_dissection_depth(ptr noundef %1) #12
-  %15 = tail call fastcc i32 @dissect_amqp_0_9_field_value(ptr noundef %0, ptr noundef %1, i32 noundef %.05, i32 noundef %.0294, ptr noundef %12)
+  %15 = tail call fastcc i32 @dissect_amqp_0_9_field_value.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %.05, i32 noundef %.0294, ptr noundef %12)
   tail call void @decrement_dissection_depth(ptr noundef %1) #12
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %21, label %17
@@ -8690,7 +8690,7 @@ amqp_0_10_get_32bit_size_new.exit161.i:           ; preds = %665, %660
   %1008 = zext i16 %1006 to i32
   %1009 = add nuw nsw i32 %1008, 2
   %1010 = tail call ptr @proto_tree_add_item(ptr noundef %993, i32 noundef %1007, ptr noundef %70, i32 noundef 6, i32 noundef %1009, i32 noundef 0) #12
-  tail call fastcc void @dissect_amqp_0_10_xid(ptr noundef %70, ptr noundef %1010)
+  tail call fastcc void @dissect_amqp_0_10_xid.argelim(ptr noundef %70, ptr noundef %1010)
   br label %1011
 
 1011:                                             ; preds = %1005, %1003
@@ -8721,7 +8721,7 @@ amqp_0_10_get_32bit_size_new.exit161.i:           ; preds = %665, %660
   %1026 = zext i16 %1024 to i32
   %1027 = add nuw nsw i32 %1026, 2
   %1028 = tail call ptr @proto_tree_add_item(ptr noundef %993, i32 noundef %1025, ptr noundef %70, i32 noundef 6, i32 noundef %1027, i32 noundef 0) #12
-  tail call fastcc void @dissect_amqp_0_10_xid(ptr noundef %70, ptr noundef %1028)
+  tail call fastcc void @dissect_amqp_0_10_xid.argelim(ptr noundef %70, ptr noundef %1028)
   br label %1029
 
 1029:                                             ; preds = %1023, %1021
@@ -8752,7 +8752,7 @@ amqp_0_10_get_32bit_size_new.exit161.i:           ; preds = %665, %660
   %1044 = zext i16 %1042 to i32
   %1045 = add nuw nsw i32 %1044, 2
   %1046 = tail call ptr @proto_tree_add_item(ptr noundef %993, i32 noundef %1043, ptr noundef %70, i32 noundef 6, i32 noundef %1045, i32 noundef 0) #12
-  tail call fastcc void @dissect_amqp_0_10_xid(ptr noundef %70, ptr noundef %1046)
+  tail call fastcc void @dissect_amqp_0_10_xid.argelim(ptr noundef %70, ptr noundef %1046)
   br label %1047
 
 1047:                                             ; preds = %1041, %1039
@@ -8781,7 +8781,7 @@ amqp_0_10_get_32bit_size_new.exit161.i:           ; preds = %665, %660
   %1060 = zext i16 %1058 to i32
   %1061 = add nuw nsw i32 %1060, 2
   %1062 = tail call ptr @proto_tree_add_item(ptr noundef %993, i32 noundef %1059, ptr noundef %70, i32 noundef 6, i32 noundef %1061, i32 noundef 0) #12
-  tail call fastcc void @dissect_amqp_0_10_xid(ptr noundef %70, ptr noundef %1062)
+  tail call fastcc void @dissect_amqp_0_10_xid.argelim(ptr noundef %70, ptr noundef %1062)
   br label %dissect_amqp_0_10_connection.exit
 
 1063:                                             ; preds = %989
@@ -8806,7 +8806,7 @@ amqp_0_10_get_32bit_size_new.exit161.i:           ; preds = %665, %660
   %1074 = zext i16 %1072 to i32
   %1075 = add nuw nsw i32 %1074, 2
   %1076 = tail call ptr @proto_tree_add_item(ptr noundef %993, i32 noundef %1073, ptr noundef %70, i32 noundef 6, i32 noundef %1075, i32 noundef 0) #12
-  tail call fastcc void @dissect_amqp_0_10_xid(ptr noundef %70, ptr noundef %1076)
+  tail call fastcc void @dissect_amqp_0_10_xid.argelim(ptr noundef %70, ptr noundef %1076)
   %1077 = add nuw nsw i32 %1074, 8
   br label %1078
 
@@ -11930,7 +11930,7 @@ define internal fastcc void @format_amqp_0_10_sequence_set(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_10_xid(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_10_xid.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @ett_args, align 4
   %4 = tail call ptr @proto_item_add_subtree(ptr noundef %1, i32 noundef %3) #12
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #12

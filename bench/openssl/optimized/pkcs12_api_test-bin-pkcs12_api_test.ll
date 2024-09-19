@@ -294,14 +294,14 @@ land.lhs.true41:                                  ; preds = %if.end39
   %conv.i = zext i1 %cmp.i to i32
   %call1.i = call i32 @test_true(ptr noundef nonnull @.str.30, i32 noundef 73, ptr noundef nonnull @.str.42, i32 noundef %conv.i) #5
   %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %changepass.exit, label %if.end.i
+  br i1 %tobool.not.i, label %changepass.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true41
   %call2.i = call ptr @BIO_s_mem() #5
   %call3.i = call ptr @BIO_new(ptr noundef %call2.i) #5
   %call4.i = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 75, ptr noundef nonnull @.str.44, ptr noundef %call3.i) #5
   %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %changepass.exit, label %if.end7.i
+  br i1 %tobool5.not.i, label %changepass.argprom.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
   %call8.i = call i32 @i2d_PKCS12_bio(ptr noundef %call3.i, ptr noundef %call) #5
@@ -309,7 +309,7 @@ if.end7.i:                                        ; preds = %if.end.i
   %conv10.i = zext i1 %cmp9.i to i32
   %call11.i = call i32 @test_true(ptr noundef nonnull @.str.30, i32 noundef 77, ptr noundef nonnull @.str.45, i32 noundef %conv10.i) #5
   %tobool12.not.i = icmp eq i32 %call11.i, 0
-  br i1 %tobool12.not.i, label %changepass.exit, label %if.end14.i
+  br i1 %tobool12.not.i, label %changepass.argprom.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end7.i
   %15 = load ptr, ptr @testctx, align 8
@@ -317,13 +317,13 @@ if.end14.i:                                       ; preds = %if.end7.i
   store ptr %call15.i, ptr %p12new.i, align 8
   %call16.i = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 79, ptr noundef nonnull @.str.46, ptr noundef %call15.i) #5
   %tobool17.not.i = icmp eq i32 %call16.i, 0
-  br i1 %tobool17.not.i, label %changepass.exit, label %if.end19.i
+  br i1 %tobool17.not.i, label %changepass.argprom.exit, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end14.i
   %call20.i = call ptr @d2i_PKCS12_bio(ptr noundef %call3.i, ptr noundef nonnull %p12new.i) #5
   %call21.i = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 81, ptr noundef nonnull @.str.47, ptr noundef %call20.i) #5
   %tobool22.not.i = icmp eq i32 %call21.i, 0
-  br i1 %tobool22.not.i, label %changepass.exit, label %if.end24.i
+  br i1 %tobool22.not.i, label %changepass.argprom.exit, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end19.i
   %16 = load ptr, ptr %p12new.i, align 8
@@ -332,7 +332,7 @@ if.end24.i:                                       ; preds = %if.end19.i
   %conv27.i = zext i1 %cmp26.i to i32
   %call28.i = call i32 @test_true(ptr noundef nonnull @.str.30, i32 noundef 83, ptr noundef nonnull @.str.48, i32 noundef %conv27.i) #5
   %tobool29.not.i = icmp eq i32 %call28.i, 0
-  br i1 %tobool29.not.i, label %changepass.exit, label %if.end31.i
+  br i1 %tobool29.not.i, label %changepass.argprom.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.end24.i
   %17 = load i32, ptr @has_key, align 4
@@ -343,14 +343,14 @@ if.then33.i:                                      ; preds = %if.end31.i
   %18 = load ptr, ptr %key2.i, align 8
   %call34.i = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 86, ptr noundef nonnull @.str.49, ptr noundef %18) #5
   %tobool35.not.i = icmp eq i32 %call34.i, 0
-  br i1 %tobool35.not.i, label %changepass.exit, label %lor.lhs.false.i
+  br i1 %tobool35.not.i, label %changepass.argprom.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then33.i
   %19 = load ptr, ptr %key2.i, align 8
   %call36.i = call i32 @EVP_PKEY_eq(ptr noundef %12, ptr noundef %19) #5
   %call37.i = call i32 @test_int_eq(ptr noundef nonnull @.str.30, i32 noundef 86, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, i32 noundef %call36.i, i32 noundef 1) #5
   %tobool38.not.i = icmp eq i32 %call37.i, 0
-  br i1 %tobool38.not.i, label %changepass.exit, label %if.end41.i
+  br i1 %tobool38.not.i, label %changepass.argprom.exit, label %if.end41.i
 
 if.end41.i:                                       ; preds = %lor.lhs.false.i, %if.end31.i
   %20 = load i32, ptr @has_cert, align 4
@@ -361,19 +361,19 @@ if.then43.i:                                      ; preds = %if.end41.i
   %21 = load ptr, ptr %cert2.i, align 8
   %call44.i = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 90, ptr noundef nonnull @.str.52, ptr noundef %21) #5
   %tobool45.not.i = icmp eq i32 %call44.i, 0
-  br i1 %tobool45.not.i, label %changepass.exit, label %lor.lhs.false46.i
+  br i1 %tobool45.not.i, label %changepass.argprom.exit, label %lor.lhs.false46.i
 
 lor.lhs.false46.i:                                ; preds = %if.then43.i
   %22 = load ptr, ptr %cert2.i, align 8
   %call47.i = call i32 @X509_cmp(ptr noundef %13, ptr noundef %22) #5
   %call48.i = call i32 @test_int_eq(ptr noundef nonnull @.str.30, i32 noundef 90, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i32 noundef %call47.i, i32 noundef 0) #5
   %tobool49.not.i = icmp eq i32 %call48.i, 0
-  br i1 %tobool49.not.i, label %changepass.exit, label %if.end52.i
+  br i1 %tobool49.not.i, label %changepass.argprom.exit, label %if.end52.i
 
 if.end52.i:                                       ; preds = %lor.lhs.false46.i, %if.end41.i
-  br label %changepass.exit
+  br label %changepass.argprom.exit
 
-changepass.exit:                                  ; preds = %land.lhs.true41, %if.end.i, %if.end7.i, %if.end14.i, %if.end19.i, %if.end24.i, %if.then33.i, %lor.lhs.false.i, %if.then43.i, %lor.lhs.false46.i, %if.end52.i
+changepass.argprom.exit:                          ; preds = %land.lhs.true41, %if.end.i, %if.end7.i, %if.end14.i, %if.end19.i, %if.end24.i, %if.then33.i, %lor.lhs.false.i, %if.then43.i, %lor.lhs.false46.i, %if.end52.i
   %not.tobool43.not = phi i32 [ 1, %if.end52.i ], [ 0, %lor.lhs.false46.i ], [ 0, %if.then43.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.then33.i ], [ 0, %if.end24.i ], [ 0, %if.end19.i ], [ 0, %if.end14.i ], [ 0, %if.end7.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true41 ]
   %bio.0.i = phi ptr [ %call3.i, %if.end52.i ], [ %call3.i, %lor.lhs.false46.i ], [ %call3.i, %if.then43.i ], [ %call3.i, %lor.lhs.false.i ], [ %call3.i, %if.then33.i ], [ %call3.i, %if.end24.i ], [ %call3.i, %if.end19.i ], [ %call3.i, %if.end14.i ], [ %call3.i, %if.end7.i ], [ %call3.i, %if.end.i ], [ null, %land.lhs.true41 ]
   %call53.i = call i32 @BIO_free(ptr noundef %bio.0.i) #5
@@ -391,9 +391,9 @@ changepass.exit:                                  ; preds = %land.lhs.true41, %i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ca2.i)
   br label %err
 
-err:                                              ; preds = %changepass.exit, %entry, %if.end39, %land.lhs.true30, %land.lhs.true35, %land.lhs.true19, %land.lhs.true24, %land.lhs.true, %land.lhs.true13, %if.end, %if.then
-  %cmp47 = phi i32 [ 0, %land.lhs.true35 ], [ 0, %land.lhs.true30 ], [ 0, %land.lhs.true24 ], [ 0, %land.lhs.true19 ], [ 0, %land.lhs.true13 ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ 0, %if.then ], [ 1, %if.end39 ], [ 1, %entry ], [ %not.tobool43.not, %changepass.exit ]
-  %p12.1 = phi ptr [ %call, %land.lhs.true35 ], [ %call, %land.lhs.true30 ], [ %call, %land.lhs.true24 ], [ %call, %land.lhs.true19 ], [ %call, %land.lhs.true13 ], [ %call, %land.lhs.true ], [ %call, %if.end ], [ %call, %if.then ], [ %call, %if.end39 ], [ null, %entry ], [ %call, %changepass.exit ]
+err:                                              ; preds = %changepass.argprom.exit, %entry, %if.end39, %land.lhs.true30, %land.lhs.true35, %land.lhs.true19, %land.lhs.true24, %land.lhs.true, %land.lhs.true13, %if.end, %if.then
+  %cmp47 = phi i32 [ 0, %land.lhs.true35 ], [ 0, %land.lhs.true30 ], [ 0, %land.lhs.true24 ], [ 0, %land.lhs.true19 ], [ 0, %land.lhs.true13 ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ 0, %if.then ], [ 1, %if.end39 ], [ 1, %entry ], [ %not.tobool43.not, %changepass.argprom.exit ]
+  %p12.1 = phi ptr [ %call, %land.lhs.true35 ], [ %call, %land.lhs.true30 ], [ %call, %land.lhs.true24 ], [ %call, %land.lhs.true19 ], [ %call, %land.lhs.true13 ], [ %call, %land.lhs.true ], [ %call, %if.end ], [ %call, %if.then ], [ %call, %if.end39 ], [ null, %entry ], [ %call, %changepass.argprom.exit ]
   call void @PKCS12_free(ptr noundef %p12.1) #5
   %27 = load ptr, ptr %key, align 8
   call void @EVP_PKEY_free(ptr noundef %27) #5

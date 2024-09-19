@@ -1179,9 +1179,9 @@ Min_CubeIsContained.exit:                         ; preds = %37, %29
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
   br i1 %exitcond.not, label %.preheader, label %26, !llvm.loop !19
 
-.lr.ph.i99:                                       ; preds = %.lr.ph167, %Min_CubesDistOne.exit
-  %.274166 = phi ptr [ %.274, %Min_CubesDistOne.exit ], [ %.072154, %.lr.ph167 ]
-  %.069165 = phi ptr [ %.274166, %Min_CubesDistOne.exit ], [ %9, %.lr.ph167 ]
+.lr.ph.i99:                                       ; preds = %.lr.ph167, %Min_CubesDistOne.argprom.exit
+  %.274166 = phi ptr [ %.274, %Min_CubesDistOne.argprom.exit ], [ %.072154, %.lr.ph167 ]
+  %.069165 = phi ptr [ %.274166, %Min_CubesDistOne.argprom.exit ], [ %9, %.lr.ph167 ]
   %44 = getelementptr inbounds i8, ptr %.274166, i64 12
   br label %.outer.i
 
@@ -1200,7 +1200,7 @@ Min_CubeIsContained.exit:                         ; preds = %37, %29
   br i1 %50, label %58, label %51
 
 51:                                               ; preds = %45
-  br i1 %.not.i101, label %52, label %Min_CubesDistOne.exit
+  br i1 %.not.i101, label %52, label %Min_CubesDistOne.argprom.exit
 
 52:                                               ; preds = %51
   %53 = xor i32 %49, %47
@@ -1209,7 +1209,7 @@ Min_CubeIsContained.exit:                         ; preds = %37, %29
   %56 = and i32 %55, 1431655765
   %57 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %56)
   %.not29.i = icmp ult i32 %57, 2
-  br i1 %.not29.i, label %.thread.i, label %Min_CubesDistOne.exit
+  br i1 %.not29.i, label %.thread.i, label %Min_CubesDistOne.argprom.exit
 
 58:                                               ; preds = %45
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i102, 1
@@ -1235,7 +1235,7 @@ Min_CubeIsContained.exit:                         ; preds = %37, %29
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.loopexit131
 
-Min_CubesDistOne.exit:                            ; preds = %51, %52
+Min_CubesDistOne.argprom.exit:                    ; preds = %51, %52
   %.274 = load ptr, ptr %.274166, align 8
   %.not78 = icmp eq ptr %.274, null
   br i1 %.not78, label %._crit_edge168, label %.lr.ph.i99, !llvm.loop !21
@@ -1283,7 +1283,7 @@ Min_CubesTransformOr.exit:                        ; preds = %66, %.loopexit131
   store i32 %79, ptr %77, align 8
   br label %120
 
-._crit_edge168:                                   ; preds = %Min_CubesDistOne.exit, %.preheader
+._crit_edge168:                                   ; preds = %Min_CubesDistOne.argprom.exit, %.preheader
   %80 = and i32 %6, 1023
   %.not79.not177 = icmp ult i32 %7, %80
   br i1 %.not79.not177, label %.lr.ph180, label %._crit_edge181
@@ -1608,7 +1608,7 @@ define void @Min_SopDist1Merge(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %.not43 = icmp eq ptr %.02142, null
   br i1 %.not43, label %._crit_edge, label %.preheader
 
-.loopexit31:                                      ; preds = %Min_CubesDistOne.exit
+.loopexit31:                                      ; preds = %Min_CubesDistOne.argprom.exit
   %.021.pre = load ptr, ptr %.02144, align 8
   %.not = icmp eq ptr %.021.pre, null
   br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !30
@@ -1624,8 +1624,8 @@ define void @Min_SopDist1Merge(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %13 = getelementptr inbounds i8, ptr %.02144, i64 12
   br label %14
 
-14:                                               ; preds = %.lr.ph, %Min_CubesDistOne.exit
-  %.02240 = phi ptr [ %.02238, %.lr.ph ], [ %.022, %Min_CubesDistOne.exit ]
+14:                                               ; preds = %.lr.ph, %Min_CubesDistOne.argprom.exit
+  %.02240 = phi ptr [ %.02238, %.lr.ph ], [ %.022, %Min_CubesDistOne.argprom.exit ]
   %15 = load i32, ptr %12, align 8
   %16 = lshr i32 %15, 10
   %17 = and i32 %16, 4095
@@ -1652,7 +1652,7 @@ define void @Min_SopDist1Merge(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %19
-  br i1 %.not.i, label %26, label %Min_CubesDistOne.exit
+  br i1 %.not.i, label %26, label %Min_CubesDistOne.argprom.exit
 
 26:                                               ; preds = %25
   %27 = xor i32 %23, %21
@@ -1661,7 +1661,7 @@ define void @Min_SopDist1Merge(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %30 = and i32 %29, 1431655765
   %31 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %30)
   %.not29.i = icmp ult i32 %31, 2
-  br i1 %.not29.i, label %.thread.i, label %Min_CubesDistOne.exit
+  br i1 %.not29.i, label %.thread.i, label %Min_CubesDistOne.argprom.exit
 
 32:                                               ; preds = %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1782,9 +1782,9 @@ Min_CubesXor.exit:                                ; preds = %._crit_edge.i25, %M
   %84 = load i32, ptr %7, align 8
   %85 = add nsw i32 %84, 1
   store i32 %85, ptr %7, align 8
-  br label %Min_CubesDistOne.exit
+  br label %Min_CubesDistOne.argprom.exit
 
-Min_CubesDistOne.exit:                            ; preds = %26, %25, %Min_CubesXor.exit
+Min_CubesDistOne.argprom.exit:                    ; preds = %26, %25, %Min_CubesXor.exit
   %.022 = load ptr, ptr %.02240, align 8
   %.not23 = icmp eq ptr %.022, null
   br i1 %.not23, label %.loopexit31, label %14, !llvm.loop !34

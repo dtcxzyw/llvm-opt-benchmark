@@ -35,7 +35,7 @@ entry:
   %buf.i8.i.i = alloca [64 x i8], align 16
   %buf.i.i.i = alloca [64 x i8], align 16
   %buf.i = alloca [64 x i8], align 16
-  %call = tail call fastcc ptr @os_pages_map(ptr noundef %addr, i64 noundef %size, ptr noundef %commit)
+  %call = tail call fastcc ptr @os_pages_map.argelim(ptr noundef %addr, i64 noundef %size, ptr noundef %commit)
   %cmp = icmp eq ptr %call, null
   %cmp3 = icmp eq ptr %call, %addr
   %or.cond = or i1 %cmp, %cmp3
@@ -79,7 +79,7 @@ do.body.preheader.i:                              ; preds = %os_pages_unmap.exit
   %add6.i = sub i64 0, %alignment
   br label %do.body.i
 
-do.body.i:                                        ; preds = %os_pages_trim.exit.i, %do.body.preheader.i
+do.body.i:                                        ; preds = %os_pages_trim.argprom.exit.i, %do.body.preheader.i
   %4 = load i8, ptr @os_overcommits, align 1
   %tobool.i.i = trunc nuw i8 %4 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %entry.if.end_crit_edge.i.i
@@ -138,7 +138,7 @@ os_pages_unmap.exit.i.i:                          ; preds = %if.then.i.i.i, %if.
 
 if.end.i14.i:                                     ; preds = %os_pages_unmap.exit.i.i, %if.end3.i
   %cmp2.not.i.i = icmp eq i64 %sub.i, %8
-  br i1 %cmp2.not.i.i, label %os_pages_trim.exit.i, label %if.then3.i.i
+  br i1 %cmp2.not.i.i, label %os_pages_trim.argprom.exit.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i14.i
   %add4.i.i = add i64 %and.i, %size
@@ -163,13 +163,13 @@ if.then6.i15.i.i:                                 ; preds = %if.then.i11.i.i
 
 os_pages_unmap.exit16.i.i:                        ; preds = %if.then.i11.i.i, %if.then3.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i8.i.i)
-  br label %os_pages_trim.exit.i
+  br label %os_pages_trim.argprom.exit.i
 
-os_pages_trim.exit.i:                             ; preds = %os_pages_unmap.exit16.i.i, %if.end.i14.i
+os_pages_trim.argprom.exit.i:                     ; preds = %os_pages_unmap.exit16.i.i, %if.end.i14.i
   %cmp9.i = icmp eq i64 %and.i, 0
   br i1 %cmp9.i, label %do.body.i, label %return.loopexit.split.loop.exit.i, !llvm.loop !5
 
-return.loopexit.split.loop.exit.i:                ; preds = %os_pages_trim.exit.i
+return.loopexit.split.loop.exit.i:                ; preds = %os_pages_trim.argprom.exit.i
   %14 = inttoptr i64 %and.i to ptr
   br label %return
 
@@ -179,7 +179,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @os_pages_map(ptr noundef %addr, i64 noundef %size, ptr nocapture noundef %commit) unnamed_addr #0 {
+define internal fastcc ptr @os_pages_map.argelim(ptr noundef %addr, i64 noundef %size, ptr nocapture noundef %commit) unnamed_addr #0 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %0 = load i8, ptr @os_overcommits, align 1

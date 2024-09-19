@@ -107,7 +107,7 @@ define hidden ptr @php_stream_url_wrap_http(ptr noundef %0, ptr noundef %1, ptr 
   store i32 0, ptr %8, align 8
   tail call void @zval_ptr_dtor(ptr noundef nonnull getelementptr inbounds (i8, ptr @basic_globals, i64 488)) #15
   store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 496), align 8
-  %9 = call fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, i32 noundef 20, i32 noundef 1, ptr noundef %7)
+  %9 = call fastcc ptr @php_stream_url_wrap_http_ex.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, i32 noundef 20, i32 noundef 1, ptr noundef %7)
   %10 = load i8, ptr %8, align 8
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %23, label %12
@@ -143,7 +143,7 @@ define hidden ptr @php_stream_url_wrap_http(ptr noundef %0, ptr noundef %1, ptr 
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 -2147483648, 2147483647) %5, i32 noundef range(i32 1, 7) %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
+define internal fastcc ptr @php_stream_url_wrap_http_ex.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 -2147483648, 2147483647) %5, i32 noundef range(i32 1, 7) %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
   %9 = alloca [32 x i8], align 16
   %10 = alloca [32 x i8], align 16
   %11 = alloca [32 x i8], align 16
@@ -3924,7 +3924,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %or.cond98 = icmp ult i32 %1712, 2
   %spec.select3011 = select i1 %or.cond98, i32 6, i32 2
   %1713 = add nsw i32 %.0247737, -1
-  %1714 = call fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noundef nonnull %27, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %1713, i32 noundef %spec.select3011, ptr noundef %7)
+  %1714 = call fastcc ptr @php_stream_url_wrap_http_ex.argprom(ptr noundef %0, ptr noundef nonnull %27, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %1713, i32 noundef %spec.select3011, ptr noundef %7)
   br label %.critedge2997.thread
 
 1715:                                             ; preds = %1540

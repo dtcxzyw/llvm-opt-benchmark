@@ -1885,7 +1885,7 @@ define dso_local range(i64 -9223372036854775808, 2147483648) i64 @keyctl_reject_
   br i1 %58, label %59, label %.thread7
 
 59:                                               ; preds = %.thread
-  tail call fastcc void @keyctl_change_reqkey_auth(ptr noundef null)
+  tail call fastcc void @keyctl_change_reqkey_auth.retelim(ptr noundef null)
   br label %.thread7
 
 .thread7:                                         ; preds = %37, %35, %59, %.thread, %52, %16, %12, %11, %11, %11, %11, %4
@@ -1897,7 +1897,7 @@ define dso_local range(i64 -9223372036854775808, 2147483648) i64 @keyctl_reject_
 declare dso_local i32 @key_reject_and_link(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @keyctl_change_reqkey_auth(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @keyctl_change_reqkey_auth.retelim(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = tail call ptr @prepare_creds() #11
   %3 = icmp eq ptr %2, null
   br i1 %3, label %19, label %4

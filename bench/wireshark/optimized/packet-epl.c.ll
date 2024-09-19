@@ -2900,29 +2900,29 @@ proto_item_set_hidden.exit152:                    ; preds = %proto_item_set_hidd
   ]
 
 116:                                              ; preds = %.thread155
-  call fastcc void @dissect_epl_soc(ptr noundef %.0138158, ptr noundef %0, ptr noundef nonnull %1)
+  call fastcc void @dissect_epl_soc.argelim(ptr noundef %.0138158, ptr noundef %0, ptr noundef nonnull %1)
   br label %132
 
 117:                                              ; preds = %.thread155
   %118 = call fastcc ptr @epl_get_convo(ptr noundef nonnull %1, i32 noundef 2)
-  %119 = call fastcc i32 @dissect_epl_preq(ptr noundef %118, ptr noundef %.0138158, ptr noundef %0, ptr noundef nonnull %1)
+  %119 = call fastcc i32 @dissect_epl_preq.argelim(ptr noundef %118, ptr noundef %.0138158, ptr noundef %0, ptr noundef nonnull %1)
   br label %132
 
 120:                                              ; preds = %.thread155
   %121 = call fastcc ptr @epl_get_convo(ptr noundef nonnull %1, i32 noundef 1)
-  %122 = call fastcc i32 @dissect_epl_pres(ptr noundef %121, ptr noundef %.0138158, ptr noundef %0, ptr noundef nonnull %1)
+  %122 = call fastcc i32 @dissect_epl_pres.argelim(ptr noundef %121, ptr noundef %.0138158, ptr noundef %0, ptr noundef nonnull %1)
   br label %132
 
 123:                                              ; preds = %.thread155
-  %124 = call fastcc i32 @dissect_epl_soa(ptr noundef %.0138158, ptr noundef %0, ptr noundef nonnull %1)
+  %124 = call fastcc i32 @dissect_epl_soa.argelim(ptr noundef %.0138158, ptr noundef %0, ptr noundef nonnull %1)
   br label %132
 
 125:                                              ; preds = %.thread155
-  %126 = call fastcc i32 @dissect_epl_asnd(ptr noundef %.0138158, ptr noundef %0, ptr noundef nonnull %1)
+  %126 = call fastcc i32 @dissect_epl_asnd.argelim(ptr noundef %.0138158, ptr noundef %0, ptr noundef nonnull %1)
   br label %132
 
 127:                                              ; preds = %.thread155
-  %128 = call fastcc i32 @dissect_epl_ainv(ptr noundef %.0138158, ptr noundef %0, ptr noundef nonnull %1)
+  %128 = call fastcc i32 @dissect_epl_ainv.argelim(ptr noundef %.0138158, ptr noundef %0, ptr noundef nonnull %1)
   br label %132
 
 129:                                              ; preds = %.thread155
@@ -2950,7 +2950,7 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_epl_soc(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc void @dissect_epl_soc.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 4) #18
   %5 = load i32, ptr @hf_epl_soc_flags, align 4
   %6 = load i32, ptr @ett_epl_soc, align 4
@@ -3103,7 +3103,7 @@ define internal fastcc ptr @epl_get_convo(ptr noundef %0, i32 noundef range(i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_epl_preq(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc i32 @dissect_epl_preq.argelim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef 4) #18
   %6 = load i32, ptr @hf_epl_preq_flags, align 4
   %7 = load i32, ptr @ett_epl_preq, align 4
@@ -3129,12 +3129,12 @@ define internal fastcc i32 @dissect_epl_preq(ptr nocapture noundef readonly %0, 
   %27 = lshr i32 %26, 4
   %28 = and i32 %26, 15
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.684, i32 noundef %18, i32 noundef %23, i32 noundef %25, i32 noundef %27, i32 noundef %28) #18
-  %29 = tail call fastcc i32 @dissect_epl_pdo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %18, i8 noundef zeroext 3)
+  %29 = tail call fastcc i32 @dissect_epl_pdo.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %18, i8 noundef zeroext 3)
   ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_epl_pres(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc i32 @dissect_epl_pres.argelim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef 3) #18
   %6 = getelementptr inbounds i8, ptr %3, i64 284
   %7 = load i32, ptr %6, align 4
@@ -3186,12 +3186,12 @@ define internal fastcc i32 @dissect_epl_pres(ptr nocapture noundef readonly %0, 
   %46 = zext i8 %5 to i32
   %47 = tail call ptr @val_to_str(i32 noundef %46, ptr noundef nonnull %epl_nmt_ms_vals.sink, ptr noundef nonnull @.str.691) #18
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.690, ptr noundef %47) #18
-  %48 = tail call fastcc i32 @dissect_epl_pdo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %28, i8 noundef zeroext 4)
+  %48 = tail call fastcc i32 @dissect_epl_pdo.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %28, i8 noundef zeroext 4)
   ret i32 %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 10, 41) i32 @dissect_epl_soa(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc range(i32 10, 41) i32 @dissect_epl_soa.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #18
   %5 = getelementptr inbounds i8, ptr %2, i64 284
   %6 = load i32, ptr %5, align 4
@@ -3310,7 +3310,7 @@ define internal fastcc range(i32 10, 41) i32 @dissect_epl_soa(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_epl_asnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc i32 @dissect_epl_asnd.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #18
   %5 = load i32, ptr @hf_epl_asnd_svid, align 4
   %6 = zext i8 %4 to i32
@@ -3451,7 +3451,7 @@ define internal fastcc i32 @dissect_epl_asnd(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_epl_ainv(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc i32 @dissect_epl_ainv.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 284
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 240
@@ -3669,7 +3669,7 @@ declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef)
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_epl_pdo(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 65536) %4, i8 noundef zeroext range(i8 3, 5) %5) unnamed_addr #2 {
+define internal fastcc i32 @dissect_epl_pdo.argelim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 65536) %4, i8 noundef zeroext range(i8 3, 5) %5) unnamed_addr #2 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
   store i8 %5, ptr %7, align 1

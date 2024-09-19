@@ -304,7 +304,7 @@ entry:
   %tmp140 = alloca %struct.ossl_param_st, align 8
   %tmp147 = alloca %struct.ossl_param_st, align 8
   %exists = alloca i32, align 4
-  %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
+  %call = tail call fastcc i32 @default_check.argprom(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -971,13 +971,13 @@ if.end31:                                         ; preds = %if.then29, %if.end2
   %allocated_buf.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %10 = load ptr, ptr %allocated_buf.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i, label %cleanup_translation_ctx.exit, label %if.then.i
+  br i1 %cmp.not.i, label %cleanup_translation_ctx.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end31
   call void @CRYPTO_free(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 713) #8
-  br label %cleanup_translation_ctx.exit
+  br label %cleanup_translation_ctx.argprom.exit
 
-cleanup_translation_ctx.exit:                     ; preds = %if.end31, %if.then.i
+cleanup_translation_ctx.argprom.exit:             ; preds = %if.end31, %if.then.i
   ret i32 %ret.1
 }
 
@@ -1020,7 +1020,7 @@ land.rhs.lr.ph:                                   ; preds = %entry
   %cmp3.not32 = icmp eq ptr %3, null
   br i1 %cmp3.not32, label %return, label %for.body
 
-land.rhs:                                         ; preds = %cleanup_translation_ctx.exit
+land.rhs:                                         ; preds = %cleanup_translation_ctx.argprom.exit
   %incdec.ptr = getelementptr inbounds i8, ptr %params.addr.02933, i64 40
   %4 = load ptr, ptr %incdec.ptr, align 8
   %cmp3.not = icmp eq ptr %4, null
@@ -1082,13 +1082,13 @@ if.then25:                                        ; preds = %if.end23
   %14 = icmp slt i32 %13, 1
   %15 = load ptr, ptr %allocated_buf.i, align 8
   %cmp.not.i = icmp eq ptr %15, null
-  br i1 %cmp.not.i, label %cleanup_translation_ctx.exit, label %if.then.i
+  br i1 %cmp.not.i, label %cleanup_translation_ctx.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then25
   call void @CRYPTO_free(ptr noundef nonnull %15, ptr noundef nonnull @.str, i32 noundef 713) #8
-  br label %cleanup_translation_ctx.exit
+  br label %cleanup_translation_ctx.argprom.exit
 
-cleanup_translation_ctx.exit:                     ; preds = %if.then25, %if.then.i
+cleanup_translation_ctx.argprom.exit:             ; preds = %if.then25, %if.then.i
   store ptr null, ptr %allocated_buf.i, align 8
   br i1 %14, label %return, label %land.rhs
 
@@ -1101,8 +1101,8 @@ if.then.i26:                                      ; preds = %if.then32.critedge
   call void @CRYPTO_free(ptr noundef nonnull %16, ptr noundef nonnull @.str, i32 noundef 713) #8
   br label %return
 
-return:                                           ; preds = %land.rhs, %cleanup_translation_ctx.exit, %land.rhs.lr.ph, %if.then.i26, %if.then32.critedge, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.then32.critedge ], [ 0, %if.then.i26 ], [ 1, %land.rhs.lr.ph ], [ 0, %cleanup_translation_ctx.exit ], [ 1, %land.rhs ]
+return:                                           ; preds = %land.rhs, %cleanup_translation_ctx.argprom.exit, %land.rhs.lr.ph, %if.then.i26, %if.then32.critedge, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.then32.critedge ], [ 0, %if.then.i26 ], [ 1, %land.rhs.lr.ph ], [ 0, %cleanup_translation_ctx.argprom.exit ], [ 1, %land.rhs ]
   ret i32 %retval.0
 }
 
@@ -1133,9 +1133,9 @@ land.rhs.lr.ph.i:                                 ; preds = %entry
   %cmp1.not.i1 = icmp eq ptr %0, null
   br i1 %cmp1.not.i1, label %evp_pkey_setget_params_to_ctrl.exit, label %for.body.i
 
-for.body.i:                                       ; preds = %land.rhs.lr.ph.i, %cleanup_translation_ctx.exit.i
-  %1 = phi ptr [ %6, %cleanup_translation_ctx.exit.i ], [ %0, %land.rhs.lr.ph.i ]
-  %params.addr.018.i2 = phi ptr [ %incdec.ptr.i, %cleanup_translation_ctx.exit.i ], [ %params, %land.rhs.lr.ph.i ]
+for.body.i:                                       ; preds = %land.rhs.lr.ph.i, %cleanup_translation_ctx.argprom.exit.i
+  %1 = phi ptr [ %6, %cleanup_translation_ctx.argprom.exit.i ], [ %0, %land.rhs.lr.ph.i ]
+  %params.addr.018.i2 = phi ptr [ %incdec.ptr.i, %cleanup_translation_ctx.argprom.exit.i ], [ %params, %land.rhs.lr.ph.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %ctx.i, i8 0, i64 144, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %tmpl.i, i8 0, i64 64, i1 false)
   store i32 1, ptr %tmpl.i, align 8
@@ -1161,28 +1161,28 @@ if.end41.i:                                       ; preds = %lor.lhs.false.i
   %call42.i = call i32 %2(i32 noundef 0, ptr noundef nonnull %call.i.i, ptr noundef nonnull %ctx.i) #8
   %5 = load ptr, ptr %allocated_buf.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i.i, label %cleanup_translation_ctx.exit.i, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %cleanup_translation_ctx.argprom.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end41.i
   call void @CRYPTO_free(ptr noundef nonnull %5, ptr noundef nonnull @.str, i32 noundef 713) #8
-  br label %cleanup_translation_ctx.exit.i
+  br label %cleanup_translation_ctx.argprom.exit.i
 
-cleanup_translation_ctx.exit.i:                   ; preds = %if.then.i.i, %if.end41.i
+cleanup_translation_ctx.argprom.exit.i:           ; preds = %if.then.i.i, %if.end41.i
   store ptr null, ptr %allocated_buf.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %params.addr.018.i2, i64 40
   %6 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp1.not.i = icmp eq ptr %6, null
   br i1 %cmp1.not.i, label %evp_pkey_setget_params_to_ctrl.exit, label %for.body.i
 
-evp_pkey_setget_params_to_ctrl.exit:              ; preds = %lor.lhs.false.i, %for.body.i, %cleanup_translation_ctx.exit.i, %land.rhs.lr.ph.i, %entry
-  %retval.0.i = phi i32 [ 1, %entry ], [ 1, %land.rhs.lr.ph.i ], [ -2, %lor.lhs.false.i ], [ -2, %for.body.i ], [ %call42.i, %cleanup_translation_ctx.exit.i ]
+evp_pkey_setget_params_to_ctrl.exit:              ; preds = %lor.lhs.false.i, %for.body.i, %cleanup_translation_ctx.argprom.exit.i, %land.rhs.lr.ph.i, %entry
+  %retval.0.i = phi i32 [ 1, %entry ], [ 1, %land.rhs.lr.ph.i ], [ -2, %lor.lhs.false.i ], [ -2, %for.body.i ], [ %call42.i, %cleanup_translation_ctx.argprom.exit.i ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %ctx.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmpl.i)
   ret i32 %retval.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 2) i32 @default_check(i32 noundef %state, ptr noundef readonly %translation) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 2) i32 @default_check.argprom(i32 noundef %state, ptr noundef readonly %translation) unnamed_addr #0 {
 entry:
   switch i32 %state, label %return [
     i32 1, label %sw.bb
@@ -1503,7 +1503,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fix_md(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
 entry:
-  %call.i = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
+  %call.i = tail call fastcc i32 @default_check.argprom(i32 noundef %state, ptr noundef %translation)
   %cmp.i = icmp slt i32 %call.i, 1
   br i1 %cmp.i, label %fix_cipher_md.exit, label %if.end.i
 
@@ -1641,7 +1641,7 @@ fix_cipher_md.exit:                               ; preds = %entry, %if.end44.i,
 ; Function Attrs: nounwind uwtable
 define internal i32 @fix_oid(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
 entry:
-  %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
+  %call = tail call fastcc i32 @default_check.argprom(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -1711,7 +1711,7 @@ return:                                           ; preds = %land.lhs.true18, %l
 ; Function Attrs: nounwind uwtable
 define internal i32 @fix_dh_paramgen_type(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
 entry:
-  %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
+  %call = tail call fastcc i32 @default_check.argprom(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -1760,7 +1760,7 @@ return:                                           ; preds = %if.end11, %if.end3.
 ; Function Attrs: nounwind uwtable
 define internal i32 @fix_dh_nid5114(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
 entry:
-  %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
+  %call = tail call fastcc i32 @default_check.argprom(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -1833,7 +1833,7 @@ return:                                           ; preds = %sw.bb10, %if.end, %
 ; Function Attrs: nounwind uwtable
 define internal i32 @fix_dh_nid(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
 entry:
-  %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
+  %call = tail call fastcc i32 @default_check.argprom(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -1880,7 +1880,7 @@ return:                                           ; preds = %if.end10, %if.end3.
 ; Function Attrs: nounwind uwtable
 define internal i32 @fix_ec_param_enc(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
 entry:
-  %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
+  %call = tail call fastcc i32 @default_check.argprom(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -1967,7 +1967,7 @@ define internal i32 @fix_ec_paramgen_curve_nid(i32 noundef %state, ptr noundef %
 entry:
   %p2 = alloca ptr, align 8
   store ptr null, ptr %p2, align 8
-  %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
+  %call = tail call fastcc i32 @default_check.argprom(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -2066,7 +2066,7 @@ if.then21:                                        ; preds = %if.else13
   br i1 %cmp23.not, label %return, label %if.end37
 
 if.end37:                                         ; preds = %if.else13, %if.then16, %if.then21, %if.then9, %if.else
-  %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
+  %call = tail call fastcc i32 @default_check.argprom(i32 noundef %state, ptr noundef %translation)
   %cmp38 = icmp slt i32 %call, 1
   br i1 %cmp38, label %return, label %if.end41
 
@@ -2140,7 +2140,7 @@ entry:
 define internal i32 @fix_rsa_padding_mode(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
 entry:
   %tmp = alloca %struct.ossl_param_st, align 8
-  %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
+  %call = tail call fastcc i32 @default_check.argprom(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -2327,7 +2327,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 ; Function Attrs: nounwind uwtable
 define internal i32 @fix_rsa_pss_saltlen(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
 entry:
-  %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
+  %call = tail call fastcc i32 @default_check.argprom(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -2475,7 +2475,7 @@ return:                                           ; preds = %lor.lhs.false52, %i
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 2) i32 @fix_hkdf_mode(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
 entry:
-  %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
+  %call = tail call fastcc i32 @default_check.argprom(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -2579,7 +2579,7 @@ return:                                           ; preds = %for.inc, %for.inc52
 ; Function Attrs: nounwind uwtable
 define internal i32 @fix_cipher(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
 entry:
-  %call.i = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
+  %call.i = tail call fastcc i32 @default_check.argprom(i32 noundef %state, ptr noundef %translation)
   %cmp.i = icmp slt i32 %call.i, 1
   br i1 %cmp.i, label %fix_cipher_md.exit, label %if.end.i
 
@@ -2774,7 +2774,7 @@ return:                                           ; preds = %entry, %sw.bb, %if.
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @fix_kdf_type(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx, ptr nocapture noundef readonly %kdf_type_map) unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
+  %call = tail call fastcc i32 @default_check.argprom(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -2804,12 +2804,12 @@ if.then12:                                        ; preds = %if.end9
 if.end17:                                         ; preds = %if.end9, %if.then12
   %storemerge = phi i32 [ 1, %if.then12 ], [ 2, %if.end9 ]
   store i32 %storemerge, ptr %action_type, align 8
-  %call18 = tail call fastcc i32 @default_check(i32 noundef 1, ptr noundef %translation)
+  %call18 = tail call fastcc i32 @default_check.argprom(i32 noundef 1, ptr noundef %translation)
   %cmp19 = icmp slt i32 %call18, 1
   br i1 %cmp19, label %return, label %land.lhs.true
 
 if.end17.thread:                                  ; preds = %if.end
-  %call1846 = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
+  %call1846 = tail call fastcc i32 @default_check.argprom(i32 noundef %state, ptr noundef %translation)
   %cmp1947 = icmp slt i32 %call1846, 1
   br i1 %cmp1947, label %return, label %lor.lhs.false
 

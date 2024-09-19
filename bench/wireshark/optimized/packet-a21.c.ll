@@ -442,7 +442,7 @@ define void @dissect_a21_ie_common(ptr noundef %0, ptr noundef %1, ptr noundef %
   %52 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %37, i32 noundef %51, ptr noundef %43, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %13) #3
   %53 = load i32, ptr %13, align 4
   %.not3.i = icmp eq i32 %53, 0
-  br i1 %.not3.i, label %dissect_a21_pilot_list.exit, label %.lr.ph.i
+  br i1 %.not3.i, label %dissect_a21_pilot_list.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %50, %112
   %.02.i = phi i32 [ %55, %112 ], [ 0, %50 ]
@@ -535,9 +535,9 @@ define void @dissect_a21_ie_common(ptr noundef %0, ptr noundef %1, ptr noundef %
   call void @proto_item_set_len(ptr noundef %113, i32 noundef %114) #3
   %115 = load i32, ptr %13, align 4
   %116 = icmp ult i32 %55, %115
-  br i1 %116, label %.lr.ph.i, label %dissect_a21_pilot_list.exit, !llvm.loop !4
+  br i1 %116, label %.lr.ph.i, label %dissect_a21_pilot_list.argprom.exit, !llvm.loop !4
 
-dissect_a21_pilot_list.exit:                      ; preds = %112, %50
+dissect_a21_pilot_list.argprom.exit:              ; preds = %112, %50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
@@ -686,7 +686,7 @@ dissect_a21_pilot_list.exit:                      ; preds = %112, %50
   %200 = icmp eq ptr %37, null
   %.not8.i = icmp eq i16 %.0106, 0
   %or.cond = select i1 %200, i1 true, i1 %.not8.i
-  br i1 %or.cond, label %dissect_a21_mobile_subscription_information.exit, label %.lr.ph7.i
+  br i1 %or.cond, label %dissect_a21_mobile_subscription_information.argprom.exit, label %.lr.ph7.i
 
 .lr.ph7.i:                                        ; preds = %199, %.loopexit.i
   %.06.i = phi i32 [ %.2.i107, %.loopexit.i ], [ 0, %199 ]
@@ -761,9 +761,9 @@ dissect_a21_pilot_list.exit:                      ; preds = %112, %50
   %.265.i = phi i32 [ %.0635.i, %244 ], [ %.0635.i, %215 ], [ %222, %238 ]
   %.2.i107 = phi i32 [ %247, %244 ], [ %220, %215 ], [ %240, %238 ]
   %248 = icmp slt i32 %.2.i107, %33
-  br i1 %248, label %.lr.ph7.i, label %dissect_a21_mobile_subscription_information.exit, !llvm.loop !7
+  br i1 %248, label %.lr.ph7.i, label %dissect_a21_mobile_subscription_information.argprom.exit, !llvm.loop !7
 
-dissect_a21_mobile_subscription_information.exit: ; preds = %.loopexit.i, %199
+dissect_a21_mobile_subscription_information.argprom.exit: ; preds = %.loopexit.i, %199
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -825,7 +825,7 @@ dissect_a21_mobile_subscription_information.exit: ; preds = %.loopexit.i, %199
   %286 = call ptr @proto_tree_add_expert(ptr noundef %37, ptr noundef %1, ptr noundef nonnull @ei_a21_ie_data_not_dissected_yet, ptr noundef %43, i32 noundef 0, i32 noundef %33) #3
   br label %dissect_a21_mobile_identity.exit
 
-dissect_a21_mobile_identity.exit:                 ; preds = %276, %274, %270, %266, %263, %251, %249, %.sink.split.i, %185, %183, %167, %165, %162, %155, %153, %149, %142, %139, %136, %131, %128, %285, %dissect_a21_mobile_subscription_information.exit, %196, %180, %117, %dissect_a21_pilot_list.exit, %47, %44
+dissect_a21_mobile_identity.exit:                 ; preds = %276, %274, %270, %266, %263, %251, %249, %.sink.split.i, %185, %183, %167, %165, %162, %155, %153, %149, %142, %139, %136, %131, %128, %285, %dissect_a21_mobile_subscription_information.argprom.exit, %196, %180, %117, %dissect_a21_pilot_list.argprom.exit, %47, %44
   %287 = add i32 %42, %33
   %288 = call i32 @tvb_reported_length(ptr noundef %0) #3
   %289 = icmp slt i32 %287, %288

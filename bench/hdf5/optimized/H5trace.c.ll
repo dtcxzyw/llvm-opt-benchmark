@@ -1205,7 +1205,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %.str.319..str.320.i = select i1 %291, ptr @.str.319, ptr @.str.320
   %292 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull %.str.319..str.320.i) #9
   %293 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %.sroa.2341.0.copyload) #9
-  call fastcc void @H5_trace_args_cset(ptr noundef %0, i32 noundef %.sroa.3342.0.copyload)
+  call fastcc void @H5_trace_args_cset.retelim(ptr noundef %0, i32 noundef %.sroa.3342.0.copyload)
   %294 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.22, i64 noundef %.sroa.4344.0.copyload) #9
   br label %H5_trace_args_close_degree.exit1619
 
@@ -5733,7 +5733,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
 2643:                                             ; preds = %2640, %2635
   %2644 = phi ptr [ %2638, %2635 ], [ %2641, %2640 ]
   %2645 = load i32, ptr %2644, align 4
-  call fastcc void @H5_trace_args_cset(ptr noundef %0, i32 noundef %2645)
+  call fastcc void @H5_trace_args_cset.retelim(ptr noundef %0, i32 noundef %2645)
   br label %H5_trace_args_close_degree.exit1619
 
 2646:                                             ; preds = %2629
@@ -8263,7 +8263,7 @@ declare i32 @H5RS_acat(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @H5_trace_args_cset(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @H5_trace_args_cset.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   switch i32 %1, label %12 [
     i32 -1, label %3
     i32 0, label %5

@@ -6879,7 +6879,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ftrace_event_pid_write(p
   %.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val, i64 112
   %.val.val = load ptr, ptr %6, align 8
-  %7 = tail call fastcc i64 @event_pid_write(ptr %.val.val, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef 1)
+  %7 = tail call fastcc i64 @event_pid_write.argprom.argprom(ptr %.val.val, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef 1)
   ret i64 %7
 }
 
@@ -6944,7 +6944,7 @@ define internal i32 @ftrace_event_set_pid_open(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @event_pid_write(ptr %.200.val.112.val, ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @event_pid_write.argprom.argprom(ptr %.200.val.112.val, ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   %6 = icmp eq i64 %1, 0
@@ -7240,7 +7240,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ftrace_event_npid_write(
   %.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val, i64 112
   %.val.val = load ptr, ptr %6, align 8
-  %7 = tail call fastcc i64 @event_pid_write(ptr %.val.val, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef 2)
+  %7 = tail call fastcc i64 @event_pid_write.argprom.argprom(ptr %.val.val, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef 2)
   ret i64 %7
 }
 

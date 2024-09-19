@@ -38,7 +38,7 @@ define ptr @PMPI_File_f2c(i32 noundef %0) #0 {
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_file_f_to_c_table, i64 88), align 8
   %.not = icmp slt i32 %0, %11
   %or.cond = select i1 %10, i1 %.not, i1 false
-  br i1 %or.cond, label %12, label %opal_pointer_array_get_item.exit
+  br i1 %or.cond, label %12, label %opal_pointer_array_get_item.argprom.exit
 
 12:                                               ; preds = %9
   %13 = load i8, ptr @opal_uses_threads, align 1
@@ -57,13 +57,13 @@ define ptr @PMPI_File_f2c(i32 noundef %0) #0 {
   %21 = getelementptr inbounds ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = trunc i8 %18 to i1
-  br i1 %23, label %24, label %opal_pointer_array_get_item.exit
+  br i1 %23, label %24, label %opal_pointer_array_get_item.argprom.exit
 
 24:                                               ; preds = %17
   %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_file_f_to_c_table, i64 32)) #3
-  br label %opal_pointer_array_get_item.exit
+  br label %opal_pointer_array_get_item.argprom.exit
 
-opal_pointer_array_get_item.exit:                 ; preds = %24, %17, %9
+opal_pointer_array_get_item.argprom.exit:         ; preds = %24, %17, %9
   %.0 = phi ptr [ null, %9 ], [ %22, %17 ], [ %22, %24 ]
   ret ptr %.0
 }

@@ -1144,15 +1144,15 @@ if.then7:                                         ; preds = %if.then7.critedge, 
   %call.i = tail call ptr @get_relocated_path(ptr noundef nonnull @.str.279) #20
   %call3.i = call i32 @qemu_read_config_file(ptr noundef %call.i, ptr noundef nonnull @qemu_parse_config_group, ptr noundef nonnull %_auto_errp_prop.i) #20
   %cmp6.i = icmp eq i32 %call3.i, -2
-  br i1 %cmp6.i, label %if.then7.i, label %qemu_read_default_config_file.exit
+  br i1 %cmp6.i, label %if.then7.i, label %qemu_read_default_config_file.argprom.exit
 
 if.then7.i:                                       ; preds = %if.then7
   %7 = load ptr, ptr %_auto_errp_prop.i, align 8
   call void @error_free(ptr noundef %7) #20
   store ptr null, ptr %_auto_errp_prop.i, align 8
-  br label %qemu_read_default_config_file.exit
+  br label %qemu_read_default_config_file.argprom.exit
 
-qemu_read_default_config_file.exit:               ; preds = %if.then7, %if.then7.i
+qemu_read_default_config_file.argprom.exit:       ; preds = %if.then7, %if.then7.i
   call void @g_free(ptr noundef %call.i) #20
   %_auto_errp_prop.val.i = load ptr, ptr %_auto_errp_prop.i, align 8
   %_auto_errp_prop.val8.i = load ptr, ptr %errp1.i, align 8
@@ -1160,7 +1160,7 @@ qemu_read_default_config_file.exit:               ; preds = %if.then7, %if.then7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_auto_errp_prop.i)
   br label %if.end8
 
-if.end8:                                          ; preds = %qemu_read_default_config_file.exit, %while.end
+if.end8:                                          ; preds = %qemu_read_default_config_file.argprom.exit, %while.end
   store i32 1, ptr %optind, align 4
   br i1 %cmp748, label %if.end12.lr.ph, label %for.end652
 
@@ -1384,7 +1384,7 @@ lor.lhs.false.i:                                  ; preds = %sw.bb51
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %sw.bb51
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull @error_fatal, ptr noundef nonnull @.str.1, i32 noundef 2246, ptr noundef nonnull @__func__.qemu_set_option, ptr noundef nonnull @.str.281, ptr noundef %20) #20
-  br label %qemu_set_option.exit
+  br label %qemu_set_option.argprom.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %call.i.i = call i32 @g_str_equal(ptr noundef nonnull %group.i, ptr noundef nonnull @.str.158) #20
@@ -1413,12 +1413,12 @@ is_qemuopts_group.exit.i:                         ; preds = %lor.lhs.false6.i.i
 
 if.then7.i155:                                    ; preds = %is_qemuopts_group.exit.i, %lor.lhs.false6.i.i, %lor.lhs.false3.i.i, %lor.lhs.false.i.i, %if.end.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull @error_fatal, ptr noundef nonnull @.str.1, i32 noundef 2251, ptr noundef nonnull @__func__.qemu_set_option, ptr noundef nonnull @.str.282, ptr noundef nonnull %group.i) #20
-  br label %qemu_set_option.exit
+  br label %qemu_set_option.argprom.exit
 
 if.else.i:                                        ; preds = %is_qemuopts_group.exit.i
   %call10.i = call ptr @qemu_find_opts_err(ptr noundef nonnull %group.i, ptr noundef nonnull @error_fatal) #20
   %tobool.not.i = icmp eq ptr %call10.i, null
-  br i1 %tobool.not.i, label %qemu_set_option.exit, label %if.then11.i
+  br i1 %tobool.not.i, label %qemu_set_option.argprom.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.else.i
   %call13.i = call ptr @qemu_opts_find(ptr noundef nonnull %call10.i, ptr noundef nonnull %id.i) #20
@@ -1427,7 +1427,7 @@ if.then11.i:                                      ; preds = %if.else.i
 
 if.then15.i:                                      ; preds = %if.then11.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull @error_fatal, ptr noundef nonnull @.str.1, i32 noundef 2257, ptr noundef nonnull @__func__.qemu_set_option, ptr noundef nonnull @.str.283, ptr noundef nonnull %group.i, ptr noundef nonnull %id.i) #20
-  br label %qemu_set_option.exit
+  br label %qemu_set_option.argprom.exit
 
 if.end18.i:                                       ; preds = %if.then11.i
   %23 = load i32, ptr %offset.i, align 4
@@ -1435,9 +1435,9 @@ if.end18.i:                                       ; preds = %if.then11.i
   %add.ptr.i = getelementptr i8, ptr %20, i64 %idx.ext.i
   %add.ptr20.i = getelementptr i8, ptr %add.ptr.i, i64 1
   %call21.i = call zeroext i1 @qemu_opt_set(ptr noundef nonnull %call13.i, ptr noundef nonnull %arg.i, ptr noundef %add.ptr20.i, ptr noundef nonnull @error_fatal) #20
-  br label %qemu_set_option.exit
+  br label %qemu_set_option.argprom.exit
 
-qemu_set_option.exit:                             ; preds = %if.then.i, %if.then7.i155, %if.else.i, %if.then15.i, %if.end18.i
+qemu_set_option.argprom.exit:                     ; preds = %if.then.i, %if.then7.i155, %if.else.i, %if.then15.i, %if.end18.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %group.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %id.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %arg.i)
@@ -2805,21 +2805,21 @@ land.lhs.true.i225:                               ; preds = %if.then448
   %obj.val.i = load i32, ptr %call449, align 8
   %372 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %372, 6
-  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i225
   call void @__assert_fail(ptr noundef nonnull @.str.431, ptr noundef nonnull @.str.287, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #21
   unreachable
 
-qobject_type.exit.i:                              ; preds = %land.lhs.true.i225
+qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i225
   %cmp.i226 = icmp eq i32 %obj.val.i, 4
   br i1 %cmp.i226, label %qobject_check_type.exit, label %if.else.i227
 
-if.else.i227:                                     ; preds = %qobject_type.exit.i, %if.then448
+if.else.i227:                                     ; preds = %qobject_type.argprom.exit.i, %if.then448
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i227
-  %retval.0.i = phi ptr [ null, %if.else.i227 ], [ %call449, %qobject_type.exit.i ]
+qobject_check_type.exit:                          ; preds = %qobject_type.argprom.exit.i, %if.else.i227
+  %retval.0.i = phi ptr [ null, %if.else.i227 ], [ %call449, %qobject_type.argprom.exit.i ]
   store ptr %retval.0.i, ptr %call450, align 8
   %loc453 = getelementptr inbounds i8, ptr %call450, i64 8
   %call454 = call ptr @loc_save(ptr noundef nonnull %loc453) #20
@@ -3364,9 +3364,9 @@ sw.default:                                       ; preds = %if.end29
   call void @exit(i32 noundef 1) #22
   unreachable
 
-if.end651:                                        ; preds = %sw.bb74, %sw.bb74, %sw.bb74, %sw.bb74, %sw.bb31, %sw.bb32, %sw.bb35, %qemu_set_option.exit, %sw.bb58, %sw.bb60, %sw.bb62, %sw.bb64, %parse_display.exit, %sw.bb72, %sw.bb73, %sw.bb89, %sw.bb90, %sw.bb91, %sw.bb92, %sw.bb93, %sw.bb95, %sw.bb97, %sw.bb101, %sw.bb108, %sw.bb110, %sw.bb112, %sw.bb173, %sw.bb174, %sw.bb175, %sw.bb176, %sw.bb177, %sw.bb178, %sw.bb179, %sw.bb180, %sw.bb182, %sw.bb183, %sw.bb190, %sw.bb191, %sw.bb192, %sw.bb193, %sw.bb194, %if.end252, %sw.bb266, %sw.bb267, %if.end273, %if.end353, %sw.bb373, %sw.bb383, %sw.bb384, %sw.bb385, %sw.bb386, %sw.bb387, %if.end393, %if.end399, %sw.bb407, %sw.bb408, %sw.bb441, %sw.bb442, %sw.bb473, %sw.bb475, %sw.bb477, %sw.bb478, %sw.bb479, %sw.bb482, %if.end490, %if.end513, %sw.bb515, %if.end527, %if.end533, %sw.bb537, %if.end553, %sw.bb554, %sw.bb555, %if.end563, %if.end569, %if.end574, %sw.bb575, %sw.bb576, %sw.bb577, %sw.bb579, %sw.bb580, %object_option_parse.exit, %if.end602, %sw.bb606, %if.end615, %sw.bb627, %sw.bb633, %sw.bb634, %sw.bb636, %sw.bb44, %sw.bb52, %sw.bb65, %if.else105, %if.then104, %if.else155, %if.then154, %sw.bb159, %sw.bb166, %if.else187, %if.then186, %if.then258, %sw.bb253, %if.then264, %sw.bb261, %sw.bb274, %if.end284, %if.then365, %sw.bb361, %sw.bb367, %if.then381, %sw.bb377, %sw.bb400, %sw.bb409, %is_help_option.exit217, %if.else466, %do.body461, %sw.bb516, %sw.bb538, %sw.bb544, %if.end585, %sw.bb590, %if.end619, %if.end29, %sw.bb629, %if.then648, %if.end645, %if.then19
-  %vmstate_dump_file.1 = phi ptr [ %vmstate_dump_file.0751, %if.then19 ], [ %vmstate_dump_file.0751, %if.then648 ], [ %vmstate_dump_file.0751, %if.end645 ], [ %vmstate_dump_file.0751, %sw.bb636 ], [ %vmstate_dump_file.0751, %sw.bb634 ], [ %vmstate_dump_file.0751, %sw.bb633 ], [ %vmstate_dump_file.0751, %sw.bb629 ], [ %vmstate_dump_file.0751, %if.end29 ], [ %vmstate_dump_file.0751, %sw.bb627 ], [ %call620, %if.end619 ], [ %vmstate_dump_file.0751, %if.end615 ], [ %vmstate_dump_file.0751, %sw.bb606 ], [ %vmstate_dump_file.0751, %if.end602 ], [ %vmstate_dump_file.0751, %object_option_parse.exit ], [ %vmstate_dump_file.0751, %sw.bb590 ], [ %vmstate_dump_file.0751, %if.end585 ], [ %vmstate_dump_file.0751, %sw.bb580 ], [ %vmstate_dump_file.0751, %sw.bb579 ], [ %vmstate_dump_file.0751, %sw.bb577 ], [ %vmstate_dump_file.0751, %sw.bb576 ], [ %vmstate_dump_file.0751, %sw.bb575 ], [ %vmstate_dump_file.0751, %if.end574 ], [ %vmstate_dump_file.0751, %if.end569 ], [ %vmstate_dump_file.0751, %if.end563 ], [ %vmstate_dump_file.0751, %sw.bb555 ], [ %vmstate_dump_file.0751, %sw.bb554 ], [ %vmstate_dump_file.0751, %if.end553 ], [ %vmstate_dump_file.0751, %sw.bb544 ], [ %vmstate_dump_file.0751, %sw.bb538 ], [ %vmstate_dump_file.0751, %sw.bb537 ], [ %vmstate_dump_file.0751, %if.end533 ], [ %vmstate_dump_file.0751, %if.end527 ], [ %vmstate_dump_file.0751, %sw.bb516 ], [ %vmstate_dump_file.0751, %sw.bb515 ], [ %vmstate_dump_file.0751, %if.end513 ], [ %vmstate_dump_file.0751, %if.end490 ], [ %vmstate_dump_file.0751, %sw.bb482 ], [ %vmstate_dump_file.0751, %sw.bb479 ], [ %vmstate_dump_file.0751, %sw.bb478 ], [ %vmstate_dump_file.0751, %sw.bb477 ], [ %vmstate_dump_file.0751, %sw.bb475 ], [ %vmstate_dump_file.0751, %sw.bb473 ], [ %vmstate_dump_file.0751, %do.body461 ], [ %vmstate_dump_file.0751, %if.else466 ], [ %vmstate_dump_file.0751, %sw.bb442 ], [ %vmstate_dump_file.0751, %sw.bb441 ], [ %vmstate_dump_file.0751, %is_help_option.exit217 ], [ %vmstate_dump_file.0751, %sw.bb409 ], [ %vmstate_dump_file.0751, %sw.bb408 ], [ %vmstate_dump_file.0751, %sw.bb407 ], [ %vmstate_dump_file.0751, %sw.bb400 ], [ %vmstate_dump_file.0751, %if.end399 ], [ %vmstate_dump_file.0751, %if.end393 ], [ %vmstate_dump_file.0751, %sw.bb387 ], [ %vmstate_dump_file.0751, %sw.bb386 ], [ %vmstate_dump_file.0751, %sw.bb385 ], [ %vmstate_dump_file.0751, %sw.bb384 ], [ %vmstate_dump_file.0751, %sw.bb383 ], [ %vmstate_dump_file.0751, %if.then381 ], [ %vmstate_dump_file.0751, %sw.bb377 ], [ %vmstate_dump_file.0751, %sw.bb373 ], [ %vmstate_dump_file.0751, %sw.bb367 ], [ %vmstate_dump_file.0751, %if.then365 ], [ %vmstate_dump_file.0751, %sw.bb361 ], [ %vmstate_dump_file.0751, %if.end353 ], [ %vmstate_dump_file.0751, %if.end284 ], [ %vmstate_dump_file.0751, %sw.bb274 ], [ %vmstate_dump_file.0751, %if.end273 ], [ %vmstate_dump_file.0751, %sw.bb267 ], [ %vmstate_dump_file.0751, %sw.bb266 ], [ %vmstate_dump_file.0751, %if.then264 ], [ %vmstate_dump_file.0751, %sw.bb261 ], [ %vmstate_dump_file.0751, %if.then258 ], [ %vmstate_dump_file.0751, %sw.bb253 ], [ %vmstate_dump_file.0751, %if.end252 ], [ %vmstate_dump_file.0751, %sw.bb194 ], [ %vmstate_dump_file.0751, %sw.bb193 ], [ %vmstate_dump_file.0751, %sw.bb192 ], [ %vmstate_dump_file.0751, %sw.bb191 ], [ %vmstate_dump_file.0751, %sw.bb190 ], [ %vmstate_dump_file.0751, %if.then186 ], [ %vmstate_dump_file.0751, %if.else187 ], [ %vmstate_dump_file.0751, %sw.bb183 ], [ %vmstate_dump_file.0751, %sw.bb182 ], [ %vmstate_dump_file.0751, %sw.bb180 ], [ %vmstate_dump_file.0751, %sw.bb179 ], [ %vmstate_dump_file.0751, %sw.bb178 ], [ %vmstate_dump_file.0751, %sw.bb177 ], [ %vmstate_dump_file.0751, %sw.bb176 ], [ %vmstate_dump_file.0751, %sw.bb175 ], [ %vmstate_dump_file.0751, %sw.bb174 ], [ %vmstate_dump_file.0751, %sw.bb173 ], [ %vmstate_dump_file.0751, %sw.bb166 ], [ %vmstate_dump_file.0751, %sw.bb159 ], [ %vmstate_dump_file.0751, %if.then154 ], [ %vmstate_dump_file.0751, %if.else155 ], [ %vmstate_dump_file.0751, %sw.bb112 ], [ %vmstate_dump_file.0751, %sw.bb110 ], [ %vmstate_dump_file.0751, %sw.bb108 ], [ %vmstate_dump_file.0751, %if.then104 ], [ %vmstate_dump_file.0751, %if.else105 ], [ %vmstate_dump_file.0751, %sw.bb101 ], [ %vmstate_dump_file.0751, %sw.bb97 ], [ %vmstate_dump_file.0751, %sw.bb95 ], [ %vmstate_dump_file.0751, %sw.bb93 ], [ %vmstate_dump_file.0751, %sw.bb92 ], [ %vmstate_dump_file.0751, %sw.bb91 ], [ %vmstate_dump_file.0751, %sw.bb90 ], [ %vmstate_dump_file.0751, %sw.bb89 ], [ %vmstate_dump_file.0751, %sw.bb74 ], [ %vmstate_dump_file.0751, %sw.bb73 ], [ %vmstate_dump_file.0751, %sw.bb72 ], [ %vmstate_dump_file.0751, %parse_display.exit ], [ %vmstate_dump_file.0751, %sw.bb65 ], [ %vmstate_dump_file.0751, %sw.bb64 ], [ %vmstate_dump_file.0751, %sw.bb62 ], [ %vmstate_dump_file.0751, %sw.bb60 ], [ %vmstate_dump_file.0751, %sw.bb58 ], [ %vmstate_dump_file.0751, %sw.bb52 ], [ %vmstate_dump_file.0751, %qemu_set_option.exit ], [ %vmstate_dump_file.0751, %sw.bb44 ], [ %vmstate_dump_file.0751, %sw.bb35 ], [ %vmstate_dump_file.0751, %sw.bb32 ], [ %vmstate_dump_file.0751, %sw.bb31 ], [ %vmstate_dump_file.0751, %sw.bb74 ], [ %vmstate_dump_file.0751, %sw.bb74 ], [ %vmstate_dump_file.0751, %sw.bb74 ]
-  %icount_opts.1 = phi ptr [ %icount_opts.0752, %if.then19 ], [ %icount_opts.0752, %if.then648 ], [ %icount_opts.0752, %if.end645 ], [ %icount_opts.0752, %sw.bb636 ], [ %icount_opts.0752, %sw.bb634 ], [ %icount_opts.0752, %sw.bb633 ], [ %icount_opts.0752, %sw.bb629 ], [ %icount_opts.0752, %if.end29 ], [ %icount_opts.0752, %sw.bb627 ], [ %icount_opts.0752, %if.end619 ], [ %icount_opts.0752, %if.end615 ], [ %icount_opts.0752, %sw.bb606 ], [ %icount_opts.0752, %if.end602 ], [ %icount_opts.0752, %object_option_parse.exit ], [ %icount_opts.0752, %sw.bb590 ], [ %icount_opts.0752, %if.end585 ], [ %icount_opts.0752, %sw.bb580 ], [ %icount_opts.0752, %sw.bb579 ], [ %icount_opts.0752, %sw.bb577 ], [ %icount_opts.0752, %sw.bb576 ], [ %icount_opts.0752, %sw.bb575 ], [ %icount_opts.0752, %if.end574 ], [ %icount_opts.0752, %if.end569 ], [ %icount_opts.0752, %if.end563 ], [ %icount_opts.0752, %sw.bb555 ], [ %icount_opts.0752, %sw.bb554 ], [ %icount_opts.0752, %if.end553 ], [ %call546, %sw.bb544 ], [ %icount_opts.0752, %sw.bb538 ], [ %icount_opts.0752, %sw.bb537 ], [ %icount_opts.0752, %if.end533 ], [ %icount_opts.0752, %if.end527 ], [ %icount_opts.0752, %sw.bb516 ], [ %icount_opts.0752, %sw.bb515 ], [ %icount_opts.0752, %if.end513 ], [ %icount_opts.0752, %if.end490 ], [ %icount_opts.0752, %sw.bb482 ], [ %icount_opts.0752, %sw.bb479 ], [ %icount_opts.0752, %sw.bb478 ], [ %icount_opts.0752, %sw.bb477 ], [ %icount_opts.0752, %sw.bb475 ], [ %icount_opts.0752, %sw.bb473 ], [ %icount_opts.0752, %do.body461 ], [ %icount_opts.0752, %if.else466 ], [ %icount_opts.0752, %sw.bb442 ], [ %icount_opts.0752, %sw.bb441 ], [ %icount_opts.0752, %is_help_option.exit217 ], [ %icount_opts.0752, %sw.bb409 ], [ %icount_opts.0752, %sw.bb408 ], [ %icount_opts.0752, %sw.bb407 ], [ %icount_opts.0752, %sw.bb400 ], [ %icount_opts.0752, %if.end399 ], [ %icount_opts.0752, %if.end393 ], [ %icount_opts.0752, %sw.bb387 ], [ %icount_opts.0752, %sw.bb386 ], [ %icount_opts.0752, %sw.bb385 ], [ %icount_opts.0752, %sw.bb384 ], [ %icount_opts.0752, %sw.bb383 ], [ %icount_opts.0752, %if.then381 ], [ %icount_opts.0752, %sw.bb377 ], [ %icount_opts.0752, %sw.bb373 ], [ %icount_opts.0752, %sw.bb367 ], [ %icount_opts.0752, %if.then365 ], [ %icount_opts.0752, %sw.bb361 ], [ %icount_opts.0752, %if.end353 ], [ %icount_opts.0752, %if.end284 ], [ %icount_opts.0752, %sw.bb274 ], [ %icount_opts.0752, %if.end273 ], [ %icount_opts.0752, %sw.bb267 ], [ %icount_opts.0752, %sw.bb266 ], [ %icount_opts.0752, %if.then264 ], [ %icount_opts.0752, %sw.bb261 ], [ %icount_opts.0752, %if.then258 ], [ %icount_opts.0752, %sw.bb253 ], [ %icount_opts.0752, %if.end252 ], [ %icount_opts.0752, %sw.bb194 ], [ %icount_opts.0752, %sw.bb193 ], [ %icount_opts.0752, %sw.bb192 ], [ %icount_opts.0752, %sw.bb191 ], [ %icount_opts.0752, %sw.bb190 ], [ %icount_opts.0752, %if.then186 ], [ %icount_opts.0752, %if.else187 ], [ %icount_opts.0752, %sw.bb183 ], [ %icount_opts.0752, %sw.bb182 ], [ %icount_opts.0752, %sw.bb180 ], [ %icount_opts.0752, %sw.bb179 ], [ %icount_opts.0752, %sw.bb178 ], [ %icount_opts.0752, %sw.bb177 ], [ %icount_opts.0752, %sw.bb176 ], [ %icount_opts.0752, %sw.bb175 ], [ %icount_opts.0752, %sw.bb174 ], [ %icount_opts.0752, %sw.bb173 ], [ %icount_opts.0752, %sw.bb166 ], [ %icount_opts.0752, %sw.bb159 ], [ %icount_opts.0752, %if.then154 ], [ %icount_opts.0752, %if.else155 ], [ %icount_opts.0752, %sw.bb112 ], [ %icount_opts.0752, %sw.bb110 ], [ %icount_opts.0752, %sw.bb108 ], [ %icount_opts.0752, %if.then104 ], [ %icount_opts.0752, %if.else105 ], [ %icount_opts.0752, %sw.bb101 ], [ %icount_opts.0752, %sw.bb97 ], [ %icount_opts.0752, %sw.bb95 ], [ %icount_opts.0752, %sw.bb93 ], [ %icount_opts.0752, %sw.bb92 ], [ %icount_opts.0752, %sw.bb91 ], [ %icount_opts.0752, %sw.bb90 ], [ %icount_opts.0752, %sw.bb89 ], [ %icount_opts.0752, %sw.bb74 ], [ %icount_opts.0752, %sw.bb73 ], [ %icount_opts.0752, %sw.bb72 ], [ %icount_opts.0752, %parse_display.exit ], [ %icount_opts.0752, %sw.bb65 ], [ %icount_opts.0752, %sw.bb64 ], [ %icount_opts.0752, %sw.bb62 ], [ %icount_opts.0752, %sw.bb60 ], [ %icount_opts.0752, %sw.bb58 ], [ %icount_opts.0752, %sw.bb52 ], [ %icount_opts.0752, %qemu_set_option.exit ], [ %icount_opts.0752, %sw.bb44 ], [ %icount_opts.0752, %sw.bb35 ], [ %icount_opts.0752, %sw.bb32 ], [ %icount_opts.0752, %sw.bb31 ], [ %icount_opts.0752, %sw.bb74 ], [ %icount_opts.0752, %sw.bb74 ], [ %icount_opts.0752, %sw.bb74 ]
+if.end651:                                        ; preds = %sw.bb74, %sw.bb74, %sw.bb74, %sw.bb74, %sw.bb31, %sw.bb32, %sw.bb35, %qemu_set_option.argprom.exit, %sw.bb58, %sw.bb60, %sw.bb62, %sw.bb64, %parse_display.exit, %sw.bb72, %sw.bb73, %sw.bb89, %sw.bb90, %sw.bb91, %sw.bb92, %sw.bb93, %sw.bb95, %sw.bb97, %sw.bb101, %sw.bb108, %sw.bb110, %sw.bb112, %sw.bb173, %sw.bb174, %sw.bb175, %sw.bb176, %sw.bb177, %sw.bb178, %sw.bb179, %sw.bb180, %sw.bb182, %sw.bb183, %sw.bb190, %sw.bb191, %sw.bb192, %sw.bb193, %sw.bb194, %if.end252, %sw.bb266, %sw.bb267, %if.end273, %if.end353, %sw.bb373, %sw.bb383, %sw.bb384, %sw.bb385, %sw.bb386, %sw.bb387, %if.end393, %if.end399, %sw.bb407, %sw.bb408, %sw.bb441, %sw.bb442, %sw.bb473, %sw.bb475, %sw.bb477, %sw.bb478, %sw.bb479, %sw.bb482, %if.end490, %if.end513, %sw.bb515, %if.end527, %if.end533, %sw.bb537, %if.end553, %sw.bb554, %sw.bb555, %if.end563, %if.end569, %if.end574, %sw.bb575, %sw.bb576, %sw.bb577, %sw.bb579, %sw.bb580, %object_option_parse.exit, %if.end602, %sw.bb606, %if.end615, %sw.bb627, %sw.bb633, %sw.bb634, %sw.bb636, %sw.bb44, %sw.bb52, %sw.bb65, %if.else105, %if.then104, %if.else155, %if.then154, %sw.bb159, %sw.bb166, %if.else187, %if.then186, %if.then258, %sw.bb253, %if.then264, %sw.bb261, %sw.bb274, %if.end284, %if.then365, %sw.bb361, %sw.bb367, %if.then381, %sw.bb377, %sw.bb400, %sw.bb409, %is_help_option.exit217, %if.else466, %do.body461, %sw.bb516, %sw.bb538, %sw.bb544, %if.end585, %sw.bb590, %if.end619, %if.end29, %sw.bb629, %if.then648, %if.end645, %if.then19
+  %vmstate_dump_file.1 = phi ptr [ %vmstate_dump_file.0751, %if.then19 ], [ %vmstate_dump_file.0751, %if.then648 ], [ %vmstate_dump_file.0751, %if.end645 ], [ %vmstate_dump_file.0751, %sw.bb636 ], [ %vmstate_dump_file.0751, %sw.bb634 ], [ %vmstate_dump_file.0751, %sw.bb633 ], [ %vmstate_dump_file.0751, %sw.bb629 ], [ %vmstate_dump_file.0751, %if.end29 ], [ %vmstate_dump_file.0751, %sw.bb627 ], [ %call620, %if.end619 ], [ %vmstate_dump_file.0751, %if.end615 ], [ %vmstate_dump_file.0751, %sw.bb606 ], [ %vmstate_dump_file.0751, %if.end602 ], [ %vmstate_dump_file.0751, %object_option_parse.exit ], [ %vmstate_dump_file.0751, %sw.bb590 ], [ %vmstate_dump_file.0751, %if.end585 ], [ %vmstate_dump_file.0751, %sw.bb580 ], [ %vmstate_dump_file.0751, %sw.bb579 ], [ %vmstate_dump_file.0751, %sw.bb577 ], [ %vmstate_dump_file.0751, %sw.bb576 ], [ %vmstate_dump_file.0751, %sw.bb575 ], [ %vmstate_dump_file.0751, %if.end574 ], [ %vmstate_dump_file.0751, %if.end569 ], [ %vmstate_dump_file.0751, %if.end563 ], [ %vmstate_dump_file.0751, %sw.bb555 ], [ %vmstate_dump_file.0751, %sw.bb554 ], [ %vmstate_dump_file.0751, %if.end553 ], [ %vmstate_dump_file.0751, %sw.bb544 ], [ %vmstate_dump_file.0751, %sw.bb538 ], [ %vmstate_dump_file.0751, %sw.bb537 ], [ %vmstate_dump_file.0751, %if.end533 ], [ %vmstate_dump_file.0751, %if.end527 ], [ %vmstate_dump_file.0751, %sw.bb516 ], [ %vmstate_dump_file.0751, %sw.bb515 ], [ %vmstate_dump_file.0751, %if.end513 ], [ %vmstate_dump_file.0751, %if.end490 ], [ %vmstate_dump_file.0751, %sw.bb482 ], [ %vmstate_dump_file.0751, %sw.bb479 ], [ %vmstate_dump_file.0751, %sw.bb478 ], [ %vmstate_dump_file.0751, %sw.bb477 ], [ %vmstate_dump_file.0751, %sw.bb475 ], [ %vmstate_dump_file.0751, %sw.bb473 ], [ %vmstate_dump_file.0751, %do.body461 ], [ %vmstate_dump_file.0751, %if.else466 ], [ %vmstate_dump_file.0751, %sw.bb442 ], [ %vmstate_dump_file.0751, %sw.bb441 ], [ %vmstate_dump_file.0751, %is_help_option.exit217 ], [ %vmstate_dump_file.0751, %sw.bb409 ], [ %vmstate_dump_file.0751, %sw.bb408 ], [ %vmstate_dump_file.0751, %sw.bb407 ], [ %vmstate_dump_file.0751, %sw.bb400 ], [ %vmstate_dump_file.0751, %if.end399 ], [ %vmstate_dump_file.0751, %if.end393 ], [ %vmstate_dump_file.0751, %sw.bb387 ], [ %vmstate_dump_file.0751, %sw.bb386 ], [ %vmstate_dump_file.0751, %sw.bb385 ], [ %vmstate_dump_file.0751, %sw.bb384 ], [ %vmstate_dump_file.0751, %sw.bb383 ], [ %vmstate_dump_file.0751, %if.then381 ], [ %vmstate_dump_file.0751, %sw.bb377 ], [ %vmstate_dump_file.0751, %sw.bb373 ], [ %vmstate_dump_file.0751, %sw.bb367 ], [ %vmstate_dump_file.0751, %if.then365 ], [ %vmstate_dump_file.0751, %sw.bb361 ], [ %vmstate_dump_file.0751, %if.end353 ], [ %vmstate_dump_file.0751, %if.end284 ], [ %vmstate_dump_file.0751, %sw.bb274 ], [ %vmstate_dump_file.0751, %if.end273 ], [ %vmstate_dump_file.0751, %sw.bb267 ], [ %vmstate_dump_file.0751, %sw.bb266 ], [ %vmstate_dump_file.0751, %if.then264 ], [ %vmstate_dump_file.0751, %sw.bb261 ], [ %vmstate_dump_file.0751, %if.then258 ], [ %vmstate_dump_file.0751, %sw.bb253 ], [ %vmstate_dump_file.0751, %if.end252 ], [ %vmstate_dump_file.0751, %sw.bb194 ], [ %vmstate_dump_file.0751, %sw.bb193 ], [ %vmstate_dump_file.0751, %sw.bb192 ], [ %vmstate_dump_file.0751, %sw.bb191 ], [ %vmstate_dump_file.0751, %sw.bb190 ], [ %vmstate_dump_file.0751, %if.then186 ], [ %vmstate_dump_file.0751, %if.else187 ], [ %vmstate_dump_file.0751, %sw.bb183 ], [ %vmstate_dump_file.0751, %sw.bb182 ], [ %vmstate_dump_file.0751, %sw.bb180 ], [ %vmstate_dump_file.0751, %sw.bb179 ], [ %vmstate_dump_file.0751, %sw.bb178 ], [ %vmstate_dump_file.0751, %sw.bb177 ], [ %vmstate_dump_file.0751, %sw.bb176 ], [ %vmstate_dump_file.0751, %sw.bb175 ], [ %vmstate_dump_file.0751, %sw.bb174 ], [ %vmstate_dump_file.0751, %sw.bb173 ], [ %vmstate_dump_file.0751, %sw.bb166 ], [ %vmstate_dump_file.0751, %sw.bb159 ], [ %vmstate_dump_file.0751, %if.then154 ], [ %vmstate_dump_file.0751, %if.else155 ], [ %vmstate_dump_file.0751, %sw.bb112 ], [ %vmstate_dump_file.0751, %sw.bb110 ], [ %vmstate_dump_file.0751, %sw.bb108 ], [ %vmstate_dump_file.0751, %if.then104 ], [ %vmstate_dump_file.0751, %if.else105 ], [ %vmstate_dump_file.0751, %sw.bb101 ], [ %vmstate_dump_file.0751, %sw.bb97 ], [ %vmstate_dump_file.0751, %sw.bb95 ], [ %vmstate_dump_file.0751, %sw.bb93 ], [ %vmstate_dump_file.0751, %sw.bb92 ], [ %vmstate_dump_file.0751, %sw.bb91 ], [ %vmstate_dump_file.0751, %sw.bb90 ], [ %vmstate_dump_file.0751, %sw.bb89 ], [ %vmstate_dump_file.0751, %sw.bb74 ], [ %vmstate_dump_file.0751, %sw.bb73 ], [ %vmstate_dump_file.0751, %sw.bb72 ], [ %vmstate_dump_file.0751, %parse_display.exit ], [ %vmstate_dump_file.0751, %sw.bb65 ], [ %vmstate_dump_file.0751, %sw.bb64 ], [ %vmstate_dump_file.0751, %sw.bb62 ], [ %vmstate_dump_file.0751, %sw.bb60 ], [ %vmstate_dump_file.0751, %sw.bb58 ], [ %vmstate_dump_file.0751, %sw.bb52 ], [ %vmstate_dump_file.0751, %qemu_set_option.argprom.exit ], [ %vmstate_dump_file.0751, %sw.bb44 ], [ %vmstate_dump_file.0751, %sw.bb35 ], [ %vmstate_dump_file.0751, %sw.bb32 ], [ %vmstate_dump_file.0751, %sw.bb31 ], [ %vmstate_dump_file.0751, %sw.bb74 ], [ %vmstate_dump_file.0751, %sw.bb74 ], [ %vmstate_dump_file.0751, %sw.bb74 ]
+  %icount_opts.1 = phi ptr [ %icount_opts.0752, %if.then19 ], [ %icount_opts.0752, %if.then648 ], [ %icount_opts.0752, %if.end645 ], [ %icount_opts.0752, %sw.bb636 ], [ %icount_opts.0752, %sw.bb634 ], [ %icount_opts.0752, %sw.bb633 ], [ %icount_opts.0752, %sw.bb629 ], [ %icount_opts.0752, %if.end29 ], [ %icount_opts.0752, %sw.bb627 ], [ %icount_opts.0752, %if.end619 ], [ %icount_opts.0752, %if.end615 ], [ %icount_opts.0752, %sw.bb606 ], [ %icount_opts.0752, %if.end602 ], [ %icount_opts.0752, %object_option_parse.exit ], [ %icount_opts.0752, %sw.bb590 ], [ %icount_opts.0752, %if.end585 ], [ %icount_opts.0752, %sw.bb580 ], [ %icount_opts.0752, %sw.bb579 ], [ %icount_opts.0752, %sw.bb577 ], [ %icount_opts.0752, %sw.bb576 ], [ %icount_opts.0752, %sw.bb575 ], [ %icount_opts.0752, %if.end574 ], [ %icount_opts.0752, %if.end569 ], [ %icount_opts.0752, %if.end563 ], [ %icount_opts.0752, %sw.bb555 ], [ %icount_opts.0752, %sw.bb554 ], [ %icount_opts.0752, %if.end553 ], [ %call546, %sw.bb544 ], [ %icount_opts.0752, %sw.bb538 ], [ %icount_opts.0752, %sw.bb537 ], [ %icount_opts.0752, %if.end533 ], [ %icount_opts.0752, %if.end527 ], [ %icount_opts.0752, %sw.bb516 ], [ %icount_opts.0752, %sw.bb515 ], [ %icount_opts.0752, %if.end513 ], [ %icount_opts.0752, %if.end490 ], [ %icount_opts.0752, %sw.bb482 ], [ %icount_opts.0752, %sw.bb479 ], [ %icount_opts.0752, %sw.bb478 ], [ %icount_opts.0752, %sw.bb477 ], [ %icount_opts.0752, %sw.bb475 ], [ %icount_opts.0752, %sw.bb473 ], [ %icount_opts.0752, %do.body461 ], [ %icount_opts.0752, %if.else466 ], [ %icount_opts.0752, %sw.bb442 ], [ %icount_opts.0752, %sw.bb441 ], [ %icount_opts.0752, %is_help_option.exit217 ], [ %icount_opts.0752, %sw.bb409 ], [ %icount_opts.0752, %sw.bb408 ], [ %icount_opts.0752, %sw.bb407 ], [ %icount_opts.0752, %sw.bb400 ], [ %icount_opts.0752, %if.end399 ], [ %icount_opts.0752, %if.end393 ], [ %icount_opts.0752, %sw.bb387 ], [ %icount_opts.0752, %sw.bb386 ], [ %icount_opts.0752, %sw.bb385 ], [ %icount_opts.0752, %sw.bb384 ], [ %icount_opts.0752, %sw.bb383 ], [ %icount_opts.0752, %if.then381 ], [ %icount_opts.0752, %sw.bb377 ], [ %icount_opts.0752, %sw.bb373 ], [ %icount_opts.0752, %sw.bb367 ], [ %icount_opts.0752, %if.then365 ], [ %icount_opts.0752, %sw.bb361 ], [ %icount_opts.0752, %if.end353 ], [ %icount_opts.0752, %if.end284 ], [ %icount_opts.0752, %sw.bb274 ], [ %icount_opts.0752, %if.end273 ], [ %icount_opts.0752, %sw.bb267 ], [ %icount_opts.0752, %sw.bb266 ], [ %icount_opts.0752, %if.then264 ], [ %icount_opts.0752, %sw.bb261 ], [ %icount_opts.0752, %if.then258 ], [ %icount_opts.0752, %sw.bb253 ], [ %icount_opts.0752, %if.end252 ], [ %icount_opts.0752, %sw.bb194 ], [ %icount_opts.0752, %sw.bb193 ], [ %icount_opts.0752, %sw.bb192 ], [ %icount_opts.0752, %sw.bb191 ], [ %icount_opts.0752, %sw.bb190 ], [ %icount_opts.0752, %if.then186 ], [ %icount_opts.0752, %if.else187 ], [ %icount_opts.0752, %sw.bb183 ], [ %icount_opts.0752, %sw.bb182 ], [ %icount_opts.0752, %sw.bb180 ], [ %icount_opts.0752, %sw.bb179 ], [ %icount_opts.0752, %sw.bb178 ], [ %icount_opts.0752, %sw.bb177 ], [ %icount_opts.0752, %sw.bb176 ], [ %icount_opts.0752, %sw.bb175 ], [ %icount_opts.0752, %sw.bb174 ], [ %icount_opts.0752, %sw.bb173 ], [ %icount_opts.0752, %sw.bb166 ], [ %icount_opts.0752, %sw.bb159 ], [ %icount_opts.0752, %if.then154 ], [ %icount_opts.0752, %if.else155 ], [ %icount_opts.0752, %sw.bb112 ], [ %icount_opts.0752, %sw.bb110 ], [ %icount_opts.0752, %sw.bb108 ], [ %icount_opts.0752, %if.then104 ], [ %icount_opts.0752, %if.else105 ], [ %icount_opts.0752, %sw.bb101 ], [ %icount_opts.0752, %sw.bb97 ], [ %icount_opts.0752, %sw.bb95 ], [ %icount_opts.0752, %sw.bb93 ], [ %icount_opts.0752, %sw.bb92 ], [ %icount_opts.0752, %sw.bb91 ], [ %icount_opts.0752, %sw.bb90 ], [ %icount_opts.0752, %sw.bb89 ], [ %icount_opts.0752, %sw.bb74 ], [ %icount_opts.0752, %sw.bb73 ], [ %icount_opts.0752, %sw.bb72 ], [ %icount_opts.0752, %parse_display.exit ], [ %icount_opts.0752, %sw.bb65 ], [ %icount_opts.0752, %sw.bb64 ], [ %icount_opts.0752, %sw.bb62 ], [ %icount_opts.0752, %sw.bb60 ], [ %icount_opts.0752, %sw.bb58 ], [ %icount_opts.0752, %sw.bb52 ], [ %icount_opts.0752, %qemu_set_option.argprom.exit ], [ %icount_opts.0752, %sw.bb44 ], [ %icount_opts.0752, %sw.bb35 ], [ %icount_opts.0752, %sw.bb32 ], [ %icount_opts.0752, %sw.bb31 ], [ %icount_opts.0752, %sw.bb74 ], [ %icount_opts.0752, %sw.bb74 ], [ %icount_opts.0752, %sw.bb74 ]
   %416 = load i32, ptr %optind, align 4
   %cmp9.not = icmp slt i32 %416, %argc
   br i1 %cmp9.not, label %if.end12, label %for.end652
@@ -3459,17 +3459,17 @@ land.lhs.true.i258:                               ; preds = %if.then.i255
   %call.val.i = load i32, ptr %call.i256, align 8
   %422 = add i32 %call.val.i, -1
   %or.cond.i.i259 = icmp ult i32 %422, 6
-  br i1 %or.cond.i.i259, label %qobject_type.exit.i261, label %if.else.i.i260
+  br i1 %or.cond.i.i259, label %qobject_type.argprom.exit.i261, label %if.else.i.i260
 
 if.else.i.i260:                                   ; preds = %land.lhs.true.i258
   call void @__assert_fail(ptr noundef nonnull @.str.431, ptr noundef nonnull @.str.287, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #21
   unreachable
 
-qobject_type.exit.i261:                           ; preds = %land.lhs.true.i258
+qobject_type.argprom.exit.i261:                   ; preds = %land.lhs.true.i258
   %cmp.i262 = icmp eq i32 %call.val.i, 4
   br i1 %cmp.i262, label %qobject_check_type.exit.i, label %if.end13.i
 
-qobject_check_type.exit.i:                        ; preds = %qobject_type.exit.i261
+qobject_check_type.exit.i:                        ; preds = %qobject_type.argprom.exit.i261
   %call5.i263 = call ptr @qdict_get(ptr noundef nonnull %call.i256, ptr noundef nonnull @.str.133) #20
   %tobool6.not.i264 = icmp eq ptr %call5.i263, null
   br i1 %tobool6.not.i264, label %if.end13.i, label %land.lhs.true7.i
@@ -3478,22 +3478,22 @@ land.lhs.true7.i:                                 ; preds = %qobject_check_type.
   %call5.val.i = load i32, ptr %call5.i263, align 8
   %423 = add i32 %call5.val.i, -1
   %or.cond.i6.i = icmp ult i32 %423, 6
-  br i1 %or.cond.i6.i, label %qobject_type.exit8.i, label %if.else.i7.i
+  br i1 %or.cond.i6.i, label %qobject_type.argprom.exit8.i, label %if.else.i7.i
 
 if.else.i7.i:                                     ; preds = %land.lhs.true7.i
   call void @__assert_fail(ptr noundef nonnull @.str.431, ptr noundef nonnull @.str.287, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #21
   unreachable
 
-qobject_type.exit8.i:                             ; preds = %land.lhs.true7.i
+qobject_type.argprom.exit8.i:                     ; preds = %land.lhs.true7.i
   %cmp9.i = icmp eq i32 %call5.val.i, 3
   br i1 %cmp9.i, label %qobject_check_type.exit18.i, label %if.end13.i
 
-qobject_check_type.exit18.i:                      ; preds = %qobject_type.exit8.i
+qobject_check_type.exit18.i:                      ; preds = %qobject_type.argprom.exit8.i
   %call12.i265 = call ptr @qstring_get_str(ptr noundef nonnull %call5.i263) #20
   call void @object_register_sugar_prop(ptr noundef nonnull @.str.440, ptr noundef nonnull @.str.441, ptr noundef %call12.i265, i1 noundef zeroext false) #20
   br label %if.end13.i
 
-if.end13.i:                                       ; preds = %qobject_check_type.exit18.i, %qobject_type.exit8.i, %qobject_check_type.exit.i, %qobject_type.exit.i261, %if.then.i255
+if.end13.i:                                       ; preds = %qobject_check_type.exit18.i, %qobject_type.argprom.exit8.i, %qobject_check_type.exit.i, %qobject_type.argprom.exit.i261, %if.then.i255
   call void @object_register_sugar_prop(ptr noundef nonnull @.str.440, ptr noundef nonnull @.str.442, ptr noundef nonnull @.str.70, i1 noundef zeroext false) #20
   br label %qemu_process_sugar_options.exit
 
@@ -3844,15 +3844,15 @@ if.end9.i.i:                                      ; preds = %if.then7.i.i, %find
   call void @g_slist_free(ptr noundef %call1.i.i337) #20
   %459 = load ptr, ptr %local_err.i.i, align 8
   %tobool10.not.i.i = icmp eq ptr %459, null
-  br i1 %tobool10.not.i.i, label %select_machine.exit.i, label %if.then11.i.i
+  br i1 %tobool10.not.i.i, label %select_machine.argprom.exit.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end9.i.i
   call void (ptr, ptr, ...) @error_append_hint(ptr noundef nonnull %local_err.i.i, ptr noundef nonnull @.str.459) #20
   %460 = load ptr, ptr %local_err.i.i, align 8
   call void @error_propagate(ptr noundef nonnull @error_fatal, ptr noundef %460) #20
-  br label %select_machine.exit.i
+  br label %select_machine.argprom.exit.i
 
-select_machine.exit.i:                            ; preds = %if.then11.i.i, %if.end9.i.i
+select_machine.argprom.exit.i:                    ; preds = %if.then11.i.i, %if.end9.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i.i)
   %compat_props.i = getelementptr inbounds i8, ptr %machine_class.0.i.i, i64 224
   %461 = load ptr, ptr %compat_props.i, align 8
@@ -3872,7 +3872,7 @@ select_machine.exit.i:                            ; preds = %if.then11.i.i, %if.
   %tobool.not.i346 = icmp eq i32 %464, 0
   br i1 %tobool.not.i346, label %if.end11.i349, label %if.then.i347
 
-if.then.i347:                                     ; preds = %select_machine.exit.i
+if.then.i347:                                     ; preds = %select_machine.argprom.exit.i
   %call9.i348 = call zeroext i1 @set_preferred_target_page_bits(i32 noundef %464) #20
   br i1 %call9.i348, label %if.end11.i349, label %do.body.i
 
@@ -3880,7 +3880,7 @@ do.body.i:                                        ; preds = %if.then.i347
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 2106, ptr noundef nonnull @__func__.qemu_create_machine, ptr noundef null) #21
   unreachable
 
-if.end11.i349:                                    ; preds = %if.then.i347, %select_machine.exit.i
+if.end11.i349:                                    ; preds = %if.then.i347, %select_machine.argprom.exit.i
   call void @cpu_exec_init_all() #20
   call void @page_size_init() #20
   %hw_version.i = getelementptr inbounds i8, ptr %machine_class.0.i.i, i64 232
@@ -4688,12 +4688,12 @@ if.end6.i28.i.i:                                  ; preds = %if.then.i.i31.i.i, 
 
 default_drive.exit33.i.i:                         ; preds = %if.end6.i28.i.i, %lor.lhs.false.i19.i.i, %default_drive.exit.i.i
   %.b.i.i = load i1, ptr @default_sdcard, align 4
-  br i1 %.b.i.i, label %configure_blockdev.exit.i, label %lor.lhs.false.i35.i.i
+  br i1 %.b.i.i, label %configure_blockdev.argprom.exit.i, label %lor.lhs.false.i35.i.i
 
 lor.lhs.false.i35.i.i:                            ; preds = %default_drive.exit33.i.i
   %call.i36.i.i = call ptr @drive_get_by_index(i32 noundef 6, i32 noundef 0) #20
   %tobool1.not.i37.i.i = icmp eq ptr %call.i36.i.i, null
-  br i1 %tobool1.not.i37.i.i, label %if.end.i38.i.i, label %configure_blockdev.exit.i
+  br i1 %tobool1.not.i37.i.i, label %if.end.i38.i.i, label %configure_blockdev.argprom.exit.i
 
 if.end.i38.i.i:                                   ; preds = %lor.lhs.false.i35.i.i
   %call2.i39.i.i = call ptr @drive_add(i32 noundef 6, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.9) #20
@@ -4712,18 +4712,18 @@ if.end6.i44.i.i:                                  ; preds = %if.then.i.i47.i.i, 
   %call7.i45.i.i = call ptr @drive_new(ptr noundef %call2.i39.i.i, i32 noundef 6, ptr noundef nonnull @error_abort) #20
   %is_default.i46.i.i = getelementptr inbounds i8, ptr %call7.i45.i.i, i64 16
   store i8 1, ptr %is_default.i46.i.i, align 8
-  br label %configure_blockdev.exit.i
+  br label %configure_blockdev.argprom.exit.i
 
-configure_blockdev.exit.i:                        ; preds = %if.end6.i44.i.i, %lor.lhs.false.i35.i.i, %default_drive.exit33.i.i
+configure_blockdev.argprom.exit.i:                ; preds = %if.end6.i44.i.i, %lor.lhs.false.i35.i.i, %default_drive.exit33.i.i
   call void @audio_init_audiodevs() #20
   %.b3.i = load i1, ptr @default_audio, align 4
   br i1 %.b3.i, label %qemu_create_early_backends.exit, label %if.then11.i451
 
-if.then11.i451:                                   ; preds = %configure_blockdev.exit.i
+if.then11.i451:                                   ; preds = %configure_blockdev.argprom.exit.i
   call void @audio_create_default_audiodevs() #20
   br label %qemu_create_early_backends.exit
 
-qemu_create_early_backends.exit:                  ; preds = %configure_blockdev.exit.i, %if.then11.i451
+qemu_create_early_backends.exit:                  ; preds = %configure_blockdev.argprom.exit.i, %if.then11.i451
   %547 = load ptr, ptr @machine_opts_dict, align 8
   call fastcc void @qemu_apply_legacy_machine_options(ptr noundef %547)
   %548 = load ptr, ptr @machine_opts_dict, align 8
@@ -5425,7 +5425,7 @@ qobject_ref_impl.exit.i:                          ; preds = %if.then.i.i, %if.en
   %3 = load ptr, ptr @machine_opts_dict, align 8
   call void @keyval_merge(ptr noundef %3, ptr noundef %call.i, ptr noundef nonnull @error_fatal) #20
   %tobool14.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool14.not.i, label %machine_merge_property.exit, label %lor.lhs.false.i.i
+  br i1 %tobool14.not.i, label %machine_merge_property.argprom.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %qobject_ref_impl.exit.i
   %refcnt.i8.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -5441,16 +5441,16 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
   %dec.i.i = add i64 %4, -1
   store i64 %dec.i.i, ptr %refcnt.i8.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then5.i.i, label %machine_merge_property.exit
+  br i1 %cmp.i.i, label %if.then5.i.i, label %machine_merge_property.argprom.exit
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
   call void @qobject_destroy(ptr noundef nonnull %call.i) #20
-  br label %machine_merge_property.exit
+  br label %machine_merge_property.argprom.exit
 
-machine_merge_property.exit:                      ; preds = %qobject_ref_impl.exit.i, %land.lhs.true.i.i, %if.then5.i.i
+machine_merge_property.argprom.exit:              ; preds = %qobject_ref_impl.exit.i, %land.lhs.true.i.i, %if.then5.i.i
   br i1 %tobool.not.i, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %machine_merge_property.exit
+lor.lhs.false.i:                                  ; preds = %machine_merge_property.argprom.exit
   %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   %5 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %5, 0
@@ -5470,7 +5470,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   call void @qobject_destroy(ptr noundef nonnull %call) #20
   br label %qobject_unref_impl.exit
 
-qobject_unref_impl.exit:                          ; preds = %machine_merge_property.exit, %land.lhs.true.i, %if.then5.i
+qobject_unref_impl.exit:                          ; preds = %machine_merge_property.argprom.exit, %land.lhs.true.i, %if.then5.i
   ret void
 }
 
@@ -5645,7 +5645,7 @@ if.end7:                                          ; preds = %for.inc.i, %entry
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   %call9 = tail call ptr @g_slist_sort(ptr noundef %call1, ptr noundef nonnull @machine_class_cmp) #20
   %tobool10.not15 = icmp eq ptr %call9, null
-  br i1 %tobool10.not15, label %glib_autoptr_cleanup_GSList.exit, label %for.body
+  br i1 %tobool10.not15, label %glib_autoptr_cleanup_GSList.argprom.exit, label %for.body
 
 for.body:                                         ; preds = %if.end7, %if.end15
   %el.016 = phi ptr [ %12, %if.end15 ], [ %call9, %if.end7 ]
@@ -5685,13 +5685,13 @@ if.end15:                                         ; preds = %if.then12, %for.bod
 cleanup:                                          ; preds = %if.end15, %if.then4
   %machines.0 = phi ptr [ %call1, %if.then4 ], [ %call9, %if.end15 ]
   %tobool.not.i.i = icmp eq ptr %machines.0, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GSList.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GSList.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   tail call void @g_slist_free(ptr noundef nonnull %machines.0) #20
-  br label %glib_autoptr_cleanup_GSList.exit
+  br label %glib_autoptr_cleanup_GSList.argprom.exit
 
-glib_autoptr_cleanup_GSList.exit:                 ; preds = %if.end7, %cleanup, %if.then.i.i
+glib_autoptr_cleanup_GSList.argprom.exit:         ; preds = %if.end7, %cleanup, %if.then.i.i
   ret void
 }
 
@@ -5780,19 +5780,19 @@ if.end3:                                          ; preds = %if.end
   %call1.val = load i32, ptr %call1, align 8
   %0 = add i32 %call1.val, -1
   %or.cond.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end3
   tail call void @__assert_fail(ptr noundef nonnull @.str.431, ptr noundef nonnull @.str.287, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #21
   unreachable
 
-qobject_type.exit:                                ; preds = %if.end3
+qobject_type.argprom.exit:                        ; preds = %if.end3
   switch i32 %call1.val, label %do.body [
     i32 4, label %qobject_check_type.exit
     i32 5, label %sw.bb6
   ]
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit
+qobject_check_type.exit:                          ; preds = %qobject_type.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dev.i)
   %call.i14 = tail call i32 @g_str_equal(ptr noundef %group, ptr noundef nonnull @.str.158) #20
   %tobool.not.i15 = icmp eq i32 %call.i14, 0
@@ -5885,7 +5885,7 @@ if.else33.i:                                      ; preds = %if.else29.i
   br i1 %tobool35.not.i, label %if.else37.i, label %if.then36.i
 
 if.then36.i:                                      ; preds = %if.else33.i
-  tail call fastcc void @machine_merge_property(ptr noundef nonnull @.str.21, ptr noundef nonnull %call1)
+  tail call fastcc void @machine_merge_property.argprom(ptr noundef nonnull @.str.21, ptr noundef nonnull %call1)
   br label %qemu_record_config_group.exit
 
 if.else37.i:                                      ; preds = %if.else33.i
@@ -5896,11 +5896,11 @@ qemu_record_config_group.exit:                    ; preds = %if.then.i, %if.end.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dev.i)
   br label %lor.lhs.false.i20
 
-sw.bb6:                                           ; preds = %qobject_type.exit
+sw.bb6:                                           ; preds = %qobject_type.argprom.exit
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2214, ptr noundef nonnull @__func__.qemu_parse_config_group, ptr noundef nonnull @.str.432) #20
   br label %lor.lhs.false.i20
 
-do.body:                                          ; preds = %qobject_type.exit
+do.body:                                          ; preds = %qobject_type.argprom.exit
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 2217, ptr noundef nonnull @__func__.qemu_parse_config_group, ptr noundef null) #21
   unreachable
 
@@ -5978,7 +5978,7 @@ define internal fastcc void @qemu_apply_legacy_machine_options(ptr noundef %qdic
 entry:
   %call.i = tail call ptr @qdict_first(ptr noundef %qdict) #20
   %tobool.not8.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not8.i, label %keyval_dashify.exit, label %for.body.i
+  br i1 %tobool.not8.i, label %keyval_dashify.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %cleanup.i
   %ent.09.i = phi ptr [ %call1.i, %cleanup.i ], [ %call.i, %entry ]
@@ -6017,7 +6017,7 @@ cleanup.thread.i:                                 ; preds = %for.end.i
   %2 = load ptr, ptr %ent.09.i, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull @error_fatal, ptr noundef nonnull @.str.1, i32 noundef 1718, ptr noundef nonnull @__func__.keyval_dashify, ptr noundef nonnull @.str.534, ptr noundef %2, ptr noundef %call5.i) #20
   tail call void @g_free(ptr noundef %call5.i) #20
-  br label %keyval_dashify.exit
+  br label %keyval_dashify.argprom.exit
 
 if.end16.i:                                       ; preds = %for.end.i
   %value.i = getelementptr inbounds i8, ptr %ent.09.i, i64 8
@@ -6044,20 +6044,20 @@ cleanup.i:                                        ; preds = %qobject_ref_impl.ex
   %new_key.0.i = phi ptr [ null, %for.body.i ], [ %call5.i, %qobject_ref_impl.exit.i ]
   tail call void @g_free(ptr noundef %new_key.0.i) #20
   %tobool.not.i = icmp eq ptr %call1.i, null
-  br i1 %tobool.not.i, label %keyval_dashify.exit, label %for.body.i
+  br i1 %tobool.not.i, label %keyval_dashify.argprom.exit, label %for.body.i
 
-keyval_dashify.exit:                              ; preds = %cleanup.i, %entry, %cleanup.thread.i
+keyval_dashify.argprom.exit:                      ; preds = %cleanup.i, %entry, %cleanup.thread.i
   %call = tail call ptr @qdict_get_try_str(ptr noundef %qdict, ptr noundef nonnull @.str.62) #20
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %keyval_dashify.exit
+if.then:                                          ; preds = %keyval_dashify.argprom.exit
   %call1 = tail call noalias ptr @g_strdup(ptr noundef nonnull %call) #20
   store ptr %call1, ptr @accelerators, align 8
   tail call void @qdict_del(ptr noundef %qdict, ptr noundef nonnull @.str.62) #20
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %keyval_dashify.exit
+if.end:                                           ; preds = %if.then, %keyval_dashify.argprom.exit
   %call2 = tail call ptr @qdict_get_try_str(ptr noundef %qdict, ptr noundef nonnull @.str.527) #20
   %tobool3.not = icmp eq ptr %call2, null
   br i1 %tobool3.not, label %if.end5, label %if.then4
@@ -6118,24 +6118,24 @@ if.then24:                                        ; preds = %if.end21
   %call22.val = load i32, ptr %call22, align 8
   %8 = add i32 %call22.val, -1
   %or.cond.i = icmp ult i32 %8, 6
-  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then24
   tail call void @__assert_fail(ptr noundef nonnull @.str.431, ptr noundef nonnull @.str.287, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #21
   unreachable
 
-qobject_type.exit:                                ; preds = %if.then24
+qobject_type.argprom.exit:                        ; preds = %if.then24
   %cmp = icmp eq i32 %call22.val, 4
   br i1 %cmp, label %qobject_check_type.exit, label %land.end
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit
+qobject_check_type.exit:                          ; preds = %qobject_type.argprom.exit
   %call27 = tail call i32 @qdict_haskey(ptr noundef nonnull %call22, ptr noundef nonnull @.str.129) #20
   %tobool28 = icmp ne i32 %call27, 0
   %9 = zext i1 %tobool28 to i8
   br label %land.end
 
-land.end:                                         ; preds = %qobject_check_type.exit, %qobject_type.exit
-  %frombool = phi i8 [ 0, %qobject_type.exit ], [ %9, %qobject_check_type.exit ]
+land.end:                                         ; preds = %qobject_check_type.exit, %qobject_type.argprom.exit
+  %frombool = phi i8 [ 0, %qobject_type.argprom.exit ], [ %9, %qobject_check_type.exit ]
   store i8 %frombool, ptr @have_custom_ram_size, align 1
   br label %if.end29
 
@@ -6429,7 +6429,7 @@ declare void @qapi_free_DisplayOptions(ptr noundef) local_unnamed_addr #2
 declare void @qemu_opts_print_help(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @machine_merge_property(ptr noundef %propname, ptr noundef %prop) unnamed_addr #1 {
+define internal fastcc void @machine_merge_property.argprom(ptr noundef %propname, ptr noundef %prop) unnamed_addr #1 {
 entry:
   %call = tail call ptr @qdict_new() #20
   %tobool.not = icmp eq ptr %prop, null
@@ -7221,15 +7221,15 @@ define internal range(i32 -1, 1) i32 @accelerator_set_property(ptr noundef %opaq
 entry:
   %call.i = tail call i32 @g_str_equal(ptr noundef %name, ptr noundef nonnull @.str.62) #20
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %object_parse_property_opt.exit
+  br i1 %tobool.not.i, label %if.end.i, label %object_parse_property_opt.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call zeroext i1 @object_property_parse(ptr noundef %opaque, ptr noundef %name, ptr noundef %value, ptr noundef %errp) #20
   %not.call1.i = xor i1 %call1.i, true
   %..i = sext i1 %not.call1.i to i32
-  br label %object_parse_property_opt.exit
+  br label %object_parse_property_opt.argprom.exit
 
-object_parse_property_opt.exit:                   ; preds = %entry, %if.end.i
+object_parse_property_opt.argprom.exit:           ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ 0, %entry ], [ %..i, %if.end.i ]
   ret i32 %retval.0.i
 }

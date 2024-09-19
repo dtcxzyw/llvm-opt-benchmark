@@ -26515,7 +26515,7 @@ define internal void @_ZN12_GLOBAL__N_112gzip_ostreamD1Ev(ptr noundef nonnull al
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
   %8 = invoke i32 @gzclose(ptr noundef %7)
-          to label %_ZN12_GLOBAL__N_112gzip_ostreamD2Ev.exit unwind label %9
+          to label %_ZN12_GLOBAL__N_112gzip_ostreamD2Ev.argprom.exit unwind label %9
 
 9:                                                ; preds = %5, %1
   %10 = landingpad { ptr, i32 }
@@ -26525,7 +26525,7 @@ define internal void @_ZN12_GLOBAL__N_112gzip_ostreamD1Ev(ptr noundef nonnull al
   tail call void @__cxa_call_unexpected(ptr %11) #32
   unreachable
 
-_ZN12_GLOBAL__N_112gzip_ostreamD2Ev.exit:         ; preds = %5
+_ZN12_GLOBAL__N_112gzip_ostreamD2Ev.argprom.exit: ; preds = %5
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #33

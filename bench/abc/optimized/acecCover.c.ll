@@ -133,26 +133,26 @@ define void @Gia_AcecCollectXors_rec(ptr nocapture noundef readonly %0, ptr noun
   %6 = and i64 %.val17, 536870911
   %7 = icmp eq i64 %6, 536870911
   %narrow.i.not.i19 = or i1 %.not.i.i18, %7
-  br i1 %narrow.i.not.i19, label %Gia_ObjIsXor.exit.thread, label %Gia_ObjIsXor.exit.lr.ph
+  br i1 %narrow.i.not.i19, label %Gia_ObjIsXor.argprom.exit.thread, label %Gia_ObjIsXor.argprom.exit.lr.ph
 
-Gia_ObjIsXor.exit.lr.ph:                          ; preds = %4
+Gia_ObjIsXor.argprom.exit.lr.ph:                  ; preds = %4
   %8 = getelementptr i8, ptr %0, i64 32
   %9 = getelementptr inbounds i8, ptr %3, i64 4
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
-  br label %Gia_ObjIsXor.exit
+  br label %Gia_ObjIsXor.argprom.exit
 
-Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsXor.exit.lr.ph, %Vec_IntPush.exit
-  %.val21 = phi i64 [ %.val17, %Gia_ObjIsXor.exit.lr.ph ], [ %.val, %Vec_IntPush.exit ]
-  %.tr1420 = phi ptr [ %1, %Gia_ObjIsXor.exit.lr.ph ], [ %57, %Vec_IntPush.exit ]
+Gia_ObjIsXor.argprom.exit:                        ; preds = %Gia_ObjIsXor.argprom.exit.lr.ph, %Vec_IntPush.exit
+  %.val21 = phi i64 [ %.val17, %Gia_ObjIsXor.argprom.exit.lr.ph ], [ %.val, %Vec_IntPush.exit ]
+  %.tr1420 = phi ptr [ %1, %Gia_ObjIsXor.argprom.exit.lr.ph ], [ %57, %Vec_IntPush.exit ]
   %10 = trunc i64 %.val21 to i32
   %11 = and i32 %10, 536870911
   %12 = lshr i64 %.val21, 32
   %13 = trunc nuw i64 %12 to i32
   %14 = and i32 %13, 536870911
   %.not = icmp ult i32 %11, %14
-  br i1 %.not, label %15, label %Gia_ObjIsXor.exit.thread
+  br i1 %.not, label %15, label %Gia_ObjIsXor.argprom.exit.thread
 
-15:                                               ; preds = %Gia_ObjIsXor.exit
+15:                                               ; preds = %Gia_ObjIsXor.argprom.exit
   %.val12 = load ptr, ptr %8, align 8
   %16 = ptrtoint ptr %.tr1420 to i64
   %17 = ptrtoint ptr %.val12 to i64
@@ -237,9 +237,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %59 = and i64 %.val, 536870911
   %60 = icmp eq i64 %59, 536870911
   %narrow.i.not.i = or i1 %.not.i.i, %60
-  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit.thread, label %Gia_ObjIsXor.exit
+  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.argprom.exit.thread, label %Gia_ObjIsXor.argprom.exit
 
-Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsXor.exit, %Vec_IntPush.exit, %4
+Gia_ObjIsXor.argprom.exit.thread:                 ; preds = %Gia_ObjIsXor.argprom.exit, %Vec_IntPush.exit, %4
   ret void
 }
 
@@ -322,7 +322,7 @@ Vec_BitStart.exit:                                ; preds = %2, %16
   %28 = and i64 %.val129, 536870911
   %29 = icmp eq i64 %28, 536870911
   %narrow.i.not.i = or i1 %.not.i.i152, %29
-  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit, label %30
+  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.argprom.exit, label %30
 
 30:                                               ; preds = %Vec_BitStart.exit
   %31 = trunc i64 %.val129 to i32
@@ -332,9 +332,9 @@ Vec_BitStart.exit:                                ; preds = %2, %16
   %35 = and i32 %34, 536870911
   %36 = icmp ult i32 %32, %35
   %37 = zext i1 %36 to i32
-  br label %Gia_ObjIsXor.exit
+  br label %Gia_ObjIsXor.argprom.exit
 
-Gia_ObjIsXor.exit:                                ; preds = %Vec_BitStart.exit, %30
+Gia_ObjIsXor.argprom.exit:                        ; preds = %Vec_BitStart.exit, %30
   %38 = phi i32 [ 0, %Vec_BitStart.exit ], [ %37, %30 ]
   %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %38)
   %.val122 = load i64, ptr %26, align 4
@@ -382,11 +382,11 @@ Gia_ObjIsXor.exit:                                ; preds = %Vec_BitStart.exit, 
   %78 = icmp sgt i32 %.val130171, 1
   br i1 %78, label %.lr.ph, label %.preheader168
 
-.lr.ph:                                           ; preds = %Gia_ObjIsXor.exit
+.lr.ph:                                           ; preds = %Gia_ObjIsXor.argprom.exit
   %79 = getelementptr i8, ptr %24, i64 8
   br label %83
 
-.preheader168:                                    ; preds = %83, %Gia_ObjIsXor.exit
+.preheader168:                                    ; preds = %83, %Gia_ObjIsXor.argprom.exit
   %80 = getelementptr i8, ptr %23, i64 4
   %.val131173 = load i32, ptr %80, align 4
   %81 = icmp sgt i32 %.val131173, 4

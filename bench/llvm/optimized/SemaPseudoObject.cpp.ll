@@ -2822,7 +2822,7 @@ define internal noundef i64 @_ZN12_GLOBAL__N_121ObjCPropertyOpBuilder8completeEP
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 512
   %.not6.i = icmp eq i64 %12, 0
-  br i1 %.not6.i, label %13, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread6
+  br i1 %.not6.i, label %13, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit.thread6
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -2830,7 +2830,7 @@ define internal noundef i64 @_ZN12_GLOBAL__N_121ObjCPropertyOpBuilder8completeEP
 
 15:                                               ; preds = %2
   %.not.i = icmp eq ptr %.val4, null
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread, label %16
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit.thread, label %16
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %.val4, i64 80
@@ -2845,18 +2845,18 @@ define internal noundef i64 @_ZN12_GLOBAL__N_121ObjCPropertyOpBuilder8completeEP
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %21, align 8
   %22 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 8
   %.not.i.i.i.i = icmp eq i64 %22, 0
-  br i1 %.not.i.i.i.i, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit
+  br i1 %.not.i.i.i.i, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit.thread, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit
 
-_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit: ; preds = %18
+_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit: ; preds = %18
   %23 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -16
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %25, align 8
   %26 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 448
   %27 = icmp eq i64 %26, 192
-  br i1 %27, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread6, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread
+  br i1 %27, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit.thread6, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit.thread
 
-_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread6: ; preds = %7, %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit
+_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit.thread6: ; preds = %7, %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4616
@@ -2866,12 +2866,12 @@ _ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread6: ; pred
   %34 = getelementptr inbounds i8, ptr %33, i64 -656
   %35 = load i32, ptr %34, align 8
   switch i32 %35, label %_ZNK5clang4Sema20isUnevaluatedContextEv.exit [
-    i32 0, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread
-    i32 3, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread
-    i32 1, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread
+    i32 0, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit.thread
+    i32 3, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit.thread
+    i32 1, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit.thread
   ]
 
-_ZNK5clang4Sema20isUnevaluatedContextEv.exit:     ; preds = %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread6
+_ZNK5clang4Sema20isUnevaluatedContextEv.exit:     ; preds = %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit.thread6
   %36 = load ptr, ptr %28, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 272
   %38 = load ptr, ptr %37, align 8
@@ -2880,7 +2880,7 @@ _ZNK5clang4Sema20isUnevaluatedContextEv.exit:     ; preds = %_ZNK12_GLOBAL__N_12
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef i32 @_ZNK5clang13DiagnosticIDs21getDiagnosticSeverityEjNS_14SourceLocationERKNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(16) %41, i32 noundef 6093, i32 %39, ptr noundef nonnull align 8 dereferenceable(1304) %38) #17
   %43 = icmp eq i32 %42, 1
-  br i1 %43, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread, label %_ZNK5clang4Sema14getCurFunctionEv.exit
+  br i1 %43, label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit.thread, label %_ZNK5clang4Sema14getCurFunctionEv.exit
 
 _ZNK5clang4Sema14getCurFunctionEv.exit:           ; preds = %_ZNK5clang4Sema20isUnevaluatedContextEv.exit
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 32
@@ -2899,9 +2899,9 @@ _ZNK5clang4Sema14getCurFunctionEv.exit:           ; preds = %_ZNK5clang4Sema20is
   %55 = and i64 %.0.copyload.i.i.i.i, 2
   %56 = icmp ne i64 %55, 0
   tail call void @_ZN5clang4sema17FunctionScopeInfo15recordUseOfWeakINS_19ObjCPropertyRefExprEEEvPKT_b(ptr noundef nonnull align 8 dereferenceable(1296) %51, ptr noundef nonnull %53, i1 noundef zeroext %56)
-  br label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread
+  br label %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit.thread
 
-_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread: ; preds = %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread6, %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread6, %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit.thread6, %18, %15, %_ZNK5clang4Sema14getCurFunctionEv.exit, %_ZNK5clang4Sema20isUnevaluatedContextEv.exit, %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.exit
+_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit.thread: ; preds = %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit.thread6, %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit.thread6, %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit.thread6, %18, %15, %_ZNK5clang4Sema14getCurFunctionEv.exit, %_ZNK5clang4Sema20isUnevaluatedContextEv.exit, %_ZNK12_GLOBAL__N_121ObjCPropertyOpBuilder14isWeakPropertyEv.argprom.argprom.exit
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 256
@@ -2970,7 +2970,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_121ObjCPropertyOpBuilder23rebuildAn
 define internal i64 @_ZN12_GLOBAL__N_121ObjCPropertyOpBuilder8buildGetEv(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::MutableArrayRef", align 8
   %3 = alloca %"class.llvm::MutableArrayRef", align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_121ObjCPropertyOpBuilder10findGetterEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
+  tail call fastcc void @_ZN12_GLOBAL__N_121ObjCPropertyOpBuilder10findGetterEv.retelim(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -5053,7 +5053,7 @@ declare noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_9ParenExprE(ptr nou
 declare noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_10ChooseExprE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121ObjCPropertyOpBuilder10findGetterEv(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121ObjCPropertyOpBuilder10findGetterEv.retelim(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::Selector", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
@@ -9697,7 +9697,7 @@ define internal noundef ptr @"_ZN4llvm12function_refIFPN5clang4ExprES3_jEE11call
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 88
-  br label %"_ZZN12_GLOBAL__N_119MSPropertyOpBuilder23rebuildAndCaptureObjectEPN5clang4ExprEENK3$_0clES3_j.exit"
+  br label %"_ZZN12_GLOBAL__N_119MSPropertyOpBuilder23rebuildAndCaptureObjectEPN5clang4ExprEENK3$_0clES3_j.argprom.exit"
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 96
@@ -9705,9 +9705,9 @@ define internal noundef ptr @"_ZN4llvm12function_refIFPN5clang4ExprES3_jEE11call
   %10 = zext i32 %9 to i64
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds ptr, ptr %11, i64 %10
-  br label %"_ZZN12_GLOBAL__N_119MSPropertyOpBuilder23rebuildAndCaptureObjectEPN5clang4ExprEENK3$_0clES3_j.exit"
+  br label %"_ZZN12_GLOBAL__N_119MSPropertyOpBuilder23rebuildAndCaptureObjectEPN5clang4ExprEENK3$_0clES3_j.argprom.exit"
 
-"_ZZN12_GLOBAL__N_119MSPropertyOpBuilder23rebuildAndCaptureObjectEPN5clang4ExprEENK3$_0clES3_j.exit": ; preds = %5, %7
+"_ZZN12_GLOBAL__N_119MSPropertyOpBuilder23rebuildAndCaptureObjectEPN5clang4ExprEENK3$_0clES3_j.argprom.exit": ; preds = %5, %7
   %.0.in.i = phi ptr [ %6, %5 ], [ %12, %7 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8
   ret ptr %.0.i

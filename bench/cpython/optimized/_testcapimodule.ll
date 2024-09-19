@@ -6282,19 +6282,19 @@ entry:
   %0 = getelementptr i8, ptr %gen, i64 8
   %gen.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %gen.val, @PyGen_Type
-  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %gen.val, ptr noundef nonnull @PyGen_Type) #15
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %PyObject_TypeCheck.exit
+if.then:                                          ; preds = %PyObject_TypeCheck.argprom.exit
   %1 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.389) #15
   br label %return
 
-if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
+if.end:                                           ; preds = %entry, %PyObject_TypeCheck.argprom.exit
   %call1 = tail call ptr @PyGen_GetCode(ptr noundef nonnull %gen) #15
   br label %return
 
@@ -6912,18 +6912,18 @@ if.end3:                                          ; preds = %if.end
   %1 = getelementptr i8, ptr %call1, i64 8
   %call1.val = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %call1.val, @PyModule_Type
-  br i1 %cmp.i.not.i, label %cond.end, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %cond.end, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end3
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end3
   %call2.i = call i32 @PyType_IsSubtype(ptr noundef %call1.val, ptr noundef nonnull @PyModule_Type) #15
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %cond.false, label %cond.end
 
-cond.false:                                       ; preds = %PyObject_TypeCheck.exit
+cond.false:                                       ; preds = %PyObject_TypeCheck.argprom.exit
   call void @__assert_fail(ptr noundef nonnull @.str.409, ptr noundef nonnull @.str.158, i32 noundef 3091, ptr noundef nonnull @__PRETTY_FUNCTION__.check_pyimport_addmodule) #14
   unreachable
 
-cond.end:                                         ; preds = %if.end3, %PyObject_TypeCheck.exit
+cond.end:                                         ; preds = %if.end3, %PyObject_TypeCheck.argprom.exit
   %2 = load ptr, ptr %name, align 8
   %call6 = call ptr @PyImport_AddModule(ptr noundef %2) #15
   %cmp7 = icmp eq ptr %call6, null
@@ -6933,18 +6933,18 @@ if.end9:                                          ; preds = %cond.end
   %3 = getelementptr i8, ptr %call6, i64 8
   %call6.val = load ptr, ptr %3, align 8
   %cmp.i.not.i16 = icmp eq ptr %call6.val, @PyModule_Type
-  br i1 %cmp.i.not.i16, label %cond.end14, label %PyObject_TypeCheck.exit21
+  br i1 %cmp.i.not.i16, label %cond.end14, label %PyObject_TypeCheck.argprom.exit21
 
-PyObject_TypeCheck.exit21:                        ; preds = %if.end9
+PyObject_TypeCheck.argprom.exit21:                ; preds = %if.end9
   %call2.i18 = call i32 @PyType_IsSubtype(ptr noundef %call6.val, ptr noundef nonnull @PyModule_Type) #15
   %tobool3.i19.not = icmp eq i32 %call2.i18, 0
   br i1 %tobool3.i19.not, label %cond.false13, label %cond.end14
 
-cond.false13:                                     ; preds = %PyObject_TypeCheck.exit21
+cond.false13:                                     ; preds = %PyObject_TypeCheck.argprom.exit21
   call void @__assert_fail(ptr noundef nonnull @.str.410, ptr noundef nonnull @.str.158, i32 noundef 3099, ptr noundef nonnull @__PRETTY_FUNCTION__.check_pyimport_addmodule) #14
   unreachable
 
-cond.end14:                                       ; preds = %if.end9, %PyObject_TypeCheck.exit21
+cond.end14:                                       ; preds = %if.end9, %PyObject_TypeCheck.argprom.exit21
   %cmp15 = icmp eq ptr %call6, %call1
   br i1 %cmp15, label %cond.end18, label %cond.false17
 
@@ -6983,18 +6983,18 @@ if.end26:                                         ; preds = %Py_DECREF.exit44
   %7 = getelementptr i8, ptr %call23, i64 8
   %call23.val = load ptr, ptr %7, align 8
   %cmp.i.not.i22 = icmp eq ptr %call23.val, @PyModule_Type
-  br i1 %cmp.i.not.i22, label %cond.end31, label %PyObject_TypeCheck.exit27
+  br i1 %cmp.i.not.i22, label %cond.end31, label %PyObject_TypeCheck.argprom.exit27
 
-PyObject_TypeCheck.exit27:                        ; preds = %if.end26
+PyObject_TypeCheck.argprom.exit27:                ; preds = %if.end26
   %call2.i24 = call i32 @PyType_IsSubtype(ptr noundef %call23.val, ptr noundef nonnull @PyModule_Type) #15
   %tobool3.i25.not = icmp eq i32 %call2.i24, 0
   br i1 %tobool3.i25.not, label %cond.false30, label %cond.end31
 
-cond.false30:                                     ; preds = %PyObject_TypeCheck.exit27
+cond.false30:                                     ; preds = %PyObject_TypeCheck.argprom.exit27
   call void @__assert_fail(ptr noundef nonnull @.str.412, ptr noundef nonnull @.str.158, i32 noundef 3113, ptr noundef nonnull @__PRETTY_FUNCTION__.check_pyimport_addmodule) #14
   unreachable
 
-cond.end31:                                       ; preds = %if.end26, %PyObject_TypeCheck.exit27
+cond.end31:                                       ; preds = %if.end26, %PyObject_TypeCheck.argprom.exit27
   %cmp32 = icmp eq ptr %call23, %call1
   br i1 %cmp32, label %return, label %cond.false34
 
@@ -7078,15 +7078,15 @@ if.end9:                                          ; preds = %if.end4
   %4 = getelementptr i8, ptr %call6, i64 8
   %call6.val50 = load ptr, ptr %4, align 8
   %cmp.i.not.i = icmp eq ptr %call6.val50, @_PyWeakref_RefType
-  br i1 %cmp.i.not.i, label %cond.end25, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %cond.end25, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end9
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end9
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %call6.val50, ptr noundef nonnull @_PyWeakref_RefType) #15
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   %call6.val45.pre = load ptr, ptr %4, align 8
   br i1 %tobool3.i.not, label %lor.lhs.false, label %cond.end
 
-lor.lhs.false:                                    ; preds = %PyObject_TypeCheck.exit
+lor.lhs.false:                                    ; preds = %PyObject_TypeCheck.argprom.exit
   %cmp.i52.not = icmp eq ptr %call6.val45.pre, @_PyWeakref_ProxyType
   %cmp.i53.not = icmp eq ptr %call6.val45.pre, @_PyWeakref_CallableProxyType
   %or.cond = or i1 %cmp.i52.not, %cmp.i53.not
@@ -7096,7 +7096,7 @@ cond.false:                                       ; preds = %lor.lhs.false
   tail call void @__assert_fail(ptr noundef nonnull @.str.416, ptr noundef nonnull @.str.158, i32 noundef 3154, ptr noundef nonnull @__PRETTY_FUNCTION__.test_weakref_capi) #14
   unreachable
 
-cond.end:                                         ; preds = %PyObject_TypeCheck.exit, %lor.lhs.false
+cond.end:                                         ; preds = %PyObject_TypeCheck.argprom.exit, %lor.lhs.false
   %cmp.i55.not = icmp eq ptr %call6.val45.pre, @_PyWeakref_RefType
   br i1 %cmp.i55.not, label %cond.end25, label %cond.false19
 
@@ -7171,14 +7171,14 @@ cond.false48:                                     ; preds = %Py_DECREF.exit165
 cond.end49:                                       ; preds = %Py_DECREF.exit165
   %ref_obj.val6.i = load ptr, ptr %4, align 8
   %cmp.i.not.i.i = icmp eq ptr %ref_obj.val6.i, @_PyWeakref_RefType
-  br i1 %cmp.i.not.i.i, label %PyWeakref_GET_OBJECT.exit, label %PyObject_TypeCheck.exit.i
+  br i1 %cmp.i.not.i.i, label %PyWeakref_GET_OBJECT.exit, label %PyObject_TypeCheck.argprom.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %cond.end49
+PyObject_TypeCheck.argprom.exit.i:                ; preds = %cond.end49
   %call2.i.i = call i32 @PyType_IsSubtype(ptr noundef %ref_obj.val6.i, ptr noundef nonnull @_PyWeakref_RefType) #15
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %lor.lhs.false.i, label %PyWeakref_GET_OBJECT.exit
 
-lor.lhs.false.i:                                  ; preds = %PyObject_TypeCheck.exit.i
+lor.lhs.false.i:                                  ; preds = %PyObject_TypeCheck.argprom.exit.i
   %ref_obj.val5.i = load ptr, ptr %4, align 8
   %cmp.i.not.i60 = icmp eq ptr %ref_obj.val5.i, @_PyWeakref_ProxyType
   %cmp.i7.not.i = icmp eq ptr %ref_obj.val5.i, @_PyWeakref_CallableProxyType
@@ -7189,7 +7189,7 @@ cond.false.i:                                     ; preds = %lor.lhs.false.i
   call void @__assert_fail(ptr noundef nonnull @.str.432, ptr noundef nonnull @.str.433, i32 noundef 39, ptr noundef nonnull @__PRETTY_FUNCTION__.PyWeakref_GET_OBJECT) #14
   unreachable
 
-PyWeakref_GET_OBJECT.exit:                        ; preds = %cond.end49, %PyObject_TypeCheck.exit.i, %lor.lhs.false.i
+PyWeakref_GET_OBJECT.exit:                        ; preds = %cond.end49, %PyObject_TypeCheck.argprom.exit.i, %lor.lhs.false.i
   %wr_object.i = getelementptr inbounds i8, ptr %call6, i64 16
   %8 = load ptr, ptr %wr_object.i, align 8
   %.val.i = load i64, ptr %8, align 8
@@ -7217,14 +7217,14 @@ Py_DECREF.exit156:                                ; preds = %cond.end54
   call void @_Py_Dealloc(ptr noundef nonnull %call1) #15
   %ref_obj.val6.i61 = load ptr, ptr %4, align 8
   %cmp.i.not.i.i62 = icmp eq ptr %ref_obj.val6.i61, @_PyWeakref_RefType
-  br i1 %cmp.i.not.i.i62, label %PyWeakref_GET_OBJECT.exit76, label %PyObject_TypeCheck.exit.i63
+  br i1 %cmp.i.not.i.i62, label %PyWeakref_GET_OBJECT.exit76, label %PyObject_TypeCheck.argprom.exit.i63
 
-PyObject_TypeCheck.exit.i63:                      ; preds = %Py_DECREF.exit156
+PyObject_TypeCheck.argprom.exit.i63:              ; preds = %Py_DECREF.exit156
   %call2.i.i64 = call i32 @PyType_IsSubtype(ptr noundef %ref_obj.val6.i61, ptr noundef nonnull @_PyWeakref_RefType) #15
   %tobool3.i.not.i65 = icmp eq i32 %call2.i.i64, 0
   br i1 %tobool3.i.not.i65, label %lor.lhs.false.i70, label %PyWeakref_GET_OBJECT.exit76
 
-lor.lhs.false.i70:                                ; preds = %PyObject_TypeCheck.exit.i63
+lor.lhs.false.i70:                                ; preds = %PyObject_TypeCheck.argprom.exit.i63
   %ref_obj.val5.i71 = load ptr, ptr %4, align 8
   %cmp.i.not.i72 = icmp eq ptr %ref_obj.val5.i71, @_PyWeakref_ProxyType
   %cmp.i7.not.i73 = icmp eq ptr %ref_obj.val5.i71, @_PyWeakref_CallableProxyType
@@ -7235,7 +7235,7 @@ cond.false.i75:                                   ; preds = %lor.lhs.false.i70
   call void @__assert_fail(ptr noundef nonnull @.str.432, ptr noundef nonnull @.str.433, i32 noundef 39, ptr noundef nonnull @__PRETTY_FUNCTION__.PyWeakref_GET_OBJECT) #14
   unreachable
 
-PyWeakref_GET_OBJECT.exit76:                      ; preds = %Py_DECREF.exit156, %PyObject_TypeCheck.exit.i63, %lor.lhs.false.i70
+PyWeakref_GET_OBJECT.exit76:                      ; preds = %Py_DECREF.exit156, %PyObject_TypeCheck.argprom.exit.i63, %lor.lhs.false.i70
   %9 = load ptr, ptr %wr_object.i, align 8
   %.val.i67 = load i64, ptr %9, align 8
   %cmp.i68 = icmp slt i64 %.val.i67, 1
@@ -7269,21 +7269,21 @@ cond.false72:                                     ; preds = %cond.end69
 cond.end73:                                       ; preds = %cond.end69
   %_Py_NoneStruct.val51 = load ptr, ptr getelementptr inbounds (i8, ptr @_Py_NoneStruct, i64 8), align 8
   %cmp.i.not.i77 = icmp eq ptr %_Py_NoneStruct.val51, @_PyWeakref_RefType
-  br i1 %cmp.i.not.i77, label %cond.false83, label %PyObject_TypeCheck.exit82
+  br i1 %cmp.i.not.i77, label %cond.false83, label %PyObject_TypeCheck.argprom.exit82
 
-PyObject_TypeCheck.exit82:                        ; preds = %cond.end73
+PyObject_TypeCheck.argprom.exit82:                ; preds = %cond.end73
   %call2.i79 = call i32 @PyType_IsSubtype(ptr noundef %_Py_NoneStruct.val51, ptr noundef nonnull @_PyWeakref_RefType) #15
   %tobool3.i80.not = icmp eq i32 %call2.i79, 0
   br i1 %tobool3.i80.not, label %lor.lhs.false76, label %cond.false83
 
-lor.lhs.false76:                                  ; preds = %PyObject_TypeCheck.exit82
+lor.lhs.false76:                                  ; preds = %PyObject_TypeCheck.argprom.exit82
   %_Py_NoneStruct.val = load ptr, ptr getelementptr inbounds (i8, ptr @_Py_NoneStruct, i64 8), align 8
   %cmp.i83.not = icmp eq ptr %_Py_NoneStruct.val, @_PyWeakref_ProxyType
   %cmp.i85.not = icmp eq ptr %_Py_NoneStruct.val, @_PyWeakref_CallableProxyType
   %or.cond96 = or i1 %cmp.i83.not, %cmp.i85.not
   br i1 %or.cond96, label %cond.false83, label %cond.end84
 
-cond.false83:                                     ; preds = %cond.end73, %lor.lhs.false76, %PyObject_TypeCheck.exit82
+cond.false83:                                     ; preds = %cond.end73, %lor.lhs.false76, %PyObject_TypeCheck.argprom.exit82
   call void @__assert_fail(ptr noundef nonnull @.str.424, ptr noundef nonnull @.str.158, i32 noundef 3188, ptr noundef nonnull @__PRETTY_FUNCTION__.test_weakref_capi) #14
   unreachable
 

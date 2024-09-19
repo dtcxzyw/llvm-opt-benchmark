@@ -724,18 +724,18 @@ CostManagerInit.exit.i:                           ; preds = %._crit_edge73.i.i, 
   %.0.i116.i = phi float [ %292, %287 ], [ %315, %.thread2.i.i ]
   %317 = load float, ptr %276, align 4
   %318 = fcmp ogt float %317, %.0.i116.i
-  br i1 %318, label %319, label %AddSingleLiteralWithCostModel.exit.i
+  br i1 %318, label %319, label %AddSingleLiteralWithCostModel.argprom.exit.i
 
 319:                                              ; preds = %316
   store float %.0.i116.i, ptr %276, align 4
   store i16 1, ptr %13, align 2
-  br label %AddSingleLiteralWithCostModel.exit.i
+  br label %AddSingleLiteralWithCostModel.argprom.exit.i
 
-AddSingleLiteralWithCostModel.exit.i:             ; preds = %319, %316
+AddSingleLiteralWithCostModel.argprom.exit.i:     ; preds = %319, %316
   %320 = icmp sgt i32 %11, 1
   br i1 %320, label %.lr.ph188.i, label %._crit_edge.i
 
-.lr.ph188.i:                                      ; preds = %AddSingleLiteralWithCostModel.exit.i
+.lr.ph188.i:                                      ; preds = %AddSingleLiteralWithCostModel.argprom.exit.i
   %321 = getelementptr inbounds i8, ptr %24, i64 16720
   %wide.trip.count.i = zext nneg i32 %11 to i64
   br label %322
@@ -818,19 +818,19 @@ AddSingleLiteralWithCostModel.exit.i:             ; preds = %319, %316
   %371 = getelementptr inbounds float, ptr %323, i64 %indvars.iv.i
   %372 = load float, ptr %371, align 4
   %373 = fcmp ogt float %372, %.0.i122.i
-  br i1 %373, label %374, label %AddSingleLiteralWithCostModel.exit124.i
+  br i1 %373, label %374, label %AddSingleLiteralWithCostModel.argprom.exit124.i
 
 374:                                              ; preds = %370
   store float %.0.i122.i, ptr %371, align 4
   %375 = getelementptr inbounds i16, ptr %13, i64 %indvars.iv.i
   store i16 1, ptr %375, align 2
-  br label %AddSingleLiteralWithCostModel.exit124.i
+  br label %AddSingleLiteralWithCostModel.argprom.exit124.i
 
-AddSingleLiteralWithCostModel.exit124.i:          ; preds = %374, %370
+AddSingleLiteralWithCostModel.argprom.exit124.i:  ; preds = %374, %370
   %376 = icmp ugt i32 %330, 1
   br i1 %376, label %377, label %472
 
-377:                                              ; preds = %AddSingleLiteralWithCostModel.exit124.i
+377:                                              ; preds = %AddSingleLiteralWithCostModel.argprom.exit124.i
   %.not101.i = icmp eq i32 %329, %.089179.i
   br i1 %.not101.i, label %401, label %378
 
@@ -1023,10 +1023,10 @@ UpdateCostAtIndex.exit139.i:                      ; preds = %UpdateCost.exit.us.
   %471 = add i32 %422, %.1154.i
   br label %472
 
-472:                                              ; preds = %UpdateCostAtIndex.exit139.i, %401, %GetDistanceCost.exit.i, %AddSingleLiteralWithCostModel.exit124.i
-  %.187.i = phi float [ %399, %GetDistanceCost.exit.i ], [ %.086181.i, %UpdateCostAtIndex.exit139.i ], [ %.086181.i, %401 ], [ %.086181.i, %AddSingleLiteralWithCostModel.exit124.i ]
-  %.184.i = phi i32 [ 1, %GetDistanceCost.exit.i ], [ 0, %UpdateCostAtIndex.exit139.i ], [ 0, %401 ], [ %.083182.i, %AddSingleLiteralWithCostModel.exit124.i ]
-  %.1.i = phi i32 [ %.082183.i, %GetDistanceCost.exit.i ], [ %471, %UpdateCostAtIndex.exit139.i ], [ %.2.i, %401 ], [ %.082183.i, %AddSingleLiteralWithCostModel.exit124.i ]
+472:                                              ; preds = %UpdateCostAtIndex.exit139.i, %401, %GetDistanceCost.exit.i, %AddSingleLiteralWithCostModel.argprom.exit124.i
+  %.187.i = phi float [ %399, %GetDistanceCost.exit.i ], [ %.086181.i, %UpdateCostAtIndex.exit139.i ], [ %.086181.i, %401 ], [ %.086181.i, %AddSingleLiteralWithCostModel.argprom.exit124.i ]
+  %.184.i = phi i32 [ 1, %GetDistanceCost.exit.i ], [ 0, %UpdateCostAtIndex.exit139.i ], [ 0, %401 ], [ %.083182.i, %AddSingleLiteralWithCostModel.argprom.exit124.i ]
+  %.1.i = phi i32 [ %.082183.i, %GetDistanceCost.exit.i ], [ %471, %UpdateCostAtIndex.exit139.i ], [ %.2.i, %401 ], [ %.082183.i, %AddSingleLiteralWithCostModel.argprom.exit124.i ]
   %473 = load ptr, ptr %24, align 8
   %.not18.i140.i = icmp eq ptr %473, null
   br i1 %.not18.i140.i, label %UpdateCostAtIndex.exit143.i, label %.lr.ph.split.i.i
@@ -1106,7 +1106,7 @@ UpdateCostAtIndex.exit143.i:                      ; preds = %UpdateCost.exit.i.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %322, !llvm.loop !15
 
-._crit_edge.i:                                    ; preds = %UpdateCostAtIndex.exit143.i, %AddSingleLiteralWithCostModel.exit.i
+._crit_edge.i:                                    ; preds = %UpdateCostAtIndex.exit143.i, %AddSingleLiteralWithCostModel.argprom.exit.i
   %509 = getelementptr inbounds i8, ptr %5, i64 4
   %510 = load i32, ptr %509, align 4
   %.not100.i = icmp eq i32 %510, 0

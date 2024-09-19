@@ -320,7 +320,7 @@ define internal fastcc i32 @_mkpath(ptr noundef %0, i32 noundef %1, i32 noundef 
 .lr.ph:                                           ; preds = %3, %10
   %8 = phi ptr [ %12, %10 ], [ %7, %3 ]
   store i8 0, ptr %8, align 1
-  %9 = tail call fastcc i32 @_mkdir(ptr noundef %5, i32 noundef %1, i32 noundef %2)
+  %9 = tail call fastcc i32 @_mkdir.argelim(ptr noundef %5, i32 noundef %1, i32 noundef %2)
   %.not11 = icmp eq i32 %9, 0
   br i1 %.not11, label %10, label %.loopexit
 
@@ -332,7 +332,7 @@ define internal fastcc i32 @_mkpath(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %10, %3
-  %13 = tail call fastcc i32 @_mkdir(ptr noundef %5, i32 noundef %1, i32 noundef %2)
+  %13 = tail call fastcc i32 @_mkdir.argelim(ptr noundef %5, i32 noundef %1, i32 noundef %2)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
@@ -402,16 +402,16 @@ define dso_local i32 @setup_container(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %_get_config_path.exit.i, label %31
+  br i1 %.not.i.i, label %_get_config_path.argprom.exit.i, label %31
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds i8, ptr %.val, i64 8
   %33 = load ptr, ptr %32, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, ptr noundef %33) #9
   %34 = load ptr, ptr %3, align 8
-  br label %_get_config_path.exit.i
+  br label %_get_config_path.argprom.exit.i
 
-_get_config_path.exit.i:                          ; preds = %31, %30
+_get_config_path.argprom.exit.i:                  ; preds = %31, %30
   %35 = phi ptr [ %34, %31 ], [ null, %30 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store ptr %35, ptr %4, align 8
@@ -421,7 +421,7 @@ _get_config_path.exit.i:                          ; preds = %31, %30
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %52, label %38
 
-38:                                               ; preds = %_get_config_path.exit.i
+38:                                               ; preds = %_get_config_path.argprom.exit.i
   %39 = getelementptr inbounds i8, ptr %.val, i64 16
   %40 = getelementptr inbounds i8, ptr %37, i64 8
   %41 = load ptr, ptr %40, align 8
@@ -440,23 +440,23 @@ _get_config_path.exit.i:                          ; preds = %31, %30
   %51 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__._load_config, ptr noundef %35, ptr noundef %50) #9
   br label %55
 
-52:                                               ; preds = %_get_config_path.exit.i
+52:                                               ; preds = %_get_config_path.argprom.exit.i
   %53 = load i32, ptr %36, align 4
   %54 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__._load_config, ptr noundef %35) #9
-  br label %_load_config.exit
+  br label %_load_config.argprom.exit
 
 55:                                               ; preds = %49, %38
   call void @free_buf(ptr noundef nonnull %37) #9
-  br label %_load_config.exit
+  br label %_load_config.argprom.exit
 
-_load_config.exit:                                ; preds = %52, %55
+_load_config.argprom.exit:                        ; preds = %52, %55
   %.03.i = phi i32 [ %48, %55 ], [ %53, %52 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not20 = icmp eq i32 %.03.i, 0
   br i1 %.not20, label %56, label %.thread
 
-56:                                               ; preds = %_load_config.exit
+56:                                               ; preds = %_load_config.argprom.exit
   %57 = call fastcc i32 @_merge_step_config_env(ptr noundef nonnull %0)
   %.not21 = icmp eq i32 %57, 0
   br i1 %.not21, label %58, label %.thread
@@ -560,8 +560,8 @@ _load_config.exit:                                ; preds = %52, %55
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %110
 
-.thread:                                          ; preds = %56, %_load_config.exit, %22, %.thread28
-  %.026 = phi i32 [ %64, %.thread28 ], [ %57, %56 ], [ %.03.i, %_load_config.exit ], [ %21, %22 ]
+.thread:                                          ; preds = %56, %_load_config.argprom.exit, %22, %.thread28
+  %.026 = phi i32 [ %64, %.thread28 ], [ %57, %56 ], [ %.03.i, %_load_config.argprom.exit ], [ %21, %22 ]
   %108 = call ptr @slurm_strerror(i32 noundef %.026) #9
   %109 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.setup_container, ptr noundef %108) #9
   br label %110
@@ -2101,7 +2101,7 @@ _pattern_argv.exit:                               ; preds = %39, %27, %77, %59, 
 declare void @_xstrfmtcatat(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_mkdir(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @_mkdir.argelim(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @mkdir(ptr noundef %0, i32 noundef 504) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5

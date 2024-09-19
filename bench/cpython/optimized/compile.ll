@@ -4743,7 +4743,7 @@ if.end:                                           ; preds = %entry
 sw.bb:                                            ; preds = %if.end
   %v = getelementptr inbounds i8, ptr %mod, i64 8
   %1 = load ptr, ptr %v, align 8
-  %call1 = tail call fastcc i32 @compiler_body(ptr noundef %c, i64 4294967297, ptr noundef %1)
+  %call1 = tail call fastcc i32 @compiler_body.argelim(ptr noundef %c, i64 4294967297, ptr noundef %1)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %if.then3, label %return
 
@@ -6440,7 +6440,7 @@ return:                                           ; preds = %if.end110, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @compiler_body(ptr noundef nonnull %c, i64 %loc.coerce0, ptr noundef %stmts) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_body.argelim(ptr noundef nonnull %c, i64 %loc.coerce0, ptr noundef %stmts) unnamed_addr #1 {
 entry:
   %loc.sroa.0.0.extract.trunc = trunc i64 %loc.coerce0 to i32
   %loc.sroa.3.0.extract.shift = lshr i64 %loc.coerce0, 32
@@ -7771,7 +7771,7 @@ land.end.i:                                       ; preds = %land.rhs.i, %sw.bb5
 if.then.i135:                                     ; preds = %land.end.i
   %105 = load i64, ptr %loc.i, align 8
   %106 = load i64, ptr %col_offset.i, align 8
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %105, i64 %106, ptr noundef nonnull @.str.341)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %105, i64 %106, ptr noundef nonnull @.str.341)
   br label %compiler_return.exit
 
 if.end.i120:                                      ; preds = %land.end.i
@@ -7791,7 +7791,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i120
 if.then23.i:                                      ; preds = %land.lhs.true.i
   %111 = load i64, ptr %loc.i, align 8
   %112 = load i64, ptr %col_offset.i, align 8
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %111, i64 %112, ptr noundef nonnull @.str.342)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %111, i64 %112, ptr noundef nonnull @.str.342)
   br label %compiler_return.exit
 
 if.end25.i:                                       ; preds = %if.end.i120
@@ -8097,7 +8097,7 @@ if.end9.i:                                        ; preds = %instr_sequence_next
   %cmp.not.i.i = icmp eq i32 %167, %157
   %attr.phi.trans.insert.i = getelementptr inbounds i8, ptr %156, i64 16
   %.pre.i188 = load ptr, ptr %attr.phi.trans.insert.i, align 8
-  br i1 %cmp.not.i.i, label %update_start_location_to_match_attr.exit.i, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %update_start_location_to_match_attr.argprom.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end9.i
   %168 = getelementptr i8, ptr %.pre.i188, i64 16
@@ -8111,7 +8111,7 @@ if.then.i.i:                                      ; preds = %if.end9.i
   %loc.sroa.11.1.i.i = select i1 %cmp4.not.i.i, i64 -1, i64 %loc.sroa.11.8.insert.insert.i.i
   %cond.i.i = tail call i32 @llvm.smax.i32(i32 %167, i32 %158)
   %cmp19.not.i.i = icmp slt i32 %167, %158
-  br i1 %cmp19.not.i.i, label %update_start_location_to_match_attr.exit.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %update_start_location_to_match_attr.argprom.exit.i, label %if.then21.i.i
 
 if.then21.i.i:                                    ; preds = %if.then.i.i
   %loc.sroa.11.8.extract.trunc.i.i = trunc i64 %loc.sroa.11.1.i.i to i32
@@ -8122,9 +8122,9 @@ if.then21.i.i:                                    ; preds = %if.then.i.i
   %loc.sroa.11.12.insert.shift.i.i = shl nuw i64 %loc.sroa.11.12.insert.ext.i.i, 32
   %loc.sroa.11.12.insert.mask20.i.i = and i64 %loc.sroa.11.1.i.i, 4294967295
   %loc.sroa.11.12.insert.insert21.i.i = or disjoint i64 %loc.sroa.11.12.insert.shift.i.i, %loc.sroa.11.12.insert.mask20.i.i
-  br label %update_start_location_to_match_attr.exit.i
+  br label %update_start_location_to_match_attr.argprom.exit.i
 
-update_start_location_to_match_attr.exit.i:       ; preds = %if.then21.i.i, %if.then.i.i, %if.end9.i
+update_start_location_to_match_attr.argprom.exit.i: ; preds = %if.then21.i.i, %if.then.i.i, %if.end9.i
   %loc.sroa.11.0.i.i = phi i64 [ %loc.sroa.11.12.insert.insert21.i.i, %if.then21.i.i ], [ %loc.sroa.11.1.i.i, %if.then.i.i ], [ %loc.sroa.31.8.insert.insert.i, %if.end9.i ]
   %loc.sroa.0.sroa.0.0.i.i = phi i32 [ %167, %if.then21.i.i ], [ %167, %if.then.i.i ], [ %157, %if.end9.i ]
   %loc.sroa.0.sroa.7.0.i.i = phi i32 [ %cond.i.i, %if.then21.i.i ], [ %cond.i.i, %if.then.i.i ], [ %158, %if.end9.i ]
@@ -8340,7 +8340,7 @@ sw.default.i:                                     ; preds = %sw.bb61
   %call90.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %196, ptr noundef nonnull @.str.345, i32 noundef %161) #11
   br label %return
 
-sw.epilog.i:                                      ; preds = %sw.bb83.i, %if.end75.i, %if.end51.i, %update_start_location_to_match_attr.exit.i
+sw.epilog.i:                                      ; preds = %sw.bb83.i, %if.end75.i, %if.end51.i, %update_start_location_to_match_attr.argprom.exit.i
   %lineno92.i = getelementptr inbounds i8, ptr %s, i64 64
   %197 = load i32, ptr %lineno92.i, align 8
   %end_lineno94.i = getelementptr inbounds i8, ptr %s, i64 72
@@ -8425,7 +8425,7 @@ sw.bb120.i:                                       ; preds = %if.end109.i
   %loc.sroa.31.8.insert.ext247.i = zext i32 %212 to i64
   %loc.sroa.31.8.insert.insert249.i = or disjoint i64 %loc.sroa.59.8.insert.shift348.i, %loc.sroa.31.8.insert.ext247.i
   %cmp.not.i527.i = icmp eq i32 %211, %210
-  br i1 %cmp.not.i527.i, label %update_start_location_to_match_attr.exit558.i, label %if.then21.i540.i
+  br i1 %cmp.not.i527.i, label %update_start_location_to_match_attr.argprom.exit558.i, label %if.then21.i540.i
 
 if.then21.i540.i:                                 ; preds = %sw.bb120.i
   %attr3.i529.i = getelementptr inbounds i8, ptr %156, i64 16
@@ -8446,9 +8446,9 @@ if.then21.i540.i:                                 ; preds = %sw.bb120.i
   %loc.sroa.11.12.insert.shift.i546.i = shl nuw i64 %loc.sroa.11.12.insert.ext.i545.i, 32
   %loc.sroa.11.12.insert.mask20.i547.i = and i64 %loc.sroa.11.1.i537.i, 4294967295
   %loc.sroa.11.12.insert.insert21.i548.i = or disjoint i64 %loc.sroa.11.12.insert.shift.i546.i, %loc.sroa.11.12.insert.mask20.i547.i
-  br label %update_start_location_to_match_attr.exit558.i
+  br label %update_start_location_to_match_attr.argprom.exit558.i
 
-update_start_location_to_match_attr.exit558.i:    ; preds = %if.then21.i540.i, %sw.bb120.i
+update_start_location_to_match_attr.argprom.exit558.i: ; preds = %if.then21.i540.i, %sw.bb120.i
   %loc.sroa.11.0.i549.i = phi i64 [ %loc.sroa.11.12.insert.insert21.i548.i, %if.then21.i540.i ], [ %loc.sroa.31.8.insert.insert249.i, %sw.bb120.i ]
   %loc.sroa.0.sroa.0.0.i550.i = phi i32 [ %211, %if.then21.i540.i ], [ %210, %sw.bb120.i ]
   %loc.sroa.0.sroa.7.0.insert.ext.i552.i = zext i32 %211 to i64
@@ -8465,7 +8465,7 @@ update_start_location_to_match_attr.exit558.i:    ; preds = %if.then21.i540.i, %
   %cmp.i.i.i563.i = icmp eq i32 %call.i.i.i562.i, -1
   br i1 %cmp.i.i.i563.i, label %return, label %instr_sequence_next_inst.exit.i.i564.i
 
-instr_sequence_next_inst.exit.i.i564.i:           ; preds = %update_start_location_to_match_attr.exit558.i
+instr_sequence_next_inst.exit.i.i564.i:           ; preds = %update_start_location_to_match_attr.argprom.exit558.i
   %219 = load i32, ptr %s_used.i.i.i559.i, align 4
   %inc.i.i.i565.i = add i32 %219, 1
   store i32 %inc.i.i.i565.i, ptr %s_used.i.i.i559.i, align 4
@@ -8640,7 +8640,7 @@ sw.bb.i222:                                       ; preds = %if.end13.i
   br i1 %tobool.not.i.i, label %if.end17.i226, label %forbidden_name.exit.thread.i
 
 forbidden_name.exit.thread.i:                     ; preds = %sw.bb.i222
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert.i224, i64 %loc.sroa.7.8.insert.insert.i, ptr noundef nonnull @.str.332)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert.i224, i64 %loc.sroa.7.8.insert.insert.i, ptr noundef nonnull @.str.332)
   br label %return
 
 if.end17.i226:                                    ; preds = %sw.bb.i222
@@ -8754,7 +8754,7 @@ forbidden_name.exit125.thread.i:                  ; preds = %sw.bb63.i
   %loc.sroa.6.0.insert.shift45.i = shl nuw i64 %loc.sroa.6.0.insert.ext44.i, 32
   %loc.sroa.0.0.insert.ext25.i205 = zext i32 %235 to i64
   %loc.sroa.0.0.insert.insert27.i206 = or disjoint i64 %loc.sroa.6.0.insert.shift45.i, %loc.sroa.0.0.insert.ext25.i205
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert27.i206, i64 %loc.sroa.7.8.insert.insert63.i, ptr noundef nonnull @.str.332)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert27.i206, i64 %loc.sroa.7.8.insert.insert63.i, ptr noundef nonnull @.str.332)
   br label %return
 
 if.end67.i:                                       ; preds = %sw.bb63.i
@@ -9021,7 +9021,7 @@ if.end28.i263:                                    ; preds = %if.end20.i
   br i1 %cmp.i775, label %compiler_push_fblock.exit.thread, label %if.end34.i266
 
 compiler_push_fblock.exit.thread:                 ; preds = %if.end28.i263
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert.i265, i64 %loc.sroa.5.8.insert.insert.i, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert.i265, i64 %loc.sroa.5.8.insert.insert.i, ptr noundef nonnull @.str.344)
   br label %return
 
 if.end34.i266:                                    ; preds = %if.end28.i263
@@ -9238,7 +9238,7 @@ compiler_push_fblock.exit806.thread:              ; preds = %if.end31.i
   %339 = load i32, ptr %lineno32.i, align 8
   %.compoundliteral.sroa.0.0.insert.ext.i = zext i32 %339 to i64
   %.compoundliteral.sroa.0.0.insert.insert.i = or disjoint i64 %.compoundliteral.sroa.2.0.insert.shift.i, %.compoundliteral.sroa.0.0.insert.ext.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i, i64 %.compoundliteral.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i, i64 %.compoundliteral.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.344)
   br label %return
 
 if.end41.i:                                       ; preds = %if.end31.i
@@ -9256,7 +9256,7 @@ if.end41.i:                                       ; preds = %if.end31.i
   store ptr null, ptr %fb_datum.i802, align 8
   %v.i310 = getelementptr inbounds i8, ptr %s, i64 8
   %340 = load ptr, ptr %v.i310, align 8
-  %call52.i = tail call fastcc i32 @compiler_jump_if(ptr noundef %c, ptr noundef %340, i32 %inc.i808, i32 noundef 0)
+  %call52.i = tail call fastcc i32 @compiler_jump_if.argelim(ptr noundef %c, ptr noundef %340, i32 %inc.i808, i32 noundef 0)
   %cmp53.i = icmp eq i32 %call52.i, -1
   br i1 %cmp53.i, label %return, label %if.end55.i
 
@@ -9298,7 +9298,7 @@ for.body.i329:                                    ; preds = %cond.end.i316
 
 for.end.i319:                                     ; preds = %cond.end.i316
   %345 = load ptr, ptr %v.i310, align 8
-  %call86.i320 = tail call fastcc i32 @compiler_jump_if(ptr noundef %c, ptr noundef %345, i32 %inc.i812, i32 noundef 1)
+  %call86.i320 = tail call fastcc i32 @compiler_jump_if.argelim(ptr noundef %c, ptr noundef %345, i32 %inc.i812, i32 noundef 1)
   %cmp87.i321 = icmp eq i32 %call86.i320, -1
   br i1 %cmp87.i321, label %return, label %if.end90.i
 
@@ -9387,7 +9387,7 @@ if.then4.i:                                       ; preds = %cond.false.i342
 if.end14.i:                                       ; preds = %if.then4.i, %cond.false.i342, %if.end.i338
   %next.sroa.0.0.i = phi i32 [ %inc.i816, %if.then4.i ], [ %inc.i818, %if.end.i338 ], [ %inc.i818, %cond.false.i342 ]
   %360 = load ptr, ptr %v.i339, align 8
-  %call21.i352 = tail call fastcc i32 @compiler_jump_if(ptr noundef %c, ptr noundef %360, i32 %next.sroa.0.0.i, i32 noundef 0)
+  %call21.i352 = tail call fastcc i32 @compiler_jump_if.argelim(ptr noundef %c, ptr noundef %360, i32 %next.sroa.0.0.i, i32 noundef 0)
   %cmp22.i353 = icmp eq i32 %call21.i352, -1
   br i1 %cmp22.i353, label %return, label %if.end24.i354
 
@@ -9764,7 +9764,7 @@ if.end99.i881:                                    ; preds = %if.end99.i881.loope
   %417 = phi ptr [ %call.i.i894, %if.end99.i881.loopexit ], [ %.pre1081, %if.then94.i ]
   %418 = phi ptr [ %.pre1080, %if.end99.i881.loopexit ], [ %412, %if.then94.i ]
   %419 = load i32, ptr %417, align 4
-  %call117.i = tail call fastcc i32 @compiler_jump_if(ptr noundef %c, ptr noundef %418, i32 %419, i32 noundef 0)
+  %call117.i = tail call fastcc i32 @compiler_jump_if.argelim(ptr noundef %c, ptr noundef %418, i32 %419, i32 noundef 0)
   %cmp118.i883 = icmp eq i32 %call117.i, -1
   br i1 %cmp118.i883, label %compiler_match_inner.exit, label %if.end122.i884
 
@@ -9936,7 +9936,7 @@ if.end251.i:                                      ; preds = %if.else.i841, %if.t
   br i1 %tobool253.not.i, label %if.end275.i, label %if.then254.i
 
 if.then254.i:                                     ; preds = %if.end251.i
-  %call270.i = tail call fastcc i32 @compiler_jump_if(ptr noundef %c, ptr noundef nonnull %449, i32 %inc.i.i826, i32 noundef 0)
+  %call270.i = tail call fastcc i32 @compiler_jump_if.argelim(ptr noundef %c, ptr noundef nonnull %449, i32 %inc.i.i826, i32 noundef 0)
   %cmp271.i = icmp eq i32 %call270.i, -1
   br i1 %cmp271.i, label %compiler_match_inner.exit, label %if.end275.i
 
@@ -10172,7 +10172,7 @@ if.end40.i:                                       ; preds = %if.end36.i
   %col_offset47.i = getelementptr inbounds i8, ptr %s, i64 68
   %end_col_offset49.i = getelementptr inbounds i8, ptr %s, i64 76
   %485 = load ptr, ptr %v.i415, align 8
-  %call53.i423 = tail call fastcc i32 @compiler_jump_if(ptr noundef %c, ptr noundef %485, i32 %inc.i.i, i32 noundef 1)
+  %call53.i423 = tail call fastcc i32 @compiler_jump_if.argelim(ptr noundef %c, ptr noundef %485, i32 %inc.i.i, i32 noundef 1)
   %cmp54.i424 = icmp eq i32 %call53.i423, -1
   br i1 %cmp54.i424, label %return, label %if.end56.i425
 
@@ -10832,7 +10832,7 @@ Py_DECREF.exit231.i:                              ; preds = %if.then1.i229.i, %i
   %.compoundliteral43.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral43.sroa.5.8.insert.ext.i, 32
   %.compoundliteral43.sroa.3.8.insert.ext.i = zext i32 %589 to i64
   %.compoundliteral43.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral43.sroa.5.8.insert.shift.i, %.compoundliteral43.sroa.3.8.insert.ext.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %.compoundliteral43.sroa.0.0.insert.insert.i, i64 %.compoundliteral43.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.373)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %.compoundliteral43.sroa.0.0.insert.insert.i, i64 %.compoundliteral43.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.373)
   br label %return
 
 if.end58.i566:                                    ; preds = %land.lhs.true37.if.end58_crit_edge.i, %land.lhs.true.i598, %location_is_after.exit.i
@@ -11397,7 +11397,7 @@ if.end4.i662:                                     ; preds = %if.end.i661
   br i1 %cmp5.i, label %if.then6.i, label %if.end8.i663
 
 if.then6.i:                                       ; preds = %if.end4.i662
-  call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral158.sroa.0.0.insert.insert, i64 %.compoundliteral158.sroa.3.8.insert.insert, ptr noundef nonnull @.str.374)
+  call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %.compoundliteral158.sroa.0.0.insert.insert, i64 %.compoundliteral158.sroa.3.8.insert.insert, ptr noundef nonnull @.str.374)
   br label %compiler_break.exit
 
 if.end8.i663:                                     ; preds = %if.end4.i662
@@ -11486,7 +11486,7 @@ if.end4.i681:                                     ; preds = %if.end.i678
   br i1 %cmp5.i682, label %if.then6.i689, label %if.end8.i683
 
 if.then6.i689:                                    ; preds = %if.end4.i681
-  call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral169.sroa.0.0.insert.insert, i64 %.compoundliteral169.sroa.3.8.insert.insert, ptr noundef nonnull @.str.375)
+  call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %.compoundliteral169.sroa.0.0.insert.insert, i64 %.compoundliteral169.sroa.3.8.insert.insert, ptr noundef nonnull @.str.375)
   br label %compiler_continue.exit
 
 if.end8.i683:                                     ; preds = %if.end4.i681
@@ -11566,7 +11566,7 @@ if.then9.i:                                       ; preds = %if.else.i700
   %loc.sroa.24.8.insert.shift.i = shl nuw i64 %loc.sroa.24.8.insert.ext.i, 32
   %loc.sroa.13.8.insert.ext.i704 = zext i32 %707 to i64
   %loc.sroa.13.8.insert.insert.i = or disjoint i64 %loc.sroa.24.8.insert.shift.i, %loc.sroa.13.8.insert.ext.i704
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i703, i64 %loc.sroa.13.8.insert.insert.i, ptr noundef nonnull @.str.377)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i703, i64 %loc.sroa.13.8.insert.insert.i, ptr noundef nonnull @.str.377)
   br label %return
 
 if.end10.i:                                       ; preds = %if.else.i700, %if.then.i755
@@ -11635,7 +11635,7 @@ if.end48.i:                                       ; preds = %if.end41.i719
   br i1 %cmp.i949, label %compiler_push_fblock.exit961.thread, label %if.end54.i
 
 compiler_push_fblock.exit961.thread:              ; preds = %if.end48.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert20.i, i64 %loc.sroa.13.8.insert.insert92.i, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert20.i, i64 %loc.sroa.13.8.insert.insert92.i, ptr noundef nonnull @.str.344)
   br label %return
 
 if.end54.i:                                       ; preds = %if.end48.i
@@ -11799,8 +11799,8 @@ for.end164.i:                                     ; preds = %cond.end148.i
   %..i747 = sext i1 %cmp169.i to i32
   br label %return
 
-return:                                           ; preds = %for.body.i748, %for.body152.i, %if.end175.i, %if.end156.i, %for.inc.i488, %if.end47.i, %if.then37.i530, %compiler_import_as.exit.i, %instr_sequence_next_inst.exit.i.i60.i.i, %if.end34.i.i, %while.end.i.i, %while.body.preheader.i.i, %if.then24.i487, %if.end17.i482, %if.end.i479, %for.body.i475, %codegen_addop_noarg.exit.i.i, %instr_sequence_next_inst.exit.i.i45.i.i, %if.end24.i.i, %instr_sequence_next_inst.exit.i.i.i.i515, %if.end19.i.i, %if.end7.i.i, %for.body.i375, %for.body84.i, %for.body.i329, %for.body117.i, %for.body.i295, %for.body120.i, %if.end48, %for.cond32, %instr_sequence_next_inst.exit.i.i, %if.then38, %cond.end, %for.body, %for.body.i766, %if.end44.i.thread1084, %for.cond32.preheader, %sw.bb140, %instr_sequence_next_inst.exit.i.i646, %if.end97, %instr_sequence_next_inst.exit.i.i389, %if.end44.i.thread, %entry, %codegen_addop_i.exit399, %codegen_addop_noarg.exit, %for.end164.i, %if.end114.i, %if.end105.i, %for.end.i738, %if.end82.i, %if.end76.i730, %if.end72.i, %if.end67.i726, %if.end61.i, %if.end54.i, %if.end41.i719, %if.end35.i, %if.end31.i713, %if.end23.i711, %if.end15.i, %if.end10.i, %if.then9.i, %compiler_push_fblock.exit961.thread, %codegen_addop_noarg.exit60.i, %instr_sequence_next_inst.exit.i.i50.i, %if.end26.i, %if.end22.i617, %codegen_addop_noarg.exit44.i, %instr_sequence_next_inst.exit.i.i34.i, %if.then15.i, %codegen_addop_noarg.exit.i640, %instr_sequence_next_inst.exit.i.i19.i, %if.end6.i, %instr_sequence_next_inst.exit.i.i.i632, %if.end.i624, %if.then.i621, %codegen_addop_noarg.exit.i, %instr_sequence_next_inst.exit.i.i.i573, %for.end197.i, %if.end148.i, %if.then133.i, %if.else.i592, %if.then78.i, %if.then1.i220.i, %if.end.i217.i, %if.then73.i, %Py_DECREF.exit231.i, %Py_DECREF.exit240.i, %if.then1.i247.i, %if.end.i244.i, %if.then13.i, %cond.end.i541, %if.then1.i49.i.i, %if.end.i46.i.i, %if.then15.i.i527, %cond.end.i463, %sw.bb122, %_PyCompile_InstructionSequence_UseLabel.exit.i, %if.end119.i, %instr_sequence_next_inst.exit.i.i60.i, %if.end96.i, %instr_sequence_next_inst.exit.i.i45.i, %if.end80.i, %if.then74.i, %instr_sequence_next_inst.exit.i.i.i431, %if.end56.i425, %if.end40.i, %if.end36.i, %if.end33.i418, %if.then.i444, %if.else.i413, %if.then.i410, %if.else.i405, %if.then.i402, %if.end97.i367, %if.end60.i362, %if.then52.i361, %if.end14.i, %if.then4.i, %sw.bb69, %if.end130.i, %if.end90.i, %for.end.i319, %if.end55.i, %if.end41.i, %if.end24.i307, %if.end16.i, %if.end8.i, %if.end.i304, %sw.bb67, %compiler_push_fblock.exit806.thread, %for.end132.i, %if.end97.i, %if.end89.i287, %for.end.i284, %if.end65.i279, %if.end58.i, %if.end51.i274, %if.end44.i271, %if.end38.i268, %if.end34.i266, %if.end20.i, %if.end12.i, %if.end.i260, %sw.bb65, %compiler_push_fblock.exit.thread, %codegen_addop_noarg.exit.i.i.i, %instr_sequence_next_inst.exit.i.i.i.i.i, %if.end.i.i.i203, %if.then4.i.i, %if.end.i165.i, %land.lhs.true98.i, %sw.epilog.i199, %sw.default.i251, %lor.lhs.false87.i, %instr_sequence_next_inst.exit.i.i.i152.i, %if.end.i132.i, %land.lhs.true82.i, %instr_sequence_next_inst.exit.i.i.i.i214, %if.end.i128.i, %land.lhs.true71.i, %forbidden_name.exit125.thread.i, %Py_DECREF.exit.i240, %if.then1.i109.i, %if.end.i106.i, %if.then55.i, %if.end44.i232, %if.end38.i230, %if.else.i248, %if.then26.i229, %forbidden_name.exit.thread.i, %if.end.i198, %if.then.i195, %sw.epilog193.i, %sw.bb188.i, %if.end180.i, %if.end174.i, %if.else168.i, %if.end161.i, %if.end155.i, %if.end149.i, %if.then143.i, %if.end128.i, %instr_sequence_next_inst.exit.i.i564.i, %update_start_location_to_match_attr.exit558.i, %instr_sequence_next_inst.exit.i.i.i.i152, %switch.lookup, %sw.default.i.i, %sw.epilog.i, %sw.default.i, %sw.bb83.i, %if.end75.i, %instr_sequence_next_inst.exit.i.i513.i, %if.end69.i, %instr_sequence_next_inst.exit.i.i497.i, %if.end63.i, %if.else.i163, %if.end51.i, %if.end45.i, %instr_sequence_next_inst.exit.i.i481.i, %if.end39.i, %instr_sequence_next_inst.exit.i.i465.i, %if.end33.i167, %if.then27.i164, %sw.bb18.i, %update_start_location_to_match_attr.exit.i, %instr_sequence_next_inst.exit.i.i.i180, %if.end.i170, %sw.bb.i, %if.end76.i, %instr_sequence_next_inst.exit.i.i164.i, %if.end68.i, %instr_sequence_next_inst.exit.i.i.i, %Py_DECREF.exit.i101, %if.then1.i88.i, %if.end.i85.i, %if.then61.i, %if.then52.i, %if.then48.i107, %if.then46.i, %if.end34.i, %if.else.i98, %if.then26.i, %if.then21.i, %if.then1.i106.i, %if.end.i103.i, %if.then16.i, %if.then.i, %if.end151.i, %if.end146.i, %if.else.i, %if.end129.i, %Py_DECREF.exit.i, %if.then1.i165.i, %if.end.i162.i, %if.then121.i, %if.end112.i, %if.then111.i, %if.then103.i, %if.then85.i, %if.then69.i, %if.then64.i, %if.then58.i, %if.then50.i, %if.then42.i, %if.then37.i, %if.then1.i183.i, %if.end.i180.i, %if.then32.i, %_Py_NewRef.exit, %if.then87, %if.then76, %cond.end24, %sw.bb183, %sw.bb181, %sw.bb179, %compiler_continue.exit, %compiler_break.exit, %compiler_match_inner.exit, %compiler_return.exit, %sw.bb
-  %retval.0 = phi i32 [ %call182, %sw.bb181 ], [ %call180, %sw.bb179 ], [ %retval.0.i688, %compiler_continue.exit ], [ %retval.0.i670, %compiler_break.exit ], [ %call184, %sw.bb183 ], [ %retval.0.i840, %compiler_match_inner.exit ], [ %retval.0.i121, %compiler_return.exit ], [ %call, %sw.bb ], [ -1, %cond.end24 ], [ -1, %if.then76 ], [ -1, %if.then87 ], [ -1, %if.then37.i ], [ -1, %if.then42.i ], [ -1, %if.then58.i ], [ -1, %if.then64.i ], [ -1, %if.then69.i ], [ -1, %if.then85.i ], [ -1, %if.then103.i ], [ -1, %if.then111.i ], [ -1, %_Py_NewRef.exit ], [ -1, %if.then32.i ], [ -1, %if.then1.i183.i ], [ -1, %if.end.i180.i ], [ -1, %if.then50.i ], [ -1, %if.end112.i ], [ -1, %if.then121.i ], [ -1, %if.then1.i165.i ], [ -1, %if.end.i162.i ], [ -1, %Py_DECREF.exit.i ], [ -1, %if.end129.i ], [ -1, %if.else.i ], [ -1, %if.end146.i ], [ %..i, %if.end151.i ], [ -1, %if.then21.i ], [ -1, %if.then26.i ], [ -1, %if.then.i ], [ -1, %if.then16.i ], [ -1, %if.then1.i106.i ], [ -1, %if.end.i103.i ], [ -1, %if.else.i98 ], [ -1, %if.end34.i ], [ -1, %if.then48.i107 ], [ -1, %if.then46.i ], [ -1, %if.then52.i ], [ -1, %if.then61.i ], [ -1, %if.then1.i88.i ], [ -1, %if.end.i85.i ], [ %..i99, %if.end76.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i ], [ -1, %Py_DECREF.exit.i101 ], [ -1, %instr_sequence_next_inst.exit.i.i164.i ], [ -1, %if.end68.i ], [ -1, %sw.default.i ], [ %call191.i, %sw.bb188.i ], [ 0, %sw.epilog193.i ], [ -1, %sw.bb.i ], [ -1, %update_start_location_to_match_attr.exit.i ], [ -1, %sw.bb18.i ], [ -1, %if.then27.i164 ], [ -1, %if.end45.i ], [ -1, %if.end51.i ], [ -1, %if.else.i163 ], [ -1, %if.end75.i ], [ -1, %sw.bb83.i ], [ -1, %sw.epilog.i ], [ -1, %if.end128.i ], [ -1, %if.then143.i ], [ -1, %if.end149.i ], [ -1, %if.end155.i ], [ -1, %if.end161.i ], [ -1, %if.else168.i ], [ -1, %if.end174.i ], [ -1, %if.end180.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i180 ], [ -1, %if.end.i170 ], [ -1, %instr_sequence_next_inst.exit.i.i465.i ], [ -1, %if.end33.i167 ], [ -1, %instr_sequence_next_inst.exit.i.i481.i ], [ -1, %if.end39.i ], [ -1, %instr_sequence_next_inst.exit.i.i497.i ], [ -1, %if.end63.i ], [ -1, %instr_sequence_next_inst.exit.i.i513.i ], [ -1, %if.end69.i ], [ -1, %sw.default.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i.i152 ], [ -1, %switch.lookup ], [ -1, %instr_sequence_next_inst.exit.i.i564.i ], [ -1, %update_start_location_to_match_attr.exit558.i ], [ -1, %sw.default.i251 ], [ -1, %if.then.i195 ], [ -1, %if.end.i198 ], [ -1, %if.then26.i229 ], [ -1, %if.else.i248 ], [ -1, %if.end38.i230 ], [ -1, %if.end44.i232 ], [ -1, %if.then55.i ], [ -1, %if.then1.i109.i ], [ -1, %if.end.i106.i ], [ -1, %Py_DECREF.exit.i240 ], [ -1, %lor.lhs.false87.i ], [ -1, %forbidden_name.exit.thread.i ], [ -1, %forbidden_name.exit125.thread.i ], [ 0, %codegen_addop_noarg.exit.i.i.i ], [ 0, %if.end.i165.i ], [ 0, %land.lhs.true98.i ], [ 0, %sw.epilog.i199 ], [ -1, %land.lhs.true71.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i.i214 ], [ -1, %if.end.i128.i ], [ -1, %land.lhs.true82.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i152.i ], [ -1, %if.end.i132.i ], [ -1, %if.then4.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i.i.i ], [ -1, %if.end.i.i.i203 ], [ -1, %sw.bb65 ], [ -1, %if.end.i260 ], [ -1, %if.end12.i ], [ -1, %if.end20.i ], [ -1, %if.end34.i266 ], [ -1, %if.end38.i268 ], [ -1, %if.end44.i271 ], [ -1, %if.end51.i274 ], [ -1, %if.end58.i ], [ -1, %if.end65.i279 ], [ -1, %for.end.i284 ], [ -1, %if.end89.i287 ], [ -1, %if.end97.i ], [ %..i291, %for.end132.i ], [ -1, %compiler_push_fblock.exit.thread ], [ -1, %sw.bb67 ], [ -1, %if.end.i304 ], [ -1, %if.end8.i ], [ -1, %if.end16.i ], [ -1, %if.end24.i307 ], [ -1, %if.end41.i ], [ -1, %if.end55.i ], [ -1, %for.end.i319 ], [ -1, %if.end90.i ], [ %..i327, %if.end130.i ], [ -1, %compiler_push_fblock.exit806.thread ], [ -1, %sw.bb69 ], [ -1, %if.then4.i ], [ -1, %if.end14.i ], [ -1, %if.then52.i361 ], [ -1, %if.end60.i362 ], [ %..i371, %if.end97.i367 ], [ %call.i403, %if.then.i402 ], [ %call6.i, %if.else.i405 ], [ %call.i411, %if.then.i410 ], [ %call6.i414, %if.else.i413 ], [ -1, %if.then.i444 ], [ 0, %if.end33.i418 ], [ -1, %if.end36.i ], [ -1, %if.end40.i ], [ -1, %if.then74.i ], [ 0, %_PyCompile_InstructionSequence_UseLabel.exit.i ], [ -1, %if.end119.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i431 ], [ -1, %if.end56.i425 ], [ -1, %instr_sequence_next_inst.exit.i.i45.i ], [ -1, %if.end80.i ], [ -1, %instr_sequence_next_inst.exit.i.i60.i ], [ -1, %if.end96.i ], [ -1, %if.then15.i.i527 ], [ -1, %if.then1.i49.i.i ], [ -1, %if.end.i46.i.i ], [ 0, %cond.end.i463 ], [ 0, %sw.bb122 ], [ -1, %Py_DECREF.exit231.i ], [ -1, %cond.end.i541 ], [ -1, %if.then13.i ], [ -1, %if.then1.i247.i ], [ -1, %if.end.i244.i ], [ -1, %Py_DECREF.exit240.i ], [ -1, %if.then73.i ], [ -1, %if.then1.i220.i ], [ -1, %if.end.i217.i ], [ -1, %if.then78.i ], [ -1, %if.else.i592 ], [ -1, %if.then133.i ], [ %..i588, %if.end148.i ], [ 0, %codegen_addop_noarg.exit.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i573 ], [ -1, %for.end197.i ], [ -1, %if.then.i621 ], [ -1, %if.end22.i617 ], [ 0, %codegen_addop_noarg.exit.i640 ], [ -1, %instr_sequence_next_inst.exit.i.i19.i ], [ -1, %if.end6.i ], [ 0, %codegen_addop_noarg.exit44.i ], [ -1, %instr_sequence_next_inst.exit.i.i34.i ], [ -1, %if.then15.i ], [ 0, %codegen_addop_noarg.exit60.i ], [ -1, %instr_sequence_next_inst.exit.i.i50.i ], [ -1, %if.end26.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i632 ], [ -1, %if.end.i624 ], [ -1, %if.then9.i ], [ -1, %if.end10.i ], [ -1, %if.end15.i ], [ -1, %if.end23.i711 ], [ -1, %if.end31.i713 ], [ -1, %if.end35.i ], [ -1, %if.end41.i719 ], [ -1, %if.end54.i ], [ -1, %if.end61.i ], [ -1, %if.end67.i726 ], [ -1, %if.end72.i ], [ -1, %if.end76.i730 ], [ -1, %if.end82.i ], [ -1, %for.end.i738 ], [ -1, %if.end105.i ], [ -1, %if.end114.i ], [ %..i747, %for.end164.i ], [ -1, %compiler_push_fblock.exit961.thread ], [ 0, %codegen_addop_noarg.exit ], [ 0, %codegen_addop_i.exit399 ], [ 0, %entry ], [ -1, %if.end44.i.thread ], [ -1, %instr_sequence_next_inst.exit.i.i389 ], [ -1, %if.end97 ], [ -1, %instr_sequence_next_inst.exit.i.i646 ], [ -1, %sw.bb140 ], [ 0, %for.cond32.preheader ], [ -1, %if.end44.i.thread1084 ], [ -1, %for.body.i766 ], [ 0, %cond.end ], [ -1, %for.body ], [ -1, %if.end48 ], [ 0, %for.cond32 ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %if.then38 ], [ -1, %for.body120.i ], [ -1, %for.body.i295 ], [ -1, %for.body117.i ], [ -1, %for.body.i329 ], [ -1, %for.body84.i ], [ -1, %for.body.i375 ], [ -1, %if.end7.i.i ], [ -1, %if.end19.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i.i515 ], [ -1, %if.end24.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i45.i.i ], [ -1, %codegen_addop_noarg.exit.i.i ], [ -1, %while.body.preheader.i.i ], [ -1, %if.end34.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i60.i.i ], [ -1, %while.end.i.i ], [ -1, %if.then24.i487 ], [ 0, %for.inc.i488 ], [ -1, %if.end47.i ], [ -1, %if.then37.i530 ], [ -1, %compiler_import_as.exit.i ], [ -1, %if.end17.i482 ], [ -1, %if.end.i479 ], [ -1, %for.body.i475 ], [ -1, %if.end156.i ], [ -1, %if.end175.i ], [ -1, %for.body152.i ], [ -1, %for.body.i748 ]
+return:                                           ; preds = %for.body.i748, %for.body152.i, %if.end175.i, %if.end156.i, %for.inc.i488, %if.end47.i, %if.then37.i530, %compiler_import_as.exit.i, %instr_sequence_next_inst.exit.i.i60.i.i, %if.end34.i.i, %while.end.i.i, %while.body.preheader.i.i, %if.then24.i487, %if.end17.i482, %if.end.i479, %for.body.i475, %codegen_addop_noarg.exit.i.i, %instr_sequence_next_inst.exit.i.i45.i.i, %if.end24.i.i, %instr_sequence_next_inst.exit.i.i.i.i515, %if.end19.i.i, %if.end7.i.i, %for.body.i375, %for.body84.i, %for.body.i329, %for.body117.i, %for.body.i295, %for.body120.i, %if.end48, %for.cond32, %instr_sequence_next_inst.exit.i.i, %if.then38, %cond.end, %for.body, %for.body.i766, %if.end44.i.thread1084, %for.cond32.preheader, %sw.bb140, %instr_sequence_next_inst.exit.i.i646, %if.end97, %instr_sequence_next_inst.exit.i.i389, %if.end44.i.thread, %entry, %codegen_addop_i.exit399, %codegen_addop_noarg.exit, %for.end164.i, %if.end114.i, %if.end105.i, %for.end.i738, %if.end82.i, %if.end76.i730, %if.end72.i, %if.end67.i726, %if.end61.i, %if.end54.i, %if.end41.i719, %if.end35.i, %if.end31.i713, %if.end23.i711, %if.end15.i, %if.end10.i, %if.then9.i, %compiler_push_fblock.exit961.thread, %codegen_addop_noarg.exit60.i, %instr_sequence_next_inst.exit.i.i50.i, %if.end26.i, %if.end22.i617, %codegen_addop_noarg.exit44.i, %instr_sequence_next_inst.exit.i.i34.i, %if.then15.i, %codegen_addop_noarg.exit.i640, %instr_sequence_next_inst.exit.i.i19.i, %if.end6.i, %instr_sequence_next_inst.exit.i.i.i632, %if.end.i624, %if.then.i621, %codegen_addop_noarg.exit.i, %instr_sequence_next_inst.exit.i.i.i573, %for.end197.i, %if.end148.i, %if.then133.i, %if.else.i592, %if.then78.i, %if.then1.i220.i, %if.end.i217.i, %if.then73.i, %Py_DECREF.exit231.i, %Py_DECREF.exit240.i, %if.then1.i247.i, %if.end.i244.i, %if.then13.i, %cond.end.i541, %if.then1.i49.i.i, %if.end.i46.i.i, %if.then15.i.i527, %cond.end.i463, %sw.bb122, %_PyCompile_InstructionSequence_UseLabel.exit.i, %if.end119.i, %instr_sequence_next_inst.exit.i.i60.i, %if.end96.i, %instr_sequence_next_inst.exit.i.i45.i, %if.end80.i, %if.then74.i, %instr_sequence_next_inst.exit.i.i.i431, %if.end56.i425, %if.end40.i, %if.end36.i, %if.end33.i418, %if.then.i444, %if.else.i413, %if.then.i410, %if.else.i405, %if.then.i402, %if.end97.i367, %if.end60.i362, %if.then52.i361, %if.end14.i, %if.then4.i, %sw.bb69, %if.end130.i, %if.end90.i, %for.end.i319, %if.end55.i, %if.end41.i, %if.end24.i307, %if.end16.i, %if.end8.i, %if.end.i304, %sw.bb67, %compiler_push_fblock.exit806.thread, %for.end132.i, %if.end97.i, %if.end89.i287, %for.end.i284, %if.end65.i279, %if.end58.i, %if.end51.i274, %if.end44.i271, %if.end38.i268, %if.end34.i266, %if.end20.i, %if.end12.i, %if.end.i260, %sw.bb65, %compiler_push_fblock.exit.thread, %codegen_addop_noarg.exit.i.i.i, %instr_sequence_next_inst.exit.i.i.i.i.i, %if.end.i.i.i203, %if.then4.i.i, %if.end.i165.i, %land.lhs.true98.i, %sw.epilog.i199, %sw.default.i251, %lor.lhs.false87.i, %instr_sequence_next_inst.exit.i.i.i152.i, %if.end.i132.i, %land.lhs.true82.i, %instr_sequence_next_inst.exit.i.i.i.i214, %if.end.i128.i, %land.lhs.true71.i, %forbidden_name.exit125.thread.i, %Py_DECREF.exit.i240, %if.then1.i109.i, %if.end.i106.i, %if.then55.i, %if.end44.i232, %if.end38.i230, %if.else.i248, %if.then26.i229, %forbidden_name.exit.thread.i, %if.end.i198, %if.then.i195, %sw.epilog193.i, %sw.bb188.i, %if.end180.i, %if.end174.i, %if.else168.i, %if.end161.i, %if.end155.i, %if.end149.i, %if.then143.i, %if.end128.i, %instr_sequence_next_inst.exit.i.i564.i, %update_start_location_to_match_attr.argprom.exit558.i, %instr_sequence_next_inst.exit.i.i.i.i152, %switch.lookup, %sw.default.i.i, %sw.epilog.i, %sw.default.i, %sw.bb83.i, %if.end75.i, %instr_sequence_next_inst.exit.i.i513.i, %if.end69.i, %instr_sequence_next_inst.exit.i.i497.i, %if.end63.i, %if.else.i163, %if.end51.i, %if.end45.i, %instr_sequence_next_inst.exit.i.i481.i, %if.end39.i, %instr_sequence_next_inst.exit.i.i465.i, %if.end33.i167, %if.then27.i164, %sw.bb18.i, %update_start_location_to_match_attr.argprom.exit.i, %instr_sequence_next_inst.exit.i.i.i180, %if.end.i170, %sw.bb.i, %if.end76.i, %instr_sequence_next_inst.exit.i.i164.i, %if.end68.i, %instr_sequence_next_inst.exit.i.i.i, %Py_DECREF.exit.i101, %if.then1.i88.i, %if.end.i85.i, %if.then61.i, %if.then52.i, %if.then48.i107, %if.then46.i, %if.end34.i, %if.else.i98, %if.then26.i, %if.then21.i, %if.then1.i106.i, %if.end.i103.i, %if.then16.i, %if.then.i, %if.end151.i, %if.end146.i, %if.else.i, %if.end129.i, %Py_DECREF.exit.i, %if.then1.i165.i, %if.end.i162.i, %if.then121.i, %if.end112.i, %if.then111.i, %if.then103.i, %if.then85.i, %if.then69.i, %if.then64.i, %if.then58.i, %if.then50.i, %if.then42.i, %if.then37.i, %if.then1.i183.i, %if.end.i180.i, %if.then32.i, %_Py_NewRef.exit, %if.then87, %if.then76, %cond.end24, %sw.bb183, %sw.bb181, %sw.bb179, %compiler_continue.exit, %compiler_break.exit, %compiler_match_inner.exit, %compiler_return.exit, %sw.bb
+  %retval.0 = phi i32 [ %call182, %sw.bb181 ], [ %call180, %sw.bb179 ], [ %retval.0.i688, %compiler_continue.exit ], [ %retval.0.i670, %compiler_break.exit ], [ %call184, %sw.bb183 ], [ %retval.0.i840, %compiler_match_inner.exit ], [ %retval.0.i121, %compiler_return.exit ], [ %call, %sw.bb ], [ -1, %cond.end24 ], [ -1, %if.then76 ], [ -1, %if.then87 ], [ -1, %if.then37.i ], [ -1, %if.then42.i ], [ -1, %if.then58.i ], [ -1, %if.then64.i ], [ -1, %if.then69.i ], [ -1, %if.then85.i ], [ -1, %if.then103.i ], [ -1, %if.then111.i ], [ -1, %_Py_NewRef.exit ], [ -1, %if.then32.i ], [ -1, %if.then1.i183.i ], [ -1, %if.end.i180.i ], [ -1, %if.then50.i ], [ -1, %if.end112.i ], [ -1, %if.then121.i ], [ -1, %if.then1.i165.i ], [ -1, %if.end.i162.i ], [ -1, %Py_DECREF.exit.i ], [ -1, %if.end129.i ], [ -1, %if.else.i ], [ -1, %if.end146.i ], [ %..i, %if.end151.i ], [ -1, %if.then21.i ], [ -1, %if.then26.i ], [ -1, %if.then.i ], [ -1, %if.then16.i ], [ -1, %if.then1.i106.i ], [ -1, %if.end.i103.i ], [ -1, %if.else.i98 ], [ -1, %if.end34.i ], [ -1, %if.then48.i107 ], [ -1, %if.then46.i ], [ -1, %if.then52.i ], [ -1, %if.then61.i ], [ -1, %if.then1.i88.i ], [ -1, %if.end.i85.i ], [ %..i99, %if.end76.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i ], [ -1, %Py_DECREF.exit.i101 ], [ -1, %instr_sequence_next_inst.exit.i.i164.i ], [ -1, %if.end68.i ], [ -1, %sw.default.i ], [ %call191.i, %sw.bb188.i ], [ 0, %sw.epilog193.i ], [ -1, %sw.bb.i ], [ -1, %update_start_location_to_match_attr.argprom.exit.i ], [ -1, %sw.bb18.i ], [ -1, %if.then27.i164 ], [ -1, %if.end45.i ], [ -1, %if.end51.i ], [ -1, %if.else.i163 ], [ -1, %if.end75.i ], [ -1, %sw.bb83.i ], [ -1, %sw.epilog.i ], [ -1, %if.end128.i ], [ -1, %if.then143.i ], [ -1, %if.end149.i ], [ -1, %if.end155.i ], [ -1, %if.end161.i ], [ -1, %if.else168.i ], [ -1, %if.end174.i ], [ -1, %if.end180.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i180 ], [ -1, %if.end.i170 ], [ -1, %instr_sequence_next_inst.exit.i.i465.i ], [ -1, %if.end33.i167 ], [ -1, %instr_sequence_next_inst.exit.i.i481.i ], [ -1, %if.end39.i ], [ -1, %instr_sequence_next_inst.exit.i.i497.i ], [ -1, %if.end63.i ], [ -1, %instr_sequence_next_inst.exit.i.i513.i ], [ -1, %if.end69.i ], [ -1, %sw.default.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i.i152 ], [ -1, %switch.lookup ], [ -1, %instr_sequence_next_inst.exit.i.i564.i ], [ -1, %update_start_location_to_match_attr.argprom.exit558.i ], [ -1, %sw.default.i251 ], [ -1, %if.then.i195 ], [ -1, %if.end.i198 ], [ -1, %if.then26.i229 ], [ -1, %if.else.i248 ], [ -1, %if.end38.i230 ], [ -1, %if.end44.i232 ], [ -1, %if.then55.i ], [ -1, %if.then1.i109.i ], [ -1, %if.end.i106.i ], [ -1, %Py_DECREF.exit.i240 ], [ -1, %lor.lhs.false87.i ], [ -1, %forbidden_name.exit.thread.i ], [ -1, %forbidden_name.exit125.thread.i ], [ 0, %codegen_addop_noarg.exit.i.i.i ], [ 0, %if.end.i165.i ], [ 0, %land.lhs.true98.i ], [ 0, %sw.epilog.i199 ], [ -1, %land.lhs.true71.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i.i214 ], [ -1, %if.end.i128.i ], [ -1, %land.lhs.true82.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i152.i ], [ -1, %if.end.i132.i ], [ -1, %if.then4.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i.i.i ], [ -1, %if.end.i.i.i203 ], [ -1, %sw.bb65 ], [ -1, %if.end.i260 ], [ -1, %if.end12.i ], [ -1, %if.end20.i ], [ -1, %if.end34.i266 ], [ -1, %if.end38.i268 ], [ -1, %if.end44.i271 ], [ -1, %if.end51.i274 ], [ -1, %if.end58.i ], [ -1, %if.end65.i279 ], [ -1, %for.end.i284 ], [ -1, %if.end89.i287 ], [ -1, %if.end97.i ], [ %..i291, %for.end132.i ], [ -1, %compiler_push_fblock.exit.thread ], [ -1, %sw.bb67 ], [ -1, %if.end.i304 ], [ -1, %if.end8.i ], [ -1, %if.end16.i ], [ -1, %if.end24.i307 ], [ -1, %if.end41.i ], [ -1, %if.end55.i ], [ -1, %for.end.i319 ], [ -1, %if.end90.i ], [ %..i327, %if.end130.i ], [ -1, %compiler_push_fblock.exit806.thread ], [ -1, %sw.bb69 ], [ -1, %if.then4.i ], [ -1, %if.end14.i ], [ -1, %if.then52.i361 ], [ -1, %if.end60.i362 ], [ %..i371, %if.end97.i367 ], [ %call.i403, %if.then.i402 ], [ %call6.i, %if.else.i405 ], [ %call.i411, %if.then.i410 ], [ %call6.i414, %if.else.i413 ], [ -1, %if.then.i444 ], [ 0, %if.end33.i418 ], [ -1, %if.end36.i ], [ -1, %if.end40.i ], [ -1, %if.then74.i ], [ 0, %_PyCompile_InstructionSequence_UseLabel.exit.i ], [ -1, %if.end119.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i431 ], [ -1, %if.end56.i425 ], [ -1, %instr_sequence_next_inst.exit.i.i45.i ], [ -1, %if.end80.i ], [ -1, %instr_sequence_next_inst.exit.i.i60.i ], [ -1, %if.end96.i ], [ -1, %if.then15.i.i527 ], [ -1, %if.then1.i49.i.i ], [ -1, %if.end.i46.i.i ], [ 0, %cond.end.i463 ], [ 0, %sw.bb122 ], [ -1, %Py_DECREF.exit231.i ], [ -1, %cond.end.i541 ], [ -1, %if.then13.i ], [ -1, %if.then1.i247.i ], [ -1, %if.end.i244.i ], [ -1, %Py_DECREF.exit240.i ], [ -1, %if.then73.i ], [ -1, %if.then1.i220.i ], [ -1, %if.end.i217.i ], [ -1, %if.then78.i ], [ -1, %if.else.i592 ], [ -1, %if.then133.i ], [ %..i588, %if.end148.i ], [ 0, %codegen_addop_noarg.exit.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i573 ], [ -1, %for.end197.i ], [ -1, %if.then.i621 ], [ -1, %if.end22.i617 ], [ 0, %codegen_addop_noarg.exit.i640 ], [ -1, %instr_sequence_next_inst.exit.i.i19.i ], [ -1, %if.end6.i ], [ 0, %codegen_addop_noarg.exit44.i ], [ -1, %instr_sequence_next_inst.exit.i.i34.i ], [ -1, %if.then15.i ], [ 0, %codegen_addop_noarg.exit60.i ], [ -1, %instr_sequence_next_inst.exit.i.i50.i ], [ -1, %if.end26.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i632 ], [ -1, %if.end.i624 ], [ -1, %if.then9.i ], [ -1, %if.end10.i ], [ -1, %if.end15.i ], [ -1, %if.end23.i711 ], [ -1, %if.end31.i713 ], [ -1, %if.end35.i ], [ -1, %if.end41.i719 ], [ -1, %if.end54.i ], [ -1, %if.end61.i ], [ -1, %if.end67.i726 ], [ -1, %if.end72.i ], [ -1, %if.end76.i730 ], [ -1, %if.end82.i ], [ -1, %for.end.i738 ], [ -1, %if.end105.i ], [ -1, %if.end114.i ], [ %..i747, %for.end164.i ], [ -1, %compiler_push_fblock.exit961.thread ], [ 0, %codegen_addop_noarg.exit ], [ 0, %codegen_addop_i.exit399 ], [ 0, %entry ], [ -1, %if.end44.i.thread ], [ -1, %instr_sequence_next_inst.exit.i.i389 ], [ -1, %if.end97 ], [ -1, %instr_sequence_next_inst.exit.i.i646 ], [ -1, %sw.bb140 ], [ 0, %for.cond32.preheader ], [ -1, %if.end44.i.thread1084 ], [ -1, %for.body.i766 ], [ 0, %cond.end ], [ -1, %for.body ], [ -1, %if.end48 ], [ 0, %for.cond32 ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %if.then38 ], [ -1, %for.body120.i ], [ -1, %for.body.i295 ], [ -1, %for.body117.i ], [ -1, %for.body.i329 ], [ -1, %for.body84.i ], [ -1, %for.body.i375 ], [ -1, %if.end7.i.i ], [ -1, %if.end19.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i.i515 ], [ -1, %if.end24.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i45.i.i ], [ -1, %codegen_addop_noarg.exit.i.i ], [ -1, %while.body.preheader.i.i ], [ -1, %if.end34.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i60.i.i ], [ -1, %while.end.i.i ], [ -1, %if.then24.i487 ], [ 0, %for.inc.i488 ], [ -1, %if.end47.i ], [ -1, %if.then37.i530 ], [ -1, %compiler_import_as.exit.i ], [ -1, %if.end17.i482 ], [ -1, %if.end.i479 ], [ -1, %for.body.i475 ], [ -1, %if.end156.i ], [ -1, %if.end175.i ], [ -1, %for.body152.i ], [ -1, %for.body.i748 ]
   ret i32 %retval.0
 }
 
@@ -12459,7 +12459,7 @@ if.end.i414:                                      ; preds = %sw.bb78.i
 if.end8.i416:                                     ; preds = %if.end.i414
   %v.i417 = getelementptr inbounds i8, ptr %e, i64 8
   %89 = load ptr, ptr %v.i417, align 8
-  %call14.i = tail call fastcc i32 @compiler_jump_if(ptr noundef %c, ptr noundef %89, i32 %inc.i19.i, i32 noundef 0)
+  %call14.i = tail call fastcc i32 @compiler_jump_if.argelim(ptr noundef %c, ptr noundef %89, i32 %inc.i19.i, i32 noundef 0)
   %cmp15.i418 = icmp eq i32 %call14.i, -1
   br i1 %cmp15.i418, label %compiler_visit_expr1.exit, label %if.end17.i419
 
@@ -12942,7 +12942,7 @@ if.then95.i:                                      ; preds = %sw.bb92.i
   %loc.sroa.74.8.insert.shift437.i = shl nuw i64 %loc.sroa.74.8.insert.ext436.i, 32
   %loc.sroa.38.8.insert.ext306.i = zext i32 %2 to i64
   %loc.sroa.38.8.insert.insert308.i = or disjoint i64 %loc.sroa.74.8.insert.shift437.i, %loc.sroa.38.8.insert.ext306.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.38.8.insert.insert308.i, ptr noundef nonnull @.str.378)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert26.i, i64 %loc.sroa.38.8.insert.insert308.i, ptr noundef nonnull @.str.378)
   br label %compiler_visit_expr1.exit
 
 if.end97.i:                                       ; preds = %sw.bb92.i
@@ -13007,7 +13007,7 @@ if.then124.i:                                     ; preds = %sw.bb119.i
   %loc.sroa.74.8.insert.shift452.i = shl nuw i64 %loc.sroa.74.8.insert.ext451.i, 32
   %loc.sroa.38.8.insert.ext318.i = zext i32 %2 to i64
   %loc.sroa.38.8.insert.insert320.i = or disjoint i64 %loc.sroa.74.8.insert.shift452.i, %loc.sroa.38.8.insert.ext318.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert38.i, i64 %loc.sroa.38.8.insert.insert320.i, ptr noundef nonnull @.str.378)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert38.i, i64 %loc.sroa.38.8.insert.insert320.i, ptr noundef nonnull @.str.378)
   br label %compiler_visit_expr1.exit
 
 if.end126.i:                                      ; preds = %sw.bb119.i
@@ -13026,7 +13026,7 @@ if.then129.i:                                     ; preds = %if.end126.i
   %loc.sroa.74.8.insert.shift457.i = shl nuw i64 %loc.sroa.74.8.insert.ext456.i, 32
   %loc.sroa.38.8.insert.ext322.i = zext i32 %2 to i64
   %loc.sroa.38.8.insert.insert324.i = or disjoint i64 %loc.sroa.74.8.insert.shift457.i, %loc.sroa.38.8.insert.ext322.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert42.i, i64 %loc.sroa.38.8.insert.insert324.i, ptr noundef nonnull @.str.379)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert42.i, i64 %loc.sroa.38.8.insert.insert324.i, ptr noundef nonnull @.str.379)
   br label %compiler_visit_expr1.exit
 
 if.end131.i:                                      ; preds = %if.end126.i
@@ -13094,7 +13094,7 @@ if.then164.i:                                     ; preds = %if.then159.i
   %loc.sroa.74.8.insert.shift477.i = shl nuw i64 %loc.sroa.74.8.insert.ext476.i, 32
   %loc.sroa.38.8.insert.ext338.i = zext i32 %2 to i64
   %loc.sroa.38.8.insert.insert340.i = or disjoint i64 %loc.sroa.74.8.insert.shift477.i, %loc.sroa.38.8.insert.ext338.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert58.i, i64 %loc.sroa.38.8.insert.insert340.i, ptr noundef nonnull @.str.380)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert58.i, i64 %loc.sroa.38.8.insert.insert340.i, ptr noundef nonnull @.str.380)
   br label %compiler_visit_expr1.exit
 
 if.end166.i:                                      ; preds = %if.then159.i
@@ -13116,7 +13116,7 @@ if.then174.i:                                     ; preds = %if.end166.i
   %loc.sroa.74.8.insert.shift482.i = shl nuw i64 %loc.sroa.74.8.insert.ext481.i, 32
   %loc.sroa.38.8.insert.ext342.i = zext i32 %2 to i64
   %loc.sroa.38.8.insert.insert344.i = or disjoint i64 %loc.sroa.74.8.insert.shift482.i, %loc.sroa.38.8.insert.ext342.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert62.i, i64 %loc.sroa.38.8.insert.insert344.i, ptr noundef nonnull @.str.381)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert62.i, i64 %loc.sroa.38.8.insert.insert344.i, ptr noundef nonnull @.str.381)
   br label %compiler_visit_expr1.exit
 
 if.end177.i:                                      ; preds = %if.end166.i, %if.end166.i, %land.lhs.true.i
@@ -13672,7 +13672,7 @@ cond.end70.i.i:                                   ; preds = %cond.false64.i.i, %
   br i1 %cmp77.i.i, label %maybe_optimize_method_call.exit.i.thread, label %if.end80.i.i
 
 if.end80.i.i:                                     ; preds = %cond.end70.i.i
-  %call81.i.i = tail call fastcc { i64, i64 } @update_start_location_to_match_attr(i64 %loc.sroa.0.0.insert.insert.i.i265, i64 %loc.sroa.14.8.insert.insert.i.i, ptr noundef nonnull %227)
+  %call81.i.i = tail call fastcc { i64, i64 } @update_start_location_to_match_attr.argprom(i64 %loc.sroa.0.0.insert.insert.i.i265, i64 %loc.sroa.14.8.insert.insert.i.i, ptr noundef nonnull %227)
   %256 = extractvalue { i64, i64 } %call81.i.i, 0
   %257 = extractvalue { i64, i64 } %call81.i.i, 1
   %258 = load ptr, ptr %u.i.i, align 8
@@ -13695,7 +13695,7 @@ if.end94.i.i:                                     ; preds = %if.else.i.i
   %loc.sroa.27.8.insert.shift124.i.i = shl nuw i64 %loc.sroa.27.8.insert.ext123.i.i, 32
   %loc.sroa.14.8.insert.ext90.i.i = zext i32 %245 to i64
   %loc.sroa.14.8.insert.insert92.i.i = or disjoint i64 %loc.sroa.27.8.insert.shift124.i.i, %loc.sroa.14.8.insert.ext90.i.i
-  %call96.i.i = tail call fastcc { i64, i64 } @update_start_location_to_match_attr(i64 %loc.sroa.0.0.insert.insert20.i.i, i64 %loc.sroa.14.8.insert.insert92.i.i, ptr noundef nonnull %227)
+  %call96.i.i = tail call fastcc { i64, i64 } @update_start_location_to_match_attr.argprom(i64 %loc.sroa.0.0.insert.insert20.i.i, i64 %loc.sroa.14.8.insert.insert92.i.i, ptr noundef nonnull %227)
   %259 = extractvalue { i64, i64 } %call96.i.i, 0
   %260 = extractvalue { i64, i64 } %call96.i.i, 1
   %u97.i.i = getelementptr inbounds i8, ptr %c, i64 64
@@ -13787,7 +13787,7 @@ if.end166.i.i:                                    ; preds = %for.end161.i.i
   %.compoundliteral.sroa.5.8.insert.shift.i.i = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext.i.i, 32
   %.compoundliteral.sroa.3.8.insert.ext.i.i = zext i32 %272 to i64
   %.compoundliteral.sroa.3.8.insert.insert.i.i = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift.i.i, %.compoundliteral.sroa.3.8.insert.ext.i.i
-  %call176.i.i = tail call fastcc { i64, i64 } @update_start_location_to_match_attr(i64 %.compoundliteral.sroa.0.0.insert.insert.i.i, i64 %.compoundliteral.sroa.3.8.insert.insert.i.i, ptr noundef nonnull %227)
+  %call176.i.i = tail call fastcc { i64, i64 } @update_start_location_to_match_attr.argprom(i64 %.compoundliteral.sroa.0.0.insert.insert.i.i, i64 %.compoundliteral.sroa.3.8.insert.insert.i.i, ptr noundef nonnull %227)
   %274 = extractvalue { i64, i64 } %call176.i.i, 0
   %275 = extractvalue { i64, i64 } %call176.i.i, 1
   %u177.i.i = getelementptr inbounds i8, ptr %c, i64 64
@@ -13810,7 +13810,7 @@ if.else185.i.i:                                   ; preds = %for.end133.i.i
   %.compoundliteral187.sroa.5.8.insert.shift.i.i = shl nuw i64 %.compoundliteral187.sroa.5.8.insert.ext.i.i, 32
   %.compoundliteral187.sroa.3.8.insert.ext.i.i = zext i32 %279 to i64
   %.compoundliteral187.sroa.3.8.insert.insert.i.i = or disjoint i64 %.compoundliteral187.sroa.5.8.insert.shift.i.i, %.compoundliteral187.sroa.3.8.insert.ext.i.i
-  %call196.i.i = tail call fastcc { i64, i64 } @update_start_location_to_match_attr(i64 %.compoundliteral187.sroa.0.0.insert.insert.i.i, i64 %.compoundliteral187.sroa.3.8.insert.insert.i.i, ptr noundef nonnull %227)
+  %call196.i.i = tail call fastcc { i64, i64 } @update_start_location_to_match_attr.argprom(i64 %.compoundliteral187.sroa.0.0.insert.insert.i.i, i64 %.compoundliteral187.sroa.3.8.insert.insert.i.i, ptr noundef nonnull %227)
   %281 = extractvalue { i64, i64 } %call196.i.i, 0
   %282 = extractvalue { i64, i64 } %call196.i.i, 1
   %u197.i.i = getelementptr inbounds i8, ptr %c, i64 64
@@ -14537,7 +14537,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.e
   br i1 %cmp244.i, label %compiler_visit_expr1.exit, label %if.end246.i
 
 if.end246.i:                                      ; preds = %cond.end.i
-  %call247.i = tail call fastcc { i64, i64 } @update_start_location_to_match_attr(i64 %loc.sroa.0.0.insert.insert82.i, i64 %loc.sroa.38.8.insert.insert364.i, ptr noundef nonnull %e)
+  %call247.i = tail call fastcc { i64, i64 } @update_start_location_to_match_attr.argprom(i64 %loc.sroa.0.0.insert.insert82.i, i64 %loc.sroa.38.8.insert.insert364.i, ptr noundef nonnull %e)
   %377 = extractvalue { i64, i64 } %call247.i, 0
   %378 = extractvalue { i64, i64 } %call247.i, 1
   %379 = load ptr, ptr %u240.i, align 8
@@ -14566,7 +14566,7 @@ if.end260.i:                                      ; preds = %if.end254.i
   %loc.sroa.74.8.insert.shift522.i = shl nuw i64 %loc.sroa.74.8.insert.ext521.i, 32
   %loc.sroa.38.8.insert.ext374.i = zext i32 %383 to i64
   %loc.sroa.38.8.insert.insert376.i = or disjoint i64 %loc.sroa.74.8.insert.shift522.i, %loc.sroa.38.8.insert.ext374.i
-  %call270.i = tail call fastcc { i64, i64 } @update_start_location_to_match_attr(i64 %loc.sroa.0.0.insert.insert94.i, i64 %loc.sroa.38.8.insert.insert376.i, ptr noundef nonnull %e)
+  %call270.i = tail call fastcc { i64, i64 } @update_start_location_to_match_attr.argprom(i64 %loc.sroa.0.0.insert.insert94.i, i64 %loc.sroa.38.8.insert.insert376.i, ptr noundef nonnull %e)
   %385 = extractvalue { i64, i64 } %call270.i, 0
   %386 = extractvalue { i64, i64 } %call270.i, 1
   %387 = load i32, ptr %ctx.i, align 8
@@ -14649,24 +14649,24 @@ lor.lhs.false3.i.i:                               ; preds = %sw.bb.i.i
   %tobool.not.i.i = icmp ne i64 %403, 0
   %cmp.i.not.i.i.i = icmp eq ptr %.val16.i.i, @PyFloat_Type
   %or.cond35.i.i = or i1 %cmp.i.not.i.i.i, %tobool.not.i.i
-  br i1 %or.cond35.i.i, label %sw.bb25.i.i, label %PyObject_TypeCheck.exit.i.i
+  br i1 %or.cond35.i.i, label %sw.bb25.i.i, label %PyObject_TypeCheck.argprom.exit.i.i
 
-PyObject_TypeCheck.exit.i.i:                      ; preds = %lor.lhs.false3.i.i
+PyObject_TypeCheck.argprom.exit.i.i:              ; preds = %lor.lhs.false3.i.i
   %call2.i.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val16.i.i, ptr noundef nonnull @PyFloat_Type) #11
   %tobool3.i.not.i.i = icmp eq i32 %call2.i.i.i, 0
   br i1 %tobool3.i.not.i.i, label %lor.lhs.false8.i.i, label %sw.bb25.i.i
 
-lor.lhs.false8.i.i:                               ; preds = %PyObject_TypeCheck.exit.i.i
+lor.lhs.false8.i.i:                               ; preds = %PyObject_TypeCheck.argprom.exit.i.i
   %.val20.i.i = load ptr, ptr %401, align 8
   %cmp.i.not.i21.i.i = icmp eq ptr %.val20.i.i, @PyComplex_Type
-  br i1 %cmp.i.not.i21.i.i, label %sw.bb25.i.i, label %PyObject_TypeCheck.exit26.i.i
+  br i1 %cmp.i.not.i21.i.i, label %sw.bb25.i.i, label %PyObject_TypeCheck.argprom.exit26.i.i
 
-PyObject_TypeCheck.exit26.i.i:                    ; preds = %lor.lhs.false8.i.i
+PyObject_TypeCheck.argprom.exit26.i.i:            ; preds = %lor.lhs.false8.i.i
   %call2.i23.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val20.i.i, ptr noundef nonnull @PyComplex_Type) #11
   %tobool3.i24.not.i.i = icmp eq i32 %call2.i23.i.i, 0
   br i1 %tobool3.i24.not.i.i, label %lor.lhs.false11.i.i, label %sw.bb25.i.i
 
-lor.lhs.false11.i.i:                              ; preds = %PyObject_TypeCheck.exit26.i.i
+lor.lhs.false11.i.i:                              ; preds = %PyObject_TypeCheck.argprom.exit26.i.i
   %.val18.i.i = load ptr, ptr %401, align 8
   %cmp.i27.not.i.i = icmp eq ptr %.val18.i.i, @PySet_Type
   %cmp.i29.not.i.i = icmp eq ptr %.val18.i.i, @PyFrozenSet_Type
@@ -14684,7 +14684,7 @@ lor.lhs.false21.i.i:                              ; preds = %lor.lhs.false17.i.i
   %tobool24.not.i.i = icmp eq i32 %call23.i.i, 0
   br i1 %tobool24.not.i.i, label %if.end.i102, label %sw.bb25.i.i
 
-sw.bb25.i.i:                                      ; preds = %lor.lhs.false21.i.i, %lor.lhs.false17.i.i, %lor.lhs.false11.i.i, %PyObject_TypeCheck.exit26.i.i, %lor.lhs.false8.i.i, %PyObject_TypeCheck.exit.i.i, %lor.lhs.false3.i.i, %sw.bb.i.i, %if.then.i100, %if.then.i100, %if.then.i100, %if.then.i100
+sw.bb25.i.i:                                      ; preds = %lor.lhs.false21.i.i, %lor.lhs.false17.i.i, %lor.lhs.false11.i.i, %PyObject_TypeCheck.argprom.exit26.i.i, %lor.lhs.false8.i.i, %PyObject_TypeCheck.argprom.exit.i.i, %lor.lhs.false3.i.i, %sw.bb.i.i, %if.then.i100, %if.then.i100, %if.then.i100, %if.then.i100
   %lineno26.i.i = getelementptr inbounds i8, ptr %.pre774, i64 32
   %404 = load i32, ptr %lineno26.i.i, align 8
   %end_lineno27.i.i = getelementptr inbounds i8, ptr %.pre774, i64 40
@@ -15078,11 +15078,11 @@ sw.bb315.i:                                       ; preds = %entry
   br i1 %cond1.i, label %sw.bb318.i, label %sw.default.i
 
 sw.bb318.i:                                       ; preds = %sw.bb315.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert114.i, i64 %loc.sroa.38.8.insert.insert396.i, ptr noundef nonnull @.str.382)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert114.i, i64 %loc.sroa.38.8.insert.insert396.i, ptr noundef nonnull @.str.382)
   br label %compiler_visit_expr1.exit
 
 sw.default.i:                                     ; preds = %sw.bb315.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert114.i, i64 %loc.sroa.38.8.insert.insert396.i, ptr noundef nonnull @.str.383)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert114.i, i64 %loc.sroa.38.8.insert.insert396.i, ptr noundef nonnull @.str.383)
   br label %compiler_visit_expr1.exit
 
 sw.bb321.i:                                       ; preds = %entry
@@ -16187,7 +16187,7 @@ land.lhs.true3.i:                                 ; preds = %entry
 
 forbidden_name.exit:                              ; preds = %land.lhs.true.i, %land.lhs.true3.i
   %.str.333.sink.i = phi ptr [ @.str.332, %land.lhs.true.i ], [ @.str.333, %land.lhs.true3.i ]
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %.str.333.sink.i)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %.str.333.sink.i)
   br label %return
 
 if.end:                                           ; preds = %entry, %land.lhs.true3.i, %land.lhs.true.i
@@ -16905,7 +16905,7 @@ land.lhs.true3:                                   ; preds = %entry
 
 return.sink.split:                                ; preds = %land.lhs.true3, %land.lhs.true
   %.str.333.sink = phi ptr [ @.str.332, %land.lhs.true ], [ @.str.333, %land.lhs.true3 ]
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %.str.333.sink)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %.str.333.sink)
   br label %return
 
 return:                                           ; preds = %return.sink.split, %land.lhs.true, %land.lhs.true3, %entry
@@ -16961,7 +16961,7 @@ return:                                           ; preds = %if.end.i.i, %instr_
 declare i32 @_PyUnicode_EqualToASCIIString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @compiler_error(ptr nocapture noundef nonnull readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %format, ...) unnamed_addr #1 {
+define internal void @compiler_error.argelim(ptr nocapture noundef nonnull readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %format, ...) unnamed_addr #1 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %vargs)
@@ -18141,7 +18141,7 @@ if.end52:                                         ; preds = %for.body.i, %for.co
   br i1 %cmp.i241, label %compiler_push_fblock.exit.thread, label %if.end58
 
 compiler_push_fblock.exit.thread:                 ; preds = %if.end52
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert, ptr noundef nonnull @.str.344)
   br label %return
 
 if.end58:                                         ; preds = %if.end52
@@ -18361,7 +18361,7 @@ if.then9:                                         ; preds = %if.else
   %loc.sroa.45.8.insert.shift = shl nuw i64 %loc.sroa.45.8.insert.ext, 32
   %loc.sroa.23.8.insert.ext = zext i32 %2 to i64
   %loc.sroa.23.8.insert.insert = or disjoint i64 %loc.sroa.45.8.insert.shift, %loc.sroa.23.8.insert.ext
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.23.8.insert.insert, ptr noundef nonnull @.str.376)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.23.8.insert.insert, ptr noundef nonnull @.str.376)
   br label %return
 
 if.end10:                                         ; preds = %if.else, %if.then
@@ -18506,7 +18506,7 @@ if.end78:                                         ; preds = %if.end71
   br i1 %cmp.i, label %compiler_push_fblock.exit.thread, label %if.end84
 
 compiler_push_fblock.exit.thread:                 ; preds = %if.end78
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert20, i64 %loc.sroa.23.8.insert.insert200, ptr noundef nonnull @.str.344)
   br label %return
 
 if.end84:                                         ; preds = %if.end78
@@ -18874,7 +18874,7 @@ return.sink.split:                                ; preds = %if.then.i.i, %if.th
   %.compoundliteral.sroa.2.0.insert.shift.i87 = shl nuw i64 %.compoundliteral.sroa.2.0.insert.ext.i86, 32
   %.compoundliteral.sroa.0.0.insert.ext.i88 = zext i32 %.sink to i64
   %.compoundliteral.sroa.0.0.insert.insert.i89 = or disjoint i64 %.compoundliteral.sroa.2.0.insert.shift.i87, %.compoundliteral.sroa.0.0.insert.ext.i88
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i89, i64 %.compoundliteral.sroa.3.8.insert.insert.i85, ptr noundef nonnull @.str.332)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i89, i64 %.compoundliteral.sroa.3.8.insert.insert.i85, ptr noundef nonnull @.str.332)
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end13, %if.then.i74
@@ -20772,7 +20772,7 @@ if.then44:                                        ; preds = %if.end38, %instr_se
 if.end46:                                         ; preds = %compiler_addop_o.exit, %if.end30
   %body = getelementptr inbounds i8, ptr %s, i64 32
   %24 = load ptr, ptr %body, align 8
-  %call48 = tail call fastcc i32 @compiler_body(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert, ptr noundef %24)
+  %call48 = tail call fastcc i32 @compiler_body.argelim(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert, ptr noundef %24)
   %cmp49 = icmp slt i32 %call48, 0
   br i1 %cmp49, label %if.then50, label %if.end51
 
@@ -21533,7 +21533,7 @@ forbidden_name.exit.thread:                       ; preds = %if.end
   %loc.sroa.2.0.insert.shift = shl nuw i64 %loc.sroa.2.0.insert.ext, 32
   %loc.sroa.0.0.insert.ext = zext i32 %3 to i64
   %loc.sroa.0.0.insert.insert = or disjoint i64 %loc.sroa.2.0.insert.shift, %loc.sroa.0.0.insert.ext
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.3.8.insert.insert, ptr noundef nonnull @.str.332)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.3.8.insert.insert, ptr noundef nonnull @.str.332)
   br label %return
 
 for.body12:                                       ; preds = %for.cond10.preheader, %for.inc
@@ -21568,7 +21568,7 @@ if.then20:                                        ; preds = %land.lhs.true
   %.compoundliteral.sroa.5.8.insert.shift = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext, 32
   %.compoundliteral.sroa.3.8.insert.ext = zext i32 %12 to i64
   %.compoundliteral.sroa.3.8.insert.insert = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift, %.compoundliteral.sroa.3.8.insert.ext
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert, i64 %.compoundliteral.sroa.3.8.insert.insert, ptr noundef nonnull @.str.340, ptr noundef %14)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert, i64 %.compoundliteral.sroa.3.8.insert.insert, ptr noundef nonnull @.str.340, ptr noundef %14)
   br label %return
 
 for.inc:                                          ; preds = %for.body12, %land.lhs.true
@@ -22550,7 +22550,7 @@ if.then5:                                         ; preds = %if.end
   %3 = load i64, ptr %ploc, align 4
   %4 = getelementptr inbounds i8, ptr %ploc, i64 8
   %5 = load i64, ptr %4, align 4
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %3, i64 %5, ptr noundef nonnull @.str.343)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %3, i64 %5, ptr noundef nonnull @.str.343)
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -22769,7 +22769,7 @@ if.then25:                                        ; preds = %if.end23
 compiler_push_fblock.exit.thread:                 ; preds = %if.then25
   %31 = load i64, ptr %24, align 4
   %32 = load i64, ptr %ploc, align 4
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %32, i64 %31, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %32, i64 %31, ptr noundef nonnull @.str.344)
   br label %return
 
 compiler_push_fblock.exit:                        ; preds = %if.then25
@@ -23751,7 +23751,7 @@ _PyCompile_InstructionSequence_Addop.exit:        ; preds = %entry, %instr_seque
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc { i64, i64 } @update_start_location_to_match_attr(i64 %loc.coerce0, i64 %loc.coerce1, ptr nocapture noundef readonly %attr) unnamed_addr #7 {
+define internal fastcc { i64, i64 } @update_start_location_to_match_attr.argprom(i64 %loc.coerce0, i64 %loc.coerce1, ptr nocapture noundef readonly %attr) unnamed_addr #7 {
 entry:
   %loc.sroa.0.sroa.0.0.extract.trunc = trunc i64 %loc.coerce0 to i32
   %loc.sroa.0.sroa.7.0.extract.shift = lshr i64 %loc.coerce0, 32
@@ -24362,7 +24362,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @compiler_jump_if(ptr noundef nonnull %c, ptr noundef %e, i32 %next.coerce, i32 noundef range(i32 0, 2) %cond) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_jump_if.argelim(ptr noundef nonnull %c, ptr noundef %e, i32 %next.coerce, i32 noundef range(i32 0, 2) %cond) unnamed_addr #1 {
 entry:
   br label %tailrecurse
 
@@ -24439,7 +24439,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.0278 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
   %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %i.0278
   %9 = load ptr, ptr %arrayidx, align 8
-  %call29 = tail call fastcc i32 @compiler_jump_if(ptr noundef %c, ptr noundef %9, i32 %next2.sroa.0.0, i32 noundef %conv)
+  %call29 = tail call fastcc i32 @compiler_jump_if.argelim(ptr noundef %c, ptr noundef %9, i32 %next2.sroa.0.0, i32 noundef %conv)
   %cmp30 = icmp eq i32 %call29, -1
   br i1 %cmp30, label %return, label %for.cond
 
@@ -24447,7 +24447,7 @@ for.end:                                          ; preds = %for.cond, %if.end25
   %typed_elements34 = getelementptr inbounds i8, ptr %3, i64 16
   %arrayidx35 = getelementptr [1 x ptr], ptr %typed_elements34, i64 0, i64 %cond6
   %10 = load ptr, ptr %arrayidx35, align 8
-  %call37 = tail call fastcc i32 @compiler_jump_if(ptr noundef %c, ptr noundef %10, i32 %next.coerce, i32 noundef %cond.tr)
+  %call37 = tail call fastcc i32 @compiler_jump_if.argelim(ptr noundef %c, ptr noundef %10, i32 %next.coerce, i32 noundef %cond.tr)
   %cmp38 = icmp eq i32 %call37, -1
   br i1 %cmp38, label %return, label %if.end41
 
@@ -24516,14 +24516,14 @@ if.end65:                                         ; preds = %sw.bb56
 if.end75:                                         ; preds = %if.end65
   %v76 = getelementptr inbounds i8, ptr %e.tr, i64 8
   %24 = load ptr, ptr %v76, align 8
-  %call78 = tail call fastcc i32 @compiler_jump_if(ptr noundef %c, ptr noundef %24, i32 %inc.i149, i32 noundef 0)
+  %call78 = tail call fastcc i32 @compiler_jump_if.argelim(ptr noundef %c, ptr noundef %24, i32 %inc.i149, i32 noundef 0)
   %cmp79 = icmp eq i32 %call78, -1
   br i1 %cmp79, label %return, label %if.end82
 
 if.end82:                                         ; preds = %if.end75
   %body = getelementptr inbounds i8, ptr %e.tr, i64 16
   %25 = load ptr, ptr %body, align 8
-  %call85 = tail call fastcc i32 @compiler_jump_if(ptr noundef %c, ptr noundef %25, i32 %next.coerce, i32 noundef %cond.tr)
+  %call85 = tail call fastcc i32 @compiler_jump_if.argelim(ptr noundef %c, ptr noundef %25, i32 %next.coerce, i32 noundef %cond.tr)
   %cmp86 = icmp eq i32 %call85, -1
   br i1 %cmp86, label %return, label %if.end89
 
@@ -24563,7 +24563,7 @@ if.end97:                                         ; preds = %instr_sequence_next
 if.end105:                                        ; preds = %if.end97
   %orelse = getelementptr inbounds i8, ptr %e.tr, i64 24
   %31 = load ptr, ptr %orelse, align 8
-  %call108 = tail call fastcc i32 @compiler_jump_if(ptr noundef %c, ptr noundef %31, i32 %next.coerce, i32 noundef %cond.tr)
+  %call108 = tail call fastcc i32 @compiler_jump_if.argelim(ptr noundef %c, ptr noundef %31, i32 %next.coerce, i32 noundef %cond.tr)
   %cmp109 = icmp eq i32 %call108, -1
   br i1 %cmp109, label %return, label %if.end112
 
@@ -25385,7 +25385,7 @@ if.then5:                                         ; preds = %if.end
 if.then7:                                         ; preds = %if.then5
   call void @PyErr_Clear() #11
   %call8 = call ptr @PyUnicode_AsUTF8(ptr noundef nonnull %call) #11
-  call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %call8)
+  call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef %call8)
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7, %if.then5
@@ -25469,7 +25469,7 @@ if.then.i:                                        ; preds = %sw.bb
   %.compoundliteral.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext.i, 32
   %.compoundliteral.sroa.3.8.insert.ext.i = zext i32 %6 to i64
   %.compoundliteral.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift.i, %.compoundliteral.sroa.3.8.insert.ext.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i, i64 %.compoundliteral.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.353)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i, i64 %.compoundliteral.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.353)
   br label %return
 
 if.end.i:                                         ; preds = %sw.bb
@@ -25714,7 +25714,7 @@ if.then6.i:                                       ; preds = %if.then.i54
   %.compoundliteral.sroa.5.8.insert.shift.i60 = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext.i59, 32
   %.compoundliteral.sroa.3.8.insert.ext.i61 = zext i32 %53 to i64
   %.compoundliteral.sroa.3.8.insert.insert.i62 = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift.i60, %.compoundliteral.sroa.3.8.insert.ext.i61
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i58, i64 %.compoundliteral.sroa.3.8.insert.insert.i62, ptr noundef nonnull @.str.354)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i58, i64 %.compoundliteral.sroa.3.8.insert.insert.i62, ptr noundef nonnull @.str.354)
   br label %return
 
 land.end.i:                                       ; preds = %if.then.i54
@@ -26084,7 +26084,7 @@ if.then198.i:                                     ; preds = %if.else196.i
   br i1 %cmp209.i, label %return, label %if.end227.i
 
 if.else212.i:                                     ; preds = %if.else196.i
-  %call222.i = tail call fastcc i32 @pattern_helper_sequence_unpack(ptr noundef %c, i64 %.compoundliteral213.sroa.0.0.insert.insert.i, i64 %.compoundliteral213.sroa.3.8.insert.insert.i, ptr noundef %47, ptr noundef %pc)
+  %call222.i = tail call fastcc i32 @pattern_helper_sequence_unpack.argelim(ptr noundef %c, i64 %.compoundliteral213.sroa.0.0.insert.insert.i, i64 %.compoundliteral213.sroa.3.8.insert.insert.i, ptr noundef %47, ptr noundef %pc)
   %cmp223.i = icmp eq i32 %call222.i, -1
   br i1 %cmp223.i, label %return, label %if.end227.i
 
@@ -26134,7 +26134,7 @@ if.then.i70:                                      ; preds = %cond.end9.i
   %.compoundliteral.sroa.5.8.insert.shift.i76 = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext.i75, 32
   %.compoundliteral.sroa.3.8.insert.ext.i77 = zext i32 %131 to i64
   %.compoundliteral.sroa.3.8.insert.insert.i78 = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift.i76, %.compoundliteral.sroa.3.8.insert.ext.i77
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i74, i64 %.compoundliteral.sroa.3.8.insert.insert.i78, ptr noundef nonnull @.str.357, i64 noundef %cond.i68, i64 noundef %cond10.i)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i74, i64 %.compoundliteral.sroa.3.8.insert.insert.i78, ptr noundef nonnull @.str.357, i64 noundef %cond.i68, i64 noundef %cond10.i)
   br label %return
 
 if.end.i81:                                       ; preds = %cond.end9.i
@@ -26362,7 +26362,7 @@ if.then125.i:                                     ; preds = %if.end123.i
   %.compoundliteral126.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral126.sroa.5.8.insert.ext.i, 32
   %.compoundliteral126.sroa.3.8.insert.ext.i = zext i32 %176 to i64
   %.compoundliteral126.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral126.sroa.5.8.insert.shift.i, %.compoundliteral126.sroa.3.8.insert.ext.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral126.sroa.0.0.insert.insert.i, i64 %.compoundliteral126.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.358)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %.compoundliteral126.sroa.0.0.insert.insert.i, i64 %.compoundliteral126.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.358)
   br label %return
 
 if.end136.i:                                      ; preds = %if.end123.i
@@ -26410,7 +26410,7 @@ if.then143.i:                                     ; preds = %for.body.i93
   %loc.sroa.5.8.insert.shift.i = shl nuw i64 %loc.sroa.5.8.insert.ext.i, 32
   %loc.sroa.3.8.insert.ext.i = zext i32 %182 to i64
   %loc.sroa.3.8.insert.insert.i = or disjoint i64 %loc.sroa.5.8.insert.shift.i, %loc.sroa.3.8.insert.ext.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i, i64 %loc.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.359)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i, i64 %loc.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.359)
   br label %error.i
 
 if.end162.i96:                                    ; preds = %for.body.i93
@@ -26445,7 +26445,7 @@ if.then171.i:                                     ; preds = %if.end169.i
   %.compoundliteral173.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral173.sroa.5.8.insert.ext.i, 32
   %.compoundliteral173.sroa.3.8.insert.ext.i = zext i32 %188 to i64
   %.compoundliteral173.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral173.sroa.5.8.insert.shift.i, %.compoundliteral173.sroa.3.8.insert.ext.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral173.sroa.0.0.insert.insert.i, i64 %.compoundliteral173.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.360, ptr noundef %190)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %.compoundliteral173.sroa.0.0.insert.insert.i, i64 %.compoundliteral173.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.360, ptr noundef %190)
   br label %error.i
 
 if.end185.i:                                      ; preds = %if.end169.i
@@ -26467,7 +26467,7 @@ if.then194.i:                                     ; preds = %if.end162.i96
   %.compoundliteral196.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral196.sroa.5.8.insert.ext.i, 32
   %.compoundliteral196.sroa.3.8.insert.ext.i = zext i32 %194 to i64
   %.compoundliteral196.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral196.sroa.5.8.insert.shift.i, %.compoundliteral196.sroa.3.8.insert.ext.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral196.sroa.0.0.insert.insert.i, i64 %.compoundliteral196.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.361)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %.compoundliteral196.sroa.0.0.insert.insert.i, i64 %.compoundliteral196.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.361)
   br label %error.i
 
 if.end207.i:                                      ; preds = %if.end185.i, %if.end162.i96
@@ -26929,7 +26929,7 @@ if.then.i110:                                     ; preds = %cond.end16.i
   %.compoundliteral.sroa.5.8.insert.shift.i117 = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext.i116, 32
   %.compoundliteral.sroa.3.8.insert.ext.i118 = zext i32 %292 to i64
   %.compoundliteral.sroa.3.8.insert.insert.i119 = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift.i117, %.compoundliteral.sroa.3.8.insert.ext.i118
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i115, i64 %.compoundliteral.sroa.3.8.insert.insert.i119, ptr noundef nonnull @.str.363, i64 noundef %cond11.i, i64 noundef %cond17.i)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i115, i64 %.compoundliteral.sroa.3.8.insert.insert.i119, ptr noundef nonnull @.str.363, i64 noundef %cond11.i, i64 noundef %cond17.i)
   br label %return
 
 if.end.i122:                                      ; preds = %cond.end16.i
@@ -26960,7 +26960,7 @@ if.then25.i:                                      ; preds = %lor.lhs.false.i, %i
   %.compoundliteral27.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral27.sroa.5.8.insert.ext.i, 32
   %.compoundliteral27.sroa.3.8.insert.ext.i = zext i32 %296 to i64
   %.compoundliteral27.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral27.sroa.5.8.insert.shift.i, %.compoundliteral27.sroa.3.8.insert.ext.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral27.sroa.0.0.insert.insert.i, i64 %.compoundliteral27.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.364, ptr noundef %298)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %.compoundliteral27.sroa.0.0.insert.insert.i, i64 %.compoundliteral27.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.364, ptr noundef %298)
   br label %return
 
 if.end38.i125:                                    ; preds = %lor.lhs.false.i
@@ -27310,11 +27310,11 @@ if.then1.i:                                       ; preds = %if.then.i195
   br i1 %tobool3.not.i, label %if.end.i206, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then1.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral12.sroa.0.0.insert.insert.i214, i64 %.compoundliteral12.sroa.3.8.insert.insert.i218, ptr noundef nonnull @.str.366, ptr noundef nonnull %358)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %.compoundliteral12.sroa.0.0.insert.insert.i214, i64 %.compoundliteral12.sroa.3.8.insert.insert.i218, ptr noundef nonnull @.str.366, ptr noundef nonnull %358)
   br label %return
 
 if.end.i206:                                      ; preds = %if.then1.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral12.sroa.0.0.insert.insert.i214, i64 %.compoundliteral12.sroa.3.8.insert.insert.i218, ptr noundef nonnull @.str.367)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %.compoundliteral12.sroa.0.0.insert.insert.i214, i64 %.compoundliteral12.sroa.3.8.insert.insert.i218, ptr noundef nonnull @.str.367)
   br label %return
 
 if.end22.i:                                       ; preds = %if.then.i195
@@ -27969,7 +27969,7 @@ if.then185.i:                                     ; preds = %if.end183.i
   %.compoundliteral186.sroa.5.8.insert.shift.i261 = shl nuw i64 %.compoundliteral186.sroa.5.8.insert.ext.i260, 32
   %.compoundliteral186.sroa.3.8.insert.ext.i262 = zext i32 %469 to i64
   %.compoundliteral186.sroa.3.8.insert.insert.i263 = or disjoint i64 %.compoundliteral186.sroa.5.8.insert.shift.i261, %.compoundliteral186.sroa.3.8.insert.ext.i262
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %.compoundliteral186.sroa.0.0.insert.insert.i259, i64 %.compoundliteral186.sroa.3.8.insert.insert.i263, ptr noundef nonnull @.str.362, ptr noundef %465)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %.compoundliteral186.sroa.0.0.insert.insert.i259, i64 %.compoundliteral186.sroa.3.8.insert.insert.i263, ptr noundef nonnull @.str.362, ptr noundef %465)
   br label %error.i265
 
 if.end196.i:                                      ; preds = %if.end183.i
@@ -28047,7 +28047,7 @@ diff.i:                                           ; preds = %if.else.i292, %if.t
   %.compoundliteral221.sroa.5.8.insert.shift.i = shl nuw i64 %.compoundliteral221.sroa.5.8.insert.ext.i, 32
   %.compoundliteral221.sroa.3.8.insert.ext.i = zext i32 %483 to i64
   %.compoundliteral221.sroa.3.8.insert.insert.i = or disjoint i64 %.compoundliteral221.sroa.5.8.insert.shift.i, %.compoundliteral221.sroa.3.8.insert.ext.i
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral221.sroa.0.0.insert.insert.i, i64 %.compoundliteral221.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.368)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %.compoundliteral221.sroa.0.0.insert.insert.i, i64 %.compoundliteral221.sroa.3.8.insert.insert.i, ptr noundef nonnull @.str.368)
   br label %error.i265
 
 error.i265:                                       ; preds = %if.end85.i, %instr_sequence_next_inst.exit.i.i364, %do.end.i, %instr_sequence_next_inst.exit.i.i403, %lor.lhs.false100.i, %lor.lhs.false.i290, %for.body.i271, %instr_sequence_next_inst.exit.i.i.i384.us, %while.body.i376.us, %if.end196.i, %if.end175.i, %instr_sequence_next_inst.exit.i.i.i559, %while.body.i551, %Py_INCREF.exit.i, %instr_sequence_next_inst.exit.i.i540, %diff.i, %if.then185.i, %lor.lhs.false130.i, %if.then61.i
@@ -28111,7 +28111,7 @@ sw.epilog:                                        ; preds = %entry
   %.compoundliteral.sroa.5.8.insert.shift = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext, 32
   %.compoundliteral.sroa.3.8.insert.ext = zext i32 %491 to i64
   %.compoundliteral.sroa.3.8.insert.insert = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift, %.compoundliteral.sroa.3.8.insert.ext
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert, i64 %.compoundliteral.sroa.3.8.insert.insert, ptr noundef nonnull @.str.352, i32 noundef %0)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert, i64 %.compoundliteral.sroa.3.8.insert.insert, ptr noundef nonnull @.str.352, i32 noundef %0)
   br label %return
 
 return:                                           ; preds = %for.inc204.i, %if.then183.i, %if.end199.i, %for.body323.i, %if.end431.i, %if.end416.i, %while.body.i, %if.end136.i.thread, %if.end161.i, %if.end35.i, %instr_sequence_next_inst.exit.i.i342, %if.end.i81, %instr_sequence_next_inst.exit.i.i314, %for.end.i, %instr_sequence_next_inst.exit.i.i, %if.end54.i, %if.end48.i, %if.end22.i, %if.end.i206, %if.then4.i, %if.end145.i, %if.end131.i, %if.end116.i, %if.end101.i, %if.end86.i149, %Py_DECREF.exit.i137, %if.then1.i213.i, %if.end.i210.i, %if.then71.i, %if.end50.i, %if.end44.i, %if.then39.i, %if.then25.i, %if.then.i110, %if.then1.i.i103, %if.end.i.i100, %error.i, %if.end491.i, %if.end475.i, %if.else460.i, %while.end.i, %if.end383.i, %if.end368.i, %if.end353.i, %if.then338.i, %if.end301.i, %if.end288.i, %if.end273.i, %if.end258.i, %if.end242.i, %if.end227.i92, %Py_DECREF.exit500.i, %if.end136.i, %if.then125.i, %if.end109.i, %Py_DECREF.exit509.i, %if.then1.i516.i, %if.end.i513.i, %if.then95.i, %if.end78.i, %if.then63.i, %if.then44.i, %if.end29.i, %if.then.i70, %if.end227.i, %if.else212.i, %if.then198.i, %if.then180.i, %if.end162.i, %Py_DECREF.exit.i, %if.then1.i234.i, %if.end.i231.i, %if.then148.i, %if.end129.i, %if.then114.i, %if.end99.i, %Py_DECREF.exit245.i, %if.then1.i252.i, %if.end.i249.i, %if.then85.i, %if.end68.i, %if.then53.i, %if.end38.i, %if.then6.i, %if.end17.i, %instr_sequence_next_inst.exit.i.i.i.i, %if.end.i39, %sw.bb1, %if.end37.i, %instr_sequence_next_inst.exit.i.i.i, %if.end24.i, %instr_sequence_next_inst.exit.i.i71.i.i, %if.end11.i, %if.end.i, %if.then.i, %sw.epilog, %compiler_pattern_or.exit, %sw.bb9
@@ -28671,7 +28671,7 @@ return:                                           ; preds = %if.end48, %if.end42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @pattern_helper_sequence_unpack(ptr noundef nonnull %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef readonly %patterns, ptr nocapture noundef nonnull %pc) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @pattern_helper_sequence_unpack.argelim(ptr noundef nonnull %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef readonly %patterns, ptr nocapture noundef nonnull %pc) unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq ptr %patterns, null
   br i1 %cmp.i, label %if.then20.i, label %cond.end.i
@@ -28836,7 +28836,7 @@ for.inc:                                          ; preds = %for.body
 
 return.sink.split:                                ; preds = %if.then.i, %lor.lhs.false.i, %for.body.i.us
   %.str.355.sink = phi ptr [ @.str.356, %for.body.i.us ], [ @.str.355, %lor.lhs.false.i ], [ @.str.355, %if.then.i ]
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %.str.355.sink)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull %.str.355.sink)
   br label %return
 
 return:                                           ; preds = %instr_sequence_next_inst.exit.i.i.i, %if.end.i, %for.inc, %for.body, %return.sink.split, %if.end, %cond.end, %if.then20.i, %instr_sequence_next_inst.exit.i.i29.i
@@ -28894,7 +28894,7 @@ if.end3:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.end6, label %forbidden_name.exit.thread
 
 forbidden_name.exit.thread:                       ; preds = %if.end3
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @.str.332)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @.str.332)
   br label %return
 
 if.end6:                                          ; preds = %if.end3
@@ -28906,7 +28906,7 @@ if.end6:                                          ; preds = %if.end3
   ]
 
 if.then11:                                        ; preds = %if.end6
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @.str.362, ptr noundef nonnull %n)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @.str.362, ptr noundef nonnull %n)
   br label %return
 
 if.end13:                                         ; preds = %if.end6
@@ -29021,7 +29021,7 @@ forbidden_name.exit.thread:                       ; preds = %for.body
   %loc.sroa.2.0.insert.shift = shl nuw i64 %loc.sroa.2.0.insert.ext, 32
   %loc.sroa.0.0.insert.ext = zext i32 %3 to i64
   %loc.sroa.0.0.insert.insert = or disjoint i64 %loc.sroa.2.0.insert.shift, %loc.sroa.0.0.insert.ext
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.3.8.insert.insert, ptr noundef nonnull @.str.332)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.3.8.insert.insert, ptr noundef nonnull @.str.332)
   br label %return
 
 if.end:                                           ; preds = %for.body
@@ -29056,7 +29056,7 @@ if.then20:                                        ; preds = %for.body16
   %loc21.sroa.5.8.insert.shift = shl nuw i64 %loc21.sroa.5.8.insert.ext, 32
   %loc21.sroa.3.8.insert.ext = zext i32 %11 to i64
   %loc21.sroa.3.8.insert.insert = or disjoint i64 %loc21.sroa.5.8.insert.shift, %loc21.sroa.3.8.insert.ext
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc21.sroa.0.0.insert.insert, i64 %loc21.sroa.3.8.insert.insert, ptr noundef nonnull @.str.365, ptr noundef %1)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc21.sroa.0.0.insert.insert, i64 %loc21.sroa.3.8.insert.insert, ptr noundef nonnull @.str.365, ptr noundef %1)
   br label %return
 
 for.inc:                                          ; preds = %for.body16
@@ -29203,7 +29203,7 @@ if.end42:                                         ; preds = %for.body.i, %for.co
   br i1 %cmp.i127, label %compiler_push_fblock.exit.thread, label %if.end48
 
 compiler_push_fblock.exit.thread:                 ; preds = %if.end42
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.sroa.0.sroa.0.0.insert.insert, i64 %loc.sroa.11.12.insert.insert, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.sroa.0.sroa.0.0.insert.insert, i64 %loc.sroa.11.12.insert.insert, ptr noundef nonnull @.str.344)
   br label %return
 
 if.end48:                                         ; preds = %if.end42
@@ -29344,7 +29344,7 @@ if.end144:                                        ; preds = %if.end137
   br i1 %cmp.i150, label %compiler_push_fblock.exit162.thread, label %if.end150
 
 compiler_push_fblock.exit162.thread:              ; preds = %if.end144
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 -1, i64 -1, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 -1, i64 -1, ptr noundef nonnull @.str.344)
   br label %return
 
 if.end150:                                        ; preds = %if.end144
@@ -29400,7 +29400,7 @@ if.end186:                                        ; preds = %for.end178
   br i1 %cmp191, label %return, label %if.end194
 
 if.end194:                                        ; preds = %if.end186
-  %call195 = tail call fastcc i32 @compiler_pop_except_and_reraise(ptr noundef %c)
+  %call195 = tail call fastcc i32 @compiler_pop_except_and_reraise.argelim(ptr noundef %c)
   %cmp196 = icmp eq i32 %call195, -1
   br i1 %cmp196, label %return, label %if.end199
 
@@ -29543,7 +29543,7 @@ if.end42:                                         ; preds = %for.body.i, %for.co
   br i1 %cmp.i302, label %compiler_push_fblock.exit.thread, label %if.end47
 
 compiler_push_fblock.exit.thread:                 ; preds = %if.end42
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.5.8.insert.insert, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.5.8.insert.insert, ptr noundef nonnull @.str.344)
   br label %return
 
 if.end47:                                         ; preds = %if.end42
@@ -29670,7 +29670,7 @@ if.end149:                                        ; preds = %if.end142
   br i1 %cmp.i310, label %compiler_push_fblock.exit322.thread, label %compiler_push_fblock.exit322
 
 compiler_push_fblock.exit322.thread:              ; preds = %if.end149
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.5.8.insert.insert, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.5.8.insert.insert, ptr noundef nonnull @.str.344)
   br label %return
 
 compiler_push_fblock.exit322:                     ; preds = %if.end149
@@ -29729,7 +29729,7 @@ if.then177:                                       ; preds = %for.body158
   %loc163.sroa.19.8.insert.shift = shl nuw i64 %loc163.sroa.19.8.insert.ext, 32
   %loc163.sroa.10.8.insert.ext = zext i32 %48 to i64
   %loc163.sroa.10.8.insert.insert = or disjoint i64 %loc163.sroa.19.8.insert.shift, %loc163.sroa.10.8.insert.ext
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc163.sroa.0.0.insert.insert, i64 %loc163.sroa.10.8.insert.insert, ptr noundef nonnull @.str.369)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc163.sroa.0.0.insert.insert, i64 %loc163.sroa.10.8.insert.insert, ptr noundef nonnull @.str.369)
   br label %return
 
 if.end179:                                        ; preds = %for.body158
@@ -29833,7 +29833,7 @@ if.end259:                                        ; preds = %if.end251
   br i1 %cmp.i331, label %compiler_push_fblock.exit343.thread, label %if.end267
 
 compiler_push_fblock.exit343.thread:              ; preds = %if.end259
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc163.sroa.0.0.insert.insert28, i64 %loc163.sroa.10.8.insert.insert91, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc163.sroa.0.0.insert.insert28, i64 %loc163.sroa.10.8.insert.insert91, ptr noundef nonnull @.str.344)
   br label %return
 
 if.end267:                                        ; preds = %if.end259
@@ -29989,7 +29989,7 @@ if.end406:                                        ; preds = %if.end398
   br i1 %cmp.i350, label %compiler_push_fblock.exit362.thread, label %if.end412
 
 compiler_push_fblock.exit362.thread:              ; preds = %if.end406
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc163.sroa.0.0.insert.insert40, i64 %loc163.sroa.10.8.insert.insert103, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc163.sroa.0.0.insert.insert40, i64 %loc163.sroa.10.8.insert.insert103, ptr noundef nonnull @.str.344)
   br label %return
 
 if.end412:                                        ; preds = %if.end406
@@ -30079,7 +30079,7 @@ if.end482:                                        ; preds = %for.end475
   br i1 %cmp487, label %return, label %if.end490
 
 if.end490:                                        ; preds = %if.end482
-  %call491 = tail call fastcc i32 @compiler_pop_except_and_reraise(ptr noundef %c)
+  %call491 = tail call fastcc i32 @compiler_pop_except_and_reraise.argelim(ptr noundef %c)
   %cmp492 = icmp eq i32 %call491, -1
   br i1 %cmp492, label %return, label %if.end495
 
@@ -30097,7 +30097,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @compiler_pop_except_and_reraise(ptr nocapture noundef nonnull readonly %c) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_pop_except_and_reraise.argelim(ptr nocapture noundef nonnull readonly %c) unnamed_addr #1 {
 entry:
   %u = getelementptr inbounds i8, ptr %c, i64 64
   %0 = load ptr, ptr %u, align 8
@@ -30313,7 +30313,7 @@ if.end42:                                         ; preds = %for.body.i, %for.co
   br i1 %cmp.i127, label %compiler_push_fblock.exit.thread, label %if.end48
 
 compiler_push_fblock.exit.thread:                 ; preds = %if.end42
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.sroa.0.sroa.0.0.insert.insert, i64 %loc.sroa.11.12.insert.insert, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.sroa.0.sroa.0.0.insert.insert, i64 %loc.sroa.11.12.insert.insert, ptr noundef nonnull @.str.344)
   br label %return
 
 if.end48:                                         ; preds = %if.end42
@@ -30454,7 +30454,7 @@ if.end144:                                        ; preds = %if.end137
   br i1 %cmp.i150, label %compiler_push_fblock.exit162.thread, label %if.end150
 
 compiler_push_fblock.exit162.thread:              ; preds = %if.end144
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 -1, i64 -1, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 -1, i64 -1, ptr noundef nonnull @.str.344)
   br label %return
 
 if.end150:                                        ; preds = %if.end144
@@ -30510,7 +30510,7 @@ if.end186:                                        ; preds = %for.end178
   br i1 %cmp191, label %return, label %if.end194
 
 if.end194:                                        ; preds = %if.end186
-  %call195 = tail call fastcc i32 @compiler_pop_except_and_reraise(ptr noundef %c)
+  %call195 = tail call fastcc i32 @compiler_pop_except_and_reraise.argelim(ptr noundef %c)
   %cmp196 = icmp eq i32 %call195, -1
   br i1 %cmp196, label %return, label %if.end199
 
@@ -30671,7 +30671,7 @@ if.end58:                                         ; preds = %for.body.i, %for.co
   br i1 %cmp.i359, label %compiler_push_fblock.exit.thread, label %if.end63
 
 compiler_push_fblock.exit.thread:                 ; preds = %if.end58
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.5.8.insert.insert, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.5.8.insert.insert, ptr noundef nonnull @.str.344)
   br label %return
 
 if.end63:                                         ; preds = %if.end58
@@ -30767,7 +30767,7 @@ if.end122:                                        ; preds = %if.end115
   br i1 %cmp.i367, label %compiler_push_fblock.exit379.thread, label %compiler_push_fblock.exit379
 
 compiler_push_fblock.exit379.thread:              ; preds = %if.end122
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.5.8.insert.insert, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.5.8.insert.insert, ptr noundef nonnull @.str.344)
   br label %return
 
 compiler_push_fblock.exit379:                     ; preds = %if.end122
@@ -30973,7 +30973,7 @@ if.end273:                                        ; preds = %if.end265
   br i1 %cmp.i392, label %compiler_push_fblock.exit404.thread, label %if.end281
 
 compiler_push_fblock.exit404.thread:              ; preds = %if.end273
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc136.sroa.0.0.insert.insert48.pre-phi, i64 %loc136.sroa.12.8.insert.insert129.pre-phi, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc136.sroa.0.0.insert.insert48.pre-phi, i64 %loc136.sroa.12.8.insert.insert129.pre-phi, ptr noundef nonnull @.str.344)
   br label %return
 
 if.end281:                                        ; preds = %if.end273
@@ -31284,7 +31284,7 @@ if.end578:                                        ; preds = %if.end571
   br i1 %cmp583, label %return, label %if.end586
 
 if.end586:                                        ; preds = %if.end578
-  %call587 = tail call fastcc i32 @compiler_pop_except_and_reraise(ptr noundef %c)
+  %call587 = tail call fastcc i32 @compiler_pop_except_and_reraise.argelim(ptr noundef %c)
   %cmp588 = icmp eq i32 %call587, -1
   br i1 %cmp588, label %return, label %if.end591
 
@@ -31596,7 +31596,7 @@ if.end72:                                         ; preds = %if.end65
   br i1 %cmp77, label %return, label %if.end79
 
 if.end79:                                         ; preds = %if.end72
-  %call80 = tail call fastcc i32 @compiler_pop_except_and_reraise(ptr noundef %c)
+  %call80 = tail call fastcc i32 @compiler_pop_except_and_reraise.argelim(ptr noundef %c)
   %cmp81 = icmp eq i32 %call80, -1
   br i1 %cmp81, label %return, label %if.end83
 
@@ -32850,7 +32850,7 @@ if.then39:                                        ; preds = %do.end
   %loc.sroa.32.8.insert.shift173 = shl nuw i64 %loc.sroa.32.8.insert.ext172, 32
   %loc.sroa.17.8.insert.ext123 = zext i32 %9 to i64
   %loc.sroa.17.8.insert.insert125 = or disjoint i64 %loc.sroa.32.8.insert.shift173, %loc.sroa.17.8.insert.ext123
-  call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert17, i64 %loc.sroa.17.8.insert.insert125, ptr noundef nonnull @.str.385)
+  call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert17, i64 %loc.sroa.17.8.insert.insert125, ptr noundef nonnull @.str.385)
   br label %error_in_scope
 
 if.end41:                                         ; preds = %do.end
@@ -33242,7 +33242,7 @@ if.end51.i:                                       ; preds = %instr_sequence_next
   br i1 %cmp57.i, label %pop_inlined_comprehension_state.exit.thread, label %if.end59.i
 
 if.end59.i:                                       ; preds = %if.end51.i
-  %call60.i357 = call fastcc i32 @restore_inlined_comprehension_locals(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert29.pre-phi, i64 %loc.sroa.17.8.insert.insert137.pre-phi, ptr nonnull %inline_state.sroa.0.1)
+  %call60.i357 = call fastcc i32 @restore_inlined_comprehension_locals.argprom(ptr noundef readonly %c, i64 %loc.sroa.0.0.insert.insert29.pre-phi, i64 %loc.sroa.17.8.insert.insert137.pre-phi, ptr nonnull %inline_state.sroa.0.1)
   %cmp61.i = icmp slt i32 %call60.i357, 0
   br i1 %cmp61.i, label %pop_inlined_comprehension_state.exit.thread, label %if.then69.i
 
@@ -33814,7 +33814,7 @@ if.end45:                                         ; preds = %for.body.i, %for.co
   br i1 %cmp.i203, label %compiler_push_fblock.exit.thread, label %if.end50
 
 compiler_push_fblock.exit.thread:                 ; preds = %if.end45
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @.str.344)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @.str.344)
   br label %return
 
 if.end50:                                         ; preds = %if.end45
@@ -33933,7 +33933,7 @@ for.body:                                         ; preds = %cond.end, %for.cond
   %typed_elements87 = getelementptr inbounds i8, ptr %41, i64 16
   %arrayidx88 = getelementptr [1 x ptr], ptr %typed_elements87, i64 0, i64 %i.0253
   %42 = load ptr, ptr %arrayidx88, align 8
-  %call90 = tail call fastcc i32 @compiler_jump_if(ptr noundef %c, ptr noundef %42, i32 %inc.i187, i32 noundef 0)
+  %call90 = tail call fastcc i32 @compiler_jump_if.argelim(ptr noundef %c, ptr noundef %42, i32 %inc.i187, i32 noundef 0)
   %cmp91 = icmp eq i32 %call90, -1
   br i1 %cmp91, label %return, label %for.cond
 
@@ -34367,7 +34367,7 @@ for.body:                                         ; preds = %cond.end92, %for.co
   %typed_elements96 = getelementptr inbounds i8, ptr %37, i64 16
   %arrayidx97 = getelementptr [1 x ptr], ptr %typed_elements96, i64 0, i64 %i.0270
   %38 = load ptr, ptr %arrayidx97, align 8
-  %call99 = tail call fastcc i32 @compiler_jump_if(ptr noundef %c, ptr noundef %38, i32 %inc.i174, i32 noundef 0)
+  %call99 = tail call fastcc i32 @compiler_jump_if.argelim(ptr noundef %c, ptr noundef %38, i32 %inc.i174, i32 noundef 0)
   %cmp100 = icmp eq i32 %call99, -1
   br i1 %cmp100, label %return, label %for.cond
 
@@ -34611,7 +34611,7 @@ return:                                           ; preds = %for.body, %if.end21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @restore_inlined_comprehension_locals(ptr nocapture noundef nonnull readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr %state.0.val) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @restore_inlined_comprehension_locals.argprom(ptr nocapture noundef nonnull readonly %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr %state.0.val) unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %state.0.val, i64 16
   %.val = load i64, ptr %0, align 8
@@ -34724,7 +34724,7 @@ lor.lhs.false:                                    ; preds = %if.then
   br i1 %cmp5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %lor.lhs.false, %if.then
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @.str.392)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @.str.392)
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -34753,7 +34753,7 @@ if.else:                                          ; preds = %for.body
   br i1 %cmp14, label %if.then15, label %for.inc
 
 if.then15:                                        ; preds = %if.else
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @.str.393)
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error.argelim(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef nonnull @.str.393)
   br label %return
 
 for.inc:                                          ; preds = %if.else

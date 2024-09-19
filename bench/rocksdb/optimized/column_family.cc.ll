@@ -7758,7 +7758,7 @@ _ZNSt10unique_ptrIN7rocksdb20WriteControllerTokenESt14default_deleteIS1_EED2Ev.e
 
 if.else162:                                       ; preds = %if.else155
   %113 = load i64, ptr %estimated_compaction_needed_bytes_.i, align 8
-  %call164 = tail call fastcc noundef i64 @_ZN7rocksdb12_GLOBAL__N_145GetPendingCompactionBytesForCompactionSpeedupERKNS_16MutableCFOptionsEPKNS_18VersionStorageInfoE(i64 %108, ptr noundef nonnull %storage_info_.i)
+  %call164 = tail call fastcc noundef i64 @_ZN7rocksdb12_GLOBAL__N_145GetPendingCompactionBytesForCompactionSpeedupERKNS_16MutableCFOptionsEPKNS_18VersionStorageInfoE.argprom(i64 %108, ptr noundef nonnull %storage_info_.i)
   %cmp165.not = icmp ult i64 %113, %call164
   br i1 %cmp165.not, label %if.else176, label %if.then166
 
@@ -9284,7 +9284,7 @@ if.end34:                                         ; preds = %if.then23, %entry, 
 declare void @_ZN7rocksdb15WriteController26GetCompactionPressureTokenEv(ptr sret(%"class.std::unique_ptr.134") align 8, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i64 0, 4611686018427387904) i64 @_ZN7rocksdb12_GLOBAL__N_145GetPendingCompactionBytesForCompactionSpeedupERKNS_16MutableCFOptionsEPKNS_18VersionStorageInfoE(i64 %mutable_cf_options.96.val, ptr nocapture noundef readonly %vstorage) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i64 0, 4611686018427387904) i64 @_ZN7rocksdb12_GLOBAL__N_145GetPendingCompactionBytesForCompactionSpeedupERKNS_16MutableCFOptionsEPKNS_18VersionStorageInfoE.argprom(i64 %mutable_cf_options.96.val, ptr nocapture noundef readonly %vstorage) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %bottommost_files_.i = getelementptr inbounds i8, ptr %vstorage, i64 3376
   %0 = load i64, ptr %bottommost_files_.i, align 8, !noalias !69

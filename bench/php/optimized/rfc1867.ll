@@ -438,17 +438,17 @@ multipart_buffer_new.exit:                        ; preds = %142, %146
   %185 = getelementptr inbounds i8, ptr %34, i64 8
   br label %.outer653.outer.outer
 
-.outer653.outer.outer:                            ; preds = %register_http_post_files_variable_ex.exit560, %159
-  %.1432.ph.ph.ph = phi i64 [ %297, %register_http_post_files_variable_ex.exit560 ], [ %spec.select, %159 ]
-  %.0427.ph.ph.ph = phi i64 [ %.3430, %register_http_post_files_variable_ex.exit560 ], [ %46, %159 ]
-  %.0424.ph.ph.ph = phi i32 [ %.2426, %register_http_post_files_variable_ex.exit560 ], [ 0, %159 ]
-  %.0419.ph.ph.ph = phi i64 [ %.0419, %register_http_post_files_variable_ex.exit560 ], [ 0, %159 ]
-  %.0416.ph.ph.ph = phi i32 [ %.2418, %register_http_post_files_variable_ex.exit560 ], [ 0, %159 ]
-  %.0409.ph.ph.ph = phi i64 [ %.0409.ph658, %register_http_post_files_variable_ex.exit560 ], [ 0, %159 ]
-  %.0396.ph.ph.ph = phi i64 [ %.2398, %register_http_post_files_variable_ex.exit560 ], [ 0, %159 ]
-  %.1385.ph.ph.ph = phi ptr [ %.3387, %register_http_post_files_variable_ex.exit560 ], [ null, %159 ]
-  %.1380.ph.ph.ph = phi ptr [ %.3382, %register_http_post_files_variable_ex.exit560 ], [ null, %159 ]
-  %.1377.ph.ph.ph = phi ptr [ %.3, %register_http_post_files_variable_ex.exit560 ], [ null, %159 ]
+.outer653.outer.outer:                            ; preds = %register_http_post_files_variable_ex.argprom.exit560, %159
+  %.1432.ph.ph.ph = phi i64 [ %297, %register_http_post_files_variable_ex.argprom.exit560 ], [ %spec.select, %159 ]
+  %.0427.ph.ph.ph = phi i64 [ %.3430, %register_http_post_files_variable_ex.argprom.exit560 ], [ %46, %159 ]
+  %.0424.ph.ph.ph = phi i32 [ %.2426, %register_http_post_files_variable_ex.argprom.exit560 ], [ 0, %159 ]
+  %.0419.ph.ph.ph = phi i64 [ %.0419, %register_http_post_files_variable_ex.argprom.exit560 ], [ 0, %159 ]
+  %.0416.ph.ph.ph = phi i32 [ %.2418, %register_http_post_files_variable_ex.argprom.exit560 ], [ 0, %159 ]
+  %.0409.ph.ph.ph = phi i64 [ %.0409.ph658, %register_http_post_files_variable_ex.argprom.exit560 ], [ 0, %159 ]
+  %.0396.ph.ph.ph = phi i64 [ %.2398, %register_http_post_files_variable_ex.argprom.exit560 ], [ 0, %159 ]
+  %.1385.ph.ph.ph = phi ptr [ %.3387, %register_http_post_files_variable_ex.argprom.exit560 ], [ null, %159 ]
+  %.1380.ph.ph.ph = phi ptr [ %.3382, %register_http_post_files_variable_ex.argprom.exit560 ], [ null, %159 ]
+  %.1377.ph.ph.ph = phi ptr [ %.3, %register_http_post_files_variable_ex.argprom.exit560 ], [ null, %159 ]
   br label %.outer653.outer
 
 .outer653.outer:                                  ; preds = %.outer653.outer.backedge, %.outer653.outer.outer
@@ -930,7 +930,7 @@ php_mime_get_hdr_value.exit:                      ; preds = %.lr.ph.i
 
 380:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 5120, ptr nonnull %4)
-  %381 = call fastcc i64 @multipart_buffer_read(ptr noundef nonnull %125, ptr noundef %4, ptr noundef null)
+  %381 = call fastcc i64 @multipart_buffer_read.argelim(ptr noundef nonnull %125, ptr noundef %4, ptr noundef null)
   %.not17.i = icmp eq i64 %381, 0
   br i1 %.not17.i, label %389, label %.lr.ph.i543
 
@@ -943,7 +943,7 @@ php_mime_get_hdr_value.exit:                      ; preds = %.lr.ph.i
   %385 = call ptr @_erealloc(ptr noundef %.01418.i, i64 noundef %384) #25
   %386 = getelementptr inbounds i8, ptr %385, i64 %.019.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %386, ptr noundef nonnull align 16 dereferenceable(1) %4, i64 %382, i1 false)
-  %387 = call fastcc i64 @multipart_buffer_read(ptr noundef nonnull %125, ptr noundef %4, ptr noundef null)
+  %387 = call fastcc i64 @multipart_buffer_read.argelim(ptr noundef nonnull %125, ptr noundef %4, ptr noundef null)
   %.not.i544 = icmp eq i64 %387, 0
   br i1 %.not.i544, label %._crit_edge.i, label %.lr.ph.i543
 
@@ -1237,7 +1237,7 @@ safe_php_register_variable.exit:                  ; preds = %420, %.loopexit663,
   br i1 %.not490, label %501, label %490
 
 490:                                              ; preds = %487
-  %491 = call fastcc i64 @multipart_buffer_read(ptr noundef nonnull %125, ptr noundef %13, ptr noundef nonnull %18)
+  %491 = call fastcc i64 @multipart_buffer_read.argelim(ptr noundef nonnull %125, ptr noundef %13, ptr noundef nonnull %18)
   store i64 %491, ptr %16, align 8
   %492 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 128), align 8
   %493 = call i32 @php_open_temporary_fd_ex(ptr noundef %492, ptr noundef nonnull @.str.17, ptr noundef nonnull %9, i32 noundef 1) #21
@@ -1330,7 +1330,7 @@ thread-pre-split:                                 ; preds = %517
   %.1407 = phi i64 [ %.2408, %520 ], [ %.0406.ph, %thread-pre-split ], [ %.0406.ph, %513 ], [ %.0406.ph, %517 ]
   %.1401 = phi i64 [ %526, %520 ], [ %.0400.ph, %thread-pre-split ], [ %.0400.ph, %513 ], [ %.0400.ph, %517 ]
   %.3392 = phi i32 [ %.4, %520 ], [ 0, %thread-pre-split ], [ 1, %513 ], [ 2, %517 ]
-  %528 = call fastcc i64 @multipart_buffer_read(ptr noundef nonnull %125, ptr noundef %13, ptr noundef nonnull %18)
+  %528 = call fastcc i64 @multipart_buffer_read.argelim(ptr noundef nonnull %125, ptr noundef %13, ptr noundef nonnull %18)
   store i64 %528, ptr %16, align 8
   br label %.outer
 
@@ -1530,21 +1530,21 @@ thread-pre-split:                                 ; preds = %517
   %619 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3382) #22
   %620 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 224), ptr noundef %.3382, i64 noundef %619) #21
   %.not.i.i546 = icmp eq ptr %620, null
-  br i1 %.not.i.i546, label %621, label %register_http_post_files_variable.exit
+  br i1 %.not.i.i546, label %621, label %register_http_post_files_variable.argprom.exit
 
 621:                                              ; preds = %617
   call void @php_register_variable_safe(ptr noundef %.3382, ptr noundef %spec.select539, i64 noundef %618, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 424)) #21
-  br label %register_http_post_files_variable.exit
+  br label %register_http_post_files_variable.argprom.exit
 
-register_http_post_files_variable.exit:           ; preds = %617, %621
+register_http_post_files_variable.argprom.exit:   ; preds = %617, %621
   %622 = zext i32 %.2426 to i64
   br i1 %586, label %623, label %625
 
-623:                                              ; preds = %register_http_post_files_variable.exit
+623:                                              ; preds = %register_http_post_files_variable.argprom.exit
   %624 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %.3382, i64 noundef %622, ptr noundef nonnull @.str.23, ptr noundef %.3387, ptr noundef %.3) #21
   br label %627
 
-625:                                              ; preds = %register_http_post_files_variable.exit
+625:                                              ; preds = %register_http_post_files_variable.argprom.exit
   %626 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %.3382, i64 noundef %622, ptr noundef nonnull @.str.24, ptr noundef %.2405) #21
   br label %627
 
@@ -1555,18 +1555,18 @@ register_http_post_files_variable.exit:           ; preds = %617, %621
   %630 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3382) #22
   %631 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 224), ptr noundef %.3382, i64 noundef %630) #21
   %.not.i.i547 = icmp eq ptr %631, null
-  br i1 %.not.i.i547, label %632, label %register_http_post_files_variable.exit548
+  br i1 %.not.i.i547, label %632, label %register_http_post_files_variable.argprom.exit548
 
 632:                                              ; preds = %627
   call void @php_register_variable_safe(ptr noundef %.3382, ptr noundef %628, i64 noundef %629, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 424)) #21
-  br label %register_http_post_files_variable.exit548
+  br label %register_http_post_files_variable.argprom.exit548
 
-register_http_post_files_variable.exit548:        ; preds = %627, %632
+register_http_post_files_variable.argprom.exit548: ; preds = %627, %632
   %633 = load ptr, ptr %15, align 8
   call void @_efree(ptr noundef %633) #21
   br i1 %.not496627, label %634, label %642
 
-634:                                              ; preds = %register_http_post_files_variable.exit548
+634:                                              ; preds = %register_http_post_files_variable.argprom.exit548
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
   %635 = call ptr @zend_llist_get_first_ex(ptr noundef nonnull %3, ptr noundef null) #21
@@ -1597,7 +1597,7 @@ php_mime_get_hdr_value.exit555:                   ; preds = %.lr.ph.i550
   %.not505 = icmp eq ptr %641, null
   br i1 %.not505, label %642, label %643
 
-642:                                              ; preds = %php_mime_get_hdr_value.exit555.thread, %php_mime_get_hdr_value.exit555, %register_http_post_files_variable.exit548
+642:                                              ; preds = %php_mime_get_hdr_value.exit555.thread, %php_mime_get_hdr_value.exit555, %register_http_post_files_variable.argprom.exit548
   store ptr @.str.11, ptr %14, align 8
   br label %646
 
@@ -1630,21 +1630,21 @@ php_mime_get_hdr_value.exit555:                   ; preds = %.lr.ph.i550
   %655 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3382) #22
   %656 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 224), ptr noundef %.3382, i64 noundef %655) #21
   %.not.i.i556 = icmp eq ptr %656, null
-  br i1 %.not.i.i556, label %657, label %register_http_post_files_variable.exit557
+  br i1 %.not.i.i556, label %657, label %register_http_post_files_variable.argprom.exit557
 
 657:                                              ; preds = %652
   call void @php_register_variable_safe(ptr noundef %.3382, ptr noundef %653, i64 noundef %654, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 424)) #21
-  br label %register_http_post_files_variable.exit557
+  br label %register_http_post_files_variable.argprom.exit557
 
-register_http_post_files_variable.exit557:        ; preds = %652, %657
+register_http_post_files_variable.argprom.exit557: ; preds = %652, %657
   %.not507 = icmp eq ptr %.1374, null
   br i1 %.not507, label %659, label %658
 
-658:                                              ; preds = %register_http_post_files_variable.exit557
+658:                                              ; preds = %register_http_post_files_variable.argprom.exit557
   store i8 59, ptr %.1374, align 1
   br label %659
 
-659:                                              ; preds = %658, %register_http_post_files_variable.exit557
+659:                                              ; preds = %658, %register_http_post_files_variable.argprom.exit557
   call fastcc void @normalize_protected_variable(ptr noundef %.2405)
   %660 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2405) #22
   %661 = call ptr @zend_hash_str_add_empty_element(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 224), ptr noundef %.2405, i64 noundef %660) #21
@@ -1711,21 +1711,21 @@ register_http_post_files_variable.exit557:        ; preds = %652, %657
   %687 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3382) #22
   %688 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 224), ptr noundef %.3382, i64 noundef %687) #21
   %.not.i.i558 = icmp eq ptr %688, null
-  br i1 %.not.i.i558, label %689, label %register_http_post_files_variable_ex.exit
+  br i1 %.not.i.i558, label %689, label %register_http_post_files_variable_ex.argprom.exit
 
 689:                                              ; preds = %686
   call void @php_register_variable_ex(ptr noundef %.3382, ptr noundef nonnull %35, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 424)) #21
-  br label %register_http_post_files_variable_ex.exit
+  br label %register_http_post_files_variable_ex.argprom.exit
 
-register_http_post_files_variable_ex.exit:        ; preds = %686, %689
+register_http_post_files_variable_ex.argprom.exit: ; preds = %686, %689
   %690 = zext i32 %.2426 to i64
   br i1 %586, label %691, label %693
 
-691:                                              ; preds = %register_http_post_files_variable_ex.exit
+691:                                              ; preds = %register_http_post_files_variable_ex.argprom.exit
   %692 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %.3382, i64 noundef %690, ptr noundef nonnull @.str.33, ptr noundef %.3387, ptr noundef %.3) #21
   br label %695
 
-693:                                              ; preds = %register_http_post_files_variable_ex.exit
+693:                                              ; preds = %register_http_post_files_variable_ex.argprom.exit
   %694 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %.3382, i64 noundef %690, ptr noundef nonnull @.str.34, ptr noundef %.2405) #21
   br label %695
 
@@ -1734,13 +1734,13 @@ register_http_post_files_variable_ex.exit:        ; preds = %686, %689
   %696 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3382) #22
   %697 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 224), ptr noundef %.3382, i64 noundef %696) #21
   %.not.i.i559 = icmp eq ptr %697, null
-  br i1 %.not.i.i559, label %698, label %register_http_post_files_variable_ex.exit560
+  br i1 %.not.i.i559, label %698, label %register_http_post_files_variable_ex.argprom.exit560
 
 698:                                              ; preds = %695
   call void @php_register_variable_ex(ptr noundef %.3382, ptr noundef nonnull %34, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 424)) #21
-  br label %register_http_post_files_variable_ex.exit560
+  br label %register_http_post_files_variable_ex.argprom.exit560
 
-register_http_post_files_variable_ex.exit560:     ; preds = %695, %698
+register_http_post_files_variable_ex.argprom.exit560: ; preds = %695, %698
   call void @_efree(ptr noundef %.2405) #21
   br label %.outer653.outer.outer
 
@@ -2214,7 +2214,7 @@ declare noalias ptr @_emalloc_40() local_unnamed_addr #3
 declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, 5120) i64 @multipart_buffer_read(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 5120) i64 @multipart_buffer_read.argelim(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = icmp ult i32 %5, 5120

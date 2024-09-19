@@ -5521,7 +5521,7 @@ if.else59:                                        ; preds = %if.else
   store ptr %0, ptr %data, align 8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 96), align 8
   %25 = load ptr, ptr %cc, align 8
-  tail call fastcc void @redisAeAttach(ptr noundef %24, ptr noundef %25)
+  tail call fastcc void @redisAeAttach.retelim(ptr noundef %24, ptr noundef %25)
   %26 = load ptr, ptr %cc, align 8
   %call65 = tail call i32 @redisAsyncSetConnectCallback(ptr noundef %26, ptr noundef nonnull @sentinelLinkEstablishedCallback) #29
   %27 = load ptr, ptr %cc, align 8
@@ -5599,7 +5599,7 @@ if.else119:                                       ; preds = %if.else100
   store ptr %0, ptr %data122, align 8
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 96), align 8
   %43 = load ptr, ptr %pc, align 8
-  tail call fastcc void @redisAeAttach(ptr noundef %42, ptr noundef %43)
+  tail call fastcc void @redisAeAttach.retelim(ptr noundef %42, ptr noundef %43)
   %44 = load ptr, ptr %pc, align 8
   %call126 = tail call i32 @redisAsyncSetConnectCallback(ptr noundef %44, ptr noundef nonnull @sentinelLinkEstablishedCallback) #29
   %45 = load ptr, ptr %pc, align 8
@@ -5649,7 +5649,7 @@ declare ptr @redisAsyncConnectBind(ptr noundef, i32 noundef, ptr noundef) local_
 declare i32 @anetCloexec(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @redisAeAttach(ptr noundef %loop, ptr noundef %ac) unnamed_addr #0 {
+define internal fastcc void @redisAeAttach.retelim(ptr noundef %loop, ptr noundef %ac) unnamed_addr #0 {
 entry:
   %ev = getelementptr inbounds i8, ptr %ac, i64 304
   %0 = load ptr, ptr %ev, align 8

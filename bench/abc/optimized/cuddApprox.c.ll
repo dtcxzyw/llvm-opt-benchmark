@@ -226,7 +226,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %127 = load double, ptr %62, align 8
   %128 = fsub double %127, %98
   store double %128, ptr %62, align 8
-  call fastcc void @updateRefs(ptr noundef readonly %0, ptr noundef nonnull %71, ptr noundef null, ptr noundef %20, ptr noundef %38)
+  call fastcc void @updateRefs.retelim(ptr noundef readonly %0, ptr noundef nonnull %71, ptr noundef null, ptr noundef %20, ptr noundef %38)
   br label %.backedge.i
 
 129:                                              ; preds = %110
@@ -870,15 +870,15 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   ]
 
 .thread.i:                                        ; preds = %283
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %71, ptr noundef null, ptr noundef %23, ptr noundef %41)
+  call fastcc void @updateRefs.retelim(ptr noundef %0, ptr noundef nonnull %71, ptr noundef null, ptr noundef %23, ptr noundef %41)
   br label %.backedge.i
 
 .thread306.i:                                     ; preds = %283
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %95, ptr noundef %23, ptr noundef %41)
+  call fastcc void @updateRefs.retelim(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %95, ptr noundef %23, ptr noundef %41)
   br label %.thread290.i
 
 .thread290.thread312.i:                           ; preds = %283
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %.0247.i, ptr noundef %23, ptr noundef %41)
+  call fastcc void @updateRefs.retelim(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %.0247.i, ptr noundef %23, ptr noundef %41)
   %291 = and i32 %.1253.i, -2
   %292 = icmp eq i32 %291, 4
   br i1 %292, label %372, label %.backedge.i
@@ -890,7 +890,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %295, label %.thread290.i, label %.thread293.i
 
 .thread290.thread.i.thread:                       ; preds = %283
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %93, ptr noundef %23, ptr noundef %41)
+  call fastcc void @updateRefs.retelim(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %93, ptr noundef %23, ptr noundef %41)
   %296 = load ptr, ptr %92, align 8
   %297 = load i32, ptr %296, align 8
   %298 = icmp eq i32 %297, 2147483647
@@ -1654,11 +1654,11 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ]
 
 .thread.i:                                        ; preds = %303
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %88, ptr noundef null, ptr noundef %25, ptr noundef %58)
+  call fastcc void @updateRefs.retelim(ptr noundef %0, ptr noundef nonnull %88, ptr noundef null, ptr noundef %25, ptr noundef %58)
   br label %.backedge.i
 
 .thread319.i:                                     ; preds = %303
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %115, ptr noundef %25, ptr noundef %58)
+  call fastcc void @updateRefs.retelim(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %115, ptr noundef %25, ptr noundef %58)
   br label %.thread303.i
 
 .thread303.thread.i:                              ; preds = %291
@@ -1668,7 +1668,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %313, label %.thread303.i, label %.thread306.i
 
 .thread303.thread.i.thread:                       ; preds = %303
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %113, ptr noundef %25, ptr noundef %58)
+  call fastcc void @updateRefs.retelim(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %113, ptr noundef %25, ptr noundef %58)
   %314 = load ptr, ptr %112, align 8
   %315 = load i32, ptr %314, align 8
   %316 = icmp eq i32 %315, 2147483647
@@ -1784,7 +1784,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.backedge.i
 
 390:                                              ; preds = %303
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %.0259.i, ptr noundef %25, ptr noundef %58)
+  call fastcc void @updateRefs.retelim(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %.0259.i, ptr noundef %25, ptr noundef %58)
   %391 = and i32 %.1265.i, -2
   %392 = icmp eq i32 %391, 4
   br i1 %392, label %393, label %.backedge.i
@@ -3074,7 +3074,7 @@ define internal fastcc i32 @computeSavings(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @updateRefs(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @updateRefs.retelim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = ptrtoint ptr %1 to i64
   %8 = and i64 %7, -2

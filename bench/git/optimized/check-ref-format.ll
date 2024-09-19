@@ -89,24 +89,24 @@ do.body.i.i:                                      ; preds = %do.cond.i.i, %lor.l
   %prefix.addr.0.ptr.i.i = getelementptr inbounds i8, ptr @.str.10, i64 %prefix.addr.0.idx.i.i
   %10 = load i8, ptr %prefix.addr.0.ptr.i.i, align 1
   %exitcond.i.i = icmp eq i64 %prefix.addr.0.idx.i.i, 11
-  br i1 %exitcond.i.i, label %skip_prefix.exit.i, label %do.cond.i.i
+  br i1 %exitcond.i.i, label %skip_prefix.argprom.exit.i, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %str.addr.0.i.i, i64 1
   %11 = load i8, ptr %str.addr.0.i.i, align 1
   %prefix.addr.0.add.i.i = add nuw nsw i64 %prefix.addr.0.idx.i.i, 1
   %cmp.i.i = icmp eq i8 %11, %10
-  br i1 %cmp.i.i, label %do.body.i.i, label %skip_prefix.exit.i, !llvm.loop !5
+  br i1 %cmp.i.i, label %do.body.i.i, label %skip_prefix.argprom.exit.i, !llvm.loop !5
 
-skip_prefix.exit.i:                               ; preds = %do.cond.i.i, %do.body.i.i
+skip_prefix.argprom.exit.i:                       ; preds = %do.cond.i.i, %do.body.i.i
   %tobool.not.i.i = icmp eq i8 %10, 0
   br i1 %tobool.not.i.i, label %check_ref_format_branch.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %skip_prefix.exit.i, %if.then9
+if.then.i:                                        ; preds = %skip_prefix.argprom.exit.i, %if.then9
   call void (ptr, ...) @die(ptr noundef nonnull @.str.11, ptr noundef %8) #8
   unreachable
 
-check_ref_format_branch.exit:                     ; preds = %skip_prefix.exit.i
+check_ref_format_branch.exit:                     ; preds = %skip_prefix.argprom.exit.i
   %scevgep.i.i = getelementptr i8, ptr %9, i64 11
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %scevgep.i.i)
   call void @strbuf_release(ptr noundef nonnull %sb.i) #10

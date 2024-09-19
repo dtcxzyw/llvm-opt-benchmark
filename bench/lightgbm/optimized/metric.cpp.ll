@@ -26523,7 +26523,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %34 = call noundef nonnull align 8 dereferenceable(24) ptr %33(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #12
-  call fastcc void @_ZN8LightGBM6CommonL27CheckElementsIntervalClosedIfEEvPKT_S2_S2_iPKc(ptr noundef %30, i32 noundef %29, ptr noundef %36)
+  call fastcc void @_ZN8LightGBM6CommonL27CheckElementsIntervalClosedIfEEvPKT_S2_S2_iPKc.argelim(ptr noundef %30, i32 noundef %29, ptr noundef %36)
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
@@ -26562,7 +26562,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %.038.i = phi float [ %57, %53 ], [ %52, %49 ]
   %.0.i = phi i32 [ 3, %53 ], [ 2, %49 ]
   %59 = icmp slt i32 %.0.i, %45
-  br i1 %59, label %.lr.ph.preheader.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit
+  br i1 %59, label %.lr.ph.preheader.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %58
   %60 = zext nneg i32 %.0.i to i64
@@ -26585,9 +26585,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %69 = fadd float %.13914.i, %68
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %70 = icmp ult i64 %indvars.iv.next.i, %61
-  br i1 %70, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit, !llvm.loop !196
+  br i1 %70, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit, !llvm.loop !196
 
-_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr.ph.i, %58
+_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit: ; preds = %.lr.ph.i, %58
   %.19.lcssa.i = phi float [ %.08.i, %58 ], [ %.sroa.speculated.i, %.lr.ph.i ]
   %.139.lcssa.i = phi float [ %.038.i, %58 ], [ %69, %.lr.ph.i ]
   %71 = fpext float %.139.lcssa.i to double
@@ -26595,7 +26595,7 @@ _ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr
   %72 = fcmp olt float %.19.lcssa.i, 0.000000e+00
   br i1 %72, label %73, label %80
 
-73:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit
+73:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit
   %74 = load ptr, ptr %0, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
@@ -26606,8 +26606,8 @@ _ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr
   %.pre5 = load double, ptr %50, align 8
   br label %80
 
-80:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit, %73, %46
-  %81 = phi double [ %71, %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit ], [ %.pre5, %73 ], [ %47, %46 ]
+80:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit, %73, %46
+  %81 = phi double [ %71, %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit ], [ %.pre5, %73 ], [ %47, %46 ]
   %82 = getelementptr inbounds i8, ptr %0, i64 32
   %83 = fcmp ugt double %81, 0.000000e+00
   br i1 %83, label %92, label %84
@@ -26702,7 +26702,7 @@ define linkonce_odr void @_ZNK8LightGBM18CrossEntropyMetric4EvalEPKdPKNS_17Objec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL27CheckElementsIntervalClosedIfEEvPKT_S2_S2_iPKc(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 {
+define internal fastcc void @_ZN8LightGBM6CommonL27CheckElementsIntervalClosedIfEEvPKT_S2_S2_iPKc.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = alloca float, align 4
   %6 = alloca float, align 4
@@ -27684,7 +27684,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %34 = call noundef nonnull align 8 dereferenceable(24) ptr %33(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #12
-  call fastcc void @_ZN8LightGBM6CommonL27CheckElementsIntervalClosedIfEEvPKT_S2_S2_iPKc(ptr noundef %30, i32 noundef %29, ptr noundef %36)
+  call fastcc void @_ZN8LightGBM6CommonL27CheckElementsIntervalClosedIfEEvPKT_S2_S2_iPKc.argelim(ptr noundef %30, i32 noundef %29, ptr noundef %36)
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
@@ -27714,7 +27714,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %.08.i = phi float [ %..i, %48 ], [ %47, %44 ]
   %.0.i = phi i32 [ 3, %48 ], [ 2, %44 ]
   %53 = icmp slt i32 %.0.i, %45
-  br i1 %53, label %.lr.ph.preheader.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit
+  br i1 %53, label %.lr.ph.preheader.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %52
   %54 = zext nneg i32 %.0.i to i64
@@ -27734,14 +27734,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %.sroa.speculated.i = select i1 %61, float %.21.i, float %.1914.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %62 = icmp ult i64 %indvars.iv.next.i, %55
-  br i1 %62, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit, !llvm.loop !198
+  br i1 %62, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.argprom.exit, !llvm.loop !198
 
-_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr.ph.i, %52
+_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.argprom.exit: ; preds = %.lr.ph.i, %52
   %.19.lcssa.i = phi float [ %.08.i, %52 ], [ %.sroa.speculated.i, %.lr.ph.i ]
   %63 = fcmp ugt float %.19.lcssa.i, 0.000000e+00
   br i1 %63, label %71, label %64
 
-64:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit
+64:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.argprom.exit
   %65 = load ptr, ptr %0, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8
@@ -27751,7 +27751,7 @@ _ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr
   call void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.90, ptr noundef %70, ptr noundef nonnull @__func__._ZN8LightGBM18CrossEntropyMetric4InitERKNS_8MetadataEi)
   br label %71
 
-71:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit, %64, %28
+71:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.argprom.exit, %64, %28
   ret void
 }
 
@@ -28640,7 +28640,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %34 = call noundef nonnull align 8 dereferenceable(24) ptr %33(ptr noundef nonnull align 8 dereferenceable(72) %0)
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #12
-  call fastcc void @_ZN8LightGBM6CommonL27CheckElementsIntervalClosedIfEEvPKT_S2_S2_iPKc(ptr noundef %30, i32 noundef %29, ptr noundef %36)
+  call fastcc void @_ZN8LightGBM6CommonL27CheckElementsIntervalClosedIfEEvPKT_S2_S2_iPKc.argelim(ptr noundef %30, i32 noundef %29, ptr noundef %36)
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
@@ -28679,7 +28679,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %.038.i = phi float [ %57, %53 ], [ %52, %49 ]
   %.0.i = phi i32 [ 3, %53 ], [ 2, %49 ]
   %59 = icmp slt i32 %.0.i, %45
-  br i1 %59, label %.lr.ph.preheader.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit
+  br i1 %59, label %.lr.ph.preheader.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %58
   %60 = zext nneg i32 %.0.i to i64
@@ -28702,9 +28702,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %69 = fadd float %.13914.i, %68
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %70 = icmp ult i64 %indvars.iv.next.i, %61
-  br i1 %70, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit, !llvm.loop !196
+  br i1 %70, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit, !llvm.loop !196
 
-_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr.ph.i, %58
+_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit: ; preds = %.lr.ph.i, %58
   %.19.lcssa.i = phi float [ %.08.i, %58 ], [ %.sroa.speculated.i, %.lr.ph.i ]
   %.139.lcssa.i = phi float [ %.038.i, %58 ], [ %69, %.lr.ph.i ]
   %71 = fpext float %.139.lcssa.i to double
@@ -28712,7 +28712,7 @@ _ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr
   %72 = fcmp olt float %.19.lcssa.i, 0.000000e+00
   br i1 %72, label %73, label %80
 
-73:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit
+73:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit
   %74 = load ptr, ptr %0, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
@@ -28723,8 +28723,8 @@ _ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr
   %.pre33 = load double, ptr %50, align 8
   br label %80
 
-80:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit, %73, %46
-  %81 = phi double [ %71, %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.exit ], [ %.pre33, %73 ], [ %47, %46 ]
+80:                                               ; preds = %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit, %73, %46
+  %81 = phi double [ %71, %_ZN8LightGBM6CommonL15ObtainMinMaxSumIfdEEvPKT_iPS2_S5_PT0_.argprom.exit ], [ %.pre33, %73 ], [ %47, %46 ]
   %82 = getelementptr inbounds i8, ptr %0, i64 32
   %83 = fcmp ugt double %81, 0.000000e+00
   br i1 %83, label %92, label %84

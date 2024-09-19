@@ -154,13 +154,13 @@ Vec_AttGrow.exit.i.i.i:                           ; preds = %63, %49, %40
   %74 = getelementptr inbounds ptr, ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %Abc_ObjGlobalBdd.exit.i
+  br i1 %76, label %77, label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit.i
 
 77:                                               ; preds = %Vec_AttGrow.exit.i.i.i
   %78 = getelementptr inbounds i8, ptr %.val61.val.val.val.i, i64 32
   %79 = load ptr, ptr %78, align 8
   %.not18.i.i.i = icmp eq ptr %79, null
-  br i1 %.not18.i.i.i, label %Abc_ObjGlobalBdd.exit.i, label %80
+  br i1 %.not18.i.i.i, label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit.i, label %80
 
 80:                                               ; preds = %77
   %81 = getelementptr inbounds i8, ptr %.val61.val.val.val.i, i64 16
@@ -172,20 +172,20 @@ Vec_AttGrow.exit.i.i.i:                           ; preds = %63, %49, %40
   %.pre.i.i.i = load ptr, ptr %71, align 8
   %.phi.trans.insert.i.i.i = getelementptr inbounds ptr, ptr %.pre.i.i.i, i64 %73
   %.pre19.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
-  br label %Abc_ObjGlobalBdd.exit.i
+  br label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit.i
 
-Abc_ObjGlobalBdd.exit.i:                          ; preds = %80, %77, %Vec_AttGrow.exit.i.i.i
+Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit.i: ; preds = %80, %77, %Vec_AttGrow.exit.i.i.i
   %86 = phi ptr [ %.pre19.i.i.i, %80 ], [ null, %77 ], [ %75, %Vec_AttGrow.exit.i.i.i ]
   %87 = call ptr @Extra_UnateComputeSlow(ptr noundef nonnull %20, ptr noundef %86) #11
   br i1 %.not56.i, label %91, label %88
 
-88:                                               ; preds = %Abc_ObjGlobalBdd.exit.i
+88:                                               ; preds = %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit.i
   %89 = trunc nuw nsw i64 %indvars.iv.i to i32
   %90 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %89)
   call void @Extra_UnateInfoPrint(ptr noundef %87) #11
   br label %91
 
-91:                                               ; preds = %88, %Abc_ObjGlobalBdd.exit.i
+91:                                               ; preds = %88, %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit.i
   %92 = load i32, ptr %87, align 8
   %93 = add nsw i32 %92, %.087.i
   %94 = getelementptr inbounds i8, ptr %87, i64 8
@@ -280,13 +280,13 @@ Vec_AttGrow.exit.i.i70.i:                         ; preds = %128, %114, %105
   %139 = getelementptr inbounds ptr, ptr %137, i64 %138
   %140 = load ptr, ptr %139, align 8
   %141 = icmp eq ptr %140, null
-  br i1 %141, label %142, label %Abc_ObjGlobalBdd.exit77.i
+  br i1 %141, label %142, label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit77.i
 
 142:                                              ; preds = %Vec_AttGrow.exit.i.i70.i
   %143 = getelementptr inbounds i8, ptr %.val63.val.val.val.i, i64 32
   %144 = load ptr, ptr %143, align 8
   %.not18.i.i71.i = icmp eq ptr %144, null
-  br i1 %.not18.i.i71.i, label %Abc_ObjGlobalBdd.exit77.i, label %145
+  br i1 %.not18.i.i71.i, label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit77.i, label %145
 
 145:                                              ; preds = %142
   %146 = getelementptr inbounds i8, ptr %.val63.val.val.val.i, i64 16
@@ -298,20 +298,20 @@ Vec_AttGrow.exit.i.i70.i:                         ; preds = %128, %114, %105
   %.pre.i.i72.i = load ptr, ptr %136, align 8
   %.phi.trans.insert.i.i73.i = getelementptr inbounds ptr, ptr %.pre.i.i72.i, i64 %138
   %.pre19.i.i74.i = load ptr, ptr %.phi.trans.insert.i.i73.i, align 8
-  br label %Abc_ObjGlobalBdd.exit77.i
+  br label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit77.i
 
-Abc_ObjGlobalBdd.exit77.i:                        ; preds = %145, %142, %Vec_AttGrow.exit.i.i70.i
+Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit77.i: ; preds = %145, %142, %Vec_AttGrow.exit.i.i70.i
   %151 = phi ptr [ %.pre19.i.i74.i, %145 ], [ null, %142 ], [ %140, %Vec_AttGrow.exit.i.i70.i ]
   %152 = call ptr @Extra_UnateComputeFast(ptr noundef nonnull %20, ptr noundef %151) #11
   br i1 %.not55.i, label %156, label %153
 
-153:                                              ; preds = %Abc_ObjGlobalBdd.exit77.i
+153:                                              ; preds = %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit77.i
   %154 = trunc nuw nsw i64 %indvars.iv104.i to i32
   %155 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %154)
   call void @Extra_UnateInfoPrint(ptr noundef %152) #11
   br label %156
 
-156:                                              ; preds = %153, %Abc_ObjGlobalBdd.exit77.i
+156:                                              ; preds = %153, %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit77.i
   %157 = load i32, ptr %152, align 8
   %158 = add nsw i32 %157, %.294.i
   %159 = getelementptr inbounds i8, ptr %152, i64 8

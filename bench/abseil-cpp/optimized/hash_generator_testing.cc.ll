@@ -49,7 +49,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  %call = invoke fastcc noundef ptr @"_ZZN4absl18container_internal13hash_internal12GetSharedRngEvENK3$_0clEv"()
+  %call = invoke fastcc noundef ptr @"_ZZN4absl18container_internal13hash_internal12GetSharedRngEvENK3$_0clEv.argprom"()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -72,7 +72,7 @@ lpad:                                             ; preds = %init
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @"_ZZN4absl18container_internal13hash_internal12GetSharedRngEvENK3$_0clEv"() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @"_ZZN4absl18container_internal13hash_internal12GetSharedRngEvENK3$_0clEv.argprom"() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__arr.i.i = alloca [624 x i32], align 16
   %seed_seq = alloca %"class.absl::container_internal::hash_internal::(anonymous namespace)::RandomDeviceSeedSeq", align 8
@@ -228,7 +228,7 @@ init.check.i.i.i:                                 ; preds = %for.body.i
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i.i, label %init.i.i.i
 
 init.i.i.i:                                       ; preds = %init.check.i.i.i
-  %call.i.i.i = invoke fastcc noundef ptr @"_ZZN4absl18container_internal13hash_internal12GetSharedRngEvENK3$_0clEv"()
+  %call.i.i.i = invoke fastcc noundef ptr @"_ZZN4absl18container_internal13hash_internal12GetSharedRngEvENK3$_0clEv.argprom"()
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %init.i.i.i
@@ -493,7 +493,7 @@ init.check.i.i.i:                                 ; preds = %for.body.i
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i.i, label %init.i.i.i
 
 init.i.i.i:                                       ; preds = %init.check.i.i.i
-  %call.i.i.i = invoke fastcc noundef ptr @"_ZZN4absl18container_internal13hash_internal12GetSharedRngEvENK3$_0clEv"()
+  %call.i.i.i = invoke fastcc noundef ptr @"_ZZN4absl18container_internal13hash_internal12GetSharedRngEvENK3$_0clEv.argprom"()
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %init.i.i.i

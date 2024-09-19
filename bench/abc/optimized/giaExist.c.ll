@@ -1245,7 +1245,7 @@ define noundef ptr @Gia_ManQuantDupConeSupp(ptr noundef %0, i32 noundef %1, ptr 
 
 22:                                               ; preds = %6
   %23 = getelementptr inbounds i8, ptr %0, i64 392
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %.val79)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %23, i32 noundef %.val79)
   br label %24
 
 24:                                               ; preds = %22, %6
@@ -1376,7 +1376,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %57
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -1756,7 +1756,7 @@ Vec_IntPush.exit:                                 ; preds = %21
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %49
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %45, i32 noundef %51)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %45, i32 noundef %51)
   br label %54
 
 54:                                               ; preds = %53, %49
@@ -1954,7 +1954,7 @@ Vec_IntPushUnique.exit:                           ; preds = %82, %Vec_IntPush.ex
   call fastcc void @Vec_IntFree(ptr noundef nonnull %.071.lcssa130)
   call fastcc void @Vec_IntFree(ptr noundef %.072.lcssa127)
   %127 = load i32, ptr %6, align 4
-  call fastcc void @Gia_ManAppendCo(ptr noundef %22, i32 noundef %127)
+  call fastcc void @Gia_ManAppendCo.argelim(ptr noundef %22, i32 noundef %127)
   %128 = load ptr, ptr %5, align 8
   %129 = call i32 @Gia_ManDupConeBack(ptr noundef %0, ptr noundef %22, ptr noundef %128) #15
   call void @Gia_ManStop(ptr noundef %22) #15
@@ -1972,7 +1972,7 @@ declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #2
 declare i32 @Gia_ManHashAndMulti(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @Gia_ManAppendCo.argelim(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -2448,7 +2448,7 @@ define noundef ptr @Gia_ManQuantExist2Dup(ptr nocapture noundef %0, i32 noundef 
 
 24:                                               ; preds = %6
   %25 = getelementptr inbounds i8, ptr %0, i64 392
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %25, i32 noundef %.val123)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %25, i32 noundef %.val123)
   br label %26
 
 26:                                               ; preds = %24, %6
@@ -2708,7 +2708,7 @@ define i32 @Gia_ManQuantExistInt(ptr noundef %0, i32 noundef %1, ptr nocapture n
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %25
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %27, i32 noundef %30)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %27, i32 noundef %30)
   br label %33
 
 33:                                               ; preds = %32, %25
@@ -2773,7 +2773,7 @@ define i32 @Gia_ManQuantExistInt(ptr noundef %0, i32 noundef %1, ptr nocapture n
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %50
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %27, i32 noundef %56)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %27, i32 noundef %56)
   br label %59
 
 59:                                               ; preds = %58, %50
@@ -2887,7 +2887,7 @@ Vec_IntPush.exit.i:                               ; preds = %99, %Vec_IntGrow.ex
 
 Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i, %._crit_edge
   %108 = load i32, ptr %6, align 4
-  call fastcc void @Gia_ManAppendCo(ptr noundef %26, i32 noundef %108)
+  call fastcc void @Gia_ManAppendCo.argelim(ptr noundef %26, i32 noundef %108)
   %109 = call i32 @Gia_ManDupConeBackObjs(ptr noundef %0, ptr noundef %26, ptr noundef nonnull %3) #15
   %.val56 = load i32, ptr %39, align 4
   %.val = load i32, ptr %10, align 4

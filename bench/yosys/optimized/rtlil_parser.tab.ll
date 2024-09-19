@@ -895,7 +895,7 @@ define noundef range(i32 0, 3) i32 @_Z22rtlil_frontend_yyparsev() local_unnamed_
   br i1 %.not369, label %233, label %232
 
 232:                                              ; preds = %222
-  call fastcc void @_ZL15yy_reduce_printPhP22RTLIL_FRONTEND_YYSTYPEi(ptr noundef %.2286, i32 noundef %.0307)
+  call fastcc void @_ZL15yy_reduce_printPhP22RTLIL_FRONTEND_YYSTYPEi.argprom(ptr noundef %.2286, i32 noundef %.0307)
   br label %233
 
 233:                                              ; preds = %222, %232
@@ -6960,9 +6960,9 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5clearE
 .lr.ph1779:                                       ; preds = %2881
   %2883 = load i32, ptr @rtlil_frontend_yydebug, align 4
   %2884 = icmp eq i32 %2883, 0
-  br i1 %2884, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007.thread.us.preheader, label %.lr.ph1779.split
+  br i1 %2884, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007.thread.us.preheader, label %.lr.ph1779.split
 
-_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007.thread.us.preheader: ; preds = %.lr.ph1779
+_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007.thread.us.preheader: ; preds = %.lr.ph1779
   %2885 = sub i64 %.128223162416, %.228624152417
   %scevgep = getelementptr i8, ptr %.2286, i64 %2885
   br label %.loopexit
@@ -6972,14 +6972,14 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007.thread.us.
   %.21777 = phi i32 [ %2907, %2904 ], [ %.0, %.lr.ph1779 ]
   %.41776 = phi ptr [ %2906, %2904 ], [ %.2286, %.lr.ph1779 ]
   %.not3.i1003 = icmp eq i32 %2886, 0
-  br i1 %.not3.i1003, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007.thread, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007
+  br i1 %.not3.i1003, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007.thread, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007
 
-_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007.thread: ; preds = %.lr.ph1779.split
+_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007.thread: ; preds = %.lr.ph1779.split
   %2887 = getelementptr inbounds i8, ptr %.41776, i64 -1
   %2888 = load i8, ptr %2887, align 1
   br label %2904
 
-_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007: ; preds = %.lr.ph1779.split
+_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007: ; preds = %.lr.ph1779.split
   %2889 = sext i32 %.21777 to i64
   %2890 = getelementptr inbounds [181 x i8], ptr @_ZL6yystos, i64 0, i64 %2889
   %2891 = load i8, ptr %2890, align 1
@@ -7001,15 +7001,15 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007: ; preds =
   %.not394 = icmp eq i32 %.pr, 0
   br i1 %.not394, label %2904, label %2903
 
-2903:                                             ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007
+2903:                                             ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007
   call fastcc void @_ZL14yy_stack_printPhS_(ptr noundef %.1282, ptr noundef %2901)
   %.pre2439 = load i32, ptr @rtlil_frontend_yydebug, align 4
   br label %2904
 
-2904:                                             ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007.thread, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007, %2903
-  %2905 = phi i32 [ 0, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007.thread ], [ 0, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007 ], [ %.pre2439, %2903 ]
-  %.in = phi i8 [ %2888, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007.thread ], [ %2902, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007 ], [ %2902, %2903 ]
-  %2906 = phi ptr [ %2887, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007.thread ], [ %2901, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007 ], [ %2901, %2903 ]
+2904:                                             ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007.thread, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007, %2903
+  %2905 = phi i32 [ 0, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007.thread ], [ 0, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007 ], [ %.pre2439, %2903 ]
+  %.in = phi i8 [ %2888, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007.thread ], [ %2902, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007 ], [ %2902, %2903 ]
+  %2906 = phi ptr [ %2887, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007.thread ], [ %2901, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007 ], [ %2901, %2903 ]
   %2907 = zext i8 %.in to i32
   %2908 = icmp eq ptr %2906, %.1282
   br i1 %2908, label %.loopexit, label %.lr.ph1779.split, !llvm.loop !20
@@ -7018,13 +7018,13 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007: ; preds =
   call void @_Z22rtlil_frontend_yyerrorPKc(ptr noundef nonnull @.str.33)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %138, %139, %2904, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007.thread.us.preheader, %2881, %2909
-  %.0308 = phi i32 [ 2, %2909 ], [ 1, %2881 ], [ 1, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007.thread.us.preheader ], [ 1, %2904 ], [ 1, %138 ], [ 0, %139 ]
-  %.5 = phi ptr [ %.0284, %2909 ], [ %.2286, %2881 ], [ %scevgep, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007.thread.us.preheader ], [ %2906, %2904 ], [ %131, %138 ], [ %.2286, %139 ]
-  %.3 = phi ptr [ %.0281, %2909 ], [ %.1282, %2881 ], [ %.1282, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007.thread.us.preheader ], [ %.1282, %2904 ], [ %123, %138 ], [ %.1282, %139 ]
+.loopexit:                                        ; preds = %138, %139, %2904, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007.thread.us.preheader, %2881, %2909
+  %.0308 = phi i32 [ 2, %2909 ], [ 1, %2881 ], [ 1, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007.thread.us.preheader ], [ 1, %2904 ], [ 1, %138 ], [ 0, %139 ]
+  %.5 = phi ptr [ %.0284, %2909 ], [ %.2286, %2881 ], [ %scevgep, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007.thread.us.preheader ], [ %2906, %2904 ], [ %131, %138 ], [ %.2286, %139 ]
+  %.3 = phi ptr [ %.0281, %2909 ], [ %.1282, %2881 ], [ %.1282, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1007.thread.us.preheader ], [ %.1282, %2904 ], [ %123, %138 ], [ %.1282, %139 ]
   %2910 = load i32, ptr @rtlil_frontend_yychar, align 4
   %.not395 = icmp eq i32 %2910, -2
-  br i1 %.not395, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1012, label %2911
+  br i1 %.not395, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1012, label %2911
 
 2911:                                             ; preds = %.loopexit
   %or.cond12 = icmp ult i32 %2910, 297
@@ -7041,7 +7041,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007: ; preds =
   %2918 = phi i32 [ %2916, %2912 ], [ 2, %2911 ]
   %2919 = load i32, ptr @rtlil_frontend_yydebug, align 4
   %.not3.i1008 = icmp eq i32 %2919, 0
-  br i1 %.not3.i1008, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1012.thread, label %2920
+  br i1 %.not3.i1008, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1012.thread, label %2920
 
 2920:                                             ; preds = %2917
   %2921 = load ptr, ptr @stderr, align 8
@@ -7056,29 +7056,29 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1007: ; preds =
   %fputc.i.i1010 = call i32 @fputc(i32 41, ptr %2923)
   %2929 = load ptr, ptr @stderr, align 8
   %fputc.i1011 = call i32 @fputc(i32 10, ptr %2929)
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1012
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1012
 
-_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1012: ; preds = %2920, %.loopexit
+_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1012: ; preds = %2920, %.loopexit
   %.pr1117 = load i32, ptr @rtlil_frontend_yydebug, align 4
   %.not396 = icmp eq i32 %.pr1117, 0
-  br i1 %.not396, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1012.thread, label %2930
+  br i1 %.not396, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1012.thread, label %2930
 
-2930:                                             ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1012
+2930:                                             ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1012
   call fastcc void @_ZL14yy_stack_printPhS_(ptr noundef %.3, ptr noundef %.5)
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1012.thread
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1012.thread
 
-_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1012.thread: ; preds = %2917, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1012, %2930
+_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1012.thread: ; preds = %2917, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1012, %2930
   %.not3971781 = icmp eq ptr %.5, %.3
   %2931 = load i32, ptr @rtlil_frontend_yydebug, align 4
   %2932 = icmp eq i32 %2931, 0
   %or.cond2979 = select i1 %.not3971781, i1 true, i1 %2932
   br i1 %or.cond2979, label %._crit_edge1784, label %.lr.ph1783.split
 
-.lr.ph1783.split:                                 ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1012.thread, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1017
-  %2933 = phi i32 [ %2948, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1017 ], [ 1, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1012.thread ]
-  %.61782 = phi ptr [ %2949, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1017 ], [ %.5, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1012.thread ]
+.lr.ph1783.split:                                 ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1012.thread, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1017
+  %2933 = phi i32 [ %2948, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1017 ], [ 1, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1012.thread ]
+  %.61782 = phi ptr [ %2949, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1017 ], [ %.5, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1012.thread ]
   %.not3.i1013 = icmp eq i32 %2933, 0
-  br i1 %.not3.i1013, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1017, label %2934
+  br i1 %.not3.i1013, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1017, label %2934
 
 2934:                                             ; preds = %.lr.ph1783.split
   %2935 = load i8, ptr %.61782, align 1
@@ -7098,15 +7098,15 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1012.thread: ; 
   %2947 = load ptr, ptr @stderr, align 8
   %fputc.i1016 = call i32 @fputc(i32 10, ptr %2947)
   %.pre2441 = load i32, ptr @rtlil_frontend_yydebug, align 4
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1017
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1017
 
-_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1017: ; preds = %.lr.ph1783.split, %2934
+_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1017: ; preds = %.lr.ph1783.split, %2934
   %2948 = phi i32 [ 0, %.lr.ph1783.split ], [ %.pre2441, %2934 ]
   %2949 = getelementptr inbounds i8, ptr %.61782, i64 -1
   %.not397 = icmp eq ptr %2949, %.3
   br i1 %.not397, label %._crit_edge1784, label %.lr.ph1783.split, !llvm.loop !22
 
-._crit_edge1784:                                  ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1017, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1012.thread
+._crit_edge1784:                                  ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1017, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.argprom.exit1012.thread
   %.not398 = icmp eq ptr %.3, %3
   br i1 %.not398, label %2951, label %2950
 
@@ -7156,7 +7156,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 declare noundef i32 @_Z20rtlil_frontend_yylexv() local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_reduce_printPhP22RTLIL_FRONTEND_YYSTYPEi(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 -128, 32769) %1) unnamed_addr #6 {
+define internal fastcc void @_ZL15yy_reduce_printPhP22RTLIL_FRONTEND_YYSTYPEi.argprom(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 -128, 32769) %1) unnamed_addr #6 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [98 x i16], ptr @_ZL7yyrline, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2

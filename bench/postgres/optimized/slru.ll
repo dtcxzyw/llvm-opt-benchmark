@@ -342,7 +342,7 @@ SlruRecentlyUsed.exit:                            ; preds = %2, %25
   %33 = getelementptr inbounds i8, ptr %.val, i64 80
   %34 = load i32, ptr %33, align 8
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %36, label %SimpleLruZeroLSNs.exit
+  br i1 %35, label %36, label %SimpleLruZeroLSNs.argprom.exit
 
 36:                                               ; preds = %SlruRecentlyUsed.exit
   %37 = getelementptr inbounds i8, ptr %.val, i64 72
@@ -363,7 +363,7 @@ SlruRecentlyUsed.exit:                            ; preds = %2, %25
 49:                                               ; preds = %36
   %50 = getelementptr i8, ptr %42, i64 %44
   %51 = icmp ult ptr %42, %50
-  br i1 %51, label %.lr.ph.preheader.i, label %SimpleLruZeroLSNs.exit
+  br i1 %51, label %.lr.ph.preheader.i, label %SimpleLruZeroLSNs.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %49
   %52 = shl nsw i64 %41, 3
@@ -377,13 +377,13 @@ SlruRecentlyUsed.exit:                            ; preds = %2, %25
   %59 = and i64 %58, -8
   %60 = add i64 %59, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %42, i8 0, i64 %60, i1 false)
-  br label %SimpleLruZeroLSNs.exit
+  br label %SimpleLruZeroLSNs.argprom.exit
 
 61:                                               ; preds = %36
   tail call void @llvm.memset.p0.i64(ptr align 1 %42, i8 0, i64 %44, i1 false)
-  br label %SimpleLruZeroLSNs.exit
+  br label %SimpleLruZeroLSNs.argprom.exit
 
-SimpleLruZeroLSNs.exit:                           ; preds = %SlruRecentlyUsed.exit, %49, %.lr.ph.preheader.i, %61
+SimpleLruZeroLSNs.argprom.exit:                   ; preds = %SlruRecentlyUsed.exit, %49, %.lr.ph.preheader.i, %61
   %62 = getelementptr inbounds i8, ptr %3, i64 88
   store volatile i64 %1, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %3, i64 96
@@ -541,7 +541,7 @@ define internal fastcc i32 @SlruSelectLRUPage(ptr noundef %0, i64 noundef %1) un
 
 78:                                               ; preds = %76
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @SimpleLruWaitIO(ptr %.val, i32 noundef %.177)
+  tail call fastcc void @SimpleLruWaitIO.argprom(ptr %.val, i32 noundef %.177)
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %78, %85
@@ -607,7 +607,7 @@ define dso_local i32 @SimpleLruReadPage(ptr noundef %0, i64 noundef %1, i1 nound
 
 22:                                               ; preds = %21
   %.val.us = load ptr, ptr %0, align 8
-  tail call fastcc void @SimpleLruWaitIO(ptr %.val.us, i32 noundef %16)
+  tail call fastcc void @SimpleLruWaitIO.argprom(ptr %.val.us, i32 noundef %16)
   %23 = tail call fastcc i32 @SlruSelectLRUPage(ptr noundef nonnull %0, i64 noundef %1)
   %24 = load ptr, ptr %8, align 8
   %25 = sext i32 %23 to i64
@@ -634,7 +634,7 @@ define dso_local i32 @SimpleLruReadPage(ptr noundef %0, i64 noundef %1, i1 nound
 
 36:                                               ; preds = %35, %35
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @SimpleLruWaitIO(ptr %.val, i32 noundef %30)
+  tail call fastcc void @SimpleLruWaitIO.argprom(ptr %.val, i32 noundef %30)
   %37 = tail call fastcc i32 @SlruSelectLRUPage(ptr noundef nonnull %0, i64 noundef %1)
   %38 = load ptr, ptr %8, align 8
   %39 = sext i32 %37 to i64
@@ -797,7 +797,7 @@ SlruPhysicalReadPage.exit:                        ; preds = %95, %100, %117, %12
   %124 = getelementptr inbounds i8, ptr %.val51, i64 80
   %125 = load i32, ptr %124, align 8
   %126 = icmp sgt i32 %125, 0
-  br i1 %126, label %127, label %SimpleLruZeroLSNs.exit
+  br i1 %126, label %127, label %SimpleLruZeroLSNs.argprom.exit
 
 127:                                              ; preds = %SlruPhysicalReadPage.exit
   %128 = getelementptr inbounds i8, ptr %.val51, i64 72
@@ -818,7 +818,7 @@ SlruPhysicalReadPage.exit:                        ; preds = %95, %100, %117, %12
 140:                                              ; preds = %127
   %141 = getelementptr i8, ptr %133, i64 %135
   %142 = icmp ult ptr %133, %141
-  br i1 %142, label %.lr.ph.preheader.i, label %SimpleLruZeroLSNs.exit
+  br i1 %142, label %.lr.ph.preheader.i, label %SimpleLruZeroLSNs.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %140
   %143 = shl nsw i64 %132, 3
@@ -832,13 +832,13 @@ SlruPhysicalReadPage.exit:                        ; preds = %95, %100, %117, %12
   %150 = and i64 %149, -8
   %151 = add i64 %150, 8
   call void @llvm.memset.p0.i64(ptr align 8 %133, i8 0, i64 %151, i1 false)
-  br label %SimpleLruZeroLSNs.exit
+  br label %SimpleLruZeroLSNs.argprom.exit
 
 152:                                              ; preds = %127
   call void @llvm.memset.p0.i64(ptr align 1 %133, i8 0, i64 %135, i1 false)
-  br label %SimpleLruZeroLSNs.exit
+  br label %SimpleLruZeroLSNs.argprom.exit
 
-SimpleLruZeroLSNs.exit:                           ; preds = %SlruPhysicalReadPage.exit, %140, %.lr.ph.preheader.i, %152
+SimpleLruZeroLSNs.argprom.exit:                   ; preds = %SlruPhysicalReadPage.exit, %140, %.lr.ph.preheader.i, %152
   %153 = load ptr, ptr %71, align 8
   %154 = getelementptr %union.LWLockPadded, ptr %153, i64 %73
   %155 = call zeroext i1 @LWLockAcquire(ptr noundef %154, i32 noundef 0) #15
@@ -851,11 +851,11 @@ SimpleLruZeroLSNs.exit:                           ; preds = %SlruPhysicalReadPag
   call void @LWLockRelease(ptr noundef %160) #15
   br i1 %.0.i, label %162, label %161
 
-161:                                              ; preds = %SimpleLruZeroLSNs.exit
+161:                                              ; preds = %SimpleLruZeroLSNs.argprom.exit
   call fastcc void @SlruReportIOError(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %3)
   br label %162
 
-162:                                              ; preds = %161, %SimpleLruZeroLSNs.exit
+162:                                              ; preds = %161, %SimpleLruZeroLSNs.argprom.exit
   %163 = getelementptr inbounds i8, ptr %6, i64 64
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr i32, ptr %164, i64 %73
@@ -887,7 +887,7 @@ SlruRecentlyUsed.exit54:                          ; preds = %162, %171
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SimpleLruWaitIO(ptr nocapture readonly %.0.val, i32 noundef %0) unnamed_addr #2 {
+define internal fastcc void @SimpleLruWaitIO.argprom(ptr nocapture readonly %.0.val, i32 noundef %0) unnamed_addr #2 {
   %2 = ashr i32 %0, 4
   %3 = getelementptr inbounds i8, ptr %.0.val, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -1195,7 +1195,7 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
 
 22:                                               ; preds = %.lr.ph
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @SimpleLruWaitIO(ptr %.val, i32 noundef %1)
+  tail call fastcc void @SimpleLruWaitIO.argprom(ptr %.val, i32 noundef %1)
   %23 = load ptr, ptr %13, align 8
   %24 = getelementptr i32, ptr %23, i64 %9
   %25 = load i32, ptr %24, align 4
@@ -1839,7 +1839,7 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
 
 58:                                               ; preds = %46
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @SimpleLruWaitIO(ptr %.val, i32 noundef %25)
+  tail call fastcc void @SimpleLruWaitIO.argprom(ptr %.val, i32 noundef %25)
   br label %59
 
 59:                                               ; preds = %58, %57
@@ -1904,18 +1904,18 @@ define dso_local noundef zeroext i1 @SlruScanDirectory(ptr noundef %0, ptr nocap
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #18
   %.val = load i8, ptr %7, align 2
   %12 = trunc i8 %.val to i1
-  br i1 %12, label %13, label %SlruCorrectSegmentFilenameLength.exit
+  br i1 %12, label %13, label %SlruCorrectSegmentFilenameLength.argprom.exit
 
 13:                                               ; preds = %8
   %14 = icmp eq i64 %11, 15
   br i1 %14, label %15, label %26
 
-SlruCorrectSegmentFilenameLength.exit:            ; preds = %8
+SlruCorrectSegmentFilenameLength.argprom.exit:    ; preds = %8
   %.off = add i64 %11, -4
   %switch = icmp ult i64 %.off, 3
   br i1 %switch, label %15, label %26
 
-15:                                               ; preds = %SlruCorrectSegmentFilenameLength.exit, %13
+15:                                               ; preds = %SlruCorrectSegmentFilenameLength.argprom.exit, %13
   %16 = tail call i64 @strspn(ptr noundef nonnull %10, ptr noundef nonnull @.str.3) #18
   %17 = icmp eq i64 %16, %11
   br i1 %17, label %18, label %26
@@ -1935,7 +1935,7 @@ SlruCorrectSegmentFilenameLength.exit:            ; preds = %8
   %25 = tail call zeroext i1 %1(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %20, ptr noundef %2) #15
   br i1 %25, label %._crit_edge, label %26
 
-26:                                               ; preds = %SlruCorrectSegmentFilenameLength.exit, %13, %24, %15
+26:                                               ; preds = %SlruCorrectSegmentFilenameLength.argprom.exit, %13, %24, %15
   %27 = tail call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull %4) #15
   %.not.not = icmp eq ptr %27, null
   br i1 %.not.not, label %._crit_edge, label %8, !llvm.loop !18
@@ -1988,10 +1988,10 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph, label %.split47.us.loopexit
 
-.lr.ph:                                           ; preds = %.split, %SimpleLruWaitIO.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %SimpleLruWaitIO.exit ], [ 0, %.split ]
-  %.144 = phi i32 [ %.2, %SimpleLruWaitIO.exit ], [ %.0, %.split ]
-  %.03643 = phi i1 [ %.137, %SimpleLruWaitIO.exit ], [ false, %.split ]
+.lr.ph:                                           ; preds = %.split, %SimpleLruWaitIO.argprom.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %SimpleLruWaitIO.argprom.exit ], [ 0, %.split ]
+  %.144 = phi i32 [ %.2, %SimpleLruWaitIO.argprom.exit ], [ %.0, %.split ]
+  %.03643 = phi i1 [ %.137, %SimpleLruWaitIO.argprom.exit ], [ false, %.split ]
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = lshr i32 %14, 4
   %.not = icmp eq i32 %15, %.144
@@ -2014,7 +2014,7 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
   %26 = getelementptr i32, ptr %25, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %SimpleLruWaitIO.exit, label %29
+  br i1 %28, label %SimpleLruWaitIO.argprom.exit, label %29
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %8, align 8
@@ -2024,7 +2024,7 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
   %sext = shl i64 %33, 32
   %34 = ashr exact i64 %sext, 32
   %.not41 = icmp eq i64 %34, %1
-  br i1 %.not41, label %35, label %SimpleLruWaitIO.exit
+  br i1 %.not41, label %35, label %SimpleLruWaitIO.argprom.exit
 
 35:                                               ; preds = %29
   %36 = icmp eq i32 %27, 2
@@ -2039,11 +2039,11 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
 
 42:                                               ; preds = %37
   store i32 0, ptr %26, align 4
-  br label %SimpleLruWaitIO.exit
+  br label %SimpleLruWaitIO.argprom.exit
 
 43:                                               ; preds = %37
   tail call fastcc void @SlruInternalWritePage(ptr noundef nonnull %0, i32 noundef %14, ptr noundef null)
-  br label %SimpleLruWaitIO.exit
+  br label %SimpleLruWaitIO.argprom.exit
 
 44:                                               ; preds = %35
   %.val = load ptr, ptr %0, align 8
@@ -2066,7 +2066,7 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr i32, ptr %59, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
-  switch i32 %61, label %SimpleLruWaitIO.exit [
+  switch i32 %61, label %SimpleLruWaitIO.argprom.exit [
     i32 1, label %62
     i32 3, label %62
   ]
@@ -2075,7 +2075,7 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
   %63 = load ptr, ptr %49, align 8
   %64 = getelementptr %union.LWLockPadded, ptr %63, i64 %indvars.iv
   %65 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef %64, i32 noundef 1) #15
-  br i1 %65, label %66, label %SimpleLruWaitIO.exit
+  br i1 %65, label %66, label %SimpleLruWaitIO.argprom.exit
 
 66:                                               ; preds = %62
   %67 = load ptr, ptr %58, align 8
@@ -2100,9 +2100,9 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
   %77 = load ptr, ptr %49, align 8
   %78 = getelementptr %union.LWLockPadded, ptr %77, i64 %indvars.iv
   tail call void @LWLockRelease(ptr noundef %78) #15
-  br label %SimpleLruWaitIO.exit
+  br label %SimpleLruWaitIO.argprom.exit
 
-SimpleLruWaitIO.exit:                             ; preds = %76, %62, %44, %43, %29, %24, %42
+SimpleLruWaitIO.argprom.exit:                     ; preds = %76, %62, %44, %43, %29, %24, %42
   %.137 = phi i1 [ %.03643, %24 ], [ %.03643, %29 ], [ %.03643, %42 ], [ true, %43 ], [ true, %44 ], [ true, %62 ], [ true, %76 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = load i32, ptr %3, align 8
@@ -2110,7 +2110,7 @@ SimpleLruWaitIO.exit:                             ; preds = %76, %62, %44, %43, 
   %81 = icmp slt i64 %indvars.iv.next, %80
   br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %SimpleLruWaitIO.exit
+._crit_edge:                                      ; preds = %SimpleLruWaitIO.argprom.exit
   br i1 %.137, label %.split, label %.split47.us.loopexit, !llvm.loop !20
 
 .split47.us.loopexit:                             ; preds = %.split, %._crit_edge

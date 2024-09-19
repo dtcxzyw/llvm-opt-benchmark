@@ -419,7 +419,7 @@ switch.lookup:                                    ; preds = %29
 
 71:                                               ; preds = %switch.lookup, %29, %59
   %.020 = phi i32 [ 4, %29 ], [ 4, %59 ], [ %switch.load, %switch.lookup ]
-  call fastcc void @linker_setup(ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %.020)
+  call fastcc void @linker_setup.retelim(ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %.020)
   %72 = load ptr, ptr %4, align 8
   %.not.i36 = icmp eq ptr %72, null
   br i1 %.not.i36, label %.thread57.i, label %73
@@ -996,7 +996,7 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 6) %4) unnamed_addr #0 {
+define internal fastcc void @linker_setup.retelim(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 6) %4) unnamed_addr #0 {
   %6 = alloca %struct.glob_t, align 8
   %7 = alloca %struct.glob_t, align 8
   %8 = load i32, ptr @active_target, align 8
@@ -7043,7 +7043,7 @@ define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr noca
 
 37:                                               ; preds = %28, %11
   %38 = tail call i32 @linker_find_linker_type()
-  call fastcc void @linker_setup(ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %38)
+  call fastcc void @linker_setup.retelim(ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %38)
   %39 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %.thread57.i, label %40
@@ -7285,7 +7285,7 @@ define dso_local noundef zeroext i1 @linker(ptr noundef %0, ptr nocapture nounde
 11:                                               ; preds = %8, %3
   store ptr null, ptr %4, align 8
   %12 = tail call i32 @linker_find_linker_type()
-  call fastcc void @linker_setup(ptr noundef %4, ptr noundef readonly %1, i32 noundef %2, ptr noundef %0, i32 noundef %12)
+  call fastcc void @linker_setup.retelim(ptr noundef %4, ptr noundef readonly %1, i32 noundef %2, ptr noundef %0, i32 noundef %12)
   store ptr null, ptr %5, align 8
   %13 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %13, null

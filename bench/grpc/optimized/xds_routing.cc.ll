@@ -614,9 +614,9 @@ lpad.i:                                           ; preds = %invoke.cont7.i, %if
 
 cleanup.i:                                        ; preds = %invoke.cont7.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %concatenated_value.i) #21
-  br i1 %call9.i, label %for.cond.i, label %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit
+  br i1 %call9.i, label %for.cond.i, label %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.argprom.exit
 
-_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit: ; preds = %cleanup.i
+_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.argprom.exit: ; preds = %cleanup.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %concatenated_value.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   br label %for.inc
@@ -637,7 +637,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true6
   %cmp.i = icmp ult i32 %rem.i, %8
   br i1 %cmp.i, label %return, label %for.inc
 
-for.inc:                                          ; preds = %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit, %for.body, %lor.lhs.false
+for.inc:                                          ; preds = %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.argprom.exit, %for.body, %lor.lhs.false
   %inc = add nuw i64 %storemerge15, 1
   %vtable = load ptr, ptr %route_list_iterator, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16

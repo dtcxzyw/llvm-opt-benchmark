@@ -89,13 +89,13 @@ cleanup.thread:                                   ; preds = %g_string_append_c_i
 cleanup:                                          ; preds = %if.end
   %call11 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.1, i64 noundef %pc) #2
   %tobool.not.i.i = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup.thread, %cleanup
   %call.i.i.i = call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #2
-  br label %glib_autoptr_cleanup_GString.exit
+  br label %glib_autoptr_cleanup_GString.argprom.exit
 
-glib_autoptr_cleanup_GString.exit:                ; preds = %cleanup, %if.then.i.i
+glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %cleanup, %if.then.i.i
   ret void
 }
 

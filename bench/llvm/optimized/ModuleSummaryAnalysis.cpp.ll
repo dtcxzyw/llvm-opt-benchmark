@@ -1308,7 +1308,7 @@ _ZNSt10unique_ptrIN4llvm18BlockFrequencyInfoESt14default_deleteIS1_EED2Ev.exit: 
   br label %_ZNSt8functionIFPKN4llvm15StackSafetyInfoERKNS0_8FunctionEEEC2ERKS8_.exit
 
 _ZNSt8functionIFPKN4llvm15StackSafetyInfoERKNS0_8FunctionEEEC2ERKS8_.exit: ; preds = %235, %243
-  call fastcc void @_ZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(136) %224, ptr noundef %.075, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(124) %27, i1 noundef zeroext %241, ptr noundef nonnull align 8 dereferenceable(24) %23, i1 noundef zeroext %.074, ptr noundef %30)
+  call fastcc void @_ZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EE.argprom(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(136) %224, ptr noundef %.075, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(124) %27, i1 noundef zeroext %241, ptr noundef nonnull align 8 dereferenceable(24) %23, i1 noundef zeroext %.074, ptr noundef %30)
   %247 = load ptr, ptr %219, align 8
   %.not.i.i107 = icmp eq ptr %247, null
   br i1 %.not.i.i107, label %_ZNSt8functionIFPKN4llvm15StackSafetyInfoERKNS0_8FunctionEEED2Ev.exit, label %248
@@ -2530,18 +2530,18 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %815 = getelementptr inbounds i8, ptr %23, i64 16
   br label %816
 
-816:                                              ; preds = %.lr.ph489, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.thread"
-  %.sroa.0303.0488 = phi ptr [ %814, %.lr.ph489 ], [ %1182, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.thread" ]
+816:                                              ; preds = %.lr.ph489, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.thread"
+  %.sroa.0303.0488 = phi ptr [ %814, %.lr.ph489 ], [ %1182, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.thread" ]
   %817 = getelementptr inbounds nuw i8, ptr %.sroa.0303.0488, i64 56
   %818 = load ptr, ptr %817, align 8
   %819 = getelementptr inbounds nuw i8, ptr %.sroa.0303.0488, i64 64
   %820 = load ptr, ptr %819, align 8
   %821 = icmp eq ptr %818, %820
-  br i1 %821, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.thread", label %822
+  br i1 %821, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.thread", label %822
 
 822:                                              ; preds = %816
   %823 = load ptr, ptr %818, align 8
-  br i1 %.074, label %824, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.thread.sink.split"
+  br i1 %.074, label %824, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.thread.sink.split"
 
 824:                                              ; preds = %822
   %825 = getelementptr inbounds nuw i8, ptr %823, i64 40
@@ -2579,14 +2579,14 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %845 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %844
   %846 = load i64, ptr %845, align 8
   %847 = icmp eq i64 %839, %846
-  br i1 %847, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %847, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.lr.ph.split.i.i.i.i.i, %849
   %848 = phi i64 [ %854, %849 ], [ %846, %.lr.ph.split.i.i.i.i.i ]
   %.01521.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.015.i.i.i.i.i.i.i.i.i.i.i.i, %849 ], [ %.01519.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i ]
   %.01420.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %850, %849 ], [ 1, %.lr.ph.split.i.i.i.i.i ]
   %.not.i.i.i.i.i.i231 = icmp eq i64 %848, -1
-  br i1 %.not.i.i.i.i.i.i231, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit.i.i.i.i.i", label %849
+  br i1 %.not.i.i.i.i.i.i231, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit.i.i.i.i.i", label %849
 
 849:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
   %850 = add i32 %.01420.i.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -2596,9 +2596,9 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %853 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %852
   %854 = load i64, ptr %853, align 8
   %855 = icmp eq i64 %839, %854
-  br i1 %855, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !52
+  br i1 %855, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !52
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
   %856 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i, i64 8
   %.val31.i.i.i.i.i = load i64, ptr %856, align 8
   %857 = and i64 %.val31.i.i.i.i.i, -8
@@ -2613,12 +2613,12 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %865 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %864
   %866 = load i64, ptr %865, align 8
   %867 = icmp eq i64 %859, %866
-  br i1 %867, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit544.split.loop.exit", label %.lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i
+  br i1 %867, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit544.split.loop.exit", label %.lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit.i.i.i.i.i", %869
-  %868 = phi i64 [ %874, %869 ], [ %866, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit.i.i.i.i.i" ]
-  %.01521.i.i.i.i.i.i.i49.i.i.i.i.i = phi i32 [ %.015.i.i.i.i.i.i.i52.i.i.i.i.i, %869 ], [ %.01519.i.i.i.i.i.i.i47.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit.i.i.i.i.i" ]
-  %.01420.i.i.i.i.i.i.i50.i.i.i.i.i = phi i32 [ %870, %869 ], [ 1, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit.i.i.i.i.i" ]
+.lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit.i.i.i.i.i", %869
+  %868 = phi i64 [ %874, %869 ], [ %866, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit.i.i.i.i.i" ]
+  %.01521.i.i.i.i.i.i.i49.i.i.i.i.i = phi i32 [ %.015.i.i.i.i.i.i.i52.i.i.i.i.i, %869 ], [ %.01519.i.i.i.i.i.i.i47.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit.i.i.i.i.i" ]
+  %.01420.i.i.i.i.i.i.i50.i.i.i.i.i = phi i32 [ %870, %869 ], [ 1, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit.i.i.i.i.i" ]
   %.not.i51.i.i.i.i.i = icmp eq i64 %868, -1
   br i1 %.not.i51.i.i.i.i.i, label %876, label %869
 
@@ -2630,7 +2630,7 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %873 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %872
   %874 = load i64, ptr %873, align 8
   %875 = icmp eq i64 %859, %874
-  br i1 %875, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit535", label %.lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i, !llvm.loop !52
+  br i1 %875, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit535", label %.lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i, !llvm.loop !52
 
 876:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i
   %877 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i, i64 16
@@ -2647,7 +2647,7 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %886 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %885
   %887 = load i64, ptr %886, align 8
   %888 = icmp eq i64 %880, %887
-  br i1 %888, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit544.split.loop.exit587", label %.lr.ph.i.i.i.i.i.i.i55.i.i.i.i.i
+  br i1 %888, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit544.split.loop.exit587", label %.lr.ph.i.i.i.i.i.i.i55.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i55.i.i.i.i.i:                 ; preds = %876, %890
   %889 = phi i64 [ %895, %890 ], [ %887, %876 ]
@@ -2664,7 +2664,7 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %894 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %893
   %895 = load i64, ptr %894, align 8
   %896 = icmp eq i64 %880, %895
-  br i1 %896, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit534", label %.lr.ph.i.i.i.i.i.i.i55.i.i.i.i.i, !llvm.loop !52
+  br i1 %896, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit534", label %.lr.ph.i.i.i.i.i.i.i55.i.i.i.i.i, !llvm.loop !52
 
 897:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i55.i.i.i.i.i
   %898 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i, i64 24
@@ -2681,7 +2681,7 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %907 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %906
   %908 = load i64, ptr %907, align 8
   %909 = icmp eq i64 %901, %908
-  br i1 %909, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit544.split.loop.exit589", label %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i
+  br i1 %909, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit544.split.loop.exit589", label %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i:                 ; preds = %897, %911
   %910 = phi i64 [ %916, %911 ], [ %908, %897 ]
@@ -2698,7 +2698,7 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %915 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %914
   %916 = load i64, ptr %915, align 8
   %917 = icmp eq i64 %901, %916
-  br i1 %917, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit", label %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i, !llvm.loop !52
+  br i1 %917, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit", label %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i, !llvm.loop !52
 
 .thread93.loopexit.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i
   %918 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i, i64 32
@@ -2711,7 +2711,7 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %921 = ptrtoint ptr %.029.lcssa.i.i.i.i.i to i64
   %922 = sub i64 %829, %921
   %923 = ashr exact i64 %922, 3
-  switch i64 %923, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.thread" [
+  switch i64 %923, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.thread" [
     i64 3, label %924
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i64 1, label %._crit_edge._crit_edge144.i.i.i.i.i
@@ -2723,7 +2723,7 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %926 = inttoptr i64 %925 to ptr
   %927 = load i64, ptr %926, align 8
   %928 = icmp eq i32 %.val86, 0
-  br i1 %928, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit74.i.i.i.i.i", label %929
+  br i1 %928, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit74.i.i.i.i.i", label %929
 
 929:                                              ; preds = %924
   %930 = mul i64 %927, -4658895280553007687
@@ -2736,14 +2736,14 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %936 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %935
   %937 = load i64, ptr %936, align 8
   %938 = icmp eq i64 %927, %937
-  br i1 %938, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i69.i.i.i.i.i
+  br i1 %938, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i69.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i69.i.i.i.i.i:                 ; preds = %929, %940
   %939 = phi i64 [ %945, %940 ], [ %937, %929 ]
   %.01521.i.i.i.i.i.i.i70.i.i.i.i.i = phi i32 [ %.015.i.i.i.i.i.i.i73.i.i.i.i.i, %940 ], [ %.01519.i.i.i.i.i.i.i68.i.i.i.i.i, %929 ]
   %.01420.i.i.i.i.i.i.i71.i.i.i.i.i = phi i32 [ %941, %940 ], [ 1, %929 ]
   %.not.i72.i.i.i.i.i = icmp eq i64 %939, -1
-  br i1 %.not.i72.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit74.i.i.i.i.i", label %940
+  br i1 %.not.i72.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit74.i.i.i.i.i", label %940
 
 940:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i69.i.i.i.i.i
   %941 = add i32 %.01420.i.i.i.i.i.i.i71.i.i.i.i.i, 1
@@ -2753,20 +2753,20 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %944 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %943
   %945 = load i64, ptr %944, align 8
   %946 = icmp eq i64 %927, %945
-  br i1 %946, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i69.i.i.i.i.i, !llvm.loop !52
+  br i1 %946, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i69.i.i.i.i.i, !llvm.loop !52
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit74.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i69.i.i.i.i.i, %924
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit74.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i69.i.i.i.i.i, %924
   %947 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i.i
 
-._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit74.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i229 = phi ptr [ %947, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit74.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit74.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.1.i.i.i.i.i229 = phi ptr [ %947, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit74.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i64, ptr %.1.i.i.i.i.i229, align 8
   %948 = and i64 %.1.val.i.i.i.i.i, -8
   %949 = inttoptr i64 %948 to ptr
   %950 = load i64, ptr %949, align 8
   %951 = icmp eq i32 %.val86, 0
-  br i1 %951, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit81.i.i.i.i.i", label %952
+  br i1 %951, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit81.i.i.i.i.i", label %952
 
 952:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i
   %953 = mul i64 %950, -4658895280553007687
@@ -2779,14 +2779,14 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %959 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %958
   %960 = load i64, ptr %959, align 8
   %961 = icmp eq i64 %950, %960
-  br i1 %961, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i76.i.i.i.i.i
+  br i1 %961, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i76.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i76.i.i.i.i.i:                 ; preds = %952, %963
   %962 = phi i64 [ %968, %963 ], [ %960, %952 ]
   %.01521.i.i.i.i.i.i.i77.i.i.i.i.i = phi i32 [ %.015.i.i.i.i.i.i.i80.i.i.i.i.i, %963 ], [ %.01519.i.i.i.i.i.i.i75.i.i.i.i.i, %952 ]
   %.01420.i.i.i.i.i.i.i78.i.i.i.i.i = phi i32 [ %964, %963 ], [ 1, %952 ]
   %.not.i79.i.i.i.i.i = icmp eq i64 %962, -1
-  br i1 %.not.i79.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit81.i.i.i.i.i", label %963
+  br i1 %.not.i79.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit81.i.i.i.i.i", label %963
 
 963:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i76.i.i.i.i.i
   %964 = add i32 %.01420.i.i.i.i.i.i.i78.i.i.i.i.i, 1
@@ -2796,20 +2796,20 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %967 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %966
   %968 = load i64, ptr %967, align 8
   %969 = icmp eq i64 %950, %968
-  br i1 %969, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i76.i.i.i.i.i, !llvm.loop !52
+  br i1 %969, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i76.i.i.i.i.i, !llvm.loop !52
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit81.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i76.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit81.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i76.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i
   %970 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i229, i64 8
   br label %._crit_edge._crit_edge144.i.i.i.i.i
 
-._crit_edge._crit_edge144.i.i.i.i.i:              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit81.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %970, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit81.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+._crit_edge._crit_edge144.i.i.i.i.i:              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit81.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.2.i.i.i.i.i = phi ptr [ %970, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit81.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i64, ptr %.2.i.i.i.i.i, align 8
   %971 = and i64 %.2.val.i.i.i.i.i, -8
   %972 = inttoptr i64 %971 to ptr
   %973 = load i64, ptr %972, align 8
   %974 = icmp eq i32 %.val86, 0
-  br i1 %974, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.thread", label %975
+  br i1 %974, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.thread", label %975
 
 975:                                              ; preds = %._crit_edge._crit_edge144.i.i.i.i.i
   %976 = mul i64 %973, -4658895280553007687
@@ -2822,14 +2822,14 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %982 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %981
   %983 = load i64, ptr %982, align 8
   %984 = icmp eq i64 %973, %983
-  br i1 %984, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i83.i.i.i.i.i
+  br i1 %984, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i83.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i83.i.i.i.i.i:                 ; preds = %975, %986
   %985 = phi i64 [ %991, %986 ], [ %983, %975 ]
   %.01521.i.i.i.i.i.i.i84.i.i.i.i.i = phi i32 [ %.015.i.i.i.i.i.i.i87.i.i.i.i.i, %986 ], [ %.01519.i.i.i.i.i.i.i82.i.i.i.i.i, %975 ]
   %.01420.i.i.i.i.i.i.i85.i.i.i.i.i = phi i32 [ %987, %986 ], [ 1, %975 ]
   %.not.i86.i.i.i.i.i = icmp eq i64 %985, -1
-  br i1 %.not.i86.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.thread", label %986
+  br i1 %.not.i86.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.thread", label %986
 
 986:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i83.i.i.i.i.i
   %987 = add i32 %.01420.i.i.i.i.i.i.i85.i.i.i.i.i, 1
@@ -2839,46 +2839,46 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %990 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %989
   %991 = load i64, ptr %990, align 8
   %992 = icmp eq i64 %973, %991
-  br i1 %992, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i83.i.i.i.i.i, !llvm.loop !52
+  br i1 %992, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i83.i.i.i.i.i, !llvm.loop !52
 
-"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit": ; preds = %911
+"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit": ; preds = %911
   %993 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit534": ; preds = %890
+"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit534": ; preds = %890
   %994 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit535": ; preds = %869
+"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit535": ; preds = %869
   %995 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i, i64 8
-  br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit544.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.exit.i.i.i.i.i"
+"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit544.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_2EclIPKNS2_9ValueInfoEEEbT_.argprom.argprom.exit.i.i.i.i.i"
   %996 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i, i64 8
-  br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit544.split.loop.exit587": ; preds = %876
+"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit544.split.loop.exit587": ; preds = %876
   %997 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit544.split.loop.exit589": ; preds = %897
+"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit544.split.loop.exit589": ; preds = %897
   %998 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit": ; preds = %.lr.ph.split.i.i.i.i.i, %940, %963, %986, %849, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit544.split.loop.exit", %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit544.split.loop.exit587", %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit544.split.loop.exit589", %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit535", %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit534", %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit", %929, %952, %975
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %929 ], [ %.1.i.i.i.i.i229, %952 ], [ %.2.i.i.i.i.i, %975 ], [ %993, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit" ], [ %994, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit534" ], [ %995, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit535" ], [ %996, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit544.split.loop.exit" ], [ %997, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit544.split.loop.exit587" ], [ %998, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.loopexit544.split.loop.exit589" ], [ %.029125.i.i.i.i.i, %849 ], [ %.2.i.i.i.i.i, %986 ], [ %.1.i.i.i.i.i229, %963 ], [ %.029.lcssa.i.i.i.i.i, %940 ], [ %.029125.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i ]
+"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.split.i.i.i.i.i, %940, %963, %986, %849, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit544.split.loop.exit", %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit544.split.loop.exit587", %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit544.split.loop.exit589", %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit535", %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit534", %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit", %929, %952, %975
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %929 ], [ %.1.i.i.i.i.i229, %952 ], [ %.2.i.i.i.i.i, %975 ], [ %993, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit" ], [ %994, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit534" ], [ %995, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit535" ], [ %996, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit544.split.loop.exit" ], [ %997, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit544.split.loop.exit587" ], [ %998, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.loopexit544.split.loop.exit589" ], [ %.029125.i.i.i.i.i, %849 ], [ %.2.i.i.i.i.i, %986 ], [ %.1.i.i.i.i.i229, %963 ], [ %.029.lcssa.i.i.i.i.i, %940 ], [ %.029125.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i ]
   %999 = icmp eq ptr %828, %.028.i.i.i.i.i
-  br i1 %999, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.thread", label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.thread.sink.split"
+  br i1 %999, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.thread", label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.thread.sink.split"
 
-"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.thread": ; preds = %.lr.ph.i.i.i.i.i.i.i83.i.i.i.i.i, %._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge144.i.i.i.i.i, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit"
+"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.thread": ; preds = %.lr.ph.i.i.i.i.i.i.i83.i.i.i.i.i, %._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge144.i.i.i.i.i, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit"
   %1000 = getelementptr inbounds nuw i8, ptr %823, i64 8
   %1001 = load i32, ptr %1000, align 8
   %1002 = icmp ne i32 %1001, 1
   %.not83380 = icmp eq ptr %823, null
   %.not83 = or i1 %.not83380, %1002
-  br i1 %.not83, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.thread", label %1003
+  br i1 %.not83, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.thread", label %1003
 
-1003:                                             ; preds = %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.thread"
+1003:                                             ; preds = %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.thread"
   %1004 = getelementptr inbounds nuw i8, ptr %823, i64 80
   %1005 = load ptr, ptr %1004, align 8
   %1006 = getelementptr inbounds nuw i8, ptr %823, i64 88
@@ -2913,14 +2913,14 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1024 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %1023
   %1025 = load i64, ptr %1024, align 8
   %1026 = icmp eq i64 %1018, %1025
-  br i1 %1026, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i271
+  br i1 %1026, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i271
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i271:                ; preds = %.lr.ph.split.i.i.i.i.i266, %1028
   %1027 = phi i64 [ %1033, %1028 ], [ %1025, %.lr.ph.split.i.i.i.i.i266 ]
   %.01521.i.i.i.i.i.i.i.i.i.i.i.i272 = phi i32 [ %.015.i.i.i.i.i.i.i.i.i.i.i.i275, %1028 ], [ %.01519.i.i.i.i.i.i.i.i.i.i.i.i270, %.lr.ph.split.i.i.i.i.i266 ]
   %.01420.i.i.i.i.i.i.i.i.i.i.i.i273 = phi i32 [ %1029, %1028 ], [ 1, %.lr.ph.split.i.i.i.i.i266 ]
   %.not.i.i.i.i.i.i274 = icmp eq i64 %1027, -1
-  br i1 %.not.i.i.i.i.i.i274, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit.i.i.i.i.i", label %1028
+  br i1 %.not.i.i.i.i.i.i274, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit.i.i.i.i.i", label %1028
 
 1028:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i271
   %1029 = add i32 %.01420.i.i.i.i.i.i.i.i.i.i.i.i273, 1
@@ -2930,9 +2930,9 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1032 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %1031
   %1033 = load i64, ptr %1032, align 8
   %1034 = icmp eq i64 %1018, %1033
-  br i1 %1034, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i271, !llvm.loop !52
+  br i1 %1034, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i271, !llvm.loop !52
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i271
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i271
   %1035 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i268, i64 16
   %.val31.i.i.i.i.i276 = load i64, ptr %1035, align 8
   %1036 = and i64 %.val31.i.i.i.i.i276, -8
@@ -2947,12 +2947,12 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1044 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %1043
   %1045 = load i64, ptr %1044, align 8
   %1046 = icmp eq i64 %1038, %1045
-  br i1 %1046, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit540.split.loop.exit", label %.lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i278
+  br i1 %1046, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit540.split.loop.exit", label %.lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i278
 
-.lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i278:              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit.i.i.i.i.i", %1048
-  %1047 = phi i64 [ %1053, %1048 ], [ %1045, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit.i.i.i.i.i" ]
-  %.01521.i.i.i.i.i.i.i49.i.i.i.i.i279 = phi i32 [ %.015.i.i.i.i.i.i.i52.i.i.i.i.i282, %1048 ], [ %.01519.i.i.i.i.i.i.i47.i.i.i.i.i277, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit.i.i.i.i.i" ]
-  %.01420.i.i.i.i.i.i.i50.i.i.i.i.i280 = phi i32 [ %1049, %1048 ], [ 1, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit.i.i.i.i.i" ]
+.lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i278:              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit.i.i.i.i.i", %1048
+  %1047 = phi i64 [ %1053, %1048 ], [ %1045, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit.i.i.i.i.i" ]
+  %.01521.i.i.i.i.i.i.i49.i.i.i.i.i279 = phi i32 [ %.015.i.i.i.i.i.i.i52.i.i.i.i.i282, %1048 ], [ %.01519.i.i.i.i.i.i.i47.i.i.i.i.i277, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit.i.i.i.i.i" ]
+  %.01420.i.i.i.i.i.i.i50.i.i.i.i.i280 = phi i32 [ %1049, %1048 ], [ 1, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit.i.i.i.i.i" ]
   %.not.i51.i.i.i.i.i281 = icmp eq i64 %1047, -1
   br i1 %.not.i51.i.i.i.i.i281, label %1055, label %1048
 
@@ -2964,7 +2964,7 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1052 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %1051
   %1053 = load i64, ptr %1052, align 8
   %1054 = icmp eq i64 %1038, %1053
-  br i1 %1054, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit532", label %.lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i278, !llvm.loop !52
+  br i1 %1054, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit532", label %.lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i278, !llvm.loop !52
 
 1055:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i278
   %1056 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i268, i64 32
@@ -2981,7 +2981,7 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1065 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %1064
   %1066 = load i64, ptr %1065, align 8
   %1067 = icmp eq i64 %1059, %1066
-  br i1 %1067, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit540.split.loop.exit598", label %.lr.ph.i.i.i.i.i.i.i55.i.i.i.i.i285
+  br i1 %1067, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit540.split.loop.exit598", label %.lr.ph.i.i.i.i.i.i.i55.i.i.i.i.i285
 
 .lr.ph.i.i.i.i.i.i.i55.i.i.i.i.i285:              ; preds = %1055, %1069
   %1068 = phi i64 [ %1074, %1069 ], [ %1066, %1055 ]
@@ -2998,7 +2998,7 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1073 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %1072
   %1074 = load i64, ptr %1073, align 8
   %1075 = icmp eq i64 %1059, %1074
-  br i1 %1075, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit531", label %.lr.ph.i.i.i.i.i.i.i55.i.i.i.i.i285, !llvm.loop !52
+  br i1 %1075, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit531", label %.lr.ph.i.i.i.i.i.i.i55.i.i.i.i.i285, !llvm.loop !52
 
 1076:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i55.i.i.i.i.i285
   %1077 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i268, i64 48
@@ -3015,7 +3015,7 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1086 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %1085
   %1087 = load i64, ptr %1086, align 8
   %1088 = icmp eq i64 %1080, %1087
-  br i1 %1088, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit540.split.loop.exit600", label %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i292
+  br i1 %1088, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit540.split.loop.exit600", label %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i292
 
 .lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i292:              ; preds = %1076, %1090
   %1089 = phi i64 [ %1095, %1090 ], [ %1087, %1076 ]
@@ -3032,7 +3032,7 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1094 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %1093
   %1095 = load i64, ptr %1094, align 8
   %1096 = icmp eq i64 %1080, %1095
-  br i1 %1096, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit", label %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i292, !llvm.loop !52
+  br i1 %1096, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit", label %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i292, !llvm.loop !52
 
 .thread93.loopexit.i.i.i.i.i297:                  ; preds = %.lr.ph.i.i.i.i.i.i.i62.i.i.i.i.i292
   %1097 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i268, i64 64
@@ -3045,7 +3045,7 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1100 = ptrtoint ptr %.029.lcssa.i.i.i.i.i236 to i64
   %1101 = sub i64 %1008, %1100
   %1102 = ashr exact i64 %1101, 4
-  switch i64 %1102, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.thread" [
+  switch i64 %1102, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.thread" [
     i64 3, label %1103
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i247
     i64 1, label %._crit_edge._crit_edge144.i.i.i.i.i237
@@ -3057,7 +3057,7 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1105 = inttoptr i64 %1104 to ptr
   %1106 = load i64, ptr %1105, align 8
   %1107 = icmp eq i32 %.val86, 0
-  br i1 %1107, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit74.i.i.i.i.i", label %1108
+  br i1 %1107, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit74.i.i.i.i.i", label %1108
 
 1108:                                             ; preds = %1103
   %1109 = mul i64 %1106, -4658895280553007687
@@ -3070,14 +3070,14 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1115 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %1114
   %1116 = load i64, ptr %1115, align 8
   %1117 = icmp eq i64 %1106, %1116
-  br i1 %1117, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i69.i.i.i.i.i258
+  br i1 %1117, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i69.i.i.i.i.i258
 
 .lr.ph.i.i.i.i.i.i.i69.i.i.i.i.i258:              ; preds = %1108, %1119
   %1118 = phi i64 [ %1124, %1119 ], [ %1116, %1108 ]
   %.01521.i.i.i.i.i.i.i70.i.i.i.i.i259 = phi i32 [ %.015.i.i.i.i.i.i.i73.i.i.i.i.i262, %1119 ], [ %.01519.i.i.i.i.i.i.i68.i.i.i.i.i257, %1108 ]
   %.01420.i.i.i.i.i.i.i71.i.i.i.i.i260 = phi i32 [ %1120, %1119 ], [ 1, %1108 ]
   %.not.i72.i.i.i.i.i261 = icmp eq i64 %1118, -1
-  br i1 %.not.i72.i.i.i.i.i261, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit74.i.i.i.i.i", label %1119
+  br i1 %.not.i72.i.i.i.i.i261, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit74.i.i.i.i.i", label %1119
 
 1119:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i69.i.i.i.i.i258
   %1120 = add i32 %.01420.i.i.i.i.i.i.i71.i.i.i.i.i260, 1
@@ -3087,20 +3087,20 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1123 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %1122
   %1124 = load i64, ptr %1123, align 8
   %1125 = icmp eq i64 %1106, %1124
-  br i1 %1125, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i69.i.i.i.i.i258, !llvm.loop !52
+  br i1 %1125, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i69.i.i.i.i.i258, !llvm.loop !52
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit74.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i69.i.i.i.i.i258, %1103
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit74.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i69.i.i.i.i.i258, %1103
   %1126 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i236, i64 16
   br label %._crit_edge._crit_edge.i.i.i.i.i247
 
-._crit_edge._crit_edge.i.i.i.i.i247:              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit74.i.i.i.i.i", %._crit_edge.i.i.i.i.i235
-  %.1.i.i.i.i.i248 = phi ptr [ %1126, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit74.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i236, %._crit_edge.i.i.i.i.i235 ]
+._crit_edge._crit_edge.i.i.i.i.i247:              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit74.i.i.i.i.i", %._crit_edge.i.i.i.i.i235
+  %.1.i.i.i.i.i248 = phi ptr [ %1126, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit74.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i236, %._crit_edge.i.i.i.i.i235 ]
   %.1.val.i.i.i.i.i249 = load i64, ptr %.1.i.i.i.i.i248, align 8
   %1127 = and i64 %.1.val.i.i.i.i.i249, -8
   %1128 = inttoptr i64 %1127 to ptr
   %1129 = load i64, ptr %1128, align 8
   %1130 = icmp eq i32 %.val86, 0
-  br i1 %1130, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit81.i.i.i.i.i", label %1131
+  br i1 %1130, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit81.i.i.i.i.i", label %1131
 
 1131:                                             ; preds = %._crit_edge._crit_edge.i.i.i.i.i247
   %1132 = mul i64 %1129, -4658895280553007687
@@ -3113,14 +3113,14 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1138 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %1137
   %1139 = load i64, ptr %1138, align 8
   %1140 = icmp eq i64 %1129, %1139
-  br i1 %1140, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i76.i.i.i.i.i251
+  br i1 %1140, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i76.i.i.i.i.i251
 
 .lr.ph.i.i.i.i.i.i.i76.i.i.i.i.i251:              ; preds = %1131, %1142
   %1141 = phi i64 [ %1147, %1142 ], [ %1139, %1131 ]
   %.01521.i.i.i.i.i.i.i77.i.i.i.i.i252 = phi i32 [ %.015.i.i.i.i.i.i.i80.i.i.i.i.i255, %1142 ], [ %.01519.i.i.i.i.i.i.i75.i.i.i.i.i250, %1131 ]
   %.01420.i.i.i.i.i.i.i78.i.i.i.i.i253 = phi i32 [ %1143, %1142 ], [ 1, %1131 ]
   %.not.i79.i.i.i.i.i254 = icmp eq i64 %1141, -1
-  br i1 %.not.i79.i.i.i.i.i254, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit81.i.i.i.i.i", label %1142
+  br i1 %.not.i79.i.i.i.i.i254, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit81.i.i.i.i.i", label %1142
 
 1142:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i76.i.i.i.i.i251
   %1143 = add i32 %.01420.i.i.i.i.i.i.i78.i.i.i.i.i253, 1
@@ -3130,20 +3130,20 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1146 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %1145
   %1147 = load i64, ptr %1146, align 8
   %1148 = icmp eq i64 %1129, %1147
-  br i1 %1148, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i76.i.i.i.i.i251, !llvm.loop !52
+  br i1 %1148, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i76.i.i.i.i.i251, !llvm.loop !52
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit81.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i76.i.i.i.i.i251, %._crit_edge._crit_edge.i.i.i.i.i247
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit81.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i76.i.i.i.i.i251, %._crit_edge._crit_edge.i.i.i.i.i247
   %1149 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i248, i64 16
   br label %._crit_edge._crit_edge144.i.i.i.i.i237
 
-._crit_edge._crit_edge144.i.i.i.i.i237:           ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit81.i.i.i.i.i", %._crit_edge.i.i.i.i.i235
-  %.2.i.i.i.i.i238 = phi ptr [ %1149, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit81.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i236, %._crit_edge.i.i.i.i.i235 ]
+._crit_edge._crit_edge144.i.i.i.i.i237:           ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit81.i.i.i.i.i", %._crit_edge.i.i.i.i.i235
+  %.2.i.i.i.i.i238 = phi ptr [ %1149, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit81.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i236, %._crit_edge.i.i.i.i.i235 ]
   %.2.val.i.i.i.i.i239 = load i64, ptr %.2.i.i.i.i.i238, align 8
   %1150 = and i64 %.2.val.i.i.i.i.i239, -8
   %1151 = inttoptr i64 %1150 to ptr
   %1152 = load i64, ptr %1151, align 8
   %1153 = icmp eq i32 %.val86, 0
-  br i1 %1153, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.thread", label %1154
+  br i1 %1153, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.thread", label %1154
 
 1154:                                             ; preds = %._crit_edge._crit_edge144.i.i.i.i.i237
   %1155 = mul i64 %1152, -4658895280553007687
@@ -3156,14 +3156,14 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1161 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %1160
   %1162 = load i64, ptr %1161, align 8
   %1163 = icmp eq i64 %1152, %1162
-  br i1 %1163, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i83.i.i.i.i.i241
+  br i1 %1163, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i83.i.i.i.i.i241
 
 .lr.ph.i.i.i.i.i.i.i83.i.i.i.i.i241:              ; preds = %1154, %1165
   %1164 = phi i64 [ %1170, %1165 ], [ %1162, %1154 ]
   %.01521.i.i.i.i.i.i.i84.i.i.i.i.i242 = phi i32 [ %.015.i.i.i.i.i.i.i87.i.i.i.i.i245, %1165 ], [ %.01519.i.i.i.i.i.i.i82.i.i.i.i.i240, %1154 ]
   %.01420.i.i.i.i.i.i.i85.i.i.i.i.i243 = phi i32 [ %1166, %1165 ], [ 1, %1154 ]
   %.not.i86.i.i.i.i.i244 = icmp eq i64 %1164, -1
-  br i1 %.not.i86.i.i.i.i.i244, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.thread", label %1165
+  br i1 %.not.i86.i.i.i.i.i244, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.thread", label %1165
 
 1165:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i83.i.i.i.i.i241
   %1166 = add i32 %.01420.i.i.i.i.i.i.i85.i.i.i.i.i243, 1
@@ -3173,50 +3173,50 @@ _ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228: ; preds = %.
   %1169 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %.val85, i64 %1168
   %1170 = load i64, ptr %1169, align 8
   %1171 = icmp eq i64 %1152, %1170
-  br i1 %1171, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i83.i.i.i.i.i241, !llvm.loop !52
+  br i1 %1171, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i83.i.i.i.i.i241, !llvm.loop !52
 
-"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit": ; preds = %1090
+"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit": ; preds = %1090
   %1172 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i268, i64 48
-  br label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit531": ; preds = %1069
+"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit531": ; preds = %1069
   %1173 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i268, i64 32
-  br label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit532": ; preds = %1048
+"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit532": ; preds = %1048
   %1174 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i268, i64 16
-  br label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit540.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.exit.i.i.i.i.i"
+"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit540.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm23buildModuleSummaryIndexERKNS2_6ModuleESt8functionIFPNS2_18BlockFrequencyInfoERKNS2_8FunctionEEEPNS2_18ProfileSummaryInfoES6_IFPKNS2_15StackSafetyInfoESB_EEE3$_3EclIPKSt4pairINS2_9ValueInfoENS2_10CalleeInfoEEEEbT_.argprom.argprom.exit.i.i.i.i.i"
   %1175 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i268, i64 16
-  br label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit540.split.loop.exit598": ; preds = %1055
+"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit540.split.loop.exit598": ; preds = %1055
   %1176 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i268, i64 32
-  br label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit540.split.loop.exit600": ; preds = %1076
+"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit540.split.loop.exit600": ; preds = %1076
   %1177 = getelementptr inbounds i8, ptr %.029125.i.i.i.i.i268, i64 48
-  br label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit": ; preds = %.lr.ph.split.i.i.i.i.i266, %1119, %1142, %1165, %1028, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit540.split.loop.exit", %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit540.split.loop.exit598", %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit540.split.loop.exit600", %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit532", %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit531", %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit", %1108, %1131, %1154
-  %.028.i.i.i.i.i246 = phi ptr [ %.029.lcssa.i.i.i.i.i236, %1108 ], [ %.1.i.i.i.i.i248, %1131 ], [ %.2.i.i.i.i.i238, %1154 ], [ %1172, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit" ], [ %1173, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit531" ], [ %1174, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit532" ], [ %1175, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit540.split.loop.exit" ], [ %1176, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit540.split.loop.exit598" ], [ %1177, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.loopexit540.split.loop.exit600" ], [ %.029125.i.i.i.i.i268, %1028 ], [ %.2.i.i.i.i.i238, %1165 ], [ %.1.i.i.i.i.i248, %1142 ], [ %.029.lcssa.i.i.i.i.i236, %1119 ], [ %.029125.i.i.i.i.i268, %.lr.ph.split.i.i.i.i.i266 ]
+"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.split.i.i.i.i.i266, %1119, %1142, %1165, %1028, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit540.split.loop.exit", %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit540.split.loop.exit598", %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit540.split.loop.exit600", %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit532", %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit531", %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit", %1108, %1131, %1154
+  %.028.i.i.i.i.i246 = phi ptr [ %.029.lcssa.i.i.i.i.i236, %1108 ], [ %.1.i.i.i.i.i248, %1131 ], [ %.2.i.i.i.i.i238, %1154 ], [ %1172, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit" ], [ %1173, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit531" ], [ %1174, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit532" ], [ %1175, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit540.split.loop.exit" ], [ %1176, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit540.split.loop.exit598" ], [ %1177, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.loopexit540.split.loop.exit600" ], [ %.029125.i.i.i.i.i268, %1028 ], [ %.2.i.i.i.i.i238, %1165 ], [ %.1.i.i.i.i.i248, %1142 ], [ %.029.lcssa.i.i.i.i.i236, %1119 ], [ %.029125.i.i.i.i.i268, %.lr.ph.split.i.i.i.i.i266 ]
   %1178 = icmp eq ptr %1007, %.028.i.i.i.i.i246
-  br i1 %1178, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.thread", label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.thread.sink.split"
+  br i1 %1178, label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.thread", label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.thread.sink.split"
 
-"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.thread.sink.split": ; preds = %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit", %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit", %822
+"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.thread.sink.split": ; preds = %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit", %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit", %822
   %1179 = getelementptr inbounds nuw i8, ptr %823, i64 12
   %1180 = load i16, ptr %1179, align 4
   %1181 = or i16 %1180, 64
   store i16 %1181, ptr %1179, align 4
-  br label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.thread"
+  br label %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.thread"
 
-"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.thread": ; preds = %.lr.ph.i.i.i.i.i.i.i83.i.i.i.i.i241, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.thread.sink.split", %._crit_edge.i.i.i.i.i235, %._crit_edge._crit_edge144.i.i.i.i.i237, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.exit.thread", %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit", %816
+"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.thread": ; preds = %.lr.ph.i.i.i.i.i.i.i83.i.i.i.i.i241, %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.thread.sink.split", %._crit_edge.i.i.i.i.i235, %._crit_edge._crit_edge144.i.i.i.i.i237, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9ValueInfoEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES7_IFPKNS_15StackSafetyInfoESC_EEE3$_2EEbOT_T0_.argprom.exit.thread", %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit", %816
   %1182 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0303.0488) #25
   %.not378 = icmp eq ptr %1182, %68
   br i1 %.not378, label %._crit_edge490, label %816
 
-._crit_edge490:                                   ; preds = %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.exit.thread", %_ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228
+._crit_edge490:                                   ; preds = %"_ZN4llvm6all_ofINS_8ArrayRefISt4pairINS_9ValueInfoENS_10CalleeInfoEEEEZNS_23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoESA_IFPKNS_15StackSafetyInfoESF_EEE3$_3EEbOT_T0_.argprom.exit.thread", %_ZL11setLiveRootRN4llvm18ModuleSummaryIndexENS_9StringRefE.exit228
   %1183 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL20ModuleSummaryDotFileB5cxx11, i64 128)) #21
   br i1 %1183, label %1212, label %1184
 
@@ -3481,7 +3481,7 @@ _ZN4llvm8DenseSetINS_21BranchProbabilityInfo20BasicBlockCallbackVHENS_12DenseMap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(124) %4, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext %7, ptr noundef nonnull %8) unnamed_addr #0 {
+define internal fastcc void @_ZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EE.argprom(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(124) %4, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext %7, ptr noundef nonnull %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca %"struct.llvm::FunctionSummary::VFuncId", align 8
@@ -4306,7 +4306,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread172.thread932: ; preds = %385
   %437 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %438 = load ptr, ptr %437, align 8
   %.not5.i.i.i.i.i.i.i = icmp eq ptr %438, null
-  br i1 %.not5.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.exit.thread51.i", label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %.not5.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.argprom.exit.thread51.i", label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %432, %458
   %.sroa.02.06.i.i.i.i.i.i.i = phi ptr [ %460, %458 ], [ %438, %432 ]
@@ -4314,18 +4314,18 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread172.thread932: ; preds = %385
   %.val.i.i.i.i.i.i.i.i = load ptr, ptr %439, align 8
   %440 = load i8, ptr %.val.i.i.i.i.i.i.i.i, align 8
   %441 = icmp eq i8 %440, 85
-  br i1 %441, label %442, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.exit.thread.i"
+  br i1 %441, label %442, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.argprom.exit.thread.i"
 
 442:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
   %443 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i.i, i64 -32
   %444 = load ptr, ptr %443, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %444, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.exit.thread.i", label %445
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.argprom.exit.thread.i", label %445
 
 445:                                              ; preds = %442
   %446 = load i8, ptr %444, align 8
   %447 = icmp eq i8 %446, 0
-  br i1 %447, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.exit.thread.i"
+  br i1 %447, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.argprom.exit.thread.i"
 
 _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %445
   %448 = getelementptr inbounds nuw i8, ptr %444, i64 24
@@ -4333,32 +4333,32 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.
   %450 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i.i, i64 80
   %451 = load ptr, ptr %450, align 8
   %452 = icmp eq ptr %449, %451
-  br i1 %452, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.exit.thread.i"
+  br i1 %452, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.argprom.exit.thread.i"
 
 _ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %453 = getelementptr inbounds nuw i8, ptr %444, i64 32
   %454 = load i32, ptr %453, align 8
   %455 = and i32 %454, 8192
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %455, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21addIntrinsicToSummaryPKN4llvm8CallInstERNS2_9SetVectorImSt6vectorImSaImEENS2_8DenseSetImNS2_12DenseMapInfoImvEEEELj0EEERNS6_INS2_15FunctionSummary7VFuncIdES7_ISH_SaISH_EENSA_ISH_NSB_ISH_vEEEELj0EEESN_RNS6_INSG_10ConstVCallES7_ISO_SaISO_EENSA_ISO_NSB_ISO_vEEEELj0EEESU_RNS2_13DominatorTreeEE3$_0EclINS2_5Value17use_iterator_implIKNS2_3UseEEEEEbT_.exit.i.i.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.argprom.exit.thread.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21addIntrinsicToSummaryPKN4llvm8CallInstERNS2_9SetVectorImSt6vectorImSaImEENS2_8DenseSetImNS2_12DenseMapInfoImvEEEELj0EEERNS6_INS2_15FunctionSummary7VFuncIdES7_ISH_SaISH_EENSA_ISH_NSB_ISH_vEEEELj0EEESN_RNS6_INSG_10ConstVCallES7_ISO_SaISO_EENSA_ISO_NSB_ISO_vEEEELj0EEESU_RNS2_13DominatorTreeEE3$_0EclINS2_5Value17use_iterator_implIKNS2_3UseEEEEEbT_.argprom.exit.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL21addIntrinsicToSummaryPKN4llvm8CallInstERNS2_9SetVectorImSt6vectorImSaImEENS2_8DenseSetImNS2_12DenseMapInfoImvEEEELj0EEERNS6_INS2_15FunctionSummary7VFuncIdES7_ISH_SaISH_EENSA_ISH_NSB_ISH_vEEEELj0EEESN_RNS6_INSG_10ConstVCallES7_ISO_SaISO_EENSA_ISO_NSB_ISO_vEEEELj0EEESU_RNS2_13DominatorTreeEE3$_0EclINS2_5Value17use_iterator_implIKNS2_3UseEEEEEbT_.exit.i.i.i.i.i.i.i": ; preds = %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL21addIntrinsicToSummaryPKN4llvm8CallInstERNS2_9SetVectorImSt6vectorImSaImEENS2_8DenseSetImNS2_12DenseMapInfoImvEEEELj0EEERNS6_INS2_15FunctionSummary7VFuncIdES7_ISH_SaISH_EENSA_ISH_NSB_ISH_vEEEELj0EEESN_RNS6_INSG_10ConstVCallES7_ISO_SaISO_EENSA_ISO_NSB_ISO_vEEEELj0EEESU_RNS2_13DominatorTreeEE3$_0EclINS2_5Value17use_iterator_implIKNS2_3UseEEEEEbT_.argprom.exit.i.i.i.i.i.i.i": ; preds = %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %456 = getelementptr inbounds nuw i8, ptr %444, i64 36
   %457 = load i32, ptr %456, align 4
   %.not4.i.i.i.i.i.i.i = icmp eq i32 %457, 11
-  br i1 %.not4.i.i.i.i.i.i.i, label %458, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.exit.thread.i"
+  br i1 %.not4.i.i.i.i.i.i.i, label %458, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.argprom.exit.thread.i"
 
-458:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21addIntrinsicToSummaryPKN4llvm8CallInstERNS2_9SetVectorImSt6vectorImSaImEENS2_8DenseSetImNS2_12DenseMapInfoImvEEEELj0EEERNS6_INS2_15FunctionSummary7VFuncIdES7_ISH_SaISH_EENSA_ISH_NSB_ISH_vEEEELj0EEESN_RNS6_INSG_10ConstVCallES7_ISO_SaISO_EENSA_ISO_NSB_ISO_vEEEELj0EEESU_RNS2_13DominatorTreeEE3$_0EclINS2_5Value17use_iterator_implIKNS2_3UseEEEEEbT_.exit.i.i.i.i.i.i.i"
+458:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21addIntrinsicToSummaryPKN4llvm8CallInstERNS2_9SetVectorImSt6vectorImSaImEENS2_8DenseSetImNS2_12DenseMapInfoImvEEEELj0EEERNS6_INS2_15FunctionSummary7VFuncIdES7_ISH_SaISH_EENSA_ISH_NSB_ISH_vEEEELj0EEESN_RNS6_INSG_10ConstVCallES7_ISO_SaISO_EENSA_ISO_NSB_ISO_vEEEELj0EEESU_RNS2_13DominatorTreeEE3$_0EclINS2_5Value17use_iterator_implIKNS2_3UseEEEEEbT_.argprom.exit.i.i.i.i.i.i.i"
   %459 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i.i.i.i, i64 8
   %460 = load ptr, ptr %459, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %460, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.exit.thread51.i", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !79
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.argprom.exit.thread51.i", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !79
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21addIntrinsicToSummaryPKN4llvm8CallInstERNS2_9SetVectorImSt6vectorImSaImEENS2_8DenseSetImNS2_12DenseMapInfoImvEEEELj0EEERNS6_INS2_15FunctionSummary7VFuncIdES7_ISH_SaISH_EENSA_ISH_NSB_ISH_vEEEELj0EEESN_RNS6_INSG_10ConstVCallES7_ISO_SaISO_EENSA_ISO_NSB_ISO_vEEEELj0EEESU_RNS2_13DominatorTreeEE3$_0EclINS2_5Value17use_iterator_implIKNS2_3UseEEEEEbT_.exit.i.i.i.i.i.i.i", %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %445, %442, %.lr.ph.i.i.i.i.i.i.i
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.argprom.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21addIntrinsicToSummaryPKN4llvm8CallInstERNS2_9SetVectorImSt6vectorImSaImEENS2_8DenseSetImNS2_12DenseMapInfoImvEEEELj0EEERNS6_INS2_15FunctionSummary7VFuncIdES7_ISH_SaISH_EENSA_ISH_NSB_ISH_vEEEELj0EEESN_RNS6_INSG_10ConstVCallES7_ISO_SaISO_EENSA_ISO_NSB_ISO_vEEEELj0EEESU_RNS2_13DominatorTreeEE3$_0EclINS2_5Value17use_iterator_implIKNS2_3UseEEEEEbT_.argprom.exit.i.i.i.i.i.i.i", %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %445, %442, %.lr.ph.i.i.i.i.i.i.i
   %461 = call noundef zeroext i1 @_ZN4llvm9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EE6insertERKm(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull align 8 dereferenceable(8) %30)
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.exit.thread51.i"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.argprom.exit.thread51.i"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.exit.thread51.i": ; preds = %458, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.exit.thread.i", %432
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.argprom.exit.thread51.i": ; preds = %458, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.argprom.exit.thread.i", %432
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull %127, i64 noundef 4) #21
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull %128, i64 noundef 4) #21
   call void @_ZN4llvm35findDevirtualizableCallsForTypeTestERNS_15SmallVectorImplINS_14DevirtCallSiteEEERNS0_IPNS_8CallInstEEEPKS4_RNS_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull %spec.select.i.i283, ptr noundef nonnull align 8 dereferenceable(124) %4) #21
@@ -4368,8 +4368,8 @@ _ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i.i.i.
   %.not4558.i = icmp eq i64 %463, 0
   br i1 %.not4558.i, label %._crit_edge61.i, label %.lr.ph60.i
 
-.lr.ph60.i:                                       ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.exit.thread51.i", %_ZL13addVCallToSetN4llvm14DevirtCallSiteEmRNS_9SetVectorINS_15FunctionSummary7VFuncIdESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj0EEERNS1_INS2_10ConstVCallES4_ISD_SaISD_EENS7_ISD_NS8_ISD_vEEEELj0EEE.exit716
-  %.059.i = phi ptr [ %585, %_ZL13addVCallToSetN4llvm14DevirtCallSiteEmRNS_9SetVectorINS_15FunctionSummary7VFuncIdESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj0EEERNS1_INS2_10ConstVCallES4_ISD_SaISD_EENS7_ISD_NS8_ISD_vEEEELj0EEE.exit716 ], [ %462, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.exit.thread51.i" ]
+.lr.ph60.i:                                       ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.argprom.exit.thread51.i", %_ZL13addVCallToSetN4llvm14DevirtCallSiteEmRNS_9SetVectorINS_15FunctionSummary7VFuncIdESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj0EEERNS1_INS2_10ConstVCallES4_ISD_SaISD_EENS7_ISD_NS8_ISD_vEEEELj0EEE.exit716
+  %.059.i = phi ptr [ %585, %_ZL13addVCallToSetN4llvm14DevirtCallSiteEmRNS_9SetVectorINS_15FunctionSummary7VFuncIdESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj0EEERNS1_INS2_10ConstVCallES4_ISD_SaISD_EENS7_ISD_NS8_ISD_vEEEELj0EEE.exit716 ], [ %462, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.argprom.exit.thread51.i" ]
   %.sroa.012.0.copyload.i = load i64, ptr %.059.i, align 8
   %.sroa.213.0..sroa_idx.i = getelementptr inbounds i8, ptr %.059.i, i64 8
   %.sroa.213.0.copyload.i = load ptr, ptr %.sroa.213.0..sroa_idx.i, align 8
@@ -4662,7 +4662,7 @@ _ZL13addVCallToSetN4llvm14DevirtCallSiteEmRNS_9SetVectorINS_15FunctionSummary7VF
   %.not45.i = icmp eq ptr %585, %464
   br i1 %.not45.i, label %._crit_edge61.i, label %.lr.ph60.i
 
-._crit_edge61.i:                                  ; preds = %_ZL13addVCallToSetN4llvm14DevirtCallSiteEmRNS_9SetVectorINS_15FunctionSummary7VFuncIdESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj0EEERNS1_INS2_10ConstVCallES4_ISD_SaISD_EENS7_ISD_NS8_ISD_vEEEELj0EEE.exit716, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.exit.thread51.i"
+._crit_edge61.i:                                  ; preds = %_ZL13addVCallToSetN4llvm14DevirtCallSiteEmRNS_9SetVectorINS_15FunctionSummary7VFuncIdESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj0EEERNS1_INS2_10ConstVCallES4_ISD_SaISD_EENS7_ISD_NS8_ISD_vEEEELj0EEE.exit716, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value17use_iterator_implIKNS_3UseEEEEEZL21addIntrinsicToSummaryPKNS_8CallInstERNS_9SetVectorImSt6vectorImSaImEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EEERNSB_INS_15FunctionSummary7VFuncIdESC_ISM_SaISM_EENSF_ISM_NSG_ISM_vEEEELj0EEESS_RNSB_INSL_10ConstVCallESC_IST_SaIST_EENSF_IST_NSG_IST_vEEEELj0EEESZ_RNS_13DominatorTreeEE3$_0EEbOT_T0_.argprom.exit.thread51.i"
   %586 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #21
   %587 = load ptr, ptr %32, align 8
   %588 = icmp eq ptr %587, %128
@@ -8425,7 +8425,7 @@ _ZNK4llvm8Function4sizeEv.exit:                   ; preds = %.lr.ph.i.i.i.i473, 
 
 2276:                                             ; preds = %2275
   %.not5.i475 = icmp eq ptr %.sroa.0110.0.lcssa, %.sroa.5112.0.lcssa
-  br i1 %.not5.i475, label %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.exit", label %.lr.ph.i476
+  br i1 %.not5.i475, label %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.argprom.exit", label %.lr.ph.i476
 
 .lr.ph.i476:                                      ; preds = %2276, %_ZN4llvm15SmallPtrSetImplIPKNS_4UserEE5eraseES3_.exit.i
   %.sroa.01.06.i = phi ptr [ %2300, %_ZN4llvm15SmallPtrSetImplIPKNS_4UserEE5eraseES3_.exit.i ], [ %.sroa.0110.0.lcssa, %2276 ]
@@ -8478,9 +8478,9 @@ _ZN4llvm15SmallPtrSetImplIPKNS_4UserEE5eraseES3_.exit.i: ; preds = %2292, %2296,
   %2299 = call fastcc noundef zeroext i1 @_ZL12findRefEdgesRN4llvm18ModuleSummaryIndexEPKNS_4UserERNS_9SetVectorINS_9ValueInfoESt6vectorIS6_SaIS6_EENS_8DenseSetIS6_NS_12DenseMapInfoIS6_vEEEELj0EEERNS_11SmallPtrSetIS4_Lj8EEERb(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef %2277, ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull align 8 dereferenceable(96) %50, ptr noundef nonnull align 1 dereferenceable(1) %51)
   %2300 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 8
   %.not.i478 = icmp eq ptr %2300, %.sroa.5112.0.lcssa
-  br i1 %.not.i478, label %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.exit", label %.lr.ph.i476
+  br i1 %.not.i478, label %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.argprom.exit", label %.lr.ph.i476
 
-"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.exit": ; preds = %_ZN4llvm15SmallPtrSetImplIPKNS_4UserEE5eraseES3_.exit.i, %2276
+"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.argprom.exit": ; preds = %_ZN4llvm15SmallPtrSetImplIPKNS_4UserEE5eraseES3_.exit.i, %2276
   %2301 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr %2301, ptr %69, align 8
   %2302 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -8492,10 +8492,10 @@ _ZN4llvm15SmallPtrSetImplIPKNS_4UserEE5eraseES3_.exit.i: ; preds = %2292, %2296,
   %2305 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store i32 0, ptr %2305, align 8
   %.not5.i480 = icmp eq ptr %.sroa.0105.0.lcssa, %.sroa.5107.0.lcssa
-  br i1 %.not5.i480, label %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.exit491", label %.lr.ph.i481
+  br i1 %.not5.i480, label %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.argprom.exit491", label %.lr.ph.i481
 
-.lr.ph.i481:                                      ; preds = %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.exit", %_ZN4llvm15SmallPtrSetImplIPKNS_4UserEE5eraseES3_.exit.i484
-  %.sroa.01.06.i482 = phi ptr [ %2329, %_ZN4llvm15SmallPtrSetImplIPKNS_4UserEE5eraseES3_.exit.i484 ], [ %.sroa.0105.0.lcssa, %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.exit" ]
+.lr.ph.i481:                                      ; preds = %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.argprom.exit", %_ZN4llvm15SmallPtrSetImplIPKNS_4UserEE5eraseES3_.exit.i484
+  %.sroa.01.06.i482 = phi ptr [ %2329, %_ZN4llvm15SmallPtrSetImplIPKNS_4UserEE5eraseES3_.exit.i484 ], [ %.sroa.0105.0.lcssa, %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.argprom.exit" ]
   %2306 = load ptr, ptr %.sroa.01.06.i482, align 8
   %2307 = load ptr, ptr %2302, align 8
   %2308 = load ptr, ptr %69, align 8
@@ -8545,16 +8545,16 @@ _ZN4llvm15SmallPtrSetImplIPKNS_4UserEE5eraseES3_.exit.i484: ; preds = %2321, %23
   %2328 = call fastcc noundef zeroext i1 @_ZL12findRefEdgesRN4llvm18ModuleSummaryIndexEPKNS_4UserERNS_9SetVectorINS_9ValueInfoESt6vectorIS6_SaIS6_EENS_8DenseSetIS6_NS_12DenseMapInfoIS6_vEEEELj0EEERNS_11SmallPtrSetIS4_Lj8EEERb(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef %2306, ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef nonnull align 8 dereferenceable(96) %69, ptr noundef nonnull align 1 dereferenceable(1) %51)
   %2329 = getelementptr inbounds i8, ptr %.sroa.01.06.i482, i64 8
   %.not.i485 = icmp eq ptr %2329, %.sroa.5107.0.lcssa
-  br i1 %.not.i485, label %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.exit491", label %.lr.ph.i481
+  br i1 %.not.i485, label %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.argprom.exit491", label %.lr.ph.i481
 
-"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.exit491": ; preds = %_ZN4llvm15SmallPtrSetImplIPKNS_4UserEE5eraseES3_.exit.i484, %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.exit"
+"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.argprom.exit491": ; preds = %_ZN4llvm15SmallPtrSetImplIPKNS_4UserEE5eraseES3_.exit.i484, %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.argprom.exit"
   %2330 = load ptr, ptr %90, align 8
   %2331 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %2332 = load ptr, ptr %2331, align 8
   %.not204716 = icmp eq ptr %2330, %2332
   br i1 %.not204716, label %._crit_edge719, label %.lr.ph718
 
-.lr.ph718:                                        ; preds = %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.exit491"
+.lr.ph718:                                        ; preds = %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.argprom.exit491"
   %2333 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %2334 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %2335 = getelementptr inbounds nuw i8, ptr %41, i64 40
@@ -8704,7 +8704,7 @@ _ZN4llvm9SetVectorINS_9ValueInfoESt6vectorIS1_SaIS1_EENS_8DenseSetIS1_NS_12Dense
   %.not204 = icmp eq ptr %2400, %2332
   br i1 %.not204, label %._crit_edge719, label %2336
 
-._crit_edge719:                                   ; preds = %_ZN4llvm9SetVectorINS_9ValueInfoESt6vectorIS1_SaIS1_EENS_8DenseSetIS1_NS_12DenseMapInfoIS1_vEEEELj0EE6insertERKS1_.exit506, %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.exit491"
+._crit_edge719:                                   ; preds = %_ZN4llvm9SetVectorINS_9ValueInfoESt6vectorIS1_SaIS1_EENS_8DenseSetIS1_NS_12DenseMapInfoIS1_vEEEELj0EE6insertERKS1_.exit506, %"_ZZL22computeFunctionSummaryRN4llvm18ModuleSummaryIndexERKNS_6ModuleERKNS_8FunctionEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_13DominatorTreeEbRNS_8DenseSetImNS_12DenseMapInfoImvEEEEbSt8functionIFPKNS_15StackSafetyInfoES7_EEENK3$_0clERKSt6vectorIPKNS_11InstructionESaIST_EERNS_9SetVectorINS_9ValueInfoESQ_ISZ_SaISZ_EENSE_ISZ_NSF_ISZ_vEEEELj0EEERNS_11SmallPtrSetIPKNS_4UserELj8EEE.argprom.exit491"
   %2401 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %2402 = load ptr, ptr %2401, align 8
   %2403 = load ptr, ptr %88, align 8
@@ -23048,7 +23048,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN4llvm18BlockFr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFPN4llvm18BlockFrequencyInfoERKNS0_8FunctionEEZNS0_26ModuleSummaryIndexAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS8_JEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm26ModuleSummaryIndexAnalysis3runERNS1_6ModuleERNS1_15AnalysisManagerIS3_JEEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm26ModuleSummaryIndexAnalysis3runERNS1_6ModuleERNS1_15AnalysisManagerIS3_JEEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -23056,18 +23056,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFPN4llvm18BlockFre
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm26ModuleSummaryIndexAnalysis3runERNS1_6ModuleERNS1_15AnalysisManagerIS3_JEEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm26ModuleSummaryIndexAnalysis3runERNS1_6ModuleERNS1_15AnalysisManagerIS3_JEEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm26ModuleSummaryIndexAnalysis3runERNS1_6ModuleERNS1_15AnalysisManagerIS3_JEEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm26ModuleSummaryIndexAnalysis3runERNS1_6ModuleERNS1_15AnalysisManagerIS3_JEEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm26ModuleSummaryIndexAnalysis3runERNS1_6ModuleERNS1_15AnalysisManagerIS3_JEEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm26ModuleSummaryIndexAnalysis3runERNS1_6ModuleERNS1_15AnalysisManagerIS3_JEEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm26ModuleSummaryIndexAnalysis3runERNS1_6ModuleERNS1_15AnalysisManagerIS3_JEEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm26ModuleSummaryIndexAnalysis3runERNS1_6ModuleERNS1_15AnalysisManagerIS3_JEEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -23078,15 +23078,15 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFPKN4llvm15StackSafetyInf
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val2 = load i8, ptr %3, align 8
   %4 = trunc i8 %.val2 to i1
-  br i1 %4, label %5, label %"_ZSt10__invoke_rIPKN4llvm15StackSafetyInfoERZNS0_26ModuleSummaryIndexAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS5_JEEEE3$_1JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
+  br i1 %4, label %5, label %"_ZSt10__invoke_rIPKN4llvm15StackSafetyInfoERZNS0_26ModuleSummaryIndexAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS5_JEEEE3$_1JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit"
 
 5:                                                ; preds = %2
   %.val = load ptr, ptr %0, align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %.val, ptr noundef nonnull @_ZN4llvm19StackSafetyAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %1) #21
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br label %"_ZSt10__invoke_rIPKN4llvm15StackSafetyInfoERZNS0_26ModuleSummaryIndexAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS5_JEEEE3$_1JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
+  br label %"_ZSt10__invoke_rIPKN4llvm15StackSafetyInfoERZNS0_26ModuleSummaryIndexAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS5_JEEEE3$_1JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit"
 
-"_ZSt10__invoke_rIPKN4llvm15StackSafetyInfoERZNS0_26ModuleSummaryIndexAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS5_JEEEE3$_1JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %2, %5
+"_ZSt10__invoke_rIPKN4llvm15StackSafetyInfoERZNS0_26ModuleSummaryIndexAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS5_JEEEE3$_1JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit": ; preds = %2, %5
   %8 = phi ptr [ %7, %5 ], [ null, %2 ]
   ret ptr %8
 }
@@ -23158,7 +23158,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN4llvm18BlockFr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFPN4llvm18BlockFrequencyInfoERKNS0_8FunctionEEZNS0_29ModuleSummaryIndexWrapperPass11runOnModuleERNS0_6ModuleEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm29ModuleSummaryIndexWrapperPass11runOnModuleERNS1_6ModuleEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm29ModuleSummaryIndexWrapperPass11runOnModuleERNS1_6ModuleEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -23166,18 +23166,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFPN4llvm18BlockFre
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm29ModuleSummaryIndexWrapperPass11runOnModuleERNS1_6ModuleEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm29ModuleSummaryIndexWrapperPass11runOnModuleERNS1_6ModuleEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm29ModuleSummaryIndexWrapperPass11runOnModuleERNS1_6ModuleEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm29ModuleSummaryIndexWrapperPass11runOnModuleERNS1_6ModuleEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm29ModuleSummaryIndexWrapperPass11runOnModuleERNS1_6ModuleEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm29ModuleSummaryIndexWrapperPass11runOnModuleERNS1_6ModuleEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm29ModuleSummaryIndexWrapperPass11runOnModuleERNS1_6ModuleEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm29ModuleSummaryIndexWrapperPass11runOnModuleERNS1_6ModuleEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -23189,7 +23189,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFPKN4llvm15StackSafetyInf
   %.val = load ptr, ptr %0, align 8
   %.val.val = load i8, ptr %.val, align 1
   %4 = trunc i8 %.val.val to i1
-  br i1 %4, label %5, label %"_ZSt10__invoke_rIPKN4llvm15StackSafetyInfoERZNS0_29ModuleSummaryIndexWrapperPass11runOnModuleERNS0_6ModuleEE3$_1JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
+  br i1 %4, label %5, label %"_ZSt10__invoke_rIPKN4llvm15StackSafetyInfoERZNS0_29ModuleSummaryIndexWrapperPass11runOnModuleERNS0_6ModuleEE3$_1JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.argprom.exit"
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -23206,9 +23206,9 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFPKN4llvm15StackSafetyInf
   %14 = call noundef nonnull align 8 dereferenceable(80) ptr %13(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull @_ZN4llvm26StackSafetyInfoWrapperPass2IDE) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  br label %"_ZSt10__invoke_rIPKN4llvm15StackSafetyInfoERZNS0_29ModuleSummaryIndexWrapperPass11runOnModuleERNS0_6ModuleEE3$_1JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
+  br label %"_ZSt10__invoke_rIPKN4llvm15StackSafetyInfoERZNS0_29ModuleSummaryIndexWrapperPass11runOnModuleERNS0_6ModuleEE3$_1JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.argprom.exit"
 
-"_ZSt10__invoke_rIPKN4llvm15StackSafetyInfoERZNS0_29ModuleSummaryIndexWrapperPass11runOnModuleERNS0_6ModuleEE3$_1JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %2, %5
+"_ZSt10__invoke_rIPKN4llvm15StackSafetyInfoERZNS0_29ModuleSummaryIndexWrapperPass11runOnModuleERNS0_6ModuleEE3$_1JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.argprom.exit": ; preds = %2, %5
   %16 = phi ptr [ %15, %5 ], [ null, %2 ]
   ret ptr %16
 }

@@ -29,21 +29,21 @@ define internal ptr @aes_256_ocb_newctx(ptr nocapture readnone %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #5
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %aes_ocb_newctx.exit, label %if.end.i
+  br i1 %tobool.not.i, label %aes_ocb_newctx.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 944, ptr noundef nonnull @.str, i32 noundef 314) #5
   %cmp.not.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.not.i, label %aes_ocb_newctx.exit, label %if.then2.i
+  br i1 %cmp.not.i, label %aes_ocb_newctx.argprom.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
   %call3.i = tail call ptr @ossl_prov_cipher_hw_aes_ocb(i64 noundef 256) #5
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1.i, i64 noundef 256, i64 noundef 128, i64 noundef 96, i32 noundef 65539, i64 noundef 3, ptr noundef %call3.i, ptr noundef null) #5
   %taglen.i = getelementptr inbounds i8, ptr %call1.i, i64 872
   store i64 16, ptr %taglen.i, align 8
-  br label %aes_ocb_newctx.exit
+  br label %aes_ocb_newctx.argprom.exit
 
-aes_ocb_newctx.exit:                              ; preds = %entry, %if.end.i, %if.then2.i
+aes_ocb_newctx.argprom.exit:                      ; preds = %entry, %if.end.i, %if.then2.i
   %retval.0.i = phi ptr [ null, %entry ], [ %call1.i, %if.then2.i ], [ null, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -680,21 +680,21 @@ define internal ptr @aes_192_ocb_newctx(ptr nocapture readnone %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #5
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %aes_ocb_newctx.exit, label %if.end.i
+  br i1 %tobool.not.i, label %aes_ocb_newctx.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 944, ptr noundef nonnull @.str, i32 noundef 314) #5
   %cmp.not.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.not.i, label %aes_ocb_newctx.exit, label %if.then2.i
+  br i1 %cmp.not.i, label %aes_ocb_newctx.argprom.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
   %call3.i = tail call ptr @ossl_prov_cipher_hw_aes_ocb(i64 noundef 192) #5
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1.i, i64 noundef 192, i64 noundef 128, i64 noundef 96, i32 noundef 65539, i64 noundef 3, ptr noundef %call3.i, ptr noundef null) #5
   %taglen.i = getelementptr inbounds i8, ptr %call1.i, i64 872
   store i64 16, ptr %taglen.i, align 8
-  br label %aes_ocb_newctx.exit
+  br label %aes_ocb_newctx.argprom.exit
 
-aes_ocb_newctx.exit:                              ; preds = %entry, %if.end.i, %if.then2.i
+aes_ocb_newctx.argprom.exit:                      ; preds = %entry, %if.end.i, %if.then2.i
   %retval.0.i = phi ptr [ null, %entry ], [ %call1.i, %if.then2.i ], [ null, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -711,21 +711,21 @@ define internal ptr @aes_128_ocb_newctx(ptr nocapture readnone %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #5
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %aes_ocb_newctx.exit, label %if.end.i
+  br i1 %tobool.not.i, label %aes_ocb_newctx.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 944, ptr noundef nonnull @.str, i32 noundef 314) #5
   %cmp.not.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.not.i, label %aes_ocb_newctx.exit, label %if.then2.i
+  br i1 %cmp.not.i, label %aes_ocb_newctx.argprom.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
   %call3.i = tail call ptr @ossl_prov_cipher_hw_aes_ocb(i64 noundef 128) #5
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1.i, i64 noundef 128, i64 noundef 128, i64 noundef 96, i32 noundef 65539, i64 noundef 3, ptr noundef %call3.i, ptr noundef null) #5
   %taglen.i = getelementptr inbounds i8, ptr %call1.i, i64 872
   store i64 16, ptr %taglen.i, align 8
-  br label %aes_ocb_newctx.exit
+  br label %aes_ocb_newctx.argprom.exit
 
-aes_ocb_newctx.exit:                              ; preds = %entry, %if.end.i, %if.then2.i
+aes_ocb_newctx.argprom.exit:                      ; preds = %entry, %if.end.i, %if.then2.i
   %retval.0.i = phi ptr [ null, %entry ], [ %call1.i, %if.then2.i ], [ null, %if.end.i ]
   ret ptr %retval.0.i
 }

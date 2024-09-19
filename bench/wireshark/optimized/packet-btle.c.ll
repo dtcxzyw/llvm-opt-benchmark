@@ -4246,7 +4246,7 @@ proto_item_set_hidden.exit2567:                   ; preds = %1371, %1377, %1380
   %1678 = load ptr, ptr %1677, align 8
   %1679 = load i32, ptr %13, align 4
   %1680 = trunc i32 %1679 to i16
-  call fastcc void @control_proc_add_frame_with_instant(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %69, ptr noundef %.02278, i8 noundef zeroext 1, ptr noundef %1674, ptr noundef %1678, i32 noundef 1, i16 noundef zeroext %1680)
+  call fastcc void @control_proc_add_frame_with_instant.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %69, ptr noundef %.02278, i8 noundef zeroext 1, ptr noundef %1674, ptr noundef %1678, i32 noundef 1, i16 noundef zeroext %1680)
   br label %proto_item_set_generated.exit2572
 
 1681:                                             ; preds = %1672
@@ -5130,7 +5130,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1811, %1810,
   br label %proto_item_set_generated.exit2572
 
 2081:                                             ; preds = %1562
-  call fastcc void @dissect_length_req_rsp(ptr noundef %0, ptr noundef %69, i32 noundef %1566)
+  call fastcc void @dissect_length_req_rsp.argelim(ptr noundef %0, ptr noundef %69, i32 noundef %1566)
   %.not2420 = icmp eq ptr %.12273, null
   br i1 %.not2420, label %proto_item_set_generated.exit2572, label %2082
 
@@ -5159,7 +5159,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1811, %1810,
   br label %proto_item_set_generated.exit2572
 
 2094:                                             ; preds = %1562
-  call fastcc void @dissect_length_req_rsp(ptr noundef %0, ptr noundef %69, i32 noundef %1566)
+  call fastcc void @dissect_length_req_rsp.argelim(ptr noundef %0, ptr noundef %69, i32 noundef %1566)
   %.not2418 = icmp eq ptr %.12273, null
   br i1 %.not2418, label %proto_item_set_generated.exit2572, label %2095
 
@@ -5196,7 +5196,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1811, %1810,
   br label %proto_item_set_generated.exit2572
 
 2109:                                             ; preds = %1562
-  call fastcc void @dissect_phy_req_rsp(ptr noundef %0, ptr noundef %69, i32 noundef %1566)
+  call fastcc void @dissect_phy_req_rsp.argelim(ptr noundef %0, ptr noundef %69, i32 noundef %1566)
   %.not2417 = icmp eq ptr %.12273, null
   br i1 %.not2417, label %proto_item_set_generated.exit2572, label %2110
 
@@ -5225,7 +5225,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1811, %1810,
   br label %proto_item_set_generated.exit2572
 
 2122:                                             ; preds = %1562
-  call fastcc void @dissect_phy_req_rsp(ptr noundef %0, ptr noundef %69, i32 noundef %1566)
+  call fastcc void @dissect_phy_req_rsp.argelim(ptr noundef %0, ptr noundef %69, i32 noundef %1566)
   %.not2414 = icmp eq ptr %.12273, null
   br i1 %.not2414, label %proto_item_set_generated.exit2572, label %2123
 
@@ -5342,7 +5342,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1811, %1810,
 2173:                                             ; preds = %2167
   %2174 = load i32, ptr %13, align 4
   %2175 = trunc i32 %2174 to i16
-  call fastcc void @control_proc_add_frame_with_instant(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %69, ptr noundef %.02278, i8 noundef zeroext 24, ptr noundef %2169, ptr noundef %2172, i32 noundef 2, i16 noundef zeroext %2175)
+  call fastcc void @control_proc_add_frame_with_instant.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %69, ptr noundef %.02278, i8 noundef zeroext 24, ptr noundef %2169, ptr noundef %2172, i32 noundef 2, i16 noundef zeroext %2175)
   br label %proto_item_set_generated.exit2572
 
 2176:                                             ; preds = %2167
@@ -5353,7 +5353,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1811, %1810,
 2178:                                             ; preds = %2176
   %2179 = load i32, ptr %13, align 4
   %2180 = trunc i32 %2179 to i16
-  call fastcc void @control_proc_add_frame_with_instant(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %69, ptr noundef %.02278, i8 noundef zeroext 24, ptr noundef %2172, ptr noundef %2169, i32 noundef 1, i16 noundef zeroext %2180)
+  call fastcc void @control_proc_add_frame_with_instant.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %69, ptr noundef %.02278, i8 noundef zeroext 24, ptr noundef %2172, ptr noundef %2169, i32 noundef 1, i16 noundef zeroext %2180)
   br label %proto_item_set_generated.exit2572
 
 2181:                                             ; preds = %2176
@@ -7153,7 +7153,7 @@ proto_item_set_generated.exit:                    ; preds = %54, %51, %48, %.pre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @control_proc_add_frame_with_instant(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i8 noundef zeroext %4, ptr nocapture noundef %5, ptr noundef readonly %6, i32 noundef range(i32 1, 3) %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @control_proc_add_frame_with_instant.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i8 noundef zeroext %4, ptr nocapture noundef %5, ptr noundef readonly %6, i32 noundef range(i32 1, 3) %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %41, label %10
 
@@ -7482,7 +7482,7 @@ define internal fastcc range(i32 30, 33) i32 @dissect_conn_param_req_rsp(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_length_req_rsp(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_length_req_rsp.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_max_rx_octets, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #9
   %6 = add nuw nsw i32 %2, 2
@@ -7498,7 +7498,7 @@ define internal fastcc void @dissect_length_req_rsp(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_phy_req_rsp(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_phy_req_rsp.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 10) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_control_tx_phys, align 4
   %5 = load i32, ptr @ett_tx_phys, align 4
   %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @hfx_control_phys_sender, i32 noundef 0) #9

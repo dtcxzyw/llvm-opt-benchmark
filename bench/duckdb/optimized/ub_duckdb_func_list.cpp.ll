@@ -22242,7 +22242,7 @@ if.end.i.i.i:                                     ; preds = %_ZN6duckdb14Constan
   %agg.tmp6.sroa.0.0.copyload.i.i.i = load i64, ptr %61, align 8, !tbaa !37
   %agg.tmp6.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %61, i64 8
   %agg.tmp6.sroa.2.0.copyload.i.i.i = load i64, ptr %agg.tmp6.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !37
-  %call8.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %agg.tmp5.sroa.0.0.copyload.i.i.i, i64 %agg.tmp5.sroa.2.0.copyload.i.i.i, i64 %agg.tmp6.sroa.0.0.copyload.i.i.i, i64 %agg.tmp6.sroa.2.0.copyload.i.i.i)
+  %call8.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %agg.tmp5.sroa.0.0.copyload.i.i.i, i64 %agg.tmp5.sroa.2.0.copyload.i.i.i, i64 %agg.tmp6.sroa.0.0.copyload.i.i.i, i64 %agg.tmp6.sroa.2.0.copyload.i.i.i)
   store float %call8.i.i.i, ptr %62, align 4, !tbaa !338
   br label %_ZN6duckdb14BinaryExecutor7ExecuteINS_12list_entry_tES2_fZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlS2_S2_E_EEvS9_S9_S9_mT2_.exit
 
@@ -22853,7 +22853,7 @@ for.body46.i.i.i.i:                               ; preds = %for.body46.i.i.i.i,
   %lentry47.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx48.i.i.i.i, align 8, !tbaa !37, !alias.scope !346, !noalias !350
   %lentry47.sroa.4.0.arrayidx48.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx48.i.i.i.i, i64 8
   %lentry47.sroa.4.0.copyload.i.i.i.i = load i64, ptr %lentry47.sroa.4.0.arrayidx48.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !346, !noalias !350
-  %call54.i.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i.i.i, i64 %lentry47.sroa.4.0.copyload.i.i.i.i, i64 %rentry49.sroa.0.0.copyload.i.i.i.i, i64 %rentry49.sroa.4.0.copyload.i.i.i.i)
+  %call54.i.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i.i.i, i64 %lentry47.sroa.4.0.copyload.i.i.i.i, i64 %rentry49.sroa.0.0.copyload.i.i.i.i, i64 %rentry49.sroa.4.0.copyload.i.i.i.i)
   %arrayidx55.i.i.i.i = getelementptr inbounds float, ptr %71, i64 %i.017.i.i.i.i
   store float %call54.i.i.i.i, ptr %arrayidx55.i.i.i.i, align 4, !tbaa !338, !alias.scope !348, !noalias !351
   %inc57.i.i.i.i = add nuw i64 %i.017.i.i.i.i, 1
@@ -23463,7 +23463,7 @@ for.body46.i.i241.i.i:                            ; preds = %for.body46.i.i241.i
   %rentry49.sroa.0.0.copyload.i.i242.i.i = load i64, ptr %arrayidx50.i.i.i.i, align 8, !tbaa !37, !alias.scope !365, !noalias !368
   %rentry49.sroa.4.0.arrayidx50.sroa_idx.i.i243.i.i = getelementptr inbounds i8, ptr %arrayidx50.i.i.i.i, i64 8
   %rentry49.sroa.4.0.copyload.i.i244.i.i = load i64, ptr %rentry49.sroa.4.0.arrayidx50.sroa_idx.i.i243.i.i, align 8, !tbaa !37, !alias.scope !365, !noalias !368
-  %call54.i.i245.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i238.i.i, i64 %lentry47.sroa.4.0.copyload.i.i240.i.i, i64 %rentry49.sroa.0.0.copyload.i.i242.i.i, i64 %rentry49.sroa.4.0.copyload.i.i244.i.i)
+  %call54.i.i245.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i238.i.i, i64 %lentry47.sroa.4.0.copyload.i.i240.i.i, i64 %rentry49.sroa.0.0.copyload.i.i242.i.i, i64 %rentry49.sroa.4.0.copyload.i.i244.i.i)
   %arrayidx55.i.i246.i.i = getelementptr inbounds float, ptr %150, i64 %i.019.i.i.i.i
   store float %call54.i.i245.i.i, ptr %arrayidx55.i.i246.i.i, align 4, !tbaa !338, !alias.scope !366, !noalias !369
   %inc57.i.i247.i.i = add nuw i64 %i.019.i.i.i.i, 1
@@ -24031,7 +24031,7 @@ for.body48.i.i.i.i:                               ; preds = %for.cond45.preheade
   %rentry51.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx52.i.i.i.i, align 8, !tbaa !37, !alias.scope !379, !noalias !385
   %rentry51.sroa.4.0.arrayidx52.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx52.i.i.i.i, i64 8
   %rentry51.sroa.4.0.copyload.i.i.i.i = load i64, ptr %rentry51.sroa.4.0.arrayidx52.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !379, !noalias !385
-  %call56.i.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry49.sroa.0.0.copyload.i.i.i.i, i64 %lentry49.sroa.4.0.copyload.i.i.i.i, i64 %rentry51.sroa.0.0.copyload.i.i.i.i, i64 %rentry51.sroa.4.0.copyload.i.i.i.i)
+  %call56.i.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry49.sroa.0.0.copyload.i.i.i.i, i64 %lentry49.sroa.4.0.copyload.i.i.i.i, i64 %rentry51.sroa.0.0.copyload.i.i.i.i, i64 %rentry51.sroa.4.0.copyload.i.i.i.i)
   %arrayidx57.i.i.i.i = getelementptr inbounds float, ptr %228, i64 %i.017.i.i368.i.i
   store float %call56.i.i.i.i, ptr %arrayidx57.i.i.i.i, align 4, !tbaa !338, !alias.scope !381, !noalias !387
   %inc59.i.i.i.i = add nuw i64 %i.017.i.i368.i.i, 1
@@ -24121,7 +24121,7 @@ for.body17.us.us.i.i.i.i:                         ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us.us.i.i.i.i = load i64, ptr %arrayidx23.us.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !396, !noalias !408
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.us.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us.us.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us.us.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !396, !noalias !408
-  %call27.us.us.i30.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.us.i.i.i.i)
+  %call27.us.us.i30.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.us.i.i.i.i)
           to label %call27.us.us.i.noexc.i.i.i unwind label %lpad5.loopexit.i.i.i
 
 call27.us.us.i.noexc.i.i.i:                       ; preds = %for.body17.us.us.i.i.i.i
@@ -24144,7 +24144,7 @@ for.body17.us.i.i.i.i:                            ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us.i.i.i.i = load i64, ptr %arrayidx23.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !396, !noalias !408
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !396, !noalias !408
-  %call27.us.i31.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.i.i.i.i)
+  %call27.us.i31.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.i.i.i.i)
           to label %call27.us.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.i.i.i
 
 call27.us.i.noexc.i.i.i:                          ; preds = %for.body17.us.i.i.i.i
@@ -24170,7 +24170,7 @@ for.body17.us8.i.i.i.i:                           ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us17.i.i.i.i = load i64, ptr %arrayidx23.us16.i.i.i.i, align 8, !tbaa !37, !alias.scope !396, !noalias !408
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us18.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us16.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us19.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us18.i.i.i.i, align 8, !tbaa !37, !alias.scope !396, !noalias !408
-  %call27.us20.i32.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us11.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us13.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us17.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us19.i.i.i.i)
+  %call27.us20.i32.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us11.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us13.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us17.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us19.i.i.i.i)
           to label %call27.us20.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 call27.us20.i.noexc.i.i.i:                        ; preds = %for.body17.us8.i.i.i.i
@@ -24240,7 +24240,7 @@ if.then6.i.i.i.i:                                 ; preds = %_ZNK6duckdb21Templa
   %rentry.sroa.0.0.copyload.i.i392.i.i = load i64, ptr %arrayidx7.i.i.i.i, align 8, !tbaa !37, !alias.scope !396, !noalias !408
   %rentry.sroa.4.0.arrayidx7.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx7.i.i.i.i, i64 8
   %rentry.sroa.4.0.copyload.i.i393.i.i = load i64, ptr %rentry.sroa.4.0.arrayidx7.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !396, !noalias !408
-  %call10.i33.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry.sroa.0.0.copyload.i.i389.i.i, i64 %lentry.sroa.4.0.copyload.i.i391.i.i, i64 %rentry.sroa.0.0.copyload.i.i392.i.i, i64 %rentry.sroa.4.0.copyload.i.i393.i.i)
+  %call10.i33.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry.sroa.0.0.copyload.i.i389.i.i, i64 %lentry.sroa.4.0.copyload.i.i391.i.i, i64 %rentry.sroa.0.0.copyload.i.i392.i.i, i64 %rentry.sroa.4.0.copyload.i.i393.i.i)
           to label %call10.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 call10.i.noexc.i.i.i:                             ; preds = %if.then6.i.i.i.i
@@ -24295,7 +24295,7 @@ for.body17.i.i.i.i:                               ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx23.i.i.i.i, align 8, !tbaa !37, !alias.scope !396, !noalias !408
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !396, !noalias !408
-  %call27.i34.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.i.i.i.i)
+  %call27.i34.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.i.i.i.i)
           to label %call27.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 call27.i.noexc.i.i.i:                             ; preds = %for.body17.i.i.i.i
@@ -25289,7 +25289,7 @@ if.end.i.i.i:                                     ; preds = %_ZN6duckdb14Constan
   %agg.tmp6.sroa.0.0.copyload.i.i.i = load i64, ptr %61, align 8, !tbaa !37
   %agg.tmp6.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %61, i64 8
   %agg.tmp6.sroa.2.0.copyload.i.i.i = load i64, ptr %agg.tmp6.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !37
-  %call8.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %agg.tmp5.sroa.0.0.copyload.i.i.i, i64 %agg.tmp5.sroa.2.0.copyload.i.i.i, i64 %agg.tmp6.sroa.0.0.copyload.i.i.i, i64 %agg.tmp6.sroa.2.0.copyload.i.i.i)
+  %call8.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %agg.tmp5.sroa.0.0.copyload.i.i.i, i64 %agg.tmp5.sroa.2.0.copyload.i.i.i, i64 %agg.tmp6.sroa.0.0.copyload.i.i.i, i64 %agg.tmp6.sroa.2.0.copyload.i.i.i)
   store double %call8.i.i.i, ptr %62, align 8, !tbaa !416
   br label %_ZN6duckdb14BinaryExecutor7ExecuteINS_12list_entry_tES2_dZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlS2_S2_E_EEvS9_S9_S9_mT2_.exit
 
@@ -25900,7 +25900,7 @@ for.body46.i.i.i.i:                               ; preds = %for.body46.i.i.i.i,
   %lentry47.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx48.i.i.i.i, align 8, !tbaa !37, !alias.scope !423, !noalias !427
   %lentry47.sroa.4.0.arrayidx48.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx48.i.i.i.i, i64 8
   %lentry47.sroa.4.0.copyload.i.i.i.i = load i64, ptr %lentry47.sroa.4.0.arrayidx48.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !423, !noalias !427
-  %call54.i.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i.i.i, i64 %lentry47.sroa.4.0.copyload.i.i.i.i, i64 %rentry49.sroa.0.0.copyload.i.i.i.i, i64 %rentry49.sroa.4.0.copyload.i.i.i.i)
+  %call54.i.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i.i.i, i64 %lentry47.sroa.4.0.copyload.i.i.i.i, i64 %rentry49.sroa.0.0.copyload.i.i.i.i, i64 %rentry49.sroa.4.0.copyload.i.i.i.i)
   %arrayidx55.i.i.i.i = getelementptr inbounds double, ptr %71, i64 %i.017.i.i.i.i
   store double %call54.i.i.i.i, ptr %arrayidx55.i.i.i.i, align 8, !tbaa !416, !alias.scope !425, !noalias !428
   %inc57.i.i.i.i = add nuw i64 %i.017.i.i.i.i, 1
@@ -26510,7 +26510,7 @@ for.body46.i.i241.i.i:                            ; preds = %for.body46.i.i241.i
   %rentry49.sroa.0.0.copyload.i.i242.i.i = load i64, ptr %arrayidx50.i.i.i.i, align 8, !tbaa !37, !alias.scope !442, !noalias !445
   %rentry49.sroa.4.0.arrayidx50.sroa_idx.i.i243.i.i = getelementptr inbounds i8, ptr %arrayidx50.i.i.i.i, i64 8
   %rentry49.sroa.4.0.copyload.i.i244.i.i = load i64, ptr %rentry49.sroa.4.0.arrayidx50.sroa_idx.i.i243.i.i, align 8, !tbaa !37, !alias.scope !442, !noalias !445
-  %call54.i.i245.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i238.i.i, i64 %lentry47.sroa.4.0.copyload.i.i240.i.i, i64 %rentry49.sroa.0.0.copyload.i.i242.i.i, i64 %rentry49.sroa.4.0.copyload.i.i244.i.i)
+  %call54.i.i245.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i238.i.i, i64 %lentry47.sroa.4.0.copyload.i.i240.i.i, i64 %rentry49.sroa.0.0.copyload.i.i242.i.i, i64 %rentry49.sroa.4.0.copyload.i.i244.i.i)
   %arrayidx55.i.i246.i.i = getelementptr inbounds double, ptr %150, i64 %i.019.i.i.i.i
   store double %call54.i.i245.i.i, ptr %arrayidx55.i.i246.i.i, align 8, !tbaa !416, !alias.scope !443, !noalias !446
   %inc57.i.i247.i.i = add nuw i64 %i.019.i.i.i.i, 1
@@ -27078,7 +27078,7 @@ for.body48.i.i.i.i:                               ; preds = %for.cond45.preheade
   %rentry51.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx52.i.i.i.i, align 8, !tbaa !37, !alias.scope !456, !noalias !462
   %rentry51.sroa.4.0.arrayidx52.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx52.i.i.i.i, i64 8
   %rentry51.sroa.4.0.copyload.i.i.i.i = load i64, ptr %rentry51.sroa.4.0.arrayidx52.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !456, !noalias !462
-  %call56.i.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry49.sroa.0.0.copyload.i.i.i.i, i64 %lentry49.sroa.4.0.copyload.i.i.i.i, i64 %rentry51.sroa.0.0.copyload.i.i.i.i, i64 %rentry51.sroa.4.0.copyload.i.i.i.i)
+  %call56.i.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry49.sroa.0.0.copyload.i.i.i.i, i64 %lentry49.sroa.4.0.copyload.i.i.i.i, i64 %rentry51.sroa.0.0.copyload.i.i.i.i, i64 %rentry51.sroa.4.0.copyload.i.i.i.i)
   %arrayidx57.i.i.i.i = getelementptr inbounds double, ptr %228, i64 %i.017.i.i368.i.i
   store double %call56.i.i.i.i, ptr %arrayidx57.i.i.i.i, align 8, !tbaa !416, !alias.scope !458, !noalias !464
   %inc59.i.i.i.i = add nuw i64 %i.017.i.i368.i.i, 1
@@ -27168,7 +27168,7 @@ for.body17.us.us.i.i.i.i:                         ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us.us.i.i.i.i = load i64, ptr %arrayidx23.us.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !473, !noalias !485
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.us.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us.us.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us.us.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !473, !noalias !485
-  %call27.us.us.i30.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.us.i.i.i.i)
+  %call27.us.us.i30.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.us.i.i.i.i)
           to label %call27.us.us.i.noexc.i.i.i unwind label %lpad5.loopexit.i.i.i
 
 call27.us.us.i.noexc.i.i.i:                       ; preds = %for.body17.us.us.i.i.i.i
@@ -27191,7 +27191,7 @@ for.body17.us.i.i.i.i:                            ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us.i.i.i.i = load i64, ptr %arrayidx23.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !473, !noalias !485
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !473, !noalias !485
-  %call27.us.i31.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.i.i.i.i)
+  %call27.us.i31.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.i.i.i.i)
           to label %call27.us.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.i.i.i
 
 call27.us.i.noexc.i.i.i:                          ; preds = %for.body17.us.i.i.i.i
@@ -27217,7 +27217,7 @@ for.body17.us8.i.i.i.i:                           ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us17.i.i.i.i = load i64, ptr %arrayidx23.us16.i.i.i.i, align 8, !tbaa !37, !alias.scope !473, !noalias !485
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us18.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us16.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us19.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us18.i.i.i.i, align 8, !tbaa !37, !alias.scope !473, !noalias !485
-  %call27.us20.i32.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us11.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us13.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us17.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us19.i.i.i.i)
+  %call27.us20.i32.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us11.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us13.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us17.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us19.i.i.i.i)
           to label %call27.us20.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 call27.us20.i.noexc.i.i.i:                        ; preds = %for.body17.us8.i.i.i.i
@@ -27287,7 +27287,7 @@ if.then6.i.i.i.i:                                 ; preds = %_ZNK6duckdb21Templa
   %rentry.sroa.0.0.copyload.i.i392.i.i = load i64, ptr %arrayidx7.i.i.i.i, align 8, !tbaa !37, !alias.scope !473, !noalias !485
   %rentry.sroa.4.0.arrayidx7.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx7.i.i.i.i, i64 8
   %rentry.sroa.4.0.copyload.i.i393.i.i = load i64, ptr %rentry.sroa.4.0.arrayidx7.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !473, !noalias !485
-  %call10.i33.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry.sroa.0.0.copyload.i.i389.i.i, i64 %lentry.sroa.4.0.copyload.i.i391.i.i, i64 %rentry.sroa.0.0.copyload.i.i392.i.i, i64 %rentry.sroa.4.0.copyload.i.i393.i.i)
+  %call10.i33.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry.sroa.0.0.copyload.i.i389.i.i, i64 %lentry.sroa.4.0.copyload.i.i391.i.i, i64 %rentry.sroa.0.0.copyload.i.i392.i.i, i64 %rentry.sroa.4.0.copyload.i.i393.i.i)
           to label %call10.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 call10.i.noexc.i.i.i:                             ; preds = %if.then6.i.i.i.i
@@ -27342,7 +27342,7 @@ for.body17.i.i.i.i:                               ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx23.i.i.i.i, align 8, !tbaa !37, !alias.scope !473, !noalias !485
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !473, !noalias !485
-  %call27.i34.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.i.i.i.i)
+  %call27.i34.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.i.i.i.i)
           to label %call27.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 call27.i.noexc.i.i.i:                             ; preds = %for.body17.i.i.i.i
@@ -29080,7 +29080,7 @@ if.end.i.i.i:                                     ; preds = %_ZN6duckdb14Constan
   %agg.tmp6.sroa.0.0.copyload.i.i.i = load i64, ptr %61, align 8, !tbaa !37
   %agg.tmp6.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %61, i64 8
   %agg.tmp6.sroa.2.0.copyload.i.i.i = load i64, ptr %agg.tmp6.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !37
-  %call8.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %agg.tmp5.sroa.0.0.copyload.i.i.i, i64 %agg.tmp5.sroa.2.0.copyload.i.i.i, i64 %agg.tmp6.sroa.0.0.copyload.i.i.i, i64 %agg.tmp6.sroa.2.0.copyload.i.i.i)
+  %call8.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %agg.tmp5.sroa.0.0.copyload.i.i.i, i64 %agg.tmp5.sroa.2.0.copyload.i.i.i, i64 %agg.tmp6.sroa.0.0.copyload.i.i.i, i64 %agg.tmp6.sroa.2.0.copyload.i.i.i)
   store float %call8.i.i.i, ptr %62, align 4, !tbaa !338
   br label %_ZN6duckdb14BinaryExecutor7ExecuteINS_12list_entry_tES2_fZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlS2_S2_E_EEvS9_S9_S9_mT2_.exit
 
@@ -29688,7 +29688,7 @@ for.body46.i.i.i.i:                               ; preds = %for.body46.i.i.i.i,
   %lentry47.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx48.i.i.i.i, align 8, !tbaa !37, !alias.scope !498, !noalias !502
   %lentry47.sroa.4.0.arrayidx48.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx48.i.i.i.i, i64 8
   %lentry47.sroa.4.0.copyload.i.i.i.i = load i64, ptr %lentry47.sroa.4.0.arrayidx48.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !498, !noalias !502
-  %call54.i.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i.i.i, i64 %lentry47.sroa.4.0.copyload.i.i.i.i, i64 %rentry49.sroa.0.0.copyload.i.i.i.i, i64 %rentry49.sroa.4.0.copyload.i.i.i.i)
+  %call54.i.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i.i.i, i64 %lentry47.sroa.4.0.copyload.i.i.i.i, i64 %rentry49.sroa.0.0.copyload.i.i.i.i, i64 %rentry49.sroa.4.0.copyload.i.i.i.i)
   %arrayidx55.i.i.i.i = getelementptr inbounds float, ptr %71, i64 %i.021.i.i.i.i
   store float %call54.i.i.i.i, ptr %arrayidx55.i.i.i.i, align 4, !tbaa !338, !alias.scope !500, !noalias !503
   %inc57.i.i.i.i = add nuw i64 %i.021.i.i.i.i, 1
@@ -30295,7 +30295,7 @@ for.body46.i.i259.i.i:                            ; preds = %for.body46.i.i259.i
   %rentry49.sroa.0.0.copyload.i.i260.i.i = load i64, ptr %arrayidx50.i.i.i.i, align 8, !tbaa !37, !alias.scope !515, !noalias !518
   %rentry49.sroa.4.0.arrayidx50.sroa_idx.i.i261.i.i = getelementptr inbounds i8, ptr %arrayidx50.i.i.i.i, i64 8
   %rentry49.sroa.4.0.copyload.i.i262.i.i = load i64, ptr %rentry49.sroa.4.0.arrayidx50.sroa_idx.i.i261.i.i, align 8, !tbaa !37, !alias.scope !515, !noalias !518
-  %call54.i.i263.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i256.i.i, i64 %lentry47.sroa.4.0.copyload.i.i258.i.i, i64 %rentry49.sroa.0.0.copyload.i.i260.i.i, i64 %rentry49.sroa.4.0.copyload.i.i262.i.i)
+  %call54.i.i263.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i256.i.i, i64 %lentry47.sroa.4.0.copyload.i.i258.i.i, i64 %rentry49.sroa.0.0.copyload.i.i260.i.i, i64 %rentry49.sroa.4.0.copyload.i.i262.i.i)
   %arrayidx55.i.i264.i.i = getelementptr inbounds float, ptr %166, i64 %i.024.i.i.i.i
   store float %call54.i.i263.i.i, ptr %arrayidx55.i.i264.i.i, align 4, !tbaa !338, !alias.scope !516, !noalias !519
   %inc57.i.i265.i.i = add nuw i64 %i.024.i.i.i.i, 1
@@ -30857,7 +30857,7 @@ for.body48.i.i.i.i:                               ; preds = %for.cond45.preheade
   %rentry51.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx52.i.i.i.i, align 8, !tbaa !37, !alias.scope !527, !noalias !533
   %rentry51.sroa.4.0.arrayidx52.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx52.i.i.i.i, i64 8
   %rentry51.sroa.4.0.copyload.i.i.i.i = load i64, ptr %rentry51.sroa.4.0.arrayidx52.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !527, !noalias !533
-  %call56.i.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry49.sroa.0.0.copyload.i.i.i.i, i64 %lentry49.sroa.4.0.copyload.i.i.i.i, i64 %rentry51.sroa.0.0.copyload.i.i.i.i, i64 %rentry51.sroa.4.0.copyload.i.i.i.i)
+  %call56.i.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry49.sroa.0.0.copyload.i.i.i.i, i64 %lentry49.sroa.4.0.copyload.i.i.i.i, i64 %rentry51.sroa.0.0.copyload.i.i.i.i, i64 %rentry51.sroa.4.0.copyload.i.i.i.i)
   %arrayidx57.i.i.i.i = getelementptr inbounds float, ptr %260, i64 %i.021.i.i394.i.i
   store float %call56.i.i.i.i, ptr %arrayidx57.i.i.i.i, align 4, !tbaa !338, !alias.scope !529, !noalias !534
   %inc59.i.i.i.i = add nuw i64 %i.021.i.i394.i.i, 1
@@ -30947,7 +30947,7 @@ for.body17.us.us.i.i.i.i:                         ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us.us.i.i.i.i = load i64, ptr %arrayidx23.us.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !542, !noalias !554
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.us.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us.us.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us.us.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !542, !noalias !554
-  %call27.us.us.i30.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.us.i.i.i.i)
+  %call27.us.us.i30.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.us.i.i.i.i)
           to label %call27.us.us.i.noexc.i.i.i unwind label %lpad5.loopexit.i.i.i
 
 call27.us.us.i.noexc.i.i.i:                       ; preds = %for.body17.us.us.i.i.i.i
@@ -30970,7 +30970,7 @@ for.body17.us.i.i.i.i:                            ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us.i.i.i.i = load i64, ptr %arrayidx23.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !542, !noalias !554
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !542, !noalias !554
-  %call27.us.i31.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.i.i.i.i)
+  %call27.us.i31.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.i.i.i.i)
           to label %call27.us.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.i.i.i
 
 call27.us.i.noexc.i.i.i:                          ; preds = %for.body17.us.i.i.i.i
@@ -30996,7 +30996,7 @@ for.body17.us8.i.i.i.i:                           ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us17.i.i.i.i = load i64, ptr %arrayidx23.us16.i.i.i.i, align 8, !tbaa !37, !alias.scope !542, !noalias !554
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us18.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us16.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us19.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us18.i.i.i.i, align 8, !tbaa !37, !alias.scope !542, !noalias !554
-  %call27.us20.i32.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us11.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us13.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us17.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us19.i.i.i.i)
+  %call27.us20.i32.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us11.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us13.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us17.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us19.i.i.i.i)
           to label %call27.us20.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 call27.us20.i.noexc.i.i.i:                        ; preds = %for.body17.us8.i.i.i.i
@@ -31066,7 +31066,7 @@ if.then6.i.i.i.i:                                 ; preds = %_ZNK6duckdb21Templa
   %rentry.sroa.0.0.copyload.i.i418.i.i = load i64, ptr %arrayidx7.i.i.i.i, align 8, !tbaa !37, !alias.scope !542, !noalias !554
   %rentry.sroa.4.0.arrayidx7.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx7.i.i.i.i, i64 8
   %rentry.sroa.4.0.copyload.i.i419.i.i = load i64, ptr %rentry.sroa.4.0.arrayidx7.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !542, !noalias !554
-  %call10.i33.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry.sroa.0.0.copyload.i.i415.i.i, i64 %lentry.sroa.4.0.copyload.i.i417.i.i, i64 %rentry.sroa.0.0.copyload.i.i418.i.i, i64 %rentry.sroa.4.0.copyload.i.i419.i.i)
+  %call10.i33.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry.sroa.0.0.copyload.i.i415.i.i, i64 %lentry.sroa.4.0.copyload.i.i417.i.i, i64 %rentry.sroa.0.0.copyload.i.i418.i.i, i64 %rentry.sroa.4.0.copyload.i.i419.i.i)
           to label %call10.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 call10.i.noexc.i.i.i:                             ; preds = %if.then6.i.i.i.i
@@ -31121,7 +31121,7 @@ for.body17.i.i.i.i:                               ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx23.i.i.i.i, align 8, !tbaa !37, !alias.scope !542, !noalias !554
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !542, !noalias !554
-  %call27.i34.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.i.i.i.i)
+  %call27.i34.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.i.i.i.i)
           to label %call27.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 call27.i.noexc.i.i.i:                             ; preds = %for.body17.i.i.i.i
@@ -32115,7 +32115,7 @@ if.end.i.i.i:                                     ; preds = %_ZN6duckdb14Constan
   %agg.tmp6.sroa.0.0.copyload.i.i.i = load i64, ptr %61, align 8, !tbaa !37
   %agg.tmp6.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %61, i64 8
   %agg.tmp6.sroa.2.0.copyload.i.i.i = load i64, ptr %agg.tmp6.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !37
-  %call8.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %agg.tmp5.sroa.0.0.copyload.i.i.i, i64 %agg.tmp5.sroa.2.0.copyload.i.i.i, i64 %agg.tmp6.sroa.0.0.copyload.i.i.i, i64 %agg.tmp6.sroa.2.0.copyload.i.i.i)
+  %call8.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %agg.tmp5.sroa.0.0.copyload.i.i.i, i64 %agg.tmp5.sroa.2.0.copyload.i.i.i, i64 %agg.tmp6.sroa.0.0.copyload.i.i.i, i64 %agg.tmp6.sroa.2.0.copyload.i.i.i)
   store double %call8.i.i.i, ptr %62, align 8, !tbaa !416
   br label %_ZN6duckdb14BinaryExecutor7ExecuteINS_12list_entry_tES2_dZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlS2_S2_E_EEvS9_S9_S9_mT2_.exit
 
@@ -32726,7 +32726,7 @@ for.body46.i.i.i.i:                               ; preds = %for.body46.i.i.i.i,
   %lentry47.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx48.i.i.i.i, align 8, !tbaa !37, !alias.scope !567, !noalias !571
   %lentry47.sroa.4.0.arrayidx48.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx48.i.i.i.i, i64 8
   %lentry47.sroa.4.0.copyload.i.i.i.i = load i64, ptr %lentry47.sroa.4.0.arrayidx48.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !567, !noalias !571
-  %call54.i.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i.i.i, i64 %lentry47.sroa.4.0.copyload.i.i.i.i, i64 %rentry49.sroa.0.0.copyload.i.i.i.i, i64 %rentry49.sroa.4.0.copyload.i.i.i.i)
+  %call54.i.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i.i.i, i64 %lentry47.sroa.4.0.copyload.i.i.i.i, i64 %rentry49.sroa.0.0.copyload.i.i.i.i, i64 %rentry49.sroa.4.0.copyload.i.i.i.i)
   %arrayidx55.i.i.i.i = getelementptr inbounds double, ptr %71, i64 %i.021.i.i.i.i
   store double %call54.i.i.i.i, ptr %arrayidx55.i.i.i.i, align 8, !tbaa !416, !alias.scope !569, !noalias !572
   %inc57.i.i.i.i = add nuw i64 %i.021.i.i.i.i, 1
@@ -33336,7 +33336,7 @@ for.body46.i.i259.i.i:                            ; preds = %for.body46.i.i259.i
   %rentry49.sroa.0.0.copyload.i.i260.i.i = load i64, ptr %arrayidx50.i.i.i.i, align 8, !tbaa !37, !alias.scope !584, !noalias !587
   %rentry49.sroa.4.0.arrayidx50.sroa_idx.i.i261.i.i = getelementptr inbounds i8, ptr %arrayidx50.i.i.i.i, i64 8
   %rentry49.sroa.4.0.copyload.i.i262.i.i = load i64, ptr %rentry49.sroa.4.0.arrayidx50.sroa_idx.i.i261.i.i, align 8, !tbaa !37, !alias.scope !584, !noalias !587
-  %call54.i.i263.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i256.i.i, i64 %lentry47.sroa.4.0.copyload.i.i258.i.i, i64 %rentry49.sroa.0.0.copyload.i.i260.i.i, i64 %rentry49.sroa.4.0.copyload.i.i262.i.i)
+  %call54.i.i263.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i256.i.i, i64 %lentry47.sroa.4.0.copyload.i.i258.i.i, i64 %rentry49.sroa.0.0.copyload.i.i260.i.i, i64 %rentry49.sroa.4.0.copyload.i.i262.i.i)
   %arrayidx55.i.i264.i.i = getelementptr inbounds double, ptr %169, i64 %i.024.i.i.i.i
   store double %call54.i.i263.i.i, ptr %arrayidx55.i.i264.i.i, align 8, !tbaa !416, !alias.scope !585, !noalias !588
   %inc57.i.i265.i.i = add nuw i64 %i.024.i.i.i.i, 1
@@ -33910,7 +33910,7 @@ for.body48.i.i.i.i:                               ; preds = %for.cond45.preheade
   %rentry51.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx52.i.i.i.i, align 8, !tbaa !37, !alias.scope !596, !noalias !602
   %rentry51.sroa.4.0.arrayidx52.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx52.i.i.i.i, i64 8
   %rentry51.sroa.4.0.copyload.i.i.i.i = load i64, ptr %rentry51.sroa.4.0.arrayidx52.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !596, !noalias !602
-  %call56.i.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry49.sroa.0.0.copyload.i.i.i.i, i64 %lentry49.sroa.4.0.copyload.i.i.i.i, i64 %rentry51.sroa.0.0.copyload.i.i.i.i, i64 %rentry51.sroa.4.0.copyload.i.i.i.i)
+  %call56.i.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry49.sroa.0.0.copyload.i.i.i.i, i64 %lentry49.sroa.4.0.copyload.i.i.i.i, i64 %rentry51.sroa.0.0.copyload.i.i.i.i, i64 %rentry51.sroa.4.0.copyload.i.i.i.i)
   %arrayidx57.i.i.i.i = getelementptr inbounds double, ptr %266, i64 %i.021.i.i394.i.i
   store double %call56.i.i.i.i, ptr %arrayidx57.i.i.i.i, align 8, !tbaa !416, !alias.scope !598, !noalias !603
   %inc59.i.i.i.i = add nuw i64 %i.021.i.i394.i.i, 1
@@ -34000,7 +34000,7 @@ for.body17.us.us.i.i.i.i:                         ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us.us.i.i.i.i = load i64, ptr %arrayidx23.us.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !611, !noalias !623
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.us.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us.us.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us.us.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !611, !noalias !623
-  %call27.us.us.i30.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.us.i.i.i.i)
+  %call27.us.us.i30.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.us.i.i.i.i)
           to label %call27.us.us.i.noexc.i.i.i unwind label %lpad5.loopexit.i.i.i
 
 call27.us.us.i.noexc.i.i.i:                       ; preds = %for.body17.us.us.i.i.i.i
@@ -34023,7 +34023,7 @@ for.body17.us.i.i.i.i:                            ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us.i.i.i.i = load i64, ptr %arrayidx23.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !611, !noalias !623
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !611, !noalias !623
-  %call27.us.i31.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.i.i.i.i)
+  %call27.us.i31.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.i.i.i.i)
           to label %call27.us.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.i.i.i
 
 call27.us.i.noexc.i.i.i:                          ; preds = %for.body17.us.i.i.i.i
@@ -34049,7 +34049,7 @@ for.body17.us8.i.i.i.i:                           ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us17.i.i.i.i = load i64, ptr %arrayidx23.us16.i.i.i.i, align 8, !tbaa !37, !alias.scope !611, !noalias !623
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us18.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us16.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us19.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us18.i.i.i.i, align 8, !tbaa !37, !alias.scope !611, !noalias !623
-  %call27.us20.i32.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us11.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us13.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us17.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us19.i.i.i.i)
+  %call27.us20.i32.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us11.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us13.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us17.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us19.i.i.i.i)
           to label %call27.us20.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 call27.us20.i.noexc.i.i.i:                        ; preds = %for.body17.us8.i.i.i.i
@@ -34119,7 +34119,7 @@ if.then6.i.i.i.i:                                 ; preds = %_ZNK6duckdb21Templa
   %rentry.sroa.0.0.copyload.i.i418.i.i = load i64, ptr %arrayidx7.i.i.i.i, align 8, !tbaa !37, !alias.scope !611, !noalias !623
   %rentry.sroa.4.0.arrayidx7.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx7.i.i.i.i, i64 8
   %rentry.sroa.4.0.copyload.i.i419.i.i = load i64, ptr %rentry.sroa.4.0.arrayidx7.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !611, !noalias !623
-  %call10.i33.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry.sroa.0.0.copyload.i.i415.i.i, i64 %lentry.sroa.4.0.copyload.i.i417.i.i, i64 %rentry.sroa.0.0.copyload.i.i418.i.i, i64 %rentry.sroa.4.0.copyload.i.i419.i.i)
+  %call10.i33.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry.sroa.0.0.copyload.i.i415.i.i, i64 %lentry.sroa.4.0.copyload.i.i417.i.i, i64 %rentry.sroa.0.0.copyload.i.i418.i.i, i64 %rentry.sroa.4.0.copyload.i.i419.i.i)
           to label %call10.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 call10.i.noexc.i.i.i:                             ; preds = %if.then6.i.i.i.i
@@ -34174,7 +34174,7 @@ for.body17.i.i.i.i:                               ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx23.i.i.i.i, align 8, !tbaa !37, !alias.scope !611, !noalias !623
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !611, !noalias !623
-  %call27.i34.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.i.i.i.i)
+  %call27.i34.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.i.i.i.i)
           to label %call27.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 call27.i.noexc.i.i.i:                             ; preds = %for.body17.i.i.i.i
@@ -35912,7 +35912,7 @@ if.end.i.i.i:                                     ; preds = %_ZN6duckdb14Constan
   %agg.tmp6.sroa.0.0.copyload.i.i.i = load i64, ptr %61, align 8, !tbaa !37
   %agg.tmp6.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %61, i64 8
   %agg.tmp6.sroa.2.0.copyload.i.i.i = load i64, ptr %agg.tmp6.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !37
-  %call8.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %agg.tmp5.sroa.0.0.copyload.i.i.i, i64 %agg.tmp5.sroa.2.0.copyload.i.i.i, i64 %agg.tmp6.sroa.0.0.copyload.i.i.i, i64 %agg.tmp6.sroa.2.0.copyload.i.i.i)
+  %call8.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %agg.tmp5.sroa.0.0.copyload.i.i.i, i64 %agg.tmp5.sroa.2.0.copyload.i.i.i, i64 %agg.tmp6.sroa.0.0.copyload.i.i.i, i64 %agg.tmp6.sroa.2.0.copyload.i.i.i)
   store float %call8.i.i.i, ptr %62, align 4, !tbaa !338
   br label %_ZN6duckdb14BinaryExecutor7ExecuteINS_12list_entry_tES2_fZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlS2_S2_E_EEvS9_S9_S9_mT2_.exit
 
@@ -36500,7 +36500,7 @@ for.body46.i.i.i.i:                               ; preds = %for.body46.i.i.i.i,
   %lentry47.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx48.i.i.i.i, align 8, !tbaa !37, !alias.scope !631, !noalias !640
   %lentry47.sroa.4.0.arrayidx48.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx48.i.i.i.i, i64 8
   %lentry47.sroa.4.0.copyload.i.i.i.i = load i64, ptr %lentry47.sroa.4.0.arrayidx48.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !631, !noalias !640
-  %call54.i.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i.i.i, i64 %lentry47.sroa.4.0.copyload.i.i.i.i, i64 %rentry49.sroa.0.0.copyload.i.i.i.i, i64 %rentry49.sroa.4.0.copyload.i.i.i.i)
+  %call54.i.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i.i.i, i64 %lentry47.sroa.4.0.copyload.i.i.i.i, i64 %rentry49.sroa.0.0.copyload.i.i.i.i, i64 %rentry49.sroa.4.0.copyload.i.i.i.i)
   %arrayidx55.i.i.i.i = getelementptr inbounds float, ptr %71, i64 %i.017.i.i.i.i
   store float %call54.i.i.i.i, ptr %arrayidx55.i.i.i.i, align 4, !tbaa !338, !alias.scope !636, !noalias !641
   %inc57.i.i.i.i = add nuw i64 %i.017.i.i.i.i, 1
@@ -37087,7 +37087,7 @@ for.body46.i.i235.i.i:                            ; preds = %for.body46.i.i235.i
   %rentry49.sroa.0.0.copyload.i.i236.i.i = load i64, ptr %arrayidx50.i.i.i.i, align 8, !tbaa !37, !alias.scope !652, !noalias !658
   %rentry49.sroa.4.0.arrayidx50.sroa_idx.i.i237.i.i = getelementptr inbounds i8, ptr %arrayidx50.i.i.i.i, i64 8
   %rentry49.sroa.4.0.copyload.i.i238.i.i = load i64, ptr %rentry49.sroa.4.0.arrayidx50.sroa_idx.i.i237.i.i, align 8, !tbaa !37, !alias.scope !652, !noalias !658
-  %call54.i.i239.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i232.i.i, i64 %lentry47.sroa.4.0.copyload.i.i234.i.i, i64 %rentry49.sroa.0.0.copyload.i.i236.i.i, i64 %rentry49.sroa.4.0.copyload.i.i238.i.i)
+  %call54.i.i239.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i232.i.i, i64 %lentry47.sroa.4.0.copyload.i.i234.i.i, i64 %rentry49.sroa.0.0.copyload.i.i236.i.i, i64 %rentry49.sroa.4.0.copyload.i.i238.i.i)
   %arrayidx55.i.i240.i.i = getelementptr inbounds float, ptr %148, i64 %i.019.i.i.i.i
   store float %call54.i.i239.i.i, ptr %arrayidx55.i.i240.i.i, align 4, !tbaa !338, !alias.scope !654, !noalias !659
   %inc57.i.i241.i.i = add nuw i64 %i.019.i.i.i.i, 1
@@ -37632,7 +37632,7 @@ for.body48.i.i.i.i:                               ; preds = %for.cond45.preheade
   %rentry51.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx52.i.i.i.i, align 8, !tbaa !37, !alias.scope !669, !noalias !675
   %rentry51.sroa.4.0.arrayidx52.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx52.i.i.i.i, i64 8
   %rentry51.sroa.4.0.copyload.i.i.i.i = load i64, ptr %rentry51.sroa.4.0.arrayidx52.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !669, !noalias !675
-  %call56.i.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry49.sroa.0.0.copyload.i.i.i.i, i64 %lentry49.sroa.4.0.copyload.i.i.i.i, i64 %rentry51.sroa.0.0.copyload.i.i.i.i, i64 %rentry51.sroa.4.0.copyload.i.i.i.i)
+  %call56.i.i.i.i = tail call fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry49.sroa.0.0.copyload.i.i.i.i, i64 %lentry49.sroa.4.0.copyload.i.i.i.i, i64 %rentry51.sroa.0.0.copyload.i.i.i.i, i64 %rentry51.sroa.4.0.copyload.i.i.i.i)
   %arrayidx57.i.i.i.i = getelementptr inbounds float, ptr %224, i64 %i.017.i.i357.i.i
   store float %call56.i.i.i.i, ptr %arrayidx57.i.i.i.i, align 4, !tbaa !338, !alias.scope !671, !noalias !677
   %inc59.i.i.i.i = add nuw i64 %i.017.i.i357.i.i, 1
@@ -37722,7 +37722,7 @@ for.body17.us.us.i.i.i.i:                         ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us.us.i.i.i.i = load i64, ptr %arrayidx23.us.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !686, !noalias !698
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.us.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us.us.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us.us.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !686, !noalias !698
-  %call27.us.us.i30.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.us.i.i.i.i)
+  %call27.us.us.i30.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.us.i.i.i.i)
           to label %call27.us.us.i.noexc.i.i.i unwind label %lpad5.loopexit.i.i.i
 
 call27.us.us.i.noexc.i.i.i:                       ; preds = %for.body17.us.us.i.i.i.i
@@ -37745,7 +37745,7 @@ for.body17.us.i.i.i.i:                            ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us.i.i.i.i = load i64, ptr %arrayidx23.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !686, !noalias !698
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !686, !noalias !698
-  %call27.us.i31.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.i.i.i.i)
+  %call27.us.i31.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.i.i.i.i)
           to label %call27.us.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.i.i.i
 
 call27.us.i.noexc.i.i.i:                          ; preds = %for.body17.us.i.i.i.i
@@ -37771,7 +37771,7 @@ for.body17.us8.i.i.i.i:                           ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us17.i.i.i.i = load i64, ptr %arrayidx23.us16.i.i.i.i, align 8, !tbaa !37, !alias.scope !686, !noalias !698
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us18.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us16.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us19.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us18.i.i.i.i, align 8, !tbaa !37, !alias.scope !686, !noalias !698
-  %call27.us20.i32.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us11.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us13.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us17.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us19.i.i.i.i)
+  %call27.us20.i32.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us11.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us13.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us17.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us19.i.i.i.i)
           to label %call27.us20.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 call27.us20.i.noexc.i.i.i:                        ; preds = %for.body17.us8.i.i.i.i
@@ -37841,7 +37841,7 @@ if.then6.i.i.i.i:                                 ; preds = %_ZNK6duckdb21Templa
   %rentry.sroa.0.0.copyload.i.i379.i.i = load i64, ptr %arrayidx7.i.i.i.i, align 8, !tbaa !37, !alias.scope !686, !noalias !698
   %rentry.sroa.4.0.arrayidx7.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx7.i.i.i.i, i64 8
   %rentry.sroa.4.0.copyload.i.i380.i.i = load i64, ptr %rentry.sroa.4.0.arrayidx7.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !686, !noalias !698
-  %call10.i33.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry.sroa.0.0.copyload.i.i376.i.i, i64 %lentry.sroa.4.0.copyload.i.i378.i.i, i64 %rentry.sroa.0.0.copyload.i.i379.i.i, i64 %rentry.sroa.4.0.copyload.i.i380.i.i)
+  %call10.i33.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry.sroa.0.0.copyload.i.i376.i.i, i64 %lentry.sroa.4.0.copyload.i.i378.i.i, i64 %rentry.sroa.0.0.copyload.i.i379.i.i, i64 %rentry.sroa.4.0.copyload.i.i380.i.i)
           to label %call10.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 call10.i.noexc.i.i.i:                             ; preds = %if.then6.i.i.i.i
@@ -37896,7 +37896,7 @@ for.body17.i.i.i.i:                               ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx23.i.i.i.i, align 8, !tbaa !37, !alias.scope !686, !noalias !698
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !686, !noalias !698
-  %call27.i34.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.i.i.i.i)
+  %call27.i34.i.i.i = invoke fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.i.i.i.i)
           to label %call27.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 call27.i.noexc.i.i.i:                             ; preds = %for.body17.i.i.i.i
@@ -38890,7 +38890,7 @@ if.end.i.i.i:                                     ; preds = %_ZN6duckdb14Constan
   %agg.tmp6.sroa.0.0.copyload.i.i.i = load i64, ptr %61, align 8, !tbaa !37
   %agg.tmp6.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %61, i64 8
   %agg.tmp6.sroa.2.0.copyload.i.i.i = load i64, ptr %agg.tmp6.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !37
-  %call8.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %agg.tmp5.sroa.0.0.copyload.i.i.i, i64 %agg.tmp5.sroa.2.0.copyload.i.i.i, i64 %agg.tmp6.sroa.0.0.copyload.i.i.i, i64 %agg.tmp6.sroa.2.0.copyload.i.i.i)
+  %call8.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %agg.tmp5.sroa.0.0.copyload.i.i.i, i64 %agg.tmp5.sroa.2.0.copyload.i.i.i, i64 %agg.tmp6.sroa.0.0.copyload.i.i.i, i64 %agg.tmp6.sroa.2.0.copyload.i.i.i)
   store double %call8.i.i.i, ptr %62, align 8, !tbaa !416
   br label %_ZN6duckdb14BinaryExecutor7ExecuteINS_12list_entry_tES2_dZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlS2_S2_E_EEvS9_S9_S9_mT2_.exit
 
@@ -39478,7 +39478,7 @@ for.body46.i.i.i.i:                               ; preds = %for.body46.i.i.i.i,
   %lentry47.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx48.i.i.i.i, align 8, !tbaa !37, !alias.scope !706, !noalias !715
   %lentry47.sroa.4.0.arrayidx48.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx48.i.i.i.i, i64 8
   %lentry47.sroa.4.0.copyload.i.i.i.i = load i64, ptr %lentry47.sroa.4.0.arrayidx48.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !706, !noalias !715
-  %call54.i.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i.i.i, i64 %lentry47.sroa.4.0.copyload.i.i.i.i, i64 %rentry49.sroa.0.0.copyload.i.i.i.i, i64 %rentry49.sroa.4.0.copyload.i.i.i.i)
+  %call54.i.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i.i.i, i64 %lentry47.sroa.4.0.copyload.i.i.i.i, i64 %rentry49.sroa.0.0.copyload.i.i.i.i, i64 %rentry49.sroa.4.0.copyload.i.i.i.i)
   %arrayidx55.i.i.i.i = getelementptr inbounds double, ptr %71, i64 %i.017.i.i.i.i
   store double %call54.i.i.i.i, ptr %arrayidx55.i.i.i.i, align 8, !tbaa !416, !alias.scope !711, !noalias !716
   %inc57.i.i.i.i = add nuw i64 %i.017.i.i.i.i, 1
@@ -40065,7 +40065,7 @@ for.body46.i.i235.i.i:                            ; preds = %for.body46.i.i235.i
   %rentry49.sroa.0.0.copyload.i.i236.i.i = load i64, ptr %arrayidx50.i.i.i.i, align 8, !tbaa !37, !alias.scope !727, !noalias !733
   %rentry49.sroa.4.0.arrayidx50.sroa_idx.i.i237.i.i = getelementptr inbounds i8, ptr %arrayidx50.i.i.i.i, i64 8
   %rentry49.sroa.4.0.copyload.i.i238.i.i = load i64, ptr %rentry49.sroa.4.0.arrayidx50.sroa_idx.i.i237.i.i, align 8, !tbaa !37, !alias.scope !727, !noalias !733
-  %call54.i.i239.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i232.i.i, i64 %lentry47.sroa.4.0.copyload.i.i234.i.i, i64 %rentry49.sroa.0.0.copyload.i.i236.i.i, i64 %rentry49.sroa.4.0.copyload.i.i238.i.i)
+  %call54.i.i239.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry47.sroa.0.0.copyload.i.i232.i.i, i64 %lentry47.sroa.4.0.copyload.i.i234.i.i, i64 %rentry49.sroa.0.0.copyload.i.i236.i.i, i64 %rentry49.sroa.4.0.copyload.i.i238.i.i)
   %arrayidx55.i.i240.i.i = getelementptr inbounds double, ptr %148, i64 %i.019.i.i.i.i
   store double %call54.i.i239.i.i, ptr %arrayidx55.i.i240.i.i, align 8, !tbaa !416, !alias.scope !729, !noalias !734
   %inc57.i.i241.i.i = add nuw i64 %i.019.i.i.i.i, 1
@@ -40610,7 +40610,7 @@ for.body48.i.i.i.i:                               ; preds = %for.cond45.preheade
   %rentry51.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx52.i.i.i.i, align 8, !tbaa !37, !alias.scope !744, !noalias !750
   %rentry51.sroa.4.0.arrayidx52.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx52.i.i.i.i, i64 8
   %rentry51.sroa.4.0.copyload.i.i.i.i = load i64, ptr %rentry51.sroa.4.0.arrayidx52.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !744, !noalias !750
-  %call56.i.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry49.sroa.0.0.copyload.i.i.i.i, i64 %lentry49.sroa.4.0.copyload.i.i.i.i, i64 %rentry51.sroa.0.0.copyload.i.i.i.i, i64 %rentry51.sroa.4.0.copyload.i.i.i.i)
+  %call56.i.i.i.i = tail call fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry49.sroa.0.0.copyload.i.i.i.i, i64 %lentry49.sroa.4.0.copyload.i.i.i.i, i64 %rentry51.sroa.0.0.copyload.i.i.i.i, i64 %rentry51.sroa.4.0.copyload.i.i.i.i)
   %arrayidx57.i.i.i.i = getelementptr inbounds double, ptr %224, i64 %i.017.i.i357.i.i
   store double %call56.i.i.i.i, ptr %arrayidx57.i.i.i.i, align 8, !tbaa !416, !alias.scope !746, !noalias !752
   %inc59.i.i.i.i = add nuw i64 %i.017.i.i357.i.i, 1
@@ -40700,7 +40700,7 @@ for.body17.us.us.i.i.i.i:                         ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us.us.i.i.i.i = load i64, ptr %arrayidx23.us.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !761, !noalias !773
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.us.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us.us.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us.us.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !761, !noalias !773
-  %call27.us.us.i30.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.us.i.i.i.i)
+  %call27.us.us.i30.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.us.i.i.i.i)
           to label %call27.us.us.i.noexc.i.i.i unwind label %lpad5.loopexit.i.i.i
 
 call27.us.us.i.noexc.i.i.i:                       ; preds = %for.body17.us.us.i.i.i.i
@@ -40723,7 +40723,7 @@ for.body17.us.i.i.i.i:                            ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us.i.i.i.i = load i64, ptr %arrayidx23.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !761, !noalias !773
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us.i.i.i.i, align 8, !tbaa !37, !alias.scope !761, !noalias !773
-  %call27.us.i31.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.i.i.i.i)
+  %call27.us.i31.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us.i.i.i.i)
           to label %call27.us.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.i.i.i
 
 call27.us.i.noexc.i.i.i:                          ; preds = %for.body17.us.i.i.i.i
@@ -40749,7 +40749,7 @@ for.body17.us8.i.i.i.i:                           ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.us17.i.i.i.i = load i64, ptr %arrayidx23.us16.i.i.i.i, align 8, !tbaa !37, !alias.scope !761, !noalias !773
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.us18.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.us16.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.us19.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.us18.i.i.i.i, align 8, !tbaa !37, !alias.scope !761, !noalias !773
-  %call27.us20.i32.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us11.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us13.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us17.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us19.i.i.i.i)
+  %call27.us20.i32.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.us11.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.us13.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.us17.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.us19.i.i.i.i)
           to label %call27.us20.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 call27.us20.i.noexc.i.i.i:                        ; preds = %for.body17.us8.i.i.i.i
@@ -40819,7 +40819,7 @@ if.then6.i.i.i.i:                                 ; preds = %_ZNK6duckdb21Templa
   %rentry.sroa.0.0.copyload.i.i379.i.i = load i64, ptr %arrayidx7.i.i.i.i, align 8, !tbaa !37, !alias.scope !761, !noalias !773
   %rentry.sroa.4.0.arrayidx7.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx7.i.i.i.i, i64 8
   %rentry.sroa.4.0.copyload.i.i380.i.i = load i64, ptr %rentry.sroa.4.0.arrayidx7.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !761, !noalias !773
-  %call10.i33.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry.sroa.0.0.copyload.i.i376.i.i, i64 %lentry.sroa.4.0.copyload.i.i378.i.i, i64 %rentry.sroa.0.0.copyload.i.i379.i.i, i64 %rentry.sroa.4.0.copyload.i.i380.i.i)
+  %call10.i33.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry.sroa.0.0.copyload.i.i376.i.i, i64 %lentry.sroa.4.0.copyload.i.i378.i.i, i64 %rentry.sroa.0.0.copyload.i.i379.i.i, i64 %rentry.sroa.4.0.copyload.i.i380.i.i)
           to label %call10.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 call10.i.noexc.i.i.i:                             ; preds = %if.then6.i.i.i.i
@@ -40874,7 +40874,7 @@ for.body17.i.i.i.i:                               ; preds = %for.body17.lr.ph.sp
   %rentry21.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx23.i.i.i.i, align 8, !tbaa !37, !alias.scope !761, !noalias !773
   %rentry21.sroa.4.0.arrayidx23.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx23.i.i.i.i, i64 8
   %rentry21.sroa.4.0.copyload.i.i.i.i = load i64, ptr %rentry21.sroa.4.0.arrayidx23.sroa_idx.i.i.i.i, align 8, !tbaa !37, !alias.scope !761, !noalias !773
-  %call27.i34.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.i.i.i.i)
+  %call27.i34.i.i.i = invoke fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr %56, ptr %57, i64 %lentry18.sroa.0.0.copyload.i.i.i.i, i64 %lentry18.sroa.4.0.copyload.i.i.i.i, i64 %rentry21.sroa.0.0.copyload.i.i.i.i, i64 %rentry21.sroa.4.0.copyload.i.i.i.i)
           to label %call27.i.noexc.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 call27.i.noexc.i.i.i:                             ; preds = %for.body17.i.i.i.i
@@ -67783,7 +67783,7 @@ unreachable:                                      ; preds = %invoke.cont23
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr nocapture readonly %fun.coerce0.0.val, ptr nocapture readonly %fun.coerce1.0.val, i64 %left.coerce0, i64 %left.coerce1, i64 %right.coerce0, i64 %right.coerce1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr nocapture readonly %fun.coerce0.0.val, ptr nocapture readonly %fun.coerce1.0.val, i64 %left.coerce0, i64 %left.coerce1, i64 %right.coerce0, i64 %right.coerce1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -68046,7 +68046,7 @@ declare float @sqrtf(float noundef) local_unnamed_addr #22
 declare void @_ZN6duckdb12ValidityMask7CombineERKS0_m(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr nocapture readonly %fun.coerce0.0.val, ptr nocapture readonly %fun.coerce1.0.val, i64 %left.coerce0, i64 %left.coerce1, i64 %right.coerce0, i64 %right.coerce1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L12ListDistanceIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr nocapture readonly %fun.coerce0.0.val, ptr nocapture readonly %fun.coerce1.0.val, i64 %left.coerce0, i64 %left.coerce1, i64 %right.coerce0, i64 %right.coerce1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -68242,7 +68242,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #21
 declare double @sqrt(double noundef) local_unnamed_addr #22
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr nocapture readonly %fun.coerce0.0.val, ptr nocapture readonly %fun.coerce1.0.val, i64 %left.coerce0, i64 %left.coerce1, i64 %right.coerce0, i64 %right.coerce1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr nocapture readonly %fun.coerce0.0.val, ptr nocapture readonly %fun.coerce1.0.val, i64 %left.coerce0, i64 %left.coerce1, i64 %right.coerce0, i64 %right.coerce1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -68429,7 +68429,7 @@ _ZZN6duckdbL20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr nocapture readonly %fun.coerce0.0.val, ptr nocapture readonly %fun.coerce1.0.val, i64 %left.coerce0, i64 %left.coerce1, i64 %right.coerce0, i64 %right.coerce1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr nocapture readonly %fun.coerce0.0.val, ptr nocapture readonly %fun.coerce1.0.val, i64 %left.coerce0, i64 %left.coerce1, i64 %right.coerce0, i64 %right.coerce1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -68622,7 +68622,7 @@ _ZZN6duckdbL20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr nocapture readonly %fun.coerce0.0.val, ptr nocapture readonly %fun.coerce1.0.val, i64 %left.coerce0, i64 %left.coerce1, i64 %right.coerce0, i64 %right.coerce1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef float @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr nocapture readonly %fun.coerce0.0.val, ptr nocapture readonly %fun.coerce1.0.val, i64 %left.coerce0, i64 %left.coerce1, i64 %right.coerce0, i64 %right.coerce1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -68806,7 +68806,7 @@ _ZZN6duckdbL16ListInnerProductIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6Vec
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm(ptr nocapture readonly %fun.coerce0.0.val, ptr nocapture readonly %fun.coerce1.0.val, i64 %left.coerce0, i64 %left.coerce1, i64 %right.coerce0, i64 %right.coerce1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L16ListInnerProductIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.argprom(ptr nocapture readonly %fun.coerce0.0.val, ptr nocapture readonly %fun.coerce1.0.val, i64 %left.coerce0, i64 %left.coerce1, i64 %right.coerce0, i64 %right.coerce1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8

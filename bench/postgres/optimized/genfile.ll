@@ -760,12 +760,12 @@ define dso_local noundef i64 @pg_ls_dir_1arg(ptr noundef %0) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_ls_logdir(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @Log_directory, align 8
-  tail call fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef %2, i1 noundef zeroext false)
+  tail call fastcc void @pg_ls_dir_files.retelim(ptr noundef %0, ptr noundef %2, i1 noundef zeroext false)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @pg_ls_dir_files.retelim(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca [3 x i64], align 16
   %5 = alloca [3 x i8], align 1
   %6 = alloca [2048 x i8], align 16
@@ -862,18 +862,18 @@ define internal fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef %1, i1 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_ls_waldir(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef nonnull @.str.14, i1 noundef zeroext false)
+  tail call fastcc void @pg_ls_dir_files.retelim(ptr noundef %0, ptr noundef nonnull @.str.14, i1 noundef zeroext false)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_ls_tmpdir_noargs(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @pg_ls_tmpdir(ptr noundef %0, i32 noundef 1663)
+  tail call fastcc void @pg_ls_tmpdir.retelim(ptr noundef %0, i32 noundef 1663)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pg_ls_tmpdir(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @pg_ls_tmpdir.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = zext i32 %1 to i64
   %5 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 67, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
@@ -889,7 +889,7 @@ define internal fastcc void @pg_ls_tmpdir(ptr noundef %0, i32 noundef %1) unname
 
 10:                                               ; preds = %2
   call void @TempTablespacePath(ptr noundef nonnull %3, i32 noundef %1) #8
-  call fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext true)
+  call fastcc void @pg_ls_dir_files.retelim(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext true)
   ret void
 }
 
@@ -898,25 +898,25 @@ define dso_local noundef i64 @pg_ls_tmpdir_1arg(ptr noundef %0) local_unnamed_ad
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
-  tail call fastcc void @pg_ls_tmpdir(ptr noundef %0, i32 noundef %4)
+  tail call fastcc void @pg_ls_tmpdir.retelim(ptr noundef %0, i32 noundef %4)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_ls_archive_statusdir(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef nonnull @.str.15, i1 noundef zeroext true)
+  tail call fastcc void @pg_ls_dir_files.retelim(ptr noundef %0, ptr noundef nonnull @.str.15, i1 noundef zeroext true)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_ls_logicalsnapdir(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef nonnull @.str.16, i1 noundef zeroext false)
+  tail call fastcc void @pg_ls_dir_files.retelim(ptr noundef %0, ptr noundef nonnull @.str.16, i1 noundef zeroext false)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_ls_logicalmapdir(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef nonnull @.str.17, i1 noundef zeroext false)
+  tail call fastcc void @pg_ls_dir_files.retelim(ptr noundef %0, ptr noundef nonnull @.str.17, i1 noundef zeroext false)
   ret i64 0
 }
 
@@ -942,7 +942,7 @@ define dso_local noundef i64 @pg_ls_replslotdir(ptr noundef %0) local_unnamed_ad
 
 13:                                               ; preds = %1
   %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.19, ptr noundef %7) #8
-  call fastcc void @pg_ls_dir_files(ptr noundef nonnull %0, ptr noundef nonnull %2, i1 noundef zeroext false)
+  call fastcc void @pg_ls_dir_files.retelim(ptr noundef nonnull %0, ptr noundef nonnull %2, i1 noundef zeroext false)
   ret i64 0
 }
 

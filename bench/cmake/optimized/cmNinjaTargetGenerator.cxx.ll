@@ -17989,13 +17989,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit241: ;
 
 179:                                              ; preds = %.noexc242
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %178)
-          to label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit" unwind label %278
+          to label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit" unwind label %278
 
 180:                                              ; preds = %.noexc242
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %35) #25
-  br label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit"
+  br label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit"
 
-"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit": ; preds = %180, %179
+"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit": ; preds = %180, %179
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #25
@@ -18003,7 +18003,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit241: ;
   %181 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %37)
           to label %.noexc244 unwind label %281
 
-.noexc244:                                        ; preds = %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit"
+.noexc244:                                        ; preds = %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit"
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef %181, ptr noundef nonnull align 1 dereferenceable(1) %38)
           to label %.noexc245 unwind label %281
 
@@ -18037,13 +18037,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit248: ;
 
 190:                                              ; preds = %.noexc250
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %189)
-          to label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit252" unwind label %285
+          to label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit252" unwind label %285
 
 191:                                              ; preds = %.noexc250
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %39) #25
-  br label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit252"
+  br label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit252"
 
-"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit252": ; preds = %191, %190
+"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit252": ; preds = %191, %190
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #25
@@ -18051,7 +18051,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit248: ;
   %192 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %41)
           to label %.noexc253 unwind label %288
 
-.noexc253:                                        ; preds = %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit252"
+.noexc253:                                        ; preds = %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit252"
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef %192, ptr noundef nonnull align 1 dereferenceable(1) %42)
           to label %.noexc254 unwind label %288
 
@@ -18095,13 +18095,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit257: ;
 
 203:                                              ; preds = %.noexc262
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %202)
-          to label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit264" unwind label %292
+          to label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit264" unwind label %292
 
 204:                                              ; preds = %.noexc262
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %43) #25
-  br label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit264"
+  br label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit264"
 
-"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit264": ; preds = %204, %203
+"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit264": ; preds = %204, %203
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #25
@@ -18140,7 +18140,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit257: ;
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %45, ptr nonnull %20, i64 3)
           to label %219 unwind label %295
 
-219:                                              ; preds = %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit264"
+219:                                              ; preds = %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit264"
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %21)
   %220 = load ptr, ptr %128, align 8
@@ -18366,7 +18366,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit283: ;
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #25
   br label %1044
 
-281:                                              ; preds = %.noexc244, %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit"
+281:                                              ; preds = %.noexc244, %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit"
   %282 = landingpad { ptr, i32 }
           cleanup
   br label %.body246
@@ -18392,7 +18392,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit283: ;
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #25
   br label %1043
 
-288:                                              ; preds = %.noexc253, %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit252"
+288:                                              ; preds = %.noexc253, %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit252"
   %289 = landingpad { ptr, i32 }
           cleanup
   br label %.body255
@@ -18418,7 +18418,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit283: ;
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #25
   br label %1042
 
-295:                                              ; preds = %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit264"
+295:                                              ; preds = %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit264"
   %296 = landingpad { ptr, i32 }
           cleanup
   br label %1041
@@ -20426,13 +20426,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit447: ;
 
 936:                                              ; preds = %.noexc449
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(32) %935)
-          to label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit451" unwind label %985
+          to label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit451" unwind label %985
 
 937:                                              ; preds = %.noexc449
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(32) %111) #25
-  br label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit451"
+  br label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit451"
 
-"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit451": ; preds = %937, %936
+"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit451": ; preds = %937, %936
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %111) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %109) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %110) #25
@@ -20441,7 +20441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit447: ;
   %939 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %113)
           to label %.noexc452 unwind label %988
 
-.noexc452:                                        ; preds = %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit451"
+.noexc452:                                        ; preds = %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit451"
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %113, ptr noundef %939, ptr noundef nonnull align 1 dereferenceable(1) %114)
           to label %.noexc453 unwind label %988
 
@@ -20476,13 +20476,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit456: ;
 
 949:                                              ; preds = %.noexc458
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(32) %948)
-          to label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit460" unwind label %992
+          to label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit460" unwind label %992
 
 950:                                              ; preds = %.noexc458
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(32) %115) #25
-  br label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit460"
+  br label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit460"
 
-"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit460": ; preds = %950, %949
+"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit460": ; preds = %950, %949
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %115) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %113) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %114) #25
@@ -20491,7 +20491,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit456: ;
   %952 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %117)
           to label %.noexc461 unwind label %995
 
-.noexc461:                                        ; preds = %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit460"
+.noexc461:                                        ; preds = %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit460"
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef %952, ptr noundef nonnull align 1 dereferenceable(1) %118)
           to label %.noexc462 unwind label %995
 
@@ -20530,13 +20530,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit465: ;
 
 960:                                              ; preds = %.noexc471
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(32) %959)
-          to label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit473" unwind label %999
+          to label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit473" unwind label %999
 
 961:                                              ; preds = %.noexc471
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(32) %119) #25
-  br label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit473"
+  br label %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit473"
 
-"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit473": ; preds = %961, %960
+"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit473": ; preds = %961, %960
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %119) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %118) #25
@@ -20564,7 +20564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit465: ;
   invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %121, ptr nonnull %6, i64 3)
           to label %968 unwind label %1002
 
-968:                                              ; preds = %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit473"
+968:                                              ; preds = %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit473"
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   %969 = load ptr, ptr %128, align 8
@@ -20638,7 +20638,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %110) #25
   br label %.loopexit
 
-988:                                              ; preds = %.noexc452, %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit451"
+988:                                              ; preds = %.noexc452, %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit451"
   %989 = landingpad { ptr, i32 }
           cleanup
   br label %.body454
@@ -20664,7 +20664,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %114) #25
   br label %1010
 
-995:                                              ; preds = %.noexc461, %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit460"
+995:                                              ; preds = %.noexc461, %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit460"
   %996 = landingpad { ptr, i32 }
           cleanup
   br label %.body463
@@ -20690,7 +20690,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %118) #25
   br label %1009
 
-1002:                                             ; preds = %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.exit473"
+1002:                                             ; preds = %"_ZZN22cmNinjaTargetGenerator30WriteSwiftObjectBuildStatementERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_bENK3$_0clB5cxx11ERK17cmGeneratorTargetSF_SD_.argprom.exit473"
   %1003 = landingpad { ptr, i32 }
           cleanup
   br label %1008
@@ -23758,7 +23758,7 @@ _ZNK22cmNinjaTargetGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt
   %278 = getelementptr inbounds i8, ptr %34, i64 32
   %279 = load ptr, ptr %278, align 8
   %.not98113 = icmp eq ptr %277, %279
-  br i1 %.not98113, label %"_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK12cmSourceFileRKS5_EEaSIZN22cmNinjaTargetGenerator21WriteTargetDependInfoESA_SA_E3$_1EENSt9enable_ifIXsrNSC_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeESC_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JS8_SA_EEEE5valueERSC_E4typeEOSI_.exit", label %.lr.ph116
+  br i1 %.not98113, label %"_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK12cmSourceFileRKS5_EEaSIZN22cmNinjaTargetGenerator21WriteTargetDependInfoESA_SA_E3$_1EENSt9enable_ifIXsrNSC_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeESC_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JS8_SA_EEEE5valueERSC_E4typeEOSI_.argprom.exit", label %.lr.ph116
 
 .lr.ph116:                                        ; preds = %274, %282
   %.sroa.086.0114 = phi ptr [ %283, %282 ], [ %277, %274 ]
@@ -23773,7 +23773,7 @@ _ZNK22cmNinjaTargetGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %37) #25
   %283 = getelementptr inbounds i8, ptr %.sroa.086.0114, i64 32
   %.not98 = icmp eq ptr %283, %279
-  br i1 %.not98, label %"_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK12cmSourceFileRKS5_EEaSIZN22cmNinjaTargetGenerator21WriteTargetDependInfoESA_SA_E3$_1EENSt9enable_ifIXsrNSC_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeESC_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JS8_SA_EEEE5valueERSC_E4typeEOSI_.exit", label %.lr.ph116
+  br i1 %.not98, label %"_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK12cmSourceFileRKS5_EEaSIZN22cmNinjaTargetGenerator21WriteTargetDependInfoESA_SA_E3$_1EENSt9enable_ifIXsrNSC_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeESC_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JS8_SA_EEEE5valueERSC_E4typeEOSI_.argprom.exit", label %.lr.ph116
 
 284:                                              ; preds = %272
   %285 = landingpad { ptr, i32 }
@@ -23787,7 +23787,7 @@ _ZNK22cmNinjaTargetGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %37) #25
   br label %.loopexit.split-lp
 
-"_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK12cmSourceFileRKS5_EEaSIZN22cmNinjaTargetGenerator21WriteTargetDependInfoESA_SA_E3$_1EENSt9enable_ifIXsrNSC_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeESC_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JS8_SA_EEEE5valueERSC_E4typeEOSI_.exit": ; preds = %282, %274
+"_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK12cmSourceFileRKS5_EEaSIZN22cmNinjaTargetGenerator21WriteTargetDependInfoESA_SA_E3$_1EENSt9enable_ifIXsrNSC_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeESC_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JS8_SA_EEEE5valueERSC_E4typeEOSI_.argprom.exit": ; preds = %282, %274
   %288 = ptrtoint ptr %0 to i64
   store i64 %288, ptr %38, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 8
@@ -23810,7 +23810,7 @@ _ZNK22cmNinjaTargetGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt
   invoke void @_ZN17cmDyndepCollation23AddCollationInformationERN4Json5ValueEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK26cmDyndepGeneratorCallbacks(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %.pre, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(64) %38)
           to label %295 unwind label %327
 
-295:                                              ; preds = %"_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK12cmSourceFileRKS5_EEaSIZN22cmNinjaTargetGenerator21WriteTargetDependInfoESA_SA_E3$_1EENSt9enable_ifIXsrNSC_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeESC_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JS8_SA_EEEE5valueERSC_E4typeEOSI_.exit"
+295:                                              ; preds = %"_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK12cmSourceFileRKS5_EEaSIZN22cmNinjaTargetGenerator21WriteTargetDependInfoESA_SA_E3$_1EENSt9enable_ifIXsrNSC_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeESC_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JS8_SA_EEEE5valueERSC_E4typeEOSI_.argprom.exit"
   invoke void @_ZNK22cmNinjaTargetGenerator23GetTargetDependInfoPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %39, ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %296 unwind label %327
 
@@ -23939,7 +23939,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #25
   ret void
 
-327:                                              ; preds = %295, %"_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK12cmSourceFileRKS5_EEaSIZN22cmNinjaTargetGenerator21WriteTargetDependInfoESA_SA_E3$_1EENSt9enable_ifIXsrNSC_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeESC_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JS8_SA_EEEE5valueERSC_E4typeEOSI_.exit"
+327:                                              ; preds = %295, %"_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK12cmSourceFileRKS5_EEaSIZN22cmNinjaTargetGenerator21WriteTargetDependInfoESA_SA_E3$_1EENSt9enable_ifIXsrNSC_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeESC_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JS8_SA_EEEE5valueERSC_E4typeEOSI_.argprom.exit"
   %328 = landingpad { ptr, i32 }
           cleanup
   br label %334
@@ -36872,8 +36872,8 @@ attributes #28 = { nounwind willreturn memory(read) }
 !437 = distinct !{!437, !438, !"_ZZ8cmStrCatIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_JEES5_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESG_: argument 0"}
 !438 = distinct !{!438, !"_ZZ8cmStrCatIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_JEES5_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESG_"}
 !439 = !{!440}
-!440 = distinct !{!440, !441, !"_ZN12_GLOBAL__N_114GetScanCommandB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES3_S3_S3_S3_: argument 0"}
-!441 = distinct !{!441, !"_ZN12_GLOBAL__N_114GetScanCommandB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES3_S3_S3_S3_"}
+!440 = distinct !{!440, !441, !"_ZN12_GLOBAL__N_114GetScanCommandB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES3_S3_S3_S3_.argprom: argument 0"}
+!441 = distinct !{!441, !"_ZN12_GLOBAL__N_114GetScanCommandB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES3_S3_S3_S3_.argprom"}
 !442 = !{!443}
 !443 = distinct !{!443, !444, !"_ZZ8cmStrCatIRSt17basic_string_viewIcSt11char_traitsIcEERA31_KcJS4_RA9_S5_S4_RA8_S5_S4_RA12_S5_RA40_S5_S4_EENSt7__cxx1112basic_stringIcS2_SaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11EST_: argument 0"}
 !444 = distinct !{!444, !"_ZZ8cmStrCatIRSt17basic_string_viewIcSt11char_traitsIcEERA31_KcJS4_RA9_S5_S4_RA8_S5_S4_RA12_S5_RA40_S5_S4_EENSt7__cxx1112basic_stringIcS2_SaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11EST_"}
@@ -36956,8 +36956,8 @@ attributes #28 = { nounwind willreturn memory(read) }
 !521 = distinct !{!521, !522, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA22_S0_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_: argument 0"}
 !522 = distinct !{!522, !"_ZZ8cmStrCatIRA7_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA22_S0_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_"}
 !523 = !{!524}
-!524 = distinct !{!524, !525, !"_ZN12_GLOBAL__N_114GetScanCommandB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES3_S3_S3_S3_: argument 0"}
-!525 = distinct !{!525, !"_ZN12_GLOBAL__N_114GetScanCommandB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES3_S3_S3_S3_"}
+!524 = distinct !{!524, !525, !"_ZN12_GLOBAL__N_114GetScanCommandB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES3_S3_S3_S3_.argprom: argument 0"}
+!525 = distinct !{!525, !"_ZN12_GLOBAL__N_114GetScanCommandB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES3_S3_S3_S3_.argprom"}
 !526 = !{!527}
 !527 = distinct !{!527, !528, !"_ZZ8cmStrCatIRSt17basic_string_viewIcSt11char_traitsIcEERA31_KcJS4_RA9_S5_S4_RA8_S5_S4_RA12_S5_RA40_S5_S4_EENSt7__cxx1112basic_stringIcS2_SaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11EST_: argument 0"}
 !528 = distinct !{!528, !"_ZZ8cmStrCatIRSt17basic_string_viewIcSt11char_traitsIcEERA31_KcJS4_RA9_S5_S4_RA8_S5_S4_RA12_S5_RA40_S5_S4_EENSt7__cxx1112basic_stringIcS2_SaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11EST_"}
@@ -38226,8 +38226,8 @@ attributes #28 = { nounwind willreturn memory(read) }
 !1791 = distinct !{!1791, !16}
 !1792 = distinct !{!1792, !16}
 !1793 = !{!1794}
-!1794 = distinct !{!1794, !1795, !"_ZZN22cmNinjaTargetGenerator31ExportSwiftObjectCompileCommandERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_SF_SF_SF_bENK3$_0clB5cxx11ESD_: argument 0"}
-!1795 = distinct !{!1795, !"_ZZN22cmNinjaTargetGenerator31ExportSwiftObjectCompileCommandERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_SF_SF_SF_bENK3$_0clB5cxx11ESD_"}
+!1794 = distinct !{!1794, !1795, !"_ZZN22cmNinjaTargetGenerator31ExportSwiftObjectCompileCommandERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_SF_SF_SF_bENK3$_0clB5cxx11ESD_.argprom: argument 0"}
+!1795 = distinct !{!1795, !"_ZZN22cmNinjaTargetGenerator31ExportSwiftObjectCompileCommandERKSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_SF_SF_SF_bENK3$_0clB5cxx11ESD_.argprom"}
 !1796 = distinct !{!1796, !16}
 !1797 = !{!1798}
 !1798 = distinct !{!1798, !1799, !"_Z8cmStrCatIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcJS5_EES5_OT_OT0_DpOT1_: argument 0"}
@@ -38281,12 +38281,12 @@ attributes #28 = { nounwind willreturn memory(read) }
 !1846 = distinct !{!1846, !16}
 !1847 = distinct !{!1847, !16}
 !1848 = !{!1849, !1851, !1853}
-!1849 = distinct !{!1849, !1850, !"_ZZN22cmNinjaTargetGenerator25WriteObjectBuildStatementEPK12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_bENK3$_0clB5cxx11ESA_: argument 0"}
-!1850 = distinct !{!1850, !"_ZZN22cmNinjaTargetGenerator25WriteObjectBuildStatementEPK12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_bENK3$_0clB5cxx11ESA_"}
-!1851 = distinct !{!1851, !1852, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN22cmNinjaTargetGenerator25WriteObjectBuildStatementEPK12cmSourceFileRKS5_SB_bE3$_0JSB_EET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!1852 = distinct !{!1852, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN22cmNinjaTargetGenerator25WriteObjectBuildStatementEPK12cmSourceFileRKS5_SB_bE3$_0JSB_EET_St14__invoke_otherOT0_DpOT1_"}
-!1853 = distinct !{!1853, !1854, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN22cmNinjaTargetGenerator25WriteObjectBuildStatementEPK12cmSourceFileRKS5_SB_bE3$_0JSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_: argument 0"}
-!1854 = distinct !{!1854, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN22cmNinjaTargetGenerator25WriteObjectBuildStatementEPK12cmSourceFileRKS5_SB_bE3$_0JSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_"}
+!1849 = distinct !{!1849, !1850, !"_ZZN22cmNinjaTargetGenerator25WriteObjectBuildStatementEPK12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_bENK3$_0clB5cxx11ESA_.argprom.argprom: argument 0"}
+!1850 = distinct !{!1850, !"_ZZN22cmNinjaTargetGenerator25WriteObjectBuildStatementEPK12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_bENK3$_0clB5cxx11ESA_.argprom.argprom"}
+!1851 = distinct !{!1851, !1852, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN22cmNinjaTargetGenerator25WriteObjectBuildStatementEPK12cmSourceFileRKS5_SB_bE3$_0JSB_EET_St14__invoke_otherOT0_DpOT1_.argprom.argprom: argument 0"}
+!1852 = distinct !{!1852, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN22cmNinjaTargetGenerator25WriteObjectBuildStatementEPK12cmSourceFileRKS5_SB_bE3$_0JSB_EET_St14__invoke_otherOT0_DpOT1_.argprom.argprom"}
+!1853 = distinct !{!1853, !1854, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN22cmNinjaTargetGenerator25WriteObjectBuildStatementEPK12cmSourceFileRKS5_SB_bE3$_0JSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom: argument 0"}
+!1854 = distinct !{!1854, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN22cmNinjaTargetGenerator25WriteObjectBuildStatementEPK12cmSourceFileRKS5_SB_bE3$_0JSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.argprom"}
 !1855 = distinct !{!1855, !16}
 !1856 = distinct !{!1856, !16}
 !1857 = distinct !{!1857, !16}

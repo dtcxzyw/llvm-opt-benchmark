@@ -930,7 +930,7 @@ do_file_type.exit:                                ; preds = %9, %15, %17, %19, %
   %35 = trunc i64 %.val216 to i32
   %36 = tail call ptr @BIO_new_mem_buf(ptr noundef %.val, i32 noundef %35) #13
   %.not.i220 = icmp eq ptr %36, null
-  br i1 %.not.i220, label %SSL_CTX_use_certificate_chain_blob.exit.thread, label %37
+  br i1 %.not.i220, label %SSL_CTX_use_certificate_chain_blob.argprom.exit.thread, label %37
 
 37:                                               ; preds = %33
   tail call void @ERR_clear_error() #13
@@ -979,18 +979,18 @@ do_file_type.exit:                                ; preds = %9, %15, %17, %19, %
   %.021.i = phi i32 [ 0, %47 ], [ %spec.select.i, %51 ], [ 0, %39 ], [ 0, %37 ], [ 0, %42 ], [ 0, %48 ]
   tail call void @X509_free(ptr noundef %38) #13
   %53 = tail call i32 @BIO_free(ptr noundef nonnull %36) #13
-  br label %SSL_CTX_use_certificate_chain_blob.exit
+  br label %SSL_CTX_use_certificate_chain_blob.argprom.exit
 
 54:                                               ; preds = %32
   %55 = tail call i32 @SSL_CTX_use_certificate_chain_file(ptr noundef %1, ptr noundef %2) #13
-  br label %SSL_CTX_use_certificate_chain_blob.exit
+  br label %SSL_CTX_use_certificate_chain_blob.argprom.exit
 
-SSL_CTX_use_certificate_chain_blob.exit:          ; preds = %52, %54
+SSL_CTX_use_certificate_chain_blob.argprom.exit:  ; preds = %52, %54
   %56 = phi i32 [ %55, %54 ], [ %.021.i, %52 ]
   %.not197 = icmp eq i32 %56, 1
-  br i1 %.not197, label %217, label %SSL_CTX_use_certificate_chain_blob.exit.thread
+  br i1 %.not197, label %217, label %SSL_CTX_use_certificate_chain_blob.argprom.exit.thread
 
-SSL_CTX_use_certificate_chain_blob.exit.thread:   ; preds = %33, %SSL_CTX_use_certificate_chain_blob.exit
+SSL_CTX_use_certificate_chain_blob.argprom.exit.thread: ; preds = %33, %SSL_CTX_use_certificate_chain_blob.argprom.exit
   %57 = select i1 %29, ptr @.str.38, ptr %2
   %58 = tail call i64 @ERR_get_error() #13
   store i8 0, ptr %10, align 16
@@ -999,7 +999,7 @@ SSL_CTX_use_certificate_chain_blob.exit.thread:   ; preds = %33, %SSL_CTX_use_ce
   %61 = icmp ult i32 %60, 254
   br i1 %61, label %62, label %68
 
-62:                                               ; preds = %SSL_CTX_use_certificate_chain_blob.exit.thread
+62:                                               ; preds = %SSL_CTX_use_certificate_chain_blob.argprom.exit.thread
   %63 = zext nneg i32 %60 to i64
   %64 = getelementptr inbounds i8, ptr %10, i64 %63
   %65 = sub nuw nsw i64 254, %63
@@ -1010,9 +1010,9 @@ SSL_CTX_use_certificate_chain_blob.exit.thread:   ; preds = %33, %SSL_CTX_use_ce
   store i8 0, ptr %67, align 1
   br label %68
 
-68:                                               ; preds = %62, %SSL_CTX_use_certificate_chain_blob.exit.thread
-  %.021.i222 = phi i64 [ %65, %62 ], [ 256, %SSL_CTX_use_certificate_chain_blob.exit.thread ]
-  %.0.i223 = phi ptr [ %67, %62 ], [ %10, %SSL_CTX_use_certificate_chain_blob.exit.thread ]
+68:                                               ; preds = %62, %SSL_CTX_use_certificate_chain_blob.argprom.exit.thread
+  %.021.i222 = phi i64 [ %65, %62 ], [ 256, %SSL_CTX_use_certificate_chain_blob.argprom.exit.thread ]
+  %.0.i223 = phi ptr [ %67, %62 ], [ %10, %SSL_CTX_use_certificate_chain_blob.argprom.exit.thread ]
   call void @ERR_error_string_n(i64 noundef %58, ptr noundef nonnull %.0.i223, i64 noundef %.021.i222) #13
   %69 = load i8, ptr %.0.i223, align 1
   %.not.i224 = icmp eq i8 %69, 0
@@ -1043,7 +1043,7 @@ ossl_strerror.exit:                               ; preds = %68, %70, %73
   %79 = trunc i64 %.val218 to i32
   %80 = tail call ptr @BIO_new_mem_buf(ptr noundef %.val217, i32 noundef %79) #13
   %.not.i225 = icmp eq ptr %80, null
-  br i1 %.not.i225, label %SSL_CTX_use_certificate_blob.exit.thread, label %81
+  br i1 %.not.i225, label %SSL_CTX_use_certificate_blob.argprom.exit.thread, label %81
 
 81:                                               ; preds = %77
   %82 = tail call ptr @d2i_X509_bio(ptr noundef nonnull %80, ptr noundef null) #13
@@ -1058,18 +1058,18 @@ ossl_strerror.exit:                               ; preds = %68, %70, %73
   %.015.i = phi i32 [ %84, %83 ], [ 0, %81 ]
   tail call void @X509_free(ptr noundef %82) #13
   %86 = tail call i32 @BIO_free(ptr noundef nonnull %80) #13
-  br label %SSL_CTX_use_certificate_blob.exit
+  br label %SSL_CTX_use_certificate_blob.argprom.exit
 
 87:                                               ; preds = %76
   %88 = tail call i32 @SSL_CTX_use_certificate_file(ptr noundef %1, ptr noundef %2, i32 noundef 2) #13
-  br label %SSL_CTX_use_certificate_blob.exit
+  br label %SSL_CTX_use_certificate_blob.argprom.exit
 
-SSL_CTX_use_certificate_blob.exit:                ; preds = %85, %87
+SSL_CTX_use_certificate_blob.argprom.exit:        ; preds = %85, %87
   %89 = phi i32 [ %88, %87 ], [ %.015.i, %85 ]
   %.not196 = icmp eq i32 %89, 1
-  br i1 %.not196, label %217, label %SSL_CTX_use_certificate_blob.exit.thread
+  br i1 %.not196, label %217, label %SSL_CTX_use_certificate_blob.argprom.exit.thread
 
-SSL_CTX_use_certificate_blob.exit.thread:         ; preds = %77, %SSL_CTX_use_certificate_blob.exit
+SSL_CTX_use_certificate_blob.argprom.exit.thread: ; preds = %77, %SSL_CTX_use_certificate_blob.argprom.exit
   %90 = select i1 %29, ptr @.str.38, ptr %2
   %91 = tail call i64 @ERR_get_error() #13
   store i8 0, ptr %10, align 16
@@ -1078,7 +1078,7 @@ SSL_CTX_use_certificate_blob.exit.thread:         ; preds = %77, %SSL_CTX_use_ce
   %94 = icmp ult i32 %93, 254
   br i1 %94, label %95, label %101
 
-95:                                               ; preds = %SSL_CTX_use_certificate_blob.exit.thread
+95:                                               ; preds = %SSL_CTX_use_certificate_blob.argprom.exit.thread
   %96 = zext nneg i32 %93 to i64
   %97 = getelementptr inbounds i8, ptr %10, i64 %96
   %98 = sub nuw nsw i64 254, %96
@@ -1089,9 +1089,9 @@ SSL_CTX_use_certificate_blob.exit.thread:         ; preds = %77, %SSL_CTX_use_ce
   store i8 0, ptr %100, align 1
   br label %101
 
-101:                                              ; preds = %95, %SSL_CTX_use_certificate_blob.exit.thread
-  %.021.i227 = phi i64 [ %98, %95 ], [ 256, %SSL_CTX_use_certificate_blob.exit.thread ]
-  %.0.i228 = phi ptr [ %100, %95 ], [ %10, %SSL_CTX_use_certificate_blob.exit.thread ]
+101:                                              ; preds = %95, %SSL_CTX_use_certificate_blob.argprom.exit.thread
+  %.021.i227 = phi i64 [ %98, %95 ], [ 256, %SSL_CTX_use_certificate_blob.argprom.exit.thread ]
+  %.0.i228 = phi ptr [ %100, %95 ], [ %10, %SSL_CTX_use_certificate_blob.argprom.exit.thread ]
   call void @ERR_error_string_n(i64 noundef %91, ptr noundef nonnull %.0.i228, i64 noundef %.021.i227) #13
   %102 = load i8, ptr %.0.i228, align 1
   %.not.i229 = icmp eq i8 %102, 0
@@ -1381,8 +1381,8 @@ ossl_strerror.exit237:                            ; preds = %155, %157, %160
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.58, ptr noundef %4) #13
   br label %296
 
-217:                                              ; preds = %.loopexit, %SSL_CTX_use_certificate_blob.exit, %SSL_CTX_use_certificate_chain_blob.exit, %135
-  %.not198 = phi i1 [ false, %.loopexit ], [ true, %135 ], [ true, %SSL_CTX_use_certificate_blob.exit ], [ true, %SSL_CTX_use_certificate_chain_blob.exit ]
+217:                                              ; preds = %.loopexit, %SSL_CTX_use_certificate_blob.argprom.exit, %SSL_CTX_use_certificate_chain_blob.argprom.exit, %135
+  %.not198 = phi i1 [ false, %.loopexit ], [ true, %135 ], [ true, %SSL_CTX_use_certificate_blob.argprom.exit ], [ true, %SSL_CTX_use_certificate_chain_blob.argprom.exit ]
   %218 = icmp ne ptr %5, null
   %219 = icmp ne ptr %6, null
   %or.cond5 = or i1 %218, %219
@@ -1445,7 +1445,7 @@ do_file_type.exit246.thread275:                   ; preds = %225, %do_file_type.
   %233 = trunc i64 %.0159.val219 to i32
   %234 = call ptr @BIO_new_mem_buf(ptr noundef %.0159.val, i32 noundef %233) #13
   %.not.i247 = icmp eq ptr %234, null
-  br i1 %.not.i247, label %SSL_CTX_use_PrivateKey_blob.exit.thread, label %235
+  br i1 %.not.i247, label %SSL_CTX_use_PrivateKey_blob.argprom.exit.thread, label %235
 
 235:                                              ; preds = %231
   br i1 %switch, label %236, label %238
@@ -1471,18 +1471,18 @@ do_file_type.exit246.thread275:                   ; preds = %225, %do_file_type.
 243:                                              ; preds = %241, %240
   %.015.i249 = phi i32 [ %242, %241 ], [ 0, %240 ]
   %244 = call i32 @BIO_free(ptr noundef nonnull %234) #13
-  br label %SSL_CTX_use_PrivateKey_blob.exit
+  br label %SSL_CTX_use_PrivateKey_blob.argprom.exit
 
 245:                                              ; preds = %do_file_type.exit246.thread275
   %246 = call i32 @SSL_CTX_use_PrivateKey_file(ptr noundef %1, ptr noundef %.0158269, i32 noundef %.0161265) #13
-  br label %SSL_CTX_use_PrivateKey_blob.exit
+  br label %SSL_CTX_use_PrivateKey_blob.argprom.exit
 
-SSL_CTX_use_PrivateKey_blob.exit:                 ; preds = %243, %245
+SSL_CTX_use_PrivateKey_blob.argprom.exit:         ; preds = %243, %245
   %247 = phi i32 [ %246, %245 ], [ %.015.i249, %243 ]
   %.not207 = icmp eq i32 %247, 1
-  br i1 %.not207, label %276, label %SSL_CTX_use_PrivateKey_blob.exit.thread
+  br i1 %.not207, label %276, label %SSL_CTX_use_PrivateKey_blob.argprom.exit.thread
 
-SSL_CTX_use_PrivateKey_blob.exit.thread:          ; preds = %231, %SSL_CTX_use_PrivateKey_blob.exit
+SSL_CTX_use_PrivateKey_blob.argprom.exit.thread:  ; preds = %231, %SSL_CTX_use_PrivateKey_blob.argprom.exit
   %.not208 = icmp eq ptr %.0158269, null
   %248 = select i1 %.not208, ptr @.str.51, ptr %.0158269
   %.not209 = icmp eq ptr %7, null
@@ -1573,7 +1573,7 @@ do_file_type.exit246.thread271:                   ; preds = %229, %do_file_type.
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.67) #13
   br label %296
 
-276:                                              ; preds = %do_file_type.exit246.thread284, %SSL_CTX_use_PrivateKey_blob.exit, %do_file_type.exit246.thread, %274
+276:                                              ; preds = %do_file_type.exit246.thread284, %SSL_CTX_use_PrivateKey_blob.argprom.exit, %do_file_type.exit246.thread, %274
   %277 = call ptr @SSL_new(ptr noundef %1) #13
   %.not210 = icmp eq ptr %277, null
   br i1 %.not210, label %278, label %279
@@ -1623,8 +1623,8 @@ do_file_type.exit246.thread271:                   ; preds = %229, %do_file_type.
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.69) #13
   br label %296
 
-296:                                              ; preds = %do_file_type.exit, %293, %289, %254, %114, %295, %278, %do_file_type.exit246.thread271, %275, %.thread291, %273, %270, %258, %SSL_CTX_use_PrivateKey_blob.exit.thread, %216, %.critedge, %182, %178, %173, %166, %ossl_strerror.exit237, %.thread, %132, %129, %124, %120, %ossl_strerror.exit231, %ossl_strerror.exit
-  %.0 = phi i32 [ 0, %216 ], [ 0, %do_file_type.exit246.thread271 ], [ 0, %295 ], [ 0, %278 ], [ 0, %275 ], [ 0, %273 ], [ 0, %270 ], [ 0, %258 ], [ 0, %.thread291 ], [ 0, %SSL_CTX_use_PrivateKey_blob.exit.thread ], [ 0, %.critedge ], [ 0, %182 ], [ 0, %178 ], [ 0, %ossl_strerror.exit237 ], [ 0, %173 ], [ 0, %166 ], [ 0, %132 ], [ 0, %129 ], [ 0, %124 ], [ 0, %120 ], [ 0, %.thread ], [ 0, %ossl_strerror.exit231 ], [ 0, %ossl_strerror.exit ], [ 0, %114 ], [ 0, %254 ], [ 1, %289 ], [ 1, %293 ], [ 1, %do_file_type.exit ]
+296:                                              ; preds = %do_file_type.exit, %293, %289, %254, %114, %295, %278, %do_file_type.exit246.thread271, %275, %.thread291, %273, %270, %258, %SSL_CTX_use_PrivateKey_blob.argprom.exit.thread, %216, %.critedge, %182, %178, %173, %166, %ossl_strerror.exit237, %.thread, %132, %129, %124, %120, %ossl_strerror.exit231, %ossl_strerror.exit
+  %.0 = phi i32 [ 0, %216 ], [ 0, %do_file_type.exit246.thread271 ], [ 0, %295 ], [ 0, %278 ], [ 0, %275 ], [ 0, %273 ], [ 0, %270 ], [ 0, %258 ], [ 0, %.thread291 ], [ 0, %SSL_CTX_use_PrivateKey_blob.argprom.exit.thread ], [ 0, %.critedge ], [ 0, %182 ], [ 0, %178 ], [ 0, %ossl_strerror.exit237 ], [ 0, %173 ], [ 0, %166 ], [ 0, %132 ], [ 0, %129 ], [ 0, %124 ], [ 0, %120 ], [ 0, %.thread ], [ 0, %ossl_strerror.exit231 ], [ 0, %ossl_strerror.exit ], [ 0, %114 ], [ 0, %254 ], [ 1, %289 ], [ 1, %293 ], [ 1, %do_file_type.exit ]
   ret i32 %.0
 }
 
@@ -5355,7 +5355,7 @@ infof_certstack.exit.i.i:                         ; preds = %671, %652
 
 685:                                              ; preds = %679
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.199) #13
-  br label %verifystatus.exit.thread.i.i
+  br label %verifystatus.argprom.argprom.exit.thread.i.i
 
 686:                                              ; preds = %679
   store ptr %684, ptr %7, align 8
@@ -5365,7 +5365,7 @@ infof_certstack.exit.i.i:                         ; preds = %671, %652
 
 688:                                              ; preds = %686
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.200) #13
-  br label %verifystatus.exit.thread.i.i
+  br label %verifystatus.argprom.argprom.exit.thread.i.i
 
 689:                                              ; preds = %686
   %690 = call i32 @OCSP_response_status(ptr noundef nonnull %687) #13
@@ -5376,7 +5376,7 @@ infof_certstack.exit.i.i:                         ; preds = %671, %652
   %692 = sext i32 %690 to i64
   %693 = call ptr @OCSP_response_status_str(i64 noundef %692) #13
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.201, ptr noundef %693, i32 noundef %690) #13
-  br label %verifystatus.exit.thread.i.i
+  br label %verifystatus.argprom.argprom.exit.thread.i.i
 
 694:                                              ; preds = %689
   %695 = call ptr @OCSP_response_get1_basic(ptr noundef nonnull %687) #13
@@ -5385,7 +5385,7 @@ infof_certstack.exit.i.i:                         ; preds = %671, %652
 
 696:                                              ; preds = %694
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.200) #13
-  br label %verifystatus.exit.thread.i.i
+  br label %verifystatus.argprom.argprom.exit.thread.i.i
 
 697:                                              ; preds = %694
   %698 = load ptr, ptr %681, align 8
@@ -5395,7 +5395,7 @@ infof_certstack.exit.i.i:                         ; preds = %671, %652
 
 700:                                              ; preds = %697
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.202) #13
-  br label %verifystatus.exit.i.i
+  br label %verifystatus.argprom.argprom.exit.i.i
 
 701:                                              ; preds = %697
   %702 = load ptr, ptr %.val.val.i.i, align 8
@@ -5406,7 +5406,7 @@ infof_certstack.exit.i.i:                         ; preds = %671, %652
 
 706:                                              ; preds = %701
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.203) #13
-  br label %verifystatus.exit.i.i
+  br label %verifystatus.argprom.argprom.exit.i.i
 
 707:                                              ; preds = %701
   %708 = load ptr, ptr %681, align 8
@@ -5421,7 +5421,7 @@ infof_certstack.exit.i.i:                         ; preds = %671, %652
 
 712:                                              ; preds = %707
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.204) #13
-  br label %verifystatus.exit.i.i
+  br label %verifystatus.argprom.argprom.exit.i.i
 
 713:                                              ; preds = %.lr.ph.i220.i.i
   %714 = add nuw nsw i32 %.019.i.i.i, 1
@@ -5449,7 +5449,7 @@ infof_certstack.exit.i.i:                         ; preds = %671, %652
 
 723:                                              ; preds = %720, %.thread.i.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.205) #13
-  br label %verifystatus.exit.i.i
+  br label %verifystatus.argprom.argprom.exit.i.i
 
 724:                                              ; preds = %720
   %725 = call i32 @OCSP_resp_find_status(ptr noundef nonnull %695, ptr noundef nonnull %722, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #13
@@ -5459,7 +5459,7 @@ infof_certstack.exit.i.i:                         ; preds = %671, %652
 
 726:                                              ; preds = %724
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.206) #13
-  br label %verifystatus.exit.i.i
+  br label %verifystatus.argprom.argprom.exit.i.i
 
 727:                                              ; preds = %724
   %728 = load ptr, ptr %11, align 8
@@ -5470,7 +5470,7 @@ infof_certstack.exit.i.i:                         ; preds = %671, %652
 
 731:                                              ; preds = %727
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.207) #13
-  br label %verifystatus.exit.i.i
+  br label %verifystatus.argprom.argprom.exit.i.i
 
 732:                                              ; preds = %727
   %733 = load i64, ptr %293, align 2
@@ -5489,7 +5489,7 @@ infof_certstack.exit.i.i:                         ; preds = %671, %652
 740:                                              ; preds = %735, %732
   %741 = load i32, ptr %8, align 4
   switch i32 %741, label %747 [
-    i32 0, label %verifystatus.exit.i.i
+    i32 0, label %verifystatus.argprom.argprom.exit.i.i
     i32 1, label %742
   ]
 
@@ -5499,12 +5499,12 @@ infof_certstack.exit.i.i:                         ; preds = %671, %652
   %745 = call ptr @OCSP_crl_reason_str(i64 noundef %744) #13
   %746 = load i32, ptr %9, align 4
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.209, ptr noundef %745, i32 noundef %746) #13
-  br label %verifystatus.exit.i.i
+  br label %verifystatus.argprom.argprom.exit.i.i
 
 747:                                              ; preds = %740
-  br label %verifystatus.exit.i.i
+  br label %verifystatus.argprom.argprom.exit.i.i
 
-verifystatus.exit.thread.i.i:                     ; preds = %696, %691, %688, %685
+verifystatus.argprom.argprom.exit.thread.i.i:     ; preds = %696, %691, %688, %685
   %.0528.i.ph.i.i = phi ptr [ null, %685 ], [ null, %688 ], [ %687, %696 ], [ %687, %691 ]
   call void @OCSP_RESPONSE_free(ptr noundef %.0528.i.ph.i.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -5516,7 +5516,7 @@ verifystatus.exit.thread.i.i:                     ; preds = %696, %691, %688, %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %748
 
-verifystatus.exit.i.i:                            ; preds = %747, %742, %740, %731, %726, %723, %712, %706, %700
+verifystatus.argprom.argprom.exit.i.i:            ; preds = %747, %742, %740, %731, %726, %723, %712, %706, %700
   %.not202.i.i = phi i1 [ false, %706 ], [ false, %712 ], [ false, %700 ], [ false, %726 ], [ false, %747 ], [ false, %742 ], [ true, %740 ], [ false, %731 ], [ false, %723 ]
   %.05118.i.i.i = phi i32 [ 91, %706 ], [ 91, %712 ], [ 91, %700 ], [ 91, %726 ], [ 91, %747 ], [ 91, %742 ], [ %741, %740 ], [ 91, %731 ], [ 91, %723 ]
   call void @OCSP_BASICRESP_free(ptr noundef nonnull %695) #13
@@ -5530,8 +5530,8 @@ verifystatus.exit.i.i:                            ; preds = %747, %742, %740, %7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br i1 %.not202.i.i, label %761, label %748
 
-748:                                              ; preds = %verifystatus.exit.i.i, %verifystatus.exit.thread.i.i
-  %.0519.i231.i.i = phi i32 [ 91, %verifystatus.exit.thread.i.i ], [ %.05118.i.i.i, %verifystatus.exit.i.i ]
+748:                                              ; preds = %verifystatus.argprom.argprom.exit.i.i, %verifystatus.argprom.argprom.exit.thread.i.i
+  %.0519.i231.i.i = phi i32 [ 91, %verifystatus.argprom.argprom.exit.thread.i.i ], [ %.05118.i.i.i, %verifystatus.argprom.argprom.exit.i.i ]
   %749 = call zeroext i1 @Curl_ssl_cf_is_proxy(ptr noundef %0) #13
   br i1 %749, label %759, label %750
 
@@ -5566,8 +5566,8 @@ verifystatus.exit.i.i:                            ; preds = %747, %742, %740, %7
   store ptr null, ptr %471, align 8
   br label %servercert.exit.i
 
-761:                                              ; preds = %verifystatus.exit.i.i, %675, %infof_certstack.exit.i.i
-  %.2.i.i = phi i32 [ %.1.i.i, %675 ], [ 0, %verifystatus.exit.i.i ], [ %.1.i.i, %infof_certstack.exit.i.i ]
+761:                                              ; preds = %verifystatus.argprom.argprom.exit.i.i, %675, %infof_certstack.exit.i.i
+  %.2.i.i = phi i32 [ %.1.i.i, %675 ], [ 0, %verifystatus.argprom.argprom.exit.i.i ], [ %.1.i.i, %infof_certstack.exit.i.i ]
   %spec.select.i.i = select i1 %.not.i68, i32 0, i32 %.2.i.i
   %762 = call zeroext i1 @Curl_ssl_cf_is_proxy(ptr noundef %0) #13
   %.in.v.i.i = select i1 %762, i64 2008, i64 2000

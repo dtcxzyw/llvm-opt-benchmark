@@ -173,7 +173,7 @@ define i32 @cli_scangpt(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 66, ptr nonnull %3)
   %22 = add i64 %.092, -66
   %or.cond.not.i = icmp ult i64 %22, %18
-  br i1 %or.cond.not.i, label %23, label %gpt_check_mbr.exit
+  br i1 %or.cond.not.i, label %23, label %gpt_check_mbr.argprom.exit
 
 23:                                               ; preds = %21
   %24 = sub nuw i64 %18, %22
@@ -182,12 +182,12 @@ define i32 @cli_scangpt(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef nonnull %16, i64 noundef %22, i64 noundef %spec.select.i.i, i32 noundef 0) #7
   %.not26.i.i = icmp eq ptr %27, null
-  br i1 %.not26.i.i, label %gpt_check_mbr.exit, label %fmap_readn.exit.i
+  br i1 %.not26.i.i, label %gpt_check_mbr.argprom.exit, label %fmap_readn.exit.i
 
 fmap_readn.exit.i:                                ; preds = %23
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 1 %27, i64 %spec.select.i.i, i1 false)
   %.not.i = icmp ugt i64 %24, 65
-  br i1 %.not.i, label %28, label %gpt_check_mbr.exit
+  br i1 %.not.i, label %28, label %gpt_check_mbr.argprom.exit
 
 28:                                               ; preds = %fmap_readn.exit.i
   call void @mbr_convert_to_host(ptr noundef nonnull %3) #7
@@ -226,7 +226,7 @@ fmap_readn.exit.i:                                ; preds = %23
 39:                                               ; preds = %28
   br label %.loopexit.sink.split
 
-gpt_check_mbr.exit:                               ; preds = %21, %23, %fmap_readn.exit.i
+gpt_check_mbr.argprom.exit:                       ; preds = %21, %23, %fmap_readn.exit.i
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.49) #7
   call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %3)
   br label %106
@@ -417,8 +417,8 @@ default.unreachable103:                           ; preds = %96
 105:                                              ; preds = %103, %99, %97
   br label %106
 
-106:                                              ; preds = %gpt_check_mbr.exit, %103, %101, %99, %97, %94, %92, %105, %62, %fmap_readn.exit85.thread, %fmap_readn.exit.thread, %20, %15, %9
-  %.051 = phi i32 [ 26, %15 ], [ 26, %20 ], [ 26, %gpt_check_mbr.exit ], [ 26, %fmap_readn.exit.thread ], [ 26, %fmap_readn.exit85.thread ], [ 26, %62 ], [ %93, %92 ], [ %95, %94 ], [ 0, %105 ], [ %102, %101 ], [ %104, %103 ], [ %100, %99 ], [ %98, %97 ], [ 2, %9 ]
+106:                                              ; preds = %gpt_check_mbr.argprom.exit, %103, %101, %99, %97, %94, %92, %105, %62, %fmap_readn.exit85.thread, %fmap_readn.exit.thread, %20, %15, %9
+  %.051 = phi i32 [ 26, %15 ], [ 26, %20 ], [ 26, %gpt_check_mbr.argprom.exit ], [ 26, %fmap_readn.exit.thread ], [ 26, %fmap_readn.exit85.thread ], [ 26, %62 ], [ %93, %92 ], [ %95, %94 ], [ 0, %105 ], [ %102, %101 ], [ %104, %103 ], [ %100, %99 ], [ %98, %97 ], [ 2, %9 ]
   ret i32 %.051
 }
 

@@ -8986,7 +8986,7 @@ ehcleanup16:                                      ; preds = %_ZN7testing7Message
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN27compile_test_format_to_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-"_ZN3fmt3v109format_toIPcZZN27compile_test_format_to_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SA_RKS7_DpOT1_.exit":
+"_ZN3fmt3v109format_toIPcZZN27compile_test_format_to_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SA_RKS7_DpOT1_.argprom.exit":
   %buf = alloca [8 x i8], align 2
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp6 = alloca %"class.testing::Message", align 8
@@ -9007,7 +9007,7 @@ lpad:                                             ; preds = %if.else
           cleanup
   br label %eh.resume
 
-if.else:                                          ; preds = %"_ZN3fmt3v109format_toIPcZZN27compile_test_format_to_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SA_RKS7_DpOT1_.exit"
+if.else:                                          ; preds = %"_ZN3fmt3v109format_toIPcZZN27compile_test_format_to_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SA_RKS7_DpOT1_.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6)
           to label %invoke.cont7 unwind label %lpad
 
@@ -9075,7 +9075,7 @@ _ZN7testing7MessageD2Ev.exit13:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp6, align 8
   br label %eh.resume
 
-if.end:                                           ; preds = %"_ZN3fmt3v109format_toIPcZZN27compile_test_format_to_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SA_RKS7_DpOT1_.exit", %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %"_ZN3fmt3v109format_toIPcZZN27compile_test_format_to_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SA_RKS7_DpOT1_.argprom.exit", %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %9 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i14 = icmp eq ptr %9, null
@@ -9101,9 +9101,9 @@ do.body.i.i517.i:                                 ; preds = %do.body.i.i517.i, %
   store i8 %10, ptr %incdec.ptr.i.i523.i, align 1
   %shr.i.i524.i = lshr i32 %value.addr.0.i.i518.i, 4
   %cmp.not.i.i525.i = icmp ult i32 %value.addr.0.i.i518.i, 16
-  br i1 %cmp.not.i.i525.i, label %"_ZN3fmt3v109format_toIPcZZN27compile_test_format_to_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SA_RKS7_DpOT1_.exit", label %do.body.i.i517.i, !llvm.loop !78
+  br i1 %cmp.not.i.i525.i, label %"_ZN3fmt3v109format_toIPcZZN27compile_test_format_to_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SA_RKS7_DpOT1_.argprom.exit", label %do.body.i.i517.i, !llvm.loop !78
 
-"_ZN3fmt3v109format_toIPcZZN27compile_test_format_to_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SA_RKS7_DpOT1_.exit": ; preds = %do.body.i.i517.i
+"_ZN3fmt3v109format_toIPcZZN27compile_test_format_to_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SA_RKS7_DpOT1_.argprom.exit": ; preds = %do.body.i.i517.i
   store i8 0, ptr %add.ptr.i18.i.i.i, align 2
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar22, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.124, ptr noundef nonnull %buf)
   %11 = load i8, ptr %gtest_ar22, align 8
@@ -9115,7 +9115,7 @@ lpad24:                                           ; preds = %if.else28
           cleanup
   br label %eh.resume
 
-if.else28:                                        ; preds = %"_ZN3fmt3v109format_toIPcZZN27compile_test_format_to_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SA_RKS7_DpOT1_.exit"
+if.else28:                                        ; preds = %"_ZN3fmt3v109format_toIPcZZN27compile_test_format_to_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SA_RKS7_DpOT1_.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp29)
           to label %invoke.cont30 unwind label %lpad24
 
@@ -9183,7 +9183,7 @@ _ZN7testing7MessageD2Ev.exit31:                   ; preds = %ehcleanup39, %_ZNKS
   store ptr null, ptr %ref.tmp29, align 8
   br label %eh.resume
 
-if.end40:                                         ; preds = %"_ZN3fmt3v109format_toIPcZZN27compile_test_format_to_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SA_RKS7_DpOT1_.exit", %_ZN7testing7MessageD2Ev.exit26
+if.end40:                                         ; preds = %"_ZN3fmt3v109format_toIPcZZN27compile_test_format_to_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SA_RKS7_DpOT1_.argprom.exit", %_ZN7testing7MessageD2Ev.exit26
   %message_.i32 = getelementptr inbounds i8, ptr %gtest_ar22, i64 8
   %20 = load ptr, ptr %message_.i32, align 8
   %cmp.not.i.i33 = icmp eq ptr %20, null
@@ -9237,7 +9237,7 @@ entry:
   %1 = load ptr, ptr %ptr_.i.i.i, align 8
   %2 = load ptr, ptr %out_.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %1, %2
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.exit"
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.argprom.exit"
 
 if.then.i.i.i:                                    ; preds = %entry
   %3 = load i64, ptr %0, align 8
@@ -9246,7 +9246,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %spec.select.i.i.i.i = call i64 @llvm.usub.sat.i64(i64 %5, i64 %3)
   %cond9.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %4, i64 %spec.select.i.i.i.i)
   %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %2, i64 %cond9.i.i.i.i
-  br label %"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.exit"
+  br label %"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.argprom.exit"
 
 common.resume:                                    ; preds = %lpad26, %_ZN7testing7MessageD2Ev.exit47, %lpad, %_ZN7testing7MessageD2Ev.exit13
   %gtest_ar.sink = phi ptr [ %gtest_ar, %_ZN7testing7MessageD2Ev.exit13 ], [ %gtest_ar, %lpad ], [ %gtest_ar24, %_ZN7testing7MessageD2Ev.exit47 ], [ %gtest_ar24, %lpad26 ]
@@ -9254,7 +9254,7 @@ common.resume:                                    ; preds = %lpad26, %_ZN7testin
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar.sink) #26
   resume { ptr, i32 } %common.resume.op
 
-"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.exit": ; preds = %entry, %if.then.i.i.i
+"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.argprom.exit": ; preds = %entry, %if.then.i.i.i
   %6 = phi ptr [ %2, %entry ], [ %add.ptr5.i.i.i, %if.then.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %buf.i)
   store i8 0, ptr %6, align 1
@@ -9268,7 +9268,7 @@ lpad:                                             ; preds = %if.else
           cleanup
   br label %common.resume
 
-if.else:                                          ; preds = %"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.exit"
+if.else:                                          ; preds = %"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6)
           to label %invoke.cont7 unwind label %lpad
 
@@ -9336,7 +9336,7 @@ _ZN7testing7MessageD2Ev.exit13:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp6, align 8
   br label %common.resume
 
-if.end:                                           ; preds = %"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.exit", %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.argprom.exit", %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %16 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i14 = icmp eq ptr %16, null
@@ -9415,7 +9415,7 @@ invoke.cont2.i21:                                 ; preds = %_ZNSt20back_insert_
   %25 = load ptr, ptr %ptr_.i.i.i17, align 8
   %26 = load ptr, ptr %out_.i.i20, align 8
   %cmp.i.i.i22 = icmp eq ptr %25, %26
-  br i1 %cmp.i.i.i22, label %if.then.i.i.i26, label %"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.exit"
+  br i1 %cmp.i.i.i22, label %if.then.i.i.i26, label %"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.argprom.exit"
 
 if.then.i.i.i26:                                  ; preds = %invoke.cont2.i21
   %27 = load i64, ptr %17, align 8
@@ -9424,9 +9424,9 @@ if.then.i.i.i26:                                  ; preds = %invoke.cont2.i21
   %spec.select.i.i.i.i27 = call i64 @llvm.usub.sat.i64(i64 %29, i64 %27)
   %cond9.i.i.i.i28 = call noundef i64 @llvm.umin.i64(i64 %28, i64 %spec.select.i.i.i.i27)
   %add.ptr5.i.i.i29 = getelementptr inbounds i8, ptr %26, i64 %cond9.i.i.i.i28
-  br label %"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.exit"
+  br label %"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.argprom.exit"
 
-"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.exit": ; preds = %invoke.cont2.i21, %if.then.i.i.i26
+"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.argprom.exit": ; preds = %invoke.cont2.i21, %if.then.i.i.i26
   %30 = phi ptr [ %26, %invoke.cont2.i21 ], [ %add.ptr5.i.i.i29, %if.then.i.i.i26 ]
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %buf.i15)
   store i8 0, ptr %30, align 1
@@ -9440,7 +9440,7 @@ lpad26:                                           ; preds = %if.else30
           cleanup
   br label %common.resume
 
-if.else30:                                        ; preds = %"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.exit"
+if.else30:                                        ; preds = %"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.argprom.exit"
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp31)
           to label %invoke.cont32 unwind label %lpad26
 
@@ -9508,7 +9508,7 @@ _ZN7testing7MessageD2Ev.exit47:                   ; preds = %ehcleanup41, %_ZNKS
   store ptr null, ptr %ref.tmp31, align 8
   br label %common.resume
 
-if.end42:                                         ; preds = %"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.exit", %_ZN7testing7MessageD2Ev.exit42
+if.end42:                                         ; preds = %"_ZN3fmt3v1011format_to_nIPcZZN29compile_test_format_to_n_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJiETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEENS0_18format_to_n_resultIT_EESB_mRKS7_DpOT1_.argprom.exit", %_ZN7testing7MessageD2Ev.exit42
   %message_.i48 = getelementptr inbounds i8, ptr %gtest_ar24, i64 8
   %40 = load ptr, ptr %message_.i48, align 8
   %cmp.not.i.i49 = icmp eq ptr %40, null
@@ -10838,11 +10838,11 @@ invoke.cont4.i.i:                                 ; preds = %if.then9
 invoke.cont10.i.i:                                ; preds = %invoke.cont4.i.i
   %6 = load ptr, ptr %ptr_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %6, %store_.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %"_ZN3fmt3v105printIZZN23compile_test_print_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJA6_cETnNSt9enable_ifIXsr6detail18is_compiled_stringIT_EE5valueEiE4typeELi0EEEvRKS7_DpRKT0_.exit", label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %"_ZN3fmt3v105printIZZN23compile_test_print_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJA6_cETnNSt9enable_ifIXsr6detail18is_compiled_stringIT_EE5valueEiE4typeELi0EEEvRKS7_DpRKT0_.argprom.exit", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont10.i.i
   call void @_ZdlPv(ptr noundef %6) #27
-  br label %"_ZN3fmt3v105printIZZN23compile_test_print_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJA6_cETnNSt9enable_ifIXsr6detail18is_compiled_stringIT_EE5valueEiE4typeELi0EEEvRKS7_DpRKT0_.exit"
+  br label %"_ZN3fmt3v105printIZZN23compile_test_print_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJA6_cETnNSt9enable_ifIXsr6detail18is_compiled_stringIT_EE5valueEiE4typeELi0EEEvRKS7_DpRKT0_.argprom.exit"
 
 lpad1.i.i:                                        ; preds = %invoke.cont4.i.i, %if.then9
   %7 = landingpad { ptr, i32 }
@@ -10850,7 +10850,7 @@ lpad1.i.i:                                        ; preds = %invoke.cont4.i.i, %
   call void @_ZN3fmt3v1019basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer.i.i) #26
   br label %ehcleanup
 
-"_ZN3fmt3v105printIZZN23compile_test_print_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJA6_cETnNSt9enable_ifIXsr6detail18is_compiled_stringIT_EE5valueEiE4typeELi0EEEvRKS7_DpRKT0_.exit": ; preds = %invoke.cont10.i.i, %if.then.i.i.i.i
+"_ZN3fmt3v105printIZZN23compile_test_print_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJA6_cETnNSt9enable_ifIXsr6detail18is_compiled_stringIT_EE5valueEiE4typeELi0EEEvRKS7_DpRKT0_.argprom.exit": ; preds = %invoke.cont10.i.i, %if.then.i.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i.i.i) #26
   call void @llvm.lifetime.end.p0(i64 536, ptr nonnull %buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
@@ -10881,7 +10881,7 @@ lpad6:                                            ; preds = %if.end, %invoke.con
           cleanup
   br label %ehcleanup
 
-if.end:                                           ; preds = %"_ZN3fmt3v105printIZZN23compile_test_print_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJA6_cETnNSt9enable_ifIXsr6detail18is_compiled_stringIT_EE5valueEiE4typeELi0EEEvRKS7_DpRKT0_.exit", %invoke.cont7
+if.end:                                           ; preds = %"_ZN3fmt3v105printIZZN23compile_test_print_Test8TestBodyEvENK3$_0clEvE18FMT_COMPILE_STRINGJA6_cETnNSt9enable_ifIXsr6detail18is_compiled_stringIT_EE5valueEiE4typeELi0EEEvRKS7_DpRKT0_.argprom.exit", %invoke.cont7
   invoke void @_ZN15output_redirect16restore_and_readB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %gtest_output, ptr noundef nonnull align 8 dereferenceable(16) %gtest_redir)
           to label %invoke.cont14 unwind label %lpad6
 
@@ -11336,11 +11336,11 @@ invoke.cont4.i:                                   ; preds = %if.then64
 invoke.cont10.i:                                  ; preds = %invoke.cont4.i
   %63 = load ptr, ptr %ptr_.i.i.i, align 8
   %cmp.not.i.i.i132 = icmp eq ptr %63, %store_.i.i
-  br i1 %cmp.not.i.i.i132, label %"_ZN3fmt3v105printIZZN23compile_test_print_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJA6_cETnNSt9enable_ifIXsr6detail18is_compiled_stringIT_EE5valueEiE4typeELi0EEEvP8_IO_FILERKS7_DpRKT0_.exit", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i132, label %"_ZN3fmt3v105printIZZN23compile_test_print_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJA6_cETnNSt9enable_ifIXsr6detail18is_compiled_stringIT_EE5valueEiE4typeELi0EEEvP8_IO_FILERKS7_DpRKT0_.argprom.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont10.i
   call void @_ZdlPv(ptr noundef %63) #27
-  br label %"_ZN3fmt3v105printIZZN23compile_test_print_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJA6_cETnNSt9enable_ifIXsr6detail18is_compiled_stringIT_EE5valueEiE4typeELi0EEEvP8_IO_FILERKS7_DpRKT0_.exit"
+  br label %"_ZN3fmt3v105printIZZN23compile_test_print_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJA6_cETnNSt9enable_ifIXsr6detail18is_compiled_stringIT_EE5valueEiE4typeELi0EEEvP8_IO_FILERKS7_DpRKT0_.argprom.exit"
 
 lpad1.i:                                          ; preds = %invoke.cont4.i, %if.then64
   %64 = landingpad { ptr, i32 }
@@ -11348,7 +11348,7 @@ lpad1.i:                                          ; preds = %invoke.cont4.i, %if
   call void @_ZN3fmt3v1019basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer.i) #26
   br label %ehcleanup93
 
-"_ZN3fmt3v105printIZZN23compile_test_print_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJA6_cETnNSt9enable_ifIXsr6detail18is_compiled_stringIT_EE5valueEiE4typeELi0EEEvP8_IO_FILERKS7_DpRKT0_.exit": ; preds = %invoke.cont10.i, %if.then.i.i.i
+"_ZN3fmt3v105printIZZN23compile_test_print_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJA6_cETnNSt9enable_ifIXsr6detail18is_compiled_stringIT_EE5valueEiE4typeELi0EEEvP8_IO_FILERKS7_DpRKT0_.argprom.exit": ; preds = %invoke.cont10.i, %if.then.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i.i) #26
   call void @llvm.lifetime.end.p0(i64 536, ptr nonnull %buffer.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i131)
@@ -11379,7 +11379,7 @@ lpad61:                                           ; preds = %if.end71, %invoke.c
           cleanup
   br label %ehcleanup93
 
-if.end71:                                         ; preds = %"_ZN3fmt3v105printIZZN23compile_test_print_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJA6_cETnNSt9enable_ifIXsr6detail18is_compiled_stringIT_EE5valueEiE4typeELi0EEEvP8_IO_FILERKS7_DpRKT0_.exit", %invoke.cont62
+if.end71:                                         ; preds = %"_ZN3fmt3v105printIZZN23compile_test_print_Test8TestBodyEvENK3$_1clEvE18FMT_COMPILE_STRINGJA6_cETnNSt9enable_ifIXsr6detail18is_compiled_stringIT_EE5valueEiE4typeELi0EEEvP8_IO_FILERKS7_DpRKT0_.argprom.exit", %invoke.cont62
   invoke void @_ZN15output_redirect16restore_and_readB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %gtest_output72, ptr noundef nonnull align 8 dereferenceable(16) %gtest_redir58)
           to label %invoke.cont73 unwind label %lpad61
 

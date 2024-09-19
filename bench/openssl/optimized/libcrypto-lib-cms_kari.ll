@@ -902,11 +902,11 @@ if.then.i:                                        ; preds = %if.end
   %call4.i = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %call3.i) #5
   %cmp5.not.i = icmp eq i32 %call4.i, 65538
   %..i = zext i1 %cmp5.not.i to i32
-  br label %cms_wrap_init.exit
+  br label %cms_wrap_init.argprom.exit
 
 if.end7.i:                                        ; preds = %if.end
   %cmp8.i = icmp eq ptr %3, null
-  br i1 %cmp8.i, label %cms_wrap_init.exit.thread, label %if.end10.i
+  br i1 %cmp8.i, label %cms_wrap_init.argprom.exit.thread, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end7.i
   %call11.i = tail call i32 @EVP_CIPHER_get_key_length(ptr noundef nonnull %3) #5
@@ -919,7 +919,7 @@ if.then14.i:                                      ; preds = %if.end10.i
   %call15.i = tail call ptr @EVP_CIPHER_meth_get_ctrl(ptr noundef nonnull %3) #5
   %call16.i = call i32 %call15.i(ptr noundef null, i32 noundef 41, i32 noundef 0, ptr noundef nonnull %kekcipher.i) #5
   %cmp17.i = icmp slt i32 %call16.i, 1
-  br i1 %cmp17.i, label %cms_wrap_init.exit.thread, label %if.end19.i
+  br i1 %cmp17.i, label %cms_wrap_init.argprom.exit.thread, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then14.i
   %6 = load ptr, ptr %kekcipher.i, align 8
@@ -929,7 +929,7 @@ if.end19.i:                                       ; preds = %if.then14.i
 if.then21.i:                                      ; preds = %if.end19.i
   %call22.i = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %6) #5
   %cmp23.not.i = icmp eq i32 %call22.i, 65538
-  br i1 %cmp23.not.i, label %if.end25.i, label %cms_wrap_init.exit.thread
+  br i1 %cmp23.not.i, label %if.end25.i, label %cms_wrap_init.argprom.exit.thread
 
 if.end25.i:                                       ; preds = %if.then21.i
   %7 = load ptr, ptr %kekcipher.i, align 8
@@ -956,24 +956,24 @@ enc.i:                                            ; preds = %if.else34.i, %if.el
   %call42.i = call ptr @ossl_cms_ctx_get0_propq(ptr noundef %.val16) #5
   %call43.i = call ptr @EVP_CIPHER_fetch(ptr noundef %call41.i, ptr noundef %kekcipher_name.0.i, ptr noundef %call42.i) #5
   %cmp44.i = icmp eq ptr %call43.i, null
-  br i1 %cmp44.i, label %cms_wrap_init.exit.thread, label %if.end46.i
+  br i1 %cmp44.i, label %cms_wrap_init.argprom.exit.thread, label %if.end46.i
 
 if.end46.i:                                       ; preds = %enc.i
   %call47.i = call i32 @EVP_EncryptInit_ex(ptr noundef %.val, ptr noundef nonnull %call43.i, ptr noundef null, ptr noundef null, ptr noundef null) #5
   call void @EVP_CIPHER_free(ptr noundef nonnull %call43.i) #5
-  br label %cms_wrap_init.exit
+  br label %cms_wrap_init.argprom.exit
 
-cms_wrap_init.exit.thread:                        ; preds = %if.end7.i, %if.then14.i, %if.then21.i, %enc.i
+cms_wrap_init.argprom.exit.thread:                ; preds = %if.end7.i, %if.then14.i, %if.then21.i, %enc.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %kekcipher.i)
   br label %return
 
-cms_wrap_init.exit:                               ; preds = %if.then.i, %if.end46.i
+cms_wrap_init.argprom.exit:                       ; preds = %if.then.i, %if.end46.i
   %retval.0.i = phi i32 [ %call47.i, %if.end46.i ], [ %..i, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %kekcipher.i)
   %tobool.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool.not, label %return, label %if.end3
 
-if.end3:                                          ; preds = %cms_wrap_init.exit
+if.end3:                                          ; preds = %cms_wrap_init.argprom.exit
   %originator = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %originator, align 8
   %9 = load i32, ptr %8, align 8
@@ -1034,8 +1034,8 @@ if.end33:                                         ; preds = %if.end29
   %cmp23 = icmp slt i32 %inc, %call22
   br i1 %cmp23, label %for.body, label %return, !llvm.loop !4
 
-return:                                           ; preds = %for.body, %if.end29, %if.end33, %for.cond.preheader, %cms_wrap_init.exit.thread, %if.end16, %if.then6, %cms_wrap_init.exit, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %cms_wrap_init.exit ], [ 0, %if.then6 ], [ 0, %if.end16 ], [ 0, %cms_wrap_init.exit.thread ], [ 1, %for.cond.preheader ], [ 0, %for.body ], [ 0, %if.end29 ], [ 1, %if.end33 ]
+return:                                           ; preds = %for.body, %if.end29, %if.end33, %for.cond.preheader, %cms_wrap_init.argprom.exit.thread, %if.end16, %if.then6, %cms_wrap_init.argprom.exit, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %cms_wrap_init.argprom.exit ], [ 0, %if.then6 ], [ 0, %if.end16 ], [ 0, %cms_wrap_init.argprom.exit.thread ], [ 1, %for.cond.preheader ], [ 0, %for.body ], [ 0, %if.end29 ], [ 1, %if.end33 ]
   ret i32 %retval.0
 }
 

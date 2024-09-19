@@ -145,9 +145,9 @@ for.body14.i:                                     ; preds = %for.body14.i, %for.
   %shr29.i = lshr i128 %add24.i, 64
   %indvars.iv.next7.i = add nuw nsw i64 %indvars.iv6.i, 1
   %exitcond9.not.i = icmp eq i64 %indvars.iv.next7.i, 7
-  br i1 %exitcond9.not.i, label %sc_subx.exit, label %for.body14.i, !llvm.loop !9
+  br i1 %exitcond9.not.i, label %sc_subx.argprom.exit, label %for.body14.i, !llvm.loop !9
 
-sc_subx.exit:                                     ; preds = %for.body14.i
+sc_subx.argprom.exit:                             ; preds = %for.body14.i
   ret void
 }
 
@@ -196,9 +196,9 @@ for.body14.i:                                     ; preds = %for.body14.i, %for.
   %shr29.i = lshr i128 %add24.i, 64
   %indvars.iv.next7.i = add nuw nsw i64 %indvars.iv6.i, 1
   %exitcond9.not.i = icmp eq i64 %indvars.iv.next7.i, 7
-  br i1 %exitcond9.not.i, label %sc_subx.exit, label %for.body14.i, !llvm.loop !9
+  br i1 %exitcond9.not.i, label %sc_subx.argprom.exit, label %for.body14.i, !llvm.loop !9
 
-sc_subx.exit:                                     ; preds = %for.body14.i
+sc_subx.argprom.exit:                             ; preds = %for.body14.i
   ret void
 }
 
@@ -267,9 +267,9 @@ for.body14.i:                                     ; preds = %for.body14.i, %for.
   %shr29.i = lshr i128 %add24.i, 64
   %indvars.iv.next7.i = add nuw nsw i64 %indvars.iv6.i, 1
   %exitcond9.not.i = icmp eq i64 %indvars.iv.next7.i, 7
-  br i1 %exitcond9.not.i, label %sc_subx.exit, label %for.body14.i, !llvm.loop !9
+  br i1 %exitcond9.not.i, label %sc_subx.argprom.exit, label %for.body14.i, !llvm.loop !9
 
-sc_subx.exit:                                     ; preds = %for.body14.i
+sc_subx.argprom.exit:                             ; preds = %for.body14.i
   ret void
 }
 

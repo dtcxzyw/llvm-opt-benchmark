@@ -2409,14 +2409,14 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %27, %_ZN18Safepoint
   %31 = getelementptr i8, ptr %3, i64 1308
   %.val = load i32, ptr %31, align 4
   %32 = icmp sgt i32 %.val, 0
-  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %29, %33
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %29, %33
   %35 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 120
   %37 = load ptr, ptr %36, align 8
@@ -2429,13 +2429,13 @@ _ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %29, %33
   %.not.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %44
 
-44:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+44:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %40) #11
   %.pre.i.i = load ptr, ptr %41, align 8
   br label %_ZN17HandleMarkCleanerD2Ev.exit
 
-_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit, %44
-  %45 = phi ptr [ %42, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit ], [ %.pre.i.i, %44 ]
+_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit, %44
+  %45 = phi ptr [ %42, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit ], [ %.pre.i.i, %44 ]
   %46 = getelementptr inbounds i8, ptr %40, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 24
@@ -2525,14 +2525,14 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %27, %_ZN18Safepoint
   %30 = getelementptr i8, ptr %3, i64 1308
   %.val = load i32, ptr %30, align 4
   %31 = icmp sgt i32 %.val, 0
-  br i1 %31, label %32, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %31, label %32, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %29, %32
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %29, %32
   %34 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 128
   %36 = load ptr, ptr %35, align 8
@@ -2545,13 +2545,13 @@ _ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %29, %32
   %.not.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %42
 
-42:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+42:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %38) #11
   %.pre.i.i = load ptr, ptr %39, align 8
   br label %_ZN17HandleMarkCleanerD2Ev.exit
 
-_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit, %42
-  %43 = phi ptr [ %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit ], [ %.pre.i.i, %42 ]
+_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit, %42
+  %43 = phi ptr [ %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit ], [ %.pre.i.i, %42 ]
   %44 = getelementptr inbounds i8, ptr %38, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 24
@@ -2643,14 +2643,14 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %27, %_ZN18Safepoint
   %31 = getelementptr i8, ptr %3, i64 1308
   %.val = load i32, ptr %31, align 4
   %32 = icmp sgt i32 %.val, 0
-  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %29, %33
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %29, %33
   %35 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 136
   %37 = load ptr, ptr %36, align 8
@@ -2663,13 +2663,13 @@ _ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %29, %33
   %.not.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %43
 
-43:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+43:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %39) #11
   %.pre.i.i = load ptr, ptr %40, align 8
   br label %_ZN17HandleMarkCleanerD2Ev.exit
 
-_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit, %43
-  %44 = phi ptr [ %41, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit ], [ %.pre.i.i, %43 ]
+_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit, %43
+  %44 = phi ptr [ %41, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit ], [ %.pre.i.i, %43 ]
   %45 = getelementptr inbounds i8, ptr %39, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 24
@@ -2878,18 +2878,18 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %28, %_ZN18Safepoint
   %31 = getelementptr i8, ptr %4, i64 1308
   %.val = load i32, ptr %31, align 4
   %32 = icmp sgt i32 %.val, 0
-  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %30, %33
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %30, %33
   %35 = icmp slt i32 %1, 0
   br i1 %35, label %36, label %51
 
-36:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+36:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %37 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %4, i64 1092
@@ -2932,7 +2932,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i18: ; preds = %49, %_ZN18Safepoi
   tail call void @_ZN2os5abortEb(i1 noundef zeroext true) #12
   unreachable
 
-51:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+51:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %52 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 152
   %54 = load ptr, ptr %53, align 8
@@ -3041,14 +3041,14 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %28, %_ZN18Safepoint
   %31 = getelementptr i8, ptr %4, i64 1308
   %.val = load i32, ptr %31, align 4
   %32 = icmp sgt i32 %.val, 0
-  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %30, %33
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %30, %33
   %35 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 160
   %37 = load ptr, ptr %36, align 8
@@ -3061,13 +3061,13 @@ _ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %30, %33
   %.not.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %44
 
-44:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+44:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %40) #11
   %.pre.i.i = load ptr, ptr %41, align 8
   br label %_ZN17HandleMarkCleanerD2Ev.exit
 
-_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit, %44
-  %45 = phi ptr [ %42, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit ], [ %.pre.i.i, %44 ]
+_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit, %44
+  %45 = phi ptr [ %42, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit ], [ %.pre.i.i, %44 ]
   %46 = getelementptr inbounds i8, ptr %40, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 24
@@ -3334,26 +3334,26 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %28, %_ZN18Safepoint
   %31 = getelementptr i8, ptr %4, i64 1308
   %.val = load i32, ptr %31, align 4
   %32 = icmp sgt i32 %.val, 0
-  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %30, %33
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %30, %33
   %35 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %36 = trunc i8 %35 to i1
   %37 = getelementptr inbounds i8, ptr %4, i64 1092
   store volatile i32 6, ptr %37, align 4
   br i1 %36, label %39, label %38
 
-38:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+38:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   br label %39
 
-39:                                               ; preds = %38, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+39:                                               ; preds = %38, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %40 = getelementptr inbounds i8, ptr %4, i64 1096
   %41 = load volatile i64, ptr %40, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -3508,26 +3508,26 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %28, %_ZN18Safepoint
   %31 = getelementptr i8, ptr %4, i64 1308
   %.val = load i32, ptr %31, align 4
   %32 = icmp sgt i32 %.val, 0
-  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %30, %33
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %30, %33
   %35 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %36 = trunc i8 %35 to i1
   %37 = getelementptr inbounds i8, ptr %4, i64 1092
   store volatile i32 6, ptr %37, align 4
   br i1 %36, label %39, label %38
 
-38:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+38:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   br label %39
 
-39:                                               ; preds = %38, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+39:                                               ; preds = %38, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %40 = getelementptr inbounds i8, ptr %4, i64 1096
   %41 = load volatile i64, ptr %40, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -3688,26 +3688,26 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %29, %_ZN18Safepoint
   %32 = getelementptr i8, ptr %5, i64 1308
   %.val = load i32, ptr %32, align 4
   %33 = icmp sgt i32 %.val, 0
-  br i1 %33, label %34, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %33, label %34, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %31, %34
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %31, %34
   %36 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %37 = trunc i8 %36 to i1
   %38 = getelementptr inbounds i8, ptr %5, i64 1092
   store volatile i32 6, ptr %38, align 4
   br i1 %37, label %40, label %39
 
-39:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+39:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   br label %40
 
-40:                                               ; preds = %39, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+40:                                               ; preds = %39, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %41 = getelementptr inbounds i8, ptr %5, i64 1096
   %42 = load volatile i64, ptr %41, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -26828,26 +26828,26 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %30, %_ZN18Safepoint
   %33 = getelementptr i8, ptr %6, i64 1308
   %.val = load i32, ptr %33, align 4
   %34 = icmp sgt i32 %.val, 0
-  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %32, %35
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %32, %35
   %37 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %6, i64 1092
   store volatile i32 6, ptr %39, align 4
   br i1 %38, label %41, label %40
 
-40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   br label %41
 
-41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %42 = getelementptr inbounds i8, ptr %6, i64 1096
   %43 = load volatile i64, ptr %42, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -27710,26 +27710,26 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %30, %_ZN18Safepoint
   %33 = getelementptr i8, ptr %6, i64 1308
   %.val = load i32, ptr %33, align 4
   %34 = icmp sgt i32 %.val, 0
-  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %32, %35
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %32, %35
   %37 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %6, i64 1092
   store volatile i32 6, ptr %39, align 4
   br i1 %38, label %41, label %40
 
-40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   br label %41
 
-41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %42 = getelementptr inbounds i8, ptr %6, i64 1096
   %43 = load volatile i64, ptr %42, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -31415,26 +31415,26 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %30, %_ZN18Safepoint
   %33 = getelementptr i8, ptr %6, i64 1308
   %.val = load i32, ptr %33, align 4
   %34 = icmp sgt i32 %.val, 0
-  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %32, %35
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %32, %35
   %37 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %6, i64 1092
   store volatile i32 6, ptr %39, align 4
   br i1 %38, label %41, label %40
 
-40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   br label %41
 
-41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %42 = getelementptr inbounds i8, ptr %6, i64 1096
   %43 = load volatile i64, ptr %42, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -31897,26 +31897,26 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %30, %_ZN18Safepoint
   %33 = getelementptr i8, ptr %6, i64 1308
   %.val = load i32, ptr %33, align 4
   %34 = icmp sgt i32 %.val, 0
-  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %32, %35
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %32, %35
   %37 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %6, i64 1092
   store volatile i32 6, ptr %39, align 4
   br i1 %38, label %41, label %40
 
-40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   br label %41
 
-41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %42 = getelementptr inbounds i8, ptr %6, i64 1096
   %43 = load volatile i64, ptr %42, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -32111,26 +32111,26 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %30, %_ZN18Safepoint
   %33 = getelementptr i8, ptr %6, i64 1308
   %.val = load i32, ptr %33, align 4
   %34 = icmp sgt i32 %.val, 0
-  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %32, %35
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %32, %35
   %37 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %6, i64 1092
   store volatile i32 6, ptr %39, align 4
   br i1 %38, label %41, label %40
 
-40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   br label %41
 
-41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %42 = getelementptr inbounds i8, ptr %6, i64 1096
   %43 = load volatile i64, ptr %42, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -32325,26 +32325,26 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %30, %_ZN18Safepoint
   %33 = getelementptr i8, ptr %6, i64 1308
   %.val = load i32, ptr %33, align 4
   %34 = icmp sgt i32 %.val, 0
-  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %32, %35
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %32, %35
   %37 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %6, i64 1092
   store volatile i32 6, ptr %39, align 4
   br i1 %38, label %41, label %40
 
-40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   br label %41
 
-41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %42 = getelementptr inbounds i8, ptr %6, i64 1096
   %43 = load volatile i64, ptr %42, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -32539,26 +32539,26 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %30, %_ZN18Safepoint
   %33 = getelementptr i8, ptr %6, i64 1308
   %.val = load i32, ptr %33, align 4
   %34 = icmp sgt i32 %.val, 0
-  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %32, %35
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %32, %35
   %37 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %6, i64 1092
   store volatile i32 6, ptr %39, align 4
   br i1 %38, label %41, label %40
 
-40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   br label %41
 
-41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %42 = getelementptr inbounds i8, ptr %6, i64 1096
   %43 = load volatile i64, ptr %42, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -32753,26 +32753,26 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %30, %_ZN18Safepoint
   %33 = getelementptr i8, ptr %6, i64 1308
   %.val = load i32, ptr %33, align 4
   %34 = icmp sgt i32 %.val, 0
-  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %32, %35
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %32, %35
   %37 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %6, i64 1092
   store volatile i32 6, ptr %39, align 4
   br i1 %38, label %41, label %40
 
-40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   br label %41
 
-41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %42 = getelementptr inbounds i8, ptr %6, i64 1096
   %43 = load volatile i64, ptr %42, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -32967,26 +32967,26 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %30, %_ZN18Safepoint
   %33 = getelementptr i8, ptr %6, i64 1308
   %.val = load i32, ptr %33, align 4
   %34 = icmp sgt i32 %.val, 0
-  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %32, %35
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %32, %35
   %37 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %6, i64 1092
   store volatile i32 6, ptr %39, align 4
   br i1 %38, label %41, label %40
 
-40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   br label %41
 
-41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %42 = getelementptr inbounds i8, ptr %6, i64 1096
   %43 = load volatile i64, ptr %42, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -33181,26 +33181,26 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %30, %_ZN18Safepoint
   %33 = getelementptr i8, ptr %6, i64 1308
   %.val = load i32, ptr %33, align 4
   %34 = icmp sgt i32 %.val, 0
-  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %34, label %35, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %32, %35
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %32, %35
   %37 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %6, i64 1092
   store volatile i32 6, ptr %39, align 4
   br i1 %38, label %41, label %40
 
-40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+40:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   br label %41
 
-41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+41:                                               ; preds = %40, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %42 = getelementptr inbounds i8, ptr %6, i64 1096
   %43 = load volatile i64, ptr %42, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -36907,26 +36907,26 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %28, %_ZN18Safepoint
   %31 = getelementptr i8, ptr %4, i64 1308
   %.val = load i32, ptr %31, align 4
   %32 = icmp sgt i32 %.val, 0
-  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %30, %33
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %30, %33
   %35 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %36 = trunc i8 %35 to i1
   %37 = getelementptr inbounds i8, ptr %4, i64 1092
   store volatile i32 6, ptr %37, align 4
   br i1 %36, label %39, label %38
 
-38:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+38:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   br label %39
 
-39:                                               ; preds = %38, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+39:                                               ; preds = %38, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %40 = getelementptr inbounds i8, ptr %4, i64 1096
   %41 = load volatile i64, ptr %40, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -38475,26 +38475,26 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %28, %_ZN18Safepoint
   %31 = getelementptr i8, ptr %4, i64 1308
   %.val = load i32, ptr %31, align 4
   %32 = icmp sgt i32 %.val, 0
-  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %30, %33
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %30, %33
   %35 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %36 = trunc i8 %35 to i1
   %37 = getelementptr inbounds i8, ptr %4, i64 1092
   store volatile i32 6, ptr %37, align 4
   br i1 %36, label %39, label %38
 
-38:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+38:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   br label %39
 
-39:                                               ; preds = %38, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+39:                                               ; preds = %38, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   %40 = getelementptr inbounds i8, ptr %4, i64 1096
   %41 = load volatile i64, ptr %40, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -38650,14 +38650,14 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %27, %_ZN18Safepoint
   %31 = getelementptr i8, ptr %3, i64 1308
   %.val = load i32, ptr %31, align 4
   %32 = icmp sgt i32 %.val, 0
-  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br i1 %32, label %33, label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.140) #11
-  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+  br label %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
 
-_ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %29, %33
+_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit: ; preds = %29, %33
   %35 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 1824
   %37 = load ptr, ptr %36, align 8
@@ -38670,13 +38670,13 @@ _ZL29functionEnterExceptionAllowedP10JavaThread.exit: ; preds = %29, %33
   %.not.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %44
 
-44:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit
+44:                                               ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit
   tail call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %40) #11
   %.pre.i.i = load ptr, ptr %41, align 8
   br label %_ZN17HandleMarkCleanerD2Ev.exit
 
-_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.exit, %44
-  %45 = phi ptr [ %42, %_ZL29functionEnterExceptionAllowedP10JavaThread.exit ], [ %.pre.i.i, %44 ]
+_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit, %44
+  %45 = phi ptr [ %42, %_ZL29functionEnterExceptionAllowedP10JavaThread.argprom.exit ], [ %.pre.i.i, %44 ]
   %46 = getelementptr inbounds i8, ptr %40, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 24
@@ -39732,13 +39732,13 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
   %15 = load volatile i32, ptr %14, align 8
   %16 = and i32 %15, 12
   %.not.i.i.i.i = icmp eq i32 %16, 0
-  br i1 %.not.i.i.i.i, label %_ZL22NativeReportJNIWarningP10JavaThreadPKc.exit, label %17
+  br i1 %.not.i.i.i.i, label %_ZL22NativeReportJNIWarningP10JavaThreadPKc.argprom.exit, label %17
 
 17:                                               ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
   tail call void @_ZN10JavaThread37handle_special_runtime_exit_conditionEv(ptr noundef nonnull align 8 dereferenceable(1800) %0) #11
-  br label %_ZL22NativeReportJNIWarningP10JavaThreadPKc.exit
+  br label %_ZL22NativeReportJNIWarningP10JavaThreadPKc.argprom.exit
 
-_ZL22NativeReportJNIWarningP10JavaThreadPKc.exit: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %17
+_ZL22NativeReportJNIWarningP10JavaThreadPKc.argprom.exit: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %17
   store volatile i32 6, ptr %7, align 4
   %18 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.141) #11
@@ -39749,7 +39749,7 @@ _ZL22NativeReportJNIWarningP10JavaThreadPKc.exit: ; preds = %_ZN18SafepointMecha
   store volatile i32 4, ptr %7, align 4
   br label %20
 
-20:                                               ; preds = %_ZL22NativeReportJNIWarningP10JavaThreadPKc.exit, %1
+20:                                               ; preds = %_ZL22NativeReportJNIWarningP10JavaThreadPKc.argprom.exit, %1
   %21 = getelementptr inbounds i8, ptr %0, i64 1312
   %22 = load ptr, ptr %21, align 8
   %.not8 = icmp eq ptr %22, null

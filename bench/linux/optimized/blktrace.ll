@@ -468,7 +468,7 @@ __blk_trace_remove.exit:                          ; preds = %1, %17
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__blk_trace_remove(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @__blk_trace_remove.retelim(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 600
   %3 = load ptr, ptr %2, align 8
   store volatile ptr null, ptr %2, align 8
@@ -582,13 +582,13 @@ define dso_local noundef range(i32 -22, 1) i32 @blk_trace_startstop(ptr noundef 
   tail call void @mutex_lock(ptr noundef %3) #21
   %4 = getelementptr i8, ptr %0, i64 600
   %.val = load ptr, ptr %4, align 8
-  %5 = tail call fastcc i32 @__blk_trace_startstop(ptr %.val, i32 noundef %1)
+  %5 = tail call fastcc i32 @__blk_trace_startstop.argprom(ptr %.val, i32 noundef %1)
   tail call void @mutex_unlock(ptr noundef %3) #21
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @__blk_trace_startstop(ptr %.600.val, i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @__blk_trace_startstop.argprom(ptr %.600.val, i32 noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.timespec64, align 8
   %4 = alloca [2 x i32], align 8
@@ -693,7 +693,7 @@ define dso_local noundef range(i32 -25, 1) i32 @blk_trace_ioctl(ptr noundef %0, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false), !annotation !7
   %10 = getelementptr inbounds i8, ptr %9, i64 840
   tail call void @mutex_lock(ptr noundef %10) #21
-  switch i32 %1, label %__blk_trace_startstop.exit [
+  switch i32 %1, label %__blk_trace_startstop.argprom.exit [
     i32 -1069018509, label %24
     i32 -1069542797, label %40
     i32 4724, label %.split
@@ -705,12 +705,12 @@ define dso_local noundef range(i32 -25, 1) i32 @blk_trace_ioctl(ptr noundef %0, 
   %11 = getelementptr i8, ptr %9, i64 600
   %.val = load ptr, ptr %11, align 8
   %12 = icmp eq ptr %.val, null
-  br i1 %12, label %__blk_trace_startstop.exit, label %13
+  br i1 %12, label %__blk_trace_startstop.argprom.exit, label %13
 
 13:                                               ; preds = %.split1
   %14 = load i32, ptr %.val, align 8
   %15 = icmp eq i32 %14, 2
-  br i1 %15, label %16, label %__blk_trace_startstop.exit
+  br i1 %15, label %16, label %__blk_trace_startstop.argprom.exit
 
 16:                                               ; preds = %13
   store i32 3, ptr %.val, align 8
@@ -728,7 +728,7 @@ define dso_local noundef range(i32 -25, 1) i32 @blk_trace_ioctl(ptr noundef %0, 
   %22 = getelementptr inbounds i8, ptr %.val, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @relay_flush(ptr noundef %23) #21
-  br label %__blk_trace_startstop.exit
+  br label %__blk_trace_startstop.argprom.exit
 
 24:                                               ; preds = %3
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str, ptr noundef %0) #21
@@ -752,13 +752,13 @@ define dso_local noundef range(i32 -25, 1) i32 @blk_trace_ioctl(ptr noundef %0, 
   br i1 %36, label %38, label %37
 
 37:                                               ; preds = %34
-  call fastcc void @__blk_trace_remove(ptr noundef %9)
+  call fastcc void @__blk_trace_remove.retelim(ptr noundef %9)
   br label %38
 
 38:                                               ; preds = %37, %34, %31, %24
   %39 = phi i32 [ -14, %37 ], [ -14, %24 ], [ %32, %31 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #21
-  br label %__blk_trace_startstop.exit
+  br label %__blk_trace_startstop.argprom.exit
 
 40:                                               ; preds = %3
   %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str, ptr noundef %0) #21
@@ -809,27 +809,27 @@ define dso_local noundef range(i32 -25, 1) i32 @blk_trace_ioctl(ptr noundef %0, 
   br i1 %70, label %72, label %71
 
 71:                                               ; preds = %68
-  call fastcc void @__blk_trace_remove(ptr noundef %9)
+  call fastcc void @__blk_trace_remove.retelim(ptr noundef %9)
   br label %72
 
 72:                                               ; preds = %71, %68, %47, %40
   %73 = phi i32 [ -14, %71 ], [ -14, %40 ], [ %66, %47 ], [ 0, %68 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #21
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #21
-  br label %__blk_trace_startstop.exit
+  br label %__blk_trace_startstop.argprom.exit
 
 .split:                                           ; preds = %3
   %74 = getelementptr i8, ptr %9, i64 600
   %.val3 = load ptr, ptr %74, align 8
-  %75 = tail call fastcc i32 @__blk_trace_startstop(ptr %.val3, i32 noundef 1)
-  br label %__blk_trace_startstop.exit
+  %75 = tail call fastcc i32 @__blk_trace_startstop.argprom(ptr %.val3, i32 noundef 1)
+  br label %__blk_trace_startstop.argprom.exit
 
 76:                                               ; preds = %3
   %77 = getelementptr inbounds i8, ptr %9, i64 600
   %78 = load ptr, ptr %77, align 8
   store volatile ptr null, ptr %77, align 8
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %__blk_trace_startstop.exit, label %80
+  br i1 %79, label %__blk_trace_startstop.argprom.exit, label %80
 
 80:                                               ; preds = %76
   %81 = load i32, ptr %78, align 8
@@ -858,9 +858,9 @@ define dso_local noundef range(i32 -25, 1) i32 @blk_trace_ioctl(ptr noundef %0, 
   tail call void @synchronize_rcu() #21
   tail call fastcc void @blk_trace_free(ptr noundef %9, ptr noundef nonnull %78)
   tail call fastcc void @put_probe_ref()
-  br label %__blk_trace_startstop.exit
+  br label %__blk_trace_startstop.argprom.exit
 
-__blk_trace_startstop.exit:                       ; preds = %91, %76, %16, %13, %.split1, %.split, %72, %38, %3
+__blk_trace_startstop.argprom.exit:               ; preds = %91, %76, %16, %13, %.split1, %.split, %72, %38, %3
   %92 = phi i32 [ %73, %72 ], [ %39, %38 ], [ -25, %3 ], [ %75, %.split ], [ -22, %.split1 ], [ 0, %16 ], [ -22, %13 ], [ 0, %91 ], [ -22, %76 ]
   call void @mutex_unlock(ptr noundef %10) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #21
@@ -1616,7 +1616,7 @@ define internal void @blk_add_trace_bio_remap(ptr nocapture readnone %0, ptr nou
   %36 = load i8, ptr %35, align 8
   %37 = tail call i32 @blk_status_to_errno(i8 noundef zeroext %36) #21
   %.val = load ptr, ptr %12, align 8
-  %38 = tail call fastcc i64 @blk_trace_bio_get_cgid(ptr %.val, ptr noundef %1)
+  %38 = tail call fastcc i64 @blk_trace_bio_get_cgid.argprom(ptr %.val, ptr noundef %1)
   call fastcc void @__blk_add_trace(ptr noundef nonnull %13, i64 noundef %30, i32 noundef %32, i32 noundef %34, i32 noundef 1048591, i32 noundef %37, i32 noundef 16, ptr noundef nonnull %5, i64 noundef %38)
   br label %39
 
@@ -1751,7 +1751,7 @@ define internal void @blk_add_trace_getrq(ptr nocapture readnone %0, ptr noundef
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8
-  %19 = tail call fastcc i64 @blk_trace_bio_get_cgid(ptr nonnull %10, ptr noundef %1)
+  %19 = tail call fastcc i64 @blk_trace_bio_get_cgid.argprom(ptr nonnull %10, ptr noundef %1)
   tail call fastcc void @__blk_add_trace(ptr noundef nonnull %10, i64 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef 1048580, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef %19)
   br label %20
 
@@ -1781,7 +1781,7 @@ define internal void @blk_add_trace_bio_queue(ptr nocapture readnone %0, ptr nou
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8
-  %19 = tail call fastcc i64 @blk_trace_bio_get_cgid(ptr nonnull %10, ptr noundef %1)
+  %19 = tail call fastcc i64 @blk_trace_bio_get_cgid.argprom(ptr nonnull %10, ptr noundef %1)
   tail call fastcc void @__blk_add_trace(ptr noundef nonnull %10, i64 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef 1048577, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef %19)
   br label %20
 
@@ -1811,7 +1811,7 @@ define internal void @blk_add_trace_bio_frontmerge(ptr nocapture readnone %0, pt
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8
-  %19 = tail call fastcc i64 @blk_trace_bio_get_cgid(ptr nonnull %10, ptr noundef %1)
+  %19 = tail call fastcc i64 @blk_trace_bio_get_cgid.argprom(ptr nonnull %10, ptr noundef %1)
   tail call fastcc void @__blk_add_trace(ptr noundef nonnull %10, i64 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef 1048579, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef %19)
   br label %20
 
@@ -1841,7 +1841,7 @@ define internal void @blk_add_trace_bio_backmerge(ptr nocapture readnone %0, ptr
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8
-  %19 = tail call fastcc i64 @blk_trace_bio_get_cgid(ptr nonnull %10, ptr noundef %1)
+  %19 = tail call fastcc i64 @blk_trace_bio_get_cgid.argprom(ptr nonnull %10, ptr noundef %1)
   tail call fastcc void @__blk_add_trace(ptr noundef nonnull %10, i64 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef 1048578, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef %19)
   br label %20
 
@@ -1868,7 +1868,7 @@ define internal void @blk_add_trace_bio_complete(ptr nocapture readnone %0, ptr 
   %14 = load i32, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %2, i64 16
   %16 = load i32, ptr %15, align 8
-  %17 = tail call fastcc i64 @blk_trace_bio_get_cgid(ptr nonnull %8, ptr noundef %2)
+  %17 = tail call fastcc i64 @blk_trace_bio_get_cgid.argprom(ptr nonnull %8, ptr noundef %2)
   tail call fastcc void @__blk_add_trace(ptr noundef nonnull %8, i64 noundef %12, i32 noundef %14, i32 noundef %16, i32 noundef 8388616, i32 noundef %6, i32 noundef 0, ptr noundef null, i64 noundef %17)
   br label %18
 
@@ -1898,7 +1898,7 @@ define internal void @blk_add_trace_bio_bounce(ptr nocapture readnone %0, ptr no
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8
-  %19 = tail call fastcc i64 @blk_trace_bio_get_cgid(ptr nonnull %10, ptr noundef %1)
+  %19 = tail call fastcc i64 @blk_trace_bio_get_cgid.argprom(ptr nonnull %10, ptr noundef %1)
   tail call fastcc void @__blk_add_trace(ptr noundef nonnull %10, i64 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef 14, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef %19)
   br label %20
 
@@ -2268,7 +2268,7 @@ declare i64 @llvm.bswap.i64(i64) #11
 declare dso_local i32 @blk_status_to_errno(i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @blk_trace_bio_get_cgid(ptr readnone %.600.val, ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc i64 @blk_trace_bio_get_cgid.argprom(ptr readnone %.600.val, ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %.600.val, null
   br i1 %2, label %16, label %3
 

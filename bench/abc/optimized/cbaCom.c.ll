@@ -390,7 +390,7 @@ Cba_ManAlloc.exit.i:                              ; preds = %Vec_PtrGrow.exit.i.
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %115, ptr noundef nonnull readonly align 8 dereferenceable(720) %116, i64 720, i1 false)
   %.val2110.i = load i32, ptr %63, align 4
   %.not.not11.i = icmp sgt i32 %.val2110.i, 1
-  br i1 %.not.not11.i, label %Cba_ManNtk.exit.lr.ph.i, label %Cba_ManDup.exit
+  br i1 %.not.not11.i, label %Cba_ManNtk.exit.lr.ph.i, label %Cba_ManDup.argprom.exit
 
 Cba_ManNtk.exit.lr.ph.i:                          ; preds = %Cba_ManAlloc.exit.i
   %117 = getelementptr i8, ptr %.037, i64 1568
@@ -403,7 +403,7 @@ Cba_ManNtk.exit.i:                                ; preds = %Cba_NtkDupAttrs.exi
   %119 = load ptr, ptr %118, align 8
   %120 = call ptr @Cba_NtkCollectDfs(ptr noundef %119) #18
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %Cba_NtkDupOrder.exit.i, label %122
+  br i1 %121, label %Cba_NtkDupOrder.argprom.exit.i, label %122
 
 122:                                              ; preds = %Cba_ManNtk.exit.i
   %123 = getelementptr i8, ptr %120, i64 4
@@ -2099,9 +2099,9 @@ Cba_NtkDup.exit.i.i:                              ; preds = %.critedge4.i.i.i, %
 
 Vec_IntFree.exit.i.i:                             ; preds = %872, %Cba_NtkDup.exit.i.i
   call void @free(ptr noundef nonnull %120) #18
-  br label %Cba_NtkDupOrder.exit.i
+  br label %Cba_NtkDupOrder.argprom.exit.i
 
-Cba_NtkDupOrder.exit.i:                           ; preds = %Vec_IntFree.exit.i.i, %Cba_ManNtk.exit.i
+Cba_NtkDupOrder.argprom.exit.i:                   ; preds = %Vec_IntFree.exit.i.i, %Cba_ManNtk.exit.i
   %.0.i.i = phi ptr [ %155, %Vec_IntFree.exit.i.i ], [ null, %Cba_ManNtk.exit.i ]
   %.val23.i = load ptr, ptr %99, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -2114,25 +2114,25 @@ Cba_NtkDupOrder.exit.i:                           ; preds = %Vec_IntFree.exit.i.
   %876 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %.val23.i, ptr noundef %875, ptr noundef nonnull %4) #18
   %877 = load i32, ptr %4, align 4
   %.not.i32.i = icmp eq i32 %877, 0
-  br i1 %.not.i32.i, label %Cba_NtkAdd.exit.i, label %878
+  br i1 %.not.i32.i, label %Cba_NtkAdd.argprom.exit.i, label %878
 
-878:                                              ; preds = %Cba_NtkDupOrder.exit.i
+878:                                              ; preds = %Cba_NtkDupOrder.argprom.exit.i
   %.val4.i.i = load ptr, ptr %.0.i.i, align 8
   %.val5.i.i = load i32, ptr %873, align 4
   %879 = getelementptr i8, ptr %.val4.i.i, i64 16
   %.val4.val.i.i = load ptr, ptr %879, align 8
   %880 = call ptr @Abc_NamStr(ptr noundef %.val4.val.i.i, i32 noundef %.val5.i.i) #18
   %881 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, ptr noundef %880)
-  br label %Cba_NtkAdd.exit.i
+  br label %Cba_NtkAdd.argprom.exit.i
 
-Cba_NtkAdd.exit.i:                                ; preds = %878, %Cba_NtkDupOrder.exit.i
+Cba_NtkAdd.argprom.exit.i:                        ; preds = %878, %Cba_NtkDupOrder.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %882 = getelementptr i8, ptr %119, i64 60
   %.val35147.i.i = load i32, ptr %882, align 4
   %883 = icmp sgt i32 %.val35147.i.i, 0
   br i1 %883, label %.lr.ph.i.i, label %.critedge.i.i
 
-.lr.ph.i.i:                                       ; preds = %Cba_NtkAdd.exit.i
+.lr.ph.i.i:                                       ; preds = %Cba_NtkAdd.argprom.exit.i
   %884 = getelementptr i8, ptr %119, i64 64
   %885 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
   %886 = getelementptr inbounds i8, ptr %119, i64 168
@@ -2299,7 +2299,7 @@ Vec_IntPush.exit.i.i:                             ; preds = %945, %Vec_IntGrow.e
   %953 = icmp slt i64 %indvars.iv.next.i.i, %952
   br i1 %953, label %890, label %.critedge.i.i, !llvm.loop !15
 
-.critedge.i.i:                                    ; preds = %Vec_IntPush.exit.i.i, %Cba_NtkAdd.exit.i
+.critedge.i.i:                                    ; preds = %Vec_IntPush.exit.i.i, %Cba_NtkAdd.argprom.exit.i
   %954 = getelementptr inbounds i8, ptr %.0.i.i, i64 184
   %955 = getelementptr i8, ptr %.0.i.i, i64 92
   %.val.i33.i = load i32, ptr %955, align 4
@@ -3071,16 +3071,16 @@ Cba_NtkDupAttrs.exit.i:                           ; preds = %Vec_PtrPush.exit.i.
 .critedge.loopexit.i:                             ; preds = %Cba_NtkDupAttrs.exit.i
   %.val.pre.i = load i32, ptr %113, align 4
   %1279 = add nsw i32 %.val.pre.i, -1
-  br label %Cba_ManDup.exit
+  br label %Cba_ManDup.argprom.exit
 
-Cba_ManDup.exit:                                  ; preds = %Cba_ManAlloc.exit.i, %.critedge.loopexit.i
+Cba_ManDup.argprom.exit:                          ; preds = %Cba_ManAlloc.exit.i, %.critedge.loopexit.i
   %.val.i = phi i32 [ %1279, %.critedge.loopexit.i ], [ 0, %Cba_ManAlloc.exit.i ]
   store i32 %.val.i, ptr %114, align 8
   call fastcc void @Cba_ManFree(ptr noundef nonnull %.037)
   br label %1280
 
-1280:                                             ; preds = %Cba_ManDup.exit, %59
-  %.138 = phi ptr [ %76, %Cba_ManDup.exit ], [ %.037, %59 ]
+1280:                                             ; preds = %Cba_ManDup.argprom.exit, %59
+  %.138 = phi ptr [ %76, %Cba_ManDup.argprom.exit ], [ %.037, %59 ]
   %1281 = getelementptr i8, ptr %0, i64 536
   %.val.i56 = load ptr, ptr %1281, align 8
   %.not.i.i57 = icmp eq ptr %.val.i56, null
@@ -4420,13 +4420,13 @@ define void @Cba_End(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 536
   %.val = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %Cba_AbcFreeMan.exit, label %3
+  br i1 %.not.i, label %Cba_AbcFreeMan.argprom.exit, label %3
 
 3:                                                ; preds = %1
   tail call fastcc void @Cba_ManFree(ptr noundef nonnull %.val)
-  br label %Cba_AbcFreeMan.exit
+  br label %Cba_AbcFreeMan.argprom.exit
 
-Cba_AbcFreeMan.exit:                              ; preds = %1, %3
+Cba_AbcFreeMan.argprom.exit:                      ; preds = %1, %3
   ret void
 }
 

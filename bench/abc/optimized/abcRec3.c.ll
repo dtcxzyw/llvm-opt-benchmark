@@ -3976,7 +3976,7 @@ Abc_Clock.exit137:                                ; preds = %.critedge2, %203
   %225 = lshr i32 %100, %70
   %226 = and i32 %225, 1
   %227 = xor i32 %224, %226
-  call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %15, i32 noundef %227)
+  call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %15, i32 noundef %227)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %228 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #26
   %229 = icmp slt i32 %228, 0
@@ -4147,7 +4147,7 @@ declare i32 @Abc_TtCanonicize(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -4858,7 +4858,7 @@ Abc_Clock.exit152:                                ; preds = %.critedge, %284
   %310 = lshr i32 %136, %20
   %311 = and i32 %310, 1
   %312 = xor i32 %309, %311
-  call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %24, i32 noundef %312)
+  call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %24, i32 noundef %312)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %313 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #26
   %314 = icmp slt i32 %313, 0
@@ -8141,7 +8141,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %97 = getelementptr inbounds i32, ptr %.val55, i64 %indvars.iv84
   %98 = load i32, ptr %97, align 4
   %99 = load ptr, ptr %17, align 8
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef %99, i32 noundef %98)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef %99, i32 noundef %98)
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count
   br i1 %exitcond.not, label %.critedge4.loopexit, label %96, !llvm.loop !59

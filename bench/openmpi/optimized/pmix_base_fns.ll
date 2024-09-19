@@ -938,7 +938,7 @@ define noundef i32 @opal_pmix_convert_nspace(ptr noundef writeonly %0, ptr nound
 
 46:                                               ; preds = %45, %40
   %.not9.i = icmp eq ptr %42, null
-  br i1 %.not9.i, label %opal_obj_new.exit, label %47
+  br i1 %.not9.i, label %opal_obj_new.argprom.exit, label %47
 
 47:                                               ; preds = %46
   store ptr @opal_nptr_t_class, ptr %42, align 8
@@ -947,7 +947,7 @@ define noundef i32 @opal_pmix_convert_nspace(ptr noundef writeonly %0, ptr nound
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_nptr_t_class, i64 40), align 8
   %50 = load ptr, ptr %49, align 8
   %.not6.i.i = icmp eq ptr %50, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %47, %.lr.ph.i.i
   %51 = phi ptr [ %53, %.lr.ph.i.i ], [ %50, %47 ]
@@ -956,9 +956,9 @@ define noundef i32 @opal_pmix_convert_nspace(ptr noundef writeonly %0, ptr nound
   %52 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %53 = load ptr, ptr %52, align 8
   %.not.i.i = icmp eq ptr %53, null
-  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %.not.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i, !llvm.loop !7
 
-opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %46, %47
+opal_obj_new.argprom.exit:                        ; preds = %.lr.ph.i.i, %46, %47
   %54 = getelementptr inbounds i8, ptr %42, i64 296
   store i32 %38, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %42, i64 40
@@ -977,7 +977,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %46, %4
   store volatile i64 %62, ptr getelementptr inbounds (i8, ptr @localnspaces, i64 56), align 8
   br label %63
 
-63:                                               ; preds = %8, %9, %4, %opal_obj_new.exit
+63:                                               ; preds = %8, %9, %4, %opal_obj_new.argprom.exit
   ret i32 0
 }
 

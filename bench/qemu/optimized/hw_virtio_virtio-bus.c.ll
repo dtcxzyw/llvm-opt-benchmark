@@ -167,35 +167,35 @@ entry:
   %0 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %bus.val, null
-  br i1 %tobool.not.i, label %virtio_bus_get_device.exit, label %cond.true.i
+  br i1 %tobool.not.i, label %virtio_bus_get_device.argprom.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
   %child.i = getelementptr inbounds i8, ptr %bus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
-  br label %virtio_bus_get_device.exit
+  br label %virtio_bus_get_device.argprom.exit
 
-virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
+virtio_bus_get_device.argprom.exit:               ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
   %ioeventfd_started.i = getelementptr inbounds i8, ptr %bus, i64 120
   %2 = load i8, ptr %ioeventfd_started.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %if.end.i, label %virtio_bus_stop_ioeventfd.exit
 
-if.end.i:                                         ; preds = %virtio_bus_get_device.exit
+if.end.i:                                         ; preds = %virtio_bus_get_device.argprom.exit
   %ioeventfd_grabbed.i = getelementptr inbounds i8, ptr %bus, i64 124
   %3 = load i32, ptr %ioeventfd_grabbed.i, align 4
   %tobool1.not.i = icmp eq i32 %3, 0
   br i1 %tobool1.not.i, label %if.then2.i, label %if.end4.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  br i1 %tobool.not.i, label %virtio_bus_get_device.exit.i, label %cond.true.i.i
+  br i1 %tobool.not.i, label %virtio_bus_get_device.argprom.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then2.i
   %child.i.i = getelementptr inbounds i8, ptr %bus.val, i64 16
   %4 = load ptr, ptr %child.i.i, align 8
-  br label %virtio_bus_get_device.exit.i
+  br label %virtio_bus_get_device.argprom.exit.i
 
-virtio_bus_get_device.exit.i:                     ; preds = %cond.true.i.i, %if.then2.i
+virtio_bus_get_device.argprom.exit.i:             ; preds = %cond.true.i.i, %if.then2.i
   %cond.i.i = phi ptr [ %4, %cond.true.i.i ], [ null, %if.then2.i ]
   %call.i.i = tail call ptr @object_get_class(ptr noundef %cond.i.i) #5
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #5
@@ -204,11 +204,11 @@ virtio_bus_get_device.exit.i:                     ; preds = %cond.true.i.i, %if.
   tail call void %5(ptr noundef %cond.i.i) #5
   br label %if.end4.i
 
-if.end4.i:                                        ; preds = %virtio_bus_get_device.exit.i, %if.end.i
+if.end4.i:                                        ; preds = %virtio_bus_get_device.argprom.exit.i, %if.end.i
   store i8 0, ptr %ioeventfd_started.i, align 8
   br label %virtio_bus_stop_ioeventfd.exit
 
-virtio_bus_stop_ioeventfd.exit:                   ; preds = %virtio_bus_get_device.exit, %if.end4.i
+virtio_bus_stop_ioeventfd.exit:                   ; preds = %virtio_bus_get_device.argprom.exit, %if.end4.i
   %cmp.not = icmp eq ptr %cond.i, null
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -238,14 +238,14 @@ if.then2:                                         ; preds = %if.end
   %2 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %2, align 8
   %tobool.not.i = icmp eq ptr %bus.val, null
-  br i1 %tobool.not.i, label %virtio_bus_get_device.exit, label %cond.true.i
+  br i1 %tobool.not.i, label %virtio_bus_get_device.argprom.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then2
   %child.i = getelementptr inbounds i8, ptr %bus.val, i64 16
   %3 = load ptr, ptr %child.i, align 8
-  br label %virtio_bus_get_device.exit
+  br label %virtio_bus_get_device.argprom.exit
 
-virtio_bus_get_device.exit:                       ; preds = %if.then2, %cond.true.i
+virtio_bus_get_device.argprom.exit:               ; preds = %if.then2, %cond.true.i
   %cond.i = phi ptr [ %3, %cond.true.i ], [ null, %if.then2 ]
   %call.i = tail call ptr @object_get_class(ptr noundef %cond.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #5
@@ -254,7 +254,7 @@ virtio_bus_get_device.exit:                       ; preds = %if.then2, %cond.tru
   tail call void %4(ptr noundef %cond.i) #5
   br label %if.end4
 
-if.end4:                                          ; preds = %virtio_bus_get_device.exit, %if.end
+if.end4:                                          ; preds = %virtio_bus_get_device.argprom.exit, %if.end
   store i8 0, ptr %ioeventfd_started, align 8
   br label %return
 
@@ -297,19 +297,19 @@ entry:
   %0 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %bus.val, null
-  br i1 %tobool.not.i, label %if.else, label %virtio_bus_get_device.exit
+  br i1 %tobool.not.i, label %if.else, label %virtio_bus_get_device.argprom.exit
 
-virtio_bus_get_device.exit:                       ; preds = %entry
+virtio_bus_get_device.argprom.exit:               ; preds = %entry
   %child.i = getelementptr inbounds i8, ptr %bus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.end
 
-if.else:                                          ; preds = %entry, %virtio_bus_get_device.exit
+if.else:                                          ; preds = %entry, %virtio_bus_get_device.argprom.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 133, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_bus_get_vdev_id) #6
   unreachable
 
-if.end:                                           ; preds = %virtio_bus_get_device.exit
+if.end:                                           ; preds = %virtio_bus_get_device.argprom.exit
   %device_id = getelementptr inbounds i8, ptr %1, i64 432
   %2 = load i16, ptr %device_id, align 8
   ret i16 %2
@@ -321,19 +321,19 @@ entry:
   %0 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %bus.val, null
-  br i1 %tobool.not.i, label %if.else, label %virtio_bus_get_device.exit
+  br i1 %tobool.not.i, label %if.else, label %virtio_bus_get_device.argprom.exit
 
-virtio_bus_get_device.exit:                       ; preds = %entry
+virtio_bus_get_device.argprom.exit:               ; preds = %entry
   %child.i = getelementptr inbounds i8, ptr %bus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.end
 
-if.else:                                          ; preds = %entry, %virtio_bus_get_device.exit
+if.else:                                          ; preds = %entry, %virtio_bus_get_device.argprom.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_bus_get_vdev_config_len) #6
   unreachable
 
-if.end:                                           ; preds = %virtio_bus_get_device.exit
+if.end:                                           ; preds = %virtio_bus_get_device.argprom.exit
   %config_len = getelementptr inbounds i8, ptr %1, i64 200
   %2 = load i64, ptr %config_len, align 8
   ret i64 %2
@@ -345,19 +345,19 @@ entry:
   %0 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %bus.val, null
-  br i1 %tobool.not.i, label %if.else, label %virtio_bus_get_device.exit
+  br i1 %tobool.not.i, label %if.else, label %virtio_bus_get_device.argprom.exit
 
-virtio_bus_get_device.exit:                       ; preds = %entry
+virtio_bus_get_device.argprom.exit:               ; preds = %entry
   %child.i = getelementptr inbounds i8, ptr %bus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.end
 
-if.else:                                          ; preds = %entry, %virtio_bus_get_device.exit
+if.else:                                          ; preds = %entry, %virtio_bus_get_device.argprom.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 151, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_bus_get_vdev_bad_features) #6
   unreachable
 
-if.end:                                           ; preds = %virtio_bus_get_device.exit
+if.end:                                           ; preds = %virtio_bus_get_device.argprom.exit
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %1) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #5
   %bad_features = getelementptr inbounds i8, ptr %call1.i, i64 200
@@ -381,19 +381,19 @@ entry:
   %0 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %bus.val, null
-  br i1 %tobool.not.i, label %if.else, label %virtio_bus_get_device.exit
+  br i1 %tobool.not.i, label %if.else, label %virtio_bus_get_device.argprom.exit
 
-virtio_bus_get_device.exit:                       ; preds = %entry
+virtio_bus_get_device.argprom.exit:               ; preds = %entry
   %child.i = getelementptr inbounds i8, ptr %bus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.end
 
-if.else:                                          ; preds = %entry, %virtio_bus_get_device.exit
+if.else:                                          ; preds = %entry, %virtio_bus_get_device.argprom.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 166, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_bus_get_vdev_config) #6
   unreachable
 
-if.end:                                           ; preds = %virtio_bus_get_device.exit
+if.end:                                           ; preds = %virtio_bus_get_device.argprom.exit
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %1) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #5
   %get_config = getelementptr inbounds i8, ptr %call1.i, i64 224
@@ -415,19 +415,19 @@ entry:
   %0 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %bus.val, null
-  br i1 %tobool.not.i, label %if.else, label %virtio_bus_get_device.exit
+  br i1 %tobool.not.i, label %if.else, label %virtio_bus_get_device.argprom.exit
 
-virtio_bus_get_device.exit:                       ; preds = %entry
+virtio_bus_get_device.argprom.exit:               ; preds = %entry
   %child.i = getelementptr inbounds i8, ptr %bus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.end
 
-if.else:                                          ; preds = %entry, %virtio_bus_get_device.exit
+if.else:                                          ; preds = %entry, %virtio_bus_get_device.argprom.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 179, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_bus_set_vdev_config) #6
   unreachable
 
-if.end:                                           ; preds = %virtio_bus_get_device.exit
+if.end:                                           ; preds = %virtio_bus_get_device.argprom.exit
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %1) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #5
   %set_config = getelementptr inbounds i8, ptr %call1.i, i64 232
@@ -543,14 +543,14 @@ entry:
   %1 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %1, align 8
   %tobool.not.i = icmp eq ptr %bus.val, null
-  br i1 %tobool.not.i, label %virtio_bus_get_device.exit, label %cond.true.i
+  br i1 %tobool.not.i, label %virtio_bus_get_device.argprom.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
   %child.i = getelementptr inbounds i8, ptr %bus.val, i64 16
   %2 = load ptr, ptr %child.i, align 8
-  br label %virtio_bus_get_device.exit
+  br label %virtio_bus_get_device.argprom.exit
 
-virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
+virtio_bus_get_device.argprom.exit:               ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %2, %cond.true.i ], [ null, %entry ]
   %call.i11 = tail call ptr @object_get_class(ptr noundef %cond.i) #5
   %call1.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i11, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #5
@@ -559,7 +559,7 @@ virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %virtio_bus_get_device.exit
+lor.lhs.false:                                    ; preds = %virtio_bus_get_device.argprom.exit
   %ioeventfd_enabled = getelementptr inbounds i8, ptr %call1.i, i64 296
   %4 = load ptr, ptr %ioeventfd_enabled, align 8
   %call5 = tail call zeroext i1 %4(ptr noundef %call.i10) #5
@@ -592,8 +592,8 @@ if.end14:                                         ; preds = %if.then10, %if.end8
   store i8 1, ptr %ioeventfd_started, align 8
   br label %return
 
-return:                                           ; preds = %if.end, %virtio_bus_get_device.exit, %lor.lhs.false, %if.end14, %if.then12
-  %retval.0 = phi i32 [ 0, %if.end14 ], [ %call11, %if.then12 ], [ -38, %lor.lhs.false ], [ -38, %virtio_bus_get_device.exit ], [ 0, %if.end ]
+return:                                           ; preds = %if.end, %virtio_bus_get_device.argprom.exit, %lor.lhs.false, %if.end14, %if.then12
+  %retval.0 = phi i32 [ 0, %if.end14 ], [ %call11, %if.then12 ], [ -38, %lor.lhs.false ], [ -38, %virtio_bus_get_device.argprom.exit ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -630,14 +630,14 @@ entry:
   %0 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %bus.val, null
-  br i1 %tobool.not.i, label %virtio_bus_get_device.exit, label %cond.true.i
+  br i1 %tobool.not.i, label %virtio_bus_get_device.argprom.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
   %child.i = getelementptr inbounds i8, ptr %bus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
-  br label %virtio_bus_get_device.exit
+  br label %virtio_bus_get_device.argprom.exit
 
-virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
+virtio_bus_get_device.argprom.exit:               ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %bus) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #5
@@ -652,7 +652,7 @@ virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %virtio_bus_get_device.exit
+if.end:                                           ; preds = %virtio_bus_get_device.argprom.exit
   br i1 %assign, label %if.then7, label %if.end19.thread
 
 if.then7:                                         ; preds = %if.end
@@ -703,8 +703,8 @@ if.then21:                                        ; preds = %if.end19.thread, %i
   tail call void @virtio_queue_set_host_notifier_enabled(ptr noundef %call4, i1 noundef zeroext %assign) #5
   br label %return
 
-return:                                           ; preds = %if.end19.thread27, %if.end19, %if.then21, %virtio_bus_get_device.exit, %if.then9
-  %retval.0 = phi i32 [ %call8, %if.then9 ], [ -38, %virtio_bus_get_device.exit ], [ 0, %if.then21 ], [ %call13, %if.end19 ], [ %call13, %if.end19.thread27 ]
+return:                                           ; preds = %if.end19.thread27, %if.end19, %if.then21, %virtio_bus_get_device.argprom.exit, %if.then9
+  %retval.0 = phi i32 [ %call8, %if.then9 ], [ -38, %virtio_bus_get_device.argprom.exit ], [ 0, %if.then21 ], [ %call13, %if.end19 ], [ %call13, %if.end19.thread27 ]
   ret i32 %retval.0
 }
 
@@ -723,14 +723,14 @@ entry:
   %0 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %bus.val, null
-  br i1 %tobool.not.i, label %virtio_bus_get_device.exit, label %cond.true.i
+  br i1 %tobool.not.i, label %virtio_bus_get_device.argprom.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
   %child.i = getelementptr inbounds i8, ptr %bus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
-  br label %virtio_bus_get_device.exit
+  br label %virtio_bus_get_device.argprom.exit
 
-virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
+virtio_bus_get_device.argprom.exit:               ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
   %call1 = tail call ptr @virtio_get_queue(ptr noundef %cond.i, i32 noundef %n) #5
   %call2 = tail call ptr @virtio_queue_get_host_notifier(ptr noundef %call1) #5

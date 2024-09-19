@@ -557,14 +557,14 @@ _ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv.exit.i.i: ; preds = %173
   call void @_ZNK4llvm4json6Object9getStringENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %130, ptr nonnull @.str.17, i64 8) #14, !noalias !4
   %182 = load i8, ptr %115, align 8, !noalias !43
   %183 = trunc i8 %182 to i1
-  br i1 %183, label %184, label %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.exit.i.i
+  br i1 %183, label %184, label %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.argprom.exit.i.i
 
 184:                                              ; preds = %180
   %.sroa.0.0.copyload.i.i15.i = load ptr, ptr %13, align 8, !noalias !43
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !43
   %185 = add i64 %.sroa.2.0.copyload.i.i.i, -1
   %186 = call i64 @llvm.fshl.i64(i64 %185, i64 %185, i64 63)
-  switch i64 %186, label %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.exit.i.i [
+  switch i64 %186, label %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.argprom.exit.i.i [
     i64 0, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i
     i64 1, label %_ZN4llvmeqENS_9StringRefES0_.exit.i5.i.i.i
     i64 5, label %_ZN4llvmeqENS_9StringRefES0_.exit.i13.i.i.i
@@ -574,28 +574,28 @@ _ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv.exit.i.i: ; preds = %173
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i:        ; preds = %184
   %lhsc.i.i.i = load i8, ptr %.sroa.0.0.copyload.i.i15.i, align 1, !noalias !4
   %187 = icmp eq i8 %lhsc.i.i.i, 99
-  br i1 %187, label %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.exit.i.i, label %_ZN4llvm12StringSwitchIN5clang8LanguageES2_E4CaseENS_13StringLiteralES2_.exit16.thread31.i.i.i
+  br i1 %187, label %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.argprom.exit.i.i, label %_ZN4llvm12StringSwitchIN5clang8LanguageES2_E4CaseENS_13StringLiteralES2_.exit16.thread31.i.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i5.i.i.i:       ; preds = %184
   %bcmp.i.i6.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.sroa.0.0.copyload.i.i15.i, ptr noundef nonnull dereferenceable(3) @.str.19, i64 3), !noalias !4
   %188 = icmp eq i32 %bcmp.i.i6.i.i.i, 0
-  br i1 %188, label %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.exit.i.i, label %_ZN4llvm12StringSwitchIN5clang8LanguageES2_E4CaseENS_13StringLiteralES2_.exit16.thread31.i.i.i
+  br i1 %188, label %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.argprom.exit.i.i, label %_ZN4llvm12StringSwitchIN5clang8LanguageES2_E4CaseENS_13StringLiteralES2_.exit16.thread31.i.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i13.i.i.i:      ; preds = %184
   %bcmp.i.i14.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %.sroa.0.0.copyload.i.i15.i, ptr noundef nonnull dereferenceable(11) @.str.20, i64 11), !noalias !4
   %189 = icmp eq i32 %bcmp.i.i14.i.i.i, 0
-  br i1 %189, label %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.exit.i.i, label %_ZN4llvm12StringSwitchIN5clang8LanguageES2_E4CaseENS_13StringLiteralES2_.exit16.thread31.i.i.i
+  br i1 %189, label %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.argprom.exit.i.i, label %_ZN4llvm12StringSwitchIN5clang8LanguageES2_E4CaseENS_13StringLiteralES2_.exit16.thread31.i.i.i
 
 _ZN4llvm12StringSwitchIN5clang8LanguageES2_E4CaseENS_13StringLiteralES2_.exit16.thread31.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i13.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i5.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i
-  br label %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.exit.i.i
+  br label %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.argprom.exit.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i21.i.i.i:      ; preds = %184
   %bcmp.i.i22.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %.sroa.0.0.copyload.i.i15.i, ptr noundef nonnull dereferenceable(13) @.str.21, i64 13), !noalias !4
   %190 = icmp eq i32 %bcmp.i.i22.i.i.i, 0
   %191 = select i1 %190, i16 7, i16 0
-  br label %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.exit.i.i
+  br label %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.argprom.exit.i.i
 
-_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.exit.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i21.i.i.i, %_ZN4llvm12StringSwitchIN5clang8LanguageES2_E4CaseENS_13StringLiteralES2_.exit16.thread31.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i13.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i5.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i, %184, %180
+_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.argprom.exit.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i21.i.i.i, %_ZN4llvm12StringSwitchIN5clang8LanguageES2_E4CaseENS_13StringLiteralES2_.exit16.thread31.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i13.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i5.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i, %184, %180
   %.sroa.017.0.i.i.i = phi i16 [ 0, %180 ], [ 0, %_ZN4llvm12StringSwitchIN5clang8LanguageES2_E4CaseENS_13StringLiteralES2_.exit16.thread31.i.i.i ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.i5.i.i.i ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i13.i.i.i ], [ 0, %184 ], [ %191, %_ZN4llvmeqENS_9StringRefES0_.exit.i21.i.i.i ]
   %.sroa.218.0.i.i.i = phi i16 [ 0, %180 ], [ 256, %_ZN4llvm12StringSwitchIN5clang8LanguageES2_E4CaseENS_13StringLiteralES2_.exit16.thread31.i.i.i ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.i5.i.i.i ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.i13.i.i.i ], [ 256, %184 ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.i21.i.i.i ]
   %.sroa.017.0.insert.insert.i.i.i = or disjoint i16 %.sroa.218.0.i.i.i, %.sroa.017.0.i.i.i
@@ -607,7 +607,7 @@ _ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.exit.i.i:
   %193 = icmp eq i32 %192, 2
   br i1 %193, label %194, label %205
 
-194:                                              ; preds = %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.exit.i.i
+194:                                              ; preds = %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.argprom.exit.i.i
   call void @_ZN5clang10installapi10HeaderFileC2EN4llvm9StringRefENS0_10HeaderTypeES3_St8optionalINS_8LanguageEE(ptr noundef nonnull align 8 dereferenceable(77) %24, ptr %181, i64 %.sroa.7.sroa.0.0.copyload.i.i.i, i32 noundef 2, ptr nonnull @.str.8, i64 0, i16 %.sroa.017.0.insert.insert.i.i.i), !noalias !4
   %195 = load ptr, ptr %121, align 8, !noalias !43
   %196 = load ptr, ptr %122, align 8, !noalias !43
@@ -637,7 +637,7 @@ _ZNSt6vectorIN5clang10installapi10HeaderFileESaIS2_EE12emplace_backIJS2_EEERS2_D
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #14, !noalias !4
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i.i
 
-205:                                              ; preds = %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.exit.i.i
+205:                                              ; preds = %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.argprom.exit.i.i
   %206 = load ptr, ptr %43, align 8, !noalias !43
   %.not20.i.i = icmp eq ptr %206, null
   br i1 %.not20.i.i, label %242, label %207
@@ -828,19 +828,19 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i29.i.
   br label %_ZN4llvm8ExpectedIN5clang10installapi10HeaderTypeEED2Ev.exit.i.i
 
 _ZN4llvm8ExpectedIN5clang10installapi10HeaderTypeEED2Ev.exit.i.i: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i29.i.i, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i.i
-  br i1 %switch.i.i, label %_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.exit.loopexit.i, label %126
+  br i1 %switch.i.i, label %_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.argprom.exit.loopexit.i, label %126
 
 .loopexit.sink.split.i.i:                         ; preds = %126, %131, %104
   %.sink.i.i = phi ptr [ %135, %131 ], [ null, %104 ], [ null, %126 ]
   store ptr %.sink.i.i, ptr %39, align 8, !alias.scope !40, !noalias !4
-  br label %_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.exit.i
+  br label %_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.argprom.exit.i
 
-_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.exit.loopexit.i: ; preds = %_ZN4llvm8ExpectedIN5clang10installapi10HeaderTypeEED2Ev.exit.i.i
+_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.argprom.exit.loopexit.i: ; preds = %_ZN4llvm8ExpectedIN5clang10installapi10HeaderTypeEED2Ev.exit.i.i
   %.pre.i = load ptr, ptr %39, align 8, !noalias !4
-  br label %_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.exit.i
+  br label %_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.argprom.exit.i
 
-_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.exit.i: ; preds = %_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.exit.loopexit.i, %.loopexit.sink.split.i.i
-  %269 = phi ptr [ %.pre.i, %_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.exit.loopexit.i ], [ %.sink.i.i, %.loopexit.sink.split.i.i ]
+_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.argprom.exit.i: ; preds = %_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.argprom.exit.loopexit.i, %.loopexit.sink.split.i.i
+  %269 = phi ptr [ %.pre.i, %_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.argprom.exit.loopexit.i ], [ %.sink.i.i, %.loopexit.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %22), !noalias !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23), !noalias !4
@@ -852,12 +852,12 @@ _ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.exit.i: ; pr
   %.not30.i = icmp eq ptr %269, null
   br i1 %.not30.i, label %_ZN4llvm12ErrorSuccessD2Ev.exit16.i, label %270
 
-270:                                              ; preds = %_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.exit.i
+270:                                              ; preds = %_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.argprom.exit.i
   store ptr %269, ptr %0, align 8, !alias.scope !4
   store ptr null, ptr %39, align 8, !noalias !4
   br label %_ZN4llvm5ErrorD2Ev.exit.i
 
-_ZN4llvm12ErrorSuccessD2Ev.exit16.i:              ; preds = %_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.exit.i
+_ZN4llvm12ErrorSuccessD2Ev.exit16.i:              ; preds = %_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.argprom.exit.i
   store ptr null, ptr %0, align 8, !alias.scope !4
   br label %_ZN4llvm5ErrorD2Ev.exit.i
 
@@ -2334,8 +2334,8 @@ attributes #18 = { noreturn nounwind }
 !38 = distinct !{!38, !39, !"_ZSt11make_uniqueIN4llvm5MachO12TextAPIErrorEJNS1_16TextAPIErrorCodeERA20_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !39 = distinct !{!39, !"_ZSt11make_uniqueIN4llvm5MachO12TextAPIErrorEJNS1_16TextAPIErrorCodeERA20_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE: argument 0"}
-!42 = distinct !{!42, !"_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE"}
+!41 = distinct !{!41, !42, !"_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.argprom: argument 0"}
+!42 = distinct !{!42, !"_ZN12_GLOBAL__N_114Implementation12parseHeadersERN4llvm4json5ArrayE.argprom"}
 !43 = !{!41, !5}
 !44 = !{!45, !41, !5}
 !45 = distinct !{!45, !46, !"_ZN4llvm10make_errorINS_11StringErrorEJRA21_KcSt10error_codeEEENS_5ErrorEDpOT0_: argument 0"}
@@ -2350,8 +2350,8 @@ attributes #18 = { noreturn nounwind }
 !54 = distinct !{!54, !"_ZN12_GLOBAL__N_114Implementation9parseTypeEPKN4llvm4json6ObjectE"}
 !55 = !{!53, !41, !5}
 !56 = !{!57, !53, !5}
-!57 = distinct !{!57, !58, !"_ZN12_GLOBAL__N_114Implementation11parseStringEPKN4llvm4json6ObjectENS1_9StringRefES6_: argument 0"}
-!58 = distinct !{!58, !"_ZN12_GLOBAL__N_114Implementation11parseStringEPKN4llvm4json6ObjectENS1_9StringRefES6_"}
+!57 = distinct !{!57, !58, !"_ZN12_GLOBAL__N_114Implementation11parseStringEPKN4llvm4json6ObjectENS1_9StringRefES6_.argprom: argument 0"}
+!58 = distinct !{!58, !"_ZN12_GLOBAL__N_114Implementation11parseStringEPKN4llvm4json6ObjectENS1_9StringRefES6_.argprom"}
 !59 = !{!57, !53, !41, !5}
 !60 = !{!53, !5}
 !61 = !{!62, !53, !41, !5}
@@ -2381,11 +2381,11 @@ attributes #18 = { noreturn nounwind }
 !85 = !{!83, !41, !5}
 !86 = !{!83, !41}
 !87 = !{!88, !41, !5}
-!88 = distinct !{!88, !89, !"_ZN12_GLOBAL__N_114Implementation9parsePathEPKN4llvm4json6ObjectE: argument 0"}
-!89 = distinct !{!89, !"_ZN12_GLOBAL__N_114Implementation9parsePathEPKN4llvm4json6ObjectE"}
+!88 = distinct !{!88, !89, !"_ZN12_GLOBAL__N_114Implementation9parsePathEPKN4llvm4json6ObjectE.argprom: argument 0"}
+!89 = distinct !{!89, !"_ZN12_GLOBAL__N_114Implementation9parsePathEPKN4llvm4json6ObjectE.argprom"}
 !90 = !{!91, !88, !5}
-!91 = distinct !{!91, !92, !"_ZN12_GLOBAL__N_114Implementation11parseStringEPKN4llvm4json6ObjectENS1_9StringRefES6_: argument 0"}
-!92 = distinct !{!92, !"_ZN12_GLOBAL__N_114Implementation11parseStringEPKN4llvm4json6ObjectENS1_9StringRefES6_"}
+!91 = distinct !{!91, !92, !"_ZN12_GLOBAL__N_114Implementation11parseStringEPKN4llvm4json6ObjectENS1_9StringRefES6_.argprom: argument 0"}
+!92 = distinct !{!92, !"_ZN12_GLOBAL__N_114Implementation11parseStringEPKN4llvm4json6ObjectENS1_9StringRefES6_.argprom"}
 !93 = !{!91, !88, !41, !5}
 !94 = !{!95, !91, !88, !41, !5}
 !95 = distinct !{!95, !96, !"_ZN4llvm10make_errorINS_11StringErrorEJRNS_9StringRefESt10error_codeEEENS_5ErrorEDpOT0_: argument 0"}

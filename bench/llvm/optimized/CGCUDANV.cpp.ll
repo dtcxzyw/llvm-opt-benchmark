@@ -358,13 +358,13 @@ define dso_local noundef nonnull ptr @_ZN5clang7CodeGen19CreateNVCUDARuntimeERNS
 
 37:                                               ; preds = %35
   %38 = tail call noundef ptr @_ZN5clang10ASTContext25createDeviceMangleContextERKNS_10TargetInfoE(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i, ptr noundef nonnull align 8 dereferenceable(489) %30) #19, !noalias !4
-  br label %_ZL12InitDeviceMCRN5clang7CodeGen13CodeGenModuleE.exit.i
+  br label %_ZL12InitDeviceMCRN5clang7CodeGen13CodeGenModuleE.argprom.exit.i
 
 .critedge.i.i:                                    ; preds = %35, %31, %1
   %39 = tail call noundef ptr @_ZN5clang10ASTContext19createMangleContextEPKNS_10TargetInfoE(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i, ptr noundef %30) #19, !noalias !4
-  br label %_ZL12InitDeviceMCRN5clang7CodeGen13CodeGenModuleE.exit.i
+  br label %_ZL12InitDeviceMCRN5clang7CodeGen13CodeGenModuleE.argprom.exit.i
 
-_ZL12InitDeviceMCRN5clang7CodeGen13CodeGenModuleE.exit.i: ; preds = %.critedge.i.i, %37
+_ZL12InitDeviceMCRN5clang7CodeGen13CodeGenModuleE.argprom.exit.i: ; preds = %.critedge.i.i, %37
   %storemerge.i.i = phi ptr [ %38, %37 ], [ %39, %.critedge.i.i ]
   store ptr %storemerge.i.i, ptr %27, align 8, !alias.scope !4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -389,7 +389,7 @@ _ZL12InitDeviceMCRN5clang7CodeGen13CodeGenModuleE.exit.i: ; preds = %.critedge.i
   %.not.i = icmp eq i64 %54, 0
   br i1 %.not.i, label %56, label %55
 
-55:                                               ; preds = %_ZL12InitDeviceMCRN5clang7CodeGen13CodeGenModuleE.exit.i
+55:                                               ; preds = %_ZL12InitDeviceMCRN5clang7CodeGen13CodeGenModuleE.argprom.exit.i
   store ptr @.str, ptr %4, align 8
   %.sroa.218.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
   store i64 4, ptr %.sroa.218.0..sroa_idx.i, align 8
@@ -398,7 +398,7 @@ _ZL12InitDeviceMCRN5clang7CodeGen13CodeGenModuleE.exit.i: ; preds = %.critedge.i
   store i64 3, ptr %.sroa.216.0..sroa_idx.i, align 8
   br label %_ZN12_GLOBAL__N_115CGNVCUDARuntimeC2ERN5clang7CodeGen13CodeGenModuleE.exit
 
-56:                                               ; preds = %_ZL12InitDeviceMCRN5clang7CodeGen13CodeGenModuleE.exit.i
+56:                                               ; preds = %_ZL12InitDeviceMCRN5clang7CodeGen13CodeGenModuleE.argprom.exit.i
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %58 = load i64, ptr %57, align 8
   %59 = and i64 %58, 137438953472
@@ -8252,7 +8252,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit: ; preds = %_ZN4llvm
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
   %707 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %97) #19
   %708 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %97) #19
-  %709 = call fastcc noundef ptr @_ZN12_GLOBAL__N_115CGNVCUDARuntime17makeConstantArrayEN4llvm9StringRefES2_S2_jb(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr %707, i64 %708, ptr nonnull @.str.14, i64 0, ptr nonnull @.str.30, i64 11, i32 noundef 4096, i1 noundef zeroext false)
+  %709 = call fastcc noundef ptr @_ZN12_GLOBAL__N_115CGNVCUDARuntime17makeConstantArrayEN4llvm9StringRefES2_S2_jb.argprom(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr %707, i64 %708, ptr nonnull @.str.14, i64 0, ptr nonnull @.str.30, i64 11, i32 noundef 4096, i1 noundef zeroext false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %97) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %98) #19
   br label %756
@@ -8319,7 +8319,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit: ; preds = %_ZN4llvm
   %752 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %100) #19
   %753 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %100) #19
   %754 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.084) #19
-  %755 = call fastcc noundef ptr @_ZN12_GLOBAL__N_115CGNVCUDARuntime17makeConstantArrayEN4llvm9StringRefES2_S2_jb(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr %752, i64 %753, ptr nonnull @.str.14, i64 0, ptr nonnull %.084, i64 %754, i32 noundef 8, i1 noundef zeroext false)
+  %755 = call fastcc noundef ptr @_ZN12_GLOBAL__N_115CGNVCUDARuntime17makeConstantArrayEN4llvm9StringRefES2_S2_jb.argprom(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr %752, i64 %753, ptr nonnull @.str.14, i64 0, ptr nonnull %.084, i64 %754, i32 noundef 8, i1 noundef zeroext false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %100) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %101) #19
   br label %756
@@ -8791,7 +8791,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %985, %987
   %998 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %126) #19
   %999 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %126) #19
   %1000 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.086) #19
-  %1001 = call fastcc noundef ptr @_ZN12_GLOBAL__N_115CGNVCUDARuntime17makeConstantArrayEN4llvm9StringRefES2_S2_jb(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr %998, i64 %999, ptr nonnull @.str.14, i64 0, ptr nonnull %.086, i64 %1000, i32 noundef 32, i1 noundef zeroext true)
+  %1001 = call fastcc noundef ptr @_ZN12_GLOBAL__N_115CGNVCUDARuntime17makeConstantArrayEN4llvm9StringRefES2_S2_jb.argprom(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr %998, i64 %999, ptr nonnull @.str.14, i64 0, ptr nonnull %.086, i64 %1000, i32 noundef 32, i1 noundef zeroext true)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %126) #19
   %1002 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %1003 = getelementptr inbounds nuw i8, ptr %128, i64 33
@@ -9633,7 +9633,7 @@ declare void @_ZN4llvm3vfs10FileSystem16getBufferForFileERKNS_5TwineElbb(ptr dea
 declare noundef ptr @_ZN4llvm12FunctionType3getEPNS_4TypeEb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115CGNVCUDARuntime17makeConstantArrayEN4llvm9StringRefES2_S2_jb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(840) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val, i32 noundef range(i32 8, 4097) %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115CGNVCUDARuntime17makeConstantArrayEN4llvm9StringRefES2_S2_jb.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(840) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val, i32 noundef range(i32 8, 4097) %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
@@ -10889,8 +10889,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZL12InitDeviceMCRN5clang7CodeGen13CodeGenModuleE: argument 0"}
-!6 = distinct !{!6, !"_ZL12InitDeviceMCRN5clang7CodeGen13CodeGenModuleE"}
+!5 = distinct !{!5, !6, !"_ZL12InitDeviceMCRN5clang7CodeGen13CodeGenModuleE.argprom: argument 0"}
+!6 = distinct !{!6, !"_ZL12InitDeviceMCRN5clang7CodeGen13CodeGenModuleE.argprom"}
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"_ZN12_GLOBAL__N_115CGNVCUDARuntime28prepareKernelArgsLLVMOffloadERN5clang7CodeGen15CodeGenFunctionERNS2_15FunctionArgListE: argument 0"}
 !9 = distinct !{!9, !"_ZN12_GLOBAL__N_115CGNVCUDARuntime28prepareKernelArgsLLVMOffloadERN5clang7CodeGen15CodeGenFunctionERNS2_15FunctionArgListE"}
@@ -10926,8 +10926,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !39 = distinct !{!39, !40, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
 !40 = distinct !{!40, !"_ZN4llvmplERKNS_5TwineES2_"}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime15addPrefixToNameB5cxx11EN4llvm9StringRefE: argument 0"}
-!43 = distinct !{!43, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime15addPrefixToNameB5cxx11EN4llvm9StringRefE"}
+!42 = distinct !{!42, !43, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime15addPrefixToNameB5cxx11EN4llvm9StringRefE.argprom: argument 0"}
+!43 = distinct !{!43, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime15addPrefixToNameB5cxx11EN4llvm9StringRefE.argprom"}
 !44 = !{!45}
 !45 = distinct !{!45, !46, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_: argument 0"}
 !46 = distinct !{!46, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_"}
@@ -10938,8 +10938,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !51 = distinct !{!51, !52, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !52 = distinct !{!52, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
 !53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE: argument 0"}
-!55 = distinct !{!55, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE"}
+!54 = distinct !{!54, !55, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom: argument 0"}
+!55 = distinct !{!55, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom"}
 !56 = !{!57, !59}
 !57 = distinct !{!57, !58, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !58 = distinct !{!58, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -10963,8 +10963,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !76 = distinct !{!76, !77, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
 !77 = distinct !{!77, !"_ZN4llvmplERKNS_5TwineES2_"}
 !78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime15addPrefixToNameB5cxx11EN4llvm9StringRefE: argument 0"}
-!80 = distinct !{!80, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime15addPrefixToNameB5cxx11EN4llvm9StringRefE"}
+!79 = distinct !{!79, !80, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime15addPrefixToNameB5cxx11EN4llvm9StringRefE.argprom: argument 0"}
+!80 = distinct !{!80, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime15addPrefixToNameB5cxx11EN4llvm9StringRefE.argprom"}
 !81 = !{!82}
 !82 = distinct !{!82, !83, !"_ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE: argument 0"}
 !83 = distinct !{!83, !"_ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE"}
@@ -11013,8 +11013,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !126 = distinct !{!126, !127, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !127 = distinct !{!127, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
 !128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE: argument 0"}
-!130 = distinct !{!130, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE"}
+!129 = distinct !{!129, !130, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom: argument 0"}
+!130 = distinct !{!130, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom"}
 !131 = !{!132, !134}
 !132 = distinct !{!132, !133, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !133 = distinct !{!133, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -11024,8 +11024,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !137 = distinct !{!137, !138, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !138 = distinct !{!138, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
 !139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE: argument 0"}
-!141 = distinct !{!141, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE"}
+!140 = distinct !{!140, !141, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom: argument 0"}
+!141 = distinct !{!141, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom"}
 !142 = !{!143, !145}
 !143 = distinct !{!143, !144, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !144 = distinct !{!144, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -11035,8 +11035,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !148 = distinct !{!148, !149, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !149 = distinct !{!149, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
 !150 = !{!151}
-!151 = distinct !{!151, !152, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE: argument 0"}
-!152 = distinct !{!152, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE"}
+!151 = distinct !{!151, !152, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom: argument 0"}
+!152 = distinct !{!152, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom"}
 !153 = !{!154, !156}
 !154 = distinct !{!154, !155, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !155 = distinct !{!155, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -11046,8 +11046,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !159 = distinct !{!159, !160, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !160 = distinct !{!160, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
 !161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE: argument 0"}
-!163 = distinct !{!163, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE"}
+!162 = distinct !{!162, !163, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom: argument 0"}
+!163 = distinct !{!163, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom"}
 !164 = !{!165, !167}
 !165 = distinct !{!165, !166, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !166 = distinct !{!166, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -11057,8 +11057,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !170 = distinct !{!170, !171, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !171 = distinct !{!171, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
 !172 = !{!173}
-!173 = distinct !{!173, !174, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE: argument 0"}
-!174 = distinct !{!174, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE"}
+!173 = distinct !{!173, !174, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom: argument 0"}
+!174 = distinct !{!174, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom"}
 !175 = !{!176, !178}
 !176 = distinct !{!176, !177, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !177 = distinct !{!177, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -11068,8 +11068,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !181 = distinct !{!181, !182, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !182 = distinct !{!182, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
 !183 = !{!184}
-!184 = distinct !{!184, !185, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE: argument 0"}
-!185 = distinct !{!185, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE"}
+!184 = distinct !{!184, !185, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom: argument 0"}
+!185 = distinct !{!185, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom"}
 !186 = !{!187, !189}
 !187 = distinct !{!187, !188, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !188 = distinct !{!188, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -11082,8 +11082,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !195 = distinct !{!195, !196, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !196 = distinct !{!196, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
 !197 = !{!198}
-!198 = distinct !{!198, !199, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE: argument 0"}
-!199 = distinct !{!199, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE"}
+!198 = distinct !{!198, !199, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom: argument 0"}
+!199 = distinct !{!199, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom"}
 !200 = !{!201, !203}
 !201 = distinct !{!201, !202, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !202 = distinct !{!202, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -11104,8 +11104,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !217 = distinct !{!217, !218, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !218 = distinct !{!218, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
 !219 = !{!220}
-!220 = distinct !{!220, !221, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE: argument 0"}
-!221 = distinct !{!221, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE"}
+!220 = distinct !{!220, !221, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom: argument 0"}
+!221 = distinct !{!221, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom"}
 !222 = !{!223, !225}
 !223 = distinct !{!223, !224, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !224 = distinct !{!224, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -11121,8 +11121,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !234 = distinct !{!234, !235, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !235 = distinct !{!235, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
 !236 = !{!237}
-!237 = distinct !{!237, !238, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE: argument 0"}
-!238 = distinct !{!238, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE"}
+!237 = distinct !{!237, !238, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom: argument 0"}
+!238 = distinct !{!238, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom"}
 !239 = !{!240, !242}
 !240 = distinct !{!240, !241, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !241 = distinct !{!241, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -11151,8 +11151,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !264 = distinct !{!264, !265, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !265 = distinct !{!265, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
 !266 = !{!267}
-!267 = distinct !{!267, !268, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE: argument 0"}
-!268 = distinct !{!268, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE"}
+!267 = distinct !{!267, !268, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom: argument 0"}
+!268 = distinct !{!268, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom"}
 !269 = !{!270, !272}
 !270 = distinct !{!270, !271, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !271 = distinct !{!271, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -11162,8 +11162,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !275 = distinct !{!275, !276, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !276 = distinct !{!276, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
 !277 = !{!278}
-!278 = distinct !{!278, !279, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE: argument 0"}
-!279 = distinct !{!279, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE"}
+!278 = distinct !{!278, !279, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom: argument 0"}
+!279 = distinct !{!279, !"_ZNK12_GLOBAL__N_115CGNVCUDARuntime26addUnderscoredPrefixToNameB5cxx11EN4llvm9StringRefE.argprom"}
 !280 = !{!281, !283}
 !281 = distinct !{!281, !282, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !282 = distinct !{!282, !"_ZNK4llvm5Twine6concatERKS0_"}

@@ -3840,7 +3840,7 @@ fons__tmpalloc.exit89.us.i:                       ; preds = %48
   %72 = getelementptr inbounds i8, ptr %60, i64 2
   %73 = load i16, ptr %72, align 2
   %74 = sitofp i16 %73 to float
-  call fastcc void @stbtt__tesselate_curve(ptr noundef %.183.us.i, ptr noundef %15, float noundef %.071103.us.i, float noundef %.0104.us.i, float noundef %66, float noundef %69, float noundef %71, float noundef %74, float noundef %19, i32 noundef 0)
+  call fastcc void @stbtt__tesselate_curve.argelim(ptr noundef %.183.us.i, ptr noundef %15, float noundef %.071103.us.i, float noundef %.0104.us.i, float noundef %66, float noundef %69, float noundef %71, float noundef %74, float noundef %19, i32 noundef 0)
   %75 = load i16, ptr %60, align 2
   %76 = sitofp i16 %75 to float
   %77 = load i16, ptr %72, align 2
@@ -10550,7 +10550,7 @@ define dso_local float @fonsDrawText(ptr noundef %0, float noundef %1, float nou
   %89 = load float, ptr %88, align 8
   %90 = fmul float %89, %37
   %91 = fdiv float %90, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
 92:                                               ; preds = %86
   %93 = and i32 %82, 16
@@ -10566,19 +10566,19 @@ define dso_local float @fonsDrawText(ptr noundef %0, float noundef %1, float nou
   %100 = fmul float %99, 5.000000e-01
   %101 = fmul float %100, %37
   %102 = fdiv float %101, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
 103:                                              ; preds = %92
   %104 = and i32 %82, 96
   %or.cond.not.i = icmp eq i32 %104, 32
-  br i1 %or.cond.not.i, label %105, label %fons__getVertAlign.exit
+  br i1 %or.cond.not.i, label %105, label %fons__getVertAlign.argprom.exit
 
 105:                                              ; preds = %103
   %106 = getelementptr inbounds i8, ptr %32, i64 140
   %107 = load float, ptr %106, align 4
   %108 = fmul float %107, %37
   %109 = fdiv float %108, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
 110:                                              ; preds = %81
   br i1 %.not23.i, label %117, label %111
@@ -10589,7 +10589,7 @@ define dso_local float @fonsDrawText(ptr noundef %0, float noundef %1, float nou
   %114 = fneg float %113
   %115 = fmul float %37, %114
   %116 = fdiv float %115, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
 117:                                              ; preds = %110
   %118 = and i32 %82, 16
@@ -10605,12 +10605,12 @@ define dso_local float @fonsDrawText(ptr noundef %0, float noundef %1, float nou
   %125 = fmul float %124, -5.000000e-01
   %126 = fmul float %125, %37
   %127 = fdiv float %126, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
 128:                                              ; preds = %117
   %129 = and i32 %82, 96
   %or.cond31.not.i = icmp eq i32 %129, 32
-  br i1 %or.cond31.not.i, label %130, label %fons__getVertAlign.exit
+  br i1 %or.cond31.not.i, label %130, label %fons__getVertAlign.argprom.exit
 
 130:                                              ; preds = %128
   %131 = getelementptr inbounds i8, ptr %32, i64 140
@@ -10618,16 +10618,16 @@ define dso_local float @fonsDrawText(ptr noundef %0, float noundef %1, float nou
   %133 = fneg float %132
   %134 = fmul float %37, %133
   %135 = fdiv float %134, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
-fons__getVertAlign.exit:                          ; preds = %87, %94, %103, %105, %111, %119, %128, %130
+fons__getVertAlign.argprom.exit:                  ; preds = %87, %94, %103, %105, %111, %119, %128, %130
   %.0.i = phi float [ %91, %87 ], [ %102, %94 ], [ %109, %105 ], [ %116, %111 ], [ %127, %119 ], [ %135, %130 ], [ 0.000000e+00, %103 ], [ 0.000000e+00, %128 ]
   %136 = fadd float %2, %.0.i
   store float %136, ptr %7, align 4
   %.not7386 = icmp eq ptr %3, %.063
   br i1 %.not7386, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %fons__getVertAlign.exit
+.lr.ph:                                           ; preds = %fons__getVertAlign.argprom.exit
   %137 = getelementptr inbounds i8, ptr %14, i64 20
   %138 = getelementptr inbounds i8, ptr %0, i64 20600
   %139 = getelementptr inbounds i8, ptr %0, i64 80
@@ -10926,7 +10926,7 @@ fons__decutf8.exit:                               ; preds = %166, %170
   %.not73 = icmp eq ptr %340, %.063
   br i1 %.not73, label %._crit_edge, label %159, !llvm.loop !62
 
-._crit_edge:                                      ; preds = %.critedge, %fons__getVertAlign.exit
+._crit_edge:                                      ; preds = %.critedge, %fons__getVertAlign.argprom.exit
   %341 = getelementptr inbounds i8, ptr %0, i64 80
   %342 = load i32, ptr %341, align 8
   %343 = getelementptr inbounds i8, ptr %0, i64 88
@@ -11087,7 +11087,7 @@ define dso_local float @fonsTextBounds(ptr nocapture noundef %0, float noundef %
   %71 = load float, ptr %70, align 8
   %72 = fmul float %71, %38
   %73 = fdiv float %72, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
 74:                                               ; preds = %68
   %75 = and i32 %64, 16
@@ -11103,19 +11103,19 @@ define dso_local float @fonsTextBounds(ptr nocapture noundef %0, float noundef %
   %82 = fmul float %81, 5.000000e-01
   %83 = fmul float %82, %38
   %84 = fdiv float %83, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
 85:                                               ; preds = %74
   %86 = and i32 %64, 96
   %or.cond.not.i = icmp eq i32 %86, 32
-  br i1 %or.cond.not.i, label %87, label %fons__getVertAlign.exit
+  br i1 %or.cond.not.i, label %87, label %fons__getVertAlign.argprom.exit
 
 87:                                               ; preds = %85
   %88 = getelementptr inbounds i8, ptr %33, i64 140
   %89 = load float, ptr %88, align 4
   %90 = fmul float %89, %38
   %91 = fdiv float %90, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
 92:                                               ; preds = %37
   br i1 %.not23.i, label %99, label %93
@@ -11126,7 +11126,7 @@ define dso_local float @fonsTextBounds(ptr nocapture noundef %0, float noundef %
   %96 = fneg float %95
   %97 = fmul float %38, %96
   %98 = fdiv float %97, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
 99:                                               ; preds = %92
   %100 = and i32 %64, 16
@@ -11142,12 +11142,12 @@ define dso_local float @fonsTextBounds(ptr nocapture noundef %0, float noundef %
   %107 = fmul float %106, -5.000000e-01
   %108 = fmul float %107, %38
   %109 = fdiv float %108, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
 110:                                              ; preds = %99
   %111 = and i32 %64, 96
   %or.cond31.not.i = icmp eq i32 %111, 32
-  br i1 %or.cond31.not.i, label %112, label %fons__getVertAlign.exit
+  br i1 %or.cond31.not.i, label %112, label %fons__getVertAlign.argprom.exit
 
 112:                                              ; preds = %110
   %113 = getelementptr inbounds i8, ptr %33, i64 140
@@ -11155,22 +11155,22 @@ define dso_local float @fonsTextBounds(ptr nocapture noundef %0, float noundef %
   %115 = fneg float %114
   %116 = fmul float %38, %115
   %117 = fdiv float %116, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
-fons__getVertAlign.exit:                          ; preds = %69, %76, %85, %87, %93, %101, %110, %112
+fons__getVertAlign.argprom.exit:                  ; preds = %69, %76, %85, %87, %93, %101, %110, %112
   %.0.i = phi float [ %73, %69 ], [ %84, %76 ], [ %91, %87 ], [ %98, %93 ], [ %109, %101 ], [ %117, %112 ], [ 0.000000e+00, %85 ], [ 0.000000e+00, %110 ]
   %118 = fadd float %2, %.0.i
   store float %118, ptr %8, align 4
   %119 = icmp eq ptr %4, null
   br i1 %119, label %120, label %123
 
-120:                                              ; preds = %fons__getVertAlign.exit
+120:                                              ; preds = %fons__getVertAlign.argprom.exit
   %121 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #58
   %122 = getelementptr inbounds i8, ptr %3, i64 %121
   br label %123
 
-123:                                              ; preds = %120, %fons__getVertAlign.exit
-  %.080 = phi ptr [ %122, %120 ], [ %4, %fons__getVertAlign.exit ]
+123:                                              ; preds = %120, %fons__getVertAlign.argprom.exit
+  %.080 = phi ptr [ %122, %120 ], [ %4, %fons__getVertAlign.argprom.exit ]
   %.not95117 = icmp eq ptr %3, %.080
   br i1 %.not95117, label %._crit_edge, label %.lr.ph
 
@@ -11765,7 +11765,7 @@ fons__allocGlyph.exit:                            ; preds = %._crit_edge.i, %._c
 
 ._crit_edge:                                      ; preds = %262, %.preheader
   %271 = icmp sgt i16 %4, 0
-  br i1 %271, label %272, label %fons__blur.exit
+  br i1 %271, label %272, label %fons__blur.argprom.exit
 
 272:                                              ; preds = %._crit_edge
   store i32 0, ptr %19, align 8
@@ -11792,7 +11792,7 @@ fons__allocGlyph.exit:                            ; preds = %._crit_edge.i, %._c
 
 fons__blurCols.exit.thread.i:                     ; preds = %272
   call fastcc void @fons__blurRows(ptr noundef %282, i32 noundef %153, i32 noundef %155, i32 noundef %278, i32 noundef %290)
-  br label %fons__blur.exit
+  br label %fons__blur.argprom.exit
 
 .preheader.lr.ph.i.i:                             ; preds = %272
   %291 = icmp sgt i32 %153, 1
@@ -11932,7 +11932,7 @@ fons__blurCols.exit.i:                            ; preds = %.preheader.i.i, %._
   %352 = getelementptr inbounds i8, ptr %.03241.us.us.i31.i, i64 %294
   %353 = add nuw nsw i32 %.02942.us.us.i30.i, 1
   %exitcond69.not.i41.i = icmp eq i32 %353, %155
-  br i1 %exitcond69.not.i41.i, label %fons__blur.exit, label %.preheader.us.us.i29.i, !llvm.loop !70
+  br i1 %exitcond69.not.i41.i, label %fons__blur.argprom.exit, label %.preheader.us.us.i29.i, !llvm.loop !70
 
 .preheader.i23.i:                                 ; preds = %fons__blurCols.exit.i, %.preheader.i23.i
   %.02942.i24.i = phi i32 [ %356, %.preheader.i23.i ], [ 0, %fons__blurCols.exit.i ]
@@ -11943,9 +11943,9 @@ fons__blurCols.exit.i:                            ; preds = %.preheader.i.i, %._
   %355 = getelementptr inbounds i8, ptr %.03241.i25.i, i64 %294
   %356 = add nuw nsw i32 %.02942.i24.i, 1
   %exitcond.not.i26.i = icmp eq i32 %356, %155
-  br i1 %exitcond.not.i26.i, label %fons__blur.exit, label %.preheader.i23.i, !llvm.loop !70
+  br i1 %exitcond.not.i26.i, label %fons__blur.argprom.exit, label %.preheader.i23.i, !llvm.loop !70
 
-fons__blur.exit:                                  ; preds = %.preheader.i23.i, %._crit_edge40.us.us.i40.i, %fons__blurCols.exit.thread.i, %._crit_edge
+fons__blur.argprom.exit:                          ; preds = %.preheader.i23.i, %._crit_edge40.us.us.i40.i, %fons__blurCols.exit.thread.i, %._crit_edge
   %357 = getelementptr inbounds i8, ptr %0, i64 80
   %358 = load i32, ptr %357, align 8
   %359 = load i16, ptr %201, align 4
@@ -11972,8 +11972,8 @@ fons__blur.exit:                                  ; preds = %.preheader.i23.i, %
   store i32 %376, ptr %372, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %162, %197, %165, %52, %58, %6, %fons__blur.exit
-  %.0 = phi ptr [ %.1165, %fons__blur.exit ], [ null, %6 ], [ %41, %58 ], [ %41, %52 ], [ null, %165 ], [ %.1165, %197 ], [ null, %162 ]
+.critedge:                                        ; preds = %162, %197, %165, %52, %58, %6, %fons__blur.argprom.exit
+  %.0 = phi ptr [ %.1165, %fons__blur.argprom.exit ], [ null, %6 ], [ %41, %58 ], [ %41, %52 ], [ null, %165 ], [ %.1165, %197 ], [ null, %162 ]
   ret ptr %.0
 }
 
@@ -12332,7 +12332,7 @@ define dso_local range(i32 0, 2) i32 @fonsTextIterInit(ptr nocapture noundef %0,
   %90 = sitofp i16 %82 to float
   %91 = fmul float %89, %90
   %92 = fdiv float %91, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
 93:                                               ; preds = %86
   %94 = and i32 %81, 16
@@ -12349,12 +12349,12 @@ define dso_local range(i32 0, 2) i32 @fonsTextIterInit(ptr nocapture noundef %0,
   %102 = sitofp i16 %82 to float
   %103 = fmul float %101, %102
   %104 = fdiv float %103, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
 105:                                              ; preds = %93
   %106 = and i32 %81, 96
   %or.cond.not.i = icmp eq i32 %106, 32
-  br i1 %or.cond.not.i, label %107, label %fons__getVertAlign.exit
+  br i1 %or.cond.not.i, label %107, label %fons__getVertAlign.argprom.exit
 
 107:                                              ; preds = %105
   %108 = getelementptr inbounds i8, ptr %80, i64 140
@@ -12362,7 +12362,7 @@ define dso_local range(i32 0, 2) i32 @fonsTextIterInit(ptr nocapture noundef %0,
   %110 = sitofp i16 %82 to float
   %111 = fmul float %109, %110
   %112 = fdiv float %111, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
 113:                                              ; preds = %79
   br i1 %.not23.i, label %121, label %114
@@ -12374,7 +12374,7 @@ define dso_local range(i32 0, 2) i32 @fonsTextIterInit(ptr nocapture noundef %0,
   %118 = sitofp i16 %82 to float
   %119 = fmul float %118, %117
   %120 = fdiv float %119, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
 121:                                              ; preds = %113
   %122 = and i32 %81, 16
@@ -12391,12 +12391,12 @@ define dso_local range(i32 0, 2) i32 @fonsTextIterInit(ptr nocapture noundef %0,
   %130 = sitofp i16 %82 to float
   %131 = fmul float %129, %130
   %132 = fdiv float %131, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
 133:                                              ; preds = %121
   %134 = and i32 %81, 96
   %or.cond31.not.i = icmp eq i32 %134, 32
-  br i1 %or.cond31.not.i, label %135, label %fons__getVertAlign.exit
+  br i1 %or.cond31.not.i, label %135, label %fons__getVertAlign.argprom.exit
 
 135:                                              ; preds = %133
   %136 = getelementptr inbounds i8, ptr %80, i64 140
@@ -12405,21 +12405,21 @@ define dso_local range(i32 0, 2) i32 @fonsTextIterInit(ptr nocapture noundef %0,
   %139 = sitofp i16 %82 to float
   %140 = fmul float %139, %138
   %141 = fdiv float %140, 1.000000e+01
-  br label %fons__getVertAlign.exit
+  br label %fons__getVertAlign.argprom.exit
 
-fons__getVertAlign.exit:                          ; preds = %87, %95, %105, %107, %114, %123, %133, %135
+fons__getVertAlign.argprom.exit:                  ; preds = %87, %95, %105, %107, %114, %123, %133, %135
   %.0.i = phi float [ %92, %87 ], [ %104, %95 ], [ %112, %107 ], [ %120, %114 ], [ %132, %123 ], [ %141, %135 ], [ 0.000000e+00, %105 ], [ 0.000000e+00, %133 ]
   %142 = fadd float %3, %.0.i
   %143 = icmp eq ptr %5, null
   br i1 %143, label %144, label %147
 
-144:                                              ; preds = %fons__getVertAlign.exit
+144:                                              ; preds = %fons__getVertAlign.argprom.exit
   %145 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #58
   %146 = getelementptr inbounds i8, ptr %4, i64 %145
   br label %147
 
-147:                                              ; preds = %144, %fons__getVertAlign.exit
-  %.061 = phi ptr [ %146, %144 ], [ %5, %fons__getVertAlign.exit ]
+147:                                              ; preds = %144, %fons__getVertAlign.argprom.exit
+  %.061 = phi ptr [ %146, %144 ], [ %5, %fons__getVertAlign.argprom.exit ]
   %148 = getelementptr inbounds i8, ptr %1, i64 8
   store float %.060, ptr %148, align 8
   store float %.060, ptr %1, align 8
@@ -14873,7 +14873,7 @@ define dso_local noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noun
   br label %23
 
 23:                                               ; preds = %22, %21
-  %24 = call fastcc ptr @stbi__gif_load_next(ptr noundef %11, ptr noundef %10, ptr noundef %6, ptr noundef null)
+  %24 = call fastcc ptr @stbi__gif_load_next.argelim(ptr noundef %11, ptr noundef %10, ptr noundef %6, ptr noundef null)
   %25 = icmp eq ptr %24, %11
   %.not596068.i = icmp eq ptr %24, null
   %.not5969.i = or i1 %25, %.not596068.i
@@ -14951,7 +14951,7 @@ define dso_local noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noun
   br label %62
 
 62:                                               ; preds = %58, %48
-  %63 = call fastcc ptr @stbi__gif_load_next(ptr noundef %11, ptr noundef %10, ptr noundef %6, ptr noundef %.1.i)
+  %63 = call fastcc ptr @stbi__gif_load_next.argelim(ptr noundef %11, ptr noundef %10, ptr noundef %6, ptr noundef %.1.i)
   %64 = icmp eq ptr %63, %11
   %.not5960.i = icmp eq ptr %63, null
   %.not59.i = or i1 %64, %.not5960.i
@@ -15096,7 +15096,7 @@ define internal fastcc noundef ptr @stbi__loadf_main(ptr noundef nonnull %0, ptr
   br i1 %.not, label %38, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call fastcc ptr @stbi__hdr_load(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  %9 = tail call fastcc ptr @stbi__hdr_load.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   %.not30 = icmp eq ptr %9, null
   br i1 %.not30, label %stbi__float_postprocess.exit, label %10
 
@@ -22058,7 +22058,7 @@ define dso_local void @nvgFill(ptr noundef %0) local_unnamed_addr #3 {
 
 18:                                               ; preds = %1, %12, %15
   %.sink = phi float [ %17, %15 ], [ 0.000000e+00, %12 ], [ 0.000000e+00, %1 ]
-  tail call fastcc void @nvg__expandFill(ptr noundef nonnull %0, float noundef %.sink)
+  tail call fastcc void @nvg__expandFill.argelim(ptr noundef nonnull %0, float noundef %.sink)
   %19 = getelementptr inbounds i8, ptr %8, i64 188
   %20 = load float, ptr %19, align 4
   %21 = getelementptr inbounds i8, ptr %2, i64 52
@@ -22160,14 +22160,14 @@ define internal fastcc void @nvg__flattenPaths(ptr nocapture noundef readonly %0
   %16 = getelementptr inbounds i8, ptr %0, i64 112
   br label %17
 
-17:                                               ; preds = %.lr.ph, %nvg__lastPoint.exit.thread
-  %.0107127 = phi i32 [ 0, %.lr.ph ], [ %121, %nvg__lastPoint.exit.thread ]
+17:                                               ; preds = %.lr.ph, %nvg__lastPoint.argprom.exit.thread
+  %.0107127 = phi i32 [ 0, %.lr.ph ], [ %121, %nvg__lastPoint.argprom.exit.thread ]
   %18 = load ptr, ptr %16, align 8
   %19 = zext nneg i32 %.0107127 to i64
   %20 = getelementptr inbounds float, ptr %18, i64 %19
   %21 = load float, ptr %20, align 4
   %22 = fptosi float %21 to i32
-  switch i32 %22, label %nvg__lastPoint.exit.thread [
+  switch i32 %22, label %nvg__lastPoint.argprom.exit.thread [
     i32 0, label %23
     i32 1, label %65
     i32 2, label %70
@@ -22237,7 +22237,7 @@ nvg__addPath.exit:                                ; preds = %29, %44
   %63 = getelementptr i8, ptr %60, i64 8
   %64 = load float, ptr %63, align 4
   tail call fastcc void @nvg__addPoint(ptr noundef nonnull %0, float noundef %62, float noundef %64, i32 noundef 1)
-  br label %nvg__lastPoint.exit.thread
+  br label %nvg__lastPoint.argprom.exit.thread
 
 65:                                               ; preds = %17
   %66 = getelementptr i8, ptr %20, i64 4
@@ -22245,24 +22245,24 @@ nvg__addPath.exit:                                ; preds = %29, %44
   %68 = getelementptr i8, ptr %20, i64 8
   %69 = load float, ptr %68, align 4
   tail call fastcc void @nvg__addPoint(ptr noundef nonnull %0, float noundef %67, float noundef %69, i32 noundef 1)
-  br label %nvg__lastPoint.exit.thread
+  br label %nvg__lastPoint.argprom.exit.thread
 
 70:                                               ; preds = %17
   %.val = load ptr, ptr %4, align 8
   %71 = getelementptr inbounds i8, ptr %.val, i64 8
   %72 = load i32, ptr %71, align 8
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %nvg__lastPoint.exit, label %nvg__lastPoint.exit.thread
+  br i1 %73, label %nvg__lastPoint.argprom.exit, label %nvg__lastPoint.argprom.exit.thread
 
-nvg__lastPoint.exit:                              ; preds = %70
+nvg__lastPoint.argprom.exit:                      ; preds = %70
   %74 = load ptr, ptr %.val, align 8
   %75 = zext nneg i32 %72 to i64
   %76 = getelementptr %struct.NVGpoint, ptr %74, i64 %75
   %77 = getelementptr i8, ptr %76, i64 -32
   %.not112 = icmp eq ptr %77, null
-  br i1 %.not112, label %nvg__lastPoint.exit.thread, label %78
+  br i1 %.not112, label %nvg__lastPoint.argprom.exit.thread, label %78
 
-78:                                               ; preds = %nvg__lastPoint.exit
+78:                                               ; preds = %nvg__lastPoint.argprom.exit
   %79 = getelementptr i8, ptr %20, i64 4
   %80 = getelementptr i8, ptr %20, i64 12
   %81 = getelementptr i8, ptr %20, i64 20
@@ -22279,28 +22279,28 @@ nvg__lastPoint.exit:                              ; preds = %70
   %92 = getelementptr i8, ptr %20, i64 24
   %93 = load float, ptr %92, align 4
   tail call fastcc void @nvg__tesselateBezier(ptr noundef nonnull %0, float noundef %82, float noundef %84, float noundef %85, float noundef %87, float noundef %88, float noundef %90, float noundef %91, float noundef %93, i32 noundef 0, i32 noundef 1)
-  br label %nvg__lastPoint.exit.thread
+  br label %nvg__lastPoint.argprom.exit.thread
 
 94:                                               ; preds = %17
   %.val113 = load ptr, ptr %4, align 8
   %95 = getelementptr inbounds i8, ptr %.val113, i64 24
   %96 = load i32, ptr %95, align 8
   %97 = icmp sgt i32 %96, 0
-  br i1 %97, label %nvg__lastPath.exit.i, label %nvg__lastPoint.exit.thread
+  br i1 %97, label %nvg__lastPath.argprom.exit.i, label %nvg__lastPoint.argprom.exit.thread
 
-nvg__lastPath.exit.i:                             ; preds = %94
+nvg__lastPath.argprom.exit.i:                     ; preds = %94
   %98 = getelementptr inbounds i8, ptr %.val113, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = zext nneg i32 %96 to i64
   %101 = getelementptr %struct.NVGpath, ptr %99, i64 %100
   %102 = getelementptr i8, ptr %101, i64 -56
   %103 = icmp eq ptr %102, null
-  br i1 %103, label %nvg__lastPoint.exit.thread, label %104
+  br i1 %103, label %nvg__lastPoint.argprom.exit.thread, label %104
 
-104:                                              ; preds = %nvg__lastPath.exit.i
+104:                                              ; preds = %nvg__lastPath.argprom.exit.i
   %105 = getelementptr i8, ptr %101, i64 -48
   store i8 1, ptr %105, align 8
-  br label %nvg__lastPoint.exit.thread
+  br label %nvg__lastPoint.argprom.exit.thread
 
 106:                                              ; preds = %17
   %107 = getelementptr i8, ptr %20, i64 4
@@ -22310,30 +22310,30 @@ nvg__lastPath.exit.i:                             ; preds = %94
   %110 = getelementptr inbounds i8, ptr %.val114, i64 24
   %111 = load i32, ptr %110, align 8
   %112 = icmp sgt i32 %111, 0
-  br i1 %112, label %nvg__lastPath.exit.i115, label %nvg__lastPoint.exit.thread
+  br i1 %112, label %nvg__lastPath.argprom.exit.i115, label %nvg__lastPoint.argprom.exit.thread
 
-nvg__lastPath.exit.i115:                          ; preds = %106
+nvg__lastPath.argprom.exit.i115:                  ; preds = %106
   %113 = getelementptr inbounds i8, ptr %.val114, i64 16
   %114 = load ptr, ptr %113, align 8
   %115 = zext nneg i32 %111 to i64
   %116 = getelementptr %struct.NVGpath, ptr %114, i64 %115
   %117 = getelementptr i8, ptr %116, i64 -56
   %118 = icmp eq ptr %117, null
-  br i1 %118, label %nvg__lastPoint.exit.thread, label %119
+  br i1 %118, label %nvg__lastPoint.argprom.exit.thread, label %119
 
-119:                                              ; preds = %nvg__lastPath.exit.i115
+119:                                              ; preds = %nvg__lastPath.argprom.exit.i115
   %120 = getelementptr i8, ptr %116, i64 -12
   store i32 %109, ptr %120, align 4
-  br label %nvg__lastPoint.exit.thread
+  br label %nvg__lastPoint.argprom.exit.thread
 
-nvg__lastPoint.exit.thread:                       ; preds = %17, %119, %nvg__lastPath.exit.i115, %106, %104, %nvg__lastPath.exit.i, %94, %nvg__lastPoint.exit, %78, %70, %65, %nvg__addPath.exit
-  %.sink = phi i32 [ 3, %65 ], [ 3, %nvg__addPath.exit ], [ 7, %70 ], [ 7, %78 ], [ 7, %nvg__lastPoint.exit ], [ 1, %94 ], [ 1, %nvg__lastPath.exit.i ], [ 1, %104 ], [ 2, %106 ], [ 2, %nvg__lastPath.exit.i115 ], [ 2, %119 ], [ 1, %17 ]
+nvg__lastPoint.argprom.exit.thread:               ; preds = %17, %119, %nvg__lastPath.argprom.exit.i115, %106, %104, %nvg__lastPath.argprom.exit.i, %94, %nvg__lastPoint.argprom.exit, %78, %70, %65, %nvg__addPath.exit
+  %.sink = phi i32 [ 3, %65 ], [ 3, %nvg__addPath.exit ], [ 7, %70 ], [ 7, %78 ], [ 7, %nvg__lastPoint.argprom.exit ], [ 1, %94 ], [ 1, %nvg__lastPath.argprom.exit.i ], [ 1, %104 ], [ 2, %106 ], [ 2, %nvg__lastPath.argprom.exit.i115 ], [ 2, %119 ], [ 1, %17 ]
   %121 = add nuw nsw i32 %.0107127, %.sink
   %122 = load i32, ptr %9, align 4
   %123 = icmp slt i32 %121, %122
   br i1 %123, label %17, label %._crit_edge, !llvm.loop !105
 
-._crit_edge:                                      ; preds = %nvg__lastPoint.exit.thread
+._crit_edge:                                      ; preds = %nvg__lastPoint.argprom.exit.thread
   %.pre = load i32, ptr %6, align 8
   %124 = icmp sgt i32 %.pre, 0
   %125 = getelementptr inbounds i8, ptr %5, i64 48
@@ -22570,13 +22570,13 @@ nvg__normalize.exit:                              ; preds = %.lr.ph132, %218
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nvg__expandFill(ptr nocapture noundef readonly %0, float noundef %1) unnamed_addr #3 {
+define internal fastcc void @nvg__expandFill.argelim(ptr nocapture noundef readonly %0, float noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8848
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8864
   %6 = load float, ptr %5, align 8
   %7 = fcmp ogt float %1, 0.000000e+00
-  tail call fastcc void @nvg__calculateJoins(ptr %4, float noundef %1, i32 noundef 4, float noundef 0x4003333340000000)
+  tail call fastcc void @nvg__calculateJoins.argprom(ptr %4, float noundef %1, i32 noundef 4, float noundef 0x4003333340000000)
   %8 = getelementptr inbounds i8, ptr %4, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
@@ -22880,7 +22880,7 @@ nvg__allocTempVerts.exit:                         ; preds = %._crit_edge, %47
   %.1171.val = load float, ptr %176, align 4
   %177 = getelementptr i8, ptr %.1171197, i64 12
   %.1171.val180 = load float, ptr %177, align 4
-  %178 = tail call fastcc ptr @nvg__bevelJoin(ptr noundef %.4199, float %.1171.val, float %.1171.val180, ptr noundef nonnull %.1173196, float noundef %.0174, float noundef %70, float noundef %.0175, float noundef 1.000000e+00)
+  %178 = tail call fastcc ptr @nvg__bevelJoin.argprom.argelim(ptr noundef %.4199, float %.1171.val, float %.1171.val180, ptr noundef nonnull %.1173196, float noundef %.0174, float noundef %70, float noundef %.0175, float noundef 1.000000e+00)
   br label %205
 
 179:                                              ; preds = %.lr.ph201
@@ -23075,7 +23075,7 @@ define dso_local void @nvgStroke(ptr noundef %0) local_unnamed_addr #3 {
   %67 = load i32, ptr %66, align 4
   %68 = getelementptr inbounds i8, ptr %8, i64 176
   %69 = load float, ptr %68, align 4
-  tail call fastcc void @nvg__expandStroke(ptr noundef nonnull %0, float noundef %62, float noundef %63, i32 noundef %65, i32 noundef %67, float noundef %69)
+  tail call fastcc void @nvg__expandStroke.argelim(ptr noundef nonnull %0, float noundef %62, float noundef %63, i32 noundef %65, i32 noundef %67, float noundef %69)
   br label %78
 
 70:                                               ; preds = %58, %47
@@ -23086,7 +23086,7 @@ define dso_local void @nvgStroke(ptr noundef %0) local_unnamed_addr #3 {
   %75 = load i32, ptr %74, align 4
   %76 = getelementptr inbounds i8, ptr %8, i64 176
   %77 = load float, ptr %76, align 4
-  tail call fastcc void @nvg__expandStroke(ptr noundef nonnull %0, float noundef %71, float noundef 0.000000e+00, i32 noundef %73, i32 noundef %75, float noundef %77)
+  tail call fastcc void @nvg__expandStroke.argelim(ptr noundef nonnull %0, float noundef %71, float noundef 0.000000e+00, i32 noundef %73, i32 noundef %75, float noundef %77)
   br label %78
 
 78:                                               ; preds = %70, %61
@@ -23142,7 +23142,7 @@ define dso_local void @nvgStroke(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nvg__expandStroke(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) unnamed_addr #3 {
+define internal fastcc void @nvg__expandStroke.argelim(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) unnamed_addr #3 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8848
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8856
@@ -23160,7 +23160,7 @@ define internal fastcc void @nvg__expandStroke(ptr nocapture noundef readonly %0
   %.0189 = select i1 %20, float 5.000000e-01, float 0.000000e+00
   %.0188 = select i1 %20, float 5.000000e-01, float 1.000000e+00
   %.val = load ptr, ptr %7, align 8
-  tail call fastcc void @nvg__calculateJoins(ptr %.val, float noundef %19, i32 noundef %4, float noundef %5)
+  tail call fastcc void @nvg__calculateJoins.argprom(ptr %.val, float noundef %19, i32 noundef %4, float noundef %5)
   %21 = getelementptr inbounds i8, ptr %8, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = icmp sgt i32 %22, 0
@@ -23323,9 +23323,9 @@ nvg__allocTempVerts.exit:                         ; preds = %._crit_edge, %88
   %106 = fneg float %19
   br label %107
 
-107:                                              ; preds = %.lr.ph276, %nvg__roundCapEnd.exit
-  %indvars.iv301 = phi i64 [ 0, %.lr.ph276 ], [ %indvars.iv.next302, %nvg__roundCapEnd.exit ]
-  %.0180275 = phi ptr [ %95, %.lr.ph276 ], [ %.3, %nvg__roundCapEnd.exit ]
+107:                                              ; preds = %.lr.ph276, %nvg__roundCapEnd.argprom.exit
+  %indvars.iv301 = phi i64 [ 0, %.lr.ph276 ], [ %indvars.iv.next302, %nvg__roundCapEnd.argprom.exit ]
+  %.0180275 = phi ptr [ %95, %.lr.ph276 ], [ %.3, %nvg__roundCapEnd.argprom.exit ]
   %108 = load ptr, ptr %99, align 8
   %109 = getelementptr inbounds %struct.NVGpath, ptr %108, i64 %indvars.iv301
   %110 = load ptr, ptr %8, align 8
@@ -23510,9 +23510,9 @@ nvg__normalize.exit:                              ; preds = %107
   %223 = getelementptr inbounds i8, ptr %.02.i, i64 32
   %224 = add nuw nsw i32 %.0481.i, 1
   %exitcond.not.i = icmp eq i32 %224, %18
-  br i1 %exitcond.not.i, label %nvg__roundCapStart.exit, label %204, !llvm.loop !117
+  br i1 %exitcond.not.i, label %nvg__roundCapStart.argprom.exit, label %204, !llvm.loop !117
 
-nvg__roundCapStart.exit:                          ; preds = %204
+nvg__roundCapStart.argprom.exit:                  ; preds = %204
   %225 = tail call float @llvm.fmuladd.f32(float %.0235, float %19, float %130)
   %226 = tail call float @llvm.fmuladd.f32(float %202, float %19, float %135)
   store float %225, ptr %223, align 4
@@ -23535,12 +23535,12 @@ nvg__roundCapStart.exit:                          ; preds = %204
   %236 = getelementptr inbounds i8, ptr %.02.i, i64 64
   br label %237
 
-237:                                              ; preds = %119, %nvg__normalize.exit, %143, %nvg__roundCapStart.exit, %172
-  %.0175250 = phi i32 [ %128, %143 ], [ %128, %172 ], [ %128, %nvg__roundCapStart.exit ], [ %121, %119 ], [ %128, %nvg__normalize.exit ]
-  %.0176248 = phi i32 [ 1, %143 ], [ 1, %172 ], [ 1, %nvg__roundCapStart.exit ], [ 0, %119 ], [ 1, %nvg__normalize.exit ]
-  %.0177246 = phi ptr [ %125, %143 ], [ %125, %172 ], [ %125, %nvg__roundCapStart.exit ], [ %113, %119 ], [ %125, %nvg__normalize.exit ]
-  %.0178244 = phi ptr [ %113, %143 ], [ %113, %172 ], [ %113, %nvg__roundCapStart.exit ], [ %124, %119 ], [ %113, %nvg__normalize.exit ]
-  %.0181 = phi ptr [ %171, %143 ], [ %200, %172 ], [ %236, %nvg__roundCapStart.exit ], [ %.0180275, %119 ], [ %.0180275, %nvg__normalize.exit ]
+237:                                              ; preds = %119, %nvg__normalize.exit, %143, %nvg__roundCapStart.argprom.exit, %172
+  %.0175250 = phi i32 [ %128, %143 ], [ %128, %172 ], [ %128, %nvg__roundCapStart.argprom.exit ], [ %121, %119 ], [ %128, %nvg__normalize.exit ]
+  %.0176248 = phi i32 [ 1, %143 ], [ 1, %172 ], [ 1, %nvg__roundCapStart.argprom.exit ], [ 0, %119 ], [ 1, %nvg__normalize.exit ]
+  %.0177246 = phi ptr [ %125, %143 ], [ %125, %172 ], [ %125, %nvg__roundCapStart.argprom.exit ], [ %113, %119 ], [ %125, %nvg__normalize.exit ]
+  %.0178244 = phi ptr [ %113, %143 ], [ %113, %172 ], [ %113, %nvg__roundCapStart.argprom.exit ], [ %124, %119 ], [ %113, %nvg__normalize.exit ]
+  %.0181 = phi ptr [ %171, %143 ], [ %200, %172 ], [ %236, %nvg__roundCapStart.argprom.exit ], [ %.0180275, %119 ], [ %.0180275, %nvg__normalize.exit ]
   %238 = icmp slt i32 %.0176248, %.0175250
   br i1 %238, label %.lr.ph269, label %._crit_edge270
 
@@ -23699,7 +23699,7 @@ nvg__chooseBevel.exit.i:                          ; preds = %264, %258
   %327 = load float, ptr %256, align 4
   %328 = tail call float @llvm.fmuladd.f32(float %250, float %19, float %327)
   store float %326, ptr %324, align 4
-  br label %nvg__roundJoin.exit
+  br label %nvg__roundJoin.argprom.exit
 
 329:                                              ; preds = %245
   br i1 %.not.i142.i, label %336, label %330
@@ -23819,9 +23819,9 @@ nvg__chooseBevel.exit144.i:                       ; preds = %336, %330
   store float 1.000000e+00, ptr %396, align 4
   %397 = getelementptr inbounds i8, ptr %.pn.lcssa.i, i64 48
   store float %.09.i, ptr %397, align 4
-  br label %nvg__roundJoin.exit
+  br label %nvg__roundJoin.argprom.exit
 
-nvg__roundJoin.exit:                              ; preds = %._crit_edge.i, %._crit_edge24.i
+nvg__roundJoin.argprom.exit:                      ; preds = %._crit_edge.i, %._crit_edge24.i
   %.pn.lcssa.sink33.i = phi ptr [ %.pn.lcssa.i, %._crit_edge24.i ], [ %.pn141.lcssa.i, %._crit_edge.i ]
   %storemerge.i143.sink.i = phi float [ %storemerge.i143.i, %._crit_edge24.i ], [ %328, %._crit_edge.i ]
   %398 = getelementptr inbounds i8, ptr %.pn.lcssa.sink33.i, i64 52
@@ -23834,7 +23834,7 @@ nvg__roundJoin.exit:                              ; preds = %._crit_edge.i, %._c
   br label %429
 
 401:                                              ; preds = %242
-  %402 = tail call fastcc ptr @nvg__bevelJoin(ptr noundef %.1182265, float %.1179.val201, float %.1179.val202, ptr noundef nonnull %.1267, float noundef %19, float noundef %19, float noundef %.0189, float noundef %.0188)
+  %402 = tail call fastcc ptr @nvg__bevelJoin.argprom.argelim(ptr noundef %.1182265, float %.1179.val201, float %.1179.val202, ptr noundef nonnull %.1267, float noundef %19, float noundef %19, float noundef %.0189, float noundef %.0188)
   br label %429
 
 403:                                              ; preds = %.lr.ph269
@@ -23873,8 +23873,8 @@ nvg__roundJoin.exit:                              ; preds = %._crit_edge.i, %._c
   %428 = getelementptr inbounds i8, ptr %.1182265, i64 32
   br label %429
 
-429:                                              ; preds = %nvg__roundJoin.exit, %401, %403
-  %.2 = phi ptr [ %.1.i, %nvg__roundJoin.exit ], [ %402, %401 ], [ %428, %403 ]
+429:                                              ; preds = %nvg__roundJoin.argprom.exit, %401, %403
+  %.2 = phi ptr [ %.1.i, %nvg__roundJoin.argprom.exit ], [ %402, %401 ], [ %428, %403 ]
   %430 = getelementptr inbounds i8, ptr %.1267, i64 32
   %431 = add nuw nsw i32 %.0190264, 1
   %exitcond300.not = icmp eq i32 %431, %.0175250
@@ -23903,7 +23903,7 @@ nvg__roundJoin.exit:                              ; preds = %._crit_edge.i, %._c
   %442 = getelementptr inbounds i8, ptr %.0180275, i64 20
   %443 = load float, ptr %442, align 4
   store float %441, ptr %439, align 4
-  br label %nvg__roundCapEnd.exit.sink.split
+  br label %nvg__roundCapEnd.argprom.exit.sink.split
 
 nvg__normalize.exit212:                           ; preds = %._crit_edge270
   %444 = load float, ptr %.1.lcssa, align 4
@@ -23923,7 +23923,7 @@ nvg__normalize.exit212:                           ; preds = %._crit_edge270
   %457 = fmul float %451, %455
   %.1238 = select i1 %454, float %456, float %446
   %.1236 = select i1 %454, float %457, float %451
-  switch i32 %3, label %nvg__roundCapEnd.exit [
+  switch i32 %3, label %nvg__roundCapEnd.argprom.exit [
     i32 0, label %458
     i32 2, label %483
     i32 1, label %508
@@ -23967,7 +23967,7 @@ nvg__normalize.exit212:                           ; preds = %._crit_edge270
   %481 = tail call float @llvm.fmuladd.f32(float %.1238, float %2, float %469)
   %482 = tail call float @llvm.fmuladd.f32(float %.1236, float %2, float %470)
   store float %481, ptr %480, align 4
-  br label %nvg__roundCapEnd.exit.sink.split
+  br label %nvg__roundCapEnd.argprom.exit.sink.split
 
 483:                                              ; preds = %nvg__normalize.exit212
   %484 = tail call float @llvm.fmuladd.f32(float %.1238, float %102, float %444)
@@ -24007,7 +24007,7 @@ nvg__normalize.exit212:                           ; preds = %._crit_edge270
   %506 = tail call float @llvm.fmuladd.f32(float %.1238, float %2, float %494)
   %507 = tail call float @llvm.fmuladd.f32(float %.1236, float %2, float %495)
   store float %506, ptr %505, align 4
-  br label %nvg__roundCapEnd.exit.sink.split
+  br label %nvg__roundCapEnd.argprom.exit.sink.split
 
 508:                                              ; preds = %nvg__normalize.exit212
   %509 = fneg float %.1238
@@ -24067,9 +24067,9 @@ nvg__normalize.exit212:                           ; preds = %._crit_edge270
   %541 = add nuw nsw i32 %.0482.i, 1
   %.0.i216 = getelementptr inbounds i8, ptr %.04.i, i64 32
   %exitcond.not.i217 = icmp eq i32 %541, %18
-  br i1 %exitcond.not.i217, label %nvg__roundCapEnd.exit, label %522, !llvm.loop !121
+  br i1 %exitcond.not.i217, label %nvg__roundCapEnd.argprom.exit, label %522, !llvm.loop !121
 
-nvg__roundCapEnd.exit.sink.split:                 ; preds = %432, %483, %458
+nvg__roundCapEnd.argprom.exit.sink.split:         ; preds = %432, %483, %458
   %.sink315 = phi i64 [ 52, %458 ], [ 52, %483 ], [ 20, %432 ]
   %.sink313 = phi float [ %482, %458 ], [ %507, %483 ], [ %443, %432 ]
   %.sink312 = phi i64 [ 56, %458 ], [ 56, %483 ], [ 24, %432 ]
@@ -24083,10 +24083,10 @@ nvg__roundCapEnd.exit.sink.split:                 ; preds = %432, %483, %458
   %544 = getelementptr inbounds i8, ptr %.1182.lcssa, i64 %.sink310
   store float %.sink308, ptr %544, align 4
   %545 = getelementptr inbounds i8, ptr %.1182.lcssa, i64 %.sink
-  br label %nvg__roundCapEnd.exit
+  br label %nvg__roundCapEnd.argprom.exit
 
-nvg__roundCapEnd.exit:                            ; preds = %522, %nvg__roundCapEnd.exit.sink.split, %nvg__normalize.exit212
-  %.3 = phi ptr [ %.1182.lcssa, %nvg__normalize.exit212 ], [ %545, %nvg__roundCapEnd.exit.sink.split ], [ %.0.i216, %522 ]
+nvg__roundCapEnd.argprom.exit:                    ; preds = %522, %nvg__roundCapEnd.argprom.exit.sink.split, %nvg__normalize.exit212
+  %.3 = phi ptr [ %.1182.lcssa, %nvg__normalize.exit212 ], [ %545, %nvg__roundCapEnd.argprom.exit.sink.split ], [ %.0.i216, %522 ]
   %546 = ptrtoint ptr %.3 to i64
   %547 = ptrtoint ptr %.0180275 to i64
   %548 = sub i64 %546, %547
@@ -24100,7 +24100,7 @@ nvg__roundCapEnd.exit:                            ; preds = %522, %nvg__roundCap
   %554 = icmp slt i64 %indvars.iv.next302, %553
   br i1 %554, label %107, label %nvg__allocTempVerts.exit.thread, !llvm.loop !122
 
-nvg__allocTempVerts.exit.thread:                  ; preds = %nvg__roundCapEnd.exit, %.preheader, %79, %nvg__allocTempVerts.exit
+nvg__allocTempVerts.exit.thread:                  ; preds = %nvg__roundCapEnd.argprom.exit, %.preheader, %79, %nvg__allocTempVerts.exit
   ret void
 }
 
@@ -26492,7 +26492,7 @@ define dso_local void @nvgTextBoxBounds(ptr nocapture noundef %0, float noundef 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__tesselate_curve(ptr noundef %0, ptr nocapture noundef nonnull %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #40 {
+define internal fastcc void @stbtt__tesselate_curve.argelim(ptr noundef %0, ptr nocapture noundef nonnull %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #40 {
   %11 = icmp sgt i32 %9, 16
   br i1 %11, label %.loopexit, label %.lr.ph.preheader
 
@@ -26530,7 +26530,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   %27 = fadd float %.tr5164, %.tr5366
   %28 = fmul float %27, 5.000000e-01
   %29 = add i32 %.tr5767, 1
-  tail call fastcc void @stbtt__tesselate_curve(ptr noundef %0, ptr noundef %1, float noundef %.tr5063, float noundef %.tr5164, float noundef %26, float noundef %28, float noundef %14, float noundef %15, float noundef %8, i32 noundef %29)
+  tail call fastcc void @stbtt__tesselate_curve.argelim(ptr noundef %0, ptr noundef %1, float noundef %.tr5063, float noundef %.tr5164, float noundef %26, float noundef %28, float noundef %14, float noundef %15, float noundef %8, i32 noundef %29)
   %30 = fadd float %6, %.tr5265
   %31 = fmul float %30, 5.000000e-01
   %32 = fadd float %7, %.tr5366
@@ -27480,7 +27480,7 @@ stbi__jpeg_test.exit:                             ; preds = %7, %26
 
 39:                                               ; preds = %33
   store ptr @.str.42, ptr @stbi__g_failure_reason, align 8
-  br label %stbi__jpeg_load.exit
+  br label %stbi__jpeg_load.argprom.exit
 
 40:                                               ; preds = %33
   %invariant.gep.i.i.i = getelementptr inbounds i8, ptr %34, i64 18136
@@ -29774,7 +29774,7 @@ stbi__jpeg_dequantize.exit.us.i.i.i.i:            ; preds = %1163
   %1184 = getelementptr inbounds i8, ptr %1183, i64 8
   %1185 = load i32, ptr %1184, align 8
   %1186 = icmp sgt i32 %1185, 0
-  br i1 %1186, label %.lr.ph.i.i286.i.i, label %stbi__jpeg_load.exit
+  br i1 %1186, label %.lr.ph.i.i286.i.i, label %stbi__jpeg_load.argprom.exit
 
 .lr.ph.i.i286.i.i:                                ; preds = %.loopexit357.i.i
   %wide.trip.count.i.i287.i.i = zext nneg i32 %1185 to i64
@@ -29821,7 +29821,7 @@ stbi__jpeg_dequantize.exit.us.i.i.i.i:            ; preds = %1163
 1202:                                             ; preds = %1201, %1198
   %indvars.iv.next.i.i290.i.i = add nuw nsw i64 %indvars.iv.i.i288.i.i, 1
   %exitcond.not.i.i291.i.i = icmp eq i64 %indvars.iv.next.i.i290.i.i, %wide.trip.count.i.i287.i.i
-  br i1 %exitcond.not.i.i291.i.i, label %stbi__jpeg_load.exit, label %1187, !llvm.loop !168
+  br i1 %exitcond.not.i.i291.i.i, label %stbi__jpeg_load.argprom.exit, label %1187, !llvm.loop !168
 
 stbi__decode_jpeg_image.exit.i.i:                 ; preds = %._crit_edge38.i.i.i.i, %1129
   %1203 = phi i32 [ %.pre.i, %1129 ], [ %1180, %._crit_edge38.i.i.i.i ]
@@ -29940,7 +29940,7 @@ stbi__decode_jpeg_image.exit.i.i:                 ; preds = %._crit_edge38.i.i.i
 
 stbi__cleanup_jpeg.exit300.i.i:                   ; preds = %1254, %1236
   store ptr @.str.41, ptr @stbi__g_failure_reason, align 8
-  br label %stbi__jpeg_load.exit
+  br label %stbi__jpeg_load.argprom.exit
 
 1255:                                             ; preds = %1228
   %1256 = load i32, ptr %1226, align 8
@@ -30115,7 +30115,7 @@ stbi__malloc_mad3.exit.thread.i.i:                ; preds = %stbi__malloc_mad3.e
 
 stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1322, %stbi__malloc_mad3.exit.thread.i.i
   store ptr @.str.41, ptr @stbi__g_failure_reason, align 8
-  br label %stbi__jpeg_load.exit
+  br label %stbi__jpeg_load.argprom.exit
 
 1323:                                             ; preds = %.loopexit.i.i, %.lr.ph422.i.i
   %1324 = phi ptr [ %.pre.i103.i, %.lr.ph422.i.i ], [ %1633, %.loopexit.i.i ]
@@ -30695,7 +30695,7 @@ stbi__cleanup_jpeg.exit320.i.i:                   ; preds = %stbi__cleanup_jpeg.
   %1660 = load i32, ptr %1659, align 4
   store i32 %1660, ptr %2, align 4
   %.not280.i.i = icmp eq ptr %3, null
-  br i1 %.not280.i.i, label %stbi__jpeg_load.exit, label %1661
+  br i1 %.not280.i.i, label %stbi__jpeg_load.argprom.exit, label %1661
 
 1661:                                             ; preds = %stbi__cleanup_jpeg.exit320.i.i
   %1662 = getelementptr inbounds i8, ptr %1657, i64 8
@@ -30703,9 +30703,9 @@ stbi__cleanup_jpeg.exit320.i.i:                   ; preds = %stbi__cleanup_jpeg.
   %.inv281.i.i = icmp slt i32 %1663, 3
   %1664 = select i1 %.inv281.i.i, i32 1, i32 3
   store i32 %1664, ptr %3, align 4
-  br label %stbi__jpeg_load.exit
+  br label %stbi__jpeg_load.argprom.exit
 
-stbi__jpeg_load.exit:                             ; preds = %1202, %39, %.loopexit357.i.i, %stbi__cleanup_jpeg.exit300.i.i, %stbi__cleanup_jpeg.exit311.i.i, %stbi__cleanup_jpeg.exit320.i.i, %1661
+stbi__jpeg_load.argprom.exit:                     ; preds = %1202, %39, %.loopexit357.i.i, %stbi__cleanup_jpeg.exit300.i.i, %stbi__cleanup_jpeg.exit311.i.i, %stbi__cleanup_jpeg.exit320.i.i, %1661
   %.0.i.i = phi ptr [ null, %39 ], [ null, %stbi__cleanup_jpeg.exit300.i.i ], [ null, %stbi__cleanup_jpeg.exit311.i.i ], [ %1298, %1661 ], [ %1298, %stbi__cleanup_jpeg.exit320.i.i ], [ null, %.loopexit357.i.i ], [ null, %1202 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %15)
@@ -31188,7 +31188,7 @@ stbi__bmp_test.exit:                              ; preds = %stbi__get16le.exit3
   store i32 255, ptr %1853, align 4
   %1854 = call fastcc ptr @stbi__bmp_parse_header(ptr noundef %0, ptr noundef %10)
   %1855 = icmp eq ptr %1854, null
-  br i1 %1855, label %stbi__bmp_load.exit, label %1856
+  br i1 %1855, label %stbi__bmp_load.argprom.exit, label %1856
 
 1856:                                             ; preds = %1852
   %1857 = getelementptr inbounds i8, ptr %0, i64 4
@@ -31268,7 +31268,7 @@ stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %stbi__mul2sizes_val
 
 1899:                                             ; preds = %stbi__mul2sizes_valid.exit12.i.i, %stbi__mul2sizes_valid.exit.i.i, %1888
   store ptr @.str.40, ptr @stbi__g_failure_reason, align 8
-  br label %stbi__bmp_load.exit
+  br label %stbi__bmp_load.argprom.exit
 
 stbi__mad3sizes_valid.exit.i:                     ; preds = %stbi__mul2sizes_valid.exit12.i.i, %stbi__mul2sizes_valid.exit.thread15.i.i
   br i1 %1894, label %stbi__mul2sizes_valid.exit.thread15.i.i.i, label %stbi__mul2sizes_valid.exit.i.i.i
@@ -31295,7 +31295,7 @@ stbi__malloc_mad3.exit.i:                         ; preds = %stbi__mul2sizes_val
 
 stbi__malloc_mad3.exit.thread.i:                  ; preds = %stbi__malloc_mad3.exit.i, %stbi__mul2sizes_valid.exit12.i.i.i, %stbi__mul2sizes_valid.exit.i.i.i
   store ptr @.str.41, ptr @stbi__g_failure_reason, align 8
-  br label %stbi__bmp_load.exit
+  br label %stbi__bmp_load.argprom.exit
 
 1905:                                             ; preds = %stbi__malloc_mad3.exit.i
   %1906 = icmp slt i32 %1873, 16
@@ -31320,7 +31320,7 @@ stbi__malloc_mad3.exit.thread.i:                  ; preds = %stbi__malloc_mad3.e
 1911:                                             ; preds = %1907
   tail call void @free(ptr noundef nonnull %1904) #57
   store ptr @.str.72, ptr @stbi__g_failure_reason, align 8
-  br label %stbi__bmp_load.exit
+  br label %stbi__bmp_load.argprom.exit
 
 1912:                                             ; preds = %stbi__get8.exit343.i, %.lr.ph43.i
   %1913 = phi ptr [ %.pre97.i, %.lr.ph43.i ], [ %1999, %stbi__get8.exit343.i ]
@@ -31598,7 +31598,7 @@ stbi__skip.exit.i:                                ; preds = %2026, %2021, %2009
 2036:                                             ; preds = %stbi__skip.exit.i
   tail call void @free(ptr noundef %1904) #57
   store ptr @.str.73, ptr @stbi__g_failure_reason, align 8
-  br label %stbi__bmp_load.exit
+  br label %stbi__bmp_load.argprom.exit
 
 .preheader19.i:                                   ; preds = %2034, %2030
   %.0291.ph.i = phi i32 [ %2035, %2034 ], [ %2033, %2030 ]
@@ -32244,7 +32244,7 @@ stbi__skip.exit384.i:                             ; preds = %2332, %2327, %2315
 2349:                                             ; preds = %.thread7.i
   tail call void @free(ptr noundef nonnull %1904) #57
   store ptr @.str.74, ptr @stbi__g_failure_reason, align 8
-  br label %stbi__bmp_load.exit
+  br label %stbi__bmp_load.argprom.exit
 
 stbi__high_bit.exit406.i:                         ; preds = %.thread7.i
   %2350 = icmp ugt i32 %1862, 65535
@@ -33009,7 +33009,7 @@ stbi__skip.exit451.i:                             ; preds = %2724, %2720
 2758:                                             ; preds = %.loopexit.i
   %2759 = tail call fastcc ptr @stbi__convert_format(ptr noundef nonnull %1904, i32 noundef %..i, i32 noundef %4, i32 noundef %.pre103.i, i32 noundef %2730)
   %2760 = icmp eq ptr %2759, null
-  br i1 %2760, label %stbi__bmp_load.exit, label %._crit_edge101.i
+  br i1 %2760, label %stbi__bmp_load.argprom.exit, label %._crit_edge101.i
 
 ._crit_edge101.i:                                 ; preds = %2758
   %.pre102.i = load i32, ptr %0, align 8
@@ -33022,14 +33022,14 @@ stbi__skip.exit451.i:                             ; preds = %2724, %2720
   %2763 = load i32, ptr %1857, align 4
   store i32 %2763, ptr %2, align 4
   %.not321.i = icmp eq ptr %3, null
-  br i1 %.not321.i, label %stbi__bmp_load.exit, label %2764
+  br i1 %.not321.i, label %stbi__bmp_load.argprom.exit, label %2764
 
 2764:                                             ; preds = %2761
   %2765 = load i32, ptr %1890, align 8
   store i32 %2765, ptr %3, align 4
-  br label %stbi__bmp_load.exit
+  br label %stbi__bmp_load.argprom.exit
 
-stbi__bmp_load.exit:                              ; preds = %1852, %1899, %stbi__malloc_mad3.exit.thread.i, %1911, %2036, %2349, %2758, %2761, %2764
+stbi__bmp_load.argprom.exit:                      ; preds = %1852, %1899, %stbi__malloc_mad3.exit.thread.i, %1911, %2036, %2349, %2758, %2761, %2764
   %.0.i = phi ptr [ null, %1911 ], [ null, %2036 ], [ null, %2349 ], [ null, %stbi__malloc_mad3.exit.thread.i ], [ null, %1899 ], [ null, %1852 ], [ null, %2758 ], [ %.0254.i, %2764 ], [ %.0254.i, %2761 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
@@ -33043,7 +33043,7 @@ stbi__bmp_load.exit:                              ; preds = %1852, %1899, %stbi_
 2768:                                             ; preds = %2766
   call void @llvm.lifetime.start.p0(i64 34928, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34928) %8, i8 0, i64 34928, i1 false)
-  %2769 = call fastcc ptr @stbi__gif_load_next(ptr noundef %0, ptr noundef %8, ptr noundef %3, ptr noundef null)
+  %2769 = call fastcc ptr @stbi__gif_load_next.argelim(ptr noundef %0, ptr noundef %8, ptr noundef %3, ptr noundef null)
   %2770 = icmp eq ptr %2769, %0
   %.not1.i = icmp eq ptr %2769, null
   %.not.i122 = or i1 %2770, %.not1.i
@@ -33057,23 +33057,23 @@ stbi__bmp_load.exit:                              ; preds = %1852, %1899, %stbi_
   store i32 %2774, ptr %2, align 4
   %2775 = and i32 %4, -5
   %or.cond.not.i = icmp eq i32 %2775, 0
-  br i1 %or.cond.not.i, label %stbi__gif_load.exit, label %2776
+  br i1 %or.cond.not.i, label %stbi__gif_load.argprom.exit, label %2776
 
 2776:                                             ; preds = %2771
   %2777 = call fastcc ptr @stbi__convert_format(ptr noundef nonnull %2769, i32 noundef 4, i32 noundef %4, i32 noundef %2772, i32 noundef %2774)
-  br label %stbi__gif_load.exit
+  br label %stbi__gif_load.argprom.exit
 
 2778:                                             ; preds = %2768
   %2779 = getelementptr inbounds i8, ptr %8, i64 8
   %2780 = load ptr, ptr %2779, align 8
   %.not15.i = icmp eq ptr %2780, null
-  br i1 %.not15.i, label %stbi__gif_load.exit, label %2781
+  br i1 %.not15.i, label %stbi__gif_load.argprom.exit, label %2781
 
 2781:                                             ; preds = %2778
   call void @free(ptr noundef nonnull %2780) #57
-  br label %stbi__gif_load.exit
+  br label %stbi__gif_load.argprom.exit
 
-stbi__gif_load.exit:                              ; preds = %2771, %2776, %2778, %2781
+stbi__gif_load.argprom.exit:                      ; preds = %2771, %2776, %2778, %2781
   %.0.i123 = phi ptr [ %2777, %2776 ], [ %2769, %2771 ], [ null, %2781 ], [ null, %2778 ]
   %2782 = getelementptr inbounds i8, ptr %8, i64 24
   %2783 = load ptr, ptr %2782, align 8
@@ -33103,7 +33103,7 @@ stbi__gif_load.exit:                              ; preds = %2771, %2776, %2778,
   br i1 %.not79, label %2796, label %2794
 
 2794:                                             ; preds = %2792
-  %2795 = tail call fastcc ptr @stbi__pic_load(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  %2795 = tail call fastcc ptr @stbi__pic_load.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   br label %2816
 
 2796:                                             ; preds = %2792
@@ -33112,7 +33112,7 @@ stbi__gif_load.exit:                              ; preds = %2771, %2776, %2778,
   br i1 %.not80, label %2800, label %2798
 
 2798:                                             ; preds = %2796
-  %2799 = tail call fastcc ptr @stbi__pnm_load(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  %2799 = tail call fastcc ptr @stbi__pnm_load.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   br label %2816
 
 2800:                                             ; preds = %2796
@@ -33121,7 +33121,7 @@ stbi__gif_load.exit:                              ; preds = %2771, %2776, %2778,
   br i1 %.not81, label %2811, label %2802
 
 2802:                                             ; preds = %2800
-  %2803 = tail call fastcc ptr @stbi__hdr_load(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  %2803 = tail call fastcc ptr @stbi__hdr_load.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   %2804 = load i32, ptr %1, align 4
   %2805 = load i32, ptr %2, align 4
   %.not83 = icmp eq i32 %4, 0
@@ -33142,15 +33142,15 @@ stbi__gif_load.exit:                              ; preds = %2771, %2776, %2778,
   br i1 %.not82, label %2815, label %2813
 
 2813:                                             ; preds = %2811
-  %2814 = tail call fastcc ptr @stbi__tga_load(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  %2814 = tail call fastcc ptr @stbi__tga_load.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   br label %2816
 
 2815:                                             ; preds = %2811
   store ptr @.str.19, ptr @stbi__g_failure_reason, align 8
   br label %2816
 
-2816:                                             ; preds = %2815, %2813, %2808, %2798, %2794, %2790, %stbi__gif_load.exit, %stbi__bmp_load.exit, %stbi__png_load.exit, %stbi__jpeg_load.exit
-  %.0 = phi ptr [ %.0.i.i, %stbi__jpeg_load.exit ], [ %.043.i.i, %stbi__png_load.exit ], [ %.0.i, %stbi__bmp_load.exit ], [ %.0.i123, %stbi__gif_load.exit ], [ %2791, %2790 ], [ %2795, %2794 ], [ %2799, %2798 ], [ %2810, %2808 ], [ %2814, %2813 ], [ null, %2815 ]
+2816:                                             ; preds = %2815, %2813, %2808, %2798, %2794, %2790, %stbi__gif_load.argprom.exit, %stbi__bmp_load.argprom.exit, %stbi__png_load.exit, %stbi__jpeg_load.argprom.exit
+  %.0 = phi ptr [ %.0.i.i, %stbi__jpeg_load.argprom.exit ], [ %.043.i.i, %stbi__png_load.exit ], [ %.0.i, %stbi__bmp_load.argprom.exit ], [ %.0.i123, %stbi__gif_load.argprom.exit ], [ %2791, %2790 ], [ %2795, %2794 ], [ %2799, %2798 ], [ %2810, %2808 ], [ %2814, %2813 ], [ null, %2815 ]
   ret ptr %.0
 }
 
@@ -35241,7 +35241,7 @@ stbi__pic_test_core.exit:                         ; preds = %stbi__get8.exit.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @stbi__pic_load(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc noundef ptr @stbi__pic_load.argprom(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #3 {
   %6 = alloca [10 x %struct.stbi__pic_packet], align 16
   %7 = alloca [4 x i8], align 1
   %8 = alloca [4 x i8], align 1
@@ -36992,7 +36992,7 @@ stbi__get8.exit14.thread:                         ; preds = %36, %stbi__get8.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @stbi__pnm_load(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc noundef ptr @stbi__pnm_load.argprom(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4) unnamed_addr #3 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = tail call fastcc i32 @stbi__pnm_info(ptr noundef %0, ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -37147,7 +37147,7 @@ stbi__getn.exit:                                  ; preds = %44, %52, %56
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @stbi__hdr_load(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc noundef ptr @stbi__hdr_load.argprom(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4) unnamed_addr #3 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca ptr, align 8
   %8 = alloca [4 x i8], align 4
@@ -38602,7 +38602,7 @@ stbi__get8.exit79.thread:                         ; preds = %108, %switch.early.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @stbi__tga_load(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc noundef ptr @stbi__tga_load.argprom(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4) unnamed_addr #3 {
   %6 = alloca [4 x i8], align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 184
   %8 = load ptr, ptr %7, align 8
@@ -42535,9 +42535,9 @@ stbi__get8.exit226:                               ; preds = %663, %666, %stbi__r
   %691 = load ptr, ptr %0, align 8
   %692 = tail call fastcc zeroext i8 @stbi__get8(ptr noundef %691)
   %693 = load ptr, ptr %0, align 8
-  tail call fastcc void @stbi__get16be(ptr noundef %693)
+  tail call fastcc void @stbi__get16be.argelim(ptr noundef %693)
   %694 = load ptr, ptr %0, align 8
-  tail call fastcc void @stbi__get16be(ptr noundef %694)
+  tail call fastcc void @stbi__get16be.argelim(ptr noundef %694)
   %695 = load ptr, ptr %0, align 8
   %696 = tail call fastcc zeroext i8 @stbi__get8(ptr noundef %695)
   %697 = zext i8 %696 to i32
@@ -43473,7 +43473,7 @@ stbi__malloc_mad2.exit:                           ; preds = %408, %stbi__mul2siz
   %418 = trunc i64 %indvars.iv296 to i32
   %419 = add nuw nsw i32 %418, 1
   store ptr @.str.41, ptr @stbi__g_failure_reason, align 8
-  tail call fastcc void @stbi__free_jpeg_components(ptr noundef nonnull %0, i32 noundef %419)
+  tail call fastcc void @stbi__free_jpeg_components.argelim(ptr noundef nonnull %0, i32 noundef %419)
   br label %.loopexit
 
 420:                                              ; preds = %stbi__malloc_mad2.exit
@@ -43502,7 +43502,7 @@ stbi__malloc_mad2.exit:                           ; preds = %408, %stbi__mul2siz
   %434 = trunc nuw nsw i64 %indvars.iv296 to i32
   %435 = add nuw nsw i32 %434, 1
   store ptr @.str.41, ptr @stbi__g_failure_reason, align 8
-  tail call fastcc void @stbi__free_jpeg_components(ptr noundef nonnull %0, i32 noundef %435)
+  tail call fastcc void @stbi__free_jpeg_components.argelim(ptr noundef nonnull %0, i32 noundef %435)
   br label %.loopexit
 
 436:                                              ; preds = %427
@@ -43584,7 +43584,7 @@ stbi__refill_buffer.exit:                         ; preds = %23, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stbi__get16be(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc void @stbi__get16be.argelim(ptr noundef %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 192
@@ -43942,7 +43942,7 @@ stbi__mul2sizes_valid.exit.thread:                ; preds = %stbi__mul2sizes_val
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stbi__free_jpeg_components(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @stbi__free_jpeg_components.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -46336,11 +46336,11 @@ stbi__getn.exit.thread:                           ; preds = %491, %stbi__getn.ex
   br i1 %544, label %547, label %548
 
 547:                                              ; preds = %542
-  call fastcc void @stbi__compute_transparency16(i32 %.val.val, i32 %.val.val264, ptr %.val263, ptr noundef %6, i32 noundef %545)
+  call fastcc void @stbi__compute_transparency16.argprom.argprom.argelim(i32 %.val.val, i32 %.val.val264, ptr %.val263, ptr noundef %6, i32 noundef %545)
   br label %549
 
 548:                                              ; preds = %542
-  call fastcc void @stbi__compute_transparency(i32 %.val.val, i32 %.val.val264, ptr %.val263, ptr noundef %5, i32 noundef %545)
+  call fastcc void @stbi__compute_transparency.argprom.argprom.argelim(i32 %.val.val, i32 %.val.val264, ptr %.val263, ptr noundef %5, i32 noundef %545)
   br label %549
 
 549:                                              ; preds = %548, %547, %541
@@ -46357,7 +46357,7 @@ stbi__getn.exit.thread:                           ; preds = %491, %stbi__getn.ex
 555:                                              ; preds = %552
   %.val268 = load ptr, ptr %0, align 8
   %.val269 = load ptr, ptr %11, align 8
-  call fastcc void @stbi__de_iphone(ptr %.val268, ptr %.val269)
+  call fastcc void @stbi__de_iphone.argprom(ptr %.val268, ptr %.val269)
   br label %556
 
 556:                                              ; preds = %555, %552, %549
@@ -46369,7 +46369,7 @@ stbi__getn.exit.thread:                           ; preds = %491, %stbi__getn.ex
   %559 = icmp ugt i32 %2, 2
   %spec.select = select i1 %559, i32 %2, i32 %558
   store i32 %spec.select, ptr %536, align 4
-  %560 = call fastcc i32 @stbi__expand_png_palette(ptr noundef %0, ptr noundef %4, i32 noundef %spec.select)
+  %560 = call fastcc i32 @stbi__expand_png_palette.argelim(ptr noundef %0, ptr noundef %4, i32 noundef %spec.select)
   %.not237 = icmp eq i32 %560, 0
   br i1 %.not237, label %.loopexit, label %565
 
@@ -47672,7 +47672,7 @@ stbi__malloc_mad3.exit:                           ; preds = %17, %stbi__mul2size
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbi__compute_transparency16(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @stbi__compute_transparency16.argprom.argprom.argelim(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #1 {
   %3 = mul i32 %.0.val.4.val, %.0.val.0.val
   %4 = icmp eq i32 %1, 2
   %.not8 = icmp eq i32 %3, 0
@@ -47741,7 +47741,7 @@ define internal fastcc void @stbi__compute_transparency16(i32 %.0.val.0.val, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbi__compute_transparency(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @stbi__compute_transparency.argprom.argprom.argelim(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #1 {
   %3 = mul i32 %.0.val.4.val, %.0.val.0.val
   %4 = icmp eq i32 %1, 2
   %.not8 = icmp eq i32 %3, 0
@@ -47810,7 +47810,7 @@ define internal fastcc void @stbi__compute_transparency(i32 %.0.val.0.val, i32 %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbi__de_iphone(ptr nocapture readonly %.0.val, ptr nocapture %.24.val) unnamed_addr #5 {
+define internal fastcc void @stbi__de_iphone.argprom(ptr nocapture readonly %.0.val, ptr nocapture %.24.val) unnamed_addr #5 {
   %1 = load i32, ptr %.0.val, align 8
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 4
   %3 = load i32, ptr %2, align 4
@@ -47920,7 +47920,7 @@ define internal fastcc void @stbi__de_iphone(ptr nocapture readonly %.0.val, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stbi__expand_png_palette(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @stbi__expand_png_palette.argelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 4
@@ -50373,7 +50373,7 @@ stbi__get16le.exit173:                            ; preds = %373, %376, %stbi__r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @stbi__gif_load_next(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #3 {
+define internal fastcc ptr @stbi__gif_load_next.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not175 = icmp eq ptr %6, null
@@ -56653,18 +56653,18 @@ define internal fastcc void @nvg__addPoint(ptr nocapture noundef readonly %0, fl
   %6 = getelementptr inbounds i8, ptr %.val, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %nvg__lastPath.exit, label %nvg__lastPath.exit.thread
+  br i1 %8, label %nvg__lastPath.argprom.exit, label %nvg__lastPath.argprom.exit.thread
 
-nvg__lastPath.exit:                               ; preds = %4
+nvg__lastPath.argprom.exit:                       ; preds = %4
   %9 = getelementptr inbounds i8, ptr %.val, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %7 to i64
   %12 = getelementptr %struct.NVGpath, ptr %10, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -56
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %nvg__lastPath.exit.thread, label %15
+  br i1 %14, label %nvg__lastPath.argprom.exit.thread, label %15
 
-15:                                               ; preds = %nvg__lastPath.exit
+15:                                               ; preds = %nvg__lastPath.argprom.exit
   %16 = getelementptr i8, ptr %12, i64 -52
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %17, 0
@@ -56672,9 +56672,9 @@ nvg__lastPath.exit:                               ; preds = %4
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
   %or.cond = select i1 %18, i1 %21, i1 false
-  br i1 %or.cond, label %nvg__lastPoint.exit, label %._crit_edge
+  br i1 %or.cond, label %nvg__lastPoint.argprom.exit, label %._crit_edge
 
-nvg__lastPoint.exit:                              ; preds = %15
+nvg__lastPoint.argprom.exit:                      ; preds = %15
   %22 = load ptr, ptr %.val, align 8
   %23 = zext nneg i32 %20 to i64
   %24 = getelementptr %struct.NVGpoint, ptr %22, i64 %23
@@ -56692,15 +56692,15 @@ nvg__lastPoint.exit:                              ; preds = %15
   %36 = fcmp uge float %34, %35
   br i1 %36, label %._crit_edge, label %37
 
-37:                                               ; preds = %nvg__lastPoint.exit
+37:                                               ; preds = %nvg__lastPoint.argprom.exit
   %38 = getelementptr i8, ptr %24, i64 -4
   %39 = load i8, ptr %38, align 4
   %40 = trunc nuw nsw i32 %3 to i8
   %41 = or i8 %39, %40
   store i8 %41, ptr %38, align 4
-  br label %nvg__lastPath.exit.thread
+  br label %nvg__lastPath.argprom.exit.thread
 
-._crit_edge:                                      ; preds = %15, %nvg__lastPoint.exit
+._crit_edge:                                      ; preds = %15, %nvg__lastPoint.argprom.exit
   %42 = getelementptr inbounds i8, ptr %.val, i64 12
   %43 = load i32, ptr %42, align 4
   %.not36 = icmp slt i32 %20, %43
@@ -56715,7 +56715,7 @@ nvg__lastPoint.exit:                              ; preds = %15
   %50 = shl nsw i64 %49, 5
   %51 = tail call ptr @realloc(ptr noundef %48, i64 noundef %50) #60
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %nvg__lastPath.exit.thread, label %53
+  br i1 %52, label %nvg__lastPath.argprom.exit.thread, label %53
 
 53:                                               ; preds = %44
   %54 = load ptr, ptr %5, align 8
@@ -56750,9 +56750,9 @@ nvg__lastPoint.exit:                              ; preds = %15
   %71 = load i32, ptr %16, align 4
   %72 = add nsw i32 %71, 1
   store i32 %72, ptr %16, align 4
-  br label %nvg__lastPath.exit.thread
+  br label %nvg__lastPath.argprom.exit.thread
 
-nvg__lastPath.exit.thread:                        ; preds = %4, %44, %nvg__lastPath.exit, %57, %37
+nvg__lastPath.argprom.exit.thread:                ; preds = %4, %44, %nvg__lastPath.argprom.exit, %57, %37
   ret void
 }
 
@@ -56838,7 +56838,7 @@ tailrecurse:                                      ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @nvg__calculateJoins(ptr nocapture readonly %.8848.val, float noundef %0, i32 noundef %1, float noundef %2) unnamed_addr #13 {
+define internal fastcc void @nvg__calculateJoins.argprom(ptr nocapture readonly %.8848.val, float noundef %0, i32 noundef %1, float noundef %2) unnamed_addr #13 {
   %4 = fcmp ogt float %0, 0.000000e+00
   %5 = fdiv float 1.000000e+00, %0
   %.071 = select i1 %4, float %5, float 0.000000e+00
@@ -57007,7 +57007,7 @@ define internal fastcc void @nvg__calculateJoins(ptr nocapture readonly %.8848.v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @nvg__bevelJoin(ptr noundef nonnull writeonly %0, float %.8.val, float %.12.val, ptr nocapture noundef readonly %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) unnamed_addr #11 {
+define internal fastcc nonnull ptr @nvg__bevelJoin.argprom.argelim(ptr noundef nonnull writeonly %0, float %.8.val, float %.12.val, ptr nocapture noundef readonly %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) unnamed_addr #11 {
   %7 = fneg float %.8.val
   %8 = getelementptr inbounds i8, ptr %1, i64 12
   %9 = load float, ptr %8, align 4

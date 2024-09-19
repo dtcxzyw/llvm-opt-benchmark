@@ -1304,7 +1304,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  call fastcc void @qemu_thread_atexit_notify()
+  call fastcc void @qemu_thread_atexit_notify.argprom()
   call void @__pthread_unwind_next(ptr noundef nonnull %__cancel_buf) #23
   unreachable
 
@@ -1581,7 +1581,7 @@ declare i32 @pthread_setname_np(i64 noundef, ptr noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qemu_thread_atexit_notify() unnamed_addr #1 {
+define internal fastcc void @qemu_thread_atexit_notify.argprom() unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_exit)
   tail call void @notifier_list_notify(ptr noundef nonnull %0, ptr noundef null) #21

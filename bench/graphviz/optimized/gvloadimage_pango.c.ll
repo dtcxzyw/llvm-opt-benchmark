@@ -42,7 +42,7 @@ define internal void @pango_loadimage_cairo(ptr nocapture noundef readonly %0, p
   %10 = getelementptr inbounds i8, ptr %1, i64 96
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, @cairo_freeimage
-  br i1 %12, label %cairo_loadimage.exit.thread15, label %13
+  br i1 %12, label %cairo_loadimage.argprom.exit.thread15, label %13
 
 13:                                               ; preds = %9
   tail call void %11(ptr noundef nonnull %1) #4
@@ -52,13 +52,13 @@ define internal void @pango_loadimage_cairo(ptr nocapture noundef readonly %0, p
 
 14:                                               ; preds = %13, %4
   %15 = tail call zeroext i1 @gvusershape_file_access(ptr noundef nonnull %1) #4
-  br i1 %15, label %16, label %cairo_loadimage.exit.thread
+  br i1 %15, label %16, label %cairo_loadimage.argprom.exit.thread
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %1, i64 40
   %18 = load i32, ptr %17, align 8
   %cond.i = icmp eq i32 %18, 3
-  br i1 %cond.i, label %19, label %cairo_loadimage.exit.thread19
+  br i1 %cond.i, label %19, label %cairo_loadimage.argprom.exit.thread19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %1, i64 32
@@ -66,21 +66,21 @@ define internal void @pango_loadimage_cairo(ptr nocapture noundef readonly %0, p
   %22 = tail call ptr @cairo_image_surface_create_from_png_stream(ptr noundef nonnull @reader, ptr noundef %21) #4
   %23 = tail call ptr @cairo_surface_reference(ptr noundef %22) #4
   %.not23.i = icmp eq ptr %22, null
-  br i1 %.not23.i, label %cairo_loadimage.exit.thread19, label %cairo_loadimage.exit
+  br i1 %.not23.i, label %cairo_loadimage.argprom.exit.thread19, label %cairo_loadimage.argprom.exit
 
-cairo_loadimage.exit.thread19:                    ; preds = %19, %16
+cairo_loadimage.argprom.exit.thread19:            ; preds = %19, %16
   tail call void @gvusershape_file_release(ptr noundef nonnull %1) #4
-  br label %cairo_loadimage.exit.thread
+  br label %cairo_loadimage.argprom.exit.thread
 
-cairo_loadimage.exit:                             ; preds = %19
+cairo_loadimage.argprom.exit:                     ; preds = %19
   store ptr %22, ptr %7, align 8
   %24 = getelementptr inbounds i8, ptr %1, i64 96
   store ptr @cairo_freeimage, ptr %24, align 8
   tail call void @gvusershape_file_release(ptr noundef nonnull %1) #4
-  br label %cairo_loadimage.exit.thread15
+  br label %cairo_loadimage.argprom.exit.thread15
 
-cairo_loadimage.exit.thread15:                    ; preds = %9, %cairo_loadimage.exit
-  %.019.i18 = phi ptr [ %22, %cairo_loadimage.exit ], [ %8, %9 ]
+cairo_loadimage.argprom.exit.thread15:            ; preds = %9, %cairo_loadimage.argprom.exit
+  %.019.i18 = phi ptr [ %22, %cairo_loadimage.argprom.exit ], [ %8, %9 ]
   tail call void @cairo_save(ptr noundef %6) #4
   %25 = load double, ptr %2, align 8
   %26 = getelementptr inbounds i8, ptr %2, i64 16
@@ -105,9 +105,9 @@ cairo_loadimage.exit.thread15:                    ; preds = %9, %cairo_loadimage
   tail call void @cairo_set_source_surface(ptr noundef %6, ptr noundef nonnull %.019.i18, double noundef 0.000000e+00, double noundef 0.000000e+00) #4
   tail call void @cairo_paint(ptr noundef %6) #4
   tail call void @cairo_restore(ptr noundef %6) #4
-  br label %cairo_loadimage.exit.thread
+  br label %cairo_loadimage.argprom.exit.thread
 
-cairo_loadimage.exit.thread:                      ; preds = %14, %cairo_loadimage.exit.thread19, %cairo_loadimage.exit.thread15
+cairo_loadimage.argprom.exit.thread:              ; preds = %14, %cairo_loadimage.argprom.exit.thread19, %cairo_loadimage.argprom.exit.thread15
   ret void
 }
 
@@ -176,7 +176,7 @@ define internal void @pango_loadimage_ps(ptr noundef %0, ptr noundef %1, ptr noc
   %8 = getelementptr inbounds i8, ptr %1, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, @cairo_freeimage
-  br i1 %10, label %cairo_loadimage.exit.thread54, label %11
+  br i1 %10, label %cairo_loadimage.argprom.exit.thread54, label %11
 
 11:                                               ; preds = %7
   tail call void %9(ptr noundef nonnull %1) #4
@@ -186,13 +186,13 @@ define internal void @pango_loadimage_ps(ptr noundef %0, ptr noundef %1, ptr noc
 
 12:                                               ; preds = %11, %4
   %13 = tail call zeroext i1 @gvusershape_file_access(ptr noundef nonnull %1) #4
-  br i1 %13, label %14, label %cairo_loadimage.exit.thread
+  br i1 %13, label %14, label %cairo_loadimage.argprom.exit.thread
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   %16 = load i32, ptr %15, align 8
   %cond.i = icmp eq i32 %16, 3
-  br i1 %cond.i, label %17, label %cairo_loadimage.exit.thread58
+  br i1 %cond.i, label %17, label %cairo_loadimage.argprom.exit.thread58
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %1, i64 32
@@ -200,26 +200,26 @@ define internal void @pango_loadimage_ps(ptr noundef %0, ptr noundef %1, ptr noc
   %20 = tail call ptr @cairo_image_surface_create_from_png_stream(ptr noundef nonnull @reader, ptr noundef %19) #4
   %21 = tail call ptr @cairo_surface_reference(ptr noundef %20) #4
   %.not23.i = icmp eq ptr %20, null
-  br i1 %.not23.i, label %cairo_loadimage.exit.thread58, label %cairo_loadimage.exit
+  br i1 %.not23.i, label %cairo_loadimage.argprom.exit.thread58, label %cairo_loadimage.argprom.exit
 
-cairo_loadimage.exit.thread58:                    ; preds = %17, %14
+cairo_loadimage.argprom.exit.thread58:            ; preds = %17, %14
   tail call void @gvusershape_file_release(ptr noundef nonnull %1) #4
-  br label %cairo_loadimage.exit.thread
+  br label %cairo_loadimage.argprom.exit.thread
 
-cairo_loadimage.exit:                             ; preds = %17
+cairo_loadimage.argprom.exit:                     ; preds = %17
   store ptr %20, ptr %5, align 8
   %22 = getelementptr inbounds i8, ptr %1, i64 96
   store ptr @cairo_freeimage, ptr %22, align 8
   tail call void @gvusershape_file_release(ptr noundef nonnull %1) #4
-  br label %cairo_loadimage.exit.thread54
+  br label %cairo_loadimage.argprom.exit.thread54
 
-cairo_loadimage.exit.thread54:                    ; preds = %7, %cairo_loadimage.exit
-  %.019.i57 = phi ptr [ %20, %cairo_loadimage.exit ], [ %6, %7 ]
+cairo_loadimage.argprom.exit.thread54:            ; preds = %7, %cairo_loadimage.argprom.exit
+  %.019.i57 = phi ptr [ %20, %cairo_loadimage.argprom.exit ], [ %6, %7 ]
   %23 = tail call i32 @cairo_image_surface_get_format(ptr noundef nonnull %.019.i57) #4
   %or.cond = icmp ugt i32 %23, 1
-  br i1 %or.cond, label %cairo_loadimage.exit.thread, label %24
+  br i1 %or.cond, label %cairo_loadimage.argprom.exit.thread, label %24
 
-24:                                               ; preds = %cairo_loadimage.exit.thread54
+24:                                               ; preds = %cairo_loadimage.argprom.exit.thread54
   %25 = tail call i32 @cairo_image_surface_get_width(ptr noundef nonnull %.019.i57) #4
   %.fr67 = freeze i32 %25
   %26 = tail call i32 @cairo_image_surface_get_height(ptr noundef nonnull %.019.i57) #4
@@ -327,9 +327,9 @@ cairo_loadimage.exit.thread54:                    ; preds = %7, %cairo_loadimage
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %.fr67, i32 noundef %26, i32 noundef %.fr67, i32 noundef %89, i32 noundef %26) #4
   %90 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.15) #4
   %91 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.16) #4
-  br label %cairo_loadimage.exit.thread
+  br label %cairo_loadimage.argprom.exit.thread
 
-cairo_loadimage.exit.thread:                      ; preds = %12, %cairo_loadimage.exit.thread58, %cairo_loadimage.exit.thread54, %._crit_edge66
+cairo_loadimage.argprom.exit.thread:              ; preds = %12, %cairo_loadimage.argprom.exit.thread58, %cairo_loadimage.argprom.exit.thread54, %._crit_edge66
   ret void
 }
 

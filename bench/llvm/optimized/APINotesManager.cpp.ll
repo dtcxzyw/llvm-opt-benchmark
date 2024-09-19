@@ -1358,7 +1358,7 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit: ; preds
   %.val.i.i.i.i.i.i.i.i = load i16, ptr %109, align 8
   %110 = and i16 %.val.i.i.i.i.i.i.i.i, 16384
   %.not42.i.i.i.i.i.i.i = icmp eq i16 %110, 0
-  br i1 %.not42.i.i.i.i.i.i.i, label %111, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit
+  br i1 %.not42.i.i.i.i.i.i.i, label %111, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit
 
 111:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
   %112 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i.i, i64 8
@@ -1367,7 +1367,7 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit: ; preds
   %.val.i16.i.i.i.i.i.i.i = load i16, ptr %114, align 8
   %115 = and i16 %.val.i16.i.i.i.i.i.i.i, 16384
   %.not43.i.i.i.i.i.i.i = icmp eq i16 %115, 0
-  br i1 %.not43.i.i.i.i.i.i.i, label %116, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit
+  br i1 %.not43.i.i.i.i.i.i.i, label %116, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.loopexit.split.loop.exit
 
 116:                                              ; preds = %111
   %117 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i.i, i64 16
@@ -1376,7 +1376,7 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit: ; preds
   %.val.i17.i.i.i.i.i.i.i = load i16, ptr %119, align 8
   %120 = and i16 %.val.i17.i.i.i.i.i.i.i, 16384
   %.not44.i.i.i.i.i.i.i = icmp eq i16 %120, 0
-  br i1 %.not44.i.i.i.i.i.i.i, label %121, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit129
+  br i1 %.not44.i.i.i.i.i.i.i, label %121, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.loopexit.split.loop.exit129
 
 121:                                              ; preds = %116
   %122 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i.i, i64 24
@@ -1385,7 +1385,7 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit: ; preds
   %.val.i18.i.i.i.i.i.i.i = load i16, ptr %124, align 8
   %125 = and i16 %.val.i18.i.i.i.i.i.i.i, 16384
   %.not45.i.i.i.i.i.i.i = icmp eq i16 %125, 0
-  br i1 %.not45.i.i.i.i.i.i.i, label %126, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit131
+  br i1 %.not45.i.i.i.i.i.i.i, label %126, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.loopexit.split.loop.exit131
 
 126:                                              ; preds = %121
   %127 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i.i, i64 32
@@ -1402,7 +1402,7 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit: ; preds
   %.pre-phi63.i.i.i.i.i.i.i = phi i64 [ %.pre62.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %104, %99 ]
   %.sroa.031.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val, %99 ]
   %130 = ashr exact i64 %.pre-phi63.i.i.i.i.i.i.i, 3
-  switch i64 %130, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.thread [
+  switch i64 %130, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.thread [
     i64 3, label %131
     i64 2, label %137
     i64 1, label %143
@@ -1414,7 +1414,7 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit: ; preds
   %.val.i19.i.i.i.i.i.i.i = load i16, ptr %133, align 8
   %134 = and i16 %.val.i19.i.i.i.i.i.i.i, 16384
   %.not.i.i.i.i.i.i.i = icmp eq i16 %134, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %135, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit
+  br i1 %.not.i.i.i.i.i.i.i, label %135, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit
 
 135:                                              ; preds = %131
   %136 = getelementptr inbounds i8, ptr %.sroa.031.0.lcssa.i.i.i.i.i.i.i, i64 8
@@ -1427,7 +1427,7 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit: ; preds
   %.val.i20.i.i.i.i.i.i.i = load i16, ptr %139, align 8
   %140 = and i16 %.val.i20.i.i.i.i.i.i.i, 16384
   %.not40.i.i.i.i.i.i.i = icmp eq i16 %140, 0
-  br i1 %.not40.i.i.i.i.i.i.i, label %141, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit
+  br i1 %.not40.i.i.i.i.i.i.i, label %141, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit
 
 141:                                              ; preds = %137
   %142 = getelementptr inbounds i8, ptr %.sroa.031.1.i.i.i.i.i.i.i, i64 8
@@ -1441,26 +1441,26 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit: ; preds
   %146 = and i16 %.val.i21.i.i.i.i.i.i.i, 16384
   %.not41.i.i.i.i.i.i.i = icmp eq i16 %146, 0
   %spec.select.i.i.i.i.i.i.i = select i1 %.not41.i.i.i.i.i.i.i, ptr %.val30, ptr %.sroa.031.2.i.i.i.i.i.i.i
-  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit
+  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit
 
-_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit: ; preds = %111
+_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.loopexit.split.loop.exit: ; preds = %111
   %147 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i.i, i64 8
-  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit
+  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit
 
-_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit129: ; preds = %116
+_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.loopexit.split.loop.exit129: ; preds = %116
   %148 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i.i, i64 16
-  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit
+  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit
 
-_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit131: ; preds = %121
+_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.loopexit.split.loop.exit131: ; preds = %121
   %149 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i.i, i64 24
-  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit
+  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit
 
-_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit:  ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit129, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit131, %131, %137, %143
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %131 ], [ %.sroa.031.1.i.i.i.i.i.i.i, %137 ], [ %spec.select.i.i.i.i.i.i.i, %143 ], [ %147, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit ], [ %148, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit129 ], [ %149, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit131 ], [ %.sroa.031.056.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.loopexit.split.loop.exit, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.loopexit.split.loop.exit129, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.loopexit.split.loop.exit131, %131, %137, %143
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %131 ], [ %.sroa.031.1.i.i.i.i.i.i.i, %137 ], [ %spec.select.i.i.i.i.i.i.i, %143 ], [ %147, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.loopexit.split.loop.exit ], [ %148, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.loopexit.split.loop.exit129 ], [ %149, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.loopexit.split.loop.exit131 ], [ %.sroa.031.056.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %.not97 = icmp eq ptr %.val30, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i
-  br i1 %.not97, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.thread, label %150
+  br i1 %.not97, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.thread, label %150
 
-150:                                              ; preds = %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit, %95
+150:                                              ; preds = %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit, %95
   %151 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %152 = getelementptr inbounds nuw i8, ptr %28, i64 33
   store i8 1, ptr %152, align 1
@@ -1533,7 +1533,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i39: ; preds = %1
 _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit44: ; preds = %_ZN4llvm18expectedToOptionalIN5clang17DirectoryEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit.i37, %173, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   %.not98 = icmp eq i64 %171, 0
-  br i1 %.not98, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.thread, label %178
+  br i1 %.not98, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.thread, label %178
 
 178:                                              ; preds = %_ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit44
   %179 = inttoptr i64 %171 to ptr
@@ -1543,15 +1543,15 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit44: ; pre
   %183 = and i16 %182, 16384
   %184 = icmp ne i16 %183, 0
   call fastcc void @"_ZZN5clang9api_notes15APINotesManager24getCurrentModuleAPINotesEPNS_6ModuleEbN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENK3$_0clENS_17DirectoryEntryRefEb"(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr nonnull %179, i1 noundef zeroext %184)
-  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.thread
+  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.thread
 
-_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.thread: ; preds = %._crit_edge.i.i.i.i.i.i.i, %_ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit44, %178, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit
+_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.thread: ; preds = %._crit_edge.i.i.i.i.i.i.i, %_ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit44, %178, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit
   %185 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #15
   %186 = load ptr, ptr %23, align 8
   %187 = icmp eq ptr %186, %57
   br i1 %187, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %188
 
-188:                                              ; preds = %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.thread
+188:                                              ; preds = %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.thread
   call void @free(ptr noundef %186) #15
   br label %_ZN4llvm11SmallStringILj128EED2Ev.exit
 
@@ -1589,7 +1589,7 @@ _ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.thread: ; preds = %._crit_edge.i
   %.val.i.i.i.i.i.i.i.i63 = load i16, ptr %204, align 8
   %205 = and i16 %.val.i.i.i.i.i.i.i.i63, 16384
   %.not42.i.i.i.i.i.i.i64 = icmp eq i16 %205, 0
-  br i1 %.not42.i.i.i.i.i.i.i64, label %206, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77
+  br i1 %.not42.i.i.i.i.i.i.i64, label %206, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77
 
 206:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i60
   %207 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i.i62, i64 8
@@ -1598,7 +1598,7 @@ _ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.thread: ; preds = %._crit_edge.i
   %.val.i16.i.i.i.i.i.i.i65 = load i16, ptr %209, align 8
   %210 = and i16 %.val.i16.i.i.i.i.i.i.i65, 16384
   %.not43.i.i.i.i.i.i.i66 = icmp eq i16 %210, 0
-  br i1 %.not43.i.i.i.i.i.i.i66, label %211, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77.loopexit.split.loop.exit
+  br i1 %.not43.i.i.i.i.i.i.i66, label %211, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77.loopexit.split.loop.exit
 
 211:                                              ; preds = %206
   %212 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i.i62, i64 16
@@ -1607,7 +1607,7 @@ _ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.thread: ; preds = %._crit_edge.i
   %.val.i17.i.i.i.i.i.i.i68 = load i16, ptr %214, align 8
   %215 = and i16 %.val.i17.i.i.i.i.i.i.i68, 16384
   %.not44.i.i.i.i.i.i.i69 = icmp eq i16 %215, 0
-  br i1 %.not44.i.i.i.i.i.i.i69, label %216, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77.loopexit.split.loop.exit137
+  br i1 %.not44.i.i.i.i.i.i.i69, label %216, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77.loopexit.split.loop.exit137
 
 216:                                              ; preds = %211
   %217 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i.i62, i64 24
@@ -1616,7 +1616,7 @@ _ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.thread: ; preds = %._crit_edge.i
   %.val.i18.i.i.i.i.i.i.i71 = load i16, ptr %219, align 8
   %220 = and i16 %.val.i18.i.i.i.i.i.i.i71, 16384
   %.not45.i.i.i.i.i.i.i72 = icmp eq i16 %220, 0
-  br i1 %.not45.i.i.i.i.i.i.i72, label %221, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77.loopexit.split.loop.exit139
+  br i1 %.not45.i.i.i.i.i.i.i72, label %221, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77.loopexit.split.loop.exit139
 
 221:                                              ; preds = %216
   %222 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i.i62, i64 32
@@ -1645,7 +1645,7 @@ _ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.thread: ; preds = %._crit_edge.i
   %.val.i19.i.i.i.i.i.i.i56 = load i16, ptr %228, align 8
   %229 = and i16 %.val.i19.i.i.i.i.i.i.i56, 16384
   %.not.i.i.i.i.i.i.i57 = icmp eq i16 %229, 0
-  br i1 %.not.i.i.i.i.i.i.i57, label %230, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77
+  br i1 %.not.i.i.i.i.i.i.i57, label %230, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77
 
 230:                                              ; preds = %226
   %231 = getelementptr inbounds i8, ptr %.sroa.031.0.lcssa.i.i.i.i.i.i.i47, i64 8
@@ -1658,7 +1658,7 @@ _ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.thread: ; preds = %._crit_edge.i
   %.val.i20.i.i.i.i.i.i.i54 = load i16, ptr %234, align 8
   %235 = and i16 %.val.i20.i.i.i.i.i.i.i54, 16384
   %.not40.i.i.i.i.i.i.i55 = icmp eq i16 %235, 0
-  br i1 %.not40.i.i.i.i.i.i.i55, label %236, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77
+  br i1 %.not40.i.i.i.i.i.i.i55, label %236, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77
 
 236:                                              ; preds = %232
   %237 = getelementptr inbounds i8, ptr %.sroa.031.1.i.i.i.i.i.i.i53, i64 8
@@ -1672,32 +1672,32 @@ _ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.thread: ; preds = %._crit_edge.i
   %241 = and i16 %.val.i21.i.i.i.i.i.i.i49, 16384
   %.not41.i.i.i.i.i.i.i50 = icmp eq i16 %241, 0
   %spec.select.i.i.i.i.i.i.i51 = select i1 %.not41.i.i.i.i.i.i.i50, ptr %.val32, ptr %.sroa.031.2.i.i.i.i.i.i.i48
-  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77
+  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77
 
-_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77.loopexit.split.loop.exit: ; preds = %206
+_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77.loopexit.split.loop.exit: ; preds = %206
   %242 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i.i62, i64 8
-  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77
+  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77
 
-_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77.loopexit.split.loop.exit137: ; preds = %211
+_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77.loopexit.split.loop.exit137: ; preds = %211
   %243 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i.i62, i64 16
-  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77
+  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77
 
-_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77.loopexit.split.loop.exit139: ; preds = %216
+_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77.loopexit.split.loop.exit139: ; preds = %216
   %244 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i.i62, i64 24
-  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77
+  br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77
 
-_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77: ; preds = %.lr.ph.i.i.i.i.i.i.i60, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77.loopexit.split.loop.exit, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77.loopexit.split.loop.exit137, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77.loopexit.split.loop.exit139, %226, %232, %238
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i52 = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i47, %226 ], [ %.sroa.031.1.i.i.i.i.i.i.i53, %232 ], [ %spec.select.i.i.i.i.i.i.i51, %238 ], [ %242, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77.loopexit.split.loop.exit ], [ %243, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77.loopexit.split.loop.exit137 ], [ %244, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77.loopexit.split.loop.exit139 ], [ %.sroa.031.056.i.i.i.i.i.i.i62, %.lr.ph.i.i.i.i.i.i.i60 ]
+_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77: ; preds = %.lr.ph.i.i.i.i.i.i.i60, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77.loopexit.split.loop.exit, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77.loopexit.split.loop.exit137, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77.loopexit.split.loop.exit139, %226, %232, %238
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i52 = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i47, %226 ], [ %.sroa.031.1.i.i.i.i.i.i.i53, %232 ], [ %spec.select.i.i.i.i.i.i.i51, %238 ], [ %242, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77.loopexit.split.loop.exit ], [ %243, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77.loopexit.split.loop.exit137 ], [ %244, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77.loopexit.split.loop.exit139 ], [ %.sroa.031.056.i.i.i.i.i.i.i62, %.lr.ph.i.i.i.i.i.i.i60 ]
   %.not99 = icmp eq ptr %.val32, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i52
   br i1 %.not99, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %245
 
-245:                                              ; preds = %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77
+245:                                              ; preds = %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77
   %246 = getelementptr inbounds nuw i8, ptr %190, i64 48
   %.sroa.09.0.copyload = load ptr, ptr %246, align 8
   call fastcc void @"_ZZN5clang9api_notes15APINotesManager24getCurrentModuleAPINotesEPNS_6ModuleEbN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENK3$_0clENS_17DirectoryEntryRefEb"(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr %.sroa.09.0.copyload, i1 noundef zeroext false)
   br label %_ZN4llvm11SmallStringILj128EED2Ev.exit
 
-_ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %._crit_edge.i.i.i.i.i.i.i45, %188, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.thread, %189, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit77, %245
+_ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %._crit_edge.i.i.i.i.i.i.i45, %188, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit.thread, %189, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.argprom.exit77, %245
   %247 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   br i1 %247, label %248, label %.loopexit
 

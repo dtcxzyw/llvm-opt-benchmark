@@ -395,9 +395,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125AArch64PostSelectOptimize
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br label %21
 
-21:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBasicBlockE.exit
-  %.sroa.024.037 = phi ptr [ %.sroa.024.034, %.lr.ph ], [ %.sroa.024.0, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBasicBlockE.exit ]
-  %.01036 = phi i1 [ false, %.lr.ph ], [ %267, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBasicBlockE.exit ]
+21:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBasicBlockE.argprom.exit
+  %.sroa.024.037 = phi ptr [ %.sroa.024.034, %.lr.ph ], [ %.sroa.024.0, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBasicBlockE.argprom.exit ]
+  %.01036 = phi i1 [ false, %.lr.ph ], [ %267, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBasicBlockE.argprom.exit ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7)
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.024.037, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -760,22 +760,22 @@ _ZN4llvm20filter_iterator_baseINS_26MachineInstrBundleIteratorINS_12MachineInstr
   %159 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #12
   %160 = load ptr, ptr %14, align 8
   %161 = icmp eq ptr %160, %15
-  br i1 %161, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize16optimizeNZCVDefsERN4llvm17MachineBasicBlockE.exit, label %162
+  br i1 %161, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize16optimizeNZCVDefsERN4llvm17MachineBasicBlockE.argprom.exit, label %162
 
 162:                                              ; preds = %._crit_edge.i
   call void @free(ptr noundef %160) #12
-  br label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize16optimizeNZCVDefsERN4llvm17MachineBasicBlockE.exit
+  br label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize16optimizeNZCVDefsERN4llvm17MachineBasicBlockE.argprom.exit
 
-_ZN12_GLOBAL__N_125AArch64PostSelectOptimize16optimizeNZCVDefsERN4llvm17MachineBasicBlockE.exit: ; preds = %._crit_edge.i, %162
+_ZN12_GLOBAL__N_125AArch64PostSelectOptimize16optimizeNZCVDefsERN4llvm17MachineBasicBlockE.argprom.exit: ; preds = %._crit_edge.i, %162
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
   %163 = getelementptr inbounds i8, ptr %.sroa.024.037, i64 56
   %164 = load ptr, ptr %163, align 8
   %.not6.i = icmp eq ptr %164, %47
-  br i1 %.not6.i, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBasicBlockE.exit, label %.lr.ph.i11
+  br i1 %.not6.i, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBasicBlockE.argprom.exit, label %.lr.ph.i11
 
-.lr.ph.i11:                                       ; preds = %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize16optimizeNZCVDefsERN4llvm17MachineBasicBlockE.exit, %264
-  %.0128.i = phi i1 [ %265, %264 ], [ false, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize16optimizeNZCVDefsERN4llvm17MachineBasicBlockE.exit ]
-  %.sroa.01.07.i = phi ptr [ %175, %264 ], [ %164, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize16optimizeNZCVDefsERN4llvm17MachineBasicBlockE.exit ]
+.lr.ph.i11:                                       ; preds = %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize16optimizeNZCVDefsERN4llvm17MachineBasicBlockE.argprom.exit, %264
+  %.0128.i = phi i1 [ %265, %264 ], [ false, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize16optimizeNZCVDefsERN4llvm17MachineBasicBlockE.argprom.exit ]
+  %.sroa.01.07.i = phi ptr [ %175, %264 ], [ %164, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize16optimizeNZCVDefsERN4llvm17MachineBasicBlockE.argprom.exit ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.01.07.i, align 8
   %165 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i12 = icmp eq i64 %165, 0
@@ -815,7 +815,7 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  br label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE.exit.i
+  br label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE.argprom.exit.i
 
 182:                                              ; preds = %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit.i
   %183 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i, i64 32
@@ -880,7 +880,7 @@ _ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.i.i: ; preds = %197
 226:                                              ; preds = %224
   %227 = call noundef ptr @_ZN4llvm19MachineRegisterInfo17constrainRegClassENS_8RegisterEPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(512) %178, i32 %190, ptr noundef nonnull %209, i32 noundef 25) #12
   %.not27.i.i = icmp eq ptr %227, null
-  br i1 %.not27.i.i, label %241, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize26foldSimpleCrossClassCopiesERN4llvm12MachineInstrE.exit.i
+  br i1 %.not27.i.i, label %241, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize26foldSimpleCrossClassCopiesERN4llvm12MachineInstrE.argprom.exit.i
 
 _ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit30.i.i: ; preds = %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.i.i
   %228 = load ptr, ptr %204, align 8
@@ -897,9 +897,9 @@ _ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit30.i.i: ; preds = %_ZNK4ll
   %239 = shl nuw i32 1, %238
   %240 = and i32 %239, %237
   %.not10.i.i = icmp eq i32 %240, 0
-  br i1 %.not10.i.i, label %241, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize26foldSimpleCrossClassCopiesERN4llvm12MachineInstrE.exit.i
+  br i1 %.not10.i.i, label %241, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize26foldSimpleCrossClassCopiesERN4llvm12MachineInstrE.argprom.exit.i
 
-_ZN12_GLOBAL__N_125AArch64PostSelectOptimize26foldSimpleCrossClassCopiesERN4llvm12MachineInstrE.exit.i: ; preds = %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit30.i.i, %226
+_ZN12_GLOBAL__N_125AArch64PostSelectOptimize26foldSimpleCrossClassCopiesERN4llvm12MachineInstrE.argprom.exit.i: ; preds = %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit30.i.i, %226
   call void @_ZN4llvm19MachineRegisterInfo14replaceRegWithENS_8RegisterES1_(ptr noundef nonnull align 8 dereferenceable(512) %178, i32 %192, i32 %190) #12
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.01.07.i) #12
   br label %264
@@ -911,7 +911,7 @@ _ZN12_GLOBAL__N_125AArch64PostSelectOptimize26foldSimpleCrossClassCopiesERN4llvm
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %242 = icmp eq i16 %.pr.i, 19
-  br i1 %242, label %243, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE.exit.i
+  br i1 %242, label %243, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE.argprom.exit.i
 
 243:                                              ; preds = %241
   %244 = call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.01.07.i) #12
@@ -934,7 +934,7 @@ _ZN12_GLOBAL__N_125AArch64PostSelectOptimize26foldSimpleCrossClassCopiesERN4llvm
   %258 = icmp slt i32 %255, 0
   %259 = icmp slt i32 %257, 0
   %or.cond.i16.i = select i1 %258, i1 %259, i1 false
-  br i1 %or.cond.i16.i, label %260, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE.exit.i
+  br i1 %or.cond.i16.i, label %260, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE.argprom.exit.i
 
 260:                                              ; preds = %243
   store ptr %246, ptr %6, align 8
@@ -943,13 +943,13 @@ _ZN12_GLOBAL__N_125AArch64PostSelectOptimize26foldSimpleCrossClassCopiesERN4llvm
   store ptr %.sroa.01.07.i, ptr %19, align 8
   store ptr %3, ptr %20, align 8
   %261 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrEENK3$_0clEPKNS1_19TargetRegisterClassES7_jj"(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull @_ZN4llvm7AArch6413GPR32RegClassE, ptr noundef nonnull @_ZN4llvm7AArch6413FPR32RegClassE, i32 noundef 2286, i32 noundef 7470)
-  br i1 %261, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE.exit.i, label %262
+  br i1 %261, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE.argprom.exit.i, label %262
 
 262:                                              ; preds = %260
   %263 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrEENK3$_0clEPKNS1_19TargetRegisterClassES7_jj"(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull @_ZN4llvm7AArch6413GPR64RegClassE, ptr noundef nonnull @_ZN4llvm7AArch6413FPR64RegClassE, i32 noundef 2287, i32 noundef 7472)
-  br label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE.exit.i
+  br label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE.argprom.exit.i
 
-_ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE.exit.i: ; preds = %262, %260, %243, %241, %.thread.i
+_ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE.argprom.exit.i: ; preds = %262, %260, %243, %241, %.thread.i
   %.0.i15.i = phi i1 [ false, %241 ], [ false, %243 ], [ true, %260 ], [ %263, %262 ], [ false, %.thread.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -957,14 +957,14 @@ _ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %264
 
-264:                                              ; preds = %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE.exit.i, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize26foldSimpleCrossClassCopiesERN4llvm12MachineInstrE.exit.i
-  %.0.in.i = phi i1 [ true, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize26foldSimpleCrossClassCopiesERN4llvm12MachineInstrE.exit.i ], [ %.0.i15.i, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE.exit.i ]
+264:                                              ; preds = %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE.argprom.exit.i, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize26foldSimpleCrossClassCopiesERN4llvm12MachineInstrE.argprom.exit.i
+  %.0.in.i = phi i1 [ true, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize26foldSimpleCrossClassCopiesERN4llvm12MachineInstrE.argprom.exit.i ], [ %.0.i15.i, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrE.argprom.exit.i ]
   %265 = or i1 %.0128.i, %.0.in.i
   %.not.i13 = icmp eq ptr %175, %47
-  br i1 %.not.i13, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBasicBlockE.exit, label %.lr.ph.i11
+  br i1 %.not.i13, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBasicBlockE.argprom.exit, label %.lr.ph.i11
 
-_ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBasicBlockE.exit: ; preds = %264, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize16optimizeNZCVDefsERN4llvm17MachineBasicBlockE.exit
-  %.012.lcssa.i = phi i1 [ false, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize16optimizeNZCVDefsERN4llvm17MachineBasicBlockE.exit ], [ %265, %264 ]
+_ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBasicBlockE.argprom.exit: ; preds = %264, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize16optimizeNZCVDefsERN4llvm17MachineBasicBlockE.argprom.exit
+  %.012.lcssa.i = phi i1 [ false, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize16optimizeNZCVDefsERN4llvm17MachineBasicBlockE.argprom.exit ], [ %265, %264 ]
   %266 = or i1 %.0.lcssa.i, %.012.lcssa.i
   %267 = or i1 %.01036, %266
   %268 = getelementptr inbounds nuw i8, ptr %.sroa.024.037, i64 8
@@ -972,8 +972,8 @@ _ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBas
   %.not28 = icmp eq ptr %.sroa.024.0, %13
   br i1 %.not28, label %.loopexit, label %21
 
-.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBasicBlockE.exit, %11, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %11 ], [ %267, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBasicBlockE.exit ]
+.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBasicBlockE.argprom.exit, %11, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %11 ], [ %267, %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize14doPeepholeOptsERN4llvm17MachineBasicBlockE.argprom.exit ]
   ret i1 %.0
 }
 

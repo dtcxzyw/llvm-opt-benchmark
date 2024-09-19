@@ -4384,9 +4384,9 @@ define internal i32 @dissect_bacapp(ptr noundef %0, ptr noundef %1, ptr noundef 
 181:                                              ; preds = %179
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %49)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50)
-  %182 = call fastcc i32 @fStartConfirmed(ptr noundef nonnull %0, ptr noundef %175, i8 noundef zeroext 0, ptr noundef %49, ptr noundef %50)
+  %182 = call fastcc i32 @fStartConfirmed.argprom.argelim(ptr noundef nonnull %0, ptr noundef %175, i8 noundef zeroext 0, ptr noundef %49, ptr noundef %50)
   %183 = load i32, ptr %49, align 4
-  call fastcc void @fContinueConfirmedRequestPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %175, i32 noundef %182, i32 noundef %183)
+  call fastcc void @fContinueConfirmedRequestPDU.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %175, i32 noundef %182, i32 noundef %183)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
   br label %do_the_dissection.exit.thread
@@ -4854,9 +4854,9 @@ fYouAreRequest.exit.i.i.i:                        ; preds = %368, %346
 376:                                              ; preds = %179
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
-  %377 = call fastcc i32 @fStartConfirmed(ptr noundef nonnull %0, ptr noundef %175, i8 noundef zeroext 1, ptr noundef %35, ptr noundef %36)
+  %377 = call fastcc i32 @fStartConfirmed.argprom.argelim(ptr noundef nonnull %0, ptr noundef %175, i8 noundef zeroext 1, ptr noundef %35, ptr noundef %36)
   %378 = load i32, ptr %35, align 4
-  call fastcc void @fContinueComplexAckPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %175, i32 noundef %377, i32 noundef %378)
+  call fastcc void @fContinueComplexAckPDU.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %175, i32 noundef %377, i32 noundef %378)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
   br label %do_the_dissection.exit.thread
@@ -4899,15 +4899,15 @@ fYouAreRequest.exit.i.i.i:                        ; preds = %368, %346
   ]
 
 404:                                              ; preds = %394
-  call fastcc void @fCreateObjectError(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %175)
+  call fastcc void @fCreateObjectError.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %175)
   br label %do_the_dissection.exit.thread
 
 405:                                              ; preds = %394
-  call fastcc void @fCreateObjectError(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %175)
+  call fastcc void @fCreateObjectError.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %175)
   br label %do_the_dissection.exit.thread
 
 406:                                              ; preds = %394
-  call fastcc void @fCreateObjectError(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %175)
+  call fastcc void @fCreateObjectError.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %175)
   br label %do_the_dissection.exit.thread
 
 407:                                              ; preds = %394
@@ -5389,7 +5389,7 @@ fSubscribeCOVPropertyMultipleError.exit.i.i.i:    ; preds = %.loopexit.i.i.i40.i
   br label %do_the_dissection.exit.thread
 
 do_the_dissection.exit.thread157:                 ; preds = %169
-  %593 = call fastcc i32 @fStartConfirmed(ptr noundef %0, ptr noundef %175, i8 noundef zeroext %.1, ptr noundef %51, ptr noundef %52)
+  %593 = call fastcc i32 @fStartConfirmed.argprom.argelim(ptr noundef %0, ptr noundef %175, i8 noundef zeroext %.1, ptr noundef %51, ptr noundef %52)
   store i32 1, ptr %170, align 8
   %594 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1138) #7
   %595 = and i32 %64, 4
@@ -5412,12 +5412,12 @@ do_the_dissection.exit.thread157:                 ; preds = %169
 
 600:                                              ; preds = %599
   %601 = load i32, ptr %51, align 4
-  call fastcc void @fContinueConfirmedRequestPDU(ptr noundef %597, ptr noundef nonnull %1, ptr noundef %175, i32 noundef 0, i32 noundef %601)
+  call fastcc void @fContinueConfirmedRequestPDU.argelim(ptr noundef %597, ptr noundef nonnull %1, ptr noundef %175, i32 noundef 0, i32 noundef %601)
   br label %do_the_dissection.exit.thread
 
 602:                                              ; preds = %599
   %603 = load i32, ptr %51, align 4
-  call fastcc void @fContinueComplexAckPDU(ptr noundef %597, ptr noundef nonnull %1, ptr noundef %175, i32 noundef 0, i32 noundef %603)
+  call fastcc void @fContinueComplexAckPDU.argelim(ptr noundef %597, ptr noundef nonnull %1, ptr noundef %175, i32 noundef 0, i32 noundef %603)
   br label %do_the_dissection.exit.thread
 
 do_the_dissection.exit.thread:                    ; preds = %.preheader80.i.i.i, %341, %.preheader.i.i.i, %218, %229, %fWhoIsRequest.exit.i.i.i, %fWriteGroupRequest.exit.i.i.i, %fYouAreRequest.exit.i.i.i, %fWritePropertyMultipleError.exit.i.i.i, %fConfirmedPrivateTransferError.exit.i.i.i, %fVTCloseError.exit.i.i.i, %fSubscribeCOVPropertyMultipleError.exit.i.i.i, %176, %179, %181, %184, %192, %193, %198, %202, %204, %206, %208, %210, %213, %276, %279, %335, %337, %369, %376, %379, %404, %405, %406, %571, %573, %582, %.thread, %599, %602, %600
@@ -5460,7 +5460,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 3, 7) i32 @fStartConfirmed(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 3, 7) i32 @fStartConfirmed.argprom.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef 0) #7
   %7 = and i8 %6, 15
   store i8 %7, ptr @bacapp_flags, align 1
@@ -5541,7 +5541,7 @@ declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fContinueConfirmedRequestPDU(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @fContinueConfirmedRequestPDU.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3) #7
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %fConfirmedServiceRequest.exit, label %8
@@ -5688,7 +5688,7 @@ define internal fastcc void @fContinueConfirmedRequestPDU(ptr noundef nonnull %0
   br label %fConfirmedServiceRequest.exit
 
 61:                                               ; preds = %8
-  %62 = tail call fastcc i32 @fLifeSafetyOperationRequest(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
+  %62 = tail call fastcc i32 @fLifeSafetyOperationRequest.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   br label %fConfirmedServiceRequest.exit
 
 63:                                               ; preds = %8
@@ -5720,7 +5720,7 @@ fConfirmedServiceRequest.exit:                    ; preds = %5, %8, %9, %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fContinueComplexAckPDU(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @fContinueComplexAckPDU.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
@@ -8310,7 +8310,7 @@ define internal fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr nou
   br label %fDestination.exit.thread
 
 185:                                              ; preds = %180
-  %186 = call fastcc i32 @fContextTaggedValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0820)
+  %186 = call fastcc i32 @fContextTaggedValue.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0820)
   br label %fDestination.exit.thread
 
 187:                                              ; preds = %174
@@ -8371,7 +8371,7 @@ define internal fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr nou
   br label %fDestination.exit.thread
 
 212:                                              ; preds = %207
-  %213 = call fastcc i32 @fContextTaggedValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0820)
+  %213 = call fastcc i32 @fContextTaggedValue.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0820)
   br label %fDestination.exit.thread
 
 214:                                              ; preds = %201
@@ -10145,7 +10145,7 @@ fScale.exit:                                      ; preds = %998, %1001, %1005, 
   br label %1052
 
 1046:                                             ; preds = %1035
-  %1047 = call fastcc i32 @fPresentValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i868, ptr noundef null, i32 noundef 2)
+  %1047 = call fastcc i32 @fPresentValue.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i868, ptr noundef null, i32 noundef 2)
   br label %1052
 
 1048:                                             ; preds = %1035
@@ -12696,15 +12696,15 @@ fSCHubFunctionConnection.exit:                    ; preds = %2157, %2160, %2164,
   br label %fDestination.exit.thread
 
 2215:                                             ; preds = %2211
-  %2216 = call fastcc i32 @fPresentValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0820, ptr noundef nonnull @BACnetDoorValue, i32 noundef 9)
+  %2216 = call fastcc i32 @fPresentValue.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0820, ptr noundef nonnull @BACnetDoorValue, i32 noundef 9)
   br label %fDestination.exit.thread
 
 2217:                                             ; preds = %2211
-  %2218 = call fastcc i32 @fPresentValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0820, ptr noundef nonnull @BACnetLifeSafetyState, i32 noundef 9)
+  %2218 = call fastcc i32 @fPresentValue.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0820, ptr noundef nonnull @BACnetLifeSafetyState, i32 noundef 9)
   br label %fDestination.exit.thread
 
 2219:                                             ; preds = %2211
-  %2220 = call fastcc i32 @fPresentValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0820, ptr noundef nonnull @BACnetLifeSafetyState, i32 noundef 9)
+  %2220 = call fastcc i32 @fPresentValue.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0820, ptr noundef nonnull @BACnetLifeSafetyState, i32 noundef 9)
   br label %fDestination.exit.thread
 
 2221:                                             ; preds = %2211
@@ -12720,7 +12720,7 @@ fSCHubFunctionConnection.exit:                    ; preds = %2157, %2160, %2164,
   br label %fDestination.exit.thread
 
 2227:                                             ; preds = %2211
-  %2228 = call fastcc i32 @fPresentValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0820, ptr noundef nonnull @BACnetShedState, i32 noundef 9)
+  %2228 = call fastcc i32 @fPresentValue.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0820, ptr noundef nonnull @BACnetShedState, i32 noundef 9)
   br label %fDestination.exit.thread
 
 2229:                                             ; preds = %2211
@@ -12751,7 +12751,7 @@ fSCHubFunctionConnection.exit:                    ; preds = %2157, %2160, %2164,
 
 2243:                                             ; preds = %2236
   %2244 = zext nneg i8 %2241 to i32
-  %2245 = call fastcc i32 @fPresentValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0820, ptr noundef null, i32 noundef %2244)
+  %2245 = call fastcc i32 @fPresentValue.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0820, ptr noundef null, i32 noundef %2244)
   br label %fDestination.exit.thread
 
 fDestination.exit:                                ; preds = %154
@@ -12988,7 +12988,7 @@ fActionCommand.exit:                              ; preds = %62, %43, %37, %.bac
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fContextTaggedValue(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @fContextTaggedValue.argprom(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
@@ -15582,7 +15582,7 @@ fPropertyIdentifierValue.exit:                    ; preds = %fPropertyReference.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fPresentValue(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 0, 13) %5) unnamed_addr #0 {
+define internal fastcc i32 @fPresentValue.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 0, 13) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
@@ -16079,7 +16079,7 @@ define internal fastcc i32 @fAddress(ptr noundef nonnull %0, ptr noundef %1, ptr
   %28 = load i32, ptr @hf_bacapp_tag_PORT, align 4
   %29 = add i32 %21, 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef nonnull %0, i32 noundef %29, i32 noundef 2, i32 noundef 0) #7
-  br label %fMacAddress.exit
+  br label %fMacAddress.argprom.exit
 
 31:                                               ; preds = %19
   %32 = load i32, ptr @hf_bacapp_tag_IPV6, align 4
@@ -16087,7 +16087,7 @@ define internal fastcc i32 @fAddress(ptr noundef nonnull %0, ptr noundef %1, ptr
   %34 = load i32, ptr @hf_bacapp_tag_PORT, align 4
   %35 = add i32 %21, 16
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef nonnull %0, i32 noundef %35, i32 noundef 2, i32 noundef 0) #7
-  br label %fMacAddress.exit
+  br label %fMacAddress.argprom.exit
 
 37:                                               ; preds = %19
   %38 = load i32, ptr @ett_bacapp_tag, align 4
@@ -16095,9 +16095,9 @@ define internal fastcc i32 @fAddress(ptr noundef nonnull %0, ptr noundef %1, ptr
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @tvb_bytes_to_str(ptr noundef %40, ptr noundef nonnull %0, i32 noundef %21, i32 noundef %22) #7
   %42 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %21, i32 noundef %22, i32 noundef %38, ptr noundef null, ptr noundef %41) #7
-  br label %fMacAddress.exit
+  br label %fMacAddress.argprom.exit
 
-fMacAddress.exit:                                 ; preds = %25, %31, %37
+fMacAddress.argprom.exit:                         ; preds = %25, %31, %37
   %.0.i = phi ptr [ %24, %25 ], [ %24, %31 ], [ %42, %37 ]
   %43 = add i32 %21, %22
   %44 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i, i32 noundef %11, ptr noundef %6, ptr noundef %7, ptr noundef %5)
@@ -16106,8 +16106,8 @@ fMacAddress.exit:                                 ; preds = %25, %31, %37
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   br label %45
 
-45:                                               ; preds = %fMacAddress.exit, %15
-  %.0 = phi i32 [ %18, %15 ], [ %43, %fMacAddress.exit ]
+45:                                               ; preds = %fMacAddress.argprom.exit, %15
+  %.0 = phi i32 [ %18, %15 ], [ %43, %fMacAddress.argprom.exit ]
   ret i32 %.0
 }
 
@@ -17815,7 +17815,7 @@ fDeviceObjectReference.exit:                      ; preds = %444, %447, %451, %4
   br label %557
 
 553:                                              ; preds = %545
-  %554 = tail call fastcc i32 @fPresentValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %547, ptr noundef nonnull @BACnetStatusFlags, i32 noundef 9)
+  %554 = tail call fastcc i32 @fPresentValue.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %547, ptr noundef nonnull @BACnetStatusFlags, i32 noundef 9)
   br label %557
 
 555:                                              ; preds = %542
@@ -18709,7 +18709,7 @@ define internal fastcc i32 @fConfirmedAuditNotificationRequest(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fCreateObjectError(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @fCreateObjectError.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4
@@ -19760,7 +19760,7 @@ define internal fastcc i32 @fReadRangeRequest(ptr noundef nonnull %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fLifeSafetyOperationRequest(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #0 {
+define internal fastcc i32 @fLifeSafetyOperationRequest.argprom(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4

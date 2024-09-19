@@ -2387,7 +2387,7 @@ define internal void @chv_dpio_cmn_power_well_enable(ptr noundef %0, ptr nocaptu
   %31 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %31, align 8
   %.val.val.val = load ptr, ptr %.val.val, align 8
-  tail call fastcc void @vlv_set_power_well(ptr noundef %0, ptr %.val.val.val, i8 %.val2, i1 noundef zeroext true)
+  tail call fastcc void @vlv_set_power_well.argprom.argprom.argprom(ptr noundef %0, ptr %.val.val.val, i8 %.val2, i1 noundef zeroext true)
   %32 = getelementptr inbounds i8, ptr %0, i64 7368
   %33 = tail call i32 @__intel_wait_for_register(ptr noundef %32, i32 1966340, i32 noundef %29, i32 noundef %29, i32 noundef 2, i32 noundef 1, ptr noundef null) #9
   %34 = icmp eq i32 %33, 0
@@ -2515,7 +2515,7 @@ define internal void @chv_dpio_cmn_power_well_disable(ptr noundef %0, ptr nocapt
   %41 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %41, align 8
   %.val.val.val = load ptr, ptr %.val.val, align 8
-  tail call fastcc void @vlv_set_power_well(ptr noundef %0, ptr %.val.val.val, i8 %.val2, i1 noundef zeroext false)
+  tail call fastcc void @vlv_set_power_well.argprom.argprom.argprom(ptr noundef %0, ptr %.val.val.val, i8 %.val2, i1 noundef zeroext false)
   %42 = icmp eq ptr %0, null
   br i1 %42, label %46, label %43
 
@@ -3189,7 +3189,7 @@ define internal void @vlv_display_power_well_enable(ptr noundef %0, ptr nocaptur
   %4 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %4, align 8
   %.val.val.val = load ptr, ptr %.val.val, align 8
-  tail call fastcc void @vlv_set_power_well(ptr noundef %0, ptr %.val.val.val, i8 %.val1, i1 noundef zeroext true)
+  tail call fastcc void @vlv_set_power_well.argprom.argprom.argprom(ptr noundef %0, ptr %.val.val.val, i8 %.val1, i1 noundef zeroext true)
   tail call fastcc void @vlv_display_power_well_init(ptr noundef %0)
   ret void
 }
@@ -3221,7 +3221,7 @@ define internal void @vlv_display_power_well_disable(ptr noundef %0, ptr nocaptu
   %13 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %13, align 8
   %.val.val.val = load ptr, ptr %.val.val, align 8
-  tail call fastcc void @vlv_set_power_well(ptr noundef %0, ptr %.val.val.val, i8 %.val1, i1 noundef zeroext false)
+  tail call fastcc void @vlv_set_power_well.argprom.argprom.argprom(ptr noundef %0, ptr %.val.val.val, i8 %.val1, i1 noundef zeroext false)
   ret void
 }
 
@@ -3234,7 +3234,7 @@ define internal void @vlv_dpio_cmn_power_well_enable(ptr noundef %0, ptr nocaptu
   %4 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %4, align 8
   %.val.val.val = load ptr, ptr %.val.val, align 8
-  tail call fastcc void @vlv_set_power_well(ptr noundef %0, ptr %.val.val.val, i8 %.val1, i1 noundef zeroext true)
+  tail call fastcc void @vlv_set_power_well.argprom.argprom.argprom(ptr noundef %0, ptr %.val.val.val, i8 %.val1, i1 noundef zeroext true)
   %5 = getelementptr inbounds i8, ptr %0, i64 7368
   %6 = getelementptr inbounds i8, ptr %0, i64 7512
   %7 = load ptr, ptr %6, align 8
@@ -3285,7 +3285,7 @@ define internal void @vlv_dpio_cmn_power_well_disable(ptr noundef %0, ptr nocapt
   %25 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %25, align 8
   %.val.val.val = load ptr, ptr %.val.val, align 8
-  tail call fastcc void @vlv_set_power_well(ptr noundef %0, ptr %.val.val.val, i8 %.val1, i1 noundef zeroext false)
+  tail call fastcc void @vlv_set_power_well.argprom.argprom.argprom(ptr noundef %0, ptr %.val.val.val, i8 %.val1, i1 noundef zeroext false)
   ret void
 }
 
@@ -3297,7 +3297,7 @@ define internal void @vlv_power_well_enable(ptr noundef %0, ptr nocapture nounde
   %4 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %4, align 8
   %.val.val.val = load ptr, ptr %.val.val, align 8
-  tail call fastcc void @vlv_set_power_well(ptr noundef %0, ptr %.val.val.val, i8 %.val1, i1 noundef zeroext true)
+  tail call fastcc void @vlv_set_power_well.argprom.argprom.argprom(ptr noundef %0, ptr %.val.val.val, i8 %.val1, i1 noundef zeroext true)
   ret void
 }
 
@@ -3309,7 +3309,7 @@ define internal void @vlv_power_well_disable(ptr noundef %0, ptr nocapture nound
   %4 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %4, align 8
   %.val.val.val = load ptr, ptr %.val.val, align 8
-  tail call fastcc void @vlv_set_power_well(ptr noundef %0, ptr %.val.val.val, i8 %.val1, i1 noundef zeroext false)
+  tail call fastcc void @vlv_set_power_well.argprom.argprom.argprom(ptr noundef %0, ptr %.val.val.val, i8 %.val1, i1 noundef zeroext false)
   ret void
 }
 
@@ -4682,7 +4682,7 @@ declare dso_local void @intel_hpd_poll_enable(ptr noundef) local_unnamed_addr #2
 declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @vlv_set_power_well(ptr noundef %0, ptr nocapture readonly %.0.val.8.val.0.val, i8 %.29.val, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @vlv_set_power_well.argprom.argprom.argprom(ptr noundef %0, ptr nocapture readonly %.0.val.8.val.0.val, i8 %.29.val, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = zext i8 %.29.val to i64
   %4 = getelementptr %struct.i915_power_well_instance, ptr %.0.val.8.val.0.val, i64 %3, i32 3
   %5 = load i8, ptr %4, align 4

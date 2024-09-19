@@ -27053,7 +27053,7 @@ define hidden noundef zeroext i1 @_ZN2lp10lar_solver23all_vars_are_registeredERK
 entry:
   %coeffs.val = load ptr, ptr %coeffs, align 8
   %cmp.i.i.i = icmp eq ptr %coeffs.val, null
-  br i1 %cmp.i.i.i, label %"_Z6all_ofI6vectorISt4pairI8rationaljELb1EjEZN2lp10lar_solver23all_vars_are_registeredERKS4_E3$_0EbRKT_RKT0_.exit", label %_ZNK6vectorISt4pairI8rationaljELb1EjE3endEv.exit.i
+  br i1 %cmp.i.i.i, label %"_Z6all_ofI6vectorISt4pairI8rationaljELb1EjEZN2lp10lar_solver23all_vars_are_registeredERKS4_E3$_0EbRKT_RKT0_.argprom.exit", label %_ZNK6vectorISt4pairI8rationaljELb1EjE3endEv.exit.i
 
 _ZNK6vectorISt4pairI8rationaljELb1EjE3endEv.exit.i: ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %coeffs.val, i64 -4
@@ -27061,13 +27061,13 @@ _ZNK6vectorISt4pairI8rationaljELb1EjE3endEv.exit.i: ; preds = %entry
   %1 = zext i32 %0 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %coeffs.val, i64 %1
   %cmp.not3.i = icmp eq i32 %0, 0
-  br i1 %cmp.not3.i, label %"_Z6all_ofI6vectorISt4pairI8rationaljELb1EjEZN2lp10lar_solver23all_vars_are_registeredERKS4_E3$_0EbRKT_RKT0_.exit", label %for.body.lr.ph.i
+  br i1 %cmp.not3.i, label %"_Z6all_ofI6vectorISt4pairI8rationaljELb1EjEZN2lp10lar_solver23all_vars_are_registeredERKS4_E3$_0EbRKT_RKT0_.argprom.exit", label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZNK6vectorISt4pairI8rationaljELb1EjE3endEv.exit.i
   %2 = getelementptr inbounds i8, ptr %this, i64 1056
   %p.val.val.i = load ptr, ptr %2, align 8
   %cmp.i.i.i.i = icmp eq ptr %p.val.val.i, null
-  br i1 %cmp.i.i.i.i, label %"_Z6all_ofI6vectorISt4pairI8rationaljELb1EjEZN2lp10lar_solver23all_vars_are_registeredERKS4_E3$_0EbRKT_RKT0_.exit", label %for.body.lr.ph.split.i
+  br i1 %cmp.i.i.i.i, label %"_Z6all_ofI6vectorISt4pairI8rationaljELb1EjEZN2lp10lar_solver23all_vars_are_registeredERKS4_E3$_0EbRKT_RKT0_.argprom.exit", label %for.body.lr.ph.split.i
 
 for.body.lr.ph.split.i:                           ; preds = %for.body.lr.ph.i
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %p.val.val.i, i64 -4
@@ -27075,21 +27075,21 @@ for.body.lr.ph.split.i:                           ; preds = %for.body.lr.ph.i
   %4 = getelementptr i8, ptr %coeffs.val, i64 32
   %__begin0.0.val8.i = load i32, ptr %4, align 8
   %cmp.i9.i = icmp ult i32 %__begin0.0.val8.i, %3
-  br i1 %cmp.i9.i, label %for.cond.i, label %"_Z6all_ofI6vectorISt4pairI8rationaljELb1EjEZN2lp10lar_solver23all_vars_are_registeredERKS4_E3$_0EbRKT_RKT0_.exit"
+  br i1 %cmp.i9.i, label %for.cond.i, label %"_Z6all_ofI6vectorISt4pairI8rationaljELb1EjEZN2lp10lar_solver23all_vars_are_registeredERKS4_E3$_0EbRKT_RKT0_.argprom.exit"
 
 for.cond.i:                                       ; preds = %for.body.lr.ph.split.i, %for.body.i
   %__begin0.04.pn.i = phi ptr [ %incdec.ptr11.i, %for.body.i ], [ %coeffs.val, %for.body.lr.ph.split.i ]
   %incdec.ptr11.i = getelementptr inbounds i8, ptr %__begin0.04.pn.i, i64 40
   %cmp.not.i = icmp eq ptr %incdec.ptr11.i, %add.ptr.i.i
-  br i1 %cmp.not.i, label %"_Z6all_ofI6vectorISt4pairI8rationaljELb1EjEZN2lp10lar_solver23all_vars_are_registeredERKS4_E3$_0EbRKT_RKT0_.exit", label %for.body.i
+  br i1 %cmp.not.i, label %"_Z6all_ofI6vectorISt4pairI8rationaljELb1EjEZN2lp10lar_solver23all_vars_are_registeredERKS4_E3$_0EbRKT_RKT0_.argprom.exit", label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
   %5 = getelementptr i8, ptr %__begin0.04.pn.i, i64 72
   %__begin0.0.val.i = load i32, ptr %5, align 8
   %cmp.i.i = icmp ult i32 %__begin0.0.val.i, %3
-  br i1 %cmp.i.i, label %for.cond.i, label %"_Z6all_ofI6vectorISt4pairI8rationaljELb1EjEZN2lp10lar_solver23all_vars_are_registeredERKS4_E3$_0EbRKT_RKT0_.exit"
+  br i1 %cmp.i.i, label %for.cond.i, label %"_Z6all_ofI6vectorISt4pairI8rationaljELb1EjEZN2lp10lar_solver23all_vars_are_registeredERKS4_E3$_0EbRKT_RKT0_.argprom.exit"
 
-"_Z6all_ofI6vectorISt4pairI8rationaljELb1EjEZN2lp10lar_solver23all_vars_are_registeredERKS4_E3$_0EbRKT_RKT0_.exit": ; preds = %for.cond.i, %for.body.i, %entry, %_ZNK6vectorISt4pairI8rationaljELb1EjE3endEv.exit.i, %for.body.lr.ph.i, %for.body.lr.ph.split.i
+"_Z6all_ofI6vectorISt4pairI8rationaljELb1EjEZN2lp10lar_solver23all_vars_are_registeredERKS4_E3$_0EbRKT_RKT0_.argprom.exit": ; preds = %for.cond.i, %for.body.i, %entry, %_ZNK6vectorISt4pairI8rationaljELb1EjE3endEv.exit.i, %for.body.lr.ph.i, %for.body.lr.ph.split.i
   %cmp.not.lcssa.i = phi i1 [ true, %_ZNK6vectorISt4pairI8rationaljELb1EjE3endEv.exit.i ], [ false, %for.body.lr.ph.i ], [ false, %for.body.lr.ph.split.i ], [ true, %entry ], [ %cmp.not.i, %for.body.i ], [ %cmp.not.i, %for.cond.i ]
   ret i1 %cmp.not.lcssa.i
 }

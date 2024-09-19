@@ -273,7 +273,7 @@ if.end136:                                        ; preds = %if.else132, %if.the
   %18 = phi ptr [ %call118, %if.else132 ], [ %16, %if.then124 ]
   %19 = load i32, ptr %version7, align 4
   %cmp.i90 = icmp eq i32 %19, 1
-  br i1 %cmp.i90, label %if.then.i, label %_ZL26setInitialStateToUnicodeKRP10UConverterP21UConverterDataISO2022.exit
+  br i1 %cmp.i90, label %if.then.i, label %_ZL26setInitialStateToUnicodeKRP10UConverterP21UConverterDataISO2022.argprom.exit
 
 if.then.i:                                        ; preds = %if.end136
   %toUnicodeStatus.i = getelementptr inbounds i8, ptr %18, i64 72
@@ -282,15 +282,15 @@ if.then.i:                                        ; preds = %if.end136
   store i32 0, ptr %mode.i, align 4
   %toULength.i = getelementptr inbounds i8, ptr %18, i64 64
   store i8 0, ptr %toULength.i, align 8
-  br label %_ZL26setInitialStateToUnicodeKRP10UConverterP21UConverterDataISO2022.exit
+  br label %_ZL26setInitialStateToUnicodeKRP10UConverterP21UConverterDataISO2022.argprom.exit
 
-_ZL26setInitialStateToUnicodeKRP10UConverterP21UConverterDataISO2022.exit: ; preds = %if.end136, %if.then.i
+_ZL26setInitialStateToUnicodeKRP10UConverterP21UConverterDataISO2022.argprom.exit: ; preds = %if.end136, %if.then.i
   %charErrorBufferLength.i = getelementptr inbounds i8, ptr %cnv, i64 91
   %20 = load i8, ptr %charErrorBufferLength.i, align 1
   %cmp.i91 = icmp eq i8 %20, 0
   br i1 %cmp.i91, label %if.then.i94, label %if.end.i
 
-if.then.i94:                                      ; preds = %_ZL26setInitialStateToUnicodeKRP10UConverterP21UConverterDataISO2022.exit
+if.then.i94:                                      ; preds = %_ZL26setInitialStateToUnicodeKRP10UConverterP21UConverterDataISO2022.argprom.exit
   store i8 4, ptr %charErrorBufferLength.i, align 1
   %charErrorBuffer.i = getelementptr inbounds i8, ptr %cnv, i64 104
   store i8 27, ptr %charErrorBuffer.i, align 8
@@ -302,7 +302,7 @@ if.then.i94:                                      ; preds = %_ZL26setInitialStat
   store i8 67, ptr %arrayidx7.i, align 1
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i94, %_ZL26setInitialStateToUnicodeKRP10UConverterP21UConverterDataISO2022.exit
+if.end.i:                                         ; preds = %if.then.i94, %_ZL26setInitialStateToUnicodeKRP10UConverterP21UConverterDataISO2022.argprom.exit
   %21 = load i32, ptr %version7, align 4
   %cmp8.i = icmp eq i32 %21, 1
   br i1 %cmp8.i, label %if.then9.i, label %_ZL28setInitialStateFromUnicodeKRP10UConverterP21UConverterDataISO2022.exit
@@ -3073,21 +3073,21 @@ land.rhs.i.i:                                     ; preds = %while.body.i.i, %la
   %mySource.02.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %11, %land.rhs.preheader.i.i ]
   %14 = load i8, ptr %mySource.02.i.i, align 1
   %cmp1.not.i.i = icmp eq i8 %14, 27
-  br i1 %cmp1.not.i.i, label %_ZL19getEndOfBuffer_2022PPKcS0_a.exit.i, label %while.body.i.i
+  br i1 %cmp1.not.i.i, label %_ZL19getEndOfBuffer_2022PPKcS0_a.argprom.exit.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %mySource.02.i.i, i64 1
   %exitcond.not.i.i = icmp eq ptr %incdec.ptr.i.i, %12
-  br i1 %exitcond.not.i.i, label %_ZL19getEndOfBuffer_2022PPKcS0_a.exit.i, label %land.rhs.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %_ZL19getEndOfBuffer_2022PPKcS0_a.argprom.exit.i, label %land.rhs.i.i, !llvm.loop !14
 
-_ZL19getEndOfBuffer_2022PPKcS0_a.exit.i:          ; preds = %while.body.i.i, %land.rhs.i.i
+_ZL19getEndOfBuffer_2022PPKcS0_a.argprom.exit.i:  ; preds = %while.body.i.i, %land.rhs.i.i
   %mySource.0.lcssa.i.i = phi ptr [ %scevgep.i.i, %while.body.i.i ], [ %mySource.02.i.i, %land.rhs.i.i ]
   %sourceLimit17.i = getelementptr inbounds i8, ptr %subArgs.i, i64 24
   store ptr %mySource.0.lcssa.i.i, ptr %sourceLimit17.i, align 8
   %cmp20.not.i = icmp eq ptr %11, %mySource.0.lcssa.i.i
   br i1 %cmp20.not.i, label %if.end109.i, label %if.then21.i
 
-if.then21.i:                                      ; preds = %_ZL19getEndOfBuffer_2022PPKcS0_a.exit.i
+if.then21.i:                                      ; preds = %_ZL19getEndOfBuffer_2022PPKcS0_a.argprom.exit.i
   %15 = load ptr, ptr %converter, align 8
   %toULength.i = getelementptr inbounds i8, ptr %15, i64 64
   %16 = load i8, ptr %toULength.i, align 8
@@ -3209,8 +3209,8 @@ if.end101.i:                                      ; preds = %do.body91.i, %if.th
   %.pre56.i = load i32, ptr %err, align 4
   br label %if.end109.i
 
-if.end109.i:                                      ; preds = %if.end101.i, %if.end80.i, %_ZL19getEndOfBuffer_2022PPKcS0_a.exit.i
-  %38 = phi i32 [ %33, %if.end80.i ], [ %.pre56.i, %if.end101.i ], [ %10, %_ZL19getEndOfBuffer_2022PPKcS0_a.exit.i ]
+if.end109.i:                                      ; preds = %if.end101.i, %if.end80.i, %_ZL19getEndOfBuffer_2022PPKcS0_a.argprom.exit.i
+  %38 = phi i32 [ %33, %if.end80.i ], [ %.pre56.i, %if.end101.i ], [ %10, %_ZL19getEndOfBuffer_2022PPKcS0_a.argprom.exit.i ]
   %cmp.i46.i = icmp slt i32 %38, 1
   br i1 %cmp.i46.i, label %lor.lhs.false.i, label %_ZL50UConverter_toUnicode_ISO_2022_KR_OFFSETS_LOGIC_IBMP23UConverterToUnicodeArgsP10UErrorCode.exit
 

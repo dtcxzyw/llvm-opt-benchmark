@@ -1265,11 +1265,11 @@ define dso_local void @ExplainOneUtility(ptr noundef %0, ptr noundef %1, ptr nou
   ]
 
 15:                                               ; preds = %12
-  tail call fastcc void @ExplainDummyGroup(ptr noundef nonnull @.str.23, ptr noundef %2)
+  tail call fastcc void @ExplainDummyGroup.argprom(ptr noundef nonnull @.str.23, ptr noundef %2)
   br label %54
 
 16:                                               ; preds = %12
-  tail call fastcc void @ExplainDummyGroup(ptr noundef nonnull @.str.24, ptr noundef %2)
+  tail call fastcc void @ExplainDummyGroup.argprom(ptr noundef nonnull @.str.24, ptr noundef %2)
   br label %54
 
 17:                                               ; preds = %12
@@ -1322,7 +1322,7 @@ define dso_local void @ExplainOneUtility(ptr noundef %0, ptr noundef %1, ptr nou
   br label %54
 
 46:                                               ; preds = %40
-  tail call fastcc void @ExplainDummyGroup(ptr noundef nonnull @.str.27, ptr noundef nonnull %2)
+  tail call fastcc void @ExplainDummyGroup.argprom(ptr noundef nonnull @.str.27, ptr noundef nonnull %2)
   br label %54
 
 47:                                               ; preds = %8
@@ -1337,7 +1337,7 @@ define dso_local void @ExplainOneUtility(ptr noundef %0, ptr noundef %1, ptr nou
   br label %54
 
 53:                                               ; preds = %47
-  tail call fastcc void @ExplainDummyGroup(ptr noundef nonnull @.str.29, ptr noundef nonnull %2)
+  tail call fastcc void @ExplainDummyGroup.argprom(ptr noundef nonnull @.str.29, ptr noundef nonnull %2)
   br label %54
 
 54:                                               ; preds = %30, %46, %44, %53, %51, %39, %15, %16, %6, %21
@@ -1347,7 +1347,7 @@ define dso_local void @ExplainOneUtility(ptr noundef %0, ptr noundef %1, ptr nou
 declare zeroext i1 @CreateTableAsRelExists(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExplainDummyGroup(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @ExplainDummyGroup.argprom(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %35 [
@@ -4137,21 +4137,21 @@ ExplainIndentText.exit753:                        ; preds = %431, %438
   %460 = getelementptr inbounds i8, ptr %4, i64 8
   %461 = load i8, ptr %460, align 8
   %462 = trunc i8 %461 to i1
-  br i1 %462, label %463, label %show_plan_tlist.exit
+  br i1 %462, label %463, label %show_plan_tlist.argprom.exit
 
 463:                                              ; preds = %.loopexit1004
   %.val = load ptr, ptr %37, align 8
   %464 = getelementptr inbounds i8, ptr %.val, i64 48
   %465 = load ptr, ptr %464, align 8
   %466 = icmp eq ptr %465, null
-  br i1 %466, label %show_plan_tlist.exit, label %467
+  br i1 %466, label %show_plan_tlist.argprom.exit, label %467
 
 467:                                              ; preds = %463
   %468 = load i32, ptr %.val, align 4
   switch i32 %468, label %472 [
-    i32 318, label %show_plan_tlist.exit
-    i32 319, label %show_plan_tlist.exit
-    i32 320, label %show_plan_tlist.exit
+    i32 318, label %show_plan_tlist.argprom.exit
+    i32 319, label %show_plan_tlist.argprom.exit
+    i32 320, label %show_plan_tlist.argprom.exit
     i32 338, label %469
   ]
 
@@ -4159,7 +4159,7 @@ ExplainIndentText.exit753:                        ; preds = %431, %438
   %470 = getelementptr inbounds i8, ptr %.val, i64 112
   %471 = load i32, ptr %470, align 8
   %.not.i754 = icmp eq i32 %471, 1
-  br i1 %.not.i754, label %472, label %show_plan_tlist.exit
+  br i1 %.not.i754, label %472, label %show_plan_tlist.argprom.exit
 
 472:                                              ; preds = %469, %467
   %473 = getelementptr inbounds i8, ptr %4, i64 64
@@ -4208,9 +4208,9 @@ list_length.exit.i:                               ; preds = %478, %472
 ._crit_edge.i:                                    ; preds = %.lr.ph10.i, %.lr.ph.i, %list_length.exit.i
   %.0.lcssa.i = phi ptr [ null, %list_length.exit.i ], [ null, %.lr.ph.i ], [ %494, %.lr.ph10.i ]
   call void @ExplainPropertyList(ptr noundef nonnull @.str.241, ptr noundef %.0.lcssa.i, ptr noundef readonly %4)
-  br label %show_plan_tlist.exit
+  br label %show_plan_tlist.argprom.exit
 
-show_plan_tlist.exit:                             ; preds = %._crit_edge.i, %469, %467, %467, %467, %463, %.loopexit1004
+show_plan_tlist.argprom.exit:                     ; preds = %._crit_edge.i, %469, %467, %467, %467, %463, %.loopexit1004
   %498 = load i32, ptr %38, align 4
   switch i32 %498, label %thread-pre-split971 [
     i32 340, label %499
@@ -4218,7 +4218,7 @@ show_plan_tlist.exit:                             ; preds = %._crit_edge.i, %469
     i32 343, label %499
   ]
 
-499:                                              ; preds = %show_plan_tlist.exit, %show_plan_tlist.exit, %show_plan_tlist.exit
+499:                                              ; preds = %show_plan_tlist.argprom.exit, %show_plan_tlist.argprom.exit, %show_plan_tlist.argprom.exit
   %500 = load i32, ptr %147, align 4
   %.not700 = icmp eq i32 %500, 0
   br i1 %.not700, label %502, label %._crit_edge1106
@@ -4247,20 +4247,20 @@ show_plan_tlist.exit:                             ; preds = %._crit_edge.i, %469
   %.pr972.pre = load i32, ptr %38, align 4
   br label %thread-pre-split971
 
-thread-pre-split971:                              ; preds = %502, %505, %509, %show_plan_tlist.exit
-  %510 = phi i32 [ %498, %show_plan_tlist.exit ], [ %.pr972.pre, %509 ], [ %498, %505 ], [ %498, %502 ]
+thread-pre-split971:                              ; preds = %502, %505, %509, %show_plan_tlist.argprom.exit
+  %510 = phi i32 [ %498, %show_plan_tlist.argprom.exit ], [ %.pr972.pre, %509 ], [ %498, %505 ], [ %498, %502 ]
   switch i32 %510, label %show_scan_qual.exit766 [
     i32 325, label %511
     i32 326, label %564
     i32 327, label %626
     i32 328, label %644
     i32 324, label %684
-    i32 323, label %show_tablesample.exit
-    i32 333, label %show_tablesample.exit
-    i32 335, label %show_tablesample.exit
-    i32 336, label %show_tablesample.exit
-    i32 337, label %show_tablesample.exit
-    i32 331, label %show_tablesample.exit
+    i32 323, label %show_tablesample.argprom.exit
+    i32 333, label %show_tablesample.argprom.exit
+    i32 335, label %show_tablesample.argprom.exit
+    i32 336, label %show_tablesample.argprom.exit
+    i32 337, label %show_tablesample.argprom.exit
+    i32 331, label %show_tablesample.argprom.exit
     i32 352, label %789
     i32 353, label %830
     i32 332, label %863
@@ -4737,19 +4737,19 @@ ExplainIndentText.exit.i:                         ; preds = %733, %726
 754:                                              ; preds = %752, %._crit_edge19.i
   %755 = load ptr, ptr %4, align 8
   call void @appendStringInfoChar(ptr noundef %755, i8 noundef signext 10) #11
-  br label %show_tablesample.exit
+  br label %show_tablesample.argprom.exit
 
 756:                                              ; preds = %718
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.249, ptr noundef null, ptr noundef %699, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   call void @ExplainPropertyList(ptr noundef nonnull @.str.250, ptr noundef %.0.lcssa.i776, ptr noundef nonnull readonly %4)
   %.not52.i = icmp eq ptr %.046.i, null
-  br i1 %.not52.i, label %show_tablesample.exit, label %757
+  br i1 %.not52.i, label %show_tablesample.argprom.exit, label %757
 
 757:                                              ; preds = %756
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.251, ptr noundef null, ptr noundef nonnull %.046.i, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
-  br label %show_tablesample.exit
+  br label %show_tablesample.argprom.exit
 
-show_tablesample.exit:                            ; preds = %757, %756, %754, %thread-pre-split971, %thread-pre-split971, %thread-pre-split971, %thread-pre-split971, %thread-pre-split971, %thread-pre-split971
+show_tablesample.argprom.exit:                    ; preds = %757, %756, %754, %thread-pre-split971, %thread-pre-split971, %thread-pre-split971, %thread-pre-split971, %thread-pre-split971, %thread-pre-split971
   %758 = getelementptr inbounds i8, ptr %38, i64 56
   %759 = load ptr, ptr %758, align 8
   %760 = load ptr, ptr %37, align 8
@@ -4757,13 +4757,13 @@ show_tablesample.exit:                            ; preds = %757, %756, %754, %t
   %762 = icmp eq i32 %761, 331
   br i1 %762, label %766, label %763
 
-763:                                              ; preds = %show_tablesample.exit
+763:                                              ; preds = %show_tablesample.argprom.exit
   %764 = load i8, ptr %460, align 8
   %765 = trunc i8 %764 to i1
   br label %766
 
-766:                                              ; preds = %763, %show_tablesample.exit
-  %767 = phi i1 [ true, %show_tablesample.exit ], [ %765, %763 ]
+766:                                              ; preds = %763, %show_tablesample.argprom.exit
+  %767 = phi i1 [ true, %show_tablesample.argprom.exit ], [ %765, %763 ]
   %768 = icmp eq ptr %759, null
   br i1 %768, label %show_scan_qual.exit766, label %show_scan_qual.exit780
 
@@ -4995,7 +4995,7 @@ show_scan_qual.exit785.thread:                    ; preds = %839, %848, %show_sc
   %.pre-phi = phi i1 [ %.pre1149, %._crit_edge.loopexit ], [ true, %.lr.ph1014 ], [ true, %866 ]
   %.0661.lcssa = phi ptr [ %878, %._crit_edge.loopexit ], [ null, %.lr.ph1014 ], [ null, %866 ]
   %.val746 = load ptr, ptr %37, align 8
-  call fastcc void @show_expression(ptr noundef %.0661.lcssa, ptr noundef nonnull @.str.208, ptr %.val746, ptr noundef %1, i1 noundef zeroext %.pre-phi, ptr noundef nonnull %4)
+  call fastcc void @show_expression.argprom(ptr noundef %.0661.lcssa, ptr noundef nonnull @.str.208, ptr %.val746, ptr noundef %1, i1 noundef zeroext %.pre-phi, ptr noundef nonnull %4)
   br label %882
 
 882:                                              ; preds = %._crit_edge, %863
@@ -5041,7 +5041,7 @@ show_scan_qual.exit787:                           ; preds = %891
 904:                                              ; preds = %901
   %905 = getelementptr inbounds i8, ptr %38, i64 112
   %906 = load ptr, ptr %905, align 8
-  call fastcc void @show_expression(ptr noundef %906, ptr noundef nonnull @.str.209, ptr %.pre1130, ptr noundef %1, i1 noundef zeroext true, ptr noundef nonnull %4)
+  call fastcc void @show_expression.argprom(ptr noundef %906, ptr noundef nonnull @.str.209, ptr %.pre1130, ptr noundef %1, i1 noundef zeroext true, ptr noundef nonnull %4)
   %.pre1129 = load ptr, ptr %37, align 8
   br label %907
 
@@ -5732,7 +5732,7 @@ show_grouping_sets.exit.i:                        ; preds = %.lr.ph33.i.i, %.lr.
   %1256 = load ptr, ptr %1255, align 8
   %1257 = getelementptr i8, ptr %1223, i64 8
   %.val.i = load ptr, ptr %1257, align 8
-  call fastcc void @show_sort_group_keys(ptr %.val.i, ptr noundef nonnull @.str.254, i32 noundef %1254, i32 noundef 0, ptr noundef %1256, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %1219, ptr noundef %4)
+  call fastcc void @show_sort_group_keys.argprom(ptr %.val.i, ptr noundef nonnull @.str.254, i32 noundef %1254, i32 noundef 0, ptr noundef %1256, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %1219, ptr noundef %4)
   br label %1258
 
 1258:                                             ; preds = %1253, %show_grouping_sets.exit.i
@@ -6150,7 +6150,7 @@ list_length.exit.thread.i867:                     ; preds = %list_length.exit.i8
   %1473 = load ptr, ptr %1472, align 8
   %1474 = getelementptr i8, ptr %1469, i64 8
   %.val.i870 = load ptr, ptr %1474, align 8
-  call fastcc void @show_sort_group_keys(ptr %.val.i870, ptr noundef nonnull @.str.254, i32 noundef %1471, i32 noundef 0, ptr noundef %1473, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %1467, ptr noundef readonly %4)
+  call fastcc void @show_sort_group_keys.argprom(ptr %.val.i870, ptr noundef nonnull @.str.254, i32 noundef %1471, i32 noundef 0, ptr noundef %1473, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %1467, ptr noundef readonly %4)
   %1475 = call ptr @list_delete_first(ptr noundef %1467) #11
   %1476 = getelementptr inbounds i8, ptr %38, i64 56
   %1477 = load ptr, ptr %1476, align 8
@@ -6203,7 +6203,7 @@ show_upper_qual.exit875:                          ; preds = %1485
   %1503 = load ptr, ptr %1502, align 8
   %1504 = getelementptr inbounds i8, ptr %.val749, i64 136
   %1505 = load ptr, ptr %1504, align 8
-  call fastcc void @show_sort_group_keys(ptr %.val749, ptr noundef nonnull @.str.260, i32 noundef %1497, i32 noundef 0, ptr noundef %1499, ptr noundef %1501, ptr noundef %1503, ptr noundef %1505, ptr noundef %1, ptr noundef readonly %4)
+  call fastcc void @show_sort_group_keys.argprom(ptr %.val749, ptr noundef nonnull @.str.260, i32 noundef %1497, i32 noundef 0, ptr noundef %1499, ptr noundef %1501, ptr noundef %1503, ptr noundef %1505, ptr noundef %1, ptr noundef readonly %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
   %1506 = load i8, ptr %337, align 1
   %1507 = trunc i8 %1506 to i1
@@ -6385,7 +6385,7 @@ show_sort_info.exit:                              ; preds = %1588, %1495, %1543,
   %1603 = load ptr, ptr %1602, align 8
   %1604 = getelementptr inbounds i8, ptr %.val750, i64 136
   %1605 = load ptr, ptr %1604, align 8
-  call fastcc void @show_sort_group_keys(ptr %.val750, ptr noundef nonnull @.str.260, i32 noundef %1595, i32 noundef %1597, ptr noundef %1599, ptr noundef %1601, ptr noundef %1603, ptr noundef %1605, ptr noundef %1, ptr noundef readonly %4)
+  call fastcc void @show_sort_group_keys.argprom(ptr %.val750, ptr noundef nonnull @.str.260, i32 noundef %1595, i32 noundef %1597, ptr noundef %1599, ptr noundef %1601, ptr noundef %1603, ptr noundef %1605, ptr noundef %1, ptr noundef readonly %4)
   %1606 = getelementptr inbounds i8, ptr %0, i64 296
   %1607 = load i8, ptr %337, align 1
   %1608 = trunc i8 %1607 to i1
@@ -6526,7 +6526,7 @@ show_sort_info.exit:                              ; preds = %1588, %1495, %1543,
   %1677 = load ptr, ptr %1676, align 8
   %1678 = getelementptr inbounds i8, ptr %.val751, i64 152
   %1679 = load ptr, ptr %1678, align 8
-  call fastcc void @show_sort_group_keys(ptr %.val751, ptr noundef nonnull @.str.260, i32 noundef %1671, i32 noundef 0, ptr noundef %1673, ptr noundef %1675, ptr noundef %1677, ptr noundef %1679, ptr noundef %1, ptr noundef readonly %4)
+  call fastcc void @show_sort_group_keys.argprom(ptr %.val751, ptr noundef nonnull @.str.260, i32 noundef %1671, i32 noundef 0, ptr noundef %1673, ptr noundef %1675, ptr noundef %1677, ptr noundef %1679, ptr noundef %1, ptr noundef readonly %4)
   br label %show_scan_qual.exit766
 
 1680:                                             ; preds = %thread-pre-split971
@@ -9528,7 +9528,7 @@ define internal fastcc void @ExplainOpenWorker(i32 noundef %0, ptr nocapture nou
   store ptr %19, ptr %1, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4
-  switch i32 %21, label %ExplainOpenSetAsideGroup.exit [
+  switch i32 %21, label %ExplainOpenSetAsideGroup.argprom.exit [
     i32 3, label %.sink.split.sink.split.i
     i32 1, label %.sink.split.i
     i32 2, label %.sink.split.sink.split.i
@@ -9548,21 +9548,21 @@ define internal fastcc void @ExplainOpenWorker(i32 noundef %0, ptr nocapture nou
   %26 = load i32, ptr %25, align 8
   %27 = add i32 %26, 2
   store i32 %27, ptr %25, align 8
-  br label %ExplainOpenSetAsideGroup.exit
+  br label %ExplainOpenSetAsideGroup.argprom.exit
 
-ExplainOpenSetAsideGroup.exit:                    ; preds = %17, %.sink.split.i
+ExplainOpenSetAsideGroup.argprom.exit:            ; preds = %17, %.sink.split.i
   %28 = phi i32 [ %21, %17 ], [ %.pr, %.sink.split.i ]
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %31, label %29
 
-29:                                               ; preds = %ExplainOpenSetAsideGroup.exit
+29:                                               ; preds = %ExplainOpenSetAsideGroup.argprom.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %10) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.239, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull readonly %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %31
 
-31:                                               ; preds = %29, %ExplainOpenSetAsideGroup.exit
+31:                                               ; preds = %29, %ExplainOpenSetAsideGroup.argprom.exit
   %32 = load ptr, ptr %8, align 8
   %33 = getelementptr i8, ptr %32, i64 %10
   store i8 1, ptr %33, align 1
@@ -9902,7 +9902,7 @@ define internal fastcc void @show_eval_params(ptr noundef nonnull %0, ptr nocapt
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_expression(ptr noundef %0, ptr noundef %1, ptr %.8.val, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @show_expression.argprom(ptr noundef %0, ptr noundef %1, ptr %.8.val, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %4, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @set_deparse_context_plan(ptr noundef %7, ptr noundef %.8.val, ptr noundef %2) #11
@@ -10241,7 +10241,7 @@ declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_sort_group_keys(ptr %.8.val, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #0 {
+define internal fastcc void @show_sort_group_keys.argprom(ptr %.8.val, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = alloca %struct.StringInfoData, align 8
   %12 = icmp slt i32 %1, 1
@@ -10486,7 +10486,7 @@ define internal fastcc void @show_grouping_set_keys(ptr nocapture noundef readon
   %26 = getelementptr inbounds i8, ptr %2, i64 136
   %27 = load ptr, ptr %26, align 8
   %.val = load ptr, ptr %8, align 8
-  tail call fastcc void @show_sort_group_keys(ptr %.val, ptr noundef nonnull @.str.260, i32 noundef %19, i32 noundef 0, ptr noundef %21, ptr noundef %23, ptr noundef %25, ptr noundef %27, ptr noundef %5, ptr noundef %6)
+  tail call fastcc void @show_sort_group_keys.argprom(ptr %.val, ptr noundef nonnull @.str.260, i32 noundef %19, i32 noundef 0, ptr noundef %21, ptr noundef %23, ptr noundef %25, ptr noundef %27, ptr noundef %5, ptr noundef %6)
   %28 = getelementptr inbounds i8, ptr %6, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0

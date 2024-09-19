@@ -317,9 +317,9 @@ if.then10.i:                                      ; preds = %if.else.i
   %22 = load i64, ptr %octet_data_size.i.i, align 8
   store i64 %22, ptr %pdatalen.i.i, align 8
   %23 = icmp ult i32 %ctx.val.i, 5
-  br i1 %23, label %switch.hole_check, label %try_key_value.exit.thread.i
+  br i1 %23, label %switch.hole_check, label %try_key_value.argprom.exit.thread.i
 
-try_key_value.exit.thread.i:                      ; preds = %switch.hole_check, %if.then10.i
+try_key_value.argprom.exit.thread.i:              ; preds = %switch.hole_check, %if.then10.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pk.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pdata.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pdatalen.i.i)
@@ -329,7 +329,7 @@ switch.hole_check:                                ; preds = %if.then10.i
   %switch.maskindex = trunc nuw i32 %ctx.val.i to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %try_key_value.exit.thread.i
+  br i1 %switch.lobit, label %switch.lookup, label %try_key_value.argprom.exit.thread.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %24 = zext nneg i32 %ctx.val.i to i64
@@ -348,18 +348,18 @@ switch.lookup:                                    ; preds = %switch.hole_check
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pdata.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pdatalen.i.i)
   %cmp12.i = icmp eq ptr %27, null
-  br i1 %cmp12.i, label %try_key_value.exit.if.then13_crit_edge.i, label %if.then22.i
+  br i1 %cmp12.i, label %try_key_value.argprom.exit.if.then13_crit_edge.i, label %if.then22.i
 
-try_key_value.exit.if.then13_crit_edge.i:         ; preds = %switch.lookup
+try_key_value.argprom.exit.if.then13_crit_edge.i: ; preds = %switch.lookup
   %data.val.pre.i = load ptr, ptr %octet_data.i, align 8
   %data.val25.pre.i = load i64, ptr %octet_data_size.i.i, align 8
   %.pre.i = load i32, ptr %21, align 8
   br label %if.then13.i
 
-if.then13.i:                                      ; preds = %try_key_value.exit.if.then13_crit_edge.i, %try_key_value.exit.thread.i
-  %28 = phi i32 [ %.pre.i, %try_key_value.exit.if.then13_crit_edge.i ], [ %ctx.val.i, %try_key_value.exit.thread.i ]
-  %data.val25.i = phi i64 [ %data.val25.pre.i, %try_key_value.exit.if.then13_crit_edge.i ], [ %22, %try_key_value.exit.thread.i ]
-  %data.val.i = phi ptr [ %data.val.pre.i, %try_key_value.exit.if.then13_crit_edge.i ], [ %20, %try_key_value.exit.thread.i ]
+if.then13.i:                                      ; preds = %try_key_value.argprom.exit.if.then13_crit_edge.i, %try_key_value.argprom.exit.thread.i
+  %28 = phi i32 [ %.pre.i, %try_key_value.argprom.exit.if.then13_crit_edge.i ], [ %ctx.val.i, %try_key_value.argprom.exit.thread.i ]
+  %data.val25.i = phi i64 [ %data.val25.pre.i, %try_key_value.argprom.exit.if.then13_crit_edge.i ], [ %22, %try_key_value.argprom.exit.thread.i ]
+  %data.val.i = phi ptr [ %data.val.pre.i, %try_key_value.argprom.exit.if.then13_crit_edge.i ], [ %20, %try_key_value.argprom.exit.thread.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %derp.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %new_der.i.i)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %pbuf.i.i)

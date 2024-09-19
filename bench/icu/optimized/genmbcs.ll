@@ -443,7 +443,7 @@ sw.bb46:                                          ; preds = %if.end44, %if.end44
   br i1 %cmp88, label %if.then54, label %lor.lhs.false7.i
 
 if.then54:                                        ; preds = %sw.bb46
-  %call59 = tail call fastcc noundef signext i8 @_ZL24MBCSSingleAddFromUnicodeP8MBCSDataPKhiia(ptr noundef nonnull %cnvData, ptr noundef nonnull %b, i32 noundef %23, i8 noundef signext %24)
+  %call59 = tail call fastcc noundef signext i8 @_ZL24MBCSSingleAddFromUnicodeP8MBCSDataPKhiia.argelim(ptr noundef nonnull %cnvData, ptr noundef nonnull %b, i32 noundef %23, i8 noundef signext %24)
   %and6295 = and i8 %call59, %and5193
   br label %for.inc
 
@@ -500,7 +500,7 @@ sw.bb87:                                          ; preds = %if.end44
 if.then89:                                        ; preds = %sw.bb87
   store i8 1, ptr %hasFromUnicodeFallback, align 2
   %b91 = getelementptr inbounds i8, ptr %m.0162, i64 4
-  %call95 = tail call fastcc noundef signext i8 @_ZL24MBCSSingleAddFromUnicodeP8MBCSDataPKhiia(ptr noundef nonnull %cnvData, ptr noundef nonnull %b91, i32 noundef %23, i8 noundef signext 1)
+  %call95 = tail call fastcc noundef signext i8 @_ZL24MBCSSingleAddFromUnicodeP8MBCSDataPKhiia.argelim(ptr noundef nonnull %cnvData, ptr noundef nonnull %b91, i32 noundef %23, i8 noundef signext 1)
   %and9892 = and i8 %call95, %isOK.0163
   br label %for.inc
 
@@ -2113,7 +2113,7 @@ return:                                           ; preds = %if.else6.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL24MBCSSingleAddFromUnicodeP8MBCSDataPKhiia(ptr nocapture noundef %mbcsData, ptr nocapture noundef readonly %bytes, i32 noundef %c, i8 noundef signext %flag) unnamed_addr #8 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL24MBCSSingleAddFromUnicodeP8MBCSDataPKhiia.argelim(ptr nocapture noundef %mbcsData, ptr nocapture noundef readonly %bytes, i32 noundef %c, i8 noundef signext %flag) unnamed_addr #8 {
 entry:
   %cmp = icmp eq i8 %flag, 2
   br i1 %cmp, label %return, label %if.end

@@ -457,7 +457,7 @@ define internal i32 @dissect_osc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
 6:                                                ; preds = %4
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 4, ptr noundef nonnull @get_osc_pdu_len, ptr noundef nonnull @dissect_osc_tcp_pdu, ptr noundef %3) #5
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  br label %dissect_osc_tcp_1_1.exit
+  br label %dissect_osc_tcp_1_1.argprom.exit
 
 .critedge:                                        ; preds = %4, %4, %4
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
@@ -483,7 +483,7 @@ define internal i32 @dissect_osc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
   %17 = getelementptr inbounds i8, ptr %1, i64 336
   store i32 268435455, ptr %17, align 8
   %18 = add i32 %11, %.03910.i
-  br label %dissect_osc_tcp_1_1.exit
+  br label %dissect_osc_tcp_1_1.argprom.exit
 
 19:                                               ; preds = %10
   %20 = getelementptr i8, ptr %14, i64 1
@@ -498,7 +498,7 @@ define internal i32 @dissect_osc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
   %27 = and i64 %23, 4294967295
   %28 = getelementptr i8, ptr %12, i64 %27
   %29 = icmp ult ptr %12, %28
-  br i1 %29, label %.lr.ph.i.i, label %dissect_osc_tcp_1_1.exit
+  br i1 %29, label %.lr.ph.i.i, label %dissect_osc_tcp_1_1.argprom.exit
 
 .lr.ph.i.i:                                       ; preds = %26, %38
   %.018.i.i = phi i32 [ %.1.i.i, %38 ], [ 0, %26 ]
@@ -511,7 +511,7 @@ define internal i32 @dissect_osc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
 31:                                               ; preds = %.lr.ph.i.i
   %32 = and i8 %30, -2
   %switch.i.i = icmp eq i8 %32, -36
-  br i1 %switch.i.i, label %33, label %dissect_osc_tcp_1_1.exit
+  br i1 %switch.i.i, label %33, label %dissect_osc_tcp_1_1.argprom.exit
 
 33:                                               ; preds = %31
   %34 = add i32 %.01217.i.i, 1
@@ -532,11 +532,11 @@ define internal i32 @dissect_osc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
   %.1.i.i = phi i32 [ 0, %33 ], [ 0, %36 ], [ 1, %35 ]
   %39 = getelementptr i8, ptr %.01516.i.i, i64 1
   %exitcond.not.i = icmp eq ptr %39, %28
-  br i1 %exitcond.not.i, label %dissect_osc_tcp_1_1.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %dissect_osc_tcp_1_1.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 slip_decoded_len.exit.i:                          ; preds = %35
   %.not43.i = icmp eq i32 %.01217.i.i, -1
-  br i1 %.not43.i, label %dissect_osc_tcp_1_1.exit, label %40
+  br i1 %.not43.i, label %dissect_osc_tcp_1_1.argprom.exit, label %40
 
 40:                                               ; preds = %slip_decoded_len.exit.i
   %41 = load ptr, ptr %9, align 8
@@ -576,7 +576,7 @@ slip_decoded_len.exit.i:                          ; preds = %35
 slip_decode.exit.i:                               ; preds = %48, %.lr.ph.i44.i
   %50 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %43, i32 noundef %.01217.i.i, i32 noundef %.01217.i.i) #5
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @.str.328) #5
-  tail call fastcc void @dissect_osc_pdu_common(ptr noundef %50, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %.01217.i.i)
+  tail call fastcc void @dissect_osc_pdu_common.argprom(ptr noundef %50, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %.01217.i.i)
   br label %51
 
 51:                                               ; preds = %slip_decode.exit.i, %19
@@ -587,9 +587,9 @@ slip_decode.exit.i:                               ; preds = %48, %.lr.ph.i44.i
 
 ._crit_edge.i:                                    ; preds = %51, %.critedge
   %55 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
-  br label %dissect_osc_tcp_1_1.exit
+  br label %dissect_osc_tcp_1_1.argprom.exit
 
-dissect_osc_tcp_1_1.exit:                         ; preds = %slip_decoded_len.exit.i, %26, %38, %31, %._crit_edge.i, %15, %6
+dissect_osc_tcp_1_1.argprom.exit:                 ; preds = %slip_decoded_len.exit.i, %26, %38, %31, %._crit_edge.i, %15, %6
   %.0 = phi i32 [ %7, %6 ], [ %18, %15 ], [ %55, %._crit_edge.i ], [ 0, %31 ], [ 0, %38 ], [ 0, %26 ], [ 0, %slip_decoded_len.exit.i ]
   ret i32 %.0
 }
@@ -597,7 +597,7 @@ dissect_osc_tcp_1_1.exit:                         ; preds = %slip_decoded_len.ex
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_osc_udp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  tail call fastcc void @dissect_osc_pdu_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %5)
+  tail call fastcc void @dissect_osc_pdu_common.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %5)
   ret i32 %5
 }
 
@@ -772,7 +772,7 @@ is_valid_path.exit.thread:                        ; preds = %38, %34, %47, %is_v
   %64 = load ptr, ptr @osc_udp_handle, align 8
   call void @conversation_set_dissector(ptr noundef nonnull %63, ptr noundef %64) #5
   %65 = call i32 @tvb_reported_length(ptr noundef %0) #5
-  call fastcc void @dissect_osc_pdu_common(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef 0, i32 noundef %65)
+  call fastcc void @dissect_osc_pdu_common.argprom(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef 0, i32 noundef %65)
   br label %66
 
 66:                                               ; preds = %58, %4, %62
@@ -802,7 +802,7 @@ declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_osc_pdu_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 5) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_osc_pdu_common.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 5) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.116) #5
@@ -823,11 +823,11 @@ define internal fastcc void @dissect_osc_pdu_common(ptr noundef %0, ptr nocaptur
   ]
 
 15:                                               ; preds = %9
-  %16 = tail call fastcc i32 @dissect_osc_bundle(ptr noundef %0, ptr noundef %13, i32 noundef %3, i32 noundef %4)
+  %16 = tail call fastcc i32 @dissect_osc_bundle.argprom(ptr noundef %0, ptr noundef %13, i32 noundef %3, i32 noundef %4)
   br label %19
 
 17:                                               ; preds = %9
-  %18 = tail call fastcc i32 @dissect_osc_message(ptr noundef %0, ptr noundef %13, i32 noundef %3, i32 noundef %4)
+  %18 = tail call fastcc i32 @dissect_osc_message.argprom(ptr noundef %0, ptr noundef %13, i32 noundef %3, i32 noundef %4)
   br label %19
 
 19:                                               ; preds = %17, %15, %9, %5
@@ -845,7 +845,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @dissect_osc_bundle(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dissect_osc_bundle.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca i32, align 4
   %7 = add i32 %3, %2
@@ -899,13 +899,13 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_osc_bundle(ptr noundef %0, 
 
 35:                                               ; preds = %33
   %36 = load i32, ptr %6, align 4
-  %37 = call fastcc i32 @dissect_osc_bundle(ptr noundef %0, ptr noundef %13, i32 noundef %30, i32 noundef %36)
+  %37 = call fastcc i32 @dissect_osc_bundle.argprom(ptr noundef %0, ptr noundef %13, i32 noundef %30, i32 noundef %36)
   %.not49 = icmp eq i32 %37, 0
   br i1 %.not49, label %41, label %.loopexit
 
 38:                                               ; preds = %33
   %39 = load i32, ptr %6, align 4
-  %40 = call fastcc i32 @dissect_osc_message(ptr noundef %0, ptr noundef %13, i32 noundef %30, i32 noundef %39)
+  %40 = call fastcc i32 @dissect_osc_message.argprom(ptr noundef %0, ptr noundef %13, i32 noundef %30, i32 noundef %39)
   %.not48 = icmp eq i32 %40, 0
   br i1 %.not48, label %41, label %.loopexit
 
@@ -936,7 +936,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_osc_bundle(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @dissect_osc_message(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dissect_osc_message.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.nstime_t, align 8
@@ -1428,7 +1428,7 @@ define internal i32 @get_osc_pdu_len(ptr nocapture readnone %0, ptr noundef %1, 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_osc_tcp_pdu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #5
-  tail call fastcc void @dissect_osc_pdu_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4, i32 noundef %5)
+  tail call fastcc void @dissect_osc_pdu_common.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4, i32 noundef %5)
   ret i32 %5
 }
 

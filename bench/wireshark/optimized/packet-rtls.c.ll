@@ -307,7 +307,7 @@ define internal noundef i32 @dissect_rtls(ptr noundef %0, ptr noundef %1, ptr no
   %16 = load ptr, ptr %8, align 8
   %17 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @rtls_message_type_vals, ptr noundef nonnull @.str.171) #4
   tail call void @col_add_str(ptr noundef %16, i32 noundef 25, ptr noundef %17) #4
-  %18 = tail call fastcc i32 @dissect_rtls_header(ptr noundef %0, ptr noundef %13, i32 noundef 0, ptr noundef null)
+  %18 = tail call fastcc i32 @dissect_rtls_header.argprom(ptr noundef %0, ptr noundef %13, i32 noundef 0, ptr noundef null)
   %19 = tail call fastcc i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, ptr noundef %13, i32 noundef %18, i32 noundef %15)
   %20 = load i32, ptr @hf_rtls_signature, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef 20, i32 noundef 0) #4
@@ -354,7 +354,7 @@ declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rtls_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_rtls_header.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_rtls_message_type, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef 0) #4
   %7 = add i32 %2, 2
@@ -676,7 +676,7 @@ proto_item_set_generated.exit262:                 ; preds = %159, %176, %179
   %214 = load i32, ptr @ett_rtls_message, align 4
   %215 = call ptr @val_to_str(i32 noundef %213, ptr noundef nonnull @rtls_message_type_vals, ptr noundef nonnull @.str.171) #4
   %216 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.1264, i32 noundef -1, i32 noundef %214, ptr noundef null, ptr noundef nonnull @.str.172, ptr noundef %215) #4
-  %217 = call fastcc i32 @dissect_rtls_header(ptr noundef %0, ptr noundef %216, i32 noundef %.1264, ptr noundef nonnull %7)
+  %217 = call fastcc i32 @dissect_rtls_header.argprom(ptr noundef %0, ptr noundef %216, i32 noundef %.1264, ptr noundef nonnull %7)
   %218 = call fastcc i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, ptr noundef %216, i32 noundef %217, i32 noundef %213)
   %219 = load i32, ptr %7, align 4
   %220 = add i32 %219, 16

@@ -1777,7 +1777,7 @@ controller_fini_scheduling.exit:                  ; preds = %555, %558
 564:                                              ; preds = %561
   call void @run_backup() #21
   call void @agent_init() #21
-  call fastcc void @_shutdown_backup_controller()
+  call fastcc void @_shutdown_backup_controller.retelim()
   br label %577
 
 565:                                              ; preds = %552
@@ -1790,7 +1790,7 @@ controller_fini_scheduling.exit:                  ; preds = %555, %558
   unreachable
 
 568:                                              ; preds = %565
-  call fastcc void @_shutdown_backup_controller()
+  call fastcc void @_shutdown_backup_controller.retelim()
   call void @trigger_primary_ctld_res_ctrl() #21
   call void @ctld_assoc_mgr_init()
   %569 = call i32 @bb_g_init() #21
@@ -1902,7 +1902,7 @@ controller_fini_scheduling.exit:                  ; preds = %555, %558
 
 620:                                              ; preds = %616
   store i8 1, ptr @slurmctld_init_db, align 1
-  call fastcc void @_accounting_mark_all_nodes_down()
+  call fastcc void @_accounting_mark_all_nodes_down.argprom.retelim()
   br label %621
 
 621:                                              ; preds = %613, %616, %620
@@ -3400,7 +3400,7 @@ _queue_reboot_msg.exit.i:                         ; preds = %1100, %._crit_edge.
 1243:                                             ; preds = %1238
   %1244 = call i64 @time(ptr noundef null) #21
   store i64 %1244, ptr @_slurmctld_background.last_assert_primary_time, align 8
-  call fastcc void @_shutdown_backup_controller()
+  call fastcc void @_shutdown_backup_controller.retelim()
   br label %1245
 
 1245:                                             ; preds = %1243, %1238, %1236, %1233
@@ -3427,13 +3427,13 @@ _queue_reboot_msg.exit.i:                         ; preds = %1100, %._crit_edge.
 1255:                                             ; preds = %917, %911
   %1256 = call i32 @get_log_level() #21
   %1257 = icmp sgt i32 %1256, 6
-  br i1 %1257, label %1258, label %_slurmctld_background.exit
+  br i1 %1257, label %1258, label %_slurmctld_background.argprom.exit
 
 1258:                                             ; preds = %1255
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.143) #21
-  br label %_slurmctld_background.exit
+  br label %_slurmctld_background.argprom.exit
 
-_slurmctld_background.exit:                       ; preds = %1255, %1258
+_slurmctld_background.argprom.exit:               ; preds = %1255, %1258
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %16)
@@ -3445,11 +3445,11 @@ _slurmctld_background.exit:                       ; preds = %1255, %1258
   %.not.i319 = icmp sgt i16 %1260, -1
   br i1 %.not.i319, label %controller_fini_scheduling.exit320, label %1261
 
-1261:                                             ; preds = %_slurmctld_background.exit
+1261:                                             ; preds = %_slurmctld_background.argprom.exit
   call void @gs_fini() #21
   br label %controller_fini_scheduling.exit320
 
-controller_fini_scheduling.exit320:               ; preds = %_slurmctld_background.exit, %1261
+controller_fini_scheduling.exit320:               ; preds = %_slurmctld_background.argprom.exit, %1261
   call void @agent_fini() #21
   %1262 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
   %1263 = call i32 @switch_g_save(ptr noundef %1262) #21
@@ -4656,7 +4656,7 @@ declare i32 @bb_g_init() local_unnamed_addr #2
 declare void @run_backup() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_shutdown_backup_controller() unnamed_addr #4 {
+define internal fastcc void @_shutdown_backup_controller.retelim() unnamed_addr #4 {
   %1 = alloca i64, align 8
   %2 = alloca %union.pthread_attr_t, align 8
   store i1 false, ptr @bu_rc, align 4
@@ -4980,7 +4980,7 @@ define dso_local void @ctld_assoc_mgr_init() local_unnamed_addr #4 {
 56:                                               ; preds = %53, %49
   %.0 = phi i1 [ %55, %53 ], [ false, %49 ]
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.ctld_assoc_mgr_init.job_read_lock) #21
-  call fastcc void @_init_tres()
+  call fastcc void @_init_tres.retelim()
   %57 = load i16, ptr @running_cache, align 2
   %58 = icmp ne i16 %57, 0
   %or.cond = select i1 %58, i1 true, i1 %.0
@@ -5064,7 +5064,7 @@ declare i32 @list_flush(ptr noundef) local_unnamed_addr #2
 declare i32 @select_g_select_nodeinfo_set_all() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_accounting_mark_all_nodes_down() unnamed_addr #4 {
+define internal fastcc void @_accounting_mark_all_nodes_down.argprom.retelim() unnamed_addr #4 {
   %1 = alloca ptr, align 8
   %2 = alloca %struct.stat, align 8
   %3 = alloca i32, align 4
@@ -6533,7 +6533,7 @@ declare i32 @load_qos_usage() local_unnamed_addr #2
 declare i32 @list_count(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_init_tres() unnamed_addr #4 {
+define internal fastcc void @_init_tres.retelim() unnamed_addr #4 {
   %1 = alloca %struct.slurmdb_update_object_t, align 8
   %2 = alloca %struct.assoc_mgr_lock_t, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(28) @__const._init_tres.locks, i64 28, i1 false)
@@ -6931,7 +6931,7 @@ define internal noalias noundef ptr @_assoc_cache_mgr(ptr nocapture readnone %0)
   br label %24
 
 24:                                               ; preds = %21, %18
-  tail call fastcc void @_init_tres()
+  tail call fastcc void @_init_tres.retelim()
   br label %25
 
 25:                                               ; preds = %13, %24
@@ -7009,7 +7009,7 @@ define internal noalias noundef ptr @_assoc_cache_mgr(ptr nocapture readnone %0)
   br label %59
 
 59:                                               ; preds = %56, %53
-  tail call fastcc void @_init_tres()
+  tail call fastcc void @_init_tres.retelim()
   br label %60
 
 60:                                               ; preds = %59, %48

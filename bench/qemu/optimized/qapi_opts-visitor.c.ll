@@ -304,9 +304,9 @@ if.end3:                                          ; preds = %if.end
   %call.val = load ptr, ptr %1, align 8
   %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %call.val, ptr noundef %name) #10
   %tobool.not.i = icmp ne ptr %call.i, null
-  br i1 %tobool.not.i, label %if.end8, label %lookup_distinct.exit
+  br i1 %tobool.not.i, label %if.end8, label %lookup_distinct.argprom.exit
 
-lookup_distinct.exit:                             ; preds = %if.end3
+lookup_distinct.argprom.exit:                     ; preds = %if.end3
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 221, ptr noundef nonnull @__func__.lookup_distinct, ptr noundef nonnull @.str.7, ptr noundef %name) #10
   %repeated_opts = getelementptr inbounds i8, ptr %v, i64 248
   store ptr null, ptr %repeated_opts, align 8
@@ -319,8 +319,8 @@ if.end8:                                          ; preds = %if.end3
   %call10 = tail call noalias ptr @g_malloc0(i64 noundef %size) #9
   br label %return
 
-return:                                           ; preds = %lookup_distinct.exit, %if.end8
-  %storemerge = phi ptr [ %call10, %if.end8 ], [ null, %lookup_distinct.exit ]
+return:                                           ; preds = %lookup_distinct.argprom.exit, %if.end8
+  %storemerge = phi ptr [ %call10, %if.end8 ], [ null, %lookup_distinct.argprom.exit ]
   store ptr %storemerge, ptr %list, align 8
   ret i1 %tobool.not.i
 }
@@ -785,13 +785,13 @@ if.end:                                           ; preds = %entry
   %call.val = load ptr, ptr %1, align 8
   %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %call.val, ptr noundef %name) #10
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.then.i, label %lookup_distinct.exit
+  br i1 %tobool.not.i, label %if.then.i, label %lookup_distinct.argprom.exit
 
 if.then.i:                                        ; preds = %if.end
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 221, ptr noundef nonnull @__func__.lookup_distinct, ptr noundef nonnull @.str.7, ptr noundef %name) #10
-  br label %lookup_distinct.exit
+  br label %lookup_distinct.argprom.exit
 
-lookup_distinct.exit:                             ; preds = %if.end, %if.then.i
+lookup_distinct.argprom.exit:                     ; preds = %if.end, %if.then.i
   %cmp2 = icmp ne ptr %call.i, null
   %frombool = zext i1 %cmp2 to i8
   store i8 %frombool, ptr %present, align 1
@@ -880,9 +880,9 @@ if.then:                                          ; preds = %entry
   %ov.val = load ptr, ptr %1, align 8
   %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %ov.val, ptr noundef %name) #10
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %lookup_distinct.exit.thread, label %cond.true
+  br i1 %tobool.not.i, label %lookup_distinct.argprom.exit.thread, label %cond.true
 
-lookup_distinct.exit.thread:                      ; preds = %if.then
+lookup_distinct.argprom.exit.thread:              ; preds = %if.then
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 221, ptr noundef nonnull @__func__.lookup_distinct, ptr noundef nonnull @.str.7, ptr noundef %name) #10
   br label %return
 
@@ -904,8 +904,8 @@ if.end9:                                          ; preds = %entry
   %call10 = tail call ptr @g_queue_peek_head(ptr noundef %2) #10
   br label %return
 
-return:                                           ; preds = %lookup_distinct.exit.thread, %cond.true, %if.end9, %if.then4
-  %retval.0 = phi ptr [ null, %if.then4 ], [ %call10, %if.end9 ], [ %call1, %cond.true ], [ null, %lookup_distinct.exit.thread ]
+return:                                           ; preds = %lookup_distinct.argprom.exit.thread, %cond.true, %if.end9, %if.then4
+  %retval.0 = phi ptr [ null, %if.then4 ], [ %call10, %if.end9 ], [ %call1, %cond.true ], [ null, %lookup_distinct.argprom.exit.thread ]
   ret ptr %retval.0
 }
 

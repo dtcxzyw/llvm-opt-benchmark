@@ -100,7 +100,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
   %58 = lshr i32 %57, 2
   %59 = trunc i32 %58 to i16
   %.0.i = select i1 %55, i16 0, i16 %59
-  br i1 %4, label %_bt_do_singleval.exit, label %60
+  br i1 %4, label %_bt_do_singleval.argprom.exit, label %60
 
 60:                                               ; preds = %BufferGetPage.exit
   %61 = load ptr, ptr %24, align 8
@@ -135,12 +135,12 @@ BufferGetPage.exit:                               ; preds = %8, %14
   %85 = getelementptr i8, ptr %.0.i.i, i64 %84
   %86 = tail call i32 @_bt_keep_natts_fast(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %85) #9
   %87 = icmp sgt i32 %86, %64
-  br i1 %87, label %_bt_do_singleval.exit, label %88
+  br i1 %87, label %_bt_do_singleval.argprom.exit, label %88
 
 88:                                               ; preds = %74, %60
-  br label %_bt_do_singleval.exit
+  br label %_bt_do_singleval.argprom.exit
 
-_bt_do_singleval.exit:                            ; preds = %88, %74, %BufferGetPage.exit
+_bt_do_singleval.argprom.exit:                    ; preds = %88, %74, %BufferGetPage.exit
   %.094 = phi i1 [ false, %BufferGetPage.exit ], [ false, %88 ], [ true, %74 ]
   %89 = tail call ptr @PageGetTempPageCopySpecial(ptr noundef nonnull %.0.i.i) #9
   %.val103 = load i64, ptr %.0.i.i, align 4
@@ -155,7 +155,7 @@ _bt_do_singleval.exit:                            ; preds = %88, %74, %BufferGet
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %110, label %97
 
-97:                                               ; preds = %_bt_do_singleval.exit
+97:                                               ; preds = %_bt_do_singleval.argprom.exit
   %98 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
   %99 = load i32, ptr %98, align 4
   %100 = lshr i32 %99, 17
@@ -174,7 +174,7 @@ _bt_do_singleval.exit:                            ; preds = %88, %74, %BufferGet
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 130, ptr noundef nonnull @__func__._bt_dedup_pass) #9
   unreachable
 
-110:                                              ; preds = %97, %_bt_do_singleval.exit
+110:                                              ; preds = %97, %_bt_do_singleval.argprom.exit
   %.not126 = icmp ugt i16 %53, %.0.i
   br i1 %.not126, label %._crit_edge, label %.lr.ph
 

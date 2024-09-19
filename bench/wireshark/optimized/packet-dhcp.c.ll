@@ -7937,7 +7937,7 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_cm_vendor_id_heur(ptr n
 
 16:                                               ; preds = %13, %7
   %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  tail call fastcc void @dissect_docsis_cm_cap(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, i32 noundef %17, i32 noundef 0)
+  tail call fastcc void @dissect_docsis_cm_cap.argelim(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, i32 noundef %17, i32 noundef 0)
   br label %25
 
 18:                                               ; preds = %13
@@ -9179,7 +9179,7 @@ define internal range(i32 1, 258) i32 @dissect_vendor_cl_suboption(ptr noundef %
   br i1 %cond1, label %42, label %47
 
 42:                                               ; preds = %39
-  tail call fastcc void @dissect_docsis_cm_cap(ptr noundef %1, ptr noundef %20, ptr noundef %0, i32 noundef %15, i32 noundef 1)
+  tail call fastcc void @dissect_docsis_cm_cap.argelim(ptr noundef %1, ptr noundef %20, ptr noundef %0, i32 noundef %15, i32 noundef 1)
   br label %47
 
 43:                                               ; preds = %38
@@ -10376,7 +10376,7 @@ declare void @proto_tree_add_bitmask_list_value(ptr noundef, ptr noundef, i32 no
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_docsis_cm_cap(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @dissect_docsis_cm_cap.argelim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @wmem_alloc0(ptr noundef %7, i64 noundef 4) #9

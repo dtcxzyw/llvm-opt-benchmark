@@ -1107,7 +1107,7 @@ define internal i32 @rsa_pkey_export_to(ptr nocapture noundef readonly %from, pt
 entry:
   %0 = getelementptr i8, ptr %from, i64 32
   %from.val = load ptr, ptr %0, align 8
-  %call = tail call fastcc i32 @rsa_int_export_to(ptr %from.val, ptr noundef %to_keydata, ptr noundef %importer)
+  %call = tail call fastcc i32 @rsa_int_export_to.argprom.argelim(ptr %from.val, ptr noundef %to_keydata, ptr noundef %importer)
   ret i32 %call
 }
 
@@ -1152,7 +1152,7 @@ define internal i32 @rsa_pss_pkey_export_to(ptr nocapture noundef readonly %from
 entry:
   %0 = getelementptr i8, ptr %from, i64 32
   %from.val = load ptr, ptr %0, align 8
-  %call = tail call fastcc i32 @rsa_int_export_to(ptr %from.val, ptr noundef %to_keydata, ptr noundef %importer)
+  %call = tail call fastcc i32 @rsa_int_export_to.argprom.argelim(ptr %from.val, ptr noundef %to_keydata, ptr noundef %importer)
   ret i32 %call
 }
 
@@ -1662,7 +1662,7 @@ declare void @X509_SIG_INFO_set(ptr noundef, i32 noundef, i32 noundef, i32 nound
 declare i32 @RSA_check_key_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rsa_int_export_to(ptr %from.32.val, ptr noundef %to_keydata, ptr nocapture noundef readonly %importer) unnamed_addr #0 {
+define internal fastcc i32 @rsa_int_export_to.argprom.argelim(ptr %from.32.val, ptr noundef %to_keydata, ptr nocapture noundef readonly %importer) unnamed_addr #0 {
 entry:
   %md = alloca ptr, align 8
   %mgf1md = alloca ptr, align 8

@@ -5145,7 +5145,7 @@ AdjustTimeForTypmod.exit:                         ; preds = %1, %.sink.split.i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 2) i64 @timetz_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-timetz_cmp_internal.exit:
+timetz_cmp_internal.argprom.exit:
   %1 = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i64, ptr %1, align 8
   %3 = inttoptr i64 %2 to ptr
@@ -5173,7 +5173,7 @@ timetz_cmp_internal.exit:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 2) i64 @timetz_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-timetz_cmp_internal.exit:
+timetz_cmp_internal.argprom.exit:
   %1 = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i64, ptr %1, align 8
   %3 = inttoptr i64 %2 to ptr
@@ -5220,22 +5220,22 @@ define dso_local range(i64 0, 2) i64 @timetz_lt(ptr nocapture noundef readonly %
   %14 = mul nsw i64 %13, 1000000
   %15 = add i64 %14, %.val5
   %16 = icmp sgt i64 %12, %15
-  br i1 %16, label %timetz_cmp_internal.exit, label %17
+  br i1 %16, label %timetz_cmp_internal.argprom.exit, label %17
 
 17:                                               ; preds = %1
   %18 = icmp slt i64 %12, %15
-  br i1 %18, label %timetz_cmp_internal.exit, label %19
+  br i1 %18, label %timetz_cmp_internal.argprom.exit, label %19
 
 19:                                               ; preds = %17
   %20 = icmp sgt i32 %.val4, %.val6
-  br i1 %20, label %timetz_cmp_internal.exit, label %21
+  br i1 %20, label %timetz_cmp_internal.argprom.exit, label %21
 
 21:                                               ; preds = %19
   %22 = icmp slt i32 %.val4, %.val6
   %23 = zext i1 %22 to i64
-  br label %timetz_cmp_internal.exit
+  br label %timetz_cmp_internal.argprom.exit
 
-timetz_cmp_internal.exit:                         ; preds = %1, %17, %19, %21
+timetz_cmp_internal.argprom.exit:                 ; preds = %1, %17, %19, %21
   %.0.i = phi i64 [ 0, %1 ], [ 1, %17 ], [ 0, %19 ], [ %23, %21 ]
   ret i64 %.0.i
 }
@@ -5261,18 +5261,18 @@ define dso_local range(i64 0, 2) i64 @timetz_le(ptr nocapture noundef readonly %
   %14 = mul nsw i64 %13, 1000000
   %15 = add i64 %14, %.val5
   %16 = icmp sgt i64 %12, %15
-  br i1 %16, label %timetz_cmp_internal.exit, label %17
+  br i1 %16, label %timetz_cmp_internal.argprom.exit, label %17
 
 17:                                               ; preds = %1
   %18 = icmp slt i64 %12, %15
-  br i1 %18, label %timetz_cmp_internal.exit, label %19
+  br i1 %18, label %timetz_cmp_internal.argprom.exit, label %19
 
 19:                                               ; preds = %17
   %20 = icmp sle i32 %.val4, %.val6
   %spec.select = zext i1 %20 to i64
-  br label %timetz_cmp_internal.exit
+  br label %timetz_cmp_internal.argprom.exit
 
-timetz_cmp_internal.exit:                         ; preds = %19, %1, %17
+timetz_cmp_internal.argprom.exit:                 ; preds = %19, %1, %17
   %.0.i = phi i64 [ 0, %1 ], [ 1, %17 ], [ %spec.select, %19 ]
   ret i64 %.0.i
 }
@@ -5298,18 +5298,18 @@ define dso_local range(i64 0, 2) i64 @timetz_gt(ptr nocapture noundef readonly %
   %14 = mul nsw i64 %13, 1000000
   %15 = add i64 %14, %.val5
   %16 = icmp sgt i64 %12, %15
-  br i1 %16, label %timetz_cmp_internal.exit, label %17
+  br i1 %16, label %timetz_cmp_internal.argprom.exit, label %17
 
 17:                                               ; preds = %1
   %18 = icmp slt i64 %12, %15
-  br i1 %18, label %timetz_cmp_internal.exit, label %19
+  br i1 %18, label %timetz_cmp_internal.argprom.exit, label %19
 
 19:                                               ; preds = %17
   %20 = icmp sgt i32 %.val4, %.val6
   %spec.select = zext i1 %20 to i64
-  br label %timetz_cmp_internal.exit
+  br label %timetz_cmp_internal.argprom.exit
 
-timetz_cmp_internal.exit:                         ; preds = %19, %1, %17
+timetz_cmp_internal.argprom.exit:                 ; preds = %19, %1, %17
   %.0.i = phi i64 [ 1, %1 ], [ 0, %17 ], [ %spec.select, %19 ]
   ret i64 %.0.i
 }
@@ -5335,22 +5335,22 @@ define dso_local range(i64 0, 2) i64 @timetz_ge(ptr nocapture noundef readonly %
   %14 = mul nsw i64 %13, 1000000
   %15 = add i64 %14, %.val5
   %16 = icmp sgt i64 %12, %15
-  br i1 %16, label %timetz_cmp_internal.exit, label %17
+  br i1 %16, label %timetz_cmp_internal.argprom.exit, label %17
 
 17:                                               ; preds = %1
   %18 = icmp slt i64 %12, %15
-  br i1 %18, label %timetz_cmp_internal.exit, label %19
+  br i1 %18, label %timetz_cmp_internal.argprom.exit, label %19
 
 19:                                               ; preds = %17
   %20 = icmp sgt i32 %.val4, %.val6
-  br i1 %20, label %timetz_cmp_internal.exit, label %21
+  br i1 %20, label %timetz_cmp_internal.argprom.exit, label %21
 
 21:                                               ; preds = %19
   %22 = icmp sge i32 %.val4, %.val6
   %23 = zext i1 %22 to i64
-  br label %timetz_cmp_internal.exit
+  br label %timetz_cmp_internal.argprom.exit
 
-timetz_cmp_internal.exit:                         ; preds = %1, %17, %19, %21
+timetz_cmp_internal.argprom.exit:                 ; preds = %1, %17, %19, %21
   %.0.i = phi i64 [ 1, %1 ], [ 0, %17 ], [ 1, %19 ], [ %23, %21 ]
   ret i64 %.0.i
 }
@@ -5376,22 +5376,22 @@ define dso_local range(i64 -1, 2) i64 @timetz_cmp(ptr nocapture noundef readonly
   %14 = mul nsw i64 %13, 1000000
   %15 = add i64 %14, %.val5
   %16 = icmp sgt i64 %12, %15
-  br i1 %16, label %timetz_cmp_internal.exit, label %17
+  br i1 %16, label %timetz_cmp_internal.argprom.exit, label %17
 
 17:                                               ; preds = %1
   %18 = icmp slt i64 %12, %15
-  br i1 %18, label %timetz_cmp_internal.exit, label %19
+  br i1 %18, label %timetz_cmp_internal.argprom.exit, label %19
 
 19:                                               ; preds = %17
   %20 = icmp sgt i32 %.val4, %.val6
-  br i1 %20, label %timetz_cmp_internal.exit, label %21
+  br i1 %20, label %timetz_cmp_internal.argprom.exit, label %21
 
 21:                                               ; preds = %19
   %22 = icmp slt i32 %.val4, %.val6
   %23 = sext i1 %22 to i64
-  br label %timetz_cmp_internal.exit
+  br label %timetz_cmp_internal.argprom.exit
 
-timetz_cmp_internal.exit:                         ; preds = %1, %17, %19, %21
+timetz_cmp_internal.argprom.exit:                 ; preds = %1, %17, %19, %21
   %.0.i = phi i64 [ 1, %1 ], [ -1, %17 ], [ 1, %19 ], [ %23, %21 ]
   ret i64 %.0.i
 }
@@ -5451,19 +5451,19 @@ define dso_local i64 @timetz_larger(ptr nocapture noundef readonly %0) local_unn
   %14 = mul nsw i64 %13, 1000000
   %15 = add i64 %14, %.val8
   %16 = icmp sgt i64 %12, %15
-  br i1 %16, label %timetz_cmp_internal.exit, label %17
+  br i1 %16, label %timetz_cmp_internal.argprom.exit, label %17
 
 17:                                               ; preds = %1
   %18 = icmp slt i64 %12, %15
-  br i1 %18, label %timetz_cmp_internal.exit, label %19
+  br i1 %18, label %timetz_cmp_internal.argprom.exit, label %19
 
 19:                                               ; preds = %17
   %20 = icmp sgt i32 %.val7, %.val9
   %spec.select = select i1 %20, ptr %4, ptr %7
   %21 = ptrtoint ptr %spec.select to i64
-  br label %timetz_cmp_internal.exit
+  br label %timetz_cmp_internal.argprom.exit
 
-timetz_cmp_internal.exit:                         ; preds = %19, %1, %17
+timetz_cmp_internal.argprom.exit:                 ; preds = %19, %1, %17
   %22 = phi i64 [ %6, %17 ], [ %3, %1 ], [ %21, %19 ]
   ret i64 %22
 }
@@ -5489,26 +5489,26 @@ define dso_local i64 @timetz_smaller(ptr nocapture noundef readonly %0) local_un
   %14 = mul nsw i64 %13, 1000000
   %15 = add i64 %14, %.val8
   %16 = icmp sgt i64 %12, %15
-  br i1 %16, label %timetz_cmp_internal.exit.thread, label %17
+  br i1 %16, label %timetz_cmp_internal.argprom.exit.thread, label %17
 
 17:                                               ; preds = %1
   %18 = icmp slt i64 %12, %15
-  br i1 %18, label %timetz_cmp_internal.exit.thread12, label %19
+  br i1 %18, label %timetz_cmp_internal.argprom.exit.thread12, label %19
 
 19:                                               ; preds = %17
   %20 = icmp sgt i32 %.val7, %.val9
-  br i1 %20, label %timetz_cmp_internal.exit.thread, label %timetz_cmp_internal.exit
+  br i1 %20, label %timetz_cmp_internal.argprom.exit.thread, label %timetz_cmp_internal.argprom.exit
 
-timetz_cmp_internal.exit:                         ; preds = %19
+timetz_cmp_internal.argprom.exit:                 ; preds = %19
   %21 = icmp slt i32 %.val7, %.val9
   %cond.fr = freeze i1 %21
-  br i1 %cond.fr, label %timetz_cmp_internal.exit.thread12, label %timetz_cmp_internal.exit.thread
+  br i1 %cond.fr, label %timetz_cmp_internal.argprom.exit.thread12, label %timetz_cmp_internal.argprom.exit.thread
 
-timetz_cmp_internal.exit.thread12:                ; preds = %17, %timetz_cmp_internal.exit
-  br label %timetz_cmp_internal.exit.thread
+timetz_cmp_internal.argprom.exit.thread12:        ; preds = %17, %timetz_cmp_internal.argprom.exit
+  br label %timetz_cmp_internal.argprom.exit.thread
 
-timetz_cmp_internal.exit.thread:                  ; preds = %19, %1, %timetz_cmp_internal.exit, %timetz_cmp_internal.exit.thread12
-  %22 = phi i64 [ %3, %timetz_cmp_internal.exit.thread12 ], [ %6, %timetz_cmp_internal.exit ], [ %6, %1 ], [ %6, %19 ]
+timetz_cmp_internal.argprom.exit.thread:          ; preds = %19, %1, %timetz_cmp_internal.argprom.exit, %timetz_cmp_internal.argprom.exit.thread12
+  %22 = phi i64 [ %3, %timetz_cmp_internal.argprom.exit.thread12 ], [ %6, %timetz_cmp_internal.argprom.exit ], [ %6, %1 ], [ %6, %19 ]
   ret i64 %22
 }
 
@@ -5681,7 +5681,7 @@ define dso_local range(i64 0, 2) i64 @in_range_timetz_interval(ptr nocapture nou
   %27 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %23, i64 %14)
   %28 = extractvalue { i64, i1 } %27, 1
   %29 = extractvalue { i64, i1 } %27, 0
-  br i1 %28, label %timetz_cmp_internal.exit, label %30
+  br i1 %28, label %timetz_cmp_internal.argprom.exit, label %30
 
 30:                                               ; preds = %26, %24
   %.sroa.0.0 = phi i64 [ %25, %24 ], [ %29, %26 ]
@@ -5700,24 +5700,24 @@ define dso_local range(i64 0, 2) i64 @in_range_timetz_interval(ptr nocapture nou
   br i1 %13, label %41, label %45
 
 41:                                               ; preds = %30
-  br i1 %40, label %timetz_cmp_internal.exit, label %42
+  br i1 %40, label %timetz_cmp_internal.argprom.exit, label %42
 
 42:                                               ; preds = %41
   %43 = icmp slt i64 %36, %39
   %44 = icmp sle i32 %.val21, %32
   %spec.select = select i1 %43, i1 true, i1 %44
-  br label %timetz_cmp_internal.exit
+  br label %timetz_cmp_internal.argprom.exit
 
 45:                                               ; preds = %30
-  br i1 %40, label %timetz_cmp_internal.exit, label %46
+  br i1 %40, label %timetz_cmp_internal.argprom.exit, label %46
 
 46:                                               ; preds = %45
   %47 = icmp sge i64 %36, %39
   %48 = icmp sge i32 %.val21, %32
   %spec.select30 = select i1 %47, i1 %48, i1 false
-  br label %timetz_cmp_internal.exit
+  br label %timetz_cmp_internal.argprom.exit
 
-timetz_cmp_internal.exit:                         ; preds = %46, %42, %26, %45, %41
+timetz_cmp_internal.argprom.exit:                 ; preds = %46, %42, %26, %45, %41
   %.0.shrunk = phi i1 [ false, %41 ], [ true, %45 ], [ %13, %26 ], [ %spec.select, %42 ], [ %spec.select30, %46 ]
   %.0 = zext i1 %.0.shrunk to i64
   ret i64 %.0

@@ -587,7 +587,7 @@ declare i32 @Extra_TruthPolarize(i32 noundef, i32 noundef, i32 noundef) local_un
 declare i32 @Extra_TruthPermute(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushUnique(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntPushUnique.retelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -848,7 +848,7 @@ define noalias noundef ptr @Acec_MultCollectInputs(ptr nocapture noundef readonl
 
 .sink.split:                                      ; preds = %18, %11
   %.sink = phi i32 [ %16, %11 ], [ %14, %18 ]
-  tail call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %4, i32 noundef %.sink)
+  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %4, i32 noundef %.sink)
   br label %20
 
 20:                                               ; preds = %.sink.split, %18

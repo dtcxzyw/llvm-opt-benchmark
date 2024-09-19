@@ -4028,7 +4028,7 @@ define hidden range(i32 -1, 1) i32 @phar_create_or_parse_filename(ptr noundef %0
   %.0123164 = phi ptr [ %18, %.thread ], [ %0, %17 ]
   %.0124163 = phi i64 [ %20, %.thread ], [ %1, %17 ]
   %22 = zext i1 %4 to i32
-  %23 = call fastcc i32 @phar_open_from_fp(ptr noundef %15, ptr noundef %.0123164, i64 noundef %.0124163, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %spec.store.select, i32 noundef %22, ptr noundef %7)
+  %23 = call fastcc i32 @phar_open_from_fp.argelim(ptr noundef %15, ptr noundef %.0123164, i64 noundef %.0124163, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %spec.store.select, i32 noundef %22, ptr noundef %7)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %47
 
@@ -4322,7 +4322,7 @@ declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #1
 declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @phar_open_from_fp(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @phar_open_from_fp.argelim(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct._zval_struct, align 8
   %10 = alloca %struct._zval_struct, align 8
   %11 = alloca %struct._zval_struct, align 8
@@ -4657,9 +4657,9 @@ define internal fastcc i32 @phar_open_from_fp(ptr noundef nonnull %0, ptr nounde
 172:                                              ; preds = %169
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %168, ptr noundef nonnull dereferenceable(18) @__const.phar_flush.halt_stub, i64 18)
   %.not24.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not24.i, label %phar_strnstr.exit, label %165
+  br i1 %.not24.i, label %phar_strnstr.argprom.exit, label %165
 
-phar_strnstr.exit:                                ; preds = %172
+phar_strnstr.argprom.exit:                        ; preds = %172
   %173 = add nsw i64 %171, %.0160.ph308
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
@@ -4677,11 +4677,11 @@ phar_strnstr.exit:                                ; preds = %172
   %.not.i192 = icmp eq ptr %5, null
   br i1 %.not.i192, label %175, label %174
 
-174:                                              ; preds = %phar_strnstr.exit
+174:                                              ; preds = %phar_strnstr.argprom.exit
   store ptr null, ptr %5, align 8
   br label %175
 
-175:                                              ; preds = %174, %phar_strnstr.exit
+175:                                              ; preds = %174, %phar_strnstr.argprom.exit
   br i1 %.not, label %177, label %176
 
 176:                                              ; preds = %175
@@ -6659,7 +6659,7 @@ define hidden i32 @phar_open_from_filename(ptr noundef %0, i64 noundef %1, ptr n
 44:                                               ; preds = %40, %38
   %.049 = phi i64 [ %43, %40 ], [ %1, %38 ]
   %.048 = phi ptr [ %41, %40 ], [ %0, %38 ]
-  %45 = call fastcc i32 @phar_open_from_fp(ptr noundef %21, ptr noundef %.048, i64 noundef %.049, ptr noundef %2, i64 noundef %3, ptr noundef %5, i32 noundef %spec.select, ptr noundef %6)
+  %45 = call fastcc i32 @phar_open_from_fp.argelim(ptr noundef %21, ptr noundef %.048, i64 noundef %.049, ptr noundef %2, i64 noundef %3, ptr noundef %5, i32 noundef %spec.select, ptr noundef %6)
   %46 = load ptr, ptr %8, align 8
   %.not61 = icmp eq ptr %46, null
   br i1 %.not61, label %56, label %47
@@ -7254,7 +7254,7 @@ define hidden i32 @phar_open_executed_filename(ptr noundef %0, i64 noundef %1, p
   %44 = getelementptr inbounds i8, ptr %spec.select, i64 24
   %45 = getelementptr inbounds i8, ptr %spec.select, i64 16
   %46 = load i64, ptr %45, align 8
-  %47 = call fastcc i32 @phar_open_from_fp(ptr noundef %26, ptr noundef nonnull %44, i64 noundef %46, ptr noundef %0, i64 noundef %1, ptr noundef null, i32 noundef 0, ptr noundef %2)
+  %47 = call fastcc i32 @phar_open_from_fp.argelim(ptr noundef %26, ptr noundef nonnull %44, i64 noundef %46, ptr noundef %0, i64 noundef %1, ptr noundef null, i32 noundef 0, ptr noundef %2)
   %48 = load ptr, ptr %4, align 8
   %.not53 = icmp eq ptr %48, null
   br i1 %.not53, label %59, label %49
@@ -9553,11 +9553,11 @@ define internal void @destroy_phar_data(ptr nocapture noundef readonly %0) #0 {
   %10 = add nsw i32 %9, -1
   store i32 %10, ptr %8, align 8
   %11 = icmp slt i32 %9, 1
-  br i1 %11, label %12, label %destroy_phar_data_only.exit
+  br i1 %11, label %12, label %destroy_phar_data_only.argprom.exit
 
 12:                                               ; preds = %7, %4
   tail call void @phar_destroy_phar_data(ptr noundef %.val)
-  br label %destroy_phar_data_only.exit
+  br label %destroy_phar_data_only.argprom.exit
 
 13:                                               ; preds = %1
   tail call void @zend_hash_apply_with_argument(ptr noundef nonnull getelementptr inbounds (i8, ptr @phar_globals, i64 120), ptr noundef nonnull @phar_unalias_apply, ptr noundef %2) #23
@@ -9566,13 +9566,13 @@ define internal void @destroy_phar_data(ptr nocapture noundef readonly %0) #0 {
   %16 = add nsw i32 %15, -1
   store i32 %16, ptr %14, align 8
   %17 = icmp slt i32 %15, 1
-  br i1 %17, label %18, label %destroy_phar_data_only.exit
+  br i1 %17, label %18, label %destroy_phar_data_only.argprom.exit
 
 18:                                               ; preds = %13
   tail call void @phar_destroy_phar_data(ptr noundef nonnull %2)
-  br label %destroy_phar_data_only.exit
+  br label %destroy_phar_data_only.argprom.exit
 
-destroy_phar_data_only.exit:                      ; preds = %12, %7, %18, %13
+destroy_phar_data_only.argprom.exit:              ; preds = %12, %7, %18, %13
   ret void
 }
 

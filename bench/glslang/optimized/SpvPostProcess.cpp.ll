@@ -1359,32 +1359,32 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   %168 = load i32, ptr %167, align 4
   br i1 %.not7.i, label %"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder11postProcessERS4_E3$_0ET0_T_SH_SG_.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %160, %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i"
-  %169 = phi i32 [ %189, %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i" ], [ %.lcssa128135136, %160 ]
-  %.sroa.01.05.i = phi ptr [ %190, %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i" ], [ %153, %160 ]
+.lr.ph.i:                                         ; preds = %160, %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i"
+  %169 = phi i32 [ %189, %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i" ], [ %.lcssa128135136, %160 ]
+  %.sroa.01.05.i = phi ptr [ %190, %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i" ], [ %153, %160 ]
   %.val.i = load ptr, ptr %.sroa.01.05.i, align 8, !noalias !8
   %170 = getelementptr inbounds i8, ptr %.val.i, i64 16
   %171 = load i32, ptr %170, align 8, !noalias !8
   %172 = icmp eq i32 %171, 72
-  br i1 %172, label %173, label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i"
+  br i1 %172, label %173, label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i"
 
 173:                                              ; preds = %.lr.ph.i
   %174 = getelementptr inbounds i8, ptr %.val.i, i64 24
   %175 = load ptr, ptr %174, align 8, !noalias !8
   %176 = load i32, ptr %175, align 4, !noalias !8
   %177 = icmp eq i32 %176, %157
-  br i1 %177, label %178, label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i"
+  br i1 %177, label %178, label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i"
 
 178:                                              ; preds = %173
   %179 = getelementptr inbounds i8, ptr %175, i64 4
   %180 = load i32, ptr %179, align 4, !noalias !8
   %181 = icmp eq i32 %180, %168
-  br i1 %181, label %182, label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i"
+  br i1 %181, label %182, label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i"
 
 182:                                              ; preds = %178
   %183 = getelementptr inbounds i8, ptr %175, i64 8
   %184 = load i32, ptr %183, align 4, !noalias !8
-  switch i32 %184, label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i" [
+  switch i32 %184, label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i" [
     i32 35, label %185
     i32 7, label %185
   ]
@@ -1393,16 +1393,16 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   %186 = getelementptr inbounds i8, ptr %175, i64 12
   %187 = load i32, ptr %186, align 4, !noalias !8
   %188 = or i32 %169, %187
-  br label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i"
+  br label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i"
 
-"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i": ; preds = %185, %182, %178, %173, %.lr.ph.i
+"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i": ; preds = %185, %182, %178, %173, %.lr.ph.i
   %189 = phi i32 [ %188, %185 ], [ %169, %182 ], [ %169, %178 ], [ %169, %173 ], [ %169, %.lr.ph.i ]
   %190 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 8
   %.not.i = icmp eq ptr %190, %155
   br i1 %.not.i, label %"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder11postProcessERS4_E3$_0ET0_T_SH_SG_.exit", label %.lr.ph.i, !llvm.loop !11
 
-"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder11postProcessERS4_E3$_0ET0_T_SH_SG_.exit": ; preds = %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i", %160
-  %.lcssa128134 = phi i32 [ %.lcssa128135136, %160 ], [ %189, %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i" ]
+"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder11postProcessERS4_E3$_0ET0_T_SH_SG_.exit": ; preds = %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i", %160
+  %.lcssa128134 = phi i32 [ %.lcssa128135136, %160 ], [ %189, %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i" ]
   %191 = getelementptr inbounds i8, ptr %.050138, i64 24
   %192 = sext i32 %168 to i64
   %193 = load ptr, ptr %191, align 8
@@ -1412,42 +1412,42 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
 195:                                              ; preds = %156, %156
   br i1 %.not7.i, label %"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder11postProcessERS4_E3$_1ET0_T_SH_SG_.exit", label %.lr.ph.i109
 
-.lr.ph.i109:                                      ; preds = %195, %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i"
-  %196 = phi i32 [ %213, %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i" ], [ %.lcssa128135136, %195 ]
-  %.sroa.04.08.i = phi ptr [ %214, %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i" ], [ %153, %195 ]
+.lr.ph.i109:                                      ; preds = %195, %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i"
+  %196 = phi i32 [ %213, %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i" ], [ %.lcssa128135136, %195 ]
+  %.sroa.04.08.i = phi ptr [ %214, %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i" ], [ %153, %195 ]
   %.val2.i = load ptr, ptr %.sroa.04.08.i, align 8
   %197 = getelementptr inbounds i8, ptr %.val2.i, i64 16
   %198 = load i32, ptr %197, align 8
   %199 = icmp eq i32 %198, 71
-  br i1 %199, label %200, label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i"
+  br i1 %199, label %200, label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i"
 
 200:                                              ; preds = %.lr.ph.i109
   %201 = getelementptr inbounds i8, ptr %.val2.i, i64 24
   %202 = load ptr, ptr %201, align 8
   %203 = load i32, ptr %202, align 4
   %204 = icmp eq i32 %203, %157
-  br i1 %204, label %205, label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i"
+  br i1 %204, label %205, label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i"
 
 205:                                              ; preds = %200
   %206 = getelementptr inbounds i8, ptr %202, i64 4
   %207 = load i32, ptr %206, align 4
   %208 = icmp eq i32 %207, 6
-  br i1 %208, label %209, label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i"
+  br i1 %208, label %209, label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i"
 
 209:                                              ; preds = %205
   %210 = getelementptr inbounds i8, ptr %202, i64 8
   %211 = load i32, ptr %210, align 4
   %212 = or i32 %196, %211
-  br label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i"
+  br label %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i"
 
-"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i": ; preds = %209, %205, %200, %.lr.ph.i109
+"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i": ; preds = %209, %205, %200, %.lr.ph.i109
   %213 = phi i32 [ %212, %209 ], [ %196, %205 ], [ %196, %200 ], [ %196, %.lr.ph.i109 ]
   %214 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 8
   %.not.i110 = icmp eq ptr %214, %155
   br i1 %.not.i110, label %"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder11postProcessERS4_E3$_1ET0_T_SH_SG_.exit", label %.lr.ph.i109, !llvm.loop !12
 
-"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder11postProcessERS4_E3$_1ET0_T_SH_SG_.exit": ; preds = %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i", %195
-  %.lcssa128133 = phi i32 [ %.lcssa128135136, %195 ], [ %213, %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i" ]
+"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder11postProcessERS4_E3$_1ET0_T_SH_SG_.exit": ; preds = %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i", %195
+  %.lcssa128133 = phi i32 [ %.lcssa128135136, %195 ], [ %213, %"_ZZN3spv7Builder11postProcessERNS_11InstructionEENK3$_1clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.argprom.exit.i" ]
   %215 = getelementptr inbounds i8, ptr %.050138, i64 24
   %216 = load ptr, ptr %215, align 8
   br label %217
@@ -2830,9 +2830,9 @@ _ZNKSt13unordered_setIPKN3spv5BlockESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE5countER
   %548 = getelementptr inbounds i8, ptr %5, i64 24
   br label %549
 
-549:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.exit.i.i", %.lr.ph.i.i
-  %.sroa.09.065.i.i = phi ptr [ %.sroa.09.061.i.i, %.lr.ph.i.i ], [ %.sroa.09.0.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.exit.i.i" ]
-  %.sroa.015.163.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %.lr.ph.i.i ], [ %.sroa.015.2.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.exit.i.i" ]
+549:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit.i.i", %.lr.ph.i.i
+  %.sroa.09.065.i.i = phi ptr [ %.sroa.09.061.i.i, %.lr.ph.i.i ], [ %.sroa.09.0.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit.i.i" ]
+  %.sroa.015.163.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %.lr.ph.i.i ], [ %.sroa.015.2.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit.i.i" ]
   %.val1.i.i.i = load ptr, ptr %.sroa.09.065.i.i, align 8
   %550 = getelementptr i8, ptr %.val1.i.i.i, i64 24
   %.val1.val.i.i.i = load ptr, ptr %550, align 8
@@ -2851,7 +2851,7 @@ _ZNKSt13unordered_setIPKN3spv5BlockESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE5countER
   %553 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i.i.i, i64 8
   %554 = load i32, ptr %553, align 4
   %555 = icmp eq i32 %.val1.val.val.i.i.i, %554
-  br i1 %555, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.exit.i.i", label %.preheader66.i.i, !llvm.loop !30
+  br i1 %555, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit.i.i", label %.preheader66.i.i, !llvm.loop !30
 
 556:                                              ; preds = %549
   %557 = zext i32 %.val1.val.val.i.i.i to i64
@@ -2868,11 +2868,11 @@ _ZNKSt13unordered_setIPKN3spv5BlockESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE5countER
   %565 = getelementptr inbounds i8, ptr %564, i64 8
   %566 = load i32, ptr %565, align 4
   %567 = icmp eq i32 %.val1.val.val.i.i.i, %566
-  br i1 %567, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
+  br i1 %567, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 568:                                              ; preds = %571
   %569 = icmp eq i32 %.val1.val.val.i.i.i, %573
-  br i1 %569, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !31
+  br i1 %569, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !31
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %563, %568
   %.018.i.i.i.i.i.i.i.i.i = phi ptr [ %570, %568 ], [ %564, %563 ]
@@ -2904,15 +2904,15 @@ _ZNKSt14default_deleteIN3spv11InstructionEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %
 
 _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EEaSEOS4_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN3spv11InstructionEEclEPS1_.exit.i.i.i.i.i.i, %.loopexit.i.i
   %580 = getelementptr inbounds i8, ptr %.sroa.015.163.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.exit.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.exit.i.i": ; preds = %568, %552, %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EEaSEOS4_.exit.i.i, %563
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit.i.i": ; preds = %568, %552, %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EEaSEOS4_.exit.i.i, %563
   %.sroa.015.2.i.i = phi ptr [ %580, %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EEaSEOS4_.exit.i.i ], [ %.sroa.015.163.i.i, %563 ], [ %.sroa.015.163.i.i, %552 ], [ %.sroa.015.163.i.i, %568 ]
   %.sroa.09.0.i.i = getelementptr inbounds i8, ptr %.sroa.09.065.i.i, i64 8
   %.not.i.i41 = icmp eq ptr %.sroa.09.0.i.i, %347
   br i1 %.not.i.i41, label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder14postProcessCFGEvE3$_1ET_SF_SF_T0_.exit.loopexit", label %549, !llvm.loop !33
 
-"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder14postProcessCFGEvE3$_1ET_SF_SF_T0_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.exit.i.i"
+"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder14postProcessCFGEvE3$_1ET_SF_SF_T0_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder14postProcessCFGEvE3$_1EclINS_17__normal_iteratorIPSt10unique_ptrINS2_11InstructionESt14default_deleteIS9_EESt6vectorISC_SaISC_EEEEEEbT_.argprom.exit.i.i"
   %.pre300 = load ptr, ptr %346, align 8
   br label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder14postProcessCFGEvE3$_1ET_SF_SF_T0_.exit"
 
@@ -3792,21 +3792,21 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit55: ; preds = %_ZNSt8_Rb_tre
   %.not7.i = icmp eq ptr %141, %142
   br i1 %.not7.i, label %"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder19postProcessFeaturesEvE3$_0ET0_T_SG_SF_.exit.thread", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %140, %"_ZZN3spv7Builder19postProcessFeaturesEvENK3$_0clERKSt10unique_ptrINS_11InstructionESt14default_deleteIS3_EE.exit.i"
-  %143 = phi i8 [ %155, %"_ZZN3spv7Builder19postProcessFeaturesEvENK3$_0clERKSt10unique_ptrINS_11InstructionESt14default_deleteIS3_EE.exit.i" ], [ 0, %140 ]
-  %.sroa.04.08.i = phi ptr [ %156, %"_ZZN3spv7Builder19postProcessFeaturesEvENK3$_0clERKSt10unique_ptrINS_11InstructionESt14default_deleteIS3_EE.exit.i" ], [ %141, %140 ]
+.lr.ph.i:                                         ; preds = %140, %"_ZZN3spv7Builder19postProcessFeaturesEvENK3$_0clERKSt10unique_ptrINS_11InstructionESt14default_deleteIS3_EE.argprom.argprom.exit.i"
+  %143 = phi i8 [ %155, %"_ZZN3spv7Builder19postProcessFeaturesEvENK3$_0clERKSt10unique_ptrINS_11InstructionESt14default_deleteIS3_EE.argprom.argprom.exit.i" ], [ 0, %140 ]
+  %.sroa.04.08.i = phi ptr [ %156, %"_ZZN3spv7Builder19postProcessFeaturesEvENK3$_0clERKSt10unique_ptrINS_11InstructionESt14default_deleteIS3_EE.argprom.argprom.exit.i" ], [ %141, %140 ]
   %.val2.i = load ptr, ptr %.sroa.04.08.i, align 8
   %144 = getelementptr inbounds i8, ptr %.val2.i, i64 24
   %145 = load ptr, ptr %144, align 8
   %146 = load i32, ptr %145, align 4
   %147 = icmp eq i32 %146, %137
-  br i1 %147, label %148, label %"_ZZN3spv7Builder19postProcessFeaturesEvENK3$_0clERKSt10unique_ptrINS_11InstructionESt14default_deleteIS3_EE.exit.i"
+  br i1 %147, label %148, label %"_ZZN3spv7Builder19postProcessFeaturesEvENK3$_0clERKSt10unique_ptrINS_11InstructionESt14default_deleteIS3_EE.argprom.argprom.exit.i"
 
 148:                                              ; preds = %.lr.ph.i
   %149 = getelementptr inbounds i8, ptr %.val2.i, i64 16
   %150 = load i32, ptr %149, align 8
   %151 = icmp eq i32 %150, 71
-  br i1 %151, label %152, label %"_ZZN3spv7Builder19postProcessFeaturesEvENK3$_0clERKSt10unique_ptrINS_11InstructionESt14default_deleteIS3_EE.exit.i"
+  br i1 %151, label %152, label %"_ZZN3spv7Builder19postProcessFeaturesEvENK3$_0clERKSt10unique_ptrINS_11InstructionESt14default_deleteIS3_EE.argprom.argprom.exit.i"
 
 152:                                              ; preds = %148
   %153 = getelementptr inbounds i8, ptr %145, i64 4
@@ -3814,15 +3814,15 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit55: ; preds = %_ZNSt8_Rb_tre
   %.off.i.i = add i32 %154, -5355
   %switch.i.i = icmp ult i32 %.off.i.i, 2
   %spec.select = select i1 %switch.i.i, i8 1, i8 %143
-  br label %"_ZZN3spv7Builder19postProcessFeaturesEvENK3$_0clERKSt10unique_ptrINS_11InstructionESt14default_deleteIS3_EE.exit.i"
+  br label %"_ZZN3spv7Builder19postProcessFeaturesEvENK3$_0clERKSt10unique_ptrINS_11InstructionESt14default_deleteIS3_EE.argprom.argprom.exit.i"
 
-"_ZZN3spv7Builder19postProcessFeaturesEvENK3$_0clERKSt10unique_ptrINS_11InstructionESt14default_deleteIS3_EE.exit.i": ; preds = %152, %148, %.lr.ph.i
+"_ZZN3spv7Builder19postProcessFeaturesEvENK3$_0clERKSt10unique_ptrINS_11InstructionESt14default_deleteIS3_EE.argprom.argprom.exit.i": ; preds = %152, %148, %.lr.ph.i
   %155 = phi i8 [ %143, %148 ], [ %143, %.lr.ph.i ], [ %spec.select, %152 ]
   %156 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 8
   %.not.i = icmp eq ptr %156, %142
   br i1 %.not.i, label %"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder19postProcessFeaturesEvE3$_0ET0_T_SG_SF_.exit", label %.lr.ph.i, !llvm.loop !41
 
-"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder19postProcessFeaturesEvE3$_0ET0_T_SG_SF_.exit": ; preds = %"_ZZN3spv7Builder19postProcessFeaturesEvENK3$_0clERKSt10unique_ptrINS_11InstructionESt14default_deleteIS3_EE.exit.i"
+"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder19postProcessFeaturesEvE3$_0ET0_T_SG_SF_.exit": ; preds = %"_ZZN3spv7Builder19postProcessFeaturesEvENK3$_0clERKSt10unique_ptrINS_11InstructionESt14default_deleteIS3_EE.argprom.argprom.exit.i"
   %157 = trunc nuw i8 %155 to i1
   br i1 %157, label %158, label %"_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNS3_7Builder19postProcessFeaturesEvE3$_0ET0_T_SG_SF_.exit.thread"
 
@@ -6342,7 +6342,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN3spv5BlockENS0_11ReachReason
   store ptr %8, ptr %6, align 8
   %9 = call { ptr, i8 } @_ZNSt10_HashtableIPKN3spv5BlockES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKS3_SJ_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb0EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  switch i32 %.val5, label %"_ZSt10__invoke_rIvRZN3spv7Builder14postProcessCFGEvE3$_0JPNS0_5BlockENS0_11ReachReasonES5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit" [
+  switch i32 %.val5, label %"_ZSt10__invoke_rIvRZN3spv7Builder14postProcessCFGEvE3$_0JPNS0_5BlockENS0_11ReachReasonES5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit" [
     i32 1, label %10
     i32 2, label %14
   ]
@@ -6352,7 +6352,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN3spv5BlockENS0_11ReachReason
   %12 = load ptr, ptr %11, align 8
   %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPN3spv5BlockESt4pairIKS3_S3_ESaIS6_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(8) %7)
   store ptr %.val6, ptr %13, align 8
-  br label %"_ZSt10__invoke_rIvRZN3spv7Builder14postProcessCFGEvE3$_0JPNS0_5BlockENS0_11ReachReasonES5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
+  br label %"_ZSt10__invoke_rIvRZN3spv7Builder14postProcessCFGEvE3$_0JPNS0_5BlockENS0_11ReachReasonES5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -6361,16 +6361,16 @@ define internal void @"_ZNSt17_Function_handlerIFvPN3spv5BlockENS0_11ReachReason
   store ptr %16, ptr %5, align 8
   %17 = call { ptr, i8 } @_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKS2_SI_NS4_10_AllocNodeISaINS4_10_Hash_nodeIS2_Lb0EEEEEEEESt4pairINS4_14_Node_iteratorIS2_Lb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %"_ZSt10__invoke_rIvRZN3spv7Builder14postProcessCFGEvE3$_0JPNS0_5BlockENS0_11ReachReasonES5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
+  br label %"_ZSt10__invoke_rIvRZN3spv7Builder14postProcessCFGEvE3$_0JPNS0_5BlockENS0_11ReachReasonES5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN3spv7Builder14postProcessCFGEvE3$_0JPNS0_5BlockENS0_11ReachReasonES5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %4, %10, %14
+"_ZSt10__invoke_rIvRZN3spv7Builder14postProcessCFGEvE3$_0JPNS0_5BlockENS0_11ReachReasonES5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %4, %10, %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN3spv5BlockENS0_11ReachReasonES2_EZNS0_7Builder14postProcessCFGEvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv7Builder14postProcessCFGEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3spv7Builder14postProcessCFGEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -6380,29 +6380,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN3spv5BlockENS0
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv7Builder14postProcessCFGEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv7Builder14postProcessCFGEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv7Builder14postProcessCFGEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv7Builder14postProcessCFGEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv7Builder14postProcessCFGEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv7Builder14postProcessCFGEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3spv7Builder14postProcessCFGEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3spv7Builder14postProcessCFGEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #20
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv7Builder14postProcessCFGEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3spv7Builder14postProcessCFGEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3spv7Builder14postProcessCFGEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3spv7Builder14postProcessCFGEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

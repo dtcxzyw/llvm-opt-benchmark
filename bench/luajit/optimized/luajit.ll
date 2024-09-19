@@ -693,7 +693,7 @@ if.then46:                                        ; preds = %if.then43
   br label %return
 
 if.else47:                                        ; preds = %if.then43
-  tail call fastcc void @dofile(ptr noundef %L, ptr noundef null)
+  tail call fastcc void @dofile.retelim(ptr noundef %L, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %handle_script.exit.thread, %runargs.exit.thread, %handle_luainit.exit.thread99, %if.then38, %if.then46, %if.else47, %if.else, %handle_luainit.exit, %if.then
@@ -974,7 +974,7 @@ while.end:                                        ; preds = %loadline.exit, %pus
 declare i32 @isatty(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dofile(ptr noundef %L, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @dofile.retelim(ptr noundef %L, ptr noundef %name) unnamed_addr #0 {
 entry:
   %call = tail call i32 @luaL_loadfile(ptr noundef %L, ptr noundef %name) #9
   %tobool.not = icmp eq i32 %call, 0

@@ -1170,8 +1170,8 @@ target triple = "x86_64-pc-linux-gnu"
 @dissect_dect_nwk_s_ie_terminal_capability.escape_to_char_sets_1_flags = internal constant [5 x ptr] [ptr @hf_dect_nwk_s_ie_terminal_capability_escape_to_char_sets_1_latin_no1, ptr @hf_dect_nwk_s_ie_terminal_capability_escape_to_char_sets_1_latin_no9, ptr @hf_dect_nwk_s_ie_terminal_capability_escape_to_char_sets_1_latin_no5, ptr @hf_dect_nwk_s_ie_terminal_capability_escape_to_char_sets_1_greek, ptr null], align 16
 @dissect_dect_nwk_s_ie_terminal_capability.blind_slot_6_flags = internal constant [7 x ptr] [ptr @hf_dect_nwk_s_ie_terminal_capability_blind_slot_indication, ptr @hf_dect_nwk_s_ie_terminal_capability_sp0, ptr @hf_dect_nwk_s_ie_terminal_capability_sp1, ptr @hf_dect_nwk_s_ie_terminal_capability_sp2, ptr @hf_dect_nwk_s_ie_terminal_capability_sp3, ptr @hf_dect_nwk_s_ie_terminal_capability_sp4, ptr null], align 16
 @dissect_dect_nwk_s_ie_terminal_capability.blind_slot_6a_flags = internal constant [8 x ptr] [ptr @hf_dect_nwk_s_ie_terminal_capability_sp5, ptr @hf_dect_nwk_s_ie_terminal_capability_sp6, ptr @hf_dect_nwk_s_ie_terminal_capability_sp7, ptr @hf_dect_nwk_s_ie_terminal_capability_sp8, ptr @hf_dect_nwk_s_ie_terminal_capability_sp9, ptr @hf_dect_nwk_s_ie_terminal_capability_sp10, ptr @hf_dect_nwk_s_ie_terminal_capability_sp11, ptr null], align 16
-@switch.table.dissect_dect_nwk_s_ie = private unnamed_addr constant [10 x ptr] [ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_1, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_2, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_3, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_4, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_5, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_6, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_7, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_8, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_9, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_10], align 8
-@switch.table.dissect_dect_nwk_s_ie.23 = private unnamed_addr constant [10 x ptr] [ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_1_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_2_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_3_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_4_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_5_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_6_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_7_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_8_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_9_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_10_flags], align 8
+@switch.table.dissect_dect_nwk_s_ie.argprom = private unnamed_addr constant [10 x ptr] [ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_1, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_2, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_3, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_4, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_5, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_6, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_7, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_8, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_9, ptr @hf_dect_nwk_s_ie_terminal_capability_profile_indicator_10], align 8
+@switch.table.dissect_dect_nwk_s_ie.argprom.23 = private unnamed_addr constant [10 x ptr] [ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_1_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_2_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_3_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_4_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_5_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_6_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_7_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_8_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_9_flags, ptr @dissect_dect_nwk_s_ie_terminal_capability.profile_indicator_10_flags], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_dect_nwk() local_unnamed_addr #0 {
@@ -1258,7 +1258,7 @@ define internal i32 @dissect_dect_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %17 = and i8 %16, 15
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
-  switch i8 %17, label %dissect_dect_nwk_lce.exit [
+  switch i8 %17, label %dissect_dect_nwk_lce.argprom.exit [
     i8 0, label %19
     i8 3, label %28
     i8 5, label %39
@@ -1276,14 +1276,14 @@ define internal i32 @dissect_dect_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.828, ptr noundef %24) #5
   %25 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2) #5
   %.not1.i = icmp eq i32 %25, 0
-  br i1 %.not1.i, label %dissect_dect_nwk_lce.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %dissect_dect_nwk_lce.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.i
   %.02.i = phi i32 [ %26, %.lr.ph.i ], [ 2, %19 ]
-  %26 = tail call fastcc i32 @dissect_dect_nwk_s_ie(ptr noundef %0, i32 noundef %.02.i, ptr noundef %1, ptr noundef %11)
+  %26 = tail call fastcc i32 @dissect_dect_nwk_s_ie.argprom(ptr noundef %0, i32 noundef %.02.i, ptr noundef %1, ptr noundef %11)
   %27 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %26) #5
   %.not.i = icmp eq i32 %27, 0
-  br i1 %.not.i, label %dissect_dect_nwk_lce.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %dissect_dect_nwk_lce.argprom.exit, label %.lr.ph.i, !llvm.loop !6
 
 28:                                               ; preds = %4
   %29 = zext i8 %18 to i32
@@ -1310,14 +1310,14 @@ define internal i32 @dissect_dect_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %34, i32 noundef 25, ptr noundef nonnull @.str.828, ptr noundef %35) #5
   %36 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2) #5
   %.not1.i50 = icmp eq i32 %36, 0
-  br i1 %.not1.i50, label %dissect_dect_nwk_lce.exit, label %.lr.ph.i51
+  br i1 %.not1.i50, label %dissect_dect_nwk_lce.argprom.exit, label %.lr.ph.i51
 
 .lr.ph.i51:                                       ; preds = %31, %.lr.ph.i51
   %.02.i52 = phi i32 [ %37, %.lr.ph.i51 ], [ 2, %31 ]
-  %37 = tail call fastcc i32 @dissect_dect_nwk_s_ie(ptr noundef %0, i32 noundef %.02.i52, ptr noundef %1, ptr noundef %11)
+  %37 = tail call fastcc i32 @dissect_dect_nwk_s_ie.argprom(ptr noundef %0, i32 noundef %.02.i52, ptr noundef %1, ptr noundef %11)
   %38 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %37) #5
   %.not.i53 = icmp eq i32 %38, 0
-  br i1 %.not.i53, label %dissect_dect_nwk_lce.exit, label %.lr.ph.i51, !llvm.loop !7
+  br i1 %.not.i53, label %dissect_dect_nwk_lce.argprom.exit, label %.lr.ph.i51, !llvm.loop !7
 
 39:                                               ; preds = %4
   %40 = load i32, ptr @hf_nwk_msg_type_mm, align 4
@@ -1328,14 +1328,14 @@ define internal i32 @dissect_dect_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.828, ptr noundef %44) #5
   %45 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2) #5
   %.not1.i55 = icmp eq i32 %45, 0
-  br i1 %.not1.i55, label %dissect_dect_nwk_lce.exit, label %.lr.ph.i56
+  br i1 %.not1.i55, label %dissect_dect_nwk_lce.argprom.exit, label %.lr.ph.i56
 
 .lr.ph.i56:                                       ; preds = %39, %.lr.ph.i56
   %.02.i57 = phi i32 [ %46, %.lr.ph.i56 ], [ 2, %39 ]
-  %46 = tail call fastcc i32 @dissect_dect_nwk_s_ie(ptr noundef %0, i32 noundef %.02.i57, ptr noundef %1, ptr noundef %11)
+  %46 = tail call fastcc i32 @dissect_dect_nwk_s_ie.argprom(ptr noundef %0, i32 noundef %.02.i57, ptr noundef %1, ptr noundef %11)
   %47 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %46) #5
   %.not.i58 = icmp eq i32 %47, 0
-  br i1 %.not.i58, label %dissect_dect_nwk_lce.exit, label %.lr.ph.i56, !llvm.loop !8
+  br i1 %.not.i58, label %dissect_dect_nwk_lce.argprom.exit, label %.lr.ph.i56, !llvm.loop !8
 
 48:                                               ; preds = %4
   %49 = load i32, ptr @hf_dect_nwk_message_type_ciss, align 4
@@ -1346,14 +1346,14 @@ define internal i32 @dissect_dect_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %51, i32 noundef 25, ptr noundef nonnull @.str.828, ptr noundef %53) #5
   %54 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2) #5
   %.not1.i60 = icmp eq i32 %54, 0
-  br i1 %.not1.i60, label %dissect_dect_nwk_lce.exit, label %.lr.ph.i61
+  br i1 %.not1.i60, label %dissect_dect_nwk_lce.argprom.exit, label %.lr.ph.i61
 
 .lr.ph.i61:                                       ; preds = %48, %.lr.ph.i61
   %.02.i62 = phi i32 [ %55, %.lr.ph.i61 ], [ 2, %48 ]
-  %55 = tail call fastcc i32 @dissect_dect_nwk_s_ie(ptr noundef %0, i32 noundef %.02.i62, ptr noundef %1, ptr noundef %11)
+  %55 = tail call fastcc i32 @dissect_dect_nwk_s_ie.argprom(ptr noundef %0, i32 noundef %.02.i62, ptr noundef %1, ptr noundef %11)
   %56 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %55) #5
   %.not.i63 = icmp eq i32 %56, 0
-  br i1 %.not.i63, label %dissect_dect_nwk_lce.exit, label %.lr.ph.i61, !llvm.loop !9
+  br i1 %.not.i63, label %dissect_dect_nwk_lce.argprom.exit, label %.lr.ph.i61, !llvm.loop !9
 
 57:                                               ; preds = %4
   %58 = load i32, ptr @hf_dect_nwk_message_type_clms, align 4
@@ -1364,14 +1364,14 @@ define internal i32 @dissect_dect_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %60, i32 noundef 25, ptr noundef nonnull @.str.828, ptr noundef %62) #5
   %63 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2) #5
   %.not1.i65 = icmp eq i32 %63, 0
-  br i1 %.not1.i65, label %dissect_dect_nwk_lce.exit, label %.lr.ph.i66
+  br i1 %.not1.i65, label %dissect_dect_nwk_lce.argprom.exit, label %.lr.ph.i66
 
 .lr.ph.i66:                                       ; preds = %57, %.lr.ph.i66
   %.02.i67 = phi i32 [ %64, %.lr.ph.i66 ], [ 2, %57 ]
-  %64 = tail call fastcc i32 @dissect_dect_nwk_s_ie(ptr noundef %0, i32 noundef %.02.i67, ptr noundef %1, ptr noundef %11)
+  %64 = tail call fastcc i32 @dissect_dect_nwk_s_ie.argprom(ptr noundef %0, i32 noundef %.02.i67, ptr noundef %1, ptr noundef %11)
   %65 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %64) #5
   %.not.i68 = icmp eq i32 %65, 0
-  br i1 %.not.i68, label %dissect_dect_nwk_lce.exit, label %.lr.ph.i66, !llvm.loop !10
+  br i1 %.not.i68, label %dissect_dect_nwk_lce.argprom.exit, label %.lr.ph.i66, !llvm.loop !10
 
 66:                                               ; preds = %4
   %67 = load i32, ptr @hf_dect_nwk_message_type_coms, align 4
@@ -1382,27 +1382,27 @@ define internal i32 @dissect_dect_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.828, ptr noundef %71) #5
   %72 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2) #5
   %.not1.i70 = icmp eq i32 %72, 0
-  br i1 %.not1.i70, label %dissect_dect_nwk_lce.exit, label %.lr.ph.i71
+  br i1 %.not1.i70, label %dissect_dect_nwk_lce.argprom.exit, label %.lr.ph.i71
 
 .lr.ph.i71:                                       ; preds = %66, %.lr.ph.i71
   %.02.i72 = phi i32 [ %73, %.lr.ph.i71 ], [ 2, %66 ]
-  %73 = tail call fastcc i32 @dissect_dect_nwk_s_ie(ptr noundef %0, i32 noundef %.02.i72, ptr noundef %1, ptr noundef %11)
+  %73 = tail call fastcc i32 @dissect_dect_nwk_s_ie.argprom(ptr noundef %0, i32 noundef %.02.i72, ptr noundef %1, ptr noundef %11)
   %74 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %73) #5
   %.not.i73 = icmp eq i32 %74, 0
-  br i1 %.not.i73, label %dissect_dect_nwk_lce.exit, label %.lr.ph.i71, !llvm.loop !11
+  br i1 %.not.i73, label %dissect_dect_nwk_lce.argprom.exit, label %.lr.ph.i71, !llvm.loop !11
 
-dissect_dect_nwk_lce.exit:                        ; preds = %.lr.ph.i71, %.lr.ph.i66, %.lr.ph.i61, %.lr.ph.i56, %.lr.ph.i51, %.lr.ph.i, %66, %57, %48, %39, %31, %19, %4
+dissect_dect_nwk_lce.argprom.exit:                ; preds = %.lr.ph.i71, %.lr.ph.i66, %.lr.ph.i61, %.lr.ph.i56, %.lr.ph.i51, %.lr.ph.i, %66, %57, %48, %39, %31, %19, %4
   %.0 = phi i32 [ 0, %4 ], [ 2, %19 ], [ 2, %31 ], [ 2, %39 ], [ 2, %48 ], [ 2, %57 ], [ 2, %66 ], [ %26, %.lr.ph.i ], [ %37, %.lr.ph.i51 ], [ %46, %.lr.ph.i56 ], [ %55, %.lr.ph.i61 ], [ %64, %.lr.ph.i66 ], [ %73, %.lr.ph.i71 ]
   %75 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %76 = icmp ult i32 %.0, %75
   br i1 %76, label %77, label %80
 
-77:                                               ; preds = %dissect_dect_nwk_lce.exit
+77:                                               ; preds = %dissect_dect_nwk_lce.argprom.exit
   %78 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0) #5
   %79 = tail call i32 @call_data_dissector(ptr noundef %78, ptr noundef %1, ptr noundef %2) #5
   br label %80
 
-80:                                               ; preds = %77, %dissect_dect_nwk_lce.exit
+80:                                               ; preds = %77, %dissect_dect_nwk_lce.argprom.exit
   %81 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   ret i32 %81
 }
@@ -1444,7 +1444,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_dect_nwk_s_ie(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_dect_nwk_s_ie.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
   %.not = icmp sgt i8 %6, -1
@@ -1513,12 +1513,12 @@ define internal fastcc i32 @dissect_dect_nwk_s_ie(ptr noundef %0, i32 noundef %1
 
 45:                                               ; preds = %16
   %46 = load i32, ptr @hf_dect_nwk_s_ie_fl_single_display_display_info, align 4
-  call fastcc void @add_dect_nwk_dect_charset_tree_item(ptr noundef %17, ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef %27, i32 noundef 1)
+  call fastcc void @add_dect_nwk_dect_charset_tree_item.retelim(ptr noundef %17, ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef %27, i32 noundef 1)
   br label %73
 
 47:                                               ; preds = %16
   %48 = load i32, ptr @hf_dect_nwk_s_ie_fl_single_keypad_keypad_info, align 4
-  call fastcc void @add_dect_nwk_dect_charset_tree_item(ptr noundef %17, ptr noundef %2, i32 noundef %48, ptr noundef %0, i32 noundef %27, i32 noundef 1)
+  call fastcc void @add_dect_nwk_dect_charset_tree_item.retelim(ptr noundef %17, ptr noundef %2, i32 noundef %48, ptr noundef %0, i32 noundef %27, i32 noundef 1)
   br label %73
 
 49:                                               ; preds = %8
@@ -1563,7 +1563,7 @@ define internal fastcc i32 @dissect_dect_nwk_s_ie(ptr noundef %0, i32 noundef %1
 73:                                               ; preds = %56, %70, %65, %62, %16, %28, %33, %36, %39, %42, %45, %47
   %.0 = phi i32 [ %27, %16 ], [ %27, %47 ], [ %27, %45 ], [ %27, %42 ], [ %27, %39 ], [ %27, %36 ], [ %27, %33 ], [ %27, %28 ], [ %1, %56 ], [ %1, %62 ], [ %1, %70 ], [ %1, %65 ]
   %74 = add i32 %.0, 1
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 75:                                               ; preds = %4
   %76 = and i8 %7, 127
@@ -1642,7 +1642,7 @@ define internal fastcc i32 @dissect_dect_nwk_s_ie(ptr noundef %0, i32 noundef %1
   %122 = add i32 %.0.i, 2
   %123 = and i8 %121, 64
   %.not.i = icmp eq i8 %123, 0
-  br i1 %.not.i, label %dissect_dect_nwk_s_ie_auth_type.exit, label %124
+  br i1 %.not.i, label %dissect_dect_nwk_s_ie_auth_type.argprom.exit, label %124
 
 124:                                              ; preds = %103
   %125 = load i32, ptr @hf_dect_nwk_s_ie_auth_type_default_cipher_key_index, align 4
@@ -1651,7 +1651,7 @@ define internal fastcc i32 @dissect_dect_nwk_s_ie(ptr noundef %0, i32 noundef %1
   %128 = load i32, ptr @hf_dect_nwk_s_ie_auth_type_default_cipher_key_algorithm, align 4
   %129 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %128, ptr noundef %0, i32 noundef %127, i32 noundef 1, i32 noundef 0) #5
   %130 = add i32 %.0.i, 5
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 131:                                              ; preds = %75
   %132 = load i32, ptr @hf_dect_nwk_s_ie_octet_group_extension, align 4
@@ -1663,7 +1663,7 @@ define internal fastcc i32 @dissect_dect_nwk_s_ie(ptr noundef %0, i32 noundef %1
   %138 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %92) #5
   %139 = add i32 %1, 3
   %.not.i197 = icmp sgt i8 %138, -1
-  br i1 %.not.i197, label %140, label %dissect_dect_nwk_s_ie_calling_party_number.exit
+  br i1 %.not.i197, label %140, label %dissect_dect_nwk_s_ie_calling_party_number.argprom.exit
 
 140:                                              ; preds = %131
   %141 = load i32, ptr @hf_dect_nwk_s_ie_octet_group_extension, align 4
@@ -1673,9 +1673,9 @@ define internal fastcc i32 @dissect_dect_nwk_s_ie(ptr noundef %0, i32 noundef %1
   %145 = load i32, ptr @hf_dect_nwk_s_ie_calling_party_number_screening, align 4
   %146 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %145, ptr noundef %0, i32 noundef %139, i32 noundef 1, i32 noundef 0) #5
   %147 = add i32 %1, 4
-  br label %dissect_dect_nwk_s_ie_calling_party_number.exit
+  br label %dissect_dect_nwk_s_ie_calling_party_number.argprom.exit
 
-dissect_dect_nwk_s_ie_calling_party_number.exit:  ; preds = %131, %140
+dissect_dect_nwk_s_ie_calling_party_number.argprom.exit: ; preds = %131, %140
   %.sink.i = phi i8 [ -2, %140 ], [ -1, %131 ]
   %.030.i = phi i32 [ %147, %140 ], [ %139, %131 ]
   %148 = add i8 %.sink.i, %78
@@ -1683,7 +1683,7 @@ dissect_dect_nwk_s_ie_calling_party_number.exit:  ; preds = %131, %140
   %150 = zext i8 %148 to i32
   %151 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %149, ptr noundef %0, i32 noundef %.030.i, i32 noundef %150, i32 noundef 86) #5
   %152 = add i32 %.030.i, %150
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 153:                                              ; preds = %75
   %154 = load i32, ptr @hf_dect_nwk_s_ie_cipher_info_yn, align 4
@@ -1694,22 +1694,22 @@ dissect_dect_nwk_s_ie_calling_party_number.exit:  ; preds = %131, %140
   %159 = and i8 %158, 127
   %160 = add i32 %1, 3
   %161 = icmp eq i8 %159, 127
-  br i1 %161, label %162, label %dissect_dect_nwk_s_ie_cipher_info.exit
+  br i1 %161, label %162, label %dissect_dect_nwk_s_ie_cipher_info.argprom.exit
 
 162:                                              ; preds = %153
   %163 = load i32, ptr @hf_dect_nwk_s_ie_cipher_info_proprietary_algorithm, align 4
   %164 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %163, ptr noundef %0, i32 noundef %160, i32 noundef 1, i32 noundef 0) #5
   %165 = add i32 %1, 4
-  br label %dissect_dect_nwk_s_ie_cipher_info.exit
+  br label %dissect_dect_nwk_s_ie_cipher_info.argprom.exit
 
-dissect_dect_nwk_s_ie_cipher_info.exit:           ; preds = %153, %162
+dissect_dect_nwk_s_ie_cipher_info.argprom.exit:   ; preds = %153, %162
   %.0.i198 = phi i32 [ %165, %162 ], [ %160, %153 ]
   %166 = load i32, ptr @hf_dect_nwk_s_ie_cipher_info_key_type, align 4
   %167 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %166, ptr noundef %0, i32 noundef %.0.i198, i32 noundef 1, i32 noundef 0) #5
   %168 = load i32, ptr @hf_dect_nwk_s_ie_cipher_info_key_number, align 4
   %169 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %168, ptr noundef %0, i32 noundef %.0.i198, i32 noundef 1, i32 noundef 0) #5
   %170 = add i32 %.0.i198, 1
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 171:                                              ; preds = %75
   %172 = load i32, ptr @hf_dect_nwk_s_ie_octet_group_extension, align 4
@@ -1721,13 +1721,13 @@ dissect_dect_nwk_s_ie_cipher_info.exit:           ; preds = %153, %162
   %178 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %92) #5
   %179 = add i32 %1, 3
   %.not.i199 = icmp sgt i8 %178, -1
-  br i1 %.not.i199, label %180, label %dissect_dect_nwk_s_ie_auth_type.exit
+  br i1 %.not.i199, label %180, label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 180:                                              ; preds = %171
   %181 = load i32, ptr @hf_dect_nwk_s_ie_duration_time_duration, align 4
   %182 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %181, ptr noundef %0, i32 noundef %179, i32 noundef 1, i32 noundef 0) #5
   %183 = add i32 %1, 4
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 184:                                              ; preds = %75
   %185 = load i32, ptr @hf_dect_nwk_s_ie_fixed_identity_type, align 4
@@ -1750,7 +1750,7 @@ dissect_dect_nwk_s_ie_cipher_info.exit:           ; preds = %153, %162
   %202 = add i32 %201, %192
   %203 = and i32 %197, 7
   %.not.i201 = icmp eq i32 %203, 0
-  br i1 %.not.i201, label %dissect_dect_nwk_s_ie_auth_type.exit, label %204
+  br i1 %.not.i201, label %dissect_dect_nwk_s_ie_auth_type.argprom.exit, label %204
 
 204:                                              ; preds = %184
   %205 = add i32 %198, %196
@@ -1758,7 +1758,7 @@ dissect_dect_nwk_s_ie_cipher_info.exit:           ; preds = %153, %162
   %207 = load i32, ptr @hf_dect_nwk_s_ie_fixed_identity_padding, align 4
   %208 = call ptr @proto_tree_add_bits_item(ptr noundef %82, i32 noundef %207, ptr noundef %0, i32 noundef %205, i32 noundef %206, i32 noundef 0) #5
   %209 = add i32 %202, 1
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 210:                                              ; preds = %75
   %211 = load i32, ptr @hf_dect_nwk_s_ie_iwu_to_iwu_sr, align 4
@@ -1773,7 +1773,7 @@ dissect_dect_nwk_s_ie_cipher_info.exit:           ; preds = %153, %162
   %220 = zext i8 %218 to i32
   %221 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %219, ptr noundef %0, i32 noundef %217, i32 noundef %220, i32 noundef 0) #5
   %222 = icmp eq i8 %216, 0
-  br i1 %222, label %223, label %dissect_dect_nwk_s_ie_iwu_to_iwu.exit
+  br i1 %222, label %223, label %dissect_dect_nwk_s_ie_iwu_to_iwu.argprom.exit
 
 223:                                              ; preds = %210
   %224 = load i32, ptr @hf_dect_nwk_s_ie_iwu_to_iwu_discriminator_type, align 4
@@ -1786,7 +1786,7 @@ dissect_dect_nwk_s_ie_cipher_info.exit:           ; preds = %153, %162
   %231 = zext i8 %229 to i32
   %232 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %230, ptr noundef %0, i32 noundef %228, i32 noundef %231, i32 noundef 0) #5
   %233 = icmp eq i8 %227, 1
-  br i1 %233, label %234, label %dissect_dect_nwk_s_ie_iwu_to_iwu.exit
+  br i1 %233, label %234, label %dissect_dect_nwk_s_ie_iwu_to_iwu.argprom.exit
 
 234:                                              ; preds = %223
   %235 = load i32, ptr @hf_dect_nwk_s_ie_iwu_to_iwu_emc_discriminator, align 4
@@ -1796,13 +1796,13 @@ dissect_dect_nwk_s_ie_cipher_info.exit:           ; preds = %153, %162
   %239 = load i32, ptr @hf_dect_nwk_s_ie_iwu_to_iwu_proprietary_contents, align 4
   %240 = zext i8 %238 to i32
   %241 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %239, ptr noundef %0, i32 noundef %237, i32 noundef %240, i32 noundef 0) #5
-  br label %dissect_dect_nwk_s_ie_iwu_to_iwu.exit
+  br label %dissect_dect_nwk_s_ie_iwu_to_iwu.argprom.exit
 
-dissect_dect_nwk_s_ie_iwu_to_iwu.exit:            ; preds = %210, %223, %234
+dissect_dect_nwk_s_ie_iwu_to_iwu.argprom.exit:    ; preds = %210, %223, %234
   %.pre-phi.i = phi i32 [ %231, %223 ], [ %240, %234 ], [ %220, %210 ]
   %.037.i = phi i32 [ %228, %223 ], [ %237, %234 ], [ %217, %210 ]
   %242 = add i32 %.037.i, %.pre-phi.i
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 243:                                              ; preds = %75
   %244 = load i32, ptr @hf_dect_nwk_s_ie_location_area_li_type, align 4
@@ -1818,7 +1818,7 @@ dissect_dect_nwk_s_ie_iwu_to_iwu.exit:            ; preds = %210, %223, %234
   %254 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %92) #5
   %255 = add i32 %1, 3
   %.not.i203 = icmp sgt i8 %254, -1
-  br i1 %.not.i203, label %dissect_dect_nwk_s_ie_auth_type.exit, label %256
+  br i1 %.not.i203, label %dissect_dect_nwk_s_ie_auth_type.argprom.exit, label %256
 
 256:                                              ; preds = %243
   %257 = load i32, ptr @hf_dect_nwk_s_ie_location_area_eli_type, align 4
@@ -1826,7 +1826,7 @@ dissect_dect_nwk_s_ie_iwu_to_iwu.exit:            ; preds = %210, %223, %234
   %259 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %255) #5
   %260 = add i32 %1, 4
   %261 = icmp ugt i8 %259, -17
-  br i1 %261, label %262, label %dissect_dect_nwk_s_ie_auth_type.exit
+  br i1 %261, label %262, label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 262:                                              ; preds = %256
   %263 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %82, i32 noundef %260, i32 noundef 0, i32 noundef 0) #5
@@ -1836,19 +1836,19 @@ dissect_dect_nwk_s_ie_iwu_to_iwu.exit:            ; preds = %210, %223, %234
   %267 = load i32, ptr @hf_dect_nwk_s_ie_location_area_ci, align 4
   %268 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %267, ptr noundef %0, i32 noundef %266, i32 noundef 2, i32 noundef 0) #5
   %269 = add i32 %263, 4
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 270:                                              ; preds = %75
   %271 = load i32, ptr @hf_dect_nwk_s_ie_multi_display_information, align 4
-  call fastcc void @add_dect_nwk_dect_charset_tree_item(ptr noundef %82, ptr noundef readonly %2, i32 noundef %271, ptr noundef %0, i32 noundef %92, i32 noundef %79)
+  call fastcc void @add_dect_nwk_dect_charset_tree_item.retelim(ptr noundef %82, ptr noundef readonly %2, i32 noundef %271, ptr noundef %0, i32 noundef %92, i32 noundef %79)
   %272 = add i32 %92, %79
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 273:                                              ; preds = %75
   %274 = load i32, ptr @hf_dect_nwk_s_ie_multi_keypad_information, align 4
-  call fastcc void @add_dect_nwk_dect_charset_tree_item(ptr noundef %82, ptr noundef readonly %2, i32 noundef %274, ptr noundef %0, i32 noundef %92, i32 noundef %79)
+  call fastcc void @add_dect_nwk_dect_charset_tree_item.retelim(ptr noundef %82, ptr noundef readonly %2, i32 noundef %274, ptr noundef %0, i32 noundef %92, i32 noundef %79)
   %275 = add i32 %92, %79
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 276:                                              ; preds = %75
   %277 = load i32, ptr @hf_dect_nwk_s_ie_nwk_assigned_identity_type, align 4
@@ -1867,7 +1867,7 @@ dissect_dect_nwk_s_ie_iwu_to_iwu.exit:            ; preds = %210, %223, %234
   %290 = add i32 %289, %284
   %291 = and i32 %287, 7
   %.not.i205 = icmp eq i32 %291, 0
-  br i1 %.not.i205, label %dissect_dect_nwk_s_ie_auth_type.exit, label %292
+  br i1 %.not.i205, label %dissect_dect_nwk_s_ie_auth_type.argprom.exit, label %292
 
 292:                                              ; preds = %276
   %293 = add i32 %285, %287
@@ -1875,7 +1875,7 @@ dissect_dect_nwk_s_ie_iwu_to_iwu.exit:            ; preds = %210, %223, %234
   %295 = load i32, ptr @hf_dect_nwk_s_ie_nwk_assigned_identity_padding, align 4
   %296 = call ptr @proto_tree_add_bits_item(ptr noundef %82, i32 noundef %295, ptr noundef %0, i32 noundef %293, i32 noundef %294, i32 noundef 0) #5
   %297 = add i32 %290, 1
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 298:                                              ; preds = %75
   %299 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %92) #5
@@ -1896,7 +1896,7 @@ dissect_dect_nwk_s_ie_iwu_to_iwu.exit:            ; preds = %210, %223, %234
   %312 = add i32 %1, 4
   %313 = shl i32 %312, 3
   %314 = or disjoint i32 %313, 4
-  switch i8 %300, label %dissect_dect_nwk_s_ie_auth_type.exit [
+  switch i8 %300, label %dissect_dect_nwk_s_ie_auth_type.argprom.exit [
     i8 0, label %315
     i8 16, label %366
     i8 32, label %371
@@ -1974,7 +1974,7 @@ dissect_dect_nwk_s_ie_iwu_to_iwu.exit:            ; preds = %210, %223, %234
 
 358:                                              ; preds = %354, %346, %342, %338, %334, %327, %324, %321, %315
   %359 = add i32 %310, %312
-  br i1 %.not.i207, label %360, label %dissect_dect_nwk_s_ie_auth_type.exit
+  br i1 %.not.i207, label %360, label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 360:                                              ; preds = %358
   %361 = add i32 %320, %314
@@ -1982,14 +1982,14 @@ dissect_dect_nwk_s_ie_iwu_to_iwu.exit:            ; preds = %210, %223, %234
   %363 = load i32, ptr @hf_dect_nwk_s_ie_portable_identity_padding, align 4
   %364 = call ptr @proto_tree_add_bits_item(ptr noundef %82, i32 noundef %363, ptr noundef %0, i32 noundef %361, i32 noundef %362, i32 noundef 0) #5
   %365 = add i32 %359, 1
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 366:                                              ; preds = %298
   %367 = add nsw i32 %308, -4
   %368 = load i32, ptr @hf_dect_nwk_s_ie_portable_identity_ipei, align 4
   %369 = call ptr @proto_tree_add_bits_item(ptr noundef %82, i32 noundef %368, ptr noundef %0, i32 noundef %314, i32 noundef %367, i32 noundef 0) #5
   %370 = add i32 %1, 9
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 371:                                              ; preds = %298
   %372 = load i32, ptr @hf_dect_nwk_s_ie_portable_identity_tpui_assignment_type, align 4
@@ -1997,25 +1997,25 @@ dissect_dect_nwk_s_ie_iwu_to_iwu.exit:            ; preds = %210, %223, %234
   %374 = load i32, ptr @hf_dect_nwk_s_ie_portable_identity_tpui_value, align 4
   %375 = call ptr @proto_tree_add_bits_item(ptr noundef %82, i32 noundef %374, ptr noundef %0, i32 noundef %314, i32 noundef %308, i32 noundef 0) #5
   %376 = add i32 %1, 7
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 377:                                              ; preds = %75
   %378 = load i32, ptr @hf_dect_nwk_s_ie_rand_rand_field, align 4
   %379 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %378, ptr noundef %0, i32 noundef %92, i32 noundef %79, i32 noundef 0) #5
   %380 = add i32 %92, %79
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 381:                                              ; preds = %75
   %382 = load i32, ptr @hf_dect_nwk_s_ie_res_res_field, align 4
   %383 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %382, ptr noundef %0, i32 noundef %92, i32 noundef %79, i32 noundef 0) #5
   %384 = add i32 %92, %79
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 385:                                              ; preds = %75
   %386 = load i32, ptr @hf_dect_nwk_s_ie_rs_rs_field, align 4
   %387 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %386, ptr noundef %0, i32 noundef %92, i32 noundef %79, i32 noundef 0) #5
   %388 = add i32 %92, %79
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 .preheader:                                       ; preds = %75, %430
   %.0127.i = phi i32 [ %432, %430 ], [ 0, %75 ]
@@ -2108,10 +2108,10 @@ dissect_dect_nwk_s_ie_iwu_to_iwu.exit:            ; preds = %210, %223, %234
 
 switch.lookup:                                    ; preds = %.preheader2.i
   %437 = zext nneg i32 %.2129.i to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_dect_nwk_s_ie, i64 0, i64 %437
+  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_dect_nwk_s_ie.argprom, i64 0, i64 %437
   %switch.load = load ptr, ptr %switch.gep, align 8
   %438 = zext nneg i32 %.2129.i to i64
-  %switch.gep21 = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_dect_nwk_s_ie.23, i64 0, i64 %438
+  %switch.gep21 = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_dect_nwk_s_ie.argprom.23, i64 0, i64 %438
   %switch.load22 = load ptr, ptr %switch.gep21, align 8
   %439 = load i32, ptr %switch.load, align 4
   %440 = load i32, ptr @ett_dect_nwk_s_ie_element, align 4
@@ -2160,7 +2160,7 @@ switch.lookup:                                    ; preds = %.preheader2.i
 463:                                              ; preds = %459
   %464 = add i32 %92, %79
   %.not136.i = icmp eq i32 %462, %464
-  br i1 %.not136.i, label %dissect_dect_nwk_s_ie_auth_type.exit, label %.preheader.i
+  br i1 %.not136.i, label %dissect_dect_nwk_s_ie_auth_type.argprom.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %463, %471
   %.4131.i = phi i32 [ %473, %471 ], [ 0, %463 ]
@@ -2188,7 +2188,7 @@ switch.lookup:                                    ; preds = %.preheader2.i
   %473 = add i32 %.4131.i, 1
   %474 = add i32 %.4.i, 1
   %.not137.i = icmp sgt i8 %472, -1
-  br i1 %.not137.i, label %.preheader.i, label %dissect_dect_nwk_s_ie_auth_type.exit, !llvm.loop !15
+  br i1 %.not137.i, label %.preheader.i, label %dissect_dect_nwk_s_ie_auth_type.argprom.exit, !llvm.loop !15
 
 475:                                              ; preds = %75
   %476 = load i32, ptr @hf_dect_nwk_s_ie_escape_to_proprietary_discriminator_type, align 4
@@ -2196,20 +2196,20 @@ switch.lookup:                                    ; preds = %.preheader2.i
   %478 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %92) #5
   %479 = and i8 %478, 127
   %480 = icmp eq i8 %479, 1
-  br i1 %480, label %481, label %dissect_dect_nwk_s_ie_escape_to_proprietary.exit
+  br i1 %480, label %481, label %dissect_dect_nwk_s_ie_escape_to_proprietary.argprom.exit
 
 481:                                              ; preds = %475
   %482 = add i32 %1, 3
   %483 = load i32, ptr @hf_dect_nwk_s_ie_escape_to_proprietary_discriminator, align 4
   %484 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %483, ptr noundef %0, i32 noundef %482, i32 noundef 2, i32 noundef 0) #5
-  br label %dissect_dect_nwk_s_ie_escape_to_proprietary.exit
+  br label %dissect_dect_nwk_s_ie_escape_to_proprietary.argprom.exit
 
-dissect_dect_nwk_s_ie_escape_to_proprietary.exit: ; preds = %475, %481
+dissect_dect_nwk_s_ie_escape_to_proprietary.argprom.exit: ; preds = %475, %481
   %485 = add i32 %92, %79
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 486:                                              ; preds = %75
-  switch i8 %78, label %dissect_dect_nwk_s_ie_auth_type.exit [
+  switch i8 %78, label %dissect_dect_nwk_s_ie_auth_type.argprom.exit [
     i8 3, label %487
     i8 20, label %494
   ]
@@ -2221,13 +2221,13 @@ dissect_dect_nwk_s_ie_escape_to_proprietary.exit: ; preds = %475, %481
   %491 = load i32, ptr @hf_dect_nwk_s_ie_model_identifier_modic, align 4
   %492 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %491, ptr noundef %0, i32 noundef %490, i32 noundef 1, i32 noundef 0) #5
   %493 = add i32 %1, 5
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 494:                                              ; preds = %486
   %495 = load i32, ptr @hf_dect_nwk_s_ie_model_identifier_imeisv, align 4
   %496 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %495, ptr noundef %0, i32 noundef %92, i32 noundef 20, i32 noundef 0) #5
   %497 = add i32 %1, 22
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 498:                                              ; preds = %75
   %499 = load i32, ptr @hf_dect_nwk_s_ie_codec_list_negotiation_indicator, align 4
@@ -2257,7 +2257,7 @@ dissect_dect_nwk_s_ie_escape_to_proprietary.exit: ; preds = %475, %481
   %510 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.026.i) #5
   %511 = icmp sgt i8 %510, -1
   %512 = add i32 %.026.i, 1
-  br i1 %511, label %.backedge.i.backedge, label %dissect_dect_nwk_s_ie_auth_type.exit
+  br i1 %511, label %.backedge.i.backedge, label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
 default.unreachable.i:                            ; preds = %.backedge.i
   unreachable
@@ -2277,10 +2277,10 @@ default.unreachable.i:                            ; preds = %.backedge.i
 
 518:                                              ; preds = %75
   %519 = add i32 %92, %79
-  br label %dissect_dect_nwk_s_ie_auth_type.exit
+  br label %dissect_dect_nwk_s_ie_auth_type.argprom.exit
 
-dissect_dect_nwk_s_ie_auth_type.exit:             ; preds = %503, %471, %494, %487, %486, %463, %371, %366, %360, %358, %298, %292, %276, %262, %256, %243, %204, %184, %180, %171, %124, %103, %dissect_dect_nwk_s_ie_calling_party_number.exit, %dissect_dect_nwk_s_ie_cipher_info.exit, %dissect_dect_nwk_s_ie_iwu_to_iwu.exit, %270, %273, %377, %381, %385, %dissect_dect_nwk_s_ie_escape_to_proprietary.exit, %518, %73
-  %.1 = phi i32 [ %74, %73 ], [ %519, %518 ], [ %485, %dissect_dect_nwk_s_ie_escape_to_proprietary.exit ], [ %388, %385 ], [ %384, %381 ], [ %380, %377 ], [ %275, %273 ], [ %272, %270 ], [ %242, %dissect_dect_nwk_s_ie_iwu_to_iwu.exit ], [ %170, %dissect_dect_nwk_s_ie_cipher_info.exit ], [ %152, %dissect_dect_nwk_s_ie_calling_party_number.exit ], [ %130, %124 ], [ %122, %103 ], [ %179, %171 ], [ %183, %180 ], [ %209, %204 ], [ %202, %184 ], [ %269, %262 ], [ %260, %256 ], [ %255, %243 ], [ %297, %292 ], [ %290, %276 ], [ %312, %298 ], [ %376, %371 ], [ %370, %366 ], [ %365, %360 ], [ %359, %358 ], [ %464, %463 ], [ %493, %487 ], [ %497, %494 ], [ %92, %486 ], [ %474, %471 ], [ %512, %503 ]
+dissect_dect_nwk_s_ie_auth_type.argprom.exit:     ; preds = %503, %471, %494, %487, %486, %463, %371, %366, %360, %358, %298, %292, %276, %262, %256, %243, %204, %184, %180, %171, %124, %103, %dissect_dect_nwk_s_ie_calling_party_number.argprom.exit, %dissect_dect_nwk_s_ie_cipher_info.argprom.exit, %dissect_dect_nwk_s_ie_iwu_to_iwu.argprom.exit, %270, %273, %377, %381, %385, %dissect_dect_nwk_s_ie_escape_to_proprietary.argprom.exit, %518, %73
+  %.1 = phi i32 [ %74, %73 ], [ %519, %518 ], [ %485, %dissect_dect_nwk_s_ie_escape_to_proprietary.argprom.exit ], [ %388, %385 ], [ %384, %381 ], [ %380, %377 ], [ %275, %273 ], [ %272, %270 ], [ %242, %dissect_dect_nwk_s_ie_iwu_to_iwu.argprom.exit ], [ %170, %dissect_dect_nwk_s_ie_cipher_info.argprom.exit ], [ %152, %dissect_dect_nwk_s_ie_calling_party_number.argprom.exit ], [ %130, %124 ], [ %122, %103 ], [ %179, %171 ], [ %183, %180 ], [ %209, %204 ], [ %202, %184 ], [ %269, %262 ], [ %260, %256 ], [ %255, %243 ], [ %297, %292 ], [ %290, %276 ], [ %312, %298 ], [ %376, %371 ], [ %370, %366 ], [ %365, %360 ], [ %359, %358 ], [ %464, %463 ], [ %493, %487 ], [ %497, %494 ], [ %92, %486 ], [ %474, %471 ], [ %512, %503 ]
   ret i32 %.1
 }
 
@@ -2289,7 +2289,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_dect_nwk_dect_charset_tree_item(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 256) %5) unnamed_addr #0 {
+define internal fastcc void @add_dect_nwk_dect_charset_tree_item.retelim(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 256) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @tvb_get_string_enc(ptr noundef %8, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 86) #5

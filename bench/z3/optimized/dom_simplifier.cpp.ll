@@ -3536,7 +3536,7 @@ _ZN24scoped_expr_substitution4pushEv.exit:        ; preds = %lor.lhs.false.i.i, 
   br i1 %sign, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %_ZN24scoped_expr_substitution4pushEv.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_128expr_substitution_simplifier19update_substitutionEP4exprP3app(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull %t)
+  tail call fastcc void @_ZN12_GLOBAL__N_128expr_substitution_simplifier19update_substitutionEP4exprP3app.argprom(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull %t)
   br label %return
 
 if.else:                                          ; preds = %_ZN24scoped_expr_substitution4pushEv.exit
@@ -3557,7 +3557,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %if.else
   br label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit:  ; preds = %if.else, %_ZN11ast_manager7inc_refEP3ast.exit.i.i
-  invoke fastcc void @_ZN12_GLOBAL__N_128expr_substitution_simplifier19update_substitutionEP4exprP3app(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %call.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_128expr_substitution_simplifier19update_substitutionEP4exprP3app.argprom(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %call.i)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit
@@ -3735,7 +3735,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_128expr_substitution_simplifier19update_substitutionEP4exprP3app(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %n) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_128expr_substitution_simplifier19update_substitutionEP4exprP3app.argprom(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %n) unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %n, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
@@ -4752,7 +4752,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %cmp8.i.i.i.i.i = icmp eq i32 %6, %4
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %5, %lhs.tr183271
   %or.cond.i.i.i.i.i = and i1 %cmp.i.i.i.i.i.i.i.i, %cmp8.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit, label %for.inc.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit, label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.031.i.i.i.i.i, i64 16
@@ -4773,14 +4773,14 @@ if.then22.i.i.i.i.i:                              ; preds = %for.body20.i.i.i.i.
   %cmp24.i.i.i.i.i = icmp eq i32 %8, %4
   %cmp.i.i.i23.i.i.i.i.i = icmp eq ptr %7, %lhs.tr183271
   %or.cond26.i.i.i.i.i = and i1 %cmp.i.i.i23.i.i.i.i.i, %cmp24.i.i.i.i.i
-  br i1 %or.cond26.i.i.i.i.i, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit, label %for.inc36.i.i.i.i.i
+  br i1 %or.cond26.i.i.i.i.i, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit, label %for.inc36.i.i.i.i.i
 
 for.inc36.i.i.i.i.i:                              ; preds = %if.then22.i.i.i.i.i, %for.body20.i.i.i.i.i
   %incdec.ptr37.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.133.i.i.i.i.i, i64 16
   %cmp19.not.i.i.i.i.i = icmp ne ptr %incdec.ptr37.i.i.i.i.i, %add.ptr.i.i.i.i.i
   br label %for.body20.i.i.i.i.i
 
-_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit: ; preds = %if.then.i.i.i.i.i, %if.then22.i.i.i.i.i
+_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit: ; preds = %if.then.i.i.i.i.i, %if.then22.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %curr.133.i.i.i.i.i, %if.then22.i.i.i.i.i ], [ %curr.031.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %m_value.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 8
   %9 = load i32, ptr %m_value.i.i.i, align 4
@@ -4792,12 +4792,12 @@ _ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit: ; preds = %if
   %cmp.not30.i.i.i.i.i40 = icmp eq i32 %and.i.i.i.i.i35, %this.val26
   br i1 %cmp.not30.i.i.i.i.i40, label %for.cond18.preheader.i.i.i.i.i52, label %for.body.i.i.i.i.i41
 
-for.cond18.preheader.i.i.i.i.i52:                 ; preds = %for.inc.i.i.i.i.i49, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit
+for.cond18.preheader.i.i.i.i.i52:                 ; preds = %for.inc.i.i.i.i.i49, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit
   %cmp19.not32.i.i.i.i.i53 = icmp ne i32 %and.i.i.i.i.i35, 0
   br label %for.body20.i.i.i.i.i54
 
-for.body.i.i.i.i.i41:                             ; preds = %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit, %for.inc.i.i.i.i.i49
-  %curr.031.i.i.i.i.i42 = phi ptr [ %incdec.ptr.i.i.i.i.i50, %for.inc.i.i.i.i.i49 ], [ %add.ptr.i.i.i.i.i37, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit ]
+for.body.i.i.i.i.i41:                             ; preds = %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit, %for.inc.i.i.i.i.i49
+  %curr.031.i.i.i.i.i42 = phi ptr [ %incdec.ptr.i.i.i.i.i50, %for.inc.i.i.i.i.i49 ], [ %add.ptr.i.i.i.i.i37, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit ]
   %11 = load ptr, ptr %curr.031.i.i.i.i.i42, align 8
   %cond.i.i.i43 = icmp eq ptr %11, inttoptr (i64 1 to ptr)
   br i1 %cond.i.i.i43, label %for.inc.i.i.i.i.i49, label %if.then.i.i.i.i.i44
@@ -4808,7 +4808,7 @@ if.then.i.i.i.i.i44:                              ; preds = %for.body.i.i.i.i.i4
   %cmp8.i.i.i.i.i46 = icmp eq i32 %12, %10
   %cmp.i.i.i.i.i.i.i.i47 = icmp eq ptr %11, %rhs.tr184270
   %or.cond.i.i.i.i.i48 = and i1 %cmp.i.i.i.i.i.i.i.i47, %cmp8.i.i.i.i.i46
-  br i1 %or.cond.i.i.i.i.i48, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit68, label %for.inc.i.i.i.i.i49
+  br i1 %or.cond.i.i.i.i.i48, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit68, label %for.inc.i.i.i.i.i49
 
 for.inc.i.i.i.i.i49:                              ; preds = %if.then.i.i.i.i.i44, %for.body.i.i.i.i.i41
   %incdec.ptr.i.i.i.i.i50 = getelementptr inbounds i8, ptr %curr.031.i.i.i.i.i42, i64 16
@@ -4829,21 +4829,21 @@ if.then22.i.i.i.i.i58:                            ; preds = %for.body20.i.i.i.i.
   %cmp24.i.i.i.i.i60 = icmp eq i32 %14, %10
   %cmp.i.i.i23.i.i.i.i.i61 = icmp eq ptr %13, %rhs.tr184270
   %or.cond26.i.i.i.i.i62 = and i1 %cmp.i.i.i23.i.i.i.i.i61, %cmp24.i.i.i.i.i60
-  br i1 %or.cond26.i.i.i.i.i62, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit68, label %for.inc36.i.i.i.i.i63
+  br i1 %or.cond26.i.i.i.i.i62, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit68, label %for.inc36.i.i.i.i.i63
 
 for.inc36.i.i.i.i.i63:                            ; preds = %if.then22.i.i.i.i.i58, %for.body20.i.i.i.i.i54
   %incdec.ptr37.i.i.i.i.i64 = getelementptr inbounds i8, ptr %curr.133.i.i.i.i.i56, i64 16
   %cmp19.not.i.i.i.i.i65 = icmp ne ptr %incdec.ptr37.i.i.i.i.i64, %add.ptr.i.i.i.i.i37
   br label %for.body20.i.i.i.i.i54
 
-_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit68: ; preds = %if.then.i.i.i.i.i44, %if.then22.i.i.i.i.i58
+_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit68: ; preds = %if.then.i.i.i.i.i44, %if.then22.i.i.i.i.i58
   %retval.0.i.i.i.i.i66 = phi ptr [ %curr.133.i.i.i.i.i56, %if.then22.i.i.i.i.i58 ], [ %curr.031.i.i.i.i.i42, %if.then.i.i.i.i.i44 ]
   %m_value.i.i.i67 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i66, i64 8
   %15 = load i32, ptr %m_value.i.i.i67, align 4
   %cmp6 = icmp ugt i32 %9, %15
   br i1 %cmp6, label %return, label %if.end8
 
-if.end8:                                          ; preds = %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit68
+if.end8:                                          ; preds = %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit68
   br i1 %cmp.not30.i.i.i.i.i, label %for.cond18.preheader.i.i.i.i.i88, label %for.body.i.i.i.i.i77
 
 for.cond18.preheader.i.i.i.i.i88:                 ; preds = %for.inc.i.i.i.i.i85, %if.end8
@@ -4862,7 +4862,7 @@ if.then.i.i.i.i.i80:                              ; preds = %for.body.i.i.i.i.i7
   %cmp8.i.i.i.i.i82 = icmp eq i32 %17, %4
   %cmp.i.i.i.i.i.i.i.i83 = icmp eq ptr %16, %lhs.tr183271
   %or.cond.i.i.i.i.i84 = and i1 %cmp.i.i.i.i.i.i.i.i83, %cmp8.i.i.i.i.i82
-  br i1 %or.cond.i.i.i.i.i84, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit104, label %for.inc.i.i.i.i.i85
+  br i1 %or.cond.i.i.i.i.i84, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit104, label %for.inc.i.i.i.i.i85
 
 for.inc.i.i.i.i.i85:                              ; preds = %if.then.i.i.i.i.i80, %for.body.i.i.i.i.i77
   %incdec.ptr.i.i.i.i.i86 = getelementptr inbounds i8, ptr %curr.031.i.i.i.i.i78, i64 16
@@ -4883,25 +4883,25 @@ if.then22.i.i.i.i.i94:                            ; preds = %for.body20.i.i.i.i.
   %cmp24.i.i.i.i.i96 = icmp eq i32 %19, %4
   %cmp.i.i.i23.i.i.i.i.i97 = icmp eq ptr %18, %lhs.tr183271
   %or.cond26.i.i.i.i.i98 = and i1 %cmp.i.i.i23.i.i.i.i.i97, %cmp24.i.i.i.i.i96
-  br i1 %or.cond26.i.i.i.i.i98, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit104, label %for.inc36.i.i.i.i.i99
+  br i1 %or.cond26.i.i.i.i.i98, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit104, label %for.inc36.i.i.i.i.i99
 
 for.inc36.i.i.i.i.i99:                            ; preds = %if.then22.i.i.i.i.i94, %for.body20.i.i.i.i.i90
   %incdec.ptr37.i.i.i.i.i100 = getelementptr inbounds i8, ptr %curr.133.i.i.i.i.i92, i64 16
   %cmp19.not.i.i.i.i.i101 = icmp ne ptr %incdec.ptr37.i.i.i.i.i100, %add.ptr.i.i.i.i.i
   br label %for.body20.i.i.i.i.i90
 
-_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit104: ; preds = %if.then.i.i.i.i.i80, %if.then22.i.i.i.i.i94
+_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit104: ; preds = %if.then.i.i.i.i.i80, %if.then22.i.i.i.i.i94
   %retval.0.i.i.i.i.i102 = phi ptr [ %curr.133.i.i.i.i.i92, %if.then22.i.i.i.i.i94 ], [ %curr.031.i.i.i.i.i78, %if.then.i.i.i.i.i80 ]
   %m_value.i.i.i103 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i102, i64 8
   %20 = load i32, ptr %m_value.i.i.i103, align 4
   br i1 %cmp.not30.i.i.i.i.i40, label %for.cond18.preheader.i.i.i.i.i124, label %for.body.i.i.i.i.i113
 
-for.cond18.preheader.i.i.i.i.i124:                ; preds = %for.inc.i.i.i.i.i121, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit104
+for.cond18.preheader.i.i.i.i.i124:                ; preds = %for.inc.i.i.i.i.i121, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit104
   %cmp19.not32.i.i.i.i.i125 = icmp ne i32 %and.i.i.i.i.i35, 0
   br label %for.body20.i.i.i.i.i126
 
-for.body.i.i.i.i.i113:                            ; preds = %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit104, %for.inc.i.i.i.i.i121
-  %curr.031.i.i.i.i.i114 = phi ptr [ %incdec.ptr.i.i.i.i.i122, %for.inc.i.i.i.i.i121 ], [ %add.ptr.i.i.i.i.i37, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit104 ]
+for.body.i.i.i.i.i113:                            ; preds = %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit104, %for.inc.i.i.i.i.i121
+  %curr.031.i.i.i.i.i114 = phi ptr [ %incdec.ptr.i.i.i.i.i122, %for.inc.i.i.i.i.i121 ], [ %add.ptr.i.i.i.i.i37, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit104 ]
   %21 = load ptr, ptr %curr.031.i.i.i.i.i114, align 8
   %cond.i.i.i115 = icmp eq ptr %21, inttoptr (i64 1 to ptr)
   br i1 %cond.i.i.i115, label %for.inc.i.i.i.i.i121, label %if.then.i.i.i.i.i116
@@ -4912,7 +4912,7 @@ if.then.i.i.i.i.i116:                             ; preds = %for.body.i.i.i.i.i1
   %cmp8.i.i.i.i.i118 = icmp eq i32 %22, %10
   %cmp.i.i.i.i.i.i.i.i119 = icmp eq ptr %21, %rhs.tr184270
   %or.cond.i.i.i.i.i120 = and i1 %cmp.i.i.i.i.i.i.i.i119, %cmp8.i.i.i.i.i118
-  br i1 %or.cond.i.i.i.i.i120, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit140, label %for.inc.i.i.i.i.i121
+  br i1 %or.cond.i.i.i.i.i120, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit140, label %for.inc.i.i.i.i.i121
 
 for.inc.i.i.i.i.i121:                             ; preds = %if.then.i.i.i.i.i116, %for.body.i.i.i.i.i113
   %incdec.ptr.i.i.i.i.i122 = getelementptr inbounds i8, ptr %curr.031.i.i.i.i.i114, i64 16
@@ -4933,21 +4933,21 @@ if.then22.i.i.i.i.i130:                           ; preds = %for.body20.i.i.i.i.
   %cmp24.i.i.i.i.i132 = icmp eq i32 %24, %10
   %cmp.i.i.i23.i.i.i.i.i133 = icmp eq ptr %23, %rhs.tr184270
   %or.cond26.i.i.i.i.i134 = and i1 %cmp.i.i.i23.i.i.i.i.i133, %cmp24.i.i.i.i.i132
-  br i1 %or.cond26.i.i.i.i.i134, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit140, label %for.inc36.i.i.i.i.i135
+  br i1 %or.cond26.i.i.i.i.i134, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit140, label %for.inc36.i.i.i.i.i135
 
 for.inc36.i.i.i.i.i135:                           ; preds = %if.then22.i.i.i.i.i130, %for.body20.i.i.i.i.i126
   %incdec.ptr37.i.i.i.i.i136 = getelementptr inbounds i8, ptr %curr.133.i.i.i.i.i128, i64 16
   %cmp19.not.i.i.i.i.i137 = icmp ne ptr %incdec.ptr37.i.i.i.i.i136, %add.ptr.i.i.i.i.i37
   br label %for.body20.i.i.i.i.i126
 
-_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit140: ; preds = %if.then.i.i.i.i.i116, %if.then22.i.i.i.i.i130
+_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit140: ; preds = %if.then.i.i.i.i.i116, %if.then22.i.i.i.i.i130
   %retval.0.i.i.i.i.i138 = phi ptr [ %curr.133.i.i.i.i.i128, %if.then22.i.i.i.i.i130 ], [ %curr.031.i.i.i.i.i114, %if.then.i.i.i.i.i116 ]
   %m_value.i.i.i139 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i138, i64 8
   %25 = load i32, ptr %m_value.i.i.i139, align 4
   %cmp11 = icmp eq i32 %20, %25
   br i1 %cmp11, label %land.lhs.true, label %return
 
-land.lhs.true:                                    ; preds = %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit140
+land.lhs.true:                                    ; preds = %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit140
   %m_kind.i.i = getelementptr inbounds i8, ptr %lhs.tr183271, i64 4
   %bf.load.i.i = load i32, ptr %m_kind.i.i, align 4
   %bf.clear.i.i = and i32 %bf.load.i.i, 65535
@@ -5016,8 +5016,8 @@ for.end:                                          ; preds = %for.cond.preheader,
   tail call void @exit(i32 noundef 114) #24
   unreachable
 
-return:                                           ; preds = %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit140, %land.lhs.true, %land.lhs.true13, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit68, %if.end.loopexit, %if.end.lr.ph, %entry, %if.then33, %if.then23
-  %retval.0 = phi i1 [ %cmp28, %if.then23 ], [ %cmp36, %if.then33 ], [ false, %entry ], [ true, %if.end.lr.ph ], [ true, %if.end.loopexit ], [ true, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit68 ], [ false, %land.lhs.true13 ], [ false, %land.lhs.true ], [ false, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit140 ]
+return:                                           ; preds = %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit140, %land.lhs.true, %land.lhs.true13, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit68, %if.end.loopexit, %if.end.lr.ph, %entry, %if.then33, %if.then23
+  %retval.0 = phi i1 [ %cmp28, %if.then23 ], [ %cmp36, %if.then33 ], [ false, %entry ], [ true, %if.end.lr.ph ], [ true, %if.end.loopexit ], [ true, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit68 ], [ false, %land.lhs.true13 ], [ false, %land.lhs.true ], [ false, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.argprom.exit140 ]
   ret i1 %retval.0
 }
 

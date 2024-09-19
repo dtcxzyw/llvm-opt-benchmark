@@ -446,7 +446,7 @@ baller_free.exit.i:                               ; preds = %baller_close.exit.i
   %28 = getelementptr inbounds i8, ptr %.val, i64 48
   %29 = load ptr, ptr %28, align 8
   %.not.i10.i = icmp eq ptr %29, null
-  br i1 %.not.i10.i, label %cf_he_ctx_clear.exit, label %30
+  br i1 %.not.i10.i, label %cf_he_ctx_clear.argprom.exit, label %30
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %29, i64 40
@@ -461,13 +461,13 @@ baller_free.exit.i:                               ; preds = %baller_close.exit.i
 baller_close.exit.i12.i:                          ; preds = %33, %30
   %34 = load ptr, ptr @Curl_cfree, align 8
   tail call void %34(ptr noundef nonnull %29) #10
-  br label %cf_he_ctx_clear.exit
+  br label %cf_he_ctx_clear.argprom.exit
 
-cf_he_ctx_clear.exit:                             ; preds = %27, %baller_close.exit.i12.i
+cf_he_ctx_clear.argprom.exit:                     ; preds = %27, %baller_close.exit.i12.i
   store ptr null, ptr %28, align 8
   br label %35
 
-35:                                               ; preds = %15, %cf_he_ctx_clear.exit
+35:                                               ; preds = %15, %cf_he_ctx_clear.argprom.exit
   %36 = load ptr, ptr @Curl_cfree, align 8
   tail call void %36(ptr noundef %4) #10
   ret void
@@ -869,14 +869,14 @@ start_connect.exit:                               ; preds = %166, %119
   %.not27.i.i = icmp eq i32 %206, 0
   %.not.i.i41 = icmp eq i8 %204, 0
   %or.cond.i.i42 = and i1 %.not.i.i41, %.not27.i.i
-  br i1 %or.cond.i.i42, label %207, label %baller_connect.exit.i
+  br i1 %or.cond.i.i42, label %207, label %baller_connect.argprom.exit.i
 
 207:                                              ; preds = %203
   %208 = getelementptr inbounds i8, ptr %194, i64 40
   %209 = load ptr, ptr %208, align 8
   %210 = tail call i32 @Curl_conn_cf_connect(ptr noundef %209, ptr noundef %1, i1 noundef zeroext false, ptr noundef nonnull %3) #10
   store i32 %210, ptr %205, align 4
-  switch i32 %210, label %baller_connect.exit.i [
+  switch i32 %210, label %baller_connect.argprom.exit.i [
     i32 0, label %211
     i32 8, label %233
   ]
@@ -890,7 +890,7 @@ start_connect.exit:                               ; preds = %166, %119
   %215 = load i8, ptr %196, align 4
   %216 = or i8 %215, 12
   store i8 %216, ptr %196, align 4
-  br label %baller_connect.exit.i
+  br label %baller_connect.argprom.exit.i
 
 217:                                              ; preds = %211
   %218 = getelementptr inbounds i8, ptr %194, i64 64
@@ -905,7 +905,7 @@ start_connect.exit:                               ; preds = %166, %119
 
 ._crit_edge.i.i:                                  ; preds = %217
   %.pre.i.i58 = load i32, ptr %205, align 4
-  br label %baller_connect.exit.i
+  br label %baller_connect.argprom.exit.i
 
 225:                                              ; preds = %217
   br i1 %.not30.i.i, label %231, label %226
@@ -924,20 +924,20 @@ start_connect.exit:                               ; preds = %166, %119
 231:                                              ; preds = %229, %226, %225
   %232 = getelementptr inbounds i8, ptr %194, i64 96
   store i32 110, ptr %232, align 8
-  br label %baller_connect.exit.i
+  br label %baller_connect.argprom.exit.i
 
 233:                                              ; preds = %207
   %234 = load i8, ptr %196, align 4
   %235 = or i8 %234, 16
   store i8 %235, ptr %196, align 4
-  br label %baller_connect.exit.i
+  br label %baller_connect.argprom.exit.i
 
-baller_connect.exit.i:                            ; preds = %233, %231, %._crit_edge.i.i, %214, %207, %203
+baller_connect.argprom.exit.i:                    ; preds = %233, %231, %._crit_edge.i.i, %214, %207, %203
   %236 = phi i32 [ %.pre.i.i58, %._crit_edge.i.i ], [ %210, %207 ], [ 28, %231 ], [ 0, %214 ], [ 8, %233 ], [ %206, %203 ]
   store i32 %236, ptr %205, align 4
   br i1 %.not30.i.i, label %thread-pre-split.i, label %237
 
-237:                                              ; preds = %baller_connect.exit.i
+237:                                              ; preds = %baller_connect.argprom.exit.i
   %238 = load i64, ptr %174, align 2
   %239 = and i64 %238, 268435456
   %240 = icmp ne i64 %239, 0
@@ -960,8 +960,8 @@ baller_connect.exit.i:                            ; preds = %233, %231, %._crit_
   %.pr.pre.i57 = load i32, ptr %205, align 4
   br label %thread-pre-split.i
 
-thread-pre-split.i:                               ; preds = %246, %241, %237, %baller_connect.exit.i
-  %251 = phi i32 [ %236, %baller_connect.exit.i ], [ %.pr.pre.i57, %246 ], [ %236, %241 ], [ %236, %237 ]
+thread-pre-split.i:                               ; preds = %246, %241, %237, %baller_connect.argprom.exit.i
+  %251 = phi i32 [ %236, %baller_connect.argprom.exit.i ], [ %.pr.pre.i57, %246 ], [ %236, %241 ], [ %236, %237 ]
   %.not185.i = icmp eq i32 %251, 0
   br i1 %.not185.i, label %252, label %258
 
@@ -1088,7 +1088,7 @@ baller_next_addr.exit.i.i:                        ; preds = %293
   br label %311
 
 baller_start_next.exit.i:                         ; preds = %300, %297, %baller_next_addr.exit.i.i
-  tail call fastcc void @baller_start(ptr noundef %0, ptr noundef %1, ptr noundef %194, i64 noundef %spec.select143)
+  tail call fastcc void @baller_start.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %194, i64 noundef %spec.select143)
   %.pre.i = load i8, ptr %196, align 4
   %308 = and i8 %.pre.i, 4
   %309 = icmp eq i8 %308, 0
@@ -1274,7 +1274,7 @@ baller_start_next.exit.i:                         ; preds = %300, %297, %baller_
   %.not44.i238.i = icmp eq i64 %.02547.i232.i, 0
   %396 = tail call i64 @llvm.smin.i64(i64 %spec.store.select1.i237.i, i64 %.02547.i232.i)
   %spec.select145 = select i1 %.not44.i238.i, i64 %spec.store.select1.i237.i, i64 %396
-  tail call fastcc void @baller_start(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %364, i64 noundef %spec.select145)
+  tail call fastcc void @baller_start.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %364, i64 noundef %spec.select145)
   %397 = load i8, ptr %366, align 4
   %398 = and i8 %397, 4
   %.not199.i = icmp eq i8 %398, 0
@@ -1573,7 +1573,7 @@ baller_free.exit.i:                               ; preds = %baller_close.exit.i
   %525 = getelementptr inbounds i8, ptr %.val, i64 48
   %526 = load ptr, ptr %525, align 8
   %.not.i10.i = icmp eq ptr %526, null
-  br i1 %.not.i10.i, label %cf_he_ctx_clear.exit, label %527
+  br i1 %.not.i10.i, label %cf_he_ctx_clear.argprom.exit, label %527
 
 527:                                              ; preds = %524
   %528 = getelementptr inbounds i8, ptr %526, i64 40
@@ -1588,9 +1588,9 @@ baller_free.exit.i:                               ; preds = %baller_close.exit.i
 baller_close.exit.i12.i:                          ; preds = %530, %527
   %531 = load ptr, ptr @Curl_cfree, align 8
   tail call void %531(ptr noundef nonnull %526) #10
-  br label %cf_he_ctx_clear.exit
+  br label %cf_he_ctx_clear.argprom.exit
 
-cf_he_ctx_clear.exit:                             ; preds = %524, %baller_close.exit.i12.i
+cf_he_ctx_clear.argprom.exit:                     ; preds = %524, %baller_close.exit.i12.i
   store ptr null, ptr %525, align 8
   %532 = load ptr, ptr %511, align 8
   %533 = tail call i32 @Curl_conn_cf_cntrl(ptr noundef %532, ptr noundef %1, i1 noundef zeroext true, i32 noundef 256, i32 noundef 0, ptr noundef null) #10
@@ -1603,13 +1603,13 @@ cf_he_ctx_clear.exit:                             ; preds = %524, %baller_close.
   %.not37 = icmp eq i32 %539, 0
   br i1 %.not37, label %542, label %540
 
-540:                                              ; preds = %cf_he_ctx_clear.exit
+540:                                              ; preds = %cf_he_ctx_clear.argprom.exit
   %541 = tail call { i64, i32 } @Curl_pgrsTime(ptr noundef %1, i32 noundef 6) #10
   %.pre = load ptr, ptr %171, align 8
   br label %542
 
-542:                                              ; preds = %540, %cf_he_ctx_clear.exit
-  %543 = phi ptr [ %.pre, %540 ], [ %534, %cf_he_ctx_clear.exit ]
+542:                                              ; preds = %540, %cf_he_ctx_clear.argprom.exit
+  %543 = phi ptr [ %.pre, %540 ], [ %534, %cf_he_ctx_clear.argprom.exit ]
   tail call void @Curl_verboseconnect(ptr noundef %1, ptr noundef %543) #10
   %544 = getelementptr inbounds i8, ptr %1, i64 5000
   %545 = load i64, ptr %544, align 8
@@ -1688,7 +1688,7 @@ baller_free.exit.i:                               ; preds = %baller_close.exit.i
   %27 = getelementptr inbounds i8, ptr %.val, i64 48
   %28 = load ptr, ptr %27, align 8
   %.not.i10.i = icmp eq ptr %28, null
-  br i1 %.not.i10.i, label %cf_he_ctx_clear.exit, label %29
+  br i1 %.not.i10.i, label %cf_he_ctx_clear.argprom.exit, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %28, i64 40
@@ -1703,9 +1703,9 @@ baller_free.exit.i:                               ; preds = %baller_close.exit.i
 baller_close.exit.i12.i:                          ; preds = %32, %29
   %33 = load ptr, ptr @Curl_cfree, align 8
   tail call void %33(ptr noundef nonnull %28) #10
-  br label %cf_he_ctx_clear.exit
+  br label %cf_he_ctx_clear.argprom.exit
 
-cf_he_ctx_clear.exit:                             ; preds = %26, %baller_close.exit.i12.i
+cf_he_ctx_clear.argprom.exit:                     ; preds = %26, %baller_close.exit.i12.i
   store ptr null, ptr %27, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 36
   %35 = load i8, ptr %34, align 4
@@ -1718,7 +1718,7 @@ cf_he_ctx_clear.exit:                             ; preds = %26, %baller_close.e
   %.not20 = icmp eq ptr %39, null
   br i1 %.not20, label %44, label %40
 
-40:                                               ; preds = %cf_he_ctx_clear.exit
+40:                                               ; preds = %cf_he_ctx_clear.argprom.exit
   %41 = load ptr, ptr %39, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 32
   %43 = load ptr, ptr %42, align 8
@@ -1726,7 +1726,7 @@ cf_he_ctx_clear.exit:                             ; preds = %26, %baller_close.e
   tail call void @Curl_conn_cf_discard_chain(ptr noundef nonnull %38, ptr noundef %1) #10
   br label %44
 
-44:                                               ; preds = %40, %cf_he_ctx_clear.exit
+44:                                               ; preds = %40, %cf_he_ctx_clear.argprom.exit
   ret void
 }
 
@@ -2001,9 +2001,9 @@ define internal i32 @cf_he_query(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 72:                                               ; preds = %71, %68, %63, %58, %55, %51
   %.sroa.4.1.i = phi i32 [ %.sroa.4.01.i, %58 ], [ %.sroa.4.0.copyload.i, %71 ], [ %.sroa.4.01.i, %68 ], [ %.sroa.4.01.i, %63 ], [ %.sroa.4.01.i, %55 ], [ %.sroa.4.01.i, %51 ]
   %.sroa.0.1.i = phi i64 [ %.sroa.0.03.i, %58 ], [ %.sroa.0.0.copyload.i, %71 ], [ %.sroa.0.03.i, %68 ], [ %.sroa.0.03.i, %63 ], [ %.sroa.0.03.i, %55 ], [ %.sroa.0.03.i, %51 ]
-  br i1 %52, label %51, label %get_max_baller_time.exit, !llvm.loop !15
+  br i1 %52, label %51, label %get_max_baller_time.argprom.exit, !llvm.loop !15
 
-get_max_baller_time.exit:                         ; preds = %72
+get_max_baller_time.argprom.exit:                 ; preds = %72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   store i64 %.sroa.0.1.i, ptr %4, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
@@ -2062,9 +2062,9 @@ get_max_baller_time.exit:                         ; preds = %72
 97:                                               ; preds = %96, %93, %88, %83, %80, %76
   %.sroa.4.1.i66 = phi i32 [ %.sroa.4.01.i62, %83 ], [ %.sroa.4.0.copyload.i72, %96 ], [ %.sroa.4.01.i62, %93 ], [ %.sroa.4.01.i62, %88 ], [ %.sroa.4.01.i62, %80 ], [ %.sroa.4.01.i62, %76 ]
   %.sroa.0.1.i67 = phi i64 [ %.sroa.0.03.i60, %83 ], [ %.sroa.0.0.copyload.i71, %96 ], [ %.sroa.0.03.i60, %93 ], [ %.sroa.0.03.i60, %88 ], [ %.sroa.0.03.i60, %80 ], [ %.sroa.0.03.i60, %76 ]
-  br i1 %77, label %76, label %get_max_baller_time.exit73, !llvm.loop !15
+  br i1 %77, label %76, label %get_max_baller_time.argprom.exit73, !llvm.loop !15
 
-get_max_baller_time.exit73:                       ; preds = %97
+get_max_baller_time.argprom.exit73:               ; preds = %97
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   store i64 %.sroa.0.1.i67, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
@@ -2084,8 +2084,8 @@ get_max_baller_time.exit73:                       ; preds = %97
   %105 = tail call i32 %104(ptr noundef nonnull %100, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #10
   br label %106
 
-106:                                              ; preds = %101, %98, %47, %42, %36, %35, %get_max_baller_time.exit73, %get_max_baller_time.exit
-  %.0 = phi i32 [ 0, %get_max_baller_time.exit73 ], [ 0, %get_max_baller_time.exit ], [ 0, %35 ], [ 0, %36 ], [ 0, %42 ], [ 0, %47 ], [ %105, %101 ], [ 48, %98 ]
+106:                                              ; preds = %101, %98, %47, %42, %36, %35, %get_max_baller_time.argprom.exit73, %get_max_baller_time.argprom.exit
+  %.0 = phi i32 [ 0, %get_max_baller_time.argprom.exit73 ], [ 0, %get_max_baller_time.argprom.exit ], [ 0, %35 ], [ 0, %36 ], [ 0, %42 ], [ 0, %47 ], [ %105, %101 ], [ 48, %98 ]
   ret i32 %.0
 }
 
@@ -2208,7 +2208,7 @@ define internal i32 @cf_setup_connect(ptr noundef %0, ptr noundef %1, i1 noundef
   %45 = load ptr, ptr @Curl_ccalloc, align 8
   %46 = call ptr %45(i64 noundef 1, i64 noundef 72) #10
   %.not.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i, label %cf_happy_eyeballs_create.exit.i, label %47
+  br i1 %.not.i.i, label %cf_happy_eyeballs_create.argprom.exit.i, label %47
 
 47:                                               ; preds = %44
   store i32 3, ptr %46, align 8
@@ -2219,9 +2219,9 @@ define internal i32 @cf_setup_connect(ptr noundef %0, ptr noundef %1, i1 noundef
   %50 = call i32 @Curl_cf_create(ptr noundef nonnull %5, ptr noundef nonnull @Curl_cft_happy_eyeballs, ptr noundef nonnull %46) #10
   %.not15.i.i = icmp eq i32 %50, 0
   %.pre.i = load ptr, ptr %5, align 8
-  br i1 %.not15.i.i, label %54, label %cf_happy_eyeballs_create.exit.i
+  br i1 %.not15.i.i, label %54, label %cf_happy_eyeballs_create.argprom.exit.i
 
-cf_happy_eyeballs_create.exit.i:                  ; preds = %47, %44
+cf_happy_eyeballs_create.argprom.exit.i:          ; preds = %47, %44
   %51 = phi ptr [ %.pre.i, %47 ], [ null, %44 ]
   %.03.i.i = phi i32 [ %50, %47 ], [ 27, %44 ]
   %52 = load ptr, ptr @Curl_cfree, align 8
@@ -2231,8 +2231,8 @@ cf_happy_eyeballs_create.exit.i:                  ; preds = %47, %44
   call void %53(ptr noundef %46) #10
   br label %cf_he_insert_after.exit.thread
 
-cf_he_insert_after.exit.thread:                   ; preds = %34, %35, %38, %43, %cf_happy_eyeballs_create.exit.i
-  %.0.i.ph = phi i32 [ %.03.i.i, %cf_happy_eyeballs_create.exit.i ], [ 1, %43 ], [ 1, %38 ], [ 1, %35 ], [ 1, %34 ]
+cf_he_insert_after.exit.thread:                   ; preds = %34, %35, %38, %43, %cf_happy_eyeballs_create.argprom.exit.i
+  %.0.i.ph = phi i32 [ %.03.i.i, %cf_happy_eyeballs_create.argprom.exit.i ], [ 1, %43 ], [ 1, %38 ], [ 1, %35 ], [ 1, %34 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.loopexit
 
@@ -2498,15 +2498,15 @@ define dso_local noundef i32 @Curl_cf_setup_insert_after(ptr noundef %0, ptr noc
   %7 = load ptr, ptr @Curl_ccalloc, align 8
   %8 = tail call ptr %7(i64 noundef 1, i64 noundef 24) #10
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %cf_setup_create.exit.thread, label %cf_setup_create.exit
+  br i1 %.not.i, label %cf_setup_create.argprom.exit.thread, label %cf_setup_create.argprom.exit
 
-cf_setup_create.exit.thread:                      ; preds = %5
+cf_setup_create.argprom.exit.thread:              ; preds = %5
   %9 = load ptr, ptr @Curl_cfree, align 8
   tail call void %9(ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %17
 
-cf_setup_create.exit:                             ; preds = %5
+cf_setup_create.argprom.exit:                     ; preds = %5
   store i32 0, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %2, ptr %10, align 8
@@ -2524,12 +2524,12 @@ cf_setup_create.exit:                             ; preds = %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br i1 %.not17.i, label %16, label %17
 
-16:                                               ; preds = %cf_setup_create.exit
+16:                                               ; preds = %cf_setup_create.argprom.exit
   call void @Curl_conn_cf_insert_after(ptr noundef %0, ptr noundef %14) #10
   br label %17
 
-17:                                               ; preds = %cf_setup_create.exit.thread, %cf_setup_create.exit, %16
-  %.06.i9 = phi i32 [ 27, %cf_setup_create.exit.thread ], [ %.fr.i, %cf_setup_create.exit ], [ 0, %16 ]
+17:                                               ; preds = %cf_setup_create.argprom.exit.thread, %cf_setup_create.argprom.exit, %16
+  %.06.i9 = phi i32 [ 27, %cf_setup_create.argprom.exit.thread ], [ %.fr.i, %cf_setup_create.argprom.exit ], [ 0, %16 ]
   ret i32 %.06.i9
 }
 
@@ -2571,15 +2571,15 @@ define dso_local i32 @Curl_conn_setup(ptr noundef %0, ptr noundef %1, i32 nounde
   %23 = load ptr, ptr @Curl_ccalloc, align 8
   %24 = tail call ptr %23(i64 noundef 1, i64 noundef 24) #10
   %.not.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i, label %cf_setup_create.exit.thread.i, label %cf_setup_create.exit.i
+  br i1 %.not.i.i, label %cf_setup_create.argprom.exit.thread.i, label %cf_setup_create.argprom.exit.i
 
-cf_setup_create.exit.thread.i:                    ; preds = %.thread
+cf_setup_create.argprom.exit.thread.i:            ; preds = %.thread
   %25 = load ptr, ptr @Curl_cfree, align 8
   tail call void %25(ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %cf_setup_add.exit
 
-cf_setup_create.exit.i:                           ; preds = %.thread
+cf_setup_create.argprom.exit.i:                   ; preds = %.thread
   %26 = zext i8 %22 to i32
   store i32 0, ptr %24, align 8
   %27 = getelementptr inbounds i8, ptr %24, i64 8
@@ -2598,12 +2598,12 @@ cf_setup_create.exit.i:                           ; preds = %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br i1 %.not17.i.i, label %33, label %cf_setup_add.exit
 
-33:                                               ; preds = %cf_setup_create.exit.i
+33:                                               ; preds = %cf_setup_create.argprom.exit.i
   call void @Curl_conn_cf_add(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %31) #10
   br label %cf_setup_add.exit
 
-cf_setup_add.exit:                                ; preds = %5, %33, %cf_setup_create.exit.i, %cf_setup_create.exit.thread.i, %19, %17
-  %.1 = phi i32 [ 0, %19 ], [ %18, %17 ], [ 27, %cf_setup_create.exit.thread.i ], [ %.fr.i.i, %cf_setup_create.exit.i ], [ 0, %33 ], [ 0, %5 ]
+cf_setup_add.exit:                                ; preds = %5, %33, %cf_setup_create.argprom.exit.i, %cf_setup_create.argprom.exit.thread.i, %19, %17
+  %.1 = phi i32 [ 0, %19 ], [ %18, %17 ], [ 27, %cf_setup_create.argprom.exit.thread.i ], [ %.fr.i.i, %cf_setup_create.argprom.exit.i ], [ 0, %33 ], [ 0, %5 ]
   ret i32 %.1
 }
 
@@ -2627,7 +2627,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 declare void @Curl_expire(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @baller_start(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef range(i64 -9223372036854775806, -9223372036854775808) %3) unnamed_addr #0 {
+define internal fastcc void @baller_start.retelim(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef range(i64 -9223372036854775806, -9223372036854775808) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 96
   store i32 0, ptr %6, align 8

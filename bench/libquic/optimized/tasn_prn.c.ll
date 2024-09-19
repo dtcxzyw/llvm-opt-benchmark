@@ -367,7 +367,7 @@ if.end60.i:                                       ; preds = %if.then58.i, %sw.bb
   br label %sw.epilog.i
 
 sw.bb62.i:                                        ; preds = %if.end55.i, %if.end55.i
-  %call63.i = tail call fastcc i32 @asn1_print_integer_ctx(ptr noundef %out, ptr noundef %str.0.i)
+  %call63.i = tail call fastcc i32 @asn1_print_integer_ctx.argprom(ptr noundef %out, ptr noundef %str.0.i)
   br label %sw.epilog.i
 
 sw.bb64.i:                                        ; preds = %if.end55.i
@@ -380,7 +380,7 @@ sw.bb66.i:                                        ; preds = %if.end55.i
 
 sw.bb68.i:                                        ; preds = %if.end55.i
   %17 = load ptr, ptr %fld.addr.0.i, align 8
-  %call69.i = tail call fastcc i32 @asn1_print_oid_ctx(ptr noundef %out, ptr noundef %17)
+  %call69.i = tail call fastcc i32 @asn1_print_oid_ctx.argprom(ptr noundef %out, ptr noundef %17)
   br label %sw.epilog.i
 
 sw.bb72.i:                                        ; preds = %if.end55.i, %if.end55.i, %if.end55.i
@@ -409,7 +409,7 @@ sw.epilog.i:                                      ; preds = %sw.default.i, %sw.b
   br i1 %tobool85.not.i, label %return, label %land.lhs.true89.i
 
 sw.epilog.thread.i:                               ; preds = %if.end55.i, %if.end55.i
-  %call71.i = tail call fastcc i32 @asn1_print_obstring_ctx(ptr noundef %out, ptr noundef %str.0.i, i32 noundef %indent)
+  %call71.i = tail call fastcc i32 @asn1_print_obstring_ctx.argprom(ptr noundef %out, ptr noundef %str.0.i, i32 noundef %indent)
   %tobool85.not67.i = icmp eq i32 %call71.i, 0
   br i1 %tobool85.not67.i, label %return, label %sw.epilog
 
@@ -821,7 +821,7 @@ declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @ASN1_tag2str(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_print_integer_ctx(ptr noundef %out, ptr noundef %str) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_print_integer_ctx.argprom(ptr noundef %out, ptr noundef %str) unnamed_addr #0 {
 entry:
   %call = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef %str, ptr noundef null) #7
   %cmp = icmp eq ptr %call, null
@@ -850,7 +850,7 @@ declare i32 @ASN1_UTCTIME_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_GENERALIZEDTIME_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_print_oid_ctx(ptr noundef %out, ptr noundef %oid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_print_oid_ctx.argprom(ptr noundef %out, ptr noundef %oid) unnamed_addr #0 {
 entry:
   %objbuf = alloca [80 x i8], align 16
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %oid) #7
@@ -865,7 +865,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_print_obstring_ctx(ptr noundef %out, ptr nocapture noundef readonly %str, i32 noundef %indent) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_print_obstring_ctx.argprom(ptr noundef %out, ptr nocapture noundef readonly %str, i32 noundef %indent) unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %str, i64 4
   %0 = load i32, ptr %type, align 4

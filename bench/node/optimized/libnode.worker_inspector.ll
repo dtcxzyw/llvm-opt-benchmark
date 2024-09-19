@@ -641,7 +641,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %__begin2.sroa.0.08 = phi ptr [ %__begin2.sroa.0.0, %for.body ], [ %__begin2.sroa.0.06, %if.end ]
   %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.08, i64 16
   %second.val = load ptr, ptr %second, align 8
-  call fastcc void @_ZN4node9inspector12_GLOBAL__N_16ReportERKSt10unique_ptrINS0_14WorkerDelegateESt14default_deleteIS3_EERKNS0_10WorkerInfoEb(ptr %second.val, ptr noundef nonnull align 8 dereferenceable(80) %info, i1 noundef zeroext %waiting)
+  call fastcc void @_ZN4node9inspector12_GLOBAL__N_16ReportERKSt10unique_ptrINS0_14WorkerDelegateESt14default_deleteIS3_EERKNS0_10WorkerInfoEb.argprom(ptr %second.val, ptr noundef nonnull align 8 dereferenceable(80) %info, i1 noundef zeroext %waiting)
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.08, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, null
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -653,7 +653,7 @@ for.end:                                          ; preds = %for.body, %if.end, 
 declare noundef zeroext i1 @_ZN4node9inspector16MainThreadHandle7ExpiredEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node9inspector12_GLOBAL__N_16ReportERKSt10unique_ptrINS0_14WorkerDelegateESt14default_deleteIS3_EERKNS0_10WorkerInfoEb(ptr %delegate.0.val, ptr noundef nonnull align 8 dereferenceable(80) %info, i1 noundef zeroext %waiting) unnamed_addr #0 {
+define internal fastcc void @_ZN4node9inspector12_GLOBAL__N_16ReportERKSt10unique_ptrINS0_14WorkerDelegateESt14default_deleteIS3_EERKNS0_10WorkerInfoEb.argprom(ptr %delegate.0.val, ptr noundef nonnull align 8 dereferenceable(80) %info, i1 noundef zeroext %waiting) unnamed_addr #0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %worker_thread = getelementptr inbounds i8, ptr %info, i64 64
@@ -971,7 +971,7 @@ for.body:                                         ; preds = %_ZNSt10unique_ptrIN
   %__begin2.sroa.0.020 = phi ptr [ %__begin2.sroa.0.0, %for.body ], [ %__begin2.sroa.0.018, %_ZNSt10unique_ptrIN4node9inspector14WorkerDelegateESt14default_deleteIS2_EEaSEOS5_.exit ]
   %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.020, i64 16
   %call4.val = load ptr, ptr %call.i2, align 8
-  call fastcc void @_ZN4node9inspector12_GLOBAL__N_16ReportERKSt10unique_ptrINS0_14WorkerDelegateESt14default_deleteIS3_EERKNS0_10WorkerInfoEb(ptr %call4.val, ptr noundef nonnull align 8 dereferenceable(80) %second, i1 noundef zeroext false)
+  call fastcc void @_ZN4node9inspector12_GLOBAL__N_16ReportERKSt10unique_ptrINS0_14WorkerDelegateESt14default_deleteIS3_EERKNS0_10WorkerInfoEb.argprom(ptr %call4.val, ptr noundef nonnull align 8 dereferenceable(80) %second, i1 noundef zeroext false)
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.020, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, null
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -1388,7 +1388,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %__begin2.sroa.0.08.i = phi ptr [ %__begin2.sroa.0.0.i, %for.body.i ], [ %__begin2.sroa.0.06.i, %if.end.i ]
   %second.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 16
   %second.val.i = load ptr, ptr %second.i, align 8
-  call fastcc void @_ZN4node9inspector12_GLOBAL__N_16ReportERKSt10unique_ptrINS0_14WorkerDelegateESt14default_deleteIS3_EERKNS0_10WorkerInfoEb(ptr %second.val.i, ptr noundef nonnull align 8 dereferenceable(80) %info_, i1 noundef zeroext %tobool)
+  call fastcc void @_ZN4node9inspector12_GLOBAL__N_16ReportERKSt10unique_ptrINS0_14WorkerDelegateESt14default_deleteIS3_EERKNS0_10WorkerInfoEb.argprom(ptr %second.val.i, ptr noundef nonnull align 8 dereferenceable(80) %info_, i1 noundef zeroext %tobool)
   %__begin2.sroa.0.0.i = load ptr, ptr %__begin2.sroa.0.08.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin2.sroa.0.0.i, null
   br i1 %cmp.i.not.i, label %_ZN4node9inspector13WorkerManager13WorkerStartedEmRKNS0_10WorkerInfoEb.exit, label %for.body.i

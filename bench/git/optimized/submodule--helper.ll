@@ -927,7 +927,7 @@ if.then:                                          ; preds = %lor.lhs.false202, %
   unreachable
 
 if.end:                                           ; preds = %lor.lhs.false202
-  call fastcc void @clone_submodule(ptr noundef %clone_data, ptr noundef %reference)
+  call fastcc void @clone_submodule.retelim(ptr noundef %clone_data, ptr noundef %reference)
   call void @list_objects_filter_release(ptr noundef nonnull %filter_options) #19
   call void @string_list_clear(ptr noundef nonnull %reference, i32 noundef 1) #19
   ret i32 0
@@ -1596,7 +1596,7 @@ if.then67.i:                                      ; preds = %if.end55.i
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.then67.i, %if.end55.i
-  call fastcc void @clone_submodule(ptr noundef %clone_data.i, ptr noundef %reference.i)
+  call fastcc void @clone_submodule.retelim(ptr noundef %clone_data.i, ptr noundef %reference.i)
   %env.i = getelementptr inbounds i8, ptr %cp.i, i64 24
   call void @prepare_submodule_repo_env(ptr noundef nonnull %env.i) #19
   %git_cmd.i = getelementptr inbounds i8, ptr %cp.i, i64 104
@@ -2850,21 +2850,21 @@ do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %i
   %prefix.addr.0.ptr.i.i.i.i = getelementptr inbounds i8, ptr @.str.101, i64 %prefix.addr.0.idx.i.i.i.i
   %71 = load i8, ptr %prefix.addr.0.ptr.i.i.i.i, align 1
   %exitcond.i.i.i.i = icmp eq i64 %prefix.addr.0.idx.i.i.i.i, 11
-  br i1 %exitcond.i.i.i.i, label %skip_prefix.exit.i.i.i, label %do.cond.i.i.i.i
+  br i1 %exitcond.i.i.i.i, label %skip_prefix.argprom.exit.i.i.i, label %do.cond.i.i.i.i
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %str.addr.0.i.i.i.i, i64 1
   %72 = load i8, ptr %str.addr.0.i.i.i.i, align 1
   %prefix.addr.0.add.i.i.i.i = add nuw nsw i64 %prefix.addr.0.idx.i.i.i.i, 1
   %cmp.i.i.i.i = icmp eq i8 %72, %71
-  br i1 %cmp.i.i.i.i, label %do.body.i.i.i.i, label %skip_prefix.exit.i.i.i, !llvm.loop !9
+  br i1 %cmp.i.i.i.i, label %do.body.i.i.i.i, label %skip_prefix.argprom.exit.i.i.i, !llvm.loop !9
 
-skip_prefix.exit.i.i.i:                           ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
+skip_prefix.argprom.exit.i.i.i:                   ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
   %refname.0.i.i.i = phi ptr [ %call16.i.i.i, %do.cond.i.i.i.i ], [ %scevgep.i.i.i.i, %do.body.i.i.i.i ]
   %tobool.not.i.i.i.i = icmp eq i8 %71, 0
   br i1 %tobool.not.i.i.i.i, label %if.end33.i.i.i, label %if.then30.i.i.i
 
-if.then30.i.i.i:                                  ; preds = %skip_prefix.exit.i.i.i
+if.then30.i.i.i:                                  ; preds = %skip_prefix.argprom.exit.i.i.i
   %73 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i22.i.i.i = icmp eq i32 %73, 0
   br i1 %tobool1.not.i22.i.i.i, label %_.exit26.i.i.i, label %if.end3.i23.i.i.i
@@ -2878,7 +2878,7 @@ _.exit26.i.i.i:                                   ; preds = %if.end3.i23.i.i.i, 
   %call32.i.i.i = call i32 (ptr, ...) @die_message(ptr noundef %retval.0.i25.i.i.i, ptr noundef %refname.0.i.i.i) #19
   br label %remote_submodule_branch.exit.i.i
 
-if.end33.i.i.i:                                   ; preds = %skip_prefix.exit.i.i.i
+if.end33.i.i.i:                                   ; preds = %skip_prefix.argprom.exit.i.i.i
   store ptr %refname.0.i.i.i, ptr %branch.i.i, align 8
   br label %if.end25.i.i
 
@@ -6044,7 +6044,7 @@ declare i32 @opt_parse_list_objects_filter(ptr noundef, ptr noundef, i32 noundef
 declare void @usage_with_options(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @clone_submodule(ptr nocapture noundef nonnull readonly %clone_data, ptr noundef nonnull %reference) unnamed_addr #0 {
+define internal fastcc void @clone_submodule.retelim(ptr nocapture noundef nonnull readonly %clone_data, ptr noundef nonnull %reference) unnamed_addr #0 {
 entry:
   %sm_alternate.i = alloca ptr, align 8
   %error_strategy.i = alloca ptr, align 8
@@ -6831,21 +6831,21 @@ do.body.i:                                        ; preds = %do.cond.i, %if.end8
   %prefix.addr.0.ptr.i = getelementptr inbounds i8, ptr @.str.101, i64 %prefix.addr.0.idx.i
   %1 = load i8, ptr %prefix.addr.0.ptr.i, align 1
   %exitcond.i = icmp eq i64 %prefix.addr.0.idx.i, 11
-  br i1 %exitcond.i, label %skip_prefix.exit, label %do.cond.i
+  br i1 %exitcond.i, label %skip_prefix.argprom.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
   %2 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
   %cmp.i = icmp eq i8 %2, %1
-  br i1 %cmp.i, label %do.body.i, label %skip_prefix.exit, !llvm.loop !9
+  br i1 %cmp.i, label %do.body.i, label %skip_prefix.argprom.exit, !llvm.loop !9
 
-skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
+skip_prefix.argprom.exit:                         ; preds = %do.body.i, %do.cond.i
   %refname.0 = phi ptr [ %call1, %do.cond.i ], [ %scevgep.i, %do.body.i ]
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end13, label %if.then10
 
-if.then10:                                        ; preds = %skip_prefix.exit
+if.then10:                                        ; preds = %skip_prefix.argprom.exit
   %3 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i4 = icmp eq i32 %3, 0
   br i1 %tobool1.not.i4, label %_.exit8, label %if.end3.i5
@@ -6859,7 +6859,7 @@ _.exit8:                                          ; preds = %if.then10, %if.end3
   %call12 = tail call i32 (ptr, ...) @die_message(ptr noundef %retval.0.i7, ptr noundef %refname.0) #19
   br label %return
 
-if.end13:                                         ; preds = %skip_prefix.exit
+if.end13:                                         ; preds = %skip_prefix.argprom.exit
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.103, ptr noundef %refname.0) #19
   %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %4 = load ptr, ptr %buf, align 8
@@ -7784,7 +7784,7 @@ if.then7:                                         ; preds = %if.end
   %suc.val = load ptr, ptr %update_data, align 8
   %13 = getelementptr i8, ptr %suc.val, i64 192
   %suc.val.val = load i32, ptr %13, align 8
-  call fastcc void @next_submodule_warn_missing(i32 %suc.val.val, ptr noundef %out, ptr noundef %retval.0.i)
+  call fastcc void @next_submodule_warn_missing.argprom.argprom(i32 %suc.val.val, ptr noundef %out, ptr noundef %retval.0.i)
   br label %cleanup
 
 if.end8:                                          ; preds = %if.end
@@ -7876,7 +7876,7 @@ if.then31:                                        ; preds = %if.end26
   %suc.val99 = load ptr, ptr %update_data, align 8
   %28 = getelementptr i8, ptr %suc.val99, i64 192
   %suc.val99.val = load i32, ptr %28, align 8
-  call fastcc void @next_submodule_warn_missing(i32 %suc.val99.val, ptr noundef %out, ptr noundef %retval.0.i)
+  call fastcc void @next_submodule_warn_missing.argprom.argprom(i32 %suc.val99.val, ptr noundef %out, ptr noundef %retval.0.i)
   br label %cleanup
 
 if.end32:                                         ; preds = %if.end26
@@ -8216,7 +8216,7 @@ if.end208:                                        ; preds = %if.then207, %cleanu
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @next_submodule_warn_missing(i32 %suc.8.val.192.val, ptr noundef %out, ptr noundef %displaypath) unnamed_addr #0 {
+define internal fastcc void @next_submodule_warn_missing.argprom.argprom(i32 %suc.8.val.192.val, ptr noundef %out, ptr noundef %displaypath) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %suc.8.val.192.val, 0
   br i1 %tobool.not, label %if.end, label %if.then

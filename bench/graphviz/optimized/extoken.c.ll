@@ -1217,7 +1217,7 @@ agxbputc.exit490.backedge:                        ; preds = %390, %395
   br label %agxbclear.exit493
 
 agxbclear.exit493:                                ; preds = %426, %427
-  tail call fastcc void @agxbput(ptr noundef nonnull %12)
+  tail call fastcc void @agxbput.argprom.retelim(ptr noundef nonnull %12)
   %428 = trunc nuw i32 %422 to i8
   br label %647
 
@@ -1370,7 +1370,7 @@ lex.exit524:                                      ; preds = %472, %474
 
 481:                                              ; preds = %lex.exit524
   %482 = trunc nuw i32 %.0.i513 to i8
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %482)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext %482)
   %483 = tail call fastcc i32 @lex(ptr noundef nonnull %0)
   br label %lex.exit553
 
@@ -1686,7 +1686,7 @@ lex.exit581:                                      ; preds = %580, %582
   ]
 
 588:                                              ; preds = %._crit_edge
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext 35)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext 35)
   br label %589
 
 589:                                              ; preds = %lex.exit609, %588
@@ -1842,7 +1842,7 @@ lex.exit609:                                      ; preds = %624, %630, %.loopex
 
 647:                                              ; preds = %._crit_edge, %agxbclear.exit493
   %.5 = phi i8 [ %428, %agxbclear.exit493 ], [ 46, %._crit_edge ]
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %.5)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext %.5)
   br label %agxbputc.exit637
 
 agxbputc.exit637:                                 ; preds = %agxbputc.exit637.backedge, %647
@@ -1993,7 +1993,7 @@ lex.exit626.thread:                               ; preds = %lex.exit626, %._cri
 
 700:                                              ; preds = %lex.exit626.thread
   %701 = trunc nuw i32 %.10 to i8
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %701)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext %701)
   %702 = tail call fastcc i32 @lex(ptr noundef nonnull %0)
   switch i32 %702, label %706 [
     i32 45, label %703
@@ -2002,7 +2002,7 @@ lex.exit626.thread:                               ; preds = %lex.exit626, %._cri
 
 703:                                              ; preds = %700, %700
   %704 = trunc nuw i32 %702 to i8
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %704)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext %704)
   %705 = tail call fastcc i32 @lex(ptr noundef nonnull %0)
   br label %706
 
@@ -2305,7 +2305,7 @@ switch.early.test371:                             ; preds = %802
   br label %agxbclear.exit669
 
 agxbclear.exit669:                                ; preds = %807, %808
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %48)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext %48)
   br label %agxbputc.exit697
 
 agxbputc.exit697:                                 ; preds = %agxbputc.exit697.backedge, %agxbclear.exit669
@@ -2747,7 +2747,7 @@ lex.exit717.thread:                               ; preds = %.loopexit.i705, %95
 
 965:                                              ; preds = %lex.exit717.thread
   %966 = add nsw i32 %.0285, 1
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext 32)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext 32)
   br label %1124
 
 .preheader855:                                    ; preds = %919, %.preheader855
@@ -2763,13 +2763,13 @@ lex.exit717.thread:                               ; preds = %.loopexit.i705, %95
   %970 = add nsw i32 %969, 1
   %storemerge363 = select i1 %.not362, i32 2, i32 %970
   store i32 %storemerge363, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext 10)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext 10)
   br label %1124
 
 971:                                              ; preds = %919
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext 47)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext 47)
   %972 = trunc i32 %920 to i8
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %972)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext %972)
   br label %1124
 
 973:                                              ; preds = %lex.exit790
@@ -2778,7 +2778,7 @@ lex.exit717.thread:                               ; preds = %.loopexit.i705, %95
   %975 = add nsw i32 %974, 1
   %storemerge360 = select i1 %.not359, i32 2, i32 %975
   store i32 %storemerge360, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext 10)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext 10)
   br label %1124
 
 976:                                              ; preds = %lex.exit790, %lex.exit790
@@ -2787,7 +2787,7 @@ lex.exit717.thread:                               ; preds = %.loopexit.i705, %95
 
 977:                                              ; preds = %976
   %978 = add nsw i32 %.0285, 1
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext 32)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext 32)
   br label %1124
 
 979:                                              ; preds = %lex.exit790, %lex.exit790, %lex.exit790
@@ -2821,7 +2821,7 @@ lex.exit717.thread:                               ; preds = %.loopexit.i705, %95
   %.2277 = phi i32 [ %.0275, %984 ], [ %.14, %983 ], [ %.14, %982 ], [ %.14, %981 ], [ %.14, %980 ]
   %spec.select = add nsw i32 %.0282, %.sink1400
   %988 = trunc i32 %.14 to i8
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %988)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext %988)
   br label %1124
 
 989:                                              ; preds = %lex.exit790, %lex.exit790, %lex.exit790
@@ -2839,7 +2839,7 @@ lex.exit717.thread:                               ; preds = %.loopexit.i705, %95
 
 995:                                              ; preds = %989
   %996 = trunc i32 %.14 to i8
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %996)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext %996)
   %997 = icmp eq i32 %.14, %.0278
   br i1 %997, label %998, label %1124
 
@@ -2857,12 +2857,12 @@ lex.exit717.thread:                               ; preds = %.loopexit.i705, %95
   br i1 %.not355, label %.loopexit863, label %1004
 
 1004:                                             ; preds = %1003
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext 59)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext 59)
   br label %1124
 
 1005:                                             ; preds = %lex.exit790, %lex.exit790
   %1006 = trunc i32 %.14 to i8
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %1006)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext %1006)
   %1007 = load ptr, ptr %8, align 8
   %1008 = getelementptr inbounds i8, ptr %1007, i64 36
   %1009 = load i32, ptr %1008, align 4
@@ -3191,7 +3191,7 @@ agxbputc.exit773.backedge:                        ; preds = %1106, %1111
 
 1122:                                             ; preds = %lex.exit790
   %1123 = trunc i32 %.14 to i8
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %1123)
+  tail call fastcc void @agxbputc.retelim(ptr noundef nonnull %12, i8 noundef signext %1123)
   br label %1124
 
 1124:                                             ; preds = %1001, %995, %998, %965, %968, %971, %1122, %1117, %1004, %987, %977, %973
@@ -3427,7 +3427,7 @@ declare void @exerror(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @expush(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbputc(ptr nocapture noundef %0, i8 noundef signext %1) unnamed_addr #0 {
+define internal fastcc void @agxbputc.retelim(ptr nocapture noundef %0, i8 noundef signext %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -3566,7 +3566,7 @@ declare void @stresc(ptr noundef) local_unnamed_addr #1
 declare i32 @chrtoi(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbput(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @agxbput.argprom.retelim(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 31
   %.val.i.i = load i8, ptr %2, align 1
   %.not.i.i = icmp eq i8 %.val.i.i, -1
@@ -3607,7 +3607,7 @@ agxblen.exit.i:                                   ; preds = %4, %agxbsizeof.exit
   %16 = load i8, ptr %2, align 1
   %17 = add i8 %16, 2
   store i8 %17, ptr %2, align 1
-  br label %agxbput_n.exit
+  br label %agxbput_n.argprom.exit
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3618,9 +3618,9 @@ agxblen.exit.i:                                   ; preds = %4, %agxbsizeof.exit
   %23 = load i64, ptr %19, align 8
   %24 = add i64 %23, 2
   store i64 %24, ptr %19, align 8
-  br label %agxbput_n.exit
+  br label %agxbput_n.argprom.exit
 
-agxbput_n.exit:                                   ; preds = %13, %18
+agxbput_n.argprom.exit:                           ; preds = %13, %18
   ret void
 }
 
@@ -3684,7 +3684,7 @@ agxbsizeof.exit:                                  ; preds = %2
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.8, i64 noundef %spec.select33) #18
-  tail call fastcc void @graphviz_exit() #19
+  tail call fastcc void @graphviz_exit.argelim() #19
   unreachable
 
 18:                                               ; preds = %12
@@ -3707,7 +3707,7 @@ agxbsizeof.exit:                                  ; preds = %2
 27:                                               ; preds = %23
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.8, i64 noundef %spec.select) #18
-  tail call fastcc void @graphviz_exit() #19
+  tail call fastcc void @graphviz_exit.argelim() #19
   unreachable
 
 gv_calloc.exit:                                   ; preds = %23
@@ -3734,7 +3734,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #8 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #8 {
   tail call void @exit(i32 noundef 1) #20
   unreachable
 }

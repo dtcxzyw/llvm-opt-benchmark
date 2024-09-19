@@ -1126,7 +1126,7 @@ define internal noundef i64 @rb_zstream_end(i64 noundef %0) #0 {
   unreachable
 
 get_zstream.exit:                                 ; preds = %1
-  tail call fastcc void @zstream_end(ptr noundef nonnull %2)
+  tail call fastcc void @zstream_end.retelim(ptr noundef nonnull %2)
   ret i64 4
 }
 
@@ -3160,7 +3160,7 @@ get_gzfile.exit.preheader:                        ; preds = %1
   br i1 %16, label %.critedge9, label %.critedge.thread
 
 .critedge9:                                       ; preds = %9, %12
-  tail call fastcc void @gzfile_read_more(ptr noundef nonnull %2, i64 noundef 4)
+  tail call fastcc void @gzfile_read_more.retelim(ptr noundef nonnull %2, i64 noundef 4)
   %17 = load i64, ptr %2, align 8
   %18 = and i64 %17, 4
   %.not = icmp eq i64 %18, 0
@@ -4051,7 +4051,7 @@ define internal noundef i64 @rb_gzreader_initialize(i32 noundef %0, ptr noundef 
   %17 = load i64, ptr %7, align 8
   %18 = or i64 %17, 1
   store i64 %18, ptr %7, align 8
-  call fastcc void @gzfile_read_header(ptr noundef nonnull %7)
+  call fastcc void @gzfile_read_header.argelim(ptr noundef nonnull %7)
   %19 = load i64, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %19, ptr %4, align 8
@@ -4432,7 +4432,7 @@ Check_Type.exit.thread:                           ; preds = %30
   br i1 %50, label %.critedge36.i, label %.critedge.thread.i
 
 .critedge36.i:                                    ; preds = %46, %43
-  call fastcc void @gzfile_read_more(ptr noundef nonnull %6, i64 noundef %23)
+  call fastcc void @gzfile_read_more.retelim(ptr noundef nonnull %6, i64 noundef %23)
   %51 = load i64, ptr %6, align 8
   %52 = and i64 %51, 4
   %.not.i9 = icmp eq i64 %52, 0
@@ -4599,7 +4599,7 @@ get_gzfile.exit:                                  ; preds = %1
   br i1 %24, label %25, label %.critedge.thread.i
 
 25:                                               ; preds = %22
-  tail call fastcc void @gzfile_read_more(ptr noundef nonnull %4, i64 noundef 4)
+  tail call fastcc void @gzfile_read_more.retelim(ptr noundef nonnull %4, i64 noundef 4)
   %26 = load i64, ptr %4, align 8
   %27 = and i64 %26, 4
   %.not.i1 = icmp eq i64 %27, 0
@@ -5584,7 +5584,7 @@ declare void @rb_str_modify_expand(i64 noundef, i64 noundef) local_unnamed_addr 
 declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zstream_end(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @zstream_end.retelim(ptr noundef %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
   %3 = and i64 %2, 1
   %.not = icmp eq i64 %3, 0
@@ -6684,7 +6684,7 @@ zstream_run.exit:                                 ; preds = %RSTRING_PTR.exit, %
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @zstream_ensure_end(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  tail call fastcc void @zstream_end(ptr noundef %2)
+  tail call fastcc void @zstream_end.retelim(ptr noundef %2)
   ret i64 4
 }
 
@@ -7306,7 +7306,7 @@ declare i64 @rb_str_to_str(i64 noundef) local_unnamed_addr #1
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gzfile_read_more(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @gzfile_read_more.retelim(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.zstream_run_args, align 8
   %4 = alloca %struct.read_raw_arg, align 8
   %5 = alloca i64, align 8
@@ -8077,7 +8077,7 @@ define internal fastcc i64 @gzfile_read_all(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  tail call fastcc void @gzfile_read_more(ptr noundef nonnull %0, i64 noundef 4)
+  tail call fastcc void @gzfile_read_more.retelim(ptr noundef nonnull %0, i64 noundef 4)
   %4 = load i64, ptr %0, align 8
   %5 = and i64 %4, 4
   %.not = icmp eq i64 %5, 0
@@ -8524,7 +8524,7 @@ define internal noundef i64 @gzfile_reader_end_run(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gzfile_read_header(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @gzfile_read_header.argelim(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.zstream_run_args, align 8
   %3 = tail call fastcc i32 @gzfile_read_raw_ensure(ptr noundef %0, i64 noundef 10, i64 noundef 4)
   %.not = icmp eq i32 %3, 0
@@ -8841,7 +8841,7 @@ zstream_discard_input.exit90:                     ; preds = %133, %132, %127, %1
   unreachable
 
 141:                                              ; preds = %137
-  %142 = tail call fastcc ptr @gzfile_read_raw_until_zero(ptr noundef nonnull %0)
+  %142 = tail call fastcc ptr @gzfile_read_raw_until_zero.argelim(ptr noundef nonnull %0)
   %143 = load i64, ptr %7, align 8
   %144 = inttoptr i64 %143 to ptr
   %145 = load i64, ptr %144, align 8, !noalias !62
@@ -8947,7 +8947,7 @@ zstream_discard_input.exit110:                    ; preds = %182, %181, %176, %1
   unreachable
 
 190:                                              ; preds = %186
-  %191 = tail call fastcc ptr @gzfile_read_raw_until_zero(ptr noundef nonnull %0)
+  %191 = tail call fastcc ptr @gzfile_read_raw_until_zero.argelim(ptr noundef nonnull %0)
   %192 = load i64, ptr %7, align 8
   %193 = inttoptr i64 %192 to ptr
   %194 = load i64, ptr %193, align 8, !noalias !62
@@ -9091,7 +9091,7 @@ zstream_discard_input.exit130.thread:             ; preds = %RSTRING_PTR.exit120
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @gzfile_read_raw_until_zero(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @gzfile_read_raw_until_zero.argelim(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.read_raw_arg, align 8
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
@@ -9240,7 +9240,7 @@ define internal fastcc i64 @gzfile_read(ptr noundef %0, i64 noundef %1) unnamed_
   br i1 %17, label %18, label %gzfile_fill.exit
 
 18:                                               ; preds = %11, %.thread
-  tail call fastcc void @gzfile_read_more(ptr noundef nonnull %0, i64 noundef 4)
+  tail call fastcc void @gzfile_read_more.retelim(ptr noundef nonnull %0, i64 noundef 4)
   %19 = load i64, ptr %0, align 8
   %20 = and i64 %19, 4
   %.not.i = icmp eq i64 %20, 0
@@ -9690,7 +9690,7 @@ rb_num2long_inline.exit:                          ; preds = %38, %40
   br i1 %67, label %68, label %gzfile_fill.exit
 
 68:                                               ; preds = %60, %.thread165
-  call fastcc void @gzfile_read_more(ptr noundef nonnull %7, i64 noundef 4)
+  call fastcc void @gzfile_read_more.retelim(ptr noundef nonnull %7, i64 noundef 4)
   %69 = load i64, ptr %7, align 8
   %70 = and i64 %69, 4
   %.not.i135 = icmp eq i64 %70, 0
@@ -9905,7 +9905,7 @@ RSTRING_PTR.exit.thread:                          ; preds = %141, %145, %RSTRING
   br label %gzfile_newstr.exit156
 
 171:                                              ; preds = %157
-  call fastcc void @gzfile_read_more(ptr noundef nonnull %7, i64 noundef 4)
+  call fastcc void @gzfile_read_more.retelim(ptr noundef nonnull %7, i64 noundef 4)
   br label %147, !llvm.loop !228
 
 172:                                              ; preds = %154
@@ -9952,7 +9952,7 @@ RSTRING_PTR.exit142:                              ; preds = %172, %177
   br i1 %.not118, label %194, label %240
 
 194:                                              ; preds = %191
-  call fastcc void @gzfile_read_more(ptr noundef nonnull %7, i64 noundef 4)
+  call fastcc void @gzfile_read_more.retelim(ptr noundef nonnull %7, i64 noundef 4)
   %195 = load i64, ptr %146, align 8
   %196 = inttoptr i64 %195 to ptr
   %197 = load i64, ptr %196, align 8, !noalias !232
@@ -10234,7 +10234,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %9
   br i1 %46, label %47, label %gzfile_fill.exit
 
 47:                                               ; preds = %.lr.ph.i, %.thread
-  tail call fastcc void @gzfile_read_more(ptr noundef nonnull %0, i64 noundef 4)
+  tail call fastcc void @gzfile_read_more.retelim(ptr noundef nonnull %0, i64 noundef 4)
   %48 = load i64, ptr %0, align 8
   %49 = and i64 %48, 4
   %.not.i = icmp eq i64 %49, 0
@@ -10315,7 +10315,7 @@ define internal fastcc void @gzreader_skip_linebreaks(ptr noundef %0) unnamed_ad
   br i1 %.not2846, label %15, label %.critedge30
 
 15:                                               ; preds = %.critedge.thread, %.critedge
-  tail call fastcc void @gzfile_read_more(ptr noundef nonnull %0, i64 noundef 4)
+  tail call fastcc void @gzfile_read_more.retelim(ptr noundef nonnull %0, i64 noundef 4)
   br label %3, !llvm.loop !242
 
 16:                                               ; preds = %6
@@ -10424,7 +10424,7 @@ gzfile_calc_crc.exit:                             ; preds = %43, %RSTRING_PTR.ex
   br i1 %.not2747, label %67, label %.critedge30
 
 67:                                               ; preds = %.critedge32.thread, %.critedge32
-  tail call fastcc void @gzfile_read_more(ptr noundef nonnull %0, i64 noundef 4)
+  tail call fastcc void @gzfile_read_more.retelim(ptr noundef nonnull %0, i64 noundef 4)
   br label %55, !llvm.loop !249
 
 68:                                               ; preds = %58
@@ -10582,7 +10582,7 @@ zstream_run.exit:                                 ; preds = %1, %12
   %48 = or i64 %47, 512
   store i64 %48, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call fastcc void @zstream_end(ptr noundef nonnull %0)
+  call fastcc void @zstream_end.retelim(ptr noundef nonnull %0)
   ret void
 }
 
@@ -10689,14 +10689,14 @@ define internal void @zlib_gunzip_end(ptr noundef %0) #0 {
   %2 = load i64, ptr %0, align 8
   %3 = or i64 %2, 8
   store i64 %3, ptr %0, align 8
-  tail call fastcc void @zstream_end(ptr noundef nonnull %0)
+  tail call fastcc void @zstream_end.retelim(ptr noundef nonnull %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @zlib_gunzip_run(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  tail call fastcc void @gzfile_read_header(ptr noundef %2)
+  tail call fastcc void @gzfile_read_header.argelim(ptr noundef %2)
   %3 = tail call fastcc i64 @zstream_detach_buffer(ptr noundef %2)
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 16

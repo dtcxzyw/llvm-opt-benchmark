@@ -550,7 +550,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr i8, ptr %opaque, i64 11568
   %3 = load i32, ptr %arrayidx.i, align 16
   %or.i = or i32 %3, 4
-  tail call fastcc void @set_interrupt_cause(ptr noundef nonnull %opaque, i32 noundef %or.i)
+  tail call fastcc void @set_interrupt_cause.argelim(ptr noundef nonnull %opaque, i32 noundef %or.i)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -564,7 +564,7 @@ entry:
   store i8 0, ptr %mit_timer_on, align 8
   %arrayidx = getelementptr i8, ptr %opaque, i64 11568
   %0 = load i32, ptr %arrayidx, align 16
-  tail call fastcc void @set_interrupt_cause(ptr noundef %opaque, i32 noundef %0)
+  tail call fastcc void @set_interrupt_cause.argelim(ptr noundef %opaque, i32 noundef %0)
   ret void
 }
 
@@ -789,7 +789,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @set_interrupt_cause(ptr noundef %s, i32 noundef %val) unnamed_addr #0 {
+define internal fastcc void @set_interrupt_cause.argelim(ptr noundef %s, i32 noundef %val) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
   %arrayidx = getelementptr i8, ptr %s, i64 11568
@@ -1096,7 +1096,7 @@ if.then58:                                        ; preds = %if.end52
   %arrayidx.i = getelementptr i8, ptr %s, i64 11568
   %9 = load i32, ptr %arrayidx.i, align 16
   %or.i = or i32 %9, 512
-  tail call fastcc void @set_interrupt_cause(ptr noundef nonnull %s, i32 noundef %or.i)
+  tail call fastcc void @set_interrupt_cause.argelim(ptr noundef nonnull %s, i32 noundef %or.i)
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then58, %if.end52
@@ -1110,7 +1110,7 @@ entry:
   %0 = load i32, ptr %arrayidx, align 16
   %not = xor i32 %val, -1
   %and = and i32 %0, %not
-  tail call fastcc void @set_interrupt_cause(ptr noundef %s, i32 noundef %and)
+  tail call fastcc void @set_interrupt_cause.argelim(ptr noundef %s, i32 noundef %and)
   ret void
 }
 
@@ -1131,7 +1131,7 @@ entry:
   %arrayidx = getelementptr i8, ptr %s, i64 11568
   %0 = load i32, ptr %arrayidx, align 16
   %or = or i32 %0, %val
-  tail call fastcc void @set_interrupt_cause(ptr noundef %s, i32 noundef %or)
+  tail call fastcc void @set_interrupt_cause.argelim(ptr noundef %s, i32 noundef %or)
   ret void
 }
 
@@ -1144,7 +1144,7 @@ entry:
   store i32 %or, ptr %arrayidx, align 16
   %arrayidx.i = getelementptr i8, ptr %s, i64 11568
   %1 = load i32, ptr %arrayidx.i, align 16
-  tail call fastcc void @set_interrupt_cause(ptr noundef %s, i32 noundef %1)
+  tail call fastcc void @set_interrupt_cause.argelim(ptr noundef %s, i32 noundef %1)
   ret void
 }
 
@@ -1158,7 +1158,7 @@ entry:
   store i32 %and, ptr %arrayidx, align 16
   %arrayidx.i = getelementptr i8, ptr %s, i64 11568
   %1 = load i32, ptr %arrayidx.i, align 16
-  tail call fastcc void @set_interrupt_cause(ptr noundef %s, i32 noundef %1)
+  tail call fastcc void @set_interrupt_cause.argelim(ptr noundef %s, i32 noundef %1)
   ret void
 }
 
@@ -1499,7 +1499,7 @@ while.end.i:                                      ; preds = %txdesc_writeback.ex
   %arrayidx.i34.i = getelementptr i8, ptr %s, i64 11568
   %41 = load i32, ptr %arrayidx.i34.i, align 16
   %or.i35.i = or i32 %41, %cause.1.i
-  call fastcc void @set_interrupt_cause(ptr noundef nonnull %s, i32 noundef %or.i35.i)
+  call fastcc void @set_interrupt_cause.argelim(ptr noundef nonnull %s, i32 noundef %or.i35.i)
   br label %start_xmit.exit
 
 start_xmit.exit:                                  ; preds = %entry, %if.end.i, %while.end.i
@@ -2362,12 +2362,12 @@ do.end167:                                        ; preds = %do.cond164
 
 if.end184.split:                                  ; preds = %do.end167
   %or.i = or i32 %52, 128
-  call fastcc void @set_interrupt_cause(ptr noundef nonnull %call, i32 noundef %or.i)
+  call fastcc void @set_interrupt_cause.argelim(ptr noundef nonnull %call, i32 noundef %or.i)
   br label %return
 
 if.then195.split:                                 ; preds = %do.end167
   %or.i129 = or i32 %52, 144
-  call fastcc void @set_interrupt_cause(ptr noundef nonnull %call, i32 noundef %or.i129)
+  call fastcc void @set_interrupt_cause.argelim(ptr noundef nonnull %call, i32 noundef %or.i129)
   br label %return
 
 return:                                           ; preds = %lor.lhs.false.i, %if.then195.split, %if.end184.split, %receive_filter.exit, %if.end11, %if.end, %entry, %do.end162, %if.then53
@@ -2471,7 +2471,7 @@ if.then17:                                        ; preds = %if.end13
   %arrayidx.i12 = getelementptr i8, ptr %call, i64 11568
   %13 = load i32, ptr %arrayidx.i12, align 16
   %or.i = or i32 %13, 4
-  tail call fastcc void @set_interrupt_cause(ptr noundef nonnull %call, i32 noundef %or.i)
+  tail call fastcc void @set_interrupt_cause.argelim(ptr noundef nonnull %call, i32 noundef %or.i)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then17, %if.end13
@@ -2557,7 +2557,7 @@ e1000x_inc_reg_if_not_full.exit9:                 ; preds = %e1000x_inc_reg_if_n
   %arrayidx.i10 = getelementptr i8, ptr %s, i64 11568
   %10 = load i32, ptr %arrayidx.i10, align 16
   %or.i = or i32 %10, 64
-  tail call fastcc void @set_interrupt_cause(ptr noundef nonnull %s, i32 noundef %or.i)
+  tail call fastcc void @set_interrupt_cause.argelim(ptr noundef nonnull %s, i32 noundef %or.i)
   ret void
 }
 

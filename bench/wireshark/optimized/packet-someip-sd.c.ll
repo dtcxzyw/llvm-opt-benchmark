@@ -485,7 +485,7 @@ define internal i32 @dissect_someip_sd_pdu(ptr noundef %0, ptr noundef %1, ptr n
 .preheader.i:                                     ; preds = %88
   %90 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %68, i32 noundef 3) #7
   %.not673.i = icmp eq i32 %90, 0
-  br i1 %.not673.i, label %dissect_someip_sd_pdu_options.exit, label %.lr.ph.i
+  br i1 %.not673.i, label %dissect_someip_sd_pdu_options.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %91 = getelementptr inbounds i8, ptr %1, i64 408
@@ -493,7 +493,7 @@ define internal i32 @dissect_someip_sd_pdu(ptr noundef %0, ptr noundef %1, ptr n
 
 92:                                               ; preds = %88, %85
   %93 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %74, ptr noundef nonnull @ei_someipsd_option_array_truncated) #7
-  br label %dissect_someip_sd_pdu_options.exit
+  br label %dissect_someip_sd_pdu_options.argprom.exit
 
 94:                                               ; preds = %268, %.lr.ph.i
   %.05.i = phi i32 [ %68, %.lr.ph.i ], [ %270, %268 ]
@@ -519,7 +519,7 @@ define internal i32 @dissect_someip_sd_pdu(ptr noundef %0, ptr noundef %1, ptr n
 
 107:                                              ; preds = %103, %94
   %108 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %74, ptr noundef nonnull @ei_someipsd_option_array_truncated) #7
-  br label %dissect_someip_sd_pdu_options.exit
+  br label %dissect_someip_sd_pdu_options.argprom.exit
 
 109:                                              ; preds = %103
   %110 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.05.i, i32 noundef %101) #7
@@ -626,7 +626,7 @@ dissect_someip_sd_pdu_option_configuration.exit.i: ; preds = %143, %.lr.ph.i.i, 
 172:                                              ; preds = %166
   %173 = load ptr, ptr %21, align 8
   %174 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %173, ptr noundef nonnull @ei_someipsd_option_wrong_length) #7
-  br label %dissect_someip_sd_pdu_option_ipv4.exit.i
+  br label %dissect_someip_sd_pdu_option_ipv4.argprom.exit.i
 
 175:                                              ; preds = %166
   %176 = load i32, ptr @hf_someip_sd_option_length, align 4
@@ -668,9 +668,9 @@ dissect_someip_sd_pdu_option_configuration.exit.i: ; preds = %143, %.lr.ph.i.i, 
   %205 = load i32, ptr %19, align 4
   %206 = add i32 %204, %205
   store i32 %206, ptr %96, align 4
-  br label %dissect_someip_sd_pdu_option_ipv4.exit.i
+  br label %dissect_someip_sd_pdu_option_ipv4.argprom.exit.i
 
-dissect_someip_sd_pdu_option_ipv4.exit.i:         ; preds = %198, %172
+dissect_someip_sd_pdu_option_ipv4.argprom.exit.i: ; preds = %198, %172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
@@ -694,7 +694,7 @@ dissect_someip_sd_pdu_option_ipv4.exit.i:         ; preds = %198, %172
 213:                                              ; preds = %207
   %214 = load ptr, ptr %18, align 8
   %215 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %214, ptr noundef nonnull @ei_someipsd_option_wrong_length) #7
-  br label %dissect_someip_sd_pdu_option_ipv6.exit.i
+  br label %dissect_someip_sd_pdu_option_ipv6.argprom.exit.i
 
 216:                                              ; preds = %207
   %217 = load i32, ptr @hf_someip_sd_option_length, align 4
@@ -736,9 +736,9 @@ dissect_someip_sd_pdu_option_ipv4.exit.i:         ; preds = %198, %172
   %246 = load i32, ptr %16, align 4
   %247 = add i32 %245, %246
   store i32 %247, ptr %96, align 4
-  br label %dissect_someip_sd_pdu_option_ipv6.exit.i
+  br label %dissect_someip_sd_pdu_option_ipv6.argprom.exit.i
 
-dissect_someip_sd_pdu_option_ipv6.exit.i:         ; preds = %239, %213
+dissect_someip_sd_pdu_option_ipv6.argprom.exit.i: ; preds = %239, %213
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
@@ -779,14 +779,14 @@ dissect_someip_sd_pdu_option_unknown.exit.i:      ; preds = %264, %261, %248
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   br label %268
 
-268:                                              ; preds = %dissect_someip_sd_pdu_option_unknown.exit.i, %dissect_someip_sd_pdu_option_ipv6.exit.i, %dissect_someip_sd_pdu_option_ipv4.exit.i, %153, %dissect_someip_sd_pdu_option_configuration.exit.i
+268:                                              ; preds = %dissect_someip_sd_pdu_option_unknown.exit.i, %dissect_someip_sd_pdu_option_ipv6.argprom.exit.i, %dissect_someip_sd_pdu_option_ipv4.argprom.exit.i, %153, %dissect_someip_sd_pdu_option_configuration.exit.i
   %269 = add i32 %.0644.i, 1
   %270 = add i32 %.05.i, %101
   %271 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %270, i32 noundef 3) #7
   %.not67.i = icmp eq i32 %271, 0
-  br i1 %.not67.i, label %dissect_someip_sd_pdu_options.exit, label %94, !llvm.loop !6
+  br i1 %.not67.i, label %dissect_someip_sd_pdu_options.argprom.exit, label %94, !llvm.loop !6
 
-dissect_someip_sd_pdu_options.exit:               ; preds = %268, %.preheader.i, %92, %107
+dissect_someip_sd_pdu_options.argprom.exit:       ; preds = %268, %.preheader.i, %92, %107
   %.1 = phi i32 [ 0, %92 ], [ 0, %107 ], [ 0, %.preheader.i ], [ %269, %268 ]
   %272 = load i32, ptr %24, align 4
   %273 = add i32 %272, %68
@@ -796,9 +796,9 @@ dissect_someip_sd_pdu_options.exit:               ; preds = %268, %.preheader.i,
   %275 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %29, ptr noundef nonnull @ei_someipsd_message_truncated) #7
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %65, %274, %dissect_someip_sd_pdu_options.exit, %63
-  %.093.ph = phi i32 [ %.1, %dissect_someip_sd_pdu_options.exit ], [ 0, %274 ], [ 0, %65 ], [ 0, %63 ]
-  %.079.ph = phi i32 [ %273, %dissect_someip_sd_pdu_options.exit ], [ %68, %274 ], [ %68, %65 ], [ %62, %63 ]
+thread-pre-split:                                 ; preds = %65, %274, %dissect_someip_sd_pdu_options.argprom.exit, %63
+  %.093.ph = phi i32 [ %.1, %dissect_someip_sd_pdu_options.argprom.exit ], [ 0, %274 ], [ 0, %65 ], [ 0, %63 ]
+  %.079.ph = phi i32 [ %273, %dissect_someip_sd_pdu_options.argprom.exit ], [ %68, %274 ], [ %68, %65 ], [ %62, %63 ]
   %.pr = load i32, ptr %23, align 4
   br label %276
 
@@ -836,9 +836,9 @@ thread-pre-split:                                 ; preds = %65, %274, %dissect_
   store i32 0, ptr %9, align 4
   %283 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.04286.i, i32 noundef 16) #7
   %.not.i.i90 = icmp eq i32 %283, 0
-  br i1 %.not.i.i90, label %dissect_someip_sd_pdu_entry.exit.thread.i, label %284
+  br i1 %.not.i.i90, label %dissect_someip_sd_pdu_entry.argprom.exit.thread.i, label %284
 
-dissect_someip_sd_pdu_entry.exit.thread.i:        ; preds = %282
+dissect_someip_sd_pdu_entry.argprom.exit.thread.i: ; preds = %282
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -866,7 +866,7 @@ dissect_someip_sd_pdu_entry.exit.thread.i:        ; preds = %282
   %293 = zext i8 %285 to i32
   %294 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %60, i32 noundef %292, ptr noundef %0, i32 noundef %.04286.i, i32 noundef 16, ptr noundef nonnull @.str.164, i32 noundef %293) #7
   %295 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %294, ptr noundef nonnull @ei_someipsd_entry_unknown) #7
-  br label %dissect_someip_sd_pdu_entry.exit.i
+  br label %dissect_someip_sd_pdu_entry.argprom.exit.i
 
 296:                                              ; preds = %289, %284
   %.0185.i.i = phi i8 [ 1, %284 ], [ 2, %289 ]
@@ -1016,7 +1016,7 @@ proto_item_set_hidden.exit.i.i:                   ; preds = %371, %367, %364, %3
   %391 = load i32, ptr %8, align 4
   %392 = trunc i32 %391 to i8
   %393 = load i32, ptr %9, align 4
-  call fastcc void @someip_sd_pdu_entry_append_text(ptr noundef %302, i8 noundef zeroext %.0185.i.i, i16 noundef zeroext %388, i16 noundef zeroext %390, i8 noundef zeroext %392, i32 noundef %393, i16 noundef zeroext 0)
+  call fastcc void @someip_sd_pdu_entry_append_text.argprom(ptr noundef %302, i8 noundef zeroext %.0185.i.i, i16 noundef zeroext %388, i16 noundef zeroext %390, i8 noundef zeroext %392, i32 noundef %393, i16 noundef zeroext 0)
   br label %434
 
 394:                                              ; preds = %proto_item_set_hidden.exit.i.i
@@ -1078,7 +1078,7 @@ proto_item_set_hidden.exit211.i.i:                ; preds = %422, %418, %415, %4
   %431 = trunc i32 %430 to i8
   %432 = load i32, ptr %7, align 4
   %433 = trunc i32 %432 to i16
-  call fastcc void @someip_sd_pdu_entry_append_text(ptr noundef %302, i8 noundef zeroext %.0185.i.i, i16 noundef zeroext %427, i16 noundef zeroext %429, i8 noundef zeroext %431, i32 noundef 0, i16 noundef zeroext %433)
+  call fastcc void @someip_sd_pdu_entry_append_text.argprom(ptr noundef %302, i8 noundef zeroext %.0185.i.i, i16 noundef zeroext %427, i16 noundef zeroext %429, i8 noundef zeroext %431, i32 noundef 0, i16 noundef zeroext %433)
   br label %434
 
 434:                                              ; preds = %proto_item_set_hidden.exit211.i.i, %384
@@ -1160,7 +1160,7 @@ proto_item_set_hidden.exit214.i.i:                ; preds = %switch.hole_check, 
 468:                                              ; preds = %466, %proto_item_set_hidden.exit214.i.i
   %469 = load i32, ptr %5, align 4
   %.not198.i.i = icmp eq i32 %469, 65534
-  br i1 %.not198.i.i, label %someip_sd_register_ports.exit226.i.i, label %470
+  br i1 %.not198.i.i, label %someip_sd_register_ports.argprom.exit226.i.i, label %470
 
 470:                                              ; preds = %468
   %471 = load ptr, ptr %280, align 8
@@ -1168,7 +1168,7 @@ proto_item_set_hidden.exit214.i.i:                ; preds = %switch.hole_check, 
   %473 = load i16, ptr %472, align 2
   %474 = and i16 %473, 8
   %.not199.i.i = icmp eq i16 %474, 0
-  br i1 %.not199.i.i, label %475, label %someip_sd_register_ports.exit226.i.i
+  br i1 %.not199.i.i, label %475, label %someip_sd_register_ports.argprom.exit226.i.i
 
 475:                                              ; preds = %470
   %476 = load i32, ptr %10, align 4
@@ -1176,7 +1176,7 @@ proto_item_set_hidden.exit214.i.i:                ; preds = %switch.hole_check, 
   %478 = add i32 %477, %476
   %invariant.umin.i.i.i = call i32 @llvm.umin.i32(i32 %478, i32 %.093)
   %479 = icmp ult i32 %476, %invariant.umin.i.i.i
-  br i1 %479, label %.lr.ph.preheader.i.i.i, label %someip_sd_register_ports.exit.i.i
+  br i1 %479, label %.lr.ph.preheader.i.i.i, label %someip_sd_register_ports.argprom.exit.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %475
   %480 = zext i32 %476 to i64
@@ -1219,17 +1219,17 @@ proto_item_set_hidden.exit214.i.i:                ; preds = %switch.hole_check, 
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next.i.i.i to i32
   %exitcond.not.i.i.i = icmp eq i32 %invariant.umin.i.i.i, %lftr.wideiv.i.i.i
-  br i1 %exitcond.not.i.i.i, label %someip_sd_register_ports.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i, label %someip_sd_register_ports.argprom.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
-someip_sd_register_ports.exit.i.i:                ; preds = %493, %475
+someip_sd_register_ports.argprom.exit.i.i:        ; preds = %493, %475
   %494 = load i32, ptr %11, align 4
   %495 = load i32, ptr %13, align 4
   %496 = add i32 %495, %494
   %invariant.umin.i216.i.i = call i32 @llvm.umin.i32(i32 %496, i32 %.093)
   %497 = icmp ult i32 %494, %invariant.umin.i216.i.i
-  br i1 %497, label %.lr.ph.preheader.i217.i.i, label %someip_sd_register_ports.exit226.i.i
+  br i1 %497, label %.lr.ph.preheader.i217.i.i, label %someip_sd_register_ports.argprom.exit226.i.i
 
-.lr.ph.preheader.i217.i.i:                        ; preds = %someip_sd_register_ports.exit.i.i
+.lr.ph.preheader.i217.i.i:                        ; preds = %someip_sd_register_ports.argprom.exit.i.i
   %498 = zext i32 %494 to i64
   br label %.lr.ph.i218.i.i
 
@@ -1270,15 +1270,15 @@ someip_sd_register_ports.exit.i.i:                ; preds = %493, %475
   %indvars.iv.next.i222.i.i = add nuw nsw i64 %indvars.iv.i219.i.i, 1
   %lftr.wideiv.i223.i.i = trunc i64 %indvars.iv.next.i222.i.i to i32
   %exitcond.not.i224.i.i = icmp eq i32 %invariant.umin.i216.i.i, %lftr.wideiv.i223.i.i
-  br i1 %exitcond.not.i224.i.i, label %someip_sd_register_ports.exit226.i.i, label %.lr.ph.i218.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i224.i.i, label %someip_sd_register_ports.argprom.exit226.i.i, label %.lr.ph.i218.i.i, !llvm.loop !7
 
-someip_sd_register_ports.exit226.i.i:             ; preds = %511, %someip_sd_register_ports.exit.i.i, %470, %468
+someip_sd_register_ports.argprom.exit226.i.i:     ; preds = %511, %someip_sd_register_ports.argprom.exit.i.i, %470, %468
   %512 = load i32, ptr @tap_someip_sd_entries, align 4
   %513 = call i32 @have_tap_listener(i32 noundef %512) #7
   %.not200.i.i = icmp eq i32 %513, 0
-  br i1 %.not200.i.i, label %dissect_someip_sd_pdu_entry.exit.i, label %514
+  br i1 %.not200.i.i, label %dissect_someip_sd_pdu_entry.argprom.exit.i, label %514
 
-514:                                              ; preds = %someip_sd_register_ports.exit226.i.i
+514:                                              ; preds = %someip_sd_register_ports.argprom.exit226.i.i
   %515 = load ptr, ptr %281, align 8
   %516 = call noalias ptr @wmem_alloc(ptr noundef %515, i64 noundef 20) #7
   store i8 %285, ptr %516, align 4
@@ -1305,12 +1305,12 @@ someip_sd_register_ports.exit226.i.i:             ; preds = %511, %someip_sd_reg
   store i32 %287, ptr %531, align 4
   %532 = load i32, ptr @tap_someip_sd_entries, align 4
   call void @tap_queue_packet(i32 noundef %532, ptr noundef %1, ptr noundef nonnull %516) #7
-  br label %dissect_someip_sd_pdu_entry.exit.i
+  br label %dissect_someip_sd_pdu_entry.argprom.exit.i
 
-dissect_someip_sd_pdu_entry.exit.i:               ; preds = %514, %someip_sd_register_ports.exit226.i.i, %291
-  %.pre-phi.i = phi i32 [ %293, %291 ], [ %297, %someip_sd_register_ports.exit226.i.i ], [ %297, %514 ]
-  %.121.i = phi ptr [ %294, %291 ], [ %302, %someip_sd_register_ports.exit226.i.i ], [ %302, %514 ]
-  %.017.i = phi i64 [ 0, %291 ], [ %444, %someip_sd_register_ports.exit226.i.i ], [ %444, %514 ]
+dissect_someip_sd_pdu_entry.argprom.exit.i:       ; preds = %514, %someip_sd_register_ports.argprom.exit226.i.i, %291
+  %.pre-phi.i = phi i32 [ %293, %291 ], [ %297, %someip_sd_register_ports.argprom.exit226.i.i ], [ %297, %514 ]
+  %.121.i = phi ptr [ %294, %291 ], [ %302, %someip_sd_register_ports.argprom.exit226.i.i ], [ %302, %514 ]
+  %.017.i = phi i64 [ 0, %291 ], [ %444, %someip_sd_register_ports.argprom.exit226.i.i ], [ %444, %514 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -1323,7 +1323,7 @@ dissect_someip_sd_pdu_entry.exit.i:               ; preds = %514, %someip_sd_reg
   %533 = icmp ult i8 %285, 32
   br i1 %533, label %534, label %.thread55.i
 
-534:                                              ; preds = %dissect_someip_sd_pdu_entry.exit.i
+534:                                              ; preds = %dissect_someip_sd_pdu_entry.argprom.exit.i
   %535 = icmp eq i32 %287, 0
   %536 = shl nuw i32 1, %.pre-phi.i
   %537 = icmp eq i8 %285, 6
@@ -1344,10 +1344,10 @@ dissect_someip_sd_pdu_entry.exit.i:               ; preds = %514, %someip_sd_reg
   %544 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.121.i, ptr noundef nonnull @ei_someipsd_entry_stopsubsub) #7
   br label %.thread55.i
 
-.thread55.i:                                      ; preds = %543, %540, %538, %dissect_someip_sd_pdu_entry.exit.i, %dissect_someip_sd_pdu_entry.exit.thread.i
-  %.13944.i = phi i32 [ %.03888.i, %543 ], [ %.03888.i, %540 ], [ %.03888.i, %dissect_someip_sd_pdu_entry.exit.thread.i ], [ %.03888.i, %dissect_someip_sd_pdu_entry.exit.i ], [ %539, %538 ]
-  %.14142.i = phi i32 [ %541, %543 ], [ %541, %540 ], [ %.04087.i, %dissect_someip_sd_pdu_entry.exit.thread.i ], [ %.04087.i, %dissect_someip_sd_pdu_entry.exit.i ], [ %.04087.i, %538 ]
-  %.1.i = phi i64 [ -1, %543 ], [ -1, %540 ], [ -1, %dissect_someip_sd_pdu_entry.exit.thread.i ], [ -1, %dissect_someip_sd_pdu_entry.exit.i ], [ %spec.select.i, %538 ]
+.thread55.i:                                      ; preds = %543, %540, %538, %dissect_someip_sd_pdu_entry.argprom.exit.i, %dissect_someip_sd_pdu_entry.argprom.exit.thread.i
+  %.13944.i = phi i32 [ %.03888.i, %543 ], [ %.03888.i, %540 ], [ %.03888.i, %dissect_someip_sd_pdu_entry.argprom.exit.thread.i ], [ %.03888.i, %dissect_someip_sd_pdu_entry.argprom.exit.i ], [ %539, %538 ]
+  %.14142.i = phi i32 [ %541, %543 ], [ %541, %540 ], [ %.04087.i, %dissect_someip_sd_pdu_entry.argprom.exit.thread.i ], [ %.04087.i, %dissect_someip_sd_pdu_entry.argprom.exit.i ], [ %.04087.i, %538 ]
+  %.1.i = phi i64 [ -1, %543 ], [ -1, %540 ], [ -1, %dissect_someip_sd_pdu_entry.argprom.exit.thread.i ], [ -1, %dissect_someip_sd_pdu_entry.argprom.exit.i ], [ %spec.select.i, %538 ]
   %545 = add i32 %.04385.i, -16
   %546 = add nuw i32 %.04286.i, 16
   %547 = icmp ugt i32 %545, 15
@@ -1433,13 +1433,13 @@ dissect_someip_sd_pdu_entry.exit.i:               ; preds = %514, %someip_sd_reg
 
 .thread77.i:                                      ; preds = %578, %576, %548
   %.not51.i = icmp eq i32 %545, 0
-  br i1 %.not51.i, label %dissect_someip_sd_pdu_entries.exit, label %580
+  br i1 %.not51.i, label %dissect_someip_sd_pdu_entries.argprom.exit, label %580
 
 580:                                              ; preds = %.thread77.i
   %581 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %58, ptr noundef nonnull @ei_someipsd_entry_array_malformed) #7
-  br label %dissect_someip_sd_pdu_entries.exit
+  br label %dissect_someip_sd_pdu_entries.argprom.exit
 
-dissect_someip_sd_pdu_entries.exit:               ; preds = %.thread77.i, %580
+dissect_someip_sd_pdu_entries.argprom.exit:       ; preds = %.thread77.i, %580
   %582 = add i32 %545, %.079
   br label %585
 
@@ -1447,8 +1447,8 @@ dissect_someip_sd_pdu_entries.exit:               ; preds = %.thread77.i, %580
   %584 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %58, ptr noundef nonnull @ei_someipsd_entry_array_empty) #7
   br label %585
 
-585:                                              ; preds = %dissect_someip_sd_pdu_entries.exit, %583, %46, %33
-  %.0 = phi i32 [ %48, %46 ], [ %35, %33 ], [ %582, %dissect_someip_sd_pdu_entries.exit ], [ %.079, %583 ]
+585:                                              ; preds = %dissect_someip_sd_pdu_entries.argprom.exit, %583, %46, %33
+  %.0 = phi i32 [ %48, %46 ], [ %35, %33 ], [ %582, %dissect_someip_sd_pdu_entries.argprom.exit ], [ %.079, %583 ]
   ret i32 %.0
 }
 
@@ -1535,7 +1535,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .sink.split:                                      ; preds = %switch.lookup, %29, %31, %30
   %.str.82.sink77 = phi ptr [ @.str.86, %30 ], [ @.str.188, %31 ], [ @.str.80, %29 ], [ %switch.load, %switch.lookup ]
-  tail call fastcc void @stat_create_entry_summary_string(ptr noundef %3)
+  tail call fastcc void @stat_create_entry_summary_string.argprom.argelim(ptr noundef %3)
   %35 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.82.sink77, i32 noundef %16, i32 noundef 1, i32 noundef 1) #7
   %36 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @someipsd_entries_stats_tree_packet.tmp_str, i32 noundef %35, i32 noundef 0, i32 noundef 1) #7
   %37 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.82.sink77, i32 noundef %24, i32 noundef 1, i32 noundef 1) #7
@@ -1610,7 +1610,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @someip_lookup_service_name(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @someip_sd_pdu_entry_append_text(ptr noundef %0, i8 noundef zeroext range(i8 1, 3) %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i8 noundef zeroext %4, i32 noundef %5, i16 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @someip_sd_pdu_entry_append_text.argprom(ptr noundef %0, i8 noundef zeroext range(i8 1, 3) %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i8 noundef zeroext %4, i32 noundef %5, i16 noundef zeroext %6) unnamed_addr #0 {
   %8 = icmp eq i16 %2, -1
   br i1 %8, label %9, label %10
 
@@ -1709,7 +1709,7 @@ declare ptr @address_to_name(ptr noundef) local_unnamed_addr #1
 declare i32 @stats_tree_manip_node_int(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stat_create_entry_summary_string(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @stat_create_entry_summary_string.argprom.argelim(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = alloca [128 x i8], align 16
   %3 = alloca [128 x i8], align 16
   %4 = alloca [128 x i8], align 16

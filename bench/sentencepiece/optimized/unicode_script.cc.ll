@@ -44,7 +44,7 @@ define noundef i32 @_ZN13sentencepiece14unicode_script9GetScriptEj(i32 noundef %
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  invoke fastcc void @_ZN13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternalC2Ev()
+  invoke fastcc void @_ZN13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternalC2Ev.argprom()
           to label %7 unwind label %36
 
 7:                                                ; preds = %6
@@ -61,7 +61,7 @@ define noundef i32 @_ZN13sentencepiece14unicode_script9GetScriptEj(i32 noundef %
   %.sroa.06.0.in.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %11 ], [ getelementptr inbounds (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 16), %9 ]
   %.sroa.06.0.i.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNK13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternal9GetScriptEj.exit, label %11
+  br i1 %.not.i.i.i.i, label %_ZNK13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternal9GetScriptEj.argprom.exit, label %11
 
 11:                                               ; preds = %.preheader.i
   %12 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
@@ -77,7 +77,7 @@ define noundef i32 @_ZN13sentencepiece14unicode_script9GetScriptEj(i32 noundef %
   %20 = getelementptr inbounds ptr, ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternal9GetScriptEj.exit, label %22
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternal9GetScriptEj.argprom.exit, label %22
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr %21, align 8
@@ -94,7 +94,7 @@ define noundef i32 @_ZN13sentencepiece14unicode_script9GetScriptEj(i32 noundef %
   %.018.i.i.i.i.i.i = phi ptr [ %29, %27 ], [ %23, %22 ]
   %29 = load ptr, ptr %.018.i.i.i.i.i.i, align 8
   %.not16.i.i.i.i.i.i = icmp eq ptr %29, null
-  br i1 %.not16.i.i.i.i.i.i, label %_ZNK13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternal9GetScriptEj.exit, label %30
+  br i1 %.not16.i.i.i.i.i.i, label %_ZNK13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternal9GetScriptEj.argprom.exit, label %30
 
 30:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %31 = getelementptr inbounds i8, ptr %29, i64 8
@@ -102,15 +102,15 @@ define noundef i32 @_ZN13sentencepiece14unicode_script9GetScriptEj(i32 noundef %
   %33 = zext i32 %32 to i64
   %34 = urem i64 %33, %17
   %.not17.i.i.i.i.i.i = icmp eq i64 %34, %18
-  br i1 %.not17.i.i.i.i.i.i, label %27, label %_ZNK13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternal9GetScriptEj.exit, !llvm.loop !7
+  br i1 %.not17.i.i.i.i.i.i, label %27, label %_ZNK13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternal9GetScriptEj.argprom.exit, !llvm.loop !7
 
 _ZNKSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i.i: ; preds = %27, %11, %22
   %.sroa.06.1.i.i.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i.i.i, %11 ], [ %29, %27 ]
   %35 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i.i, i64 12
   %.0.i.sroa.speculate.load._ZNKSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i.i = load i32, ptr %35, align 4
-  br label %_ZNK13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternal9GetScriptEj.exit
+  br label %_ZNK13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternal9GetScriptEj.argprom.exit
 
-_ZNK13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternal9GetScriptEj.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %30, %.preheader.i, %15, %_ZNKSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i.i
+_ZNK13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternal9GetScriptEj.argprom.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %30, %.preheader.i, %15, %_ZNKSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i.i
   %.0.i.sroa.speculated.i = phi i32 [ %.0.i.sroa.speculate.load._ZNKSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i.i, %_ZNKSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i.i ], [ 23, %15 ], [ 23, %.preheader.i ], [ 23, %30 ], [ 23, %.lr.ph.i.i.i.i.i.i ]
   ret i32 %.0.i.sroa.speculated.i
 
@@ -125,13 +125,13 @@ _ZNK13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternal9GetScriptEj
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternalC2Ev() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternalC2Ev.argprom() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 48), ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, align 8
   store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 8), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 16), i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 32), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN13sentencepiece14unicode_script9GetScriptEjE2sc, i64 40), i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN13sentencepiece14unicode_script12_GLOBAL__N_19InitTableEPSt13unordered_mapIjNS0_10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE()
+  invoke fastcc void @_ZN13sentencepiece14unicode_script12_GLOBAL__N_19InitTableEPSt13unordered_mapIjNS0_10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE.argprom()
           to label %1 unwind label %2
 
 1:                                                ; preds = %0
@@ -189,7 +189,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN13sentencepiece14unicode_script12_GLOBAL__N_19InitTableEPSt13unordered_mapIjNS0_10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN13sentencepiece14unicode_script12_GLOBAL__N_19InitTableEPSt13unordered_mapIjNS0_10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE.argprom() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   br label %1
 
 1:                                                ; preds = %0, %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEixERS8_.exit

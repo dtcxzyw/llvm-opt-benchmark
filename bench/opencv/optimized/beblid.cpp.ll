@@ -1572,7 +1572,7 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d11BEBLID_ImplINS0_17ABWLPara
   store ptr %30, ptr %8, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_11xfeatures2d11BEBLID_ImplINS5_17ABWLParamsFloatThEE25computeBoxDiffsDescriptorERKNS0_3MatERKSt6vectorINS0_8KeyPointESaISD_EERS9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %28, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_11xfeatures2d11BEBLID_ImplINS5_17ABWLParamsFloatThEE25computeBoxDiffsDescriptorERKNS0_3MatERKSt6vectorINS0_8KeyPointESaISD_EERS9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %27, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef %8)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd.argelim(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef %8)
           to label %31 unwind label %38
 
 31:                                               ; preds = %4
@@ -1626,7 +1626,7 @@ declare void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96)
 declare void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd.argelim(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::ParallelLoopBodyLambdaWrapper", align 8
   %4 = alloca %"class.std::function", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -2295,40 +2295,40 @@ _ZN2cv11xfeatures2dL11rectifyABWLINS0_17ABWLParamsFloatThEEEvRKSt6vectorIT_SaIS4
   %240 = fmul float %239, 1.750000e+00
   %241 = load float, ptr %225, align 4
   %242 = fcmp olt float %241, %237
-  br i1 %242, label %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit, label %243
+  br i1 %242, label %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit, label %243
 
 243:                                              ; preds = %_ZN2cv11xfeatures2dL11rectifyABWLINS0_17ABWLParamsFloatThEEEvRKSt6vectorIT_SaIS4_EERS6_RKNS_8KeyPointEfRKNS_5Size_IiEE.exit
   %.val = load i32, ptr %226, align 4
   %244 = fadd float %241, %237
   %245 = sitofp i32 %.val to float
   %246 = fcmp ult float %244, %245
-  br i1 %246, label %247, label %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit
+  br i1 %246, label %247, label %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit
 
 247:                                              ; preds = %243
   %248 = getelementptr inbounds i8, ptr %225, i64 4
   %249 = load float, ptr %248, align 4
   %250 = fcmp olt float %249, %240
-  br i1 %250, label %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit, label %251
+  br i1 %250, label %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit, label %251
 
 251:                                              ; preds = %247
   %252 = fadd float %240, %249
   %253 = sitofp i32 %.val81 to float
   %254 = fcmp ult float %252, %253
-  br i1 %254, label %.preheader, label %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit
+  br i1 %254, label %.preheader, label %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit
 
 .preheader:                                       ; preds = %251
   %.not = icmp eq ptr %222, %221
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit: ; preds = %251, %247, %243, %_ZN2cv11xfeatures2dL11rectifyABWLINS0_17ABWLParamsFloatThEEEvRKSt6vectorIT_SaIS4_EERS6_RKNS_8KeyPointEfRKNS_5Size_IiEE.exit
+_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit: ; preds = %251, %247, %243, %_ZN2cv11xfeatures2dL11rectifyABWLINS0_17ABWLParamsFloatThEEEvRKSt6vectorIT_SaIS4_EERS6_RKNS_8KeyPointEfRKNS_5Size_IiEE.exit
   %.not145 = icmp eq ptr %222, %221
   br i1 %.not145, label %.loopexit, label %.lr.ph134
 
-.lr.ph134:                                        ; preds = %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit, %366
-  %255 = phi ptr [ %369, %366 ], [ %221, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ]
-  %.1133 = phi ptr [ %.2, %366 ], [ %.0142, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ]
-  %.171132 = phi i8 [ %.272, %366 ], [ %.070141, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ]
-  %.078131 = phi i64 [ %367, %366 ], [ 0, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ]
+.lr.ph134:                                        ; preds = %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit, %366
+  %255 = phi ptr [ %369, %366 ], [ %221, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit ]
+  %.1133 = phi ptr [ %.2, %366 ], [ %.0142, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit ]
+  %.171132 = phi i8 [ %.272, %366 ], [ %.070141, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit ]
+  %.078131 = phi i64 [ %367, %366 ], [ 0, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit ]
   %256 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %.sroa.0.2, i64 %.078131
   %257 = load ptr, ptr %37, align 8
   %258 = getelementptr inbounds i8, ptr %257, i64 12
@@ -2611,11 +2611,11 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %470 = icmp ult i64 %465, %469
   br i1 %470, label %.lr.ph, label %.loopexit, !llvm.loop !41
 
-.loopexit:                                        ; preds = %462, %366, %.preheader, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit
-  %471 = phi ptr [ %221, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %221, %.preheader ], [ %369, %366 ], [ %463, %462 ]
-  %472 = phi ptr [ %221, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %221, %.preheader ], [ %368, %366 ], [ %464, %462 ]
-  %.575 = phi i8 [ %.070141, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %.070141, %.preheader ], [ %.272, %366 ], [ %.474, %462 ]
-  %.5 = phi ptr [ %.0142, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %.0142, %.preheader ], [ %.2, %366 ], [ %.4, %462 ]
+.loopexit:                                        ; preds = %462, %366, %.preheader, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit
+  %471 = phi ptr [ %221, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit ], [ %221, %.preheader ], [ %369, %366 ], [ %463, %462 ]
+  %472 = phi ptr [ %221, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit ], [ %221, %.preheader ], [ %368, %366 ], [ %464, %462 ]
+  %.575 = phi i8 [ %.070141, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit ], [ %.070141, %.preheader ], [ %.272, %366 ], [ %.474, %462 ]
+  %.5 = phi ptr [ %.0142, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit ], [ %.0142, %.preheader ], [ %.2, %366 ], [ %.4, %462 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %473 = load i32, ptr %19, align 4
   %474 = sext i32 %473 to i64
@@ -3151,7 +3151,7 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d11BEBLID_ImplINS0_10ABWLPara
   store ptr %30, ptr %8, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_11xfeatures2d11BEBLID_ImplINS5_10ABWLParamsEE25computeBoxDiffsDescriptorERKNS0_3MatERKSt6vectorINS0_8KeyPointESaISD_EERS9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %28, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_11xfeatures2d11BEBLID_ImplINS5_10ABWLParamsEE25computeBoxDiffsDescriptorERKNS0_3MatERKSt6vectorINS0_8KeyPointESaISD_EERS9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %27, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef %8)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd.argelim(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef %8)
           to label %31 unwind label %38
 
 31:                                               ; preds = %4
@@ -3625,40 +3625,40 @@ _ZN2cv11xfeatures2dL11rectifyABWLINS0_10ABWLParamsEEEvRKSt6vectorIT_SaIS4_EERS6_
   %240 = fmul float %239, 1.750000e+00
   %241 = load float, ptr %225, align 4
   %242 = fcmp olt float %241, %237
-  br i1 %242, label %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit, label %243
+  br i1 %242, label %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit, label %243
 
 243:                                              ; preds = %_ZN2cv11xfeatures2dL11rectifyABWLINS0_10ABWLParamsEEEvRKSt6vectorIT_SaIS4_EERS6_RKNS_8KeyPointEfRKNS_5Size_IiEE.exit
   %.val = load i32, ptr %226, align 4
   %244 = fadd float %241, %237
   %245 = sitofp i32 %.val to float
   %246 = fcmp ult float %244, %245
-  br i1 %246, label %247, label %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit
+  br i1 %246, label %247, label %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit
 
 247:                                              ; preds = %243
   %248 = getelementptr inbounds i8, ptr %225, i64 4
   %249 = load float, ptr %248, align 4
   %250 = fcmp olt float %249, %240
-  br i1 %250, label %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit, label %251
+  br i1 %250, label %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit, label %251
 
 251:                                              ; preds = %247
   %252 = fadd float %240, %249
   %253 = sitofp i32 %.val81 to float
   %254 = fcmp ult float %252, %253
-  br i1 %254, label %.preheader, label %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit
+  br i1 %254, label %.preheader, label %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit
 
 .preheader:                                       ; preds = %251
   %.not = icmp eq ptr %222, %221
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit: ; preds = %251, %247, %243, %_ZN2cv11xfeatures2dL11rectifyABWLINS0_10ABWLParamsEEEvRKSt6vectorIT_SaIS4_EERS6_RKNS_8KeyPointEfRKNS_5Size_IiEE.exit
+_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit: ; preds = %251, %247, %243, %_ZN2cv11xfeatures2dL11rectifyABWLINS0_10ABWLParamsEEEvRKSt6vectorIT_SaIS4_EERS6_RKNS_8KeyPointEfRKNS_5Size_IiEE.exit
   %.not145 = icmp eq ptr %222, %221
   br i1 %.not145, label %.loopexit, label %.lr.ph134
 
-.lr.ph134:                                        ; preds = %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit, %367
-  %255 = phi ptr [ %370, %367 ], [ %221, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ]
-  %.1133 = phi ptr [ %.2, %367 ], [ %.0142, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ]
-  %.171132 = phi i8 [ %.272, %367 ], [ %.070141, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ]
-  %.078131 = phi i64 [ %368, %367 ], [ 0, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ]
+.lr.ph134:                                        ; preds = %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit, %367
+  %255 = phi ptr [ %370, %367 ], [ %221, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit ]
+  %.1133 = phi ptr [ %.2, %367 ], [ %.0142, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit ]
+  %.171132 = phi i8 [ %.272, %367 ], [ %.070141, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit ]
+  %.078131 = phi i64 [ %368, %367 ], [ 0, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit ]
   %256 = trunc i64 %.078131 to i32
   %257 = and i32 %256, 7
   %258 = xor i32 %257, 7
@@ -3940,11 +3940,11 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %469 = icmp ult i64 %464, %468
   br i1 %469, label %.lr.ph, label %.loopexit, !llvm.loop !52
 
-.loopexit:                                        ; preds = %461, %367, %.preheader, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit
-  %470 = phi ptr [ %221, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %221, %.preheader ], [ %370, %367 ], [ %462, %461 ]
-  %471 = phi ptr [ %221, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %221, %.preheader ], [ %369, %367 ], [ %463, %461 ]
-  %.575 = phi i8 [ %.070141, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %.070141, %.preheader ], [ %.272, %367 ], [ %.474, %461 ]
-  %.5 = phi ptr [ %.0142, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %.0142, %.preheader ], [ %.2, %367 ], [ %.4, %461 ]
+.loopexit:                                        ; preds = %461, %367, %.preheader, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit
+  %470 = phi ptr [ %221, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit ], [ %221, %.preheader ], [ %370, %367 ], [ %462, %461 ]
+  %471 = phi ptr [ %221, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit ], [ %221, %.preheader ], [ %369, %367 ], [ %463, %461 ]
+  %.575 = phi i8 [ %.070141, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit ], [ %.070141, %.preheader ], [ %.272, %367 ], [ %.474, %461 ]
+  %.5 = phi ptr [ %.0142, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.argprom.exit ], [ %.0142, %.preheader ], [ %.2, %367 ], [ %.4, %461 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %472 = load i32, ptr %19, align 4
   %473 = sext i32 %472 to i64
@@ -4023,23 +4023,23 @@ attributes #24 = { noreturn nounwind }
 !5 = !{!6, !8}
 !6 = distinct !{!6, !7, !"_ZSt11make_sharedIN2cv11xfeatures2d11TEBLID_ImplEJRKfRKSt6vectorINS1_17ABWLParamsFloatThESaIS6_EEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_: argument 0"}
 !7 = distinct !{!7, !"_ZSt11make_sharedIN2cv11xfeatures2d11TEBLID_ImplEJRKfRKSt6vectorINS1_17ABWLParamsFloatThESaIS6_EEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_"}
-!8 = distinct !{!8, !9, !"_ZN2cvL7makePtrINS_11xfeatures2d11TEBLID_ImplEJfSt6vectorINS1_17ABWLParamsFloatThESaIS4_EEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!9 = distinct !{!9, !"_ZN2cvL7makePtrINS_11xfeatures2d11TEBLID_ImplEJfSt6vectorINS1_17ABWLParamsFloatThESaIS4_EEEEENS_3PtrIT_EEDpRKT0_"}
+!8 = distinct !{!8, !9, !"_ZN2cvL7makePtrINS_11xfeatures2d11TEBLID_ImplEJfSt6vectorINS1_17ABWLParamsFloatThESaIS4_EEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!9 = distinct !{!9, !"_ZN2cvL7makePtrINS_11xfeatures2d11TEBLID_ImplEJfSt6vectorINS1_17ABWLParamsFloatThESaIS4_EEEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !10 = !{!11, !13}
 !11 = distinct !{!11, !12, !"_ZSt11make_sharedIN2cv11xfeatures2d11TEBLID_ImplEJRKfRKSt6vectorINS1_17ABWLParamsFloatThESaIS6_EEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_: argument 0"}
 !12 = distinct !{!12, !"_ZSt11make_sharedIN2cv11xfeatures2d11TEBLID_ImplEJRKfRKSt6vectorINS1_17ABWLParamsFloatThESaIS6_EEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_"}
-!13 = distinct !{!13, !14, !"_ZN2cvL7makePtrINS_11xfeatures2d11TEBLID_ImplEJfSt6vectorINS1_17ABWLParamsFloatThESaIS4_EEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!14 = distinct !{!14, !"_ZN2cvL7makePtrINS_11xfeatures2d11TEBLID_ImplEJfSt6vectorINS1_17ABWLParamsFloatThESaIS4_EEEEENS_3PtrIT_EEDpRKT0_"}
+!13 = distinct !{!13, !14, !"_ZN2cvL7makePtrINS_11xfeatures2d11TEBLID_ImplEJfSt6vectorINS1_17ABWLParamsFloatThESaIS4_EEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!14 = distinct !{!14, !"_ZN2cvL7makePtrINS_11xfeatures2d11TEBLID_ImplEJfSt6vectorINS1_17ABWLParamsFloatThESaIS4_EEEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !15 = !{!16, !18}
 !16 = distinct !{!16, !17, !"_ZSt11make_sharedIN2cv11xfeatures2d11BEBLID_ImplINS1_10ABWLParamsEEEJRKfRKSt6vectorIS3_SaIS3_EEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_: argument 0"}
 !17 = distinct !{!17, !"_ZSt11make_sharedIN2cv11xfeatures2d11BEBLID_ImplINS1_10ABWLParamsEEEJRKfRKSt6vectorIS3_SaIS3_EEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_"}
-!18 = distinct !{!18, !19, !"_ZN2cvL7makePtrINS_11xfeatures2d11BEBLID_ImplINS1_10ABWLParamsEEEJfSt6vectorIS3_SaIS3_EEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!19 = distinct !{!19, !"_ZN2cvL7makePtrINS_11xfeatures2d11BEBLID_ImplINS1_10ABWLParamsEEEJfSt6vectorIS3_SaIS3_EEEEENS_3PtrIT_EEDpRKT0_"}
+!18 = distinct !{!18, !19, !"_ZN2cvL7makePtrINS_11xfeatures2d11BEBLID_ImplINS1_10ABWLParamsEEEJfSt6vectorIS3_SaIS3_EEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!19 = distinct !{!19, !"_ZN2cvL7makePtrINS_11xfeatures2d11BEBLID_ImplINS1_10ABWLParamsEEEJfSt6vectorIS3_SaIS3_EEEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !20 = !{!21, !23}
 !21 = distinct !{!21, !22, !"_ZSt11make_sharedIN2cv11xfeatures2d11BEBLID_ImplINS1_10ABWLParamsEEEJRKfRKSt6vectorIS3_SaIS3_EEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_: argument 0"}
 !22 = distinct !{!22, !"_ZSt11make_sharedIN2cv11xfeatures2d11BEBLID_ImplINS1_10ABWLParamsEEEJRKfRKSt6vectorIS3_SaIS3_EEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_"}
-!23 = distinct !{!23, !24, !"_ZN2cvL7makePtrINS_11xfeatures2d11BEBLID_ImplINS1_10ABWLParamsEEEJfSt6vectorIS3_SaIS3_EEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!24 = distinct !{!24, !"_ZN2cvL7makePtrINS_11xfeatures2d11BEBLID_ImplINS1_10ABWLParamsEEEJfSt6vectorIS3_SaIS3_EEEEENS_3PtrIT_EEDpRKT0_"}
+!23 = distinct !{!23, !24, !"_ZN2cvL7makePtrINS_11xfeatures2d11BEBLID_ImplINS1_10ABWLParamsEEEJfSt6vectorIS3_SaIS3_EEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!24 = distinct !{!24, !"_ZN2cvL7makePtrINS_11xfeatures2d11BEBLID_ImplINS1_10ABWLParamsEEEJfSt6vectorIS3_SaIS3_EEEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZNK2cv11xfeatures2d6BEBLID14getDefaultNameB5cxx11Ev: argument 0"}
 !27 = distinct !{!27, !"_ZNK2cv11xfeatures2d6BEBLID14getDefaultNameB5cxx11Ev"}

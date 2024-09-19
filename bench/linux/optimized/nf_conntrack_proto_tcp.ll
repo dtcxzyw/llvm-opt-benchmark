@@ -283,7 +283,7 @@ define dso_local range(i32 -4, 2) i32 @nf_conntrack_tcp_packet(ptr noundef %0, p
   %128 = getelementptr inbounds i8, ptr %0, i64 188
   store i32 %120, ptr %128, align 4
   %.val.i = load i16, ptr %31, align 4
-  call fastcc void @tcp_options(ptr noundef %1, i32 noundef %2, i16 %.val.i, ptr noundef %101)
+  call fastcc void @tcp_options.argprom(ptr noundef %1, i32 noundef %2, i16 %.val.i, ptr noundef %101)
   br label %tcp_new.exit
 
 129:                                              ; preds = %98
@@ -538,7 +538,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %304 = getelementptr inbounds i8, ptr %0, i64 243
   store i8 0, ptr %304, align 1
   %.val = load i16, ptr %31, align 4
-  call fastcc void @tcp_options(ptr noundef %1, i32 noundef %2, i16 %.val, ptr noundef nonnull %8)
+  call fastcc void @tcp_options.argprom(ptr noundef %1, i32 noundef %2, i16 %.val, ptr noundef nonnull %8)
   %305 = getelementptr inbounds i8, ptr %8, i64 17
   %306 = load i8, ptr %305, align 1
   %307 = and i8 %306, 1
@@ -999,7 +999,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %600 = call i32 @llvm.umax.i32(i32 %486, i32 1)
   store i32 %600, ptr %591, align 4
   %.val22 = load i16, ptr %31, align 4
-  call fastcc void @tcp_options(ptr noundef %1, i32 noundef %2, i16 %.val22, ptr noundef %472)
+  call fastcc void @tcp_options.argprom(ptr noundef %1, i32 noundef %2, i16 %.val22, ptr noundef %472)
   br i1 %172, label %601, label %613
 
 601:                                              ; preds = %598
@@ -1077,7 +1077,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %645 = call i32 @llvm.umax.i32(i32 %486, i32 1)
   store i32 %645, ptr %591, align 4
   %.val23 = load i16, ptr %31, align 4
-  call fastcc void @tcp_options(ptr noundef %1, i32 noundef %2, i16 %.val23, ptr noundef %472)
+  call fastcc void @tcp_options.argprom(ptr noundef %1, i32 noundef %2, i16 %.val23, ptr noundef %472)
   br i1 %172, label %646, label %663
 
 646:                                              ; preds = %643
@@ -1580,7 +1580,7 @@ declare i32 @llvm.bswap.i32(i32) #3
 declare i16 @llvm.bswap.i16(i16) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tcp_options(ptr noundef %0, i32 noundef %1, i16 %.12.val, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @tcp_options.argprom(ptr noundef %0, i32 noundef %1, i16 %.12.val, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca [40 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #11
   %5 = lshr i16 %.12.val, 2

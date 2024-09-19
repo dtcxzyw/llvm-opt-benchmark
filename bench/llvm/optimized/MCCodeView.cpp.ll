@@ -1853,7 +1853,7 @@ define dso_local void @_ZN4llvm15CodeViewContext24emitLineTableForFunctionERNS_1
   %43 = getelementptr i8, ptr %.sroa.031.056.i.i.i.i.i.i, i64 20
   %.val.i.i.i.i.i.i.i = load i16, ptr %43, align 4
   %.not42.i.i.i.i.i.i = icmp eq i16 %.val.i.i.i.i.i.i.i, 0
-  br i1 %.not42.i.i.i.i.i.i, label %44, label %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.exit"
+  br i1 %.not42.i.i.i.i.i.i, label %44, label %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.argprom.exit"
 
 44:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %45 = getelementptr i8, ptr %.sroa.031.056.i.i.i.i.i.i, i64 44
@@ -1888,7 +1888,7 @@ define dso_local void @_ZN4llvm15CodeViewContext24emitLineTableForFunctionERNS_1
   %.pre-phi63.i.i.i.i.i.i = phi i64 [ %.pre62.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %38, %5 ]
   %.sroa.031.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val, %5 ]
   %54 = sdiv exact i64 %.pre-phi63.i.i.i.i.i.i, 24
-  switch i64 %54, label %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.exit" [
+  switch i64 %54, label %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.argprom.exit" [
     i64 3, label %55
     i64 2, label %59
     i64 1, label %63
@@ -1898,7 +1898,7 @@ define dso_local void @_ZN4llvm15CodeViewContext24emitLineTableForFunctionERNS_1
   %56 = getelementptr i8, ptr %.sroa.031.0.lcssa.i.i.i.i.i.i, i64 20
   %.val.i19.i.i.i.i.i.i = load i16, ptr %56, align 4
   %.not.i.i.i.i.i.i = icmp eq i16 %.val.i19.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i.i, label %57, label %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.exit"
+  br i1 %.not.i.i.i.i.i.i, label %57, label %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.argprom.exit"
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds i8, ptr %.sroa.031.0.lcssa.i.i.i.i.i.i, i64 24
@@ -1909,7 +1909,7 @@ define dso_local void @_ZN4llvm15CodeViewContext24emitLineTableForFunctionERNS_1
   %60 = getelementptr i8, ptr %.sroa.031.1.i.i.i.i.i.i, i64 20
   %.val.i20.i.i.i.i.i.i = load i16, ptr %60, align 4
   %.not40.i.i.i.i.i.i = icmp eq i16 %.val.i20.i.i.i.i.i.i, 0
-  br i1 %.not40.i.i.i.i.i.i, label %61, label %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.exit"
+  br i1 %.not40.i.i.i.i.i.i, label %61, label %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.argprom.exit"
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds i8, ptr %.sroa.031.1.i.i.i.i.i.i, i64 24
@@ -1921,21 +1921,21 @@ define dso_local void @_ZN4llvm15CodeViewContext24emitLineTableForFunctionERNS_1
   %.val.i21.i.i.i.i.i.i = load i16, ptr %64, align 4
   %.not41.i.i.i.i.i.i = icmp eq i16 %.val.i21.i.i.i.i.i.i, 0
   %spec.select.i.i.i.i.i.i = select i1 %.not41.i.i.i.i.i.i, ptr %.val46, ptr %.sroa.031.2.i.i.i.i.i.i
-  br label %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.argprom.exit"
 
 .loopexit.split.loop.exit47.i.i.i.i.i.i:          ; preds = %44
   %65 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.argprom.exit"
 
 .loopexit.split.loop.exit49.i.i.i.i.i.i:          ; preds = %46
   %66 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i, i64 48
-  br label %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.argprom.exit"
 
 .loopexit.split.loop.exit51.i.i.i.i.i.i:          ; preds = %48
   %67 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i.i.i, i64 72
-  br label %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i, %55, %59, %63, %.loopexit.split.loop.exit47.i.i.i.i.i.i, %.loopexit.split.loop.exit49.i.i.i.i.i.i, %.loopexit.split.loop.exit51.i.i.i.i.i.i
+"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i, %55, %59, %63, %.loopexit.split.loop.exit47.i.i.i.i.i.i, %.loopexit.split.loop.exit49.i.i.i.i.i.i, %.loopexit.split.loop.exit51.i.i.i.i.i.i
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i, %55 ], [ %.sroa.031.1.i.i.i.i.i.i, %59 ], [ %.val46, %._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %63 ], [ %65, %.loopexit.split.loop.exit47.i.i.i.i.i.i ], [ %66, %.loopexit.split.loop.exit49.i.i.i.i.i.i ], [ %67, %.loopexit.split.loop.exit51.i.i.i.i.i.i ], [ %.sroa.031.056.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %68 = icmp ne ptr %.val46, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   %69 = zext i1 %68 to i64
@@ -1950,7 +1950,7 @@ define dso_local void @_ZN4llvm15CodeViewContext24emitLineTableForFunctionERNS_1
   %.not96 = icmp eq ptr %.val, %.val46
   br i1 %.not96, label %._crit_edge99, label %.lr.ph98
 
-.lr.ph98:                                         ; preds = %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.exit"
+.lr.ph98:                                         ; preds = %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.argprom.exit"
   %76 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 33
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2220,7 +2220,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit61:                ; preds = %_ZN4llvmplERKNS_5Tw
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %.val46
   br i1 %.not, label %._crit_edge99, label %85, !llvm.loop !57
 
-._crit_edge99:                                    ; preds = %.loopexit, %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.exit"
+._crit_edge99:                                    ; preds = %.loopexit, %"_ZN4llvm6any_ofIRSt6vectorINS_7MCCVLocESaIS2_EEZNS_15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolESB_E3$_0EEbOT_T0_.argprom.exit"
   %186 = load ptr, ptr %1, align 8
   %187 = getelementptr inbounds i8, ptr %186, i64 200
   %188 = load ptr, ptr %187, align 8
@@ -2630,7 +2630,7 @@ _ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.exit108: ; preds = %106, %.
   %126 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #16
   %127 = add i64 %126, 1
   call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %127) #16
-  call fastcc void @_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE(i32 noundef %119, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  call fastcc void @_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.retelim(i32 noundef %119, ptr noundef nonnull align 8 dereferenceable(24) %42)
   br label %128
 
 128:                                              ; preds = %_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.exit108, %105
@@ -2686,7 +2686,7 @@ _ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.exit116: ; preds = %149, %.
   %156 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #16
   %157 = add i64 %156, 1
   call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %157) #16
-  call fastcc void @_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE(i32 noundef %.0.i91, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  call fastcc void @_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.retelim(i32 noundef %.0.i91, ptr noundef nonnull align 8 dereferenceable(24) %42)
   br label %158
 
 158:                                              ; preds = %_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.exit116, %148
@@ -2719,7 +2719,7 @@ _ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.exit116: ; preds = %149, %.
   %165 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #16
   %166 = add i64 %165, 1
   call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %166) #16
-  call fastcc void @_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE(i32 noundef %.sink172, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  call fastcc void @_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.retelim(i32 noundef %.sink172, ptr noundef nonnull align 8 dereferenceable(24) %42)
   %167 = load ptr, ptr %.080159, align 8
   br label %168
 
@@ -2843,7 +2843,7 @@ _ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.exit124: ; preds = %_ZN4llv
   %229 = add i64 %228, 1
   call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %229) #16
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %.0146, i32 %178)
-  call fastcc void @_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE(i32 noundef %.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  call fastcc void @_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.retelim(i32 noundef %.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(24) %42)
   br label %_ZN4llvm15CodeViewContext17getLinesForExtentEmm.exit.thread
 
 _ZN4llvm15CodeViewContext17getLinesForExtentEmm.exit.thread: ; preds = %13, %3, %_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.exit124
@@ -2851,7 +2851,7 @@ _ZN4llvm15CodeViewContext17getLinesForExtentEmm.exit.thread: ; preds = %13, %3, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.retelim(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = icmp ult i32 %0, 128
   br i1 %3, label %4, label %9
 

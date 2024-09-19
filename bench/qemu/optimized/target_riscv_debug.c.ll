@@ -601,17 +601,17 @@ sw.bb:                                            ; preds = %entry
 sw.bb.i:                                          ; preds = %sw.bb
   %shr.i.i = lshr i64 %1, 28
   %conv2.i = and i64 %shr.i.i, 15
-  br label %extract_trigger_type.exit
+  br label %extract_trigger_type.argprom.exit
 
 sw.bb3.i:                                         ; preds = %sw.bb, %sw.bb
   %shr.i2.i = lshr i64 %1, 60
-  br label %extract_trigger_type.exit
+  br label %extract_trigger_type.argprom.exit
 
 do.body.i:                                        ; preds = %sw.bb
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 87, ptr noundef nonnull @__func__.extract_trigger_type, ptr noundef null) #7
   unreachable
 
-extract_trigger_type.exit:                        ; preds = %sw.bb.i, %sw.bb3.i
+extract_trigger_type.argprom.exit:                ; preds = %sw.bb.i, %sw.bb3.i
   %retval.0.i = phi i64 [ %shr.i2.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ]
   %cmp = icmp eq i64 %retval.0.i, 3
   %3 = load i32, ptr @use_icount, align 4
@@ -619,7 +619,7 @@ extract_trigger_type.exit:                        ; preds = %sw.bb.i, %sw.bb3.i
   %or.cond = select i1 %cmp, i1 %tobool, i1 false
   br i1 %or.cond, label %if.then, label %sw.epilog
 
-if.then:                                          ; preds = %extract_trigger_type.exit
+if.then:                                          ; preds = %extract_trigger_type.argprom.exit
   %sext.i = shl i64 %0, 32
   %idxprom.i.i = ashr exact i64 %sext.i, 32
   %arrayidx.i.i = getelementptr [2 x i64], ptr %tdata1, i64 0, i64 %idxprom.i.i
@@ -704,8 +704,8 @@ do.body:                                          ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 711, ptr noundef nonnull @__func__.tdata_csr_read, ptr noundef null) #7
   unreachable
 
-sw.epilog:                                        ; preds = %extract_trigger_type.exit, %sw.bb14, %sw.bb11, %itrigger_get_adjust_count.exit
-  %retval.0 = phi i64 [ %14, %sw.bb14 ], [ %12, %sw.bb11 ], [ %or.i, %itrigger_get_adjust_count.exit ], [ %1, %extract_trigger_type.exit ]
+sw.epilog:                                        ; preds = %extract_trigger_type.argprom.exit, %sw.bb14, %sw.bb11, %itrigger_get_adjust_count.exit
+  %retval.0 = phi i64 [ %14, %sw.bb14 ], [ %12, %sw.bb11 ], [ %or.i, %itrigger_get_adjust_count.exit ], [ %1, %extract_trigger_type.argprom.exit ]
   ret i64 %retval.0
 }
 
@@ -820,24 +820,24 @@ if.then17.i.i.i:                                  ; preds = %do.body13.i.i.i
 
 if.end19.i.i.i:                                   ; preds = %if.then17.i.i.i, %do.body13.i.i.i, %sw.bb.i19
   %cmp20.not.i.i.i = icmp eq i32 %dmode.0.i.i.i, 0
-  br i1 %cmp20.not.i.i.i, label %tdata1_validate.exit.i.i, label %do.body23.i.i.i
+  br i1 %cmp20.not.i.i.i, label %tdata1_validate.argprom.exit.i.i, label %do.body23.i.i.i
 
 do.body23.i.i.i:                                  ; preds = %if.end19.i.i.i
   %8 = load i32, ptr @qemu_loglevel, align 4
   %and.i12.i.i.i = and i32 %8, 1024
   %cmp.i13.not.i.i.i = icmp eq i32 %and.i12.i.i.i, 0
-  br i1 %cmp.i13.not.i.i.i, label %tdata1_validate.exit.i.i, label %if.then31.i.i.i
+  br i1 %cmp.i13.not.i.i.i, label %tdata1_validate.argprom.exit.i.i, label %if.then31.i.i.i
 
 if.then31.i.i.i:                                  ; preds = %do.body23.i.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16) #8
-  br label %tdata1_validate.exit.i.i
+  br label %tdata1_validate.argprom.exit.i.i
 
-tdata1_validate.exit.i.i:                         ; preds = %if.then31.i.i.i, %do.body23.i.i.i, %if.end19.i.i.i
+tdata1_validate.argprom.exit.i.i:                 ; preds = %if.then31.i.i.i, %do.body23.i.i.i, %if.end19.i.i.i
   %and.i.i.i = and i64 %val, 1920
   %tobool.not.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %warn_always_zero_bit.exit.i.i, label %do.body.i19.i.i
 
-do.body.i19.i.i:                                  ; preds = %tdata1_validate.exit.i.i
+do.body.i19.i.i:                                  ; preds = %tdata1_validate.argprom.exit.i.i
   %9 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %9, 1024
   %cmp.i.not.i20.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -847,7 +847,7 @@ if.then3.i.i.i:                                   ; preds = %do.body.i19.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.8) #8
   br label %warn_always_zero_bit.exit.i.i
 
-warn_always_zero_bit.exit.i.i:                    ; preds = %if.then3.i.i.i, %do.body.i19.i.i, %tdata1_validate.exit.i.i
+warn_always_zero_bit.exit.i.i:                    ; preds = %if.then3.i.i.i, %do.body.i19.i.i, %tdata1_validate.argprom.exit.i.i
   %and.i21.i.i = and i64 %val, 2048
   %tobool.not.i22.i.i = icmp eq i64 %and.i21.i.i, 0
   br i1 %tobool.not.i22.i.i, label %warn_always_zero_bit.exit27.i.i, label %do.body.i23.i.i
@@ -1173,24 +1173,24 @@ if.then17.i.i.i46:                                ; preds = %do.body13.i.i.i43
 
 if.end19.i.i.i47:                                 ; preds = %if.then17.i.i.i46, %do.body13.i.i.i43, %sw.bb.i31
   %cmp20.not.i.i.i48 = icmp eq i32 %dmode.0.i.i.i41, 0
-  br i1 %cmp20.not.i.i.i48, label %tdata1_validate.exit.i.i53, label %do.body23.i.i.i49
+  br i1 %cmp20.not.i.i.i48, label %tdata1_validate.argprom.exit.i.i53, label %do.body23.i.i.i49
 
 do.body23.i.i.i49:                                ; preds = %if.end19.i.i.i47
   %45 = load i32, ptr @qemu_loglevel, align 4
   %and.i12.i.i.i50 = and i32 %45, 1024
   %cmp.i13.not.i.i.i51 = icmp eq i32 %and.i12.i.i.i50, 0
-  br i1 %cmp.i13.not.i.i.i51, label %tdata1_validate.exit.i.i53, label %if.then31.i.i.i52
+  br i1 %cmp.i13.not.i.i.i51, label %tdata1_validate.argprom.exit.i.i53, label %if.then31.i.i.i52
 
 if.then31.i.i.i52:                                ; preds = %do.body23.i.i.i49
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16) #8
-  br label %tdata1_validate.exit.i.i53
+  br label %tdata1_validate.argprom.exit.i.i53
 
-tdata1_validate.exit.i.i53:                       ; preds = %if.then31.i.i.i52, %do.body23.i.i.i49, %if.end19.i.i.i47
+tdata1_validate.argprom.exit.i.i53:               ; preds = %if.then31.i.i.i52, %do.body23.i.i.i49, %if.end19.i.i.i47
   %and.i.i.i54 = and i64 %val, 1920
   %tobool.not.i.i.i55 = icmp eq i64 %and.i.i.i54, 0
   br i1 %tobool.not.i.i.i55, label %warn_always_zero_bit.exit.i.i58, label %do.body.i13.i.i
 
-do.body.i13.i.i:                                  ; preds = %tdata1_validate.exit.i.i53
+do.body.i13.i.i:                                  ; preds = %tdata1_validate.argprom.exit.i.i53
   %46 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i56 = and i32 %46, 1024
   %cmp.i.not.i14.i.i = icmp eq i32 %and.i.i.i.i56, 0
@@ -1200,7 +1200,7 @@ if.then3.i.i.i57:                                 ; preds = %do.body.i13.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.8) #8
   br label %warn_always_zero_bit.exit.i.i58
 
-warn_always_zero_bit.exit.i.i58:                  ; preds = %if.then3.i.i.i57, %do.body.i13.i.i, %tdata1_validate.exit.i.i53
+warn_always_zero_bit.exit.i.i58:                  ; preds = %if.then3.i.i.i57, %do.body.i13.i.i, %tdata1_validate.argprom.exit.i.i53
   %and.i15.i.i = and i64 %val, 2048
   %tobool.not.i16.i.i = icmp eq i64 %and.i15.i.i, 0
   br i1 %tobool.not.i16.i.i, label %warn_always_zero_bit.exit21.i.i, label %do.body.i17.i.i
@@ -1289,18 +1289,18 @@ do.body.i.i62:                                    ; preds = %warn_always_zero_bi
   %54 = load i32, ptr @qemu_loglevel, align 4
   %and.i51.i.i = and i32 %54, 1024
   %cmp.i.not.i.i = icmp eq i32 %and.i51.i.i, 0
-  br i1 %cmp.i.not.i.i, label %type6_mcontrol6_validate.exit.i, label %if.then6.i.i
+  br i1 %cmp.i.not.i.i, label %type6_mcontrol6_validate.argprom.exit.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %do.body.i.i62
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %and.i50.i.i) #8
-  br label %type6_mcontrol6_validate.exit.i
+  br label %type6_mcontrol6_validate.argprom.exit.i
 
 if.else.i.i87:                                    ; preds = %warn_always_zero_bit.exit49.i.i
   %and.i.i88 = and i64 %val, 983040
   %or.i.i89 = or disjoint i64 %tdata1.0.i.i.i40, %and.i.i88
-  br label %type6_mcontrol6_validate.exit.i
+  br label %type6_mcontrol6_validate.argprom.exit.i
 
-type6_mcontrol6_validate.exit.i:                  ; preds = %if.else.i.i87, %if.then6.i.i, %do.body.i.i62
+type6_mcontrol6_validate.argprom.exit.i:          ; preds = %if.else.i.i87, %if.then6.i.i, %do.body.i.i62
   %val.0.i.i63 = phi i64 [ %tdata1.0.i.i.i40, %if.then6.i.i ], [ %tdata1.0.i.i.i40, %do.body.i.i62 ], [ %or.i.i89, %if.else.i.i87 ]
   %and8.i.i64 = and i64 %val, 25165919
   %or9.i.i = or i64 %val.0.i.i63, %and8.i.i64
@@ -1310,7 +1310,7 @@ type6_mcontrol6_validate.exit.i:                  ; preds = %if.else.i.i87, %if.
   %cmp.not.i67 = icmp eq i64 %or9.i.i, %55
   br i1 %cmp.not.i67, label %sw.epilog, label %if.then.i68
 
-if.then.i68:                                      ; preds = %type6_mcontrol6_validate.exit.i
+if.then.i68:                                      ; preds = %type6_mcontrol6_validate.argprom.exit.i
   store i64 %or9.i.i, ptr %arrayidx.i66, align 8
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %cpu_breakpoint.i.i.i = getelementptr inbounds i8, ptr %env, i64 8408
@@ -1502,24 +1502,24 @@ if.then17.i.i.i113:                               ; preds = %do.body13.i.i.i110
 
 if.end19.i.i.i114:                                ; preds = %if.then17.i.i.i113, %do.body13.i.i.i110, %sw.bb.i98
   %cmp20.not.i.i.i115 = icmp eq i32 %dmode.0.i.i.i108, 0
-  br i1 %cmp20.not.i.i.i115, label %tdata1_validate.exit.i.i120, label %do.body23.i.i.i116
+  br i1 %cmp20.not.i.i.i115, label %tdata1_validate.argprom.exit.i.i120, label %do.body23.i.i.i116
 
 do.body23.i.i.i116:                               ; preds = %if.end19.i.i.i114
   %75 = load i32, ptr @qemu_loglevel, align 4
   %and.i12.i.i.i117 = and i32 %75, 1024
   %cmp.i13.not.i.i.i118 = icmp eq i32 %and.i12.i.i.i117, 0
-  br i1 %cmp.i13.not.i.i.i118, label %tdata1_validate.exit.i.i120, label %if.then31.i.i.i119
+  br i1 %cmp.i13.not.i.i.i118, label %tdata1_validate.argprom.exit.i.i120, label %if.then31.i.i.i119
 
 if.then31.i.i.i119:                               ; preds = %do.body23.i.i.i116
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16) #8
-  br label %tdata1_validate.exit.i.i120
+  br label %tdata1_validate.argprom.exit.i.i120
 
-tdata1_validate.exit.i.i120:                      ; preds = %if.then31.i.i.i119, %do.body23.i.i.i116, %if.end19.i.i.i114
+tdata1_validate.argprom.exit.i.i120:              ; preds = %if.then31.i.i.i119, %do.body23.i.i.i116, %if.end19.i.i.i114
   %and.i.i.i121 = and i64 %val, 63
   %tobool.not.i.i.i122 = icmp eq i64 %and.i.i.i121, 0
   br i1 %tobool.not.i.i.i122, label %warn_always_zero_bit.exit.i.i125, label %do.body.i6.i.i
 
-do.body.i6.i.i:                                   ; preds = %tdata1_validate.exit.i.i120
+do.body.i6.i.i:                                   ; preds = %tdata1_validate.argprom.exit.i.i120
   %76 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i123 = and i32 %76, 1024
   %cmp.i.not.i7.i.i = icmp eq i32 %and.i.i.i.i123, 0
@@ -1529,7 +1529,7 @@ if.then3.i.i.i124:                                ; preds = %do.body.i6.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.10) #8
   br label %warn_always_zero_bit.exit.i.i125
 
-warn_always_zero_bit.exit.i.i125:                 ; preds = %if.then3.i.i.i124, %do.body.i6.i.i, %tdata1_validate.exit.i.i120
+warn_always_zero_bit.exit.i.i125:                 ; preds = %if.then3.i.i.i124, %do.body.i6.i.i, %tdata1_validate.argprom.exit.i.i120
   %and.i8.i.i = and i64 %val, 16777216
   %tobool.not.i9.i.i = icmp eq i64 %and.i8.i.i, 0
   br i1 %tobool.not.i9.i.i, label %warn_always_zero_bit.exit14.i.i, label %do.body.i10.i.i
@@ -1547,19 +1547,19 @@ if.then3.i13.i.i:                                 ; preds = %do.body.i10.i.i
 warn_always_zero_bit.exit14.i.i:                  ; preds = %if.then3.i13.i.i, %do.body.i10.i.i, %warn_always_zero_bit.exit.i.i125
   %and.i15.i.i126 = and i64 %val, 256
   %tobool.not.i16.i.i127 = icmp eq i64 %and.i15.i.i126, 0
-  br i1 %tobool.not.i16.i.i127, label %itrigger_validate.exit.i, label %do.body.i17.i.i128
+  br i1 %tobool.not.i16.i.i127, label %itrigger_validate.argprom.exit.i, label %do.body.i17.i.i128
 
 do.body.i17.i.i128:                               ; preds = %warn_always_zero_bit.exit14.i.i
   %78 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i18.i.i129 = and i32 %78, 1024
   %cmp.i.not.i19.i.i130 = icmp eq i32 %and.i.i18.i.i129, 0
-  br i1 %cmp.i.not.i19.i.i130, label %itrigger_validate.exit.i, label %if.then3.i20.i.i131
+  br i1 %cmp.i.not.i19.i.i130, label %itrigger_validate.argprom.exit.i, label %if.then3.i20.i.i131
 
 if.then3.i20.i.i131:                              ; preds = %do.body.i17.i.i128
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.21) #8
-  br label %itrigger_validate.exit.i
+  br label %itrigger_validate.argprom.exit.i
 
-itrigger_validate.exit.i:                         ; preds = %if.then3.i20.i.i131, %do.body.i17.i.i128, %warn_always_zero_bit.exit14.i.i
+itrigger_validate.argprom.exit.i:                 ; preds = %if.then3.i20.i.i131, %do.body.i17.i.i128, %warn_always_zero_bit.exit14.i.i
   %and.i.i132 = and i64 %val, 117440192
   %or.i.i133 = or disjoint i64 %tdata1.0.i.i.i107, %and.i.i132
   %tdata1.i134 = getelementptr inbounds i8, ptr %env, i64 8360
@@ -1568,7 +1568,7 @@ itrigger_validate.exit.i:                         ; preds = %if.then3.i20.i.i131
   %cmp.not.i136 = icmp eq i64 %or.i.i133, %79
   br i1 %cmp.not.i136, label %sw.epilog, label %if.then.i137
 
-if.then.i137:                                     ; preds = %itrigger_validate.exit.i
+if.then.i137:                                     ; preds = %itrigger_validate.argprom.exit.i
   store i64 %or.i.i133, ptr %arrayidx.i135, align 8
   %80 = load i32, ptr @use_icount, align 4
   %tobool.not.i = icmp eq i32 %80, 0
@@ -1646,7 +1646,7 @@ do.body26:                                        ; preds = %if.end
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 747, ptr noundef nonnull @__func__.tdata_csr_write, ptr noundef null) #7
   unreachable
 
-sw.epilog:                                        ; preds = %if.then27.i, %do.body19.i, %if.then16.i, %do.body.i96, %if.else.i, %if.then3.i, %itrigger_validate.exit.i, %if.then13.i25, %do.body.i23, %if.then19.i59.i, %if.end7.i52.i, %type6_breakpoint_remove.exit35.i, %sw.bb3.i26, %if.then19.i.i85, %if.end7.i.i79, %type6_breakpoint_remove.exit.i, %type6_mcontrol6_validate.exit.i, %if.then13.i, %do.body.i17, %if.then19.i68.i, %if.end7.i61.i, %type2_breakpoint_remove.exit44.i, %sw.bb3.i18, %if.then19.i.i, %if.end7.i.i, %type2_breakpoint_remove.exit.i, %type2_mcontrol_validate.exit.i, %if.then23, %do.body15, %if.then12, %do.body
+sw.epilog:                                        ; preds = %if.then27.i, %do.body19.i, %if.then16.i, %do.body.i96, %if.else.i, %if.then3.i, %itrigger_validate.argprom.exit.i, %if.then13.i25, %do.body.i23, %if.then19.i59.i, %if.end7.i52.i, %type6_breakpoint_remove.exit35.i, %sw.bb3.i26, %if.then19.i.i85, %if.end7.i.i79, %type6_breakpoint_remove.exit.i, %type6_mcontrol6_validate.argprom.exit.i, %if.then13.i, %do.body.i17, %if.then19.i68.i, %if.end7.i61.i, %type2_breakpoint_remove.exit44.i, %sw.bb3.i18, %if.then19.i.i, %if.end7.i.i, %type2_breakpoint_remove.exit.i, %type2_mcontrol_validate.exit.i, %if.then23, %do.body15, %if.then12, %do.body
   ret void
 }
 

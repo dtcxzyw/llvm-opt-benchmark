@@ -149,7 +149,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.i:      ; preds = %do.body.i.i.i, %ret
   %query.val8.i = load i32, ptr %len.i, align 4
   call void @llvm.lifetime.start.p0(i64 1048, ptr nonnull %eight_bit.i.i)
   %cmp2.i.i.i = icmp slt i32 %query.val8.i, 1
-  br i1 %cmp2.i.i.i, label %_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.exit.i, label %for.body.preheader.i.i.i
+  br i1 %cmp2.i.i.i, label %_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.argprom.exit.i, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
   %add.i.i.i.i = add nsw i32 %query.val8.i, %query.val.i
@@ -233,7 +233,7 @@ return.sink.split.i.i.i.i:                        ; preds = %if.end5.i.i.i.i, %i
 for.inc.i.i.i:                                    ; preds = %do.body.i.i.i.i.i, %return.sink.split.i.i.i.i, %if.then.i.i.i
   %indvars.iv.next.i18.i.i = add nuw nsw i64 %indvars.iv.i16.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i18.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.exit.i, label %for.body.i15.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.argprom.exit.i, label %for.body.i15.i.i, !llvm.loop !8
 
 if.else.i.i:                                      ; preds = %for.body.i.i.i
   %tobool.not.i.i = icmp eq ptr %converter, null
@@ -379,11 +379,11 @@ invoke.cont5.i.i:                                 ; preds = %invoke.cont5.loopex
   %cmp.not.i.i.i.i = icmp eq ptr %36, %fixed_buffer_.i.i.i.i
   %isnull.i.i.i.i = icmp eq ptr %36, null
   %or.cond.i.i.i.i = or i1 %cmp.not.i.i.i.i, %isnull.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.exit.i, label %delete.notnull.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.argprom.exit.i, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %invoke.cont5.i.i
   call void @_ZdaPv(ptr noundef nonnull %36) #8
-  br label %_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.exit.i
+  br label %_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.argprom.exit.i
 
 lpad.i.i:                                         ; preds = %if.end5.i.i47.i.i, %if.then.i56.i.i
   %37 = landingpad { ptr, i32 }
@@ -409,9 +409,9 @@ _ZN3url14RawCanonOutputILi1024EED2Ev.exit66.i.i:  ; preds = %delete.notnull.i.i6
 if.else6.i.i:                                     ; preds = %if.else.i.i
   %arrayidx9.i12.i = getelementptr inbounds i8, ptr %spec, i64 %7
   tail call void @_ZN3url18AppendStringOfTypeEPKciNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %arrayidx9.i12.i, i32 noundef %query.val8.i, i32 noundef 1, ptr noundef %output)
-  br label %_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.exit.i
+  br label %_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.argprom.exit.i
 
-_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.exit.i: ; preds = %for.inc.i.i.i, %if.else6.i.i, %delete.notnull.i.i.i.i, %invoke.cont5.i.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
+_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.argprom.exit.i: ; preds = %for.inc.i.i.i, %if.else6.i.i, %delete.notnull.i.i.i.i, %invoke.cont5.i.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %eight_bit.i.i)
   %39 = load i32, ptr %cur_len_.i.i, align 4
   %40 = load i32, ptr %out_query, align 4
@@ -420,7 +420,7 @@ _ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16C
   store i32 %sub.i, ptr %len3.i, align 4
   br label %_ZN3url12_GLOBAL__N_119DoCanonicalizeQueryIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS5_.exit
 
-_ZN3url12_GLOBAL__N_119DoCanonicalizeQueryIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS5_.exit: ; preds = %if.then.i, %_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.exit.i
+_ZN3url12_GLOBAL__N_119DoCanonicalizeQueryIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS5_.exit: ; preds = %if.then.i, %_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.argprom.exit.i
   ret void
 }
 
@@ -484,7 +484,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.i:      ; preds = %do.body.i.i.i, %ret
   store i32 %6, ptr %out_query, align 4
   %query.val.i = load i32, ptr %query, align 4
   %query.val8.i = load i32, ptr %len.i, align 4
-  tail call fastcc void @_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIttEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE(ptr noundef %spec, i32 %query.val.i, i32 %query.val8.i, ptr noundef %converter, ptr noundef nonnull %output)
+  tail call fastcc void @_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIttEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.argprom(ptr noundef %spec, i32 %query.val.i, i32 %query.val8.i, ptr noundef %converter, ptr noundef nonnull %output)
   %7 = load i32, ptr %cur_len_.i.i, align 4
   %8 = load i32, ptr %out_query, align 4
   %sub.i = sub nsw i32 %7, %8
@@ -502,12 +502,12 @@ entry:
   %query.val = load i32, ptr %query, align 4
   %0 = getelementptr inbounds i8, ptr %query, i64 4
   %query.val1 = load i32, ptr %0, align 4
-  tail call fastcc void @_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIttEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE(ptr noundef %input, i32 %query.val, i32 %query.val1, ptr noundef %converter, ptr noundef %output)
+  tail call fastcc void @_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIttEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.argprom(ptr noundef %input, i32 %query.val, i32 %query.val1, ptr noundef %converter, ptr noundef %output)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIttEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE(ptr noundef %spec, i32 %query.0.val, i32 %query.4.val, ptr noundef %converter, ptr noundef %output) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIttEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.argprom(ptr noundef %spec, i32 %query.0.val, i32 %query.4.val, ptr noundef %converter, ptr noundef %output) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %eight_bit = alloca %"class.url::RawCanonOutput", align 8
   %cmp2.i = icmp slt i32 %query.4.val, 1

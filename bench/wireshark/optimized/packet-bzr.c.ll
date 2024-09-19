@@ -102,7 +102,7 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %14 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.02631, i32 noundef -1, ptr noundef nonnull %6, i32 noundef 1) #3
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %get_bzr_pdu_len.exit.thread, label %16
+  br i1 %15, label %get_bzr_pdu_len.argprom.exit.thread, label %16
 
 16:                                               ; preds = %13
   %17 = add nuw i32 %14, 1
@@ -111,13 +111,13 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %20 = add i32 %14, 5
   %21 = add i32 %20, %19
   %22 = icmp sgt i32 %17, %21
-  br i1 %22, label %get_bzr_pdu_len.exit.thread, label %.preheader.i
+  br i1 %22, label %get_bzr_pdu_len.argprom.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %16
   %23 = add i32 %21, %.02631
   %24 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %23) #3
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph.i, label %get_bzr_pdu_len.exit.thread
+  br i1 %25, label %.lr.ph.i, label %get_bzr_pdu_len.argprom.exit.thread
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %37
   %26 = phi i32 [ %38, %37 ], [ %23, %.preheader.i ]
@@ -128,7 +128,7 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
     i8 115, label %29
     i8 98, label %29
     i8 111, label %35
-    i8 101, label %get_bzr_pdu_len.exit
+    i8 101, label %get_bzr_pdu_len.argprom.exit
   ]
 
 29:                                               ; preds = %.lr.ph.i, %.lr.ph.i
@@ -137,7 +137,7 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %32 = add i32 %.0271.i, 5
   %33 = add i32 %32, %31
   %34 = icmp sgt i32 %28, %33
-  br i1 %34, label %get_bzr_pdu_len.exit.thread, label %37
+  br i1 %34, label %get_bzr_pdu_len.argprom.exit.thread, label %37
 
 35:                                               ; preds = %.lr.ph.i
   %36 = add i32 %.0271.i, 2
@@ -148,18 +148,18 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %38 = add i32 %.1.i, %.02631
   %39 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %38) #3
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph.i, label %get_bzr_pdu_len.exit.thread, !llvm.loop !4
+  br i1 %40, label %.lr.ph.i, label %get_bzr_pdu_len.argprom.exit.thread, !llvm.loop !4
 
-get_bzr_pdu_len.exit.thread:                      ; preds = %29, %37, %13, %16, %.preheader.i
+get_bzr_pdu_len.argprom.exit.thread:              ; preds = %29, %37, %13, %16, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %42
 
-get_bzr_pdu_len.exit:                             ; preds = %.lr.ph.i
+get_bzr_pdu_len.argprom.exit:                     ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %41 = icmp eq i32 %28, -1
   br i1 %41, label %42, label %52
 
-42:                                               ; preds = %get_bzr_pdu_len.exit.thread, %get_bzr_pdu_len.exit
+42:                                               ; preds = %get_bzr_pdu_len.argprom.exit.thread, %get_bzr_pdu_len.argprom.exit
   %43 = load i16, ptr %12, align 8
   %44 = icmp ne i16 %43, 0
   %45 = load i32, ptr @bzr_desegment, align 4
@@ -178,8 +178,8 @@ get_bzr_pdu_len.exit:                             ; preds = %.lr.ph.i
   %51 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.02631) #3
   br label %52
 
-52:                                               ; preds = %50, %get_bzr_pdu_len.exit
-  %.025 = phi i32 [ %51, %50 ], [ %28, %get_bzr_pdu_len.exit ]
+52:                                               ; preds = %50, %get_bzr_pdu_len.argprom.exit
+  %.025 = phi i32 [ %51, %50 ], [ %28, %get_bzr_pdu_len.argprom.exit ]
   %53 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.02631, i32 noundef %.025) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
@@ -213,7 +213,7 @@ get_bzr_pdu_len.exit:                             ; preds = %.lr.ph.i
   %74 = load i32, ptr %5, align 4
   %75 = add i32 %74, %73
   store i32 %75, ptr %5, align 4
-  call fastcc void @dissect_body(ptr noundef %53, i32 noundef %75, ptr noundef %1, ptr noundef null)
+  call fastcc void @dissect_body.retelim(ptr noundef %53, i32 noundef %75, ptr noundef %1, ptr noundef null)
   br label %dissect_bzr_pdu.exit
 
 .split15.i:                                       ; preds = %60
@@ -237,7 +237,7 @@ get_bzr_pdu_len.exit:                             ; preds = %.lr.ph.i
   %92 = load i32, ptr %5, align 4
   %93 = add i32 %92, %91
   store i32 %93, ptr %5, align 4
-  call fastcc void @dissect_body(ptr noundef %53, i32 noundef %93, ptr noundef %1, ptr noundef nonnull %57)
+  call fastcc void @dissect_body.retelim(ptr noundef %53, i32 noundef %93, ptr noundef %1, ptr noundef nonnull %57)
   br label %dissect_bzr_pdu.exit
 
 dissect_bzr_pdu.exit:                             ; preds = %52, %.split.i, %.split15.i
@@ -293,7 +293,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_body(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_body.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #3
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge

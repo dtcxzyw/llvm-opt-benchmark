@@ -3489,7 +3489,7 @@ land.lhs.true.i:                                  ; preds = %if.then22.i
   br i1 %tobool44.old.not.i, label %if.then45.i, label %if.end54.i
 
 if.then45.i:                                      ; preds = %land.lhs.true.i, %_ZL13mayHaveParentPc.exit.i
-  %call49.i = invoke fastcc noundef signext i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %t1.i, ptr noundef %name.i, ptr noundef nonnull %status)
+  %call49.i = invoke fastcc noundef signext i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(8) %t1.i, ptr noundef %name.i, ptr noundef nonnull %status)
           to label %invoke.cont48.i unwind label %lpad.i
 
 invoke.cont48.i:                                  ; preds = %if.then45.i
@@ -3550,7 +3550,7 @@ land.lhs.true79.i:                                ; preds = %if.then72.i
   br i1 %tobool80.old.not.i, label %if.then81.i, label %finish.loopexit.i
 
 if.then81.i:                                      ; preds = %land.lhs.true79.i, %_ZL13mayHaveParentPc.exit61.i
-  %call85.i = invoke fastcc noundef signext i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %t1.i, ptr noundef %name.i, ptr noundef nonnull %status)
+  %call85.i = invoke fastcc noundef signext i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(8) %t1.i, ptr noundef %name.i, ptr noundef nonnull %status)
           to label %invoke.cont84.i unwind label %lpad.i
 
 invoke.cont84.i:                                  ; preds = %if.then81.i
@@ -3830,7 +3830,7 @@ lor.lhs.false.i65:                                ; preds = %if.then26.i
   br i1 %cmp33.i, label %if.then39.i, label %lor.lhs.false34.i
 
 lor.lhs.false34.i:                                ; preds = %lor.lhs.false.i65
-  %call37.i = invoke fastcc noundef signext i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %t1.i41, ptr noundef %name.i42, ptr noundef nonnull %status)
+  %call37.i = invoke fastcc noundef signext i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(8) %t1.i41, ptr noundef %name.i42, ptr noundef nonnull %status)
           to label %invoke.cont36.i unwind label %lpad.i55
 
 invoke.cont36.i:                                  ; preds = %lor.lhs.false34.i
@@ -7754,7 +7754,7 @@ return:                                           ; preds = %if.end93.thread, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(8) %t1, ptr noundef nonnull %name, ptr nocapture noundef %status) unnamed_addr #1 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode.argprom.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(8) %t1, ptr noundef nonnull %name, ptr nocapture noundef %status) unnamed_addr #1 {
 entry:
   %parentLocaleLen = alloca i32, align 4
   %parentStatus = alloca i32, align 4

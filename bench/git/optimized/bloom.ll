@@ -293,7 +293,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i, %if.en
   %arrayidx15.i.i = getelementptr inbounds ptr, ptr %5, i64 %idxprom14.i.i
   %6 = load ptr, ptr %arrayidx15.i.i, align 8
   %tobool16.not.i.i = icmp eq ptr %6, null
-  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %bloom_filter_slab_at.exit
+  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %bloom_filter_slab_at.argprom.exit
 
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %.b = load i1, ptr @bloom_filters.0, align 8
@@ -304,9 +304,9 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
   %7 = load ptr, ptr @bloom_filters.3, align 8
   %arrayidx27.i.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom14.i.i
   store ptr %call24.i.i, ptr %arrayidx27.i.i, align 8
-  br label %bloom_filter_slab_at.exit
+  br label %bloom_filter_slab_at.argprom.exit
 
-bloom_filter_slab_at.exit:                        ; preds = %if.end12.i.i, %if.end20.i.i
+bloom_filter_slab_at.argprom.exit:                ; preds = %if.end12.i.i, %if.end20.i.i
   %8 = phi ptr [ %6, %if.end12.i.i ], [ %call24.i.i, %if.end20.i.i ]
   %.b138 = load i1, ptr @bloom_filters.1, align 8
   %9 = zext nneg i32 %rem.i.i to i64
@@ -316,7 +316,7 @@ bloom_filter_slab_at.exit:                        ; preds = %if.end12.i.i, %if.e
   %tobool4.not = icmp eq ptr %10, null
   br i1 %tobool4.not, label %if.then5, label %land.lhs.true
 
-if.then5:                                         ; preds = %bloom_filter_slab_at.exit
+if.then5:                                         ; preds = %bloom_filter_slab_at.argprom.exit
   %call6 = call i32 @repo_find_commit_pos_in_graph(ptr noundef %r, ptr noundef %c, ptr noundef nonnull %graph_pos) #14
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.end11, label %if.then8
@@ -455,7 +455,7 @@ if.end11:                                         ; preds = %if.then20.i, %check
   %tobool13.not = icmp eq ptr %.pr, null
   br i1 %tobool13.not, label %if.end16, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %bloom_filter_slab_at.exit, %if.end25.i, %if.end11
+land.lhs.true:                                    ; preds = %bloom_filter_slab_at.argprom.exit, %if.end25.i, %if.end11
   %len = getelementptr inbounds i8, ptr %arrayidx35.i.i, i64 8
   %31 = load i64, ptr %len, align 8
   %tobool14.not = icmp eq i64 %31, 0
@@ -508,7 +508,7 @@ for.cond93.preheader:                             ; preds = %if.end28
 if.then30:                                        ; preds = %if.end28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pathmap, ptr noundef nonnull align 8 dereferenceable(48) @__const.get_or_compute_bloom_filter.pathmap, i64 48, i1 false)
   %cmp31109 = icmp sgt i32 %35, 0
-  br i1 %cmp31109, label %for.body, label %hashmap_get_size.exit80
+  br i1 %cmp31109, label %for.body, label %hashmap_get_size.argprom.exit80
 
 for.body:                                         ; preds = %if.then30, %do.end53
   %indvars.iv = phi i64 [ %indvars.iv.next, %do.end53 ], [ 0, %if.then30 ]
@@ -584,20 +584,20 @@ for.end:                                          ; preds = %do.end53
   %pathmap.val58.pre = load i8, ptr %.phi.trans.insert124, align 8
   %46 = and i8 %pathmap.val58.pre, 1
   %47 = icmp eq i8 %46, 0
-  br i1 %47, label %if.end.i73, label %hashmap_get_size.exit
+  br i1 %47, label %if.end.i73, label %hashmap_get_size.argprom.exit
 
 if.end.i73:                                       ; preds = %for.end
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.5, i32 noundef 308, ptr noundef nonnull @.str.6) #16
   unreachable
 
-hashmap_get_size.exit:                            ; preds = %for.end
+hashmap_get_size.argprom.exit:                    ; preds = %for.end
   %.phi.trans.insert = getelementptr inbounds i8, ptr %pathmap, i64 24
   %pathmap.val.pre = load i32, ptr %.phi.trans.insert, align 8
   %48 = load i32, ptr %max_changed_paths, align 4
   %cmp58 = icmp ugt i32 %pathmap.val.pre, %48
-  br i1 %cmp58, label %if.then59, label %hashmap_get_size.exit80
+  br i1 %cmp58, label %if.then59, label %hashmap_get_size.argprom.exit80
 
-if.then59:                                        ; preds = %hashmap_get_size.exit
+if.then59:                                        ; preds = %hashmap_get_size.argprom.exit
   %call.i74 = call ptr @xmalloc(i64 noundef 1) #14
   store ptr %call.i74, ptr %arrayidx35.i.i, align 8
   store i8 -1, ptr %call.i74, align 1
@@ -616,8 +616,8 @@ if.end106.thread104:                              ; preds = %if.then59
   call void @hashmap_clear_(ptr noundef nonnull %pathmap, i64 noundef 0) #14
   br label %if.then108
 
-hashmap_get_size.exit80:                          ; preds = %if.then30, %hashmap_get_size.exit
-  %pathmap.val128131 = phi i32 [ %pathmap.val.pre, %hashmap_get_size.exit ], [ 0, %if.then30 ]
+hashmap_get_size.argprom.exit80:                  ; preds = %if.then30, %hashmap_get_size.argprom.exit
+  %pathmap.val128131 = phi i32 [ %pathmap.val.pre, %hashmap_get_size.argprom.exit ], [ 0, %if.then30 ]
   %bits_per_entry = getelementptr inbounds i8, ptr %settings, i64 8
   %50 = load i32, ptr %bits_per_entry, align 4
   %mul = mul i32 %50, %pathmap.val128131
@@ -629,7 +629,7 @@ hashmap_get_size.exit80:                          ; preds = %if.then30, %hashmap
   %tobool67.not = icmp ult i32 %sub, 8
   br i1 %tobool67.not, label %if.then68, label %if.end74
 
-if.then68:                                        ; preds = %hashmap_get_size.exit80
+if.then68:                                        ; preds = %hashmap_get_size.argprom.exit80
   br i1 %tobool.not, label %if.end72, label %if.then70
 
 if.then70:                                        ; preds = %if.then68
@@ -642,8 +642,8 @@ if.end72:                                         ; preds = %if.then70, %if.then
   store i64 1, ptr %len65, align 8
   br label %if.end74
 
-if.end74:                                         ; preds = %if.end72, %hashmap_get_size.exit80
-  %52 = phi i64 [ 1, %if.end72 ], [ %conv, %hashmap_get_size.exit80 ]
+if.end74:                                         ; preds = %if.end72, %hashmap_get_size.argprom.exit80
+  %52 = phi i64 [ 1, %if.end72 ], [ %conv, %hashmap_get_size.argprom.exit80 ]
   %call76 = call ptr @xcalloc(i64 noundef %52, i64 noundef 1) #14
   store ptr %call76, ptr %arrayidx35.i.i, align 8
   call void @hashmap_iter_init(ptr noundef nonnull %pathmap, ptr noundef nonnull %iter) #14

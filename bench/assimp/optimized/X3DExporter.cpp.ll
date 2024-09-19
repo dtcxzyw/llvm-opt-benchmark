@@ -2747,7 +2747,7 @@ invoke.cont26:                                    ; preds = %land.lhs.true.i
 if.then28:                                        ; preds = %if.end23.if.then28_crit_edge, %land.lhs.true.i, %invoke.cont26
   %agg.tmp30.sroa.2.0.copyload = phi float [ %agg.tmp30.sroa.2.0.copyload.pre, %if.end23.if.then28_crit_edge ], [ %agg.tmp30.sroa.2.0.copyload.pre159, %land.lhs.true.i ], [ %agg.tmp30.sroa.2.0.copyload.pre159, %invoke.cont26 ]
   %agg.tmp30.sroa.0.0.copyload = load <2 x float>, ptr %scale, align 8
-  invoke fastcc void @"_ZZN6Assimp11X3DExporter11Export_NodeEPK6aiNodemENK3$_1clB5cxx11E10aiVector3tIfE"(ptr noalias align 8 %ref.tmp29, <2 x float> %agg.tmp30.sroa.0.0.copyload, float %agg.tmp30.sroa.2.0.copyload)
+  invoke fastcc void @"_ZZN6Assimp11X3DExporter11Export_NodeEPK6aiNodemENK3$_1clB5cxx11E10aiVector3tIfE.argprom.argprom"(ptr noalias align 8 %ref.tmp29, <2 x float> %agg.tmp30.sroa.0.0.copyload, float %agg.tmp30.sroa.2.0.copyload)
           to label %invoke.cont31 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont31:                                    ; preds = %if.then28
@@ -2795,7 +2795,7 @@ invoke.cont36:                                    ; preds = %invoke.cont26, %inv
 
 if.then39:                                        ; preds = %invoke.cont36
   %agg.tmp41.sroa.0.0.copyload = load <2 x float>, ptr %translate, align 8
-  invoke fastcc void @"_ZZN6Assimp11X3DExporter11Export_NodeEPK6aiNodemENK3$_1clB5cxx11E10aiVector3tIfE"(ptr noalias align 8 %ref.tmp40, <2 x float> %agg.tmp41.sroa.0.0.copyload, float %42)
+  invoke fastcc void @"_ZZN6Assimp11X3DExporter11Export_NodeEPK6aiNodemENK3$_1clB5cxx11E10aiVector3tIfE.argprom.argprom"(ptr noalias align 8 %ref.tmp40, <2 x float> %agg.tmp41.sroa.0.0.copyload, float %42)
           to label %invoke.cont42 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont42:                                    ; preds = %if.then39
@@ -4280,7 +4280,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN6Assimp11X3DExporter11Export_NodeEPK6aiNodemENK3$_1clB5cxx11E10aiVector3tIfE"(ptr noalias nonnull align 8 %agg.result, <2 x float> %pVector.coerce0, float %pVector.coerce1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN6Assimp11X3DExporter11Export_NodeEPK6aiNodemENK3$_1clB5cxx11E10aiVector3tIfE.argprom.argprom"(ptr noalias nonnull align 8 %agg.result, <2 x float> %pVector.coerce0, float %pVector.coerce1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12336,8 +12336,8 @@ attributes #27 = { nounwind willreturn memory(read) }
 !40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
 !42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZZN6Assimp11X3DExporter11Export_NodeEPK6aiNodemENK3$_0clB5cxx11E10aiVector3tIfEf: %agg.result"}
-!44 = distinct !{!44, !"_ZZN6Assimp11X3DExporter11Export_NodeEPK6aiNodemENK3$_0clB5cxx11E10aiVector3tIfEf"}
+!43 = distinct !{!43, !44, !"_ZZN6Assimp11X3DExporter11Export_NodeEPK6aiNodemENK3$_0clB5cxx11E10aiVector3tIfEf.argprom.argprom: %agg.result"}
+!44 = distinct !{!44, !"_ZZN6Assimp11X3DExporter11Export_NodeEPK6aiNodemENK3$_0clB5cxx11E10aiVector3tIfEf.argprom.argprom"}
 !45 = !{!46, !43}
 !46 = distinct !{!46, !47, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
 !47 = distinct !{!47, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}

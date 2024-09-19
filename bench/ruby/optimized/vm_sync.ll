@@ -15,7 +15,7 @@ define hidden zeroext i1 @rb_vm_locked_p() local_unnamed_addr #0 {
   %.val = load ptr, ptr %2, align 8
   %3 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i.i, label %4, label %vm_locked.exit
+  br i1 %.not.i.i.i, label %4, label %vm_locked.argprom.exit
 
 4:                                                ; preds = %0
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -23,14 +23,14 @@ define hidden zeroext i1 @rb_vm_locked_p() local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %6, i64 48
   %.val.i.i.i = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i, label %vm_locked.exit, label %8
+  br i1 %.not.i.i.i.i, label %vm_locked.argprom.exit, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
   %10 = load ptr, ptr %9, align 8
-  br label %vm_locked.exit
+  br label %vm_locked.argprom.exit
 
-vm_locked.exit:                                   ; preds = %0, %4, %8
+vm_locked.argprom.exit:                           ; preds = %0, %4, %8
   %.0.i.i.i = phi ptr [ %3, %0 ], [ %10, %8 ], [ null, %4 ]
   %11 = icmp eq ptr %.val, %.0.i.i.i
   ret i1 %11
@@ -43,7 +43,7 @@ define hidden void @rb_vm_lock_enter_body(ptr nocapture noundef writeonly %0) lo
   %.val = load ptr, ptr %3, align 8
   %4 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i, label %5, label %vm_locked.exit.thread
+  br i1 %.not.i.i.i, label %5, label %vm_locked.argprom.exit.thread
 
 5:                                                ; preds = %1
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -51,29 +51,29 @@ define hidden void @rb_vm_lock_enter_body(ptr nocapture noundef writeonly %0) lo
   %8 = getelementptr i8, ptr %7, i64 48
   %.val.i.i.i = load ptr, ptr %8, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i, label %vm_locked.exit, label %vm_locked.exit.thread7
+  br i1 %.not.i.i.i.i, label %vm_locked.argprom.exit, label %vm_locked.argprom.exit.thread7
 
-vm_locked.exit:                                   ; preds = %5
+vm_locked.argprom.exit:                           ; preds = %5
   %9 = icmp eq ptr %.val, null
   br i1 %9, label %25, label %rb_current_ractor.exit
 
-vm_locked.exit.thread7:                           ; preds = %5
+vm_locked.argprom.exit.thread7:                   ; preds = %5
   %10 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %.val, %11
   br i1 %12, label %25, label %14
 
-vm_locked.exit.thread:                            ; preds = %1
+vm_locked.argprom.exit.thread:                    ; preds = %1
   %13 = icmp eq ptr %.val, %4
   br i1 %13, label %25, label %rb_current_ractor.exit
 
-14:                                               ; preds = %vm_locked.exit.thread7
+14:                                               ; preds = %vm_locked.argprom.exit.thread7
   %15 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
   %16 = load ptr, ptr %15, align 8
   br label %rb_current_ractor.exit
 
-rb_current_ractor.exit:                           ; preds = %vm_locked.exit, %vm_locked.exit.thread, %14
-  %.0.i.i = phi ptr [ %16, %14 ], [ %4, %vm_locked.exit.thread ], [ null, %vm_locked.exit ]
+rb_current_ractor.exit:                           ; preds = %vm_locked.argprom.exit, %vm_locked.argprom.exit.thread, %14
+  %.0.i.i = phi ptr [ %16, %14 ], [ %4, %vm_locked.argprom.exit.thread ], [ null, %vm_locked.argprom.exit ]
   %17 = getelementptr inbounds i8, ptr %2, i64 48
   tail call void @rb_native_mutex_lock(ptr noundef nonnull %17) #5
   %18 = getelementptr inbounds i8, ptr %.0.i.i, i64 328
@@ -97,7 +97,7 @@ vm_lock_enter.exit:                               ; preds = %.lr.ph.i, %rb_curre
   store ptr %.0.i.i, ptr %3, align 8
   br label %25
 
-25:                                               ; preds = %vm_locked.exit, %vm_locked.exit.thread, %vm_locked.exit.thread7, %vm_lock_enter.exit
+25:                                               ; preds = %vm_locked.argprom.exit, %vm_locked.argprom.exit.thread, %vm_locked.argprom.exit.thread7, %vm_lock_enter.exit
   %26 = getelementptr inbounds i8, ptr %2, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, 1
@@ -113,7 +113,7 @@ define hidden void @rb_vm_lock_enter_body_nb(ptr nocapture noundef writeonly %0)
   %.val = load ptr, ptr %3, align 8
   %4 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i, label %5, label %vm_locked.exit.thread
+  br i1 %.not.i.i.i, label %5, label %vm_locked.argprom.exit.thread
 
 5:                                                ; preds = %1
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -121,35 +121,35 @@ define hidden void @rb_vm_lock_enter_body_nb(ptr nocapture noundef writeonly %0)
   %8 = getelementptr i8, ptr %7, i64 48
   %.val.i.i.i = load ptr, ptr %8, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i, label %vm_locked.exit, label %vm_locked.exit.thread7
+  br i1 %.not.i.i.i.i, label %vm_locked.argprom.exit, label %vm_locked.argprom.exit.thread7
 
-vm_locked.exit:                                   ; preds = %5
+vm_locked.argprom.exit:                           ; preds = %5
   %9 = icmp eq ptr %.val, null
   br i1 %9, label %18, label %rb_current_ractor.exit
 
-vm_locked.exit.thread7:                           ; preds = %5
+vm_locked.argprom.exit.thread7:                   ; preds = %5
   %10 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %.val, %11
   br i1 %12, label %18, label %14
 
-vm_locked.exit.thread:                            ; preds = %1
+vm_locked.argprom.exit.thread:                    ; preds = %1
   %13 = icmp eq ptr %.val, %4
   br i1 %13, label %18, label %rb_current_ractor.exit
 
-14:                                               ; preds = %vm_locked.exit.thread7
+14:                                               ; preds = %vm_locked.argprom.exit.thread7
   %15 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
   %16 = load ptr, ptr %15, align 8
   br label %rb_current_ractor.exit
 
-rb_current_ractor.exit:                           ; preds = %vm_locked.exit, %vm_locked.exit.thread, %14
-  %.0.i.i = phi ptr [ %16, %14 ], [ %4, %vm_locked.exit.thread ], [ null, %vm_locked.exit ]
+rb_current_ractor.exit:                           ; preds = %vm_locked.argprom.exit, %vm_locked.argprom.exit.thread, %14
+  %.0.i.i = phi ptr [ %16, %14 ], [ %4, %vm_locked.argprom.exit.thread ], [ null, %vm_locked.argprom.exit ]
   %17 = getelementptr inbounds i8, ptr %2, i64 48
   tail call void @rb_native_mutex_lock(ptr noundef nonnull %17) #5
   store ptr %.0.i.i, ptr %3, align 8
   br label %18
 
-18:                                               ; preds = %vm_locked.exit, %vm_locked.exit.thread, %vm_locked.exit.thread7, %rb_current_ractor.exit
+18:                                               ; preds = %vm_locked.argprom.exit, %vm_locked.argprom.exit.thread, %vm_locked.argprom.exit.thread7, %rb_current_ractor.exit
   %19 = getelementptr inbounds i8, ptr %2, i64 96
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, 1
@@ -165,7 +165,7 @@ define hidden void @rb_vm_lock_enter_body_cr(ptr noundef %0, ptr nocapture nound
   %.val = load ptr, ptr %4, align 8
   %5 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i, label %6, label %vm_locked.exit
+  br i1 %.not.i.i.i, label %6, label %vm_locked.argprom.exit
 
 6:                                                ; preds = %2
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -173,19 +173,19 @@ define hidden void @rb_vm_lock_enter_body_cr(ptr noundef %0, ptr nocapture nound
   %9 = getelementptr i8, ptr %8, i64 48
   %.val.i.i.i = load ptr, ptr %9, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i, label %vm_locked.exit, label %10
+  br i1 %.not.i.i.i.i, label %vm_locked.argprom.exit, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
   %12 = load ptr, ptr %11, align 8
-  br label %vm_locked.exit
+  br label %vm_locked.argprom.exit
 
-vm_locked.exit:                                   ; preds = %2, %6, %10
+vm_locked.argprom.exit:                           ; preds = %2, %6, %10
   %.0.i.i.i = phi ptr [ %5, %2 ], [ %12, %10 ], [ null, %6 ]
   %13 = icmp eq ptr %.val, %.0.i.i.i
   br i1 %13, label %vm_lock_enter.exit, label %14
 
-14:                                               ; preds = %vm_locked.exit
+14:                                               ; preds = %vm_locked.argprom.exit
   %15 = getelementptr inbounds i8, ptr %3, i64 48
   tail call void @rb_native_mutex_lock(ptr noundef nonnull %15) #5
   %16 = getelementptr inbounds i8, ptr %0, i64 328
@@ -209,7 +209,7 @@ vm_locked.exit:                                   ; preds = %2, %6, %10
   store ptr %0, ptr %4, align 8
   br label %vm_lock_enter.exit
 
-vm_lock_enter.exit:                               ; preds = %vm_locked.exit, %.loopexit.i
+vm_lock_enter.exit:                               ; preds = %vm_locked.argprom.exit, %.loopexit.i
   %23 = getelementptr inbounds i8, ptr %3, i64 96
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, 1
@@ -385,7 +385,7 @@ define hidden void @rb_ec_vm_lock_rec_release(ptr nocapture noundef readnone %0,
 .lr.ph:                                           ; preds = %.preheader
   %6 = load ptr, ptr @ruby_single_main_ractor, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.lr.ph.split.preheader, label %rb_vm_lock_leave.exit.us
+  br i1 %7, label %.lr.ph.split.preheader, label %rb_vm_lock_leave.argprom.exit.us
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %8 = load ptr, ptr @ruby_current_vm_ptr, align 8
@@ -393,20 +393,20 @@ define hidden void @rb_ec_vm_lock_rec_release(ptr nocapture noundef readnone %0,
   %.promoted = load i32, ptr %9, align 8
   br label %.lr.ph.split
 
-rb_vm_lock_leave.exit.us:                         ; preds = %.lr.ph, %rb_vm_lock_leave.exit.us
-  br label %rb_vm_lock_leave.exit.us
+rb_vm_lock_leave.argprom.exit.us:                 ; preds = %.lr.ph, %rb_vm_lock_leave.argprom.exit.us
+  br label %rb_vm_lock_leave.argprom.exit.us
 
 10:                                               ; preds = %3
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str, i32 noundef %1, i32 noundef %2) #6
   unreachable
 
-.lr.ph.split:                                     ; preds = %rb_vm_lock_leave.exit, %.lr.ph.split.preheader
-  %11 = phi i32 [ %12, %rb_vm_lock_leave.exit ], [ %.promoted, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %rb_vm_lock_leave.argprom.exit, %.lr.ph.split.preheader
+  %11 = phi i32 [ %12, %rb_vm_lock_leave.argprom.exit ], [ %.promoted, %.lr.ph.split.preheader ]
   %12 = add i32 %11, -1
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %rb_vm_lock_leave.exit.thread, label %rb_vm_lock_leave.exit
+  br i1 %13, label %rb_vm_lock_leave.argprom.exit.thread, label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit.thread:                     ; preds = %.lr.ph.split
+rb_vm_lock_leave.argprom.exit.thread:             ; preds = %.lr.ph.split
   store i32 %12, ptr %9, align 8
   %14 = getelementptr inbounds i8, ptr %8, i64 48
   %15 = getelementptr inbounds i8, ptr %8, i64 88
@@ -414,15 +414,15 @@ rb_vm_lock_leave.exit.thread:                     ; preds = %.lr.ph.split
   tail call void @rb_native_mutex_unlock(ptr noundef nonnull %14) #5
   br label %._crit_edge
 
-rb_vm_lock_leave.exit:                            ; preds = %.lr.ph.split
+rb_vm_lock_leave.argprom.exit:                    ; preds = %.lr.ph.split
   %16 = icmp ult i32 %1, %12
   br i1 %16, label %.lr.ph.split, label %._crit_edge.loopexit, !llvm.loop !9
 
-._crit_edge.loopexit:                             ; preds = %rb_vm_lock_leave.exit
+._crit_edge.loopexit:                             ; preds = %rb_vm_lock_leave.argprom.exit
   store i32 %12, ptr %9, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %rb_vm_lock_leave.exit.thread, %.preheader
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %rb_vm_lock_leave.argprom.exit.thread, %.preheader
   ret void
 }
 

@@ -8748,7 +8748,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i651: ; preds = 
 1552:                                             ; preds = %1550, %1546, %1543
   %1553 = load i32, ptr @"_ZZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEvE2id", align 4, !noalias !41
   %.not.i.i.i.i706 = icmp eq i32 %1553, 0
-  br i1 %.not.i.i.i.i706, label %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.exit.i", label %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.exit.sink.split.i"
+  br i1 %.not.i.i.i.i706, label %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.argprom.exit.i", label %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.argprom.exit.sink.split.i"
 
 1554:                                             ; preds = %1548
   %1555 = landingpad { ptr, i32 }
@@ -8782,7 +8782,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i651: ; preds = 
 1566:                                             ; preds = %1564, %1560, %1557
   %1567 = load i32, ptr @"_ZZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_1clEvE2id", align 4, !noalias !44
   %.not.i.i.i35.i = icmp eq i32 %1567, 0
-  br i1 %.not.i.i.i35.i, label %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.exit.i", label %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.exit.sink.split.i"
+  br i1 %.not.i.i.i35.i, label %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.argprom.exit.i", label %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.argprom.exit.sink.split.i"
 
 1568:                                             ; preds = %1562
   %1569 = landingpad { ptr, i32 }
@@ -8813,7 +8813,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i651: ; preds = 
 1579:                                             ; preds = %1577, %1573, %1570
   %1580 = load i32, ptr @"_ZZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_2clEvE2id", align 4, !noalias !47
   %.not.i.i.i39.i = icmp eq i32 %1580, 0
-  br i1 %.not.i.i.i39.i, label %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.exit.i", label %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.exit.sink.split.i"
+  br i1 %.not.i.i.i39.i, label %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.argprom.exit.i", label %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.argprom.exit.sink.split.i"
 
 1581:                                             ; preds = %1575
   %1582 = landingpad { ptr, i32 }
@@ -8821,7 +8821,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i651: ; preds = 
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_2clEvE2id") #21, !noalias !47
   br label %.body.i656
 
-"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.exit.sink.split.i": ; preds = %1579, %1566, %1552
+"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.argprom.exit.sink.split.i": ; preds = %1579, %1566, %1552
   %.sink120.i = phi i32 [ %1553, %1552 ], [ %1567, %1566 ], [ %1580, %1579 ]
   %1583 = sext i32 %.sink120.i to i64
   %1584 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !50
@@ -8829,15 +8829,15 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i651: ; preds = 
   %1586 = load i32, ptr %1585, align 4, !noalias !50
   %1587 = add nsw i32 %1586, 1
   store i32 %1587, ptr %1585, align 4, !noalias !50
-  br label %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.exit.i"
+  br label %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.argprom.exit.i"
 
-"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.exit.i": ; preds = %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.exit.sink.split.i", %1579, %1566, %1552
-  %.sink.i = phi i32 [ 0, %1552 ], [ 0, %1566 ], [ 0, %1579 ], [ %.sink120.i, %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.exit.sink.split.i" ]
+"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.argprom.exit.i": ; preds = %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.argprom.exit.sink.split.i", %1579, %1566, %1552
+  %.sink.i = phi i32 [ 0, %1552 ], [ 0, %1566 ], [ 0, %1579 ], [ %.sink120.i, %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.argprom.exit.sink.split.i" ]
   store i32 %.sink.i, ptr %7, align 4
   %1588 = invoke noundef ptr @_ZN5Yosys5RTLIL6Module7addCellENS0_8IdStringES2_(ptr noundef nonnull align 8 dereferenceable(560) %0, ptr noundef nonnull %5, ptr noundef nonnull %7)
           to label %1589 unwind label %1649
 
-1589:                                             ; preds = %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.exit.i"
+1589:                                             ; preds = %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.argprom.exit.i"
   %1590 = load i32, ptr %7, align 4
   %1591 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1592 = trunc i8 %1591 to i1
@@ -8985,7 +8985,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit50.i:               ; preds = %1641, %_ZN5Yosys5RT
           cleanup
   br label %1651
 
-1649:                                             ; preds = %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.exit.i"
+1649:                                             ; preds = %"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.argprom.exit.i"
   %1650 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #21
@@ -64811,21 +64811,21 @@ attributes #26 = { nounwind willreturn memory(read) }
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
 !34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZZN12_GLOBAL__N_18proc_dffEPN5Yosys5RTLIL6ModuleEPNS1_7ProcessERNS0_9ConstEvalEENK3$_0clEv: argument 0"}
-!36 = distinct !{!36, !"_ZZN12_GLOBAL__N_18proc_dffEPN5Yosys5RTLIL6ModuleEPNS1_7ProcessERNS0_9ConstEvalEENK3$_0clEv"}
+!35 = distinct !{!35, !36, !"_ZZN12_GLOBAL__N_18proc_dffEPN5Yosys5RTLIL6ModuleEPNS1_7ProcessERNS0_9ConstEvalEENK3$_0clEv.argprom: argument 0"}
+!36 = distinct !{!36, !"_ZZN12_GLOBAL__N_18proc_dffEPN5Yosys5RTLIL6ModuleEPNS1_7ProcessERNS0_9ConstEvalEENK3$_0clEv.argprom"}
 !37 = distinct !{!37, !7}
 !38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZZN12_GLOBAL__N_19gen_aldffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bbS4_S4_PNS1_7ProcessEENK3$_0clEv: argument 0"}
-!40 = distinct !{!40, !"_ZZN12_GLOBAL__N_19gen_aldffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bbS4_S4_PNS1_7ProcessEENK3$_0clEv"}
+!39 = distinct !{!39, !40, !"_ZZN12_GLOBAL__N_19gen_aldffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bbS4_S4_PNS1_7ProcessEENK3$_0clEv.argprom: argument 0"}
+!40 = distinct !{!40, !"_ZZN12_GLOBAL__N_19gen_aldffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bbS4_S4_PNS1_7ProcessEENK3$_0clEv.argprom"}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv: argument 0"}
-!43 = distinct !{!43, !"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv"}
+!42 = distinct !{!42, !43, !"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.argprom: argument 0"}
+!43 = distinct !{!43, !"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_0clEv.argprom"}
 !44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_1clEv: argument 0"}
-!46 = distinct !{!46, !"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_1clEv"}
+!45 = distinct !{!45, !46, !"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_1clEv.argprom: argument 0"}
+!46 = distinct !{!46, !"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_1clEv.argprom"}
 !47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_2clEv: argument 0"}
-!49 = distinct !{!49, !"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_2clEv"}
+!48 = distinct !{!48, !49, !"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_2clEv.argprom: argument 0"}
+!49 = distinct !{!49, !"_ZZN12_GLOBAL__N_17gen_dffEPN5Yosys5RTLIL6ModuleENS1_7SigSpecENS1_5ConstES4_bbS4_PS4_PNS1_7ProcessEENK3$_2clEv.argprom"}
 !50 = !{}
 !51 = distinct !{!51, !7}
 !52 = distinct !{!52, !7}
@@ -65184,26 +65184,26 @@ attributes #26 = { nounwind willreturn memory(read) }
 !405 = distinct !{!405, !7}
 !406 = distinct !{!406, !7}
 !407 = !{!408}
-!408 = distinct !{!408, !409, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_0clEv: argument 0"}
-!409 = distinct !{!409, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_0clEv"}
+!408 = distinct !{!408, !409, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_0clEv.argprom: argument 0"}
+!409 = distinct !{!409, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_0clEv.argprom"}
 !410 = !{!411}
-!411 = distinct !{!411, !412, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_1clEv: argument 0"}
-!412 = distinct !{!412, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_1clEv"}
+!411 = distinct !{!411, !412, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_1clEv.argprom: argument 0"}
+!412 = distinct !{!412, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_1clEv.argprom"}
 !413 = !{!414}
-!414 = distinct !{!414, !415, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_2clEv: argument 0"}
-!415 = distinct !{!415, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_2clEv"}
+!414 = distinct !{!414, !415, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_2clEv.argprom: argument 0"}
+!415 = distinct !{!415, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_2clEv.argprom"}
 !416 = !{!417}
-!417 = distinct !{!417, !418, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_3clEv: argument 0"}
-!418 = distinct !{!418, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_3clEv"}
+!417 = distinct !{!417, !418, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_3clEv.argprom: argument 0"}
+!418 = distinct !{!418, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_3clEv.argprom"}
 !419 = !{!420}
-!420 = distinct !{!420, !421, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_4clEv: argument 0"}
-!421 = distinct !{!421, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_4clEv"}
+!420 = distinct !{!420, !421, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_4clEv.argprom: argument 0"}
+!421 = distinct !{!421, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_4clEv.argprom"}
 !422 = !{!423}
-!423 = distinct !{!423, !424, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_5clEv: argument 0"}
-!424 = distinct !{!424, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_5clEv"}
+!423 = distinct !{!423, !424, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_5clEv.argprom: argument 0"}
+!424 = distinct !{!424, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_5clEv.argprom"}
 !425 = !{!426}
-!426 = distinct !{!426, !427, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_6clEv: argument 0"}
-!427 = distinct !{!427, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_6clEv"}
+!426 = distinct !{!426, !427, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_6clEv.argprom: argument 0"}
+!427 = distinct !{!427, !"_ZZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessEENK3$_6clEv.argprom"}
 !428 = distinct !{!428, !7}
 !429 = distinct !{!429, !7}
 !430 = distinct !{!430, !7}

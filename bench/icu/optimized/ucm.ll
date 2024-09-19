@@ -1191,7 +1191,7 @@ if.end7:                                          ; preds = %if.end
   %idx.ext3.i = sext i32 %11 to i64
   %add.ptr4.i = getelementptr inbounds %struct.UCMapping, ptr %10, i64 %idx.ext3.i
   %cmp61522.i = icmp eq i32 %9, 0
-  br i1 %cmp61522.i, label %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit, label %if.end.lr.ph.lr.ph.i
+  br i1 %cmp61522.i, label %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.argprom.exit, label %if.end.lr.ph.lr.ph.i
 
 if.end.lr.ph.lr.ph.i:                             ; preds = %if.end7
   %codePoints.i.i = getelementptr inbounds i8, ptr %base, i64 16
@@ -1220,12 +1220,12 @@ if.end.i:                                         ; preds = %if.end15.i, %if.end
 
 for.cond16.preheader.i:                           ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i
   %cmp1718.i = icmp eq ptr %me.023.i, %add.ptr4.i
-  br i1 %cmp1718.i, label %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit, label %if.end19.i
+  br i1 %cmp1718.i, label %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.argprom.exit, label %if.end19.i
 
 if.end15.i:                                       ; preds = %if.end.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %mb.116.i, i64 12
   %cmp6.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
-  br i1 %cmp6.i, label %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit, label %if.end.i, !llvm.loop !15
+  br i1 %cmp6.i, label %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.argprom.exit, label %if.end.i, !llvm.loop !15
 
 if.end19.i:                                       ; preds = %for.cond16.preheader.i, %if.end32.i
   %me.119.i = phi ptr [ %incdec.ptr33.i, %if.end32.i ], [ %me.023.i, %for.cond16.preheader.i ]
@@ -1241,7 +1241,7 @@ if.end19.i:                                       ; preds = %for.cond16.preheade
 if.end32.i:                                       ; preds = %if.end19.i
   %incdec.ptr33.i = getelementptr inbounds i8, ptr %me.119.i, i64 12
   %cmp17.i = icmp eq ptr %incdec.ptr33.i, %add.ptr4.i
-  br i1 %cmp17.i, label %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit, label %if.end19.i, !llvm.loop !16
+  br i1 %cmp17.i, label %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.argprom.exit, label %if.end19.i, !llvm.loop !16
 
 for.end34.i:                                      ; preds = %if.end19.i, %if.end19.i, %if.end19.i, %if.end19.i
   %uLen.i.i = getelementptr inbounds i8, ptr %mb.116.i, i64 8
@@ -1491,9 +1491,9 @@ if.end167.i:                                      ; preds = %if.else164.i, %if.e
   %mb.2.i = phi ptr [ %incdec.ptr95.i, %if.end94.i ], [ %incdec.ptr163.i, %if.end162.i ], [ %mb.116.i, %if.else164.i ]
   %result.2.i = phi i8 [ %result.1.i, %if.end94.i ], [ %56, %if.end162.i ], [ %result.025.i, %if.else164.i ]
   %cmp615.i = icmp eq ptr %mb.2.i, %add.ptr.i
-  br i1 %cmp615.i, label %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit, label %if.end.lr.ph.i, !llvm.loop !17
+  br i1 %cmp615.i, label %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.argprom.exit, label %if.end.lr.ph.i, !llvm.loop !17
 
-_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit: ; preds = %for.cond16.preheader.i, %if.end167.i, %if.end15.i, %if.end32.i, %if.end7
+_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.argprom.exit: ; preds = %for.cond16.preheader.i, %if.end167.i, %if.end15.i, %if.end32.i, %if.end7
   %result.014.i = phi i8 [ 0, %if.end7 ], [ %result.025.i, %if.end32.i ], [ %result.025.i, %if.end15.i ], [ %result.2.i, %if.end167.i ], [ %result.025.i, %for.cond16.preheader.i ]
   %57 = getelementptr i8, ptr %baseStates, i64 132113
   %baseStates.val = load i8, ptr %57, align 1
@@ -1505,9 +1505,9 @@ _ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit: ; preds = %for.cond16.p
   %61 = load i32, ptr %mappingsLength2.i, align 4
   %cmp3.i = icmp ne i8 %baseStates.val, 12
   %cmp6919.i = icmp eq i32 %60, 0
-  br i1 %cmp6919.i, label %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit, label %if.end.lr.ph.lr.ph.i21
+  br i1 %cmp6919.i, label %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.argprom.exit, label %if.end.lr.ph.lr.ph.i21
 
-if.end.lr.ph.lr.ph.i21:                           ; preds = %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit
+if.end.lr.ph.lr.ph.i21:                           ; preds = %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.argprom.exit
   %cmp8.i = icmp eq i8 %intersectBase, 2
   %bytes.i.i = getelementptr inbounds i8, ptr %base, i64 32
   %bytes31.i.i = getelementptr inbounds i8, ptr %ext, i64 32
@@ -1547,7 +1547,7 @@ for.inc.us.i:                                     ; preds = %if.end12.us.i, %if.
   %indvars.iv.next44.i = add nsw i64 %indvars.iv43.i, 1
   %67 = trunc nsw i64 %indvars.iv.next44.i to i32
   %cmp6.us.i = icmp eq i32 %60, %67
-  br i1 %cmp6.us.i, label %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit, label %if.end.us.i, !llvm.loop !18
+  br i1 %cmp6.us.i, label %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.argprom.exit, label %if.end.us.i, !llvm.loop !18
 
 if.end.i23:                                       ; preds = %if.end.lr.ph.i22, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ %63, %if.end.lr.ph.i22 ]
@@ -1566,7 +1566,7 @@ for.inc.i:                                        ; preds = %if.end.i23
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %70 = trunc nsw i64 %indvars.iv.next.i to i32
   %cmp6.i51 = icmp eq i32 %60, %70
-  br i1 %cmp6.i51, label %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit, label %if.end.i23, !llvm.loop !18
+  br i1 %cmp6.i51, label %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.argprom.exit, label %if.end.i23, !llvm.loop !18
 
 for.end.i:                                        ; preds = %if.end.i23, %if.end.i23, %if.end12.us.i, %if.end12.us.i
   %.us-phi.i = phi i8 [ %66, %if.end12.us.i ], [ %66, %if.end12.us.i ], [ %69, %if.end.i23 ], [ %69, %if.end.i23 ]
@@ -1574,7 +1574,7 @@ for.end.i:                                        ; preds = %if.end.i23, %if.end
   %.us-phi13.in.i = phi i64 [ %indvars.iv43.i, %if.end12.us.i ], [ %indvars.iv43.i, %if.end12.us.i ], [ %indvars.iv.i, %if.end.i23 ], [ %indvars.iv.i, %if.end.i23 ]
   %.us-phi13.i = trunc i64 %.us-phi13.in.i to i32
   %cmp2115.i = icmp eq i32 %e.020.i, %61
-  br i1 %cmp2115.i, label %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit, label %if.end23.lr.ph.i
+  br i1 %cmp2115.i, label %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.argprom.exit, label %if.end23.lr.ph.i
 
 if.end23.lr.ph.i:                                 ; preds = %for.end.i
   %71 = load ptr, ptr %ext, align 8
@@ -1598,7 +1598,7 @@ if.end37.i:                                       ; preds = %if.end23.i
   %indvars.iv.next47.i = add nsw i64 %indvars.iv46.i, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next47.i to i32
   %exitcond = icmp eq i32 %61, %lftr.wideiv
-  br i1 %exitcond, label %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit, label %if.end23.i, !llvm.loop !19
+  br i1 %exitcond, label %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.argprom.exit, label %if.end23.i, !llvm.loop !19
 
 for.end39.i:                                      ; preds = %if.end23.i, %if.end23.i
   %75 = trunc nsw i64 %indvars.iv46.i to i32
@@ -1837,17 +1837,17 @@ if.end173.i:                                      ; preds = %if.else170.i, %if.e
   %b.2.i = phi i32 [ %inc102.i, %if.end101.i ], [ %inc169.i, %if.end168.i ], [ %.us-phi13.i, %if.else170.i ]
   %result.2.i33 = phi i8 [ %result.1.i38, %if.end101.i ], [ %113, %if.end168.i ], [ %result.022.i, %if.else170.i ]
   %cmp69.i = icmp eq i32 %b.2.i, %60
-  br i1 %cmp69.i, label %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit, label %if.end.lr.ph.i22, !llvm.loop !20
+  br i1 %cmp69.i, label %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.argprom.exit, label %if.end.lr.ph.i22, !llvm.loop !20
 
-_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit: ; preds = %for.end.i, %if.end173.i, %for.inc.i, %for.inc.us.i, %if.end37.i, %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit
-  %result.08.i = phi i8 [ 0, %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit ], [ %result.022.i, %if.end37.i ], [ %result.022.i, %for.inc.us.i ], [ %result.022.i, %for.inc.i ], [ %result.2.i33, %if.end173.i ], [ %result.022.i, %for.end.i ]
+_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.argprom.exit: ; preds = %for.end.i, %if.end173.i, %for.inc.i, %for.inc.us.i, %if.end37.i, %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.argprom.exit
+  %result.08.i = phi i8 [ 0, %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.argprom.exit ], [ %result.022.i, %if.end37.i ], [ %result.022.i, %for.inc.us.i ], [ %result.022.i, %for.inc.i ], [ %result.2.i33, %if.end173.i ], [ %result.022.i, %for.end.i ]
   %or18 = or i8 %result.08.i, %result.014.i
   %conv16 = zext i8 %or18 to i32
   %and17 = and i32 %conv16, 2
   %tobool18.not = icmp eq i32 %and17, 0
   br i1 %tobool18.not, label %if.end20, label %return
 
-if.end20:                                         ; preds = %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit
+if.end20:                                         ; preds = %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.argprom.exit
   %and22 = and i32 %conv16, 1
   %tobool23.not = icmp eq i32 %and22, 0
   br i1 %tobool23.not, label %return, label %if.then24
@@ -2034,8 +2034,8 @@ if.then26:                                        ; preds = %ucm_moveMappings.ex
   tail call void @ucm_sortTable(ptr noundef nonnull %moveTarget)
   br label %return
 
-return:                                           ; preds = %if.end20, %if.then26, %ucm_moveMappings.exit91, %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit, %if.then5, %if.then
-  %retval.0 = phi i8 [ 0, %if.then ], [ 0, %if.then5 ], [ 0, %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit ], [ 1, %ucm_moveMappings.exit91 ], [ 1, %if.then26 ], [ 1, %if.end20 ]
+return:                                           ; preds = %if.end20, %if.then26, %ucm_moveMappings.exit91, %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.argprom.exit, %if.then5, %if.then
+  %retval.0 = phi i8 [ 0, %if.then ], [ 0, %if.then5 ], [ 0, %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.argprom.exit ], [ 1, %ucm_moveMappings.exit91 ], [ 1, %if.then26 ], [ 1, %if.end20 ]
   ret i8 %retval.0
 }
 

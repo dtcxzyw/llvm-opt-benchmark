@@ -429,7 +429,7 @@ define internal i32 @dissect_hdfsdata_message(ptr noundef %0, ptr nocapture noun
   br i1 %or.cond5, label %67, label %74
 
 67:                                               ; preds = %63
-  call fastcc void @dissect_header(ptr noundef %0, ptr noundef %13, ptr noundef %5)
+  call fastcc void @dissect_header.retelim(ptr noundef %0, ptr noundef %13, ptr noundef %5)
   call fastcc void @dissect_write_request(ptr noundef %0, ptr noundef %13, ptr noundef %5)
   call fastcc void @dissect_variable_int_string(ptr noundef %0, ptr noundef %13, ptr noundef %5)
   call fastcc void @dissect_write_request_end(ptr noundef %0, ptr noundef %13, ptr noundef %5)
@@ -543,7 +543,7 @@ define internal fastcc void @dissect_read_response(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_header(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_header.retelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_hdfsdata_version, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef 0) #2

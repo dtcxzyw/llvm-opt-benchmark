@@ -1310,9 +1310,9 @@ define range(i32 0, 2) i32 @Map_MappingMatches(ptr noundef %0) local_unnamed_add
   %.not.i47 = icmp eq ptr %16, null
   br label %22
 
-22:                                               ; preds = %.lr.ph, %Extra_ProgressBarUpdate.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Extra_ProgressBarUpdate.exit ]
-  %23 = phi ptr [ %17, %.lr.ph ], [ %117, %Extra_ProgressBarUpdate.exit ]
+22:                                               ; preds = %.lr.ph, %Extra_ProgressBarUpdate.argprom.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Extra_ProgressBarUpdate.argprom.exit ]
+  %23 = phi ptr [ %17, %.lr.ph ], [ %117, %Extra_ProgressBarUpdate.argprom.exit ]
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
@@ -1335,18 +1335,18 @@ define range(i32 0, 2) i32 @Map_MappingMatches(ptr noundef %0) local_unnamed_add
   %39 = xor i64 %36, 1
   %40 = getelementptr inbounds [2 x %struct.Map_TimeStruct_t_], ptr %35, i64 0, i64 %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %38, ptr noundef nonnull align 4 dereferenceable(12) %40, i64 12, i1 false)
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
 41:                                               ; preds = %22
   %42 = tail call i32 @Map_NodeIsAnd(ptr noundef %26) #10
   %.not42 = icmp eq i32 %42, 0
-  br i1 %.not42, label %Extra_ProgressBarUpdate.exit, label %43
+  br i1 %.not42, label %Extra_ProgressBarUpdate.argprom.exit, label %43
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds i8, ptr %26, i64 88
   %45 = load ptr, ptr %44, align 8
   %.not43 = icmp eq ptr %45, null
-  br i1 %.not43, label %46, label %Extra_ProgressBarUpdate.exit
+  br i1 %.not43, label %46, label %Extra_ProgressBarUpdate.argprom.exit
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %26, i64 160
@@ -1461,14 +1461,14 @@ Map_NodeTransferArrivalTimes.exit:                ; preds = %73, %76, %92, %93
   %112 = load i32, ptr %16, align 4
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv, %113
-  br i1 %114, label %Extra_ProgressBarUpdate.exit, label %115
+  br i1 %114, label %Extra_ProgressBarUpdate.argprom.exit, label %115
 
 115:                                              ; preds = %111, %Map_NodeTransferArrivalTimes.exit
   %116 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %16, i32 noundef %116, ptr noundef nonnull @.str.4) #10
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %115, %111, %41, %43, %28
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %115, %111, %41, %43, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %117 = load ptr, ptr %12, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 8
@@ -1477,7 +1477,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %115, %111, %41, %43
   %121 = icmp slt i64 %indvars.iv.next, %120
   br i1 %121, label %22, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %Extra_ProgressBarUpdate.exit, %10
+._crit_edge:                                      ; preds = %Extra_ProgressBarUpdate.argprom.exit, %10
   tail call void @Extra_ProgressBarStop(ptr noundef %16) #10
   br label %122
 

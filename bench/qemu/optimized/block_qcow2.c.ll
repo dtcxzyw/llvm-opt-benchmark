@@ -1307,7 +1307,7 @@ if.end26:                                         ; preds = %qcow2_mark_clean.ex
   %13 = getelementptr i8, ptr %.val, i64 480
   %.val.val = load ptr, ptr %13, align 8
   %cmp.i22.not = icmp eq ptr %.val.val, %.val21
-  br i1 %cmp.i22.not, label %if.then29, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br i1 %cmp.i22.not, label %if.then29, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.then29:                                        ; preds = %if.end26
   %data_file = getelementptr inbounds i8, ptr %1, i64 480
@@ -1321,7 +1321,7 @@ if.else33:                                        ; preds = %if.then29
 
 if.end34:                                         ; preds = %if.then29
   store ptr null, ptr %data_file, align 8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 fail:                                             ; preds = %if.then.i, %qcow2_mark_clean.exit, %if.end15, %if.then10, %do.end
   %ret.0 = phi i32 [ %call5, %do.end ], [ %call12, %if.then10 ], [ %call17, %if.end15 ], [ %call4.i, %qcow2_mark_clean.exit ], [ %call.i, %if.then.i ]
@@ -1337,21 +1337,21 @@ if.end.i26:                                       ; preds = %if.then.i24, %fail
   %refcount_block_cache.i = getelementptr inbounds i8, ptr %call2, i64 8
   %16 = load ptr, ptr %refcount_block_cache.i, align 8
   %tobool2.not.i = icmp eq ptr %16, null
-  br i1 %tobool2.not.i, label %qcow2_update_options_abort.exit, label %if.then3.i
+  br i1 %tobool2.not.i, label %qcow2_update_options_abort.argprom.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i26
   %call5.i = tail call i32 @qcow2_cache_destroy(ptr noundef nonnull %16) #23
-  br label %qcow2_update_options_abort.exit
+  br label %qcow2_update_options_abort.argprom.exit
 
-qcow2_update_options_abort.exit:                  ; preds = %if.end.i26, %if.then3.i
+qcow2_update_options_abort.argprom.exit:          ; preds = %if.end.i26, %if.then3.i
   %crypto_opts.i = getelementptr inbounds i8, ptr %call2, i64 48
   %17 = load ptr, ptr %crypto_opts.i, align 8
   tail call void @qapi_free_QCryptoBlockOpenOptions(ptr noundef %17) #23
   tail call void @g_free(ptr noundef nonnull %call2) #23
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end26, %if.end34, %qcow2_update_options_abort.exit
-  %retval.0 = phi i32 [ %ret.0, %qcow2_update_options_abort.exit ], [ 0, %if.end34 ], [ 0, %if.end26 ]
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end26, %if.end34, %qcow2_update_options_abort.argprom.exit
+  %retval.0 = phi i32 [ %ret.0, %qcow2_update_options_abort.argprom.exit ], [ 0, %if.end34 ], [ 0, %if.end26 ]
   tail call void @bdrv_graph_rdunlock_main_loop() #23
   ret i32 %retval.0
 }
@@ -1370,16 +1370,16 @@ entry:
   %data_file = getelementptr inbounds i8, ptr %1, i64 480
   %4 = load ptr, ptr %data_file, align 8
   %tobool.not = icmp eq ptr %4, null
-  br i1 %tobool.not, label %if.then, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br i1 %tobool.not, label %if.then, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.then:                                          ; preds = %entry
   %5 = load ptr, ptr %state, align 8
   %file = getelementptr inbounds i8, ptr %5, i64 16840
   %6 = load ptr, ptr %file, align 8
   store ptr %6, ptr %data_file, align 8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.then, %entry
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.then, %entry
   %7 = load ptr, ptr %opaque2, align 8
   tail call void @g_free(ptr noundef %7) #23
   tail call void @bdrv_graph_rdunlock_main_loop() #23
@@ -1395,23 +1395,23 @@ entry:
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then
+  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.then
 
 if.then:                                          ; preds = %entry
   store ptr null, ptr %local_err, align 8
   %1 = load ptr, ptr %state, align 8
   %call1 = call i32 @qcow2_reopen_bitmaps_rw(ptr noundef %1, ptr noundef nonnull %local_err) #23
   %cmp = icmp slt i32 %call1, 0
-  br i1 %cmp, label %if.then2, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br i1 %cmp, label %if.then2, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.then2:                                         ; preds = %if.then
   %2 = load ptr, ptr %local_err, align 8
   %3 = load ptr, ptr %state, align 8
   %call4 = call ptr @bdrv_get_node_name(ptr noundef %3) #23
   call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %2, ptr noundef nonnull @.str.142, ptr noundef %call4) #23
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.then, %if.then2, %entry
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.then, %if.then2, %entry
   call void @bdrv_graph_rdunlock_main_loop() #23
   ret void
 }
@@ -1450,13 +1450,13 @@ if.end.i:                                         ; preds = %if.then.i, %if.end
   %refcount_block_cache.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %refcount_block_cache.i, align 8
   %tobool2.not.i = icmp eq ptr %7, null
-  br i1 %tobool2.not.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then3.i
+  br i1 %tobool2.not.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %call5.i = tail call i32 @qcow2_cache_destroy(ptr noundef nonnull %7) #23
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end.i, %if.then3.i
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end.i, %if.then3.i
   %crypto_opts.i = getelementptr inbounds i8, ptr %5, i64 48
   %8 = load ptr, ptr %crypto_opts.i, align 8
   tail call void @qapi_free_QCryptoBlockOpenOptions(ptr noundef %8) #23
@@ -1618,13 +1618,13 @@ return:                                           ; preds = %entry, %if.end36
 define internal void @qcow2_close(ptr noundef %bs) #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #23
-  br i1 %call, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.else
+  br i1 %call, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.1, i32 noundef 2823, ptr noundef nonnull @__PRETTY_FUNCTION__.qcow2_close) #22
   unreachable
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %entry
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #23
   tail call void @qcow2_do_close(ptr noundef %bs, i1 noundef zeroext true)
   tail call void @bdrv_graph_rdunlock_main_loop() #23
@@ -2754,7 +2754,7 @@ qcow2_amend_helper_cb.exit56.i:                   ; preds = %for.cond.i, %qcow2_
   store i32 3, ptr %qcow_version.i, align 4
   %call17.i = tail call i32 @qcow2_update_header(ptr noundef %bs)
   %cmp18.i = icmp slt i32 %call17.i, 0
-  br i1 %cmp18.i, label %if.then20.i, label %qcow2_upgrade.exit
+  br i1 %cmp18.i, label %if.then20.i, label %qcow2_upgrade.argprom.exit
 
 if.then20.i:                                      ; preds = %qcow2_amend_helper_cb.exit56.i
   store i32 %31, ptr %qcow_version.i, align 4
@@ -2762,12 +2762,12 @@ if.then20.i:                                      ; preds = %qcow2_amend_helper_
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 5589, ptr noundef nonnull @__func__.qcow2_upgrade, i32 noundef %sub22.i, ptr noundef nonnull @.str.251) #23
   br label %return
 
-qcow2_upgrade.exit:                               ; preds = %qcow2_amend_helper_cb.exit56.i
+qcow2_upgrade.argprom.exit:                       ; preds = %qcow2_amend_helper_cb.exit56.i
   store i64 2, ptr %.compoundliteral.sroa.811.0.helper_cb_info.sroa_idx, align 8
   tail call void %status_cb(ptr noundef %bs, i64 noundef 2, i64 noundef %add27.i.i, ptr noundef %cb_opaque) #23
   br label %if.end140
 
-if.end140:                                        ; preds = %qcow2_upgrade.exit, %while.end
+if.end140:                                        ; preds = %qcow2_upgrade.argprom.exit, %while.end
   br i1 %tobool126, label %if.then142, label %if.end161
 
 if.then142:                                       ; preds = %if.end140
@@ -2776,7 +2776,7 @@ if.then142:                                       ; preds = %if.end140
   %call.i149 = tail call ptr @qemu_opts_to_qdict(ptr noundef %opts, ptr noundef null) #23
   call void @qdict_extract_subqdict(ptr noundef %call.i149, ptr noundef nonnull %cryptoopts_qdict.i, ptr noundef nonnull @.str.91) #23
   %tobool.not.i150 = icmp eq ptr %call.i149, null
-  br i1 %tobool.not.i150, label %qcow2_extract_crypto_opts.exit, label %lor.lhs.false.i.i
+  br i1 %tobool.not.i150, label %qcow2_extract_crypto_opts.argprom.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then142
   %refcnt.i.i = getelementptr inbounds i8, ptr %call.i149, i64 8
@@ -2792,13 +2792,13 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
   %dec.i.i = add i64 %35, -1
   store i64 %dec.i.i, ptr %refcnt.i.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then5.i.i, label %qcow2_extract_crypto_opts.exit
+  br i1 %cmp.i.i, label %if.then5.i.i, label %qcow2_extract_crypto_opts.argprom.exit
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
   call void @qobject_destroy(ptr noundef nonnull %call.i149) #23
-  br label %qcow2_extract_crypto_opts.exit
+  br label %qcow2_extract_crypto_opts.argprom.exit
 
-qcow2_extract_crypto_opts.exit:                   ; preds = %if.then142, %land.lhs.true.i.i, %if.then5.i.i
+qcow2_extract_crypto_opts.argprom.exit:           ; preds = %if.then142, %land.lhs.true.i.i, %if.then5.i.i
   %36 = load ptr, ptr %cryptoopts_qdict.i, align 8
   call void @qdict_put_str(ptr noundef %36, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.112) #23
   %37 = load ptr, ptr %cryptoopts_qdict.i, align 8
@@ -2806,7 +2806,7 @@ qcow2_extract_crypto_opts.exit:                   ; preds = %if.then142, %land.l
   %tobool145.not = icmp eq ptr %37, null
   br i1 %tobool145.not, label %return, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %qcow2_extract_crypto_opts.exit
+lor.lhs.false.i:                                  ; preds = %qcow2_extract_crypto_opts.argprom.exit
   %call148 = call ptr @block_crypto_amend_opts_init(ptr noundef nonnull %37, ptr noundef %errp) #23
   %refcnt.i = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load i64, ptr %refcnt.i, align 8
@@ -3207,8 +3207,8 @@ if.then58.i:                                      ; preds = %if.end54.i
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 5529, ptr noundef nonnull @__func__.qcow2_downgrade, i32 noundef %sub60.i, ptr noundef nonnull @.str.251) #23
   br label %return
 
-return:                                           ; preds = %if.then58.i, %if.then45.i, %if.then42.i, %if.then33.i, %if.then27.i, %if.then21.i, %if.then16.i, %if.then8.i, %if.then6.i, %if.then20.i, %if.then13.i, %if.end269, %if.end54.i, %if.end263, %if.then259, %if.end173, %if.end153, %qobject_unref_impl.exit, %qcow2_extract_crypto_opts.exit, %if.then250, %if.then242, %if.then232, %if.then226, %if.then211, %if.then200, %if.then172, %if.then108, %if.then94, %if.then84, %if.then59, %if.then57, %if.else29
-  %retval.0 = phi i32 [ -95, %if.then59 ], [ -22, %if.then57 ], [ -22, %if.then108 ], [ -22, %if.then94 ], [ -22, %if.then84 ], [ -22, %if.else29 ], [ -22, %if.then172 ], [ %call197, %if.then200 ], [ -22, %if.then211 ], [ -22, %if.then226 ], [ %call229, %if.then232 ], [ %retval.0.i162193, %if.then242 ], [ %call247, %if.then250 ], [ -22, %qcow2_extract_crypto_opts.exit ], [ -22, %qobject_unref_impl.exit ], [ %call156, %if.end153 ], [ %call175, %if.end173 ], [ -1, %if.then259 ], [ %call264, %if.end263 ], [ 0, %if.end54.i ], [ 0, %if.end269 ], [ %call17.i, %if.then20.i ], [ %call.i, %if.then13.i ], [ %call56.i, %if.then58.i ], [ -95, %if.then45.i ], [ -22, %if.then42.i ], [ %call31.i, %if.then33.i ], [ -95, %if.then27.i ], [ %retval.0.i3.i, %if.then21.i ], [ -95, %if.then16.i ], [ -95, %if.then8.i ], [ -95, %if.then6.i ]
+return:                                           ; preds = %if.then58.i, %if.then45.i, %if.then42.i, %if.then33.i, %if.then27.i, %if.then21.i, %if.then16.i, %if.then8.i, %if.then6.i, %if.then20.i, %if.then13.i, %if.end269, %if.end54.i, %if.end263, %if.then259, %if.end173, %if.end153, %qobject_unref_impl.exit, %qcow2_extract_crypto_opts.argprom.exit, %if.then250, %if.then242, %if.then232, %if.then226, %if.then211, %if.then200, %if.then172, %if.then108, %if.then94, %if.then84, %if.then59, %if.then57, %if.else29
+  %retval.0 = phi i32 [ -95, %if.then59 ], [ -22, %if.then57 ], [ -22, %if.then108 ], [ -22, %if.then94 ], [ -22, %if.then84 ], [ -22, %if.else29 ], [ -22, %if.then172 ], [ %call197, %if.then200 ], [ -22, %if.then211 ], [ -22, %if.then226 ], [ %call229, %if.then232 ], [ %retval.0.i162193, %if.then242 ], [ %call247, %if.then250 ], [ -22, %qcow2_extract_crypto_opts.argprom.exit ], [ -22, %qobject_unref_impl.exit ], [ %call156, %if.end153 ], [ %call175, %if.end173 ], [ -1, %if.then259 ], [ %call264, %if.end263 ], [ 0, %if.end54.i ], [ 0, %if.end269 ], [ %call17.i, %if.then20.i ], [ %call.i, %if.then13.i ], [ %call56.i, %if.then58.i ], [ -95, %if.then45.i ], [ -22, %if.then42.i ], [ %call31.i, %if.then33.i ], [ -95, %if.then27.i ], [ %retval.0.i3.i, %if.then21.i ], [ -95, %if.then16.i ], [ -95, %if.then8.i ], [ -95, %if.then6.i ]
   ret i32 %retval.0
 }
 
@@ -3537,15 +3537,15 @@ entry:
   %cache_clean_timer.i = getelementptr inbounds i8, ptr %bs.val, i64 96
   %1 = load ptr, ptr %cache_clean_timer.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i, label %cache_clean_timer_del.exit, label %if.then.i
+  br i1 %tobool.not.i, label %cache_clean_timer_del.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @timer_del(ptr noundef nonnull %1) #23
   tail call void @g_free(ptr noundef nonnull %1) #23
   store ptr null, ptr %cache_clean_timer.i, align 8
-  br label %cache_clean_timer_del.exit
+  br label %cache_clean_timer_del.argprom.exit
 
-cache_clean_timer_del.exit:                       ; preds = %entry, %if.then.i
+cache_clean_timer_del.argprom.exit:               ; preds = %entry, %if.then.i
   ret void
 }
 
@@ -5556,7 +5556,7 @@ land.rhs:                                         ; preds = %if.end15
   br i1 %cmp, label %if.then25, label %if.end37
 
 if.then25:                                        ; preds = %land.rhs
-  %call26 = call fastcc ptr @qcow2_extract_crypto_opts(ptr noundef %opts)
+  %call26 = call fastcc ptr @qcow2_extract_crypto_opts.argprom(ptr noundef %opts)
   %call27 = call ptr @block_crypto_create_opts_init(ptr noundef %call26, ptr noundef %errp) #23
   call fastcc void @qobject_unref_impl(ptr noundef %call26)
   %tobool30.not = icmp eq ptr %call27, null
@@ -5564,9 +5564,9 @@ if.then25:                                        ; preds = %land.rhs
 
 if.end32:                                         ; preds = %if.then25
   %call33 = call zeroext i1 @qcrypto_block_calculate_payload_offset(ptr noundef nonnull %call27, ptr noundef nonnull @.str.91, ptr noundef nonnull %headerlen, ptr noundef nonnull %local_err) #23
-  br i1 %call33, label %glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit.thread83, label %glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit
+  br i1 %call33, label %glib_autoptr_cleanup_QCryptoBlockCreateOptions.argprom.exit.thread83, label %glib_autoptr_cleanup_QCryptoBlockCreateOptions.argprom.exit
 
-glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit.thread83: ; preds = %if.end32
+glib_autoptr_cleanup_QCryptoBlockCreateOptions.argprom.exit.thread83: ; preds = %if.end32
   %9 = load i64, ptr %headerlen, align 8
   %add = add nsw i64 %2, -1
   %sub = add i64 %add, %9
@@ -5575,7 +5575,7 @@ glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit.thread83: ; preds = %if.end3
   call void @qapi_free_QCryptoBlockCreateOptions(ptr noundef nonnull %call27) #23
   br label %if.end37
 
-glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit: ; preds = %if.end32
+glib_autoptr_cleanup_QCryptoBlockCreateOptions.argprom.exit: ; preds = %if.end32
   call void @qapi_free_QCryptoBlockCreateOptions(ptr noundef nonnull %call27) #23
   br label %err
 
@@ -5583,8 +5583,8 @@ if.end37.critedge:                                ; preds = %if.end15
   call void @g_free(ptr noundef null) #23
   br label %if.end37
 
-if.end37:                                         ; preds = %glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit.thread83, %if.end37.critedge, %land.rhs
-  %luks_payload_size.0 = phi i64 [ 0, %land.rhs ], [ 0, %if.end37.critedge ], [ %and, %glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit.thread83 ]
+if.end37:                                         ; preds = %glib_autoptr_cleanup_QCryptoBlockCreateOptions.argprom.exit.thread83, %if.end37.critedge, %land.rhs
+  %luks_payload_size.0 = phi i64 [ 0, %land.rhs ], [ 0, %if.end37.critedge ], [ %and, %glib_autoptr_cleanup_QCryptoBlockCreateOptions.argprom.exit.thread83 ]
   %call38 = call i64 @qemu_opt_get_size_del(ptr noundef %opts, ptr noundef nonnull @.str.40, i64 noundef 0) #23
   %add39 = add nsw i64 %2, -1
   %sub40 = add i64 %add39, %call38
@@ -5704,7 +5704,7 @@ if.end125.critedge:                               ; preds = %if.end95
   store i8 0, ptr %has_bitmaps.c, align 8
   br label %return
 
-err:                                              ; preds = %if.then25, %glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit, %if.end10, %qcow2_opt_get_refcount_bits_del.exit, %qcow2_opt_get_version_del.exit, %qcow2_opt_get_cluster_size_del.exit, %if.then72, %if.then57, %if.then51
+err:                                              ; preds = %if.then25, %glib_autoptr_cleanup_QCryptoBlockCreateOptions.argprom.exit, %if.end10, %qcow2_opt_get_refcount_bits_del.exit, %qcow2_opt_get_version_del.exit, %qcow2_opt_get_cluster_size_del.exit, %if.then72, %if.then57, %if.then51
   %17 = load ptr, ptr %local_err, align 8
   call void @error_propagate(ptr noundef %errp, ptr noundef %17) #23
   br label %return
@@ -6049,9 +6049,9 @@ entry:
   %call1.i = tail call i32 @bdrv_check_qiov_request(i64 noundef %pos, i64 noundef %4, ptr noundef %qiov, i64 noundef 0, ptr noundef nonnull @error_abort) #23
   %sub.i = sub i64 9223372036854775807, %pos
   %cmp.i = icmp slt i64 %sub.i, %shl.i.i
-  br i1 %cmp.i, label %if.then, label %qcow2_check_vmstate_request.exit
+  br i1 %cmp.i, label %if.then, label %qcow2_check_vmstate_request.argprom.exit
 
-qcow2_check_vmstate_request.exit:                 ; preds = %entry
+qcow2_check_vmstate_request.argprom.exit:         ; preds = %entry
   %add.i = add i64 %shl.i.i, %pos
   %5 = load i64, ptr %size.i, align 8
   %call3.i = tail call i32 @bdrv_check_qiov_request(i64 noundef %add.i, i64 noundef %5, ptr noundef nonnull %qiov, i64 noundef 0, ptr noundef null) #23
@@ -6061,12 +6061,12 @@ qcow2_check_vmstate_request.exit:                 ; preds = %entry
   %cmp = icmp slt i64 %spec.select.i, 0
   br i1 %cmp, label %if.then, label %do.body
 
-if.then:                                          ; preds = %entry, %qcow2_check_vmstate_request.exit
-  %retval.0.i11 = phi i64 [ %spec.select.i, %qcow2_check_vmstate_request.exit ], [ -5, %entry ]
+if.then:                                          ; preds = %entry, %qcow2_check_vmstate_request.argprom.exit
+  %retval.0.i11 = phi i64 [ %spec.select.i, %qcow2_check_vmstate_request.argprom.exit ], [ -5, %entry ]
   %conv = trunc i64 %retval.0.i11 to i32
   br label %return
 
-do.body:                                          ; preds = %qcow2_check_vmstate_request.exit
+do.body:                                          ; preds = %qcow2_check_vmstate_request.argprom.exit
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %6 = load ptr, ptr %file, align 8
   %tobool.not = icmp eq ptr %6, null
@@ -6111,9 +6111,9 @@ entry:
   %call1.i = tail call i32 @bdrv_check_qiov_request(i64 noundef %pos, i64 noundef %4, ptr noundef %qiov, i64 noundef 0, ptr noundef nonnull @error_abort) #23
   %sub.i = sub i64 9223372036854775807, %pos
   %cmp.i = icmp slt i64 %sub.i, %shl.i.i
-  br i1 %cmp.i, label %if.then, label %qcow2_check_vmstate_request.exit
+  br i1 %cmp.i, label %if.then, label %qcow2_check_vmstate_request.argprom.exit
 
-qcow2_check_vmstate_request.exit:                 ; preds = %entry
+qcow2_check_vmstate_request.argprom.exit:         ; preds = %entry
   %add.i = add i64 %shl.i.i, %pos
   %5 = load i64, ptr %size.i, align 8
   %call3.i = tail call i32 @bdrv_check_qiov_request(i64 noundef %add.i, i64 noundef %5, ptr noundef nonnull %qiov, i64 noundef 0, ptr noundef null) #23
@@ -6123,12 +6123,12 @@ qcow2_check_vmstate_request.exit:                 ; preds = %entry
   %cmp = icmp slt i64 %spec.select.i, 0
   br i1 %cmp, label %if.then, label %do.body
 
-if.then:                                          ; preds = %entry, %qcow2_check_vmstate_request.exit
-  %retval.0.i11 = phi i64 [ %spec.select.i, %qcow2_check_vmstate_request.exit ], [ -5, %entry ]
+if.then:                                          ; preds = %entry, %qcow2_check_vmstate_request.argprom.exit
+  %retval.0.i11 = phi i64 [ %spec.select.i, %qcow2_check_vmstate_request.argprom.exit ], [ -5, %entry ]
   %conv = trunc i64 %retval.0.i11 to i32
   br label %return
 
-do.body:                                          ; preds = %qcow2_check_vmstate_request.exit
+do.body:                                          ; preds = %qcow2_check_vmstate_request.argprom.exit
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %6 = load ptr, ptr %file, align 8
   %tobool.not = icmp eq ptr %6, null
@@ -6851,16 +6851,16 @@ if.then26:                                        ; preds = %for.end
   %cache_clean_timer.i = getelementptr inbounds i8, ptr %bs.val, i64 96
   %12 = load ptr, ptr %cache_clean_timer.i, align 8
   %tobool.not.i = icmp eq ptr %12, null
-  br i1 %tobool.not.i, label %cache_clean_timer_del.exit, label %if.then.i
+  br i1 %tobool.not.i, label %cache_clean_timer_del.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then26
   tail call void @timer_del(ptr noundef nonnull %12) #23
   tail call void @g_free(ptr noundef nonnull %12) #23
   store ptr null, ptr %cache_clean_timer.i, align 8
   %.pre = load i64, ptr %cache_clean_interval23, align 8
-  br label %cache_clean_timer_del.exit
+  br label %cache_clean_timer_del.argprom.exit
 
-cache_clean_timer_del.exit:                       ; preds = %if.then26, %if.then.i
+cache_clean_timer_del.argprom.exit:               ; preds = %if.then26, %if.then.i
   %13 = phi i64 [ %11, %if.then26 ], [ %.pre, %if.then.i ]
   %conv28 = trunc i64 %13 to i32
   store i32 %conv28, ptr %cache_clean_interval, align 8
@@ -6871,7 +6871,7 @@ cache_clean_timer_del.exit:                       ; preds = %if.then26, %if.then
   %cmp.not.i = icmp eq i32 %15, 0
   br i1 %cmp.not.i, label %if.end31, label %if.then.i31
 
-if.then.i31:                                      ; preds = %cache_clean_timer_del.exit
+if.then.i31:                                      ; preds = %cache_clean_timer_del.argprom.exit
   %tlg.i.i = getelementptr inbounds i8, ptr %call30, i64 480
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #26
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef nonnull %tlg.i.i, i32 noundef 1, i32 noundef 1000000, i32 noundef 1, ptr noundef nonnull @cache_clean_timer_cb, ptr noundef nonnull %bs) #23
@@ -6886,7 +6886,7 @@ if.then.i31:                                      ; preds = %cache_clean_timer_d
   tail call void @timer_mod(ptr noundef %call.i.i.i, i64 noundef %add.i) #23
   br label %if.end31
 
-if.end31:                                         ; preds = %if.then.i31, %cache_clean_timer_del.exit, %for.end
+if.end31:                                         ; preds = %if.then.i31, %cache_clean_timer_del.argprom.exit, %for.end
   %crypto_opts = getelementptr inbounds i8, ptr %0, i64 224
   %17 = load ptr, ptr %crypto_opts, align 8
   tail call void @qapi_free_QCryptoBlockOpenOptions(ptr noundef %17) #23
@@ -6958,7 +6958,7 @@ declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qcow2_open_entry(ptr nocapture noundef %opaque) #0 {
-glib_autoptr_cleanup_GraphLockable.exit:
+glib_autoptr_cleanup_GraphLockable.argprom.exit:
   %0 = load ptr, ptr %opaque, align 8
   %opaque1 = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %opaque1, align 8
@@ -7874,7 +7874,7 @@ if.end562:                                        ; preds = %if.then559, %land.l
   %132 = getelementptr i8, ptr %bs.val281, i64 400
   %bs.val281.val = load ptr, ptr %132, align 8
   %tobool.not1.i = icmp eq ptr %bs.val281.val, null
-  br i1 %tobool.not1.i, label %cleanup_unknown_header_ext.exit, label %land.rhs.i.preheader
+  br i1 %tobool.not1.i, label %cleanup_unknown_header_ext.argprom.argprom.exit, label %land.rhs.i.preheader
 
 land.rhs.i.preheader:                             ; preds = %if.end562
   %next1.i297 = getelementptr inbounds i8, ptr %bs.val281.val, i64 8
@@ -7908,9 +7908,9 @@ for.end.critedge.i:                               ; preds = %if.then.i, %land.rh
   store ptr null, ptr %.pre3.i.lcssa, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next1.i.lcssa, i8 0, i64 16, i1 false)
   call void @g_free(ptr noundef nonnull %uext.02.i.lcssa) #23
-  br label %cleanup_unknown_header_ext.exit
+  br label %cleanup_unknown_header_ext.argprom.argprom.exit
 
-cleanup_unknown_header_ext.exit:                  ; preds = %if.end562, %for.end.critedge.i
+cleanup_unknown_header_ext.argprom.argprom.exit:  ; preds = %if.end562, %for.end.critedge.i
   call void @qcow2_free_snapshots(ptr noundef %bs) #23
   call void @qcow2_refcount_close(ptr noundef %bs) #23
   %l1_table564 = getelementptr inbounds i8, ptr %0, i64 72
@@ -7921,25 +7921,25 @@ cleanup_unknown_header_ext.exit:                  ; preds = %if.end562, %for.end
   %cache_clean_timer.i = getelementptr inbounds i8, ptr %bs.val280, i64 96
   %137 = load ptr, ptr %cache_clean_timer.i, align 8
   %tobool.not.i = icmp eq ptr %137, null
-  br i1 %tobool.not.i, label %cache_clean_timer_del.exit, label %if.then.i285
+  br i1 %tobool.not.i, label %cache_clean_timer_del.argprom.exit, label %if.then.i285
 
-if.then.i285:                                     ; preds = %cleanup_unknown_header_ext.exit
+if.then.i285:                                     ; preds = %cleanup_unknown_header_ext.argprom.argprom.exit
   call void @timer_del(ptr noundef nonnull %137) #23
   call void @g_free(ptr noundef nonnull %137) #23
   store ptr null, ptr %cache_clean_timer.i, align 8
-  br label %cache_clean_timer_del.exit
+  br label %cache_clean_timer_del.argprom.exit
 
-cache_clean_timer_del.exit:                       ; preds = %cleanup_unknown_header_ext.exit, %if.then.i285
+cache_clean_timer_del.argprom.exit:               ; preds = %cleanup_unknown_header_ext.argprom.argprom.exit, %if.then.i285
   %l2_table_cache = getelementptr inbounds i8, ptr %0, i64 80
   %138 = load ptr, ptr %l2_table_cache, align 8
   %tobool566.not = icmp eq ptr %138, null
   br i1 %tobool566.not, label %if.end570, label %if.then567
 
-if.then567:                                       ; preds = %cache_clean_timer_del.exit
+if.then567:                                       ; preds = %cache_clean_timer_del.argprom.exit
   %call569 = call i32 @qcow2_cache_destroy(ptr noundef nonnull %138) #23
   br label %if.end570
 
-if.end570:                                        ; preds = %if.then567, %cache_clean_timer_del.exit
+if.end570:                                        ; preds = %if.then567, %cache_clean_timer_del.argprom.exit
   %refcount_block_cache = getelementptr inbounds i8, ptr %0, i64 88
   %139 = load ptr, ptr %refcount_block_cache, align 8
   %tobool571.not = icmp eq ptr %139, null
@@ -8510,7 +8510,7 @@ if.end19:                                         ; preds = %if.then, %if.end, %
 while.end:                                        ; preds = %land.rhs, %if.end19, %entry
   %mask.addr.0.lcssa = phi i64 [ %mask, %entry ], [ %mask.addr.1, %if.end19 ], [ %mask.addr.016, %land.rhs ]
   %tobool20.not = icmp eq i64 %mask.addr.0.lcssa, 0
-  br i1 %tobool20.not, label %glib_autoptr_cleanup_GString.exit, label %if.then21
+  br i1 %tobool20.not, label %glib_autoptr_cleanup_GString.argprom.exit, label %if.then21
 
 if.then21:                                        ; preds = %while.end
   %len22 = getelementptr inbounds i8, ptr %call, i64 8
@@ -8524,9 +8524,9 @@ if.then25:                                        ; preds = %if.then21
 
 if.end27:                                         ; preds = %if.then25, %if.then21
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef nonnull %call, ptr noundef nonnull @.str.202, i64 noundef %mask.addr.0.lcssa) #23
-  br label %glib_autoptr_cleanup_GString.exit
+  br label %glib_autoptr_cleanup_GString.argprom.exit
 
-glib_autoptr_cleanup_GString.exit:                ; preds = %if.end27, %while.end
+glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %if.end27, %while.end
   %6 = load ptr, ptr %call, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 500, ptr noundef nonnull @__func__.report_unsupported_feature, ptr noundef nonnull @.str.203, ptr noundef %6) #23
   %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #23
@@ -8565,19 +8565,19 @@ if.end.i:                                         ; preds = %if.then.i, %if.else
   %refcount_block_cache.i = getelementptr inbounds i8, ptr %r, i64 8
   %1 = load ptr, ptr %refcount_block_cache.i, align 8
   %tobool2.not.i = icmp eq ptr %1, null
-  br i1 %tobool2.not.i, label %qcow2_update_options_abort.exit, label %if.then3.i
+  br i1 %tobool2.not.i, label %qcow2_update_options_abort.argprom.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %call5.i = tail call i32 @qcow2_cache_destroy(ptr noundef nonnull %1) #23
-  br label %qcow2_update_options_abort.exit
+  br label %qcow2_update_options_abort.argprom.exit
 
-qcow2_update_options_abort.exit:                  ; preds = %if.end.i, %if.then3.i
+qcow2_update_options_abort.argprom.exit:          ; preds = %if.end.i, %if.then3.i
   %crypto_opts.i = getelementptr inbounds i8, ptr %r, i64 48
   %2 = load ptr, ptr %crypto_opts.i, align 8
   tail call void @qapi_free_QCryptoBlockOpenOptions(ptr noundef %2) #23
   br label %if.end
 
-if.end:                                           ; preds = %qcow2_update_options_abort.exit, %if.then
+if.end:                                           ; preds = %qcow2_update_options_abort.argprom.exit, %if.then
   ret i32 %call
 }
 
@@ -8898,15 +8898,15 @@ if.end:                                           ; preds = %if.then, %entry
   %cache_clean_timer.i = getelementptr inbounds i8, ptr %bs.val22, i64 96
   %3 = load ptr, ptr %cache_clean_timer.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i, label %cache_clean_timer_del.exit, label %if.then.i
+  br i1 %tobool.not.i, label %cache_clean_timer_del.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   tail call void @timer_del(ptr noundef nonnull %3) #23
   tail call void @g_free(ptr noundef nonnull %3) #23
   store ptr null, ptr %cache_clean_timer.i, align 8
-  br label %cache_clean_timer_del.exit
+  br label %cache_clean_timer_del.argprom.exit
 
-cache_clean_timer_del.exit:                       ; preds = %if.end, %if.then.i
+cache_clean_timer_del.argprom.exit:               ; preds = %if.end, %if.then.i
   %l2_table_cache = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %l2_table_cache, align 8
   %call2 = tail call i32 @qcow2_cache_destroy(ptr noundef %4) #23
@@ -8927,9 +8927,9 @@ cache_clean_timer_del.exit:                       ; preds = %if.end, %if.then.i
   %9 = getelementptr i8, ptr %bs.val23, i64 400
   %bs.val23.val = load ptr, ptr %9, align 8
   %tobool.not1.i = icmp eq ptr %bs.val23.val, null
-  br i1 %tobool.not1.i, label %cleanup_unknown_header_ext.exit, label %land.rhs.i.preheader
+  br i1 %tobool.not1.i, label %cleanup_unknown_header_ext.argprom.argprom.exit, label %land.rhs.i.preheader
 
-land.rhs.i.preheader:                             ; preds = %cache_clean_timer_del.exit
+land.rhs.i.preheader:                             ; preds = %cache_clean_timer_del.argprom.exit
   %next1.i25 = getelementptr inbounds i8, ptr %bs.val23.val, i64 8
   %10 = load ptr, ptr %next1.i25, align 8
   %cmp.not.i26 = icmp eq ptr %10, null
@@ -8961,9 +8961,9 @@ for.end.critedge.i:                               ; preds = %if.then.i24, %land.
   store ptr null, ptr %.pre3.i.lcssa, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next1.i.lcssa, i8 0, i64 16, i1 false)
   tail call void @g_free(ptr noundef nonnull %uext.02.i.lcssa) #23
-  br label %cleanup_unknown_header_ext.exit
+  br label %cleanup_unknown_header_ext.argprom.argprom.exit
 
-cleanup_unknown_header_ext.exit:                  ; preds = %cache_clean_timer_del.exit, %for.end.critedge.i
+cleanup_unknown_header_ext.argprom.argprom.exit:  ; preds = %cache_clean_timer_del.argprom.exit, %for.end.critedge.i
   %image_data_file = getelementptr inbounds i8, ptr %0, i64 448
   %13 = load ptr, ptr %image_data_file, align 8
   tail call void @g_free(ptr noundef %13) #23
@@ -8975,7 +8975,7 @@ cleanup_unknown_header_ext.exit:                  ; preds = %cache_clean_timer_d
   tail call void @g_free(ptr noundef %15) #23
   br i1 %close_data_file, label %land.lhs.true, label %if.end12
 
-land.lhs.true:                                    ; preds = %cleanup_unknown_header_ext.exit
+land.lhs.true:                                    ; preds = %cleanup_unknown_header_ext.argprom.argprom.exit
   %bs.val = load ptr, ptr %opaque, align 8
   %16 = getelementptr i8, ptr %bs, i64 16840
   %bs.val21 = load ptr, ptr %16, align 8
@@ -9003,7 +9003,7 @@ do.end:                                           ; preds = %do.body
   tail call void @bdrv_graph_rdlock_main_loop() #23
   br label %if.end12
 
-if.end12:                                         ; preds = %do.end, %land.lhs.true, %cleanup_unknown_header_ext.exit
+if.end12:                                         ; preds = %do.end, %land.lhs.true, %cleanup_unknown_header_ext.argprom.argprom.exit
   tail call void @qcow2_refcount_close(ptr noundef %bs) #23
   tail call void @qcow2_free_snapshots(ptr noundef %bs) #23
   ret void
@@ -9289,7 +9289,7 @@ if.end15:                                         ; preds = %if.end9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @qcow2_extract_crypto_opts(ptr noundef %opts) unnamed_addr #0 {
+define internal fastcc ptr @qcow2_extract_crypto_opts.argprom(ptr noundef %opts) unnamed_addr #0 {
 entry:
   %cryptoopts_qdict = alloca ptr, align 8
   %call = tail call ptr @qemu_opts_to_qdict(ptr noundef %opts, ptr noundef null) #23

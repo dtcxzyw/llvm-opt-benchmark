@@ -411,7 +411,7 @@ define internal void @php_sqlite3_func_callback(ptr noundef %0, i32 noundef %1, 
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #11
   %5 = getelementptr inbounds i8, ptr %4, i64 72
   %6 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call fastcc void @do_callback(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 0)
+  tail call fastcc void @do_callback.retelim(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 0)
   ret void
 }
 
@@ -625,7 +625,7 @@ define internal void @php_sqlite3_func_step_callback(ptr noundef %0, i32 noundef
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #11
   %5 = getelementptr inbounds i8, ptr %4, i64 176
   %6 = getelementptr inbounds i8, ptr %4, i64 24
-  tail call fastcc void @do_callback(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @do_callback.retelim(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 1)
   ret void
 }
 
@@ -634,7 +634,7 @@ define internal void @php_sqlite3_func_final_callback(ptr noundef %0) #0 {
   %2 = tail call ptr @sqlite3_user_data(ptr noundef %0) #11
   %3 = getelementptr inbounds i8, ptr %2, i64 280
   %4 = getelementptr inbounds i8, ptr %2, i64 40
-  tail call fastcc void @do_callback(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @do_callback.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef %0, i32 noundef 1)
   ret void
 }
 
@@ -1045,7 +1045,7 @@ declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 nound
 declare ptr @sqlite3_user_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_callback(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc void @do_callback.retelim(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = icmp ne i32 %5, 0
   %spec.store.select = select i1 %8, i32 2, i32 0

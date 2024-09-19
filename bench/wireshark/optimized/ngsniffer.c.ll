@@ -1773,7 +1773,7 @@ ng_read_bytes.exit142:                            ; preds = %329
   %.val129 = load ptr, ptr %5, align 8
   %.val130 = load i64, ptr %339, align 8
   %350 = getelementptr i8, ptr %.val129, i64 %.val130
-  switch i32 %348, label %fix_pseudo_header.exit [
+  switch i32 %348, label %fix_pseudo_header.argprom.exit [
     i32 -1, label %351
     i32 13, label %389
   ]
@@ -1830,13 +1830,13 @@ ng_read_bytes.exit142:                            ; preds = %329
 374:                                              ; preds = %.thread23.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %337
-  br i1 %exitcond.not.i.i, label %fix_pseudo_header.exit, label %.thread23.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %fix_pseudo_header.argprom.exit, label %.thread23.i.i, !llvm.loop !7
 
 .critedge.i.i:                                    ; preds = %.thread23.i.i
   %375 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %376 = add nsw i32 %322, -1
   %.not22.i.i = icmp sgt i32 %376, %375
-  br i1 %.not22.i.i, label %377, label %fix_pseudo_header.exit
+  br i1 %.not22.i.i, label %377, label %fix_pseudo_header.argprom.exit
 
 377:                                              ; preds = %.critedge.i.i
   %378 = and i64 %indvars.iv.i.i, 4294967295
@@ -1844,10 +1844,10 @@ ng_read_bytes.exit142:                            ; preds = %329
   %380 = getelementptr i8, ptr %379, i64 1
   %381 = load i8, ptr %380, align 1
   %382 = icmp eq i8 %381, 3
-  br i1 %382, label %fix_pseudo_header.exit, label %383
+  br i1 %382, label %fix_pseudo_header.argprom.exit, label %383
 
 383:                                              ; preds = %377, %356
-  br label %fix_pseudo_header.exit
+  br label %fix_pseudo_header.argprom.exit
 
 384:                                              ; preds = %366, %362, %358, %353, %351
   %.019.i.ph.i = phi i32 [ 40, %362 ], [ 40, %366 ], [ 35, %358 ], [ 19, %353 ], [ 19, %351 ]
@@ -1857,11 +1857,11 @@ ng_read_bytes.exit142:                            ; preds = %329
 
 387:                                              ; preds = %384
   store i32 1, ptr %349, align 8
-  br label %fix_pseudo_header.exit
+  br label %fix_pseudo_header.argprom.exit
 
 388:                                              ; preds = %384
   store i32 0, ptr %349, align 8
-  br label %fix_pseudo_header.exit
+  br label %fix_pseudo_header.argprom.exit
 
 389:                                              ; preds = %ng_read_bytes.exit142
   %390 = getelementptr inbounds i8, ptr %4, i64 85
@@ -1869,7 +1869,7 @@ ng_read_bytes.exit142:                            ; preds = %329
   %392 = icmp eq i8 %391, 3
   %393 = icmp ugt i16 %.094, 1
   %or.cond.i143 = and i1 %393, %392
-  br i1 %or.cond.i143, label %394, label %fix_pseudo_header.exit
+  br i1 %or.cond.i143, label %394, label %fix_pseudo_header.argprom.exit
 
 394:                                              ; preds = %389
   %395 = load i8, ptr %350, align 1
@@ -1885,19 +1885,19 @@ ng_read_bytes.exit142:                            ; preds = %329
 401:                                              ; preds = %397
   %402 = getelementptr inbounds i8, ptr %4, i64 86
   store i8 1, ptr %402, align 2
-  br label %fix_pseudo_header.exit
+  br label %fix_pseudo_header.argprom.exit
 
 403:                                              ; preds = %397, %394
   %404 = getelementptr inbounds i8, ptr %4, i64 86
   %405 = load i8, ptr %404, align 2
   %406 = icmp eq i8 %405, 1
-  br i1 %406, label %407, label %fix_pseudo_header.exit
+  br i1 %406, label %407, label %fix_pseudo_header.argprom.exit
 
 407:                                              ; preds = %403
   store i8 2, ptr %404, align 2
-  br label %fix_pseudo_header.exit
+  br label %fix_pseudo_header.argprom.exit
 
-fix_pseudo_header.exit:                           ; preds = %374, %ng_read_bytes.exit142, %.critedge.i.i, %377, %383, %387, %388, %389, %401, %403, %407
+fix_pseudo_header.argprom.exit:                   ; preds = %374, %ng_read_bytes.exit142, %.critedge.i.i, %377, %383, %387, %388, %389, %401, %403, %407
   %.0.i144 = phi i32 [ %348, %ng_read_bytes.exit142 ], [ 13, %401 ], [ 13, %407 ], [ 13, %403 ], [ 13, %389 ], [ %.019.i.ph.i, %387 ], [ %.019.i.ph.i, %388 ], [ 12, %383 ], [ 12, %.critedge.i.i ], [ 27, %377 ], [ 12, %374 ]
   %408 = getelementptr inbounds i8, ptr %4, i64 72
   store i32 %.0.i144, ptr %408, align 8
@@ -1929,8 +1929,8 @@ fix_pseudo_header.exit:                           ; preds = %374, %ng_read_bytes
   store i32 %430, ptr %431, align 8
   br label %ng_read_bytes.exit.thread
 
-ng_read_bytes.exit.thread:                        ; preds = %343, %346, %286, %289, %136, %139, %33, %36, %fix_pseudo_header.exit, %324, %282, %132, %120, %29, %25
-  %.0 = phi i32 [ 0, %282 ], [ 0, %324 ], [ 1, %fix_pseudo_header.exit ], [ 0, %120 ], [ 0, %132 ], [ 0, %25 ], [ 0, %29 ], [ 0, %36 ], [ 0, %33 ], [ 0, %139 ], [ 0, %136 ], [ 0, %289 ], [ 0, %286 ], [ 0, %346 ], [ 0, %343 ]
+ng_read_bytes.exit.thread:                        ; preds = %343, %346, %286, %289, %136, %139, %33, %36, %fix_pseudo_header.argprom.exit, %324, %282, %132, %120, %29, %25
+  %.0 = phi i32 [ 0, %282 ], [ 0, %324 ], [ 1, %fix_pseudo_header.argprom.exit ], [ 0, %120 ], [ 0, %132 ], [ 0, %25 ], [ 0, %29 ], [ 0, %36 ], [ 0, %33 ], [ 0, %139 ], [ 0, %136 ], [ 0, %289 ], [ 0, %286 ], [ 0, %346 ], [ 0, %343 ]
   ret i32 %.0
 }
 

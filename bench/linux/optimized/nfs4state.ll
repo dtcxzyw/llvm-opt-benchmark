@@ -2342,11 +2342,11 @@ define internal noundef i32 @nfs4_run_state_manager(ptr noundef %0) #7 align 16 
   %64 = getelementptr inbounds i8, ptr %.val, i64 384
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, -1
-  br i1 %66, label %nfs4_begin_drain_session.exit.thread.sink.split, label %67
+  br i1 %66, label %nfs4_begin_drain_session.argprom.exit.thread.sink.split, label %67
 
 67:                                               ; preds = %61
   %68 = getelementptr inbounds i8, ptr %.val, i64 416
-  br label %nfs4_begin_drain_session.exit
+  br label %nfs4_begin_drain_session.argprom.exit
 
 69:                                               ; preds = %56
   %70 = getelementptr inbounds i8, ptr %.val32, i64 992
@@ -2368,7 +2368,7 @@ define internal noundef i32 @nfs4_run_state_manager(ptr noundef %0) #7 align 16 
   call void @_raw_spin_unlock(ptr noundef %71) #17
   %77 = call i32 @wait_for_completion_interruptible(ptr noundef %76) #17
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %nfs4_begin_drain_session.exit.thread51
+  br i1 %78, label %79, label %nfs4_begin_drain_session.argprom.exit.thread51
 
 79:                                               ; preds = %75, %.thread.i
   %80 = getelementptr inbounds i8, ptr %.val32, i64 512
@@ -2378,32 +2378,32 @@ define internal noundef i32 @nfs4_run_state_manager(ptr noundef %0) #7 align 16 
   %82 = getelementptr inbounds i8, ptr %.val32, i64 448
   %83 = load i32, ptr %82, align 8
   %84 = icmp eq i32 %83, -1
-  br i1 %84, label %nfs4_begin_drain_session.exit.thread.sink.split, label %85
+  br i1 %84, label %nfs4_begin_drain_session.argprom.exit.thread.sink.split, label %85
 
 85:                                               ; preds = %79
   %86 = getelementptr inbounds i8, ptr %.val32, i64 480
-  br label %nfs4_begin_drain_session.exit
+  br label %nfs4_begin_drain_session.argprom.exit
 
-nfs4_begin_drain_session.exit:                    ; preds = %67, %85
+nfs4_begin_drain_session.argprom.exit:            ; preds = %67, %85
   %.sink124 = phi ptr [ %68, %67 ], [ %86, %85 ]
   %.sink123 = phi ptr [ %63, %67 ], [ %81, %85 ]
   store i32 0, ptr %.sink124, align 8
   call void @_raw_spin_unlock(ptr noundef %.sink123) #17
   %87 = call i32 @wait_for_completion_interruptible(ptr noundef %.sink124) #17
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %nfs4_begin_drain_session.exit.thread, label %nfs4_begin_drain_session.exit.thread51
+  br i1 %88, label %nfs4_begin_drain_session.argprom.exit.thread, label %nfs4_begin_drain_session.argprom.exit.thread51
 
-nfs4_begin_drain_session.exit.thread.sink.split:  ; preds = %79, %61
+nfs4_begin_drain_session.argprom.exit.thread.sink.split: ; preds = %79, %61
   %.sink125 = phi ptr [ %63, %61 ], [ %81, %79 ]
   call void @_raw_spin_unlock(ptr noundef %.sink125) #17
-  br label %nfs4_begin_drain_session.exit.thread
+  br label %nfs4_begin_drain_session.argprom.exit.thread
 
-nfs4_begin_drain_session.exit.thread:             ; preds = %nfs4_begin_drain_session.exit.thread.sink.split, %nfs4_begin_drain_session.exit
+nfs4_begin_drain_session.argprom.exit.thread:     ; preds = %nfs4_begin_drain_session.argprom.exit.thread.sink.split, %nfs4_begin_drain_session.argprom.exit
   %89 = call ptr @rpc_machine_cred() #17
   %90 = icmp eq ptr %89, null
   br i1 %90, label %.thread52, label %91
 
-91:                                               ; preds = %nfs4_begin_drain_session.exit.thread
+91:                                               ; preds = %nfs4_begin_drain_session.argprom.exit.thread
   %92 = getelementptr inbounds i8, ptr %89, i64 168
   store i32 0, ptr %92, align 8
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %89, i64 1, ptr nonnull elementtype(i64) %89) #17, !srcloc !13
@@ -2414,18 +2414,18 @@ nfs4_begin_drain_session.exit.thread:             ; preds = %nfs4_begin_drain_se
   %97 = icmp ult i8 %96, 2
   call void @llvm.assume(i1 %97)
   %98 = icmp eq i8 %96, 0
-  br i1 %98, label %nfs4_begin_drain_session.exit.thread51, label %99
+  br i1 %98, label %nfs4_begin_drain_session.argprom.exit.thread51, label %99
 
 99:                                               ; preds = %91
   call void @__put_cred(ptr noundef nonnull %89) #17
-  br label %nfs4_begin_drain_session.exit.thread51
+  br label %nfs4_begin_drain_session.argprom.exit.thread51
 
-nfs4_begin_drain_session.exit.thread51:           ; preds = %75, %99, %91, %nfs4_begin_drain_session.exit
-  %100 = phi i32 [ %87, %nfs4_begin_drain_session.exit ], [ %95, %91 ], [ %95, %99 ], [ %77, %75 ]
+nfs4_begin_drain_session.argprom.exit.thread51:   ; preds = %75, %99, %91, %nfs4_begin_drain_session.argprom.exit
+  %100 = phi i32 [ %87, %nfs4_begin_drain_session.argprom.exit ], [ %95, %91 ], [ %95, %99 ], [ %77, %75 ]
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %.thread52, label %102
 
-102:                                              ; preds = %nfs4_begin_drain_session.exit.thread51
+102:                                              ; preds = %nfs4_begin_drain_session.argprom.exit.thread51
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %15, i32 -3, ptr elementtype(i8) %15) #17, !srcloc !7
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %14, i32 4, ptr elementtype(i8) %14) #17, !srcloc !6
   call void @nfs_mark_test_expired_all_delegations(ptr noundef %0) #17
@@ -2522,8 +2522,8 @@ nfs4_state_mark_reclaim_nograce.exit.thread:      ; preds = %.preheader7.i, %.lo
   call void @__rcu_read_unlock() #17
   br label %.thread59
 
-.thread52:                                        ; preds = %nfs4_begin_drain_session.exit.thread, %nfs4_begin_drain_session.exit.thread51
-  %143 = phi i32 [ %100, %nfs4_begin_drain_session.exit.thread51 ], [ -2, %nfs4_begin_drain_session.exit.thread ]
+.thread52:                                        ; preds = %nfs4_begin_drain_session.argprom.exit.thread, %nfs4_begin_drain_session.argprom.exit.thread51
+  %143 = phi i32 [ %100, %nfs4_begin_drain_session.argprom.exit.thread51 ], [ -2, %nfs4_begin_drain_session.argprom.exit.thread ]
   %144 = call fastcc i32 @nfs4_handle_reclaim_lease_error(ptr noundef %0, i32 noundef %143), !range !51
   %145 = icmp slt i32 %144, 0
   br i1 %145, label %.thread64, label %.thread59
@@ -2551,11 +2551,11 @@ nfs4_state_mark_reclaim_nograce.exit.thread:      ; preds = %.preheader7.i, %.lo
   %158 = getelementptr inbounds i8, ptr %.val33, i64 384
   %159 = load i32, ptr %158, align 8
   %160 = icmp eq i32 %159, -1
-  br i1 %160, label %nfs4_begin_drain_session.exit40.thread.sink.split, label %161
+  br i1 %160, label %nfs4_begin_drain_session.argprom.exit40.thread.sink.split, label %161
 
 161:                                              ; preds = %155
   %162 = getelementptr inbounds i8, ptr %.val33, i64 416
-  br label %nfs4_begin_drain_session.exit40
+  br label %nfs4_begin_drain_session.argprom.exit40
 
 163:                                              ; preds = %150
   %164 = getelementptr inbounds i8, ptr %.val34, i64 992
@@ -2577,7 +2577,7 @@ nfs4_state_mark_reclaim_nograce.exit.thread:      ; preds = %.preheader7.i, %.lo
   call void @_raw_spin_unlock(ptr noundef %165) #17
   %171 = call i32 @wait_for_completion_interruptible(ptr noundef %170) #17
   %172 = icmp eq i32 %171, 0
-  br i1 %172, label %173, label %nfs4_begin_drain_session.exit40.thread54
+  br i1 %172, label %173, label %nfs4_begin_drain_session.argprom.exit40.thread54
 
 173:                                              ; preds = %169, %.thread.i39
   %174 = getelementptr inbounds i8, ptr %.val34, i64 512
@@ -2587,32 +2587,32 @@ nfs4_state_mark_reclaim_nograce.exit.thread:      ; preds = %.preheader7.i, %.lo
   %176 = getelementptr inbounds i8, ptr %.val34, i64 448
   %177 = load i32, ptr %176, align 8
   %178 = icmp eq i32 %177, -1
-  br i1 %178, label %nfs4_begin_drain_session.exit40.thread.sink.split, label %179
+  br i1 %178, label %nfs4_begin_drain_session.argprom.exit40.thread.sink.split, label %179
 
 179:                                              ; preds = %173
   %180 = getelementptr inbounds i8, ptr %.val34, i64 480
-  br label %nfs4_begin_drain_session.exit40
+  br label %nfs4_begin_drain_session.argprom.exit40
 
-nfs4_begin_drain_session.exit40:                  ; preds = %161, %179
+nfs4_begin_drain_session.argprom.exit40:          ; preds = %161, %179
   %.sink128 = phi ptr [ %162, %161 ], [ %180, %179 ]
   %.sink127 = phi ptr [ %157, %161 ], [ %175, %179 ]
   store i32 0, ptr %.sink128, align 8
   call void @_raw_spin_unlock(ptr noundef %.sink127) #17
   %181 = call i32 @wait_for_completion_interruptible(ptr noundef %.sink128) #17
   %182 = icmp eq i32 %181, 0
-  br i1 %182, label %nfs4_begin_drain_session.exit40.thread, label %nfs4_begin_drain_session.exit40.thread54
+  br i1 %182, label %nfs4_begin_drain_session.argprom.exit40.thread, label %nfs4_begin_drain_session.argprom.exit40.thread54
 
-nfs4_begin_drain_session.exit40.thread.sink.split: ; preds = %173, %155
+nfs4_begin_drain_session.argprom.exit40.thread.sink.split: ; preds = %173, %155
   %.sink129 = phi ptr [ %157, %155 ], [ %175, %173 ]
   call void @_raw_spin_unlock(ptr noundef %.sink129) #17
-  br label %nfs4_begin_drain_session.exit40.thread
+  br label %nfs4_begin_drain_session.argprom.exit40.thread
 
-nfs4_begin_drain_session.exit40.thread:           ; preds = %nfs4_begin_drain_session.exit40.thread.sink.split, %nfs4_begin_drain_session.exit40
+nfs4_begin_drain_session.argprom.exit40.thread:   ; preds = %nfs4_begin_drain_session.argprom.exit40.thread.sink.split, %nfs4_begin_drain_session.argprom.exit40
   %183 = call ptr @rpc_machine_cred() #17
   %184 = icmp eq ptr %183, null
   br i1 %184, label %.thread56, label %185
 
-185:                                              ; preds = %nfs4_begin_drain_session.exit40.thread
+185:                                              ; preds = %nfs4_begin_drain_session.argprom.exit40.thread
   %186 = getelementptr inbounds i8, ptr %183, i64 168
   store i32 0, ptr %186, align 8
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %183, i64 1, ptr nonnull elementtype(i64) %183) #17, !srcloc !13
@@ -2623,18 +2623,18 @@ nfs4_begin_drain_session.exit40.thread:           ; preds = %nfs4_begin_drain_se
   %191 = icmp ult i8 %190, 2
   call void @llvm.assume(i1 %191)
   %192 = icmp eq i8 %190, 0
-  br i1 %192, label %nfs4_begin_drain_session.exit40.thread54, label %193
+  br i1 %192, label %nfs4_begin_drain_session.argprom.exit40.thread54, label %193
 
 193:                                              ; preds = %185
   call void @__put_cred(ptr noundef nonnull %183) #17
-  br label %nfs4_begin_drain_session.exit40.thread54
+  br label %nfs4_begin_drain_session.argprom.exit40.thread54
 
-nfs4_begin_drain_session.exit40.thread54:         ; preds = %169, %193, %185, %nfs4_begin_drain_session.exit40
-  %194 = phi i32 [ %181, %nfs4_begin_drain_session.exit40 ], [ %189, %185 ], [ %189, %193 ], [ %171, %169 ]
+nfs4_begin_drain_session.argprom.exit40.thread54: ; preds = %169, %193, %185, %nfs4_begin_drain_session.argprom.exit40
+  %194 = phi i32 [ %181, %nfs4_begin_drain_session.argprom.exit40 ], [ %189, %185 ], [ %189, %193 ], [ %171, %169 ]
   %195 = icmp slt i32 %194, 0
   br i1 %195, label %.thread56, label %196
 
-196:                                              ; preds = %nfs4_begin_drain_session.exit40.thread54
+196:                                              ; preds = %nfs4_begin_drain_session.argprom.exit40.thread54
   %197 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, i64 8, ptr elementtype(i64) %14) #17, !srcloc !52
   %198 = icmp ult i8 %197, 2
   call void @llvm.assume(i1 %198)
@@ -2751,8 +2751,8 @@ nfs4_state_mark_reclaim_helper.exit48:            ; preds = %.loopexit10.i47, %2
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %14, i32 -5, ptr elementtype(i8) %14) #17, !srcloc !7
   br label %.thread59
 
-.thread56:                                        ; preds = %nfs4_begin_drain_session.exit40.thread, %nfs4_begin_drain_session.exit40.thread54
-  %246 = phi i32 [ %194, %nfs4_begin_drain_session.exit40.thread54 ], [ -2, %nfs4_begin_drain_session.exit40.thread ]
+.thread56:                                        ; preds = %nfs4_begin_drain_session.argprom.exit40.thread, %nfs4_begin_drain_session.argprom.exit40.thread54
+  %246 = phi i32 [ %194, %nfs4_begin_drain_session.argprom.exit40.thread54 ], [ -2, %nfs4_begin_drain_session.argprom.exit40.thread ]
   %247 = call fastcc i32 @nfs4_handle_reclaim_lease_error(ptr noundef %0, i32 noundef %246), !range !51
   %248 = icmp slt i32 %247, 0
   br i1 %248, label %.thread64, label %.thread59
@@ -3070,7 +3070,7 @@ select.unfold.backedge:                           ; preds = %375, %365
   %423 = icmp ult i8 %422, 2
   call void @llvm.assume(i1 %423)
   %424 = icmp eq i8 %422, 0
-  br i1 %424, label %nfs4_end_drain_session.exit, label %425
+  br i1 %424, label %nfs4_end_drain_session.argprom.exit, label %425
 
 425:                                              ; preds = %420
   %426 = getelementptr inbounds i8, ptr %.val35, i64 144
@@ -3080,7 +3080,7 @@ select.unfold.backedge:                           ; preds = %375, %365
 
 427:                                              ; preds = %415
   %428 = icmp eq ptr %.val36, null
-  br i1 %428, label %nfs4_end_drain_session.exit, label %429
+  br i1 %428, label %nfs4_end_drain_session.argprom.exit, label %429
 
 429:                                              ; preds = %427
   %430 = getelementptr inbounds i8, ptr %.val36, i64 992
@@ -3104,7 +3104,7 @@ select.unfold.backedge:                           ; preds = %375, %365
   %440 = icmp ult i8 %439, 2
   call void @llvm.assume(i1 %440)
   %441 = icmp eq i8 %439, 0
-  br i1 %441, label %nfs4_end_drain_session.exit, label %442
+  br i1 %441, label %nfs4_end_drain_session.argprom.exit, label %442
 
 442:                                              ; preds = %437
   %443 = getelementptr inbounds i8, ptr %.val36, i64 64
@@ -3116,9 +3116,9 @@ select.unfold.backedge:                           ; preds = %375, %365
 445:                                              ; preds = %442, %425
   %446 = phi ptr [ %444, %442 ], [ %426, %425 ]
   call void @_raw_spin_unlock(ptr noundef %446) #17
-  br label %nfs4_end_drain_session.exit
+  br label %nfs4_end_drain_session.argprom.exit
 
-nfs4_end_drain_session.exit:                      ; preds = %420, %427, %437, %445
+nfs4_end_drain_session.argprom.exit:              ; preds = %420, %427, %437, %445
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !55
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %14, i32 -2, ptr elementtype(i8) %14) #17, !srcloc !7
   call void @wake_up_bit(ptr noundef %14, i32 noundef 0) #17
@@ -3128,7 +3128,7 @@ nfs4_end_drain_session.exit:                      ; preds = %420, %427, %437, %4
   %449 = icmp eq i64 %448, 0
   br i1 %449, label %458, label %450
 
-450:                                              ; preds = %nfs4_end_drain_session.exit
+450:                                              ; preds = %nfs4_end_drain_session.argprom.exit
   %451 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, i64 0, ptr elementtype(i64) %14) #17, !srcloc !9
   %452 = icmp ult i8 %451, 2
   call void @llvm.assume(i1 %452)
@@ -3142,7 +3142,7 @@ nfs4_end_drain_session.exit:                      ; preds = %420, %427, %437, %4
   store i32 %457, ptr %13, align 4
   br label %.thread59
 
-458:                                              ; preds = %450, %nfs4_end_drain_session.exit
+458:                                              ; preds = %450, %nfs4_end_drain_session.argprom.exit
   %459 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, i64 16, ptr elementtype(i64) %14) #17, !srcloc !9
   %460 = icmp ult i8 %459, 2
   call void @llvm.assume(i1 %460)
@@ -3260,7 +3260,7 @@ nfs4_end_drain_session.exit:                      ; preds = %420, %427, %437, %4
   %521 = icmp ult i8 %520, 2
   call void @llvm.assume(i1 %521)
   %522 = icmp eq i8 %520, 0
-  br i1 %522, label %nfs4_end_drain_session.exit49, label %523
+  br i1 %522, label %nfs4_end_drain_session.argprom.exit49, label %523
 
 523:                                              ; preds = %518
   %524 = getelementptr inbounds i8, ptr %.val37, i64 144
@@ -3270,7 +3270,7 @@ nfs4_end_drain_session.exit:                      ; preds = %420, %427, %437, %4
 
 525:                                              ; preds = %.critedge
   %526 = icmp eq ptr %.val38, null
-  br i1 %526, label %nfs4_end_drain_session.exit49, label %527
+  br i1 %526, label %nfs4_end_drain_session.argprom.exit49, label %527
 
 527:                                              ; preds = %525
   %528 = getelementptr inbounds i8, ptr %.val38, i64 992
@@ -3294,7 +3294,7 @@ nfs4_end_drain_session.exit:                      ; preds = %420, %427, %437, %4
   %538 = icmp ult i8 %537, 2
   call void @llvm.assume(i1 %538)
   %539 = icmp eq i8 %537, 0
-  br i1 %539, label %nfs4_end_drain_session.exit49, label %540
+  br i1 %539, label %nfs4_end_drain_session.argprom.exit49, label %540
 
 540:                                              ; preds = %535
   %541 = getelementptr inbounds i8, ptr %.val38, i64 64
@@ -3306,16 +3306,16 @@ nfs4_end_drain_session.exit:                      ; preds = %420, %427, %437, %4
 543:                                              ; preds = %540, %523
   %544 = phi ptr [ %542, %540 ], [ %524, %523 ]
   call void @_raw_spin_unlock(ptr noundef %544) #17
-  br label %nfs4_end_drain_session.exit49
+  br label %nfs4_end_drain_session.argprom.exit49
 
-nfs4_end_drain_session.exit49:                    ; preds = %518, %525, %535, %543
+nfs4_end_drain_session.argprom.exit49:            ; preds = %518, %525, %535, %543
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !55
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %14, i32 -2, ptr elementtype(i8) %14) #17, !srcloc !7
   call void @wake_up_bit(ptr noundef %14, i32 noundef 0) #17
   call void @rpc_wake_up(ptr noundef %19) #17
   br label %545
 
-545:                                              ; preds = %nfs4_end_drain_session.exit49, %468, %458
+545:                                              ; preds = %nfs4_end_drain_session.argprom.exit49, %468, %458
   %546 = load volatile i64, ptr %14, align 8
   %547 = and i64 %546, 32768
   %548 = icmp eq i64 %547, 0
@@ -5202,7 +5202,7 @@ nfs4_state_mark_reclaim_helper.exit:              ; preds = %.loopexit10.i, %9
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nfs4_begin_drain_session(ptr %.680.val, ptr %.696.val) unnamed_addr #0 align 16 {
+define internal fastcc i32 @nfs4_begin_drain_session.argprom(ptr %.680.val, ptr %.696.val) unnamed_addr #0 align 16 {
   %1 = icmp eq ptr %.680.val, null
   br i1 %1, label %12, label %2
 
@@ -5581,7 +5581,7 @@ define internal fastcc i32 @nfs4_try_migration(ptr noundef %0, ptr noundef nonnu
   %.val = load ptr, ptr %32, align 8
   %33 = getelementptr i8, ptr %3, i64 696
   %.val5 = load ptr, ptr %33, align 8
-  %34 = tail call fastcc i32 @nfs4_begin_drain_session(ptr %.val, ptr %.val5)
+  %34 = tail call fastcc i32 @nfs4_begin_drain_session.argprom(ptr %.val, ptr %.val5)
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %.thread
 

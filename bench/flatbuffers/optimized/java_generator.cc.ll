@@ -1864,7 +1864,7 @@ invoke.cont222.i:                                 ; preds = %invoke.cont220.i
           to label %.noexc61 unwind label %lpad16
 
 .noexc61:                                         ; preds = %invoke.cont222.i
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_112PrintServiceEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceEb(ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef %service)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_112PrintServiceEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceEb.argelim(ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef %service)
           to label %invoke.cont45 unwind label %lpad16
 
 lpad.i52:                                         ; preds = %call.i.noexc.i54, %invoke.cont43
@@ -2326,7 +2326,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_112PrintServiceEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceEb(ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef %service) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_112PrintServiceEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceEb.argelim(ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef %service) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i568 = alloca %struct._Guard, align 8
   %__guard.i557 = alloca %struct._Guard, align 8
@@ -6797,9 +6797,9 @@ _ZN19grpc_java_generator12_GLOBAL__N_117GrpcEscapeJavadocERKNSt7__cxx1112basic_s
   %call5.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %escapedComments.i) #18, !noalias !46
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 %call5.i.i.i.i
   %cmp6.not1.i.i.i.i = icmp eq i64 %call5.i.i.i.i, 0
-  br i1 %cmp6.not1.i.i.i.i, label %_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.thread.i, label %while.body.i.preheader.i.i.i
+  br i1 %cmp6.not1.i.i.i.i, label %_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.argprom.exit.thread.i, label %while.body.i.preheader.i.i.i
 
-_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.thread.i: ; preds = %_ZN19grpc_java_generator12_GLOBAL__N_117GrpcEscapeJavadocERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
+_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.argprom.exit.thread.i: ; preds = %_ZN19grpc_java_generator12_GLOBAL__N_117GrpcEscapeJavadocERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i), !noalias !46
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp18.i.i.i.i), !noalias !46
   br label %nrvo.skipdtor.i
@@ -6881,9 +6881,9 @@ ehcleanup.i.i.i.i:                                ; preds = %lpad20.i.i.i.i, %lp
 if.end.i.i.i.i:                                   ; preds = %invoke.cont25.i.i.i.i, %if.then10.i.i.i.i
   %p.1.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %if.then10.i.i.i.i ], [ %incdec.ptr12.lcssa.i.i.i.i, %invoke.cont25.i.i.i.i ]
   %cmp6.not.i.i.i.i = icmp eq ptr %p.1.i.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp6.not.i.i.i.i, label %_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.i, label %while.body.i.i.i.i, !llvm.loop !48
+  br i1 %cmp6.not.i.i.i.i, label %_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.argprom.exit.i, label %while.body.i.i.i.i, !llvm.loop !48
 
-_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.i: ; preds = %if.end.i.i.i.i
+_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.argprom.exit.i: ; preds = %if.end.i.i.i.i
   %.pre.i = load ptr, ptr %lines, align 8, !alias.scope !39
   %.pre4.i = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8, !alias.scope !39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i), !noalias !46
@@ -6891,8 +6891,8 @@ _ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt
   %cmp.i.i3.i = icmp eq ptr %.pre.i, %.pre4.i
   br i1 %cmp.i.i3.i, label %nrvo.skipdtor.i, label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.i, %while.body.i
-  %11 = phi ptr [ %14, %while.body.i ], [ %.pre4.i, %_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.i ]
+land.rhs.i:                                       ; preds = %_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.argprom.exit.i, %while.body.i
+  %11 = phi ptr [ %14, %while.body.i ], [ %.pre4.i, %_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.argprom.exit.i ]
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %11, i64 -32
   %call3.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #18
   br i1 %call3.i, label %while.body.i, label %nrvo.skipdtor.i
@@ -6907,7 +6907,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %cmp.i.i.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i.i, label %nrvo.skipdtor.i, label %land.rhs.i, !llvm.loop !49
 
-nrvo.skipdtor.i:                                  ; preds = %while.body.i, %land.rhs.i, %_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.i, %_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.thread.i
+nrvo.skipdtor.i:                                  ; preds = %while.body.i, %land.rhs.i, %_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.argprom.exit.i, %_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.argprom.exit.thread.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %escapedComments.i) #18
   br label %_ZN19grpc_java_generator12_GLOBAL__N_115GrpcGetDocLinesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -13541,8 +13541,8 @@ attributes #24 = { nounwind allocsize(0) }
 !41 = distinct !{!41, !"_ZN19grpc_java_generator12_GLOBAL__N_115GrpcGetDocLinesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
 !42 = distinct !{!42, !6}
 !43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc: %agg.result"}
-!45 = distinct !{!45, !"_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc"}
+!44 = distinct !{!44, !45, !"_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.argprom: %agg.result"}
+!45 = distinct !{!45, !"_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.argprom"}
 !46 = !{!44, !40}
 !47 = distinct !{!47, !6}
 !48 = distinct !{!48, !6}

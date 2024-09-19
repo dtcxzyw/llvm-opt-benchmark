@@ -342,13 +342,13 @@ cleanup:                                          ; preds = %if.end12, %if.then
   %retval.0 = phi ptr [ %call1, %if.end12 ], [ null, %if.then ]
   %err.val = load ptr, ptr %err, align 8
   %tobool.not.i.i = icmp eq ptr %err.val, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GError.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GError.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   call void @g_error_free(ptr noundef nonnull %err.val) #7
-  br label %glib_autoptr_cleanup_GError.exit
+  br label %glib_autoptr_cleanup_GError.argprom.exit
 
-glib_autoptr_cleanup_GError.exit:                 ; preds = %cleanup, %if.then.i.i
+glib_autoptr_cleanup_GError.argprom.exit:         ; preds = %cleanup, %if.then.i.i
   ret ptr %retval.0
 }
 

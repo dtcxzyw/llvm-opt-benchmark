@@ -402,7 +402,7 @@ common.ret101:                                    ; preds = %6, %8, %10, %12, %1
   br label %common.ret101
 
 65:                                               ; preds = %4
-  %66 = tail call fastcc ptr @transformSQLValueFunction(ptr noundef %1)
+  %66 = tail call fastcc ptr @transformSQLValueFunction.argprom(ptr noundef %1)
   br label %common.ret101
 
 67:                                               ; preds = %4
@@ -1755,11 +1755,11 @@ list_length.exit40.thread.thread.i:               ; preds = %list_length.exit.th
 
 .thread.i:                                        ; preds = %83, %78
   %98 = icmp eq ptr %.0.i42, null
-  br i1 %98, label %.thread.thread.i, label %make_row_distinct_op.exit
+  br i1 %98, label %.thread.thread.i, label %make_row_distinct_op.argprom.exit
 
 .thread.thread.i:                                 ; preds = %.thread.i, %list_length.exit40.thread.thread.i, %list_length.exit40.i, %list_length.exit.thread.i
   %99 = tail call ptr @makeBoolConst(i1 noundef zeroext false, i1 noundef zeroext false) #9
-  br label %make_row_distinct_op.exit
+  br label %make_row_distinct_op.argprom.exit
 
 100:                                              ; preds = %49, %45, %exprIsNullConstant.exit40
   %101 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1767,24 +1767,24 @@ list_length.exit40.thread.thread.i:               ; preds = %list_length.exit.th
   %103 = getelementptr inbounds i8, ptr %1, i64 32
   %104 = load i32, ptr %103, align 8
   %105 = tail call fastcc ptr @make_distinct_op(ptr noundef %0, ptr noundef %102, ptr noundef %43, ptr noundef %44, i32 noundef %104)
-  br label %make_row_distinct_op.exit
+  br label %make_row_distinct_op.argprom.exit
 
-make_row_distinct_op.exit:                        ; preds = %.thread.thread.i, %.thread.i, %100
+make_row_distinct_op.argprom.exit:                ; preds = %.thread.thread.i, %.thread.i, %100
   %.034 = phi ptr [ %105, %100 ], [ %99, %.thread.thread.i ], [ %.0.i42, %.thread.i ]
   %106 = getelementptr inbounds i8, ptr %1, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = icmp eq i32 %107, 4
   br i1 %108, label %109, label %114
 
-109:                                              ; preds = %make_row_distinct_op.exit
+109:                                              ; preds = %make_row_distinct_op.argprom.exit
   %110 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %.034) #9
   %111 = getelementptr inbounds i8, ptr %1, i64 32
   %112 = load i32, ptr %111, align 8
   %113 = tail call ptr @makeBoolExpr(i32 noundef 2, ptr noundef %110, i32 noundef %112) #9
   br label %114
 
-114:                                              ; preds = %make_row_distinct_op.exit, %109, %make_nulltest_from_distinct.exit41, %make_nulltest_from_distinct.exit
-  %.0 = phi ptr [ %14, %make_nulltest_from_distinct.exit ], [ %32, %make_nulltest_from_distinct.exit41 ], [ %113, %109 ], [ %.034, %make_row_distinct_op.exit ]
+114:                                              ; preds = %make_row_distinct_op.argprom.exit, %109, %make_nulltest_from_distinct.exit41, %make_nulltest_from_distinct.exit
+  %.0 = phi ptr [ %14, %make_nulltest_from_distinct.exit ], [ %32, %make_nulltest_from_distinct.exit41 ], [ %113, %109 ], [ %.034, %make_row_distinct_op.argprom.exit ]
   ret ptr %.0
 }
 
@@ -3279,7 +3279,7 @@ define internal fastcc noundef ptr @transformMinMaxExpr(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @transformSQLValueFunction(ptr noundef nonnull returned %0) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @transformSQLValueFunction.argprom(ptr noundef nonnull returned %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %36 [

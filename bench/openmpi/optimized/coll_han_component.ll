@@ -184,13 +184,13 @@ define internal range(i32 -1, 1) i32 @han_register() #0 {
   %23 = trunc i64 %22 to i32
   %24 = load ptr, ptr %12, align 8
   %25 = icmp eq ptr %21, %24
-  br i1 %25, label %26, label %mca_coll_han_query_module_from_mca.exit
+  br i1 %25, label %26, label %mca_coll_han_query_module_from_mca.argprom.exit
 
 26:                                               ; preds = %0
   %27 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %21) #11
-  br label %mca_coll_han_query_module_from_mca.exit
+  br label %mca_coll_han_query_module_from_mca.argprom.exit
 
-mca_coll_han_query_module_from_mca.exit:          ; preds = %0, %26
+mca_coll_han_query_module_from_mca.argprom.exit:  ; preds = %0, %26
   %.0.i = phi i32 [ %27, %26 ], [ %23, %0 ]
   %28 = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 0)
   store i32 %28, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 296), align 8
@@ -206,14 +206,14 @@ mca_coll_han_query_module_from_mca.exit:          ; preds = %0, %26
   %33 = trunc i64 %32 to i32
   %34 = load ptr, ptr %11, align 8
   %35 = icmp eq ptr %31, %34
-  br i1 %35, label %36, label %mca_coll_han_query_module_from_mca.exit156
+  br i1 %35, label %36, label %mca_coll_han_query_module_from_mca.argprom.exit156
 
-36:                                               ; preds = %mca_coll_han_query_module_from_mca.exit
+36:                                               ; preds = %mca_coll_han_query_module_from_mca.argprom.exit
   %37 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %31) #11
-  br label %mca_coll_han_query_module_from_mca.exit156
+  br label %mca_coll_han_query_module_from_mca.argprom.exit156
 
-mca_coll_han_query_module_from_mca.exit156:       ; preds = %mca_coll_han_query_module_from_mca.exit, %36
-  %.0.i155 = phi i32 [ %37, %36 ], [ %33, %mca_coll_han_query_module_from_mca.exit ]
+mca_coll_han_query_module_from_mca.argprom.exit156: ; preds = %mca_coll_han_query_module_from_mca.argprom.exit, %36
+  %.0.i155 = phi i32 [ %37, %36 ], [ %33, %mca_coll_han_query_module_from_mca.argprom.exit ]
   %38 = tail call i32 @llvm.smax.i32(i32 %.0.i155, i32 0)
   store i32 %38, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 300), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
@@ -230,14 +230,14 @@ mca_coll_han_query_module_from_mca.exit156:       ; preds = %mca_coll_han_query_
   %44 = trunc i64 %43 to i32
   %45 = load ptr, ptr %10, align 8
   %46 = icmp eq ptr %42, %45
-  br i1 %46, label %47, label %mca_coll_han_query_module_from_mca.exit159
+  br i1 %46, label %47, label %mca_coll_han_query_module_from_mca.argprom.exit159
 
-47:                                               ; preds = %mca_coll_han_query_module_from_mca.exit156
+47:                                               ; preds = %mca_coll_han_query_module_from_mca.argprom.exit156
   %48 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %42) #11
-  br label %mca_coll_han_query_module_from_mca.exit159
+  br label %mca_coll_han_query_module_from_mca.argprom.exit159
 
-mca_coll_han_query_module_from_mca.exit159:       ; preds = %mca_coll_han_query_module_from_mca.exit156, %47
-  %.0.i158 = phi i32 [ %48, %47 ], [ %44, %mca_coll_han_query_module_from_mca.exit156 ]
+mca_coll_han_query_module_from_mca.argprom.exit159: ; preds = %mca_coll_han_query_module_from_mca.argprom.exit156, %47
+  %.0.i158 = phi i32 [ %48, %47 ], [ %44, %mca_coll_han_query_module_from_mca.argprom.exit156 ]
   %49 = tail call i32 @llvm.smax.i32(i32 %.0.i158, i32 0)
   store i32 %49, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 308), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -252,14 +252,14 @@ mca_coll_han_query_module_from_mca.exit159:       ; preds = %mca_coll_han_query_
   %54 = trunc i64 %53 to i32
   %55 = load ptr, ptr %9, align 8
   %56 = icmp eq ptr %52, %55
-  br i1 %56, label %57, label %mca_coll_han_query_module_from_mca.exit162
+  br i1 %56, label %57, label %mca_coll_han_query_module_from_mca.argprom.exit162
 
-57:                                               ; preds = %mca_coll_han_query_module_from_mca.exit159
+57:                                               ; preds = %mca_coll_han_query_module_from_mca.argprom.exit159
   %58 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %52) #11
-  br label %mca_coll_han_query_module_from_mca.exit162
+  br label %mca_coll_han_query_module_from_mca.argprom.exit162
 
-mca_coll_han_query_module_from_mca.exit162:       ; preds = %mca_coll_han_query_module_from_mca.exit159, %57
-  %.0.i161 = phi i32 [ %58, %57 ], [ %54, %mca_coll_han_query_module_from_mca.exit159 ]
+mca_coll_han_query_module_from_mca.argprom.exit162: ; preds = %mca_coll_han_query_module_from_mca.argprom.exit159, %57
+  %.0.i161 = phi i32 [ %58, %57 ], [ %54, %mca_coll_han_query_module_from_mca.argprom.exit159 ]
   %59 = tail call i32 @llvm.smax.i32(i32 %.0.i161, i32 0)
   store i32 %59, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 312), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -276,14 +276,14 @@ mca_coll_han_query_module_from_mca.exit162:       ; preds = %mca_coll_han_query_
   %65 = trunc i64 %64 to i32
   %66 = load ptr, ptr %8, align 8
   %67 = icmp eq ptr %63, %66
-  br i1 %67, label %68, label %mca_coll_han_query_module_from_mca.exit165
+  br i1 %67, label %68, label %mca_coll_han_query_module_from_mca.argprom.exit165
 
-68:                                               ; preds = %mca_coll_han_query_module_from_mca.exit162
+68:                                               ; preds = %mca_coll_han_query_module_from_mca.argprom.exit162
   %69 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %63) #11
-  br label %mca_coll_han_query_module_from_mca.exit165
+  br label %mca_coll_han_query_module_from_mca.argprom.exit165
 
-mca_coll_han_query_module_from_mca.exit165:       ; preds = %mca_coll_han_query_module_from_mca.exit162, %68
-  %.0.i164 = phi i32 [ %69, %68 ], [ %65, %mca_coll_han_query_module_from_mca.exit162 ]
+mca_coll_han_query_module_from_mca.argprom.exit165: ; preds = %mca_coll_han_query_module_from_mca.argprom.exit162, %68
+  %.0.i164 = phi i32 [ %69, %68 ], [ %65, %mca_coll_han_query_module_from_mca.argprom.exit162 ]
   %70 = tail call i32 @llvm.smax.i32(i32 %.0.i164, i32 0)
   store i32 %70, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 320), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -298,14 +298,14 @@ mca_coll_han_query_module_from_mca.exit165:       ; preds = %mca_coll_han_query_
   %75 = trunc i64 %74 to i32
   %76 = load ptr, ptr %7, align 8
   %77 = icmp eq ptr %73, %76
-  br i1 %77, label %78, label %mca_coll_han_query_module_from_mca.exit168
+  br i1 %77, label %78, label %mca_coll_han_query_module_from_mca.argprom.exit168
 
-78:                                               ; preds = %mca_coll_han_query_module_from_mca.exit165
+78:                                               ; preds = %mca_coll_han_query_module_from_mca.argprom.exit165
   %79 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %73) #11
-  br label %mca_coll_han_query_module_from_mca.exit168
+  br label %mca_coll_han_query_module_from_mca.argprom.exit168
 
-mca_coll_han_query_module_from_mca.exit168:       ; preds = %mca_coll_han_query_module_from_mca.exit165, %78
-  %.0.i167 = phi i32 [ %79, %78 ], [ %75, %mca_coll_han_query_module_from_mca.exit165 ]
+mca_coll_han_query_module_from_mca.argprom.exit168: ; preds = %mca_coll_han_query_module_from_mca.argprom.exit165, %78
+  %.0.i167 = phi i32 [ %79, %78 ], [ %75, %mca_coll_han_query_module_from_mca.argprom.exit165 ]
   %80 = tail call i32 @llvm.smax.i32(i32 %.0.i167, i32 0)
   store i32 %80, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 324), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -320,14 +320,14 @@ mca_coll_han_query_module_from_mca.exit168:       ; preds = %mca_coll_han_query_
   %85 = trunc i64 %84 to i32
   %86 = load ptr, ptr %6, align 8
   %87 = icmp eq ptr %83, %86
-  br i1 %87, label %88, label %mca_coll_han_query_module_from_mca.exit171
+  br i1 %87, label %88, label %mca_coll_han_query_module_from_mca.argprom.exit171
 
-88:                                               ; preds = %mca_coll_han_query_module_from_mca.exit168
+88:                                               ; preds = %mca_coll_han_query_module_from_mca.argprom.exit168
   %89 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %83) #11
-  br label %mca_coll_han_query_module_from_mca.exit171
+  br label %mca_coll_han_query_module_from_mca.argprom.exit171
 
-mca_coll_han_query_module_from_mca.exit171:       ; preds = %mca_coll_han_query_module_from_mca.exit168, %88
-  %.0.i170 = phi i32 [ %89, %88 ], [ %85, %mca_coll_han_query_module_from_mca.exit168 ]
+mca_coll_han_query_module_from_mca.argprom.exit171: ; preds = %mca_coll_han_query_module_from_mca.argprom.exit168, %88
+  %.0.i170 = phi i32 [ %89, %88 ], [ %85, %mca_coll_han_query_module_from_mca.argprom.exit168 ]
   %90 = tail call i32 @llvm.smax.i32(i32 %.0.i170, i32 0)
   store i32 %90, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 328), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -342,14 +342,14 @@ mca_coll_han_query_module_from_mca.exit171:       ; preds = %mca_coll_han_query_
   %95 = trunc i64 %94 to i32
   %96 = load ptr, ptr %5, align 8
   %97 = icmp eq ptr %93, %96
-  br i1 %97, label %98, label %mca_coll_han_query_module_from_mca.exit174
+  br i1 %97, label %98, label %mca_coll_han_query_module_from_mca.argprom.exit174
 
-98:                                               ; preds = %mca_coll_han_query_module_from_mca.exit171
+98:                                               ; preds = %mca_coll_han_query_module_from_mca.argprom.exit171
   %99 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %93) #11
-  br label %mca_coll_han_query_module_from_mca.exit174
+  br label %mca_coll_han_query_module_from_mca.argprom.exit174
 
-mca_coll_han_query_module_from_mca.exit174:       ; preds = %mca_coll_han_query_module_from_mca.exit171, %98
-  %.0.i173 = phi i32 [ %99, %98 ], [ %95, %mca_coll_han_query_module_from_mca.exit171 ]
+mca_coll_han_query_module_from_mca.argprom.exit174: ; preds = %mca_coll_han_query_module_from_mca.argprom.exit171, %98
+  %.0.i173 = phi i32 [ %99, %98 ], [ %95, %mca_coll_han_query_module_from_mca.argprom.exit171 ]
   %100 = tail call i32 @llvm.smax.i32(i32 %.0.i173, i32 0)
   store i32 %100, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 332), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -364,14 +364,14 @@ mca_coll_han_query_module_from_mca.exit174:       ; preds = %mca_coll_han_query_
   %105 = trunc i64 %104 to i32
   %106 = load ptr, ptr %4, align 8
   %107 = icmp eq ptr %103, %106
-  br i1 %107, label %108, label %mca_coll_han_query_module_from_mca.exit177
+  br i1 %107, label %108, label %mca_coll_han_query_module_from_mca.argprom.exit177
 
-108:                                              ; preds = %mca_coll_han_query_module_from_mca.exit174
+108:                                              ; preds = %mca_coll_han_query_module_from_mca.argprom.exit174
   %109 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %103) #11
-  br label %mca_coll_han_query_module_from_mca.exit177
+  br label %mca_coll_han_query_module_from_mca.argprom.exit177
 
-mca_coll_han_query_module_from_mca.exit177:       ; preds = %mca_coll_han_query_module_from_mca.exit174, %108
-  %.0.i176 = phi i32 [ %109, %108 ], [ %105, %mca_coll_han_query_module_from_mca.exit174 ]
+mca_coll_han_query_module_from_mca.argprom.exit177: ; preds = %mca_coll_han_query_module_from_mca.argprom.exit174, %108
+  %.0.i176 = phi i32 [ %109, %108 ], [ %105, %mca_coll_han_query_module_from_mca.argprom.exit174 ]
   %110 = tail call i32 @llvm.smax.i32(i32 %.0.i176, i32 0)
   store i32 %110, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 336), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -386,14 +386,14 @@ mca_coll_han_query_module_from_mca.exit177:       ; preds = %mca_coll_han_query_
   %115 = trunc i64 %114 to i32
   %116 = load ptr, ptr %3, align 8
   %117 = icmp eq ptr %113, %116
-  br i1 %117, label %118, label %mca_coll_han_query_module_from_mca.exit180
+  br i1 %117, label %118, label %mca_coll_han_query_module_from_mca.argprom.exit180
 
-118:                                              ; preds = %mca_coll_han_query_module_from_mca.exit177
+118:                                              ; preds = %mca_coll_han_query_module_from_mca.argprom.exit177
   %119 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %113) #11
-  br label %mca_coll_han_query_module_from_mca.exit180
+  br label %mca_coll_han_query_module_from_mca.argprom.exit180
 
-mca_coll_han_query_module_from_mca.exit180:       ; preds = %mca_coll_han_query_module_from_mca.exit177, %118
-  %.0.i179 = phi i32 [ %119, %118 ], [ %115, %mca_coll_han_query_module_from_mca.exit177 ]
+mca_coll_han_query_module_from_mca.argprom.exit180: ; preds = %mca_coll_han_query_module_from_mca.argprom.exit177, %118
+  %.0.i179 = phi i32 [ %119, %118 ], [ %115, %mca_coll_han_query_module_from_mca.argprom.exit177 ]
   %120 = tail call i32 @llvm.smax.i32(i32 %.0.i179, i32 0)
   store i32 %120, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 340), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -408,14 +408,14 @@ mca_coll_han_query_module_from_mca.exit180:       ; preds = %mca_coll_han_query_
   %125 = trunc i64 %124 to i32
   %126 = load ptr, ptr %2, align 8
   %127 = icmp eq ptr %123, %126
-  br i1 %127, label %128, label %mca_coll_han_query_module_from_mca.exit183
+  br i1 %127, label %128, label %mca_coll_han_query_module_from_mca.argprom.exit183
 
-128:                                              ; preds = %mca_coll_han_query_module_from_mca.exit180
+128:                                              ; preds = %mca_coll_han_query_module_from_mca.argprom.exit180
   %129 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %123) #11
-  br label %mca_coll_han_query_module_from_mca.exit183
+  br label %mca_coll_han_query_module_from_mca.argprom.exit183
 
-mca_coll_han_query_module_from_mca.exit183:       ; preds = %mca_coll_han_query_module_from_mca.exit180, %128
-  %.0.i182 = phi i32 [ %129, %128 ], [ %125, %mca_coll_han_query_module_from_mca.exit180 ]
+mca_coll_han_query_module_from_mca.argprom.exit183: ; preds = %mca_coll_han_query_module_from_mca.argprom.exit180, %128
+  %.0.i182 = phi i32 [ %129, %128 ], [ %125, %mca_coll_han_query_module_from_mca.argprom.exit180 ]
   %130 = tail call i32 @llvm.smax.i32(i32 %.0.i182, i32 0)
   store i32 %130, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 344), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -430,14 +430,14 @@ mca_coll_han_query_module_from_mca.exit183:       ; preds = %mca_coll_han_query_
   %135 = trunc i64 %134 to i32
   %136 = load ptr, ptr %1, align 8
   %137 = icmp eq ptr %133, %136
-  br i1 %137, label %138, label %mca_coll_han_query_module_from_mca.exit186
+  br i1 %137, label %138, label %mca_coll_han_query_module_from_mca.argprom.exit186
 
-138:                                              ; preds = %mca_coll_han_query_module_from_mca.exit183
+138:                                              ; preds = %mca_coll_han_query_module_from_mca.argprom.exit183
   %139 = tail call i32 @mca_coll_han_component_name_to_id(ptr noundef %133) #11
-  br label %mca_coll_han_query_module_from_mca.exit186
+  br label %mca_coll_han_query_module_from_mca.argprom.exit186
 
-mca_coll_han_query_module_from_mca.exit186:       ; preds = %mca_coll_han_query_module_from_mca.exit183, %138
-  %.0.i185 = phi i32 [ %139, %138 ], [ %135, %mca_coll_han_query_module_from_mca.exit183 ]
+mca_coll_han_query_module_from_mca.argprom.exit186: ; preds = %mca_coll_han_query_module_from_mca.argprom.exit183, %138
+  %.0.i185 = phi i32 [ %139, %138 ], [ %135, %mca_coll_han_query_module_from_mca.argprom.exit183 ]
   %140 = tail call i32 @llvm.smax.i32(i32 %.0.i185, i32 0)
   store i32 %140, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 348), align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
@@ -447,8 +447,8 @@ mca_coll_han_query_module_from_mca.exit186:       ; preds = %mca_coll_han_query_
   %143 = icmp eq i32 %142, -1
   br i1 %143, label %258, label %.preheader199
 
-.preheader199:                                    ; preds = %mca_coll_han_query_module_from_mca.exit186, %183
-  %indvars.iv = phi i64 [ %indvars.iv.next, %183 ], [ 0, %mca_coll_han_query_module_from_mca.exit186 ]
+.preheader199:                                    ; preds = %mca_coll_han_query_module_from_mca.argprom.exit186, %183
+  %indvars.iv = phi i64 [ %indvars.iv.next, %183 ], [ 0, %mca_coll_han_query_module_from_mca.argprom.exit186 ]
   %144 = trunc nuw nsw i64 %indvars.iv to i32
   %145 = call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %144) #11
   br i1 %145, label %146, label %183
@@ -731,8 +731,8 @@ mca_coll_han_topo_lvl_to_str.exit194.split:       ; preds = %mca_coll_han_topo_l
   %257 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1208)) #11
   br label %258
 
-258:                                              ; preds = %mca_coll_han_query_module_from_mca.exit186, %256
-  %.0 = phi i32 [ 0, %256 ], [ -1, %mca_coll_han_query_module_from_mca.exit186 ]
+258:                                              ; preds = %mca_coll_han_query_module_from_mca.argprom.exit186, %256
+  %.0 = phi i32 [ 0, %256 ], [ -1, %mca_coll_han_query_module_from_mca.argprom.exit186 ]
   ret i32 %.0
 }
 

@@ -5266,34 +5266,34 @@ ssl_get_cipher_blocksize.exit:                    ; preds = %367, %367, %367, %3
   %410 = load i32, ptr %27, align 8
   %.val178 = load ptr, ptr %408, align 8
   %411 = icmp eq ptr %.val178, inttoptr (i64 -1 to ptr)
-  br i1 %411, label %412, label %ssl_cipher_decrypt.exit
+  br i1 %411, label %412, label %ssl_cipher_decrypt.argprom.exit
 
 412:                                              ; preds = %._crit_edge
   %413 = icmp ne ptr %.0141, null
   %414 = icmp ne i16 %.0143, 0
   %or.cond.i = and i1 %414, %413
-  br i1 %or.cond.i, label %415, label %ssl_cipher_decrypt.exit.thread
+  br i1 %or.cond.i, label %415, label %ssl_cipher_decrypt.argprom.exit.thread
 
 415:                                              ; preds = %412
   %416 = tail call i32 @llvm.smin.i32(i32 %410, i32 %.pre-phi)
   %417 = sext i32 %416 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %409, ptr nonnull align 1 %.0141, i64 %417, i1 false)
-  br label %ssl_cipher_decrypt.exit.thread
+  br label %ssl_cipher_decrypt.argprom.exit.thread
 
-ssl_cipher_decrypt.exit:                          ; preds = %._crit_edge
+ssl_cipher_decrypt.argprom.exit:                  ; preds = %._crit_edge
   %418 = sext i32 %410 to i64
   %419 = zext i16 %.0143 to i64
   %420 = tail call i32 @gcry_cipher_decrypt(ptr noundef %.val178, ptr noundef %409, i64 noundef %418, ptr noundef %.0141, i64 noundef %419) #23
   %.not169 = icmp eq i32 %420, 0
-  br i1 %.not169, label %ssl_cipher_decrypt.exit.thread, label %421
+  br i1 %.not169, label %ssl_cipher_decrypt.argprom.exit.thread, label %421
 
-421:                                              ; preds = %ssl_cipher_decrypt.exit
+421:                                              ; preds = %ssl_cipher_decrypt.argprom.exit
   %422 = tail call ptr @gcry_strsource(i32 noundef %420) #23
   %423 = tail call ptr @gcry_strerror(i32 noundef %420) #23
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.584, ptr noundef %422, ptr noundef %423)
   br label %ssl_decompress_record.exit.thread
 
-ssl_cipher_decrypt.exit.thread:                   ; preds = %412, %415, %ssl_cipher_decrypt.exit
+ssl_cipher_decrypt.argprom.exit.thread:           ; preds = %412, %415, %ssl_cipher_decrypt.argprom.exit
   %424 = load ptr, ptr %10, align 8
   %425 = zext i16 %.0143 to i64
   tail call void @ssl_print_data(ptr noundef nonnull @.str.585, ptr noundef %424, i64 noundef %425)
@@ -5303,7 +5303,7 @@ ssl_cipher_decrypt.exit.thread:                   ; preds = %412, %415, %ssl_cip
   %429 = icmp eq i32 %428, 1
   br i1 %429, label %430, label %442
 
-430:                                              ; preds = %ssl_cipher_decrypt.exit.thread
+430:                                              ; preds = %ssl_cipher_decrypt.argprom.exit.thread
   %431 = icmp eq i16 %.0143, 0
   br i1 %431, label %432, label %433
 
@@ -5330,8 +5330,8 @@ ssl_cipher_decrypt.exit.thread:                   ; preds = %412, %415, %ssl_cip
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.588, i32 noundef %438, i32 noundef %441)
   br label %442
 
-442:                                              ; preds = %440, %ssl_cipher_decrypt.exit.thread
-  %.1197 = phi i32 [ %441, %440 ], [ %.pre-phi, %ssl_cipher_decrypt.exit.thread ]
+442:                                              ; preds = %440, %ssl_cipher_decrypt.argprom.exit.thread
+  %.1197 = phi i32 [ %441, %440 ], [ %.pre-phi, %ssl_cipher_decrypt.argprom.exit.thread ]
   %.not171 = icmp eq ptr %.0136, null
   br i1 %.not171, label %443, label %452
 
@@ -5750,9 +5750,9 @@ ssl_hmac_init.exit:                               ; preds = %6
   %24 = sext i32 %23 to i64
   %25 = call i32 @gcry_md_setkey(ptr noundef %.val, ptr noundef %21, i64 noundef %24) #23
   %.not.i27 = icmp eq i32 %25, 0
-  br i1 %.not.i27, label %28, label %ssl_hmac_setkey.exit
+  br i1 %.not.i27, label %28, label %ssl_hmac_setkey.argprom.exit
 
-ssl_hmac_setkey.exit:                             ; preds = %19
+ssl_hmac_setkey.argprom.exit:                     ; preds = %19
   %26 = call ptr @gcry_strerror(i32 noundef %25) #23
   %27 = call ptr @gcry_strsource(i32 noundef %25) #23
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1200, ptr noundef %26, ptr noundef %27)
@@ -5837,8 +5837,8 @@ ssl_hmac_final.exit:                              ; preds = %28
   %. = sext i1 %.not18 to i32
   br label %67
 
-67:                                               ; preds = %ssl_hmac_setkey.exit, %ssl_hmac_init.exit, %ssl_hmac_final.exit
-  %.0 = phi i32 [ -1, %ssl_hmac_init.exit ], [ -1, %ssl_hmac_setkey.exit ], [ %., %ssl_hmac_final.exit ]
+67:                                               ; preds = %ssl_hmac_setkey.argprom.exit, %ssl_hmac_init.exit, %ssl_hmac_final.exit
+  %.0 = phi i32 [ -1, %ssl_hmac_init.exit ], [ -1, %ssl_hmac_setkey.argprom.exit ], [ %., %ssl_hmac_final.exit ]
   ret i32 %.0
 }
 
@@ -5879,9 +5879,9 @@ ssl_hmac_init.exit:                               ; preds = %8
   %31 = sext i32 %30 to i64
   %32 = call i32 @gcry_md_setkey(ptr noundef %.val, ptr noundef %28, i64 noundef %31) #23
   %.not.i63 = icmp eq i32 %32, 0
-  br i1 %.not.i63, label %35, label %ssl_hmac_setkey.exit
+  br i1 %.not.i63, label %35, label %ssl_hmac_setkey.argprom.exit
 
-ssl_hmac_setkey.exit:                             ; preds = %26
+ssl_hmac_setkey.argprom.exit:                     ; preds = %26
   %33 = call ptr @gcry_strerror(i32 noundef %32) #23
   %34 = call ptr @gcry_strsource(i32 noundef %32) #23
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1200, ptr noundef %33, ptr noundef %34)
@@ -6043,8 +6043,8 @@ ssl_hmac_final.exit:                              ; preds = %99
   %. = sext i1 %.not47 to i32
   br label %108
 
-108:                                              ; preds = %ssl_hmac_setkey.exit, %ssl_hmac_init.exit, %ssl_hmac_final.exit
-  %.0 = phi i32 [ -1, %ssl_hmac_init.exit ], [ -1, %ssl_hmac_setkey.exit ], [ %., %ssl_hmac_final.exit ]
+108:                                              ; preds = %ssl_hmac_setkey.argprom.exit, %ssl_hmac_init.exit, %ssl_hmac_final.exit
+  %.0 = phi i32 [ -1, %ssl_hmac_init.exit ], [ -1, %ssl_hmac_setkey.argprom.exit ], [ %., %ssl_hmac_final.exit ]
   ret i32 %.0
 }
 
@@ -10326,7 +10326,7 @@ define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr nounde
     i16 45, label %1087
     i16 47, label %1098
     i16 48, label %1100
-    i16 49, label %ssl_dissect_hnd_hello_ext_early_data.exit
+    i16 49, label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
     i16 13172, label %1102
     i16 17513, label %1117
     i16 -255, label %1139
@@ -10336,7 +10336,7 @@ define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr nounde
   ]
 
 278:                                              ; preds = %274
-  br i1 %cond.i473, label %279, label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br i1 %cond.i473, label %279, label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 279:                                              ; preds = %278
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %52)
@@ -10401,57 +10401,57 @@ ssl_dissect_hnd_hello_ext_server_name.exit:       ; preds = %.lr.ph.i, %309, %27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %53)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
-  br i1 %.not412, label %ssl_dissect_hnd_hello_ext_early_data.exit, label %311
+  br i1 %.not412, label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit, label %311
 
 311:                                              ; preds = %ssl_dissect_hnd_hello_ext_server_name.exit
   store i32 1, ptr %235, align 4
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 312:                                              ; preds = %274
   %313 = load i32, ptr %229, align 4
   %314 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %313, ptr noundef %1, i32 noundef %275, i32 noundef 1, i32 noundef 0) #23
   %315 = add i32 %.0401517, 5
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 316:                                              ; preds = %274
   br i1 %cond.i473, label %317, label %319
 
 317:                                              ; preds = %316
   %318 = call fastcc i32 @ssl_dissect_hnd_hello_ext_status_request(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, i32 noundef 0)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 319:                                              ; preds = %316
-  br i1 %or.cond5, label %320, label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br i1 %or.cond5, label %320, label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 320:                                              ; preds = %319
   %321 = call i32 @tls_dissect_hnd_certificate_status(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 322:                                              ; preds = %274
   %323 = call fastcc i32 @ssl_dissect_hnd_hello_ext_cert_type(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %260, i32 noundef %275, i32 noundef %277, i8 noundef zeroext %6, i16 noundef zeroext 9, ptr noundef %7)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 324:                                              ; preds = %274
   br i1 %cond.i473, label %325, label %327
 
 325:                                              ; preds = %324
   %326 = call fastcc i32 @ssl_dissect_hnd_hello_ext_supported_groups(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef %64)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 327:                                              ; preds = %324
   %328 = call fastcc i32 @ssl_dissect_hnd_hello_ext_supported_groups(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef null)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 329:                                              ; preds = %274
   br i1 %cond.i473, label %330, label %332
 
 330:                                              ; preds = %329
   %331 = call fastcc i32 @ssl_dissect_hnd_hello_ext_ec_point_formats(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %260, i32 noundef %275, ptr noundef %66)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 332:                                              ; preds = %329
   %333 = call fastcc i32 @ssl_dissect_hnd_hello_ext_ec_point_formats(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %260, i32 noundef %275, ptr noundef null)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 334:                                              ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51)
@@ -10471,15 +10471,15 @@ ssl_dissect_hnd_hello_ext_server_name.exit:       ; preds = %.lr.ph.i, %309, %27
 ssl_dissect_hnd_hello_ext_srp.exit:               ; preds = %334, %337
   %.0.i423 = phi i32 [ %342, %337 ], [ %277, %334 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 343:                                              ; preds = %274
   %344 = call fastcc i32 @ssl_dissect_hash_alg_list(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %260, ptr noundef %3, i32 noundef %275, i32 noundef %277, ptr noundef %11)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 345:                                              ; preds = %274
   %346 = call fastcc i32 @ssl_dissect_hash_alg_list(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %260, ptr noundef %3, i32 noundef %275, i32 noundef %277, ptr noundef null)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 347:                                              ; preds = %274
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %48)
@@ -10529,29 +10529,29 @@ ssl_dissect_hnd_ext_delegated_credentials.exit:   ; preds = %348, %350, %357, %3
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 372:                                              ; preds = %274
-  br i1 %.not.i.i, label %ssl_dissect_hnd_hello_ext_early_data.exit, label %373
+  br i1 %.not.i.i, label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit, label %373
 
 373:                                              ; preds = %372
-  switch i8 %6, label %ssl_dissect_hnd_hello_ext_early_data.exit [
+  switch i8 %6, label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit [
     i8 1, label %374
     i8 2, label %376
   ]
 
 374:                                              ; preds = %373
   %375 = call i32 @dtls_dissect_hnd_hello_ext_use_srtp(ptr noundef %3, ptr noundef %1, ptr noundef %260, i32 noundef %275, i32 noundef %277, i32 noundef 0) #23
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 376:                                              ; preds = %373
   %377 = call i32 @dtls_dissect_hnd_hello_ext_use_srtp(ptr noundef %3, ptr noundef %1, ptr noundef %260, i32 noundef %275, i32 noundef %277, i32 noundef 1) #23
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 378:                                              ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47)
-  switch i8 %6, label %ssl_dissect_hnd_hello_ext_ech.exit [
+  switch i8 %6, label %ssl_dissect_hnd_hello_ext_ech.argprom.exit [
     i8 1, label %379
     i8 8, label %418
     i8 6, label %424
@@ -10563,7 +10563,7 @@ ssl_dissect_hnd_ext_delegated_credentials.exit:   ; preds = %348, %350, %357, %3
   %382 = add i32 %.0401517, 5
   %383 = load i32, ptr %46, align 4
   %cond.i = icmp eq i32 %383, 0
-  br i1 %cond.i, label %384, label %ssl_dissect_hnd_hello_ext_ech.exit
+  br i1 %cond.i, label %384, label %ssl_dissect_hnd_hello_ext_ech.argprom.exit
 
 384:                                              ; preds = %379
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44)
@@ -10604,7 +10604,7 @@ ssl_dissect_hnd_ext_delegated_credentials.exit:   ; preds = %348, %350, %357, %3
   %415 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %413, ptr noundef %1, i32 noundef %412, i32 noundef %414, i32 noundef 0) #23
   %416 = load i32, ptr %47, align 4
   %417 = add i32 %416, %412
-  br label %ssl_dissect_hnd_hello_ext_ech.exit
+  br label %ssl_dissect_hnd_hello_ext_ech.argprom.exit
 
 418:                                              ; preds = %378
   %419 = load i32, ptr %209, align 4
@@ -10612,25 +10612,25 @@ ssl_dissect_hnd_ext_delegated_credentials.exit:   ; preds = %348, %350, %357, %3
   %421 = load i32, ptr %210, align 4
   %422 = call ptr @proto_item_add_subtree(ptr noundef %420, i32 noundef %421) #23
   %423 = call i32 @ssl_dissect_ext_ech_echconfiglist(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %422, i32 noundef %275, i32 noundef %277)
-  br label %ssl_dissect_hnd_hello_ext_ech.exit
+  br label %ssl_dissect_hnd_hello_ext_ech.argprom.exit
 
 424:                                              ; preds = %378
   %425 = load i32, ptr %208, align 4
   %426 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %425, ptr noundef %1, i32 noundef %275, i32 noundef 8, i32 noundef 0) #23
   %427 = add i32 %.0401517, 12
-  br label %ssl_dissect_hnd_hello_ext_ech.exit
+  br label %ssl_dissect_hnd_hello_ext_ech.argprom.exit
 
-ssl_dissect_hnd_hello_ext_ech.exit:               ; preds = %378, %379, %384, %418, %424
+ssl_dissect_hnd_hello_ext_ech.argprom.exit:       ; preds = %378, %379, %384, %418, %424
   %.0.i426 = phi i32 [ %275, %378 ], [ %427, %424 ], [ %423, %418 ], [ %417, %384 ], [ %382, %379 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 428:                                              ; preds = %274
   %429 = load i32, ptr %207, align 4
   %430 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %429, ptr noundef %1, i32 noundef %275, i32 noundef 1, i32 noundef 0) #23
   %431 = add i32 %.0401517, 5
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 432:                                              ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42)
@@ -10838,10 +10838,10 @@ ssl_dissect_hnd_hello_ext_alpn.exit:              ; preds = %.lr.ph.split.i, %.l
   %.0.i428 = phi i32 [ %277, %432 ], [ %.082.lcssa.i, %525 ], [ %.082.lcssa.i, %526 ], [ %.082.lcssa.i, %522 ], [ %.082.lcssa.i, %.thread102.i ], [ %436, %435 ], [ %.082.lcssa.i, %513 ], [ %438, %.lr.ph.split.us.i ], [ %438, %.lr.ph.split.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 529:                                              ; preds = %274
-  br i1 %cond.i473, label %530, label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br i1 %cond.i473, label %530, label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 530:                                              ; preds = %529
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41)
@@ -10866,10 +10866,10 @@ ssl_dissect_hnd_hello_ext_alpn.exit:              ; preds = %.lr.ph.split.i, %.l
 ssl_dissect_hnd_hello_ext_status_request_v2.exit: ; preds = %.lr.ph.i432, %530, %533
   %.0.i431 = phi i32 [ %277, %530 ], [ %534, %533 ], [ %538, %.lr.ph.i432 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 540:                                              ; preds = %274
-  switch i8 %6, label %ssl_dissect_hnd_hello_ext_early_data.exit [
+  switch i8 %6, label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit [
     i8 11, label %541
     i8 8, label %541
     i8 2, label %541
@@ -10878,11 +10878,11 @@ ssl_dissect_hnd_hello_ext_status_request_v2.exit: ; preds = %.lr.ph.i432, %530, 
 541:                                              ; preds = %540, %540, %540
   %542 = load i16, ptr %59, align 8
   %543 = call i32 @tls_dissect_sct_list(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, i16 noundef zeroext %542)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 544:                                              ; preds = %274, %274
   %545 = call fastcc i32 @ssl_dissect_hnd_hello_ext_cert_type(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %260, i32 noundef %275, i32 noundef %277, i8 noundef zeroext %6, i16 noundef zeroext %238, ptr noundef %7)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 546:                                              ; preds = %274
   %547 = load i32, ptr %195, align 4
@@ -10890,20 +10890,20 @@ ssl_dissect_hnd_hello_ext_status_request_v2.exit: ; preds = %.lr.ph.i432, %530, 
   br label %ssl_end_vector.exit
 
 549:                                              ; preds = %274
-  br i1 %or.cond14, label %550, label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br i1 %or.cond14, label %550, label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 550:                                              ; preds = %549
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1568, ptr noundef nonnull @__func__.ssl_dissect_hnd_extension)
   %551 = load i32, ptr %193, align 8
   %552 = or i32 %551, 2048
   store i32 %552, ptr %193, align 8
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 553:                                              ; preds = %274
-  br i1 %.not31.i, label %ssl_dissect_hnd_hello_ext_early_data.exit, label %554
+  br i1 %.not31.i, label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit, label %554
 
 554:                                              ; preds = %553
-  switch i8 %6, label %ssl_dissect_hnd_hello_ext_early_data.exit [
+  switch i8 %6, label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit [
     i8 1, label %555
     i8 2, label %558
   ]
@@ -10912,17 +10912,17 @@ ssl_dissect_hnd_hello_ext_status_request_v2.exit: ; preds = %.lr.ph.i432, %530, 
   %556 = load i32, ptr %193, align 8
   %557 = or i32 %556, 128
   store i32 %557, ptr %193, align 8
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 558:                                              ; preds = %554
   %559 = load i32, ptr %193, align 8
   %560 = or i32 %559, 256
   store i32 %560, ptr %193, align 8
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 561:                                              ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40)
-  switch i8 %6, label %ssl_dissect_hnd_hello_ext_compress_certificate.exit [
+  switch i8 %6, label %ssl_dissect_hnd_hello_ext_compress_certificate.argprom.exit [
     i8 1, label %562
     i8 13, label %562
   ]
@@ -10931,14 +10931,14 @@ ssl_dissect_hnd_hello_ext_status_request_v2.exit: ; preds = %.lr.ph.i432, %530, 
   %563 = load i32, ptr %191, align 4
   %564 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %40, i32 noundef %563, i32 noundef 1, i32 noundef 254)
   %.not.i433 = icmp eq i32 %564, 0
-  br i1 %.not.i433, label %ssl_dissect_hnd_hello_ext_compress_certificate.exit, label %565
+  br i1 %.not.i433, label %ssl_dissect_hnd_hello_ext_compress_certificate.argprom.exit, label %565
 
 565:                                              ; preds = %562
   %566 = add i32 %.0401517, 5
   %567 = load i32, ptr %40, align 4
   %568 = add i32 %567, %566
   %569 = icmp ult i32 %566, %568
-  br i1 %569, label %.lr.ph.i435, label %ssl_dissect_hnd_hello_ext_compress_certificate.exit
+  br i1 %569, label %.lr.ph.i435, label %ssl_dissect_hnd_hello_ext_compress_certificate.argprom.exit
 
 .lr.ph.i435:                                      ; preds = %565, %.lr.ph.i435
   %.0191.i = phi i32 [ %572, %.lr.ph.i435 ], [ %566, %565 ]
@@ -10946,16 +10946,16 @@ ssl_dissect_hnd_hello_ext_status_request_v2.exit: ; preds = %.lr.ph.i432, %530, 
   %571 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %570, ptr noundef %1, i32 noundef %.0191.i, i32 noundef 2, i32 noundef 0) #23
   %572 = add i32 %.0191.i, 2
   %573 = icmp ult i32 %572, %568
-  br i1 %573, label %.lr.ph.i435, label %ssl_dissect_hnd_hello_ext_compress_certificate.exit, !llvm.loop !35
+  br i1 %573, label %.lr.ph.i435, label %ssl_dissect_hnd_hello_ext_compress_certificate.argprom.exit, !llvm.loop !35
 
-ssl_dissect_hnd_hello_ext_compress_certificate.exit: ; preds = %.lr.ph.i435, %561, %562, %565
+ssl_dissect_hnd_hello_ext_compress_certificate.argprom.exit: ; preds = %.lr.ph.i435, %561, %562, %565
   %.0.i434 = phi i32 [ %277, %562 ], [ %275, %561 ], [ %566, %565 ], [ %572, %.lr.ph.i435 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 574:                                              ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39)
-  br i1 %switch.i, label %575, label %ssl_dissect_hnd_hello_ext_token_binding.exit
+  br i1 %switch.i, label %575, label %ssl_dissect_hnd_hello_ext_token_binding.argprom.exit
 
 575:                                              ; preds = %574
   %576 = load i32, ptr %185, align 4
@@ -10967,7 +10967,7 @@ ssl_dissect_hnd_hello_ext_compress_certificate.exit: ; preds = %.lr.ph.i435, %56
   %582 = load i32, ptr %187, align 4
   %583 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %581, i32 noundef %277, ptr noundef nonnull %39, i32 noundef %582, i32 noundef 1, i32 noundef 255)
   %.not.i437 = icmp eq i32 %583, 0
-  br i1 %.not.i437, label %ssl_dissect_hnd_hello_ext_token_binding.exit, label %584
+  br i1 %.not.i437, label %ssl_dissect_hnd_hello_ext_token_binding.argprom.exit, label %584
 
 584:                                              ; preds = %575
   %585 = add i32 %.0401517, 7
@@ -10988,29 +10988,29 @@ ssl_dissect_hnd_hello_ext_compress_certificate.exit: ; preds = %.lr.ph.i435, %56
   %596 = call ptr @proto_tree_add_item(ptr noundef %593, i32 noundef %595, ptr noundef %1, i32 noundef %.0423.i, i32 noundef 1, i32 noundef 0) #23
   %597 = add i32 %.0423.i, 1
   %exitcond.not.i = icmp eq i32 %597, %587
-  br i1 %exitcond.not.i, label %ssl_dissect_hnd_hello_ext_token_binding.exit, label %.lr.ph.i439, !llvm.loop !36
+  br i1 %exitcond.not.i, label %ssl_dissect_hnd_hello_ext_token_binding.argprom.exit, label %.lr.ph.i439, !llvm.loop !36
 
 ._crit_edge.i438:                                 ; preds = %584
   %598 = icmp ugt i32 %585, %587
-  br i1 %598, label %599, label %ssl_dissect_hnd_hello_ext_token_binding.exit
+  br i1 %598, label %599, label %ssl_dissect_hnd_hello_ext_token_binding.argprom.exit
 
 599:                                              ; preds = %._crit_edge.i438
   %600 = sub i32 0, %586
   %601 = icmp eq i32 %586, -1
   %602 = select i1 %601, ptr @.str.503, ptr @.str.707
   %603 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %593, ptr noundef %3, ptr noundef nonnull %112, ptr noundef %1, i32 noundef %587, i32 noundef %600, ptr noundef nonnull @.str.706, i32 noundef %600, ptr noundef nonnull %602) #23
-  br label %ssl_dissect_hnd_hello_ext_token_binding.exit
+  br label %ssl_dissect_hnd_hello_ext_token_binding.argprom.exit
 
-ssl_dissect_hnd_hello_ext_token_binding.exit:     ; preds = %.lr.ph.i439, %574, %575, %._crit_edge.i438, %599
+ssl_dissect_hnd_hello_ext_token_binding.argprom.exit: ; preds = %.lr.ph.i439, %574, %575, %._crit_edge.i438, %599
   %.0.i436 = phi i32 [ %277, %575 ], [ %275, %574 ], [ %587, %599 ], [ %585, %._crit_edge.i438 ], [ %587, %.lr.ph.i439 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 604:                                              ; preds = %274
   %605 = load i32, ptr %184, align 4
   %606 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %605, ptr noundef %1, i32 noundef %275, i32 noundef 2, i32 noundef 0) #23
   %607 = add i32 %.0401517, 6
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 608:                                              ; preds = %274, %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
@@ -11045,7 +11045,7 @@ ssl_dissect_hnd_hello_ext_token_binding.exit:     ; preds = %.lr.ph.i439, %574, 
   %621 = load i32, ptr %133, align 4
   %622 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %29, i32 noundef %621, i32 noundef 0, i32 noundef 65535)
   %.not335.i = icmp eq i32 %622, 0
-  br i1 %.not335.i, label %ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit, label %623
+  br i1 %.not335.i, label %ssl_dissect_hnd_hello_ext_quic_transport_parameters.argprom.exit, label %623
 
 623:                                              ; preds = %620
   %624 = add i32 %.0401517, 6
@@ -11058,7 +11058,7 @@ ssl_dissect_hnd_hello_ext_token_binding.exit:     ; preds = %.lr.ph.i439, %574, 
   %.0329.i = phi i32 [ %626, %623 ], [ %277, %615 ], [ %277, %610 ], [ %277, %608 ]
   %.0327.i = phi i32 [ %624, %623 ], [ %275, %615 ], [ %275, %610 ], [ %275, %608 ]
   %627 = icmp ult i32 %.0327.i, %.0329.i
-  br i1 %627, label %.lr.ph24.i, label %ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit
+  br i1 %627, label %.lr.ph24.i, label %ssl_dissect_hnd_hello_ext_quic_transport_parameters.argprom.exit
 
 .lr.ph24.i:                                       ; preds = %.thread.i, %ssl_end_vector.exit.i
   %.132823.i = phi i32 [ %889, %ssl_end_vector.exit.i ], [ %.0327.i, %.thread.i ]
@@ -11095,7 +11095,7 @@ ssl_dissect_hnd_hello_ext_token_binding.exit:     ; preds = %.lr.ph.i439, %574, 
   %650 = load i32, ptr %137, align 4
   %651 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %629, i32 noundef %649, i32 noundef %.0329.i, ptr noundef nonnull %31, i32 noundef %650, i32 noundef 0, i32 noundef 65535)
   %.not336.i = icmp eq i32 %651, 0
-  br i1 %.not336.i, label %ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit, label %652
+  br i1 %.not336.i, label %ssl_dissect_hnd_hello_ext_quic_transport_parameters.argprom.exit, label %652
 
 652:                                              ; preds = %644
   %653 = add i32 %.132823.i, 4
@@ -11530,9 +11530,9 @@ ssl_dissect_hnd_hello_ext_token_binding.exit:     ; preds = %.lr.ph.i439, %574, 
 ssl_end_vector.exit.i:                            ; preds = %884, %882, %877, %874, %869, %866, %856, %853, %846, %843, %819, %816, %782, %779, %672, %667
   %889 = phi i32 [ %.3.i, %882 ], [ %668, %877 ], [ %668, %884 ], [ %668, %667 ], [ %668, %869 ], [ %668, %874 ], [ %668, %672 ], [ %668, %779 ], [ %668, %782 ], [ %668, %816 ], [ %668, %819 ], [ %668, %843 ], [ %668, %846 ], [ %668, %853 ], [ %668, %856 ], [ %668, %866 ]
   %890 = icmp ult i32 %889, %.0329.i
-  br i1 %890, label %.lr.ph24.i, label %ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit, !llvm.loop !39
+  br i1 %890, label %.lr.ph24.i, label %ssl_dissect_hnd_hello_ext_quic_transport_parameters.argprom.exit, !llvm.loop !39
 
-ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit: ; preds = %644, %ssl_end_vector.exit.i, %620, %.thread.i
+ssl_dissect_hnd_hello_ext_quic_transport_parameters.argprom.exit: ; preds = %644, %ssl_end_vector.exit.i, %620, %.thread.i
   %.0326.i = phi i32 [ %277, %620 ], [ %.0327.i, %.thread.i ], [ %889, %ssl_end_vector.exit.i ], [ %.0329.i, %644 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
@@ -11544,7 +11544,7 @@ ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit: ; preds = %644, %ssl_e
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 891:                                              ; preds = %274
   %892 = icmp ne i32 %276, 0
@@ -11665,7 +11665,7 @@ ssl_dissect_hnd_hello_ext_key_share.exit:         ; preds = %902, %903, %906, %9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 942:                                              ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
@@ -11753,30 +11753,30 @@ ssl_dissect_hnd_hello_ext_pre_shared_key.exit:    ; preds = %.lr.ph.i453, %942, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 987:                                              ; preds = %274, %274
-  switch i8 %6, label %ssl_dissect_hnd_hello_ext_early_data.exit [
+  switch i8 %6, label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit [
     i8 1, label %988
     i8 4, label %990
   ]
 
 988:                                              ; preds = %987
-  br i1 %.not31.i, label %ssl_dissect_hnd_hello_ext_early_data.exit, label %989
+  br i1 %.not31.i, label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit, label %989
 
 989:                                              ; preds = %988
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1608, ptr noundef nonnull @__func__.ssl_dissect_hnd_hello_ext_early_data)
   store i32 1, ptr %116, align 8
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 990:                                              ; preds = %987
   %991 = load i32, ptr %115, align 4
   %992 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %991, ptr noundef %1, i32 noundef %275, i32 noundef 4, i32 noundef 0) #23
   %993 = add i32 %.0401517, 8
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 994:                                              ; preds = %274
-  switch i8 %6, label %ssl_dissect_hnd_hello_ext_early_data.exit [
+  switch i8 %6, label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit [
     i8 1, label %995
     i8 2, label %1072
     i8 6, label %1072
@@ -11972,7 +11972,7 @@ ssl_dissect_hnd_hello_ext_supported_versions.exit: ; preds = %995, %ssl_end_vect
   %.058.i = phi i32 [ %277, %995 ], [ %1070, %1071 ], [ %1070, %ssl_end_vector.exit.i461 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 1072:                                             ; preds = %994, %994
   %1073 = load i32, ptr %108, align 4
@@ -11981,7 +11981,7 @@ ssl_dissect_hnd_hello_ext_supported_versions.exit: ; preds = %995, %ssl_end_vect
   %1076 = load i32, ptr %58, align 4
   %1077 = call ptr @val_to_str(i32 noundef %1076, ptr noundef nonnull @ssl_versions, ptr noundef nonnull @.str.1570) #23
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %260, ptr noundef nonnull @.str.1569, ptr noundef %1077) #23
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 1078:                                             ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
@@ -12001,7 +12001,7 @@ ssl_dissect_hnd_hello_ext_supported_versions.exit: ; preds = %995, %ssl_end_vect
 ssl_dissect_hnd_hello_ext_cookie.exit:            ; preds = %1078, %1081
   %.0.i463 = phi i32 [ %1086, %1081 ], [ %277, %1078 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 1087:                                             ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
@@ -12028,15 +12028,15 @@ ssl_dissect_hnd_hello_ext_cookie.exit:            ; preds = %1078, %1081
 ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit: ; preds = %.lr.ph.i467, %1087, %1090
   %.0.i466 = phi i32 [ %277, %1087 ], [ %1091, %1090 ], [ %1093, %.lr.ph.i467 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 1098:                                             ; preds = %274
   %1099 = call fastcc i32 @tls_dissect_certificate_authorities(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 1100:                                             ; preds = %274
   %1101 = call fastcc i32 @ssl_dissect_hnd_hello_ext_oid_filters(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 1102:                                             ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
@@ -12068,7 +12068,7 @@ ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit: ; preds = %.lr.ph.i467, %
 ssl_dissect_hnd_hello_ext_npn.exit:               ; preds = %.lr.ph.i471, %1110, %1102, %1104
   %.0.i470 = phi i32 [ %275, %1102 ], [ %275, %1104 ], [ %1115, %1110 ], [ %277, %.lr.ph.i471 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 1117:                                             ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
@@ -12112,7 +12112,7 @@ ssl_dissect_hnd_hello_ext_alps.exit:              ; preds = %.lr.ph.i477, %1132,
   %.0.i475 = phi i32 [ %277, %1118 ], [ %277, %1117 ], [ %1122, %1121 ], [ %1137, %1132 ], [ %1124, %.lr.ph.i477 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 1139:                                             ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
@@ -12138,12 +12138,12 @@ ssl_dissect_hnd_hello_ext_alps.exit:              ; preds = %.lr.ph.i477, %1132,
 ssl_dissect_hnd_hello_ext_reneg_info.exit:        ; preds = %1139, %1144, %1147
   %.0.i479 = phi i32 [ %277, %1139 ], [ %1150, %1147 ], [ %1145, %1144 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 1151:                                             ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  switch i8 %6, label %ssl_dissect_hnd_hello_ext_esni.exit [
+  switch i8 %6, label %ssl_dissect_hnd_hello_ext_esni.argprom.exit [
     i8 1, label %1152
     i8 8, label %1176
   ]
@@ -12156,7 +12156,7 @@ ssl_dissect_hnd_hello_ext_reneg_info.exit:        ; preds = %1139, %1144, %1147
   %1157 = load i32, ptr %89, align 4
   %1158 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %1156, i32 noundef %277, ptr noundef nonnull %13, i32 noundef %1157, i32 noundef 0, i32 noundef 65535)
   %.not.i481 = icmp eq i32 %1158, 0
-  br i1 %.not.i481, label %ssl_dissect_hnd_hello_ext_esni.exit, label %1159
+  br i1 %.not.i481, label %ssl_dissect_hnd_hello_ext_esni.argprom.exit, label %1159
 
 1159:                                             ; preds = %1152
   %1160 = add i32 %1156, 2
@@ -12175,31 +12175,31 @@ ssl_dissect_hnd_hello_ext_reneg_info.exit:        ; preds = %1139, %1144, %1147
   %1167 = load i32, ptr %91, align 4
   %1168 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %.1.i482, i32 noundef %277, ptr noundef nonnull %14, i32 noundef %1167, i32 noundef 0, i32 noundef 65535)
   %.not50.i = icmp eq i32 %1168, 0
-  br i1 %.not50.i, label %ssl_dissect_hnd_hello_ext_esni.exit, label %1169
+  br i1 %.not50.i, label %ssl_dissect_hnd_hello_ext_esni.argprom.exit, label %1169
 
 1169:                                             ; preds = %1166
   %1170 = add i32 %.1.i482, 2
   %1171 = load i32, ptr %14, align 4
   %.not51.i = icmp eq i32 %1171, 0
-  br i1 %.not51.i, label %ssl_dissect_hnd_hello_ext_esni.exit, label %1172
+  br i1 %.not51.i, label %ssl_dissect_hnd_hello_ext_esni.argprom.exit, label %1172
 
 1172:                                             ; preds = %1169
   %1173 = load i32, ptr %92, align 4
   %1174 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1173, ptr noundef %1, i32 noundef %1170, i32 noundef %1171, i32 noundef 0) #23
   %1175 = add i32 %1171, %1170
-  br label %ssl_dissect_hnd_hello_ext_esni.exit
+  br label %ssl_dissect_hnd_hello_ext_esni.argprom.exit
 
 1176:                                             ; preds = %1151
   %1177 = load i32, ptr %87, align 4
   %1178 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1177, ptr noundef %1, i32 noundef %275, i32 noundef 16, i32 noundef 0) #23
   %1179 = add i32 %.0401517, 20
-  br label %ssl_dissect_hnd_hello_ext_esni.exit
+  br label %ssl_dissect_hnd_hello_ext_esni.argprom.exit
 
-ssl_dissect_hnd_hello_ext_esni.exit:              ; preds = %1151, %1152, %1166, %1169, %1172, %1176
+ssl_dissect_hnd_hello_ext_esni.argprom.exit:      ; preds = %1151, %1152, %1166, %1169, %1172, %1176
   %.0.i480 = phi i32 [ %277, %1152 ], [ %277, %1166 ], [ %275, %1151 ], [ %1179, %1176 ], [ %1175, %1172 ], [ %1170, %1169 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 1180:                                             ; preds = %274
   store i32 1, ptr %83, align 8
@@ -12207,7 +12207,7 @@ ssl_dissect_hnd_hello_ext_esni.exit:              ; preds = %1151, %1152, %1166,
 
 1181:                                             ; preds = %1180, %274
   %1182 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %275) #23
-  switch i8 %6, label %ssl_dissect_hnd_hello_ext_early_data.exit [
+  switch i8 %6, label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit [
     i8 1, label %.sink.split.i
     i8 2, label %1183
   ]
@@ -12255,7 +12255,7 @@ ssl_dissect_hnd_hello_ext_esni.exit:              ; preds = %1151, %1152, %1166,
   %1202 = load i32, ptr %85, align 4
   %1203 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1202, ptr noundef %1, i32 noundef %275, i32 noundef 1, i32 noundef 0) #23
   %1204 = add i32 %.0401517, 5
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 ._crit_edge.i488:                                 ; preds = %1199, %1194, %1188
   %1205 = load i32, ptr %85, align 4
@@ -12263,26 +12263,26 @@ ssl_dissect_hnd_hello_ext_esni.exit:              ; preds = %1151, %1152, %1166,
   %1207 = load i32, ptr %86, align 4
   %1208 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1207, ptr noundef %1, i32 noundef %1193, i32 noundef %1187, i32 noundef 0) #23
   %1209 = add i32 %1193, %1187
-  br label %ssl_dissect_hnd_hello_ext_early_data.exit
+  br label %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
 
 1210:                                             ; preds = %274
   %1211 = load i32, ptr %236, align 4
   %1212 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1211, ptr noundef %1, i32 noundef %275, i32 noundef %276, i32 noundef 0) #23
   br label %ssl_end_vector.exit
 
-ssl_dissect_hnd_hello_ext_early_data.exit:        ; preds = %1181, %1201, %._crit_edge.i488, %990, %989, %988, %987, %540, %373, %274, %994, %ssl_dissect_hnd_hello_ext_supported_versions.exit, %1072, %553, %554, %558, %555, %549, %550, %541, %529, %ssl_dissect_hnd_hello_ext_status_request_v2.exit, %376, %374, %372, %330, %332, %325, %327, %317, %320, %319, %278, %311, %ssl_dissect_hnd_hello_ext_server_name.exit, %ssl_dissect_hnd_hello_ext_esni.exit, %ssl_dissect_hnd_hello_ext_reneg_info.exit, %ssl_dissect_hnd_hello_ext_alps.exit, %ssl_dissect_hnd_hello_ext_npn.exit, %1100, %1098, %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit, %ssl_dissect_hnd_hello_ext_cookie.exit, %ssl_dissect_hnd_hello_ext_pre_shared_key.exit, %ssl_dissect_hnd_hello_ext_key_share.exit, %ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit, %604, %ssl_dissect_hnd_hello_ext_token_binding.exit, %ssl_dissect_hnd_hello_ext_compress_certificate.exit, %544, %ssl_dissect_hnd_hello_ext_alpn.exit, %428, %ssl_dissect_hnd_hello_ext_ech.exit, %ssl_dissect_hnd_ext_delegated_credentials.exit, %345, %343, %ssl_dissect_hnd_hello_ext_srp.exit, %322, %312
-  %.1402 = phi i32 [ %.0.i480, %ssl_dissect_hnd_hello_ext_esni.exit ], [ %.0.i479, %ssl_dissect_hnd_hello_ext_reneg_info.exit ], [ %.0.i475, %ssl_dissect_hnd_hello_ext_alps.exit ], [ %.0.i470, %ssl_dissect_hnd_hello_ext_npn.exit ], [ %275, %274 ], [ %1101, %1100 ], [ %1099, %1098 ], [ %.0.i466, %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit ], [ %.0.i463, %ssl_dissect_hnd_hello_ext_cookie.exit ], [ %275, %994 ], [ %1075, %1072 ], [ %.058.i, %ssl_dissect_hnd_hello_ext_supported_versions.exit ], [ %.0.i449, %ssl_dissect_hnd_hello_ext_pre_shared_key.exit ], [ %.051.i, %ssl_dissect_hnd_hello_ext_key_share.exit ], [ %.0326.i, %ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit ], [ %607, %604 ], [ %.0.i436, %ssl_dissect_hnd_hello_ext_token_binding.exit ], [ %.0.i434, %ssl_dissect_hnd_hello_ext_compress_certificate.exit ], [ %275, %554 ], [ %275, %558 ], [ %275, %555 ], [ %275, %553 ], [ %275, %550 ], [ %275, %549 ], [ %545, %544 ], [ %543, %541 ], [ %275, %540 ], [ %.0.i431, %ssl_dissect_hnd_hello_ext_status_request_v2.exit ], [ %275, %529 ], [ %.0.i428, %ssl_dissect_hnd_hello_ext_alpn.exit ], [ %431, %428 ], [ %.0.i426, %ssl_dissect_hnd_hello_ext_ech.exit ], [ %375, %374 ], [ %377, %376 ], [ %275, %372 ], [ %.0.i425, %ssl_dissect_hnd_ext_delegated_credentials.exit ], [ %346, %345 ], [ %344, %343 ], [ %.0.i423, %ssl_dissect_hnd_hello_ext_srp.exit ], [ %331, %330 ], [ %333, %332 ], [ %326, %325 ], [ %328, %327 ], [ %323, %322 ], [ %318, %317 ], [ %321, %320 ], [ %275, %319 ], [ %315, %312 ], [ %.0.i, %311 ], [ %.0.i, %ssl_dissect_hnd_hello_ext_server_name.exit ], [ %275, %278 ], [ %275, %373 ], [ %275, %987 ], [ %993, %990 ], [ %275, %989 ], [ %275, %988 ], [ %275, %1181 ], [ %1209, %._crit_edge.i488 ], [ %1204, %1201 ]
+ssl_dissect_hnd_hello_ext_early_data.argprom.exit: ; preds = %1181, %1201, %._crit_edge.i488, %990, %989, %988, %987, %540, %373, %274, %994, %ssl_dissect_hnd_hello_ext_supported_versions.exit, %1072, %553, %554, %558, %555, %549, %550, %541, %529, %ssl_dissect_hnd_hello_ext_status_request_v2.exit, %376, %374, %372, %330, %332, %325, %327, %317, %320, %319, %278, %311, %ssl_dissect_hnd_hello_ext_server_name.exit, %ssl_dissect_hnd_hello_ext_esni.argprom.exit, %ssl_dissect_hnd_hello_ext_reneg_info.exit, %ssl_dissect_hnd_hello_ext_alps.exit, %ssl_dissect_hnd_hello_ext_npn.exit, %1100, %1098, %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit, %ssl_dissect_hnd_hello_ext_cookie.exit, %ssl_dissect_hnd_hello_ext_pre_shared_key.exit, %ssl_dissect_hnd_hello_ext_key_share.exit, %ssl_dissect_hnd_hello_ext_quic_transport_parameters.argprom.exit, %604, %ssl_dissect_hnd_hello_ext_token_binding.argprom.exit, %ssl_dissect_hnd_hello_ext_compress_certificate.argprom.exit, %544, %ssl_dissect_hnd_hello_ext_alpn.exit, %428, %ssl_dissect_hnd_hello_ext_ech.argprom.exit, %ssl_dissect_hnd_ext_delegated_credentials.exit, %345, %343, %ssl_dissect_hnd_hello_ext_srp.exit, %322, %312
+  %.1402 = phi i32 [ %.0.i480, %ssl_dissect_hnd_hello_ext_esni.argprom.exit ], [ %.0.i479, %ssl_dissect_hnd_hello_ext_reneg_info.exit ], [ %.0.i475, %ssl_dissect_hnd_hello_ext_alps.exit ], [ %.0.i470, %ssl_dissect_hnd_hello_ext_npn.exit ], [ %275, %274 ], [ %1101, %1100 ], [ %1099, %1098 ], [ %.0.i466, %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit ], [ %.0.i463, %ssl_dissect_hnd_hello_ext_cookie.exit ], [ %275, %994 ], [ %1075, %1072 ], [ %.058.i, %ssl_dissect_hnd_hello_ext_supported_versions.exit ], [ %.0.i449, %ssl_dissect_hnd_hello_ext_pre_shared_key.exit ], [ %.051.i, %ssl_dissect_hnd_hello_ext_key_share.exit ], [ %.0326.i, %ssl_dissect_hnd_hello_ext_quic_transport_parameters.argprom.exit ], [ %607, %604 ], [ %.0.i436, %ssl_dissect_hnd_hello_ext_token_binding.argprom.exit ], [ %.0.i434, %ssl_dissect_hnd_hello_ext_compress_certificate.argprom.exit ], [ %275, %554 ], [ %275, %558 ], [ %275, %555 ], [ %275, %553 ], [ %275, %550 ], [ %275, %549 ], [ %545, %544 ], [ %543, %541 ], [ %275, %540 ], [ %.0.i431, %ssl_dissect_hnd_hello_ext_status_request_v2.exit ], [ %275, %529 ], [ %.0.i428, %ssl_dissect_hnd_hello_ext_alpn.exit ], [ %431, %428 ], [ %.0.i426, %ssl_dissect_hnd_hello_ext_ech.argprom.exit ], [ %375, %374 ], [ %377, %376 ], [ %275, %372 ], [ %.0.i425, %ssl_dissect_hnd_ext_delegated_credentials.exit ], [ %346, %345 ], [ %344, %343 ], [ %.0.i423, %ssl_dissect_hnd_hello_ext_srp.exit ], [ %331, %330 ], [ %333, %332 ], [ %326, %325 ], [ %328, %327 ], [ %323, %322 ], [ %318, %317 ], [ %321, %320 ], [ %275, %319 ], [ %315, %312 ], [ %.0.i, %311 ], [ %.0.i, %ssl_dissect_hnd_hello_ext_server_name.exit ], [ %275, %278 ], [ %275, %373 ], [ %275, %987 ], [ %993, %990 ], [ %275, %989 ], [ %275, %988 ], [ %275, %1181 ], [ %1209, %._crit_edge.i488 ], [ %1204, %1201 ]
   %1213 = icmp ult i32 %.1402, %277
   br i1 %1213, label %1214, label %1219
 
-1214:                                             ; preds = %ssl_dissect_hnd_hello_ext_early_data.exit
+1214:                                             ; preds = %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
   %1215 = sub nuw i32 %277, %.1402
   %1216 = icmp eq i32 %1215, 1
   %1217 = select i1 %1216, ptr @.str.704, ptr @.str.705
   %1218 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %260, ptr noundef %3, ptr noundef nonnull %113, ptr noundef %1, i32 noundef %.1402, i32 noundef %1215, ptr noundef nonnull @.str.703, i32 noundef %1215, ptr noundef nonnull %1217) #23
   br label %ssl_end_vector.exit
 
-1219:                                             ; preds = %ssl_dissect_hnd_hello_ext_early_data.exit
+1219:                                             ; preds = %ssl_dissect_hnd_hello_ext_early_data.argprom.exit
   %1220 = icmp ugt i32 %.1402, %277
   br i1 %1220, label %1221, label %ssl_end_vector.exit
 
@@ -14395,15 +14395,15 @@ ssl_hmac_init.exit.thread:                        ; preds = %5
   %25 = sext i32 %24 to i64
   %26 = call i32 @gcry_md_setkey(ptr noundef %.val, ptr noundef %23, i64 noundef %25) #23
   %.not.i38 = icmp eq i32 %26, 0
-  br i1 %.not.i38, label %ssl_hmac_setkey.exit, label %27
+  br i1 %.not.i38, label %ssl_hmac_setkey.argprom.exit, label %27
 
 27:                                               ; preds = %.lr.ph
   %28 = call ptr @gcry_strerror(i32 noundef %26) #23
   %29 = call ptr @gcry_strsource(i32 noundef %26) #23
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1200, ptr noundef %28, ptr noundef %29)
-  br label %ssl_hmac_setkey.exit
+  br label %ssl_hmac_setkey.argprom.exit
 
-ssl_hmac_setkey.exit:                             ; preds = %.lr.ph, %27
+ssl_hmac_setkey.argprom.exit:                     ; preds = %.lr.ph, %27
   %.val32 = load ptr, ptr %8, align 8
   %30 = sext i32 %.05054 to i64
   call void @gcry_md_write(ptr noundef %.val32, ptr noundef %.057, i64 noundef %30) #23
@@ -14413,11 +14413,11 @@ ssl_hmac_setkey.exit:                             ; preds = %.lr.ph, %27
   %.not.i40 = icmp ugt i32 %33, 48
   br i1 %.not.i40, label %34, label %ssl_hmac_final.exit
 
-34:                                               ; preds = %ssl_hmac_setkey.exit
+34:                                               ; preds = %ssl_hmac_setkey.argprom.exit
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.494, i32 noundef 3041, ptr noundef nonnull @.str.1201) #24
   unreachable
 
-ssl_hmac_final.exit:                              ; preds = %ssl_hmac_setkey.exit
+ssl_hmac_final.exit:                              ; preds = %ssl_hmac_setkey.argprom.exit
   %35 = load ptr, ptr %8, align 8
   %36 = call ptr @gcry_md_read(ptr noundef %35, i32 noundef %32) #23
   %37 = zext nneg i32 %33 to i64
@@ -14430,15 +14430,15 @@ ssl_hmac_final.exit:                              ; preds = %ssl_hmac_setkey.exi
   %40 = sext i32 %39 to i64
   %41 = call i32 @gcry_md_setkey(ptr noundef %.val31, ptr noundef %38, i64 noundef %40) #23
   %.not.i41 = icmp eq i32 %41, 0
-  br i1 %.not.i41, label %ssl_hmac_setkey.exit43, label %42
+  br i1 %.not.i41, label %ssl_hmac_setkey.argprom.exit43, label %42
 
 42:                                               ; preds = %ssl_hmac_final.exit
   %43 = call ptr @gcry_strerror(i32 noundef %41) #23
   %44 = call ptr @gcry_strsource(i32 noundef %41) #23
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1200, ptr noundef %43, ptr noundef %44)
-  br label %ssl_hmac_setkey.exit43
+  br label %ssl_hmac_setkey.argprom.exit43
 
-ssl_hmac_setkey.exit43:                           ; preds = %ssl_hmac_final.exit, %42
+ssl_hmac_setkey.argprom.exit43:                   ; preds = %ssl_hmac_final.exit, %42
   %.val33 = load ptr, ptr %8, align 8
   call void @gcry_md_write(ptr noundef %.val33, ptr noundef nonnull %6, i64 noundef %37) #23
   %45 = load ptr, ptr %1, align 8
@@ -14452,11 +14452,11 @@ ssl_hmac_setkey.exit43:                           ; preds = %ssl_hmac_final.exit
   %.not.i44 = icmp ugt i32 %50, 48
   br i1 %.not.i44, label %51, label %ssl_hmac_final.exit45
 
-51:                                               ; preds = %ssl_hmac_setkey.exit43
+51:                                               ; preds = %ssl_hmac_setkey.argprom.exit43
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.494, i32 noundef 3041, ptr noundef nonnull @.str.1201) #24
   unreachable
 
-ssl_hmac_final.exit45:                            ; preds = %ssl_hmac_setkey.exit43
+ssl_hmac_final.exit45:                            ; preds = %ssl_hmac_setkey.argprom.exit43
   %52 = load ptr, ptr %8, align 8
   %53 = call ptr @gcry_md_read(ptr noundef %52, i32 noundef %49) #23
   %54 = zext nneg i32 %50 to i64

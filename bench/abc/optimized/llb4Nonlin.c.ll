@@ -3045,7 +3045,7 @@ Vec_PtrFreeP.exit:                                ; preds = %235, %.thread.i
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, i32 noundef %259, ptr noundef %260, i32 noundef %.0190282)
   %261 = call fastcc i64 @Abc_Clock()
   %262 = sub nsw i64 %261, %.0.i
-  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.4, i64 noundef %262)
+  call fastcc void @Abc_PrintTime.argelim(ptr noundef nonnull @.str.4, i64 noundef %262)
   %.pre316 = load ptr, ptr %20, align 8
   br label %263
 
@@ -3554,7 +3554,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Abc_PrintTime(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Abc_PrintTime.argelim(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.23, ptr noundef %0)
   %3 = sitofp i64 %1 to double
   %4 = fdiv double %3, 1.000000e+06

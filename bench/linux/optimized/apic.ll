@@ -709,7 +709,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @calibrate_APIC_clock() unna
 
 23:                                               ; preds = %21, %20
   tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
-  tail call fastcc void @__setup_APIC_LVTT()
+  tail call fastcc void @__setup_APIC_LVTT.argelim()
   %24 = load volatile i64, ptr @jiffies, align 64
   %25 = load i32, ptr @tsc_khz, align 4
   %26 = icmp eq i32 %25, 0
@@ -2862,7 +2862,7 @@ define internal void @lapic_timer_broadcast(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__setup_APIC_LVTT() unnamed_addr #1 align 16 {
+define internal fastcc void @__setup_APIC_LVTT.argelim() unnamed_addr #1 align 16 {
   tail call void @__SCT__apic_call_write(i32 noundef 800, i32 noundef 196844) #17
   %1 = tail call i32 @__SCT__apic_call_read(i32 noundef 992) #17
   %2 = and i32 %1, -16

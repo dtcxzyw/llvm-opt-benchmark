@@ -2613,7 +2613,7 @@ define internal fastcc i32 @dissect_CBA_Connection_Data(ptr noundef %0, ptr noun
   br i1 %.not240, label %29, label %28
 
 28:                                               ; preds = %24
-  tail call fastcc void @cba_frame_info(ptr noundef %0, ptr noundef %.0222259268273, ptr noundef nonnull %4)
+  tail call fastcc void @cba_frame_info.argprom(ptr noundef %0, ptr noundef %.0222259268273, ptr noundef nonnull %4)
   br label %proto_item_set_generated.exit
 
 29:                                               ; preds = %24
@@ -2676,14 +2676,14 @@ proto_item_set_generated.exit:                    ; preds = %39, %36, %33, %29, 
   %54 = getelementptr inbounds i8, ptr %3, i64 24
   br label %55
 
-55:                                               ; preds = %.lr.ph292, %cba_connection_incoming_data.exit
-  %.in = phi i16 [ %25, %.lr.ph292 ], [ %56, %cba_connection_incoming_data.exit ]
-  %.0206291 = phi i32 [ 1, %.lr.ph292 ], [ %179, %cba_connection_incoming_data.exit ]
-  %.0207290 = phi i32 [ 1, %.lr.ph292 ], [ %.1, %cba_connection_incoming_data.exit ]
-  %.0210289 = phi i32 [ 0, %.lr.ph292 ], [ %.1211, %cba_connection_incoming_data.exit ]
-  %.0212288 = phi i32 [ 0, %.lr.ph292 ], [ %.1213, %cba_connection_incoming_data.exit ]
-  %.0214287 = phi i32 [ 0, %.lr.ph292 ], [ %.1215, %cba_connection_incoming_data.exit ]
-  %.0219286 = phi i32 [ 4, %.lr.ph292 ], [ %119, %cba_connection_incoming_data.exit ]
+55:                                               ; preds = %.lr.ph292, %cba_connection_incoming_data.argprom.exit
+  %.in = phi i16 [ %25, %.lr.ph292 ], [ %56, %cba_connection_incoming_data.argprom.exit ]
+  %.0206291 = phi i32 [ 1, %.lr.ph292 ], [ %179, %cba_connection_incoming_data.argprom.exit ]
+  %.0207290 = phi i32 [ 1, %.lr.ph292 ], [ %.1, %cba_connection_incoming_data.argprom.exit ]
+  %.0210289 = phi i32 [ 0, %.lr.ph292 ], [ %.1211, %cba_connection_incoming_data.argprom.exit ]
+  %.0212288 = phi i32 [ 0, %.lr.ph292 ], [ %.1213, %cba_connection_incoming_data.argprom.exit ]
+  %.0214287 = phi i32 [ 0, %.lr.ph292 ], [ %.1215, %cba_connection_incoming_data.argprom.exit ]
+  %.0219286 = phi i32 [ 4, %.lr.ph292 ], [ %119, %cba_connection_incoming_data.argprom.exit ]
   %56 = add i16 %.in, -1
   %57 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0219286) #7
   %58 = icmp ne i16 %57, 0
@@ -2833,7 +2833,7 @@ select.unfold:                                    ; preds = %55, %select.unfold
 ._crit_edge.i:                                    ; preds = %124, %120
   %125 = load i32, ptr %49, align 8
   %126 = icmp ugt i32 %123, %125
-  br i1 %126, label %127, label %cba_frame_incoming_data.exit
+  br i1 %126, label %127, label %cba_frame_incoming_data.argprom.exit
 
 127:                                              ; preds = %._crit_edge.i
   %128 = load i32, ptr %50, align 8
@@ -2844,41 +2844,41 @@ select.unfold:                                    ; preds = %55, %select.unfold
 
 132:                                              ; preds = %127
   %133 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull @ei_cba_acco_connect, ptr noundef nonnull @.str.291, i32 noundef %123) #7
-  br label %cba_frame_incoming_data.exit
+  br label %cba_frame_incoming_data.argprom.exit
 
 .critedge.i.i:                                    ; preds = %127
   %134 = icmp ult i32 %123, %128
-  br i1 %134, label %cba_frame_incoming_data.exit, label %135
+  br i1 %134, label %cba_frame_incoming_data.argprom.exit, label %135
 
 135:                                              ; preds = %.critedge.i.i
   %.not.i.i = icmp ne i32 %129, 0
   %136 = icmp ugt i32 %123, %129
   %or.cond.i.i = and i1 %.not.i.i, %136
-  br i1 %or.cond.i.i, label %cba_frame_incoming_data.exit, label %cba_packet_in_range.exit.i
+  br i1 %or.cond.i.i, label %cba_frame_incoming_data.argprom.exit, label %cba_packet_in_range.exit.i
 
 cba_packet_in_range.exit.i:                       ; preds = %135
   %.not16.i.i = icmp ne i32 %130, 0
   %137 = icmp ugt i32 %123, %130
   %or.cond17.not.i.not.i = and i1 %.not16.i.i, %137
-  br i1 %or.cond17.not.i.not.i, label %cba_frame_incoming_data.exit, label %138
+  br i1 %or.cond17.not.i.not.i, label %cba_frame_incoming_data.argprom.exit, label %138
 
 138:                                              ; preds = %cba_packet_in_range.exit.i
   store i32 %123, ptr %49, align 8
-  br label %cba_frame_incoming_data.exit
+  br label %cba_frame_incoming_data.argprom.exit
 
-cba_frame_incoming_data.exit:                     ; preds = %._crit_edge.i, %132, %.critedge.i.i, %135, %cba_packet_in_range.exit.i, %138
+cba_frame_incoming_data.argprom.exit:             ; preds = %._crit_edge.i, %132, %.critedge.i.i, %135, %cba_packet_in_range.exit.i, %138
   %.0208278 = load ptr, ptr %53, align 8
   %.not248279 = icmp eq ptr %.0208278, null
-  br i1 %.not248279, label %cba_connection_incoming_data.exit, label %.lr.ph
+  br i1 %.not248279, label %cba_connection_incoming_data.argprom.exit, label %.lr.ph
 
 139:                                              ; preds = %.lr.ph
   %140 = getelementptr inbounds i8, ptr %.0208280, i64 8
   %.0208 = load ptr, ptr %140, align 8
   %.not248 = icmp eq ptr %.0208, null
-  br i1 %.not248, label %cba_connection_incoming_data.exit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not248, label %cba_connection_incoming_data.argprom.exit, label %.lr.ph, !llvm.loop !24
 
-.lr.ph:                                           ; preds = %cba_frame_incoming_data.exit, %139
-  %.0208280 = phi ptr [ %.0208, %139 ], [ %.0208278, %cba_frame_incoming_data.exit ]
+.lr.ph:                                           ; preds = %cba_frame_incoming_data.argprom.exit, %139
+  %.0208280 = phi ptr [ %.0208, %139 ], [ %.0208278, %cba_frame_incoming_data.argprom.exit ]
   %141 = load ptr, ptr %.0208280, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 84
   %143 = load i16, ptr %142, align 4
@@ -2887,22 +2887,22 @@ cba_frame_incoming_data.exit:                     ; preds = %._crit_edge.i, %132
   br i1 %145, label %146, label %139
 
 146:                                              ; preds = %.lr.ph
-  tail call fastcc void @cba_connection_info(ptr noundef %0, ptr noundef %72, ptr noundef nonnull %141)
-  br label %cba_connection_incoming_data.exit
+  tail call fastcc void @cba_connection_info.argprom(ptr noundef %0, ptr noundef %72, ptr noundef nonnull %141)
+  br label %cba_connection_incoming_data.argprom.exit
 
 147:                                              ; preds = %116
-  br i1 %.not246, label %cba_connection_incoming_data.exit, label %148
+  br i1 %.not246, label %cba_connection_incoming_data.argprom.exit, label %148
 
 148:                                              ; preds = %147
   %.1209281 = load ptr, ptr %54, align 8
   %.not247282 = icmp eq ptr %.1209281, null
-  br i1 %.not247282, label %cba_connection_incoming_data.exit, label %.lr.ph284
+  br i1 %.not247282, label %cba_connection_incoming_data.argprom.exit, label %.lr.ph284
 
 149:                                              ; preds = %.lr.ph284
   %150 = getelementptr inbounds i8, ptr %.1209283, i64 8
   %.1209 = load ptr, ptr %150, align 8
   %.not247 = icmp eq ptr %.1209, null
-  br i1 %.not247, label %cba_connection_incoming_data.exit, label %.lr.ph284, !llvm.loop !25
+  br i1 %.not247, label %cba_connection_incoming_data.argprom.exit, label %.lr.ph284, !llvm.loop !25
 
 .lr.ph284:                                        ; preds = %148, %149
   %.1209283 = phi ptr [ %.1209, %149 ], [ %.1209281, %148 ]
@@ -2913,7 +2913,7 @@ cba_frame_incoming_data.exit:                     ; preds = %._crit_edge.i, %132
   br i1 %154, label %155, label %149
 
 155:                                              ; preds = %.lr.ph284
-  tail call fastcc void @cba_connection_info(ptr noundef %0, ptr noundef %72, ptr noundef nonnull %151)
+  tail call fastcc void @cba_connection_info.argprom(ptr noundef %0, ptr noundef %72, ptr noundef nonnull %151)
   %156 = getelementptr inbounds i8, ptr %151, i64 36
   %157 = load i32, ptr %156, align 4
   %158 = icmp eq i32 %157, 0
@@ -2928,7 +2928,7 @@ cba_frame_incoming_data.exit:                     ; preds = %._crit_edge.i, %132
   %161 = getelementptr inbounds i8, ptr %151, i64 40
   %162 = load i32, ptr %161, align 8
   %163 = icmp ugt i32 %159, %162
-  br i1 %163, label %164, label %cba_connection_incoming_data.exit
+  br i1 %163, label %164, label %cba_connection_incoming_data.argprom.exit
 
 164:                                              ; preds = %._crit_edge.i249
   %165 = getelementptr inbounds i8, ptr %151, i64 24
@@ -2942,34 +2942,34 @@ cba_frame_incoming_data.exit:                     ; preds = %._crit_edge.i, %132
 
 172:                                              ; preds = %164
   %173 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull @ei_cba_acco_connect, ptr noundef nonnull @.str.291, i32 noundef %159) #7
-  br label %cba_connection_incoming_data.exit
+  br label %cba_connection_incoming_data.argprom.exit
 
 .critedge.i.i250:                                 ; preds = %164
   %174 = icmp ult i32 %159, %166
-  br i1 %174, label %cba_connection_incoming_data.exit, label %175
+  br i1 %174, label %cba_connection_incoming_data.argprom.exit, label %175
 
 175:                                              ; preds = %.critedge.i.i250
   %.not.i.i251 = icmp ne i32 %168, 0
   %176 = icmp ugt i32 %159, %168
   %or.cond.i.i252 = and i1 %.not.i.i251, %176
-  br i1 %or.cond.i.i252, label %cba_connection_incoming_data.exit, label %cba_packet_in_range.exit.i253
+  br i1 %or.cond.i.i252, label %cba_connection_incoming_data.argprom.exit, label %cba_packet_in_range.exit.i253
 
 cba_packet_in_range.exit.i253:                    ; preds = %175
   %.not16.i.i254 = icmp ne i32 %170, 0
   %177 = icmp ugt i32 %159, %170
   %or.cond17.not.i.not.i255 = and i1 %.not16.i.i254, %177
-  br i1 %or.cond17.not.i.not.i255, label %cba_connection_incoming_data.exit, label %178
+  br i1 %or.cond17.not.i.not.i255, label %cba_connection_incoming_data.argprom.exit, label %178
 
 178:                                              ; preds = %cba_packet_in_range.exit.i253
   store i32 %159, ptr %161, align 8
-  br label %cba_connection_incoming_data.exit
+  br label %cba_connection_incoming_data.argprom.exit
 
-cba_connection_incoming_data.exit:                ; preds = %139, %149, %cba_frame_incoming_data.exit, %148, %178, %cba_packet_in_range.exit.i253, %175, %.critedge.i.i250, %172, %._crit_edge.i249, %147, %146
+cba_connection_incoming_data.argprom.exit:        ; preds = %139, %149, %cba_frame_incoming_data.argprom.exit, %148, %178, %cba_packet_in_range.exit.i253, %175, %.critedge.i.i250, %172, %._crit_edge.i249, %147, %146
   %179 = add nuw nsw i32 %.0206291, 1
   %.not244 = icmp eq i16 %56, 0
   br i1 %.not244, label %._crit_edge.loopexit, label %55, !llvm.loop !26
 
-._crit_edge.loopexit:                             ; preds = %cba_connection_incoming_data.exit
+._crit_edge.loopexit:                             ; preds = %cba_connection_incoming_data.argprom.exit
   %180 = add i32 %.1, -1
   br label %._crit_edge
 
@@ -3009,7 +3009,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cba_frame_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @cba_frame_info.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %proto_item_set_generated.exit105, label %5
@@ -3344,7 +3344,7 @@ declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cba_connection_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @cba_connection_info.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %proto_item_set_generated.exit97, label %5
@@ -3850,7 +3850,7 @@ cba_ldev_link_acco.exit:                          ; preds = %77, %73, %69
   %125 = call ptr @wmem_file_scope() #7
   %126 = call noalias ptr @wmem_memdup(ptr noundef %125, ptr noundef nonnull %13, i64 noundef 2) #7
   %127 = call fastcc ptr @cba_connection_connect(ptr noundef %2, ptr noundef nonnull %57, ptr noundef nonnull %.1.i, ptr noundef null, i16 noundef zeroext %122, i16 noundef zeroext %123, ptr noundef %15, i32 noundef %124, i16 noundef zeroext 0, ptr noundef %126, i16 noundef zeroext 1)
-  call fastcc void @cba_connection_info(ptr noundef %0, ptr noundef %105, ptr noundef %127)
+  call fastcc void @cba_connection_info.argprom(ptr noundef %0, ptr noundef %105, ptr noundef %127)
   br label %128
 
 128:                                              ; preds = %118, %121
@@ -3984,7 +3984,7 @@ proto_item_set_generated.exit:                    ; preds = %20, %23, %26
   %60 = load i32, ptr %10, align 4
   %61 = getelementptr inbounds i8, ptr %57, i64 64
   store i32 %60, ptr %61, align 8
-  call fastcc void @cba_connection_info(ptr noundef %0, ptr noundef %46, ptr noundef %57)
+  call fastcc void @cba_connection_info.argprom(ptr noundef %0, ptr noundef %46, ptr noundef %57)
   br label %62
 
 62:                                               ; preds = %52, %50, %42
@@ -4155,15 +4155,15 @@ cba_ldev_find.exit.thread:                        ; preds = %44, %40, %cba_ldev_
   %.not54.us = icmp eq i32 %67, 0
   br i1 %.not54.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !29
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %cba_connection_find_by_provid.exit
-  %.05264 = phi i32 [ %70, %cba_connection_find_by_provid.exit ], [ %25, %.lr.ph ]
-  %.05363 = phi i32 [ %98, %cba_connection_find_by_provid.exit ], [ 1, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %cba_connection_find_by_provid.argprom.exit
+  %.05264 = phi i32 [ %70, %cba_connection_find_by_provid.argprom.exit ], [ %25, %.lr.ph ]
+  %.05363 = phi i32 [ %98, %cba_connection_find_by_provid.argprom.exit ], [ 1, %.lr.ph ]
   %69 = load i32, ptr @hf_cba_acco_conn_prov_id, align 4
   %70 = call i32 @dissect_dcom_indexed_DWORD(ptr noundef %0, i32 noundef %.05264, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %69, ptr noundef nonnull %9, i32 noundef %.05363) #7
   %71 = load i32, ptr %9, align 4
   %.0124.i = load ptr, ptr %61, align 8
   %.not5.i57 = icmp eq ptr %.0124.i, null
-  br i1 %.not5.i57, label %cba_connection_find_by_provid.exit, label %.lr.ph.i
+  br i1 %.not5.i57, label %cba_connection_find_by_provid.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split, %cba_packet_in_range.exit.thread.i
   %.0126.i = phi ptr [ %.012.i, %cba_packet_in_range.exit.thread.i ], [ %.0124.i, %.lr.ph.split ]
@@ -4202,15 +4202,15 @@ cba_packet_in_range.exit.i:                       ; preds = %88
   %.not16.i.i = icmp ne i32 %82, 0
   %90 = icmp ugt i32 %84, %82
   %or.cond17.not.i.not.i = and i1 %.not16.i.i, %90
-  br i1 %or.cond17.not.i.not.i, label %cba_packet_in_range.exit.thread.i, label %cba_connection_find_by_provid.exit
+  br i1 %or.cond17.not.i.not.i, label %cba_packet_in_range.exit.thread.i, label %cba_connection_find_by_provid.argprom.exit
 
 cba_packet_in_range.exit.thread.i:                ; preds = %cba_packet_in_range.exit.i, %88, %.critedge.i.i, %85, %.lr.ph.i
   %91 = getelementptr inbounds i8, ptr %.0126.i, i64 8
   %.012.i = load ptr, ptr %91, align 8
   %.not.i58 = icmp eq ptr %.012.i, null
-  br i1 %.not.i58, label %cba_connection_find_by_provid.exit, label %.lr.ph.i, !llvm.loop !30
+  br i1 %.not.i58, label %cba_connection_find_by_provid.argprom.exit, label %.lr.ph.i, !llvm.loop !30
 
-cba_connection_find_by_provid.exit:               ; preds = %cba_packet_in_range.exit.i, %cba_packet_in_range.exit.thread.i, %.lr.ph.split
+cba_connection_find_by_provid.argprom.exit:       ; preds = %cba_packet_in_range.exit.i, %cba_packet_in_range.exit.thread.i, %.lr.ph.split
   %.0.i = phi ptr [ null, %.lr.ph.split ], [ %72, %cba_packet_in_range.exit.i ], [ null, %cba_packet_in_range.exit.thread.i ]
   %92 = load i32, ptr %.0, align 8
   %93 = add i32 %92, 1
@@ -4227,8 +4227,8 @@ cba_connection_find_by_provid.exit:               ; preds = %cba_packet_in_range
   %.not54 = icmp eq i32 %99, 0
   br i1 %.not54, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %cba_connection_find_by_provid.exit, %.lr.ph.split.us, %cba_ldev_find.exit.thread
-  %.052.lcssa = phi i32 [ %25, %cba_ldev_find.exit.thread ], [ %65, %.lr.ph.split.us ], [ %70, %cba_connection_find_by_provid.exit ]
+._crit_edge:                                      ; preds = %cba_connection_find_by_provid.argprom.exit, %.lr.ph.split.us, %cba_ldev_find.exit.thread
+  %.052.lcssa = phi i32 [ %25, %cba_ldev_find.exit.thread ], [ %65, %.lr.ph.split.us ], [ %70, %cba_connection_find_by_provid.argprom.exit ]
   %101 = getelementptr inbounds i8, ptr %2, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = load i32, ptr %7, align 4
@@ -4539,7 +4539,7 @@ cba_packet_in_range.exit.i:                       ; preds = %49
   br i1 %or.cond17.not.i.not.i, label %cba_packet_in_range.exit.thread.i, label %52
 
 52:                                               ; preds = %cba_packet_in_range.exit.i
-  call fastcc void @cba_connection_info(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %33)
+  call fastcc void @cba_connection_info.argprom(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %33)
   %53 = load i32, ptr %42, align 8
   %54 = icmp eq i32 %53, 0
   %.pre.i = load i32, ptr %31, align 4
@@ -5071,7 +5071,7 @@ cba_ldev_link_acco.exit:                          ; preds = %.thread, %83, %79, 
   %165 = load i16, ptr %8, align 2
   %166 = load i32, ptr %14, align 4
   %167 = call fastcc ptr @cba_connection_connect(ptr noundef %2, ptr noundef nonnull %59, ptr noundef nonnull %.1.i, ptr noundef null, i16 noundef zeroext %164, i16 noundef zeroext %165, ptr noundef %15, i32 noundef %166, i16 noundef zeroext 0, ptr noundef %.1178, i16 noundef zeroext %.1181)
-  call fastcc void @cba_connection_info(ptr noundef %0, ptr noundef %112, ptr noundef %167)
+  call fastcc void @cba_connection_info.argprom(ptr noundef %0, ptr noundef %112, ptr noundef %167)
   br label %168
 
 168:                                              ; preds = %160, %163
@@ -5779,7 +5779,7 @@ cba_packet_in_range.exit.thread.i:                ; preds = %cba_packet_in_range
 
 cba_frame_connect.exit:                           ; preds = %cba_packet_in_range.exit.i, %._crit_edge.i
   %.045.i = phi ptr [ %160, %._crit_edge.i ], [ %136, %cba_packet_in_range.exit.i ]
-  call fastcc void @cba_frame_info(ptr noundef %0, ptr noundef %126, ptr noundef nonnull %.045.i)
+  call fastcc void @cba_frame_info.argprom(ptr noundef %0, ptr noundef %126, ptr noundef nonnull %.045.i)
   br label %178
 
 178:                                              ; preds = %122, %cba_frame_connect.exit
@@ -5932,7 +5932,7 @@ proto_item_set_generated.exit:                    ; preds = %21, %24, %27
   %65 = load i32, ptr %10, align 4
   %66 = getelementptr inbounds i8, ptr %62, i64 60
   store i32 %65, ptr %66, align 4
-  call fastcc void @cba_frame_info(ptr noundef %0, ptr noundef %51, ptr noundef %62)
+  call fastcc void @cba_frame_info.argprom(ptr noundef %0, ptr noundef %51, ptr noundef %62)
   br label %67
 
 67:                                               ; preds = %57, %55, %47
@@ -6451,7 +6451,7 @@ cba_packet_in_range.exit.thread.i:                ; preds = %cba_packet_in_range
   br label %cba_frame_find_by_provcrid.exit.thread
 
 cba_frame_find_by_provcrid.exit:                  ; preds = %cba_packet_in_range.exit.i
-  call fastcc void @cba_frame_info(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %62)
+  call fastcc void @cba_frame_info.argprom(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %62)
   br label %cba_frame_find_by_provcrid.exit.thread
 
 cba_frame_find_by_provcrid.exit.thread:           ; preds = %proto_item_set_generated.exit, %._crit_edge.i, %cba_frame_find_by_provcrid.exit
@@ -6595,7 +6595,7 @@ cba_frame_find_by_provcrid.exit.thread:           ; preds = %proto_item_set_gene
   %156 = load i32, ptr %17, align 4
   %157 = load i16, ptr %18, align 2
   %158 = call fastcc ptr @cba_connection_connect(ptr noundef %2, ptr noundef %152, ptr noundef %153, ptr noundef nonnull %.0.i175, i16 noundef zeroext %154, i16 noundef zeroext %155, ptr noundef %13, i32 noundef %156, i16 noundef zeroext %157, ptr noundef %.1152, i16 noundef zeroext %.1154)
-  call fastcc void @cba_connection_info(ptr noundef %0, ptr noundef %115, ptr noundef %158)
+  call fastcc void @cba_connection_info.argprom(ptr noundef %0, ptr noundef %115, ptr noundef %158)
   br label %159
 
 159:                                              ; preds = %.loopexit, %151
@@ -6692,7 +6692,7 @@ proto_item_set_generated.exit:                    ; preds = %19, %22, %25
   br i1 %.not90, label %37, label %36
 
 36:                                               ; preds = %33
-  call fastcc void @cba_frame_info(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %35)
+  call fastcc void @cba_frame_info.argprom(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %35)
   br label %37
 
 37:                                               ; preds = %36, %33, %proto_item_set_generated.exit
@@ -6741,7 +6741,7 @@ proto_item_set_generated.exit:                    ; preds = %19, %22, %25
   %62 = load i32, ptr %10, align 4
   %63 = getelementptr inbounds i8, ptr %59, i64 64
   store i32 %62, ptr %63, align 8
-  call fastcc void @cba_connection_info(ptr noundef %0, ptr noundef %48, ptr noundef %59)
+  call fastcc void @cba_connection_info.argprom(ptr noundef %0, ptr noundef %48, ptr noundef %59)
   br label %64
 
 64:                                               ; preds = %54, %52, %44
@@ -7097,7 +7097,7 @@ cba_packet_in_range.exit.i:                       ; preds = %48
   br i1 %or.cond17.not.i.not.i, label %cba_packet_in_range.exit.thread.i, label %51
 
 51:                                               ; preds = %cba_packet_in_range.exit.i
-  call fastcc void @cba_frame_info(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %32)
+  call fastcc void @cba_frame_info.argprom(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %32)
   %52 = load i32, ptr %41, align 8
   %53 = icmp eq i32 %52, 0
   %.pre.i = load i32, ptr %30, align 4

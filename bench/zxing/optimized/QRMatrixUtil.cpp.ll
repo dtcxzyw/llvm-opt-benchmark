@@ -74,18 +74,18 @@ define void @_ZN5ZXing6QRCode11BuildMatrixERKNS_8BitArrayENS0_20ErrorCorrectionL
   %26 = getelementptr inbounds i8, ptr %4, i64 4
   br label %.preheader.split.split.us.i.i
 
-.preheader.split.split.us.i.i:                    ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i", %.preheader.i.i
-  %.054.us55.i.i = phi i32 [ %47, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i" ], [ -1, %.preheader.i.i ]
+.preheader.split.split.us.i.i:                    ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us63.i.i", %.preheader.i.i
+  %.054.us55.i.i = phi i32 [ %47, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us63.i.i" ], [ -1, %.preheader.i.i ]
   %27 = icmp sgt i32 %.054.us55.i.i, -1
   %.pre74.i.i = load i32, ptr %4, align 8
-  br i1 %27, label %28, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i"
+  br i1 %27, label %28, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us63.i.i"
 
 28:                                               ; preds = %.preheader.split.split.us.i.i
   %.pre76.i.i = load i32, ptr %26, align 4
   %29 = icmp slt i32 %.054.us55.i.i, %.pre74.i.i
   %30 = icmp sgt i32 %.pre76.i.i, 7
   %or.cond44.us59.i.i = select i1 %29, i1 %30, i1 false
-  br i1 %or.cond44.us59.i.i, label %31, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60.i.i"
+  br i1 %or.cond44.us59.i.i, label %31, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us60.i.i"
 
 31:                                               ; preds = %28
   %32 = mul nsw i32 %.pre74.i.i, 7
@@ -96,26 +96,26 @@ define void @_ZN5ZXing6QRCode11BuildMatrixERKNS_8BitArrayENS0_20ErrorCorrectionL
   store i8 0, ptr %36, align 1
   %.pre73.i.i = load i32, ptr %4, align 8
   %.pre75.i.i = load i32, ptr %26, align 4
-  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60.i.i"
+  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us60.i.i"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60.i.i": ; preds = %31, %28
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us60.i.i": ; preds = %31, %28
   %37 = phi i32 [ %.pre75.i.i, %31 ], [ %.pre76.i.i, %28 ]
   %38 = phi i32 [ %.pre73.i.i, %31 ], [ %.pre74.i.i, %28 ]
   %39 = icmp sgt i32 %38, 7
   %40 = icmp slt i32 %.054.us55.i.i, %37
   %or.cond50.us62.i.i = select i1 %39, i1 %40, i1 false
-  br i1 %or.cond50.us62.i.i, label %41, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i"
+  br i1 %or.cond50.us62.i.i, label %41, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us63.i.i"
 
-41:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60.i.i"
+41:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us60.i.i"
   %42 = mul nuw nsw i32 %38, %.054.us55.i.i
   %43 = load ptr, ptr %17, align 8
   %44 = zext nneg i32 %42 to i64
   %45 = getelementptr inbounds %"class.ZXing::Trit", ptr %43, i64 %44
   %46 = getelementptr inbounds i8, ptr %45, i64 7
   store i8 0, ptr %46, align 1
-  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i"
+  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us63.i.i"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i": ; preds = %41, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60.i.i", %.preheader.split.split.us.i.i
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us63.i.i": ; preds = %41, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us60.i.i", %.preheader.split.split.us.i.i
   %47 = add nsw i32 %.054.us55.i.i, 1
   %exitcond68.not.i.i = icmp eq i32 %47, 8
   br i1 %exitcond68.not.i.i, label %_ZN5ZXing6QRCodeL43EmbedPositionDetectionPatternsAndSeparatorsERNS_6MatrixINS_4TritEEE.exit, label %.preheader.split.split.us.i.i, !llvm.loop !4
@@ -143,7 +143,7 @@ define void @_ZN5ZXing6QRCode11BuildMatrixERKNS_8BitArrayENS0_20ErrorCorrectionL
   %exitcond66.not.i.i = icmp eq i32 %61, 7
   br i1 %exitcond66.not.i.i, label %.preheader.i.i, label %.preheader51.i.i, !llvm.loop !7
 
-_ZN5ZXing6QRCodeL43EmbedPositionDetectionPatternsAndSeparatorsERNS_6MatrixINS_4TritEEE.exit: ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i"
+_ZN5ZXing6QRCodeL43EmbedPositionDetectionPatternsAndSeparatorsERNS_6MatrixINS_4TritEEE.exit: ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us63.i.i"
   %62 = load i32, ptr %4, align 8
   %63 = add nsw i32 %62, -7
   tail call fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEE(i32 noundef %63, i32 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4)
@@ -1490,13 +1490,13 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %16 = icmp sgt i32 %1, -8
   br i1 %10, label %.preheader.split.us, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.preheader, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us"
-  %.054.us = phi i32 [ %62, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us" ], [ -1, %.preheader ]
+.preheader.split.us:                              ; preds = %.preheader, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us"
+  %.054.us = phi i32 [ %62, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us" ], [ -1, %.preheader ]
   %17 = add nsw i32 %.054.us, %0
   %18 = icmp sgt i32 %17, -1
   %.pre80 = load i32, ptr %2, align 8
   %.pre82 = load i32, ptr %14, align 4
-  br i1 %18, label %19, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us"
+  br i1 %18, label %19, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us"
 
 19:                                               ; preds = %.preheader.split.us
   %20 = icmp slt i32 %17, %.pre80
@@ -1523,7 +1523,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %or.cond.i30.us = and i1 %16, %31
   %32 = icmp slt i32 %15, %29
   %or.cond44.us = select i1 %or.cond.i30.us, i1 %32, i1 false
-  br i1 %or.cond44.us, label %33, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us"
+  br i1 %or.cond44.us, label %33, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us"
 
 33:                                               ; preds = %28
   %34 = mul nsw i32 %30, %15
@@ -1534,9 +1534,9 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   store i8 0, ptr %38, align 1
   %.pre79 = load i32, ptr %2, align 8
   %.pre81 = load i32, ptr %14, align 4
-  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us"
+  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us": ; preds = %33, %28, %.preheader.split.us
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us": ; preds = %33, %28, %.preheader.split.us
   %39 = phi i32 [ %.pre81, %33 ], [ %29, %28 ], [ %.pre82, %.preheader.split.us ]
   %40 = phi i32 [ %.pre79, %33 ], [ %30, %28 ], [ %.pre80, %.preheader.split.us ]
   %41 = add nsw i32 %.054.us, %1
@@ -1545,28 +1545,28 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %or.cond.i32.us = and i1 %43, %42
   %44 = icmp slt i32 %41, %39
   %or.cond47.us = select i1 %or.cond.i32.us, i1 %44, i1 false
-  br i1 %or.cond47.us, label %45, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us"
+  br i1 %or.cond47.us, label %45, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit33.us"
 
-45:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us"
+45:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us"
   %46 = mul nsw i32 %40, %41
   %47 = add nuw nsw i32 %9, %46
   %48 = zext nneg i32 %47 to i64
   %49 = load ptr, ptr %4, align 8
   %50 = getelementptr inbounds %"class.ZXing::Trit", ptr %49, i64 %48
   store i8 0, ptr %50, align 1
-  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us"
+  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit33.us"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us": ; preds = %45, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us"
-  br i1 %12, label %51, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us"
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit33.us": ; preds = %45, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us"
+  br i1 %12, label %51, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us"
 
-51:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us"
+51:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit33.us"
   %52 = load i32, ptr %2, align 8
   %53 = icmp slt i32 %11, %52
   %or.cond.i34.us = and i1 %43, %53
   %54 = load i32, ptr %14, align 4
   %55 = icmp slt i32 %41, %54
   %or.cond50.us = select i1 %or.cond.i34.us, i1 %55, i1 false
-  br i1 %or.cond50.us, label %56, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us"
+  br i1 %or.cond50.us, label %56, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us"
 
 56:                                               ; preds = %51
   %57 = mul nsw i32 %52, %41
@@ -1575,9 +1575,9 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %60 = load ptr, ptr %4, align 8
   %61 = getelementptr inbounds %"class.ZXing::Trit", ptr %60, i64 %59
   store i8 0, ptr %61, align 1
-  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us"
+  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us": ; preds = %56, %51, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us"
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us": ; preds = %56, %51, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit33.us"
   %62 = add nsw i32 %.054.us, 1
   %exitcond69.not = icmp eq i32 %62, 8
   br i1 %exitcond69.not, label %.split.us, label %.preheader.split.us, !llvm.loop !4
@@ -1585,13 +1585,13 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
 .preheader.split:                                 ; preds = %.preheader
   br i1 %12, label %.preheader.split.split.us, label %.preheader.split.split
 
-.preheader.split.split.us:                        ; preds = %.preheader.split, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63"
-  %.054.us55 = phi i32 [ %97, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63" ], [ -1, %.preheader.split ]
+.preheader.split.split.us:                        ; preds = %.preheader.split, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us63"
+  %.054.us55 = phi i32 [ %97, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us63" ], [ -1, %.preheader.split ]
   %63 = add nsw i32 %.054.us55, %0
   %64 = icmp sgt i32 %63, -1
   %.pre74 = load i32, ptr %2, align 8
   %.pre76 = load i32, ptr %14, align 4
-  br i1 %64, label %65, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60"
+  br i1 %64, label %65, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us60"
 
 65:                                               ; preds = %.preheader.split.split.us
   %66 = icmp slt i32 %63, %.pre74
@@ -1618,7 +1618,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %or.cond.i30.us58 = and i1 %16, %77
   %78 = icmp slt i32 %15, %75
   %or.cond44.us59 = select i1 %or.cond.i30.us58, i1 %78, i1 false
-  br i1 %or.cond44.us59, label %79, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60"
+  br i1 %or.cond44.us59, label %79, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us60"
 
 79:                                               ; preds = %74
   %80 = mul nsw i32 %76, %15
@@ -1629,9 +1629,9 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   store i8 0, ptr %84, align 1
   %.pre73 = load i32, ptr %2, align 8
   %.pre75 = load i32, ptr %14, align 4
-  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60"
+  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us60"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60": ; preds = %79, %74, %.preheader.split.split.us
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us60": ; preds = %79, %74, %.preheader.split.split.us
   %85 = phi i32 [ %.pre75, %79 ], [ %75, %74 ], [ %.pre76, %.preheader.split.split.us ]
   %86 = phi i32 [ %.pre73, %79 ], [ %76, %74 ], [ %.pre74, %.preheader.split.split.us ]
   %87 = add nsw i32 %.054.us55, %1
@@ -1640,18 +1640,18 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %or.cond.i34.us61 = and i1 %89, %88
   %90 = icmp slt i32 %87, %85
   %or.cond50.us62 = select i1 %or.cond.i34.us61, i1 %90, i1 false
-  br i1 %or.cond50.us62, label %91, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63"
+  br i1 %or.cond50.us62, label %91, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us63"
 
-91:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60"
+91:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us60"
   %92 = mul nsw i32 %86, %87
   %93 = add nuw nsw i32 %92, %11
   %94 = zext nneg i32 %93 to i64
   %95 = load ptr, ptr %4, align 8
   %96 = getelementptr inbounds %"class.ZXing::Trit", ptr %95, i64 %94
   store i8 0, ptr %96, align 1
-  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63"
+  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us63"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63": ; preds = %91, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60"
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us63": ; preds = %91, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31.us60"
   %97 = add nsw i32 %.054.us55, 1
   %exitcond68.not = icmp eq i32 %97, 8
   br i1 %exitcond68.not, label %.split.us, label %.preheader.split.split.us, !llvm.loop !4
@@ -1680,11 +1680,11 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %exitcond66.not = icmp eq i32 %112, 7
   br i1 %exitcond66.not, label %.preheader, label %.preheader51, !llvm.loop !7
 
-.preheader.split.split:                           ; preds = %.preheader.split, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31"
-  %.054 = phi i32 [ %137, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31" ], [ -1, %.preheader.split ]
+.preheader.split.split:                           ; preds = %.preheader.split, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31"
+  %.054 = phi i32 [ %137, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31" ], [ -1, %.preheader.split ]
   %113 = add nsw i32 %.054, %0
   %114 = icmp sgt i32 %113, -1
-  br i1 %114, label %115, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31"
+  br i1 %114, label %115, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31"
 
 115:                                              ; preds = %.preheader.split.split
   %116 = load i32, ptr %2, align 8
@@ -1713,7 +1713,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %or.cond.i30 = and i1 %16, %129
   %130 = icmp slt i32 %15, %127
   %or.cond44 = select i1 %or.cond.i30, i1 %130, i1 false
-  br i1 %or.cond44, label %131, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31"
+  br i1 %or.cond44, label %131, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31"
 
 131:                                              ; preds = %126
   %132 = mul nsw i32 %128, %15
@@ -1722,14 +1722,14 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %135 = load ptr, ptr %4, align 8
   %136 = getelementptr inbounds %"class.ZXing::Trit", ptr %135, i64 %134
   store i8 0, ptr %136, align 1
-  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31"
+  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31": ; preds = %.preheader.split.split, %126, %131
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31": ; preds = %.preheader.split.split, %126, %131
   %137 = add nsw i32 %.054, 1
   %exitcond67.not = icmp eq i32 %137, 8
   br i1 %exitcond67.not, label %.split.us, label %.preheader.split.split, !llvm.loop !4
 
-.split.us:                                        ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31", %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63", %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us"
+.split.us:                                        ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit31", %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us63", %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.argprom.exit35.us"
   ret void
 }
 

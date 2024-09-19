@@ -477,14 +477,14 @@ sw.bb1:                                           ; preds = %if.end
   %call.val17 = load i32, ptr %2, align 8
   %call.i = tail call i64 @lseek64(i32 noundef %call.val17, i64 noundef %off, i32 noundef %gdb_whence) #12
   %cmp1.i = icmp eq i64 %call.i, -1
-  br i1 %cmp1.i, label %if.then2.i, label %host_lseek.exit
+  br i1 %cmp1.i, label %if.then2.i, label %host_lseek.argprom.exit
 
 if.then2.i:                                       ; preds = %sw.bb1
   %call3.i = tail call ptr @__errno_location() #13
   %3 = load i32, ptr %call3.i, align 4
-  br label %host_lseek.exit
+  br label %host_lseek.argprom.exit
 
-host_lseek.exit:                                  ; preds = %sw.bb1, %if.then2.i
+host_lseek.argprom.exit:                          ; preds = %sw.bb1, %if.then2.i
   %err.0.i = phi i32 [ %3, %if.then2.i ], [ 0, %sw.bb1 ]
   tail call void %complete(ptr noundef %cs, i64 noundef %call.i, i32 noundef %err.0.i) #12
   br label %sw.epilog
@@ -535,7 +535,7 @@ do.body:                                          ; preds = %if.end
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 825, ptr noundef nonnull @__func__.semihost_sys_lseek, ptr noundef null) #14
   unreachable
 
-sw.epilog:                                        ; preds = %if.else.i, %if.then.i, %sw.bb3, %host_lseek.exit, %sw.bb, %if.then
+sw.epilog:                                        ; preds = %if.else.i, %if.then.i, %sw.bb3, %host_lseek.argprom.exit, %sw.bb, %if.then
   ret void
 }
 
@@ -570,14 +570,14 @@ sw.bb1:                                           ; preds = %if.end
   %call.val12 = load i32, ptr %2, align 8
   %call.i = tail call i32 @isatty(i32 noundef %call.val12) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %cond.false.i, label %host_isatty.exit
+  br i1 %tobool.not.i, label %cond.false.i, label %host_isatty.argprom.exit
 
 cond.false.i:                                     ; preds = %sw.bb1
   %call1.i = tail call ptr @__errno_location() #13
   %3 = load i32, ptr %call1.i, align 4
-  br label %host_isatty.exit
+  br label %host_isatty.argprom.exit
 
-host_isatty.exit:                                 ; preds = %sw.bb1, %cond.false.i
+host_isatty.argprom.exit:                         ; preds = %sw.bb1, %cond.false.i
   %cond.i = phi i32 [ %3, %cond.false.i ], [ 0, %sw.bb1 ]
   %conv.i = sext i32 %call.i to i64
   tail call void %complete(ptr noundef %cs, i64 noundef %conv.i, i32 noundef %cond.i) #12
@@ -595,7 +595,7 @@ do.body:                                          ; preds = %if.end
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 851, ptr noundef nonnull @__func__.semihost_sys_isatty, ptr noundef null) #14
   unreachable
 
-sw.epilog:                                        ; preds = %sw.bb3, %sw.bb2, %host_isatty.exit, %sw.bb, %if.then
+sw.epilog:                                        ; preds = %sw.bb3, %sw.bb2, %host_isatty.argprom.exit, %sw.bb, %if.then
   ret void
 }
 
@@ -637,15 +637,15 @@ if.then.i:                                        ; preds = %sw.bb1
   %call1.i = tail call ptr @__errno_location() #13
   %3 = load i32, ptr %call1.i, align 4
   tail call void %flen_cb(ptr noundef %cs, i64 noundef -1, i32 noundef %3) #12
-  br label %host_flen.exit
+  br label %host_flen.argprom.exit
 
 if.else.i:                                        ; preds = %sw.bb1
   %st_size.i = getelementptr inbounds i8, ptr %buf.i, i64 48
   %4 = load i64, ptr %st_size.i, align 8
   tail call void %flen_cb(ptr noundef %cs, i64 noundef %4, i32 noundef 0) #12
-  br label %host_flen.exit
+  br label %host_flen.argprom.exit
 
-host_flen.exit:                                   ; preds = %if.then.i, %if.else.i
+host_flen.argprom.exit:                           ; preds = %if.then.i, %if.else.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %buf.i)
   br label %sw.epilog
 
@@ -659,7 +659,7 @@ do.body:                                          ; preds = %if.end
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 877, ptr noundef nonnull @__func__.semihost_sys_flen, ptr noundef null) #14
   unreachable
 
-sw.epilog:                                        ; preds = %sw.bb2, %host_flen.exit, %sw.bb, %if.then
+sw.epilog:                                        ; preds = %sw.bb2, %host_flen.argprom.exit, %sw.bb, %if.then
   ret void
 }
 
@@ -701,23 +701,23 @@ if.then.i:                                        ; preds = %sw.bb1
   %call1.i = tail call ptr @__errno_location() #13
   %3 = load i32, ptr %call1.i, align 4
   tail call void %complete(ptr noundef %cs, i64 noundef -1, i32 noundef %3) #12
-  br label %host_fstat.exit
+  br label %host_fstat.argprom.exit
 
 if.end.i:                                         ; preds = %sw.bb1
   %4 = load i64, ptr %buf.i, align 8
   %cmp.not.i.i = icmp ult i64 %4, 4294967296
-  br i1 %cmp.not.i.i, label %lor.lhs.false.i.i, label %copy_stat_to_user.exit.i
+  br i1 %cmp.not.i.i, label %lor.lhs.false.i.i, label %copy_stat_to_user.argprom.exit.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i
   %st_ino.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   %5 = load i64, ptr %st_ino.i.i, align 8
   %cmp7.not.i.i = icmp ult i64 %5, 4294967296
-  br i1 %cmp7.not.i.i, label %if.end.i.i, label %copy_stat_to_user.exit.i
+  br i1 %cmp7.not.i.i, label %if.end.i.i, label %copy_stat_to_user.argprom.exit.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %call9.i.i = tail call ptr @lock_user(i32 noundef 3, i64 noundef %addr, i64 noundef 64, i1 noundef zeroext false) #12
   %tobool.not.i.i = icmp eq ptr %call9.i.i, null
-  br i1 %tobool.not.i.i, label %copy_stat_to_user.exit.i, label %if.end11.i.i
+  br i1 %tobool.not.i.i, label %copy_stat_to_user.argprom.exit.i, label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.end.i.i
   %conv13.i.i = trunc nuw i64 %4 to i32
@@ -787,22 +787,22 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   %29 = tail call noundef i32 @llvm.bswap.i32(i32 %conv34.i.i)
   %gdb_st_ctime.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 60
   store i32 %29, ptr %gdb_st_ctime.i.i, align 1
-  br label %copy_stat_to_user.exit.i
+  br label %copy_stat_to_user.argprom.exit.i
 
-copy_stat_to_user.exit.i:                         ; preds = %if.end11.i.i, %if.end.i.i, %lor.lhs.false.i.i, %if.end.i
+copy_stat_to_user.argprom.exit.i:                 ; preds = %if.end11.i.i, %if.end.i.i, %lor.lhs.false.i.i, %if.end.i
   %tobool3.not.i = phi i64 [ 0, %if.end11.i.i ], [ -1, %lor.lhs.false.i.i ], [ -1, %if.end.i ], [ -1, %if.end.i.i ]
   %retval.0.i.neg.i = phi i32 [ 0, %if.end11.i.i ], [ 75, %lor.lhs.false.i.i ], [ 75, %if.end.i ], [ 14, %if.end.i.i ]
   tail call void %complete(ptr noundef %cs, i64 noundef %tobool3.not.i, i32 noundef %retval.0.i.neg.i) #12
-  br label %host_fstat.exit
+  br label %host_fstat.argprom.exit
 
-host_fstat.exit:                                  ; preds = %if.then.i, %copy_stat_to_user.exit.i
+host_fstat.argprom.exit:                          ; preds = %if.then.i, %copy_stat_to_user.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %buf.i)
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %if.end
   %call9.i.i14 = tail call ptr @lock_user(i32 noundef 3, i64 noundef %addr, i64 noundef 64, i1 noundef zeroext false) #12
   %tobool.not.i.i15 = icmp eq ptr %call9.i.i14, null
-  br i1 %tobool.not.i.i15, label %console_fstat.exit, label %if.end11.i.i16
+  br i1 %tobool.not.i.i15, label %console_fstat.argprom.exit, label %if.end11.i.i16
 
 if.end11.i.i16:                                   ; preds = %sw.bb2
   store i32 0, ptr %call9.i.i14, align 1
@@ -820,9 +820,9 @@ if.end11.i.i16:                                   ; preds = %sw.bb2
   store i32 83886080, ptr %gdb_st_rdev.i.i22, align 1
   %gdb_st_size.i.i23 = getelementptr inbounds i8, ptr %call9.i.i14, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %gdb_st_size.i.i23, i8 0, i64 36, i1 false)
-  br label %console_fstat.exit
+  br label %console_fstat.argprom.exit
 
-console_fstat.exit:                               ; preds = %sw.bb2, %if.end11.i.i16
+console_fstat.argprom.exit:                       ; preds = %sw.bb2, %if.end11.i.i16
   %retval.0.i.neg.i25 = phi i32 [ 0, %if.end11.i.i16 ], [ 14, %sw.bb2 ]
   %conv.i = sext i1 %tobool.not.i.i15 to i64
   tail call void %complete(ptr noundef %cs, i64 noundef %conv.i, i32 noundef %retval.0.i.neg.i25) #12
@@ -832,7 +832,7 @@ do.body:                                          ; preds = %if.end
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 902, ptr noundef nonnull @__func__.semihost_sys_fstat, ptr noundef null) #14
   unreachable
 
-sw.epilog:                                        ; preds = %console_fstat.exit, %host_fstat.exit, %sw.bb, %if.then
+sw.epilog:                                        ; preds = %console_fstat.argprom.exit, %host_fstat.argprom.exit, %sw.bb, %if.then
   ret void
 }
 
@@ -959,9 +959,9 @@ lor.lhs.false.i.i:                                ; preds = %if.else.i
 if.end.i.i9:                                      ; preds = %lor.lhs.false.i.i
   %call9.i.i = tail call ptr @lock_user(i32 noundef 3, i64 noundef %addr, i64 noundef 64, i1 noundef zeroext false) #12
   %tobool.not.i13.i = icmp eq ptr %call9.i.i, null
-  br i1 %tobool.not.i13.i, label %if.end10.i, label %copy_stat_to_user.exit.i
+  br i1 %tobool.not.i13.i, label %if.end10.i, label %copy_stat_to_user.argprom.exit.i
 
-copy_stat_to_user.exit.i:                         ; preds = %if.end.i.i9
+copy_stat_to_user.argprom.exit.i:                 ; preds = %if.end.i.i9
   %conv13.i.i = trunc nuw i64 %5 to i32
   %7 = tail call noundef i32 @llvm.bswap.i32(i32 %conv13.i.i)
   store i32 %7, ptr %call9.i.i, align 1
@@ -1031,9 +1031,9 @@ copy_stat_to_user.exit.i:                         ; preds = %if.end.i.i9
   store i32 %30, ptr %gdb_st_ctime.i.i, align 1
   br label %if.end10.i
 
-if.end10.i:                                       ; preds = %copy_stat_to_user.exit.i, %if.end.i.i9, %lor.lhs.false.i.i, %if.else.i, %if.then3.i
-  %ret.0.i = phi i64 [ %4, %if.then3.i ], [ 0, %copy_stat_to_user.exit.i ], [ -1, %lor.lhs.false.i.i ], [ -1, %if.else.i ], [ -1, %if.end.i.i9 ]
-  %err.0.i = phi i32 [ %3, %if.then3.i ], [ 0, %copy_stat_to_user.exit.i ], [ 75, %lor.lhs.false.i.i ], [ 75, %if.else.i ], [ 14, %if.end.i.i9 ]
+if.end10.i:                                       ; preds = %copy_stat_to_user.argprom.exit.i, %if.end.i.i9, %lor.lhs.false.i.i, %if.else.i, %if.then3.i
+  %ret.0.i = phi i64 [ %4, %if.then3.i ], [ 0, %copy_stat_to_user.argprom.exit.i ], [ -1, %lor.lhs.false.i.i ], [ -1, %if.else.i ], [ -1, %if.end.i.i9 ]
+  %err.0.i = phi i32 [ %3, %if.then3.i ], [ 0, %copy_stat_to_user.argprom.exit.i ], [ 75, %lor.lhs.false.i.i ], [ 75, %if.else.i ], [ 14, %if.end.i.i9 ]
   tail call void %complete(ptr noundef %cs, i64 noundef %ret.0.i, i32 noundef %err.0.i) #12
   br label %host_stat.exit
 

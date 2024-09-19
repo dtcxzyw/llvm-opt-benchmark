@@ -880,7 +880,7 @@ define dso_local i64 @_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XC
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds %"struct.llvm::object::XCOFFSectionHeader64", ptr %8, i64 %16
-  br i1 %.not4.i, label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit", label %.lr.ph.i
+  br i1 %.not4.i, label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.argprom.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %25
   %.0105.i = phi ptr [ %26, %25 ], [ %8, %17 ]
@@ -894,16 +894,16 @@ define dso_local i64 @_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XC
 
 23:                                               ; preds = %.lr.ph.i
   %24 = ptrtoint ptr %.0105.i to i64
-  br label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit"
+  br label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.argprom.exit"
 
 25:                                               ; preds = %.lr.ph.i
   %26 = getelementptr inbounds i8, ptr %.0105.i, i64 72
   %.not.i = icmp eq ptr %26, %18
-  br i1 %.not.i, label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit", label %.lr.ph.i
+  br i1 %.not.i, label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.argprom.exit", label %.lr.ph.i
 
 27:                                               ; preds = %2
   %28 = getelementptr inbounds %"struct.llvm::object::XCOFFSectionHeader32", ptr %8, i64 %16
-  br i1 %.not4.i, label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit", label %.lr.ph.i12
+  br i1 %.not4.i, label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.argprom.exit", label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %27, %35
   %.0105.i13 = phi ptr [ %36, %35 ], [ %8, %27 ]
@@ -917,14 +917,14 @@ define dso_local i64 @_ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XC
 
 33:                                               ; preds = %.lr.ph.i12
   %34 = ptrtoint ptr %.0105.i13 to i64
-  br label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit"
+  br label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.argprom.exit"
 
 35:                                               ; preds = %.lr.ph.i12
   %36 = getelementptr inbounds i8, ptr %.0105.i13, i64 40
   %.not.i15 = icmp eq ptr %36, %28
-  br i1 %.not.i15, label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit", label %.lr.ph.i12
+  br i1 %.not.i15, label %"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.argprom.exit", label %.lr.ph.i12
 
-"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.exit": ; preds = %35, %25, %33, %27, %23, %17
+"_ZZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsEENK3$_0clINS_8ArrayRefINS0_20XCOFFSectionHeader64EEEEEmRKT_.argprom.exit": ; preds = %35, %25, %33, %27, %23, %17
   %storemerge = phi i64 [ %24, %23 ], [ 0, %17 ], [ %34, %33 ], [ 0, %27 ], [ 0, %25 ], [ 0, %35 ]
   ret i64 %storemerge
 }

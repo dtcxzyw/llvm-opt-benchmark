@@ -4390,7 +4390,7 @@ _ZNK2cv3Mat8rowRangeEii.exit69:                   ; preds = %137
 
 ._crit_edge68.i:                                  ; preds = %._crit_edge66.us73.i, %._crit_edge.us.i, %._crit_edge66.us.us.i, %.preheader38.lr.ph.split.i, %.preheader39.i
   %.not451122.i = icmp slt i32 %177, 0
-  br i1 %.not451122.i, label %_ZN2cvL26findStereoCorrespondenceBMIsEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParamsEiiRKNS_8BufferBMEm.exit, label %.lr.ph126.i
+  br i1 %.not451122.i, label %_ZN2cvL26findStereoCorrespondenceBMIsEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParamsEiiRKNS_8BufferBMEm.argprom.argprom.exit, label %.lr.ph126.i
 
 .lr.ph126.i:                                      ; preds = %._crit_edge68.i
   %319 = getelementptr inbounds i16, ptr %189, i64 %184
@@ -4780,9 +4780,9 @@ _ZN2cv11dispDescaleIsEET_iii.exit.i:              ; preds = %499, %.critedge.i
   %indvars.iv.next242.i = add nuw nsw i64 %indvars.iv241.i, 1
   %514 = getelementptr inbounds i8, ptr %.0426124.i, i64 2
   %exitcond245.not.i = icmp eq i64 %indvars.iv.next242.i, %wide.trip.count244.i
-  br i1 %exitcond245.not.i, label %_ZN2cvL26findStereoCorrespondenceBMIsEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParamsEiiRKNS_8BufferBMEm.exit, label %355, !llvm.loop !81
+  br i1 %exitcond245.not.i, label %_ZN2cvL26findStereoCorrespondenceBMIsEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParamsEiiRKNS_8BufferBMEm.argprom.argprom.exit, label %355, !llvm.loop !81
 
-_ZN2cvL26findStereoCorrespondenceBMIsEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParamsEiiRKNS_8BufferBMEm.exit: ; preds = %._crit_edge117.i, %._crit_edge68.i
+_ZN2cvL26findStereoCorrespondenceBMIsEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParamsEiiRKNS_8BufferBMEm.argprom.argprom.exit: ; preds = %._crit_edge117.i, %._crit_edge68.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %868
 
@@ -5136,7 +5136,7 @@ _ZN2cvL26findStereoCorrespondenceBMIsEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParam
 
 ._crit_edge68.i75:                                ; preds = %._crit_edge66.us73.i198, %._crit_edge.us.i213, %._crit_edge66.us.us.i234, %.preheader38.lr.ph.split.i186, %.preheader39.i74
   %.not451122.i76 = icmp slt i32 %540, 0
-  br i1 %.not451122.i76, label %_ZN2cvL26findStereoCorrespondenceBMIiEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParamsEiiRKNS_8BufferBMEm.exit, label %.lr.ph126.i77
+  br i1 %.not451122.i76, label %_ZN2cvL26findStereoCorrespondenceBMIiEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParamsEiiRKNS_8BufferBMEm.argprom.argprom.exit, label %.lr.ph126.i77
 
 .lr.ph126.i77:                                    ; preds = %._crit_edge68.i75
   %682 = getelementptr inbounds i32, ptr %552, i64 %547
@@ -5514,13 +5514,13 @@ _ZN2cv11dispDescaleIiEET_iii.exit.i:              ; preds = %856, %.critedge.i12
   %indvars.iv.next242.i112 = add nuw nsw i64 %indvars.iv241.i94, 1
   %867 = getelementptr inbounds i8, ptr %.0426124.i95, i64 4
   %exitcond245.not.i113 = icmp eq i64 %indvars.iv.next242.i112, %wide.trip.count244.i86
-  br i1 %exitcond245.not.i113, label %_ZN2cvL26findStereoCorrespondenceBMIiEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParamsEiiRKNS_8BufferBMEm.exit, label %718, !llvm.loop !99
+  br i1 %exitcond245.not.i113, label %_ZN2cvL26findStereoCorrespondenceBMIiEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParamsEiiRKNS_8BufferBMEm.argprom.argprom.exit, label %718, !llvm.loop !99
 
-_ZN2cvL26findStereoCorrespondenceBMIiEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParamsEiiRKNS_8BufferBMEm.exit: ; preds = %._crit_edge117.i111, %._crit_edge68.i75
+_ZN2cvL26findStereoCorrespondenceBMIiEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParamsEiiRKNS_8BufferBMEm.argprom.argprom.exit: ; preds = %._crit_edge117.i111, %._crit_edge68.i75
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %868
 
-868:                                              ; preds = %_ZN2cvL26findStereoCorrespondenceBMIiEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParamsEiiRKNS_8BufferBMEm.exit, %_ZN2cvL26findStereoCorrespondenceBMIsEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParamsEiiRKNS_8BufferBMEm.exit
+868:                                              ; preds = %_ZN2cvL26findStereoCorrespondenceBMIiEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParamsEiiRKNS_8BufferBMEm.argprom.argprom.exit, %_ZN2cvL26findStereoCorrespondenceBMIsEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParamsEiiRKNS_8BufferBMEm.argprom.argprom.exit
   %869 = load ptr, ptr %57, align 8
   %870 = getelementptr inbounds i8, ptr %869, i64 72
   %871 = load i32, ptr %870, align 4

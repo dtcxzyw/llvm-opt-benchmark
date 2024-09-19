@@ -91,7 +91,7 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   store ptr null, ptr %3, align 8
   %19 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #14
   %20 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %1, i32 noundef 0, i32 noundef 0) #14
-  %21 = call fastcc i32 @hwloc_diff_trees(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %20, ptr noundef nonnull %3, ptr noundef %5)
+  %21 = call fastcc i32 @hwloc_diff_trees.argprom.argelim(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %20, ptr noundef nonnull %3, ptr noundef %5)
   %.not187 = icmp eq i32 %21, 0
   br i1 %.not187, label %.preheader255, label %.critedge233
 
@@ -648,7 +648,7 @@ hwloc_append_diff.exit.i:                         ; preds = %.loopexit
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #3 {
   %6 = getelementptr inbounds i8, ptr %1, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 48
@@ -816,7 +816,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
   br i1 %.not220, label %112, label %84
 
 84:                                               ; preds = %77
-  %85 = tail call fastcc i32 @hwloc_append_diff_obj_attr_uint64(ptr noundef nonnull %1, i64 noundef %80, i64 noundef %83, ptr noundef %3, ptr noundef %4)
+  %85 = tail call fastcc i32 @hwloc_append_diff_obj_attr_uint64.argelim(ptr noundef nonnull %1, i64 noundef %80, i64 noundef %83, ptr noundef %3, ptr noundef %4)
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %hwloc_append_diff_too_complex.exit, label %112
 
@@ -930,7 +930,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
 .lr.ph30:                                         ; preds = %._crit_edge, %147
   %.016628 = phi ptr [ %.0166, %147 ], [ %.016626, %._crit_edge ]
   %.016527 = phi ptr [ %.0165, %147 ], [ %.016525, %._crit_edge ]
-  %145 = tail call fastcc i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef nonnull %.016628, ptr noundef nonnull %.016527, ptr noundef %3, ptr noundef %4)
+  %145 = tail call fastcc i32 @hwloc_diff_trees.argprom.argelim(ptr noundef %0, ptr noundef nonnull %.016628, ptr noundef nonnull %.016527, ptr noundef %3, ptr noundef %4)
   %146 = icmp slt i32 %145, 0
   br i1 %146, label %hwloc_append_diff_too_complex.exit, label %147
 
@@ -963,7 +963,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
 .lr.ph38:                                         ; preds = %153, %161
   %.116736 = phi ptr [ %.1167, %161 ], [ %.116734, %153 ]
   %.135 = phi ptr [ %.1, %161 ], [ %.133, %153 ]
-  %159 = tail call fastcc i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef nonnull %.116736, ptr noundef nonnull %.135, ptr noundef %3, ptr noundef %4)
+  %159 = tail call fastcc i32 @hwloc_diff_trees.argprom.argelim(ptr noundef %0, ptr noundef nonnull %.116736, ptr noundef nonnull %.135, ptr noundef %3, ptr noundef %4)
   %160 = icmp slt i32 %159, 0
   br i1 %160, label %hwloc_append_diff_too_complex.exit, label %161
 
@@ -996,7 +996,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
 .lr.ph47:                                         ; preds = %167, %175
   %.216845 = phi ptr [ %.2168, %175 ], [ %.216843, %167 ]
   %.244 = phi ptr [ %.2, %175 ], [ %.242, %167 ]
-  %173 = tail call fastcc i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef nonnull %.216845, ptr noundef nonnull %.244, ptr noundef %3, ptr noundef %4)
+  %173 = tail call fastcc i32 @hwloc_diff_trees.argprom.argelim(ptr noundef %0, ptr noundef nonnull %.216845, ptr noundef nonnull %.244, ptr noundef %3, ptr noundef %4)
   %174 = icmp slt i32 %173, 0
   br i1 %174, label %hwloc_append_diff_too_complex.exit, label %175
 
@@ -1029,7 +1029,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
 .lr.ph56:                                         ; preds = %181, %189
   %.316954 = phi ptr [ %.3169, %189 ], [ %.316952, %181 ]
   %.353 = phi ptr [ %.3, %189 ], [ %.351, %181 ]
-  %187 = tail call fastcc i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef nonnull %.316954, ptr noundef nonnull %.353, ptr noundef %3, ptr noundef %4)
+  %187 = tail call fastcc i32 @hwloc_diff_trees.argprom.argelim(ptr noundef %0, ptr noundef nonnull %.316954, ptr noundef nonnull %.353, ptr noundef %3, ptr noundef %4)
   %188 = icmp slt i32 %187, 0
   br i1 %188, label %hwloc_append_diff_too_complex.exit, label %189
 
@@ -1415,7 +1415,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_append_diff_obj_attr_uint64(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #8 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_append_diff_obj_attr_uint64.argelim(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #8 {
   %6 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #15
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %23, label %7

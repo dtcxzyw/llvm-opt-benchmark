@@ -425,7 +425,7 @@ ehcleanup33:                                      ; preds = %ehcleanup, %lpad4, 
   %.pn.pn.pn = phi { ptr, i32 } [ %0, %lpad ], [ %.pn, %ehcleanup ], [ %2, %lpad4 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.result) #20
   invoke void @OPENSSL_sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @GENERAL_NAME_free)
-          to label %"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl16OpenSSLCertUtils18getSubjectAltNamesB5cxx11ER7x509_stE3$_0Lb1EED2Ev.exit" unwind label %terminate.lpad.i.i.i1
+          to label %"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl16OpenSSLCertUtils18getSubjectAltNamesB5cxx11ER7x509_stE3$_0Lb1EED2Ev.argprom.exit" unwind label %terminate.lpad.i.i.i1
 
 terminate.lpad.i.i.i1:                            ; preds = %ehcleanup33
   %8 = landingpad { ptr, i32 }
@@ -434,7 +434,7 @@ terminate.lpad.i.i.i1:                            ; preds = %ehcleanup33
   call void @__clang_call_terminate(ptr %9) #21
   unreachable
 
-"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl16OpenSSLCertUtils18getSubjectAltNamesB5cxx11ER7x509_stE3$_0Lb1EED2Ev.exit": ; preds = %ehcleanup33
+"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl16OpenSSLCertUtils18getSubjectAltNamesB5cxx11ER7x509_stE3$_0Lb1EED2Ev.argprom.exit": ; preds = %ehcleanup33
   resume { ptr, i32 } %.pn.pn.pn
 
 if.then.i:                                        ; preds = %cleanup28, %for.cond.preheader

@@ -820,7 +820,7 @@ entry:
   tail call void @bdrv_graph_rdlock_main_loop() #10
   %call1 = tail call ptr @blk_all_next(ptr noundef null) #10
   %tobool.not9 = icmp eq ptr %call1, null
-  br i1 %tobool.not9, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body
+  br i1 %tobool.not9, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %blk.011 = phi ptr [ %call10, %for.inc ], [ %call1, %entry ]
@@ -933,7 +933,7 @@ if.then8:                                         ; preds = %bdrv_query_info.exi
   call void @g_free(ptr noundef %call6) #10
   %head.0.head.0.head.0.head.0. = load ptr, ptr %head, align 8
   call void @qapi_free_BlockInfoList(ptr noundef %head.0.head.0.head.0.head.0.) #10
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end9:                                          ; preds = %bdrv_query_info.exit
   store ptr %call6, ptr %p_next.010, align 8
@@ -947,9 +947,9 @@ for.inc:                                          ; preds = %land.lhs.true, %if.
 
 for.end.loopexit:                                 ; preds = %for.inc
   %head.0.head.0.head.0.head.0.8.pre = load ptr, ptr %head, align 8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %entry, %for.end.loopexit, %if.then8
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %entry, %for.end.loopexit, %if.then8
   %retval.0 = phi ptr [ null, %if.then8 ], [ %head.0.head.0.head.0.head.0.8.pre, %for.end.loopexit ], [ null, %entry ]
   call void @bdrv_graph_rdunlock_main_loop() #10
   ret ptr %retval.0
@@ -985,7 +985,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call3 = tail call ptr @bdrv_next_node(ptr noundef null) #10
   %tobool4.not30 = icmp eq ptr %call3, null
-  br i1 %tobool4.not30, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body
+  br i1 %tobool4.not30, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %for.body
 
 for.body:                                         ; preds = %if.then, %for.body
   %tail.032 = phi ptr [ %1, %for.body ], [ %head, %if.then ]
@@ -1002,12 +1002,12 @@ for.body:                                         ; preds = %if.then, %for.body
   tail call void @aio_context_release(ptr noundef %call5) #10
   %call8 = tail call ptr @bdrv_next_node(ptr noundef nonnull %bs.031) #10
   %tobool4.not = icmp eq ptr %call8, null
-  br i1 %tobool4.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body, !llvm.loop !10
+  br i1 %tobool4.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %for.body, !llvm.loop !10
 
 if.else:                                          ; preds = %entry
   %call9 = tail call ptr @blk_all_next(ptr noundef null) #10
   %tobool11.not27 = icmp eq ptr %call9, null
-  br i1 %tobool11.not27, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body12
+  br i1 %tobool11.not27, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %for.body12
 
 for.body12:                                       ; preds = %if.else, %for.inc39
   %tail.129 = phi ptr [ %tail.2, %for.inc39 ], [ %head, %if.else ]
@@ -1611,9 +1611,9 @@ for.inc39:                                        ; preds = %land.lhs.true17, %b
   %tail.2 = phi ptr [ %74, %bdrv_query_blk_stats.exit ], [ %tail.129, %land.lhs.true17 ]
   %call40 = tail call ptr @blk_all_next(ptr noundef nonnull %blk.028) #10
   %tobool11.not = icmp eq ptr %call40, null
-  br i1 %tobool11.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body12, !llvm.loop !13
+  br i1 %tobool11.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %for.body12, !llvm.loop !13
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %for.inc39, %for.body, %if.else, %if.then
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %for.inc39, %for.body, %if.else, %if.then
   %head.0.head.0.head.0.head.0. = load ptr, ptr %head, align 8
   tail call void @bdrv_graph_rdunlock_main_loop() #10
   ret ptr %head.0.head.0.head.0.head.0.
@@ -1836,32 +1836,32 @@ land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %0, align 8
   %1 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %1, 6
-  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #13
   unreachable
 
-qobject_type.exit.i:                              ; preds = %land.lhs.true.i
+qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
   br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
 
-if.else.i:                                        ; preds = %qobject_type.exit.i, %entry
+if.else.i:                                        ; preds = %qobject_type.argprom.exit.i, %entry
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
-  %retval.0.i = phi ptr [ null, %if.else.i ], [ %0, %qobject_type.exit.i ]
+qobject_check_type.exit:                          ; preds = %qobject_type.argprom.exit.i, %if.else.i
+  %retval.0.i = phi ptr [ null, %if.else.i ], [ %0, %qobject_type.argprom.exit.i ]
   %call3 = call ptr @qdict_get(ptr noundef %retval.0.i, ptr noundef nonnull @.str.18) #10
   %obj.val.i7 = load i32, ptr %call3, align 8
   %2 = add i32 %obj.val.i7, -1
   %or.cond.i.i8 = icmp ult i32 %2, 6
-  br i1 %or.cond.i.i8, label %qobject_type.exit.i10, label %if.else.i.i9
+  br i1 %or.cond.i.i8, label %qobject_type.argprom.exit.i10, label %if.else.i.i9
 
 if.else.i.i9:                                     ; preds = %qobject_check_type.exit
   call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #13
   unreachable
 
-qobject_type.exit.i10:                            ; preds = %qobject_check_type.exit
+qobject_type.argprom.exit.i10:                    ; preds = %qobject_check_type.exit
   switch i32 %obj.val.i7, label %sw.default.i [
     i32 2, label %if.then
     i32 3, label %if.then
@@ -1870,21 +1870,21 @@ qobject_type.exit.i10:                            ; preds = %qobject_check_type.
     i32 5, label %qobject_check_type.exit13.i
   ]
 
-qobject_check_type.exit13.i:                      ; preds = %qobject_type.exit.i10
+qobject_check_type.exit13.i:                      ; preds = %qobject_type.argprom.exit.i10
   %call6.i = call i32 @qlist_empty(ptr noundef nonnull %call3) #10
   %tobool.i.not = icmp eq i32 %call6.i, 0
   br i1 %tobool.i.not, label %if.then, label %if.end7
 
-sw.default.i:                                     ; preds = %qobject_type.exit.i10
+sw.default.i:                                     ; preds = %qobject_type.argprom.exit.i10
   call void @abort() #13
   unreachable
 
-qobject_is_empty_dump.exit:                       ; preds = %qobject_type.exit.i10
+qobject_is_empty_dump.exit:                       ; preds = %qobject_type.argprom.exit.i10
   %call3.i = call i64 @qdict_size(ptr noundef nonnull %call3) #10
   %cmp.i12 = icmp eq i64 %call3.i, 0
   br i1 %cmp.i12, label %if.end7, label %if.then
 
-if.then:                                          ; preds = %qobject_type.exit.i10, %qobject_type.exit.i10, %qobject_type.exit.i10, %qobject_check_type.exit13.i, %qobject_is_empty_dump.exit
+if.then:                                          ; preds = %qobject_type.argprom.exit.i10, %qobject_type.argprom.exit.i10, %qobject_type.argprom.exit.i10, %qobject_check_type.exit13.i, %qobject_is_empty_dump.exit
   %tobool.not = icmp eq ptr %prefix, null
   br i1 %tobool.not, label %if.end, label %if.then5
 
@@ -1942,13 +1942,13 @@ entry:
   %obj.val = load i32, ptr %obj, align 8
   %0 = add i32 %obj.val, -1
   %or.cond.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #13
   unreachable
 
-qobject_type.exit:                                ; preds = %entry
+qobject_type.argprom.exit:                        ; preds = %entry
   switch i32 %obj.val, label %sw.default [
     i32 2, label %qobject_check_type.exit
     i32 3, label %qobject_check_type.exit18
@@ -1957,18 +1957,18 @@ qobject_type.exit:                                ; preds = %entry
     i32 6, label %qobject_check_type.exit64
   ]
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit
+qobject_check_type.exit:                          ; preds = %qobject_type.argprom.exit
   %call2 = tail call ptr @qnum_to_string(ptr noundef nonnull %obj) #10
   %call3 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.39, ptr noundef %call2) #10
   tail call void @g_free(ptr noundef %call2) #10
   br label %sw.epilog
 
-qobject_check_type.exit18:                        ; preds = %qobject_type.exit
+qobject_check_type.exit18:                        ; preds = %qobject_type.argprom.exit
   %call7 = tail call ptr @qstring_get_str(ptr noundef nonnull %obj) #10
   %call8 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.39, ptr noundef %call7) #10
   br label %sw.epilog
 
-qobject_check_type.exit28:                        ; preds = %qobject_type.exit
+qobject_check_type.exit28:                        ; preds = %qobject_type.argprom.exit
   %call.i = tail call ptr @qdict_first(ptr noundef nonnull %obj) #10
   %tobool.not.i2978 = icmp eq ptr %call.i, null
   br i1 %tobool.not.i2978, label %sw.epilog, label %for.body.i.lr.ph
@@ -1985,13 +1985,13 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   %.val.i = load i32, ptr %1, align 8
   %2 = add i32 %.val.i, -1
   %or.cond.i65 = icmp ult i32 %2, 6
-  br i1 %or.cond.i65, label %qobject_type.exit68, label %if.else.i66
+  br i1 %or.cond.i65, label %qobject_type.argprom.exit68, label %if.else.i66
 
 if.else.i66:                                      ; preds = %for.body.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #13
   unreachable
 
-qobject_type.exit68:                              ; preds = %for.body.i
+qobject_type.argprom.exit68:                      ; preds = %for.body.i
   %3 = and i32 %.val.i, 6
   %4 = load ptr, ptr %entry1.0.i79, align 8
   %call5.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #14
@@ -1999,8 +1999,8 @@ qobject_type.exit68:                              ; preds = %for.body.i
   %call6.i = tail call noalias ptr @g_malloc(i64 noundef %add.i) #11
   br label %for.cond7.i
 
-for.cond7.i:                                      ; preds = %cond.end.i, %qobject_type.exit68
-  %i.0.i = phi i32 [ 0, %qobject_type.exit68 ], [ %inc.i, %cond.end.i ]
+for.cond7.i:                                      ; preds = %cond.end.i, %qobject_type.argprom.exit68
+  %i.0.i = phi i32 [ 0, %qobject_type.argprom.exit68 ], [ %inc.i, %cond.end.i ]
   %5 = load ptr, ptr %entry1.0.i79, align 8
   %idxprom.i = sext i32 %i.0.i to i64
   %arrayidx.i = getelementptr i8, ptr %5, i64 %idxprom.i
@@ -2040,7 +2040,7 @@ if.end.i:                                         ; preds = %if.then.i, %for.end
   %tobool.not.i29 = icmp eq ptr %call34.i, null
   br i1 %tobool.not.i29, label %sw.epilog, label %for.body.i, !llvm.loop !16
 
-qobject_check_type.exit39:                        ; preds = %qobject_type.exit
+qobject_check_type.exit39:                        ; preds = %qobject_type.argprom.exit
   %9 = getelementptr i8, ptr %obj, i64 16
   %entry1.0.i4374 = load ptr, ptr %9, align 8
   %tobool.not.i4475 = icmp eq ptr %entry1.0.i4374, null
@@ -2058,13 +2058,13 @@ for.body.i45:                                     ; preds = %for.body.i45.lr.ph,
   %.val.i46 = load i32, ptr %10, align 8
   %11 = add i32 %.val.i46, -1
   %or.cond.i69 = icmp ult i32 %11, 6
-  br i1 %or.cond.i69, label %qobject_type.exit72, label %if.else.i70
+  br i1 %or.cond.i69, label %qobject_type.argprom.exit72, label %if.else.i70
 
 if.else.i70:                                      ; preds = %for.body.i45
   tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #13
   unreachable
 
-qobject_type.exit72:                              ; preds = %for.body.i45
+qobject_type.argprom.exit72:                      ; preds = %for.body.i45
   %12 = and i32 %.val.i46, 6
   %13 = icmp eq i32 %12, 4
   %cond.i49 = select i1 %13, i32 10, i32 32
@@ -2073,24 +2073,24 @@ qobject_type.exit72:                              ; preds = %for.body.i45
   tail call fastcc void @dump_qobject(i32 noundef %add.i51, ptr noundef %14)
   br i1 %13, label %for.inc.i, label %if.then.i52
 
-if.then.i52:                                      ; preds = %qobject_type.exit72
+if.then.i52:                                      ; preds = %qobject_type.argprom.exit72
   %call8.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.36) #10
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.then.i52, %qobject_type.exit72
+for.inc.i:                                        ; preds = %if.then.i52, %qobject_type.argprom.exit72
   %15 = getelementptr i8, ptr %entry1.0.i4377, i64 8
   %inc.i53 = add i32 %i.0.i4276, 1
   %entry1.0.i43 = load ptr, ptr %15, align 8
   %tobool.not.i44 = icmp eq ptr %entry1.0.i43, null
   br i1 %tobool.not.i44, label %sw.epilog, label %for.body.i45, !llvm.loop !17
 
-qobject_check_type.exit64:                        ; preds = %qobject_type.exit
+qobject_check_type.exit64:                        ; preds = %qobject_type.argprom.exit
   %call18 = tail call zeroext i1 @qbool_get_bool(ptr noundef nonnull %obj) #10
   %cond = select i1 %call18, ptr @.str.45, ptr @.str.46
   %call19 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.39, ptr noundef nonnull %cond) #10
   br label %sw.epilog
 
-sw.default:                                       ; preds = %qobject_type.exit
+sw.default:                                       ; preds = %qobject_type.argprom.exit
   tail call void @abort() #13
   unreachable
 

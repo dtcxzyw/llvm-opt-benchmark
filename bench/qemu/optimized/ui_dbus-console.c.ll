@@ -451,36 +451,36 @@ trace_dbus_registered_listener.exit:              ; preds = %if.end29, %land.lhs
 cleanup.thread:                                   ; preds = %if.then13, %if.then8, %if.then
   %socket.0.ph = phi ptr [ null, %if.then ], [ null, %if.then8 ], [ %call11, %if.then13 ]
   call void @g_free(ptr noundef %call1) #9
-  br label %glib_autoptr_cleanup_GSocketConnection.exit
+  br label %glib_autoptr_cleanup_GSocketConnection.argprom.exit
 
 cleanup:                                          ; preds = %if.end25, %trace_dbus_registered_listener.exit, %if.then23
   call void @g_free(ptr noundef %call1) #9
   %tobool.not.i.i = icmp eq ptr %call18, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GSocketConnection.exit, label %if.then.i.i17
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GSocketConnection.argprom.exit, label %if.then.i.i17
 
 if.then.i.i17:                                    ; preds = %cleanup
   call void @g_object_unref(ptr noundef nonnull %call18) #9
-  br label %glib_autoptr_cleanup_GSocketConnection.exit
+  br label %glib_autoptr_cleanup_GSocketConnection.argprom.exit
 
-glib_autoptr_cleanup_GSocketConnection.exit:      ; preds = %cleanup.thread, %cleanup, %if.then.i.i17
+glib_autoptr_cleanup_GSocketConnection.argprom.exit: ; preds = %cleanup.thread, %cleanup, %if.then.i.i17
   %socket.025 = phi ptr [ %socket.0.ph, %cleanup.thread ], [ %call11, %cleanup ], [ %call11, %if.then.i.i17 ]
   %tobool.not.i.i18 = icmp eq ptr %socket.025, null
-  br i1 %tobool.not.i.i18, label %glib_autoptr_cleanup_GSocket.exit, label %if.then.i.i19
+  br i1 %tobool.not.i.i18, label %glib_autoptr_cleanup_GSocket.argprom.exit, label %if.then.i.i19
 
-if.then.i.i19:                                    ; preds = %glib_autoptr_cleanup_GSocketConnection.exit
+if.then.i.i19:                                    ; preds = %glib_autoptr_cleanup_GSocketConnection.argprom.exit
   call void @g_object_unref(ptr noundef nonnull %socket.025) #9
-  br label %glib_autoptr_cleanup_GSocket.exit
+  br label %glib_autoptr_cleanup_GSocket.argprom.exit
 
-glib_autoptr_cleanup_GSocket.exit:                ; preds = %glib_autoptr_cleanup_GSocketConnection.exit, %if.then.i.i19
+glib_autoptr_cleanup_GSocket.argprom.exit:        ; preds = %glib_autoptr_cleanup_GSocketConnection.argprom.exit, %if.then.i.i19
   %err.val = load ptr, ptr %err, align 8
   %tobool.not.i.i20 = icmp eq ptr %err.val, null
-  br i1 %tobool.not.i.i20, label %glib_autoptr_cleanup_GError.exit, label %if.then.i.i21
+  br i1 %tobool.not.i.i20, label %glib_autoptr_cleanup_GError.argprom.exit, label %if.then.i.i21
 
-if.then.i.i21:                                    ; preds = %glib_autoptr_cleanup_GSocket.exit
+if.then.i.i21:                                    ; preds = %glib_autoptr_cleanup_GSocket.argprom.exit
   call void @g_error_free(ptr noundef nonnull %err.val) #9
-  br label %glib_autoptr_cleanup_GError.exit
+  br label %glib_autoptr_cleanup_GError.argprom.exit
 
-glib_autoptr_cleanup_GError.exit:                 ; preds = %glib_autoptr_cleanup_GSocket.exit, %if.then.i.i21
+glib_autoptr_cleanup_GError.argprom.exit:         ; preds = %glib_autoptr_cleanup_GSocket.argprom.exit, %if.then.i.i21
   ret i32 1
 }
 

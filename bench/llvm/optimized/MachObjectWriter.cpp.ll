@@ -102,7 +102,7 @@ $_ZN4llvm8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMap
 @.str.13 = private unnamed_addr constant [8 x i8] c"' for '\00", align 1
 @.str.14 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @_ZTVN4llvm19raw_svector_ostreamE = external unnamed_addr constant { [16 x ptr] }, align 8
-@"switch.table._ZZN4llvm16MachObjectWriter11writeObjectERNS_11MCAssemblerEENK3$_1clERKNS0_15VersionInfoTypeE" = private unnamed_addr constant [4 x i32] [i32 37, i32 36, i32 47, i32 48], align 4
+@"switch.table._ZZN4llvm16MachObjectWriter11writeObjectERNS_11MCAssemblerEENK3$_1clERKNS0_15VersionInfoTypeE.argprom" = private unnamed_addr constant [4 x i32] [i32 37, i32 36, i32 47, i32 48], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm16MachObjectWriter5resetEv(ptr noundef nonnull align 8 dereferenceable(2032) %0) unnamed_addr #0 align 2 {
@@ -2676,7 +2676,7 @@ define dso_local void @_ZN4llvm16MachObjectWriter29writeLinkerOptionsLoadCommand
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %.val10 = load ptr, ptr %11, align 8
   %.not4.i = icmp eq ptr %.val, %.val10
-  br i1 %.not4.i, label %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit, label %.lr.ph.i
+  br i1 %.not4.i, label %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.06.i = phi i32 [ %15, %.lr.ph.i ], [ 12, %2 ]
@@ -2687,9 +2687,9 @@ define dso_local void @_ZN4llvm16MachObjectWriter29writeLinkerOptionsLoadCommand
   %15 = add i32 %14, %13
   %16 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 32
   %.not.i = icmp eq ptr %16, %.val10
-  br i1 %.not.i, label %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.argprom.exit, label %.lr.ph.i
 
-_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit: ; preds = %.lr.ph.i, %2
+_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.argprom.exit: ; preds = %.lr.ph.i, %2
   %.0.lcssa.i = phi i32 [ 12, %2 ], [ %15, %.lr.ph.i ]
   %17 = icmp ne i32 %.0.lcssa.i, 0
   %18 = zext i1 %17 to i32
@@ -2743,9 +2743,9 @@ _ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcS
   %.not2022 = icmp eq ptr %49, %50
   br i1 %.not2022, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit, %_ZN4llvm11raw_ostreamlsEc.exit
-  %.024 = phi i64 [ %65, %_ZN4llvm11raw_ostreamlsEc.exit ], [ 12, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit ]
-  %.sroa.017.023 = phi ptr [ %66, %_ZN4llvm11raw_ostreamlsEc.exit ], [ %49, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit ]
+.lr.ph:                                           ; preds = %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.argprom.exit, %_ZN4llvm11raw_ostreamlsEc.exit
+  %.024 = phi i64 [ %65, %_ZN4llvm11raw_ostreamlsEc.exit ], [ 12, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.argprom.exit ]
+  %.sroa.017.023 = phi ptr [ %66, %_ZN4llvm11raw_ostreamlsEc.exit ], [ %49, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.argprom.exit ]
   %51 = load ptr, ptr %24, align 8
   %52 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.017.023) #19
   %53 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.017.023) #19
@@ -2775,8 +2775,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %59, %61
   %.not20 = icmp eq ptr %66, %50
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit
-  %.0.lcssa = phi i64 [ 12, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit ], [ %65, %_ZN4llvm11raw_ostreamlsEc.exit ]
+._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.argprom.exit
+  %.0.lcssa = phi i64 [ 12, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.argprom.exit ], [ %65, %_ZN4llvm11raw_ostreamlsEc.exit ]
   %67 = load ptr, ptr %24, align 8
   %68 = load ptr, ptr %6, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -5093,10 +5093,10 @@ _ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWrite
   %.not417462 = icmp eq ptr %207, %209
   br i1 %.not417462, label %._crit_edge467, label %.lr.ph466
 
-.lr.ph466:                                        ; preds = %_ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterE.exit, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit
-  %.5465 = phi i32 [ %210, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit ], [ %.4, %_ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterE.exit ]
-  %.5198464 = phi i64 [ %229, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit ], [ %.4197, %_ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterE.exit ]
-  %.sroa.0388.0463 = phi ptr [ %230, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit ], [ %207, %_ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterE.exit ]
+.lr.ph466:                                        ; preds = %_ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterE.exit, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.argprom.exit
+  %.5465 = phi i32 [ %210, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.argprom.exit ], [ %.4, %_ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterE.exit ]
+  %.5198464 = phi i64 [ %229, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.argprom.exit ], [ %.4197, %_ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterE.exit ]
+  %.sroa.0388.0463 = phi ptr [ %230, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.argprom.exit ], [ %207, %_ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterE.exit ]
   %210 = add i32 %.5465, 1
   %211 = load ptr, ptr %44, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
@@ -5107,7 +5107,7 @@ _ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWrite
   %215 = getelementptr i8, ptr %.sroa.0388.0463, i64 8
   %.val222 = load ptr, ptr %215, align 8
   %.not4.i = icmp eq ptr %.val, %.val222
-  br i1 %.not4.i, label %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit, label %.lr.ph.i232
+  br i1 %.not4.i, label %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.argprom.exit, label %.lr.ph.i232
 
 .lr.ph.i232:                                      ; preds = %.lr.ph466, %.lr.ph.i232
   %.06.i = phi i32 [ %219, %.lr.ph.i232 ], [ 12, %.lr.ph466 ]
@@ -5118,9 +5118,9 @@ _ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWrite
   %219 = add i32 %218, %217
   %220 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 32
   %.not.i233 = icmp eq ptr %220, %.val222
-  br i1 %.not.i233, label %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit, label %.lr.ph.i232
+  br i1 %.not.i233, label %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.argprom.exit, label %.lr.ph.i232
 
-_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit: ; preds = %.lr.ph.i232, %.lr.ph466
+_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.argprom.exit: ; preds = %.lr.ph.i232, %.lr.ph466
   %.0.lcssa.i = phi i32 [ 12, %.lr.ph466 ], [ %219, %.lr.ph.i232 ]
   %221 = icmp ne i32 %.0.lcssa.i, 0
   %222 = zext i1 %221 to i32
@@ -5135,7 +5135,7 @@ _ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcS
   %.not417 = icmp eq ptr %230, %209
   br i1 %.not417, label %._crit_edge467.loopexit, label %.lr.ph466
 
-._crit_edge467.loopexit:                          ; preds = %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit
+._crit_edge467.loopexit:                          ; preds = %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.argprom.exit
   %.pre = load ptr, ptr %44, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre540 = load i8, ptr %.phi.trans.insert, align 8
@@ -5616,7 +5616,7 @@ _ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit263: ; preds
   br i1 %.not215, label %496, label %495
 
 495:                                              ; preds = %._crit_edge485
-  call fastcc void @"_ZZN4llvm16MachObjectWriter11writeObjectERNS_11MCAssemblerEENK3$_1clERKNS0_15VersionInfoTypeE"(ptr nonnull %0, ptr noundef nonnull align 4 dereferenceable(36) %128)
+  call fastcc void @"_ZZN4llvm16MachObjectWriter11writeObjectERNS_11MCAssemblerEENK3$_1clERKNS0_15VersionInfoTypeE.argprom"(ptr nonnull %0, ptr noundef nonnull align 4 dereferenceable(36) %128)
   br label %496
 
 496:                                              ; preds = %495, %._crit_edge485
@@ -5625,7 +5625,7 @@ _ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit263: ; preds
   br i1 %.not216, label %499, label %498
 
 498:                                              ; preds = %496
-  call fastcc void @"_ZZN4llvm16MachObjectWriter11writeObjectERNS_11MCAssemblerEENK3$_1clERKNS0_15VersionInfoTypeE"(ptr nonnull %0, ptr noundef nonnull align 4 dereferenceable(36) %139)
+  call fastcc void @"_ZZN4llvm16MachObjectWriter11writeObjectERNS_11MCAssemblerEENK3$_1clERKNS0_15VersionInfoTypeE.argprom"(ptr nonnull %0, ptr noundef nonnull align 4 dereferenceable(36) %139)
   br label %499
 
 499:                                              ; preds = %498, %496
@@ -6305,7 +6305,7 @@ declare noundef i64 @_ZNK4llvm11MCAssembler18getSectionFileSizeERKNS_9MCSectionE
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm16MachObjectWriter11writeObjectERNS_11MCAssemblerEENK3$_1clERKNS0_15VersionInfoTypeE"(ptr nocapture readonly %.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm16MachObjectWriter11writeObjectERNS_11MCAssemblerEENK3$_1clERKNS0_15VersionInfoTypeE.argprom"(ptr nocapture readonly %.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %0) unnamed_addr #0 align 2 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -6420,7 +6420,7 @@ switch.lookup:                                    ; preds = %35
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @"switch.table._ZZN4llvm16MachObjectWriter11writeObjectERNS_11MCAssemblerEENK3$_1clERKNS0_15VersionInfoTypeE", i64 0, i64 %66
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @"switch.table._ZZN4llvm16MachObjectWriter11writeObjectERNS_11MCAssemblerEENK3$_1clERKNS0_15VersionInfoTypeE.argprom", i64 0, i64 %66
   %switch.load = load i32, ptr %switch.gep, align 4
   %67 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2016
   %68 = load ptr, ptr %67, align 8

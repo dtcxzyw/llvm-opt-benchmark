@@ -536,16 +536,16 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   %272 = getelementptr inbounds i32, ptr %269, i64 %271
   br label %273
 
-273:                                              ; preds = %ir_gcm_find_lca.exit83.i, %.lr.ph100.i
-  %.06199.i = phi i32 [ 0, %.lr.ph100.i ], [ %.1.i, %ir_gcm_find_lca.exit83.i ]
-  %.06298.i = phi i32 [ %266, %.lr.ph100.i ], [ %367, %ir_gcm_find_lca.exit83.i ]
-  %.06397.i = phi ptr [ %272, %.lr.ph100.i ], [ %366, %ir_gcm_find_lca.exit83.i ]
+273:                                              ; preds = %ir_gcm_find_lca.argprom.exit83.i, %.lr.ph100.i
+  %.06199.i = phi i32 [ 0, %.lr.ph100.i ], [ %.1.i, %ir_gcm_find_lca.argprom.exit83.i ]
+  %.06298.i = phi i32 [ %266, %.lr.ph100.i ], [ %367, %ir_gcm_find_lca.argprom.exit83.i ]
+  %.06397.i = phi ptr [ %272, %.lr.ph100.i ], [ %366, %ir_gcm_find_lca.argprom.exit83.i ]
   %274 = load i32, ptr %.06397.i, align 4
   %275 = sext i32 %274 to i64
   %276 = getelementptr inbounds i32, ptr %4, i64 %275
   %277 = load i32, ptr %276, align 4
   %.not66.i = icmp eq i32 %277, 0
-  br i1 %.not66.i, label %ir_gcm_find_lca.exit83.i, label %278
+  br i1 %.not66.i, label %ir_gcm_find_lca.argprom.exit83.i, label %278
 
 278:                                              ; preds = %273
   %279 = icmp slt i32 %277, 0
@@ -568,7 +568,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   %288 = getelementptr inbounds i8, ptr %284, i64 2
   %289 = load i16, ptr %288, align 2
   %290 = icmp ugt i16 %289, 1
-  br i1 %290, label %.lr.ph.preheader.i, label %ir_gcm_find_lca.exit83.i
+  br i1 %290, label %.lr.ph.preheader.i, label %ir_gcm_find_lca.argprom.exit83.i
 
 .lr.ph.preheader.i:                               ; preds = %287
   %291 = zext i16 %289 to i32
@@ -579,15 +579,15 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   %296 = getelementptr inbounds i8, ptr %284, i64 8
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %ir_gcm_find_lca.exit.i, %.lr.ph.preheader.i
-  %.096.in.i = phi i32 [ %.096.i, %ir_gcm_find_lca.exit.i ], [ %291, %.lr.ph.preheader.i ]
-  %.05895.i = phi ptr [ %334, %ir_gcm_find_lca.exit.i ], [ %295, %.lr.ph.preheader.i ]
-  %.05994.i = phi ptr [ %333, %ir_gcm_find_lca.exit.i ], [ %296, %.lr.ph.preheader.i ]
-  %.293.i = phi i32 [ %.3.i, %ir_gcm_find_lca.exit.i ], [ %.06199.i, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %ir_gcm_find_lca.argprom.exit.i, %.lr.ph.preheader.i
+  %.096.in.i = phi i32 [ %.096.i, %ir_gcm_find_lca.argprom.exit.i ], [ %291, %.lr.ph.preheader.i ]
+  %.05895.i = phi ptr [ %334, %ir_gcm_find_lca.argprom.exit.i ], [ %295, %.lr.ph.preheader.i ]
+  %.05994.i = phi ptr [ %333, %ir_gcm_find_lca.argprom.exit.i ], [ %296, %.lr.ph.preheader.i ]
+  %.293.i = phi i32 [ %.3.i, %ir_gcm_find_lca.argprom.exit.i ], [ %.06199.i, %.lr.ph.preheader.i ]
   %.096.i = add nsw i32 %.096.in.i, -1
   %297 = load i32, ptr %.05994.i, align 4
   %298 = icmp eq i32 %297, %258
-  br i1 %298, label %299, label %ir_gcm_find_lca.exit.i
+  br i1 %298, label %299, label %ir_gcm_find_lca.argprom.exit.i
 
 299:                                              ; preds = %.lr.ph.i
   %300 = load i32, ptr %.05895.i, align 4
@@ -595,7 +595,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   %302 = getelementptr inbounds i32, ptr %4, i64 %301
   %303 = load i32, ptr %302, align 4
   %.not68.i = icmp eq i32 %.293.i, 0
-  br i1 %.not68.i, label %ir_gcm_find_lca.exit.i, label %304
+  br i1 %.not68.i, label %ir_gcm_find_lca.argprom.exit.i, label %304
 
 304:                                              ; preds = %299
   %.val.i = load ptr, ptr %93, align 8
@@ -627,7 +627,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
 .preheader.i.i:                                   ; preds = %.lr.ph3.i.i, %.preheader1.i.i
   %.0.lcssa.i.i = phi i32 [ %303, %.preheader1.i.i ], [ %322, %.lr.ph3.i.i ]
   %.not5.i.i = icmp eq i32 %.020.lcssa.i.i, %.0.lcssa.i.i
-  br i1 %.not5.i.i, label %ir_gcm_find_lca.exit.i, label %.lr.ph8.i.i
+  br i1 %.not5.i.i, label %ir_gcm_find_lca.argprom.exit.i, label %.lr.ph8.i.i
 
 .lr.ph3.i.i:                                      ; preds = %.preheader1.i.i, %.lr.ph3.i.i
   %320 = phi i64 [ %323, %.lr.ph3.i.i ], [ %305, %.preheader1.i.i ]
@@ -649,18 +649,18 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   %331 = getelementptr inbounds %struct._ir_block, ptr %.val.i, i64 %330, i32 7
   %332 = load i32, ptr %331, align 4
   %.not.i.i = icmp eq i32 %329, %332
-  br i1 %.not.i.i, label %ir_gcm_find_lca.exit.i, label %.lr.ph8.i.i
+  br i1 %.not.i.i, label %ir_gcm_find_lca.argprom.exit.i, label %.lr.ph8.i.i
 
-ir_gcm_find_lca.exit.i:                           ; preds = %.lr.ph8.i.i, %.preheader.i.i, %299, %.lr.ph.i
+ir_gcm_find_lca.argprom.exit.i:                   ; preds = %.lr.ph8.i.i, %.preheader.i.i, %299, %.lr.ph.i
   %.3.i = phi i32 [ %.293.i, %.lr.ph.i ], [ %303, %299 ], [ %.020.lcssa.i.i, %.preheader.i.i ], [ %329, %.lr.ph8.i.i ]
   %333 = getelementptr inbounds i8, ptr %.05994.i, i64 4
   %334 = getelementptr inbounds i8, ptr %.05895.i, i64 4
   %335 = icmp sgt i32 %.096.in.i, 2
-  br i1 %335, label %.lr.ph.i, label %ir_gcm_find_lca.exit83.i
+  br i1 %335, label %.lr.ph.i, label %ir_gcm_find_lca.argprom.exit83.i
 
 336:                                              ; preds = %282
   %.not67.i = icmp eq i32 %.06199.i, 0
-  br i1 %.not67.i, label %ir_gcm_find_lca.exit83.i, label %337
+  br i1 %.not67.i, label %ir_gcm_find_lca.argprom.exit83.i, label %337
 
 337:                                              ; preds = %336
   %.val69.i = load ptr, ptr %93, align 8
@@ -692,7 +692,7 @@ ir_gcm_find_lca.exit.i:                           ; preds = %.lr.ph8.i.i, %.preh
 .preheader.i73.i:                                 ; preds = %.lr.ph3.i81.i, %.preheader1.i70.i
   %.0.lcssa.i74.i = phi i32 [ %.060.i, %.preheader1.i70.i ], [ %355, %.lr.ph3.i81.i ]
   %.not5.i75.i = icmp eq i32 %.020.lcssa.i71.i, %.0.lcssa.i74.i
-  br i1 %.not5.i75.i, label %ir_gcm_find_lca.exit83.i, label %.lr.ph8.i76.i
+  br i1 %.not5.i75.i, label %ir_gcm_find_lca.argprom.exit83.i, label %.lr.ph8.i76.i
 
 .lr.ph3.i81.i:                                    ; preds = %.preheader1.i70.i, %.lr.ph3.i81.i
   %353 = phi i64 [ %356, %.lr.ph3.i81.i ], [ %338, %.preheader1.i70.i ]
@@ -714,17 +714,17 @@ ir_gcm_find_lca.exit.i:                           ; preds = %.lr.ph8.i.i, %.preh
   %364 = getelementptr inbounds %struct._ir_block, ptr %.val69.i, i64 %363, i32 7
   %365 = load i32, ptr %364, align 4
   %.not.i79.i = icmp eq i32 %362, %365
-  br i1 %.not.i79.i, label %ir_gcm_find_lca.exit83.i, label %.lr.ph8.i76.i
+  br i1 %.not.i79.i, label %ir_gcm_find_lca.argprom.exit83.i, label %.lr.ph8.i76.i
 
-ir_gcm_find_lca.exit83.i:                         ; preds = %.lr.ph8.i76.i, %ir_gcm_find_lca.exit.i, %.preheader.i73.i, %336, %287, %273
-  %.1.i = phi i32 [ %.06199.i, %273 ], [ %.060.i, %336 ], [ %.020.lcssa.i71.i, %.preheader.i73.i ], [ %.06199.i, %287 ], [ %.3.i, %ir_gcm_find_lca.exit.i ], [ %362, %.lr.ph8.i76.i ]
+ir_gcm_find_lca.argprom.exit83.i:                 ; preds = %.lr.ph8.i76.i, %ir_gcm_find_lca.argprom.exit.i, %.preheader.i73.i, %336, %287, %273
+  %.1.i = phi i32 [ %.06199.i, %273 ], [ %.060.i, %336 ], [ %.020.lcssa.i71.i, %.preheader.i73.i ], [ %.06199.i, %287 ], [ %.3.i, %ir_gcm_find_lca.argprom.exit.i ], [ %362, %.lr.ph8.i76.i ]
   %366 = getelementptr inbounds i8, ptr %.06397.i, i64 4
   %367 = add nsw i32 %.06298.i, -1
   %368 = icmp sgt i32 %.06298.i, 1
   br i1 %368, label %273, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %ir_gcm_find_lca.exit83.i, %267
-  %.061.lcssa.i = phi i32 [ 0, %267 ], [ %.1.i, %ir_gcm_find_lca.exit83.i ]
+._crit_edge.i:                                    ; preds = %ir_gcm_find_lca.argprom.exit83.i, %267
+  %.061.lcssa.i = phi i32 [ 0, %267 ], [ %.1.i, %ir_gcm_find_lca.argprom.exit83.i ]
   store i32 %.061.lcssa.i, ptr %260, align 4
   %369 = load ptr, ptr %0, align 8
   %370 = add nsw i32 %258, 1
@@ -870,16 +870,16 @@ define internal fastcc void @ir_gcm_schedule_late(ptr nocapture noundef readonly
   %20 = getelementptr i8, ptr %0, i64 104
   br label %21
 
-21:                                               ; preds = %.lr.ph183, %ir_gcm_find_lca.exit166
-  %.0120182 = phi i32 [ 0, %.lr.ph183 ], [ %.1121, %ir_gcm_find_lca.exit166 ]
-  %.0124181 = phi ptr [ %19, %.lr.ph183 ], [ %114, %ir_gcm_find_lca.exit166 ]
-  %.0125180 = phi i32 [ %12, %.lr.ph183 ], [ %115, %ir_gcm_find_lca.exit166 ]
+21:                                               ; preds = %.lr.ph183, %ir_gcm_find_lca.argprom.exit166
+  %.0120182 = phi i32 [ 0, %.lr.ph183 ], [ %.1121, %ir_gcm_find_lca.argprom.exit166 ]
+  %.0124181 = phi ptr [ %19, %.lr.ph183 ], [ %114, %ir_gcm_find_lca.argprom.exit166 ]
+  %.0125180 = phi i32 [ %12, %.lr.ph183 ], [ %115, %ir_gcm_find_lca.argprom.exit166 ]
   %22 = load i32, ptr %.0124181, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i32, ptr %1, i64 %23
   %25 = load i32, ptr %24, align 4
   %.not149 = icmp eq i32 %25, 0
-  br i1 %.not149, label %ir_gcm_find_lca.exit166, label %26
+  br i1 %.not149, label %ir_gcm_find_lca.argprom.exit166, label %26
 
 26:                                               ; preds = %21
   %27 = icmp slt i32 %25, 0
@@ -902,7 +902,7 @@ define internal fastcc void @ir_gcm_schedule_late(ptr nocapture noundef readonly
   %36 = getelementptr inbounds i8, ptr %32, i64 2
   %37 = load i16, ptr %36, align 2
   %38 = icmp ugt i16 %37, 1
-  br i1 %38, label %.lr.ph.preheader, label %ir_gcm_find_lca.exit166
+  br i1 %38, label %.lr.ph.preheader, label %ir_gcm_find_lca.argprom.exit166
 
 .lr.ph.preheader:                                 ; preds = %35
   %39 = zext i16 %37 to i32
@@ -913,15 +913,15 @@ define internal fastcc void @ir_gcm_schedule_late(ptr nocapture noundef readonly
   %44 = getelementptr inbounds i8, ptr %32, i64 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %ir_gcm_find_lca.exit
-  %.0115179.in = phi i32 [ %.0115179, %ir_gcm_find_lca.exit ], [ %39, %.lr.ph.preheader ]
-  %.0116178 = phi ptr [ %82, %ir_gcm_find_lca.exit ], [ %43, %.lr.ph.preheader ]
-  %.0117177 = phi ptr [ %81, %ir_gcm_find_lca.exit ], [ %44, %.lr.ph.preheader ]
-  %.2122176 = phi i32 [ %.3123, %ir_gcm_find_lca.exit ], [ %.0120182, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %ir_gcm_find_lca.argprom.exit
+  %.0115179.in = phi i32 [ %.0115179, %ir_gcm_find_lca.argprom.exit ], [ %39, %.lr.ph.preheader ]
+  %.0116178 = phi ptr [ %82, %ir_gcm_find_lca.argprom.exit ], [ %43, %.lr.ph.preheader ]
+  %.0117177 = phi ptr [ %81, %ir_gcm_find_lca.argprom.exit ], [ %44, %.lr.ph.preheader ]
+  %.2122176 = phi i32 [ %.3123, %ir_gcm_find_lca.argprom.exit ], [ %.0120182, %.lr.ph.preheader ]
   %.0115179 = add nsw i32 %.0115179.in, -1
   %45 = load i32, ptr %.0117177, align 4
   %46 = icmp eq i32 %45, %2
-  br i1 %46, label %47, label %ir_gcm_find_lca.exit
+  br i1 %46, label %47, label %ir_gcm_find_lca.argprom.exit
 
 47:                                               ; preds = %.lr.ph
   %48 = load i32, ptr %.0116178, align 4
@@ -929,7 +929,7 @@ define internal fastcc void @ir_gcm_schedule_late(ptr nocapture noundef readonly
   %50 = getelementptr inbounds i32, ptr %1, i64 %49
   %51 = load i32, ptr %50, align 4
   %.not151 = icmp eq i32 %.2122176, 0
-  br i1 %.not151, label %ir_gcm_find_lca.exit, label %52
+  br i1 %.not151, label %ir_gcm_find_lca.argprom.exit, label %52
 
 52:                                               ; preds = %47
   %.val = load ptr, ptr %20, align 8
@@ -961,7 +961,7 @@ define internal fastcc void @ir_gcm_schedule_late(ptr nocapture noundef readonly
 .preheader.i:                                     ; preds = %.lr.ph3.i, %.preheader1.i
   %.0.lcssa.i = phi i32 [ %51, %.preheader1.i ], [ %70, %.lr.ph3.i ]
   %.not5.i = icmp eq i32 %.020.lcssa.i, %.0.lcssa.i
-  br i1 %.not5.i, label %ir_gcm_find_lca.exit, label %.lr.ph8.i
+  br i1 %.not5.i, label %ir_gcm_find_lca.argprom.exit, label %.lr.ph8.i
 
 .lr.ph3.i:                                        ; preds = %.preheader1.i, %.lr.ph3.i
   %68 = phi i64 [ %71, %.lr.ph3.i ], [ %53, %.preheader1.i ]
@@ -983,18 +983,18 @@ define internal fastcc void @ir_gcm_schedule_late(ptr nocapture noundef readonly
   %79 = getelementptr inbounds %struct._ir_block, ptr %.val, i64 %78, i32 7
   %80 = load i32, ptr %79, align 4
   %.not.i = icmp eq i32 %77, %80
-  br i1 %.not.i, label %ir_gcm_find_lca.exit, label %.lr.ph8.i
+  br i1 %.not.i, label %ir_gcm_find_lca.argprom.exit, label %.lr.ph8.i
 
-ir_gcm_find_lca.exit:                             ; preds = %.lr.ph8.i, %.preheader.i, %47, %.lr.ph
+ir_gcm_find_lca.argprom.exit:                     ; preds = %.lr.ph8.i, %.preheader.i, %47, %.lr.ph
   %.3123 = phi i32 [ %.2122176, %.lr.ph ], [ %51, %47 ], [ %.020.lcssa.i, %.preheader.i ], [ %77, %.lr.ph8.i ]
   %81 = getelementptr inbounds i8, ptr %.0117177, i64 4
   %82 = getelementptr inbounds i8, ptr %.0116178, i64 4
   %83 = icmp sgt i32 %.0115179.in, 2
-  br i1 %83, label %.lr.ph, label %ir_gcm_find_lca.exit166
+  br i1 %83, label %.lr.ph, label %ir_gcm_find_lca.argprom.exit166
 
 84:                                               ; preds = %30
   %.not150 = icmp eq i32 %.0120182, 0
-  br i1 %.not150, label %ir_gcm_find_lca.exit166, label %85
+  br i1 %.not150, label %ir_gcm_find_lca.argprom.exit166, label %85
 
 85:                                               ; preds = %84
   %.val152 = load ptr, ptr %20, align 8
@@ -1026,7 +1026,7 @@ ir_gcm_find_lca.exit:                             ; preds = %.lr.ph8.i, %.prehea
 .preheader.i156:                                  ; preds = %.lr.ph3.i164, %.preheader1.i153
   %.0.lcssa.i157 = phi i32 [ %.0118, %.preheader1.i153 ], [ %103, %.lr.ph3.i164 ]
   %.not5.i158 = icmp eq i32 %.020.lcssa.i154, %.0.lcssa.i157
-  br i1 %.not5.i158, label %ir_gcm_find_lca.exit166, label %.lr.ph8.i159
+  br i1 %.not5.i158, label %ir_gcm_find_lca.argprom.exit166, label %.lr.ph8.i159
 
 .lr.ph3.i164:                                     ; preds = %.preheader1.i153, %.lr.ph3.i164
   %101 = phi i64 [ %104, %.lr.ph3.i164 ], [ %86, %.preheader1.i153 ]
@@ -1048,16 +1048,16 @@ ir_gcm_find_lca.exit:                             ; preds = %.lr.ph8.i, %.prehea
   %112 = getelementptr inbounds %struct._ir_block, ptr %.val152, i64 %111, i32 7
   %113 = load i32, ptr %112, align 4
   %.not.i162 = icmp eq i32 %110, %113
-  br i1 %.not.i162, label %ir_gcm_find_lca.exit166, label %.lr.ph8.i159
+  br i1 %.not.i162, label %ir_gcm_find_lca.argprom.exit166, label %.lr.ph8.i159
 
-ir_gcm_find_lca.exit166:                          ; preds = %.lr.ph8.i159, %ir_gcm_find_lca.exit, %35, %.preheader.i156, %84, %21
-  %.1121 = phi i32 [ %.0120182, %21 ], [ %.0118, %84 ], [ %.020.lcssa.i154, %.preheader.i156 ], [ %.0120182, %35 ], [ %.3123, %ir_gcm_find_lca.exit ], [ %110, %.lr.ph8.i159 ]
+ir_gcm_find_lca.argprom.exit166:                  ; preds = %.lr.ph8.i159, %ir_gcm_find_lca.argprom.exit, %35, %.preheader.i156, %84, %21
+  %.1121 = phi i32 [ %.0120182, %21 ], [ %.0118, %84 ], [ %.020.lcssa.i154, %.preheader.i156 ], [ %.0120182, %35 ], [ %.3123, %ir_gcm_find_lca.argprom.exit ], [ %110, %.lr.ph8.i159 ]
   %114 = getelementptr inbounds i8, ptr %.0124181, i64 4
   %115 = add nsw i32 %.0125180, -1
   %116 = icmp sgt i32 %.0125180, 1
   br i1 %116, label %21, label %._crit_edge.loopexit
 
-._crit_edge.loopexit:                             ; preds = %ir_gcm_find_lca.exit166
+._crit_edge.loopexit:                             ; preds = %ir_gcm_find_lca.argprom.exit166
   %.pre = load i32, ptr %5, align 4
   br label %._crit_edge
 
@@ -2389,7 +2389,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %623 = getelementptr inbounds i8, ptr %613, i64 16
   %624 = load i32, ptr %623, align 8
   %.not1.i = icmp eq i32 %624, 0
-  br i1 %.not1.i, label %ir_xlat_binding.exit, label %.lr.ph.preheader.i
+  br i1 %.not1.i, label %ir_xlat_binding.argprom.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %614
   %625 = load ptr, ptr %613, align 8
@@ -2448,9 +2448,9 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %653 = getelementptr inbounds i8, ptr %.0393.i, i64 12
   %654 = add i32 %.06.i, -1
   %.not.i = icmp eq i32 %654, 0
-  br i1 %.not.i, label %ir_xlat_binding.exit, label %.lr.ph.i
+  br i1 %.not.i, label %ir_xlat_binding.argprom.exit, label %.lr.ph.i
 
-ir_xlat_binding.exit:                             ; preds = %652, %614
+ir_xlat_binding.argprom.exit:                     ; preds = %652, %614
   %.036.lcssa.i = phi i32 [ 0, %614 ], [ %.1.i, %652 ]
   store i32 %.036.lcssa.i, ptr %623, align 8
   %655 = load ptr, ptr %612, align 8
@@ -2459,7 +2459,7 @@ ir_xlat_binding.exit:                             ; preds = %652, %614
   store ptr null, ptr %612, align 8
   br label %657
 
-657:                                              ; preds = %ir_xlat_binding.exit, %.loopexit
+657:                                              ; preds = %ir_xlat_binding.argprom.exit, %.loopexit
   %658 = load i32, ptr %107, align 8
   %659 = sext i32 %658 to i64
   %660 = sub nsw i64 0, %659

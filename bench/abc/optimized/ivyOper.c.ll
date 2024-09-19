@@ -408,16 +408,16 @@ define ptr @Ivy_Mux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 18:                                               ; preds = %11
   %.not.i.i = icmp eq ptr %1, null
-  br i1 %.not.i.i, label %Ivy_ObjFaninId1.exit.i, label %19
+  br i1 %.not.i.i, label %Ivy_ObjFaninId1.argprom.exit.i, label %19
 
 19:                                               ; preds = %18
   %20 = ptrtoint ptr %1 to i64
   %21 = and i64 %20, -2
   %22 = inttoptr i64 %21 to ptr
   %.val.i.i = load i32, ptr %22, align 8
-  br label %Ivy_ObjFaninId1.exit.i
+  br label %Ivy_ObjFaninId1.argprom.exit.i
 
-Ivy_ObjFaninId1.exit.i:                           ; preds = %19, %18
+Ivy_ObjFaninId1.argprom.exit.i:                   ; preds = %19, %18
   %23 = phi i32 [ %.val.i.i, %19 ], [ 0, %18 ]
   %24 = and i64 %5, -2
   %25 = inttoptr i64 %24 to ptr
@@ -425,12 +425,12 @@ Ivy_ObjFaninId1.exit.i:                           ; preds = %19, %18
   %26 = icmp sgt i32 %23, %.val.i19.i
   br i1 %26, label %27, label %Ivy_ObjCreateGhost.exit
 
-27:                                               ; preds = %Ivy_ObjFaninId1.exit.i
+27:                                               ; preds = %Ivy_ObjFaninId1.argprom.exit.i
   store ptr %2, ptr %16, align 8
   store ptr %1, ptr %17, align 8
   br label %Ivy_ObjCreateGhost.exit
 
-Ivy_ObjCreateGhost.exit:                          ; preds = %11, %Ivy_ObjFaninId1.exit.i, %27
+Ivy_ObjCreateGhost.exit:                          ; preds = %11, %Ivy_ObjFaninId1.argprom.exit.i, %27
   %28 = getelementptr inbounds i8, ptr %0, i64 40
   %29 = tail call ptr @Ivy_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %28) #2
   %30 = ptrtoint ptr %1 to i64
@@ -447,15 +447,15 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %11, %Ivy_ObjFaninId
 
 36:                                               ; preds = %Ivy_ObjCreateGhost.exit
   %.not.i.i86 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
-  br i1 %.not.i.i86, label %Ivy_ObjFaninId1.exit.i88, label %37
+  br i1 %.not.i.i86, label %Ivy_ObjFaninId1.argprom.exit.i88, label %37
 
 37:                                               ; preds = %36
   %38 = and i64 %30, -2
   %39 = inttoptr i64 %38 to ptr
   %.val.i.i87 = load i32, ptr %39, align 8
-  br label %Ivy_ObjFaninId1.exit.i88
+  br label %Ivy_ObjFaninId1.argprom.exit.i88
 
-Ivy_ObjFaninId1.exit.i88:                         ; preds = %37, %36
+Ivy_ObjFaninId1.argprom.exit.i88:                 ; preds = %37, %36
   %40 = phi i32 [ %.val.i.i87, %37 ], [ 0, %36 ]
   %41 = ptrtoint ptr %3 to i64
   %42 = and i64 %41, -2
@@ -464,12 +464,12 @@ Ivy_ObjFaninId1.exit.i88:                         ; preds = %37, %36
   %44 = icmp sgt i32 %40, %.val.i19.i89
   br i1 %44, label %45, label %Ivy_ObjCreateGhost.exit90
 
-45:                                               ; preds = %Ivy_ObjFaninId1.exit.i88
+45:                                               ; preds = %Ivy_ObjFaninId1.argprom.exit.i88
   store ptr %3, ptr %16, align 8
   store ptr %32, ptr %17, align 8
   br label %Ivy_ObjCreateGhost.exit90
 
-Ivy_ObjCreateGhost.exit90:                        ; preds = %Ivy_ObjCreateGhost.exit, %Ivy_ObjFaninId1.exit.i88, %45
+Ivy_ObjCreateGhost.exit90:                        ; preds = %Ivy_ObjCreateGhost.exit, %Ivy_ObjFaninId1.argprom.exit.i88, %45
   %46 = tail call ptr @Ivy_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %28) #2
   %47 = icmp ne ptr %29, null
   %48 = icmp ne ptr %46, null
@@ -494,15 +494,15 @@ Ivy_ObjCreateGhost.exit90:                        ; preds = %Ivy_ObjCreateGhost.
 
 59:                                               ; preds = %49
   %.not.i.i92 = icmp eq ptr %29, inttoptr (i64 1 to ptr)
-  br i1 %.not.i.i92, label %Ivy_ObjFaninId1.exit.i94, label %60
+  br i1 %.not.i.i92, label %Ivy_ObjFaninId1.argprom.exit.i94, label %60
 
 60:                                               ; preds = %59
   %61 = and i64 %50, -2
   %62 = inttoptr i64 %61 to ptr
   %.val.i.i93 = load i32, ptr %62, align 8
-  br label %Ivy_ObjFaninId1.exit.i94
+  br label %Ivy_ObjFaninId1.argprom.exit.i94
 
-Ivy_ObjFaninId1.exit.i94:                         ; preds = %60, %59
+Ivy_ObjFaninId1.argprom.exit.i94:                 ; preds = %60, %59
   %63 = phi i32 [ %.val.i.i93, %60 ], [ 0, %59 ]
   %64 = and i64 %53, -2
   %65 = inttoptr i64 %64 to ptr
@@ -510,12 +510,12 @@ Ivy_ObjFaninId1.exit.i94:                         ; preds = %60, %59
   %66 = icmp sgt i32 %63, %.val.i19.i95
   br i1 %66, label %67, label %Ivy_ObjCreateGhost.exit96
 
-67:                                               ; preds = %Ivy_ObjFaninId1.exit.i94
+67:                                               ; preds = %Ivy_ObjFaninId1.argprom.exit.i94
   store ptr %55, ptr %16, align 8
   store ptr %52, ptr %17, align 8
   br label %Ivy_ObjCreateGhost.exit96
 
-Ivy_ObjCreateGhost.exit96:                        ; preds = %49, %Ivy_ObjFaninId1.exit.i94, %67
+Ivy_ObjCreateGhost.exit96:                        ; preds = %49, %Ivy_ObjFaninId1.argprom.exit.i94, %67
   %68 = tail call ptr @Ivy_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %28) #2
   %.not = icmp eq ptr %68, null
   br i1 %.not, label %73, label %69
@@ -541,15 +541,15 @@ Ivy_ObjCreateGhost.exit96:                        ; preds = %49, %Ivy_ObjFaninId
 
 80:                                               ; preds = %73
   %.not.i.i98 = icmp eq ptr %1, null
-  br i1 %.not.i.i98, label %Ivy_ObjFaninId1.exit.i100, label %81
+  br i1 %.not.i.i98, label %Ivy_ObjFaninId1.argprom.exit.i100, label %81
 
 81:                                               ; preds = %80
   %82 = and i64 %30, -2
   %83 = inttoptr i64 %82 to ptr
   %.val.i.i99 = load i32, ptr %83, align 8
-  br label %Ivy_ObjFaninId1.exit.i100
+  br label %Ivy_ObjFaninId1.argprom.exit.i100
 
-Ivy_ObjFaninId1.exit.i100:                        ; preds = %81, %80
+Ivy_ObjFaninId1.argprom.exit.i100:                ; preds = %81, %80
   %84 = phi i32 [ %.val.i.i99, %81 ], [ 0, %80 ]
   %85 = and i64 %5, -2
   %86 = inttoptr i64 %85 to ptr
@@ -557,12 +557,12 @@ Ivy_ObjFaninId1.exit.i100:                        ; preds = %81, %80
   %87 = icmp sgt i32 %84, %.val.i19.i101
   br i1 %87, label %88, label %Ivy_ObjCreateGhost.exit102
 
-88:                                               ; preds = %Ivy_ObjFaninId1.exit.i100
+88:                                               ; preds = %Ivy_ObjFaninId1.argprom.exit.i100
   store ptr %7, ptr %16, align 8
   store ptr %1, ptr %17, align 8
   br label %Ivy_ObjCreateGhost.exit102
 
-Ivy_ObjCreateGhost.exit102:                       ; preds = %73, %Ivy_ObjFaninId1.exit.i100, %88
+Ivy_ObjCreateGhost.exit102:                       ; preds = %73, %Ivy_ObjFaninId1.argprom.exit.i100, %88
   %89 = tail call ptr @Ivy_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %28) #2
   %90 = ptrtoint ptr %3 to i64
   %91 = xor i64 %90, 1
@@ -578,15 +578,15 @@ Ivy_ObjCreateGhost.exit102:                       ; preds = %73, %Ivy_ObjFaninId
 
 96:                                               ; preds = %Ivy_ObjCreateGhost.exit102
   %.not.i.i104 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
-  br i1 %.not.i.i104, label %Ivy_ObjFaninId1.exit.i106, label %97
+  br i1 %.not.i.i104, label %Ivy_ObjFaninId1.argprom.exit.i106, label %97
 
 97:                                               ; preds = %96
   %98 = and i64 %30, -2
   %99 = inttoptr i64 %98 to ptr
   %.val.i.i105 = load i32, ptr %99, align 8
-  br label %Ivy_ObjFaninId1.exit.i106
+  br label %Ivy_ObjFaninId1.argprom.exit.i106
 
-Ivy_ObjFaninId1.exit.i106:                        ; preds = %97, %96
+Ivy_ObjFaninId1.argprom.exit.i106:                ; preds = %97, %96
   %100 = phi i32 [ %.val.i.i105, %97 ], [ 0, %96 ]
   %101 = and i64 %90, -2
   %102 = inttoptr i64 %101 to ptr
@@ -594,12 +594,12 @@ Ivy_ObjFaninId1.exit.i106:                        ; preds = %97, %96
   %103 = icmp sgt i32 %100, %.val.i19.i107
   br i1 %103, label %104, label %Ivy_ObjCreateGhost.exit108
 
-104:                                              ; preds = %Ivy_ObjFaninId1.exit.i106
+104:                                              ; preds = %Ivy_ObjFaninId1.argprom.exit.i106
   store ptr %92, ptr %16, align 8
   store ptr %32, ptr %17, align 8
   br label %Ivy_ObjCreateGhost.exit108
 
-Ivy_ObjCreateGhost.exit108:                       ; preds = %Ivy_ObjCreateGhost.exit102, %Ivy_ObjFaninId1.exit.i106, %104
+Ivy_ObjCreateGhost.exit108:                       ; preds = %Ivy_ObjCreateGhost.exit102, %Ivy_ObjFaninId1.argprom.exit.i106, %104
   %105 = tail call ptr @Ivy_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %28) #2
   %106 = icmp ne ptr %89, null
   %107 = icmp ne ptr %105, null
@@ -624,15 +624,15 @@ Ivy_ObjCreateGhost.exit108:                       ; preds = %Ivy_ObjCreateGhost.
 
 118:                                              ; preds = %108
   %.not.i.i110 = icmp eq ptr %89, inttoptr (i64 1 to ptr)
-  br i1 %.not.i.i110, label %Ivy_ObjFaninId1.exit.i112, label %119
+  br i1 %.not.i.i110, label %Ivy_ObjFaninId1.argprom.exit.i112, label %119
 
 119:                                              ; preds = %118
   %120 = and i64 %109, -2
   %121 = inttoptr i64 %120 to ptr
   %.val.i.i111 = load i32, ptr %121, align 8
-  br label %Ivy_ObjFaninId1.exit.i112
+  br label %Ivy_ObjFaninId1.argprom.exit.i112
 
-Ivy_ObjFaninId1.exit.i112:                        ; preds = %119, %118
+Ivy_ObjFaninId1.argprom.exit.i112:                ; preds = %119, %118
   %122 = phi i32 [ %.val.i.i111, %119 ], [ 0, %118 ]
   %123 = and i64 %112, -2
   %124 = inttoptr i64 %123 to ptr
@@ -640,12 +640,12 @@ Ivy_ObjFaninId1.exit.i112:                        ; preds = %119, %118
   %125 = icmp sgt i32 %122, %.val.i19.i113
   br i1 %125, label %126, label %Ivy_ObjCreateGhost.exit114
 
-126:                                              ; preds = %Ivy_ObjFaninId1.exit.i112
+126:                                              ; preds = %Ivy_ObjFaninId1.argprom.exit.i112
   store ptr %114, ptr %16, align 8
   store ptr %111, ptr %17, align 8
   br label %Ivy_ObjCreateGhost.exit114
 
-Ivy_ObjCreateGhost.exit114:                       ; preds = %108, %Ivy_ObjFaninId1.exit.i112, %126
+Ivy_ObjCreateGhost.exit114:                       ; preds = %108, %Ivy_ObjFaninId1.argprom.exit.i112, %126
   %127 = tail call ptr @Ivy_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %28) #2
   %.not83 = icmp eq ptr %127, null
   br i1 %.not83, label %128, label %339

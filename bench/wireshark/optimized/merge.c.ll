@@ -1061,15 +1061,15 @@ merge_append_read_packet.exit:                    ; preds = %43, %._crit_edge.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   br i1 %25, label %.lr.ph.i191, label %._crit_edge.thread.i188
 
-.lr.ph.i191:                                      ; preds = %50, %is_earlier.exit.thread.i
-  %indvars.iv.i192 = phi i64 [ %indvars.iv.next.i193, %is_earlier.exit.thread.i ], [ 0, %50 ]
-  %.04069.i = phi i32 [ %.2.i, %is_earlier.exit.thread.i ], [ -1, %50 ]
-  %.sroa.0.067.i = phi i64 [ %.sroa.0.1.i, %is_earlier.exit.thread.i ], [ 9223372036854775807, %50 ]
-  %.sroa.3.066.i = phi i32 [ %.sroa.3.1.i, %is_earlier.exit.thread.i ], [ 2147483647, %50 ]
+.lr.ph.i191:                                      ; preds = %50, %is_earlier.argprom.exit.thread.i
+  %indvars.iv.i192 = phi i64 [ %indvars.iv.next.i193, %is_earlier.argprom.exit.thread.i ], [ 0, %50 ]
+  %.04069.i = phi i32 [ %.2.i, %is_earlier.argprom.exit.thread.i ], [ -1, %50 ]
+  %.sroa.0.067.i = phi i64 [ %.sroa.0.1.i, %is_earlier.argprom.exit.thread.i ], [ 9223372036854775807, %50 ]
+  %.sroa.3.066.i = phi i32 [ %.sroa.3.1.i, %is_earlier.argprom.exit.thread.i ], [ 2147483647, %50 ]
   %51 = getelementptr %struct.merge_in_file_s, ptr %2, i64 %indvars.iv.i192
   %52 = getelementptr inbounds i8, ptr %51, i64 328
   %53 = load i32, ptr %52, align 8
-  switch i32 %53, label %is_earlier.exit.thread.i [
+  switch i32 %53, label %is_earlier.argprom.exit.thread.i [
     i32 1, label %54
     i32 0, label %63
   ]
@@ -1094,7 +1094,7 @@ merge_append_read_packet.exit:                    ; preds = %43, %._crit_edge.th
 
 .thread49.i:                                      ; preds = %60
   store i32 2, ptr %52, align 8
-  br label %is_earlier.exit.thread.i
+  br label %is_earlier.argprom.exit.thread.i
 
 .thread.i:                                        ; preds = %54
   store i32 0, ptr %52, align 8
@@ -1111,7 +1111,7 @@ merge_append_read_packet.exit:                    ; preds = %43, %._crit_edge.th
   %68 = getelementptr inbounds i8, ptr %51, i64 32
   %69 = load i64, ptr %68, align 8
   %70 = icmp sgt i64 %69, %.sroa.0.067.i
-  br i1 %70, label %is_earlier.exit.thread.i, label %71
+  br i1 %70, label %is_earlier.argprom.exit.thread.i, label %71
 
 71:                                               ; preds = %67
   %72 = icmp sge i64 %69, %.sroa.0.067.i
@@ -1119,21 +1119,21 @@ merge_append_read_packet.exit:                    ; preds = %43, %._crit_edge.th
   %.sroa.3.0.copyload47.pre.i = load i32, ptr %.sroa.3.0..sroa_idx.phi.trans.insert.i, align 8
   %.not58.i = icmp sgt i32 %.sroa.3.0.copyload47.pre.i, %.sroa.3.066.i
   %or.cond.i = select i1 %72, i1 %.not58.i, i1 false
-  br i1 %or.cond.i, label %is_earlier.exit.thread.i, label %is_earlier.exit.thread52.i
+  br i1 %or.cond.i, label %is_earlier.argprom.exit.thread.i, label %is_earlier.argprom.exit.thread52.i
 
-is_earlier.exit.thread52.i:                       ; preds = %71
+is_earlier.argprom.exit.thread52.i:               ; preds = %71
   %73 = trunc nuw nsw i64 %indvars.iv.i192 to i32
-  br label %is_earlier.exit.thread.i
+  br label %is_earlier.argprom.exit.thread.i
 
-is_earlier.exit.thread.i:                         ; preds = %is_earlier.exit.thread52.i, %71, %67, %.thread49.i, %.lr.ph.i191
-  %.sroa.3.1.i = phi i32 [ %.sroa.3.0.copyload47.pre.i, %is_earlier.exit.thread52.i ], [ %.sroa.3.066.i, %.thread49.i ], [ %.sroa.3.066.i, %67 ], [ %.sroa.3.066.i, %.lr.ph.i191 ], [ %.sroa.3.066.i, %71 ]
-  %.sroa.0.1.i = phi i64 [ %69, %is_earlier.exit.thread52.i ], [ %.sroa.0.067.i, %.thread49.i ], [ %.sroa.0.067.i, %67 ], [ %.sroa.0.067.i, %.lr.ph.i191 ], [ %.sroa.0.067.i, %71 ]
-  %.2.i = phi i32 [ %73, %is_earlier.exit.thread52.i ], [ %.04069.i, %.thread49.i ], [ %.04069.i, %67 ], [ %.04069.i, %.lr.ph.i191 ], [ %.04069.i, %71 ]
+is_earlier.argprom.exit.thread.i:                 ; preds = %is_earlier.argprom.exit.thread52.i, %71, %67, %.thread49.i, %.lr.ph.i191
+  %.sroa.3.1.i = phi i32 [ %.sroa.3.0.copyload47.pre.i, %is_earlier.argprom.exit.thread52.i ], [ %.sroa.3.066.i, %.thread49.i ], [ %.sroa.3.066.i, %67 ], [ %.sroa.3.066.i, %.lr.ph.i191 ], [ %.sroa.3.066.i, %71 ]
+  %.sroa.0.1.i = phi i64 [ %69, %is_earlier.argprom.exit.thread52.i ], [ %.sroa.0.067.i, %.thread49.i ], [ %.sroa.0.067.i, %67 ], [ %.sroa.0.067.i, %.lr.ph.i191 ], [ %.sroa.0.067.i, %71 ]
+  %.2.i = phi i32 [ %73, %is_earlier.argprom.exit.thread52.i ], [ %.04069.i, %.thread49.i ], [ %.04069.i, %67 ], [ %.04069.i, %.lr.ph.i191 ], [ %.04069.i, %71 ]
   %indvars.iv.next.i193 = add nuw nsw i64 %indvars.iv.i192, 1
   %exitcond.not.i194 = icmp eq i64 %indvars.iv.next.i193, %wide.trip.count.i
   br i1 %exitcond.not.i194, label %._crit_edge.i195, label %.lr.ph.i191, !llvm.loop !22
 
-._crit_edge.i195:                                 ; preds = %is_earlier.exit.thread.i
+._crit_edge.i195:                                 ; preds = %is_earlier.argprom.exit.thread.i
   %74 = icmp eq i32 %.2.i, -1
   br i1 %74, label %._crit_edge.thread.i188, label %.thread55.i
 

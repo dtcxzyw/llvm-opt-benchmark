@@ -143,7 +143,7 @@ cond.true:                                        ; preds = %sw.bb
   br label %return
 
 cond.false:                                       ; preds = %sw.bb
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %v, i64 %conv.coerce0, ptr noundef %sink)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argelim(i8 noundef signext %v, i64 %conv.coerce0, ptr noundef %sink)
   br label %return
 
 sw.bb7:                                           ; preds = %entry
@@ -276,7 +276,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %sw.epilog
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr %as_digits.val, i64 %sub.ptr.sub.i40, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr %as_digits.val, i64 %sub.ptr.sub.i40, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then4.i, %if.then, %cond.true, %cond.false, %if.end, %sw.bb12
@@ -425,7 +425,7 @@ land.end:                                         ; preds = %if.else22.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %v, i64 %conv.coerce0, ptr noundef %sink) unnamed_addr #0 {
+define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argelim(i8 noundef signext %v, i64 %conv.coerce0, ptr noundef %sink) unnamed_addr #0 {
 entry:
   %conv.sroa.371.0.extract.shift = lshr i64 %conv.coerce0, 32
   %cmp.inv = icmp slt i64 %conv.coerce0, 0
@@ -585,7 +585,7 @@ if.end8:                                          ; preds = %while.end.i47, %_ZN
 declare noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEdRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(double noundef, ptr noundef nonnull align 4 dereferenceable(12), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr %as_digits.0.val, i64 %as_digits.8.val, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr %as_digits.0.val, i64 %as_digits.8.val, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %conv.sroa.4.0.extract.shift = lshr i64 %conv.coerce0, 8
   %conv.sroa.4.0.extract.trunc = trunc i64 %conv.sroa.4.0.extract.shift to i8
@@ -625,7 +625,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_110SignColumnEbNS0_24FormatConversionS
   %retval.sroa.0.0.i = phi i64 [ %.mux11.i, %entry ], [ 1, %if.end.i ], [ %spec.select10.i, %if.end6.i ]
   %cond.i.i23 = tail call noundef i64 @llvm.usub.sat.i64(i64 %cond.i.i, i64 %retval.sroa.0.0.i)
   %conv.sroa.0.0.extract.trunc.i = trunc i64 %conv.coerce0 to i8
-  switch i8 %conv.sroa.0.0.extract.trunc.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.exit [
+  switch i8 %conv.sroa.0.0.extract.trunc.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.argprom.exit [
     i8 6, label %lor.end9.i
     i8 7, label %lor.end9.i
     i8 17, label %lor.end9.i
@@ -638,14 +638,14 @@ lor.end9.i:                                       ; preds = %_ZN4absl19str_forma
   %spec.select.not.i = and i1 %cmp.i.i.i, %cmp.i24
   %cmp.i3.i = icmp eq i64 %as_digits.8.val, %conv2.i
   %or.cond = select i1 %spec.select.not.i, i1 true, i1 %cmp.i3.i
-  br i1 %or.cond, label %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.exit, label %if.then.i
+  br i1 %or.cond, label %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.end9.i
   %cmp15.i = icmp eq i8 %conv.sroa.0.0.extract.trunc.i, 7
   %.str.6..str.7.i = select i1 %cmp15.i, ptr @.str.6, ptr @.str.7
-  br label %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.exit
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.argprom.exit
 
-_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.exit: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_110SignColumnEbNS0_24FormatConversionSpecImplE.exit, %lor.end9.i, %if.then.i
+_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.argprom.exit: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_110SignColumnEbNS0_24FormatConversionSpecImplE.exit, %lor.end9.i, %if.then.i
   %retval.sroa.3.0.i = phi ptr [ %.str.6..str.7.i, %if.then.i ], [ null, %lor.end9.i ], [ null, %_ZN4absl19str_format_internal12_GLOBAL__N_110SignColumnEbNS0_24FormatConversionSpecImplE.exit ]
   %cmp.i56 = phi i1 [ false, %if.then.i ], [ true, %lor.end9.i ], [ true, %_ZN4absl19str_format_internal12_GLOBAL__N_110SignColumnEbNS0_24FormatConversionSpecImplE.exit ]
   %retval.sroa.0.0.i25 = phi i64 [ 2, %if.then.i ], [ 0, %lor.end9.i ], [ 0, %_ZN4absl19str_format_internal12_GLOBAL__N_110SignColumnEbNS0_24FormatConversionSpecImplE.exit ]
@@ -660,7 +660,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_
   %or.cond42 = and i1 %cmp17, %cmp.i.i30
   br i1 %or.cond42, label %if.then18, label %if.end27
 
-if.then18:                                        ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.exit
+if.then18:                                        ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.argprom.exit
   %cmp.i31 = icmp eq i64 %as_digits.8.val, %conv2.i
   br i1 %cmp.i31, label %if.then23, label %lor.lhs.false
 
@@ -674,8 +674,8 @@ if.then23:                                        ; preds = %lor.lhs.false, %if.
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add, i64 %spec.select41)
   br label %if.end27
 
-if.end27:                                         ; preds = %lor.lhs.false, %if.then23, %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.exit
-  %precision.0 = phi i64 [ %.sroa.speculated, %if.then23 ], [ %spec.select41, %lor.lhs.false ], [ %spec.select41, %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.exit ]
+if.end27:                                         ; preds = %lor.lhs.false, %if.then23, %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.argprom.exit
+  %precision.0 = phi i64 [ %.sroa.speculated, %if.then23 ], [ %spec.select41, %lor.lhs.false ], [ %spec.select41, %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.argprom.exit ]
   %cond.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %precision.0, i64 %sub.i)
   %cond.i.i33 = tail call noundef i64 @llvm.usub.sat.i64(i64 %cond.i.i28, i64 %cond.i)
   %and2.i.i35 = and i8 %conv.sroa.4.0.extract.trunc, 1
@@ -1030,7 +1030,7 @@ cond.true:                                        ; preds = %sw.bb
   br label %return
 
 cond.false:                                       ; preds = %sw.bb
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %v, i64 %conv.coerce0, ptr noundef %sink)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argelim(i8 noundef signext %v, i64 %conv.coerce0, ptr noundef %sink)
   br label %return
 
 sw.bb7:                                           ; preds = %entry
@@ -1163,7 +1163,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %sw.epilog
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr %as_digits.val, i64 %sub.ptr.sub.i40, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr %as_digits.val, i64 %sub.ptr.sub.i40, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then4.i, %if.then, %cond.true, %cond.false, %if.end, %sw.bb12
@@ -1210,7 +1210,7 @@ cond.true:                                        ; preds = %sw.bb
   br label %return
 
 cond.false:                                       ; preds = %sw.bb
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %v, i64 %conv.coerce0, ptr noundef %sink)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argelim(i8 noundef signext %v, i64 %conv.coerce0, ptr noundef %sink)
   br label %return
 
 sw.bb7:                                           ; preds = %entry
@@ -1343,7 +1343,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %sw.epilog
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr %as_digits.val, i64 %sub.ptr.sub.i40, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr %as_digits.val, i64 %sub.ptr.sub.i40, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then4.i, %if.then, %cond.true, %cond.false, %if.end, %sw.bb12
@@ -1523,7 +1523,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %sw.epilog
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr %as_digits.val, i64 %sub.ptr.sub.i42, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr %as_digits.val, i64 %sub.ptr.sub.i42, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then4.i, %if.then, %if.end, %sw.bb8, %sw.bb
@@ -1571,7 +1571,7 @@ cond.true:                                        ; preds = %sw.bb
 
 cond.false:                                       ; preds = %sw.bb
   %conv5 = trunc i16 %v to i8
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %conv5, i64 %conv.coerce0, ptr noundef %sink)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argelim(i8 noundef signext %conv5, i64 %conv.coerce0, ptr noundef %sink)
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -1716,7 +1716,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %sw.epilog
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr %as_digits.val, i64 %sub.ptr.sub.i44, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr %as_digits.val, i64 %sub.ptr.sub.i44, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then4.i, %if.then, %cond.true, %cond.false, %if.end, %sw.bb13
@@ -1764,7 +1764,7 @@ cond.true:                                        ; preds = %sw.bb
 
 cond.false:                                       ; preds = %sw.bb
   %conv5 = trunc i16 %v to i8
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %conv5, i64 %conv.coerce0, ptr noundef %sink)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argelim(i8 noundef signext %conv5, i64 %conv.coerce0, ptr noundef %sink)
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -1909,7 +1909,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %sw.epilog
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr %as_digits.val, i64 %sub.ptr.sub.i44, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr %as_digits.val, i64 %sub.ptr.sub.i44, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then4.i, %if.then, %cond.true, %cond.false, %if.end, %sw.bb13
@@ -1956,7 +1956,7 @@ cond.true:                                        ; preds = %sw.bb
 
 cond.false:                                       ; preds = %sw.bb
   %conv4 = trunc i32 %v to i8
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %conv4, i64 %conv.coerce0, ptr noundef %sink)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argelim(i8 noundef signext %conv4, i64 %conv.coerce0, ptr noundef %sink)
   br label %return
 
 sw.bb7:                                           ; preds = %entry
@@ -2099,7 +2099,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %sw.epilog
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr %as_digits.val, i64 %sub.ptr.sub.i45, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr %as_digits.val, i64 %sub.ptr.sub.i45, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then4.i, %if.then, %cond.true, %cond.false, %if.end, %sw.bb12
@@ -2146,7 +2146,7 @@ cond.true:                                        ; preds = %sw.bb
 
 cond.false:                                       ; preds = %sw.bb
   %conv4 = trunc i32 %v to i8
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %conv4, i64 %conv.coerce0, ptr noundef %sink)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argelim(i8 noundef signext %conv4, i64 %conv.coerce0, ptr noundef %sink)
   br label %return
 
 sw.bb7:                                           ; preds = %entry
@@ -2289,7 +2289,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %sw.epilog
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr %as_digits.val, i64 %sub.ptr.sub.i45, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr %as_digits.val, i64 %sub.ptr.sub.i45, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then4.i, %if.then, %cond.true, %cond.false, %if.end, %sw.bb12
@@ -2337,7 +2337,7 @@ cond.true:                                        ; preds = %sw.bb
 
 cond.false:                                       ; preds = %sw.bb
   %conv5 = trunc i64 %v to i8
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %conv5, i64 %conv.coerce0, ptr noundef %sink)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argelim(i8 noundef signext %conv5, i64 %conv.coerce0, ptr noundef %sink)
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -2478,7 +2478,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %sw.epilog
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr %as_digits.val, i64 %sub.ptr.sub.i46, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr %as_digits.val, i64 %sub.ptr.sub.i46, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then4.i, %if.then, %cond.true, %cond.false, %if.end, %sw.bb13
@@ -2526,7 +2526,7 @@ cond.true:                                        ; preds = %sw.bb
 
 cond.false:                                       ; preds = %sw.bb
   %conv5 = trunc i64 %v to i8
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %conv5, i64 %conv.coerce0, ptr noundef %sink)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argelim(i8 noundef signext %conv5, i64 %conv.coerce0, ptr noundef %sink)
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -2667,7 +2667,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %sw.epilog
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr %as_digits.val, i64 %sub.ptr.sub.i46, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr %as_digits.val, i64 %sub.ptr.sub.i46, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then4.i, %if.then, %cond.true, %cond.false, %if.end, %sw.bb13
@@ -2715,7 +2715,7 @@ cond.true:                                        ; preds = %sw.bb
 
 cond.false:                                       ; preds = %sw.bb
   %conv5 = trunc i64 %v to i8
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %conv5, i64 %conv.coerce0, ptr noundef %sink)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argelim(i8 noundef signext %conv5, i64 %conv.coerce0, ptr noundef %sink)
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -2856,7 +2856,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %sw.epilog
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr %as_digits.val, i64 %sub.ptr.sub.i46, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr %as_digits.val, i64 %sub.ptr.sub.i46, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then4.i, %if.then, %cond.true, %cond.false, %if.end, %sw.bb13
@@ -2904,7 +2904,7 @@ cond.true:                                        ; preds = %sw.bb
 
 cond.false:                                       ; preds = %sw.bb
   %conv5 = trunc i64 %v to i8
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %conv5, i64 %conv.coerce0, ptr noundef %sink)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argelim(i8 noundef signext %conv5, i64 %conv.coerce0, ptr noundef %sink)
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -3045,7 +3045,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %sw.epilog
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr %as_digits.val, i64 %sub.ptr.sub.i46, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr %as_digits.val, i64 %sub.ptr.sub.i46, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then4.i, %if.then, %cond.true, %cond.false, %if.end, %sw.bb13
@@ -3130,7 +3130,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.ex
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %size_.i6.i = getelementptr inbounds i8, ptr %as_digits.i, i64 8
   store i64 %sub.ptr.sub.i.i, ptr %size_.i6.i, align 8
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %spec.select.i.i, i64 %sub.ptr.sub.i.i, i64 %spec.coerce0, i32 %spec.coerce1, ptr noundef %out)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr nonnull %spec.select.i.i, i64 %sub.ptr.sub.i.i, i64 %spec.coerce0, i32 %spec.coerce1, ptr noundef %out)
   br label %_ZN4absl19str_format_internal17FormatConvertImplENS0_7VoidPtrENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
 _ZN4absl19str_format_internal17FormatConvertImplENS0_7VoidPtrENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %if.then4.i.i, %if.end5.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.exit.i
@@ -3211,7 +3211,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.ex
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %size_.i6 = getelementptr inbounds i8, ptr %as_digits, i64 8
   store i64 %sub.ptr.sub.i, ptr %size_.i6, align 8
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %spec.select.i, i64 %sub.ptr.sub.i, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr nonnull %spec.select.i, i64 %sub.ptr.sub.i, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then4.i, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.exit
@@ -4171,7 +4171,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.ex
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %size_.i6.i = getelementptr inbounds i8, ptr %as_digits.i, i64 8
   store i64 %sub.ptr.sub.i.i, ptr %size_.i6.i, align 8
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %spec.select.i.i, i64 %sub.ptr.sub.i.i, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr nonnull %spec.select.i.i, i64 %sub.ptr.sub.i.i, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   br label %_ZN4absl19str_format_internal17FormatConvertImplENS0_7VoidPtrENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
 _ZN4absl19str_format_internal17FormatConvertImplENS0_7VoidPtrENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %if.then4.i.i, %if.end5.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.exit.i
@@ -4736,7 +4736,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.ex
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %size_.i6.i = getelementptr inbounds i8, ptr %as_digits.i, i64 8
   store i64 %sub.ptr.sub.i.i, ptr %size_.i6.i, align 8
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %spec.select.i.i, i64 %sub.ptr.sub.i.i, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr nonnull %spec.select.i.i, i64 %sub.ptr.sub.i.i, i64 %conv.coerce0, i32 %conv.coerce1, ptr noundef %sink)
   br label %_ZN4absl19str_format_internal17FormatConvertImplENS0_7VoidPtrENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
 _ZN4absl19str_format_internal17FormatConvertImplENS0_7VoidPtrENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %if.then4.i.i, %if.end5.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.exit.i
@@ -5415,7 +5415,7 @@ cond.true:                                        ; preds = %sw.bb
 
 cond.false:                                       ; preds = %sw.bb
   %conv.i8 = trunc i64 %v.coerce0 to i8
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %conv.i8, i64 %conv.coerce0, ptr noundef %sink)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argelim(i8 noundef signext %conv.i8, i64 %conv.coerce0, ptr noundef %sink)
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -5686,7 +5686,7 @@ if.end5.i:                                        ; preds = %if.end.i
 if.end:                                           ; preds = %sw.epilog
   %agg.tmp28.sroa.0.0.copyload = load i64, ptr %conv, align 8
   %agg.tmp28.sroa.2.0.copyload = load i32, ptr %coerce.sroa.2.0.conv.sroa_idx, align 8
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %as_digits.val, i64 %as_digits.val5, i64 %agg.tmp28.sroa.0.0.copyload, i32 %agg.tmp28.sroa.2.0.copyload, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr nonnull %as_digits.val, i64 %as_digits.val5, i64 %agg.tmp28.sroa.0.0.copyload, i32 %agg.tmp28.sroa.2.0.copyload, ptr noundef %sink)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then4.i, %if.then, %cond.true, %cond.false, %if.end, %sw.bb22
@@ -5734,7 +5734,7 @@ cond.true:                                        ; preds = %sw.bb
 
 cond.false:                                       ; preds = %sw.bb
   %conv.i8 = trunc i64 %v.coerce0 to i8
-  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %conv.i8, i64 %conv.coerce0, ptr noundef %sink)
+  tail call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argelim(i8 noundef signext %conv.i8, i64 %conv.coerce0, ptr noundef %sink)
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -5985,7 +5985,7 @@ if.end5.i:                                        ; preds = %if.end.i
 if.end:                                           ; preds = %sw.epilog
   %agg.tmp24.sroa.0.0.copyload = load i64, ptr %conv, align 8
   %agg.tmp24.sroa.2.0.copyload = load i32, ptr %coerce.sroa.2.0.conv.sroa_idx, align 8
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %as_digits.val, i64 %as_digits.val5, i64 %agg.tmp24.sroa.0.0.copyload, i32 %agg.tmp24.sroa.2.0.copyload, ptr noundef %sink)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.argprom.argelim(ptr nonnull %as_digits.val, i64 %as_digits.val5, i64 %agg.tmp24.sroa.0.0.copyload, i32 %agg.tmp24.sroa.2.0.copyload, ptr noundef %sink)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then4.i, %if.then, %cond.true, %cond.false, %if.end, %sw.bb18

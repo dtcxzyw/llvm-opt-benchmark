@@ -405,7 +405,7 @@ land.lhs.true87:                                  ; preds = %land.lhs.true80
 if.end93:                                         ; preds = %land.lhs.true87, %if.then77, %if.then83
   %negative_exponent.0.not = phi i1 [ false, %if.then83 ], [ true, %land.lhs.true87 ], [ true, %if.then77 ]
   %begin.addr.5 = phi ptr [ %incdec.ptr84, %if.then83 ], [ %spec.select, %land.lhs.true87 ], [ %incdec.ptr78, %if.then77 ]
-  %call95 = tail call fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EiEEiPKcS3_iPT0_Pb(ptr noundef nonnull %begin.addr.5, ptr noundef nonnull %end, ptr noundef nonnull %literal_exponent)
+  %call95 = tail call fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EiEEiPKcS3_iPT0_Pb.argprom.argelim(ptr noundef nonnull %begin.addr.5, ptr noundef nonnull %end, ptr noundef nonnull %literal_exponent)
   %idx.ext96 = sext i32 %call95 to i64
   %add.ptr97 = getelementptr inbounds i8, ptr %begin.addr.5, i64 %idx.ext96
   %cmp98 = icmp eq i32 %call95, 0
@@ -554,7 +554,7 @@ return:                                           ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EiEEiPKcS3_iPT0_Pb(ptr noundef %begin, ptr noundef %end, ptr nocapture noundef %out) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EiEEiPKcS3_iPT0_Pb.argprom.argelim(ptr noundef %begin, ptr noundef %end, ptr nocapture noundef %out) unnamed_addr #1 {
 entry:
   %begin22 = ptrtoint ptr %begin to i64
   %end21 = ptrtoint ptr %end to i64
@@ -1054,7 +1054,7 @@ land.lhs.true87:                                  ; preds = %land.lhs.true80
 if.end93:                                         ; preds = %land.lhs.true87, %if.then77, %if.then83
   %negative_exponent.0.not = phi i1 [ false, %if.then83 ], [ true, %land.lhs.true87 ], [ true, %if.then77 ]
   %begin.addr.5 = phi ptr [ %incdec.ptr84, %if.then83 ], [ %spec.select, %land.lhs.true87 ], [ %incdec.ptr78, %if.then77 ]
-  %call95 = tail call fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EiEEiPKcS3_iPT0_Pb(ptr noundef nonnull %begin.addr.5, ptr noundef nonnull %end, ptr noundef nonnull %literal_exponent)
+  %call95 = tail call fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EiEEiPKcS3_iPT0_Pb.argprom.argelim(ptr noundef nonnull %begin.addr.5, ptr noundef nonnull %end, ptr noundef nonnull %literal_exponent)
   %idx.ext96 = sext i32 %call95 to i64
   %add.ptr97 = getelementptr inbounds i8, ptr %begin.addr.5, i64 %idx.ext96
   %cmp98 = icmp eq i32 %call95, 0

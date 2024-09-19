@@ -332,7 +332,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i.i.i: ; pred
 88:                                               ; preds = %.lr.ph184.i.i
   %89 = add nsw i32 %85, %.190188.i.i
   %90 = add nsw i32 %87, %.190188.i.i
-  %91 = call fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domdec_tRK11gmx_ddbox_tRA3_A3_KfN3gmx8ArrayRefIKSt6vectorIfSaIfEEEEiiPS6_PA3_fSI_(ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef nonnull align 4 dereferenceable(200) %4, ptr noundef nonnull align 4 dereferenceable(36) %7, ptr %43, i32 noundef %89, i32 noundef %90, ptr noundef nonnull %24, ptr noundef %21, ptr noundef %23)
+  %91 = call fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domdec_tRK11gmx_ddbox_tRA3_A3_KfN3gmx8ArrayRefIKSt6vectorIfSaIfEEEEiiPS6_PA3_fSI_.argelim(ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef nonnull align 4 dereferenceable(200) %4, ptr noundef nonnull align 4 dereferenceable(36) %7, ptr %43, i32 noundef %89, i32 noundef %90, ptr noundef nonnull %24, ptr noundef %21, ptr noundef %23)
   %.not153178.i.i = icmp eq i32 %85, %87
   %.pre224.i.i = sext i32 %91 to i64
   br i1 %.not153178.i.i, label %._crit_edge182.i.i, label %.lr.ph181.i.i
@@ -494,7 +494,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i.i:       ; preds = %_ZNSt6vectorIiSaIiE
 .lr.ph177.i.i:                                    ; preds = %.preheader154.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i
   %storemerge176.i.i = phi i32 [ %158, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ], [ 0, %.preheader154.i.i ]
   %158 = add nuw nsw i32 %storemerge176.i.i, 1
-  %159 = call fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domdec_tRK11gmx_ddbox_tRA3_A3_KfN3gmx8ArrayRefIKSt6vectorIfSaIfEEEEiiPS6_PA3_fSI_(ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef nonnull align 4 dereferenceable(200) %4, ptr noundef nonnull align 4 dereferenceable(36) %7, ptr %43, i32 noundef %storemerge176.i.i, i32 noundef %158, ptr noundef nonnull %24, ptr noundef %21, ptr noundef %23)
+  %159 = call fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domdec_tRK11gmx_ddbox_tRA3_A3_KfN3gmx8ArrayRefIKSt6vectorIfSaIfEEEEiiPS6_PA3_fSI_.argelim(ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef nonnull align 4 dereferenceable(200) %4, ptr noundef nonnull align 4 dereferenceable(36) %7, ptr %43, i32 noundef %storemerge176.i.i, i32 noundef %158, ptr noundef nonnull %24, ptr noundef %21, ptr noundef %23)
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds %"class.std::vector.7", ptr %50, i64 %160
   %162 = getelementptr inbounds i8, ptr %161, i64 8
@@ -1451,7 +1451,7 @@ _ZL20distributeAtomGroupsRKN3gmx8MDLoggerEP12gmx_domdec_tRK10gmx_mtop_tPA3_KfPK1
   %.sroa.0155.0.i = phi ptr [ %680, %678 ], [ null, %676 ]
   %682 = getelementptr inbounds i8, ptr %5, i64 416
   %683 = load ptr, ptr %682, align 8
-  call fastcc void @_ZL13distributeVecP12gmx_domdec_tN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEENS2_IS4_EE(ptr noundef nonnull %1, ptr %.sroa.0155.0.i, ptr %683)
+  call fastcc void @_ZL13distributeVecP12gmx_domdec_tN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEENS2_IS4_EE.argelim(ptr noundef nonnull %1, ptr %.sroa.0155.0.i, ptr %683)
   %.pre.i20 = load i32, ptr %673, align 4
   br label %684
 
@@ -1476,7 +1476,7 @@ _ZL20distributeAtomGroupsRKN3gmx8MDLoggerEP12gmx_domdec_tRK10gmx_mtop_tPA3_KfPK1
   %.sroa.0151.0.i = phi ptr [ %691, %689 ], [ null, %687 ]
   %693 = getelementptr inbounds i8, ptr %5, i64 456
   %694 = load ptr, ptr %693, align 8
-  call fastcc void @_ZL13distributeVecP12gmx_domdec_tN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEENS2_IS4_EE(ptr noundef nonnull %1, ptr %.sroa.0151.0.i, ptr %694)
+  call fastcc void @_ZL13distributeVecP12gmx_domdec_tN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEENS2_IS4_EE.argelim(ptr noundef nonnull %1, ptr %.sroa.0151.0.i, ptr %694)
   %.pre194.i = load i32, ptr %673, align 4
   br label %695
 
@@ -1501,7 +1501,7 @@ _ZL20distributeAtomGroupsRKN3gmx8MDLoggerEP12gmx_domdec_tRK10gmx_mtop_tPA3_KfPK1
   %.sroa.0148.0.i = phi ptr [ %702, %700 ], [ null, %698 ]
   %704 = getelementptr inbounds i8, ptr %5, i64 496
   %705 = load ptr, ptr %704, align 8
-  call fastcc void @_ZL13distributeVecP12gmx_domdec_tN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEENS2_IS4_EE(ptr noundef nonnull %1, ptr %.sroa.0148.0.i, ptr %705)
+  call fastcc void @_ZL13distributeVecP12gmx_domdec_tN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEENS2_IS4_EE.argelim(ptr noundef nonnull %1, ptr %.sroa.0148.0.i, ptr %705)
   br label %_ZL19dd_distribute_stateP12gmx_domdec_tPK7t_statePS1_.exit
 
 _ZL19dd_distribute_stateP12gmx_domdec_tPK7t_statePS1_.exit: ; preds = %695, %703
@@ -1570,7 +1570,7 @@ declare void @_Z21make_tric_corr_matrixiPA3_KfPA3_f(i32 noundef, ptr noundef, pt
 declare { ptr, ptr } @_Z21set_dd_cell_sizes_slbP12gmx_domdec_tPK11gmx_ddbox_tiPi(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domdec_tRK11gmx_ddbox_tRA3_A3_KfN3gmx8ArrayRefIKSt6vectorIfSaIfEEEEiiPS6_PA3_fSI_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(456) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(200) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %2, ptr nocapture readonly %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef %7, ptr nocapture noundef %8) unnamed_addr #6 {
+define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domdec_tRK11gmx_ddbox_tRA3_A3_KfN3gmx8ArrayRefIKSt6vectorIfSaIfEEEEiiPS6_PA3_fSI_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(456) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(200) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %2, ptr nocapture readonly %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef %7, ptr nocapture noundef %8) unnamed_addr #6 {
   %10 = alloca [3 x float], align 4
   %11 = alloca [3 x i32], align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 320
@@ -2406,7 +2406,7 @@ declare void @_Z15copy_df_historyP12df_history_tS0_(ptr noundef, ptr noundef) lo
 declare void @_ZN7t_state14changeNumAtomsEi(ptr noundef nonnull align 8 dereferenceable(832), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13distributeVecP12gmx_domdec_tN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEENS2_IS4_EE(ptr noundef %0, ptr nocapture readonly %1, ptr %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13distributeVecP12gmx_domdec_tN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEENS2_IS4_EE.argelim(ptr noundef %0, ptr nocapture readonly %1, ptr %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.gmx::ArrayRef", align 8
   %5 = alloca %"class.gmx::ArrayRef", align 8
   %6 = load i32, ptr %0, align 8

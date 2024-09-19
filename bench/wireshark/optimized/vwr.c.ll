@@ -1096,7 +1096,7 @@ define internal fastcc range(i32 0, 2) i32 @vwr_process_rec_data(ptr noundef %0,
   %80 = and i8 %.val404.i, 15
   %switch.tableidx = add nsw i8 %80, -8
   %81 = icmp ult i8 %switch.tableidx, 8
-  br i1 %81, label %switch.lookup, label %get_ofdm_rate.exit.i
+  br i1 %81, label %switch.lookup, label %get_ofdm_rate.argprom.exit.i
 
 82:                                               ; preds = %73
   %83 = getelementptr inbounds i8, ptr %4, i64 160
@@ -1108,33 +1108,33 @@ define internal fastcc range(i32 0, 2) i32 @vwr_process_rec_data(ptr noundef %0,
   %87 = getelementptr inbounds i8, ptr %4, i64 164
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %88, %75
-  br i1 %89, label %90, label %get_ofdm_rate.exit.i
+  br i1 %89, label %90, label %get_ofdm_rate.argprom.exit.i
 
 90:                                               ; preds = %86, %82
   %.val405.i = load i8, ptr %11, align 1
-  switch i8 %.val405.i, label %get_ofdm_rate.exit.i [
+  switch i8 %.val405.i, label %get_ofdm_rate.argprom.exit.i [
     i8 110, label %93
     i8 20, label %91
     i8 55, label %92
   ]
 
 91:                                               ; preds = %90
-  br label %get_ofdm_rate.exit.i
+  br label %get_ofdm_rate.argprom.exit.i
 
 92:                                               ; preds = %90
-  br label %get_ofdm_rate.exit.i
+  br label %get_ofdm_rate.argprom.exit.i
 
 93:                                               ; preds = %90
-  br label %get_ofdm_rate.exit.i
+  br label %get_ofdm_rate.argprom.exit.i
 
 switch.lookup:                                    ; preds = %79
   %94 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %94 to i64
   %switch.downshift = lshr i64 362268237943408650, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
-  br label %get_ofdm_rate.exit.i
+  br label %get_ofdm_rate.argprom.exit.i
 
-get_ofdm_rate.exit.i:                             ; preds = %79, %switch.lookup, %93, %92, %91, %90, %86
+get_ofdm_rate.argprom.exit.i:                     ; preds = %79, %switch.lookup, %93, %92, %91, %90, %86
   %95 = phi i16 [ 6, %86 ], [ 6, %93 ], [ 6, %92 ], [ 6, %91 ], [ 6, %90 ], [ 4, %switch.lookup ], [ 4, %79 ]
   %.0373.i = phi i8 [ 1, %86 ], [ 3, %93 ], [ 2, %92 ], [ 1, %91 ], [ 0, %90 ], [ %switch.masked, %switch.lookup ], [ 0, %79 ]
   %96 = getelementptr inbounds i8, ptr %4, i64 164
@@ -1144,7 +1144,7 @@ get_ofdm_rate.exit.i:                             ; preds = %79, %switch.lookup,
   %.not384.i = icmp ult i16 %33, %95
   br i1 %.not384.i, label %106, label %100
 
-100:                                              ; preds = %get_ofdm_rate.exit.i
+100:                                              ; preds = %get_ofdm_rate.argprom.exit.i
   %101 = sub nuw i16 %33, %95
   %102 = zext nneg i16 %95 to i64
   %103 = getelementptr i8, ptr %11, i64 %102
@@ -1152,7 +1152,7 @@ get_ofdm_rate.exit.i:                             ; preds = %79, %switch.lookup,
   %105 = icmp ult i16 %101, 4
   br i1 %105, label %108, label %111
 
-106:                                              ; preds = %get_ofdm_rate.exit.i
+106:                                              ; preds = %get_ofdm_rate.argprom.exit.i
   %107 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef %69, i32 noundef %99) #9
   store ptr %107, ptr %8, align 8
   store i32 -13, ptr %7, align 4

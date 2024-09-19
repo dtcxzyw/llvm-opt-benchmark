@@ -1687,7 +1687,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_fmt17h767b724096eea089E(ptr no
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef range(i8 0, 41) i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 41) i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom(ptr %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = ptrtoint ptr %.0.val to i64
@@ -2532,7 +2532,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @"_ZN80_$LT$flycheck..CargoCheckMessage$u20$as$u20$flycheck..command..ParseFromLine$GT$9from_line17h3173dc3c8d9f7b90E"(ptr noalias nocapture noundef nonnull sret({ i64, [38 x i64] }) align 8 dereferenceable(312) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %10), !noalias !641
   %11 = load i64, ptr %7, align 8, !range !650, !noalias !646, !noundef !4
   %.not.i.not.i.i = icmp eq i64 %11, -9223372036854775807
-  br i1 %.not.i.not.i.i, label %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.exit.i.i", label %12
+  br i1 %.not.i.not.i.i, label %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom.exit.i.i", label %12
 
 12:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull align 8 dereferenceable(312) %7, i64 312, i1 false), !noalias !646
@@ -2569,7 +2569,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 22:                                               ; preds = %17
   resume { ptr, i32 } %18
 
-"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.exit.i.i": ; preds = %3
+"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom.exit.i.i": ; preds = %3
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %7), !noalias !646
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %6), !noalias !645
   br label %_ZN4core3ops8function6FnOnce9call_once17h54c6157c5fcc6d71E.exit
@@ -2583,7 +2583,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   store i8 1, ptr %25, align 1, !noalias !641
   br label %_ZN4core3ops8function6FnOnce9call_once17h54c6157c5fcc6d71E.exit
 
-_ZN4core3ops8function6FnOnce9call_once17h54c6157c5fcc6d71E.exit: ; preds = %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.exit.i.i", %23
+_ZN4core3ops8function6FnOnce9call_once17h54c6157c5fcc6d71E.exit: ; preds = %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom.exit.i.i", %23
   ret void
 }
 
@@ -2602,7 +2602,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @"_ZN92_$LT$flycheck..test_runner..CargoTestMessage$u20$as$u20$flycheck..command..ParseFromLine$GT$9from_line17h4ddfe724e1a909e6E"(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nonnull readnone align 8 poison), !noalias !664
   %9 = load i64, ptr %7, align 8, !range !673, !noalias !669, !noundef !4
   %.not.i.not.i.i = icmp eq i64 %9, -9223372036854775805
-  br i1 %.not.i.not.i.i, label %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.exit.i.i", label %10
+  br i1 %.not.i.not.i.i, label %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom.exit.i.i", label %10
 
 10:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !noalias !669
@@ -2639,7 +2639,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 "_ZN4core3ptr101drop_in_place$LT$crossbeam_channel..err..SendError$LT$flycheck..test_runner..CargoTestMessage$GT$$GT$17h9037bdd951bab41aE.exit.i.i.i": ; preds = %15
   resume { ptr, i32 } %16
 
-"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.exit.i.i": ; preds = %3
+"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom.exit.i.i": ; preds = %3
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !669
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !668
   br label %_ZN4core3ops8function6FnOnce9call_once17had6bd5f3f1e5bb4aE.exit
@@ -2653,7 +2653,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   store i8 1, ptr %22, align 1, !noalias !664
   br label %_ZN4core3ops8function6FnOnce9call_once17had6bd5f3f1e5bb4aE.exit
 
-_ZN4core3ops8function6FnOnce9call_once17had6bd5f3f1e5bb4aE.exit: ; preds = %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.exit.i.i", %20
+_ZN4core3ops8function6FnOnce9call_once17had6bd5f3f1e5bb4aE.exit: ; preds = %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom.exit.i.i", %20
   ret void
 }
 
@@ -2717,7 +2717,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @"_ZN92_$LT$flycheck..test_runner..CargoTestMessage$u20$as$u20$flycheck..command..ParseFromLine$GT$9from_line17h4ddfe724e1a909e6E"(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nonnull readnone align 8 poison), !noalias !702
   %9 = load i64, ptr %7, align 8, !range !673, !noalias !707, !noundef !4
   %.not.i.not.i.i = icmp eq i64 %9, -9223372036854775805
-  br i1 %.not.i.not.i.i, label %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.exit.i.i", label %10
+  br i1 %.not.i.not.i.i, label %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom.exit.i.i", label %10
 
 10:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !noalias !707
@@ -2754,7 +2754,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 "_ZN4core3ptr101drop_in_place$LT$crossbeam_channel..err..SendError$LT$flycheck..test_runner..CargoTestMessage$GT$$GT$17h9037bdd951bab41aE.exit.i.i.i": ; preds = %15
   resume { ptr, i32 } %16
 
-"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.exit.i.i": ; preds = %3
+"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom.exit.i.i": ; preds = %3
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !707
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !706
   br label %_ZN4core3ops8function6FnOnce9call_once17hfb560c610a978fa0E.exit
@@ -2768,7 +2768,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   store i8 1, ptr %22, align 1, !noalias !702
   br label %_ZN4core3ops8function6FnOnce9call_once17hfb560c610a978fa0E.exit
 
-_ZN4core3ops8function6FnOnce9call_once17hfb560c610a978fa0E.exit: ; preds = %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.exit.i.i", %20
+_ZN4core3ops8function6FnOnce9call_once17hfb560c610a978fa0E.exit: ; preds = %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom.exit.i.i", %20
   ret void
 }
 
@@ -2789,7 +2789,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @"_ZN80_$LT$flycheck..CargoCheckMessage$u20$as$u20$flycheck..command..ParseFromLine$GT$9from_line17h3173dc3c8d9f7b90E"(ptr noalias nocapture noundef nonnull sret({ i64, [38 x i64] }) align 8 dereferenceable(312) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %10), !noalias !725
   %11 = load i64, ptr %7, align 8, !range !650, !noalias !730, !noundef !4
   %.not.i.not.i.i = icmp eq i64 %11, -9223372036854775807
-  br i1 %.not.i.not.i.i, label %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.exit.i.i", label %12
+  br i1 %.not.i.not.i.i, label %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom.exit.i.i", label %12
 
 12:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull align 8 dereferenceable(312) %7, i64 312, i1 false), !noalias !730
@@ -2826,7 +2826,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 22:                                               ; preds = %17
   resume { ptr, i32 } %18
 
-"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.exit.i.i": ; preds = %3
+"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom.exit.i.i": ; preds = %3
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %7), !noalias !730
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %6), !noalias !729
   br label %_ZN4core3ops8function6FnOnce9call_once17h02be28ecea8972a0E.exit
@@ -2840,7 +2840,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   store i8 1, ptr %25, align 1, !noalias !725
   br label %_ZN4core3ops8function6FnOnce9call_once17h02be28ecea8972a0E.exit
 
-_ZN4core3ops8function6FnOnce9call_once17h02be28ecea8972a0E.exit: ; preds = %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.exit.i.i", %23
+_ZN4core3ops8function6FnOnce9call_once17h02be28ecea8972a0E.exit: ; preds = %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom.exit.i.i", %23
   ret void
 }
 
@@ -6357,7 +6357,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
   %19 = and i64 %18, 3
   switch i64 %19, label %default.unreachable [
     i64 2, label %20
-    i64 3, label %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i
+    i64 3, label %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit.i
     i64 0, label %22
     i64 1, label %26
   ]
@@ -6408,15 +6408,15 @@ default.unreachable:                              ; preds = %17
 40:                                               ; preds = %34
   unreachable
 
-_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i: ; preds = %17
+_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit.i: ; preds = %17
   %.mask20.i.i = and i64 %18, -4294967296
   %switch.i.i = icmp eq i64 %.mask20.i.i, 150323855360
   br i1 %switch.i.i, label %.thread.i, label %49
 
-.thread.i:                                        ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i, %35, %26, %22, %20
-  %41 = phi ptr [ %16, %35 ], [ %.val.i, %20 ], [ %.val.i, %22 ], [ %.val.i, %26 ], [ %.val.i, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i ]
-  %.sroa.0.122.i = phi ptr [ %37, %35 ], [ %.sroa.0.029.i, %20 ], [ %.sroa.0.029.i, %22 ], [ %.sroa.0.029.i, %26 ], [ %.sroa.0.029.i, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i ]
-  %.sroa.4.120.i = phi i64 [ %36, %35 ], [ %.sroa.4.028.i, %20 ], [ %.sroa.4.028.i, %22 ], [ %.sroa.4.028.i, %26 ], [ %.sroa.4.028.i, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i ]
+.thread.i:                                        ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit.i, %35, %26, %22, %20
+  %41 = phi ptr [ %16, %35 ], [ %.val.i, %20 ], [ %.val.i, %22 ], [ %.val.i, %26 ], [ %.val.i, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit.i ]
+  %.sroa.0.122.i = phi ptr [ %37, %35 ], [ %.sroa.0.029.i, %20 ], [ %.sroa.0.029.i, %22 ], [ %.sroa.0.029.i, %26 ], [ %.sroa.0.029.i, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit.i ]
+  %.sroa.4.120.i = phi i64 [ %36, %35 ], [ %.sroa.4.028.i, %20 ], [ %.sroa.4.028.i, %22 ], [ %.sroa.4.028.i, %26 ], [ %.sroa.4.028.i, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1772
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h2dffefad3664b6daE.llvm.774313995428851812(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noundef nonnull %41), !noalias !1779
   %42 = load i8, ptr %5, align 8, !range !527, !alias.scope !1780, !noalias !1772, !noundef !4
@@ -6452,8 +6452,8 @@ common.resume:                                    ; preds = %38, %46, %58
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #22
   unreachable
 
-49:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i, %26, %22, %20, %13
-  %.1.i = phi ptr [ @anon.6741fc5854709c716905a6bef417820e.3, %13 ], [ %.val.i, %20 ], [ %.val.i, %22 ], [ %.val.i, %26 ], [ %.val.i, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i ]
+49:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit.i, %26, %22, %20, %13
+  %.1.i = phi ptr [ @anon.6741fc5854709c716905a6bef417820e.3, %13 ], [ %.val.i, %20 ], [ %.val.i, %22 ], [ %.val.i, %26 ], [ %.val.i, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1768
   %50 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1783)
@@ -6647,7 +6647,7 @@ define hidden void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run17h4028cd482f2
   %57 = getelementptr inbounds i8, ptr %14, i64 8
   %58 = load ptr, ptr %57, align 8, !nonnull !4, !noundef !4
   store ptr %58, ptr %9, align 8
-  %59 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr nonnull %58)
+  %59 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom(ptr nonnull %58)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store ptr %9, ptr %7, align 8
   %60 = getelementptr inbounds i8, ptr %7, i64 8
@@ -6992,7 +6992,7 @@ define hidden void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run17h4d939711e3f
   %57 = getelementptr inbounds i8, ptr %14, i64 8
   %58 = load ptr, ptr %57, align 8, !nonnull !4, !noundef !4
   store ptr %58, ptr %9, align 8
-  %59 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr nonnull %58)
+  %59 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom(ptr nonnull %58)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store ptr %9, ptr %7, align 8
   %60 = getelementptr inbounds i8, ptr %7, i64 8
@@ -7206,7 +7206,7 @@ define internal void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b
   call void @"_ZN80_$LT$flycheck..CargoCheckMessage$u20$as$u20$flycheck..command..ParseFromLine$GT$9from_line17h3173dc3c8d9f7b90E"(ptr noalias nocapture noundef nonnull sret({ i64, [38 x i64] }) align 8 dereferenceable(312) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
   %11 = load i64, ptr %7, align 8, !range !650, !noalias !1914, !noundef !4
   %.not.i.not = icmp eq i64 %11, -9223372036854775807
-  br i1 %.not.i.not, label %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.exit", label %12
+  br i1 %.not.i.not, label %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom.exit", label %12
 
 12:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull align 8 dereferenceable(312) %7, i64 312, i1 false), !noalias !1914
@@ -7243,7 +7243,7 @@ define internal void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b
 22:                                               ; preds = %17
   resume { ptr, i32 } %18
 
-"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.exit": ; preds = %3
+"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom.exit": ; preds = %3
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %7), !noalias !1914
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %6)
   br label %26
@@ -7257,7 +7257,7 @@ define internal void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b
   store i8 1, ptr %25, align 1
   br label %26
 
-26:                                               ; preds = %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.exit", %23
+26:                                               ; preds = %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom.exit", %23
   ret void
 }
 
@@ -7274,7 +7274,7 @@ define internal void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b
   call void @"_ZN92_$LT$flycheck..test_runner..CargoTestMessage$u20$as$u20$flycheck..command..ParseFromLine$GT$9from_line17h4ddfe724e1a909e6E"(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nonnull readnone align 8 poison)
   %9 = load i64, ptr %7, align 8, !range !673, !noalias !1924, !noundef !4
   %.not.i.not = icmp eq i64 %9, -9223372036854775805
-  br i1 %.not.i.not, label %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.exit", label %10
+  br i1 %.not.i.not, label %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom.exit", label %10
 
 10:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !noalias !1924
@@ -7311,7 +7311,7 @@ define internal void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b
 "_ZN4core3ptr101drop_in_place$LT$crossbeam_channel..err..SendError$LT$flycheck..test_runner..CargoTestMessage$GT$$GT$17h9037bdd951bab41aE.exit.i": ; preds = %15
   resume { ptr, i32 } %16
 
-"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.exit": ; preds = %3
+"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom.exit": ; preds = %3
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !1924
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br label %23
@@ -7325,7 +7325,7 @@ define internal void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b
   store i8 1, ptr %22, align 1
   br label %23
 
-23:                                               ; preds = %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.exit", %20
+23:                                               ; preds = %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom.exit", %20
   ret void
 }
 
@@ -7344,7 +7344,7 @@ define internal void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b
   call void @"_ZN80_$LT$flycheck..CargoCheckMessage$u20$as$u20$flycheck..command..ParseFromLine$GT$9from_line17h3173dc3c8d9f7b90E"(ptr noalias nocapture noundef nonnull sret({ i64, [38 x i64] }) align 8 dereferenceable(312) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
   %11 = load i64, ptr %7, align 8, !range !650, !noalias !1936, !noundef !4
   %.not.i.not = icmp eq i64 %11, -9223372036854775807
-  br i1 %.not.i.not, label %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.exit", label %12
+  br i1 %.not.i.not, label %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom.exit", label %12
 
 12:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull align 8 dereferenceable(312) %7, i64 312, i1 false), !noalias !1936
@@ -7381,7 +7381,7 @@ define internal void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b
 22:                                               ; preds = %17
   resume { ptr, i32 } %18
 
-"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.exit": ; preds = %3
+"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom.exit": ; preds = %3
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %7), !noalias !1936
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %6)
   br label %26
@@ -7395,7 +7395,7 @@ define internal void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b
   store i8 1, ptr %25, align 1
   br label %26
 
-26:                                               ; preds = %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.exit", %23
+26:                                               ; preds = %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom.exit", %23
   ret void
 }
 
@@ -7412,7 +7412,7 @@ define internal void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b
   call void @"_ZN92_$LT$flycheck..test_runner..CargoTestMessage$u20$as$u20$flycheck..command..ParseFromLine$GT$9from_line17h4ddfe724e1a909e6E"(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nonnull readnone align 8 poison)
   %9 = load i64, ptr %7, align 8, !range !673, !noalias !1946, !noundef !4
   %.not.i.not = icmp eq i64 %9, -9223372036854775805
-  br i1 %.not.i.not, label %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.exit", label %10
+  br i1 %.not.i.not, label %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom.exit", label %10
 
 10:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !noalias !1946
@@ -7449,7 +7449,7 @@ define internal void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b
 "_ZN4core3ptr101drop_in_place$LT$crossbeam_channel..err..SendError$LT$flycheck..test_runner..CargoTestMessage$GT$$GT$17h9037bdd951bab41aE.exit.i": ; preds = %15
   resume { ptr, i32 } %16
 
-"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.exit": ; preds = %3
+"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom.exit": ; preds = %3
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !1946
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br label %23
@@ -7463,7 +7463,7 @@ define internal void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b
   store i8 1, ptr %22, align 1
   br label %23
 
-23:                                               ; preds = %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.exit", %20
+23:                                               ; preds = %"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom.exit", %20
   ret void
 }
 
@@ -10584,9 +10584,9 @@ attributes #23 = { noreturn }
 !644 = distinct !{!644, !637, !"_ZN4core3ops8function6FnOnce9call_once17h54c6157c5fcc6d71E: argument 1"}
 !645 = !{!639, !643, !636, !644}
 !646 = !{!647, !649, !639, !643, !636, !644}
-!647 = distinct !{!647, !648, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E: argument 0"}
-!648 = distinct !{!648, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E"}
-!649 = distinct !{!649, !648, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E: argument 1"}
+!647 = distinct !{!647, !648, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom: argument 0"}
+!648 = distinct !{!648, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom"}
+!649 = distinct !{!649, !648, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom: argument 1"}
 !650 = !{i64 0, i64 -9223372036854775806}
 !651 = !{!652}
 !652 = distinct !{!652, !653, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heff33c9282ddcb08E: argument 0"}
@@ -10607,9 +10607,9 @@ attributes #23 = { noreturn }
 !667 = distinct !{!667, !660, !"_ZN4core3ops8function6FnOnce9call_once17had6bd5f3f1e5bb4aE: argument 1"}
 !668 = !{!662, !666, !659, !667}
 !669 = !{!670, !672, !662, !666, !659, !667}
-!670 = distinct !{!670, !671, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E: argument 0"}
-!671 = distinct !{!671, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E"}
-!672 = distinct !{!672, !671, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E: argument 1"}
+!670 = distinct !{!670, !671, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom: argument 0"}
+!671 = distinct !{!671, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom"}
+!672 = distinct !{!672, !671, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom: argument 1"}
 !673 = !{i64 0, i64 -9223372036854775804}
 !674 = !{!672, !662, !659}
 !675 = !{!676}
@@ -10645,9 +10645,9 @@ attributes #23 = { noreturn }
 !705 = distinct !{!705, !698, !"_ZN4core3ops8function6FnOnce9call_once17hfb560c610a978fa0E: argument 1"}
 !706 = !{!700, !704, !697, !705}
 !707 = !{!708, !710, !700, !704, !697, !705}
-!708 = distinct !{!708, !709, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E: argument 0"}
-!709 = distinct !{!709, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E"}
-!710 = distinct !{!710, !709, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E: argument 1"}
+!708 = distinct !{!708, !709, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom: argument 0"}
+!709 = distinct !{!709, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom"}
+!710 = distinct !{!710, !709, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom: argument 1"}
 !711 = !{!710, !700, !697}
 !712 = !{!713}
 !713 = distinct !{!713, !714, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2128c3aa543a459cE: argument 0"}
@@ -10668,9 +10668,9 @@ attributes #23 = { noreturn }
 !728 = distinct !{!728, !721, !"_ZN4core3ops8function6FnOnce9call_once17h02be28ecea8972a0E: argument 1"}
 !729 = !{!723, !727, !720, !728}
 !730 = !{!731, !733, !723, !727, !720, !728}
-!731 = distinct !{!731, !732, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E: argument 0"}
-!732 = distinct !{!732, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E"}
-!733 = distinct !{!733, !732, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E: argument 1"}
+!731 = distinct !{!731, !732, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom: argument 0"}
+!732 = distinct !{!732, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom"}
+!733 = distinct !{!733, !732, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom: argument 1"}
 !734 = !{!735}
 !735 = distinct !{!735, !736, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heff33c9282ddcb08E: argument 0"}
 !736 = distinct !{!736, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heff33c9282ddcb08E"}
@@ -11852,9 +11852,9 @@ attributes #23 = { noreturn }
 !1912 = distinct !{!1912, !1913, !"_ZN4core3ptr90drop_in_place$LT$crossbeam_channel..channel..Sender$LT$flycheck..CargoCheckMessage$GT$$GT$17h417f988ee13d7564E: argument 0"}
 !1913 = distinct !{!1913, !"_ZN4core3ptr90drop_in_place$LT$crossbeam_channel..channel..Sender$LT$flycheck..CargoCheckMessage$GT$$GT$17h417f988ee13d7564E"}
 !1914 = !{!1915, !1917}
-!1915 = distinct !{!1915, !1916, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E: argument 0"}
-!1916 = distinct !{!1916, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E"}
-!1917 = distinct !{!1917, !1916, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E: argument 1"}
+!1915 = distinct !{!1915, !1916, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom: argument 0"}
+!1916 = distinct !{!1916, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom"}
+!1917 = distinct !{!1917, !1916, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom: argument 1"}
 !1918 = !{!1919}
 !1919 = distinct !{!1919, !1920, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heff33c9282ddcb08E: argument 0"}
 !1920 = distinct !{!1920, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heff33c9282ddcb08E"}
@@ -11862,9 +11862,9 @@ attributes #23 = { noreturn }
 !1922 = distinct !{!1922, !1920, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heff33c9282ddcb08E: argument 1"}
 !1923 = !{!1919, !1922, !1915, !1917}
 !1924 = !{!1925, !1927}
-!1925 = distinct !{!1925, !1926, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E: argument 0"}
-!1926 = distinct !{!1926, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E"}
-!1927 = distinct !{!1927, !1926, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E: argument 1"}
+!1925 = distinct !{!1925, !1926, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom: argument 0"}
+!1926 = distinct !{!1926, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom"}
+!1927 = distinct !{!1927, !1926, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom: argument 1"}
 !1928 = !{!1927}
 !1929 = !{!1930}
 !1930 = distinct !{!1930, !1931, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2128c3aa543a459cE: argument 0"}
@@ -11874,9 +11874,9 @@ attributes #23 = { noreturn }
 !1934 = !{!1930, !1933, !1925, !1927}
 !1935 = !{!1930, !1927}
 !1936 = !{!1937, !1939}
-!1937 = distinct !{!1937, !1938, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E: argument 0"}
-!1938 = distinct !{!1938, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E"}
-!1939 = distinct !{!1939, !1938, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E: argument 1"}
+!1937 = distinct !{!1937, !1938, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom: argument 0"}
+!1938 = distinct !{!1938, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom"}
+!1939 = distinct !{!1939, !1938, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h855127647b3e9bb0E.argprom: argument 1"}
 !1940 = !{!1941}
 !1941 = distinct !{!1941, !1942, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heff33c9282ddcb08E: argument 0"}
 !1942 = distinct !{!1942, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heff33c9282ddcb08E"}
@@ -11884,9 +11884,9 @@ attributes #23 = { noreturn }
 !1944 = distinct !{!1944, !1942, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heff33c9282ddcb08E: argument 1"}
 !1945 = !{!1941, !1944, !1937, !1939}
 !1946 = !{!1947, !1949}
-!1947 = distinct !{!1947, !1948, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E: argument 0"}
-!1948 = distinct !{!1948, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E"}
-!1949 = distinct !{!1949, !1948, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E: argument 1"}
+!1947 = distinct !{!1947, !1948, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom: argument 0"}
+!1948 = distinct !{!1948, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom"}
+!1949 = distinct !{!1949, !1948, !"_ZN8flycheck7command19CargoActor$LT$T$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$17h1731f4c61ed020e8E.argprom: argument 1"}
 !1950 = !{!1949}
 !1951 = !{!1952}
 !1952 = distinct !{!1952, !1953, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2128c3aa543a459cE: argument 0"}
@@ -11932,9 +11932,9 @@ attributes #23 = { noreturn }
 !1992 = distinct !{!1992, !1991, !"_ZN3std6thread7Builder15spawn_unchecked17h0b423f2be926b544E: argument 1"}
 !1993 = distinct !{!1993, !1991, !"_ZN3std6thread7Builder15spawn_unchecked17h0b423f2be926b544E: argument 2"}
 !1994 = !{!1995, !1997}
-!1995 = distinct !{!1995, !1996, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h783a897c48626890E: argument 0"}
-!1996 = distinct !{!1996, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h783a897c48626890E"}
-!1997 = distinct !{!1997, !1996, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h783a897c48626890E: argument 1"}
+!1995 = distinct !{!1995, !1996, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h783a897c48626890E.argprom: argument 0"}
+!1996 = distinct !{!1996, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h783a897c48626890E.argprom"}
+!1997 = distinct !{!1997, !1996, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h783a897c48626890E.argprom: argument 1"}
 !1998 = !{!1999, !2001}
 !1999 = distinct !{!1999, !2000, !"_ZN79_$LT$std..ffi..os_str..OsString$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17hf71da0129c1cd092E: argument 0"}
 !2000 = distinct !{!2000, !"_ZN79_$LT$std..ffi..os_str..OsString$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17hf71da0129c1cd092E"}
@@ -12177,7 +12177,7 @@ attributes #23 = { noreturn }
 !2237 = distinct !{!2237, !2236, !"_ZN3std6thread7Builder15spawn_unchecked17hca78f1f0028db610E: argument 1"}
 !2238 = distinct !{!2238, !2236, !"_ZN3std6thread7Builder15spawn_unchecked17hca78f1f0028db610E: argument 2"}
 !2239 = !{!2240, !2242, !2207, !2204}
-!2240 = distinct !{!2240, !2241, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h783a897c48626890E: argument 0"}
-!2241 = distinct !{!2241, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h783a897c48626890E"}
-!2242 = distinct !{!2242, !2241, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h783a897c48626890E: argument 1"}
+!2240 = distinct !{!2240, !2241, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h783a897c48626890E.argprom: argument 0"}
+!2241 = distinct !{!2241, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h783a897c48626890E.argprom"}
+!2242 = distinct !{!2242, !2241, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h783a897c48626890E.argprom: argument 1"}
 !2243 = !{!2240, !2242, !2207}

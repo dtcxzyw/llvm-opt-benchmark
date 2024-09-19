@@ -616,7 +616,7 @@ define void @Dau_DsdAddToArray(ptr nocapture noundef readonly %0, ptr nocapture 
   %13 = ashr i32 %12, 1
   %.val = load ptr, ptr %8, align 8
   %14 = add nsw i32 %13, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val, i32 noundef %14)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val, i32 noundef %14)
   %15 = getelementptr i8, ptr %.val, i64 8
   %.val.i.i = load ptr, ptr %15, align 8
   %16 = sext i32 %13 to i64
@@ -627,7 +627,7 @@ define void @Dau_DsdAddToArray(ptr nocapture noundef readonly %0, ptr nocapture 
   %21 = ashr i32 %20, 1
   %.val22 = load ptr, ptr %8, align 8
   %22 = add nsw i32 %21, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val22, i32 noundef %22)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val22, i32 noundef %22)
   %23 = getelementptr i8, ptr %.val22, i64 8
   %.val.i.i23 = load ptr, ptr %23, align 8
   %24 = sext i32 %21 to i64
@@ -866,7 +866,7 @@ Gia_ManAppendAnd2.exit:                           ; preds = %37, %34, %32, %30, 
   %127 = sdiv exact i64 %126, 12
   %128 = trunc i64 %127 to i32
   %129 = add nsw i32 %128, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val6.i89, i32 noundef %129)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val6.i89, i32 noundef %129)
   %130 = getelementptr i8, ptr %.val6.i89, i64 8
   %.val.i.i.i.i90 = load ptr, ptr %130, align 8
   %sext.i.i91 = shl i64 %127, 32
@@ -886,7 +886,7 @@ Gia_ManAppendAnd2.exit:                           ; preds = %37, %34, %32, %30, 
   %142 = sdiv exact i64 %141, 12
   %143 = trunc i64 %142 to i32
   %144 = add nsw i32 %143, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val8.i93, i32 noundef %144)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val8.i93, i32 noundef %144)
   %145 = getelementptr i8, ptr %.val8.i93, i64 8
   %.val.i.i.i11.i94 = load ptr, ptr %145, align 8
   %sext.i12.i95 = shl i64 %142, 32
@@ -903,7 +903,7 @@ Gia_ManAppendAnd2.exit:                           ; preds = %37, %34, %32, %30, 
   %154 = sdiv exact i64 %153, 12
   %155 = trunc i64 %154 to i32
   %156 = add nsw i32 %155, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val10.i97, i32 noundef %156)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val10.i97, i32 noundef %156)
   %157 = getelementptr i8, ptr %.val10.i97, i64 8
   %.val.i.i.i13.i98 = load ptr, ptr %157, align 8
   %sext.i14.i99 = shl i64 %154, 32
@@ -939,7 +939,7 @@ Gia_ManAppendAnd2.exit:                           ; preds = %37, %34, %32, %30, 
   %175 = sdiv exact i64 %174, 12
   %176 = trunc i64 %175 to i32
   %177 = add nsw i32 %176, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val6.i103, i32 noundef %177)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val6.i103, i32 noundef %177)
   %178 = getelementptr i8, ptr %.val6.i103, i64 8
   %.val.i.i.i.i104 = load ptr, ptr %178, align 8
   %sext.i.i105 = shl i64 %175, 32
@@ -959,7 +959,7 @@ Gia_ManAppendAnd2.exit:                           ; preds = %37, %34, %32, %30, 
   %190 = sdiv exact i64 %189, 12
   %191 = trunc i64 %190 to i32
   %192 = add nsw i32 %191, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val8.i107, i32 noundef %192)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val8.i107, i32 noundef %192)
   %193 = getelementptr i8, ptr %.val8.i107, i64 8
   %.val.i.i.i11.i108 = load ptr, ptr %193, align 8
   %sext.i12.i109 = shl i64 %190, 32
@@ -976,7 +976,7 @@ Gia_ManAppendAnd2.exit:                           ; preds = %37, %34, %32, %30, 
   %202 = sdiv exact i64 %201, 12
   %203 = trunc i64 %202 to i32
   %204 = add nsw i32 %203, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val10.i111, i32 noundef %204)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val10.i111, i32 noundef %204)
   %205 = getelementptr i8, ptr %.val10.i111, i64 8
   %.val.i.i.i13.i112 = load ptr, ptr %205, align 8
   %sext.i14.i113 = shl i64 %202, 32
@@ -1006,7 +1006,7 @@ Gia_ManAppendAnd2.exit:                           ; preds = %37, %34, %32, %30, 
   %216 = sdiv exact i64 %215, 12
   %217 = trunc i64 %216 to i32
   %218 = add nsw i32 %217, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val6.i, i32 noundef %218)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val6.i, i32 noundef %218)
   %219 = getelementptr i8, ptr %.val6.i, i64 8
   %.val.i.i.i.i = load ptr, ptr %219, align 8
   %sext.i.i = shl i64 %216, 32
@@ -1026,7 +1026,7 @@ Gia_ManAppendAnd2.exit:                           ; preds = %37, %34, %32, %30, 
   %231 = sdiv exact i64 %230, 12
   %232 = trunc i64 %231 to i32
   %233 = add nsw i32 %232, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val8.i, i32 noundef %233)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val8.i, i32 noundef %233)
   %234 = getelementptr i8, ptr %.val8.i, i64 8
   %.val.i.i.i11.i = load ptr, ptr %234, align 8
   %sext.i12.i = shl i64 %231, 32
@@ -1043,7 +1043,7 @@ Gia_ManAppendAnd2.exit:                           ; preds = %37, %34, %32, %30, 
   %243 = sdiv exact i64 %242, 12
   %244 = trunc i64 %243 to i32
   %245 = add nsw i32 %244, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val10.i, i32 noundef %245)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val10.i, i32 noundef %245)
   %246 = getelementptr i8, ptr %.val10.i, i64 8
   %.val.i.i.i13.i = load ptr, ptr %246, align 8
   %sext.i14.i = shl i64 %243, 32
@@ -1069,7 +1069,7 @@ Gia_ManAppendAnd2.exit:                           ; preds = %37, %34, %32, %30, 
   %255 = ashr i32 %254, 1
   %.val.i126 = load ptr, ptr %11, align 8
   %256 = add nsw i32 %255, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val.i126, i32 noundef %256)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val.i126, i32 noundef %256)
   %257 = getelementptr i8, ptr %.val.i126, i64 8
   %.val.i.i.i = load ptr, ptr %257, align 8
   %258 = sext i32 %255 to i64
@@ -1080,7 +1080,7 @@ Gia_ManAppendAnd2.exit:                           ; preds = %37, %34, %32, %30, 
   %263 = ashr i32 %262, 1
   %.val22.i = load ptr, ptr %11, align 8
   %264 = add nsw i32 %263, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val22.i, i32 noundef %264)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val22.i, i32 noundef %264)
   %265 = getelementptr i8, ptr %.val22.i, i64 8
   %.val.i.i23.i = load ptr, ptr %265, align 8
   %266 = sext i32 %263 to i64
@@ -1184,7 +1184,7 @@ define i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %46 = ashr i32 %45, 1
   %.val.i = load ptr, ptr %38, align 8
   %47 = add nsw i32 %46, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val.i, i32 noundef %47)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val.i, i32 noundef %47)
   %48 = getelementptr i8, ptr %.val.i, i64 8
   %.val.i.i.i = load ptr, ptr %48, align 8
   %49 = sext i32 %46 to i64
@@ -1195,7 +1195,7 @@ define i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %54 = ashr i32 %53, 1
   %.val22.i = load ptr, ptr %38, align 8
   %55 = add nsw i32 %54, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val22.i, i32 noundef %55)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val22.i, i32 noundef %55)
   %56 = getelementptr i8, ptr %.val22.i, i64 8
   %.val.i.i23.i = load ptr, ptr %56, align 8
   %57 = sext i32 %54 to i64
@@ -1266,7 +1266,7 @@ Dau_DsdAddToArray.exit:                           ; preds = %.lr.ph.i, %60, %39
   %85 = ashr i32 %84, 1
   %.val.i207 = load ptr, ptr %77, align 8
   %86 = add nsw i32 %85, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val.i207, i32 noundef %86)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val.i207, i32 noundef %86)
   %87 = getelementptr i8, ptr %.val.i207, i64 8
   %.val.i.i.i208 = load ptr, ptr %87, align 8
   %88 = sext i32 %85 to i64
@@ -1277,7 +1277,7 @@ Dau_DsdAddToArray.exit:                           ; preds = %.lr.ph.i, %60, %39
   %93 = ashr i32 %92, 1
   %.val22.i209 = load ptr, ptr %77, align 8
   %94 = add nsw i32 %93, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val22.i209, i32 noundef %94)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val22.i209, i32 noundef %94)
   %95 = getelementptr i8, ptr %.val22.i209, i64 8
   %.val.i.i23.i210 = load ptr, ptr %95, align 8
   %96 = sext i32 %93 to i64
@@ -1483,7 +1483,7 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %99, %
   %201 = sdiv exact i64 %200, 12
   %202 = trunc i64 %201 to i32
   %203 = add nsw i32 %202, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val6.i, i32 noundef %203)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val6.i, i32 noundef %203)
   %204 = getelementptr i8, ptr %.val6.i, i64 8
   %.val.i.i.i.i = load ptr, ptr %204, align 8
   %sext.i.i = shl i64 %201, 32
@@ -1503,7 +1503,7 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %99, %
   %216 = sdiv exact i64 %215, 12
   %217 = trunc i64 %216 to i32
   %218 = add nsw i32 %217, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val8.i, i32 noundef %218)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val8.i, i32 noundef %218)
   %219 = getelementptr i8, ptr %.val8.i, i64 8
   %.val.i.i.i11.i = load ptr, ptr %219, align 8
   %sext.i12.i = shl i64 %216, 32
@@ -1520,7 +1520,7 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %99, %
   %228 = sdiv exact i64 %227, 12
   %229 = trunc i64 %228 to i32
   %230 = add nsw i32 %229, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val10.i, i32 noundef %230)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val10.i, i32 noundef %230)
   %231 = getelementptr i8, ptr %.val10.i, i64 8
   %.val.i.i.i13.i = load ptr, ptr %231, align 8
   %sext.i14.i = shl i64 %228, 32
@@ -1557,7 +1557,7 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %99, %
   %250 = sdiv exact i64 %249, 12
   %251 = trunc i64 %250 to i32
   %252 = add nsw i32 %251, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val6.i220, i32 noundef %252)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val6.i220, i32 noundef %252)
   %253 = getelementptr i8, ptr %.val6.i220, i64 8
   %.val.i.i.i.i221 = load ptr, ptr %253, align 8
   %sext.i.i222 = shl i64 %250, 32
@@ -1577,7 +1577,7 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %99, %
   %265 = sdiv exact i64 %264, 12
   %266 = trunc i64 %265 to i32
   %267 = add nsw i32 %266, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val8.i224, i32 noundef %267)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val8.i224, i32 noundef %267)
   %268 = getelementptr i8, ptr %.val8.i224, i64 8
   %.val.i.i.i11.i225 = load ptr, ptr %268, align 8
   %sext.i12.i226 = shl i64 %265, 32
@@ -1594,7 +1594,7 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %99, %
   %277 = sdiv exact i64 %276, 12
   %278 = trunc i64 %277 to i32
   %279 = add nsw i32 %278, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val10.i228, i32 noundef %279)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val10.i228, i32 noundef %279)
   %280 = getelementptr i8, ptr %.val10.i228, i64 8
   %.val.i.i.i13.i229 = load ptr, ptr %280, align 8
   %sext.i14.i230 = shl i64 %277, 32
@@ -1619,7 +1619,7 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %99, %
   %292 = sdiv exact i64 %291, 12
   %293 = trunc i64 %292 to i32
   %294 = add nsw i32 %293, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val6.i232, i32 noundef %294)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val6.i232, i32 noundef %294)
   %295 = getelementptr i8, ptr %.val6.i232, i64 8
   %.val.i.i.i.i233 = load ptr, ptr %295, align 8
   %sext.i.i234 = shl i64 %292, 32
@@ -1639,7 +1639,7 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %99, %
   %307 = sdiv exact i64 %306, 12
   %308 = trunc i64 %307 to i32
   %309 = add nsw i32 %308, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val8.i236, i32 noundef %309)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val8.i236, i32 noundef %309)
   %310 = getelementptr i8, ptr %.val8.i236, i64 8
   %.val.i.i.i11.i237 = load ptr, ptr %310, align 8
   %sext.i12.i238 = shl i64 %307, 32
@@ -1656,7 +1656,7 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %99, %
   %319 = sdiv exact i64 %318, 12
   %320 = trunc i64 %319 to i32
   %321 = add nsw i32 %320, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val10.i240, i32 noundef %321)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val10.i240, i32 noundef %321)
   %322 = getelementptr i8, ptr %.val10.i240, i64 8
   %.val.i.i.i13.i241 = load ptr, ptr %322, align 8
   %sext.i14.i242 = shl i64 %319, 32
@@ -1769,7 +1769,7 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %99, %
   %383 = sdiv exact i64 %382, 12
   %384 = trunc i64 %383 to i32
   %385 = add nsw i32 %384, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val4.i.i, i32 noundef %385)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val4.i.i, i32 noundef %385)
   %386 = getelementptr i8, ptr %.val4.i.i, i64 8
   %.val.i.i.i.i.i = load ptr, ptr %386, align 8
   %sext.i.i.i = shl i64 %383, 32
@@ -1784,7 +1784,7 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %99, %
   %393 = sdiv exact i64 %392, 12
   %394 = trunc i64 %393 to i32
   %395 = add nsw i32 %394, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val6.i.i, i32 noundef %395)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val6.i.i, i32 noundef %395)
   %396 = getelementptr i8, ptr %.val6.i.i, i64 8
   %.val.i.i.i7.i.i = load ptr, ptr %396, align 8
   %sext.i8.i.i = shl i64 %393, 32
@@ -1796,29 +1796,29 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %99, %
 399:                                              ; preds = %368, %365
   %.val20.i = load ptr, ptr %363, align 8
   %.not.i.i.i = icmp eq ptr %.val20.i, null
-  br i1 %.not.i.i.i, label %Gia_ObjIsMux.exit.thread.i, label %Gia_ObjIsMux.exit.i
+  br i1 %.not.i.i.i, label %Gia_ObjIsMux.argprom.exit.thread.i, label %Gia_ObjIsMux.argprom.exit.i
 
-Gia_ObjIsMux.exit.i:                              ; preds = %399
+Gia_ObjIsMux.argprom.exit.i:                      ; preds = %399
   %400 = shl nsw i64 %indvars.iv296, 2
   %401 = getelementptr inbounds i8, ptr %.val20.i, i64 %400
   %402 = load i32, ptr %401, align 4
   %.not45.i = icmp eq i32 %402, 0
-  br i1 %.not45.i, label %Gia_ObjIsMux.exit.thread.i, label %403
+  br i1 %.not45.i, label %Gia_ObjIsMux.argprom.exit.thread.i, label %403
 
-403:                                              ; preds = %Gia_ObjIsMux.exit.i
+403:                                              ; preds = %Gia_ObjIsMux.argprom.exit.i
   call fastcc void @Gia_ObjSetMuxLevel(ptr noundef nonnull readonly %0, ptr noundef %366)
   br label %Gia_ObjSetGateLevel.exit
 
-Gia_ObjIsMux.exit.thread.i:                       ; preds = %Gia_ObjIsMux.exit.i, %399
+Gia_ObjIsMux.argprom.exit.thread.i:               ; preds = %Gia_ObjIsMux.argprom.exit.i, %399
   %.val21.i = load i64, ptr %366, align 4
   %404 = and i64 %.val21.i, 2147483648
   %.not.i.i22.i = icmp ne i64 %404, 0
   %405 = and i64 %.val21.i, 536870911
   %406 = icmp eq i64 %405, 536870911
   %narrow.i.not.i.i = or i1 %.not.i.i22.i, %406
-  br i1 %narrow.i.not.i.i, label %Gia_ObjSetGateLevel.exit, label %Gia_ObjIsXor.exit.i
+  br i1 %narrow.i.not.i.i, label %Gia_ObjSetGateLevel.exit, label %Gia_ObjIsXor.argprom.exit.i
 
-Gia_ObjIsXor.exit.i:                              ; preds = %Gia_ObjIsMux.exit.thread.i
+Gia_ObjIsXor.argprom.exit.i:                      ; preds = %Gia_ObjIsMux.argprom.exit.thread.i
   %407 = trunc i64 %.val21.i to i32
   %408 = and i32 %407, 536870911
   %409 = lshr i64 %.val21.i, 32
@@ -1834,7 +1834,7 @@ Gia_ObjIsXor.exit.i:                              ; preds = %Gia_ObjIsMux.exit.t
   %417 = sdiv exact i64 %416, 12
   %418 = trunc i64 %417 to i32
   %419 = add nsw i32 %418, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val6.i24.i, i32 noundef %419)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val6.i24.i, i32 noundef %419)
   %420 = getelementptr i8, ptr %.val6.i24.i, i64 8
   %.val.i.i.i.i25.i = load ptr, ptr %420, align 8
   %sext.i.i26.i = shl i64 %417, 32
@@ -1854,7 +1854,7 @@ Gia_ObjIsXor.exit.i:                              ; preds = %Gia_ObjIsMux.exit.t
   %432 = sdiv exact i64 %431, 12
   %433 = trunc i64 %432 to i32
   %434 = add nsw i32 %433, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val8.i.i, i32 noundef %434)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val8.i.i, i32 noundef %434)
   %435 = getelementptr i8, ptr %.val8.i.i, i64 8
   %.val.i.i.i11.i.i = load ptr, ptr %435, align 8
   %sext.i12.i.i = shl i64 %432, 32
@@ -1870,25 +1870,25 @@ Gia_ObjIsXor.exit.i:                              ; preds = %Gia_ObjIsMux.exit.t
   %443 = sdiv exact i64 %442, 12
   %444 = trunc i64 %443 to i32
   %445 = add nsw i32 %444, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val10.i.i, i32 noundef %445)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val10.i.i, i32 noundef %445)
   %446 = getelementptr i8, ptr %.val10.i.i, i64 8
   %.val.i.i.i13.i.i = load ptr, ptr %446, align 8
   %sext.i14.i.i = shl i64 %443, 32
   %447 = ashr exact i64 %sext.i14.i.i, 30
   %448 = getelementptr inbounds i8, ptr %.val.i.i.i13.i.i, i64 %447
-  br i1 %.not46.i, label %449, label %Gia_ObjIsXor.exit.thread.i
+  br i1 %.not46.i, label %449, label %Gia_ObjIsXor.argprom.exit.thread.i
 
-449:                                              ; preds = %Gia_ObjIsXor.exit.i
+449:                                              ; preds = %Gia_ObjIsXor.argprom.exit.i
   %450 = add nsw i32 %439, 2
   store i32 %450, ptr %448, align 4
   br label %Gia_ObjSetGateLevel.exit
 
-Gia_ObjIsXor.exit.thread.i:                       ; preds = %Gia_ObjIsXor.exit.i
+Gia_ObjIsXor.argprom.exit.thread.i:               ; preds = %Gia_ObjIsXor.argprom.exit.i
   %451 = add nsw i32 %439, 1
   store i32 %451, ptr %448, align 4
   br label %Gia_ObjSetGateLevel.exit
 
-Gia_ObjSetGateLevel.exit:                         ; preds = %376, %403, %Gia_ObjIsMux.exit.thread.i, %449, %Gia_ObjIsXor.exit.thread.i
+Gia_ObjSetGateLevel.exit:                         ; preds = %376, %403, %Gia_ObjIsMux.argprom.exit.thread.i, %449, %Gia_ObjIsXor.argprom.exit.thread.i
   %indvars.iv.next297 = add nsw i64 %indvars.iv296, 1
   %.val204 = load i32, ptr %354, align 8
   %452 = sext i32 %.val204 to i64
@@ -2050,7 +2050,7 @@ define internal fastcc void @Gia_ObjSetMuxLevel(ptr nocapture noundef readonly %
   %12 = sdiv exact i64 %11, 12
   %13 = trunc i64 %12 to i32
   %14 = add nsw i32 %13, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val9, i32 noundef %14)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val9, i32 noundef %14)
   %15 = getelementptr i8, ptr %.val9, i64 8
   %.val.i.i.i = load ptr, ptr %15, align 8
   %sext.i = shl i64 %12, 32
@@ -2070,7 +2070,7 @@ define internal fastcc void @Gia_ObjSetMuxLevel(ptr nocapture noundef readonly %
   %27 = sdiv exact i64 %26, 12
   %28 = trunc i64 %27 to i32
   %29 = add nsw i32 %28, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val11, i32 noundef %29)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val11, i32 noundef %29)
   %30 = getelementptr i8, ptr %.val11, i64 8
   %.val.i.i.i16 = load ptr, ptr %30, align 8
   %sext.i17 = shl i64 %27, 32
@@ -2113,7 +2113,7 @@ Gia_ObjFanin2.exit:                               ; preds = %.Gia_ObjFanin2.exit
   %51 = sdiv exact i64 %50, 12
   %52 = trunc i64 %51 to i32
   %53 = add nsw i32 %52, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val13, i32 noundef %53)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val13, i32 noundef %53)
   %54 = getelementptr i8, ptr %.val13, i64 8
   %.val.i.i.i19 = load ptr, ptr %54, align 8
   %sext.i20 = shl i64 %51, 32
@@ -2129,7 +2129,7 @@ Gia_ObjFanin2.exit:                               ; preds = %.Gia_ObjFanin2.exit
   %62 = sdiv exact i64 %61, 12
   %63 = trunc i64 %62 to i32
   %64 = add nsw i32 %63, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val15, i32 noundef %64)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val15, i32 noundef %64)
   %65 = getelementptr i8, ptr %.val15, i64 8
   %.val.i.i.i21 = load ptr, ptr %65, align 8
   %sext.i22 = shl i64 %62, 32
@@ -3082,7 +3082,7 @@ declare ptr @Gia_ManCleanup(ptr noundef) local_unnamed_addr #1
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

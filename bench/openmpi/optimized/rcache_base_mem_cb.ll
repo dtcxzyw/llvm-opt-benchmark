@@ -56,7 +56,7 @@ define void @mca_rcache_base_mem_cb(ptr noundef %0, i64 noundef %1, ptr nocaptur
   %18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @msg, i64 noundef 512, ptr noundef nonnull @.str, ptr noundef %16, i32 noundef %17, ptr noundef %0, i64 noundef %1) #7
   store i8 0, ptr getelementptr inbounds (i8, ptr @msg, i64 511), align 1
   %19 = sext i32 %18 to i64
-  tail call fastcc void @opal_best_effort_write(i64 noundef %19)
+  tail call fastcc void @opal_best_effort_write.argprom.argelim(i64 noundef %19)
   br label %27
 
 20:                                               ; preds = %14
@@ -89,7 +89,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare i32 @getpid() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @opal_best_effort_write(i64 noundef range(i64 -2147483648, 2147483648) %0) unnamed_addr #3 {
+define internal fastcc void @opal_best_effort_write.argprom.argelim(i64 noundef range(i64 -2147483648, 2147483648) %0) unnamed_addr #3 {
   %.not1 = icmp eq i64 %0, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 

@@ -6054,11 +6054,11 @@ _ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev.exit.i:    ; preds = %_ZNSt6vectorIPcSaIS
 
 .invoke.i:                                        ; preds = %72, %64, %60, %57, %_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev.exit.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE.exit unwind label %77
+          to label %_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE.argprom.exit unwind label %77
 
 76:                                               ; preds = %72, %68
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 1, i64 noundef -1)
-          to label %_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE.exit unwind label %77
+          to label %_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE.argprom.exit unwind label %77
 
 77:                                               ; preds = %76, %.invoke.i
   %78 = landingpad { ptr, i32 }
@@ -6066,12 +6066,12 @@ _ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev.exit.i:    ; preds = %_ZNSt6vectorIPcSaIS
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
   br label %common.resume
 
-_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE.exit: ; preds = %.invoke.i, %76
+_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE.argprom.exit: ; preds = %.invoke.i, %76
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %79
 
-79:                                               ; preds = %_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE.exit, %31
+79:                                               ; preds = %_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE.argprom.exit, %31
   ret void
 }
 
@@ -66337,8 +66337,8 @@ attributes #28 = { nounwind willreturn memory(read) }
 !41 = distinct !{!41, !42, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev: argument 0"}
 !42 = distinct !{!42, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev"}
 !43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE: argument 0"}
-!45 = distinct !{!45, !"_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE"}
+!44 = distinct !{!44, !45, !"_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE.argprom: argument 0"}
+!45 = distinct !{!45, !"_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE.argprom"}
 !46 = !{!47, !44}
 !47 = distinct !{!47, !48, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev: argument 0"}
 !48 = distinct !{!48, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev"}

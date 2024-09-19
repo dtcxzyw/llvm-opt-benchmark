@@ -3254,21 +3254,21 @@ if.end:                                           ; preds = %cond.end, %cond.end
   %4 = getelementptr i8, ptr %3, i64 8
   %.val26 = load ptr, ptr %4, align 8
   %cmp.i.not.i = icmp eq ptr %.val26, @PyCode_Type
-  br i1 %cmp.i.not.i, label %if.end22, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end22, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end
   %call2.i = call i32 @PyType_IsSubtype(ptr noundef %.val26, ptr noundef nonnull @PyCode_Type) #7
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   %.pre = load ptr, ptr %cond1644, align 8
   br i1 %tobool3.i.not, label %if.then20, label %if.end22
 
-if.then20:                                        ; preds = %PyObject_TypeCheck.exit
+if.then20:                                        ; preds = %PyObject_TypeCheck.argprom.exit
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @PyCode_Type, i64 24), align 8
   call void @_PyArg_BadArgument(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.50, ptr noundef %5, ptr noundef %.pre) #7
   br label %exit
 
-if.end22:                                         ; preds = %if.end, %PyObject_TypeCheck.exit
-  %6 = phi ptr [ %3, %if.end ], [ %.pre, %PyObject_TypeCheck.exit ]
+if.end22:                                         ; preds = %if.end, %PyObject_TypeCheck.argprom.exit
+  %6 = phi ptr [ %3, %if.end ], [ %.pre, %PyObject_TypeCheck.argprom.exit ]
   %arrayidx24 = getelementptr i8, ptr %cond1644, i64 8
   %7 = load ptr, ptr %arrayidx24, align 8
   %8 = getelementptr i8, ptr %7, i64 8

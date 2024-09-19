@@ -1546,7 +1546,7 @@ send_string.exit:                                 ; preds = %send_string.exit.lo
   %690 = getelementptr inbounds i8, ptr %535, i64 124
   store i32 0, ptr %690, align 4
   store i8 0, ptr %170, align 16
-  %691 = call fastcc i32 @recv_line(ptr noundef %568, ptr noundef %9)
+  %691 = call fastcc i32 @recv_line.argelim(ptr noundef %568, ptr noundef %9)
   %.not149185190.i = icmp eq i32 %691, 0
   br i1 %.not149185190.i, label %parse_stats.exit, label %.lr.ph186.lr.ph.i
 
@@ -1631,7 +1631,7 @@ send_string.exit:                                 ; preds = %send_string.exit.lo
   br label %731
 
 731:                                              ; preds = %727, %713, %711
-  %732 = call fastcc i32 @recv_line(ptr noundef %568, ptr noundef %9)
+  %732 = call fastcc i32 @recv_line.argelim(ptr noundef %568, ptr noundef %9)
   %.not12.i.i = icmp ne i32 %732, 0
   %733 = load i8, ptr %9, align 16
   %734 = icmp eq i8 %733, 9
@@ -1648,7 +1648,7 @@ parse_queue.exit.i:                               ; preds = %735, %731
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %747, %746, %745, %parse_queue.exit.i
-  %736 = call fastcc i32 @recv_line(ptr noundef %568, ptr noundef %9)
+  %736 = call fastcc i32 @recv_line.argelim(ptr noundef %568, ptr noundef %9)
   %.not149.i = icmp eq i32 %736, 0
   br i1 %.not149.i, label %parse_stats.exit, label %705
 
@@ -1803,7 +1803,7 @@ parse_queue.exit.i:                               ; preds = %735, %731
   br label %.outer.backedge.i
 
 .outer.backedge.i:                                ; preds = %.outer.backedge.sink.split.i, %784, %783, %769
-  %790 = call fastcc i32 @recv_line(ptr noundef %568, ptr noundef %9)
+  %790 = call fastcc i32 @recv_line.argelim(ptr noundef %568, ptr noundef %9)
   %.not149185.i = icmp eq i32 %790, 0
   br i1 %.not149185.i, label %parse_stats.exit, label %.lr.ph186.i
 
@@ -3878,7 +3878,7 @@ make_ip.exit:                                     ; preds = %71, %73, %81
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2, 1) i32 @read_version(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
-  %3 = call fastcc i32 @recv_line(ptr noundef %0, ptr noundef %2)
+  %3 = call fastcc i32 @recv_line.argelim(ptr noundef %0, ptr noundef %2)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.loopexit, label %4
 
@@ -4044,7 +4044,7 @@ declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef reado
 declare void @llvm.va_end.p0(ptr) #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @recv_line(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @recv_line.argelim(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 

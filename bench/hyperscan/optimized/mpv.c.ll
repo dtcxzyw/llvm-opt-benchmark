@@ -1876,9 +1876,9 @@ while.cond.i3914:                                 ; preds = %while.cond.i3914, %
   %82 = load i32, ptr %p.0.i, align 4
   %cmp.i3915 = icmp eq i32 %82, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0.i, i64 12
-  br i1 %cmp.i3915, label %while.cond.i3914, label %get_init_puff.exit, !llvm.loop !15
+  br i1 %cmp.i3915, label %while.cond.i3914, label %get_init_puff.argprom.exit, !llvm.loop !15
 
-get_init_puff.exit:                               ; preds = %while.cond.i3914
+get_init_puff.argprom.exit:                       ; preds = %while.cond.i3914
   %add.ptr.i3917 = getelementptr inbounds i8, ptr %p.0.i, i64 -12
   %curr.i = getelementptr inbounds i8, ptr %arrayidx.i1345, i64 8
   store ptr %add.ptr.i3917, ptr %curr.i, align 8
@@ -1886,7 +1886,7 @@ get_init_puff.exit:                               ; preds = %while.cond.i3914
   %cmp.i.i1466 = icmp ult i32 %83, 257
   br i1 %cmp.i.i1466, label %if.then.i.i1534, label %if.else.i.i1468
 
-if.then.i.i1534:                                  ; preds = %get_init_puff.exit
+if.then.i.i1534:                                  ; preds = %get_init_puff.argprom.exit
   %div.i.i15353883 = lshr i32 %22, 3
   %idx.ext.i.i1536 = zext nneg i32 %div.i.i15353883 to i64
   %add.ptr.i.i1537 = getelementptr inbounds i8, ptr %add.ptr9.i, i64 %idx.ext.i.i1536
@@ -1899,7 +1899,7 @@ if.then.i.i1534:                                  ; preds = %get_init_puff.exit
   store i8 %conv1.i.i1542, ptr %add.ptr.i.i1537, align 1
   br label %mmbit_unset.exit.i1482
 
-if.else.i.i1468:                                  ; preds = %get_init_puff.exit
+if.else.i.i1468:                                  ; preds = %get_init_puff.argprom.exit
   %sub.i.i.i1469 = add i32 %83, -1
   %87 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i.i.i1469, i1 true)
   %idxprom.i.i.i1470 = zext nneg i32 %87 to i64
@@ -6242,9 +6242,9 @@ while.cond.i3974:                                 ; preds = %while.cond.i3974, %
   %84 = load i32, ptr %p.0.i, align 4
   %cmp.i3975 = icmp eq i32 %84, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0.i, i64 12
-  br i1 %cmp.i3975, label %while.cond.i3974, label %get_init_puff.exit, !llvm.loop !15
+  br i1 %cmp.i3975, label %while.cond.i3974, label %get_init_puff.argprom.exit, !llvm.loop !15
 
-get_init_puff.exit:                               ; preds = %while.cond.i3974
+get_init_puff.argprom.exit:                       ; preds = %while.cond.i3974
   %add.ptr.i3977 = getelementptr inbounds i8, ptr %p.0.i, i64 -12
   %curr.i = getelementptr inbounds i8, ptr %arrayidx.i1479, i64 8
   store ptr %add.ptr.i3977, ptr %curr.i, align 8
@@ -6252,7 +6252,7 @@ get_init_puff.exit:                               ; preds = %while.cond.i3974
   %cmp.i.i1600 = icmp ult i32 %85, 257
   br i1 %cmp.i.i1600, label %if.then.i.i1668, label %if.else.i.i1602
 
-if.then.i.i1668:                                  ; preds = %get_init_puff.exit
+if.then.i.i1668:                                  ; preds = %get_init_puff.argprom.exit
   %div.i.i16693938 = lshr i32 %24, 3
   %idx.ext.i.i1670 = zext nneg i32 %div.i.i16693938 to i64
   %add.ptr.i.i1671 = getelementptr inbounds i8, ptr %add.ptr9.i, i64 %idx.ext.i.i1670
@@ -6265,7 +6265,7 @@ if.then.i.i1668:                                  ; preds = %get_init_puff.exit
   store i8 %conv1.i.i1676, ptr %add.ptr.i.i1671, align 1
   br label %mmbit_unset.exit.i1616
 
-if.else.i.i1602:                                  ; preds = %get_init_puff.exit
+if.else.i.i1602:                                  ; preds = %get_init_puff.argprom.exit
   %sub.i.i.i1603 = add i32 %85, -1
   %89 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i.i.i1603, i1 true)
   %idxprom.i.i.i1604 = zext nneg i32 %89 to i64
@@ -10616,23 +10616,23 @@ for.body:                                         ; preds = %for.body.lr.ph, %mm
   %24 = load i32, ptr %add.ptr.i13.i, align 4
   %conv1.i = zext i32 %24 to i64
   %cmp.not2.i = icmp ult i64 %add.i, %conv1.i
-  br i1 %cmp.not2.i, label %get_curr_puff.exit, label %land.rhs.i
+  br i1 %cmp.not2.i, label %get_curr_puff.argprom.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.body, %do.end8.i
   %p.03.i = phi ptr [ %incdec.ptr.i982, %do.end8.i ], [ %add.ptr.i13.i, %for.body ]
   %report.i = getelementptr inbounds i8, ptr %p.03.i, i64 8
   %25 = load i32, ptr %report.i, align 4
   %cmp5.not.i = icmp eq i32 %25, -1
-  br i1 %cmp5.not.i, label %get_curr_puff.exit, label %do.end8.i
+  br i1 %cmp5.not.i, label %get_curr_puff.argprom.exit, label %do.end8.i
 
 do.end8.i:                                        ; preds = %land.rhs.i
   %incdec.ptr.i982 = getelementptr inbounds i8, ptr %p.03.i, i64 12
   %26 = load i32, ptr %incdec.ptr.i982, align 4
   %conv.i = zext i32 %26 to i64
   %cmp.not.i = icmp ult i64 %add.i, %conv.i
-  br i1 %cmp.not.i, label %get_curr_puff.exit, label %land.rhs.i, !llvm.loop !36
+  br i1 %cmp.not.i, label %get_curr_puff.argprom.exit, label %land.rhs.i, !llvm.loop !36
 
-get_curr_puff.exit:                               ; preds = %land.rhs.i, %do.end8.i, %for.body
+get_curr_puff.argprom.exit:                       ; preds = %land.rhs.i, %do.end8.i, %for.body
   %p.0.lcssa.i = phi ptr [ %add.ptr.i13.i, %for.body ], [ %p.03.i, %land.rhs.i ], [ %incdec.ptr.i982, %do.end8.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %p.0.lcssa.i, i64 -12
   %arrayidx6 = getelementptr inbounds [0 x %struct.mpv_decomp_kilo], ptr %active4, i64 0, i64 %idxprom
@@ -10643,7 +10643,7 @@ get_curr_puff.exit:                               ; preds = %land.rhs.i, %do.end
   %cmp11.not = icmp eq i32 %27, -1
   br i1 %cmp11.not, label %if.end15, label %if.then12
 
-if.then12:                                        ; preds = %get_curr_puff.exit
+if.then12:                                        ; preds = %get_curr_puff.argprom.exit
   %28 = load i32, ptr %m, align 32
   %cmp.i.i = icmp ult i32 %28, 257
   br i1 %cmp.i.i, label %if.then.i1068, label %if.else.i1067
@@ -10730,7 +10730,7 @@ if.end.i1116:                                     ; preds = %do.body.i1105
   %cmp17.i.not = icmp eq i64 %indvars.iv1195, %33
   br i1 %cmp17.i.not, label %if.end15, label %do.body.i1105, !llvm.loop !27
 
-if.end15:                                         ; preds = %if.end.i1116, %while.body.i1124, %if.then.i1117, %if.then.i1068, %get_curr_puff.exit
+if.end15:                                         ; preds = %if.end.i1116, %while.body.i1124, %if.then.i1117, %if.then.i1068, %get_curr_puff.argprom.exit
   %type.i1000 = getelementptr inbounds i8, ptr %arrayidx, i64 25
   %44 = load i8, ptr %type.i1000, align 1
   switch i8 %44, label %limitByReach.exit1048 [
@@ -11386,16 +11386,16 @@ while.cond.i985:                                  ; preds = %while.cond.i985, %l
   %160 = load i32, ptr %p.0.i, align 4
   %cmp.i986 = icmp eq i32 %160, 1
   %incdec.ptr.i987 = getelementptr inbounds i8, ptr %p.0.i, i64 12
-  br i1 %cmp.i986, label %while.cond.i985, label %get_init_puff.exit, !llvm.loop !15
+  br i1 %cmp.i986, label %while.cond.i985, label %get_init_puff.argprom.exit, !llvm.loop !15
 
-get_init_puff.exit:                               ; preds = %while.cond.i985
+get_init_puff.argprom.exit:                       ; preds = %while.cond.i985
   %add = add i64 %retval.i984.0, 1
   %add.ptr.i988 = getelementptr inbounds i8, ptr %p.0.i, i64 -12
   store ptr %add.ptr.i988, ptr %curr, align 8
   br label %if.end67
 
-if.end67:                                         ; preds = %get_init_puff.exit, %if.end36
-  %lim.1 = phi i64 [ %lim.0, %if.end36 ], [ %add, %get_init_puff.exit ]
+if.end67:                                         ; preds = %get_init_puff.argprom.exit, %if.end36
+  %lim.1 = phi i64 [ %lim.0, %if.end36 ], [ %add, %get_init_puff.argprom.exit ]
   store i64 %lim.1, ptr %arrayidx6, align 8
   %tobool72.not = icmp eq i64 %lim.1, 0
   br i1 %tobool72.not, label %if.then73, label %if.end76
@@ -12109,9 +12109,9 @@ while.cond.i455:                                  ; preds = %while.cond.i455, %i
   %26 = load i32, ptr %p.0.i, align 4
   %cmp.i456 = icmp eq i32 %26, 1
   %incdec.ptr.i457 = getelementptr inbounds i8, ptr %p.0.i, i64 12
-  br i1 %cmp.i456, label %while.cond.i455, label %get_init_puff.exit, !llvm.loop !15
+  br i1 %cmp.i456, label %while.cond.i455, label %get_init_puff.argprom.exit, !llvm.loop !15
 
-get_init_puff.exit:                               ; preds = %while.cond.i455
+get_init_puff.argprom.exit:                       ; preds = %while.cond.i455
   %add.ptr.i458 = getelementptr inbounds i8, ptr %p.0.i, i64 -12
   %curr = getelementptr inbounds i8, ptr %arrayidx7, i64 8
   store ptr %add.ptr.i458, ptr %curr, align 8
@@ -12520,9 +12520,9 @@ while.cond.i461:                                  ; preds = %while.cond.i461, %i
   %94 = load i32, ptr %p.0.i462, align 4
   %cmp.i463 = icmp eq i32 %94, 1
   %incdec.ptr.i464 = getelementptr inbounds i8, ptr %p.0.i462, i64 12
-  br i1 %cmp.i463, label %while.cond.i461, label %get_init_puff.exit466, !llvm.loop !15
+  br i1 %cmp.i463, label %while.cond.i461, label %get_init_puff.argprom.exit466, !llvm.loop !15
 
-get_init_puff.exit466:                            ; preds = %while.cond.i461
+get_init_puff.argprom.exit466:                    ; preds = %while.cond.i461
   %add.ptr.i465 = getelementptr inbounds i8, ptr %p.0.i462, i64 -12
   %curr35 = getelementptr inbounds i8, ptr %arrayidx27, i64 8
   store ptr %add.ptr.i465, ptr %curr35, align 8
@@ -12531,7 +12531,7 @@ get_init_puff.exit466:                            ; preds = %while.cond.i461
   %cmp41.not = icmp eq i32 %95, -1
   br i1 %cmp41.not, label %if.end55, label %if.then42
 
-if.then42:                                        ; preds = %get_init_puff.exit466
+if.then42:                                        ; preds = %get_init_puff.argprom.exit466
   %96 = load i32, ptr %p.0.i462, align 4
   %97 = trunc i64 %loc to i32
   %sub48.tr = add i32 %97, -1
@@ -12540,8 +12540,8 @@ if.then42:                                        ; preds = %get_init_puff.exit4
   %cond = tail call i64 @llvm.umin.i64(i64 %add, i64 %conv51)
   br label %if.end55
 
-if.end55:                                         ; preds = %if.then42, %get_init_puff.exit466
-  %lim.0 = phi i64 [ %cond, %if.then42 ], [ %add, %get_init_puff.exit466 ]
+if.end55:                                         ; preds = %if.then42, %get_init_puff.argprom.exit466
+  %lim.0 = phi i64 [ %cond, %if.then42 ], [ %add, %get_init_puff.argprom.exit466 ]
   %98 = load i32, ptr %add.ptr.i465, align 4
   %cmp62 = icmp eq i32 %98, 1
   br i1 %cmp62, label %do.end66, label %if.end69
@@ -12675,7 +12675,7 @@ pq_insert.exit:                                   ; preds = %pq_insert.exit.loop
   store i32 %inc, ptr %dstate, align 8
   br label %if.end76
 
-if.end76:                                         ; preds = %if.end.i302, %do.body.i, %if.else.i, %if.end6.i.thread, %if.then.i, %mmbit_set_i.exit, %pq_insert.exit, %if.end69, %get_init_puff.exit
+if.end76:                                         ; preds = %if.end.i302, %do.body.i, %if.else.i, %if.end6.i.thread, %if.then.i, %mmbit_set_i.exit, %pq_insert.exit, %if.end69, %get_init_puff.argprom.exit
   ret void
 }
 

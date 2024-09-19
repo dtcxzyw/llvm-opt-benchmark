@@ -965,7 +965,7 @@ if.then.i:                                        ; preds = %for.end118
   store i32 %call.i76, ptr %call2.i, align 4
   %20 = load ptr, ptr @stderr, align 8
   %call3.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef 556, i32 noundef %call.i76, ptr noundef nonnull @.str.64) #17
-  call fastcc void @err_sys() #21
+  call fastcc void @err_sys.argprom() #21
   unreachable
 
 do.body4.i:                                       ; preds = %for.end118
@@ -979,7 +979,7 @@ if.then8.i:                                       ; preds = %do.body4.i
   store i32 %call6.i, ptr %call9.i77, align 4
   %21 = load ptr, ptr @stderr, align 8
   %call10.i78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef 558, i32 noundef %call6.i, ptr noundef nonnull @.str.66) #17
-  call fastcc void @err_sys() #21
+  call fastcc void @err_sys.argprom() #21
   unreachable
 
 InitTcpReady.exit:                                ; preds = %do.body4.i
@@ -1208,7 +1208,7 @@ if.then.i106:                                     ; preds = %if.end271
   store i32 %call.i104, ptr %call1.i, align 4
   %40 = load ptr, ptr @stderr, align 8
   %call2.i107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef 570, i32 noundef %call.i104, ptr noundef nonnull @.str.69) #17
-  call fastcc void @err_sys() #21
+  call fastcc void @err_sys.argprom() #21
   unreachable
 
 do.body3.i:                                       ; preds = %if.end271
@@ -1221,7 +1221,7 @@ if.then7.i:                                       ; preds = %do.body3.i
   store i32 %call5.i, ptr %call8.i109, align 4
   %41 = load ptr, ptr @stderr, align 8
   %call9.i110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef 572, i32 noundef %call5.i, ptr noundef nonnull @.str.70) #17
-  call fastcc void @err_sys() #21
+  call fastcc void @err_sys.argprom() #21
   unreachable
 
 FreeTcpReady.exit:                                ; preds = %do.body3.i
@@ -1273,7 +1273,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
 declare i32 @wc_InitMutex(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @err_sys() unnamed_addr #11 {
+define internal fastcc void @err_sys.argprom() unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.65) #17

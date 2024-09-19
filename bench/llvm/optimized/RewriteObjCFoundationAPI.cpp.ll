@@ -1402,7 +1402,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %464, %459, %_ZNK4ll
   %.val.i = load ptr, ptr %465, align 8
   %466 = getelementptr i8, ptr %402, i64 2112
   %.val139.i = load ptr, ptr %466, align 8
-  %467 = call fastcc noundef zeroext i1 @_ZL14getLiteralInfoN5clang11SourceRangeEbbRNS_10ASTContextERN12_GLOBAL__N_111LiteralInfoE(i64 %417, i1 noundef zeroext %446, i1 noundef zeroext %.0124.i, ptr %.val.i, ptr %.val139.i, ptr noundef nonnull align 8 dereferenceable(84) %5)
+  %467 = call fastcc noundef zeroext i1 @_ZL14getLiteralInfoN5clang11SourceRangeEbbRNS_10ASTContextERN12_GLOBAL__N_111LiteralInfoE.argprom(i64 %417, i1 noundef zeroext %446, i1 noundef zeroext %.0124.i, ptr %.val.i, ptr %.val139.i, ptr noundef nonnull align 8 dereferenceable(84) %5)
   br i1 %467, label %470, label %468
 
 468:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit.i
@@ -1554,7 +1554,7 @@ _ZL22rewriteToNumberLiteralPKN5clang15ObjCMessageExprERKNS_5NSAPIERNS_4edit6Comm
 
 .sink.split.i36:                                  ; preds = %536, %531, %521
   %.val23.i = load ptr, ptr %1, align 8
-  %539 = tail call fastcc noundef zeroext i1 @_ZL42doRewriteToUTF8StringBoxedExpressionHelperPKN5clang15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef nonnull %0, ptr %.val23.i, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  %539 = tail call fastcc noundef zeroext i1 @_ZL42doRewriteToUTF8StringBoxedExpressionHelperPKN5clang15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE.argprom(ptr noundef nonnull %0, ptr %.val23.i, ptr noundef nonnull align 8 dereferenceable(600) %2)
   br label %_ZL21rewriteToArrayLiteralPKN5clang15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitEPKNS_9ParentMapE.exit
 
 _ZL21rewriteToArrayLiteralPKN5clang15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitEPKNS_9ParentMapE.exit: ; preds = %39, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i, %50, %26, %4, %18, %22, %.sink.split.i36, %536, %528, %524, %521, %196, %194, %176, %172, %168, %157, %154, %148, %145, %_ZL36shouldNotRewriteImmediateMessageArgsPKN5clang15ObjCMessageExprERKNS_5NSAPIE.exit.i, %137, %504, %_ZL22rewriteToNumberLiteralPKN5clang15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE.exit, %_ZL26rewriteToDictionaryLiteralPKN5clang15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE.exit
@@ -2715,7 +2715,7 @@ _ZNK5clang16APNumericStorage11getIntValueEv.exit: ; preds = %6, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14getLiteralInfoN5clang11SourceRangeEbbRNS_10ASTContextERN12_GLOBAL__N_111LiteralInfoE(i64 %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr %.2104.val, ptr %.2112.val, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14getLiteralInfoN5clang11SourceRangeEbbRNS_10ASTContextERN12_GLOBAL__N_111LiteralInfoE.argprom(i64 %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr %.2104.val, ptr %.2112.val, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) %3) unnamed_addr #0 {
   %5 = and i64 %0, -9223372034707292160
   %or.cond.not = icmp eq i64 %5, 0
   br i1 %or.cond.not, label %6, label %.critedge
@@ -3298,7 +3298,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 declare { ptr, i64 } @_ZN5clang5Lexer13getSourceTextENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsEPb(i64, i8, ptr noundef nonnull align 1, ptr noundef nonnull align 8 dereferenceable(841), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL42doRewriteToUTF8StringBoxedExpressionHelperPKN5clang15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(600) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL42doRewriteToUTF8StringBoxedExpressionHelperPKN5clang15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE.argprom(ptr noundef %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(600) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8

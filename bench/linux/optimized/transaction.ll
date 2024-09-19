@@ -4146,12 +4146,12 @@ define dso_local noundef range(i32 -30, 1) i32 @jbd2_journal_inode_ranged_write(
   %.val = load ptr, ptr %0, align 8
   %7 = getelementptr i8, ptr %0, i64 36
   %.val1 = load i32, ptr %7, align 4
-  %8 = tail call fastcc i32 @jbd2_journal_file_inode(ptr %.val, i32 %.val1, ptr noundef %1, i64 noundef 6, i64 noundef %2, i64 noundef %6)
+  %8 = tail call fastcc i32 @jbd2_journal_file_inode.argprom(ptr %.val, i32 %.val1, ptr noundef %1, i64 noundef 6, i64 noundef %2, i64 noundef %6)
   ret i32 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -30, 1) i32 @jbd2_journal_file_inode(ptr %.0.val, i32 %.36.val, ptr noundef %0, i64 noundef range(i64 4, 7) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -30, 1) i32 @jbd2_journal_file_inode.argprom(ptr %.0.val, i32 %.36.val, ptr noundef %0, i64 noundef range(i64 4, 7) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 align 16 {
   %5 = and i32 %.36.val, 8
   %6 = icmp ne i32 %5, 0
   %7 = icmp eq ptr %.0.val, null
@@ -4278,7 +4278,7 @@ define dso_local noundef range(i32 -30, 1) i32 @jbd2_journal_inode_ranged_wait(p
   %.val = load ptr, ptr %0, align 8
   %7 = getelementptr i8, ptr %0, i64 36
   %.val1 = load i32, ptr %7, align 4
-  %8 = tail call fastcc i32 @jbd2_journal_file_inode(ptr %.val, i32 %.val1, ptr noundef %1, i64 noundef 4, i64 noundef %2, i64 noundef %6)
+  %8 = tail call fastcc i32 @jbd2_journal_file_inode.argprom(ptr %.val, i32 %.val1, ptr noundef %1, i64 noundef 4, i64 noundef %2, i64 noundef %6)
   ret i32 %8
 }
 

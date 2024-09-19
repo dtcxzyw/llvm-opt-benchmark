@@ -250,9 +250,9 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr nound
   %72 = getelementptr inbounds i8, ptr %.val.i, i64 16
   %73 = load i64, ptr %72, align 8
   %74 = icmp eq i64 %73, 0
-  br i1 %74, label %lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit, label %lxb_html_tree_current_node.exit.i
+  br i1 %74, label %lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit, label %lxb_html_tree_current_node.argprom.exit.i
 
-lxb_html_tree_current_node.exit.i:                ; preds = %70
+lxb_html_tree_current_node.argprom.exit.i:        ; preds = %70
   %75 = load ptr, ptr %.val.i, align 8
   %76 = getelementptr ptr, ptr %75, i64 %73
   %77 = getelementptr i8, ptr %76, i64 -8
@@ -260,7 +260,7 @@ lxb_html_tree_current_node.exit.i:                ; preds = %70
   %.not28.i = icmp eq ptr %78, null
   br i1 %.not28.i, label %lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit, label %79
 
-79:                                               ; preds = %lxb_html_tree_current_node.exit.i
+79:                                               ; preds = %lxb_html_tree_current_node.argprom.exit.i
   %80 = getelementptr inbounds i8, ptr %78, i64 24
   %81 = load i64, ptr %80, align 8
   %82 = icmp eq i64 %81, 3
@@ -286,8 +286,8 @@ lxb_html_tree_mathml_text_integration_point.exit.i: ; preds = %83, %79
   %90 = tail call fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_anything_else(ptr noundef %0, ptr noundef nonnull %1)
   br label %lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit
 
-lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit: ; preds = %87, %lxb_html_tree_mathml_text_integration_point.exit.i, %83, %lxb_html_tree_current_node.exit.i, %70, %68, %._crit_edge.i, %.loopexit.i, %37, %17, %89, %54, %52, %50, %9
-  %.0 = phi i1 [ %10, %9 ], [ %90, %89 ], [ true, %54 ], [ %53, %52 ], [ %51, %50 ], [ %20, %17 ], [ true, %37 ], [ %48, %.loopexit.i ], [ %69, %68 ], [ %64, %._crit_edge.i ], [ false, %70 ], [ false, %lxb_html_tree_current_node.exit.i ], [ false, %83 ], [ false, %lxb_html_tree_mathml_text_integration_point.exit.i ], [ false, %87 ]
+lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit: ; preds = %87, %lxb_html_tree_mathml_text_integration_point.exit.i, %83, %lxb_html_tree_current_node.argprom.exit.i, %70, %68, %._crit_edge.i, %.loopexit.i, %37, %17, %89, %54, %52, %50, %9
+  %.0 = phi i1 [ %10, %9 ], [ %90, %89 ], [ true, %54 ], [ %53, %52 ], [ %51, %50 ], [ %20, %17 ], [ true, %37 ], [ %48, %.loopexit.i ], [ %69, %68 ], [ %64, %._crit_edge.i ], [ false, %70 ], [ false, %lxb_html_tree_current_node.argprom.exit.i ], [ false, %83 ], [ false, %lxb_html_tree_mathml_text_integration_point.exit.i ], [ false, %87 ]
   ret i1 %.0
 }
 
@@ -298,29 +298,29 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
   %4 = getelementptr inbounds i8, ptr %.val, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %lxb_html_tree_current_node.exit, label %7
+  br i1 %6, label %lxb_html_tree_current_node.argprom.exit, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %.val, align 8
   %9 = getelementptr ptr, ptr %8, i64 %5
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load ptr, ptr %10, align 8
-  br label %lxb_html_tree_current_node.exit
+  br label %lxb_html_tree_current_node.argprom.exit
 
-lxb_html_tree_current_node.exit:                  ; preds = %2, %7
+lxb_html_tree_current_node.argprom.exit:          ; preds = %2, %7
   %.0.i = phi ptr [ %11, %7 ], [ null, %2 ]
   %12 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %13 = load i64, ptr %12, align 8
   %.not = icmp eq i64 %13, 161
   br i1 %.not, label %14, label %17
 
-14:                                               ; preds = %lxb_html_tree_current_node.exit
+14:                                               ; preds = %lxb_html_tree_current_node.argprom.exit
   %15 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %16 = load i64, ptr %15, align 8
   %.not7 = icmp eq i64 %16, 4
   br i1 %.not7, label %52, label %17
 
-17:                                               ; preds = %14, %lxb_html_tree_current_node.exit
+17:                                               ; preds = %14, %lxb_html_tree_current_node.argprom.exit
   br i1 %6, label %18, label %22
 
 18:                                               ; preds = %17
@@ -614,23 +614,23 @@ lxb_html_tree_adjusted_current_node.exit:         ; preds = %2, %._crit_edge.i
   %45 = getelementptr inbounds i8, ptr %.val, i64 16
   %46 = load i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %lxb_html_tree_current_node.exit, label %48
+  br i1 %47, label %lxb_html_tree_current_node.argprom.exit, label %48
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %.val, align 8
   %50 = getelementptr ptr, ptr %49, i64 %46
   %51 = getelementptr i8, ptr %50, i64 -8
   %52 = load ptr, ptr %51, align 8
-  br label %lxb_html_tree_current_node.exit
+  br label %lxb_html_tree_current_node.argprom.exit
 
-lxb_html_tree_current_node.exit:                  ; preds = %44, %48
+lxb_html_tree_current_node.argprom.exit:          ; preds = %44, %48
   %.0.i39 = phi ptr [ %52, %48 ], [ null, %44 ]
   %53 = getelementptr inbounds i8, ptr %1, i64 80
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 161
   br i1 %55, label %56, label %61
 
-56:                                               ; preds = %lxb_html_tree_current_node.exit
+56:                                               ; preds = %lxb_html_tree_current_node.argprom.exit
   %57 = getelementptr inbounds i8, ptr %.0.i39, i64 24
   %58 = load i64, ptr %57, align 8
   %59 = icmp eq i64 %58, 4
@@ -640,7 +640,7 @@ lxb_html_tree_acknowledge_token_self_closing.exit: ; preds = %56
   %60 = tail call fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_script_closed(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %lxb_html_tree_acknowledge_token_self_closing.exit40
 
-61:                                               ; preds = %56, %lxb_html_tree_current_node.exit
+61:                                               ; preds = %56, %lxb_html_tree_current_node.argprom.exit
   %62 = tail call ptr @lexbor_array_pop(ptr noundef nonnull %.val) #4
   %63 = load i32, ptr %40, align 8
   %64 = and i32 %63, 2

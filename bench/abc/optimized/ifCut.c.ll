@@ -2215,7 +2215,7 @@ define float @If_CutAreaFlow(ptr nocapture noundef readonly %0, ptr nocapture no
   %8 = getelementptr inbounds i8, ptr %7, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = sitofp i32 %9 to float
-  br label %If_CutLutArea.exit
+  br label %If_CutLutArea.argprom.exit
 
 11:                                               ; preds = %2
   %12 = and i64 %.val24, 8192
@@ -2226,7 +2226,7 @@ define float @If_CutAreaFlow(ptr nocapture noundef readonly %0, ptr nocapture no
   %14 = trunc i64 %.val24 to i32
   %15 = and i32 %14, 4095
   %16 = uitofp nneg i32 %15 to float
-  br label %If_CutLutArea.exit
+  br label %If_CutLutArea.argprom.exit
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2234,7 +2234,7 @@ define float @If_CutAreaFlow(ptr nocapture noundef readonly %0, ptr nocapture no
   %20 = getelementptr inbounds i8, ptr %19, i64 280
   %21 = load ptr, ptr %20, align 8
   %.not8.i = icmp eq ptr %21, null
-  br i1 %.not8.i, label %If_CutLutArea.exit, label %22
+  br i1 %.not8.i, label %If_CutLutArea.argprom.exit, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds i8, ptr %21, i64 16
@@ -2242,16 +2242,16 @@ define float @If_CutAreaFlow(ptr nocapture noundef readonly %0, ptr nocapture no
   %25 = and i64 %24, 255
   %26 = getelementptr inbounds [33 x float], ptr %23, i64 0, i64 %25
   %27 = load float, ptr %26, align 4
-  br label %If_CutLutArea.exit
+  br label %If_CutLutArea.argprom.exit
 
-If_CutLutArea.exit:                               ; preds = %5, %13, %17, %22
+If_CutLutArea.argprom.exit:                       ; preds = %5, %13, %17, %22
   %28 = phi float [ %10, %5 ], [ %16, %13 ], [ %27, %22 ], [ 1.000000e+00, %17 ]
   %29 = getelementptr inbounds i8, ptr %1, i64 36
   %30 = and i64 %.val24, 4278190080
   %.not31 = icmp eq i64 %30, 0
   br i1 %.not31, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %If_CutLutArea.exit
+.lr.ph:                                           ; preds = %If_CutLutArea.argprom.exit
   %31 = lshr i64 %.val24, 24
   %32 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %32, align 8
@@ -2317,8 +2317,8 @@ If_CutLutArea.exit:                               ; preds = %5, %13, %17, %22
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %34, !llvm.loop !29
 
-.critedge:                                        ; preds = %34, %62, %If_CutLutArea.exit
-  %.020.lcssa = phi float [ %28, %If_CutLutArea.exit ], [ %.1, %62 ], [ %.02027, %34 ]
+.critedge:                                        ; preds = %34, %62, %If_CutLutArea.argprom.exit
+  %.020.lcssa = phi float [ %28, %If_CutLutArea.argprom.exit ], [ %.1, %62 ], [ %.02027, %34 ]
   ret float %.020.lcssa
 }
 
@@ -2544,7 +2544,7 @@ define float @If_CutAreaDeref(ptr nocapture noundef readonly %0, ptr nocapture n
   %8 = getelementptr inbounds i8, ptr %7, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = sitofp i32 %9 to float
-  br label %If_CutLutArea.exit
+  br label %If_CutLutArea.argprom.exit
 
 11:                                               ; preds = %2
   %12 = and i64 %.val16, 8192
@@ -2555,7 +2555,7 @@ define float @If_CutAreaDeref(ptr nocapture noundef readonly %0, ptr nocapture n
   %14 = trunc i64 %.val16 to i32
   %15 = and i32 %14, 4095
   %16 = uitofp nneg i32 %15 to float
-  br label %If_CutLutArea.exit
+  br label %If_CutLutArea.argprom.exit
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2563,7 +2563,7 @@ define float @If_CutAreaDeref(ptr nocapture noundef readonly %0, ptr nocapture n
   %20 = getelementptr inbounds i8, ptr %19, i64 280
   %21 = load ptr, ptr %20, align 8
   %.not8.i = icmp eq ptr %21, null
-  br i1 %.not8.i, label %If_CutLutArea.exit, label %22
+  br i1 %.not8.i, label %If_CutLutArea.argprom.exit, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds i8, ptr %21, i64 16
@@ -2571,16 +2571,16 @@ define float @If_CutAreaDeref(ptr nocapture noundef readonly %0, ptr nocapture n
   %25 = and i64 %24, 255
   %26 = getelementptr inbounds [33 x float], ptr %23, i64 0, i64 %25
   %27 = load float, ptr %26, align 4
-  br label %If_CutLutArea.exit
+  br label %If_CutLutArea.argprom.exit
 
-If_CutLutArea.exit:                               ; preds = %5, %13, %17, %22
+If_CutLutArea.argprom.exit:                       ; preds = %5, %13, %17, %22
   %28 = phi float [ %10, %5 ], [ %16, %13 ], [ %27, %22 ], [ 1.000000e+00, %17 ]
   %29 = getelementptr inbounds i8, ptr %1, i64 36
   %30 = and i64 %.val16, 4278190080
   %.not23 = icmp eq i64 %30, 0
   br i1 %.not23, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %If_CutLutArea.exit
+.lr.ph:                                           ; preds = %If_CutLutArea.argprom.exit
   %31 = getelementptr i8, ptr %0, i64 40
   br label %32
 
@@ -2627,8 +2627,8 @@ If_CutLutArea.exit:                               ; preds = %5, %13, %17, %22
   %54 = icmp ult i64 %indvars.iv.next, %53
   br i1 %54, label %32, label %.critedge, !llvm.loop !33
 
-.critedge:                                        ; preds = %32, %50, %If_CutLutArea.exit
-  %.013.lcssa = phi float [ %28, %If_CutLutArea.exit ], [ %.1, %50 ], [ %.01319, %32 ]
+.critedge:                                        ; preds = %32, %50, %If_CutLutArea.argprom.exit
+  %.013.lcssa = phi float [ %28, %If_CutLutArea.argprom.exit ], [ %.1, %50 ], [ %.01319, %32 ]
   ret float %.013.lcssa
 }
 
@@ -2646,7 +2646,7 @@ define float @If_CutAreaRef(ptr nocapture noundef readonly %0, ptr nocapture nou
   %8 = getelementptr inbounds i8, ptr %7, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = sitofp i32 %9 to float
-  br label %If_CutLutArea.exit
+  br label %If_CutLutArea.argprom.exit
 
 11:                                               ; preds = %2
   %12 = and i64 %.val16, 8192
@@ -2657,7 +2657,7 @@ define float @If_CutAreaRef(ptr nocapture noundef readonly %0, ptr nocapture nou
   %14 = trunc i64 %.val16 to i32
   %15 = and i32 %14, 4095
   %16 = uitofp nneg i32 %15 to float
-  br label %If_CutLutArea.exit
+  br label %If_CutLutArea.argprom.exit
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2665,7 +2665,7 @@ define float @If_CutAreaRef(ptr nocapture noundef readonly %0, ptr nocapture nou
   %20 = getelementptr inbounds i8, ptr %19, i64 280
   %21 = load ptr, ptr %20, align 8
   %.not8.i = icmp eq ptr %21, null
-  br i1 %.not8.i, label %If_CutLutArea.exit, label %22
+  br i1 %.not8.i, label %If_CutLutArea.argprom.exit, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds i8, ptr %21, i64 16
@@ -2673,16 +2673,16 @@ define float @If_CutAreaRef(ptr nocapture noundef readonly %0, ptr nocapture nou
   %25 = and i64 %24, 255
   %26 = getelementptr inbounds [33 x float], ptr %23, i64 0, i64 %25
   %27 = load float, ptr %26, align 4
-  br label %If_CutLutArea.exit
+  br label %If_CutLutArea.argprom.exit
 
-If_CutLutArea.exit:                               ; preds = %5, %13, %17, %22
+If_CutLutArea.argprom.exit:                       ; preds = %5, %13, %17, %22
   %28 = phi float [ %10, %5 ], [ %16, %13 ], [ %27, %22 ], [ 1.000000e+00, %17 ]
   %29 = getelementptr inbounds i8, ptr %1, i64 36
   %30 = and i64 %.val16, 4278190080
   %.not23 = icmp eq i64 %30, 0
   br i1 %.not23, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %If_CutLutArea.exit
+.lr.ph:                                           ; preds = %If_CutLutArea.argprom.exit
   %31 = getelementptr i8, ptr %0, i64 40
   br label %32
 
@@ -2729,8 +2729,8 @@ If_CutLutArea.exit:                               ; preds = %5, %13, %17, %22
   %54 = icmp ult i64 %indvars.iv.next, %53
   br i1 %54, label %32, label %.critedge, !llvm.loop !34
 
-.critedge:                                        ; preds = %32, %50, %If_CutLutArea.exit
-  %.013.lcssa = phi float [ %28, %If_CutLutArea.exit ], [ %.1, %50 ], [ %.01319, %32 ]
+.critedge:                                        ; preds = %32, %50, %If_CutLutArea.argprom.exit
+  %.013.lcssa = phi float [ %28, %If_CutLutArea.argprom.exit ], [ %.1, %50 ], [ %.01319, %32 ]
   ret float %.013.lcssa
 }
 

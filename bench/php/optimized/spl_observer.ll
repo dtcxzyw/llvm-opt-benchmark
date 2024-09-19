@@ -235,7 +235,7 @@ define internal fastcc ptr @spl_object_storage_attach(ptr noundef %0, ptr nounde
 
 12:                                               ; preds = %3
   %13 = tail call fastcc ptr @spl_object_storage_attach_handle(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
-  br label %spl_object_storage_free_hash.exit172
+  br label %spl_object_storage_free_hash.argprom.exit172
 
 14:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -279,7 +279,7 @@ define internal fastcc ptr @spl_object_storage_attach(ptr noundef %0, ptr nounde
 spl_object_storage_get_hash.exit.thread:          ; preds = %25, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %spl_object_storage_free_hash.exit172
+  br label %spl_object_storage_free_hash.argprom.exit172
 
 32:                                               ; preds = %17
   %33 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
@@ -324,14 +324,14 @@ spl_object_storage_get_hash.exit.thread:          ; preds = %25, %17
   br label %51
 
 51:                                               ; preds = %47, %42, %50
-  br i1 %.not.i, label %spl_object_storage_free_hash.exit, label %52
+  br i1 %.not.i, label %spl_object_storage_free_hash.argprom.exit, label %52
 
 52:                                               ; preds = %51
   %53 = getelementptr inbounds i8, ptr %.sroa.3.0174182, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, 64
   %.not9.i = icmp eq i32 %55, 0
-  br i1 %.not9.i, label %56, label %spl_object_storage_free_hash.exit
+  br i1 %.not9.i, label %56, label %spl_object_storage_free_hash.argprom.exit
 
 56:                                               ; preds = %52
   %57 = load i32, ptr %.sroa.3.0174182, align 4
@@ -340,15 +340,15 @@ spl_object_storage_get_hash.exit.thread:          ; preds = %25, %17
   %59 = add i32 %57, -1
   store i32 %59, ptr %.sroa.3.0174182, align 4
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %spl_object_storage_free_hash.exit
+  br i1 %60, label %61, label %spl_object_storage_free_hash.argprom.exit
 
 61:                                               ; preds = %56
   call void @_efree(ptr noundef nonnull %.sroa.3.0174182) #10
-  br label %spl_object_storage_free_hash.exit
+  br label %spl_object_storage_free_hash.argprom.exit
 
-spl_object_storage_free_hash.exit:                ; preds = %51, %52, %56, %61
+spl_object_storage_free_hash.argprom.exit:        ; preds = %51, %52, %56, %61
   call void @zval_ptr_dtor(ptr noundef nonnull %8) #10
-  br label %spl_object_storage_free_hash.exit172
+  br label %spl_object_storage_free_hash.argprom.exit172
 
 62:                                               ; preds = %32, %.thread
   %.sroa.0.0187.ph = phi i64 [ %30, %.thread ], [ undef, %32 ]
@@ -416,7 +416,7 @@ spl_object_storage_free_hash.exit:                ; preds = %51, %52, %56, %61
   store i32 13, ptr %88, align 8
   %89 = call ptr @zend_hash_index_update(ptr noundef nonnull %0, i64 noundef %.sroa.0.0187.ph, ptr noundef nonnull %6) #10
   %.0146201 = load ptr, ptr %89, align 8, !nonnull !4, !noundef !4
-  br label %spl_object_storage_free_hash.exit172
+  br label %spl_object_storage_free_hash.argprom.exit172
 
 90:                                               ; preds = %80, %78
   %91 = phi ptr [ %79, %78 ], [ %81, %80 ]
@@ -434,7 +434,7 @@ spl_object_storage_free_hash.exit:                ; preds = %51, %52, %56, %61
   %95 = load i32, ptr %94, align 4
   %96 = and i32 %95, 64
   %.not9.i171 = icmp eq i32 %96, 0
-  br i1 %.not9.i171, label %97, label %spl_object_storage_free_hash.exit172
+  br i1 %.not9.i171, label %97, label %spl_object_storage_free_hash.argprom.exit172
 
 97:                                               ; preds = %90
   %98 = load i32, ptr %.sroa.3.0174183.ph, align 4
@@ -443,14 +443,14 @@ spl_object_storage_free_hash.exit:                ; preds = %51, %52, %56, %61
   %100 = add i32 %98, -1
   store i32 %100, ptr %.sroa.3.0174183.ph, align 4
   %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %spl_object_storage_free_hash.exit172
+  br i1 %101, label %102, label %spl_object_storage_free_hash.argprom.exit172
 
 102:                                              ; preds = %97
   call void @_efree(ptr noundef nonnull %.sroa.3.0174183.ph) #10
-  br label %spl_object_storage_free_hash.exit172
+  br label %spl_object_storage_free_hash.argprom.exit172
 
-spl_object_storage_free_hash.exit172:             ; preds = %102, %97, %90, %.thread199, %spl_object_storage_get_hash.exit.thread, %spl_object_storage_free_hash.exit, %12
-  %.0 = phi ptr [ %13, %12 ], [ %36, %spl_object_storage_free_hash.exit ], [ null, %spl_object_storage_get_hash.exit.thread ], [ %.0146201, %.thread199 ], [ %.0146, %90 ], [ %.0146, %97 ], [ %.0146, %102 ]
+spl_object_storage_free_hash.argprom.exit172:     ; preds = %102, %97, %90, %.thread199, %spl_object_storage_get_hash.exit.thread, %spl_object_storage_free_hash.argprom.exit, %12
+  %.0 = phi ptr [ %13, %12 ], [ %36, %spl_object_storage_free_hash.argprom.exit ], [ null, %spl_object_storage_get_hash.exit.thread ], [ %.0146201, %.thread199 ], [ %.0146, %90 ], [ %.0146, %97 ], [ %.0146, %102 ]
   ret ptr %.0
 }
 
@@ -511,7 +511,7 @@ define internal fastcc i32 @spl_object_storage_detach(ptr noundef %0, ptr nounde
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = tail call i32 @zend_hash_index_del(ptr noundef nonnull %0, i64 noundef %11) #10
-  br label %spl_object_storage_free_hash.exit
+  br label %spl_object_storage_free_hash.argprom.exit
 
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -549,12 +549,12 @@ define internal fastcc i32 @spl_object_storage_detach(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %30 = tail call i32 @zend_hash_index_del(ptr noundef nonnull %0, i64 noundef %29) #10
-  br label %spl_object_storage_free_hash.exit
+  br label %spl_object_storage_free_hash.argprom.exit
 
 spl_object_storage_get_hash.exit.thread:          ; preds = %24, %16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %spl_object_storage_free_hash.exit
+  br label %spl_object_storage_free_hash.argprom.exit
 
 31:                                               ; preds = %16
   %32 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
@@ -565,7 +565,7 @@ spl_object_storage_get_hash.exit.thread:          ; preds = %24, %16
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 64
   %.not9.i = icmp eq i32 %36, 0
-  br i1 %.not9.i, label %37, label %spl_object_storage_free_hash.exit
+  br i1 %.not9.i, label %37, label %spl_object_storage_free_hash.argprom.exit
 
 37:                                               ; preds = %31
   %38 = load i32, ptr %32, align 4
@@ -574,13 +574,13 @@ spl_object_storage_get_hash.exit.thread:          ; preds = %24, %16
   %40 = add i32 %38, -1
   store i32 %40, ptr %32, align 4
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %spl_object_storage_free_hash.exit
+  br i1 %41, label %42, label %spl_object_storage_free_hash.argprom.exit
 
 42:                                               ; preds = %37
   call void @_efree(ptr noundef nonnull %32) #10
-  br label %spl_object_storage_free_hash.exit
+  br label %spl_object_storage_free_hash.argprom.exit
 
-spl_object_storage_free_hash.exit:                ; preds = %42, %37, %31, %.thread, %spl_object_storage_get_hash.exit.thread, %8
+spl_object_storage_free_hash.argprom.exit:        ; preds = %42, %37, %31, %.thread, %spl_object_storage_get_hash.exit.thread, %8
   %.010 = phi i32 [ %12, %8 ], [ -1, %spl_object_storage_get_hash.exit.thread ], [ %30, %.thread ], [ %33, %31 ], [ %33, %37 ], [ %33, %42 ]
   ret i32 %.010
 }
@@ -695,7 +695,7 @@ define hidden void @zim_SplObjectStorage_offsetGet(ptr noundef %0, ptr nocapture
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %32 = tail call ptr @zend_hash_index_find(ptr noundef nonnull %7, i64 noundef %31) #10
   %.not22.i = icmp eq ptr %32, null
-  br i1 %.not22.i, label %spl_object_storage_free_hash.exit.thread, label %spl_object_storage_free_hash.exit.thread138
+  br i1 %.not22.i, label %spl_object_storage_free_hash.argprom.exit.thread, label %spl_object_storage_free_hash.argprom.exit.thread138
 
 33:                                               ; preds = %26, %19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -710,48 +710,48 @@ define hidden void @zim_SplObjectStorage_offsetGet(ptr noundef %0, ptr nocapture
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %37 = call ptr @zend_hash_find(ptr noundef nonnull %7, ptr noundef nonnull %36) #10
   %.not23.i = icmp eq ptr %37, null
-  br i1 %.not23.i, label %spl_object_storage_get.exit.thread126, label %spl_object_storage_get.exit
+  br i1 %.not23.i, label %spl_object_storage_get.argprom.exit.thread126, label %spl_object_storage_get.argprom.exit
 
-spl_object_storage_free_hash.exit.thread138:      ; preds = %.thread110
+spl_object_storage_free_hash.argprom.exit.thread138: ; preds = %.thread110
   %38 = load ptr, ptr %32, align 8, !nonnull !4, !noundef !4
   br label %51
 
-spl_object_storage_get.exit:                      ; preds = %35
+spl_object_storage_get.argprom.exit:              ; preds = %35
   %39 = load ptr, ptr %37, align 8, !nonnull !4, !noundef !4
-  br label %spl_object_storage_get.exit.thread126
+  br label %spl_object_storage_get.argprom.exit.thread126
 
-spl_object_storage_get.exit.thread126:            ; preds = %35, %spl_object_storage_get.exit
-  %.018.i131 = phi ptr [ %39, %spl_object_storage_get.exit ], [ null, %35 ]
+spl_object_storage_get.argprom.exit.thread126:    ; preds = %35, %spl_object_storage_get.argprom.exit
+  %.018.i131 = phi ptr [ %39, %spl_object_storage_get.argprom.exit ], [ null, %35 ]
   %40 = getelementptr inbounds i8, ptr %36, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 64
   %.not9.i = icmp eq i32 %42, 0
-  br i1 %.not9.i, label %43, label %spl_object_storage_free_hash.exit
+  br i1 %.not9.i, label %43, label %spl_object_storage_free_hash.argprom.exit
 
-43:                                               ; preds = %spl_object_storage_get.exit.thread126
+43:                                               ; preds = %spl_object_storage_get.argprom.exit.thread126
   %44 = load i32, ptr %36, align 4
   %45 = icmp ne i32 %44, 0
   call void @llvm.assume(i1 %45)
   %46 = add i32 %44, -1
   store i32 %46, ptr %36, align 4
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %spl_object_storage_free_hash.exit
+  br i1 %47, label %48, label %spl_object_storage_free_hash.argprom.exit
 
 48:                                               ; preds = %43
   call void @_efree(ptr noundef nonnull %36) #10
-  br label %spl_object_storage_free_hash.exit
+  br label %spl_object_storage_free_hash.argprom.exit
 
-spl_object_storage_free_hash.exit:                ; preds = %spl_object_storage_get.exit.thread126, %43, %48
+spl_object_storage_free_hash.argprom.exit:        ; preds = %spl_object_storage_get.argprom.exit.thread126, %43, %48
   %.not83 = icmp eq ptr %.018.i131, null
-  br i1 %.not83, label %spl_object_storage_free_hash.exit.thread, label %51
+  br i1 %.not83, label %spl_object_storage_free_hash.argprom.exit.thread, label %51
 
-spl_object_storage_free_hash.exit.thread:         ; preds = %.thread110, %spl_object_storage_free_hash.exit
+spl_object_storage_free_hash.argprom.exit.thread: ; preds = %.thread110, %spl_object_storage_free_hash.argprom.exit
   %49 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8
   %50 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %49, i64 noundef 0, ptr noundef nonnull @.str) #10
   br label %75
 
-51:                                               ; preds = %spl_object_storage_free_hash.exit.thread138, %spl_object_storage_free_hash.exit
-  %.018.i125141 = phi ptr [ %38, %spl_object_storage_free_hash.exit.thread138 ], [ %.018.i131, %spl_object_storage_free_hash.exit ]
+51:                                               ; preds = %spl_object_storage_free_hash.argprom.exit.thread138, %spl_object_storage_free_hash.argprom.exit
+  %.018.i125141 = phi ptr [ %38, %spl_object_storage_free_hash.argprom.exit.thread138 ], [ %.018.i131, %spl_object_storage_free_hash.argprom.exit ]
   %52 = getelementptr inbounds i8, ptr %.018.i125141, i64 8
   %53 = getelementptr inbounds i8, ptr %.018.i125141, i64 16
   %54 = load i32, ptr %53, align 8
@@ -795,7 +795,7 @@ spl_object_storage_free_hash.exit.thread:         ; preds = %.thread110, %spl_ob
   store i32 %73, ptr %74, align 8
   br label %75
 
-75:                                               ; preds = %70, %spl_object_storage_free_hash.exit.thread, %33, %14
+75:                                               ; preds = %70, %spl_object_storage_free_hash.argprom.exit.thread, %33, %14
   ret void
 }
 
@@ -1872,9 +1872,9 @@ define hidden void @zim_SplObjectStorage_unserialize(ptr nocapture noundef reado
   %51 = getelementptr inbounds i8, ptr %10, i64 8
   br label %52
 
-52:                                               ; preds = %.lr.ph, %spl_object_storage_free_hash.exit.thread
-  %.in = phi i64 [ %44, %.lr.ph ], [ %53, %spl_object_storage_free_hash.exit.thread ]
-  %.sroa.0.0103 = phi i64 [ undef, %.lr.ph ], [ %.sroa.0.1697795, %spl_object_storage_free_hash.exit.thread ]
+52:                                               ; preds = %.lr.ph, %spl_object_storage_free_hash.argprom.exit.thread
+  %.in = phi i64 [ %44, %.lr.ph ], [ %53, %spl_object_storage_free_hash.argprom.exit.thread ]
+  %.sroa.0.0103 = phi i64 [ undef, %.lr.ph ], [ %.sroa.0.1697795, %spl_object_storage_free_hash.argprom.exit.thread ]
   %53 = add nsw i64 %.in, -1
   %54 = call ptr @var_tmp_var(ptr noundef nonnull %8) #10
   store i32 0, ptr %46, align 8
@@ -1969,50 +1969,50 @@ define hidden void @zim_SplObjectStorage_unserialize(ptr nocapture noundef reado
 91:                                               ; preds = %89
   %92 = call ptr @zend_hash_find(ptr noundef nonnull %13, ptr noundef nonnull %90) #10
   %.not23.i = icmp eq ptr %92, null
-  br i1 %.not23.i, label %spl_object_storage_get.exit.thread79, label %spl_object_storage_get.exit
+  br i1 %.not23.i, label %spl_object_storage_get.argprom.exit.thread79, label %spl_object_storage_get.argprom.exit
 
 93:                                               ; preds = %.thread, %89
   %.sroa.0.167 = phi i64 [ %88, %.thread ], [ %.sroa.0.0103, %89 ]
   %94 = call ptr @zend_hash_index_find(ptr noundef nonnull %13, i64 noundef %.sroa.0.167) #10
   %.not22.i = icmp eq ptr %94, null
-  br i1 %.not22.i, label %spl_object_storage_free_hash.exit.thread, label %spl_object_storage_free_hash.exit.thread96
+  br i1 %.not22.i, label %spl_object_storage_free_hash.argprom.exit.thread, label %spl_object_storage_free_hash.argprom.exit.thread96
 
-spl_object_storage_free_hash.exit.thread96:       ; preds = %93
+spl_object_storage_free_hash.argprom.exit.thread96: ; preds = %93
   %95 = load ptr, ptr %94, align 8, !nonnull !4, !noundef !4
   br label %106
 
-spl_object_storage_get.exit:                      ; preds = %91
+spl_object_storage_get.argprom.exit:              ; preds = %91
   %96 = load ptr, ptr %92, align 8, !nonnull !4, !noundef !4
-  br label %spl_object_storage_get.exit.thread79
+  br label %spl_object_storage_get.argprom.exit.thread79
 
-spl_object_storage_get.exit.thread79:             ; preds = %91, %spl_object_storage_get.exit
-  %.018.i86 = phi ptr [ %96, %spl_object_storage_get.exit ], [ null, %91 ]
+spl_object_storage_get.argprom.exit.thread79:     ; preds = %91, %spl_object_storage_get.argprom.exit
+  %.018.i86 = phi ptr [ %96, %spl_object_storage_get.argprom.exit ], [ null, %91 ]
   %97 = getelementptr inbounds i8, ptr %90, i64 4
   %98 = load i32, ptr %97, align 4
   %99 = and i32 %98, 64
   %.not9.i = icmp eq i32 %99, 0
-  br i1 %.not9.i, label %100, label %spl_object_storage_free_hash.exit
+  br i1 %.not9.i, label %100, label %spl_object_storage_free_hash.argprom.exit
 
-100:                                              ; preds = %spl_object_storage_get.exit.thread79
+100:                                              ; preds = %spl_object_storage_get.argprom.exit.thread79
   %101 = load i32, ptr %90, align 4
   %102 = icmp ne i32 %101, 0
   call void @llvm.assume(i1 %102)
   %103 = add i32 %101, -1
   store i32 %103, ptr %90, align 4
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %spl_object_storage_free_hash.exit
+  br i1 %104, label %105, label %spl_object_storage_free_hash.argprom.exit
 
 105:                                              ; preds = %100
   call void @_efree(ptr noundef nonnull %90) #10
-  br label %spl_object_storage_free_hash.exit
+  br label %spl_object_storage_free_hash.argprom.exit
 
-spl_object_storage_free_hash.exit:                ; preds = %spl_object_storage_get.exit.thread79, %100, %105
+spl_object_storage_free_hash.argprom.exit:        ; preds = %spl_object_storage_get.argprom.exit.thread79, %100, %105
   %.not52 = icmp eq ptr %.018.i86, null
-  br i1 %.not52, label %spl_object_storage_free_hash.exit.thread, label %106
+  br i1 %.not52, label %spl_object_storage_free_hash.argprom.exit.thread, label %106
 
-106:                                              ; preds = %spl_object_storage_free_hash.exit.thread96, %spl_object_storage_free_hash.exit
-  %.sroa.0.16977101 = phi i64 [ %.sroa.0.167, %spl_object_storage_free_hash.exit.thread96 ], [ %.sroa.0.0103, %spl_object_storage_free_hash.exit ]
-  %.018.i78100 = phi ptr [ %95, %spl_object_storage_free_hash.exit.thread96 ], [ %.018.i86, %spl_object_storage_free_hash.exit ]
+106:                                              ; preds = %spl_object_storage_free_hash.argprom.exit.thread96, %spl_object_storage_free_hash.argprom.exit
+  %.sroa.0.16977101 = phi i64 [ %.sroa.0.167, %spl_object_storage_free_hash.argprom.exit.thread96 ], [ %.sroa.0.0103, %spl_object_storage_free_hash.argprom.exit ]
+  %.018.i78100 = phi ptr [ %95, %spl_object_storage_free_hash.argprom.exit.thread96 ], [ %.018.i86, %spl_object_storage_free_hash.argprom.exit ]
   %107 = getelementptr inbounds i8, ptr %.018.i78100, i64 16
   %108 = load i8, ptr %107, align 8
   %109 = icmp eq i8 %108, 0
@@ -2028,10 +2028,10 @@ spl_object_storage_free_hash.exit:                ; preds = %spl_object_storage_
   store ptr %113, ptr %10, align 8
   store i32 776, ptr %51, align 8
   call void @var_push_dtor(ptr noundef nonnull %8, ptr noundef nonnull %10) #10
-  br label %spl_object_storage_free_hash.exit.thread
+  br label %spl_object_storage_free_hash.argprom.exit.thread
 
-spl_object_storage_free_hash.exit.thread:         ; preds = %93, %112, %spl_object_storage_free_hash.exit
-  %.sroa.0.1697795 = phi i64 [ %.sroa.0.16977101, %112 ], [ %.sroa.0.0103, %spl_object_storage_free_hash.exit ], [ %.sroa.0.167, %93 ]
+spl_object_storage_free_hash.argprom.exit.thread: ; preds = %93, %112, %spl_object_storage_free_hash.argprom.exit
+  %.sroa.0.1697795 = phi i64 [ %.sroa.0.16977101, %112 ], [ %.sroa.0.0103, %spl_object_storage_free_hash.argprom.exit ], [ %.sroa.0.167, %93 ]
   %114 = load ptr, ptr %54, align 8
   %115 = load i8, ptr %46, align 8
   %116 = icmp eq i8 %115, 0
@@ -2043,7 +2043,7 @@ spl_object_storage_free_hash.exit.thread:         ; preds = %93, %112, %spl_obje
   %119 = icmp ugt i64 %.in, 1
   br i1 %119, label %52, label %._crit_edge.loopexit
 
-._crit_edge.loopexit:                             ; preds = %spl_object_storage_free_hash.exit.thread
+._crit_edge.loopexit:                             ; preds = %spl_object_storage_free_hash.argprom.exit.thread
   %.pre = load ptr, ptr %7, align 8
   br label %._crit_edge
 

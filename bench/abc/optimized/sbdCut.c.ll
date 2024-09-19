@@ -46,7 +46,7 @@ define void @Sbd_StoMergeCuts(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %13 = and i64 %.val132, 536870911
   %14 = icmp eq i64 %13, 536870911
   %narrow.i.not.i = or i1 %.not.i.i, %14
-  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit, label %15
+  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.argprom.exit, label %15
 
 15:                                               ; preds = %2
   %16 = trunc i64 %.val132 to i32
@@ -55,9 +55,9 @@ define void @Sbd_StoMergeCuts(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %19 = trunc nuw i64 %18 to i32
   %20 = and i32 %19, 536870911
   %21 = icmp uge i32 %17, %20
-  br label %Gia_ObjIsXor.exit
+  br label %Gia_ObjIsXor.argprom.exit
 
-Gia_ObjIsXor.exit:                                ; preds = %2, %15
+Gia_ObjIsXor.argprom.exit:                        ; preds = %2, %15
   %.not36.i.i = phi i1 [ true, %2 ], [ %21, %15 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 4
   %23 = load i32, ptr %22, align 4
@@ -73,7 +73,7 @@ Gia_ObjIsXor.exit:                                ; preds = %2, %15
   %.pre454 = sub nsw i32 %1, %.pre453
   br i1 %.not, label %.thread303, label %33
 
-.thread303:                                       ; preds = %Gia_ObjIsXor.exit
+.thread303:                                       ; preds = %Gia_ObjIsXor.argprom.exit
   %29 = lshr i32 %28, 29
   %30 = and i32 %29, 1
   %31 = lshr i64 %.val132, 61
@@ -82,7 +82,7 @@ Gia_ObjIsXor.exit:                                ; preds = %2, %15
   %.pre441 = sub nsw i32 %1, %.pre
   br label %.thread308
 
-33:                                               ; preds = %Gia_ObjIsXor.exit
+33:                                               ; preds = %Gia_ObjIsXor.argprom.exit
   %34 = and i32 %28, 536870911
   %35 = sub nsw i32 %1, %34
   %36 = getelementptr i8, ptr %27, i64 8
@@ -2193,8 +2193,8 @@ Sbd_StoComputeDelay.exit:                         ; preds = %._crit_edge52.threa
   %wide.trip.count.i219 = zext nneg i32 %.0118.lcssa456 to i64
   br label %1078
 
-1078:                                             ; preds = %Sbd_CutSlowLeaves.exit.i, %.lr.ph.i218
-  %indvars.iv.i220 = phi i64 [ 0, %.lr.ph.i218 ], [ %indvars.iv.next.i229, %Sbd_CutSlowLeaves.exit.i ]
+1078:                                             ; preds = %Sbd_CutSlowLeaves.argprom.argprom.exit.i, %.lr.ph.i218
+  %indvars.iv.i220 = phi i64 [ 0, %.lr.ph.i218 ], [ %indvars.iv.next.i229, %Sbd_CutSlowLeaves.argprom.argprom.exit.i ]
   %1079 = getelementptr inbounds ptr, ptr %64, i64 %indvars.iv.i220
   %1080 = load ptr, ptr %1079, align 8
   %.val17.i = load ptr, ptr %1070, align 8
@@ -2205,7 +2205,7 @@ Sbd_StoComputeDelay.exit:                         ; preds = %._crit_edge52.threa
   %1084 = getelementptr inbounds i8, ptr %1080, i64 20
   %1085 = load i32, ptr %1084, align 4
   %.not.i.i221 = icmp ult i32 %1085, 268435456
-  br i1 %.not.i.i221, label %Sbd_CutTopLeaves.exit.i, label %.lr.ph.i.i222
+  br i1 %.not.i.i221, label %Sbd_CutTopLeaves.argprom.argprom.exit.i, label %.lr.ph.i.i222
 
 .lr.ph.i.i222:                                    ; preds = %1078
   %1086 = lshr i32 %1085, 28
@@ -2227,15 +2227,15 @@ Sbd_StoComputeDelay.exit:                         ; preds = %._crit_edge52.threa
   %1097 = add nuw nsw i32 %.0101.i.i, %1096
   %indvars.iv.next.i.i225 = add nuw nsw i64 %indvars.iv.i.i224, 1
   %exitcond.not.i.i226 = icmp eq i64 %indvars.iv.next.i.i225, %wide.trip.count.i.i223
-  br i1 %exitcond.not.i.i226, label %Sbd_CutTopLeaves.exit.loopexit.i, label %1088, !llvm.loop !42
+  br i1 %exitcond.not.i.i226, label %Sbd_CutTopLeaves.argprom.argprom.exit.loopexit.i, label %1088, !llvm.loop !42
 
-Sbd_CutTopLeaves.exit.loopexit.i:                 ; preds = %1088
+Sbd_CutTopLeaves.argprom.argprom.exit.loopexit.i: ; preds = %1088
   %1098 = shl i32 %1097, 18
   %1099 = and i32 %1098, 268173312
-  br label %Sbd_CutTopLeaves.exit.i
+  br label %Sbd_CutTopLeaves.argprom.argprom.exit.i
 
-Sbd_CutTopLeaves.exit.i:                          ; preds = %Sbd_CutTopLeaves.exit.loopexit.i, %1078
-  %.010.lcssa.i.i = phi i32 [ 0, %1078 ], [ %1099, %Sbd_CutTopLeaves.exit.loopexit.i ]
+Sbd_CutTopLeaves.argprom.argprom.exit.i:          ; preds = %Sbd_CutTopLeaves.argprom.argprom.exit.loopexit.i, %1078
+  %.010.lcssa.i.i = phi i32 [ 0, %1078 ], [ %1099, %Sbd_CutTopLeaves.argprom.argprom.exit.loopexit.i ]
   %1100 = and i32 %1085, -268173313
   %1101 = or disjoint i32 %.010.lcssa.i.i, %1100
   store i32 %1101, ptr %1084, align 4
@@ -2248,9 +2248,9 @@ Sbd_CutTopLeaves.exit.i:                          ; preds = %Sbd_CutTopLeaves.ex
   %1106 = getelementptr inbounds i8, ptr %1102, i64 20
   %1107 = load i32, ptr %1106, align 4
   %.not.i18.i = icmp ult i32 %1107, 268435456
-  br i1 %.not.i18.i, label %Sbd_CutSlowLeaves.exit.i, label %.lr.ph.i19.i
+  br i1 %.not.i18.i, label %Sbd_CutSlowLeaves.argprom.argprom.exit.i, label %.lr.ph.i19.i
 
-.lr.ph.i19.i:                                     ; preds = %Sbd_CutTopLeaves.exit.i
+.lr.ph.i19.i:                                     ; preds = %Sbd_CutTopLeaves.argprom.argprom.exit.i
   %1108 = lshr i32 %1107, 28
   %1109 = getelementptr inbounds i8, ptr %1102, i64 24
   %wide.trip.count.i20.i = zext nneg i32 %1108 to i64
@@ -2270,15 +2270,15 @@ Sbd_CutTopLeaves.exit.i:                          ; preds = %Sbd_CutTopLeaves.ex
   %1119 = add nuw nsw i32 %.0101.i22.i, %1118
   %indvars.iv.next.i23.i = add nuw nsw i64 %indvars.iv.i21.i228, 1
   %exitcond.not.i24.i = icmp eq i64 %indvars.iv.next.i23.i, %wide.trip.count.i20.i
-  br i1 %exitcond.not.i24.i, label %Sbd_CutSlowLeaves.exit.loopexit.i, label %1110, !llvm.loop !43
+  br i1 %exitcond.not.i24.i, label %Sbd_CutSlowLeaves.argprom.argprom.exit.loopexit.i, label %1110, !llvm.loop !43
 
-Sbd_CutSlowLeaves.exit.loopexit.i:                ; preds = %1110
+Sbd_CutSlowLeaves.argprom.argprom.exit.loopexit.i: ; preds = %1110
   %1120 = shl i32 %1119, 9
   %1121 = and i32 %1120, 261632
-  br label %Sbd_CutSlowLeaves.exit.i
+  br label %Sbd_CutSlowLeaves.argprom.argprom.exit.i
 
-Sbd_CutSlowLeaves.exit.i:                         ; preds = %Sbd_CutSlowLeaves.exit.loopexit.i, %Sbd_CutTopLeaves.exit.i
-  %.010.lcssa.i25.i = phi i32 [ 0, %Sbd_CutTopLeaves.exit.i ], [ %1121, %Sbd_CutSlowLeaves.exit.loopexit.i ]
+Sbd_CutSlowLeaves.argprom.argprom.exit.i:         ; preds = %Sbd_CutSlowLeaves.argprom.argprom.exit.loopexit.i, %Sbd_CutTopLeaves.argprom.argprom.exit.i
+  %.010.lcssa.i25.i = phi i32 [ 0, %Sbd_CutTopLeaves.argprom.argprom.exit.i ], [ %1121, %Sbd_CutSlowLeaves.argprom.argprom.exit.loopexit.i ]
   %1122 = and i32 %1107, -261633
   %1123 = or disjoint i32 %.010.lcssa.i25.i, %1122
   store i32 %1123, ptr %1106, align 4
@@ -2295,7 +2295,7 @@ Sbd_CutSlowLeaves.exit.i:                         ; preds = %Sbd_CutSlowLeaves.e
   %exitcond.not.i230 = icmp eq i64 %indvars.iv.next.i229, %wide.trip.count.i219
   br i1 %exitcond.not.i230, label %Sbd_StoComputeSpec.exit, label %1078, !llvm.loop !44
 
-Sbd_StoComputeSpec.exit:                          ; preds = %Sbd_CutSlowLeaves.exit.i, %Sbd_StoComputeDelay.exit
+Sbd_StoComputeSpec.exit:                          ; preds = %Sbd_CutSlowLeaves.argprom.argprom.exit.i, %Sbd_StoComputeDelay.exit
   %1132 = sitofp i32 %.0118.lcssa456 to double
   %1133 = getelementptr inbounds i8, ptr %0, i64 100328
   %1134 = load double, ptr %1133, align 8
@@ -2383,7 +2383,7 @@ Vec_IntPush.exit.i:                               ; preds = %1171, %Vec_IntGrow.
   %1176 = sext i32 %1174 to i64
   %1177 = getelementptr inbounds i32, ptr %1173, i64 %1176
   store i32 %.0118.lcssa456, ptr %1177, align 4
-  br i1 %1068, label %.lr.ph3.i, label %Sbd_StoStoreResult.exit.thread
+  br i1 %1068, label %.lr.ph3.i, label %Sbd_StoStoreResult.argprom.argprom.exit.thread
 
 .lr.ph3.i:                                        ; preds = %Vec_IntPush.exit.i
   %.phi.trans.insert.i22.i = getelementptr inbounds i8, ptr %1146, i64 8
@@ -2610,27 +2610,27 @@ Vec_IntPush.exit41.i:                             ; preds = %1276, %Vec_IntGrow.
   store i32 %1254, ptr %1282, align 4
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond.not.i237 = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count.i231
-  br i1 %exitcond.not.i237, label %Sbd_StoStoreResult.exit, label %1178, !llvm.loop !46
+  br i1 %exitcond.not.i237, label %Sbd_StoStoreResult.argprom.argprom.exit, label %1178, !llvm.loop !46
 
-Sbd_StoStoreResult.exit:                          ; preds = %Vec_IntPush.exit41.i
+Sbd_StoStoreResult.argprom.argprom.exit:          ; preds = %Vec_IntPush.exit41.i
   %.not315 = icmp eq i32 %.0118.lcssa456, 1
-  br i1 %.not315, label %Sbd_StoStoreResult.exit.thread, label %1287
+  br i1 %.not315, label %Sbd_StoStoreResult.argprom.argprom.exit.thread, label %1287
 
-Sbd_StoStoreResult.exit.thread:                   ; preds = %Vec_IntPush.exit.i, %Sbd_StoStoreResult.exit
+Sbd_StoStoreResult.argprom.argprom.exit.thread:   ; preds = %Vec_IntPush.exit.i, %Sbd_StoStoreResult.argprom.argprom.exit
   %1283 = load ptr, ptr %64, align 8
   %1284 = getelementptr inbounds i8, ptr %1283, i64 20
   %1285 = load i32, ptr %1284, align 4
   %1286 = icmp ugt i32 %1285, 536870911
   br i1 %1286, label %1287, label %1289
 
-1287:                                             ; preds = %Sbd_StoStoreResult.exit.thread, %Sbd_StoStoreResult.exit
+1287:                                             ; preds = %Sbd_StoStoreResult.argprom.argprom.exit.thread, %Sbd_StoStoreResult.argprom.argprom.exit
   %.val142 = load ptr, ptr %1144, align 8
   %1288 = getelementptr i8, ptr %.val142, i64 8
   %.val142.val = load ptr, ptr %1288, align 8
-  call fastcc void @Sbd_CutAddUnit(ptr %.val142.val, i32 noundef %1)
+  call fastcc void @Sbd_CutAddUnit.argprom.argprom(ptr %.val142.val, i32 noundef %1)
   br label %1289
 
-1289:                                             ; preds = %1287, %Sbd_StoStoreResult.exit.thread
+1289:                                             ; preds = %1287, %Sbd_StoStoreResult.argprom.argprom.exit.thread
   ret void
 }
 
@@ -2658,9 +2658,9 @@ define internal fastcc i32 @Sbd_StoPrepareSet(ptr nocapture noundef %0, i32 noun
   %17 = getelementptr i8, ptr %.val48, i64 8
   br label %18
 
-18:                                               ; preds = %.lr.ph103, %Sbd_CutTopLeaves.exit
-  %indvars.iv115 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next116, %Sbd_CutTopLeaves.exit ]
-  %.044100 = phi ptr [ %11, %.lr.ph103 ], [ %126, %Sbd_CutTopLeaves.exit ]
+18:                                               ; preds = %.lr.ph103, %Sbd_CutTopLeaves.argprom.argprom.exit
+  %indvars.iv115 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next116, %Sbd_CutTopLeaves.argprom.argprom.exit ]
+  %.044100 = phi ptr [ %11, %.lr.ph103 ], [ %126, %Sbd_CutTopLeaves.argprom.argprom.exit ]
   %19 = getelementptr inbounds [3 x [501 x %struct.Sbd_Cut_t_]], ptr %12, i64 0, i64 %13, i64 %indvars.iv115
   %20 = load i32, ptr %.044100, align 4
   %21 = getelementptr inbounds i8, ptr %19, i64 20
@@ -2712,7 +2712,7 @@ Sbd_CutTreeLeaves.exit.thread:                    ; preds = %._crit_edge
   store i32 0, ptr %41, align 4
   %42 = getelementptr inbounds i8, ptr %19, i64 16
   store i32 0, ptr %42, align 8
-  br label %Sbd_CutTopLeaves.exit
+  br label %Sbd_CutTopLeaves.argprom.argprom.exit
 
 .lr.ph.i:                                         ; preds = %._crit_edge
   %43 = lshr i32 %35, 28
@@ -2824,9 +2824,9 @@ Sbd_CutTreeLeaves.exit:                           ; preds = %74
   %99 = add nuw nsw i32 %.0101.i, %98
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, %wide.trip.count.i76
-  br i1 %exitcond.not.i79, label %Sbd_CutSlowLeaves.exit, label %90, !llvm.loop !43
+  br i1 %exitcond.not.i79, label %Sbd_CutSlowLeaves.argprom.argprom.exit, label %90, !llvm.loop !43
 
-Sbd_CutSlowLeaves.exit:                           ; preds = %90
+Sbd_CutSlowLeaves.argprom.argprom.exit:           ; preds = %90
   %100 = shl i32 %99, 9
   %101 = and i32 %100, 261632
   %102 = and i32 %85, -261633
@@ -2840,9 +2840,9 @@ Sbd_CutSlowLeaves.exit:                           ; preds = %90
   %wide.trip.count.i82 = zext nneg i32 %106 to i64
   br label %108
 
-108:                                              ; preds = %108, %Sbd_CutSlowLeaves.exit
-  %indvars.iv.i83 = phi i64 [ 0, %Sbd_CutSlowLeaves.exit ], [ %indvars.iv.next.i85, %108 ]
-  %.0101.i84 = phi i32 [ 0, %Sbd_CutSlowLeaves.exit ], [ %117, %108 ]
+108:                                              ; preds = %108, %Sbd_CutSlowLeaves.argprom.argprom.exit
+  %indvars.iv.i83 = phi i64 [ 0, %Sbd_CutSlowLeaves.argprom.argprom.exit ], [ %indvars.iv.next.i85, %108 ]
+  %.0101.i84 = phi i32 [ 0, %Sbd_CutSlowLeaves.argprom.argprom.exit ], [ %117, %108 ]
   %109 = getelementptr inbounds [10 x i32], ptr %107, i64 0, i64 %indvars.iv.i83
   %110 = load i32, ptr %109, align 4
   %111 = sext i32 %110 to i64
@@ -2854,17 +2854,17 @@ Sbd_CutSlowLeaves.exit:                           ; preds = %90
   %117 = add nuw nsw i32 %.0101.i84, %116
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i82
-  br i1 %exitcond.not.i86, label %Sbd_CutTopLeaves.exit.loopexit, label %108, !llvm.loop !42
+  br i1 %exitcond.not.i86, label %Sbd_CutTopLeaves.argprom.argprom.exit.loopexit, label %108, !llvm.loop !42
 
-Sbd_CutTopLeaves.exit.loopexit:                   ; preds = %108
+Sbd_CutTopLeaves.argprom.argprom.exit.loopexit:   ; preds = %108
   %118 = shl i32 %117, 18
   %119 = and i32 %118, 268173312
   %120 = and i32 %103, -268173313
   %121 = or disjoint i32 %119, %120
-  br label %Sbd_CutTopLeaves.exit
+  br label %Sbd_CutTopLeaves.argprom.argprom.exit
 
-Sbd_CutTopLeaves.exit:                            ; preds = %Sbd_CutTreeLeaves.exit.thread, %Sbd_CutTopLeaves.exit.loopexit
-  %122 = phi i32 [ %121, %Sbd_CutTopLeaves.exit.loopexit ], [ 0, %Sbd_CutTreeLeaves.exit.thread ]
+Sbd_CutTopLeaves.argprom.argprom.exit:            ; preds = %Sbd_CutTreeLeaves.exit.thread, %Sbd_CutTopLeaves.argprom.argprom.exit.loopexit
+  %122 = phi i32 [ %121, %Sbd_CutTopLeaves.argprom.argprom.exit.loopexit ], [ 0, %Sbd_CutTreeLeaves.exit.thread ]
   store i32 %122, ptr %21, align 4
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %123 = load i32, ptr %.044100, align 4
@@ -2876,13 +2876,13 @@ Sbd_CutTopLeaves.exit:                            ; preds = %Sbd_CutTreeLeaves.e
   %129 = icmp slt i64 %indvars.iv.next116, %128
   br i1 %129, label %18, label %._crit_edge104, !llvm.loop !48
 
-._crit_edge104:                                   ; preds = %Sbd_CutTopLeaves.exit, %3
-  %.lcssa97 = phi i32 [ %9, %3 ], [ %127, %Sbd_CutTopLeaves.exit ]
+._crit_edge104:                                   ; preds = %Sbd_CutTopLeaves.argprom.argprom.exit, %3
+  %.lcssa97 = phi i32 [ %9, %3 ], [ %127, %Sbd_CutTopLeaves.argprom.argprom.exit ]
   ret i32 %.lcssa97
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Sbd_CutAddUnit(ptr nocapture %.64.val.8.val, i32 noundef %0) unnamed_addr #2 {
+define internal fastcc void @Sbd_CutAddUnit.argprom.argprom(ptr nocapture %.64.val.8.val, i32 noundef %0) unnamed_addr #2 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.64.val.8.val, i64 %2
   %4 = getelementptr i8, ptr %3, i64 4
@@ -3978,7 +3978,7 @@ Vec_IntPush.exit10.i:                             ; preds = %61, %Vec_IntGrow.ex
 .Vec_IntGrow.exit10_crit_edge.i11.i:              ; preds = %Vec_IntPush.exit10.i
   %.phi.trans.insert.i12.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre.i13.i = load ptr, ptr %.phi.trans.insert.i12.i, align 8
-  br label %Sbd_CutAddZero.exit
+  br label %Sbd_CutAddZero.argprom.argprom.exit
 
 71:                                               ; preds = %Vec_IntPush.exit10.i
   %72 = icmp slt i32 %68, 16
@@ -4002,7 +4002,7 @@ Vec_IntGrow.exit.i16.i:                           ; preds = %78, %76
   %80 = phi ptr [ %77, %76 ], [ %79, %78 ]
   store ptr %80, ptr %74, align 8
   store i32 16, ptr %6, align 8
-  br label %Sbd_CutAddZero.exit
+  br label %Sbd_CutAddZero.argprom.argprom.exit
 
 81:                                               ; preds = %71
   %82 = shl nuw nsw i32 %68, 1
@@ -4025,9 +4025,9 @@ Vec_IntGrow.exit.i16.i:                           ; preds = %78, %76
   %92 = phi ptr [ %88, %87 ], [ %90, %89 ]
   store ptr %92, ptr %83, align 8
   store i32 %82, ptr %6, align 8
-  br label %Sbd_CutAddZero.exit
+  br label %Sbd_CutAddZero.argprom.argprom.exit
 
-Sbd_CutAddZero.exit:                              ; preds = %.Vec_IntGrow.exit10_crit_edge.i11.i, %Vec_IntGrow.exit.i16.i, %91
+Sbd_CutAddZero.argprom.argprom.exit:              ; preds = %.Vec_IntGrow.exit10_crit_edge.i11.i, %Vec_IntGrow.exit.i16.i, %91
   %93 = phi ptr [ %.pre.i13.i, %.Vec_IntGrow.exit10_crit_edge.i11.i ], [ %92, %91 ], [ %80, %Vec_IntGrow.exit.i16.i ]
   %94 = load i32, ptr %7, align 4
   %95 = add nsw i32 %94, 1
@@ -4045,7 +4045,7 @@ define void @Sbd_StoComputeCutsCi(ptr nocapture noundef readonly %0, i32 noundef
   %.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %6, align 8
-  tail call fastcc void @Sbd_CutAddUnit(ptr %.val.val, i32 noundef %1)
+  tail call fastcc void @Sbd_CutAddUnit.argprom.argprom(ptr %.val.val, i32 noundef %1)
   ret void
 }
 
@@ -4507,7 +4507,7 @@ define void @Sbd_StoComputeCutsTest(ptr noundef %0) local_unnamed_addr #0 {
   %.val.i = load ptr, ptr %18, align 8
   %25 = getelementptr i8, ptr %.val.i, i64 8
   %.val.val.i = load ptr, ptr %25, align 8
-  tail call fastcc void @Sbd_CutAddUnit(ptr %.val.val.i, i32 noundef %23)
+  tail call fastcc void @Sbd_CutAddUnit.argprom.argprom(ptr %.val.val.i, i32 noundef %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load ptr, ptr %14, align 8
   %27 = getelementptr i8, ptr %26, i64 4

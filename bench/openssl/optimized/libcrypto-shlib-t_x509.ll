@@ -1114,7 +1114,7 @@ sw.epilog:                                        ; preds = %if.end, %while.end
 if.then58:                                        ; preds = %sw.epilog, %sw.epilog, %sw.epilog, %sw.epilog, %sw.epilog, %sw.epilog, %sw.epilog
   %call59 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %call3, ptr noundef nonnull @.str.55) #3
   %call60 = tail call ptr @X509_STORE_CTX_get0_untrusted(ptr noundef nonnull %ctx) #3
-  tail call fastcc void @print_certs(ptr noundef %call3, ptr noundef %call60)
+  tail call fastcc void @print_certs.retelim(ptr noundef %call3, ptr noundef %call60)
   %call62 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %call3, ptr noundef nonnull @.str.56) #3
   %call63 = tail call ptr @X509_STORE_CTX_get0_store(ptr noundef nonnull %ctx) #3
   %cmp.not.i = icmp eq ptr %call63, null
@@ -1122,7 +1122,7 @@ if.then58:                                        ; preds = %sw.epilog, %sw.epil
 
 if.then.i:                                        ; preds = %if.then58
   %call.i = tail call ptr @X509_STORE_get1_all_certs(ptr noundef nonnull %call63) #3
-  tail call fastcc void @print_certs(ptr noundef %call3, ptr noundef %call.i)
+  tail call fastcc void @print_certs.retelim(ptr noundef %call3, ptr noundef %call.i)
   tail call void @OPENSSL_sk_pop_free(ptr noundef %call.i, ptr noundef nonnull @X509_free) #3
   br label %if.end65
 
@@ -1165,7 +1165,7 @@ declare ptr @X509_VERIFY_PARAM_get1_ip_asc(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_STORE_CTX_get_current_cert(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_certs(ptr noundef nonnull %bio, ptr noundef %certs) unnamed_addr #0 {
+define internal fastcc void @print_certs.retelim(ptr noundef nonnull %bio, ptr noundef %certs) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %certs, null
   br i1 %cmp, label %if.then, label %lor.lhs.false

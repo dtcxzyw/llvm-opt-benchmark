@@ -9129,22 +9129,22 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.lr.ph: ; preds = %_
   %138 = load ptr, ptr %61, align 8
   br label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit
 
-_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.lr.ph, %"_ZZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbiENK3$_1clEm.exit"
-  %.03698 = phi i64 [ 0, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.lr.ph ], [ %153, %"_ZZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbiENK3$_1clEm.exit" ]
-  %.03797 = phi i64 [ 0, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.lr.ph ], [ %spec.select, %"_ZZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbiENK3$_1clEm.exit" ]
+_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.lr.ph, %"_ZZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbiENK3$_1clEm.argprom.argprom.exit"
+  %.03698 = phi i64 [ 0, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.lr.ph ], [ %153, %"_ZZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbiENK3$_1clEm.argprom.argprom.exit" ]
+  %.03797 = phi i64 [ 0, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.lr.ph ], [ %spec.select, %"_ZZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbiENK3$_1clEm.argprom.argprom.exit" ]
   %139 = getelementptr inbounds float, ptr %.pre, i64 %.03698
   %140 = load float, ptr %139, align 4
   %.val.val = load ptr, ptr %63, align 8
   %.val.val46 = load ptr, ptr %137, align 8
   %141 = icmp eq ptr %.val.val, %.val.val46
-  br i1 %141, label %"_ZZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbiENK3$_1clEm.exit", label %142
+  br i1 %141, label %"_ZZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbiENK3$_1clEm.argprom.argprom.exit", label %142
 
 142:                                              ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit
   %143 = getelementptr inbounds float, ptr %.val.val, i64 %.03797
   %144 = load float, ptr %143, align 4
-  br label %"_ZZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbiENK3$_1clEm.exit"
+  br label %"_ZZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbiENK3$_1clEm.argprom.argprom.exit"
 
-"_ZZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbiENK3$_1clEm.exit": ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit, %142
+"_ZZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbiENK3$_1clEm.argprom.argprom.exit": ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit, %142
   %145 = phi float [ %144, %142 ], [ 1.000000e+00, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit ]
   %146 = fmul float %140, %145
   %147 = getelementptr inbounds float, ptr %59, i64 %.03698
@@ -9321,7 +9321,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit.i:                ; preds = %181, %179
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbiENK3$_1clEm.exit", %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit72, %"_ZN7xgboost6common11ParallelForImZNS0_12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbiE3$_0EEvT_iNS0_5SchedET0_.exit"
+.loopexit:                                        ; preds = %"_ZZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbiENK3$_1clEm.argprom.argprom.exit", %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit72, %"_ZN7xgboost6common11ParallelForImZNS0_12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbiE3$_0EEvT_iNS0_5SchedET0_.exit"
   ret void
 
 .body:                                            ; preds = %95, %_ZN4dmlc12OMPExceptionD2Ev.exit.i, %155, %129
@@ -47664,7 +47664,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %31 = getelementptr inbounds i8, ptr %22, i64 %28
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 1
-  br i1 %33, label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.exit", label %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i
+  br i1 %33, label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.argprom.exit", label %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i
 
 _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i: ; preds = %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.i, %3
   %34 = load ptr, ptr %1, align 8
@@ -47748,20 +47748,20 @@ _ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE4InitEmd.exit.i
 77:                                               ; preds = %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE4InitEmd.exit.i
   %78 = sub nuw i64 %68, %75
   invoke void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5Queue6QEntryESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %65, i64 noundef %78)
-          to label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.exit" unwind label %84
+          to label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.argprom.exit" unwind label %84
 
 79:                                               ; preds = %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE4InitEmd.exit.i
   %80 = icmp ult i64 %68, %75
-  br i1 %80, label %81, label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.exit"
+  br i1 %80, label %81, label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.argprom.exit"
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds %"struct.xgboost::common::WQSummary<float, float>::Queue::QEntry", ptr %71, i64 %68
   %.not.i.i.i = icmp eq ptr %70, %82
-  br i1 %.not.i.i.i, label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.exit", label %83
+  br i1 %.not.i.i.i, label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.argprom.exit", label %83
 
 83:                                               ; preds = %81
   store ptr %82, ptr %69, align 8
-  br label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.exit"
+  br label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.argprom.exit"
 
 84:                                               ; preds = %77, %46, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i
   %85 = landingpad { ptr, i32 }
@@ -47877,7 +47877,7 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit16: ; preds = %109
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %112, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit16, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit16.thread, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14
   %115 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %105) #13
   call void @__cxa_end_catch()
-  br label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.exit"
+  br label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.argprom.exit"
 
 116:                                              ; preds = %94
   %117 = landingpad { ptr, i32 }
@@ -47888,9 +47888,9 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %112, %_ZNSt15__exce
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %99, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %118 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %92) #13
   call void @__cxa_end_catch()
-  br label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.exit"
+  br label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.argprom.exit"
 
-"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.exit": ; preds = %83, %81, %79, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.i, %77, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
+"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.argprom.exit": ; preds = %83, %81, %79, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.i, %77, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
   ret void
 
 119:                                              ; preds = %116, %113, %100

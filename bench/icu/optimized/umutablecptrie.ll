@@ -132,7 +132,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6icu_7512LocalPointerINS_12_GLOBAL__N_120MutableCodePointTrieEED2Ev(ptr %this.0.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6icu_7512LocalPointerINS_12_GLOBAL__N_120MutableCodePointTrieEED2Ev.argprom(ptr %this.0.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %isnull = icmp eq ptr %this.0.val, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -487,7 +487,7 @@ if.then10.i:                                      ; preds = %if.then8.i
 lpad4.i:                                          ; preds = %if.else.i, %if.then10.i, %while.cond.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN6icu_7512LocalPointerINS_12_GLOBAL__N_120MutableCodePointTrieEED2Ev(ptr nonnull %call2.i) #13
+  call fastcc void @_ZN6icu_7512LocalPointerINS_12_GLOBAL__N_120MutableCodePointTrieEED2Ev.argprom(ptr nonnull %call2.i) #13
   br label %eh.resume.i
 
 if.else.i:                                        ; preds = %if.then8.i
@@ -718,7 +718,7 @@ if.then39.i:                                      ; preds = %if.then37.i
 lpad33.i:                                         ; preds = %if.else.i, %if.then39.i, %while.cond.i
   %26 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN6icu_7512LocalPointerINS_12_GLOBAL__N_120MutableCodePointTrieEED2Ev(ptr nonnull %call.i) #13
+  call fastcc void @_ZN6icu_7512LocalPointerINS_12_GLOBAL__N_120MutableCodePointTrieEED2Ev.argprom(ptr nonnull %call.i) #13
   br label %eh.resume.i
 
 if.else.i:                                        ; preds = %if.then37.i
@@ -2226,7 +2226,7 @@ if.end.i91.i.i:                                   ; preds = %call.i.i.noexc.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call.i.i119.i.i, i8 0, i64 %conv.i.i.i.i, i1 false)
   %blockLength.i.i.i.i = getelementptr inbounds i8, ptr %mixedBlocks.i.i, i64 24
   store i32 64, ptr %blockLength.i.i.i.i, align 8
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef %call26.i.i, i32 noundef 0, i32 noundef 128)
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii.argelim(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef %call26.i.i, i32 noundef 0, i32 noundef 128)
   %86 = load i32, ptr %highStart.i.i.i, align 8
   %shr.i93.i.i = ashr i32 %86, 4
   %cmp5231.i.i.i = icmp sgt i32 %shr.i93.i.i, 8
@@ -2298,7 +2298,7 @@ if.end11.i.i.i:                                   ; preds = %if.end22.i106.i.i.i
   store i32 %newLength.0.i89.i.i.i, ptr %length.i.i.i.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call.i104.i121257.i.i, i8 0, i64 %.pre8.i95.i.i.i, i1 false)
   store i32 16, ptr %blockLength.i.i.i.i, align 8
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef %call26.i.i, i32 noundef 0, i32 noundef %newDataLength.1236.i.i.i)
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii.argelim(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef %call26.i.i, i32 noundef 0, i32 noundef %newDataLength.1236.i.i.i)
   br label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end11.i.i.i, %for.body6.i.i.i
@@ -2332,9 +2332,9 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %add.i.i.i.i.i = add i32 %mul.i.i.i.i.i, %92
   %inc.i.i.i.i.i = add nuw nsw i32 %i.03.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i, %89
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeEj.exit.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeEj.argprom.exit.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !26
 
-_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeEj.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i
+_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeEj.argprom.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i
   %shl.i.i.i.i.i = shl i32 %add.i.i.i.i.i, %.sink300.i249.i.i
   %sub.i.i.i.i.i = add nsw i32 %newLength.0.i89.i260.i.i, -1
   %rem.i.i.i.i.i = urem i32 %add.i.i.i.i.i, %sub.i.i.i.i.i
@@ -2345,7 +2345,7 @@ _ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeEj.exit.i.i.i.i: ; preds = %
   %cmp11.i.i.i.i.i = icmp eq i32 %93, 0
   br i1 %cmp11.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.us.i.i.i.preheader.i.i
 
-if.end.us.i.i.i.preheader.i.i:                    ; preds = %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeEj.exit.i.i.i.i
+if.end.us.i.i.i.preheader.i.i:                    ; preds = %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeEj.argprom.exit.i.i.i.i
   %not3.i.i.i.i.i = xor i32 %.sink.i251.i.i, -1
   %idx.ext.i.i.i.i.i.i = zext nneg i32 %89 to i64
   br label %if.end.us.i.i.i.i.i
@@ -2389,8 +2389,8 @@ _ZN6icu_7512_GLOBAL__N_115allValuesSameAsEPKjij.exit.loopexit.us.i.i.i.i.i: ; pr
   %cmp2.i.us.i.i.i.i.i = icmp eq ptr %p.addr.0.lcssa.i.ph.us.i.i.i.i.i, %add.ptr.i.us.i.i.i.i.i
   br i1 %cmp2.i.us.i.i.i.i.i, label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks9findEntryEPKjjj.exit.i.i.i.i, label %if.end11.us.i.i.i.i.i
 
-if.then.i.i.i.i.i:                                ; preds = %if.end11.us.i.i.i.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeEj.exit.i.i.i.i
-  %entryIndex.0.lcssa.i.i.i.i.i = phi i32 [ %add.i3.i.i.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeEj.exit.i.i.i.i ], [ %rem.i.us.i.i.i.i.i, %if.end11.us.i.i.i.i.i ]
+if.then.i.i.i.i.i:                                ; preds = %if.end11.us.i.i.i.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeEj.argprom.exit.i.i.i.i
+  %entryIndex.0.lcssa.i.i.i.i.i = phi i32 [ %add.i3.i.i.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeEj.argprom.exit.i.i.i.i ], [ %rem.i.us.i.i.i.i.i, %if.end11.us.i.i.i.i.i ]
   %not.i.i.i.i.i = xor i32 %entryIndex.0.lcssa.i.i.i.i.i, -1
   br label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks9findEntryEPKjjj.exit.i.i.i.i
 
@@ -2546,7 +2546,7 @@ while.end47.loopexit.i.i.i:                       ; preds = %while.body42.i.i.i
 
 while.end47.i.i.i:                                ; preds = %while.end47.loopexit.i.i.i, %_ZN6icu_7512_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i
   %newDataLength.2.lcssa.i.i.i = phi i32 [ %newDataLength.1236.i.i.i, %_ZN6icu_7512_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i ], [ %110, %while.end47.loopexit.i.i.i ]
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef %call26.i.i, i32 noundef %newDataLength.1236.i.i.i, i32 noundef %newDataLength.2.lcssa.i.i.i)
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii.argelim(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef %call26.i.i, i32 noundef %newDataLength.1236.i.i.i, i32 noundef %newDataLength.2.lcssa.i.i.i)
   br label %for.inc96.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %if.end12.i.i.i
@@ -2570,9 +2570,9 @@ do.body.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i, 
   %116 = load i32, ptr %arrayidx4.i.i.i.i.i, align 4
   %add5.i.i.i.i.i = add i32 %mul.i.i135.i.i.i, %116
   %exitcond.not.i.i99.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %smax.i.i.i.i
-  br i1 %exitcond.not.i.i99.i.i, label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit.i.i.i.i, label %do.body.i.i.i.i.i, !llvm.loop !34
+  br i1 %exitcond.not.i.i99.i.i, label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.argprom.exit.i.i.i.i, label %do.body.i.i.i.i.i, !llvm.loop !34
 
-_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit.i.i.i.i: ; preds = %do.body.i.i.i.i.i
+_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.argprom.exit.i.i.i.i: ; preds = %do.body.i.i.i.i.i
   %shl.i.i137.i.i.i = shl i32 %add5.i.i.i.i.i, %.sink300.i249.i.i
   %sub.i.i139.i.i.i = add nsw i32 %newLength.0.i89.i260.i.i, -1
   %rem.i.i140.i.i.i = urem i32 %add5.i.i.i.i.i, %sub.i.i139.i.i.i
@@ -2583,7 +2583,7 @@ _ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit.i.i.i.i: ; p
   %cmp18.i.i.i.i.i = icmp eq i32 %117, 0
   br i1 %cmp18.i.i.i.i.i, label %if.then.i.i150.i.i.i, label %if.end.us.i.i162.i.preheader.i.i
 
-if.end.us.i.i162.i.preheader.i.i:                 ; preds = %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit.i.i.i.i
+if.end.us.i.i162.i.preheader.i.i:                 ; preds = %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.argprom.exit.i.i.i.i
   %not3.i.i144.i.i.i = xor i32 %.sink.i251.i.i, -1
   br label %if.end.us.i.i162.i.i.i
 
@@ -2625,8 +2625,8 @@ while.body.i.us.i.i177.i.i.i:                     ; preds = %land.rhs.i.us.i.i17
   %cmp.i.us.i.i179.i.i.i = icmp sgt i32 %length.addr.08.i.us.i.i.i.i.i, 1
   br i1 %cmp.i.us.i.i179.i.i.i, label %land.rhs.i.us.i.i175.i.i.i, label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks9findEntryIjjEEiPKT_PKT0_ij.exit.i.i.i.i, !llvm.loop !36
 
-if.then.i.i150.i.i.i:                             ; preds = %if.end13.us.i.i.i.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit.i.i.i.i
-  %entryIndex.0.lcssa.i.i151.i.i.i = phi i32 [ %add.i.i141.i.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit.i.i.i.i ], [ %rem.i.us.i.i166.i.i.i, %if.end13.us.i.i.i.i.i ]
+if.then.i.i150.i.i.i:                             ; preds = %if.end13.us.i.i.i.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.argprom.exit.i.i.i.i
+  %entryIndex.0.lcssa.i.i151.i.i.i = phi i32 [ %add.i.i141.i.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.argprom.exit.i.i.i.i ], [ %rem.i.us.i.i166.i.i.i, %if.end13.us.i.i.i.i.i ]
   %not.i.i152.i.i.i = xor i32 %entryIndex.0.lcssa.i.i151.i.i.i, -1
   br label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks9findEntryIjjEEiPKT_PKT0_ij.exit.i.i.i.i
 
@@ -2710,7 +2710,7 @@ while.end82.loopexit.i.i.i:                       ; preds = %while.body75.i.i.i
 
 while.end82.i.i.i:                                ; preds = %while.end82.loopexit.i.i.i, %_ZN6icu_7512_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i
   %newDataLength.3.lcssa.i.i.i = phi i32 [ %newDataLength.1236.i.i.i, %_ZN6icu_7512_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i ], [ %132, %while.end82.loopexit.i.i.i ]
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef %call26.i.i, i32 noundef %newDataLength.1236.i.i.i, i32 noundef %newDataLength.3.lcssa.i.i.i)
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii.argelim(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef %call26.i.i, i32 noundef %newDataLength.1236.i.i.i, i32 noundef %newDataLength.3.lcssa.i.i.i)
   br label %for.inc96.i.i.i
 
 if.else84.i.i.i:                                  ; preds = %if.end12.i.i.i
@@ -2755,7 +2755,7 @@ lpad.body.i.i:                                    ; preds = %lpad.i.i.i, %lpad.l
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %165, %lpad.i.i.i ], [ %lpad.loopexit217.i.i, %lpad.loopexit.i.i ], [ %lpad.loopexit.split-lp218.i.i, %lpad.loopexit.split-lp.i.i ]
   %mixedBlocks.val.i.i = load ptr, ptr %mixedBlocks.i.i, align 8
   invoke void @uprv_free_75(ptr noundef %mixedBlocks.val.i.i)
-          to label %_ZN6icu_7512_GLOBAL__N_111MixedBlocksD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i
+          to label %_ZN6icu_7512_GLOBAL__N_111MixedBlocksD2Ev.argprom.exit.i.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %lpad.body.i.i
   %137 = landingpad { ptr, i32 }
@@ -2764,7 +2764,7 @@ terminate.lpad.i.i.i:                             ; preds = %lpad.body.i.i
   tail call void @__clang_call_terminate(ptr %138) #15
   unreachable
 
-_ZN6icu_7512_GLOBAL__N_111MixedBlocksD2Ev.exit.i.i: ; preds = %lpad.body.i.i
+_ZN6icu_7512_GLOBAL__N_111MixedBlocksD2Ev.argprom.exit.i.i: ; preds = %lpad.body.i.i
   resume { ptr, i32 } %eh.lpad-body.i.i
 
 if.end34.i.i:                                     ; preds = %invoke.cont.i.i
@@ -4409,7 +4409,7 @@ return:                                           ; preds = %if.end9.i31, %if.el
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly %data, i32 noundef range(i32 0, -2147483648) %prevDataLength, i32 noundef range(i32 128, -2147483648) %newDataLength) unnamed_addr #10 align 2 {
+define internal fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly %data, i32 noundef range(i32 0, -2147483648) %prevDataLength, i32 noundef range(i32 128, -2147483648) %newDataLength) unnamed_addr #10 align 2 {
 entry:
   %blockLength = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %blockLength, align 8
@@ -4449,9 +4449,9 @@ do.body.i:                                        ; preds = %do.body.i, %for.bod
   %4 = load i32, ptr %arrayidx4.i, align 4
   %add5.i = add i32 %mul.i, %4
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %3
-  br i1 %cmp.i, label %do.body.i, label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit, !llvm.loop !34
+  br i1 %cmp.i, label %do.body.i, label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.argprom.exit, !llvm.loop !34
 
-_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit: ; preds = %do.body.i
+_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.argprom.exit: ; preds = %do.body.i
   %5 = load i32, ptr %shift.i.i, align 8
   %shl.i.i = shl i32 %add5.i, %5
   %6 = load i32, ptr %length.i.i, align 4
@@ -4465,7 +4465,7 @@ _ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit: ; preds = %
   %cmp18.i.i = icmp eq i32 %8, 0
   br i1 %cmp18.i.i, label %if.then.i.i, label %if.end.lr.ph.i.i
 
-if.end.lr.ph.i.i:                                 ; preds = %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit
+if.end.lr.ph.i.i:                                 ; preds = %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.argprom.exit
   %9 = load i32, ptr %mask.i.i, align 4
   %not3.i.i = xor i32 %9, -1
   %idx.ext9.i.i = zext nneg i32 %start.119 to i64
@@ -4532,8 +4532,8 @@ if.end13.us26.i.i:                                ; preds = %if.end.us21.i.i
   %cmp.us31.i.i = icmp eq i32 %15, 0
   br i1 %cmp.us31.i.i, label %if.then.i.i, label %if.end.us21.i.i, !llvm.loop !35
 
-if.then.i.i:                                      ; preds = %if.end.i.i, %if.end13.us26.i.i, %if.end13.us.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit
-  %entryIndex.0.lcssa.i.i = phi i32 [ %add.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit ], [ %rem.i.us.i.i, %if.end13.us.i.i ], [ %rem.i.us28.i.i, %if.end13.us26.i.i ], [ %rem.i.i.i, %if.end.i.i ]
+if.then.i.i:                                      ; preds = %if.end.i.i, %if.end13.us26.i.i, %if.end13.us.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.argprom.exit
+  %entryIndex.0.lcssa.i.i = phi i32 [ %add.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.argprom.exit ], [ %rem.i.us.i.i, %if.end13.us.i.i ], [ %rem.i.us28.i.i, %if.end13.us26.i.i ], [ %rem.i.i.i, %if.end.i.i ]
   %not.i.i = xor i32 %entryIndex.0.lcssa.i.i, -1
   br label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks9findEntryIjjEEiPKT_PKT0_ij.exit.i
 
@@ -4611,9 +4611,9 @@ do.body.i:                                        ; preds = %do.body.i, %for.bod
   %conv5.i = zext i16 %4 to i32
   %add6.i = add i32 %mul.i, %conv5.i
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %3
-  br i1 %cmp.i, label %do.body.i, label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit, !llvm.loop !62
+  br i1 %cmp.i, label %do.body.i, label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.argprom.exit, !llvm.loop !62
 
-_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit: ; preds = %do.body.i
+_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.argprom.exit: ; preds = %do.body.i
   %5 = load i32, ptr %shift.i.i, align 8
   %shl.i.i = shl i32 %add6.i, %5
   %6 = load i32, ptr %length.i.i, align 4
@@ -4627,7 +4627,7 @@ _ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit: ; preds = %
   %cmp18.i.i = icmp eq i32 %8, 0
   br i1 %cmp18.i.i, label %if.then.i.i, label %if.end.lr.ph.i.i
 
-if.end.lr.ph.i.i:                                 ; preds = %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit
+if.end.lr.ph.i.i:                                 ; preds = %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.argprom.exit
   %9 = load i32, ptr %mask.i.i, align 4
   %not3.i.i = xor i32 %9, -1
   %cmp5.i.i.i = icmp sgt i32 %.fr.i.i, 0
@@ -4692,8 +4692,8 @@ if.end13.us26.i.i:                                ; preds = %if.end.us21.i.i
   %cmp.us31.i.i = icmp eq i32 %15, 0
   br i1 %cmp.us31.i.i, label %if.then.i.i, label %if.end.us21.i.i, !llvm.loop !63
 
-if.then.i.i:                                      ; preds = %if.end.i.i, %if.end13.us26.i.i, %if.end13.us.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit
-  %entryIndex.0.lcssa.i.i = phi i32 [ %add.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit ], [ %rem.i.us.i.i, %if.end13.us.i.i ], [ %rem.i.us28.i.i, %if.end13.us26.i.i ], [ %rem.i.i.i, %if.end.i.i ]
+if.then.i.i:                                      ; preds = %if.end.i.i, %if.end13.us26.i.i, %if.end13.us.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.argprom.exit
+  %entryIndex.0.lcssa.i.i = phi i32 [ %add.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.argprom.exit ], [ %rem.i.us.i.i, %if.end13.us.i.i ], [ %rem.i.us28.i.i, %if.end13.us26.i.i ], [ %rem.i.i.i, %if.end.i.i ]
   %not.i.i = xor i32 %entryIndex.0.lcssa.i.i, -1
   br label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks9findEntryIttEEiPKT_PKT0_ij.exit.i
 
@@ -4752,9 +4752,9 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %4 = load i32, ptr %arrayidx4.i, align 4
   %add5.i = add i32 %mul.i, %4
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %3
-  br i1 %cmp.i, label %do.body.i, label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit, !llvm.loop !34
+  br i1 %cmp.i, label %do.body.i, label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.argprom.exit, !llvm.loop !34
 
-_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit: ; preds = %do.body.i
+_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.argprom.exit: ; preds = %do.body.i
   %shift.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i32, ptr %shift.i, align 8
   %shl.i = shl i32 %add5.i, %5
@@ -4770,7 +4770,7 @@ _ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit: ; preds = %
   %cmp18.i = icmp eq i32 %8, 0
   br i1 %cmp18.i, label %if.then.i, label %if.end.lr.ph.i
 
-if.end.lr.ph.i:                                   ; preds = %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit
+if.end.lr.ph.i:                                   ; preds = %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.argprom.exit
   %mask.i = getelementptr inbounds i8, ptr %this, i64 20
   %9 = load i32, ptr %mask.i, align 4
   %not3.i = xor i32 %9, -1
@@ -4837,8 +4837,8 @@ if.end13.us26.i:                                  ; preds = %if.end.us21.i
   %cmp.us31.i = icmp eq i32 %15, 0
   br i1 %cmp.us31.i, label %if.then.i, label %if.end.us21.i, !llvm.loop !65
 
-if.then.i:                                        ; preds = %if.end.i, %if.end13.us26.i, %if.end13.us.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit
-  %entryIndex.0.lcssa.i = phi i32 [ %add.i4, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit ], [ %rem.i.us.i, %if.end13.us.i ], [ %rem.i.us28.i, %if.end13.us26.i ], [ %rem.i.i, %if.end.i ]
+if.then.i:                                        ; preds = %if.end.i, %if.end13.us26.i, %if.end13.us.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.argprom.exit
+  %entryIndex.0.lcssa.i = phi i32 [ %add.i4, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.argprom.exit ], [ %rem.i.us.i, %if.end13.us.i ], [ %rem.i.us28.i, %if.end13.us26.i ], [ %rem.i.i, %if.end.i ]
   %not.i = xor i32 %entryIndex.0.lcssa.i, -1
   br label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks9findEntryItjEEiPKT_PKT0_ij.exit
 
@@ -4898,9 +4898,9 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %conv5.i = zext i16 %4 to i32
   %add6.i = add i32 %mul.i, %conv5.i
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %3
-  br i1 %cmp.i, label %do.body.i, label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit, !llvm.loop !62
+  br i1 %cmp.i, label %do.body.i, label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.argprom.exit, !llvm.loop !62
 
-_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit: ; preds = %do.body.i
+_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.argprom.exit: ; preds = %do.body.i
   %shift.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i32, ptr %shift.i, align 8
   %shl.i = shl i32 %add6.i, %5
@@ -4916,7 +4916,7 @@ _ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit: ; preds = %
   %cmp18.i = icmp eq i32 %8, 0
   br i1 %cmp18.i, label %if.then.i, label %if.end.lr.ph.i
 
-if.end.lr.ph.i:                                   ; preds = %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit
+if.end.lr.ph.i:                                   ; preds = %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.argprom.exit
   %mask.i = getelementptr inbounds i8, ptr %this, i64 20
   %9 = load i32, ptr %mask.i, align 4
   %not3.i = xor i32 %9, -1
@@ -4982,8 +4982,8 @@ if.end13.us26.i:                                  ; preds = %if.end.us21.i
   %cmp.us31.i = icmp eq i32 %15, 0
   br i1 %cmp.us31.i, label %if.then.i, label %if.end.us21.i, !llvm.loop !63
 
-if.then.i:                                        ; preds = %if.end.i, %if.end13.us26.i, %if.end13.us.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit
-  %entryIndex.0.lcssa.i = phi i32 [ %add.i4, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit ], [ %rem.i.us.i, %if.end13.us.i ], [ %rem.i.us28.i, %if.end13.us26.i ], [ %rem.i.i, %if.end.i ]
+if.then.i:                                        ; preds = %if.end.i, %if.end13.us26.i, %if.end13.us.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.argprom.exit
+  %entryIndex.0.lcssa.i = phi i32 [ %add.i4, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.argprom.exit ], [ %rem.i.us.i, %if.end13.us.i ], [ %rem.i.us28.i, %if.end13.us26.i ], [ %rem.i.i, %if.end.i ]
   %not.i = xor i32 %entryIndex.0.lcssa.i, -1
   br label %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks9findEntryIttEEiPKT_PKT0_ij.exit
 

@@ -2922,7 +2922,7 @@ reorder_grouping_sets.exit.i:                     ; preds = %.split42.us.i.i, %.
   %324 = getelementptr inbounds i8, ptr %323, i64 8
   %325 = load ptr, ptr %324, align 8
   %.not111.i = icmp eq ptr %325, null
-  br i1 %.not111.i, label %groupclause_apply_groupingset.exit.i, label %.lr.ph.i117.i
+  br i1 %.not111.i, label %groupclause_apply_groupingset.argprom.exit.i, label %.lr.ph.i117.i
 
 .lr.ph.i117.i:                                    ; preds = %reorder_grouping_sets.exit.i
   %.val114.i = load ptr, ptr %25, align 8
@@ -2931,7 +2931,7 @@ reorder_grouping_sets.exit.i:                     ; preds = %.split42.us.i.i, %.
   %328 = getelementptr inbounds i8, ptr %.val114.i, i64 136
   %329 = load i32, ptr %326, align 4
   %330 = icmp sgt i32 %329, 0
-  br i1 %330, label %.lr.ph10.i.i, label %groupclause_apply_groupingset.exit.i
+  br i1 %330, label %.lr.ph10.i.i, label %groupclause_apply_groupingset.argprom.exit.i
 
 .lr.ph10.i.i:                                     ; preds = %.lr.ph.i117.i, %.lr.ph10.i.i
   %indvars.iv.i118.i = phi i64 [ %indvars.iv.next.i120.i, %.lr.ph10.i.i ], [ 0, %.lr.ph.i117.i ]
@@ -2946,9 +2946,9 @@ reorder_grouping_sets.exit.i:                     ; preds = %.split42.us.i.i, %.
   %337 = load i32, ptr %326, align 4
   %338 = sext i32 %337 to i64
   %339 = icmp slt i64 %indvars.iv.next.i120.i, %338
-  br i1 %339, label %.lr.ph10.i.i, label %groupclause_apply_groupingset.exit.i
+  br i1 %339, label %.lr.ph10.i.i, label %groupclause_apply_groupingset.argprom.exit.i
 
-groupclause_apply_groupingset.exit.i:             ; preds = %.lr.ph10.i.i, %.lr.ph.i117.i, %reorder_grouping_sets.exit.i
+groupclause_apply_groupingset.argprom.exit.i:     ; preds = %.lr.ph10.i.i, %.lr.ph.i117.i, %reorder_grouping_sets.exit.i
   %.sink.i = phi ptr [ null, %.lr.ph.i117.i ], [ null, %reorder_grouping_sets.exit.i ], [ %336, %.lr.ph10.i.i ]
   %340 = getelementptr inbounds i8, ptr %264, i64 8
   store ptr %.sink.i, ptr %340, align 8
@@ -2956,7 +2956,7 @@ groupclause_apply_groupingset.exit.i:             ; preds = %.lr.ph10.i.i, %.lr.
   %.not112.i = icmp eq ptr %341, null
   br i1 %.not112.i, label %347, label %342
 
-342:                                              ; preds = %groupclause_apply_groupingset.exit.i
+342:                                              ; preds = %groupclause_apply_groupingset.argprom.exit.i
   %343 = load ptr, ptr %186, align 8
   %344 = tail call zeroext i1 @bms_overlap_list(ptr noundef %343, ptr noundef nonnull %341) #12
   br i1 %344, label %thread-pre-split, label %345
@@ -2971,8 +2971,8 @@ thread-pre-split:                                 ; preds = %342, %345
   %.pr = load ptr, ptr %340, align 8
   br label %347
 
-347:                                              ; preds = %thread-pre-split, %groupclause_apply_groupingset.exit.i
-  %348 = phi ptr [ %.pr, %thread-pre-split ], [ %.sink.i, %groupclause_apply_groupingset.exit.i ]
+347:                                              ; preds = %thread-pre-split, %groupclause_apply_groupingset.argprom.exit.i
+  %348 = phi ptr [ %.pr, %thread-pre-split ], [ %.sink.i, %groupclause_apply_groupingset.argprom.exit.i ]
   %349 = load ptr, ptr %220, align 8
   %350 = getelementptr inbounds i8, ptr %348, i64 4
   %.not.i121.i = icmp eq ptr %348, null
@@ -3469,7 +3469,7 @@ list_length.exit:                                 ; preds = %596, %601
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   %610 = getelementptr inbounds i8, ptr %.val449.val, i64 4
   %.not.i470 = icmp eq ptr %.val449.val, null
-  br i1 %.not.i470, label %optimize_window_clauses.exit, label %.lr.ph32.i
+  br i1 %.not.i470, label %optimize_window_clauses.argprom.argprom.exit, label %.lr.ph32.i
 
 .lr.ph32.i:                                       ; preds = %608
   %611 = getelementptr inbounds i8, ptr %.val449.val, i64 16
@@ -3480,7 +3480,7 @@ list_length.exit:                                 ; preds = %596, %601
   %616 = ptrtoint ptr %13 to i64
   %617 = load i32, ptr %610, align 4
   %618 = icmp sgt i32 %617, 0
-  br i1 %618, label %.lr.ph652, label %optimize_window_clauses.exit
+  br i1 %618, label %.lr.ph652, label %optimize_window_clauses.argprom.argprom.exit
 
 .lr.ph652:                                        ; preds = %.lr.ph32.i, %.thread10.i
   %indvars.iv44.i651 = phi i64 [ %indvars.iv.next45.i, %.thread10.i ], [ 0, %.lr.ph32.i ]
@@ -3686,25 +3686,25 @@ list_length.exit.i471:                            ; preds = %.thread7.i
   %728 = load i32, ptr %610, align 4
   %729 = sext i32 %728 to i64
   %730 = icmp slt i64 %indvars.iv.next45.i, %729
-  br i1 %730, label %.lr.ph652, label %optimize_window_clauses.exit.loopexit
+  br i1 %730, label %.lr.ph652, label %optimize_window_clauses.argprom.argprom.exit.loopexit
 
-optimize_window_clauses.exit.loopexit:            ; preds = %.thread10.i
+optimize_window_clauses.argprom.argprom.exit.loopexit: ; preds = %.thread10.i
   %.val450.pre = load ptr, ptr %25, align 8
-  br label %optimize_window_clauses.exit
+  br label %optimize_window_clauses.argprom.argprom.exit
 
-optimize_window_clauses.exit:                     ; preds = %optimize_window_clauses.exit.loopexit, %.lr.ph32.i, %608
-  %.val450 = phi ptr [ %.val450.pre, %optimize_window_clauses.exit.loopexit ], [ %.val449, %.lr.ph32.i ], [ %.val449, %608 ]
+optimize_window_clauses.argprom.argprom.exit:     ; preds = %optimize_window_clauses.argprom.argprom.exit.loopexit, %.lr.ph32.i, %608
+  %.val450 = phi ptr [ %.val450.pre, %optimize_window_clauses.argprom.argprom.exit.loopexit ], [ %.val449, %.lr.ph32.i ], [ %.val449, %608 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   %731 = getelementptr i8, ptr %.val450, i64 168
   %.val450.val = load ptr, ptr %731, align 8
   %.not.i.i480 = icmp eq ptr %.val450.val, null
   br i1 %.not.i.i480, label %list_length.exit.thread.i, label %.lr.ph.i481
 
-list_length.exit.thread.i:                        ; preds = %optimize_window_clauses.exit
+list_length.exit.thread.i:                        ; preds = %optimize_window_clauses.argprom.argprom.exit
   %732 = call ptr @palloc(i64 noundef 0) #12
   br label %._crit_edge.thread.i
 
-.lr.ph.i481:                                      ; preds = %optimize_window_clauses.exit
+.lr.ph.i481:                                      ; preds = %optimize_window_clauses.argprom.argprom.exit
   %733 = getelementptr inbounds i8, ptr %.val450.val, i64 4
   %734 = load i32, ptr %733, align 4
   %735 = sext i32 %734 to i64
@@ -3759,13 +3759,13 @@ list_length.exit.thread.i:                        ; preds = %optimize_window_cla
 ._crit_edge.thread.i:                             ; preds = %.lr.ph.i481, %list_length.exit.thread.i
   %.ph.i = phi ptr [ %732, %list_length.exit.thread.i ], [ %737, %.lr.ph.i481 ]
   call void @pg_qsort(ptr noundef %.ph.i, i64 noundef 0, i64 noundef 16, ptr noundef nonnull @common_prefix_cmp) #12
-  br label %select_active_windows.exit
+  br label %select_active_windows.argprom.argprom.exit
 
 ._crit_edge.i486:                                 ; preds = %764
   %768 = sext i32 %.1.i484 to i64
   call void @pg_qsort(ptr noundef %737, i64 noundef %768, i64 noundef 16, ptr noundef nonnull @common_prefix_cmp) #12
   %769 = icmp sgt i32 %.1.i484, 0
-  br i1 %769, label %.lr.ph15.preheader.i, label %select_active_windows.exit
+  br i1 %769, label %.lr.ph15.preheader.i, label %select_active_windows.argprom.argprom.exit
 
 .lr.ph15.preheader.i:                             ; preds = %._crit_edge.i486
   %wide.trip.count.i = zext nneg i32 %.1.i484 to i64
@@ -3779,9 +3779,9 @@ list_length.exit.thread.i:                        ; preds = %optimize_window_cla
   %772 = call ptr @lappend(ptr noundef %.02712.i, ptr noundef %771) #12
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %select_active_windows.exit, label %.lr.ph15.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %select_active_windows.argprom.argprom.exit, label %.lr.ph15.i, !llvm.loop !12
 
-select_active_windows.exit:                       ; preds = %.lr.ph15.i, %._crit_edge.thread.i, %._crit_edge.i486
+select_active_windows.argprom.argprom.exit:       ; preds = %.lr.ph15.i, %._crit_edge.thread.i, %._crit_edge.i486
   %773 = phi ptr [ %737, %._crit_edge.i486 ], [ %.ph.i, %._crit_edge.thread.i ], [ %737, %.lr.ph15.i ]
   %.027.lcssa.i = phi ptr [ null, %._crit_edge.i486 ], [ null, %._crit_edge.thread.i ], [ %772, %.lr.ph15.i ]
   call void @pfree(ptr noundef %773) #12
@@ -3791,9 +3791,9 @@ select_active_windows.exit:                       ; preds = %.lr.ph15.i, %._crit
   store i8 0, ptr %593, align 1
   br label %775
 
-775:                                              ; preds = %select_active_windows.exit, %774, %592
-  %.0355 = phi ptr [ %.027.lcssa.i, %select_active_windows.exit ], [ null, %774 ], [ null, %592 ]
-  %.0349 = phi ptr [ %605, %select_active_windows.exit ], [ %605, %774 ], [ null, %592 ]
+775:                                              ; preds = %select_active_windows.argprom.argprom.exit, %774, %592
+  %.0355 = phi ptr [ %.027.lcssa.i, %select_active_windows.argprom.argprom.exit ], [ null, %774 ], [ null, %592 ]
+  %.0349 = phi ptr [ %605, %select_active_windows.argprom.argprom.exit ], [ %605, %774 ], [ null, %592 ]
   %776 = load i8, ptr %584, align 4
   %777 = trunc i8 %776 to i1
   br i1 %777, label %778, label %779
@@ -4565,21 +4565,21 @@ make_grouping_rel.exit.i:                         ; preds = %1124, %1122, %1117
   %1142 = getelementptr inbounds i8, ptr %.val.i521, i64 152
   %1143 = load ptr, ptr %1142, align 8
   %.not.i.i522 = icmp eq ptr %1143, null
-  br i1 %.not.i.i522, label %is_degenerate_grouping.exit.thread.i, label %1144
+  br i1 %.not.i.i522, label %is_degenerate_grouping.argprom.exit.thread.i, label %1144
 
 1144:                                             ; preds = %1141, %make_grouping_rel.exit.i
   %1145 = getelementptr inbounds i8, ptr %.val.i521, i64 44
   %1146 = load i8, ptr %1145, align 4
   %1147 = trunc i8 %1146 to i1
-  br i1 %1147, label %is_degenerate_grouping.exit.thread.i, label %is_degenerate_grouping.exit.i
+  br i1 %1147, label %is_degenerate_grouping.argprom.exit.thread.i, label %is_degenerate_grouping.argprom.exit.i
 
-is_degenerate_grouping.exit.i:                    ; preds = %1144
+is_degenerate_grouping.argprom.exit.i:            ; preds = %1144
   %1148 = getelementptr inbounds i8, ptr %.val.i521, i64 136
   %1149 = load ptr, ptr %1148, align 8
   %1150 = icmp eq ptr %1149, null
-  br i1 %1150, label %1151, label %is_degenerate_grouping.exit.thread.i
+  br i1 %1150, label %1151, label %is_degenerate_grouping.argprom.exit.thread.i
 
-1151:                                             ; preds = %is_degenerate_grouping.exit.i
+1151:                                             ; preds = %is_degenerate_grouping.argprom.exit.i
   %1152 = getelementptr inbounds i8, ptr %.val.i521, i64 152
   %1153 = load ptr, ptr %1152, align 8
   %.not.i.i.i528 = icmp eq ptr %1153, null
@@ -4608,30 +4608,30 @@ list_length.exit.i.i529:                          ; preds = %1151
 
 1165:                                             ; preds = %1158
   %1166 = call ptr @create_append_path(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef %1163, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, i1 noundef zeroext false, double noundef -1.000000e+00) #12
-  br label %create_degenerate_grouping_paths.exit.i
+  br label %create_degenerate_grouping_paths.argprom.exit.i
 
 list_length.exit.thread.i.i:                      ; preds = %list_length.exit.i.i529, %1151
   %1167 = load ptr, ptr %1118, align 8
   %1168 = getelementptr inbounds i8, ptr %.val.i521, i64 160
   %1169 = load ptr, ptr %1168, align 8
   %1170 = call ptr @create_group_result_path(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i, ptr noundef %1167, ptr noundef %1169) #12
-  br label %create_degenerate_grouping_paths.exit.i
+  br label %create_degenerate_grouping_paths.argprom.exit.i
 
-create_degenerate_grouping_paths.exit.i:          ; preds = %list_length.exit.thread.i.i, %1165
+create_degenerate_grouping_paths.argprom.exit.i:  ; preds = %list_length.exit.thread.i.i, %1165
   %.018.i.i = phi ptr [ %1166, %1165 ], [ %1170, %list_length.exit.thread.i.i ]
   call void @add_path(ptr noundef nonnull %.0.i.i, ptr noundef %.018.i.i) #12
   br label %create_grouping_paths.exit
 
-is_degenerate_grouping.exit.thread.i:             ; preds = %is_degenerate_grouping.exit.i, %1144, %1141
+is_degenerate_grouping.argprom.exit.thread.i:     ; preds = %is_degenerate_grouping.argprom.exit.i, %1144, %1141
   %.not.i523 = icmp eq ptr %.0357, null
   br i1 %.not.i523, label %1173, label %1171
 
-1171:                                             ; preds = %is_degenerate_grouping.exit.thread.i
+1171:                                             ; preds = %is_degenerate_grouping.argprom.exit.thread.i
   %1172 = load ptr, ptr %.0357, align 8
   %.not52.i = icmp eq ptr %1172, null
   br i1 %.not52.i, label %1173, label %1177
 
-1173:                                             ; preds = %1171, %is_degenerate_grouping.exit.thread.i
+1173:                                             ; preds = %1171, %is_degenerate_grouping.argprom.exit.thread.i
   %1174 = getelementptr inbounds i8, ptr %0, i64 504
   %1175 = load ptr, ptr %1174, align 8
   %1176 = call zeroext i1 @grouping_is_sortable(ptr noundef %1175) #12
@@ -4741,7 +4741,7 @@ can_partial_agg.exit.thread.i:                    ; preds = %can_partial_agg.exi
   call fastcc void @create_ordinary_grouping_paths(ptr noundef nonnull %0, ptr noundef nonnull %805, ptr noundef nonnull %.0.i.i, ptr noundef %10, ptr noundef %.0357, ptr noundef %11, ptr noundef %9)
   br label %create_grouping_paths.exit
 
-create_grouping_paths.exit:                       ; preds = %create_degenerate_grouping_paths.exit.i, %1230
+create_grouping_paths.exit:                       ; preds = %create_degenerate_grouping_paths.argprom.exit.i, %1230
   call void @set_cheapest(ptr noundef nonnull %.0.i.i) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
@@ -10231,7 +10231,7 @@ list_head.exit.thread:                            ; preds = %14, %23, %17, %list
   %91 = getelementptr inbounds i8, ptr %.val245, i64 136
   %92 = load i32, ptr %89, align 4
   %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %.lr.ph10.i, label %groupclause_apply_groupingset.exit
+  br i1 %93, label %.lr.ph10.i, label %groupclause_apply_groupingset.argprom.exit
 
 .lr.ph10.i:                                       ; preds = %.lr.ph.i, %.lr.ph10.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph10.i ], [ 0, %.lr.ph.i ]
@@ -10246,9 +10246,9 @@ list_head.exit.thread:                            ; preds = %14, %23, %17, %list
   %100 = load i32, ptr %89, align 4
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next.i, %101
-  br i1 %102, label %.lr.ph10.i, label %groupclause_apply_groupingset.exit
+  br i1 %102, label %.lr.ph10.i, label %groupclause_apply_groupingset.argprom.exit
 
-groupclause_apply_groupingset.exit:               ; preds = %.lr.ph10.i, %.lr.ph.i
+groupclause_apply_groupingset.argprom.exit:       ; preds = %.lr.ph10.i, %.lr.ph.i
   %.0.lcssa.i = phi ptr [ null, %.lr.ph.i ], [ %99, %.lr.ph10.i ]
   %103 = getelementptr inbounds i8, ptr %88, i64 8
   store ptr %.0.lcssa.i, ptr %103, align 8
@@ -10261,13 +10261,13 @@ groupclause_apply_groupingset.exit:               ; preds = %.lr.ph10.i, %.lr.ph
   %.not.i248 = icmp eq ptr %106, null
   br i1 %.not.i248, label %._crit_edge53.i, label %.lr.ph.i249
 
-.lr.ph.i249:                                      ; preds = %groupclause_apply_groupingset.exit
+.lr.ph.i249:                                      ; preds = %groupclause_apply_groupingset.argprom.exit
   %109 = getelementptr inbounds i8, ptr %106, i64 16
   %110 = load i32, ptr %108, align 4
   %111 = icmp sgt i32 %110, 0
   br i1 %111, label %.lr.ph56.i, label %._crit_edge53.i
 
-._crit_edge53.i:                                  ; preds = %.lr.ph56.i, %.lr.ph.i249, %groupclause_apply_groupingset.exit
+._crit_edge53.i:                                  ; preds = %.lr.ph56.i, %.lr.ph.i249, %groupclause_apply_groupingset.argprom.exit
   %112 = getelementptr inbounds i8, ptr %104, i64 4
   %.not37.i = icmp eq ptr %104, null
   br i1 %.not37.i, label %remap_to_groupclause_idx.exit, label %.lr.ph72.i
@@ -10617,7 +10617,7 @@ list_length.exit254.thread:                       ; preds = %271, %.lr.ph343, %l
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr inbounds i8, ptr %290, i64 4
   %.not.i261 = icmp eq ptr %290, null
-  br i1 %.not.i261, label %groupclause_apply_groupingset.exit268, label %.lr.ph.i262
+  br i1 %.not.i261, label %groupclause_apply_groupingset.argprom.exit268, label %.lr.ph.i262
 
 .lr.ph.i262:                                      ; preds = %.lr.ph432
   %.val244 = load ptr, ptr %9, align 8
@@ -10625,7 +10625,7 @@ list_length.exit254.thread:                       ; preds = %271, %.lr.ph343, %l
   %293 = getelementptr inbounds i8, ptr %.val244, i64 136
   %294 = load i32, ptr %291, align 4
   %295 = icmp sgt i32 %294, 0
-  br i1 %295, label %.lr.ph10.i264, label %groupclause_apply_groupingset.exit268
+  br i1 %295, label %.lr.ph10.i264, label %groupclause_apply_groupingset.argprom.exit268
 
 .lr.ph10.i264:                                    ; preds = %.lr.ph.i262, %.lr.ph10.i264
   %indvars.iv.i265 = phi i64 [ %indvars.iv.next.i267, %.lr.ph10.i264 ], [ 0, %.lr.ph.i262 ]
@@ -10640,9 +10640,9 @@ list_length.exit254.thread:                       ; preds = %271, %.lr.ph343, %l
   %302 = load i32, ptr %291, align 4
   %303 = sext i32 %302 to i64
   %304 = icmp slt i64 %indvars.iv.next.i267, %303
-  br i1 %304, label %.lr.ph10.i264, label %groupclause_apply_groupingset.exit268
+  br i1 %304, label %.lr.ph10.i264, label %groupclause_apply_groupingset.argprom.exit268
 
-groupclause_apply_groupingset.exit268:            ; preds = %.lr.ph10.i264, %.lr.ph432, %.lr.ph.i262
+groupclause_apply_groupingset.argprom.exit268:    ; preds = %.lr.ph10.i264, %.lr.ph432, %.lr.ph.i262
   %.0.lcssa.i263 = phi ptr [ null, %.lr.ph432 ], [ null, %.lr.ph.i262 ], [ %301, %.lr.ph10.i264 ]
   %305 = getelementptr inbounds i8, ptr %288, i64 8
   store ptr %.0.lcssa.i263, ptr %305, align 8
@@ -10655,13 +10655,13 @@ groupclause_apply_groupingset.exit268:            ; preds = %.lr.ph10.i264, %.lr
   %.not.i269 = icmp eq ptr %308, null
   br i1 %.not.i269, label %._crit_edge53.i271, label %.lr.ph.i270
 
-.lr.ph.i270:                                      ; preds = %groupclause_apply_groupingset.exit268
+.lr.ph.i270:                                      ; preds = %groupclause_apply_groupingset.argprom.exit268
   %311 = getelementptr inbounds i8, ptr %308, i64 16
   %312 = load i32, ptr %310, align 4
   %313 = icmp sgt i32 %312, 0
   br i1 %313, label %.lr.ph56.i287, label %._crit_edge53.i271
 
-._crit_edge53.i271:                               ; preds = %.lr.ph56.i287, %.lr.ph.i270, %groupclause_apply_groupingset.exit268
+._crit_edge53.i271:                               ; preds = %.lr.ph56.i287, %.lr.ph.i270, %groupclause_apply_groupingset.argprom.exit268
   %314 = getelementptr inbounds i8, ptr %306, i64 4
   %.not37.i272 = icmp eq ptr %306, null
   br i1 %.not37.i272, label %remap_to_groupclause_idx.exit291, label %.lr.ph72.i273

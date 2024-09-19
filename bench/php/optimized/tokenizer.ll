@@ -1238,33 +1238,33 @@ define hidden void @zim_PhpToken_is(ptr noundef %0, ptr nocapture noundef writeo
   %28 = getelementptr inbounds i8, ptr %.val, i64 56
   %29 = getelementptr inbounds i8, ptr %.val, i64 64
   %30 = load i8, ptr %29, align 8
-  switch i8 %30, label %php_token_get_text.exit [
-    i8 0, label %php_token_get_text.exit.thread
+  switch i8 %30, label %php_token_get_text.argprom.exit [
+    i8 0, label %php_token_get_text.argprom.exit.thread
     i8 10, label %31
   ]
 
-php_token_get_text.exit.thread:                   ; preds = %27
+php_token_get_text.argprom.exit.thread:           ; preds = %27
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.16) #10
   br label %35
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %28, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
-  br label %php_token_get_text.exit
+  br label %php_token_get_text.argprom.exit
 
-php_token_get_text.exit:                          ; preds = %27, %31
+php_token_get_text.argprom.exit:                  ; preds = %27, %31
   %.0.i = phi ptr [ %33, %31 ], [ %28, %27 ]
   %34 = load ptr, ptr %.0.i, align 8
   %.not126 = icmp eq ptr %34, null
   br i1 %.not126, label %35, label %38
 
-35:                                               ; preds = %php_token_get_text.exit.thread, %php_token_get_text.exit
+35:                                               ; preds = %php_token_get_text.argprom.exit.thread, %php_token_get_text.argprom.exit
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %37 = icmp ne ptr %36, null
   tail call void @llvm.assume(i1 %37)
   br label %122
 
-38:                                               ; preds = %php_token_get_text.exit
+38:                                               ; preds = %php_token_get_text.argprom.exit
   %39 = load ptr, ptr %8, align 8
   %40 = icmp eq ptr %34, %39
   br i1 %40, label %50, label %41
@@ -1336,14 +1336,14 @@ php_token_get_text.exit:                          ; preds = %27, %31
 
 72:                                               ; preds = %70
   %.not124 = icmp eq ptr %.098157, null
-  br i1 %.not124, label %73, label %php_token_get_id.exit133.thread
+  br i1 %.not124, label %73, label %php_token_get_id.argprom.exit133.thread
 
 73:                                               ; preds = %72
   %.val130 = load ptr, ptr %3, align 8
   %74 = getelementptr inbounds i8, ptr %.val130, i64 40
   %75 = getelementptr inbounds i8, ptr %.val130, i64 48
   %76 = load i8, ptr %75, align 8
-  switch i8 %76, label %php_token_get_id.exit133.thread [
+  switch i8 %76, label %php_token_get_id.argprom.exit133.thread [
     i8 0, label %80
     i8 10, label %77
   ]
@@ -1351,7 +1351,7 @@ php_token_get_text.exit:                          ; preds = %27, %31
 77:                                               ; preds = %73
   %78 = load ptr, ptr %74, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 8
-  br label %php_token_get_id.exit133.thread
+  br label %php_token_get_id.argprom.exit133.thread
 
 80:                                               ; preds = %73
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.15) #10
@@ -1360,14 +1360,14 @@ php_token_get_text.exit:                          ; preds = %27, %31
   tail call void @llvm.assume(i1 %82)
   br label %122
 
-php_token_get_id.exit133.thread:                  ; preds = %73, %77, %72
+php_token_get_id.argprom.exit133.thread:          ; preds = %73, %77, %72
   %.2100 = phi ptr [ %.098157, %72 ], [ %74, %73 ], [ %79, %77 ]
   %83 = load i64, ptr %.2100, align 8
   %84 = load i64, ptr %.097, align 8
   %85 = icmp eq i64 %83, %84
   br i1 %85, label %86, label %.critedge2
 
-86:                                               ; preds = %php_token_get_id.exit133.thread
+86:                                               ; preds = %php_token_get_id.argprom.exit133.thread
   %87 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 3, ptr %87, align 8
   br label %122
@@ -1381,34 +1381,34 @@ php_token_get_id.exit133.thread:                  ; preds = %73, %77, %72
   %90 = getelementptr inbounds i8, ptr %.val128, i64 56
   %91 = getelementptr inbounds i8, ptr %.val128, i64 64
   %92 = load i8, ptr %91, align 8
-  switch i8 %92, label %php_token_get_text.exit136 [
-    i8 0, label %php_token_get_text.exit136.thread
+  switch i8 %92, label %php_token_get_text.argprom.exit136 [
+    i8 0, label %php_token_get_text.argprom.exit136.thread
     i8 10, label %93
   ]
 
-php_token_get_text.exit136.thread:                ; preds = %89
+php_token_get_text.argprom.exit136.thread:        ; preds = %89
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.16) #10
   br label %.loopexit
 
 93:                                               ; preds = %89
   %94 = load ptr, ptr %90, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 8
-  br label %php_token_get_text.exit136
+  br label %php_token_get_text.argprom.exit136
 
-php_token_get_text.exit136:                       ; preds = %89, %93
+php_token_get_text.argprom.exit136:               ; preds = %89, %93
   %.0.i134 = phi ptr [ %95, %93 ], [ %90, %89 ]
   %96 = load ptr, ptr %.0.i134, align 8
   %.not123 = icmp eq ptr %96, null
   br i1 %.not123, label %.loopexit, label %99
 
-.loopexit:                                        ; preds = %php_token_get_text.exit136, %php_token_get_text.exit136.thread
+.loopexit:                                        ; preds = %php_token_get_text.argprom.exit136, %php_token_get_text.argprom.exit136.thread
   %97 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %98 = icmp ne ptr %97, null
   tail call void @llvm.assume(i1 %98)
   br label %122
 
-99:                                               ; preds = %php_token_get_text.exit136, %88
-  %.2 = phi ptr [ %.096158, %88 ], [ %96, %php_token_get_text.exit136 ]
+99:                                               ; preds = %php_token_get_text.argprom.exit136, %88
+  %.2 = phi ptr [ %.096158, %88 ], [ %96, %php_token_get_text.argprom.exit136 ]
   %100 = load ptr, ptr %.097, align 8
   %101 = icmp eq ptr %.2, %100
   br i1 %101, label %.critedge, label %102
@@ -1438,9 +1438,9 @@ php_token_get_text.exit136:                       ; preds = %89, %93
   tail call void @llvm.assume(i1 %114)
   br label %122
 
-.critedge2:                                       ; preds = %.lr.ph, %php_token_get_id.exit133.thread, %108, %102
-  %.199 = phi ptr [ %.098157, %.lr.ph ], [ %.2100, %php_token_get_id.exit133.thread ], [ %.098157, %108 ], [ %.098157, %102 ]
-  %.1 = phi ptr [ %.096158, %.lr.ph ], [ %.096158, %php_token_get_id.exit133.thread ], [ %.2, %108 ], [ %.2, %102 ]
+.critedge2:                                       ; preds = %.lr.ph, %php_token_get_id.argprom.exit133.thread, %108, %102
+  %.199 = phi ptr [ %.098157, %.lr.ph ], [ %.2100, %php_token_get_id.argprom.exit133.thread ], [ %.098157, %108 ], [ %.098157, %102 ]
+  %.1 = phi ptr [ %.096158, %.lr.ph ], [ %.096158, %php_token_get_id.argprom.exit133.thread ], [ %.2, %108 ], [ %.2, %102 ]
   %115 = getelementptr inbounds i8, ptr %.0160, i64 %62
   %116 = add i32 %.095159, -1
   %.not121 = icmp eq i32 %116, 0
@@ -1634,33 +1634,33 @@ define hidden void @zim_PhpToken___toString(ptr nocapture noundef readonly %0, p
   %8 = getelementptr inbounds i8, ptr %.val, i64 56
   %9 = getelementptr inbounds i8, ptr %.val, i64 64
   %10 = load i8, ptr %9, align 8
-  switch i8 %10, label %php_token_get_text.exit [
-    i8 0, label %php_token_get_text.exit.thread
+  switch i8 %10, label %php_token_get_text.argprom.exit [
+    i8 0, label %php_token_get_text.argprom.exit.thread
     i8 10, label %11
   ]
 
-php_token_get_text.exit.thread:                   ; preds = %6
+php_token_get_text.argprom.exit.thread:           ; preds = %6
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.16) #10
   br label %15
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %8, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
-  br label %php_token_get_text.exit
+  br label %php_token_get_text.argprom.exit
 
-php_token_get_text.exit:                          ; preds = %6, %11
+php_token_get_text.argprom.exit:                  ; preds = %6, %11
   %.0.i = phi ptr [ %13, %11 ], [ %8, %6 ]
   %14 = load ptr, ptr %.0.i, align 8
   %.not12 = icmp eq ptr %14, null
   br i1 %.not12, label %15, label %18
 
-15:                                               ; preds = %php_token_get_text.exit.thread, %php_token_get_text.exit
+15:                                               ; preds = %php_token_get_text.argprom.exit.thread, %php_token_get_text.argprom.exit
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %28
 
-18:                                               ; preds = %php_token_get_text.exit
+18:                                               ; preds = %php_token_get_text.argprom.exit
   store ptr %14, ptr %1, align 8
   %19 = getelementptr inbounds i8, ptr %14, i64 4
   %20 = load i32, ptr %19, align 4

@@ -965,7 +965,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__alloc_null(ptr noundef %0, ptr
   %35 = getelementptr inbounds i8, ptr %10, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 %5
-  %38 = call fastcc i32 @H5O__add_gap(ptr noundef nonnull %1, i32 noundef %34, ptr noundef %7, i64 noundef %2, ptr noundef %37, i64 noundef %20)
+  %38 = call fastcc i32 @H5O__add_gap.argprom(ptr noundef nonnull %1, i32 noundef %34, ptr noundef %7, i64 noundef %2, ptr noundef %37, i64 noundef %20)
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %40, label %102
 
@@ -1062,7 +1062,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__alloc_null(ptr noundef %0, ptr
   %.neg = select i1 %99, i64 0, i64 -4
   %.neg79 = sub i64 %.neg, %91
   %100 = getelementptr inbounds i8, ptr %97, i64 %.neg79
-  call fastcc void @H5O__eliminate_gap(ptr noundef nonnull %1, ptr noundef %7, ptr noundef nonnull %72, ptr noundef %100, i64 noundef %91)
+  call fastcc void @H5O__eliminate_gap.retelim(ptr noundef nonnull %1, ptr noundef %7, ptr noundef nonnull %72, ptr noundef %100, i64 noundef %91)
   br label %101
 
 101:                                              ; preds = %92, %68
@@ -2266,7 +2266,7 @@ define range(i32 -1, 1) i32 @H5O__release_mesg(ptr noundef %0, ptr noundef %1, p
   %.neg = select i1 %45, i64 0, i64 -4
   %.neg37 = sub i64 %.neg, %36
   %46 = getelementptr inbounds i8, ptr %42, i64 %.neg37
-  call fastcc void @H5O__eliminate_gap(ptr noundef nonnull %1, ptr noundef %5, ptr noundef nonnull %2, ptr noundef %46, i64 noundef %36)
+  call fastcc void @H5O__eliminate_gap.retelim(ptr noundef nonnull %1, ptr noundef %5, ptr noundef nonnull %2, ptr noundef %46, i64 noundef %36)
   %.pre = load i8, ptr %5, align 1
   %47 = trunc i8 %.pre to i1
   br label %48
@@ -2291,7 +2291,7 @@ define range(i32 -1, 1) i32 @H5O__release_mesg(ptr noundef %0, ptr noundef %1, p
 declare i32 @H5O__delete_mesg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5O__eliminate_gap(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #4 {
+define internal fastcc void @H5O__eliminate_gap.retelim(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #4 {
   %6 = getelementptr inbounds i8, ptr %2, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ult ptr %7, %3
@@ -3119,7 +3119,7 @@ define range(i32 -1, 1) i32 @H5O__condense_header(ptr noundef %0, ptr noundef %1
   br i1 %.not184.i.i, label %352, label %345
 
 345:                                              ; preds = %344
-  %346 = call fastcc i32 @H5O__add_gap(ptr noundef nonnull %1, i32 noundef %224, ptr noundef %3, i64 noundef %20, ptr noundef %.0157.lcssa.i.i, i64 noundef %320)
+  %346 = call fastcc i32 @H5O__add_gap.argprom(ptr noundef nonnull %1, i32 noundef %224, ptr noundef %3, i64 noundef %20, ptr noundef %.0157.lcssa.i.i, i64 noundef %320)
   %347 = icmp slt i32 %346, 0
   br i1 %347, label %348, label %352
 
@@ -3479,7 +3479,7 @@ H5O__move_cont.exit.thread590.i:                  ; preds = %.thread.i
   %.neg293.i = select i1 %550, i64 0, i64 -4
   %.neg294.i = sub i64 %.neg293.i, %542
   %551 = getelementptr inbounds i8, ptr %548, i64 %.neg294.i
-  call fastcc void @H5O__eliminate_gap(ptr noundef nonnull %1, ptr noundef %5, ptr noundef nonnull %.0249480.i, ptr noundef %551, i64 noundef %542)
+  call fastcc void @H5O__eliminate_gap.retelim(ptr noundef nonnull %1, ptr noundef %5, ptr noundef nonnull %.0249480.i, ptr noundef %551, i64 noundef %542)
   %.pre586.i = load i8, ptr %5, align 1
   %552 = trunc i8 %.pre586.i to i1
   br label %553
@@ -3526,7 +3526,7 @@ H5O__move_cont.exit.thread590.i:                  ; preds = %.thread.i
   store i8 1, ptr %5, align 1
   %576 = load i32, ptr %439, align 8
   %577 = getelementptr inbounds i8, ptr %525, i64 %526
-  %578 = call fastcc i32 @H5O__add_gap(ptr noundef nonnull %1, i32 noundef %576, ptr noundef %5, i64 noundef %.0248481.i, ptr noundef %577, i64 noundef %563)
+  %578 = call fastcc i32 @H5O__add_gap.argprom(ptr noundef nonnull %1, i32 noundef %576, ptr noundef %5, i64 noundef %.0248481.i, ptr noundef %577, i64 noundef %563)
   %579 = icmp slt i32 %578, 0
   br i1 %579, label %581, label %._crit_edge583.i
 
@@ -3665,7 +3665,7 @@ H5O__move_cont.exit.thread590.i:                  ; preds = %.thread.i
   %.neg.i = select i1 %662, i64 0, i64 -4
   %.neg291.i = sub i64 %.neg.i, %652
   %663 = getelementptr inbounds i8, ptr %660, i64 %.neg291.i
-  call fastcc void @H5O__eliminate_gap(ptr noundef nonnull %1, ptr noundef %6, ptr noundef %655, ptr noundef %663, i64 noundef %652)
+  call fastcc void @H5O__eliminate_gap.retelim(ptr noundef nonnull %1, ptr noundef %6, ptr noundef %655, ptr noundef %663, i64 noundef %652)
   %.pre585.i = load i8, ptr %6, align 1
   %664 = trunc i8 %.pre585.i to i1
   br label %665
@@ -5157,7 +5157,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5O__remove_empty_chunks(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5O__add_gap(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5O__add_gap.argprom(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 336
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
@@ -5190,7 +5190,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__add_gap(ptr nocapture noundef 
   br i1 %.not18, label %12, label %.lr.ph5
 
 ._crit_edge:                                      ; preds = %17
-  tail call fastcc void @H5O__eliminate_gap(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %13, ptr noundef %4, i64 noundef %5)
+  tail call fastcc void @H5O__eliminate_gap.retelim(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %13, ptr noundef %4, i64 noundef %5)
   br label %136
 
 .lr.ph5:                                          ; preds = %21

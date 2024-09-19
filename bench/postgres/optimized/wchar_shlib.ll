@@ -545,19 +545,19 @@ define internal i32 @pg_wchar2euc_with_len(ptr nocapture noundef readonly %0, pt
 define internal range(i32 1, 4) i32 @pg_eucjp_mblen(ptr nocapture noundef readonly %0) #1 {
   %.val = load i8, ptr %0, align 1
   switch i8 %.val, label %3 [
-    i8 -114, label %pg_euc_mblen.exit
+    i8 -114, label %pg_euc_mblen.argprom.exit
     i8 -113, label %2
   ]
 
 2:                                                ; preds = %1
-  br label %pg_euc_mblen.exit
+  br label %pg_euc_mblen.argprom.exit
 
 3:                                                ; preds = %1
   %.not.i = icmp sgt i8 %.val, -1
   %..i = select i1 %.not.i, i32 1, i32 2
-  br label %pg_euc_mblen.exit
+  br label %pg_euc_mblen.argprom.exit
 
-pg_euc_mblen.exit:                                ; preds = %1, %2, %3
+pg_euc_mblen.argprom.exit:                        ; preds = %1, %2, %3
   %.0.i = phi i32 [ 3, %2 ], [ 2, %1 ], [ %..i, %3 ]
   ret i32 %.0.i
 }
@@ -1005,19 +1005,19 @@ pg_euc2wchar_with_len.exit:                       ; preds = %.lr.ph.i, %39, %3
 define internal range(i32 1, 4) i32 @pg_euckr_mblen(ptr nocapture noundef readonly %0) #1 {
   %.val = load i8, ptr %0, align 1
   switch i8 %.val, label %3 [
-    i8 -114, label %pg_euc_mblen.exit
+    i8 -114, label %pg_euc_mblen.argprom.exit
     i8 -113, label %2
   ]
 
 2:                                                ; preds = %1
-  br label %pg_euc_mblen.exit
+  br label %pg_euc_mblen.argprom.exit
 
 3:                                                ; preds = %1
   %.not.i = icmp sgt i8 %.val, -1
   %..i = select i1 %.not.i, i32 1, i32 2
-  br label %pg_euc_mblen.exit
+  br label %pg_euc_mblen.argprom.exit
 
-pg_euc_mblen.exit:                                ; preds = %1, %2, %3
+pg_euc_mblen.argprom.exit:                        ; preds = %1, %2, %3
   %.0.i = phi i32 [ 3, %2 ], [ 2, %1 ], [ %..i, %3 ]
   ret i32 %.0.i
 }
@@ -1026,7 +1026,7 @@ pg_euc_mblen.exit:                                ; preds = %1, %2, %3
 define internal range(i32 -1, 3) i32 @pg_euckr_dsplen(ptr nocapture noundef readonly %0) #1 {
   %.val = load i8, ptr %0, align 1
   %or.cond.not.not.i = icmp sgt i8 %.val, -1
-  br i1 %or.cond.not.not.i, label %2, label %pg_euc_dsplen.exit
+  br i1 %or.cond.not.not.i, label %2, label %pg_euc_dsplen.argprom.exit
 
 2:                                                ; preds = %1
   %3 = icmp eq i8 %.val, 0
@@ -1035,9 +1035,9 @@ define internal range(i32 -1, 3) i32 @pg_euckr_dsplen(ptr nocapture noundef read
   %or.cond.i.i = or i1 %4, %5
   %spec.select.i.i = select i1 %or.cond.i.i, i32 -1, i32 1
   %.0.i.i = select i1 %3, i32 0, i32 %spec.select.i.i
-  br label %pg_euc_dsplen.exit
+  br label %pg_euc_dsplen.argprom.exit
 
-pg_euc_dsplen.exit:                               ; preds = %1, %2
+pg_euc_dsplen.argprom.exit:                       ; preds = %1, %2
   %.0.i = phi i32 [ %.0.i.i, %2 ], [ 2, %1 ]
   ret i32 %.0.i
 }
@@ -2994,19 +2994,19 @@ pg_gb18030_verifychar.exit.thread:                ; preds = %pg_gb18030_verifych
 define internal range(i32 1, 4) i32 @pg_johab_mblen(ptr nocapture noundef readonly %0) #1 {
   %.val = load i8, ptr %0, align 1
   switch i8 %.val, label %3 [
-    i8 -114, label %pg_euc_mblen.exit
+    i8 -114, label %pg_euc_mblen.argprom.exit
     i8 -113, label %2
   ]
 
 2:                                                ; preds = %1
-  br label %pg_euc_mblen.exit
+  br label %pg_euc_mblen.argprom.exit
 
 3:                                                ; preds = %1
   %.not.i = icmp sgt i8 %.val, -1
   %..i = select i1 %.not.i, i32 1, i32 2
-  br label %pg_euc_mblen.exit
+  br label %pg_euc_mblen.argprom.exit
 
-pg_euc_mblen.exit:                                ; preds = %1, %2, %3
+pg_euc_mblen.argprom.exit:                        ; preds = %1, %2, %3
   %.0.i = phi i32 [ 3, %2 ], [ 2, %1 ], [ %..i, %3 ]
   ret i32 %.0.i
 }
@@ -3015,7 +3015,7 @@ pg_euc_mblen.exit:                                ; preds = %1, %2, %3
 define internal range(i32 -1, 3) i32 @pg_johab_dsplen(ptr nocapture noundef readonly %0) #1 {
   %.val = load i8, ptr %0, align 1
   %or.cond.not.not.i = icmp sgt i8 %.val, -1
-  br i1 %or.cond.not.not.i, label %2, label %pg_euc_dsplen.exit
+  br i1 %or.cond.not.not.i, label %2, label %pg_euc_dsplen.argprom.exit
 
 2:                                                ; preds = %1
   %3 = icmp eq i8 %.val, 0
@@ -3024,9 +3024,9 @@ define internal range(i32 -1, 3) i32 @pg_johab_dsplen(ptr nocapture noundef read
   %or.cond.i.i = or i1 %4, %5
   %spec.select.i.i = select i1 %or.cond.i.i, i32 -1, i32 1
   %.0.i.i = select i1 %3, i32 0, i32 %spec.select.i.i
-  br label %pg_euc_dsplen.exit
+  br label %pg_euc_dsplen.argprom.exit
 
-pg_euc_dsplen.exit:                               ; preds = %1, %2
+pg_euc_dsplen.argprom.exit:                       ; preds = %1, %2
   %.0.i = phi i32 [ %.0.i.i, %2 ], [ 2, %1 ]
   ret i32 %.0.i
 }

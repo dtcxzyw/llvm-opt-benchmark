@@ -198,7 +198,7 @@ entry:
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 122) #16
   %tobool.not.i = icmp eq ptr %txn, null
-  br i1 %tobool.not.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %refcnt.i = getelementptr inbounds i8, ptr %txn, i64 16
@@ -206,13 +206,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %dec.i = add i32 %2, -1
   store i32 %dec.i, ptr %refcnt.i, align 8
   %cmp.i = icmp eq i32 %dec.i, 0
-  br i1 %cmp.i, label %if.then.i, label %glib_autoptr_cleanup_QemuLockable.exit
+  br i1 %cmp.i, label %if.then.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @g_free(ptr noundef nonnull %txn) #16
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %entry, %land.lhs.true.i, %if.then.i
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %entry, %land.lhs.true.i, %if.then.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 132) #16
   ret void
 }
@@ -361,13 +361,13 @@ entry:
   %.pre3.i = trunc i8 %.pre.i to i1
   %.pre3.not.i = xor i1 %.pre3.i, true
   %brmerge.i = select i1 %tobool.i, i1 true, i1 %.pre3.not.i
-  br i1 %brmerge.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.else.i
+  br i1 %brmerge.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 250, ptr noundef nonnull @__PRETTY_FUNCTION__.job_is_cancelled_locked) #18
   unreachable
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %entry
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %entry
   %.pre3.mux.i = select i1 %tobool.i, i1 %.pre3.i, i1 false
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 132) #16
   ret i1 %.pre3.mux.i
@@ -375,7 +375,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %entry
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @job_cancel_requested(ptr nocapture noundef readonly %job) local_unnamed_addr #0 {
-glib_autoptr_cleanup_QemuLockable.exit:
+glib_autoptr_cleanup_QemuLockable.argprom.exit:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 122) #16
@@ -459,7 +459,7 @@ entry:
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @job_next(ptr noundef readonly %job) local_unnamed_addr #0 {
-glib_autoptr_cleanup_QemuLockable.exit:
+glib_autoptr_cleanup_QemuLockable.argprom.exit:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 122) #16
@@ -520,7 +520,7 @@ do.end:                                           ; preds = %entry
   %paused = getelementptr inbounds i8, ptr %job, i64 181
   %2 = load i8, ptr %paused, align 1
   %tobool = trunc i8 %2 to i1
-  br i1 %tobool, label %glib_autoptr_cleanup_QemuLockable.exit, label %lor.lhs.false
+  br i1 %tobool, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.end
   %status.i = getelementptr inbounds i8, ptr %job, i64 124
@@ -532,11 +532,11 @@ lor.lhs.false:                                    ; preds = %do.end
     i32 3, label %if.else5
     i32 4, label %if.else5
     i32 5, label %if.else5
-    i32 6, label %glib_autoptr_cleanup_QemuLockable.exit
-    i32 7, label %glib_autoptr_cleanup_QemuLockable.exit
-    i32 8, label %glib_autoptr_cleanup_QemuLockable.exit
-    i32 9, label %glib_autoptr_cleanup_QemuLockable.exit
-    i32 10, label %glib_autoptr_cleanup_QemuLockable.exit
+    i32 6, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+    i32 7, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+    i32 8, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+    i32 9, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+    i32 10, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
   ]
 
 do.body.i:                                        ; preds = %lor.lhs.false
@@ -547,7 +547,7 @@ if.else5:                                         ; preds = %lor.lhs.false, %lor
   tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 373, ptr noundef nonnull @__PRETTY_FUNCTION__.job_set_aio_context) #18
   unreachable
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %do.end
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %do.end
   %aio_context = getelementptr inbounds i8, ptr %job, i64 112
   store ptr %ctx, ptr %aio_context, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 132) #16
@@ -572,7 +572,7 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 395, ptr noundef nonnull @__func__.job_create, ptr noundef nonnull @.str.8) #16
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end:                                           ; preds = %if.then
   %call4 = tail call zeroext i1 @id_wellformed(ptr noundef nonnull %job_id) #16
@@ -580,7 +580,7 @@ if.end:                                           ; preds = %if.then
 
 if.then5:                                         ; preds = %if.end
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 399, ptr noundef nonnull @__func__.job_create, ptr noundef nonnull @.str.9, ptr noundef nonnull %job_id) #16
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end6:                                          ; preds = %if.end
   %job.05.i = load ptr, ptr @jobs, align 8
@@ -606,14 +606,14 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
 
 if.then9:                                         ; preds = %land.lhs.true.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 403, ptr noundef nonnull @__func__.job_create, ptr noundef nonnull @.str.10, ptr noundef nonnull %job_id) #16
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.else:                                          ; preds = %entry
   br i1 %tobool12.not, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %if.else
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 407, ptr noundef nonnull @__func__.job_create, ptr noundef nonnull @.str.11) #16
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end15:                                         ; preds = %for.inc.i, %if.end6, %if.else
   %3 = load i64, ptr %driver, align 8
@@ -702,7 +702,7 @@ land.lhs.true.i47:                                ; preds = %if.end.i
   %le_prev18.i = getelementptr inbounds i8, ptr %call16, i64 272
   store ptr %jobs.i, ptr %le_prev18.i, align 8
   store i32 1, ptr %refcnt.i, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.end.i51:                                       ; preds = %if.end32
   %txn1.i52 = getelementptr inbounds i8, ptr %call16, i64 256
@@ -736,9 +736,9 @@ job_txn_add_job_locked.exit65:                    ; preds = %if.end4.i55, %if.th
   %8 = load i32, ptr %refcnt.i.i63, align 8
   %inc.i.i64 = add i32 %8, 1
   store i32 %inc.i.i64, ptr %refcnt.i.i63, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %land.lhs.true.i47, %job_txn_add_job_locked.exit65, %if.then13, %if.then9, %if.then5, %if.then3
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %land.lhs.true.i47, %job_txn_add_job_locked.exit65, %if.then13, %if.then9, %if.then5, %if.then3
   %retval.0 = phi ptr [ null, %if.then3 ], [ null, %if.then9 ], [ null, %if.then5 ], [ null, %if.then13 ], [ %call16, %job_txn_add_job_locked.exit65 ], [ %call16, %land.lhs.true.i47 ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 132) #16
   ret ptr %retval.0
@@ -1101,19 +1101,19 @@ entry:
   %2 = getelementptr i8, ptr %job, i64 16
   %job.val.i = load ptr, ptr %2, align 8
   %tobool.i.not.i = icmp eq ptr %job.val.i, null
-  br i1 %tobool.i.not.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end.i
+  br i1 %tobool.i.not.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %deferred_to_main_loop.i = getelementptr inbounds i8, ptr %job, i64 185
   %3 = load i8, ptr %deferred_to_main_loop.i, align 1
   %tobool.i = trunc i8 %3 to i1
-  br i1 %tobool.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end2.i
+  br i1 %tobool.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i
   %busy.i = getelementptr inbounds i8, ptr %job, i64 180
   %4 = load i8, ptr %busy.i, align 4
   %tobool3.i = trunc i8 %4 to i1
-  br i1 %tobool3.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end13.i
+  br i1 %tobool3.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end2.i
   %sleep_timer.i = getelementptr inbounds i8, ptr %job, i64 128
@@ -1125,16 +1125,16 @@ if.end13.i:                                       ; preds = %if.end2.i
   %6 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %7 = inttoptr i64 %6 to ptr
   tail call void %7(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str, i32 noundef 101) #16
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %entry, %if.end.i, %if.end2.i, %if.end13.i
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %entry, %if.end.i, %if.end2.i, %if.end13.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 132) #16
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @job_pause_point(ptr noundef %job) #0 {
-glib_autoptr_cleanup_QemuLockable.exit:
+glib_autoptr_cleanup_QemuLockable.argprom.exit:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 122) #16
@@ -1293,7 +1293,7 @@ if.else.i:                                        ; preds = %if.end
 
 job_is_cancelled_locked.exit:                     ; preds = %if.end
   %.pre3.mux.i = select i1 %tobool.i, i1 %.pre3.i, i1 false
-  br i1 %.pre3.mux.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end4
+  br i1 %.pre3.mux.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end4
 
 if.end4:                                          ; preds = %job_is_cancelled_locked.exit
   %4 = getelementptr i8, ptr %job, i64 176
@@ -1307,9 +1307,9 @@ if.then6:                                         ; preds = %if.end4
 
 if.end7:                                          ; preds = %if.then6, %if.end4
   tail call void @job_pause_point_locked(ptr noundef nonnull %job)
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %job_is_cancelled_locked.exit, %if.end7
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %job_is_cancelled_locked.exit, %if.end7
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 132) #16
   ret void
 }
@@ -1398,7 +1398,7 @@ if.else.i:                                        ; preds = %if.end
 
 job_is_cancelled_locked.exit:                     ; preds = %if.end
   %.pre3.mux.i = select i1 %tobool.i, i1 %.pre3.i, i1 false
-  br i1 %.pre3.mux.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end4
+  br i1 %.pre3.mux.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end4
 
 if.end4:                                          ; preds = %job_is_cancelled_locked.exit
   %4 = getelementptr i8, ptr %job, i64 176
@@ -1414,9 +1414,9 @@ if.then6:                                         ; preds = %if.end4
 
 if.end8:                                          ; preds = %if.then6, %if.end4
   tail call void @job_pause_point_locked(ptr noundef nonnull %job)
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %job_is_cancelled_locked.exit, %if.end8
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %job_is_cancelled_locked.exit, %if.end8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 132) #16
   ret void
 }
@@ -1482,25 +1482,25 @@ entry:
   %paused.i = getelementptr inbounds i8, ptr %job, i64 181
   %3 = load i8, ptr %paused.i, align 1
   %tobool.i = trunc i8 %3 to i1
-  br i1 %tobool.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then.i
+  br i1 %tobool.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %4 = getelementptr i8, ptr %job, i64 16
   %job.val.i.i = load ptr, ptr %4, align 8
   %tobool.i.not.i.i = icmp eq ptr %job.val.i.i, null
-  br i1 %tobool.i.not.i.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end.i.i
+  br i1 %tobool.i.not.i.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
   %deferred_to_main_loop.i.i = getelementptr inbounds i8, ptr %job, i64 185
   %5 = load i8, ptr %deferred_to_main_loop.i.i, align 1
   %tobool.i.i = trunc i8 %5 to i1
-  br i1 %tobool.i.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end2.i.i
+  br i1 %tobool.i.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end2.i.i
 
 if.end2.i.i:                                      ; preds = %if.end.i.i
   %busy.i.i = getelementptr inbounds i8, ptr %job, i64 180
   %6 = load i8, ptr %busy.i.i, align 4
   %tobool3.i.i = trunc i8 %6 to i1
-  br i1 %tobool3.i.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end13.i.i
+  br i1 %tobool3.i.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.end2.i.i
   %sleep_timer.i.i = getelementptr inbounds i8, ptr %job, i64 128
@@ -1512,9 +1512,9 @@ if.end13.i.i:                                     ; preds = %if.end2.i.i
   %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   tail call void %9(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str, i32 noundef 101) #16
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %entry, %if.then.i, %if.end.i.i, %if.end2.i.i, %if.end13.i.i
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %entry, %if.then.i, %if.end.i.i, %if.end2.i.i, %if.end13.i.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 132) #16
   ret void
 }
@@ -1586,7 +1586,7 @@ return:                                           ; preds = %if.end13.i, %if.end
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @job_resume(ptr noundef %job) local_unnamed_addr #0 {
-glib_autoptr_cleanup_QemuLockable.exit:
+glib_autoptr_cleanup_QemuLockable.argprom.exit:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 122) #16
@@ -2057,7 +2057,7 @@ if.end6:                                          ; preds = %job_txn_apply_locke
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @job_transition_to_ready(ptr noundef %job) local_unnamed_addr #0 {
-glib_autoptr_cleanup_QemuLockable.exit:
+glib_autoptr_cleanup_QemuLockable.argprom.exit:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 122) #16
@@ -3037,7 +3037,7 @@ entry:
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @job_cancel_sync(ptr noundef %job, i1 noundef zeroext %force) local_unnamed_addr #0 {
-glib_autoptr_cleanup_QemuLockable.exit:
+glib_autoptr_cleanup_QemuLockable.argprom.exit:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 122) #16
@@ -3055,16 +3055,16 @@ entry:
   tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 122) #16
   %retval.0.i1 = load ptr, ptr @jobs, align 8
   %tobool.not2 = icmp eq ptr %retval.0.i1, null
-  br i1 %tobool.not2, label %glib_autoptr_cleanup_QemuLockable.exit, label %while.body
+  br i1 %tobool.not2, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
   %retval.0.i3 = phi ptr [ %retval.0.i, %while.body ], [ %retval.0.i1, %entry ]
   %call1.i = tail call i32 @job_finish_sync_locked(ptr noundef nonnull %retval.0.i3, ptr noundef nonnull @job_force_cancel_err_locked, ptr noundef null)
   %retval.0.i = load ptr, ptr @jobs, align 8
   %tobool.not = icmp eq ptr %retval.0.i, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %while.body, !llvm.loop !15
+  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %while.body, !llvm.loop !15
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %while.body, %entry
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %while.body, %entry
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 132) #16
   ret void
 }
@@ -3480,7 +3480,7 @@ declare void @aio_bh_schedule_oneshot_full(ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @job_exit(ptr noundef %opaque) #0 {
-glib_autoptr_cleanup_QemuLockable.exit:
+glib_autoptr_cleanup_QemuLockable.argprom.exit:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 122) #16

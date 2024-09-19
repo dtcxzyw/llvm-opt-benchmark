@@ -998,47 +998,47 @@ if.end52.i:                                       ; preds = %if.end48.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end52.i
-  %call54.i = tail call fastcc i32 @ssl_print_client_hello(ptr noundef %arg, ptr noundef nonnull %cond11123, ptr noundef nonnull %48, i64 noundef %49)
+  %call54.i = tail call fastcc i32 @ssl_print_client_hello.argelim(ptr noundef %arg, ptr noundef nonnull %cond11123, ptr noundef nonnull %48, i64 noundef %49)
   %tobool55.not.i = icmp eq i32 %call54.i, 0
   br i1 %tobool55.not.i, label %if.then109, label %ssl_print_handshake.exit
 
 sw.bb58.i:                                        ; preds = %if.end52.i
-  %call60.i = tail call fastcc i32 @dtls_print_hello_vfyrequest(ptr noundef %arg, ptr noundef nonnull %48, i64 noundef %49)
+  %call60.i = tail call fastcc i32 @dtls_print_hello_vfyrequest.argelim(ptr noundef %arg, ptr noundef nonnull %48, i64 noundef %49)
   %tobool61.not.i = icmp eq i32 %call60.i, 0
   br i1 %tobool61.not.i, label %if.then109, label %ssl_print_handshake.exit
 
 sw.bb64.i:                                        ; preds = %if.end52.i
-  %call66.i = tail call fastcc i32 @ssl_print_server_hello(ptr noundef %arg, ptr noundef nonnull %48, i64 noundef %49)
+  %call66.i = tail call fastcc i32 @ssl_print_server_hello.argelim(ptr noundef %arg, ptr noundef nonnull %48, i64 noundef %49)
   %tobool67.not.i = icmp eq i32 %call66.i, 0
   br i1 %tobool67.not.i, label %if.then109, label %ssl_print_handshake.exit
 
 sw.bb70.i:                                        ; preds = %if.end52.i
-  %call72.i = tail call fastcc i32 @ssl_print_server_keyex(ptr noundef %arg, ptr noundef nonnull %cond11123, ptr noundef nonnull %48, i64 noundef %49)
+  %call72.i = tail call fastcc i32 @ssl_print_server_keyex.argelim(ptr noundef %arg, ptr noundef nonnull %cond11123, ptr noundef nonnull %48, i64 noundef %49)
   %tobool73.not.i = icmp eq i32 %call72.i, 0
   br i1 %tobool73.not.i, label %if.then109, label %ssl_print_handshake.exit
 
 sw.bb76.i:                                        ; preds = %if.end52.i
-  %call78.i = tail call fastcc i32 @ssl_print_client_keyex(ptr noundef %arg, ptr noundef nonnull %cond11123, ptr noundef nonnull %48, i64 noundef %49)
+  %call78.i = tail call fastcc i32 @ssl_print_client_keyex.argelim(ptr noundef %arg, ptr noundef nonnull %cond11123, ptr noundef nonnull %48, i64 noundef %49)
   %tobool79.not.i = icmp eq i32 %call78.i, 0
   br i1 %tobool79.not.i, label %if.then109, label %ssl_print_handshake.exit
 
 sw.bb82.i:                                        ; preds = %if.end52.i
-  %call84.i = tail call fastcc i32 @ssl_print_certificates(ptr noundef %arg, ptr noundef nonnull %cond11123, i32 noundef %cond106, ptr noundef nonnull %48, i64 noundef %49)
+  %call84.i = tail call fastcc i32 @ssl_print_certificates.argelim(ptr noundef %arg, ptr noundef nonnull %cond11123, i32 noundef %cond106, ptr noundef nonnull %48, i64 noundef %49)
   %tobool85.not.i = icmp eq i32 %call84.i, 0
   br i1 %tobool85.not.i, label %if.then109, label %ssl_print_handshake.exit
 
 sw.bb88.i:                                        ; preds = %if.end52.i
-  %call90.i = tail call fastcc i32 @ssl_print_compressed_certificates(ptr noundef %arg, ptr noundef nonnull %48, i64 noundef %49)
+  %call90.i = tail call fastcc i32 @ssl_print_compressed_certificates.argprom.argelim(ptr noundef %arg, ptr noundef nonnull %48, i64 noundef %49)
   %tobool91.not.i = icmp eq i32 %call90.i, 0
   br i1 %tobool91.not.i, label %if.then109, label %ssl_print_handshake.exit
 
 sw.bb94.i:                                        ; preds = %if.end52.i
-  %call96.i = call fastcc i32 @ssl_print_signature(ptr noundef %arg, ptr noundef nonnull %cond11123, ptr noundef %msg.addr.i, ptr noundef %msglen.addr.i)
+  %call96.i = call fastcc i32 @ssl_print_signature.argelim(ptr noundef %arg, ptr noundef nonnull %cond11123, ptr noundef %msg.addr.i, ptr noundef %msglen.addr.i)
   %tobool97.not.i = icmp eq i32 %call96.i, 0
   br i1 %tobool97.not.i, label %if.then109, label %ssl_print_handshake.exit
 
 sw.bb100.i:                                       ; preds = %if.end52.i
-  %call102.i = tail call fastcc i32 @ssl_print_cert_request(ptr noundef %arg, ptr noundef nonnull %cond11123, ptr noundef nonnull %48, i64 noundef %49)
+  %call102.i = tail call fastcc i32 @ssl_print_cert_request.argelim(ptr noundef %arg, ptr noundef nonnull %cond11123, ptr noundef nonnull %48, i64 noundef %49)
   %tobool103.not.i = icmp eq i32 %call102.i, 0
   br i1 %tobool103.not.i, label %if.then109, label %ssl_print_handshake.exit
 
@@ -1055,7 +1055,7 @@ if.then111.i:                                     ; preds = %sw.bb108.i
   br label %ssl_print_handshake.exit
 
 sw.bb114.i:                                       ; preds = %if.end52.i
-  %call116.i = tail call fastcc i32 @ssl_print_ticket(ptr noundef %arg, ptr noundef nonnull %cond11123, ptr noundef nonnull %48, i64 noundef %49)
+  %call116.i = tail call fastcc i32 @ssl_print_ticket.argelim(ptr noundef %arg, ptr noundef nonnull %cond11123, ptr noundef nonnull %48, i64 noundef %49)
   %tobool117.not.i = icmp eq i32 %call116.i, 0
   br i1 %tobool117.not.i, label %if.then109, label %ssl_print_handshake.exit
 
@@ -1207,7 +1207,7 @@ declare ptr @SSL_alert_desc_string_long(i32 noundef) local_unnamed_addr #1
 declare i32 @BIO_indent(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_client_hello(ptr noundef %bio, ptr nocapture noundef readonly %sc, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_client_hello.argelim(ptr noundef %bio, ptr nocapture noundef readonly %sc, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %msg.addr = alloca ptr, align 8
   %msglen.addr = alloca i64, align 8
@@ -1250,7 +1250,7 @@ if.end:                                           ; preds = %for.inc.i.i, %if.th
   store ptr %add.ptr.i, ptr %msg.addr, align 8
   %sub.i = add i64 %msglen, -2
   store i64 %sub.i, ptr %msglen.addr, align 8
-  %call1 = call fastcc i32 @ssl_print_random(ptr noundef %bio, ptr noundef %msg.addr, ptr noundef %msglen.addr)
+  %call1 = call fastcc i32 @ssl_print_random.argelim(ptr noundef %bio, ptr noundef %msg.addr, ptr noundef %msglen.addr)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end4
 
@@ -1488,7 +1488,7 @@ return:                                           ; preds = %if.end.i40, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dtls_print_hello_vfyrequest(ptr noundef %bio, ptr nocapture noundef readonly %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dtls_print_hello_vfyrequest.argelim(ptr noundef %bio, ptr nocapture noundef readonly %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %cmp.i = icmp ult i64 %msglen, 2
   br i1 %cmp.i, label %return, label %if.end.i
@@ -1564,7 +1564,7 @@ return:                                           ; preds = %entry, %ssl_print_h
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_server_hello(ptr noundef %bio, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_server_hello.argelim(ptr noundef %bio, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %msg.addr = alloca ptr, align 8
   %msglen.addr = alloca i64, align 8
@@ -1607,7 +1607,7 @@ if.end:                                           ; preds = %for.inc.i.i, %if.th
   store ptr %add.ptr.i, ptr %msg.addr, align 8
   %sub.i = add i64 %msglen, -2
   store i64 %sub.i, ptr %msglen.addr, align 8
-  %call1 = call fastcc i32 @ssl_print_random(ptr noundef %bio, ptr noundef %msg.addr, ptr noundef %msglen.addr)
+  %call1 = call fastcc i32 @ssl_print_random.argelim(ptr noundef %bio, ptr noundef %msg.addr, ptr noundef %msglen.addr)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end4
 
@@ -1753,7 +1753,7 @@ return:                                           ; preds = %if.end.i14, %land.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_server_keyex(ptr noundef %bio, ptr nocapture noundef readonly %sc, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_server_keyex.argelim(ptr noundef %bio, ptr nocapture noundef readonly %sc, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %msg.addr = alloca ptr, align 8
   %msglen.addr = alloca i64, align 8
@@ -1766,56 +1766,56 @@ entry:
   %conv.i = zext i32 %sc.val.val to i64
   %and.i = and i64 %conv.i, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %ssl_get_keyex.exit
+  br i1 %tobool.not.i, label %if.end.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %and1.i = and i64 %conv.i, 2
   %tobool2.not.i = icmp eq i64 %and1.i, 0
-  br i1 %tobool2.not.i, label %if.end4.i, label %ssl_get_keyex.exit
+  br i1 %tobool2.not.i, label %if.end4.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end4.i:                                        ; preds = %if.end.i
   %and5.i = and i64 %conv.i, 4
   %tobool6.not.i = icmp eq i64 %and5.i, 0
-  br i1 %tobool6.not.i, label %if.end8.i, label %ssl_get_keyex.exit
+  br i1 %tobool6.not.i, label %if.end8.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end8.i:                                        ; preds = %if.end4.i
   %and9.i = and i64 %conv.i, 8
   %tobool10.not.i = icmp eq i64 %and9.i, 0
-  br i1 %tobool10.not.i, label %if.end12.i, label %ssl_get_keyex.exit
+  br i1 %tobool10.not.i, label %if.end12.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end12.i:                                       ; preds = %if.end8.i
   %and13.i = and i64 %conv.i, 64
   %tobool14.not.i = icmp eq i64 %and13.i, 0
-  br i1 %tobool14.not.i, label %if.end16.i, label %ssl_get_keyex.exit
+  br i1 %tobool14.not.i, label %if.end16.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
   %and17.i = and i64 %conv.i, 256
   %tobool18.not.i = icmp eq i64 %and17.i, 0
-  br i1 %tobool18.not.i, label %if.end20.i, label %ssl_get_keyex.exit
+  br i1 %tobool18.not.i, label %if.end20.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end20.i:                                       ; preds = %if.end16.i
   %and21.i = and i64 %conv.i, 128
   %tobool22.not.i = icmp eq i64 %and21.i, 0
-  br i1 %tobool22.not.i, label %if.end24.i, label %ssl_get_keyex.exit
+  br i1 %tobool22.not.i, label %if.end24.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end24.i:                                       ; preds = %if.end20.i
   %and25.i = and i64 %conv.i, 32
   %tobool26.not.i = icmp eq i64 %and25.i, 0
-  br i1 %tobool26.not.i, label %if.end28.i, label %ssl_get_keyex.exit
+  br i1 %tobool26.not.i, label %if.end28.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end28.i:                                       ; preds = %if.end24.i
   %and29.i = and i64 %conv.i, 16
   %tobool30.not.i = icmp eq i64 %and29.i, 0
-  br i1 %tobool30.not.i, label %if.end32.i, label %ssl_get_keyex.exit
+  br i1 %tobool30.not.i, label %if.end32.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end32.i:                                       ; preds = %if.end28.i
   %and33.i = and i64 %conv.i, 512
   %tobool34.not.i = icmp eq i64 %and33.i, 0
   %.str.15..str.433.i = select i1 %tobool34.not.i, ptr @.str.15, ptr @.str.433
   %..i = trunc nuw nsw i64 %and33.i to i32
-  br label %ssl_get_keyex.exit
+  br label %ssl_get_keyex.argprom.argprom.exit
 
-ssl_get_keyex.exit:                               ; preds = %entry, %if.end.i, %if.end4.i, %if.end8.i, %if.end12.i, %if.end16.i, %if.end20.i, %if.end24.i, %if.end28.i, %if.end32.i
+ssl_get_keyex.argprom.argprom.exit:               ; preds = %entry, %if.end.i, %if.end4.i, %if.end8.i, %if.end12.i, %if.end16.i, %if.end20.i, %if.end24.i, %if.end28.i, %if.end32.i
   %.str.15.sink.i = phi ptr [ @.str.424, %entry ], [ @.str.425, %if.end.i ], [ @.str.426, %if.end4.i ], [ @.str.427, %if.end8.i ], [ @.str.428, %if.end12.i ], [ @.str.429, %if.end16.i ], [ @.str.430, %if.end20.i ], [ @.str.431, %if.end24.i ], [ @.str.432, %if.end28.i ], [ %.str.15..str.433.i, %if.end32.i ]
   %retval.0.i = phi i32 [ 1, %entry ], [ 2, %if.end.i ], [ 4, %if.end4.i ], [ 8, %if.end8.i ], [ 64, %if.end12.i ], [ 256, %if.end16.i ], [ 128, %if.end20.i ], [ 32, %if.end24.i ], [ 16, %if.end28.i ], [ %..i, %if.end32.i ]
   %call1 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 6, i32 noundef 80) #3
@@ -1824,7 +1824,7 @@ ssl_get_keyex.exit:                               ; preds = %entry, %if.end.i, %
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end6, label %if.then
 
-if.then:                                          ; preds = %ssl_get_keyex.exit
+if.then:                                          ; preds = %ssl_get_keyex.argprom.argprom.exit
   %cmp.i = icmp ult i64 %msglen, 2
   br i1 %cmp.i, label %return, label %if.end.i28
 
@@ -1866,9 +1866,9 @@ ssl_print_hexbuf.exit:                            ; preds = %for.body.i.i, %if.e
   store i64 %sub.i, ptr %msglen.addr, align 8
   br label %if.end6
 
-if.end6:                                          ; preds = %ssl_print_hexbuf.exit, %ssl_get_keyex.exit
-  %5 = phi ptr [ %add.ptr12.i, %ssl_print_hexbuf.exit ], [ %msg, %ssl_get_keyex.exit ]
-  %6 = phi i64 [ %sub.i, %ssl_print_hexbuf.exit ], [ %msglen, %ssl_get_keyex.exit ]
+if.end6:                                          ; preds = %ssl_print_hexbuf.exit, %ssl_get_keyex.argprom.argprom.exit
+  %5 = phi ptr [ %add.ptr12.i, %ssl_print_hexbuf.exit ], [ %msg, %ssl_get_keyex.argprom.argprom.exit ]
+  %6 = phi i64 [ %sub.i, %ssl_print_hexbuf.exit ], [ %msglen, %ssl_get_keyex.argprom.argprom.exit ]
   switch i32 %retval.0.i, label %sw.epilog [
     i32 1, label %sw.bb
     i32 2, label %sw.bb17
@@ -2146,7 +2146,7 @@ sw.epilog:                                        ; preds = %ssl_print_hexbuf.ex
   br i1 %tobool.not, label %if.then79, label %if.end81
 
 if.then79:                                        ; preds = %sw.epilog
-  %27 = call fastcc i32 @ssl_print_signature(ptr noundef %bio, ptr noundef %sc, ptr noundef %msg.addr, ptr noundef %msglen.addr)
+  %27 = call fastcc i32 @ssl_print_signature.argelim(ptr noundef %bio, ptr noundef %sc, ptr noundef %msg.addr, ptr noundef %msglen.addr)
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then79, %sw.epilog
@@ -2161,7 +2161,7 @@ return:                                           ; preds = %if.end.i144, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_client_keyex(ptr noundef %bio, ptr noundef %sc, ptr nocapture noundef readonly %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_client_keyex.argelim(ptr noundef %bio, ptr noundef %sc, ptr nocapture noundef readonly %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %sc, i64 696
   %sc.val = load ptr, ptr %0, align 8
@@ -2170,56 +2170,56 @@ entry:
   %conv.i = zext i32 %sc.val.val to i64
   %and.i = and i64 %conv.i, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %ssl_get_keyex.exit
+  br i1 %tobool.not.i, label %if.end.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %and1.i = and i64 %conv.i, 2
   %tobool2.not.i = icmp eq i64 %and1.i, 0
-  br i1 %tobool2.not.i, label %if.end4.i, label %ssl_get_keyex.exit
+  br i1 %tobool2.not.i, label %if.end4.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end4.i:                                        ; preds = %if.end.i
   %and5.i = and i64 %conv.i, 4
   %tobool6.not.i = icmp eq i64 %and5.i, 0
-  br i1 %tobool6.not.i, label %if.end8.i, label %ssl_get_keyex.exit
+  br i1 %tobool6.not.i, label %if.end8.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end8.i:                                        ; preds = %if.end4.i
   %and9.i = and i64 %conv.i, 8
   %tobool10.not.i = icmp eq i64 %and9.i, 0
-  br i1 %tobool10.not.i, label %if.end12.i, label %ssl_get_keyex.exit
+  br i1 %tobool10.not.i, label %if.end12.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end12.i:                                       ; preds = %if.end8.i
   %and13.i = and i64 %conv.i, 64
   %tobool14.not.i = icmp eq i64 %and13.i, 0
-  br i1 %tobool14.not.i, label %if.end16.i, label %ssl_get_keyex.exit
+  br i1 %tobool14.not.i, label %if.end16.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
   %and17.i = and i64 %conv.i, 256
   %tobool18.not.i = icmp eq i64 %and17.i, 0
-  br i1 %tobool18.not.i, label %if.end20.i, label %ssl_get_keyex.exit
+  br i1 %tobool18.not.i, label %if.end20.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end20.i:                                       ; preds = %if.end16.i
   %and21.i = and i64 %conv.i, 128
   %tobool22.not.i = icmp eq i64 %and21.i, 0
-  br i1 %tobool22.not.i, label %if.end24.i, label %ssl_get_keyex.exit
+  br i1 %tobool22.not.i, label %if.end24.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end24.i:                                       ; preds = %if.end20.i
   %and25.i = and i64 %conv.i, 32
   %tobool26.not.i = icmp eq i64 %and25.i, 0
-  br i1 %tobool26.not.i, label %if.end28.i, label %ssl_get_keyex.exit
+  br i1 %tobool26.not.i, label %if.end28.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end28.i:                                       ; preds = %if.end24.i
   %and29.i = and i64 %conv.i, 16
   %tobool30.not.i = icmp eq i64 %and29.i, 0
-  br i1 %tobool30.not.i, label %if.end32.i, label %ssl_get_keyex.exit
+  br i1 %tobool30.not.i, label %if.end32.i, label %ssl_get_keyex.argprom.argprom.exit
 
 if.end32.i:                                       ; preds = %if.end28.i
   %and33.i = and i64 %conv.i, 512
   %tobool34.not.i = icmp eq i64 %and33.i, 0
   %.str.15..str.433.i = select i1 %tobool34.not.i, ptr @.str.15, ptr @.str.433
   %..i = trunc nuw nsw i64 %and33.i to i32
-  br label %ssl_get_keyex.exit
+  br label %ssl_get_keyex.argprom.argprom.exit
 
-ssl_get_keyex.exit:                               ; preds = %entry, %if.end.i, %if.end4.i, %if.end8.i, %if.end12.i, %if.end16.i, %if.end20.i, %if.end24.i, %if.end28.i, %if.end32.i
+ssl_get_keyex.argprom.argprom.exit:               ; preds = %entry, %if.end.i, %if.end4.i, %if.end8.i, %if.end12.i, %if.end16.i, %if.end20.i, %if.end24.i, %if.end28.i, %if.end32.i
   %.str.15.sink.i = phi ptr [ @.str.424, %entry ], [ @.str.425, %if.end.i ], [ @.str.426, %if.end4.i ], [ @.str.427, %if.end8.i ], [ @.str.428, %if.end12.i ], [ @.str.429, %if.end16.i ], [ @.str.430, %if.end20.i ], [ @.str.431, %if.end24.i ], [ @.str.432, %if.end28.i ], [ %.str.15..str.433.i, %if.end32.i ]
   %retval.0.i = phi i32 [ 1, %entry ], [ 2, %if.end.i ], [ 4, %if.end4.i ], [ 8, %if.end8.i ], [ 64, %if.end12.i ], [ 256, %if.end16.i ], [ 128, %if.end20.i ], [ 32, %if.end24.i ], [ 16, %if.end28.i ], [ %..i, %if.end32.i ]
   %call1 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 6, i32 noundef 80) #3
@@ -2228,7 +2228,7 @@ ssl_get_keyex.exit:                               ; preds = %entry, %if.end.i, %
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end6, label %if.then
 
-if.then:                                          ; preds = %ssl_get_keyex.exit
+if.then:                                          ; preds = %ssl_get_keyex.argprom.argprom.exit
   %cmp.i = icmp ult i64 %msglen, 2
   br i1 %cmp.i, label %return, label %if.end.i19
 
@@ -2268,9 +2268,9 @@ ssl_print_hexbuf.exit:                            ; preds = %for.body.i.i, %if.e
   %sub.i = sub i64 %msglen, %add.i
   br label %if.end6
 
-if.end6:                                          ; preds = %ssl_print_hexbuf.exit, %ssl_get_keyex.exit
-  %msglen.addr.0 = phi i64 [ %msglen, %ssl_get_keyex.exit ], [ %sub.i, %ssl_print_hexbuf.exit ]
-  %msg.addr.0 = phi ptr [ %msg, %ssl_get_keyex.exit ], [ %add.ptr12.i, %ssl_print_hexbuf.exit ]
+if.end6:                                          ; preds = %ssl_print_hexbuf.exit, %ssl_get_keyex.argprom.argprom.exit
+  %msglen.addr.0 = phi i64 [ %msglen, %ssl_get_keyex.argprom.argprom.exit ], [ %sub.i, %ssl_print_hexbuf.exit ]
+  %msg.addr.0 = phi ptr [ %msg, %ssl_get_keyex.argprom.argprom.exit ], [ %add.ptr12.i, %ssl_print_hexbuf.exit ]
   switch i32 %retval.0.i, label %sw.epilog [
     i32 1, label %sw.bb
     i32 64, label %sw.bb
@@ -2480,7 +2480,7 @@ return:                                           ; preds = %if.end.i80, %sw.bb2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_certificates(ptr noundef %bio, ptr nocapture noundef readonly %sc, i32 noundef %server, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_certificates.argelim(ptr noundef %bio, ptr nocapture noundef readonly %sc, i32 noundef %server, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %x.i = alloca ptr, align 8
   %q.i = alloca ptr, align 8
@@ -2582,7 +2582,7 @@ land.lhs.true30:                                  ; preds = %if.end23
   br i1 %cmp33, label %if.then35, label %if.end65
 
 if.then35:                                        ; preds = %land.lhs.true30, %land.lhs.true25
-  %call3729 = call fastcc i32 @ssl_print_raw_public_key(ptr noundef %bio, ptr noundef nonnull %sc, ptr noundef %msg.addr, ptr noundef %clen)
+  %call3729 = call fastcc i32 @ssl_print_raw_public_key.argelim(ptr noundef %bio, ptr noundef nonnull %sc, ptr noundef %msg.addr, ptr noundef %clen)
   %tobool38.not = icmp eq i32 %call3729, 0
   br i1 %tobool38.not, label %return, label %if.end40
 
@@ -2629,7 +2629,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %q.i)
   %18 = load ptr, ptr %msg.addr, align 8
   %cmp.i35 = icmp ult i64 %17, 3
-  br i1 %cmp.i35, label %ssl_print_certificate.exit.thread, label %if.end.i36
+  br i1 %cmp.i35, label %ssl_print_certificate.argprom.exit.thread, label %if.end.i36
 
 if.end.i36:                                       ; preds = %while.body
   %19 = load i8, ptr %18, align 1
@@ -2647,7 +2647,7 @@ if.end.i36:                                       ; preds = %while.body
   %conv8.i = zext nneg i32 %or7.i to i64
   %add.i38 = add nuw nsw i64 %conv8.i, 3
   %cmp9.i = icmp ult i64 %17, %add.i38
-  br i1 %cmp9.i, label %ssl_print_certificate.exit.thread, label %if.end12.i
+  br i1 %cmp9.i, label %ssl_print_certificate.argprom.exit.thread, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i36
   %add.ptr.i39 = getelementptr inbounds i8, ptr %18, i64 3
@@ -2702,7 +2702,7 @@ if.then36.i:                                      ; preds = %if.end31.i
   %call37.i = call i32 @BIO_puts(ptr noundef %bio, ptr noundef nonnull @.str.496) #3
   br label %if.end75
 
-ssl_print_certificate.exit.thread:                ; preds = %while.body, %if.end.i36
+ssl_print_certificate.argprom.exit.thread:        ; preds = %while.body, %if.end.i36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %x.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %q.i)
   br label %return
@@ -2744,13 +2744,13 @@ if.end99:                                         ; preds = %land.lhs.true94.if.
   %cmp69.not = icmp eq i64 %33, 0
   br i1 %cmp69.not, label %return, label %while.body, !llvm.loop !9
 
-return:                                           ; preds = %land.lhs.true94, %if.end99, %if.end65, %if.end.i, %land.lhs.true8, %ssl_print_certificate.exit.thread, %land.lhs.true59, %if.then35, %if.end12, %if.end, %ssl_print_hexbuf.exit, %if.end64
-  %retval.0 = phi i32 [ 1, %if.end64 ], [ 0, %ssl_print_hexbuf.exit ], [ 0, %if.end ], [ 0, %if.end12 ], [ 0, %if.then35 ], [ 0, %land.lhs.true59 ], [ 0, %ssl_print_certificate.exit.thread ], [ 0, %land.lhs.true8 ], [ 0, %if.end.i ], [ 1, %if.end65 ], [ 0, %land.lhs.true94 ], [ 1, %if.end99 ]
+return:                                           ; preds = %land.lhs.true94, %if.end99, %if.end65, %if.end.i, %land.lhs.true8, %ssl_print_certificate.argprom.exit.thread, %land.lhs.true59, %if.then35, %if.end12, %if.end, %ssl_print_hexbuf.exit, %if.end64
+  %retval.0 = phi i32 [ 1, %if.end64 ], [ 0, %ssl_print_hexbuf.exit ], [ 0, %if.end ], [ 0, %if.end12 ], [ 0, %if.then35 ], [ 0, %land.lhs.true59 ], [ 0, %ssl_print_certificate.argprom.exit.thread ], [ 0, %land.lhs.true8 ], [ 0, %if.end.i ], [ 1, %if.end65 ], [ 0, %land.lhs.true94 ], [ 1, %if.end99 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_compressed_certificates(ptr noundef %bio, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_compressed_certificates.argprom.argelim(ptr noundef %bio, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %msglen, 8
   br i1 %cmp, label %return, label %if.end
@@ -2848,7 +2848,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_signature(ptr noundef %bio, ptr nocapture noundef readonly %sc, ptr nocapture noundef nonnull %pmsg, ptr nocapture noundef nonnull %pmsglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_signature.argelim(ptr noundef %bio, ptr nocapture noundef readonly %sc, ptr nocapture noundef nonnull %pmsg, ptr nocapture noundef nonnull %pmsglen) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %pmsglen, align 8
   %cmp = icmp ult i64 %0, 2
@@ -2956,7 +2956,7 @@ return:                                           ; preds = %ssl_print_hex.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_cert_request(ptr noundef %bio, ptr nocapture noundef readonly %sc, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_cert_request.argelim(ptr noundef %bio, ptr nocapture noundef readonly %sc, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %msg.addr = alloca ptr, align 8
   %msglen.addr = alloca i64, align 8
@@ -3268,7 +3268,7 @@ return:                                           ; preds = %if.end105, %while.c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_ticket(ptr noundef %bio, ptr nocapture noundef readonly %sc, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_ticket.argelim(ptr noundef %bio, ptr nocapture noundef readonly %sc, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %msg.addr = alloca ptr, align 8
   %msglen.addr = alloca i64, align 8
@@ -4381,7 +4381,7 @@ return:                                           ; preds = %do_ssl_trace_str.ex
 declare i32 @BIO_dump_indent(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_random(ptr noundef %bio, ptr nocapture noundef nonnull %pmsg, ptr nocapture noundef nonnull %pmsglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_random.argelim(ptr noundef %bio, ptr nocapture noundef nonnull %pmsg, ptr nocapture noundef nonnull %pmsglen) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %pmsglen, align 8
   %cmp = icmp ult i64 %0, 32
@@ -4504,7 +4504,7 @@ return:                                           ; preds = %if.end6, %entry, %s
 declare i32 @SSL_version(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_raw_public_key(ptr noundef %bio, ptr nocapture noundef readonly %ssl, ptr nocapture noundef nonnull %pmsg, ptr nocapture noundef nonnull %pmsglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_raw_public_key.argelim(ptr noundef %bio, ptr nocapture noundef readonly %ssl, ptr nocapture noundef nonnull %pmsg, ptr nocapture noundef nonnull %pmsglen) unnamed_addr #0 {
 entry:
   %msg = alloca ptr, align 8
   %0 = load ptr, ptr %pmsg, align 8

@@ -2960,16 +2960,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i.i:       ; preds = %208, %206
   %220 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i.i.i, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %220, i64 32
   %.pre.i.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i, align 8
-  br label %_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i
+  br label %_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i
 
 221:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i.i
   store i8 34, ptr %217, align 1
   %222 = load ptr, ptr %216, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 1
   store ptr %223, ptr %216, align 8
-  br label %_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i
+  br label %_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i
 
-_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i: ; preds = %221, %219
+_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i: ; preds = %221, %219
   %224 = phi ptr [ %.pre.i.i.i.i, %219 ], [ %223, %221 ]
   %.0.i.i3.i.i.i.i.i = phi ptr [ %220, %219 ], [ %.0.i.i.i.i.i.i.i, %221 ]
   %225 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i.i.i, i64 24
@@ -2980,21 +2980,21 @@ _ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.exit.i.i.i
   %230 = icmp ult i64 %229, 2
   br i1 %230, label %231, label %233
 
-231:                                              ; preds = %_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i
+231:                                              ; preds = %_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i
   %232 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i3.i.i.i.i.i, ptr noundef nonnull @.str.11, i64 noundef 2) #14
-  br label %_ZN5clang4entoL9printJsonIPKNS0_9MemRegionENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.exit.i.i.i
+  br label %_ZN5clang4entoL9printJsonIPKNS0_9MemRegionENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.argprom.exit.i.i.i
 
-233:                                              ; preds = %_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i
+233:                                              ; preds = %_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i
   %234 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i.i.i, i64 32
   store i16 8236, ptr %224, align 1
   %235 = load ptr, ptr %234, align 8
   %236 = getelementptr inbounds i8, ptr %235, i64 2
   store ptr %236, ptr %234, align 8
-  br label %_ZN5clang4entoL9printJsonIPKNS0_9MemRegionENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.exit.i.i.i
+  br label %_ZN5clang4entoL9printJsonIPKNS0_9MemRegionENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.argprom.exit.i.i.i
 
-_ZN5clang4entoL9printJsonIPKNS0_9MemRegionENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.exit.i.i.i: ; preds = %233, %231
+_ZN5clang4entoL9printJsonIPKNS0_9MemRegionENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.argprom.exit.i.i.i: ; preds = %233, %231
   %237 = getelementptr inbounds nuw i8, ptr %174, i64 56
-  %238 = call fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang4entoL9printJsonERKNS0_15DynamicTypeInfoERN4llvm11raw_ostreamEPKcjb(ptr noundef nonnull readonly align 8 dereferenceable(9) %237, ptr noundef nonnull align 8 dereferenceable(48) %0)
+  %238 = call fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang4entoL9printJsonERKNS0_15DynamicTypeInfoERN4llvm11raw_ostreamEPKcjb.argprom.argelim(ptr noundef nonnull readonly align 8 dereferenceable(9) %237, ptr noundef nonnull align 8 dereferenceable(48) %0)
   %239 = load ptr, ptr %53, align 8
   %240 = load ptr, ptr %55, align 8
   %241 = ptrtoint ptr %239 to i64
@@ -3003,11 +3003,11 @@ _ZN5clang4entoL9printJsonIPKNS0_9MemRegionENS0_15DynamicTypeInfoEEERN4llvm11raw_
   %244 = icmp ult i64 %243, 2
   br i1 %244, label %245, label %247
 
-245:                                              ; preds = %_ZN5clang4entoL9printJsonIPKNS0_9MemRegionENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.exit.i.i.i
+245:                                              ; preds = %_ZN5clang4entoL9printJsonIPKNS0_9MemRegionENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.argprom.exit.i.i.i
   %246 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.9, i64 noundef 2) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit47.i.i.i
 
-247:                                              ; preds = %_ZN5clang4entoL9printJsonIPKNS0_9MemRegionENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.exit.i.i.i
+247:                                              ; preds = %_ZN5clang4entoL9printJsonIPKNS0_9MemRegionENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.argprom.exit.i.i.i
   store i16 32032, ptr %240, align 1
   %248 = load ptr, ptr %55, align 8
   %249 = getelementptr inbounds i8, ptr %248, i64 2
@@ -3657,16 +3657,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i.i56:     ; preds = %529, %527
   %541 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i.i.i57, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   %.phi.trans.insert.i.i.i.i61 = getelementptr inbounds nuw i8, ptr %541, i64 32
   %.pre.i.i.i.i62 = load ptr, ptr %.phi.trans.insert.i.i.i.i61, align 8
-  br label %_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i58
+  br label %_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i58
 
 542:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i.i56
   store i8 34, ptr %538, align 1
   %543 = load ptr, ptr %537, align 8
   %544 = getelementptr inbounds i8, ptr %543, i64 1
   store ptr %544, ptr %537, align 8
-  br label %_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i58
+  br label %_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i58
 
-_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i58: ; preds = %542, %540
+_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i58: ; preds = %542, %540
   %545 = phi ptr [ %.pre.i.i.i.i62, %540 ], [ %544, %542 ]
   %.0.i.i3.i.i.i.i.i59 = phi ptr [ %541, %540 ], [ %.0.i.i.i.i.i.i.i57, %542 ]
   %546 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i.i.i59, i64 24
@@ -3677,11 +3677,11 @@ _ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.exit.i.i.i
   %551 = icmp ult i64 %550, 2
   br i1 %551, label %552, label %554
 
-552:                                              ; preds = %_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i58
+552:                                              ; preds = %_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i58
   %553 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i3.i.i.i.i.i59, ptr noundef nonnull @.str.11, i64 noundef 2) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i43.i.i.i
 
-554:                                              ; preds = %_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i58
+554:                                              ; preds = %_ZN5clang4entoL9printJsonEPKNS0_9MemRegionERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i58
   %555 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i.i.i59, i64 32
   store i16 8236, ptr %545, align 1
   %556 = load ptr, ptr %555, align 8
@@ -4056,7 +4056,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14.i.i.i.i.i.i.i: ; preds = %729, %727
   %738 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i13.i.i.i.i.i.i.i, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   %.phi.trans.insert.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %738, i64 32
   %.pre67.i.i.i.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8
-  br label %_ZN5clang4entoL9printJsonERKNS0_15DynamicCastInfoERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i.i.i
+  br label %_ZN5clang4entoL9printJsonERKNS0_15DynamicCastInfoERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i.i.i
 
 739:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit14.i.i.i.i.i.i.i
   %740 = getelementptr inbounds nuw i8, ptr %.0.i.i13.i.i.i.i.i.i.i, i64 32
@@ -4064,9 +4064,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14.i.i.i.i.i.i.i: ; preds = %729, %727
   %741 = load ptr, ptr %740, align 8
   %742 = getelementptr inbounds i8, ptr %741, i64 1
   store ptr %742, ptr %740, align 8
-  br label %_ZN5clang4entoL9printJsonERKNS0_15DynamicCastInfoERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i.i.i
+  br label %_ZN5clang4entoL9printJsonERKNS0_15DynamicCastInfoERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i.i.i
 
-_ZN5clang4entoL9printJsonERKNS0_15DynamicCastInfoERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i.i.i: ; preds = %739, %737
+_ZN5clang4entoL9printJsonERKNS0_15DynamicCastInfoERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i.i.i: ; preds = %739, %737
   %743 = phi ptr [ %.pre67.i.i.i.i.i.i, %737 ], [ %742, %739 ]
   %.0.i.i16.i.i.i.i.i.i.i = phi ptr [ %738, %737 ], [ %.0.i.i13.i.i.i.i.i.i.i, %739 ]
   %744 = getelementptr inbounds nuw i8, ptr %.0.i.i16.i.i.i.i.i.i.i, i64 24
@@ -4077,11 +4077,11 @@ _ZN5clang4entoL9printJsonERKNS0_15DynamicCastInfoERN4llvm11raw_ostreamEPKcjb.exi
   %749 = icmp ult i64 %748, 2
   br i1 %749, label %750, label %752
 
-750:                                              ; preds = %_ZN5clang4entoL9printJsonERKNS0_15DynamicCastInfoERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i.i.i
+750:                                              ; preds = %_ZN5clang4entoL9printJsonERKNS0_15DynamicCastInfoERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i.i.i
   %751 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i16.i.i.i.i.i.i.i, ptr noundef nonnull @.str.9, i64 noundef 2) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit47.i.i.i.i.i.i
 
-752:                                              ; preds = %_ZN5clang4entoL9printJsonERKNS0_15DynamicCastInfoERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i.i.i
+752:                                              ; preds = %_ZN5clang4entoL9printJsonERKNS0_15DynamicCastInfoERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i.i.i
   %753 = getelementptr inbounds nuw i8, ptr %.0.i.i16.i.i.i.i.i.i.i, i64 32
   store i16 32032, ptr %743, align 1
   %754 = load ptr, ptr %753, align 8
@@ -4940,16 +4940,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i.i116:    ; preds = %1115, %1113
   %1127 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i.i.i117, ptr noundef nonnull @.str.2, i64 noundef 1) #14
   %.phi.trans.insert.i.i.i.i133 = getelementptr inbounds nuw i8, ptr %1127, i64 32
   %.pre.i.i.i.i134 = load ptr, ptr %.phi.trans.insert.i.i.i.i133, align 8
-  br label %_ZN5clang4entoL9printJsonEPKNS0_7SymExprERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i
+  br label %_ZN5clang4entoL9printJsonEPKNS0_7SymExprERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i
 
 1128:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i.i116
   store i8 34, ptr %1124, align 1
   %1129 = load ptr, ptr %1123, align 8
   %1130 = getelementptr inbounds i8, ptr %1129, i64 1
   store ptr %1130, ptr %1123, align 8
-  br label %_ZN5clang4entoL9printJsonEPKNS0_7SymExprERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i
+  br label %_ZN5clang4entoL9printJsonEPKNS0_7SymExprERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i
 
-_ZN5clang4entoL9printJsonEPKNS0_7SymExprERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i: ; preds = %1128, %1126
+_ZN5clang4entoL9printJsonEPKNS0_7SymExprERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i: ; preds = %1128, %1126
   %1131 = phi ptr [ %.pre.i.i.i.i134, %1126 ], [ %1130, %1128 ]
   %.0.i.i3.i.i.i.i.i118 = phi ptr [ %1127, %1126 ], [ %.0.i.i.i.i.i.i.i117, %1128 ]
   %1132 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i.i.i118, i64 24
@@ -4960,21 +4960,21 @@ _ZN5clang4entoL9printJsonEPKNS0_7SymExprERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i
   %1137 = icmp ult i64 %1136, 2
   br i1 %1137, label %1138, label %1140
 
-1138:                                             ; preds = %_ZN5clang4entoL9printJsonEPKNS0_7SymExprERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i
+1138:                                             ; preds = %_ZN5clang4entoL9printJsonEPKNS0_7SymExprERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i
   %1139 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i3.i.i.i.i.i118, ptr noundef nonnull @.str.11, i64 noundef 2) #14
-  br label %_ZN5clang4entoL9printJsonIPKNS0_7SymExprENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.exit.i.i.i
+  br label %_ZN5clang4entoL9printJsonIPKNS0_7SymExprENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.argprom.exit.i.i.i
 
-1140:                                             ; preds = %_ZN5clang4entoL9printJsonEPKNS0_7SymExprERN4llvm11raw_ostreamEPKcjb.exit.i.i.i.i
+1140:                                             ; preds = %_ZN5clang4entoL9printJsonEPKNS0_7SymExprERN4llvm11raw_ostreamEPKcjb.argprom.exit.i.i.i.i
   %1141 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i.i.i118, i64 32
   store i16 8236, ptr %1131, align 1
   %1142 = load ptr, ptr %1141, align 8
   %1143 = getelementptr inbounds i8, ptr %1142, i64 2
   store ptr %1143, ptr %1141, align 8
-  br label %_ZN5clang4entoL9printJsonIPKNS0_7SymExprENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.exit.i.i.i
+  br label %_ZN5clang4entoL9printJsonIPKNS0_7SymExprENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.argprom.exit.i.i.i
 
-_ZN5clang4entoL9printJsonIPKNS0_7SymExprENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.exit.i.i.i: ; preds = %1140, %1138
+_ZN5clang4entoL9printJsonIPKNS0_7SymExprENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.argprom.exit.i.i.i: ; preds = %1140, %1138
   %1144 = getelementptr inbounds nuw i8, ptr %1081, i64 56
-  %1145 = call fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang4entoL9printJsonERKNS0_15DynamicTypeInfoERN4llvm11raw_ostreamEPKcjb(ptr noundef nonnull readonly align 8 dereferenceable(9) %1144, ptr noundef nonnull align 8 dereferenceable(48) %0)
+  %1145 = call fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang4entoL9printJsonERKNS0_15DynamicTypeInfoERN4llvm11raw_ostreamEPKcjb.argprom.argelim(ptr noundef nonnull readonly align 8 dereferenceable(9) %1144, ptr noundef nonnull align 8 dereferenceable(48) %0)
   %1146 = load ptr, ptr %53, align 8
   %1147 = load ptr, ptr %55, align 8
   %1148 = ptrtoint ptr %1146 to i64
@@ -4983,11 +4983,11 @@ _ZN5clang4entoL9printJsonIPKNS0_7SymExprENS0_15DynamicTypeInfoEEERN4llvm11raw_os
   %1151 = icmp ult i64 %1150, 2
   br i1 %1151, label %1152, label %1154
 
-1152:                                             ; preds = %_ZN5clang4entoL9printJsonIPKNS0_7SymExprENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.exit.i.i.i
+1152:                                             ; preds = %_ZN5clang4entoL9printJsonIPKNS0_7SymExprENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.argprom.exit.i.i.i
   %1153 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.9, i64 noundef 2) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit47.i.i.i119
 
-1154:                                             ; preds = %_ZN5clang4entoL9printJsonIPKNS0_7SymExprENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.exit.i.i.i
+1154:                                             ; preds = %_ZN5clang4entoL9printJsonIPKNS0_7SymExprENS0_15DynamicTypeInfoEEERN4llvm11raw_ostreamERKSt4pairIT_T0_ES8_PKcjb.argprom.exit.i.i.i
   store i16 32032, ptr %1147, align 1
   %1155 = load ptr, ptr %55, align 8
   %1156 = getelementptr inbounds i8, ptr %1155, i64 2
@@ -7268,7 +7268,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.ex
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang4entoL9printJsonERKNS0_15DynamicTypeInfoERN4llvm11raw_ostreamEPKcjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef nonnull returned align 8 dereferenceable(48) %1) unnamed_addr #0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang4entoL9printJsonERKNS0_15DynamicTypeInfoERN4llvm11raw_ostreamEPKcjb.argprom.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef nonnull returned align 8 dereferenceable(48) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32

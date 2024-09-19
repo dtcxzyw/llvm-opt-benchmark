@@ -3179,7 +3179,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit90:                  ; preds = %_ZNSt6vectorIhSaIhE
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %287) #20
   %.val = load ptr, ptr %0, align 8
   %.not.i.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i.i, label %_ZZL19DOCTEST_ANON_FUNC_9vEN4InfoD2Ev.exit, label %288
+  br i1 %.not.i.i.i.i, label %_ZZL19DOCTEST_ANON_FUNC_9vEN4InfoD2Ev.argprom.exit, label %288
 
 288:                                              ; preds = %284
   %289 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3188,9 +3188,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit90:                  ; preds = %_ZNSt6vectorIhSaIhE
   %291 = ptrtoint ptr %.val to i64
   %292 = sub i64 %290, %291
   call void @_ZdlPvm(ptr noundef nonnull %.val, i64 noundef %292) #21
-  br label %_ZZL19DOCTEST_ANON_FUNC_9vEN4InfoD2Ev.exit
+  br label %_ZZL19DOCTEST_ANON_FUNC_9vEN4InfoD2Ev.argprom.exit
 
-_ZZL19DOCTEST_ANON_FUNC_9vEN4InfoD2Ev.exit:       ; preds = %284, %288
+_ZZL19DOCTEST_ANON_FUNC_9vEN4InfoD2Ev.argprom.exit: ; preds = %284, %288
   ret void
 
 293:                                              ; preds = %279, %281
@@ -3202,7 +3202,7 @@ _ZZL19DOCTEST_ANON_FUNC_9vEN4InfoD2Ev.exit:       ; preds = %284, %288
   %.pn40.pn = phi { ptr, i32 } [ %.pn40, %293 ], [ %266, %265 ], [ %64, %63 ], [ %.pn35.pn.pn131, %_ZNSt6vectorIhSaIhEED2Ev.exit90 ]
   %.val44 = load ptr, ptr %0, align 8
   %.not.i.i.i.i91 = icmp eq ptr %.val44, null
-  br i1 %.not.i.i.i.i91, label %_ZZL19DOCTEST_ANON_FUNC_9vEN4InfoD2Ev.exit92, label %295
+  br i1 %.not.i.i.i.i91, label %_ZZL19DOCTEST_ANON_FUNC_9vEN4InfoD2Ev.argprom.exit92, label %295
 
 295:                                              ; preds = %294
   %296 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3211,9 +3211,9 @@ _ZZL19DOCTEST_ANON_FUNC_9vEN4InfoD2Ev.exit:       ; preds = %284, %288
   %298 = ptrtoint ptr %.val44 to i64
   %299 = sub i64 %297, %298
   call void @_ZdlPvm(ptr noundef nonnull %.val44, i64 noundef %299) #21
-  br label %_ZZL19DOCTEST_ANON_FUNC_9vEN4InfoD2Ev.exit92
+  br label %_ZZL19DOCTEST_ANON_FUNC_9vEN4InfoD2Ev.argprom.exit92
 
-_ZZL19DOCTEST_ANON_FUNC_9vEN4InfoD2Ev.exit92:     ; preds = %294, %295
+_ZZL19DOCTEST_ANON_FUNC_9vEN4InfoD2Ev.argprom.exit92: ; preds = %294, %295
   resume { ptr, i32 } %.pn40.pn
 
 300:                                              ; preds = %279, %244, %209, %175, %143, %111, %79
@@ -9485,7 +9485,7 @@ define internal void @"_ZZL19DOCTEST_ANON_FUNC_5vEN3$_08__invokeEPvS0_mS0_m"(ptr
 
 56:                                               ; preds = %47, %5
   %.not13.i = icmp eq ptr %3, null
-  br i1 %.not13.i, label %"_ZZL19DOCTEST_ANON_FUNC_5vENK3$_0clEPvS0_mS0_m.exit", label %57
+  br i1 %.not13.i, label %"_ZZL19DOCTEST_ANON_FUNC_5vENK3$_0clEPvS0_mS0_m.argprom.exit", label %57
 
 57:                                               ; preds = %56
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull @.str)
@@ -9581,7 +9581,7 @@ define internal void @"_ZZL19DOCTEST_ANON_FUNC_5vEN3$_08__invokeEPvS0_mS0_m"(ptr
   %89 = load i64, ptr %0, align 8
   %90 = add i64 %89, %88
   store i64 %90, ptr %0, align 8
-  br label %"_ZZL19DOCTEST_ANON_FUNC_5vENK3$_0clEPvS0_mS0_m.exit"
+  br label %"_ZZL19DOCTEST_ANON_FUNC_5vENK3$_0clEPvS0_mS0_m.argprom.exit"
 
 91:                                               ; preds = %81, %79
   %.pn15.i = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ]
@@ -9599,7 +9599,7 @@ define internal void @"_ZZL19DOCTEST_ANON_FUNC_5vEN3$_08__invokeEPvS0_mS0_m"(ptr
   call void @__clang_call_terminate(ptr %95) #22
   unreachable
 
-"_ZZL19DOCTEST_ANON_FUNC_5vENK3$_0clEPvS0_mS0_m.exit": ; preds = %56, %84
+"_ZZL19DOCTEST_ANON_FUNC_5vENK3$_0clEPvS0_mS0_m.argprom.exit": ; preds = %56, %84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8)
@@ -9952,7 +9952,7 @@ define internal noundef nonnull ptr @"_ZZL19DOCTEST_ANON_FUNC_9vEN3$_08__invokeE
 
 42:                                               ; preds = %37, %36
   invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %5)
-          to label %"_ZZL19DOCTEST_ANON_FUNC_9vENK3$_0clEPvPhmRm.exit" unwind label %40
+          to label %"_ZZL19DOCTEST_ANON_FUNC_9vENK3$_0clEPvPhmRm.argprom.exit" unwind label %40
 
 43:                                               ; preds = %40, %38
   %.pn12.i = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ]
@@ -9970,7 +9970,7 @@ define internal noundef nonnull ptr @"_ZZL19DOCTEST_ANON_FUNC_9vEN3$_08__invokeE
   call void @__clang_call_terminate(ptr %47) #22
   unreachable
 
-"_ZZL19DOCTEST_ANON_FUNC_9vENK3$_0clEPvPhmRm.exit": ; preds = %42
+"_ZZL19DOCTEST_ANON_FUNC_9vENK3$_0clEPvPhmRm.argprom.exit": ; preds = %42
   %48 = getelementptr inbounds i8, ptr %5, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #20
   %49 = getelementptr inbounds i8, ptr %5, i64 72
@@ -10161,11 +10161,11 @@ define internal void @"_ZZL19DOCTEST_ANON_FUNC_9vEN3$_18__invokeEPvS0_"(ptr noca
   %39 = getelementptr inbounds i8, ptr %3, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #20
   %40 = icmp eq ptr %1, null
-  br i1 %40, label %"_ZZL19DOCTEST_ANON_FUNC_9vENK3$_1clEPvS0_.exit", label %41
+  br i1 %40, label %"_ZZL19DOCTEST_ANON_FUNC_9vENK3$_1clEPvS0_.argprom.exit", label %41
 
 41:                                               ; preds = %36
   call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 4) #21
-  br label %"_ZZL19DOCTEST_ANON_FUNC_9vENK3$_1clEPvS0_.exit"
+  br label %"_ZZL19DOCTEST_ANON_FUNC_9vENK3$_1clEPvS0_.argprom.exit"
 
 42:                                               ; preds = %33, %31
   %.pn9.i = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ]
@@ -10183,7 +10183,7 @@ define internal void @"_ZZL19DOCTEST_ANON_FUNC_9vEN3$_18__invokeEPvS0_"(ptr noca
   call void @__clang_call_terminate(ptr %46) #22
   unreachable
 
-"_ZZL19DOCTEST_ANON_FUNC_9vENK3$_1clEPvS0_.exit": ; preds = %36, %41
+"_ZZL19DOCTEST_ANON_FUNC_9vENK3$_1clEPvS0_.argprom.exit": ; preds = %36, %41
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)

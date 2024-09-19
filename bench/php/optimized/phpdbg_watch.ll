@@ -384,7 +384,7 @@ define hidden range(i32 -1, 1) i32 @phpdbg_watchpoint_segfault_handler(ptr nocap
   %11 = add i64 %10, %8
   %12 = tail call ptr @phpdbg_btree_find_closest(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1008), i64 noundef %11) #17
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %phpdbg_check_for_watchpoint.exit.thread, label %14
+  br i1 %13, label %phpdbg_check_for_watchpoint.argprom.exit.thread, label %14
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %12, i64 8
@@ -396,7 +396,7 @@ define hidden range(i32 -1, 1) i32 @phpdbg_watchpoint_segfault_handler(ptr nocap
   %21 = and i64 %18, %20
   %22 = inttoptr i64 %21 to ptr
   %23 = icmp ult ptr %9, %22
-  br i1 %23, label %phpdbg_check_for_watchpoint.exit.thread, label %24
+  br i1 %23, label %phpdbg_check_for_watchpoint.argprom.exit.thread, label %24
 
 24:                                               ; preds = %14
   %25 = getelementptr inbounds i8, ptr %16, i64 8
@@ -408,16 +408,16 @@ define hidden range(i32 -1, 1) i32 @phpdbg_watchpoint_segfault_handler(ptr nocap
   %31 = getelementptr i8, ptr %22, i64 %30
   %32 = getelementptr i8, ptr %31, i64 %19
   %33 = icmp ult ptr %32, %9
-  br i1 %33, label %phpdbg_check_for_watchpoint.exit.thread, label %phpdbg_check_for_watchpoint.exit
+  br i1 %33, label %phpdbg_check_for_watchpoint.argprom.exit.thread, label %phpdbg_check_for_watchpoint.argprom.exit
 
-phpdbg_check_for_watchpoint.exit:                 ; preds = %24
+phpdbg_check_for_watchpoint.argprom.exit:         ; preds = %24
   %34 = tail call i32 @mprotect(ptr noundef %9, i64 noundef %19, i32 noundef 3) #17
   %35 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1296), align 8
   %36 = tail call ptr @zend_hash_index_add_empty_element(ptr noundef %35, i64 noundef %8) #17
-  br label %phpdbg_check_for_watchpoint.exit.thread
+  br label %phpdbg_check_for_watchpoint.argprom.exit.thread
 
-phpdbg_check_for_watchpoint.exit.thread:          ; preds = %24, %14, %2, %phpdbg_check_for_watchpoint.exit
-  %.0 = phi i32 [ 0, %phpdbg_check_for_watchpoint.exit ], [ -1, %2 ], [ -1, %14 ], [ -1, %24 ]
+phpdbg_check_for_watchpoint.argprom.exit.thread:  ; preds = %24, %14, %2, %phpdbg_check_for_watchpoint.argprom.exit
+  %.0 = phi i32 [ 0, %phpdbg_check_for_watchpoint.argprom.exit ], [ -1, %2 ], [ -1, %14 ], [ -1, %24 ]
   ret i32 %.0
 }
 
@@ -685,25 +685,25 @@ define hidden void @phpdbg_delete_watch_collision(ptr noundef %0) local_unnamed_
   %32 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 0, ptr %32, align 8
   %33 = call i32 (i32, i64, ...) @ioctl(i32 noundef %29, i64 noundef 2148575745, ptr noundef nonnull %3) #17
-  br label %phpdbg_deactivate_watchpoint.exit
+  br label %phpdbg_deactivate_watchpoint.argprom.exit
 
 34:                                               ; preds = %16
   %35 = inttoptr i64 %23 to ptr
   %36 = tail call i32 @mprotect(ptr noundef %35, i64 noundef %28, i32 noundef 3) #17
-  br label %phpdbg_deactivate_watchpoint.exit
+  br label %phpdbg_deactivate_watchpoint.argprom.exit
 
-phpdbg_deactivate_watchpoint.exit:                ; preds = %30, %34
+phpdbg_deactivate_watchpoint.argprom.exit:        ; preds = %30, %34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %37 = getelementptr inbounds i8, ptr %9, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %41
 
-40:                                               ; preds = %phpdbg_deactivate_watchpoint.exit
+40:                                               ; preds = %phpdbg_deactivate_watchpoint.argprom.exit
   call void @phpdbg_delete_watch_collision(ptr noundef nonnull %9)
   br label %83
 
-41:                                               ; preds = %phpdbg_deactivate_watchpoint.exit
+41:                                               ; preds = %phpdbg_deactivate_watchpoint.argprom.exit
   %42 = getelementptr inbounds i8, ptr %9, i64 152
   %43 = load ptr, ptr %42, align 8
   %.not34 = icmp eq ptr %43, null
@@ -738,14 +738,14 @@ phpdbg_deactivate_watchpoint.exit:                ; preds = %30, %34
   %60 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 0, ptr %60, align 8
   %61 = call i32 (i32, i64, ...) @ioctl(i32 noundef %57, i64 noundef 2148575745, ptr noundef nonnull %2) #17
-  br label %phpdbg_deactivate_watchpoint.exit43
+  br label %phpdbg_deactivate_watchpoint.argprom.exit43
 
 62:                                               ; preds = %44
   %63 = inttoptr i64 %51 to ptr
   %64 = call i32 @mprotect(ptr noundef %63, i64 noundef %56, i32 noundef 3) #17
-  br label %phpdbg_deactivate_watchpoint.exit43
+  br label %phpdbg_deactivate_watchpoint.argprom.exit43
 
-phpdbg_deactivate_watchpoint.exit43:              ; preds = %58, %62
+phpdbg_deactivate_watchpoint.argprom.exit43:      ; preds = %58, %62
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @phpdbg_delete_watch_collision(ptr noundef nonnull %42)
   %65 = getelementptr inbounds i8, ptr %9, i64 168
@@ -753,7 +753,7 @@ phpdbg_deactivate_watchpoint.exit43:              ; preds = %58, %62
   %67 = icmp eq i32 %66, 3
   br i1 %67, label %68, label %83
 
-68:                                               ; preds = %phpdbg_deactivate_watchpoint.exit43
+68:                                               ; preds = %phpdbg_deactivate_watchpoint.argprom.exit43
   %69 = getelementptr inbounds i8, ptr %9, i64 248
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 4
@@ -784,7 +784,7 @@ phpdbg_deactivate_watchpoint.exit43:              ; preds = %58, %62
   call void @_efree(ptr noundef nonnull %70) #17
   br label %83
 
-83:                                               ; preds = %41, %68, %81, %82, %74, %phpdbg_deactivate_watchpoint.exit43, %40
+83:                                               ; preds = %41, %68, %81, %82, %74, %phpdbg_deactivate_watchpoint.argprom.exit43, %40
   %84 = load ptr, ptr %4, align 8
   %85 = ptrtoint ptr %84 to i64
   %86 = call i32 @zend_hash_index_del(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1128), i64 noundef %85) #17
@@ -909,14 +909,14 @@ define hidden void @phpdbg_update_watch_ref(ptr noundef %0) local_unnamed_addr #
   %60 = call i32 (i32, i64, ...) @ioctl(i32 noundef %55, i64 noundef 3223366144, ptr noundef nonnull %8) #17
   %61 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 992), align 8
   %62 = call i32 (i32, i64, ...) @ioctl(i32 noundef %61, i64 noundef 3222841862, ptr noundef nonnull %9) #17
-  br label %phpdbg_activate_watchpoint.exit
+  br label %phpdbg_activate_watchpoint.argprom.exit
 
 63:                                               ; preds = %34
   %64 = inttoptr i64 %49 to ptr
   %65 = tail call i32 @mprotect(ptr noundef %64, i64 noundef %54, i32 noundef 1) #17
-  br label %phpdbg_activate_watchpoint.exit
+  br label %phpdbg_activate_watchpoint.argprom.exit
 
-phpdbg_activate_watchpoint.exit:                  ; preds = %56, %63
+phpdbg_activate_watchpoint.argprom.exit:          ; preds = %56, %63
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @phpdbg_watch_backup_data(ptr noundef nonnull %35)
@@ -928,7 +928,7 @@ phpdbg_activate_watchpoint.exit:                  ; preds = %56, %63
     i8 6, label %101
   ]
 
-69:                                               ; preds = %phpdbg_activate_watchpoint.exit
+69:                                               ; preds = %phpdbg_activate_watchpoint.argprom.exit
   %70 = load ptr, ptr %66, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   %72 = getelementptr inbounds i8, ptr %35, i64 152
@@ -981,20 +981,20 @@ phpdbg_activate_watchpoint.exit:                  ; preds = %56, %63
   %95 = call i32 (i32, i64, ...) @ioctl(i32 noundef %90, i64 noundef 3223366144, ptr noundef nonnull %6) #17
   %96 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 992), align 8
   %97 = call i32 (i32, i64, ...) @ioctl(i32 noundef %96, i64 noundef 3222841862, ptr noundef nonnull %7) #17
-  br label %phpdbg_activate_watchpoint.exit121
+  br label %phpdbg_activate_watchpoint.argprom.exit121
 
 98:                                               ; preds = %69
   %99 = inttoptr i64 %84 to ptr
   %100 = call i32 @mprotect(ptr noundef %99, i64 noundef %89, i32 noundef 1) #17
-  br label %phpdbg_activate_watchpoint.exit121
+  br label %phpdbg_activate_watchpoint.argprom.exit121
 
-phpdbg_activate_watchpoint.exit121:               ; preds = %91, %98
+phpdbg_activate_watchpoint.argprom.exit121:       ; preds = %91, %98
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @phpdbg_watch_backup_data(ptr noundef nonnull %72)
   br label %138
 
-101:                                              ; preds = %phpdbg_activate_watchpoint.exit
+101:                                              ; preds = %phpdbg_activate_watchpoint.argprom.exit
   %102 = getelementptr inbounds i8, ptr %35, i64 152
   %103 = getelementptr inbounds i8, ptr %35, i64 168
   store i32 3, ptr %103, align 8
@@ -1048,14 +1048,14 @@ phpdbg_activate_watchpoint.exit121:               ; preds = %91, %98
   %129 = call i32 (i32, i64, ...) @ioctl(i32 noundef %124, i64 noundef 3223366144, ptr noundef nonnull %4) #17
   %130 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 992), align 8
   %131 = call i32 (i32, i64, ...) @ioctl(i32 noundef %130, i64 noundef 3222841862, ptr noundef nonnull %5) #17
-  br label %phpdbg_activate_watchpoint.exit125
+  br label %phpdbg_activate_watchpoint.argprom.exit125
 
 132:                                              ; preds = %101
   %133 = inttoptr i64 %118 to ptr
   %134 = call i32 @mprotect(ptr noundef %133, i64 noundef %123, i32 noundef 1) #17
-  br label %phpdbg_activate_watchpoint.exit125
+  br label %phpdbg_activate_watchpoint.argprom.exit125
 
-phpdbg_activate_watchpoint.exit125:               ; preds = %125, %132
+phpdbg_activate_watchpoint.argprom.exit125:       ; preds = %125, %132
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %135 = getelementptr inbounds i8, ptr %35, i64 248
@@ -1063,12 +1063,12 @@ phpdbg_activate_watchpoint.exit125:               ; preds = %125, %132
   call void @phpdbg_watch_backup_data(ptr noundef nonnull %102)
   br label %138
 
-136:                                              ; preds = %phpdbg_activate_watchpoint.exit
+136:                                              ; preds = %phpdbg_activate_watchpoint.argprom.exit
   %137 = getelementptr inbounds i8, ptr %35, i64 152
   store ptr null, ptr %137, align 8
   br label %138
 
-138:                                              ; preds = %phpdbg_activate_watchpoint.exit125, %136, %phpdbg_activate_watchpoint.exit121
+138:                                              ; preds = %phpdbg_activate_watchpoint.argprom.exit125, %136, %phpdbg_activate_watchpoint.argprom.exit121
   %139 = getelementptr inbounds i8, ptr %35, i64 304
   call void @_zend_hash_init(ptr noundef nonnull %139, i32 noundef 8, ptr noundef null, i1 noundef zeroext false) #17
   %140 = load ptr, ptr %23, align 8
@@ -1177,14 +1177,14 @@ phpdbg_activate_watchpoint.exit125:               ; preds = %125, %132
   %192 = call i32 (i32, i64, ...) @ioctl(i32 noundef %187, i64 noundef 3223366144, ptr noundef nonnull %2) #17
   %193 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 992), align 8
   %194 = call i32 (i32, i64, ...) @ioctl(i32 noundef %193, i64 noundef 3222841862, ptr noundef nonnull %3) #17
-  br label %phpdbg_activate_watchpoint.exit129
+  br label %phpdbg_activate_watchpoint.argprom.exit129
 
 195:                                              ; preds = %166
   %196 = inttoptr i64 %181 to ptr
   %197 = tail call i32 @mprotect(ptr noundef %196, i64 noundef %186, i32 noundef 1) #17
-  br label %phpdbg_activate_watchpoint.exit129
+  br label %phpdbg_activate_watchpoint.argprom.exit129
 
-phpdbg_activate_watchpoint.exit129:               ; preds = %188, %195
+phpdbg_activate_watchpoint.argprom.exit129:       ; preds = %188, %195
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @phpdbg_watch_backup_data(ptr noundef nonnull %167)
@@ -1198,8 +1198,8 @@ phpdbg_activate_watchpoint.exit129:               ; preds = %188, %195
   %202 = call ptr @zend_hash_index_add(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1128), i64 noundef %200, ptr noundef nonnull %12) #17
   br label %203
 
-203:                                              ; preds = %164, %phpdbg_activate_watchpoint.exit129
-  %.1 = phi ptr [ %165, %164 ], [ %167, %phpdbg_activate_watchpoint.exit129 ]
+203:                                              ; preds = %164, %phpdbg_activate_watchpoint.argprom.exit129
+  %.1 = phi ptr [ %165, %164 ], [ %167, %phpdbg_activate_watchpoint.argprom.exit129 ]
   %204 = getelementptr inbounds i8, ptr %.1, i64 304
   %205 = ptrtoint ptr %0 to i64
   store ptr %0, ptr %13, align 8
@@ -1291,14 +1291,14 @@ define hidden noundef ptr @phpdbg_add_watch_element(ptr nocapture noundef readon
   %34 = call i32 (i32, i64, ...) @ioctl(i32 noundef %29, i64 noundef 3223366144, ptr noundef nonnull %3) #17
   %35 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 992), align 8
   %36 = call i32 (i32, i64, ...) @ioctl(i32 noundef %35, i64 noundef 3222841862, ptr noundef nonnull %4) #17
-  br label %phpdbg_activate_watchpoint.exit
+  br label %phpdbg_activate_watchpoint.argprom.exit
 
 37:                                               ; preds = %18
   %38 = inttoptr i64 %23 to ptr
   %39 = tail call i32 @mprotect(ptr noundef %38, i64 noundef %28, i32 noundef 1) #17
-  br label %phpdbg_activate_watchpoint.exit
+  br label %phpdbg_activate_watchpoint.argprom.exit
 
-phpdbg_activate_watchpoint.exit:                  ; preds = %30, %37
+phpdbg_activate_watchpoint.argprom.exit:          ; preds = %30, %37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @phpdbg_watch_backup_data(ptr noundef nonnull %11)
@@ -1319,8 +1319,8 @@ phpdbg_activate_watchpoint.exit:                  ; preds = %30, %37
   tail call void @phpdbg_free_watch_element(ptr noundef nonnull %1)
   br label %63
 
-.thread:                                          ; preds = %40, %phpdbg_activate_watchpoint.exit
-  %.037 = phi ptr [ %11, %phpdbg_activate_watchpoint.exit ], [ %42, %40 ]
+.thread:                                          ; preds = %40, %phpdbg_activate_watchpoint.argprom.exit
+  %.037 = phi ptr [ %11, %phpdbg_activate_watchpoint.argprom.exit ], [ %42, %40 ]
   %49 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %.037, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %.037, i64 32
@@ -1781,14 +1781,14 @@ define hidden void @phpdbg_watch_parent_ht(ptr noundef %0) local_unnamed_addr #0
   %55 = call i32 (i32, i64, ...) @ioctl(i32 noundef %50, i64 noundef 3223366144, ptr noundef nonnull %2) #17
   %56 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 992), align 8
   %57 = call i32 (i32, i64, ...) @ioctl(i32 noundef %56, i64 noundef 3222841862, ptr noundef nonnull %3) #17
-  br label %phpdbg_activate_watchpoint.exit
+  br label %phpdbg_activate_watchpoint.argprom.exit
 
 58:                                               ; preds = %15
   %59 = inttoptr i64 %44 to ptr
   %60 = tail call i32 @mprotect(ptr noundef %59, i64 noundef %49, i32 noundef 1) #17
-  br label %phpdbg_activate_watchpoint.exit
+  br label %phpdbg_activate_watchpoint.argprom.exit
 
-phpdbg_activate_watchpoint.exit:                  ; preds = %51, %58
+phpdbg_activate_watchpoint.argprom.exit:          ; preds = %51, %58
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %64
@@ -1798,8 +1798,8 @@ phpdbg_activate_watchpoint.exit:                  ; preds = %51, %58
   %63 = load ptr, ptr %62, align 8
   br label %64
 
-64:                                               ; preds = %61, %phpdbg_activate_watchpoint.exit
-  %.0 = phi ptr [ %63, %61 ], [ %16, %phpdbg_activate_watchpoint.exit ]
+64:                                               ; preds = %61, %phpdbg_activate_watchpoint.argprom.exit
+  %.0 = phi ptr [ %63, %61 ], [ %16, %phpdbg_activate_watchpoint.argprom.exit ]
   %65 = getelementptr inbounds i8, ptr %.0, i64 160
   %66 = getelementptr inbounds i8, ptr %0, i64 104
   %67 = load ptr, ptr %66, align 8
@@ -2180,14 +2180,14 @@ define hidden void @phpdbg_unwatch_parent_ht(ptr nocapture noundef readonly %0) 
   %42 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 0, ptr %42, align 8
   %43 = call i32 (i32, i64, ...) @ioctl(i32 noundef %39, i64 noundef 2148575745, ptr noundef nonnull %2) #17
-  br label %phpdbg_deactivate_watchpoint.exit
+  br label %phpdbg_deactivate_watchpoint.argprom.exit
 
 44:                                               ; preds = %22
   %45 = inttoptr i64 %33 to ptr
   %46 = tail call i32 @mprotect(ptr noundef %45, i64 noundef %38, i32 noundef 3) #17
-  br label %phpdbg_deactivate_watchpoint.exit
+  br label %phpdbg_deactivate_watchpoint.argprom.exit
 
-phpdbg_deactivate_watchpoint.exit:                ; preds = %40, %44
+phpdbg_deactivate_watchpoint.argprom.exit:        ; preds = %40, %44
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @_efree(ptr noundef nonnull %17) #17
   br label %51
@@ -2198,7 +2198,7 @@ phpdbg_deactivate_watchpoint.exit:                ; preds = %40, %44
   %50 = tail call i32 @zend_hash_del(ptr noundef nonnull %18, ptr noundef %49) #17
   br label %51
 
-51:                                               ; preds = %8, %47, %phpdbg_deactivate_watchpoint.exit, %1
+51:                                               ; preds = %8, %47, %phpdbg_deactivate_watchpoint.argprom.exit, %1
   ret void
 }
 
@@ -3484,14 +3484,14 @@ define hidden void @phpdbg_remove_watchpoint(ptr noundef %0) local_unnamed_addr 
   %18 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 0, ptr %18, align 8
   %19 = call i32 (i32, i64, ...) @ioctl(i32 noundef %15, i64 noundef 2148575745, ptr noundef nonnull %2) #17
-  br label %phpdbg_deactivate_watchpoint.exit
+  br label %phpdbg_deactivate_watchpoint.argprom.exit
 
 20:                                               ; preds = %1
   %21 = inttoptr i64 %9 to ptr
   %22 = tail call i32 @mprotect(ptr noundef %21, i64 noundef %14, i32 noundef 3) #17
-  br label %phpdbg_deactivate_watchpoint.exit
+  br label %phpdbg_deactivate_watchpoint.argprom.exit
 
-phpdbg_deactivate_watchpoint.exit:                ; preds = %16, %20
+phpdbg_deactivate_watchpoint.argprom.exit:        ; preds = %16, %20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @phpdbg_delete_watch_collision(ptr noundef nonnull %0)
   %23 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3499,11 +3499,11 @@ phpdbg_deactivate_watchpoint.exit:                ; preds = %16, %20
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %26, label %25
 
-25:                                               ; preds = %phpdbg_deactivate_watchpoint.exit
+25:                                               ; preds = %phpdbg_deactivate_watchpoint.argprom.exit
   call void @phpdbg_update_watch_collision_elements(ptr noundef nonnull %0)
   br label %47
 
-26:                                               ; preds = %phpdbg_deactivate_watchpoint.exit
+26:                                               ; preds = %phpdbg_deactivate_watchpoint.argprom.exit
   %27 = getelementptr inbounds i8, ptr %0, i64 32
   %28 = getelementptr inbounds i8, ptr %0, i64 60
   %29 = load i32, ptr %28, align 4
@@ -4164,14 +4164,14 @@ phpdbg_check_watch_diff.exit:                     ; preds = %149, %152
   %227 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %227, align 8
   %228 = call i32 (i32, i64, ...) @ioctl(i32 noundef %224, i64 noundef 2148575745, ptr noundef nonnull %4) #17
-  br label %phpdbg_deactivate_watchpoint.exit
+  br label %phpdbg_deactivate_watchpoint.argprom.exit
 
 229:                                              ; preds = %211
   %230 = inttoptr i64 %218 to ptr
   %231 = call i32 @mprotect(ptr noundef %230, i64 noundef %223, i32 noundef 3) #17
-  br label %phpdbg_deactivate_watchpoint.exit
+  br label %phpdbg_deactivate_watchpoint.argprom.exit
 
-phpdbg_deactivate_watchpoint.exit:                ; preds = %225, %229
+phpdbg_deactivate_watchpoint.argprom.exit:        ; preds = %225, %229
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   store ptr %.0186, ptr %0, align 8
   %232 = ptrtoint ptr %.0186 to i64
@@ -4193,7 +4193,7 @@ phpdbg_deactivate_watchpoint.exit:                ; preds = %225, %229
   %.not.i.i241 = icmp eq i32 %243, 0
   br i1 %.not.i.i241, label %251, label %244
 
-244:                                              ; preds = %phpdbg_deactivate_watchpoint.exit
+244:                                              ; preds = %phpdbg_deactivate_watchpoint.argprom.exit
   store i64 %237, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %242, ptr %.sroa.4.0..sroa_idx.i.i, align 8
@@ -4209,14 +4209,14 @@ phpdbg_deactivate_watchpoint.exit:                ; preds = %225, %229
   %248 = call i32 (i32, i64, ...) @ioctl(i32 noundef %243, i64 noundef 3223366144, ptr noundef nonnull %2) #17
   %249 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 992), align 8
   %250 = call i32 (i32, i64, ...) @ioctl(i32 noundef %249, i64 noundef 3222841862, ptr noundef nonnull %3) #17
-  br label %phpdbg_activate_watchpoint.exit
+  br label %phpdbg_activate_watchpoint.argprom.exit
 
-251:                                              ; preds = %phpdbg_deactivate_watchpoint.exit
+251:                                              ; preds = %phpdbg_deactivate_watchpoint.argprom.exit
   %252 = inttoptr i64 %237 to ptr
   %253 = call i32 @mprotect(ptr noundef %252, i64 noundef %242, i32 noundef 1) #17
-  br label %phpdbg_activate_watchpoint.exit
+  br label %phpdbg_activate_watchpoint.argprom.exit
 
-phpdbg_activate_watchpoint.exit:                  ; preds = %244, %251
+phpdbg_activate_watchpoint.argprom.exit:          ; preds = %244, %251
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %254 = load ptr, ptr %0, align 8
@@ -4224,7 +4224,7 @@ phpdbg_activate_watchpoint.exit:                  ; preds = %244, %251
   %.not273 = icmp eq i32 %bcmp16.i242, 0
   br i1 %.not273, label %255, label %.thread262
 
-255:                                              ; preds = %phpdbg_activate_watchpoint.exit
+255:                                              ; preds = %phpdbg_activate_watchpoint.argprom.exit
   call void @phpdbg_watch_backup_data(ptr noundef nonnull %0)
   br label %phpdbg_check_watch_diff.exit.thread253
 
@@ -4238,8 +4238,8 @@ phpdbg_activate_watchpoint.exit:                  ; preds = %244, %251
   tail call void @phpdbg_remove_watchpoint(ptr noundef nonnull %0)
   br label %phpdbg_check_watch_diff.exit.thread253
 
-.thread262:                                       ; preds = %156, %.thread, %.thread247, %.thread259, %phpdbg_activate_watchpoint.exit, %256
-  %.0187246252258264 = phi ptr [ %150, %phpdbg_activate_watchpoint.exit ], [ %150, %256 ], [ %150, %.thread259 ], [ %139, %.thread247 ], [ %143, %.thread ], [ %150, %156 ]
+.thread262:                                       ; preds = %156, %.thread, %.thread247, %.thread259, %phpdbg_activate_watchpoint.argprom.exit, %256
+  %.0187246252258264 = phi ptr [ %150, %phpdbg_activate_watchpoint.argprom.exit ], [ %150, %256 ], [ %150, %.thread259 ], [ %139, %.thread247 ], [ %143, %.thread ], [ %150, %156 ]
   %261 = call ptr @phpdbg_watchpoint_change_collision_name(ptr noundef nonnull %0)
   %.not231 = icmp eq ptr %261, null
   br i1 %.not231, label %277, label %262
@@ -5363,8 +5363,8 @@ define hidden void @phpdbg_purge_watchpoint_tree() local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   br label %7
 
-7:                                                ; preds = %.lr.ph, %phpdbg_deactivate_watchpoint.exit
-  %8 = phi ptr [ %4, %.lr.ph ], [ %27, %phpdbg_deactivate_watchpoint.exit ]
+7:                                                ; preds = %.lr.ph, %phpdbg_deactivate_watchpoint.argprom.exit
+  %8 = phi ptr [ %4, %.lr.ph ], [ %27, %phpdbg_deactivate_watchpoint.argprom.exit ]
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.val = load ptr, ptr %10, align 8
@@ -5390,20 +5390,20 @@ define hidden void @phpdbg_purge_watchpoint_tree() local_unnamed_addr #0 {
   store i64 2, ptr %5, align 8
   store i64 0, ptr %6, align 8
   %23 = call i32 (i32, i64, ...) @ioctl(i32 noundef %21, i64 noundef 2148575745, ptr noundef nonnull %1) #17
-  br label %phpdbg_deactivate_watchpoint.exit
+  br label %phpdbg_deactivate_watchpoint.argprom.exit
 
 24:                                               ; preds = %7
   %25 = inttoptr i64 %15 to ptr
   %26 = call i32 @mprotect(ptr noundef %25, i64 noundef %20, i32 noundef 3) #17
-  br label %phpdbg_deactivate_watchpoint.exit
+  br label %phpdbg_deactivate_watchpoint.argprom.exit
 
-phpdbg_deactivate_watchpoint.exit:                ; preds = %22, %24
+phpdbg_deactivate_watchpoint.argprom.exit:        ; preds = %22, %24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   %27 = call ptr @phpdbg_btree_next(ptr noundef nonnull %2) #17
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %._crit_edge, label %7
 
-._crit_edge:                                      ; preds = %phpdbg_deactivate_watchpoint.exit, %0
+._crit_edge:                                      ; preds = %phpdbg_deactivate_watchpoint.argprom.exit, %0
   ret void
 }
 

@@ -460,7 +460,7 @@ define internal void @_CloseArchive(ptr noundef %0) #0 {
   tail call fastcc void @tarClose(ptr noundef nonnull %0, ptr noundef %8)
   tail call void @WriteDataChunks(ptr noundef nonnull %0, ptr noundef null) #18
   %10 = tail call fastcc ptr @tarOpen(ptr noundef nonnull %0, ptr noundef nonnull @.str.42, i8 noundef signext 119)
-  tail call void (ptr, ptr, ...) @tarPrintf(ptr noundef %10, ptr noundef nonnull @.str.43)
+  tail call void (ptr, ptr, ...) @tarPrintf.retelim(ptr noundef %10, ptr noundef nonnull @.str.43)
   %11 = getelementptr inbounds i8, ptr %0, i64 408
   store ptr @_scriptOut, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 56
@@ -916,7 +916,7 @@ define internal void @_StartLO(ptr noundef %0, ptr nocapture noundef readonly %1
   %16 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.46, i32 noundef %2) #18
   %17 = getelementptr inbounds i8, ptr %6, i64 16
   %18 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @tarPrintf(ptr noundef %18, ptr noundef nonnull @.str.47, i32 noundef %2, ptr noundef nonnull %4)
+  call void (ptr, ptr, ...) @tarPrintf.retelim(ptr noundef %18, ptr noundef nonnull @.str.47, i32 noundef %2, ptr noundef nonnull %4)
   %19 = call fastcc ptr @tarOpen(ptr noundef nonnull %0, ptr noundef nonnull %4, i8 noundef signext 119)
   store ptr %19, ptr %8, align 8
   ret void
@@ -1388,12 +1388,12 @@ _tarWriteHeader.exit.i:                           ; preds = %26
   %57 = and i64 %56, -512
   %58 = sub i64 %57, %.0.lcssa.i
   %.not8.i = icmp eq i64 %57, %.0.lcssa.i
-  br i1 %.not8.i, label %_tarAddFile.exit, label %.lr.ph6.i
+  br i1 %.not8.i, label %_tarAddFile.argprom.exit, label %.lr.ph6.i
 
 59:                                               ; preds = %.lr.ph6.i
   %60 = add nuw i64 %.0284.i, 1
   %exitcond.not.i = icmp eq i64 %60, %58
-  br i1 %exitcond.not.i, label %_tarAddFile.exit, label %.lr.ph6.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_tarAddFile.argprom.exit, label %.lr.ph6.i, !llvm.loop !14
 
 .lr.ph6.i:                                        ; preds = %55, %59
   %.0284.i = phi i64 [ %60, %59 ], [ 0, %55 ]
@@ -1407,7 +1407,7 @@ _tarWriteHeader.exit.i:                           ; preds = %26
   call void @exit_nicely(i32 noundef 1) #19
   unreachable
 
-_tarAddFile.exit:                                 ; preds = %59, %55
+_tarAddFile.argprom.exit:                         ; preds = %59, %55
   %65 = getelementptr inbounds i8, ptr %.val, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = add i64 %66, %57
@@ -1415,7 +1415,7 @@ _tarAddFile.exit:                                 ; preds = %59, %55
   call void @llvm.lifetime.end.p0(i64 32768, ptr nonnull %4)
   br label %68
 
-68:                                               ; preds = %_tarAddFile.exit, %8
+68:                                               ; preds = %_tarAddFile.argprom.exit, %8
   %69 = getelementptr inbounds i8, ptr %1, i64 24
   %70 = load ptr, ptr %69, align 8
   call void @free(ptr noundef %70) #18
@@ -1730,7 +1730,7 @@ declare void @WriteToc(ptr noundef) local_unnamed_addr #1
 declare void @WriteDataChunks(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @tarPrintf(ptr nocapture noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal void @tarPrintf.retelim(ptr nocapture noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = tail call ptr @__errno_location() #21
   %5 = load i32, ptr %4, align 4

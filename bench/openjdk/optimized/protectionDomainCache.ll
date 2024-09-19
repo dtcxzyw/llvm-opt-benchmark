@@ -634,22 +634,22 @@ define hidden void @_ZN26ProtectionDomainCacheTable6verifyEv() local_unnamed_add
   %.not15.i.i = icmp eq ptr %.01114.i.i, null
   br i1 %.not15.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.exit.i.i"
-  %.01117.i.i = phi ptr [ %.011.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.exit.i.i" ], [ %.01114.i.i, %.preheader.i.i ]
-  %.116.i.i = phi i32 [ %18, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.exit.i.i" ], [ %.01218.i.i, %.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.argprom.exit.i.i"
+  %.01117.i.i = phi ptr [ %.011.i.i, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.argprom.exit.i.i" ], [ %.01114.i.i, %.preheader.i.i ]
+  %.116.i.i = phi i32 [ %18, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.argprom.exit.i.i" ], [ %.01218.i.i, %.preheader.i.i ]
   %5 = getelementptr inbounds i8, ptr %.01117.i.i, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm593988EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %8 = tail call noundef ptr %7(ptr noundef %6) #12
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.exit.i.i", label %10
+  br i1 %9, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.argprom.exit.i.i", label %10
 
 10:                                               ; preds = %.lr.ph.i.i
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm593988EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %13 = tail call noundef ptr %12(ptr noundef %11) #12
   %14 = tail call noundef zeroext i1 @_ZN7oopDesc6is_oopEPS_b(ptr noundef %13, i1 noundef zeroext false) #12
-  br i1 %14, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.exit.i.i", label %15
+  br i1 %14, label %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.argprom.exit.i.i", label %15
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr @g_assert_poison, align 8
@@ -657,15 +657,15 @@ define hidden void @_ZN26ProtectionDomainCacheTable6verifyEv() local_unnamed_add
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.18, i32 noundef 184, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
   unreachable
 
-"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.exit.i.i": ; preds = %10, %.lr.ph.i.i
+"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.argprom.exit.i.i": ; preds = %10, %.lr.ph.i.i
   %17 = getelementptr inbounds i8, ptr %.01117.i.i, i64 24
   %18 = add nsw i32 %.116.i.i, -1
   %.011.i.i = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %.011.i.i, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !13
 
-._crit_edge.i.i:                                  ; preds = %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.exit.i.i", %.preheader.i.i
-  %.1.lcssa.i.i = phi i32 [ %.01218.i.i, %.preheader.i.i ], [ %18, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.exit.i.i" ]
+._crit_edge.i.i:                                  ; preds = %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.argprom.exit.i.i", %.preheader.i.i
+  %.1.lcssa.i.i = phi i32 [ %.01218.i.i, %.preheader.i.i ], [ %18, %"_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE11iterate_allIZNS6_6verifyEvE3$_0EEvT_ENKUlRS1_SD_E_clESD_SD_.argprom.exit.i.i" ]
   %.0.add.i.i = add nuw nsw i64 %.0.idx19.i.i, 8
   %19 = icmp sgt i32 %.1.lcssa.i.i, 0
   %20 = icmp ult i64 %.0.idx19.i.i, 8064

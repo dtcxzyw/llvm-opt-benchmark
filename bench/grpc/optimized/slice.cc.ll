@@ -1679,13 +1679,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define internal void @"_ZZ23grpc_slice_malloc_largeEN3$_08__invokeEP19grpc_slice_refcount"(ptr noundef %p) #9 align 2 {
 entry:
   %isnull.i = icmp eq ptr %p, null
-  br i1 %isnull.i, label %"_ZZ23grpc_slice_malloc_largeENK3$_0clEP19grpc_slice_refcount.exit", label %delete.notnull.i
+  br i1 %isnull.i, label %"_ZZ23grpc_slice_malloc_largeENK3$_0clEP19grpc_slice_refcount.argprom.exit", label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   tail call void @_ZdaPv(ptr noundef nonnull %p) #28
-  br label %"_ZZ23grpc_slice_malloc_largeENK3$_0clEP19grpc_slice_refcount.exit"
+  br label %"_ZZ23grpc_slice_malloc_largeENK3$_0clEP19grpc_slice_refcount.argprom.exit"
 
-"_ZZ23grpc_slice_malloc_largeENK3$_0clEP19grpc_slice_refcount.exit": ; preds = %entry, %delete.notnull.i
+"_ZZ23grpc_slice_malloc_largeENK3$_0clEP19grpc_slice_refcount.argprom.exit": ; preds = %entry, %delete.notnull.i
   ret void
 }
 

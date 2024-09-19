@@ -20222,7 +20222,7 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %194, i8 0, i64 24, i1 false)
   store i32 %195, ptr %194, align 8
   %198 = icmp eq i32 %196, 0
-  br i1 %198, label %add_setup_conv.exit.i, label %199
+  br i1 %198, label %add_setup_conv.argprom.exit.i, label %199
 
 199:                                              ; preds = %.critedge.i
   %200 = sext i32 %196 to i64
@@ -20233,9 +20233,9 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   store ptr %201, ptr %203, align 8
   %204 = getelementptr inbounds i8, ptr %189, i64 20
   store i32 %196, ptr %204, align 4
-  br label %add_setup_conv.exit.i
+  br label %add_setup_conv.argprom.exit.i
 
-add_setup_conv.exit.i:                            ; preds = %199, %.critedge.i
+add_setup_conv.argprom.exit.i:                    ; preds = %199, %.critedge.i
   %205 = getelementptr inbounds i8, ptr %189, i64 40
   store i32 %45, ptr %205, align 8
   %206 = getelementptr inbounds i8, ptr %189, i64 48
@@ -20254,7 +20254,7 @@ add_setup_conv.exit.i:                            ; preds = %199, %.critedge.i
   %217 = call ptr @wmem_map_insert(ptr noundef %214, ptr noundef %216, ptr noundef nonnull %189) #7
   br label %dissect_nbap_PCH_ParametersItem_CTCH_SetupRqstFDD.exit
 
-dissect_nbap_PCH_ParametersItem_CTCH_SetupRqstFDD.exit: ; preds = %nbap_get_private_data.exit.i, %47, %add_setup_conv.exit.i
+dissect_nbap_PCH_ParametersItem_CTCH_SetupRqstFDD.exit: ; preds = %nbap_get_private_data.exit.i, %47, %add_setup_conv.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -20519,7 +20519,7 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %151, i8 0, i64 24, i1 false)
   store i32 %152, ptr %151, align 8
   %155 = icmp eq i32 %153, 0
-  br i1 %155, label %add_setup_conv.exit.i, label %156
+  br i1 %155, label %add_setup_conv.argprom.exit.i, label %156
 
 156:                                              ; preds = %._crit_edge93.i
   %157 = sext i32 %153 to i64
@@ -20530,9 +20530,9 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   store ptr %158, ptr %160, align 8
   %161 = getelementptr inbounds i8, ptr %146, i64 20
   store i32 %153, ptr %161, align 4
-  br label %add_setup_conv.exit.i
+  br label %add_setup_conv.argprom.exit.i
 
-add_setup_conv.exit.i:                            ; preds = %156, %._crit_edge93.i
+add_setup_conv.argprom.exit.i:                    ; preds = %156, %._crit_edge93.i
   %162 = getelementptr inbounds i8, ptr %146, i64 40
   store i32 %45, ptr %162, align 8
   %163 = getelementptr inbounds i8, ptr %146, i64 48
@@ -20551,7 +20551,7 @@ add_setup_conv.exit.i:                            ; preds = %156, %._crit_edge93
   %174 = call ptr @wmem_map_insert(ptr noundef %171, ptr noundef %173, ptr noundef nonnull %146) #7
   br label %dissect_nbap_RACH_ParametersItem_CTCH_SetupRqstFDD.exit
 
-dissect_nbap_RACH_ParametersItem_CTCH_SetupRqstFDD.exit: ; preds = %nbap_get_private_data.exit.i, %47, %add_setup_conv.exit.i
+dissect_nbap_RACH_ParametersItem_CTCH_SetupRqstFDD.exit: ; preds = %nbap_get_private_data.exit.i, %47, %add_setup_conv.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -34419,7 +34419,7 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %206, i8 0, i64 24, i1 false)
   store i32 %207, ptr %206, align 8
   %210 = icmp eq i32 %208, 0
-  br i1 %210, label %add_setup_conv.exit, label %211
+  br i1 %210, label %add_setup_conv.argprom.exit, label %211
 
 211:                                              ; preds = %.critedge
   %212 = sext i32 %208 to i64
@@ -34430,9 +34430,9 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   store ptr %213, ptr %215, align 8
   %216 = getelementptr inbounds i8, ptr %201, i64 20
   store i32 %208, ptr %216, align 4
-  br label %add_setup_conv.exit
+  br label %add_setup_conv.argprom.exit
 
-add_setup_conv.exit:                              ; preds = %.critedge, %211
+add_setup_conv.argprom.exit:                      ; preds = %.critedge, %211
   %217 = getelementptr inbounds i8, ptr %201, i64 40
   store i32 %44, ptr %217, align 8
   %218 = getelementptr inbounds i8, ptr %201, i64 48
@@ -34451,7 +34451,7 @@ add_setup_conv.exit:                              ; preds = %.critedge, %211
   %229 = call ptr @wmem_map_insert(ptr noundef %226, ptr noundef %228, ptr noundef nonnull %201) #7
   br label %230
 
-230:                                              ; preds = %46, %add_setup_conv.exit, %nbap_get_private_data.exit
+230:                                              ; preds = %46, %add_setup_conv.argprom.exit, %nbap_get_private_data.exit
   ret i32 %33
 }
 

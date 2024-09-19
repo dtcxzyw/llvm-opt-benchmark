@@ -538,7 +538,7 @@ _Z25grpc_iomgr_abort_on_leaksv.exit:              ; preds = %if.then27, %if.end.
 if.then29:                                        ; preds = %_Z25grpc_iomgr_abort_on_leaksv.exit
   %call30 = tail call fastcc noundef i64 @_ZL13count_objectsv()
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 122, i32 noundef 0, ptr noundef nonnull @.str.3, i64 noundef %call30)
-  tail call fastcc void @_ZL12dump_objectsPKc()
+  tail call fastcc void @_ZL12dump_objectsPKc.argprom()
   tail call void @abort() #15
   unreachable
 
@@ -657,7 +657,7 @@ _ZN9grpc_core10ConfigVars3GetEv.exit:             ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12dump_objectsPKc() unnamed_addr #5 {
+define internal fastcc void @_ZL12dump_objectsPKc.argprom() unnamed_addr #5 {
 entry:
   %obj.01 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13g_root_object, i64 8), align 8
   %cmp.not2 = icmp eq ptr %obj.01, @_ZL13g_root_object

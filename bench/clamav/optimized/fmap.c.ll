@@ -662,8 +662,8 @@ define internal ptr @handle_need_offstr(ptr nocapture noundef %0, i64 noundef %1
   %43 = getelementptr i8, ptr %0, i64 224
   br label %44
 
-44:                                               ; preds = %.lr.ph110, %fmap_unneed_page.exit
-  %.174109 = phi i64 [ %21, %.lr.ph110 ], [ %59, %fmap_unneed_page.exit ]
+44:                                               ; preds = %.lr.ph110, %fmap_unneed_page.argprom.exit
+  %.174109 = phi i64 [ %21, %.lr.ph110 ], [ %59, %fmap_unneed_page.argprom.exit ]
   %.val96 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i64, ptr %.val96, i64 %.174109
   %46 = load i64, ptr %45, align 8
@@ -679,7 +679,7 @@ define internal ptr @handle_need_offstr(ptr nocapture noundef %0, i64 noundef %1
 52:                                               ; preds = %49
   %53 = add nsw i64 %46, -1
   store i64 %53, ptr %45, align 8
-  br label %fmap_unneed_page.exit
+  br label %fmap_unneed_page.argprom.exit
 
 54:                                               ; preds = %49
   %55 = icmp eq i64 %50, 1
@@ -687,23 +687,23 @@ define internal ptr @handle_need_offstr(ptr nocapture noundef %0, i64 noundef %1
 
 56:                                               ; preds = %54
   store i64 2147483647, ptr %45, align 8
-  br label %fmap_unneed_page.exit
+  br label %fmap_unneed_page.argprom.exit
 
 57:                                               ; preds = %54
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.40) #18
-  br label %fmap_unneed_page.exit
+  br label %fmap_unneed_page.argprom.exit
 
 58:                                               ; preds = %44
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.41) #18
-  br label %fmap_unneed_page.exit
+  br label %fmap_unneed_page.argprom.exit
 
-fmap_unneed_page.exit:                            ; preds = %52, %56, %57, %58
+fmap_unneed_page.argprom.exit:                    ; preds = %52, %56, %57, %58
   %59 = add i64 %.174109, 1
   %.not90 = icmp ugt i64 %59, %.071
   br i1 %.not90, label %.loopexit, label %44
 
-.loopexit:                                        ; preds = %37, %fmap_unneed_page.exit, %.loopexit101, %._crit_edge, %14
-  %.070 = phi ptr [ null, %14 ], [ null, %._crit_edge ], [ null, %.loopexit101 ], [ null, %fmap_unneed_page.exit ], [ %8, %37 ]
+.loopexit:                                        ; preds = %37, %fmap_unneed_page.argprom.exit, %.loopexit101, %._crit_edge, %14
+  %.070 = phi ptr [ null, %14 ], [ null, %._crit_edge ], [ null, %.loopexit101 ], [ null, %fmap_unneed_page.argprom.exit ], [ %8, %37 ]
   ret ptr %.070
 }
 
@@ -856,8 +856,8 @@ define internal void @handle_unneed_off(ptr nocapture noundef readonly %0, i64 n
   %24 = getelementptr i8, ptr %0, i64 224
   br label %25
 
-25:                                               ; preds = %.lr.ph, %fmap_unneed_page.exit
-  %.048 = phi i64 [ %21, %.lr.ph ], [ %40, %fmap_unneed_page.exit ]
+25:                                               ; preds = %.lr.ph, %fmap_unneed_page.argprom.exit
+  %.048 = phi i64 [ %21, %.lr.ph ], [ %40, %fmap_unneed_page.argprom.exit ]
   %.val46 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i64, ptr %.val46, i64 %.048
   %27 = load i64, ptr %26, align 8
@@ -873,7 +873,7 @@ define internal void @handle_unneed_off(ptr nocapture noundef readonly %0, i64 n
 33:                                               ; preds = %30
   %34 = add nsw i64 %27, -1
   store i64 %34, ptr %26, align 8
-  br label %fmap_unneed_page.exit
+  br label %fmap_unneed_page.argprom.exit
 
 35:                                               ; preds = %30
   %36 = icmp eq i64 %31, 1
@@ -881,17 +881,17 @@ define internal void @handle_unneed_off(ptr nocapture noundef readonly %0, i64 n
 
 37:                                               ; preds = %35
   store i64 2147483647, ptr %26, align 8
-  br label %fmap_unneed_page.exit
+  br label %fmap_unneed_page.argprom.exit
 
 38:                                               ; preds = %35
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.40) #18
-  br label %fmap_unneed_page.exit
+  br label %fmap_unneed_page.argprom.exit
 
 39:                                               ; preds = %25
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.41) #18
-  br label %fmap_unneed_page.exit
+  br label %fmap_unneed_page.argprom.exit
 
-fmap_unneed_page.exit:                            ; preds = %33, %37, %38, %39
+fmap_unneed_page.argprom.exit:                    ; preds = %33, %37, %38, %39
   %40 = add i64 %.048, 1
   %.not41 = icmp ugt i64 %40, %23
   br i1 %.not41, label %.loopexit, label %25
@@ -901,7 +901,7 @@ fmap_unneed_page.exit:                            ; preds = %33, %37, %38, %39
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull %.str.39.sink) #18
   br label %.loopexit
 
-.loopexit:                                        ; preds = %fmap_unneed_page.exit, %.loopexit.sink.split, %19, %3
+.loopexit:                                        ; preds = %fmap_unneed_page.argprom.exit, %.loopexit.sink.split, %19, %3
   ret void
 }
 

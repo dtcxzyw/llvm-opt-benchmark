@@ -869,7 +869,7 @@ heap_page_free.exit:                              ; preds = %.lr.ph
   %60 = getelementptr inbounds i8, ptr %0, i64 1160
   %.val = load ptr, ptr %60, align 8
   %.not4.i.i = icmp eq ptr %.val, null
-  br i1 %.not4.i.i, label %free_stack_chunks.exit, label %.lr.ph.i.i
+  br i1 %.not4.i.i, label %free_stack_chunks.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.loopexit, %.lr.ph.i.i
   %.05.i.i = phi ptr [ %62, %.lr.ph.i.i ], [ %.val, %.loopexit ]
@@ -877,23 +877,23 @@ heap_page_free.exit:                              ; preds = %.lr.ph
   %62 = load ptr, ptr %61, align 8
   tail call void @free(ptr noundef nonnull %.05.i.i) #39
   %.not.i.i39 = icmp eq ptr %62, null
-  br i1 %.not.i.i39, label %free_stack_chunks.exit, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.i.i39, label %free_stack_chunks.argprom.exit, label %.lr.ph.i.i, !llvm.loop !13
 
-free_stack_chunks.exit:                           ; preds = %.lr.ph.i.i, %.loopexit
+free_stack_chunks.argprom.exit:                   ; preds = %.lr.ph.i.i, %.loopexit
   %63 = getelementptr inbounds i8, ptr %0, i64 1168
   %64 = load ptr, ptr %63, align 8
   %.not4.i.i40 = icmp eq ptr %64, null
   br i1 %.not4.i.i40, label %mark_stack_free_cache.exit, label %.lr.ph.i.i41
 
-.lr.ph.i.i41:                                     ; preds = %free_stack_chunks.exit, %.lr.ph.i.i41
-  %.05.i.i42 = phi ptr [ %66, %.lr.ph.i.i41 ], [ %64, %free_stack_chunks.exit ]
+.lr.ph.i.i41:                                     ; preds = %free_stack_chunks.argprom.exit, %.lr.ph.i.i41
+  %.05.i.i42 = phi ptr [ %66, %.lr.ph.i.i41 ], [ %64, %free_stack_chunks.argprom.exit ]
   %65 = getelementptr inbounds i8, ptr %.05.i.i42, i64 4000
   %66 = load ptr, ptr %65, align 8
   tail call void @free(ptr noundef nonnull %.05.i.i42) #39
   %.not.i.i43 = icmp eq ptr %66, null
   br i1 %.not.i.i43, label %mark_stack_free_cache.exit, label %.lr.ph.i.i41, !llvm.loop !13
 
-mark_stack_free_cache.exit:                       ; preds = %.lr.ph.i.i41, %free_stack_chunks.exit
+mark_stack_free_cache.exit:                       ; preds = %.lr.ph.i.i41, %free_stack_chunks.argprom.exit
   %67 = getelementptr inbounds i8, ptr %0, i64 1184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
   %68 = getelementptr inbounds i8, ptr %0, i64 2592
@@ -1079,7 +1079,7 @@ size_pool_idx_for_size.exit:                      ; preds = %8
   %or.cond.i = icmp eq i32 %41, 2
   %42 = icmp eq i32 %40, 28
   %or.cond3.i = or i1 %or.cond.i, %42
-  br i1 %or.cond3.i, label %43, label %newobj_init.exit
+  br i1 %or.cond3.i, label %43, label %newobj_init.argprom.exit
 
 43:                                               ; preds = %35
   %44 = and i64 %36, -65536
@@ -1104,7 +1104,7 @@ size_pool_idx_for_size.exit:                      ; preds = %8
   %60 = load i64, ptr %37, align 8
   %61 = and i64 %60, -33
   store i64 %61, ptr %37, align 8
-  br label %newobj_init.exit
+  br label %newobj_init.argprom.exit
 
 62:                                               ; preds = %31
   br i1 %34, label %63, label %146
@@ -1157,24 +1157,24 @@ rb_current_ractor.exit.i:                         ; preds = %69, %65, %63
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   %81 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i29.i = icmp eq ptr %81, null
-  br i1 %.not.i.i.i29.i, label %82, label %rb_vm_lock_enter.exit.i.i
+  br i1 %.not.i.i.i29.i, label %82, label %rb_vm_lock_enter.argprom.exit.i.i
 
 82:                                               ; preds = %80
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %13) #39
-  br label %rb_vm_lock_enter.exit.i.i
+  br label %rb_vm_lock_enter.argprom.exit.i.i
 
-rb_vm_lock_enter.exit.i.i:                        ; preds = %82, %80
+rb_vm_lock_enter.argprom.exit.i.i:                ; preds = %82, %80
   call fastcc void @gc_rest(ptr noundef nonnull %17)
   %83 = call fastcc i32 @gc_start(ptr noundef nonnull %17, i32 noundef 256)
   %84 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i3.i.i = icmp eq ptr %84, null
   br i1 %.not.i.i3.i.i, label %85, label %garbage_collect.exit.i
 
-85:                                               ; preds = %rb_vm_lock_enter.exit.i.i
+85:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %13) #39
   br label %garbage_collect.exit.i
 
-garbage_collect.exit.i:                           ; preds = %85, %rb_vm_lock_enter.exit.i.i
+garbage_collect.exit.i:                           ; preds = %85, %rb_vm_lock_enter.argprom.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %.not27.i = icmp eq i32 %83, 0
   br i1 %.not27.i, label %86, label %87
@@ -1195,7 +1195,7 @@ garbage_collect.exit.i:                           ; preds = %85, %rb_vm_lock_ent
   %or.cond.i.i = icmp eq i32 %93, 2
   %94 = icmp eq i32 %92, 28
   %or.cond3.i.i = or i1 %or.cond.i.i, %94
-  br i1 %or.cond3.i.i, label %95, label %newobj_init.exit.i
+  br i1 %or.cond3.i.i, label %95, label %newobj_init.argprom.exit.i
 
 95:                                               ; preds = %87
   %96 = and i64 %88, -65536
@@ -1220,16 +1220,16 @@ garbage_collect.exit.i:                           ; preds = %85, %rb_vm_lock_ent
   %112 = load i64, ptr %89, align 8
   %113 = and i64 %112, -33
   store i64 %113, ptr %89, align 8
-  br label %newobj_init.exit.i
+  br label %newobj_init.argprom.exit.i
 
-newobj_init.exit.i:                               ; preds = %95, %87
+newobj_init.argprom.exit.i:                       ; preds = %95, %87
   %114 = getelementptr inbounds i8, ptr %17, i64 20
   %115 = load i32, ptr %114, align 4
   %116 = and i32 %115, 1048576
   %.not28.i = icmp eq i32 %116, 0
   br i1 %.not28.i, label %newobj_slowpath_wb_protected.exit, label %117
 
-117:                                              ; preds = %newobj_init.exit.i
+117:                                              ; preds = %newobj_init.argprom.exit.i
   %118 = getelementptr i8, ptr %89, i64 16
   %119 = and i64 %88, -65536
   %120 = inttoptr i64 %119 to ptr
@@ -1243,9 +1243,9 @@ newobj_init.exit.i:                               ; preds = %95, %87
   %127 = getelementptr inbounds i8, ptr %126, i64 16
   %128 = load ptr, ptr %127, align 8
   %.not.i.i = icmp eq ptr %128, null
-  br i1 %.not.i.i, label %newobj_slowpath_wb_protected.exit, label %rb_ec_ractor_hooks.exit.i.i
+  br i1 %.not.i.i, label %newobj_slowpath_wb_protected.exit, label %rb_ec_ractor_hooks.argprom.exit.i.i
 
-rb_ec_ractor_hooks.exit.i.i:                      ; preds = %117
+rb_ec_ractor_hooks.argprom.exit.i.i:              ; preds = %117
   %129 = getelementptr i8, ptr %126, i64 48
   %.val.i.i = load ptr, ptr %129, align 8, !nonnull !14, !noundef !14
   %130 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
@@ -1256,7 +1256,7 @@ rb_ec_ractor_hooks.exit.i.i:                      ; preds = %117
   %.not9.i.i = icmp eq i32 %134, 0
   br i1 %.not9.i.i, label %newobj_slowpath_wb_protected.exit, label %135
 
-135:                                              ; preds = %rb_ec_ractor_hooks.exit.i.i
+135:                                              ; preds = %rb_ec_ractor_hooks.argprom.exit.i.i
   %136 = getelementptr inbounds i8, ptr %131, i64 16
   %137 = getelementptr inbounds i8, ptr %128, i64 24
   %138 = load i64, ptr %137, align 8
@@ -1280,10 +1280,10 @@ rb_ec_ractor_hooks.exit.i.i:                      ; preds = %117
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12)
   br label %newobj_slowpath_wb_protected.exit
 
-newobj_slowpath_wb_protected.exit:                ; preds = %newobj_init.exit.i, %117, %rb_ec_ractor_hooks.exit.i.i, %135
+newobj_slowpath_wb_protected.exit:                ; preds = %newobj_init.argprom.exit.i, %117, %rb_ec_ractor_hooks.argprom.exit.i.i, %135
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %14) #39
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  br label %newobj_init.exit
+  br label %newobj_init.argprom.exit
 
 146:                                              ; preds = %.thread, %62
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
@@ -1333,24 +1333,24 @@ rb_current_ractor.exit.i36:                       ; preds = %152, %148, %146
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   %164 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i29.i42 = icmp eq ptr %164, null
-  br i1 %.not.i.i.i29.i42, label %165, label %rb_vm_lock_enter.exit.i.i43
+  br i1 %.not.i.i.i29.i42, label %165, label %rb_vm_lock_enter.argprom.exit.i.i43
 
 165:                                              ; preds = %163
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %10) #39
-  br label %rb_vm_lock_enter.exit.i.i43
+  br label %rb_vm_lock_enter.argprom.exit.i.i43
 
-rb_vm_lock_enter.exit.i.i43:                      ; preds = %165, %163
+rb_vm_lock_enter.argprom.exit.i.i43:              ; preds = %165, %163
   call fastcc void @gc_rest(ptr noundef nonnull %17)
   %166 = call fastcc i32 @gc_start(ptr noundef nonnull %17, i32 noundef 256)
   %167 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i3.i.i44 = icmp eq ptr %167, null
   br i1 %.not.i.i3.i.i44, label %168, label %garbage_collect.exit.i45
 
-168:                                              ; preds = %rb_vm_lock_enter.exit.i.i43
+168:                                              ; preds = %rb_vm_lock_enter.argprom.exit.i.i43
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %10) #39
   br label %garbage_collect.exit.i45
 
-garbage_collect.exit.i45:                         ; preds = %168, %rb_vm_lock_enter.exit.i.i43
+garbage_collect.exit.i45:                         ; preds = %168, %rb_vm_lock_enter.argprom.exit.i.i43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %.not27.i46 = icmp eq i32 %166, 0
   br i1 %.not27.i46, label %169, label %170
@@ -1373,12 +1373,12 @@ garbage_collect.exit.i45:                         ; preds = %168, %rb_vm_lock_en
   %or.cond3.i.i48 = or i1 %or.cond.i.i47, %177
   %178 = and i64 %171, -65536
   %179 = inttoptr i64 %178 to ptr
-  br i1 %or.cond3.i.i48, label %180, label %.newobj_init.exit_crit_edge.i
+  br i1 %or.cond3.i.i48, label %180, label %.newobj_init.argprom.exit_crit_edge.i
 
-.newobj_init.exit_crit_edge.i:                    ; preds = %170
+.newobj_init.argprom.exit_crit_edge.i:            ; preds = %170
   %.pre32.i = trunc i64 %171 to i16
   %.pre33.i = udiv i16 %.pre32.i, 40
-  br label %newobj_init.exit.i49
+  br label %newobj_init.argprom.exit.i49
 
 180:                                              ; preds = %170
   %181 = load ptr, ptr %179, align 65536
@@ -1401,11 +1401,11 @@ garbage_collect.exit.i45:                         ; preds = %168, %rb_vm_lock_en
   %195 = load i64, ptr %172, align 8
   %196 = and i64 %195, -33
   store i64 %196, ptr %172, align 8
-  br label %newobj_init.exit.i49
+  br label %newobj_init.argprom.exit.i49
 
-newobj_init.exit.i49:                             ; preds = %180, %.newobj_init.exit_crit_edge.i
-  %.pre-phi34.i = phi i16 [ %.pre33.i, %.newobj_init.exit_crit_edge.i ], [ %183, %180 ]
-  %.lhs.trunc.i.pre-phi.i = phi i16 [ %.pre32.i, %.newobj_init.exit_crit_edge.i ], [ %.lhs.trunc.i.i.i.i55, %180 ]
+newobj_init.argprom.exit.i49:                     ; preds = %180, %.newobj_init.argprom.exit_crit_edge.i
+  %.pre-phi34.i = phi i16 [ %.pre33.i, %.newobj_init.argprom.exit_crit_edge.i ], [ %183, %180 ]
+  %.lhs.trunc.i.pre-phi.i = phi i16 [ %.pre32.i, %.newobj_init.argprom.exit_crit_edge.i ], [ %.lhs.trunc.i.i.i.i55, %180 ]
   %197 = load ptr, ptr %179, align 65536
   %198 = getelementptr inbounds i8, ptr %197, i64 64
   %199 = udiv i16 %.lhs.trunc.i.pre-phi.i, 2560
@@ -1423,7 +1423,7 @@ newobj_init.exit.i49:                             ; preds = %180, %.newobj_init.
   %.not28.i50 = icmp eq i32 %208, 0
   br i1 %.not28.i50, label %newobj_slowpath_wb_unprotected.exit, label %209
 
-209:                                              ; preds = %newobj_init.exit.i49
+209:                                              ; preds = %newobj_init.argprom.exit.i49
   %210 = getelementptr i8, ptr %172, i64 16
   %211 = load ptr, ptr %179, align 65536
   %212 = load i16, ptr %211, align 8
@@ -1435,9 +1435,9 @@ newobj_init.exit.i49:                             ; preds = %180, %.newobj_init.
   %217 = getelementptr inbounds i8, ptr %216, i64 16
   %218 = load ptr, ptr %217, align 8
   %.not.i.i51 = icmp eq ptr %218, null
-  br i1 %.not.i.i51, label %newobj_slowpath_wb_unprotected.exit, label %rb_ec_ractor_hooks.exit.i.i52
+  br i1 %.not.i.i51, label %newobj_slowpath_wb_unprotected.exit, label %rb_ec_ractor_hooks.argprom.exit.i.i52
 
-rb_ec_ractor_hooks.exit.i.i52:                    ; preds = %209
+rb_ec_ractor_hooks.argprom.exit.i.i52:            ; preds = %209
   %219 = getelementptr i8, ptr %216, i64 48
   %.val.i.i53 = load ptr, ptr %219, align 8, !nonnull !14, !noundef !14
   %220 = getelementptr inbounds i8, ptr %.val.i.i53, i64 24
@@ -1448,7 +1448,7 @@ rb_ec_ractor_hooks.exit.i.i52:                    ; preds = %209
   %.not9.i.i54 = icmp eq i32 %224, 0
   br i1 %.not9.i.i54, label %newobj_slowpath_wb_unprotected.exit, label %225
 
-225:                                              ; preds = %rb_ec_ractor_hooks.exit.i.i52
+225:                                              ; preds = %rb_ec_ractor_hooks.argprom.exit.i.i52
   %226 = getelementptr inbounds i8, ptr %221, i64 16
   %227 = getelementptr inbounds i8, ptr %218, i64 24
   %228 = load i64, ptr %227, align 8
@@ -1472,12 +1472,12 @@ rb_ec_ractor_hooks.exit.i.i52:                    ; preds = %209
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9)
   br label %newobj_slowpath_wb_unprotected.exit
 
-newobj_slowpath_wb_unprotected.exit:              ; preds = %newobj_init.exit.i49, %209, %rb_ec_ractor_hooks.exit.i.i52, %225
+newobj_slowpath_wb_unprotected.exit:              ; preds = %newobj_init.argprom.exit.i49, %209, %rb_ec_ractor_hooks.argprom.exit.i.i52, %225
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %11) #39
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  br label %newobj_init.exit
+  br label %newobj_init.argprom.exit
 
-newobj_init.exit:                                 ; preds = %43, %35, %newobj_slowpath_wb_protected.exit, %newobj_slowpath_wb_unprotected.exit
+newobj_init.argprom.exit:                         ; preds = %43, %35, %newobj_slowpath_wb_protected.exit, %newobj_slowpath_wb_unprotected.exit
   %.pre-phi = phi ptr [ %37, %43 ], [ %37, %35 ], [ %89, %newobj_slowpath_wb_protected.exit ], [ %172, %newobj_slowpath_wb_unprotected.exit ]
   %.0 = phi i64 [ %36, %43 ], [ %36, %35 ], [ %88, %newobj_slowpath_wb_protected.exit ], [ %171, %newobj_slowpath_wb_unprotected.exit ]
   %236 = getelementptr inbounds i8, ptr %.pre-phi, i64 16
@@ -1494,14 +1494,14 @@ define dso_local i64 @rb_wb_protected_newobj_of(ptr nocapture noundef readonly %
   %5 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %rb_ec_ractor_ptr.exit, label %6
+  br i1 %.not.i, label %rb_ec_ractor_ptr.argprom.exit, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %.val, i64 24
   %8 = load ptr, ptr %7, align 8
-  br label %rb_ec_ractor_ptr.exit
+  br label %rb_ec_ractor_ptr.argprom.exit
 
-rb_ec_ractor_ptr.exit:                            ; preds = %4, %6
+rb_ec_ractor_ptr.argprom.exit:                    ; preds = %4, %6
   %.0.i = phi ptr [ %8, %6 ], [ null, %4 ]
   %9 = tail call fastcc i64 @newobj_of(ptr noundef %.0.i, i64 noundef %1, i64 noundef %2, i64 noundef 0, i64 noundef 0, i64 noundef 0, i32 noundef 1, i64 noundef %3)
   ret i64 %9
@@ -2660,7 +2660,7 @@ define hidden void @rb_objspace_call_finalizer(ptr noundef %0) local_unnamed_add
   %48 = phi i64 [ %.pre, %.critedge.i ], [ %36, %41 ], [ %36, %.lr.ph ]
   %49 = getelementptr inbounds i8, ptr %32, i64 8
   %50 = load i64, ptr %49, align 8
-  call fastcc void @run_finalizer(i64 noundef %48, i64 noundef %50)
+  call fastcc void @run_finalizer.argprom(i64 noundef %48, i64 noundef %50)
   %51 = getelementptr inbounds i8, ptr %32, i64 16
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %4, align 8
@@ -2815,12 +2815,12 @@ has_sweeping_pages.exit.i:                        ; preds = %94
 .loopexit.i.preheader:                            ; preds = %._crit_edge38.i, %has_sweeping_pages.exit.i
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.i.preheader, %rgengc_mark_and_rememberset_clear.exit.i
-  %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %rgengc_mark_and_rememberset_clear.exit.i ], [ 0, %.loopexit.i.preheader ]
+.loopexit.i:                                      ; preds = %.loopexit.i.preheader, %rgengc_mark_and_rememberset_clear.argprom.exit.i
+  %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %rgengc_mark_and_rememberset_clear.argprom.exit.i ], [ 0, %.loopexit.i.preheader ]
   %103 = getelementptr [5 x %struct.rb_size_pool_struct], ptr %93, i64 0, i64 %indvars.iv42.i, i32 10, i32 1
   %.pn1.i.i = load ptr, ptr %103, align 8
   %.not2.i.i = icmp eq ptr %.pn1.i.i, %103
-  br i1 %.not2.i.i, label %rgengc_mark_and_rememberset_clear.exit.i, label %.lr.ph.i.i
+  br i1 %.not2.i.i, label %rgengc_mark_and_rememberset_clear.argprom.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.loopexit.i, %.lr.ph.i.i
   %.pn3.i.i = phi ptr [ %.pn.i.i, %.lr.ph.i.i ], [ %.pn1.i.i, %.loopexit.i ]
@@ -2832,38 +2832,38 @@ has_sweeping_pages.exit.i:                        ; preds = %94
   store i8 %107, ptr %105, align 4
   %.pn.i.i = load ptr, ptr %.pn3.i.i, align 8
   %.not.i26.i = icmp eq ptr %.pn.i.i, %103
-  br i1 %.not.i26.i, label %rgengc_mark_and_rememberset_clear.exit.i, label %.lr.ph.i.i, !llvm.loop !27
+  br i1 %.not.i26.i, label %rgengc_mark_and_rememberset_clear.argprom.exit.i, label %.lr.ph.i.i, !llvm.loop !27
 
-rgengc_mark_and_rememberset_clear.exit.i:         ; preds = %.lr.ph.i.i, %.loopexit.i
+rgengc_mark_and_rememberset_clear.argprom.exit.i: ; preds = %.lr.ph.i.i, %.loopexit.i
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next43.i, 5
   br i1 %exitcond45.not.i, label %gc_abort.exit, label %.loopexit.i, !llvm.loop !28
 
-gc_abort.exit:                                    ; preds = %rgengc_mark_and_rememberset_clear.exit.i
+gc_abort.exit:                                    ; preds = %rgengc_mark_and_rememberset_clear.argprom.exit.i
   %108 = load i16, ptr %17, align 8
   %109 = and i16 %108, -12
   %110 = or disjoint i16 %109, 8
   store i16 %110, ptr %17, align 8
   %111 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %111, null
-  br i1 %.not.i.i.i, label %112, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %112, label %rb_vm_lock_enter.argprom.exit.i
 
 112:                                              ; preds = %gc_abort.exit
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %6) #39
   %.pre45 = load i16, ptr %17, align 8
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %112, %gc_abort.exit
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %112, %gc_abort.exit
   %113 = phi i16 [ %.pre45, %112 ], [ %110, %gc_abort.exit ]
   %114 = and i16 %113, 32
   %.not.i26 = icmp eq i16 %114, 0
   br i1 %.not.i26, label %116, label %115
 
-115:                                              ; preds = %rb_vm_lock_enter.exit.i
+115:                                              ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.214) #54
   unreachable
 
-116:                                              ; preds = %rb_vm_lock_enter.exit.i
+116:                                              ; preds = %rb_vm_lock_enter.argprom.exit.i
   %117 = or disjoint i16 %113, 32
   store i16 %117, ptr %17, align 8
   %118 = getelementptr inbounds i8, ptr %0, i64 20
@@ -2877,9 +2877,9 @@ rb_vm_lock_enter.exit.i:                          ; preds = %112, %gc_abort.exit
   %123 = getelementptr inbounds i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8
   %.not.i.i27 = icmp eq ptr %124, null
-  br i1 %.not.i.i27, label %gc_enter.exit, label %rb_ec_ractor_hooks.exit.i.i
+  br i1 %.not.i.i27, label %gc_enter.exit, label %rb_ec_ractor_hooks.argprom.exit.i.i
 
-rb_ec_ractor_hooks.exit.i.i:                      ; preds = %121
+rb_ec_ractor_hooks.argprom.exit.i.i:              ; preds = %121
   %125 = getelementptr i8, ptr %122, i64 48
   %.val.i.i28 = load ptr, ptr %125, align 8, !nonnull !14, !noundef !14
   %126 = getelementptr inbounds i8, ptr %.val.i.i28, i64 24
@@ -2890,7 +2890,7 @@ rb_ec_ractor_hooks.exit.i.i:                      ; preds = %121
   %.not9.i.i = icmp eq i32 %130, 0
   br i1 %.not9.i.i, label %gc_enter.exit, label %131
 
-131:                                              ; preds = %rb_ec_ractor_hooks.exit.i.i
+131:                                              ; preds = %rb_ec_ractor_hooks.argprom.exit.i.i
   %132 = getelementptr inbounds i8, ptr %127, i64 16
   %133 = getelementptr inbounds i8, ptr %124, i64 24
   %134 = load i64, ptr %133, align 8
@@ -2912,7 +2912,7 @@ rb_ec_ractor_hooks.exit.i.i:                      ; preds = %121
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
   br label %gc_enter.exit
 
-gc_enter.exit:                                    ; preds = %116, %121, %rb_ec_ractor_hooks.exit.i.i, %131
+gc_enter.exit:                                    ; preds = %116, %121, %rb_ec_ractor_hooks.argprom.exit.i.i, %131
   %141 = getelementptr inbounds i8, ptr %0, i64 1216
   %142 = load i64, ptr %141, align 8
   %.not.i29 = icmp eq i64 %142, 0
@@ -3018,16 +3018,16 @@ gc_each_object.exit:                              ; preds = %._crit_edge.i30, %g
   %189 = load i32, ptr %118, align 4
   %190 = and i32 %189, 67108864
   %.not.i34 = icmp eq i32 %190, 0
-  br i1 %.not.i34, label %gc_event_hook_body.exit.i, label %191
+  br i1 %.not.i34, label %gc_event_hook_body.argprom.exit.i, label %191
 
 191:                                              ; preds = %gc_each_object.exit
   %192 = load ptr, ptr %10, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 16
   %194 = load ptr, ptr %193, align 8
   %.not.i.i35 = icmp eq ptr %194, null
-  br i1 %.not.i.i35, label %gc_event_hook_body.exit.i, label %rb_ec_ractor_hooks.exit.i.i36
+  br i1 %.not.i.i35, label %gc_event_hook_body.argprom.exit.i, label %rb_ec_ractor_hooks.argprom.exit.i.i36
 
-rb_ec_ractor_hooks.exit.i.i36:                    ; preds = %191
+rb_ec_ractor_hooks.argprom.exit.i.i36:            ; preds = %191
   %195 = getelementptr i8, ptr %192, i64 48
   %.val.i.i37 = load ptr, ptr %195, align 8, !nonnull !14, !noundef !14
   %196 = getelementptr inbounds i8, ptr %.val.i.i37, i64 24
@@ -3036,9 +3036,9 @@ rb_ec_ractor_hooks.exit.i.i36:                    ; preds = %191
   %199 = load i32, ptr %198, align 8
   %200 = and i32 %199, 67108864
   %.not9.i.i38 = icmp eq i32 %200, 0
-  br i1 %.not9.i.i38, label %gc_event_hook_body.exit.i, label %201
+  br i1 %.not9.i.i38, label %gc_event_hook_body.argprom.exit.i, label %201
 
-201:                                              ; preds = %rb_ec_ractor_hooks.exit.i.i36
+201:                                              ; preds = %rb_ec_ractor_hooks.argprom.exit.i.i36
   %202 = getelementptr inbounds i8, ptr %197, i64 16
   %203 = getelementptr inbounds i8, ptr %194, i64 24
   %204 = load i64, ptr %203, align 8
@@ -3058,9 +3058,9 @@ rb_ec_ractor_hooks.exit.i.i36:                    ; preds = %191
   store i32 0, ptr %210, align 8
   call void @rb_exec_event_hooks(ptr noundef nonnull %2, ptr noundef nonnull %202, i32 noundef 0) #39
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2)
-  br label %gc_event_hook_body.exit.i
+  br label %gc_event_hook_body.argprom.exit.i
 
-gc_event_hook_body.exit.i:                        ; preds = %201, %rb_ec_ractor_hooks.exit.i.i36, %191, %gc_each_object.exit
+gc_event_hook_body.argprom.exit.i:                ; preds = %201, %rb_ec_ractor_hooks.argprom.exit.i.i36, %191, %gc_each_object.exit
   %211 = load i16, ptr %17, align 8
   %212 = and i16 %211, -33
   store i16 %212, ptr %17, align 8
@@ -3068,11 +3068,11 @@ gc_event_hook_body.exit.i:                        ; preds = %201, %rb_ec_ractor_
   %.not.i.i.i39 = icmp eq ptr %213, null
   br i1 %.not.i.i.i39, label %214, label %gc_exit.exit
 
-214:                                              ; preds = %gc_event_hook_body.exit.i
+214:                                              ; preds = %gc_event_hook_body.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %6) #39
   br label %gc_exit.exit
 
-gc_exit.exit:                                     ; preds = %gc_event_hook_body.exit.i, %214
+gc_exit.exit:                                     ; preds = %gc_event_hook_body.argprom.exit.i, %214
   call fastcc void @finalize_deferred_heap_pages(ptr noundef nonnull %0)
   %215 = load ptr, ptr %20, align 8
   call void @rb_st_free_table(ptr noundef %215) #39
@@ -3104,7 +3104,7 @@ define internal noundef i32 @force_chain_object(i64 noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @run_finalizer(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @run_finalizer.argprom(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.anon.79, align 8
   %5 = alloca ptr, align 8
@@ -3148,7 +3148,7 @@ define internal fastcc void @run_finalizer(i64 noundef %0, i64 noundef %1) unnam
   %28 = getelementptr i8, ptr %.0..0..0..0.8, i64 48
   %.0.1.val = load ptr, ptr %28, align 8
   %.not.i.i = icmp eq ptr %.0.1.val, null
-  br i1 %.not.i.i, label %rb_ec_ractor_ptr.exit.i, label %29
+  br i1 %.not.i.i, label %rb_ec_ractor_ptr.argprom.exit.i, label %29
 
 29:                                               ; preds = %2
   %30 = getelementptr inbounds i8, ptr %.0.1.val, i64 32
@@ -3156,23 +3156,23 @@ define internal fastcc void @run_finalizer(i64 noundef %0, i64 noundef %1) unnam
   %32 = getelementptr inbounds i8, ptr %31, i64 88
   %33 = getelementptr inbounds i8, ptr %.0.1.val, i64 24
   %34 = load ptr, ptr %33, align 8
-  br label %rb_ec_ractor_ptr.exit.i
+  br label %rb_ec_ractor_ptr.argprom.exit.i
 
-rb_ec_ractor_ptr.exit.i:                          ; preds = %29, %2
+rb_ec_ractor_ptr.argprom.exit.i:                  ; preds = %29, %2
   %.in.i = phi ptr [ %32, %29 ], [ inttoptr (i64 88 to ptr), %2 ]
   %.0.i2.i = phi ptr [ %31, %29 ], [ null, %2 ]
   %.0.i6.i = phi ptr [ %34, %29 ], [ null, %2 ]
   %35 = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %35, %.0.i6.i
-  br i1 %.not.i, label %36, label %rb_ec_vm_lock_rec.exit
+  br i1 %.not.i, label %36, label %rb_ec_vm_lock_rec.argprom.exit
 
-36:                                               ; preds = %rb_ec_ractor_ptr.exit.i
+36:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i
   %37 = getelementptr inbounds i8, ptr %.0.i2.i, i64 96
   %38 = load i32, ptr %37, align 8
-  br label %rb_ec_vm_lock_rec.exit
+  br label %rb_ec_vm_lock_rec.argprom.exit
 
-rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %36
-  %.0.i = phi i32 [ %38, %36 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
+rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.argprom.exit.i, %36
+  %.0.i = phi i32 [ %38, %36 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i ]
   %39 = getelementptr inbounds i8, ptr %7, i64 68
   store i32 %.0.i, ptr %39, align 4
   %40 = getelementptr inbounds i8, ptr %7, i64 16
@@ -3185,7 +3185,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %.thread, label %45
 
-45:                                               ; preds = %rb_ec_vm_lock_rec.exit
+45:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit
   %.0..0..0..0.2 = load volatile ptr, ptr %6, align 8
   %46 = getelementptr inbounds i8, ptr %.0..0..0..0.2, i64 24
   %47 = load ptr, ptr %46, align 8
@@ -3197,7 +3197,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %52 = getelementptr i8, ptr %.0..0..0..0.2, i64 48
   %.val.i.i = load ptr, ptr %52, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.exit.i.i.i, label %53
+  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.argprom.exit.i.i.i, label %53
 
 53:                                               ; preds = %45
   %54 = getelementptr inbounds i8, ptr %.val.i.i, i64 32
@@ -3205,35 +3205,35 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %56 = getelementptr inbounds i8, ptr %55, i64 88
   %57 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
   %58 = load ptr, ptr %57, align 8
-  br label %rb_ec_ractor_ptr.exit.i.i.i
+  br label %rb_ec_ractor_ptr.argprom.exit.i.i.i
 
-rb_ec_ractor_ptr.exit.i.i.i:                      ; preds = %53, %45
+rb_ec_ractor_ptr.argprom.exit.i.i.i:              ; preds = %53, %45
   %.in.i.i.i = phi ptr [ %56, %53 ], [ inttoptr (i64 88 to ptr), %45 ]
   %.0.i2.i.i.i = phi ptr [ %55, %53 ], [ null, %45 ]
   %.0.i6.i.i.i = phi ptr [ %58, %53 ], [ null, %45 ]
   %59 = load ptr, ptr %.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %59, %.0.i6.i.i.i
-  br i1 %.not.i.i.i, label %60, label %rb_ec_vm_lock_rec.exit.i.i
+  br i1 %.not.i.i.i, label %60, label %rb_ec_vm_lock_rec.argprom.exit.i.i
 
-60:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i.i
+60:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i.i.i
   %61 = getelementptr inbounds i8, ptr %.0.i2.i.i.i, i64 96
   %62 = load i32, ptr %61, align 8
-  br label %rb_ec_vm_lock_rec.exit.i.i
+  br label %rb_ec_vm_lock_rec.argprom.exit.i.i
 
-rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %60, %rb_ec_ractor_ptr.exit.i.i.i
-  %.0.i.i.i = phi i32 [ %62, %60 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i ]
+rb_ec_vm_lock_rec.argprom.exit.i.i:               ; preds = %60, %rb_ec_ractor_ptr.argprom.exit.i.i.i
+  %.0.i.i.i = phi i32 [ %62, %60 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i.i.i ]
   %.not.i.i20 = icmp eq i32 %.0.i.i.i, %51
   br i1 %.not.i.i20, label %64, label %63
 
-63:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i
+63:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit.i.i
   call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.2, i32 noundef %51, i32 noundef %.0.i.i.i) #39
   br label %64
 
-.thread:                                          ; preds = %rb_ec_vm_lock_rec.exit
+.thread:                                          ; preds = %rb_ec_vm_lock_rec.argprom.exit
   store ptr %7, ptr %25, align 8
   br label %warn_exception_in_finalizer.exit
 
-64:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i, %63
+64:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit.i.i, %63
   %65 = icmp ne i32 %49, 0
   call void @llvm.assume(i1 %65)
   %66 = load volatile i64, ptr %22, align 8
@@ -3327,13 +3327,13 @@ define internal fastcc void @gc_enter(ptr nocapture noundef %0, i32 noundef rang
   %4 = alloca %struct.rb_trace_arg_struct, align 8
   %5 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %6, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %6, label %rb_vm_lock_enter.argprom.exit
 
 6:                                                ; preds = %3
   tail call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #39
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %3, %6
+rb_vm_lock_enter.argprom.exit:                    ; preds = %3, %6
   switch i32 %1, label %default.unreachable [
     i32 2, label %7
     i32 0, label %12
@@ -3341,21 +3341,21 @@ rb_vm_lock_enter.exit:                            ; preds = %3, %6
     i32 3, label %13
   ]
 
-7:                                                ; preds = %rb_vm_lock_enter.exit
+7:                                                ; preds = %rb_vm_lock_enter.argprom.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i16, ptr %8, align 8
   %10 = and i16 %9, 3
   %11 = icmp eq i16 %10, 1
   br i1 %11, label %12, label %13
 
-12:                                               ; preds = %rb_vm_lock_enter.exit, %rb_vm_lock_enter.exit, %7
+12:                                               ; preds = %rb_vm_lock_enter.argprom.exit, %rb_vm_lock_enter.argprom.exit, %7
   tail call void @rb_vm_barrier() #39
   br label %13
 
-default.unreachable:                              ; preds = %rb_vm_lock_enter.exit
+default.unreachable:                              ; preds = %rb_vm_lock_enter.argprom.exit
   unreachable
 
-13:                                               ; preds = %rb_vm_lock_enter.exit, %7, %12
+13:                                               ; preds = %rb_vm_lock_enter.argprom.exit, %7, %12
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load i16, ptr %14, align 8
   %16 = and i16 %15, 32
@@ -3373,7 +3373,7 @@ default.unreachable:                              ; preds = %rb_vm_lock_enter.ex
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 33554432
   %.not9 = icmp eq i32 %22, 0
-  br i1 %.not9, label %gc_event_hook_body.exit, label %23
+  br i1 %.not9, label %gc_event_hook_body.argprom.exit, label %23
 
 23:                                               ; preds = %18
   %24 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -3381,9 +3381,9 @@ default.unreachable:                              ; preds = %rb_vm_lock_enter.ex
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %gc_event_hook_body.exit, label %rb_ec_ractor_hooks.exit.i
+  br i1 %.not.i, label %gc_event_hook_body.argprom.exit, label %rb_ec_ractor_hooks.argprom.exit.i
 
-rb_ec_ractor_hooks.exit.i:                        ; preds = %23
+rb_ec_ractor_hooks.argprom.exit.i:                ; preds = %23
   %28 = getelementptr i8, ptr %25, i64 48
   %.val.i = load ptr, ptr %28, align 8, !nonnull !14, !noundef !14
   %29 = getelementptr inbounds i8, ptr %.val.i, i64 24
@@ -3392,9 +3392,9 @@ rb_ec_ractor_hooks.exit.i:                        ; preds = %23
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 33554432
   %.not9.i = icmp eq i32 %33, 0
-  br i1 %.not9.i, label %gc_event_hook_body.exit, label %34
+  br i1 %.not9.i, label %gc_event_hook_body.argprom.exit, label %34
 
-34:                                               ; preds = %rb_ec_ractor_hooks.exit.i
+34:                                               ; preds = %rb_ec_ractor_hooks.argprom.exit.i
   %35 = getelementptr inbounds i8, ptr %30, i64 16
   %36 = getelementptr inbounds i8, ptr %27, i64 24
   %37 = load i64, ptr %36, align 8
@@ -3414,9 +3414,9 @@ rb_ec_ractor_hooks.exit.i:                        ; preds = %23
   store i32 0, ptr %43, align 8
   call void @rb_exec_event_hooks(ptr noundef nonnull %4, ptr noundef nonnull %35, i32 noundef 0) #39
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  br label %gc_event_hook_body.exit
+  br label %gc_event_hook_body.argprom.exit
 
-gc_event_hook_body.exit:                          ; preds = %34, %rb_ec_ractor_hooks.exit.i, %23, %18
+gc_event_hook_body.argprom.exit:                  ; preds = %34, %rb_ec_ractor_hooks.argprom.exit.i, %23, %18
   ret void
 }
 
@@ -3444,8 +3444,8 @@ define internal fastcc void @finalize_deferred_heap_pages(ptr noundef %0) unname
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   br label %15
 
-15:                                               ; preds = %rb_vm_lock_leave.exit.i, %13
-  %.026.i = phi i64 [ %14, %13 ], [ %18, %rb_vm_lock_leave.exit.i ]
+15:                                               ; preds = %rb_vm_lock_leave.argprom.exit.i, %13
+  %.026.i = phi i64 [ %14, %13 ], [ %18, %rb_vm_lock_leave.argprom.exit.i ]
   %16 = inttoptr i64 %.026.i to ptr
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
@@ -3493,7 +3493,7 @@ RB_FL_UNSET.exit.i.i:                             ; preds = %.critedge.i.i.i, %3
 
 38:                                               ; preds = %RB_FL_UNSET.exit.i.i
   %39 = load i64, ptr %5, align 8
-  call fastcc void @run_finalizer(i64 noundef %.026.i, i64 noundef %39)
+  call fastcc void @run_finalizer.argprom(i64 noundef %.026.i, i64 noundef %39)
   br label %run_final.exit.i
 
 40:                                               ; preds = %RB_FL_UNSET.exit.i.i
@@ -3505,18 +3505,18 @@ run_final.exit.i:                                 ; preds = %38, %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %41 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i.i, label %42, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %42, label %rb_vm_lock_enter.argprom.exit.i
 
 42:                                               ; preds = %run_final.exit.i
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %6) #39
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %42, %run_final.exit.i
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %42, %run_final.exit.i
   %43 = and i64 %.026.i, 7
   %.not23.i = icmp eq i64 %43, 0
   br i1 %.not23.i, label %44, label %RB_FL_TEST.exit.thread.i
 
-44:                                               ; preds = %rb_vm_lock_enter.exit.i
+44:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   %45 = load i64, ptr %16, align 8
   %46 = and i64 %45, 31
   %47 = icmp eq i64 %46, 27
@@ -3557,7 +3557,7 @@ obj_free_object_id.exit.i:                        ; preds = %RB_FL_UNSET.exit.i1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %RB_FL_TEST.exit.thread.i
 
-RB_FL_TEST.exit.thread.i:                         ; preds = %obj_free_object_id.exit.i, %44, %rb_vm_lock_enter.exit.i
+RB_FL_TEST.exit.thread.i:                         ; preds = %obj_free_object_id.exit.i, %44, %rb_vm_lock_enter.argprom.exit.i
   %60 = load i64, ptr %12, align 8
   %61 = add i64 %60, -1
   store i64 %61, ptr %12, align 8
@@ -3601,17 +3601,17 @@ RB_FL_TEST.exit.thread.i:                         ; preds = %obj_free_object_id.
   store i64 %89, ptr %87, align 8
   %90 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i20.i = icmp eq ptr %90, null
-  br i1 %.not.i.i20.i, label %91, label %rb_vm_lock_leave.exit.i
+  br i1 %.not.i.i20.i, label %91, label %rb_vm_lock_leave.argprom.exit.i
 
 91:                                               ; preds = %RB_FL_TEST.exit.thread.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %6) #39
-  br label %rb_vm_lock_leave.exit.i
+  br label %rb_vm_lock_leave.argprom.exit.i
 
-rb_vm_lock_leave.exit.i:                          ; preds = %91, %RB_FL_TEST.exit.thread.i
+rb_vm_lock_leave.argprom.exit.i:                  ; preds = %91, %RB_FL_TEST.exit.thread.i
   %.not.i = icmp eq i64 %18, 0
   br i1 %.not.i, label %finalize_list.exit, label %15, !llvm.loop !30
 
-finalize_list.exit:                               ; preds = %rb_vm_lock_leave.exit.i
+finalize_list.exit:                               ; preds = %rb_vm_lock_leave.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %92 = atomicrmw volatile xchg ptr %7, i64 0 seq_cst, align 8
   %.not = icmp eq i64 %92, 0
@@ -4009,20 +4009,20 @@ define dso_local i64 @rb_obj_id(i64 noundef %0) #0 {
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i.i, label %37, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %37, label %rb_vm_lock_enter.argprom.exit.i
 
 37:                                               ; preds = %32
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #39
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %37, %32
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %37, %32
   %38 = getelementptr inbounds i8, ptr %35, i64 2584
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 @rb_st_lookup(ptr noundef %39, i64 noundef %0, ptr noundef nonnull %2) #39
   %.not.i = icmp eq i32 %40, 0
   br i1 %.not.i, label %41, label %RB_FL_SET.exit.i
 
-41:                                               ; preds = %rb_vm_lock_enter.exit.i
+41:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   %42 = getelementptr inbounds i8, ptr %35, i64 24
   %43 = load i64, ptr %42, align 8
   store i64 %43, ptr %2, align 8
@@ -4065,7 +4065,7 @@ rb_vm_lock_enter.exit.i:                          ; preds = %37, %32
   store i64 %68, ptr %64, align 8
   br label %RB_FL_SET.exit.i
 
-RB_FL_SET.exit.i:                                 ; preds = %.critedge.i.i, %63, %rb_vm_lock_enter.exit.i
+RB_FL_SET.exit.i:                                 ; preds = %.critedge.i.i, %63, %rb_vm_lock_enter.argprom.exit.i
   %69 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i11.i = icmp eq ptr %69, null
   br i1 %.not.i.i11.i, label %70, label %cached_object_id.exit
@@ -4193,13 +4193,13 @@ RB_FL_TEST.exit:                                  ; preds = %2
 47:                                               ; preds = %45
   %48 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i.i, label %49, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %49, label %rb_vm_lock_enter.argprom.exit.i
 
 49:                                               ; preds = %47
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #39
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %49, %47
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %49, %47
   %50 = getelementptr inbounds i8, ptr %9, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = call i64 @rb_st_table_size(ptr noundef %51) #39
@@ -4208,7 +4208,7 @@ rb_vm_lock_enter.exit.i:                          ; preds = %49, %47
   %.not.i.i5.i = icmp eq ptr %54, null
   br i1 %.not.i.i5.i, label %55, label %RCLASS_IV_COUNT.exit
 
-55:                                               ; preds = %rb_vm_lock_enter.exit.i
+55:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #39
   br label %RCLASS_IV_COUNT.exit
 
@@ -4221,8 +4221,8 @@ rb_vm_lock_enter.exit.i:                          ; preds = %49, %47
   %62 = load i32, ptr %61, align 8
   br label %RCLASS_IV_COUNT.exit
 
-RCLASS_IV_COUNT.exit:                             ; preds = %rb_vm_lock_enter.exit.i, %55, %56
-  %.0.i = phi i32 [ %62, %56 ], [ %53, %rb_vm_lock_enter.exit.i ], [ %53, %55 ]
+RCLASS_IV_COUNT.exit:                             ; preds = %rb_vm_lock_enter.argprom.exit.i, %55, %56
+  %.0.i = phi i32 [ %62, %56 ], [ %53, %rb_vm_lock_enter.argprom.exit.i ], [ %53, %55 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %63 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i, i1 false)
   %64 = sub nuw nsw i32 32, %63
@@ -4645,7 +4645,7 @@ is_pointer_to_heap.exit:                          ; preds = %38
   %.val.i = load i16, ptr %61, align 8
   %62 = and i16 %.val.i, 96
   %or.cond.not.i.i = icmp eq i16 %62, 96
-  br i1 %or.cond.not.i.i, label %63, label %gc_pin.exit.i
+  br i1 %or.cond.not.i.i, label %63, label %gc_pin.argprom.exit.i
 
 63:                                               ; preds = %60
   %64 = and i64 %51, -65536
@@ -4663,7 +4663,7 @@ is_pointer_to_heap.exit:                          ; preds = %38
   %74 = shl nuw i64 1, %73
   %75 = and i64 %71, %74
   %.not11.i.i = icmp eq i64 %75, 0
-  br i1 %.not11.i.i, label %76, label %gc_pin.exit.i
+  br i1 %.not11.i.i, label %76, label %gc_pin.argprom.exit.i
 
 76:                                               ; preds = %63
   %77 = getelementptr inbounds i8, ptr %66, i64 8
@@ -4676,13 +4676,13 @@ is_pointer_to_heap.exit:                          ; preds = %38
   %83 = load i64, ptr %82, align 8
   %84 = or i64 %83, %74
   store i64 %84, ptr %82, align 8
-  br label %gc_pin.exit.i
+  br label %gc_pin.argprom.exit.i
 
-gc_pin.exit.i:                                    ; preds = %76, %63, %60
+gc_pin.argprom.exit.i:                            ; preds = %76, %63, %60
   call fastcc void @gc_mark_ptr(ptr noundef nonnull %0, i64 noundef %51)
   br label %gc_mark_and_pin.exit
 
-gc_mark_and_pin.exit:                             ; preds = %23, %heap_page_for_ptr.exit.i, %38, %34, %30, %2, %18, %gc_pin.exit.i, %56, %50, %50, %is_pointer_to_heap.exit
+gc_mark_and_pin.exit:                             ; preds = %23, %heap_page_for_ptr.exit.i, %38, %34, %30, %2, %18, %gc_pin.argprom.exit.i, %56, %50, %50, %is_pointer_to_heap.exit
   ret void
 }
 
@@ -4743,7 +4743,7 @@ define dso_local void @rb_gc_mark_vm_stack_values(i64 noundef %0, ptr nocapture 
   %.val.i = load i16, ptr %7, align 8
   %15 = and i16 %.val.i, 96
   %or.cond.not.i.i = icmp eq i16 %15, 96
-  br i1 %or.cond.not.i.i, label %16, label %gc_pin.exit.i
+  br i1 %or.cond.not.i.i, label %16, label %gc_pin.argprom.exit.i
 
 16:                                               ; preds = %14
   %17 = and i64 %10, -65536
@@ -4761,7 +4761,7 @@ define dso_local void @rb_gc_mark_vm_stack_values(i64 noundef %0, ptr nocapture 
   %27 = shl nuw i64 1, %26
   %28 = and i64 %24, %27
   %.not11.i.i = icmp eq i64 %28, 0
-  br i1 %.not11.i.i, label %29, label %gc_pin.exit.i
+  br i1 %.not11.i.i, label %29, label %gc_pin.argprom.exit.i
 
 29:                                               ; preds = %16
   %30 = getelementptr inbounds i8, ptr %19, i64 8
@@ -4774,13 +4774,13 @@ define dso_local void @rb_gc_mark_vm_stack_values(i64 noundef %0, ptr nocapture 
   %36 = load i64, ptr %35, align 8
   %37 = or i64 %36, %27
   store i64 %37, ptr %35, align 8
-  br label %gc_pin.exit.i
+  br label %gc_pin.argprom.exit.i
 
-gc_pin.exit.i:                                    ; preds = %29, %16, %14
+gc_pin.argprom.exit.i:                            ; preds = %29, %16, %14
   tail call fastcc void @gc_mark_ptr(ptr noundef nonnull %5, i64 noundef %10)
   br label %gc_mark_and_pin.exit
 
-gc_mark_and_pin.exit:                             ; preds = %8, %gc_pin.exit.i
+gc_mark_and_pin.exit:                             ; preds = %8, %gc_pin.argprom.exit.i
   %38 = add nuw nsw i64 %.05, 1
   %exitcond.not = icmp eq i64 %38, %0
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !38
@@ -4802,7 +4802,7 @@ define internal fastcc void @gc_mark_and_pin(ptr nocapture noundef %0, i64 nound
   %.val = load i16, ptr %7, align 8
   %8 = and i16 %.val, 96
   %or.cond.not.i = icmp eq i16 %8, 96
-  br i1 %or.cond.not.i, label %9, label %gc_pin.exit
+  br i1 %or.cond.not.i, label %9, label %gc_pin.argprom.exit
 
 9:                                                ; preds = %6
   %10 = and i64 %1, -65536
@@ -4820,7 +4820,7 @@ define internal fastcc void @gc_mark_and_pin(ptr nocapture noundef %0, i64 nound
   %20 = shl nuw i64 1, %19
   %21 = and i64 %17, %20
   %.not11.i = icmp eq i64 %21, 0
-  br i1 %.not11.i, label %22, label %gc_pin.exit
+  br i1 %.not11.i, label %22, label %gc_pin.argprom.exit
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds i8, ptr %12, i64 8
@@ -4833,13 +4833,13 @@ define internal fastcc void @gc_mark_and_pin(ptr nocapture noundef %0, i64 nound
   %29 = load i64, ptr %28, align 8
   %30 = or i64 %29, %20
   store i64 %30, ptr %28, align 8
-  br label %gc_pin.exit
+  br label %gc_pin.argprom.exit
 
-gc_pin.exit:                                      ; preds = %6, %9, %22
+gc_pin.argprom.exit:                              ; preds = %6, %9, %22
   tail call fastcc void @gc_mark_ptr(ptr noundef nonnull %0, i64 noundef %1)
   br label %31
 
-31:                                               ; preds = %2, %gc_pin.exit
+31:                                               ; preds = %2, %gc_pin.argprom.exit
   ret void
 }
 
@@ -5000,7 +5000,7 @@ define dso_local void @rb_gc_mark(i64 noundef %0) local_unnamed_addr #0 {
   %.val.i = load i16, ptr %9, align 8
   %10 = and i16 %.val.i, 96
   %or.cond.not.i.i = icmp eq i16 %10, 96
-  br i1 %or.cond.not.i.i, label %11, label %gc_pin.exit.i
+  br i1 %or.cond.not.i.i, label %11, label %gc_pin.argprom.exit.i
 
 11:                                               ; preds = %8
   %12 = and i64 %0, -65536
@@ -5018,7 +5018,7 @@ define dso_local void @rb_gc_mark(i64 noundef %0) local_unnamed_addr #0 {
   %22 = shl nuw i64 1, %21
   %23 = and i64 %19, %22
   %.not11.i.i = icmp eq i64 %23, 0
-  br i1 %.not11.i.i, label %24, label %gc_pin.exit.i
+  br i1 %.not11.i.i, label %24, label %gc_pin.argprom.exit.i
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds i8, ptr %14, i64 8
@@ -5031,13 +5031,13 @@ define dso_local void @rb_gc_mark(i64 noundef %0) local_unnamed_addr #0 {
   %31 = load i64, ptr %30, align 8
   %32 = or i64 %31, %22
   store i64 %32, ptr %30, align 8
-  br label %gc_pin.exit.i
+  br label %gc_pin.argprom.exit.i
 
-gc_pin.exit.i:                                    ; preds = %24, %11, %8
+gc_pin.argprom.exit.i:                            ; preds = %24, %11, %8
   tail call fastcc void @gc_mark_ptr(ptr noundef nonnull %4, i64 noundef %0)
   br label %gc_mark_and_pin.exit
 
-gc_mark_and_pin.exit:                             ; preds = %1, %gc_pin.exit.i
+gc_mark_and_pin.exit:                             ; preds = %1, %gc_pin.argprom.exit.i
   ret void
 }
 
@@ -5124,9 +5124,9 @@ define internal fastcc void @gc_mark_ptr(ptr nocapture noundef %0, i64 noundef %
   %.not.i = icmp eq i64 %.val, 0
   %.pre = and i64 %1, -65536
   %.pre37 = inttoptr i64 %.pre to ptr
-  br i1 %.not.i, label %.rgengc_check_relation.exit_crit_edge, label %8
+  br i1 %.not.i, label %.rgengc_check_relation.argprom.exit_crit_edge, label %8
 
-.rgengc_check_relation.exit_crit_edge:            ; preds = %6
+.rgengc_check_relation.argprom.exit_crit_edge:    ; preds = %6
   %.pre39 = trunc i64 %1 to i16
   %.pre40 = udiv i16 %.pre39, 40
   %.pre42 = udiv i16 %.pre39, 2560
@@ -5134,7 +5134,7 @@ define internal fastcc void @gc_mark_ptr(ptr nocapture noundef %0, i64 noundef %
   %.pre45 = and i16 %.pre40, 63
   %.pre47 = zext nneg i16 %.pre45 to i64
   %.pre49 = shl nuw i64 1, %.pre47
-  br label %rgengc_check_relation.exit
+  br label %rgengc_check_relation.argprom.exit
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %.pre37, align 65536
@@ -5157,7 +5157,7 @@ define internal fastcc void @gc_mark_ptr(ptr nocapture noundef %0, i64 noundef %
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, 32
   %.not6.i = icmp eq i64 %22, 0
-  br i1 %.not6.i, label %23, label %rgengc_check_relation.exit
+  br i1 %.not6.i, label %23, label %rgengc_check_relation.argprom.exit
 
 23:                                               ; preds = %19, %8
   %24 = and i64 %.val, -65536
@@ -5175,7 +5175,7 @@ define internal fastcc void @gc_mark_ptr(ptr nocapture noundef %0, i64 noundef %
   %34 = shl nuw i64 1, %33
   %35 = and i64 %31, %34
   %.not.i.i.i = icmp eq i64 %35, 0
-  br i1 %.not.i.i.i, label %36, label %rgengc_check_relation.exit
+  br i1 %.not.i.i.i, label %36, label %rgengc_check_relation.argprom.exit
 
 36:                                               ; preds = %23
   %37 = getelementptr inbounds i8, ptr %26, i64 12
@@ -5184,22 +5184,22 @@ define internal fastcc void @gc_mark_ptr(ptr nocapture noundef %0, i64 noundef %
   store i8 %39, ptr %37, align 4
   %40 = or i64 %31, %34
   store i64 %40, ptr %30, align 8
-  br label %rgengc_check_relation.exit
+  br label %rgengc_check_relation.argprom.exit
 
-rgengc_check_relation.exit:                       ; preds = %.rgengc_check_relation.exit_crit_edge, %19, %23, %36
-  %.pre-phi50 = phi i64 [ %.pre49, %.rgengc_check_relation.exit_crit_edge ], [ %17, %19 ], [ %17, %23 ], [ %17, %36 ]
-  %.zext5.i.i31.pre-phi = phi i64 [ %.pre44, %.rgengc_check_relation.exit_crit_edge ], [ %.zext5.i.i, %19 ], [ %.zext5.i.i, %23 ], [ %.zext5.i.i, %36 ]
-  %.pre-phi41 = phi i16 [ %.pre40, %.rgengc_check_relation.exit_crit_edge ], [ %11, %19 ], [ %11, %23 ], [ %11, %36 ]
-  %.lhs.trunc.i.i30.pre-phi = phi i16 [ %.pre39, %.rgengc_check_relation.exit_crit_edge ], [ %.lhs.trunc.i.i, %19 ], [ %.lhs.trunc.i.i, %23 ], [ %.lhs.trunc.i.i, %36 ]
+rgengc_check_relation.argprom.exit:               ; preds = %.rgengc_check_relation.argprom.exit_crit_edge, %19, %23, %36
+  %.pre-phi50 = phi i64 [ %.pre49, %.rgengc_check_relation.argprom.exit_crit_edge ], [ %17, %19 ], [ %17, %23 ], [ %17, %36 ]
+  %.zext5.i.i31.pre-phi = phi i64 [ %.pre44, %.rgengc_check_relation.argprom.exit_crit_edge ], [ %.zext5.i.i, %19 ], [ %.zext5.i.i, %23 ], [ %.zext5.i.i, %36 ]
+  %.pre-phi41 = phi i16 [ %.pre40, %.rgengc_check_relation.argprom.exit_crit_edge ], [ %11, %19 ], [ %11, %23 ], [ %11, %36 ]
+  %.lhs.trunc.i.i30.pre-phi = phi i16 [ %.pre39, %.rgengc_check_relation.argprom.exit_crit_edge ], [ %.lhs.trunc.i.i, %19 ], [ %.lhs.trunc.i.i, %23 ], [ %.lhs.trunc.i.i, %36 ]
   %41 = load ptr, ptr %.pre37, align 65536
   %42 = getelementptr inbounds i8, ptr %41, i64 272
   %43 = getelementptr i64, ptr %42, i64 %.zext5.i.i31.pre-phi
   %44 = load i64, ptr %43, align 8
   %45 = and i64 %44, %.pre-phi50
   %.not.i32 = icmp eq i64 %45, 0
-  br i1 %.not.i32, label %46, label %gc_mark_set.exit.thread
+  br i1 %.not.i32, label %46, label %gc_mark_set.argprom.exit.thread
 
-46:                                               ; preds = %rgengc_check_relation.exit
+46:                                               ; preds = %rgengc_check_relation.argprom.exit
   %47 = or i64 %44, %.pre-phi50
   store i64 %47, ptr %43, align 8
   %48 = and i64 %1, 7
@@ -5293,7 +5293,7 @@ gc_aging.exit:                                    ; preds = %.critedge, %67, %90
   %103 = add i64 %102, 1
   store i64 %103, ptr %101, align 8
   tail call fastcc void @gc_grey(ptr noundef nonnull %0, i64 noundef %1)
-  br label %gc_mark_set.exit.thread
+  br label %gc_mark_set.argprom.exit.thread
 
 104:                                              ; preds = %2
   %105 = load ptr, ptr @ruby_single_main_ractor, align 8
@@ -5317,9 +5317,9 @@ reachable_objects_from_callback.exit:             ; preds = %104, %106
   %115 = load ptr, ptr %114, align 8
   %116 = load ptr, ptr %113, align 8
   tail call void %115(i64 noundef %1, ptr noundef %116) #39
-  br label %gc_mark_set.exit.thread
+  br label %gc_mark_set.argprom.exit.thread
 
-gc_mark_set.exit.thread:                          ; preds = %rgengc_check_relation.exit, %reachable_objects_from_callback.exit, %gc_aging.exit
+gc_mark_set.argprom.exit.thread:                  ; preds = %rgengc_check_relation.argprom.exit, %reachable_objects_from_callback.exit, %gc_aging.exit
   ret void
 }
 
@@ -5367,7 +5367,7 @@ define hidden void @rb_gc_mark_weak(ptr noundef %0) local_unnamed_addr #0 {
   %26 = getelementptr i8, ptr %4, i64 1480
   %.val = load i64, ptr %26, align 8
   %.not.i = icmp eq i64 %.val, 0
-  br i1 %.not.i, label %rgengc_check_relation.exit, label %27
+  br i1 %.not.i, label %rgengc_check_relation.argprom.exit, label %27
 
 27:                                               ; preds = %25
   %28 = and i64 %9, -65536
@@ -5388,7 +5388,7 @@ define hidden void @rb_gc_mark_weak(ptr noundef %0) local_unnamed_addr #0 {
   %40 = and i64 %16, 32
   %.not6.i = icmp eq i64 %40, 0
   %or.cond = or i1 %.not6.i, %.not5.i
-  br i1 %or.cond, label %41, label %rgengc_check_relation.exit
+  br i1 %or.cond, label %41, label %rgengc_check_relation.argprom.exit
 
 41:                                               ; preds = %27
   %42 = and i64 %.val, -65536
@@ -5406,7 +5406,7 @@ define hidden void @rb_gc_mark_weak(ptr noundef %0) local_unnamed_addr #0 {
   %52 = shl nuw i64 1, %51
   %53 = and i64 %49, %52
   %.not.i.i.i = icmp eq i64 %53, 0
-  br i1 %.not.i.i.i, label %54, label %rgengc_check_relation.exit
+  br i1 %.not.i.i.i, label %54, label %rgengc_check_relation.argprom.exit
 
 54:                                               ; preds = %41
   %55 = getelementptr inbounds i8, ptr %44, i64 12
@@ -5415,28 +5415,28 @@ define hidden void @rb_gc_mark_weak(ptr noundef %0) local_unnamed_addr #0 {
   store i8 %57, ptr %55, align 4
   %58 = or i64 %49, %52
   store i64 %58, ptr %48, align 8
-  br label %rgengc_check_relation.exit
+  br label %rgengc_check_relation.argprom.exit
 
-rgengc_check_relation.exit:                       ; preds = %27, %25, %41, %54
+rgengc_check_relation.argprom.exit:               ; preds = %27, %25, %41, %54
   %59 = getelementptr inbounds i8, ptr %4, i64 2592
   %60 = load ptr, ptr %59, align 8
   %.not.i.i = icmp eq ptr %60, null
   br i1 %.not.i.i, label %.thread.i, label %rb_darray_size.exit.i
 
-rb_darray_size.exit.i:                            ; preds = %rgengc_check_relation.exit
+rb_darray_size.exit.i:                            ; preds = %rgengc_check_relation.argprom.exit
   %61 = getelementptr inbounds i8, ptr %60, i64 8
   %62 = load i64, ptr %61, align 8
   %.fr.i = freeze i64 %62
   %63 = load i64, ptr %60, align 8
   %64 = icmp ult i64 %63, %.fr.i
-  br i1 %64, label %rb_darray_ensure_space.exit, label %65
+  br i1 %64, label %rb_darray_ensure_space.argprom.exit, label %65
 
 65:                                               ; preds = %rb_darray_size.exit.i
   %66 = icmp eq i64 %.fr.i, 0
   %67 = shl i64 %.fr.i, 1
   br i1 %66, label %.thread.i, label %68
 
-.thread.i:                                        ; preds = %65, %rgengc_check_relation.exit
+.thread.i:                                        ; preds = %65, %rgengc_check_relation.argprom.exit
   br label %68
 
 68:                                               ; preds = %.thread.i, %65
@@ -5452,26 +5452,26 @@ rb_darray_size.exit.i:                            ; preds = %rgengc_check_relati
   unreachable
 
 rb_darray_realloc_mul_add_without_gc.exit.i.i:    ; preds = %68
-  br i1 %.not.i.i, label %75, label %rb_darray_realloc_mul_add_without_gc.exit.i.i.rb_darray_resize_capa_impl.exit.i_crit_edge
+  br i1 %.not.i.i, label %75, label %rb_darray_realloc_mul_add_without_gc.exit.i.i.rb_darray_resize_capa_impl.argprom.exit.i_crit_edge
 
-rb_darray_realloc_mul_add_without_gc.exit.i.i.rb_darray_resize_capa_impl.exit.i_crit_edge: ; preds = %rb_darray_realloc_mul_add_without_gc.exit.i.i
+rb_darray_realloc_mul_add_without_gc.exit.i.i.rb_darray_resize_capa_impl.argprom.exit.i_crit_edge: ; preds = %rb_darray_realloc_mul_add_without_gc.exit.i.i
   %.pre.pre = load i64, ptr %72, align 8
-  br label %rb_darray_resize_capa_impl.exit.i
+  br label %rb_darray_resize_capa_impl.argprom.exit.i
 
 75:                                               ; preds = %rb_darray_realloc_mul_add_without_gc.exit.i.i
   store i64 0, ptr %72, align 8
-  br label %rb_darray_resize_capa_impl.exit.i
+  br label %rb_darray_resize_capa_impl.argprom.exit.i
 
-rb_darray_resize_capa_impl.exit.i:                ; preds = %rb_darray_realloc_mul_add_without_gc.exit.i.i.rb_darray_resize_capa_impl.exit.i_crit_edge, %75
-  %.pre = phi i64 [ %.pre.pre, %rb_darray_realloc_mul_add_without_gc.exit.i.i.rb_darray_resize_capa_impl.exit.i_crit_edge ], [ 0, %75 ]
+rb_darray_resize_capa_impl.argprom.exit.i:        ; preds = %rb_darray_realloc_mul_add_without_gc.exit.i.i.rb_darray_resize_capa_impl.argprom.exit.i_crit_edge, %75
+  %.pre = phi i64 [ %.pre.pre, %rb_darray_realloc_mul_add_without_gc.exit.i.i.rb_darray_resize_capa_impl.argprom.exit.i_crit_edge ], [ 0, %75 ]
   %76 = getelementptr inbounds i8, ptr %72, i64 8
   store i64 %69, ptr %76, align 8
   store ptr %72, ptr %59, align 1
-  br label %rb_darray_ensure_space.exit
+  br label %rb_darray_ensure_space.argprom.exit
 
-rb_darray_ensure_space.exit:                      ; preds = %rb_darray_size.exit.i, %rb_darray_resize_capa_impl.exit.i
-  %77 = phi i64 [ %63, %rb_darray_size.exit.i ], [ %.pre, %rb_darray_resize_capa_impl.exit.i ]
-  %78 = phi ptr [ %60, %rb_darray_size.exit.i ], [ %72, %rb_darray_resize_capa_impl.exit.i ]
+rb_darray_ensure_space.argprom.exit:              ; preds = %rb_darray_size.exit.i, %rb_darray_resize_capa_impl.argprom.exit.i
+  %77 = phi i64 [ %63, %rb_darray_size.exit.i ], [ %.pre, %rb_darray_resize_capa_impl.argprom.exit.i ]
+  %78 = phi ptr [ %60, %rb_darray_size.exit.i ], [ %72, %rb_darray_resize_capa_impl.argprom.exit.i ]
   %79 = getelementptr inbounds i8, ptr %78, i64 16
   %80 = getelementptr [0 x ptr], ptr %79, i64 0, i64 %77
   store ptr %0, ptr %80, align 8
@@ -5485,7 +5485,7 @@ rb_darray_ensure_space.exit:                      ; preds = %rb_darray_size.exit
   store i64 %86, ptr %84, align 8
   br label %87
 
-87:                                               ; preds = %21, %8, %1, %rb_darray_ensure_space.exit
+87:                                               ; preds = %21, %8, %1, %rb_darray_ensure_space.argprom.exit
   ret void
 }
 
@@ -5579,13 +5579,13 @@ define internal fastcc void @gc_verify_internal_consistency(ptr noundef %0) unna
   %5 = alloca i32, align 4
   %6 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i, label %7, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %7, label %rb_vm_lock_enter.argprom.exit
 
 7:                                                ; preds = %1
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #39
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %1, %7
+rb_vm_lock_enter.argprom.exit:                    ; preds = %1, %7
   call void @rb_vm_barrier() #39
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i16, ptr %8, align 8
@@ -5601,7 +5601,7 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %7
   %.not73.i = icmp eq i64 %14, 0
   br i1 %.not73.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %rb_vm_lock_enter.exit
+.lr.ph.i:                                         ; preds = %rb_vm_lock_enter.argprom.exit
   %15 = getelementptr inbounds i8, ptr %0, i64 1208
   %16 = getelementptr inbounds i8, ptr %4, i64 24
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -5698,15 +5698,15 @@ is_live_object.exit.thread.i.i:                   ; preds = %is_live_object.exit
   %69 = icmp ne i64 %68, 0
   %70 = icmp eq i64 %.078.i.i, 0
   %71 = or i1 %70, %69
-  br i1 %71, label %gc_object_moved_p.exit.thread.i.i, label %gc_object_moved_p.exit.i.i
+  br i1 %71, label %gc_object_moved_p.argprom.exit.thread.i.i, label %gc_object_moved_p.argprom.exit.i.i
 
-gc_object_moved_p.exit.i.i:                       ; preds = %is_live_object.exit.thread.i.i
+gc_object_moved_p.argprom.exit.i.i:               ; preds = %is_live_object.exit.thread.i.i
   %72 = load i64, ptr %44, align 8
   %73 = and i64 %72, 31
   %.not76.i.i = icmp eq i64 %73, 30
-  br i1 %.not76.i.i, label %95, label %gc_object_moved_p.exit.thread.i.i
+  br i1 %.not76.i.i, label %95, label %gc_object_moved_p.argprom.exit.thread.i.i
 
-gc_object_moved_p.exit.thread.i.i:                ; preds = %gc_object_moved_p.exit.i.i, %is_live_object.exit.thread.i.i
+gc_object_moved_p.argprom.exit.thread.i.i:        ; preds = %gc_object_moved_p.argprom.exit.i.i, %is_live_object.exit.thread.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %74 = load ptr, ptr @ruby_current_vm_ptr, align 8
@@ -5714,24 +5714,24 @@ gc_object_moved_p.exit.thread.i.i:                ; preds = %gc_object_moved_p.e
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i58.i = icmp eq ptr %77, null
-  br i1 %.not.i.i.i58.i, label %78, label %rb_vm_lock_enter.exit.i.i
+  br i1 %.not.i.i.i58.i, label %78, label %rb_vm_lock_enter.argprom.exit.i.i
 
-78:                                               ; preds = %gc_object_moved_p.exit.thread.i.i
+78:                                               ; preds = %gc_object_moved_p.argprom.exit.thread.i.i
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #39
-  br label %rb_vm_lock_enter.exit.i.i
+  br label %rb_vm_lock_enter.argprom.exit.i.i
 
-rb_vm_lock_enter.exit.i.i:                        ; preds = %78, %gc_object_moved_p.exit.thread.i.i
+rb_vm_lock_enter.argprom.exit.i.i:                ; preds = %78, %gc_object_moved_p.argprom.exit.thread.i.i
   %79 = getelementptr inbounds i8, ptr %76, i64 16
   %80 = load i16, ptr %79, align 8
   %81 = and i16 %80, 32
   %.not.i59.i = icmp eq i16 %81, 0
   br i1 %.not.i59.i, label %83, label %82
 
-82:                                               ; preds = %rb_vm_lock_enter.exit.i.i
+82:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i.i
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.34) #54
   unreachable
 
-83:                                               ; preds = %rb_vm_lock_enter.exit.i.i
+83:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i.i
   %.pre14.i.i = load ptr, ptr @ruby_single_main_ractor, align 8
   br i1 %71, label %92, label %84
 
@@ -5774,8 +5774,8 @@ rb_objspace_reachable_objects_from.exit.i:        ; preds = %94, %92
   %.pre.i.i = load i64, ptr %44, align 8
   br label %95
 
-95:                                               ; preds = %rb_objspace_reachable_objects_from.exit.i, %gc_object_moved_p.exit.i.i
-  %96 = phi i64 [ %.pre.i.i, %rb_objspace_reachable_objects_from.exit.i ], [ %72, %gc_object_moved_p.exit.i.i ]
+95:                                               ; preds = %rb_objspace_reachable_objects_from.exit.i, %gc_object_moved_p.argprom.exit.i.i
+  %96 = phi i64 [ %.pre.i.i, %rb_objspace_reachable_objects_from.exit.i ], [ %72, %gc_object_moved_p.argprom.exit.i.i ]
   %97 = and i64 %96, 32
   %.not52.i.i = icmp eq i64 %97, 0
   br i1 %.not52.i.i, label %101, label %98
@@ -5964,7 +5964,7 @@ verify_internal_consistency_i.exit.i:             ; preds = %verify_internal_con
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.174) #54
   unreachable
 
-._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %rb_vm_lock_enter.exit
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %rb_vm_lock_enter.argprom.exit
   %193 = getelementptr inbounds i8, ptr %0, i64 32
   br label %194
 
@@ -5972,9 +5972,9 @@ verify_internal_consistency_i.exit.i:             ; preds = %verify_internal_con
   %indvars.iv.i.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %indvars.iv.next.i.i, %194 ]
   %195 = getelementptr [5 x %struct.rb_size_pool_struct], ptr %193, i64 0, i64 %indvars.iv.i.i
   %196 = getelementptr inbounds i8, ptr %195, i64 88
-  call fastcc void @gc_verify_heap_pages_(ptr noundef %0, ptr noundef nonnull %196)
+  call fastcc void @gc_verify_heap_pages_.argelim(ptr noundef %0, ptr noundef nonnull %196)
   %197 = getelementptr inbounds i8, ptr %195, i64 160
-  call fastcc void @gc_verify_heap_pages_(ptr noundef %0, ptr noundef nonnull %197)
+  call fastcc void @gc_verify_heap_pages_.argelim(ptr noundef %0, ptr noundef nonnull %197)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
   br i1 %exitcond.not.i.i, label %gc_verify_heap_pages.exit.i, label %194, !llvm.loop !42
@@ -6126,13 +6126,13 @@ gc_verify_internal_consistency_.exit:             ; preds = %243, %._crit_edge72
   store i16 %257, ptr %8, align 8
   %258 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i5 = icmp eq ptr %258, null
-  br i1 %.not.i.i5, label %259, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i5, label %259, label %rb_vm_lock_leave.argprom.exit
 
 259:                                              ; preds = %gc_verify_internal_consistency_.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #39
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %gc_verify_internal_consistency_.exit, %259
+rb_vm_lock_leave.argprom.exit:                    ; preds = %gc_verify_internal_consistency_.exit, %259
   ret void
 }
 
@@ -6153,37 +6153,37 @@ define dso_local void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %1) local_
   %.pre20 = load ptr, ptr @ruby_single_main_ractor, align 8
   br label %.lr.ph
 
-.critedge:                                        ; preds = %rb_vm_lock_enter_nb.exit
+.critedge:                                        ; preds = %rb_vm_lock_enter_nb.argprom.exit
   %11 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i, label %12, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i, label %12, label %rb_vm_lock_leave.argprom.exit
 
 12:                                               ; preds = %.critedge
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #39
   %.pre = load ptr, ptr @ruby_single_main_ractor, align 8
   %.pre24 = load i16, ptr %8, align 8
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %.critedge, %12
+rb_vm_lock_leave.argprom.exit:                    ; preds = %.critedge, %12
   %13 = phi i16 [ %54, %.critedge ], [ %.pre24, %12 ]
   %14 = phi ptr [ %11, %.critedge ], [ %.pre, %12 ]
   %15 = and i16 %13, 2048
   %.not = icmp eq i16 %15, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %rb_vm_lock_leave.exit, %2
+._crit_edge:                                      ; preds = %rb_vm_lock_leave.argprom.exit, %2
   %16 = inttoptr i64 %0 to ptr
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 32
   %.not10 = icmp eq i64 %18, 0
-  br i1 %.not10, label %rb_vm_lock_leave.exit17, label %19
+  br i1 %.not10, label %rb_vm_lock_leave.argprom.exit17, label %19
 
 19:                                               ; preds = %._crit_edge
   %20 = inttoptr i64 %1 to ptr
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, 32
   %.not11 = icmp eq i64 %22, 0
-  br i1 %.not11, label %23, label %rb_vm_lock_leave.exit17
+  br i1 %.not11, label %23, label %rb_vm_lock_leave.argprom.exit17
 
 23:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -6202,67 +6202,67 @@ rb_vm_lock_leave.exit:                            ; preds = %.critedge, %12
   %34 = shl nuw i64 1, %33
   %35 = and i64 %31, %34
   %.not.i = icmp eq i64 %35, 0
-  br i1 %.not.i, label %36, label %gc_writebarrier_generational.exit
+  br i1 %.not.i, label %36, label %gc_writebarrier_generational.argprom.exit
 
 36:                                               ; preds = %23
   %37 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i.i, label %38, label %rb_vm_lock_enter_nb.exit.i
+  br i1 %.not.i.i.i, label %38, label %rb_vm_lock_enter_nb.argprom.exit.i
 
 38:                                               ; preds = %36
   call void @rb_vm_lock_enter_body_nb(ptr noundef nonnull %3) #39
   %.pre.i = load ptr, ptr %25, align 65536
-  br label %rb_vm_lock_enter_nb.exit.i
+  br label %rb_vm_lock_enter_nb.argprom.exit.i
 
-rb_vm_lock_enter_nb.exit.i:                       ; preds = %38, %36
+rb_vm_lock_enter_nb.argprom.exit.i:               ; preds = %38, %36
   %39 = phi ptr [ %26, %36 ], [ %.pre.i, %38 ]
   %40 = getelementptr inbounds i8, ptr %39, i64 896
   %41 = getelementptr i64, ptr %40, i64 %.zext5.i.i
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %42, %34
   %.not.i.i4.i = icmp eq i64 %43, 0
-  br i1 %.not.i.i4.i, label %44, label %rgengc_remember.exit.i
+  br i1 %.not.i.i4.i, label %44, label %rgengc_remember.argprom.exit.i
 
-44:                                               ; preds = %rb_vm_lock_enter_nb.exit.i
+44:                                               ; preds = %rb_vm_lock_enter_nb.argprom.exit.i
   %45 = getelementptr inbounds i8, ptr %39, i64 12
   %46 = load i8, ptr %45, align 4
   %47 = or i8 %46, 2
   store i8 %47, ptr %45, align 4
   %48 = or i64 %42, %34
   store i64 %48, ptr %41, align 8
-  br label %rgengc_remember.exit.i
+  br label %rgengc_remember.argprom.exit.i
 
-rgengc_remember.exit.i:                           ; preds = %44, %rb_vm_lock_enter_nb.exit.i
+rgengc_remember.argprom.exit.i:                   ; preds = %44, %rb_vm_lock_enter_nb.argprom.exit.i
   %49 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i5.i = icmp eq ptr %49, null
-  br i1 %.not.i.i5.i, label %50, label %gc_writebarrier_generational.exit
+  br i1 %.not.i.i5.i, label %50, label %gc_writebarrier_generational.argprom.exit
 
-50:                                               ; preds = %rgengc_remember.exit.i
+50:                                               ; preds = %rgengc_remember.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #39
-  br label %gc_writebarrier_generational.exit
+  br label %gc_writebarrier_generational.argprom.exit
 
-gc_writebarrier_generational.exit:                ; preds = %23, %rgengc_remember.exit.i, %50
+gc_writebarrier_generational.argprom.exit:        ; preds = %23, %rgengc_remember.argprom.exit.i, %50
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %rb_vm_lock_leave.exit17
+  br label %rb_vm_lock_leave.argprom.exit17
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %rb_vm_lock_leave.exit
-  %51 = phi i16 [ %9, %.lr.ph.preheader ], [ %13, %rb_vm_lock_leave.exit ]
-  %52 = phi ptr [ %.pre20, %.lr.ph.preheader ], [ %14, %rb_vm_lock_leave.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %rb_vm_lock_leave.argprom.exit
+  %51 = phi i16 [ %9, %.lr.ph.preheader ], [ %13, %rb_vm_lock_leave.argprom.exit ]
+  %52 = phi ptr [ %.pre20, %.lr.ph.preheader ], [ %14, %rb_vm_lock_leave.argprom.exit ]
   %.not.i.i13 = icmp eq ptr %52, null
-  br i1 %.not.i.i13, label %53, label %rb_vm_lock_enter_nb.exit
+  br i1 %.not.i.i13, label %53, label %rb_vm_lock_enter_nb.argprom.exit
 
 53:                                               ; preds = %.lr.ph
   call void @rb_vm_lock_enter_body_nb(ptr noundef nonnull %4) #39
   %.pre21 = load i16, ptr %8, align 8
-  br label %rb_vm_lock_enter_nb.exit
+  br label %rb_vm_lock_enter_nb.argprom.exit
 
-rb_vm_lock_enter_nb.exit:                         ; preds = %.lr.ph, %53
+rb_vm_lock_enter_nb.argprom.exit:                 ; preds = %.lr.ph, %53
   %54 = phi i16 [ %51, %.lr.ph ], [ %.pre21, %53 ]
   %55 = and i16 %54, 2048
   %.not12 = icmp eq i16 %55, 0
   br i1 %.not12, label %.critedge, label %56
 
-56:                                               ; preds = %rb_vm_lock_enter_nb.exit
+56:                                               ; preds = %rb_vm_lock_enter_nb.argprom.exit
   %57 = and i64 %0, -65536
   %58 = inttoptr i64 %57 to ptr
   %59 = load ptr, ptr %58, align 65536
@@ -6324,7 +6324,7 @@ RVALUE_BLACK_P.exit.i:                            ; preds = %56
   store i64 %spec.select.i.i.i, ptr %95, align 8
   %.not.i9.i.i = icmp eq i64 %spec.select.i.i.i, 0
   %.pre23 = load ptr, ptr %75, align 65536
-  br i1 %.not.i9.i.i, label %rgengc_check_relation.exit.i.i, label %96
+  br i1 %.not.i9.i.i, label %rgengc_check_relation.argprom.exit.i.i, label %96
 
 96:                                               ; preds = %91
   %97 = getelementptr inbounds i8, ptr %.pre23, i64 64
@@ -6339,7 +6339,7 @@ RVALUE_BLACK_P.exit.i:                            ; preds = %56
   %103 = load i64, ptr %102, align 8
   %104 = and i64 %103, 32
   %.not6.i.i.i = icmp eq i64 %104, 0
-  br i1 %.not6.i.i.i, label %105, label %rgengc_check_relation.exit.i.i
+  br i1 %.not6.i.i.i, label %105, label %rgengc_check_relation.argprom.exit.i.i
 
 105:                                              ; preds = %101, %96
   %106 = and i64 %spec.select.i.i.i, -65536
@@ -6357,7 +6357,7 @@ RVALUE_BLACK_P.exit.i:                            ; preds = %56
   %116 = shl nuw i64 1, %115
   %117 = and i64 %113, %116
   %.not.i.i.i.i.i = icmp eq i64 %117, 0
-  br i1 %.not.i.i.i.i.i, label %118, label %rgengc_check_relation.exit.i.i
+  br i1 %.not.i.i.i.i.i, label %118, label %rgengc_check_relation.argprom.exit.i.i
 
 118:                                              ; preds = %105
   %119 = getelementptr inbounds i8, ptr %108, i64 12
@@ -6367,9 +6367,9 @@ RVALUE_BLACK_P.exit.i:                            ; preds = %56
   %122 = or i64 %113, %116
   store i64 %122, ptr %112, align 8
   %.pre22 = load ptr, ptr %75, align 65536
-  br label %rgengc_check_relation.exit.i.i
+  br label %rgengc_check_relation.argprom.exit.i.i
 
-rgengc_check_relation.exit.i.i:                   ; preds = %118, %105, %101, %91
+rgengc_check_relation.argprom.exit.i.i:           ; preds = %118, %105, %101, %91
   %123 = phi ptr [ %.pre22, %118 ], [ %.pre23, %105 ], [ %.pre23, %101 ], [ %.pre23, %91 ]
   %124 = getelementptr inbounds i8, ptr %123, i64 272
   %125 = getelementptr i64, ptr %124, i64 %.zext5.i.i21.i
@@ -6378,7 +6378,7 @@ rgengc_check_relation.exit.i.i:                   ; preds = %118, %105, %101, %9
   %.not.i12.i.i = icmp eq i64 %127, 0
   br i1 %.not.i12.i.i, label %128, label %gc_mark_from.exit.i
 
-128:                                              ; preds = %rgengc_check_relation.exit.i.i
+128:                                              ; preds = %rgengc_check_relation.argprom.exit.i.i
   %129 = or i64 %126, %84
   store i64 %129, ptr %125, align 8
   %130 = load ptr, ptr %75, align 65536
@@ -6486,7 +6486,7 @@ gc_aging.exit.i.i:                                ; preds = %RVALUE_AGE_INC.exit
   store i64 %193, ptr %186, align 8
   br label %gc_mark_from.exit.i
 
-gc_mark_from.exit.i:                              ; preds = %189, %184, %180, %176, %gc_aging.exit.i.i, %rgengc_check_relation.exit.i.i, %86
+gc_mark_from.exit.i:                              ; preds = %189, %184, %180, %176, %gc_aging.exit.i.i, %rgengc_check_relation.argprom.exit.i.i, %86
   %194 = load i16, ptr %8, align 8
   %195 = and i16 %194, 64
   %.not19.i = icmp eq i16 %195, 0
@@ -6504,13 +6504,13 @@ gc_mark_from.exit.i:                              ; preds = %189, %184, %180, %1
 gc_writebarrier_incremental.exit:                 ; preds = %56, %RVALUE_BLACK_P.exit.i, %gc_mark_from.exit.i, %196
   %202 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i16 = icmp eq ptr %202, null
-  br i1 %.not.i.i16, label %203, label %rb_vm_lock_leave.exit17
+  br i1 %.not.i.i16, label %203, label %rb_vm_lock_leave.argprom.exit17
 
 203:                                              ; preds = %gc_writebarrier_incremental.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #39
-  br label %rb_vm_lock_leave.exit17
+  br label %rb_vm_lock_leave.argprom.exit17
 
-rb_vm_lock_leave.exit17:                          ; preds = %203, %gc_writebarrier_incremental.exit, %gc_writebarrier_generational.exit, %19, %._crit_edge
+rb_vm_lock_leave.argprom.exit17:                  ; preds = %203, %gc_writebarrier_incremental.exit, %gc_writebarrier_generational.argprom.exit, %19, %._crit_edge
   ret void
 }
 
@@ -6532,7 +6532,7 @@ define dso_local void @rb_gc_writebarrier_unprotect(i64 noundef %0) local_unname
   %13 = shl nuw i64 1, %12
   %14 = and i64 %10, %13
   %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %15, label %rb_vm_lock_leave.exit
+  br i1 %.not, label %15, label %rb_vm_lock_leave.argprom.exit
 
 15:                                               ; preds = %1
   %16 = load ptr, ptr @ruby_current_vm_ptr, align 8
@@ -6540,20 +6540,20 @@ define dso_local void @rb_gc_writebarrier_unprotect(i64 noundef %0) local_unname
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %20, label %rb_vm_lock_enter_nb.exit
+  br i1 %.not.i.i, label %20, label %rb_vm_lock_enter_nb.argprom.exit
 
 20:                                               ; preds = %15
   call void @rb_vm_lock_enter_body_nb(ptr noundef nonnull %2) #39
-  br label %rb_vm_lock_enter_nb.exit
+  br label %rb_vm_lock_enter_nb.argprom.exit
 
-rb_vm_lock_enter_nb.exit:                         ; preds = %15, %20
+rb_vm_lock_enter_nb.argprom.exit:                 ; preds = %15, %20
   %21 = inttoptr i64 %0 to ptr
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 32
   %.not13 = icmp eq i64 %23, 0
   br i1 %.not13, label %85, label %24
 
-24:                                               ; preds = %rb_vm_lock_enter_nb.exit
+24:                                               ; preds = %rb_vm_lock_enter_nb.argprom.exit
   %25 = getelementptr inbounds i8, ptr %18, i64 16
   %26 = load i16, ptr %25, align 8
   %27 = and i16 %26, 2048
@@ -6623,7 +6623,7 @@ RVALUE_DEMOTE.exit:                               ; preds = %._crit_edge.i, %61
   %66 = phi ptr [ %56, %._crit_edge.i ], [ %.pre, %61 ]
   %67 = and i64 %65, %13
   %.not.i16 = icmp eq i64 %67, 0
-  br i1 %.not.i16, label %68, label %gc_mark_set.exit
+  br i1 %.not.i16, label %68, label %gc_mark_set.argprom.exit
 
 68:                                               ; preds = %RVALUE_DEMOTE.exit
   %69 = getelementptr inbounds i8, ptr %66, i64 272
@@ -6631,9 +6631,9 @@ RVALUE_DEMOTE.exit:                               ; preds = %._crit_edge.i, %61
   %71 = or i64 %65, %13
   store i64 %71, ptr %70, align 8
   %.pre26 = load ptr, ptr %4, align 65536
-  br label %gc_mark_set.exit
+  br label %gc_mark_set.argprom.exit
 
-gc_mark_set.exit:                                 ; preds = %RVALUE_DEMOTE.exit, %68
+gc_mark_set.argprom.exit:                         ; preds = %RVALUE_DEMOTE.exit, %68
   %72 = phi ptr [ %66, %RVALUE_DEMOTE.exit ], [ %.pre26, %68 ]
   %73 = getelementptr inbounds i8, ptr %72, i64 480
   %74 = getelementptr i64, ptr %73, i64 %.zext5.i
@@ -6642,7 +6642,7 @@ gc_mark_set.exit:                                 ; preds = %RVALUE_DEMOTE.exit,
   %.not.i18 = icmp eq i64 %76, 0
   br i1 %.not.i18, label %77, label %gc_remember_unprotected.exit
 
-77:                                               ; preds = %gc_mark_set.exit
+77:                                               ; preds = %gc_mark_set.argprom.exit
   %78 = getelementptr inbounds i8, ptr %72, i64 12
   %79 = load i8, ptr %78, align 4
   %80 = or i8 %79, 4
@@ -6655,7 +6655,7 @@ gc_mark_set.exit:                                 ; preds = %RVALUE_DEMOTE.exit,
   store i64 %84, ptr %82, align 8
   br label %gc_remember_unprotected.exit
 
-85:                                               ; preds = %rb_vm_lock_enter_nb.exit
+85:                                               ; preds = %rb_vm_lock_enter_nb.argprom.exit
   %86 = load ptr, ptr %4, align 65536
   %87 = getelementptr inbounds i8, ptr %86, i64 1312
   %88 = shl nuw nsw i16 %7, 1
@@ -6674,7 +6674,7 @@ gc_mark_set.exit:                                 ; preds = %RVALUE_DEMOTE.exit,
   store i64 %98, ptr %21, align 8
   br label %gc_remember_unprotected.exit
 
-gc_remember_unprotected.exit:                     ; preds = %77, %gc_mark_set.exit, %85
+gc_remember_unprotected.exit:                     ; preds = %77, %gc_mark_set.argprom.exit, %85
   %99 = load ptr, ptr %4, align 65536
   %100 = getelementptr inbounds i8, ptr %99, i64 64
   %101 = getelementptr i64, ptr %100, i64 %.zext5.i
@@ -6683,13 +6683,13 @@ gc_remember_unprotected.exit:                     ; preds = %77, %gc_mark_set.ex
   store i64 %103, ptr %101, align 8
   %104 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i21 = icmp eq ptr %104, null
-  br i1 %.not.i.i21, label %105, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i21, label %105, label %rb_vm_lock_leave.argprom.exit
 
 105:                                              ; preds = %gc_remember_unprotected.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #39
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %105, %gc_remember_unprotected.exit, %1
+rb_vm_lock_leave.argprom.exit:                    ; preds = %105, %gc_remember_unprotected.exit, %1
   ret void
 }
 
@@ -6720,7 +6720,7 @@ define hidden void @rb_gc_writebarrier_remember(i64 noundef %0) local_unnamed_ad
   %19 = shl nuw i64 1, %18
   %20 = and i64 %16, %19
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %rgengc_remember.exit, label %RVALUE_BLACK_P.exit
+  br i1 %.not.i, label %rgengc_remember.argprom.exit, label %RVALUE_BLACK_P.exit
 
 RVALUE_BLACK_P.exit:                              ; preds = %8
   %21 = getelementptr inbounds i8, ptr %11, i64 688
@@ -6728,18 +6728,18 @@ RVALUE_BLACK_P.exit:                              ; preds = %8
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, %19
   %.not7.not = icmp eq i64 %24, 0
-  br i1 %.not7.not, label %25, label %rgengc_remember.exit
+  br i1 %.not7.not, label %25, label %rgengc_remember.argprom.exit
 
 25:                                               ; preds = %RVALUE_BLACK_P.exit
   tail call fastcc void @gc_grey(ptr noundef nonnull %4, i64 noundef %0)
-  br label %rgengc_remember.exit
+  br label %rgengc_remember.argprom.exit
 
 26:                                               ; preds = %1
   %27 = inttoptr i64 %0 to ptr
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 32
   %.not6 = icmp eq i64 %29, 0
-  br i1 %.not6, label %rgengc_remember.exit, label %30
+  br i1 %.not6, label %rgengc_remember.argprom.exit, label %30
 
 30:                                               ; preds = %26
   %31 = and i64 %0, -65536
@@ -6757,7 +6757,7 @@ RVALUE_BLACK_P.exit:                              ; preds = %8
   %41 = shl nuw i64 1, %40
   %42 = and i64 %38, %41
   %.not.i.i = icmp eq i64 %42, 0
-  br i1 %.not.i.i, label %43, label %rgengc_remember.exit
+  br i1 %.not.i.i, label %43, label %rgengc_remember.argprom.exit
 
 43:                                               ; preds = %30
   %44 = getelementptr inbounds i8, ptr %33, i64 12
@@ -6766,9 +6766,9 @@ RVALUE_BLACK_P.exit:                              ; preds = %8
   store i8 %46, ptr %44, align 4
   %47 = or i64 %38, %41
   store i64 %47, ptr %37, align 8
-  br label %rgengc_remember.exit
+  br label %rgengc_remember.argprom.exit
 
-rgengc_remember.exit:                             ; preds = %8, %43, %30, %26, %RVALUE_BLACK_P.exit, %25
+rgengc_remember.argprom.exit:                     ; preds = %8, %43, %30, %26, %RVALUE_BLACK_P.exit, %25
   ret void
 }
 
@@ -7351,7 +7351,7 @@ define dso_local void @rb_gc_register_mark_object(i64 noundef %0) local_unnamed_
   %7 = getelementptr inbounds i8, ptr %5, i64 1240
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %8, %0
-  br i1 %9, label %rb_vm_lock_leave.exit, label %10
+  br i1 %9, label %rb_vm_lock_leave.argprom.exit, label %10
 
 10:                                               ; preds = %1
   %11 = getelementptr i8, ptr %5, i64 1248
@@ -7360,7 +7360,7 @@ define dso_local void @rb_gc_register_mark_object(i64 noundef %0) local_unnamed_
   %14 = urem i64 %0, 40
   %.not.i = icmp eq i64 %14, 0
   %or.cond.i = and i1 %.not.i, %13
-  br i1 %or.cond.i, label %15, label %rb_vm_lock_leave.exit
+  br i1 %or.cond.i, label %15, label %rb_vm_lock_leave.argprom.exit
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %5, i64 1208
@@ -7369,25 +7369,25 @@ define dso_local void @rb_gc_register_mark_object(i64 noundef %0) local_unnamed_
   %19 = load i64, ptr %18, align 8
   %20 = tail call ptr @bsearch(ptr noundef %6, ptr noundef %17, i64 noundef %19, i64 noundef 8, ptr noundef nonnull @ptr_in_page_body_p) #39
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %rb_vm_lock_leave.exit, label %heap_page_for_ptr.exit.i
+  br i1 %.not.i.i, label %rb_vm_lock_leave.argprom.exit, label %heap_page_for_ptr.exit.i
 
 heap_page_for_ptr.exit.i:                         ; preds = %15
   %21 = load ptr, ptr %20, align 8
   %.not21.i = icmp eq ptr %21, null
-  br i1 %.not21.i, label %rb_vm_lock_leave.exit, label %22
+  br i1 %.not21.i, label %rb_vm_lock_leave.argprom.exit, label %22
 
 22:                                               ; preds = %heap_page_for_ptr.exit.i
   %23 = getelementptr inbounds i8, ptr %21, i64 12
   %24 = load i8, ptr %23, align 4
   %25 = and i8 %24, 8
   %.not22.i = icmp eq i8 %25, 0
-  br i1 %.not22.i, label %26, label %rb_vm_lock_leave.exit
+  br i1 %.not22.i, label %26, label %rb_vm_lock_leave.argprom.exit
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %21, i64 32
   %28 = load i64, ptr %27, align 8
   %29 = icmp ugt i64 %28, %0
-  br i1 %29, label %rb_vm_lock_leave.exit, label %30
+  br i1 %29, label %rb_vm_lock_leave.argprom.exit, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %21, i64 2
@@ -7398,7 +7398,7 @@ heap_page_for_ptr.exit.i:                         ; preds = %15
   %36 = mul nsw i64 %35, %33
   %37 = add i64 %36, %28
   %.not23.i = icmp ugt i64 %37, %0
-  br i1 %.not23.i, label %is_pointer_to_heap.exit, label %rb_vm_lock_leave.exit
+  br i1 %.not23.i, label %is_pointer_to_heap.exit, label %rb_vm_lock_leave.argprom.exit
 
 is_pointer_to_heap.exit:                          ; preds = %30
   %38 = and i64 %0, 65528
@@ -7408,18 +7408,18 @@ is_pointer_to_heap.exit:                          ; preds = %30
   %40 = sub nuw nsw i64 %38, %.zext.i
   %41 = urem i64 %40, %35
   %.not24.i.not = icmp eq i64 %41, 0
-  br i1 %.not24.i.not, label %42, label %rb_vm_lock_leave.exit
+  br i1 %.not24.i.not, label %42, label %rb_vm_lock_leave.argprom.exit
 
 42:                                               ; preds = %is_pointer_to_heap.exit
   %43 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i8 = icmp eq ptr %43, null
-  br i1 %.not.i.i8, label %44, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i8, label %44, label %rb_vm_lock_enter.argprom.exit
 
 44:                                               ; preds = %42
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #39
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %42, %44
+rb_vm_lock_enter.argprom.exit:                    ; preds = %42, %44
   %45 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 512
   %47 = load i64, ptr %46, align 8
@@ -7427,7 +7427,7 @@ rb_vm_lock_enter.exit:                            ; preds = %42, %44
   %49 = icmp eq i64 %48, 4
   br i1 %49, label %57, label %50
 
-50:                                               ; preds = %rb_vm_lock_enter.exit
+50:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %51 = inttoptr i64 %48 to ptr
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, 8192
@@ -7440,7 +7440,7 @@ rb_array_len.exit:                                ; preds = %50
   %56 = icmp sgt i64 %55, 1023
   br i1 %56, label %57, label %rb_array_len.exit.thread
 
-57:                                               ; preds = %rb_array_len.exit, %rb_vm_lock_enter.exit
+57:                                               ; preds = %rb_array_len.exit, %rb_vm_lock_enter.argprom.exit
   %58 = call i64 @rb_ary_hidden_new(i64 noundef 1024) #39
   %59 = call i64 @rb_ary_push(i64 noundef %47, i64 noundef %58) #39
   br label %rb_array_len.exit.thread
@@ -7450,13 +7450,13 @@ rb_array_len.exit.thread:                         ; preds = %50, %57, %rb_array_
   %60 = call i64 @rb_ary_push(i64 noundef %.0, i64 noundef %0) #39
   %61 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i11 = icmp eq ptr %61, null
-  br i1 %.not.i.i11, label %62, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i11, label %62, label %rb_vm_lock_leave.argprom.exit
 
 62:                                               ; preds = %rb_array_len.exit.thread
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #39
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %15, %heap_page_for_ptr.exit.i, %30, %26, %22, %1, %10, %62, %rb_array_len.exit.thread, %is_pointer_to_heap.exit
+rb_vm_lock_leave.argprom.exit:                    ; preds = %15, %heap_page_for_ptr.exit.i, %30, %26, %22, %1, %10, %62, %rb_array_len.exit.thread, %is_pointer_to_heap.exit
   ret void
 }
 
@@ -7495,7 +7495,7 @@ define dso_local noalias noundef nonnull ptr @ruby_xmalloc(i64 noundef %0) local
   br i1 %2, label %3, label %ruby_xmalloc_body.exit
 
 3:                                                ; preds = %1
-  tail call fastcc void @negative_size_allocation_error() #56
+  tail call fastcc void @negative_size_allocation_error.argprom() #56
   unreachable
 
 ruby_xmalloc_body.exit:                           ; preds = %1
@@ -7665,24 +7665,24 @@ define hidden void @rb_gc_prepare_heap() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   %21 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i, label %22, label %rb_vm_lock_enter.exit.i.i
+  br i1 %.not.i.i.i.i, label %22, label %rb_vm_lock_enter.argprom.exit.i.i
 
 22:                                               ; preds = %0
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %1) #39
-  br label %rb_vm_lock_enter.exit.i.i
+  br label %rb_vm_lock_enter.argprom.exit.i.i
 
-rb_vm_lock_enter.exit.i.i:                        ; preds = %22, %0
+rb_vm_lock_enter.argprom.exit.i.i:                ; preds = %22, %0
   call fastcc void @gc_rest(ptr noundef %20)
   %23 = call fastcc i32 @gc_start(ptr noundef %20, i32 noundef 238592)
   %24 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i3.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i3.i.i, label %25, label %garbage_collect.exit.i
 
-25:                                               ; preds = %rb_vm_lock_enter.exit.i.i
+25:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %1) #39
   br label %garbage_collect.exit.i
 
-garbage_collect.exit.i:                           ; preds = %25, %rb_vm_lock_enter.exit.i.i
+garbage_collect.exit.i:                           ; preds = %25, %rb_vm_lock_enter.argprom.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   %26 = getelementptr inbounds i8, ptr %20, i64 1152
   %27 = atomicrmw volatile xchg ptr %26, i32 1 seq_cst, align 4
@@ -7915,24 +7915,24 @@ define internal noundef i64 @gc_start_internal(ptr nocapture readnone %0, i64 %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %19 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i, label %20, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %20, label %rb_vm_lock_enter.argprom.exit.i
 
 20:                                               ; preds = %18
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %7) #39
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %20, %18
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %20, %18
   call fastcc void @gc_rest(ptr noundef %10)
   %21 = call fastcc i32 @gc_start(ptr noundef %10, i32 noundef %.0)
   %22 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i3.i = icmp eq ptr %22, null
   br i1 %.not.i.i3.i, label %23, label %garbage_collect.exit
 
-23:                                               ; preds = %rb_vm_lock_enter.exit.i
+23:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %7) #39
   br label %garbage_collect.exit
 
-garbage_collect.exit:                             ; preds = %rb_vm_lock_enter.exit.i, %23
+garbage_collect.exit:                             ; preds = %rb_vm_lock_enter.argprom.exit.i, %23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %24 = getelementptr inbounds i8, ptr %10, i64 1152
   %25 = atomicrmw volatile xchg ptr %24, i32 1 seq_cst, align 4
@@ -8021,37 +8021,37 @@ gc_update_table_refs.exit:                        ; preds = %1, %5, %9
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @rb_gc_update_values(i64 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #17 {
   %3 = icmp sgt i64 %0, 0
-  br i1 %3, label %.lr.ph.i, label %gc_update_values.exit
+  br i1 %3, label %.lr.ph.i, label %gc_update_values.argprom.exit
 
-.lr.ph.i:                                         ; preds = %2, %gc_object_moved_p.exit.thread.i
-  %.03.i = phi i64 [ %16, %gc_object_moved_p.exit.thread.i ], [ 0, %2 ]
+.lr.ph.i:                                         ; preds = %2, %gc_object_moved_p.argprom.exit.thread.i
+  %.03.i = phi i64 [ %16, %gc_object_moved_p.argprom.exit.thread.i ], [ 0, %2 ]
   %4 = getelementptr i64, ptr %1, i64 %.03.i
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 7
   %7 = icmp ne i64 %6, 0
   %8 = icmp eq i64 %5, 0
   %9 = or i1 %8, %7
-  br i1 %9, label %gc_object_moved_p.exit.thread.i, label %gc_object_moved_p.exit.i
+  br i1 %9, label %gc_object_moved_p.argprom.exit.thread.i, label %gc_object_moved_p.argprom.exit.i
 
-gc_object_moved_p.exit.i:                         ; preds = %.lr.ph.i
+gc_object_moved_p.argprom.exit.i:                 ; preds = %.lr.ph.i
   %10 = inttoptr i64 %5 to ptr
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 31
   %.not.i = icmp eq i64 %12, 30
-  br i1 %.not.i, label %13, label %gc_object_moved_p.exit.thread.i
+  br i1 %.not.i, label %13, label %gc_object_moved_p.argprom.exit.thread.i
 
-13:                                               ; preds = %gc_object_moved_p.exit.i
+13:                                               ; preds = %gc_object_moved_p.argprom.exit.i
   %14 = getelementptr inbounds i8, ptr %10, i64 16
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %4, align 8
-  br label %gc_object_moved_p.exit.thread.i
+  br label %gc_object_moved_p.argprom.exit.thread.i
 
-gc_object_moved_p.exit.thread.i:                  ; preds = %13, %gc_object_moved_p.exit.i, %.lr.ph.i
+gc_object_moved_p.argprom.exit.thread.i:          ; preds = %13, %gc_object_moved_p.argprom.exit.i, %.lr.ph.i
   %16 = add nuw nsw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %16, %0
-  br i1 %exitcond.not.i, label %gc_update_values.exit, label %.lr.ph.i, !llvm.loop !54
+  br i1 %exitcond.not.i, label %gc_update_values.argprom.exit, label %.lr.ph.i, !llvm.loop !54
 
-gc_update_values.exit:                            ; preds = %gc_object_moved_p.exit.thread.i, %2
+gc_update_values.argprom.exit:                    ; preds = %gc_object_moved_p.argprom.exit.thread.i, %2
   ret void
 }
 
@@ -8068,24 +8068,24 @@ define dso_local noundef i64 @rb_gc_start() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   %6 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i, label %7, label %rb_vm_lock_enter.exit.i.i
+  br i1 %.not.i.i.i.i, label %7, label %rb_vm_lock_enter.argprom.exit.i.i
 
 7:                                                ; preds = %3
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %1) #39
-  br label %rb_vm_lock_enter.exit.i.i
+  br label %rb_vm_lock_enter.argprom.exit.i.i
 
-rb_vm_lock_enter.exit.i.i:                        ; preds = %7, %3
+rb_vm_lock_enter.argprom.exit.i.i:                ; preds = %7, %3
   call fastcc void @gc_rest(ptr noundef %5)
   %8 = call fastcc i32 @gc_start(ptr noundef %5, i32 noundef 108544)
   %9 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i3.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i3.i.i, label %10, label %garbage_collect.exit.i
 
-10:                                               ; preds = %rb_vm_lock_enter.exit.i.i
+10:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %1) #39
   br label %garbage_collect.exit.i
 
-garbage_collect.exit.i:                           ; preds = %10, %rb_vm_lock_enter.exit.i.i
+garbage_collect.exit.i:                           ; preds = %10, %rb_vm_lock_enter.argprom.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   br label %rb_gc.exit
 
@@ -8106,24 +8106,24 @@ define dso_local void @rb_gc() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   %6 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i, label %7, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %7, label %rb_vm_lock_enter.argprom.exit.i
 
 7:                                                ; preds = %3
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %1) #39
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %7, %3
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %7, %3
   call fastcc void @gc_rest(ptr noundef %5)
   %8 = call fastcc i32 @gc_start(ptr noundef %5, i32 noundef 108544)
   %9 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i3.i = icmp eq ptr %9, null
   br i1 %.not.i.i3.i, label %10, label %garbage_collect.exit
 
-10:                                               ; preds = %rb_vm_lock_enter.exit.i
+10:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %1) #39
   br label %garbage_collect.exit
 
-garbage_collect.exit:                             ; preds = %rb_vm_lock_enter.exit.i, %10
+garbage_collect.exit:                             ; preds = %rb_vm_lock_enter.argprom.exit.i, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   br label %11
 
@@ -10492,7 +10492,7 @@ gc_sweeping_exit.exit:                            ; preds = %gc_clock_end.exit.i
   %131 = load i32, ptr %130, align 4
   %132 = and i32 %131, 67108864
   %.not.i50 = icmp eq i32 %132, 0
-  br i1 %.not.i50, label %gc_event_hook_body.exit.i, label %133
+  br i1 %.not.i50, label %gc_event_hook_body.argprom.exit.i, label %133
 
 133:                                              ; preds = %gc_sweeping_exit.exit
   %134 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -10500,9 +10500,9 @@ gc_sweeping_exit.exit:                            ; preds = %gc_clock_end.exit.i
   %136 = getelementptr inbounds i8, ptr %135, i64 16
   %137 = load ptr, ptr %136, align 8
   %.not.i.i51 = icmp eq ptr %137, null
-  br i1 %.not.i.i51, label %gc_event_hook_body.exit.i, label %rb_ec_ractor_hooks.exit.i.i
+  br i1 %.not.i.i51, label %gc_event_hook_body.argprom.exit.i, label %rb_ec_ractor_hooks.argprom.exit.i.i
 
-rb_ec_ractor_hooks.exit.i.i:                      ; preds = %133
+rb_ec_ractor_hooks.argprom.exit.i.i:              ; preds = %133
   %138 = getelementptr i8, ptr %135, i64 48
   %.val.i.i = load ptr, ptr %138, align 8, !nonnull !14, !noundef !14
   %139 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
@@ -10511,9 +10511,9 @@ rb_ec_ractor_hooks.exit.i.i:                      ; preds = %133
   %142 = load i32, ptr %141, align 8
   %143 = and i32 %142, 67108864
   %.not9.i.i = icmp eq i32 %143, 0
-  br i1 %.not9.i.i, label %gc_event_hook_body.exit.i, label %144
+  br i1 %.not9.i.i, label %gc_event_hook_body.argprom.exit.i, label %144
 
-144:                                              ; preds = %rb_ec_ractor_hooks.exit.i.i
+144:                                              ; preds = %rb_ec_ractor_hooks.argprom.exit.i.i
   %145 = getelementptr inbounds i8, ptr %140, i64 16
   %146 = getelementptr inbounds i8, ptr %137, i64 24
   %147 = load i64, ptr %146, align 8
@@ -10533,9 +10533,9 @@ rb_ec_ractor_hooks.exit.i.i:                      ; preds = %133
   store i32 0, ptr %153, align 8
   call void @rb_exec_event_hooks(ptr noundef nonnull %2, ptr noundef nonnull %145, i32 noundef 0) #39
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2)
-  br label %gc_event_hook_body.exit.i
+  br label %gc_event_hook_body.argprom.exit.i
 
-gc_event_hook_body.exit.i:                        ; preds = %144, %rb_ec_ractor_hooks.exit.i.i, %133, %gc_sweeping_exit.exit
+gc_event_hook_body.argprom.exit.i:                ; preds = %144, %rb_ec_ractor_hooks.argprom.exit.i.i, %133, %gc_sweeping_exit.exit
   %154 = load i16, ptr %10, align 8
   %155 = and i16 %154, -33
   store i16 %155, ptr %10, align 8
@@ -10543,11 +10543,11 @@ gc_event_hook_body.exit.i:                        ; preds = %144, %rb_ec_ractor_
   %.not.i.i.i = icmp eq ptr %156, null
   br i1 %.not.i.i.i, label %157, label %gc_exit.exit
 
-157:                                              ; preds = %gc_event_hook_body.exit.i
+157:                                              ; preds = %gc_event_hook_body.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %9) #39
   br label %gc_exit.exit
 
-gc_exit.exit:                                     ; preds = %157, %gc_event_hook_body.exit.i, %has_sweeping_pages.exit
+gc_exit.exit:                                     ; preds = %157, %gc_event_hook_body.argprom.exit.i, %has_sweeping_pages.exit
   ret void
 }
 
@@ -10558,7 +10558,7 @@ define hidden void @ruby_gc_set_params() local_unnamed_addr #0 {
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1304
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 40))
+  %6 = tail call fastcc i32 @get_envparam_size.argelim(ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 40))
   call void @llvm.lifetime.start.p0(i64 35, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   tail call fastcc void @gc_rest(ptr noundef %5)
@@ -10573,7 +10573,7 @@ define hidden void @ruby_gc_set_params() local_unnamed_addr #0 {
   %12 = getelementptr [5 x i64], ptr @gc_params, i64 0, i64 %indvars.iv.i
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %2, align 8
-  %14 = call fastcc i32 @get_envparam_size(ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %14 = call fastcc i32 @get_envparam_size.argelim(ptr noundef nonnull %1, ptr noundef nonnull %2)
   %.not.i = icmp eq i32 %14, 0
   %.pre.i = load i64, ptr %2, align 8
   br i1 %.not.i, label %16, label %15
@@ -10612,17 +10612,17 @@ gc_set_initial_pages.exit:                        ; preds = %29
   call fastcc void @heap_pages_expand_sorted(ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 35, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 48), double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
-  %31 = call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 56))
-  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 64), double noundef 0.000000e+00, double noundef 1.000000e+00, i32 noundef 0)
+  call fastcc void @get_envparam_double.argelim(ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 48), double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
+  %31 = call fastcc i32 @get_envparam_size.argelim(ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 56))
+  call fastcc void @get_envparam_double.argelim(ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 64), double noundef 0.000000e+00, double noundef 1.000000e+00, i32 noundef 0)
   %32 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 64), align 8
-  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 80), double noundef %32, double noundef 1.000000e+00, i32 noundef 0)
+  call fastcc void @get_envparam_double.argelim(ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 80), double noundef %32, double noundef 1.000000e+00, i32 noundef 0)
   %33 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 64), align 8
   %34 = load double, ptr getelementptr inbounds (i8, ptr @gc_params, i64 80), align 8
-  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 72), double noundef %33, double noundef %34, i32 noundef 1)
-  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.26, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 96), double noundef 0.000000e+00, double noundef 0.000000e+00, i32 noundef 1)
-  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 88), double noundef 0.000000e+00, double noundef 0.000000e+00, i32 noundef 1)
-  %35 = call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.28, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 104))
+  call fastcc void @get_envparam_double.argelim(ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 72), double noundef %33, double noundef %34, i32 noundef 1)
+  call fastcc void @get_envparam_double.argelim(ptr noundef nonnull @.str.26, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 96), double noundef 0.000000e+00, double noundef 0.000000e+00, i32 noundef 1)
+  call fastcc void @get_envparam_double.argelim(ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 88), double noundef 0.000000e+00, double noundef 0.000000e+00, i32 noundef 1)
+  %35 = call fastcc i32 @get_envparam_size.argelim(ptr noundef nonnull @.str.28, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 104))
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %38, label %36
 
@@ -10632,7 +10632,7 @@ gc_set_initial_pages.exit:                        ; preds = %29
   br label %38
 
 38:                                               ; preds = %36, %gc_set_initial_pages.exit
-  %39 = call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 112))
+  %39 = call fastcc i32 @get_envparam_size.argelim(ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 112))
   %40 = load i64, ptr getelementptr inbounds (i8, ptr @gc_params, i64 112), align 8
   %.not3 = icmp eq i64 %40, 0
   br i1 %.not3, label %41, label %42
@@ -10642,8 +10642,8 @@ gc_set_initial_pages.exit:                        ; preds = %29
   br label %42
 
 42:                                               ; preds = %41, %38
-  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 120), double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
-  %43 = call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 128))
+  call fastcc void @get_envparam_double.argelim(ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 120), double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
+  %43 = call fastcc i32 @get_envparam_size.argelim(ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 128))
   %.not4 = icmp eq i32 %43, 0
   br i1 %.not4, label %47, label %44
 
@@ -10654,13 +10654,13 @@ gc_set_initial_pages.exit:                        ; preds = %29
   br label %47
 
 47:                                               ; preds = %44, %42
-  %48 = call fastcc i32 @get_envparam_size(ptr noundef nonnull @.str.32, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 136))
-  call fastcc void @get_envparam_double(ptr noundef nonnull @.str.33, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 144), double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
+  %48 = call fastcc i32 @get_envparam_size.argelim(ptr noundef nonnull @.str.32, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 136))
+  call fastcc void @get_envparam_double.argelim(ptr noundef nonnull @.str.33, ptr noundef nonnull getelementptr inbounds (i8, ptr @gc_params, i64 144), double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @get_envparam_size(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @get_envparam_size.argelim(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @getenv(ptr noundef %0) #39
   %.not = icmp eq ptr %4, null
@@ -10802,7 +10802,7 @@ thread-pre-split:                                 ; preds = %7, %7, %11, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @get_envparam_double(ptr noundef %0, ptr nocapture noundef %1, double noundef %2, double noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @get_envparam_double.argelim(ptr noundef %0, ptr nocapture noundef %1, double noundef %2, double noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = tail call ptr @getenv(ptr noundef %0) #39
   %.not = icmp eq ptr %7, null
@@ -10909,24 +10909,24 @@ define dso_local void @rb_objspace_reachable_objects_from(i64 noundef %0, ptr no
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %10, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %10, label %rb_vm_lock_enter.argprom.exit
 
 10:                                               ; preds = %3
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #39
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %3, %10
+rb_vm_lock_enter.argprom.exit:                    ; preds = %3, %10
   %11 = getelementptr inbounds i8, ptr %8, i64 16
   %12 = load i16, ptr %11, align 8
   %13 = and i16 %12, 32
   %.not = icmp eq i16 %13, 0
   br i1 %.not, label %15, label %14
 
-14:                                               ; preds = %rb_vm_lock_enter.exit
+14:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.34) #54
   unreachable
 
-15:                                               ; preds = %rb_vm_lock_enter.exit
+15:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %16 = and i64 %0, 7
   %17 = icmp ne i64 %16, 0
   %18 = icmp eq i64 %0, 0
@@ -10963,13 +10963,13 @@ rb_current_ractor.exit:                           ; preds = %19, %20
 29:                                               ; preds = %rb_current_ractor.exit, %15
   %30 = phi ptr [ %.pre, %rb_current_ractor.exit ], [ %.pre14, %15 ]
   %.not.i.i11 = icmp eq ptr %30, null
-  br i1 %.not.i.i11, label %31, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i11, label %31, label %rb_vm_lock_leave.argprom.exit
 
 31:                                               ; preds = %29
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #39
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %29, %31
+rb_vm_lock_leave.argprom.exit:                    ; preds = %29, %31
   ret void
 }
 
@@ -11156,13 +11156,13 @@ mark_cvc_tbl.exit:                                ; preds = %mark_m_tbl.exit, %5
 67:                                               ; preds = %.preheader
   %68 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %68, null
-  br i1 %.not.i.i.i, label %69, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %69, label %rb_vm_lock_enter.argprom.exit.i
 
 69:                                               ; preds = %67
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #39
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %69, %67
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %69, %67
   %70 = load ptr, ptr %56, align 8
   %71 = call i64 @rb_st_table_size(ptr noundef %70) #39
   %72 = trunc i64 %71 to i32
@@ -11170,7 +11170,7 @@ rb_vm_lock_enter.exit.i:                          ; preds = %69, %67
   %.not.i.i5.i = icmp eq ptr %73, null
   br i1 %.not.i.i5.i, label %74, label %RCLASS_IV_COUNT.exit
 
-74:                                               ; preds = %rb_vm_lock_enter.exit.i
+74:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #39
   br label %RCLASS_IV_COUNT.exit
 
@@ -11183,8 +11183,8 @@ rb_vm_lock_enter.exit.i:                          ; preds = %69, %67
   %81 = load i32, ptr %80, align 8
   br label %RCLASS_IV_COUNT.exit
 
-RCLASS_IV_COUNT.exit:                             ; preds = %rb_vm_lock_enter.exit.i, %74, %75
-  %.0.i = phi i32 [ %81, %75 ], [ %72, %rb_vm_lock_enter.exit.i ], [ %72, %74 ]
+RCLASS_IV_COUNT.exit:                             ; preds = %rb_vm_lock_enter.argprom.exit.i, %74, %75
+  %.0.i = phi i32 [ %81, %75 ], [ %72, %rb_vm_lock_enter.argprom.exit.i ], [ %72, %74 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %82 = zext i32 %.0.i to i64
   %83 = icmp ult i64 %indvars.iv300, %82
@@ -11879,7 +11879,7 @@ objspace_reachable_objects_from_root.exit:        ; preds = %12, %14
 
 ; Function Attrs: cold noreturn nounwind sspstrong uwtable
 define dso_local void @rb_memerror() local_unnamed_addr #19 {
-rb_ec_vm_ptr.exit:
+rb_ec_vm_ptr.argprom.exit:
   %0 = alloca %struct.rb_trace_arg_struct, align 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %2 = load ptr, ptr %1, align 8
@@ -11895,29 +11895,29 @@ rb_ec_vm_ptr.exit:
   %.not = icmp eq i16 %10, 0
   br i1 %.not, label %gc_exit.exit, label %11
 
-11:                                               ; preds = %rb_ec_vm_ptr.exit
+11:                                               ; preds = %rb_ec_vm_ptr.argprom.exit
   %12 = getelementptr inbounds i8, ptr %7, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 67108864
   %.not.i14 = icmp eq i32 %14, 0
-  br i1 %.not.i14, label %gc_event_hook_body.exit.i, label %15
+  br i1 %.not.i14, label %gc_event_hook_body.argprom.exit.i, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %2, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %gc_event_hook_body.exit.i, label %rb_ec_ractor_hooks.exit.i.i
+  br i1 %.not.i.i, label %gc_event_hook_body.argprom.exit.i, label %rb_ec_ractor_hooks.argprom.exit.i.i
 
-rb_ec_ractor_hooks.exit.i.i:                      ; preds = %15
+rb_ec_ractor_hooks.argprom.exit.i.i:              ; preds = %15
   %18 = getelementptr inbounds i8, ptr %.val, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 67108864
   %.not9.i.i = icmp eq i32 %22, 0
-  br i1 %.not9.i.i, label %gc_event_hook_body.exit.i, label %23
+  br i1 %.not9.i.i, label %gc_event_hook_body.argprom.exit.i, label %23
 
-23:                                               ; preds = %rb_ec_ractor_hooks.exit.i.i
+23:                                               ; preds = %rb_ec_ractor_hooks.argprom.exit.i.i
   %24 = getelementptr inbounds i8, ptr %19, i64 16
   %25 = getelementptr inbounds i8, ptr %17, i64 24
   %26 = load i64, ptr %25, align 8
@@ -11938,21 +11938,21 @@ rb_ec_ractor_hooks.exit.i.i:                      ; preds = %15
   call void @rb_exec_event_hooks(ptr noundef nonnull %0, ptr noundef nonnull %24, i32 noundef 0) #39
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %0)
   %.pre = load i16, ptr %8, align 8
-  br label %gc_event_hook_body.exit.i
+  br label %gc_event_hook_body.argprom.exit.i
 
-gc_event_hook_body.exit.i:                        ; preds = %23, %rb_ec_ractor_hooks.exit.i.i, %15, %11
-  %33 = phi i16 [ %.pre, %23 ], [ %9, %rb_ec_ractor_hooks.exit.i.i ], [ %9, %15 ], [ %9, %11 ]
+gc_event_hook_body.argprom.exit.i:                ; preds = %23, %rb_ec_ractor_hooks.argprom.exit.i.i, %15, %11
+  %33 = phi i16 [ %.pre, %23 ], [ %9, %rb_ec_ractor_hooks.argprom.exit.i.i ], [ %9, %15 ], [ %9, %11 ]
   %34 = and i16 %33, -33
   store i16 %34, ptr %8, align 8
   %35 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i, label %36, label %gc_exit.exit
 
-36:                                               ; preds = %gc_event_hook_body.exit.i
+36:                                               ; preds = %gc_event_hook_body.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef null) #39
   br label %gc_exit.exit
 
-gc_exit.exit:                                     ; preds = %36, %gc_event_hook_body.exit.i, %rb_ec_vm_ptr.exit
+gc_exit.exit:                                     ; preds = %36, %gc_event_hook_body.argprom.exit.i, %rb_ec_vm_ptr.argprom.exit
   %37 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %38 = getelementptr i8, ptr %37, i64 528
   %39 = load i64, ptr %38, align 8
@@ -12020,7 +12020,7 @@ define hidden noundef nonnull ptr @ruby_xmalloc_body(i64 noundef %0) local_unnam
   br i1 %2, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call fastcc void @negative_size_allocation_error() #56
+  tail call fastcc void @negative_size_allocation_error.argprom() #56
   unreachable
 
 4:                                                ; preds = %1
@@ -12032,7 +12032,7 @@ define hidden noundef nonnull ptr @ruby_xmalloc_body(i64 noundef %0) local_unnam
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @negative_size_allocation_error() unnamed_addr #23 {
+define internal fastcc void @negative_size_allocation_error.argprom() unnamed_addr #23 {
   %1 = load i64, ptr @rb_eNoMemError, align 8
   tail call void (i64, ptr, ...) @gc_raise(i64 noundef %1, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.36) #56
   unreachable
@@ -12085,23 +12085,23 @@ define internal fastcc noundef nonnull ptr @objspace_xmalloc0(ptr noundef %0, i6
   %5 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %5, null
   %or.cond1.i.i = select i1 %or.cond.i.i, i1 true, i1 %.not.i.i.i
-  br i1 %or.cond1.i.i, label %check_malloc_not_in_gc.exit, label %malloc_during_gc_p.exit.i
+  br i1 %or.cond1.i.i, label %check_malloc_not_in_gc.exit, label %malloc_during_gc_p.argprom.exit.i
 
-malloc_during_gc_p.exit.i:                        ; preds = %2
+malloc_during_gc_p.argprom.exit.i:                ; preds = %2
   %6 = tail call i32 @ruby_thread_has_gvl_p() #39
   %.not.i = icmp eq i32 %6, 0
   %.pre = load i16, ptr %3, align 8
   br i1 %.not.i, label %check_malloc_not_in_gc.exit, label %7
 
-7:                                                ; preds = %malloc_during_gc_p.exit.i
+7:                                                ; preds = %malloc_during_gc_p.argprom.exit.i
   %8 = and i16 %.pre, -41
   %9 = or disjoint i16 %8, 8
   store i16 %9, ptr %3, align 8
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.289, ptr noundef nonnull @.str.235) #54
   unreachable
 
-check_malloc_not_in_gc.exit:                      ; preds = %2, %malloc_during_gc_p.exit.i
-  %10 = phi i16 [ %.val.i, %2 ], [ %.pre, %malloc_during_gc_p.exit.i ]
+check_malloc_not_in_gc.exit:                      ; preds = %2, %malloc_during_gc_p.argprom.exit.i
+  %10 = phi i16 [ %.val.i, %2 ], [ %.pre, %malloc_during_gc_p.argprom.exit.i ]
   %spec.store.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %1, i64 1)
   %11 = and i16 %10, 256
   %.not.i13 = icmp eq i16 %11, 0
@@ -12147,7 +12147,7 @@ objspace_malloc_gc_stress.exit:                   ; preds = %check_malloc_not_in
 26:                                               ; preds = %objspace_malloc_gc_stress.exit, %23
   %.0 = phi ptr [ %19, %objspace_malloc_gc_stress.exit ], [ %24, %23 ]
   %27 = tail call i64 @malloc_usable_size(ptr noundef nonnull %.0) #39
-  tail call fastcc void @objspace_malloc_increase_body(ptr noundef nonnull %0, i64 noundef %27, i64 noundef 0, i32 noundef 0)
+  tail call fastcc void @objspace_malloc_increase_body.argprom.argelim(ptr noundef nonnull %0, i64 noundef %27, i64 noundef 0, i32 noundef 0)
   ret ptr %.0
 }
 
@@ -12185,25 +12185,25 @@ xmalloc2_size.exit:                               ; preds = %2
   %16 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i2 = icmp eq ptr %16, null
   %or.cond1.i.i = select i1 %or.cond.i.i, i1 true, i1 %.not.i.i.i2
-  br i1 %or.cond1.i.i, label %malloc_during_gc_p.exit.thread.i, label %malloc_during_gc_p.exit.i
+  br i1 %or.cond1.i.i, label %malloc_during_gc_p.argprom.exit.thread.i, label %malloc_during_gc_p.argprom.exit.i
 
-malloc_during_gc_p.exit.i:                        ; preds = %xmalloc2_size.exit
+malloc_during_gc_p.argprom.exit.i:                ; preds = %xmalloc2_size.exit
   %17 = tail call i32 @ruby_thread_has_gvl_p() #39
   %.not13.i = icmp eq i32 %17, 0
-  br i1 %.not13.i, label %malloc_during_gc_p.exit.thread.i, label %18
+  br i1 %.not13.i, label %malloc_during_gc_p.argprom.exit.thread.i, label %18
 
-18:                                               ; preds = %malloc_during_gc_p.exit.i
+18:                                               ; preds = %malloc_during_gc_p.argprom.exit.i
   tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.290) #58
-  br label %malloc_during_gc_p.exit.thread.i
+  br label %malloc_during_gc_p.argprom.exit.thread.i
 
-malloc_during_gc_p.exit.thread.i:                 ; preds = %18, %malloc_during_gc_p.exit.i, %xmalloc2_size.exit
+malloc_during_gc_p.argprom.exit.thread.i:         ; preds = %18, %malloc_during_gc_p.argprom.exit.i, %xmalloc2_size.exit
   %spec.store.select.i.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %13, i64 1)
   %19 = load i16, ptr %14, align 8
   %20 = and i16 %19, 256
   %.not.i.i3 = icmp eq i16 %20, 0
   br i1 %.not.i.i3, label %objspace_malloc_gc_stress.exit.i, label %21
 
-21:                                               ; preds = %malloc_during_gc_p.exit.thread.i
+21:                                               ; preds = %malloc_during_gc_p.argprom.exit.thread.i
   %22 = tail call i32 @ruby_native_thread_p() #39
   %.not5.i.i = icmp eq i32 %22, 0
   br i1 %.not5.i.i, label %objspace_malloc_gc_stress.exit.i, label %23
@@ -12217,7 +12217,7 @@ malloc_during_gc_p.exit.thread.i:                 ; preds = %18, %malloc_during_
   %27 = tail call fastcc i32 @garbage_collect_with_gvl(ptr noundef nonnull %5, i32 noundef %.0.i.i)
   br label %objspace_malloc_gc_stress.exit.i
 
-objspace_malloc_gc_stress.exit.i:                 ; preds = %23, %21, %malloc_during_gc_p.exit.thread.i
+objspace_malloc_gc_stress.exit.i:                 ; preds = %23, %21, %malloc_during_gc_p.argprom.exit.thread.i
   %28 = tail call noalias noundef ptr @calloc(i64 noundef 1, i64 noundef %spec.store.select.i.i) #57
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %29, label %objspace_xcalloc.exit
@@ -12243,7 +12243,7 @@ objspace_malloc_gc_stress.exit.i:                 ; preds = %23, %21, %malloc_du
 objspace_xcalloc.exit:                            ; preds = %objspace_malloc_gc_stress.exit.i, %32
   %.0.i = phi ptr [ %28, %objspace_malloc_gc_stress.exit.i ], [ %33, %32 ]
   %35 = tail call i64 @malloc_usable_size(ptr noundef nonnull %.0.i) #39
-  tail call fastcc void @objspace_malloc_increase_body(ptr noundef nonnull %5, i64 noundef %35, i64 noundef 0, i32 noundef 0)
+  tail call fastcc void @objspace_malloc_increase_body.argprom.argelim(ptr noundef nonnull %5, i64 noundef %35, i64 noundef 0, i32 noundef 0)
   ret ptr %.0.i
 }
 
@@ -12253,19 +12253,19 @@ define dso_local noundef nonnull ptr @ruby_sized_xrealloc(ptr noundef %0, i64 no
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @negative_size_allocation_error() #56
+  tail call fastcc void @negative_size_allocation_error.argprom() #56
   unreachable
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 1304
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call fastcc ptr @objspace_xrealloc(ptr noundef %9, ptr noundef %0, i64 noundef %1)
+  %10 = tail call fastcc ptr @objspace_xrealloc.argelim(ptr noundef %9, ptr noundef %0, i64 noundef %1)
   ret ptr %10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef nonnull ptr @objspace_xrealloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @objspace_xrealloc.argelim(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 16
   %.val.i = load i16, ptr %4, align 8
   %5 = and i16 %.val.i, 40
@@ -12273,14 +12273,14 @@ define internal fastcc noundef nonnull ptr @objspace_xrealloc(ptr noundef %0, pt
   %6 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %6, null
   %or.cond1.i.i = select i1 %or.cond.i.i, i1 true, i1 %.not.i.i.i
-  br i1 %or.cond1.i.i, label %check_malloc_not_in_gc.exit, label %malloc_during_gc_p.exit.i
+  br i1 %or.cond1.i.i, label %check_malloc_not_in_gc.exit, label %malloc_during_gc_p.argprom.exit.i
 
-malloc_during_gc_p.exit.i:                        ; preds = %3
+malloc_during_gc_p.argprom.exit.i:                ; preds = %3
   %7 = tail call i32 @ruby_thread_has_gvl_p() #39
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %check_malloc_not_in_gc.exit, label %8
 
-8:                                                ; preds = %malloc_during_gc_p.exit.i
+8:                                                ; preds = %malloc_during_gc_p.argprom.exit.i
   %9 = load i16, ptr %4, align 8
   %10 = and i16 %9, -41
   %11 = or disjoint i16 %10, 8
@@ -12288,7 +12288,7 @@ malloc_during_gc_p.exit.i:                        ; preds = %3
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.289, ptr noundef nonnull @.str.291) #54
   unreachable
 
-check_malloc_not_in_gc.exit:                      ; preds = %3, %malloc_during_gc_p.exit.i
+check_malloc_not_in_gc.exit:                      ; preds = %3, %malloc_during_gc_p.argprom.exit.i
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %14
 
@@ -12423,14 +12423,14 @@ define hidden noundef nonnull ptr @ruby_xrealloc_body(ptr noundef %0, i64 nounde
   br i1 %3, label %4, label %ruby_sized_xrealloc.exit
 
 4:                                                ; preds = %2
-  tail call fastcc void @negative_size_allocation_error() #56
+  tail call fastcc void @negative_size_allocation_error.argprom() #56
   unreachable
 
 ruby_sized_xrealloc.exit:                         ; preds = %2
   %5 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1304
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call fastcc noundef nonnull ptr @objspace_xrealloc(ptr noundef %7, ptr noundef %0, i64 noundef %1)
+  %8 = tail call fastcc noundef nonnull ptr @objspace_xrealloc.argelim(ptr noundef %7, ptr noundef %0, i64 noundef %1)
   ret ptr %8
 }
 
@@ -12468,7 +12468,7 @@ xmalloc2_size.exit:                               ; preds = %4
   %17 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 1304
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call fastcc ptr @objspace_xrealloc(ptr noundef %19, ptr noundef %0, i64 noundef %16)
+  %20 = tail call fastcc ptr @objspace_xrealloc.argelim(ptr noundef %19, ptr noundef %0, i64 noundef %16)
   ret ptr %20
 }
 
@@ -12506,7 +12506,7 @@ ruby_sized_xrealloc2.exit:                        ; preds = %3
   %16 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 1304
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call fastcc noundef nonnull ptr @objspace_xrealloc(ptr noundef %18, ptr noundef %0, i64 noundef %15)
+  %19 = tail call fastcc noundef nonnull ptr @objspace_xrealloc.argelim(ptr noundef %18, ptr noundef %0, i64 noundef %15)
   ret ptr %19
 }
 
@@ -12601,7 +12601,7 @@ size_mul_add_or_raise.exit:                       ; preds = %3
   br i1 %19, label %20, label %ruby_xmalloc.exit
 
 20:                                               ; preds = %size_mul_add_or_raise.exit
-  tail call fastcc void @negative_size_allocation_error() #56
+  tail call fastcc void @negative_size_allocation_error.argprom() #56
   unreachable
 
 ruby_xmalloc.exit:                                ; preds = %size_mul_add_or_raise.exit
@@ -12690,14 +12690,14 @@ size_mul_add_or_raise.exit:                       ; preds = %4
   br i1 %20, label %21, label %ruby_xrealloc.exit
 
 21:                                               ; preds = %size_mul_add_or_raise.exit
-  tail call fastcc void @negative_size_allocation_error() #56
+  tail call fastcc void @negative_size_allocation_error.argprom() #56
   unreachable
 
 ruby_xrealloc.exit:                               ; preds = %size_mul_add_or_raise.exit
   %22 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 1304
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call fastcc noundef nonnull ptr @objspace_xrealloc(ptr noundef %24, ptr noundef %0, i64 noundef %19)
+  %25 = tail call fastcc noundef nonnull ptr @objspace_xrealloc.argelim(ptr noundef %24, ptr noundef %0, i64 noundef %19)
   ret ptr %25
 }
 
@@ -12707,14 +12707,14 @@ define dso_local noundef nonnull ptr @ruby_xrealloc(ptr noundef %0, i64 noundef 
   br i1 %3, label %4, label %ruby_xrealloc_body.exit
 
 4:                                                ; preds = %2
-  tail call fastcc void @negative_size_allocation_error() #56
+  tail call fastcc void @negative_size_allocation_error.argprom() #56
   unreachable
 
 ruby_xrealloc_body.exit:                          ; preds = %2
   %5 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1304
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call fastcc noundef nonnull ptr @objspace_xrealloc(ptr noundef %7, ptr noundef %0, i64 noundef %1)
+  %8 = tail call fastcc noundef nonnull ptr @objspace_xrealloc.argelim(ptr noundef %7, ptr noundef %0, i64 noundef %1)
   ret ptr %8
 }
 
@@ -12761,7 +12761,7 @@ size_mul_add_mul_or_raise.exit:                   ; preds = %4
   br i1 %23, label %24, label %ruby_xmalloc.exit
 
 24:                                               ; preds = %size_mul_add_mul_or_raise.exit
-  tail call fastcc void @negative_size_allocation_error() #56
+  tail call fastcc void @negative_size_allocation_error.argprom() #56
   unreachable
 
 ruby_xmalloc.exit:                                ; preds = %size_mul_add_mul_or_raise.exit
@@ -12828,24 +12828,24 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #28
 define dso_local void @rb_gc_adjust_memory_usage(i64 noundef %0) local_unnamed_addr #29 {
   %2 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %objspace_malloc_increase_body.exit18, label %3
+  br i1 %.not, label %objspace_malloc_increase_body.argprom.exit18, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %2, i64 1304
   %5 = load ptr, ptr %4, align 8
   %6 = icmp sgt i64 %0, 0
-  br i1 %6, label %objspace_malloc_increase_body.exit, label %11
+  br i1 %6, label %objspace_malloc_increase_body.argprom.exit, label %11
 
-objspace_malloc_increase_body.exit:               ; preds = %3
+objspace_malloc_increase_body.argprom.exit:       ; preds = %3
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = atomicrmw volatile add ptr %7, i64 %0 seq_cst, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 1536
   %10 = atomicrmw volatile add ptr %9, i64 %0 seq_cst, align 8
-  br label %objspace_malloc_increase_body.exit18
+  br label %objspace_malloc_increase_body.argprom.exit18
 
 11:                                               ; preds = %3
   %12 = icmp slt i64 %0, 0
-  br i1 %12, label %.critedge17, label %objspace_malloc_increase_body.exit18
+  br i1 %12, label %.critedge17, label %objspace_malloc_increase_body.argprom.exit18
 
 .critedge17:                                      ; preds = %11
   %13 = sub i64 0, %0
@@ -12872,14 +12872,14 @@ atomic_sub_nounderflow.exit.i:                    ; preds = %.preheader.i.i
   %21 = sub i64 %20, %spec.select.i26.i
   %22 = cmpxchg volatile ptr %19, i64 %20, i64 %21 seq_cst seq_cst, align 8
   %23 = extractvalue { i64, i1 } %22, 1
-  br i1 %23, label %objspace_malloc_increase_body.exit18, label %.preheader.i24.i
+  br i1 %23, label %objspace_malloc_increase_body.argprom.exit18, label %.preheader.i24.i
 
-objspace_malloc_increase_body.exit18:             ; preds = %.preheader.i24.i, %objspace_malloc_increase_body.exit, %11, %1
+objspace_malloc_increase_body.argprom.exit18:     ; preds = %.preheader.i24.i, %objspace_malloc_increase_body.argprom.exit, %11, %1
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @objspace_malloc_increase_body(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 {
+define internal fastcc void @objspace_malloc_increase_body.argprom.argelim(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 {
   %5 = icmp ugt i64 %1, %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %5, label %7, label %12
@@ -14302,24 +14302,24 @@ define internal i64 @gc_verify_compaction_references(ptr nocapture readnone %0, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %17 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i.i, label %18, label %rb_vm_lock_enter.exit.i.i
+  br i1 %.not.i.i.i.i, label %18, label %rb_vm_lock_enter.argprom.exit.i.i
 
 18:                                               ; preds = %5
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %11) #39
-  br label %rb_vm_lock_enter.exit.i.i
+  br label %rb_vm_lock_enter.argprom.exit.i.i
 
-rb_vm_lock_enter.exit.i.i:                        ; preds = %18, %5
+rb_vm_lock_enter.argprom.exit.i.i:                ; preds = %18, %5
   call fastcc void @gc_rest(ptr noundef %16)
   %19 = call fastcc i32 @gc_start(ptr noundef %16, i32 noundef 107520)
   %20 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i3.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i3.i.i, label %21, label %garbage_collect.exit.i
 
-21:                                               ; preds = %rb_vm_lock_enter.exit.i.i
+21:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %11) #39
   br label %garbage_collect.exit.i
 
-garbage_collect.exit.i:                           ; preds = %21, %rb_vm_lock_enter.exit.i.i
+garbage_collect.exit.i:                           ; preds = %21, %rb_vm_lock_enter.argprom.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %22 = getelementptr inbounds i8, ptr %16, i64 1152
   %23 = atomicrmw volatile xchg ptr %22, i32 1 seq_cst, align 4
@@ -14352,19 +14352,19 @@ gc_start_internal.exit:                           ; preds = %garbage_collect.exi
 34:                                               ; preds = %33, %gc_start_internal.exit
   %35 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i52 = icmp eq ptr %35, null
-  br i1 %.not.i.i52, label %36, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i52, label %36, label %rb_vm_lock_enter.argprom.exit
 
 36:                                               ; preds = %34
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %12) #39
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %34, %36
+rb_vm_lock_enter.argprom.exit:                    ; preds = %34, %36
   call fastcc void @gc_rest(ptr noundef %16)
   %37 = and i64 %3, -5
   %.not69 = icmp eq i64 %37, 0
   br i1 %.not69, label %76, label %38
 
-38:                                               ; preds = %rb_vm_lock_enter.exit
+38:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, i8 0, i64 40, i1 false)
   store ptr %16, ptr %13, align 8
@@ -14445,7 +14445,7 @@ heap_add_pages.exit:                              ; preds = %.lr.ph.i, %58
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, 5
   br i1 %exitcond82.not, label %.loopexit, label %58, !llvm.loop !87
 
-76:                                               ; preds = %rb_vm_lock_enter.exit
+76:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %76
@@ -14489,16 +14489,16 @@ heap_add_pages.exit58:                            ; preds = %.lr.ph.i55, %78
 88:                                               ; preds = %86, %.loopexit
   %89 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i59 = icmp eq ptr %89, null
-  br i1 %.not.i.i59, label %rb_vm_lock_leave.exit, label %rb_vm_lock_leave.exit.thread
+  br i1 %.not.i.i59, label %rb_vm_lock_leave.argprom.exit, label %rb_vm_lock_leave.argprom.exit.thread
 
-rb_vm_lock_leave.exit.thread:                     ; preds = %88
+rb_vm_lock_leave.argprom.exit.thread:             ; preds = %88
   %90 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 1304
   %92 = load ptr, ptr %91, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  br label %rb_vm_lock_enter.exit.i.i61
+  br label %rb_vm_lock_enter.argprom.exit.i.i61
 
-rb_vm_lock_leave.exit:                            ; preds = %88
+rb_vm_lock_leave.argprom.exit:                    ; preds = %88
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %12) #39
   %.pr = load ptr, ptr @ruby_single_main_ractor, align 8
   %93 = load ptr, ptr @ruby_current_vm_ptr, align 8
@@ -14506,25 +14506,25 @@ rb_vm_lock_leave.exit:                            ; preds = %88
   %95 = load ptr, ptr %94, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %.not.i.i.i.i60 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i.i.i60, label %96, label %rb_vm_lock_enter.exit.i.i61
+  br i1 %.not.i.i.i.i60, label %96, label %rb_vm_lock_enter.argprom.exit.i.i61
 
-96:                                               ; preds = %rb_vm_lock_leave.exit
+96:                                               ; preds = %rb_vm_lock_leave.argprom.exit
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %9) #39
-  br label %rb_vm_lock_enter.exit.i.i61
+  br label %rb_vm_lock_enter.argprom.exit.i.i61
 
-rb_vm_lock_enter.exit.i.i61:                      ; preds = %rb_vm_lock_leave.exit.thread, %96, %rb_vm_lock_leave.exit
-  %97 = phi ptr [ %92, %rb_vm_lock_leave.exit.thread ], [ %95, %96 ], [ %95, %rb_vm_lock_leave.exit ]
+rb_vm_lock_enter.argprom.exit.i.i61:              ; preds = %rb_vm_lock_leave.argprom.exit.thread, %96, %rb_vm_lock_leave.argprom.exit
+  %97 = phi ptr [ %92, %rb_vm_lock_leave.argprom.exit.thread ], [ %95, %96 ], [ %95, %rb_vm_lock_leave.argprom.exit ]
   call fastcc void @gc_rest(ptr noundef %97)
   %98 = call fastcc i32 @gc_start(ptr noundef %97, i32 noundef 238592)
   %99 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i3.i.i62 = icmp eq ptr %99, null
   br i1 %.not.i.i3.i.i62, label %100, label %garbage_collect.exit.i63
 
-100:                                              ; preds = %rb_vm_lock_enter.exit.i.i61
+100:                                              ; preds = %rb_vm_lock_enter.argprom.exit.i.i61
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %9) #39
   br label %garbage_collect.exit.i63
 
-garbage_collect.exit.i63:                         ; preds = %100, %rb_vm_lock_enter.exit.i.i61
+garbage_collect.exit.i63:                         ; preds = %100, %rb_vm_lock_enter.argprom.exit.i.i61
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %101 = getelementptr inbounds i8, ptr %97, i64 1152
   %102 = atomicrmw volatile xchg ptr %101, i32 1 seq_cst, align 4
@@ -15945,24 +15945,24 @@ define internal i64 @gc_compact(i64 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %6 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i, label %7, label %rb_vm_lock_enter.exit.i.i
+  br i1 %.not.i.i.i.i, label %7, label %rb_vm_lock_enter.argprom.exit.i.i
 
 7:                                                ; preds = %1
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #39
-  br label %rb_vm_lock_enter.exit.i.i
+  br label %rb_vm_lock_enter.argprom.exit.i.i
 
-rb_vm_lock_enter.exit.i.i:                        ; preds = %7, %1
+rb_vm_lock_enter.argprom.exit.i.i:                ; preds = %7, %1
   call fastcc void @gc_rest(ptr noundef %5)
   %8 = call fastcc i32 @gc_start(ptr noundef %5, i32 noundef 238592)
   %9 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i3.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i3.i.i, label %10, label %garbage_collect.exit.i
 
-10:                                               ; preds = %rb_vm_lock_enter.exit.i.i
+10:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #39
   br label %garbage_collect.exit.i
 
-garbage_collect.exit.i:                           ; preds = %10, %rb_vm_lock_enter.exit.i.i
+garbage_collect.exit.i:                           ; preds = %10, %rb_vm_lock_enter.argprom.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %11 = getelementptr inbounds i8, ptr %5, i64 1152
   %12 = atomicrmw volatile xchg ptr %11, i32 1 seq_cst, align 4
@@ -16260,7 +16260,7 @@ ruby_xrealloc2_body.exit:                         ; preds = %3
   %16 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 1304
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call fastcc noundef nonnull ptr @objspace_xrealloc(ptr noundef %18, ptr noundef %0, i64 noundef %15)
+  %19 = tail call fastcc noundef nonnull ptr @objspace_xrealloc.argelim(ptr noundef %18, ptr noundef %0, i64 noundef %15)
   ret ptr %19
 }
 
@@ -16382,28 +16382,28 @@ define internal fastcc i64 @newobj_alloc(ptr noundef %0, ptr nocapture noundef %
   %16 = icmp ugt i64 %15, 499
   %cond.i = icmp eq ptr %12, null
   %or.cond.i = select i1 %16, i1 true, i1 %cond.i
-  br i1 %or.cond.i, label %ractor_cache_allocate_slot.exit.thread, label %.thread.i
+  br i1 %or.cond.i, label %ractor_cache_allocate_slot.argprom.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %14
   %17 = add nuw nsw i64 %15, 1
   store i64 %17, ptr %1, align 8
-  br label %ractor_cache_allocate_slot.exit
+  br label %ractor_cache_allocate_slot.argprom.exit
 
 18:                                               ; preds = %4
   %.not18.i = icmp eq ptr %12, null
-  br i1 %.not18.i, label %ractor_cache_allocate_slot.exit.thread, label %ractor_cache_allocate_slot.exit
+  br i1 %.not18.i, label %ractor_cache_allocate_slot.argprom.exit.thread, label %ractor_cache_allocate_slot.argprom.exit
 
-ractor_cache_allocate_slot.exit:                  ; preds = %.thread.i, %18
+ractor_cache_allocate_slot.argprom.exit:          ; preds = %.thread.i, %18
   %19 = ptrtoint ptr %12 to i64
   %20 = getelementptr inbounds i8, ptr %12, i64 8
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %11, align 8
   br label %91
 
-ractor_cache_allocate_slot.exit.thread:           ; preds = %18, %14
+ractor_cache_allocate_slot.argprom.exit.thread:   ; preds = %18, %14
   br i1 %3, label %31, label %22
 
-22:                                               ; preds = %ractor_cache_allocate_slot.exit.thread
+22:                                               ; preds = %ractor_cache_allocate_slot.argprom.exit.thread
   %23 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %24, label %rb_current_ractor.exit
@@ -16426,11 +16426,11 @@ rb_current_ractor.exit:                           ; preds = %22, %24, %28
   call void @rb_vm_lock_enter_body_cr(ptr noundef %.0.i.i, ptr noundef nonnull %5) #39
   br label %31
 
-31:                                               ; preds = %rb_current_ractor.exit, %ractor_cache_allocate_slot.exit.thread
+31:                                               ; preds = %rb_current_ractor.exit, %ractor_cache_allocate_slot.argprom.exit.thread
   %32 = load i16, ptr %9, align 8
   %33 = and i16 %32, 2048
   %.not = icmp eq i16 %33, 0
-  br i1 %.not, label %ractor_cache_allocate_slot.exit39.thread, label %34
+  br i1 %.not, label %ractor_cache_allocate_slot.argprom.exit39.thread, label %34
 
 34:                                               ; preds = %31
   call fastcc void @gc_continue(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull %8)
@@ -16443,17 +16443,17 @@ rb_current_ractor.exit:                           ; preds = %22, %24, %28
   br i1 %.not.i33, label %38, label %37
 
 37:                                               ; preds = %34
-  br i1 %.not18.i38, label %ractor_cache_allocate_slot.exit39.thread, label %ractor_cache_allocate_slot.exit48.sink.split.sink.split
+  br i1 %.not18.i38, label %ractor_cache_allocate_slot.argprom.exit39.thread, label %ractor_cache_allocate_slot.argprom.exit48.sink.split.sink.split
 
 38:                                               ; preds = %34
-  br i1 %.not18.i38, label %ractor_cache_allocate_slot.exit39.thread, label %ractor_cache_allocate_slot.exit48.sink.split
+  br i1 %.not18.i38, label %ractor_cache_allocate_slot.argprom.exit39.thread, label %ractor_cache_allocate_slot.argprom.exit48.sink.split
 
-ractor_cache_allocate_slot.exit39.thread:         ; preds = %38, %37, %31
+ractor_cache_allocate_slot.argprom.exit39.thread: ; preds = %38, %37, %31
   %39 = load ptr, ptr %8, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %heap_next_free_page.exit
 
-41:                                               ; preds = %ractor_cache_allocate_slot.exit39.thread
+41:                                               ; preds = %ractor_cache_allocate_slot.argprom.exit39.thread
   call fastcc void @gc_continue(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull %8)
   %42 = load ptr, ptr %8, align 8
   %43 = icmp eq ptr %42, null
@@ -16530,8 +16530,8 @@ heap_increment.exit.thread.i.i:                   ; preds = %47, %44
   %.pre.i = load ptr, ptr %8, align 8
   br label %heap_next_free_page.exit
 
-heap_next_free_page.exit:                         ; preds = %ractor_cache_allocate_slot.exit39.thread, %41, %53, %67, %.sink.split.i.i
-  %73 = phi ptr [ %.pre.i, %.sink.split.i.i ], [ %68, %67 ], [ %54, %53 ], [ %42, %41 ], [ %39, %ractor_cache_allocate_slot.exit39.thread ]
+heap_next_free_page.exit:                         ; preds = %ractor_cache_allocate_slot.argprom.exit39.thread, %41, %53, %67, %.sink.split.i.i
+  %73 = phi ptr [ %.pre.i, %.sink.split.i.i ], [ %68, %67 ], [ %54, %53 ], [ %42, %41 ], [ %39, %ractor_cache_allocate_slot.argprom.exit39.thread ]
   %74 = getelementptr inbounds i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
   store ptr %75, ptr %8, align 8
@@ -16554,40 +16554,40 @@ heap_next_free_page.exit:                         ; preds = %ractor_cache_alloca
   %84 = icmp ugt i64 %83, 499
   %cond.i43 = icmp eq ptr %80, null
   %or.cond.i44 = select i1 %84, i1 true, i1 %cond.i43
-  br i1 %or.cond.i44, label %ractor_cache_allocate_slot.exit48, label %.thread.i45
+  br i1 %or.cond.i44, label %ractor_cache_allocate_slot.argprom.exit48, label %.thread.i45
 
 .thread.i45:                                      ; preds = %82
   %85 = add nuw nsw i64 %83, 1
-  br label %ractor_cache_allocate_slot.exit48.sink.split.sink.split
+  br label %ractor_cache_allocate_slot.argprom.exit48.sink.split.sink.split
 
 86:                                               ; preds = %heap_next_free_page.exit
   %.not18.i47 = icmp eq ptr %80, null
-  br i1 %.not18.i47, label %ractor_cache_allocate_slot.exit48, label %ractor_cache_allocate_slot.exit48.sink.split
+  br i1 %.not18.i47, label %ractor_cache_allocate_slot.argprom.exit48, label %ractor_cache_allocate_slot.argprom.exit48.sink.split
 
-ractor_cache_allocate_slot.exit48.sink.split.sink.split: ; preds = %37, %.thread.i45
+ractor_cache_allocate_slot.argprom.exit48.sink.split.sink.split: ; preds = %37, %.thread.i45
   %.sink = phi i64 [ %85, %.thread.i45 ], [ 1, %37 ]
   %.sink52.ph = phi ptr [ %80, %.thread.i45 ], [ %35, %37 ]
   store i64 %.sink, ptr %1, align 8
-  br label %ractor_cache_allocate_slot.exit48.sink.split
+  br label %ractor_cache_allocate_slot.argprom.exit48.sink.split
 
-ractor_cache_allocate_slot.exit48.sink.split:     ; preds = %ractor_cache_allocate_slot.exit48.sink.split.sink.split, %86, %38
-  %.sink52 = phi ptr [ %35, %38 ], [ %80, %86 ], [ %.sink52.ph, %ractor_cache_allocate_slot.exit48.sink.split.sink.split ]
+ractor_cache_allocate_slot.argprom.exit48.sink.split: ; preds = %ractor_cache_allocate_slot.argprom.exit48.sink.split.sink.split, %86, %38
+  %.sink52 = phi ptr [ %35, %38 ], [ %80, %86 ], [ %.sink52.ph, %ractor_cache_allocate_slot.argprom.exit48.sink.split.sink.split ]
   %87 = ptrtoint ptr %.sink52 to i64
   %88 = getelementptr inbounds i8, ptr %.sink52, i64 8
   %89 = load ptr, ptr %88, align 8
   store ptr %89, ptr %11, align 8
-  br label %ractor_cache_allocate_slot.exit48
+  br label %ractor_cache_allocate_slot.argprom.exit48
 
-ractor_cache_allocate_slot.exit48:                ; preds = %ractor_cache_allocate_slot.exit48.sink.split, %86, %82
-  %.2 = phi i64 [ 0, %82 ], [ 0, %86 ], [ %87, %ractor_cache_allocate_slot.exit48.sink.split ]
+ractor_cache_allocate_slot.argprom.exit48:        ; preds = %ractor_cache_allocate_slot.argprom.exit48.sink.split, %86, %82
+  %.2 = phi i64 [ 0, %82 ], [ 0, %86 ], [ %87, %ractor_cache_allocate_slot.argprom.exit48.sink.split ]
   br i1 %3, label %91, label %90
 
-90:                                               ; preds = %ractor_cache_allocate_slot.exit48
+90:                                               ; preds = %ractor_cache_allocate_slot.argprom.exit48
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #39
   br label %91
 
-91:                                               ; preds = %ractor_cache_allocate_slot.exit, %ractor_cache_allocate_slot.exit48, %90
-  %.028 = phi i64 [ %.2, %90 ], [ %.2, %ractor_cache_allocate_slot.exit48 ], [ %19, %ractor_cache_allocate_slot.exit ]
+91:                                               ; preds = %ractor_cache_allocate_slot.argprom.exit, %ractor_cache_allocate_slot.argprom.exit48, %90
+  %.028 = phi i64 [ %.2, %90 ], [ %.2, %ractor_cache_allocate_slot.argprom.exit48 ], [ %19, %ractor_cache_allocate_slot.argprom.exit ]
   %92 = getelementptr inbounds i8, ptr %7, i64 48
   %93 = load i64, ptr %92, align 8
   %94 = add i64 %93, 1
@@ -16967,7 +16967,7 @@ gc_sweep_continue.exit:                           ; preds = %gc_clock_end.exit.i
   %149 = load i32, ptr %148, align 4
   %150 = and i32 %149, 67108864
   %.not.i30 = icmp eq i32 %150, 0
-  br i1 %.not.i30, label %gc_event_hook_body.exit.i, label %151
+  br i1 %.not.i30, label %gc_event_hook_body.argprom.exit.i, label %151
 
 151:                                              ; preds = %gc_sweep_continue.exit
   %152 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -16975,9 +16975,9 @@ gc_sweep_continue.exit:                           ; preds = %gc_clock_end.exit.i
   %154 = getelementptr inbounds i8, ptr %153, i64 16
   %155 = load ptr, ptr %154, align 8
   %.not.i.i31 = icmp eq ptr %155, null
-  br i1 %.not.i.i31, label %gc_event_hook_body.exit.i, label %rb_ec_ractor_hooks.exit.i.i
+  br i1 %.not.i.i31, label %gc_event_hook_body.argprom.exit.i, label %rb_ec_ractor_hooks.argprom.exit.i.i
 
-rb_ec_ractor_hooks.exit.i.i:                      ; preds = %151
+rb_ec_ractor_hooks.argprom.exit.i.i:              ; preds = %151
   %156 = getelementptr i8, ptr %153, i64 48
   %.val.i.i = load ptr, ptr %156, align 8, !nonnull !14, !noundef !14
   %157 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
@@ -16986,9 +16986,9 @@ rb_ec_ractor_hooks.exit.i.i:                      ; preds = %151
   %160 = load i32, ptr %159, align 8
   %161 = and i32 %160, 67108864
   %.not9.i.i = icmp eq i32 %161, 0
-  br i1 %.not9.i.i, label %gc_event_hook_body.exit.i, label %162
+  br i1 %.not9.i.i, label %gc_event_hook_body.argprom.exit.i, label %162
 
-162:                                              ; preds = %rb_ec_ractor_hooks.exit.i.i
+162:                                              ; preds = %rb_ec_ractor_hooks.argprom.exit.i.i
   %163 = getelementptr inbounds i8, ptr %158, i64 16
   %164 = getelementptr inbounds i8, ptr %155, i64 24
   %165 = load i64, ptr %164, align 8
@@ -17008,9 +17008,9 @@ rb_ec_ractor_hooks.exit.i.i:                      ; preds = %151
   store i32 0, ptr %171, align 8
   call void @rb_exec_event_hooks(ptr noundef nonnull %4, ptr noundef nonnull %163, i32 noundef 0) #39
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  br label %gc_event_hook_body.exit.i
+  br label %gc_event_hook_body.argprom.exit.i
 
-gc_event_hook_body.exit.i:                        ; preds = %162, %rb_ec_ractor_hooks.exit.i.i, %151, %gc_sweep_continue.exit
+gc_event_hook_body.argprom.exit.i:                ; preds = %162, %rb_ec_ractor_hooks.argprom.exit.i.i, %151, %gc_sweep_continue.exit
   %172 = load i16, ptr %12, align 8
   %173 = and i16 %172, -33
   store i16 %173, ptr %12, align 8
@@ -17018,11 +17018,11 @@ gc_event_hook_body.exit.i:                        ; preds = %162, %rb_ec_ractor_
   %.not.i.i.i32 = icmp eq ptr %174, null
   br i1 %.not.i.i.i32, label %175, label %gc_exit.exit
 
-175:                                              ; preds = %gc_event_hook_body.exit.i
+175:                                              ; preds = %gc_event_hook_body.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %11) #39
   br label %gc_exit.exit
 
-gc_exit.exit:                                     ; preds = %gc_event_hook_body.exit.i, %175
+gc_exit.exit:                                     ; preds = %gc_event_hook_body.argprom.exit.i, %175
   ret void
 }
 
@@ -17408,12 +17408,12 @@ gc_compact_start.exit.i:                          ; preds = %127, %124, %121
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i23.i, 5
   br i1 %exitcond.i.i, label %.preheader.i, label %.backedge
 
-.backedge:                                        ; preds = %lock_page_body.exit.i, %145
-  %indvars.iv.i21.i.be = phi i64 [ %indvars.iv.next.i23.i, %145 ], [ 0, %lock_page_body.exit.i ]
+.backedge:                                        ; preds = %lock_page_body.argprom.exit.i, %145
+  %indvars.iv.i21.i.be = phi i64 [ %indvars.iv.next.i23.i, %145 ], [ 0, %lock_page_body.argprom.exit.i ]
   br label %137, !llvm.loop !105
 
-gc_compact_all_compacted_p.exit.preheader.i:      ; preds = %141, %lock_page_body.exit.i
-  %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i26, %lock_page_body.exit.i ], [ 0, %141 ]
+gc_compact_all_compacted_p.exit.preheader.i:      ; preds = %141, %lock_page_body.argprom.exit.i
+  %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i26, %lock_page_body.argprom.exit.i ], [ 0, %141 ]
   %146 = getelementptr [5 x %struct.rb_size_pool_struct], ptr %66, i64 0, i64 %indvars.iv.i25
   %147 = getelementptr inbounds i8, ptr %146, i64 80
   %148 = getelementptr i8, ptr %146, i64 104
@@ -17421,7 +17421,7 @@ gc_compact_all_compacted_p.exit.preheader.i:      ; preds = %141, %lock_page_bod
   %149 = getelementptr i8, ptr %146, i64 112
   %.val20.i = load ptr, ptr %149, align 8
   %150 = icmp eq ptr %.val.i, %.val20.i
-  br i1 %150, label %lock_page_body.exit.i, label %151
+  br i1 %150, label %lock_page_body.argprom.exit.i, label %151
 
 151:                                              ; preds = %gc_compact_all_compacted_p.exit.preheader.i
   %152 = getelementptr inbounds i8, ptr %.val20.i, i64 32
@@ -17441,7 +17441,7 @@ gc_compact_all_compacted_p.exit.preheader.i:      ; preds = %141, %lock_page_bod
 
 163:                                              ; preds = %151
   %.val.i25.i = load i16, ptr %.val20.i, align 8
-  %164 = call fastcc zeroext i1 @gc_compact_plane(ptr noundef nonnull %0, ptr noundef %146, ptr noundef nonnull %147, i64 noundef %153, i64 noundef %162, i16 %.val.i25.i)
+  %164 = call fastcc zeroext i1 @gc_compact_plane.argprom(ptr noundef nonnull %0, ptr noundef %146, ptr noundef nonnull %147, i64 noundef %153, i64 noundef %162, i16 %.val.i25.i)
   br i1 %164, label %165, label %.loopexit.i
 
 165:                                              ; preds = %163, %151
@@ -17464,7 +17464,7 @@ gc_compact_all_compacted_p.exit.preheader.i:      ; preds = %141, %lock_page_bod
 
 176:                                              ; preds = %169
   %.val35.i.i = load i16, ptr %.val20.i, align 8
-  %177 = call fastcc zeroext i1 @gc_compact_plane(ptr noundef %0, ptr noundef %146, ptr noundef nonnull %147, i64 noundef %.03036.i.i, i64 noundef %175, i16 %.val35.i.i)
+  %177 = call fastcc zeroext i1 @gc_compact_plane.argprom(ptr noundef %0, ptr noundef %146, ptr noundef nonnull %147, i64 noundef %.03036.i.i, i64 noundef %175, i16 %.val35.i.i)
   br i1 %177, label %178, label %.loopexit.i
 
 178:                                              ; preds = %176, %169
@@ -17479,7 +17479,7 @@ gc_compact_all_compacted_p.exit.preheader.i:      ; preds = %141, %lock_page_bod
   %182 = inttoptr i64 %181 to ptr
   %183 = call i32 @mprotect(ptr noundef %182, i64 noundef 65536, i32 noundef 0) #39
   %.not.i29.i = icmp eq i32 %183, 0
-  br i1 %.not.i29.i, label %lock_page_body.exit.i, label %184
+  br i1 %.not.i29.i, label %lock_page_body.argprom.exit.i, label %184
 
 184:                                              ; preds = %.loopexit.i
   %185 = call ptr @rb_errno_ptr() #39
@@ -17494,7 +17494,7 @@ gc_compact_page.exit.i:                           ; preds = %178
   %190 = inttoptr i64 %189 to ptr
   %191 = call i32 @mprotect(ptr noundef %190, i64 noundef 65536, i32 noundef 0) #39
   %.not.i30.i = icmp eq i32 %191, 0
-  br i1 %.not.i30.i, label %lock_page_body.exit31.i, label %192
+  br i1 %.not.i30.i, label %lock_page_body.argprom.exit31.i, label %192
 
 192:                                              ; preds = %gc_compact_page.exit.i
   %193 = call ptr @rb_errno_ptr() #39
@@ -17503,7 +17503,7 @@ gc_compact_page.exit.i:                           ; preds = %178
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.143, ptr noundef %190, ptr noundef %195) #54
   unreachable
 
-lock_page_body.exit31.i:                          ; preds = %gc_compact_page.exit.i
+lock_page_body.argprom.exit31.i:                  ; preds = %gc_compact_page.exit.i
   %196 = getelementptr inbounds i8, ptr %146, i64 88
   %197 = load ptr, ptr %149, align 8
   %198 = getelementptr inbounds i8, ptr %197, i64 56
@@ -17512,34 +17512,34 @@ lock_page_body.exit31.i:                          ; preds = %gc_compact_page.exi
   %201 = getelementptr i8, ptr %199, i64 -48
   %.0.i.i = select i1 %200, ptr null, ptr %201
   store ptr %.0.i.i, ptr %149, align 8
-  br label %lock_page_body.exit.i
+  br label %lock_page_body.argprom.exit.i
 
-lock_page_body.exit.i:                            ; preds = %lock_page_body.exit31.i, %.loopexit.i, %gc_compact_all_compacted_p.exit.preheader.i
+lock_page_body.argprom.exit.i:                    ; preds = %lock_page_body.argprom.exit31.i, %.loopexit.i, %gc_compact_all_compacted_p.exit.preheader.i
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 5
   br i1 %exitcond.not.i27, label %.backedge, label %gc_compact_all_compacted_p.exit.preheader.i, !llvm.loop !107
 
-.preheader.i:                                     ; preds = %145, %gc_unprotect_pages.exit.i.i
-  %indvars.iv.i32.i = phi i64 [ %indvars.iv.next.i34.i, %gc_unprotect_pages.exit.i.i ], [ 0, %145 ]
+.preheader.i:                                     ; preds = %145, %gc_unprotect_pages.argprom.exit.i.i
+  %indvars.iv.i32.i = phi i64 [ %indvars.iv.next.i34.i, %gc_unprotect_pages.argprom.exit.i.i ], [ 0, %145 ]
   %202 = getelementptr [5 x %struct.rb_size_pool_struct], ptr %66, i64 0, i64 %indvars.iv.i32.i, i32 10
   %203 = getelementptr inbounds i8, ptr %202, i64 32
   %204 = load ptr, ptr %203, align 8
   %.not1.i.i.i = icmp eq ptr %204, null
-  br i1 %.not1.i.i.i, label %gc_unprotect_pages.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %.not1.i.i.i, label %gc_unprotect_pages.argprom.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i
   %205 = getelementptr inbounds i8, ptr %202, i64 8
   br label %206
 
-206:                                              ; preds = %unlock_page_body.exit.i.i.i, %.lr.ph.i.i.i
-  %.02.i.i.i = phi ptr [ %204, %.lr.ph.i.i.i ], [ %219, %unlock_page_body.exit.i.i.i ]
+206:                                              ; preds = %unlock_page_body.argprom.exit.i.i.i, %.lr.ph.i.i.i
+  %.02.i.i.i = phi ptr [ %204, %.lr.ph.i.i.i ], [ %219, %unlock_page_body.argprom.exit.i.i.i ]
   %207 = getelementptr inbounds i8, ptr %.02.i.i.i, i64 32
   %208 = load i64, ptr %207, align 8
   %209 = and i64 %208, -65536
   %210 = inttoptr i64 %209 to ptr
   %211 = call i32 @mprotect(ptr noundef %210, i64 noundef 65536, i32 noundef 3) #39
   %.not.i.i.i.i28 = icmp eq i32 %211, 0
-  br i1 %.not.i.i.i.i28, label %unlock_page_body.exit.i.i.i, label %212
+  br i1 %.not.i.i.i.i28, label %unlock_page_body.argprom.exit.i.i.i, label %212
 
 212:                                              ; preds = %206
   %213 = call ptr @rb_errno_ptr() #39
@@ -17548,21 +17548,21 @@ lock_page_body.exit.i:                            ; preds = %lock_page_body.exit
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.135, ptr noundef %210, ptr noundef %215) #54
   unreachable
 
-unlock_page_body.exit.i.i.i:                      ; preds = %206
+unlock_page_body.argprom.exit.i.i.i:              ; preds = %206
   %216 = getelementptr inbounds i8, ptr %.02.i.i.i, i64 48
   %217 = load ptr, ptr %216, align 8
   %218 = icmp eq ptr %217, %205
   %219 = getelementptr i8, ptr %217, i64 -48
   %.not5.i.i.i = icmp eq ptr %219, null
   %.not.i.i33.i = or i1 %218, %.not5.i.i.i
-  br i1 %.not.i.i33.i, label %gc_unprotect_pages.exit.i.i, label %206
+  br i1 %.not.i.i33.i, label %gc_unprotect_pages.argprom.exit.i.i, label %206
 
-gc_unprotect_pages.exit.i.i:                      ; preds = %unlock_page_body.exit.i.i.i, %.preheader.i
+gc_unprotect_pages.argprom.exit.i.i:              ; preds = %unlock_page_body.argprom.exit.i.i.i, %.preheader.i
   %indvars.iv.next.i34.i = add nuw nsw i64 %indvars.iv.i32.i, 1
   %exitcond.not.i35.i = icmp eq i64 %indvars.iv.next.i34.i, 5
   br i1 %exitcond.not.i35.i, label %220, label %.preheader.i, !llvm.loop !108
 
-220:                                              ; preds = %gc_unprotect_pages.exit.i.i
+220:                                              ; preds = %gc_unprotect_pages.argprom.exit.i.i
   %221 = call i32 @sigaction(i32 noundef 7, ptr noundef nonnull @old_sigbus_handler, ptr noundef null) #39
   %222 = call i32 @sigaction(i32 noundef 11, ptr noundef nonnull @old_sigsegv_handler, ptr noundef null) #39
   %223 = load i16, ptr %7, align 8
@@ -17573,20 +17573,20 @@ gc_unprotect_pages.exit.i.i:                      ; preds = %unlock_page_body.ex
   %227 = getelementptr i8, ptr %226, i64 48
   %.val.i.i.i = load ptr, ptr %227, align 8
   %.not.i.i26.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i26.i.i, label %rb_ec_vm_ptr.exit.i.i.i, label %228
+  br i1 %.not.i.i26.i.i, label %rb_ec_vm_ptr.argprom.exit.i.i.i, label %228
 
 228:                                              ; preds = %220
   %229 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 32
   %230 = load ptr, ptr %229, align 8
-  br label %rb_ec_vm_ptr.exit.i.i.i
+  br label %rb_ec_vm_ptr.argprom.exit.i.i.i
 
-rb_ec_vm_ptr.exit.i.i.i:                          ; preds = %228, %220
+rb_ec_vm_ptr.argprom.exit.i.i.i:                  ; preds = %228, %220
   %.0.i.i.i.i = phi ptr [ %230, %228 ], [ null, %220 ]
   %231 = ptrtoint ptr %0 to i64
   br label %232
 
-232:                                              ; preds = %._crit_edge.i.i.i, %rb_ec_vm_ptr.exit.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %rb_ec_vm_ptr.exit.i.i.i ], [ %indvars.iv.next.i.i.i, %._crit_edge.i.i.i ]
+232:                                              ; preds = %._crit_edge.i.i.i, %rb_ec_vm_ptr.argprom.exit.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %rb_ec_vm_ptr.argprom.exit.i.i.i ], [ %indvars.iv.next.i.i.i, %._crit_edge.i.i.i ]
   %233 = getelementptr [5 x %struct.rb_size_pool_struct], ptr %66, i64 0, i64 %indvars.iv.i.i.i
   %234 = getelementptr inbounds i8, ptr %233, i64 88
   %.pn51.i.i.i = load ptr, ptr %234, align 8
@@ -17753,54 +17753,54 @@ RB_FL_TEST.exit.thread.i.i.i.i:                   ; preds = %294, %290, %.sink.s
   %307 = icmp ne i64 %306, 0
   %308 = icmp eq i64 %305, 0
   %309 = or i1 %308, %307
-  br i1 %309, label %RB_FL_TEST.exit218.thread.i.i.i.i, label %gc_object_moved_p.exit.i.i.i.i
+  br i1 %309, label %RB_FL_TEST.exit218.thread.i.i.i.i, label %gc_object_moved_p.argprom.exit.i.i.i.i
 
-gc_object_moved_p.exit.i.i.i.i:                   ; preds = %303
+gc_object_moved_p.argprom.exit.i.i.i.i:           ; preds = %303
   %310 = inttoptr i64 %305 to ptr
   %311 = load i64, ptr %310, align 8
   %312 = and i64 %311, 31
   %.not407.i.i.i.i = icmp eq i64 %312, 30
   br i1 %.not407.i.i.i.i, label %313, label %RB_FL_TEST.exit218.thread.i.i.i.i
 
-313:                                              ; preds = %gc_object_moved_p.exit.i.i.i.i
+313:                                              ; preds = %gc_object_moved_p.argprom.exit.i.i.i.i
   %314 = getelementptr inbounds i8, ptr %310, i64 16
   %315 = load i64, ptr %314, align 8
   store i64 %315, ptr %304, align 8
   br label %RB_FL_TEST.exit218.thread.i.i.i.i
 
-RB_FL_TEST.exit218.thread.i.i.i.i:                ; preds = %313, %gc_object_moved_p.exit.i.i.i.i, %303, %299, %298, %RB_FL_TEST.exit.thread.i.i.i.i
+RB_FL_TEST.exit218.thread.i.i.i.i:                ; preds = %313, %gc_object_moved_p.argprom.exit.i.i.i.i, %303, %299, %298, %RB_FL_TEST.exit.thread.i.i.i.i
   %316 = getelementptr inbounds i8, ptr %251, i64 16
   %317 = load i64, ptr %316, align 8
   %.not211.i.i.i.i = icmp eq i64 %317, 0
   %318 = and i64 %317, 7
   %319 = icmp ne i64 %318, 0
   %or.cond375.i.i.i.i = or i1 %.not211.i.i.i.i, %319
-  br i1 %or.cond375.i.i.i.i, label %gc_object_moved_p.exit220.thread.i.i.i.i, label %gc_object_moved_p.exit220.i.i.i.i
+  br i1 %or.cond375.i.i.i.i, label %gc_object_moved_p.argprom.exit220.thread.i.i.i.i, label %gc_object_moved_p.argprom.exit220.i.i.i.i
 
-gc_object_moved_p.exit220.i.i.i.i:                ; preds = %RB_FL_TEST.exit218.thread.i.i.i.i
+gc_object_moved_p.argprom.exit220.i.i.i.i:        ; preds = %RB_FL_TEST.exit218.thread.i.i.i.i
   %320 = inttoptr i64 %317 to ptr
   %321 = load i64, ptr %320, align 8
   %322 = and i64 %321, 31
   %.not408.i.i.i.i = icmp eq i64 %322, 30
-  br i1 %.not408.i.i.i.i, label %323, label %gc_object_moved_p.exit220.thread.i.i.i.i
+  br i1 %.not408.i.i.i.i, label %323, label %gc_object_moved_p.argprom.exit220.thread.i.i.i.i
 
-323:                                              ; preds = %gc_object_moved_p.exit220.i.i.i.i
+323:                                              ; preds = %gc_object_moved_p.argprom.exit220.i.i.i.i
   %324 = getelementptr inbounds i8, ptr %320, i64 16
   %325 = load i64, ptr %324, align 8
   store i64 %325, ptr %316, align 8
-  br label %gc_object_moved_p.exit220.thread.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit220.thread.i.i.i.i
 
-gc_object_moved_p.exit220.thread.i.i.i.i:         ; preds = %323, %gc_object_moved_p.exit220.i.i.i.i, %RB_FL_TEST.exit218.thread.i.i.i.i
+gc_object_moved_p.argprom.exit220.thread.i.i.i.i: ; preds = %323, %gc_object_moved_p.argprom.exit220.i.i.i.i, %RB_FL_TEST.exit218.thread.i.i.i.i
   %326 = getelementptr inbounds i8, ptr %251, i64 24
   %327 = load ptr, ptr %326, align 8
   %.not.i.i.i.i.i = icmp eq ptr %327, null
   br i1 %.not.i.i.i.i.i, label %update_m_tbl.exit.i.i.i.i, label %328
 
-328:                                              ; preds = %gc_object_moved_p.exit220.thread.i.i.i.i
+328:                                              ; preds = %gc_object_moved_p.argprom.exit220.thread.i.i.i.i
   call void @rb_id_table_foreach_values_with_replace(ptr noundef nonnull %327, ptr noundef nonnull @check_id_table_move, ptr noundef nonnull @update_id_table, ptr noundef %0) #39
   br label %update_m_tbl.exit.i.i.i.i
 
-update_m_tbl.exit.i.i.i.i:                        ; preds = %328, %gc_object_moved_p.exit220.thread.i.i.i.i
+update_m_tbl.exit.i.i.i.i:                        ; preds = %328, %gc_object_moved_p.argprom.exit220.thread.i.i.i.i
   %329 = getelementptr inbounds i8, ptr %251, i64 56
   %330 = load ptr, ptr %329, align 8
   %.not.i221.i.i.i.i = icmp eq ptr %330, null
@@ -17824,21 +17824,21 @@ update_cvc_tbl.exit.i.i.i.i:                      ; preds = %334, %update_cc_tbl
   %335 = load i64, ptr %251, align 8
   %336 = and i64 %335, 16384
   %.not.i223.i.i.i.i = icmp eq i64 %336, 0
-  br i1 %.not.i223.i.i.i.i, label %update_superclasses.exit.i.i.i.i, label %.preheader.i.i.i.i.i
+  br i1 %.not.i223.i.i.i.i, label %update_superclasses.argprom.exit.i.i.i.i, label %.preheader.i.i.i.i.i
 
 .preheader.i.i.i.i.i:                             ; preds = %update_cvc_tbl.exit.i.i.i.i
   %337 = getelementptr inbounds i8, ptr %251, i64 72
   %338 = load i64, ptr %337, align 8
   %.not5.i.i.i.i.i = icmp eq i64 %338, -1
-  br i1 %.not5.i.i.i.i.i, label %update_superclasses.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %.not5.i.i.i.i.i, label %update_superclasses.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i.i
   %339 = getelementptr inbounds i8, ptr %251, i64 80
   br label %340
 
-340:                                              ; preds = %gc_object_moved_p.exit.thread.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %341 = phi i64 [ %338, %.lr.ph.i.i.i.i.i ], [ %355, %gc_object_moved_p.exit.thread.i.i.i.i.i ]
-  %.04.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %356, %gc_object_moved_p.exit.thread.i.i.i.i.i ]
+340:                                              ; preds = %gc_object_moved_p.argprom.exit.thread.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %341 = phi i64 [ %338, %.lr.ph.i.i.i.i.i ], [ %355, %gc_object_moved_p.argprom.exit.thread.i.i.i.i.i ]
+  %.04.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %356, %gc_object_moved_p.argprom.exit.thread.i.i.i.i.i ]
   %342 = load ptr, ptr %339, align 8
   %343 = getelementptr i64, ptr %342, i64 %.04.i.i.i.i.i
   %344 = load i64, ptr %343, align 8
@@ -17846,35 +17846,35 @@ update_cvc_tbl.exit.i.i.i.i:                      ; preds = %334, %update_cc_tbl
   %346 = icmp ne i64 %345, 0
   %347 = icmp eq i64 %344, 0
   %348 = or i1 %347, %346
-  br i1 %348, label %gc_object_moved_p.exit.thread.i.i.i.i.i, label %gc_object_moved_p.exit.i.i.i.i.i
+  br i1 %348, label %gc_object_moved_p.argprom.exit.thread.i.i.i.i.i, label %gc_object_moved_p.argprom.exit.i.i.i.i.i
 
-gc_object_moved_p.exit.i.i.i.i.i:                 ; preds = %340
+gc_object_moved_p.argprom.exit.i.i.i.i.i:         ; preds = %340
   %349 = inttoptr i64 %344 to ptr
   %350 = load i64, ptr %349, align 8
   %351 = and i64 %350, 31
   %.not3.i.i.i.i.i = icmp eq i64 %351, 30
-  br i1 %.not3.i.i.i.i.i, label %352, label %gc_object_moved_p.exit.thread.i.i.i.i.i
+  br i1 %.not3.i.i.i.i.i, label %352, label %gc_object_moved_p.argprom.exit.thread.i.i.i.i.i
 
-352:                                              ; preds = %gc_object_moved_p.exit.i.i.i.i.i
+352:                                              ; preds = %gc_object_moved_p.argprom.exit.i.i.i.i.i
   %353 = getelementptr inbounds i8, ptr %349, i64 16
   %354 = load i64, ptr %353, align 8
   store i64 %354, ptr %343, align 8
   %.pre.i.i.i.i.i = load i64, ptr %337, align 8
-  br label %gc_object_moved_p.exit.thread.i.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit.thread.i.i.i.i.i
 
-gc_object_moved_p.exit.thread.i.i.i.i.i:          ; preds = %352, %gc_object_moved_p.exit.i.i.i.i.i, %340
-  %355 = phi i64 [ %341, %340 ], [ %.pre.i.i.i.i.i, %352 ], [ %341, %gc_object_moved_p.exit.i.i.i.i.i ]
+gc_object_moved_p.argprom.exit.thread.i.i.i.i.i:  ; preds = %352, %gc_object_moved_p.argprom.exit.i.i.i.i.i, %340
+  %355 = phi i64 [ %341, %340 ], [ %.pre.i.i.i.i.i, %352 ], [ %341, %gc_object_moved_p.argprom.exit.i.i.i.i.i ]
   %356 = add nuw i64 %.04.i.i.i.i.i, 1
   %357 = add i64 %355, 1
   %358 = icmp ult i64 %356, %357
-  br i1 %358, label %340, label %update_superclasses.exit.i.i.i.i, !llvm.loop !109
+  br i1 %358, label %340, label %update_superclasses.argprom.exit.i.i.i.i, !llvm.loop !109
 
-update_superclasses.exit.i.i.i.i:                 ; preds = %gc_object_moved_p.exit.thread.i.i.i.i.i, %.preheader.i.i.i.i.i, %update_cvc_tbl.exit.i.i.i.i
+update_superclasses.argprom.exit.i.i.i.i:         ; preds = %gc_object_moved_p.argprom.exit.thread.i.i.i.i.i, %.preheader.i.i.i.i.i, %update_cvc_tbl.exit.i.i.i.i
   %359 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %.031.i.i.i.i) #39
   %360 = getelementptr inbounds i8, ptr %251, i64 32
   br i1 %359, label %361, label %.preheader.i.i.i.i
 
-361:                                              ; preds = %update_superclasses.exit.i.i.i.i
+361:                                              ; preds = %update_superclasses.argprom.exit.i.i.i.i
   %362 = load ptr, ptr %360, align 8
   %.not.i224.i.i.i.i = icmp eq ptr %362, null
   br i1 %.not.i224.i.i.i.i, label %gc_ref_update_table_values_only.exit.i.i.i.i, label %363
@@ -17895,8 +17895,8 @@ update_superclasses.exit.i.i.i.i:                 ; preds = %gc_object_moved_p.e
   call void (i64, ptr, ...) @rb_raise(i64 noundef %370, ptr noundef nonnull @.str.220) #50
   unreachable
 
-.preheader.i.i.i.i:                               ; preds = %update_superclasses.exit.i.i.i.i, %gc_object_moved_p.exit227.thread.i.i.i.i
-  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %gc_object_moved_p.exit227.thread.i.i.i.i ], [ 0, %update_superclasses.exit.i.i.i.i ]
+.preheader.i.i.i.i:                               ; preds = %update_superclasses.argprom.exit.i.i.i.i, %gc_object_moved_p.argprom.exit227.thread.i.i.i.i
+  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %gc_object_moved_p.argprom.exit227.thread.i.i.i.i ], [ 0, %update_superclasses.argprom.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %371 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %.031.i.i.i.i) #39
   br i1 %371, label %372, label %380
@@ -17904,13 +17904,13 @@ update_superclasses.exit.i.i.i.i:                 ; preds = %gc_object_moved_p.e
 372:                                              ; preds = %.preheader.i.i.i.i
   %373 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %373, null
-  br i1 %.not.i.i.i.i.i.i.i, label %374, label %rb_vm_lock_enter.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %374, label %rb_vm_lock_enter.argprom.exit.i.i.i.i.i
 
 374:                                              ; preds = %372
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #39
-  br label %rb_vm_lock_enter.exit.i.i.i.i.i
+  br label %rb_vm_lock_enter.argprom.exit.i.i.i.i.i
 
-rb_vm_lock_enter.exit.i.i.i.i.i:                  ; preds = %374, %372
+rb_vm_lock_enter.argprom.exit.i.i.i.i.i:          ; preds = %374, %372
   %375 = load ptr, ptr %360, align 8
   %376 = call i64 @rb_st_table_size(ptr noundef %375) #39
   %377 = trunc i64 %376 to i32
@@ -17918,7 +17918,7 @@ rb_vm_lock_enter.exit.i.i.i.i.i:                  ; preds = %374, %372
   %.not.i.i5.i.i.i.i.i = icmp eq ptr %378, null
   br i1 %.not.i.i5.i.i.i.i.i, label %379, label %RCLASS_IV_COUNT.exit.i.i.i.i
 
-379:                                              ; preds = %rb_vm_lock_enter.exit.i.i.i.i.i
+379:                                              ; preds = %rb_vm_lock_enter.argprom.exit.i.i.i.i.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #39
   br label %RCLASS_IV_COUNT.exit.i.i.i.i
 
@@ -17931,8 +17931,8 @@ rb_vm_lock_enter.exit.i.i.i.i.i:                  ; preds = %374, %372
   %386 = load i32, ptr %385, align 8
   br label %RCLASS_IV_COUNT.exit.i.i.i.i
 
-RCLASS_IV_COUNT.exit.i.i.i.i:                     ; preds = %380, %379, %rb_vm_lock_enter.exit.i.i.i.i.i
-  %.0.i225.i.i.i.i = phi i32 [ %386, %380 ], [ %377, %rb_vm_lock_enter.exit.i.i.i.i.i ], [ %377, %379 ]
+RCLASS_IV_COUNT.exit.i.i.i.i:                     ; preds = %380, %379, %rb_vm_lock_enter.argprom.exit.i.i.i.i.i
+  %.0.i225.i.i.i.i = phi i32 [ %386, %380 ], [ %377, %rb_vm_lock_enter.argprom.exit.i.i.i.i.i ], [ %377, %379 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %387 = zext i32 %.0.i225.i.i.i.i to i64
   %388 = icmp ult i64 %indvars.iv.i.i.i.i, %387
@@ -17946,22 +17946,22 @@ RCLASS_IV_COUNT.exit.i.i.i.i:                     ; preds = %380, %379, %rb_vm_l
   %394 = icmp ne i64 %393, 0
   %395 = icmp eq i64 %392, 0
   %396 = or i1 %395, %394
-  br i1 %396, label %gc_object_moved_p.exit227.thread.i.i.i.i, label %gc_object_moved_p.exit227.i.i.i.i
+  br i1 %396, label %gc_object_moved_p.argprom.exit227.thread.i.i.i.i, label %gc_object_moved_p.argprom.exit227.i.i.i.i
 
-gc_object_moved_p.exit227.i.i.i.i:                ; preds = %389
+gc_object_moved_p.argprom.exit227.i.i.i.i:        ; preds = %389
   %397 = inttoptr i64 %392 to ptr
   %398 = load i64, ptr %397, align 8
   %399 = and i64 %398, 31
   %.not409.i.i.i.i = icmp eq i64 %399, 30
-  br i1 %.not409.i.i.i.i, label %400, label %gc_object_moved_p.exit227.thread.i.i.i.i
+  br i1 %.not409.i.i.i.i, label %400, label %gc_object_moved_p.argprom.exit227.thread.i.i.i.i
 
-400:                                              ; preds = %gc_object_moved_p.exit227.i.i.i.i
+400:                                              ; preds = %gc_object_moved_p.argprom.exit227.i.i.i.i
   %401 = getelementptr inbounds i8, ptr %397, i64 16
   %402 = load i64, ptr %401, align 8
   store i64 %402, ptr %391, align 8
-  br label %gc_object_moved_p.exit227.thread.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit227.thread.i.i.i.i
 
-gc_object_moved_p.exit227.thread.i.i.i.i:         ; preds = %400, %gc_object_moved_p.exit227.i.i.i.i, %389
+gc_object_moved_p.argprom.exit227.thread.i.i.i.i: ; preds = %400, %gc_object_moved_p.argprom.exit227.i.i.i.i, %389
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   br label %.preheader.i.i.i.i, !llvm.loop !110
 
@@ -17972,126 +17972,126 @@ gc_ref_update_table_values_only.exit.i.i.i.i:     ; preds = %RCLASS_IV_COUNT.exi
   %406 = icmp ne i64 %405, 0
   %407 = icmp eq i64 %404, 0
   %408 = or i1 %407, %406
-  br i1 %408, label %gc_object_moved_p.exit.thread.i230.i.i.i.i, label %gc_object_moved_p.exit.i228.i.i.i.i
+  br i1 %408, label %gc_object_moved_p.argprom.exit.thread.i230.i.i.i.i, label %gc_object_moved_p.argprom.exit.i228.i.i.i.i
 
-gc_object_moved_p.exit.i228.i.i.i.i:              ; preds = %gc_ref_update_table_values_only.exit.i.i.i.i
+gc_object_moved_p.argprom.exit.i228.i.i.i.i:      ; preds = %gc_ref_update_table_values_only.exit.i.i.i.i
   %409 = inttoptr i64 %404 to ptr
   %410 = load i64, ptr %409, align 8
   %411 = and i64 %410, 31
   %.not.i229.i.i.i.i = icmp eq i64 %411, 30
-  br i1 %.not.i229.i.i.i.i, label %412, label %gc_object_moved_p.exit.thread.i230.i.i.i.i
+  br i1 %.not.i229.i.i.i.i, label %412, label %gc_object_moved_p.argprom.exit.thread.i230.i.i.i.i
 
-412:                                              ; preds = %gc_object_moved_p.exit.i228.i.i.i.i
+412:                                              ; preds = %gc_object_moved_p.argprom.exit.i228.i.i.i.i
   %413 = getelementptr inbounds i8, ptr %409, i64 16
   %414 = load i64, ptr %413, align 8
   store i64 %414, ptr %403, align 8
-  br label %gc_object_moved_p.exit.thread.i230.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit.thread.i230.i.i.i.i
 
-gc_object_moved_p.exit.thread.i230.i.i.i.i:       ; preds = %412, %gc_object_moved_p.exit.i228.i.i.i.i, %gc_ref_update_table_values_only.exit.i.i.i.i
+gc_object_moved_p.argprom.exit.thread.i230.i.i.i.i: ; preds = %412, %gc_object_moved_p.argprom.exit.i228.i.i.i.i, %gc_ref_update_table_values_only.exit.i.i.i.i
   %415 = getelementptr inbounds i8, ptr %251, i64 136
   %416 = load i64, ptr %415, align 8
   %417 = and i64 %416, 7
   %418 = icmp ne i64 %417, 0
   %419 = icmp eq i64 %416, 0
   %420 = or i1 %419, %418
-  br i1 %420, label %gc_object_moved_p.exit17.thread.i.i.i.i.i, label %gc_object_moved_p.exit17.i.i.i.i.i
+  br i1 %420, label %gc_object_moved_p.argprom.exit17.thread.i.i.i.i.i, label %gc_object_moved_p.argprom.exit17.i.i.i.i.i
 
-gc_object_moved_p.exit17.i.i.i.i.i:               ; preds = %gc_object_moved_p.exit.thread.i230.i.i.i.i
+gc_object_moved_p.argprom.exit17.i.i.i.i.i:       ; preds = %gc_object_moved_p.argprom.exit.thread.i230.i.i.i.i
   %421 = inttoptr i64 %416 to ptr
   %422 = load i64, ptr %421, align 8
   %423 = and i64 %422, 31
   %.not7.i.i.i.i.i = icmp eq i64 %423, 30
-  br i1 %.not7.i.i.i.i.i, label %424, label %gc_object_moved_p.exit17.thread.i.i.i.i.i
+  br i1 %.not7.i.i.i.i.i, label %424, label %gc_object_moved_p.argprom.exit17.thread.i.i.i.i.i
 
-424:                                              ; preds = %gc_object_moved_p.exit17.i.i.i.i.i
+424:                                              ; preds = %gc_object_moved_p.argprom.exit17.i.i.i.i.i
   %425 = getelementptr inbounds i8, ptr %421, i64 16
   %426 = load i64, ptr %425, align 8
   store i64 %426, ptr %415, align 8
-  br label %gc_object_moved_p.exit17.thread.i.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit17.thread.i.i.i.i.i
 
-gc_object_moved_p.exit17.thread.i.i.i.i.i:        ; preds = %424, %gc_object_moved_p.exit17.i.i.i.i.i, %gc_object_moved_p.exit.thread.i230.i.i.i.i
+gc_object_moved_p.argprom.exit17.thread.i.i.i.i.i: ; preds = %424, %gc_object_moved_p.argprom.exit17.i.i.i.i.i, %gc_object_moved_p.argprom.exit.thread.i230.i.i.i.i
   %427 = getelementptr inbounds i8, ptr %251, i64 120
   %428 = load i64, ptr %427, align 8
   %429 = and i64 %428, 7
   %430 = icmp ne i64 %429, 0
   %431 = icmp eq i64 %428, 0
   %432 = or i1 %431, %430
-  br i1 %432, label %gc_object_moved_p.exit19.thread.i.i.i.i.i, label %gc_object_moved_p.exit19.i.i.i.i.i
+  br i1 %432, label %gc_object_moved_p.argprom.exit19.thread.i.i.i.i.i, label %gc_object_moved_p.argprom.exit19.i.i.i.i.i
 
-gc_object_moved_p.exit19.i.i.i.i.i:               ; preds = %gc_object_moved_p.exit17.thread.i.i.i.i.i
+gc_object_moved_p.argprom.exit19.i.i.i.i.i:       ; preds = %gc_object_moved_p.argprom.exit17.thread.i.i.i.i.i
   %433 = inttoptr i64 %428 to ptr
   %434 = load i64, ptr %433, align 8
   %435 = and i64 %434, 31
   %.not8.i.i.i.i.i = icmp eq i64 %435, 30
-  br i1 %.not8.i.i.i.i.i, label %436, label %gc_object_moved_p.exit19.thread.i.i.i.i.i
+  br i1 %.not8.i.i.i.i.i, label %436, label %gc_object_moved_p.argprom.exit19.thread.i.i.i.i.i
 
-436:                                              ; preds = %gc_object_moved_p.exit19.i.i.i.i.i
+436:                                              ; preds = %gc_object_moved_p.argprom.exit19.i.i.i.i.i
   %437 = getelementptr inbounds i8, ptr %433, i64 16
   %438 = load i64, ptr %437, align 8
   store i64 %438, ptr %427, align 8
-  br label %gc_object_moved_p.exit19.thread.i.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit19.thread.i.i.i.i.i
 
-gc_object_moved_p.exit19.thread.i.i.i.i.i:        ; preds = %436, %gc_object_moved_p.exit19.i.i.i.i.i, %gc_object_moved_p.exit17.thread.i.i.i.i.i
+gc_object_moved_p.argprom.exit19.thread.i.i.i.i.i: ; preds = %436, %gc_object_moved_p.argprom.exit19.i.i.i.i.i, %gc_object_moved_p.argprom.exit17.thread.i.i.i.i.i
   %439 = getelementptr inbounds i8, ptr %251, i64 88
   %440 = load ptr, ptr %439, align 8
   %.not4.i.i.i.i.i.i = icmp eq ptr %440, null
-  br i1 %.not4.i.i.i.i.i.i, label %update_class_ext.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not4.i.i.i.i.i.i, label %update_class_ext.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %gc_object_moved_p.exit19.thread.i.i.i.i.i, %gc_object_moved_p.exit.thread.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %453, %gc_object_moved_p.exit.thread.i.i.i.i.i.i ], [ %440, %gc_object_moved_p.exit19.thread.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %gc_object_moved_p.argprom.exit19.thread.i.i.i.i.i, %gc_object_moved_p.argprom.exit.thread.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i = phi ptr [ %453, %gc_object_moved_p.argprom.exit.thread.i.i.i.i.i.i ], [ %440, %gc_object_moved_p.argprom.exit19.thread.i.i.i.i.i ]
   %441 = load i64, ptr %.05.i.i.i.i.i.i, align 8
   %442 = and i64 %441, 7
   %443 = icmp ne i64 %442, 0
   %444 = icmp eq i64 %441, 0
   %445 = or i1 %444, %443
-  br i1 %445, label %gc_object_moved_p.exit.thread.i.i.i.i.i.i, label %gc_object_moved_p.exit.i.i.i.i.i.i
+  br i1 %445, label %gc_object_moved_p.argprom.exit.thread.i.i.i.i.i.i, label %gc_object_moved_p.argprom.exit.i.i.i.i.i.i
 
-gc_object_moved_p.exit.i.i.i.i.i.i:               ; preds = %.lr.ph.i.i.i.i.i.i
+gc_object_moved_p.argprom.exit.i.i.i.i.i.i:       ; preds = %.lr.ph.i.i.i.i.i.i
   %446 = inttoptr i64 %441 to ptr
   %447 = load i64, ptr %446, align 8
   %448 = and i64 %447, 31
   %.not3.i.i.i.i.i.i = icmp eq i64 %448, 30
-  br i1 %.not3.i.i.i.i.i.i, label %449, label %gc_object_moved_p.exit.thread.i.i.i.i.i.i
+  br i1 %.not3.i.i.i.i.i.i, label %449, label %gc_object_moved_p.argprom.exit.thread.i.i.i.i.i.i
 
-449:                                              ; preds = %gc_object_moved_p.exit.i.i.i.i.i.i
+449:                                              ; preds = %gc_object_moved_p.argprom.exit.i.i.i.i.i.i
   %450 = getelementptr inbounds i8, ptr %446, i64 16
   %451 = load i64, ptr %450, align 8
   store i64 %451, ptr %.05.i.i.i.i.i.i, align 8
-  br label %gc_object_moved_p.exit.thread.i.i.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit.thread.i.i.i.i.i.i
 
-gc_object_moved_p.exit.thread.i.i.i.i.i.i:        ; preds = %449, %gc_object_moved_p.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
+gc_object_moved_p.argprom.exit.thread.i.i.i.i.i.i: ; preds = %449, %gc_object_moved_p.argprom.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %452 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 8
   %453 = load ptr, ptr %452, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %453, null
-  br i1 %.not.i.i.i.i.i.i, label %update_class_ext.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i.i.i.i.i, label %update_class_ext.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !111
 
-update_class_ext.exit.i.i.i.i:                    ; preds = %gc_object_moved_p.exit.thread.i.i.i.i.i.i, %gc_object_moved_p.exit19.thread.i.i.i.i.i
+update_class_ext.argprom.exit.i.i.i.i:            ; preds = %gc_object_moved_p.argprom.exit.thread.i.i.i.i.i.i, %gc_object_moved_p.argprom.exit19.thread.i.i.i.i.i
   %454 = getelementptr inbounds i8, ptr %251, i64 40
   %455 = load ptr, ptr %454, align 8
   %.not.i231.i.i.i.i = icmp eq ptr %455, null
   br i1 %.not.i231.i.i.i.i, label %update_const_tbl.exit.i.i.i.i, label %456
 
-456:                                              ; preds = %update_class_ext.exit.i.i.i.i
+456:                                              ; preds = %update_class_ext.argprom.exit.i.i.i.i
   call void @rb_id_table_foreach_values(ptr noundef nonnull %455, ptr noundef nonnull @update_const_table, ptr noundef %0) #39
   br label %update_const_tbl.exit.i.i.i.i
 
-update_const_tbl.exit.i.i.i.i:                    ; preds = %456, %update_class_ext.exit.i.i.i.i
+update_const_tbl.exit.i.i.i.i:                    ; preds = %456, %update_class_ext.argprom.exit.i.i.i.i
   %457 = getelementptr inbounds i8, ptr %251, i64 152
   %458 = load i64, ptr %457, align 8
   %459 = and i64 %458, 7
   %460 = icmp ne i64 %459, 0
   %461 = icmp eq i64 %458, 0
   %462 = or i1 %461, %460
-  br i1 %462, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.exit233.i.i.i.i
+  br i1 %462, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.argprom.exit233.i.i.i.i
 
-gc_object_moved_p.exit233.i.i.i.i:                ; preds = %update_const_tbl.exit.i.i.i.i
+gc_object_moved_p.argprom.exit233.i.i.i.i:        ; preds = %update_const_tbl.exit.i.i.i.i
   %463 = inttoptr i64 %458 to ptr
   %464 = load i64, ptr %463, align 8
   %465 = and i64 %464, 31
   %.not410.i.i.i.i = icmp eq i64 %465, 30
   br i1 %.not410.i.i.i.i, label %466, label %update_cc_tbl.exit258.i.i.i.i
 
-466:                                              ; preds = %gc_object_moved_p.exit233.i.i.i.i
+466:                                              ; preds = %gc_object_moved_p.argprom.exit233.i.i.i.i
   %467 = getelementptr inbounds i8, ptr %463, i64 16
   %468 = load i64, ptr %467, align 8
   store i64 %468, ptr %457, align 8
@@ -18119,132 +18119,132 @@ update_m_tbl.exit235.i.i.i.i:                     ; preds = %475, %472, %469
   %478 = and i64 %477, 7
   %479 = icmp ne i64 %478, 0
   %or.cond377.i.i.i.i = or i1 %.not207.i.i.i.i, %479
-  br i1 %or.cond377.i.i.i.i, label %gc_object_moved_p.exit237.thread.i.i.i.i, label %gc_object_moved_p.exit237.i.i.i.i
+  br i1 %or.cond377.i.i.i.i, label %gc_object_moved_p.argprom.exit237.thread.i.i.i.i, label %gc_object_moved_p.argprom.exit237.i.i.i.i
 
-gc_object_moved_p.exit237.i.i.i.i:                ; preds = %update_m_tbl.exit235.i.i.i.i
+gc_object_moved_p.argprom.exit237.i.i.i.i:        ; preds = %update_m_tbl.exit235.i.i.i.i
   %480 = inttoptr i64 %477 to ptr
   %481 = load i64, ptr %480, align 8
   %482 = and i64 %481, 31
   %.not406.i.i.i.i = icmp eq i64 %482, 30
-  br i1 %.not406.i.i.i.i, label %483, label %gc_object_moved_p.exit237.thread.i.i.i.i
+  br i1 %.not406.i.i.i.i, label %483, label %gc_object_moved_p.argprom.exit237.thread.i.i.i.i
 
-483:                                              ; preds = %gc_object_moved_p.exit237.i.i.i.i
+483:                                              ; preds = %gc_object_moved_p.argprom.exit237.i.i.i.i
   %484 = getelementptr inbounds i8, ptr %480, i64 16
   %485 = load i64, ptr %484, align 8
   store i64 %485, ptr %476, align 8
-  br label %gc_object_moved_p.exit237.thread.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit237.thread.i.i.i.i
 
-gc_object_moved_p.exit237.thread.i.i.i.i:         ; preds = %483, %gc_object_moved_p.exit237.i.i.i.i, %update_m_tbl.exit235.i.i.i.i
+gc_object_moved_p.argprom.exit237.thread.i.i.i.i: ; preds = %483, %gc_object_moved_p.argprom.exit237.i.i.i.i, %update_m_tbl.exit235.i.i.i.i
   %486 = getelementptr inbounds i8, ptr %251, i64 112
   %487 = load i64, ptr %486, align 8
   %488 = and i64 %487, 7
   %489 = icmp ne i64 %488, 0
   %490 = icmp eq i64 %487, 0
   %491 = or i1 %490, %489
-  br i1 %491, label %gc_object_moved_p.exit.thread.i240.i.i.i.i, label %gc_object_moved_p.exit.i238.i.i.i.i
+  br i1 %491, label %gc_object_moved_p.argprom.exit.thread.i240.i.i.i.i, label %gc_object_moved_p.argprom.exit.i238.i.i.i.i
 
-gc_object_moved_p.exit.i238.i.i.i.i:              ; preds = %gc_object_moved_p.exit237.thread.i.i.i.i
+gc_object_moved_p.argprom.exit.i238.i.i.i.i:      ; preds = %gc_object_moved_p.argprom.exit237.thread.i.i.i.i
   %492 = inttoptr i64 %487 to ptr
   %493 = load i64, ptr %492, align 8
   %494 = and i64 %493, 31
   %.not.i239.i.i.i.i = icmp eq i64 %494, 30
-  br i1 %.not.i239.i.i.i.i, label %495, label %gc_object_moved_p.exit.thread.i240.i.i.i.i
+  br i1 %.not.i239.i.i.i.i, label %495, label %gc_object_moved_p.argprom.exit.thread.i240.i.i.i.i
 
-495:                                              ; preds = %gc_object_moved_p.exit.i238.i.i.i.i
+495:                                              ; preds = %gc_object_moved_p.argprom.exit.i238.i.i.i.i
   %496 = getelementptr inbounds i8, ptr %492, i64 16
   %497 = load i64, ptr %496, align 8
   store i64 %497, ptr %486, align 8
-  br label %gc_object_moved_p.exit.thread.i240.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit.thread.i240.i.i.i.i
 
-gc_object_moved_p.exit.thread.i240.i.i.i.i:       ; preds = %495, %gc_object_moved_p.exit.i238.i.i.i.i, %gc_object_moved_p.exit237.thread.i.i.i.i
+gc_object_moved_p.argprom.exit.thread.i240.i.i.i.i: ; preds = %495, %gc_object_moved_p.argprom.exit.i238.i.i.i.i, %gc_object_moved_p.argprom.exit237.thread.i.i.i.i
   %498 = getelementptr inbounds i8, ptr %251, i64 136
   %499 = load i64, ptr %498, align 8
   %500 = and i64 %499, 7
   %501 = icmp ne i64 %500, 0
   %502 = icmp eq i64 %499, 0
   %503 = or i1 %502, %501
-  br i1 %503, label %gc_object_moved_p.exit17.thread.i243.i.i.i.i, label %gc_object_moved_p.exit17.i241.i.i.i.i
+  br i1 %503, label %gc_object_moved_p.argprom.exit17.thread.i243.i.i.i.i, label %gc_object_moved_p.argprom.exit17.i241.i.i.i.i
 
-gc_object_moved_p.exit17.i241.i.i.i.i:            ; preds = %gc_object_moved_p.exit.thread.i240.i.i.i.i
+gc_object_moved_p.argprom.exit17.i241.i.i.i.i:    ; preds = %gc_object_moved_p.argprom.exit.thread.i240.i.i.i.i
   %504 = inttoptr i64 %499 to ptr
   %505 = load i64, ptr %504, align 8
   %506 = and i64 %505, 31
   %.not7.i242.i.i.i.i = icmp eq i64 %506, 30
-  br i1 %.not7.i242.i.i.i.i, label %507, label %gc_object_moved_p.exit17.thread.i243.i.i.i.i
+  br i1 %.not7.i242.i.i.i.i, label %507, label %gc_object_moved_p.argprom.exit17.thread.i243.i.i.i.i
 
-507:                                              ; preds = %gc_object_moved_p.exit17.i241.i.i.i.i
+507:                                              ; preds = %gc_object_moved_p.argprom.exit17.i241.i.i.i.i
   %508 = getelementptr inbounds i8, ptr %504, i64 16
   %509 = load i64, ptr %508, align 8
   store i64 %509, ptr %498, align 8
-  br label %gc_object_moved_p.exit17.thread.i243.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit17.thread.i243.i.i.i.i
 
-gc_object_moved_p.exit17.thread.i243.i.i.i.i:     ; preds = %507, %gc_object_moved_p.exit17.i241.i.i.i.i, %gc_object_moved_p.exit.thread.i240.i.i.i.i
+gc_object_moved_p.argprom.exit17.thread.i243.i.i.i.i: ; preds = %507, %gc_object_moved_p.argprom.exit17.i241.i.i.i.i, %gc_object_moved_p.argprom.exit.thread.i240.i.i.i.i
   %510 = getelementptr inbounds i8, ptr %251, i64 120
   %511 = load i64, ptr %510, align 8
   %512 = and i64 %511, 7
   %513 = icmp ne i64 %512, 0
   %514 = icmp eq i64 %511, 0
   %515 = or i1 %514, %513
-  br i1 %515, label %gc_object_moved_p.exit19.thread.i246.i.i.i.i, label %gc_object_moved_p.exit19.i244.i.i.i.i
+  br i1 %515, label %gc_object_moved_p.argprom.exit19.thread.i246.i.i.i.i, label %gc_object_moved_p.argprom.exit19.i244.i.i.i.i
 
-gc_object_moved_p.exit19.i244.i.i.i.i:            ; preds = %gc_object_moved_p.exit17.thread.i243.i.i.i.i
+gc_object_moved_p.argprom.exit19.i244.i.i.i.i:    ; preds = %gc_object_moved_p.argprom.exit17.thread.i243.i.i.i.i
   %516 = inttoptr i64 %511 to ptr
   %517 = load i64, ptr %516, align 8
   %518 = and i64 %517, 31
   %.not8.i245.i.i.i.i = icmp eq i64 %518, 30
-  br i1 %.not8.i245.i.i.i.i, label %519, label %gc_object_moved_p.exit19.thread.i246.i.i.i.i
+  br i1 %.not8.i245.i.i.i.i, label %519, label %gc_object_moved_p.argprom.exit19.thread.i246.i.i.i.i
 
-519:                                              ; preds = %gc_object_moved_p.exit19.i244.i.i.i.i
+519:                                              ; preds = %gc_object_moved_p.argprom.exit19.i244.i.i.i.i
   %520 = getelementptr inbounds i8, ptr %516, i64 16
   %521 = load i64, ptr %520, align 8
   store i64 %521, ptr %510, align 8
-  br label %gc_object_moved_p.exit19.thread.i246.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit19.thread.i246.i.i.i.i
 
-gc_object_moved_p.exit19.thread.i246.i.i.i.i:     ; preds = %519, %gc_object_moved_p.exit19.i244.i.i.i.i, %gc_object_moved_p.exit17.thread.i243.i.i.i.i
+gc_object_moved_p.argprom.exit19.thread.i246.i.i.i.i: ; preds = %519, %gc_object_moved_p.argprom.exit19.i244.i.i.i.i, %gc_object_moved_p.argprom.exit17.thread.i243.i.i.i.i
   %522 = getelementptr inbounds i8, ptr %251, i64 88
   %523 = load ptr, ptr %522, align 8
   %.not4.i.i247.i.i.i.i = icmp eq ptr %523, null
-  br i1 %.not4.i.i247.i.i.i.i, label %update_class_ext.exit254.i.i.i.i, label %.lr.ph.i.i248.i.i.i.i
+  br i1 %.not4.i.i247.i.i.i.i, label %update_class_ext.argprom.exit254.i.i.i.i, label %.lr.ph.i.i248.i.i.i.i
 
-.lr.ph.i.i248.i.i.i.i:                            ; preds = %gc_object_moved_p.exit19.thread.i246.i.i.i.i, %gc_object_moved_p.exit.thread.i.i252.i.i.i.i
-  %.05.i.i249.i.i.i.i = phi ptr [ %536, %gc_object_moved_p.exit.thread.i.i252.i.i.i.i ], [ %523, %gc_object_moved_p.exit19.thread.i246.i.i.i.i ]
+.lr.ph.i.i248.i.i.i.i:                            ; preds = %gc_object_moved_p.argprom.exit19.thread.i246.i.i.i.i, %gc_object_moved_p.argprom.exit.thread.i.i252.i.i.i.i
+  %.05.i.i249.i.i.i.i = phi ptr [ %536, %gc_object_moved_p.argprom.exit.thread.i.i252.i.i.i.i ], [ %523, %gc_object_moved_p.argprom.exit19.thread.i246.i.i.i.i ]
   %524 = load i64, ptr %.05.i.i249.i.i.i.i, align 8
   %525 = and i64 %524, 7
   %526 = icmp ne i64 %525, 0
   %527 = icmp eq i64 %524, 0
   %528 = or i1 %527, %526
-  br i1 %528, label %gc_object_moved_p.exit.thread.i.i252.i.i.i.i, label %gc_object_moved_p.exit.i.i250.i.i.i.i
+  br i1 %528, label %gc_object_moved_p.argprom.exit.thread.i.i252.i.i.i.i, label %gc_object_moved_p.argprom.exit.i.i250.i.i.i.i
 
-gc_object_moved_p.exit.i.i250.i.i.i.i:            ; preds = %.lr.ph.i.i248.i.i.i.i
+gc_object_moved_p.argprom.exit.i.i250.i.i.i.i:    ; preds = %.lr.ph.i.i248.i.i.i.i
   %529 = inttoptr i64 %524 to ptr
   %530 = load i64, ptr %529, align 8
   %531 = and i64 %530, 31
   %.not3.i.i251.i.i.i.i = icmp eq i64 %531, 30
-  br i1 %.not3.i.i251.i.i.i.i, label %532, label %gc_object_moved_p.exit.thread.i.i252.i.i.i.i
+  br i1 %.not3.i.i251.i.i.i.i, label %532, label %gc_object_moved_p.argprom.exit.thread.i.i252.i.i.i.i
 
-532:                                              ; preds = %gc_object_moved_p.exit.i.i250.i.i.i.i
+532:                                              ; preds = %gc_object_moved_p.argprom.exit.i.i250.i.i.i.i
   %533 = getelementptr inbounds i8, ptr %529, i64 16
   %534 = load i64, ptr %533, align 8
   store i64 %534, ptr %.05.i.i249.i.i.i.i, align 8
-  br label %gc_object_moved_p.exit.thread.i.i252.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit.thread.i.i252.i.i.i.i
 
-gc_object_moved_p.exit.thread.i.i252.i.i.i.i:     ; preds = %532, %gc_object_moved_p.exit.i.i250.i.i.i.i, %.lr.ph.i.i248.i.i.i.i
+gc_object_moved_p.argprom.exit.thread.i.i252.i.i.i.i: ; preds = %532, %gc_object_moved_p.argprom.exit.i.i250.i.i.i.i, %.lr.ph.i.i248.i.i.i.i
   %535 = getelementptr inbounds i8, ptr %.05.i.i249.i.i.i.i, i64 8
   %536 = load ptr, ptr %535, align 8
   %.not.i.i253.i.i.i.i = icmp eq ptr %536, null
-  br i1 %.not.i.i253.i.i.i.i, label %update_class_ext.exit254.i.i.i.i, label %.lr.ph.i.i248.i.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i253.i.i.i.i, label %update_class_ext.argprom.exit254.i.i.i.i, label %.lr.ph.i.i248.i.i.i.i, !llvm.loop !111
 
-update_class_ext.exit254.i.i.i.i:                 ; preds = %gc_object_moved_p.exit.thread.i.i252.i.i.i.i, %gc_object_moved_p.exit19.thread.i246.i.i.i.i
+update_class_ext.argprom.exit254.i.i.i.i:         ; preds = %gc_object_moved_p.argprom.exit.thread.i.i252.i.i.i.i, %gc_object_moved_p.argprom.exit19.thread.i246.i.i.i.i
   %537 = getelementptr inbounds i8, ptr %251, i64 48
   %538 = load ptr, ptr %537, align 8
   %.not.i255.i.i.i.i = icmp eq ptr %538, null
   br i1 %.not.i255.i.i.i.i, label %update_m_tbl.exit256.i.i.i.i, label %539
 
-539:                                              ; preds = %update_class_ext.exit254.i.i.i.i
+539:                                              ; preds = %update_class_ext.argprom.exit254.i.i.i.i
   call void @rb_id_table_foreach_values_with_replace(ptr noundef nonnull %538, ptr noundef nonnull @check_id_table_move, ptr noundef nonnull @update_id_table, ptr noundef %0) #39
   br label %update_m_tbl.exit256.i.i.i.i
 
-update_m_tbl.exit256.i.i.i.i:                     ; preds = %539, %update_class_ext.exit254.i.i.i.i
+update_m_tbl.exit256.i.i.i.i:                     ; preds = %539, %update_class_ext.argprom.exit254.i.i.i.i
   %540 = getelementptr inbounds i8, ptr %251, i64 56
   %541 = load ptr, ptr %540, align 8
   %.not.i257.i.i.i.i = icmp eq ptr %541, null
@@ -18270,16 +18270,16 @@ update_m_tbl.exit256.i.i.i.i:                     ; preds = %539, %update_class_
   %550 = icmp ne i64 %549, 0
   %551 = icmp eq i64 %548, 0
   %552 = or i1 %551, %550
-  br i1 %552, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.exit.i259.i.i.i.i
+  br i1 %552, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.argprom.exit.i259.i.i.i.i
 
-gc_object_moved_p.exit.i259.i.i.i.i:              ; preds = %546
+gc_object_moved_p.argprom.exit.i259.i.i.i.i:      ; preds = %546
   %553 = inttoptr i64 %548 to ptr
   %554 = load i64, ptr %553, align 8
   %555 = and i64 %554, 31
   %.not13.i.i.i.i.i = icmp eq i64 %555, 30
-  br i1 %.not13.i.i.i.i.i, label %gc_object_moved_p.exit.thread.i260.i.i.i.i, label %update_cc_tbl.exit258.i.i.i.i
+  br i1 %.not13.i.i.i.i.i, label %gc_object_moved_p.argprom.exit.thread.i260.i.i.i.i, label %update_cc_tbl.exit258.i.i.i.i
 
-gc_object_moved_p.exit.thread.i260.i.i.i.i:       ; preds = %gc_object_moved_p.exit.i259.i.i.i.i
+gc_object_moved_p.argprom.exit.thread.i260.i.i.i.i: ; preds = %gc_object_moved_p.argprom.exit.i259.i.i.i.i
   %556 = getelementptr inbounds i8, ptr %553, i64 16
   %557 = load i64, ptr %556, align 8
   store i64 %557, ptr %547, align 8
@@ -18291,7 +18291,7 @@ gc_object_moved_p.exit.thread.i260.i.i.i.i:       ; preds = %gc_object_moved_p.e
   %or.cond.i.i.i.i.i = or i1 %.not36.i.i.i.i.i, %.not14.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %update_cc_tbl.exit258.i.i.i.i, label %561
 
-561:                                              ; preds = %gc_object_moved_p.exit.thread.i260.i.i.i.i
+561:                                              ; preds = %gc_object_moved_p.argprom.exit.thread.i260.i.i.i.i
   %562 = getelementptr inbounds i8, ptr %251, i64 32
   %563 = load ptr, ptr %562, align 8
   %564 = ptrtoint ptr %563 to i64
@@ -18331,35 +18331,35 @@ rb_array_const_ptr.exit.i.i.i.i.i:                ; preds = %574, %.thread.i.i.i
   %.0.i40.i.i.i.i.i = phi ptr [ %573, %.thread.i.i.i.i.i ], [ %576, %574 ]
   br label %577
 
-577:                                              ; preds = %gc_object_moved_p.exit42.thread.i.i.i.i.i, %rb_array_const_ptr.exit.i.i.i.i.i
-  %.016.i.i.i.i.i = phi i64 [ 0, %rb_array_const_ptr.exit.i.i.i.i.i ], [ %590, %gc_object_moved_p.exit42.thread.i.i.i.i.i ]
+577:                                              ; preds = %gc_object_moved_p.argprom.exit42.thread.i.i.i.i.i, %rb_array_const_ptr.exit.i.i.i.i.i
+  %.016.i.i.i.i.i = phi i64 [ 0, %rb_array_const_ptr.exit.i.i.i.i.i ], [ %590, %gc_object_moved_p.argprom.exit42.thread.i.i.i.i.i ]
   %578 = getelementptr i64, ptr %.0.i40.i.i.i.i.i, i64 %.016.i.i.i.i.i
   %579 = load i64, ptr %578, align 8
   %580 = and i64 %579, 7
   %581 = icmp ne i64 %580, 0
   %582 = icmp eq i64 %579, 0
   %583 = or i1 %582, %581
-  br i1 %583, label %gc_object_moved_p.exit42.thread.i.i.i.i.i, label %gc_object_moved_p.exit42.i.i.i.i.i
+  br i1 %583, label %gc_object_moved_p.argprom.exit42.thread.i.i.i.i.i, label %gc_object_moved_p.argprom.exit42.i.i.i.i.i
 
-gc_object_moved_p.exit42.i.i.i.i.i:               ; preds = %577
+gc_object_moved_p.argprom.exit42.i.i.i.i.i:       ; preds = %577
   %584 = inttoptr i64 %579 to ptr
   %585 = load i64, ptr %584, align 8
   %586 = and i64 %585, 31
   %.not12.i.i.i.i.i = icmp eq i64 %586, 30
-  br i1 %.not12.i.i.i.i.i, label %587, label %gc_object_moved_p.exit42.thread.i.i.i.i.i
+  br i1 %.not12.i.i.i.i.i, label %587, label %gc_object_moved_p.argprom.exit42.thread.i.i.i.i.i
 
-587:                                              ; preds = %gc_object_moved_p.exit42.i.i.i.i.i
+587:                                              ; preds = %gc_object_moved_p.argprom.exit42.i.i.i.i.i
   %588 = getelementptr inbounds i8, ptr %584, i64 16
   %589 = load i64, ptr %588, align 8
   store i64 %589, ptr %578, align 8
-  br label %gc_object_moved_p.exit42.thread.i.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit42.thread.i.i.i.i.i
 
-gc_object_moved_p.exit42.thread.i.i.i.i.i:        ; preds = %587, %gc_object_moved_p.exit42.i.i.i.i.i, %577
+gc_object_moved_p.argprom.exit42.thread.i.i.i.i.i: ; preds = %587, %gc_object_moved_p.argprom.exit42.i.i.i.i.i, %577
   %590 = add nuw nsw i64 %.016.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %590, %.0.i3846.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %.loopexit.i.i.i.i.i, label %577, !llvm.loop !112
 
-.loopexit.i.i.i.i.i:                              ; preds = %gc_object_moved_p.exit42.thread.i.i.i.i.i, %rb_array_len.exit.thread.i.i.i.i.i, %rb_array_len.exit.i.i.i.i.i
+.loopexit.i.i.i.i.i:                              ; preds = %gc_object_moved_p.argprom.exit42.thread.i.i.i.i.i, %rb_array_len.exit.thread.i.i.i.i.i, %rb_array_len.exit.i.i.i.i.i
   %591 = load ptr, ptr %257, align 65536
   %592 = load i16, ptr %591, align 8
   %593 = sext i16 %592 to i64
@@ -18383,16 +18383,16 @@ gc_object_moved_p.exit42.thread.i.i.i.i.i:        ; preds = %587, %gc_object_mov
   %603 = icmp ne i64 %602, 0
   %604 = icmp eq i64 %601, 0
   %605 = or i1 %604, %603
-  br i1 %605, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.exit264.i.i.i.i
+  br i1 %605, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.argprom.exit264.i.i.i.i
 
-gc_object_moved_p.exit264.i.i.i.i:                ; preds = %598
+gc_object_moved_p.argprom.exit264.i.i.i.i:        ; preds = %598
   %606 = inttoptr i64 %601 to ptr
   %607 = load i64, ptr %606, align 8
   %608 = and i64 %607, 31
   %.not405.i.i.i.i = icmp eq i64 %608, 30
   br i1 %.not405.i.i.i.i, label %609, label %update_cc_tbl.exit258.i.i.i.i
 
-609:                                              ; preds = %gc_object_moved_p.exit264.i.i.i.i
+609:                                              ; preds = %gc_object_moved_p.argprom.exit264.i.i.i.i
   %610 = getelementptr inbounds i8, ptr %606, i64 16
   %611 = load i64, ptr %610, align 8
   store i64 %611, ptr %600, align 8
@@ -18401,7 +18401,7 @@ gc_object_moved_p.exit264.i.i.i.i:                ; preds = %598
 612:                                              ; preds = %RB_FL_TEST.exit.thread.i.i.i.i
   %613 = and i64 %295, 24576
   %614 = icmp eq i64 %613, 24576
-  br i1 %614, label %615, label %gc_object_moved_p.exit266.thread.i.i.i.i
+  br i1 %614, label %615, label %gc_object_moved_p.argprom.exit266.thread.i.i.i.i
 
 615:                                              ; preds = %612
   %616 = getelementptr inbounds i8, ptr %251, i64 32
@@ -18410,22 +18410,22 @@ gc_object_moved_p.exit264.i.i.i.i:                ; preds = %598
   %619 = icmp ne i64 %618, 0
   %620 = icmp eq i64 %617, 0
   %621 = or i1 %620, %619
-  br i1 %621, label %gc_object_moved_p.exit266.thread.i.i.i.i, label %gc_object_moved_p.exit266.i.i.i.i
+  br i1 %621, label %gc_object_moved_p.argprom.exit266.thread.i.i.i.i, label %gc_object_moved_p.argprom.exit266.i.i.i.i
 
-gc_object_moved_p.exit266.i.i.i.i:                ; preds = %615
+gc_object_moved_p.argprom.exit266.i.i.i.i:        ; preds = %615
   %622 = inttoptr i64 %617 to ptr
   %623 = load i64, ptr %622, align 8
   %624 = and i64 %623, 31
   %.not404.i.i.i.i = icmp eq i64 %624, 30
-  br i1 %.not404.i.i.i.i, label %625, label %gc_object_moved_p.exit266.thread.i.i.i.i
+  br i1 %.not404.i.i.i.i, label %625, label %gc_object_moved_p.argprom.exit266.thread.i.i.i.i
 
-625:                                              ; preds = %gc_object_moved_p.exit266.i.i.i.i
+625:                                              ; preds = %gc_object_moved_p.argprom.exit266.i.i.i.i
   %626 = getelementptr inbounds i8, ptr %622, i64 16
   %627 = load i64, ptr %626, align 8
   store i64 %627, ptr %616, align 8
-  br label %gc_object_moved_p.exit266.thread.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit266.thread.i.i.i.i
 
-gc_object_moved_p.exit266.thread.i.i.i.i:         ; preds = %625, %gc_object_moved_p.exit266.i.i.i.i, %615, %612
+gc_object_moved_p.argprom.exit266.thread.i.i.i.i: ; preds = %625, %gc_object_moved_p.argprom.exit266.i.i.i.i, %615, %612
   %628 = load ptr, ptr %257, align 65536
   %629 = load i16, ptr %628, align 8
   %630 = sext i16 %629 to i64
@@ -18433,7 +18433,7 @@ gc_object_moved_p.exit266.thread.i.i.i.i:         ; preds = %625, %gc_object_mov
   %.not205.i.i.i.i = icmp ugt i64 %631, %630
   br i1 %.not205.i.i.i.i, label %update_cc_tbl.exit258.i.i.i.i, label %632
 
-632:                                              ; preds = %gc_object_moved_p.exit266.thread.i.i.i.i
+632:                                              ; preds = %gc_object_moved_p.argprom.exit266.thread.i.i.i.i
   %633 = load i64, ptr %251, align 8
   %634 = and i64 %633, 8192
   %.not.i267.i.i.i.i = icmp eq i64 %634, 0
@@ -18662,8 +18662,8 @@ ruby_xfree.exit.i.i.i.i.i:                        ; preds = %.preheader.i.i.i.i.
   %.024.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %703 ], [ %.0.i.i.i.i.i.i, %692 ], [ %678, %ruby_nonempty_memcpy.exit.i.i.i.i.i ], [ %678, %726 ], [ %678, %741 ], [ %678, %.preheader.i.i.i.i.i.i.i.i ]
   br label %742
 
-742:                                              ; preds = %gc_object_moved_p.exit.thread.i272.i.i.i.i, %ruby_xfree.exit.i.i.i.i.i
-  %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %gc_object_moved_p.exit.thread.i272.i.i.i.i ], [ 0, %ruby_xfree.exit.i.i.i.i.i ]
+742:                                              ; preds = %gc_object_moved_p.argprom.exit.thread.i272.i.i.i.i, %ruby_xfree.exit.i.i.i.i.i
+  %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %gc_object_moved_p.argprom.exit.thread.i272.i.i.i.i ], [ 0, %ruby_xfree.exit.i.i.i.i.i ]
   %743 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %.031.i.i.i.i) #39
   br i1 %743, label %744, label %748
 
@@ -18695,22 +18695,22 @@ ROBJECT_IV_COUNT.exit31.i.i.i.i.i:                ; preds = %748, %744
   %761 = icmp ne i64 %760, 0
   %762 = icmp eq i64 %759, 0
   %763 = or i1 %762, %761
-  br i1 %763, label %gc_object_moved_p.exit.thread.i272.i.i.i.i, label %gc_object_moved_p.exit.i271.i.i.i.i
+  br i1 %763, label %gc_object_moved_p.argprom.exit.thread.i272.i.i.i.i, label %gc_object_moved_p.argprom.exit.i271.i.i.i.i
 
-gc_object_moved_p.exit.i271.i.i.i.i:              ; preds = %757
+gc_object_moved_p.argprom.exit.i271.i.i.i.i:      ; preds = %757
   %764 = inttoptr i64 %759 to ptr
   %765 = load i64, ptr %764, align 8
   %766 = and i64 %765, 31
   %.not35.i.i.i.i.i = icmp eq i64 %766, 30
-  br i1 %.not35.i.i.i.i.i, label %767, label %gc_object_moved_p.exit.thread.i272.i.i.i.i
+  br i1 %.not35.i.i.i.i.i, label %767, label %gc_object_moved_p.argprom.exit.thread.i272.i.i.i.i
 
-767:                                              ; preds = %gc_object_moved_p.exit.i271.i.i.i.i
+767:                                              ; preds = %gc_object_moved_p.argprom.exit.i271.i.i.i.i
   %768 = getelementptr inbounds i8, ptr %764, i64 16
   %769 = load i64, ptr %768, align 8
   store i64 %769, ptr %758, align 8
-  br label %gc_object_moved_p.exit.thread.i272.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit.thread.i272.i.i.i.i
 
-gc_object_moved_p.exit.thread.i272.i.i.i.i:       ; preds = %767, %gc_object_moved_p.exit.i271.i.i.i.i, %757
+gc_object_moved_p.argprom.exit.thread.i272.i.i.i.i: ; preds = %767, %gc_object_moved_p.argprom.exit.i271.i.i.i.i, %757
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   br label %742, !llvm.loop !114
 
@@ -18726,160 +18726,160 @@ gc_object_moved_p.exit.thread.i272.i.i.i.i:       ; preds = %767, %gc_object_mov
   %776 = icmp ne i64 %775, 0
   %777 = icmp eq i64 %774, 0
   %778 = or i1 %777, %776
-  br i1 %778, label %gc_object_moved_p.exit276.thread.i.i.i.i, label %gc_object_moved_p.exit276.i.i.i.i
+  br i1 %778, label %gc_object_moved_p.argprom.exit276.thread.i.i.i.i, label %gc_object_moved_p.argprom.exit276.i.i.i.i
 
-gc_object_moved_p.exit276.i.i.i.i:                ; preds = %773
+gc_object_moved_p.argprom.exit276.i.i.i.i:        ; preds = %773
   %779 = inttoptr i64 %774 to ptr
   %780 = load i64, ptr %779, align 8
   %781 = and i64 %780, 31
   %.not396.i.i.i.i = icmp eq i64 %781, 30
-  br i1 %.not396.i.i.i.i, label %782, label %gc_object_moved_p.exit276.thread.i.i.i.i
+  br i1 %.not396.i.i.i.i, label %782, label %gc_object_moved_p.argprom.exit276.thread.i.i.i.i
 
-782:                                              ; preds = %gc_object_moved_p.exit276.i.i.i.i
+782:                                              ; preds = %gc_object_moved_p.argprom.exit276.i.i.i.i
   %783 = getelementptr inbounds i8, ptr %779, i64 16
   %784 = load i64, ptr %783, align 8
   store i64 %784, ptr %772, align 8
   %.pre424.i.i.i.i = load ptr, ptr %771, align 8
-  br label %gc_object_moved_p.exit276.thread.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit276.thread.i.i.i.i
 
-gc_object_moved_p.exit276.thread.i.i.i.i:         ; preds = %782, %gc_object_moved_p.exit276.i.i.i.i, %773
-  %785 = phi ptr [ %772, %773 ], [ %.pre424.i.i.i.i, %782 ], [ %772, %gc_object_moved_p.exit276.i.i.i.i ]
+gc_object_moved_p.argprom.exit276.thread.i.i.i.i: ; preds = %782, %gc_object_moved_p.argprom.exit276.i.i.i.i, %773
+  %785 = phi ptr [ %772, %773 ], [ %.pre424.i.i.i.i, %782 ], [ %772, %gc_object_moved_p.argprom.exit276.i.i.i.i ]
   %786 = getelementptr inbounds i8, ptr %785, i64 32
   %787 = load i64, ptr %786, align 8
   %788 = and i64 %787, 7
   %789 = icmp ne i64 %788, 0
   %790 = icmp eq i64 %787, 0
   %791 = or i1 %790, %789
-  br i1 %791, label %gc_object_moved_p.exit278.thread.i.i.i.i, label %gc_object_moved_p.exit278.i.i.i.i
+  br i1 %791, label %gc_object_moved_p.argprom.exit278.thread.i.i.i.i, label %gc_object_moved_p.argprom.exit278.i.i.i.i
 
-gc_object_moved_p.exit278.i.i.i.i:                ; preds = %gc_object_moved_p.exit276.thread.i.i.i.i
+gc_object_moved_p.argprom.exit278.i.i.i.i:        ; preds = %gc_object_moved_p.argprom.exit276.thread.i.i.i.i
   %792 = inttoptr i64 %787 to ptr
   %793 = load i64, ptr %792, align 8
   %794 = and i64 %793, 31
   %.not397.i.i.i.i = icmp eq i64 %794, 30
-  br i1 %.not397.i.i.i.i, label %795, label %gc_object_moved_p.exit278.thread.i.i.i.i
+  br i1 %.not397.i.i.i.i, label %795, label %gc_object_moved_p.argprom.exit278.thread.i.i.i.i
 
-795:                                              ; preds = %gc_object_moved_p.exit278.i.i.i.i
+795:                                              ; preds = %gc_object_moved_p.argprom.exit278.i.i.i.i
   %796 = getelementptr inbounds i8, ptr %792, i64 16
   %797 = load i64, ptr %796, align 8
   store i64 %797, ptr %786, align 8
   %.pre425.i.i.i.i = load ptr, ptr %771, align 8
-  br label %gc_object_moved_p.exit278.thread.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit278.thread.i.i.i.i
 
-gc_object_moved_p.exit278.thread.i.i.i.i:         ; preds = %795, %gc_object_moved_p.exit278.i.i.i.i, %gc_object_moved_p.exit276.thread.i.i.i.i
-  %798 = phi ptr [ %785, %gc_object_moved_p.exit276.thread.i.i.i.i ], [ %.pre425.i.i.i.i, %795 ], [ %785, %gc_object_moved_p.exit278.i.i.i.i ]
+gc_object_moved_p.argprom.exit278.thread.i.i.i.i: ; preds = %795, %gc_object_moved_p.argprom.exit278.i.i.i.i, %gc_object_moved_p.argprom.exit276.thread.i.i.i.i
+  %798 = phi ptr [ %785, %gc_object_moved_p.argprom.exit276.thread.i.i.i.i ], [ %.pre425.i.i.i.i, %795 ], [ %785, %gc_object_moved_p.argprom.exit278.i.i.i.i ]
   %799 = getelementptr inbounds i8, ptr %798, i64 88
   %800 = load i64, ptr %799, align 8
   %801 = and i64 %800, 7
   %802 = icmp ne i64 %801, 0
   %803 = icmp eq i64 %800, 0
   %804 = or i1 %803, %802
-  br i1 %804, label %gc_object_moved_p.exit280.thread.i.i.i.i, label %gc_object_moved_p.exit280.i.i.i.i
+  br i1 %804, label %gc_object_moved_p.argprom.exit280.thread.i.i.i.i, label %gc_object_moved_p.argprom.exit280.i.i.i.i
 
-gc_object_moved_p.exit280.i.i.i.i:                ; preds = %gc_object_moved_p.exit278.thread.i.i.i.i
+gc_object_moved_p.argprom.exit280.i.i.i.i:        ; preds = %gc_object_moved_p.argprom.exit278.thread.i.i.i.i
   %805 = inttoptr i64 %800 to ptr
   %806 = load i64, ptr %805, align 8
   %807 = and i64 %806, 31
   %.not398.i.i.i.i = icmp eq i64 %807, 30
-  br i1 %.not398.i.i.i.i, label %808, label %gc_object_moved_p.exit280.thread.i.i.i.i
+  br i1 %.not398.i.i.i.i, label %808, label %gc_object_moved_p.argprom.exit280.thread.i.i.i.i
 
-808:                                              ; preds = %gc_object_moved_p.exit280.i.i.i.i
+808:                                              ; preds = %gc_object_moved_p.argprom.exit280.i.i.i.i
   %809 = getelementptr inbounds i8, ptr %805, i64 16
   %810 = load i64, ptr %809, align 8
   store i64 %810, ptr %799, align 8
   %.pre426.i.i.i.i = load ptr, ptr %771, align 8
-  br label %gc_object_moved_p.exit280.thread.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit280.thread.i.i.i.i
 
-gc_object_moved_p.exit280.thread.i.i.i.i:         ; preds = %808, %gc_object_moved_p.exit280.i.i.i.i, %gc_object_moved_p.exit278.thread.i.i.i.i
-  %811 = phi ptr [ %798, %gc_object_moved_p.exit278.thread.i.i.i.i ], [ %.pre426.i.i.i.i, %808 ], [ %798, %gc_object_moved_p.exit280.i.i.i.i ]
+gc_object_moved_p.argprom.exit280.thread.i.i.i.i: ; preds = %808, %gc_object_moved_p.argprom.exit280.i.i.i.i, %gc_object_moved_p.argprom.exit278.thread.i.i.i.i
+  %811 = phi ptr [ %798, %gc_object_moved_p.argprom.exit278.thread.i.i.i.i ], [ %.pre426.i.i.i.i, %808 ], [ %798, %gc_object_moved_p.argprom.exit280.i.i.i.i ]
   %812 = getelementptr inbounds i8, ptr %811, i64 168
   %813 = load i64, ptr %812, align 8
   %814 = and i64 %813, 7
   %815 = icmp ne i64 %814, 0
   %816 = icmp eq i64 %813, 0
   %817 = or i1 %816, %815
-  br i1 %817, label %gc_object_moved_p.exit282.thread.i.i.i.i, label %gc_object_moved_p.exit282.i.i.i.i
+  br i1 %817, label %gc_object_moved_p.argprom.exit282.thread.i.i.i.i, label %gc_object_moved_p.argprom.exit282.i.i.i.i
 
-gc_object_moved_p.exit282.i.i.i.i:                ; preds = %gc_object_moved_p.exit280.thread.i.i.i.i
+gc_object_moved_p.argprom.exit282.i.i.i.i:        ; preds = %gc_object_moved_p.argprom.exit280.thread.i.i.i.i
   %818 = inttoptr i64 %813 to ptr
   %819 = load i64, ptr %818, align 8
   %820 = and i64 %819, 31
   %.not399.i.i.i.i = icmp eq i64 %820, 30
-  br i1 %.not399.i.i.i.i, label %821, label %gc_object_moved_p.exit282.thread.i.i.i.i
+  br i1 %.not399.i.i.i.i, label %821, label %gc_object_moved_p.argprom.exit282.thread.i.i.i.i
 
-821:                                              ; preds = %gc_object_moved_p.exit282.i.i.i.i
+821:                                              ; preds = %gc_object_moved_p.argprom.exit282.i.i.i.i
   %822 = getelementptr inbounds i8, ptr %818, i64 16
   %823 = load i64, ptr %822, align 8
   store i64 %823, ptr %812, align 8
   %.pre427.i.i.i.i = load ptr, ptr %771, align 8
-  br label %gc_object_moved_p.exit282.thread.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit282.thread.i.i.i.i
 
-gc_object_moved_p.exit282.thread.i.i.i.i:         ; preds = %821, %gc_object_moved_p.exit282.i.i.i.i, %gc_object_moved_p.exit280.thread.i.i.i.i
-  %824 = phi ptr [ %811, %gc_object_moved_p.exit280.thread.i.i.i.i ], [ %.pre427.i.i.i.i, %821 ], [ %811, %gc_object_moved_p.exit282.i.i.i.i ]
+gc_object_moved_p.argprom.exit282.thread.i.i.i.i: ; preds = %821, %gc_object_moved_p.argprom.exit282.i.i.i.i, %gc_object_moved_p.argprom.exit280.thread.i.i.i.i
+  %824 = phi ptr [ %811, %gc_object_moved_p.argprom.exit280.thread.i.i.i.i ], [ %.pre427.i.i.i.i, %821 ], [ %811, %gc_object_moved_p.argprom.exit282.i.i.i.i ]
   %825 = getelementptr inbounds i8, ptr %824, i64 184
   %826 = load i64, ptr %825, align 8
   %827 = and i64 %826, 7
   %828 = icmp ne i64 %827, 0
   %829 = icmp eq i64 %826, 0
   %830 = or i1 %829, %828
-  br i1 %830, label %gc_object_moved_p.exit284.thread.i.i.i.i, label %gc_object_moved_p.exit284.i.i.i.i
+  br i1 %830, label %gc_object_moved_p.argprom.exit284.thread.i.i.i.i, label %gc_object_moved_p.argprom.exit284.i.i.i.i
 
-gc_object_moved_p.exit284.i.i.i.i:                ; preds = %gc_object_moved_p.exit282.thread.i.i.i.i
+gc_object_moved_p.argprom.exit284.i.i.i.i:        ; preds = %gc_object_moved_p.argprom.exit282.thread.i.i.i.i
   %831 = inttoptr i64 %826 to ptr
   %832 = load i64, ptr %831, align 8
   %833 = and i64 %832, 31
   %.not400.i.i.i.i = icmp eq i64 %833, 30
-  br i1 %.not400.i.i.i.i, label %834, label %gc_object_moved_p.exit284.thread.i.i.i.i
+  br i1 %.not400.i.i.i.i, label %834, label %gc_object_moved_p.argprom.exit284.thread.i.i.i.i
 
-834:                                              ; preds = %gc_object_moved_p.exit284.i.i.i.i
+834:                                              ; preds = %gc_object_moved_p.argprom.exit284.i.i.i.i
   %835 = getelementptr inbounds i8, ptr %831, i64 16
   %836 = load i64, ptr %835, align 8
   store i64 %836, ptr %825, align 8
   %.pre428.i.i.i.i = load ptr, ptr %771, align 8
-  br label %gc_object_moved_p.exit284.thread.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit284.thread.i.i.i.i
 
-gc_object_moved_p.exit284.thread.i.i.i.i:         ; preds = %834, %gc_object_moved_p.exit284.i.i.i.i, %gc_object_moved_p.exit282.thread.i.i.i.i
-  %837 = phi ptr [ %824, %gc_object_moved_p.exit282.thread.i.i.i.i ], [ %.pre428.i.i.i.i, %834 ], [ %824, %gc_object_moved_p.exit284.i.i.i.i ]
+gc_object_moved_p.argprom.exit284.thread.i.i.i.i: ; preds = %834, %gc_object_moved_p.argprom.exit284.i.i.i.i, %gc_object_moved_p.argprom.exit282.thread.i.i.i.i
+  %837 = phi ptr [ %824, %gc_object_moved_p.argprom.exit282.thread.i.i.i.i ], [ %.pre428.i.i.i.i, %834 ], [ %824, %gc_object_moved_p.argprom.exit284.i.i.i.i ]
   %838 = getelementptr inbounds i8, ptr %837, i64 120
   %839 = load i64, ptr %838, align 8
   %840 = and i64 %839, 7
   %841 = icmp ne i64 %840, 0
   %842 = icmp eq i64 %839, 0
   %843 = or i1 %842, %841
-  br i1 %843, label %gc_object_moved_p.exit286.thread.i.i.i.i, label %gc_object_moved_p.exit286.i.i.i.i
+  br i1 %843, label %gc_object_moved_p.argprom.exit286.thread.i.i.i.i, label %gc_object_moved_p.argprom.exit286.i.i.i.i
 
-gc_object_moved_p.exit286.i.i.i.i:                ; preds = %gc_object_moved_p.exit284.thread.i.i.i.i
+gc_object_moved_p.argprom.exit286.i.i.i.i:        ; preds = %gc_object_moved_p.argprom.exit284.thread.i.i.i.i
   %844 = inttoptr i64 %839 to ptr
   %845 = load i64, ptr %844, align 8
   %846 = and i64 %845, 31
   %.not401.i.i.i.i = icmp eq i64 %846, 30
-  br i1 %.not401.i.i.i.i, label %847, label %gc_object_moved_p.exit286.thread.i.i.i.i
+  br i1 %.not401.i.i.i.i, label %847, label %gc_object_moved_p.argprom.exit286.thread.i.i.i.i
 
-847:                                              ; preds = %gc_object_moved_p.exit286.i.i.i.i
+847:                                              ; preds = %gc_object_moved_p.argprom.exit286.i.i.i.i
   %848 = getelementptr inbounds i8, ptr %844, i64 16
   %849 = load i64, ptr %848, align 8
   store i64 %849, ptr %838, align 8
   %.pre429.i.i.i.i = load ptr, ptr %771, align 8
-  br label %gc_object_moved_p.exit286.thread.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit286.thread.i.i.i.i
 
-gc_object_moved_p.exit286.thread.i.i.i.i:         ; preds = %847, %gc_object_moved_p.exit286.i.i.i.i, %gc_object_moved_p.exit284.thread.i.i.i.i
-  %850 = phi ptr [ %837, %gc_object_moved_p.exit284.thread.i.i.i.i ], [ %.pre429.i.i.i.i, %847 ], [ %837, %gc_object_moved_p.exit286.i.i.i.i ]
+gc_object_moved_p.argprom.exit286.thread.i.i.i.i: ; preds = %847, %gc_object_moved_p.argprom.exit286.i.i.i.i, %gc_object_moved_p.argprom.exit284.thread.i.i.i.i
+  %850 = phi ptr [ %837, %gc_object_moved_p.argprom.exit284.thread.i.i.i.i ], [ %.pre429.i.i.i.i, %847 ], [ %837, %gc_object_moved_p.argprom.exit286.i.i.i.i ]
   %851 = getelementptr inbounds i8, ptr %850, i64 192
   %852 = load i64, ptr %851, align 8
   %853 = and i64 %852, 7
   %854 = icmp ne i64 %853, 0
   %855 = icmp eq i64 %852, 0
   %856 = or i1 %855, %854
-  br i1 %856, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.exit288.i.i.i.i
+  br i1 %856, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.argprom.exit288.i.i.i.i
 
-gc_object_moved_p.exit288.i.i.i.i:                ; preds = %gc_object_moved_p.exit286.thread.i.i.i.i
+gc_object_moved_p.argprom.exit288.i.i.i.i:        ; preds = %gc_object_moved_p.argprom.exit286.thread.i.i.i.i
   %857 = inttoptr i64 %852 to ptr
   %858 = load i64, ptr %857, align 8
   %859 = and i64 %858, 31
   %.not402.i.i.i.i = icmp eq i64 %859, 30
   br i1 %.not402.i.i.i.i, label %860, label %update_cc_tbl.exit258.i.i.i.i
 
-860:                                              ; preds = %gc_object_moved_p.exit288.i.i.i.i
+860:                                              ; preds = %gc_object_moved_p.argprom.exit288.i.i.i.i
   %861 = getelementptr inbounds i8, ptr %857, i64 16
   %862 = load i64, ptr %861, align 8
   store i64 %862, ptr %851, align 8
@@ -18892,16 +18892,16 @@ gc_object_moved_p.exit288.i.i.i.i:                ; preds = %gc_object_moved_p.e
   %867 = icmp ne i64 %866, 0
   %868 = icmp eq i64 %865, 0
   %869 = or i1 %868, %867
-  br i1 %869, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.exit290.i.i.i.i
+  br i1 %869, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.argprom.exit290.i.i.i.i
 
-gc_object_moved_p.exit290.i.i.i.i:                ; preds = %863
+gc_object_moved_p.argprom.exit290.i.i.i.i:        ; preds = %863
   %870 = inttoptr i64 %865 to ptr
   %871 = load i64, ptr %870, align 8
   %872 = and i64 %871, 31
   %.not395.i.i.i.i = icmp eq i64 %872, 30
   br i1 %.not395.i.i.i.i, label %873, label %update_cc_tbl.exit258.i.i.i.i
 
-873:                                              ; preds = %gc_object_moved_p.exit290.i.i.i.i
+873:                                              ; preds = %gc_object_moved_p.argprom.exit290.i.i.i.i
   %874 = getelementptr inbounds i8, ptr %870, i64 16
   %875 = load i64, ptr %874, align 8
   store i64 %875, ptr %864, align 8
@@ -18920,16 +18920,16 @@ gc_object_moved_p.exit290.i.i.i.i:                ; preds = %863
   %883 = icmp ne i64 %882, 0
   %884 = icmp eq i64 %881, 0
   %885 = or i1 %884, %883
-  br i1 %885, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.exit293.i.i.i.i
+  br i1 %885, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.argprom.exit293.i.i.i.i
 
-gc_object_moved_p.exit293.i.i.i.i:                ; preds = %879
+gc_object_moved_p.argprom.exit293.i.i.i.i:        ; preds = %879
   %886 = inttoptr i64 %881 to ptr
   %887 = load i64, ptr %886, align 8
   %888 = and i64 %887, 31
   %.not394.i.i.i.i = icmp eq i64 %888, 30
   br i1 %.not394.i.i.i.i, label %889, label %update_cc_tbl.exit258.i.i.i.i
 
-889:                                              ; preds = %gc_object_moved_p.exit293.i.i.i.i
+889:                                              ; preds = %gc_object_moved_p.argprom.exit293.i.i.i.i
   %890 = getelementptr inbounds i8, ptr %886, i64 16
   %891 = load i64, ptr %890, align 8
   store i64 %891, ptr %880, align 8
@@ -18942,38 +18942,38 @@ gc_object_moved_p.exit293.i.i.i.i:                ; preds = %879
   %896 = icmp ne i64 %895, 0
   %897 = icmp eq i64 %894, 0
   %898 = or i1 %897, %896
-  br i1 %898, label %gc_object_moved_p.exit295.thread.i.i.i.i, label %gc_object_moved_p.exit295.i.i.i.i
+  br i1 %898, label %gc_object_moved_p.argprom.exit295.thread.i.i.i.i, label %gc_object_moved_p.argprom.exit295.i.i.i.i
 
-gc_object_moved_p.exit295.i.i.i.i:                ; preds = %892
+gc_object_moved_p.argprom.exit295.i.i.i.i:        ; preds = %892
   %899 = inttoptr i64 %894 to ptr
   %900 = load i64, ptr %899, align 8
   %901 = and i64 %900, 31
   %.not386.i.i.i.i = icmp eq i64 %901, 30
-  br i1 %.not386.i.i.i.i, label %902, label %gc_object_moved_p.exit295.thread.i.i.i.i
+  br i1 %.not386.i.i.i.i, label %902, label %gc_object_moved_p.argprom.exit295.thread.i.i.i.i
 
-902:                                              ; preds = %gc_object_moved_p.exit295.i.i.i.i
+902:                                              ; preds = %gc_object_moved_p.argprom.exit295.i.i.i.i
   %903 = getelementptr inbounds i8, ptr %899, i64 16
   %904 = load i64, ptr %903, align 8
   store i64 %904, ptr %893, align 8
-  br label %gc_object_moved_p.exit295.thread.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit295.thread.i.i.i.i
 
-gc_object_moved_p.exit295.thread.i.i.i.i:         ; preds = %902, %gc_object_moved_p.exit295.i.i.i.i, %892
+gc_object_moved_p.argprom.exit295.thread.i.i.i.i: ; preds = %902, %gc_object_moved_p.argprom.exit295.i.i.i.i, %892
   %905 = getelementptr inbounds i8, ptr %251, i64 16
   %906 = load i64, ptr %905, align 8
   %.not186.i.i.i.i = icmp eq i64 %906, 0
   %907 = and i64 %906, 7
   %908 = icmp ne i64 %907, 0
   %or.cond383.i.i.i.i = or i1 %.not186.i.i.i.i, %908
-  br i1 %or.cond383.i.i.i.i, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.exit297.i.i.i.i
+  br i1 %or.cond383.i.i.i.i, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.argprom.exit297.i.i.i.i
 
-gc_object_moved_p.exit297.i.i.i.i:                ; preds = %gc_object_moved_p.exit295.thread.i.i.i.i
+gc_object_moved_p.argprom.exit297.i.i.i.i:        ; preds = %gc_object_moved_p.argprom.exit295.thread.i.i.i.i
   %909 = inttoptr i64 %906 to ptr
   %910 = load i64, ptr %909, align 8
   %911 = and i64 %910, 31
   %.not387.i.i.i.i = icmp eq i64 %911, 30
   br i1 %.not387.i.i.i.i, label %912, label %update_cc_tbl.exit258.i.i.i.i
 
-912:                                              ; preds = %gc_object_moved_p.exit297.i.i.i.i
+912:                                              ; preds = %gc_object_moved_p.argprom.exit297.i.i.i.i
   %913 = getelementptr inbounds i8, ptr %909, i64 16
   %914 = load i64, ptr %913, align 8
   store i64 %914, ptr %905, align 8
@@ -18986,38 +18986,38 @@ gc_object_moved_p.exit297.i.i.i.i:                ; preds = %gc_object_moved_p.e
   %919 = icmp ne i64 %918, 0
   %920 = icmp eq i64 %917, 0
   %921 = or i1 %920, %919
-  br i1 %921, label %gc_object_moved_p.exit299.thread.i.i.i.i, label %gc_object_moved_p.exit299.i.i.i.i
+  br i1 %921, label %gc_object_moved_p.argprom.exit299.thread.i.i.i.i, label %gc_object_moved_p.argprom.exit299.i.i.i.i
 
-gc_object_moved_p.exit299.i.i.i.i:                ; preds = %915
+gc_object_moved_p.argprom.exit299.i.i.i.i:        ; preds = %915
   %922 = inttoptr i64 %917 to ptr
   %923 = load i64, ptr %922, align 8
   %924 = and i64 %923, 31
   %.not384.i.i.i.i = icmp eq i64 %924, 30
-  br i1 %.not384.i.i.i.i, label %925, label %gc_object_moved_p.exit299.thread.i.i.i.i
+  br i1 %.not384.i.i.i.i, label %925, label %gc_object_moved_p.argprom.exit299.thread.i.i.i.i
 
-925:                                              ; preds = %gc_object_moved_p.exit299.i.i.i.i
+925:                                              ; preds = %gc_object_moved_p.argprom.exit299.i.i.i.i
   %926 = getelementptr inbounds i8, ptr %922, i64 16
   %927 = load i64, ptr %926, align 8
   store i64 %927, ptr %916, align 8
-  br label %gc_object_moved_p.exit299.thread.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit299.thread.i.i.i.i
 
-gc_object_moved_p.exit299.thread.i.i.i.i:         ; preds = %925, %gc_object_moved_p.exit299.i.i.i.i, %915
+gc_object_moved_p.argprom.exit299.thread.i.i.i.i: ; preds = %925, %gc_object_moved_p.argprom.exit299.i.i.i.i, %915
   %928 = getelementptr inbounds i8, ptr %251, i64 24
   %929 = load i64, ptr %928, align 8
   %930 = and i64 %929, 7
   %931 = icmp ne i64 %930, 0
   %932 = icmp eq i64 %929, 0
   %933 = or i1 %932, %931
-  br i1 %933, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.exit301.i.i.i.i
+  br i1 %933, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.argprom.exit301.i.i.i.i
 
-gc_object_moved_p.exit301.i.i.i.i:                ; preds = %gc_object_moved_p.exit299.thread.i.i.i.i
+gc_object_moved_p.argprom.exit301.i.i.i.i:        ; preds = %gc_object_moved_p.argprom.exit299.thread.i.i.i.i
   %934 = inttoptr i64 %929 to ptr
   %935 = load i64, ptr %934, align 8
   %936 = and i64 %935, 31
   %.not385.i.i.i.i = icmp eq i64 %936, 30
   br i1 %.not385.i.i.i.i, label %937, label %update_cc_tbl.exit258.i.i.i.i
 
-937:                                              ; preds = %gc_object_moved_p.exit301.i.i.i.i
+937:                                              ; preds = %gc_object_moved_p.argprom.exit301.i.i.i.i
   %938 = getelementptr inbounds i8, ptr %934, i64 16
   %939 = load i64, ptr %938, align 8
   store i64 %939, ptr %928, align 8
@@ -19030,38 +19030,38 @@ gc_object_moved_p.exit301.i.i.i.i:                ; preds = %gc_object_moved_p.e
   %944 = icmp ne i64 %943, 0
   %945 = icmp eq i64 %942, 0
   %946 = or i1 %945, %944
-  br i1 %946, label %gc_object_moved_p.exit303.thread.i.i.i.i, label %gc_object_moved_p.exit303.i.i.i.i
+  br i1 %946, label %gc_object_moved_p.argprom.exit303.thread.i.i.i.i, label %gc_object_moved_p.argprom.exit303.i.i.i.i
 
-gc_object_moved_p.exit303.i.i.i.i:                ; preds = %940
+gc_object_moved_p.argprom.exit303.i.i.i.i:        ; preds = %940
   %947 = inttoptr i64 %942 to ptr
   %948 = load i64, ptr %947, align 8
   %949 = and i64 %948, 31
   %.not388.i.i.i.i = icmp eq i64 %949, 30
-  br i1 %.not388.i.i.i.i, label %950, label %gc_object_moved_p.exit303.thread.i.i.i.i
+  br i1 %.not388.i.i.i.i, label %950, label %gc_object_moved_p.argprom.exit303.thread.i.i.i.i
 
-950:                                              ; preds = %gc_object_moved_p.exit303.i.i.i.i
+950:                                              ; preds = %gc_object_moved_p.argprom.exit303.i.i.i.i
   %951 = getelementptr inbounds i8, ptr %947, i64 16
   %952 = load i64, ptr %951, align 8
   store i64 %952, ptr %941, align 8
-  br label %gc_object_moved_p.exit303.thread.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit303.thread.i.i.i.i
 
-gc_object_moved_p.exit303.thread.i.i.i.i:         ; preds = %950, %gc_object_moved_p.exit303.i.i.i.i, %940
+gc_object_moved_p.argprom.exit303.thread.i.i.i.i: ; preds = %950, %gc_object_moved_p.argprom.exit303.i.i.i.i, %940
   %953 = getelementptr inbounds i8, ptr %251, i64 24
   %954 = load i64, ptr %953, align 8
   %955 = and i64 %954, 7
   %956 = icmp ne i64 %955, 0
   %957 = icmp eq i64 %954, 0
   %958 = or i1 %957, %956
-  br i1 %958, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.exit305.i.i.i.i
+  br i1 %958, label %update_cc_tbl.exit258.i.i.i.i, label %gc_object_moved_p.argprom.exit305.i.i.i.i
 
-gc_object_moved_p.exit305.i.i.i.i:                ; preds = %gc_object_moved_p.exit303.thread.i.i.i.i
+gc_object_moved_p.argprom.exit305.i.i.i.i:        ; preds = %gc_object_moved_p.argprom.exit303.thread.i.i.i.i
   %959 = inttoptr i64 %954 to ptr
   %960 = load i64, ptr %959, align 8
   %961 = and i64 %960, 31
   %.not389.i.i.i.i = icmp eq i64 %961, 30
   br i1 %.not389.i.i.i.i, label %962, label %update_cc_tbl.exit258.i.i.i.i
 
-962:                                              ; preds = %gc_object_moved_p.exit305.i.i.i.i
+962:                                              ; preds = %gc_object_moved_p.argprom.exit305.i.i.i.i
   %963 = getelementptr inbounds i8, ptr %959, i64 16
   %964 = load i64, ptr %963, align 8
   store i64 %964, ptr %953, align 8
@@ -19091,57 +19091,57 @@ RSTRUCT_CONST_PTR.exit.i.i.i.i:                   ; preds = %971, %967
   %976 = icmp sgt i64 %.0.i307367.i.i.i.i, 0
   br i1 %976, label %.lr.ph.i46.i.i.i, label %update_cc_tbl.exit258.i.i.i.i
 
-.lr.ph.i46.i.i.i:                                 ; preds = %RSTRUCT_CONST_PTR.exit.i.i.i.i, %gc_object_moved_p.exit311.thread.i.i.i.i
-  %.0177414.i.i.i.i = phi i64 [ %989, %gc_object_moved_p.exit311.thread.i.i.i.i ], [ 0, %RSTRUCT_CONST_PTR.exit.i.i.i.i ]
+.lr.ph.i46.i.i.i:                                 ; preds = %RSTRUCT_CONST_PTR.exit.i.i.i.i, %gc_object_moved_p.argprom.exit311.thread.i.i.i.i
+  %.0177414.i.i.i.i = phi i64 [ %989, %gc_object_moved_p.argprom.exit311.thread.i.i.i.i ], [ 0, %RSTRUCT_CONST_PTR.exit.i.i.i.i ]
   %977 = getelementptr i64, ptr %.0.i309.i.i.i.i, i64 %.0177414.i.i.i.i
   %978 = load i64, ptr %977, align 8
   %979 = and i64 %978, 7
   %980 = icmp ne i64 %979, 0
   %981 = icmp eq i64 %978, 0
   %982 = or i1 %981, %980
-  br i1 %982, label %gc_object_moved_p.exit311.thread.i.i.i.i, label %gc_object_moved_p.exit311.i.i.i.i
+  br i1 %982, label %gc_object_moved_p.argprom.exit311.thread.i.i.i.i, label %gc_object_moved_p.argprom.exit311.i.i.i.i
 
-gc_object_moved_p.exit311.i.i.i.i:                ; preds = %.lr.ph.i46.i.i.i
+gc_object_moved_p.argprom.exit311.i.i.i.i:        ; preds = %.lr.ph.i46.i.i.i
   %983 = inttoptr i64 %978 to ptr
   %984 = load i64, ptr %983, align 8
   %985 = and i64 %984, 31
   %.not390.i.i.i.i = icmp eq i64 %985, 30
-  br i1 %.not390.i.i.i.i, label %986, label %gc_object_moved_p.exit311.thread.i.i.i.i
+  br i1 %.not390.i.i.i.i, label %986, label %gc_object_moved_p.argprom.exit311.thread.i.i.i.i
 
-986:                                              ; preds = %gc_object_moved_p.exit311.i.i.i.i
+986:                                              ; preds = %gc_object_moved_p.argprom.exit311.i.i.i.i
   %987 = getelementptr inbounds i8, ptr %983, i64 16
   %988 = load i64, ptr %987, align 8
   store i64 %988, ptr %977, align 8
-  br label %gc_object_moved_p.exit311.thread.i.i.i.i
+  br label %gc_object_moved_p.argprom.exit311.thread.i.i.i.i
 
-gc_object_moved_p.exit311.thread.i.i.i.i:         ; preds = %986, %gc_object_moved_p.exit311.i.i.i.i, %.lr.ph.i46.i.i.i
+gc_object_moved_p.argprom.exit311.thread.i.i.i.i: ; preds = %986, %gc_object_moved_p.argprom.exit311.i.i.i.i, %.lr.ph.i46.i.i.i
   %989 = add nuw nsw i64 %.0177414.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %989, %.0.i307367.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %update_cc_tbl.exit258.i.i.i.i, label %.lr.ph.i46.i.i.i, !llvm.loop !115
 
-update_cc_tbl.exit258.i.i.i.i:                    ; preds = %gc_object_moved_p.exit311.thread.i.i.i.i, %ROBJECT_IV_COUNT.exit31.i.i.i.i.i, %670, %RSTRUCT_CONST_PTR.exit.i.i.i.i, %962, %gc_object_moved_p.exit305.i.i.i.i, %gc_object_moved_p.exit303.thread.i.i.i.i, %937, %gc_object_moved_p.exit301.i.i.i.i, %gc_object_moved_p.exit299.thread.i.i.i.i, %912, %gc_object_moved_p.exit297.i.i.i.i, %gc_object_moved_p.exit295.thread.i.i.i.i, %889, %gc_object_moved_p.exit293.i.i.i.i, %879, %876, %873, %gc_object_moved_p.exit290.i.i.i.i, %863, %860, %gc_object_moved_p.exit288.i.i.i.i, %gc_object_moved_p.exit286.thread.i.i.i.i, %770, %688, %684, %682, %675, %672, %653, %RTYPEDDATA_GET_DATA.exit.i.i.i.i, %638, %637, %635, %632, %gc_object_moved_p.exit266.thread.i.i.i.i, %609, %gc_object_moved_p.exit264.i.i.i.i, %598, %597, %595, %.loopexit.i.i.i.i.i, %561, %gc_object_moved_p.exit.thread.i260.i.i.i.i, %gc_object_moved_p.exit.i259.i.i.i.i, %546, %542, %update_m_tbl.exit256.i.i.i.i, %466, %gc_object_moved_p.exit233.i.i.i.i, %update_const_tbl.exit.i.i.i.i, %RB_FL_TEST.exit.thread.i.i.i.i
+update_cc_tbl.exit258.i.i.i.i:                    ; preds = %gc_object_moved_p.argprom.exit311.thread.i.i.i.i, %ROBJECT_IV_COUNT.exit31.i.i.i.i.i, %670, %RSTRUCT_CONST_PTR.exit.i.i.i.i, %962, %gc_object_moved_p.argprom.exit305.i.i.i.i, %gc_object_moved_p.argprom.exit303.thread.i.i.i.i, %937, %gc_object_moved_p.argprom.exit301.i.i.i.i, %gc_object_moved_p.argprom.exit299.thread.i.i.i.i, %912, %gc_object_moved_p.argprom.exit297.i.i.i.i, %gc_object_moved_p.argprom.exit295.thread.i.i.i.i, %889, %gc_object_moved_p.argprom.exit293.i.i.i.i, %879, %876, %873, %gc_object_moved_p.argprom.exit290.i.i.i.i, %863, %860, %gc_object_moved_p.argprom.exit288.i.i.i.i, %gc_object_moved_p.argprom.exit286.thread.i.i.i.i, %770, %688, %684, %682, %675, %672, %653, %RTYPEDDATA_GET_DATA.exit.i.i.i.i, %638, %637, %635, %632, %gc_object_moved_p.argprom.exit266.thread.i.i.i.i, %609, %gc_object_moved_p.argprom.exit264.i.i.i.i, %598, %597, %595, %.loopexit.i.i.i.i.i, %561, %gc_object_moved_p.argprom.exit.thread.i260.i.i.i.i, %gc_object_moved_p.argprom.exit.i259.i.i.i.i, %546, %542, %update_m_tbl.exit256.i.i.i.i, %466, %gc_object_moved_p.argprom.exit233.i.i.i.i, %update_const_tbl.exit.i.i.i.i, %RB_FL_TEST.exit.thread.i.i.i.i
   %990 = getelementptr inbounds i8, ptr %251, i64 8
   %991 = load i64, ptr %990, align 8
   %992 = and i64 %991, 7
   %993 = icmp ne i64 %992, 0
   %994 = icmp eq i64 %991, 0
   %995 = or i1 %994, %993
-  br i1 %995, label %gc_update_object_references.exit.i.i.i, label %gc_object_moved_p.exit313.i.i.i.i
+  br i1 %995, label %gc_update_object_references.exit.i.i.i, label %gc_object_moved_p.argprom.exit313.i.i.i.i
 
-gc_object_moved_p.exit313.i.i.i.i:                ; preds = %update_cc_tbl.exit258.i.i.i.i
+gc_object_moved_p.argprom.exit313.i.i.i.i:        ; preds = %update_cc_tbl.exit258.i.i.i.i
   %996 = inttoptr i64 %991 to ptr
   %997 = load i64, ptr %996, align 8
   %998 = and i64 %997, 31
   %.not411.i.i.i.i = icmp eq i64 %998, 30
   br i1 %.not411.i.i.i.i, label %999, label %gc_update_object_references.exit.i.i.i
 
-999:                                              ; preds = %gc_object_moved_p.exit313.i.i.i.i
+999:                                              ; preds = %gc_object_moved_p.argprom.exit313.i.i.i.i
   %1000 = getelementptr inbounds i8, ptr %996, i64 16
   %1001 = load i64, ptr %1000, align 8
   store i64 %1001, ptr %990, align 8
   br label %gc_update_object_references.exit.i.i.i
 
-gc_update_object_references.exit.i.i.i:           ; preds = %999, %gc_object_moved_p.exit313.i.i.i.i, %update_cc_tbl.exit258.i.i.i.i, %543, %RB_FL_TEST.exit.thread.i.i.i.i, %RB_FL_TEST.exit.thread.i.i.i.i, %RB_FL_TEST.exit.thread.i.i.i.i, %RB_FL_TEST.exit.thread.i.i.i.i, %RB_FL_TEST.exit.thread.i.i.i.i, %281, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i
+gc_update_object_references.exit.i.i.i:           ; preds = %999, %gc_object_moved_p.argprom.exit313.i.i.i.i, %update_cc_tbl.exit258.i.i.i.i, %543, %RB_FL_TEST.exit.thread.i.i.i.i, %RB_FL_TEST.exit.thread.i.i.i.i, %RB_FL_TEST.exit.thread.i.i.i.i, %RB_FL_TEST.exit.thread.i.i.i.i, %RB_FL_TEST.exit.thread.i.i.i.i, %281, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i
   %1002 = add i64 %.031.i.i.i.i, %243
   %.not.i34.i.i.i = icmp eq i64 %1002, %245
   br i1 %.not.i34.i.i.i, label %gc_ref_update.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !116
@@ -20047,7 +20047,7 @@ heap_eden_total_slots.exit:                       ; preds = %heap_allocatable_sl
   %233 = load i32, ptr %232, align 4
   %234 = and i32 %233, 8388608
   %.not72 = icmp eq i32 %234, 0
-  br i1 %.not72, label %gc_event_hook_body.exit, label %235
+  br i1 %.not72, label %gc_event_hook_body.argprom.exit, label %235
 
 235:                                              ; preds = %231
   %236 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -20055,9 +20055,9 @@ heap_eden_total_slots.exit:                       ; preds = %heap_allocatable_sl
   %238 = getelementptr inbounds i8, ptr %237, i64 16
   %239 = load ptr, ptr %238, align 8
   %.not.i80 = icmp eq ptr %239, null
-  br i1 %.not.i80, label %gc_event_hook_body.exit, label %rb_ec_ractor_hooks.exit.i
+  br i1 %.not.i80, label %gc_event_hook_body.argprom.exit, label %rb_ec_ractor_hooks.argprom.exit.i
 
-rb_ec_ractor_hooks.exit.i:                        ; preds = %235
+rb_ec_ractor_hooks.argprom.exit.i:                ; preds = %235
   %240 = getelementptr i8, ptr %237, i64 48
   %.val.i = load ptr, ptr %240, align 8, !nonnull !14, !noundef !14
   %241 = getelementptr inbounds i8, ptr %.val.i, i64 24
@@ -20066,9 +20066,9 @@ rb_ec_ractor_hooks.exit.i:                        ; preds = %235
   %244 = load i32, ptr %243, align 8
   %245 = and i32 %244, 8388608
   %.not9.i = icmp eq i32 %245, 0
-  br i1 %.not9.i, label %gc_event_hook_body.exit, label %246
+  br i1 %.not9.i, label %gc_event_hook_body.argprom.exit, label %246
 
-246:                                              ; preds = %rb_ec_ractor_hooks.exit.i
+246:                                              ; preds = %rb_ec_ractor_hooks.argprom.exit.i
   %247 = getelementptr inbounds i8, ptr %242, i64 16
   %248 = getelementptr inbounds i8, ptr %239, i64 24
   %249 = load i64, ptr %248, align 8
@@ -20088,9 +20088,9 @@ rb_ec_ractor_hooks.exit.i:                        ; preds = %235
   store i32 0, ptr %255, align 8
   call void @rb_exec_event_hooks(ptr noundef nonnull %2, ptr noundef nonnull %247, i32 noundef 0) #39
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2)
-  br label %gc_event_hook_body.exit
+  br label %gc_event_hook_body.argprom.exit
 
-gc_event_hook_body.exit:                          ; preds = %246, %rb_ec_ractor_hooks.exit.i, %235, %231
+gc_event_hook_body.argprom.exit:                  ; preds = %246, %rb_ec_ractor_hooks.argprom.exit.i, %235, %231
   ret void
 }
 
@@ -20267,25 +20267,25 @@ define internal fastcc void @gc_mark_roots(ptr noundef %0, ptr noundef writeonly
   %6 = getelementptr i8, ptr %5, i64 48
   %.val = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %rb_ec_vm_ptr.exit, label %7
+  br i1 %.not.i, label %rb_ec_vm_ptr.argprom.exit, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %.val, i64 32
   %9 = load ptr, ptr %8, align 8
-  br label %rb_ec_vm_ptr.exit
+  br label %rb_ec_vm_ptr.argprom.exit
 
-rb_ec_vm_ptr.exit:                                ; preds = %2, %7
+rb_ec_vm_ptr.argprom.exit:                        ; preds = %2, %7
   %.0.i = phi ptr [ %9, %7 ], [ null, %2 ]
   %.not = icmp eq ptr %1, null
   %10 = getelementptr inbounds i8, ptr %0, i64 1480
   store i64 0, ptr %10, align 8
   br i1 %.not, label %.critedge, label %11
 
-11:                                               ; preds = %rb_ec_vm_ptr.exit
+11:                                               ; preds = %rb_ec_vm_ptr.argprom.exit
   store ptr @.str.115, ptr %1, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %rb_ec_vm_ptr.exit, %11
+.critedge:                                        ; preds = %rb_ec_vm_ptr.argprom.exit, %11
   %12 = getelementptr inbounds i8, ptr %5, i64 160
   %13 = tail call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #39, !srcloc !133
   store ptr %13, ptr %12, align 8
@@ -20427,7 +20427,7 @@ mark_current_machine_context.exit:                ; preds = %.lr.ph.i.i.i.i, %ea
   %.val.i.i = load i16, ptr %64, align 8
   %65 = and i16 %.val.i.i, 96
   %or.cond.not.i.i.i = icmp eq i16 %65, 96
-  br i1 %or.cond.not.i.i.i, label %66, label %gc_pin.exit.i.i
+  br i1 %or.cond.not.i.i.i, label %66, label %gc_pin.argprom.exit.i.i
 
 66:                                               ; preds = %63
   %67 = and i64 %56, -65536
@@ -20445,7 +20445,7 @@ mark_current_machine_context.exit:                ; preds = %.lr.ph.i.i.i.i, %ea
   %77 = shl nuw i64 1, %76
   %78 = and i64 %74, %77
   %.not11.i.i.i = icmp eq i64 %78, 0
-  br i1 %.not11.i.i.i, label %79, label %gc_pin.exit.i.i
+  br i1 %.not11.i.i.i, label %79, label %gc_pin.argprom.exit.i.i
 
 79:                                               ; preds = %66
   %80 = getelementptr inbounds i8, ptr %69, i64 8
@@ -20458,13 +20458,13 @@ mark_current_machine_context.exit:                ; preds = %.lr.ph.i.i.i.i, %ea
   %86 = load i64, ptr %85, align 8
   %87 = or i64 %86, %77
   store i64 %87, ptr %85, align 8
-  br label %gc_pin.exit.i.i
+  br label %gc_pin.argprom.exit.i.i
 
-gc_pin.exit.i.i:                                  ; preds = %79, %66, %63
+gc_pin.argprom.exit.i.i:                          ; preds = %79, %66, %63
   call fastcc void @gc_mark_ptr(ptr noundef nonnull %59, i64 noundef %56)
   br label %rb_gc_mark.exit
 
-rb_gc_mark.exit:                                  ; preds = %54, %gc_pin.exit.i.i
+rb_gc_mark.exit:                                  ; preds = %54, %gc_pin.argprom.exit.i.i
   %88 = getelementptr inbounds i8, ptr %0, i64 2584
   %89 = load ptr, ptr %88, align 8
   %.not.i54 = icmp eq ptr %89, null
@@ -20504,7 +20504,7 @@ mark_tbl_no_pin.exit:                             ; preds = %rb_gc_mark.exit, %9
   %.val.i.i56 = load i16, ptr %106, align 8
   %107 = and i16 %.val.i.i56, 96
   %or.cond.not.i.i.i57 = icmp eq i16 %107, 96
-  br i1 %or.cond.not.i.i.i57, label %108, label %gc_pin.exit.i.i58
+  br i1 %or.cond.not.i.i.i57, label %108, label %gc_pin.argprom.exit.i.i58
 
 108:                                              ; preds = %105
   %109 = and i64 %98, -65536
@@ -20522,7 +20522,7 @@ mark_tbl_no_pin.exit:                             ; preds = %rb_gc_mark.exit, %9
   %119 = shl nuw i64 1, %118
   %120 = and i64 %116, %119
   %.not11.i.i.i61 = icmp eq i64 %120, 0
-  br i1 %.not11.i.i.i61, label %121, label %gc_pin.exit.i.i58
+  br i1 %.not11.i.i.i61, label %121, label %gc_pin.argprom.exit.i.i58
 
 121:                                              ; preds = %108
   %122 = getelementptr inbounds i8, ptr %111, i64 8
@@ -20535,13 +20535,13 @@ mark_tbl_no_pin.exit:                             ; preds = %rb_gc_mark.exit, %9
   %128 = load i64, ptr %127, align 8
   %129 = or i64 %128, %119
   store i64 %129, ptr %127, align 8
-  br label %gc_pin.exit.i.i58
+  br label %gc_pin.argprom.exit.i.i58
 
-gc_pin.exit.i.i58:                                ; preds = %121, %108, %105
+gc_pin.argprom.exit.i.i58:                        ; preds = %121, %108, %105
   call fastcc void @gc_mark_ptr(ptr noundef nonnull %101, i64 noundef %98)
   br label %rb_gc_mark.exit62
 
-rb_gc_mark.exit62:                                ; preds = %.critedge50, %gc_pin.exit.i.i58
+rb_gc_mark.exit62:                                ; preds = %.critedge50, %gc_pin.argprom.exit.i.i58
   %130 = getelementptr inbounds i8, ptr %0, i64 2584
   %131 = load ptr, ptr %130, align 8
   %.not.i63 = icmp eq ptr %131, null
@@ -20584,7 +20584,7 @@ define internal noundef i32 @pin_value(i64 %0, i64 noundef %1, i64 noundef %2) #
   %.val.i = load i16, ptr %9, align 8
   %10 = and i16 %.val.i, 96
   %or.cond.not.i.i = icmp eq i16 %10, 96
-  br i1 %or.cond.not.i.i, label %11, label %gc_pin.exit.i
+  br i1 %or.cond.not.i.i, label %11, label %gc_pin.argprom.exit.i
 
 11:                                               ; preds = %8
   %12 = and i64 %1, -65536
@@ -20602,7 +20602,7 @@ define internal noundef i32 @pin_value(i64 %0, i64 noundef %1, i64 noundef %2) #
   %22 = shl nuw i64 1, %21
   %23 = and i64 %19, %22
   %.not11.i.i = icmp eq i64 %23, 0
-  br i1 %.not11.i.i, label %24, label %gc_pin.exit.i
+  br i1 %.not11.i.i, label %24, label %gc_pin.argprom.exit.i
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds i8, ptr %14, i64 8
@@ -20615,13 +20615,13 @@ define internal noundef i32 @pin_value(i64 %0, i64 noundef %1, i64 noundef %2) #
   %31 = load i64, ptr %30, align 8
   %32 = or i64 %31, %22
   store i64 %32, ptr %30, align 8
-  br label %gc_pin.exit.i
+  br label %gc_pin.argprom.exit.i
 
-gc_pin.exit.i:                                    ; preds = %24, %11, %8
+gc_pin.argprom.exit.i:                            ; preds = %24, %11, %8
   tail call fastcc void @gc_mark_ptr(ptr noundef nonnull %4, i64 noundef %1)
   br label %gc_mark_and_pin.exit
 
-gc_mark_and_pin.exit:                             ; preds = %3, %gc_pin.exit.i
+gc_mark_and_pin.exit:                             ; preds = %3, %gc_pin.argprom.exit.i
   ret i32 0
 }
 
@@ -20819,7 +20819,7 @@ gc_prof_sweep_timer_start.exit:                   ; preds = %18, %21, %24, %getr
   br i1 %.not53.i, label %106, label %105
 
 105:                                              ; preds = %98
-  call fastcc void @gc_sweep_plane(ptr noundef nonnull %0, i64 noundef %76, i64 noundef %104, ptr noundef %11)
+  call fastcc void @gc_sweep_plane.argprom(ptr noundef nonnull %0, i64 noundef %76, i64 noundef %104, ptr noundef %11)
   br label %106
 
 106:                                              ; preds = %105, %98
@@ -20980,17 +20980,17 @@ gc_prof_sweep_timer_start.exit:                   ; preds = %18, %21, %24, %getr
   %188 = add i64 %.0.i72, %118
   %189 = lshr i64 %.026.i, %122
   %.not30.i = icmp eq i64 %189, 0
-  br i1 %.not30.i, label %gc_sweep_plane.exit, label %123, !llvm.loop !140
+  br i1 %.not30.i, label %gc_sweep_plane.argprom.exit, label %123, !llvm.loop !140
 
-gc_sweep_plane.exit:                              ; preds = %184
+gc_sweep_plane.argprom.exit:                      ; preds = %184
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %190
 
-190:                                              ; preds = %gc_sweep_plane.exit, %.lr.ph.i
-  %.lcssa8897 = phi i32 [ %185, %gc_sweep_plane.exit ], [ %.lcssa8898, %.lr.ph.i ]
-  %.lcssa8493 = phi i32 [ %186, %gc_sweep_plane.exit ], [ %.lcssa8494, %.lr.ph.i ]
-  %.lcssa8090 = phi i32 [ %187, %gc_sweep_plane.exit ], [ %.lcssa8091, %.lr.ph.i ]
+190:                                              ; preds = %gc_sweep_plane.argprom.exit, %.lr.ph.i
+  %.lcssa8897 = phi i32 [ %185, %gc_sweep_plane.argprom.exit ], [ %.lcssa8898, %.lr.ph.i ]
+  %.lcssa8493 = phi i32 [ %186, %gc_sweep_plane.argprom.exit ], [ %.lcssa8494, %.lr.ph.i ]
+  %.lcssa8090 = phi i32 [ %187, %gc_sweep_plane.argprom.exit ], [ %.lcssa8091, %.lr.ph.i ]
   %191 = add i64 %.062.i, 2560
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -21291,9 +21291,9 @@ gc_prof_set_heap_info.exit.i:                     ; preds = %total_freed_objects
   %331 = getelementptr inbounds i8, ptr %330, i64 16
   %332 = load ptr, ptr %331, align 8
   %.not.i35.i = icmp eq ptr %332, null
-  br i1 %.not.i35.i, label %gc_sweep_finish.exit, label %rb_ec_ractor_hooks.exit.i.i
+  br i1 %.not.i35.i, label %gc_sweep_finish.exit, label %rb_ec_ractor_hooks.argprom.exit.i.i
 
-rb_ec_ractor_hooks.exit.i.i:                      ; preds = %329
+rb_ec_ractor_hooks.argprom.exit.i.i:              ; preds = %329
   %333 = getelementptr i8, ptr %330, i64 48
   %.val.i.i67 = load ptr, ptr %333, align 8, !nonnull !14, !noundef !14
   %334 = getelementptr inbounds i8, ptr %.val.i.i67, i64 24
@@ -21304,7 +21304,7 @@ rb_ec_ractor_hooks.exit.i.i:                      ; preds = %329
   %.not9.i.i = icmp eq i32 %338, 0
   br i1 %.not9.i.i, label %gc_sweep_finish.exit, label %339
 
-339:                                              ; preds = %rb_ec_ractor_hooks.exit.i.i
+339:                                              ; preds = %rb_ec_ractor_hooks.argprom.exit.i.i
   %340 = getelementptr inbounds i8, ptr %335, i64 16
   %341 = getelementptr inbounds i8, ptr %332, i64 24
   %342 = load i64, ptr %341, align 8
@@ -21326,7 +21326,7 @@ rb_ec_ractor_hooks.exit.i.i:                      ; preds = %329
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   br label %gc_sweep_finish.exit
 
-gc_sweep_finish.exit:                             ; preds = %325, %329, %rb_ec_ractor_hooks.exit.i.i, %339
+gc_sweep_finish.exit:                             ; preds = %325, %329, %rb_ec_ractor_hooks.argprom.exit.i.i, %339
   %349 = load i16, ptr %47, align 8
   %350 = and i16 %349, -4
   store i16 %350, ptr %47, align 8
@@ -21507,9 +21507,9 @@ define internal fastcc void @gc_sweep_finish_size_pool(ptr noundef %0, ptr nound
   %39 = getelementptr i8, ptr %.pn.in.i, i64 -8
   %40 = load ptr, ptr %39, align 8
   %.not16.i = icmp eq ptr %40, null
-  br i1 %.not16.i, label %37, label %heap_page_resurrect.exit, !llvm.loop !148
+  br i1 %.not16.i, label %37, label %heap_page_resurrect.argprom.exit, !llvm.loop !148
 
-heap_page_resurrect.exit:                         ; preds = %38
+heap_page_resurrect.argprom.exit:                 ; preds = %38
   %.014.le.i = getelementptr i8, ptr %.pn.in.i, i64 -48
   %41 = getelementptr i8, ptr %.pn.in.i, i64 8
   %42 = load ptr, ptr %41, align 8
@@ -21530,7 +21530,7 @@ heap_page_resurrect.exit:                         ; preds = %38
   %.not = icmp eq ptr %.014.le.i, null
   br i1 %.not, label %.critedge, label %53
 
-53:                                               ; preds = %heap_page_resurrect.exit
+53:                                               ; preds = %heap_page_resurrect.argprom.exit
   %54 = getelementptr i8, ptr %.pn.in.i, i64 -44
   %55 = load i16, ptr %54, align 4
   %56 = sext i16 %55 to i64
@@ -21559,7 +21559,7 @@ heap_page_resurrect.exit:                         ; preds = %38
   %70 = icmp ult i64 %57, %31
   br i1 %70, label %36, label %.critedge54, !llvm.loop !149
 
-.critedge:                                        ; preds = %heap_page_resurrect.exit, %37
+.critedge:                                        ; preds = %heap_page_resurrect.argprom.exit, %37
   %71 = getelementptr inbounds i8, ptr %0, i64 16
   %72 = load i16, ptr %71, align 8
   %73 = and i16 %72, 1024
@@ -21723,25 +21723,25 @@ define internal void @read_barrier_signal(i32 %0, ptr nocapture noundef readonly
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i, label %29, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %29, label %rb_vm_lock_enter.argprom.exit.i
 
 29:                                               ; preds = %23
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #39
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %29, %23
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %29, %23
   %30 = call i32 @mprotect(ptr noundef nonnull %25, i64 noundef 65536, i32 noundef 3) #39
   %.not.i.i = icmp eq i32 %30, 0
-  br i1 %.not.i.i, label %unlock_page_body.exit.i, label %31
+  br i1 %.not.i.i, label %unlock_page_body.argprom.exit.i, label %31
 
-31:                                               ; preds = %rb_vm_lock_enter.exit.i
+31:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   %32 = call ptr @rb_errno_ptr() #39
   %33 = load i32, ptr %32, align 4
   %34 = call ptr @strerror(i32 noundef %33) #39
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.135, ptr noundef nonnull %25, ptr noundef %34) #54
   unreachable
 
-unlock_page_body.exit.i:                          ; preds = %rb_vm_lock_enter.exit.i
+unlock_page_body.argprom.exit.i:                  ; preds = %rb_vm_lock_enter.argprom.exit.i
   %35 = getelementptr inbounds i8, ptr %27, i64 1360
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, 1
@@ -21765,9 +21765,9 @@ unlock_page_body.exit.i:                          ; preds = %rb_vm_lock_enter.ex
   %52 = add i64 %51, %42
   br label %53
 
-53:                                               ; preds = %53, %unlock_page_body.exit.i
-  %indvars.iv.i.i = phi i64 [ 1, %unlock_page_body.exit.i ], [ %indvars.iv.next.i.i, %53 ]
-  %.025.i.i = phi i64 [ %52, %unlock_page_body.exit.i ], [ %60, %53 ]
+53:                                               ; preds = %53, %unlock_page_body.argprom.exit.i
+  %indvars.iv.i.i = phi i64 [ 1, %unlock_page_body.argprom.exit.i ], [ %indvars.iv.next.i.i, %53 ]
+  %.025.i.i = phi i64 [ %52, %unlock_page_body.argprom.exit.i ], [ %60, %53 ]
   %54 = getelementptr i64, ptr %40, i64 %indvars.iv.i.i
   %55 = load i64, ptr %54, align 8
   %56 = getelementptr i64, ptr %39, i64 %indvars.iv.i.i
@@ -22224,7 +22224,7 @@ declare void @llvm.assume(i1 noundef) #40
 declare void @rb_mv_generic_ivar(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @gc_compact_plane(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef range(i64 1, 0) %4, i16 %.0.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @gc_compact_plane.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef range(i64 1, 0) %4, i16 %.0.val) unnamed_addr #0 {
   %6 = alloca [6 x i64], align 16
   %7 = alloca i64, align 8
   %8 = alloca %struct.gc_sweep_context, align 8
@@ -22254,12 +22254,12 @@ define internal fastcc noundef zeroext i1 @gc_compact_plane(ptr noundef %0, ptr 
   %31 = zext nneg i32 %30 to i64
   br label %32
 
-32:                                               ; preds = %gc_is_moveable_obj.exit.thread, %5
-  %.018 = phi i64 [ %4, %5 ], [ %336, %gc_is_moveable_obj.exit.thread ]
-  %.017 = phi i64 [ %3, %5 ], [ %335, %gc_is_moveable_obj.exit.thread ]
+32:                                               ; preds = %gc_is_moveable_obj.argprom.exit.thread, %5
+  %.018 = phi i64 [ %4, %5 ], [ %336, %gc_is_moveable_obj.argprom.exit.thread ]
+  %.017 = phi i64 [ %3, %5 ], [ %335, %gc_is_moveable_obj.argprom.exit.thread ]
   %33 = and i64 %.018, 1
   %.not = icmp eq i64 %33, 0
-  br i1 %.not, label %gc_is_moveable_obj.exit.thread, label %34
+  br i1 %.not, label %gc_is_moveable_obj.argprom.exit.thread, label %34
 
 34:                                               ; preds = %32
   %35 = inttoptr i64 %.017 to ptr
@@ -22274,29 +22274,29 @@ define internal fastcc noundef zeroext i1 @gc_compact_plane(ptr noundef %0, ptr 
   %42 = trunc i64 %.fr10.i to i32
   %43 = and i32 %42, 31
   switch i32 %43, label %54 [
-    i32 0, label %gc_is_moveable_obj.exit.thread
-    i32 17, label %gc_is_moveable_obj.exit.thread
-    i32 30, label %gc_is_moveable_obj.exit.thread
-    i32 29, label %gc_is_moveable_obj.exit.thread
+    i32 0, label %gc_is_moveable_obj.argprom.exit.thread
+    i32 17, label %gc_is_moveable_obj.argprom.exit.thread
+    i32 30, label %gc_is_moveable_obj.argprom.exit.thread
+    i32 29, label %gc_is_moveable_obj.argprom.exit.thread
     i32 20, label %44
-    i32 5, label %gc_is_moveable_obj.exit
-    i32 1, label %gc_is_moveable_obj.exit
-    i32 4, label %gc_is_moveable_obj.exit
-    i32 26, label %gc_is_moveable_obj.exit
-    i32 7, label %gc_is_moveable_obj.exit
-    i32 10, label %gc_is_moveable_obj.exit
-    i32 28, label %gc_is_moveable_obj.exit
-    i32 3, label %gc_is_moveable_obj.exit
-    i32 6, label %gc_is_moveable_obj.exit
-    i32 12, label %gc_is_moveable_obj.exit
-    i32 13, label %gc_is_moveable_obj.exit
-    i32 9, label %gc_is_moveable_obj.exit
-    i32 8, label %gc_is_moveable_obj.exit
-    i32 11, label %gc_is_moveable_obj.exit
-    i32 14, label %gc_is_moveable_obj.exit
-    i32 15, label %gc_is_moveable_obj.exit
-    i32 27, label %gc_is_moveable_obj.exit
-    i32 2, label %gc_is_moveable_obj.exit
+    i32 5, label %gc_is_moveable_obj.argprom.exit
+    i32 1, label %gc_is_moveable_obj.argprom.exit
+    i32 4, label %gc_is_moveable_obj.argprom.exit
+    i32 26, label %gc_is_moveable_obj.argprom.exit
+    i32 7, label %gc_is_moveable_obj.argprom.exit
+    i32 10, label %gc_is_moveable_obj.argprom.exit
+    i32 28, label %gc_is_moveable_obj.argprom.exit
+    i32 3, label %gc_is_moveable_obj.argprom.exit
+    i32 6, label %gc_is_moveable_obj.argprom.exit
+    i32 12, label %gc_is_moveable_obj.argprom.exit
+    i32 13, label %gc_is_moveable_obj.argprom.exit
+    i32 9, label %gc_is_moveable_obj.argprom.exit
+    i32 8, label %gc_is_moveable_obj.argprom.exit
+    i32 11, label %gc_is_moveable_obj.argprom.exit
+    i32 14, label %gc_is_moveable_obj.argprom.exit
+    i32 15, label %gc_is_moveable_obj.argprom.exit
+    i32 27, label %gc_is_moveable_obj.argprom.exit
+    i32 2, label %gc_is_moveable_obj.argprom.exit
   ]
 
 44:                                               ; preds = %34
@@ -22307,20 +22307,20 @@ define internal fastcc noundef zeroext i1 @gc_compact_plane(ptr noundef %0, ptr 
   %48 = and i64 %.fr10.i, 31
   %49 = icmp eq i64 %48, 20
   %or.cond.i = and i1 %.not9.i, %49
-  br i1 %or.cond.i, label %50, label %gc_is_moveable_obj.exit
+  br i1 %or.cond.i, label %50, label %gc_is_moveable_obj.argprom.exit
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds i8, ptr %35, i64 32
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, -15
   %.not.i = icmp eq i64 %53, 0
-  br i1 %.not.i, label %gc_is_moveable_obj.exit, label %gc_is_moveable_obj.exit.thread
+  br i1 %.not.i, label %gc_is_moveable_obj.argprom.exit, label %gc_is_moveable_obj.argprom.exit.thread
 
 54:                                               ; preds = %34
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.136, i32 noundef %43) #54
   unreachable
 
-gc_is_moveable_obj.exit:                          ; preds = %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %44, %50
+gc_is_moveable_obj.argprom.exit:                  ; preds = %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %44, %50
   %55 = and i64 %.017, 7
   %56 = icmp eq i64 %55, 0
   %57 = icmp ne i64 %.017, 0
@@ -22331,9 +22331,9 @@ gc_is_moveable_obj.exit:                          ; preds = %34, %34, %34, %34, 
   %60 = and i64 %.fr10.i, 128
   %.not6.i = icmp ne i64 %60, 0
   %or.cond13.i.not = and i1 %.not6.i, %or.cond12.i.not6
-  br i1 %or.cond13.i.not, label %gc_is_moveable_obj.exit.thread, label %61
+  br i1 %or.cond13.i.not, label %gc_is_moveable_obj.argprom.exit.thread, label %61
 
-61:                                               ; preds = %gc_is_moveable_obj.exit
+61:                                               ; preds = %gc_is_moveable_obj.argprom.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   %62 = call fastcc ptr @gc_compact_destination_pool(ptr noundef %0, ptr noundef %1, i64 noundef %.017)
   %63 = getelementptr inbounds i8, ptr %62, i64 80
@@ -22347,7 +22347,7 @@ gc_is_moveable_obj.exit:                          ; preds = %34, %34, %34, %34, 
 67:                                               ; preds = %61
   %.not11 = icmp eq ptr %63, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br i1 %.not11, label %337, label %gc_is_moveable_obj.exit.thread
+  br i1 %.not11, label %337, label %gc_is_moveable_obj.argprom.exit.thread
 
 68:                                               ; preds = %61
   %69 = icmp ne i64 %55, 0
@@ -22488,7 +22488,7 @@ gc_is_moveable_obj.exit:                          ; preds = %34, %34, %34, %34, 
   store i32 0, ptr %17, align 8
   %151 = call i32 @mprotect(ptr noundef nonnull %89, i64 noundef 65536, i32 noundef 0) #39
   %.not.i78.i = icmp eq i32 %151, 0
-  br i1 %.not.i78.i, label %lock_page_body.exit.i, label %152
+  br i1 %.not.i78.i, label %lock_page_body.argprom.exit.i, label %152
 
 152:                                              ; preds = %149
   %153 = call ptr @rb_errno_ptr() #39
@@ -22497,7 +22497,7 @@ gc_is_moveable_obj.exit:                          ; preds = %34, %34, %34, %34, 
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.143, ptr noundef nonnull %89, ptr noundef %155) #54
   unreachable
 
-lock_page_body.exit.i:                            ; preds = %149
+lock_page_body.argprom.exit.i:                    ; preds = %149
   %156 = getelementptr inbounds i8, ptr %150, i64 12
   %157 = load i8, ptr %156, align 4
   %158 = and i8 %157, -2
@@ -22524,7 +22524,7 @@ lock_page_body.exit.i:                            ; preds = %149
   %.not.i24 = icmp eq i64 %173, 0
   br i1 %.not.i24, label %183, label %174
 
-174:                                              ; preds = %lock_page_body.exit.i
+174:                                              ; preds = %lock_page_body.argprom.exit.i
   %175 = trunc i64 %169 to i32
   %notmask.i = shl nsw i64 -1, %173
   %176 = udiv i16 %.lhs.trunc.i, 2560
@@ -22538,7 +22538,7 @@ lock_page_body.exit.i:                            ; preds = %149
   store i64 %182, ptr %180, align 8
   br label %183
 
-183:                                              ; preds = %174, %lock_page_body.exit.i
+183:                                              ; preds = %174, %lock_page_body.argprom.exit.i
   %184 = add nsw i64 %172, 63
   %185 = lshr i64 %184, 6
   %186 = trunc i64 %185 to i32
@@ -22549,7 +22549,7 @@ lock_page_body.exit.i:                            ; preds = %149
   br i1 %.not53.i, label %191, label %190
 
 190:                                              ; preds = %183
-  call fastcc void @gc_sweep_plane(ptr noundef %0, i64 noundef %161, i64 noundef %189, ptr noundef %8)
+  call fastcc void @gc_sweep_plane.argprom(ptr noundef %0, i64 noundef %161, i64 noundef %189, ptr noundef %8)
   br label %191
 
 191:                                              ; preds = %190, %183
@@ -22710,17 +22710,17 @@ lock_page_body.exit.i:                            ; preds = %149
   %273 = add i64 %.0.i28, %203
   %274 = lshr i64 %.026.i, %207
   %.not30.i = icmp eq i64 %274, 0
-  br i1 %.not30.i, label %gc_sweep_plane.exit, label %208, !llvm.loop !140
+  br i1 %.not30.i, label %gc_sweep_plane.argprom.exit, label %208, !llvm.loop !140
 
-gc_sweep_plane.exit:                              ; preds = %269
+gc_sweep_plane.argprom.exit:                      ; preds = %269
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %275
 
-275:                                              ; preds = %gc_sweep_plane.exit, %.lr.ph.i
-  %.lcssa3645 = phi i32 [ %270, %gc_sweep_plane.exit ], [ %.lcssa3646, %.lr.ph.i ]
-  %.lcssa3241 = phi i32 [ %271, %gc_sweep_plane.exit ], [ %.lcssa3242, %.lr.ph.i ]
-  %.lcssa2838 = phi i32 [ %272, %gc_sweep_plane.exit ], [ %.lcssa2839, %.lr.ph.i ]
+275:                                              ; preds = %gc_sweep_plane.argprom.exit, %.lr.ph.i
+  %.lcssa3645 = phi i32 [ %270, %gc_sweep_plane.argprom.exit ], [ %.lcssa3646, %.lr.ph.i ]
+  %.lcssa3241 = phi i32 [ %271, %gc_sweep_plane.argprom.exit ], [ %.lcssa3242, %.lr.ph.i ]
+  %.lcssa2838 = phi i32 [ %272, %gc_sweep_plane.argprom.exit ], [ %.lcssa2839, %.lr.ph.i ]
   %276 = add i64 %.062.i, 2560
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -22781,7 +22781,7 @@ gc_sweep_plane.exit:                              ; preds = %269
 gc_sweep_page.exit:                               ; preds = %280, %294, %296, %299
   %300 = call i32 @mprotect(ptr noundef nonnull %89, i64 noundef 65536, i32 noundef 3) #39
   %.not.i79.i = icmp eq i32 %300, 0
-  br i1 %.not.i79.i, label %unlock_page_body.exit.i, label %301
+  br i1 %.not.i79.i, label %unlock_page_body.argprom.exit.i, label %301
 
 301:                                              ; preds = %gc_sweep_page.exit
   %302 = call ptr @rb_errno_ptr() #39
@@ -22790,14 +22790,14 @@ gc_sweep_page.exit:                               ; preds = %280, %294, %296, %2
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.135, ptr noundef nonnull %89, ptr noundef %304) #54
   unreachable
 
-unlock_page_body.exit.i:                          ; preds = %gc_sweep_page.exit
+unlock_page_body.argprom.exit.i:                  ; preds = %gc_sweep_page.exit
   %305 = load ptr, ptr %90, align 8
   %306 = getelementptr inbounds i8, ptr %305, i64 4
   %307 = load i16, ptr %306, align 4
   %308 = icmp sgt i16 %307, 0
   br i1 %308, label %309, label %312
 
-309:                                              ; preds = %unlock_page_body.exit.i
+309:                                              ; preds = %unlock_page_body.argprom.exit.i
   %310 = load ptr, ptr %.067.i, align 8
   %311 = getelementptr inbounds i8, ptr %305, i64 24
   store ptr %310, ptr %311, align 8
@@ -22805,8 +22805,8 @@ unlock_page_body.exit.i:                          ; preds = %gc_sweep_page.exit
   %.pre.i = load ptr, ptr %90, align 8
   br label %312
 
-312:                                              ; preds = %309, %unlock_page_body.exit.i
-  %313 = phi ptr [ %.pre.i, %309 ], [ %305, %unlock_page_body.exit.i ]
+312:                                              ; preds = %309, %unlock_page_body.argprom.exit.i
+  %313 = phi ptr [ %.pre.i, %309 ], [ %305, %unlock_page_body.argprom.exit.i ]
   %314 = getelementptr inbounds i8, ptr %313, i64 48
   %315 = load ptr, ptr %314, align 8
   %316 = icmp eq ptr %315, %91
@@ -22856,21 +22856,21 @@ rb_gc_location.exit.i:                            ; preds = %329, %325, %324
 
 gc_compact_move.exit.thread:                      ; preds = %332, %319
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %gc_is_moveable_obj.exit.thread
+  br label %gc_is_moveable_obj.argprom.exit.thread
 
 gc_compact_move.exit:                             ; preds = %312
   %.not10 = icmp eq ptr %.067.i, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br i1 %.not10, label %337, label %gc_is_moveable_obj.exit.thread
+  br i1 %.not10, label %337, label %gc_is_moveable_obj.argprom.exit.thread
 
-gc_is_moveable_obj.exit.thread:                   ; preds = %50, %34, %34, %34, %34, %67, %gc_compact_move.exit.thread, %gc_is_moveable_obj.exit, %gc_compact_move.exit, %32
+gc_is_moveable_obj.argprom.exit.thread:           ; preds = %50, %34, %34, %34, %34, %67, %gc_compact_move.exit.thread, %gc_is_moveable_obj.argprom.exit, %gc_compact_move.exit, %32
   %335 = add i64 %.017, %9
   %336 = lshr i64 %.018, %31
   %.not21 = icmp eq i64 %336, 0
   br i1 %.not21, label %337, label %32, !llvm.loop !153
 
-337:                                              ; preds = %67, %gc_is_moveable_obj.exit.thread, %gc_compact_move.exit
-  %.0 = phi i1 [ false, %gc_compact_move.exit ], [ true, %gc_is_moveable_obj.exit.thread ], [ false, %67 ]
+337:                                              ; preds = %67, %gc_is_moveable_obj.argprom.exit.thread, %gc_compact_move.exit
+  %.0 = phi i1 [ false, %gc_compact_move.exit ], [ true, %gc_is_moveable_obj.argprom.exit.thread ], [ false, %67 ]
   ret i1 %.0
 }
 
@@ -22970,7 +22970,7 @@ declare i64 @rb_obj_embedded_size(i32 noundef) local_unnamed_addr #2
 declare i64 @rb_str_size_as_embedded(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gc_sweep_plane(ptr noundef %0, i64 noundef %1, i64 noundef range(i64 1, 0) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @gc_sweep_plane.argprom(ptr noundef %0, i64 noundef %1, i64 noundef range(i64 1, 0) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca [6 x i64], align 16
   %6 = alloca i64, align 8
   %7 = load ptr, ptr %3, align 8
@@ -23128,7 +23128,7 @@ define internal fastcc range(i32 0, 2) i32 @obj_free(ptr noundef %0, i64 noundef
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 2097152
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %gc_event_hook_body.exit, label %9
+  br i1 %.not, label %gc_event_hook_body.argprom.exit, label %9
 
 9:                                                ; preds = %2
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -23136,9 +23136,9 @@ define internal fastcc range(i32 0, 2) i32 @obj_free(ptr noundef %0, i64 noundef
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %gc_event_hook_body.exit, label %rb_ec_ractor_hooks.exit.i
+  br i1 %.not.i, label %gc_event_hook_body.argprom.exit, label %rb_ec_ractor_hooks.argprom.exit.i
 
-rb_ec_ractor_hooks.exit.i:                        ; preds = %9
+rb_ec_ractor_hooks.argprom.exit.i:                ; preds = %9
   %14 = getelementptr i8, ptr %11, i64 48
   %.val.i = load ptr, ptr %14, align 8, !nonnull !14, !noundef !14
   %15 = getelementptr inbounds i8, ptr %.val.i, i64 24
@@ -23147,9 +23147,9 @@ rb_ec_ractor_hooks.exit.i:                        ; preds = %9
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 2097152
   %.not9.i = icmp eq i32 %19, 0
-  br i1 %.not9.i, label %gc_event_hook_body.exit, label %20
+  br i1 %.not9.i, label %gc_event_hook_body.argprom.exit, label %20
 
-20:                                               ; preds = %rb_ec_ractor_hooks.exit.i
+20:                                               ; preds = %rb_ec_ractor_hooks.argprom.exit.i
   %21 = getelementptr inbounds i8, ptr %16, i64 16
   %22 = getelementptr inbounds i8, ptr %13, i64 24
   %23 = load i64, ptr %22, align 8
@@ -23171,9 +23171,9 @@ rb_ec_ractor_hooks.exit.i:                        ; preds = %9
   store i32 0, ptr %30, align 8
   call void @rb_exec_event_hooks(ptr noundef nonnull %5, ptr noundef nonnull %21, i32 noundef 0) #39
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
-  br label %gc_event_hook_body.exit
+  br label %gc_event_hook_body.argprom.exit
 
-gc_event_hook_body.exit:                          ; preds = %20, %rb_ec_ractor_hooks.exit.i, %9, %2
+gc_event_hook_body.argprom.exit:                  ; preds = %20, %rb_ec_ractor_hooks.argprom.exit.i, %9, %2
   %31 = inttoptr i64 %1 to ptr
   %32 = load i64, ptr %31, align 8
   %33 = trunc i64 %32 to i32
@@ -23185,11 +23185,11 @@ gc_event_hook_body.exit:                          ; preds = %20, %rb_ec_ractor_h
     i32 19, label %35
   ]
 
-35:                                               ; preds = %gc_event_hook_body.exit, %gc_event_hook_body.exit, %gc_event_hook_body.exit, %gc_event_hook_body.exit
+35:                                               ; preds = %gc_event_hook_body.argprom.exit, %gc_event_hook_body.argprom.exit, %gc_event_hook_body.argprom.exit, %gc_event_hook_body.argprom.exit
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.139) #54
   unreachable
 
-36:                                               ; preds = %gc_event_hook_body.exit
+36:                                               ; preds = %gc_event_hook_body.argprom.exit
   %37 = and i64 %1, 7
   %38 = icmp ne i64 %37, 0
   %39 = icmp eq i64 %1, 0
@@ -23971,21 +23971,21 @@ define internal range(i32 0, 5) i32 @check_id_table_move(i64 noundef %0, ptr noc
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
   %6 = or i1 %5, %4
-  br i1 %6, label %gc_object_moved_p.exit.thread, label %gc_object_moved_p.exit
+  br i1 %6, label %gc_object_moved_p.argprom.exit.thread, label %gc_object_moved_p.argprom.exit
 
-gc_object_moved_p.exit:                           ; preds = %2
+gc_object_moved_p.argprom.exit:                   ; preds = %2
   %7 = inttoptr i64 %0 to ptr
   %8 = load i64, ptr %7, align 8
   %.fr6 = freeze i64 %8
   %9 = and i64 %.fr6, 31
   %.not = icmp eq i64 %9, 30
-  br i1 %.not, label %10, label %gc_object_moved_p.exit.thread
+  br i1 %.not, label %10, label %gc_object_moved_p.argprom.exit.thread
 
-gc_object_moved_p.exit.thread:                    ; preds = %2, %gc_object_moved_p.exit
+gc_object_moved_p.argprom.exit.thread:            ; preds = %2, %gc_object_moved_p.argprom.exit
   br label %10
 
-10:                                               ; preds = %gc_object_moved_p.exit, %gc_object_moved_p.exit.thread
-  %11 = phi i32 [ 0, %gc_object_moved_p.exit.thread ], [ 4, %gc_object_moved_p.exit ]
+10:                                               ; preds = %gc_object_moved_p.argprom.exit, %gc_object_moved_p.argprom.exit.thread
+  %11 = phi i32 [ 0, %gc_object_moved_p.argprom.exit.thread ], [ 4, %gc_object_moved_p.argprom.exit ]
   ret i32 %11
 }
 
@@ -23996,22 +23996,22 @@ define internal noundef i32 @update_id_table(ptr nocapture noundef %0, ptr nocap
   %6 = icmp ne i64 %5, 0
   %7 = icmp eq i64 %4, 0
   %8 = or i1 %7, %6
-  br i1 %8, label %gc_object_moved_p.exit.thread, label %gc_object_moved_p.exit
+  br i1 %8, label %gc_object_moved_p.argprom.exit.thread, label %gc_object_moved_p.argprom.exit
 
-gc_object_moved_p.exit:                           ; preds = %3
+gc_object_moved_p.argprom.exit:                   ; preds = %3
   %9 = inttoptr i64 %4 to ptr
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 31
   %.not = icmp eq i64 %11, 30
-  br i1 %.not, label %rb_gc_location.exit, label %gc_object_moved_p.exit.thread
+  br i1 %.not, label %rb_gc_location.exit, label %gc_object_moved_p.argprom.exit.thread
 
-rb_gc_location.exit:                              ; preds = %gc_object_moved_p.exit
+rb_gc_location.exit:                              ; preds = %gc_object_moved_p.argprom.exit
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %0, align 8
-  br label %gc_object_moved_p.exit.thread
+  br label %gc_object_moved_p.argprom.exit.thread
 
-gc_object_moved_p.exit.thread:                    ; preds = %3, %rb_gc_location.exit, %gc_object_moved_p.exit
+gc_object_moved_p.argprom.exit.thread:            ; preds = %3, %rb_gc_location.exit, %gc_object_moved_p.argprom.exit
   ret i32 0
 }
 
@@ -24025,33 +24025,33 @@ define internal noundef i32 @update_cc_tbl_i(i64 noundef %0, ptr nocapture readn
   %8 = icmp ne i64 %7, 0
   %9 = icmp eq ptr %5, null
   %10 = or i1 %9, %8
-  br i1 %10, label %gc_object_moved_p.exit.thread, label %gc_object_moved_p.exit
+  br i1 %10, label %gc_object_moved_p.argprom.exit.thread, label %gc_object_moved_p.argprom.exit
 
-gc_object_moved_p.exit:                           ; preds = %2
+gc_object_moved_p.argprom.exit:                   ; preds = %2
   %11 = load i64, ptr %5, align 8
   %12 = and i64 %11, 31
   %.not = icmp eq i64 %12, 30
-  br i1 %.not, label %rb_gc_location.exit, label %gc_object_moved_p.exit.thread
+  br i1 %.not, label %rb_gc_location.exit, label %gc_object_moved_p.argprom.exit.thread
 
-rb_gc_location.exit:                              ; preds = %gc_object_moved_p.exit
+rb_gc_location.exit:                              ; preds = %gc_object_moved_p.argprom.exit
   %13 = getelementptr inbounds i8, ptr %5, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %14 to ptr
   store ptr %15, ptr %4, align 8
-  br label %gc_object_moved_p.exit.thread
+  br label %gc_object_moved_p.argprom.exit.thread
 
-gc_object_moved_p.exit.thread:                    ; preds = %2, %rb_gc_location.exit, %gc_object_moved_p.exit
+gc_object_moved_p.argprom.exit.thread:            ; preds = %2, %rb_gc_location.exit, %gc_object_moved_p.argprom.exit
   %16 = getelementptr inbounds i8, ptr %3, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %gc_object_moved_p.exit.thread
+.lr.ph:                                           ; preds = %gc_object_moved_p.argprom.exit.thread
   %19 = getelementptr inbounds i8, ptr %3, i64 16
   br label %20
 
-20:                                               ; preds = %.lr.ph, %gc_object_moved_p.exit29.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %gc_object_moved_p.exit29.thread ]
+20:                                               ; preds = %.lr.ph, %gc_object_moved_p.argprom.exit29.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %gc_object_moved_p.argprom.exit29.thread ]
   %21 = load ptr, ptr %19, align 8
   %22 = getelementptr %struct.rb_class_cc_entries_entry, ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
@@ -24060,24 +24060,24 @@ gc_object_moved_p.exit.thread:                    ; preds = %2, %rb_gc_location.
   %26 = icmp ne i64 %25, 0
   %27 = icmp eq ptr %23, null
   %28 = or i1 %27, %26
-  br i1 %28, label %gc_object_moved_p.exit25.thread, label %gc_object_moved_p.exit25
+  br i1 %28, label %gc_object_moved_p.argprom.exit25.thread, label %gc_object_moved_p.argprom.exit25
 
-gc_object_moved_p.exit25:                         ; preds = %20
+gc_object_moved_p.argprom.exit25:                 ; preds = %20
   %29 = load i64, ptr %23, align 8
   %30 = and i64 %29, 31
   %.not38 = icmp eq i64 %30, 30
-  br i1 %.not38, label %rb_gc_location.exit27, label %gc_object_moved_p.exit25.thread
+  br i1 %.not38, label %rb_gc_location.exit27, label %gc_object_moved_p.argprom.exit25.thread
 
-rb_gc_location.exit27:                            ; preds = %gc_object_moved_p.exit25
+rb_gc_location.exit27:                            ; preds = %gc_object_moved_p.argprom.exit25
   %31 = getelementptr inbounds i8, ptr %23, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = inttoptr i64 %32 to ptr
   store ptr %33, ptr %22, align 8
   %.pre = load ptr, ptr %19, align 8
-  br label %gc_object_moved_p.exit25.thread
+  br label %gc_object_moved_p.argprom.exit25.thread
 
-gc_object_moved_p.exit25.thread:                  ; preds = %20, %rb_gc_location.exit27, %gc_object_moved_p.exit25
-  %34 = phi ptr [ %21, %20 ], [ %.pre, %rb_gc_location.exit27 ], [ %21, %gc_object_moved_p.exit25 ]
+gc_object_moved_p.argprom.exit25.thread:          ; preds = %20, %rb_gc_location.exit27, %gc_object_moved_p.argprom.exit25
+  %34 = phi ptr [ %21, %20 ], [ %.pre, %rb_gc_location.exit27 ], [ %21, %gc_object_moved_p.argprom.exit25 ]
   %35 = getelementptr %struct.rb_class_cc_entries_entry, ptr %34, i64 %indvars.iv, i32 1
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
@@ -24085,29 +24085,29 @@ gc_object_moved_p.exit25.thread:                  ; preds = %20, %rb_gc_location
   %39 = icmp ne i64 %38, 0
   %40 = icmp eq ptr %36, null
   %41 = or i1 %40, %39
-  br i1 %41, label %gc_object_moved_p.exit29.thread, label %gc_object_moved_p.exit29
+  br i1 %41, label %gc_object_moved_p.argprom.exit29.thread, label %gc_object_moved_p.argprom.exit29
 
-gc_object_moved_p.exit29:                         ; preds = %gc_object_moved_p.exit25.thread
+gc_object_moved_p.argprom.exit29:                 ; preds = %gc_object_moved_p.argprom.exit25.thread
   %42 = load i64, ptr %36, align 8
   %43 = and i64 %42, 31
   %.not39 = icmp eq i64 %43, 30
-  br i1 %.not39, label %rb_gc_location.exit31, label %gc_object_moved_p.exit29.thread
+  br i1 %.not39, label %rb_gc_location.exit31, label %gc_object_moved_p.argprom.exit29.thread
 
-rb_gc_location.exit31:                            ; preds = %gc_object_moved_p.exit29
+rb_gc_location.exit31:                            ; preds = %gc_object_moved_p.argprom.exit29
   %44 = getelementptr inbounds i8, ptr %36, i64 16
   %45 = load i64, ptr %44, align 8
   %46 = inttoptr i64 %45 to ptr
   store ptr %46, ptr %35, align 8
-  br label %gc_object_moved_p.exit29.thread
+  br label %gc_object_moved_p.argprom.exit29.thread
 
-gc_object_moved_p.exit29.thread:                  ; preds = %gc_object_moved_p.exit25.thread, %gc_object_moved_p.exit29, %rb_gc_location.exit31
+gc_object_moved_p.argprom.exit29.thread:          ; preds = %gc_object_moved_p.argprom.exit25.thread, %gc_object_moved_p.argprom.exit29, %rb_gc_location.exit31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %16, align 4
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
   br i1 %49, label %20, label %._crit_edge, !llvm.loop !155
 
-._crit_edge:                                      ; preds = %gc_object_moved_p.exit29.thread, %gc_object_moved_p.exit.thread
+._crit_edge:                                      ; preds = %gc_object_moved_p.argprom.exit29.thread, %gc_object_moved_p.argprom.exit.thread
   ret i32 0
 }
 
@@ -24121,22 +24121,22 @@ define internal noundef i32 @update_cvc_tbl_i(i64 noundef %0, ptr nocapture read
   %7 = and i64 %6, 7
   %8 = icmp ne i64 %7, 0
   %or.cond = or i1 %.not, %8
-  br i1 %or.cond, label %gc_object_moved_p.exit.thread, label %gc_object_moved_p.exit
+  br i1 %or.cond, label %gc_object_moved_p.argprom.exit.thread, label %gc_object_moved_p.argprom.exit
 
-gc_object_moved_p.exit:                           ; preds = %2
+gc_object_moved_p.argprom.exit:                   ; preds = %2
   %9 = load i64, ptr %5, align 8
   %10 = and i64 %9, 31
   %.not13 = icmp eq i64 %10, 30
-  br i1 %.not13, label %11, label %gc_object_moved_p.exit.thread
+  br i1 %.not13, label %11, label %gc_object_moved_p.argprom.exit.thread
 
-11:                                               ; preds = %gc_object_moved_p.exit
+11:                                               ; preds = %gc_object_moved_p.argprom.exit
   %12 = getelementptr inbounds i8, ptr %5, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
   store ptr %14, ptr %4, align 8
-  br label %gc_object_moved_p.exit.thread
+  br label %gc_object_moved_p.argprom.exit.thread
 
-gc_object_moved_p.exit.thread:                    ; preds = %11, %gc_object_moved_p.exit, %2
+gc_object_moved_p.argprom.exit.thread:            ; preds = %11, %gc_object_moved_p.argprom.exit, %2
   %15 = getelementptr inbounds i8, ptr %3, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 7
@@ -24145,7 +24145,7 @@ gc_object_moved_p.exit.thread:                    ; preds = %11, %gc_object_move
   %20 = or i1 %19, %18
   br i1 %20, label %rb_gc_location.exit, label %21
 
-21:                                               ; preds = %gc_object_moved_p.exit.thread
+21:                                               ; preds = %gc_object_moved_p.argprom.exit.thread
   %22 = inttoptr i64 %16 to ptr
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 31
@@ -24157,8 +24157,8 @@ gc_object_moved_p.exit.thread:                    ; preds = %11, %gc_object_move
   %28 = load i64, ptr %27, align 8
   br label %rb_gc_location.exit
 
-rb_gc_location.exit:                              ; preds = %gc_object_moved_p.exit.thread, %21, %26
-  %.1.i = phi i64 [ %28, %26 ], [ %16, %21 ], [ %16, %gc_object_moved_p.exit.thread ]
+rb_gc_location.exit:                              ; preds = %gc_object_moved_p.argprom.exit.thread, %21, %26
+  %.1.i = phi i64 [ %28, %26 ], [ %16, %21 ], [ %16, %gc_object_moved_p.argprom.exit.thread ]
   store i64 %.1.i, ptr %15, align 8
   ret i32 0
 }
@@ -24174,44 +24174,44 @@ define internal noundef i32 @update_const_table(i64 noundef %0, ptr nocapture re
   %7 = icmp ne i64 %6, 0
   %8 = icmp eq i64 %5, 0
   %9 = or i1 %8, %7
-  br i1 %9, label %gc_object_moved_p.exit.thread, label %gc_object_moved_p.exit
+  br i1 %9, label %gc_object_moved_p.argprom.exit.thread, label %gc_object_moved_p.argprom.exit
 
-gc_object_moved_p.exit:                           ; preds = %2
+gc_object_moved_p.argprom.exit:                   ; preds = %2
   %10 = inttoptr i64 %5 to ptr
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 31
   %.not = icmp eq i64 %12, 30
-  br i1 %.not, label %rb_gc_location.exit, label %gc_object_moved_p.exit.thread
+  br i1 %.not, label %rb_gc_location.exit, label %gc_object_moved_p.argprom.exit.thread
 
-rb_gc_location.exit:                              ; preds = %gc_object_moved_p.exit
+rb_gc_location.exit:                              ; preds = %gc_object_moved_p.argprom.exit
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %4, align 8
-  br label %gc_object_moved_p.exit.thread
+  br label %gc_object_moved_p.argprom.exit.thread
 
-gc_object_moved_p.exit.thread:                    ; preds = %2, %rb_gc_location.exit, %gc_object_moved_p.exit
+gc_object_moved_p.argprom.exit.thread:            ; preds = %2, %rb_gc_location.exit, %gc_object_moved_p.argprom.exit
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 7
   %18 = icmp ne i64 %17, 0
   %19 = icmp eq i64 %16, 0
   %20 = or i1 %19, %18
-  br i1 %20, label %gc_object_moved_p.exit11.thread, label %gc_object_moved_p.exit11
+  br i1 %20, label %gc_object_moved_p.argprom.exit11.thread, label %gc_object_moved_p.argprom.exit11
 
-gc_object_moved_p.exit11:                         ; preds = %gc_object_moved_p.exit.thread
+gc_object_moved_p.argprom.exit11:                 ; preds = %gc_object_moved_p.argprom.exit.thread
   %21 = inttoptr i64 %16 to ptr
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 31
   %.not18 = icmp eq i64 %23, 30
-  br i1 %.not18, label %rb_gc_location.exit13, label %gc_object_moved_p.exit11.thread
+  br i1 %.not18, label %rb_gc_location.exit13, label %gc_object_moved_p.argprom.exit11.thread
 
-rb_gc_location.exit13:                            ; preds = %gc_object_moved_p.exit11
+rb_gc_location.exit13:                            ; preds = %gc_object_moved_p.argprom.exit11
   %24 = getelementptr inbounds i8, ptr %21, i64 16
   %25 = load i64, ptr %24, align 8
   store i64 %25, ptr %15, align 8
-  br label %gc_object_moved_p.exit11.thread
+  br label %gc_object_moved_p.argprom.exit11.thread
 
-gc_object_moved_p.exit11.thread:                  ; preds = %gc_object_moved_p.exit.thread, %rb_gc_location.exit13, %gc_object_moved_p.exit11
+gc_object_moved_p.argprom.exit11.thread:          ; preds = %gc_object_moved_p.argprom.exit.thread, %rb_gc_location.exit13, %gc_object_moved_p.argprom.exit11
   ret i32 0
 }
 
@@ -24227,35 +24227,35 @@ define internal range(i32 0, 5) i32 @hash_foreach_replace(i64 noundef %0, i64 no
   %6 = icmp ne i64 %5, 0
   %7 = icmp eq i64 %0, 0
   %8 = or i1 %7, %6
-  br i1 %8, label %gc_object_moved_p.exit.thread, label %gc_object_moved_p.exit
+  br i1 %8, label %gc_object_moved_p.argprom.exit.thread, label %gc_object_moved_p.argprom.exit
 
-gc_object_moved_p.exit:                           ; preds = %4
+gc_object_moved_p.argprom.exit:                   ; preds = %4
   %9 = inttoptr i64 %0 to ptr
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 31
   %.not = icmp eq i64 %11, 30
-  br i1 %.not, label %19, label %gc_object_moved_p.exit.thread
+  br i1 %.not, label %19, label %gc_object_moved_p.argprom.exit.thread
 
-gc_object_moved_p.exit.thread:                    ; preds = %4, %gc_object_moved_p.exit
+gc_object_moved_p.argprom.exit.thread:            ; preds = %4, %gc_object_moved_p.argprom.exit
   %12 = and i64 %1, 7
   %13 = icmp ne i64 %12, 0
   %14 = icmp eq i64 %1, 0
   %15 = or i1 %14, %13
-  br i1 %15, label %gc_object_moved_p.exit7.thread, label %gc_object_moved_p.exit7
+  br i1 %15, label %gc_object_moved_p.argprom.exit7.thread, label %gc_object_moved_p.argprom.exit7
 
-gc_object_moved_p.exit7:                          ; preds = %gc_object_moved_p.exit.thread
+gc_object_moved_p.argprom.exit7:                  ; preds = %gc_object_moved_p.argprom.exit.thread
   %16 = inttoptr i64 %1 to ptr
   %17 = load i64, ptr %16, align 8
   %.fr13 = freeze i64 %17
   %18 = and i64 %.fr13, 31
   %.not14 = icmp eq i64 %18, 30
-  br i1 %.not14, label %19, label %gc_object_moved_p.exit7.thread
+  br i1 %.not14, label %19, label %gc_object_moved_p.argprom.exit7.thread
 
-gc_object_moved_p.exit7.thread:                   ; preds = %gc_object_moved_p.exit.thread, %gc_object_moved_p.exit7
+gc_object_moved_p.argprom.exit7.thread:           ; preds = %gc_object_moved_p.argprom.exit.thread, %gc_object_moved_p.argprom.exit7
   br label %19
 
-19:                                               ; preds = %gc_object_moved_p.exit7.thread, %gc_object_moved_p.exit7, %gc_object_moved_p.exit
-  %.0 = phi i32 [ 4, %gc_object_moved_p.exit ], [ 0, %gc_object_moved_p.exit7.thread ], [ 4, %gc_object_moved_p.exit7 ]
+19:                                               ; preds = %gc_object_moved_p.argprom.exit7.thread, %gc_object_moved_p.argprom.exit7, %gc_object_moved_p.argprom.exit
+  %.0 = phi i32 [ 4, %gc_object_moved_p.argprom.exit ], [ 0, %gc_object_moved_p.argprom.exit7.thread ], [ 4, %gc_object_moved_p.argprom.exit7 ]
   ret i32 %.0
 }
 
@@ -24266,43 +24266,43 @@ define internal noundef i32 @hash_replace_ref(ptr nocapture noundef %0, ptr noca
   %7 = icmp ne i64 %6, 0
   %8 = icmp eq i64 %5, 0
   %9 = or i1 %8, %7
-  br i1 %9, label %gc_object_moved_p.exit.thread, label %gc_object_moved_p.exit
+  br i1 %9, label %gc_object_moved_p.argprom.exit.thread, label %gc_object_moved_p.argprom.exit
 
-gc_object_moved_p.exit:                           ; preds = %4
+gc_object_moved_p.argprom.exit:                   ; preds = %4
   %10 = inttoptr i64 %5 to ptr
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 31
   %.not = icmp eq i64 %12, 30
-  br i1 %.not, label %rb_gc_location.exit, label %gc_object_moved_p.exit.thread
+  br i1 %.not, label %rb_gc_location.exit, label %gc_object_moved_p.argprom.exit.thread
 
-rb_gc_location.exit:                              ; preds = %gc_object_moved_p.exit
+rb_gc_location.exit:                              ; preds = %gc_object_moved_p.argprom.exit
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %0, align 8
-  br label %gc_object_moved_p.exit.thread
+  br label %gc_object_moved_p.argprom.exit.thread
 
-gc_object_moved_p.exit.thread:                    ; preds = %4, %rb_gc_location.exit, %gc_object_moved_p.exit
+gc_object_moved_p.argprom.exit.thread:            ; preds = %4, %rb_gc_location.exit, %gc_object_moved_p.argprom.exit
   %15 = load i64, ptr %1, align 8
   %16 = and i64 %15, 7
   %17 = icmp ne i64 %16, 0
   %18 = icmp eq i64 %15, 0
   %19 = or i1 %18, %17
-  br i1 %19, label %gc_object_moved_p.exit10.thread, label %gc_object_moved_p.exit10
+  br i1 %19, label %gc_object_moved_p.argprom.exit10.thread, label %gc_object_moved_p.argprom.exit10
 
-gc_object_moved_p.exit10:                         ; preds = %gc_object_moved_p.exit.thread
+gc_object_moved_p.argprom.exit10:                 ; preds = %gc_object_moved_p.argprom.exit.thread
   %20 = inttoptr i64 %15 to ptr
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, 31
   %.not17 = icmp eq i64 %22, 30
-  br i1 %.not17, label %rb_gc_location.exit12, label %gc_object_moved_p.exit10.thread
+  br i1 %.not17, label %rb_gc_location.exit12, label %gc_object_moved_p.argprom.exit10.thread
 
-rb_gc_location.exit12:                            ; preds = %gc_object_moved_p.exit10
+rb_gc_location.exit12:                            ; preds = %gc_object_moved_p.argprom.exit10
   %23 = getelementptr inbounds i8, ptr %20, i64 16
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %1, align 8
-  br label %gc_object_moved_p.exit10.thread
+  br label %gc_object_moved_p.argprom.exit10.thread
 
-gc_object_moved_p.exit10.thread:                  ; preds = %gc_object_moved_p.exit.thread, %rb_gc_location.exit12, %gc_object_moved_p.exit10
+gc_object_moved_p.argprom.exit10.thread:          ; preds = %gc_object_moved_p.argprom.exit.thread, %rb_gc_location.exit12, %gc_object_moved_p.argprom.exit10
   ret i32 0
 }
 
@@ -24483,15 +24483,15 @@ define internal fastcc void @heap_assign_page(ptr nocapture noundef %0, ptr noun
   %.pn.in.in.i.i = phi ptr [ %7, %3 ], [ %.pn.in.i.i, %9 ]
   %.pn.in.i.i = load ptr, ptr %.pn.in.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.pn.in.i.i, %7
-  br i1 %.not.i.i, label %heap_page_resurrect.exit.thread.i, label %9
+  br i1 %.not.i.i, label %heap_page_resurrect.argprom.exit.thread.i, label %9
 
 9:                                                ; preds = %8
   %10 = getelementptr i8, ptr %.pn.in.i.i, i64 -8
   %11 = load ptr, ptr %10, align 8
   %.not16.i.i = icmp eq ptr %11, null
-  br i1 %.not16.i.i, label %8, label %heap_page_resurrect.exit.i, !llvm.loop !148
+  br i1 %.not16.i.i, label %8, label %heap_page_resurrect.argprom.exit.i, !llvm.loop !148
 
-heap_page_resurrect.exit.i:                       ; preds = %9
+heap_page_resurrect.argprom.exit.i:               ; preds = %9
   %.014.le.i.i = getelementptr i8, ptr %.pn.in.i.i, i64 -48
   %12 = getelementptr i8, ptr %.pn.in.i.i, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -24512,9 +24512,9 @@ heap_page_resurrect.exit.i:                       ; preds = %9
   %25 = sub i64 %24, %22
   store i64 %25, ptr %23, align 8
   %26 = icmp eq ptr %.014.le.i.i, null
-  br i1 %26, label %heap_page_resurrect.exit.thread.i, label %heap_page_create.exit
+  br i1 %26, label %heap_page_resurrect.argprom.exit.thread.i, label %heap_page_create.exit
 
-heap_page_resurrect.exit.thread.i:                ; preds = %8, %heap_page_resurrect.exit.i
+heap_page_resurrect.argprom.exit.thread.i:        ; preds = %8, %heap_page_resurrect.argprom.exit.i
   %27 = load i16, ptr %1, align 8
   %28 = sext i16 %27 to i64
   %29 = sext i16 %27 to i32
@@ -24523,7 +24523,7 @@ heap_page_resurrect.exit.thread.i:                ; preds = %8, %heap_page_resur
   %32 = icmp eq ptr %31, inttoptr (i64 -1 to ptr)
   br i1 %32, label %heap_page_body_allocate.exit.thread.i.i, label %33
 
-33:                                               ; preds = %heap_page_resurrect.exit.thread.i
+33:                                               ; preds = %heap_page_resurrect.argprom.exit.thread.i
   %34 = getelementptr i8, ptr %31, i64 65536
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %35, 65535
@@ -24563,7 +24563,7 @@ heap_page_body_allocate.exit.i.i:                 ; preds = %46, %45
   %51 = icmp eq ptr %38, null
   br i1 %51, label %heap_page_body_allocate.exit.thread.i.i, label %52
 
-heap_page_body_allocate.exit.thread.i.i:          ; preds = %heap_page_body_allocate.exit.i.i, %heap_page_resurrect.exit.thread.i
+heap_page_body_allocate.exit.thread.i.i:          ; preds = %heap_page_body_allocate.exit.i.i, %heap_page_resurrect.argprom.exit.thread.i
   tail call void @rb_memerror() #55
   unreachable
 
@@ -24764,8 +24764,8 @@ heap_page_allocate.exit.i:                        ; preds = %131, %124
   store i16 %126, ptr %152, align 4
   br label %heap_page_create.exit
 
-heap_page_create.exit:                            ; preds = %heap_page_resurrect.exit.i, %heap_page_allocate.exit.i
-  %.0.i = phi ptr [ %53, %heap_page_allocate.exit.i ], [ %.014.le.i.i, %heap_page_resurrect.exit.i ]
+heap_page_create.exit:                            ; preds = %heap_page_resurrect.argprom.exit.i, %heap_page_allocate.exit.i
+  %.0.i = phi ptr [ %53, %heap_page_allocate.exit.i ], [ %.014.le.i.i, %heap_page_resurrect.argprom.exit.i ]
   %153 = getelementptr inbounds i8, ptr %1, i64 152
   %154 = icmp eq ptr %2, %153
   %155 = getelementptr inbounds i8, ptr %.0.i, i64 12
@@ -25191,7 +25191,7 @@ gc_reset_malloc_info.exit:                        ; preds = %171, %176, %184, %1
   %200 = load i32, ptr %199, align 4
   %201 = and i32 %200, 4194304
   %.not75 = icmp eq i32 %201, 0
-  br i1 %.not75, label %gc_event_hook_body.exit, label %202
+  br i1 %.not75, label %gc_event_hook_body.argprom.exit, label %202
 
 202:                                              ; preds = %gc_reset_malloc_info.exit
   %203 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -25199,9 +25199,9 @@ gc_reset_malloc_info.exit:                        ; preds = %171, %176, %184, %1
   %205 = getelementptr inbounds i8, ptr %204, i64 16
   %206 = load ptr, ptr %205, align 8
   %.not.i88 = icmp eq ptr %206, null
-  br i1 %.not.i88, label %gc_event_hook_body.exit, label %rb_ec_ractor_hooks.exit.i
+  br i1 %.not.i88, label %gc_event_hook_body.argprom.exit, label %rb_ec_ractor_hooks.argprom.exit.i
 
-rb_ec_ractor_hooks.exit.i:                        ; preds = %202
+rb_ec_ractor_hooks.argprom.exit.i:                ; preds = %202
   %207 = getelementptr i8, ptr %204, i64 48
   %.val.i = load ptr, ptr %207, align 8, !nonnull !14, !noundef !14
   %208 = getelementptr inbounds i8, ptr %.val.i, i64 24
@@ -25210,9 +25210,9 @@ rb_ec_ractor_hooks.exit.i:                        ; preds = %202
   %211 = load i32, ptr %210, align 8
   %212 = and i32 %211, 4194304
   %.not9.i = icmp eq i32 %212, 0
-  br i1 %.not9.i, label %gc_event_hook_body.exit, label %213
+  br i1 %.not9.i, label %gc_event_hook_body.argprom.exit, label %213
 
-213:                                              ; preds = %rb_ec_ractor_hooks.exit.i
+213:                                              ; preds = %rb_ec_ractor_hooks.argprom.exit.i
   %214 = getelementptr inbounds i8, ptr %209, i64 16
   %215 = getelementptr inbounds i8, ptr %206, i64 24
   %216 = load i64, ptr %215, align 8
@@ -25232,14 +25232,14 @@ rb_ec_ractor_hooks.exit.i:                        ; preds = %202
   store i32 0, ptr %222, align 8
   call void @rb_exec_event_hooks(ptr noundef nonnull %12, ptr noundef nonnull %214, i32 noundef 0) #39
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12)
-  br label %gc_event_hook_body.exit
+  br label %gc_event_hook_body.argprom.exit
 
-gc_event_hook_body.exit:                          ; preds = %213, %rb_ec_ractor_hooks.exit.i, %202, %gc_reset_malloc_info.exit
+gc_event_hook_body.argprom.exit:                  ; preds = %213, %rb_ec_ractor_hooks.argprom.exit.i, %202, %gc_reset_malloc_info.exit
   %223 = load i32, ptr %112, align 8
   %.not.i89 = icmp eq i32 %223, 0
   br i1 %.not.i89, label %gc_prof_timer_start.exit, label %224
 
-224:                                              ; preds = %gc_event_hook_body.exit
+224:                                              ; preds = %gc_event_hook_body.argprom.exit
   %225 = getelementptr inbounds i8, ptr %0, i64 1304
   %226 = load ptr, ptr %225, align 8
   %.not5.i = icmp eq ptr %226, null
@@ -25297,24 +25297,24 @@ getrusage_time.exit.i:                            ; preds = %237, %current_proce
   store double %.0.i.i, ptr %243, align 8
   br label %gc_prof_timer_start.exit
 
-gc_prof_timer_start.exit:                         ; preds = %gc_event_hook_body.exit, %224, %getrusage_time.exit.i
+gc_prof_timer_start.exit:                         ; preds = %gc_event_hook_body.argprom.exit, %224, %getrusage_time.exit.i
   %244 = load i16, ptr @ruby_gc__mark__begin_semaphore, align 2
   %.not.i.i90 = icmp eq i16 %244, 0
-  br i1 %.not.i.i90, label %gc_prof_mark_timer_start.exit.i, label %245
+  br i1 %.not.i.i90, label %gc_prof_mark_timer_start.argprom.exit.i, label %245
 
 245:                                              ; preds = %gc_prof_timer_start.exit
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_gc__mark__begin_semaphore) #39, !srcloc !161
   call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_gc__mark__begin_semaphore\0A.asciz \22ruby\22\0A.asciz \22gc__mark__begin\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "imr,~{dirflag},~{fpsr},~{flags}"(i32 0) #39, !srcloc !162
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #39, !srcloc !163
-  br label %gc_prof_mark_timer_start.exit.i
+  br label %gc_prof_mark_timer_start.argprom.exit.i
 
-gc_prof_mark_timer_start.exit.i:                  ; preds = %245, %gc_prof_timer_start.exit
+gc_prof_mark_timer_start.argprom.exit.i:          ; preds = %245, %gc_prof_timer_start.exit
   %246 = load i16, ptr %15, align 8
   %247 = and i16 %246, 4096
   %.not.i8.i = icmp eq i16 %247, 0
   br i1 %.not.i8.i, label %gc_marking_enter.exit.i, label %248
 
-248:                                              ; preds = %gc_prof_mark_timer_start.exit.i
+248:                                              ; preds = %gc_prof_mark_timer_start.argprom.exit.i
   %249 = getelementptr inbounds i8, ptr %0, i64 1408
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9)
   %.b.i.i.i.i = load i1, ptr @current_process_time.try_clock_gettime, align 4
@@ -25351,7 +25351,7 @@ current_process_time.exit.thread.i.i.i:           ; preds = %256, %250
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %249, i8 0, i64 16, i1 false)
   br label %gc_marking_enter.exit.i
 
-gc_marking_enter.exit.i:                          ; preds = %259, %current_process_time.exit.thread.i.i.i, %gc_prof_mark_timer_start.exit.i
+gc_marking_enter.exit.i:                          ; preds = %259, %current_process_time.exit.thread.i.i.i, %gc_prof_mark_timer_start.argprom.exit.i
   %260 = load i16, ptr %15, align 8
   %261 = and i16 %260, -4
   %262 = or disjoint i16 %261, 1
@@ -25402,7 +25402,7 @@ gc_marking_enter.exit.i:                          ; preds = %259, %current_proce
   %288 = getelementptr inbounds i8, ptr %287, i64 8
   %.pn1.i.i.i = load ptr, ptr %288, align 8
   %.not2.i.i.i = icmp eq ptr %.pn1.i.i.i, %288
-  br i1 %.not2.i.i.i, label %rgengc_mark_and_rememberset_clear.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %.not2.i.i.i, label %rgengc_mark_and_rememberset_clear.argprom.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %286, %.lr.ph.i.i.i
   %.pn3.i.i.i = phi ptr [ %.pn.i.i.i, %.lr.ph.i.i.i ], [ %.pn1.i.i.i, %286 ]
@@ -25414,15 +25414,15 @@ gc_marking_enter.exit.i:                          ; preds = %259, %current_proce
   store i8 %292, ptr %290, align 4
   %.pn.i.i.i = load ptr, ptr %.pn3.i.i.i, align 8
   %.not.i.i.i91 = icmp eq ptr %.pn.i.i.i, %288
-  br i1 %.not.i.i.i91, label %rgengc_mark_and_rememberset_clear.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i91, label %rgengc_mark_and_rememberset_clear.argprom.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !27
 
-rgengc_mark_and_rememberset_clear.exit.i.i:       ; preds = %.lr.ph.i.i.i, %286
+rgengc_mark_and_rememberset_clear.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i, %286
   %293 = getelementptr inbounds i8, ptr %287, i64 48
   %294 = load ptr, ptr %293, align 8
   %.not.i43.i.i = icmp eq ptr %294, null
   br i1 %.not.i43.i.i, label %heap_move_pooled_pages_to_free_pages.exit.i.i, label %295
 
-295:                                              ; preds = %rgengc_mark_and_rememberset_clear.exit.i.i
+295:                                              ; preds = %rgengc_mark_and_rememberset_clear.argprom.exit.i.i
   %296 = load ptr, ptr %287, align 8
   %.not13.i.i.i = icmp eq ptr %296, null
   br i1 %.not13.i.i.i, label %.loopexit48.i.i, label %.preheader.i.i.i
@@ -25444,7 +25444,7 @@ rgengc_mark_and_rememberset_clear.exit.i.i:       ; preds = %.lr.ph.i.i.i, %286
   store ptr null, ptr %293, align 8
   br label %heap_move_pooled_pages_to_free_pages.exit.i.i
 
-heap_move_pooled_pages_to_free_pages.exit.i.i:    ; preds = %.loopexit48.i.i, %rgengc_mark_and_rememberset_clear.exit.i.i
+heap_move_pooled_pages_to_free_pages.exit.i.i:    ; preds = %.loopexit48.i.i, %rgengc_mark_and_rememberset_clear.argprom.exit.i.i
   %300 = load i16, ptr %15, align 8
   %301 = and i16 %300, 64
   %.not41.i.i = icmp eq i16 %301, 0
@@ -25787,7 +25787,7 @@ gc_prof_timer_stop.exit:                          ; preds = %403, %405, %elapsed
   %432 = load i32, ptr %199, align 4
   %433 = and i32 %432, 67108864
   %.not.i104 = icmp eq i32 %433, 0
-  br i1 %.not.i104, label %gc_event_hook_body.exit.i, label %434
+  br i1 %.not.i104, label %gc_event_hook_body.argprom.exit.i, label %434
 
 434:                                              ; preds = %gc_prof_timer_stop.exit
   %435 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -25795,9 +25795,9 @@ gc_prof_timer_stop.exit:                          ; preds = %403, %405, %elapsed
   %437 = getelementptr inbounds i8, ptr %436, i64 16
   %438 = load ptr, ptr %437, align 8
   %.not.i.i105 = icmp eq ptr %438, null
-  br i1 %.not.i.i105, label %gc_event_hook_body.exit.i, label %rb_ec_ractor_hooks.exit.i.i
+  br i1 %.not.i.i105, label %gc_event_hook_body.argprom.exit.i, label %rb_ec_ractor_hooks.argprom.exit.i.i
 
-rb_ec_ractor_hooks.exit.i.i:                      ; preds = %434
+rb_ec_ractor_hooks.argprom.exit.i.i:              ; preds = %434
   %439 = getelementptr i8, ptr %436, i64 48
   %.val.i.i = load ptr, ptr %439, align 8, !nonnull !14, !noundef !14
   %440 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
@@ -25806,9 +25806,9 @@ rb_ec_ractor_hooks.exit.i.i:                      ; preds = %434
   %443 = load i32, ptr %442, align 8
   %444 = and i32 %443, 67108864
   %.not9.i.i = icmp eq i32 %444, 0
-  br i1 %.not9.i.i, label %gc_event_hook_body.exit.i, label %445
+  br i1 %.not9.i.i, label %gc_event_hook_body.argprom.exit.i, label %445
 
-445:                                              ; preds = %rb_ec_ractor_hooks.exit.i.i
+445:                                              ; preds = %rb_ec_ractor_hooks.argprom.exit.i.i
   %446 = getelementptr inbounds i8, ptr %441, i64 16
   %447 = getelementptr inbounds i8, ptr %438, i64 24
   %448 = load i64, ptr %447, align 8
@@ -25828,9 +25828,9 @@ rb_ec_ractor_hooks.exit.i.i:                      ; preds = %434
   store i32 0, ptr %454, align 8
   call void @rb_exec_event_hooks(ptr noundef nonnull %3, ptr noundef nonnull %446, i32 noundef 0) #39
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
-  br label %gc_event_hook_body.exit.i
+  br label %gc_event_hook_body.argprom.exit.i
 
-gc_event_hook_body.exit.i:                        ; preds = %445, %rb_ec_ractor_hooks.exit.i.i, %434, %gc_prof_timer_stop.exit
+gc_event_hook_body.argprom.exit.i:                ; preds = %445, %rb_ec_ractor_hooks.argprom.exit.i.i, %434, %gc_prof_timer_stop.exit
   %455 = load i16, ptr %15, align 8
   %456 = and i16 %455, -33
   store i16 %456, ptr %15, align 8
@@ -25838,12 +25838,12 @@ gc_event_hook_body.exit.i:                        ; preds = %445, %rb_ec_ractor_
   %.not.i.i.i106 = icmp eq ptr %457, null
   br i1 %.not.i.i.i106, label %458, label %gc_exit.exit
 
-458:                                              ; preds = %gc_event_hook_body.exit.i
+458:                                              ; preds = %gc_event_hook_body.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %13) #39
   br label %gc_exit.exit
 
-gc_exit.exit:                                     ; preds = %heap_ready_to_gc.exit.i, %458, %gc_event_hook_body.exit.i, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %gc_event_hook_body.exit.i ], [ 1, %458 ], [ 1, %heap_ready_to_gc.exit.i ]
+gc_exit.exit:                                     ; preds = %heap_ready_to_gc.exit.i, %458, %gc_event_hook_body.argprom.exit.i, %2
+  %.0 = phi i32 [ 0, %2 ], [ 1, %gc_event_hook_body.argprom.exit.i ], [ 1, %458 ], [ 1, %heap_ready_to_gc.exit.i ]
   ret i32 %.0
 }
 
@@ -26300,7 +26300,7 @@ define internal noundef i32 @mark_key(i64 noundef %0, i64 %1, i64 noundef %2) #0
   %.val.i = load i16, ptr %9, align 8
   %10 = and i16 %.val.i, 96
   %or.cond.not.i.i = icmp eq i16 %10, 96
-  br i1 %or.cond.not.i.i, label %11, label %gc_pin.exit.i
+  br i1 %or.cond.not.i.i, label %11, label %gc_pin.argprom.exit.i
 
 11:                                               ; preds = %8
   %12 = and i64 %0, -65536
@@ -26318,7 +26318,7 @@ define internal noundef i32 @mark_key(i64 noundef %0, i64 %1, i64 noundef %2) #0
   %22 = shl nuw i64 1, %21
   %23 = and i64 %19, %22
   %.not11.i.i = icmp eq i64 %23, 0
-  br i1 %.not11.i.i, label %24, label %gc_pin.exit.i
+  br i1 %.not11.i.i, label %24, label %gc_pin.argprom.exit.i
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds i8, ptr %14, i64 8
@@ -26331,13 +26331,13 @@ define internal noundef i32 @mark_key(i64 noundef %0, i64 %1, i64 noundef %2) #0
   %31 = load i64, ptr %30, align 8
   %32 = or i64 %31, %22
   store i64 %32, ptr %30, align 8
-  br label %gc_pin.exit.i
+  br label %gc_pin.argprom.exit.i
 
-gc_pin.exit.i:                                    ; preds = %24, %11, %8
+gc_pin.argprom.exit.i:                            ; preds = %24, %11, %8
   tail call fastcc void @gc_mark_ptr(ptr noundef nonnull %4, i64 noundef %0)
   br label %gc_mark_and_pin.exit
 
-gc_mark_and_pin.exit:                             ; preds = %3, %gc_pin.exit.i
+gc_mark_and_pin.exit:                             ; preds = %3, %gc_pin.argprom.exit.i
   ret i32 0
 }
 
@@ -26355,7 +26355,7 @@ define internal noundef i32 @pin_key_pin_value(i64 noundef %0, i64 noundef %1, i
   %.val.i = load i16, ptr %9, align 8
   %10 = and i16 %.val.i, 96
   %or.cond.not.i.i = icmp eq i16 %10, 96
-  br i1 %or.cond.not.i.i, label %11, label %gc_pin.exit.i
+  br i1 %or.cond.not.i.i, label %11, label %gc_pin.argprom.exit.i
 
 11:                                               ; preds = %8
   %12 = and i64 %0, -65536
@@ -26373,7 +26373,7 @@ define internal noundef i32 @pin_key_pin_value(i64 noundef %0, i64 noundef %1, i
   %22 = shl nuw i64 1, %21
   %23 = and i64 %19, %22
   %.not11.i.i = icmp eq i64 %23, 0
-  br i1 %.not11.i.i, label %24, label %gc_pin.exit.i
+  br i1 %.not11.i.i, label %24, label %gc_pin.argprom.exit.i
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds i8, ptr %14, i64 8
@@ -26386,13 +26386,13 @@ define internal noundef i32 @pin_key_pin_value(i64 noundef %0, i64 noundef %1, i
   %31 = load i64, ptr %30, align 8
   %32 = or i64 %31, %22
   store i64 %32, ptr %30, align 8
-  br label %gc_pin.exit.i
+  br label %gc_pin.argprom.exit.i
 
-gc_pin.exit.i:                                    ; preds = %24, %11, %8
+gc_pin.argprom.exit.i:                            ; preds = %24, %11, %8
   tail call fastcc void @gc_mark_ptr(ptr noundef nonnull %4, i64 noundef %0)
   br label %gc_mark_and_pin.exit
 
-gc_mark_and_pin.exit:                             ; preds = %3, %gc_pin.exit.i
+gc_mark_and_pin.exit:                             ; preds = %3, %gc_pin.argprom.exit.i
   %33 = and i64 %1, 7
   %34 = icmp ne i64 %33, 0
   %35 = icmp eq i64 %1, 0
@@ -26404,7 +26404,7 @@ gc_mark_and_pin.exit:                             ; preds = %3, %gc_pin.exit.i
   %.val.i5 = load i16, ptr %37, align 8
   %38 = and i16 %.val.i5, 96
   %or.cond.not.i.i6 = icmp eq i16 %38, 96
-  br i1 %or.cond.not.i.i6, label %39, label %gc_pin.exit.i7
+  br i1 %or.cond.not.i.i6, label %39, label %gc_pin.argprom.exit.i7
 
 39:                                               ; preds = %36
   %40 = and i64 %1, -65536
@@ -26422,7 +26422,7 @@ gc_mark_and_pin.exit:                             ; preds = %3, %gc_pin.exit.i
   %50 = shl nuw i64 1, %49
   %51 = and i64 %47, %50
   %.not11.i.i10 = icmp eq i64 %51, 0
-  br i1 %.not11.i.i10, label %52, label %gc_pin.exit.i7
+  br i1 %.not11.i.i10, label %52, label %gc_pin.argprom.exit.i7
 
 52:                                               ; preds = %39
   %53 = getelementptr inbounds i8, ptr %42, i64 8
@@ -26435,13 +26435,13 @@ gc_mark_and_pin.exit:                             ; preds = %3, %gc_pin.exit.i
   %59 = load i64, ptr %58, align 8
   %60 = or i64 %59, %50
   store i64 %60, ptr %58, align 8
-  br label %gc_pin.exit.i7
+  br label %gc_pin.argprom.exit.i7
 
-gc_pin.exit.i7:                                   ; preds = %52, %39, %36
+gc_pin.argprom.exit.i7:                           ; preds = %52, %39, %36
   tail call fastcc void @gc_mark_ptr(ptr noundef nonnull %4, i64 noundef %1)
   br label %gc_mark_and_pin.exit11
 
-gc_mark_and_pin.exit11:                           ; preds = %gc_mark_and_pin.exit, %gc_pin.exit.i7
+gc_mark_and_pin.exit11:                           ; preds = %gc_mark_and_pin.exit, %gc_pin.argprom.exit.i7
   ret i32 0
 }
 
@@ -26459,7 +26459,7 @@ define internal noundef i32 @mark_value_pin(i64 %0, i64 noundef %1, i64 noundef 
   %.val.i = load i16, ptr %9, align 8
   %10 = and i16 %.val.i, 96
   %or.cond.not.i.i = icmp eq i16 %10, 96
-  br i1 %or.cond.not.i.i, label %11, label %gc_pin.exit.i
+  br i1 %or.cond.not.i.i, label %11, label %gc_pin.argprom.exit.i
 
 11:                                               ; preds = %8
   %12 = and i64 %1, -65536
@@ -26477,7 +26477,7 @@ define internal noundef i32 @mark_value_pin(i64 %0, i64 noundef %1, i64 noundef 
   %22 = shl nuw i64 1, %21
   %23 = and i64 %19, %22
   %.not11.i.i = icmp eq i64 %23, 0
-  br i1 %.not11.i.i, label %24, label %gc_pin.exit.i
+  br i1 %.not11.i.i, label %24, label %gc_pin.argprom.exit.i
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds i8, ptr %14, i64 8
@@ -26490,13 +26490,13 @@ define internal noundef i32 @mark_value_pin(i64 %0, i64 noundef %1, i64 noundef 
   %31 = load i64, ptr %30, align 8
   %32 = or i64 %31, %22
   store i64 %32, ptr %30, align 8
-  br label %gc_pin.exit.i
+  br label %gc_pin.argprom.exit.i
 
-gc_pin.exit.i:                                    ; preds = %24, %11, %8
+gc_pin.argprom.exit.i:                            ; preds = %24, %11, %8
   tail call fastcc void @gc_mark_ptr(ptr noundef nonnull %4, i64 noundef %1)
   br label %gc_mark_and_pin.exit
 
-gc_mark_and_pin.exit:                             ; preds = %3, %gc_pin.exit.i
+gc_mark_and_pin.exit:                             ; preds = %3, %gc_pin.argprom.exit.i
   ret i32 0
 }
 
@@ -26561,26 +26561,26 @@ define internal void @check_children_i(i64 noundef %0, ptr nocapture noundef %1)
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i, label %8, label %rb_vm_lock_enter_nb.exit.i
+  br i1 %.not.i.i.i, label %8, label %rb_vm_lock_enter_nb.argprom.exit.i
 
 8:                                                ; preds = %2
   call void @rb_vm_lock_enter_body_nb(ptr noundef nonnull %3) #39
-  br label %rb_vm_lock_enter_nb.exit.i
+  br label %rb_vm_lock_enter_nb.argprom.exit.i
 
-rb_vm_lock_enter_nb.exit.i:                       ; preds = %8, %2
+rb_vm_lock_enter_nb.argprom.exit.i:               ; preds = %8, %2
   %9 = and i64 %0, 7
   %10 = icmp ne i64 %9, 0
   %11 = icmp eq i64 %0, 0
   %12 = or i1 %11, %10
   br i1 %12, label %13, label %17
 
-13:                                               ; preds = %rb_vm_lock_enter_nb.exit.i
+13:                                               ; preds = %rb_vm_lock_enter_nb.argprom.exit.i
   %14 = load ptr, ptr @stderr, align 8
   %15 = inttoptr i64 %0 to ptr
   %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.187, ptr noundef %15) #58
   br label %191
 
-17:                                               ; preds = %rb_vm_lock_enter_nb.exit.i
+17:                                               ; preds = %rb_vm_lock_enter_nb.argprom.exit.i
   %18 = inttoptr i64 %0 to ptr
   %19 = getelementptr inbounds i8, ptr %6, i64 1240
   %20 = load i64, ptr %19, align 8
@@ -27031,7 +27031,7 @@ declare void @rb_print_backtrace(ptr noundef) local_unnamed_addr #2
 declare void @ruby_debug_breakpoint() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gc_verify_heap_pages_(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @gc_verify_heap_pages_.argelim(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
   %.pn68 = load ptr, ptr %1, align 8
   %.not70 = icmp eq ptr %.pn68, %1
   br i1 %.not70, label %._crit_edge76, label %.lr.ph75
@@ -27233,21 +27233,21 @@ define internal range(i32 0, 5) i32 @hash_foreach_replace_value(i64 %0, i64 noun
   %6 = icmp ne i64 %5, 0
   %7 = icmp eq i64 %1, 0
   %8 = or i1 %7, %6
-  br i1 %8, label %gc_object_moved_p.exit.thread, label %gc_object_moved_p.exit
+  br i1 %8, label %gc_object_moved_p.argprom.exit.thread, label %gc_object_moved_p.argprom.exit
 
-gc_object_moved_p.exit:                           ; preds = %4
+gc_object_moved_p.argprom.exit:                   ; preds = %4
   %9 = inttoptr i64 %1 to ptr
   %10 = load i64, ptr %9, align 8
   %.fr6 = freeze i64 %10
   %11 = and i64 %.fr6, 31
   %.not = icmp eq i64 %11, 30
-  br i1 %.not, label %12, label %gc_object_moved_p.exit.thread
+  br i1 %.not, label %12, label %gc_object_moved_p.argprom.exit.thread
 
-gc_object_moved_p.exit.thread:                    ; preds = %4, %gc_object_moved_p.exit
+gc_object_moved_p.argprom.exit.thread:            ; preds = %4, %gc_object_moved_p.argprom.exit
   br label %12
 
-12:                                               ; preds = %gc_object_moved_p.exit, %gc_object_moved_p.exit.thread
-  %13 = phi i32 [ 0, %gc_object_moved_p.exit.thread ], [ 4, %gc_object_moved_p.exit ]
+12:                                               ; preds = %gc_object_moved_p.argprom.exit, %gc_object_moved_p.argprom.exit.thread
+  %13 = phi i32 [ 0, %gc_object_moved_p.argprom.exit.thread ], [ 4, %gc_object_moved_p.argprom.exit ]
   ret i32 %13
 }
 
@@ -27258,22 +27258,22 @@ define internal noundef i32 @hash_replace_ref_value(ptr nocapture readnone %0, p
   %7 = icmp ne i64 %6, 0
   %8 = icmp eq i64 %5, 0
   %9 = or i1 %8, %7
-  br i1 %9, label %gc_object_moved_p.exit.thread, label %gc_object_moved_p.exit
+  br i1 %9, label %gc_object_moved_p.argprom.exit.thread, label %gc_object_moved_p.argprom.exit
 
-gc_object_moved_p.exit:                           ; preds = %4
+gc_object_moved_p.argprom.exit:                   ; preds = %4
   %10 = inttoptr i64 %5 to ptr
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 31
   %.not = icmp eq i64 %12, 30
-  br i1 %.not, label %rb_gc_location.exit, label %gc_object_moved_p.exit.thread
+  br i1 %.not, label %rb_gc_location.exit, label %gc_object_moved_p.argprom.exit.thread
 
-rb_gc_location.exit:                              ; preds = %gc_object_moved_p.exit
+rb_gc_location.exit:                              ; preds = %gc_object_moved_p.argprom.exit
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %1, align 8
-  br label %gc_object_moved_p.exit.thread
+  br label %gc_object_moved_p.argprom.exit.thread
 
-gc_object_moved_p.exit.thread:                    ; preds = %4, %rb_gc_location.exit, %gc_object_moved_p.exit
+gc_object_moved_p.argprom.exit.thread:            ; preds = %4, %rb_gc_location.exit, %gc_object_moved_p.argprom.exit
   ret i32 0
 }
 
@@ -27451,7 +27451,7 @@ define internal noundef i32 @pin_key_mark_value(i64 noundef %0, i64 noundef %1, 
   %.val.i = load i16, ptr %9, align 8
   %10 = and i16 %.val.i, 96
   %or.cond.not.i.i = icmp eq i16 %10, 96
-  br i1 %or.cond.not.i.i, label %11, label %gc_pin.exit.i
+  br i1 %or.cond.not.i.i, label %11, label %gc_pin.argprom.exit.i
 
 11:                                               ; preds = %8
   %12 = and i64 %0, -65536
@@ -27469,7 +27469,7 @@ define internal noundef i32 @pin_key_mark_value(i64 noundef %0, i64 noundef %1, 
   %22 = shl nuw i64 1, %21
   %23 = and i64 %19, %22
   %.not11.i.i = icmp eq i64 %23, 0
-  br i1 %.not11.i.i, label %24, label %gc_pin.exit.i
+  br i1 %.not11.i.i, label %24, label %gc_pin.argprom.exit.i
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds i8, ptr %14, i64 8
@@ -27482,13 +27482,13 @@ define internal noundef i32 @pin_key_mark_value(i64 noundef %0, i64 noundef %1, 
   %31 = load i64, ptr %30, align 8
   %32 = or i64 %31, %22
   store i64 %32, ptr %30, align 8
-  br label %gc_pin.exit.i
+  br label %gc_pin.argprom.exit.i
 
-gc_pin.exit.i:                                    ; preds = %24, %11, %8
+gc_pin.argprom.exit.i:                            ; preds = %24, %11, %8
   tail call fastcc void @gc_mark_ptr(ptr noundef nonnull %4, i64 noundef %0)
   br label %gc_mark_and_pin.exit
 
-gc_mark_and_pin.exit:                             ; preds = %3, %gc_pin.exit.i
+gc_mark_and_pin.exit:                             ; preds = %3, %gc_pin.argprom.exit.i
   %33 = and i64 %1, 7
   %34 = icmp ne i64 %33, 0
   %35 = icmp eq i64 %1, 0
@@ -27564,24 +27564,24 @@ define internal fastcc i32 @garbage_collect_with_gvl(ptr noundef %0, i32 noundef
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %11 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i.i, label %12, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %12, label %rb_vm_lock_enter.argprom.exit.i
 
 12:                                               ; preds = %10
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #39
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %12, %10
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %12, %10
   call fastcc void @gc_rest(ptr noundef nonnull %0)
   %13 = call fastcc i32 @gc_start(ptr noundef nonnull %0, i32 noundef %1)
   %14 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i3.i = icmp eq ptr %14, null
   br i1 %.not.i.i3.i, label %15, label %garbage_collect.exit
 
-15:                                               ; preds = %rb_vm_lock_enter.exit.i
+15:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #39
   br label %garbage_collect.exit
 
-garbage_collect.exit:                             ; preds = %rb_vm_lock_enter.exit.i, %15
+garbage_collect.exit:                             ; preds = %rb_vm_lock_enter.argprom.exit.i, %15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %26
 
@@ -27619,24 +27619,24 @@ define internal ptr @gc_with_gvl(ptr nocapture noundef readonly %0) #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %6 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i, label %7, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %7, label %rb_vm_lock_enter.argprom.exit.i
 
 7:                                                ; preds = %1
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #39
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %7, %1
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %7, %1
   call fastcc void @gc_rest(ptr noundef %3)
   %8 = call fastcc i32 @gc_start(ptr noundef %3, i32 noundef %5)
   %9 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i3.i = icmp eq ptr %9, null
   br i1 %.not.i.i3.i, label %10, label %garbage_collect.exit
 
-10:                                               ; preds = %rb_vm_lock_enter.exit.i
+10:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #39
   br label %garbage_collect.exit
 
-garbage_collect.exit:                             ; preds = %rb_vm_lock_enter.exit.i, %10
+garbage_collect.exit:                             ; preds = %rb_vm_lock_enter.argprom.exit.i, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %11 = zext nneg i32 %8 to i64
   %12 = inttoptr i64 %11 to ptr
@@ -28481,22 +28481,22 @@ define internal void @root_obj_check_moved_i(ptr noundef %0, i64 noundef %1, ptr
   %5 = icmp ne i64 %4, 0
   %6 = icmp eq i64 %1, 0
   %7 = or i1 %6, %5
-  br i1 %7, label %gc_object_moved_p.exit.thread, label %gc_object_moved_p.exit
+  br i1 %7, label %gc_object_moved_p.argprom.exit.thread, label %gc_object_moved_p.argprom.exit
 
-gc_object_moved_p.exit:                           ; preds = %3
+gc_object_moved_p.argprom.exit:                   ; preds = %3
   %8 = inttoptr i64 %1 to ptr
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 31
   %.not = icmp eq i64 %10, 30
-  br i1 %.not, label %11, label %gc_object_moved_p.exit.thread
+  br i1 %.not, label %11, label %gc_object_moved_p.argprom.exit.thread
 
-11:                                               ; preds = %gc_object_moved_p.exit
+11:                                               ; preds = %gc_object_moved_p.argprom.exit
   %12 = tail call i64 @rb_gc_location(i64 noundef %1)
   %13 = tail call fastcc ptr @obj_info(i64 noundef %12)
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.380, ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %13) #54
   unreachable
 
-gc_object_moved_p.exit.thread:                    ; preds = %3, %gc_object_moved_p.exit
+gc_object_moved_p.argprom.exit.thread:            ; preds = %3, %gc_object_moved_p.argprom.exit
   ret void
 }
 
@@ -28517,15 +28517,15 @@ define internal noundef i32 @heap_check_moved_i(ptr noundef %0, ptr noundef %1, 
   %9 = icmp eq i64 %.019, 0
   %10 = or i1 %9, %8
   %.pre = inttoptr i64 %.019 to ptr
-  br i1 %10, label %gc_object_moved_p.exit.thread, label %gc_object_moved_p.exit
+  br i1 %10, label %gc_object_moved_p.argprom.exit.thread, label %gc_object_moved_p.argprom.exit
 
-gc_object_moved_p.exit:                           ; preds = %.lr.ph
+gc_object_moved_p.argprom.exit:                   ; preds = %.lr.ph
   %11 = load i64, ptr %.pre, align 8
   %12 = and i64 %11, 31
   %.not17 = icmp eq i64 %12, 30
-  br i1 %.not17, label %40, label %gc_object_moved_p.exit.thread
+  br i1 %.not17, label %40, label %gc_object_moved_p.argprom.exit.thread
 
-gc_object_moved_p.exit.thread:                    ; preds = %.lr.ph, %gc_object_moved_p.exit
+gc_object_moved_p.argprom.exit.thread:            ; preds = %.lr.ph, %gc_object_moved_p.argprom.exit
   %13 = load i64, ptr %.pre, align 8
   %14 = trunc i64 %13 to i32
   %15 = and i32 %14, 31
@@ -28534,7 +28534,7 @@ gc_object_moved_p.exit.thread:                    ; preds = %.lr.ph, %gc_object_
     i32 29, label %40
   ]
 
-16:                                               ; preds = %gc_object_moved_p.exit.thread
+16:                                               ; preds = %gc_object_moved_p.argprom.exit.thread
   %17 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 1304
   %19 = load ptr, ptr %18, align 8
@@ -28583,7 +28583,7 @@ rb_objspace_garbage_object_p.exit.thread:         ; preds = %has_sweeping_pages.
   tail call void @rb_objspace_reachable_objects_from(i64 noundef %.019, ptr noundef nonnull @reachable_object_check_moved_i, ptr noundef nonnull %.pre)
   br label %40
 
-40:                                               ; preds = %gc_object_moved_p.exit.thread, %gc_object_moved_p.exit.thread, %rb_objspace_garbage_object_p.exit.thread, %rb_objspace_garbage_object_p.exit, %gc_object_moved_p.exit
+40:                                               ; preds = %gc_object_moved_p.argprom.exit.thread, %gc_object_moved_p.argprom.exit.thread, %rb_objspace_garbage_object_p.exit.thread, %rb_objspace_garbage_object_p.exit, %gc_object_moved_p.argprom.exit
   %41 = add i64 %.019, %2
   %.not = icmp eq i64 %41, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !193
@@ -28598,16 +28598,16 @@ define internal void @reachable_object_check_moved_i(i64 noundef %0, ptr noundef
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
   %6 = or i1 %5, %4
-  br i1 %6, label %gc_object_moved_p.exit.thread, label %gc_object_moved_p.exit
+  br i1 %6, label %gc_object_moved_p.argprom.exit.thread, label %gc_object_moved_p.argprom.exit
 
-gc_object_moved_p.exit:                           ; preds = %2
+gc_object_moved_p.argprom.exit:                   ; preds = %2
   %7 = inttoptr i64 %0 to ptr
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 31
   %.not = icmp eq i64 %9, 30
-  br i1 %.not, label %10, label %gc_object_moved_p.exit.thread
+  br i1 %.not, label %10, label %gc_object_moved_p.argprom.exit.thread
 
-10:                                               ; preds = %gc_object_moved_p.exit
+10:                                               ; preds = %gc_object_moved_p.argprom.exit
   %11 = ptrtoint ptr %1 to i64
   %12 = tail call fastcc ptr @obj_info(i64 noundef %11)
   %13 = tail call i64 @rb_gc_location(i64 noundef %0)
@@ -28615,7 +28615,7 @@ gc_object_moved_p.exit:                           ; preds = %2
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.381, ptr noundef nonnull %12, ptr noundef nonnull %7, ptr noundef nonnull %14) #54
   unreachable
 
-gc_object_moved_p.exit.thread:                    ; preds = %2, %gc_object_moved_p.exit
+gc_object_moved_p.argprom.exit.thread:            ; preds = %2, %gc_object_moved_p.argprom.exit
   ret void
 }
 

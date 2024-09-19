@@ -3329,7 +3329,7 @@ _ZN8nanobind18gil_scoped_acquireC2Ev.exit.i:      ; preds = %1
 
 15:                                               ; preds = %14
   invoke void @PyGILState_Release(i32 noundef %2)
-          to label %"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_0clEPNS0_16managed_dltensorE.exit" unwind label %16
+          to label %"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_0clEPNS0_16managed_dltensorE.argprom.exit" unwind label %16
 
 16:                                               ; preds = %15
   %17 = landingpad { ptr, i32 }
@@ -3354,7 +3354,7 @@ _ZN8nanobind18gil_scoped_acquireC2Ev.exit.i:      ; preds = %1
 _ZN8nanobind18gil_scoped_acquireD2Ev.exit6.i:     ; preds = %19
   resume { ptr, i32 } %20
 
-"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_0clEPNS0_16managed_dltensorE.exit": ; preds = %15
+"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_0clEPNS0_16managed_dltensorE.argprom.exit": ; preds = %15
   ret void
 }
 
@@ -3397,7 +3397,7 @@ define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_obj
   %16 = load ptr, ptr %3, align 8
   %17 = load ptr, ptr %4, align 8
   invoke void @PyErr_Restore(ptr noundef %15, ptr noundef %16, ptr noundef %17)
-          to label %"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_1clES2_.exit" unwind label %18
+          to label %"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_1clES2_.argprom.exit" unwind label %18
 
 18:                                               ; preds = %14
   %19 = landingpad { ptr, i32 }
@@ -3406,7 +3406,7 @@ define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_obj
   call void @__clang_call_terminate(ptr %20) #18
   unreachable
 
-"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_1clES2_.exit": ; preds = %14
+"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_1clES2_.argprom.exit": ; preds = %14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret void
 }
@@ -3460,7 +3460,7 @@ _ZN8nanobind18gil_scoped_acquireC2Ev.exit.i:      ; preds = %1
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %7) #17
   invoke void @PyGILState_Release(i32 noundef %2)
-          to label %"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlPNS_6dlpack5dtypeEbiiENK3$_0clEPNS0_16managed_dltensorE.exit" unwind label %8
+          to label %"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlPNS_6dlpack5dtypeEbiiENK3$_0clEPNS0_16managed_dltensorE.argprom.exit" unwind label %8
 
 8:                                                ; preds = %_ZN8nanobind18gil_scoped_acquireC2Ev.exit.i
   %9 = landingpad { ptr, i32 }
@@ -3469,7 +3469,7 @@ _ZN8nanobind18gil_scoped_acquireC2Ev.exit.i:      ; preds = %1
   tail call void @__clang_call_terminate(ptr %10) #18
   unreachable
 
-"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlPNS_6dlpack5dtypeEbiiENK3$_0clEPNS0_16managed_dltensorE.exit": ; preds = %_ZN8nanobind18gil_scoped_acquireC2Ev.exit.i
+"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlPNS_6dlpack5dtypeEbiiENK3$_0clEPNS0_16managed_dltensorE.argprom.exit": ; preds = %_ZN8nanobind18gil_scoped_acquireC2Ev.exit.i
   ret void
 }
 

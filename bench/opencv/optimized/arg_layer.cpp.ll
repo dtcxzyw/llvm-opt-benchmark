@@ -763,7 +763,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn12ArgLayerImpl7forwardERKNS_11_InputA
   %.idx = shl nsw i64 %67, 2
   %68 = getelementptr inbounds i8, ptr %12, i64 16
   %.not43 = icmp eq i32 %.val, 0
-  br i1 %.not43, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit, label %69
+  br i1 %.not43, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit, label %69
 
 69:                                               ; preds = %64
   %70 = icmp slt i32 %.val, 0
@@ -787,7 +787,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector
   %74 = getelementptr inbounds i8, ptr %72, i64 %.idx
   store ptr %74, ptr %73, align 8
   store ptr %74, ptr %68, align 8
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
 
 75:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i, %71
   %76 = landingpad { ptr, i32 }
@@ -800,11 +800,11 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector
   call void @_ZdlPv(ptr noundef nonnull %77) #19
   br label %.body
 
-_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %64, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i
+_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %64, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i
   invoke void @_ZN2cv3MatC1ERKSt6vectorIiSaIiEEi(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 4)
           to label %79 unwind label %82
 
-79:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+79:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
   %80 = getelementptr inbounds i8, ptr %0, i64 108
   %81 = load i32, ptr %80, align 4
   switch i32 %81, label %114 [
@@ -812,7 +812,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %64, %_ZNSt12_Vecto
     i32 1, label %100
   ]
 
-82:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+82:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
   %83 = landingpad { ptr, i32 }
           cleanup
   br label %153
@@ -2345,8 +2345,8 @@ attributes #23 = { nounwind willreturn memory(read) }
 !6 = !{!7, !9}
 !7 = distinct !{!7, !8, !"_ZN2cv3dnn14dnn4_v20240521L5shapeEPKii: argument 0"}
 !8 = distinct !{!8, !"_ZN2cv3dnn14dnn4_v20240521L5shapeEPKii"}
-!9 = distinct !{!9, !10, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE: argument 0"}
-!10 = distinct !{!10, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE"}
+!9 = distinct !{!9, !10, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom: argument 0"}
+!10 = distinct !{!10, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom"}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}

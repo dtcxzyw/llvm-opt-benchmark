@@ -491,9 +491,9 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i142, %137
 pmix_obj_run_destructors.exit149:                 ; preds = %.lr.ph.i146, %pmix_obj_run_destructors.exit
   %154 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_component_map, i64 128), align 8
   %155 = icmp sgt i32 %154, 0
-  br i1 %155, label %pmix_pointer_array_get_item.exit, label %._crit_edge
+  br i1 %155, label %pmix_pointer_array_get_item.argprom.exit, label %._crit_edge
 
-pmix_pointer_array_get_item.exit:                 ; preds = %pmix_obj_run_destructors.exit149, %184
+pmix_pointer_array_get_item.argprom.exit:         ; preds = %pmix_obj_run_destructors.exit149, %184
   %indvars.iv = phi i64 [ %indvars.iv.next, %184 ], [ 0, %pmix_obj_run_destructors.exit149 ]
   %156 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_component_map, i64 152), align 8
   %157 = getelementptr inbounds ptr, ptr %156, i64 %indvars.iv
@@ -501,7 +501,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_obj_run_destru
   %.not57 = icmp eq ptr %158, null
   br i1 %.not57, label %184, label %159
 
-159:                                              ; preds = %pmix_pointer_array_get_item.exit
+159:                                              ; preds = %pmix_pointer_array_get_item.argprom.exit
   %160 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %158) #10
   %161 = icmp eq i32 %160, 35
   br i1 %161, label %162, label %164
@@ -555,12 +555,12 @@ pmix_obj_run_destructors.exit154:                 ; preds = %.lr.ph.i151, %170
   tail call void @free(ptr noundef nonnull %158) #10
   br label %184
 
-184:                                              ; preds = %181, %183, %pmix_pointer_array_get_item.exit, %164
+184:                                              ; preds = %181, %183, %pmix_pointer_array_get_item.argprom.exit, %164
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %185 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_component_map, i64 128), align 8
   %186 = sext i32 %185 to i64
   %187 = icmp slt i64 %indvars.iv.next, %186
-  br i1 %187, label %pmix_pointer_array_get_item.exit, label %._crit_edge, !llvm.loop !9
+  br i1 %187, label %pmix_pointer_array_get_item.argprom.exit, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %184, %pmix_obj_run_destructors.exit149
   %188 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_component_map, i64 40), align 8

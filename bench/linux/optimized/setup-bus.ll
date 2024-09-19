@@ -2396,7 +2396,7 @@ define internal fastcc void @pci_root_bus_distribute_available_resources(ptr nou
   %.val4 = load i64, ptr %15, align 8
   %.val5 = load i64, ptr %12, align 8
   %.val6 = load i64, ptr %16, align 8
-  tail call fastcc void @pci_bus_distribute_available_resources(ptr noundef %65, ptr noundef %1, i64 %.val, i64 %.val4, i64 %.val5, i64 %.val6, ptr noundef nonnull byval(%struct.resource) align 8 %13)
+  tail call fastcc void @pci_bus_distribute_available_resources.argprom(ptr noundef %65, ptr noundef %1, i64 %.val, i64 %.val4, i64 %.val5, i64 %.val6, ptr noundef nonnull byval(%struct.resource) align 8 %13)
   br label %67
 
 66:                                               ; preds = %53, %46, %39
@@ -2709,7 +2709,7 @@ define dso_local void @pci_assign_unassigned_bridge_resources(ptr noundef %0) #5
   %.val8 = load i64, ptr %12, align 8
   %.val9 = load i64, ptr %10, align 8
   %.val10 = load i64, ptr %13, align 8
-  call fastcc void @pci_bus_distribute_available_resources(ptr noundef %19, ptr noundef nonnull %2, i64 %.val, i64 %.val8, i64 %.val9, i64 %.val10, ptr noundef nonnull byval(%struct.resource) align 8 %11)
+  call fastcc void @pci_bus_distribute_available_resources.argprom(ptr noundef %19, ptr noundef nonnull %2, i64 %.val, i64 %.val8, i64 %.val9, i64 %.val10, ptr noundef nonnull byval(%struct.resource) align 8 %11)
   br label %20
 
 20:                                               ; preds = %18, %.loopexit12
@@ -4332,7 +4332,7 @@ declare dso_local void @pci_read_bridge_bases(ptr noundef) local_unnamed_addr #4
 declare dso_local void @release_child_resources(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef readonly %0, ptr noundef %1, i64 %.0.val, i64 %.8.val, i64 %.0.val1, i64 %.8.val3, ptr nocapture noundef byval(%struct.resource) align 8 %2) unnamed_addr #5 align 16 {
+define internal fastcc void @pci_bus_distribute_available_resources.argprom(ptr noundef readonly %0, ptr noundef %1, i64 %.0.val, i64 %.8.val, i64 %.0.val1, i64 %.8.val3, ptr nocapture noundef byval(%struct.resource) align 8 %2) unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 1368
@@ -5086,7 +5086,7 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   %502 = add i64 %492, %501
   %503 = add i64 %502, %500
   store i64 %503, ptr %2, align 8
-  tail call fastcc void @pci_bus_distribute_available_resources(ptr noundef nonnull %397, ptr noundef %1, i64 %439, i64 %433, i64 %471, i64 %465, ptr noundef byval(%struct.resource) align 8 %2)
+  tail call fastcc void @pci_bus_distribute_available_resources.argprom(ptr noundef nonnull %397, ptr noundef %1, i64 %439, i64 %433, i64 %471, i64 %465, ptr noundef byval(%struct.resource) align 8 %2)
   %504 = add i64 %432, %439
   %505 = add i64 %464, %471
   %506 = load i64, ptr %169, align 8

@@ -122,20 +122,20 @@ define range(i32 -8, 1) i32 @ompi_osc_base_process_op(ptr noundef %0, ptr nounde
   %38 = zext i16 %.val58 to i32
   %39 = and i32 %38, 16
   %.not.i.i = icmp eq i32 %39, 0
-  br i1 %.not.i.i, label %ompi_datatype_is_contiguous_memory_layout.exit.thread, label %ompi_datatype_is_contiguous_memory_layout.exit
+  br i1 %.not.i.i, label %ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %ompi_datatype_is_contiguous_memory_layout.argprom.exit
 
-ompi_datatype_is_contiguous_memory_layout.exit:   ; preds = %35
+ompi_datatype_is_contiguous_memory_layout.argprom.exit: ; preds = %35
   %40 = icmp ne i32 %4, 1
   %41 = and i32 %38, 32
   %.not3.i.i = icmp eq i32 %41, 0
   %or.cond.not.i.i.not = and i1 %40, %.not3.i.i
-  br i1 %or.cond.not.i.i.not, label %ompi_datatype_is_contiguous_memory_layout.exit.thread, label %42
+  br i1 %or.cond.not.i.i.not, label %ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %42
 
-42:                                               ; preds = %ompi_datatype_is_contiguous_memory_layout.exit
+42:                                               ; preds = %ompi_datatype_is_contiguous_memory_layout.argprom.exit
   %43 = getelementptr inbounds i8, ptr %3, i64 152
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %44, 1
-  br i1 %45, label %46, label %ompi_datatype_is_contiguous_memory_layout.exit.thread
+  br i1 %45, label %46, label %ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread
 
 46:                                               ; preds = %42
   %47 = getelementptr i8, ptr %3, i64 24
@@ -152,17 +152,17 @@ ompi_datatype_is_contiguous_memory_layout.exit:   ; preds = %35
   call fastcc void @ompi_op_reduce(ptr noundef %5, ptr noundef %1, ptr noundef %55, i64 noundef %56, ptr noundef nonnull %36)
   br label %opal_obj_run_destructors.exit
 
-ompi_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %35, %42, %ompi_datatype_is_contiguous_memory_layout.exit
+ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %35, %42, %ompi_datatype_is_contiguous_memory_layout.argprom.exit
   %57 = load i32, ptr @opal_class_init_epoch, align 4
   %58 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not54 = icmp eq i32 %57, %58
   br i1 %.not54, label %60, label %59
 
-59:                                               ; preds = %ompi_datatype_is_contiguous_memory_layout.exit.thread
+59:                                               ; preds = %ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread
   call void @opal_class_initialize(ptr noundef nonnull @opal_convertor_t_class) #4
   br label %60
 
-60:                                               ; preds = %59, %ompi_datatype_is_contiguous_memory_layout.exit.thread
+60:                                               ; preds = %59, %ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread
   store ptr @opal_convertor_t_class, ptr %9, align 8
   %61 = getelementptr inbounds i8, ptr %9, i64 8
   store volatile i32 1, ptr %61, align 8

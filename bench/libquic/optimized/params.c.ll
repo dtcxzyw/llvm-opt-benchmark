@@ -31,7 +31,7 @@ define hidden ptr @DH_get_1024_160(ptr nocapture noundef readnone %engine) local
 entry:
   %call.i = tail call ptr @DH_new() #2
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %get_standard_parameters.exit, label %if.end.i
+  br i1 %tobool.not.i, label %get_standard_parameters.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @BN_dup(ptr noundef nonnull @dh1024_160) #2
@@ -51,13 +51,13 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   %tobool10.not.i = icmp eq ptr %1, null
   %tobool13.not.i = icmp eq ptr %call5.i, null
   %or.cond.i = select i1 %tobool10.not.i, i1 true, i1 %tobool13.not.i
-  br i1 %or.cond.i, label %if.then14.i, label %get_standard_parameters.exit
+  br i1 %or.cond.i, label %if.then14.i, label %get_standard_parameters.argprom.exit
 
 if.then14.i:                                      ; preds = %lor.lhs.false.i, %if.end.i
   tail call void @DH_free(ptr noundef nonnull %call.i) #2
-  br label %get_standard_parameters.exit
+  br label %get_standard_parameters.argprom.exit
 
-get_standard_parameters.exit:                     ; preds = %entry, %lor.lhs.false.i, %if.then14.i
+get_standard_parameters.argprom.exit:             ; preds = %entry, %lor.lhs.false.i, %if.then14.i
   %retval.0.i = phi ptr [ null, %if.then14.i ], [ null, %entry ], [ %call.i, %lor.lhs.false.i ]
   ret ptr %retval.0.i
 }
@@ -67,7 +67,7 @@ define hidden ptr @DH_get_2048_224(ptr nocapture noundef readnone %engine) local
 entry:
   %call.i = tail call ptr @DH_new() #2
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %get_standard_parameters.exit, label %if.end.i
+  br i1 %tobool.not.i, label %get_standard_parameters.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @BN_dup(ptr noundef nonnull @dh2048_224) #2
@@ -87,13 +87,13 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   %tobool10.not.i = icmp eq ptr %1, null
   %tobool13.not.i = icmp eq ptr %call5.i, null
   %or.cond.i = select i1 %tobool10.not.i, i1 true, i1 %tobool13.not.i
-  br i1 %or.cond.i, label %if.then14.i, label %get_standard_parameters.exit
+  br i1 %or.cond.i, label %if.then14.i, label %get_standard_parameters.argprom.exit
 
 if.then14.i:                                      ; preds = %lor.lhs.false.i, %if.end.i
   tail call void @DH_free(ptr noundef nonnull %call.i) #2
-  br label %get_standard_parameters.exit
+  br label %get_standard_parameters.argprom.exit
 
-get_standard_parameters.exit:                     ; preds = %entry, %lor.lhs.false.i, %if.then14.i
+get_standard_parameters.argprom.exit:             ; preds = %entry, %lor.lhs.false.i, %if.then14.i
   %retval.0.i = phi ptr [ null, %if.then14.i ], [ null, %entry ], [ %call.i, %lor.lhs.false.i ]
   ret ptr %retval.0.i
 }
@@ -103,7 +103,7 @@ define hidden ptr @DH_get_2048_256(ptr nocapture noundef readnone %engine) local
 entry:
   %call.i = tail call ptr @DH_new() #2
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %get_standard_parameters.exit, label %if.end.i
+  br i1 %tobool.not.i, label %get_standard_parameters.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @BN_dup(ptr noundef nonnull @dh2048_256) #2
@@ -123,13 +123,13 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   %tobool10.not.i = icmp eq ptr %1, null
   %tobool13.not.i = icmp eq ptr %call5.i, null
   %or.cond.i = select i1 %tobool10.not.i, i1 true, i1 %tobool13.not.i
-  br i1 %or.cond.i, label %if.then14.i, label %get_standard_parameters.exit
+  br i1 %or.cond.i, label %if.then14.i, label %get_standard_parameters.argprom.exit
 
 if.then14.i:                                      ; preds = %lor.lhs.false.i, %if.end.i
   tail call void @DH_free(ptr noundef nonnull %call.i) #2
-  br label %get_standard_parameters.exit
+  br label %get_standard_parameters.argprom.exit
 
-get_standard_parameters.exit:                     ; preds = %entry, %lor.lhs.false.i, %if.then14.i
+get_standard_parameters.argprom.exit:             ; preds = %entry, %lor.lhs.false.i, %if.then14.i
   %retval.0.i = phi ptr [ null, %if.then14.i ], [ null, %entry ], [ %call.i, %lor.lhs.false.i ]
   ret ptr %retval.0.i
 }

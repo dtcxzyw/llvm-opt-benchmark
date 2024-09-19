@@ -59,11 +59,11 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %call.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef null)
+  %call.i = tail call fastcc i32 @do_bio_cipher.argprom(ptr noundef %call, ptr noundef null)
   br label %do_test_bio_cipher.exit
 
 sw.bb1.i:                                         ; preds = %entry
-  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef nonnull @IV)
+  %call2.i = tail call fastcc i32 @do_bio_cipher.argprom(ptr noundef %call, ptr noundef nonnull @IV)
   br label %do_test_bio_cipher.exit
 
 do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %sw.bb1.i
@@ -81,11 +81,11 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %call.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef null)
+  %call.i = tail call fastcc i32 @do_bio_cipher.argprom(ptr noundef %call, ptr noundef null)
   br label %do_test_bio_cipher.exit
 
 sw.bb1.i:                                         ; preds = %entry
-  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef nonnull @IV)
+  %call2.i = tail call fastcc i32 @do_bio_cipher.argprom(ptr noundef %call, ptr noundef nonnull @IV)
   br label %do_test_bio_cipher.exit
 
 do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %sw.bb1.i
@@ -103,11 +103,11 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %call.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef null)
+  %call.i = tail call fastcc i32 @do_bio_cipher.argprom(ptr noundef %call, ptr noundef null)
   br label %do_test_bio_cipher.exit
 
 sw.bb1.i:                                         ; preds = %entry
-  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef nonnull @IV)
+  %call2.i = tail call fastcc i32 @do_bio_cipher.argprom(ptr noundef %call, ptr noundef nonnull @IV)
   br label %do_test_bio_cipher.exit
 
 do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %sw.bb1.i
@@ -125,11 +125,11 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %call.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef null)
+  %call.i = tail call fastcc i32 @do_bio_cipher.argprom(ptr noundef %call, ptr noundef null)
   br label %do_test_bio_cipher.exit
 
 sw.bb1.i:                                         ; preds = %entry
-  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef nonnull @IV)
+  %call2.i = tail call fastcc i32 @do_bio_cipher.argprom(ptr noundef %call, ptr noundef nonnull @IV)
   br label %do_test_bio_cipher.exit
 
 do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %sw.bb1.i
@@ -147,11 +147,11 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %call.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef null)
+  %call.i = tail call fastcc i32 @do_bio_cipher.argprom(ptr noundef %call, ptr noundef null)
   br label %do_test_bio_cipher.exit
 
 sw.bb1.i:                                         ; preds = %entry
-  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef nonnull @IV)
+  %call2.i = tail call fastcc i32 @do_bio_cipher.argprom(ptr noundef %call, ptr noundef nonnull @IV)
   br label %do_test_bio_cipher.exit
 
 do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %sw.bb1.i
@@ -169,11 +169,11 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %call.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef null)
+  %call.i = tail call fastcc i32 @do_bio_cipher.argprom(ptr noundef %call, ptr noundef null)
   br label %do_test_bio_cipher.exit
 
 sw.bb1.i:                                         ; preds = %entry
-  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef nonnull @IV)
+  %call2.i = tail call fastcc i32 @do_bio_cipher.argprom(ptr noundef %call, ptr noundef nonnull @IV)
   br label %do_test_bio_cipher.exit
 
 do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %sw.bb1.i
@@ -184,7 +184,7 @@ do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %s
 declare ptr @EVP_aes_128_cbc() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_bio_cipher(ptr noundef %cipher, ptr noundef %iv) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_bio_cipher.argprom(ptr noundef %cipher, ptr noundef %iv) unnamed_addr #0 {
 entry:
   %out = alloca [1056 x i8], align 16
   %ref = alloca [1056 x i8], align 16

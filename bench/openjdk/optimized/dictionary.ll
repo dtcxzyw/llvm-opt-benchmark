@@ -917,8 +917,8 @@ _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadP
   %30 = inttoptr i64 %29 to ptr
   br label %31
 
-31:                                               ; preds = %"_ZZN10Dictionary10classes_doEPFvP13InstanceKlassEENK3$_0clEPP15DictionaryEntry.exit.i.i.i", %.lr.ph.i.i.i
-  %.011.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %38, %"_ZZN10Dictionary10classes_doEPFvP13InstanceKlassEENK3$_0clEPP15DictionaryEntry.exit.i.i.i" ]
+31:                                               ; preds = %"_ZZN10Dictionary10classes_doEPFvP13InstanceKlassEENK3$_0clEPP15DictionaryEntry.argprom.argprom.exit.i.i.i", %.lr.ph.i.i.i
+  %.011.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %38, %"_ZZN10Dictionary10classes_doEPFvP13InstanceKlassEENK3$_0clEPP15DictionaryEntry.argprom.argprom.exit.i.i.i" ]
   %32 = load volatile ptr, ptr %.011.i.i.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %32, i64 0) #15, !srcloc !15
@@ -929,19 +929,19 @@ _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadP
   %34 = getelementptr inbounds i8, ptr %.val9.val.i.i.i, i64 152
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %.val.val.i.i.i, %35
-  br i1 %36, label %37, label %"_ZZN10Dictionary10classes_doEPFvP13InstanceKlassEENK3$_0clEPP15DictionaryEntry.exit.i.i.i"
+  br i1 %36, label %37, label %"_ZZN10Dictionary10classes_doEPFvP13InstanceKlassEENK3$_0clEPP15DictionaryEntry.argprom.argprom.exit.i.i.i"
 
 37:                                               ; preds = %31
   tail call void %1(ptr noundef nonnull %.val9.val.i.i.i) #15
-  br label %"_ZZN10Dictionary10classes_doEPFvP13InstanceKlassEENK3$_0clEPP15DictionaryEntry.exit.i.i.i"
+  br label %"_ZZN10Dictionary10classes_doEPFvP13InstanceKlassEENK3$_0clEPP15DictionaryEntry.argprom.argprom.exit.i.i.i"
 
-"_ZZN10Dictionary10classes_doEPFvP13InstanceKlassEENK3$_0clEPP15DictionaryEntry.exit.i.i.i": ; preds = %37, %31
+"_ZZN10Dictionary10classes_doEPFvP13InstanceKlassEENK3$_0clEPP15DictionaryEntry.argprom.argprom.exit.i.i.i": ; preds = %37, %31
   %38 = load volatile ptr, ptr %.011.i.i.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   %.not.i9.i.i = icmp eq ptr %38, null
   br i1 %.not.i9.i.i, label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_10classes_doEPFvP13InstanceKlassEE3$_0EEbPNS3_6BucketERT_.exit.i.i", label %31, !llvm.loop !16
 
-"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_10classes_doEPFvP13InstanceKlassEE3$_0EEbPNS3_6BucketERT_.exit.i.i": ; preds = %"_ZZN10Dictionary10classes_doEPFvP13InstanceKlassEENK3$_0clEPP15DictionaryEntry.exit.i.i.i", %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i
+"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_10classes_doEPFvP13InstanceKlassEE3$_0EEbPNS3_6BucketERT_.exit.i.i": ; preds = %"_ZZN10Dictionary10classes_doEPFvP13InstanceKlassEENK3$_0clEPP15DictionaryEntry.argprom.argprom.exit.i.i.i", %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   store volatile i64 %15, ptr %11, align 8
   %39 = add nuw i64 %.0811.i.i, 1
@@ -2209,7 +2209,7 @@ _ZNK10Dictionary10print_sizeEP12outputStream.exit: ; preds = %_ZN13GlobalCounter
   br i1 %.not.i.i, label %52, label %53
 
 52:                                               ; preds = %.lr.ph.i.i
-  call fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNKS0_8print_onEP12outputStreamE3$_0EEbPNS3_6BucketERT_"(ptr noundef nonnull %48, ptr noundef nonnull readonly align 8 dereferenceable(16) %4)
+  call fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNKS0_8print_onEP12outputStreamE3$_0EEbPNS3_6BucketERT_.retelim"(ptr noundef nonnull %48, ptr noundef nonnull readonly align 8 dereferenceable(16) %4)
   br label %53
 
 53:                                               ; preds = %52, %.lr.ph.i.i
@@ -2242,7 +2242,7 @@ _ZNK10Dictionary10print_sizeEP12outputStream.exit: ; preds = %_ZN13GlobalCounter
   br i1 %.not.i11.i, label %66, label %67
 
 66:                                               ; preds = %.lr.ph.i9.i
-  call fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNKS0_8print_onEP12outputStreamE3$_0EEbPNS3_6BucketERT_"(ptr noundef nonnull %62, ptr noundef nonnull readonly align 8 dereferenceable(16) %4)
+  call fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNKS0_8print_onEP12outputStreamE3$_0EEbPNS3_6BucketERT_.retelim"(ptr noundef nonnull %62, ptr noundef nonnull readonly align 8 dereferenceable(16) %4)
   br label %67
 
 67:                                               ; preds = %66, %.lr.ph.i9.i
@@ -2293,7 +2293,7 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i.i: ; preds = %81, %
 _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i: ; preds = %86, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i.i
   %88 = load ptr, ptr %72, align 8
   %89 = getelementptr inbounds %"class.ConcurrentHashTable<Dictionary::Config, MEMFLAGS::mtClass>::Bucket", ptr %88, i64 %.0810.i.i
-  call fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNKS0_8print_onEP12outputStreamE3$_0EEbPNS3_6BucketERT_"(ptr noundef %89, ptr noundef nonnull readonly align 8 dereferenceable(16) %4)
+  call fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNKS0_8print_onEP12outputStreamE3$_0EEbPNS3_6BucketERT_.retelim"(ptr noundef %89, ptr noundef nonnull readonly align 8 dereferenceable(16) %4)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   store volatile i64 %78, ptr %75, align 8
   %90 = add nuw i64 %.0810.i.i, 1
@@ -2463,20 +2463,20 @@ _ZNK7oopDesc11is_instanceEv.exit:                 ; preds = %23, %33
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   %45 = getelementptr inbounds i8, ptr %44, i64 16
   %46 = load i64, ptr %45, align 8
-  tail call fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE17do_scan_for_rangeIZNS0_6verifyEvE3$_0EEbRT_mmPNS3_13InternalTableE"(i64 noundef %46, ptr noundef %44)
+  tail call fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE17do_scan_for_rangeIZNS0_6verifyEvE3$_0EEbRT_mmPNS3_13InternalTableE.argprom.argelim"(i64 noundef %46, ptr noundef %44)
   %47 = getelementptr inbounds i8, ptr %42, i64 24
   %48 = load volatile ptr, ptr %47, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE17do_safepoint_scanIZNS0_6verifyEvE3$_0EEvRT_.exit", label %50
+  br i1 %49, label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE17do_safepoint_scanIZNS0_6verifyEvE3$_0EEvRT_.argprom.exit", label %50
 
 50:                                               ; preds = %40
   %51 = getelementptr inbounds i8, ptr %48, i64 16
   %52 = load i64, ptr %51, align 8
-  tail call fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE17do_scan_for_rangeIZNS0_6verifyEvE3$_0EEbRT_mmPNS3_13InternalTableE"(i64 noundef %52, ptr noundef nonnull %48)
-  br label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE17do_safepoint_scanIZNS0_6verifyEvE3$_0EEvRT_.exit"
+  tail call fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE17do_scan_for_rangeIZNS0_6verifyEvE3$_0EEbRT_mmPNS3_13InternalTableE.argprom.argelim"(i64 noundef %52, ptr noundef nonnull %48)
+  br label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE17do_safepoint_scanIZNS0_6verifyEvE3$_0EEvRT_.argprom.exit"
 
-"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE17do_safepoint_scanIZNS0_6verifyEvE3$_0EEvRT_.exit": ; preds = %40, %50
+"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE17do_safepoint_scanIZNS0_6verifyEvE3$_0EEvRT_.argprom.exit": ; preds = %40, %50
   ret void
 }
 
@@ -2526,7 +2526,7 @@ define hidden void @_ZN10Dictionary22print_table_statisticsEP12outputStreamPKc(p
 
 28:                                               ; preds = %26, %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull readonly align 8 dereferenceable(96) %8, i64 96, i1 false)
-  br label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE14statistics_getIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_SA_.exit"
+  br label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE14statistics_getIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_SA_.argprom.exit"
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds i8, ptr %17, i64 80
@@ -2671,7 +2671,7 @@ _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadP
   %82 = getelementptr inbounds i8, ptr %5, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false), !noalias !35
   call void @_ZN15TableStatisticsC1E9NumberSeqmmm(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull %5, i64 noundef %.023.lcssa.i.i, i64 noundef 8, i64 noundef 16) #15
-  br label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.exit.i"
+  br label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.argprom.exit.i"
 
 83:                                               ; preds = %._crit_edge18.i.i
   %84 = getelementptr inbounds i8, ptr %6, i64 8
@@ -2680,18 +2680,18 @@ _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadP
   %85 = getelementptr inbounds i8, ptr %6, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false), !noalias !35
   call void @_ZN15TableStatisticsC1ER19TableRateStatistics9NumberSeqmmm(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(64) %76, ptr noundef nonnull %6, i64 noundef %.023.lcssa.i.i, i64 noundef 8, i64 noundef 16) #15
-  br label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.exit.i"
+  br label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.argprom.exit.i"
 
-"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.exit.i": ; preds = %83, %80
+"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.argprom.exit.i": ; preds = %83, %80
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false), !noalias !32
   %86 = load ptr, ptr %20, align 8, !noalias !32
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %86) #15
-  br label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE14statistics_getIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_SA_.exit"
+  br label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE14statistics_getIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_SA_.argprom.exit"
 
-"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE14statistics_getIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_SA_.exit": ; preds = %28, %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.exit.i"
+"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE14statistics_getIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_SA_.argprom.exit": ; preds = %28, %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.argprom.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_ZZN10Dictionary22print_table_statisticsEP12outputStreamPKcE2ts, ptr noundef nonnull align 8 dereferenceable(96) %7, i64 96, i1 false)
   call void @_ZN15TableStatisticsD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #15
   call void @_ZN15TableStatisticsD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
@@ -4533,7 +4533,7 @@ declare void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef) local
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNKS0_8print_onEP12outputStreamE3$_0EEbPNS3_6BucketERT_"(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNKS0_8print_onEP12outputStreamE3$_0EEbPNS3_6BucketERT_.retelim"(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = load volatile ptr, ptr %0, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   %4 = ptrtoint ptr %3 to i64
@@ -4546,8 +4546,8 @@ define internal fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8ME
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   br label %8
 
-8:                                                ; preds = %.lr.ph, %"_ZZNK10Dictionary8print_onEP12outputStreamENK3$_0clEPP15DictionaryEntry.exit"
-  %.09 = phi ptr [ %6, %.lr.ph ], [ %41, %"_ZZNK10Dictionary8print_onEP12outputStreamENK3$_0clEPP15DictionaryEntry.exit" ]
+8:                                                ; preds = %.lr.ph, %"_ZZNK10Dictionary8print_onEP12outputStreamENK3$_0clEPP15DictionaryEntry.argprom.exit"
+  %.09 = phi ptr [ %6, %.lr.ph ], [ %41, %"_ZZNK10Dictionary8print_onEP12outputStreamENK3$_0clEPP15DictionaryEntry.argprom.exit" ]
   %9 = load volatile ptr, ptr %.09, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %9, i64 0) #15, !srcloc !15
@@ -4568,7 +4568,7 @@ define internal fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8ME
   %21 = load ptr, ptr %13, align 8
   %22 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
   %23 = icmp eq ptr %21, %22
-  br i1 %23, label %"_ZZNK10Dictionary8print_onEP12outputStreamENK3$_0clEPP15DictionaryEntry.exit", label %24
+  br i1 %23, label %"_ZZNK10Dictionary8print_onEP12outputStreamENK3$_0clEPP15DictionaryEntry.argprom.exit", label %24
 
 24:                                               ; preds = %8
   %25 = load ptr, ptr %15, align 8
@@ -4602,9 +4602,9 @@ define internal fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8ME
 _ZN15DictionaryEntry11print_countEP12outputStream.exit.i: ; preds = %.lr.ph.i.i, %24
   %.05.lcssa.i.i = phi i32 [ 0, %24 ], [ %36, %.lr.ph.i.i ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull @.str.17, i32 noundef %.05.lcssa.i.i) #15
-  br label %"_ZZNK10Dictionary8print_onEP12outputStreamENK3$_0clEPP15DictionaryEntry.exit"
+  br label %"_ZZNK10Dictionary8print_onEP12outputStreamENK3$_0clEPP15DictionaryEntry.argprom.exit"
 
-"_ZZNK10Dictionary8print_onEP12outputStreamENK3$_0clEPP15DictionaryEntry.exit": ; preds = %8, %_ZN15DictionaryEntry11print_countEP12outputStream.exit.i
+"_ZZNK10Dictionary8print_onEP12outputStreamENK3$_0clEPP15DictionaryEntry.argprom.exit": ; preds = %8, %_ZN15DictionaryEntry11print_countEP12outputStream.exit.i
   %39 = load ptr, ptr %7, align 8
   %40 = load ptr, ptr %39, align 8
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %40) #15
@@ -4613,19 +4613,19 @@ _ZN15DictionaryEntry11print_countEP12outputStream.exit.i: ; preds = %.lr.ph.i.i,
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !53
 
-._crit_edge:                                      ; preds = %"_ZZNK10Dictionary8print_onEP12outputStreamENK3$_0clEPP15DictionaryEntry.exit", %2
+._crit_edge:                                      ; preds = %"_ZZNK10Dictionary8print_onEP12outputStreamENK3$_0clEPP15DictionaryEntry.argprom.exit", %2
   ret void
 }
 
 declare noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE17do_scan_for_rangeIZNS0_6verifyEvE3$_0EEbRT_mmPNS3_13InternalTableE"(i64 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE17do_scan_for_rangeIZNS0_6verifyEvE3$_0EEbRT_mmPNS3_13InternalTableE.argprom.argelim"(i64 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   %.not2 = icmp eq i64 %0, 0
   br i1 %.not2, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_6verifyEvE3$_0EEbPNS3_6BucketERT_.exit"
-  %.091 = phi i64 [ %36, %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_6verifyEvE3$_0EEbPNS3_6BucketERT_.exit" ], [ 0, %2 ]
+.lr.ph:                                           ; preds = %2, %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_6verifyEvE3$_0EEbPNS3_6BucketERT_.argprom.exit"
+  %.091 = phi i64 [ %36, %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_6verifyEvE3$_0EEbPNS3_6BucketERT_.argprom.exit" ], [ 0, %2 ]
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds %"class.ConcurrentHashTable<Dictionary::Config, MEMFLAGS::mtClass>::Bucket", ptr %3, i64 %.091
   %5 = load volatile ptr, ptr %4, align 8
@@ -4633,7 +4633,7 @@ define internal fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8ME
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, 2
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_6verifyEvE3$_0EEbPNS3_6BucketERT_.exit"
+  br i1 %.not, label %8, label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_6verifyEvE3$_0EEbPNS3_6BucketERT_.argprom.exit"
 
 8:                                                ; preds = %.lr.ph
   %9 = load volatile ptr, ptr %4, align 8
@@ -4641,7 +4641,7 @@ define internal fastcc void @"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8ME
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, -4
   %.not1.i = icmp eq i64 %11, 0
-  br i1 %.not1.i, label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_6verifyEvE3$_0EEbPNS3_6BucketERT_.exit", label %.lr.ph.preheader.i
+  br i1 %.not1.i, label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_6verifyEvE3$_0EEbPNS3_6BucketERT_.argprom.exit", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %8
   %12 = inttoptr i64 %11 to ptr
@@ -4701,14 +4701,14 @@ _ZN15DictionaryEntry6verifyEv.exit:               ; preds = %32, %21
   %35 = load volatile ptr, ptr %.02.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   %.not.i = icmp eq ptr %35, null
-  br i1 %.not.i, label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_6verifyEvE3$_0EEbPNS3_6BucketERT_.exit", label %.lr.ph.i, !llvm.loop !54
+  br i1 %.not.i, label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_6verifyEvE3$_0EEbPNS3_6BucketERT_.argprom.exit", label %.lr.ph.i, !llvm.loop !54
 
-"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_6verifyEvE3$_0EEbPNS3_6BucketERT_.exit": ; preds = %_ZN15DictionaryEntry6verifyEv.exit, %8, %.lr.ph
+"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_6verifyEvE3$_0EEbPNS3_6BucketERT_.argprom.exit": ; preds = %_ZN15DictionaryEntry6verifyEv.exit, %8, %.lr.ph
   %36 = add nuw i64 %.091, 1
   %exitcond.not = icmp eq i64 %36, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
-._crit_edge:                                      ; preds = %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_6verifyEvE3$_0EEbPNS3_6BucketERT_.exit", %2
+._crit_edge:                                      ; preds = %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE11visit_nodesIZNS0_6verifyEvE3$_0EEbPNS3_6BucketERT_.argprom.exit", %2
   ret void
 }
 
@@ -4797,11 +4797,11 @@ attributes #16 = { noreturn nounwind }
 !30 = distinct !{!30, !7}
 !31 = !{!"branch_weights", i32 1, i32 1048575}
 !32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE14statistics_getIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_SA_: argument 0"}
-!34 = distinct !{!34, !"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE14statistics_getIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_SA_"}
+!33 = distinct !{!33, !34, !"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE14statistics_getIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_SA_.argprom: argument 0"}
+!34 = distinct !{!34, !"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE14statistics_getIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_SA_.argprom"}
 !35 = !{!36, !33}
-!36 = distinct !{!36, !37, !"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_: argument 0"}
-!37 = distinct !{!37, !"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_"}
+!36 = distinct !{!36, !37, !"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.argprom: argument 0"}
+!37 = distinct !{!37, !"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.argprom"}
 !38 = distinct !{!38, !7}
 !39 = distinct !{!39, !7}
 !40 = distinct !{!40, !7}

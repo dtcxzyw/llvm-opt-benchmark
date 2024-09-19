@@ -643,7 +643,7 @@ entry:
 define dso_local i32 @anetUnixGenericConnect(ptr noundef %err, ptr noundef %path, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %sa = alloca %struct.sockaddr_un, align 2
-  %call = tail call fastcc i32 @anetCreateSocket(ptr noundef %err)
+  %call = tail call fastcc i32 @anetCreateSocket.argelim(ptr noundef %err)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -703,7 +703,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @anetCreateSocket(ptr noundef %err) unnamed_addr #0 {
+define internal fastcc i32 @anetCreateSocket.argelim(ptr noundef %err) unnamed_addr #0 {
 entry:
   %yes.i = alloca i32, align 4
   %call = tail call i32 @socket(i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
@@ -944,7 +944,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call fastcc i32 @anetCreateSocket(ptr noundef %err)
+  %call2 = tail call fastcc i32 @anetCreateSocket.argelim(ptr noundef %err)
   %cmp3 = icmp eq i32 %call2, -1
   br i1 %cmp3, label %return, label %if.end5
 

@@ -667,7 +667,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %93 = getelementptr inbounds i8, ptr %89, i64 8
   %94 = load ptr, ptr %93, align 8
   %95 = ptrtoint ptr %94 to i64
-  br label %Hop_ObjChild0Hop.exit
+  br label %Hop_ObjChild0Hop.argprom.exit
 
 96:                                               ; preds = %85
   %97 = getelementptr inbounds i8, ptr %90, i64 8
@@ -682,9 +682,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %106 = ptrtoint ptr %98 to i64
   %107 = zext nneg i32 %105 to i64
   %108 = xor i64 %107, %106
-  br label %Hop_ObjChild0Hop.exit
+  br label %Hop_ObjChild0Hop.argprom.exit
 
-Hop_ObjChild0Hop.exit:                            ; preds = %92, %96
+Hop_ObjChild0Hop.argprom.exit:                    ; preds = %92, %96
   %.0.i.i = phi i64 [ %95, %92 ], [ %108, %96 ]
   %109 = and i64 %87, 1
   %110 = xor i64 %.0.i.i, %109
@@ -698,13 +698,13 @@ Hop_ObjChild0Hop.exit:                            ; preds = %92, %96
   %117 = icmp eq ptr %116, null
   br i1 %117, label %118, label %122
 
-118:                                              ; preds = %Hop_ObjChild0Hop.exit
+118:                                              ; preds = %Hop_ObjChild0Hop.argprom.exit
   %119 = getelementptr inbounds i8, ptr %115, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = ptrtoint ptr %120 to i64
-  br label %Hop_ObjChild1Hop.exit
+  br label %Hop_ObjChild1Hop.argprom.exit
 
-122:                                              ; preds = %Hop_ObjChild0Hop.exit
+122:                                              ; preds = %Hop_ObjChild0Hop.argprom.exit
   %123 = getelementptr inbounds i8, ptr %116, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds i8, ptr %115, i64 32
@@ -717,9 +717,9 @@ Hop_ObjChild0Hop.exit:                            ; preds = %92, %96
   %132 = ptrtoint ptr %124 to i64
   %133 = zext nneg i32 %131 to i64
   %134 = xor i64 %133, %132
-  br label %Hop_ObjChild1Hop.exit
+  br label %Hop_ObjChild1Hop.argprom.exit
 
-Hop_ObjChild1Hop.exit:                            ; preds = %118, %122
+Hop_ObjChild1Hop.argprom.exit:                    ; preds = %118, %122
   %.0.i.i73 = phi i64 [ %121, %118 ], [ %134, %122 ]
   %135 = and i64 %113, 1
   %136 = xor i64 %.0.i.i73, %135
@@ -731,7 +731,7 @@ Hop_ObjChild1Hop.exit:                            ; preds = %118, %122
   %.not57 = icmp eq ptr %140, null
   br i1 %.not57, label %.critedge2, label %141
 
-141:                                              ; preds = %Hop_ObjChild1Hop.exit
+141:                                              ; preds = %Hop_ObjChild1Hop.argprom.exit
   %142 = ptrtoint ptr %138 to i64
   %143 = and i64 %142, -2
   %144 = inttoptr i64 %143 to ptr
@@ -743,7 +743,7 @@ Hop_ObjChild1Hop.exit:                            ; preds = %118, %122
   store ptr %149, ptr %144, align 8
   br label %.critedge2
 
-.critedge2:                                       ; preds = %Hop_ObjChild1Hop.exit, %141, %.lr.ph84
+.critedge2:                                       ; preds = %Hop_ObjChild1Hop.argprom.exit, %141, %.lr.ph84
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %150 = load ptr, ptr %2, align 8
   %151 = getelementptr i8, ptr %150, i64 4
@@ -752,9 +752,9 @@ Hop_ObjChild1Hop.exit:                            ; preds = %118, %122
   %153 = icmp slt i64 %indvars.iv.next93, %152
   br i1 %153, label %.lr.ph84, label %.critedge4.preheader, !llvm.loop !15
 
-.lr.ph87:                                         ; preds = %.critedge4.preheader, %Hop_ObjChild0Hop.exit75
-  %indvars.iv95 = phi i64 [ %indvars.iv.next96, %Hop_ObjChild0Hop.exit75 ], [ 0, %.critedge4.preheader ]
-  %154 = phi ptr [ %185, %Hop_ObjChild0Hop.exit75 ], [ %76, %.critedge4.preheader ]
+.lr.ph87:                                         ; preds = %.critedge4.preheader, %Hop_ObjChild0Hop.argprom.exit75
+  %indvars.iv95 = phi i64 [ %indvars.iv.next96, %Hop_ObjChild0Hop.argprom.exit75 ], [ 0, %.critedge4.preheader ]
+  %154 = phi ptr [ %185, %Hop_ObjChild0Hop.argprom.exit75 ], [ %76, %.critedge4.preheader ]
   %155 = getelementptr i8, ptr %154, i64 8
   %.val61 = load ptr, ptr %155, align 8
   %156 = getelementptr inbounds ptr, ptr %.val61, i64 %indvars.iv95
@@ -772,7 +772,7 @@ Hop_ObjChild1Hop.exit:                            ; preds = %118, %122
   %165 = getelementptr inbounds i8, ptr %161, i64 8
   %166 = load ptr, ptr %165, align 8
   %167 = ptrtoint ptr %166 to i64
-  br label %Hop_ObjChild0Hop.exit75
+  br label %Hop_ObjChild0Hop.argprom.exit75
 
 168:                                              ; preds = %.lr.ph87
   %169 = getelementptr inbounds i8, ptr %162, i64 8
@@ -787,9 +787,9 @@ Hop_ObjChild1Hop.exit:                            ; preds = %118, %122
   %178 = ptrtoint ptr %170 to i64
   %179 = zext nneg i32 %177 to i64
   %180 = xor i64 %179, %178
-  br label %Hop_ObjChild0Hop.exit75
+  br label %Hop_ObjChild0Hop.argprom.exit75
 
-Hop_ObjChild0Hop.exit75:                          ; preds = %164, %168
+Hop_ObjChild0Hop.argprom.exit75:                  ; preds = %164, %168
   %.0.i.i74 = phi i64 [ %167, %164 ], [ %180, %168 ]
   %181 = and i64 %159, 1
   %182 = xor i64 %.0.i.i74, %181
@@ -803,7 +803,7 @@ Hop_ObjChild0Hop.exit75:                          ; preds = %164, %168
   %188 = icmp slt i64 %indvars.iv.next96, %187
   br i1 %188, label %.lr.ph87, label %.critedge6, !llvm.loop !16
 
-.critedge6:                                       ; preds = %Hop_ObjChild0Hop.exit75, %.critedge4.preheader
+.critedge6:                                       ; preds = %Hop_ObjChild0Hop.argprom.exit75, %.critedge4.preheader
   %189 = tail call i32 @Hop_ManCheck(ptr noundef %15) #9
   %.not = icmp eq i32 %189, 0
   br i1 %.not, label %190, label %191
@@ -855,7 +855,7 @@ define range(i32 0, 2) i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef readonly %0, ptr
   %.val3.i = load i32, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %11 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %10, i32 noundef %11)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %10, i32 noundef %11)
   %12 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %12, align 8
   %13 = sext i32 %.val3.i to i64
@@ -871,7 +871,7 @@ define range(i32 0, 2) i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef readonly %0, ptr
   %.val18 = load i32, ptr %9, align 8
   %19 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %20 = add nsw i32 %.val18, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %19, i32 noundef %20)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %19, i32 noundef %20)
   %21 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i23 = load ptr, ptr %21, align 8
   %22 = sext i32 %.val18 to i64
@@ -1507,7 +1507,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

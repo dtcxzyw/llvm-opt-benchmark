@@ -2439,7 +2439,7 @@ call1.i.noexc430:                                 ; preds = %call2.i.i.noexc428
 
 invoke.cont298:                                   ; preds = %call1.i.noexc430
   %call299.val = load ptr, ptr %call2.i432, align 8
-  %call302 = invoke fastcc noundef ptr @_ZN6icu_7520loadDayPeriodStringsERNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call299.val, ptr noundef nonnull align 4 dereferenceable(4) %fAbbreviatedDayPeriodsCount, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call302 = invoke fastcc noundef ptr @_ZN6icu_7520loadDayPeriodStringsERNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringERiR10UErrorCode.argprom(ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call299.val, ptr noundef nonnull align 4 dereferenceable(4) %fAbbreviatedDayPeriodsCount, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont301 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont301:                                   ; preds = %invoke.cont298
@@ -2468,7 +2468,7 @@ call1.i.noexc441:                                 ; preds = %call2.i.i.noexc439
 
 invoke.cont304:                                   ; preds = %call1.i.noexc441
   %call305.val = load ptr, ptr %call2.i443, align 8
-  %call308 = invoke fastcc noundef ptr @_ZN6icu_7520loadDayPeriodStringsERNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call305.val, ptr noundef nonnull align 4 dereferenceable(4) %fWideDayPeriodsCount, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call308 = invoke fastcc noundef ptr @_ZN6icu_7520loadDayPeriodStringsERNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringERiR10UErrorCode.argprom(ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call305.val, ptr noundef nonnull align 4 dereferenceable(4) %fWideDayPeriodsCount, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont307 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont307:                                   ; preds = %invoke.cont304
@@ -2497,7 +2497,7 @@ call1.i.noexc452:                                 ; preds = %call2.i.i.noexc450
 
 invoke.cont310:                                   ; preds = %call1.i.noexc452
   %call311.val = load ptr, ptr %call2.i454, align 8
-  %call314 = invoke fastcc noundef ptr @_ZN6icu_7520loadDayPeriodStringsERNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call311.val, ptr noundef nonnull align 4 dereferenceable(4) %fNarrowDayPeriodsCount, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call314 = invoke fastcc noundef ptr @_ZN6icu_7520loadDayPeriodStringsERNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringERiR10UErrorCode.argprom(ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call311.val, ptr noundef nonnull align 4 dereferenceable(4) %fNarrowDayPeriodsCount, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont313 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont313:                                   ; preds = %invoke.cont310
@@ -2526,7 +2526,7 @@ call1.i.noexc463:                                 ; preds = %call2.i.i.noexc461
 
 invoke.cont316:                                   ; preds = %call1.i.noexc463
   %call317.val = load ptr, ptr %call2.i465, align 8
-  %call320 = invoke fastcc noundef ptr @_ZN6icu_7520loadDayPeriodStringsERNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call317.val, ptr noundef nonnull align 4 dereferenceable(4) %fStandaloneAbbreviatedDayPeriodsCount, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call320 = invoke fastcc noundef ptr @_ZN6icu_7520loadDayPeriodStringsERNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringERiR10UErrorCode.argprom(ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call317.val, ptr noundef nonnull align 4 dereferenceable(4) %fStandaloneAbbreviatedDayPeriodsCount, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont319 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont319:                                   ; preds = %invoke.cont316
@@ -2555,7 +2555,7 @@ call1.i.noexc474:                                 ; preds = %call2.i.i.noexc472
 
 invoke.cont322:                                   ; preds = %call1.i.noexc474
   %call323.val = load ptr, ptr %call2.i476, align 8
-  %call326 = invoke fastcc noundef ptr @_ZN6icu_7520loadDayPeriodStringsERNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call323.val, ptr noundef nonnull align 4 dereferenceable(4) %fStandaloneWideDayPeriodsCount, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call326 = invoke fastcc noundef ptr @_ZN6icu_7520loadDayPeriodStringsERNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringERiR10UErrorCode.argprom(ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call323.val, ptr noundef nonnull align 4 dereferenceable(4) %fStandaloneWideDayPeriodsCount, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont325 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont325:                                   ; preds = %invoke.cont322
@@ -2584,7 +2584,7 @@ call1.i.noexc485:                                 ; preds = %call2.i.i.noexc483
 
 invoke.cont328:                                   ; preds = %call1.i.noexc485
   %call329.val = load ptr, ptr %call2.i487, align 8
-  %call332 = invoke fastcc noundef ptr @_ZN6icu_7520loadDayPeriodStringsERNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call329.val, ptr noundef nonnull align 4 dereferenceable(4) %fStandaloneNarrowDayPeriodsCount, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call332 = invoke fastcc noundef ptr @_ZN6icu_7520loadDayPeriodStringsERNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringERiR10UErrorCode.argprom(ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call329.val, ptr noundef nonnull align 4 dereferenceable(4) %fStandaloneNarrowDayPeriodsCount, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont331 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont331:                                   ; preds = %invoke.cont328
@@ -3882,7 +3882,7 @@ invoke.cont585:                                   ; preds = %if.then582
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %keyUString.i939)
   %259 = load i32, ptr %status, align 4
   %cmp.i.i940 = icmp sgt i32 %259, 0
-  br i1 %cmp.i.i940, label %_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringER10UErrorCode.exit957, label %if.then.i941
+  br i1 %cmp.i.i940, label %_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringER10UErrorCode.argprom.exit957, label %if.then.i941
 
 if.then.i941:                                     ; preds = %invoke.cont585
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i939, ptr noundef %call586.val, i32 noundef -1, i32 noundef 0)
@@ -3922,13 +3922,13 @@ if.else.i953:                                     ; preds = %invoke.cont.i945
 
 if.end.i952:                                      ; preds = %if.else.i953, %invoke.cont4.i950
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i939) #17
-  br label %_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringER10UErrorCode.exit957
+  br label %_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringER10UErrorCode.argprom.exit957
 
-_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringER10UErrorCode.exit957: ; preds = %invoke.cont585, %if.end.i952
+_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringER10UErrorCode.argprom.exit957: ; preds = %invoke.cont585, %if.end.i952
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyUString.i939)
   br label %if.end588
 
-if.end588:                                        ; preds = %_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringER10UErrorCode.exit957, %invoke.cont578
+if.end588:                                        ; preds = %_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringER10UErrorCode.argprom.exit957, %invoke.cont578
   store i32 0, ptr %ampmStatus, align 4
   store i32 0, ptr %len.i227, align 8
   %264 = load ptr, ptr %path, align 8
@@ -4002,7 +4002,7 @@ invoke.cont600:                                   ; preds = %if.then597
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %keyUString.i987)
   %272 = load i32, ptr %status, align 4
   %cmp.i.i988 = icmp sgt i32 %272, 0
-  br i1 %cmp.i.i988, label %_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringER10UErrorCode.exit1005, label %if.then.i989
+  br i1 %cmp.i.i988, label %_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringER10UErrorCode.argprom.exit1005, label %if.then.i989
 
 if.then.i989:                                     ; preds = %invoke.cont600
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i987, ptr noundef %call601.val, i32 noundef -1, i32 noundef 0)
@@ -4042,13 +4042,13 @@ if.else.i1001:                                    ; preds = %invoke.cont.i993
 
 if.end.i1000:                                     ; preds = %if.else.i1001, %invoke.cont4.i998
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i987) #17
-  br label %_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringER10UErrorCode.exit1005
+  br label %_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringER10UErrorCode.argprom.exit1005
 
-_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringER10UErrorCode.exit1005: ; preds = %invoke.cont600, %if.end.i1000
+_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringER10UErrorCode.argprom.exit1005: ; preds = %invoke.cont600, %if.end.i1000
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyUString.i987)
   br label %if.end603
 
-if.end603:                                        ; preds = %_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringER10UErrorCode.exit1005, %invoke.cont593
+if.end603:                                        ; preds = %_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringER10UErrorCode.argprom.exit1005, %invoke.cont593
   %277 = load i32, ptr %status, align 4
   %cmp604 = icmp eq i32 %277, 2
   br i1 %cmp604, label %if.then605, label %if.end611
@@ -4866,7 +4866,7 @@ call1.i.noexc1343:                                ; preds = %call2.i.i.noexc1341
 
 invoke.cont682:                                   ; preds = %call1.i.noexc1343
   %call683.val = load ptr, ptr %call2.i1345, align 8
-  invoke fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode(ptr noundef %fWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fWeekdaysCount, ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call683.val, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode.argprom.argelim(ptr noundef %fWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fWeekdaysCount, ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call683.val, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont684 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont684:                                   ; preds = %invoke.cont682
@@ -4894,7 +4894,7 @@ call1.i.noexc1354:                                ; preds = %call2.i.i.noexc1352
 
 invoke.cont687:                                   ; preds = %call1.i.noexc1354
   %call688.val = load ptr, ptr %call2.i1356, align 8
-  invoke fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode(ptr noundef %fShortWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fShortWeekdaysCount, ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call688.val, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode.argprom.argelim(ptr noundef %fShortWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fShortWeekdaysCount, ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call688.val, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont689 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont689:                                   ; preds = %invoke.cont687
@@ -4922,7 +4922,7 @@ call1.i.noexc1365:                                ; preds = %call2.i.i.noexc1363
 
 invoke.cont692:                                   ; preds = %call1.i.noexc1365
   %call693.val = load ptr, ptr %call2.i1367, align 8
-  invoke fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode(ptr noundef %fShorterWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fShorterWeekdaysCount, ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call693.val, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode.argprom.argelim(ptr noundef %fShorterWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fShorterWeekdaysCount, ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call693.val, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont694 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont694:                                   ; preds = %invoke.cont692
@@ -5028,7 +5028,7 @@ call1.i.noexc1406:                                ; preds = %call2.i.i.noexc1404
 
 invoke.cont705:                                   ; preds = %call1.i.noexc1406
   %call706.val = load ptr, ptr %call2.i1408, align 8
-  invoke fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode(ptr noundef %fStandaloneWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fStandaloneWeekdaysCount, ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call706.val, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode.argprom.argelim(ptr noundef %fStandaloneWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fStandaloneWeekdaysCount, ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call706.val, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont707 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont707:                                   ; preds = %invoke.cont705
@@ -5127,7 +5127,7 @@ call1.i.noexc1447:                                ; preds = %call2.i.i.noexc1445
 
 invoke.cont718:                                   ; preds = %call1.i.noexc1447
   %call719.val = load ptr, ptr %call2.i1449, align 8
-  invoke fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode(ptr noundef %fStandaloneShortWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fStandaloneShortWeekdaysCount, ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call719.val, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode.argprom.argelim(ptr noundef %fStandaloneShortWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fStandaloneShortWeekdaysCount, ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call719.val, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont720 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont720:                                   ; preds = %invoke.cont718
@@ -5226,7 +5226,7 @@ call1.i.noexc1488:                                ; preds = %call2.i.i.noexc1486
 
 invoke.cont731:                                   ; preds = %call1.i.noexc1488
   %call732.val = load ptr, ptr %call2.i1490, align 8
-  invoke fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode(ptr noundef %fStandaloneShorterWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fStandaloneShorterWeekdaysCount, ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call732.val, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode.argprom.argelim(ptr noundef %fStandaloneShorterWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fStandaloneShorterWeekdaysCount, ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call732.val, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont733 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont733:                                   ; preds = %invoke.cont731
@@ -5327,7 +5327,7 @@ call1.i.noexc1529:                                ; preds = %call2.i.i.noexc1527
 
 invoke.cont744:                                   ; preds = %call1.i.noexc1529
   %call745.val = load ptr, ptr %call2.i1531, align 8
-  invoke fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode(ptr noundef %fNarrowWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fNarrowWeekdaysCount, ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call745.val, ptr noundef nonnull align 4 dereferenceable(4) %narrowWeeksEC)
+  invoke fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode.argprom.argelim(ptr noundef %fNarrowWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fNarrowWeekdaysCount, ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call745.val, ptr noundef nonnull align 4 dereferenceable(4) %narrowWeeksEC)
           to label %invoke.cont746 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont746:                                   ; preds = %invoke.cont744
@@ -5357,7 +5357,7 @@ call1.i.noexc1540:                                ; preds = %call2.i.i.noexc1538
 
 invoke.cont749:                                   ; preds = %call1.i.noexc1540
   %call750.val = load ptr, ptr %call2.i1542, align 8
-  invoke fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode(ptr noundef %fStandaloneNarrowWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fStandaloneNarrowWeekdaysCount, ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call750.val, ptr noundef nonnull align 4 dereferenceable(4) %standaloneNarrowWeeksEC)
+  invoke fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode.argprom.argelim(ptr noundef %fStandaloneNarrowWeekdays, ptr noundef nonnull align 4 dereferenceable(4) %fStandaloneNarrowWeekdaysCount, ptr noundef nonnull align 8 dereferenceable(600) %calendarSink, ptr %call750.val, ptr noundef nonnull align 4 dereferenceable(4) %standaloneNarrowWeeksEC)
           to label %invoke.cont751 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont751:                                   ; preds = %invoke.cont749
@@ -15172,7 +15172,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN6icu_7520loadDayPeriodStringsERNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringERiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(600) %sink, ptr %path.0.val, ptr nocapture noundef nonnull align 4 dereferenceable(4) %stringCount, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN6icu_7520loadDayPeriodStringsERNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringERiR10UErrorCode.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(600) %sink, ptr %path.0.val, ptr nocapture noundef nonnull align 4 dereferenceable(4) %stringCount, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %pathUString = alloca %"class.icu_75::UnicodeString", align 8
   %dayPeriodKey = alloca %"class.icu_75::UnicodeString", align 8
@@ -15311,7 +15311,7 @@ declare void @_ZN6icu_7511LocaleBased12setLocaleIDsEPKcS2_(ptr noundef nonnull a
 declare ptr @ures_getLocaleByType_75(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode(ptr nocapture noundef nonnull writeonly %field, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(600) %sink, ptr %key.0.val, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6icu_75L9initFieldEPPNS_13UnicodeStringERiRNS_12_GLOBAL__N_116CalendarDataSinkERNS_10CharStringEiR10UErrorCode.argprom.argelim(ptr nocapture noundef nonnull writeonly %field, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(600) %sink, ptr %key.0.val, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %keyUString = alloca %"class.icu_75::UnicodeString", align 8
   %0 = load i32, ptr %status, align 4

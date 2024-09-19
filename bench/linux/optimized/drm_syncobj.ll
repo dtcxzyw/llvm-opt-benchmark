@@ -144,7 +144,7 @@ define dso_local void @drm_syncobj_add_point(ptr noundef %0, ptr noundef %1, ptr
   %30 = phi ptr [ %31, %.preheader9 ], [ %28, %25 ]
   %31 = load ptr, ptr %30, align 8
   %.val = load ptr, ptr %26, align 8
-  tail call fastcc void @syncobj_wait_syncobj_func(ptr %.val, ptr noundef %30)
+  tail call fastcc void @syncobj_wait_syncobj_func.argprom(ptr %.val, ptr noundef %30)
   %32 = icmp eq ptr %31, %27
   br i1 %32, label %.loopexit10, label %.preheader9, !llvm.loop !10
 
@@ -158,7 +158,7 @@ define dso_local void @drm_syncobj_add_point(ptr noundef %0, ptr noundef %1, ptr
   %36 = phi ptr [ %37, %.preheader ], [ %34, %.loopexit10 ]
   %37 = load ptr, ptr %36, align 8
   %.val8 = load ptr, ptr %26, align 8
-  tail call fastcc void @syncobj_eventfd_entry_func(ptr %.val8, ptr noundef %36)
+  tail call fastcc void @syncobj_eventfd_entry_func.argprom(ptr %.val8, ptr noundef %36)
   %38 = icmp eq ptr %37, %33
   br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !13
 
@@ -300,7 +300,7 @@ declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) l
 declare dso_local void @dma_fence_chain_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @syncobj_wait_syncobj_func(ptr %.8.val, ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @syncobj_wait_syncobj_func.argprom(ptr %.8.val, ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   store ptr %.8.val, ptr %2, align 8
@@ -385,7 +385,7 @@ define internal fastcc void @syncobj_wait_syncobj_func(ptr %.8.val, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @syncobj_eventfd_entry_func(ptr %.8.val, ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @syncobj_eventfd_entry_func.argprom(ptr %.8.val, ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %3 = icmp eq ptr %.8.val, null
@@ -602,7 +602,7 @@ define dso_local void @drm_syncobj_replace_fence(ptr noundef %0, ptr noundef %1)
   %23 = phi ptr [ %24, %.preheader7 ], [ %21, %19 ]
   %24 = load ptr, ptr %23, align 8
   %.val = load ptr, ptr %16, align 8
-  tail call fastcc void @syncobj_wait_syncobj_func(ptr %.val, ptr noundef %23)
+  tail call fastcc void @syncobj_wait_syncobj_func.argprom(ptr %.val, ptr noundef %23)
   %25 = icmp eq ptr %24, %20
   br i1 %25, label %.loopexit8, label %.preheader7, !llvm.loop !22
 
@@ -616,7 +616,7 @@ define dso_local void @drm_syncobj_replace_fence(ptr noundef %0, ptr noundef %1)
   %29 = phi ptr [ %30, %.preheader ], [ %27, %.loopexit8 ]
   %30 = load ptr, ptr %29, align 8
   %.val6 = load ptr, ptr %16, align 8
-  tail call fastcc void @syncobj_eventfd_entry_func(ptr %.val6, ptr noundef %29)
+  tail call fastcc void @syncobj_eventfd_entry_func.argprom(ptr %.val6, ptr noundef %29)
   %31 = icmp eq ptr %30, %26
   br i1 %31, label %.loopexit, label %.preheader, !llvm.loop !23
 
@@ -2621,7 +2621,7 @@ define internal fastcc void @drm_syncobj_add_eventfd(ptr noundef nonnull %0, ptr
   store volatile ptr %1, ptr %6, align 8
   %8 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %8, align 8
-  tail call fastcc void @syncobj_eventfd_entry_func(ptr %.val, ptr noundef nonnull %1)
+  tail call fastcc void @syncobj_eventfd_entry_func.argprom(ptr %.val, ptr noundef nonnull %1)
   tail call void @_raw_spin_unlock(ptr noundef %3) #11
   ret void
 }

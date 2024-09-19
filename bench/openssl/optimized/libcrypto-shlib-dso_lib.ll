@@ -20,12 +20,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @DSO_new() local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc ptr @DSO_new_method()
+  %call = tail call fastcc ptr @DSO_new_method.argprom()
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @DSO_new_method() unnamed_addr #0 {
+define internal fastcc ptr @DSO_new_method.argprom() unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 72, ptr noundef nonnull @.str, i32 noundef 17) #3
   %cmp = icmp eq ptr %call, null
@@ -211,7 +211,7 @@ entry:
   br i1 %cmp.not, label %if.then, label %if.end8
 
 if.then:                                          ; preds = %entry
-  %call = tail call fastcc ptr @DSO_new_method()
+  %call = tail call fastcc ptr @DSO_new_method.argprom()
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %err.thread, label %DSO_ctrl.exit
 

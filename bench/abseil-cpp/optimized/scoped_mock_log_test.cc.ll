@@ -8486,29 +8486,29 @@ define internal noundef zeroext i1 @"_ZNK7testing18PolymorphicMatcherINS_8intern
 entry:
   %x.val = load i64, ptr %x, align 8
   %cmp.not.i.i.i = icmp ult i64 %x.val, 43
-  br i1 %cmp.not.i.i.i, label %if.end.i, label %"_ZZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit.i"
+  br i1 %cmp.not.i.i.i, label %if.end.i, label %"_ZZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i"
 
-"_ZZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit.i": ; preds = %entry
+"_ZZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i": ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %x, i64 8
   %x.val1 = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %x.val1, i64 %x.val
   %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 -43
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(43) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(43) @.str.79, i64 43)
   %cmp9.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %cmp9.i.i.i, label %"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.exit", label %if.end.i
+  br i1 %cmp9.i.i.i, label %"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.argprom.exit", label %if.end.i
 
-if.end.i:                                         ; preds = %"_ZZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit.i", %entry
+if.end.i:                                         ; preds = %"_ZZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i", %entry
   %stream_.i.i = getelementptr inbounds i8, ptr %listener, i64 8
   %2 = load ptr, ptr %stream_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i, label %"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.78)
-  br label %"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.exit"
+  br label %"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.argprom.exit"
 
-"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.exit": ; preds = %"_ZZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit.i", %if.end.i, %if.then.i.i
-  %3 = phi i1 [ true, %"_ZZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit.i" ], [ false, %if.end.i ], [ false, %if.then.i.i ]
+"_ZNK7testing8internal12TrulyMatcherIZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvE3$_0E15MatchAndExplainIKSt17basic_string_viewIcSt11char_traitsIcEEEEbRT_PNS_19MatchResultListenerE.argprom.exit": ; preds = %"_ZZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i", %if.end.i, %if.then.i.i
+  %3 = phi i1 [ true, %"_ZZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i" ], [ false, %if.end.i ], [ false, %if.then.i.i ]
   ret i1 %3
 }
 
@@ -13745,12 +13745,12 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12_GLO
 entry:
   %_M_func = getelementptr inbounds i8, ptr %this, i64 8
   %_M_func.val = load ptr, ptr %_M_func, align 8
-  tail call fastcc void @"_ZZN12_GLOBAL__N_145ScopedMockLogTest_LogFromMultipleThreads_Test8TestBodyEvENK3$_0clEv"(ptr %_M_func.val)
+  tail call fastcc void @"_ZZN12_GLOBAL__N_145ScopedMockLogTest_LogFromMultipleThreads_Test8TestBodyEvENK3$_0clEv.argprom"(ptr %_M_func.val)
   ret void
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_145ScopedMockLogTest_LogFromMultipleThreads_Test8TestBodyEvENK3$_0clEv"(ptr nonnull %this.0.val) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_145ScopedMockLogTest_LogFromMultipleThreads_Test8TestBodyEvENK3$_0clEv.argprom"(ptr nonnull %this.0.val) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessage", align 8
   %call = tail call noundef zeroext i1 @_ZN4absl7Barrier5BlockEv(ptr noundef nonnull align 8 dereferenceable(16) %this.0.val)
@@ -13791,12 +13791,12 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12_GLO
 entry:
   %_M_func = getelementptr inbounds i8, ptr %this, i64 8
   %_M_func.val = load ptr, ptr %_M_func, align 8
-  tail call fastcc void @"_ZZN12_GLOBAL__N_145ScopedMockLogTest_LogFromMultipleThreads_Test8TestBodyEvENK3$_1clEv"(ptr %_M_func.val)
+  tail call fastcc void @"_ZZN12_GLOBAL__N_145ScopedMockLogTest_LogFromMultipleThreads_Test8TestBodyEvENK3$_1clEv.argprom"(ptr %_M_func.val)
   ret void
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_145ScopedMockLogTest_LogFromMultipleThreads_Test8TestBodyEvENK3$_1clEv"(ptr nonnull %this.0.val) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_145ScopedMockLogTest_LogFromMultipleThreads_Test8TestBodyEvENK3$_1clEv.argprom"(ptr nonnull %this.0.val) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessage", align 8
   %call = tail call noundef zeroext i1 @_ZN4absl7Barrier5BlockEv(ptr noundef nonnull align 8 dereferenceable(16) %this.0.val)
@@ -14633,12 +14633,12 @@ entry:
 ; Function Attrs: cold mustprogress uwtable
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12_GLOBAL__N_152ScopedMockLogTest_NoSequenceWithMultipleThreads_Test8TestBodyEvE3$_1EEEEE6_M_runEv"(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #18 align 2 {
 entry:
-  tail call fastcc void @"_ZZN12_GLOBAL__N_152ScopedMockLogTest_NoSequenceWithMultipleThreads_Test8TestBodyEvENK3$_1clEv"()
+  tail call fastcc void @"_ZZN12_GLOBAL__N_152ScopedMockLogTest_NoSequenceWithMultipleThreads_Test8TestBodyEvENK3$_1clEv.argprom"()
   ret void
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_152ScopedMockLogTest_NoSequenceWithMultipleThreads_Test8TestBodyEvENK3$_1clEv"() unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_152ScopedMockLogTest_NoSequenceWithMultipleThreads_Test8TestBodyEvENK3$_1clEv.argprom"() unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessage", align 8
   call void @_ZN4absl12log_internal10LogMessageC1EPKciNS1_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.4, i32 noundef 255) #30
@@ -14674,12 +14674,12 @@ entry:
 ; Function Attrs: cold mustprogress uwtable
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12_GLOBAL__N_152ScopedMockLogTest_NoSequenceWithMultipleThreads_Test8TestBodyEvE3$_2EEEEE6_M_runEv"(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #18 align 2 {
 entry:
-  tail call fastcc void @"_ZZN12_GLOBAL__N_152ScopedMockLogTest_NoSequenceWithMultipleThreads_Test8TestBodyEvENK3$_2clEv"()
+  tail call fastcc void @"_ZZN12_GLOBAL__N_152ScopedMockLogTest_NoSequenceWithMultipleThreads_Test8TestBodyEvENK3$_2clEv.argprom"()
   ret void
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_152ScopedMockLogTest_NoSequenceWithMultipleThreads_Test8TestBodyEvENK3$_2clEv"() unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_152ScopedMockLogTest_NoSequenceWithMultipleThreads_Test8TestBodyEvENK3$_2clEv.argprom"() unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessage", align 8
   call void @_ZN4absl12log_internal10LogMessageC1EPKciNS1_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.4, i32 noundef 256) #30
@@ -17216,8 +17216,8 @@ attributes #32 = { cold nounwind }
 !61 = !{!62}
 !62 = distinct !{!62, !60, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal15ExpectationBaseEES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
 !63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZNK7testing18PolymorphicMatcherINS_8internal12TrulyMatcherIZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvE3$_0EEEcvNS_7MatcherIT_EEISt17basic_string_viewIcSt11char_traitsIcEEEEv: %agg.result"}
-!65 = distinct !{!65, !"_ZNK7testing18PolymorphicMatcherINS_8internal12TrulyMatcherIZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvE3$_0EEEcvNS_7MatcherIT_EEISt17basic_string_viewIcSt11char_traitsIcEEEEv"}
+!64 = distinct !{!64, !65, !"_ZNK7testing18PolymorphicMatcherINS_8internal12TrulyMatcherIZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvE3$_0EEEcvNS_7MatcherIT_EEISt17basic_string_viewIcSt11char_traitsIcEEEEv.argprom: %agg.result"}
+!65 = distinct !{!65, !"_ZNK7testing18PolymorphicMatcherINS_8internal12TrulyMatcherIZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test8TestBodyEvE3$_0EEEcvNS_7MatcherIT_EEISt17basic_string_viewIcSt11char_traitsIcEEEEv.argprom"}
 !66 = !{!67}
 !67 = distinct !{!67, !68, !"_ZN7testing5AllOfIJNS_7MatcherIRKN4absl8LogEntryEEES6_S6_S6_S6_EEENS_8internal15VariadicMatcherINS7_16AllOfMatcherImplEJDpNSt5decayIRKT_E4typeEEEEDpSD_: %agg.result"}
 !68 = distinct !{!68, !"_ZN7testing5AllOfIJNS_7MatcherIRKN4absl8LogEntryEEES6_S6_S6_S6_EEENS_8internal15VariadicMatcherINS7_16AllOfMatcherImplEJDpNSt5decayIRKT_E4typeEEEEDpSD_"}

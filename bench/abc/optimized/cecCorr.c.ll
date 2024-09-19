@@ -1402,7 +1402,7 @@ Gia_ObjReprObj.exit360.thread:                    ; preds = %523, %537, %Vec_Int
   %indvars.iv428 = phi i64 [ 0, %.lr.ph419 ], [ %indvars.iv.next429, %650 ]
   %651 = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv428
   %652 = load i32, ptr %651, align 4
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %29, i32 noundef %652)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %29, i32 noundef %652)
   %indvars.iv.next429 = add nuw nsw i64 %indvars.iv428, 1
   %exitcond431.not = icmp eq i64 %indvars.iv.next429, %wide.trip.count
   br i1 %exitcond431.not, label %.critedge17, label %650, !llvm.loop !13
@@ -1686,7 +1686,7 @@ declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed
 declare i32 @Gia_ManHashXor(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -2417,7 +2417,7 @@ Gia_ObjReprObj.exit.thread:                       ; preds = %.lr.ph176, %184, %V
   %indvars.iv185 = phi i64 [ 0, %.lr.ph179 ], [ %indvars.iv.next186, %299 ]
   %300 = getelementptr inbounds i32, ptr %.pre.pre, i64 %indvars.iv185
   %301 = load i32, ptr %300, align 4
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %31, i32 noundef %301)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %31, i32 noundef %301)
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count
   br i1 %exitcond188.not, label %.critedge6.thread, label %299, !llvm.loop !20
@@ -4023,7 +4023,7 @@ Abc_UtilStrsav.exit55:                            ; preds = %Abc_UtilStrsav.exit
   %71 = lshr i32 %70, 29
   %72 = and i32 %71, 1
   %73 = xor i32 %72, %69
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %3, i32 noundef %73)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %3, i32 noundef %73)
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %74 = load ptr, ptr %38, align 8
   %75 = getelementptr i8, ptr %74, i64 4

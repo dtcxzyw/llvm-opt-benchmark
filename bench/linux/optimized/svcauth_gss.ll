@@ -808,7 +808,7 @@ define internal noundef range(i32 1, 11) i32 @svcauth_gss_accept(ptr noundef %0)
   %.val.i = load i32, ptr %212, align 8
   %225 = getelementptr i8, ptr %196, i64 88
   %.val28.i = load ptr, ptr %225, align 8
-  %226 = call fastcc zeroext i1 @svcxdr_encode_gss_init_res(ptr noundef %216, i32 %.val.i, ptr %.val28.i, ptr noundef %221, i32 noundef %222, i32 noundef %224)
+  %226 = call fastcc zeroext i1 @svcxdr_encode_gss_init_res.argprom(ptr noundef %216, i32 %.val.i, ptr %.val28.i, ptr noundef %221, i32 noundef %222, i32 noundef %224)
   %227 = select i1 %226, i32 10, i32 7
   br label %228
 
@@ -1340,7 +1340,7 @@ define internal noundef range(i32 1, 11) i32 @svcauth_gss_accept(ptr noundef %0)
   %.val29.i = load i32, ptr %6, align 8
   %533 = getelementptr inbounds i8, ptr %6, i64 8
   %.val30.i = load ptr, ptr %533, align 8
-  %534 = call fastcc zeroext i1 @svcxdr_encode_gss_init_res(ptr noundef %525, i32 %.val29.i, ptr %.val30.i, ptr noundef %530, i32 noundef %531, i32 noundef %532)
+  %534 = call fastcc zeroext i1 @svcxdr_encode_gss_init_res.argprom(ptr noundef %525, i32 %.val29.i, ptr %.val30.i, ptr noundef %530, i32 noundef %531, i32 noundef %532)
   %535 = select i1 %534, i32 10, i32 7
   br label %536
 
@@ -1473,7 +1473,7 @@ svcauth_gss_proc_init.exit:                       ; preds = %103, %112, %119, %.
   %599 = getelementptr inbounds i8, ptr %2, i64 56
   store ptr %598, ptr %599, align 8
   %.not.i28 = icmp eq ptr %598, null
-  br i1 %.not.i28, label %gss_svc_searchbyctx.exit.thread, label %.thread.i29
+  br i1 %.not.i28, label %gss_svc_searchbyctx.argprom.exit.thread, label %.thread.i29
 
 .thread.i29:                                      ; preds = %596, %591
   %600 = phi ptr [ %598, %596 ], [ null, %591 ]
@@ -1482,14 +1482,14 @@ svcauth_gss_proc_init.exit:                       ; preds = %103, %112, %119, %.
   %603 = call ptr @sunrpc_cache_lookup_rcu(ptr noundef %593, ptr noundef nonnull %2, i32 noundef %602) #24
   call fastcc void @rsc_free(ptr noundef nonnull %2)
   %604 = icmp eq ptr %603, null
-  br i1 %604, label %gss_svc_searchbyctx.exit.thread, label %605
+  br i1 %604, label %gss_svc_searchbyctx.argprom.exit.thread, label %605
 
 605:                                              ; preds = %.thread.i29
   %606 = call i32 @cache_check(ptr noundef %593, ptr noundef nonnull %603, ptr noundef null) #24
   %607 = icmp eq i32 %606, 0
-  br i1 %607, label %608, label %gss_svc_searchbyctx.exit.thread
+  br i1 %607, label %608, label %gss_svc_searchbyctx.argprom.exit.thread
 
-gss_svc_searchbyctx.exit.thread:                  ; preds = %596, %.thread.i29, %605
+gss_svc_searchbyctx.argprom.exit.thread:          ; preds = %596, %.thread.i29, %605
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %2) #24
   br label %.thread34
 
@@ -1883,8 +1883,8 @@ gss_svc_searchbyctx.exit.thread:                  ; preds = %596, %.thread.i29, 
   call fastcc void @trace_rpcgss_svc_authenticate(ptr noundef %0, ptr noundef nonnull %38)
   br label %800
 
-.thread34:                                        ; preds = %69, %81, %.thread32, %63, %57, %52, %49, %44, %.thread, %.thread36, %gss_svc_searchbyctx.exit.thread, %771, %766, %762, %755, %751, %749, %745, %587, %99, %93, %34
-  %798 = phi ptr [ null, %93 ], [ null, %745 ], [ null, %749 ], [ %603, %771 ], [ %603, %762 ], [ %603, %751 ], [ null, %587 ], [ null, %99 ], [ null, %34 ], [ %603, %755 ], [ %603, %766 ], [ null, %gss_svc_searchbyctx.exit.thread ], [ %603, %.thread36 ], [ null, %.thread ], [ null, %44 ], [ null, %49 ], [ null, %52 ], [ null, %57 ], [ null, %63 ], [ null, %.thread32 ], [ null, %81 ], [ null, %69 ]
+.thread34:                                        ; preds = %69, %81, %.thread32, %63, %57, %52, %49, %44, %.thread, %.thread36, %gss_svc_searchbyctx.argprom.exit.thread, %771, %766, %762, %755, %751, %749, %745, %587, %99, %93, %34
+  %798 = phi ptr [ null, %93 ], [ null, %745 ], [ null, %749 ], [ %603, %771 ], [ %603, %762 ], [ %603, %751 ], [ null, %587 ], [ null, %99 ], [ null, %34 ], [ %603, %755 ], [ %603, %766 ], [ null, %gss_svc_searchbyctx.argprom.exit.thread ], [ %603, %.thread36 ], [ null, %.thread ], [ null, %44 ], [ null, %49 ], [ null, %52 ], [ null, %57 ], [ null, %63 ], [ null, %.thread32 ], [ null, %81 ], [ null, %69 ]
   %799 = getelementptr inbounds i8, ptr %0, i64 576
   call void @xdr_truncate_encode(ptr noundef %799, i64 noundef 8) #24
   br label %800
@@ -3080,7 +3080,7 @@ declare i32 @llvm.bswap.i32(i32) #10
 declare dso_local i64 @xdr_stream_decode_opaque_auth(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -16, 1) i32 @set_gss_proxy(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -16, 1) i32 @set_gss_proxy.argelim(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = load i32, ptr @sunrpc_net_id, align 4
   tail call void @__rcu_read_lock() #24
   %3 = getelementptr inbounds i8, ptr %0, i64 2536
@@ -3203,7 +3203,7 @@ define internal fastcc zeroext i1 @svcauth_gss_proc_init_verf(ptr noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @svcxdr_encode_gss_init_res(ptr noundef %0, i32 %.0.val, ptr %.8.val, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc noundef zeroext i1 @svcxdr_encode_gss_init_res.argprom(ptr noundef %0, i32 %.0.val, ptr %.8.val, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = zext i32 %.0.val to i64
   %6 = add nuw nsw i64 %5, 3
   %7 = and i64 %6, 8589934588
@@ -4694,7 +4694,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @write_gssp(ptr nocapture
   br label %37
 
 32:                                               ; preds = %27
-  %33 = call fastcc i32 @set_gss_proxy(ptr noundef %10)
+  %33 = call fastcc i32 @set_gss_proxy.argelim(ptr noundef %10)
   %34 = icmp eq i32 %33, 0
   %35 = sext i32 %33 to i64
   %36 = select i1 %34, i64 %2, i64 %35

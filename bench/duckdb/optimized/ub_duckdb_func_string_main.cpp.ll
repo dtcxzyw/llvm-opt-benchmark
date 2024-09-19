@@ -40321,7 +40321,7 @@ entry:
   %inlined.i = getelementptr inbounds i8, ptr %input, i64 4
   %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %input.coerce1
   %conv.i = and i64 %input.coerce0, 4294967295
-  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll(i64 noundef %offset, i64 noundef %length)
+  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll.argelim(i64 noundef %offset, i64 noundef %length)
   %cmp.i = icmp eq i64 %length, 0
   br i1 %cmp.i, label %if.then, label %if.end.i
 
@@ -40462,7 +40462,7 @@ cleanup:                                          ; preds = %_ZN6duckdb14Substri
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll(i64 noundef %offset, i64 noundef %length) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll.argelim(i64 noundef %offset, i64 noundef %length) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::allocator", align 1
@@ -40704,7 +40704,7 @@ entry:
   %inlined.i = getelementptr inbounds i8, ptr %input, i64 4
   %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %input.coerce1
   %conv.i = and i64 %input.coerce0, 4294967295
-  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll(i64 noundef %offset, i64 noundef %length)
+  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll.argelim(i64 noundef %offset, i64 noundef %length)
   %cmp = icmp eq i64 %length, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -41035,7 +41035,7 @@ entry:
   %inlined.i = getelementptr inbounds i8, ptr %input, i64 4
   %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %input.coerce1
   %conv.i = and i64 %input.coerce0, 4294967295
-  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll(i64 noundef %offset, i64 noundef %length)
+  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll.argelim(i64 noundef %offset, i64 noundef %length)
   %cmp.i = icmp eq i64 %length, 0
   br i1 %cmp.i, label %if.then, label %if.end.i
 
@@ -65057,7 +65057,7 @@ for.body9.i.i.i.i:                                ; preds = %_ZN6duckdb14Substri
   %cmp.i.i.i.i.i.i.i34 = icmp ult i32 %146, 13
   %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i34, ptr %inlined.i.i.i.i.i.i, ptr %lentry.sroa.4.0.copyload.i.i.i.i
   %conv.i.i.i.i.i.i = and i64 %lentry.sroa.0.0.copyload.i.i.i.i, 4294967295
-  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll(i64 noundef %145, i64 noundef 4294967295)
+  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll.argelim(i64 noundef %145, i64 noundef 4294967295)
   br i1 %cmp1.i.i.i.i.i.i, label %if.then2.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then2.i.i.i.i.i.i:                             ; preds = %for.body9.i.i.i.i
@@ -65189,7 +65189,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body22.i.i.i.i
   %cmp.i.i.i117.i.i.i.i = icmp ult i32 %162, 13
   %cond.i.i119.i.i.i.i = select i1 %cmp.i.i.i117.i.i.i.i, ptr %inlined.i.i118.i.i.i.i, ptr %lentry26.sroa.4.0.copyload.i.i.i.i
   %conv.i.i120.i.i.i.i = and i64 %lentry26.sroa.0.0.copyload.i.i.i.i, 4294967295
-  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll(i64 noundef %161, i64 noundef 4294967295)
+  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll.argelim(i64 noundef %161, i64 noundef 4294967295)
   %cmp1.i.i121.i.i.i.i = icmp sgt i64 %161, 0
   br i1 %cmp1.i.i121.i.i.i.i, label %if.then2.i.i171.i.i.i.i, label %if.else.i.i122.i.i.i.i
 
@@ -65540,7 +65540,7 @@ for.body9.i.i140.i.i:                             ; preds = %_ZN6duckdb14Substri
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %input.i.i.i68.i.i), !noalias !1236
   store i64 %lentry.sroa.0.0.copyload.i.i135.i.i, ptr %input.i.i.i68.i.i, align 8, !noalias !1236
   store ptr %lentry.sroa.4.0.copyload.i.i136.i.i, ptr %200, align 8, !noalias !1236
-  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll(i64 noundef %209, i64 noundef 4294967295)
+  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll.argelim(i64 noundef %209, i64 noundef 4294967295)
   %cmp1.i.i.i.i142.i.i = icmp sgt i64 %209, 0
   br i1 %cmp1.i.i.i.i142.i.i, label %if.then2.i.i.i.i191.i.i, label %if.else.i.i.i.i143.i.i
 
@@ -65674,7 +65674,7 @@ if.then25.i.i201.i.i:                             ; preds = %for.body22.i.i195.i
   %cmp.i.i.i117.i.i204.i.i = icmp ult i32 %225, 13
   %cond.i.i119.i.i205.i.i = select i1 %cmp.i.i.i117.i.i204.i.i, ptr %inlined.i.i118.i.i118.i.i, ptr %lentry26.sroa.4.0.copyload.i.i203.i.i
   %conv.i.i120.i.i206.i.i = and i64 %lentry26.sroa.0.0.copyload.i.i202.i.i, 4294967295
-  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll(i64 noundef %224, i64 noundef 4294967295)
+  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll.argelim(i64 noundef %224, i64 noundef 4294967295)
   %cmp1.i.i121.i.i207.i.i = icmp sgt i64 %224, 0
   br i1 %cmp1.i.i121.i.i207.i.i, label %if.then2.i.i171.i.i257.i.i, label %if.else.i.i122.i.i208.i.i
 
@@ -65995,7 +65995,7 @@ for.body11.i.i.i.i:                               ; preds = %for.cond9.preheader
   %cmp.i.i.i.i.i336.i.i = icmp ult i32 %271, 13
   %cond.i.i.i.i337.i.i = select i1 %cmp.i.i.i.i.i336.i.i, ptr %inlined.i.i.i.i324.i.i, ptr %lentry.sroa.4.0.copyload.i.i335.i.i
   %conv.i.i.i.i338.i.i = and i64 %lentry.sroa.0.0.copyload.i.i333.i.i, 4294967295
-  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll(i64 noundef %270, i64 noundef 4294967295)
+  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll.argelim(i64 noundef %270, i64 noundef 4294967295)
   %cmp1.i.i.i.i339.i.i = icmp sgt i64 %270, 0
   br i1 %cmp1.i.i.i.i339.i.i, label %if.then2.i.i.i.i383.i.i, label %if.else.i.i.i.i340.i.i
 
@@ -66131,7 +66131,7 @@ if.then27.i.i.i.i:                                ; preds = %for.body24.i.i.i.i
   %cmp.i.i.i128.i.i.i.i = icmp ult i32 %287, 13
   %cond.i.i130.i.i.i.i = select i1 %cmp.i.i.i128.i.i.i.i, ptr %inlined.i.i129.i.i.i.i, ptr %lentry28.sroa.4.0.copyload.i.i.i.i
   %conv.i.i131.i.i.i.i = and i64 %lentry28.sroa.0.0.copyload.i.i.i.i, 4294967295
-  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll(i64 noundef %286, i64 noundef 4294967295)
+  tail call fastcc void @_ZN6duckdbL22AssertInSupportedRangeEmll.argelim(i64 noundef %286, i64 noundef 4294967295)
   %cmp1.i.i132.i.i.i.i = icmp sgt i64 %286, 0
   br i1 %cmp1.i.i132.i.i.i.i, label %if.then2.i.i182.i.i.i.i, label %if.else.i.i133.i.i.i.i
 

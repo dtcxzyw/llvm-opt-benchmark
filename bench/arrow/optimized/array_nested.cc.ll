@@ -18250,7 +18250,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit:  ; preds = %_ZNSt12__shared_ptrIN5arrow12ListViewTypeELN9__gnu_cxx12_Lock_policyE2EEC2ISaIvEJRKSt10shared_ptrINS0_8DataTypeEEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_123ListViewArrayFromArraysINS_12ListViewTypeEEENS_6ResultISt10shared_ptrINS_10TypeTraitsIT_E9ArrayTypeEEEES4_INS_8DataTypeEERKNS_5ArrayESF_SF_PNS_10MemoryPoolES4_INS_6BufferEEl(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %offsets, ptr noundef nonnull align 8 dereferenceable(32) %sizes, ptr noundef nonnull align 8 dereferenceable(32) %values, ptr noundef %agg.tmp1, i64 noundef %null_count)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_123ListViewArrayFromArraysINS_12ListViewTypeEEENS_6ResultISt10shared_ptrINS_10TypeTraitsIT_E9ArrayTypeEEEES4_INS_8DataTypeEERKNS_5ArrayESF_SF_PNS_10MemoryPoolES4_INS_6BufferEEl.argprom(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %offsets, ptr noundef nonnull align 8 dereferenceable(32) %sizes, ptr noundef nonnull align 8 dereferenceable(32) %values, ptr noundef %agg.tmp1, i64 noundef %null_count)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit
@@ -18485,7 +18485,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_123ListViewArrayFromArraysINS_12ListViewTypeEEENS_6ResultISt10shared_ptrINS_10TypeTraitsIT_E9ArrayTypeEEEES4_INS_8DataTypeEERKNS_5ArrayESF_SF_PNS_10MemoryPoolES4_INS_6BufferEEl(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef nonnull align 8 dereferenceable(32) %offsets, ptr noundef nonnull align 8 dereferenceable(32) %sizes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %values, ptr nocapture noundef nonnull %null_bitmap, i64 noundef %null_count) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_123ListViewArrayFromArraysINS_12ListViewTypeEEENS_6ResultISt10shared_ptrINS_10TypeTraitsIT_E9ArrayTypeEEEES4_INS_8DataTypeEERKNS_5ArrayESF_SF_PNS_10MemoryPoolES4_INS_6BufferEEl.argprom(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef nonnull align 8 dereferenceable(32) %offsets, ptr noundef nonnull align 8 dereferenceable(32) %sizes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %values, ptr nocapture noundef nonnull %null_bitmap, i64 noundef %null_count) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp1 = alloca ptr, align 8
@@ -20387,7 +20387,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit:  ; preds = %if.end12, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_123ListViewArrayFromArraysINS_12ListViewTypeEEENS_6ResultISt10shared_ptrINS_10TypeTraitsIT_E9ArrayTypeEEEES4_INS_8DataTypeEERKNS_5ArrayESF_SF_PNS_10MemoryPoolES4_INS_6BufferEEl(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %offsets, ptr noundef nonnull align 8 dereferenceable(32) %sizes, ptr noundef nonnull align 8 dereferenceable(32) %values, ptr noundef %agg.tmp13, i64 noundef %null_count)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_123ListViewArrayFromArraysINS_12ListViewTypeEEENS_6ResultISt10shared_ptrINS_10TypeTraitsIT_E9ArrayTypeEEEES4_INS_8DataTypeEERKNS_5ArrayESF_SF_PNS_10MemoryPoolES4_INS_6BufferEEl.argprom(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %offsets, ptr noundef nonnull align 8 dereferenceable(32) %sizes, ptr noundef nonnull align 8 dereferenceable(32) %values, ptr noundef %agg.tmp13, i64 noundef %null_count)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit
@@ -27084,7 +27084,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit:  ; preds = %_ZNSt12__shared_ptrIN5arrow17LargeListViewTypeELN9__gnu_cxx12_Lock_policyE2EEC2ISaIvEJRKSt10shared_ptrINS0_8DataTypeEEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_123ListViewArrayFromArraysINS_17LargeListViewTypeEEENS_6ResultISt10shared_ptrINS_10TypeTraitsIT_E9ArrayTypeEEEES4_INS_8DataTypeEERKNS_5ArrayESF_SF_PNS_10MemoryPoolES4_INS_6BufferEEl(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %offsets, ptr noundef nonnull align 8 dereferenceable(32) %sizes, ptr noundef nonnull align 8 dereferenceable(32) %values, ptr noundef %agg.tmp1, i64 noundef %null_count)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_123ListViewArrayFromArraysINS_17LargeListViewTypeEEENS_6ResultISt10shared_ptrINS_10TypeTraitsIT_E9ArrayTypeEEEES4_INS_8DataTypeEERKNS_5ArrayESF_SF_PNS_10MemoryPoolES4_INS_6BufferEEl.argprom(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %offsets, ptr noundef nonnull align 8 dereferenceable(32) %sizes, ptr noundef nonnull align 8 dereferenceable(32) %values, ptr noundef %agg.tmp1, i64 noundef %null_count)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit
@@ -27319,7 +27319,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_123ListViewArrayFromArraysINS_17LargeListViewTypeEEENS_6ResultISt10shared_ptrINS_10TypeTraitsIT_E9ArrayTypeEEEES4_INS_8DataTypeEERKNS_5ArrayESF_SF_PNS_10MemoryPoolES4_INS_6BufferEEl(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef nonnull align 8 dereferenceable(32) %offsets, ptr noundef nonnull align 8 dereferenceable(32) %sizes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %values, ptr nocapture noundef nonnull %null_bitmap, i64 noundef %null_count) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_123ListViewArrayFromArraysINS_17LargeListViewTypeEEENS_6ResultISt10shared_ptrINS_10TypeTraitsIT_E9ArrayTypeEEEES4_INS_8DataTypeEERKNS_5ArrayESF_SF_PNS_10MemoryPoolES4_INS_6BufferEEl.argprom(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef nonnull align 8 dereferenceable(32) %offsets, ptr noundef nonnull align 8 dereferenceable(32) %sizes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %values, ptr nocapture noundef nonnull %null_bitmap, i64 noundef %null_count) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp1 = alloca ptr, align 8
@@ -29221,7 +29221,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit:  ; preds = %if.end12, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_123ListViewArrayFromArraysINS_17LargeListViewTypeEEENS_6ResultISt10shared_ptrINS_10TypeTraitsIT_E9ArrayTypeEEEES4_INS_8DataTypeEERKNS_5ArrayESF_SF_PNS_10MemoryPoolES4_INS_6BufferEEl(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %offsets, ptr noundef nonnull align 8 dereferenceable(32) %sizes, ptr noundef nonnull align 8 dereferenceable(32) %values, ptr noundef %agg.tmp13, i64 noundef %null_count)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_123ListViewArrayFromArraysINS_17LargeListViewTypeEEENS_6ResultISt10shared_ptrINS_10TypeTraitsIT_E9ArrayTypeEEEES4_INS_8DataTypeEERKNS_5ArrayESF_SF_PNS_10MemoryPoolES4_INS_6BufferEEl.argprom(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %offsets, ptr noundef nonnull align 8 dereferenceable(32) %sizes, ptr noundef nonnull align 8 dereferenceable(32) %values, ptr noundef %agg.tmp13, i64 noundef %null_count)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit
@@ -69913,8 +69913,8 @@ attributes #23 = { noreturn nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN5arrow12_GLOBAL__N_116CleanListOffsetsINS_8ListTypeEEENS_6ResultISt6vectorISt10shared_ptrINS_6BufferEESaIS7_EEEERKS7_RKNS_5ArrayEPNS_10MemoryPoolE: %agg.result"}
-!9 = distinct !{!9, !"_ZN5arrow12_GLOBAL__N_116CleanListOffsetsINS_8ListTypeEEENS_6ResultISt6vectorISt10shared_ptrINS_6BufferEESaIS7_EEEERKS7_RKNS_5ArrayEPNS_10MemoryPoolE"}
+!8 = distinct !{!8, !9, !"_ZN5arrow12_GLOBAL__N_116CleanListOffsetsINS_8ListTypeEEENS_6ResultISt6vectorISt10shared_ptrINS_6BufferEESaIS7_EEEERKS7_RKNS_5ArrayEPNS_10MemoryPoolE.argprom: %agg.result"}
+!9 = distinct !{!9, !"_ZN5arrow12_GLOBAL__N_116CleanListOffsetsINS_8ListTypeEEENS_6ResultISt6vectorISt10shared_ptrINS_6BufferEESaIS7_EEEERKS7_RKNS_5ArrayEPNS_10MemoryPoolE.argprom"}
 !10 = !{!11}
 !11 = distinct !{!11, !12, !"_ZNO5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE11ValueUnsafeEv: %agg.result"}
 !12 = distinct !{!12, !"_ZNO5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE11ValueUnsafeEv"}
@@ -70032,8 +70032,8 @@ attributes #23 = { noreturn nounwind }
 !124 = distinct !{!124, !125, !"_ZSt11make_sharedIN5arrow9ArrayDataEJRKSt10shared_ptrINS0_8DataTypeEERKlSt6vectorIS2_INS0_6BufferEESaISB_EEiS8_EES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESF_E4typeEEDpOT0_: %agg.result"}
 !125 = distinct !{!125, !"_ZSt11make_sharedIN5arrow9ArrayDataEJRKSt10shared_ptrINS0_8DataTypeEERKlSt6vectorIS2_INS0_6BufferEESaISB_EEiS8_EES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESF_E4typeEEDpOT0_"}
 !126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZN5arrow12_GLOBAL__N_116CleanListOffsetsINS_13LargeListTypeEEENS_6ResultISt6vectorISt10shared_ptrINS_6BufferEESaIS7_EEEERKS7_RKNS_5ArrayEPNS_10MemoryPoolE: %agg.result"}
-!128 = distinct !{!128, !"_ZN5arrow12_GLOBAL__N_116CleanListOffsetsINS_13LargeListTypeEEENS_6ResultISt6vectorISt10shared_ptrINS_6BufferEESaIS7_EEEERKS7_RKNS_5ArrayEPNS_10MemoryPoolE"}
+!127 = distinct !{!127, !128, !"_ZN5arrow12_GLOBAL__N_116CleanListOffsetsINS_13LargeListTypeEEENS_6ResultISt6vectorISt10shared_ptrINS_6BufferEESaIS7_EEEERKS7_RKNS_5ArrayEPNS_10MemoryPoolE.argprom: %agg.result"}
+!128 = distinct !{!128, !"_ZN5arrow12_GLOBAL__N_116CleanListOffsetsINS_13LargeListTypeEEENS_6ResultISt6vectorISt10shared_ptrINS_6BufferEESaIS7_EEEERKS7_RKNS_5ArrayEPNS_10MemoryPoolE.argprom"}
 !129 = !{!130}
 !130 = distinct !{!130, !131, !"_ZNO5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE11ValueUnsafeEv: %agg.result"}
 !131 = distinct !{!131, !"_ZNO5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE11ValueUnsafeEv"}
@@ -70224,8 +70224,8 @@ attributes #23 = { noreturn nounwind }
 !316 = distinct !{!316, !5}
 !317 = distinct !{!317, !5}
 !318 = !{!319}
-!319 = distinct !{!319, !320, !"_ZN5arrow12_GLOBAL__N_116CleanListOffsetsINS_7MapTypeEEENS_6ResultISt6vectorISt10shared_ptrINS_6BufferEESaIS7_EEEERKS7_RKNS_5ArrayEPNS_10MemoryPoolE: %agg.result"}
-!320 = distinct !{!320, !"_ZN5arrow12_GLOBAL__N_116CleanListOffsetsINS_7MapTypeEEENS_6ResultISt6vectorISt10shared_ptrINS_6BufferEESaIS7_EEEERKS7_RKNS_5ArrayEPNS_10MemoryPoolE"}
+!319 = distinct !{!319, !320, !"_ZN5arrow12_GLOBAL__N_116CleanListOffsetsINS_7MapTypeEEENS_6ResultISt6vectorISt10shared_ptrINS_6BufferEESaIS7_EEEERKS7_RKNS_5ArrayEPNS_10MemoryPoolE.argprom: %agg.result"}
+!320 = distinct !{!320, !"_ZN5arrow12_GLOBAL__N_116CleanListOffsetsINS_7MapTypeEEENS_6ResultISt6vectorISt10shared_ptrINS_6BufferEESaIS7_EEEERKS7_RKNS_5ArrayEPNS_10MemoryPoolE.argprom"}
 !321 = !{!322}
 !322 = distinct !{!322, !323, !"_ZNO5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE11ValueUnsafeEv: %agg.result"}
 !323 = distinct !{!323, !"_ZNO5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE11ValueUnsafeEv"}

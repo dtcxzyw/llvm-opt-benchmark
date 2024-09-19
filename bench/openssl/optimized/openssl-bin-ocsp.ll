@@ -1319,7 +1319,7 @@ if.then374:                                       ; preds = %if.then372
   %call375 = call ptr @OCSP_response_create(i32 noundef 1, ptr noundef null) #9
   store ptr %call375, ptr %resp, align 8
   %48 = load ptr, ptr %cbio, align 8
-  call fastcc void @send_ocsp_response(ptr noundef %48, ptr noundef %call375)
+  call fastcc void @send_ocsp_response.retelim(ptr noundef %48, ptr noundef %call375)
   br label %done_resp
 
 land.lhs.true381:                                 ; preds = %redo_accept.outer.split
@@ -1435,7 +1435,7 @@ if.end449:                                        ; preds = %if.then446
   br i1 %cmp450.not, label %done_resp, label %if.then451
 
 if.then451:                                       ; preds = %if.end449
-  call fastcc void @send_ocsp_response(ptr noundef nonnull %65, ptr noundef nonnull %64)
+  call fastcc void @send_ocsp_response.retelim(ptr noundef nonnull %65, ptr noundef nonnull %64)
   br label %done_resp
 
 if.else454:                                       ; preds = %if.end444
@@ -1856,7 +1856,7 @@ entry:
 declare ptr @OCSP_response_create(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @send_ocsp_response(ptr noundef %cbio, ptr noundef %resp) unnamed_addr #0 {
+define internal fastcc void @send_ocsp_response.retelim(ptr noundef %cbio, ptr noundef %resp) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @prog, align 8
   %call = tail call ptr @OCSP_RESPONSE_it() #9

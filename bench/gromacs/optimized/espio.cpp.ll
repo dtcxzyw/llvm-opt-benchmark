@@ -171,7 +171,7 @@ define void @_Z22gmx_espresso_read_confRKNSt10filesystem7__cxx114pathEP8t_symtab
   br i1 %42, label %260, label %43
 
 43:                                               ; preds = %41
-  call fastcc void @_ZL22check_open_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc(ptr noundef %23, i32 noundef %.131.i.ph, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.2)
+  call fastcc void @_ZL22check_open_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.retelim(ptr noundef %23, i32 noundef %.131.i.ph, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.2)
   br label %select.unfold
 
 select.unfold:                                    ; preds = %73, %43
@@ -1066,7 +1066,7 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit274:       ; preds = %.outer.i269.split.u
   br i1 %brmerge, label %.critedge220, label %262
 
 262:                                              ; preds = %260
-  call fastcc void @_ZL22check_open_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc(ptr noundef %23, i32 noundef %.131.i.ph, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.12)
+  call fastcc void @_ZL22check_open_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.retelim(ptr noundef %23, i32 noundef %.131.i.ph, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.12)
   br label %.outer.i275
 
 .outer.i275:                                      ; preds = %.outer.i275.backedge, %262
@@ -1214,7 +1214,7 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit286:       ; preds = %.outer.i281.split.u
 288:                                              ; preds = %_ZL17get_espresso_wordP8_IO_FILEPc.exit286
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  br i1 %281, label %_ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.exit, label %.outer.i.i
+  br i1 %281, label %_ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.argprom.exit, label %.outer.i.i
 
 .outer.i.i:                                       ; preds = %288, %.split.us.i
   %.024.ph.i.i = phi i32 [ %292, %.split.us.i ], [ 0, %288 ]
@@ -1229,7 +1229,7 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit286:       ; preds = %.outer.i281.split.u
     i32 10, label %.outer.i.split.us.i.backedge
     i32 9, label %.outer.i.split.us.i.backedge
     i32 123, label %.split4.us.i
-    i32 125, label %_ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.exit
+    i32 125, label %_ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.argprom.exit
   ]
 
 .outer.i.split.us.i.backedge:                     ; preds = %.outer.i.split.us.i, %.outer.i.split.us.i, %.outer.i.split.us.i
@@ -1243,7 +1243,7 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit286:       ; preds = %.outer.i281.split.u
     i32 10, label %.split4.us.i
     i32 9, label %.split4.us.i
     i32 123, label %.split4.us.i
-    i32 125, label %_ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.exit
+    i32 125, label %_ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.argprom.exit
   ]
 
 .split.us.i:                                      ; preds = %.outer.i.split.us.i, %.outer.i.split.i
@@ -1283,7 +1283,7 @@ common.resume:                                    ; preds = %78, %258, %310, %30
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #13
   br label %common.resume
 
-_ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.exit: ; preds = %.outer.i.split.i, %.outer.i.split.us.i, %288
+_ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.argprom.exit: ; preds = %.outer.i.split.i, %.outer.i.split.us.i, %288
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %.critedge9, !llvm.loop !14
@@ -1302,10 +1302,10 @@ _ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.exit: 
   %304 = add nsw i32 %.0177, -1
   br label %.critedge9
 
-.critedge9:                                       ; preds = %_ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.exit, %_ZL17get_espresso_wordP8_IO_FILEPc.exit280, %.critedge220, %303, %301, %.critedge7
-  %.7 = phi i32 [ %302, %301 ], [ %304, %303 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit280 ], [ %.3180431, %.critedge7 ], [ %.0177, %.critedge220 ], [ 1, %_ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.exit ]
-  %.1176 = phi i8 [ %.0175, %301 ], [ %.0175, %303 ], [ %.0175, %_ZL17get_espresso_wordP8_IO_FILEPc.exit280 ], [ 1, %.critedge7 ], [ %.0175, %.critedge220 ], [ %.0175, %_ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.exit ]
-  %.1172 = phi i1 [ %.0171, %301 ], [ %.0171, %303 ], [ true, %_ZL17get_espresso_wordP8_IO_FILEPc.exit280 ], [ %.0171, %.critedge7 ], [ %.0171, %.critedge220 ], [ true, %_ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.exit ]
+.critedge9:                                       ; preds = %_ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.argprom.exit, %_ZL17get_espresso_wordP8_IO_FILEPc.exit280, %.critedge220, %303, %301, %.critedge7
+  %.7 = phi i32 [ %302, %301 ], [ %304, %303 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit280 ], [ %.3180431, %.critedge7 ], [ %.0177, %.critedge220 ], [ 1, %_ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.argprom.exit ]
+  %.1176 = phi i8 [ %.0175, %301 ], [ %.0175, %303 ], [ %.0175, %_ZL17get_espresso_wordP8_IO_FILEPc.exit280 ], [ 1, %.critedge7 ], [ %.0175, %.critedge220 ], [ %.0175, %_ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.argprom.exit ]
+  %.1172 = phi i1 [ %.0171, %301 ], [ %.0171, %303 ], [ true, %_ZL17get_espresso_wordP8_IO_FILEPc.exit280 ], [ %.0171, %.critedge7 ], [ %.0171, %.critedge220 ], [ true, %_ZL23check_close_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.argprom.exit ]
   br label %28, !llvm.loop !15
 
 .split460.us:                                     ; preds = %.outer.i.split, %.outer.i.split.us
@@ -1348,7 +1348,7 @@ declare noundef ptr @_Z13gmx_fio_fopenRKNSt10filesystem7__cxx114pathEPKc(ptr nou
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL22check_open_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL22check_open_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.retelim(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = icmp eq i32 %1, 2
@@ -1676,7 +1676,7 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit:          ; preds = %.outer.i.split, %.o
   br i1 %.not, label %21, label %43
 
 21:                                               ; preds = %20
-  tail call fastcc void @_ZL22check_open_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc(ptr noundef %5, i32 noundef %.131.i, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.2)
+  tail call fastcc void @_ZL22check_open_parenthesisP8_IO_FILEiRKNSt10filesystem7__cxx114pathEPKc.retelim(ptr noundef %5, i32 noundef %.131.i, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.2)
   br label %.outer.i37.preheader
 
 .outer.i37.preheader:                             ; preds = %21, %41

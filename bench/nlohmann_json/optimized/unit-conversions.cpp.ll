@@ -34114,7 +34114,7 @@ invoke.cont4.i.i:                                 ; preds = %invoke.cont.i.i
 
 invoke.cont7.i.i:                                 ; preds = %invoke.cont4.i.i
   invoke void @_ZN7doctestplERKNS_6StringES2_(ptr nonnull sret(%"class.doctest::String") align 8 %ref.tmp.i5240, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i.i)
-          to label %_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE6c_enumS2_EENS_6StringERKT_PKcRKT0_.exit.i unwind label %lpad8.i.i, !noalias !726
+          to label %_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE6c_enumS2_EENS_6StringERKT_PKcRKT0_.argprom.exit.i unwind label %lpad8.i.i, !noalias !726
 
 lpad.i.i5241:                                     ; preds = %.noexc5244
   %3192 = landingpad { ptr, i32 }
@@ -34153,7 +34153,7 @@ common.resume.i:                                  ; preds = %lpad14.i, %lpad.i52
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sink.i) #25
   br label %ehcleanup8638
 
-_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE6c_enumS2_EENS_6StringERKT_PKcRKT0_.exit.i: ; preds = %invoke.cont7.i.i
+_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE6c_enumS2_EENS_6StringERKT_PKcRKT0_.argprom.exit.i: ; preds = %invoke.cont7.i.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i.i) #25, !noalias !726
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i) #25, !noalias !726
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2.i.i) #25, !noalias !726
@@ -34165,7 +34165,7 @@ _ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE6c_enumS2_EENS_
   invoke void @_ZN7doctest6detail6ResultC1EbRKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8620, i1 noundef zeroext %spec.select.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i5240)
           to label %invoke.cont8633 unwind label %lpad.i5242
 
-lpad.i5242:                                       ; preds = %_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE6c_enumS2_EENS_6StringERKT_PKcRKT0_.exit.i
+lpad.i5242:                                       ; preds = %_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE6c_enumS2_EENS_6StringERKT_PKcRKT0_.argprom.exit.i
   %3196 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
@@ -34180,8 +34180,8 @@ lpad14.i:                                         ; preds = %if.end11.i
           cleanup
   br label %common.resume.i
 
-invoke.cont8633:                                  ; preds = %if.end11.i, %_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE6c_enumS2_EENS_6StringERKT_PKcRKT0_.exit.i
-  %ref.tmp13.sink.i = phi ptr [ %ref.tmp.i5240, %_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE6c_enumS2_EENS_6StringERKT_PKcRKT0_.exit.i ], [ %ref.tmp13.i, %if.end11.i ]
+invoke.cont8633:                                  ; preds = %if.end11.i, %_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE6c_enumS2_EENS_6StringERKT_PKcRKT0_.argprom.exit.i
+  %ref.tmp13.sink.i = phi ptr [ %ref.tmp.i5240, %_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE6c_enumS2_EENS_6StringERKT_PKcRKT0_.argprom.exit.i ], [ %ref.tmp13.i, %if.end11.i ]
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp13.sink.i) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i5240)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp13.i)
@@ -34259,7 +34259,7 @@ invoke.cont4.i.i5279:                             ; preds = %invoke.cont.i.i5275
 
 invoke.cont7.i.i5284:                             ; preds = %invoke.cont4.i.i5279
   invoke void @_ZN7doctestplERKNS_6StringES2_(ptr nonnull sret(%"class.doctest::String") align 8 %ref.tmp.i5264, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i5260, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i.i5263)
-          to label %_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumS2_EENS_6StringERKT_PKcRKT0_.exit.i unwind label %lpad8.i.i5285, !noalias !732
+          to label %_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumS2_EENS_6StringERKT_PKcRKT0_.argprom.exit.i unwind label %lpad8.i.i5285, !noalias !732
 
 lpad.i.i5271:                                     ; preds = %.noexc5297
   %3205 = landingpad { ptr, i32 }
@@ -34298,7 +34298,7 @@ common.resume.i5272:                              ; preds = %lpad14.i5292, %lpad
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sink.i5273) #25
   br label %ehcleanup8657
 
-_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumS2_EENS_6StringERKT_PKcRKT0_.exit.i: ; preds = %invoke.cont7.i.i5284
+_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumS2_EENS_6StringERKT_PKcRKT0_.argprom.exit.i: ; preds = %invoke.cont7.i.i5284
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i.i5263) #25, !noalias !732
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i5260) #25, !noalias !732
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2.i.i5262) #25, !noalias !732
@@ -34310,7 +34310,7 @@ _ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumS2_EEN
   invoke void @_ZN7doctest6detail6ResultC1EbRKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8639, i1 noundef zeroext %spec.select.i5268, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i5264)
           to label %invoke.cont8652 unwind label %lpad.i5286
 
-lpad.i5286:                                       ; preds = %_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumS2_EENS_6StringERKT_PKcRKT0_.exit.i
+lpad.i5286:                                       ; preds = %_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumS2_EENS_6StringERKT_PKcRKT0_.argprom.exit.i
   %3209 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i5272
@@ -34325,8 +34325,8 @@ lpad14.i5292:                                     ; preds = %if.end11.i5291
           cleanup
   br label %common.resume.i5272
 
-invoke.cont8652:                                  ; preds = %if.end11.i5291, %_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumS2_EENS_6StringERKT_PKcRKT0_.exit.i
-  %ref.tmp13.sink.i5287 = phi ptr [ %ref.tmp.i5264, %_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumS2_EENS_6StringERKT_PKcRKT0_.exit.i ], [ %ref.tmp13.i5265, %if.end11.i5291 ]
+invoke.cont8652:                                  ; preds = %if.end11.i5291, %_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumS2_EENS_6StringERKT_PKcRKT0_.argprom.exit.i
+  %ref.tmp13.sink.i5287 = phi ptr [ %ref.tmp.i5264, %_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumS2_EENS_6StringERKT_PKcRKT0_.argprom.exit.i ], [ %ref.tmp13.i5265, %if.end11.i5291 ]
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp13.sink.i5287) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i5264)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp13.i5265)
@@ -106098,14 +106098,14 @@ attributes #32 = { nounwind willreturn memory(read) }
 !727 = distinct !{!727, !728, !"_ZN7doctest6detail14Expression_lhsIZL19DOCTEST_ANON_FUNC_2vE6c_enumEeqIS2_EEDTcmcvveqclL_ZNS0_7declvalIS2_EEOT_vEEclsr7doctest6detailE7declvalIS6_EEtlNS0_6ResultEEES7_: %agg.result"}
 !728 = distinct !{!728, !"_ZN7doctest6detail14Expression_lhsIZL19DOCTEST_ANON_FUNC_2vE6c_enumEeqIS2_EEDTcmcvveqclL_ZNS0_7declvalIS2_EEOT_vEEclsr7doctest6detailE7declvalIS6_EEtlNS0_6ResultEEES7_"}
 !729 = !{!730, !727}
-!730 = distinct !{!730, !731, !"_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE6c_enumS2_EENS_6StringERKT_PKcRKT0_: %agg.result"}
-!731 = distinct !{!731, !"_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE6c_enumS2_EENS_6StringERKT_PKcRKT0_"}
+!730 = distinct !{!730, !731, !"_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE6c_enumS2_EENS_6StringERKT_PKcRKT0_.argprom: %agg.result"}
+!731 = distinct !{!731, !"_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE6c_enumS2_EENS_6StringERKT_PKcRKT0_.argprom"}
 !732 = !{!733}
 !733 = distinct !{!733, !734, !"_ZN7doctest6detail14Expression_lhsIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumEeqIS2_EEDTcmcvveqclL_ZNS0_7declvalIS2_EEOT_vEEclsr7doctest6detailE7declvalIS6_EEtlNS0_6ResultEEES7_: %agg.result"}
 !734 = distinct !{!734, !"_ZN7doctest6detail14Expression_lhsIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumEeqIS2_EEDTcmcvveqclL_ZNS0_7declvalIS2_EEOT_vEEclsr7doctest6detailE7declvalIS6_EEtlNS0_6ResultEEES7_"}
 !735 = !{!736, !733}
-!736 = distinct !{!736, !737, !"_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumS2_EENS_6StringERKT_PKcRKT0_: %agg.result"}
-!737 = distinct !{!737, !"_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumS2_EENS_6StringERKT_PKcRKT0_"}
+!736 = distinct !{!736, !737, !"_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumS2_EENS_6StringERKT_PKcRKT0_.argprom: %agg.result"}
+!737 = distinct !{!737, !"_ZN7doctest6detail19stringifyBinaryExprIZL19DOCTEST_ANON_FUNC_2vE8cpp_enumS2_EENS_6StringERKT_PKcRKT0_.argprom"}
 !738 = !{!739, !741}
 !739 = distinct !{!739, !740, !"_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8get_implIS2_IS9_iSt4lessIS9_ESaISt4pairIKS9_iEEETnNSt9enable_ifIXaasr6detail24is_default_constructibleIT_EE5valuesr6detail13has_from_jsonISD_SN_EE5valueEiE4typeELi0EEESN_NS0_6detail12priority_tagILj0EEE: %agg.result"}
 !740 = distinct !{!740, !"_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8get_implIS2_IS9_iSt4lessIS9_ESaISt4pairIKS9_iEEETnNSt9enable_ifIXaasr6detail24is_default_constructibleIT_EE5valuesr6detail13has_from_jsonISD_SN_EE5valueEiE4typeELi0EEESN_NS0_6detail12priority_tagILj0EEE"}

@@ -1333,7 +1333,7 @@ _ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i: ; preds = %86, %80
   %.043.i = phi i64 [ %91, %86 ], [ %.245.i, %80 ], [ %.245.i, %75 ], [ %.245.i, %73 ], [ 0, %58 ]
   %.0.i = phi ptr [ %92, %86 ], [ %.2.i, %80 ], [ %.2.i, %75 ], [ %.2.i, %73 ], [ %19, %58 ]
   %93 = icmp ult ptr %.0.i, %62
-  br i1 %93, label %.lr.ph.i, label %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit
+  br i1 %93, label %.lr.ph.i, label %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.argprom.exit
 
 .lr.ph.i:                                         ; preds = %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i
   %.32.i = phi ptr [ %100, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i ], [ %.0.i, %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i ]
@@ -1358,18 +1358,18 @@ _ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i: ; preds =
   store i8 %.sroa.0.0.i49.i, ptr %99, align 1
   %100 = getelementptr inbounds i8, ptr %.32.i, i64 %.sroa.3.0.insert.insert.i50.i
   %101 = icmp ult ptr %100, %62
-  br i1 %101, label %.lr.ph.i, label %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit, !llvm.loop !16
+  br i1 %101, label %.lr.ph.i, label %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.argprom.exit, !llvm.loop !16
 
-_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit: ; preds = %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i, %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i
+_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.argprom.exit: ; preds = %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i, %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i
   %.346.lcssa.i = phi i64 [ %.043.i, %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i ], [ %98, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i ]
   call void @_ZN4llvm15SmallVectorImplIcE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %.346.lcssa.i)
   %102 = load ptr, ptr %1, align 8
   %103 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #24
   br label %104
 
-104:                                              ; preds = %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit, %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit
-  %.sroa.5.1 = phi i64 [ %103, %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit ], [ %57, %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit ]
-  %.sroa.024.1 = phi ptr [ %102, %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit ], [ %19, %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit ]
+104:                                              ; preds = %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit, %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.argprom.exit
+  %.sroa.5.1 = phi i64 [ %103, %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.argprom.exit ], [ %57, %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit ]
+  %.sroa.024.1 = phi ptr [ %102, %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.argprom.exit ], [ %19, %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit ]
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %8, align 8
   %105 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %105) #24
@@ -1641,7 +1641,7 @@ _ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i: ; preds = %57, %51
   %.043.i = phi i64 [ %62, %57 ], [ %.245.i, %51 ], [ %.245.i, %46 ], [ %.245.i, %44 ], [ 0, %26 ]
   %.0.i = phi ptr [ %63, %57 ], [ %.2.i, %51 ], [ %.2.i, %46 ], [ %.2.i, %44 ], [ %9, %26 ]
   %64 = icmp ult ptr %.0.i, %33
-  br i1 %64, label %.lr.ph.i, label %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit
+  br i1 %64, label %.lr.ph.i, label %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.argprom.exit
 
 .lr.ph.i:                                         ; preds = %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i
   %.32.i = phi ptr [ %71, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i ], [ %.0.i, %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i ]
@@ -1666,14 +1666,14 @@ _ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i: ; preds =
   store i8 %.sroa.0.0.i49.i, ptr %70, align 1
   %71 = getelementptr inbounds i8, ptr %.32.i, i64 %.sroa.3.0.insert.insert.i50.i
   %72 = icmp ult ptr %71, %33
-  br i1 %72, label %.lr.ph.i, label %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit, !llvm.loop !16
+  br i1 %72, label %.lr.ph.i, label %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.argprom.exit, !llvm.loop !16
 
-_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit: ; preds = %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i, %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i
+_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.argprom.exit: ; preds = %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i, %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i
   %.346.lcssa.i = phi i64 [ %.043.i, %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i ], [ %69, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.346.lcssa.i) #24
   br label %73
 
-73:                                               ; preds = %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit, %19, %14
+73:                                               ; preds = %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.argprom.exit, %19, %14
   ret void
 }
 
@@ -1882,7 +1882,7 @@ _ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i: ; preds = %67, %61
   %.043.i = phi i64 [ %72, %67 ], [ %.245.i, %61 ], [ %.245.i, %56 ], [ %.245.i, %54 ], [ 0, %40 ]
   %.0.i30 = phi ptr [ %73, %67 ], [ %.2.i, %61 ], [ %.2.i, %56 ], [ %.2.i, %54 ], [ %.2, %40 ]
   %74 = icmp ult ptr %.0.i30, %43
-  br i1 %74, label %.lr.ph.i, label %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit
+  br i1 %74, label %.lr.ph.i, label %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.argprom.exit
 
 .lr.ph.i:                                         ; preds = %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i
   %.32.i = phi ptr [ %81, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i ], [ %.0.i30, %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i ]
@@ -1907,15 +1907,15 @@ _ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i: ; preds =
   store i8 %.sroa.0.0.i49.i, ptr %80, align 1
   %81 = getelementptr inbounds i8, ptr %.32.i, i64 %.sroa.3.0.insert.insert.i50.i
   %82 = icmp ult ptr %81, %43
-  br i1 %82, label %.lr.ph.i, label %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit, !llvm.loop !16
+  br i1 %82, label %.lr.ph.i, label %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.argprom.exit, !llvm.loop !16
 
-_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit: ; preds = %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i, %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i
+_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.argprom.exit: ; preds = %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i, %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i
   %.346.lcssa.i = phi i64 [ %.043.i, %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit.thread.i ], [ %79, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit53.i ]
   %83 = trunc i64 %.346.lcssa.i to i32
   br label %84
 
-84:                                               ; preds = %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit, %38, %32, %17
-  %.0 = phi i32 [ %83, %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit ], [ %39, %38 ], [ 0, %32 ], [ %23, %17 ]
+84:                                               ; preds = %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.argprom.exit, %38, %32, %17
+  %.0 = phi i32 [ %83, %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.argprom.exit ], [ %39, %38 ], [ 0, %32 ], [ %23, %17 ]
   ret i32 %.0
 }
 
@@ -4310,13 +4310,13 @@ define dso_local i32 @_ZNK5clang5Lexer17getSourceLocationEPKcj(ptr nocapture nou
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %11, -1
-  br i1 %12, label %13, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit
+  br i1 %12, label %13, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit
 
 13:                                               ; preds = %3
   %14 = add i32 %11, %9
   br label %22
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit: ; preds = %3
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit: ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %16, i64 88
@@ -4331,8 +4331,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit: ; pred
   %21 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val, i32 %19, i32 %.sroa.0.0.extract.trunc.i, i32 %.sroa.2.0.extract.trunc.i, i32 noundef %2, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %22
 
-22:                                               ; preds = %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit, %13
-  %.sroa.04.0 = phi i32 [ %14, %13 ], [ %21, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit ]
+22:                                               ; preds = %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit, %13
+  %.sroa.04.0 = phi i32 [ %14, %13 ], [ %21, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit ]
   ret i32 %.sroa.04.0
 }
 
@@ -4349,13 +4349,13 @@ define dso_local void @_ZNK5clang5Lexer4DiagEPKcj(ptr dead_on_unwind noalias noc
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %16, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i
+  br i1 %15, label %16, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i
 
 16:                                               ; preds = %4
   %17 = add i32 %14, %12
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i: ; preds = %4
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i: ; preds = %4
   %18 = getelementptr i8, ptr %6, i64 88
   %.val.i = load ptr, ptr %18, align 8
   %19 = tail call i32 @_ZNK5clang13SourceManager22getSpellingLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %.val.i, i32 %14) #24
@@ -4368,8 +4368,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i: ; pr
   %22 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i, i32 %20, i32 %.sroa.0.0.extract.trunc.i.i, i32 %.sroa.2.0.extract.trunc.i.i, i32 noundef 1, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
 
-_ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %16, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i
-  %.sroa.04.0.i = phi i32 [ %17, %16 ], [ %22, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i ]
+_ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %16, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i
+  %.sroa.04.0.i = phi i32 [ %17, %16 ], [ %22, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %24 = load ptr, ptr %23, align 8, !noalias !27
@@ -5280,7 +5280,7 @@ define dso_local noundef zeroext i1 @_ZN5clang5Lexer23tryConsumeIdentifierUCNERP
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
   %.val = load i64, ptr %14, align 8
-  %15 = call fastcc noundef zeroext i1 @_ZL15isAllowedIDCharjRKN5clang11LangOptionsERb(i32 noundef %10, i64 %.val, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %15 = call fastcc noundef zeroext i1 @_ZL15isAllowedIDCharjRKN5clang11LangOptionsERb.argprom(i32 noundef %10, i64 %.val, ptr noundef nonnull align 1 dereferenceable(1) %6)
   br i1 %15, label %44, label %16
 
 16:                                               ; preds = %12
@@ -5659,7 +5659,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %84, %90, %55, %61, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc noundef zeroext i1 @_ZL15isAllowedIDCharjRKN5clang11LangOptionsERb(i32 noundef %0, i64 %.0.val, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) unnamed_addr #12 {
+define internal fastcc noundef zeroext i1 @_ZL15isAllowedIDCharjRKN5clang11LangOptionsERb.argprom(i32 noundef %0, i64 %.0.val, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) unnamed_addr #12 {
   %3 = and i64 %.0.val, 8589934592
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit49
@@ -5738,7 +5738,7 @@ _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit34:  ; preds = %_ZSt13__lower_bound
   br i1 %.not2, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit34.thread, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit49
 
 _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit34.thread: ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i30, %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit34
-  %26 = tail call fastcc noundef zeroext i1 @_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb(i32 noundef %0, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %1)
+  %26 = tail call fastcc noundef zeroext i1 @_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.argprom(i32 noundef %0, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %1)
   br label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit49
 
 27:                                               ; preds = %8
@@ -5830,7 +5830,7 @@ define internal fastcc void @_ZL43diagnoseInvalidUnicodeCodepointInIdentifierRN5
 
 21:                                               ; preds = %19
   %.val = load i64, ptr %1, align 8
-  %22 = call fastcc noundef zeroext i1 @_ZL15isAllowedIDCharjRKN5clang11LangOptionsERb(i32 noundef %2, i64 %.val, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  %22 = call fastcc noundef zeroext i1 @_ZL15isAllowedIDCharjRKN5clang11LangOptionsERb.argprom(i32 noundef %2, i64 %.val, ptr noundef nonnull align 1 dereferenceable(1) %10)
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -6232,7 +6232,7 @@ _ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %3
   %27 = sub i64 %25, %26
   %28 = trunc i64 %27 to i32
   %29 = icmp sgt i32 %.pr, -1
-  br i1 %29, label %30, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i10
+  br i1 %29, label %30, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i10
 
 30:                                               ; preds = %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit.thread, %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
   %31 = phi i32 [ %16, %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit.thread ], [ %28, %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit ]
@@ -6241,7 +6241,7 @@ _ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %3
   %33 = add i32 %32, %31
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit17
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i10: ; preds = %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i10: ; preds = %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
   %34 = load ptr, ptr %17, align 8
   %35 = getelementptr i8, ptr %34, i64 88
   %.val.i11 = load ptr, ptr %35, align 8
@@ -6255,9 +6255,9 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i10: ; 
   %39 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i11, i32 %37, i32 %.sroa.0.0.extract.trunc.i.i13, i32 %.sroa.2.0.extract.trunc.i.i15, i32 noundef 1, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit17
 
-_ZNK5clang5Lexer17getSourceLocationEPKcj.exit17:  ; preds = %30, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i10
-  %.sroa.04.0.i19 = phi i32 [ %.sroa.04.0.i20, %30 ], [ %23, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i10 ]
-  %.sroa.04.0.i16 = phi i32 [ %33, %30 ], [ %39, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i10 ]
+_ZNK5clang5Lexer17getSourceLocationEPKcj.exit17:  ; preds = %30, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i10
+  %.sroa.04.0.i19 = phi i32 [ %.sroa.04.0.i20, %30 ], [ %23, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i10 ]
+  %.sroa.04.0.i16 = phi i32 [ %33, %30 ], [ %39, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i10 ]
   %.sroa.2.0.insert.ext.i = zext i32 %.sroa.04.0.i16 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %.sroa.04.0.i19 to i64
@@ -6492,15 +6492,15 @@ _ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit: ; preds = %.lr.p
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(9) %6)
   %39 = load ptr, ptr %7, align 8
   %.not.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.exit"
+  br i1 %.not.i.i.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.argprom.exit"
 
 _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit
   %40 = load ptr, ptr %25, align 8
   %41 = call noundef ptr @_ZN5clang19StreamingDiagnostic20DiagStorageAllocator8AllocateEv(ptr noundef nonnull align 8 dereferenceable(14980) %40)
   store ptr %41, ptr %7, align 8
-  br label %"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.exit"
+  br label %"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.argprom.exit"
 
-"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.exit": ; preds = %_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i
+"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.argprom.exit": ; preds = %_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i
   %42 = phi ptr [ %41, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %39, %_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 1
   %44 = load i8, ptr %42, align 8
@@ -6519,7 +6519,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN5clang17
   %54 = trunc i8 %53 to i1
   br i1 %54, label %55, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
 
-55:                                               ; preds = %"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.exit"
+55:                                               ; preds = %"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.argprom.exit"
   %56 = load ptr, ptr %26, align 8
   %57 = load i8, ptr %28, align 1
   %58 = trunc i8 %57 to i1
@@ -6529,7 +6529,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN5clang17
   store i8 0, ptr %28, align 1
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
 
-_ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %55, %"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.exit"
+_ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %55, %"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.argprom.exit"
   %60 = load ptr, ptr %7, align 8
   %.not.i.i.i11 = icmp eq ptr %60, null
   br i1 %.not.i.i.i11, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %61
@@ -6638,15 +6638,15 @@ _ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit35: ; preds = %.lr
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(9) %6)
   %101 = load ptr, ptr %8, align 8
   %.not.i.i.i36 = icmp eq ptr %101, null
-  br i1 %.not.i.i.i36, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i37, label %"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.exit38"
+  br i1 %.not.i.i.i36, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i37, label %"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.argprom.exit38"
 
 _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i37: ; preds = %_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit35
   %102 = load ptr, ptr %87, align 8
   %103 = call noundef ptr @_ZN5clang19StreamingDiagnostic20DiagStorageAllocator8AllocateEv(ptr noundef nonnull align 8 dereferenceable(14980) %102)
   store ptr %103, ptr %8, align 8
-  br label %"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.exit38"
+  br label %"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.argprom.exit38"
 
-"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.exit38": ; preds = %_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit35, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i37
+"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.argprom.exit38": ; preds = %_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit35, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i37
   %104 = phi ptr [ %103, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i37 ], [ %101, %_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit35 ]
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 1
   %106 = load i8, ptr %104, align 8
@@ -6665,7 +6665,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i37: ; preds = %_ZN5clang
   %116 = trunc i8 %115 to i1
   br i1 %116, label %117, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i39
 
-117:                                              ; preds = %"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.exit38"
+117:                                              ; preds = %"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.argprom.exit38"
   %118 = load ptr, ptr %88, align 8
   %119 = load i8, ptr %90, align 1
   %120 = trunc i8 %119 to i1
@@ -6675,7 +6675,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i37: ; preds = %_ZN5clang
   store i8 0, ptr %90, align 1
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i39
 
-_ZN5clang17DiagnosticBuilder4EmitEv.exit.i39:     ; preds = %117, %"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.exit38"
+_ZN5clang17DiagnosticBuilder4EmitEv.exit.i39:     ; preds = %117, %"_ZNK5clang17DiagnosticBuilderlsIZL25maybeDiagnoseIDCharCompatRNS_17DiagnosticsEngineEjNS_15CharSourceRangeEbE3$_0vEERKS0_OT_.argprom.exit38"
   %122 = load ptr, ptr %8, align 8
   %.not.i.i.i40 = icmp eq ptr %122, null
   br i1 %.not.i.i.i40, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %123
@@ -6773,7 +6773,7 @@ _ZN4llvm19convertUTF8SequenceEPPKhS1_PjNS_15ConversionFlagsE.exit: ; preds = %19
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %33 = load ptr, ptr %32, align 8
   %.val = load i64, ptr %33, align 8
-  %34 = call fastcc noundef zeroext i1 @_ZL15isAllowedIDCharjRKN5clang11LangOptionsERb(i32 noundef %31, i64 %.val, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %34 = call fastcc noundef zeroext i1 @_ZL15isAllowedIDCharjRKN5clang11LangOptionsERb.argprom(i32 noundef %31, i64 %.val, ptr noundef nonnull align 1 dereferenceable(1) %7)
   br i1 %34, label %62, label %35
 
 35:                                               ; preds = %30
@@ -6932,15 +6932,15 @@ define internal fastcc void @_ZL26maybeDiagnoseUTF8HomoglyphRN5clang17Diagnostic
   %.112.i.i = select i1 %17, i64 %20, i64 %15
   %.1.i.i = select i1 %17, ptr %18, ptr %.04.i.i
   %21 = icmp sgt i64 %.112.i.i, 0
-  br i1 %21, label %14, label %_ZSt11lower_boundIPKZL26maybeDiagnoseUTF8HomoglyphRN5clang17DiagnosticsEngineEjNS0_15CharSourceRangeEE13HomoglyphPairS4_ET_S7_S7_RKT0_.exit, !llvm.loop !68
+  br i1 %21, label %14, label %_ZSt11lower_boundIPKZL26maybeDiagnoseUTF8HomoglyphRN5clang17DiagnosticsEngineEjNS0_15CharSourceRangeEE13HomoglyphPairS4_ET_S7_S7_RKT0_.argprom.exit, !llvm.loop !68
 
-_ZSt11lower_boundIPKZL26maybeDiagnoseUTF8HomoglyphRN5clang17DiagnosticsEngineEjNS0_15CharSourceRangeEE13HomoglyphPairS4_ET_S7_S7_RKT0_.exit: ; preds = %14
+_ZSt11lower_boundIPKZL26maybeDiagnoseUTF8HomoglyphRN5clang17DiagnosticsEngineEjNS0_15CharSourceRangeEE13HomoglyphPairS4_ET_S7_S7_RKT0_.argprom.exit: ; preds = %14
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
   %22 = load i32, ptr %.1.i.i, align 4
   %23 = icmp eq i32 %22, %1
   br i1 %23, label %24, label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
-24:                                               ; preds = %_ZSt11lower_boundIPKZL26maybeDiagnoseUTF8HomoglyphRN5clang17DiagnosticsEngineEjNS0_15CharSourceRangeEE13HomoglyphPairS4_ET_S7_S7_RKT0_.exit
+24:                                               ; preds = %_ZSt11lower_boundIPKZL26maybeDiagnoseUTF8HomoglyphRN5clang17DiagnosticsEngineEjNS0_15CharSourceRangeEE13HomoglyphPairS4_ET_S7_S7_RKT0_.argprom.exit
   %25 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
   %26 = load i8, ptr %25, align 4
   %.not = icmp eq i8 %26, 0
@@ -7219,7 +7219,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i21:     ; preds = %128, %_ZN4llvm11Sma
   call void @_ZdlPvm(ptr noundef nonnull %133, i64 noundef 928) #26
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
-_ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %140, %146, %88, %94, %134, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i21, %82, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i, %_ZSt11lower_boundIPKZL26maybeDiagnoseUTF8HomoglyphRN5clang17DiagnosticsEngineEjNS0_15CharSourceRangeEE13HomoglyphPairS4_ET_S7_S7_RKT0_.exit
+_ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %140, %146, %88, %94, %134, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i21, %82, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i, %_ZSt11lower_boundIPKZL26maybeDiagnoseUTF8HomoglyphRN5clang17DiagnosticsEngineEjNS0_15CharSourceRangeEE13HomoglyphPairS4_ET_S7_S7_RKT0_.argprom.exit
   ret void
 }
 
@@ -7383,13 +7383,13 @@ _ZL19isUnicodeWhitespacej.exit.thread:            ; preds = %_ZSt13__lower_bound
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %92 = load i32, ptr %91, align 8
   %93 = icmp sgt i32 %92, -1
-  br i1 %93, label %94, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
+  br i1 %93, label %94, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
 
 94:                                               ; preds = %74
   %95 = add i32 %92, %90
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; preds = %74
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i: ; preds = %74
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr i8, ptr %97, i64 88
@@ -7404,8 +7404,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; 
   %102 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i, i32 %100, i32 %.sroa.0.0.extract.trunc.i.i.i, i32 %.sroa.2.0.extract.trunc.i.i.i, i32 noundef %82, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %94, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
-  %.sroa.04.0.i.i = phi i32 [ %95, %94 ], [ %102, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %94, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
+  %.sroa.04.0.i.i = phi i32 [ %95, %94 ], [ %102, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
   store i32 %.sroa.04.0.i.i, ptr %1, align 8
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 0, ptr %103, align 8
@@ -7423,7 +7423,7 @@ define internal fastcc noundef zeroext i1 @_ZL24isAllowedInitiallyIDCharjRKN5cla
   %4 = load i64, ptr %1, align 8
   %5 = and i64 %4, 8589934592
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.exit
+  br i1 %.not, label %6, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.argprom.exit
 
 6:                                                ; preds = %3
   %7 = and i64 %4, 2056
@@ -7455,7 +7455,7 @@ _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit:    ; preds = %_ZSt13__lower_bound
   %.sroa.0.0.copyload.i.i = load i64, ptr %.1.i.i.i, align 4
   %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
   %.not47 = icmp ult i32 %0, %.sroa.0.0.extract.trunc.i.i.i
-  br i1 %.not47, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.preheader, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.exit
+  br i1 %.not47, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.preheader, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.argprom.exit
 
 _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.preheader: ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i, %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit
   br label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i
@@ -7479,21 +7479,21 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i: ; preds = %_
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i
   %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZL40MathematicalNotationProfileIDStartRanges, i64 104)
-  br i1 %.not.i.i.i, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.exit, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.i
+  br i1 %.not.i.i.i, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.argprom.exit, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.i
 
 _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.i:  ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %.1.i.i.i.i, align 4
   %.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %.sroa.0.0.copyload.i.i.i to i32
   %.not.i = icmp ult i32 %0, %.sroa.0.0.extract.trunc.i.i.i.i
-  br i1 %.not.i, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.exit, label %22
+  br i1 %.not.i, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.argprom.exit, label %22
 
 22:                                               ; preds = %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.i
   store i8 1, ptr %2, align 1
-  br label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.exit
+  br label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.argprom.exit
 
 23:                                               ; preds = %6
-  %24 = tail call fastcc noundef zeroext i1 @_ZL15isAllowedIDCharjRKN5clang11LangOptionsERb(i32 noundef %0, i64 %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  br i1 %24, label %25, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.exit
+  %24 = tail call fastcc noundef zeroext i1 @_ZL15isAllowedIDCharjRKN5clang11LangOptionsERb.argprom(i32 noundef %0, i64 %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  br i1 %24, label %25, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.argprom.exit
 
 25:                                               ; preds = %23
   %26 = load i64, ptr %1, align 8
@@ -7520,13 +7520,13 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i17: ; preds = %2
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i27: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i17
   %.not.i.i28 = icmp eq ptr %.1.i.i.i26, getelementptr inbounds (i8, ptr @_ZL32C11DisallowedInitialIDCharRanges, i64 32)
-  br i1 %.not.i.i28, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.exit, label %35
+  br i1 %.not.i.i28, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.argprom.exit, label %35
 
 35:                                               ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i27
   %.sroa.0.0.copyload.i.i29 = load i64, ptr %.1.i.i.i26, align 4
   %.sroa.0.0.extract.trunc.i.i.i30 = trunc i64 %.sroa.0.0.copyload.i.i29 to i32
   %36 = icmp ult i32 %0, %.sroa.0.0.extract.trunc.i.i.i30
-  br label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.exit
+  br label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.argprom.exit
 
 _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i32: ; preds = %25, %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i32
   %.017.i.i.i33 = phi ptr [ %.1.i.i.i41, %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i32 ], [ @_ZL32C99DisallowedInitialIDCharRanges, %25 ]
@@ -7547,15 +7547,15 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i32: ; preds = %2
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i42: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i32
   %.not.i.i43 = icmp eq ptr %.1.i.i.i41, getelementptr inbounds (i8, ptr @_ZL32C99DisallowedInitialIDCharRanges, i64 112)
-  br i1 %.not.i.i43, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.exit, label %44
+  br i1 %.not.i.i43, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.argprom.exit, label %44
 
 44:                                               ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i42
   %.sroa.0.0.copyload.i.i44 = load i64, ptr %.1.i.i.i41, align 4
   %.sroa.0.0.extract.trunc.i.i.i45 = trunc i64 %.sroa.0.0.copyload.i.i44 to i32
   %45 = icmp ult i32 %0, %.sroa.0.0.extract.trunc.i.i.i45
-  br label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.exit
+  br label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.argprom.exit
 
-_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.exit: ; preds = %44, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i42, %35, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i27, %22, %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.i, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i, %23, %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit, %3
+_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.argprom.exit: ; preds = %44, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i42, %35, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i27, %22, %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.i, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i, %23, %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit, %3
   %.0 = phi i1 [ false, %3 ], [ true, %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit ], [ false, %23 ], [ true, %22 ], [ false, %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.i ], [ false, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i ], [ true, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i27 ], [ %36, %35 ], [ true, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i42 ], [ %45, %44 ]
   ret i1 %.0
 }
@@ -7580,20 +7580,20 @@ define dso_local noundef zeroext i1 @_ZN5clang5Lexer21LexIdentifierContinueERNS_
   %15 = load i8, ptr %14, align 1
   %.not.i = icmp eq i8 %15, 0
   %16 = getelementptr inbounds i8, ptr %.03.i, i64 1
-  br i1 %.not.i, label %_ZL24fastParseASCIIIdentifierPKcS0_.exit, label %.backedge38
+  br i1 %.not.i, label %_ZL24fastParseASCIIIdentifierPKcS0_.argprom.exit, label %.backedge38
 
 .backedge38:                                      ; preds = %12, %.backedge
   %.03.i.be = phi ptr [ %16, %12 ], [ %.pre, %.backedge ]
   br label %12, !llvm.loop !81
 
-_ZL24fastParseASCIIIdentifierPKcS0_.exit:         ; preds = %12
+_ZL24fastParseASCIIIdentifierPKcS0_.argprom.exit: ; preds = %12
   store ptr %.03.i, ptr %4, align 8
   switch i8 %.0.i, label %_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit.thread [
     i8 92, label %_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit
     i8 63, label %_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit
   ]
 
-_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit:       ; preds = %_ZL24fastParseASCIIIdentifierPKcS0_.exit, %_ZL24fastParseASCIIIdentifierPKcS0_.exit
+_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit:       ; preds = %_ZL24fastParseASCIIIdentifierPKcS0_.argprom.exit, %_ZL24fastParseASCIIIdentifierPKcS0_.argprom.exit
   %17 = tail call i64 @_ZN5clang5Lexer18getCharAndSizeSlowEPKcPNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull %.03.i, ptr noundef null)
   %.sroa.0.0.extract.trunc.i = trunc i64 %17 to i8
   %.sroa.21.0.extract.shift.i = lshr i64 %17, 32
@@ -7623,9 +7623,9 @@ _ZN5clang5Lexer14getCharAndSizeEPKcRj.exit:       ; preds = %_ZL24fastParseASCII
   %.pre = load ptr, ptr %4, align 8
   br label %.backedge38
 
-_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit.thread: ; preds = %_ZL24fastParseASCIIIdentifierPKcS0_.exit, %_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit
-  %.0.i1730 = phi i8 [ %.sroa.0.0.extract.trunc.i, %_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit ], [ %.0.i, %_ZL24fastParseASCIIIdentifierPKcS0_.exit ]
-  %.02529 = phi i32 [ %.sroa.21.0.extract.trunc.i, %_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit ], [ 1, %_ZL24fastParseASCIIIdentifierPKcS0_.exit ]
+_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit.thread: ; preds = %_ZL24fastParseASCIIIdentifierPKcS0_.argprom.exit, %_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit
+  %.0.i1730 = phi i8 [ %.sroa.0.0.extract.trunc.i, %_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit ], [ %.0.i, %_ZL24fastParseASCIIIdentifierPKcS0_.argprom.exit ]
+  %.02529 = phi i32 [ %.sroa.21.0.extract.trunc.i, %_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit ], [ 1, %_ZL24fastParseASCIIIdentifierPKcS0_.argprom.exit ]
   switch i8 %.0.i1730, label %57 [
     i8 36, label %25
     i8 92, label %55
@@ -7732,13 +7732,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang19Streamin
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %78 = load i32, ptr %77, align 8
   %79 = icmp sgt i32 %78, -1
-  br i1 %79, label %80, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
+  br i1 %79, label %80, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
 
 80:                                               ; preds = %.thread32
   %81 = add i32 %78, %76
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; preds = %.thread32
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i: ; preds = %.thread32
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr i8, ptr %83, i64 88
@@ -7753,8 +7753,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; 
   %88 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i, i32 %86, i32 %.sroa.0.0.extract.trunc.i.i.i, i32 %.sroa.2.0.extract.trunc.i.i.i, i32 noundef %68, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %80, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
-  %.sroa.04.0.i.i = phi i32 [ %81, %80 ], [ %88, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %80, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
+  %.sroa.04.0.i.i = phi i32 [ %81, %80 ], [ %88, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
   store i32 %.sroa.04.0.i.i, ptr %1, align 8
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 6, ptr %89, align 8
@@ -7848,13 +7848,13 @@ define linkonce_odr hidden void @_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenE
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, -1
-  br i1 %21, label %22, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i
+  br i1 %21, label %22, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i
 
 22:                                               ; preds = %4
   %23 = add i32 %20, %18
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i: ; preds = %4
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i: ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr i8, ptr %25, i64 88
@@ -7869,8 +7869,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i: ; pr
   %30 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i, i32 %28, i32 %.sroa.0.0.extract.trunc.i.i, i32 %.sroa.2.0.extract.trunc.i.i, i32 noundef %10, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
 
-_ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %22, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i
-  %.sroa.04.0.i = phi i32 [ %23, %22 ], [ %30, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i ]
+_ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %22, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i
+  %.sroa.04.0.i = phi i32 [ %23, %22 ], [ %30, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i ]
   store i32 %.sroa.04.0.i, ptr %1, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 %3, ptr %31, align 8
@@ -8380,13 +8380,13 @@ tailrecurse.backedge:                             ; preds = %147, %143, %_ZN5cla
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %164 = load i32, ptr %163, align 8
   %165 = icmp sgt i32 %164, -1
-  br i1 %165, label %166, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
+  br i1 %165, label %166, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
 
 166:                                              ; preds = %.thread98
   %167 = add i32 %164, %162
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; preds = %.thread98
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i: ; preds = %.thread98
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr i8, ptr %169, i64 88
@@ -8401,8 +8401,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; 
   %174 = call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i, i32 %172, i32 %.sroa.0.0.extract.trunc.i.i.i, i32 %.sroa.2.0.extract.trunc.i.i.i, i32 noundef %154, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %166, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
-  %.sroa.04.0.i.i = phi i32 [ %167, %166 ], [ %174, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %166, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
+  %.sroa.04.0.i.i = phi i32 [ %167, %166 ], [ %174, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
   store i32 %.sroa.04.0.i.i, ptr %1, align 8
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 7, ptr %175, align 8
@@ -8621,13 +8621,13 @@ _ZN5clang22isAsciiIdentifierStartEhb.exit:        ; preds = %_ZN5clang5Lexer14ge
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %55 = load i32, ptr %54, align 8
   %56 = icmp sgt i32 %55, -1
-  br i1 %56, label %57, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i
+  br i1 %56, label %57, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i
 
 57:                                               ; preds = %44
   %58 = add i32 %55, %53
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i: ; preds = %44
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i: ; preds = %44
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr i8, ptr %60, i64 88
@@ -8642,8 +8642,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i: ; pr
   %65 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i, i32 %63, i32 %.sroa.0.0.extract.trunc.i.i, i32 %.sroa.2.0.extract.trunc.i.i, i32 noundef 1, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
 
-_ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %57, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i
-  %.sroa.04.0.i = phi i32 [ %58, %57 ], [ %65, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i ]
+_ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %57, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i
+  %.sroa.04.0.i = phi i32 [ %58, %57 ], [ %65, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
@@ -8835,13 +8835,13 @@ _ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit: ; preds = %11
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %153 = load i32, ptr %152, align 8
   %154 = icmp sgt i32 %153, -1
-  br i1 %154, label %155, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i42
+  br i1 %154, label %155, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i42
 
 155:                                              ; preds = %141
   %156 = add i32 %153, %151
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit49
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i42: ; preds = %141
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i42: ; preds = %141
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr i8, ptr %158, i64 88
@@ -8856,8 +8856,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i42: ; 
   %163 = call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i43, i32 %161, i32 %.sroa.0.0.extract.trunc.i.i45, i32 %.sroa.2.0.extract.trunc.i.i47, i32 noundef 1, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit49
 
-_ZNK5clang5Lexer17getSourceLocationEPKcj.exit49:  ; preds = %155, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i42
-  %.sroa.04.0.i48 = phi i32 [ %156, %155 ], [ %163, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i42 ]
+_ZNK5clang5Lexer17getSourceLocationEPKcj.exit49:  ; preds = %155, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i42
+  %.sroa.04.0.i48 = phi i32 [ %156, %155 ], [ %163, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i42 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
@@ -9365,13 +9365,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit50:          ; preds = %104, %110, %_ZN5cla
   %124 = trunc i64 %123 to i32
   %125 = load i32, ptr %51, align 8
   %126 = icmp sgt i32 %125, -1
-  br i1 %126, label %127, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
+  br i1 %126, label %127, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
 
 127:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit50
   %128 = add i32 %125, %124
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit50
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit50
   %129 = load ptr, ptr %50, align 8
   %130 = getelementptr i8, ptr %129, i64 88
   %.val.i.i = load ptr, ptr %130, align 8
@@ -9385,8 +9385,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; 
   %134 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i, i32 %132, i32 %.sroa.0.0.extract.trunc.i.i.i, i32 %.sroa.2.0.extract.trunc.i.i.i, i32 noundef %117, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %127, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
-  %.sroa.04.0.i.i = phi i32 [ %128, %127 ], [ %134, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %127, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
+  %.sroa.04.0.i.i = phi i32 [ %128, %127 ], [ %134, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
   store i32 %.sroa.04.0.i.i, ptr %1, align 8
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 0, ptr %135, align 8
@@ -9447,13 +9447,13 @@ _ZNK5clang5Lexer21isCodeCompletionPointEPKc.exit: ; preds = %138
   %168 = trunc i64 %167 to i32
   %169 = load i32, ptr %51, align 8
   %170 = icmp sgt i32 %169, -1
-  br i1 %170, label %171, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i52
+  br i1 %170, label %171, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i52
 
 171:                                              ; preds = %156
   %172 = add i32 %169, %168
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit59
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i52: ; preds = %156
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i52: ; preds = %156
   %173 = load ptr, ptr %50, align 8
   %174 = getelementptr i8, ptr %173, i64 88
   %.val.i.i53 = load ptr, ptr %174, align 8
@@ -9467,8 +9467,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i52: 
   %178 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i53, i32 %176, i32 %.sroa.0.0.extract.trunc.i.i.i55, i32 %.sroa.2.0.extract.trunc.i.i.i57, i32 noundef %161, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit59
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit59: ; preds = %171, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i52
-  %.sroa.04.0.i.i58 = phi i32 [ %172, %171 ], [ %178, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i52 ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit59: ; preds = %171, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i52
+  %.sroa.04.0.i.i58 = phi i32 [ %172, %171 ], [ %178, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i52 ]
   store i32 %.sroa.04.0.i.i58, ptr %1, align 8
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 0, ptr %179, align 8
@@ -9601,13 +9601,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit72:          ; preds = %225, %231, %_ZN5cla
   %244 = trunc i64 %243 to i32
   %245 = load i32, ptr %51, align 8
   %246 = icmp sgt i32 %245, -1
-  br i1 %246, label %247, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i73
+  br i1 %246, label %247, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i73
 
 247:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit72
   %248 = add i32 %245, %244
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit80
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i73: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit72
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i73: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit72
   %249 = load ptr, ptr %50, align 8
   %250 = getelementptr i8, ptr %249, i64 88
   %.val.i.i74 = load ptr, ptr %250, align 8
@@ -9621,8 +9621,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i73: 
   %254 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i74, i32 %252, i32 %.sroa.0.0.extract.trunc.i.i.i76, i32 %.sroa.2.0.extract.trunc.i.i.i78, i32 noundef %237, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit80
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit80: ; preds = %247, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i73
-  %.sroa.04.0.i.i79 = phi i32 [ %248, %247 ], [ %254, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i73 ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit80: ; preds = %247, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i73
+  %.sroa.04.0.i.i79 = phi i32 [ %248, %247 ], [ %254, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i73 ]
   store i32 %.sroa.04.0.i.i79, ptr %1, align 8
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 %3, ptr %255, align 8
@@ -10149,13 +10149,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit74:          ; preds = %147, %153, %119, %1
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %203 = load i32, ptr %202, align 8
   %204 = icmp sgt i32 %203, -1
-  br i1 %204, label %205, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
+  br i1 %204, label %205, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
 
 205:                                              ; preds = %187
   %206 = add i32 %203, %201
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; preds = %187
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i: ; preds = %187
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %208 = load ptr, ptr %207, align 8
   %209 = getelementptr i8, ptr %208, i64 88
@@ -10170,8 +10170,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; 
   %213 = call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i, i32 %211, i32 %.sroa.0.0.extract.trunc.i.i.i, i32 %.sroa.2.0.extract.trunc.i.i.i, i32 noundef %193, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %205, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
-  %.sroa.04.0.i.i = phi i32 [ %206, %205 ], [ %213, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %205, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
+  %.sroa.04.0.i.i = phi i32 [ %206, %205 ], [ %213, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
   store i32 %.sroa.04.0.i.i, ptr %1, align 8
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 0, ptr %214, align 8
@@ -10304,13 +10304,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit98:          ; preds = %_ZN5clang19Streamin
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %284 = load i32, ptr %283, align 8
   %285 = icmp sgt i32 %284, -1
-  br i1 %285, label %286, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i99
+  br i1 %285, label %286, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i99
 
 286:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit98
   %287 = add i32 %284, %282
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit106
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i99: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit98
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i99: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit98
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %289 = load ptr, ptr %288, align 8
   %290 = getelementptr i8, ptr %289, i64 88
@@ -10325,8 +10325,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i99: 
   %294 = call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i100, i32 %292, i32 %.sroa.0.0.extract.trunc.i.i.i102, i32 %.sroa.2.0.extract.trunc.i.i.i104, i32 noundef %274, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit106
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit106: ; preds = %286, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i99
-  %.sroa.04.0.i.i105 = phi i32 [ %287, %286 ], [ %294, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i99 ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit106: ; preds = %286, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i99
+  %.sroa.04.0.i.i105 = phi i32 [ %287, %286 ], [ %294, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i99 ]
   store i32 %.sroa.04.0.i.i105, ptr %1, align 8
   %295 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 0, ptr %295, align 8
@@ -10357,13 +10357,13 @@ _ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit106: ; 
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %314 = load i32, ptr %313, align 8
   %315 = icmp sgt i32 %314, -1
-  br i1 %315, label %316, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i107
+  br i1 %315, label %316, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i107
 
 316:                                              ; preds = %298
   %317 = add i32 %314, %312
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit114
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i107: ; preds = %298
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i107: ; preds = %298
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %319 = load ptr, ptr %318, align 8
   %320 = getelementptr i8, ptr %319, i64 88
@@ -10378,8 +10378,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i107:
   %324 = call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i108, i32 %322, i32 %.sroa.0.0.extract.trunc.i.i.i110, i32 %.sroa.2.0.extract.trunc.i.i.i112, i32 noundef %304, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit114
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit114: ; preds = %316, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i107
-  %.sroa.04.0.i.i113 = phi i32 [ %317, %316 ], [ %324, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i107 ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit114: ; preds = %316, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i107
+  %.sroa.04.0.i.i113 = phi i32 [ %317, %316 ], [ %324, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i107 ]
   store i32 %.sroa.04.0.i.i113, ptr %1, align 8
   %325 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 %3, ptr %325, align 8
@@ -10484,13 +10484,13 @@ _ZN5clang5Lexer17getAndAdvanceCharERPKcRNS_5TokenE.exit25: ; preds = %18, %16, %
   %44 = trunc i64 %43 to i32
   %45 = load i32, ptr %11, align 8
   %46 = icmp sgt i32 %45, -1
-  br i1 %46, label %47, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
+  br i1 %46, label %47, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
 
 47:                                               ; preds = %31
   %48 = add i32 %45, %44
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; preds = %31
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i: ; preds = %31
   %49 = load ptr, ptr %10, align 8
   %50 = getelementptr i8, ptr %49, i64 88
   %.val.i.i = load ptr, ptr %50, align 8
@@ -10504,8 +10504,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; 
   %54 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i, i32 %52, i32 %.sroa.0.0.extract.trunc.i.i.i, i32 %.sroa.2.0.extract.trunc.i.i.i, i32 noundef %37, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %47, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
-  %.sroa.04.0.i.i = phi i32 [ %48, %47 ], [ %54, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %47, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
+  %.sroa.04.0.i.i = phi i32 [ %48, %47 ], [ %54, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
   store i32 %.sroa.04.0.i.i, ptr %1, align 8
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 47, ptr %55, align 8
@@ -10554,13 +10554,13 @@ _ZNK5clang5Lexer21isCodeCompletionPointEPKc.exit: ; preds = %58
   %82 = trunc i64 %81 to i32
   %83 = load i32, ptr %11, align 8
   %84 = icmp sgt i32 %83, -1
-  br i1 %84, label %85, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i27
+  br i1 %84, label %85, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i27
 
 85:                                               ; preds = %70
   %86 = add i32 %83, %82
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit34
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i27: ; preds = %70
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i27: ; preds = %70
   %87 = load ptr, ptr %10, align 8
   %88 = getelementptr i8, ptr %87, i64 88
   %.val.i.i28 = load ptr, ptr %88, align 8
@@ -10574,8 +10574,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i27: 
   %92 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i28, i32 %90, i32 %.sroa.0.0.extract.trunc.i.i.i30, i32 %.sroa.2.0.extract.trunc.i.i.i32, i32 noundef %75, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit34
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit34: ; preds = %85, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i27
-  %.sroa.04.0.i.i33 = phi i32 [ %86, %85 ], [ %92, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i27 ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit34: ; preds = %85, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i27
+  %.sroa.04.0.i.i33 = phi i32 [ %86, %85 ], [ %92, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i27 ]
   store i32 %.sroa.04.0.i.i33, ptr %1, align 8
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 0, ptr %93, align 8
@@ -10695,13 +10695,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %132, %138, %_ZN5cla
   %151 = trunc i64 %150 to i32
   %152 = load i32, ptr %11, align 8
   %153 = icmp sgt i32 %152, -1
-  br i1 %153, label %154, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i40
+  br i1 %153, label %154, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i40
 
 154:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit
   %155 = add i32 %152, %151
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit47
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i40: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i40: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit
   %156 = load ptr, ptr %10, align 8
   %157 = getelementptr i8, ptr %156, i64 88
   %.val.i.i41 = load ptr, ptr %157, align 8
@@ -10715,8 +10715,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i40: 
   %161 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i41, i32 %159, i32 %.sroa.0.0.extract.trunc.i.i.i43, i32 %.sroa.2.0.extract.trunc.i.i.i45, i32 noundef %144, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit47
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit47: ; preds = %154, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i40
-  %.sroa.04.0.i.i46 = phi i32 [ %155, %154 ], [ %161, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i40 ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit47: ; preds = %154, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i40
+  %.sroa.04.0.i.i46 = phi i32 [ %155, %154 ], [ %161, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i40 ]
   store i32 %.sroa.04.0.i.i46, ptr %1, align 8
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 16, ptr %162, align 8
@@ -11066,13 +11066,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit50:          ; preds = %116, %122, %109, %_
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %138 = load i32, ptr %137, align 8
   %139 = icmp sgt i32 %138, -1
-  br i1 %139, label %140, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
+  br i1 %139, label %140, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
 
 140:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit50
   %141 = add i32 %138, %136
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit50
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit50
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr i8, ptr %143, i64 88
@@ -11087,8 +11087,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; 
   %148 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i, i32 %146, i32 %.sroa.0.0.extract.trunc.i.i.i, i32 %.sroa.2.0.extract.trunc.i.i.i, i32 noundef %128, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %140, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
-  %.sroa.04.0.i.i = phi i32 [ %141, %140 ], [ %148, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %140, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
+  %.sroa.04.0.i.i = phi i32 [ %141, %140 ], [ %148, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
   store i32 %.sroa.04.0.i.i, ptr %1, align 8
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 0, ptr %149, align 8
@@ -11236,13 +11236,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit61:          ; preds = %201, %207, %_ZN5cla
   %221 = trunc i64 %220 to i32
   %222 = load i32, ptr %85, align 8
   %223 = icmp sgt i32 %222, -1
-  br i1 %223, label %224, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i62
+  br i1 %223, label %224, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i62
 
 224:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit61
   %225 = add i32 %222, %221
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit69
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i62: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit61
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i62: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit61
   %226 = load ptr, ptr %84, align 8
   %227 = getelementptr i8, ptr %226, i64 88
   %.val.i.i63 = load ptr, ptr %227, align 8
@@ -11256,8 +11256,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i62: 
   %231 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i63, i32 %229, i32 %.sroa.0.0.extract.trunc.i.i.i65, i32 %.sroa.2.0.extract.trunc.i.i.i67, i32 noundef %214, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit69
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit69: ; preds = %224, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i62
-  %.sroa.04.0.i.i68 = phi i32 [ %225, %224 ], [ %231, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i62 ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit69: ; preds = %224, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i62
+  %.sroa.04.0.i.i68 = phi i32 [ %225, %224 ], [ %231, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i62 ]
   store i32 %.sroa.04.0.i.i68, ptr %1, align 8
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 0, ptr %232, align 8
@@ -11305,13 +11305,13 @@ _ZNK5clang5Lexer21isCodeCompletionPointEPKc.exit: ; preds = %235
   %259 = trunc i64 %258 to i32
   %260 = load i32, ptr %85, align 8
   %261 = icmp sgt i32 %260, -1
-  br i1 %261, label %262, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i71
+  br i1 %261, label %262, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i71
 
 262:                                              ; preds = %247
   %263 = add i32 %260, %259
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit78
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i71: ; preds = %247
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i71: ; preds = %247
   %264 = load ptr, ptr %84, align 8
   %265 = getelementptr i8, ptr %264, i64 88
   %.val.i.i72 = load ptr, ptr %265, align 8
@@ -11325,8 +11325,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i71: 
   %269 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i72, i32 %267, i32 %.sroa.0.0.extract.trunc.i.i.i74, i32 %.sroa.2.0.extract.trunc.i.i.i76, i32 noundef %252, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit78
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit78: ; preds = %262, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i71
-  %.sroa.04.0.i.i77 = phi i32 [ %263, %262 ], [ %269, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i71 ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit78: ; preds = %262, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i71
+  %.sroa.04.0.i.i77 = phi i32 [ %263, %262 ], [ %269, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i71 ]
   store i32 %.sroa.04.0.i.i77, ptr %1, align 8
   %270 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 0, ptr %270, align 8
@@ -11459,13 +11459,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit91:          ; preds = %316, %322, %_ZN5cla
   %335 = trunc i64 %334 to i32
   %336 = load i32, ptr %85, align 8
   %337 = icmp sgt i32 %336, -1
-  br i1 %337, label %338, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i92
+  br i1 %337, label %338, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i92
 
 338:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit91
   %339 = add i32 %336, %335
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit99
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i92: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit91
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i92: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit91
   %340 = load ptr, ptr %84, align 8
   %341 = getelementptr i8, ptr %340, i64 88
   %.val.i.i93 = load ptr, ptr %341, align 8
@@ -11479,8 +11479,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i92: 
   %345 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i93, i32 %343, i32 %.sroa.0.0.extract.trunc.i.i.i95, i32 %.sroa.2.0.extract.trunc.i.i.i97, i32 noundef %328, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit99
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit99: ; preds = %338, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i92
-  %.sroa.04.0.i.i98 = phi i32 [ %339, %338 ], [ %345, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i92 ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit99: ; preds = %338, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i92
+  %.sroa.04.0.i.i98 = phi i32 [ %339, %338 ], [ %345, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i92 ]
   store i32 %.sroa.04.0.i.i98, ptr %1, align 8
   %346 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 %3, ptr %346, align 8
@@ -11505,17 +11505,17 @@ define dso_local noundef zeroext i1 @_ZN5clang5Lexer14SkipWhitespaceERNS_5TokenE
   %12 = load i8, ptr %2, align 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %14 = load ptr, ptr %13, align 8
-  br i1 %11, label %15, label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit"
+  br i1 %11, label %15, label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit"
 
 15:                                               ; preds = %4
   %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %16, label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit"
+  br i1 %.not.i, label %16, label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit"
 
 16:                                               ; preds = %15
   store ptr %5, ptr %13, align 8
-  br label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit"
+  br label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit"
 
-"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit": ; preds = %4, %16, %15
+"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit": ; preds = %4, %16, %15
   %.promoted = phi ptr [ %14, %15 ], [ %5, %16 ], [ %14, %4 ]
   %.053 = phi ptr [ %5, %15 ], [ %5, %16 ], [ null, %4 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -11523,9 +11523,9 @@ define dso_local noundef zeroext i1 @_ZN5clang5Lexer14SkipWhitespaceERNS_5TokenE
   %.fr77 = freeze i8 %18
   %19 = trunc i8 %.fr77 to i1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  br i1 %19, label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit.split.us", label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit.split"
+  br i1 %19, label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit.split.us", label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit.split"
 
-"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit.split.us": ; preds = %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit"
+"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit.split.us": ; preds = %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit"
   %21 = zext i8 %12 to i64
   %22 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %21
   %23 = load i16, ptr %22, align 2
@@ -11533,8 +11533,8 @@ define dso_local noundef zeroext i1 @_ZN5clang5Lexer14SkipWhitespaceERNS_5TokenE
   %.not5867.us = icmp eq i16 %24, 0
   br i1 %.not5867.us, label %._crit_edge.us, label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit.split.us", %.lr.ph.us
-  %.168.us = phi ptr [ %25, %.lr.ph.us ], [ %2, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit.split.us" ]
+.lr.ph.us:                                        ; preds = %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit.split.us", %.lr.ph.us
+  %.168.us = phi ptr [ %25, %.lr.ph.us ], [ %2, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit.split.us" ]
   %25 = getelementptr inbounds i8, ptr %.168.us, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i64
@@ -11544,19 +11544,19 @@ define dso_local noundef zeroext i1 @_ZN5clang5Lexer14SkipWhitespaceERNS_5TokenE
   %.not58.us = icmp eq i16 %30, 0
   br i1 %.not58.us, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !100
 
-._crit_edge.us:                                   ; preds = %.lr.ph.us, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit.split.us"
-  %.1.lcssa.us = phi ptr [ %2, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit.split.us" ], [ %25, %.lr.ph.us ]
-  %.lcssa.us = phi i16 [ %23, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit.split.us" ], [ %29, %.lr.ph.us ]
+._crit_edge.us:                                   ; preds = %.lr.ph.us, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit.split.us"
+  %.1.lcssa.us = phi ptr [ %2, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit.split.us" ], [ %25, %.lr.ph.us ]
+  %.lcssa.us = phi i16 [ %23, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit.split.us" ], [ %29, %.lr.ph.us ]
   %31 = and i16 %.lcssa.us, 2
   %.not59.us = icmp eq i16 %31, 0
   br i1 %.not59.us, label %.split.us, label %.split75.us
 
-"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit.split": ; preds = %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit", %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit42"
-  %.1.lcssa71 = phi ptr [ %.1.lcssa70, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit42" ], [ %.promoted, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit" ]
-  %.154 = phi ptr [ %.2, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit42" ], [ %.053, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit" ]
-  %.029 = phi i8 [ %50, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit42" ], [ %12, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit" ]
-  %.028 = phi i1 [ true, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit42" ], [ %11, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit" ]
-  %.027 = phi ptr [ %49, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit42" ], [ %2, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit" ]
+"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit.split": ; preds = %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit", %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit42"
+  %.1.lcssa71 = phi ptr [ %.1.lcssa70, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit42" ], [ %.promoted, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit" ]
+  %.154 = phi ptr [ %.2, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit42" ], [ %.053, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit" ]
+  %.029 = phi i8 [ %50, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit42" ], [ %12, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit" ]
+  %.028 = phi i1 [ true, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit42" ], [ %11, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit" ]
+  %.027 = phi ptr [ %49, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit42" ], [ %2, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit" ]
   %32 = zext i8 %.029 to i64
   %33 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %32
   %34 = load i16, ptr %33, align 2
@@ -11564,8 +11564,8 @@ define dso_local noundef zeroext i1 @_ZN5clang5Lexer14SkipWhitespaceERNS_5TokenE
   %.not5867 = icmp eq i16 %35, 0
   br i1 %.not5867, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit.split", %.lr.ph
-  %.168 = phi ptr [ %36, %.lr.ph ], [ %.027, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit.split" ]
+.lr.ph:                                           ; preds = %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit.split", %.lr.ph
+  %.168 = phi ptr [ %36, %.lr.ph ], [ %.027, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit.split" ]
   %36 = getelementptr inbounds i8, ptr %.168, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i64
@@ -11575,9 +11575,9 @@ define dso_local noundef zeroext i1 @_ZN5clang5Lexer14SkipWhitespaceERNS_5TokenE
   %.not58 = icmp eq i16 %41, 0
   br i1 %.not58, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
-._crit_edge:                                      ; preds = %.lr.ph, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit.split"
-  %.1.lcssa = phi ptr [ %.027, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit.split" ], [ %36, %.lr.ph ]
-  %.lcssa = phi i16 [ %34, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit.split" ], [ %40, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit.split"
+  %.1.lcssa = phi ptr [ %.027, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit.split" ], [ %36, %.lr.ph ]
+  %.lcssa = phi i16 [ %34, %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit.split" ], [ %40, %.lr.ph ]
   %42 = and i16 %.lcssa, 2
   %.not59 = icmp eq i16 %42, 0
   br i1 %.not59, label %.split.us, label %43
@@ -11585,7 +11585,7 @@ define dso_local noundef zeroext i1 @_ZN5clang5Lexer14SkipWhitespaceERNS_5TokenE
 43:                                               ; preds = %._crit_edge
   %44 = load i8, ptr %.1.lcssa, align 1
   %45 = icmp eq i8 %44, 10
-  br i1 %45, label %47, label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit42"
+  br i1 %45, label %47, label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit42"
 
 .split75.us:                                      ; preds = %._crit_edge.us
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -11594,18 +11594,18 @@ define dso_local noundef zeroext i1 @_ZN5clang5Lexer14SkipWhitespaceERNS_5TokenE
 
 47:                                               ; preds = %43
   %.not.i41 = icmp eq ptr %.1.lcssa71, null
-  br i1 %.not.i41, label %48, label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit42"
+  br i1 %.not.i41, label %48, label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit42"
 
 48:                                               ; preds = %47
   store ptr %.1.lcssa, ptr %20, align 8
-  br label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit42"
+  br label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit42"
 
-"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit42": ; preds = %48, %47, %43
+"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit42": ; preds = %48, %47, %43
   %.1.lcssa70 = phi ptr [ %.1.lcssa71, %43 ], [ %.1.lcssa71, %47 ], [ %.1.lcssa, %48 ]
   %.2 = phi ptr [ %.154, %43 ], [ %.1.lcssa, %47 ], [ %.1.lcssa, %48 ]
   %49 = getelementptr inbounds i8, ptr %.1.lcssa, i64 1
   %50 = load i8, ptr %49, align 1
-  br label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.exit.split", !llvm.loop !101
+  br label %"_ZZN5clang5Lexer14SkipWhitespaceERNS_5TokenEPKcRbENK3$_0clES4_.argprom.exit.split", !llvm.loop !101
 
 .split.us:                                        ; preds = %._crit_edge, %._crit_edge.us
   %.us-phi = phi ptr [ %.053, %._crit_edge.us ], [ %.154, %._crit_edge ]
@@ -11635,13 +11635,13 @@ define dso_local noundef zeroext i1 @_ZN5clang5Lexer14SkipWhitespaceERNS_5TokenE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %70 = load i32, ptr %69, align 8
   %71 = icmp sgt i32 %70, -1
-  br i1 %71, label %72, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
+  br i1 %71, label %72, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
 
 72:                                               ; preds = %54
   %73 = add i32 %70, %68
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; preds = %54
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i: ; preds = %54
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr i8, ptr %75, i64 88
@@ -11656,8 +11656,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; 
   %80 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i, i32 %78, i32 %.sroa.0.0.extract.trunc.i.i.i, i32 %.sroa.2.0.extract.trunc.i.i.i, i32 noundef %60, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %72, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
-  %.sroa.04.0.i.i = phi i32 [ %73, %72 ], [ %80, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %72, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
+  %.sroa.04.0.i.i = phi i32 [ %73, %72 ], [ %80, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
   store i32 %.sroa.04.0.i.i, ptr %1, align 8
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 0, ptr %81, align 8
@@ -11748,7 +11748,7 @@ _ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %108
   %131 = sub i64 %129, %130
   %132 = trunc i64 %131 to i32
   %133 = icmp sgt i32 %.pr, -1
-  br i1 %133, label %134, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i43
+  br i1 %133, label %134, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i43
 
 134:                                              ; preds = %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit.thread, %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
   %135 = phi i32 [ %122, %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit.thread ], [ %132, %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit ]
@@ -11757,7 +11757,7 @@ _ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %108
   %137 = add i32 %136, %135
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit50
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i43: ; preds = %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i43: ; preds = %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
   %138 = load ptr, ptr %103, align 8
   %139 = getelementptr i8, ptr %138, i64 88
   %.val.i44 = load ptr, ptr %139, align 8
@@ -11771,9 +11771,9 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i43: ; 
   %143 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i44, i32 %141, i32 %.sroa.0.0.extract.trunc.i.i46, i32 %.sroa.2.0.extract.trunc.i.i48, i32 noundef 1, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit50
 
-_ZNK5clang5Lexer17getSourceLocationEPKcj.exit50:  ; preds = %134, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i43
-  %.sroa.04.0.i56 = phi i32 [ %.sroa.04.0.i57, %134 ], [ %127, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i43 ]
-  %.sroa.04.0.i49 = phi i32 [ %137, %134 ], [ %143, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i43 ]
+_ZNK5clang5Lexer17getSourceLocationEPKcj.exit50:  ; preds = %134, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i43
+  %.sroa.04.0.i56 = phi i32 [ %.sroa.04.0.i57, %134 ], [ %127, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i43 ]
+  %.sroa.04.0.i49 = phi i32 [ %137, %134 ], [ %143, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i43 ]
   %.sroa.2.0.insert.ext = zext i32 %.sroa.04.0.i49 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.04.0.i56 to i64
@@ -12360,7 +12360,7 @@ _ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %237
   %259 = sub i64 %257, %258
   %260 = trunc i64 %259 to i32
   %261 = icmp sgt i32 %.pr, -1
-  br i1 %261, label %262, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i100
+  br i1 %261, label %262, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i100
 
 262:                                              ; preds = %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit.thread, %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
   %263 = phi i32 [ %250, %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit.thread ], [ %260, %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit ]
@@ -12369,7 +12369,7 @@ _ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %237
   %265 = add i32 %264, %263
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit107
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i100: ; preds = %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i100: ; preds = %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
   %266 = load ptr, ptr %56, align 8
   %267 = getelementptr i8, ptr %266, i64 88
   %.val.i101 = load ptr, ptr %267, align 8
@@ -12383,9 +12383,9 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i100: ;
   %271 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i101, i32 %269, i32 %.sroa.0.0.extract.trunc.i.i103, i32 %.sroa.2.0.extract.trunc.i.i105, i32 noundef 1, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit107
 
-_ZNK5clang5Lexer17getSourceLocationEPKcj.exit107: ; preds = %262, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i100
-  %.sroa.04.0.i134 = phi i32 [ %.sroa.04.0.i135, %262 ], [ %255, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i100 ]
-  %.sroa.04.0.i106 = phi i32 [ %265, %262 ], [ %271, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i100 ]
+_ZNK5clang5Lexer17getSourceLocationEPKcj.exit107: ; preds = %262, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i100
+  %.sroa.04.0.i134 = phi i32 [ %.sroa.04.0.i135, %262 ], [ %255, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i100 ]
+  %.sroa.04.0.i106 = phi i32 [ %265, %262 ], [ %271, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i100 ]
   %.sroa.2.0.insert.ext = zext i32 %.sroa.04.0.i106 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.04.0.i134 to i64
@@ -12468,13 +12468,13 @@ define dso_local noundef zeroext i1 @_ZN5clang5Lexer15SaveLineCommentERNS_5Token
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, -1
-  br i1 %22, label %23, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
+  br i1 %22, label %23, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
 
 23:                                               ; preds = %3
   %24 = add i32 %21, %19
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; preds = %3
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i: ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr i8, ptr %26, i64 88
@@ -12489,8 +12489,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; 
   %31 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i, i32 %29, i32 %.sroa.0.0.extract.trunc.i.i.i, i32 %.sroa.2.0.extract.trunc.i.i.i, i32 noundef %11, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %23, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
-  %.sroa.04.0.i.i = phi i32 [ %24, %23 ], [ %31, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %23, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
+  %.sroa.04.0.i.i = phi i32 [ %24, %23 ], [ %31, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
   store i32 %.sroa.04.0.i.i, ptr %1, align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 4, ptr %32, align 8
@@ -12662,13 +12662,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %47, %53, %40, %_ZN5
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %74 = load i32, ptr %73, align 8
   %75 = icmp sgt i32 %74, -1
-  br i1 %75, label %76, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
+  br i1 %75, label %76, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
 
 76:                                               ; preds = %59
   %77 = add i32 %74, %72
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; preds = %59
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i: ; preds = %59
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr i8, ptr %79, i64 88
@@ -12683,8 +12683,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; 
   %84 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i, i32 %82, i32 %.sroa.0.0.extract.trunc.i.i.i, i32 %.sroa.2.0.extract.trunc.i.i.i, i32 noundef %64, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %76, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
-  %.sroa.04.0.i.i = phi i32 [ %77, %76 ], [ %84, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %76, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
+  %.sroa.04.0.i.i = phi i32 [ %77, %76 ], [ %84, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
   store i32 %.sroa.04.0.i.i, ptr %1, align 8
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 0, ptr %85, align 8
@@ -13400,13 +13400,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit160:         ; preds = %383, %389, %376, %_
   %407 = trunc i64 %406 to i32
   %408 = load i32, ptr %94, align 8
   %409 = icmp sgt i32 %408, -1
-  br i1 %409, label %410, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i161
+  br i1 %409, label %410, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i161
 
 410:                                              ; preds = %395
   %411 = add i32 %408, %407
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit168
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i161: ; preds = %395
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i161: ; preds = %395
   %412 = load ptr, ptr %93, align 8
   %413 = getelementptr i8, ptr %412, i64 88
   %.val.i.i162 = load ptr, ptr %413, align 8
@@ -13420,8 +13420,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i161:
   %417 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i162, i32 %415, i32 %.sroa.0.0.extract.trunc.i.i.i164, i32 %.sroa.2.0.extract.trunc.i.i.i166, i32 noundef %400, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit168
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit168: ; preds = %410, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i161
-  %.sroa.04.0.i.i167 = phi i32 [ %411, %410 ], [ %417, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i161 ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit168: ; preds = %410, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i161
+  %.sroa.04.0.i.i167 = phi i32 [ %411, %410 ], [ %417, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i161 ]
   store i32 %.sroa.04.0.i.i167, ptr %1, align 8
   %418 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 0, ptr %418, align 8
@@ -13519,7 +13519,7 @@ _ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %444
   %466 = sub i64 %464, %465
   %467 = trunc i64 %466 to i32
   %468 = icmp sgt i32 %.pr, -1
-  br i1 %468, label %469, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i170
+  br i1 %468, label %469, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i170
 
 469:                                              ; preds = %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit.thread, %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
   %470 = phi i32 [ %457, %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit.thread ], [ %467, %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit ]
@@ -13528,7 +13528,7 @@ _ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %444
   %472 = add i32 %471, %470
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit177
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i170: ; preds = %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i170: ; preds = %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
   %473 = load ptr, ptr %93, align 8
   %474 = getelementptr i8, ptr %473, i64 88
   %.val.i171 = load ptr, ptr %474, align 8
@@ -13542,9 +13542,9 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i170: ;
   %478 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i171, i32 %476, i32 %.sroa.0.0.extract.trunc.i.i173, i32 %.sroa.2.0.extract.trunc.i.i175, i32 noundef 1, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit177
 
-_ZNK5clang5Lexer17getSourceLocationEPKcj.exit177: ; preds = %469, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i170
-  %.sroa.04.0.i191 = phi i32 [ %.sroa.04.0.i192, %469 ], [ %462, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i170 ]
-  %.sroa.04.0.i176 = phi i32 [ %472, %469 ], [ %478, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i170 ]
+_ZNK5clang5Lexer17getSourceLocationEPKcj.exit177: ; preds = %469, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i170
+  %.sroa.04.0.i191 = phi i32 [ %.sroa.04.0.i192, %469 ], [ %462, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i170 ]
+  %.sroa.04.0.i176 = phi i32 [ %472, %469 ], [ %478, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i170 ]
   %.sroa.2.0.insert.ext = zext i32 %.sroa.04.0.i176 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.04.0.i191 to i64
@@ -13579,13 +13579,13 @@ _ZNK5clang5Lexer17getSourceLocationEPKcj.exit177: ; preds = %469, %_ZL17GetMappe
   %497 = trunc i64 %496 to i32
   %498 = load i32, ptr %94, align 8
   %499 = icmp sgt i32 %498, -1
-  br i1 %499, label %500, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i178
+  br i1 %499, label %500, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i178
 
 500:                                              ; preds = %484
   %501 = add i32 %498, %497
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit185
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i178: ; preds = %484
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i178: ; preds = %484
   %502 = load ptr, ptr %93, align 8
   %503 = getelementptr i8, ptr %502, i64 88
   %.val.i.i179 = load ptr, ptr %503, align 8
@@ -13599,8 +13599,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i178:
   %507 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i179, i32 %505, i32 %.sroa.0.0.extract.trunc.i.i.i181, i32 %.sroa.2.0.extract.trunc.i.i.i183, i32 noundef %490, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit185
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit185: ; preds = %500, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i178
-  %.sroa.04.0.i.i184 = phi i32 [ %501, %500 ], [ %507, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i178 ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit185: ; preds = %500, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i178
+  %.sroa.04.0.i.i184 = phi i32 [ %501, %500 ], [ %507, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i178 ]
   store i32 %.sroa.04.0.i.i184, ptr %1, align 8
   %508 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 4, ptr %508, align 8
@@ -13944,13 +13944,13 @@ define dso_local noundef zeroext i1 @_ZN5clang5Lexer12LexEndOfFileERNS_5TokenEPK
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %28 = load i32, ptr %27, align 8
   %29 = icmp sgt i32 %28, -1
-  br i1 %29, label %30, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
+  br i1 %29, label %30, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
 
 30:                                               ; preds = %12
   %31 = add i32 %28, %26
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; preds = %12
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i: ; preds = %12
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %33, i64 88
@@ -13965,8 +13965,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; 
   %38 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i, i32 %36, i32 %.sroa.0.0.extract.trunc.i.i.i, i32 %.sroa.2.0.extract.trunc.i.i.i, i32 noundef %18, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %30, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
-  %.sroa.04.0.i.i = phi i32 [ %31, %30 ], [ %38, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %30, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
+  %.sroa.04.0.i.i = phi i32 [ %31, %30 ], [ %38, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
   store i32 %.sroa.04.0.i.i, ptr %1, align 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 2, ptr %39, align 8
@@ -14022,13 +14022,13 @@ _ZN5clang5Lexer22resetExtendedTokenModeEv.exit:   ; preds = %42, %48
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %71 = load i32, ptr %70, align 8
   %72 = icmp sgt i32 %71, -1
-  br i1 %72, label %73, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i23
+  br i1 %72, label %73, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i23
 
 73:                                               ; preds = %58
   %74 = add i32 %71, %69
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit30
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i23: ; preds = %58
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i23: ; preds = %58
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr i8, ptr %76, i64 88
@@ -14043,8 +14043,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i23: 
   %81 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i24, i32 %79, i32 %.sroa.0.0.extract.trunc.i.i.i26, i32 %.sroa.2.0.extract.trunc.i.i.i28, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit30
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit30: ; preds = %73, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i23
-  %.sroa.04.0.i.i29 = phi i32 [ %74, %73 ], [ %81, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i23 ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit30: ; preds = %73, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i23
+  %.sroa.04.0.i.i29 = phi i32 [ %74, %73 ], [ %81, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i23 ]
   store i32 %.sroa.04.0.i.i29, ptr %1, align 8
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 1, ptr %82, align 8
@@ -14206,13 +14206,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %.lr.ph.i.i.i.i.i, %
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %163 = load i32, ptr %162, align 8
   %164 = icmp sgt i32 %163, -1
-  br i1 %164, label %165, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i
+  br i1 %164, label %165, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i
 
 165:                                              ; preds = %152
   %166 = add i32 %163, %161
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i: ; preds = %152
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i: ; preds = %152
   %167 = getelementptr i8, ptr %153, i64 88
   %.val.i = load ptr, ptr %167, align 8
   %168 = tail call i32 @_ZNK5clang13SourceManager22getSpellingLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %.val.i, i32 %163) #24
@@ -14225,8 +14225,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i: ; pr
   %171 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i, i32 %169, i32 %.sroa.0.0.extract.trunc.i.i, i32 %.sroa.2.0.extract.trunc.i.i, i32 noundef 1, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
 
-_ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %165, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i
-  %.sroa.04.0.i = phi i32 [ %166, %165 ], [ %171, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i ]
+_ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %165, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i
+  %.sroa.04.0.i = phi i32 [ %166, %165 ], [ %171, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i ]
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %173 = load ptr, ptr %172, align 8
   %174 = load i64, ptr %173, align 8
@@ -14935,13 +14935,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %59, %65, %52, %_ZN5
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %81 = load i32, ptr %80, align 8
   %82 = icmp sgt i32 %81, -1
-  br i1 %82, label %83, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
+  br i1 %82, label %83, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
 
 83:                                               ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit
   %84 = add i32 %81, %79
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit
   %85 = load ptr, ptr %5, align 8
   %86 = getelementptr i8, ptr %85, i64 88
   %.val.i.i = load ptr, ptr %86, align 8
@@ -14955,8 +14955,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; 
   %90 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i, i32 %88, i32 %.sroa.0.0.extract.trunc.i.i.i, i32 %.sroa.2.0.extract.trunc.i.i.i, i32 noundef %71, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %83, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
-  %.sroa.04.0.i.i = phi i32 [ %84, %83 ], [ %90, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %83, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
+  %.sroa.04.0.i.i = phi i32 [ %84, %83 ], [ %90, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
   store i32 %.sroa.04.0.i.i, ptr %1, align 8
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 6, ptr %91, align 8
@@ -16413,13 +16413,13 @@ define dso_local noundef zeroext i1 @_ZN5clang5Lexer16LexTokenInternalERNS_5Toke
   %69 = trunc i64 %68 to i32
   %70 = load i32, ptr %29, align 8
   %71 = icmp sgt i32 %70, -1
-  br i1 %71, label %72, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
+  br i1 %71, label %72, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
 
 72:                                               ; preds = %58
   %73 = add i32 %70, %69
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; preds = %58
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i: ; preds = %58
   %74 = load ptr, ptr %26, align 8
   %75 = getelementptr i8, ptr %74, i64 88
   %.val.i.i = load ptr, ptr %75, align 8
@@ -16433,8 +16433,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; 
   %79 = call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i, i32 %77, i32 %.sroa.0.0.extract.trunc.i.i.i, i32 %.sroa.2.0.extract.trunc.i.i.i, i32 noundef %62, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %72, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
-  %.sroa.04.0.i.i = phi i32 [ %73, %72 ], [ %79, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; preds = %72, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
+  %.sroa.04.0.i.i = phi i32 [ %73, %72 ], [ %79, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
   store i32 %.sroa.04.0.i.i, ptr %1, align 8
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 0, ptr %80, align 8
@@ -19317,13 +19317,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit666:         ; preds = %_ZN5clang17Diagnost
   %1189 = trunc i64 %1188 to i32
   %1190 = load i32, ptr %29, align 8
   %1191 = icmp sgt i32 %1190, -1
-  br i1 %1191, label %1192, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i667
+  br i1 %1191, label %1192, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i667
 
 1192:                                             ; preds = %.thread819
   %1193 = add i32 %1190, %1189
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit674
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i667: ; preds = %.thread819
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i667: ; preds = %.thread819
   %1194 = load ptr, ptr %26, align 8
   %1195 = getelementptr i8, ptr %1194, i64 88
   %.val.i.i668 = load ptr, ptr %1195, align 8
@@ -19337,8 +19337,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i667:
   %1199 = call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i.i668, i32 %1197, i32 %.sroa.0.0.extract.trunc.i.i.i670, i32 %.sroa.2.0.extract.trunc.i.i.i672, i32 noundef %1182, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit674
 
-_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit674: ; preds = %1192, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i667
-  %.sroa.04.0.i.i673 = phi i32 [ %1193, %1192 ], [ %1199, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i667 ]
+_ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit674: ; preds = %1192, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i667
+  %.sroa.04.0.i.i673 = phi i32 [ %1193, %1192 ], [ %1199, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i667 ]
   store i32 %.sroa.04.0.i.i673, ptr %1, align 8
   %1200 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 %.0231, ptr %1200, align 8
@@ -19387,13 +19387,13 @@ define dso_local noundef ptr @_ZN5clang5Lexer31convertDependencyDirectiveTokenER
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, -1
-  br i1 %16, label %17, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i
+  br i1 %16, label %17, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i
 
 17:                                               ; preds = %3
   %18 = add i32 %15, %13
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i: ; preds = %3
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i: ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 88
@@ -19410,9 +19410,9 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i: ; pr
   %.pre = load i16, ptr %.phi.trans.insert, align 2
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
 
-_ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %17, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i
-  %26 = phi i16 [ 0, %17 ], [ %.pre, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i ]
-  %.sroa.04.0.i = phi i32 [ %18, %17 ], [ %25, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i ]
+_ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %17, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i
+  %26 = phi i16 [ 0, %17 ], [ %.pre, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i ]
+  %.sroa.04.0.i = phi i32 [ %18, %17 ], [ %25, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i ]
   store i32 %.sroa.04.0.i, ptr %2, align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i16, ptr %27, align 4
@@ -19575,13 +19575,13 @@ define dso_local noundef zeroext i1 @_ZN5clang5Lexer27LexDependencyDirectiveToke
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %85 = load i32, ptr %84, align 8
   %86 = icmp sgt i32 %85, -1
-  br i1 %86, label %87, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
+  br i1 %86, label %87, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
 
 87:                                               ; preds = %73
   %88 = add i32 %85, %83
   br label %_ZN5clang5Lexer31convertDependencyDirectiveTokenERKNS_26dependency_directives_scan5TokenERNS_5TokenE.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; preds = %73
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i: ; preds = %73
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr i8, ptr %90, i64 88
@@ -19598,9 +19598,9 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; 
   %.pre.i = load i16, ptr %.phi.trans.insert.i, align 2
   br label %_ZN5clang5Lexer31convertDependencyDirectiveTokenERKNS_26dependency_directives_scan5TokenERNS_5TokenE.exit
 
-_ZN5clang5Lexer31convertDependencyDirectiveTokenERKNS_26dependency_directives_scan5TokenERNS_5TokenE.exit: ; preds = %87, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
-  %96 = phi i16 [ 0, %87 ], [ %.pre.i, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
-  %.sroa.04.0.i.i = phi i32 [ %88, %87 ], [ %95, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
+_ZN5clang5Lexer31convertDependencyDirectiveTokenERKNS_26dependency_directives_scan5TokenERNS_5TokenE.exit: ; preds = %87, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
+  %96 = phi i16 [ 0, %87 ], [ %.pre.i, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
+  %.sroa.04.0.i.i = phi i32 [ %88, %87 ], [ %95, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
   store i32 %.sroa.04.0.i.i, ptr %1, align 8
   %97 = load i16, ptr %32, align 4
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -19781,13 +19781,13 @@ define dso_local noundef zeroext i1 @_ZN5clang5Lexer40LexDependencyDirectiveToke
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %33 = load i32, ptr %32, align 8
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %35, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
+  br i1 %34, label %35, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
 
 35:                                               ; preds = %.loopexit
   %36 = add i32 %33, %31
   br label %_ZN5clang5Lexer31convertDependencyDirectiveTokenERKNS_26dependency_directives_scan5TokenERNS_5TokenE.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; preds = %.loopexit
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i: ; preds = %.loopexit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr i8, ptr %38, i64 88
@@ -19804,9 +19804,9 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i: ; 
   %.pre.i = load i16, ptr %.phi.trans.insert.i, align 2
   br label %_ZN5clang5Lexer31convertDependencyDirectiveTokenERKNS_26dependency_directives_scan5TokenERNS_5TokenE.exit
 
-_ZN5clang5Lexer31convertDependencyDirectiveTokenERKNS_26dependency_directives_scan5TokenERNS_5TokenE.exit: ; preds = %35, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i
-  %44 = phi i16 [ 0, %35 ], [ %.pre.i, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
-  %.sroa.04.0.i.i = phi i32 [ %36, %35 ], [ %43, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i.i ]
+_ZN5clang5Lexer31convertDependencyDirectiveTokenERKNS_26dependency_directives_scan5TokenERNS_5TokenE.exit: ; preds = %35, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i
+  %44 = phi i16 [ 0, %35 ], [ %.pre.i, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
+  %.sroa.04.0.i.i = phi i32 [ %36, %35 ], [ %43, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i.i ]
   store i32 %.sroa.04.0.i.i, ptr %1, align 8
   %45 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %46 = load i16, ptr %45, align 4
@@ -19915,13 +19915,13 @@ define linkonce_odr hidden i32 @_ZN5clang5Lexer17getSourceLocationEv(ptr noundef
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %11, -1
-  br i1 %12, label %13, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i
+  br i1 %12, label %13, label %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i
 
 13:                                               ; preds = %1
   %14 = add i32 %11, %9
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
 
-_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i: ; preds = %1
+_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i: ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %16, i64 88
@@ -19936,8 +19936,8 @@ _ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i: ; pr
   %21 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %.val.i, i32 %19, i32 %.sroa.0.0.extract.trunc.i.i, i32 %.sroa.2.0.extract.trunc.i.i, i32 noundef 1, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #24
   br label %_ZNK5clang5Lexer17getSourceLocationEPKcj.exit
 
-_ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %13, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i
-  %.sroa.04.0.i = phi i32 [ %14, %13 ], [ %21, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.exit.i ]
+_ZNK5clang5Lexer17getSourceLocationEPKcj.exit:    ; preds = %13, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i
+  %.sroa.04.0.i = phi i32 [ %14, %13 ], [ %21, %_ZL17GetMappedTokenLocRN5clang12PreprocessorENS_14SourceLocationEjj.argprom.exit.i ]
   ret i32 %.sroa.04.0.i
 }
 
@@ -20247,7 +20247,7 @@ _ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit: ; preds = %_ZN4ll
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc noundef zeroext i1 @_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) unnamed_addr #12 {
+define internal fastcc noundef zeroext i1 @_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.argprom(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) unnamed_addr #12 {
   br label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i, %3

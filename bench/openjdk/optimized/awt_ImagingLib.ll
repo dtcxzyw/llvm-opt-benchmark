@@ -222,7 +222,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_convolveBI(ptr noundef
 
 96:                                               ; preds = %91
   %97 = load ptr, ptr %13, align 8
-  %98 = call fastcc i32 @setImageHints(ptr noundef %94, ptr noundef %97, i32 noundef 1, ptr noundef %14)
+  %98 = call fastcc i32 @setImageHints.argprom.argelim(ptr noundef %94, ptr noundef %97, i32 noundef 1, ptr noundef %14)
   %99 = icmp slt i32 %98, 1
   br i1 %99, label %100, label %102
 
@@ -582,7 +582,7 @@ declare i32 @awt_parseImage(ptr noundef, ptr noundef, ptr noundef, i32 noundef) 
 declare void @awt_freeParsedImage(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @setImageHints(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #4 {
+define internal fastcc i32 @setImageHints.argprom.argelim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 488
   %6 = load i32, ptr %5, align 8
   store i32 %6, ptr %3, align 4
@@ -1061,7 +1061,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr n
   br label %expandICM.exit
 
 114:                                              ; preds = %31
-  %115 = tail call fastcc i32 @cvtCustomToDefault(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.val)
+  %115 = tail call fastcc i32 @cvtCustomToDefault.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.val)
   br label %expandICM.exit
 
 116:                                              ; preds = %28
@@ -1932,7 +1932,7 @@ expandPackedICRdefault.exit:                      ; preds = %391, %398, %.loopex
   br label %expandICM.exit
 
 542:                                              ; preds = %116, %28
-  %543 = tail call fastcc i32 @cvtCustomToDefault(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.val)
+  %543 = tail call fastcc i32 @cvtCustomToDefault.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.val)
   br label %expandICM.exit
 
 544:                                              ; preds = %7
@@ -2435,7 +2435,7 @@ colorMatch.exit.i:                                ; preds = %126, %124, %102, %9
 154:                                              ; preds = %15
   %155 = getelementptr i8, ptr %3, i64 24
   %.val125 = load ptr, ptr %155, align 8
-  %156 = tail call fastcc i32 @cvtDefaultToCustom(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %.val125)
+  %156 = tail call fastcc i32 @cvtDefaultToCustom.argelim(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %.val125)
   br label %storeICMarray.exit
 
 157:                                              ; preds = %4
@@ -2597,7 +2597,7 @@ colorMatch.exit.i:                                ; preds = %126, %124, %102, %9
   %249 = load ptr, ptr %248, align 8
   %250 = getelementptr inbounds i8, ptr %2, i64 556
   %251 = load i32, ptr %250, align 4
-  %252 = tail call fastcc i32 @setPackedBCRdefault(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %249, i32 noundef %251)
+  %252 = tail call fastcc i32 @setPackedBCRdefault.argelim(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %249, i32 noundef %251)
   br label %storeICMarray.exit
 
 253:                                              ; preds = %246
@@ -2605,7 +2605,7 @@ colorMatch.exit.i:                                ; preds = %126, %124, %102, %9
   %255 = load ptr, ptr %254, align 8
   %256 = getelementptr inbounds i8, ptr %2, i64 556
   %257 = load i32, ptr %256, align 4
-  %258 = tail call fastcc i32 @setPackedSCRdefault(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %255, i32 noundef %257)
+  %258 = tail call fastcc i32 @setPackedSCRdefault.argelim(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %255, i32 noundef %257)
   br label %storeICMarray.exit
 
 259:                                              ; preds = %246
@@ -2613,7 +2613,7 @@ colorMatch.exit.i:                                ; preds = %126, %124, %102, %9
   %261 = load ptr, ptr %260, align 8
   %262 = getelementptr inbounds i8, ptr %2, i64 556
   %263 = load i32, ptr %262, align 4
-  %264 = tail call fastcc i32 @setPackedICRdefault(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %261, i32 noundef %263)
+  %264 = tail call fastcc i32 @setPackedICRdefault.argelim(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %261, i32 noundef %263)
   br label %storeICMarray.exit
 
 265:                                              ; preds = %244
@@ -2655,7 +2655,7 @@ colorMatch.exit.i:                                ; preds = %126, %124, %102, %9
 286:                                              ; preds = %242
   %287 = getelementptr inbounds i8, ptr %3, i64 24
   %288 = load ptr, ptr %287, align 8
-  %289 = tail call fastcc i32 @cvtDefaultToCustom(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %288)
+  %289 = tail call fastcc i32 @cvtDefaultToCustom.argelim(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %288)
   br label %storeICMarray.exit
 
 storeICMarray.exit:                               ; preds = %280, %283, %275, %270, %265, %._crit_edge77.i, %49, %35, %28, %23, %._crit_edge, %246, %244, %210, %204, %192, %197, %201, %187, %174, %180, %185, %164, %169, %286, %259, %253, %247, %154
@@ -3137,7 +3137,7 @@ freeDataArray.exit:                               ; preds = %114, %115
   br i1 %226, label %227, label %232
 
 227:                                              ; preds = %224
-  %228 = call fastcc i32 @storeRasterArray(ptr noundef nonnull %0, ptr noundef %89, ptr noundef %186)
+  %228 = call fastcc i32 @storeRasterArray.argprom(ptr noundef nonnull %0, ptr noundef %89, ptr noundef %186)
   %229 = icmp slt i32 %228, 0
   br i1 %229, label %230, label %232
 
@@ -3735,7 +3735,7 @@ expandPackedBCR.exit:                             ; preds = %189, %193, %.loopex
 333:                                              ; preds = %332
   %334 = getelementptr i8, ptr %330, i64 24
   %.val228 = load ptr, ptr %334, align 8
-  %335 = tail call fastcc i32 @expandPackedSCR(ptr noundef %0, ptr noundef %1, ptr noundef %.val228)
+  %335 = tail call fastcc i32 @expandPackedSCR.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %.val228)
   br label %375
 
 336:                                              ; preds = %15
@@ -3758,7 +3758,7 @@ expandPackedBCR.exit:                             ; preds = %189, %193, %.loopex
 345:                                              ; preds = %344
   %346 = getelementptr i8, ptr %342, i64 24
   %.val227 = load ptr, ptr %346, align 8
-  %347 = tail call fastcc i32 @expandPackedICR(ptr noundef %0, ptr noundef %1, ptr noundef %.val227)
+  %347 = tail call fastcc i32 @expandPackedICR.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %.val227)
   br label %375
 
 348:                                              ; preds = %336, %324, %15
@@ -3868,7 +3868,7 @@ define internal fastcc void @freeDataArray(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @storeRasterArray(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @storeRasterArray.argprom(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca [32 x i32], align 16
   %5 = alloca [32 x i32], align 16
   %6 = alloca [32 x i32], align 16
@@ -4756,7 +4756,7 @@ switch.lookup:                                    ; preds = %24
 
 104:                                              ; preds = %101, %95, %91, %87
   %105 = phi i32 [ 1, %95 ], [ 1, %91 ], [ 1, %87 ], [ %103, %101 ]
-  %106 = call fastcc i32 @setImageHints(ptr noundef nonnull %85, ptr noundef %.pre, i32 noundef %105, ptr noundef %14)
+  %106 = call fastcc i32 @setImageHints.argprom.argelim(ptr noundef nonnull %85, ptr noundef %.pre, i32 noundef %105, ptr noundef %14)
   %107 = icmp slt i32 %106, 1
   br i1 %107, label %108, label %110
 
@@ -5301,7 +5301,7 @@ freeDataArray.exit:                               ; preds = %108, %109
   br i1 %146, label %147, label %155
 
 147:                                              ; preds = %144
-  %148 = call fastcc i32 @storeRasterArray(ptr noundef nonnull %0, ptr noundef %28, ptr noundef %114)
+  %148 = call fastcc i32 @storeRasterArray.argprom(ptr noundef nonnull %0, ptr noundef %28, ptr noundef %114)
   %149 = icmp slt i32 %148, 0
   br i1 %149, label %150, label %155
 
@@ -5383,7 +5383,7 @@ define range(i32 0, 2) i32 @Java_sun_awt_image_ImagingLib_lookupByteBI(ptr nound
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr %12, align 8
-  %33 = call fastcc i32 @setImageHints(ptr noundef %29, ptr noundef %32, i32 noundef 0, ptr noundef %13)
+  %33 = call fastcc i32 @setImageHints.argprom.argelim(ptr noundef %29, ptr noundef %32, i32 noundef 0, ptr noundef %13)
   %34 = icmp slt i32 %33, 1
   br i1 %34, label %39, label %35
 
@@ -6448,7 +6448,7 @@ freeDataArray.exit:                               ; preds = %68, %69
   br i1 %172, label %173, label %178
 
 173:                                              ; preds = %._crit_edge182
-  %174 = call fastcc i32 @storeRasterArray(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %77)
+  %174 = call fastcc i32 @storeRasterArray.argprom(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %77)
   %175 = icmp slt i32 %174, 0
   br i1 %175, label %176, label %178
 
@@ -6552,7 +6552,7 @@ declare i32 @awt_getImagingLib(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @awt_setPixels(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @cvtCustomToDefault(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @cvtCustomToDefault.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 432
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 436
@@ -6659,7 +6659,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvtCustomToDefault(ptr noundef %0, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @expandPackedSCR(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @expandPackedSCR.argelim(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca [32 x i32], align 16
   %5 = alloca [32 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %1, i64 460
@@ -6916,7 +6916,7 @@ define internal fastcc range(i32 -1, 1) i32 @expandPackedSCR(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @expandPackedICR(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @expandPackedICR.argelim(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca [32 x i32], align 16
   %5 = alloca [32 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %1, i64 460
@@ -7173,7 +7173,7 @@ define internal fastcc range(i32 -1, 1) i32 @expandPackedICR(ptr noundef %0, ptr
 declare i32 @awt_getPixels(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @cvtDefaultToCustom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @cvtDefaultToCustom.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 432
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 436
@@ -7278,7 +7278,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvtDefaultToCustom(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [32 x i32], align 16
   %6 = alloca [32 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 460
@@ -7583,7 +7583,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [32 x i32], align 16
   %6 = alloca [32 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 460
@@ -7910,7 +7910,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [32 x i32], align 16
   %6 = alloca [32 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 460

@@ -372,23 +372,23 @@ $_ZTVN4llvm13format_objectIJlEEE = comdat any
 define dso_local void @_ZN4llvm18initSignalsOptionsEv() local_unnamed_addr #0 {
   %1 = load atomic i64, ptr @_ZZN4llvm18initSignalsOptionsEvE20DisableSymbolication acquire, align 8
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %2, label %_ZN4llvm13ManagedStaticINS_2cl3optIbLb1ENS1_6parserIbEEEEN12_GLOBAL__N_126CreateDisableSymbolicationENS_14object_deleterIS5_EEEdeEv.exit
+  br i1 %.not.i, label %2, label %_ZN4llvm13ManagedStaticINS_2cl3optIbLb1ENS1_6parserIbEEEEN12_GLOBAL__N_126CreateDisableSymbolicationENS_14object_deleterIS5_EEEdeEv.argprom.exit
 
 2:                                                ; preds = %0
   tail call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm18initSignalsOptionsEvE20DisableSymbolication, ptr noundef nonnull @_ZN12_GLOBAL__N_126CreateDisableSymbolication4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterINS_2cl3optIbLb1ENS1_6parserIbEEEEE4callEPv) #25
-  br label %_ZN4llvm13ManagedStaticINS_2cl3optIbLb1ENS1_6parserIbEEEEN12_GLOBAL__N_126CreateDisableSymbolicationENS_14object_deleterIS5_EEEdeEv.exit
+  br label %_ZN4llvm13ManagedStaticINS_2cl3optIbLb1ENS1_6parserIbEEEEN12_GLOBAL__N_126CreateDisableSymbolicationENS_14object_deleterIS5_EEEdeEv.argprom.exit
 
-_ZN4llvm13ManagedStaticINS_2cl3optIbLb1ENS1_6parserIbEEEEN12_GLOBAL__N_126CreateDisableSymbolicationENS_14object_deleterIS5_EEEdeEv.exit: ; preds = %0, %2
+_ZN4llvm13ManagedStaticINS_2cl3optIbLb1ENS1_6parserIbEEEEN12_GLOBAL__N_126CreateDisableSymbolicationENS_14object_deleterIS5_EEEdeEv.argprom.exit: ; preds = %0, %2
   %3 = load atomic i64, ptr @_ZZN4llvm18initSignalsOptionsEvE20DisableSymbolication monotonic, align 8
   %4 = load atomic i64, ptr @_ZZN4llvm18initSignalsOptionsEvE19CrashDiagnosticsDirB5cxx11 acquire, align 8
   %.not.i1 = icmp eq i64 %4, 0
-  br i1 %.not.i1, label %5, label %_ZN4llvm13ManagedStaticINS_2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ENS1_6parserIS8_EEEEN12_GLOBAL__N_125CreateCrashDiagnosticsDirENS_14object_deleterISB_EEEdeEv.exit
+  br i1 %.not.i1, label %5, label %_ZN4llvm13ManagedStaticINS_2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ENS1_6parserIS8_EEEEN12_GLOBAL__N_125CreateCrashDiagnosticsDirENS_14object_deleterISB_EEEdeEv.argprom.exit
 
-5:                                                ; preds = %_ZN4llvm13ManagedStaticINS_2cl3optIbLb1ENS1_6parserIbEEEEN12_GLOBAL__N_126CreateDisableSymbolicationENS_14object_deleterIS5_EEEdeEv.exit
+5:                                                ; preds = %_ZN4llvm13ManagedStaticINS_2cl3optIbLb1ENS1_6parserIbEEEEN12_GLOBAL__N_126CreateDisableSymbolicationENS_14object_deleterIS5_EEEdeEv.argprom.exit
   tail call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm18initSignalsOptionsEvE19CrashDiagnosticsDirB5cxx11, ptr noundef nonnull @_ZN12_GLOBAL__N_125CreateCrashDiagnosticsDir4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterINS_2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ENS1_6parserIS8_EEEEE4callEPv) #25
-  br label %_ZN4llvm13ManagedStaticINS_2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ENS1_6parserIS8_EEEEN12_GLOBAL__N_125CreateCrashDiagnosticsDirENS_14object_deleterISB_EEEdeEv.exit
+  br label %_ZN4llvm13ManagedStaticINS_2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ENS1_6parserIS8_EEEEN12_GLOBAL__N_125CreateCrashDiagnosticsDirENS_14object_deleterISB_EEEdeEv.argprom.exit
 
-_ZN4llvm13ManagedStaticINS_2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ENS1_6parserIS8_EEEEN12_GLOBAL__N_125CreateCrashDiagnosticsDirENS_14object_deleterISB_EEEdeEv.exit: ; preds = %_ZN4llvm13ManagedStaticINS_2cl3optIbLb1ENS1_6parserIbEEEEN12_GLOBAL__N_126CreateDisableSymbolicationENS_14object_deleterIS5_EEEdeEv.exit, %5
+_ZN4llvm13ManagedStaticINS_2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ENS1_6parserIS8_EEEEN12_GLOBAL__N_125CreateCrashDiagnosticsDirENS_14object_deleterISB_EEEdeEv.argprom.exit: ; preds = %_ZN4llvm13ManagedStaticINS_2cl3optIbLb1ENS1_6parserIbEEEEN12_GLOBAL__N_126CreateDisableSymbolicationENS_14object_deleterIS5_EEEdeEv.argprom.exit, %5
   %6 = load atomic i64, ptr @_ZZN4llvm18initSignalsOptionsEvE19CrashDiagnosticsDirB5cxx11 monotonic, align 8
   ret void
 }
@@ -2277,23 +2277,23 @@ define dso_local noundef zeroext i1 @_ZN4llvm3sys18RemoveFileOnSignalENS_9String
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = load atomic i64, ptr @_ZZN4llvm3sys18RemoveFileOnSignalENS_9StringRefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20FilesToRemoveCleanup acquire, align 8
   %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %7, label %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
+  br i1 %.not.i, label %7, label %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.argprom.exit
 
 7:                                                ; preds = %3
   tail call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm3sys18RemoveFileOnSignalENS_9StringRefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20FilesToRemoveCleanup, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_120FilesToRemoveCleanupEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_120FilesToRemoveCleanupEE4callEPv) #25
-  br label %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
+  br label %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.argprom.exit
 
-_ZN4llvm13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit: ; preds = %3, %7
+_ZN4llvm13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.argprom.exit: ; preds = %3, %7
   %8 = load atomic i64, ptr @_ZZN4llvm3sys18RemoveFileOnSignalENS_9StringRefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20FilesToRemoveCleanup monotonic, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %.not.i1 = icmp eq ptr %0, null
   br i1 %.not.i1, label %9, label %10
 
-9:                                                ; preds = %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
+9:                                                ; preds = %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.argprom.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
 
-10:                                               ; preds = %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
+10:                                               ; preds = %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.argprom.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25, !noalias !34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %4) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
@@ -2310,7 +2310,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %9, %10
   %15 = ptrtoint ptr %11 to i64
   %16 = cmpxchg ptr @_ZN12_GLOBAL__N_113FilesToRemoveE, i64 0, i64 %15 seq_cst seq_cst, align 8
   %17 = extractvalue { i64, i1 } %16, 1
-  br i1 %17, label %_ZN12_GLOBAL__N_116FileToRemoveList6insertERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i
+  br i1 %17, label %_ZN12_GLOBAL__N_116FileToRemoveList6insertERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit, %.lr.ph.i
   %18 = phi { i64, i1 } [ %22, %.lr.ph.i ], [ %16, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit ]
@@ -2319,9 +2319,9 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %9, %10
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = cmpxchg ptr %21, i64 0, i64 %15 seq_cst seq_cst, align 8
   %23 = extractvalue { i64, i1 } %22, 1
-  br i1 %23, label %_ZN12_GLOBAL__N_116FileToRemoveList6insertERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i, !llvm.loop !37
+  br i1 %23, label %_ZN12_GLOBAL__N_116FileToRemoveList6insertERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %.lr.ph.i, !llvm.loop !37
 
-_ZN12_GLOBAL__N_116FileToRemoveList6insertERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.lr.ph.i, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
+_ZN12_GLOBAL__N_116FileToRemoveList6insertERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %.lr.ph.i, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   call fastcc void @_ZL16RegisterHandlersv()
   ret i1 false
@@ -2369,7 +2369,7 @@ _ZN4llvm13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14
 _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit.i: ; preds = %_ZN4llvm13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i
   %12 = load atomic i64, ptr @_ZN12_GLOBAL__N_113FilesToRemoveE seq_cst, align 8
   %.not3.i = icmp eq i64 %12, 0
-  br i1 %.not3.i, label %_ZN12_GLOBAL__N_116FileToRemoveList5eraseERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i
+  br i1 %.not3.i, label %_ZN12_GLOBAL__N_116FileToRemoveList5eraseERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit.i, %19
   %.04.in.i = phi i64 [ %21, %19 ], [ %12, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit.i ]
@@ -2398,9 +2398,9 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit.i: ; preds = %_ZN4l
   %20 = getelementptr inbounds nuw i8, ptr %.04.i, i64 8
   %21 = load atomic i64, ptr %20 seq_cst, align 8
   %.not.i1 = icmp eq i64 %21, 0
-  br i1 %.not.i1, label %_ZN12_GLOBAL__N_116FileToRemoveList5eraseERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i, !llvm.loop !41
+  br i1 %.not.i1, label %_ZN12_GLOBAL__N_116FileToRemoveList5eraseERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %.lr.ph.i, !llvm.loop !41
 
-_ZN12_GLOBAL__N_116FileToRemoveList5eraseERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %19, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit.i
+_ZN12_GLOBAL__N_116FileToRemoveList5eraseERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %19, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit.i
   %22 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.0.i2.i.i) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   ret void
@@ -3713,7 +3713,7 @@ define internal noundef range(i32 0, 6) i32 @"_ZZL15unwindBacktracePPviEN3$_08__
   %3 = tail call i64 @_Unwind_GetIP(ptr noundef %0) #25
   %4 = inttoptr i64 %3 to ptr
   %.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i, label %"_ZZL15unwindBacktracePPviENK3$_0clEP15_Unwind_ContextS_.exit", label %5
+  br i1 %.not.i.i, label %"_ZZL15unwindBacktracePPviENK3$_0clEP15_Unwind_ContextS_.argprom.exit", label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
@@ -3742,9 +3742,9 @@ define internal noundef range(i32 0, 6) i32 @"_ZZL15unwindBacktracePPviEN3$_08__
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %18, %21
   %..i.i = select i1 %22, i32 5, i32 0
-  br label %"_ZZL15unwindBacktracePPviENK3$_0clEP15_Unwind_ContextS_.exit"
+  br label %"_ZZL15unwindBacktracePPviENK3$_0clEP15_Unwind_ContextS_.argprom.exit"
 
-"_ZZL15unwindBacktracePPviENK3$_0clEP15_Unwind_ContextS_.exit": ; preds = %2, %15
+"_ZZL15unwindBacktracePPviENK3$_0clEP15_Unwind_ContextS_.argprom.exit": ; preds = %2, %15
   %.0.i.i = phi i32 [ 5, %2 ], [ %..i.i, %15 ]
   ret i32 %.0.i.i
 }
@@ -4684,19 +4684,19 @@ define internal void @_ZN4llvm14object_deleterIN12_GLOBAL__N_120FilesToRemoveCle
 3:                                                ; preds = %1
   %4 = atomicrmw xchg ptr @_ZN12_GLOBAL__N_113FilesToRemoveE, i64 0 seq_cst, align 8
   %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_120FilesToRemoveCleanupD2Ev.exit, label %5
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_120FilesToRemoveCleanupD2Ev.argprom.exit, label %5
 
 5:                                                ; preds = %3
   %6 = inttoptr i64 %4 to ptr
   tail call fastcc void @_ZN12_GLOBAL__N_116FileToRemoveListD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 16) #29
-  br label %_ZN12_GLOBAL__N_120FilesToRemoveCleanupD2Ev.exit
+  br label %_ZN12_GLOBAL__N_120FilesToRemoveCleanupD2Ev.argprom.exit
 
-_ZN12_GLOBAL__N_120FilesToRemoveCleanupD2Ev.exit: ; preds = %3, %5
+_ZN12_GLOBAL__N_120FilesToRemoveCleanupD2Ev.argprom.exit: ; preds = %3, %5
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1) #29
   br label %7
 
-7:                                                ; preds = %_ZN12_GLOBAL__N_120FilesToRemoveCleanupD2Ev.exit, %1
+7:                                                ; preds = %_ZN12_GLOBAL__N_120FilesToRemoveCleanupD2Ev.argprom.exit, %1
   ret void
 }
 

@@ -1144,7 +1144,7 @@ sw.bb35:                                          ; preds = %sw.bb2
 
 sw.bb39:                                          ; preds = %sw.bb2
   %reg_value40 = getelementptr inbounds i8, ptr %opaque, i64 3200
-  tail call fastcc void @get_next_record_identifier(ptr noundef %opaque, ptr noundef nonnull %reg_value40, i1 noundef zeroext false)
+  tail call fastcc void @get_next_record_identifier.retelim(ptr noundef %opaque, ptr noundef nonnull %reg_value40, i1 noundef zeroext false)
   %command_status43 = getelementptr inbounds i8, ptr %opaque, i64 3186
   store i8 0, ptr %command_status43, align 2
   br label %sw.epilog66
@@ -1661,7 +1661,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @get_next_record_identifier(ptr nocapture noundef %s, ptr nocapture noundef writeonly %record_identifier, i1 noundef zeroext %first) unnamed_addr #5 {
+define internal fastcc void @get_next_record_identifier.retelim(ptr nocapture noundef %s, ptr nocapture noundef writeonly %record_identifier, i1 noundef zeroext %first) unnamed_addr #5 {
 entry:
   br i1 %first, label %if.then, label %entry.if.end_crit_edge
 

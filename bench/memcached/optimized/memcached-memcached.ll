@@ -4440,7 +4440,7 @@ define dso_local zeroext i1 @resp_start(ptr nocapture noundef %c) local_unnamed_
 entry:
   %0 = getelementptr i8, ptr %c, i64 456
   %c.val = load ptr, ptr %0, align 8
-  %call = tail call fastcc ptr @resp_allocate(ptr %c.val)
+  %call = tail call fastcc ptr @resp_allocate.argprom(ptr %c.val)
   %tobool.not = icmp ne ptr %call, null
   %1 = load ptr, ptr %0, align 8
   %stats9 = getelementptr inbounds i8, ptr %1, i64 352
@@ -4515,7 +4515,7 @@ return:                                           ; preds = %if.end29, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @resp_allocate(ptr %c.456.val) unnamed_addr #1 {
+define internal fastcc ptr @resp_allocate.argprom(ptr %c.456.val) unnamed_addr #1 {
 entry:
   %open_bundle = getelementptr inbounds i8, ptr %c.456.val, i64 6888
   %0 = load ptr, ptr %open_bundle, align 8
@@ -4620,7 +4620,7 @@ define dso_local ptr @resp_start_unlinked(ptr nocapture noundef readonly %c) loc
 entry:
   %0 = getelementptr i8, ptr %c, i64 456
   %c.val = load ptr, ptr %0, align 8
-  %call = tail call fastcc ptr @resp_allocate(ptr %c.val)
+  %call = tail call fastcc ptr @resp_allocate.argprom(ptr %c.val)
   %tobool.not = icmp eq ptr %call, null
   %1 = load ptr, ptr %0, align 8
   %stats = getelementptr inbounds i8, ptr %1, i64 352
@@ -10244,7 +10244,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 116), align 4
-  %call = tail call fastcc i32 @server_socket(ptr noundef null, i32 noundef %port, i32 noundef %transport, ptr noundef %portnumber_file, i64 noundef 0, i32 noundef %1)
+  %call = tail call fastcc i32 @server_socket.argelim(ptr noundef null, i32 noundef %port, i32 noundef %transport, ptr noundef %portnumber_file, i64 noundef 0, i32 noundef %1)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -10454,7 +10454,7 @@ if.end116.tail:                                   ; preds = %if.end116, %sub_173
   %cmp122 = phi ptr [ %spec.select, %if.end116 ], [ %23, %sub_173 ]
   %24 = load i32, ptr %the_port, align 4
   %conntag.0.conntag.0.conntag.0.conntag.0. = load i64, ptr %conntag, align 8
-  %call127 = call fastcc i32 @server_socket(ptr noundef %cmp122, i32 noundef %24, i32 noundef %transport, ptr noundef %portnumber_file, i64 noundef %conntag.0.conntag.0.conntag.0.conntag.0., i32 noundef %bproto.0)
+  %call127 = call fastcc i32 @server_socket.argelim(ptr noundef %cmp122, i32 noundef %24, i32 noundef %transport, ptr noundef %portnumber_file, i64 noundef %conntag.0.conntag.0.conntag.0.conntag.0., i32 noundef %bproto.0)
   %or = or i32 %call127, %ret.092
   %cmp128 = icmp ne i32 %or, 0
   %cmp130 = icmp eq i32 %errno_save.091, 0
@@ -11526,7 +11526,7 @@ declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #4
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @server_socket(ptr noundef %interface, i32 noundef %port, i32 noundef range(i32 1, 3) %transport, ptr noundef %portnumber_file, i64 noundef %conntag, i32 noundef %bproto) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @server_socket.argelim(ptr noundef %interface, i32 noundef %port, i32 noundef range(i32 1, 3) %transport, ptr noundef %portnumber_file, i64 noundef %conntag, i32 noundef %bproto) unnamed_addr #1 {
 entry:
   %intsize.i = alloca i32, align 4
   %avg.i = alloca i32, align 4

@@ -8191,15 +8191,15 @@ _ZNSt8optionalIN4llvm6DIFile12ChecksumInfoIPNS0_8MDStringEEEE7emplaceIJNS1_12Che
   %1643 = load i64, ptr %1642, align 8
   %1644 = trunc i64 %1643 to i32
   %.not.i1344 = icmp eq i32 %1644, 0
-  br i1 %.not.i1344, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl16parseOneMetadataERNS_15SmallVectorImplImEEjRN12_GLOBAL__N_112_GLOBAL__N_116PlaceholderQueueENS_9StringRefERjENK3$_6clEj.exit"
+  br i1 %.not.i1344, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl16parseOneMetadataERNS_15SmallVectorImplImEEjRN12_GLOBAL__N_112_GLOBAL__N_116PlaceholderQueueENS_9StringRefERjENK3$_6clEj.argprom.exit"
 
-"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl16parseOneMetadataERNS_15SmallVectorImplImEEjRN12_GLOBAL__N_112_GLOBAL__N_116PlaceholderQueueENS_9StringRefERjENK3$_6clEj.exit": ; preds = %"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl16parseOneMetadataERNS_15SmallVectorImplImEEjRN12_GLOBAL__N_112_GLOBAL__N_116PlaceholderQueueENS_9StringRefERjENK3$_3clEj.exit1769"
+"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl16parseOneMetadataERNS_15SmallVectorImplImEEjRN12_GLOBAL__N_112_GLOBAL__N_116PlaceholderQueueENS_9StringRefERjENK3$_6clEj.argprom.exit": ; preds = %"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl16parseOneMetadataERNS_15SmallVectorImplImEEjRN12_GLOBAL__N_112_GLOBAL__N_116PlaceholderQueueENS_9StringRefERjENK3$_3clEj.exit1769"
   %1645 = add i32 %1644, -1
   %1646 = call fastcc noundef ptr @_ZN12_GLOBAL__N_125BitcodeReaderMetadataList17getMetadataFwdRefEj(ptr noundef nonnull align 8 dereferenceable(188) %1, i32 noundef %1645)
   %.not1085 = icmp eq ptr %1646, null
   br i1 %.not1085, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %1647
 
-1647:                                             ; preds = %"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl16parseOneMetadataERNS_15SmallVectorImplImEEjRN12_GLOBAL__N_112_GLOBAL__N_116PlaceholderQueueENS_9StringRefERjENK3$_6clEj.exit"
+1647:                                             ; preds = %"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl16parseOneMetadataERNS_15SmallVectorImplImEEjRN12_GLOBAL__N_112_GLOBAL__N_116PlaceholderQueueENS_9StringRefERjENK3$_6clEj.argprom.exit"
   %1648 = getelementptr inbounds nuw i8, ptr %1, i64 728
   store ptr %1637, ptr %52, align 8
   %1649 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -11947,7 +11947,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
 _ZN4llvm11SmallVectorIPNS_15ValueAsMetadataELj4EED2Ev.exit: ; preds = %3593, %3597
   br i1 %.not1061.not2594, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %3598
 
-_ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %3539, %1985, %"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl16parseOneMetadataERNS_15SmallVectorImplImEEjRN12_GLOBAL__N_112_GLOBAL__N_116PlaceholderQueueENS_9StringRefERjENK3$_3clEj.exit1769", %155, %170, %182, %326, %408, %._crit_edge2603, %544, %579, %737, %835, %980, %1180, %1219, %1387, %1475, %2057, %2109, %2184, %2232, %2282, %2332, %2406, %2511, %2980, %3126, %3192, %3260, %3360, %3480, %_ZN4llvm25mayBeOldLoopAttachmentTagENS_9StringRefE.exit, %7, %1647, %"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl16parseOneMetadataERNS_15SmallVectorImplImEEjRN12_GLOBAL__N_112_GLOBAL__N_116PlaceholderQueueENS_9StringRefERjENK3$_6clEj.exit", %1996, %2003, %1999, %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_8MetadataEEEDaPT0_.exit, %1980, %2793, %2959, %2673, %_ZN4llvm11SmallStringILj8EED2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit1639, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit, %_ZN4llvm5ErrorD2Ev.exit1646, %_ZN4llvm11SmallVectorIPNS_15ValueAsMetadataELj4EED2Ev.exit, %._crit_edge2612, %._crit_edge2607, %371, %_ZN4llvm5APIntD2Ev.exit1243, %671, %674, %_ZN4llvm5ErrorD2Ev.exit1601
+_ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %3539, %1985, %"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl16parseOneMetadataERNS_15SmallVectorImplImEEjRN12_GLOBAL__N_112_GLOBAL__N_116PlaceholderQueueENS_9StringRefERjENK3$_3clEj.exit1769", %155, %170, %182, %326, %408, %._crit_edge2603, %544, %579, %737, %835, %980, %1180, %1219, %1387, %1475, %2057, %2109, %2184, %2232, %2282, %2332, %2406, %2511, %2980, %3126, %3192, %3260, %3360, %3480, %_ZN4llvm25mayBeOldLoopAttachmentTagENS_9StringRefE.exit, %7, %1647, %"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl16parseOneMetadataERNS_15SmallVectorImplImEEjRN12_GLOBAL__N_112_GLOBAL__N_116PlaceholderQueueENS_9StringRefERjENK3$_6clEj.argprom.exit", %1996, %2003, %1999, %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_8MetadataEEEDaPT0_.exit, %1980, %2793, %2959, %2673, %_ZN4llvm11SmallStringILj8EED2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit1639, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit, %_ZN4llvm5ErrorD2Ev.exit1646, %_ZN4llvm11SmallVectorIPNS_15ValueAsMetadataELj4EED2Ev.exit, %._crit_edge2612, %._crit_edge2607, %371, %_ZN4llvm5APIntD2Ev.exit1243, %671, %674, %_ZN4llvm5ErrorD2Ev.exit1601
   store ptr null, ptr %0, align 8
   br label %3598
 
@@ -24026,7 +24026,7 @@ define internal void @"_ZN4llvm12function_refIFvNS_9StringRefEEE11callback_fnIZN
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %12, ptr %6, align 8
-  br label %"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl27lazyLoadModuleMetadataBlockEvENK3$_0clENS_9StringRefE.exit"
+  br label %"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl27lazyLoadModuleMetadataBlockEvENK3$_0clENS_9StringRefE.argprom.exit"
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %5, align 8
@@ -24088,9 +24088,9 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx1
   store ptr %32, ptr %6, align 8
   %34 = getelementptr inbounds %"class.llvm::StringRef", ptr %28, i64 %24
   store ptr %34, ptr %8, align 8
-  br label %"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl27lazyLoadModuleMetadataBlockEvENK3$_0clENS_9StringRefE.exit"
+  br label %"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl27lazyLoadModuleMetadataBlockEvENK3$_0clENS_9StringRefE.argprom.exit"
 
-"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl27lazyLoadModuleMetadataBlockEvENK3$_0clENS_9StringRefE.exit": ; preds = %10, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
+"_ZZN4llvm14MetadataLoader18MetadataLoaderImpl27lazyLoadModuleMetadataBlockEvENK3$_0clENS_9StringRefE.argprom.exit": ; preds = %10, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
   ret void
 }
 
@@ -25442,8 +25442,8 @@ attributes #29 = { nounwind willreturn memory(read) }
 !733 = distinct !{!733, !734, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !734 = distinct !{!734, !"_ZNK4llvm5Twine6concatERKS0_"}
 !735 = !{!736, !738}
-!736 = distinct !{!736, !737, !"_ZN4llvm17make_filter_rangeIRNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_L13filterDbgVarsES8_EUlRS5_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISF_E4typeEEEEEOSD_SG_: argument 0"}
-!737 = distinct !{!737, !"_ZN4llvm17make_filter_rangeIRNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_L13filterDbgVarsES8_EUlRS5_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISF_E4typeEEEEEOSD_SG_"}
+!736 = distinct !{!736, !737, !"_ZN4llvm17make_filter_rangeIRNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_L13filterDbgVarsES8_EUlRS5_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISF_E4typeEEEEEOSD_SG_.argprom: argument 0"}
+!737 = distinct !{!737, !"_ZN4llvm17make_filter_rangeIRNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_L13filterDbgVarsES8_EUlRS5_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISF_E4typeEEEEEOSD_SG_.argprom"}
 !738 = distinct !{!738, !739, !"_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE: argument 0"}
 !739 = distinct !{!739, !"_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE"}
 !740 = distinct !{!740, !58}

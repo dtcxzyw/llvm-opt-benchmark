@@ -1591,12 +1591,12 @@ define internal fastcc i32 @ompi_mpi_instance_finalize_common() unnamed_addr #0 
   %7 = tail call i32 @mca_pml_base_bsend_detach(ptr noundef null, ptr noundef null) #13
   %8 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_registered_datareps, i64 8), align 8
   %9 = icmp eq i32 %8, 1
-  br i1 %9, label %.preheader134, label %opal_list_remove_first.exit.thread
+  br i1 %9, label %.preheader134, label %opal_list_remove_first.argprom.exit.thread
 
 .preheader134:                                    ; preds = %0
   %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_registered_datareps, i64 56), align 8
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %opal_list_remove_first.exit.thread, label %.lr.ph
+  br i1 %11, label %opal_list_remove_first.argprom.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader134, %40
   %12 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_registered_datareps, i64 56), align 8
@@ -1657,9 +1657,9 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %32
 40:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
   %41 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_registered_datareps, i64 56), align 8
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %opal_list_remove_first.exit.thread, label %.lr.ph, !llvm.loop !13
+  br i1 %42, label %opal_list_remove_first.argprom.exit.thread, label %.lr.ph, !llvm.loop !13
 
-opal_list_remove_first.exit.thread:               ; preds = %40, %.preheader134, %0
+opal_list_remove_first.argprom.exit.thread:       ; preds = %40, %.preheader134, %0
   %43 = load ptr, ptr @ompi_registered_datareps, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8
@@ -1667,16 +1667,16 @@ opal_list_remove_first.exit.thread:               ; preds = %40, %.preheader134,
   %.not6.i57 = icmp eq ptr %46, null
   br i1 %.not6.i57, label %opal_obj_run_destructors.exit61, label %.lr.ph.i58
 
-.lr.ph.i58:                                       ; preds = %opal_list_remove_first.exit.thread, %.lr.ph.i58
-  %47 = phi ptr [ %49, %.lr.ph.i58 ], [ %46, %opal_list_remove_first.exit.thread ]
-  %.07.i59 = phi ptr [ %48, %.lr.ph.i58 ], [ %45, %opal_list_remove_first.exit.thread ]
+.lr.ph.i58:                                       ; preds = %opal_list_remove_first.argprom.exit.thread, %.lr.ph.i58
+  %47 = phi ptr [ %49, %.lr.ph.i58 ], [ %46, %opal_list_remove_first.argprom.exit.thread ]
+  %.07.i59 = phi ptr [ %48, %.lr.ph.i58 ], [ %45, %opal_list_remove_first.argprom.exit.thread ]
   tail call void %47(ptr noundef nonnull @ompi_registered_datareps) #13
   %48 = getelementptr inbounds i8, ptr %.07.i59, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not.i60 = icmp eq ptr %49, null
   br i1 %.not.i60, label %opal_obj_run_destructors.exit61, label %.lr.ph.i58, !llvm.loop !6
 
-opal_obj_run_destructors.exit61:                  ; preds = %.lr.ph.i58, %opal_list_remove_first.exit.thread
+opal_obj_run_destructors.exit61:                  ; preds = %.lr.ph.i58, %opal_list_remove_first.argprom.exit.thread
   store ptr null, ptr %4, align 8
   %50 = call i32 @opal_hash_table_get_next_key_uint32(ptr noundef nonnull @ompi_mpi_f90_integer_hashtable, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %4) #13
   %51 = icmp eq i32 %50, 0

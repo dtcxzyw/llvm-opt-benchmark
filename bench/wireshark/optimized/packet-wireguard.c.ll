@@ -680,7 +680,7 @@ wg_kdf.exit.i.i:                                  ; preds = %125
 
 wg_kdf.exit54.i.i:                                ; preds = %142
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
-  %146 = call fastcc i32 @aead_decrypt(ptr noundef nonnull %120, ptr noundef %118, i32 noundef 48, ptr noundef %30, ptr noundef nonnull %28, i32 noundef 32)
+  %146 = call fastcc i32 @aead_decrypt.argelim(ptr noundef nonnull %120, ptr noundef %118, i32 noundef 48, ptr noundef %30, ptr noundef nonnull %28, i32 noundef 32)
   %.not47.i.i = icmp eq i32 %146, 0
   br i1 %.not47.i.i, label %wg_process_initiation.exit.i, label %147
 
@@ -738,7 +738,7 @@ wg_kdf.exit54.i.i:                                ; preds = %142
 wg_kdf.exit56.i.i:                                ; preds = %165
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
   %169 = getelementptr inbounds i8, ptr %95, i64 16
-  %170 = call fastcc i32 @aead_decrypt(ptr noundef nonnull %120, ptr noundef %119, i32 noundef 28, ptr noundef %30, ptr noundef nonnull %169, i32 noundef 12)
+  %170 = call fastcc i32 @aead_decrypt.argelim(ptr noundef nonnull %120, ptr noundef %119, i32 noundef 28, ptr noundef %30, ptr noundef nonnull %169, i32 noundef 12)
   %.not50.i.i = icmp eq i32 %170, 0
   br i1 %.not50.i.i, label %wg_process_initiation.exit.i, label %171
 
@@ -1301,7 +1301,7 @@ wg_kdf.exit72.i.i:                                ; preds = %401
 wg_kdf.exit73.i.i:                                ; preds = %420
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call fastcc void @wg_mix_hash(ptr noundef nonnull %17, ptr noundef nonnull %360, i64 noundef 32)
-  %424 = call fastcc i32 @aead_decrypt(ptr noundef nonnull %361, ptr noundef %359, i32 noundef 16, ptr noundef %17, ptr noundef null, i32 noundef 0)
+  %424 = call fastcc i32 @aead_decrypt.argelim(ptr noundef nonnull %361, ptr noundef %359, i32 noundef 16, ptr noundef %17, ptr noundef null, i32 noundef 0)
   %.not65.i.i = icmp eq i32 %424, 0
   br i1 %.not65.i.i, label %425, label %wg_psk_iter_next.exit.thread.i.i
 
@@ -3053,7 +3053,7 @@ define internal fastcc void @wg_mix_hash(ptr noundef %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @aead_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 16, 49) %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef range(i32 0, 33) %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @aead_decrypt.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 16, 49) %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef range(i32 0, 33) %5) unnamed_addr #0 {
   %7 = alloca [12 x i8], align 4
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)

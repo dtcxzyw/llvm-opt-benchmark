@@ -656,7 +656,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %70 = call i32 @tvb_reported_length(ptr noundef %69) #3
   %71 = icmp slt i32 %70, %68
-  br i1 %71, label %dissect_component.exit, label %72
+  br i1 %71, label %dissect_component.argprom.exit, label %72
 
 72:                                               ; preds = %.lr.ph.split.us
   %73 = call zeroext i8 @tvb_get_guint8(ptr noundef %69, i32 noundef 1) #3
@@ -665,7 +665,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
 
 74:                                               ; preds = %72
   %75 = icmp ult i32 %70, 6
-  br i1 %75, label %dissect_component.exit, label %76
+  br i1 %75, label %dissect_component.argprom.exit, label %76
 
 76:                                               ; preds = %74, %72
   %.0.i.us = phi i32 [ 6, %74 ], [ 2, %72 ]
@@ -704,7 +704,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %97 = call i32 @tvb_reported_length(ptr noundef %96) #3
   %98 = icmp slt i32 %97, %68
-  br i1 %98, label %dissect_component.exit, label %99
+  br i1 %98, label %dissect_component.argprom.exit, label %99
 
 99:                                               ; preds = %.lr.ph.split
   %100 = call zeroext i8 @tvb_get_guint8(ptr noundef %96, i32 noundef 0) #3
@@ -719,7 +719,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
   %exitcond.not = icmp eq i32 %107, %63
   br i1 %exitcond.not, label %.thread, label %.lr.ph.split, !llvm.loop !4
 
-dissect_component.exit:                           ; preds = %.lr.ph.split, %.lr.ph.split.us, %74
+dissect_component.argprom.exit:                   ; preds = %.lr.ph.split, %.lr.ph.split.us, %74
   %.us-phi = phi i32 [ %.4148.us, %74 ], [ %.4148.us, %.lr.ph.split.us ], [ %.4148, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %129
@@ -758,8 +758,8 @@ dissect_component.exit:                           ; preds = %.lr.ph.split, %.lr.
   %128 = add i32 %.5, 4
   br label %129
 
-129:                                              ; preds = %dissect_component.exit, %14, %119, %108, %58, %57, %49, %37, %12, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 6, %37 ], [ 6, %49 ], [ 6, %57 ], [ 7, %58 ], [ %.us-phi, %dissect_component.exit ], [ %.3126, %108 ], [ 5, %14 ], [ %128, %119 ]
+129:                                              ; preds = %dissect_component.argprom.exit, %14, %119, %108, %58, %57, %49, %37, %12, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 6, %37 ], [ 6, %49 ], [ 6, %57 ], [ 7, %58 ], [ %.us-phi, %dissect_component.argprom.exit ], [ %.3126, %108 ], [ 5, %14 ], [ %128, %119 ]
   ret i32 %.0
 }
 
@@ -1079,7 +1079,7 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   %69 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %53, i32 noundef 2, i32 noundef 4, i32 noundef 0) #3
   %70 = add nsw i32 %57, -4
   %71 = call ptr @tvb_new_subset_length(ptr noundef %53, i32 noundef 6, i32 noundef %70) #3
-  switch i8 %55, label %dissect_scte35_splice_descriptor.exit [
+  switch i8 %55, label %dissect_scte35_splice_descriptor.argprom.exit [
     i8 0, label %72
     i8 1, label %79
     i8 2, label %98
@@ -1089,25 +1089,25 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   %73 = load ptr, ptr %6, align 8
   %74 = call i32 @tvb_reported_length(ptr noundef %71) #3
   %75 = icmp slt i32 %74, 4
-  br i1 %75, label %dissect_scte35_splice_descriptor.exit.thread, label %76
+  br i1 %75, label %dissect_scte35_splice_descriptor.argprom.exit.thread, label %76
 
 76:                                               ; preds = %72
   %77 = load i32, ptr @hf_descriptor_provider_avail_id, align 4
   %78 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %77, ptr noundef %71, i32 noundef 0, i32 noundef 4, i32 noundef 0) #3
-  br label %dissect_scte35_splice_descriptor.exit.thread112
+  br label %dissect_scte35_splice_descriptor.argprom.exit.thread112
 
 79:                                               ; preds = %.lr.ph
   %80 = load ptr, ptr %6, align 8
   %81 = call i32 @tvb_reported_length(ptr noundef %71) #3
   %82 = icmp slt i32 %81, 2
-  br i1 %82, label %dissect_scte35_splice_descriptor.exit.thread, label %83
+  br i1 %82, label %dissect_scte35_splice_descriptor.argprom.exit.thread, label %83
 
 83:                                               ; preds = %79
   %84 = call zeroext i8 @tvb_get_bits8(ptr noundef %71, i32 noundef 8, i32 noundef 3) #3
   %85 = zext i8 %84 to i32
   %86 = add nuw nsw i32 %85, 2
   %87 = icmp ult i32 %81, %86
-  br i1 %87, label %dissect_scte35_splice_descriptor.exit.thread, label %88
+  br i1 %87, label %dissect_scte35_splice_descriptor.argprom.exit.thread, label %88
 
 88:                                               ; preds = %83
   %89 = load i32, ptr @hf_descriptor_preroll, align 4
@@ -1119,7 +1119,7 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   %95 = load i32, ptr @hf_descriptor_dtmf, align 4
   %96 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %95, ptr noundef %71, i32 noundef 2, i32 noundef %85, i32 noundef 0) #3
   %97 = add nuw nsw i32 %85, 8
-  br label %dissect_scte35_splice_descriptor.exit.thread112
+  br label %dissect_scte35_splice_descriptor.argprom.exit.thread112
 
 98:                                               ; preds = %.lr.ph
   %99 = load ptr, ptr %6, align 8
@@ -1131,7 +1131,7 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   %105 = load i32, ptr @hf_descriptor_reserved0, align 4
   %106 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %105, ptr noundef %71, i32 noundef 4, i32 noundef 1, i32 noundef 0) #3
   %.not.i.i = icmp eq i8 %102, 0
-  br i1 %.not.i.i, label %107, label %dissect_scte35_splice_descriptor.exit.thread112
+  br i1 %.not.i.i, label %107, label %dissect_scte35_splice_descriptor.argprom.exit.thread112
 
 107:                                              ; preds = %98
   %108 = call zeroext i8 @tvb_get_bits8(ptr noundef %71, i32 noundef 40, i32 noundef 1) #3
@@ -1232,18 +1232,18 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   %169 = load i32, ptr @hf_descriptor_segments_expected, align 4
   %170 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %169, ptr noundef %71, i32 noundef %168, i32 noundef 1, i32 noundef 0) #3
   %171 = add i32 %.4.i.i, 3
-  br label %dissect_scte35_splice_descriptor.exit
+  br label %dissect_scte35_splice_descriptor.argprom.exit
 
-dissect_scte35_splice_descriptor.exit.thread:     ; preds = %72, %79, %83
+dissect_scte35_splice_descriptor.argprom.exit.thread: ; preds = %72, %79, %83
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit
 
-dissect_scte35_splice_descriptor.exit.thread112:  ; preds = %98, %88, %76
+dissect_scte35_splice_descriptor.argprom.exit.thread112: ; preds = %98, %88, %76
   %.ph = phi i32 [ 10, %76 ], [ %97, %88 ], [ 11, %98 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %175
 
-dissect_scte35_splice_descriptor.exit:            ; preds = %.lr.ph, %162
+dissect_scte35_splice_descriptor.argprom.exit:    ; preds = %.lr.ph, %162
   %.036.i = phi i32 [ %70, %.lr.ph ], [ %171, %162 ]
   %172 = icmp slt i32 %.036.i, 1
   %173 = add nuw i32 %.036.i, 6
@@ -1252,8 +1252,8 @@ dissect_scte35_splice_descriptor.exit:            ; preds = %.lr.ph, %162
   %174 = icmp slt i32 %spec.select.i, 1
   br i1 %174, label %.loopexit, label %175
 
-175:                                              ; preds = %dissect_scte35_splice_descriptor.exit.thread112, %dissect_scte35_splice_descriptor.exit
-  %176 = phi i32 [ %.ph, %dissect_scte35_splice_descriptor.exit.thread112 ], [ %spec.select.i, %dissect_scte35_splice_descriptor.exit ]
+175:                                              ; preds = %dissect_scte35_splice_descriptor.argprom.exit.thread112, %dissect_scte35_splice_descriptor.argprom.exit
+  %176 = phi i32 [ %.ph, %dissect_scte35_splice_descriptor.argprom.exit.thread112 ], [ %spec.select.i, %dissect_scte35_splice_descriptor.argprom.exit ]
   %177 = add i32 %176, %.0102117
   %178 = add i16 %.0105116, 1
   %179 = icmp slt i32 %177, %52
@@ -1278,8 +1278,8 @@ dissect_scte35_splice_descriptor.exit:            ; preds = %.lr.ph, %162
   %190 = call i32 @dissector_try_uint_new(ptr noundef %188, i32 noundef %189, ptr noundef %48, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef null) #3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %dissect_scte35_splice_descriptor.exit, %dissect_scte35_splice_descriptor.exit.thread, %24, %18, %9, %4, %184
-  %.0 = phi i32 [ %187, %184 ], [ 0, %4 ], [ 0, %9 ], [ 0, %18 ], [ 0, %24 ], [ %51, %dissect_scte35_splice_descriptor.exit.thread ], [ %51, %dissect_scte35_splice_descriptor.exit ]
+.loopexit:                                        ; preds = %dissect_scte35_splice_descriptor.argprom.exit, %dissect_scte35_splice_descriptor.argprom.exit.thread, %24, %18, %9, %4, %184
+  %.0 = phi i32 [ %187, %184 ], [ 0, %4 ], [ 0, %9 ], [ 0, %18 ], [ 0, %24 ], [ %51, %dissect_scte35_splice_descriptor.argprom.exit.thread ], [ %51, %dissect_scte35_splice_descriptor.argprom.exit ]
   ret i32 %.0
 }
 

@@ -729,20 +729,20 @@ define dso_local void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_o
 
 .critedge:                                        ; preds = %19, %13, %5, %24
   %.pre25 = phi ptr [ %.pre25.pre, %19 ], [ %7, %13 ], [ %7, %5 ], [ %.pre25.pre, %24 ]
-  br i1 %6, label %25, label %"_ZZN5clang8SemaBase4DiagENS_14SourceLocationEjbENK3$_0clEb.exit"
+  br i1 %6, label %25, label %"_ZZN5clang8SemaBase4DiagENS_14SourceLocationEjbENK3$_0clEb.argprom.argprom.exit"
 
 25:                                               ; preds = %.critedge
   %26 = getelementptr inbounds nuw i8, ptr %.pre25, i64 520
   store i8 1, ptr %26, align 8
   %.pre24 = load ptr, ptr %1, align 8
-  br label %"_ZZN5clang8SemaBase4DiagENS_14SourceLocationEjbENK3$_0clEb.exit"
+  br label %"_ZZN5clang8SemaBase4DiagENS_14SourceLocationEjbENK3$_0clEb.argprom.argprom.exit"
 
-"_ZZN5clang8SemaBase4DiagENS_14SourceLocationEjbENK3$_0clEb.exit": ; preds = %.critedge, %25
+"_ZZN5clang8SemaBase4DiagENS_14SourceLocationEjbENK3$_0clEb.argprom.argprom.exit": ; preds = %.critedge, %25
   %27 = phi ptr [ %.pre25, %.critedge ], [ %.pre24, %25 ]
   %28 = tail call noundef ptr @_ZNK5clang4Sema18getCurFunctionDeclEb(ptr noundef nonnull align 8 dereferenceable(17560) %27, i1 noundef zeroext false) #15
   %29 = load ptr, ptr %1, align 8
   tail call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderC1ENS1_4KindENS_14SourceLocationEjPKNS_12FunctionDeclERNS_4SemaE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 1, i32 %2, i32 noundef %3, ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(17560) %29) #15
-  br label %"_ZZN5clang8SemaBase4DiagENS_14SourceLocationEjbENK3$_0clEb.exit21"
+  br label %"_ZZN5clang8SemaBase4DiagENS_14SourceLocationEjbENK3$_0clEb.argprom.argprom.exit21"
 
 .critedge17:                                      ; preds = %24, %19
   %30 = getelementptr inbounds nuw i8, ptr %.pre25.pre, i64 240
@@ -764,7 +764,7 @@ define dso_local void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_o
   br label %39
 
 39:                                               ; preds = %38, %37
-  br i1 %6, label %40, label %"_ZZN5clang8SemaBase4DiagENS_14SourceLocationEjbENK3$_0clEb.exit21"
+  br i1 %6, label %40, label %"_ZZN5clang8SemaBase4DiagENS_14SourceLocationEjbENK3$_0clEb.argprom.argprom.exit21"
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -773,9 +773,9 @@ define dso_local void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_o
   %44 = load ptr, ptr %1, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 520
   store i8 %43, ptr %45, align 8
-  br label %"_ZZN5clang8SemaBase4DiagENS_14SourceLocationEjbENK3$_0clEb.exit21"
+  br label %"_ZZN5clang8SemaBase4DiagENS_14SourceLocationEjbENK3$_0clEb.argprom.argprom.exit21"
 
-"_ZZN5clang8SemaBase4DiagENS_14SourceLocationEjbENK3$_0clEb.exit21": ; preds = %40, %39, %"_ZZN5clang8SemaBase4DiagENS_14SourceLocationEjbENK3$_0clEb.exit"
+"_ZZN5clang8SemaBase4DiagENS_14SourceLocationEjbENK3$_0clEb.argprom.argprom.exit21": ; preds = %40, %39, %"_ZZN5clang8SemaBase4DiagENS_14SourceLocationEjbENK3$_0clEb.argprom.argprom.exit"
   ret void
 }
 

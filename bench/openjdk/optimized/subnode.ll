@@ -6630,7 +6630,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
   %165 = load ptr, ptr %164, align 8
   %166 = tail call noundef i32 %165(ptr noundef nonnull align 8 dereferenceable(52) %163) #10
   %167 = icmp eq i32 %166, 123
-  br i1 %167, label %168, label %_ZL18is_cloop_conditionP8BoolNode.exit444
+  br i1 %167, label %168, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444
 
 168:                                              ; preds = %159
   %169 = getelementptr inbounds i8, ptr %1, i64 40
@@ -6659,7 +6659,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
   %..i429 = select i1 %191, ptr %188, ptr null
   %.not387555 = icmp eq ptr %177, null
   %.not387 = or i1 %.not387555, %180
-  br i1 %.not387, label %_ZL18is_cloop_conditionP8BoolNode.exit444, label %192
+  br i1 %.not387, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444, label %192
 
 192:                                              ; preds = %168
   %193 = getelementptr inbounds i8, ptr %177, i64 24
@@ -6669,7 +6669,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
   %197 = icmp eq i32 %194, %196
   %198 = icmp ne ptr %..i429, null
   %or.cond17 = and i1 %198, %197
-  br i1 %or.cond17, label %199, label %_ZL18is_cloop_conditionP8BoolNode.exit444
+  br i1 %or.cond17, label %199, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444
 
 199:                                              ; preds = %192
   %200 = getelementptr inbounds i8, ptr %..i429, i64 24
@@ -6684,7 +6684,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
   %207 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %194)
   %208 = icmp ult i32 %207, 2
   %or.cond530 = select i1 %or.cond527, i1 %208, i1 false
-  br i1 %or.cond530, label %209, label %_ZL18is_cloop_conditionP8BoolNode.exit444
+  br i1 %or.cond530, label %209, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444
 
 209:                                              ; preds = %199
   %210 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 56) #10
@@ -6720,7 +6720,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
 
 .critedge:                                        ; preds = %_ZN8BoolNode25is_counted_loop_exit_testEv.exit
   %226 = icmp eq i32 %15, 82
-  br i1 %226, label %227, label %_ZL18is_cloop_conditionP8BoolNode.exit.thread577
+  br i1 %226, label %227, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit.thread577
 
 227:                                              ; preds = %.critedge
   %228 = load i32, ptr %30, align 4
@@ -6733,13 +6733,13 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
   %or.cond20 = and i1 %232, %231
   %233 = icmp eq i32 %38, 124
   %or.cond397 = and i1 %233, %or.cond20
-  br i1 %or.cond397, label %235, label %_ZL18is_cloop_conditionP8BoolNode.exit
+  br i1 %or.cond397, label %235, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit
 
 234:                                              ; preds = %227
   %.old19 = icmp eq i32 %35, 29
   %.old396 = icmp eq i32 %38, 124
   %or.cond398 = and i1 %.old19, %.old396
-  br i1 %or.cond398, label %235, label %_ZL18is_cloop_conditionP8BoolNode.exit
+  br i1 %or.cond398, label %235, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit
 
 235:                                              ; preds = %234, %230
   %236 = getelementptr inbounds i8, ptr %26, i64 8
@@ -6750,7 +6750,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
   %241 = load ptr, ptr %240, align 8
   %242 = tail call noundef i32 %241(ptr noundef nonnull align 8 dereferenceable(52) %239) #10
   %243 = icmp eq i32 %242, 124
-  br i1 %243, label %244, label %_ZL18is_cloop_conditionP8BoolNode.exit.thread577
+  br i1 %243, label %244, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit.thread577
 
 244:                                              ; preds = %235
   %245 = getelementptr inbounds i8, ptr %1, i64 40
@@ -6779,7 +6779,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
   %..i431 = select i1 %267, ptr %264, ptr null
   %.not388554 = icmp eq ptr %253, null
   %.not388 = or i1 %.not388554, %256
-  br i1 %.not388, label %_ZL18is_cloop_conditionP8BoolNode.exit.thread577, label %268
+  br i1 %.not388, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit.thread577, label %268
 
 268:                                              ; preds = %244
   %269 = getelementptr inbounds i8, ptr %253, i64 24
@@ -6789,7 +6789,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
   %273 = icmp eq i64 %270, %272
   %274 = icmp ne ptr %..i431, null
   %or.cond23 = and i1 %274, %273
-  br i1 %or.cond23, label %275, label %_ZL18is_cloop_conditionP8BoolNode.exit.thread577
+  br i1 %or.cond23, label %275, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit.thread577
 
 275:                                              ; preds = %268
   %276 = getelementptr inbounds i8, ptr %..i431, i64 24
@@ -6804,7 +6804,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
   %283 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %270)
   %284 = icmp ult i64 %283, 2
   %or.cond537 = select i1 %or.cond534, i1 %284, i1 false
-  br i1 %or.cond537, label %285, label %_ZL18is_cloop_conditionP8BoolNode.exit.thread577
+  br i1 %or.cond537, label %285, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit.thread577
 
 285:                                              ; preds = %275
   %286 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 56) #10
@@ -6840,7 +6840,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
 
 302:                                              ; preds = %.thread, %155
   %303 = icmp eq i32 %35, 23
-  br i1 %303, label %304, label %_ZL18is_cloop_conditionP8BoolNode.exit444
+  br i1 %303, label %304, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444
 
 304:                                              ; preds = %302
   %305 = getelementptr inbounds i8, ptr %26, i64 8
@@ -6858,7 +6858,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
   %317 = load ptr, ptr %316, align 8
   %318 = load ptr, ptr @_ZN7TypeInt3MINE, align 8
   %319 = icmp eq ptr %317, %318
-  br i1 %319, label %320, label %_ZL18is_cloop_conditionP8BoolNode.exit444
+  br i1 %319, label %320, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444
 
 320:                                              ; preds = %304
   %321 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6882,10 +6882,10 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
   %330 = load i32, ptr %329, align 4
   %331 = and i32 %330, 63
   %332 = icmp eq i32 %331, 53
-  br i1 %332, label %_ZL18is_cloop_conditionP8BoolNode.exit444, label %325
+  br i1 %332, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444, label %325
 
 .loopexit563:                                     ; preds = %325, %320
-  switch i32 %38, label %_ZL18is_cloop_conditionP8BoolNode.exit444 [
+  switch i32 %38, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444 [
     i32 123, label %333
     i32 23, label %354
   ]
@@ -6937,7 +6937,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
   %362 = getelementptr inbounds ptr, ptr %314, i64 %361
   %363 = load ptr, ptr %362, align 8
   %364 = icmp eq ptr %363, %317
-  br i1 %364, label %365, label %_ZL18is_cloop_conditionP8BoolNode.exit444
+  br i1 %364, label %365, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444
 
 365:                                              ; preds = %354
   br i1 %.not.i432, label %.loopexit561, label %.lr.ph.i436
@@ -6954,7 +6954,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
   %371 = load i32, ptr %370, align 4
   %372 = and i32 %371, 63
   %373 = icmp eq i32 %372, 53
-  br i1 %373, label %_ZL18is_cloop_conditionP8BoolNode.exit444, label %366
+  br i1 %373, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444, label %366
 
 .loopexit561:                                     ; preds = %366, %365
   %374 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 56) #10
@@ -6992,16 +6992,16 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
   store i32 256, ptr %393, align 4
   br label %1009
 
-_ZL18is_cloop_conditionP8BoolNode.exit.thread577: ; preds = %235, %275, %268, %244, %.critedge
+_ZL18is_cloop_conditionP8BoolNode.argprom.exit.thread577: ; preds = %235, %275, %268, %244, %.critedge
   %394 = icmp eq i32 %35, 23
-  br label %_ZL18is_cloop_conditionP8BoolNode.exit444
+  br label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444
 
-_ZL18is_cloop_conditionP8BoolNode.exit:           ; preds = %230, %234
+_ZL18is_cloop_conditionP8BoolNode.argprom.exit:   ; preds = %230, %234
   %395 = icmp eq i32 %35, 23
   %396 = icmp eq i32 %35, 24
-  br i1 %396, label %397, label %_ZL18is_cloop_conditionP8BoolNode.exit444
+  br i1 %396, label %397, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444
 
-397:                                              ; preds = %_ZL18is_cloop_conditionP8BoolNode.exit
+397:                                              ; preds = %_ZL18is_cloop_conditionP8BoolNode.argprom.exit
   %398 = getelementptr inbounds i8, ptr %26, i64 8
   %399 = load ptr, ptr %398, align 8
   %400 = getelementptr inbounds i8, ptr %399, i64 16
@@ -7017,7 +7017,7 @@ _ZL18is_cloop_conditionP8BoolNode.exit:           ; preds = %230, %234
   %410 = load ptr, ptr %409, align 8
   %411 = load ptr, ptr @_ZN8TypeLong3MINE, align 8
   %412 = icmp eq ptr %410, %411
-  br i1 %412, label %413, label %_ZL18is_cloop_conditionP8BoolNode.exit444
+  br i1 %412, label %413, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444
 
 413:                                              ; preds = %397
   %414 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7041,10 +7041,10 @@ _ZL18is_cloop_conditionP8BoolNode.exit:           ; preds = %230, %234
   %423 = load i32, ptr %422, align 4
   %424 = and i32 %423, 63
   %425 = icmp eq i32 %424, 53
-  br i1 %425, label %_ZL18is_cloop_conditionP8BoolNode.exit444, label %418
+  br i1 %425, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444, label %418
 
 .loopexit560:                                     ; preds = %418, %413
-  switch i32 %38, label %_ZL18is_cloop_conditionP8BoolNode.exit444 [
+  switch i32 %38, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444 [
     i32 124, label %426
     i32 24, label %447
   ]
@@ -7096,7 +7096,7 @@ _ZL18is_cloop_conditionP8BoolNode.exit:           ; preds = %230, %234
   %455 = getelementptr inbounds ptr, ptr %407, i64 %454
   %456 = load ptr, ptr %455, align 8
   %457 = icmp eq ptr %456, %410
-  br i1 %457, label %458, label %_ZL18is_cloop_conditionP8BoolNode.exit444
+  br i1 %457, label %458, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444
 
 458:                                              ; preds = %447
   br i1 %.not.i440, label %.loopexit558, label %.lr.ph.i446
@@ -7113,7 +7113,7 @@ _ZL18is_cloop_conditionP8BoolNode.exit:           ; preds = %230, %234
   %464 = load i32, ptr %463, align 4
   %465 = and i32 %464, 63
   %466 = icmp eq i32 %465, 53
-  br i1 %466, label %_ZL18is_cloop_conditionP8BoolNode.exit444, label %459
+  br i1 %466, label %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444, label %459
 
 .loopexit558:                                     ; preds = %459, %458
   %467 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 56) #10
@@ -7151,8 +7151,8 @@ _ZL18is_cloop_conditionP8BoolNode.exit:           ; preds = %230, %234
   store i32 256, ptr %486, align 4
   br label %1009
 
-_ZL18is_cloop_conditionP8BoolNode.exit444:        ; preds = %.lr.ph.i441, %.lr.ph.i446, %.lr.ph.i433, %.lr.ph.i436, %302, %354, %.loopexit563, %_ZL18is_cloop_conditionP8BoolNode.exit.thread577, %159, %199, %192, %168, %304, %.loopexit560, %447, %397, %_ZL18is_cloop_conditionP8BoolNode.exit
-  %487 = phi i1 [ %395, %.loopexit560 ], [ %395, %447 ], [ %395, %397 ], [ %395, %_ZL18is_cloop_conditionP8BoolNode.exit ], [ true, %304 ], [ false, %168 ], [ false, %192 ], [ false, %199 ], [ false, %159 ], [ %394, %_ZL18is_cloop_conditionP8BoolNode.exit.thread577 ], [ false, %302 ], [ true, %354 ], [ true, %.loopexit563 ], [ true, %.lr.ph.i436 ], [ true, %.lr.ph.i433 ], [ %395, %.lr.ph.i446 ], [ %395, %.lr.ph.i441 ]
+_ZL18is_cloop_conditionP8BoolNode.argprom.exit444: ; preds = %.lr.ph.i441, %.lr.ph.i446, %.lr.ph.i433, %.lr.ph.i436, %302, %354, %.loopexit563, %_ZL18is_cloop_conditionP8BoolNode.argprom.exit.thread577, %159, %199, %192, %168, %304, %.loopexit560, %447, %397, %_ZL18is_cloop_conditionP8BoolNode.argprom.exit
+  %487 = phi i1 [ %395, %.loopexit560 ], [ %395, %447 ], [ %395, %397 ], [ %395, %_ZL18is_cloop_conditionP8BoolNode.argprom.exit ], [ true, %304 ], [ false, %168 ], [ false, %192 ], [ false, %199 ], [ false, %159 ], [ %394, %_ZL18is_cloop_conditionP8BoolNode.argprom.exit.thread577 ], [ false, %302 ], [ true, %354 ], [ true, %.loopexit563 ], [ true, %.lr.ph.i436 ], [ true, %.lr.ph.i433 ], [ %395, %.lr.ph.i446 ], [ %395, %.lr.ph.i441 ]
   %488 = getelementptr inbounds i8, ptr %1, i64 40
   %489 = load ptr, ptr %488, align 8
   %490 = getelementptr inbounds i8, ptr %28, i64 40
@@ -7169,7 +7169,7 @@ _ZL18is_cloop_conditionP8BoolNode.exit444:        ; preds = %.lr.ph.i441, %.lr.p
   %501 = or i1 %500, %499
   br i1 %501, label %1009, label %502
 
-502:                                              ; preds = %_ZL18is_cloop_conditionP8BoolNode.exit444
+502:                                              ; preds = %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444
   %503 = load ptr, ptr @_ZN7TypeInt4ZEROE, align 8
   %504 = icmp eq ptr %496, %503
   %505 = icmp eq i32 %35, 353
@@ -7779,7 +7779,7 @@ thread-pre-split506:                              ; preds = %.thread487, %.threa
   %.val421.val.val = load ptr, ptr %823, align 8
   %824 = getelementptr i8, ptr %.val421.val.val, i64 8
   %.val421.val.val.val = load ptr, ptr %824, align 8
-  %825 = tail call fastcc noundef zeroext i1 @_ZL19is_counted_loop_cmpP4Node(ptr %.val421.val.val.val)
+  %825 = tail call fastcc noundef zeroext i1 @_ZL19is_counted_loop_cmpP4Node.argprom.argprom.argprom.argprom(ptr %.val421.val.val.val)
   br i1 %825, label %._crit_edge, label %826
 
 ._crit_edge:                                      ; preds = %821
@@ -8072,8 +8072,8 @@ thread-pre-split506:                              ; preds = %.thread487, %.threa
   %1008 = tail call noundef ptr @_ZN8BoolNode9fold_cmpIEP8PhaseGVNP7SubNodeP4NodeiiPK7TypeInt(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %26, i32 noundef %15, i32 noundef %35, ptr noundef nonnull %496)
   br label %1009
 
-1009:                                             ; preds = %993, %999, %948, %954, %909, %915, %849, %855, %788, %794, %755, %762, %708, %714, %694, %700, %665, %671, %628, %634, %539, %545, %_ZL18is_cloop_conditionP8BoolNode.exit444, %477, %483, %437, %443, %384, %390, %344, %350, %291, %297, %215, %221, %135, %141, %.loopexit564, %80, %29, %29, %22, %12, %17, %3, %.thread514, %587
-  %.0 = phi ptr [ %588, %587 ], [ %1008, %.thread514 ], [ null, %3 ], [ null, %17 ], [ null, %12 ], [ null, %22 ], [ null, %29 ], [ null, %29 ], [ %78, %80 ], [ null, %.loopexit564 ], [ %139, %141 ], [ null, %135 ], [ %219, %221 ], [ null, %215 ], [ %295, %297 ], [ null, %291 ], [ %348, %350 ], [ null, %344 ], [ %388, %390 ], [ null, %384 ], [ %441, %443 ], [ null, %437 ], [ %481, %483 ], [ null, %477 ], [ null, %_ZL18is_cloop_conditionP8BoolNode.exit444 ], [ %543, %545 ], [ null, %539 ], [ %632, %634 ], [ null, %628 ], [ %669, %671 ], [ null, %665 ], [ %698, %700 ], [ null, %694 ], [ %712, %714 ], [ null, %708 ], [ %760, %762 ], [ null, %755 ], [ %792, %794 ], [ null, %788 ], [ %853, %855 ], [ null, %849 ], [ %913, %915 ], [ null, %909 ], [ %952, %954 ], [ null, %948 ], [ %997, %999 ], [ null, %993 ]
+1009:                                             ; preds = %993, %999, %948, %954, %909, %915, %849, %855, %788, %794, %755, %762, %708, %714, %694, %700, %665, %671, %628, %634, %539, %545, %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444, %477, %483, %437, %443, %384, %390, %344, %350, %291, %297, %215, %221, %135, %141, %.loopexit564, %80, %29, %29, %22, %12, %17, %3, %.thread514, %587
+  %.0 = phi ptr [ %588, %587 ], [ %1008, %.thread514 ], [ null, %3 ], [ null, %17 ], [ null, %12 ], [ null, %22 ], [ null, %29 ], [ null, %29 ], [ %78, %80 ], [ null, %.loopexit564 ], [ %139, %141 ], [ null, %135 ], [ %219, %221 ], [ null, %215 ], [ %295, %297 ], [ null, %291 ], [ %348, %350 ], [ null, %344 ], [ %388, %390 ], [ null, %384 ], [ %441, %443 ], [ null, %437 ], [ %481, %483 ], [ null, %477 ], [ null, %_ZL18is_cloop_conditionP8BoolNode.argprom.exit444 ], [ %543, %545 ], [ null, %539 ], [ %632, %634 ], [ null, %628 ], [ %669, %671 ], [ null, %665 ], [ %698, %700 ], [ null, %694 ], [ %712, %714 ], [ null, %708 ], [ %760, %762 ], [ null, %755 ], [ %792, %794 ], [ null, %788 ], [ %853, %855 ], [ null, %849 ], [ %913, %915 ], [ null, %909 ], [ %952, %954 ], [ null, %948 ], [ %997, %999 ], [ null, %993 ]
   ret ptr %.0
 }
 
@@ -8144,7 +8144,7 @@ define linkonce_odr hidden noundef i64 @_ZNK4Node8get_longEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL19is_counted_loop_cmpP4Node(ptr readonly %.8.val.8.val.8.val.8.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL19is_counted_loop_cmpP4Node.argprom.argprom.argprom.argprom(ptr readonly %.8.val.8.val.8.val.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val.8.val.8.val.8.val, null
   br i1 %.not, label %72, label %1
 

@@ -28,7 +28,7 @@ define void @closest_pairs2graph(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %12 = tail call fastcc ptr @gv_calloc(i64 noundef %9, i64 noundef 8)
   %13 = tail call fastcc ptr @gv_calloc(i64 noundef %9, i64 noundef 8)
   %.not131.i = icmp eq i32 %1, 0
-  br i1 %.not131.i, label %gv_sort.exit.i, label %.lr.ph.i
+  br i1 %.not131.i, label %gv_sort.argprom.exit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.0118.i = phi i64 [ %15, %.lr.ph.i ], [ 0, %4 ]
@@ -50,7 +50,7 @@ define void @closest_pairs2graph(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   tail call void @qsort(ptr noundef nonnull %12, i64 noundef %9, i64 noundef 8, ptr noundef nonnull @gv_sort_compar_wrapper) #16
   br label %.lr.ph120.preheader.i
 
-gv_sort.exit.i:                                   ; preds = %4
+gv_sort.argprom.exit.i:                           ; preds = %4
   %20 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_compar)
   %21 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_arg)
   store ptr null, ptr %20, align 8
@@ -72,8 +72,8 @@ gv_sort.exit.i:                                   ; preds = %4
   %exitcond133.not.i = icmp eq i64 %25, %9
   br i1 %exitcond133.not.i, label %._crit_edge121.i, label %.lr.ph120.i
 
-._crit_edge121.i:                                 ; preds = %.lr.ph120.i, %gv_sort.exit.i
-  %26 = phi i1 [ false, %gv_sort.exit.i ], [ %18, %.lr.ph120.i ]
+._crit_edge121.i:                                 ; preds = %.lr.ph120.i, %gv_sort.argprom.exit.i
+  %26 = phi i1 [ false, %gv_sort.argprom.exit.i ], [ %18, %.lr.ph120.i ]
   %27 = add nsw i64 %9, -1
   %28 = tail call i64 @llvm.usub.sat.i64(i64 %9, i64 1)
   %29 = getelementptr inbounds i8, ptr %7, i64 8
@@ -335,7 +335,7 @@ extractMax.exit.i:                                ; preds = %128
 135:                                              ; preds = %extractMax.exit.i
   %136 = load ptr, ptr @stderr, align 8
   %137 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.1, i64 noundef 24) #18
-  tail call fastcc void @graphviz_exit() #19
+  tail call fastcc void @graphviz_exit.argelim() #19
   unreachable
 
 gv_alloc.exit.i.i:                                ; preds = %extractMax.exit.i
@@ -373,7 +373,7 @@ gv_alloc.exit.i.i:                                ; preds = %extractMax.exit.i
   %152 = load ptr, ptr @stderr, align 8
   %153 = tail call ptr @strerror(i32 noundef %.0.i.ph.i.i.i.i.i) #16
   %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef nonnull @.str.2, ptr noundef %153) #18
-  tail call fastcc void @graphviz_exit() #19
+  tail call fastcc void @graphviz_exit.argelim() #19
   unreachable
 
 push.exit.i:                                      ; preds = %gv_alloc.exit.i.i, %146
@@ -641,7 +641,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, i64 noundef %0, i64 noundef %1) #18
-  tail call fastcc void @graphviz_exit() #19
+  tail call fastcc void @graphviz_exit.argelim() #19
   unreachable
 
 8:                                                ; preds = %4
@@ -653,7 +653,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.1, i64 noundef %13) #18
-  tail call fastcc void @graphviz_exit() #19
+  tail call fastcc void @graphviz_exit.argelim() #19
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -695,7 +695,7 @@ define internal fastcc void @insert(ptr nocapture noundef nonnull %0, ptr nocapt
 12:                                               ; preds = %9
   %13 = load ptr, ptr @stderr, align 8
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, i64 noundef %10, i64 noundef 24) #18
-  tail call fastcc void @graphviz_exit() #19
+  tail call fastcc void @graphviz_exit.argelim() #19
   unreachable
 
 15:                                               ; preds = %9
@@ -716,7 +716,7 @@ define internal fastcc void @insert(ptr nocapture noundef nonnull %0, ptr nocapt
 23:                                               ; preds = %20
   %24 = load ptr, ptr @stderr, align 8
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.1, i64 noundef %17) #18
-  tail call fastcc void @graphviz_exit() #19
+  tail call fastcc void @graphviz_exit.argelim() #19
   unreachable
 
 26:                                               ; preds = %20
@@ -793,7 +793,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #6 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #6 {
   tail call void @exit(i32 noundef 1) #21
   unreachable
 }

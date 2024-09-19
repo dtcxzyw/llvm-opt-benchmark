@@ -1956,7 +1956,7 @@ if.then820:                                       ; preds = %if.else818
 for.body825:                                      ; preds = %if.then820, %for.body825
   %j.11091 = phi i32 [ %inc829, %for.body825 ], [ 0, %if.then820 ]
   %call826 = call ptr @X509_PURPOSE_get0(i32 noundef %j.11091) #7
-  call fastcc void @purpose_print(ptr noundef %call516, ptr noundef %x.2383, ptr noundef %call826)
+  call fastcc void @purpose_print.retelim(ptr noundef %call516, ptr noundef %x.2383, ptr noundef %call826)
   %inc829 = add nuw nsw i32 %j.11091, 1
   %call823 = call i32 @X509_PURPOSE_get_count() #7
   %cmp824 = icmp slt i32 %inc829, %call823
@@ -2112,7 +2112,7 @@ if.else912:                                       ; preds = %if.else907
   br i1 %cmp913, label %if.then915, label %for.inc936
 
 if.then915:                                       ; preds = %if.else912
-  call fastcc void @print_x509v3_exts(ptr noundef %call516, ptr noundef %x.2383, ptr noundef %ext_names.0.lcssa)
+  call fastcc void @print_x509v3_exts.retelim(ptr noundef %call516, ptr noundef %x.2383, ptr noundef %ext_names.0.lcssa)
   br label %for.inc936
 
 for.inc936:                                       ; preds = %for.body899, %for.body825, %if.end895, %if.then820, %if.then735, %if.then743, %for.end787, %if.then800, %if.then810, %if.then856, %if.then865, %if.else912, %if.then915, %if.then910, %if.then872, %if.then860, %if.end852, %if.then815, %if.then805, %if.then793, %if.else795, %if.end762, %if.then739
@@ -2690,7 +2690,7 @@ declare i64 @X509_issuer_name_hash_old(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_PURPOSE_get_count() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @purpose_print(ptr noundef nonnull %bio, ptr noundef nonnull %cert, ptr noundef %pt) unnamed_addr #0 {
+define internal fastcc void @purpose_print.retelim(ptr noundef nonnull %bio, ptr noundef nonnull %cert, ptr noundef %pt) unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_PURPOSE_get_id(ptr noundef %pt) #7
   %call1 = tail call ptr @X509_PURPOSE_get0_name(ptr noundef %pt) #7
@@ -2753,7 +2753,7 @@ declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_ocspid_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_x509v3_exts(ptr noundef nonnull %bio, ptr noundef nonnull %x, ptr noundef %ext_names) unnamed_addr #0 {
+define internal fastcc void @print_x509v3_exts.retelim(ptr noundef nonnull %bio, ptr noundef nonnull %x, ptr noundef %ext_names) unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_get0_extensions(ptr noundef nonnull %x) #7
   %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #7

@@ -2333,7 +2333,7 @@ define internal fastcc void @crng_make_state(ptr noundef %0, ptr nocapture nound
 
 33:                                               ; preds = %.thread
   call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @base_crng, i64 40)) #16
-  call fastcc void @crng_fast_key_erasure(ptr noundef %0, ptr noundef %28)
+  call fastcc void @crng_fast_key_erasure.argprom.argelim(ptr noundef %0, ptr noundef %28)
   %34 = load i64, ptr getelementptr inbounds (i8, ptr @base_crng, i64 32), align 8
   store i64 %34, ptr %29, align 8
   call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @base_crng, i64 40)) #16
@@ -2539,7 +2539,7 @@ define internal fastcc void @extract_entropy(ptr noundef %0) unnamed_addr #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @crng_fast_key_erasure(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @crng_fast_key_erasure.argprom.argelim(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !7

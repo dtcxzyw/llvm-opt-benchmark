@@ -1079,7 +1079,7 @@ _ZN23JavaThreadInVMAndNativeC2EP6Thread.exit:     ; preds = %11, %16, %19
   store ptr @.str.22, ptr %89, align 8
   %90 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2129), align 1
   %.not.i.i.i = icmp eq i8 %90, 0
-  br i1 %.not.i.i.i, label %_ZL11post_eventsbP6Thread.exit, label %_ZN8JfrEventI13EventShutdownE12should_writeEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZL11post_eventsbP6Thread.argprom.exit, label %_ZN8JfrEventI13EventShutdownE12should_writeEv.exit.i.i
 
 _ZN8JfrEventI13EventShutdownE12should_writeEv.exit.i.i: ; preds = %88
   %91 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #17
@@ -1087,17 +1087,17 @@ _ZN8JfrEventI13EventShutdownE12should_writeEv.exit.i.i: ; preds = %88
   %92 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %93 = load ptr, ptr %92, align 8
   %94 = tail call noundef zeroext i1 @_ZN14JfrThreadLocal11is_includedEPK6Thread(ptr noundef %93) #17
-  br i1 %94, label %95, label %_ZL11post_eventsbP6Thread.exit
+  br i1 %94, label %95, label %_ZL11post_eventsbP6Thread.argprom.exit
 
 95:                                               ; preds = %_ZN8JfrEventI13EventShutdownE12should_writeEv.exit.i.i
   call void @_ZN8JfrEventI13EventShutdownE11write_eventEv(ptr noundef nonnull align 8 dereferenceable(19) %2)
-  br label %_ZL11post_eventsbP6Thread.exit
+  br label %_ZL11post_eventsbP6Thread.argprom.exit
 
 96:                                               ; preds = %87
   tail call void @_ZN12LeakProfiler11emit_eventsElbb(i64 noundef 9223372036854775807, i1 noundef zeroext false, i1 noundef zeroext false) #17
-  br label %_ZL11post_eventsbP6Thread.exit
+  br label %_ZL11post_eventsbP6Thread.argprom.exit
 
-_ZL11post_eventsbP6Thread.exit:                   ; preds = %88, %_ZN8JfrEventI13EventShutdownE12should_writeEv.exit.i.i, %95, %96
+_ZL11post_eventsbP6Thread.argprom.exit:           ; preds = %88, %_ZN8JfrEventI13EventShutdownE12should_writeEv.exit.i.i, %95, %96
   %97 = phi ptr [ @.str.24, %96 ], [ @.str.23, %88 ], [ @.str.23, %_ZN8JfrEventI13EventShutdownE12should_writeEv.exit.i.i ], [ @.str.23, %95 ]
   %98 = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %3, i8 0, i64 19, i1 false)
@@ -1110,12 +1110,12 @@ _ZL11post_eventsbP6Thread.exit:                   ; preds = %88, %_ZN8JfrEventI1
   %.not.i = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i, label %_ZN23JavaThreadInVMAndNative20transition_to_nativeEv.exit, label %100
 
-100:                                              ; preds = %_ZL11post_eventsbP6Thread.exit
+100:                                              ; preds = %_ZL11post_eventsbP6Thread.argprom.exit
   %101 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1092
   store volatile i32 4, ptr %101, align 4
   br label %_ZN23JavaThreadInVMAndNative20transition_to_nativeEv.exit
 
-_ZN23JavaThreadInVMAndNative20transition_to_nativeEv.exit: ; preds = %_ZL11post_eventsbP6Thread.exit, %100
+_ZN23JavaThreadInVMAndNative20transition_to_nativeEv.exit: ; preds = %_ZL11post_eventsbP6Thread.argprom.exit, %100
   call void @_ZN18JfrRecorderServiceC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #17
   call void @_ZN18JfrRecorderService6rotateEi(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef 256) #17
   br label %_ZL26prepare_for_emergency_dumpP6Thread.exit

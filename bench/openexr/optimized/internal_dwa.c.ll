@@ -956,9 +956,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   store float %div14.i.i, ptr %arrayidx16.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 64
-  br i1 %exitcond.not.i.i, label %LossyDctEncoderCsc_construct.exit, label %for.body.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %LossyDctEncoderCsc_construct.argprom.exit, label %for.body.i.i, !llvm.loop !18
 
-LossyDctEncoderCsc_construct.exit:                ; preds = %for.body.i.i
+LossyDctEncoderCsc_construct.argprom.exit:        ; preds = %for.body.i.i
   store ptr %arrayidx92, ptr %_channel_encode_data.i.i, align 8
   store ptr %arrayidx98, ptr %arrayidx2.i236, align 8
   store ptr %arrayidx104, ptr %arrayidx4.i, align 8
@@ -992,7 +992,7 @@ LossyDctEncoderCsc_construct.exit:                ; preds = %for.body.i.i
   %cmp153.not = icmp eq i32 %call125, 0
   br i1 %cmp153.not, label %for.inc157, label %return
 
-for.inc157:                                       ; preds = %LossyDctEncoderCsc_construct.exit
+for.inc157:                                       ; preds = %LossyDctEncoderCsc_construct.argprom.exit
   %mul133 = shl i64 %103, 1
   %add.ptr134 = getelementptr inbounds i8, ptr %packedDcEnd.1270, i64 %mul133
   %mul130 = shl i64 %101, 1
@@ -1050,7 +1050,7 @@ sw.bb:                                            ; preds = %if.end174
   %120 = load i32, ptr %width182, align 4
   %height183 = getelementptr inbounds i8, ptr %114, i64 8
   %121 = load i32, ptr %height183, align 8
-  call fastcc void @LossyDctEncoder_construct(ptr noundef %enc175, float noundef %div180, ptr noundef nonnull %arrayidx169, ptr noundef %packedAcEnd.2290, ptr noundef %packedDcEnd.2289, ptr noundef %spec.store.select, i32 noundef %120, i32 noundef %121)
+  call fastcc void @LossyDctEncoder_construct.retelim(ptr noundef %enc175, float noundef %div180, ptr noundef nonnull %arrayidx169, ptr noundef %packedAcEnd.2290, ptr noundef %packedDcEnd.2289, ptr noundef %spec.store.select, i32 noundef %120, i32 noundef %121)
   %122 = load ptr, ptr %alloc_fn188, align 8
   %123 = load ptr, ptr %free_fn189, align 8
   %call190 = call fastcc i32 @LossyDctEncoder_execute(ptr noundef %122, ptr noundef %123, ptr noundef %enc175)
@@ -1392,8 +1392,8 @@ return.sink.split:                                ; preds = %return.sink.split.s
   store i64 %.sink, ptr %compressed_bytes395, align 8
   br label %return
 
-return:                                           ; preds = %if.then7.i, %if.then.i, %LossyDctEncoderCsc_construct.exit, %if.end174, %sw.bb, %return.sink.split, %for.end24.i, %if.end8, %if.end374, %if.then358, %if.end339, %if.then328, %if.then286, %sw.bb310, %sw.bb288, %if.then272, %lor.lhs.false, %if.end, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ %call5, %if.end ], [ 1, %lor.lhs.false ], [ %call276, %if.then272 ], [ %call293, %sw.bb288 ], [ %call316, %sw.bb310 ], [ 3, %if.then286 ], [ %call335, %if.then328 ], [ %call348, %if.end339 ], [ %call367, %if.then358 ], [ 23, %if.end374 ], [ 1, %if.end8 ], [ 1, %for.end24.i ], [ 0, %return.sink.split ], [ 3, %if.end174 ], [ 1, %sw.bb ], [ 1, %LossyDctEncoderCsc_construct.exit ], [ 1, %if.then.i ], [ 1, %if.then7.i ]
+return:                                           ; preds = %if.then7.i, %if.then.i, %LossyDctEncoderCsc_construct.argprom.exit, %if.end174, %sw.bb, %return.sink.split, %for.end24.i, %if.end8, %if.end374, %if.then358, %if.end339, %if.then328, %if.then286, %sw.bb310, %sw.bb288, %if.then272, %lor.lhs.false, %if.end, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ %call5, %if.end ], [ 1, %lor.lhs.false ], [ %call276, %if.then272 ], [ %call293, %sw.bb288 ], [ %call316, %sw.bb310 ], [ 3, %if.then286 ], [ %call335, %if.then328 ], [ %call348, %if.end339 ], [ %call367, %if.then358 ], [ 23, %if.end374 ], [ 1, %if.end8 ], [ 1, %for.end24.i ], [ 0, %return.sink.split ], [ 3, %if.end174 ], [ 1, %sw.bb ], [ 1, %LossyDctEncoderCsc_construct.argprom.exit ], [ 1, %if.then.i ], [ 1, %if.then7.i ]
   ret i32 %retval.0
 }
 
@@ -1452,29 +1452,29 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %free_fn14 = getelementptr inbounds i8, ptr %me, i64 192
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %DctCoderChannelData_destroy.exit
-  %8 = phi i32 [ %7, %for.body.lr.ph ], [ %12, %DctCoderChannelData_destroy.exit ]
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %DctCoderChannelData_destroy.exit ]
+for.body:                                         ; preds = %for.body.lr.ph, %DctCoderChannelData_destroy.argprom.exit
+  %8 = phi i32 [ %7, %for.body.lr.ph ], [ %12, %DctCoderChannelData_destroy.argprom.exit ]
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %DctCoderChannelData_destroy.argprom.exit ]
   %9 = load ptr, ptr %_channelData, align 8
   %10 = getelementptr %struct._ChannelData, ptr %9, i64 %indvars.iv, i32 0, i32 3
   %arrayidx.val = load ptr, ptr %10, align 8
   %tobool.not.i = icmp eq ptr %arrayidx.val, null
-  br i1 %tobool.not.i, label %DctCoderChannelData_destroy.exit, label %if.then.i
+  br i1 %tobool.not.i, label %DctCoderChannelData_destroy.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
   %11 = load ptr, ptr %free_fn14, align 8
   tail call void %11(ptr noundef nonnull %arrayidx.val) #16
   %.pre = load i32, ptr %_numChannels, align 8
-  br label %DctCoderChannelData_destroy.exit
+  br label %DctCoderChannelData_destroy.argprom.exit
 
-DctCoderChannelData_destroy.exit:                 ; preds = %for.body, %if.then.i
+DctCoderChannelData_destroy.argprom.exit:         ; preds = %for.body, %if.then.i
   %12 = phi i32 [ %8, %for.body ], [ %.pre, %if.then.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = sext i32 %12 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %13
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !25
 
-for.end.loopexit:                                 ; preds = %DctCoderChannelData_destroy.exit
+for.end.loopexit:                                 ; preds = %DctCoderChannelData_destroy.argprom.exit
   %.pre51 = load ptr, ptr %_channel_mem, align 8
   br label %for.end
 
@@ -1976,7 +1976,7 @@ if.end84:                                         ; preds = %if.end55
   br i1 %cmp85, label %return, label %if.end87
 
 if.end87:                                         ; preds = %if.end84
-  tail call fastcc void @DwaCompressor_setupChannelData(ptr noundef %me)
+  tail call fastcc void @DwaCompressor_setupChannelData.retelim(ptr noundef %me)
   %cmp89.not = icmp eq i64 %counters.sroa.3.0.copyload, 0
   br i1 %cmp89.not, label %if.end101, label %if.then90
 
@@ -6906,7 +6906,7 @@ return:                                           ; preds = %for.body51, %for.in
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @DwaCompressor_setupChannelData(ptr nocapture noundef nonnull readonly %me) unnamed_addr #7 {
+define internal fastcc void @DwaCompressor_setupChannelData.retelim(ptr nocapture noundef nonnull readonly %me) unnamed_addr #7 {
 entry:
   %planarUncBuffer = alloca [3 x ptr], align 16
   %_planarUncBuffer = getelementptr inbounds i8, ptr %me, i64 136
@@ -8018,7 +8018,7 @@ return:                                           ; preds = %for.end243, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @LossyDctEncoder_construct(ptr nocapture noundef nonnull writeonly %e, float noundef %quantBaseError, ptr noundef %rowPtrs, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height) unnamed_addr #9 {
+define internal fastcc void @LossyDctEncoder_construct.retelim(ptr nocapture noundef nonnull writeonly %e, float noundef %quantBaseError, ptr noundef %rowPtrs, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height) unnamed_addr #9 {
 entry:
   %_quantBaseError.i = getelementptr inbounds i8, ptr %e, i64 60
   store float %quantBaseError, ptr %_quantBaseError.i, align 4

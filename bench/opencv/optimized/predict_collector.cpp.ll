@@ -725,7 +725,7 @@ define void @_ZN2cv4face17StandardCollector6createEd(ptr dead_on_unwind noalias 
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4face17StandardCollectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !21
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   invoke void @_ZN2cv4face17StandardCollectorC1Ed(ptr noundef nonnull align 8 dereferenceable(56) %6, double noundef %1)
-          to label %_ZN2cvL7makePtrINS_4face17StandardCollectorEJdEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4face17StandardCollectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !21
+          to label %_ZN2cvL7makePtrINS_4face17StandardCollectorEJdEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4face17StandardCollectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !21
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4face17StandardCollectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i: ; preds = %2
   %7 = landingpad { ptr, i32 }
@@ -733,7 +733,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4face17StandardCollect
   tail call void @_ZdlPv(ptr noundef nonnull %3) #20, !noalias !21
   resume { ptr, i32 } %7
 
-_ZN2cvL7makePtrINS_4face17StandardCollectorEJdEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %2
+_ZN2cvL7makePtrINS_4face17StandardCollectorEJdEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %2
   store ptr %6, ptr %0, align 8, !alias.scope !18
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %8, align 8, !alias.scope !18
@@ -1426,8 +1426,8 @@ attributes #23 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !9}
 !17 = distinct !{!17, !9}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN2cvL7makePtrINS_4face17StandardCollectorEJdEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!20 = distinct !{!20, !"_ZN2cvL7makePtrINS_4face17StandardCollectorEJdEEENS_3PtrIT_EEDpRKT0_"}
+!19 = distinct !{!19, !20, !"_ZN2cvL7makePtrINS_4face17StandardCollectorEJdEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!20 = distinct !{!20, !"_ZN2cvL7makePtrINS_4face17StandardCollectorEJdEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !21 = !{!22, !19}
 !22 = distinct !{!22, !23, !"_ZSt11make_sharedIN2cv4face17StandardCollectorEJRKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
 !23 = distinct !{!23, !"_ZSt11make_sharedIN2cv4face17StandardCollectorEJRKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}

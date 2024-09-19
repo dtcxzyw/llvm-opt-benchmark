@@ -1556,9 +1556,9 @@ _ZNSt6vectorIPN4llvm4InitESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZNSt6vect
   %616 = getelementptr inbounds nuw i8, ptr %.val15.i, i64 32
   %617 = load i32, ptr %616, align 8
   %.not.i17.i = icmp eq i32 %617, 0
-  br i1 %.not.i17.i, label %_ZN12_GLOBAL__N_115MapTableEmitter13isKeyColInstrEPN4llvm6RecordE.exit.thread.i, label %.lr.ph3.i.i
+  br i1 %.not.i17.i, label %_ZN12_GLOBAL__N_115MapTableEmitter13isKeyColInstrEPN4llvm6RecordE.argprom.exit.thread.i, label %.lr.ph3.i.i
 
-_ZN12_GLOBAL__N_115MapTableEmitter13isKeyColInstrEPN4llvm6RecordE.exit.thread.i: ; preds = %._crit_edge.i44
+_ZN12_GLOBAL__N_115MapTableEmitter13isKeyColInstrEPN4llvm6RecordE.argprom.exit.thread.i: ; preds = %._crit_edge.i44
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29)
   br label %656
@@ -1630,14 +1630,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %654 = icmp ult i64 %indvars.iv.next.i.i, %621
   %655 = and i1 %654, %653
-  br i1 %655, label %622, label %_ZN12_GLOBAL__N_115MapTableEmitter13isKeyColInstrEPN4llvm6RecordE.exit.i, !llvm.loop !21
+  br i1 %655, label %622, label %_ZN12_GLOBAL__N_115MapTableEmitter13isKeyColInstrEPN4llvm6RecordE.argprom.exit.i, !llvm.loop !21
 
-_ZN12_GLOBAL__N_115MapTableEmitter13isKeyColInstrEPN4llvm6RecordE.exit.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i
+_ZN12_GLOBAL__N_115MapTableEmitter13isKeyColInstrEPN4llvm6RecordE.argprom.exit.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29)
   br i1 %653, label %656, label %_ZNSt6vectorIPN4llvm6RecordESaIS2_EE9push_backERKS2_.exit.i
 
-656:                                              ; preds = %_ZN12_GLOBAL__N_115MapTableEmitter13isKeyColInstrEPN4llvm6RecordE.exit.i, %_ZN12_GLOBAL__N_115MapTableEmitter13isKeyColInstrEPN4llvm6RecordE.exit.thread.i
+656:                                              ; preds = %_ZN12_GLOBAL__N_115MapTableEmitter13isKeyColInstrEPN4llvm6RecordE.argprom.exit.i, %_ZN12_GLOBAL__N_115MapTableEmitter13isKeyColInstrEPN4llvm6RecordE.argprom.exit.thread.i
   %657 = load ptr, ptr %430, align 8
   %658 = load ptr, ptr %431, align 8
   %.not.i19.i = icmp eq ptr %657, %658
@@ -1705,7 +1705,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   store ptr %684, ptr %431, align 8
   br label %_ZNSt6vectorIPN4llvm6RecordESaIS2_EE9push_backERKS2_.exit.i
 
-_ZNSt6vectorIPN4llvm6RecordESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZNSt6vectorIPN4llvm6RecordESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %659, %_ZN12_GLOBAL__N_115MapTableEmitter13isKeyColInstrEPN4llvm6RecordE.exit.i
+_ZNSt6vectorIPN4llvm6RecordESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZNSt6vectorIPN4llvm6RecordESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %659, %_ZN12_GLOBAL__N_115MapTableEmitter13isKeyColInstrEPN4llvm6RecordE.argprom.exit.i
   %685 = load ptr, ptr %421, align 8
   %.not14.i.i.i.i.i = icmp eq ptr %685, null
   %.pre392 = ptrtoint ptr %.sroa.10.2 to i64

@@ -1637,7 +1637,7 @@ _ZN10Node_Stack4pushEP4Nodej.exit49:              ; preds = %154, %158
   %.val = load ptr, ptr %74, align 8
   %168 = load i32, ptr %115, align 4
   %.not.i50 = icmp eq i32 %168, 0
-  br i1 %.not.i50, label %_ZL18find_deepest_inputP4NodePK8PhaseCFG.exit, label %.lr.ph.i
+  br i1 %.not.i50, label %_ZL18find_deepest_inputP4NodePK8PhaseCFG.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %167
   %169 = getelementptr inbounds i8, ptr %.033, i64 8
@@ -1672,9 +1672,9 @@ _ZN10Node_Stack4pushEP4Nodej.exit49:              ; preds = %154, %158
   %.1.i = phi ptr [ %.03.i, %171 ], [ %spec.select17.i, %175 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL18find_deepest_inputP4NodePK8PhaseCFG.exit, label %171, !llvm.loop !23
+  br i1 %exitcond.not.i, label %_ZL18find_deepest_inputP4NodePK8PhaseCFG.argprom.exit, label %171, !llvm.loop !23
 
-_ZL18find_deepest_inputP4NodePK8PhaseCFG.exit:    ; preds = %184, %167
+_ZL18find_deepest_inputP4NodePK8PhaseCFG.argprom.exit: ; preds = %184, %167
   %.0.lcssa.i = phi ptr [ null, %167 ], [ %.1.i, %184 ]
   %185 = getelementptr inbounds i8, ptr %.033, i64 40
   %186 = load i32, ptr %185, align 8
@@ -1682,13 +1682,13 @@ _ZL18find_deepest_inputP4NodePK8PhaseCFG.exit:    ; preds = %184, %167
   %.not.i.i51 = icmp ult i32 %186, %187
   br i1 %.not.i.i51, label %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit, label %188
 
-188:                                              ; preds = %_ZL18find_deepest_inputP4NodePK8PhaseCFG.exit
+188:                                              ; preds = %_ZL18find_deepest_inputP4NodePK8PhaseCFG.argprom.exit
   call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %73, i32 noundef %186) #14
   %.pre = load ptr, ptr %74, align 8
   br label %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit
 
-_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZL18find_deepest_inputP4NodePK8PhaseCFG.exit, %188
-  %189 = phi ptr [ %.val, %_ZL18find_deepest_inputP4NodePK8PhaseCFG.exit ], [ %.pre, %188 ]
+_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZL18find_deepest_inputP4NodePK8PhaseCFG.argprom.exit, %188
+  %189 = phi ptr [ %.val, %_ZL18find_deepest_inputP4NodePK8PhaseCFG.argprom.exit ], [ %.pre, %188 ]
   %190 = zext i32 %186 to i64
   %191 = getelementptr inbounds ptr, ptr %189, i64 %190
   store ptr %.0.lcssa.i, ptr %191, align 8
@@ -4572,9 +4572,9 @@ _ZNK4Node16is_memory_writerEv.exit:               ; preds = %143
   %.val = load ptr, ptr %20, align 8
   br label %158
 
-158:                                              ; preds = %.lr.ph, %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.exit
-  %.06086 = phi ptr [ null, %.lr.ph ], [ %.0.i, %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.exit ]
-  %.06185 = phi ptr [ %154, %.lr.ph ], [ %241, %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.exit ]
+158:                                              ; preds = %.lr.ph, %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.argprom.exit
+  %.06086 = phi ptr [ null, %.lr.ph ], [ %.0.i, %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.argprom.exit ]
+  %.06185 = phi ptr [ %154, %.lr.ph ], [ %241, %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.argprom.exit ]
   %159 = load ptr, ptr %.06185, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 40
   %161 = load i32, ptr %160, align 8
@@ -4582,7 +4582,7 @@ _ZNK4Node16is_memory_writerEv.exit:               ; preds = %143
   %163 = getelementptr inbounds ptr, ptr %.val, i64 %162
   %164 = load ptr, ptr %163, align 8
   %165 = icmp eq ptr %164, null
-  br i1 %165, label %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.exit, label %166
+  br i1 %165, label %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.argprom.exit, label %166
 
 166:                                              ; preds = %158
   %167 = getelementptr inbounds i8, ptr %159, i64 44
@@ -4595,7 +4595,7 @@ _ZNK4Node16is_memory_writerEv.exit:               ; preds = %143
   %172 = icmp eq ptr %.06086, null
   %173 = icmp eq ptr %.06086, %164
   %or.cond.i.i = or i1 %172, %173
-  br i1 %or.cond.i.i, label %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.exit, label %.preheader22.i.i
+  br i1 %or.cond.i.i, label %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.argprom.exit, label %.preheader22.i.i
 
 .preheader22.i.i:                                 ; preds = %171
   %174 = getelementptr inbounds i8, ptr %.06086, i64 80
@@ -4623,7 +4623,7 @@ _ZNK4Node16is_memory_writerEv.exit:               ; preds = %143
 .preheader.i.i:                                   ; preds = %.lr.ph26.i.i, %.preheader21.i.i
   %.016.lcssa.i.i = phi ptr [ %.06086, %.preheader21.i.i ], [ %186, %.lr.ph26.i.i ]
   %.not28.i.i = icmp eq ptr %.016.lcssa.i.i, %.0.lcssa.i.i
-  br i1 %.not28.i.i, label %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.exit, label %.lr.ph31.i.i
+  br i1 %.not28.i.i, label %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.argprom.exit, label %.lr.ph31.i.i
 
 .lr.ph26.i.i:                                     ; preds = %.preheader21.i.i, %.lr.ph26.i.i
   %.01625.i.i = phi ptr [ %186, %.lr.ph26.i.i ], [ %.06086, %.preheader21.i.i ]
@@ -4642,13 +4642,13 @@ _ZNK4Node16is_memory_writerEv.exit:               ; preds = %143
   %192 = getelementptr inbounds i8, ptr %.130.i.i, i64 88
   %193 = load ptr, ptr %192, align 8
   %.not.i.i71 = icmp eq ptr %191, %193
-  br i1 %.not.i.i71, label %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.exit, label %.lr.ph31.i.i, !llvm.loop !14
+  br i1 %.not.i.i71, label %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.argprom.exit, label %.lr.ph31.i.i, !llvm.loop !14
 
 194:                                              ; preds = %166
   %195 = getelementptr inbounds i8, ptr %159, i64 24
   %196 = load i32, ptr %195, align 8
   %197 = icmp ugt i32 %196, 1
-  br i1 %197, label %.lr.ph.i, label %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.exit
+  br i1 %197, label %.lr.ph.i, label %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.argprom.exit
 
 .lr.ph.i:                                         ; preds = %194
   %198 = getelementptr inbounds i8, ptr %159, i64 8
@@ -4737,15 +4737,15 @@ _ZN5Block7dom_lcaEPS_.exit40.i:                   ; preds = %.lr.ph31.i31.i, %.p
   %.1.i = phi ptr [ %.0219.i, %202 ], [ %218, %206 ], [ %.016.lcssa.i29.i, %.preheader.i28.i ], [ %238, %.lr.ph31.i31.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.exit, label %202, !llvm.loop !46
+  br i1 %exitcond.not.i, label %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.argprom.exit, label %202, !llvm.loop !46
 
-_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.exit: ; preds = %.lr.ph31.i.i, %_ZN5Block7dom_lcaEPS_.exit40.i, %158, %171, %.preheader.i.i, %194
+_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.argprom.exit: ; preds = %.lr.ph31.i.i, %_ZN5Block7dom_lcaEPS_.exit40.i, %158, %171, %.preheader.i.i, %194
   %.0.i = phi ptr [ %.06086, %158 ], [ %164, %171 ], [ %.016.lcssa.i.i, %.preheader.i.i ], [ %.06086, %194 ], [ %.1.i, %_ZN5Block7dom_lcaEPS_.exit40.i ], [ %191, %.lr.ph31.i.i ]
   %241 = getelementptr inbounds i8, ptr %.06185, i64 8
   %242 = icmp ult ptr %241, %157
   br i1 %242, label %158, label %._crit_edge, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.exit
+._crit_edge:                                      ; preds = %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.argprom.exit
   %.not69 = icmp eq ptr %.0.i, null
   br i1 %.not69, label %._crit_edge.thread, label %244
 

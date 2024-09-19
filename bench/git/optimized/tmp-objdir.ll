@@ -231,13 +231,13 @@ if.end.i18:                                       ; preds = %strbuf_addch.exit23
 
 if.then5.i:                                       ; preds = %if.end.i18
   %call6.i = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %env, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.3, ptr noundef %val.addr.0.i) #15
-  br label %env_append.exit
+  br label %env_append.argprom.exit
 
 if.else.i:                                        ; preds = %if.end.i18
   %call7.i = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %env, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.3, ptr noundef nonnull %call3.i, i32 noundef 58, ptr noundef %val.addr.0.i) #15
-  br label %env_append.exit
+  br label %env_append.argprom.exit
 
-env_append.exit:                                  ; preds = %if.then5.i, %if.else.i
+env_append.argprom.exit:                          ; preds = %if.then5.i, %if.else.i
   call void @strbuf_release(ptr noundef nonnull %quoted.i) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %quoted.i)
   %18 = load ptr, ptr %buf, align 8
@@ -248,8 +248,8 @@ env_append.exit:                                  ; preds = %if.then5.i, %if.els
   %call.i20 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %env, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, ptr noundef %call29) #15
   br label %return
 
-return:                                           ; preds = %env_append.exit, %tmp_objdir_destroy.exit, %if.then6
-  %retval.0 = phi ptr [ null, %tmp_objdir_destroy.exit ], [ %call, %env_append.exit ], [ null, %if.then6 ]
+return:                                           ; preds = %env_append.argprom.exit, %tmp_objdir_destroy.exit, %if.then6
+  %retval.0 = phi ptr [ null, %tmp_objdir_destroy.exit ], [ %call, %env_append.argprom.exit ], [ null, %if.then6 ]
   ret ptr %retval.0
 }
 

@@ -179,7 +179,7 @@ define dso_local noundef range(i32 0, 2) i32 @main() local_unnamed_addr #4 perso
   %1 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfErrorMark", align 8
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfErrorMarkC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  invoke fastcc void @_ZL9BasicTestv()
+  invoke fastcc void @_ZL9BasicTestv.retelim()
           to label %3 unwind label %25
 
 3:                                                ; preds = %0
@@ -262,7 +262,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit7.thread: ; pr
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__11TfErrorMarkC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL9BasicTestv() unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL9BasicTestv.retelim() unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8

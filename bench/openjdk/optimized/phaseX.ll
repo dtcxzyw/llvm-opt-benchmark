@@ -5482,7 +5482,7 @@ _ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i:     ; preds = %_ZNK22BaseCountedLo
   %221 = load i32, ptr %220, align 4
   %222 = and i32 %221, 15
   %223 = icmp eq i32 %222, 12
-  br i1 %223, label %_ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.exit, label %_ZNK22BaseCountedLoopEndNode3phiEv.exit.thread.i
+  br i1 %223, label %_ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.argprom.exit, label %_ZNK22BaseCountedLoopEndNode3phiEv.exit.thread.i
 
 _ZNK22BaseCountedLoopEndNode3phiEv.exit.thread.i: ; preds = %201, %215, %211, %_ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i, %_ZNK22BaseCountedLoopEndNode5limitEv.exit.i, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i, %189, %.lr.ph.i240
   %224 = getelementptr inbounds i8, ptr %.0196.i, i64 8
@@ -5494,7 +5494,7 @@ _ZNK22BaseCountedLoopEndNode3phiEv.exit.thread.i: ; preds = %201, %215, %211, %_
   %227 = icmp ult ptr %226, %176
   br i1 %227, label %.lr.ph9.i, label %_ZN16Unique_Node_List4pushEP4Node.exit, !llvm.loop !35
 
-_ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.exit: ; preds = %215
+_ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.argprom.exit: ; preds = %215
   %228 = getelementptr inbounds i8, ptr %2, i64 32
   %229 = getelementptr inbounds i8, ptr %219, i64 40
   %230 = load i32, ptr %229, align 8
@@ -5503,11 +5503,11 @@ _ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.exit: ; preds = %215
   %.not.i.i242 = icmp ult i32 %231, %232
   br i1 %.not.i.i242, label %_ZN9VectorSet8test_setEj.exit.i, label %233
 
-233:                                              ; preds = %_ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.exit
+233:                                              ; preds = %_ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.argprom.exit
   tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %228, i32 noundef %231) #16
   br label %_ZN9VectorSet8test_setEj.exit.i
 
-_ZN9VectorSet8test_setEj.exit.i:                  ; preds = %233, %_ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.exit
+_ZN9VectorSet8test_setEj.exit.i:                  ; preds = %233, %_ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.argprom.exit
   %234 = and i32 %230, 31
   %235 = shl nuw i32 1, %234
   %236 = getelementptr inbounds i8, ptr %2, i64 40
@@ -8457,7 +8457,7 @@ _ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i:     ; preds = %_ZNK22BaseCountedLo
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, 15
   %59 = icmp eq i32 %58, 12
-  br i1 %59, label %_ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.exit, label %_ZNK22BaseCountedLoopEndNode3phiEv.exit.thread.i
+  br i1 %59, label %_ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.argprom.exit, label %_ZNK22BaseCountedLoopEndNode3phiEv.exit.thread.i
 
 _ZNK22BaseCountedLoopEndNode3phiEv.exit.thread.i: ; preds = %37, %51, %47, %_ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i, %_ZNK22BaseCountedLoopEndNode5limitEv.exit.i, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i, %25, %.lr.ph.i
   %60 = getelementptr inbounds i8, ptr %.0196.i, i64 8
@@ -8469,7 +8469,7 @@ _ZNK22BaseCountedLoopEndNode3phiEv.exit.thread.i: ; preds = %37, %51, %47, %_ZNK
   %63 = icmp ult ptr %62, %12
   br i1 %63, label %.lr.ph9.i, label %_ZN16Unique_Node_List4pushEP4Node.exit, !llvm.loop !35
 
-_ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.exit: ; preds = %51
+_ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.argprom.exit: ; preds = %51
   %64 = getelementptr inbounds i8, ptr %0, i64 32
   %65 = getelementptr inbounds i8, ptr %55, i64 40
   %66 = load i32, ptr %65, align 8
@@ -8478,11 +8478,11 @@ _ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.exit: ; preds = %51
   %.not.i.i9 = icmp ult i32 %67, %68
   br i1 %.not.i.i9, label %_ZN9VectorSet8test_setEj.exit.i, label %69
 
-69:                                               ; preds = %_ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.exit
+69:                                               ; preds = %_ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.argprom.exit
   tail call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %64, i32 noundef %67) #16
   br label %_ZN9VectorSet8test_setEj.exit.i
 
-_ZN9VectorSet8test_setEj.exit.i:                  ; preds = %69, %_ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.exit
+_ZN9VectorSet8test_setEj.exit.i:                  ; preds = %69, %_ZL24countedloop_phi_from_cmpP7CmpNodeP4Node.argprom.exit
   %70 = and i32 %66, 31
   %71 = shl nuw i32 1, %70
   %72 = getelementptr inbounds i8, ptr %0, i64 40
@@ -8889,16 +8889,16 @@ _ZN9Node_List4pushEP4Node.exit.i:                 ; preds = %82, %78
   %97 = load i32, ptr %96, align 4
   %98 = and i32 %97, 31
   %99 = icmp eq i32 %98, 20
-  br i1 %99, label %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.exit.thread.i", label %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.exit.i"
+  br i1 %99, label %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.argprom.exit.thread.i", label %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.argprom.exit.i"
 
-"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.exit.i": ; preds = %89
+"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.argprom.exit.i": ; preds = %89
   %100 = load ptr, ptr %95, align 8
   %101 = load ptr, ptr %100, align 8
   %102 = call noundef i32 %101(ptr noundef nonnull align 8 dereferenceable(52) %95) #16
   %.not29.i = icmp eq i32 %102, 135
-  br i1 %.not29.i, label %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.exit.thread.i", label %103
+  br i1 %.not29.i, label %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.argprom.exit.thread.i", label %103
 
-103:                                              ; preds = %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.exit.i"
+103:                                              ; preds = %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.argprom.exit.i"
   %104 = load ptr, ptr %95, align 8
   %105 = load ptr, ptr %104, align 8
   %106 = call noundef i32 %105(ptr noundef nonnull align 8 dereferenceable(52) %95) #16
@@ -8964,7 +8964,7 @@ _ZN9Node_List4pushEP4Node.exit.i.i.i.i:           ; preds = %137, %133
   store ptr %95, ptr %140, align 8
   br label %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_0clEPS2_.exit.i"
 
-"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.exit.thread.i": ; preds = %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.exit.i", %89
+"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.argprom.exit.thread.i": ; preds = %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.argprom.exit.i", %89
   %141 = getelementptr inbounds i8, ptr %95, i64 16
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %95, i64 32
@@ -8974,8 +8974,8 @@ _ZN9Node_List4pushEP4Node.exit.i.i.i.i:           ; preds = %137, %133
   %.not38.i = icmp eq i32 %144, 0
   br i1 %.not38.i, label %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_0clEPS2_.exit.i", label %.lr.ph34.i
 
-.lr.ph34.i:                                       ; preds = %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.exit.thread.i", %169
-  %.01533.i = phi ptr [ %170, %169 ], [ %142, %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.exit.thread.i" ]
+.lr.ph34.i:                                       ; preds = %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.argprom.exit.thread.i", %169
+  %.01533.i = phi ptr [ %170, %169 ], [ %142, %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.argprom.exit.thread.i" ]
   %147 = load ptr, ptr %.01533.i, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 40
   %149 = load i32, ptr %148, align 8
@@ -9025,7 +9025,7 @@ _ZN9Node_List4pushEP4Node.exit21.i:               ; preds = %165, %161
   %171 = icmp ult ptr %170, %146
   br i1 %171, label %.lr.ph34.i, label %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_0clEPS2_.exit.i", !llvm.loop !60
 
-"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_0clEPS2_.exit.i": ; preds = %169, %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.exit.thread.i", %_ZN9Node_List4pushEP4Node.exit.i.i.i.i, %_ZN9VectorSet8test_setEj.exit.i.i.i.i, %108, %103
+"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_0clEPS2_.exit.i": ; preds = %169, %"_ZZNK8PhaseCCP8push_andER16Unique_Node_ListPK4NodeS4_ENK3$_1clEPS2_.argprom.exit.thread.i", %_ZN9Node_List4pushEP4Node.exit.i.i.i.i, %_ZN9VectorSet8test_setEj.exit.i.i.i.i, %108, %103
   %172 = load i32, ptr %49, align 8
   %.not.i = icmp eq i32 %172, 0
   br i1 %.not.i, label %._crit_edge.i, label %89, !llvm.loop !61

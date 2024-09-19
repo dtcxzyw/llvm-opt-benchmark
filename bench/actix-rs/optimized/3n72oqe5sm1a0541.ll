@@ -1489,7 +1489,7 @@ default.unreachable7:                             ; preds = %2
   store i8 2, ptr %14, align 8
   br label %15
 
-15:                                               ; preds = %16, %"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1e0b2f7911eaae50E.exit", %13, %5
+15:                                               ; preds = %16, %"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1e0b2f7911eaae50E.argprom.exit", %13, %5
   ret void
 
 16:                                               ; preds = %7
@@ -1618,15 +1618,15 @@ default.unreachable7:                             ; preds = %2
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h1c9a4707155b2780E.exit28.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i26.i", %61, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i23.i"
   %.not.i.i29.i = icmp eq i64 %50, 7
-  br i1 %.not.i.i29.i, label %66, label %"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1e0b2f7911eaae50E.exit"
+  br i1 %.not.i.i29.i, label %66, label %"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1e0b2f7911eaae50E.argprom.exit"
 
 66:                                               ; preds = %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h1c9a4707155b2780E.exit28.i"
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %49, ptr noundef nonnull readonly dereferenceable(7) @anon.06d4fed4438762fd0e19c8abda5f0fb6.1, i64 7), !alias.scope !534, !noalias !538
   %67 = icmp eq i32 %bcmp.i.i.i, 0
   %68 = zext i1 %67 to i8
-  br label %"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1e0b2f7911eaae50E.exit"
+  br label %"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1e0b2f7911eaae50E.argprom.exit"
 
-"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1e0b2f7911eaae50E.exit": ; preds = %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h1c9a4707155b2780E.exit28.i", %66
+"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1e0b2f7911eaae50E.argprom.exit": ; preds = %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h1c9a4707155b2780E.exit28.i", %66
   %.0.i.i.i = phi i8 [ %68, %66 ], [ 0, %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h1c9a4707155b2780E.exit28.i" ]
   %69 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %26
   %70 = sub i64 %28, %26
@@ -2474,10 +2474,10 @@ attributes #18 = { noreturn }
 !510 = distinct !{!510, !511, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6f0eba4c5faae6cE: argument 0"}
 !511 = distinct !{!511, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6f0eba4c5faae6cE"}
 !512 = !{!513}
-!513 = distinct !{!513, !514, !"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1e0b2f7911eaae50E: argument 1"}
-!514 = distinct !{!514, !"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1e0b2f7911eaae50E"}
+!513 = distinct !{!513, !514, !"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1e0b2f7911eaae50E.argprom: argument 1"}
+!514 = distinct !{!514, !"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1e0b2f7911eaae50E.argprom"}
 !515 = !{!516}
-!516 = distinct !{!516, !514, !"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1e0b2f7911eaae50E: argument 0"}
+!516 = distinct !{!516, !514, !"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1e0b2f7911eaae50E.argprom: argument 0"}
 !517 = !{!516, !513}
 !518 = !{!519, !521}
 !519 = distinct !{!519, !520, !"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE: argument 0"}

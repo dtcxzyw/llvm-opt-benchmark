@@ -32,13 +32,13 @@ define hidden noundef i32 @_PyTokenizer_syntaxerror(ptr nocapture noundef %tok, 
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %vargs)
-  call fastcc void @_syntaxerror_range(ptr noundef %tok, ptr noundef %format, i32 noundef -1, i32 noundef -1, ptr noundef %vargs)
+  call fastcc void @_syntaxerror_range.retelim(ptr noundef %tok, ptr noundef %format, i32 noundef -1, i32 noundef -1, ptr noundef %vargs)
   call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret i32 64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_syntaxerror_range(ptr nocapture noundef %tok, ptr noundef %format, i32 noundef %col_offset, i32 noundef %end_col_offset, ptr noundef nonnull %vargs) unnamed_addr #0 {
+define internal fastcc void @_syntaxerror_range.retelim(ptr nocapture noundef %tok, ptr noundef %format, i32 noundef %col_offset, i32 noundef %end_col_offset, ptr noundef nonnull %vargs) unnamed_addr #0 {
 entry:
   %done = getelementptr inbounds i8, ptr %tok, i64 64
   %0 = load i32, ptr %done, align 8
@@ -164,7 +164,7 @@ define hidden noundef i32 @_PyTokenizer_syntaxerror_known_range(ptr nocapture no
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %vargs)
-  call fastcc void @_syntaxerror_range(ptr noundef %tok, ptr noundef %format, i32 noundef %col_offset, i32 noundef %end_col_offset, ptr noundef %vargs)
+  call fastcc void @_syntaxerror_range.retelim(ptr noundef %tok, ptr noundef %format, i32 noundef %col_offset, i32 noundef %end_col_offset, ptr noundef %vargs)
   call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret i32 64
 }

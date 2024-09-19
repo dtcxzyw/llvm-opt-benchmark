@@ -9968,7 +9968,7 @@ define internal fastcc void @cgroup_init_subsys(ptr noundef %0, i1 noundef zeroe
   br label %24
 
 19:                                               ; preds = %13
-  %20 = tail call fastcc i32 @cgroup_idr_alloc(ptr noundef %3, ptr noundef %10)
+  %20 = tail call fastcc i32 @cgroup_idr_alloc.argelim(ptr noundef %3, ptr noundef %10)
   %21 = getelementptr inbounds i8, ptr %10, i64 80
   store i32 %20, ptr %21, align 8
   %22 = icmp slt i32 %20, 0
@@ -10174,7 +10174,7 @@ define dso_local noundef i32 @cgroup_init() local_unnamed_addr #14 section ".ini
   %49 = getelementptr [14 x ptr], ptr @init_css_set, i64 0, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %40, i64 184
-  %52 = tail call fastcc i32 @cgroup_idr_alloc(ptr noundef %51, ptr noundef %50)
+  %52 = tail call fastcc i32 @cgroup_idr_alloc.argelim(ptr noundef %51, ptr noundef %50)
   %53 = getelementptr inbounds i8, ptr %50, i64 80
   store i32 %52, ptr %53, align 8
   %54 = icmp slt i32 %52, 0
@@ -10563,7 +10563,7 @@ define internal fastcc range(i32 -16, 1) i32 @cgroup_init_cftypes(ptr noundef %0
 declare dso_local void @cgroup_rstat_boot() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @cgroup_idr_alloc(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc i32 @cgroup_idr_alloc.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   tail call void @idr_preload(i32 noundef 3264) #30
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @cgroup_idr_lock) #30
   %3 = tail call i32 @idr_alloc(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef 2, i32 noundef 2240) #30

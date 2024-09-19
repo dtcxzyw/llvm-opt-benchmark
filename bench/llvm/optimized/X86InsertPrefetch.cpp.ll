@@ -629,7 +629,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117X86InsertPrefetch20runOnM
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %.backedge, label %57
 
-.backedge:                                        ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit8.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i, %48, %153, %._crit_edge.i, %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.exit
+.backedge:                                        ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit8.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i, %48, %153, %._crit_edge.i, %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.argprom.exit
   %.not99 = icmp eq ptr %50, %47
   br i1 %.not99, label %.outer._crit_edge, label %48, !llvm.loop !10
 
@@ -775,7 +775,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit8.i: ; preds = %_ZNK4ll
 
 137:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit8.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
   %138 = icmp eq i32 %113, 0
-  br i1 %138, label %_ZN12_GLOBAL__N_129IsMemOpCompatibleWithPrefetchERKN4llvm12MachineInstrEi.exit.thread, label %139
+  br i1 %138, label %_ZN12_GLOBAL__N_129IsMemOpCompatibleWithPrefetchERKN4llvm12MachineInstrEi.argprom.exit.thread, label %139
 
 139:                                              ; preds = %137
   %140 = lshr i32 %113, 3
@@ -794,7 +794,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i: ; preds = %139
   %149 = shl nuw nsw i32 1, %143
   %150 = and i32 %149, %148
   %.not10.i = icmp eq i32 %150, 0
-  br i1 %.not10.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i, label %_ZN12_GLOBAL__N_129IsMemOpCompatibleWithPrefetchERKN4llvm12MachineInstrEi.exit.thread
+  br i1 %.not10.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i, label %_ZN12_GLOBAL__N_129IsMemOpCompatibleWithPrefetchERKN4llvm12MachineInstrEi.argprom.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i, %139
   %151 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 1142), align 2
@@ -812,28 +812,28 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i: ; preds = 
   %160 = shl nuw nsw i32 1, %154
   %161 = and i32 %160, %159
   %.not100 = icmp eq i32 %161, 0
-  br i1 %.not100, label %.backedge, label %_ZN12_GLOBAL__N_129IsMemOpCompatibleWithPrefetchERKN4llvm12MachineInstrEi.exit.thread
+  br i1 %.not100, label %.backedge, label %_ZN12_GLOBAL__N_129IsMemOpCompatibleWithPrefetchERKN4llvm12MachineInstrEi.argprom.exit.thread
 
-_ZN12_GLOBAL__N_129IsMemOpCompatibleWithPrefetchERKN4llvm12MachineInstrEi.exit.thread: ; preds = %137, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i, %153
+_ZN12_GLOBAL__N_129IsMemOpCompatibleWithPrefetchERKN4llvm12MachineInstrEi.argprom.exit.thread: ; preds = %137, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i, %153
   %162 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #17
   store i32 0, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   %163 = load i8, ptr @_ZN4llvm10sampleprof15FunctionSamples6UseMD5E, align 1
   %164 = trunc i8 %163 to i1
-  br i1 %164, label %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.exit, label %165
+  br i1 %164, label %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.argprom.exit, label %165
 
-165:                                              ; preds = %_ZN12_GLOBAL__N_129IsMemOpCompatibleWithPrefetchERKN4llvm12MachineInstrEi.exit.thread
+165:                                              ; preds = %_ZN12_GLOBAL__N_129IsMemOpCompatibleWithPrefetchERKN4llvm12MachineInstrEi.argprom.exit.thread
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.087.0115, i64 56
   %167 = load ptr, ptr %166, align 8, !noalias !12
   %.not8.i.i = icmp eq ptr %167, null
-  br i1 %.not8.i.i, label %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.exit, label %168
+  br i1 %.not8.i.i, label %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.argprom.exit, label %168
 
 168:                                              ; preds = %165
   %169 = call noundef ptr @_ZNK4llvm8DebugLoc3getEv(ptr noundef nonnull align 8 dereferenceable(8) %166) #17, !noalias !12
   %170 = call noundef ptr @_ZNK4llvm10sampleprof15FunctionSamples19findFunctionSamplesEPKNS_10DILocationEPNS0_34SampleProfileReaderItaniumRemapperEPKNS0_10HashKeyMapISt13unordered_mapNS0_10FunctionIdES9_JEEE(ptr noundef nonnull align 8 dereferenceable(176) %17, ptr noundef %169, ptr noundef null, ptr noundef null) #17, !noalias !12
   %.not.i.i53 = icmp eq ptr %170, null
-  br i1 %.not.i.i53, label %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.exit, label %171
+  br i1 %.not.i.i53, label %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.argprom.exit, label %171
 
 171:                                              ; preds = %168
   %172 = call noundef ptr @_ZNK4llvm8DebugLoc3getEv(ptr noundef nonnull align 8 dereferenceable(8) %166) #17, !noalias !12
@@ -929,7 +929,7 @@ _ZN12_GLOBAL__N_116getPrefetchHintsEPKN4llvm10sampleprof15FunctionSamplesERKNS0_
   call void @_ZNK4llvm10sampleprof15FunctionSamples19findCallTargetMapAtEjj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ErrorOr.351") align 8 %9, ptr noundef nonnull align 8 dereferenceable(176) %170, i32 noundef %173, i32 noundef %.0.i1.i.i.i)
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8
   %220 = trunc i8 %.pre.i to i1
-  br i1 %220, label %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.exit, label %221
+  br i1 %220, label %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.argprom.exit, label %221
 
 221:                                              ; preds = %_ZN12_GLOBAL__N_116getPrefetchHintsEPKN4llvm10sampleprof15FunctionSamplesERKNS0_12MachineInstrE.exit.i
   %222 = load ptr, ptr %9, align 8
@@ -986,7 +986,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i28.i:  ; preds = %235
 238:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i28.i, %234
   %.023.add.i = add nuw nsw i64 %.023.idx21.i, 24
   %.not.i56 = icmp eq i64 %.023.add.i, 96
-  br i1 %.not.i56, label %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.exit, label %234
+  br i1 %.not.i56, label %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.argprom.exit, label %234
 
 239:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i28.i, %235
   %240 = getelementptr inbounds i8, ptr %230, i64 %.sroa.23.0.copyload.i
@@ -996,7 +996,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i28.i:  ; preds = %235
   %242 = getelementptr inbounds nuw i8, ptr %.023.ptr22.i, i64 16
   %243 = load i32, ptr %242, align 8
   %244 = icmp eq i32 %243, 0
-  br i1 %244, label %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.exit, label %_ZN4llvm9StringRef14consumeIntegerIhEEbjRT_.exit.i
+  br i1 %244, label %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.argprom.exit, label %_ZN4llvm9StringRef14consumeIntegerIhEEbjRT_.exit.i
 
 _ZN4llvm9StringRef14consumeIntegerIhEEbjRT_.exit.i: ; preds = %239
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -1079,7 +1079,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit.thread.i: ; preds = %_ZN4llvm15SmallV
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br i1 %270, label %.backedge, label %271
 
-_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.exit: ; preds = %239, %238, %_ZN12_GLOBAL__N_129IsMemOpCompatibleWithPrefetchERKN4llvm12MachineInstrEi.exit.thread, %165, %168, %_ZN12_GLOBAL__N_116getPrefetchHintsEPKN4llvm10sampleprof15FunctionSamplesERKNS0_12MachineInstrE.exit.i
+_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.argprom.exit: ; preds = %239, %238, %_ZN12_GLOBAL__N_129IsMemOpCompatibleWithPrefetchERKN4llvm12MachineInstrEi.argprom.exit.thread, %165, %168, %_ZN12_GLOBAL__N_116getPrefetchHintsEPKN4llvm10sampleprof15FunctionSamplesERKNS0_12MachineInstrE.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %.backedge

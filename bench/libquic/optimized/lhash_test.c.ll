@@ -340,7 +340,7 @@ for.end:                                          ; preds = %for.inc
   call void @lh_free(ptr noundef nonnull %call) #9
   %dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.val = load ptr, ptr %dummy_lh.sroa.0, align 8
   %cmp.not1.i = icmp eq ptr %dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.val, null
-  br i1 %cmp.not1.i, label %dummy_lh_free.exit, label %for.body.i84
+  br i1 %cmp.not1.i, label %dummy_lh_free.argprom.exit, label %for.body.i84
 
 for.body.i84:                                     ; preds = %for.end, %for.body.i84
   %cur.02.i = phi ptr [ %21, %for.body.i84 ], [ %dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.val, %for.end ]
@@ -350,14 +350,14 @@ for.body.i84:                                     ; preds = %for.end, %for.body.
   call void @free(ptr noundef %22) #9
   call void @free(ptr noundef nonnull %cur.02.i) #9
   %cmp.not.i85 = icmp eq ptr %21, null
-  br i1 %cmp.not.i85, label %dummy_lh_free.exit, label %for.body.i84, !llvm.loop !14
+  br i1 %cmp.not.i85, label %dummy_lh_free.argprom.exit, label %for.body.i84, !llvm.loop !14
 
-dummy_lh_free.exit:                               ; preds = %for.body.i84, %for.end
+dummy_lh_free.argprom.exit:                       ; preds = %for.body.i84, %for.end
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %return
 
-return:                                           ; preds = %entry, %dummy_lh_free.exit, %if.then5
-  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %dummy_lh_free.exit ], [ 1, %entry ]
+return:                                           ; preds = %entry, %dummy_lh_free.argprom.exit, %if.then5
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %dummy_lh_free.argprom.exit ], [ 1, %entry ]
   ret i32 %retval.0
 }
 

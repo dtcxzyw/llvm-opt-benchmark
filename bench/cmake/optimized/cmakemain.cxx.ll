@@ -3260,7 +3260,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit187.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit199.i: ; preds = %245
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  invoke fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4EES5_NS9_6ValuesEOT_"(ptr noundef nonnull align 8 dereferenceable(136) %237, ptr noundef %83, ptr noundef nonnull align 8 dereferenceable(24) %69)
+  invoke fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4EES5_NS9_6ValuesEOT_.argelim"(ptr noundef nonnull align 8 dereferenceable(136) %237, ptr noundef %83, ptr noundef nonnull align 8 dereferenceable(24) %69)
           to label %247 unwind label %494
 
 247:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit199.i
@@ -3305,7 +3305,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit199.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit204.i: ; preds = %256
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  invoke fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4EES5_NS9_6ValuesEOT_"(ptr noundef nonnull align 8 dereferenceable(136) %248, ptr noundef %85, ptr noundef nonnull align 8 dereferenceable(24) %69)
+  invoke fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4EES5_NS9_6ValuesEOT_.argelim"(ptr noundef nonnull align 8 dereferenceable(136) %248, ptr noundef %85, ptr noundef nonnull align 8 dereferenceable(24) %69)
           to label %258 unwind label %498
 
 258:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit204.i
@@ -3536,7 +3536,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit219.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit229.i: ; preds = %326
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  invoke fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_18do_buildEiPKPKcE3$_6EES5_NS9_6ValuesEOT_"(ptr noundef nonnull align 8 dereferenceable(136) %318, ptr noundef %95, ptr noundef nonnull align 8 dereferenceable(8) %70)
+  invoke fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_18do_buildEiPKPKcE3$_6EES5_NS9_6ValuesEOT_.argelim"(ptr noundef nonnull align 8 dereferenceable(136) %318, ptr noundef %95, ptr noundef nonnull align 8 dereferenceable(8) %70)
           to label %328 unwind label %514
 
 328:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit229.i
@@ -3581,7 +3581,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit229.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit234.i: ; preds = %337
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  invoke fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_18do_buildEiPKPKcE3$_6EES5_NS9_6ValuesEOT_"(ptr noundef nonnull align 8 dereferenceable(136) %329, ptr noundef %97, ptr noundef nonnull align 8 dereferenceable(8) %70)
+  invoke fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_18do_buildEiPKPKcE3$_6EES5_NS9_6ValuesEOT_.argelim"(ptr noundef nonnull align 8 dereferenceable(136) %329, ptr noundef %97, ptr noundef nonnull align 8 dereferenceable(8) %70)
           to label %339 unwind label %518
 
 339:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit234.i
@@ -6663,7 +6663,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_110do_instal
   br label %.body162
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit164: ; preds = %.noexc161
-  invoke fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_110do_installEiPKPKcE3$_2EES5_NS9_6ValuesEOT_"(ptr noundef nonnull align 8 dereferenceable(136) %135, ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(8) %40)
+  invoke fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_110do_installEiPKPKcE3$_2EES5_NS9_6ValuesEOT_.argelim"(ptr noundef nonnull align 8 dereferenceable(136) %135, ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %139 unwind label %271
 
 139:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit164
@@ -6687,7 +6687,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit164: ;
   br label %.body167
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit169: ; preds = %.noexc166
-  invoke fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_110do_installEiPKPKcE3$_2EES5_NS9_6ValuesEOT_"(ptr noundef nonnull align 8 dereferenceable(136) %140, ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %40)
+  invoke fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_110do_installEiPKPKcE3$_2EES5_NS9_6ValuesEOT_.argelim"(ptr noundef nonnull align 8 dereferenceable(136) %140, ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %144 unwind label %275
 
 144:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit169
@@ -11631,7 +11631,7 @@ _ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4EES5_NS9_6ValuesEOT_"(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4EES5_NS9_6ValuesEOT_.argelim"(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x %"struct.std::pair"], align 8
   %5 = alloca [2 x %"struct.std::pair"], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -11710,7 +11710,7 @@ define internal fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_18do_buildEiPKPKcE3$_6EES5_NS9_6ValuesEOT_"(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_18do_buildEiPKPKcE3$_6EES5_NS9_6ValuesEOT_.argelim"(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x %"struct.std::pair"], align 8
   %5 = alloca [2 x %"struct.std::pair"], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -13011,7 +13011,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -13020,30 +13020,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112b
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #28
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_18do_buildEiPKPKcE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -14480,7 +14480,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcS
   %.val = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %.val3 = load i32, ptr %4, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_124cmakemainMessageCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataP5cmake(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %.val3, ptr noundef %.val)
+  tail call fastcc void @_ZN12_GLOBAL__N_124cmakemainMessageCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataP5cmake.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %.val3, ptr noundef %.val)
   ret void
 }
 
@@ -14510,7 +14510,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124cmakemainMessageCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataP5cmake(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.8.val, ptr noundef %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_124cmakemainMessageCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataP5cmake.argprom(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.8.val, ptr noundef %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr @stderr, align 8
   %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
@@ -14898,7 +14898,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10cmMakefile25GetCu
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10cmMakefile25GetCurrentBinaryDirectoryB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(3520)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_110do_installEiPKPKcE3$_2EES5_NS9_6ValuesEOT_"(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IRZN12_GLOBAL__N_110do_installEiPKPKcE3$_2EES5_NS9_6ValuesEOT_.argelim"(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x %"struct.std::pair"], align 8
   %5 = alloca [2 x %"struct.std::pair"], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -15000,7 +15000,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcS
   %.val = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %.val3 = load i32, ptr %4, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_124cmakemainMessageCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataP5cmake(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %.val3, ptr noundef %.val)
+  tail call fastcc void @_ZN12_GLOBAL__N_124cmakemainMessageCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataP5cmake.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %.val3, ptr noundef %.val)
   ret void
 }
 
@@ -15677,7 +15677,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcS
   %.val = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %.val3 = load i32, ptr %4, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_124cmakemainMessageCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataP5cmake(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %.val3, ptr noundef %.val)
+  tail call fastcc void @_ZN12_GLOBAL__N_124cmakemainMessageCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataP5cmake.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %.val3, ptr noundef %.val)
   ret void
 }
 
@@ -15810,7 +15810,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcS
   %.val = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %.val3 = load i32, ptr %4, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_124cmakemainMessageCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataP5cmake(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %.val3, ptr noundef %.val)
+  tail call fastcc void @_ZN12_GLOBAL__N_124cmakemainMessageCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataP5cmake.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %.val3, ptr noundef %.val)
   ret void
 }
 
@@ -17923,13 +17923,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112b
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 32
   store ptr %12, ptr %6, align 8
-  br label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_18do_cmakeEiPKPKcE3$_4JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
+  br label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_18do_cmakeEiPKPKcE3$_4JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit"
 
 13:                                               ; preds = %2
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRA15_KcEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %7, ptr noundef nonnull align 1 dereferenceable(15) @.str.30)
-  br label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_18do_cmakeEiPKPKcE3$_4JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
+  br label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_18do_cmakeEiPKPKcE3$_4JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN12_GLOBAL__N_18do_cmakeEiPKPKcE3$_4JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %10, %13
+"_ZSt10__invoke_rIbRZN12_GLOBAL__N_18do_cmakeEiPKPKcE3$_4JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit": ; preds = %10, %13
   ret i1 true
 }
 
@@ -18313,7 +18313,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcS
   %.val = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %.val3 = load i32, ptr %4, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_124cmakemainMessageCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataP5cmake(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %.val3, ptr noundef %.val)
+  tail call fastcc void @_ZN12_GLOBAL__N_124cmakemainMessageCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMessageMetadataP5cmake.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %.val3, ptr noundef %.val)
   ret void
 }
 

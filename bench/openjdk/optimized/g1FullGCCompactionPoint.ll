@@ -826,8 +826,8 @@ define hidden void @_ZN23G1FullGCCompactionPoint13add_humongousEP12G1HeapRegion(
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   br label %12
 
-12:                                               ; preds = %"_ZZN23G1FullGCCompactionPoint13add_humongousEP12G1HeapRegionENK3$_0clES1_.exit.i", %2
-  %.0.i = phi ptr [ %1, %2 ], [ %.0.i.i, %"_ZZN23G1FullGCCompactionPoint13add_humongousEP12G1HeapRegionENK3$_0clES1_.exit.i" ]
+12:                                               ; preds = %"_ZZN23G1FullGCCompactionPoint13add_humongousEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i", %2
+  %.0.i = phi ptr [ %1, %2 ], [ %.0.i.i, %"_ZZN23G1FullGCCompactionPoint13add_humongousEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i" ]
   %13 = getelementptr inbounds i8, ptr %.0.i, i64 48
   %14 = load i32, ptr %13, align 8
   %15 = add i32 %14, 1
@@ -866,7 +866,7 @@ _ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i: ; pr
   %37 = getelementptr inbounds i8, ptr %35, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %36, %38
-  br i1 %39, label %40, label %"_ZZN23G1FullGCCompactionPoint13add_humongousEP12G1HeapRegionENK3$_0clES1_.exit.i"
+  br i1 %39, label %40, label %"_ZZN23G1FullGCCompactionPoint13add_humongousEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i"
 
 40:                                               ; preds = %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i
   %41 = add nsw i32 %36, 1
@@ -880,9 +880,9 @@ _ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i: ; pr
   %.0.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i, i32 %41, i32 %47
   call void @_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef %.0.i.i.i.i.i.i.i)
   %.pre.i.i.i.i = load i32, ptr %35, align 8
-  br label %"_ZZN23G1FullGCCompactionPoint13add_humongousEP12G1HeapRegionENK3$_0clES1_.exit.i"
+  br label %"_ZZN23G1FullGCCompactionPoint13add_humongousEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i"
 
-"_ZZN23G1FullGCCompactionPoint13add_humongousEP12G1HeapRegionENK3$_0clES1_.exit.i": ; preds = %40, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i
+"_ZZN23G1FullGCCompactionPoint13add_humongousEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i": ; preds = %40, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i
   %48 = phi i32 [ %.pre.i.i.i.i, %40 ], [ %36, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i ]
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %35, align 8
@@ -901,7 +901,7 @@ _ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i: ; pr
   %.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i, label %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN23G1FullGCCompactionPoint13add_humongousEP12G1HeapRegionE3$_0EEvS3_RKT_.exit", label %12, !llvm.loop !9
 
-"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN23G1FullGCCompactionPoint13add_humongousEP12G1HeapRegionE3$_0EEvS3_RKT_.exit": ; preds = %"_ZZN23G1FullGCCompactionPoint13add_humongousEP12G1HeapRegionENK3$_0clES1_.exit.i"
+"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN23G1FullGCCompactionPoint13add_humongousEP12G1HeapRegionE3$_0EEvS3_RKT_.exit": ; preds = %"_ZZN23G1FullGCCompactionPoint13add_humongousEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i"
   ret void
 }
 

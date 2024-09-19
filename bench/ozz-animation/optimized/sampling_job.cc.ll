@@ -351,7 +351,7 @@ _ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit: ; preds = %
   %195 = getelementptr inbounds i8, ptr %96, i64 %183
   %196 = load i8, ptr %195, align 1
   %197 = zext i8 %196 to i16
-  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit.i
+  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit.i
 
 198:                                              ; preds = %147
   %199 = getelementptr inbounds i16, ptr %96, i64 %177
@@ -362,9 +362,9 @@ _ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit: ; preds = %
   %204 = load i16, ptr %203, align 2
   %205 = getelementptr inbounds i16, ptr %96, i64 %183
   %206 = load i16, ptr %205, align 2
-  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit.i
+  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit.i
 
-_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit.i: ; preds = %198, %185
+_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit.i: ; preds = %198, %185
   %.sroa.3.0.i.i = phi i16 [ %191, %185 ], [ %202, %198 ]
   %.sroa.0.0.i.i = phi i16 [ %188, %185 ], [ %200, %198 ]
   %.sroa.6.0.i.i = phi i16 [ %194, %185 ], [ %204, %198 ]
@@ -405,7 +405,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %238 = getelementptr inbounds %"struct.ozz::animation::internal::QuaternionKey", ptr %132, i64 %237
   br i1 %.not.i.i, label %252, label %239
 
-239:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit.i
+239:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit.i
   %240 = getelementptr inbounds i8, ptr %96, i64 %228
   %241 = load i8, ptr %240, align 1
   %242 = zext i8 %241 to i16
@@ -418,9 +418,9 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %249 = getelementptr inbounds i8, ptr %96, i64 %237
   %250 = load i8, ptr %249, align 1
   %251 = zext i8 %250 to i16
-  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit79.i
+  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit79.i
 
-252:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit.i
+252:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit.i
   %253 = getelementptr inbounds i16, ptr %96, i64 %228
   %254 = load i16, ptr %253, align 2
   %255 = getelementptr inbounds i16, ptr %96, i64 %231
@@ -429,9 +429,9 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %258 = load i16, ptr %257, align 2
   %259 = getelementptr inbounds i16, ptr %96, i64 %237
   %260 = load i16, ptr %259, align 2
-  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit79.i
+  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit79.i
 
-_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit79.i: ; preds = %252, %239
+_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit79.i: ; preds = %252, %239
   %.sroa.3.0.i75.i = phi i16 [ %245, %239 ], [ %256, %252 ]
   %.sroa.0.0.i76.i = phi i16 [ %242, %239 ], [ %254, %252 ]
   %.sroa.6.0.i77.i = phi i16 [ %248, %239 ], [ %258, %252 ]
@@ -460,7 +460,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   tail call fastcc void @_ZN3ozz9animation12_GLOBAL__N_120DecompressQuaternionERKNS0_8internal13QuaternionKeyES5_S5_S5_PNS_4math13SoaQuaternionE(ptr noundef nonnull align 2 dereferenceable(6) %229, ptr noundef nonnull align 2 dereferenceable(6) %232, ptr noundef nonnull align 2 dereferenceable(6) %235, ptr noundef nonnull align 2 dereferenceable(6) %238, ptr noundef nonnull %280)
   br label %281
 
-281:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit79.i, %.lr.ph.i
+281:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit79.i, %.lr.ph.i
   %282 = add nuw i64 %.062101.i, 1
   %283 = lshr i8 %.061102.i, 1
   %.not.i48 = icmp ult i8 %.061102.i, 2
@@ -914,9 +914,9 @@ _ZN3ozz9animation12_GLOBAL__N_112OutdateCacheERKNS_4spanIhEEm.exit: ; preds = %.
   %wide.trip.count = and i64 %10, 4294967295
   br label %124
 
-124:                                              ; preds = %.lr.ph, %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.exit
-  %indvars.iv = phi i64 [ %123, %.lr.ph ], [ %indvars.iv.next, %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.exit ]
-  %.065115 = phi i32 [ 0, %.lr.ph ], [ %.015.i, %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.exit ]
+124:                                              ; preds = %.lr.ph, %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.argprom.exit
+  %indvars.iv = phi i64 [ %123, %.lr.ph ], [ %indvars.iv.next, %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.argprom.exit ]
+  %.065115 = phi i32 [ 0, %.lr.ph ], [ %.015.i, %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.argprom.exit ]
   %125 = load ptr, ptr %8, align 8
   %126 = getelementptr inbounds i16, ptr %125, i64 %indvars.iv
   %127 = load i16, ptr %126, align 2
@@ -934,22 +934,22 @@ _ZN3ozz9animation12_GLOBAL__N_112OutdateCacheERKNS_4spanIhEEm.exit: ; preds = %.
   %133 = getelementptr inbounds i8, ptr %.val69, i64 %131
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i64
-  br label %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit
+  br label %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.argprom.exit
 
 136:                                              ; preds = %124
   %137 = getelementptr inbounds i16, ptr %.val69, i64 %131
   %138 = load i16, ptr %137, align 2
   %139 = zext i16 %138 to i64
-  br label %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit
+  br label %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.argprom.exit
 
-_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit: ; preds = %132, %136
+_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.argprom.exit: ; preds = %132, %136
   %.pn.i = phi i64 [ %135, %132 ], [ %139, %136 ]
   %.0.in.i = getelementptr inbounds float, ptr %.val, i64 %.pn.i
   %.0.i = load float, ptr %.0.in.i, align 4
   %140 = fcmp ugt float %.0.i, %0
   br i1 %140, label %.critedge, label %141
 
-141:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit
+141:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.argprom.exit
   %142 = load ptr, ptr %5, align 8
   %143 = icmp ult i32 %.065115, %7
   br i1 %143, label %.lr.ph.preheader.i84, label %.preheader.i.preheader
@@ -981,14 +981,14 @@ _ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit: ; pre
   %151 = load i32, ptr %150, align 4
   %152 = icmp eq i32 %151, %130
   %153 = add i32 %.0.i83, 1
-  br i1 %152, label %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.exit, label %.preheader.i, !llvm.loop !43
+  br i1 %152, label %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.argprom.exit, label %.preheader.i, !llvm.loop !43
 
 .loopexit.loopexit5.i:                            ; preds = %.lr.ph.i85
   %154 = trunc nuw i64 %indvars.iv.i86 to i32
   %.pre122 = and i64 %indvars.iv.i86, 4294967295
-  br label %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.exit
+  br label %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.argprom.exit
 
-_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.exit: ; preds = %.preheader.i, %.loopexit.loopexit5.i
+_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.argprom.exit: ; preds = %.preheader.i, %.loopexit.loopexit5.i
   %.pre-phi123 = phi i64 [ %.pre122, %.loopexit.loopexit5.i ], [ %149, %.preheader.i ]
   %.015.i = phi i32 [ %154, %.loopexit.loopexit5.i ], [ %.0.i83, %.preheader.i ]
   %155 = lshr i32 %.015.i, 2
@@ -1009,9 +1009,9 @@ _ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.exit: 
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %124, !llvm.loop !44
 
-.critedge:                                        ; preds = %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit, %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.exit, %.thread107
-  %.065.lcssa = phi i32 [ 0, %.thread107 ], [ %.015.i, %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.exit ], [ %.065115, %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit ]
-  %.1.lcssa = phi i32 [ %.0, %.thread107 ], [ %11, %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.exit ], [ %129, %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit ]
+.critedge:                                        ; preds = %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.argprom.exit, %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.argprom.exit, %.thread107
+  %.065.lcssa = phi i32 [ 0, %.thread107 ], [ %.015.i, %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.argprom.exit ], [ %.065115, %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.argprom.exit ]
+  %.1.lcssa = phi i32 [ %.0, %.thread107 ], [ %11, %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.argprom.exit ], [ %129, %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.argprom.exit ]
   %167 = getelementptr inbounds i8, ptr %3, i64 8
   %168 = getelementptr inbounds i8, ptr %5, i64 16
   br label %169
@@ -1037,22 +1037,22 @@ _ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.exit: 
   %179 = getelementptr inbounds i8, ptr %.val73, i64 %177
   %180 = load i8, ptr %179, align 1
   %181 = zext i8 %180 to i64
-  br label %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit93
+  br label %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.argprom.exit93
 
 182:                                              ; preds = %169
   %183 = getelementptr inbounds i16, ptr %.val73, i64 %177
   %184 = load i16, ptr %183, align 2
   %185 = zext i16 %184 to i64
-  br label %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit93
+  br label %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.argprom.exit93
 
-_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit93: ; preds = %178, %182
+_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.argprom.exit93: ; preds = %178, %182
   %.pn.i90 = phi i64 [ %181, %178 ], [ %185, %182 ]
   %.0.in.i91 = getelementptr inbounds float, ptr %.val71, i64 %.pn.i90
   %.0.i92 = load float, ptr %.0.in.i91, align 4
   %186 = fcmp ogt float %.0.i92, %0
   br i1 %186, label %187, label %223
 
-187:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit93
+187:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.argprom.exit93
   %188 = load ptr, ptr %5, align 8
   %189 = zext i32 %.166 to i64
   %190 = getelementptr inbounds i32, ptr %188, i64 %189
@@ -1112,7 +1112,7 @@ _ZN3ozz9animation12_GLOBAL__N_113TrackBackwardENS_4spanIKjEEjjj.exit: ; preds = 
   store i32 %222, ptr %215, align 4
   br label %169, !llvm.loop !47
 
-223:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit93
+223:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.argprom.exit93
   store i32 %.2, ptr %12, align 8
   ret void
 }
@@ -1210,7 +1210,7 @@ define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8in
   %69 = getelementptr inbounds i8, ptr %.val66, i64 %57
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i16
-  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit
+  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit
 
 72:                                               ; preds = %19
   %73 = getelementptr inbounds i16, ptr %.val66, i64 %50
@@ -1221,9 +1221,9 @@ define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8in
   %78 = load i16, ptr %77, align 2
   %79 = getelementptr inbounds i16, ptr %.val66, i64 %57
   %80 = load i16, ptr %79, align 2
-  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit
+  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit
 
-_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit: ; preds = %59, %72
+_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit: ; preds = %59, %72
   %.sroa.3.0.i = phi i16 [ %65, %59 ], [ %76, %72 ]
   %.sroa.0.0.i = phi i16 [ %62, %59 ], [ %74, %72 ]
   %.sroa.6.0.i = phi i16 [ %68, %59 ], [ %78, %72 ]
@@ -1270,7 +1270,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %.not.i74 = icmp ugt i64 %.val69, 255
   br i1 %.not.i74, label %128, label %115
 
-115:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit
+115:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit
   %116 = getelementptr inbounds i8, ptr %.val70, i64 %103
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i16
@@ -1283,9 +1283,9 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %125 = getelementptr inbounds i8, ptr %.val70, i64 %113
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i16
-  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit79
+  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit79
 
-128:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit
+128:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit
   %129 = getelementptr inbounds i16, ptr %.val70, i64 %103
   %130 = load i16, ptr %129, align 2
   %131 = getelementptr inbounds i16, ptr %.val70, i64 %107
@@ -1294,9 +1294,9 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   %134 = load i16, ptr %133, align 2
   %135 = getelementptr inbounds i16, ptr %.val70, i64 %113
   %136 = load i16, ptr %135, align 2
-  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit79
+  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit79
 
-_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit79: ; preds = %115, %128
+_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit79: ; preds = %115, %128
   %.sroa.3.0.i75 = phi i16 [ %121, %115 ], [ %132, %128 ]
   %.sroa.0.0.i76 = phi i16 [ %118, %115 ], [ %130, %128 ]
   %.sroa.6.0.i77 = phi i16 [ %124, %115 ], [ %134, %128 ]
@@ -1326,7 +1326,7 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
   tail call void %155(ptr noundef nonnull align 2 dereferenceable(6) %105, ptr noundef nonnull align 2 dereferenceable(6) %108, ptr noundef nonnull align 2 dereferenceable(6) %111, ptr noundef nonnull align 2 dereferenceable(6) %114, ptr noundef nonnull %157)
   br label %158
 
-158:                                              ; preds = %.lr.ph, %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.exit79
+158:                                              ; preds = %.lr.ph, %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.argprom.exit79
   %159 = add nuw i64 %.062101, 1
   %160 = lshr i8 %.061102, 1
   %.not = icmp ult i8 %.061102, 2

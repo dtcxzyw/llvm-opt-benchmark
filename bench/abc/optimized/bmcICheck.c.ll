@@ -1349,23 +1349,23 @@ define void @Bmc_PerformFindFlopOrder_rec(ptr nocapture noundef readonly %0, ptr
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %6, align 8
   %.not32 = icmp eq i32 %14, %15
-  br i1 %.not32, label %Gia_ObjIsRo.exit.thread, label %.lr.ph.preheader
+  br i1 %.not32, label %Gia_ObjIsRo.argprom.exit.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
   store i32 %15, ptr %13, align 4
   %.val1840 = load i64, ptr %1, align 4
   %16 = and i64 %.val1840, 2684354559
   %narrow.i.not41 = icmp eq i64 %16, 2684354559
-  br i1 %narrow.i.not41, label %Gia_ObjIsRo.exit, label %tailrecurse
+  br i1 %narrow.i.not41, label %Gia_ObjIsRo.argprom.exit, label %tailrecurse
 
 .lr.ph:                                           ; preds = %tailrecurse
   store i32 %77, ptr %75, align 4
   %.val18 = load i64, ptr %68, align 4
   %17 = and i64 %.val18, 2684354559
   %narrow.i.not = icmp eq i64 %17, 2684354559
-  br i1 %narrow.i.not, label %Gia_ObjIsRo.exit, label %tailrecurse
+  br i1 %narrow.i.not, label %Gia_ObjIsRo.argprom.exit, label %tailrecurse
 
-Gia_ObjIsRo.exit:                                 ; preds = %.lr.ph, %.lr.ph.preheader
+Gia_ObjIsRo.argprom.exit:                         ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi i64 [ %8, %.lr.ph.preheader ], [ %70, %.lr.ph ]
   %.val18.lcssa = phi i64 [ %.val1840, %.lr.ph.preheader ], [ %.val18, %.lr.ph ]
   %18 = lshr i64 %.val18.lcssa, 32
@@ -1379,9 +1379,9 @@ Gia_ObjIsRo.exit:                                 ; preds = %.lr.ph, %.lr.ph.pre
   %.val3.val.i = load i32, ptr %23, align 4
   %24 = sub nsw i32 %.val3.val.i, %.val.i22
   %.not24 = icmp slt i32 %20, %24
-  br i1 %.not24, label %Gia_ObjIsRo.exit.thread, label %25
+  br i1 %.not24, label %Gia_ObjIsRo.argprom.exit.thread, label %25
 
-25:                                               ; preds = %Gia_ObjIsRo.exit
+25:                                               ; preds = %Gia_ObjIsRo.argprom.exit
   %.val = load ptr, ptr %5, align 8
   %26 = ptrtoint ptr %.val to i64
   %27 = sub i64 %.lcssa, %26
@@ -1453,7 +1453,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %59 = sext i32 %57 to i64
   %60 = getelementptr inbounds i32, ptr %56, i64 %59
   store i32 %29, ptr %60, align 4
-  br label %Gia_ObjIsRo.exit.thread
+  br label %Gia_ObjIsRo.argprom.exit.thread
 
 tailrecurse:                                      ; preds = %.lr.ph.preheader, %.lr.ph
   %.val1843 = phi i64 [ %.val18, %.lr.ph ], [ %.val1840, %.lr.ph.preheader ]
@@ -1479,9 +1479,9 @@ tailrecurse:                                      ; preds = %.lr.ph.preheader, %
   %76 = load i32, ptr %75, align 4
   %77 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %76, %77
-  br i1 %.not, label %Gia_ObjIsRo.exit.thread, label %.lr.ph
+  br i1 %.not, label %Gia_ObjIsRo.argprom.exit.thread, label %.lr.ph
 
-Gia_ObjIsRo.exit.thread:                          ; preds = %tailrecurse, %3, %Gia_ObjIsRo.exit, %Vec_IntPush.exit
+Gia_ObjIsRo.argprom.exit.thread:                  ; preds = %tailrecurse, %3, %Gia_ObjIsRo.argprom.exit, %Vec_IntPush.exit
   ret void
 }
 
@@ -1612,7 +1612,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %55 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val72145, i64 %54
   br label %61
 
-56:                                               ; preds = %Gia_ObjIsRo.exit.thread
+56:                                               ; preds = %Gia_ObjIsRo.argprom.exit.thread
   %.val71 = load ptr, ptr %50, align 8
   %57 = getelementptr inbounds i32, ptr %.val71, i64 %indvars.iv.next131
   %58 = load i32, ptr %57, align 4
@@ -1629,9 +1629,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val90 = load i64, ptr %62, align 4
   %63 = and i64 %.val90, 2684354559
   %narrow.i.not.i = icmp eq i64 %63, 2684354559
-  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.exit, label %Gia_ObjIsRo.exit.thread
+  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.argprom.exit, label %Gia_ObjIsRo.argprom.exit.thread
 
-Gia_ObjIsRo.exit:                                 ; preds = %61
+Gia_ObjIsRo.argprom.exit:                         ; preds = %61
   %64 = lshr i64 %.val90, 32
   %65 = trunc nuw i64 %64 to i32
   %66 = and i32 %65, 536870911
@@ -1641,9 +1641,9 @@ Gia_ObjIsRo.exit:                                 ; preds = %61
   %.val3.val.i = load i32, ptr %67, align 4
   %68 = sub nsw i32 %.val3.val.i, %.val.i93
   %.not105 = icmp slt i32 %66, %68
-  br i1 %.not105, label %Gia_ObjIsRo.exit.thread, label %69
+  br i1 %.not105, label %Gia_ObjIsRo.argprom.exit.thread, label %69
 
-69:                                               ; preds = %Gia_ObjIsRo.exit
+69:                                               ; preds = %Gia_ObjIsRo.argprom.exit
   %.val.i94 = load ptr, ptr %6, align 8
   %70 = getelementptr i8, ptr %.val.i94, i64 4
   %.val.val.i = load i32, ptr %70, align 4
@@ -1657,11 +1657,11 @@ Gia_ObjIsRo.exit:                                 ; preds = %61
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val72148, i64 %77
   %.pre = load i64, ptr %78, align 4
-  br label %Gia_ObjIsRo.exit.thread
+  br label %Gia_ObjIsRo.argprom.exit.thread
 
-Gia_ObjIsRo.exit.thread:                          ; preds = %61, %69, %Gia_ObjIsRo.exit
-  %79 = phi i64 [ %.pre, %69 ], [ %.val90, %Gia_ObjIsRo.exit ], [ %.val90, %61 ]
-  %.056 = phi ptr [ %78, %69 ], [ %62, %Gia_ObjIsRo.exit ], [ %62, %61 ]
+Gia_ObjIsRo.argprom.exit.thread:                  ; preds = %61, %69, %Gia_ObjIsRo.argprom.exit
+  %79 = phi i64 [ %.pre, %69 ], [ %.val90, %Gia_ObjIsRo.argprom.exit ], [ %.val90, %61 ]
+  %.056 = phi ptr [ %78, %69 ], [ %62, %Gia_ObjIsRo.argprom.exit ], [ %62, %61 ]
   %80 = and i64 %79, 536870911
   %81 = sub nsw i64 0, %80
   %82 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.056, i64 %81
@@ -1672,8 +1672,8 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %61, %69, %Gia_ObjIs
   %84 = icmp slt i64 %indvars.iv.next131, %83
   br i1 %84, label %56, label %.critedge2, !llvm.loop !21
 
-.critedge2:                                       ; preds = %Gia_ObjIsRo.exit.thread, %56, %.lr.ph116, %.critedge
-  %.val68123139 = phi i32 [ %.val69114, %.critedge ], [ %.val69114, %.lr.ph116 ], [ %.val69, %56 ], [ %.val69, %Gia_ObjIsRo.exit.thread ]
+.critedge2:                                       ; preds = %Gia_ObjIsRo.argprom.exit.thread, %56, %.lr.ph116, %.critedge
+  %.val68123139 = phi i32 [ %.val69114, %.critedge ], [ %.val69114, %.lr.ph116 ], [ %.val69, %56 ], [ %.val69, %Gia_ObjIsRo.argprom.exit.thread ]
   %.val118 = load i32, ptr %5, align 8
   %85 = icmp sgt i32 %.val118, 0
   br i1 %85, label %.lr.ph121, label %.critedge4

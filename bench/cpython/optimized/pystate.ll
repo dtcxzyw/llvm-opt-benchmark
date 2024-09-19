@@ -1417,7 +1417,7 @@ if.then8:                                         ; preds = %PyMutex_LockFlags.e
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 77872), align 8, !noalias !10
   %tobool.not.i = icmp eq i32 %4, 0
-  br i1 %tobool.not.i, label %if.end.i, label %init_interpreter.exit
+  br i1 %tobool.not.i, label %if.end.i, label %init_interpreter.argprom.exit
 
 if.end.i:                                         ; preds = %if.then8
   store ptr @_PyRuntime, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 77928), align 8, !noalias !10
@@ -1439,7 +1439,7 @@ if.then388.i:                                     ; preds = %if.end.i
   %tmp.sroa.14.0.copyload = load i32, ptr %tmp.sroa.14.0.status.i.sroa_idx, align 8
   %tmp.sroa.17.0.status.i.sroa_idx = getelementptr inbounds i8, ptr %status.i, i64 28
   %tmp.sroa.17.0.copyload = load i32, ptr %tmp.sroa.17.0.status.i.sroa_idx, align 4
-  br label %init_interpreter.exit
+  br label %init_interpreter.argprom.exit
 
 if.end389.i:                                      ; preds = %if.end.i
   call void @_PyEval_InitState(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 76952)) #14, !noalias !10
@@ -1455,9 +1455,9 @@ if.end389.i:                                      ; preds = %if.end.i
   store i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 491892), align 4, !noalias !10
   store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 491880), align 8, !noalias !10
   store i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 77872), align 8, !noalias !10
-  br label %init_interpreter.exit
+  br label %init_interpreter.argprom.exit
 
-init_interpreter.exit:                            ; preds = %if.then8, %if.then388.i, %if.end389.i
+init_interpreter.argprom.exit:                    ; preds = %if.then8, %if.then388.i, %if.end389.i
   %tmp.sroa.0.1 = phi i32 [ 0, %if.end389.i ], [ %5, %if.then388.i ], [ 1, %if.then8 ]
   %tmp.sroa.7.1 = phi i32 [ 0, %if.end389.i ], [ %tmp.sroa.7.0.copyload, %if.then388.i ], [ undef, %if.then8 ]
   %tmp.sroa.8.1 = phi ptr [ null, %if.end389.i ], [ %tmp.sroa.8.0.copyload, %if.then388.i ], [ @__func__.init_interpreter, %if.then8 ]
@@ -1639,7 +1639,7 @@ if.then388.i39:                                   ; preds = %if.end385.i
   %tmp.sroa.14.0.copyload54 = load i32, ptr %tmp.sroa.14.0.status.i31.sroa_idx, align 8
   %tmp.sroa.17.0.status.i31.sroa_idx = getelementptr inbounds i8, ptr %status.i31, i64 28
   %tmp.sroa.17.0.copyload55 = load i32, ptr %tmp.sroa.17.0.status.i31.sroa_idx, align 4
-  br label %init_interpreter.exit41
+  br label %init_interpreter.argprom.exit41
 
 if.end389.i40:                                    ; preds = %if.end385.i
   call void @_PyEval_InitState(ptr noundef %call.i) #14, !noalias !13
@@ -1675,9 +1675,9 @@ if.then410.i:                                     ; preds = %if.end389.i40
 
 if.end413.i:                                      ; preds = %if.then410.i, %if.end389.i40
   store i32 1, ptr %_initialized.i, align 8, !noalias !13
-  br label %init_interpreter.exit41
+  br label %init_interpreter.argprom.exit41
 
-init_interpreter.exit41:                          ; preds = %if.then388.i39, %if.end413.i
+init_interpreter.argprom.exit41:                  ; preds = %if.then388.i39, %if.end413.i
   %tmp.sroa.7.2 = phi i32 [ 0, %if.end413.i ], [ %tmp.sroa.7.0.copyload51, %if.then388.i39 ]
   %tmp.sroa.8.2 = phi ptr [ null, %if.end413.i ], [ %tmp.sroa.8.0.copyload52, %if.then388.i39 ]
   %tmp.sroa.11.2 = phi ptr [ null, %if.end413.i ], [ %tmp.sroa.11.0.copyload53, %if.then388.i39 ]
@@ -1686,14 +1686,14 @@ init_interpreter.exit41:                          ; preds = %if.then388.i39, %if
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i31)
   br label %if.end25
 
-if.end25:                                         ; preds = %init_interpreter.exit41, %init_interpreter.exit
-  %tmp.sroa.0.0 = phi i32 [ %tmp.sroa.0.1, %init_interpreter.exit ], [ %7, %init_interpreter.exit41 ]
-  %tmp.sroa.7.0 = phi i32 [ %tmp.sroa.7.1, %init_interpreter.exit ], [ %tmp.sroa.7.2, %init_interpreter.exit41 ]
-  %tmp.sroa.8.0 = phi ptr [ %tmp.sroa.8.1, %init_interpreter.exit ], [ %tmp.sroa.8.2, %init_interpreter.exit41 ]
-  %tmp.sroa.11.0 = phi ptr [ %tmp.sroa.11.1, %init_interpreter.exit ], [ %tmp.sroa.11.2, %init_interpreter.exit41 ]
-  %tmp.sroa.14.0 = phi i32 [ %tmp.sroa.14.1, %init_interpreter.exit ], [ %tmp.sroa.14.2, %init_interpreter.exit41 ]
-  %tmp.sroa.17.0 = phi i32 [ %tmp.sroa.17.1, %init_interpreter.exit ], [ %tmp.sroa.17.2, %init_interpreter.exit41 ]
-  %interp.0 = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76952), %init_interpreter.exit ], [ %call.i, %init_interpreter.exit41 ]
+if.end25:                                         ; preds = %init_interpreter.argprom.exit41, %init_interpreter.argprom.exit
+  %tmp.sroa.0.0 = phi i32 [ %tmp.sroa.0.1, %init_interpreter.argprom.exit ], [ %7, %init_interpreter.argprom.exit41 ]
+  %tmp.sroa.7.0 = phi i32 [ %tmp.sroa.7.1, %init_interpreter.argprom.exit ], [ %tmp.sroa.7.2, %init_interpreter.argprom.exit41 ]
+  %tmp.sroa.8.0 = phi ptr [ %tmp.sroa.8.1, %init_interpreter.argprom.exit ], [ %tmp.sroa.8.2, %init_interpreter.argprom.exit41 ]
+  %tmp.sroa.11.0 = phi ptr [ %tmp.sroa.11.1, %init_interpreter.argprom.exit ], [ %tmp.sroa.11.2, %init_interpreter.argprom.exit41 ]
+  %tmp.sroa.14.0 = phi i32 [ %tmp.sroa.14.1, %init_interpreter.argprom.exit ], [ %tmp.sroa.14.2, %init_interpreter.argprom.exit41 ]
+  %tmp.sroa.17.0 = phi i32 [ %tmp.sroa.17.1, %init_interpreter.argprom.exit ], [ %tmp.sroa.17.2, %init_interpreter.argprom.exit41 ]
+  %interp.0 = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76952), %init_interpreter.argprom.exit ], [ %call.i, %init_interpreter.argprom.exit41 ]
   %cmp28.not = icmp eq i32 %tmp.sroa.0.0, 0
   br i1 %cmp28.not, label %if.end30, label %error
 
@@ -3338,36 +3338,36 @@ if.then.i:                                        ; preds = %if.then
 PyMutex_LockFlags.exit:                           ; preds = %if.then, %if.then.i
   %interp.01.i = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 344), align 8
   %cmp.not2.i = icmp eq ptr %interp.01.i, null
-  br i1 %cmp.not2.i, label %interp_look_up_id.exit, label %PyInterpreterState_GetID.exit.i
+  br i1 %cmp.not2.i, label %interp_look_up_id.argprom.exit, label %PyInterpreterState_GetID.exit.i
 
 PyInterpreterState_GetID.exit.i:                  ; preds = %PyMutex_LockFlags.exit, %if.end4.i
   %interp.03.i = phi ptr [ %interp.0.i, %if.end4.i ], [ %interp.01.i, %PyMutex_LockFlags.exit ]
   %id.i.i = getelementptr inbounds i8, ptr %interp.03.i, i64 888
   %2 = load i64, ptr %id.i.i, align 8
   %cmp1.i = icmp slt i64 %2, 0
-  br i1 %cmp1.i, label %interp_look_up_id.exit, label %if.end.i
+  br i1 %cmp1.i, label %interp_look_up_id.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %PyInterpreterState_GetID.exit.i
   %cmp2.i = icmp eq i64 %requested_id, %2
-  br i1 %cmp2.i, label %interp_look_up_id.exit, label %if.end4.i
+  br i1 %cmp2.i, label %interp_look_up_id.argprom.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
   %next.i.i = getelementptr inbounds i8, ptr %interp.03.i, i64 880
   %interp.0.i = load ptr, ptr %next.i.i, align 8
   %cmp.not.i = icmp eq ptr %interp.0.i, null
-  br i1 %cmp.not.i, label %interp_look_up_id.exit, label %PyInterpreterState_GetID.exit.i, !llvm.loop !23
+  br i1 %cmp.not.i, label %interp_look_up_id.argprom.exit, label %PyInterpreterState_GetID.exit.i, !llvm.loop !23
 
-interp_look_up_id.exit:                           ; preds = %PyInterpreterState_GetID.exit.i, %if.end.i, %if.end4.i, %PyMutex_LockFlags.exit
+interp_look_up_id.argprom.exit:                   ; preds = %PyInterpreterState_GetID.exit.i, %if.end.i, %if.end4.i, %PyMutex_LockFlags.exit
   %retval.0.i = phi ptr [ null, %PyMutex_LockFlags.exit ], [ null, %PyInterpreterState_GetID.exit.i ], [ %interp.03.i, %if.end.i ], [ null, %if.end4.i ]
   %3 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 1, i8 0 seq_cst seq_cst, align 1
   %4 = extractvalue { i8, i1 } %3, 1
   br i1 %4, label %if.end, label %if.then.i6
 
-if.then.i6:                                       ; preds = %interp_look_up_id.exit
+if.then.i6:                                       ; preds = %interp_look_up_id.argprom.exit
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 336)) #14
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i6, %interp_look_up_id.exit
+if.end:                                           ; preds = %if.then.i6, %interp_look_up_id.argprom.exit
   %cmp3 = icmp eq ptr %retval.0.i, null
   br i1 %cmp3, label %land.lhs.true, label %if.end7
 
@@ -5515,11 +5515,11 @@ attributes #16 = { cold }
 !8 = distinct !{!8, !9, !"tstate_tss_reinit: %agg.result"}
 !9 = distinct !{!9, !"tstate_tss_reinit"}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"init_interpreter: %agg.result"}
-!12 = distinct !{!12, !"init_interpreter"}
+!11 = distinct !{!11, !12, !"init_interpreter.argprom: %agg.result"}
+!12 = distinct !{!12, !"init_interpreter.argprom"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"init_interpreter: %agg.result"}
-!15 = distinct !{!15, !"init_interpreter"}
+!14 = distinct !{!14, !15, !"init_interpreter.argprom: %agg.result"}
+!15 = distinct !{!15, !"init_interpreter.argprom"}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}

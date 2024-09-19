@@ -5405,7 +5405,7 @@ _ZL26dumpApplePropertyAttributeRN4llvm11raw_ostreamEm.exit: ; preds = %548, %550
   %581 = trunc i8 %580 to i1
   %.not4.i = icmp ne ptr %.val, %.val101
   %or.cond.not.i = select i1 %581, i1 %.not4.i, i1 false
-  br i1 %or.cond.not.i, label %.lr.ph.i, label %_ZL10dumpRangesRKN4llvm11DWARFObjectERNS_11raw_ostreamERKSt6vectorINS_17DWARFAddressRangeESaIS6_EEjjRKNS_13DIDumpOptionsE.exit
+  br i1 %or.cond.not.i, label %.lr.ph.i, label %_ZL10dumpRangesRKN4llvm11DWARFObjectERNS_11raw_ostreamERKSt6vectorINS_17DWARFAddressRangeESaIS6_EEjjRKNS_13DIDumpOptionsE.argprom.exit
 
 .lr.ph.i:                                         ; preds = %574
   %582 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -5524,9 +5524,9 @@ _ZN4llvm13DIDumpOptionsD2Ev.exit.i:               ; preds = %632, %_ZNSt8functio
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %582) #19
   %634 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 24
   %.not.i162 = icmp eq ptr %634, %.val101
-  br i1 %.not.i162, label %_ZL10dumpRangesRKN4llvm11DWARFObjectERNS_11raw_ostreamERKSt6vectorINS_17DWARFAddressRangeESaIS6_EEjjRKNS_13DIDumpOptionsE.exit, label %602
+  br i1 %.not.i162, label %_ZL10dumpRangesRKN4llvm11DWARFObjectERNS_11raw_ostreamERKSt6vectorINS_17DWARFAddressRangeESaIS6_EEjjRKNS_13DIDumpOptionsE.argprom.exit, label %602
 
-_ZL10dumpRangesRKN4llvm11DWARFObjectERNS_11raw_ostreamERKSt6vectorINS_17DWARFAddressRangeESaIS6_EEjjRKNS_13DIDumpOptionsE.exit: ; preds = %_ZN4llvm13DIDumpOptionsD2Ev.exit.i, %574
+_ZL10dumpRangesRKN4llvm11DWARFObjectERNS_11raw_ostreamERKSt6vectorINS_17DWARFAddressRangeESaIS6_EEjjRKNS_13DIDumpOptionsE.argprom.exit: ; preds = %_ZN4llvm13DIDumpOptionsD2Ev.exit.i, %574
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %10)
   br label %_ZN4llvm5ErrorD2Ev.exit164
 
@@ -5616,7 +5616,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNKSt8functionIFvN
   call void %667(ptr noundef nonnull align 8 dereferenceable(8) %662) #19
   br label %_ZN4llvm5ErrorD2Ev.exit164
 
-_ZN4llvm5ErrorD2Ev.exit164:                       ; preds = %664, %_ZN4llvm5ErrorD2Ev.exit, %_ZL10dumpRangesRKN4llvm11DWARFObjectERNS_11raw_ostreamERKSt6vectorINS_17DWARFAddressRangeESaIS6_EEjjRKNS_13DIDumpOptionsE.exit
+_ZN4llvm5ErrorD2Ev.exit164:                       ; preds = %664, %_ZN4llvm5ErrorD2Ev.exit, %_ZL10dumpRangesRKN4llvm11DWARFObjectERNS_11raw_ostreamERKSt6vectorINS_17DWARFAddressRangeESaIS6_EEjjRKNS_13DIDumpOptionsE.argprom.exit
   %668 = load i8, ptr %571, align 8
   %669 = trunc i8 %668 to i1
   %670 = load ptr, ptr %45, align 8

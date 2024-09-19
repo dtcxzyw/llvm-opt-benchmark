@@ -4630,7 +4630,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %72
   %75 = and i8 %25, 1
   %76 = xor i8 %75, 1
   %..i = zext nneg i8 %76 to i32
-  tail call fastcc void @_ZL21readBinaryIdsInternalRKN4llvm12MemoryBufferENS_8ArrayRefIhEERSt6vectorINS_11SmallVectorIhLj10EEESaIS7_EENS_10endiannessE(ptr dead_on_unwind noalias writable align 8 %0, ptr %58, ptr nonnull %54, i64 %spec.select.i134, ptr noundef nonnull align 8 dereferenceable(24) %74, i32 noundef %..i)
+  tail call fastcc void @_ZL21readBinaryIdsInternalRKN4llvm12MemoryBufferENS_8ArrayRefIhEERSt6vectorINS_11SmallVectorIhLj10EEESaIS7_EENS_10endiannessE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %58, ptr nonnull %54, i64 %spec.select.i134, ptr noundef nonnull align 8 dereferenceable(24) %74, i32 noundef %..i)
   %77 = load ptr, ptr %0, align 8
   %.not156 = icmp eq ptr %77, null
   br i1 %.not156, label %_ZN4llvm5ErrorD2Ev.exit._crit_edge, label %_ZNSt10unique_ptrIN4llvm15InstrProfSymtabESt14default_deleteIS1_EED2Ev.exit
@@ -7577,7 +7577,7 @@ _ZNSt10unique_ptrIN4llvm14InstrProfErrorESt14default_deleteIS1_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21readBinaryIdsInternalRKN4llvm12MemoryBufferENS_8ArrayRefIhEERSt6vectorINS_11SmallVectorIhLj10EEESaIS7_EENS_10endiannessE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr readnone %.16.val, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL21readBinaryIdsInternalRKN4llvm12MemoryBufferENS_8ArrayRefIhEERSt6vectorINS_11SmallVectorIhLj10EEESaIS7_EENS_10endiannessE.argprom(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr readnone %.16.val, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -8132,7 +8132,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %72
   %75 = and i8 %25, 1
   %76 = xor i8 %75, 1
   %..i = zext nneg i8 %76 to i32
-  tail call fastcc void @_ZL21readBinaryIdsInternalRKN4llvm12MemoryBufferENS_8ArrayRefIhEERSt6vectorINS_11SmallVectorIhLj10EEESaIS7_EENS_10endiannessE(ptr dead_on_unwind noalias writable align 8 %0, ptr %58, ptr nonnull %54, i64 %spec.select.i134, ptr noundef nonnull align 8 dereferenceable(24) %74, i32 noundef %..i)
+  tail call fastcc void @_ZL21readBinaryIdsInternalRKN4llvm12MemoryBufferENS_8ArrayRefIhEERSt6vectorINS_11SmallVectorIhLj10EEESaIS7_EENS_10endiannessE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %58, ptr nonnull %54, i64 %spec.select.i134, ptr noundef nonnull align 8 dereferenceable(24) %74, i32 noundef %..i)
   %77 = load ptr, ptr %0, align 8
   %.not156 = icmp eq ptr %77, null
   br i1 %.not156, label %_ZN4llvm5ErrorD2Ev.exit._crit_edge, label %_ZNSt10unique_ptrIN4llvm15InstrProfSymtabESt14default_deleteIS1_EED2Ev.exit
@@ -13801,7 +13801,7 @@ _ZN4llvm5ErrorD2Ev.exit26:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %122 = getelementptr inbounds nuw i8, ptr %.02056, i64 8
   %123 = load ptr, ptr %122, align 8
   %.not2.i = icmp eq ptr %123, %121
-  br i1 %.not2.i, label %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit", label %.lr.ph.i27
+  br i1 %.not2.i, label %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.argprom.exit", label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %120, %130
   %.0124.i = phi i64 [ %.1.i, %130 ], [ 0, %120 ]
@@ -13813,7 +13813,7 @@ _ZN4llvm5ErrorD2Ev.exit26:                        ; preds = %_ZN4llvm5ErrorD2Ev.
 126:                                              ; preds = %.lr.ph.i27
   %127 = xor i64 %124, -1
   %.not15.i = icmp ult i64 %.0124.i, %127
-  br i1 %.not15.i, label %128, label %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit"
+  br i1 %.not15.i, label %128, label %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.argprom.exit"
 
 128:                                              ; preds = %126
   %129 = add i64 %124, %.0124.i
@@ -13823,16 +13823,16 @@ _ZN4llvm5ErrorD2Ev.exit26:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.1.i = phi i64 [ %.0124.i, %.lr.ph.i27 ], [ %129, %128 ]
   %131 = getelementptr inbounds i8, ptr %.0133.i, i64 8
   %.not.i28 = icmp eq ptr %131, %123
-  br i1 %.not.i28, label %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit", label %.lr.ph.i27
+  br i1 %.not.i28, label %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.argprom.exit", label %.lr.ph.i27
 
-"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit": ; preds = %126, %130, %120
+"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.argprom.exit": ; preds = %126, %130, %120
   %.0.i = phi i64 [ 0, %120 ], [ %.1.i, %130 ], [ -1, %126 ]
   %.sroa.speculated = call i64 @llvm.umax.i64(i64 %.055, i64 %.0.i)
   br label %132
 
-132:                                              ; preds = %116, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit"
-  %.148 = phi i64 [ %.055, %116 ], [ %.sroa.speculated, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit" ]
-  %.1 = phi i1 [ %.01957, %116 ], [ true, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit" ]
+132:                                              ; preds = %116, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.argprom.exit"
+  %.148 = phi i64 [ %.055, %116 ], [ %.sroa.speculated, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.argprom.exit" ]
+  %.1 = phi i1 [ %.01957, %116 ], [ true, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.argprom.exit" ]
   %133 = getelementptr inbounds i8, ptr %.02056, i64 80
   %.not = icmp eq ptr %133, %99
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
@@ -15010,7 +15010,7 @@ define dso_local void @_ZN4llvm22IndexedInstrProfReader13readBinaryIdsERSt6vecto
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %7 = getelementptr i8, ptr %5, i64 16
   %.val = load ptr, ptr %7, align 8
-  tail call fastcc void @_ZL21readBinaryIdsInternalRKN4llvm12MemoryBufferENS_8ArrayRefIhEERSt6vectorINS_11SmallVectorIhLj10EEESaIS7_EENS_10endiannessE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 1)
+  tail call fastcc void @_ZL21readBinaryIdsInternalRKN4llvm12MemoryBufferENS_8ArrayRefIhEERSt6vectorINS_11SmallVectorIhLj10EEESaIS7_EENS_10endiannessE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 1)
   ret void
 }
 
@@ -34012,8 +34012,8 @@ attributes #25 = { nounwind allocsize(0) }
 !1275 = distinct !{!1275, !"_ZN4llvm15handleErrorImplIZNS_22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS2_PmE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS7_EEOT_DpOT0_"}
 !1276 = !{!1274, !1271}
 !1277 = !{!1278}
-!1278 = distinct !{!1278, !1279, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_14InstrProfErrorEEE5applyIZNS_22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS9_PmE3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISF_EE: argument 0"}
-!1279 = distinct !{!1279, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_14InstrProfErrorEEE5applyIZNS_22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS9_PmE3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISF_EE"}
+!1278 = distinct !{!1278, !1279, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_14InstrProfErrorEEE5applyIZNS_22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS9_PmE3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISF_EE.argprom: argument 0"}
+!1279 = distinct !{!1279, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_14InstrProfErrorEEE5applyIZNS_22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS9_PmE3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISF_EE.argprom"}
 !1280 = !{!1281}
 !1281 = distinct !{!1281, !1282, !"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_0clERKNS_14InstrProfErrorE: argument 0"}
 !1282 = distinct !{!1282, !"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_0clERKNS_14InstrProfErrorE"}
@@ -34033,8 +34033,8 @@ attributes #25 = { nounwind allocsize(0) }
 !1296 = distinct !{!1296, !"_ZN4llvm15handleErrorImplIZNS_22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS2_PmE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS7_EEOT_DpOT0_"}
 !1297 = !{!1295, !1271}
 !1298 = !{!1299}
-!1299 = distinct !{!1299, !1300, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_14InstrProfErrorEEE5applyIZNS_22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS9_PmE3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISF_EE: argument 0"}
-!1300 = distinct !{!1300, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_14InstrProfErrorEEE5applyIZNS_22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS9_PmE3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISF_EE"}
+!1299 = distinct !{!1299, !1300, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_14InstrProfErrorEEE5applyIZNS_22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS9_PmE3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISF_EE.argprom: argument 0"}
+!1300 = distinct !{!1300, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_14InstrProfErrorEEE5applyIZNS_22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS9_PmE3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISF_EE.argprom"}
 !1301 = !{!1302}
 !1302 = distinct !{!1302, !1303, !"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_0clERKNS_14InstrProfErrorE: argument 0"}
 !1303 = distinct !{!1303, !"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_0clERKNS_14InstrProfErrorE"}

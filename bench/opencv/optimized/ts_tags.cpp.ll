@@ -608,7 +608,7 @@ define hidden void @_ZN6cvtest21registerGlobalSkipTagERKNSt7__cxx1112basic_strin
   br i1 %2, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit, label %3
 
 3:                                                ; preds = %1
-  tail call fastcc void @_ZN6cvtestL19getTestTagsSkipListB5cxx11Ev()
+  tail call fastcc void @_ZN6cvtestL19getTestTagsSkipListB5cxx11Ev.retelim()
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN6cvtestL19getTestTagsSkipListB5cxx11EvE16testSkipWithTagsB5cxx11, i64 8), align 8
   %5 = load ptr, ptr @_ZZN6cvtestL19getTestTagsSkipListB5cxx11EvE16testSkipWithTagsB5cxx11, align 8
   %.not = icmp eq ptr %4, %5
@@ -671,7 +671,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6cvtestL19getTestTagsSkipListB5cxx11Ev() unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6cvtestL19getTestTagsSkipListB5cxx11Ev.retelim() unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator.8", align 1
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1451,7 +1451,7 @@ define internal fastcc noundef zeroext i1 @_ZN6cvtestL16isTestTagSkippedERKNSt7_
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
-  tail call fastcc void @_ZN6cvtestL19getTestTagsSkipListB5cxx11Ev()
+  tail call fastcc void @_ZN6cvtestL19getTestTagsSkipListB5cxx11Ev.retelim()
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN6cvtestL19getTestTagsSkipListB5cxx11EvE16testSkipWithTagsB5cxx11, i64 8), align 8
   %6 = load ptr, ptr @_ZZN6cvtestL19getTestTagsSkipListB5cxx11EvE16testSkipWithTagsB5cxx11, align 8
   %.not38 = icmp eq ptr %5, %6
@@ -2082,7 +2082,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br i1 %29, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %30
 
 30:                                               ; preds = %25
-  invoke fastcc void @_ZN6cvtestL19getTestTagsSkipListB5cxx11Ev()
+  invoke fastcc void @_ZN6cvtestL19getTestTagsSkipListB5cxx11Ev.retelim()
           to label %.preheader161 unwind label %.loopexit.split-lp164
 
 .preheader161:                                    ; preds = %30
@@ -2254,7 +2254,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br i1 %89, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i110, label %90
 
 90:                                               ; preds = %85
-  invoke fastcc void @_ZN6cvtestL19getTestTagsSkipListB5cxx11Ev()
+  invoke fastcc void @_ZN6cvtestL19getTestTagsSkipListB5cxx11Ev.retelim()
           to label %.preheader unwind label %.loopexit.split-lp
 
 .preheader:                                       ; preds = %90
@@ -3330,7 +3330,7 @@ _ZN6cvtestL23getTestTagsRequiredListB5cxx11Ev.exit: ; preds = %2, %23, %25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
-  call fastcc void @_ZN6cvtestL19getTestTagsSkipListB5cxx11Ev()
+  call fastcc void @_ZN6cvtestL19getTestTagsSkipListB5cxx11Ev.retelim()
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %10)
           to label %.preheader72 unwind label %109
@@ -4295,7 +4295,7 @@ define linkonce_odr hidden void @_ZN6cvtest16TestTagsListener18OnTestIterationEn
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %19)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.77)
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  tail call fastcc void @_ZN6cvtestL19getTestTagsSkipListB5cxx11Ev()
+  tail call fastcc void @_ZN6cvtestL19getTestTagsSkipListB5cxx11Ev.retelim()
   %23 = load atomic i8, ptr @_ZGVZN6cvtestL21getTestTagsSkipCountsB5cxx11EvE18testTagsSkipCountsB5cxx11 acquire, align 8
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %25, label %_ZN6cvtestL21getTestTagsSkipCountsB5cxx11Ev.exit, !prof !6

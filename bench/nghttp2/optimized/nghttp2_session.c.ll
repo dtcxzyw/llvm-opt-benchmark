@@ -1004,7 +1004,7 @@ for.end6:                                         ; preds = %for.body5
   %ob_urgent = getelementptr inbounds i8, ptr %session, i64 256
   %ob_urgent.val = load ptr, ptr %ob_urgent, align 8
   %tobool.not1.i = icmp eq ptr %ob_urgent.val, null
-  br i1 %tobool.not1.i, label %ob_q_free.exit, label %for.body.i
+  br i1 %tobool.not1.i, label %ob_q_free.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.end6, %for.body.i
   %item.02.i = phi ptr [ %3, %for.body.i ], [ %ob_urgent.val, %for.end6 ]
@@ -1013,39 +1013,39 @@ for.body.i:                                       ; preds = %for.end6, %for.body
   tail call void @nghttp2_outbound_item_free(ptr noundef nonnull %item.02.i, ptr noundef nonnull %mem1) #17
   tail call void @nghttp2_mem_free(ptr noundef nonnull %mem1, ptr noundef nonnull %item.02.i) #17
   %tobool.not.i26 = icmp eq ptr %3, null
-  br i1 %tobool.not.i26, label %ob_q_free.exit, label %for.body.i, !llvm.loop !8
+  br i1 %tobool.not.i26, label %ob_q_free.argprom.exit, label %for.body.i, !llvm.loop !8
 
-ob_q_free.exit:                                   ; preds = %for.body.i, %for.end6
+ob_q_free.argprom.exit:                           ; preds = %for.body.i, %for.end6
   %ob_reg = getelementptr inbounds i8, ptr %session, i64 280
   %ob_reg.val = load ptr, ptr %ob_reg, align 8
   %tobool.not1.i27 = icmp eq ptr %ob_reg.val, null
-  br i1 %tobool.not1.i27, label %ob_q_free.exit32, label %for.body.i28
+  br i1 %tobool.not1.i27, label %ob_q_free.argprom.exit32, label %for.body.i28
 
-for.body.i28:                                     ; preds = %ob_q_free.exit, %for.body.i28
-  %item.02.i29 = phi ptr [ %4, %for.body.i28 ], [ %ob_reg.val, %ob_q_free.exit ]
+for.body.i28:                                     ; preds = %ob_q_free.argprom.exit, %for.body.i28
+  %item.02.i29 = phi ptr [ %4, %for.body.i28 ], [ %ob_reg.val, %ob_q_free.argprom.exit ]
   %qnext.i30 = getelementptr inbounds i8, ptr %item.02.i29, i64 136
   %4 = load ptr, ptr %qnext.i30, align 8
   tail call void @nghttp2_outbound_item_free(ptr noundef nonnull %item.02.i29, ptr noundef nonnull %mem1) #17
   tail call void @nghttp2_mem_free(ptr noundef nonnull %mem1, ptr noundef nonnull %item.02.i29) #17
   %tobool.not.i31 = icmp eq ptr %4, null
-  br i1 %tobool.not.i31, label %ob_q_free.exit32, label %for.body.i28, !llvm.loop !8
+  br i1 %tobool.not.i31, label %ob_q_free.argprom.exit32, label %for.body.i28, !llvm.loop !8
 
-ob_q_free.exit32:                                 ; preds = %for.body.i28, %ob_q_free.exit
+ob_q_free.argprom.exit32:                         ; preds = %for.body.i28, %ob_q_free.argprom.exit
   %ob_syn = getelementptr inbounds i8, ptr %session, i64 304
   %ob_syn.val = load ptr, ptr %ob_syn, align 8
   %tobool.not1.i33 = icmp eq ptr %ob_syn.val, null
-  br i1 %tobool.not1.i33, label %ob_q_free.exit38, label %for.body.i34
+  br i1 %tobool.not1.i33, label %ob_q_free.argprom.exit38, label %for.body.i34
 
-for.body.i34:                                     ; preds = %ob_q_free.exit32, %for.body.i34
-  %item.02.i35 = phi ptr [ %5, %for.body.i34 ], [ %ob_syn.val, %ob_q_free.exit32 ]
+for.body.i34:                                     ; preds = %ob_q_free.argprom.exit32, %for.body.i34
+  %item.02.i35 = phi ptr [ %5, %for.body.i34 ], [ %ob_syn.val, %ob_q_free.argprom.exit32 ]
   %qnext.i36 = getelementptr inbounds i8, ptr %item.02.i35, i64 136
   %5 = load ptr, ptr %qnext.i36, align 8
   tail call void @nghttp2_outbound_item_free(ptr noundef nonnull %item.02.i35, ptr noundef nonnull %mem1) #17
   tail call void @nghttp2_mem_free(ptr noundef nonnull %mem1, ptr noundef nonnull %item.02.i35) #17
   %tobool.not.i37 = icmp eq ptr %5, null
-  br i1 %tobool.not.i37, label %ob_q_free.exit38, label %for.body.i34, !llvm.loop !8
+  br i1 %tobool.not.i37, label %ob_q_free.argprom.exit38, label %for.body.i34, !llvm.loop !8
 
-ob_q_free.exit38:                                 ; preds = %for.body.i34, %ob_q_free.exit32
+ob_q_free.argprom.exit38:                         ; preds = %for.body.i34, %ob_q_free.argprom.exit32
   %aob = getelementptr inbounds i8, ptr %session, i64 648
   %6 = load ptr, ptr %aob, align 8
   tail call void @nghttp2_outbound_item_free(ptr noundef %6, ptr noundef nonnull %mem1) #17
@@ -1065,7 +1065,7 @@ ob_q_free.exit38:                                 ; preds = %for.body.i34, %ob_q
   tail call void @nghttp2_mem_free(ptr noundef nonnull %mem1, ptr noundef nonnull %session) #17
   br label %return
 
-return:                                           ; preds = %entry, %ob_q_free.exit38
+return:                                           ; preds = %entry, %ob_q_free.argprom.exit38
   ret void
 }
 
@@ -5155,7 +5155,7 @@ if.end49:                                         ; preds = %if.end42
   br i1 %cmp.i78.not, label %if.end54, label %if.then52
 
 if.then52:                                        ; preds = %if.end49
-  %call53 = tail call fastcc i32 @session_inflate_handle_invalid_stream(ptr noundef nonnull %session, ptr noundef nonnull %frame)
+  %call53 = tail call fastcc i32 @session_inflate_handle_invalid_stream.argelim(ptr noundef nonnull %session, ptr noundef nonnull %frame)
   br label %return
 
 if.end54:                                         ; preds = %if.end49
@@ -5193,7 +5193,7 @@ return:                                           ; preds = %if.then.i83, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @session_inflate_handle_invalid_stream(ptr noundef %session, ptr noundef %frame) unnamed_addr #1 {
+define internal fastcc noundef i32 @session_inflate_handle_invalid_stream.argelim(ptr noundef %session, ptr noundef %frame) unnamed_addr #1 {
 entry:
   %stream_id.i = getelementptr inbounds i8, ptr %frame, i64 8
   %0 = load i32, ptr %stream_id.i, align 8
@@ -12762,19 +12762,19 @@ if.then3:                                         ; preds = %if.end
 cond.end22.i:                                     ; preds = %if.then3
   %conv24.i = sext i32 %10 to i64
   %spec.select.i = tail call i64 @llvm.smin.i64(i64 %requested_window_size.conv.i, i64 %conv24.i)
-  br label %nghttp2_session_enforce_flow_control_limits.exit
+  br label %nghttp2_session_enforce_flow_control_limits.argprom.exit
 
 cond.end22.thread.i:                              ; preds = %if.then3
   %11 = tail call i32 @llvm.smin.i32(i32 %9, i32 %10)
   %spec.select5.i = sext i32 %11 to i64
-  br label %nghttp2_session_enforce_flow_control_limits.exit
+  br label %nghttp2_session_enforce_flow_control_limits.argprom.exit
 
-nghttp2_session_enforce_flow_control_limits.exit: ; preds = %cond.end22.i, %cond.end22.thread.i
+nghttp2_session_enforce_flow_control_limits.argprom.exit: ; preds = %cond.end22.i, %cond.end22.thread.i
   %cond63.i = phi i64 [ %spec.select5.i, %cond.end22.thread.i ], [ %spec.select.i, %cond.end22.i ]
   %cmp10 = icmp slt i64 %cond63.i, 1
   br i1 %cmp10, label %return, label %if.end12
 
-if.end12:                                         ; preds = %nghttp2_session_enforce_flow_control_limits.exit
+if.end12:                                         ; preds = %nghttp2_session_enforce_flow_control_limits.argprom.exit
   %end = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load ptr, ptr %end, align 8
   %last = getelementptr inbounds i8, ptr %1, i64 32
@@ -13008,8 +13008,8 @@ land.lhs.true113:                                 ; preds = %session_reschedule_
 if.end120:                                        ; preds = %land.lhs.true113, %session_reschedule_stream.exit
   br label %return
 
-return:                                           ; preds = %land.lhs.true113, %session_call_select_padding.exit, %if.then83, %if.end54, %nghttp2_session_enforce_flow_control_limits.exit, %if.end120, %do.end53
-  %retval.0 = phi i32 [ %conv, %do.end53 ], [ 0, %if.end120 ], [ -902, %nghttp2_session_enforce_flow_control_limits.exit ], [ -902, %if.end54 ], [ -902, %if.then83 ], [ %conv99, %session_call_select_padding.exit ], [ -535, %land.lhs.true113 ]
+return:                                           ; preds = %land.lhs.true113, %session_call_select_padding.exit, %if.then83, %if.end54, %nghttp2_session_enforce_flow_control_limits.argprom.exit, %if.end120, %do.end53
+  %retval.0 = phi i32 [ %conv, %do.end53 ], [ 0, %if.end120 ], [ -902, %nghttp2_session_enforce_flow_control_limits.argprom.exit ], [ -902, %if.end54 ], [ -902, %if.then83 ], [ %conv99, %session_call_select_padding.exit ], [ -535, %land.lhs.true113 ]
   ret i32 %retval.0
 }
 

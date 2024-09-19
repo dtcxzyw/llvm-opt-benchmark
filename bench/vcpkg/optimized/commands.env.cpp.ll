@@ -1450,7 +1450,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_08__invokeEv"(ptr dead_on_unwind noal
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 72
   store i32 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !20
   invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 noundef %.sroa.05.0.copyload.i, i64 4611686018427388159, ptr nonnull %17)
-          to label %"_ZNK12_GLOBAL__N_13$_0clEv.exit" unwind label %20
+          to label %"_ZNK12_GLOBAL__N_13$_0clEv.argprom.exit" unwind label %20
 
 20:                                               ; preds = %1
   %21 = landingpad { ptr, i32 }
@@ -1458,7 +1458,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_08__invokeEv"(ptr dead_on_unwind noal
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   resume { ptr, i32 } %21
 
-"_ZNK12_GLOBAL__N_13$_0clEv.exit":                ; preds = %1
+"_ZNK12_GLOBAL__N_13$_0clEv.argprom.exit":        ; preds = %1
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2), !noalias !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !11
@@ -1512,7 +1512,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_18__invokeEv"(ptr dead_on_unwind noal
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 72
   store i32 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !29, !noalias !32
   invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 noundef %.sroa.05.0.copyload.i, i64 4611686018427388159, ptr nonnull %17)
-          to label %"_ZNK12_GLOBAL__N_13$_1clEv.exit" unwind label %20
+          to label %"_ZNK12_GLOBAL__N_13$_1clEv.argprom.exit" unwind label %20
 
 20:                                               ; preds = %1
   %21 = landingpad { ptr, i32 }
@@ -1520,7 +1520,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_18__invokeEv"(ptr dead_on_unwind noal
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   resume { ptr, i32 } %21
 
-"_ZNK12_GLOBAL__N_13$_1clEv.exit":                ; preds = %1
+"_ZNK12_GLOBAL__N_13$_1clEv.argprom.exit":        ; preds = %1
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2), !noalias !26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !23
@@ -1574,7 +1574,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_28__invokeEv"(ptr dead_on_unwind noal
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 72
   store i32 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !41, !noalias !44
   invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 noundef %.sroa.05.0.copyload.i, i64 4611686018427388159, ptr nonnull %17)
-          to label %"_ZNK12_GLOBAL__N_13$_2clEv.exit" unwind label %20
+          to label %"_ZNK12_GLOBAL__N_13$_2clEv.argprom.exit" unwind label %20
 
 20:                                               ; preds = %1
   %21 = landingpad { ptr, i32 }
@@ -1582,7 +1582,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_28__invokeEv"(ptr dead_on_unwind noal
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   resume { ptr, i32 } %21
 
-"_ZNK12_GLOBAL__N_13$_2clEv.exit":                ; preds = %1
+"_ZNK12_GLOBAL__N_13$_2clEv.argprom.exit":        ; preds = %1
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2), !noalias !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !35
@@ -1636,7 +1636,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_38__invokeEv"(ptr dead_on_unwind noal
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 72
   store i32 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !56
   invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 noundef %.sroa.05.0.copyload.i, i64 4611686018427388159, ptr nonnull %17)
-          to label %"_ZNK12_GLOBAL__N_13$_3clEv.exit" unwind label %20
+          to label %"_ZNK12_GLOBAL__N_13$_3clEv.argprom.exit" unwind label %20
 
 20:                                               ; preds = %1
   %21 = landingpad { ptr, i32 }
@@ -1644,7 +1644,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_38__invokeEv"(ptr dead_on_unwind noal
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   resume { ptr, i32 } %21
 
-"_ZNK12_GLOBAL__N_13$_3clEv.exit":                ; preds = %1
+"_ZNK12_GLOBAL__N_13$_3clEv.argprom.exit":        ; preds = %1
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2), !noalias !50
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !47
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !47
@@ -1698,7 +1698,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_48__invokeEv"(ptr dead_on_unwind noal
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 72
   store i32 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !65, !noalias !68
   invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 noundef %.sroa.05.0.copyload.i, i64 4611686018427388159, ptr nonnull %17)
-          to label %"_ZNK12_GLOBAL__N_13$_4clEv.exit" unwind label %20
+          to label %"_ZNK12_GLOBAL__N_13$_4clEv.argprom.exit" unwind label %20
 
 20:                                               ; preds = %1
   %21 = landingpad { ptr, i32 }
@@ -1706,7 +1706,7 @@ define internal void @"_ZN12_GLOBAL__N_13$_48__invokeEv"(ptr dead_on_unwind noal
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   resume { ptr, i32 } %21
 
-"_ZNK12_GLOBAL__N_13$_4clEv.exit":                ; preds = %1
+"_ZNK12_GLOBAL__N_13$_4clEv.argprom.exit":        ; preds = %1
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2), !noalias !62
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !59
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !59
@@ -5941,8 +5941,8 @@ attributes #21 = { builtin allocsize(0) }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZNK12_GLOBAL__N_13$_0clEv: argument 0"}
-!13 = distinct !{!13, !"_ZNK12_GLOBAL__N_13$_0clEv"}
+!12 = distinct !{!12, !13, !"_ZNK12_GLOBAL__N_13$_0clEv.argprom: argument 0"}
+!13 = distinct !{!13, !"_ZNK12_GLOBAL__N_13$_0clEv.argprom"}
 !14 = !{!15, !12}
 !15 = distinct !{!15, !16, !"_ZN5vcpkg3msg6formatIJNS0_6path_tENS0_9env_var_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE: argument 0"}
 !16 = distinct !{!16, !"_ZN5vcpkg3msg6formatIJNS0_6path_tENS0_9env_var_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE"}
@@ -5953,8 +5953,8 @@ attributes #21 = { builtin allocsize(0) }
 !21 = distinct !{!21, !22, !"_ZN5vcpkg3msg6detail11format_implIJN3fmt3v106detail9named_argIcNS_10StringViewEEES8_EEENS_15LocalizedStringEmDpOT_: argument 0"}
 !22 = distinct !{!22, !"_ZN5vcpkg3msg6detail11format_implIJN3fmt3v106detail9named_argIcNS_10StringViewEEES8_EEENS_15LocalizedStringEmDpOT_"}
 !23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZNK12_GLOBAL__N_13$_1clEv: argument 0"}
-!25 = distinct !{!25, !"_ZNK12_GLOBAL__N_13$_1clEv"}
+!24 = distinct !{!24, !25, !"_ZNK12_GLOBAL__N_13$_1clEv.argprom: argument 0"}
+!25 = distinct !{!25, !"_ZNK12_GLOBAL__N_13$_1clEv.argprom"}
 !26 = !{!27, !24}
 !27 = distinct !{!27, !28, !"_ZN5vcpkg3msg6formatIJNS0_6path_tENS0_9env_var_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE: argument 0"}
 !28 = distinct !{!28, !"_ZN5vcpkg3msg6formatIJNS0_6path_tENS0_9env_var_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE"}
@@ -5965,8 +5965,8 @@ attributes #21 = { builtin allocsize(0) }
 !33 = distinct !{!33, !34, !"_ZN5vcpkg3msg6detail11format_implIJN3fmt3v106detail9named_argIcNS_10StringViewEEES8_EEENS_15LocalizedStringEmDpOT_: argument 0"}
 !34 = distinct !{!34, !"_ZN5vcpkg3msg6detail11format_implIJN3fmt3v106detail9named_argIcNS_10StringViewEEES8_EEENS_15LocalizedStringEmDpOT_"}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZNK12_GLOBAL__N_13$_2clEv: argument 0"}
-!37 = distinct !{!37, !"_ZNK12_GLOBAL__N_13$_2clEv"}
+!36 = distinct !{!36, !37, !"_ZNK12_GLOBAL__N_13$_2clEv.argprom: argument 0"}
+!37 = distinct !{!37, !"_ZNK12_GLOBAL__N_13$_2clEv.argprom"}
 !38 = !{!39, !36}
 !39 = distinct !{!39, !40, !"_ZN5vcpkg3msg6formatIJNS0_6path_tENS0_9env_var_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE: argument 0"}
 !40 = distinct !{!40, !"_ZN5vcpkg3msg6formatIJNS0_6path_tENS0_9env_var_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE"}
@@ -5977,8 +5977,8 @@ attributes #21 = { builtin allocsize(0) }
 !45 = distinct !{!45, !46, !"_ZN5vcpkg3msg6detail11format_implIJN3fmt3v106detail9named_argIcNS_10StringViewEEES8_EEENS_15LocalizedStringEmDpOT_: argument 0"}
 !46 = distinct !{!46, !"_ZN5vcpkg3msg6detail11format_implIJN3fmt3v106detail9named_argIcNS_10StringViewEEES8_EEENS_15LocalizedStringEmDpOT_"}
 !47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZNK12_GLOBAL__N_13$_3clEv: argument 0"}
-!49 = distinct !{!49, !"_ZNK12_GLOBAL__N_13$_3clEv"}
+!48 = distinct !{!48, !49, !"_ZNK12_GLOBAL__N_13$_3clEv.argprom: argument 0"}
+!49 = distinct !{!49, !"_ZNK12_GLOBAL__N_13$_3clEv.argprom"}
 !50 = !{!51, !48}
 !51 = distinct !{!51, !52, !"_ZN5vcpkg3msg6formatIJNS0_6path_tENS0_9env_var_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE: argument 0"}
 !52 = distinct !{!52, !"_ZN5vcpkg3msg6formatIJNS0_6path_tENS0_9env_var_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE"}
@@ -5989,8 +5989,8 @@ attributes #21 = { builtin allocsize(0) }
 !57 = distinct !{!57, !58, !"_ZN5vcpkg3msg6detail11format_implIJN3fmt3v106detail9named_argIcNS_10StringViewEEES8_EEENS_15LocalizedStringEmDpOT_: argument 0"}
 !58 = distinct !{!58, !"_ZN5vcpkg3msg6detail11format_implIJN3fmt3v106detail9named_argIcNS_10StringViewEEES8_EEENS_15LocalizedStringEmDpOT_"}
 !59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZNK12_GLOBAL__N_13$_4clEv: argument 0"}
-!61 = distinct !{!61, !"_ZNK12_GLOBAL__N_13$_4clEv"}
+!60 = distinct !{!60, !61, !"_ZNK12_GLOBAL__N_13$_4clEv.argprom: argument 0"}
+!61 = distinct !{!61, !"_ZNK12_GLOBAL__N_13$_4clEv.argprom"}
 !62 = !{!63, !60}
 !63 = distinct !{!63, !64, !"_ZN5vcpkg3msg6formatIJNS0_6path_tENS0_9env_var_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE: argument 0"}
 !64 = distinct !{!64, !"_ZN5vcpkg3msg6formatIJNS0_6path_tENS0_9env_var_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE"}

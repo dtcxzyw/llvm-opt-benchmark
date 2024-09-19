@@ -2491,7 +2491,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   ]
 
 113:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_inquire_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_inquire_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %114 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %114, ptr noundef %22, i16 noundef zeroext 1025, i32 noundef 0)
   %115 = load ptr, ptr %20, align 8
@@ -2499,11 +2499,11 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br label %416
 
 116:                                              ; preds = %112
-  %117 = tail call fastcc i32 @dissect_bthci_evt_inquire_result(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  %117 = tail call fastcc i32 @dissect_bthci_evt_inquire_result.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 118:                                              ; preds = %112
-  %119 = tail call fastcc i32 @dissect_bthci_evt_connect_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  %119 = tail call fastcc i32 @dissect_bthci_evt_connect_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %120 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %120, ptr noundef %22, i16 noundef zeroext 1029, i32 noundef 0)
   %121 = load ptr, ptr %20, align 8
@@ -2518,29 +2518,29 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   %.val = load i32, ptr %3, align 8
   %125 = getelementptr i8, ptr %3, i64 4
   %.val981 = load i32, ptr %125, align 4
-  %126 = tail call fastcc i32 @dissect_bthci_evt_connect_request(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val, i32 %.val981)
+  %126 = tail call fastcc i32 @dissect_bthci_evt_connect_request.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val, i32 %.val981)
   br label %416
 
 127:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_disconnect_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_disconnect_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %128 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %128, ptr noundef %22, i16 noundef zeroext 1030, i32 noundef 0)
   br label %416
 
 129:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_auth_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_auth_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %130 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %130, ptr noundef %22, i16 noundef zeroext 1041, i32 noundef 0)
   br label %416
 
 131:                                              ; preds = %112
-  %132 = tail call fastcc i32 @dissect_bthci_evt_remote_name_req_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  %132 = tail call fastcc i32 @dissect_bthci_evt_remote_name_req_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %133 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %133, ptr noundef %22, i16 noundef zeroext 1049, i32 noundef 0)
   br label %416
 
 134:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_encryption_change(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_encryption_change.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %135 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %135, ptr noundef %22, i16 noundef zeroext 1043, i32 noundef 0)
   %136 = load ptr, ptr %20, align 8
@@ -2548,39 +2548,39 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br label %416
 
 137:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_change_conn_link_key_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_change_conn_link_key_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 138:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_link_key_type_changed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_link_key_type_changed.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 139:                                              ; preds = %112
-  %140 = tail call fastcc i32 @dissect_bthci_evt_read_remote_support_features_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  %140 = tail call fastcc i32 @dissect_bthci_evt_read_remote_support_features_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %141 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %141, ptr noundef %22, i16 noundef zeroext 1051, i32 noundef 0)
   br label %416
 
 142:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_read_remote_version_information_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %26)
+  tail call fastcc void @dissect_bthci_evt_read_remote_version_information_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %26)
   %143 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %143, ptr noundef %22, i16 noundef zeroext 1053, i32 noundef 0)
   br label %416
 
 144:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_qos_setup_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_qos_setup_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 145:                                              ; preds = %112
-  %146 = call fastcc i32 @dissect_bthci_evt_command_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %22, ptr noundef %3, ptr noundef %6)
+  %146 = call fastcc i32 @dissect_bthci_evt_command_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %22, ptr noundef %3, ptr noundef %6)
   br label %416
 
 147:                                              ; preds = %112
-  %148 = tail call fastcc i32 @dissect_bthci_evt_command_status(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %22, ptr noundef %3)
+  %148 = tail call fastcc i32 @dissect_bthci_evt_command_status.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %22, ptr noundef %3)
   br label %416
 
 149:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_hardware_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_hardware_error.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 150:                                              ; preds = %112
@@ -2589,17 +2589,17 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br label %416
 
 153:                                              ; preds = %112
-  %154 = tail call fastcc i32 @dissect_bthci_evt_role_change(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  %154 = tail call fastcc i32 @dissect_bthci_evt_role_change.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %155 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %155, ptr noundef %22, i16 noundef zeroext 2059, i32 noundef 0)
   br label %416
 
 156:                                              ; preds = %112
-  %157 = tail call fastcc i32 @dissect_bthci_evt_number_of_completed_packets(ptr noundef %0, ptr noundef %26)
+  %157 = tail call fastcc i32 @dissect_bthci_evt_number_of_completed_packets.argprom.argelim(ptr noundef %0, ptr noundef %26)
   br label %416
 
 158:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_mode_change(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_mode_change.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %159 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %159, ptr noundef %22, i16 noundef zeroext 2051, i32 noundef 0)
   %160 = load ptr, ptr %20, align 8
@@ -2607,7 +2607,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br label %416
 
 161:                                              ; preds = %112
-  %162 = tail call fastcc i32 @dissect_bthci_evt_return_link_keys(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  %162 = tail call fastcc i32 @dissect_bthci_evt_return_link_keys.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 163:                                              ; preds = %112
@@ -2630,11 +2630,11 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   %.val986 = load i32, ptr %3, align 8
   %172 = getelementptr i8, ptr %3, i64 4
   %.val987 = load i32, ptr %172, align 4
-  %173 = tail call fastcc i32 @dissect_bthci_evt_link_key_notification(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val986, i32 %.val987)
+  %173 = tail call fastcc i32 @dissect_bthci_evt_link_key_notification.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val986, i32 %.val987)
   br label %416
 
 174:                                              ; preds = %112
-  %175 = tail call fastcc i32 @dissect_bthci_evt_loopback_command(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  %175 = tail call fastcc i32 @dissect_bthci_evt_loopback_command.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 176:                                              ; preds = %112
@@ -2643,17 +2643,17 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br label %416
 
 179:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_max_slots_change(ptr noundef %0, ptr noundef %26)
+  tail call fastcc void @dissect_bthci_evt_max_slots_change.argprom.argelim(ptr noundef %0, ptr noundef %26)
   br label %416
 
 180:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_read_clock_offset_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_read_clock_offset_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %181 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %181, ptr noundef %22, i16 noundef zeroext 1055, i32 noundef 0)
   br label %416
 
 182:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_conn_packet_type_changed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_conn_packet_type_changed.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %183 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %183, ptr noundef %22, i16 noundef zeroext 1039, i32 noundef 0)
   br label %416
@@ -2667,32 +2667,32 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   %.val988 = load i32, ptr %3, align 8
   %188 = getelementptr i8, ptr %3, i64 4
   %.val989 = load i32, ptr %188, align 4
-  %189 = tail call fastcc i32 @dissect_bthci_evt_page_scan_mode_change(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val988, i32 %.val989)
+  %189 = tail call fastcc i32 @dissect_bthci_evt_page_scan_mode_change.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val988, i32 %.val989)
   br label %416
 
 190:                                              ; preds = %112
   %.val990 = load i32, ptr %3, align 8
   %191 = getelementptr i8, ptr %3, i64 4
   %.val991 = load i32, ptr %191, align 4
-  %192 = tail call fastcc i32 @dissect_bthci_evt_page_scan_repetition_mode_change(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val990, i32 %.val991)
+  %192 = tail call fastcc i32 @dissect_bthci_evt_page_scan_repetition_mode_change.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val990, i32 %.val991)
   br label %416
 
 193:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_flow_specification_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_flow_specification_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 194:                                              ; preds = %112
-  %195 = tail call fastcc i32 @dissect_bthci_evt_inquire_result_with_rssi(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3, ptr noundef null)
+  %195 = tail call fastcc i32 @dissect_bthci_evt_inquire_result_with_rssi.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3, ptr noundef null)
   br label %416
 
 196:                                              ; preds = %112
-  %197 = tail call fastcc i32 @dissect_bthci_evt_read_remote_ext_features_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  %197 = tail call fastcc i32 @dissect_bthci_evt_read_remote_ext_features_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %198 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %198, ptr noundef %22, i16 noundef zeroext 1052, i32 noundef 0)
   br label %416
 
 199:                                              ; preds = %112
-  %200 = tail call fastcc i32 @dissect_bthci_evt_sync_connection_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  %200 = tail call fastcc i32 @dissect_bthci_evt_sync_connection_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %201 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %201, ptr noundef %22, i16 noundef zeroext 1065, i32 noundef 0)
   %202 = load ptr, ptr %20, align 8
@@ -2704,17 +2704,17 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br label %416
 
 205:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_sync_connection_changed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_sync_connection_changed.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %206 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %206, ptr noundef %22, i16 noundef zeroext 1085, i32 noundef 0)
   br label %416
 
 207:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_sniff_subrating(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_sniff_subrating.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 208:                                              ; preds = %112
-  %209 = call fastcc i32 @dissect_bthci_evt_inquire_result_with_rssi(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3, ptr noundef nonnull %5)
+  %209 = call fastcc i32 @dissect_bthci_evt_inquire_result_with_rssi.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3, ptr noundef nonnull %5)
   %210 = load ptr, ptr %20, align 8
   %211 = call noalias ptr @wmem_alloc0(ptr noundef %210, i64 noundef 16) #5
   %212 = load i32, ptr %3, align 8
@@ -2736,7 +2736,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br label %416
 
 224:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_encryption_key_refresh_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_encryption_key_refresh_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %225 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %225, ptr noundef %22, i16 noundef zeroext 8217, i32 noundef 0)
   br label %416
@@ -2753,14 +2753,14 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   %.val994 = load i32, ptr %3, align 8
   %231 = getelementptr i8, ptr %3, i64 4
   %.val995 = load i32, ptr %231, align 4
-  %232 = tail call fastcc i32 @dissect_bthci_evt_io_capability_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val994, i32 %.val995)
+  %232 = tail call fastcc i32 @dissect_bthci_evt_io_capability_response.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val994, i32 %.val995)
   br label %416
 
 233:                                              ; preds = %112
   %.val996 = load i32, ptr %3, align 8
   %234 = getelementptr i8, ptr %3, i64 4
   %.val997 = load i32, ptr %234, align 4
-  %235 = tail call fastcc i32 @dissect_bthci_evt_user_confirmation_request(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val996, i32 %.val997)
+  %235 = tail call fastcc i32 @dissect_bthci_evt_user_confirmation_request.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val996, i32 %.val997)
   br label %416
 
 236:                                              ; preds = %112
@@ -2780,11 +2780,11 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br label %416
 
 244:                                              ; preds = %112
-  %245 = tail call fastcc i32 @dissect_bthci_evt_simple_pairing_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  %245 = tail call fastcc i32 @dissect_bthci_evt_simple_pairing_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 246:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_link_supervision_timeout_changed(ptr noundef %0, ptr noundef %26)
+  tail call fastcc void @dissect_bthci_evt_link_supervision_timeout_changed.argprom.argelim(ptr noundef %0, ptr noundef %26)
   br label %416
 
 247:                                              ; preds = %112
@@ -2796,29 +2796,29 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   %.val1002 = load i32, ptr %3, align 8
   %251 = getelementptr i8, ptr %3, i64 4
   %.val1003 = load i32, ptr %251, align 4
-  %252 = tail call fastcc i32 @dissect_bthci_evt_user_passkey_notification(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val1002, i32 %.val1003)
+  %252 = tail call fastcc i32 @dissect_bthci_evt_user_passkey_notification.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val1002, i32 %.val1003)
   br label %416
 
 253:                                              ; preds = %112
   %.val1004 = load i32, ptr %3, align 8
   %254 = getelementptr i8, ptr %3, i64 4
   %.val1005 = load i32, ptr %254, align 4
-  %255 = tail call fastcc i32 @dissect_bthci_evt_keypress_notification(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val1004, i32 %.val1005)
+  %255 = tail call fastcc i32 @dissect_bthci_evt_keypress_notification.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val1004, i32 %.val1005)
   br label %416
 
 256:                                              ; preds = %112
   %.val1006 = load i32, ptr %3, align 8
   %257 = getelementptr i8, ptr %3, i64 4
   %.val1007 = load i32, ptr %257, align 4
-  %258 = tail call fastcc i32 @dissect_bthci_evt_remote_host_sup_feat_notification(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val1006, i32 %.val1007)
+  %258 = tail call fastcc i32 @dissect_bthci_evt_remote_host_sup_feat_notification.argprom.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 %.val1006, i32 %.val1007)
   br label %416
 
 259:                                              ; preds = %112
-  %260 = tail call fastcc i32 @dissect_bthci_evt_le_meta(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %22, ptr noundef %3)
+  %260 = tail call fastcc i32 @dissect_bthci_evt_le_meta.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %22, ptr noundef %3)
   br label %416
 
 261:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_physical_link_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_physical_link_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 262:                                              ; preds = %112, %112
@@ -2827,51 +2827,51 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br label %416
 
 265:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_disconnect_physical_link_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_disconnect_physical_link_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 266:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_physical_link_loss_early_warning(ptr noundef %0, ptr noundef %26)
+  tail call fastcc void @dissect_bthci_evt_physical_link_loss_early_warning.argprom.argelim(ptr noundef %0, ptr noundef %26)
   br label %416
 
 267:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_logical_link_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_logical_link_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 268:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_disconnect_logical_link_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_disconnect_logical_link_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 269:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_flow_spec_modify_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_flow_spec_modify_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 270:                                              ; preds = %112
-  %271 = tail call fastcc i32 @dissect_bthci_evt_number_of_completed_data_blocks(ptr noundef %0, ptr noundef %26)
+  %271 = tail call fastcc i32 @dissect_bthci_evt_number_of_completed_data_blocks.argprom.argelim(ptr noundef %0, ptr noundef %26)
   br label %416
 
 272:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_amp_start_stop_test(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_amp_start_stop_test.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %273 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %273, ptr noundef %22, i16 noundef zeroext 6153, i32 noundef 0)
   br label %416
 
 274:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_amp_start_stop_test(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_amp_start_stop_test.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   %275 = load ptr, ptr %20, align 8
   tail call fastcc void @add_opcode(ptr noundef %275, ptr noundef %22, i16 noundef zeroext 6152, i32 noundef 0)
   br label %416
 
 276:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_amp_receiver_test(ptr noundef %0, ptr noundef %26)
+  tail call fastcc void @dissect_bthci_evt_amp_receiver_test.argprom.argelim(ptr noundef %0, ptr noundef %26)
   br label %416
 
 277:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_short_range_mode_change_complete(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_short_range_mode_change_complete.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 278:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_amp_status_change(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
+  tail call fastcc void @dissect_bthci_evt_amp_status_change.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef %3)
   br label %416
 
 279:                                              ; preds = %112
@@ -2994,7 +2994,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br label %416
 
 377:                                              ; preds = %112
-  tail call fastcc void @dissect_bthci_evt_sam_status_change(ptr noundef %0, ptr noundef %26)
+  tail call fastcc void @dissect_bthci_evt_sam_status_change.argprom.argelim(ptr noundef %0, ptr noundef %26)
   br label %416
 
 378:                                              ; preds = %112
@@ -3928,7 +3928,7 @@ declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unna
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_inquire_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_inquire_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -3990,7 +3990,7 @@ define internal fastcc void @add_opcode(ptr noundef %0, ptr noundef %1, i16 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_inquire_result(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_inquire_result.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
   %6 = load i32, ptr @hf_bthci_evt_num_responses, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
@@ -4034,7 +4034,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_inquire_result(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bthci_evt_connect_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_bthci_evt_connect_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = alloca [6 x i8], align 1
   %6 = alloca [5 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
@@ -4177,7 +4177,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_connect_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_connect_request.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
   %4 = load i32, ptr @hf_bthci_evt_bd_addr, align 4
   %5 = tail call i32 @dissect_bd_addr(i32 noundef %4, ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef 0, i32 noundef %.0.val, i32 noundef %.4.val, ptr noundef null) #5
   %6 = load ptr, ptr @btcommon_cod_handle, align 8
@@ -4191,7 +4191,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_connect_request(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_disconnect_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_disconnect_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
@@ -4342,7 +4342,7 @@ send_hci_summary_reason_tap.exit:                 ; preds = %send_hci_summary_st
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_auth_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_auth_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -4389,7 +4389,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_remote_name_req_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_remote_name_req_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = alloca [6 x i8], align 1
   %6 = alloca [6 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
@@ -4581,7 +4581,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_encryption_change(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_encryption_change.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -4630,7 +4630,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_change_conn_link_key_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_change_conn_link_key_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -4677,7 +4677,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_link_key_type_changed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_link_key_type_changed.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -4726,7 +4726,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_read_remote_support_features_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_read_remote_support_features_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -4769,12 +4769,12 @@ define internal fastcc noundef i32 @dissect_bthci_evt_read_remote_support_featur
 send_hci_summary_status_tap.exit:                 ; preds = %4, %24
   %27 = load i32, ptr @hf_bthci_evt_connection_handle, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648) #5
-  %29 = tail call fastcc i32 @dissect_bthci_evt_lmp_features(ptr noundef %0, i32 noundef 5, ptr noundef %2, i8 noundef zeroext 0)
+  %29 = tail call fastcc i32 @dissect_bthci_evt_lmp_features.argprom(ptr noundef %0, i32 noundef 5, ptr noundef %2, i8 noundef zeroext 0)
   ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_read_remote_version_information_complete(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_read_remote_version_information_complete.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -4917,7 +4917,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_qos_setup_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_qos_setup_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -4976,7 +4976,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bthci_evt_command_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #1 {
+define internal fastcc i32 @dissect_bthci_evt_command_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #1 {
   %8 = alloca [6 x i8], align 1
   %9 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %10 = alloca i32, align 4
@@ -6702,7 +6702,7 @@ proto_item_set_generated.exit2558:                ; preds = %833, %830, %822, %p
   %865 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %864, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #5
   %866 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #5
   tail call fastcc void @send_hci_summary_status_tap(i8 noundef zeroext %866, ptr noundef nonnull %1, ptr noundef %5)
-  %867 = tail call fastcc i32 @dissect_bthci_evt_lmp_features(ptr noundef %0, i32 noundef 6, ptr noundef %3, i8 noundef zeroext 0)
+  %867 = tail call fastcc i32 @dissect_bthci_evt_lmp_features.argprom(ptr noundef %0, i32 noundef 6, ptr noundef %3, i8 noundef zeroext 0)
   br label %send_hci_summary_status_tap.exit
 
 868:                                              ; preds = %.critedge2566
@@ -6715,7 +6715,7 @@ proto_item_set_generated.exit2558:                ; preds = %833, %830, %822, %p
   %874 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %873, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648) #5
   %875 = load i32, ptr @hf_bthci_evt_max_page_number, align 4
   %876 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %875, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef -2147483648) #5
-  %877 = tail call fastcc i32 @dissect_bthci_evt_lmp_features(ptr noundef %0, i32 noundef 8, ptr noundef %3, i8 noundef zeroext %872)
+  %877 = tail call fastcc i32 @dissect_bthci_evt_lmp_features.argprom(ptr noundef %0, i32 noundef 8, ptr noundef %3, i8 noundef zeroext %872)
   br label %send_hci_summary_status_tap.exit
 
 878:                                              ; preds = %.critedge2566
@@ -7837,7 +7837,7 @@ add_opcode.exit:                                  ; preds = %send_hci_summary_st
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bthci_evt_command_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #1 {
+define internal fastcc i32 @dissect_bthci_evt_command_status.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #1 {
   %7 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -8095,7 +8095,7 @@ add_opcode.exit:                                  ; preds = %78, %add_opcode.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_hardware_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_hardware_error.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_hardware_code, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = load i32, ptr @bluetooth_hci_summary_tap, align 4
@@ -8129,7 +8129,7 @@ define internal fastcc void @dissect_bthci_evt_hardware_error(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_role_change(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_role_change.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = alloca [6 x i8], align 1
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -8274,7 +8274,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bthci_evt_number_of_completed_packets(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc i32 @dissect_bthci_evt_number_of_completed_packets.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
   %4 = load i32, ptr @hf_bthci_evt_num_handles, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
@@ -8300,7 +8300,7 @@ define internal fastcc i32 @dissect_bthci_evt_number_of_completed_packets(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_mode_change(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_mode_change.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca [5 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
@@ -8416,7 +8416,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_return_link_keys(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_return_link_keys.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
   %6 = load i32, ptr @hf_bthci_evt_num_keys, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
@@ -8447,7 +8447,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_return_link_keys(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_link_key_notification(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_link_key_notification.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
   %4 = load i32, ptr @hf_bthci_evt_bd_addr, align 4
   %5 = tail call i32 @dissect_bd_addr(i32 noundef %4, ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef 0, i32 noundef %.0.val, i32 noundef %.4.val, ptr noundef null) #5
   %6 = load i32, ptr @hf_bthci_evt_link_key, align 4
@@ -8460,7 +8460,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_link_key_notification(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bthci_evt_loopback_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_bthci_evt_loopback_command.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #1 {
   %5 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2) #5
   %6 = load ptr, ptr @bthci_cmd_handle, align 8
   %7 = tail call i32 @call_dissector_with_data(ptr noundef %6, ptr noundef %5, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) #5
@@ -8470,7 +8470,7 @@ define internal fastcc i32 @dissect_bthci_evt_loopback_command(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_max_slots_change(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_max_slots_change.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_bthci_evt_connection_handle, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
   %5 = load i32, ptr @hf_bthci_evt_max_slots, align 4
@@ -8479,7 +8479,7 @@ define internal fastcc void @dissect_bthci_evt_max_slots_change(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_read_clock_offset_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_read_clock_offset_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -8533,7 +8533,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_conn_packet_type_changed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_conn_packet_type_changed.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
@@ -8651,7 +8651,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_page_scan_mode_change(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_page_scan_mode_change.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
   %4 = load i32, ptr @hf_bthci_evt_bd_addr, align 4
   %5 = tail call i32 @dissect_bd_addr(i32 noundef %4, ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef 0, i32 noundef %.0.val, i32 noundef %.4.val, ptr noundef null) #5
   %6 = load i32, ptr @hf_bthci_evt_page_scan_mode, align 4
@@ -8661,7 +8661,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_page_scan_mode_change(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_page_scan_repetition_mode_change(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_page_scan_repetition_mode_change.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
   %4 = load i32, ptr @hf_bthci_evt_bd_addr, align 4
   %5 = tail call i32 @dissect_bd_addr(i32 noundef %4, ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef 0, i32 noundef %.0.val, i32 noundef %.4.val, ptr noundef null) #5
   %6 = load i32, ptr @hf_bthci_evt_page_scan_repetition_mode, align 4
@@ -8671,7 +8671,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_page_scan_repetition_mode_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_flow_specification_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_flow_specification_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -8732,7 +8732,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_inquire_result_with_rssi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_inquire_result_with_rssi.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4) unnamed_addr #1 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
   %7 = load i32, ptr @hf_bthci_evt_num_responses, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
@@ -8778,7 +8778,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_inquire_result_with_rssi(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_read_remote_ext_features_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_read_remote_ext_features_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -8826,12 +8826,12 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648) #5
   %32 = load i32, ptr @hf_bthci_evt_max_page_number, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648) #5
-  %34 = tail call fastcc i32 @dissect_bthci_evt_lmp_features(ptr noundef %0, i32 noundef 7, ptr noundef %2, i8 noundef zeroext %29)
+  %34 = tail call fastcc i32 @dissect_bthci_evt_lmp_features.argprom(ptr noundef %0, i32 noundef 7, ptr noundef %2, i8 noundef zeroext %29)
   ret i32 %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_sync_connection_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_sync_connection_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca [6 x i8], align 1
   %7 = alloca [5 x %struct._wmem_tree_key_t], align 16
@@ -9016,7 +9016,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_sync_connection_changed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_sync_connection_changed.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -9079,7 +9079,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_sniff_subrating(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_sniff_subrating.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -9305,7 +9305,7 @@ define internal fastcc void @save_remote_device_name(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_encryption_key_refresh_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_encryption_key_refresh_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -9352,7 +9352,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_io_capability_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_io_capability_response.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
   %4 = load i32, ptr @hf_bthci_evt_bd_addr, align 4
   %5 = tail call i32 @dissect_bd_addr(i32 noundef %4, ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef 0, i32 noundef %.0.val, i32 noundef %.4.val, ptr noundef null) #5
   %6 = load i32, ptr @hf_bthci_evt_io_capability, align 4
@@ -9368,7 +9368,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_io_capability_response(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_user_confirmation_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_user_confirmation_request.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
   %4 = load i32, ptr @hf_bthci_evt_bd_addr, align 4
   %5 = tail call i32 @dissect_bd_addr(i32 noundef %4, ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef 0, i32 noundef %.0.val, i32 noundef %.4.val, ptr noundef null) #5
   %6 = load i32, ptr @hf_bthci_evt_numeric_value, align 4
@@ -9378,7 +9378,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_user_confirmation_request(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bthci_evt_simple_pairing_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_bthci_evt_simple_pairing_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -9428,7 +9428,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_link_supervision_timeout_changed(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_link_supervision_timeout_changed.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_bthci_evt_connection_handle, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
   %5 = load i32, ptr @hf_bthci_evt_link_supervision_timeout, align 4
@@ -9441,7 +9441,7 @@ define internal fastcc void @dissect_bthci_evt_link_supervision_timeout_changed(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_user_passkey_notification(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_user_passkey_notification.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
   %4 = load i32, ptr @hf_bthci_evt_bd_addr, align 4
   %5 = tail call i32 @dissect_bd_addr(i32 noundef %4, ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef 0, i32 noundef %.0.val, i32 noundef %.4.val, ptr noundef null) #5
   %6 = load i32, ptr @hf_bthci_evt_passkey, align 4
@@ -9451,7 +9451,7 @@ define internal fastcc noundef i32 @dissect_bthci_evt_user_passkey_notification(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_keypress_notification(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_keypress_notification.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
   %4 = load i32, ptr @hf_bthci_evt_bd_addr, align 4
   %5 = tail call i32 @dissect_bd_addr(i32 noundef %4, ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef 0, i32 noundef %.0.val, i32 noundef %.4.val, ptr noundef null) #5
   %6 = load i32, ptr @hf_bthci_evt_notification_type, align 4
@@ -9461,15 +9461,15 @@ define internal fastcc noundef i32 @dissect_bthci_evt_keypress_notification(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_remote_host_sup_feat_notification(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_remote_host_sup_feat_notification.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, i32 %.4.val) unnamed_addr #1 {
   %4 = load i32, ptr @hf_bthci_evt_bd_addr, align 4
   %5 = tail call i32 @dissect_bd_addr(i32 noundef %4, ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef 0, i32 noundef %.0.val, i32 noundef %.4.val, ptr noundef null) #5
-  %6 = tail call fastcc i32 @dissect_bthci_evt_lmp_features(ptr noundef %0, i32 noundef %5, ptr noundef %2, i8 noundef zeroext 0)
+  %6 = tail call fastcc i32 @dissect_bthci_evt_lmp_features.argprom(ptr noundef %0, i32 noundef %5, ptr noundef %2, i8 noundef zeroext 0)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bthci_evt_le_meta(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly %4) unnamed_addr #1 {
+define internal fastcc i32 @dissect_bthci_evt_le_meta.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly %4) unnamed_addr #1 {
   %6 = alloca [6 x i8], align 1
   %7 = alloca [5 x %struct._wmem_tree_key_t], align 16
   %8 = alloca i32, align 4
@@ -11589,7 +11589,7 @@ add_opcode.exit:                                  ; preds = %1369, %.lr.ph1463, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_physical_link_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_physical_link_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -11636,7 +11636,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_disconnect_physical_link_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_disconnect_physical_link_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -11723,7 +11723,7 @@ send_hci_summary_reason_tap.exit:                 ; preds = %send_hci_summary_st
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_physical_link_loss_early_warning(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_physical_link_loss_early_warning.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_bthci_evt_physical_link_handle, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %5 = load i32, ptr @hf_bthci_evt_link_loss_reason, align 4
@@ -11732,7 +11732,7 @@ define internal fastcc void @dissect_bthci_evt_physical_link_loss_early_warning(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_logical_link_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_logical_link_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -11783,7 +11783,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_disconnect_logical_link_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_disconnect_logical_link_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -11870,7 +11870,7 @@ send_hci_summary_reason_tap.exit:                 ; preds = %send_hci_summary_st
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_flow_spec_modify_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_flow_spec_modify_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -11917,7 +11917,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bthci_evt_number_of_completed_data_blocks(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc i32 @dissect_bthci_evt_number_of_completed_data_blocks.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_bthci_evt_total_num_data_blocks, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #5
@@ -11948,7 +11948,7 @@ define internal fastcc i32 @dissect_bthci_evt_number_of_completed_data_blocks(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_amp_start_stop_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_amp_start_stop_test.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -11995,7 +11995,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_amp_receiver_test(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_amp_receiver_test.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_bthci_evt_amp_controller_type, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %5 = load i32, ptr @hf_bthci_evt_report_reason, align 4
@@ -12014,7 +12014,7 @@ define internal fastcc void @dissect_bthci_evt_amp_receiver_test(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_short_range_mode_change_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_short_range_mode_change_complete.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -12063,7 +12063,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_amp_status_change(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_amp_status_change.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_evt_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
@@ -12154,7 +12154,7 @@ define internal fastcc void @send_hci_summary_status_tap(i8 noundef zeroext %0, 
 declare i32 @dissect_bd_addr(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_evt_sam_status_change(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_evt_sam_status_change.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_bthci_evt_connection_handle, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
   %5 = load i32, ptr @hf_bthci_evt_local_sam_index, align 4
@@ -12216,7 +12216,7 @@ declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_evt_lmp_features(ptr noundef %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_evt_lmp_features.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %5
 

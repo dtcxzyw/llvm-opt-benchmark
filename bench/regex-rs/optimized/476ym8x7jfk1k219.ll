@@ -31,7 +31,7 @@ define internal void @"_ZN4core3ptr37drop_in_place$LT$core..fmt..Error$GT$17h8bf
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4ea702e5ce27af0fE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4ea702e5ce27af0fE.argelim(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 65
   %3 = load i8, ptr %2, align 1, !range !4, !alias.scope !5, !noundef !14
   %4 = trunc nuw i8 %3 to i1
@@ -1775,7 +1775,7 @@ define internal fastcc void @_ZN12regex_syntax5error5Spans14from_formatter17h690
   store i8 0, ptr %.sroa.01.sroa.12.0..sroa_idx, align 8
   %.sroa.01.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 65
   store i8 0, ptr %.sroa.01.sroa.13.0..sroa_idx, align 1
-  %19 = call fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4ea702e5ce27af0fE(ptr noalias nocapture noundef align 8 dereferenceable(72) %14)
+  %19 = call fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4ea702e5ce27af0fE.argelim(ptr noalias nocapture noundef align 8 dereferenceable(72) %14)
   store i64 %19, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14)
   %.not.i = icmp eq i64 %18, 0
@@ -2023,7 +2023,7 @@ define internal fastcc void @_ZN12regex_syntax5error5Spans14from_formatter17hb67
   store i8 0, ptr %.sroa.01.sroa.12.0..sroa_idx, align 8
   %.sroa.01.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 65
   store i8 0, ptr %.sroa.01.sroa.13.0..sroa_idx, align 1
-  %19 = call fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4ea702e5ce27af0fE(ptr noalias nocapture noundef align 8 dereferenceable(72) %14)
+  %19 = call fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4ea702e5ce27af0fE.argelim(ptr noalias nocapture noundef align 8 dereferenceable(72) %14)
   store i64 %19, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14)
   %.not.i = icmp eq i64 %18, 0
@@ -2399,8 +2399,8 @@ attributes #13 = { cold noreturn nounwind }
 !37 = distinct !{!37, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h126adc2fec64e17fE"}
 !38 = distinct !{!38, !37, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h126adc2fec64e17fE: argument 1"}
 !39 = !{!40, !30, !26, !22, !20, !18, !16}
-!40 = distinct !{!40, !41, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6eec90936175538dE: argument 0"}
-!41 = distinct !{!41, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6eec90936175538dE"}
+!40 = distinct !{!40, !41, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6eec90936175538dE.argprom: argument 0"}
+!41 = distinct !{!41, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6eec90936175538dE.argprom"}
 !42 = !{!43, !22, !20, !18, !16}
 !43 = distinct !{!43, !44, !"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h8d1a95cd9d435c55E: argument 0"}
 !44 = distinct !{!44, !"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h8d1a95cd9d435c55E"}

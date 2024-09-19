@@ -4691,7 +4691,7 @@ _ZN5clang6Parser9NextTokenEv.exit:                ; preds = %33, %37
   br i1 %41, label %46, label %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit.thread
 
 _ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit.thread: ; preds = %21, %21, %21, %_ZN5clang6Parser9NextTokenEv.exit, %13, %9
-  %42 = tail call fastcc i64 @"_ZZZN5clang6Parser35ParseConstraintLogicalAndExpressionEbENK3$_0clEvENKUlNS_12ActionResultIPNS_4ExprELb1EEEbE_clES5_b"(ptr %4, i64 %7, i1 noundef zeroext false)
+  %42 = tail call fastcc i64 @"_ZZZN5clang6Parser35ParseConstraintLogicalAndExpressionEbENK3$_0clEvENKUlNS_12ActionResultIPNS_4ExprELb1EEEbE_clES5_b.argprom"(ptr %4, i64 %7, i1 noundef zeroext false)
   %43 = icmp eq i64 %42, 1
   br i1 %43, label %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit, label %44
 
@@ -4724,7 +4724,7 @@ _ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit.thread: ; preds 
 
 .thread24:                                        ; preds = %58, %59
   %60 = xor i1 %56, true
-  %61 = call fastcc i64 @"_ZZZN5clang6Parser35ParseConstraintLogicalAndExpressionEbENK3$_0clEvENKUlNS_12ActionResultIPNS_4ExprELb1EEEbE_clES5_b"(ptr %4, i64 %.sroa.010.0, i1 noundef zeroext %60)
+  %61 = call fastcc i64 @"_ZZZN5clang6Parser35ParseConstraintLogicalAndExpressionEbENK3$_0clEvENKUlNS_12ActionResultIPNS_4ExprELb1EEEbE_clES5_b.argprom"(ptr %4, i64 %.sroa.010.0, i1 noundef zeroext %60)
   %62 = icmp eq i64 %61, 1
   br i1 %62, label %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit, label %..thread_crit_edge
 
@@ -21388,7 +21388,7 @@ declare void @_ZN5clang4Sema31PushExpressionEvaluationContextENS0_27ExpressionEv
 declare void @_ZN5clang4Sema30PopExpressionEvaluationContextEv(ptr noundef nonnull align 8 dereferenceable(17560)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @"_ZZZN5clang6Parser35ParseConstraintLogicalAndExpressionEbENK3$_0clEvENKUlNS_12ActionResultIPNS_4ExprELb1EEEbE_clES5_b"(ptr nonnull %.0.val, i64 %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define internal fastcc i64 @"_ZZZN5clang6Parser35ParseConstraintLogicalAndExpressionEbENK3$_0clEvENKUlNS_12ActionResultIPNS_4ExprELb1EEEbE_clES5_b.argprom"(ptr nonnull %.0.val, i64 %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::CharSourceRange", align 8
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -3614,7 +3614,7 @@ define internal fastcc i32 @io_submit_one(ptr noundef nonnull %0, ptr noundef %1
 361:                                              ; preds = %.thread32, %358
   %362 = phi i32 [ %.ph31, %.thread32 ], [ %359, %358 ]
   call fastcc void @iocb_destroy(ptr noundef nonnull %21)
-  call fastcc void @put_reqs_available(ptr noundef %0)
+  call fastcc void @put_reqs_available.argelim(ptr noundef %0)
   br label %.thread20
 
 .thread20:                                        ; preds = %19, %148, %.thread34, %361, %358, %11, %3
@@ -3939,7 +3939,7 @@ define internal fastcc void @iocb_destroy(ptr noundef nonnull %0) unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @put_reqs_available(ptr noundef nonnull %0) unnamed_addr #1 align 16 {
+define internal fastcc void @put_reqs_available.argelim(ptr noundef nonnull %0) unnamed_addr #1 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i64 0, ptr %2, align 8, !annotation !10

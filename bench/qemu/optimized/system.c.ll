@@ -266,25 +266,25 @@ if.end31:                                         ; preds = %if.else30, %if.then
   %call1.i = call i32 @object_child_foreach(ptr noundef %call.i6, ptr noundef nonnull @find_cpu_clusters, ptr noundef nonnull @gdbserver_state) #15
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %tobool.not.i7 = icmp eq ptr %17, null
-  br i1 %tobool.not.i7, label %create_processes.exit, label %if.then.i8
+  br i1 %tobool.not.i7, label %create_processes.argprom.exit, label %if.then.i8
 
 if.then.i8:                                       ; preds = %if.end31
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
   %conv.i = sext i32 %18 to i64
   call void @qsort(ptr noundef nonnull %17, i64 noundef %conv.i, i64 noundef 16, ptr noundef nonnull @pid_order) #15
-  br label %create_processes.exit
+  br label %create_processes.argprom.exit
 
-create_processes.exit:                            ; preds = %if.end31, %if.then.i8
+create_processes.argprom.exit:                    ; preds = %if.end31, %if.then.i8
   call void @gdb_create_default_process(ptr noundef nonnull @gdbserver_state) #15
   %tobool32.not = icmp ne ptr %chr.0, null
   br i1 %tobool32.not, label %if.then33, label %if.end35
 
-if.then33:                                        ; preds = %create_processes.exit
+if.then33:                                        ; preds = %create_processes.argprom.exit
   %call34 = call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull @gdbserver_system_state, ptr noundef nonnull %chr.0, ptr noundef nonnull @error_abort) #15
   call void @qemu_chr_fe_set_handlers(ptr noundef nonnull @gdbserver_system_state, ptr noundef nonnull @gdb_chr_can_receive, ptr noundef nonnull @gdb_chr_receive, ptr noundef nonnull @gdb_chr_event, ptr noundef null, ptr noundef nonnull @gdbserver_state, ptr noundef null, i1 noundef zeroext true) #15
   br label %if.end35
 
-if.end35:                                         ; preds = %if.then33, %create_processes.exit
+if.end35:                                         ; preds = %if.then33, %create_processes.argprom.exit
   %cond = zext i1 %tobool32.not to i32
   store i32 %cond, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
   store ptr %mon_chr.0, ptr getelementptr inbounds (i8, ptr @gdbserver_system_state, i64 56), align 8
@@ -295,14 +295,14 @@ cleanup:                                          ; preds = %gdb_supports_guest_
   %.str.2.sink = phi ptr [ @.str.1, %entry ], [ @.str.2, %if.end ], [ @.str.2, %gdb_supports_guest_debug.exit ]
   tail call void (ptr, ...) @error_report(ptr noundef nonnull %.str.2.sink) #15
   %tobool.not.i.i = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.exit, label %if.then.i.i9
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.argprom.exit, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %if.end35, %if.end3, %if.end19, %cleanup
   %retval.017 = phi i32 [ -1, %cleanup ], [ -1, %if.end19 ], [ -1, %if.end3 ], [ 0, %if.end35 ]
   %call.i.i.i = call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #15
-  br label %glib_autoptr_cleanup_GString.exit
+  br label %glib_autoptr_cleanup_GString.argprom.exit
 
-glib_autoptr_cleanup_GString.exit:                ; preds = %cleanup, %if.then.i.i9
+glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %cleanup, %if.then.i.i9
   %retval.018 = phi i32 [ -1, %cleanup ], [ %retval.017, %if.then.i.i9 ]
   ret i32 %retval.018
 }
@@ -474,21 +474,21 @@ cleanup.thread:                                   ; preds = %if.then12, %sw.epil
 
 cleanup:                                          ; preds = %if.end10, %if.end10, %if.end7, %if.end, %entry
   %tobool.not.i.i = icmp eq ptr %call1, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup.thread, %cleanup
   %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call1, i32 noundef 1) #15
-  br label %glib_autoptr_cleanup_GString.exit
+  br label %glib_autoptr_cleanup_GString.argprom.exit
 
-glib_autoptr_cleanup_GString.exit:                ; preds = %cleanup, %if.then.i.i
+glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %cleanup, %if.then.i.i
   %tobool.not.i.i17 = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i17, label %glib_autoptr_cleanup_GString.exit20, label %if.then.i.i18
+  br i1 %tobool.not.i.i17, label %glib_autoptr_cleanup_GString.argprom.exit20, label %if.then.i.i18
 
-if.then.i.i18:                                    ; preds = %glib_autoptr_cleanup_GString.exit
+if.then.i.i18:                                    ; preds = %glib_autoptr_cleanup_GString.argprom.exit
   %call.i.i.i19 = tail call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #15
-  br label %glib_autoptr_cleanup_GString.exit20
+  br label %glib_autoptr_cleanup_GString.argprom.exit20
 
-glib_autoptr_cleanup_GString.exit20:              ; preds = %glib_autoptr_cleanup_GString.exit, %if.then.i.i18
+glib_autoptr_cleanup_GString.argprom.exit20:      ; preds = %glib_autoptr_cleanup_GString.argprom.exit, %if.then.i.i18
   ret void
 }
 
@@ -1589,7 +1589,7 @@ entry:
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @gdb_monitor_write(ptr nocapture readnone %chr, ptr noundef %buf, i32 noundef returned %len) #2 {
-glib_autoptr_cleanup_GString.exit:
+glib_autoptr_cleanup_GString.argprom.exit:
   %call = tail call ptr @g_string_new(ptr noundef nonnull @.str.44) #15
   tail call void @gdb_memtohex(ptr noundef %call, ptr noundef %buf, i32 noundef %len) #15
   %0 = load ptr, ptr %call, align 8

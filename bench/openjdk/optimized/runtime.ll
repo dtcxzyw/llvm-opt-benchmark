@@ -3406,17 +3406,17 @@ _ZNK6HandleclEv.exit:                             ; preds = %30, %46
   %59 = getelementptr inbounds i8, ptr %58, i64 88
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(88) %57, ptr noundef nonnull %3) #12
-  br label %_ZL15trace_exceptionP12outputStreamP7oopDescPhPKc.exit
+  br label %_ZL15trace_exceptionP12outputStreamP7oopDescPhPKc.argprom.exit
 
 61:                                               ; preds = %_ZNK6HandleclEv.exit
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.38) #12
-  br label %_ZL15trace_exceptionP12outputStreamP7oopDescPhPKc.exit
+  br label %_ZL15trace_exceptionP12outputStreamP7oopDescPhPKc.argprom.exit
 
 62:                                               ; preds = %_ZNK6HandleclEv.exit
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.39) #12
-  br label %_ZL15trace_exceptionP12outputStreamP7oopDescPhPKc.exit
+  br label %_ZL15trace_exceptionP12outputStreamP7oopDescPhPKc.argprom.exit
 
-_ZL15trace_exceptionP12outputStreamP7oopDescPhPKc.exit: ; preds = %55, %61, %62
+_ZL15trace_exceptionP12outputStreamP7oopDescPhPKc.argprom.exit: ; preds = %55, %61, %62
   %63 = ptrtoint ptr %28 to i64
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.40, i64 noundef %63) #12
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.41) #12
@@ -3432,12 +3432,12 @@ _ZL15trace_exceptionP12outputStreamP7oopDescPhPKc.exit: ; preds = %55, %61, %62
   %.not.i.i.i.i45 = icmp eq ptr %67, null
   br i1 %.not.i.i.i.i45, label %69, label %68
 
-68:                                               ; preds = %_ZL15trace_exceptionP12outputStreamP7oopDescPhPKc.exit
+68:                                               ; preds = %_ZL15trace_exceptionP12outputStreamP7oopDescPhPKc.argprom.exit
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %34, i64 noundef %42) #12
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %36) #12
   br label %69
 
-69:                                               ; preds = %68, %_ZL15trace_exceptionP12outputStreamP7oopDescPhPKc.exit
+69:                                               ; preds = %68, %_ZL15trace_exceptionP12outputStreamP7oopDescPhPKc.argprom.exit
   %70 = load ptr, ptr %37, align 8
   %.not8.i.i.i.i = icmp eq ptr %70, %38
   br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %71

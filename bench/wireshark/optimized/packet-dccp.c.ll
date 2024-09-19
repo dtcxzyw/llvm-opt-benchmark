@@ -1535,7 +1535,7 @@ proto_item_set_hidden.exit619:                    ; preds = %577, %574, %570, %5
 625:                                              ; preds = %618, %616
   %.1533 = phi ptr [ %622, %618 ], [ %41, %616 ]
   %.0526 = phi ptr [ %624, %618 ], [ null, %616 ]
-  call fastcc void @dissect_options(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0526, i32 noundef %.1535, i32 noundef %102)
+  call fastcc void @dissect_options.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0526, i32 noundef %.1535, i32 noundef %102)
   br label %626
 
 626:                                              ; preds = %625, %614
@@ -2015,7 +2015,7 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_options(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @dissect_options.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = icmp slt i32 %3, %4
   br i1 %7, label %.lr.ph, label %.loopexit
@@ -2358,7 +2358,7 @@ dissect_feature_options.exit:                     ; preds = %.lr.ph44.i, %.lr.ph
   %161 = add i32 %.1, 1
   %162 = zext i8 %155 to i32
   %163 = add i32 %161, %162
-  call fastcc void @dissect_options(ptr noundef %0, ptr noundef %1, ptr noundef %160, i32 noundef %161, i32 noundef %163)
+  call fastcc void @dissect_options.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %160, i32 noundef %161, i32 noundef %163)
   br label %385
 
 164:                                              ; preds = %153

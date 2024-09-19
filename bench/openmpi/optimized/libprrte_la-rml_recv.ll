@@ -59,7 +59,7 @@ define void @prte_rml_recv_buffer_nb(ptr noundef %0, i32 noundef %1, i1 noundef 
 
 21:                                               ; preds = %20, %15
   %.not22.i = icmp eq ptr %17, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %22
+  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %22
 
 22:                                               ; preds = %21
   %23 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %17, ptr noundef null) #5
@@ -74,7 +74,7 @@ define void @prte_rml_recv_buffer_nb(ptr noundef %0, i32 noundef %1, i1 noundef 
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_recv_request_t_class, i64 40), align 8
   %29 = load ptr, ptr %28, align 8
   %.not6.i.i = icmp eq ptr %29, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %22, %.lr.ph.i.i
   %30 = phi ptr [ %32, %.lr.ph.i.i ], [ %29, %22 ]
@@ -83,9 +83,9 @@ define void @prte_rml_recv_buffer_nb(ptr noundef %0, i32 noundef %1, i1 noundef 
   %31 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %21, %22
+pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %21, %22
   %33 = zext i1 %2 to i8
   %34 = getelementptr inbounds i8, ptr %17, i64 256
   %35 = load ptr, ptr %34, align 8
@@ -162,7 +162,7 @@ define void @prte_rml_recv_cancel(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 21:                                               ; preds = %20, %15
   %.not22.i = icmp eq ptr %17, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %22
+  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %22
 
 22:                                               ; preds = %21
   %23 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %17, ptr noundef null) #5
@@ -177,7 +177,7 @@ define void @prte_rml_recv_cancel(ptr noundef %0, i32 noundef %1) local_unnamed_
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_recv_request_t_class, i64 40), align 8
   %29 = load ptr, ptr %28, align 8
   %.not6.i.i = icmp eq ptr %29, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %22, %.lr.ph.i.i
   %30 = phi ptr [ %32, %.lr.ph.i.i ], [ %29, %22 ]
@@ -186,9 +186,9 @@ define void @prte_rml_recv_cancel(ptr noundef %0, i32 noundef %1) local_unnamed_
   %31 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %21, %22
+pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %21, %22
   %33 = getelementptr inbounds i8, ptr %17, i64 248
   store i8 1, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %17, i64 256
@@ -205,7 +205,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %21, %2
   tail call void @event_active(ptr noundef nonnull %39, i32 noundef 4, i16 noundef signext 1) #5
   br label %42
 
-42:                                               ; preds = %12, %pmix_obj_new_tma.exit
+42:                                               ; preds = %12, %pmix_obj_new_tma.argprom.exit
   ret void
 }
 

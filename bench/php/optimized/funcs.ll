@@ -905,32 +905,32 @@ checkdone.exit:                                   ; preds = %file_default.exit, 
   %169 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %169, align 8
   %170 = icmp eq ptr %.val, null
-  br i1 %170, label %trim_separator.exit, label %171
+  br i1 %170, label %trim_separator.argprom.exit, label %171
 
 171:                                              ; preds = %checkdone.exit
   %172 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #20
   %173 = icmp ult i64 %172, 4
-  br i1 %173, label %trim_separator.exit, label %174
+  br i1 %173, label %trim_separator.argprom.exit, label %174
 
 174:                                              ; preds = %171
   %175 = getelementptr i8, ptr %.val, i64 %172
   %176 = getelementptr i8, ptr %175, i64 -3
   %177 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %176, ptr noundef nonnull dereferenceable(4) @.str.11) #20
   %.not.i130 = icmp eq i32 %177, 0
-  br i1 %.not.i130, label %178, label %trim_separator.exit
+  br i1 %.not.i130, label %178, label %trim_separator.argprom.exit
 
 178:                                              ; preds = %174
   store i8 0, ptr %176, align 1
-  br label %trim_separator.exit
+  br label %trim_separator.argprom.exit
 
-trim_separator.exit:                              ; preds = %checkdone.exit, %171, %174, %178
+trim_separator.argprom.exit:                      ; preds = %checkdone.exit, %171, %174, %178
   %179 = getelementptr inbounds i8, ptr %0, i64 68
   %180 = load i32, ptr %179, align 4
   %181 = and i32 %180, 1024
   %.not116 = icmp eq i32 %181, 0
   br i1 %.not116, label %191, label %182
 
-182:                                              ; preds = %trim_separator.exit
+182:                                              ; preds = %trim_separator.argprom.exit
   %183 = and i32 %180, 16
   %.not117 = icmp eq i32 %183, 0
   br i1 %.not117, label %187, label %184
@@ -949,8 +949,8 @@ trim_separator.exit:                              ; preds = %checkdone.exit, %17
   %spec.select169 = select i1 %190, i32 -1, i32 %.9
   br label %191
 
-191:                                              ; preds = %187, %trim_separator.exit
-  %.8 = phi i32 [ %.2132, %trim_separator.exit ], [ %spec.select169, %187 ]
+191:                                              ; preds = %187, %trim_separator.argprom.exit
+  %.8 = phi i32 [ %.2132, %trim_separator.argprom.exit ], [ %spec.select169, %187 ]
   %.8.fr = freeze i32 %.8
   call void @_efree(ptr noundef null) #17
   call void @buffer_fini(ptr noundef nonnull %10) #17

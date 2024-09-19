@@ -808,7 +808,7 @@ define internal i32 @intel_sdvo_compute_config(ptr noundef %0, ptr noundef %1, p
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %14
-  %24 = tail call fastcc zeroext i1 @intel_sdvo_set_output_timings_from_mode(ptr noundef %0, i16 %19, ptr noundef %6)
+  %24 = tail call fastcc zeroext i1 @intel_sdvo_set_output_timings_from_mode.argprom(ptr noundef %0, i16 %19, ptr noundef %6)
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %23
@@ -830,7 +830,7 @@ define internal i32 @intel_sdvo_compute_config(ptr noundef %0, ptr noundef %1, p
 
 34:                                               ; preds = %30
   %.val5 = load i16, ptr %18, align 8
-  %35 = tail call fastcc zeroext i1 @intel_sdvo_set_output_timings_from_mode(ptr noundef %0, i16 %.val5, ptr noundef %31)
+  %35 = tail call fastcc zeroext i1 @intel_sdvo_set_output_timings_from_mode.argprom(ptr noundef %0, i16 %.val5, ptr noundef %31)
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %34
@@ -3163,7 +3163,7 @@ declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) l
 declare dso_local zeroext i1 @intel_fdi_compute_pipe_bpp(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @intel_sdvo_set_output_timings_from_mode(ptr nocapture noundef readonly %0, i16 %.2720.val, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @intel_sdvo_set_output_timings_from_mode.argprom(ptr nocapture noundef readonly %0, i16 %.2720.val, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca %struct.intel_sdvo_dtd, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13

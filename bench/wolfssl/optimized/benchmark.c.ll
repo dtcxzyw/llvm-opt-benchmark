@@ -414,7 +414,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %call1.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.98, ptr noundef nonnull @.str.108)
-  br label %benchmarks_do.exit
+  br label %benchmarks_do.argprom.exit
 
 if.end.i:                                         ; preds = %if.end
   %1 = load i32, ptr @bench_size, align 4
@@ -639,13 +639,13 @@ lor.lhs.false138.i:                               ; preds = %if.end136.i, %lor.l
 if.end142.i:                                      ; preds = %lor.lhs.false138.i, %if.end136.i
   %18 = load ptr, ptr %14, align 8
   %19 = load ptr, ptr %15, align 8
-  tail call fastcc void @bench_aescbc_internal(ptr noundef %18, i32 noundef 16, ptr noundef %19, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
+  tail call fastcc void @bench_aescbc_internal.argelim(ptr noundef %18, i32 noundef 16, ptr noundef %19, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
   %20 = load ptr, ptr %14, align 8
   %21 = load ptr, ptr %15, align 8
-  tail call fastcc void @bench_aescbc_internal(ptr noundef %20, i32 noundef 24, ptr noundef %21, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
+  tail call fastcc void @bench_aescbc_internal.argelim(ptr noundef %20, i32 noundef 24, ptr noundef %21, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
   %22 = load ptr, ptr %14, align 8
   %23 = load ptr, ptr %15, align 8
-  tail call fastcc void @bench_aescbc_internal(ptr noundef %22, i32 noundef 32, ptr noundef %23, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
+  tail call fastcc void @bench_aescbc_internal.argelim(ptr noundef %22, i32 noundef 32, ptr noundef %23, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   %.b83.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b83.pre.i, label %if.end142.i.lor.lhs.false144.i_crit_edge, label %if.then147.i
 
@@ -703,7 +703,7 @@ if.end13.i.i:                                     ; preds = %if.end13.sink.split
   %cond2.i.i.i = select i1 %cmp.i.i.i, ptr @.str.13, ptr %cond.i.i.i
   %cond7.i.i.i = select i1 %cmp1.i.i.i, ptr @.str.17, ptr @.str.18
   %cond9.i.i.i = select i1 %cmp.i.i.i, ptr @.str.16, ptr %cond7.i.i.i
-  tail call fastcc void @bench_aesgcm_internal(ptr noundef %29, i32 noundef 16, ptr noundef %30, ptr noundef nonnull %cond2.i.i.i, ptr noundef nonnull %cond9.i.i.i)
+  tail call fastcc void @bench_aesgcm_internal.argelim(ptr noundef %29, i32 noundef 16, ptr noundef %30, ptr noundef nonnull %cond2.i.i.i, ptr noundef nonnull %cond9.i.i.i)
   %31 = load ptr, ptr %14, align 8
   %32 = load ptr, ptr %15, align 8
   %33 = load i32, ptr @aesAuthAddSz, align 4
@@ -713,7 +713,7 @@ if.end13.i.i:                                     ; preds = %if.end13.sink.split
   %cond16.i.i.i = select i1 %cmp10.i.i.i, ptr @.str.19, ptr %cond14.i.i.i
   %cond21.i.i.i = select i1 %cmp13.i.i.i, ptr @.str.23, ptr @.str.24
   %cond23.i.i.i = select i1 %cmp10.i.i.i, ptr @.str.22, ptr %cond21.i.i.i
-  tail call fastcc void @bench_aesgcm_internal(ptr noundef %31, i32 noundef 24, ptr noundef %32, ptr noundef nonnull %cond16.i.i.i, ptr noundef nonnull %cond23.i.i.i)
+  tail call fastcc void @bench_aesgcm_internal.argelim(ptr noundef %31, i32 noundef 24, ptr noundef %32, ptr noundef nonnull %cond16.i.i.i, ptr noundef nonnull %cond23.i.i.i)
   %34 = load ptr, ptr %14, align 8
   %35 = load ptr, ptr %15, align 8
   %36 = load i32, ptr @aesAuthAddSz, align 4
@@ -723,7 +723,7 @@ if.end13.i.i:                                     ; preds = %if.end13.sink.split
   %cond30.i.i.i = select i1 %cmp24.i.i.i, ptr @.str.25, ptr %cond28.i.i.i
   %cond35.i.i.i = select i1 %cmp27.i.i.i, ptr @.str.29, ptr @.str.30
   %cond37.i.i.i = select i1 %cmp24.i.i.i, ptr @.str.28, ptr %cond35.i.i.i
-  tail call fastcc void @bench_aesgcm_internal(ptr noundef %34, i32 noundef 32, ptr noundef %35, ptr noundef nonnull %cond30.i.i.i, ptr noundef nonnull %cond37.i.i.i)
+  tail call fastcc void @bench_aesgcm_internal.argelim(ptr noundef %34, i32 noundef 32, ptr noundef %35, ptr noundef nonnull %cond30.i.i.i, ptr noundef nonnull %cond37.i.i.i)
   store i32 %25, ptr @aesAuthAddSz, align 4
   %tobool.not.i.i = icmp eq i32 %options.1.i.i, 0
   br i1 %tobool.not.i.i, label %if.end148.i, label %while.body.i.i, !llvm.loop !5
@@ -955,7 +955,7 @@ lor.lhs.false240.i:                               ; preds = %if.end238.i, %lor.l
 if.end244.i:                                      ; preds = %lor.lhs.false240.i, %if.end238.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %key.i.i, i8 11, i64 16, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 3, ptr noundef %key.i.i, i32 noundef 16, ptr noundef nonnull @.str.62)
+  call fastcc void @bench_hmac.argelim(i32 noundef 3, ptr noundef %key.i.i, i32 noundef 16, ptr noundef nonnull @.str.62)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i.i)
   %.b66.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b66.pr.i, label %if.end244.lor.lhs.false246_crit_edge.i, label %if.end250.i
@@ -973,7 +973,7 @@ lor.lhs.false246.i:                               ; preds = %if.end244.lor.lhs.f
 if.end250.i:                                      ; preds = %lor.lhs.false246.i, %if.end244.i
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %key.i92.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %key.i92.i, i8 11, i64 20, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 4, ptr noundef %key.i92.i, i32 noundef 20, ptr noundef nonnull @.str.63)
+  call fastcc void @bench_hmac.argelim(i32 noundef 4, ptr noundef %key.i92.i, i32 noundef 20, ptr noundef nonnull @.str.63)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %key.i92.i)
   %.b65.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b65.pre.i, label %if.end250.i.lor.lhs.false252.i_crit_edge, label %if.end256.i
@@ -991,7 +991,7 @@ lor.lhs.false252.i:                               ; preds = %if.end250.i.lor.lhs
 if.end256.i:                                      ; preds = %lor.lhs.false252.i, %if.end250.i
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %key.i93.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %key.i93.i, i8 11, i64 28, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 5, ptr noundef %key.i93.i, i32 noundef 28, ptr noundef nonnull @.str.64)
+  call fastcc void @bench_hmac.argelim(i32 noundef 5, ptr noundef %key.i93.i, i32 noundef 28, ptr noundef nonnull @.str.64)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %key.i93.i)
   %.b64.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b64.pr.i, label %if.end256.lor.lhs.false258_crit_edge.i, label %if.end262.i
@@ -1009,7 +1009,7 @@ lor.lhs.false258.i:                               ; preds = %if.end256.lor.lhs.f
 if.end262.i:                                      ; preds = %lor.lhs.false258.i, %if.end256.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %key.i94.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %key.i94.i, i8 11, i64 32, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 6, ptr noundef %key.i94.i, i32 noundef 32, ptr noundef nonnull @.str.65)
+  call fastcc void @bench_hmac.argelim(i32 noundef 6, ptr noundef %key.i94.i, i32 noundef 32, ptr noundef nonnull @.str.65)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %key.i94.i)
   %.b63.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b63.pre.i, label %if.end262.i.lor.lhs.false264.i_crit_edge, label %if.end268.i
@@ -1027,7 +1027,7 @@ lor.lhs.false264.i:                               ; preds = %if.end262.i.lor.lhs
 if.end268.i:                                      ; preds = %lor.lhs.false264.i, %if.end262.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %key.i95.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %key.i95.i, i8 11, i64 48, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 7, ptr noundef %key.i95.i, i32 noundef 48, ptr noundef nonnull @.str.66)
+  call fastcc void @bench_hmac.argelim(i32 noundef 7, ptr noundef %key.i95.i, i32 noundef 48, ptr noundef nonnull @.str.66)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %key.i95.i)
   %.b62.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b62.pr.i, label %if.end268.lor.lhs.false270_crit_edge.i, label %if.end274.i
@@ -1045,7 +1045,7 @@ lor.lhs.false270.i:                               ; preds = %if.end268.lor.lhs.f
 if.end274.i:                                      ; preds = %lor.lhs.false270.i, %if.end268.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %key.i96.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %key.i96.i, i8 11, i64 64, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 8, ptr noundef %key.i96.i, i32 noundef 64, ptr noundef nonnull @.str.67)
+  call fastcc void @bench_hmac.argelim(i32 noundef 8, ptr noundef %key.i96.i, i32 noundef 64, ptr noundef nonnull @.str.67)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %key.i96.i)
   %.b61.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b61.pre.i, label %if.end274.i.lor.lhs.false276.i_crit_edge, label %if.end280.i
@@ -1216,20 +1216,20 @@ if.then351.i:                                     ; preds = %if.end348.i
 
 if.end352.i:                                      ; preds = %if.then351.i, %if.end348.i
   %call353.i = call i32 @wc_FreeRng(ptr noundef nonnull %0) #16
-  br label %benchmarks_do.exit
+  br label %benchmarks_do.argprom.exit
 
-benchmarks_do.exit:                               ; preds = %if.then.i, %if.end352.i
+benchmarks_do.argprom.exit:                       ; preds = %if.then.i, %if.end352.i
   %call2 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull @info_prefix)
   %call.i3 = call i32 @wolfCrypt_Cleanup() #16
   %cmp.not.i = icmp eq i32 %call.i3, 0
   br i1 %cmp.not.i, label %return, label %if.then.i4
 
-if.then.i4:                                       ; preds = %benchmarks_do.exit
+if.then.i4:                                       ; preds = %benchmarks_do.argprom.exit
   %call1.i5 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.108, i32 noundef %call.i3)
   br label %return
 
-return:                                           ; preds = %if.then.i4, %benchmarks_do.exit, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %benchmarks_do.exit ], [ %call.i3, %if.then.i4 ]
+return:                                           ; preds = %if.then.i4, %benchmarks_do.argprom.exit, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 0, %benchmarks_do.argprom.exit ], [ %call.i3, %if.then.i4 ]
   ret i32 %retval.0
 }
 
@@ -1365,7 +1365,7 @@ exit_rng:                                         ; preds = %bench_stats_check.e
   %count.1 = phi i32 [ %count.0, %while.body ], [ %add16, %bench_stats_check.exit ]
   %ret.3 = phi i32 [ %call10, %while.body ], [ %ret.1.lcssa, %bench_stats_check.exit ]
   %17 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.6, i32 noundef %count.1, i32 noundef %17, double noundef %add.i.i, i32 noundef %ret.3)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.6, i32 noundef %count.1, i32 noundef %17, double noundef %add.i.i, i32 noundef %ret.3)
   %call19 = call i32 @wc_FreeRng(ptr noundef nonnull %myrng) #16
   br label %return
 
@@ -1455,7 +1455,7 @@ current_time.exit:                                ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bench_stats_sym_finish(ptr noundef %desc, i32 noundef %count, i32 noundef %countSz, double noundef %start, i32 noundef %ret) unnamed_addr #0 {
+define internal fastcc void @bench_stats_sym_finish.argelim(ptr noundef %desc, i32 noundef %count, i32 noundef %countSz, double noundef %start, i32 noundef %ret) unnamed_addr #0 {
 entry:
   %tv.i = alloca %struct.timespec, align 8
   %msg = alloca [150 x i8], align 16
@@ -1633,18 +1633,18 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_iv)
   %3 = load ptr, ptr %2, align 8
-  tail call fastcc void @bench_aescbc_internal(ptr noundef %1, i32 noundef 16, ptr noundef %3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
+  tail call fastcc void @bench_aescbc_internal.argelim(ptr noundef %1, i32 noundef 16, ptr noundef %3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %2, align 8
-  tail call fastcc void @bench_aescbc_internal(ptr noundef %4, i32 noundef 24, ptr noundef %5, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
+  tail call fastcc void @bench_aescbc_internal.argelim(ptr noundef %4, i32 noundef 24, ptr noundef %5, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %2, align 8
-  tail call fastcc void @bench_aescbc_internal(ptr noundef %6, i32 noundef 32, ptr noundef %7, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
+  tail call fastcc void @bench_aescbc_internal.argelim(ptr noundef %6, i32 noundef 32, ptr noundef %7, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bench_aescbc_internal(ptr noundef %key, i32 noundef range(i32 16, 33) %keySz, ptr noundef %iv, ptr noundef %encLabel, ptr noundef %decLabel) unnamed_addr #0 {
+define internal fastcc void @bench_aescbc_internal.argelim(ptr noundef %key, i32 noundef range(i32 16, 33) %keySz, ptr noundef %iv, ptr noundef %encLabel, ptr noundef %decLabel) unnamed_addr #0 {
 entry:
   %tv.i.i60 = alloca %struct.timespec, align 8
   %tv.i.i36 = alloca %struct.timespec, align 8
@@ -1714,29 +1714,29 @@ do.body:                                          ; preds = %bench_stats_check.e
   %cmp11111 = icmp sgt i32 %8, 0
   br i1 %cmp11111, label %for.body17, label %for.end34
 
-for.body17:                                       ; preds = %do.body, %bench_async_handle.exit
-  %times.0112 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body ]
+for.body17:                                       ; preds = %do.body, %bench_async_handle.argprom.exit
+  %times.0112 = phi i32 [ %inc.i, %bench_async_handle.argprom.exit ], [ 0, %do.body ]
   %9 = load ptr, ptr %6, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = load i32, ptr @bench_size, align 4
   %call23 = call i32 @wc_AesCbcEncrypt(ptr noundef nonnull %enc, ptr noundef %9, ptr noundef %10, i32 noundef %11) #16
   %cmp.i = icmp sgt i32 %call23, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit_aes_enc.thread
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit_aes_enc.thread
 
 exit_aes_enc.thread:                              ; preds = %for.body17
   %12 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %encLabel, i32 noundef %count.0, i32 noundef %12, double noundef %add.i.i, i32 noundef %call23)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef %encLabel, i32 noundef %count.0, i32 noundef %12, double noundef %add.i.i, i32 noundef %call23)
   br label %exit
 
-bench_async_handle.exit:                          ; preds = %for.body17
+bench_async_handle.argprom.exit:                  ; preds = %for.body17
   %inc.i = add nuw nsw i32 %times.0112, 1
   %13 = load i32, ptr @numBlocks, align 4
   %cmp11 = icmp slt i32 %inc.i, %13
   br i1 %cmp11, label %for.body17, label %for.end34
 
-for.end34:                                        ; preds = %bench_async_handle.exit, %do.body
-  %times.0.lcssa = phi i32 [ 0, %do.body ], [ %inc.i, %bench_async_handle.exit ]
-  %ret.1.lcssa = phi i32 [ %ret.0, %do.body ], [ %call23, %bench_async_handle.exit ]
+for.end34:                                        ; preds = %bench_async_handle.argprom.exit, %do.body
+  %times.0.lcssa = phi i32 [ 0, %do.body ], [ %inc.i, %bench_async_handle.argprom.exit ]
+  %ret.1.lcssa = phi i32 [ %ret.0, %do.body ], [ %call23, %bench_async_handle.argprom.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i23)
   %call.i.i24 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i23) #16
   %cmp.i.i25 = icmp slt i32 %call.i.i24, 0
@@ -1766,7 +1766,7 @@ bench_stats_check.exit:                           ; preds = %for.end34
 
 exit_aes_enc:                                     ; preds = %bench_stats_check.exit
   %18 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %encLabel, i32 noundef %add, i32 noundef %18, double noundef %add.i.i, i32 noundef %ret.1.lcssa)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef %encLabel, i32 noundef %add, i32 noundef %18, double noundef %add.i.i, i32 noundef %ret.1.lcssa)
   %cmp38 = icmp slt i32 %ret.1.lcssa, 0
   br i1 %cmp38, label %exit, label %for.body43
 
@@ -1821,24 +1821,24 @@ do.body57:                                        ; preds = %bench_stats_check.e
   %cmp59114 = icmp sgt i32 %24, 0
   br i1 %cmp59114, label %for.body69, label %for.end87
 
-for.body69:                                       ; preds = %do.body57, %bench_async_handle.exit59
-  %times.1115 = phi i32 [ %inc.i58, %bench_async_handle.exit59 ], [ 0, %do.body57 ]
+for.body69:                                       ; preds = %do.body57, %bench_async_handle.argprom.exit59
+  %times.1115 = phi i32 [ %inc.i58, %bench_async_handle.argprom.exit59 ], [ 0, %do.body57 ]
   %25 = load ptr, ptr %7, align 8
   %26 = load ptr, ptr %6, align 8
   %27 = load i32, ptr @bench_size, align 4
   %call75 = call i32 @wc_AesCbcDecrypt(ptr noundef nonnull %enc, ptr noundef %25, ptr noundef %26, i32 noundef %27) #16
   %cmp.i55 = icmp sgt i32 %call75, -1
-  br i1 %cmp.i55, label %bench_async_handle.exit59, label %exit_aes_dec
+  br i1 %cmp.i55, label %bench_async_handle.argprom.exit59, label %exit_aes_dec
 
-bench_async_handle.exit59:                        ; preds = %for.body69
+bench_async_handle.argprom.exit59:                ; preds = %for.body69
   %inc.i58 = add nuw nsw i32 %times.1115, 1
   %28 = load i32, ptr @numBlocks, align 4
   %cmp59 = icmp slt i32 %inc.i58, %28
   br i1 %cmp59, label %for.body69, label %for.end87
 
-for.end87:                                        ; preds = %bench_async_handle.exit59, %do.body57
-  %times.1.lcssa = phi i32 [ 0, %do.body57 ], [ %inc.i58, %bench_async_handle.exit59 ]
-  %ret.4.lcssa = phi i32 [ %ret.3, %do.body57 ], [ %call75, %bench_async_handle.exit59 ]
+for.end87:                                        ; preds = %bench_async_handle.argprom.exit59, %do.body57
+  %times.1.lcssa = phi i32 [ 0, %do.body57 ], [ %inc.i58, %bench_async_handle.argprom.exit59 ]
+  %ret.4.lcssa = phi i32 [ %ret.3, %do.body57 ], [ %call75, %bench_async_handle.argprom.exit59 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i60)
   %call.i.i61 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i60) #16
   %cmp.i.i62 = icmp slt i32 %call.i.i61, 0
@@ -1870,7 +1870,7 @@ exit_aes_dec:                                     ; preds = %bench_stats_check.e
   %count.3 = phi i32 [ %count.2, %for.body69 ], [ %add88, %bench_stats_check.exit75 ]
   %ret.5 = phi i32 [ %call75, %for.body69 ], [ %ret.4.lcssa, %bench_stats_check.exit75 ]
   %33 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %decLabel, i32 noundef %count.3, i32 noundef %33, double noundef %add.i.i43, i32 noundef %ret.5)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef %decLabel, i32 noundef %count.3, i32 noundef %33, double noundef %add.i.i43, i32 noundef %ret.5)
   br label %exit
 
 exit:                                             ; preds = %exit_aes_enc.thread, %exit_aes_enc, %exit_aes_dec, %if.then48, %if.then7, %if.then
@@ -1892,7 +1892,7 @@ entry:
   %cond2 = select i1 %cmp, ptr @.str.13, ptr %cond
   %cond7 = select i1 %cmp1, ptr @.str.17, ptr @.str.18
   %cond9 = select i1 %cmp, ptr @.str.16, ptr %cond7
-  tail call fastcc void @bench_aesgcm_internal(ptr noundef %1, i32 noundef 16, ptr noundef %3, ptr noundef nonnull %cond2, ptr noundef nonnull %cond9)
+  tail call fastcc void @bench_aesgcm_internal.argelim(ptr noundef %1, i32 noundef 16, ptr noundef %3, ptr noundef nonnull %cond2, ptr noundef nonnull %cond9)
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = load i32, ptr @aesAuthAddSz, align 4
@@ -1902,7 +1902,7 @@ entry:
   %cond16 = select i1 %cmp10, ptr @.str.19, ptr %cond14
   %cond21 = select i1 %cmp13, ptr @.str.23, ptr @.str.24
   %cond23 = select i1 %cmp10, ptr @.str.22, ptr %cond21
-  tail call fastcc void @bench_aesgcm_internal(ptr noundef %5, i32 noundef 24, ptr noundef %6, ptr noundef nonnull %cond16, ptr noundef nonnull %cond23)
+  tail call fastcc void @bench_aesgcm_internal.argelim(ptr noundef %5, i32 noundef 24, ptr noundef %6, ptr noundef nonnull %cond16, ptr noundef nonnull %cond23)
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %2, align 8
   %10 = load i32, ptr @aesAuthAddSz, align 4
@@ -1912,12 +1912,12 @@ entry:
   %cond30 = select i1 %cmp24, ptr @.str.25, ptr %cond28
   %cond35 = select i1 %cmp27, ptr @.str.29, ptr @.str.30
   %cond37 = select i1 %cmp24, ptr @.str.28, ptr %cond35
-  tail call fastcc void @bench_aesgcm_internal(ptr noundef %8, i32 noundef 32, ptr noundef %9, ptr noundef nonnull %cond30, ptr noundef nonnull %cond37)
+  tail call fastcc void @bench_aesgcm_internal.argelim(ptr noundef %8, i32 noundef 32, ptr noundef %9, ptr noundef nonnull %cond30, ptr noundef nonnull %cond37)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bench_aesgcm_internal(ptr noundef %key, i32 noundef range(i32 16, 33) %keySz, ptr noundef %iv, ptr noundef %encLabel, ptr noundef %decLabel) unnamed_addr #0 {
+define internal fastcc void @bench_aesgcm_internal.argelim(ptr noundef %key, i32 noundef range(i32 16, 33) %keySz, ptr noundef %iv, ptr noundef %encLabel, ptr noundef %decLabel) unnamed_addr #0 {
 entry:
   %tv.i.i30 = alloca %struct.timespec, align 8
   %tv.i.i = alloca %struct.timespec, align 8
@@ -1994,25 +1994,25 @@ do.body:                                          ; preds = %bench_stats_check.e
   %cmp1369 = icmp sgt i32 %8, 0
   br i1 %cmp1369, label %for.body19, label %for.end38
 
-for.body19:                                       ; preds = %do.body, %bench_async_handle.exit
-  %times.070 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body ]
+for.body19:                                       ; preds = %do.body, %bench_async_handle.argprom.exit
+  %times.070 = phi i32 [ %inc.i, %bench_async_handle.argprom.exit ], [ 0, %do.body ]
   %9 = load ptr, ptr %6, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = load i32, ptr @bench_size, align 4
   %12 = load i32, ptr @aesAuthAddSz, align 4
   %call27 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %enc, ptr noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %iv, i32 noundef 12, ptr noundef nonnull %bench_tag, i32 noundef 16, ptr noundef nonnull %bench_additional, i32 noundef %12) #16
   %cmp.i = icmp sgt i32 %call27, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit_aes_gcm
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit_aes_gcm
 
-bench_async_handle.exit:                          ; preds = %for.body19
+bench_async_handle.argprom.exit:                  ; preds = %for.body19
   %inc.i = add nuw nsw i32 %times.070, 1
   %13 = load i32, ptr @numBlocks, align 4
   %cmp13 = icmp slt i32 %inc.i, %13
   br i1 %cmp13, label %for.body19, label %for.end38
 
-for.end38:                                        ; preds = %bench_async_handle.exit, %do.body
-  %times.0.lcssa = phi i32 [ 0, %do.body ], [ %inc.i, %bench_async_handle.exit ]
-  %ret.2.lcssa = phi i32 [ %ret.1, %do.body ], [ %call27, %bench_async_handle.exit ]
+for.end38:                                        ; preds = %bench_async_handle.argprom.exit, %do.body
+  %times.0.lcssa = phi i32 [ 0, %do.body ], [ %inc.i, %bench_async_handle.argprom.exit ]
+  %ret.2.lcssa = phi i32 [ %ret.1, %do.body ], [ %call27, %bench_async_handle.argprom.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i30)
   %call.i.i31 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i30) #16
   %cmp.i.i32 = icmp slt i32 %call.i.i31, 0
@@ -2045,7 +2045,7 @@ exit_aes_gcm:                                     ; preds = %bench_stats_check.e
   %ret.3 = phi i32 [ %call27, %for.body19 ], [ %ret.2.lcssa, %bench_stats_check.exit ]
   store i32 %storemerge, ptr %count, align 4
   %18 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %encLabel, i32 noundef %storemerge, i32 noundef %18, double noundef %add.i.i, i32 noundef %ret.3)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef %encLabel, i32 noundef %storemerge, i32 noundef %18, double noundef %add.i.i, i32 noundef %ret.3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1696) %dec, i8 0, i64 1696, i1 false)
   %call56 = call i32 @wc_AesInit(ptr noundef nonnull %dec, ptr noundef null, i32 noundef -2) #16
   %cmp57.not = icmp eq i32 %call56, 0
@@ -2077,25 +2077,25 @@ do.body71:                                        ; preds = %for.end103, %for.en
   %cmp7374 = icmp sgt i32 %20, 0
   br i1 %cmp7374, label %for.body83, label %for.end103
 
-for.body83:                                       ; preds = %do.body71, %bench_async_handle.exit47
-  %times.175 = phi i32 [ %inc.i46, %bench_async_handle.exit47 ], [ 0, %do.body71 ]
+for.body83:                                       ; preds = %do.body71, %bench_async_handle.argprom.exit47
+  %times.175 = phi i32 [ %inc.i46, %bench_async_handle.argprom.exit47 ], [ 0, %do.body71 ]
   %21 = load ptr, ptr %7, align 8
   %22 = load ptr, ptr %6, align 8
   %23 = load i32, ptr @bench_size, align 4
   %24 = load i32, ptr @aesAuthAddSz, align 4
   %call91 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %dec, ptr noundef %21, ptr noundef %22, i32 noundef %23, ptr noundef %iv, i32 noundef 12, ptr noundef nonnull %bench_tag, i32 noundef 16, ptr noundef nonnull %bench_additional, i32 noundef %24) #16
   %cmp.i43 = icmp sgt i32 %call91, -1
-  br i1 %cmp.i43, label %bench_async_handle.exit47, label %exit_aes_gcm_dec
+  br i1 %cmp.i43, label %bench_async_handle.argprom.exit47, label %exit_aes_gcm_dec
 
-bench_async_handle.exit47:                        ; preds = %for.body83
+bench_async_handle.argprom.exit47:                ; preds = %for.body83
   %inc.i46 = add nuw nsw i32 %times.175, 1
   %25 = load i32, ptr @numBlocks, align 4
   %cmp73 = icmp slt i32 %inc.i46, %25
   br i1 %cmp73, label %for.body83, label %for.end103
 
-for.end103:                                       ; preds = %bench_async_handle.exit47, %do.body71
-  %times.1.lcssa = phi i32 [ 0, %do.body71 ], [ %inc.i46, %bench_async_handle.exit47 ]
-  %ret.5.lcssa = phi i32 [ %ret.4, %do.body71 ], [ %call91, %bench_async_handle.exit47 ]
+for.end103:                                       ; preds = %bench_async_handle.argprom.exit47, %do.body71
+  %times.1.lcssa = phi i32 [ 0, %do.body71 ], [ %inc.i46, %bench_async_handle.argprom.exit47 ]
+  %ret.5.lcssa = phi i32 [ %ret.4, %do.body71 ], [ %call91, %bench_async_handle.argprom.exit47 ]
   %add104 = add nsw i32 %add10479, %times.1.lcssa
   %call106 = call fastcc i32 @bench_stats_check(double noundef %19)
   %tobool107.not = icmp eq i32 %call106, 0
@@ -2105,7 +2105,7 @@ exit_aes_gcm_dec:                                 ; preds = %for.end103, %for.bo
   %storemerge80 = phi i32 [ %add10479, %for.body83 ], [ %add104, %for.end103 ]
   %ret.6 = phi i32 [ %call91, %for.body83 ], [ %ret.5.lcssa, %for.end103 ]
   %26 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %decLabel, i32 noundef %storemerge80, i32 noundef %26, double noundef %19, i32 noundef %ret.6)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef %decLabel, i32 noundef %storemerge80, i32 noundef %26, double noundef %19, i32 noundef %ret.6)
   br label %exit
 
 exit:                                             ; preds = %exit_aes_gcm_dec, %if.then65, %if.then58, %if.then9, %if.then
@@ -2213,7 +2213,7 @@ bench_stats_check.exit:                           ; preds = %do.body
 do.end7:                                          ; preds = %bench_stats_check.exit
   call void @wc_AesFree(ptr noundef nonnull %gmac) #16
   %19 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.31, i32 noundef %inc, i32 noundef %19, double noundef %add.i.i, i32 noundef %call3)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.31, i32 noundef %inc, i32 noundef %19, double noundef %add.i.i, i32 noundef %call3)
   ret void
 }
 
@@ -2453,7 +2453,7 @@ if.end41:                                         ; preds = %bench_stats_check.e
   %count.1 = phi i32 [ %add36, %bench_stats_check.exit60 ], [ %add, %bench_stats_check.exit ]
   %ret.3 = phi i32 [ %ret.6, %bench_stats_check.exit60 ], [ %ret.2, %bench_stats_check.exit ]
   %34 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.34, i32 noundef %count.1, i32 noundef %34, double noundef %start.0, i32 noundef %ret.3)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.34, i32 noundef %count.1, i32 noundef %34, double noundef %start.0, i32 noundef %ret.3)
   br label %return
 
 return:                                           ; preds = %if.end41, %if.then20, %if.then1
@@ -2564,7 +2564,7 @@ bench_stats_check.exit:                           ; preds = %for.end
 
 do.end5:                                          ; preds = %bench_stats_check.exit
   %21 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.35, i32 noundef %add, i32 noundef %21, double noundef %add.i.i, i32 noundef 0)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.35, i32 noundef %add, i32 noundef %21, double noundef %add.i.i, i32 noundef 0)
   ret void
 }
 
@@ -2680,7 +2680,7 @@ bench_stats_check.exit:                           ; preds = %for.end
 
 do.end6:                                          ; preds = %bench_stats_check.exit
   %21 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.37, i32 noundef %add, i32 noundef %21, double noundef %add.i.i, i32 noundef %ret.2)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.37, i32 noundef %add, i32 noundef %21, double noundef %add.i.i, i32 noundef %ret.2)
   ret void
 }
 
@@ -2751,22 +2751,22 @@ do.body5:                                         ; preds = %bench_stats_check.e
   %cmp799 = icmp sgt i32 %7, 0
   br i1 %cmp799, label %for.body14, label %do.body32
 
-for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
-  %times.0100 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
+for.body14:                                       ; preds = %do.body5, %bench_async_handle.argprom.exit
+  %times.0100 = phi i32 [ %inc.i, %bench_async_handle.argprom.exit ], [ 0, %do.body5 ]
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @bench_size, align 4
   %call20 = call i32 @wc_Md5Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit_md5
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit_md5
 
-bench_async_handle.exit:                          ; preds = %for.body14
+bench_async_handle.argprom.exit:                  ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0100, 1
   %10 = load i32, ptr @numBlocks, align 4
   %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
-do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
-  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.exit ]
+do.body32:                                        ; preds = %bench_async_handle.argprom.exit, %do.body5
+  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.argprom.exit ]
   %add = add nuw nsw i32 %times.0.lcssa, %count.0
   %call46 = call i32 @wc_Md5Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
   %cmp.i13 = icmp sgt i32 %call46, -1
@@ -2900,7 +2900,7 @@ exit_md5:                                         ; preds = %do.body32, %bench_s
   %count.1 = phi i32 [ %count.2, %if.end78 ], [ %count.2, %if.end71 ], [ %count.2, %for.body64 ], [ %add88, %bench_stats_check.exit65 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i38, %if.end78 ], [ %add.i.i38, %if.end71 ], [ %add.i.i38, %for.body64 ], [ %add.i.i38, %bench_stats_check.exit65 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.39, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.39, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %do.end96
 
 do.end96:                                         ; preds = %exit_md5, %if.then3
@@ -2978,22 +2978,22 @@ do.body5:                                         ; preds = %bench_stats_check.e
   %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
-for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
-  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
+for.body14:                                       ; preds = %do.body5, %bench_async_handle.argprom.exit
+  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.argprom.exit ], [ 0, %do.body5 ]
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @bench_size, align 4
   %call20 = call i32 @wc_ShaUpdate(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit_sha
 
-bench_async_handle.exit:                          ; preds = %for.body14
+bench_async_handle.argprom.exit:                  ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
   %10 = load i32, ptr @numBlocks, align 4
   %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
-do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
-  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.exit ]
+do.body32:                                        ; preds = %bench_async_handle.argprom.exit, %do.body5
+  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.argprom.exit ]
   %add = add nuw nsw i32 %times.0.lcssa, %count.0
   %call46 = call i32 @wc_ShaFinal(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
   %cmp.i17 = icmp sgt i32 %call46, -1
@@ -3127,7 +3127,7 @@ exit_sha:                                         ; preds = %do.body32, %bench_s
   %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.41, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.41, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha, %if.then3
@@ -3208,22 +3208,22 @@ do.body5:                                         ; preds = %bench_stats_check.e
   %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
-for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
-  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
+for.body14:                                       ; preds = %do.body5, %bench_async_handle.argprom.exit
+  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.argprom.exit ], [ 0, %do.body5 ]
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @bench_size, align 4
   %call20 = call i32 @wc_Sha224Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha224
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit_sha224
 
-bench_async_handle.exit:                          ; preds = %for.body14
+bench_async_handle.argprom.exit:                  ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
   %10 = load i32, ptr @numBlocks, align 4
   %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
-do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
-  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.exit ]
+do.body32:                                        ; preds = %bench_async_handle.argprom.exit, %do.body5
+  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.argprom.exit ]
   %add = add nuw nsw i32 %times.0.lcssa, %count.0
   %call46 = call i32 @wc_Sha224Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
   %cmp.i17 = icmp sgt i32 %call46, -1
@@ -3357,7 +3357,7 @@ exit_sha224:                                      ; preds = %do.body32, %bench_s
   %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add90, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.43, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.43, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha224, %if.then3
@@ -3438,22 +3438,22 @@ do.body5:                                         ; preds = %bench_stats_check.e
   %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
-for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
-  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
+for.body14:                                       ; preds = %do.body5, %bench_async_handle.argprom.exit
+  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.argprom.exit ], [ 0, %do.body5 ]
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @bench_size, align 4
   %call20 = call i32 @wc_Sha256Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha256
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit_sha256
 
-bench_async_handle.exit:                          ; preds = %for.body14
+bench_async_handle.argprom.exit:                  ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
   %10 = load i32, ptr @numBlocks, align 4
   %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
-do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
-  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.exit ]
+do.body32:                                        ; preds = %bench_async_handle.argprom.exit, %do.body5
+  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.argprom.exit ]
   %add = add nuw nsw i32 %times.0.lcssa, %count.0
   %call46 = call i32 @wc_Sha256Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
   %cmp.i17 = icmp sgt i32 %call46, -1
@@ -3587,7 +3587,7 @@ exit_sha256:                                      ; preds = %do.body32, %bench_s
   %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.45, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.45, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha256, %if.then3
@@ -3668,22 +3668,22 @@ do.body5:                                         ; preds = %bench_stats_check.e
   %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
-for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
-  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
+for.body14:                                       ; preds = %do.body5, %bench_async_handle.argprom.exit
+  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.argprom.exit ], [ 0, %do.body5 ]
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @bench_size, align 4
   %call20 = call i32 @wc_Sha384Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha384
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit_sha384
 
-bench_async_handle.exit:                          ; preds = %for.body14
+bench_async_handle.argprom.exit:                  ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
   %10 = load i32, ptr @numBlocks, align 4
   %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
-do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
-  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.exit ]
+do.body32:                                        ; preds = %bench_async_handle.argprom.exit, %do.body5
+  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.argprom.exit ]
   %add = add nuw nsw i32 %times.0.lcssa, %count.0
   %call46 = call i32 @wc_Sha384Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
   %cmp.i17 = icmp sgt i32 %call46, -1
@@ -3817,7 +3817,7 @@ exit_sha384:                                      ; preds = %do.body32, %bench_s
   %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.47, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.47, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha384, %if.then3
@@ -3898,22 +3898,22 @@ do.body5:                                         ; preds = %bench_stats_check.e
   %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
-for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
-  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
+for.body14:                                       ; preds = %do.body5, %bench_async_handle.argprom.exit
+  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.argprom.exit ], [ 0, %do.body5 ]
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @bench_size, align 4
   %call20 = call i32 @wc_Sha512Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha512
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit_sha512
 
-bench_async_handle.exit:                          ; preds = %for.body14
+bench_async_handle.argprom.exit:                  ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
   %10 = load i32, ptr @numBlocks, align 4
   %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
-do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
-  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.exit ]
+do.body32:                                        ; preds = %bench_async_handle.argprom.exit, %do.body5
+  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.argprom.exit ]
   %add = add nuw nsw i32 %times.0.lcssa, %count.0
   %call46 = call i32 @wc_Sha512Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
   %cmp.i17 = icmp sgt i32 %call46, -1
@@ -4047,7 +4047,7 @@ exit_sha512:                                      ; preds = %do.body32, %bench_s
   %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.49, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.49, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha512, %if.then3
@@ -4128,22 +4128,22 @@ do.body5:                                         ; preds = %bench_stats_check.e
   %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
-for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
-  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
+for.body14:                                       ; preds = %do.body5, %bench_async_handle.argprom.exit
+  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.argprom.exit ], [ 0, %do.body5 ]
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @bench_size, align 4
   %call20 = call i32 @wc_Sha512_224Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha512_224
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit_sha512_224
 
-bench_async_handle.exit:                          ; preds = %for.body14
+bench_async_handle.argprom.exit:                  ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
   %10 = load i32, ptr @numBlocks, align 4
   %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
-do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
-  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.exit ]
+do.body32:                                        ; preds = %bench_async_handle.argprom.exit, %do.body5
+  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.argprom.exit ]
   %add = add nuw nsw i32 %times.0.lcssa, %count.0
   %call46 = call i32 @wc_Sha512_224Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
   %cmp.i17 = icmp sgt i32 %call46, -1
@@ -4277,7 +4277,7 @@ exit_sha512_224:                                  ; preds = %do.body32, %bench_s
   %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.51, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.51, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha512_224, %if.then3
@@ -4358,22 +4358,22 @@ do.body5:                                         ; preds = %bench_stats_check.e
   %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
-for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
-  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
+for.body14:                                       ; preds = %do.body5, %bench_async_handle.argprom.exit
+  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.argprom.exit ], [ 0, %do.body5 ]
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @bench_size, align 4
   %call20 = call i32 @wc_Sha512_256Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha512_256
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit_sha512_256
 
-bench_async_handle.exit:                          ; preds = %for.body14
+bench_async_handle.argprom.exit:                  ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
   %10 = load i32, ptr @numBlocks, align 4
   %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
-do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
-  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.exit ]
+do.body32:                                        ; preds = %bench_async_handle.argprom.exit, %do.body5
+  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.argprom.exit ]
   %add = add nuw nsw i32 %times.0.lcssa, %count.0
   %call46 = call i32 @wc_Sha512_256Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
   %cmp.i17 = icmp sgt i32 %call46, -1
@@ -4507,7 +4507,7 @@ exit_sha512_256:                                  ; preds = %do.body32, %bench_s
   %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.53, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.53, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha512_256, %if.then3
@@ -4588,22 +4588,22 @@ do.body5:                                         ; preds = %bench_stats_check.e
   %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
-for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
-  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
+for.body14:                                       ; preds = %do.body5, %bench_async_handle.argprom.exit
+  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.argprom.exit ], [ 0, %do.body5 ]
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @bench_size, align 4
   %call20 = call i32 @wc_Sha3_224_Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha3_224
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit_sha3_224
 
-bench_async_handle.exit:                          ; preds = %for.body14
+bench_async_handle.argprom.exit:                  ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
   %10 = load i32, ptr @numBlocks, align 4
   %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
-do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
-  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.exit ]
+do.body32:                                        ; preds = %bench_async_handle.argprom.exit, %do.body5
+  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.argprom.exit ]
   %add = add nuw nsw i32 %times.0.lcssa, %count.0
   %call46 = call i32 @wc_Sha3_224_Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
   %cmp.i17 = icmp sgt i32 %call46, -1
@@ -4737,7 +4737,7 @@ exit_sha3_224:                                    ; preds = %do.body32, %bench_s
   %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.55, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.55, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha3_224, %if.then3
@@ -4818,22 +4818,22 @@ do.body5:                                         ; preds = %bench_stats_check.e
   %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
-for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
-  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
+for.body14:                                       ; preds = %do.body5, %bench_async_handle.argprom.exit
+  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.argprom.exit ], [ 0, %do.body5 ]
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @bench_size, align 4
   %call20 = call i32 @wc_Sha3_256_Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha3_256
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit_sha3_256
 
-bench_async_handle.exit:                          ; preds = %for.body14
+bench_async_handle.argprom.exit:                  ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
   %10 = load i32, ptr @numBlocks, align 4
   %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
-do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
-  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.exit ]
+do.body32:                                        ; preds = %bench_async_handle.argprom.exit, %do.body5
+  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.argprom.exit ]
   %add = add nuw nsw i32 %times.0.lcssa, %count.0
   %call46 = call i32 @wc_Sha3_256_Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
   %cmp.i17 = icmp sgt i32 %call46, -1
@@ -4967,7 +4967,7 @@ exit_sha3_256:                                    ; preds = %do.body32, %bench_s
   %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.57, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.57, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha3_256, %if.then3
@@ -5048,22 +5048,22 @@ do.body5:                                         ; preds = %bench_stats_check.e
   %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
-for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
-  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
+for.body14:                                       ; preds = %do.body5, %bench_async_handle.argprom.exit
+  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.argprom.exit ], [ 0, %do.body5 ]
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @bench_size, align 4
   %call20 = call i32 @wc_Sha3_384_Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha3_384
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit_sha3_384
 
-bench_async_handle.exit:                          ; preds = %for.body14
+bench_async_handle.argprom.exit:                  ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
   %10 = load i32, ptr @numBlocks, align 4
   %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
-do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
-  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.exit ]
+do.body32:                                        ; preds = %bench_async_handle.argprom.exit, %do.body5
+  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.argprom.exit ]
   %add = add nuw nsw i32 %times.0.lcssa, %count.0
   %call46 = call i32 @wc_Sha3_384_Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
   %cmp.i17 = icmp sgt i32 %call46, -1
@@ -5197,7 +5197,7 @@ exit_sha3_384:                                    ; preds = %do.body32, %bench_s
   %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.59, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.59, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha3_384, %if.then3
@@ -5278,22 +5278,22 @@ do.body5:                                         ; preds = %bench_stats_check.e
   %cmp7103 = icmp sgt i32 %7, 0
   br i1 %cmp7103, label %for.body14, label %do.body32
 
-for.body14:                                       ; preds = %do.body5, %bench_async_handle.exit
-  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body5 ]
+for.body14:                                       ; preds = %do.body5, %bench_async_handle.argprom.exit
+  %times.0104 = phi i32 [ %inc.i, %bench_async_handle.argprom.exit ], [ 0, %do.body5 ]
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @bench_size, align 4
   %call20 = call i32 @wc_Sha3_512_Update(ptr noundef nonnull %hash, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call20, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit_sha3_512
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit_sha3_512
 
-bench_async_handle.exit:                          ; preds = %for.body14
+bench_async_handle.argprom.exit:                  ; preds = %for.body14
   %inc.i = add nuw nsw i32 %times.0104, 1
   %10 = load i32, ptr @numBlocks, align 4
   %cmp7 = icmp slt i32 %inc.i, %10
   br i1 %cmp7, label %for.body14, label %do.body32
 
-do.body32:                                        ; preds = %bench_async_handle.exit, %do.body5
-  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.exit ]
+do.body32:                                        ; preds = %bench_async_handle.argprom.exit, %do.body5
+  %times.0.lcssa = phi i32 [ 0, %do.body5 ], [ %inc.i, %bench_async_handle.argprom.exit ]
   %add = add nuw nsw i32 %times.0.lcssa, %count.0
   %call46 = call i32 @wc_Sha3_512_Final(ptr noundef nonnull %hash, ptr noundef nonnull %digest) #16
   %cmp.i17 = icmp sgt i32 %call46, -1
@@ -5427,7 +5427,7 @@ exit_sha3_512:                                    ; preds = %do.body32, %bench_s
   %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.61, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.61, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha3_512, %if.then3
@@ -5448,7 +5448,7 @@ define dso_local void @bench_hmac_md5(i32 noundef %useDeviceID) local_unnamed_ad
 entry:
   %key = alloca [16 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %key, i8 11, i64 16, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 3, ptr noundef %key, i32 noundef 16, ptr noundef nonnull @.str.62)
+  call fastcc void @bench_hmac.argelim(i32 noundef 3, ptr noundef %key, i32 noundef 16, ptr noundef nonnull @.str.62)
   ret void
 }
 
@@ -5456,7 +5456,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bench_hmac(i32 noundef range(i32 3, 9) %type, ptr noundef nonnull %key, i32 noundef range(i32 16, 65) %keySz, ptr noundef %label) unnamed_addr #0 {
+define internal fastcc void @bench_hmac.argelim(i32 noundef range(i32 3, 9) %type, ptr noundef nonnull %key, i32 noundef range(i32 16, 65) %keySz, ptr noundef %label) unnamed_addr #0 {
 entry:
   %tv.i.i23 = alloca %struct.timespec, align 8
   %tv.i.i = alloca %struct.timespec, align 8
@@ -5523,22 +5523,22 @@ do.body:                                          ; preds = %bench_stats_check.e
   %cmp1155 = icmp sgt i32 %7, 0
   br i1 %cmp1155, label %for.body17, label %do.body33
 
-for.body17:                                       ; preds = %do.body, %bench_async_handle.exit
-  %times.056 = phi i32 [ %inc.i, %bench_async_handle.exit ], [ 0, %do.body ]
+for.body17:                                       ; preds = %do.body, %bench_async_handle.argprom.exit
+  %times.056 = phi i32 [ %inc.i, %bench_async_handle.argprom.exit ], [ 0, %do.body ]
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @bench_size, align 4
   %call23 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef %8, i32 noundef %9) #16
   %cmp.i = icmp sgt i32 %call23, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit_hmac
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit_hmac
 
-bench_async_handle.exit:                          ; preds = %for.body17
+bench_async_handle.argprom.exit:                  ; preds = %for.body17
   %inc.i = add nuw nsw i32 %times.056, 1
   %10 = load i32, ptr @numBlocks, align 4
   %cmp11 = icmp slt i32 %inc.i, %10
   br i1 %cmp11, label %for.body17, label %do.body33
 
-do.body33:                                        ; preds = %bench_async_handle.exit, %do.body
-  %times.0.lcssa = phi i32 [ 0, %do.body ], [ %inc.i, %bench_async_handle.exit ]
+do.body33:                                        ; preds = %bench_async_handle.argprom.exit, %do.body
+  %times.0.lcssa = phi i32 [ 0, %do.body ], [ %inc.i, %bench_async_handle.argprom.exit ]
   %add = add nuw nsw i32 %times.0.lcssa, %count.0
   %call47 = call i32 @wc_HmacFinal(ptr noundef nonnull %hmac, ptr noundef nonnull %digest) #16
   %cmp.i18 = icmp sgt i32 %call47, -1
@@ -5575,7 +5575,7 @@ exit_hmac:                                        ; preds = %do.body33, %bench_s
   %count.1 = phi i32 [ %count.0, %for.body17 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body33 ]
   %ret.0 = phi i32 [ %call23, %for.body17 ], [ %call47, %bench_stats_check.exit ], [ %call47, %do.body33 ]
   %15 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %label, i32 noundef %count.1, i32 noundef %15, double noundef %add.i.i, i32 noundef %ret.0)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef %label, i32 noundef %count.1, i32 noundef %15, double noundef %add.i.i, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_hmac, %if.then7, %if.then
@@ -5588,7 +5588,7 @@ define dso_local void @bench_hmac_sha(i32 noundef %useDeviceID) local_unnamed_ad
 entry:
   %key = alloca [20 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %key, i8 11, i64 20, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 4, ptr noundef %key, i32 noundef 20, ptr noundef nonnull @.str.63)
+  call fastcc void @bench_hmac.argelim(i32 noundef 4, ptr noundef %key, i32 noundef 20, ptr noundef nonnull @.str.63)
   ret void
 }
 
@@ -5597,7 +5597,7 @@ define dso_local void @bench_hmac_sha224(i32 noundef %useDeviceID) local_unnamed
 entry:
   %key = alloca [28 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %key, i8 11, i64 28, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 5, ptr noundef %key, i32 noundef 28, ptr noundef nonnull @.str.64)
+  call fastcc void @bench_hmac.argelim(i32 noundef 5, ptr noundef %key, i32 noundef 28, ptr noundef nonnull @.str.64)
   ret void
 }
 
@@ -5606,7 +5606,7 @@ define dso_local void @bench_hmac_sha256(i32 noundef %useDeviceID) local_unnamed
 entry:
   %key = alloca [32 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %key, i8 11, i64 32, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 6, ptr noundef %key, i32 noundef 32, ptr noundef nonnull @.str.65)
+  call fastcc void @bench_hmac.argelim(i32 noundef 6, ptr noundef %key, i32 noundef 32, ptr noundef nonnull @.str.65)
   ret void
 }
 
@@ -5615,7 +5615,7 @@ define dso_local void @bench_hmac_sha384(i32 noundef %useDeviceID) local_unnamed
 entry:
   %key = alloca [48 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %key, i8 11, i64 48, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 7, ptr noundef %key, i32 noundef 48, ptr noundef nonnull @.str.66)
+  call fastcc void @bench_hmac.argelim(i32 noundef 7, ptr noundef %key, i32 noundef 48, ptr noundef nonnull @.str.66)
   ret void
 }
 
@@ -5624,7 +5624,7 @@ define dso_local void @bench_hmac_sha512(i32 noundef %useDeviceID) local_unnamed
 entry:
   %key = alloca [64 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %key, i8 11, i64 64, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 8, ptr noundef %key, i32 noundef 64, ptr noundef nonnull @.str.67)
+  call fastcc void @bench_hmac.argelim(i32 noundef 8, ptr noundef %key, i32 noundef 64, ptr noundef nonnull @.str.67)
   ret void
 }
 
@@ -5702,7 +5702,7 @@ bench_stats_check.exit:                           ; preds = %do.body
   br i1 %cmp.i, label %do.end5, label %do.body, !llvm.loop !62
 
 do.end5:                                          ; preds = %bench_stats_check.exit
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.69, i32 noundef %inc, i32 noundef 32, double noundef %add.i.i, i32 noundef %call2)
+  call fastcc void @bench_stats_sym_finish.argelim(ptr noundef nonnull @.str.69, i32 noundef %inc, i32 noundef 32, double noundef %add.i.i, i32 noundef %call2)
   ret void
 }
 
@@ -5805,23 +5805,23 @@ do.body.i:                                        ; preds = %bench_stats_check.e
   %count.0.i = phi i32 [ 0, %bench_stats_start.exit.i ], [ %add115.i, %bench_stats_check.exit.i ]
   br label %for.body94.i
 
-for.body94.i:                                     ; preds = %bench_async_handle.exit.i, %do.body.i
-  %times.0299.i = phi i32 [ 0, %do.body.i ], [ %inc.i.i, %bench_async_handle.exit.i ]
+for.body94.i:                                     ; preds = %bench_async_handle.argprom.exit.i, %do.body.i
+  %times.0299.i = phi i32 [ 0, %do.body.i ], [ %inc.i.i, %bench_async_handle.argprom.exit.i ]
   %call103.i = call i32 @wc_RsaPublicEncrypt(ptr noundef nonnull %message.i, i32 noundef 25, ptr noundef nonnull %call.i, i32 noundef 256, ptr noundef nonnull %rsaKey, ptr noundef nonnull %0) #16
   %cmp.i.i = icmp sgt i32 %call103.i, -1
-  br i1 %cmp.i.i, label %bench_async_handle.exit.i, label %exit_rsa_verify.thread.i
+  br i1 %cmp.i.i, label %bench_async_handle.argprom.exit.i, label %exit_rsa_verify.thread.i
 
 exit_rsa_verify.thread.i:                         ; preds = %for.body94.i
   %8 = load ptr, ptr %arrayidx.i, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %8, i32 noundef %count.0.i, double noundef %add.i.i.i, i32 noundef %call103.i)
+  call fastcc void @bench_stats_asym_finish.argelim(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %8, i32 noundef %count.0.i, double noundef %add.i.i.i, i32 noundef %call103.i)
   br label %exit.i
 
-bench_async_handle.exit.i:                        ; preds = %for.body94.i
+bench_async_handle.argprom.exit.i:                ; preds = %for.body94.i
   %inc.i.i = add nuw nsw i32 %times.0299.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i.i, 100
   br i1 %exitcond.not.i, label %for.end114.i, label %for.body94.i
 
-for.end114.i:                                     ; preds = %bench_async_handle.exit.i
+for.end114.i:                                     ; preds = %bench_async_handle.argprom.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i81.i)
   %call.i.i82.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i81.i) #16
   %cmp.i.i83.i = icmp slt i32 %call.i.i82.i, 0
@@ -5851,7 +5851,7 @@ bench_stats_check.exit.i:                         ; preds = %for.end114.i
 
 do.end126.i:                                      ; preds = %bench_stats_check.exit.i
   %13 = load ptr, ptr %arrayidx.i, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %13, i32 noundef %add115.i, double noundef %add.i.i.i, i32 noundef %call103.i)
+  call fastcc void @bench_stats_asym_finish.argelim(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %13, i32 noundef %add115.i, double noundef %add.i.i.i, i32 noundef %call103.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i94.i)
   %call.i.i95.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i94.i) #16
   %cmp.i.i96.i = icmp slt i32 %call.i.i95.i, 0
@@ -5890,18 +5890,18 @@ do.body128.i:                                     ; preds = %bench_stats_check.e
   %count.2.i = phi i32 [ 0, %bench_stats_start.exit112.i ], [ %add167.i, %bench_stats_check.exit133.i ]
   br label %for.body143.i
 
-for.body143.i:                                    ; preds = %bench_async_handle.exit117.i, %do.body128.i
-  %times.1300.i = phi i32 [ 0, %do.body128.i ], [ %inc.i116.i, %bench_async_handle.exit117.i ]
+for.body143.i:                                    ; preds = %bench_async_handle.argprom.exit117.i, %do.body128.i
+  %times.1300.i = phi i32 [ 0, %do.body128.i ], [ %inc.i116.i, %bench_async_handle.argprom.exit117.i ]
   %call154.i = call i32 @wc_RsaPrivateDecrypt(ptr noundef nonnull %call.i, i32 noundef 256, ptr noundef nonnull %call34.i, i32 noundef 256, ptr noundef nonnull %rsaKey) #16
   %cmp.i113.i = icmp sgt i32 %call154.i, -1
-  br i1 %cmp.i113.i, label %bench_async_handle.exit117.i, label %exit_rsa_pub.i
+  br i1 %cmp.i113.i, label %bench_async_handle.argprom.exit117.i, label %exit_rsa_pub.i
 
-bench_async_handle.exit117.i:                     ; preds = %for.body143.i
+bench_async_handle.argprom.exit117.i:             ; preds = %for.body143.i
   %inc.i116.i = add nuw nsw i32 %times.1300.i, 1
   %exitcond323.not.i = icmp eq i32 %inc.i116.i, 100
   br i1 %exitcond323.not.i, label %for.end166.i, label %for.body143.i
 
-for.end166.i:                                     ; preds = %bench_async_handle.exit117.i
+for.end166.i:                                     ; preds = %bench_async_handle.argprom.exit117.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i118.i)
   %call.i.i119.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i118.i) #16
   %cmp.i.i120.i = icmp slt i32 %call.i.i119.i, 0
@@ -5933,7 +5933,7 @@ exit_rsa_pub.i:                                   ; preds = %bench_stats_check.e
   %count.3.i = phi i32 [ %count.2.i, %for.body143.i ], [ %add167.i, %bench_stats_check.exit133.i ]
   %arrayidx172.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %23 = load ptr, ptr %arrayidx172.i, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %23, i32 noundef %count.3.i, double noundef %add.i.i101.i, i32 noundef %call154.i)
+  call fastcc void @bench_stats_asym_finish.argelim(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %23, i32 noundef %count.3.i, double noundef %add.i.i101.i, i32 noundef %call154.i)
   br label %exit.i
 
 if.else.i:                                        ; preds = %if.end80.i
@@ -5976,24 +5976,24 @@ do.body173.i:                                     ; preds = %bench_stats_check.e
   %count.4.i = phi i32 [ 0, %bench_stats_start.exit152.i ], [ %add211.i, %bench_stats_check.exit173.i ]
   br label %for.body188.i
 
-for.body188.i:                                    ; preds = %bench_async_handle.exit157.i, %do.body173.i
-  %times.2301.i = phi i32 [ 0, %do.body173.i ], [ %inc.i156.i, %bench_async_handle.exit157.i ]
+for.body188.i:                                    ; preds = %bench_async_handle.argprom.exit157.i, %do.body173.i
+  %times.2301.i = phi i32 [ 0, %do.body173.i ], [ %inc.i156.i, %bench_async_handle.argprom.exit157.i ]
   %call198.i = call i32 @wc_RsaSSL_Sign(ptr noundef nonnull %message.i, i32 noundef 25, ptr noundef nonnull %call.i, i32 noundef 256, ptr noundef nonnull %rsaKey, ptr noundef nonnull %0) #16
   %cmp.i153.i = icmp sgt i32 %call198.i, -1
-  br i1 %cmp.i153.i, label %bench_async_handle.exit157.i, label %exit_rsa_sign.thread.i
+  br i1 %cmp.i153.i, label %bench_async_handle.argprom.exit157.i, label %exit_rsa_sign.thread.i
 
 exit_rsa_sign.thread.i:                           ; preds = %for.body188.i
   %arrayidx216269.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %30 = load ptr, ptr %arrayidx216269.i, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %30, i32 noundef %count.4.i, double noundef %add.i.i141.i, i32 noundef %call198.i)
+  call fastcc void @bench_stats_asym_finish.argelim(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %30, i32 noundef %count.4.i, double noundef %add.i.i141.i, i32 noundef %call198.i)
   br label %exit.i
 
-bench_async_handle.exit157.i:                     ; preds = %for.body188.i
+bench_async_handle.argprom.exit157.i:             ; preds = %for.body188.i
   %inc.i156.i = add nuw nsw i32 %times.2301.i, 1
   %exitcond324.not.i = icmp eq i32 %inc.i156.i, 100
   br i1 %exitcond324.not.i, label %for.end210.i, label %for.body188.i
 
-for.end210.i:                                     ; preds = %bench_async_handle.exit157.i
+for.end210.i:                                     ; preds = %bench_async_handle.argprom.exit157.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i158.i)
   %call.i.i159.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i158.i) #16
   %cmp.i.i160.i = icmp slt i32 %call.i.i159.i, 0
@@ -6024,7 +6024,7 @@ bench_stats_check.exit173.i:                      ; preds = %for.end210.i
 do.end223.i:                                      ; preds = %bench_stats_check.exit173.i
   %arrayidx216.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %35 = load ptr, ptr %arrayidx216.i, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %35, i32 noundef %add211.i, double noundef %add.i.i141.i, i32 noundef %call198.i)
+  call fastcc void @bench_stats_asym_finish.argelim(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %35, i32 noundef %add211.i, double noundef %add.i.i141.i, i32 noundef %call198.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i174.i)
   %call.i.i175.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i174.i) #16
   %cmp.i.i176.i = icmp slt i32 %call.i.i175.i, 0
@@ -6063,18 +6063,18 @@ do.body225.i:                                     ; preds = %bench_stats_check.e
   %count.6.i = phi i32 [ 0, %bench_stats_start.exit192.i ], [ %add264.i, %bench_stats_check.exit213.i ]
   br label %for.body240.i
 
-for.body240.i:                                    ; preds = %bench_async_handle.exit197.i, %do.body225.i
-  %times.3302.i = phi i32 [ 0, %do.body225.i ], [ %inc.i196.i, %bench_async_handle.exit197.i ]
+for.body240.i:                                    ; preds = %bench_async_handle.argprom.exit197.i, %do.body225.i
+  %times.3302.i = phi i32 [ 0, %do.body225.i ], [ %inc.i196.i, %bench_async_handle.argprom.exit197.i ]
   %call251.i = call i32 @wc_RsaSSL_Verify(ptr noundef nonnull %call.i, i32 noundef 256, ptr noundef nonnull %call34.i, i32 noundef 256, ptr noundef nonnull %rsaKey) #16
   %cmp.i193.i = icmp sgt i32 %call251.i, -1
-  br i1 %cmp.i193.i, label %bench_async_handle.exit197.i, label %exit_rsa_verifyinline.i
+  br i1 %cmp.i193.i, label %bench_async_handle.argprom.exit197.i, label %exit_rsa_verifyinline.i
 
-bench_async_handle.exit197.i:                     ; preds = %for.body240.i
+bench_async_handle.argprom.exit197.i:             ; preds = %for.body240.i
   %inc.i196.i = add nuw nsw i32 %times.3302.i, 1
   %exitcond325.not.i = icmp eq i32 %inc.i196.i, 100
   br i1 %exitcond325.not.i, label %for.end263.i, label %for.body240.i
 
-for.end263.i:                                     ; preds = %bench_async_handle.exit197.i
+for.end263.i:                                     ; preds = %bench_async_handle.argprom.exit197.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i198.i)
   %call.i.i199.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i198.i) #16
   %cmp.i.i200.i = icmp slt i32 %call.i.i199.i, 0
@@ -6106,7 +6106,7 @@ exit_rsa_verifyinline.i:                          ; preds = %bench_stats_check.e
   %count.7.i = phi i32 [ %count.6.i, %for.body240.i ], [ %add264.i, %bench_stats_check.exit213.i ]
   %arrayidx269.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   %45 = load ptr, ptr %arrayidx269.i, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %45, i32 noundef %count.7.i, double noundef %add.i.i181.i, i32 noundef %call251.i)
+  call fastcc void @bench_stats_asym_finish.argelim(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %45, i32 noundef %count.7.i, double noundef %add.i.i181.i, i32 noundef %call251.i)
   br label %exit.i
 
 exit.i:                                           ; preds = %exit_rsa_verifyinline.i, %exit_rsa_sign.thread.i, %exit_rsa_pub.i, %exit_rsa_verify.thread.i, %if.then18
@@ -6262,7 +6262,7 @@ do.body37:                                        ; preds = %bench_stats_check.e
 exit_dh_gen.thread:                               ; preds = %do.body37
   %arrayidx87113 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %12 = load ptr, ptr %arrayidx87113, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %12, i32 noundef %count.1, double noundef %add.i.i, i32 noundef %call69)
+  call fastcc void @bench_stats_asym_finish.argelim(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %12, i32 noundef %count.1, double noundef %add.i.i, i32 noundef %call69)
   br label %exit
 
 for.end80:                                        ; preds = %do.body37
@@ -6296,7 +6296,7 @@ bench_stats_check.exit:                           ; preds = %for.end80
 do.end97:                                         ; preds = %bench_stats_check.exit
   %arrayidx87 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %17 = load ptr, ptr %arrayidx87, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %17, i32 noundef %add, double noundef %add.i.i, i32 noundef %call69)
+  call fastcc void @bench_stats_asym_finish.argelim(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %17, i32 noundef %add, double noundef %add.i.i, i32 noundef %call69)
   %call101 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %dhKey, ptr noundef nonnull %11, ptr noundef nonnull %priv2, ptr noundef nonnull %privSz2, ptr noundef nonnull %pub2, ptr noundef nonnull %pubSz2) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i50)
   %call.i.i51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i50) #16
@@ -6336,20 +6336,20 @@ do.body108:                                       ; preds = %bench_stats_check.e
   %count.3 = phi i32 [ 0, %bench_stats_start.exit68 ], [ %add153, %bench_stats_check.exit89 ]
   br label %for.body123
 
-for.body123:                                      ; preds = %do.body108, %bench_async_handle.exit73
-  %times.1130 = phi i32 [ 0, %do.body108 ], [ %inc.i72, %bench_async_handle.exit73 ]
+for.body123:                                      ; preds = %do.body108, %bench_async_handle.argprom.exit73
+  %times.1130 = phi i32 [ 0, %do.body108 ], [ %inc.i72, %bench_async_handle.argprom.exit73 ]
   %23 = load i32, ptr %privSz, align 4
   %24 = load i32, ptr %pubSz2, align 4
   %call140 = call i32 @wc_DhAgree(ptr noundef nonnull %dhKey, ptr noundef nonnull %agree, ptr noundef nonnull %agreeSz, ptr noundef nonnull %priv, i32 noundef %23, ptr noundef nonnull %pub2, i32 noundef %24) #16
   %cmp.i69 = icmp sgt i32 %call140, -1
-  br i1 %cmp.i69, label %bench_async_handle.exit73, label %exit
+  br i1 %cmp.i69, label %bench_async_handle.argprom.exit73, label %exit
 
-bench_async_handle.exit73:                        ; preds = %for.body123
+bench_async_handle.argprom.exit73:                ; preds = %for.body123
   %inc.i72 = add nuw nsw i32 %times.1130, 1
   %exitcond.not = icmp eq i32 %inc.i72, 100
   br i1 %exitcond.not, label %for.end152, label %for.body123
 
-for.end152:                                       ; preds = %bench_async_handle.exit73
+for.end152:                                       ; preds = %bench_async_handle.argprom.exit73
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i74)
   %call.i.i75 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i74) #16
   %cmp.i.i76 = icmp slt i32 %call.i.i75, 0
@@ -6383,7 +6383,7 @@ exit:                                             ; preds = %bench_stats_check.e
   %start.0 = phi double [ 0.000000e+00, %if.then32 ], [ 0.000000e+00, %if.end6 ], [ %add.i.i, %exit_dh_gen.thread ], [ %add.i.i57, %for.body123 ], [ %add.i.i57, %bench_stats_check.exit89 ]
   %arrayidx161 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %29 = load ptr, ptr %arrayidx161, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %29, i32 noundef %count.0, double noundef %start.0, i32 noundef %ret.0)
+  call fastcc void @bench_stats_asym_finish.argelim(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %29, i32 noundef %count.0, double noundef %start.0, i32 noundef %ret.0)
   %call168 = call i32 @wc_FreeDhKey(ptr noundef nonnull %dhKey) #16
   ret void
 }
@@ -6399,7 +6399,7 @@ declare i32 @wc_DhSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32
 declare i32 @wc_DhGenerateKeyPair(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bench_stats_asym_finish(ptr noundef %algo, i32 noundef %strength, ptr noundef %desc, i32 noundef %count, double noundef %start, i32 noundef %ret) unnamed_addr #0 {
+define internal fastcc void @bench_stats_asym_finish.argelim(ptr noundef %algo, i32 noundef %strength, ptr noundef %desc, i32 noundef %count, double noundef %start, i32 noundef %ret) unnamed_addr #0 {
 entry:
   %tv.i.i = alloca %struct.timespec, align 8
   %msg.i = alloca [256 x i8], align 16
@@ -6474,13 +6474,13 @@ if.else21.i:                                      ; preds = %current_time.exit.i
 if.end28.i:                                       ; preds = %if.else21.i, %if.end18.i
   %call30.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %msg.i)
   %cmp31.i = icmp slt i32 %ret, 0
-  br i1 %cmp31.i, label %if.then33.i, label %bench_stats_asym_finish_ex.exit
+  br i1 %cmp31.i, label %if.then33.i, label %bench_stats_asym_finish_ex.argprom.exit
 
 if.then33.i:                                      ; preds = %if.end28.i
   %call34.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.157, ptr noundef nonnull @.str.108, ptr noundef %algo, ptr noundef %desc, i32 noundef %strength, i32 noundef %ret)
-  br label %bench_stats_asym_finish_ex.exit
+  br label %bench_stats_asym_finish_ex.argprom.exit
 
-bench_stats_asym_finish_ex.exit:                  ; preds = %if.end28.i, %if.then33.i
+bench_stats_asym_finish_ex.argprom.exit:          ; preds = %if.end28.i, %if.then33.i
   %10 = load ptr, ptr @stdout, align 8
   %call36.i = call i32 @fflush(ptr noundef %10)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %msg.i)
@@ -6576,8 +6576,8 @@ do.body:                                          ; preds = %bench_stats_check.e
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
   br label %for.body6
 
-for.body6:                                        ; preds = %do.body, %bench_async_handle.exit
-  %times.038 = phi i32 [ 0, %do.body ], [ %inc.i, %bench_async_handle.exit ]
+for.body6:                                        ; preds = %do.body, %bench_async_handle.argprom.exit
+  %times.038 = phi i32 [ 0, %do.body ], [ %inc.i, %bench_async_handle.argprom.exit ]
   %call11 = call i32 @wc_ecc_free(ptr noundef nonnull %genKey) #16
   %call14 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %genKey, ptr noundef null, i32 noundef -2) #16
   %cmp15 = icmp slt i32 %call14, 0
@@ -6586,14 +6586,14 @@ for.body6:                                        ; preds = %do.body, %bench_asy
 if.end:                                           ; preds = %for.body6
   %call19 = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %7, i32 noundef %call, ptr noundef nonnull %genKey, i32 noundef %curveId) #16
   %cmp.i = icmp sgt i32 %call19, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit
 
-bench_async_handle.exit:                          ; preds = %if.end
+bench_async_handle.argprom.exit:                  ; preds = %if.end
   %inc.i = add nuw nsw i32 %times.038, 1
   %exitcond.not = icmp eq i32 %inc.i, 100
   br i1 %exitcond.not, label %for.end27, label %for.body6
 
-for.end27:                                        ; preds = %bench_async_handle.exit
+for.end27:                                        ; preds = %bench_async_handle.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i12)
   %call.i.i13 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i12) #16
   %cmp.i.i14 = icmp slt i32 %call.i.i13, 0
@@ -6630,7 +6630,7 @@ exit:                                             ; preds = %bench_stats_check.e
   %mul = shl nsw i32 %call, 3
   %arrayidx35 = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %idxprom, i64 2
   %12 = load ptr, ptr %arrayidx35, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %12, i32 noundef %count.1, double noundef %add.i.i, i32 noundef %ret.2)
+  call fastcc void @bench_stats_asym_finish.argelim(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %12, i32 noundef %count.1, double noundef %add.i.i, i32 noundef %ret.2)
   %call41 = call i32 @wc_ecc_free(ptr noundef nonnull %genKey) #16
   ret void
 }
@@ -6719,19 +6719,19 @@ do.body40:                                        ; preds = %bench_stats_check.e
   %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
   br label %for.body49
 
-for.body49:                                       ; preds = %do.body40, %bench_async_handle.exit
-  %times.0209 = phi i32 [ 0, %do.body40 ], [ %inc.i, %bench_async_handle.exit ]
+for.body49:                                       ; preds = %do.body40, %bench_async_handle.argprom.exit
+  %times.0209 = phi i32 [ 0, %do.body40 ], [ %inc.i, %bench_async_handle.argprom.exit ]
   store i32 %call, ptr %x, align 4
   %call64 = call i32 @wc_ecc_shared_secret(ptr noundef nonnull %genKey, ptr noundef nonnull %genKey2, ptr noundef nonnull %shared, ptr noundef nonnull %x) #16
   %cmp.i = icmp sgt i32 %call64, -1
-  br i1 %cmp.i, label %bench_async_handle.exit, label %exit_ecdhe
+  br i1 %cmp.i, label %bench_async_handle.argprom.exit, label %exit_ecdhe
 
-bench_async_handle.exit:                          ; preds = %for.body49
+bench_async_handle.argprom.exit:                  ; preds = %for.body49
   %inc.i = add nuw nsw i32 %times.0209, 1
   %exitcond.not = icmp eq i32 %inc.i, 100
   br i1 %exitcond.not, label %for.end75, label %for.body49
 
-for.end75:                                        ; preds = %bench_async_handle.exit
+for.end75:                                        ; preds = %bench_async_handle.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i64)
   %call.i.i65 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i64) #16
   %cmp.i.i66 = icmp slt i32 %call.i.i65, 0
@@ -6766,7 +6766,7 @@ exit_ecdhe:                                       ; preds = %bench_stats_check.e
   %mul = shl nsw i32 %call, 3
   %arrayidx86 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %12 = load ptr, ptr %arrayidx86, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %12, i32 noundef %count.1, double noundef %add.i.i, i32 noundef %call64)
+  call fastcc void @bench_stats_asym_finish.argelim(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %12, i32 noundef %count.1, double noundef %add.i.i, i32 noundef %call64)
   %cmp90 = icmp slt i32 %call64, 0
   br i1 %cmp90, label %exit, label %for.cond96.preheader
 
@@ -6827,8 +6827,8 @@ do.body109:                                       ; preds = %bench_stats_check.e
   %count.2 = phi i32 [ 0, %bench_stats_start.exit95 ], [ %add159, %bench_stats_check.exit116 ]
   br label %for.body124
 
-for.body124:                                      ; preds = %do.body109, %bench_async_handle.exit100
-  %times.1212 = phi i32 [ 0, %do.body109 ], [ %inc.i99, %bench_async_handle.exit100 ]
+for.body124:                                      ; preds = %do.body109, %bench_async_handle.argprom.exit100
+  %times.1212 = phi i32 [ 0, %do.body109 ], [ %inc.i99, %bench_async_handle.argprom.exit100 ]
   %18 = load i32, ptr %state, align 8
   %cmp130 = icmp eq i32 %18, 0
   br i1 %cmp130, label %if.then132, label %if.end135
@@ -6840,14 +6840,14 @@ if.then132:                                       ; preds = %for.body124
 if.end135:                                        ; preds = %if.then132, %for.body124
   %call146 = call i32 @wc_ecc_sign_hash(ptr noundef nonnull %digest, i32 noundef %call, ptr noundef nonnull %sig, ptr noundef nonnull %x, ptr noundef nonnull %1, ptr noundef nonnull %genKey) #16
   %cmp.i96 = icmp sgt i32 %call146, -1
-  br i1 %cmp.i96, label %bench_async_handle.exit100, label %exit_ecdsa_sign
+  br i1 %cmp.i96, label %bench_async_handle.argprom.exit100, label %exit_ecdsa_sign
 
-bench_async_handle.exit100:                       ; preds = %if.end135
+bench_async_handle.argprom.exit100:               ; preds = %if.end135
   %inc.i99 = add nuw nsw i32 %times.1212, 1
   %exitcond234.not = icmp eq i32 %inc.i99, 100
   br i1 %exitcond234.not, label %for.end158, label %for.body124
 
-for.end158:                                       ; preds = %bench_async_handle.exit100
+for.end158:                                       ; preds = %bench_async_handle.argprom.exit100
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i101)
   %call.i.i102 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i101) #16
   %cmp.i.i103 = icmp slt i32 %call.i.i102, 0
@@ -6881,7 +6881,7 @@ exit_ecdsa_sign:                                  ; preds = %bench_stats_check.e
   %call166 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 24, ptr noundef nonnull @.str.75, ptr noundef %call165) #16
   %arrayidx169 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %23 = load ptr, ptr %arrayidx169, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %23, i32 noundef %count.3, double noundef %add.i.i84, i32 noundef %call146)
+  call fastcc void @bench_stats_asym_finish.argelim(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %23, i32 noundef %count.3, double noundef %add.i.i84, i32 noundef %call146)
   %cmp173 = icmp slt i32 %call146, 0
   br i1 %cmp173, label %exit, label %if.end176
 
@@ -6924,8 +6924,8 @@ do.body177:                                       ; preds = %bench_stats_check.e
   %count.4 = phi i32 [ 0, %bench_stats_start.exit135 ], [ %add230, %bench_stats_check.exit156 ]
   br label %for.body192
 
-for.body192:                                      ; preds = %do.body177, %bench_async_handle.exit140
-  %times.2213 = phi i32 [ 0, %do.body177 ], [ %inc.i139, %bench_async_handle.exit140 ]
+for.body192:                                      ; preds = %do.body177, %bench_async_handle.argprom.exit140
+  %times.2213 = phi i32 [ 0, %do.body177 ], [ %inc.i139, %bench_async_handle.argprom.exit140 ]
   %29 = load i32, ptr %state, align 8
   %cmp199 = icmp eq i32 %29, 0
   br i1 %cmp199, label %if.then201, label %if.end204
@@ -6938,14 +6938,14 @@ if.end204:                                        ; preds = %if.then201, %for.bo
   %30 = load i32, ptr %x, align 4
   %call217 = call i32 @wc_ecc_verify_hash(ptr noundef nonnull %sig, i32 noundef %30, ptr noundef nonnull %digest, i32 noundef %call, ptr noundef nonnull %verify, ptr noundef nonnull %genKey) #16
   %cmp.i136 = icmp sgt i32 %call217, -1
-  br i1 %cmp.i136, label %bench_async_handle.exit140, label %exit_ecdsa_verify
+  br i1 %cmp.i136, label %bench_async_handle.argprom.exit140, label %exit_ecdsa_verify
 
-bench_async_handle.exit140:                       ; preds = %if.end204
+bench_async_handle.argprom.exit140:               ; preds = %if.end204
   %inc.i139 = add nuw nsw i32 %times.2213, 1
   %exitcond235.not = icmp eq i32 %inc.i139, 100
   br i1 %exitcond235.not, label %for.end229, label %for.body192
 
-for.end229:                                       ; preds = %bench_async_handle.exit140
+for.end229:                                       ; preds = %bench_async_handle.argprom.exit140
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i141)
   %call.i.i142 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i141) #16
   %cmp.i.i143 = icmp slt i32 %call.i.i142, 0
@@ -6979,7 +6979,7 @@ exit_ecdsa_verify:                                ; preds = %bench_stats_check.e
   %call237 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 24, ptr noundef nonnull @.str.75, ptr noundef %call236) #16
   %arrayidx240 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %35 = load ptr, ptr %arrayidx240, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %35, i32 noundef %count.5, double noundef %add.i.i124, i32 noundef %call217)
+  call fastcc void @bench_stats_asym_finish.argelim(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %35, i32 noundef %count.5, double noundef %add.i.i124, i32 noundef %call217)
   br label %exit
 
 exit:                                             ; preds = %exit_ecdsa_sign, %exit_ecdhe, %if.end22, %if.end16, %if.end, %entry, %exit_ecdsa_verify

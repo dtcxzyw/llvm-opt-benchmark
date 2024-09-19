@@ -1347,20 +1347,20 @@ if.then2:                                         ; preds = %entry
   %cmp.i = icmp eq ptr %call.i, null
   %cmp2.i = icmp eq ptr %call1.i, null
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
-  br i1 %or.cond.i, label %execute_certrep_create.exit, label %if.end.i
+  br i1 %or.cond.i, label %execute_certrep_create.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2
   %1 = load ptr, ptr %call1.i, align 8
   %call3.i = tail call i32 @ASN1_INTEGER_set(ptr noundef %1, i64 noundef 99) #3
   %tobool.not.i = icmp eq i32 %call3.i, 0
-  br i1 %tobool.not.i, label %execute_certrep_create.exit, label %if.end5.i
+  br i1 %tobool.not.i, label %execute_certrep_create.argprom.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
   %call6.i = tail call ptr @OSSL_CMP_CERTIFIEDKEYPAIR_new() #3
   %certifiedKeyPair.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   store ptr %call6.i, ptr %certifiedKeyPair.i, align 8
   %cmp7.i = icmp eq ptr %call6.i, null
-  br i1 %cmp7.i, label %execute_certrep_create.exit, label %if.end9.i
+  br i1 %cmp7.i, label %execute_certrep_create.argprom.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end5.i
   %2 = load ptr, ptr %call6.i, align 8
@@ -1372,31 +1372,31 @@ if.end9.i:                                        ; preds = %if.end5.i
   %value.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %call11.i, ptr %value.i, align 8
   %cmp14.i = icmp eq ptr %call11.i, null
-  br i1 %cmp14.i, label %execute_certrep_create.exit, label %lor.lhs.false15.i
+  br i1 %cmp14.i, label %execute_certrep_create.argprom.exit, label %lor.lhs.false15.i
 
 lor.lhs.false15.i:                                ; preds = %if.end9.i
   %response.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %6 = load ptr, ptr %response.i, align 8
   %call18.i = tail call i32 @OPENSSL_sk_push(ptr noundef %6, ptr noundef nonnull %call1.i) #3
   %tobool19.not.i = icmp eq i32 %call18.i, 0
-  br i1 %tobool19.not.i, label %execute_certrep_create.exit, label %if.end21.i
+  br i1 %tobool19.not.i, label %execute_certrep_create.argprom.exit, label %if.end21.i
 
 if.end21.i:                                       ; preds = %lor.lhs.false15.i
   %call22.i = tail call ptr @ossl_cmp_certrepmessage_get0_certresponse(ptr noundef nonnull %call.i, i32 noundef 99) #3
   %call23.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 402, ptr noundef nonnull @.str.76, ptr noundef %call22.i) #3
   %tobool24.not.i = icmp eq i32 %call23.i, 0
-  br i1 %tobool24.not.i, label %execute_certrep_create.exit, label %if.end26.i
+  br i1 %tobool24.not.i, label %execute_certrep_create.argprom.exit, label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.end21.i
   %call27.i = tail call ptr @ossl_cmp_certrepmessage_get0_certresponse(ptr noundef nonnull %call.i, i32 noundef 88) #3
   %call28.i = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 404, ptr noundef nonnull @.str.77, ptr noundef %call27.i) #3
   %tobool29.not.i = icmp eq i32 %call28.i, 0
-  br i1 %tobool29.not.i, label %execute_certrep_create.exit, label %if.end31.i
+  br i1 %tobool29.not.i, label %execute_certrep_create.argprom.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.end26.i
   %call32.i = tail call ptr @ossl_cmp_certresponse_get1_cert(ptr noundef %call.val, ptr noundef %call22.i) #3
   %cmp33.i = icmp eq ptr %call32.i, null
-  br i1 %cmp33.i, label %execute_certrep_create.exit, label %lor.lhs.false34.i
+  br i1 %cmp33.i, label %execute_certrep_create.argprom.exit, label %lor.lhs.false34.i
 
 lor.lhs.false34.i:                                ; preds = %if.end31.i
   %7 = load ptr, ptr @cert, align 8
@@ -1404,9 +1404,9 @@ lor.lhs.false34.i:                                ; preds = %if.end31.i
   %call36.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 407, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef %call35.i, i32 noundef 0) #3
   %tobool37.not.i = icmp ne i32 %call36.i, 0
   %spec.select.i = zext i1 %tobool37.not.i to i32
-  br label %execute_certrep_create.exit
+  br label %execute_certrep_create.argprom.exit
 
-execute_certrep_create.exit:                      ; preds = %if.then2, %if.end.i, %if.end5.i, %if.end9.i, %lor.lhs.false15.i, %if.end21.i, %if.end26.i, %if.end31.i, %lor.lhs.false34.i
+execute_certrep_create.argprom.exit:              ; preds = %if.then2, %if.end.i, %if.end5.i, %if.end9.i, %lor.lhs.false15.i, %if.end21.i, %if.end26.i, %if.end31.i, %lor.lhs.false34.i
   %cresp.0.i = phi ptr [ %call1.i, %if.then2 ], [ %call1.i, %if.end5.i ], [ %call1.i, %if.end9.i ], [ null, %if.end31.i ], [ null, %if.end26.i ], [ null, %if.end21.i ], [ %call1.i, %lor.lhs.false15.i ], [ %call1.i, %if.end.i ], [ null, %lor.lhs.false34.i ]
   %certfromresp.0.i = phi ptr [ null, %if.then2 ], [ null, %if.end5.i ], [ null, %if.end9.i ], [ null, %if.end31.i ], [ null, %if.end26.i ], [ null, %if.end21.i ], [ null, %lor.lhs.false15.i ], [ null, %if.end.i ], [ %call32.i, %lor.lhs.false34.i ]
   %res.0.i = phi i32 [ 0, %if.then2 ], [ 0, %if.end5.i ], [ 0, %if.end9.i ], [ 0, %if.end31.i ], [ 0, %if.end26.i ], [ 0, %if.end21.i ], [ 0, %lor.lhs.false15.i ], [ 0, %if.end.i ], [ %spec.select.i, %lor.lhs.false34.i ]
@@ -1424,8 +1424,8 @@ execute_certrep_create.exit:                      ; preds = %if.then2, %if.end.i
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
   br label %return
 
-return:                                           ; preds = %entry, %execute_certrep_create.exit
-  %retval.0 = phi i32 [ %res.0.i, %execute_certrep_create.exit ], [ 0, %entry ]
+return:                                           ; preds = %entry, %execute_certrep_create.argprom.exit
+  %retval.0 = phi i32 [ %res.0.i, %execute_certrep_create.argprom.exit ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -1442,7 +1442,7 @@ if.then2:                                         ; preds = %entry
   %call.i = tail call ptr @ossl_cmp_pollRep_new(ptr noundef %call.val, i32 noundef 77, i64 noundef 2000) #3
   %call1.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 473, ptr noundef nonnull @.str.80, ptr noundef %call.i) #3
   %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %execute_pollrep_create.exit, label %if.end.i
+  br i1 %tobool.not.i, label %execute_pollrep_create.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2
   %body.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -1467,9 +1467,9 @@ if.end6.i:                                        ; preds = %if.end.i
 err.i:                                            ; preds = %if.end6.i, %if.end.i
   %res.0.i = phi i32 [ 0, %if.end.i ], [ %spec.select.i, %if.end6.i ]
   tail call void @OSSL_CMP_MSG_free(ptr noundef nonnull %call.i) #3
-  br label %execute_pollrep_create.exit
+  br label %execute_pollrep_create.argprom.exit
 
-execute_pollrep_create.exit:                      ; preds = %if.then2, %err.i
+execute_pollrep_create.argprom.exit:              ; preds = %if.then2, %err.i
   %retval.0.i = phi i32 [ %res.0.i, %err.i ], [ 0, %if.then2 ]
   %5 = load ptr, ptr %0, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %5) #3
@@ -1482,8 +1482,8 @@ execute_pollrep_create.exit:                      ; preds = %if.then2, %err.i
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
   br label %return
 
-return:                                           ; preds = %entry, %execute_pollrep_create.exit
-  %retval.0 = phi i32 [ %retval.0.i, %execute_pollrep_create.exit ], [ 0, %entry ]
+return:                                           ; preds = %entry, %execute_pollrep_create.argprom.exit
+  %retval.0 = phi i32 [ %retval.0.i, %execute_pollrep_create.argprom.exit ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

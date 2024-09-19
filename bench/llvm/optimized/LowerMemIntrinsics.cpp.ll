@@ -1232,22 +1232,22 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %11, %92
   %129 = load ptr, ptr %112, align 8
   %130 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %129, i64 noundef %127, i1 noundef zeroext false) #12
   %131 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateLShrEPNS_5ValueES2_RKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(128) %27, ptr noundef nonnull %3, ptr noundef %130, ptr noundef nonnull align 8 dereferenceable(34) %22, i1 noundef zeroext false)
-  br label %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.exit
+  br label %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.argprom.exit
 
 _ZN4llvm13isPowerOf2_32Ej.exit.thread.i:          ; preds = %122
   %132 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i16 257, ptr %132, align 8
   %133 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(128) %27, ptr noundef nonnull %3, ptr noundef %121, ptr noundef nonnull align 8 dereferenceable(34) %23, i1 noundef zeroext false)
-  br label %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.exit
+  br label %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.argprom.exit
 
-_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.exit: ; preds = %124, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i
+_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.argprom.exit: ; preds = %124, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i
   %.0.i = phi ptr [ %131, %124 ], [ %133, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
   br label %134
 
-134:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.exit
-  %135 = phi ptr [ %.0.i, %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.exit ], [ %3, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ]
+134:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.argprom.exit
+  %135 = phi ptr [ %.0.i, %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.argprom.exit ], [ %3, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ]
   %136 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %137 = getelementptr inbounds nuw i8, ptr %28, i64 33
   store i8 1, ptr %137, align 1
@@ -1611,7 +1611,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit185: ; preds = %_
   %331 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %330, i1 false)
   %332 = trunc nuw nsw i64 %331 to i16
   %333 = sub nsw i16 63, %332
-  %334 = call fastcc noundef ptr @_ZL23getRuntimeLoopRemainderRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j(ptr noundef nonnull align 8 dereferenceable(128) %27, ptr noundef nonnull %3, ptr noundef %121, i32 noundef %88)
+  %334 = call fastcc noundef ptr @_ZL23getRuntimeLoopRemainderRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.argprom(ptr noundef nonnull align 8 dereferenceable(128) %27, ptr noundef nonnull %3, ptr noundef %121, i32 noundef %88)
   %335 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store i16 257, ptr %335, align 8
   %336 = load ptr, ptr %103, align 8
@@ -2332,7 +2332,7 @@ declare noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef,
 declare noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL23getRuntimeLoopRemainderRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL23getRuntimeLoopRemainderRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.argprom(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -4155,19 +4155,19 @@ _ZL26createMemMoveLoopKnownSizePN4llvm11InstructionEPNS_5ValueES3_PNS_11Constant
   %839 = load ptr, ptr %784, align 8
   %840 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %839, i64 noundef %837, i1 noundef zeroext false) #12
   %841 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateLShrEPNS_5ValueES2_RKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(128) %20, ptr noundef nonnull %128, ptr noundef %840, ptr noundef nonnull align 8 dereferenceable(34) %16, i1 noundef zeroext false)
-  br label %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.exit.i
+  br label %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.argprom.exit.i
 
 _ZN4llvm13isPowerOf2_32Ej.exit.thread.i.i:        ; preds = %831
   %842 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i16 257, ptr %842, align 8
   %843 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(128) %20, ptr noundef nonnull %128, ptr noundef %814, ptr noundef nonnull align 8 dereferenceable(34) %17, i1 noundef zeroext false)
-  br label %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.exit.i
+  br label %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.argprom.exit.i
 
-_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.exit.i: ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i.i, %834
+_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.argprom.exit.i: ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i.i, %834
   %.0.i.i85 = phi ptr [ %841, %834 ], [ %843, %_ZN4llvm13isPowerOf2_32Ej.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
-  %844 = call fastcc noundef ptr @_ZL23getRuntimeLoopRemainderRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j(ptr noundef nonnull align 8 dereferenceable(128) %20, ptr noundef nonnull %128, ptr noundef %814, i32 noundef %832)
+  %844 = call fastcc noundef ptr @_ZL23getRuntimeLoopRemainderRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.argprom(ptr noundef nonnull align 8 dereferenceable(128) %20, ptr noundef nonnull %128, ptr noundef %814, i32 noundef %832)
   %845 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i16 257, ptr %845, align 8
   %846 = load ptr, ptr %822, align 8
@@ -4178,7 +4178,7 @@ _ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j
   %.not.i.i86 = icmp eq ptr %850, null
   br i1 %.not.i.i86, label %851, label %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit.i87
 
-851:                                              ; preds = %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.exit.i
+851:                                              ; preds = %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.argprom.exit.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   %852 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 1, ptr %852, align 8
@@ -4214,8 +4214,8 @@ _ZN4llvm13IRBuilderBase23CreateInsertNUWNSWBinOpENS_11Instruction9BinaryOpsEPNS_
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   br label %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit.i87
 
-_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit.i87: ; preds = %_ZN4llvm13IRBuilderBase23CreateInsertNUWNSWBinOpENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineEbb.exit.i110, %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.exit.i
-  %.0.i283.i = phi ptr [ %854, %_ZN4llvm13IRBuilderBase23CreateInsertNUWNSWBinOpENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineEbb.exit.i110 ], [ %850, %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.exit.i ]
+_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit.i87: ; preds = %_ZN4llvm13IRBuilderBase23CreateInsertNUWNSWBinOpENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineEbb.exit.i110, %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.argprom.exit.i
+  %.0.i283.i = phi ptr [ %854, %_ZN4llvm13IRBuilderBase23CreateInsertNUWNSWBinOpENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineEbb.exit.i110 ], [ %850, %_ZL19getRuntimeLoopCountRKN4llvm10DataLayoutERNS_13IRBuilderBaseEPNS_5ValueES6_j.argprom.exit.i ]
   %867 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %868 = getelementptr inbounds nuw i8, ptr %22, i64 33
   store i8 1, ptr %868, align 1

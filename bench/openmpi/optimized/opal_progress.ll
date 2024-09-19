@@ -131,7 +131,7 @@ declare void @opal_finalize_append_cleanup(ptr noundef, ptr noundef, ptr noundef
 define internal void @opal_progress_finalize() #0 {
   %1 = cmpxchg volatile ptr @progress_lock, i32 0, i32 1 acquire monotonic, align 4
   %2 = extractvalue { i32, i1 } %1, 1
-  br i1 %2, label %opal_atomic_lock.exit, label %.preheader.i
+  br i1 %2, label %opal_atomic_lock.argprom.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %0, %.preheader.i.backedge
   %3 = load volatile i32, ptr @progress_lock, align 4
@@ -144,9 +144,9 @@ define internal void @opal_progress_finalize() #0 {
 5:                                                ; preds = %.preheader.i
   %6 = cmpxchg volatile ptr @progress_lock, i32 0, i32 1 acquire monotonic, align 4
   %7 = extractvalue { i32, i1 } %6, 1
-  br i1 %7, label %opal_atomic_lock.exit, label %.preheader.i.backedge
+  br i1 %7, label %opal_atomic_lock.argprom.exit, label %.preheader.i.backedge
 
-opal_atomic_lock.exit:                            ; preds = %5, %0
+opal_atomic_lock.argprom.exit:                    ; preds = %5, %0
   store i64 0, ptr @callbacks_len, align 8
   store i64 0, ptr @callbacks_size, align 8
   %8 = load ptr, ptr @callbacks, align 8
@@ -221,19 +221,19 @@ define i32 @opal_progress() local_unnamed_addr #0 {
 
 27:                                               ; preds = %24
   %28 = atomicrmw volatile xchg ptr @opal_progress_events.lock, i32 1 monotonic, align 4
-  br label %opal_thread_swap_32.exit.i
+  br label %opal_thread_swap_32.argprom.exit.i
 
 29:                                               ; preds = %24
   %30 = load i32, ptr @opal_progress_events.lock, align 4
   store i32 1, ptr @opal_progress_events.lock, align 4
-  br label %opal_thread_swap_32.exit.i
+  br label %opal_thread_swap_32.argprom.exit.i
 
-opal_thread_swap_32.exit.i:                       ; preds = %29, %27
+opal_thread_swap_32.argprom.exit.i:               ; preds = %29, %27
   %.0.i.i = phi i32 [ %28, %27 ], [ %30, %29 ]
   %.not5.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not5.i, label %31, label %opal_progress_events.exit
 
-31:                                               ; preds = %opal_thread_swap_32.exit.i
+31:                                               ; preds = %opal_thread_swap_32.argprom.exit.i
   %32 = load ptr, ptr @opal_timer_base_get_cycles, align 8
   %33 = tail call i64 %32() #9
   %34 = load i64, ptr @event_progress_last_time, align 8
@@ -257,19 +257,19 @@ opal_thread_swap_32.exit.i:                       ; preds = %29, %27
 
 45:                                               ; preds = %42
   %46 = atomicrmw volatile xchg ptr @opal_progress_events.lock, i32 1 monotonic, align 4
-  br label %opal_thread_swap_32.exit.i14
+  br label %opal_thread_swap_32.argprom.exit.i14
 
 47:                                               ; preds = %42
   %48 = load i32, ptr @opal_progress_events.lock, align 4
   store i32 1, ptr @opal_progress_events.lock, align 4
-  br label %opal_thread_swap_32.exit.i14
+  br label %opal_thread_swap_32.argprom.exit.i14
 
-opal_thread_swap_32.exit.i14:                     ; preds = %47, %45
+opal_thread_swap_32.argprom.exit.i14:             ; preds = %47, %45
   %.0.i.i15 = phi i32 [ %46, %45 ], [ %48, %47 ]
   %.not5.i16 = icmp eq i32 %.0.i.i15, 0
   br i1 %.not5.i16, label %49, label %opal_progress_events.exit
 
-49:                                               ; preds = %opal_thread_swap_32.exit.i14
+49:                                               ; preds = %opal_thread_swap_32.argprom.exit.i14
   %50 = load ptr, ptr @opal_timer_base_get_cycles, align 8
   %51 = tail call i64 %50() #9
   %52 = load i64, ptr @event_progress_last_time, align 8
@@ -297,8 +297,8 @@ opal_progress_events.exit.sink.split:             ; preds = %opal_progress_event
   store volatile i32 0, ptr @opal_progress_events.lock, align 4
   br label %opal_progress_events.exit
 
-opal_progress_events.exit:                        ; preds = %opal_progress_events.exit.sink.split, %opal_thread_swap_32.exit.i14, %opal_thread_swap_32.exit.i, %._crit_edge26, %38
-  %.2 = phi i32 [ %.0.lcssa, %38 ], [ %.1.lcssa, %._crit_edge26 ], [ %.1.lcssa, %opal_thread_swap_32.exit.i ], [ %.0.lcssa, %opal_thread_swap_32.exit.i14 ], [ %.2.ph, %opal_progress_events.exit.sink.split ]
+opal_progress_events.exit:                        ; preds = %opal_progress_events.exit.sink.split, %opal_thread_swap_32.argprom.exit.i14, %opal_thread_swap_32.argprom.exit.i, %._crit_edge26, %38
+  %.2 = phi i32 [ %.0.lcssa, %38 ], [ %.1.lcssa, %._crit_edge26 ], [ %.1.lcssa, %opal_thread_swap_32.argprom.exit.i ], [ %.0.lcssa, %opal_thread_swap_32.argprom.exit.i14 ], [ %.2.ph, %opal_progress_events.exit.sink.split ]
   %63 = load i8, ptr @opal_progress_yield_when_idle, align 1
   %64 = trunc i8 %63 to i1
   %65 = icmp slt i32 %.2, 1
@@ -352,7 +352,7 @@ declare i64 @opal_timer_base_get_freq() local_unnamed_addr #4
 define range(i32 -3, 1) i32 @opal_progress_register(ptr noundef %0) local_unnamed_addr #0 {
   %2 = cmpxchg volatile ptr @progress_lock, i32 0, i32 1 acquire monotonic, align 4
   %3 = extractvalue { i32, i1 } %2, 1
-  br i1 %3, label %opal_atomic_lock.exit, label %.preheader.i
+  br i1 %3, label %opal_atomic_lock.argprom.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1, %.preheader.i.backedge
   %4 = load volatile i32, ptr @progress_lock, align 4
@@ -365,16 +365,16 @@ define range(i32 -3, 1) i32 @opal_progress_register(ptr noundef %0) local_unname
 6:                                                ; preds = %.preheader.i
   %7 = cmpxchg volatile ptr @progress_lock, i32 0, i32 1 acquire monotonic, align 4
   %8 = extractvalue { i32, i1 } %7, 1
-  br i1 %8, label %opal_atomic_lock.exit, label %.preheader.i.backedge
+  br i1 %8, label %opal_atomic_lock.argprom.exit, label %.preheader.i.backedge
 
-opal_atomic_lock.exit:                            ; preds = %6, %1
+opal_atomic_lock.argprom.exit:                    ; preds = %6, %1
   %9 = load ptr, ptr @callbacks_lp, align 8
   %10 = load i64, ptr @callbacks_lp_len, align 8
   %.not.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i, label %_opal_progress_unregister.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %opal_atomic_lock.exit, %14
-  %.09.i.i = phi i64 [ %15, %14 ], [ 0, %opal_atomic_lock.exit ]
+.lr.ph.i.i:                                       ; preds = %opal_atomic_lock.argprom.exit, %14
+  %.09.i.i = phi i64 [ %15, %14 ], [ 0, %opal_atomic_lock.argprom.exit ]
   %11 = getelementptr inbounds ptr, ptr %9, i64 %.09.i.i
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %0
@@ -420,7 +420,7 @@ opal_progress_find_cb.exit.i:                     ; preds = %.lr.ph.i.i
   store volatile ptr @fake_cb, ptr %31, align 8
   br label %_opal_progress_unregister.exit
 
-_opal_progress_unregister.exit:                   ; preds = %14, %opal_atomic_lock.exit, %opal_progress_find_cb.exit.i, %._crit_edge.i
+_opal_progress_unregister.exit:                   ; preds = %14, %opal_atomic_lock.argprom.exit, %opal_progress_find_cb.exit.i, %._crit_edge.i
   %32 = load ptr, ptr @callbacks, align 8
   %33 = load i64, ptr @callbacks_len, align 8
   %.not.i.i2 = icmp eq i64 %33, 0
@@ -513,7 +513,7 @@ _opal_progress_register.exit:                     ; preds = %opal_progress_find_
 define range(i32 -3, 1) i32 @opal_progress_register_lp(ptr noundef %0) local_unnamed_addr #0 {
   %2 = cmpxchg volatile ptr @progress_lock, i32 0, i32 1 acquire monotonic, align 4
   %3 = extractvalue { i32, i1 } %2, 1
-  br i1 %3, label %opal_atomic_lock.exit, label %.preheader.i
+  br i1 %3, label %opal_atomic_lock.argprom.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1, %.preheader.i.backedge
   %4 = load volatile i32, ptr @progress_lock, align 4
@@ -526,16 +526,16 @@ define range(i32 -3, 1) i32 @opal_progress_register_lp(ptr noundef %0) local_unn
 6:                                                ; preds = %.preheader.i
   %7 = cmpxchg volatile ptr @progress_lock, i32 0, i32 1 acquire monotonic, align 4
   %8 = extractvalue { i32, i1 } %7, 1
-  br i1 %8, label %opal_atomic_lock.exit, label %.preheader.i.backedge
+  br i1 %8, label %opal_atomic_lock.argprom.exit, label %.preheader.i.backedge
 
-opal_atomic_lock.exit:                            ; preds = %6, %1
+opal_atomic_lock.argprom.exit:                    ; preds = %6, %1
   %9 = load ptr, ptr @callbacks, align 8
   %10 = load i64, ptr @callbacks_len, align 8
   %.not.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i, label %_opal_progress_unregister.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %opal_atomic_lock.exit, %14
-  %.09.i.i = phi i64 [ %15, %14 ], [ 0, %opal_atomic_lock.exit ]
+.lr.ph.i.i:                                       ; preds = %opal_atomic_lock.argprom.exit, %14
+  %.09.i.i = phi i64 [ %15, %14 ], [ 0, %opal_atomic_lock.argprom.exit ]
   %11 = getelementptr inbounds ptr, ptr %9, i64 %.09.i.i
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %0
@@ -581,7 +581,7 @@ opal_progress_find_cb.exit.i:                     ; preds = %.lr.ph.i.i
   store volatile ptr @fake_cb, ptr %31, align 8
   br label %_opal_progress_unregister.exit
 
-_opal_progress_unregister.exit:                   ; preds = %14, %opal_atomic_lock.exit, %opal_progress_find_cb.exit.i, %._crit_edge.i
+_opal_progress_unregister.exit:                   ; preds = %14, %opal_atomic_lock.argprom.exit, %opal_progress_find_cb.exit.i, %._crit_edge.i
   %32 = load ptr, ptr @callbacks_lp, align 8
   %33 = load i64, ptr @callbacks_lp_len, align 8
   %.not.i.i2 = icmp eq i64 %33, 0
@@ -674,7 +674,7 @@ _opal_progress_register.exit:                     ; preds = %opal_progress_find_
 define range(i32 -13, 1) i32 @opal_progress_unregister(ptr noundef readnone %0) local_unnamed_addr #7 {
   %2 = cmpxchg volatile ptr @progress_lock, i32 0, i32 1 acquire monotonic, align 4
   %3 = extractvalue { i32, i1 } %2, 1
-  br i1 %3, label %opal_atomic_lock.exit, label %.preheader.i
+  br i1 %3, label %opal_atomic_lock.argprom.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1, %.preheader.i.backedge
   %4 = load volatile i32, ptr @progress_lock, align 4
@@ -687,16 +687,16 @@ define range(i32 -13, 1) i32 @opal_progress_unregister(ptr noundef readnone %0) 
 6:                                                ; preds = %.preheader.i
   %7 = cmpxchg volatile ptr @progress_lock, i32 0, i32 1 acquire monotonic, align 4
   %8 = extractvalue { i32, i1 } %7, 1
-  br i1 %8, label %opal_atomic_lock.exit, label %.preheader.i.backedge
+  br i1 %8, label %opal_atomic_lock.argprom.exit, label %.preheader.i.backedge
 
-opal_atomic_lock.exit:                            ; preds = %6, %1
+opal_atomic_lock.argprom.exit:                    ; preds = %6, %1
   %9 = load ptr, ptr @callbacks, align 8
   %10 = load i64, ptr @callbacks_len, align 8
   %.not.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %opal_atomic_lock.exit, %14
-  %.09.i.i = phi i64 [ %15, %14 ], [ 0, %opal_atomic_lock.exit ]
+.lr.ph.i.i:                                       ; preds = %opal_atomic_lock.argprom.exit, %14
+  %.09.i.i = phi i64 [ %15, %14 ], [ 0, %opal_atomic_lock.argprom.exit ]
   %11 = getelementptr inbounds ptr, ptr %9, i64 %.09.i.i
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %0
@@ -741,7 +741,7 @@ _opal_progress_unregister.exit:                   ; preds = %.lr.ph.i, %18
   %31 = getelementptr inbounds ptr, ptr %9, i64 %.lcssa.i
   br label %_opal_progress_unregister.exit15.sink.split
 
-.loopexit:                                        ; preds = %14, %opal_progress_find_cb.exit.i, %opal_atomic_lock.exit
+.loopexit:                                        ; preds = %14, %opal_progress_find_cb.exit.i, %opal_atomic_lock.argprom.exit
   %32 = load ptr, ptr @callbacks_lp, align 8
   %33 = load i64, ptr @callbacks_lp_len, align 8
   %.not.i.i4 = icmp eq i64 %33, 0

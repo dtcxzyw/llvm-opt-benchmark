@@ -838,18 +838,18 @@ RB_FL_TEST.exit:                                  ; preds = %8
   store i8 0, ptr %33, align 8
   %34 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i, label %35, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %35, label %rb_vm_lock_enter.argprom.exit.i
 
 35:                                               ; preds = %32
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #28
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %35, %32
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %35, %32
   %36 = call ptr @rb_vm_fstring_table() #32
   %37 = ptrtoint ptr %2 to i64
   br label %38
 
-38:                                               ; preds = %38, %rb_vm_lock_enter.exit.i
+38:                                               ; preds = %38, %rb_vm_lock_enter.argprom.exit.i
   store i64 %0, ptr %2, align 8
   %39 = call i32 @rb_st_update(ptr noundef %36, i64 noundef %0, ptr noundef nonnull @fstr_update_callback, i64 noundef %37) #28
   %40 = load i64, ptr %2, align 8
@@ -1337,16 +1337,16 @@ RB_FL_TEST.exit.thread:                           ; preds = %RB_FL_TEST.exit.thr
   %100 = icmp ne i64 %99, 0
   %101 = icmp eq i64 %.047, 0
   %102 = or i1 %101, %100
-  br i1 %102, label %rb_obj_write.exit, label %103
+  br i1 %102, label %rb_obj_write.argprom.exit, label %103
 
 103:                                              ; preds = %RB_FL_TEST.exit.thread
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %.047) #28
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %RB_FL_TEST.exit.thread, %103
+rb_obj_write.argprom.exit:                        ; preds = %RB_FL_TEST.exit.thread, %103
   br i1 %87, label %RB_FL_SET.exit67, label %104
 
-104:                                              ; preds = %rb_obj_write.exit
+104:                                              ; preds = %rb_obj_write.argprom.exit
   %105 = load i64, ptr %63, align 8
   %106 = and i64 %105, 31
   %107 = icmp eq i64 %106, 27
@@ -1357,7 +1357,7 @@ rb_obj_write.exit:                                ; preds = %RB_FL_TEST.exit.thr
   store i64 %108, ptr %63, align 8
   br label %RB_FL_SET.exit67
 
-RB_FL_SET.exit67:                                 ; preds = %rb_obj_write.exit, %104, %.critedge.i66
+RB_FL_SET.exit67:                                 ; preds = %rb_obj_write.argprom.exit, %104, %.critedge.i66
   %.pre89 = inttoptr i64 %.047 to ptr
   br i1 %102, label %RB_FL_SET.exit69, label %109
 
@@ -1464,18 +1464,18 @@ setup_fake_str.exit:                              ; preds = %2, %6
   store i8 0, ptr %15, align 8
   %16 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i, label %17, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %17, label %rb_vm_lock_enter.argprom.exit.i
 
 17:                                               ; preds = %setup_fake_str.exit
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #28
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %17, %setup_fake_str.exit
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %17, %setup_fake_str.exit
   %18 = call ptr @rb_vm_fstring_table() #32
   %19 = ptrtoint ptr %3 to i64
   br label %20
 
-20:                                               ; preds = %20, %rb_vm_lock_enter.exit.i
+20:                                               ; preds = %20, %rb_vm_lock_enter.argprom.exit.i
   store i64 %9, ptr %3, align 8
   %21 = call i32 @rb_st_update(ptr noundef %18, i64 noundef %9, ptr noundef nonnull @fstr_update_callback, i64 noundef %19) #28
   %22 = load i64, ptr %3, align 8
@@ -1538,18 +1538,18 @@ rb_setup_fake_str.exit:                           ; preds = %3, %8
   store i8 0, ptr %20, align 8
   %21 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i, label %22, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %22, label %rb_vm_lock_enter.argprom.exit.i
 
 22:                                               ; preds = %rb_setup_fake_str.exit
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #28
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %22, %rb_setup_fake_str.exit
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %22, %rb_setup_fake_str.exit
   %23 = call ptr @rb_vm_fstring_table() #32
   %24 = ptrtoint ptr %4 to i64
   br label %25
 
-25:                                               ; preds = %25, %rb_vm_lock_enter.exit.i
+25:                                               ; preds = %25, %rb_vm_lock_enter.argprom.exit.i
   store i64 %11, ptr %4, align 8
   %26 = call i32 @rb_st_update(ptr noundef %23, i64 noundef %11, ptr noundef nonnull @fstr_update_callback, i64 noundef %24) #28
   %27 = load i64, ptr %4, align 8
@@ -4286,16 +4286,16 @@ RSTRING_PTR.exit:                                 ; preds = %88, %96
 RB_FL_TEST.exit.thread:                           ; preds = %113, %98
   %117 = getelementptr inbounds i8, ptr %2, i64 32
   store i64 %30, ptr %117, align 8
-  br i1 %34, label %rb_obj_write.exit, label %118
+  br i1 %34, label %rb_obj_write.argprom.exit, label %118
 
 118:                                              ; preds = %RB_FL_TEST.exit.thread
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %30) #28
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %RB_FL_TEST.exit.thread, %118
+rb_obj_write.argprom.exit:                        ; preds = %RB_FL_TEST.exit.thread, %118
   br i1 %112, label %RB_FL_SET.exit56, label %119
 
-119:                                              ; preds = %rb_obj_write.exit
+119:                                              ; preds = %rb_obj_write.argprom.exit
   %120 = load i64, ptr %2, align 8
   %121 = and i64 %120, 31
   %122 = icmp eq i64 %121, 27
@@ -4306,7 +4306,7 @@ rb_obj_write.exit:                                ; preds = %RB_FL_TEST.exit.thr
   store i64 %123, ptr %2, align 8
   br label %RB_FL_SET.exit56
 
-RB_FL_SET.exit56:                                 ; preds = %rb_obj_write.exit, %119, %.critedge.i55
+RB_FL_SET.exit56:                                 ; preds = %rb_obj_write.argprom.exit, %119, %.critedge.i55
   br i1 %34, label %RB_FL_SET.exit58, label %124
 
 124:                                              ; preds = %RB_FL_SET.exit56
@@ -4517,7 +4517,7 @@ define dso_local void @rb_str_free(i64 noundef %0) local_unnamed_addr #1 {
   %7 = or i1 %6, %5
   %8 = inttoptr i64 %0 to ptr
   %9 = load i64, ptr %8, align 8
-  br i1 %7, label %rb_vm_lock_leave.exit.thread, label %10
+  br i1 %7, label %rb_vm_lock_leave.argprom.exit.thread, label %10
 
 10:                                               ; preds = %1
   %11 = and i64 %9, 31
@@ -4525,41 +4525,41 @@ define dso_local void @rb_str_free(i64 noundef %0) local_unnamed_addr #1 {
   %13 = and i64 %9, 536870912
   %.not = icmp eq i64 %13, 0
   %or.cond = or i1 %12, %.not
-  br i1 %or.cond, label %rb_vm_lock_leave.exit, label %14
+  br i1 %or.cond, label %rb_vm_lock_leave.argprom.exit, label %14
 
 14:                                               ; preds = %10
   store i64 %0, ptr %2, align 8
   %15 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i, label %16, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %16, label %rb_vm_lock_enter.argprom.exit
 
 16:                                               ; preds = %14
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #28
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %14, %16
+rb_vm_lock_enter.argprom.exit:                    ; preds = %14, %16
   %17 = call ptr @rb_vm_fstring_table() #32
   %18 = call i32 @rb_st_delete(ptr noundef %17, ptr noundef nonnull %2, ptr noundef null) #28
   %19 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i9 = icmp eq ptr %19, null
-  br i1 %.not.i.i9, label %20, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i9, label %20, label %rb_vm_lock_leave.argprom.exit
 
-20:                                               ; preds = %rb_vm_lock_enter.exit
+20:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #28
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %10, %20, %rb_vm_lock_enter.exit
+rb_vm_lock_leave.argprom.exit:                    ; preds = %10, %20, %rb_vm_lock_enter.argprom.exit
   %21 = load i64, ptr %8, align 8
   %22 = and i64 %21, 8192
   %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %41, label %24
 
-rb_vm_lock_leave.exit.thread:                     ; preds = %1
+rb_vm_lock_leave.argprom.exit.thread:             ; preds = %1
   %23 = and i64 %9, 8192
   %.not.i18 = icmp eq i64 %23, 0
   br i1 %.not.i18, label %41, label %RB_FL_TEST.exit12.thread
 
-24:                                               ; preds = %rb_vm_lock_leave.exit
+24:                                               ; preds = %rb_vm_lock_leave.argprom.exit
   %25 = and i64 %21, 31
   %26 = icmp eq i64 %25, 27
   %27 = and i64 %21, 1073758208
@@ -4567,8 +4567,8 @@ rb_vm_lock_leave.exit.thread:                     ; preds = %1
   %or.cond19 = or i1 %26, %.not8
   br i1 %or.cond19, label %RB_FL_TEST.exit12.thread, label %41
 
-RB_FL_TEST.exit12.thread:                         ; preds = %rb_vm_lock_leave.exit.thread, %24
-  %28 = phi i64 [ %21, %24 ], [ %9, %rb_vm_lock_leave.exit.thread ]
+RB_FL_TEST.exit12.thread:                         ; preds = %rb_vm_lock_leave.argprom.exit.thread, %24
+  %28 = phi i64 [ %21, %24 ], [ %9, %rb_vm_lock_leave.argprom.exit.thread ]
   %29 = getelementptr inbounds i8, ptr %8, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = and i64 %28, 532676608
@@ -4595,7 +4595,7 @@ RB_ENCODING_GET.exit:                             ; preds = %32, %37
   call void @ruby_xfree(ptr noundef %30) #28
   br label %41
 
-41:                                               ; preds = %24, %rb_vm_lock_leave.exit.thread, %40, %rb_vm_lock_leave.exit
+41:                                               ; preds = %24, %rb_vm_lock_leave.argprom.exit.thread, %40, %rb_vm_lock_leave.argprom.exit
   ret void
 }
 
@@ -4899,16 +4899,16 @@ RB_FL_TEST.exit83.thread:                         ; preds = %96, %95
   %103 = icmp ne i64 %102, 0
   %104 = icmp eq i64 %93, 0
   %105 = or i1 %104, %103
-  br i1 %105, label %rb_obj_write.exit, label %106
+  br i1 %105, label %rb_obj_write.argprom.exit, label %106
 
 106:                                              ; preds = %RB_FL_TEST.exit83.thread
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %93) #28
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %RB_FL_TEST.exit83.thread, %106
+rb_obj_write.argprom.exit:                        ; preds = %RB_FL_TEST.exit83.thread, %106
   br i1 %65, label %RB_FL_SET.exit85, label %107
 
-107:                                              ; preds = %rb_obj_write.exit
+107:                                              ; preds = %rb_obj_write.argprom.exit
   %108 = load i64, ptr %16, align 8
   %109 = and i64 %108, 31
   %110 = icmp eq i64 %109, 27
@@ -4919,7 +4919,7 @@ rb_obj_write.exit:                                ; preds = %RB_FL_TEST.exit83.t
   store i64 %111, ptr %16, align 8
   br label %RB_FL_SET.exit85
 
-RB_FL_SET.exit85:                                 ; preds = %rb_obj_write.exit, %107, %.critedge.i84
+RB_FL_SET.exit85:                                 ; preds = %rb_obj_write.argprom.exit, %107, %.critedge.i84
   %.pre107 = inttoptr i64 %93 to ptr
   br i1 %105, label %RB_FL_SET.exit87, label %112
 
@@ -11675,18 +11675,18 @@ RSTRING_LENINT.exit:                              ; preds = %.loopexit170
   store i8 0, ptr %193, align 8
   %194 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.i = icmp eq ptr %194, null
-  br i1 %.not.i.i.i.i, label %195, label %rb_vm_lock_enter.exit.i.i
+  br i1 %.not.i.i.i.i, label %195, label %rb_vm_lock_enter.argprom.exit.i.i
 
 195:                                              ; preds = %185
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %7) #28
-  br label %rb_vm_lock_enter.exit.i.i
+  br label %rb_vm_lock_enter.argprom.exit.i.i
 
-rb_vm_lock_enter.exit.i.i:                        ; preds = %195, %185
+rb_vm_lock_enter.argprom.exit.i.i:                ; preds = %195, %185
   %196 = call ptr @rb_vm_fstring_table() #32
   %197 = ptrtoint ptr %6 to i64
   br label %198
 
-198:                                              ; preds = %198, %rb_vm_lock_enter.exit.i.i
+198:                                              ; preds = %198, %rb_vm_lock_enter.argprom.exit.i.i
   store i64 %187, ptr %6, align 8
   %199 = call i32 @rb_st_update(ptr noundef %196, i64 noundef %187, ptr noundef nonnull @fstr_update_callback, i64 noundef %197) #28
   %200 = load i64, ptr %6, align 8
@@ -11962,18 +11962,18 @@ RSTRING_PTR.exit37:                               ; preds = %RSTRING_PTR.exit.th
   store i8 0, ptr %63, align 8
   %64 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.i = icmp eq ptr %64, null
-  br i1 %.not.i.i.i.i, label %65, label %rb_vm_lock_enter.exit.i.i
+  br i1 %.not.i.i.i.i, label %65, label %rb_vm_lock_enter.argprom.exit.i.i
 
 65:                                               ; preds = %.loopexit
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #28
-  br label %rb_vm_lock_enter.exit.i.i
+  br label %rb_vm_lock_enter.argprom.exit.i.i
 
-rb_vm_lock_enter.exit.i.i:                        ; preds = %65, %.loopexit
+rb_vm_lock_enter.argprom.exit.i.i:                ; preds = %65, %.loopexit
   %66 = call ptr @rb_vm_fstring_table() #32
   %67 = ptrtoint ptr %4 to i64
   br label %68
 
-68:                                               ; preds = %68, %rb_vm_lock_enter.exit.i.i
+68:                                               ; preds = %68, %rb_vm_lock_enter.argprom.exit.i.i
   store i64 %57, ptr %4, align 8
   %69 = call i32 @rb_st_update(ptr noundef %66, i64 noundef %57, ptr noundef nonnull @fstr_update_callback, i64 noundef %67) #28
   %70 = load i64, ptr %4, align 8
@@ -12634,16 +12634,16 @@ RB_FL_TEST.exit.thread:                           ; preds = %29, %RSTRING_PTR.ex
   %34 = icmp ne i64 %33, 0
   %35 = icmp eq i64 %5, 0
   %36 = or i1 %35, %34
-  br i1 %36, label %rb_obj_write.exit, label %37
+  br i1 %36, label %rb_obj_write.argprom.exit, label %37
 
 37:                                               ; preds = %RB_FL_TEST.exit.thread
   tail call void @rb_gc_writebarrier(i64 noundef %1, i64 noundef %5) #28
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %RB_FL_TEST.exit.thread, %37
+rb_obj_write.argprom.exit:                        ; preds = %RB_FL_TEST.exit.thread, %37
   br i1 %28, label %RB_FL_SET.exit, label %38
 
-38:                                               ; preds = %rb_obj_write.exit
+38:                                               ; preds = %rb_obj_write.argprom.exit
   %39 = load i64, ptr %6, align 8
   %40 = and i64 %39, 31
   %41 = icmp eq i64 %40, 27
@@ -12654,7 +12654,7 @@ rb_obj_write.exit:                                ; preds = %RB_FL_TEST.exit.thr
   store i64 %42, ptr %6, align 8
   br label %RB_FL_SET.exit
 
-RB_FL_SET.exit:                                   ; preds = %rb_obj_write.exit, %38, %.critedge.i
+RB_FL_SET.exit:                                   ; preds = %rb_obj_write.argprom.exit, %38, %.critedge.i
   br i1 %36, label %RB_FL_SET.exit22, label %43
 
 43:                                               ; preds = %RB_FL_SET.exit
@@ -13059,26 +13059,26 @@ RB_FL_TEST.exit.thread.i:                         ; preds = %49
   %56 = icmp ne i64 %55, 0
   %57 = icmp eq i64 %37, 0
   %58 = or i1 %57, %56
-  br i1 %58, label %rb_obj_write.exit.i, label %59
+  br i1 %58, label %rb_obj_write.argprom.exit.i, label %59
 
 59:                                               ; preds = %RB_FL_TEST.exit.thread.i
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %37) #28
   %.pre = load i64, ptr %9, align 8
   %.pre11 = and i64 %.pre, 31
-  br label %rb_obj_write.exit.i
+  br label %rb_obj_write.argprom.exit.i
 
-rb_obj_write.exit.i:                              ; preds = %RB_FL_TEST.exit.thread.i, %59
+rb_obj_write.argprom.exit.i:                      ; preds = %RB_FL_TEST.exit.thread.i, %59
   %.pre-phi12 = phi i64 [ %51, %RB_FL_TEST.exit.thread.i ], [ %.pre11, %59 ]
   %60 = phi i64 [ %43, %RB_FL_TEST.exit.thread.i ], [ %.pre, %59 ]
   %61 = icmp eq i64 %.pre-phi12, 27
   br i1 %61, label %RB_FL_SET.exit25.i, label %.critedge.i24.i
 
-.critedge.i24.i:                                  ; preds = %rb_obj_write.exit.i
+.critedge.i24.i:                                  ; preds = %rb_obj_write.argprom.exit.i
   %62 = or i64 %60, 16384
   store i64 %62, ptr %9, align 8
   br label %RB_FL_SET.exit25.i
 
-RB_FL_SET.exit25.i:                               ; preds = %.critedge.i24.i, %rb_obj_write.exit.i
+RB_FL_SET.exit25.i:                               ; preds = %.critedge.i24.i, %rb_obj_write.argprom.exit.i
   %.pre32.i = inttoptr i64 %37 to ptr
   br i1 %58, label %RB_FL_SET.exit27.i, label %63
 
@@ -18310,18 +18310,18 @@ setup_fake_str.exit:                              ; preds = %2, %6
   store i8 1, ptr %15, align 8
   %16 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i, label %17, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %17, label %rb_vm_lock_enter.argprom.exit.i
 
 17:                                               ; preds = %setup_fake_str.exit
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #28
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %17, %setup_fake_str.exit
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %17, %setup_fake_str.exit
   %18 = call ptr @rb_vm_fstring_table() #32
   %19 = ptrtoint ptr %3 to i64
   br label %20
 
-20:                                               ; preds = %20, %rb_vm_lock_enter.exit.i
+20:                                               ; preds = %20, %rb_vm_lock_enter.argprom.exit.i
   store i64 %9, ptr %3, align 8
   %21 = call i32 @rb_st_update(ptr noundef %18, i64 noundef %9, ptr noundef nonnull @fstr_update_callback, i64 noundef %19) #28
   %22 = load i64, ptr %3, align 8
@@ -18369,18 +18369,18 @@ define dso_local i64 @rb_interned_str_cstr(ptr noundef nonnull %0) local_unnamed
   store i8 1, ptr %12, align 8
   %13 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i, label %14, label %rb_vm_lock_enter.exit.i.i
+  br i1 %.not.i.i.i.i, label %14, label %rb_vm_lock_enter.argprom.exit.i.i
 
 14:                                               ; preds = %1
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #28
-  br label %rb_vm_lock_enter.exit.i.i
+  br label %rb_vm_lock_enter.argprom.exit.i.i
 
-rb_vm_lock_enter.exit.i.i:                        ; preds = %14, %1
+rb_vm_lock_enter.argprom.exit.i.i:                ; preds = %14, %1
   %15 = call ptr @rb_vm_fstring_table() #32
   %16 = ptrtoint ptr %2 to i64
   br label %17
 
-17:                                               ; preds = %17, %rb_vm_lock_enter.exit.i.i
+17:                                               ; preds = %17, %rb_vm_lock_enter.argprom.exit.i.i
   store i64 %6, ptr %2, align 8
   %18 = call i32 @rb_st_update(ptr noundef %15, i64 noundef %6, ptr noundef nonnull @fstr_update_callback, i64 noundef %16) #28
   %19 = load i64, ptr %2, align 8
@@ -18458,18 +18458,18 @@ rb_setup_fake_str.exit:                           ; preds = %11, %13
   store i8 1, ptr %25, align 8
   %26 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i, label %27, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %27, label %rb_vm_lock_enter.argprom.exit.i
 
 27:                                               ; preds = %rb_setup_fake_str.exit
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #28
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %27, %rb_setup_fake_str.exit
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %27, %rb_setup_fake_str.exit
   %28 = call ptr @rb_vm_fstring_table() #32
   %29 = ptrtoint ptr %4 to i64
   br label %30
 
-30:                                               ; preds = %30, %rb_vm_lock_enter.exit.i
+30:                                               ; preds = %30, %rb_vm_lock_enter.argprom.exit.i
   store i64 %16, ptr %4, align 8
   %31 = call i32 @rb_st_update(ptr noundef %28, i64 noundef %16, ptr noundef nonnull @fstr_update_callback, i64 noundef %29) #28
   %32 = load i64, ptr %4, align 8
@@ -22864,7 +22864,7 @@ case_option_single_p.exit.thread18:               ; preds = %25, %case_option_si
   %65 = load i64, ptr %64, align 8
   %66 = load i64, ptr @rb_cString, align 8
   %67 = tail call fastcc i64 @str_new0(i64 noundef %66, ptr noundef null, i64 noundef %65, i32 noundef 1)
-  call fastcc void @rb_str_ascii_casemap(i64 noundef %2, i64 noundef %67, ptr noundef %4, ptr noundef %14)
+  call fastcc void @rb_str_ascii_casemap.retelim(i64 noundef %2, i64 noundef %67, ptr noundef %4, ptr noundef %14)
   br label %upcase_single.exit
 
 68:                                               ; preds = %case_option_single_p.exit.thread18
@@ -23016,7 +23016,7 @@ case_option_single_p.exit.thread18:               ; preds = %25, %case_option_si
   %65 = load i64, ptr %64, align 8
   %66 = load i64, ptr @rb_cString, align 8
   %67 = tail call fastcc i64 @str_new0(i64 noundef %66, ptr noundef null, i64 noundef %65, i32 noundef 1)
-  call fastcc void @rb_str_ascii_casemap(i64 noundef %2, i64 noundef %67, ptr noundef %4, ptr noundef %14)
+  call fastcc void @rb_str_ascii_casemap.retelim(i64 noundef %2, i64 noundef %67, ptr noundef %4, ptr noundef %14)
   br label %downcase_single.exit
 
 68:                                               ; preds = %case_option_single_p.exit.thread18
@@ -23084,7 +23084,7 @@ RSTRING_PTR.exit.thread:                          ; preds = %22, %RSTRING_PTR.ex
 26:                                               ; preds = %RSTRING_PTR.exit.thread
   %27 = load i64, ptr @rb_cString, align 8
   %28 = tail call fastcc i64 @str_new0(i64 noundef %27, ptr noundef null, i64 noundef %20, i32 noundef 1)
-  call fastcc void @rb_str_ascii_casemap(i64 noundef %2, i64 noundef %28, ptr noundef %4, ptr noundef %14)
+  call fastcc void @rb_str_ascii_casemap.retelim(i64 noundef %2, i64 noundef %28, ptr noundef %4, ptr noundef %14)
   br label %31
 
 29:                                               ; preds = %RSTRING_PTR.exit.thread
@@ -23157,7 +23157,7 @@ RSTRING_PTR.exit.thread:                          ; preds = %22, %RSTRING_PTR.ex
 29:                                               ; preds = %RSTRING_PTR.exit.thread
   %30 = load i64, ptr @rb_cString, align 8
   %31 = tail call fastcc i64 @str_new0(i64 noundef %30, ptr noundef null, i64 noundef %20, i32 noundef 1)
-  call fastcc void @rb_str_ascii_casemap(i64 noundef %2, i64 noundef %31, ptr noundef %4, ptr noundef %14)
+  call fastcc void @rb_str_ascii_casemap.retelim(i64 noundef %2, i64 noundef %31, ptr noundef %4, ptr noundef %14)
   br label %34
 
 32:                                               ; preds = %RSTRING_PTR.exit.thread
@@ -23282,7 +23282,7 @@ case_option_single_p.exit.thread16:               ; preds = %25, %case_option_si
   br i1 %.not.i, label %44, label %43
 
 43:                                               ; preds = %case_option_single_p.exit.thread16
-  call fastcc void @rb_str_ascii_casemap(i64 noundef %2, i64 noundef %2, ptr noundef %4, ptr noundef %14)
+  call fastcc void @rb_str_ascii_casemap.retelim(i64 noundef %2, i64 noundef %2, ptr noundef %4, ptr noundef %14)
   br label %upcase_single.exit.thread
 
 44:                                               ; preds = %case_option_single_p.exit.thread16
@@ -23411,7 +23411,7 @@ case_option_single_p.exit.thread16:               ; preds = %25, %case_option_si
   br i1 %.not.i, label %44, label %43
 
 43:                                               ; preds = %case_option_single_p.exit.thread16
-  call fastcc void @rb_str_ascii_casemap(i64 noundef %2, i64 noundef %2, ptr noundef %4, ptr noundef %14)
+  call fastcc void @rb_str_ascii_casemap.retelim(i64 noundef %2, i64 noundef %2, ptr noundef %4, ptr noundef %14)
   br label %downcase_single.exit.thread
 
 44:                                               ; preds = %case_option_single_p.exit.thread16
@@ -23482,7 +23482,7 @@ RSTRING_PTR.exit.thread:                          ; preds = %22, %RSTRING_PTR.ex
   br i1 %.not13, label %27, label %26
 
 26:                                               ; preds = %RSTRING_PTR.exit.thread
-  call fastcc void @rb_str_ascii_casemap(i64 noundef %2, i64 noundef %2, ptr noundef %4, ptr noundef %14)
+  call fastcc void @rb_str_ascii_casemap.retelim(i64 noundef %2, i64 noundef %2, ptr noundef %4, ptr noundef %14)
   br label %29
 
 27:                                               ; preds = %RSTRING_PTR.exit.thread
@@ -23539,7 +23539,7 @@ str_true_enc.exit:                                ; preds = %get_encoding.exit.i
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %str_true_enc.exit
-  call fastcc void @rb_str_ascii_casemap(i64 noundef %2, i64 noundef %2, ptr noundef %4, ptr noundef %14)
+  call fastcc void @rb_str_ascii_casemap.retelim(i64 noundef %2, i64 noundef %2, ptr noundef %4, ptr noundef %14)
   br label %22
 
 20:                                               ; preds = %str_true_enc.exit
@@ -29966,23 +29966,23 @@ RSTRING_PTR.exit:                                 ; preds = %24, %31
 RB_FL_SET.exit:                                   ; preds = %RSTRING_PTR.exit
   %45 = getelementptr inbounds i8, ptr %33, i64 32
   store i64 %.058, ptr %45, align 8
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
 46:                                               ; preds = %39, %.critedge.i
   %47 = getelementptr inbounds i8, ptr %33, i64 32
   store i64 %.058, ptr %47, align 8
   tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %.058) #28
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %RB_FL_SET.exit, %46
+rb_obj_write.argprom.exit:                        ; preds = %RB_FL_SET.exit, %46
   %48 = or disjoint i64 %.03354, 24576
   br label %ruby_nonempty_memcpy.exit
 
-ruby_nonempty_memcpy.exit:                        ; preds = %.ruby_nonempty_memcpy.exit_crit_edge, %12, %rb_obj_write.exit
-  %.pre-phi44 = phi ptr [ %.pre43, %.ruby_nonempty_memcpy.exit_crit_edge ], [ %14, %12 ], [ %33, %rb_obj_write.exit ]
-  %.pre-phi = phi ptr [ %4, %.ruby_nonempty_memcpy.exit_crit_edge ], [ %4, %12 ], [ %.pre-phi4152, %rb_obj_write.exit ]
-  %.134 = phi i64 [ %6, %.ruby_nonempty_memcpy.exit_crit_edge ], [ %6, %12 ], [ %48, %rb_obj_write.exit ]
-  %.1 = phi i64 [ %1, %.ruby_nonempty_memcpy.exit_crit_edge ], [ %1, %12 ], [ %.03156, %rb_obj_write.exit ]
+ruby_nonempty_memcpy.exit:                        ; preds = %.ruby_nonempty_memcpy.exit_crit_edge, %12, %rb_obj_write.argprom.exit
+  %.pre-phi44 = phi ptr [ %.pre43, %.ruby_nonempty_memcpy.exit_crit_edge ], [ %14, %12 ], [ %33, %rb_obj_write.argprom.exit ]
+  %.pre-phi = phi ptr [ %4, %.ruby_nonempty_memcpy.exit_crit_edge ], [ %4, %12 ], [ %.pre-phi4152, %rb_obj_write.argprom.exit ]
+  %.134 = phi i64 [ %6, %.ruby_nonempty_memcpy.exit_crit_edge ], [ %6, %12 ], [ %48, %rb_obj_write.argprom.exit ]
+  %.1 = phi i64 [ %1, %.ruby_nonempty_memcpy.exit_crit_edge ], [ %1, %12 ], [ %.03156, %rb_obj_write.argprom.exit ]
   %49 = getelementptr inbounds i8, ptr %.pre-phi, i64 16
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %.pre-phi44, i64 16
@@ -31959,7 +31959,7 @@ define internal fastcc range(i32 8192, 4259840) i32 @check_case_options(i32 noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rb_str_ascii_casemap(i64 noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @rb_str_ascii_casemap.retelim(i64 noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = inttoptr i64 %0 to ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 16

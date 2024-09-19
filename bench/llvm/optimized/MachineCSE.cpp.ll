@@ -968,7 +968,7 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   store i64 0, ptr %154, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
-  %190 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MachineCSE14isCSECandidateEPN4llvm12MachineInstrE(ptr noundef %.sroa.073.085.i.i)
+  %190 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MachineCSE14isCSECandidateEPN4llvm12MachineInstrE.argprom(ptr noundef %.sroa.073.085.i.i)
   br i1 %190, label %191, label %_ZN12_GLOBAL__N_110MachineCSE14isPRECandidateEPN4llvm12MachineInstrERNS1_8SmallSetINS1_10MCRegisterELj8ESt4lessIS5_EEE.exit.thread.i.i
 
 191:                                              ; preds = %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit.i.i
@@ -1768,7 +1768,7 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   %.sroa.0.0.i.i.i.i.i.i.i25 = phi ptr [ %.sroa.0283.0374.i.i, %579 ], [ %.sroa.0283.0374.i.i, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i.i.i59 ], [ %585, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i.i.i61 ]
   %589 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i.i25, i64 8
   %590 = load ptr, ptr %589, align 8
-  %591 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MachineCSE14isCSECandidateEPN4llvm12MachineInstrE(ptr noundef %.sroa.0283.0374.i.i)
+  %591 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MachineCSE14isCSECandidateEPN4llvm12MachineInstrE.argprom(ptr noundef %.sroa.0283.0374.i.i)
   br i1 %591, label %592, label %_ZN4llvm8SmallSetINS_10MCRegisterELj8ESt4lessIS1_EED2Ev.exit.i.i26
 
 592:                                              ; preds = %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit.i.i24
@@ -1944,12 +1944,12 @@ _ZN4llvm12MachineInstr8all_usesEv.exit.i.i.i:     ; preds = %627, %.lr.ph.i.i.i.
 _ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_iterator_tagEppEv.exit.i.i.i: ; preds = %665, %.lr.ph.i.i.i.i15.i, %660
   %.sroa.010.2.i.i.i = phi ptr [ %661, %660 ], [ %666, %665 ], [ %.sroa.010.1.i.i.i, %.lr.ph.i.i.i.i15.i ]
   %.not17.i.i.i = icmp eq ptr %.sroa.010.2.i.i.i, %623
-  br i1 %.not17.i.i.i, label %_ZN12_GLOBAL__N_110MachineCSE29PerformTrivialCopyPropagationEPN4llvm12MachineInstrEPNS1_17MachineBasicBlockE.exit.i.i, label %.lr.ph.i.i.i29
+  br i1 %.not17.i.i.i, label %_ZN12_GLOBAL__N_110MachineCSE29PerformTrivialCopyPropagationEPN4llvm12MachineInstrEPNS1_17MachineBasicBlockE.argprom.exit.i.i, label %.lr.ph.i.i.i29
 
-_ZN12_GLOBAL__N_110MachineCSE29PerformTrivialCopyPropagationEPN4llvm12MachineInstrEPNS1_17MachineBasicBlockE.exit.i.i: ; preds = %_ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_iterator_tagEppEv.exit.i.i.i
+_ZN12_GLOBAL__N_110MachineCSE29PerformTrivialCopyPropagationEPN4llvm12MachineInstrEPNS1_17MachineBasicBlockE.argprom.exit.i.i: ; preds = %_ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_iterator_tagEppEv.exit.i.i.i
   br i1 %.1.i.i.i, label %667, label %.thread.i.i
 
-667:                                              ; preds = %_ZN12_GLOBAL__N_110MachineCSE29PerformTrivialCopyPropagationEPN4llvm12MachineInstrEPNS1_17MachineBasicBlockE.exit.i.i
+667:                                              ; preds = %_ZN12_GLOBAL__N_110MachineCSE29PerformTrivialCopyPropagationEPN4llvm12MachineInstrEPNS1_17MachineBasicBlockE.argprom.exit.i.i
   %668 = getelementptr inbounds nuw i8, ptr %.sroa.0283.0374.i.i, i64 68
   %669 = load i16, ptr %668, align 4
   switch i16 %669, label %670 [
@@ -2022,8 +2022,8 @@ _ZN4llvm27MachineInstrExpressionTrait7isEqualERKPKNS_12MachineInstrES5_.exit20.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %.loopexit328.i.i, %_ZN12_GLOBAL__N_110MachineCSE29PerformTrivialCopyPropagationEPN4llvm12MachineInstrEPNS1_17MachineBasicBlockE.exit.i.i, %_ZN4llvm12MachineInstr8all_usesEv.exit.i.i.i
-  %.2295.i.i = phi i1 [ true, %.loopexit328.i.i ], [ %.0375.i.i, %_ZN12_GLOBAL__N_110MachineCSE29PerformTrivialCopyPropagationEPN4llvm12MachineInstrEPNS1_17MachineBasicBlockE.exit.i.i ], [ %.0375.i.i, %_ZN4llvm12MachineInstr8all_usesEv.exit.i.i.i ]
+.thread.i.i:                                      ; preds = %.loopexit328.i.i, %_ZN12_GLOBAL__N_110MachineCSE29PerformTrivialCopyPropagationEPN4llvm12MachineInstrEPNS1_17MachineBasicBlockE.argprom.exit.i.i, %_ZN4llvm12MachineInstr8all_usesEv.exit.i.i.i
+  %.2295.i.i = phi i1 [ true, %.loopexit328.i.i ], [ %.0375.i.i, %_ZN12_GLOBAL__N_110MachineCSE29PerformTrivialCopyPropagationEPN4llvm12MachineInstrEPNS1_17MachineBasicBlockE.argprom.exit.i.i ], [ %.0375.i.i, %_ZN4llvm12MachineInstr8all_usesEv.exit.i.i.i ]
   %692 = getelementptr inbounds nuw i8, ptr %.sroa.0283.0374.i.i, i64 16
   %693 = load ptr, ptr %692, align 8
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 16
@@ -5915,7 +5915,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32), i32) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MachineCSE14isCSECandidateEPN4llvm12MachineInstrE(ptr noundef nonnull %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MachineCSE14isCSECandidateEPN4llvm12MachineInstrE.argprom(ptr noundef nonnull %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   %4 = add i16 %3, -3

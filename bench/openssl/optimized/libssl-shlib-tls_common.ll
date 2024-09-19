@@ -648,7 +648,7 @@ land.lhs.true112:                                 ; preds = %if.then108
   br i1 %or.cond97, label %if.then119, label %return
 
 if.then119:                                       ; preds = %land.lhs.true112
-  tail call fastcc void @tls_release_read_buffer(ptr noundef nonnull %rl)
+  tail call fastcc void @tls_release_read_buffer.retelim(ptr noundef nonnull %rl)
   br label %return
 
 if.end123:                                        ; preds = %if.then74.us
@@ -693,7 +693,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tls_release_read_buffer(ptr nocapture noundef %rl) unnamed_addr #0 {
+define internal fastcc void @tls_release_read_buffer.retelim(ptr nocapture noundef %rl) unnamed_addr #0 {
 entry:
   %rbuf = getelementptr inbounds i8, ptr %rl, i64 1696
   %options = getelementptr inbounds i8, ptr %rl, i64 80
@@ -1230,7 +1230,7 @@ if.then251:                                       ; preds = %land.lhs.true246
   %call252 = call i32 @ERR_pop_to_mark() #12
   %length254 = getelementptr inbounds i8, ptr %rl, i64 1752
   %65 = load i64, ptr %length254, align 8
-  %call255 = call fastcc i32 @rlayer_early_data_count_ok(ptr noundef nonnull %rl, i64 noundef %65, i64 noundef 104)
+  %call255 = call fastcc i32 @rlayer_early_data_count_ok.argelim(ptr noundef nonnull %rl, i64 noundef %65, i64 noundef 104)
   %tobool256.not = icmp eq i32 %call255, 0
   br i1 %tobool256.not, label %end, label %if.end258
 
@@ -1405,7 +1405,7 @@ if.then364:                                       ; preds = %for.end361
 land.lhs.true369:                                 ; preds = %if.then364
   %length370 = getelementptr inbounds i8, ptr %rl, i64 1752
   %84 = load i64, ptr %length370, align 8
-  %call371 = call fastcc i32 @rlayer_early_data_count_ok(ptr noundef nonnull %rl, i64 noundef %84, i64 noundef 0)
+  %call371 = call fastcc i32 @rlayer_early_data_count_ok.argelim(ptr noundef nonnull %rl, i64 noundef %84, i64 noundef 0)
   %tobool372.not = icmp eq i32 %call371, 0
   br i1 %tobool372.not, label %end, label %if.end375
 
@@ -1461,7 +1461,7 @@ declare i32 @ERR_clear_last_mark() local_unnamed_addr #1
 declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rlayer_early_data_count_ok(ptr nocapture noundef %rl, i64 noundef %length, i64 noundef range(i64 0, 105) %overhead) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rlayer_early_data_count_ok.argelim(ptr nocapture noundef %rl, i64 noundef %length, i64 noundef range(i64 0, 105) %overhead) unnamed_addr #0 {
 entry:
   %max_early_data1 = getelementptr inbounds i8, ptr %rl, i64 4168
   %0 = load i32, ptr %max_early_data1, align 8
@@ -1893,7 +1893,7 @@ land.lhs.true40:                                  ; preds = %land.lhs.true
   br i1 %cmp41, label %if.then43, label %return
 
 if.then43:                                        ; preds = %land.lhs.true40
-  tail call fastcc void @tls_release_read_buffer(ptr noundef nonnull %rl)
+  tail call fastcc void @tls_release_read_buffer.retelim(ptr noundef nonnull %rl)
   br label %return
 
 return:                                           ; preds = %if.end31, %land.lhs.true, %land.lhs.true40, %if.then43, %if.end24, %if.then19, %if.then

@@ -546,7 +546,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %92 = getelementptr i8, ptr %.val82115.pre, i64 8
   br label %94
 
-.critedge4.loopexit:                              ; preds = %Vec_IntUpdateEntry.exit, %94
+.critedge4.loopexit:                              ; preds = %Vec_IntUpdateEntry.argprom.exit, %94
   %93 = icmp sgt i64 %indvars.iv139, 1
   br i1 %93, label %94, label %.lr.ph125, !llvm.loop !11
 
@@ -573,9 +573,9 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %106 = icmp sgt i32 %105, 0
   br i1 %106, label %.lr.ph119, label %.critedge4.loopexit
 
-.lr.ph119:                                        ; preds = %94, %Vec_IntUpdateEntry.exit
-  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %Vec_IntUpdateEntry.exit ], [ 0, %94 ]
-  %107 = phi ptr [ %118, %Vec_IntUpdateEntry.exit ], [ %104, %94 ]
+.lr.ph119:                                        ; preds = %94, %Vec_IntUpdateEntry.argprom.exit
+  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %Vec_IntUpdateEntry.argprom.exit ], [ 0, %94 ]
+  %107 = phi ptr [ %118, %Vec_IntUpdateEntry.argprom.exit ], [ %104, %94 ]
   %108 = getelementptr inbounds i8, ptr %107, i64 4
   %109 = getelementptr inbounds i32, ptr %108, i64 %indvars.iv136
   %110 = load i32, ptr %109, align 4
@@ -583,13 +583,13 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %112 = getelementptr inbounds i32, ptr %.val91, i64 %111
   %113 = load i32, ptr %112, align 4
   %.not108 = icmp sgt i32 %113, %99
-  br i1 %.not108, label %Vec_IntUpdateEntry.exit, label %114
+  br i1 %.not108, label %Vec_IntUpdateEntry.argprom.exit, label %114
 
 114:                                              ; preds = %.lr.ph119
   store i32 %100, ptr %112, align 4
-  br label %Vec_IntUpdateEntry.exit
+  br label %Vec_IntUpdateEntry.argprom.exit
 
-Vec_IntUpdateEntry.exit:                          ; preds = %.lr.ph119, %114
+Vec_IntUpdateEntry.argprom.exit:                  ; preds = %.lr.ph119, %114
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %.val82.val = load ptr, ptr %92, align 8
   %115 = getelementptr inbounds i32, ptr %.val82.val, i64 %97

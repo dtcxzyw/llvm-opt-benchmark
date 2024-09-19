@@ -1189,14 +1189,14 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h0261583866aab3dcE
 12:                                               ; preds = %5
   %.sroa.51.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %11, ptr %.sroa.51.0..sroa_idx.i, align 4, !alias.scope !193, !noalias !199
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9eda4f2da3bea298E.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9eda4f2da3bea298E.argprom.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %14, align 8, !alias.scope !193, !noalias !199
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9eda4f2da3bea298E.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9eda4f2da3bea298E.argprom.exit"
 
-"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9eda4f2da3bea298E.exit": ; preds = %12, %13
+"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9eda4f2da3bea298E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i8 [ 17, %13 ], [ 15, %12 ]
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !193, !noalias !199
   ret void
@@ -1219,13 +1219,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h073310c93c888d1dE
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !200, !noalias !205
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h89303023717501a3E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h89303023717501a3E.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !200, !noalias !205
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h89303023717501a3E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h89303023717501a3E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h89303023717501a3E.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h89303023717501a3E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000027, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !200, !noalias !205
@@ -1250,13 +1250,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h074808254654c42cE
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !206, !noalias !211
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8012b8c9203cfcc1E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8012b8c9203cfcc1E.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !206, !noalias !211
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8012b8c9203cfcc1E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8012b8c9203cfcc1E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8012b8c9203cfcc1E.exit": ; preds = %13, %14
+"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8012b8c9203cfcc1E.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775793, %14 ], [ -9223372036854775797, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !206, !noalias !211
   ret void
@@ -1279,13 +1279,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h0757f4c4cd41259cE
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !212, !noalias !217
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5b94b475c747708dE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5b94b475c747708dE.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !212, !noalias !217
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5b94b475c747708dE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5b94b475c747708dE.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5b94b475c747708dE.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5b94b475c747708dE.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000025, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !212, !noalias !217
@@ -1310,13 +1310,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h150f5f6cb77d3653E
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !218, !noalias !224
-  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h51a17de285dece19E.exit"
+  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h51a17de285dece19E.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !218, !noalias !224
-  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h51a17de285dece19E.exit"
+  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h51a17de285dece19E.argprom.exit"
 
-"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h51a17de285dece19E.exit": ; preds = %13, %14
+"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h51a17de285dece19E.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775802, %14 ], [ -9223372036854775808, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !218, !noalias !224
   ret void
@@ -1339,13 +1339,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1589c9e28b360a84E
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !225, !noalias !230
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1ac67cc2c028ae4aE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1ac67cc2c028ae4aE.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !225, !noalias !230
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1ac67cc2c028ae4aE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1ac67cc2c028ae4aE.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1ac67cc2c028ae4aE.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1ac67cc2c028ae4aE.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000024, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !225, !noalias !230
@@ -1371,7 +1371,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1906cfb87626518dE
   %.sroa.511.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %2, ptr %.sroa.511.0..sroa_idx.i, align 8, !noalias !234
   %11 = icmp eq ptr %3, null
-  br i1 %11, label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E.exit", label %12
+  br i1 %11, label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E.argprom.exit", label %12
 
 12:                                               ; preds = %5
   %13 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1f0de74d83116b50E"(i64 noundef %4, i1 noundef zeroext false)
@@ -1389,7 +1389,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1906cfb87626518dE
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %3, i64 %4, i1 false)
-  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E.exit"
+  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E.argprom.exit"
 
 20:                                               ; preds = %14
   %21 = landingpad { ptr, i32 }
@@ -1400,7 +1400,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1906cfb87626518dE
 22:                                               ; preds = %14
   resume { ptr, i32 } %15
 
-"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E.exit": ; preds = %5, %16
+"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E.argprom.exit": ; preds = %5, %16
   %.sroa.02.0.i = phi i64 [ %17, %16 ], [ -9223372036854775808, %5 ]
   %.sroa.5.sroa.0.0.i = phi ptr [ %18, %16 ], [ undef, %5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.05.i, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !234
@@ -1453,14 +1453,14 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1d4f423f9ae6c470E
 12:                                               ; preds = %5
   %.sroa.51.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %11, ptr %.sroa.51.0..sroa_idx.i, align 4, !alias.scope !246, !noalias !251
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfa787fe1b56a1eebE.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfa787fe1b56a1eebE.argprom.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %14, align 8, !alias.scope !246, !noalias !251
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfa787fe1b56a1eebE.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfa787fe1b56a1eebE.argprom.exit"
 
-"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfa787fe1b56a1eebE.exit": ; preds = %12, %13
+"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfa787fe1b56a1eebE.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i8 [ 17, %13 ], [ 14, %12 ]
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !246, !noalias !251
   ret void
@@ -1483,13 +1483,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1df5131b7b2e93e7E
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !252, !noalias !257
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h93c5022d97019211E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h93c5022d97019211E.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !252, !noalias !257
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h93c5022d97019211E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h93c5022d97019211E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h93c5022d97019211E.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h93c5022d97019211E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000005, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !252, !noalias !257
@@ -1516,13 +1516,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1e52ba2f450c230cE
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !261
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !264
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbd525a1ceec62ca1E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbd525a1ceec62ca1E.argprom.exit"
 
 12:                                               ; preds = %5
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !261
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbd525a1ceec62ca1E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbd525a1ceec62ca1E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbd525a1ceec62ca1E.exit": ; preds = %11, %12
+"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbd525a1ceec62ca1E.argprom.exit": ; preds = %11, %12
   %.sink.i = phi i64 [ -9223372036854775793, %12 ], [ %7, %11 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.6.i)
   %13 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1549,13 +1549,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h23979fe3670201d4E
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !265, !noalias !270
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4d0f78c39fea543cE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4d0f78c39fea543cE.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !265, !noalias !270
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4d0f78c39fea543cE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4d0f78c39fea543cE.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4d0f78c39fea543cE.exit": ; preds = %13, %14
+"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4d0f78c39fea543cE.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775793, %14 ], [ -9223372036854775807, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !265, !noalias !270
   ret void
@@ -1579,13 +1579,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h243b7953a27e11bdE
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !271, !noalias !276
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6bae588760d7d86E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6bae588760d7d86E.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !271, !noalias !276
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6bae588760d7d86E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6bae588760d7d86E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6bae588760d7d86E.exit": ; preds = %13, %14
+"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6bae588760d7d86E.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775793, %14 ], [ -9223372036854775806, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !271, !noalias !276
   ret void
@@ -1609,13 +1609,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h2a0b4a3bea90c7fdE
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !277, !noalias !282
-  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2bd5a44f8ee615ecE.exit"
+  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2bd5a44f8ee615ecE.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !277, !noalias !282
-  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2bd5a44f8ee615ecE.exit"
+  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2bd5a44f8ee615ecE.argprom.exit"
 
-"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2bd5a44f8ee615ecE.exit": ; preds = %13, %14
+"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2bd5a44f8ee615ecE.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775804, %14 ], [ -9223372036854775807, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !277, !noalias !282
   ret void
@@ -1639,13 +1639,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h2d89900465370434E
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !283, !noalias !288
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb001baae52028010E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb001baae52028010E.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !283, !noalias !288
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb001baae52028010E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb001baae52028010E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb001baae52028010E.exit": ; preds = %13, %14
+"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb001baae52028010E.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775793, %14 ], [ -9223372036854775808, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !283, !noalias !288
   ret void
@@ -1669,13 +1669,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h3106ca1278d41693E
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !289, !noalias !294
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb94b648545237c1fE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb94b648545237c1fE.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !289, !noalias !294
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb94b648545237c1fE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb94b648545237c1fE.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb94b648545237c1fE.exit": ; preds = %13, %14
+"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb94b648545237c1fE.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775793, %14 ], [ -9223372036854775794, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !289, !noalias !294
   ret void
@@ -1699,13 +1699,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h3275a68ed9abb7caE
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !295, !noalias !300
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfb25a92a1accc348E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfb25a92a1accc348E.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !295, !noalias !300
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfb25a92a1accc348E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfb25a92a1accc348E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfb25a92a1accc348E.exit": ; preds = %13, %14
+"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfb25a92a1accc348E.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775793, %14 ], [ -9223372036854775796, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !295, !noalias !300
   ret void
@@ -1767,13 +1767,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h3c3262137ad5ae65E
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !313, !noalias !318
-  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h6fb91d94efe63b3cE.exit"
+  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h6fb91d94efe63b3cE.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !313, !noalias !318
-  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h6fb91d94efe63b3cE.exit"
+  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h6fb91d94efe63b3cE.argprom.exit"
 
-"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h6fb91d94efe63b3cE.exit": ; preds = %13, %14
+"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h6fb91d94efe63b3cE.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775802, %14 ], [ -9223372036854775807, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !313, !noalias !318
   ret void
@@ -1796,13 +1796,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h41e9d9737a73de00E
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !319, !noalias !324
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he0c29ed832e27d91E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he0c29ed832e27d91E.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !319, !noalias !324
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he0c29ed832e27d91E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he0c29ed832e27d91E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he0c29ed832e27d91E.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he0c29ed832e27d91E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000016, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !319, !noalias !324
@@ -1827,14 +1827,14 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h445a3e643a4781b9E
 12:                                               ; preds = %5
   %.sroa.51.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %11, ptr %.sroa.51.0..sroa_idx.i, align 4, !alias.scope !325, !noalias !330
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdc9953b1be4aa236E.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdc9953b1be4aa236E.argprom.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %14, align 8, !alias.scope !325, !noalias !330
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdc9953b1be4aa236E.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdc9953b1be4aa236E.argprom.exit"
 
-"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdc9953b1be4aa236E.exit": ; preds = %12, %13
+"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdc9953b1be4aa236E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i8 [ 17, %13 ], [ 16, %12 ]
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !325, !noalias !330
   ret void
@@ -1896,13 +1896,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h5447c45a070540c8E
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !343, !noalias !348
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcce056ecf770ef6eE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcce056ecf770ef6eE.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !343, !noalias !348
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcce056ecf770ef6eE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcce056ecf770ef6eE.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcce056ecf770ef6eE.exit": ; preds = %13, %14
+"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcce056ecf770ef6eE.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775793, %14 ], [ -9223372036854775795, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !343, !noalias !348
   ret void
@@ -1926,14 +1926,14 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h5603f058fd93fdb4E
 12:                                               ; preds = %5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %11, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !349, !noalias !354
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcf01a2bf76ab4c0cE.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcf01a2bf76ab4c0cE.argprom.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %14, align 8, !alias.scope !349, !noalias !354
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcf01a2bf76ab4c0cE.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcf01a2bf76ab4c0cE.argprom.exit"
 
-"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcf01a2bf76ab4c0cE.exit": ; preds = %12, %13
+"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcf01a2bf76ab4c0cE.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i8 [ 17, %13 ], [ 11, %12 ]
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !349, !noalias !354
   ret void
@@ -1956,13 +1956,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h56ad2b6e36c1a460E
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !355, !noalias !360
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h940e6c472fd64247E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h940e6c472fd64247E.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !355, !noalias !360
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h940e6c472fd64247E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h940e6c472fd64247E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h940e6c472fd64247E.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h940e6c472fd64247E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000002, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !355, !noalias !360
@@ -1986,13 +1986,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h5b0283c5faee2577E
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !361, !noalias !366
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9ff4a991fd4d7ee8E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9ff4a991fd4d7ee8E.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !361, !noalias !366
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9ff4a991fd4d7ee8E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9ff4a991fd4d7ee8E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9ff4a991fd4d7ee8E.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9ff4a991fd4d7ee8E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000004, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !361, !noalias !366
@@ -2016,13 +2016,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h5f31e32e66db8d9dE
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !367, !noalias !372
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he7b8e25d0669c351E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he7b8e25d0669c351E.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !367, !noalias !372
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he7b8e25d0669c351E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he7b8e25d0669c351E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he7b8e25d0669c351E.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he7b8e25d0669c351E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000028, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !367, !noalias !372
@@ -2047,13 +2047,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h6c151b950ceb1cbaE
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !373, !noalias !378
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h864e545fb1c95a5bE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h864e545fb1c95a5bE.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !373, !noalias !378
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h864e545fb1c95a5bE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h864e545fb1c95a5bE.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h864e545fb1c95a5bE.exit": ; preds = %13, %14
+"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h864e545fb1c95a5bE.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775793, %14 ], [ -9223372036854775801, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !373, !noalias !378
   ret void
@@ -2095,13 +2095,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h762a2ca00a3978ffE
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !385, !noalias !390
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h31c2108547f6c050E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h31c2108547f6c050E.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !385, !noalias !390
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h31c2108547f6c050E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h31c2108547f6c050E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h31c2108547f6c050E.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h31c2108547f6c050E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000013, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !385, !noalias !390
@@ -2145,13 +2145,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7cfe6cee99994efaE
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !397, !noalias !402
-  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc7f00bfeafe70e3E.exit"
+  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc7f00bfeafe70e3E.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !397, !noalias !402
-  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc7f00bfeafe70e3E.exit"
+  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc7f00bfeafe70e3E.argprom.exit"
 
-"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc7f00bfeafe70e3E.exit": ; preds = %13, %14
+"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc7f00bfeafe70e3E.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775802, %14 ], [ -9223372036854775806, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !397, !noalias !402
   ret void
@@ -2174,13 +2174,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7d92de620121816bE
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !403, !noalias !408
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h7a8a873544f594eaE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h7a8a873544f594eaE.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !403, !noalias !408
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h7a8a873544f594eaE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h7a8a873544f594eaE.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h7a8a873544f594eaE.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h7a8a873544f594eaE.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000026, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !403, !noalias !408
@@ -2204,13 +2204,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h826c3c0a516aaa20E
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !409, !noalias !414
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc47bd35733ef619E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc47bd35733ef619E.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !409, !noalias !414
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc47bd35733ef619E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc47bd35733ef619E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc47bd35733ef619E.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc47bd35733ef619E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000018, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !409, !noalias !414
@@ -2273,14 +2273,14 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h8a10c2297fc410a5E
 12:                                               ; preds = %5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %11, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !427, !noalias !432
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h36b126069b0fa3e7E.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h36b126069b0fa3e7E.argprom.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %14, align 8, !alias.scope !427, !noalias !432
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h36b126069b0fa3e7E.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h36b126069b0fa3e7E.argprom.exit"
 
-"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h36b126069b0fa3e7E.exit": ; preds = %12, %13
+"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h36b126069b0fa3e7E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i8 [ 17, %13 ], [ 2, %12 ]
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !427, !noalias !432
   ret void
@@ -2303,13 +2303,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h8b34d9ebeb35f383E
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !433, !noalias !438
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haae03ba353ec1366E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haae03ba353ec1366E.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !433, !noalias !438
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haae03ba353ec1366E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haae03ba353ec1366E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haae03ba353ec1366E.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haae03ba353ec1366E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000023, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !433, !noalias !438
@@ -2353,13 +2353,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h926e44aab4a70909E
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !445, !noalias !450
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6fc96ffdd0a142eE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6fc96ffdd0a142eE.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !445, !noalias !450
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6fc96ffdd0a142eE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6fc96ffdd0a142eE.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6fc96ffdd0a142eE.exit": ; preds = %13, %14
+"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6fc96ffdd0a142eE.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775793, %14 ], [ -9223372036854775799, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !445, !noalias !450
   ret void
@@ -2383,14 +2383,14 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h9df243574913e177E
 12:                                               ; preds = %5
   %.sroa.51.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %11, ptr %.sroa.51.0..sroa_idx.i, align 4, !alias.scope !451, !noalias !456
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcde833289de261e6E.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcde833289de261e6E.argprom.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %14, align 8, !alias.scope !451, !noalias !456
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcde833289de261e6E.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcde833289de261e6E.argprom.exit"
 
-"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcde833289de261e6E.exit": ; preds = %12, %13
+"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcde833289de261e6E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i8 [ 17, %13 ], [ 12, %12 ]
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !451, !noalias !456
   ret void
@@ -2413,13 +2413,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17ha3574688d3eabf97E
 
 12:                                               ; preds = %5
   store i32 %11, ptr %0, align 8, !alias.scope !457, !noalias !462
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb0b143fcbfb88fa3E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb0b143fcbfb88fa3E.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !457, !noalias !462
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb0b143fcbfb88fa3E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb0b143fcbfb88fa3E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb0b143fcbfb88fa3E.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb0b143fcbfb88fa3E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000009, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !457, !noalias !462
@@ -2443,13 +2443,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17ha4bf2d150b0ab8fbE
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !463, !noalias !468
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8e49e5ab3d60f6c1E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8e49e5ab3d60f6c1E.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !463, !noalias !468
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8e49e5ab3d60f6c1E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8e49e5ab3d60f6c1E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8e49e5ab3d60f6c1E.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8e49e5ab3d60f6c1E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000022, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !463, !noalias !468
@@ -2473,13 +2473,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17ha5643491f2e9b9e5E
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !469, !noalias !474
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h99efcb55ff6b277fE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h99efcb55ff6b277fE.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !469, !noalias !474
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h99efcb55ff6b277fE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h99efcb55ff6b277fE.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h99efcb55ff6b277fE.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h99efcb55ff6b277fE.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000000, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !469, !noalias !474
@@ -2503,13 +2503,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17ha6ffae17db5c6695E
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !475, !noalias !480
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hc02a7680f9120964E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hc02a7680f9120964E.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !475, !noalias !480
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hc02a7680f9120964E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hc02a7680f9120964E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hc02a7680f9120964E.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hc02a7680f9120964E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000017, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !475, !noalias !480
@@ -2534,13 +2534,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17ha9dbe6621eb2578cE
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !481, !noalias !486
-  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h06ea06f4ad075a94E.exit"
+  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h06ea06f4ad075a94E.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !481, !noalias !486
-  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h06ea06f4ad075a94E.exit"
+  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h06ea06f4ad075a94E.argprom.exit"
 
-"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h06ea06f4ad075a94E.exit": ; preds = %13, %14
+"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h06ea06f4ad075a94E.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775802, %14 ], [ -9223372036854775804, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !481, !noalias !486
   ret void
@@ -2563,13 +2563,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hacf21f55a89a892dE
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !487, !noalias !492
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8657f93986cc21d2E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8657f93986cc21d2E.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !487, !noalias !492
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8657f93986cc21d2E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8657f93986cc21d2E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8657f93986cc21d2E.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8657f93986cc21d2E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000019, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !487, !noalias !492
@@ -2616,16 +2616,16 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hb22e1f88f7d13cb0E
   store ptr %15, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !493, !noalias !502
   %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %4, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !493, !noalias !502
-  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h423bcf5d14cf080bE.exit"
+  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h423bcf5d14cf080bE.argprom.exit"
 
 19:                                               ; preds = %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.i", %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread.i"
   %.sink6.i5.i = phi ptr [ %12, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread.i" ], [ %15, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.i" ]
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink6.i5.i, ptr %20, align 8, !alias.scope !493, !noalias !502
   store i64 -9223372036854775802, ptr %0, align 8, !alias.scope !493, !noalias !502
-  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h423bcf5d14cf080bE.exit"
+  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h423bcf5d14cf080bE.argprom.exit"
 
-"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h423bcf5d14cf080bE.exit": ; preds = %18, %19
+"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h423bcf5d14cf080bE.argprom.exit": ; preds = %18, %19
   ret void
 }
 
@@ -2646,13 +2646,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hb2edfc49d3e84c69E
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !503, !noalias !508
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5a1444ab6de9e79aE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5a1444ab6de9e79aE.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !503, !noalias !508
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5a1444ab6de9e79aE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5a1444ab6de9e79aE.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5a1444ab6de9e79aE.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5a1444ab6de9e79aE.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000007, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !503, !noalias !508
@@ -2699,16 +2699,16 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hbdf01ba11c63ef58E
   store ptr %15, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !509, !noalias !518
   %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %4, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !509, !noalias !518
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hea9f5fabc2eb492eE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hea9f5fabc2eb492eE.argprom.exit"
 
 19:                                               ; preds = %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.i", %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread.i"
   %.sink6.i5.i = phi ptr [ %12, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread.i" ], [ %15, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.i" ]
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink6.i5.i, ptr %20, align 8, !alias.scope !509, !noalias !518
   store i64 -9223372036854775793, ptr %0, align 8, !alias.scope !509, !noalias !518
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hea9f5fabc2eb492eE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hea9f5fabc2eb492eE.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hea9f5fabc2eb492eE.exit": ; preds = %18, %19
+"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hea9f5fabc2eb492eE.argprom.exit": ; preds = %18, %19
   ret void
 }
 
@@ -2730,13 +2730,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hc70cdddbaf51d82dE
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !519, !noalias !524
-  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haf4d550f78d1780aE.exit"
+  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haf4d550f78d1780aE.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !519, !noalias !524
-  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haf4d550f78d1780aE.exit"
+  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haf4d550f78d1780aE.argprom.exit"
 
-"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haf4d550f78d1780aE.exit": ; preds = %13, %14
+"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haf4d550f78d1780aE.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775804, %14 ], [ -9223372036854775806, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !519, !noalias !524
   ret void
@@ -2760,14 +2760,14 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hc7378710a84552c2E
 12:                                               ; preds = %5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %11, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !525, !noalias !530
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hac63b630e20bf23dE.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hac63b630e20bf23dE.argprom.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %14, align 8, !alias.scope !525, !noalias !530
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hac63b630e20bf23dE.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hac63b630e20bf23dE.argprom.exit"
 
-"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hac63b630e20bf23dE.exit": ; preds = %12, %13
+"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hac63b630e20bf23dE.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i8 [ 17, %13 ], [ 6, %12 ]
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !525, !noalias !530
   ret void
@@ -2810,13 +2810,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hca70e8b3b273f1f2E
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !537, !noalias !542
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h76e41386552ce89bE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h76e41386552ce89bE.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !537, !noalias !542
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h76e41386552ce89bE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h76e41386552ce89bE.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h76e41386552ce89bE.exit": ; preds = %13, %14
+"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h76e41386552ce89bE.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775793, %14 ], [ -9223372036854775803, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !537, !noalias !542
   ret void
@@ -2840,13 +2840,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hcaba6bb256108afeE
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !543, !noalias !548
-  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8f066adb1493d0eeE.exit"
+  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8f066adb1493d0eeE.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !543, !noalias !548
-  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8f066adb1493d0eeE.exit"
+  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8f066adb1493d0eeE.argprom.exit"
 
-"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8f066adb1493d0eeE.exit": ; preds = %13, %14
+"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8f066adb1493d0eeE.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775804, %14 ], [ -9223372036854775808, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !543, !noalias !548
   ret void
@@ -2869,13 +2869,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hcafe6604a53c8451E
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !549, !noalias !554
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5ffb258149a26452E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5ffb258149a26452E.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !549, !noalias !554
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5ffb258149a26452E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5ffb258149a26452E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5ffb258149a26452E.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5ffb258149a26452E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000020, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !549, !noalias !554
@@ -2900,14 +2900,14 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hce7f59fa32207d91E
 12:                                               ; preds = %5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %11, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !555, !noalias !560
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h705cabad2b50fc4aE.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h705cabad2b50fc4aE.argprom.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %14, align 8, !alias.scope !555, !noalias !560
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h705cabad2b50fc4aE.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h705cabad2b50fc4aE.argprom.exit"
 
-"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h705cabad2b50fc4aE.exit": ; preds = %12, %13
+"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h705cabad2b50fc4aE.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i8 [ 17, %13 ], [ 7, %12 ]
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !555, !noalias !560
   ret void
@@ -2931,14 +2931,14 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hcebd93b9d0f415f8E
 12:                                               ; preds = %5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %11, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !561, !noalias !566
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h415fb000b83dd03dE.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h415fb000b83dd03dE.argprom.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %14, align 8, !alias.scope !561, !noalias !566
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h415fb000b83dd03dE.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h415fb000b83dd03dE.argprom.exit"
 
-"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h415fb000b83dd03dE.exit": ; preds = %12, %13
+"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h415fb000b83dd03dE.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i8 [ 17, %13 ], [ 0, %12 ]
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !561, !noalias !566
   ret void
@@ -2981,14 +2981,14 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hd83434472c1b26f4E
 12:                                               ; preds = %5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %11, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !573, !noalias !578
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2b8b536db5d8302aE.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2b8b536db5d8302aE.argprom.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %14, align 8, !alias.scope !573, !noalias !578
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2b8b536db5d8302aE.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2b8b536db5d8302aE.argprom.exit"
 
-"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2b8b536db5d8302aE.exit": ; preds = %12, %13
+"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2b8b536db5d8302aE.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i8 [ 17, %13 ], [ 10, %12 ]
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !573, !noalias !578
   ret void
@@ -3012,14 +3012,14 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hd920440db2bd36a7E
 12:                                               ; preds = %5
   %.sroa.51.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %11, ptr %.sroa.51.0..sroa_idx.i, align 4, !alias.scope !579, !noalias !584
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9336374a1d0e361cE.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9336374a1d0e361cE.argprom.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %14, align 8, !alias.scope !579, !noalias !584
-  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9336374a1d0e361cE.exit"
+  br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9336374a1d0e361cE.argprom.exit"
 
-"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9336374a1d0e361cE.exit": ; preds = %12, %13
+"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9336374a1d0e361cE.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i8 [ 17, %13 ], [ 13, %12 ]
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !579, !noalias !584
   ret void
@@ -3042,13 +3042,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hdd5a90aa69ff6b3cE
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !585, !noalias !590
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8dc84b1f989a0a23E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8dc84b1f989a0a23E.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !585, !noalias !590
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8dc84b1f989a0a23E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8dc84b1f989a0a23E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8dc84b1f989a0a23E.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8dc84b1f989a0a23E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000021, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !585, !noalias !590
@@ -3073,13 +3073,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17he12ae8b05a4cf3b4E
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !591, !noalias !596
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1c2a030b2fb3e75eE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1c2a030b2fb3e75eE.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !591, !noalias !596
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1c2a030b2fb3e75eE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1c2a030b2fb3e75eE.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1c2a030b2fb3e75eE.exit": ; preds = %13, %14
+"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1c2a030b2fb3e75eE.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775793, %14 ], [ -9223372036854775804, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !591, !noalias !596
   ret void
@@ -3103,13 +3103,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17he1e32ee9f3650b04E
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !597, !noalias !602
-  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17heb2a67670a9c8633E.exit"
+  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17heb2a67670a9c8633E.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !597, !noalias !602
-  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17heb2a67670a9c8633E.exit"
+  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17heb2a67670a9c8633E.argprom.exit"
 
-"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17heb2a67670a9c8633E.exit": ; preds = %13, %14
+"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17heb2a67670a9c8633E.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775804, %14 ], [ -9223372036854775805, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !597, !noalias !602
   ret void
@@ -3132,13 +3132,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17he1eef58da6f23452E
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !603, !noalias !608
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h97ee60e20368a6edE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h97ee60e20368a6edE.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !603, !noalias !608
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h97ee60e20368a6edE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h97ee60e20368a6edE.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h97ee60e20368a6edE.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h97ee60e20368a6edE.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000015, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !603, !noalias !608
@@ -3162,13 +3162,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17he5a21434708e05d5E
 
 12:                                               ; preds = %5
   store i8 %11, ptr %0, align 8, !alias.scope !609, !noalias !614
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h050c2fc19b7a7e72E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h050c2fc19b7a7e72E.argprom.exit"
 
 13:                                               ; preds = %5
   store ptr %9, ptr %0, align 8, !alias.scope !609, !noalias !614
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h050c2fc19b7a7e72E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h050c2fc19b7a7e72E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h050c2fc19b7a7e72E.exit": ; preds = %12, %13
+"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h050c2fc19b7a7e72E.argprom.exit": ; preds = %12, %13
   %.sink.i = phi i32 [ 1000000029, %13 ], [ 1000000006, %12 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !alias.scope !609, !noalias !614
@@ -3213,16 +3213,16 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hea9fbfbb43b2a5c2E
   store ptr %15, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !615, !noalias !624
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !615, !noalias !624
-  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9946c123cb39dab1E.exit"
+  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9946c123cb39dab1E.argprom.exit"
 
 19:                                               ; preds = %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.i", %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread.i"
   %.sink6.i5.i = phi ptr [ %12, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread.i" ], [ %15, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.i" ]
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink6.i5.i, ptr %20, align 8, !alias.scope !615, !noalias !624
   store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !615, !noalias !624
-  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9946c123cb39dab1E.exit"
+  br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9946c123cb39dab1E.argprom.exit"
 
-"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9946c123cb39dab1E.exit": ; preds = %18, %19
+"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9946c123cb39dab1E.argprom.exit": ; preds = %18, %19
   ret void
 }
 
@@ -3263,13 +3263,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hf1d5b1c48e886d01E
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !631, !noalias !636
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h33c887fb1dbd413fE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h33c887fb1dbd413fE.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !631, !noalias !636
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h33c887fb1dbd413fE.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h33c887fb1dbd413fE.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h33c887fb1dbd413fE.exit": ; preds = %13, %14
+"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h33c887fb1dbd413fE.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775793, %14 ], [ -9223372036854775805, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !631, !noalias !636
   ret void
@@ -3293,13 +3293,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hf5654558e4b370b8E
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !637, !noalias !642
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h3fa8d7091a9dd527E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h3fa8d7091a9dd527E.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !637, !noalias !642
-  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h3fa8d7091a9dd527E.exit"
+  br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h3fa8d7091a9dd527E.argprom.exit"
 
-"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h3fa8d7091a9dd527E.exit": ; preds = %13, %14
+"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h3fa8d7091a9dd527E.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775793, %14 ], [ -9223372036854775798, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !637, !noalias !642
   ret void
@@ -3323,13 +3323,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hfaa217a442285979E
 
 13:                                               ; preds = %5
   store i8 %11, ptr %12, align 8, !alias.scope !643, !noalias !648
-  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h074ffd59fee04595E.exit"
+  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h074ffd59fee04595E.argprom.exit"
 
 14:                                               ; preds = %5
   store ptr %9, ptr %12, align 8, !alias.scope !643, !noalias !648
-  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h074ffd59fee04595E.exit"
+  br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h074ffd59fee04595E.argprom.exit"
 
-"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h074ffd59fee04595E.exit": ; preds = %13, %14
+"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h074ffd59fee04595E.argprom.exit": ; preds = %13, %14
   %.sink.i = phi i64 [ -9223372036854775802, %14 ], [ -9223372036854775803, %13 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !643, !noalias !648
   ret void
@@ -3692,7 +3692,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6382c7f81977bcE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6382c7f81977bcE.argprom.argelim"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { { { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 } } }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -3901,7 +3901,7 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %10 = load ptr, ptr %9, align 8, !alias.scope !758, !noalias !761, !nonnull !18, !noundef !18
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !758, !noalias !761, !noundef !18
-  invoke fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h489b1e938846fee1E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
+  invoke fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h489b1e938846fee1E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
           to label %15 unwind label %13, !noalias !758
 
 13:                                               ; preds = %5
@@ -3916,18 +3916,18 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %16 = getelementptr inbounds i8, ptr %7, i64 8
   %17 = load i64, ptr %16, align 8, !range !263, !noalias !766, !noundef !18
   %.not.i.i.i.i.i.i = icmp eq i64 %17, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.exit, label %18
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.argprom.exit, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %7, i64 16
   %20 = load i64, ptr %19, align 8, !noalias !766, !noundef !18
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.exit, label %22
+  br i1 %21, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.argprom.exit, label %22
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %7, align 8, !noalias !766, !nonnull !18, !noundef !18
   tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %20, i64 noundef %17) #19, !noalias !765
-  br label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.exit
+  br label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.argprom.exit
 
 24:                                               ; preds = %13
   %25 = landingpad { ptr, i32 }
@@ -3939,13 +3939,13 @@ common.resume:                                    ; preds = %35, %13
   %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %36, %35 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.exit: ; preds = %15, %18, %22
+_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.argprom.exit: ; preds = %15, %18, %22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !766
   %26 = load i64, ptr %8, align 8, !range !263, !noundef !18
   %27 = icmp eq i64 %26, -9223372036854775808
   br i1 %27, label %39, label %28
 
-28:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.exit
+28:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.argprom.exit
   %29 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !777
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -3990,7 +3990,7 @@ _ZN12clap_builder4util9any_value8AnyValue3new17h853750b271a19da3E.exit: ; preds 
   store i128 165306179534271998746328387960429753784, ptr %.sroa.5.0..sroa_idx, align 16
   br label %43
 
-39:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.exit
+39:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.argprom.exit
   %40 = getelementptr inbounds i8, ptr %8, i64 8
   %41 = load ptr, ptr %40, align 8, !nonnull !18, !align !781, !noundef !18
   %42 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4014,7 +4014,7 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %10 = load ptr, ptr %9, align 8, !alias.scope !782, !noalias !785, !nonnull !18, !noundef !18
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !782, !noalias !785, !noundef !18
-  invoke fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17he8252ee86d8d03ddE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
+  invoke fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17he8252ee86d8d03ddE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
           to label %15 unwind label %13, !noalias !782
 
 13:                                               ; preds = %5
@@ -4029,18 +4029,18 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %16 = getelementptr inbounds i8, ptr %7, i64 8
   %17 = load i64, ptr %16, align 8, !range !263, !noalias !790, !noundef !18
   %.not.i.i.i.i.i.i = icmp eq i64 %17, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.exit, label %18
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.argprom.exit, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %7, i64 16
   %20 = load i64, ptr %19, align 8, !noalias !790, !noundef !18
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.exit, label %22
+  br i1 %21, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.argprom.exit, label %22
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %7, align 8, !noalias !790, !nonnull !18, !noundef !18
   tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %20, i64 noundef %17) #19, !noalias !789
-  br label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.exit
+  br label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.argprom.exit
 
 24:                                               ; preds = %13
   %25 = landingpad { ptr, i32 }
@@ -4052,13 +4052,13 @@ common.resume:                                    ; preds = %35, %13
   %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %36, %35 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.exit: ; preds = %15, %18, %22
+_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.argprom.exit: ; preds = %15, %18, %22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !790
   %26 = load i64, ptr %8, align 8, !range !263, !noundef !18
   %27 = icmp eq i64 %26, -9223372036854775808
   br i1 %27, label %39, label %28
 
-28:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.exit
+28:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.argprom.exit
   %29 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !801
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -4103,7 +4103,7 @@ _ZN12clap_builder4util9any_value8AnyValue3new17h8c40d43f9a253a97E.exit: ; preds 
   store i128 144662470174190391482523007716712642579, ptr %.sroa.5.0..sroa_idx, align 16
   br label %43
 
-39:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.exit
+39:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.argprom.exit
   %40 = getelementptr inbounds i8, ptr %8, i64 8
   %41 = load ptr, ptr %40, align 8, !nonnull !18, !align !781, !noundef !18
   %42 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4127,7 +4127,7 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %10 = load ptr, ptr %9, align 8, !alias.scope !805, !noalias !808, !nonnull !18, !noundef !18
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !805, !noalias !808, !noundef !18
-  invoke fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h955b9ac8e92c6f5eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
+  invoke fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h955b9ac8e92c6f5eE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
           to label %15 unwind label %13, !noalias !805
 
 13:                                               ; preds = %5
@@ -4142,18 +4142,18 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %16 = getelementptr inbounds i8, ptr %7, i64 8
   %17 = load i64, ptr %16, align 8, !range !263, !noalias !813, !noundef !18
   %.not.i.i.i.i.i.i = icmp eq i64 %17, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.exit, label %18
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.argprom.exit, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %7, i64 16
   %20 = load i64, ptr %19, align 8, !noalias !813, !noundef !18
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.exit, label %22
+  br i1 %21, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.argprom.exit, label %22
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %7, align 8, !noalias !813, !nonnull !18, !noundef !18
   tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %20, i64 noundef %17) #19, !noalias !812
-  br label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.exit
+  br label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.argprom.exit
 
 24:                                               ; preds = %13
   %25 = landingpad { ptr, i32 }
@@ -4165,13 +4165,13 @@ common.resume:                                    ; preds = %35, %13
   %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %36, %35 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.exit: ; preds = %15, %18, %22
+_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.argprom.exit: ; preds = %15, %18, %22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !813
   %26 = load i64, ptr %8, align 8, !range !263, !noundef !18
   %27 = icmp eq i64 %26, -9223372036854775808
   br i1 %27, label %39, label %28
 
-28:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.exit
+28:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.argprom.exit
   %29 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !824
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -4216,7 +4216,7 @@ _ZN12clap_builder4util9any_value8AnyValue3new17h4c591664fd05af0fE.exit: ; preds 
   store i128 -143305565193179867842526030988143877294, ptr %.sroa.5.0..sroa_idx, align 16
   br label %43
 
-39:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.exit
+39:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.argprom.exit
   %40 = getelementptr inbounds i8, ptr %8, i64 8
   %41 = load ptr, ptr %40, align 8, !nonnull !18, !align !781, !noundef !18
   %42 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4240,7 +4240,7 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %10 = load ptr, ptr %9, align 8, !alias.scope !828, !noalias !831, !nonnull !18, !noundef !18
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !828, !noalias !831, !noundef !18
-  invoke fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17ha660cbd6b37d8c7fE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
+  invoke fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17ha660cbd6b37d8c7fE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
           to label %15 unwind label %13, !noalias !828
 
 13:                                               ; preds = %5
@@ -4255,18 +4255,18 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %16 = getelementptr inbounds i8, ptr %7, i64 8
   %17 = load i64, ptr %16, align 8, !range !263, !noalias !836, !noundef !18
   %.not.i.i.i.i.i.i = icmp eq i64 %17, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.exit, label %18
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.argprom.exit, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %7, i64 16
   %20 = load i64, ptr %19, align 8, !noalias !836, !noundef !18
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.exit, label %22
+  br i1 %21, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.argprom.exit, label %22
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %7, align 8, !noalias !836, !nonnull !18, !noundef !18
   tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %20, i64 noundef %17) #19, !noalias !835
-  br label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.exit
+  br label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.argprom.exit
 
 24:                                               ; preds = %13
   %25 = landingpad { ptr, i32 }
@@ -4278,13 +4278,13 @@ common.resume:                                    ; preds = %35, %13
   %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %36, %35 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.exit: ; preds = %15, %18, %22
+_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.argprom.exit: ; preds = %15, %18, %22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !836
   %26 = load i64, ptr %8, align 8, !range !263, !noundef !18
   %27 = icmp eq i64 %26, -9223372036854775808
   br i1 %27, label %39, label %28
 
-28:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.exit
+28:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.argprom.exit
   %29 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !847
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -4329,7 +4329,7 @@ _ZN12clap_builder4util9any_value8AnyValue3new17hfcafe1dadfdd3a9eE.exit: ; preds 
   store i128 41398829774608016507511085459386655141, ptr %.sroa.5.0..sroa_idx, align 16
   br label %43
 
-39:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.exit
+39:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.argprom.exit
   %40 = getelementptr inbounds i8, ptr %8, i64 8
   %41 = load ptr, ptr %40, align 8, !nonnull !18, !align !781, !noundef !18
   %42 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4353,7 +4353,7 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %10 = load ptr, ptr %9, align 8, !alias.scope !851, !noalias !854, !nonnull !18, !noundef !18
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !851, !noalias !854, !noundef !18
-  invoke fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h99f5d1c8a93a06cfE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
+  invoke fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h99f5d1c8a93a06cfE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
           to label %15 unwind label %13, !noalias !851
 
 13:                                               ; preds = %5
@@ -4368,18 +4368,18 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %16 = getelementptr inbounds i8, ptr %7, i64 8
   %17 = load i64, ptr %16, align 8, !range !263, !noalias !859, !noundef !18
   %.not.i.i.i.i.i.i = icmp eq i64 %17, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.exit, label %18
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.argprom.exit, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %7, i64 16
   %20 = load i64, ptr %19, align 8, !noalias !859, !noundef !18
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.exit, label %22
+  br i1 %21, label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.argprom.exit, label %22
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %7, align 8, !noalias !859, !nonnull !18, !noundef !18
   tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %20, i64 noundef %17) #19, !noalias !858
-  br label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.exit
+  br label %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.argprom.exit
 
 24:                                               ; preds = %13
   %25 = landingpad { ptr, i32 }
@@ -4391,13 +4391,13 @@ common.resume:                                    ; preds = %35, %13
   %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %36, %35 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.exit: ; preds = %15, %18, %22
+_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.argprom.exit: ; preds = %15, %18, %22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !859
   %26 = load i64, ptr %8, align 8, !range !263, !noundef !18
   %27 = icmp eq i64 %26, -9223372036854775808
   br i1 %27, label %39, label %28
 
-28:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.exit
+28:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.argprom.exit
   %29 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !870
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -4442,7 +4442,7 @@ _ZN12clap_builder4util9any_value8AnyValue3new17h469b936fbdf9afecE.exit: ; preds 
   store i128 163711992779950376337670286670942659475, ptr %.sroa.5.0..sroa_idx, align 16
   br label %43
 
-39:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.exit
+39:                                               ; preds = %_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.argprom.exit
   %40 = getelementptr inbounds i8, ptr %8, i64 8
   %41 = load ptr, ptr %40, align 8, !nonnull !18, !align !781, !noundef !18
   %42 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4510,7 +4510,7 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %7 = alloca { { i64 }, { i64 }, { { { i64, ptr, {} }, i64 } } }, align 8
   %8 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h489b1e938846fee1E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
+  call fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h489b1e938846fee1E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
   %9 = load i64, ptr %8, align 8, !range !263, !noundef !18
   %10 = icmp eq i64 %9, -9223372036854775808
   br i1 %10, label %23, label %11
@@ -4581,7 +4581,7 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %7 = alloca { { i64 }, { i64 }, { { { i64, ptr, {} }, i64 } } }, align 8
   %8 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17ha660cbd6b37d8c7fE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
+  call fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17ha660cbd6b37d8c7fE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
   %9 = load i64, ptr %8, align 8, !range !263, !noundef !18
   %10 = icmp eq i64 %9, -9223372036854775808
   br i1 %10, label %22, label %11
@@ -4652,7 +4652,7 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %7 = alloca { { i64 }, { i64 }, { { { i64, ptr, {} }, i64 } } }, align 8
   %8 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h955b9ac8e92c6f5eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
+  call fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h955b9ac8e92c6f5eE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
   %9 = load i64, ptr %8, align 8, !range !263, !noundef !18
   %10 = icmp eq i64 %9, -9223372036854775808
   br i1 %10, label %22, label %11
@@ -4723,7 +4723,7 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %7 = alloca { { i64 }, { i64 }, { { { i64, ptr, {} }, i64 } } }, align 8
   %8 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17he8252ee86d8d03ddE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
+  call fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17he8252ee86d8d03ddE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
   %9 = load i64, ptr %8, align 8, !range !263, !noundef !18
   %10 = icmp eq i64 %9, -9223372036854775808
   br i1 %10, label %23, label %11
@@ -4794,7 +4794,7 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %7 = alloca { { i64 }, { i64 }, { { { i64, ptr, {} }, i64 } } }, align 8
   %8 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h99f5d1c8a93a06cfE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
+  call fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h99f5d1c8a93a06cfE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
   %9 = load i64, ptr %8, align 8, !range !263, !noundef !18
   %10 = icmp eq i64 %9, -9223372036854775808
   br i1 %10, label %23, label %11
@@ -5028,7 +5028,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h489b1e938846fee1E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h489b1e938846fee1E.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
@@ -5141,7 +5141,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
           cleanup
   br label %.body
 
-.loopexit.split-lp71.loopexit.split-lp.loopexit:  ; preds = %445, %461, %462, %463, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit303.thread", %.loopexit75
+.loopexit.split-lp71.loopexit.split-lp.loopexit:  ; preds = %445, %461, %462, %463, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit303.thread", %.loopexit75
   %lpad.loopexit79 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -5201,16 +5201,16 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 96:                                               ; preds = %87
   store i32 %91, ptr %70, align 4
   switch i64 %.sroa.5110.0.copyload, label %.lr.ph102 [
-    i64 4, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit"
-    i64 9, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit228"
+    i64 4, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit"
+    i64 9, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit228"
   ]
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit": ; preds = %96
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit": ; preds = %96
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %77, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !908
   %97 = icmp eq i32 %bcmp.i.i, 0
   br i1 %97, label %.preheader, label %.lr.ph102
 
-.preheader:                                       ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit"
+.preheader:                                       ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit"
   %98 = getelementptr inbounds i8, ptr %8, i64 8
   %99 = getelementptr inbounds i8, ptr %9, i64 8
   %100 = getelementptr inbounds i8, ptr %9, i64 32
@@ -5221,7 +5221,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %105 = getelementptr inbounds i8, ptr %7, i64 16
   br label %390
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit228": ; preds = %96
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit228": ; preds = %96
   %bcmp.i.i227 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %77, ptr noundef nonnull readonly dereferenceable(9) @anon.3102dd4ba18bac1e532fac417d15316a.68, i64 9), !alias.scope !912
   %106 = icmp eq i32 %bcmp.i.i227, 0
   br i1 %106, label %318, label %.lr.ph102
@@ -5231,7 +5231,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..Wasi$GT$$GT$17h813552cdf37fdc15E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #17
           to label %.body unwind label %306
 
-.loopexit:                                        ; preds = %200, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i", %215
+.loopexit:                                        ; preds = %200, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i", %215
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -5246,7 +5246,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
           cleanup
   br label %.loopexit.split-lp
 
-.lr.ph102:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit228", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit", %96
+.lr.ph102:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit228", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit", %96
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36)
   store i64 0, ptr %36, align 8
   %107 = getelementptr inbounds i8, ptr %36, i64 8
@@ -5572,14 +5572,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 
 200:                                              ; preds = %194
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !969
-  invoke fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6382c7f81977bcE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 1 %197, i64 noundef %199)
+  invoke fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6382c7f81977bcE.argprom.argelim"(ptr noalias nocapture noundef align 8 dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 1 %197, i64 noundef %199)
           to label %.noexc267 unwind label %.loopexit
 
 .noexc267:                                        ; preds = %200
   %.val24.i.i.i = load i64, ptr %117, align 8, !noalias !970, !noundef !18
   %.val26.i.i.i = load i64, ptr %114, align 8, !noalias !969, !noundef !18
   %.not.i.i.i.i.i = icmp eq i64 %.val24.i.i.i, %.val26.i.i.i
-  br i1 %.not.i.i.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
+  br i1 %.not.i.i.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i"
 
 201:                                              ; preds = %194
   %202 = load i64, ptr %114, align 8, !noalias !969, !noundef !18
@@ -5596,14 +5596,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %or.cond.i = or i1 %.not.i.i28.i.i.i, %204
   br i1 %or.cond.i, label %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Wasi$GT$$C$alloc..string..String$RP$$GT$$GT$17h1b05a06e092f6a39E.exit.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i": ; preds = %.noexc267
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i": ; preds = %.noexc267
   %.val25.i.i.i = load ptr, ptr %32, align 8, !noalias !969, !nonnull !18, !align !19, !noundef !18
   %.val.i.i.i266 = load ptr, ptr %118, align 8, !noalias !970, !nonnull !18, !noundef !18
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val.i.i.i266, ptr nonnull readonly %.val25.i.i.i, i64 %.val24.i.i.i), !alias.scope !981, !noalias !969
   %206 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %206, label %.thread.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
+  br i1 %206, label %.thread.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i"
 
-.thread.i.i.i:                                    ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i"
+.thread.i.i.i:                                    ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i"
   %.sroa.6.8.copyload.i = load i64, ptr %22, align 8, !noalias !970
   br label %207
 
@@ -5613,14 +5613,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %.sroa.6.0.i = phi i64 [ %.sroa.6.8.copyload.i, %.thread.i.i.i ], [ -9223372036854775808, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i.i" ]
   %.sroa.0.1.i265 = phi ptr [ %.ptr, %.thread.i.i.i ], [ %.sroa.0.0.i263, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !969
-  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i"
+  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.argprom.exit.i"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i", %.noexc267
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i", %.noexc267
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !985
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5cb736f9afe916c1E.llvm.3847999990672408200"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %22)
           to label %.noexc268 unwind label %.loopexit
 
-.noexc268:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
+.noexc268:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i"
   %208 = load i64, ptr %119, align 8, !range !263, !noalias !985, !noundef !18
   %.not.i.i.i.i.i.i.i = icmp eq i64 %208, 0
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i.i", label %209
@@ -5658,9 +5658,9 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %222 = icmp ne ptr %221, null
   call void @llvm.assume(i1 %222)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %221, ptr nonnull align 1 %219, i64 %217, i1 false)
-  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i"
+  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.argprom.exit.i"
 
-"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i": ; preds = %.noexc269, %207
+"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.argprom.exit.i": ; preds = %.noexc269, %207
   %.sroa.13.2.i = phi i64 [ %217, %.noexc269 ], [ %.sroa.13.1.i, %207 ]
   %.sroa.12.2.i = phi ptr [ %221, %.noexc269 ], [ %.sroa.12.1.i, %207 ]
   %.sroa.6.1.i = phi i64 [ %220, %.noexc269 ], [ %.sroa.6.0.i, %207 ]
@@ -5668,14 +5668,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %.not3.i = icmp eq i64 %.sroa.6.1.i, -9223372036854775808
   br i1 %.not3.i, label %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Wasi$GT$$C$alloc..string..String$RP$$GT$$GT$17h1b05a06e092f6a39E.exit.i", label %223
 
-223:                                              ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i"
+223:                                              ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.argprom.exit.i"
   store i64 %.sroa.6.1.i, ptr %.sroa.6, align 8, !alias.scope !954, !noalias !994
   br label %.loopexit62
 
-"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Wasi$GT$$C$alloc..string..String$RP$$GT$$GT$17h1b05a06e092f6a39E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i", %201
-  %.sroa.0.215.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i" ], [ %.sroa.0.0.i263, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i263, %201 ], [ %.sroa.0.0.i263, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
-  %.sroa.12.214.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %201 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
-  %.sroa.13.213.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %201 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
+"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Wasi$GT$$C$alloc..string..String$RP$$GT$$GT$17h1b05a06e092f6a39E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.argprom.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i", %201
+  %.sroa.0.215.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.argprom.exit.i" ], [ %.sroa.0.0.i263, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i263, %201 ], [ %.sroa.0.0.i263, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
+  %.sroa.12.214.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.argprom.exit.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %201 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
+  %.sroa.13.213.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.argprom.exit.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %201 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
   %224 = icmp eq i64 %.add, 960
   br i1 %224, label %.loopexit62, label %194
 
@@ -6008,7 +6008,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %260
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !1068
   br label %147
 
-318:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit228"
+318:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit228"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %46)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
   store ptr %71, ptr %45, align 8
@@ -6494,15 +6494,15 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %59)
   %.val216 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !noundef !18
   %.not.i.i300 = icmp eq i64 %.val216, 4
-  br i1 %.not.i.i300, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit303", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit303.thread"
+  br i1 %.not.i.i300, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit303", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit303.thread"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit303": ; preds = %464
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit303": ; preds = %464
   %.val = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !18, !noundef !18
   %bcmp.i.i302 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.val, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1150
   %465 = icmp eq i32 %bcmp.i.i302, 0
-  br i1 %465, label %486, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit303.thread"
+  br i1 %465, label %486, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit303.thread"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit303.thread": ; preds = %464, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit303"
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit303.thread": ; preds = %464, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit303"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %53)
   store ptr @anon.3102dd4ba18bac1e532fac417d15316a.83, ptr %53, align 8
   store i64 1, ptr %425, align 8
@@ -6512,7 +6512,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
   invoke void @_ZN3std2io5stdio6_print17h289ecbd691b224daE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %53)
           to label %466 unwind label %.loopexit.split-lp71.loopexit.split-lp.loopexit
 
-466:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit303.thread"
+466:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit303.thread"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %53)
   %467 = getelementptr inbounds i8, ptr %.sroa.01.0.ptr99, i64 24
   %468 = load ptr, ptr %467, align 8, !nonnull !18, !align !19, !noundef !18
@@ -6578,7 +6578,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51)
   br label %471
 
-486:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit303"
+486:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit303"
   %487 = getelementptr inbounds i8, ptr %.sroa.01.0.ptr99, i64 24
   %488 = load ptr, ptr %487, align 8, !nonnull !18, !align !19, !noundef !18
   %489 = getelementptr inbounds i8, ptr %.sroa.01.0.ptr99, i64 32
@@ -6688,7 +6688,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h955b9ac8e92c6f5eE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h955b9ac8e92c6f5eE.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
@@ -6800,7 +6800,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
           cleanup
   br label %.loopexit.split-lp71
 
-.loopexit.split-lp71.loopexit.split-lp.loopexit:  ; preds = %430, %446, %447, %448, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit299.thread", %.loopexit75
+.loopexit.split-lp71.loopexit.split-lp.loopexit:  ; preds = %430, %446, %447, %448, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit299.thread", %.loopexit75
   %lpad.loopexit79 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp71
@@ -6860,16 +6860,16 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 95:                                               ; preds = %86
   store i32 %90, ptr %69, align 4
   switch i64 %.sroa.5110.0.copyload, label %.lr.ph102 [
-    i64 4, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit"
-    i64 9, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit228"
+    i64 4, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit"
+    i64 9, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit228"
   ]
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit": ; preds = %95
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit": ; preds = %95
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %76, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1178
   %96 = icmp eq i32 %bcmp.i.i, 0
   br i1 %96, label %.preheader, label %.lr.ph102
 
-.preheader:                                       ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit"
+.preheader:                                       ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit"
   %97 = getelementptr inbounds i8, ptr %8, i64 8
   %98 = getelementptr inbounds i8, ptr %9, i64 8
   %99 = getelementptr inbounds i8, ptr %9, i64 32
@@ -6880,7 +6880,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %104 = getelementptr inbounds i8, ptr %7, i64 16
   br label %375
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit228": ; preds = %95
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit228": ; preds = %95
   %bcmp.i.i227 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %76, ptr noundef nonnull readonly dereferenceable(9) @anon.3102dd4ba18bac1e532fac417d15316a.68, i64 9), !alias.scope !1182
   %105 = icmp eq i32 %bcmp.i.i227, 0
   br i1 %105, label %303, label %.lr.ph102
@@ -6890,7 +6890,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..Codegen$GT$$GT$17h2acf254668b6d7b0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #17
           to label %.loopexit.split-lp71 unwind label %291
 
-.loopexit:                                        ; preds = %199, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i", %214
+.loopexit:                                        ; preds = %199, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i", %214
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -6905,7 +6905,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
           cleanup
   br label %.loopexit.split-lp
 
-.lr.ph102:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit228", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit", %95
+.lr.ph102:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit228", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit", %95
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35)
   store i64 0, ptr %35, align 8
   %106 = getelementptr inbounds i8, ptr %35, i64 8
@@ -7231,14 +7231,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 
 199:                                              ; preds = %193
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !1239
-  invoke fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6382c7f81977bcE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 1 %196, i64 noundef %198)
+  invoke fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6382c7f81977bcE.argprom.argelim"(ptr noalias nocapture noundef align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 1 %196, i64 noundef %198)
           to label %.noexc267 unwind label %.loopexit
 
 .noexc267:                                        ; preds = %199
   %.val24.i.i.i = load i64, ptr %116, align 8, !noalias !1240, !noundef !18
   %.val26.i.i.i = load i64, ptr %113, align 8, !noalias !1239, !noundef !18
   %.not.i.i.i.i.i = icmp eq i64 %.val24.i.i.i, %.val26.i.i.i
-  br i1 %.not.i.i.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
+  br i1 %.not.i.i.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i"
 
 200:                                              ; preds = %193
   %201 = load i64, ptr %113, align 8, !noalias !1239, !noundef !18
@@ -7255,14 +7255,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %or.cond.i = or i1 %.not.i.i28.i.i.i, %203
   br i1 %or.cond.i, label %"_ZN4core3ptr155drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Codegen$GT$$C$alloc..string..String$RP$$GT$$GT$17h3b9341f245144649E.exit.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i": ; preds = %.noexc267
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i": ; preds = %.noexc267
   %.val25.i.i.i = load ptr, ptr %31, align 8, !noalias !1239, !nonnull !18, !align !19, !noundef !18
   %.val.i.i.i266 = load ptr, ptr %117, align 8, !noalias !1240, !nonnull !18, !noundef !18
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val.i.i.i266, ptr nonnull readonly %.val25.i.i.i, i64 %.val24.i.i.i), !alias.scope !1251, !noalias !1239
   %205 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %205, label %.thread.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
+  br i1 %205, label %.thread.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i"
 
-.thread.i.i.i:                                    ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i"
+.thread.i.i.i:                                    ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i"
   %.sroa.6.8.copyload.i = load i64, ptr %21, align 8, !noalias !1240
   br label %206
 
@@ -7272,14 +7272,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %.sroa.6.0.i = phi i64 [ %.sroa.6.8.copyload.i, %.thread.i.i.i ], [ -9223372036854775808, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i.i" ]
   %.sroa.0.1.i265 = phi ptr [ %.ptr, %.thread.i.i.i ], [ %.sroa.0.0.i263, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !1239
-  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i"
+  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.argprom.exit.i"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i", %.noexc267
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i", %.noexc267
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20), !noalias !1255
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5cb736f9afe916c1E.llvm.3847999990672408200"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %21)
           to label %.noexc268 unwind label %.loopexit
 
-.noexc268:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
+.noexc268:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i"
   %207 = load i64, ptr %118, align 8, !range !263, !noalias !1255, !noundef !18
   %.not.i.i.i.i.i.i.i = icmp eq i64 %207, 0
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i.i", label %208
@@ -7317,9 +7317,9 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %221 = icmp ne ptr %220, null
   call void @llvm.assume(i1 %221)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %220, ptr nonnull align 1 %218, i64 %216, i1 false)
-  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i"
+  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.argprom.exit.i"
 
-"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i": ; preds = %.noexc269, %206
+"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.argprom.exit.i": ; preds = %.noexc269, %206
   %.sroa.13.2.i = phi i64 [ %216, %.noexc269 ], [ %.sroa.13.1.i, %206 ]
   %.sroa.12.2.i = phi ptr [ %220, %.noexc269 ], [ %.sroa.12.1.i, %206 ]
   %.sroa.6.1.i = phi i64 [ %219, %.noexc269 ], [ %.sroa.6.0.i, %206 ]
@@ -7327,14 +7327,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %.not3.i = icmp eq i64 %.sroa.6.1.i, -9223372036854775808
   br i1 %.not3.i, label %"_ZN4core3ptr155drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Codegen$GT$$C$alloc..string..String$RP$$GT$$GT$17h3b9341f245144649E.exit.i", label %222
 
-222:                                              ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i"
+222:                                              ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.argprom.exit.i"
   store i64 %.sroa.6.1.i, ptr %.sroa.6, align 8, !alias.scope !1224, !noalias !1264
   br label %.loopexit62
 
-"_ZN4core3ptr155drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Codegen$GT$$C$alloc..string..String$RP$$GT$$GT$17h3b9341f245144649E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i", %200
-  %.sroa.0.215.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i" ], [ %.sroa.0.0.i263, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i263, %200 ], [ %.sroa.0.0.i263, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
-  %.sroa.12.214.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %200 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
-  %.sroa.13.213.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %200 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
+"_ZN4core3ptr155drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Codegen$GT$$C$alloc..string..String$RP$$GT$$GT$17h3b9341f245144649E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.argprom.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i", %200
+  %.sroa.0.215.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.argprom.exit.i" ], [ %.sroa.0.0.i263, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i263, %200 ], [ %.sroa.0.0.i263, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
+  %.sroa.12.214.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.argprom.exit.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %200 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
+  %.sroa.13.213.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.argprom.exit.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %200 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
   %223 = icmp eq i64 %.add, 448
   br i1 %223, label %.loopexit62, label %193
 
@@ -7629,7 +7629,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %245
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !1327
   br label %146
 
-303:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit228"
+303:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit228"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44)
   store ptr %70, ptr %44, align 8
@@ -8115,15 +8115,15 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %58)
   %.val216 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !noundef !18
   %.not.i.i296 = icmp eq i64 %.val216, 4
-  br i1 %.not.i.i296, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit299", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit299.thread"
+  br i1 %.not.i.i296, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit299", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit299.thread"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit299": ; preds = %449
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit299": ; preds = %449
   %.val = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !18, !noundef !18
   %bcmp.i.i298 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.val, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1409
   %450 = icmp eq i32 %bcmp.i.i298, 0
-  br i1 %450, label %471, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit299.thread"
+  br i1 %450, label %471, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit299.thread"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit299.thread": ; preds = %449, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit299"
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit299.thread": ; preds = %449, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit299"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %52)
   store ptr @anon.3102dd4ba18bac1e532fac417d15316a.83, ptr %52, align 8
   store i64 1, ptr %410, align 8
@@ -8133,7 +8133,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
   invoke void @_ZN3std2io5stdio6_print17h289ecbd691b224daE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %52)
           to label %451 unwind label %.loopexit.split-lp71.loopexit.split-lp.loopexit
 
-451:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit299.thread"
+451:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit299.thread"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %52)
   %452 = getelementptr inbounds i8, ptr %.sroa.01.0.ptr99, i64 24
   %453 = load ptr, ptr %452, align 8, !nonnull !18, !align !19, !noundef !18
@@ -8199,7 +8199,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50)
   br label %456
 
-471:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit299"
+471:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit299"
   %472 = getelementptr inbounds i8, ptr %.sroa.01.0.ptr99, i64 24
   %473 = load ptr, ptr %472, align 8, !nonnull !18, !align !19, !noundef !18
   %474 = getelementptr inbounds i8, ptr %.sroa.01.0.ptr99, i64 32
@@ -8309,7 +8309,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h99f5d1c8a93a06cfE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h99f5d1c8a93a06cfE.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
@@ -8421,7 +8421,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
           cleanup
   br label %.loopexit.split-lp69
 
-.loopexit.split-lp69.loopexit.split-lp.loopexit:  ; preds = %438, %454, %455, %456, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit301.thread", %.loopexit73
+.loopexit.split-lp69.loopexit.split-lp.loopexit:  ; preds = %438, %454, %455, %456, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit301.thread", %.loopexit73
   %lpad.loopexit77 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp69
@@ -8481,16 +8481,16 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 95:                                               ; preds = %86
   store i32 %90, ptr %69, align 4
   switch i64 %.sroa.5111.0.copyload, label %.lr.ph100 [
-    i64 4, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit"
-    i64 9, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit229"
+    i64 4, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit"
+    i64 9, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit229"
   ]
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit": ; preds = %95
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit": ; preds = %95
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %76, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1437
   %96 = icmp eq i32 %bcmp.i.i, 0
   br i1 %96, label %.preheader, label %.lr.ph100
 
-.preheader:                                       ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit"
+.preheader:                                       ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit"
   %97 = getelementptr inbounds i8, ptr %8, i64 8
   %98 = getelementptr inbounds i8, ptr %9, i64 8
   %99 = getelementptr inbounds i8, ptr %9, i64 32
@@ -8501,7 +8501,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %104 = getelementptr inbounds i8, ptr %7, i64 16
   br label %383
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit229": ; preds = %95
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit229": ; preds = %95
   %bcmp.i.i228 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %76, ptr noundef nonnull readonly dereferenceable(9) @anon.3102dd4ba18bac1e532fac417d15316a.68, i64 9), !alias.scope !1441
   %105 = icmp eq i32 %bcmp.i.i228, 0
   br i1 %105, label %311, label %.lr.ph100
@@ -8511,7 +8511,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..Wasm$GT$$GT$17hac4d6bdc423124b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #17
           to label %.loopexit.split-lp69 unwind label %299
 
-.loopexit:                                        ; preds = %200, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i", %215
+.loopexit:                                        ; preds = %200, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i", %215
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -8526,7 +8526,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
           cleanup
   br label %.loopexit.split-lp
 
-.lr.ph100:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit229", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit", %95
+.lr.ph100:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit229", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit", %95
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35)
   store i64 0, ptr %35, align 8
   %106 = getelementptr inbounds i8, ptr %35, i64 8
@@ -8850,14 +8850,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 
 200:                                              ; preds = %194
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !1498
-  invoke fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6382c7f81977bcE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 1 %197, i64 noundef %199)
+  invoke fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6382c7f81977bcE.argprom.argelim"(ptr noalias nocapture noundef align 8 dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 1 %197, i64 noundef %199)
           to label %.noexc268 unwind label %.loopexit
 
 .noexc268:                                        ; preds = %200
   %.val24.i.i.i = load i64, ptr %116, align 8, !noalias !1499, !noundef !18
   %.val26.i.i.i = load i64, ptr %113, align 8, !noalias !1498, !noundef !18
   %.not.i.i.i.i.i = icmp eq i64 %.val24.i.i.i, %.val26.i.i.i
-  br i1 %.not.i.i.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
+  br i1 %.not.i.i.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i"
 
 201:                                              ; preds = %194
   %202 = load i64, ptr %113, align 8, !noalias !1498, !noundef !18
@@ -8874,14 +8874,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %or.cond.i = or i1 %.not.i.i28.i.i.i, %204
   br i1 %or.cond.i, label %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Wasm$GT$$C$alloc..string..String$RP$$GT$$GT$17h303622bea68d14d4E.exit.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i": ; preds = %.noexc268
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i": ; preds = %.noexc268
   %.val25.i.i.i = load ptr, ptr %31, align 8, !noalias !1498, !nonnull !18, !align !19, !noundef !18
   %.val.i.i.i267 = load ptr, ptr %117, align 8, !noalias !1499, !nonnull !18, !noundef !18
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val.i.i.i267, ptr nonnull readonly %.val25.i.i.i, i64 %.val24.i.i.i), !alias.scope !1510, !noalias !1498
   %206 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %206, label %.thread.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
+  br i1 %206, label %.thread.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i"
 
-.thread.i.i.i:                                    ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i"
+.thread.i.i.i:                                    ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i"
   %.sroa.6.8.copyload.i = load i64, ptr %22, align 8, !noalias !1499
   br label %207
 
@@ -8891,14 +8891,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %.sroa.6.0.i = phi i64 [ %.sroa.6.8.copyload.i, %.thread.i.i.i ], [ -9223372036854775808, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i.i" ]
   %.sroa.0.1.i266 = phi ptr [ %.ptr, %.thread.i.i.i ], [ %.sroa.0.0.i264, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !1498
-  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i"
+  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.argprom.exit.i"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i", %.noexc268
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i", %.noexc268
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !1514
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5cb736f9afe916c1E.llvm.3847999990672408200"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %22)
           to label %.noexc269 unwind label %.loopexit
 
-.noexc269:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
+.noexc269:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i"
   %208 = load i64, ptr %118, align 8, !range !263, !noalias !1514, !noundef !18
   %.not.i.i.i.i.i.i.i = icmp eq i64 %208, 0
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i.i", label %209
@@ -8936,9 +8936,9 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %222 = icmp ne ptr %221, null
   call void @llvm.assume(i1 %222)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %221, ptr nonnull align 1 %219, i64 %217, i1 false)
-  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i"
+  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.argprom.exit.i"
 
-"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i": ; preds = %.noexc270, %207
+"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.argprom.exit.i": ; preds = %.noexc270, %207
   %.sroa.13.2.i = phi i64 [ %217, %.noexc270 ], [ %.sroa.13.1.i, %207 ]
   %.sroa.12.2.i = phi ptr [ %221, %.noexc270 ], [ %.sroa.12.1.i, %207 ]
   %.sroa.6.1.i = phi i64 [ %220, %.noexc270 ], [ %.sroa.6.0.i, %207 ]
@@ -8946,14 +8946,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %.not3.i = icmp eq i64 %.sroa.6.1.i, -9223372036854775808
   br i1 %.not3.i, label %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Wasm$GT$$C$alloc..string..String$RP$$GT$$GT$17h303622bea68d14d4E.exit.i", label %223
 
-223:                                              ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i"
+223:                                              ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.argprom.exit.i"
   store i64 %.sroa.6.1.i, ptr %.sroa.6, align 8, !alias.scope !1483, !noalias !1523
   br label %.loopexit60
 
-"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Wasm$GT$$C$alloc..string..String$RP$$GT$$GT$17h303622bea68d14d4E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i", %201
-  %.sroa.0.215.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i" ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i264, %201 ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
-  %.sroa.12.214.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %201 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
-  %.sroa.13.213.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %201 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
+"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Wasm$GT$$C$alloc..string..String$RP$$GT$$GT$17h303622bea68d14d4E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.argprom.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i", %201
+  %.sroa.0.215.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.argprom.exit.i" ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i264, %201 ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
+  %.sroa.12.214.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.argprom.exit.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %201 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
+  %.sroa.13.213.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.argprom.exit.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %201 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
   %224 = icmp eq i64 %.add, 1856
   br i1 %224, label %.loopexit60, label %194
 
@@ -9260,7 +9260,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %254
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !1594
   br label %147
 
-311:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit229"
+311:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit229"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44)
   store ptr %70, ptr %44, align 8
@@ -9746,15 +9746,15 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %58)
   %.val217 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !noundef !18
   %.not.i.i298 = icmp eq i64 %.val217, 4
-  br i1 %.not.i.i298, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit301", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit301.thread"
+  br i1 %.not.i.i298, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit301", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit301.thread"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit301": ; preds = %457
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit301": ; preds = %457
   %.val = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !18, !noundef !18
   %bcmp.i.i300 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.val, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1676
   %458 = icmp eq i32 %bcmp.i.i300, 0
-  br i1 %458, label %479, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit301.thread"
+  br i1 %458, label %479, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit301.thread"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit301.thread": ; preds = %457, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit301"
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit301.thread": ; preds = %457, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit301"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %52)
   store ptr @anon.3102dd4ba18bac1e532fac417d15316a.83, ptr %52, align 8
   store i64 1, ptr %418, align 8
@@ -9764,7 +9764,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
   invoke void @_ZN3std2io5stdio6_print17h289ecbd691b224daE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %52)
           to label %459 unwind label %.loopexit.split-lp69.loopexit.split-lp.loopexit
 
-459:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit301.thread"
+459:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit301.thread"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %52)
   %460 = getelementptr inbounds i8, ptr %.sroa.01.0.ptr97, i64 24
   %461 = load ptr, ptr %460, align 8, !nonnull !18, !align !19, !noundef !18
@@ -9830,7 +9830,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50)
   br label %464
 
-479:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit301"
+479:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit301"
   %480 = getelementptr inbounds i8, ptr %.sroa.01.0.ptr97, i64 24
   %481 = load ptr, ptr %480, align 8, !nonnull !18, !align !19, !noundef !18
   %482 = getelementptr inbounds i8, ptr %.sroa.01.0.ptr97, i64 32
@@ -9940,7 +9940,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17ha660cbd6b37d8c7fE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17ha660cbd6b37d8c7fE.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
@@ -10052,7 +10052,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
           cleanup
   br label %.loopexit.split-lp68
 
-.loopexit.split-lp68.loopexit.split-lp.loopexit:  ; preds = %431, %447, %448, %449, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300.thread", %.loopexit72
+.loopexit.split-lp68.loopexit.split-lp.loopexit:  ; preds = %431, %447, %448, %449, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300.thread", %.loopexit72
   %lpad.loopexit76 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp68
@@ -10112,16 +10112,16 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 95:                                               ; preds = %86
   store i32 %90, ptr %69, align 4
   switch i64 %.sroa.5111.0.copyload, label %.lr.ph99 [
-    i64 4, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit"
-    i64 9, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit229"
+    i64 4, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit"
+    i64 9, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit229"
   ]
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit": ; preds = %95
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit": ; preds = %95
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %76, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1704
   %96 = icmp eq i32 %bcmp.i.i, 0
   br i1 %96, label %.preheader, label %.lr.ph99
 
-.preheader:                                       ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit"
+.preheader:                                       ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit"
   %97 = getelementptr inbounds i8, ptr %8, i64 8
   %98 = getelementptr inbounds i8, ptr %9, i64 8
   %99 = getelementptr inbounds i8, ptr %9, i64 32
@@ -10132,7 +10132,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %104 = getelementptr inbounds i8, ptr %7, i64 16
   br label %376
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit229": ; preds = %95
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit229": ; preds = %95
   %bcmp.i.i228 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %76, ptr noundef nonnull readonly dereferenceable(9) @anon.3102dd4ba18bac1e532fac417d15316a.68, i64 9), !alias.scope !1708
   %105 = icmp eq i32 %bcmp.i.i228, 0
   br i1 %105, label %304, label %.lr.ph99
@@ -10142,7 +10142,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..Debug$GT$$GT$17h23be52d2557d54e4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #17
           to label %.loopexit.split-lp68 unwind label %292
 
-.loopexit:                                        ; preds = %199, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i", %214
+.loopexit:                                        ; preds = %199, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i", %214
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -10157,7 +10157,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
           cleanup
   br label %.loopexit.split-lp
 
-.lr.ph99:                                         ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit229", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit", %95
+.lr.ph99:                                         ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit229", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit", %95
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35)
   store i64 0, ptr %35, align 8
   %106 = getelementptr inbounds i8, ptr %35, i64 8
@@ -10483,14 +10483,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 
 199:                                              ; preds = %193
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !1765
-  invoke fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6382c7f81977bcE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 1 %196, i64 noundef %198)
+  invoke fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6382c7f81977bcE.argprom.argelim"(ptr noalias nocapture noundef align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 1 %196, i64 noundef %198)
           to label %.noexc268 unwind label %.loopexit
 
 .noexc268:                                        ; preds = %199
   %.val24.i.i.i = load i64, ptr %116, align 8, !noalias !1766, !noundef !18
   %.val26.i.i.i = load i64, ptr %113, align 8, !noalias !1765, !noundef !18
   %.not.i.i.i.i.i = icmp eq i64 %.val24.i.i.i, %.val26.i.i.i
-  br i1 %.not.i.i.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
+  br i1 %.not.i.i.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i"
 
 200:                                              ; preds = %193
   %201 = load i64, ptr %113, align 8, !noalias !1765, !noundef !18
@@ -10507,14 +10507,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %or.cond.i = or i1 %.not.i.i28.i.i.i, %203
   br i1 %or.cond.i, label %"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Debug$GT$$C$alloc..string..String$RP$$GT$$GT$17hea9262273ae7e436E.exit.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i": ; preds = %.noexc268
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i": ; preds = %.noexc268
   %.val25.i.i.i = load ptr, ptr %31, align 8, !noalias !1765, !nonnull !18, !align !19, !noundef !18
   %.val.i.i.i267 = load ptr, ptr %117, align 8, !noalias !1766, !nonnull !18, !noundef !18
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val.i.i.i267, ptr nonnull readonly %.val25.i.i.i, i64 %.val24.i.i.i), !alias.scope !1777, !noalias !1765
   %205 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %205, label %.thread.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
+  br i1 %205, label %.thread.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i"
 
-.thread.i.i.i:                                    ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i"
+.thread.i.i.i:                                    ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i"
   %.sroa.6.8.copyload.i = load i64, ptr %21, align 8, !noalias !1766
   br label %206
 
@@ -10524,14 +10524,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %.sroa.6.0.i = phi i64 [ %.sroa.6.8.copyload.i, %.thread.i.i.i ], [ -9223372036854775808, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i.i" ]
   %.sroa.0.1.i266 = phi ptr [ %.ptr, %.thread.i.i.i ], [ %.sroa.0.0.i264, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !1765
-  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i"
+  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.argprom.exit.i"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i", %.noexc268
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i", %.noexc268
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20), !noalias !1781
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5cb736f9afe916c1E.llvm.3847999990672408200"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %21)
           to label %.noexc269 unwind label %.loopexit
 
-.noexc269:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
+.noexc269:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i"
   %207 = load i64, ptr %118, align 8, !range !263, !noalias !1781, !noundef !18
   %.not.i.i.i.i.i.i.i = icmp eq i64 %207, 0
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i.i", label %208
@@ -10569,9 +10569,9 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %221 = icmp ne ptr %220, null
   call void @llvm.assume(i1 %221)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %220, ptr nonnull align 1 %218, i64 %216, i1 false)
-  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i"
+  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.argprom.exit.i"
 
-"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i": ; preds = %.noexc270, %206
+"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.argprom.exit.i": ; preds = %.noexc270, %206
   %.sroa.13.2.i = phi i64 [ %216, %.noexc270 ], [ %.sroa.13.1.i, %206 ]
   %.sroa.12.2.i = phi ptr [ %220, %.noexc270 ], [ %.sroa.12.1.i, %206 ]
   %.sroa.6.1.i = phi i64 [ %219, %.noexc270 ], [ %.sroa.6.0.i, %206 ]
@@ -10579,14 +10579,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %.not3.i = icmp eq i64 %.sroa.6.1.i, -9223372036854775808
   br i1 %.not3.i, label %"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Debug$GT$$C$alloc..string..String$RP$$GT$$GT$17hea9262273ae7e436E.exit.i", label %222
 
-222:                                              ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i"
+222:                                              ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.argprom.exit.i"
   store i64 %.sroa.6.1.i, ptr %.sroa.6, align 8, !alias.scope !1750, !noalias !1790
   br label %.loopexit59
 
-"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Debug$GT$$C$alloc..string..String$RP$$GT$$GT$17hea9262273ae7e436E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i", %200
-  %.sroa.0.215.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i" ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i264, %200 ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
-  %.sroa.12.214.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %200 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
-  %.sroa.13.213.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %200 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
+"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Debug$GT$$C$alloc..string..String$RP$$GT$$GT$17hea9262273ae7e436E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.argprom.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i", %200
+  %.sroa.0.215.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.argprom.exit.i" ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i264, %200 ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
+  %.sroa.12.214.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.argprom.exit.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %200 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
+  %.sroa.13.213.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.argprom.exit.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %200 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
   %223 = icmp eq i64 %.add, 320
   br i1 %223, label %.loopexit59, label %193
 
@@ -10883,7 +10883,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %245
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !1854
   br label %146
 
-304:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit229"
+304:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit229"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44)
   store ptr %70, ptr %44, align 8
@@ -11369,15 +11369,15 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %58)
   %.val217 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !noundef !18
   %.not.i.i297 = icmp eq i64 %.val217, 4
-  br i1 %.not.i.i297, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300.thread"
+  br i1 %.not.i.i297, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300.thread"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300": ; preds = %450
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300": ; preds = %450
   %.val = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !18, !noundef !18
   %bcmp.i.i299 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.val, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1936
   %451 = icmp eq i32 %bcmp.i.i299, 0
-  br i1 %451, label %472, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300.thread"
+  br i1 %451, label %472, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300.thread"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300.thread": ; preds = %450, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300"
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300.thread": ; preds = %450, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %52)
   store ptr @anon.3102dd4ba18bac1e532fac417d15316a.83, ptr %52, align 8
   store i64 1, ptr %411, align 8
@@ -11387,7 +11387,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
   invoke void @_ZN3std2io5stdio6_print17h289ecbd691b224daE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %52)
           to label %452 unwind label %.loopexit.split-lp68.loopexit.split-lp.loopexit
 
-452:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300.thread"
+452:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300.thread"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %52)
   %453 = getelementptr inbounds i8, ptr %.sroa.01.0.ptr96, i64 24
   %454 = load ptr, ptr %453, align 8, !nonnull !18, !align !19, !noundef !18
@@ -11453,7 +11453,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50)
   br label %457
 
-472:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300"
+472:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300"
   %473 = getelementptr inbounds i8, ptr %.sroa.01.0.ptr96, i64 24
   %474 = load ptr, ptr %473, align 8, !nonnull !18, !align !19, !noundef !18
   %475 = getelementptr inbounds i8, ptr %.sroa.01.0.ptr96, i64 32
@@ -11563,7 +11563,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17he8252ee86d8d03ddE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17he8252ee86d8d03ddE.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(552) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
@@ -11676,7 +11676,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
           cleanup
   br label %.loopexit.split-lp72
 
-.loopexit.split-lp72.loopexit.split-lp.loopexit:  ; preds = %437, %453, %454, %455, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300.thread", %.loopexit76
+.loopexit.split-lp72.loopexit.split-lp.loopexit:  ; preds = %437, %453, %454, %455, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300.thread", %.loopexit76
   %lpad.loopexit80 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp72
@@ -11736,16 +11736,16 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 95:                                               ; preds = %86
   store i32 %90, ptr %69, align 4
   switch i64 %.sroa.5110.0.copyload, label %.lr.ph103 [
-    i64 4, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit"
-    i64 9, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit228"
+    i64 4, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit"
+    i64 9, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit228"
   ]
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit": ; preds = %95
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit": ; preds = %95
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %76, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !1964
   %96 = icmp eq i32 %bcmp.i.i, 0
   br i1 %96, label %.preheader, label %.lr.ph103
 
-.preheader:                                       ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit"
+.preheader:                                       ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit"
   %97 = getelementptr inbounds i8, ptr %8, i64 8
   %98 = getelementptr inbounds i8, ptr %9, i64 8
   %99 = getelementptr inbounds i8, ptr %9, i64 32
@@ -11756,7 +11756,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %104 = getelementptr inbounds i8, ptr %7, i64 16
   br label %382
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit228": ; preds = %95
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit228": ; preds = %95
   %bcmp.i.i227 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %76, ptr noundef nonnull readonly dereferenceable(9) @anon.3102dd4ba18bac1e532fac417d15316a.68, i64 9), !alias.scope !1968
   %105 = icmp eq i32 %bcmp.i.i227, 0
   br i1 %105, label %310, label %.lr.ph103
@@ -11766,7 +11766,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..Optimize$GT$$GT$17h67c9a2b523aad3edE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #17
           to label %.loopexit.split-lp72 unwind label %298
 
-.loopexit:                                        ; preds = %199, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i", %214
+.loopexit:                                        ; preds = %199, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i", %214
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -11781,7 +11781,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
           cleanup
   br label %.loopexit.split-lp
 
-.lr.ph103:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit228", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit", %95
+.lr.ph103:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit228", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit", %95
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35)
   store i64 0, ptr %35, align 8
   %106 = getelementptr inbounds i8, ptr %35, i64 8
@@ -12105,14 +12105,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 
 199:                                              ; preds = %193
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !2025
-  invoke fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6382c7f81977bcE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 1 %196, i64 noundef %198)
+  invoke fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6382c7f81977bcE.argprom.argelim"(ptr noalias nocapture noundef align 8 dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 1 %196, i64 noundef %198)
           to label %.noexc267 unwind label %.loopexit
 
 .noexc267:                                        ; preds = %199
   %.val24.i.i.i = load i64, ptr %116, align 8, !noalias !2026, !noundef !18
   %.val26.i.i.i = load i64, ptr %113, align 8, !noalias !2025, !noundef !18
   %.not.i.i.i.i.i = icmp eq i64 %.val24.i.i.i, %.val26.i.i.i
-  br i1 %.not.i.i.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
+  br i1 %.not.i.i.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i"
 
 200:                                              ; preds = %193
   %201 = load i64, ptr %113, align 8, !noalias !2025, !noundef !18
@@ -12129,14 +12129,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %or.cond.i = or i1 %.not.i.i28.i.i.i, %203
   br i1 %or.cond.i, label %"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Optimize$GT$$C$alloc..string..String$RP$$GT$$GT$17hfa78a2764a065bc8E.exit.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i": ; preds = %.noexc267
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i": ; preds = %.noexc267
   %.val25.i.i.i = load ptr, ptr %31, align 8, !noalias !2025, !nonnull !18, !align !19, !noundef !18
   %.val.i.i.i266 = load ptr, ptr %117, align 8, !noalias !2026, !nonnull !18, !noundef !18
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val.i.i.i266, ptr nonnull readonly %.val25.i.i.i, i64 %.val24.i.i.i), !alias.scope !2037, !noalias !2025
   %205 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %205, label %.thread.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
+  br i1 %205, label %.thread.i.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i"
 
-.thread.i.i.i:                                    ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i"
+.thread.i.i.i:                                    ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i"
   %.sroa.6.8.copyload.i = load i64, ptr %22, align 8, !noalias !2026
   br label %206
 
@@ -12146,14 +12146,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %.sroa.6.0.i = phi i64 [ %.sroa.6.8.copyload.i, %.thread.i.i.i ], [ -9223372036854775808, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i.i" ]
   %.sroa.0.1.i265 = phi ptr [ %.ptr, %.thread.i.i.i ], [ %.sroa.0.0.i263, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !2025
-  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i"
+  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.argprom.exit.i"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i.i.i", %.noexc267
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.i.i.i", %.noexc267
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !2041
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5cb736f9afe916c1E.llvm.3847999990672408200"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %22)
           to label %.noexc268 unwind label %.loopexit
 
-.noexc268:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.thread.i.i.i"
+.noexc268:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit.thread.i.i.i"
   %207 = load i64, ptr %118, align 8, !range !263, !noalias !2041, !noundef !18
   %.not.i.i.i.i.i.i.i = icmp eq i64 %207, 0
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E.exit.i.i.i", label %208
@@ -12191,9 +12191,9 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %221 = icmp ne ptr %220, null
   call void @llvm.assume(i1 %221)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %220, ptr nonnull align 1 %218, i64 %216, i1 false)
-  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i"
+  br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.argprom.exit.i"
 
-"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i": ; preds = %.noexc269, %206
+"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.argprom.exit.i": ; preds = %.noexc269, %206
   %.sroa.13.2.i = phi i64 [ %216, %.noexc269 ], [ %.sroa.13.1.i, %206 ]
   %.sroa.12.2.i = phi ptr [ %220, %.noexc269 ], [ %.sroa.12.1.i, %206 ]
   %.sroa.6.1.i = phi i64 [ %219, %.noexc269 ], [ %.sroa.6.0.i, %206 ]
@@ -12201,14 +12201,14 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %.not3.i = icmp eq i64 %.sroa.6.1.i, -9223372036854775808
   br i1 %.not3.i, label %"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Optimize$GT$$C$alloc..string..String$RP$$GT$$GT$17hfa78a2764a065bc8E.exit.i", label %222
 
-222:                                              ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i"
+222:                                              ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.argprom.exit.i"
   store i64 %.sroa.6.1.i, ptr %.sroa.6, align 8, !alias.scope !2010, !noalias !2050
   br label %.loopexit63
 
-"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Optimize$GT$$C$alloc..string..String$RP$$GT$$GT$17hfa78a2764a065bc8E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i", %200
-  %.sroa.0.215.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i" ], [ %.sroa.0.0.i263, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i263, %200 ], [ %.sroa.0.0.i263, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
-  %.sroa.12.214.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %200 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
-  %.sroa.13.213.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %200 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
+"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Optimize$GT$$C$alloc..string..String$RP$$GT$$GT$17hfa78a2764a065bc8E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.argprom.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i", %200
+  %.sroa.0.215.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.argprom.exit.i" ], [ %.sroa.0.0.i263, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i263, %200 ], [ %.sroa.0.0.i263, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
+  %.sroa.12.214.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.argprom.exit.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %200 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
+  %.sroa.13.213.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.argprom.exit.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %200 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i29.i.i.i" ]
   %223 = icmp eq i64 %.add, 1088
   br i1 %223, label %.loopexit63, label %193
 
@@ -12516,7 +12516,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %252
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !2122
   br label %146
 
-310:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit228"
+310:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit228"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44)
   store ptr %70, ptr %44, align 8
@@ -13002,15 +13002,15 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %58)
   %.val216 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !noundef !18
   %.not.i.i297 = icmp eq i64 %.val216, 4
-  br i1 %.not.i.i297, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300.thread"
+  br i1 %.not.i.i297, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300.thread"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300": ; preds = %456
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300": ; preds = %456
   %.val = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !18, !noundef !18
   %bcmp.i.i299 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.val, ptr noundef nonnull readonly dereferenceable(4) @anon.3102dd4ba18bac1e532fac417d15316a.66, i64 4), !alias.scope !2204
   %457 = icmp eq i32 %bcmp.i.i299, 0
-  br i1 %457, label %478, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300.thread"
+  br i1 %457, label %478, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300.thread"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300.thread": ; preds = %456, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300"
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300.thread": ; preds = %456, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %52)
   store ptr @anon.3102dd4ba18bac1e532fac417d15316a.83, ptr %52, align 8
   store i64 1, ptr %417, align 8
@@ -13020,7 +13020,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
   invoke void @_ZN3std2io5stdio6_print17h289ecbd691b224daE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %52)
           to label %458 unwind label %.loopexit.split-lp72.loopexit.split-lp.loopexit
 
-458:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300.thread"
+458:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300.thread"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %52)
   %459 = getelementptr inbounds i8, ptr %.sroa.01.0.ptr100, i64 24
   %460 = load ptr, ptr %459, align 8, !nonnull !18, !align !19, !noundef !18
@@ -13086,7 +13086,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.51833738392561384.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50)
   br label %463
 
-478:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit300"
+478:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit300"
   %479 = getelementptr inbounds i8, ptr %.sroa.01.0.ptr100, i64 24
   %480 = load ptr, ptr %479, align 8, !nonnull !18, !align !19, !noundef !18
   %481 = getelementptr inbounds i8, ptr %.sroa.01.0.ptr100, i64 32
@@ -13623,460 +13623,460 @@ attributes #19 = { nounwind }
 !191 = distinct !{!191, !192, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hd94b0515c96ef77eE.llvm.8829863051809837105: argument 0"}
 !192 = distinct !{!192, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hd94b0515c96ef77eE.llvm.8829863051809837105"}
 !193 = !{!194}
-!194 = distinct !{!194, !195, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9eda4f2da3bea298E: argument 0"}
-!195 = distinct !{!195, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9eda4f2da3bea298E"}
+!194 = distinct !{!194, !195, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9eda4f2da3bea298E.argprom: argument 0"}
+!195 = distinct !{!195, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9eda4f2da3bea298E.argprom"}
 !196 = !{!194, !197}
-!197 = distinct !{!197, !195, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9eda4f2da3bea298E: argument 1"}
+!197 = distinct !{!197, !195, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9eda4f2da3bea298E.argprom: argument 1"}
 !198 = !{i32 0, i32 2}
 !199 = !{!197}
 !200 = !{!201}
-!201 = distinct !{!201, !202, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h89303023717501a3E: argument 0"}
-!202 = distinct !{!202, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h89303023717501a3E"}
+!201 = distinct !{!201, !202, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h89303023717501a3E.argprom: argument 0"}
+!202 = distinct !{!202, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h89303023717501a3E.argprom"}
 !203 = !{!201, !204}
-!204 = distinct !{!204, !202, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h89303023717501a3E: argument 1"}
+!204 = distinct !{!204, !202, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h89303023717501a3E.argprom: argument 1"}
 !205 = !{!204}
 !206 = !{!207}
-!207 = distinct !{!207, !208, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8012b8c9203cfcc1E: argument 0"}
-!208 = distinct !{!208, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8012b8c9203cfcc1E"}
+!207 = distinct !{!207, !208, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8012b8c9203cfcc1E.argprom: argument 0"}
+!208 = distinct !{!208, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8012b8c9203cfcc1E.argprom"}
 !209 = !{!207, !210}
-!210 = distinct !{!210, !208, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8012b8c9203cfcc1E: argument 1"}
+!210 = distinct !{!210, !208, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8012b8c9203cfcc1E.argprom: argument 1"}
 !211 = !{!210}
 !212 = !{!213}
-!213 = distinct !{!213, !214, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5b94b475c747708dE: argument 0"}
-!214 = distinct !{!214, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5b94b475c747708dE"}
+!213 = distinct !{!213, !214, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5b94b475c747708dE.argprom: argument 0"}
+!214 = distinct !{!214, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5b94b475c747708dE.argprom"}
 !215 = !{!213, !216}
-!216 = distinct !{!216, !214, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5b94b475c747708dE: argument 1"}
+!216 = distinct !{!216, !214, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5b94b475c747708dE.argprom: argument 1"}
 !217 = !{!216}
 !218 = !{!219}
-!219 = distinct !{!219, !220, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h51a17de285dece19E: argument 0"}
-!220 = distinct !{!220, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h51a17de285dece19E"}
+!219 = distinct !{!219, !220, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h51a17de285dece19E.argprom: argument 0"}
+!220 = distinct !{!220, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h51a17de285dece19E.argprom"}
 !221 = !{!219, !222}
-!222 = distinct !{!222, !220, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h51a17de285dece19E: argument 1"}
+!222 = distinct !{!222, !220, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h51a17de285dece19E.argprom: argument 1"}
 !223 = !{i8 0, i8 3}
 !224 = !{!222}
 !225 = !{!226}
-!226 = distinct !{!226, !227, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1ac67cc2c028ae4aE: argument 0"}
-!227 = distinct !{!227, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1ac67cc2c028ae4aE"}
+!226 = distinct !{!226, !227, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1ac67cc2c028ae4aE.argprom: argument 0"}
+!227 = distinct !{!227, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1ac67cc2c028ae4aE.argprom"}
 !228 = !{!226, !229}
-!229 = distinct !{!229, !227, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1ac67cc2c028ae4aE: argument 1"}
+!229 = distinct !{!229, !227, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1ac67cc2c028ae4aE.argprom: argument 1"}
 !230 = !{!229}
 !231 = !{!232}
-!232 = distinct !{!232, !233, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E: argument 0"}
-!233 = distinct !{!233, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E"}
+!232 = distinct !{!232, !233, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E.argprom: argument 0"}
+!233 = distinct !{!233, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E.argprom"}
 !234 = !{!232, !235, !236}
-!235 = distinct !{!235, !233, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E: argument 1"}
-!236 = distinct !{!236, !233, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E: argument 2"}
+!235 = distinct !{!235, !233, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E.argprom: argument 1"}
+!236 = distinct !{!236, !233, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E.argprom: argument 2"}
 !237 = !{!232, !235}
 !238 = !{!235, !236}
 !239 = !{!240}
-!240 = distinct !{!240, !241, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h62defe363d4d7bc6E: argument 0"}
-!241 = distinct !{!241, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h62defe363d4d7bc6E"}
+!240 = distinct !{!240, !241, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h62defe363d4d7bc6E.argprom: argument 0"}
+!241 = distinct !{!241, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h62defe363d4d7bc6E.argprom"}
 !242 = !{!240, !243}
-!243 = distinct !{!243, !241, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h62defe363d4d7bc6E: argument 1"}
+!243 = distinct !{!243, !241, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h62defe363d4d7bc6E.argprom: argument 1"}
 !244 = !{i32 0, i32 1000000001}
 !245 = !{!243}
 !246 = !{!247}
-!247 = distinct !{!247, !248, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfa787fe1b56a1eebE: argument 0"}
-!248 = distinct !{!248, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfa787fe1b56a1eebE"}
+!247 = distinct !{!247, !248, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfa787fe1b56a1eebE.argprom: argument 0"}
+!248 = distinct !{!248, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfa787fe1b56a1eebE.argprom"}
 !249 = !{!247, !250}
-!250 = distinct !{!250, !248, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfa787fe1b56a1eebE: argument 1"}
+!250 = distinct !{!250, !248, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfa787fe1b56a1eebE.argprom: argument 1"}
 !251 = !{!250}
 !252 = !{!253}
-!253 = distinct !{!253, !254, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h93c5022d97019211E: argument 0"}
-!254 = distinct !{!254, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h93c5022d97019211E"}
+!253 = distinct !{!253, !254, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h93c5022d97019211E.argprom: argument 0"}
+!254 = distinct !{!254, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h93c5022d97019211E.argprom"}
 !255 = !{!253, !256}
-!256 = distinct !{!256, !254, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h93c5022d97019211E: argument 1"}
+!256 = distinct !{!256, !254, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h93c5022d97019211E.argprom: argument 1"}
 !257 = !{!256}
 !258 = !{!259}
-!259 = distinct !{!259, !260, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbd525a1ceec62ca1E: argument 0"}
-!260 = distinct !{!260, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbd525a1ceec62ca1E"}
+!259 = distinct !{!259, !260, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbd525a1ceec62ca1E.argprom: argument 0"}
+!260 = distinct !{!260, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbd525a1ceec62ca1E.argprom"}
 !261 = !{!259, !262}
-!262 = distinct !{!262, !260, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbd525a1ceec62ca1E: argument 1"}
+!262 = distinct !{!262, !260, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbd525a1ceec62ca1E.argprom: argument 1"}
 !263 = !{i64 0, i64 -9223372036854775807}
 !264 = !{!262}
 !265 = !{!266}
-!266 = distinct !{!266, !267, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4d0f78c39fea543cE: argument 0"}
-!267 = distinct !{!267, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4d0f78c39fea543cE"}
+!266 = distinct !{!266, !267, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4d0f78c39fea543cE.argprom: argument 0"}
+!267 = distinct !{!267, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4d0f78c39fea543cE.argprom"}
 !268 = !{!266, !269}
-!269 = distinct !{!269, !267, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4d0f78c39fea543cE: argument 1"}
+!269 = distinct !{!269, !267, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4d0f78c39fea543cE.argprom: argument 1"}
 !270 = !{!269}
 !271 = !{!272}
-!272 = distinct !{!272, !273, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6bae588760d7d86E: argument 0"}
-!273 = distinct !{!273, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6bae588760d7d86E"}
+!272 = distinct !{!272, !273, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6bae588760d7d86E.argprom: argument 0"}
+!273 = distinct !{!273, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6bae588760d7d86E.argprom"}
 !274 = !{!272, !275}
-!275 = distinct !{!275, !273, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6bae588760d7d86E: argument 1"}
+!275 = distinct !{!275, !273, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6bae588760d7d86E.argprom: argument 1"}
 !276 = !{!275}
 !277 = !{!278}
-!278 = distinct !{!278, !279, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2bd5a44f8ee615ecE: argument 0"}
-!279 = distinct !{!279, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2bd5a44f8ee615ecE"}
+!278 = distinct !{!278, !279, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2bd5a44f8ee615ecE.argprom: argument 0"}
+!279 = distinct !{!279, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2bd5a44f8ee615ecE.argprom"}
 !280 = !{!278, !281}
-!281 = distinct !{!281, !279, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2bd5a44f8ee615ecE: argument 1"}
+!281 = distinct !{!281, !279, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2bd5a44f8ee615ecE.argprom: argument 1"}
 !282 = !{!281}
 !283 = !{!284}
-!284 = distinct !{!284, !285, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb001baae52028010E: argument 0"}
-!285 = distinct !{!285, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb001baae52028010E"}
+!284 = distinct !{!284, !285, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb001baae52028010E.argprom: argument 0"}
+!285 = distinct !{!285, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb001baae52028010E.argprom"}
 !286 = !{!284, !287}
-!287 = distinct !{!287, !285, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb001baae52028010E: argument 1"}
+!287 = distinct !{!287, !285, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb001baae52028010E.argprom: argument 1"}
 !288 = !{!287}
 !289 = !{!290}
-!290 = distinct !{!290, !291, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb94b648545237c1fE: argument 0"}
-!291 = distinct !{!291, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb94b648545237c1fE"}
+!290 = distinct !{!290, !291, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb94b648545237c1fE.argprom: argument 0"}
+!291 = distinct !{!291, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb94b648545237c1fE.argprom"}
 !292 = !{!290, !293}
-!293 = distinct !{!293, !291, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb94b648545237c1fE: argument 1"}
+!293 = distinct !{!293, !291, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb94b648545237c1fE.argprom: argument 1"}
 !294 = !{!293}
 !295 = !{!296}
-!296 = distinct !{!296, !297, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfb25a92a1accc348E: argument 0"}
-!297 = distinct !{!297, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfb25a92a1accc348E"}
+!296 = distinct !{!296, !297, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfb25a92a1accc348E.argprom: argument 0"}
+!297 = distinct !{!297, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfb25a92a1accc348E.argprom"}
 !298 = !{!296, !299}
-!299 = distinct !{!299, !297, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfb25a92a1accc348E: argument 1"}
+!299 = distinct !{!299, !297, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfb25a92a1accc348E.argprom: argument 1"}
 !300 = !{!299}
 !301 = !{!302}
-!302 = distinct !{!302, !303, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdba331b82f668c8dE: argument 0"}
-!303 = distinct !{!303, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdba331b82f668c8dE"}
+!302 = distinct !{!302, !303, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdba331b82f668c8dE.argprom: argument 0"}
+!303 = distinct !{!303, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdba331b82f668c8dE.argprom"}
 !304 = !{!302, !305}
-!305 = distinct !{!305, !303, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdba331b82f668c8dE: argument 1"}
+!305 = distinct !{!305, !303, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdba331b82f668c8dE.argprom: argument 1"}
 !306 = !{!305}
 !307 = !{!308}
-!308 = distinct !{!308, !309, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h80311419ceabb560E: argument 0"}
-!309 = distinct !{!309, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h80311419ceabb560E"}
+!308 = distinct !{!308, !309, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h80311419ceabb560E.argprom: argument 0"}
+!309 = distinct !{!309, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h80311419ceabb560E.argprom"}
 !310 = !{!308, !311}
-!311 = distinct !{!311, !309, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h80311419ceabb560E: argument 1"}
+!311 = distinct !{!311, !309, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h80311419ceabb560E.argprom: argument 1"}
 !312 = !{!311}
 !313 = !{!314}
-!314 = distinct !{!314, !315, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h6fb91d94efe63b3cE: argument 0"}
-!315 = distinct !{!315, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h6fb91d94efe63b3cE"}
+!314 = distinct !{!314, !315, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h6fb91d94efe63b3cE.argprom: argument 0"}
+!315 = distinct !{!315, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h6fb91d94efe63b3cE.argprom"}
 !316 = !{!314, !317}
-!317 = distinct !{!317, !315, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h6fb91d94efe63b3cE: argument 1"}
+!317 = distinct !{!317, !315, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h6fb91d94efe63b3cE.argprom: argument 1"}
 !318 = !{!317}
 !319 = !{!320}
-!320 = distinct !{!320, !321, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he0c29ed832e27d91E: argument 0"}
-!321 = distinct !{!321, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he0c29ed832e27d91E"}
+!320 = distinct !{!320, !321, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he0c29ed832e27d91E.argprom: argument 0"}
+!321 = distinct !{!321, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he0c29ed832e27d91E.argprom"}
 !322 = !{!320, !323}
-!323 = distinct !{!323, !321, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he0c29ed832e27d91E: argument 1"}
+!323 = distinct !{!323, !321, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he0c29ed832e27d91E.argprom: argument 1"}
 !324 = !{!323}
 !325 = !{!326}
-!326 = distinct !{!326, !327, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdc9953b1be4aa236E: argument 0"}
-!327 = distinct !{!327, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdc9953b1be4aa236E"}
+!326 = distinct !{!326, !327, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdc9953b1be4aa236E.argprom: argument 0"}
+!327 = distinct !{!327, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdc9953b1be4aa236E.argprom"}
 !328 = !{!326, !329}
-!329 = distinct !{!329, !327, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdc9953b1be4aa236E: argument 1"}
+!329 = distinct !{!329, !327, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdc9953b1be4aa236E.argprom: argument 1"}
 !330 = !{!329}
 !331 = !{!332}
-!332 = distinct !{!332, !333, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hee6ce786cfbbd925E: argument 0"}
-!333 = distinct !{!333, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hee6ce786cfbbd925E"}
+!332 = distinct !{!332, !333, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hee6ce786cfbbd925E.argprom: argument 0"}
+!333 = distinct !{!333, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hee6ce786cfbbd925E.argprom"}
 !334 = !{!332, !335}
-!335 = distinct !{!335, !333, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hee6ce786cfbbd925E: argument 1"}
+!335 = distinct !{!335, !333, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hee6ce786cfbbd925E.argprom: argument 1"}
 !336 = !{!335}
 !337 = !{!338}
-!338 = distinct !{!338, !339, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4bb0522624b4538aE: argument 0"}
-!339 = distinct !{!339, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4bb0522624b4538aE"}
+!338 = distinct !{!338, !339, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4bb0522624b4538aE.argprom: argument 0"}
+!339 = distinct !{!339, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4bb0522624b4538aE.argprom"}
 !340 = !{!338, !341}
-!341 = distinct !{!341, !339, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4bb0522624b4538aE: argument 1"}
+!341 = distinct !{!341, !339, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4bb0522624b4538aE.argprom: argument 1"}
 !342 = !{!341}
 !343 = !{!344}
-!344 = distinct !{!344, !345, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcce056ecf770ef6eE: argument 0"}
-!345 = distinct !{!345, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcce056ecf770ef6eE"}
+!344 = distinct !{!344, !345, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcce056ecf770ef6eE.argprom: argument 0"}
+!345 = distinct !{!345, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcce056ecf770ef6eE.argprom"}
 !346 = !{!344, !347}
-!347 = distinct !{!347, !345, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcce056ecf770ef6eE: argument 1"}
+!347 = distinct !{!347, !345, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcce056ecf770ef6eE.argprom: argument 1"}
 !348 = !{!347}
 !349 = !{!350}
-!350 = distinct !{!350, !351, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcf01a2bf76ab4c0cE: argument 0"}
-!351 = distinct !{!351, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcf01a2bf76ab4c0cE"}
+!350 = distinct !{!350, !351, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcf01a2bf76ab4c0cE.argprom: argument 0"}
+!351 = distinct !{!351, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcf01a2bf76ab4c0cE.argprom"}
 !352 = !{!350, !353}
-!353 = distinct !{!353, !351, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcf01a2bf76ab4c0cE: argument 1"}
+!353 = distinct !{!353, !351, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcf01a2bf76ab4c0cE.argprom: argument 1"}
 !354 = !{!353}
 !355 = !{!356}
-!356 = distinct !{!356, !357, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h940e6c472fd64247E: argument 0"}
-!357 = distinct !{!357, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h940e6c472fd64247E"}
+!356 = distinct !{!356, !357, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h940e6c472fd64247E.argprom: argument 0"}
+!357 = distinct !{!357, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h940e6c472fd64247E.argprom"}
 !358 = !{!356, !359}
-!359 = distinct !{!359, !357, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h940e6c472fd64247E: argument 1"}
+!359 = distinct !{!359, !357, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h940e6c472fd64247E.argprom: argument 1"}
 !360 = !{!359}
 !361 = !{!362}
-!362 = distinct !{!362, !363, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9ff4a991fd4d7ee8E: argument 0"}
-!363 = distinct !{!363, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9ff4a991fd4d7ee8E"}
+!362 = distinct !{!362, !363, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9ff4a991fd4d7ee8E.argprom: argument 0"}
+!363 = distinct !{!363, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9ff4a991fd4d7ee8E.argprom"}
 !364 = !{!362, !365}
-!365 = distinct !{!365, !363, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9ff4a991fd4d7ee8E: argument 1"}
+!365 = distinct !{!365, !363, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9ff4a991fd4d7ee8E.argprom: argument 1"}
 !366 = !{!365}
 !367 = !{!368}
-!368 = distinct !{!368, !369, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he7b8e25d0669c351E: argument 0"}
-!369 = distinct !{!369, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he7b8e25d0669c351E"}
+!368 = distinct !{!368, !369, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he7b8e25d0669c351E.argprom: argument 0"}
+!369 = distinct !{!369, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he7b8e25d0669c351E.argprom"}
 !370 = !{!368, !371}
-!371 = distinct !{!371, !369, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he7b8e25d0669c351E: argument 1"}
+!371 = distinct !{!371, !369, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he7b8e25d0669c351E.argprom: argument 1"}
 !372 = !{!371}
 !373 = !{!374}
-!374 = distinct !{!374, !375, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h864e545fb1c95a5bE: argument 0"}
-!375 = distinct !{!375, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h864e545fb1c95a5bE"}
+!374 = distinct !{!374, !375, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h864e545fb1c95a5bE.argprom: argument 0"}
+!375 = distinct !{!375, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h864e545fb1c95a5bE.argprom"}
 !376 = !{!374, !377}
-!377 = distinct !{!377, !375, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h864e545fb1c95a5bE: argument 1"}
+!377 = distinct !{!377, !375, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h864e545fb1c95a5bE.argprom: argument 1"}
 !378 = !{!377}
 !379 = !{!380}
-!380 = distinct !{!380, !381, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb2c96682062709cdE: argument 0"}
-!381 = distinct !{!381, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb2c96682062709cdE"}
+!380 = distinct !{!380, !381, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb2c96682062709cdE.argprom: argument 0"}
+!381 = distinct !{!381, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb2c96682062709cdE.argprom"}
 !382 = !{!380, !383}
-!383 = distinct !{!383, !381, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb2c96682062709cdE: argument 1"}
+!383 = distinct !{!383, !381, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb2c96682062709cdE.argprom: argument 1"}
 !384 = !{!383}
 !385 = !{!386}
-!386 = distinct !{!386, !387, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h31c2108547f6c050E: argument 0"}
-!387 = distinct !{!387, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h31c2108547f6c050E"}
+!386 = distinct !{!386, !387, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h31c2108547f6c050E.argprom: argument 0"}
+!387 = distinct !{!387, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h31c2108547f6c050E.argprom"}
 !388 = !{!386, !389}
-!389 = distinct !{!389, !387, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h31c2108547f6c050E: argument 1"}
+!389 = distinct !{!389, !387, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h31c2108547f6c050E.argprom: argument 1"}
 !390 = !{!389}
 !391 = !{!392}
-!392 = distinct !{!392, !393, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h0f5f3bdf3ffdc8cdE: argument 0"}
-!393 = distinct !{!393, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h0f5f3bdf3ffdc8cdE"}
+!392 = distinct !{!392, !393, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h0f5f3bdf3ffdc8cdE.argprom: argument 0"}
+!393 = distinct !{!393, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h0f5f3bdf3ffdc8cdE.argprom"}
 !394 = !{!392, !395}
-!395 = distinct !{!395, !393, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h0f5f3bdf3ffdc8cdE: argument 1"}
+!395 = distinct !{!395, !393, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h0f5f3bdf3ffdc8cdE.argprom: argument 1"}
 !396 = !{!395}
 !397 = !{!398}
-!398 = distinct !{!398, !399, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc7f00bfeafe70e3E: argument 0"}
-!399 = distinct !{!399, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc7f00bfeafe70e3E"}
+!398 = distinct !{!398, !399, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc7f00bfeafe70e3E.argprom: argument 0"}
+!399 = distinct !{!399, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc7f00bfeafe70e3E.argprom"}
 !400 = !{!398, !401}
-!401 = distinct !{!401, !399, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc7f00bfeafe70e3E: argument 1"}
+!401 = distinct !{!401, !399, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc7f00bfeafe70e3E.argprom: argument 1"}
 !402 = !{!401}
 !403 = !{!404}
-!404 = distinct !{!404, !405, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h7a8a873544f594eaE: argument 0"}
-!405 = distinct !{!405, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h7a8a873544f594eaE"}
+!404 = distinct !{!404, !405, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h7a8a873544f594eaE.argprom: argument 0"}
+!405 = distinct !{!405, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h7a8a873544f594eaE.argprom"}
 !406 = !{!404, !407}
-!407 = distinct !{!407, !405, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h7a8a873544f594eaE: argument 1"}
+!407 = distinct !{!407, !405, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h7a8a873544f594eaE.argprom: argument 1"}
 !408 = !{!407}
 !409 = !{!410}
-!410 = distinct !{!410, !411, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc47bd35733ef619E: argument 0"}
-!411 = distinct !{!411, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc47bd35733ef619E"}
+!410 = distinct !{!410, !411, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc47bd35733ef619E.argprom: argument 0"}
+!411 = distinct !{!411, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc47bd35733ef619E.argprom"}
 !412 = !{!410, !413}
-!413 = distinct !{!413, !411, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc47bd35733ef619E: argument 1"}
+!413 = distinct !{!413, !411, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc47bd35733ef619E.argprom: argument 1"}
 !414 = !{!413}
 !415 = !{!416}
-!416 = distinct !{!416, !417, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he25876fa8324bb5aE: argument 0"}
-!417 = distinct !{!417, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he25876fa8324bb5aE"}
+!416 = distinct !{!416, !417, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he25876fa8324bb5aE.argprom: argument 0"}
+!417 = distinct !{!417, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he25876fa8324bb5aE.argprom"}
 !418 = !{!416, !419}
-!419 = distinct !{!419, !417, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he25876fa8324bb5aE: argument 1"}
+!419 = distinct !{!419, !417, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he25876fa8324bb5aE.argprom: argument 1"}
 !420 = !{!419}
 !421 = !{!422}
-!422 = distinct !{!422, !423, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9385300fd7e7e43fE: argument 0"}
-!423 = distinct !{!423, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9385300fd7e7e43fE"}
+!422 = distinct !{!422, !423, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9385300fd7e7e43fE.argprom: argument 0"}
+!423 = distinct !{!423, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9385300fd7e7e43fE.argprom"}
 !424 = !{!422, !425}
-!425 = distinct !{!425, !423, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9385300fd7e7e43fE: argument 1"}
+!425 = distinct !{!425, !423, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9385300fd7e7e43fE.argprom: argument 1"}
 !426 = !{!425}
 !427 = !{!428}
-!428 = distinct !{!428, !429, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h36b126069b0fa3e7E: argument 0"}
-!429 = distinct !{!429, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h36b126069b0fa3e7E"}
+!428 = distinct !{!428, !429, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h36b126069b0fa3e7E.argprom: argument 0"}
+!429 = distinct !{!429, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h36b126069b0fa3e7E.argprom"}
 !430 = !{!428, !431}
-!431 = distinct !{!431, !429, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h36b126069b0fa3e7E: argument 1"}
+!431 = distinct !{!431, !429, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h36b126069b0fa3e7E.argprom: argument 1"}
 !432 = !{!431}
 !433 = !{!434}
-!434 = distinct !{!434, !435, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haae03ba353ec1366E: argument 0"}
-!435 = distinct !{!435, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haae03ba353ec1366E"}
+!434 = distinct !{!434, !435, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haae03ba353ec1366E.argprom: argument 0"}
+!435 = distinct !{!435, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haae03ba353ec1366E.argprom"}
 !436 = !{!434, !437}
-!437 = distinct !{!437, !435, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haae03ba353ec1366E: argument 1"}
+!437 = distinct !{!437, !435, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haae03ba353ec1366E.argprom: argument 1"}
 !438 = !{!437}
 !439 = !{!440}
-!440 = distinct !{!440, !441, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h865358126f32c787E: argument 0"}
-!441 = distinct !{!441, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h865358126f32c787E"}
+!440 = distinct !{!440, !441, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h865358126f32c787E.argprom: argument 0"}
+!441 = distinct !{!441, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h865358126f32c787E.argprom"}
 !442 = !{!440, !443}
-!443 = distinct !{!443, !441, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h865358126f32c787E: argument 1"}
+!443 = distinct !{!443, !441, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h865358126f32c787E.argprom: argument 1"}
 !444 = !{!443}
 !445 = !{!446}
-!446 = distinct !{!446, !447, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6fc96ffdd0a142eE: argument 0"}
-!447 = distinct !{!447, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6fc96ffdd0a142eE"}
+!446 = distinct !{!446, !447, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6fc96ffdd0a142eE.argprom: argument 0"}
+!447 = distinct !{!447, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6fc96ffdd0a142eE.argprom"}
 !448 = !{!446, !449}
-!449 = distinct !{!449, !447, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6fc96ffdd0a142eE: argument 1"}
+!449 = distinct !{!449, !447, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6fc96ffdd0a142eE.argprom: argument 1"}
 !450 = !{!449}
 !451 = !{!452}
-!452 = distinct !{!452, !453, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcde833289de261e6E: argument 0"}
-!453 = distinct !{!453, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcde833289de261e6E"}
+!452 = distinct !{!452, !453, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcde833289de261e6E.argprom: argument 0"}
+!453 = distinct !{!453, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcde833289de261e6E.argprom"}
 !454 = !{!452, !455}
-!455 = distinct !{!455, !453, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcde833289de261e6E: argument 1"}
+!455 = distinct !{!455, !453, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcde833289de261e6E.argprom: argument 1"}
 !456 = !{!455}
 !457 = !{!458}
-!458 = distinct !{!458, !459, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb0b143fcbfb88fa3E: argument 0"}
-!459 = distinct !{!459, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb0b143fcbfb88fa3E"}
+!458 = distinct !{!458, !459, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb0b143fcbfb88fa3E.argprom: argument 0"}
+!459 = distinct !{!459, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb0b143fcbfb88fa3E.argprom"}
 !460 = !{!458, !461}
-!461 = distinct !{!461, !459, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb0b143fcbfb88fa3E: argument 1"}
+!461 = distinct !{!461, !459, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb0b143fcbfb88fa3E.argprom: argument 1"}
 !462 = !{!461}
 !463 = !{!464}
-!464 = distinct !{!464, !465, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8e49e5ab3d60f6c1E: argument 0"}
-!465 = distinct !{!465, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8e49e5ab3d60f6c1E"}
+!464 = distinct !{!464, !465, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8e49e5ab3d60f6c1E.argprom: argument 0"}
+!465 = distinct !{!465, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8e49e5ab3d60f6c1E.argprom"}
 !466 = !{!464, !467}
-!467 = distinct !{!467, !465, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8e49e5ab3d60f6c1E: argument 1"}
+!467 = distinct !{!467, !465, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8e49e5ab3d60f6c1E.argprom: argument 1"}
 !468 = !{!467}
 !469 = !{!470}
-!470 = distinct !{!470, !471, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h99efcb55ff6b277fE: argument 0"}
-!471 = distinct !{!471, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h99efcb55ff6b277fE"}
+!470 = distinct !{!470, !471, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h99efcb55ff6b277fE.argprom: argument 0"}
+!471 = distinct !{!471, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h99efcb55ff6b277fE.argprom"}
 !472 = !{!470, !473}
-!473 = distinct !{!473, !471, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h99efcb55ff6b277fE: argument 1"}
+!473 = distinct !{!473, !471, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h99efcb55ff6b277fE.argprom: argument 1"}
 !474 = !{!473}
 !475 = !{!476}
-!476 = distinct !{!476, !477, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hc02a7680f9120964E: argument 0"}
-!477 = distinct !{!477, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hc02a7680f9120964E"}
+!476 = distinct !{!476, !477, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hc02a7680f9120964E.argprom: argument 0"}
+!477 = distinct !{!477, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hc02a7680f9120964E.argprom"}
 !478 = !{!476, !479}
-!479 = distinct !{!479, !477, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hc02a7680f9120964E: argument 1"}
+!479 = distinct !{!479, !477, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hc02a7680f9120964E.argprom: argument 1"}
 !480 = !{!479}
 !481 = !{!482}
-!482 = distinct !{!482, !483, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h06ea06f4ad075a94E: argument 0"}
-!483 = distinct !{!483, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h06ea06f4ad075a94E"}
+!482 = distinct !{!482, !483, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h06ea06f4ad075a94E.argprom: argument 0"}
+!483 = distinct !{!483, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h06ea06f4ad075a94E.argprom"}
 !484 = !{!482, !485}
-!485 = distinct !{!485, !483, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h06ea06f4ad075a94E: argument 1"}
+!485 = distinct !{!485, !483, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h06ea06f4ad075a94E.argprom: argument 1"}
 !486 = !{!485}
 !487 = !{!488}
-!488 = distinct !{!488, !489, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8657f93986cc21d2E: argument 0"}
-!489 = distinct !{!489, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8657f93986cc21d2E"}
+!488 = distinct !{!488, !489, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8657f93986cc21d2E.argprom: argument 0"}
+!489 = distinct !{!489, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8657f93986cc21d2E.argprom"}
 !490 = !{!488, !491}
-!491 = distinct !{!491, !489, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8657f93986cc21d2E: argument 1"}
+!491 = distinct !{!491, !489, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8657f93986cc21d2E.argprom: argument 1"}
 !492 = !{!491}
 !493 = !{!494}
-!494 = distinct !{!494, !495, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h423bcf5d14cf080bE: argument 0"}
-!495 = distinct !{!495, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h423bcf5d14cf080bE"}
+!494 = distinct !{!494, !495, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h423bcf5d14cf080bE.argprom: argument 0"}
+!495 = distinct !{!495, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h423bcf5d14cf080bE.argprom"}
 !496 = !{!497, !499, !494, !500}
 !497 = distinct !{!497, !498, !"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E: argument 0"}
 !498 = distinct !{!498, !"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E"}
 !499 = distinct !{!499, !498, !"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E: argument 1"}
-!500 = distinct !{!500, !495, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h423bcf5d14cf080bE: argument 1"}
+!500 = distinct !{!500, !495, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h423bcf5d14cf080bE.argprom: argument 1"}
 !501 = !{!497, !494}
 !502 = !{!500}
 !503 = !{!504}
-!504 = distinct !{!504, !505, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5a1444ab6de9e79aE: argument 0"}
-!505 = distinct !{!505, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5a1444ab6de9e79aE"}
+!504 = distinct !{!504, !505, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5a1444ab6de9e79aE.argprom: argument 0"}
+!505 = distinct !{!505, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5a1444ab6de9e79aE.argprom"}
 !506 = !{!504, !507}
-!507 = distinct !{!507, !505, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5a1444ab6de9e79aE: argument 1"}
+!507 = distinct !{!507, !505, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5a1444ab6de9e79aE.argprom: argument 1"}
 !508 = !{!507}
 !509 = !{!510}
-!510 = distinct !{!510, !511, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hea9f5fabc2eb492eE: argument 0"}
-!511 = distinct !{!511, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hea9f5fabc2eb492eE"}
+!510 = distinct !{!510, !511, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hea9f5fabc2eb492eE.argprom: argument 0"}
+!511 = distinct !{!511, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hea9f5fabc2eb492eE.argprom"}
 !512 = !{!513, !515, !510, !516}
 !513 = distinct !{!513, !514, !"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E: argument 0"}
 !514 = distinct !{!514, !"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E"}
 !515 = distinct !{!515, !514, !"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E: argument 1"}
-!516 = distinct !{!516, !511, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hea9f5fabc2eb492eE: argument 1"}
+!516 = distinct !{!516, !511, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hea9f5fabc2eb492eE.argprom: argument 1"}
 !517 = !{!513, !510}
 !518 = !{!516}
 !519 = !{!520}
-!520 = distinct !{!520, !521, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haf4d550f78d1780aE: argument 0"}
-!521 = distinct !{!521, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haf4d550f78d1780aE"}
+!520 = distinct !{!520, !521, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haf4d550f78d1780aE.argprom: argument 0"}
+!521 = distinct !{!521, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haf4d550f78d1780aE.argprom"}
 !522 = !{!520, !523}
-!523 = distinct !{!523, !521, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haf4d550f78d1780aE: argument 1"}
+!523 = distinct !{!523, !521, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haf4d550f78d1780aE.argprom: argument 1"}
 !524 = !{!523}
 !525 = !{!526}
-!526 = distinct !{!526, !527, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hac63b630e20bf23dE: argument 0"}
-!527 = distinct !{!527, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hac63b630e20bf23dE"}
+!526 = distinct !{!526, !527, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hac63b630e20bf23dE.argprom: argument 0"}
+!527 = distinct !{!527, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hac63b630e20bf23dE.argprom"}
 !528 = !{!526, !529}
-!529 = distinct !{!529, !527, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hac63b630e20bf23dE: argument 1"}
+!529 = distinct !{!529, !527, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hac63b630e20bf23dE.argprom: argument 1"}
 !530 = !{!529}
 !531 = !{!532}
-!532 = distinct !{!532, !533, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcd18add2c97786e3E: argument 0"}
-!533 = distinct !{!533, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcd18add2c97786e3E"}
+!532 = distinct !{!532, !533, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcd18add2c97786e3E.argprom: argument 0"}
+!533 = distinct !{!533, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcd18add2c97786e3E.argprom"}
 !534 = !{!532, !535}
-!535 = distinct !{!535, !533, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcd18add2c97786e3E: argument 1"}
+!535 = distinct !{!535, !533, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcd18add2c97786e3E.argprom: argument 1"}
 !536 = !{!535}
 !537 = !{!538}
-!538 = distinct !{!538, !539, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h76e41386552ce89bE: argument 0"}
-!539 = distinct !{!539, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h76e41386552ce89bE"}
+!538 = distinct !{!538, !539, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h76e41386552ce89bE.argprom: argument 0"}
+!539 = distinct !{!539, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h76e41386552ce89bE.argprom"}
 !540 = !{!538, !541}
-!541 = distinct !{!541, !539, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h76e41386552ce89bE: argument 1"}
+!541 = distinct !{!541, !539, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h76e41386552ce89bE.argprom: argument 1"}
 !542 = !{!541}
 !543 = !{!544}
-!544 = distinct !{!544, !545, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8f066adb1493d0eeE: argument 0"}
-!545 = distinct !{!545, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8f066adb1493d0eeE"}
+!544 = distinct !{!544, !545, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8f066adb1493d0eeE.argprom: argument 0"}
+!545 = distinct !{!545, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8f066adb1493d0eeE.argprom"}
 !546 = !{!544, !547}
-!547 = distinct !{!547, !545, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8f066adb1493d0eeE: argument 1"}
+!547 = distinct !{!547, !545, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8f066adb1493d0eeE.argprom: argument 1"}
 !548 = !{!547}
 !549 = !{!550}
-!550 = distinct !{!550, !551, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5ffb258149a26452E: argument 0"}
-!551 = distinct !{!551, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5ffb258149a26452E"}
+!550 = distinct !{!550, !551, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5ffb258149a26452E.argprom: argument 0"}
+!551 = distinct !{!551, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5ffb258149a26452E.argprom"}
 !552 = !{!550, !553}
-!553 = distinct !{!553, !551, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5ffb258149a26452E: argument 1"}
+!553 = distinct !{!553, !551, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5ffb258149a26452E.argprom: argument 1"}
 !554 = !{!553}
 !555 = !{!556}
-!556 = distinct !{!556, !557, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h705cabad2b50fc4aE: argument 0"}
-!557 = distinct !{!557, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h705cabad2b50fc4aE"}
+!556 = distinct !{!556, !557, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h705cabad2b50fc4aE.argprom: argument 0"}
+!557 = distinct !{!557, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h705cabad2b50fc4aE.argprom"}
 !558 = !{!556, !559}
-!559 = distinct !{!559, !557, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h705cabad2b50fc4aE: argument 1"}
+!559 = distinct !{!559, !557, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h705cabad2b50fc4aE.argprom: argument 1"}
 !560 = !{!559}
 !561 = !{!562}
-!562 = distinct !{!562, !563, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h415fb000b83dd03dE: argument 0"}
-!563 = distinct !{!563, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h415fb000b83dd03dE"}
+!562 = distinct !{!562, !563, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h415fb000b83dd03dE.argprom: argument 0"}
+!563 = distinct !{!563, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h415fb000b83dd03dE.argprom"}
 !564 = !{!562, !565}
-!565 = distinct !{!565, !563, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h415fb000b83dd03dE: argument 1"}
+!565 = distinct !{!565, !563, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h415fb000b83dd03dE.argprom: argument 1"}
 !566 = !{!565}
 !567 = !{!568}
-!568 = distinct !{!568, !569, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h414d0dec2c48a9a7E: argument 0"}
-!569 = distinct !{!569, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h414d0dec2c48a9a7E"}
+!568 = distinct !{!568, !569, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h414d0dec2c48a9a7E.argprom: argument 0"}
+!569 = distinct !{!569, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h414d0dec2c48a9a7E.argprom"}
 !570 = !{!568, !571}
-!571 = distinct !{!571, !569, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h414d0dec2c48a9a7E: argument 1"}
+!571 = distinct !{!571, !569, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h414d0dec2c48a9a7E.argprom: argument 1"}
 !572 = !{!571}
 !573 = !{!574}
-!574 = distinct !{!574, !575, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2b8b536db5d8302aE: argument 0"}
-!575 = distinct !{!575, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2b8b536db5d8302aE"}
+!574 = distinct !{!574, !575, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2b8b536db5d8302aE.argprom: argument 0"}
+!575 = distinct !{!575, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2b8b536db5d8302aE.argprom"}
 !576 = !{!574, !577}
-!577 = distinct !{!577, !575, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2b8b536db5d8302aE: argument 1"}
+!577 = distinct !{!577, !575, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2b8b536db5d8302aE.argprom: argument 1"}
 !578 = !{!577}
 !579 = !{!580}
-!580 = distinct !{!580, !581, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9336374a1d0e361cE: argument 0"}
-!581 = distinct !{!581, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9336374a1d0e361cE"}
+!580 = distinct !{!580, !581, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9336374a1d0e361cE.argprom: argument 0"}
+!581 = distinct !{!581, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9336374a1d0e361cE.argprom"}
 !582 = !{!580, !583}
-!583 = distinct !{!583, !581, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9336374a1d0e361cE: argument 1"}
+!583 = distinct !{!583, !581, !"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9336374a1d0e361cE.argprom: argument 1"}
 !584 = !{!583}
 !585 = !{!586}
-!586 = distinct !{!586, !587, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8dc84b1f989a0a23E: argument 0"}
-!587 = distinct !{!587, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8dc84b1f989a0a23E"}
+!586 = distinct !{!586, !587, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8dc84b1f989a0a23E.argprom: argument 0"}
+!587 = distinct !{!587, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8dc84b1f989a0a23E.argprom"}
 !588 = !{!586, !589}
-!589 = distinct !{!589, !587, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8dc84b1f989a0a23E: argument 1"}
+!589 = distinct !{!589, !587, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8dc84b1f989a0a23E.argprom: argument 1"}
 !590 = !{!589}
 !591 = !{!592}
-!592 = distinct !{!592, !593, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1c2a030b2fb3e75eE: argument 0"}
-!593 = distinct !{!593, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1c2a030b2fb3e75eE"}
+!592 = distinct !{!592, !593, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1c2a030b2fb3e75eE.argprom: argument 0"}
+!593 = distinct !{!593, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1c2a030b2fb3e75eE.argprom"}
 !594 = !{!592, !595}
-!595 = distinct !{!595, !593, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1c2a030b2fb3e75eE: argument 1"}
+!595 = distinct !{!595, !593, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1c2a030b2fb3e75eE.argprom: argument 1"}
 !596 = !{!595}
 !597 = !{!598}
-!598 = distinct !{!598, !599, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17heb2a67670a9c8633E: argument 0"}
-!599 = distinct !{!599, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17heb2a67670a9c8633E"}
+!598 = distinct !{!598, !599, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17heb2a67670a9c8633E.argprom: argument 0"}
+!599 = distinct !{!599, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17heb2a67670a9c8633E.argprom"}
 !600 = !{!598, !601}
-!601 = distinct !{!601, !599, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17heb2a67670a9c8633E: argument 1"}
+!601 = distinct !{!601, !599, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17heb2a67670a9c8633E.argprom: argument 1"}
 !602 = !{!601}
 !603 = !{!604}
-!604 = distinct !{!604, !605, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h97ee60e20368a6edE: argument 0"}
-!605 = distinct !{!605, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h97ee60e20368a6edE"}
+!604 = distinct !{!604, !605, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h97ee60e20368a6edE.argprom: argument 0"}
+!605 = distinct !{!605, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h97ee60e20368a6edE.argprom"}
 !606 = !{!604, !607}
-!607 = distinct !{!607, !605, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h97ee60e20368a6edE: argument 1"}
+!607 = distinct !{!607, !605, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h97ee60e20368a6edE.argprom: argument 1"}
 !608 = !{!607}
 !609 = !{!610}
-!610 = distinct !{!610, !611, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h050c2fc19b7a7e72E: argument 0"}
-!611 = distinct !{!611, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h050c2fc19b7a7e72E"}
+!610 = distinct !{!610, !611, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h050c2fc19b7a7e72E.argprom: argument 0"}
+!611 = distinct !{!611, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h050c2fc19b7a7e72E.argprom"}
 !612 = !{!610, !613}
-!613 = distinct !{!613, !611, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h050c2fc19b7a7e72E: argument 1"}
+!613 = distinct !{!613, !611, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h050c2fc19b7a7e72E.argprom: argument 1"}
 !614 = !{!613}
 !615 = !{!616}
-!616 = distinct !{!616, !617, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9946c123cb39dab1E: argument 0"}
-!617 = distinct !{!617, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9946c123cb39dab1E"}
+!616 = distinct !{!616, !617, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9946c123cb39dab1E.argprom: argument 0"}
+!617 = distinct !{!617, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9946c123cb39dab1E.argprom"}
 !618 = !{!619, !621, !616, !622}
 !619 = distinct !{!619, !620, !"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E: argument 0"}
 !620 = distinct !{!620, !"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E"}
 !621 = distinct !{!621, !620, !"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E: argument 1"}
-!622 = distinct !{!622, !617, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9946c123cb39dab1E: argument 1"}
+!622 = distinct !{!622, !617, !"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9946c123cb39dab1E.argprom: argument 1"}
 !623 = !{!619, !616}
 !624 = !{!622}
 !625 = !{!626}
-!626 = distinct !{!626, !627, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h804d47931a8456a2E: argument 0"}
-!627 = distinct !{!627, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h804d47931a8456a2E"}
+!626 = distinct !{!626, !627, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h804d47931a8456a2E.argprom: argument 0"}
+!627 = distinct !{!627, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h804d47931a8456a2E.argprom"}
 !628 = !{!626, !629}
-!629 = distinct !{!629, !627, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h804d47931a8456a2E: argument 1"}
+!629 = distinct !{!629, !627, !"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h804d47931a8456a2E.argprom: argument 1"}
 !630 = !{!629}
 !631 = !{!632}
-!632 = distinct !{!632, !633, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h33c887fb1dbd413fE: argument 0"}
-!633 = distinct !{!633, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h33c887fb1dbd413fE"}
+!632 = distinct !{!632, !633, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h33c887fb1dbd413fE.argprom: argument 0"}
+!633 = distinct !{!633, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h33c887fb1dbd413fE.argprom"}
 !634 = !{!632, !635}
-!635 = distinct !{!635, !633, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h33c887fb1dbd413fE: argument 1"}
+!635 = distinct !{!635, !633, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h33c887fb1dbd413fE.argprom: argument 1"}
 !636 = !{!635}
 !637 = !{!638}
-!638 = distinct !{!638, !639, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h3fa8d7091a9dd527E: argument 0"}
-!639 = distinct !{!639, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h3fa8d7091a9dd527E"}
+!638 = distinct !{!638, !639, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h3fa8d7091a9dd527E.argprom: argument 0"}
+!639 = distinct !{!639, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h3fa8d7091a9dd527E.argprom"}
 !640 = !{!638, !641}
-!641 = distinct !{!641, !639, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h3fa8d7091a9dd527E: argument 1"}
+!641 = distinct !{!641, !639, !"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h3fa8d7091a9dd527E.argprom: argument 1"}
 !642 = !{!641}
 !643 = !{!644}
-!644 = distinct !{!644, !645, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h074ffd59fee04595E: argument 0"}
-!645 = distinct !{!645, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h074ffd59fee04595E"}
+!644 = distinct !{!644, !645, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h074ffd59fee04595E.argprom: argument 0"}
+!645 = distinct !{!645, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h074ffd59fee04595E.argprom"}
 !646 = !{!644, !647}
-!647 = distinct !{!647, !645, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h074ffd59fee04595E: argument 1"}
+!647 = distinct !{!647, !645, !"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h074ffd59fee04595E.argprom: argument 1"}
 !648 = !{!647}
 !649 = !{i64 0, i64 -9223372036854775793}
 !650 = !{!651, !653, !655, !657}
@@ -14188,12 +14188,12 @@ attributes #19 = { nounwind }
 !756 = distinct !{!756, !754, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hee895b280fff3381E: argument 1"}
 !757 = !{!751, !753}
 !758 = !{!759}
-!759 = distinct !{!759, !760, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E: argument 3"}
-!760 = distinct !{!760, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E"}
+!759 = distinct !{!759, !760, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.argprom: argument 3"}
+!760 = distinct !{!760, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.argprom"}
 !761 = !{!762, !763, !764}
-!762 = distinct !{!762, !760, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E: argument 0"}
-!763 = distinct !{!763, !760, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E: argument 1"}
-!764 = distinct !{!764, !760, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E: argument 2"}
+!762 = distinct !{!762, !760, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.argprom: argument 0"}
+!763 = distinct !{!763, !760, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.argprom: argument 1"}
+!764 = distinct !{!764, !760, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h18b9610cddd0f4a2E.argprom: argument 2"}
 !765 = !{!762}
 !766 = !{!767, !769, !771, !773, !775, !762, !763, !764, !759}
 !767 = distinct !{!767, !768, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc07ad8ffbec6b781E.llvm.3847999990672408200: argument 0"}
@@ -14212,12 +14212,12 @@ attributes #19 = { nounwind }
 !780 = distinct !{!780, !779, !"_ZN12clap_builder4util9any_value8AnyValue3new17h853750b271a19da3E: argument 1"}
 !781 = !{i64 8}
 !782 = !{!783}
-!783 = distinct !{!783, !784, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E: argument 3"}
-!784 = distinct !{!784, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E"}
+!783 = distinct !{!783, !784, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.argprom: argument 3"}
+!784 = distinct !{!784, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.argprom"}
 !785 = !{!786, !787, !788}
-!786 = distinct !{!786, !784, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E: argument 0"}
-!787 = distinct !{!787, !784, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E: argument 1"}
-!788 = distinct !{!788, !784, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E: argument 2"}
+!786 = distinct !{!786, !784, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.argprom: argument 0"}
+!787 = distinct !{!787, !784, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.argprom: argument 1"}
+!788 = distinct !{!788, !784, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h4df4242f1632b4c8E.argprom: argument 2"}
 !789 = !{!786}
 !790 = !{!791, !793, !795, !797, !799, !786, !787, !788, !783}
 !791 = distinct !{!791, !792, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc07ad8ffbec6b781E.llvm.3847999990672408200: argument 0"}
@@ -14235,12 +14235,12 @@ attributes #19 = { nounwind }
 !803 = distinct !{!803, !"_ZN12clap_builder4util9any_value8AnyValue3new17h8c40d43f9a253a97E"}
 !804 = distinct !{!804, !803, !"_ZN12clap_builder4util9any_value8AnyValue3new17h8c40d43f9a253a97E: argument 1"}
 !805 = !{!806}
-!806 = distinct !{!806, !807, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE: argument 3"}
-!807 = distinct !{!807, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE"}
+!806 = distinct !{!806, !807, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.argprom: argument 3"}
+!807 = distinct !{!807, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.argprom"}
 !808 = !{!809, !810, !811}
-!809 = distinct !{!809, !807, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE: argument 0"}
-!810 = distinct !{!810, !807, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE: argument 1"}
-!811 = distinct !{!811, !807, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE: argument 2"}
+!809 = distinct !{!809, !807, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.argprom: argument 0"}
+!810 = distinct !{!810, !807, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.argprom: argument 1"}
+!811 = distinct !{!811, !807, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h7363a96878abe27cE.argprom: argument 2"}
 !812 = !{!809}
 !813 = !{!814, !816, !818, !820, !822, !809, !810, !811, !806}
 !814 = distinct !{!814, !815, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc07ad8ffbec6b781E.llvm.3847999990672408200: argument 0"}
@@ -14258,12 +14258,12 @@ attributes #19 = { nounwind }
 !826 = distinct !{!826, !"_ZN12clap_builder4util9any_value8AnyValue3new17h4c591664fd05af0fE"}
 !827 = distinct !{!827, !826, !"_ZN12clap_builder4util9any_value8AnyValue3new17h4c591664fd05af0fE: argument 1"}
 !828 = !{!829}
-!829 = distinct !{!829, !830, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE: argument 3"}
-!830 = distinct !{!830, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE"}
+!829 = distinct !{!829, !830, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.argprom: argument 3"}
+!830 = distinct !{!830, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.argprom"}
 !831 = !{!832, !833, !834}
-!832 = distinct !{!832, !830, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE: argument 0"}
-!833 = distinct !{!833, !830, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE: argument 1"}
-!834 = distinct !{!834, !830, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE: argument 2"}
+!832 = distinct !{!832, !830, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.argprom: argument 0"}
+!833 = distinct !{!833, !830, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.argprom: argument 1"}
+!834 = distinct !{!834, !830, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17hcd2a9f75500ace6aE.argprom: argument 2"}
 !835 = !{!832}
 !836 = !{!837, !839, !841, !843, !845, !832, !833, !834, !829}
 !837 = distinct !{!837, !838, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc07ad8ffbec6b781E.llvm.3847999990672408200: argument 0"}
@@ -14281,12 +14281,12 @@ attributes #19 = { nounwind }
 !849 = distinct !{!849, !"_ZN12clap_builder4util9any_value8AnyValue3new17hfcafe1dadfdd3a9eE"}
 !850 = distinct !{!850, !849, !"_ZN12clap_builder4util9any_value8AnyValue3new17hfcafe1dadfdd3a9eE: argument 1"}
 !851 = !{!852}
-!852 = distinct !{!852, !853, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E: argument 3"}
-!853 = distinct !{!853, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E"}
+!852 = distinct !{!852, !853, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.argprom: argument 3"}
+!853 = distinct !{!853, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.argprom"}
 !854 = !{!855, !856, !857}
-!855 = distinct !{!855, !853, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E: argument 0"}
-!856 = distinct !{!856, !853, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E: argument 1"}
-!857 = distinct !{!857, !853, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E: argument 2"}
+!855 = distinct !{!855, !853, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.argprom: argument 0"}
+!856 = distinct !{!856, !853, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.argprom: argument 1"}
+!857 = distinct !{!857, !853, !"_ZN12clap_builder7builder12value_parser16TypedValueParser5parse17h8541fab6fee6d4c2E.argprom: argument 2"}
 !858 = !{!855}
 !859 = !{!860, !862, !864, !866, !868, !855, !856, !857, !852}
 !860 = distinct !{!860, !861, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc07ad8ffbec6b781E.llvm.3847999990672408200: argument 0"}
@@ -14331,8 +14331,8 @@ attributes #19 = { nounwind }
 !899 = distinct !{!899, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h26f92279bcca44abE"}
 !900 = distinct !{!900, !899, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h26f92279bcca44abE: argument 1"}
 !901 = !{!902}
-!902 = distinct !{!902, !903, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h52634013ed312f2eE: argument 0"}
-!903 = distinct !{!903, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h52634013ed312f2eE"}
+!902 = distinct !{!902, !903, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h52634013ed312f2eE.argprom: argument 0"}
+!903 = distinct !{!903, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h52634013ed312f2eE.argprom"}
 !904 = !{!905}
 !905 = distinct !{!905, !906, !"_ZN4core6option15Option$LT$T$GT$8as_deref17h263d883f4ed02471E: argument 0"}
 !906 = distinct !{!906, !"_ZN4core6option15Option$LT$T$GT$8as_deref17h263d883f4ed02471E"}
@@ -14387,15 +14387,15 @@ attributes #19 = { nounwind }
 !955 = distinct !{!955, !956, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h541ddf7b65c5b4a6E: argument 0"}
 !956 = distinct !{!956, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h541ddf7b65c5b4a6E"}
 !957 = !{!958}
-!958 = distinct !{!958, !959, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E: argument 1"}
-!959 = distinct !{!959, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E"}
+!958 = distinct !{!958, !959, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.argprom: argument 1"}
+!959 = distinct !{!959, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.argprom"}
 !960 = !{!961}
-!961 = distinct !{!961, !962, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17hebadac261653eda5E: argument 1"}
-!962 = distinct !{!962, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17hebadac261653eda5E"}
+!961 = distinct !{!961, !962, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17hebadac261653eda5E.argprom: argument 1"}
+!962 = distinct !{!962, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17hebadac261653eda5E.argprom"}
 !963 = !{!961, !958}
 !964 = !{!965, !966, !955, !967, !968}
-!965 = distinct !{!965, !962, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17hebadac261653eda5E: argument 0"}
-!966 = distinct !{!966, !959, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E: argument 0"}
+!965 = distinct !{!965, !962, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17hebadac261653eda5E.argprom: argument 0"}
+!966 = distinct !{!966, !959, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.argprom: argument 0"}
 !967 = distinct !{!967, !956, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h541ddf7b65c5b4a6E: argument 1"}
 !968 = distinct !{!968, !956, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h541ddf7b65c5b4a6E: argument 2"}
 !969 = !{!965, !961, !966, !958, !955, !967, !968}
@@ -14657,15 +14657,15 @@ attributes #19 = { nounwind }
 !1225 = distinct !{!1225, !1226, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h340b3dce92ca73abE: argument 0"}
 !1226 = distinct !{!1226, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h340b3dce92ca73abE"}
 !1227 = !{!1228}
-!1228 = distinct !{!1228, !1229, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE: argument 1"}
-!1229 = distinct !{!1229, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE"}
+!1228 = distinct !{!1228, !1229, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.argprom: argument 1"}
+!1229 = distinct !{!1229, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.argprom"}
 !1230 = !{!1231}
-!1231 = distinct !{!1231, !1232, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h36cc1d8063eea202E: argument 1"}
-!1232 = distinct !{!1232, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h36cc1d8063eea202E"}
+!1231 = distinct !{!1231, !1232, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h36cc1d8063eea202E.argprom: argument 1"}
+!1232 = distinct !{!1232, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h36cc1d8063eea202E.argprom"}
 !1233 = !{!1231, !1228}
 !1234 = !{!1235, !1236, !1225, !1237, !1238}
-!1235 = distinct !{!1235, !1232, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h36cc1d8063eea202E: argument 0"}
-!1236 = distinct !{!1236, !1229, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE: argument 0"}
+!1235 = distinct !{!1235, !1232, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h36cc1d8063eea202E.argprom: argument 0"}
+!1236 = distinct !{!1236, !1229, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.argprom: argument 0"}
 !1237 = distinct !{!1237, !1226, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h340b3dce92ca73abE: argument 1"}
 !1238 = distinct !{!1238, !1226, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h340b3dce92ca73abE: argument 2"}
 !1239 = !{!1235, !1231, !1236, !1228, !1225, !1237, !1238}
@@ -14916,15 +14916,15 @@ attributes #19 = { nounwind }
 !1484 = distinct !{!1484, !1485, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hc0e2ff6573a60410E: argument 0"}
 !1485 = distinct !{!1485, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hc0e2ff6573a60410E"}
 !1486 = !{!1487}
-!1487 = distinct !{!1487, !1488, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E: argument 1"}
-!1488 = distinct !{!1488, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E"}
+!1487 = distinct !{!1487, !1488, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.argprom: argument 1"}
+!1488 = distinct !{!1488, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.argprom"}
 !1489 = !{!1490}
-!1490 = distinct !{!1490, !1491, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h3b1066aca8b2e602E: argument 1"}
-!1491 = distinct !{!1491, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h3b1066aca8b2e602E"}
+!1490 = distinct !{!1490, !1491, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h3b1066aca8b2e602E.argprom: argument 1"}
+!1491 = distinct !{!1491, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h3b1066aca8b2e602E.argprom"}
 !1492 = !{!1490, !1487}
 !1493 = !{!1494, !1495, !1484, !1496, !1497}
-!1494 = distinct !{!1494, !1491, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h3b1066aca8b2e602E: argument 0"}
-!1495 = distinct !{!1495, !1488, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E: argument 0"}
+!1494 = distinct !{!1494, !1491, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h3b1066aca8b2e602E.argprom: argument 0"}
+!1495 = distinct !{!1495, !1488, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.argprom: argument 0"}
 !1496 = distinct !{!1496, !1485, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hc0e2ff6573a60410E: argument 1"}
 !1497 = distinct !{!1497, !1485, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hc0e2ff6573a60410E: argument 2"}
 !1498 = !{!1494, !1490, !1495, !1487, !1484, !1496, !1497}
@@ -15183,15 +15183,15 @@ attributes #19 = { nounwind }
 !1751 = distinct !{!1751, !1752, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h4f35c1aa06e202a4E: argument 0"}
 !1752 = distinct !{!1752, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h4f35c1aa06e202a4E"}
 !1753 = !{!1754}
-!1754 = distinct !{!1754, !1755, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E: argument 1"}
-!1755 = distinct !{!1755, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E"}
+!1754 = distinct !{!1754, !1755, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.argprom: argument 1"}
+!1755 = distinct !{!1755, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.argprom"}
 !1756 = !{!1757}
-!1757 = distinct !{!1757, !1758, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h08cf4fc8fb53b74dE: argument 1"}
-!1758 = distinct !{!1758, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h08cf4fc8fb53b74dE"}
+!1757 = distinct !{!1757, !1758, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h08cf4fc8fb53b74dE.argprom: argument 1"}
+!1758 = distinct !{!1758, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h08cf4fc8fb53b74dE.argprom"}
 !1759 = !{!1757, !1754}
 !1760 = !{!1761, !1762, !1751, !1763, !1764}
-!1761 = distinct !{!1761, !1758, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h08cf4fc8fb53b74dE: argument 0"}
-!1762 = distinct !{!1762, !1755, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E: argument 0"}
+!1761 = distinct !{!1761, !1758, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h08cf4fc8fb53b74dE.argprom: argument 0"}
+!1762 = distinct !{!1762, !1755, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.argprom: argument 0"}
 !1763 = distinct !{!1763, !1752, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h4f35c1aa06e202a4E: argument 1"}
 !1764 = distinct !{!1764, !1752, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h4f35c1aa06e202a4E: argument 2"}
 !1765 = !{!1761, !1757, !1762, !1754, !1751, !1763, !1764}
@@ -15443,15 +15443,15 @@ attributes #19 = { nounwind }
 !2011 = distinct !{!2011, !2012, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h8620f4b52f18b8a2E: argument 0"}
 !2012 = distinct !{!2012, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h8620f4b52f18b8a2E"}
 !2013 = !{!2014}
-!2014 = distinct !{!2014, !2015, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE: argument 1"}
-!2015 = distinct !{!2015, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE"}
+!2014 = distinct !{!2014, !2015, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.argprom: argument 1"}
+!2015 = distinct !{!2015, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.argprom"}
 !2016 = !{!2017}
-!2017 = distinct !{!2017, !2018, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h968fa1cfa6f55867E: argument 1"}
-!2018 = distinct !{!2018, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h968fa1cfa6f55867E"}
+!2017 = distinct !{!2017, !2018, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h968fa1cfa6f55867E.argprom: argument 1"}
+!2018 = distinct !{!2018, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h968fa1cfa6f55867E.argprom"}
 !2019 = !{!2017, !2014}
 !2020 = !{!2021, !2022, !2011, !2023, !2024}
-!2021 = distinct !{!2021, !2018, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h968fa1cfa6f55867E: argument 0"}
-!2022 = distinct !{!2022, !2015, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE: argument 0"}
+!2021 = distinct !{!2021, !2018, !"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparatedParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h968fa1cfa6f55867E.argprom: argument 0"}
+!2022 = distinct !{!2022, !2015, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.argprom: argument 0"}
 !2023 = distinct !{!2023, !2012, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h8620f4b52f18b8a2E: argument 1"}
 !2024 = distinct !{!2024, !2012, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h8620f4b52f18b8a2E: argument 2"}
 !2025 = !{!2021, !2017, !2022, !2014, !2011, !2023, !2024}

@@ -138,15 +138,15 @@ Rwr_ManNodeVolume.exit:                           ; preds = %55, %.critedge.i.i
   %73 = load i32, ptr %2, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %74 = add nsw i32 %73, 1
-  tail call fastcc void @Rwr_ManTryNode(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %28, i32 noundef 0, i32 noundef %57, i32 noundef %74)
-  tail call fastcc void @Rwr_ManTryNode(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %28, i32 noundef 0, i32 noundef %57, i32 noundef %74)
+  tail call fastcc void @Rwr_ManTryNode.retelim(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %28, i32 noundef 0, i32 noundef %57, i32 noundef %74)
+  tail call fastcc void @Rwr_ManTryNode.retelim(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %28, i32 noundef 0, i32 noundef %57, i32 noundef %74)
   %75 = ptrtoint ptr %28 to i64
   %76 = xor i64 %75, 1
   %77 = inttoptr i64 %76 to ptr
-  tail call fastcc void @Rwr_ManTryNode(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %77, i32 noundef 0, i32 noundef %57, i32 noundef %74)
-  tail call fastcc void @Rwr_ManTryNode(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %77, i32 noundef 0, i32 noundef %57, i32 noundef %74)
+  tail call fastcc void @Rwr_ManTryNode.retelim(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %77, i32 noundef 0, i32 noundef %57, i32 noundef %74)
+  tail call fastcc void @Rwr_ManTryNode.retelim(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %77, i32 noundef 0, i32 noundef %57, i32 noundef %74)
   %78 = add nsw i32 %73, 2
-  tail call fastcc void @Rwr_ManTryNode(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %28, i32 noundef 1, i32 noundef %57, i32 noundef %78)
+  tail call fastcc void @Rwr_ManTryNode.retelim(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %28, i32 noundef 1, i32 noundef %57, i32 noundef %78)
   %79 = load i32, ptr %7, align 4
   %80 = srem i32 %79, 50000000
   %81 = icmp eq i32 %80, 0
@@ -375,7 +375,7 @@ Rwr_ManIncTravId.exit:                            ; preds = %3, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Rwr_ManTryNode(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 1, 65) %4, i32 noundef range(i32 -2147483647, -2147483648) %5) unnamed_addr #0 {
+define internal fastcc void @Rwr_ManTryNode.retelim(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 1, 65) %4, i32 noundef range(i32 -2147483647, -2147483648) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 100
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %8, 1

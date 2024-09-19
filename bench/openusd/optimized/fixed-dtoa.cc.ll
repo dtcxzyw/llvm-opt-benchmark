@@ -197,7 +197,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits64Fixed
 102:                                              ; preds = %100
   %103 = zext nneg i32 %.0.i98 to i64
   %104 = shl nuw i64 %.0.i, %103
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits64EmNS0_6VectorIcEEPi(i64 noundef %104, ptr %2, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits64EmNS0_6VectorIcEEPi.argelim(i64 noundef %104, ptr %2, ptr noundef nonnull %4)
   %105 = load i32, ptr %4, align 4
   store i32 %105, ptr %5, align 4
   br label %144
@@ -216,7 +216,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits64Fixed
   br i1 %114, label %115, label %116
 
 115:                                              ; preds = %108
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits64EmNS0_6VectorIcEEPi(i64 noundef %111, ptr %2, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits64EmNS0_6VectorIcEEPi.argelim(i64 noundef %111, ptr %2, ptr noundef nonnull %4)
   %.pre148 = load i32, ptr %4, align 4
   br label %137
 
@@ -288,7 +288,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
 137:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit117, %115
   %138 = phi i32 [ %.pre-phi.i107, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit117 ], [ %.pre148, %115 ]
   store i32 %138, ptr %5, align 4
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FillFractionalsEmiiNS0_6VectorIcEEPiS3_(i64 noundef %113, i32 noundef %.0.i98, i32 noundef %1, ptr %2, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FillFractionalsEmiiNS0_6VectorIcEEPiS3_.argelim(i64 noundef %113, i32 noundef %.0.i98, i32 noundef %1, ptr %2, ptr noundef nonnull %4, ptr noundef nonnull %5)
   br label %144
 
 139:                                              ; preds = %106
@@ -304,7 +304,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
 
 143:                                              ; preds = %139
   store i32 0, ptr %5, align 4
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FillFractionalsEmiiNS0_6VectorIcEEPiS3_(i64 noundef %.0.i, i32 noundef %.0.i98, i32 noundef %1, ptr %2, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FillFractionalsEmiiNS0_6VectorIcEEPiS3_.argelim(i64 noundef %.0.i, i32 noundef %.0.i98, i32 noundef %1, ptr %2, ptr noundef nonnull %4, ptr noundef nonnull %5)
   br label %144
 
 144:                                              ; preds = %102, %141, %143, %137, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits64FixedLengthEmNS0_6VectorIcEEPi.exit
@@ -414,7 +414,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9TrimZerosENS0_6Vec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits64EmNS0_6VectorIcEEPi(i64 noundef %0, ptr nocapture %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits64EmNS0_6VectorIcEEPi.argelim(i64 noundef %0, ptr nocapture %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = urem i64 %0, 10000000
   %5 = trunc nuw nsw i64 %4 to i32
   %6 = udiv i64 %0, 10000000
@@ -648,7 +648,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FillFractionalsEmiiNS0_6VectorIcEEPiS3_(i64 noundef %0, i32 noundef range(i32 -128, 0) %1, i32 noundef range(i32 -2147483648, 21) %2, ptr nocapture %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FillFractionalsEmiiNS0_6VectorIcEEPiS3_.argelim(i64 noundef %0, i32 noundef range(i32 -128, 0) %1, i32 noundef range(i32 -2147483648, 21) %2, ptr nocapture %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = sub nsw i32 0, %1
   %8 = icmp ult i32 %7, 65
   br i1 %8, label %.preheader, label %57

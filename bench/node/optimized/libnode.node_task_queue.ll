@@ -267,9 +267,9 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i: ; pre
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i, %arraydestroy.body.i.i
   store ptr null, ptr %arraydestroy.element.i.i, align 8
   %arraydestroy.done.i.i = icmp eq ptr %arraydestroy.element.i.i, %arg_convertibles.i.i
-  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.exit, label %arraydestroy.body.i.i
+  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.argprom.exit, label %arraydestroy.body.i.i
 
-_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
+_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_names.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %arg_types.i)
@@ -364,9 +364,9 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i89: ; p
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i92: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i89, %arraydestroy.body.i.i85
   store ptr null, ptr %arraydestroy.element.i.i87, align 8
   %arraydestroy.done.i.i93 = icmp eq ptr %arraydestroy.element.i.i87, %arg_convertibles.i.i67
-  br i1 %arraydestroy.done.i.i93, label %_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.exit94, label %arraydestroy.body.i.i85
+  br i1 %arraydestroy.done.i.i93, label %_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.argprom.exit94, label %arraydestroy.body.i.i85
 
-_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.exit94: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i92
+_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.argprom.exit94: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i92
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i67)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_names.i68)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %arg_types.i69)
@@ -383,8 +383,8 @@ if.then93:                                        ; preds = %do.end19
   %retval.i243.sroa.0.0.copyload = load ptr, ptr %value_.i, align 8
   br label %if.end103
 
-if.end103:                                        ; preds = %if.end69, %_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.exit94, %if.then93, %if.then85, %_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.exit, %if.end39
-  %value.sroa.0.0 = phi ptr [ %retval.i250.sroa.0.0.copyload, %_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.exit ], [ %retval.i250.sroa.0.0.copyload, %if.end39 ], [ %29, %_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.exit94 ], [ %29, %if.end69 ], [ %retval.i246.sroa.0.0.copyload, %if.then85 ], [ %retval.i243.sroa.0.0.copyload, %if.then93 ]
+if.end103:                                        ; preds = %if.end69, %_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.argprom.exit94, %if.then93, %if.then85, %_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.argprom.exit, %if.end39
+  %value.sroa.0.0 = phi ptr [ %retval.i250.sroa.0.0.copyload, %_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.argprom.exit ], [ %retval.i250.sroa.0.0.copyload, %if.end39 ], [ %29, %_ZN4node7tracingL13AddTraceEventIiiEEmcPKhPKcS5_mmjS5_OT_S5_OT0_.argprom.exit94 ], [ %29, %if.end69 ], [ %retval.i246.sroa.0.0.copyload, %if.then85 ], [ %retval.i243.sroa.0.0.copyload, %if.then93 ]
   %cmp.i = icmp eq ptr %value.sroa.0.0, null
   %42 = ptrtoint ptr %call4 to i64
   %add1.i348 = add i64 %42, 608

@@ -1325,7 +1325,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit31.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21), !noalias !5
   %.val5 = load i32, ptr %23, align 8
   %.not = icmp eq i32 %.val5, 0
-  br i1 %.not, label %_ZNKSt14default_deleteIN12_GLOBAL__N_19ImplPosixEEclEPS1_.exit.i, label %206
+  br i1 %.not, label %_ZNKSt14default_deleteIN12_GLOBAL__N_19ImplPosixEEclEPS1_.argprom.exit.i, label %206
 
 206:                                              ; preds = %205
   %207 = getelementptr inbounds i8, ptr %22, i64 32
@@ -1427,7 +1427,7 @@ _ZNSt8functionIFviEEC2EOS1_.exit.i:               ; preds = %230, %_ZNSt8functio
   store i8 1, ptr %241, align 8
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_19ImplPosixESt14default_deleteIS1_EED2Ev.exit
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_19ImplPosixEEclEPS1_.exit.i: ; preds = %205
+_ZNKSt14default_deleteIN12_GLOBAL__N_19ImplPosixEEclEPS1_.argprom.exit.i: ; preds = %205
   %242 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %242, align 8
   %243 = load ptr, ptr %22, align 8
@@ -1436,7 +1436,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_19ImplPosixEEclEPS1_.exit.i: ; preds = %205
   call void %245(ptr noundef nonnull align 8 dereferenceable(178) %22) #25
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_19ImplPosixESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_19ImplPosixESt14default_deleteIS1_EED2Ev.exit: ; preds = %.thread, %_ZNKSt14default_deleteIN12_GLOBAL__N_19ImplPosixEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN12_GLOBAL__N_19ImplPosixESt14default_deleteIS1_EED2Ev.exit: ; preds = %.thread, %_ZNKSt14default_deleteIN12_GLOBAL__N_19ImplPosixEEclEPS1_.argprom.exit.i
   ret void
 }
 
@@ -1477,7 +1477,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i.i:               ; preds = %1
   %10 = getelementptr inbounds i8, ptr %3, i64 56
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  br label %"_ZZN19cmUVJobServerClient4Impl20RequestImplicitTokenEvENK3$_0clEP9uv_idle_s.exit"
+  br label %"_ZZN19cmUVJobServerClient4Impl20RequestImplicitTokenEvENK3$_0clEP9uv_idle_s.argprom.exit"
 
 12:                                               ; preds = %1
   store i32 %5, ptr %4, align 8
@@ -1488,7 +1488,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i.i:               ; preds = %1
   %15 = getelementptr inbounds i8, ptr %3, i64 100
   %16 = load i32, ptr %15, align 4
   %.not.i.i2.i.i = icmp eq i32 %16, 0
-  br i1 %.not.i.i2.i.i, label %"_ZZN19cmUVJobServerClient4Impl20RequestImplicitTokenEvENK3$_0clEP9uv_idle_s.exit", label %17
+  br i1 %.not.i.i2.i.i, label %"_ZZN19cmUVJobServerClient4Impl20RequestImplicitTokenEvENK3$_0clEP9uv_idle_s.argprom.exit", label %17
 
 17:                                               ; preds = %14
   %18 = add i32 %16, -1
@@ -1506,16 +1506,16 @@ _ZNKSt8functionIFvvEEclEv.exit.i.i:               ; preds = %1
 _ZN19cmUVJobServerClient4Impl19DecrementNeedTokensEv.exit.i.i.i.i: ; preds = %20, %17
   %24 = getelementptr inbounds i8, ptr %3, i64 16
   %25 = tail call noundef i32 @_ZN2cm11uv_idle_ptr5startEPFvP9uv_idle_sE(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull @"_ZZN19cmUVJobServerClient4Impl20RequestImplicitTokenEvEN3$_08__invokeEP9uv_idle_s")
-  br label %"_ZZN19cmUVJobServerClient4Impl20RequestImplicitTokenEvENK3$_0clEP9uv_idle_s.exit"
+  br label %"_ZZN19cmUVJobServerClient4Impl20RequestImplicitTokenEvENK3$_0clEP9uv_idle_s.argprom.exit"
 
 26:                                               ; preds = %12
   %27 = load ptr, ptr %3, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(104) %3)
-  br label %"_ZZN19cmUVJobServerClient4Impl20RequestImplicitTokenEvENK3$_0clEP9uv_idle_s.exit"
+  br label %"_ZZN19cmUVJobServerClient4Impl20RequestImplicitTokenEvENK3$_0clEP9uv_idle_s.argprom.exit"
 
-"_ZZN19cmUVJobServerClient4Impl20RequestImplicitTokenEvENK3$_0clEP9uv_idle_s.exit": ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i.i, %14, %_ZN19cmUVJobServerClient4Impl19DecrementNeedTokensEv.exit.i.i.i.i, %26
+"_ZZN19cmUVJobServerClient4Impl20RequestImplicitTokenEvENK3$_0clEP9uv_idle_s.argprom.exit": ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i.i, %14, %_ZN19cmUVJobServerClient4Impl19DecrementNeedTokensEv.exit.i.i.i.i, %26
   ret void
 }
 
@@ -2200,13 +2200,13 @@ define internal void @"_ZNSt17_Function_handlerIFviEZN12_GLOBAL__N_19ImplPosixC1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i32, ptr %1, align 4
   %.not.i.i.i = icmp eq i32 %.val2, 0
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %4
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit", label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %.val, i64 104
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %8
+  br i1 %7, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit", label %8
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %.val, align 8
@@ -2235,7 +2235,7 @@ define internal void @"_ZNSt17_Function_handlerIFviEZN12_GLOBAL__N_19ImplPosixC1
   %17 = getelementptr inbounds i8, ptr %.val, i64 80
   %18 = load ptr, ptr %17, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %_ZNKSt8functionIFviEEclEi.exit.i.i.i.i.i
+  br i1 %.not.i.i.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit", label %_ZNKSt8functionIFviEEclEi.exit.i.i.i.i.i
 
 _ZNKSt8functionIFviEEclEi.exit.i.i.i.i.i:         ; preds = %16
   %19 = getelementptr inbounds i8, ptr %.val, i64 64
@@ -2245,9 +2245,9 @@ _ZNKSt8functionIFviEEclEi.exit.i.i.i.i.i:         ; preds = %16
   %21 = load ptr, ptr %20, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %2, %4, %16, %_ZNKSt8functionIFviEEclEi.exit.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %2, %4, %16, %_ZNKSt8functionIFviEEclEi.exit.i.i.i.i.i
   ret void
 }
 
@@ -2566,7 +2566,7 @@ define internal void @_ZN12_GLOBAL__N_19ImplPosix8OnReadCBEP11uv_stream_slPK8uv_
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq i64 %1, 0
-  br i1 %6, label %_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.exit, label %7
+  br i1 %6, label %_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.argprom.exit, label %7
 
 7:                                                ; preds = %3
   %8 = icmp slt i64 %1, 0
@@ -2577,7 +2577,7 @@ define internal void @_ZN12_GLOBAL__N_19ImplPosix8OnReadCBEP11uv_stream_slPK8uv_
   %11 = getelementptr inbounds i8, ptr %5, i64 104
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.exit, label %14
+  br i1 %13, label %_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.argprom.exit, label %14
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %5, align 8
@@ -2608,7 +2608,7 @@ define internal void @_ZN12_GLOBAL__N_19ImplPosix8OnReadCBEP11uv_stream_slPK8uv_
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.not.i.i.i = icmp eq ptr %24, null
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not.i.i.not.i.i.i
-  br i1 %or.cond.i.i, label %_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.exit, label %_ZNKSt8functionIFviEEclEi.exit.i.i.i
+  br i1 %or.cond.i.i, label %_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.argprom.exit, label %_ZNKSt8functionIFviEEclEi.exit.i.i.i
 
 _ZNKSt8functionIFviEEclEi.exit.i.i.i:             ; preds = %22
   %25 = getelementptr inbounds i8, ptr %5, i64 64
@@ -2618,7 +2618,7 @@ _ZNKSt8functionIFviEEclEi.exit.i.i.i:             ; preds = %22
   %27 = load ptr, ptr %26, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.exit
+  br label %_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.argprom.exit
 
 28:                                               ; preds = %7
   %29 = getelementptr inbounds i8, ptr %5, i64 100
@@ -2650,7 +2650,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i.i.i:             ; preds = %_ZN19cmUVJobServerC
   %43 = getelementptr inbounds i8, ptr %5, i64 56
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef nonnull align 8 dereferenceable(16) %42)
-  br label %_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.exit
+  br label %_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.argprom.exit
 
 45:                                               ; preds = %_ZN19cmUVJobServerClient4Impl19DecrementNeedTokensEv.exit.i.i
   store i32 %38, ptr %37, align 8
@@ -2660,7 +2660,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i.i.i:             ; preds = %_ZN19cmUVJobServerC
 47:                                               ; preds = %45
   %48 = load i32, ptr %29, align 4
   %.not.i.i2.i.i.i = icmp eq i32 %48, 0
-  br i1 %.not.i.i2.i.i.i, label %_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.exit, label %49
+  br i1 %.not.i.i2.i.i.i, label %_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.argprom.exit, label %49
 
 49:                                               ; preds = %47
   %50 = add i32 %48, -1
@@ -2678,16 +2678,16 @@ _ZNKSt8functionIFvvEEclEv.exit.i.i.i:             ; preds = %_ZN19cmUVJobServerC
 _ZN19cmUVJobServerClient4Impl19DecrementNeedTokensEv.exit.i.i.i.i.i: ; preds = %52, %49
   %56 = getelementptr inbounds i8, ptr %5, i64 16
   %57 = tail call noundef i32 @_ZN2cm11uv_idle_ptr5startEPFvP9uv_idle_sE(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull @"_ZZN19cmUVJobServerClient4Impl20RequestImplicitTokenEvEN3$_08__invokeEP9uv_idle_s")
-  br label %_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.exit
+  br label %_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.argprom.exit
 
 58:                                               ; preds = %45
   %59 = load ptr, ptr %5, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
   tail call void %61(ptr noundef nonnull align 8 dereferenceable(104) %5)
-  br label %_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.exit
+  br label %_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.argprom.exit
 
-_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.exit: ; preds = %3, %9, %22, %_ZNKSt8functionIFviEEclEi.exit.i.i.i, %_ZNKSt8functionIFvvEEclEv.exit.i.i.i, %47, %_ZN19cmUVJobServerClient4Impl19DecrementNeedTokensEv.exit.i.i.i.i.i, %58
+_ZN12_GLOBAL__N_19ImplPosix6OnReadElPK8uv_buf_t.argprom.exit: ; preds = %3, %9, %22, %_ZNKSt8functionIFviEEclEi.exit.i.i.i, %_ZNKSt8functionIFvvEEclEv.exit.i.i.i, %47, %_ZN19cmUVJobServerClient4Impl19DecrementNeedTokensEv.exit.i.i.i.i.i, %58
   ret void
 }
 
@@ -2756,8 +2756,8 @@ attributes #28 = { noreturn }
 !6 = distinct !{!6, !7, !"_ZSt11make_uniqueIN12_GLOBAL__N_19ImplPosixEJR9uv_loop_sEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !7 = distinct !{!7, !"_ZSt11make_uniqueIN12_GLOBAL__N_19ImplPosixEJR9uv_loop_sEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZSt11make_sharedISt8functionIFviEEJZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: argument 0"}
-!10 = distinct !{!10, !"_ZSt11make_sharedISt8functionIFviEEJZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
+!9 = distinct !{!9, !10, !"_ZSt11make_sharedISt8functionIFviEEJZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: argument 0"}
+!10 = distinct !{!10, !"_ZSt11make_sharedISt8functionIFviEEJZN12_GLOBAL__N_19ImplPosixC1ER9uv_loop_sE3$_0EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
 !11 = !{!9, !6}
 !12 = !{!"branch_weights", i32 1, i32 1048575}
 !13 = !{!14, !16, !6}

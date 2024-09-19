@@ -1861,7 +1861,7 @@ define internal i32 @dissect_DEVMODE(ptr noundef %0, i32 noundef %1, ptr noundef
   %.026.i = select i1 %.not.i, i32 %17, i32 %20
   %21 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.026.i) #5
   %22 = icmp slt i32 %21, 1
-  br i1 %22, label %dissect_spoolss_uint16uni.exit, label %23
+  br i1 %22, label %dissect_spoolss_uint16uni.argprom.exit, label %23
 
 23:                                               ; preds = %13
   %24 = getelementptr inbounds i8, ptr %2, i64 408
@@ -1871,9 +1871,9 @@ define internal i32 @dissect_DEVMODE(ptr noundef %0, i32 noundef %1, ptr noundef
   %28 = trunc i64 %27 to i32
   %29 = shl i32 %28, 1
   %30 = call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %18, ptr noundef %0, i32 noundef %.026.i, i32 noundef %29, ptr noundef %26) #5
-  br label %dissect_spoolss_uint16uni.exit
+  br label %dissect_spoolss_uint16uni.argprom.exit
 
-dissect_spoolss_uint16uni.exit:                   ; preds = %13, %23
+dissect_spoolss_uint16uni.argprom.exit:           ; preds = %13, %23
   %31 = add i32 %17, 64
   %32 = load i32, ptr @hf_devmode_spec_version, align 4
   %33 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %15, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef null) #5
@@ -1889,7 +1889,7 @@ dissect_spoolss_uint16uni.exit:                   ; preds = %13, %23
   %.not.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i, label %dissect_DEVMODE_fields.exit, label %42
 
-42:                                               ; preds = %dissect_spoolss_uint16uni.exit
+42:                                               ; preds = %dissect_spoolss_uint16uni.argprom.exit
   %43 = getelementptr inbounds i8, ptr %41, i64 32
   %44 = load ptr, ptr %43, align 8
   %.not5.i.i = icmp eq ptr %44, null
@@ -1902,7 +1902,7 @@ dissect_spoolss_uint16uni.exit:                   ; preds = %13, %23
   store i32 %48, ptr %46, align 4
   br label %dissect_DEVMODE_fields.exit
 
-dissect_DEVMODE_fields.exit:                      ; preds = %dissect_spoolss_uint16uni.exit, %42, %45
+dissect_DEVMODE_fields.exit:                      ; preds = %dissect_spoolss_uint16uni.argprom.exit, %42, %45
   %49 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef null, ptr noundef nonnull %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %7) #5
   %50 = add i32 %49, -4
   %51 = load i32, ptr @hf_devmode_fields, align 4
@@ -1967,7 +1967,7 @@ dissect_DEVMODE_fields.exit:                      ; preds = %dissect_spoolss_uin
   %.026.i238 = select i1 %.not.i236, i32 %97, i32 %100
   %101 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.026.i238) #5
   %102 = icmp slt i32 %101, 1
-  br i1 %102, label %dissect_spoolss_uint16uni.exit240, label %103
+  br i1 %102, label %dissect_spoolss_uint16uni.argprom.exit240, label %103
 
 103:                                              ; preds = %87
   %104 = getelementptr inbounds i8, ptr %2, i64 408
@@ -1977,9 +1977,9 @@ dissect_DEVMODE_fields.exit:                      ; preds = %dissect_spoolss_uin
   %108 = trunc i64 %107 to i32
   %109 = shl i32 %108, 1
   %110 = call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %98, ptr noundef %0, i32 noundef %.026.i238, i32 noundef %109, ptr noundef %106) #5
-  br label %dissect_spoolss_uint16uni.exit240
+  br label %dissect_spoolss_uint16uni.argprom.exit240
 
-dissect_spoolss_uint16uni.exit240:                ; preds = %87, %103
+dissect_spoolss_uint16uni.argprom.exit240:        ; preds = %87, %103
   %111 = add i32 %97, 64
   %112 = load i32, ptr @hf_devmode_log_pixels, align 4
   %113 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %15, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %112, ptr noundef null) #5
@@ -2013,14 +2013,14 @@ dissect_spoolss_uint16uni.exit240:                ; preds = %87, %103
   %.not235 = icmp eq i16 %140, 0
   br i1 %.not235, label %145, label %141
 
-141:                                              ; preds = %dissect_spoolss_uint16uni.exit240
+141:                                              ; preds = %dissect_spoolss_uint16uni.argprom.exit240
   %142 = load i32, ptr @hf_devmode_driver_extra, align 4
   %143 = zext i16 %140 to i32
   %144 = call i32 @dissect_ndr_uint8s(ptr noundef %0, i32 noundef %139, ptr noundef %2, ptr noundef %15, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %142, i32 noundef %143, ptr noundef null) #5
   br label %145
 
-145:                                              ; preds = %141, %dissect_spoolss_uint16uni.exit240
-  %.0231 = phi i32 [ %144, %141 ], [ %139, %dissect_spoolss_uint16uni.exit240 ]
+145:                                              ; preds = %141, %dissect_spoolss_uint16uni.argprom.exit240
+  %.0231 = phi i32 [ %144, %141 ], [ %139, %dissect_spoolss_uint16uni.argprom.exit240 ]
   %146 = load ptr, ptr %8, align 8
   %147 = sub i32 %.0231, %1
   call void @proto_item_set_len(ptr noundef %146, i32 noundef %147) #5
@@ -3174,7 +3174,7 @@ define internal i32 @SpoolssEnumPrinters_r(ptr noundef %0, i32 noundef %1, ptr n
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %8, align 8
-  call fastcc void @dissect_PRINTER_INFO_0(ptr noundef %28, ptr noundef nonnull %2, ptr noundef %26, ptr noundef nonnull %4, ptr noundef %5)
+  call fastcc void @dissect_PRINTER_INFO_0.argelim(ptr noundef %28, ptr noundef nonnull %2, ptr noundef %26, ptr noundef nonnull %4, ptr noundef %5)
   br label %57
 
 29:                                               ; preds = %22
@@ -3191,7 +3191,7 @@ define internal i32 @SpoolssEnumPrinters_r(ptr noundef %0, i32 noundef %1, ptr n
 
 39:                                               ; preds = %22
   %40 = load ptr, ptr %8, align 8
-  call fastcc void @dissect_PRINTER_INFO_2(ptr noundef %40, ptr noundef nonnull %2, ptr noundef %26, ptr noundef nonnull %4, ptr noundef %5)
+  call fastcc void @dissect_PRINTER_INFO_2.argelim(ptr noundef %40, ptr noundef nonnull %2, ptr noundef %26, ptr noundef nonnull %4, ptr noundef %5)
   br label %57
 
 41:                                               ; preds = %22
@@ -3203,7 +3203,7 @@ define internal i32 @SpoolssEnumPrinters_r(ptr noundef %0, i32 noundef %1, ptr n
 
 46:                                               ; preds = %22
   %47 = load ptr, ptr %8, align 8
-  call fastcc void @dissect_PRINTER_INFO_5(ptr noundef %47, ptr noundef nonnull %2, ptr noundef %26, ptr noundef nonnull %4, ptr noundef %5)
+  call fastcc void @dissect_PRINTER_INFO_5.argelim(ptr noundef %47, ptr noundef nonnull %2, ptr noundef %26, ptr noundef nonnull %4, ptr noundef %5)
   br label %57
 
 48:                                               ; preds = %22
@@ -3652,7 +3652,7 @@ define internal i32 @SpoolssGetPrinter_r(ptr noundef %0, i32 noundef %1, ptr nou
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %7, align 8
-  call fastcc void @dissect_PRINTER_INFO_0(ptr noundef %27, ptr noundef nonnull %2, ptr noundef %25, ptr noundef nonnull %4, ptr noundef %5)
+  call fastcc void @dissect_PRINTER_INFO_0.argelim(ptr noundef %27, ptr noundef nonnull %2, ptr noundef %25, ptr noundef nonnull %4, ptr noundef %5)
   br label %56
 
 28:                                               ; preds = %21
@@ -3669,7 +3669,7 @@ define internal i32 @SpoolssGetPrinter_r(ptr noundef %0, i32 noundef %1, ptr nou
 
 38:                                               ; preds = %21
   %39 = load ptr, ptr %7, align 8
-  call fastcc void @dissect_PRINTER_INFO_2(ptr noundef %39, ptr noundef nonnull %2, ptr noundef %25, ptr noundef nonnull %4, ptr noundef %5)
+  call fastcc void @dissect_PRINTER_INFO_2.argelim(ptr noundef %39, ptr noundef nonnull %2, ptr noundef %25, ptr noundef nonnull %4, ptr noundef %5)
   br label %56
 
 40:                                               ; preds = %21
@@ -3681,7 +3681,7 @@ define internal i32 @SpoolssGetPrinter_r(ptr noundef %0, i32 noundef %1, ptr nou
 
 45:                                               ; preds = %21
   %46 = load ptr, ptr %7, align 8
-  call fastcc void @dissect_PRINTER_INFO_5(ptr noundef %46, ptr noundef nonnull %2, ptr noundef %25, ptr noundef nonnull %4, ptr noundef %5)
+  call fastcc void @dissect_PRINTER_INFO_5.argelim(ptr noundef %46, ptr noundef nonnull %2, ptr noundef %25, ptr noundef nonnull %4, ptr noundef %5)
   br label %56
 
 47:                                               ; preds = %21
@@ -5443,7 +5443,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
 
 32:                                               ; preds = %24
   %33 = call noalias ptr @wmem_strdup(ptr noundef %31, ptr noundef nonnull @.str.755) #5
-  br label %dissect_spoolss_uint16uni.exit
+  br label %dissect_spoolss_uint16uni.argprom.exit
 
 34:                                               ; preds = %24
   %35 = call ptr @tvb_get_string_enc(ptr noundef %31, ptr noundef %0, i32 noundef %.026.i, i32 noundef %28, i32 noundef -2147483644) #5
@@ -5451,9 +5451,9 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
   %37 = trunc i64 %36 to i32
   %38 = shl i32 %37, 1
   %39 = call ptr @proto_tree_add_string(ptr noundef %20, i32 noundef %25, ptr noundef %0, i32 noundef %.026.i, i32 noundef %38, ptr noundef %35) #5
-  br label %dissect_spoolss_uint16uni.exit
+  br label %dissect_spoolss_uint16uni.argprom.exit
 
-dissect_spoolss_uint16uni.exit:                   ; preds = %32, %34
+dissect_spoolss_uint16uni.argprom.exit:           ; preds = %32, %34
   %.063 = phi ptr [ %33, %32 ], [ %35, %34 ]
   %40 = load i32, ptr %7, align 4
   %41 = shl i32 %40, 1
@@ -5461,7 +5461,7 @@ dissect_spoolss_uint16uni.exit:                   ; preds = %32, %34
   %.not55 = icmp eq ptr %.063, null
   br i1 %.not55, label %48, label %43
 
-43:                                               ; preds = %dissect_spoolss_uint16uni.exit
+43:                                               ; preds = %dissect_spoolss_uint16uni.argprom.exit
   %44 = load i8, ptr %.063, align 1
   %.not56 = icmp eq i8 %44, 0
   br i1 %.not56, label %48, label %45
@@ -5472,7 +5472,7 @@ dissect_spoolss_uint16uni.exit:                   ; preds = %32, %34
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %47, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef nonnull %.063) #5
   br label %48
 
-48:                                               ; preds = %45, %43, %dissect_spoolss_uint16uni.exit
+48:                                               ; preds = %45, %43, %dissect_spoolss_uint16uni.argprom.exit
   %49 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef nonnull @.str.757, ptr noundef %.063) #5
   %50 = load i32, ptr @hf_printerdata_value, align 4
@@ -5901,7 +5901,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %19, %22
 
 52:                                               ; preds = %39
   %53 = call noalias ptr @wmem_strdup(ptr noundef %51, ptr noundef nonnull @.str.755) #5
-  br label %dissect_spoolss_uint16uni.exit.i
+  br label %dissect_spoolss_uint16uni.argprom.exit.i
 
 54:                                               ; preds = %39
   %55 = call ptr @tvb_get_string_enc(ptr noundef %51, ptr noundef %0, i32 noundef %.026.i.i, i32 noundef %49, i32 noundef -2147483644) #5
@@ -5909,9 +5909,9 @@ proto_item_set_hidden.exit:                       ; preds = %6, %19, %22
   %57 = trunc i64 %56 to i32
   %58 = shl i32 %57, 1
   %59 = call ptr @proto_tree_add_string(ptr noundef null, i32 noundef %46, ptr noundef %0, i32 noundef %.026.i.i, i32 noundef %58, ptr noundef %55) #5
-  br label %dissect_spoolss_uint16uni.exit.i
+  br label %dissect_spoolss_uint16uni.argprom.exit.i
 
-dissect_spoolss_uint16uni.exit.i:                 ; preds = %54, %52
+dissect_spoolss_uint16uni.argprom.exit.i:         ; preds = %54, %52
   %.091.i = phi ptr [ %53, %52 ], [ %55, %54 ]
   %60 = load i32, ptr @ett_printer_enumdataex_value, align 4
   %61 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %36, ptr noundef %0, i32 noundef %43, i32 noundef 0, i32 noundef %60, ptr noundef nonnull %12, ptr noundef nonnull @.str.1253, ptr noundef %.091.i) #5
@@ -5941,14 +5941,14 @@ dissect_spoolss_uint16uni.exit.i:                 ; preds = %54, %52
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %91
 
-86:                                               ; preds = %dissect_spoolss_uint16uni.exit.i
+86:                                               ; preds = %dissect_spoolss_uint16uni.argprom.exit.i
   %87 = load i32, ptr @hf_enumprinterdataex_value_null, align 4
   %88 = load i32, ptr %9, align 4
   %89 = add i32 %88, %.04648
   %90 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %61, i32 noundef %87, ptr noundef %0, i32 noundef %89, i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1254) #5
   br label %dissect_spoolss_printer_enum_values.exit
 
-91:                                               ; preds = %dissect_spoolss_uint16uni.exit.i
+91:                                               ; preds = %dissect_spoolss_uint16uni.argprom.exit.i
   %92 = load i32, ptr %11, align 4
   switch i32 %92, label %139 [
     i32 4, label %93
@@ -5994,7 +5994,7 @@ dissect_spoolss_uint16uni.exit.i:                 ; preds = %54, %52
 
 120:                                              ; preds = %111
   %121 = call noalias ptr @wmem_strdup(ptr noundef %119, ptr noundef nonnull @.str.755) #5
-  br label %dissect_spoolss_uint16uni.exit87.i
+  br label %dissect_spoolss_uint16uni.argprom.exit87.i
 
 122:                                              ; preds = %111
   %123 = call ptr @tvb_get_string_enc(ptr noundef %119, ptr noundef %0, i32 noundef %.026.i85.i, i32 noundef %117, i32 noundef -2147483644) #5
@@ -6002,9 +6002,9 @@ dissect_spoolss_uint16uni.exit.i:                 ; preds = %54, %52
   %125 = trunc i64 %124 to i32
   %126 = shl i32 %125, 1
   %127 = call ptr @proto_tree_add_string(ptr noundef %61, i32 noundef %114, ptr noundef %0, i32 noundef %.026.i85.i, i32 noundef %126, ptr noundef %123) #5
-  br label %dissect_spoolss_uint16uni.exit87.i
+  br label %dissect_spoolss_uint16uni.argprom.exit87.i
 
-dissect_spoolss_uint16uni.exit87.i:               ; preds = %122, %120
+dissect_spoolss_uint16uni.argprom.exit87.i:       ; preds = %122, %120
   %.0.i = phi ptr [ %121, %120 ], [ %123, %122 ]
   %128 = load ptr, ptr %12, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %128, ptr noundef nonnull @.str.1256, ptr noundef %.0.i) #5
@@ -6030,7 +6030,7 @@ dissect_spoolss_uint16uni.exit87.i:               ; preds = %122, %120
   %142 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %61, ptr noundef nonnull %2, ptr noundef nonnull @ei_enumprinterdataex_value, ptr noundef %0, i32 noundef %141, i32 noundef %84, ptr noundef nonnull @.str.1259, ptr noundef %.091.i, i32 noundef %92) #5
   br label %dissect_spoolss_printer_enum_values.exit
 
-dissect_spoolss_printer_enum_values.exit:         ; preds = %86, %93, %dissect_spoolss_uint16uni.exit87.i, %129, %134, %139
+dissect_spoolss_printer_enum_values.exit:         ; preds = %86, %93, %dissect_spoolss_uint16uni.argprom.exit87.i, %129, %134, %139
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -6176,7 +6176,7 @@ define internal i32 @SpoolssGetCorePrinterDrivers_r(ptr noundef %0, i32 noundef 
   %.026.i.i = select i1 %.not.i.i, i32 %38, i32 %41
   %42 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.026.i.i) #5
   %43 = icmp slt i32 %42, 1
-  br i1 %43, label %dissect_spoolss_uint16uni.exit.i, label %44
+  br i1 %43, label %dissect_spoolss_uint16uni.argprom.exit.i, label %44
 
 44:                                               ; preds = %30
   %45 = load ptr, ptr %15, align 8
@@ -6185,9 +6185,9 @@ define internal i32 @SpoolssGetCorePrinterDrivers_r(ptr noundef %0, i32 noundef 
   %48 = trunc i64 %47 to i32
   %49 = shl i32 %48, 1
   %50 = call ptr @proto_tree_add_string(ptr noundef %32, i32 noundef %39, ptr noundef %0, i32 noundef %.026.i.i, i32 noundef %49, ptr noundef %46) #5
-  br label %dissect_spoolss_uint16uni.exit.i
+  br label %dissect_spoolss_uint16uni.argprom.exit.i
 
-dissect_spoolss_uint16uni.exit.i:                 ; preds = %44, %30
+dissect_spoolss_uint16uni.argprom.exit.i:         ; preds = %44, %30
   %51 = add i32 %38, 520
   %52 = load ptr, ptr %13, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 96
@@ -6196,7 +6196,7 @@ dissect_spoolss_uint16uni.exit.i:                 ; preds = %44, %30
   %.not46.i = icmp eq i32 %55, 0
   br i1 %.not46.i, label %dissect_CORE_PRINTER_DRIVER.exit, label %56
 
-56:                                               ; preds = %dissect_spoolss_uint16uni.exit.i
+56:                                               ; preds = %dissect_spoolss_uint16uni.argprom.exit.i
   %57 = load i32, ptr %14, align 4
   %.not47.i = icmp ne i32 %57, 0
   %58 = and i32 %38, 7
@@ -6209,8 +6209,8 @@ dissect_spoolss_uint16uni.exit.i:                 ; preds = %44, %30
   %61 = add i32 %60, 8
   br label %dissect_CORE_PRINTER_DRIVER.exit
 
-dissect_CORE_PRINTER_DRIVER.exit:                 ; preds = %dissect_spoolss_uint16uni.exit.i, %56, %59
-  %.1.i = phi i32 [ %51, %56 ], [ %61, %59 ], [ %51, %dissect_spoolss_uint16uni.exit.i ]
+dissect_CORE_PRINTER_DRIVER.exit:                 ; preds = %dissect_spoolss_uint16uni.argprom.exit.i, %56, %59
+  %.1.i = phi i32 [ %51, %56 ], [ %61, %59 ], [ %51, %dissect_spoolss_uint16uni.argprom.exit.i ]
   %62 = add nuw i32 %.028, 1
   %63 = load i32, ptr %7, align 4
   %64 = icmp ult i32 %62, %63
@@ -6317,7 +6317,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PRINTER_INFO_0(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_PRINTER_INFO_0.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_printername, align 4
   %7 = tail call fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %6, i32 noundef 0, ptr noundef null)
   %8 = load i32, ptr @hf_servername, align 4
@@ -6387,7 +6387,7 @@ define internal fastcc void @dissect_PRINTER_INFO_0(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PRINTER_INFO_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_PRINTER_INFO_2.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -6449,7 +6449,7 @@ define internal fastcc void @dissect_PRINTER_INFO_2(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_PRINTER_INFO_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_PRINTER_INFO_5.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_printername, align 4
   %8 = tail call fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %7, i32 noundef 0, ptr noundef null)
@@ -6498,7 +6498,7 @@ define internal fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %
 
 23:                                               ; preds = %15
   %24 = call noalias ptr @wmem_strdup(ptr noundef %22, ptr noundef nonnull @.str.755) #5
-  br label %dissect_spoolss_uint16uni.exit
+  br label %dissect_spoolss_uint16uni.argprom.exit
 
 25:                                               ; preds = %15
   %26 = call ptr @tvb_get_string_enc(ptr noundef %22, ptr noundef %0, i32 noundef %.026.i, i32 noundef %19, i32 noundef -2147483644) #5
@@ -6508,15 +6508,15 @@ define internal fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %
   %30 = call ptr @proto_tree_add_string(ptr noundef null, i32 noundef %16, ptr noundef %0, i32 noundef %.026.i, i32 noundef %29, ptr noundef %26) #5
   %31 = add i32 %.026.i, 2
   %32 = add i32 %31, %29
-  br label %dissect_spoolss_uint16uni.exit
+  br label %dissect_spoolss_uint16uni.argprom.exit
 
 33:                                               ; preds = %9
   %34 = getelementptr inbounds i8, ptr %2, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = call noalias ptr @wmem_strdup(ptr noundef %35, ptr noundef nonnull @.str.755) #5
-  br label %dissect_spoolss_uint16uni.exit
+  br label %dissect_spoolss_uint16uni.argprom.exit
 
-dissect_spoolss_uint16uni.exit:                   ; preds = %25, %23, %33
+dissect_spoolss_uint16uni.argprom.exit:           ; preds = %25, %23, %33
   %.041 = phi ptr [ %36, %33 ], [ %24, %23 ], [ %26, %25 ]
   %.0 = phi i32 [ %14, %33 ], [ %.026.i, %23 ], [ %32, %25 ]
   %37 = sub i32 %.0, %14
@@ -6528,9 +6528,9 @@ dissect_spoolss_uint16uni.exit:                   ; preds = %25, %23, %33
   %43 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %41, ptr noundef nonnull %2, ptr noundef %40, ptr noundef %4, ptr noundef %5, i32 noundef %42, ptr noundef null) #5
   %44 = load i32, ptr %10, align 4
   %.not33 = icmp eq i32 %44, 0
-  br i1 %.not33, label %dissect_spoolss_uint16uni.exit39, label %45
+  br i1 %.not33, label %dissect_spoolss_uint16uni.argprom.exit39, label %45
 
-45:                                               ; preds = %dissect_spoolss_uint16uni.exit
+45:                                               ; preds = %dissect_spoolss_uint16uni.argprom.exit
   %46 = load i32, ptr @hf_relative_string, align 4
   %47 = srem i32 %14, 2
   %.not.i35 = icmp eq i32 %47, 0
@@ -6539,7 +6539,7 @@ dissect_spoolss_uint16uni.exit:                   ; preds = %25, %23, %33
   %.026.i37 = select i1 %.not.i35, i32 %14, i32 %48
   %49 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.026.i37) #5
   %50 = icmp slt i32 %49, 1
-  br i1 %50, label %dissect_spoolss_uint16uni.exit39, label %51
+  br i1 %50, label %dissect_spoolss_uint16uni.argprom.exit39, label %51
 
 51:                                               ; preds = %45
   %52 = getelementptr inbounds i8, ptr %2, i64 408
@@ -6549,17 +6549,17 @@ dissect_spoolss_uint16uni.exit:                   ; preds = %25, %23, %33
   %56 = trunc i64 %55 to i32
   %57 = shl i32 %56, 1
   %58 = call ptr @proto_tree_add_string(ptr noundef %40, i32 noundef %46, ptr noundef %0, i32 noundef %.026.i37, i32 noundef %57, ptr noundef %54) #5
-  br label %dissect_spoolss_uint16uni.exit39
+  br label %dissect_spoolss_uint16uni.argprom.exit39
 
-dissect_spoolss_uint16uni.exit39:                 ; preds = %51, %45, %dissect_spoolss_uint16uni.exit
+dissect_spoolss_uint16uni.argprom.exit39:         ; preds = %51, %45, %dissect_spoolss_uint16uni.argprom.exit
   %.not34 = icmp eq ptr %8, null
   br i1 %.not34, label %60, label %59
 
-59:                                               ; preds = %dissect_spoolss_uint16uni.exit39
+59:                                               ; preds = %dissect_spoolss_uint16uni.argprom.exit39
   store ptr %.041, ptr %8, align 8
   br label %60
 
-60:                                               ; preds = %59, %dissect_spoolss_uint16uni.exit39
+60:                                               ; preds = %59, %dissect_spoolss_uint16uni.argprom.exit39
   ret i32 %12
 }
 
@@ -6665,7 +6665,7 @@ define internal fastcc i32 @dissect_DRIVER_INFO_3(ptr noundef %0, i32 noundef %1
   %21 = load i32, ptr @hf_helpfile, align 4
   %22 = tail call fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %8, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef %1, ptr noundef null)
   %23 = load i32, ptr @hf_dependentfiles, align 4
-  %24 = tail call fastcc i32 @dissect_spoolss_relstrarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %8, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef %1)
+  %24 = tail call fastcc i32 @dissect_spoolss_relstrarray.argprom(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %8, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef %1)
   %25 = load i32, ptr @hf_monitorname, align 4
   %26 = tail call fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %8, ptr noundef %4, ptr noundef %5, i32 noundef %25, i32 noundef %1, ptr noundef null)
   %27 = load i32, ptr @hf_defaultdatatype, align 4
@@ -6696,9 +6696,9 @@ define internal fastcc i32 @dissect_DRIVER_INFO_6(ptr noundef %0, i32 noundef %1
   %25 = load i32, ptr @hf_defaultdatatype, align 4
   %26 = tail call fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %8, ptr noundef %4, ptr noundef %5, i32 noundef %25, i32 noundef %1, ptr noundef null)
   %27 = load i32, ptr @hf_dependentfiles, align 4
-  %28 = tail call fastcc i32 @dissect_spoolss_relstrarray(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %8, ptr noundef %4, ptr noundef %5, i32 noundef %27, i32 noundef %1)
+  %28 = tail call fastcc i32 @dissect_spoolss_relstrarray.argprom(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %8, ptr noundef %4, ptr noundef %5, i32 noundef %27, i32 noundef %1)
   %29 = load i32, ptr @hf_previousdrivernames, align 4
-  %30 = tail call fastcc i32 @dissect_spoolss_relstrarray(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %8, ptr noundef %4, ptr noundef %5, i32 noundef %29, i32 noundef %1)
+  %30 = tail call fastcc i32 @dissect_spoolss_relstrarray.argprom(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %8, ptr noundef %4, ptr noundef %5, i32 noundef %29, i32 noundef %1)
   %31 = load i32, ptr @hf_driverdate, align 4
   %32 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %8, ptr noundef %4, ptr noundef %5, i32 noundef %31) #5
   %33 = load i32, ptr @hf_padding, align 4
@@ -6738,13 +6738,13 @@ define internal fastcc i32 @dissect_DRIVER_INFO_8(ptr noundef %0, i32 noundef %1
   %22 = load i32, ptr @hf_helpfile, align 4
   %23 = tail call fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %9, ptr noundef %4, ptr noundef %5, i32 noundef %22, i32 noundef %1, ptr noundef null)
   %24 = load i32, ptr @hf_dependentfiles, align 4
-  %25 = tail call fastcc i32 @dissect_spoolss_relstrarray(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %9, ptr noundef %4, ptr noundef %5, i32 noundef %24, i32 noundef %1)
+  %25 = tail call fastcc i32 @dissect_spoolss_relstrarray.argprom(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %9, ptr noundef %4, ptr noundef %5, i32 noundef %24, i32 noundef %1)
   %26 = load i32, ptr @hf_monitorname, align 4
   %27 = tail call fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %9, ptr noundef %4, ptr noundef %5, i32 noundef %26, i32 noundef %1, ptr noundef null)
   %28 = load i32, ptr @hf_defaultdatatype, align 4
   %29 = tail call fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %9, ptr noundef %4, ptr noundef %5, i32 noundef %28, i32 noundef %1, ptr noundef null)
   %30 = load i32, ptr @hf_previousdrivernames, align 4
-  %31 = tail call fastcc i32 @dissect_spoolss_relstrarray(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %9, ptr noundef %4, ptr noundef %5, i32 noundef %30, i32 noundef %1)
+  %31 = tail call fastcc i32 @dissect_spoolss_relstrarray.argprom(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %9, ptr noundef %4, ptr noundef %5, i32 noundef %30, i32 noundef %1)
   %32 = load i32, ptr @hf_driverdate, align 4
   %33 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %9, ptr noundef %4, ptr noundef %5, i32 noundef %32) #5
   %34 = load i32, ptr @hf_padding, align 4
@@ -6766,7 +6766,7 @@ define internal fastcc i32 @dissect_DRIVER_INFO_8(ptr noundef %0, i32 noundef %1
   %50 = load i32, ptr @hf_vendor_setup, align 4
   %51 = tail call fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %9, ptr noundef %4, ptr noundef %5, i32 noundef %50, i32 noundef %1, ptr noundef null)
   %52 = load i32, ptr @hf_color_profiles, align 4
-  %53 = tail call fastcc i32 @dissect_spoolss_relstrarray(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %9, ptr noundef %4, ptr noundef %5, i32 noundef %52, i32 noundef %1)
+  %53 = tail call fastcc i32 @dissect_spoolss_relstrarray.argprom(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %9, ptr noundef %4, ptr noundef %5, i32 noundef %52, i32 noundef %1)
   %54 = load i32, ptr @hf_inf_path, align 4
   %55 = tail call fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %9, ptr noundef %4, ptr noundef %5, i32 noundef %54, i32 noundef %1, ptr noundef null)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -6779,7 +6779,7 @@ define internal fastcc i32 @dissect_DRIVER_INFO_8(ptr noundef %0, i32 noundef %1
   %62 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %9, ptr noundef %0, i32 noundef %57, i32 noundef %58, i32 noundef %59, ptr noundef nonnull @dissect_printer_driver_attributes.hf_attributes, i64 noundef %61, i32 noundef 1) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %63 = load i32, ptr @hf_core_driver_dependencies, align 4
-  %64 = call fastcc i32 @dissect_spoolss_relstrarray(ptr noundef %0, i32 noundef %56, ptr noundef %2, ptr noundef %9, ptr noundef %4, ptr noundef %5, i32 noundef %63, i32 noundef %1)
+  %64 = call fastcc i32 @dissect_spoolss_relstrarray.argprom(ptr noundef %0, i32 noundef %56, ptr noundef %2, ptr noundef %9, ptr noundef %4, ptr noundef %5, i32 noundef %63, i32 noundef %1)
   %65 = load i32, ptr @hf_min_inbox_driverdate, align 4
   %66 = call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %64, ptr noundef %2, ptr noundef %9, ptr noundef %4, ptr noundef %5, i32 noundef %65) #5
   %67 = load i32, ptr @hf_min_inbox_driver_version_low, align 4
@@ -6790,7 +6790,7 @@ define internal fastcc i32 @dissect_DRIVER_INFO_8(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_spoolss_relstrarray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_spoolss_relstrarray.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 4, ptr noundef nonnull @.str.755) #5
   %11 = load i32, ptr @ett_RELSTR_ARRAY, align 4
@@ -6817,7 +6817,7 @@ define internal fastcc i32 @dissect_spoolss_relstrarray(ptr noundef %0, i32 noun
 
 25:                                               ; preds = %16
   %26 = call noalias ptr @wmem_strdup(ptr noundef %24, ptr noundef nonnull @.str.755) #5
-  br label %dissect_spoolss_uint16uni.exit
+  br label %dissect_spoolss_uint16uni.argprom.exit
 
 27:                                               ; preds = %16
   %28 = call ptr @tvb_get_string_enc(ptr noundef %24, ptr noundef %0, i32 noundef %.026.i, i32 noundef %21, i32 noundef -2147483644) #5
@@ -6825,15 +6825,15 @@ define internal fastcc i32 @dissect_spoolss_relstrarray(ptr noundef %0, i32 noun
   %30 = trunc i64 %29 to i32
   %31 = shl i32 %30, 1
   %32 = call ptr @proto_tree_add_string(ptr noundef %12, i32 noundef %18, ptr noundef %0, i32 noundef %.026.i, i32 noundef %31, ptr noundef %28) #5
-  br label %dissect_spoolss_uint16uni.exit
+  br label %dissect_spoolss_uint16uni.argprom.exit
 
 33:                                               ; preds = %8
   %34 = getelementptr inbounds i8, ptr %2, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = call noalias ptr @wmem_strdup(ptr noundef %35, ptr noundef nonnull @.str.1222) #5
-  br label %dissect_spoolss_uint16uni.exit
+  br label %dissect_spoolss_uint16uni.argprom.exit
 
-dissect_spoolss_uint16uni.exit:                   ; preds = %27, %25, %33
+dissect_spoolss_uint16uni.argprom.exit:           ; preds = %27, %25, %33
   %.1 = phi ptr [ %36, %33 ], [ %26, %25 ], [ %28, %27 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.1223, ptr noundef %.1) #5
   ret i32 %14
@@ -7118,8 +7118,8 @@ define internal fastcc i32 @dissect_spoolss_keybuffer(ptr noundef %0, i32 nounde
   %24 = getelementptr inbounds i8, ptr %2, i64 408
   br label %25
 
-25:                                               ; preds = %.lr.ph, %dissect_spoolss_uint16uni.exit
-  %.02326 = phi i32 [ %12, %.lr.ph ], [ %.0.i, %dissect_spoolss_uint16uni.exit ]
+25:                                               ; preds = %.lr.ph, %dissect_spoolss_uint16uni.argprom.exit
+  %.02326 = phi i32 [ %12, %.lr.ph ], [ %.0.i, %dissect_spoolss_uint16uni.argprom.exit ]
   %26 = load i32, ptr @hf_keybuffer, align 4
   %27 = and i32 %.02326, 1
   %.not.i = icmp eq i32 %27, 0
@@ -7128,7 +7128,7 @@ define internal fastcc i32 @dissect_spoolss_keybuffer(ptr noundef %0, i32 nounde
   %.026.i = select i1 %.not.i, i32 %.02326, i32 %29
   %30 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.026.i) #5
   %31 = icmp slt i32 %30, 1
-  br i1 %31, label %dissect_spoolss_uint16uni.exit, label %32
+  br i1 %31, label %dissect_spoolss_uint16uni.argprom.exit, label %32
 
 32:                                               ; preds = %25
   %33 = load ptr, ptr %24, align 8
@@ -7139,17 +7139,17 @@ define internal fastcc i32 @dissect_spoolss_keybuffer(ptr noundef %0, i32 nounde
   %38 = call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %26, ptr noundef %0, i32 noundef %.026.i, i32 noundef %37, ptr noundef %34) #5
   %39 = add nuw i32 %.026.i, 2
   %40 = add i32 %39, %37
-  br label %dissect_spoolss_uint16uni.exit
+  br label %dissect_spoolss_uint16uni.argprom.exit
 
-dissect_spoolss_uint16uni.exit:                   ; preds = %25, %32
+dissect_spoolss_uint16uni.argprom.exit:           ; preds = %25, %32
   %.0.i = phi i32 [ %40, %32 ], [ %.026.i, %25 ]
   %41 = icmp sgt i32 %.0.i, 0
   %42 = icmp slt i32 %.0.i, %.0
   %43 = select i1 %41, i1 %42, i1 false
   br i1 %43, label %25, label %.loopexit, !llvm.loop !11
 
-.loopexit:                                        ; preds = %dissect_spoolss_uint16uni.exit, %20, %6
-  %.022 = phi i32 [ %1, %6 ], [ %12, %20 ], [ %.0.i, %dissect_spoolss_uint16uni.exit ]
+.loopexit:                                        ; preds = %dissect_spoolss_uint16uni.argprom.exit, %20, %6
+  %.022 = phi i32 [ %1, %6 ], [ %12, %20 ], [ %.0.i, %dissect_spoolss_uint16uni.argprom.exit ]
   ret i32 %.022
 }
 

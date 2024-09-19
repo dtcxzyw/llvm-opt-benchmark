@@ -117,7 +117,7 @@ list_length.exit:                                 ; preds = %16
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %55, i64 48
   %59 = load ptr, ptr %58, align 8
-  %60 = call fastcc ptr @lookup_var_attr_stats(ptr noundef %57, ptr noundef %59, i32 noundef %5, ptr noundef %6)
+  %60 = call fastcc ptr @lookup_var_attr_stats.argprom(ptr noundef %57, ptr noundef %59, i32 noundef %5, ptr noundef %6)
   %.not95 = icmp eq ptr %60, null
   br i1 %.not95, label %61, label %79
 
@@ -1299,7 +1299,7 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 declare void @pgstat_progress_update_multi_param(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lookup_var_attr_stats(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 1, 0) %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc ptr @lookup_var_attr_stats.argprom(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 1, 0) %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = tail call i32 @bms_num_members(ptr noundef %0) #10
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %list_length.exit, label %6
@@ -1577,7 +1577,7 @@ define dso_local i32 @ComputeExtStatisticsRows(ptr nocapture noundef readonly %0
   %22 = load ptr, ptr %19, align 8
   %23 = getelementptr inbounds i8, ptr %18, i64 48
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call fastcc ptr @lookup_var_attr_stats(ptr noundef %22, ptr noundef %24, i32 noundef %1, ptr noundef %2)
+  %25 = tail call fastcc ptr @lookup_var_attr_stats.argprom(ptr noundef %22, ptr noundef %24, i32 noundef %1, ptr noundef %2)
   %.not35 = icmp eq ptr %25, null
   br i1 %.not35, label %36, label %26
 
@@ -2343,9 +2343,9 @@ list_length.exit.us:                              ; preds = %22, %._crit_edge.us
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph58.i.us, label %.loopexit.us
 
-.lr.ph58.i.us:                                    ; preds = %.lr.ph.i.us, %stat_find_expression.exit.i.us
-  %.061.us = phi ptr [ %63, %stat_find_expression.exit.i.us ], [ null, %.lr.ph.i.us ]
-  %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %stat_find_expression.exit.i.us ], [ 0, %.lr.ph.i.us ]
+.lr.ph58.i.us:                                    ; preds = %.lr.ph.i.us, %stat_find_expression.argprom.exit.i.us
+  %.061.us = phi ptr [ %63, %stat_find_expression.argprom.exit.i.us ], [ null, %.lr.ph.i.us ]
+  %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %stat_find_expression.argprom.exit.i.us ], [ 0, %.lr.ph.i.us ]
   %48 = load ptr, ptr %45, align 8
   %49 = getelementptr %union.ListCell, ptr %48, i64 %indvars.iv.i.us
   %50 = load ptr, ptr %49, align 8
@@ -2366,7 +2366,7 @@ list_length.exit.us:                              ; preds = %22, %._crit_edge.us
   %56 = getelementptr %union.ListCell, ptr %55, i64 %indvars.iv.i.i.us
   %57 = load ptr, ptr %56, align 8
   %58 = tail call zeroext i1 @equal(ptr noundef %57, ptr noundef %50) #10
-  br i1 %58, label %stat_find_expression.exit.i.us, label %59
+  br i1 %58, label %stat_find_expression.argprom.exit.i.us, label %59
 
 59:                                               ; preds = %.lr.ph13.i.i.us
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
@@ -2375,7 +2375,7 @@ list_length.exit.us:                              ; preds = %22, %._crit_edge.us
   %62 = icmp slt i64 %indvars.iv.next.i.i.us, %61
   br i1 %62, label %.lr.ph13.i.i.us, label %stat_covers_expressions.exit.us
 
-stat_find_expression.exit.i.us:                   ; preds = %.lr.ph13.i.i.us
+stat_find_expression.argprom.exit.i.us:           ; preds = %.lr.ph13.i.i.us
   %indvars14.le.i.i.us = trunc i64 %indvars.iv.i.i.us to i32
   %63 = tail call ptr @bms_add_member(ptr noundef %.061.us, i32 noundef %indvars14.le.i.i.us) #10
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
@@ -2384,8 +2384,8 @@ stat_find_expression.exit.i.us:                   ; preds = %.lr.ph13.i.i.us
   %66 = icmp slt i64 %indvars.iv.next.i.us, %65
   br i1 %66, label %.lr.ph58.i.us, label %.loopexit.us
 
-.loopexit.us:                                     ; preds = %stat_find_expression.exit.i.us, %.lr.ph.i.us, %41
-  %.162.ph.us = phi ptr [ null, %.lr.ph.i.us ], [ null, %41 ], [ %63, %stat_find_expression.exit.i.us ]
+.loopexit.us:                                     ; preds = %stat_find_expression.argprom.exit.i.us, %.lr.ph.i.us, %41
+  %.162.ph.us = phi ptr [ null, %.lr.ph.i.us ], [ null, %41 ], [ %63, %stat_find_expression.argprom.exit.i.us ]
   %67 = load ptr, ptr %33, align 8
   %68 = tail call ptr @bms_add_members(ptr noundef %.04571.us, ptr noundef %67) #10
   %69 = tail call ptr @bms_add_members(ptr noundef %.04372.us, ptr noundef %.162.ph.us) #10

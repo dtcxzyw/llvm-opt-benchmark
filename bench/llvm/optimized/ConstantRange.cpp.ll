@@ -28321,8 +28321,8 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit10.thread: ; preds = %_ZNK4llvm5APInt
   br label %_ZN4llvm5APIntD2Ev.exit12
 
 55:                                               ; preds = %50
-  call fastcc void @"_ZSt3minIN4llvm5APIntEZNKS0_13ConstantRange9smul_fastERKS2_E3$_0ET_St16initializer_listIS6_ET0_"(ptr dead_on_unwind noalias writable align 8 %13, ptr %12)
-  call fastcc void @"_ZSt3maxIN4llvm5APIntEZNKS0_13ConstantRange9smul_fastERKS2_E3$_0ET_St16initializer_listIS6_ET0_"(ptr dead_on_unwind noalias writable align 8 %15, ptr %12)
+  call fastcc void @"_ZSt3minIN4llvm5APIntEZNKS0_13ConstantRange9smul_fastERKS2_E3$_0ET_St16initializer_listIS6_ET0_.argelim"(ptr dead_on_unwind noalias writable align 8 %13, ptr %12)
+  call fastcc void @"_ZSt3maxIN4llvm5APIntEZNKS0_13ConstantRange9smul_fastERKS2_E3$_0ET_St16initializer_listIS6_ET0_.argelim"(ptr dead_on_unwind noalias writable align 8 %15, ptr %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !720)
   %56 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntpLEm(ptr noundef nonnull align 8 dereferenceable(12) %15, i64 noundef 1) #13, !noalias !720
   %57 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -28467,7 +28467,7 @@ _ZN4llvm5APIntD2Ev.exit17:                        ; preds = %120, %117, %_ZN4llv
 declare void @_ZNK4llvm5APInt7smul_ovERKS0_Rb(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt3minIN4llvm5APIntEZNKS0_13ConstantRange9smul_fastERKS2_E3$_0ET_St16initializer_listIS6_ET0_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nonnull %1) unnamed_addr #0 {
+define internal fastcc void @"_ZSt3minIN4llvm5APIntEZNKS0_13ConstantRange9smul_fastERKS2_E3$_0ET_St16initializer_listIS6_ET0_.argelim"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nonnull %1) unnamed_addr #0 {
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
@@ -28503,7 +28503,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt3maxIN4llvm5APIntEZNKS0_13ConstantRange9smul_fastERKS2_E3$_0ET_St16initializer_listIS6_ET0_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nonnull %1) unnamed_addr #0 {
+define internal fastcc void @"_ZSt3maxIN4llvm5APIntEZNKS0_13ConstantRange9smul_fastERKS2_E3$_0ET_St16initializer_listIS6_ET0_.argelim"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nonnull %1) unnamed_addr #0 {
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i

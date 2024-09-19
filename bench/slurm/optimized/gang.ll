@@ -3655,7 +3655,7 @@ _get_part_gr_type.exit.thread25:                  ; preds = %24, %_get_part_gr_t
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %50 = load i16, ptr @gr_type, align 2
   %.not.i23 = icmp eq i16 %50, 3
-  br i1 %.not.i23, label %51, label %_can_cpus_fit.exit
+  br i1 %.not.i23, label %51, label %_can_cpus_fit.argprom.exit
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds i8, ptr %1, i64 56
@@ -3665,7 +3665,7 @@ _get_part_gr_type.exit.thread25:                  ; preds = %24, %_get_part_gr_t
   %56 = icmp ne ptr %53, null
   %57 = icmp ne ptr %55, null
   %or.cond.i = select i1 %56, i1 %57, i1 false
-  br i1 %or.cond.i, label %.preheader.i, label %_can_cpus_fit.exit
+  br i1 %or.cond.i, label %.preheader.i, label %_can_cpus_fit.argprom.exit
 
 .preheader.i:                                     ; preds = %51
   %58 = getelementptr inbounds i8, ptr %.val, i64 96
@@ -3673,7 +3673,7 @@ _get_part_gr_type.exit.thread25:                  ; preds = %24, %_get_part_gr_t
   %59 = load ptr, ptr %58, align 8
   %60 = call ptr @next_node_bitmap(ptr noundef %59, ptr noundef nonnull %3) #9
   %.not141.i = icmp eq ptr %60, null
-  br i1 %.not141.i, label %_can_cpus_fit.exit, label %.lr.ph.i
+  br i1 %.not141.i, label %_can_cpus_fit.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %77
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %77 ], [ 0, %.preheader.i ]
@@ -3696,7 +3696,7 @@ _get_part_gr_type.exit.thread25:                  ; preds = %24, %_get_part_gr_t
   %.0.i.i = load i16, ptr %.0.in.i.i, align 8
   %75 = zext i16 %.0.i.i to i32
   %76 = icmp ugt i32 %69, %75
-  br i1 %76, label %_can_cpus_fit.exit, label %77
+  br i1 %76, label %_can_cpus_fit.argprom.exit, label %77
 
 77:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3705,15 +3705,15 @@ _get_part_gr_type.exit.thread25:                  ; preds = %24, %_get_part_gr_t
   %79 = load ptr, ptr %58, align 8
   %80 = call ptr @next_node_bitmap(ptr noundef %79, ptr noundef nonnull %3) #9
   %.not14.i = icmp eq ptr %80, null
-  br i1 %.not14.i, label %_can_cpus_fit.exit, label %.lr.ph.i, !llvm.loop !41
+  br i1 %.not14.i, label %_can_cpus_fit.argprom.exit, label %.lr.ph.i, !llvm.loop !41
 
-_can_cpus_fit.exit:                               ; preds = %.lr.ph.i, %77, %49, %51, %.preheader.i
+_can_cpus_fit.argprom.exit:                       ; preds = %.lr.ph.i, %77, %49, %51, %.preheader.i
   %.011.i = phi i32 [ 0, %49 ], [ 0, %51 ], [ 1, %.preheader.i ], [ 1, %77 ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %81
 
-81:                                               ; preds = %47, %45, %2, %10, %_can_cpus_fit.exit, %_get_part_gr_type.exit.thread
-  %.0 = phi i32 [ %31, %_get_part_gr_type.exit.thread ], [ %.011.i, %_can_cpus_fit.exit ], [ 1, %10 ], [ 1, %2 ], [ 1, %45 ], [ 0, %47 ]
+81:                                               ; preds = %47, %45, %2, %10, %_can_cpus_fit.argprom.exit, %_get_part_gr_type.exit.thread
+  %.0 = phi i32 [ %31, %_get_part_gr_type.exit.thread ], [ %.011.i, %_can_cpus_fit.argprom.exit ], [ 1, %10 ], [ 1, %2 ], [ 1, %45 ], [ 0, %47 ]
   ret i32 %.0
 }
 

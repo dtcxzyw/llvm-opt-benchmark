@@ -80,7 +80,7 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_E
   %14 = getelementptr inbounds i8, ptr %1, i64 4
   br label %17
 
-15:                                               ; preds = %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit75"
+15:                                               ; preds = %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit75"
   %16 = getelementptr inbounds i8, ptr %.sroa.096.0107, i64 88
   %.not = icmp eq ptr %16, %13
   br i1 %.not, label %._crit_edge, label %17
@@ -91,7 +91,7 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_E
   %19 = getelementptr inbounds i8, ptr %.sroa.096.0107, i64 80
   %20 = load double, ptr %19, align 8
   %21 = fcmp ord double %20, 0.000000e+00
-  br i1 %21, label %22, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread"
+  br i1 %21, label %22, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit.thread"
 
 22:                                               ; preds = %17
   %23 = load i32, ptr %.sroa.096.0107, align 8
@@ -105,7 +105,7 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_E
   %31 = extractvalue { double, double } %30, 0
   %32 = extractvalue { double, double } %30, 1
   %33 = fcmp ult double %31, 0.000000e+00
-  br i1 %33, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread", label %34
+  br i1 %33, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit.thread", label %34
 
 34:                                               ; preds = %22
   %35 = load i32, ptr %1, align 8
@@ -113,15 +113,15 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_E
   %37 = fcmp uge double %31, %36
   %38 = fcmp ult double %32, 0.000000e+00
   %or.cond.i.i = select i1 %37, i1 true, i1 %38
-  br i1 %or.cond.i.i, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread", label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit"
+  br i1 %or.cond.i.i, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit.thread", label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit"
 
-"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit": ; preds = %34
+"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit": ; preds = %34
   %39 = load i32, ptr %14, align 4
   %40 = sitofp i32 %39 to double
   %41 = fcmp olt double %32, %40
-  br i1 %41, label %42, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread"
+  br i1 %41, label %42, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit.thread"
 
-42:                                               ; preds = %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit"
+42:                                               ; preds = %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit"
   %43 = getelementptr inbounds i8, ptr %.sroa.096.0107, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = add nsw i32 %44, -1
@@ -134,7 +134,7 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_E
   %52 = extractvalue { double, double } %51, 0
   %53 = extractvalue { double, double } %51, 1
   %54 = fcmp ult double %52, 0.000000e+00
-  br i1 %54, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread", label %55
+  br i1 %54, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit.thread", label %55
 
 55:                                               ; preds = %42
   %56 = load i32, ptr %1, align 8
@@ -142,15 +142,15 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_E
   %58 = fcmp uge double %52, %57
   %59 = fcmp ult double %53, 0.000000e+00
   %or.cond.i.i70 = select i1 %58, i1 true, i1 %59
-  br i1 %or.cond.i.i70, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread", label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit71"
+  br i1 %or.cond.i.i70, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit.thread", label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit71"
 
-"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit71": ; preds = %55
+"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit71": ; preds = %55
   %60 = load i32, ptr %14, align 4
   %61 = sitofp i32 %60 to double
   %62 = fcmp olt double %53, %61
-  br i1 %62, label %63, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread"
+  br i1 %62, label %63, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit.thread"
 
-63:                                               ; preds = %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit71"
+63:                                               ; preds = %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit71"
   %64 = load i32, ptr %43, align 4
   %65 = add nsw i32 %64, -1
   %66 = getelementptr inbounds i8, ptr %.sroa.096.0107, i64 12
@@ -164,7 +164,7 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_E
   %74 = extractvalue { double, double } %73, 0
   %75 = extractvalue { double, double } %73, 1
   %76 = fcmp ult double %74, 0.000000e+00
-  br i1 %76, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread", label %77
+  br i1 %76, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit.thread", label %77
 
 77:                                               ; preds = %63
   %78 = load i32, ptr %1, align 8
@@ -172,15 +172,15 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_E
   %80 = fcmp uge double %74, %79
   %81 = fcmp ult double %75, 0.000000e+00
   %or.cond.i.i72 = select i1 %80, i1 true, i1 %81
-  br i1 %or.cond.i.i72, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread", label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit73"
+  br i1 %or.cond.i.i72, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit.thread", label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit73"
 
-"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit73": ; preds = %77
+"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit73": ; preds = %77
   %82 = load i32, ptr %14, align 4
   %83 = sitofp i32 %82 to double
   %84 = fcmp olt double %75, %83
-  br i1 %84, label %85, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread"
+  br i1 %84, label %85, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit.thread"
 
-85:                                               ; preds = %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit73"
+85:                                               ; preds = %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit73"
   %86 = load i32, ptr %.sroa.096.0107, align 8
   %87 = load i32, ptr %66, align 4
   %88 = add nsw i32 %87, -1
@@ -192,7 +192,7 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_E
   %94 = extractvalue { double, double } %93, 0
   %95 = extractvalue { double, double } %93, 1
   %96 = fcmp ult double %94, 0.000000e+00
-  br i1 %96, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread", label %97
+  br i1 %96, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit.thread", label %97
 
 97:                                               ; preds = %85
   %98 = load i32, ptr %1, align 8
@@ -200,15 +200,15 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_E
   %100 = fcmp uge double %94, %99
   %101 = fcmp ult double %95, 0.000000e+00
   %or.cond.i.i74 = select i1 %100, i1 true, i1 %101
-  br i1 %or.cond.i.i74, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread", label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit75"
+  br i1 %or.cond.i.i74, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit.thread", label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit75"
 
-"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit75": ; preds = %97
+"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit75": ; preds = %97
   %102 = load i32, ptr %14, align 4
   %103 = sitofp i32 %102 to double
   %104 = fcmp olt double %95, %103
-  br i1 %104, label %15, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread"
+  br i1 %104, label %15, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit.thread"
 
-"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread": ; preds = %85, %97, %63, %77, %42, %55, %22, %34, %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit75", %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit73", %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit71", %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit", %17
+"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit.thread": ; preds = %85, %97, %63, %77, %42, %55, %22, %34, %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit75", %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit73", %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit71", %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit", %17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   br label %_ZN5ZXing9BitMatrixD2Ev.exit78
 
@@ -385,14 +385,14 @@ _ZN5ZXing9BitMatrix3setEiib.exit:                 ; preds = %165
 ._crit_edge120:                                   ; preds = %._crit_edge120.loopexit, %._crit_edge
   %.val62.val69 = phi ptr [ %.val62.val69.pre, %._crit_edge120.loopexit ], [ %106, %._crit_edge ]
   %.val62.val = phi ptr [ %.val62.val.pre, %._crit_edge120.loopexit ], [ %105, %._crit_edge ]
-  %185 = invoke fastcc i64 @"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE"(ptr %.val62.val, ptr %.val62.val69, i64 0)
+  %185 = invoke fastcc i64 @"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE.argprom.argprom"(ptr %.val62.val, ptr %.val62.val69, i64 0)
           to label %186 unwind label %.loopexit.split-lp
 
 186:                                              ; preds = %._crit_edge120
   %.sroa.081.0.insert.ext = zext nneg i32 %2 to i64
   %.val63.val = load ptr, ptr %4, align 8
   %.val63.val68 = load ptr, ptr %12, align 8
-  %187 = invoke fastcc i64 @"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE"(ptr %.val63.val, ptr %.val63.val68, i64 %.sroa.081.0.insert.ext)
+  %187 = invoke fastcc i64 @"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE.argprom.argprom"(ptr %.val63.val, ptr %.val63.val68, i64 %.sroa.081.0.insert.ext)
           to label %188 unwind label %.loopexit.split-lp
 
 188:                                              ; preds = %186
@@ -401,13 +401,13 @@ _ZN5ZXing9BitMatrix3setEiib.exit:                 ; preds = %165
   %.sroa.079.0.insert.insert = or disjoint i64 %.sroa.280.0.insert.shift, %.sroa.081.0.insert.ext
   %.val64.val = load ptr, ptr %4, align 8
   %.val64.val67 = load ptr, ptr %12, align 8
-  %189 = invoke fastcc i64 @"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE"(ptr %.val64.val, ptr %.val64.val67, i64 %.sroa.079.0.insert.insert)
+  %189 = invoke fastcc i64 @"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE.argprom.argprom"(ptr %.val64.val, ptr %.val64.val67, i64 %.sroa.079.0.insert.insert)
           to label %190 unwind label %.loopexit.split-lp
 
 190:                                              ; preds = %188
   %.val65.val = load ptr, ptr %4, align 8
   %.val65.val66 = load ptr, ptr %12, align 8
-  %191 = invoke fastcc i64 @"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE"(ptr %.val65.val, ptr %.val65.val66, i64 %.sroa.280.0.insert.shift)
+  %191 = invoke fastcc i64 @"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE.argprom.argprom"(ptr %.val65.val, ptr %.val65.val66, i64 %.sroa.280.0.insert.shift)
           to label %.thread unwind label %.loopexit.split-lp
 
 .thread:                                          ; preds = %190
@@ -445,7 +445,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit:                 ; preds = %165
   call void @_ZdlPv(ptr noundef nonnull %.pre131) #10
   br label %_ZN5ZXing9BitMatrixD2Ev.exit78
 
-_ZN5ZXing9BitMatrixD2Ev.exit78:                   ; preds = %.thread, %204, %203, %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread", %9
+_ZN5ZXing9BitMatrixD2Ev.exit78:                   ; preds = %.thread, %204, %203, %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.argprom.exit.thread", %9
   ret void
 }
 
@@ -552,7 +552,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %34, %32
 declare { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr noundef nonnull align 8 dereferenceable(72), double, double) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i64 @"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE"(ptr %.0.val.0.val, ptr readnone %.0.val.8.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc i64 @"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE.argprom.argprom"(ptr %.0.val.0.val, ptr readnone %.0.val.8.val, i64 %0) unnamed_addr #0 align 2 {
   %.sroa.011.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.3.0.extract.shift = lshr i64 %0, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32

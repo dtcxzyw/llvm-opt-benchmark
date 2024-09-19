@@ -216,7 +216,7 @@ if.end3.i:                                        ; preds = %if.end.i
 
 sw.bb.i:                                          ; preds = %if.end3.i
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 %retval.0.i.ph.i
-  br label %ZSTDv01_decodeLiteralsBlock.exit
+  br label %ZSTDv01_decodeLiteralsBlock.argprom.exit
 
 sw.bb6.i:                                         ; preds = %if.end3.i
   %conv.i = zext nneg i32 %add6.i.i to i64
@@ -238,7 +238,7 @@ if.end19.i:                                       ; preds = %if.then16.i, %if.en
   %idx.neg20.pre-phi.i = phi i64 [ %idx.neg.i, %if.then16.i ], [ 0, %if.end13.i ]
   %add.ptr21.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg20.pre-phi.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src, i64 4
-  br label %ZSTDv01_decodeLiteralsBlock.exit
+  br label %ZSTDv01_decodeLiteralsBlock.argprom.exit
 
 sw.bb22.i:                                        ; preds = %if.end3.i
   %cmp.i35.i = icmp ult i64 %retval.0.i.ph.i, 4
@@ -2571,7 +2571,7 @@ for.end173.i.i.i.i:                               ; preds = %FSE_reloadDStream.e
   %187 = icmp eq i32 %bitTail.sroa.4.1.i.i.i.i, 64
   %cmp.i587.i.i.i.i = icmp eq ptr %bitTail.sroa.11.1.i.i.i.i, %add.ptr14.i18.i.i.i
   %or.cond639.i.i.i.i = and i1 %cmp.i587.i.i.i.i, %187
-  br i1 %or.cond639.i.i.i.i, label %ZSTD_decompressLiterals.exit.i, label %HUF_decompress.exit.thread132.i.i
+  br i1 %or.cond639.i.i.i.i, label %ZSTD_decompressLiterals.argprom.exit.i, label %HUF_decompress.exit.thread132.i.i
 
 HUF_decompress.exit.thread132.i.i:                ; preds = %for.body169.i.i.i.i, %for.end173.i.i.i.i, %for.end.i.i.i.i, %if.end37.i.i.i.i, %sw.epilog.i162.i.i.i.i, %if.then2.i195.i.i.i.i, %if.end32.i.i.i.i, %sw.epilog.i102.i.i.i.i, %if.then2.i135.i.i.i.i, %if.end27.i.i.i.i, %sw.epilog.i.i.i.i.i, %if.then2.i.i.i.i.i, %if.end.i13.i.i.i, %if.end3.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %bitD2.i.i.i.i)
@@ -2582,7 +2582,7 @@ return.sink.split.i.i:                            ; preds = %HUF_decompress.exit
   call void @llvm.lifetime.end.p0(i64 8194, ptr nonnull %DTable.i.i.i)
   br label %return
 
-ZSTD_decompressLiterals.exit.i:                   ; preds = %for.end173.i.i.i.i
+ZSTD_decompressLiterals.argprom.exit.i:           ; preds = %for.end173.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %op.1675.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %add.ptr9.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -2595,16 +2595,16 @@ ZSTD_decompressLiterals.exit.i:                   ; preds = %for.end173.i.i.i.i
   %cmp.i.i45.i = icmp ult i64 %spec.select.i.i, -119
   br i1 %cmp.i.i45.i, label %if.end27.i, label %return
 
-if.end27.i:                                       ; preds = %ZSTD_decompressLiterals.exit.i
+if.end27.i:                                       ; preds = %ZSTD_decompressLiterals.argprom.exit.i
   %idx.neg28.i = sub nsw i64 0, %spec.select.i.i
   %add.ptr29.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg28.i
   %add.ptr30.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 %retval.0.i.ph.i
-  br label %ZSTDv01_decodeLiteralsBlock.exit
+  br label %ZSTDv01_decodeLiteralsBlock.argprom.exit
 
 default.unreachable.i:                            ; preds = %if.end3.i
   unreachable
 
-ZSTDv01_decodeLiteralsBlock.exit:                 ; preds = %sw.bb.i, %if.end19.i, %if.end27.i
+ZSTDv01_decodeLiteralsBlock.argprom.exit:         ; preds = %sw.bb.i, %if.end19.i, %if.end27.i
   %litPtr.0 = phi ptr [ %add.ptr29.i, %if.end27.i ], [ %add.ptr21.i, %if.end19.i ], [ %add.ptr4.i, %sw.bb.i ]
   %litSize.0 = phi i64 [ %add8.i.i, %if.end27.i ], [ %conv.i, %if.end19.i ], [ %retval.0.i.ph.i, %sw.bb.i ]
   %ip.0.i = phi ptr [ %add.ptr30.i, %if.end27.i ], [ %incdec.ptr.i, %if.end19.i ], [ %add.ptr5.i, %sw.bb.i ]
@@ -2614,7 +2614,7 @@ ZSTDv01_decodeLiteralsBlock.exit:                 ; preds = %sw.bb.i, %if.end19.
   %cmp.i.i11 = icmp ult i64 %sub.ptr.sub.i, -119
   br i1 %cmp.i.i11, label %if.end, label %return
 
-if.end:                                           ; preds = %ZSTDv01_decodeLiteralsBlock.exit
+if.end:                                           ; preds = %ZSTDv01_decodeLiteralsBlock.argprom.exit
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %sub.ptr.sub.i
   %sub = sub i64 %srcSize, %sub.ptr.sub.i
   %add.ptr2.i = getelementptr inbounds i8, ptr %litPtr.0, i64 %litSize.0
@@ -2937,7 +2937,7 @@ if.end67.i.i:                                     ; preds = %sw.default57.i.i
 if.end71.i.i:                                     ; preds = %if.end67.i.i
   %add.ptr72.i.i = getelementptr inbounds i8, ptr %ip.1.i.i, i64 %call63.i.i
   %207 = load i32, ptr %max58.i.i, align 4
-  call fastcc void @FSE_buildDTable(ptr noundef nonnull %OffTable.i, ptr noundef %norm.i.i, i32 noundef %207, i32 noundef %206)
+  call fastcc void @FSE_buildDTable.retelim(ptr noundef nonnull %OffTable.i, ptr noundef %norm.i.i, i32 noundef %207, i32 noundef %206)
   br label %sw.epilog75.i.i
 
 sw.epilog75.i.i:                                  ; preds = %for.body.i63.i.i, %if.end71.i.i, %if.end52.i.i
@@ -3004,7 +3004,7 @@ if.end96.i.i:                                     ; preds = %sw.default86.i.i
 if.end100.i.i:                                    ; preds = %if.end96.i.i
   %add.ptr101.i.i = getelementptr inbounds i8, ptr %ip.2.i.i, i64 %call92.i.i
   %210 = load i32, ptr %max87.i.i, align 4
-  call fastcc void @FSE_buildDTable(ptr noundef nonnull %MLTable.i, ptr noundef %norm.i.i, i32 noundef %210, i32 noundef %209)
+  call fastcc void @FSE_buildDTable.retelim(ptr noundef nonnull %MLTable.i, ptr noundef %norm.i.i, i32 noundef %210, i32 noundef %209)
   br label %ZSTDv01_decodeSeqHeaders.exit.i
 
 ZSTDv01_decodeSeqHeaders.exit.thread.i:           ; preds = %if.end96.i.i, %sw.default86.i.i, %sw.bb76.i.i, %if.end67.i.i, %sw.default57.i.i, %sw.bb47.i.i, %if.end39.i.i, %sw.default.i.i, %if.end25.i.i, %if.end
@@ -3769,8 +3769,8 @@ if.end51.i:                                       ; preds = %if.then48.i, %if.th
   %sub.ptr.sub54.i = sub i64 %sub.ptr.lhs.cast52.i, %sub.ptr.rhs.cast53.i
   br label %return
 
-return:                                           ; preds = %for.end.i, %entry, %sw.bb22.i, %if.end.i36.i, %return.sink.split.i.i, %if.end.i.i, %ZSTD_decompressLiterals.exit.i, %sw.bb6.i, %if.end.i, %if.end51.i, %if.end37.i, %ZSTD_execSequence.exit.thread.i, %FSE_initDStream.exit.i, %sw.epilog.i37.i, %if.then2.i.i, %if.end.i23, %ZSTDv01_decodeSeqHeaders.exit.i, %ZSTDv01_decodeSeqHeaders.exit.thread.i, %ZSTDv01_decodeLiteralsBlock.exit
-  %retval.0 = phi i64 [ %sub.ptr.sub.i, %ZSTDv01_decodeLiteralsBlock.exit ], [ %sub.ptr.sub54.i, %if.end51.i ], [ %sub.ptr.sub107.i.i, %ZSTDv01_decodeSeqHeaders.exit.i ], [ -20, %FSE_initDStream.exit.i ], [ -70, %if.end37.i ], [ %retval.0.i.ph.i39, %ZSTDv01_decodeSeqHeaders.exit.thread.i ], [ %retval.0.i198.ph.i, %ZSTD_execSequence.exit.thread.i ], [ -20, %if.end.i23 ], [ -20, %if.then2.i.i ], [ -20, %sw.epilog.i37.i ], [ -20, %for.end.i ], [ -72, %entry ], [ -20, %sw.bb22.i ], [ -70, %if.end.i36.i ], [ -1, %return.sink.split.i.i ], [ -1, %if.end.i.i ], [ %spec.select.i.i, %ZSTD_decompressLiterals.exit.i ], [ -70, %sw.bb6.i ], [ -72, %if.end.i ]
+return:                                           ; preds = %for.end.i, %entry, %sw.bb22.i, %if.end.i36.i, %return.sink.split.i.i, %if.end.i.i, %ZSTD_decompressLiterals.argprom.exit.i, %sw.bb6.i, %if.end.i, %if.end51.i, %if.end37.i, %ZSTD_execSequence.exit.thread.i, %FSE_initDStream.exit.i, %sw.epilog.i37.i, %if.then2.i.i, %if.end.i23, %ZSTDv01_decodeSeqHeaders.exit.i, %ZSTDv01_decodeSeqHeaders.exit.thread.i, %ZSTDv01_decodeLiteralsBlock.argprom.exit
+  %retval.0 = phi i64 [ %sub.ptr.sub.i, %ZSTDv01_decodeLiteralsBlock.argprom.exit ], [ %sub.ptr.sub54.i, %if.end51.i ], [ %sub.ptr.sub107.i.i, %ZSTDv01_decodeSeqHeaders.exit.i ], [ -20, %FSE_initDStream.exit.i ], [ -70, %if.end37.i ], [ %retval.0.i.ph.i39, %ZSTDv01_decodeSeqHeaders.exit.thread.i ], [ %retval.0.i198.ph.i, %ZSTD_execSequence.exit.thread.i ], [ -20, %if.end.i23 ], [ -20, %if.then2.i.i ], [ -20, %sw.epilog.i37.i ], [ -20, %for.end.i ], [ -72, %entry ], [ -20, %sw.bb22.i ], [ -70, %if.end.i36.i ], [ -1, %return.sink.split.i.i ], [ -1, %if.end.i.i ], [ %spec.select.i.i, %ZSTD_decompressLiterals.argprom.exit.i ], [ -70, %sw.bb6.i ], [ -72, %if.end.i ]
   ret i64 %retval.0
 }
 
@@ -4376,7 +4376,7 @@ return:                                           ; preds = %land.rhs, %while.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @FSE_buildDTable(ptr nocapture noundef %dt, ptr nocapture noundef nonnull readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog) unnamed_addr #2 {
+define internal fastcc void @FSE_buildDTable.retelim(ptr nocapture noundef %dt, ptr nocapture noundef nonnull readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog) unnamed_addr #2 {
 entry:
   %symbolNext = alloca [256 x i16], align 16
   %add.ptr = getelementptr inbounds i8, ptr %dt, i64 4

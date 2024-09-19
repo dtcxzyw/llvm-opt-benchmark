@@ -11618,9 +11618,9 @@ for.body726.lr.ph:                                ; preds = %invoke.cont708
   %conv.i586 = sext i32 %key.01230 to i64
   br label %for.body726
 
-for.body726:                                      ; preds = %for.body726.lr.ph, %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.exit
-  %conv7231228 = phi i64 [ 0, %for.body726.lr.ph ], [ %conv723, %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.exit ]
-  %valueIndex.01227 = phi i32 [ 0, %for.body726.lr.ph ], [ %inc743, %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.exit ]
+for.body726:                                      ; preds = %for.body726.lr.ph, %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.argprom.exit
+  %conv7231228 = phi i64 [ 0, %for.body726.lr.ph ], [ %conv723, %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.argprom.exit ]
+  %valueIndex.01227 = phi i32 [ 0, %for.body726.lr.ph ], [ %inc743, %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.argprom.exit ]
   %217 = load ptr, ptr %mKeys.i, align 8
   %mValues730 = getelementptr inbounds %struct.aiMeshMorphKey, ptr %217, i64 %idxprom, i32 1
   %218 = load ptr, ptr %mValues730, align 8
@@ -11632,7 +11632,7 @@ for.body726:                                      ; preds = %for.body726.lr.ph, 
   %_M_finish.i.i588 = getelementptr inbounds i8, ptr %mKeys.i587, i64 8
   %220 = load ptr, ptr %_M_finish.i.i588, align 8
   %cmp.i.not4.i = icmp eq ptr %219, %220
-  br i1 %cmp.i.not4.i, label %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.exit, label %for.body.i
+  br i1 %cmp.i.not4.i, label %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.body726, %for.inc.i
   %__begin1.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i590, %for.inc.i ], [ %219, %for.body726 ]
@@ -11644,14 +11644,14 @@ for.body.i:                                       ; preds = %for.body726, %for.i
 if.then.i591:                                     ; preds = %for.body.i
   %mKey.sroa.0.0.copyload.i = load float, ptr %__begin1.sroa.0.05.i, align 4
   %221 = fpext float %mKey.sroa.0.0.copyload.i to double
-  br label %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.exit
+  br label %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.argprom.exit
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i.i590 = getelementptr inbounds i8, ptr %__begin1.sroa.0.05.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i590, %220
-  br i1 %cmp.i.not.i, label %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.exit, label %for.body.i
+  br i1 %cmp.i.not.i, label %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.argprom.exit, label %for.body.i
 
-_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.exit: ; preds = %for.inc.i, %for.body726, %if.then.i591
+_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.argprom.exit: ; preds = %for.inc.i, %for.body726, %if.then.i591
   %retval.0.i = phi double [ %221, %if.then.i591 ], [ 0.000000e+00, %for.body726 ], [ 0.000000e+00, %for.inc.i ]
   %222 = load ptr, ptr %mKeys.i, align 8
   %mWeights739 = getelementptr inbounds %struct.aiMeshMorphKey, ptr %222, i64 %idxprom, i32 2
@@ -11669,9 +11669,9 @@ _ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.exit: ; 
   %cmp725 = icmp ugt i64 %sub.ptr.div.i585, %conv723
   br i1 %cmp725, label %for.body726, label %for.inc745, !llvm.loop !102
 
-for.inc745:                                       ; preds = %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.exit, %invoke.cont708
-  %226 = phi ptr [ %215, %invoke.cont708 ], [ %225, %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.exit ]
-  %227 = phi ptr [ %215, %invoke.cont708 ], [ %224, %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.exit ]
+for.inc745:                                       ; preds = %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.argprom.exit, %invoke.cont708
+  %226 = phi ptr [ %215, %invoke.cont708 ], [ %225, %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.argprom.exit ]
+  %227 = phi ptr [ %215, %invoke.cont708 ], [ %224, %_ZN6AssimpL14getWeightAtKeyERKSt6vectorINS_15MorphTimeValuesESaIS1_EEij.argprom.exit ]
   %inc746 = add nuw i32 %key.01230, 1
   %228 = load i32, ptr %mNumKeys.i, align 4
   %cmp694 = icmp ult i32 %inc746, %228

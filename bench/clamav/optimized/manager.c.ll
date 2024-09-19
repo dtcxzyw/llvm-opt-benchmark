@@ -3367,7 +3367,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @print_chain(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #13 {
+define internal fastcc range(i32 0, 2) i32 @print_chain.argelim(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %.not30 = icmp eq i64 %4, 1
@@ -3589,12 +3589,12 @@ define internal fastcc void @scanfile(ptr noundef nonnull %0, ptr noundef nonnul
 75:                                               ; preds = %73
   %76 = call ptr @getpwnam(ptr noundef null)
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %checkaccess.exit.thread, label %78
+  br i1 %77, label %checkaccess.argprom.exit.thread, label %78
 
 78:                                               ; preds = %75
   %79 = call i32 @fork() #21
-  switch i32 %79, label %checkaccess.exit [
-    i32 -1, label %checkaccess.exit.thread
+  switch i32 %79, label %checkaccess.argprom.exit [
+    i32 -1, label %checkaccess.argprom.exit.thread
     i32 0, label %80
   ]
 
@@ -3645,11 +3645,11 @@ define internal fastcc void @scanfile(ptr noundef nonnull %0, ptr noundef nonnul
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br i1 %.not15.i, label %112, label %105
 
-checkaccess.exit.thread:                          ; preds = %75, %78
+checkaccess.argprom.exit.thread:                  ; preds = %75, %78
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %105
 
-checkaccess.exit:                                 ; preds = %78
+checkaccess.argprom.exit:                         ; preds = %78
   %102 = call i32 @wait(ptr noundef nonnull %5) #21
   %103 = load i32, ptr %5, align 4
   %104 = and i32 %103, 65407
@@ -3657,7 +3657,7 @@ checkaccess.exit:                                 ; preds = %78
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br i1 %or.cond.i, label %112, label %105
 
-105:                                              ; preds = %100, %checkaccess.exit.thread, %checkaccess.exit
+105:                                              ; preds = %100, %checkaccess.argprom.exit.thread, %checkaccess.argprom.exit
   %106 = load i16, ptr @printinfected, align 2
   %.not94 = icmp eq i16 %106, 0
   br i1 %.not94, label %107, label %109
@@ -3672,7 +3672,7 @@ checkaccess.exit:                                 ; preds = %78
   store i32 %111, ptr getelementptr inbounds (i8, ptr @info, i64 16), align 8
   br label %211
 
-112:                                              ; preds = %100, %checkaccess.exit, %71
+112:                                              ; preds = %100, %checkaccess.argprom.exit, %71
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   %113 = call ptr @optget(ptr noundef nonnull %2, ptr noundef nonnull @.str.53) #21
   %114 = getelementptr inbounds i8, ptr %113, i64 32
@@ -3743,7 +3743,7 @@ checkaccess.exit:                                 ; preds = %78
   br i1 %148, label %149, label %162
 
 149:                                              ; preds = %145
-  %150 = call fastcc i32 @print_chain(ptr noundef %8, ptr noundef %11)
+  %150 = call fastcc i32 @print_chain.argelim(ptr noundef %8, ptr noundef %11)
   %.not92 = icmp eq i32 %150, 0
   %151 = select i1 %.not92, ptr @.str.166, ptr @.str.165
   %152 = getelementptr inbounds i8, ptr %8, i64 16

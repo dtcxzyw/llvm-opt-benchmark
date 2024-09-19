@@ -1506,11 +1506,11 @@ switch.lookup547:                                 ; preds = %368
   br label %dissect_eap_aka.exit
 
 381:                                              ; preds = %156
-  call fastcc void @dissect_eap_mschapv2(ptr noundef %108, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %157)
+  call fastcc void @dissect_eap_mschapv2.argelim(ptr noundef %108, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %157)
   br label %dissect_eap_aka.exit
 
 382:                                              ; preds = %156
-  call fastcc void @dissect_eap_sim(ptr noundef %108, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %157)
+  call fastcc void @dissect_eap_sim.argelim(ptr noundef %108, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %157)
   br label %dissect_eap_aka.exit
 
 383:                                              ; preds = %156, %156
@@ -1605,23 +1605,23 @@ switch.lookup547:                                 ; preds = %368
 440:                                              ; preds = %156
   %441 = load i32, ptr @ett_eap_exp_attr, align 4
   %442 = call ptr @proto_tree_add_subtree(ptr noundef %108, ptr noundef %0, i32 noundef 5, i32 noundef %157, i32 noundef %441, ptr noundef null, ptr noundef nonnull @.str.392) #6
-  call fastcc void @dissect_exteap(ptr noundef %442, ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %21, i8 noundef zeroext %22)
+  call fastcc void @dissect_exteap.argelim(ptr noundef %442, ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %21, i8 noundef zeroext %22)
   br label %dissect_eap_aka.exit
 
 443:                                              ; preds = %156
-  call fastcc void @dissect_eap_pax(ptr noundef %108, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %157)
+  call fastcc void @dissect_eap_pax.argelim(ptr noundef %108, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %157)
   br label %dissect_eap_aka.exit
 
 444:                                              ; preds = %156
-  call fastcc void @dissect_eap_psk(ptr noundef %108, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %157)
+  call fastcc void @dissect_eap_psk.argelim(ptr noundef %108, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %157)
   br label %dissect_eap_aka.exit
 
 445:                                              ; preds = %156
-  call fastcc void @dissect_eap_sake(ptr noundef %108, ptr noundef %0, i32 noundef %157)
+  call fastcc void @dissect_eap_sake.argprom.argelim(ptr noundef %108, ptr noundef %0, i32 noundef %157)
   br label %dissect_eap_aka.exit
 
 446:                                              ; preds = %156
-  call fastcc void @dissect_eap_gpsk(ptr noundef %108, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %157)
+  call fastcc void @dissect_eap_gpsk.argelim(ptr noundef %108, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %157)
   br label %dissect_eap_aka.exit
 
 447:                                              ; preds = %156
@@ -1680,7 +1680,7 @@ switch.lookup547:                                 ; preds = %368
   br label %dissect_eap_aka.exit
 
 484:                                              ; preds = %156
-  call fastcc void @dissect_eap_msauth_tlv(ptr noundef %108, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %157)
+  call fastcc void @dissect_eap_msauth_tlv.argelim(ptr noundef %108, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %157)
   br label %dissect_eap_aka.exit
 
 485:                                              ; preds = %156
@@ -2279,7 +2279,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_eap_mschapv2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -5, 65531) %3) unnamed_addr #1 {
+define internal fastcc void @dissect_eap_mschapv2.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -5, 65531) %3) unnamed_addr #1 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 5) #6
   %6 = load i32, ptr @hf_eap_ms_chap_v2_opcode, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef 5, i32 noundef 1, i32 noundef 0) #6
@@ -2406,7 +2406,7 @@ define internal fastcc void @dissect_eap_mschapv2(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_eap_sim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -5, 65531) %3) unnamed_addr #1 {
+define internal fastcc void @dissect_eap_sim.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -5, 65531) %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_eap_sim_subtype, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef 5, i32 noundef 1, i32 noundef 0) #6
   %7 = icmp slt i32 %3, 3
@@ -2502,7 +2502,7 @@ define internal fastcc void @dissect_eap_sim(ptr noundef %0, ptr noundef %1, ptr
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_exteap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #1 {
+define internal fastcc void @dissect_exteap.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %2, i64 408
@@ -2537,7 +2537,7 @@ define internal fastcc void @dissect_exteap(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_eap_pax(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -5, 65531) %3) unnamed_addr #1 {
+define internal fastcc void @dissect_eap_pax.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -5, 65531) %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
@@ -2692,7 +2692,7 @@ define internal fastcc void @dissect_eap_pax(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_eap_psk(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -5, 65531) %3) unnamed_addr #1 {
+define internal fastcc void @dissect_eap_psk.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -5, 65531) %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = load i32, ptr @hf_eap_psk_flags, align 4
   %7 = load i32, ptr @ett_eap_psk_flags, align 4
@@ -2759,7 +2759,7 @@ default.unreachable:                              ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_eap_sake(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -5, 65531) %2) unnamed_addr #1 {
+define internal fastcc void @dissect_eap_sake.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -5, 65531) %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_eap_sake_version, align 4
@@ -2831,7 +2831,7 @@ dissect_eap_sake_attributes.exit:                 ; preds = %dissect_eap_sake_at
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_eap_gpsk(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -5, 65531) %3) unnamed_addr #1 {
+define internal fastcc void @dissect_eap_gpsk.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -5, 65531) %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_eap_gpsk_opcode, align 4
@@ -3004,7 +3004,7 @@ define internal fastcc void @dissect_eap_gpsk(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_eap_msauth_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -5, 65531) %3) unnamed_addr #1 {
+define internal fastcc void @dissect_eap_msauth_tlv.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -5, 65531) %3) unnamed_addr #1 {
   %5 = load i32, ptr @ett_eap_msauth_tlv, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 5, i32 noundef %3, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.543) #6
   br label %7

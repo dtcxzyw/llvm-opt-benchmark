@@ -998,7 +998,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %299 = getelementptr inbounds i8, ptr %298, i64 -4
   %300 = load i32, ptr %299, align 4
   %301 = icmp sgt i32 %300, 0
-  br i1 %301, label %.lr.ph.i, label %_ZN2cvlsERSoRKNS_7MatSizeE.exit
+  br i1 %301, label %.lr.ph.i, label %_ZN2cvlsERSoRKNS_7MatSizeE.argprom.exit
 
 .lr.ph.i:                                         ; preds = %296
   %302 = add nsw i32 %300, -1
@@ -1025,13 +1025,13 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 .noexc159:                                        ; preds = %310, %.noexc158
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cvlsERSoRKNS_7MatSizeE.exit, label %304, !llvm.loop !6
+  br i1 %exitcond.not.i, label %_ZN2cvlsERSoRKNS_7MatSizeE.argprom.exit, label %304, !llvm.loop !6
 
-_ZN2cvlsERSoRKNS_7MatSizeE.exit:                  ; preds = %.noexc159, %296
+_ZN2cvlsERSoRKNS_7MatSizeE.argprom.exit:          ; preds = %.noexc159, %296
   %312 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %313 unwind label %.loopexit.split-lp205
 
-313:                                              ; preds = %_ZN2cvlsERSoRKNS_7MatSizeE.exit
+313:                                              ; preds = %_ZN2cvlsERSoRKNS_7MatSizeE.argprom.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
   %314 = getelementptr inbounds i8, ptr %69, i64 16
   store i32 0, ptr %314, align 8
@@ -1130,7 +1130,7 @@ _ZN2cvlsERSoRKNS_7MatSizeE.exit:                  ; preds = %.noexc159, %296
           cleanup
   br label %588
 
-.loopexit.split-lp205:                            ; preds = %_ZN2cvlsERSoRKNS_7MatSizeE.exit
+.loopexit.split-lp205:                            ; preds = %_ZN2cvlsERSoRKNS_7MatSizeE.argprom.exit
   %lpad.loopexit.split-lp207 = landingpad { ptr, i32 }
           cleanup
   br label %588

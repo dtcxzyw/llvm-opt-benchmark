@@ -1007,7 +1007,7 @@ interclrep.exit:                                  ; preds = %283, %.lr.ph.i, %44
 468:                                              ; preds = %462
   %469 = load ptr, ptr @stderr, align 8
   %470 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %469, ptr noundef nonnull @.str.1, i64 noundef 8) #11
-  tail call fastcc void @graphviz_exit() #12
+  tail call fastcc void @graphviz_exit.argelim() #12
   unreachable
 
 gv_alloc.exit:                                    ; preds = %462
@@ -1202,7 +1202,7 @@ declare ptr @agroot(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #5 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #5 {
   tail call void @exit(i32 noundef 1) #13
   unreachable
 }

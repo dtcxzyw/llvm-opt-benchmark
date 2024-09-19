@@ -12393,16 +12393,16 @@ if.then6.i:                                       ; preds = %for.end30
   %26 = fneg float %fAngle.0.i
   %neg.i = fmul float %mul13.i, %26
   %27 = tail call float @llvm.fmuladd.f32(float %dt, float 5.000000e-01, float %neg.i)
-  br label %"_ZZN11btMultiBody24predictPositionsMultiDofEfEN3$_0clERK9btVector3R12btQuaternionbf.exit"
+  br label %"_ZZN11btMultiBody24predictPositionsMultiDofEfEN3$_0clERK9btVector3R12btQuaternionbf.argprom.exit"
 
 if.else17.i:                                      ; preds = %for.end30
   %mul20.i = fmul float %fAngle.0.i, 5.000000e-01
   %mul21.i = fmul float %dt, %mul20.i
   %call.i.i = tail call noundef float @sinf(float noundef %mul21.i) #26
   %div23.i = fdiv float %call.i.i, %fAngle.0.i
-  br label %"_ZZN11btMultiBody24predictPositionsMultiDofEfEN3$_0clERK9btVector3R12btQuaternionbf.exit"
+  br label %"_ZZN11btMultiBody24predictPositionsMultiDofEfEN3$_0clERK9btVector3R12btQuaternionbf.argprom.exit"
 
-"_ZZN11btMultiBody24predictPositionsMultiDofEfEN3$_0clERK9btVector3R12btQuaternionbf.exit": ; preds = %if.then6.i, %if.else17.i
+"_ZZN11btMultiBody24predictPositionsMultiDofEfEN3$_0clERK9btVector3R12btQuaternionbf.argprom.exit": ; preds = %if.then6.i, %if.else17.i
   %div23.sink24.i = phi float [ %div23.i, %if.else17.i ], [ %27, %if.then6.i ]
   %mul.i28.i = fmul float %21, %div23.sink24.i
   %mul4.i30.i = fmul float %22, %div23.sink24.i
@@ -12445,7 +12445,7 @@ if.else17.i:                                      ; preds = %for.end30
   store float %mul10.i.i.i.i, ptr %arrayidx38, align 4
   br label %if.end50
 
-if.end50:                                         ; preds = %_ZNK11btMultiBody15isBaseKinematicEv.exit, %land.rhs.i85, %"_ZZN11btMultiBody24predictPositionsMultiDofEfEN3$_0clERK9btVector3R12btQuaternionbf.exit"
+if.end50:                                         ; preds = %_ZNK11btMultiBody15isBaseKinematicEv.exit, %land.rhs.i85, %"_ZZN11btMultiBody24predictPositionsMultiDofEfEN3$_0clERK9btVector3R12btQuaternionbf.argprom.exit"
   %cmp53281 = icmp sgt i32 %0, 0
   br i1 %cmp53281, label %for.body54.lr.ph, label %for.end200
 
@@ -12606,16 +12606,16 @@ if.then6.i166:                                    ; preds = %for.end125
   %89 = fneg float %fAngle.0.i144
   %neg.i171 = fmul float %mul13.i170, %89
   %90 = tail call float @llvm.fmuladd.f32(float %dt, float 5.000000e-01, float %neg.i171)
-  br label %"_ZZN11btMultiBody24predictPositionsMultiDofEfEN3$_0clERK9btVector3R12btQuaternionbf.exit172"
+  br label %"_ZZN11btMultiBody24predictPositionsMultiDofEfEN3$_0clERK9btVector3R12btQuaternionbf.argprom.exit172"
 
 if.else17.i146:                                   ; preds = %for.end125
   %mul20.i147 = fmul float %fAngle.0.i144, 5.000000e-01
   %mul21.i148 = fmul float %dt, %mul20.i147
   %call.i.i149 = tail call noundef float @sinf(float noundef %mul21.i148) #26
   %div23.i150 = fdiv float %call.i.i149, %fAngle.0.i144
-  br label %"_ZZN11btMultiBody24predictPositionsMultiDofEfEN3$_0clERK9btVector3R12btQuaternionbf.exit172"
+  br label %"_ZZN11btMultiBody24predictPositionsMultiDofEfEN3$_0clERK9btVector3R12btQuaternionbf.argprom.exit172"
 
-"_ZZN11btMultiBody24predictPositionsMultiDofEfEN3$_0clERK9btVector3R12btQuaternionbf.exit172": ; preds = %if.then6.i166, %if.else17.i146
+"_ZZN11btMultiBody24predictPositionsMultiDofEfEN3$_0clERK9btVector3R12btQuaternionbf.argprom.exit172": ; preds = %if.then6.i166, %if.else17.i146
   %div23.sink24.i151 = phi float [ %div23.i150, %if.else17.i146 ], [ %90, %if.then6.i166 ]
   %mul.i28.i152 = fmul float %80, %div23.sink24.i151
   %mul4.i30.i153 = fmul float %83, %div23.sink24.i151
@@ -12792,7 +12792,7 @@ for.end156:                                       ; preds = %for.body146
   store float %171, ptr %arrayidx192, align 4
   br label %if.end195
 
-if.end195:                                        ; preds = %for.body88, %for.body73, %sw.bb103, %"_ZZN11btMultiBody24predictPositionsMultiDofEfEN3$_0clERK9btVector3R12btQuaternionbf.exit172", %for.end156, %if.else, %sw.bb, %if.then63
+if.end195:                                        ; preds = %for.body88, %for.body73, %sw.bb103, %"_ZZN11btMultiBody24predictPositionsMultiDofEfEN3$_0clERK9btVector3R12btQuaternionbf.argprom.exit172", %for.end156, %if.else, %sw.bb, %if.then63
   %172 = load ptr, ptr %m_data.i98, align 8
   %arrayidx.i253 = getelementptr inbounds %struct.btMultibodyLink, ptr %172, i64 %indvars.iv305
   tail call void @_ZN15btMultibodyLink32updateInterpolationCacheMultiDofEv(ptr noundef nonnull align 8 dereferenceable(688) %arrayidx.i253)
@@ -13424,16 +13424,16 @@ if.then6.i:                                       ; preds = %if.then18
   %25 = fneg float %fAngle.0.i
   %neg.i = fmul float %mul13.i, %25
   %26 = tail call float @llvm.fmuladd.f32(float %dt, float 5.000000e-01, float %neg.i)
-  br label %"_ZZN11btMultiBody21stepPositionsMultiDofEfPfS0_EN3$_0clERK9btVector3R12btQuaternionbf.exit"
+  br label %"_ZZN11btMultiBody21stepPositionsMultiDofEfPfS0_EN3$_0clERK9btVector3R12btQuaternionbf.argprom.exit"
 
 if.else17.i:                                      ; preds = %if.then18
   %mul20.i = fmul float %fAngle.0.i, 5.000000e-01
   %mul21.i = fmul float %dt, %mul20.i
   %call.i.i = tail call noundef float @sinf(float noundef %mul21.i) #26
   %div23.i = fdiv float %call.i.i, %fAngle.0.i
-  br label %"_ZZN11btMultiBody21stepPositionsMultiDofEfPfS0_EN3$_0clERK9btVector3R12btQuaternionbf.exit"
+  br label %"_ZZN11btMultiBody21stepPositionsMultiDofEfPfS0_EN3$_0clERK9btVector3R12btQuaternionbf.argprom.exit"
 
-"_ZZN11btMultiBody21stepPositionsMultiDofEfPfS0_EN3$_0clERK9btVector3R12btQuaternionbf.exit": ; preds = %if.then6.i, %if.else17.i
+"_ZZN11btMultiBody21stepPositionsMultiDofEfPfS0_EN3$_0clERK9btVector3R12btQuaternionbf.argprom.exit": ; preds = %if.then6.i, %if.else17.i
   %div23.sink24.i = phi float [ %div23.i, %if.else17.i ], [ %26, %if.then6.i ]
   %mul.i28.i = fmul float %20, %div23.sink24.i
   %mul4.i30.i = fmul float %21, %div23.sink24.i
@@ -13476,7 +13476,7 @@ if.else17.i:                                      ; preds = %if.then18
   store float %mul10.i.i.i.i, ptr %arrayidx35, align 4
   br label %if.end47
 
-if.end47:                                         ; preds = %"_ZZN11btMultiBody21stepPositionsMultiDofEfPfS0_EN3$_0clERK9btVector3R12btQuaternionbf.exit", %_ZNK11btMultiBody15isBaseKinematicEv.exit79
+if.end47:                                         ; preds = %"_ZZN11btMultiBody21stepPositionsMultiDofEfPfS0_EN3$_0clERK9btVector3R12btQuaternionbf.argprom.exit", %_ZNK11btMultiBody15isBaseKinematicEv.exit79
   %cmp251 = icmp sgt i32 %0, 0
   br i1 %cmp251, label %for.body.lr.ph, label %for.end
 
@@ -13604,16 +13604,16 @@ if.then6.i138:                                    ; preds = %sw.bb80
   %80 = fneg float %fAngle.0.i116
   %neg.i143 = fmul float %mul13.i142, %80
   %81 = tail call float @llvm.fmuladd.f32(float %dt, float 5.000000e-01, float %neg.i143)
-  br label %"_ZZN11btMultiBody21stepPositionsMultiDofEfPfS0_EN3$_0clERK9btVector3R12btQuaternionbf.exit144"
+  br label %"_ZZN11btMultiBody21stepPositionsMultiDofEfPfS0_EN3$_0clERK9btVector3R12btQuaternionbf.argprom.exit144"
 
 if.else17.i118:                                   ; preds = %sw.bb80
   %mul20.i119 = fmul float %fAngle.0.i116, 5.000000e-01
   %mul21.i120 = fmul float %dt, %mul20.i119
   %call.i.i121 = tail call noundef float @sinf(float noundef %mul21.i120) #26
   %div23.i122 = fdiv float %call.i.i121, %fAngle.0.i116
-  br label %"_ZZN11btMultiBody21stepPositionsMultiDofEfPfS0_EN3$_0clERK9btVector3R12btQuaternionbf.exit144"
+  br label %"_ZZN11btMultiBody21stepPositionsMultiDofEfPfS0_EN3$_0clERK9btVector3R12btQuaternionbf.argprom.exit144"
 
-"_ZZN11btMultiBody21stepPositionsMultiDofEfPfS0_EN3$_0clERK9btVector3R12btQuaternionbf.exit144": ; preds = %if.then6.i138, %if.else17.i118
+"_ZZN11btMultiBody21stepPositionsMultiDofEfPfS0_EN3$_0clERK9btVector3R12btQuaternionbf.argprom.exit144": ; preds = %if.then6.i138, %if.else17.i118
   %div23.sink24.i123 = phi float [ %div23.i122, %if.else17.i118 ], [ %81, %if.then6.i138 ]
   %mul.i28.i124 = fmul float %71, %div23.sink24.i123
   %mul4.i30.i125 = fmul float %74, %div23.sink24.i123
@@ -13778,7 +13778,7 @@ sw.bb97:                                          ; preds = %cond.end74
   store float %159, ptr %arrayidx133, align 4
   br label %if.end134
 
-if.end134:                                        ; preds = %sw.bb, %"_ZZN11btMultiBody21stepPositionsMultiDofEfPfS0_EN3$_0clERK9btVector3R12btQuaternionbf.exit144", %sw.bb97, %cond.end74, %land.lhs.true
+if.end134:                                        ; preds = %sw.bb, %"_ZZN11btMultiBody21stepPositionsMultiDofEfPfS0_EN3$_0clERK9btVector3R12btQuaternionbf.argprom.exit144", %sw.bb97, %cond.end74, %land.lhs.true
   %160 = load ptr, ptr %m_data.i88, align 8
   %arrayidx.i222 = getelementptr inbounds %struct.btMultibodyLink, ptr %160, i64 %indvars.iv
   tail call void @_ZN15btMultibodyLink19updateCacheMultiDofEPf(ptr noundef nonnull align 8 dereferenceable(688) %arrayidx.i222, ptr noundef %pq.addr.1254)

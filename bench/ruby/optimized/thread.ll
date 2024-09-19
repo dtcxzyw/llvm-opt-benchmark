@@ -333,19 +333,19 @@ define hidden i32 @rb_vm_check_ints_blocking(ptr noundef %0) local_unnamed_addr 
 7:                                                ; preds = %1
   %8 = lshr i64 %5, 15
   %9 = and i64 %8, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   %12 = load i64, ptr %11, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %10, %7
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i: ; preds = %10, %7
   %.0.i.i.i = phi i64 [ %9, %7 ], [ %12, %10 ]
   %.not.i = icmp eq i64 %.0.i.i.i, 0
   br i1 %.not.i, label %13, label %18
 
-13:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+13:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %14 = getelementptr i8, ptr %0, i64 32
   %.val7.i = load i32, ptr %14, align 8
   %15 = getelementptr i8, ptr %0, i64 36
@@ -355,7 +355,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %10, %7
   %.not9.i = icmp eq i32 %17, 0
   br i1 %.not9.i, label %vm_check_ints_blocking.exit, label %24
 
-18:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+18:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %19 = getelementptr inbounds i8, ptr %.val.i, i64 240
   %20 = load i8, ptr %19, align 8
   %21 = and i8 %20, -65
@@ -589,7 +589,7 @@ rb_hrtime_now.exit.i:                             ; preds = %12, %9
   %.0.i.i.i.i = select i1 %15, i64 -1, i64 %16
   %.0.i2.i.i.i = call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i.i, i64 %.val1.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %native_cond_timeout.exit
+  br label %native_cond_timeout.argprom.exit
 
 17:                                               ; preds = %3
   call void @rb_timespec_now(ptr noundef nonnull %6) #19
@@ -601,9 +601,9 @@ rb_hrtime_now.exit.i:                             ; preds = %12, %9
   %21 = extractvalue { i64, i1 } %19, 0
   %.0.i.i.i = select i1 %20, i64 -1, i64 %21
   %.0.i2.i.i = call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i, i64 %.val3.i)
-  br label %native_cond_timeout.exit
+  br label %native_cond_timeout.argprom.exit
 
-native_cond_timeout.exit:                         ; preds = %rb_hrtime_now.exit.i, %17
+native_cond_timeout.argprom.exit:                 ; preds = %rb_hrtime_now.exit.i, %17
   %.0.i2.i.sink.i = phi i64 [ %.0.i2.i.i, %17 ], [ %.0.i2.i.i.i, %rb_hrtime_now.exit.i ]
   %.0.i4.i = call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i2.i.sink.i, i64 %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -613,7 +613,7 @@ native_cond_timeout.exit:                         ; preds = %rb_hrtime_now.exit.
   %24 = urem i64 %.0.i4.i, 1000000000
   br label %25
 
-25:                                               ; preds = %25, %native_cond_timeout.exit
+25:                                               ; preds = %25, %native_cond_timeout.argprom.exit
   store i64 %23, ptr %4, align 8
   store i64 %24, ptr %22, align 8
   %26 = call i32 @pthread_cond_timedwait(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4) #19
@@ -639,29 +639,29 @@ define hidden void @rb_add_running_thread(ptr noundef %0) local_unnamed_addr #0 
   %4 = getelementptr inbounds i8, ptr %3, i64 288
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #19
   %.not.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i, label %thread_sched_lock_.exit, label %6
+  br i1 %.not.i.i, label %thread_sched_lock_.argprom.exit, label %6
 
 6:                                                ; preds = %1
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %5) #36
   unreachable
 
-thread_sched_lock_.exit:                          ; preds = %1
+thread_sched_lock_.argprom.exit:                  ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 344
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, %9
   %11 = select i1 %.not.i, ptr null, ptr %0
-  tail call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %4, ptr noundef %8, ptr noundef nonnull %0, ptr noundef null, ptr noundef %11)
+  tail call fastcc void @thread_sched_setup_running_threads.argprom(ptr noundef nonnull %4, ptr noundef %8, ptr noundef nonnull %0, ptr noundef null, ptr noundef %11)
   %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #19
   %.not.i.i7 = icmp eq i32 %12, 0
-  br i1 %.not.i.i7, label %thread_sched_unlock_.exit, label %13
+  br i1 %.not.i.i7, label %thread_sched_unlock_.argprom.exit, label %13
 
-13:                                               ; preds = %thread_sched_lock_.exit
+13:                                               ; preds = %thread_sched_lock_.argprom.exit
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %12) #36
   unreachable
 
-thread_sched_unlock_.exit:                        ; preds = %thread_sched_lock_.exit
+thread_sched_unlock_.argprom.exit:                ; preds = %thread_sched_lock_.argprom.exit
   ret void
 }
 
@@ -672,25 +672,25 @@ define hidden void @rb_del_running_thread(ptr noundef %0) local_unnamed_addr #0 
   %4 = getelementptr inbounds i8, ptr %3, i64 288
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #19
   %.not.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i, label %thread_sched_lock_.exit, label %6
+  br i1 %.not.i.i, label %thread_sched_lock_.argprom.exit, label %6
 
 6:                                                ; preds = %1
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %5) #36
   unreachable
 
-thread_sched_lock_.exit:                          ; preds = %1
+thread_sched_lock_.argprom.exit:                  ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  tail call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %4, ptr noundef %8, ptr noundef null, ptr noundef nonnull %0, ptr noundef null)
+  tail call fastcc void @thread_sched_setup_running_threads.argprom(ptr noundef nonnull %4, ptr noundef %8, ptr noundef null, ptr noundef nonnull %0, ptr noundef null)
   %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #19
   %.not.i.i7 = icmp eq i32 %9, 0
-  br i1 %.not.i.i7, label %thread_sched_unlock_.exit, label %10
+  br i1 %.not.i.i7, label %thread_sched_unlock_.argprom.exit, label %10
 
-10:                                               ; preds = %thread_sched_lock_.exit
+10:                                               ; preds = %thread_sched_lock_.argprom.exit
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %9) #36
   unreachable
 
-thread_sched_unlock_.exit:                        ; preds = %thread_sched_lock_.exit
+thread_sched_unlock_.argprom.exit:                ; preds = %thread_sched_lock_.argprom.exit
   ret void
 }
 
@@ -757,13 +757,13 @@ rb_native_mutex_lock.exit.i:                      ; preds = %3
 setup_ubf.exit:                                   ; preds = %rb_native_mutex_lock.exit.i
   %17 = call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #19
   %.not.i.i32 = icmp eq i32 %17, 0
-  br i1 %.not.i.i32, label %thread_sched_lock_.exit, label %18
+  br i1 %.not.i.i32, label %thread_sched_lock_.argprom.exit, label %18
 
 18:                                               ; preds = %setup_ubf.exit
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %17) #36
   unreachable
 
-thread_sched_lock_.exit:                          ; preds = %setup_ubf.exit
+thread_sched_lock_.argprom.exit:                  ; preds = %setup_ubf.exit
   call void @rb_ractor_unlock_self(ptr noundef nonnull %1) #19
   %19 = getelementptr inbounds i8, ptr %.val, i64 48
   %20 = load ptr, ptr %19, align 8
@@ -777,7 +777,7 @@ thread_sched_lock_.exit:                          ; preds = %setup_ubf.exit
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %28, label %84
 
-28:                                               ; preds = %thread_sched_lock_.exit
+28:                                               ; preds = %thread_sched_lock_.argprom.exit
   %29 = getelementptr inbounds i8, ptr %1, i64 188
   %30 = load i32, ptr %29, align 4
   %.not29 = icmp eq i32 %30, 0
@@ -868,7 +868,7 @@ rb_thread_execute_hooks.exit:                     ; preds = %.loopexit.i
 thread_sched_deq.exit.i.thread:                   ; preds = %62
   %68 = getelementptr inbounds i8, ptr %7, i64 328
   store ptr null, ptr %68, align 8
-  call fastcc void @thread_sched_wakeup_running_thread(ptr noundef null, i1 noundef zeroext %65)
+  call fastcc void @thread_sched_wakeup_running_thread.argprom(ptr noundef null, i1 noundef zeroext %65)
   br label %79
 
 thread_sched_deq.exit.i:                          ; preds = %62
@@ -888,14 +888,14 @@ thread_sched_deq.exit.i:                          ; preds = %62
   store ptr %67, ptr %67, align 8
   %78 = getelementptr inbounds i8, ptr %7, i64 328
   store ptr %74, ptr %78, align 8
-  call fastcc void @thread_sched_wakeup_running_thread(ptr noundef %74, i1 noundef zeroext %65)
+  call fastcc void @thread_sched_wakeup_running_thread.argprom(ptr noundef %74, i1 noundef zeroext %65)
   %.not.i35 = icmp eq ptr %.val, %74
   br i1 %.not.i35, label %thread_sched_wakeup_next_thread.exit, label %79
 
 79:                                               ; preds = %thread_sched_deq.exit.i.thread, %thread_sched_deq.exit.i
   %80 = getelementptr inbounds i8, ptr %.val, i64 32
   %81 = load ptr, ptr %80, align 8
-  call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %8, ptr noundef %81, ptr noundef null, ptr noundef nonnull %.val, ptr noundef null)
+  call fastcc void @thread_sched_setup_running_threads.argprom(ptr noundef nonnull %8, ptr noundef %81, ptr noundef null, ptr noundef nonnull %.val, ptr noundef null)
   br label %thread_sched_wakeup_next_thread.exit
 
 thread_sched_wakeup_next_thread.exit:             ; preds = %thread_sched_deq.exit.i, %79
@@ -905,25 +905,25 @@ thread_sched_wakeup_next_thread.exit:             ; preds = %thread_sched_deq.ex
   store i8 %83, ptr %37, align 8
   br label %84
 
-84:                                               ; preds = %thread_sched_wakeup_next_thread.exit, %28, %thread_sched_lock_.exit
+84:                                               ; preds = %thread_sched_wakeup_next_thread.exit, %28, %thread_sched_lock_.argprom.exit
   %85 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #19
   %.not.i.i36 = icmp eq i32 %85, 0
-  br i1 %.not.i.i36, label %thread_sched_unlock_.exit, label %86
+  br i1 %.not.i.i36, label %thread_sched_unlock_.argprom.exit, label %86
 
 86:                                               ; preds = %84
   call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %85) #36
   unreachable
 
-thread_sched_unlock_.exit:                        ; preds = %84
+thread_sched_unlock_.argprom.exit:                ; preds = %84
   %87 = call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #19
   %.not.i.i37 = icmp eq i32 %87, 0
   br i1 %.not.i.i37, label %rb_native_mutex_lock.exit.i38, label %88
 
-88:                                               ; preds = %thread_sched_unlock_.exit
+88:                                               ; preds = %thread_sched_unlock_.argprom.exit
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %87) #36
   unreachable
 
-rb_native_mutex_lock.exit.i38:                    ; preds = %thread_sched_unlock_.exit
+rb_native_mutex_lock.exit.i38:                    ; preds = %thread_sched_unlock_.argprom.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %89 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #19
   %.not.i6.i39 = icmp eq i32 %89, 0
@@ -1118,7 +1118,7 @@ rb_ractor_thread_switch.exit:                     ; preds = %47, %42, %thread_sc
   %77 = load ptr, ptr %76, align 8
   %.not.i41 = icmp eq ptr %77, %76
   %78 = select i1 %.not.i41, ptr null, ptr %1
-  tail call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %0, ptr noundef %75, ptr noundef nonnull %1, ptr noundef null, ptr noundef %78)
+  tail call fastcc void @thread_sched_setup_running_threads.argprom(ptr noundef nonnull %0, ptr noundef %75, ptr noundef nonnull %1, ptr noundef null, ptr noundef %78)
   br label %79
 
 79:                                               ; preds = %.split45.us, %3
@@ -1196,33 +1196,33 @@ define hidden void @rb_ractor_sched_wakeup(ptr nocapture noundef readonly %0) lo
   %6 = getelementptr inbounds i8, ptr %5, i64 288
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #19
   %.not.i.i = icmp eq i32 %7, 0
-  br i1 %.not.i.i, label %thread_sched_lock_.exit, label %8
+  br i1 %.not.i.i, label %thread_sched_lock_.argprom.exit, label %8
 
 8:                                                ; preds = %1
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %7) #36
   unreachable
 
-thread_sched_lock_.exit:                          ; preds = %1
+thread_sched_lock_.argprom.exit:                  ; preds = %1
   %9 = getelementptr inbounds i8, ptr %3, i64 240
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 3
   %12 = icmp eq i8 %11, 2
   br i1 %12, label %13, label %14
 
-13:                                               ; preds = %thread_sched_lock_.exit
+13:                                               ; preds = %thread_sched_lock_.argprom.exit
   tail call fastcc void @thread_sched_to_ready_common(ptr noundef nonnull %6, ptr noundef nonnull %3, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %14
 
-14:                                               ; preds = %13, %thread_sched_lock_.exit
+14:                                               ; preds = %13, %thread_sched_lock_.argprom.exit
   %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #19
   %.not.i.i9 = icmp eq i32 %15, 0
-  br i1 %.not.i.i9, label %thread_sched_unlock_.exit, label %16
+  br i1 %.not.i.i9, label %thread_sched_unlock_.argprom.exit, label %16
 
 16:                                               ; preds = %14
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %15) #36
   unreachable
 
-thread_sched_unlock_.exit:                        ; preds = %14
+thread_sched_unlock_.argprom.exit:                ; preds = %14
   ret void
 }
 
@@ -1299,7 +1299,7 @@ rb_thread_execute_hooks.exit:                     ; preds = %.loopexit.i
   br i1 %2, label %32, label %51
 
 32:                                               ; preds = %31
-  call fastcc void @thread_sched_wakeup_running_thread(ptr noundef %1, i1 noundef zeroext %3)
+  call fastcc void @thread_sched_wakeup_running_thread.argprom(ptr noundef %1, i1 noundef zeroext %3)
   br label %51
 
 33:                                               ; preds = %27
@@ -1317,7 +1317,7 @@ rb_thread_execute_hooks.exit:                     ; preds = %.loopexit.i
 40:                                               ; preds = %37
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load ptr, ptr %41, align 8
-  call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %0, ptr noundef %42, ptr noundef null, ptr noundef null, ptr noundef nonnull %29)
+  call fastcc void @thread_sched_setup_running_threads.argprom(ptr noundef nonnull %0, ptr noundef %42, ptr noundef null, ptr noundef null, ptr noundef nonnull %29)
   br label %thread_sched_enq.exit
 
 thread_sched_enq.exit:                            ; preds = %33, %37, %40
@@ -1345,13 +1345,13 @@ define hidden void @rb_ractor_sched_barrier_start(ptr noundef %0, ptr noundef %1
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
   %.not.i.i = icmp eq i32 %4, 0
-  br i1 %.not.i.i, label %ractor_sched_lock_.exit, label %5
+  br i1 %.not.i.i, label %ractor_sched_lock_.argprom.exit, label %5
 
 5:                                                ; preds = %2
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %4) #36
   unreachable
 
-ractor_sched_lock_.exit:                          ; preds = %2
+ractor_sched_lock_.argprom.exit:                  ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 456
   store i8 1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1364,11 +1364,11 @@ ractor_sched_lock_.exit:                          ; preds = %2
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %rb_native_mutex_unlock.exit, label %12
 
-12:                                               ; preds = %ractor_sched_lock_.exit
+12:                                               ; preds = %ractor_sched_lock_.argprom.exit
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %11) #36
   unreachable
 
-rb_native_mutex_unlock.exit:                      ; preds = %ractor_sched_lock_.exit
+rb_native_mutex_unlock.exit:                      ; preds = %ractor_sched_lock_.argprom.exit
   %13 = getelementptr inbounds i8, ptr %0, i64 304
   %.pn48 = load ptr, ptr %13, align 8
   %.not49 = icmp eq ptr %.pn48, %13
@@ -1418,33 +1418,33 @@ rb_native_cond_wait.exit:                         ; preds = %rb_native_cond_wait
 30:                                               ; preds = %rb_native_cond_wait.exit
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
   %.not.i.i38 = icmp eq i32 %31, 0
-  br i1 %.not.i.i38, label %ractor_sched_unlock_.exit, label %32
+  br i1 %.not.i.i38, label %ractor_sched_unlock_.argprom.exit, label %32
 
 32:                                               ; preds = %30
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %31) #36
   unreachable
 
-ractor_sched_unlock_.exit:                        ; preds = %30
+ractor_sched_unlock_.argprom.exit:                ; preds = %30
   %33 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #19
   %.not.i39 = icmp eq i32 %33, 0
   br i1 %.not.i39, label %rb_native_mutex_lock.exit, label %34
 
-34:                                               ; preds = %ractor_sched_unlock_.exit
+34:                                               ; preds = %ractor_sched_unlock_.argprom.exit
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %33) #36
   unreachable
 
-rb_native_mutex_lock.exit:                        ; preds = %ractor_sched_unlock_.exit
+rb_native_mutex_lock.exit:                        ; preds = %ractor_sched_unlock_.argprom.exit
   store i32 %9, ptr %8, align 8
   store ptr %1, ptr %10, align 8
   %35 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
   %.not.i.i40 = icmp eq i32 %35, 0
-  br i1 %.not.i.i40, label %ractor_sched_lock_.exit41, label %36
+  br i1 %.not.i.i40, label %ractor_sched_lock_.argprom.exit41, label %36
 
 36:                                               ; preds = %rb_native_mutex_lock.exit
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %35) #36
   unreachable
 
-ractor_sched_lock_.exit41:                        ; preds = %rb_native_mutex_lock.exit
+ractor_sched_lock_.argprom.exit41:                ; preds = %rb_native_mutex_lock.exit
   store i8 0, ptr %6, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 464
   %38 = load i32, ptr %37, align 8
@@ -1454,7 +1454,7 @@ ractor_sched_lock_.exit41:                        ; preds = %rb_native_mutex_loc
   %40 = getelementptr inbounds i8, ptr %0, i64 408
   br label %41
 
-41:                                               ; preds = %41, %ractor_sched_lock_.exit41
+41:                                               ; preds = %41, %ractor_sched_lock_.argprom.exit41
   %42 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %40) #19
   switch i32 %42, label %43 [
     i32 11, label %41
@@ -1468,13 +1468,13 @@ ractor_sched_lock_.exit41:                        ; preds = %rb_native_mutex_loc
 rb_native_cond_broadcast.exit:                    ; preds = %41
   %44 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
   %.not.i.i42 = icmp eq i32 %44, 0
-  br i1 %.not.i.i42, label %ractor_sched_unlock_.exit43, label %45
+  br i1 %.not.i.i42, label %ractor_sched_unlock_.argprom.exit43, label %45
 
 45:                                               ; preds = %rb_native_cond_broadcast.exit
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %44) #36
   unreachable
 
-ractor_sched_unlock_.exit43:                      ; preds = %rb_native_cond_broadcast.exit
+ractor_sched_unlock_.argprom.exit43:              ; preds = %rb_native_cond_broadcast.exit
   ret void
 }
 
@@ -1493,13 +1493,13 @@ rb_native_mutex_unlock.exit:                      ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #19
   %.not.i.i = icmp eq i32 %7, 0
-  br i1 %.not.i.i, label %ractor_sched_lock_.exit, label %8
+  br i1 %.not.i.i, label %ractor_sched_lock_.argprom.exit, label %8
 
 8:                                                ; preds = %rb_native_mutex_unlock.exit
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %7) #36
   unreachable
 
-ractor_sched_lock_.exit:                          ; preds = %rb_native_mutex_unlock.exit
+ractor_sched_lock_.argprom.exit:                  ; preds = %rb_native_mutex_unlock.exit
   %9 = getelementptr inbounds i8, ptr %0, i64 460
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %10, 1
@@ -1510,7 +1510,7 @@ ractor_sched_lock_.exit:                          ; preds = %rb_native_mutex_unl
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %15, label %ractor_sched_barrier_join_signal_locked.exit
 
-15:                                               ; preds = %ractor_sched_lock_.exit
+15:                                               ; preds = %ractor_sched_lock_.argprom.exit
   %16 = getelementptr inbounds i8, ptr %0, i64 360
   br label %17
 
@@ -1525,28 +1525,28 @@ ractor_sched_lock_.exit:                          ; preds = %rb_native_mutex_unl
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.12, i32 noundef %18) #36
   unreachable
 
-ractor_sched_barrier_join_signal_locked.exit:     ; preds = %17, %ractor_sched_lock_.exit
+ractor_sched_barrier_join_signal_locked.exit:     ; preds = %17, %ractor_sched_lock_.argprom.exit
   %20 = getelementptr inbounds i8, ptr %1, i64 328
   %21 = load ptr, ptr %20, align 8
   tail call fastcc void @ractor_sched_barrier_join_wait_locked(ptr noundef %0, ptr noundef %21)
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #19
   %.not.i.i10 = icmp eq i32 %22, 0
-  br i1 %.not.i.i10, label %ractor_sched_unlock_.exit, label %23
+  br i1 %.not.i.i10, label %ractor_sched_unlock_.argprom.exit, label %23
 
 23:                                               ; preds = %ractor_sched_barrier_join_signal_locked.exit
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %22) #36
   unreachable
 
-ractor_sched_unlock_.exit:                        ; preds = %ractor_sched_barrier_join_signal_locked.exit
+ractor_sched_unlock_.argprom.exit:                ; preds = %ractor_sched_barrier_join_signal_locked.exit
   %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
   %.not.i11 = icmp eq i32 %24, 0
   br i1 %.not.i11, label %rb_native_mutex_lock.exit, label %25
 
-25:                                               ; preds = %ractor_sched_unlock_.exit
+25:                                               ; preds = %ractor_sched_unlock_.argprom.exit
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %24) #36
   unreachable
 
-rb_native_mutex_lock.exit:                        ; preds = %ractor_sched_unlock_.exit
+rb_native_mutex_lock.exit:                        ; preds = %ractor_sched_unlock_.argprom.exit
   ret void
 }
 
@@ -1765,7 +1765,7 @@ native_thread_setup.exit:                         ; preds = %ruby_thread_set_nat
   store i8 %69, ptr %67, align 8
   %70 = load ptr, ptr %64, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 288
-  tail call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %71, ptr noundef nonnull %13, ptr noundef nonnull %0, ptr noundef null, ptr noundef null)
+  tail call fastcc void @thread_sched_setup_running_threads.argprom(ptr noundef nonnull %71, ptr noundef nonnull %13, ptr noundef nonnull %0, ptr noundef null, ptr noundef null)
   %72 = load ptr, ptr %37, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 104
   store i32 1, ptr %73, align 8
@@ -1794,7 +1794,7 @@ define internal void @null_func(i32 %0) #8 {
 declare i64 @pthread_self() local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @thread_sched_setup_running_threads(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @thread_sched_setup_running_threads.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %8 = icmp ne ptr %3, null
@@ -1815,20 +1815,20 @@ define internal fastcc void @thread_sched_setup_running_threads(ptr noundef %0, 
   %15 = getelementptr inbounds i8, ptr %1, i64 160
   %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %15) #19
   %.not.i.i = icmp eq i32 %16, 0
-  br i1 %.not.i.i, label %ractor_sched_lock_.exit, label %19
+  br i1 %.not.i.i, label %ractor_sched_lock_.argprom.exit, label %19
 
 .thread:                                          ; preds = %5
   %17 = getelementptr inbounds i8, ptr %1, i64 160
   %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %17) #19
   %.not.i.i2 = icmp eq i32 %18, 0
-  br i1 %.not.i.i2, label %ractor_sched_lock_.exit.thread, label %19
+  br i1 %.not.i.i2, label %ractor_sched_lock_.argprom.exit.thread, label %19
 
 19:                                               ; preds = %.thread, %14
   %20 = phi i32 [ %18, %.thread ], [ %16, %14 ]
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %20) #36
   unreachable
 
-ractor_sched_lock_.exit:                          ; preds = %14
+ractor_sched_lock_.argprom.exit:                  ; preds = %14
   %21 = getelementptr inbounds i8, ptr %3, i64 104
   %22 = getelementptr inbounds i8, ptr %3, i64 112
   %23 = load ptr, ptr %22, align 8
@@ -1848,7 +1848,7 @@ ractor_sched_lock_.exit:                          ; preds = %14
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %ractor_sched_barrier_join_signal_locked.exit
 
-33:                                               ; preds = %ractor_sched_lock_.exit
+33:                                               ; preds = %ractor_sched_lock_.argprom.exit
   %34 = getelementptr i8, ptr %1, i64 460
   %.val2.i = load i32, ptr %34, align 4
   %35 = sub i32 %29, %.val2.i
@@ -1870,18 +1870,18 @@ ractor_sched_lock_.exit:                          ; preds = %14
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.12, i32 noundef %40) #36
   unreachable
 
-ractor_sched_barrier_join_signal_locked.exit:     ; preds = %39, %33, %ractor_sched_lock_.exit
+ractor_sched_barrier_join_signal_locked.exit:     ; preds = %39, %33, %ractor_sched_lock_.argprom.exit
   %42 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %42, align 8
-  br label %ractor_sched_lock_.exit.thread
+  br label %ractor_sched_lock_.argprom.exit.thread
 
-ractor_sched_lock_.exit.thread:                   ; preds = %.thread, %ractor_sched_barrier_join_signal_locked.exit
+ractor_sched_lock_.argprom.exit.thread:           ; preds = %.thread, %ractor_sched_barrier_join_signal_locked.exit
   %.035 = phi ptr [ %.0, %ractor_sched_barrier_join_signal_locked.exit ], [ null, %.thread ]
   %43 = phi ptr [ %15, %ractor_sched_barrier_join_signal_locked.exit ], [ %17, %.thread ]
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %69, label %44
 
-44:                                               ; preds = %ractor_sched_lock_.exit.thread
+44:                                               ; preds = %ractor_sched_lock_.argprom.exit.thread
   %45 = getelementptr inbounds i8, ptr %1, i64 456
   %46 = load i8, ptr %45, align 8
   %47 = trunc i8 %46 to i1
@@ -1934,7 +1934,7 @@ ractor_sched_barrier_join_signal_locked.exit48:   ; preds = %55, %48
   store i8 1, ptr %68, align 8
   br label %69
 
-69:                                               ; preds = %58, %ractor_sched_lock_.exit.thread
+69:                                               ; preds = %58, %ractor_sched_lock_.argprom.exit.thread
   %.not42 = icmp eq ptr %4, null
   br i1 %.not42, label %timer_thread_wakeup_locked.exit, label %70
 
@@ -2014,56 +2014,56 @@ timer_thread_wakeup_locked.exit:                  ; preds = %timer_thread_wakeup
 102:                                              ; preds = %95, %timer_thread_wakeup_locked.exit
   %103 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %43) #19
   %.not.i.i49 = icmp eq i32 %103, 0
-  br i1 %.not.i.i49, label %ractor_sched_unlock_.exit, label %104
+  br i1 %.not.i.i49, label %ractor_sched_unlock_.argprom.exit, label %104
 
 104:                                              ; preds = %102
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %103) #36
   unreachable
 
-ractor_sched_unlock_.exit:                        ; preds = %102
+ractor_sched_unlock_.argprom.exit:                ; preds = %102
   %or.cond = or i1 %.not, %8
-  br i1 %or.cond, label %thread_sched_lock_.exit, label %105
+  br i1 %or.cond, label %thread_sched_lock_.argprom.exit, label %105
 
-105:                                              ; preds = %ractor_sched_unlock_.exit
+105:                                              ; preds = %ractor_sched_unlock_.argprom.exit
   %106 = getelementptr inbounds i8, ptr %1, i64 88
   %107 = load ptr, ptr %106, align 8
   %.not45 = icmp eq ptr %107, null
-  br i1 %.not45, label %thread_sched_lock_.exit, label %108
+  br i1 %.not45, label %thread_sched_lock_.argprom.exit, label %108
 
 108:                                              ; preds = %105
   %109 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #19
   %.not.i.i50 = icmp eq i32 %109, 0
-  br i1 %.not.i.i50, label %thread_sched_unlock_.exit, label %110
+  br i1 %.not.i.i50, label %thread_sched_unlock_.argprom.exit, label %110
 
 110:                                              ; preds = %108
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %109) #36
   unreachable
 
-thread_sched_unlock_.exit:                        ; preds = %108
+thread_sched_unlock_.argprom.exit:                ; preds = %108
   %111 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i51 = icmp eq ptr %111, null
-  br i1 %.not.i.i51, label %rb_vm_lock_enter.exit, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i51, label %rb_vm_lock_enter.argprom.exit, label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %thread_sched_unlock_.exit
+rb_vm_lock_enter.argprom.exit:                    ; preds = %thread_sched_unlock_.argprom.exit
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %7) #19
   %.pr = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i52 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i52, label %112, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i52, label %112, label %rb_vm_lock_leave.argprom.exit
 
-112:                                              ; preds = %rb_vm_lock_enter.exit
+112:                                              ; preds = %rb_vm_lock_enter.argprom.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %7) #19
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %thread_sched_unlock_.exit, %rb_vm_lock_enter.exit, %112
+rb_vm_lock_leave.argprom.exit:                    ; preds = %thread_sched_unlock_.argprom.exit, %rb_vm_lock_enter.argprom.exit, %112
   %113 = call i32 @pthread_mutex_lock(ptr noundef %0) #19
   %.not.i.i53 = icmp eq i32 %113, 0
-  br i1 %.not.i.i53, label %thread_sched_lock_.exit, label %114
+  br i1 %.not.i.i53, label %thread_sched_lock_.argprom.exit, label %114
 
-114:                                              ; preds = %rb_vm_lock_leave.exit
+114:                                              ; preds = %rb_vm_lock_leave.argprom.exit
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %113) #36
   unreachable
 
-thread_sched_lock_.exit:                          ; preds = %rb_vm_lock_leave.exit, %105, %ractor_sched_unlock_.exit
+thread_sched_lock_.argprom.exit:                  ; preds = %rb_vm_lock_leave.argprom.exit, %105, %ractor_sched_unlock_.argprom.exit
   ret void
 }
 
@@ -2135,7 +2135,7 @@ define hidden void @rb_threadptr_remove(ptr noundef %0) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 177
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %rb_vm_lock_leave.exit, label %6
+  br i1 %5, label %rb_vm_lock_leave.argprom.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2144,9 +2144,9 @@ define hidden void @rb_threadptr_remove(ptr noundef %0) local_unnamed_addr #0 {
   store i8 0, ptr %9, align 8
   %10 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i, label %rb_vm_lock_enter.exit, label %rb_vm_lock_enter.exit.thread
+  br i1 %.not.i.i, label %rb_vm_lock_enter.argprom.exit, label %rb_vm_lock_enter.argprom.exit.thread
 
-rb_vm_lock_enter.exit.thread:                     ; preds = %6
+rb_vm_lock_enter.argprom.exit.thread:             ; preds = %6
   %11 = getelementptr inbounds i8, ptr %8, i64 336
   %12 = getelementptr inbounds i8, ptr %0, i64 120
   %13 = load ptr, ptr %11, align 8
@@ -2157,9 +2157,9 @@ rb_vm_lock_enter.exit.thread:                     ; preds = %6
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %12, ptr %16, align 8
   store ptr %12, ptr %11, align 8
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %6
+rb_vm_lock_enter.argprom.exit:                    ; preds = %6
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #19
   %.pre = load ptr, ptr @ruby_single_main_ractor, align 8
   %17 = icmp eq ptr %.pre, null
@@ -2173,13 +2173,13 @@ rb_vm_lock_enter.exit:                            ; preds = %6
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %19, ptr %23, align 8
   store ptr %19, ptr %18, align 8
-  br i1 %17, label %24, label %rb_vm_lock_leave.exit
+  br i1 %17, label %24, label %rb_vm_lock_leave.argprom.exit
 
-24:                                               ; preds = %rb_vm_lock_enter.exit
+24:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #19
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter.exit.thread, %24, %rb_vm_lock_enter.exit, %1
+rb_vm_lock_leave.argprom.exit:                    ; preds = %rb_vm_lock_enter.argprom.exit.thread, %24, %rb_vm_lock_enter.argprom.exit, %1
   ret void
 }
 
@@ -2681,19 +2681,19 @@ define dso_local noundef zeroext i1 @rb_thread_lock_native_thread() local_unname
   %8 = icmp eq i32 %7, 0
   %9 = getelementptr inbounds i8, ptr %.val.i, i64 32
   %10 = load ptr, ptr %9, align 8
-  br i1 %8, label %11, label %native_thread_dedicated_inc.exit
+  br i1 %8, label %11, label %native_thread_dedicated_inc.argprom.exit
 
 11:                                               ; preds = %0
   %12 = getelementptr inbounds i8, ptr %10, i64 160
   %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #19
   %.not.i.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i.i, label %ractor_sched_lock_.exit.i, label %14
+  br i1 %.not.i.i.i, label %ractor_sched_lock_.argprom.exit.i, label %14
 
 14:                                               ; preds = %11
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %13) #36
   unreachable
 
-ractor_sched_lock_.exit.i:                        ; preds = %11
+ractor_sched_lock_.argprom.exit.i:                ; preds = %11
   %15 = getelementptr inbounds i8, ptr %10, i64 264
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, -1
@@ -2704,18 +2704,18 @@ ractor_sched_lock_.exit.i:                        ; preds = %11
   store i32 %20, ptr %18, align 4
   %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #19
   %.not.i.i8.i = icmp eq i32 %21, 0
-  br i1 %.not.i.i8.i, label %ractor_sched_lock_.exit.ractor_sched_unlock_.exit_crit_edge.i, label %22
+  br i1 %.not.i.i8.i, label %ractor_sched_lock_.argprom.exit.ractor_sched_unlock_.argprom.exit_crit_edge.i, label %22
 
-ractor_sched_lock_.exit.ractor_sched_unlock_.exit_crit_edge.i: ; preds = %ractor_sched_lock_.exit.i
+ractor_sched_lock_.argprom.exit.ractor_sched_unlock_.argprom.exit_crit_edge.i: ; preds = %ractor_sched_lock_.argprom.exit.i
   %.pre.i = load i32, ptr %6, align 8
-  br label %native_thread_dedicated_inc.exit
+  br label %native_thread_dedicated_inc.argprom.exit
 
-22:                                               ; preds = %ractor_sched_lock_.exit.i
+22:                                               ; preds = %ractor_sched_lock_.argprom.exit.i
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %21) #36
   unreachable
 
-native_thread_dedicated_inc.exit:                 ; preds = %0, %ractor_sched_lock_.exit.ractor_sched_unlock_.exit_crit_edge.i
-  %23 = phi i32 [ %.pre.i, %ractor_sched_lock_.exit.ractor_sched_unlock_.exit_crit_edge.i ], [ %7, %0 ]
+native_thread_dedicated_inc.argprom.exit:         ; preds = %0, %ractor_sched_lock_.argprom.exit.ractor_sched_unlock_.argprom.exit_crit_edge.i
+  %23 = phi i32 [ %.pre.i, %ractor_sched_lock_.argprom.exit.ractor_sched_unlock_.argprom.exit_crit_edge.i ], [ %7, %0 ]
   %24 = add i32 %23, 1
   store i32 %24, ptr %6, align 8
   ret i1 %8
@@ -2919,8 +2919,8 @@ rb_mutex_trylock.exit:                            ; preds = %27, %35
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %57, ptr noundef nonnull @.str.126) #36
   unreachable
 
-58:                                               ; preds = %.lr.ph, %threadptr_get_interrupts.exit84
-  %.091 = phi i32 [ 0, %.lr.ph ], [ %.1, %threadptr_get_interrupts.exit84 ]
+58:                                               ; preds = %.lr.ph, %threadptr_get_interrupts.argprom.exit84
+  %.091 = phi i32 [ 0, %.lr.ph ], [ %.1, %threadptr_get_interrupts.argprom.exit84 ]
   %59 = call i64 @rb_fiber_scheduler_current() #19
   %.not68 = icmp eq i64 %59, 4
   br i1 %.not68, label %66, label %60
@@ -3049,19 +3049,19 @@ rb_mutex_trylock.exit:                            ; preds = %27, %35
 118:                                              ; preds = %110
   %119 = lshr i64 %116, 15
   %120 = and i64 %119, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
 121:                                              ; preds = %110
   %122 = getelementptr inbounds i8, ptr %115, i64 16
   %123 = load i64, ptr %122, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %121, %118
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i: ; preds = %121, %118
   %.0.i.i.i = phi i64 [ %120, %118 ], [ %123, %121 ]
   %.not.i80 = icmp eq i64 %.0.i.i.i, 0
   br i1 %.not.i80, label %124, label %129
 
-124:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+124:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %125 = getelementptr i8, ptr %112, i64 32
   %.val7.i = load i32, ptr %125, align 8
   %126 = getelementptr i8, ptr %112, i64 36
@@ -3071,7 +3071,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %121, %118
   %.not9.i = icmp eq i32 %128, 0
   br i1 %.not9.i, label %vm_check_ints_blocking.exit, label %135
 
-129:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+129:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %130 = getelementptr inbounds i8, ptr %.val.i, i64 240
   %131 = load i8, ptr %130, align 8
   %132 = and i8 %131, -65
@@ -3088,11 +3088,11 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %121, %118
 vm_check_ints_blocking.exit:                      ; preds = %124, %135
   %137 = phi ptr [ %111, %124 ], [ %.pre, %135 ]
   %.not74 = icmp eq ptr %137, null
-  br i1 %.not74, label %138, label %threadptr_get_interrupts.exit84
+  br i1 %.not74, label %138, label %threadptr_get_interrupts.argprom.exit84
 
 138:                                              ; preds = %vm_check_ints_blocking.exit
   store ptr %10, ptr %11, align 8
-  br label %threadptr_get_interrupts.exit84
+  br label %threadptr_get_interrupts.argprom.exit84
 
 139:                                              ; preds = %105
   %140 = load ptr, ptr %55, align 8
@@ -3104,7 +3104,7 @@ vm_check_ints_blocking.exit:                      ; preds = %124, %135
   %146 = and i32 %142, 10
   %147 = and i32 %146, %145
   %.not73 = icmp eq i32 %147, 0
-  br i1 %.not73, label %threadptr_get_interrupts.exit84, label %148
+  br i1 %.not73, label %threadptr_get_interrupts.argprom.exit84, label %148
 
 148:                                              ; preds = %139
   %149 = icmp eq i32 %.091, 0
@@ -3116,13 +3116,13 @@ vm_check_ints_blocking.exit:                      ; preds = %124, %135
   %152 = and i32 %151, %150
   %153 = cmpxchg volatile ptr %141, i32 %150, i32 %152 seq_cst seq_cst, align 4
   %.not.i82 = extractvalue { i32, i1 } %153, 1
-  br i1 %.not.i82, label %threadptr_get_interrupts.exit, label %.preheader, !llvm.loop !17
+  br i1 %.not.i82, label %threadptr_get_interrupts.argprom.exit, label %.preheader, !llvm.loop !17
 
-threadptr_get_interrupts.exit:                    ; preds = %.preheader
+threadptr_get_interrupts.argprom.exit:            ; preds = %.preheader
   %154 = load i32, ptr %143, align 4
   %155 = xor i32 %154, -1
   %156 = and i32 %150, %155
-  br label %threadptr_get_interrupts.exit84
+  br label %threadptr_get_interrupts.argprom.exit84
 
 .preheader87:                                     ; preds = %148, %.preheader87
   %157 = load i32, ptr %141, align 8
@@ -3130,15 +3130,15 @@ threadptr_get_interrupts.exit:                    ; preds = %.preheader
   %159 = and i32 %158, %157
   %160 = cmpxchg volatile ptr %141, i32 %157, i32 %159 seq_cst seq_cst, align 4
   %.not.i83 = extractvalue { i32, i1 } %160, 1
-  br i1 %.not.i83, label %threadptr_get_interrupts.exit84, label %.preheader87, !llvm.loop !17
+  br i1 %.not.i83, label %threadptr_get_interrupts.argprom.exit84, label %.preheader87, !llvm.loop !17
 
-threadptr_get_interrupts.exit84:                  ; preds = %.preheader87, %139, %threadptr_get_interrupts.exit, %vm_check_ints_blocking.exit, %138
-  %.1 = phi i32 [ %.091, %vm_check_ints_blocking.exit ], [ %.091, %138 ], [ %156, %threadptr_get_interrupts.exit ], [ %.091, %139 ], [ %.091, %.preheader87 ]
+threadptr_get_interrupts.argprom.exit84:          ; preds = %.preheader87, %139, %threadptr_get_interrupts.argprom.exit, %vm_check_ints_blocking.exit, %138
+  %.1 = phi i32 [ %.091, %vm_check_ints_blocking.exit ], [ %.091, %138 ], [ %156, %threadptr_get_interrupts.argprom.exit ], [ %.091, %139 ], [ %.091, %.preheader87 ]
   %161 = load ptr, ptr %11, align 8
   %.not66 = icmp eq ptr %161, %10
   br i1 %.not66, label %._crit_edge, label %58, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %threadptr_get_interrupts.exit84
+._crit_edge:                                      ; preds = %threadptr_get_interrupts.argprom.exit84
   %.not67 = icmp eq i32 %.1, 0
   br i1 %.not67, label %.thread, label %162
 
@@ -3427,19 +3427,19 @@ rb_mutex_unlock.exit:                             ; preds = %9
 43:                                               ; preds = %27
   %44 = lshr i64 %41, 15
   %45 = and i64 %44, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
 46:                                               ; preds = %27
   %47 = getelementptr inbounds i8, ptr %40, i64 16
   %48 = load i64, ptr %47, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %46, %43
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i: ; preds = %46, %43
   %.0.i.i.i = phi i64 [ %45, %43 ], [ %48, %46 ]
   %.not.i19 = icmp eq i64 %.0.i.i.i, 0
   br i1 %.not.i19, label %49, label %54
 
-49:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+49:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %50 = getelementptr i8, ptr %37, i64 32
   %.val7.i = load i32, ptr %50, align 8
   %51 = getelementptr i8, ptr %37, i64 36
@@ -3449,7 +3449,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %46, %43
   %.not9.i = icmp eq i32 %53, 0
   br i1 %.not9.i, label %vm_check_ints_blocking.exit, label %60
 
-54:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+54:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %55 = getelementptr inbounds i8, ptr %.val.i, i64 240
   %56 = load i8, ptr %55, align 8
   %57 = and i8 %56, -65
@@ -3480,19 +3480,19 @@ vm_check_ints_blocking.exit:                      ; preds = %49, %60
 68:                                               ; preds = %.critedge
   %69 = lshr i64 %66, 15
   %70 = and i64 %69, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i23
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i23
 
 71:                                               ; preds = %.critedge
   %72 = getelementptr inbounds i8, ptr %65, i64 16
   %73 = load i64, ptr %72, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i23
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i23
 
-rb_threadptr_pending_interrupt_empty_p.exit.i23:  ; preds = %71, %68
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i23: ; preds = %71, %68
   %.0.i.i.i24 = phi i64 [ %70, %68 ], [ %73, %71 ]
   %.not.i25 = icmp eq i64 %.0.i.i.i24, 0
   br i1 %.not.i25, label %74, label %79
 
-74:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i23
+74:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i23
   %75 = getelementptr i8, ptr %62, i64 32
   %.val7.i27 = load i32, ptr %75, align 8
   %76 = getelementptr i8, ptr %62, i64 36
@@ -3502,7 +3502,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i23:  ; preds = %71, %68
   %.not9.i29 = icmp eq i32 %78, 0
   br i1 %.not9.i29, label %vm_check_ints_blocking.exit30, label %85
 
-79:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i23
+79:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i23
   %80 = getelementptr inbounds i8, ptr %.val.i20, i64 240
   %81 = load i8, ptr %80, align 8
   %82 = and i8 %81, -65
@@ -3707,26 +3707,26 @@ check_array.exit.i.i:                             ; preds = %26
 33:                                               ; preds = %check_array.exit.i.i
   %34 = lshr i64 %28, 15
   %35 = and i64 %34, 127
-  br label %queue_length.exit.i
+  br label %queue_length.argprom.exit.i
 
 36:                                               ; preds = %check_array.exit.i.i
   %37 = getelementptr inbounds i8, ptr %27, i64 16
   %38 = load i64, ptr %37, align 8
-  br label %queue_length.exit.i
+  br label %queue_length.argprom.exit.i
 
-queue_length.exit.i:                              ; preds = %36, %33
+queue_length.argprom.exit.i:                      ; preds = %36, %33
   %.0.i.i.i = phi i64 [ %35, %33 ], [ %38, %36 ]
   %39 = getelementptr inbounds i8, ptr %7, i64 56
   %40 = load i64, ptr %39, align 1
   %41 = icmp slt i64 %.0.i.i.i, %40
   br i1 %41, label %42, label %szqueue_do_pop.exit
 
-42:                                               ; preds = %queue_length.exit.i
+42:                                               ; preds = %queue_length.argprom.exit.i
   %43 = getelementptr inbounds i8, ptr %7, i64 40
   tail call fastcc void @sync_wakeup(ptr noundef nonnull %43, i64 noundef 1)
   br label %szqueue_do_pop.exit
 
-szqueue_do_pop.exit:                              ; preds = %queue_length.exit.i, %42
+szqueue_do_pop.exit:                              ; preds = %queue_length.argprom.exit.i, %42
   ret i64 %20
 }
 
@@ -3789,21 +3789,21 @@ check_array.exit.i:                               ; preds = %28
 35:                                               ; preds = %check_array.exit.i
   %36 = lshr i64 %30, 15
   %37 = and i64 %36, 127
-  br label %queue_length.exit
+  br label %queue_length.argprom.exit
 
 38:                                               ; preds = %check_array.exit.i
   %39 = getelementptr inbounds i8, ptr %29, i64 16
   %40 = load i64, ptr %39, align 8
-  br label %queue_length.exit
+  br label %queue_length.argprom.exit
 
-queue_length.exit:                                ; preds = %35, %38
+queue_length.argprom.exit:                        ; preds = %35, %38
   %.0.i.i = phi i64 [ %37, %35 ], [ %40, %38 ]
   %41 = getelementptr inbounds i8, ptr %10, i64 56
   %42 = load i64, ptr %41, align 1
   %.not = icmp slt i64 %.0.i.i, %42
   br i1 %.not, label %50, label %43
 
-43:                                               ; preds = %queue_length.exit
+43:                                               ; preds = %queue_length.argprom.exit
   %44 = and i64 %3, -5
   %.not43 = icmp eq i64 %44, 0
   br i1 %.not43, label %47, label %45
@@ -3819,7 +3819,7 @@ queue_length.exit:                                ; preds = %35, %38
   %.not44 = icmp eq i64 %49, 0
   br i1 %.not44, label %50, label %.loopexit
 
-50:                                               ; preds = %47, %queue_length.exit
+50:                                               ; preds = %47, %queue_length.argprom.exit
   %51 = icmp eq i64 %4, 4
   br i1 %51, label %queue_timeout2hrtime.exit, label %52
 
@@ -3922,14 +3922,14 @@ check_array.exit.i34:                             ; preds = %92
 99:                                               ; preds = %check_array.exit.i34
   %100 = lshr i64 %94, 15
   %101 = and i64 %100, 127
-  br label %queue_length.exit37
+  br label %queue_length.argprom.exit37
 
 102:                                              ; preds = %check_array.exit.i34
   %103 = getelementptr inbounds i8, ptr %93, i64 16
   %104 = load i64, ptr %103, align 8
-  br label %queue_length.exit37
+  br label %queue_length.argprom.exit37
 
-queue_length.exit37:                              ; preds = %99, %102
+queue_length.argprom.exit37:                      ; preds = %99, %102
   %.0.i.i36 = phi i64 [ %101, %99 ], [ %104, %102 ]
   %105 = load i64, ptr %41, align 1
   %.not29 = icmp slt i64 %.0.i.i36, %105
@@ -3938,11 +3938,11 @@ queue_length.exit37:                              ; preds = %99, %102
   %.not.i40 = icmp eq i64 %107, 0
   br i1 %.not29, label %133, label %108
 
-108:                                              ; preds = %queue_length.exit37
+108:                                              ; preds = %queue_length.argprom.exit37
   br i1 %.not.i40, label %110, label %109
 
 109:                                              ; preds = %108
-  call fastcc void @raise_closed_queue_error() #43
+  call fastcc void @raise_closed_queue_error.argelim() #43
   unreachable
 
 110:                                              ; preds = %108
@@ -4002,11 +4002,11 @@ rb_hrtime_now.exit:                               ; preds = %121, %124
   %132 = or i1 %131, %130
   br i1 %132, label %.critedge.i.i33, label %92, !llvm.loop !20
 
-133:                                              ; preds = %queue_length.exit37
+133:                                              ; preds = %queue_length.argprom.exit37
   br i1 %.not.i40, label %queue_do_push.exit, label %134
 
 134:                                              ; preds = %133
-  call fastcc void @raise_closed_queue_error() #43
+  call fastcc void @raise_closed_queue_error.argelim() #43
   unreachable
 
 queue_do_push.exit:                               ; preds = %133
@@ -4201,7 +4201,7 @@ rb_threadptr_unlock_all_locking_mutexes.exit:     ; preds = %16
   %28 = getelementptr i8, ptr %.0..0..0..0.6, i64 48
   %.0.1.val = load ptr, ptr %28, align 8
   %.not.i.i = icmp eq ptr %.0.1.val, null
-  br i1 %.not.i.i, label %rb_ec_ractor_ptr.exit.i, label %29
+  br i1 %.not.i.i, label %rb_ec_ractor_ptr.argprom.exit.i, label %29
 
 29:                                               ; preds = %rb_threadptr_unlock_all_locking_mutexes.exit
   %30 = getelementptr inbounds i8, ptr %.0.1.val, i64 32
@@ -4209,23 +4209,23 @@ rb_threadptr_unlock_all_locking_mutexes.exit:     ; preds = %16
   %32 = getelementptr inbounds i8, ptr %31, i64 88
   %33 = getelementptr inbounds i8, ptr %.0.1.val, i64 24
   %34 = load ptr, ptr %33, align 8
-  br label %rb_ec_ractor_ptr.exit.i
+  br label %rb_ec_ractor_ptr.argprom.exit.i
 
-rb_ec_ractor_ptr.exit.i:                          ; preds = %29, %rb_threadptr_unlock_all_locking_mutexes.exit
+rb_ec_ractor_ptr.argprom.exit.i:                  ; preds = %29, %rb_threadptr_unlock_all_locking_mutexes.exit
   %.in.i = phi ptr [ %32, %29 ], [ inttoptr (i64 88 to ptr), %rb_threadptr_unlock_all_locking_mutexes.exit ]
   %.0.i2.i = phi ptr [ %31, %29 ], [ null, %rb_threadptr_unlock_all_locking_mutexes.exit ]
   %.0.i6.i = phi ptr [ %34, %29 ], [ null, %rb_threadptr_unlock_all_locking_mutexes.exit ]
   %35 = load ptr, ptr %.in.i, align 8
   %.not.i22 = icmp eq ptr %35, %.0.i6.i
-  br i1 %.not.i22, label %36, label %rb_ec_vm_lock_rec.exit
+  br i1 %.not.i22, label %36, label %rb_ec_vm_lock_rec.argprom.exit
 
-36:                                               ; preds = %rb_ec_ractor_ptr.exit.i
+36:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i
   %37 = getelementptr inbounds i8, ptr %.0.i2.i, i64 96
   %38 = load i32, ptr %37, align 8
-  br label %rb_ec_vm_lock_rec.exit
+  br label %rb_ec_vm_lock_rec.argprom.exit
 
-rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %36
-  %.0.i = phi i32 [ %38, %36 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
+rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.argprom.exit.i, %36
+  %.0.i = phi i32 [ %38, %36 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i ]
   %39 = getelementptr inbounds i8, ptr %5, i64 68
   store i32 %.0.i, ptr %39, align 4
   %40 = getelementptr inbounds i8, ptr %5, i64 16
@@ -4238,7 +4238,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %.not20 = icmp eq i32 %44, 0
   br i1 %.not20, label %.thread, label %45
 
-45:                                               ; preds = %rb_ec_vm_lock_rec.exit
+45:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit
   %.0..0..0..0.2 = load volatile ptr, ptr %4, align 8
   %46 = getelementptr inbounds i8, ptr %.0..0..0..0.2, i64 24
   %47 = load ptr, ptr %46, align 8
@@ -4250,7 +4250,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %52 = getelementptr i8, ptr %.0..0..0..0.2, i64 48
   %.val.i.i = load ptr, ptr %52, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.exit.i.i.i, label %53
+  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.argprom.exit.i.i.i, label %53
 
 53:                                               ; preds = %45
   %54 = getelementptr inbounds i8, ptr %.val.i.i, i64 32
@@ -4258,31 +4258,31 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %56 = getelementptr inbounds i8, ptr %55, i64 88
   %57 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
   %58 = load ptr, ptr %57, align 8
-  br label %rb_ec_ractor_ptr.exit.i.i.i
+  br label %rb_ec_ractor_ptr.argprom.exit.i.i.i
 
-rb_ec_ractor_ptr.exit.i.i.i:                      ; preds = %53, %45
+rb_ec_ractor_ptr.argprom.exit.i.i.i:              ; preds = %53, %45
   %.in.i.i.i = phi ptr [ %56, %53 ], [ inttoptr (i64 88 to ptr), %45 ]
   %.0.i2.i.i.i = phi ptr [ %55, %53 ], [ null, %45 ]
   %.0.i6.i.i.i = phi ptr [ %58, %53 ], [ null, %45 ]
   %59 = load ptr, ptr %.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %59, %.0.i6.i.i.i
-  br i1 %.not.i.i.i, label %60, label %rb_ec_vm_lock_rec.exit.i.i
+  br i1 %.not.i.i.i, label %60, label %rb_ec_vm_lock_rec.argprom.exit.i.i
 
-60:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i.i
+60:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i.i.i
   %61 = getelementptr inbounds i8, ptr %.0.i2.i.i.i, i64 96
   %62 = load i32, ptr %61, align 8
-  br label %rb_ec_vm_lock_rec.exit.i.i
+  br label %rb_ec_vm_lock_rec.argprom.exit.i.i
 
-rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %60, %rb_ec_ractor_ptr.exit.i.i.i
-  %.0.i.i.i = phi i32 [ %62, %60 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i ]
+rb_ec_vm_lock_rec.argprom.exit.i.i:               ; preds = %60, %rb_ec_ractor_ptr.argprom.exit.i.i.i
+  %.0.i.i.i = phi i32 [ %62, %60 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i.i.i ]
   %.not.i.i23 = icmp eq i32 %.0.i.i.i, %51
   br i1 %.not.i.i23, label %126, label %63
 
-63:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i
+63:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit.i.i
   call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.2, i32 noundef %51, i32 noundef %.0.i.i.i) #19
   br label %126
 
-.thread:                                          ; preds = %rb_ec_vm_lock_rec.exit
+.thread:                                          ; preds = %rb_ec_vm_lock_rec.argprom.exit
   %.0..0..0..0.3 = load ptr, ptr %4, align 8
   %64 = getelementptr inbounds i8, ptr %.0..0..0..0.3, i64 24
   store ptr %5, ptr %64, align 8
@@ -4389,19 +4389,19 @@ native_sleep.exit:                                ; preds = %95, %96
 105:                                              ; preds = %native_sleep.exit
   %106 = lshr i64 %103, 15
   %107 = and i64 %106, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
 108:                                              ; preds = %native_sleep.exit
   %109 = getelementptr inbounds i8, ptr %102, i64 16
   %110 = load i64, ptr %109, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %108, %105
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i: ; preds = %108, %105
   %.0.i.i.i30 = phi i64 [ %107, %105 ], [ %110, %108 ]
   %.not.i31 = icmp eq i64 %.0.i.i.i30, 0
   br i1 %.not.i31, label %111, label %116
 
-111:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+111:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %112 = getelementptr i8, ptr %.0..0..0..0.7, i64 32
   %.val7.i = load i32, ptr %112, align 8
   %113 = getelementptr i8, ptr %.0..0..0..0.7, i64 36
@@ -4411,7 +4411,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %108, %105
   %.not9.i = icmp eq i32 %115, 0
   br i1 %.not9.i, label %vm_check_ints_blocking.exit, label %122
 
-116:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+116:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %117 = getelementptr inbounds i8, ptr %.val.i28, i64 240
   %118 = load i8, ptr %117, align 8
   %119 = and i8 %118, -65
@@ -4430,7 +4430,7 @@ vm_check_ints_blocking.exit:                      ; preds = %111, %122
   %125 = icmp sgt i32 %124, 1
   br i1 %125, label %92, label %.loopexit, !llvm.loop !23
 
-126:                                              ; preds = %rb_ec_vm_lock_rec.exit.i.i, %63
+126:                                              ; preds = %rb_ec_vm_lock_rec.argprom.exit.i.i, %63
   %127 = icmp ne i32 %49, 0
   call void @llvm.assume(i1 %127)
   %.0..0..0..0.5 = load volatile i32, ptr %3, align 4
@@ -4462,12 +4462,12 @@ declare i32 @rb_ractor_living_thread_num(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @ruby_thread_init_stack(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  tail call fastcc void @native_thread_init_stack(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @native_thread_init_stack.retelim(ptr noundef %0, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @native_thread_init_stack(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @native_thread_init_stack.retelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %union.pthread_attr_t, align 8
   %4 = alloca i64, align 8
   %5 = alloca %union.pthread_attr_t, align 8
@@ -5013,23 +5013,23 @@ native_thread_alloc.exit.i.i:                     ; preds = %136
   %159 = getelementptr inbounds i8, ptr %158, i64 288
   %160 = call i32 @pthread_mutex_lock(ptr noundef nonnull %159) #19
   %.not.i.i.i16.i.i = icmp eq i32 %160, 0
-  br i1 %.not.i.i.i16.i.i, label %thread_sched_lock_.exit.i.i.i, label %161
+  br i1 %.not.i.i.i16.i.i, label %thread_sched_lock_.argprom.exit.i.i.i, label %161
 
 161:                                              ; preds = %native_thread_alloc.exit.i.i
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %160) #36
   unreachable
 
-thread_sched_lock_.exit.i.i.i:                    ; preds = %native_thread_alloc.exit.i.i
+thread_sched_lock_.argprom.exit.i.i.i:            ; preds = %native_thread_alloc.exit.i.i
   call fastcc void @thread_sched_to_ready_common(ptr noundef nonnull %159, ptr noundef nonnull %6, i1 noundef zeroext true, i1 noundef zeroext false)
   %162 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %159) #19
   %.not.i.i6.i.i.i = icmp eq i32 %162, 0
   br i1 %.not.i.i6.i.i.i, label %native_thread_create_dedicated.exit.i, label %163
 
-163:                                              ; preds = %thread_sched_lock_.exit.i.i.i
+163:                                              ; preds = %thread_sched_lock_.argprom.exit.i.i.i
   call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %162) #36
   unreachable
 
-native_thread_create_dedicated.exit.i:            ; preds = %thread_sched_lock_.exit.i.i.i
+native_thread_create_dedicated.exit.i:            ; preds = %thread_sched_lock_.argprom.exit.i.i.i
   %164 = load ptr, ptr %144, align 8
   %165 = call fastcc i32 @native_thread_create0(ptr noundef %164)
   br label %native_thread_create.exit
@@ -5412,23 +5412,23 @@ nt_alloc_stack.exit.i.i:                          ; preds = %nt_guard_page.exit.
   %359 = getelementptr inbounds i8, ptr %358, i64 288
   %360 = call i32 @pthread_mutex_lock(ptr noundef nonnull %359) #19
   %.not.i.i.i.i9.i = icmp eq i32 %360, 0
-  br i1 %.not.i.i.i.i9.i, label %thread_sched_lock_.exit.i.i10.i, label %361
+  br i1 %.not.i.i.i.i9.i, label %thread_sched_lock_.argprom.exit.i.i10.i, label %361
 
 361:                                              ; preds = %328
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %360) #36
   unreachable
 
-thread_sched_lock_.exit.i.i10.i:                  ; preds = %328
+thread_sched_lock_.argprom.exit.i.i10.i:          ; preds = %328
   call fastcc void @thread_sched_to_ready_common(ptr noundef nonnull %359, ptr noundef nonnull %6, i1 noundef zeroext true, i1 noundef zeroext false)
   %362 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %359) #19
   %.not.i.i6.i.i11.i = icmp eq i32 %362, 0
   br i1 %.not.i.i6.i.i11.i, label %thread_sched_to_ready.exit.i.i, label %363
 
-363:                                              ; preds = %thread_sched_lock_.exit.i.i10.i
+363:                                              ; preds = %thread_sched_lock_.argprom.exit.i.i10.i
   call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %362) #36
   unreachable
 
-thread_sched_to_ready.exit.i.i:                   ; preds = %thread_sched_lock_.exit.i.i10.i
+thread_sched_to_ready.exit.i.i:                   ; preds = %thread_sched_lock_.argprom.exit.i.i10.i
   %364 = load ptr, ptr %167, align 8
   %365 = call fastcc i32 @native_thread_check_and_create_shared(ptr noundef %364)
   br label %native_thread_create.exit
@@ -5537,19 +5537,19 @@ define internal fastcc void @sleep_forever(ptr noundef %0, i32 noundef range(i32
 18:                                               ; preds = %10
   %19 = lshr i64 %16, 15
   %20 = and i64 %19, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
 21:                                               ; preds = %10
   %22 = getelementptr inbounds i8, ptr %15, i64 16
   %23 = load i64, ptr %22, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %21, %18
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i: ; preds = %21, %18
   %.0.i.i.i = phi i64 [ %20, %18 ], [ %23, %21 ]
   %.not.i = icmp eq i64 %.0.i.i.i, 0
   br i1 %.not.i, label %24, label %29
 
-24:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+24:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %25 = getelementptr i8, ptr %12, i64 32
   %.val7.i = load i32, ptr %25, align 8
   %26 = getelementptr i8, ptr %12, i64 36
@@ -5559,7 +5559,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %21, %18
   %.not9.i = icmp eq i32 %28, 0
   br i1 %.not9.i, label %vm_check_ints_blocking.exit, label %35
 
-29:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+29:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %30 = getelementptr inbounds i8, ptr %.val.i, i64 240
   %31 = load i8, ptr %30, align 8
   %32 = and i8 %31, -65
@@ -5615,19 +5615,19 @@ vm_check_ints_blocking.exit.split.us.split.us.split.us: ; preds = %vm_check_ints
 53:                                               ; preds = %.critedge.us.us.us
   %54 = lshr i64 %51, 15
   %55 = and i64 %54, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i26.us.us.us
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i26.us.us.us
 
 56:                                               ; preds = %.critedge.us.us.us
   %57 = getelementptr inbounds i8, ptr %50, i64 16
   %58 = load i64, ptr %57, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i26.us.us.us
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i26.us.us.us
 
-rb_threadptr_pending_interrupt_empty_p.exit.i26.us.us.us: ; preds = %56, %53
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i26.us.us.us: ; preds = %56, %53
   %.0.i.i.i27.us.us.us = phi i64 [ %55, %53 ], [ %58, %56 ]
   %.not.i28.us.us.us = icmp eq i64 %.0.i.i.i27.us.us.us, 0
   br i1 %.not.i28.us.us.us, label %65, label %59
 
-59:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i26.us.us.us
+59:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i26.us.us.us
   %60 = getelementptr inbounds i8, ptr %.val.i23.us.us.us, i64 240
   %61 = load i8, ptr %60, align 8
   %62 = and i8 %61, -65
@@ -5636,7 +5636,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i26.us.us.us: ; preds = %56, %53
   %64 = atomicrmw volatile or ptr %63, i32 2 seq_cst, align 4
   br label %70
 
-65:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i26.us.us.us
+65:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i26.us.us.us
   %66 = getelementptr i8, ptr %47, i64 32
   %.val7.i30.us.us.us = load i32, ptr %66, align 8
   %67 = getelementptr i8, ptr %47, i64 36
@@ -5675,19 +5675,19 @@ vm_check_ints_blocking.exit33.us.us.us:           ; preds = %70, %65
 84:                                               ; preds = %.critedge.us.us
   %85 = lshr i64 %82, 15
   %86 = and i64 %85, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i26.us.us
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i26.us.us
 
 87:                                               ; preds = %.critedge.us.us
   %88 = getelementptr inbounds i8, ptr %81, i64 16
   %89 = load i64, ptr %88, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i26.us.us
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i26.us.us
 
-rb_threadptr_pending_interrupt_empty_p.exit.i26.us.us: ; preds = %87, %84
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i26.us.us: ; preds = %87, %84
   %.0.i.i.i27.us.us = phi i64 [ %86, %84 ], [ %89, %87 ]
   %.not.i28.us.us = icmp eq i64 %.0.i.i.i27.us.us, 0
   br i1 %.not.i28.us.us, label %96, label %90
 
-90:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i26.us.us
+90:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i26.us.us
   %91 = getelementptr inbounds i8, ptr %.val.i23.us.us, i64 240
   %92 = load i8, ptr %91, align 8
   %93 = and i8 %92, -65
@@ -5696,7 +5696,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i26.us.us: ; preds = %87, %84
   %95 = atomicrmw volatile or ptr %94, i32 2 seq_cst, align 4
   br label %vm_check_ints_blocking.exit33.us.us
 
-96:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i26.us.us
+96:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i26.us.us
   %97 = getelementptr i8, ptr %78, i64 32
   %.val7.i30.us.us = load i32, ptr %97, align 8
   %98 = getelementptr i8, ptr %78, i64 36
@@ -5755,19 +5755,19 @@ vm_check_ints_blocking.exit.split.us.split:       ; preds = %vm_check_ints_block
 128:                                              ; preds = %110
   %129 = lshr i64 %126, 15
   %130 = and i64 %129, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i26.us
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i26.us
 
 131:                                              ; preds = %110
   %132 = getelementptr inbounds i8, ptr %125, i64 16
   %133 = load i64, ptr %132, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i26.us
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i26.us
 
-rb_threadptr_pending_interrupt_empty_p.exit.i26.us: ; preds = %131, %128
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i26.us: ; preds = %131, %128
   %.0.i.i.i27.us = phi i64 [ %130, %128 ], [ %133, %131 ]
   %.not.i28.us = icmp eq i64 %.0.i.i.i27.us, 0
   br i1 %.not.i28.us, label %140, label %134
 
-134:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i26.us
+134:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i26.us
   %135 = getelementptr inbounds i8, ptr %.val.i23.us, i64 240
   %136 = load i8, ptr %135, align 8
   %137 = and i8 %136, -65
@@ -5776,7 +5776,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i26.us: ; preds = %131, %128
   %139 = atomicrmw volatile or ptr %138, i32 2 seq_cst, align 4
   br label %145
 
-140:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i26.us
+140:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i26.us
   %141 = getelementptr i8, ptr %122, i64 32
   %.val7.i30.us = load i32, ptr %141, align 8
   %142 = getelementptr i8, ptr %122, i64 36
@@ -5914,19 +5914,19 @@ rb_hrtime_now.exit:                               ; preds = %3, %11
 26:                                               ; preds = %rb_hrtime_now.exit
   %27 = lshr i64 %24, 15
   %28 = and i64 %27, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
 29:                                               ; preds = %rb_hrtime_now.exit
   %30 = getelementptr inbounds i8, ptr %23, i64 16
   %31 = load i64, ptr %30, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %29, %26
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i: ; preds = %29, %26
   %.0.i.i.i14 = phi i64 [ %28, %26 ], [ %31, %29 ]
   %.not.i = icmp eq i64 %.0.i.i.i14, 0
   br i1 %.not.i, label %32, label %37
 
-32:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+32:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %33 = getelementptr i8, ptr %20, i64 32
   %.val7.i = load i32, ptr %33, align 8
   %34 = getelementptr i8, ptr %20, i64 36
@@ -5936,7 +5936,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %29, %26
   %.not9.i = icmp eq i32 %36, 0
   br i1 %.not9.i, label %vm_check_ints_blocking.exit, label %43
 
-37:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+37:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %38 = getelementptr inbounds i8, ptr %.val.i13, i64 240
   %39 = load i8, ptr %38, align 8
   %40 = and i8 %39, -65
@@ -5995,19 +5995,19 @@ native_sleep.exit:                                ; preds = %54, %55
 65:                                               ; preds = %native_sleep.exit
   %66 = lshr i64 %63, 15
   %67 = and i64 %66, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i21
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i21
 
 68:                                               ; preds = %native_sleep.exit
   %69 = getelementptr inbounds i8, ptr %62, i64 16
   %70 = load i64, ptr %69, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i21
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i21
 
-rb_threadptr_pending_interrupt_empty_p.exit.i21:  ; preds = %68, %65
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i21: ; preds = %68, %65
   %.0.i.i.i22 = phi i64 [ %67, %65 ], [ %70, %68 ]
   %.not.i23 = icmp eq i64 %.0.i.i.i22, 0
   br i1 %.not.i23, label %71, label %76
 
-71:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i21
+71:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i21
   %72 = getelementptr i8, ptr %59, i64 32
   %.val7.i25 = load i32, ptr %72, align 8
   %73 = getelementptr i8, ptr %59, i64 36
@@ -6017,7 +6017,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i21:  ; preds = %68, %65
   %.not9.i27 = icmp eq i32 %75, 0
   br i1 %.not9.i27, label %vm_check_ints_blocking.exit28.thread, label %vm_check_ints_blocking.exit28
 
-76:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i21
+76:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i21
   %77 = getelementptr inbounds i8, ptr %.val.i18, i64 240
   %78 = load i8, ptr %77, align 8
   %79 = and i8 %78, -65
@@ -6094,19 +6094,19 @@ define dso_local void @rb_thread_check_ints() local_unnamed_addr #0 {
 8:                                                ; preds = %0
   %9 = lshr i64 %6, 15
   %10 = and i64 %9, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
 11:                                               ; preds = %0
   %12 = getelementptr inbounds i8, ptr %5, i64 16
   %13 = load i64, ptr %12, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %11, %8
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i: ; preds = %11, %8
   %.0.i.i.i = phi i64 [ %10, %8 ], [ %13, %11 ]
   %.not.i = icmp eq i64 %.0.i.i.i, 0
   br i1 %.not.i, label %14, label %19
 
-14:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+14:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %15 = getelementptr i8, ptr %2, i64 32
   %.val7.i = load i32, ptr %15, align 8
   %16 = getelementptr i8, ptr %2, i64 36
@@ -6116,7 +6116,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %11, %8
   %.not9.i = icmp eq i32 %18, 0
   br i1 %.not9.i, label %vm_check_ints_blocking.exit, label %25
 
-19:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+19:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %20 = getelementptr inbounds i8, ptr %.val.i, i64 240
   %21 = load i8, ptr %20, align 8
   %22 = and i8 %21, -65
@@ -6262,19 +6262,19 @@ rb_thread_alone.exit:                             ; preds = %1, %4, %8
   %28 = getelementptr inbounds i8, ptr %27, i64 288
   %29 = call i32 @pthread_mutex_lock(ptr noundef nonnull %28) #19
   %.not.i.i.i8 = icmp eq i32 %29, 0
-  br i1 %.not.i.i.i8, label %thread_sched_lock_.exit.i, label %30
+  br i1 %.not.i.i.i8, label %thread_sched_lock_.argprom.exit.i, label %30
 
 30:                                               ; preds = %18
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %29) #36
   unreachable
 
-thread_sched_lock_.exit.i:                        ; preds = %18
+thread_sched_lock_.argprom.exit.i:                ; preds = %18
   %31 = getelementptr inbounds i8, ptr %27, i64 344
   %32 = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %32, %31
   br i1 %.not.i, label %76, label %33
 
-33:                                               ; preds = %thread_sched_lock_.exit.i
+33:                                               ; preds = %thread_sched_lock_.argprom.exit.i
   %34 = load ptr, ptr @rb_internal_thread_event_hooks, align 8
   %.not15.i = icmp eq ptr %34, null
   br i1 %.not15.i, label %55, label %35
@@ -6367,14 +6367,14 @@ thread_sched_deq.exit.i.i:                        ; preds = %55
   store ptr %56, ptr %56, align 8
   %70 = getelementptr inbounds i8, ptr %27, i64 328
   store ptr %66, ptr %70, align 8
-  call fastcc void @thread_sched_wakeup_running_thread(ptr noundef %66, i1 noundef zeroext %60)
+  call fastcc void @thread_sched_wakeup_running_thread.argprom(ptr noundef %66, i1 noundef zeroext %60)
   %.not.i18.i = icmp eq ptr %.val.i, %66
   br i1 %.not.i18.i, label %thread_sched_wakeup_next_thread.exit.i, label %71
 
 71:                                               ; preds = %thread_sched_deq.exit.i.i, %thread_sched_deq.exit.i.thread.i
   %72 = getelementptr inbounds i8, ptr %.val.i, i64 32
   %73 = load ptr, ptr %72, align 8
-  call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %28, ptr noundef %73, ptr noundef null, ptr noundef nonnull %.val.i, ptr noundef null)
+  call fastcc void @thread_sched_setup_running_threads.argprom(ptr noundef nonnull %28, ptr noundef %73, ptr noundef null, ptr noundef nonnull %.val.i, ptr noundef null)
   br label %thread_sched_wakeup_next_thread.exit.i
 
 thread_sched_wakeup_next_thread.exit.i:           ; preds = %71, %thread_sched_deq.exit.i.i
@@ -6386,7 +6386,7 @@ thread_sched_wakeup_next_thread.exit.i:           ; preds = %71, %thread_sched_d
   call fastcc void @thread_sched_wait_running_turn(ptr noundef nonnull %28, ptr noundef nonnull %.val.i, i1 noundef zeroext %75)
   br label %76
 
-76:                                               ; preds = %thread_sched_wakeup_next_thread.exit.i, %thread_sched_lock_.exit.i
+76:                                               ; preds = %thread_sched_wakeup_next_thread.exit.i, %thread_sched_lock_.argprom.exit.i
   %77 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #19
   %.not.i.i19.i = icmp eq i32 %77, 0
   br i1 %.not.i.i19.i, label %thread_sched_yield.exit, label %78
@@ -6420,14 +6420,14 @@ define dso_local ptr @rb_nogvl(ptr nocapture noundef nonnull readonly %0, ptr no
   %9 = getelementptr i8, ptr %8, i64 48
   %.val = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %rb_ec_vm_ptr.exit, label %10
+  br i1 %.not.i, label %rb_ec_vm_ptr.argprom.exit, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %.val, i64 32
   %12 = load ptr, ptr %11, align 8
-  br label %rb_ec_vm_ptr.exit
+  br label %rb_ec_vm_ptr.argprom.exit
 
-rb_ec_vm_ptr.exit:                                ; preds = %5, %10
+rb_ec_vm_ptr.argprom.exit:                        ; preds = %5, %10
   %.0.i = phi ptr [ %12, %10 ], [ null, %5 ]
   %13 = getelementptr inbounds i8, ptr %.0.i, i64 40
   %14 = load ptr, ptr %13, align 8
@@ -6438,7 +6438,7 @@ rb_ec_vm_ptr.exit:                                ; preds = %5, %10
     i64 0, label %.fold.split
   ]
 
-16:                                               ; preds = %rb_ec_vm_ptr.exit
+16:                                               ; preds = %rb_ec_vm_ptr.argprom.exit
   %17 = getelementptr inbounds i8, ptr %.val, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @rb_ractor_living_thread_num(ptr noundef %18) #19
@@ -6454,12 +6454,12 @@ rb_ec_vm_ptr.exit:                                ; preds = %5, %10
   store volatile i32 1, ptr %23, align 8
   br label %24
 
-.fold.split:                                      ; preds = %rb_ec_vm_ptr.exit
+.fold.split:                                      ; preds = %rb_ec_vm_ptr.argprom.exit
   br label %24
 
-24:                                               ; preds = %16, %rb_ec_vm_ptr.exit, %.fold.split, %22
-  %.029 = phi ptr [ %3, %22 ], [ %3, %16 ], [ %.val, %rb_ec_vm_ptr.exit ], [ %3, %.fold.split ]
-  %.0 = phi ptr [ %2, %22 ], [ %2, %16 ], [ @ubf_select, %rb_ec_vm_ptr.exit ], [ null, %.fold.split ]
+24:                                               ; preds = %16, %rb_ec_vm_ptr.argprom.exit, %.fold.split, %22
+  %.029 = phi ptr [ %3, %22 ], [ %3, %16 ], [ %.val, %rb_ec_vm_ptr.argprom.exit ], [ %3, %.fold.split ]
+  %.0 = phi ptr [ %2, %22 ], [ %2, %16 ], [ @ubf_select, %rb_ec_vm_ptr.argprom.exit ], [ null, %.fold.split ]
   %25 = and i32 %4, 1
   %26 = call fastcc i32 @blocking_region_begin(ptr noundef %.val, ptr noundef %6, ptr noundef %.0, ptr noundef %.029, i32 noundef %25)
   %.not33 = icmp eq i32 %26, 0
@@ -6498,19 +6498,19 @@ rb_ec_vm_ptr.exit:                                ; preds = %5, %10
 40:                                               ; preds = %35
   %41 = lshr i64 %38, 15
   %42 = and i64 %41, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
 43:                                               ; preds = %35
   %44 = getelementptr inbounds i8, ptr %37, i64 16
   %45 = load i64, ptr %44, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %43, %40
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i: ; preds = %43, %40
   %.0.i.i.i = phi i64 [ %42, %40 ], [ %45, %43 ]
   %.not.i36 = icmp eq i64 %.0.i.i.i, 0
   br i1 %.not.i36, label %46, label %51
 
-46:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+46:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %47 = getelementptr i8, ptr %8, i64 32
   %.val7.i = load i32, ptr %47, align 8
   %48 = getelementptr i8, ptr %8, i64 36
@@ -6520,7 +6520,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %43, %40
   %.not9.i = icmp eq i32 %50, 0
   br i1 %.not9.i, label %vm_check_ints_blocking.exit, label %57
 
-51:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+51:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %52 = getelementptr inbounds i8, ptr %.val.i, i64 240
   %53 = load i8, ptr %52, align 8
   %54 = and i8 %53, -65
@@ -6546,23 +6546,23 @@ define internal void @ubf_select(ptr noundef %0) #0 {
   %.val.val = load i64, ptr %3, align 8
   %4 = tail call i32 @pthread_kill(i64 noundef %.val.val, i32 noundef 26) #19
   %.not.i = icmp eq i32 %4, 0
-  br i1 %.not.i, label %ubf_wakeup_thread.exit, label %5
+  br i1 %.not.i, label %ubf_wakeup_thread.argprom.argprom.exit, label %5
 
 5:                                                ; preds = %1
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.186, i32 noundef %4) #36
   unreachable
 
-ubf_wakeup_thread.exit:                           ; preds = %1
+ubf_wakeup_thread.argprom.argprom.exit:           ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @ubf_list_lock) #19
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %rb_native_mutex_lock.exit.i, label %8
 
-8:                                                ; preds = %ubf_wakeup_thread.exit
+8:                                                ; preds = %ubf_wakeup_thread.argprom.argprom.exit
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %7) #36
   unreachable
 
-rb_native_mutex_lock.exit.i:                      ; preds = %ubf_wakeup_thread.exit
+rb_native_mutex_lock.exit.i:                      ; preds = %ubf_wakeup_thread.argprom.argprom.exit
   %9 = load ptr, ptr %6, align 8
   %.not.i3 = icmp eq ptr %9, %6
   br i1 %.not.i3, label %10, label %14
@@ -6729,24 +6729,24 @@ unblock_function_set.exit:                        ; preds = %.critedge.i
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = call i32 @pthread_mutex_lock(ptr noundef nonnull %64) #19
   %.not.i.i.i = icmp eq i32 %65, 0
-  br i1 %.not.i.i.i, label %thread_sched_lock_.exit.i, label %66
+  br i1 %.not.i.i.i, label %thread_sched_lock_.argprom.exit.i, label %66
 
 66:                                               ; preds = %unblock_function_set.exit
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %65) #36
   unreachable
 
-thread_sched_lock_.exit.i:                        ; preds = %unblock_function_set.exit
+thread_sched_lock_.argprom.exit.i:                ; preds = %unblock_function_set.exit
   call fastcc void @thread_sched_to_waiting_common0(ptr noundef nonnull %64, ptr noundef nonnull %0, i1 noundef zeroext false)
   %67 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %64) #19
   %.not.i.i6.i = icmp eq i32 %67, 0
   br i1 %.not.i.i6.i, label %thread_sched_to_waiting.exit, label %68
 
-68:                                               ; preds = %thread_sched_lock_.exit.i
+68:                                               ; preds = %thread_sched_lock_.argprom.exit.i
   call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %67) #36
   unreachable
 
-thread_sched_to_waiting.exit:                     ; preds = %rb_native_mutex_unlock.exit.i, %thread_sched_lock_.exit.i
-  %.0 = phi i32 [ 1, %thread_sched_lock_.exit.i ], [ 0, %rb_native_mutex_unlock.exit.i ]
+thread_sched_to_waiting.exit:                     ; preds = %rb_native_mutex_unlock.exit.i, %thread_sched_lock_.argprom.exit.i
+  %.0 = phi i32 [ 1, %thread_sched_lock_.argprom.exit.i ], [ 0, %rb_native_mutex_unlock.exit.i ]
   ret i32 %.0
 }
 
@@ -6902,14 +6902,14 @@ define dso_local noundef i64 @rb_thread_kill(i64 noundef returned %0) #0 {
   %22 = getelementptr i8, ptr %2, i64 272
   %.val = load i64, ptr %22, align 8
   %.not.i = icmp eq i64 %.val, 0
-  br i1 %.not.i, label %23, label %threadptr_check_pending_interrupt_queue.exit
+  br i1 %.not.i, label %23, label %threadptr_check_pending_interrupt_queue.argprom.exit
 
 23:                                               ; preds = %21
   %24 = load i64, ptr @rb_eThreadError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %24, ptr noundef nonnull @.str.198) #36
   unreachable
 
-threadptr_check_pending_interrupt_queue.exit:     ; preds = %21
+threadptr_check_pending_interrupt_queue.argprom.exit: ; preds = %21
   %25 = tail call i64 @rb_ary_push(i64 noundef %.val, i64 noundef 1) #19
   %26 = load i8, ptr %3, align 8
   %27 = and i8 %26, -65
@@ -6919,11 +6919,11 @@ threadptr_check_pending_interrupt_queue.exit:     ; preds = %21
   %.not.i.i.i = icmp eq i32 %29, 0
   br i1 %.not.i.i.i, label %rb_native_mutex_lock.exit.i.i, label %30
 
-30:                                               ; preds = %threadptr_check_pending_interrupt_queue.exit
+30:                                               ; preds = %threadptr_check_pending_interrupt_queue.argprom.exit
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %29) #36
   unreachable
 
-rb_native_mutex_lock.exit.i.i:                    ; preds = %threadptr_check_pending_interrupt_queue.exit
+rb_native_mutex_lock.exit.i.i:                    ; preds = %threadptr_check_pending_interrupt_queue.argprom.exit
   %31 = getelementptr inbounds i8, ptr %2, i64 48
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 32
@@ -7003,16 +7003,16 @@ define dso_local i64 @rb_thread_io_blocking_call(ptr nocapture noundef readonly 
   %21 = icmp sgt i32 %.val.val.i, 0
   %.not.i = icmp eq i32 %3, 0
   %or.cond.i = or i1 %.not.i, %21
-  br i1 %or.cond.i, label %thread_io_mn_schedulable.exit, label %22
+  br i1 %or.cond.i, label %thread_io_mn_schedulable.argprom.exit, label %22
 
 22:                                               ; preds = %4
   %23 = getelementptr inbounds i8, ptr %.0.18.val, i64 424
   %24 = load i32, ptr %23, align 8
   %25 = icmp ne i32 %24, 0
   %26 = zext i1 %25 to i8
-  br label %thread_io_mn_schedulable.exit
+  br label %thread_io_mn_schedulable.argprom.exit
 
-thread_io_mn_schedulable.exit:                    ; preds = %4, %22
+thread_io_mn_schedulable.argprom.exit:            ; preds = %4, %22
   %27 = phi i8 [ 0, %4 ], [ %26, %22 ]
   store i8 %27, ptr %16, align 8
   %28 = tail call ptr @rb_errno_ptr() #19
@@ -7026,9 +7026,9 @@ thread_io_mn_schedulable.exit:                    ; preds = %4, %22
   store ptr null, ptr %31, align 8
   %32 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i, label %rb_vm_lock_enter.exit.i, label %rb_vm_lock_enter.exit.i.thread
+  br i1 %.not.i.i.i, label %rb_vm_lock_enter.argprom.exit.i, label %rb_vm_lock_enter.argprom.exit.i.thread
 
-rb_vm_lock_enter.exit.i.thread:                   ; preds = %thread_io_mn_schedulable.exit
+rb_vm_lock_enter.argprom.exit.i.thread:           ; preds = %thread_io_mn_schedulable.argprom.exit
   %33 = getelementptr inbounds i8, ptr %.0.18.val, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 488
@@ -7041,7 +7041,7 @@ rb_vm_lock_enter.exit.i.thread:                   ; preds = %thread_io_mn_schedu
   store ptr %7, ptr %35, align 8
   br label %thread_io_setup_wfd.exit
 
-rb_vm_lock_enter.exit.i:                          ; preds = %thread_io_mn_schedulable.exit
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %thread_io_mn_schedulable.argprom.exit
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #19
   %.pre = load ptr, ptr @ruby_single_main_ractor, align 8
   %39 = icmp eq ptr %.pre, null
@@ -7057,11 +7057,11 @@ rb_vm_lock_enter.exit.i:                          ; preds = %thread_io_mn_schedu
   store ptr %7, ptr %42, align 8
   br i1 %39, label %46, label %thread_io_setup_wfd.exit
 
-46:                                               ; preds = %rb_vm_lock_enter.exit.i
+46:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #19
   br label %thread_io_setup_wfd.exit
 
-thread_io_setup_wfd.exit:                         ; preds = %rb_vm_lock_enter.exit.i.thread, %rb_vm_lock_enter.exit.i, %46
+thread_io_setup_wfd.exit:                         ; preds = %rb_vm_lock_enter.argprom.exit.i.thread, %rb_vm_lock_enter.argprom.exit.i, %46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %.0..0..0..0.19 = load volatile ptr, ptr %6, align 8
   store ptr %.0..0..0..0.19, ptr %10, align 8
@@ -7075,7 +7075,7 @@ thread_io_setup_wfd.exit:                         ; preds = %rb_vm_lock_enter.ex
   %51 = getelementptr i8, ptr %.0..0..0..0.19, i64 48
   %.0.1.val = load ptr, ptr %51, align 8
   %.not.i.i = icmp eq ptr %.0.1.val, null
-  br i1 %.not.i.i, label %rb_ec_ractor_ptr.exit.i, label %52
+  br i1 %.not.i.i, label %rb_ec_ractor_ptr.argprom.exit.i, label %52
 
 52:                                               ; preds = %thread_io_setup_wfd.exit
   %53 = getelementptr inbounds i8, ptr %.0.1.val, i64 32
@@ -7083,23 +7083,23 @@ thread_io_setup_wfd.exit:                         ; preds = %rb_vm_lock_enter.ex
   %55 = getelementptr inbounds i8, ptr %54, i64 88
   %56 = getelementptr inbounds i8, ptr %.0.1.val, i64 24
   %57 = load ptr, ptr %56, align 8
-  br label %rb_ec_ractor_ptr.exit.i
+  br label %rb_ec_ractor_ptr.argprom.exit.i
 
-rb_ec_ractor_ptr.exit.i:                          ; preds = %52, %thread_io_setup_wfd.exit
+rb_ec_ractor_ptr.argprom.exit.i:                  ; preds = %52, %thread_io_setup_wfd.exit
   %.in.i = phi ptr [ %55, %52 ], [ inttoptr (i64 88 to ptr), %thread_io_setup_wfd.exit ]
   %.0.i2.i = phi ptr [ %54, %52 ], [ null, %thread_io_setup_wfd.exit ]
   %.0.i6.i = phi ptr [ %57, %52 ], [ null, %thread_io_setup_wfd.exit ]
   %58 = load ptr, ptr %.in.i, align 8
   %.not.i33 = icmp eq ptr %58, %.0.i6.i
-  br i1 %.not.i33, label %59, label %rb_ec_vm_lock_rec.exit
+  br i1 %.not.i33, label %59, label %rb_ec_vm_lock_rec.argprom.exit
 
-59:                                               ; preds = %rb_ec_ractor_ptr.exit.i
+59:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i
   %60 = getelementptr inbounds i8, ptr %.0.i2.i, i64 96
   %61 = load i32, ptr %60, align 8
-  br label %rb_ec_vm_lock_rec.exit
+  br label %rb_ec_vm_lock_rec.argprom.exit
 
-rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %59
-  %.0.i = phi i32 [ %61, %59 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
+rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.argprom.exit.i, %59
+  %.0.i = phi i32 [ %61, %59 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i ]
   %62 = getelementptr inbounds i8, ptr %11, i64 68
   store i32 %.0.i, ptr %62, align 4
   %63 = getelementptr inbounds i8, ptr %11, i64 16
@@ -7112,7 +7112,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %.not = icmp eq i32 %67, 0
   br i1 %.not, label %88, label %68
 
-68:                                               ; preds = %rb_ec_vm_lock_rec.exit
+68:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit
   %.0..0..0..0.2 = load volatile ptr, ptr %10, align 8
   %69 = getelementptr inbounds i8, ptr %.0..0..0..0.2, i64 24
   %70 = load ptr, ptr %69, align 8
@@ -7124,7 +7124,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %75 = getelementptr i8, ptr %.0..0..0..0.2, i64 48
   %.val.i.i = load ptr, ptr %75, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.exit.i.i.i, label %76
+  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.argprom.exit.i.i.i, label %76
 
 76:                                               ; preds = %68
   %77 = getelementptr inbounds i8, ptr %.val.i.i, i64 32
@@ -7132,36 +7132,36 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %79 = getelementptr inbounds i8, ptr %78, i64 88
   %80 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
   %81 = load ptr, ptr %80, align 8
-  br label %rb_ec_ractor_ptr.exit.i.i.i
+  br label %rb_ec_ractor_ptr.argprom.exit.i.i.i
 
-rb_ec_ractor_ptr.exit.i.i.i:                      ; preds = %76, %68
+rb_ec_ractor_ptr.argprom.exit.i.i.i:              ; preds = %76, %68
   %.in.i.i.i = phi ptr [ %79, %76 ], [ inttoptr (i64 88 to ptr), %68 ]
   %.0.i2.i.i.i = phi ptr [ %78, %76 ], [ null, %68 ]
   %.0.i6.i.i.i = phi ptr [ %81, %76 ], [ null, %68 ]
   %82 = load ptr, ptr %.in.i.i.i, align 8
   %.not.i.i.i34 = icmp eq ptr %82, %.0.i6.i.i.i
-  br i1 %.not.i.i.i34, label %83, label %rb_ec_vm_lock_rec.exit.i.i
+  br i1 %.not.i.i.i34, label %83, label %rb_ec_vm_lock_rec.argprom.exit.i.i
 
-83:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i.i
+83:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i.i.i
   %84 = getelementptr inbounds i8, ptr %.0.i2.i.i.i, i64 96
   %85 = load i32, ptr %84, align 8
-  br label %rb_ec_vm_lock_rec.exit.i.i
+  br label %rb_ec_vm_lock_rec.argprom.exit.i.i
 
-rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %83, %rb_ec_ractor_ptr.exit.i.i.i
-  %.0.i.i.i = phi i32 [ %85, %83 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i ]
+rb_ec_vm_lock_rec.argprom.exit.i.i:               ; preds = %83, %rb_ec_ractor_ptr.argprom.exit.i.i.i
+  %.0.i.i.i = phi i32 [ %85, %83 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i.i.i ]
   %.not.i.i35 = icmp eq i32 %.0.i.i.i, %74
   br i1 %.not.i.i35, label %.thread, label %86
 
-86:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i
+86:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit.i.i
   call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.2, i32 noundef %74, i32 noundef %.0.i.i.i) #19
   br label %.thread
 
-.thread:                                          ; preds = %86, %rb_ec_vm_lock_rec.exit.i.i
+.thread:                                          ; preds = %86, %rb_ec_vm_lock_rec.argprom.exit.i.i
   %87 = icmp ne i32 %72, 0
   call void @llvm.assume(i1 %87)
-  br label %thread_io_wait_events.exit.thread
+  br label %thread_io_wait_events.argprom.exit.thread
 
-88:                                               ; preds = %rb_ec_vm_lock_rec.exit
+88:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit
   store ptr %11, ptr %48, align 8
   %89 = getelementptr inbounds i8, ptr %.0.18.val, i64 424
   %90 = getelementptr inbounds i8, ptr %.0.18.val, i64 24
@@ -7178,7 +7178,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %83, %rb_ec_ractor_p
   store volatile i32 %96, ptr %9, align 4
   %97 = load ptr, ptr %30, align 8
   call fastcc void @blocking_region_end(ptr noundef %97, ptr noundef %12)
-  br label %thread_io_wait_events.exit.thread
+  br label %thread_io_wait_events.argprom.exit.thread
 
 .split:                                           ; preds = %88, %.split.backedge
   %98 = load ptr, ptr %30, align 8
@@ -7196,27 +7196,27 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %83, %rb_ec_ractor_p
   %.not.i36 = icmp eq i64 %104, 4294967295
   %cond.i = icmp eq i32 %.0..0..0..0.7, 11
   %spec.select.i = and i1 %.not.i36, %cond.i
-  br i1 %spec.select.i, label %105, label %thread_io_wait_events.exit.thread
+  br i1 %spec.select.i, label %105, label %thread_io_wait_events.argprom.exit.thread
 
 105:                                              ; preds = %.split
   %.val.i.i37 = load ptr, ptr %19, align 8
   %106 = getelementptr i8, ptr %.val.i.i37, i64 104
   %.val.val.i.i = load i32, ptr %106, align 8
   %107 = icmp sgt i32 %.val.val.i.i, 0
-  br i1 %107, label %thread_io_wait_events.exit.thread, label %thread_io_mn_schedulable.exit.i
+  br i1 %107, label %thread_io_wait_events.argprom.exit.thread, label %thread_io_mn_schedulable.argprom.exit.i
 
-thread_io_mn_schedulable.exit.i:                  ; preds = %105
+thread_io_mn_schedulable.argprom.exit.i:          ; preds = %105
   %108 = load i32, ptr %89, align 8
   %.not.i39 = icmp eq i32 %108, 0
-  br i1 %.not.i39, label %thread_io_wait_events.exit.thread, label %thread_io_wait_events.exit
+  br i1 %.not.i39, label %thread_io_wait_events.argprom.exit.thread, label %thread_io_wait_events.argprom.exit
 
-thread_io_wait_events.exit:                       ; preds = %thread_io_mn_schedulable.exit.i
+thread_io_wait_events.argprom.exit:               ; preds = %thread_io_mn_schedulable.argprom.exit.i
   %109 = load ptr, ptr %90, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 288
   %111 = call fastcc zeroext i1 @thread_sched_wait_events(ptr noundef nonnull %110, ptr noundef nonnull %.0.18.val, i32 noundef %2, i32 noundef %91, ptr noundef null)
-  br i1 %111, label %thread_io_wait_events.exit.thread, label %112
+  br i1 %111, label %thread_io_wait_events.argprom.exit.thread, label %112
 
-112:                                              ; preds = %thread_io_wait_events.exit
+112:                                              ; preds = %thread_io_wait_events.argprom.exit
   %.0..0..0..0.20 = load volatile ptr, ptr %6, align 8
   %113 = getelementptr i8, ptr %.0..0..0..0.20, i64 48
   %.val.i40 = load ptr, ptr %113, align 8
@@ -7231,19 +7231,19 @@ thread_io_wait_events.exit:                       ; preds = %thread_io_mn_schedu
 118:                                              ; preds = %112
   %119 = lshr i64 %116, 15
   %120 = and i64 %119, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
 121:                                              ; preds = %112
   %122 = getelementptr inbounds i8, ptr %115, i64 16
   %123 = load i64, ptr %122, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %121, %118
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i: ; preds = %121, %118
   %.0.i.i.i42 = phi i64 [ %120, %118 ], [ %123, %121 ]
   %.not.i43 = icmp eq i64 %.0.i.i.i42, 0
   br i1 %.not.i43, label %124, label %129
 
-124:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+124:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %125 = getelementptr i8, ptr %.0..0..0..0.20, i64 32
   %.val7.i = load i32, ptr %125, align 8
   %126 = getelementptr i8, ptr %.0..0..0..0.20, i64 36
@@ -7256,7 +7256,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %121, %118
 .split.backedge:                                  ; preds = %124, %135
   br label %.split
 
-129:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+129:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %130 = getelementptr inbounds i8, ptr %.val.i40, i64 240
   %131 = load i8, ptr %130, align 8
   %132 = and i8 %131, -65
@@ -7269,8 +7269,8 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %121, %118
   %136 = call i32 @rb_threadptr_execute_interrupts(ptr noundef nonnull %.val.i40, i32 noundef 1)
   br label %.split.backedge
 
-thread_io_wait_events.exit.thread:                ; preds = %thread_io_wait_events.exit, %.split, %thread_io_mn_schedulable.exit.i, %105, %.split.us, %.thread
-  %137 = phi i32 [ %72, %.thread ], [ 0, %.split.us ], [ 0, %105 ], [ 0, %thread_io_mn_schedulable.exit.i ], [ 0, %.split ], [ 0, %thread_io_wait_events.exit ]
+thread_io_wait_events.argprom.exit.thread:        ; preds = %thread_io_wait_events.argprom.exit, %.split, %thread_io_mn_schedulable.argprom.exit.i, %105, %.split.us, %.thread
+  %137 = phi i32 [ %72, %.thread ], [ 0, %.split.us ], [ 0, %105 ], [ 0, %thread_io_mn_schedulable.argprom.exit.i ], [ 0, %.split ], [ 0, %thread_io_wait_events.argprom.exit ]
   %138 = load ptr, ptr %50, align 8
   %.0..0..0..0.4 = load ptr, ptr %10, align 8
   %139 = getelementptr inbounds i8, ptr %.0..0..0..0.4, i64 24
@@ -7280,7 +7280,7 @@ thread_io_wait_events.exit.thread:                ; preds = %thread_io_wait_even
   %.0..0..0..0.22 = load volatile ptr, ptr %6, align 8
   br i1 %.not, label %146, label %140
 
-140:                                              ; preds = %thread_io_wait_events.exit.thread
+140:                                              ; preds = %thread_io_wait_events.argprom.exit.thread
   %141 = getelementptr inbounds i8, ptr %.0..0..0..0.22, i64 24
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 64
@@ -7290,7 +7290,7 @@ thread_io_wait_events.exit.thread:                ; preds = %thread_io_wait_even
   call void @llvm.eh.sjlj.longjmp(ptr nonnull %145)
   unreachable
 
-146:                                              ; preds = %thread_io_wait_events.exit.thread
+146:                                              ; preds = %thread_io_wait_events.argprom.exit.thread
   %147 = getelementptr i8, ptr %.0..0..0..0.22, i64 48
   %.val.i45 = load ptr, ptr %147, align 8
   %148 = getelementptr i8, ptr %.val.i45, i64 272
@@ -7304,19 +7304,19 @@ thread_io_wait_events.exit.thread:                ; preds = %thread_io_wait_even
 152:                                              ; preds = %146
   %153 = lshr i64 %150, 15
   %154 = and i64 %153, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i48
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i48
 
 155:                                              ; preds = %146
   %156 = getelementptr inbounds i8, ptr %149, i64 16
   %157 = load i64, ptr %156, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i48
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i48
 
-rb_threadptr_pending_interrupt_empty_p.exit.i48:  ; preds = %155, %152
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i48: ; preds = %155, %152
   %.0.i.i.i49 = phi i64 [ %154, %152 ], [ %157, %155 ]
   %.not.i50 = icmp eq i64 %.0.i.i.i49, 0
   br i1 %.not.i50, label %158, label %163
 
-158:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i48
+158:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i48
   %159 = getelementptr i8, ptr %.0..0..0..0.22, i64 32
   %.val7.i52 = load i32, ptr %159, align 8
   %160 = getelementptr i8, ptr %.0..0..0..0.22, i64 36
@@ -7326,7 +7326,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i48:  ; preds = %155, %152
   %.not9.i54 = icmp eq i32 %162, 0
   br i1 %.not9.i54, label %vm_check_ints_blocking.exit55, label %169
 
-163:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i48
+163:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i48
   %164 = getelementptr inbounds i8, ptr %.val.i45, i64 240
   %165 = load i8, ptr %164, align 8
   %166 = and i8 %165, -65
@@ -7378,13 +7378,13 @@ define internal fastcc void @thread_io_wake_pending_closer(ptr nocapture noundef
   %10 = tail call fastcc i64 @do_mutex_lock(i64 noundef %7, i32 noundef 1)
   %11 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i, label %12, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %12, label %rb_vm_lock_enter.argprom.exit
 
 12:                                               ; preds = %9
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #19
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %9, %12
+rb_vm_lock_enter.argprom.exit:                    ; preds = %9, %12
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %0, align 8
@@ -7394,13 +7394,13 @@ rb_vm_lock_enter.exit:                            ; preds = %9, %12
   store ptr %17, ptr %14, align 8
   %18 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i8 = icmp eq ptr %18, null
-  br i1 %.not.i.i8, label %19, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i8, label %19, label %rb_vm_lock_leave.argprom.exit
 
-19:                                               ; preds = %rb_vm_lock_enter.exit
+19:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #19
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter.exit, %19
+rb_vm_lock_leave.argprom.exit:                    ; preds = %rb_vm_lock_enter.argprom.exit, %19
   %20 = load ptr, ptr %3, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8
@@ -7409,12 +7409,12 @@ rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter.ex
   %.not.i = icmp eq i64 %24, 0
   br i1 %.not.i, label %25, label %rb_thread_wakeup.exit
 
-25:                                               ; preds = %rb_vm_lock_leave.exit
+25:                                               ; preds = %rb_vm_lock_leave.argprom.exit
   %26 = load i64, ptr @rb_eThreadError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %26, ptr noundef nonnull @.str.44) #36
   unreachable
 
-rb_thread_wakeup.exit:                            ; preds = %rb_vm_lock_leave.exit
+rb_thread_wakeup.exit:                            ; preds = %rb_vm_lock_leave.argprom.exit
   %27 = load ptr, ptr %3, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 24
   %29 = load i64, ptr %28, align 8
@@ -7437,13 +7437,13 @@ rb_thread_wakeup.exit:                            ; preds = %rb_vm_lock_leave.ex
 .critedge:                                        ; preds = %1, %5
   %39 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i10 = icmp eq ptr %39, null
-  br i1 %.not.i.i10, label %40, label %rb_vm_lock_enter.exit11
+  br i1 %.not.i.i10, label %40, label %rb_vm_lock_enter.argprom.exit11
 
 40:                                               ; preds = %.critedge
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #19
-  br label %rb_vm_lock_enter.exit11
+  br label %rb_vm_lock_enter.argprom.exit11
 
-rb_vm_lock_enter.exit11:                          ; preds = %.critedge, %40
+rb_vm_lock_enter.argprom.exit11:                  ; preds = %.critedge, %40
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %0, align 8
@@ -7455,11 +7455,11 @@ rb_vm_lock_enter.exit11:                          ; preds = %.critedge, %40
   %.not.i.i12 = icmp eq ptr %46, null
   br i1 %.not.i.i12, label %47, label %rb_mutex_unlock.exit
 
-47:                                               ; preds = %rb_vm_lock_enter.exit11
+47:                                               ; preds = %rb_vm_lock_enter.argprom.exit11
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #19
   br label %rb_mutex_unlock.exit
 
-rb_mutex_unlock.exit:                             ; preds = %47, %rb_vm_lock_enter.exit11, %rb_thread_wakeup.exit
+rb_mutex_unlock.exit:                             ; preds = %47, %rb_vm_lock_enter.argprom.exit11, %rb_thread_wakeup.exit
   ret void
 }
 
@@ -7606,16 +7606,16 @@ define hidden i32 @rb_threadptr_execute_interrupts(ptr noundef %0, i32 noundef %
   %28 = and i32 %27, %26
   %29 = cmpxchg volatile ptr %23, i32 %26, i32 %28 seq_cst seq_cst, align 4
   %.not.i = extractvalue { i32, i1 } %29, 1
-  br i1 %.not.i, label %threadptr_get_interrupts.exit, label %25, !llvm.loop !17
+  br i1 %.not.i, label %threadptr_get_interrupts.argprom.exit, label %25, !llvm.loop !17
 
-threadptr_get_interrupts.exit:                    ; preds = %25
+threadptr_get_interrupts.argprom.exit:            ; preds = %25
   %30 = load i32, ptr %24, align 4
   %31 = xor i32 %30, -1
   %32 = and i32 %26, %31
   %.not67 = icmp eq i32 %32, 0
   br i1 %.not67, label %.loopexit, label %33
 
-33:                                               ; preds = %threadptr_get_interrupts.exit
+33:                                               ; preds = %threadptr_get_interrupts.argprom.exit
   %34 = and i32 %32, 1
   %35 = and i32 %32, 2
   %36 = and i32 %32, 4
@@ -7626,28 +7626,28 @@ threadptr_get_interrupts.exit:                    ; preds = %25
   %40 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %40, null
   %or.cond = select i1 %.not68, i1 %.not.i.i, i1 false
-  br i1 %or.cond, label %rb_vm_lock_enter.exit, label %rb_vm_lock_leave.exit
+  br i1 %or.cond, label %rb_vm_lock_enter.argprom.exit, label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %33
+rb_vm_lock_enter.argprom.exit:                    ; preds = %33
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #19
   %.pr = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i79 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i79, label %41, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i79, label %41, label %rb_vm_lock_leave.argprom.exit
 
-41:                                               ; preds = %rb_vm_lock_enter.exit
+41:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #19
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %41, %rb_vm_lock_enter.exit, %33
+rb_vm_lock_leave.argprom.exit:                    ; preds = %41, %rb_vm_lock_enter.argprom.exit, %33
   %.not69 = icmp eq i32 %36, 0
   br i1 %.not69, label %44, label %42
 
-42:                                               ; preds = %rb_vm_lock_leave.exit
+42:                                               ; preds = %rb_vm_lock_leave.argprom.exit
   %43 = load ptr, ptr %9, align 8
   call void @rb_postponed_job_flush(ptr noundef %43) #19
   br label %44
 
-44:                                               ; preds = %42, %rb_vm_lock_leave.exit
+44:                                               ; preds = %42, %rb_vm_lock_leave.argprom.exit
   %.not70 = icmp eq i32 %37, 0
   br i1 %.not70, label %62, label %45
 
@@ -7718,10 +7718,10 @@ threadptr_pending_interrupt_active_p.exit:        ; preds = %70, %73
   %.not3.i.not = icmp eq i64 %.0.i.i.i, 0
   br i1 %.not3.i.not, label %threadptr_pending_interrupt_active_p.exit.thread, label %.preheader126
 
-.preheader126:                                    ; preds = %threadptr_pending_interrupt_active_p.exit, %rb_threadptr_pending_interrupt_check_mask.exit.i
-  %76 = phi i64 [ %.pre152, %rb_threadptr_pending_interrupt_check_mask.exit.i ], [ %68, %threadptr_pending_interrupt_active_p.exit ]
-  %77 = phi i64 [ %.pre, %rb_threadptr_pending_interrupt_check_mask.exit.i ], [ %.val.i, %threadptr_pending_interrupt_active_p.exit ]
-  %.013.i = phi i32 [ %191, %rb_threadptr_pending_interrupt_check_mask.exit.i ], [ 0, %threadptr_pending_interrupt_active_p.exit ]
+.preheader126:                                    ; preds = %threadptr_pending_interrupt_active_p.exit, %rb_threadptr_pending_interrupt_check_mask.argprom.exit.i
+  %76 = phi i64 [ %.pre152, %rb_threadptr_pending_interrupt_check_mask.argprom.exit.i ], [ %68, %threadptr_pending_interrupt_active_p.exit ]
+  %77 = phi i64 [ %.pre, %rb_threadptr_pending_interrupt_check_mask.argprom.exit.i ], [ %.val.i, %threadptr_pending_interrupt_active_p.exit ]
+  %.013.i = phi i32 [ %191, %rb_threadptr_pending_interrupt_check_mask.argprom.exit.i ], [ 0, %threadptr_pending_interrupt_active_p.exit ]
   %78 = sext i32 %.013.i to i64
   %79 = inttoptr i64 %77 to ptr
   %80 = and i64 %76, 8192
@@ -7901,7 +7901,7 @@ RB_SYMBOL_P.exit.thread.i.i:                      ; preds = %149, %.lr.ph9.split
 160:                                              ; preds = %157
   %161 = load i64, ptr @sym_never, align 8
   %162 = icmp eq i64 %.us-phi.i.i, %161
-  br i1 %162, label %rb_threadptr_pending_interrupt_check_mask.exit.i, label %163
+  br i1 %162, label %rb_threadptr_pending_interrupt_check_mask.argprom.exit.i, label %163
 
 163:                                              ; preds = %160
   %164 = load i64, ptr @rb_eThreadError, align 8
@@ -7946,7 +7946,7 @@ RB_SYMBOL_P.exit.preheader.i.i:                   ; preds = %RB_SYMBOL_P.exit.pr
 183:                                              ; preds = %180
   %184 = load i64, ptr @sym_never, align 8
   %185 = icmp eq i64 %176, %184
-  br i1 %185, label %rb_threadptr_pending_interrupt_check_mask.exit.i, label %186
+  br i1 %185, label %rb_threadptr_pending_interrupt_check_mask.argprom.exit.i, label %186
 
 186:                                              ; preds = %183
   %187 = load i64, ptr @rb_eThreadError, align 8
@@ -7964,9 +7964,9 @@ RB_SYMBOL_P.exit..loopexit_crit_edge.i.i:         ; preds = %RB_SYMBOL_P.exit.i.
   br i1 %exitcond.not.i.i, label %rb_threadptr_pending_interrupt_deque.exit, label %.lr.ph9.split.i.i, !llvm.loop !30
 
 190:                                              ; preds = %180, %157
-  br i1 %.not74, label %rb_threadptr_pending_interrupt_check_mask.exit.i, label %rb_threadptr_pending_interrupt_deque.exit
+  br i1 %.not74, label %rb_threadptr_pending_interrupt_check_mask.argprom.exit.i, label %rb_threadptr_pending_interrupt_deque.exit
 
-rb_threadptr_pending_interrupt_check_mask.exit.i: ; preds = %190, %183, %160
+rb_threadptr_pending_interrupt_check_mask.argprom.exit.i: ; preds = %190, %183, %160
   %191 = add i32 %.013.i, 1
   %.pre = load i64, ptr %11, align 8
   %.phi.trans.insert = inttoptr i64 %.pre to ptr
@@ -8041,15 +8041,15 @@ threadptr_pending_interrupt_active_p.exit.thread: ; preds = %rb_threadptr_pendin
   %217 = load i8, ptr %10, align 8
   %218 = and i8 %217, 3
   %219 = icmp eq i8 %218, 0
-  br i1 %219, label %220, label %rb_ec_ractor_hooks.exit
+  br i1 %219, label %220, label %rb_ec_ractor_hooks.argprom.exit
 
 220:                                              ; preds = %210
   %221 = load i32, ptr %14, align 4
   %222 = add i32 %221, 10000
   store i32 %222, ptr %14, align 4
-  br label %rb_ec_ractor_hooks.exit
+  br label %rb_ec_ractor_hooks.argprom.exit
 
-rb_ec_ractor_hooks.exit:                          ; preds = %210, %220
+rb_ec_ractor_hooks.argprom.exit:                  ; preds = %210, %220
   %223 = load ptr, ptr %5, align 8
   %224 = getelementptr i8, ptr %223, i64 48
   %.val78 = load ptr, ptr %224, align 8, !nonnull !33, !noundef !33
@@ -8061,7 +8061,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %210, %220
   %.not77 = icmp eq i32 %229, 0
   br i1 %.not77, label %236, label %230
 
-230:                                              ; preds = %rb_ec_ractor_hooks.exit
+230:                                              ; preds = %rb_ec_ractor_hooks.argprom.exit
   %231 = getelementptr inbounds i8, ptr %226, i64 16
   %232 = getelementptr inbounds i8, ptr %223, i64 16
   %233 = load ptr, ptr %232, align 8
@@ -8080,7 +8080,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %210, %220
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
   br label %236
 
-236:                                              ; preds = %rb_ec_ractor_hooks.exit, %230
+236:                                              ; preds = %rb_ec_ractor_hooks.argprom.exit, %230
   call fastcc void @rb_thread_schedule_limits(i32 noundef %.056)
   br label %237
 
@@ -8088,8 +8088,8 @@ rb_ec_ractor_hooks.exit:                          ; preds = %210, %220
   %.val.pre = load ptr, ptr %5, align 8
   br label %22, !llvm.loop !34
 
-.loopexit:                                        ; preds = %threadptr_get_interrupts.exit, %2
-  %.0 = phi i32 [ 0, %2 ], [ %.058, %threadptr_get_interrupts.exit ]
+.loopexit:                                        ; preds = %threadptr_get_interrupts.argprom.exit, %2
+  %.0 = phi i32 [ 0, %2 ], [ %.058, %threadptr_get_interrupts.argprom.exit ]
   ret i32 %.0
 }
 
@@ -8148,12 +8148,12 @@ define hidden void @rb_threadptr_signal_raise(ptr nocapture noundef readonly %0,
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
-  call fastcc void @rb_threadptr_raise(ptr noundef %12, i32 noundef 2, ptr noundef nonnull %3)
+  call fastcc void @rb_threadptr_raise.retelim(ptr noundef %12, i32 noundef 2, ptr noundef nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rb_threadptr_raise(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @rb_threadptr_raise.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 240
   %.val = load i8, ptr %4, align 8
   %5 = and i8 %.val, 3
@@ -8240,7 +8240,7 @@ define hidden void @rb_threadptr_signal_exit(ptr nocapture noundef readonly %0) 
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
-  call fastcc void @rb_threadptr_raise(ptr noundef %9, i32 noundef 2, ptr noundef nonnull %2)
+  call fastcc void @rb_threadptr_raise.retelim(ptr noundef %9, i32 noundef 2, ptr noundef nonnull %2)
   ret void
 }
 
@@ -8296,20 +8296,20 @@ define hidden range(i32 0, 2) i32 @rb_notify_fd_close(i32 noundef %0, ptr nounde
   store ptr %1, ptr %1, align 8
   %12 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i, label %13, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %13, label %rb_vm_lock_enter.argprom.exit
 
 13:                                               ; preds = %2
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #19
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %2, %13
+rb_vm_lock_enter.argprom.exit:                    ; preds = %2, %13
   %14 = getelementptr inbounds i8, ptr %10, i64 488
   %15 = load ptr, ptr %14, align 8
   %.not31 = icmp eq ptr %15, %14
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %rb_vm_lock_enter.exit, %rb_threadptr_interrupt.exit
-  %.032 = phi ptr [ %.02433, %rb_threadptr_interrupt.exit ], [ %15, %rb_vm_lock_enter.exit ]
+.lr.ph:                                           ; preds = %rb_vm_lock_enter.argprom.exit, %rb_threadptr_interrupt.exit
+  %.032 = phi ptr [ %.02433, %rb_threadptr_interrupt.exit ], [ %15, %rb_vm_lock_enter.argprom.exit ]
   %.02433 = load ptr, ptr %.032, align 8
   %16 = getelementptr inbounds i8, ptr %.032, i64 24
   %17 = load i32, ptr %16, align 8
@@ -8383,7 +8383,7 @@ rb_threadptr_interrupt.exit:                      ; preds = %52, %.lr.ph
   %.not = icmp eq ptr %.02433, %14
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %rb_threadptr_interrupt.exit, %rb_vm_lock_enter.exit
+._crit_edge:                                      ; preds = %rb_threadptr_interrupt.exit, %rb_vm_lock_enter.argprom.exit
   %55 = load ptr, ptr %1, align 8
   %56 = icmp ne ptr %55, %1
   %57 = load ptr, ptr %6, align 8
@@ -8428,13 +8428,13 @@ rb_mutex_new.exit:                                ; preds = %62, %70
   store i64 %77, ptr %78, align 8
   %79 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i27 = icmp eq ptr %79, null
-  br i1 %.not.i.i27, label %80, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i27, label %80, label %rb_vm_lock_leave.argprom.exit
 
 80:                                               ; preds = %76
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #19
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %76, %80
+rb_vm_lock_leave.argprom.exit:                    ; preds = %76, %80
   %81 = zext i1 %56 to i32
   store ptr %3, ptr %5, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #19, !srcloc !36
@@ -9263,19 +9263,19 @@ define dso_local i32 @rb_thread_fd_select(i32 noundef %0, ptr noundef %1, ptr no
 18:                                               ; preds = %5
   %19 = lshr i64 %16, 15
   %20 = and i64 %19, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
 21:                                               ; preds = %5
   %22 = getelementptr inbounds i8, ptr %15, i64 16
   %23 = load i64, ptr %22, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %21, %18
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i: ; preds = %21, %18
   %.0.i.i.i = phi i64 [ %20, %18 ], [ %23, %21 ]
   %.not.i = icmp eq i64 %.0.i.i.i, 0
   br i1 %.not.i, label %24, label %29
 
-24:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+24:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %25 = getelementptr i8, ptr %12, i64 32
   %.val7.i = load i32, ptr %25, align 8
   %26 = getelementptr i8, ptr %12, i64 36
@@ -9285,7 +9285,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %21, %18
   %.not9.i = icmp eq i32 %28, 0
   br i1 %.not9.i, label %vm_check_ints_blocking.exit, label %35
 
-29:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+29:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %30 = getelementptr inbounds i8, ptr %.val.i27, i64 240
   %31 = load i8, ptr %30, align 8
   %32 = and i8 %31, -65
@@ -9704,19 +9704,19 @@ rb_hrtime2timeval.exit:                           ; preds = %50, %55
 76:                                               ; preds = %67
   %77 = lshr i64 %74, 15
   %78 = and i64 %77, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
 79:                                               ; preds = %67
   %80 = getelementptr inbounds i8, ptr %73, i64 16
   %81 = load i64, ptr %80, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %79, %76
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i: ; preds = %79, %76
   %.0.i.i.i33 = phi i64 [ %78, %76 ], [ %81, %79 ]
   %.not.i34 = icmp eq i64 %.0.i.i.i33, 0
   br i1 %.not.i34, label %82, label %87
 
-82:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+82:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %83 = getelementptr i8, ptr %70, i64 32
   %.val7.i = load i32, ptr %83, align 8
   %84 = getelementptr i8, ptr %70, i64 36
@@ -9726,7 +9726,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %79, %76
   %.not9.i = icmp eq i32 %86, 0
   br i1 %.not9.i, label %vm_check_ints_blocking.exit, label %93
 
-87:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+87:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %88 = getelementptr inbounds i8, ptr %.val.i32, i64 240
   %89 = load i8, ptr %88, align 8
   %90 = and i8 %89, -65
@@ -9882,9 +9882,9 @@ define hidden range(i32 -1, 8) i32 @rb_thread_wait_for_single_fd(i32 noundef %0,
   store ptr null, ptr %23, align 8
   %24 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i, label %rb_vm_lock_enter.exit.i, label %rb_vm_lock_enter.exit.i.thread
+  br i1 %.not.i.i.i, label %rb_vm_lock_enter.argprom.exit.i, label %rb_vm_lock_enter.argprom.exit.i.thread
 
-rb_vm_lock_enter.exit.i.thread:                   ; preds = %3
+rb_vm_lock_enter.argprom.exit.i.thread:           ; preds = %3
   %25 = getelementptr inbounds i8, ptr %.val, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 488
@@ -9897,7 +9897,7 @@ rb_vm_lock_enter.exit.i.thread:                   ; preds = %3
   store ptr %8, ptr %27, align 8
   br label %thread_io_setup_wfd.exit
 
-rb_vm_lock_enter.exit.i:                          ; preds = %3
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %3
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #19
   %.pre = load ptr, ptr @ruby_single_main_ractor, align 8
   %31 = icmp eq ptr %.pre, null
@@ -9913,14 +9913,14 @@ rb_vm_lock_enter.exit.i:                          ; preds = %3
   store ptr %8, ptr %34, align 8
   br i1 %31, label %38, label %thread_io_setup_wfd.exit
 
-38:                                               ; preds = %rb_vm_lock_enter.exit.i
+38:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #19
   br label %thread_io_setup_wfd.exit
 
-thread_io_setup_wfd.exit:                         ; preds = %rb_vm_lock_enter.exit.i.thread, %rb_vm_lock_enter.exit.i, %38
+thread_io_setup_wfd.exit:                         ; preds = %rb_vm_lock_enter.argprom.exit.i.thread, %rb_vm_lock_enter.argprom.exit.i, %38
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %39 = icmp eq ptr %2, null
-  br i1 %39, label %40, label %thread_io_wait_events.exit.thread
+  br i1 %39, label %40, label %thread_io_wait_events.argprom.exit.thread
 
 40:                                               ; preds = %thread_io_setup_wfd.exit
   %41 = getelementptr i8, ptr %.val, i64 40
@@ -9930,30 +9930,30 @@ thread_io_setup_wfd.exit:                         ; preds = %rb_vm_lock_enter.ex
   %43 = icmp sgt i32 %.val.val.i.i, 0
   %.not.i.i = icmp eq i32 %1, 0
   %or.cond.i.i = or i1 %.not.i.i, %43
-  br i1 %or.cond.i.i, label %thread_io_wait_events.exit.thread, label %thread_io_mn_schedulable.exit.i
+  br i1 %or.cond.i.i, label %thread_io_wait_events.argprom.exit.thread, label %thread_io_mn_schedulable.argprom.exit.i
 
-thread_io_mn_schedulable.exit.i:                  ; preds = %40
+thread_io_mn_schedulable.argprom.exit.i:          ; preds = %40
   %44 = getelementptr inbounds i8, ptr %.val, i64 424
   %45 = load i32, ptr %44, align 8
   %.not.i = icmp eq i32 %45, 0
-  br i1 %.not.i, label %thread_io_wait_events.exit.thread, label %thread_io_wait_events.exit
+  br i1 %.not.i, label %thread_io_wait_events.argprom.exit.thread, label %thread_io_wait_events.argprom.exit
 
-thread_io_wait_events.exit:                       ; preds = %thread_io_mn_schedulable.exit.i
+thread_io_wait_events.argprom.exit:               ; preds = %thread_io_mn_schedulable.argprom.exit.i
   %46 = getelementptr inbounds i8, ptr %.val, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 288
   %49 = shl i32 %1, 1
   %50 = call fastcc zeroext i1 @thread_sched_wait_events(ptr noundef nonnull %48, ptr noundef nonnull %.val, i32 noundef %0, i32 noundef %49, ptr noundef null)
-  br i1 %50, label %thread_io_wait_events.exit.thread, label %.thread
+  br i1 %50, label %thread_io_wait_events.argprom.exit.thread, label %.thread
 
-.thread:                                          ; preds = %thread_io_wait_events.exit
+.thread:                                          ; preds = %thread_io_wait_events.argprom.exit
   store i16 %16, ptr %17, align 2
   %51 = call ptr @rb_errno_ptr() #19
   store i32 0, ptr %51, align 4
   call fastcc void @thread_io_wake_pending_closer(ptr noundef %8)
   br label %212
 
-thread_io_wait_events.exit.thread:                ; preds = %40, %thread_io_mn_schedulable.exit.i, %thread_io_setup_wfd.exit, %thread_io_wait_events.exit
+thread_io_wait_events.argprom.exit.thread:        ; preds = %40, %thread_io_mn_schedulable.argprom.exit.i, %thread_io_setup_wfd.exit, %thread_io_wait_events.argprom.exit
   %52 = load ptr, ptr %22, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 48
   %54 = load ptr, ptr %53, align 8
@@ -9968,31 +9968,31 @@ thread_io_wait_events.exit.thread:                ; preds = %40, %thread_io_mn_s
   %59 = getelementptr i8, ptr %54, i64 48
   %.0.1.val = load ptr, ptr %59, align 8
   %.not.i.i31 = icmp eq ptr %.0.1.val, null
-  br i1 %.not.i.i31, label %rb_ec_ractor_ptr.exit.i, label %60
+  br i1 %.not.i.i31, label %rb_ec_ractor_ptr.argprom.exit.i, label %60
 
-60:                                               ; preds = %thread_io_wait_events.exit.thread
+60:                                               ; preds = %thread_io_wait_events.argprom.exit.thread
   %61 = getelementptr inbounds i8, ptr %.0.1.val, i64 32
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 88
   %64 = getelementptr inbounds i8, ptr %.0.1.val, i64 24
   %65 = load ptr, ptr %64, align 8
-  br label %rb_ec_ractor_ptr.exit.i
+  br label %rb_ec_ractor_ptr.argprom.exit.i
 
-rb_ec_ractor_ptr.exit.i:                          ; preds = %60, %thread_io_wait_events.exit.thread
-  %.in.i = phi ptr [ %63, %60 ], [ inttoptr (i64 88 to ptr), %thread_io_wait_events.exit.thread ]
-  %.0.i2.i = phi ptr [ %62, %60 ], [ null, %thread_io_wait_events.exit.thread ]
-  %.0.i6.i = phi ptr [ %65, %60 ], [ null, %thread_io_wait_events.exit.thread ]
+rb_ec_ractor_ptr.argprom.exit.i:                  ; preds = %60, %thread_io_wait_events.argprom.exit.thread
+  %.in.i = phi ptr [ %63, %60 ], [ inttoptr (i64 88 to ptr), %thread_io_wait_events.argprom.exit.thread ]
+  %.0.i2.i = phi ptr [ %62, %60 ], [ null, %thread_io_wait_events.argprom.exit.thread ]
+  %.0.i6.i = phi ptr [ %65, %60 ], [ null, %thread_io_wait_events.argprom.exit.thread ]
   %66 = load ptr, ptr %.in.i, align 8
   %.not.i32 = icmp eq ptr %66, %.0.i6.i
-  br i1 %.not.i32, label %67, label %rb_ec_vm_lock_rec.exit
+  br i1 %.not.i32, label %67, label %rb_ec_vm_lock_rec.argprom.exit
 
-67:                                               ; preds = %rb_ec_ractor_ptr.exit.i
+67:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i
   %68 = getelementptr inbounds i8, ptr %.0.i2.i, i64 96
   %69 = load i32, ptr %68, align 8
-  br label %rb_ec_vm_lock_rec.exit
+  br label %rb_ec_vm_lock_rec.argprom.exit
 
-rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %67
-  %.0.i = phi i32 [ %69, %67 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
+rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.argprom.exit.i, %67
+  %.0.i = phi i32 [ %69, %67 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i ]
   %70 = getelementptr inbounds i8, ptr %11, i64 68
   store i32 %.0.i, ptr %70, align 4
   %71 = getelementptr inbounds i8, ptr %11, i64 16
@@ -10005,7 +10005,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %.not = icmp eq i32 %75, 0
   br i1 %.not, label %97, label %76
 
-76:                                               ; preds = %rb_ec_vm_lock_rec.exit
+76:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit
   %.0..0..0..0.2 = load volatile ptr, ptr %10, align 8
   %77 = getelementptr inbounds i8, ptr %.0..0..0..0.2, i64 24
   %78 = load ptr, ptr %77, align 8
@@ -10017,7 +10017,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %83 = getelementptr i8, ptr %.0..0..0..0.2, i64 48
   %.val.i.i33 = load ptr, ptr %83, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.i.i33, null
-  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.exit.i.i.i, label %84
+  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.argprom.exit.i.i.i, label %84
 
 84:                                               ; preds = %76
   %85 = getelementptr inbounds i8, ptr %.val.i.i33, i64 32
@@ -10025,36 +10025,36 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %87 = getelementptr inbounds i8, ptr %86, i64 88
   %88 = getelementptr inbounds i8, ptr %.val.i.i33, i64 24
   %89 = load ptr, ptr %88, align 8
-  br label %rb_ec_ractor_ptr.exit.i.i.i
+  br label %rb_ec_ractor_ptr.argprom.exit.i.i.i
 
-rb_ec_ractor_ptr.exit.i.i.i:                      ; preds = %84, %76
+rb_ec_ractor_ptr.argprom.exit.i.i.i:              ; preds = %84, %76
   %.in.i.i.i = phi ptr [ %87, %84 ], [ inttoptr (i64 88 to ptr), %76 ]
   %.0.i2.i.i.i = phi ptr [ %86, %84 ], [ null, %76 ]
   %.0.i6.i.i.i = phi ptr [ %89, %84 ], [ null, %76 ]
   %90 = load ptr, ptr %.in.i.i.i, align 8
   %.not.i.i.i34 = icmp eq ptr %90, %.0.i6.i.i.i
-  br i1 %.not.i.i.i34, label %91, label %rb_ec_vm_lock_rec.exit.i.i
+  br i1 %.not.i.i.i34, label %91, label %rb_ec_vm_lock_rec.argprom.exit.i.i
 
-91:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i.i
+91:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i.i.i
   %92 = getelementptr inbounds i8, ptr %.0.i2.i.i.i, i64 96
   %93 = load i32, ptr %92, align 8
-  br label %rb_ec_vm_lock_rec.exit.i.i
+  br label %rb_ec_vm_lock_rec.argprom.exit.i.i
 
-rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %91, %rb_ec_ractor_ptr.exit.i.i.i
-  %.0.i.i.i = phi i32 [ %93, %91 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i ]
+rb_ec_vm_lock_rec.argprom.exit.i.i:               ; preds = %91, %rb_ec_ractor_ptr.argprom.exit.i.i.i
+  %.0.i.i.i = phi i32 [ %93, %91 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i.i.i ]
   %.not.i.i35 = icmp eq i32 %.0.i.i.i, %82
   br i1 %.not.i.i35, label %95, label %94
 
-94:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i
+94:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit.i.i
   call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.2, i32 noundef %82, i32 noundef %.0.i.i.i) #19
   br label %95
 
-95:                                               ; preds = %94, %rb_ec_vm_lock_rec.exit.i.i
+95:                                               ; preds = %94, %rb_ec_vm_lock_rec.argprom.exit.i.i
   %96 = icmp ne i32 %80, 0
   call void @llvm.assume(i1 %96)
   br label %.loopexit
 
-97:                                               ; preds = %rb_ec_vm_lock_rec.exit
+97:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit
   store ptr %11, ptr %56, align 8
   %98 = load ptr, ptr %22, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 48
@@ -10072,19 +10072,19 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %91, %rb_ec_ractor_p
 106:                                              ; preds = %97
   %107 = lshr i64 %104, 15
   %108 = and i64 %107, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
 109:                                              ; preds = %97
   %110 = getelementptr inbounds i8, ptr %103, i64 16
   %111 = load i64, ptr %110, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %109, %106
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i: ; preds = %109, %106
   %.0.i.i.i37 = phi i64 [ %108, %106 ], [ %111, %109 ]
   %.not.i38 = icmp eq i64 %.0.i.i.i37, 0
   br i1 %.not.i38, label %112, label %117
 
-112:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+112:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %113 = getelementptr i8, ptr %100, i64 32
   %.val7.i = load i32, ptr %113, align 8
   %114 = getelementptr i8, ptr %100, i64 36
@@ -10094,7 +10094,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %109, %106
   %.not9.i = icmp eq i32 %116, 0
   br i1 %.not9.i, label %vm_check_ints_blocking.exit, label %123
 
-117:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+117:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %118 = getelementptr inbounds i8, ptr %.val.i, i64 240
   %119 = load i8, ptr %118, align 8
   %120 = and i8 %119, -65
@@ -10220,19 +10220,19 @@ rb_hrtime2timespec.exit:                          ; preds = %155, %156
 176:                                              ; preds = %167
   %177 = lshr i64 %174, 15
   %178 = and i64 %177, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i51
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i51
 
 179:                                              ; preds = %167
   %180 = getelementptr inbounds i8, ptr %173, i64 16
   %181 = load i64, ptr %180, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i51
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i51
 
-rb_threadptr_pending_interrupt_empty_p.exit.i51:  ; preds = %179, %176
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i51: ; preds = %179, %176
   %.0.i.i.i52 = phi i64 [ %178, %176 ], [ %181, %179 ]
   %.not.i53 = icmp eq i64 %.0.i.i.i52, 0
   br i1 %.not.i53, label %182, label %187
 
-182:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i51
+182:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i51
   %183 = getelementptr i8, ptr %170, i64 32
   %.val7.i55 = load i32, ptr %183, align 8
   %184 = getelementptr i8, ptr %170, i64 36
@@ -10242,7 +10242,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i51:  ; preds = %179, %176
   %.not9.i57 = icmp eq i32 %186, 0
   br i1 %.not9.i57, label %vm_check_ints_blocking.exit58, label %193
 
-187:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i51
+187:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i51
   %188 = getelementptr inbounds i8, ptr %.val.i48, i64 240
   %189 = load i8, ptr %188, align 8
   %190 = and i8 %189, -65
@@ -10542,7 +10542,7 @@ define internal fastcc void @rb_thread_create_timer_thread() unnamed_addr #0 {
   store i32 -1, ptr getelementptr inbounds (i8, ptr @timer_th, i64 16), align 8
   %9 = tail call i32 @close(i32 noundef %5) #19
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %close_invalidate_pair.exit
+  br i1 %10, label %11, label %close_invalidate_pair.argprom.exit
 
 11:                                               ; preds = %8
   %12 = tail call ptr @rb_errno_ptr() #19
@@ -10566,7 +10566,7 @@ close_invalidate.exit9.i:                         ; preds = %14
   store i32 -1, ptr getelementptr inbounds (i8, ptr @timer_th, i64 16), align 8
   %21 = tail call i32 @close(i32 noundef %20) #19
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %23, label %close_invalidate_pair.exit
+  br i1 %22, label %23, label %close_invalidate_pair.argprom.exit
 
 23:                                               ; preds = %close_invalidate.exit9.i
   %24 = tail call ptr @rb_errno_ptr() #19
@@ -10574,20 +10574,20 @@ close_invalidate.exit9.i:                         ; preds = %14
   tail call fastcc void @async_bug_fd(ptr noundef nonnull @.str.199, i32 noundef %25, i32 noundef %20) #43
   unreachable
 
-close_invalidate_pair.exit:                       ; preds = %8, %close_invalidate.exit9.i
+close_invalidate_pair.argprom.exit:               ; preds = %8, %close_invalidate.exit9.i
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 24), align 8
   store i32 -1, ptr getelementptr inbounds (i8, ptr @timer_th, i64 24), align 8
   %27 = tail call i32 @close(i32 noundef %26) #19
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %close_invalidate.exit
 
-29:                                               ; preds = %close_invalidate_pair.exit
+29:                                               ; preds = %close_invalidate_pair.argprom.exit
   %30 = tail call ptr @rb_errno_ptr() #19
   %31 = load i32, ptr %30, align 4
   tail call fastcc void @async_bug_fd(ptr noundef nonnull @.str.200, i32 noundef %31, i32 noundef %26) #43
   unreachable
 
-close_invalidate.exit:                            ; preds = %close_invalidate_pair.exit
+close_invalidate.exit:                            ; preds = %close_invalidate_pair.argprom.exit
   %32 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %rb_native_mutex_destroy.exit, label %33
@@ -10613,7 +10613,7 @@ rb_native_mutex_initialize.exit:                  ; preds = %rb_native_mutex_des
   %38 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 20), align 4
   %39 = icmp sgt i32 %38, 0
   %or.cond.i = select i1 %37, i1 true, i1 %39
-  br i1 %or.cond.i, label %setup_communication_pipe_internal.exit, label %40
+  br i1 %or.cond.i, label %setup_communication_pipe_internal.argprom.exit, label %40
 
 40:                                               ; preds = %rb_native_mutex_initialize.exit
   %41 = tail call i32 @eventfd(i32 noundef 0, i32 noundef 526336) #19
@@ -10624,7 +10624,7 @@ rb_native_mutex_initialize.exit:                  ; preds = %rb_native_mutex_des
 
 43:                                               ; preds = %40
   tail call void @rb_update_max_fd(i32 noundef %41) #19
-  br label %setup_communication_pipe_internal.exit
+  br label %setup_communication_pipe_internal.argprom.exit
 
 44:                                               ; preds = %40
   %45 = tail call i32 @rb_cloexec_pipe(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 16)) #19
@@ -10679,7 +10679,7 @@ set_nonblock.exit.i:                              ; preds = %56
   %70 = or i32 %64, 2048
   %71 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %63, i32 noundef 4, i32 noundef %70) #19
   %72 = icmp eq i32 %71, -1
-  br i1 %72, label %73, label %setup_communication_pipe_internal.exit
+  br i1 %72, label %73, label %setup_communication_pipe_internal.argprom.exit
 
 73:                                               ; preds = %69
   %74 = tail call ptr @rb_errno_ptr() #19
@@ -10687,19 +10687,19 @@ set_nonblock.exit.i:                              ; preds = %56
   tail call void @rb_syserr_fail(i32 noundef %75, ptr noundef null) #36
   unreachable
 
-setup_communication_pipe_internal.exit:           ; preds = %rb_native_mutex_initialize.exit, %43, %69
+setup_communication_pipe_internal.argprom.exit:   ; preds = %rb_native_mutex_initialize.exit, %43, %69
   %76 = tail call i32 @epoll_create1(i32 noundef 524288) #19
   store i32 %76, ptr getelementptr inbounds (i8, ptr @timer_th, i64 24), align 8
   %77 = icmp eq i32 %76, -1
   br i1 %77, label %78, label %timer_thread_setup_mn.exit
 
-78:                                               ; preds = %setup_communication_pipe_internal.exit
+78:                                               ; preds = %setup_communication_pipe_internal.argprom.exit
   %79 = tail call ptr @rb_errno_ptr() #19
   %80 = load i32, ptr %79, align 4
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.202, i32 noundef %80) #45
   unreachable
 
-timer_thread_setup_mn.exit:                       ; preds = %setup_communication_pipe_internal.exit
+timer_thread_setup_mn.exit:                       ; preds = %setup_communication_pipe_internal.argprom.exit
   %81 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 16), align 8
   %82 = tail call fastcc zeroext i1 @timer_thread_register_waiting(ptr noundef null, i32 noundef %81, i32 noundef 66, ptr noundef null)
   br label %83
@@ -11004,7 +11004,7 @@ rb_native_cond_initialize.exit26.i:               ; preds = %rb_native_cond_init
   br label %53
 
 52:                                               ; preds = %rb_native_cond_initialize.exit26.i
-  tail call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %13, ptr noundef nonnull %24, ptr noundef nonnull %.val.i.i, ptr noundef null, ptr noundef null)
+  tail call fastcc void @thread_sched_setup_running_threads.argprom(ptr noundef nonnull %13, ptr noundef nonnull %24, ptr noundef nonnull %.val.i.i, ptr noundef null, ptr noundef null)
   br label %53
 
 53:                                               ; preds = %52, %51
@@ -11680,7 +11680,7 @@ RHASH_EMPTY_P.exit.i:                             ; preds = %106, %103
   %136 = getelementptr i8, ptr %131, i64 48
   %.0.2.val = load ptr, ptr %136, align 8
   %.not.i.i = icmp eq ptr %.0.2.val, null
-  br i1 %.not.i.i, label %rb_ec_ractor_ptr.exit.i, label %137
+  br i1 %.not.i.i, label %rb_ec_ractor_ptr.argprom.exit.i, label %137
 
 137:                                              ; preds = %130
   %138 = getelementptr inbounds i8, ptr %.0.2.val, i64 32
@@ -11688,23 +11688,23 @@ RHASH_EMPTY_P.exit.i:                             ; preds = %106, %103
   %140 = getelementptr inbounds i8, ptr %139, i64 88
   %141 = getelementptr inbounds i8, ptr %.0.2.val, i64 24
   %142 = load ptr, ptr %141, align 8
-  br label %rb_ec_ractor_ptr.exit.i
+  br label %rb_ec_ractor_ptr.argprom.exit.i
 
-rb_ec_ractor_ptr.exit.i:                          ; preds = %137, %130
+rb_ec_ractor_ptr.argprom.exit.i:                  ; preds = %137, %130
   %.in.i = phi ptr [ %140, %137 ], [ inttoptr (i64 88 to ptr), %130 ]
   %.0.i2.i = phi ptr [ %139, %137 ], [ null, %130 ]
   %.0.i6.i = phi ptr [ %142, %137 ], [ null, %130 ]
   %143 = load ptr, ptr %.in.i, align 8
   %.not.i49 = icmp eq ptr %143, %.0.i6.i
-  br i1 %.not.i49, label %144, label %rb_ec_vm_lock_rec.exit
+  br i1 %.not.i49, label %144, label %rb_ec_vm_lock_rec.argprom.exit
 
-144:                                              ; preds = %rb_ec_ractor_ptr.exit.i
+144:                                              ; preds = %rb_ec_ractor_ptr.argprom.exit.i
   %145 = getelementptr inbounds i8, ptr %.0.i2.i, i64 96
   %146 = load i32, ptr %145, align 8
-  br label %rb_ec_vm_lock_rec.exit
+  br label %rb_ec_vm_lock_rec.argprom.exit
 
-rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %144
-  %.0.i = phi i32 [ %146, %144 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
+rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.argprom.exit.i, %144
+  %.0.i = phi i32 [ %146, %144 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i ]
   %147 = getelementptr inbounds i8, ptr %11, i64 68
   store i32 %.0.i, ptr %147, align 4
   %148 = getelementptr inbounds i8, ptr %11, i64 16
@@ -11717,7 +11717,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %.not37 = icmp eq i32 %152, 0
   br i1 %.not37, label %174, label %153
 
-153:                                              ; preds = %rb_ec_vm_lock_rec.exit
+153:                                              ; preds = %rb_ec_vm_lock_rec.argprom.exit
   %.0..0..0..0.3 = load volatile ptr, ptr %10, align 8
   %154 = getelementptr inbounds i8, ptr %.0..0..0..0.3, i64 24
   %155 = load ptr, ptr %154, align 8
@@ -11729,7 +11729,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %160 = getelementptr i8, ptr %.0..0..0..0.3, i64 48
   %.val.i.i50 = load ptr, ptr %160, align 8
   %.not.i.i.i.i51 = icmp eq ptr %.val.i.i50, null
-  br i1 %.not.i.i.i.i51, label %rb_ec_ractor_ptr.exit.i.i.i, label %161
+  br i1 %.not.i.i.i.i51, label %rb_ec_ractor_ptr.argprom.exit.i.i.i, label %161
 
 161:                                              ; preds = %153
   %162 = getelementptr inbounds i8, ptr %.val.i.i50, i64 32
@@ -11737,39 +11737,39 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %164 = getelementptr inbounds i8, ptr %163, i64 88
   %165 = getelementptr inbounds i8, ptr %.val.i.i50, i64 24
   %166 = load ptr, ptr %165, align 8
-  br label %rb_ec_ractor_ptr.exit.i.i.i
+  br label %rb_ec_ractor_ptr.argprom.exit.i.i.i
 
-rb_ec_ractor_ptr.exit.i.i.i:                      ; preds = %161, %153
+rb_ec_ractor_ptr.argprom.exit.i.i.i:              ; preds = %161, %153
   %.in.i.i.i = phi ptr [ %164, %161 ], [ inttoptr (i64 88 to ptr), %153 ]
   %.0.i2.i.i.i = phi ptr [ %163, %161 ], [ null, %153 ]
   %.0.i6.i.i.i = phi ptr [ %166, %161 ], [ null, %153 ]
   %167 = load ptr, ptr %.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %167, %.0.i6.i.i.i
-  br i1 %.not.i.i.i, label %168, label %rb_ec_vm_lock_rec.exit.i.i
+  br i1 %.not.i.i.i, label %168, label %rb_ec_vm_lock_rec.argprom.exit.i.i
 
-168:                                              ; preds = %rb_ec_ractor_ptr.exit.i.i.i
+168:                                              ; preds = %rb_ec_ractor_ptr.argprom.exit.i.i.i
   %169 = getelementptr inbounds i8, ptr %.0.i2.i.i.i, i64 96
   %170 = load i32, ptr %169, align 8
-  br label %rb_ec_vm_lock_rec.exit.i.i
+  br label %rb_ec_vm_lock_rec.argprom.exit.i.i
 
-rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %168, %rb_ec_ractor_ptr.exit.i.i.i
-  %.0.i.i.i52 = phi i32 [ %170, %168 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i ]
+rb_ec_vm_lock_rec.argprom.exit.i.i:               ; preds = %168, %rb_ec_ractor_ptr.argprom.exit.i.i.i
+  %.0.i.i.i52 = phi i32 [ %170, %168 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i.i.i ]
   %.not.i.i53 = icmp eq i32 %.0.i.i.i52, %159
   br i1 %.not.i.i53, label %172, label %171
 
-171:                                              ; preds = %rb_ec_vm_lock_rec.exit.i.i
+171:                                              ; preds = %rb_ec_vm_lock_rec.argprom.exit.i.i
   call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.3, i32 noundef %159, i32 noundef %.0.i.i.i52) #19
   %.0..0..0..0.5.pre.pre = load ptr, ptr %10, align 8
   br label %172
 
-172:                                              ; preds = %171, %rb_ec_vm_lock_rec.exit.i.i
-  %.0..0..0.5.pre = phi ptr [ %.0..0..0..0.5.pre.pre, %171 ], [ %.0..0..0..0.3, %rb_ec_vm_lock_rec.exit.i.i ]
+172:                                              ; preds = %171, %rb_ec_vm_lock_rec.argprom.exit.i.i
+  %.0..0..0.5.pre = phi ptr [ %.0..0..0..0.5.pre.pre, %171 ], [ %.0..0..0..0.3, %rb_ec_vm_lock_rec.argprom.exit.i.i ]
   %173 = icmp ne i32 %157, 0
   call void @llvm.assume(i1 %173)
   store i32 %157, ptr %8, align 4
   br label %176
 
-174:                                              ; preds = %rb_ec_vm_lock_rec.exit
+174:                                              ; preds = %rb_ec_vm_lock_rec.argprom.exit
   store ptr %11, ptr %133, align 8
   store i32 0, ptr %8, align 4
   %175 = call i64 %0(i64 noundef %1, i64 noundef %3, i32 noundef 0) #19
@@ -12616,19 +12616,19 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %21, %15
 59:                                               ; preds = %.critedge
   %60 = lshr i64 %57, 15
   %61 = and i64 %60, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit
 
 62:                                               ; preds = %.critedge
   %63 = getelementptr inbounds i8, ptr %56, i64 16
   %64 = load i64, ptr %63, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit
 
-rb_threadptr_pending_interrupt_empty_p.exit:      ; preds = %59, %62
+rb_threadptr_pending_interrupt_empty_p.argprom.exit: ; preds = %59, %62
   %.0.i.i = phi i64 [ %61, %59 ], [ %64, %62 ]
   %.not59 = icmp eq i64 %.0.i.i, 0
   br i1 %.not59, label %73, label %65
 
-65:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit
+65:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit
   %.0..0..0..0.9 = load volatile ptr, ptr %5, align 8
   %66 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 240
   %67 = load i8, ptr %66, align 8
@@ -12641,7 +12641,7 @@ rb_threadptr_pending_interrupt_empty_p.exit:      ; preds = %59, %62
   %72 = atomicrmw volatile or ptr %71, i32 2 seq_cst, align 4
   br label %73
 
-73:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit, %65
+73:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit, %65
   %.0..0..0..0.11 = load volatile ptr, ptr %5, align 8
   %74 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 48
   %75 = load ptr, ptr %74, align 8
@@ -12656,7 +12656,7 @@ rb_threadptr_pending_interrupt_empty_p.exit:      ; preds = %59, %62
   %80 = getelementptr i8, ptr %75, i64 48
   %.0.1.val = load ptr, ptr %80, align 8
   %.not.i.i50 = icmp eq ptr %.0.1.val, null
-  br i1 %.not.i.i50, label %rb_ec_ractor_ptr.exit.i, label %81
+  br i1 %.not.i.i50, label %rb_ec_ractor_ptr.argprom.exit.i, label %81
 
 81:                                               ; preds = %73
   %82 = getelementptr inbounds i8, ptr %.0.1.val, i64 32
@@ -12664,23 +12664,23 @@ rb_threadptr_pending_interrupt_empty_p.exit:      ; preds = %59, %62
   %84 = getelementptr inbounds i8, ptr %83, i64 88
   %85 = getelementptr inbounds i8, ptr %.0.1.val, i64 24
   %86 = load ptr, ptr %85, align 8
-  br label %rb_ec_ractor_ptr.exit.i
+  br label %rb_ec_ractor_ptr.argprom.exit.i
 
-rb_ec_ractor_ptr.exit.i:                          ; preds = %81, %73
+rb_ec_ractor_ptr.argprom.exit.i:                  ; preds = %81, %73
   %.in.i = phi ptr [ %84, %81 ], [ inttoptr (i64 88 to ptr), %73 ]
   %.0.i2.i = phi ptr [ %83, %81 ], [ null, %73 ]
   %.0.i6.i = phi ptr [ %86, %81 ], [ null, %73 ]
   %87 = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %87, %.0.i6.i
-  br i1 %.not.i, label %88, label %rb_ec_vm_lock_rec.exit
+  br i1 %.not.i, label %88, label %rb_ec_vm_lock_rec.argprom.exit
 
-88:                                               ; preds = %rb_ec_ractor_ptr.exit.i
+88:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i
   %89 = getelementptr inbounds i8, ptr %.0.i2.i, i64 96
   %90 = load i32, ptr %89, align 8
-  br label %rb_ec_vm_lock_rec.exit
+  br label %rb_ec_vm_lock_rec.argprom.exit
 
-rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %88
-  %.0.i = phi i32 [ %90, %88 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
+rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.argprom.exit.i, %88
+  %.0.i = phi i32 [ %90, %88 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i ]
   %91 = getelementptr inbounds i8, ptr %8, i64 68
   store i32 %.0.i, ptr %91, align 4
   %92 = getelementptr inbounds i8, ptr %8, i64 16
@@ -12693,7 +12693,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %.not47 = icmp eq i32 %96, 0
   br i1 %.not47, label %118, label %97
 
-97:                                               ; preds = %rb_ec_vm_lock_rec.exit
+97:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit
   %.0..0..0..0.2 = load volatile ptr, ptr %7, align 8
   %98 = getelementptr inbounds i8, ptr %.0..0..0..0.2, i64 24
   %99 = load ptr, ptr %98, align 8
@@ -12705,7 +12705,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %104 = getelementptr i8, ptr %.0..0..0..0.2, i64 48
   %.val.i.i = load ptr, ptr %104, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.exit.i.i.i, label %105
+  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.argprom.exit.i.i.i, label %105
 
 105:                                              ; preds = %97
   %106 = getelementptr inbounds i8, ptr %.val.i.i, i64 32
@@ -12713,38 +12713,38 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %108 = getelementptr inbounds i8, ptr %107, i64 88
   %109 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
   %110 = load ptr, ptr %109, align 8
-  br label %rb_ec_ractor_ptr.exit.i.i.i
+  br label %rb_ec_ractor_ptr.argprom.exit.i.i.i
 
-rb_ec_ractor_ptr.exit.i.i.i:                      ; preds = %105, %97
+rb_ec_ractor_ptr.argprom.exit.i.i.i:              ; preds = %105, %97
   %.in.i.i.i = phi ptr [ %108, %105 ], [ inttoptr (i64 88 to ptr), %97 ]
   %.0.i2.i.i.i = phi ptr [ %107, %105 ], [ null, %97 ]
   %.0.i6.i.i.i = phi ptr [ %110, %105 ], [ null, %97 ]
   %111 = load ptr, ptr %.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %111, %.0.i6.i.i.i
-  br i1 %.not.i.i.i, label %112, label %rb_ec_vm_lock_rec.exit.i.i
+  br i1 %.not.i.i.i, label %112, label %rb_ec_vm_lock_rec.argprom.exit.i.i
 
-112:                                              ; preds = %rb_ec_ractor_ptr.exit.i.i.i
+112:                                              ; preds = %rb_ec_ractor_ptr.argprom.exit.i.i.i
   %113 = getelementptr inbounds i8, ptr %.0.i2.i.i.i, i64 96
   %114 = load i32, ptr %113, align 8
-  br label %rb_ec_vm_lock_rec.exit.i.i
+  br label %rb_ec_vm_lock_rec.argprom.exit.i.i
 
-rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %112, %rb_ec_ractor_ptr.exit.i.i.i
-  %.0.i.i.i = phi i32 [ %114, %112 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i ]
+rb_ec_vm_lock_rec.argprom.exit.i.i:               ; preds = %112, %rb_ec_ractor_ptr.argprom.exit.i.i.i
+  %.0.i.i.i = phi i32 [ %114, %112 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i.i.i ]
   %.not.i.i51 = icmp eq i32 %.0.i.i.i, %103
   br i1 %.not.i.i51, label %116, label %115
 
-115:                                              ; preds = %rb_ec_vm_lock_rec.exit.i.i
+115:                                              ; preds = %rb_ec_vm_lock_rec.argprom.exit.i.i
   call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.2, i32 noundef %103, i32 noundef %.0.i.i.i) #19
   %.0..0..0..0.4.pre.pre = load ptr, ptr %7, align 8
   br label %116
 
-116:                                              ; preds = %115, %rb_ec_vm_lock_rec.exit.i.i
-  %.0..0..0.4.pre = phi ptr [ %.0..0..0..0.4.pre.pre, %115 ], [ %.0..0..0..0.2, %rb_ec_vm_lock_rec.exit.i.i ]
+116:                                              ; preds = %115, %rb_ec_vm_lock_rec.argprom.exit.i.i
+  %.0..0..0.4.pre = phi ptr [ %.0..0..0..0.4.pre.pre, %115 ], [ %.0..0..0..0.2, %rb_ec_vm_lock_rec.argprom.exit.i.i ]
   %117 = icmp ne i32 %101, 0
   call void @llvm.assume(i1 %117)
   br label %120
 
-118:                                              ; preds = %rb_ec_vm_lock_rec.exit
+118:                                              ; preds = %rb_ec_vm_lock_rec.argprom.exit
   store ptr %8, ptr %77, align 8
   %119 = call i64 @rb_yield(i64 noundef 4) #19
   store volatile i64 %119, ptr %6, align 8
@@ -12772,19 +12772,19 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %112, %rb_ec_ractor_
 131:                                              ; preds = %120
   %132 = lshr i64 %129, 15
   %133 = and i64 %132, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit54
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit54
 
 134:                                              ; preds = %120
   %135 = getelementptr inbounds i8, ptr %128, i64 16
   %136 = load i64, ptr %135, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit54
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit54
 
-rb_threadptr_pending_interrupt_empty_p.exit54:    ; preds = %131, %134
+rb_threadptr_pending_interrupt_empty_p.argprom.exit54: ; preds = %131, %134
   %.0.i.i53 = phi i64 [ %133, %131 ], [ %136, %134 ]
   %.not60 = icmp eq i64 %.0.i.i53, 0
   br i1 %.not60, label %145, label %137
 
-137:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit54
+137:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit54
   %.0..0..0..0.14 = load volatile ptr, ptr %5, align 8
   %138 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 240
   %139 = load i8, ptr %138, align 8
@@ -12797,7 +12797,7 @@ rb_threadptr_pending_interrupt_empty_p.exit54:    ; preds = %131, %134
   %144 = atomicrmw volatile or ptr %143, i32 2 seq_cst, align 4
   br label %145
 
-145:                                              ; preds = %137, %rb_threadptr_pending_interrupt_empty_p.exit54
+145:                                              ; preds = %137, %rb_threadptr_pending_interrupt_empty_p.argprom.exit54
   %.0..0..0..0.16 = load volatile ptr, ptr %5, align 8
   %146 = getelementptr inbounds i8, ptr %.0..0..0..0.16, i64 48
   %147 = load ptr, ptr %146, align 8
@@ -12873,19 +12873,19 @@ define internal range(i64 0, 21) i64 @rb_thread_pending_interrupt_p(i32 noundef 
 11:                                               ; preds = %7
   %12 = lshr i64 %9, 15
   %13 = and i64 %12, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %8, i64 16
   %16 = load i64, ptr %15, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit
 
-rb_threadptr_pending_interrupt_empty_p.exit:      ; preds = %11, %14
+rb_threadptr_pending_interrupt_empty_p.argprom.exit: ; preds = %11, %14
   %.0.i.i = phi i64 [ %13, %11 ], [ %16, %14 ]
   %.not15 = icmp eq i64 %.0.i.i, 0
   br i1 %.not15, label %rb_threadptr_pending_interrupt_include_p.exit, label %17
 
-17:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit
+17:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit
   %or.cond.i = icmp ugt i32 %0, 1
   br i1 %or.cond.i, label %18, label %rb_check_arity.exit
 
@@ -12949,8 +12949,8 @@ RARRAY_AREF.exit.i:                               ; preds = %37, %.thread.i
   %43 = add i32 %.07.i, 1
   br i1 %.not.i, label %.preheader, label %rb_threadptr_pending_interrupt_include_p.exit, !llvm.loop !46
 
-rb_threadptr_pending_interrupt_include_p.exit:    ; preds = %RARRAY_AREF.exit.i, %rb_array_len.exit.i, %rb_array_len.exit.thread.i, %rb_check_arity.exit, %rb_threadptr_pending_interrupt_empty_p.exit, %3
-  %.0 = phi i64 [ 0, %3 ], [ 0, %rb_threadptr_pending_interrupt_empty_p.exit ], [ 20, %rb_check_arity.exit ], [ 0, %rb_array_len.exit.thread.i ], [ 0, %rb_array_len.exit.i ], [ 20, %RARRAY_AREF.exit.i ]
+rb_threadptr_pending_interrupt_include_p.exit:    ; preds = %RARRAY_AREF.exit.i, %rb_array_len.exit.i, %rb_array_len.exit.thread.i, %rb_check_arity.exit, %rb_threadptr_pending_interrupt_empty_p.argprom.exit, %3
+  %.0 = phi i64 [ 0, %3 ], [ 0, %rb_threadptr_pending_interrupt_empty_p.argprom.exit ], [ 20, %rb_check_arity.exit ], [ 0, %rb_array_len.exit.thread.i ], [ 0, %rb_array_len.exit.i ], [ 20, %RARRAY_AREF.exit.i ]
   ret i64 %.0
 }
 
@@ -13031,23 +13031,23 @@ define internal noundef i64 @thread_raise_m(i32 noundef %0, ptr noundef %1, i64 
   %5 = getelementptr i8, ptr %4, i64 272
   %.val = load i64, ptr %5, align 8
   %.not.i = icmp eq i64 %.val, 0
-  br i1 %.not.i, label %6, label %threadptr_check_pending_interrupt_queue.exit
+  br i1 %.not.i, label %6, label %threadptr_check_pending_interrupt_queue.argprom.exit
 
 6:                                                ; preds = %3
   %7 = load i64, ptr @rb_eThreadError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.198) #36
   unreachable
 
-threadptr_check_pending_interrupt_queue.exit:     ; preds = %3
+threadptr_check_pending_interrupt_queue.argprom.exit: ; preds = %3
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 48
   %.val.i = load ptr, ptr %10, align 8
-  tail call fastcc void @rb_threadptr_raise(ptr noundef nonnull %4, i32 noundef %0, ptr noundef %1)
+  tail call fastcc void @rb_threadptr_raise.retelim(ptr noundef nonnull %4, i32 noundef %0, ptr noundef %1)
   %11 = icmp eq ptr %.val.i, %4
   br i1 %11, label %12, label %rb_vm_check_ints.exit
 
-12:                                               ; preds = %threadptr_check_pending_interrupt_queue.exit
+12:                                               ; preds = %threadptr_check_pending_interrupt_queue.argprom.exit
   %13 = getelementptr inbounds i8, ptr %4, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 32
@@ -13065,7 +13065,7 @@ threadptr_check_pending_interrupt_queue.exit:     ; preds = %3
   %21 = tail call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i8, i32 noundef 0)
   br label %rb_vm_check_ints.exit
 
-rb_vm_check_ints.exit:                            ; preds = %19, %12, %threadptr_check_pending_interrupt_queue.exit
+rb_vm_check_ints.exit:                            ; preds = %19, %12, %threadptr_check_pending_interrupt_queue.argprom.exit
   ret i64 4
 }
 
@@ -13365,8 +13365,8 @@ define internal i64 @rb_thread_status(i64 noundef %0) #0 {
   switch i8 %4, label %default.unreachable [
     i8 3, label %5
     i8 0, label %13
-    i8 2, label %thread_status_name.exit
-    i8 1, label %thread_status_name.exit
+    i8 2, label %thread_status_name.argprom.exit
+    i8 1, label %thread_status_name.argprom.exit
   ]
 
 5:                                                ; preds = %1
@@ -13385,18 +13385,18 @@ define internal i64 @rb_thread_status(i64 noundef %0) #0 {
   %14 = and i8 %.val, 8
   %.not3.i = icmp eq i8 %14, 0
   %15 = select i1 %.not3.i, ptr @.str.72, ptr @.str.229
-  br label %thread_status_name.exit
+  br label %thread_status_name.argprom.exit
 
 default.unreachable:                              ; preds = %1
   unreachable
 
-thread_status_name.exit:                          ; preds = %1, %1, %13
+thread_status_name.argprom.exit:                  ; preds = %1, %1, %13
   %.0.i = phi ptr [ %15, %13 ], [ @.str.231, %1 ], [ @.str.231, %1 ]
   %16 = tail call i64 @rb_str_new_cstr(ptr noundef nonnull %.0.i) #19
   br label %17
 
-17:                                               ; preds = %5, %thread_status_name.exit
-  %.0 = phi i64 [ %16, %thread_status_name.exit ], [ %spec.select, %5 ]
+17:                                               ; preds = %5, %thread_status_name.argprom.exit
+  %.0 = phi i64 [ %16, %thread_status_name.argprom.exit ], [ %spec.select, %5 ]
   ret i64 %.0
 }
 
@@ -13709,27 +13709,27 @@ define internal range(i64 1, 0) i64 @rb_thread_native_thread_id(i64 noundef %0) 
   %.val = load i8, ptr %3, align 8
   %4 = and i8 %.val, 3
   %.not = icmp eq i8 %4, 3
-  br i1 %.not, label %native_thread_native_thread_id.exit, label %5
+  br i1 %.not, label %native_thread_native_thread_id.argprom.exit, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr i8, ptr %2, i64 40
   %.val3 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %.val3, null
-  br i1 %.not.i, label %native_thread_native_thread_id.exit, label %7
+  br i1 %.not.i, label %native_thread_native_thread_id.argprom.exit, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %.val3, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %native_thread_native_thread_id.exit, label %11
+  br i1 %10, label %native_thread_native_thread_id.argprom.exit, label %11
 
 11:                                               ; preds = %7
   %12 = sext i32 %9 to i64
   %13 = shl nsw i64 %12, 1
   %14 = or disjoint i64 %13, 1
-  br label %native_thread_native_thread_id.exit
+  br label %native_thread_native_thread_id.argprom.exit
 
-native_thread_native_thread_id.exit:              ; preds = %11, %7, %5, %1
+native_thread_native_thread_id.argprom.exit:      ; preds = %11, %7, %5, %1
   %.0 = phi i64 [ 4, %1 ], [ %14, %11 ], [ 4, %5 ], [ 4, %7 ]
   ret i64 %.0
 }
@@ -13746,25 +13746,25 @@ define internal i64 @rb_thread_to_s(i64 noundef %0) #0 {
     i8 0, label %7
     i8 2, label %10
     i8 1, label %11
-    i8 3, label %thread_status_name.exit
+    i8 3, label %thread_status_name.argprom.exit
   ]
 
 7:                                                ; preds = %1
   %8 = and i8 %.val, 8
   %.not3.i = icmp eq i8 %8, 0
   %9 = select i1 %.not3.i, ptr @.str.72, ptr @.str.229
-  br label %thread_status_name.exit
+  br label %thread_status_name.argprom.exit
 
 10:                                               ; preds = %1
-  br label %thread_status_name.exit
+  br label %thread_status_name.argprom.exit
 
 11:                                               ; preds = %1
-  br label %thread_status_name.exit
+  br label %thread_status_name.argprom.exit
 
 default.unreachable:                              ; preds = %1
   unreachable
 
-thread_status_name.exit:                          ; preds = %1, %7, %10, %11
+thread_status_name.argprom.exit:                  ; preds = %1, %7, %10, %11
   %.0.i = phi ptr [ @.str.231, %11 ], [ %9, %7 ], [ @.str.230, %10 ], [ @.str.232, %1 ]
   %12 = inttoptr i64 %0 to ptr
   %13 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.236, i64 noundef %3, ptr noundef %12) #19
@@ -13773,11 +13773,11 @@ thread_status_name.exit:                          ; preds = %1, %7, %10, %11
   %16 = icmp eq i64 %15, 4
   br i1 %16, label %19, label %17
 
-17:                                               ; preds = %thread_status_name.exit
+17:                                               ; preds = %thread_status_name.argprom.exit
   %18 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %13, ptr noundef nonnull @.str.237, i64 noundef %15) #19
   br label %19
 
-19:                                               ; preds = %17, %thread_status_name.exit
+19:                                               ; preds = %17, %thread_status_name.argprom.exit
   %20 = getelementptr inbounds i8, ptr %4, i64 392
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 1
@@ -14669,13 +14669,13 @@ define internal fastcc void @RARRAY_ASET(i64 noundef %0, i64 noundef range(i64 -
   %7 = icmp ne i64 %6, 0
   %8 = icmp eq i64 %2, 0
   %9 = or i1 %8, %7
-  br i1 %9, label %rb_obj_write.exit, label %10
+  br i1 %9, label %rb_obj_write.argprom.exit, label %10
 
 10:                                               ; preds = %3
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %2) #19
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %3, %10
+rb_obj_write.argprom.exit:                        ; preds = %3, %10
   tail call void @rb_ary_ptr_use_end(i64 noundef %0) #19
   ret void
 }
@@ -14751,26 +14751,26 @@ define internal noundef i64 @uninterruptible_exit(i64 %0) #0 {
 15:                                               ; preds = %1
   %16 = lshr i64 %13, 15
   %17 = and i64 %16, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds i8, ptr %12, i64 16
   %20 = load i64, ptr %19, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit
 
-rb_threadptr_pending_interrupt_empty_p.exit:      ; preds = %15, %18
+rb_threadptr_pending_interrupt_empty_p.argprom.exit: ; preds = %15, %18
   %.0.i.i = phi i64 [ %17, %15 ], [ %20, %18 ]
   %.not = icmp eq i64 %.0.i.i, 0
   br i1 %.not, label %26, label %21
 
-21:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit
+21:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit
   %22 = getelementptr inbounds i8, ptr %.val.i, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 32
   %25 = atomicrmw volatile or ptr %24, i32 2 seq_cst, align 4
   br label %26
 
-26:                                               ; preds = %21, %rb_threadptr_pending_interrupt_empty_p.exit
+26:                                               ; preds = %21, %rb_threadptr_pending_interrupt_empty_p.argprom.exit
   ret i64 4
 }
 
@@ -14882,7 +14882,7 @@ declare void @rb_timespec_now(ptr noundef) local_unnamed_addr #3
 declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @thread_sched_wakeup_running_thread(ptr noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @thread_sched_wakeup_running_thread.argprom(ptr noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %rb_native_cond_signal.exit, label %3
 
@@ -14924,13 +14924,13 @@ define internal fastcc void @thread_sched_wakeup_running_thread(ptr noundef read
   %20 = getelementptr inbounds i8, ptr %17, i64 160
   %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %20) #19
   %.not.i.i.i = icmp eq i32 %21, 0
-  br i1 %.not.i.i.i, label %ractor_sched_lock_.exit.i, label %22
+  br i1 %.not.i.i.i, label %ractor_sched_lock_.argprom.exit.i, label %22
 
 22:                                               ; preds = %15
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %21) #36
   unreachable
 
-ractor_sched_lock_.exit.i:                        ; preds = %15
+ractor_sched_lock_.argprom.exit.i:                ; preds = %15
   %23 = getelementptr inbounds i8, ptr %17, i64 280
   %24 = getelementptr inbounds i8, ptr %19, i64 368
   store ptr %23, ptr %24, align 8
@@ -14947,7 +14947,7 @@ ractor_sched_lock_.exit.i:                        ; preds = %15
   %31 = getelementptr inbounds i8, ptr %17, i64 216
   br label %32
 
-32:                                               ; preds = %32, %ractor_sched_lock_.exit.i
+32:                                               ; preds = %32, %ractor_sched_lock_.argprom.exit.i
   %33 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %31) #19
   switch i32 %33, label %34 [
     i32 11, label %32
@@ -15373,7 +15373,7 @@ rb_current_ractor.exit:                           ; preds = %debug_deadlock_chec
   %104 = add i32 %103, -1
   store i32 %104, ptr %102, align 8
   %105 = load ptr, ptr %58, align 8
-  call fastcc void @rb_threadptr_raise(ptr noundef %105, i32 noundef 2, ptr noundef nonnull %2)
+  call fastcc void @rb_threadptr_raise.retelim(ptr noundef %105, i32 noundef 2, ptr noundef nonnull %2)
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %26, %47, %39, %16, %11, %1, %rb_current_ractor.exit
@@ -15767,19 +15767,19 @@ rb_hrtime_now.exit.i.i:                           ; preds = %23, %18
 38:                                               ; preds = %rb_hrtime_now.exit.i.i
   %39 = lshr i64 %36, 15
   %40 = and i64 %39, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i.i.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i.i.i
 
 41:                                               ; preds = %rb_hrtime_now.exit.i.i
   %42 = getelementptr inbounds i8, ptr %35, i64 16
   %43 = load i64, ptr %42, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i.i.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i.i.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i.i.i: ; preds = %41, %38
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i.i.i: ; preds = %41, %38
   %.0.i.i.i14.i.i = phi i64 [ %40, %38 ], [ %43, %41 ]
   %.not.i.i.i = icmp eq i64 %.0.i.i.i14.i.i, 0
   br i1 %.not.i.i.i, label %44, label %49
 
-44:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i.i.i
+44:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i.i.i
   %45 = getelementptr i8, ptr %32, i64 32
   %.val7.i.i.i = load i32, ptr %45, align 8
   %46 = getelementptr i8, ptr %32, i64 36
@@ -15789,7 +15789,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i.i.i: ; preds = %41, %38
   %.not9.i.i.i = icmp eq i32 %48, 0
   br i1 %.not9.i.i.i, label %vm_check_ints_blocking.exit.i.i, label %55
 
-49:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i.i.i
+49:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i.i.i
   %50 = getelementptr inbounds i8, ptr %.val.i13.i.i, i64 240
   %51 = load i8, ptr %50, align 8
   %52 = and i8 %51, -65
@@ -15847,19 +15847,19 @@ native_sleep.exit.i.i:                            ; preds = %67, %66
 77:                                               ; preds = %native_sleep.exit.i.i
   %78 = lshr i64 %75, 15
   %79 = and i64 %78, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i21.i.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i21.i.i
 
 80:                                               ; preds = %native_sleep.exit.i.i
   %81 = getelementptr inbounds i8, ptr %74, i64 16
   %82 = load i64, ptr %81, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i21.i.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i21.i.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i21.i.i: ; preds = %80, %77
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i21.i.i: ; preds = %80, %77
   %.0.i.i.i22.i.i = phi i64 [ %79, %77 ], [ %82, %80 ]
   %.not.i23.i.i = icmp eq i64 %.0.i.i.i22.i.i, 0
   br i1 %.not.i23.i.i, label %83, label %88
 
-83:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i21.i.i
+83:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i21.i.i
   %84 = getelementptr i8, ptr %71, i64 32
   %.val7.i25.i.i = load i32, ptr %84, align 8
   %85 = getelementptr i8, ptr %71, i64 36
@@ -15869,7 +15869,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i21.i.i: ; preds = %80, %77
   %.not9.i27.i.i = icmp eq i32 %87, 0
   br i1 %.not9.i27.i.i, label %vm_check_ints_blocking.exit28.i.i, label %94
 
-88:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i21.i.i
+88:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i21.i.i
   %89 = getelementptr inbounds i8, ptr %.val.i18.i.i, i64 240
   %90 = load i8, ptr %89, align 8
   %91 = and i8 %90, -65
@@ -16084,7 +16084,7 @@ rb_threadptr_interrupt.exit:                      ; preds = %36
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @raise_closed_queue_error() unnamed_addr #22 {
+define internal fastcc void @raise_closed_queue_error.argelim() unnamed_addr #22 {
   %1 = load i64, ptr @rb_eClosedQueueError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1, ptr noundef nonnull @.str.162) #36
   unreachable
@@ -16137,23 +16137,23 @@ define internal fastcc void @native_cond_sleep(ptr noundef %0, ptr nocapture nou
   store ptr %19, ptr %18, align 8
   %20 = call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #19
   %.not.i.i.i = icmp eq i32 %20, 0
-  br i1 %.not.i.i.i, label %thread_sched_lock_.exit.i, label %21
+  br i1 %.not.i.i.i, label %thread_sched_lock_.argprom.exit.i, label %21
 
 21:                                               ; preds = %2
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %20) #36
   unreachable
 
-thread_sched_lock_.exit.i:                        ; preds = %2
+thread_sched_lock_.argprom.exit.i:                ; preds = %2
   call fastcc void @thread_sched_to_waiting_common0(ptr noundef nonnull %12, ptr noundef nonnull %0, i1 noundef zeroext false)
   %22 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #19
   %.not.i.i6.i = icmp eq i32 %22, 0
   br i1 %.not.i.i6.i, label %thread_sched_to_waiting.exit, label %23
 
-23:                                               ; preds = %thread_sched_lock_.exit.i
+23:                                               ; preds = %thread_sched_lock_.argprom.exit.i
   call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %22) #36
   unreachable
 
-thread_sched_to_waiting.exit:                     ; preds = %thread_sched_lock_.exit.i
+thread_sched_to_waiting.exit:                     ; preds = %thread_sched_lock_.argprom.exit.i
   %24 = call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #19
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %rb_native_mutex_lock.exit, label %25
@@ -16214,7 +16214,7 @@ rb_hrtime_now.exit.i:                             ; preds = %46, %43
   %.0.i.i.i.i = select i1 %49, i64 -1, i64 %50
   %.0.i2.i.i.i = call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i.i, i64 %.val1.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %native_cond_timeout.exit
+  br label %native_cond_timeout.argprom.exit
 
 51:                                               ; preds = %40
   call void @rb_timespec_now(ptr noundef nonnull %5) #19
@@ -16226,9 +16226,9 @@ rb_hrtime_now.exit.i:                             ; preds = %46, %43
   %55 = extractvalue { i64, i1 } %53, 0
   %.0.i.i.i = select i1 %54, i64 -1, i64 %55
   %.0.i2.i.i = call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i, i64 %.val3.i)
-  br label %native_cond_timeout.exit
+  br label %native_cond_timeout.argprom.exit
 
-native_cond_timeout.exit:                         ; preds = %rb_hrtime_now.exit.i, %51
+native_cond_timeout.argprom.exit:                 ; preds = %rb_hrtime_now.exit.i, %51
   %.0.i2.i.sink.i = phi i64 [ %.0.i2.i.i, %51 ], [ %.0.i2.i.i.i, %rb_hrtime_now.exit.i ]
   %.0.i4.i = call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i2.i.sink.i, i64 %41)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -16238,7 +16238,7 @@ native_cond_timeout.exit:                         ; preds = %rb_hrtime_now.exit.
   %58 = urem i64 %.0.i4.i, 1000000000
   br label %59
 
-59:                                               ; preds = %59, %native_cond_timeout.exit
+59:                                               ; preds = %59, %native_cond_timeout.argprom.exit
   store i64 %57, ptr %3, align 8
   store i64 %58, ptr %56, align 8
   %60 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %3) #19
@@ -16389,19 +16389,19 @@ rb_thread_execute_hooks.exit:                     ; preds = %.loopexit.i
 46:                                               ; preds = %rb_thread_execute_hooks.exit, %setup_ubf.exit
   %47 = call i32 @pthread_mutex_lock(ptr noundef %0) #19
   %.not.i.i28 = icmp eq i32 %47, 0
-  br i1 %.not.i.i28, label %thread_sched_lock_.exit, label %48
+  br i1 %.not.i.i28, label %thread_sched_lock_.argprom.exit, label %48
 
 48:                                               ; preds = %46
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %47) #36
   unreachable
 
-thread_sched_lock_.exit:                          ; preds = %46
+thread_sched_lock_.argprom.exit:                  ; preds = %46
   %49 = getelementptr inbounds i8, ptr %1, i64 136
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %93, label %52
 
-52:                                               ; preds = %thread_sched_lock_.exit
+52:                                               ; preds = %thread_sched_lock_.argprom.exit
   %53 = load ptr, ptr %11, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 32
   %55 = load i32, ptr %54, align 8
@@ -16426,12 +16426,12 @@ thread_sched_lock_.exit:                          ; preds = %46
   %67 = getelementptr inbounds i8, ptr %0, i64 56
   %68 = load ptr, ptr %67, align 8
   %.not.i.i30 = icmp eq ptr %68, %67
-  br i1 %.not.i.i30, label %thread_sched_wakeup_running_thread.exit.thread, label %thread_sched_deq.exit.i
+  br i1 %.not.i.i30, label %thread_sched_wakeup_running_thread.argprom.exit.thread, label %thread_sched_deq.exit.i
 
-thread_sched_wakeup_running_thread.exit.thread:   ; preds = %62
+thread_sched_wakeup_running_thread.argprom.exit.thread: ; preds = %62
   %69 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %69, align 8
-  br label %thread_sched_wakeup_running_thread.exit.thread45
+  br label %thread_sched_wakeup_running_thread.argprom.exit.thread45
 
 thread_sched_deq.exit.i:                          ; preds = %62
   %70 = getelementptr inbounds i8, ptr %68, i64 8
@@ -16451,19 +16451,19 @@ thread_sched_deq.exit.i:                          ; preds = %62
   %79 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %75, ptr %79, align 8
   %.not.i37 = icmp eq ptr %75, null
-  br i1 %.not.i37, label %thread_sched_wakeup_running_thread.exit.thread45, label %80
+  br i1 %.not.i37, label %thread_sched_wakeup_running_thread.argprom.exit.thread45, label %80
 
 80:                                               ; preds = %thread_sched_deq.exit.i
   %81 = getelementptr i8, ptr %68, i64 -32
   %82 = load ptr, ptr %81, align 8
   %.not7.i = icmp eq ptr %82, null
-  br i1 %.not7.i, label %thread_sched_wakeup_running_thread.exit, label %83
+  br i1 %.not7.i, label %thread_sched_wakeup_running_thread.argprom.exit, label %83
 
 83:                                               ; preds = %80
   %84 = getelementptr i8, ptr %82, i64 104
   %.val.val.i = load i32, ptr %84, align 8
   %85 = icmp sgt i32 %.val.val.i, 0
-  br i1 %85, label %86, label %thread_sched_wakeup_running_thread.exit
+  br i1 %85, label %86, label %thread_sched_wakeup_running_thread.argprom.exit
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds i8, ptr %82, i64 40
@@ -16473,28 +16473,28 @@ thread_sched_deq.exit.i:                          ; preds = %62
   %89 = call i32 @pthread_cond_signal(ptr noundef nonnull %87) #19
   switch i32 %89, label %90 [
     i32 11, label %88
-    i32 0, label %thread_sched_wakeup_running_thread.exit
+    i32 0, label %thread_sched_wakeup_running_thread.argprom.exit
   ]
 
 90:                                               ; preds = %88
   call void @rb_bug_errno(ptr noundef nonnull @.str.12, i32 noundef %89) #36
   unreachable
 
-thread_sched_wakeup_running_thread.exit:          ; preds = %88, %80, %83
+thread_sched_wakeup_running_thread.argprom.exit:  ; preds = %88, %80, %83
   %.not.i31 = icmp eq ptr %1, %75
-  br i1 %.not.i31, label %thread_sched_wakeup_next_thread.exit, label %thread_sched_wakeup_running_thread.exit.thread45
+  br i1 %.not.i31, label %thread_sched_wakeup_next_thread.exit, label %thread_sched_wakeup_running_thread.argprom.exit.thread45
 
-thread_sched_wakeup_running_thread.exit.thread45: ; preds = %thread_sched_deq.exit.i, %thread_sched_wakeup_running_thread.exit.thread, %thread_sched_wakeup_running_thread.exit
+thread_sched_wakeup_running_thread.argprom.exit.thread45: ; preds = %thread_sched_deq.exit.i, %thread_sched_wakeup_running_thread.argprom.exit.thread, %thread_sched_wakeup_running_thread.argprom.exit
   %91 = getelementptr inbounds i8, ptr %1, i64 32
   %92 = load ptr, ptr %91, align 8
-  call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %0, ptr noundef %92, ptr noundef null, ptr noundef %1, ptr noundef null)
+  call fastcc void @thread_sched_setup_running_threads.argprom(ptr noundef nonnull %0, ptr noundef %92, ptr noundef null, ptr noundef %1, ptr noundef null)
   br label %thread_sched_wakeup_next_thread.exit
 
-thread_sched_wakeup_next_thread.exit:             ; preds = %thread_sched_wakeup_running_thread.exit, %thread_sched_wakeup_running_thread.exit.thread45
+thread_sched_wakeup_next_thread.exit:             ; preds = %thread_sched_wakeup_running_thread.argprom.exit, %thread_sched_wakeup_running_thread.argprom.exit.thread45
   call fastcc void @thread_sched_wait_running_turn(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   br label %93
 
-93:                                               ; preds = %61, %thread_sched_wakeup_next_thread.exit, %thread_sched_lock_.exit
+93:                                               ; preds = %61, %thread_sched_wakeup_next_thread.exit, %thread_sched_lock_.argprom.exit
   %94 = getelementptr inbounds i8, ptr %1, i64 156
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %95, 0
@@ -16502,22 +16502,22 @@ thread_sched_wakeup_next_thread.exit:             ; preds = %thread_sched_wakeup
   store volatile i8 %97, ptr %7, align 1
   %98 = call i32 @pthread_mutex_unlock(ptr noundef %0) #19
   %.not.i.i32 = icmp eq i32 %98, 0
-  br i1 %.not.i.i32, label %thread_sched_unlock_.exit, label %99
+  br i1 %.not.i.i32, label %thread_sched_unlock_.argprom.exit, label %99
 
 99:                                               ; preds = %93
   call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %98) #36
   unreachable
 
-thread_sched_unlock_.exit:                        ; preds = %93
+thread_sched_unlock_.argprom.exit:                ; preds = %93
   %.0..0..0..0. = load volatile i8, ptr %8, align 1
   %100 = trunc i8 %.0..0..0..0. to i1
   br i1 %100, label %101, label %103
 
-101:                                              ; preds = %thread_sched_unlock_.exit
+101:                                              ; preds = %thread_sched_unlock_.argprom.exit
   %102 = call fastcc zeroext i1 @timer_thread_cancel_waiting(ptr noundef nonnull %1)
   br label %103
 
-103:                                              ; preds = %101, %thread_sched_unlock_.exit
+103:                                              ; preds = %101, %thread_sched_unlock_.argprom.exit
   %104 = call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #19
   %.not.i.i33 = icmp eq i32 %104, 0
   br i1 %.not.i.i33, label %rb_native_mutex_lock.exit.i34, label %105
@@ -16646,13 +16646,13 @@ rb_thread_execute_hooks.exit:                     ; preds = %.loopexit.i
 39:                                               ; preds = %rb_thread_execute_hooks.exit, %setup_ubf.exit
   %40 = call i32 @pthread_mutex_lock(ptr noundef %0) #19
   %.not.i.i19 = icmp eq i32 %40, 0
-  br i1 %.not.i.i19, label %thread_sched_lock_.exit, label %41
+  br i1 %.not.i.i19, label %thread_sched_lock_.argprom.exit, label %41
 
 41:                                               ; preds = %39
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %40) #36
   unreachable
 
-thread_sched_lock_.exit:                          ; preds = %39
+thread_sched_lock_.argprom.exit:                  ; preds = %39
   %42 = load ptr, ptr %4, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 32
   %44 = load i32, ptr %43, align 8
@@ -16664,7 +16664,7 @@ thread_sched_lock_.exit:                          ; preds = %39
   %.not18 = icmp eq i32 %49, 0
   br i1 %.not18, label %50, label %70
 
-50:                                               ; preds = %thread_sched_lock_.exit
+50:                                               ; preds = %thread_sched_lock_.argprom.exit
   %51 = getelementptr i8, ptr %1, i64 40
   %.val = load ptr, ptr %51, align 8
   %52 = getelementptr i8, ptr %.val, i64 104
@@ -16678,7 +16678,7 @@ thread_sched_lock_.exit:                          ; preds = %39
 thread_sched_deq.exit.i.thread:                   ; preds = %50
   %56 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %56, align 8
-  call fastcc void @thread_sched_wakeup_running_thread(ptr noundef null, i1 noundef zeroext %53)
+  call fastcc void @thread_sched_wakeup_running_thread.argprom(ptr noundef null, i1 noundef zeroext %53)
   br label %67
 
 thread_sched_deq.exit.i:                          ; preds = %50
@@ -16698,39 +16698,39 @@ thread_sched_deq.exit.i:                          ; preds = %50
   store ptr %55, ptr %55, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %62, ptr %66, align 8
-  call fastcc void @thread_sched_wakeup_running_thread(ptr noundef %62, i1 noundef zeroext %53)
+  call fastcc void @thread_sched_wakeup_running_thread.argprom(ptr noundef %62, i1 noundef zeroext %53)
   %.not.i22 = icmp eq ptr %1, %62
   br i1 %.not.i22, label %thread_sched_wakeup_next_thread.exit, label %67
 
 67:                                               ; preds = %thread_sched_deq.exit.i.thread, %thread_sched_deq.exit.i
   %68 = getelementptr inbounds i8, ptr %1, i64 32
   %69 = load ptr, ptr %68, align 8
-  call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %0, ptr noundef %69, ptr noundef null, ptr noundef nonnull %1, ptr noundef null)
+  call fastcc void @thread_sched_setup_running_threads.argprom(ptr noundef nonnull %0, ptr noundef %69, ptr noundef null, ptr noundef nonnull %1, ptr noundef null)
   br label %thread_sched_wakeup_next_thread.exit
 
 thread_sched_wakeup_next_thread.exit:             ; preds = %thread_sched_deq.exit.i, %67
   call fastcc void @thread_sched_wait_running_turn(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %53)
   br label %70
 
-70:                                               ; preds = %thread_sched_lock_.exit, %thread_sched_wakeup_next_thread.exit
+70:                                               ; preds = %thread_sched_lock_.argprom.exit, %thread_sched_wakeup_next_thread.exit
   %71 = call i32 @pthread_mutex_unlock(ptr noundef %0) #19
   %.not.i.i23 = icmp eq i32 %71, 0
-  br i1 %.not.i.i23, label %thread_sched_unlock_.exit, label %72
+  br i1 %.not.i.i23, label %thread_sched_unlock_.argprom.exit, label %72
 
 72:                                               ; preds = %70
   call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %71) #36
   unreachable
 
-thread_sched_unlock_.exit:                        ; preds = %70
+thread_sched_unlock_.argprom.exit:                ; preds = %70
   %73 = call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #19
   %.not.i.i24 = icmp eq i32 %73, 0
   br i1 %.not.i.i24, label %rb_native_mutex_lock.exit.i25, label %74
 
-74:                                               ; preds = %thread_sched_unlock_.exit
+74:                                               ; preds = %thread_sched_unlock_.argprom.exit
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %73) #36
   unreachable
 
-rb_native_mutex_lock.exit.i25:                    ; preds = %thread_sched_unlock_.exit
+rb_native_mutex_lock.exit.i25:                    ; preds = %thread_sched_unlock_.argprom.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %75 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #19
   %.not.i6.i26 = icmp eq i32 %75, 0
@@ -16770,13 +16770,13 @@ rb_native_cond_signal.exit:                       ; preds = %5
 define internal fastcc void @thread_sched_to_running(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #19
   %.not.i.i = icmp eq i32 %3, 0
-  br i1 %.not.i.i, label %thread_sched_lock_.exit, label %4
+  br i1 %.not.i.i, label %thread_sched_lock_.argprom.exit, label %4
 
 4:                                                ; preds = %2
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %3) #36
   unreachable
 
-thread_sched_lock_.exit:                          ; preds = %2
+thread_sched_lock_.argprom.exit:                  ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 40
@@ -16786,19 +16786,19 @@ thread_sched_lock_.exit:                          ; preds = %2
   %11 = add i32 %10, -1
   store i32 %11, ptr %9, align 8
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %native_thread_dedicated_dec.exit.i
+  br i1 %12, label %13, label %native_thread_dedicated_dec.argprom.exit.i
 
-13:                                               ; preds = %thread_sched_lock_.exit
+13:                                               ; preds = %thread_sched_lock_.argprom.exit
   %14 = getelementptr inbounds i8, ptr %6, i64 160
   %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %14) #19
   %.not.i.i.i.i = icmp eq i32 %15, 0
-  br i1 %.not.i.i.i.i, label %ractor_sched_lock_.exit.i.i, label %16
+  br i1 %.not.i.i.i.i, label %ractor_sched_lock_.argprom.exit.i.i, label %16
 
 16:                                               ; preds = %13
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %15) #36
   unreachable
 
-ractor_sched_lock_.exit.i.i:                      ; preds = %13
+ractor_sched_lock_.argprom.exit.i.i:              ; preds = %13
   %17 = getelementptr inbounds i8, ptr %8, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 264
@@ -16812,39 +16812,39 @@ ractor_sched_lock_.exit.i.i:                      ; preds = %13
   store i32 %25, ptr %23, align 4
   %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #19
   %.not.i.i8.i.i = icmp eq i32 %26, 0
-  br i1 %.not.i.i8.i.i, label %native_thread_dedicated_dec.exit.i, label %27
+  br i1 %.not.i.i8.i.i, label %native_thread_dedicated_dec.argprom.exit.i, label %27
 
-27:                                               ; preds = %ractor_sched_lock_.exit.i.i
+27:                                               ; preds = %ractor_sched_lock_.argprom.exit.i.i
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %26) #36
   unreachable
 
-native_thread_dedicated_dec.exit.i:               ; preds = %ractor_sched_lock_.exit.i.i, %thread_sched_lock_.exit
+native_thread_dedicated_dec.argprom.exit.i:       ; preds = %ractor_sched_lock_.argprom.exit.i.i, %thread_sched_lock_.argprom.exit
   tail call fastcc void @thread_sched_to_ready_common(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %28 = getelementptr inbounds i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %1
   br i1 %30, label %31, label %thread_sched_to_running_common.exit
 
-31:                                               ; preds = %native_thread_dedicated_dec.exit.i
+31:                                               ; preds = %native_thread_dedicated_dec.argprom.exit.i
   %32 = load ptr, ptr %5, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8
   %.not.i.i6 = icmp eq ptr %34, %33
   %35 = select i1 %.not.i.i6, ptr null, ptr %1
-  tail call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %0, ptr noundef %32, ptr noundef nonnull %1, ptr noundef null, ptr noundef %35)
+  tail call fastcc void @thread_sched_setup_running_threads.argprom(ptr noundef nonnull %0, ptr noundef %32, ptr noundef nonnull %1, ptr noundef null, ptr noundef %35)
   br label %thread_sched_to_running_common.exit
 
-thread_sched_to_running_common.exit:              ; preds = %native_thread_dedicated_dec.exit.i, %31
+thread_sched_to_running_common.exit:              ; preds = %native_thread_dedicated_dec.argprom.exit.i, %31
   tail call fastcc void @thread_sched_wait_running_turn(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext false)
   %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #19
   %.not.i.i7 = icmp eq i32 %36, 0
-  br i1 %.not.i.i7, label %thread_sched_unlock_.exit, label %37
+  br i1 %.not.i.i7, label %thread_sched_unlock_.argprom.exit, label %37
 
 37:                                               ; preds = %thread_sched_to_running_common.exit
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %36) #36
   unreachable
 
-thread_sched_unlock_.exit:                        ; preds = %thread_sched_to_running_common.exit
+thread_sched_unlock_.argprom.exit:                ; preds = %thread_sched_to_running_common.exit
   ret void
 }
 
@@ -16921,19 +16921,19 @@ rb_thread_execute_hooks.exit:                     ; preds = %.loopexit.i
   %32 = getelementptr inbounds i8, ptr %31, i64 104
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %native_thread_dedicated_inc.exit
+  br i1 %34, label %35, label %native_thread_dedicated_inc.argprom.exit
 
 35:                                               ; preds = %27
   %36 = getelementptr inbounds i8, ptr %29, i64 160
   %37 = call i32 @pthread_mutex_lock(ptr noundef nonnull %36) #19
   %.not.i.i.i = icmp eq i32 %37, 0
-  br i1 %.not.i.i.i, label %ractor_sched_lock_.exit.i, label %38
+  br i1 %.not.i.i.i, label %ractor_sched_lock_.argprom.exit.i, label %38
 
 38:                                               ; preds = %35
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %37) #36
   unreachable
 
-ractor_sched_lock_.exit.i:                        ; preds = %35
+ractor_sched_lock_.argprom.exit.i:                ; preds = %35
   %39 = getelementptr inbounds i8, ptr %29, i64 264
   %40 = load i32, ptr %39, align 8
   %41 = add i32 %40, -1
@@ -16944,18 +16944,18 @@ ractor_sched_lock_.exit.i:                        ; preds = %35
   store i32 %44, ptr %42, align 4
   %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #19
   %.not.i.i8.i = icmp eq i32 %45, 0
-  br i1 %.not.i.i8.i, label %ractor_sched_lock_.exit.ractor_sched_unlock_.exit_crit_edge.i, label %46
+  br i1 %.not.i.i8.i, label %ractor_sched_lock_.argprom.exit.ractor_sched_unlock_.argprom.exit_crit_edge.i, label %46
 
-ractor_sched_lock_.exit.ractor_sched_unlock_.exit_crit_edge.i: ; preds = %ractor_sched_lock_.exit.i
+ractor_sched_lock_.argprom.exit.ractor_sched_unlock_.argprom.exit_crit_edge.i: ; preds = %ractor_sched_lock_.argprom.exit.i
   %.pre.i = load i32, ptr %32, align 8
-  br label %native_thread_dedicated_inc.exit
+  br label %native_thread_dedicated_inc.argprom.exit
 
-46:                                               ; preds = %ractor_sched_lock_.exit.i
+46:                                               ; preds = %ractor_sched_lock_.argprom.exit.i
   call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %45) #36
   unreachable
 
-native_thread_dedicated_inc.exit:                 ; preds = %27, %ractor_sched_lock_.exit.ractor_sched_unlock_.exit_crit_edge.i
-  %47 = phi i32 [ %.pre.i, %ractor_sched_lock_.exit.ractor_sched_unlock_.exit_crit_edge.i ], [ %33, %27 ]
+native_thread_dedicated_inc.argprom.exit:         ; preds = %27, %ractor_sched_lock_.argprom.exit.ractor_sched_unlock_.argprom.exit_crit_edge.i
+  %47 = phi i32 [ %.pre.i, %ractor_sched_lock_.argprom.exit.ractor_sched_unlock_.argprom.exit_crit_edge.i ], [ %33, %27 ]
   %48 = add i32 %47, 1
   store i32 %48, ptr %32, align 8
   br label %52
@@ -16968,8 +16968,8 @@ native_thread_dedicated_inc.exit:                 ; preds = %27, %ractor_sched_l
   %51 = icmp slt i32 %.val.val, 1
   br label %52
 
-52:                                               ; preds = %native_thread_dedicated_inc.exit, %.critedge
-  %53 = phi i1 [ %51, %.critedge ], [ false, %native_thread_dedicated_inc.exit ]
+52:                                               ; preds = %native_thread_dedicated_inc.argprom.exit, %.critedge
+  %53 = phi i1 [ %51, %.critedge ], [ false, %native_thread_dedicated_inc.argprom.exit ]
   %54 = getelementptr inbounds i8, ptr %0, i64 56
   %55 = load ptr, ptr %54, align 8
   %.not.i.i = icmp eq ptr %55, %54
@@ -16978,7 +16978,7 @@ native_thread_dedicated_inc.exit:                 ; preds = %27, %ractor_sched_l
 thread_sched_deq.exit.i.thread:                   ; preds = %52
   %56 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %56, align 8
-  call fastcc void @thread_sched_wakeup_running_thread(ptr noundef null, i1 noundef zeroext %53)
+  call fastcc void @thread_sched_wakeup_running_thread.argprom(ptr noundef null, i1 noundef zeroext %53)
   br label %67
 
 thread_sched_deq.exit.i:                          ; preds = %52
@@ -16998,14 +16998,14 @@ thread_sched_deq.exit.i:                          ; preds = %52
   store ptr %55, ptr %55, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %62, ptr %66, align 8
-  call fastcc void @thread_sched_wakeup_running_thread(ptr noundef %62, i1 noundef zeroext %53)
+  call fastcc void @thread_sched_wakeup_running_thread.argprom(ptr noundef %62, i1 noundef zeroext %53)
   %.not.i9 = icmp eq ptr %1, %62
   br i1 %.not.i9, label %thread_sched_wakeup_next_thread.exit, label %67
 
 67:                                               ; preds = %thread_sched_deq.exit.i.thread, %thread_sched_deq.exit.i
   %68 = getelementptr inbounds i8, ptr %1, i64 32
   %69 = load ptr, ptr %68, align 8
-  call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %0, ptr noundef %69, ptr noundef null, ptr noundef nonnull %1, ptr noundef null)
+  call fastcc void @thread_sched_setup_running_threads.argprom(ptr noundef nonnull %0, ptr noundef %69, ptr noundef null, ptr noundef nonnull %1, ptr noundef null)
   br label %thread_sched_wakeup_next_thread.exit
 
 thread_sched_wakeup_next_thread.exit:             ; preds = %thread_sched_deq.exit.i, %67
@@ -17274,33 +17274,33 @@ define internal void @ubf_event_waiting(ptr noundef %0) #0 {
   %6 = tail call fastcc zeroext i1 @timer_thread_cancel_waiting(ptr noundef %0)
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #19
   %.not.i.i = icmp eq i32 %7, 0
-  br i1 %.not.i.i, label %thread_sched_lock_.exit, label %8
+  br i1 %.not.i.i, label %thread_sched_lock_.argprom.exit, label %8
 
 8:                                                ; preds = %1
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %7) #36
   unreachable
 
-thread_sched_lock_.exit:                          ; preds = %1
+thread_sched_lock_.argprom.exit:                  ; preds = %1
   %9 = getelementptr inbounds i8, ptr %3, i64 328
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %10, %0
   %brmerge.not = and i1 %6, %11
   br i1 %brmerge.not, label %12, label %13
 
-12:                                               ; preds = %thread_sched_lock_.exit
+12:                                               ; preds = %thread_sched_lock_.argprom.exit
   tail call fastcc void @thread_sched_to_ready_common(ptr noundef nonnull %4, ptr noundef nonnull %0, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %13
 
-13:                                               ; preds = %thread_sched_lock_.exit, %12
+13:                                               ; preds = %thread_sched_lock_.argprom.exit, %12
   %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #19
   %.not.i.i13 = icmp eq i32 %14, 0
-  br i1 %.not.i.i13, label %thread_sched_unlock_.exit, label %15
+  br i1 %.not.i.i13, label %thread_sched_unlock_.argprom.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %14) #36
   unreachable
 
-thread_sched_unlock_.exit:                        ; preds = %13
+thread_sched_unlock_.argprom.exit:                ; preds = %13
   ret void
 }
 
@@ -17339,7 +17339,7 @@ rb_native_mutex_lock.exit:                        ; preds = %4
   %15 = load i32, ptr %2, align 8
   %16 = and i32 %15, 10
   %.not9 = icmp eq i32 %16, 0
-  br i1 %.not9, label %timer_thread_unregister_waiting.exit, label %17
+  br i1 %.not9, label %timer_thread_unregister_waiting.argprom.exit, label %17
 
 17:                                               ; preds = %8
   %18 = getelementptr inbounds i8, ptr %0, i64 152
@@ -17347,13 +17347,13 @@ rb_native_mutex_lock.exit:                        ; preds = %4
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 24), align 8
   %21 = tail call i32 @epoll_ctl(i32 noundef %20, i32 noundef 2, i32 noundef %19, ptr noundef null) #19
   %22 = icmp eq i32 %21, -1
-  br i1 %22, label %23, label %timer_thread_unregister_waiting.exit
+  br i1 %22, label %23, label %timer_thread_unregister_waiting.argprom.exit
 
 23:                                               ; preds = %17
   %24 = tail call ptr @rb_errno_ptr() #19
   %25 = load i32, ptr %24, align 4
   %cond.i = icmp eq i32 %25, 9
-  br i1 %cond.i, label %timer_thread_unregister_waiting.exit, label %26
+  br i1 %cond.i, label %timer_thread_unregister_waiting.argprom.exit, label %26
 
 26:                                               ; preds = %23
   tail call void @perror(ptr noundef nonnull @.str.166) #48
@@ -17362,11 +17362,11 @@ rb_native_mutex_lock.exit:                        ; preds = %4
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.173, i32 noundef %28) #45
   unreachable
 
-timer_thread_unregister_waiting.exit:             ; preds = %23, %17, %8
+timer_thread_unregister_waiting.argprom.exit:     ; preds = %23, %17, %8
   store i32 0, ptr %2, align 8
   br label %29
 
-29:                                               ; preds = %timer_thread_unregister_waiting.exit, %rb_native_mutex_lock.exit
+29:                                               ; preds = %timer_thread_unregister_waiting.argprom.exit, %rb_native_mutex_lock.exit
   %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i10 = icmp eq i32 %30, 0
   br i1 %.not.i10, label %rb_native_mutex_unlock.exit, label %31
@@ -17393,19 +17393,19 @@ define internal fastcc void @timer_thread_wakeup() unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %2, i64 160
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
   %.not.i.i = icmp eq i32 %4, 0
-  br i1 %.not.i.i, label %ractor_sched_lock_.exit, label %5
+  br i1 %.not.i.i, label %ractor_sched_lock_.argprom.exit, label %5
 
 5:                                                ; preds = %0
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %4) #36
   unreachable
 
-ractor_sched_lock_.exit:                          ; preds = %0
+ractor_sched_lock_.argprom.exit:                  ; preds = %0
   %6 = load i64, ptr @timer_th, align 8
   %7 = load i64, ptr @current_fork_gen, align 8
   %8 = icmp eq i64 %6, %7
   br i1 %8, label %9, label %timer_thread_wakeup_locked.exit
 
-9:                                                ; preds = %ractor_sched_lock_.exit
+9:                                                ; preds = %ractor_sched_lock_.argprom.exit
   %10 = getelementptr inbounds i8, ptr %2, i64 352
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
@@ -17439,16 +17439,16 @@ timer_thread_wakeup_force.exit.i:                 ; preds = %18, %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   br label %timer_thread_wakeup_locked.exit
 
-timer_thread_wakeup_locked.exit:                  ; preds = %ractor_sched_lock_.exit, %9, %timer_thread_wakeup_force.exit.i
+timer_thread_wakeup_locked.exit:                  ; preds = %ractor_sched_lock_.argprom.exit, %9, %timer_thread_wakeup_force.exit.i
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
   %.not.i.i3 = icmp eq i32 %22, 0
-  br i1 %.not.i.i3, label %ractor_sched_unlock_.exit, label %23
+  br i1 %.not.i.i3, label %ractor_sched_unlock_.argprom.exit, label %23
 
 23:                                               ; preds = %timer_thread_wakeup_locked.exit
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %22) #36
   unreachable
 
-ractor_sched_unlock_.exit:                        ; preds = %timer_thread_wakeup_locked.exit
+ractor_sched_unlock_.argprom.exit:                ; preds = %timer_thread_wakeup_locked.exit
   ret void
 }
 
@@ -17463,32 +17463,32 @@ define internal void @ubf_waiting(ptr noundef %0) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #19
   %.not.i.i = icmp eq i32 %6, 0
-  br i1 %.not.i.i, label %thread_sched_lock_.exit, label %7
+  br i1 %.not.i.i, label %thread_sched_lock_.argprom.exit, label %7
 
 7:                                                ; preds = %1
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %6) #36
   unreachable
 
-thread_sched_lock_.exit:                          ; preds = %1
+thread_sched_lock_.argprom.exit:                  ; preds = %1
   %8 = getelementptr inbounds i8, ptr %3, i64 328
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
   br i1 %10, label %12, label %11
 
-11:                                               ; preds = %thread_sched_lock_.exit
+11:                                               ; preds = %thread_sched_lock_.argprom.exit
   tail call fastcc void @thread_sched_to_ready_common(ptr noundef nonnull %4, ptr noundef nonnull %0, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %12
 
-12:                                               ; preds = %thread_sched_lock_.exit, %11
+12:                                               ; preds = %thread_sched_lock_.argprom.exit, %11
   %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #19
   %.not.i.i12 = icmp eq i32 %13, 0
-  br i1 %.not.i.i12, label %thread_sched_unlock_.exit, label %14
+  br i1 %.not.i.i12, label %thread_sched_unlock_.argprom.exit, label %14
 
 14:                                               ; preds = %12
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %13) #36
   unreachable
 
-thread_sched_unlock_.exit:                        ; preds = %12
+thread_sched_unlock_.argprom.exit:                ; preds = %12
   ret void
 }
 
@@ -17707,57 +17707,57 @@ ruby_thread_set_native.exit:                      ; preds = %.thread, %34
   store ptr %26, ptr %37, align 8
   %38 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %29) #19
   %.not.i.i = icmp eq i32 %38, 0
-  br i1 %.not.i.i, label %thread_sched_lock_.exit, label %39
+  br i1 %.not.i.i, label %thread_sched_lock_.argprom.exit, label %39
 
 39:                                               ; preds = %ruby_thread_set_native.exit
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %38) #36
   unreachable
 
-thread_sched_lock_.exit:                          ; preds = %ruby_thread_set_native.exit
+thread_sched_lock_.argprom.exit:                  ; preds = %ruby_thread_set_native.exit
   %40 = getelementptr inbounds i8, ptr %28, i64 328
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, %26
   br i1 %42, label %43, label %49
 
-43:                                               ; preds = %thread_sched_lock_.exit
+43:                                               ; preds = %thread_sched_lock_.argprom.exit
   %44 = getelementptr inbounds i8, ptr %26, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %28, i64 344
   %47 = load ptr, ptr %46, align 8
   %.not.i38 = icmp eq ptr %47, %46
   %48 = select i1 %.not.i38, ptr null, ptr %26
-  tail call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %29, ptr noundef %45, ptr noundef nonnull %26, ptr noundef null, ptr noundef %48)
+  tail call fastcc void @thread_sched_setup_running_threads.argprom(ptr noundef nonnull %29, ptr noundef %45, ptr noundef nonnull %26, ptr noundef null, ptr noundef %48)
   br label %49
 
-49:                                               ; preds = %43, %thread_sched_lock_.exit
+49:                                               ; preds = %43, %thread_sched_lock_.argprom.exit
   tail call fastcc void @thread_sched_wait_running_turn(ptr noundef nonnull %29, ptr noundef nonnull %26, i1 noundef zeroext false)
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %29) #19
   %.not.i.i39 = icmp eq i32 %50, 0
-  br i1 %.not.i.i39, label %thread_sched_unlock_.exit, label %51
+  br i1 %.not.i.i39, label %thread_sched_unlock_.argprom.exit, label %51
 
 51:                                               ; preds = %49
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %50) #36
   unreachable
 
-thread_sched_unlock_.exit:                        ; preds = %49
+thread_sched_unlock_.argprom.exit:                ; preds = %49
   tail call fastcc void @call_thread_start_func_2(ptr noundef nonnull %26)
   br label %.loopexit
 
-.critedge:                                        ; preds = %.critedge.preheader, %thread_sched_unlock_.exit44
+.critedge:                                        ; preds = %.critedge.preheader, %thread_sched_unlock_.argprom.exit44
   %52 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #19
   %.not.i.i.i = icmp eq i32 %52, 0
-  br i1 %.not.i.i.i, label %ractor_sched_lock_.exit.i, label %53
+  br i1 %.not.i.i.i, label %ractor_sched_lock_.argprom.exit.i, label %53
 
 53:                                               ; preds = %.critedge
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %52) #36
   unreachable
 
-ractor_sched_lock_.exit.i:                        ; preds = %.critedge, %ccan_list_pop_.exit.thread.i
+ractor_sched_lock_.argprom.exit.i:                ; preds = %.critedge, %ccan_list_pop_.exit.thread.i
   %54 = load ptr, ptr %19, align 8
   %.not.i.i40 = icmp eq ptr %54, %19
   br i1 %.not.i.i40, label %ccan_list_pop_.exit.thread.i, label %ccan_list_pop_.exit.i
 
-ccan_list_pop_.exit.i:                            ; preds = %ractor_sched_lock_.exit.i
+ccan_list_pop_.exit.i:                            ; preds = %ractor_sched_lock_.argprom.exit.i
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %54, align 8
@@ -17769,10 +17769,10 @@ ccan_list_pop_.exit.i:                            ; preds = %ractor_sched_lock_.
   %61 = icmp eq ptr %60, null
   br i1 %61, label %ccan_list_pop_.exit.thread.i, label %64
 
-ccan_list_pop_.exit.thread.i:                     ; preds = %ccan_list_pop_.exit.i, %ractor_sched_lock_.exit.i
+ccan_list_pop_.exit.thread.i:                     ; preds = %ccan_list_pop_.exit.i, %ractor_sched_lock_.argprom.exit.i
   %62 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %20, ptr noundef nonnull %18) #19
   %.not.i14.i = icmp eq i32 %62, 0
-  br i1 %.not.i14.i, label %ractor_sched_lock_.exit.i, label %63, !llvm.loop !65
+  br i1 %.not.i14.i, label %ractor_sched_lock_.argprom.exit.i, label %63, !llvm.loop !65
 
 63:                                               ; preds = %ccan_list_pop_.exit.thread.i
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.14, i32 noundef %62) #36
@@ -17784,29 +17784,29 @@ ccan_list_pop_.exit.thread.i:                     ; preds = %ccan_list_pop_.exit
   store i32 %66, ptr %21, align 8
   %67 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #19
   %.not.i.i15.i = icmp eq i32 %67, 0
-  br i1 %.not.i.i15.i, label %ractor_sched_deq.exit, label %68
+  br i1 %.not.i.i15.i, label %ractor_sched_deq.argprom.exit, label %68
 
 68:                                               ; preds = %64
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %67) #36
   unreachable
 
-ractor_sched_deq.exit:                            ; preds = %64
+ractor_sched_deq.argprom.exit:                    ; preds = %64
   %69 = getelementptr i8, ptr %54, i64 -80
   %70 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %69) #19
   %.not.i.i41 = icmp eq i32 %70, 0
-  br i1 %.not.i.i41, label %thread_sched_lock_.exit42, label %71
+  br i1 %.not.i.i41, label %thread_sched_lock_.argprom.exit42, label %71
 
-71:                                               ; preds = %ractor_sched_deq.exit
+71:                                               ; preds = %ractor_sched_deq.argprom.exit
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %70) #36
   unreachable
 
-thread_sched_lock_.exit42:                        ; preds = %ractor_sched_deq.exit
+thread_sched_lock_.argprom.exit42:                ; preds = %ractor_sched_deq.argprom.exit
   %72 = getelementptr i8, ptr %54, i64 -40
   %73 = load ptr, ptr %72, align 8
   %.not36 = icmp eq ptr %73, null
   br i1 %.not36, label %91, label %74
 
-74:                                               ; preds = %thread_sched_lock_.exit42
+74:                                               ; preds = %thread_sched_lock_.argprom.exit42
   %75 = getelementptr inbounds i8, ptr %73, i64 40
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
@@ -17839,21 +17839,21 @@ thread_sched_switch0.exit:                        ; preds = %78, %84
   %90 = tail call ptr @coroutine_transfer(ptr noundef %79, ptr noundef %89) #19
   br label %91
 
-91:                                               ; preds = %thread_sched_lock_.exit42, %74, %thread_sched_switch0.exit
+91:                                               ; preds = %thread_sched_lock_.argprom.exit42, %74, %thread_sched_switch0.exit
   %92 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %69) #19
   %.not.i.i43 = icmp eq i32 %92, 0
-  br i1 %.not.i.i43, label %thread_sched_unlock_.exit44, label %93
+  br i1 %.not.i.i43, label %thread_sched_unlock_.argprom.exit44, label %93
 
 93:                                               ; preds = %91
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %92) #36
   unreachable
 
-thread_sched_unlock_.exit44:                      ; preds = %91
+thread_sched_unlock_.argprom.exit44:              ; preds = %91
   %94 = load i32, ptr %12, align 8
   %.not37 = icmp eq i32 %94, 0
   br i1 %.not37, label %.critedge, label %.loopexit
 
-.loopexit:                                        ; preds = %thread_sched_unlock_.exit44, %thread_sched_unlock_.exit
+.loopexit:                                        ; preds = %thread_sched_unlock_.argprom.exit44, %thread_sched_unlock_.argprom.exit
   ret ptr null
 }
 
@@ -17869,7 +17869,7 @@ define internal fastcc void @call_thread_start_func_2(ptr noundef %0) unnamed_ad
   %9 = alloca %struct.rb_vm_tag, align 8
   %10 = alloca i64, align 8
   store i64 0, ptr %10, align 8
-  call fastcc void @native_thread_init_stack(ptr noundef %0, ptr noundef nonnull %10)
+  call fastcc void @native_thread_init_stack.retelim(ptr noundef %0, ptr noundef nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
@@ -17881,19 +17881,19 @@ define internal fastcc void @call_thread_start_func_2(ptr noundef %0) unnamed_ad
   %15 = getelementptr i8, ptr %12, i64 424
   %.val104.i = load i32, ptr %15, align 8
   %16 = icmp eq i32 %.val104.i, 2
-  br i1 %16, label %17, label %rb_vm_unlock.exit.i
+  br i1 %16, label %17, label %rb_vm_unlock.argprom.exit.i
 
 17:                                               ; preds = %1
   %18 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i.i, label %19, label %rb_vm_lock.exit.i
+  br i1 %.not.i.i.i, label %19, label %rb_vm_lock.argprom.exit.i
 
 19:                                               ; preds = %17
   call void @rb_vm_lock_body() #19
   %.pre.i = load ptr, ptr %11, align 8
-  br label %rb_vm_lock.exit.i
+  br label %rb_vm_lock.argprom.exit.i
 
-rb_vm_lock.exit.i:                                ; preds = %19, %17
+rb_vm_lock.argprom.exit.i:                        ; preds = %19, %17
   %20 = phi ptr [ %12, %17 ], [ %.pre.i, %19 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -17910,13 +17910,13 @@ rb_vm_lock.exit.i:                                ; preds = %19, %17
   store i64 %28, ptr %29, align 8
   %30 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i105.i = icmp eq ptr %30, null
-  br i1 %.not.i.i105.i, label %31, label %rb_vm_unlock.exit.i
+  br i1 %.not.i.i105.i, label %31, label %rb_vm_unlock.argprom.exit.i
 
-31:                                               ; preds = %rb_vm_lock.exit.i
+31:                                               ; preds = %rb_vm_lock.argprom.exit.i
   call void @rb_vm_unlock_body() #19
-  br label %rb_vm_unlock.exit.i
+  br label %rb_vm_unlock.argprom.exit.i
 
-rb_vm_unlock.exit.i:                              ; preds = %31, %rb_vm_lock.exit.i, %1
+rb_vm_unlock.argprom.exit.i:                      ; preds = %31, %rb_vm_lock.argprom.exit.i, %1
   %32 = getelementptr inbounds i8, ptr %0, i64 48
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %8, align 8
@@ -17930,31 +17930,31 @@ rb_vm_unlock.exit.i:                              ; preds = %31, %rb_vm_lock.exi
   %38 = getelementptr i8, ptr %33, i64 48
   %.0.8.val.i = load ptr, ptr %38, align 8
   %.not.i.i106.i = icmp eq ptr %.0.8.val.i, null
-  br i1 %.not.i.i106.i, label %rb_ec_ractor_ptr.exit.i.i, label %39
+  br i1 %.not.i.i106.i, label %rb_ec_ractor_ptr.argprom.exit.i.i, label %39
 
-39:                                               ; preds = %rb_vm_unlock.exit.i
+39:                                               ; preds = %rb_vm_unlock.argprom.exit.i
   %40 = getelementptr inbounds i8, ptr %.0.8.val.i, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 88
   %43 = getelementptr inbounds i8, ptr %.0.8.val.i, i64 24
   %44 = load ptr, ptr %43, align 8
-  br label %rb_ec_ractor_ptr.exit.i.i
+  br label %rb_ec_ractor_ptr.argprom.exit.i.i
 
-rb_ec_ractor_ptr.exit.i.i:                        ; preds = %39, %rb_vm_unlock.exit.i
-  %.in.i.i = phi ptr [ %42, %39 ], [ inttoptr (i64 88 to ptr), %rb_vm_unlock.exit.i ]
-  %.0.i2.i.i = phi ptr [ %41, %39 ], [ null, %rb_vm_unlock.exit.i ]
-  %.0.i6.i.i = phi ptr [ %44, %39 ], [ null, %rb_vm_unlock.exit.i ]
+rb_ec_ractor_ptr.argprom.exit.i.i:                ; preds = %39, %rb_vm_unlock.argprom.exit.i
+  %.in.i.i = phi ptr [ %42, %39 ], [ inttoptr (i64 88 to ptr), %rb_vm_unlock.argprom.exit.i ]
+  %.0.i2.i.i = phi ptr [ %41, %39 ], [ null, %rb_vm_unlock.argprom.exit.i ]
+  %.0.i6.i.i = phi ptr [ %44, %39 ], [ null, %rb_vm_unlock.argprom.exit.i ]
   %45 = load ptr, ptr %.in.i.i, align 8
   %.not.i.i = icmp eq ptr %45, %.0.i6.i.i
-  br i1 %.not.i.i, label %46, label %rb_ec_vm_lock_rec.exit.i
+  br i1 %.not.i.i, label %46, label %rb_ec_vm_lock_rec.argprom.exit.i
 
-46:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i
+46:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i.i
   %47 = getelementptr inbounds i8, ptr %.0.i2.i.i, i64 96
   %48 = load i32, ptr %47, align 8
-  br label %rb_ec_vm_lock_rec.exit.i
+  br label %rb_ec_vm_lock_rec.argprom.exit.i
 
-rb_ec_vm_lock_rec.exit.i:                         ; preds = %46, %rb_ec_ractor_ptr.exit.i.i
-  %.0.i.i = phi i32 [ %48, %46 ], [ 0, %rb_ec_ractor_ptr.exit.i.i ]
+rb_ec_vm_lock_rec.argprom.exit.i:                 ; preds = %46, %rb_ec_ractor_ptr.argprom.exit.i.i
+  %.0.i.i = phi i32 [ %48, %46 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i.i ]
   %49 = getelementptr inbounds i8, ptr %9, i64 68
   store i32 %.0.i.i, ptr %49, align 4
   %50 = getelementptr inbounds i8, ptr %9, i64 16
@@ -17965,9 +17965,9 @@ rb_ec_vm_lock_rec.exit.i:                         ; preds = %46, %rb_ec_ractor_p
   store ptr %52, ptr %53, align 8
   %54 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %50)
   %.not.i = icmp eq i32 %54, 0
-  br i1 %.not.i, label %rb_ec_ractor_hooks.exit.i, label %55
+  br i1 %.not.i, label %rb_ec_ractor_hooks.argprom.exit.i, label %55
 
-55:                                               ; preds = %rb_ec_vm_lock_rec.exit.i
+55:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit.i
   %.0..0..0..0..0..0.9.i = load volatile ptr, ptr %8, align 8
   %56 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.9.i, i64 24
   %57 = load ptr, ptr %56, align 8
@@ -17979,7 +17979,7 @@ rb_ec_vm_lock_rec.exit.i:                         ; preds = %46, %rb_ec_ractor_p
   %62 = getelementptr i8, ptr %.0..0..0..0..0..0.9.i, i64 48
   %.val.i.i.i = load ptr, ptr %62, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %rb_ec_ractor_ptr.exit.i.i.i.i, label %63
+  br i1 %.not.i.i.i.i.i, label %rb_ec_ractor_ptr.argprom.exit.i.i.i.i, label %63
 
 63:                                               ; preds = %55
   %64 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 32
@@ -17987,36 +17987,36 @@ rb_ec_vm_lock_rec.exit.i:                         ; preds = %46, %rb_ec_ractor_p
   %66 = getelementptr inbounds i8, ptr %65, i64 88
   %67 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
   %68 = load ptr, ptr %67, align 8
-  br label %rb_ec_ractor_ptr.exit.i.i.i.i
+  br label %rb_ec_ractor_ptr.argprom.exit.i.i.i.i
 
-rb_ec_ractor_ptr.exit.i.i.i.i:                    ; preds = %63, %55
+rb_ec_ractor_ptr.argprom.exit.i.i.i.i:            ; preds = %63, %55
   %.in.i.i.i.i = phi ptr [ %66, %63 ], [ inttoptr (i64 88 to ptr), %55 ]
   %.0.i2.i.i.i.i = phi ptr [ %65, %63 ], [ null, %55 ]
   %.0.i6.i.i.i.i = phi ptr [ %68, %63 ], [ null, %55 ]
   %69 = load ptr, ptr %.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %69, %.0.i6.i.i.i.i
-  br i1 %.not.i.i.i.i, label %70, label %rb_ec_vm_lock_rec.exit.i.i.i
+  br i1 %.not.i.i.i.i, label %70, label %rb_ec_vm_lock_rec.argprom.exit.i.i.i
 
-70:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i.i.i
+70:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i.i.i.i
   %71 = getelementptr inbounds i8, ptr %.0.i2.i.i.i.i, i64 96
   %72 = load i32, ptr %71, align 8
-  br label %rb_ec_vm_lock_rec.exit.i.i.i
+  br label %rb_ec_vm_lock_rec.argprom.exit.i.i.i
 
-rb_ec_vm_lock_rec.exit.i.i.i:                     ; preds = %70, %rb_ec_ractor_ptr.exit.i.i.i.i
-  %.0.i.i.i.i = phi i32 [ %72, %70 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i.i ]
+rb_ec_vm_lock_rec.argprom.exit.i.i.i:             ; preds = %70, %rb_ec_ractor_ptr.argprom.exit.i.i.i.i
+  %.0.i.i.i.i = phi i32 [ %72, %70 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i.i.i.i ]
   %.not.i.i107.i = icmp eq i32 %.0.i.i.i.i, %61
   br i1 %.not.i.i107.i, label %74, label %73
 
-73:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i.i
+73:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit.i.i.i
   call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0..0..0.9.i, i32 noundef %61, i32 noundef %.0.i.i.i.i) #19
   br label %74
 
-74:                                               ; preds = %73, %rb_ec_vm_lock_rec.exit.i.i.i
+74:                                               ; preds = %73, %rb_ec_vm_lock_rec.argprom.exit.i.i.i
   %75 = icmp ne i32 %59, 0
   call void @llvm.assume(i1 %75)
   br label %thread_do_start.exit.i
 
-rb_ec_ractor_hooks.exit.i:                        ; preds = %rb_ec_vm_lock_rec.exit.i
+rb_ec_ractor_hooks.argprom.exit.i:                ; preds = %rb_ec_vm_lock_rec.argprom.exit.i
   %.0..0..0..0..0..0.10.i = load ptr, ptr %8, align 8
   %76 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.10.i, i64 24
   store ptr %9, ptr %76, align 8
@@ -18031,7 +18031,7 @@ rb_ec_ractor_hooks.exit.i:                        ; preds = %rb_ec_vm_lock_rec.e
   %.not96.i = icmp eq i32 %83, 0
   br i1 %.not96.i, label %97, label %84
 
-84:                                               ; preds = %rb_ec_ractor_hooks.exit.i
+84:                                               ; preds = %rb_ec_ractor_hooks.argprom.exit.i
   %85 = getelementptr inbounds i8, ptr %80, i64 16
   %86 = getelementptr inbounds i8, ptr %0, i64 16
   %87 = load i64, ptr %86, align 8
@@ -18057,7 +18057,7 @@ rb_ec_ractor_hooks.exit.i:                        ; preds = %rb_ec_vm_lock_rec.e
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
   br label %97
 
-97:                                               ; preds = %84, %rb_ec_ractor_hooks.exit.i
+97:                                               ; preds = %84, %rb_ec_ractor_hooks.argprom.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -18513,7 +18513,7 @@ rb_threadptr_unlock_all_locking_mutexes.exit.i:   ; preds = %287
   br i1 %320, label %321, label %.critedge.i
 
 321:                                              ; preds = %316
-  call fastcc void @rb_threadptr_raise(ptr noundef %14, i32 noundef 1, ptr noundef nonnull %7)
+  call fastcc void @rb_threadptr_raise.retelim(ptr noundef %14, i32 noundef 1, ptr noundef nonnull %7)
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %321, %316, %310
@@ -18623,16 +18623,16 @@ thread_cleanup_func.exit.i:                       ; preds = %rb_threadptr_interr
   call fastcc void @thread_sched_to_dead(ptr noundef nonnull %370, ptr noundef nonnull %0)
   %371 = load ptr, ptr %11, align 8
   call void @rb_ractor_living_threads_remove(ptr noundef %371, ptr noundef nonnull %0) #19
-  br label %thread_start_func_2.exit
+  br label %thread_start_func_2.argprom.exit
 
 372:                                              ; preds = %thread_cleanup_func.exit.i
   call void @rb_ractor_living_threads_remove(ptr noundef %368, ptr noundef nonnull %0) #19
   %373 = load ptr, ptr %11, align 8
   %374 = getelementptr inbounds i8, ptr %373, i64 288
   call fastcc void @thread_sched_to_dead(ptr noundef nonnull %374, ptr noundef nonnull %0)
-  br label %thread_start_func_2.exit
+  br label %thread_start_func_2.argprom.exit
 
-thread_start_func_2.exit:                         ; preds = %369, %372
+thread_start_func_2.argprom.exit:                 ; preds = %369, %372
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
@@ -18677,19 +18677,19 @@ define internal fastcc void @thread_sched_to_dead(ptr noundef %0, ptr noundef %1
   %3 = alloca %struct.rb_internal_thread_event_data, align 8
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #19
   %.not.i.i = icmp eq i32 %4, 0
-  br i1 %.not.i.i, label %thread_sched_lock_.exit, label %5
+  br i1 %.not.i.i, label %thread_sched_lock_.argprom.exit, label %5
 
 5:                                                ; preds = %2
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %4) #36
   unreachable
 
-thread_sched_lock_.exit:                          ; preds = %2
+thread_sched_lock_.argprom.exit:                  ; preds = %2
   tail call fastcc void @thread_sched_to_waiting_common0(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   %6 = load ptr, ptr @rb_internal_thread_event_hooks, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %thread_sched_to_dead_common.exit, label %7
 
-7:                                                ; preds = %thread_sched_lock_.exit
+7:                                                ; preds = %thread_sched_lock_.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %8 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not.i.i6 = icmp eq i32 %8, 0
@@ -18744,16 +18744,16 @@ rb_thread_execute_hooks.exit.i:                   ; preds = %.loopexit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %thread_sched_to_dead_common.exit
 
-thread_sched_to_dead_common.exit:                 ; preds = %thread_sched_lock_.exit, %rb_thread_execute_hooks.exit.i
+thread_sched_to_dead_common.exit:                 ; preds = %thread_sched_lock_.argprom.exit, %rb_thread_execute_hooks.exit.i
   %27 = call i32 @pthread_mutex_unlock(ptr noundef %0) #19
   %.not.i.i7 = icmp eq i32 %27, 0
-  br i1 %.not.i.i7, label %thread_sched_unlock_.exit, label %28
+  br i1 %.not.i.i7, label %thread_sched_unlock_.argprom.exit, label %28
 
 28:                                               ; preds = %thread_sched_to_dead_common.exit
   call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %27) #36
   unreachable
 
-thread_sched_unlock_.exit:                        ; preds = %thread_sched_to_dead_common.exit
+thread_sched_unlock_.argprom.exit:                ; preds = %thread_sched_to_dead_common.exit
   ret void
 }
 
@@ -18829,19 +18829,19 @@ rb_vm_proc_local_ep.exit:                         ; preds = %tailrecurse.i.i, %v
 33:                                               ; preds = %rb_vm_proc_local_ep.exit
   %34 = lshr i64 %31, 15
   %35 = and i64 %34, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
 36:                                               ; preds = %rb_vm_proc_local_ep.exit
   %37 = getelementptr inbounds i8, ptr %30, i64 16
   %38 = load i64, ptr %37, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %36, %33
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i: ; preds = %36, %33
   %.0.i.i.i = phi i64 [ %35, %33 ], [ %38, %36 ]
   %.not.i39 = icmp eq i64 %.0.i.i.i, 0
   br i1 %.not.i39, label %39, label %44
 
-39:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+39:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %40 = getelementptr i8, ptr %27, i64 32
   %.val7.i = load i32, ptr %40, align 8
   %41 = getelementptr i8, ptr %27, i64 36
@@ -18851,7 +18851,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %36, %33
   %.not9.i = icmp eq i32 %43, 0
   br i1 %.not9.i, label %vm_check_ints_blocking.exit, label %50
 
-44:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+44:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %45 = getelementptr inbounds i8, ptr %.val.i, i64 240
   %46 = load i8, ptr %45, align 8
   %47 = and i8 %46, -65
@@ -18905,19 +18905,19 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %55
 73:                                               ; preds = %rbimpl_size_mul_or_raise.exit
   %74 = lshr i64 %71, 15
   %75 = and i64 %74, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i44
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i44
 
 76:                                               ; preds = %rbimpl_size_mul_or_raise.exit
   %77 = getelementptr inbounds i8, ptr %70, i64 16
   %78 = load i64, ptr %77, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i44
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i44
 
-rb_threadptr_pending_interrupt_empty_p.exit.i44:  ; preds = %76, %73
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i44: ; preds = %76, %73
   %.0.i.i.i45 = phi i64 [ %75, %73 ], [ %78, %76 ]
   %.not.i46 = icmp eq i64 %.0.i.i.i45, 0
   br i1 %.not.i46, label %79, label %84
 
-79:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i44
+79:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i44
   %80 = getelementptr i8, ptr %67, i64 32
   %.val7.i48 = load i32, ptr %80, align 8
   %81 = getelementptr i8, ptr %67, i64 36
@@ -18927,7 +18927,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i44:  ; preds = %76, %73
   %.not9.i50 = icmp eq i32 %83, 0
   br i1 %.not9.i50, label %vm_check_ints_blocking.exit51, label %90
 
-84:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i44
+84:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i44
   %85 = getelementptr inbounds i8, ptr %.val.i41, i64 240
   %86 = load i8, ptr %85, align 8
   %87 = and i8 %86, -65
@@ -19044,19 +19044,19 @@ rb_array_const_ptr.exit59:                        ; preds = %125, %123, %ruby_no
 134:                                              ; preds = %rb_array_const_ptr.exit59
   %135 = lshr i64 %132, 15
   %136 = and i64 %135, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i63
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i63
 
 137:                                              ; preds = %rb_array_const_ptr.exit59
   %138 = getelementptr inbounds i8, ptr %131, i64 16
   %139 = load i64, ptr %138, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i63
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i63
 
-rb_threadptr_pending_interrupt_empty_p.exit.i63:  ; preds = %137, %134
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i63: ; preds = %137, %134
   %.0.i.i.i64 = phi i64 [ %136, %134 ], [ %139, %137 ]
   %.not.i65 = icmp eq i64 %.0.i.i.i64, 0
   br i1 %.not.i65, label %140, label %145
 
-140:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i63
+140:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i63
   %141 = getelementptr i8, ptr %128, i64 32
   %.val7.i67 = load i32, ptr %141, align 8
   %142 = getelementptr i8, ptr %128, i64 36
@@ -19066,7 +19066,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i63:  ; preds = %137, %134
   %.not9.i69 = icmp eq i32 %144, 0
   br i1 %.not9.i69, label %vm_check_ints_blocking.exit70, label %151
 
-145:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i63
+145:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i63
   %146 = getelementptr inbounds i8, ptr %.val.i60, i64 240
   %147 = load i8, ptr %146, align 8
   %148 = and i8 %147, -65
@@ -19135,21 +19135,21 @@ define internal void @co_start(ptr nocapture readnone %0, ptr noundef %1) #22 {
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, %11
   %13 = select i1 %.not.i, ptr null, ptr %5
-  tail call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %8, ptr noundef %10, ptr noundef %5, ptr noundef null, ptr noundef %13)
+  tail call fastcc void @thread_sched_setup_running_threads.argprom(ptr noundef nonnull %8, ptr noundef %10, ptr noundef %5, ptr noundef null, ptr noundef %13)
   %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #19
   %.not.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i.i, label %thread_sched_unlock_.exit, label %15
+  br i1 %.not.i.i, label %thread_sched_unlock_.argprom.exit, label %15
 
 15:                                               ; preds = %2
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %14) #36
   unreachable
 
-thread_sched_unlock_.exit:                        ; preds = %2
+thread_sched_unlock_.argprom.exit:                ; preds = %2
   %16 = load ptr, ptr @rb_internal_thread_event_hooks, align 8
   %.not33 = icmp eq ptr %16, null
   br i1 %.not33, label %37, label %17
 
-17:                                               ; preds = %thread_sched_unlock_.exit
+17:                                               ; preds = %thread_sched_unlock_.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %18 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @rb_internal_thread_event_hooks_rw_lock) #19
   %.not.i35 = icmp eq i32 %18, 0
@@ -19204,17 +19204,17 @@ rb_thread_execute_hooks.exit:                     ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %37
 
-37:                                               ; preds = %rb_thread_execute_hooks.exit, %thread_sched_unlock_.exit
+37:                                               ; preds = %rb_thread_execute_hooks.exit, %thread_sched_unlock_.argprom.exit
   call fastcc void @call_thread_start_func_2(ptr noundef %5)
   %38 = call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #19
   %.not.i.i36 = icmp eq i32 %38, 0
-  br i1 %.not.i.i36, label %thread_sched_lock_.exit, label %39
+  br i1 %.not.i.i36, label %thread_sched_lock_.argprom.exit, label %39
 
 39:                                               ; preds = %37
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %38) #36
   unreachable
 
-thread_sched_lock_.exit:                          ; preds = %37
+thread_sched_lock_.argprom.exit:                  ; preds = %37
   %40 = getelementptr inbounds i8, ptr %5, i64 40
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 104
@@ -19228,7 +19228,7 @@ thread_sched_lock_.exit:                          ; preds = %37
   store ptr null, ptr %46, align 8
   br i1 %43, label %47, label %52
 
-47:                                               ; preds = %thread_sched_lock_.exit
+47:                                               ; preds = %thread_sched_lock_.argprom.exit
   %48 = getelementptr inbounds i8, ptr %5, i64 176
   store i8 1, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %41, i64 96
@@ -19236,7 +19236,7 @@ thread_sched_lock_.exit:                          ; preds = %37
   %51 = call ptr @coroutine_transfer(ptr noundef %1, ptr noundef %50) #19
   br label %83
 
-52:                                               ; preds = %thread_sched_lock_.exit
+52:                                               ; preds = %thread_sched_lock_.argprom.exit
   %53 = load ptr, ptr %9, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 296
   %55 = load i32, ptr %54, align 8
@@ -19625,19 +19625,19 @@ sleep_forever.exit.us:                            ; preds = %41
 67:                                               ; preds = %sleep_forever.exit.us
   %68 = lshr i64 %65, 15
   %69 = and i64 %68, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i.us
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i.us
 
 70:                                               ; preds = %sleep_forever.exit.us
   %71 = getelementptr inbounds i8, ptr %64, i64 16
   %72 = load i64, ptr %71, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i.us
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i.us
 
-rb_threadptr_pending_interrupt_empty_p.exit.i.us: ; preds = %70, %67
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i.us: ; preds = %70, %67
   %.0.i.i.i32.us = phi i64 [ %69, %67 ], [ %72, %70 ]
   %.not.i33.us = icmp eq i64 %.0.i.i.i32.us, 0
   br i1 %.not.i33.us, label %79, label %73
 
-73:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i.us
+73:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i.us
   %74 = getelementptr inbounds i8, ptr %.val.i31.us, i64 240
   %75 = load i8, ptr %74, align 8
   %76 = and i8 %75, -65
@@ -19646,7 +19646,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i.us: ; preds = %70, %67
   %78 = atomicrmw volatile or ptr %77, i32 2 seq_cst, align 4
   br label %84
 
-79:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i.us
+79:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i.us
   %80 = getelementptr i8, ptr %61, i64 32
   %.val7.i.us = load i32, ptr %80, align 8
   %81 = getelementptr i8, ptr %61, i64 36
@@ -19759,19 +19759,19 @@ native_sleep.exit:                                ; preds = %121, %120
 131:                                              ; preds = %native_sleep.exit
   %132 = lshr i64 %129, 15
   %133 = and i64 %132, 127
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
 134:                                              ; preds = %native_sleep.exit
   %135 = getelementptr inbounds i8, ptr %128, i64 16
   %136 = load i64, ptr %135, align 8
-  br label %rb_threadptr_pending_interrupt_empty_p.exit.i
+  br label %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %134, %131
+rb_threadptr_pending_interrupt_empty_p.argprom.exit.i: ; preds = %134, %131
   %.0.i.i.i32 = phi i64 [ %133, %131 ], [ %136, %134 ]
   %.not.i33 = icmp eq i64 %.0.i.i.i32, 0
   br i1 %.not.i33, label %137, label %142
 
-137:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+137:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %138 = getelementptr i8, ptr %125, i64 32
   %.val7.i = load i32, ptr %138, align 8
   %139 = getelementptr i8, ptr %125, i64 36
@@ -19781,7 +19781,7 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %134, %131
   %.not9.i = icmp eq i32 %141, 0
   br i1 %.not9.i, label %vm_check_ints_blocking.exit, label %148
 
-142:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+142:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.argprom.exit.i
   %143 = getelementptr inbounds i8, ptr %.val.i31, i64 240
   %144 = load i8, ptr %143, align 8
   %145 = and i8 %144, -65
@@ -20013,19 +20013,19 @@ rb_native_mutex_lock.exit.i:                      ; preds = %rb_hrtime_now.exit.
   %66 = getelementptr inbounds i8, ptr %65, i64 288
   %67 = call i32 @pthread_mutex_lock(ptr noundef nonnull %66) #19
   %.not.i.i.i.i4 = icmp eq i32 %67, 0
-  br i1 %.not.i.i.i.i4, label %thread_sched_lock_.exit.i.i, label %68
+  br i1 %.not.i.i.i.i4, label %thread_sched_lock_.argprom.exit.i.i, label %68
 
 68:                                               ; preds = %57
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %67) #36
   unreachable
 
-thread_sched_lock_.exit.i.i:                      ; preds = %57
+thread_sched_lock_.argprom.exit.i.i:              ; preds = %57
   %69 = getelementptr inbounds i8, ptr %65, i64 328
   %70 = load ptr, ptr %69, align 8
   %.not.i3.i = icmp eq ptr %70, %46
   br i1 %.not.i3.i, label %thread_sched_to_ready_common.exit, label %71
 
-71:                                               ; preds = %thread_sched_lock_.exit.i.i
+71:                                               ; preds = %thread_sched_lock_.argprom.exit.i.i
   %72 = load ptr, ptr @rb_internal_thread_event_hooks, align 8
   %.not.i18 = icmp eq ptr %72, null
   br i1 %.not.i18, label %93, label %73
@@ -20126,13 +20126,13 @@ rb_thread_execute_hooks.exit.i:                   ; preds = %.loopexit.i.i
   %111 = getelementptr inbounds i8, ptr %109, i64 160
   %112 = call i32 @pthread_mutex_lock(ptr noundef nonnull %111) #19
   %.not.i.i.i.i22 = icmp eq i32 %112, 0
-  br i1 %.not.i.i.i.i22, label %ractor_sched_lock_.exit.i.i, label %113
+  br i1 %.not.i.i.i.i22, label %ractor_sched_lock_.argprom.exit.i.i, label %113
 
 113:                                              ; preds = %107
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %112) #36
   unreachable
 
-ractor_sched_lock_.exit.i.i:                      ; preds = %107
+ractor_sched_lock_.argprom.exit.i.i:              ; preds = %107
   %114 = getelementptr inbounds i8, ptr %109, i64 280
   %115 = getelementptr inbounds i8, ptr %110, i64 368
   store ptr %114, ptr %115, align 8
@@ -20149,7 +20149,7 @@ ractor_sched_lock_.exit.i.i:                      ; preds = %107
   %122 = getelementptr inbounds i8, ptr %109, i64 216
   br label %123
 
-123:                                              ; preds = %123, %ractor_sched_lock_.exit.i.i
+123:                                              ; preds = %123, %ractor_sched_lock_.argprom.exit.i.i
   %124 = call i32 @pthread_cond_signal(ptr noundef nonnull %122) #19
   switch i32 %124, label %125 [
     i32 11, label %123
@@ -20184,7 +20184,7 @@ rb_native_cond_signal.exit.i.i:                   ; preds = %123
 135:                                              ; preds = %132
   %136 = getelementptr i8, ptr %45, i64 -128
   %137 = load ptr, ptr %136, align 8
-  call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %66, ptr noundef %137, ptr noundef null, ptr noundef null, ptr noundef nonnull %94)
+  call fastcc void @thread_sched_setup_running_threads.argprom(ptr noundef nonnull %66, ptr noundef %137, ptr noundef null, ptr noundef null, ptr noundef nonnull %94)
   br label %thread_sched_enq.exit.i
 
 thread_sched_enq.exit.i:                          ; preds = %135, %132, %128
@@ -20203,7 +20203,7 @@ thread_sched_enq.exit.i:                          ; preds = %135, %132, %128
   store i32 %145, ptr %143, align 8
   br label %thread_sched_to_ready_common.exit
 
-thread_sched_to_ready_common.exit:                ; preds = %104, %thread_sched_enq.exit.i, %99, %rb_native_cond_signal.exit.i.i, %thread_sched_lock_.exit.i.i
+thread_sched_to_ready_common.exit:                ; preds = %104, %thread_sched_enq.exit.i, %99, %rb_native_cond_signal.exit.i.i, %thread_sched_lock_.argprom.exit.i.i
   %146 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %66) #19
   %.not.i.i9.i.i = icmp eq i32 %146, 0
   br i1 %.not.i.i9.i.i, label %rb_native_mutex_lock.exit.i, label %147, !llvm.loop !76
@@ -20215,18 +20215,18 @@ thread_sched_to_ready_common.exit:                ; preds = %104, %thread_sched_
 148:                                              ; preds = %51, %47, %rb_native_mutex_lock.exit.i
   %149 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i4.i = icmp eq i32 %149, 0
-  br i1 %.not.i4.i, label %timer_thread_check_timeout.exit, label %150
+  br i1 %.not.i4.i, label %timer_thread_check_timeout.argprom.exit, label %150
 
 150:                                              ; preds = %148
   call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %149) #36
   unreachable
 
-timer_thread_check_timeout.exit:                  ; preds = %148
+timer_thread_check_timeout.argprom.exit:          ; preds = %148
   %151 = load ptr, ptr @ubf_list_head, align 8
   %152 = icmp eq ptr %151, @ubf_list_head
   br i1 %152, label %ubf_wakeup_all_threads.exit, label %153
 
-153:                                              ; preds = %timer_thread_check_timeout.exit
+153:                                              ; preds = %timer_thread_check_timeout.argprom.exit
   %154 = call i32 @pthread_mutex_lock(ptr noundef nonnull @ubf_list_lock) #19
   %.not.i.i5 = icmp eq i32 %154, 0
   br i1 %.not.i.i5, label %rb_native_mutex_lock.exit.i6, label %155
@@ -20263,17 +20263,17 @@ rb_native_mutex_lock.exit.i6:                     ; preds = %153, %156
   call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %162) #36
   unreachable
 
-ubf_wakeup_all_threads.exit:                      ; preds = %timer_thread_check_timeout.exit, %161
+ubf_wakeup_all_threads.exit:                      ; preds = %timer_thread_check_timeout.argprom.exit, %161
   %164 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 24), align 8
   %165 = call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #19
   %.not.i.i.i.i.i = icmp eq i32 %165, 0
-  br i1 %.not.i.i.i.i.i, label %ractor_sched_lock_.exit.i.i.i, label %166
+  br i1 %.not.i.i.i.i.i, label %ractor_sched_lock_.argprom.exit.i.i.i, label %166
 
 166:                                              ; preds = %ubf_wakeup_all_threads.exit
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %165) #36
   unreachable
 
-ractor_sched_lock_.exit.i.i.i:                    ; preds = %ubf_wakeup_all_threads.exit
+ractor_sched_lock_.argprom.exit.i.i.i:            ; preds = %ubf_wakeup_all_threads.exit
   %167 = load ptr, ptr %11, align 8
   %168 = icmp eq ptr %167, %11
   %169 = load ptr, ptr @ubf_list_head, align 8
@@ -20281,31 +20281,31 @@ ractor_sched_lock_.exit.i.i.i:                    ; preds = %ubf_wakeup_all_thre
   %or.cond.i.i.i = select i1 %168, i1 %170, i1 false
   br i1 %or.cond.i.i.i, label %171, label %173
 
-171:                                              ; preds = %ractor_sched_lock_.exit.i.i.i
+171:                                              ; preds = %ractor_sched_lock_.argprom.exit.i.i.i
   %172 = load i32, ptr %12, align 8
   %.not13.i.i.i = icmp eq i32 %172, 0
   %spec.select.i.i.i = zext i1 %.not13.i.i.i to i8
   %spec.select23.i.i.i = select i1 %.not13.i.i.i, i32 -1, i32 10
   br label %173
 
-173:                                              ; preds = %171, %ractor_sched_lock_.exit.i.i.i
-  %.sink.i.i.i = phi i8 [ 0, %ractor_sched_lock_.exit.i.i.i ], [ %spec.select.i.i.i, %171 ]
-  %.0.i.i.i = phi i32 [ 10, %ractor_sched_lock_.exit.i.i.i ], [ %spec.select23.i.i.i, %171 ]
+173:                                              ; preds = %171, %ractor_sched_lock_.argprom.exit.i.i.i
+  %.sink.i.i.i = phi i8 [ 0, %ractor_sched_lock_.argprom.exit.i.i.i ], [ %spec.select.i.i.i, %171 ]
+  %.0.i.i.i = phi i32 [ 10, %ractor_sched_lock_.argprom.exit.i.i.i ], [ %spec.select23.i.i.i, %171 ]
   store i8 %.sink.i.i.i, ptr %13, align 8
   %174 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #19
   %.not.i.i16.i.i.i = icmp eq i32 %174, 0
-  br i1 %.not.i.i16.i.i.i, label %ractor_sched_unlock_.exit.i.i.i, label %175
+  br i1 %.not.i.i16.i.i.i, label %ractor_sched_unlock_.argprom.exit.i.i.i, label %175
 
 175:                                              ; preds = %173
   call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %174) #36
   unreachable
 
-ractor_sched_unlock_.exit.i.i.i:                  ; preds = %173
+ractor_sched_unlock_.argprom.exit.i.i.i:          ; preds = %173
   %176 = load i8, ptr %13, align 8
   %177 = trunc i8 %176 to i1
   br i1 %177, label %178, label %event_wait.exit.i
 
-178:                                              ; preds = %ractor_sched_unlock_.exit.i.i.i
+178:                                              ; preds = %ractor_sched_unlock_.argprom.exit.i.i.i
   %179 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i.i.i.i16 = icmp eq i32 %179, 0
   br i1 %.not.i.i.i.i16, label %rb_native_mutex_lock.exit.i.i.i17, label %180
@@ -20366,8 +20366,8 @@ rb_hrtime_now.exit.i.i.i:                         ; preds = %190, %187
   call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %200) #36
   unreachable
 
-event_wait.exit.i:                                ; preds = %199, %ractor_sched_unlock_.exit.i.i.i
-  %.1.i.i.i = phi i32 [ %.0.i.i.i, %ractor_sched_unlock_.exit.i.i.i ], [ %.2.i.i.i, %199 ]
+event_wait.exit.i:                                ; preds = %199, %ractor_sched_unlock_.argprom.exit.i.i.i
+  %.1.i.i.i = phi i32 [ %.0.i.i.i, %ractor_sched_unlock_.argprom.exit.i.i.i ], [ %.2.i.i.i, %199 ]
   %202 = call i32 @epoll_wait(i32 noundef %164, ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 28), i32 noundef 16, i32 noundef %.1.i.i.i) #19
   switch i32 %202, label %.preheader.i [
     i32 0, label %204
@@ -20385,19 +20385,19 @@ event_wait.exit.i:                                ; preds = %199, %ractor_sched_
 204:                                              ; preds = %event_wait.exit.i
   %205 = call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #19
   %.not.i.i.i10 = icmp eq i32 %205, 0
-  br i1 %.not.i.i.i10, label %ractor_sched_lock_.exit.i, label %206
+  br i1 %.not.i.i.i10, label %ractor_sched_lock_.argprom.exit.i, label %206
 
 206:                                              ; preds = %204
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %205) #36
   unreachable
 
-ractor_sched_lock_.exit.i:                        ; preds = %204
+ractor_sched_lock_.argprom.exit.i:                ; preds = %204
   %.pn5.i.i = load ptr, ptr %11, align 8
   %.not6.i.i = icmp eq ptr %.pn5.i.i, %11
   br i1 %.not6.i.i, label %timer_thread_check_timeslice.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %ractor_sched_lock_.exit.i, %.lr.ph.i.i
-  %.pn7.i.i = phi ptr [ %.pn.i.i, %.lr.ph.i.i ], [ %.pn5.i.i, %ractor_sched_lock_.exit.i ]
+.lr.ph.i.i:                                       ; preds = %ractor_sched_lock_.argprom.exit.i, %.lr.ph.i.i
+  %.pn7.i.i = phi ptr [ %.pn.i.i, %.lr.ph.i.i ], [ %.pn5.i.i, %ractor_sched_lock_.argprom.exit.i ]
   %207 = getelementptr i8, ptr %.pn7.i.i, i64 -40
   %208 = load ptr, ptr %207, align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 32
@@ -20406,7 +20406,7 @@ ractor_sched_lock_.exit.i:                        ; preds = %204
   %.not.i.i11 = icmp eq ptr %.pn.i.i, %11
   br i1 %.not.i.i11, label %timer_thread_check_timeslice.exit.i, label %.lr.ph.i.i, !llvm.loop !78
 
-timer_thread_check_timeslice.exit.i:              ; preds = %.lr.ph.i.i, %ractor_sched_lock_.exit.i
+timer_thread_check_timeslice.exit.i:              ; preds = %.lr.ph.i.i, %ractor_sched_lock_.argprom.exit.i
   %211 = load i32, ptr %12, align 8
   %.not.i12 = icmp eq i32 %211, 0
   br i1 %.not.i12, label %rb_native_cond_signal.exit.i, label %.preheader
@@ -20425,13 +20425,13 @@ timer_thread_check_timeslice.exit.i:              ; preds = %.lr.ph.i.i, %ractor
 rb_native_cond_signal.exit.i:                     ; preds = %.preheader, %timer_thread_check_timeslice.exit.i
   %214 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #19
   %.not.i.i25.i = icmp eq i32 %214, 0
-  br i1 %.not.i.i25.i, label %ractor_sched_unlock_.exit.i, label %215
+  br i1 %.not.i.i25.i, label %ractor_sched_unlock_.argprom.exit.i, label %215
 
 215:                                              ; preds = %rb_native_cond_signal.exit.i
   call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %214) #36
   unreachable
 
-ractor_sched_unlock_.exit.i:                      ; preds = %rb_native_cond_signal.exit.i
+ractor_sched_unlock_.argprom.exit.i:              ; preds = %rb_native_cond_signal.exit.i
   %216 = call fastcc i32 @native_thread_check_and_create_shared(ptr noundef %0)
   br label %timer_thread_polling.exit
 
@@ -20514,13 +20514,13 @@ rb_native_mutex_lock.exit.i13:                    ; preds = %235
   %250 = load i32, ptr getelementptr inbounds (i8, ptr @timer_th, i64 24), align 8
   %251 = call i32 @epoll_ctl(i32 noundef %250, i32 noundef 2, i32 noundef %249, ptr noundef null) #19
   %252 = icmp eq i32 %251, -1
-  br i1 %252, label %253, label %timer_thread_unregister_waiting.exit.i
+  br i1 %252, label %253, label %timer_thread_unregister_waiting.argprom.exit.i
 
 253:                                              ; preds = %241
   %254 = call ptr @rb_errno_ptr() #19
   %255 = load i32, ptr %254, align 4
   %cond.i.i = icmp eq i32 %255, 9
-  br i1 %cond.i.i, label %timer_thread_unregister_waiting.exit.i, label %256
+  br i1 %cond.i.i, label %timer_thread_unregister_waiting.argprom.exit.i, label %256
 
 256:                                              ; preds = %253
   call void @perror(ptr noundef nonnull @.str.166) #48
@@ -20529,7 +20529,7 @@ rb_native_mutex_lock.exit.i13:                    ; preds = %235
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.173, i32 noundef %258) #45
   unreachable
 
-timer_thread_unregister_waiting.exit.i:           ; preds = %253, %241
+timer_thread_unregister_waiting.argprom.exit.i:   ; preds = %253, %241
   store i32 0, ptr %239, align 8
   store i32 -1, ptr %248, align 8
   %259 = getelementptr inbounds i8, ptr %225, i64 156
@@ -20539,23 +20539,23 @@ timer_thread_unregister_waiting.exit.i:           ; preds = %253, %241
   %262 = getelementptr inbounds i8, ptr %261, i64 288
   %263 = call i32 @pthread_mutex_lock(ptr noundef nonnull %262) #19
   %.not.i.i.i27.i = icmp eq i32 %263, 0
-  br i1 %.not.i.i.i27.i, label %thread_sched_lock_.exit.i.i14, label %264
+  br i1 %.not.i.i.i27.i, label %thread_sched_lock_.argprom.exit.i.i14, label %264
 
-264:                                              ; preds = %timer_thread_unregister_waiting.exit.i
+264:                                              ; preds = %timer_thread_unregister_waiting.argprom.exit.i
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %263) #36
   unreachable
 
-thread_sched_lock_.exit.i.i14:                    ; preds = %timer_thread_unregister_waiting.exit.i
+thread_sched_lock_.argprom.exit.i.i14:            ; preds = %timer_thread_unregister_waiting.argprom.exit.i
   %265 = getelementptr inbounds i8, ptr %261, i64 328
   %266 = load ptr, ptr %265, align 8
   %.not.i28.i = icmp eq ptr %266, %225
   br i1 %.not.i28.i, label %268, label %267
 
-267:                                              ; preds = %thread_sched_lock_.exit.i.i14
+267:                                              ; preds = %thread_sched_lock_.argprom.exit.i.i14
   call fastcc void @thread_sched_to_ready_common(ptr noundef nonnull %262, ptr noundef nonnull %225, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %268
 
-268:                                              ; preds = %267, %thread_sched_lock_.exit.i.i14
+268:                                              ; preds = %267, %thread_sched_lock_.argprom.exit.i.i14
   %269 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %262) #19
   %.not.i.i9.i.i15 = icmp eq i32 %269, 0
   br i1 %.not.i.i9.i.i15, label %timer_thread_wakeup_thread.exit.i, label %270
@@ -20578,7 +20578,7 @@ rb_native_mutex_unlock.exit.i:                    ; preds = %timer_thread_wakeup
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %timer_thread_polling.exit, label %.lr.ph.i, !llvm.loop !79
 
-timer_thread_polling.exit:                        ; preds = %rb_native_mutex_unlock.exit.i, %.preheader.i, %ractor_sched_unlock_.exit.i, %217
+timer_thread_polling.exit:                        ; preds = %rb_native_mutex_unlock.exit.i, %.preheader.i, %ractor_sched_unlock_.argprom.exit.i, %217
   %273 = load volatile i32, ptr @system_working, align 4
   %.not = icmp eq i32 %273, 0
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !80
@@ -20969,25 +20969,25 @@ queue_ptr.exit:                                   ; preds = %3, %12
   %24 = icmp ne i64 %23, 0
   %25 = icmp eq i64 %22, 0
   %26 = or i1 %25, %24
-  br i1 %26, label %rb_obj_write.exit, label %27
+  br i1 %26, label %rb_obj_write.argprom.exit, label %27
 
 27:                                               ; preds = %20
   call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %22) #19
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %20, %27
+rb_obj_write.argprom.exit:                        ; preds = %20, %27
   %28 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %5, ptr %28, align 8
   store ptr %5, ptr %5, align 8
   br i1 %16, label %29, label %33
 
-29:                                               ; preds = %rb_obj_write.exit
+29:                                               ; preds = %rb_obj_write.argprom.exit
   %30 = load i64, ptr %21, align 1
   %31 = load i64, ptr %4, align 8
   %32 = call i64 @rb_ary_concat(i64 noundef %30, i64 noundef %31) #19
   br label %33
 
-33:                                               ; preds = %29, %rb_obj_write.exit
+33:                                               ; preds = %29, %rb_obj_write.argprom.exit
   ret i64 %2
 }
 
@@ -21089,7 +21089,7 @@ queue_ptr.exit:                                   ; preds = %2, %10
   br i1 %.not.i, label %17, label %16
 
 16:                                               ; preds = %queue_ptr.exit
-  tail call fastcc void @raise_closed_queue_error() #43
+  tail call fastcc void @raise_closed_queue_error.argelim() #43
   unreachable
 
 17:                                               ; preds = %queue_ptr.exit
@@ -21168,14 +21168,14 @@ check_array.exit.i:                               ; preds = %17
 24:                                               ; preds = %check_array.exit.i
   %25 = lshr i64 %19, 15
   %26 = and i64 %25, 127
-  br label %queue_length.exit
+  br label %queue_length.argprom.exit
 
 27:                                               ; preds = %check_array.exit.i
   %28 = getelementptr inbounds i8, ptr %18, i64 16
   %29 = load i64, ptr %28, align 8
-  br label %queue_length.exit
+  br label %queue_length.argprom.exit
 
-queue_length.exit:                                ; preds = %24, %27
+queue_length.argprom.exit:                        ; preds = %24, %27
   %.0.i.i = phi i64 [ %26, %24 ], [ %29, %27 ]
   %30 = icmp eq i64 %.0.i.i, 0
   %31 = select i1 %30, i64 20, i64 0
@@ -21277,25 +21277,25 @@ check_array.exit.i:                               ; preds = %17
 24:                                               ; preds = %check_array.exit.i
   %25 = lshr i64 %19, 15
   %26 = and i64 %25, 127
-  br label %queue_length.exit
+  br label %queue_length.argprom.exit
 
 27:                                               ; preds = %check_array.exit.i
   %28 = getelementptr inbounds i8, ptr %18, i64 16
   %29 = load i64, ptr %28, align 8
-  br label %queue_length.exit
+  br label %queue_length.argprom.exit
 
-queue_length.exit:                                ; preds = %24, %27
+queue_length.argprom.exit:                        ; preds = %24, %27
   %.0.i.i = phi i64 [ %26, %24 ], [ %29, %27 ]
   %30 = add i64 %.0.i.i, 4611686018427387904
   %or.cond.i = icmp sgt i64 %30, -1
   br i1 %or.cond.i, label %31, label %34
 
-31:                                               ; preds = %queue_length.exit
+31:                                               ; preds = %queue_length.argprom.exit
   %32 = shl nsw i64 %.0.i.i, 1
   %33 = or disjoint i64 %32, 1
   br label %rb_long2num_inline.exit
 
-34:                                               ; preds = %queue_length.exit
+34:                                               ; preds = %queue_length.argprom.exit
   %35 = tail call i64 @rb_int2big(i64 noundef %.0.i.i) #19
   br label %rb_long2num_inline.exit
 
@@ -21428,13 +21428,13 @@ rb_num2long_inline.exit:                          ; preds = %17, %19
   %28 = icmp ne i64 %27, 0
   %29 = icmp eq i64 %26, 0
   %30 = or i1 %29, %28
-  br i1 %30, label %rb_obj_write.exit, label %31
+  br i1 %30, label %rb_obj_write.argprom.exit, label %31
 
 31:                                               ; preds = %24
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %26) #19
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %24, %31
+rb_obj_write.argprom.exit:                        ; preds = %24, %31
   %32 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %3, ptr %32, align 8
   store ptr %3, ptr %3, align 8
@@ -21671,14 +21671,14 @@ check_array.exit.i:                               ; preds = %20
 27:                                               ; preds = %check_array.exit.i
   %28 = lshr i64 %22, 15
   %29 = and i64 %28, 127
-  br label %queue_length.exit
+  br label %queue_length.argprom.exit
 
 30:                                               ; preds = %check_array.exit.i
   %31 = getelementptr inbounds i8, ptr %21, i64 16
   %32 = load i64, ptr %31, align 8
-  br label %queue_length.exit
+  br label %queue_length.argprom.exit
 
-queue_length.exit:                                ; preds = %27, %30
+queue_length.argprom.exit:                        ; preds = %27, %30
   %.0.i.i = phi i64 [ %29, %27 ], [ %32, %30 ]
   %33 = icmp eq i64 %.0.i.i, 0
   %34 = select i1 %33, i64 20, i64 0
@@ -21794,25 +21794,25 @@ check_array.exit.i:                               ; preds = %20
 27:                                               ; preds = %check_array.exit.i
   %28 = lshr i64 %22, 15
   %29 = and i64 %28, 127
-  br label %queue_length.exit
+  br label %queue_length.argprom.exit
 
 30:                                               ; preds = %check_array.exit.i
   %31 = getelementptr inbounds i8, ptr %21, i64 16
   %32 = load i64, ptr %31, align 8
-  br label %queue_length.exit
+  br label %queue_length.argprom.exit
 
-queue_length.exit:                                ; preds = %27, %30
+queue_length.argprom.exit:                        ; preds = %27, %30
   %.0.i.i = phi i64 [ %29, %27 ], [ %32, %30 ]
   %33 = add i64 %.0.i.i, 4611686018427387904
   %or.cond.i = icmp sgt i64 %33, -1
   br i1 %or.cond.i, label %34, label %37
 
-34:                                               ; preds = %queue_length.exit
+34:                                               ; preds = %queue_length.argprom.exit
   %35 = shl nsw i64 %.0.i.i, 1
   %36 = or disjoint i64 %35, 1
   br label %rb_long2num_inline.exit
 
-37:                                               ; preds = %queue_length.exit
+37:                                               ; preds = %queue_length.argprom.exit
   %38 = tail call i64 @rb_int2big(i64 noundef %.0.i.i) #19
   br label %rb_long2num_inline.exit
 

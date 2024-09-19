@@ -5122,7 +5122,7 @@ if.end17:                                         ; preds = %for.cond, %if.then1
   %34 = load ptr, ptr %vstack.i, align 8
   %add.ptr3.i35 = getelementptr inbounds %struct.VarInfo, ptr %34, i64 %idx.ext2.i
   %cmp2.i = icmp ult i32 %.val, %12
-  br i1 %cmp2.i, label %for.body.lr.ph.i, label %gola_resolve.exit
+  br i1 %cmp2.i, label %for.body.lr.ph.i, label %gola_resolve.argprom.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end17
   %idx.ext.i36 = zext i32 %.val to i64
@@ -5198,9 +5198,9 @@ if.end.i47:                                       ; preds = %if.then.i45
 for.inc.i39:                                      ; preds = %if.end.i47, %land.lhs.true.i42, %for.body.i38
   %incdec.ptr.i40 = getelementptr inbounds i8, ptr %vg.03.i, i64 24
   %cmp.i41 = icmp ult ptr %incdec.ptr.i40, %add.ptr3.i35
-  br i1 %cmp.i41, label %for.body.i38, label %gola_resolve.exit, !llvm.loop !23
+  br i1 %cmp.i41, label %for.body.i38, label %gola_resolve.argprom.exit, !llvm.loop !23
 
-gola_resolve.exit:                                ; preds = %for.inc.i39, %if.end17
+gola_resolve.argprom.exit:                        ; preds = %for.inc.i39, %if.end17
   ret void
 }
 
@@ -5641,9 +5641,9 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i105
   %fs.val4.pre.i.i = load ptr, ptr %18, align 8
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %jmp_patchtestreg.exit.i.i, %for.body.lr.ph.i.i
-  %fs.val4.i.i = phi ptr [ %fs.val4.pre.i.i, %for.body.lr.ph.i.i ], [ %fs.val.i.i110, %jmp_patchtestreg.exit.i.i ]
-  %list.addr.010.i.i = phi i32 [ %17, %for.body.lr.ph.i.i ], [ %conv5.i.i.i116, %jmp_patchtestreg.exit.i.i ]
+for.body.i.i:                                     ; preds = %jmp_patchtestreg.argprom.exit.i.i, %for.body.lr.ph.i.i
+  %fs.val4.i.i = phi ptr [ %fs.val4.pre.i.i, %for.body.lr.ph.i.i ], [ %fs.val.i.i110, %jmp_patchtestreg.argprom.exit.i.i ]
+  %list.addr.010.i.i = phi i32 [ %17, %for.body.lr.ph.i.i ], [ %conv5.i.i.i116, %jmp_patchtestreg.argprom.exit.i.i ]
   %cond.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 %list.addr.010.i.i, i32 1)
   %idxprom.i.i.i108 = zext i32 %cond.i.i.i to i64
   %arrayidx.i.i.i109 = getelementptr inbounds %struct.BCInsLine, ptr %fs.val4.i.i, i64 %idxprom.i.i.i108
@@ -5658,12 +5658,12 @@ if.then.i.i.i126:                                 ; preds = %for.body.i.i
   store i8 %conv9.i.i.i, ptr %arrayidx.i.i.i109, align 4
   %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i109, i64 1
   store i8 0, ptr %arrayidx13.i.i.i, align 1
-  br label %jmp_patchtestreg.exit.i.i
+  br label %jmp_patchtestreg.argprom.exit.i.i
 
 if.else14.i.i.i:                                  ; preds = %for.body.i.i
   %22 = and i32 %19, 65280
   %cmp18.i.i.i = icmp eq i32 %22, 65280
-  br i1 %cmp18.i.i.i, label %if.then20.i.i.i, label %jmp_patchtestreg.exit.i.i
+  br i1 %cmp18.i.i.i, label %if.then20.i.i.i, label %jmp_patchtestreg.argprom.exit.i.i
 
 if.then20.i.i.i:                                  ; preds = %if.else14.i.i.i
   %idxprom25.i.i.i = zext i32 %list.addr.010.i.i to i64
@@ -5672,9 +5672,9 @@ if.then20.i.i.i:                                  ; preds = %if.else14.i.i.i
   %and29.i.i.i = and i32 %23, 65280
   %or30.i.i.i = or disjoint i32 %and29.i.i.i, -2147483560
   store i32 %or30.i.i.i, ptr %arrayidx.i.i.i109, align 4
-  br label %jmp_patchtestreg.exit.i.i
+  br label %jmp_patchtestreg.argprom.exit.i.i
 
-jmp_patchtestreg.exit.i.i:                        ; preds = %if.then20.i.i.i, %if.else14.i.i.i, %if.then.i.i.i126
+jmp_patchtestreg.argprom.exit.i.i:                ; preds = %if.then20.i.i.i, %if.else14.i.i.i, %if.then.i.i.i126
   %fs.val.i.i110 = load ptr, ptr %18, align 8
   %idxprom.i5.i.i = zext i32 %list.addr.010.i.i to i64
   %arrayidx.i6.i.i = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i110, i64 %idxprom.i5.i.i
@@ -5690,7 +5690,7 @@ jmp_patchtestreg.exit.i.i:                        ; preds = %if.then20.i.i.i, %i
   %cmp.not.i.i117 = select i1 %cmp.i.i.i113, i1 true, i1 %cmp.not12.i.i
   br i1 %cmp.not.i.i117, label %jmp_dropval.exitthread-pre-split.i, label %for.body.i.i
 
-jmp_dropval.exitthread-pre-split.i:               ; preds = %jmp_patchtestreg.exit.i.i
+jmp_dropval.exitthread-pre-split.i:               ; preds = %jmp_patchtestreg.argprom.exit.i.i
   %.pr.i = load i32, ptr %t.i107, align 4
   br label %jmp_dropval.exit.i
 
@@ -5704,9 +5704,9 @@ for.body.lr.ph.i49.i:                             ; preds = %jmp_dropval.exit.i
   %fs.val4.pre.i50.i = load ptr, ptr %26, align 8
   br label %for.body.i51.i
 
-for.body.i51.i:                                   ; preds = %jmp_patchtestreg.exit.i60.i, %for.body.lr.ph.i49.i
-  %fs.val4.i52.i = phi ptr [ %fs.val4.pre.i50.i, %for.body.lr.ph.i49.i ], [ %fs.val.i61.i, %jmp_patchtestreg.exit.i60.i ]
-  %list.addr.010.i53.i = phi i32 [ %25, %for.body.lr.ph.i49.i ], [ %conv5.i.i70.i, %jmp_patchtestreg.exit.i60.i ]
+for.body.i51.i:                                   ; preds = %jmp_patchtestreg.argprom.exit.i60.i, %for.body.lr.ph.i49.i
+  %fs.val4.i52.i = phi ptr [ %fs.val4.pre.i50.i, %for.body.lr.ph.i49.i ], [ %fs.val.i61.i, %jmp_patchtestreg.argprom.exit.i60.i ]
+  %list.addr.010.i53.i = phi i32 [ %25, %for.body.lr.ph.i49.i ], [ %conv5.i.i70.i, %jmp_patchtestreg.argprom.exit.i60.i ]
   %cond.i.i54.i = tail call i32 @llvm.usub.sat.i32(i32 %list.addr.010.i53.i, i32 1)
   %idxprom.i.i55.i = zext i32 %cond.i.i54.i to i64
   %arrayidx.i.i56.i = getelementptr inbounds %struct.BCInsLine, ptr %fs.val4.i52.i, i64 %idxprom.i.i55.i
@@ -5721,12 +5721,12 @@ if.then.i.i78.i:                                  ; preds = %for.body.i51.i
   store i8 %conv9.i.i79.i, ptr %arrayidx.i.i56.i, align 4
   %arrayidx13.i.i80.i = getelementptr inbounds i8, ptr %arrayidx.i.i56.i, i64 1
   store i8 0, ptr %arrayidx13.i.i80.i, align 1
-  br label %jmp_patchtestreg.exit.i60.i
+  br label %jmp_patchtestreg.argprom.exit.i60.i
 
 if.else14.i.i58.i:                                ; preds = %for.body.i51.i
   %30 = and i32 %27, 65280
   %cmp18.i.i59.i = icmp eq i32 %30, 65280
-  br i1 %cmp18.i.i59.i, label %if.then20.i.i73.i, label %jmp_patchtestreg.exit.i60.i
+  br i1 %cmp18.i.i59.i, label %if.then20.i.i73.i, label %jmp_patchtestreg.argprom.exit.i60.i
 
 if.then20.i.i73.i:                                ; preds = %if.else14.i.i58.i
   %idxprom25.i.i74.i = zext i32 %list.addr.010.i53.i to i64
@@ -5735,9 +5735,9 @@ if.then20.i.i73.i:                                ; preds = %if.else14.i.i58.i
   %and29.i.i76.i = and i32 %31, 65280
   %or30.i.i77.i = or disjoint i32 %and29.i.i76.i, -2147483560
   store i32 %or30.i.i77.i, ptr %arrayidx.i.i56.i, align 4
-  br label %jmp_patchtestreg.exit.i60.i
+  br label %jmp_patchtestreg.argprom.exit.i60.i
 
-jmp_patchtestreg.exit.i60.i:                      ; preds = %if.then20.i.i73.i, %if.else14.i.i58.i, %if.then.i.i78.i
+jmp_patchtestreg.argprom.exit.i60.i:              ; preds = %if.then20.i.i73.i, %if.else14.i.i58.i, %if.then.i.i78.i
   %fs.val.i61.i = load ptr, ptr %26, align 8
   %idxprom.i5.i62.i = zext i32 %list.addr.010.i53.i to i64
   %arrayidx.i6.i63.i = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i61.i, i64 %idxprom.i5.i62.i
@@ -5753,7 +5753,7 @@ jmp_patchtestreg.exit.i60.i:                      ; preds = %if.then20.i.i73.i, 
   %cmp.not.i72.i = select i1 %cmp.i.i67.i, i1 true, i1 %cmp.not12.i71.i
   br i1 %cmp.not.i72.i, label %jmp_dropval.exit81.i, label %for.body.i51.i
 
-jmp_dropval.exit81.i:                             ; preds = %jmp_patchtestreg.exit.i60.i, %jmp_dropval.exit.i
+jmp_dropval.exit81.i:                             ; preds = %jmp_patchtestreg.argprom.exit.i60.i, %jmp_dropval.exit.i
   tail call fastcc void @expr_discharge(ptr noundef %15, ptr noundef %v)
   %k.i118 = getelementptr inbounds i8, ptr %v, i64 8
   %33 = load i32, ptr %k.i118, align 8
@@ -6891,7 +6891,7 @@ sw.bb9.i.i:                                       ; preds = %expr_toval.exit57.i
 
 if.then.i.i.i144.i:                               ; preds = %sw.bb9.i.i
   %181 = load i32, ptr %call.i.i.i.i, align 8
-  br label %const_str.exit.i.i
+  br label %const_str.argprom.exit.i.i
 
 if.end.i.i.i142.i:                                ; preds = %sw.bb9.i.i
   %nkgc.i.i.i.i = getelementptr inbounds i8, ptr %97, i64 64
@@ -6901,9 +6901,9 @@ if.end.i.i.i142.i:                                ; preds = %sw.bb9.i.i
   %183 = load i32, ptr %nkgc.i.i.i.i, align 8
   %inc.i.i.i.i = add i32 %183, 1
   store i32 %inc.i.i.i.i, ptr %nkgc.i.i.i.i, align 8
-  br label %const_str.exit.i.i
+  br label %const_str.argprom.exit.i.i
 
-const_str.exit.i.i:                               ; preds = %if.end.i.i.i142.i, %if.then.i.i.i144.i
+const_str.argprom.exit.i.i:                       ; preds = %if.end.i.i.i142.i, %if.then.i.i.i144.i
   %retval.0.i.i.i.i = phi i32 [ %181, %if.then.i.i.i144.i ], [ %183, %if.end.i.i.i142.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i.i.i)
   %shl14.i.i = shl i32 %retval.0.i.i.i.i, 16
@@ -6996,10 +6996,10 @@ if.end40.i.i:                                     ; preds = %if.else37.i.i, %exp
   %or44.i.i = or i32 %or42.i.i, %shl43.i.i
   br label %if.end45.i.i
 
-if.end45.i.i:                                     ; preds = %if.end40.i.i, %sw.default.i.i, %const_num.exit.i140.i, %const_str.exit.i.i, %sw.bb.i.i
-  %ins.0.i.i = phi i32 [ %or27.i.i, %sw.default.i.i ], [ %or22.i.i, %const_num.exit.i140.i ], [ %or15.i.i, %const_str.exit.i.i ], [ %or8.i.i, %sw.bb.i.i ], [ %or44.i.i, %if.end40.i.i ]
-  %e2.addr.1.i.i = phi ptr [ %spec.select.i.i, %sw.default.i.i ], [ %spec.select.i.i, %const_num.exit.i140.i ], [ %spec.select.i.i, %const_str.exit.i.i ], [ %spec.select.i.i, %sw.bb.i.i ], [ %e2.addr.2.i.i, %if.end40.i.i ]
-  %e1.addr.1.i.i = phi ptr [ %spec.select50.i.i, %sw.default.i.i ], [ %spec.select50.i.i, %const_num.exit.i140.i ], [ %spec.select50.i.i, %const_str.exit.i.i ], [ %spec.select50.i.i, %sw.bb.i.i ], [ %e1.addr.2.i.i, %if.end40.i.i ]
+if.end45.i.i:                                     ; preds = %if.end40.i.i, %sw.default.i.i, %const_num.exit.i140.i, %const_str.argprom.exit.i.i, %sw.bb.i.i
+  %ins.0.i.i = phi i32 [ %or27.i.i, %sw.default.i.i ], [ %or22.i.i, %const_num.exit.i140.i ], [ %or15.i.i, %const_str.argprom.exit.i.i ], [ %or8.i.i, %sw.bb.i.i ], [ %or44.i.i, %if.end40.i.i ]
+  %e2.addr.1.i.i = phi ptr [ %spec.select.i.i, %sw.default.i.i ], [ %spec.select.i.i, %const_num.exit.i140.i ], [ %spec.select.i.i, %const_str.argprom.exit.i.i ], [ %spec.select.i.i, %sw.bb.i.i ], [ %e2.addr.2.i.i, %if.end40.i.i ]
+  %e1.addr.1.i.i = phi ptr [ %spec.select50.i.i, %sw.default.i.i ], [ %spec.select50.i.i, %const_num.exit.i140.i ], [ %spec.select50.i.i, %const_str.argprom.exit.i.i ], [ %spec.select50.i.i, %sw.bb.i.i ], [ %e1.addr.2.i.i, %if.end40.i.i ]
   %k46.i.i = getelementptr inbounds i8, ptr %e1.addr.1.i.i, i64 8
   %194 = load i32, ptr %k46.i.i, align 8
   %cmp47.i.i = icmp eq i32 %194, 12
@@ -7468,7 +7468,7 @@ if.then.i126:                                     ; preds = %if.end63
   %conv.i127 = zext nneg i32 %34 to i64
   %shl.i = shl nuw nsw i64 %conv.i127, 47
   %not3.i = xor i64 %shl.i, -1
-  br label %expr_kvalue.exit
+  br label %expr_kvalue.argprom.exit
 
 if.else.i:                                        ; preds = %if.end63
   %cmp5.i124 = icmp eq i32 %34, 3
@@ -7478,13 +7478,13 @@ if.then7.i:                                       ; preds = %if.else.i
   %35 = load ptr, ptr %key, align 8
   %36 = ptrtoint ptr %35 to i64
   %or.i.i125 = or i64 %36, -703687441776640
-  br label %expr_kvalue.exit
+  br label %expr_kvalue.argprom.exit
 
 if.else8.i:                                       ; preds = %if.else.i
   %37 = load i64, ptr %key, align 8
-  br label %expr_kvalue.exit
+  br label %expr_kvalue.argprom.exit
 
-expr_kvalue.exit:                                 ; preds = %if.then.i126, %if.then7.i, %if.else8.i
+expr_kvalue.argprom.exit:                         ; preds = %if.then.i126, %if.then7.i, %if.else8.i
   %or.i.sink.i = phi i64 [ %or.i.i125, %if.then7.i ], [ %37, %if.else8.i ], [ %not3.i, %if.then.i126 ]
   store i64 %or.i.sink.i, ptr %k42, align 8
   %38 = load ptr, ptr %L, align 8
@@ -7495,7 +7495,7 @@ expr_kvalue.exit:                                 ; preds = %if.then.i126, %if.t
   %tobool66.not = icmp eq i8 %40, 0
   br i1 %tobool66.not, label %if.end72, label %if.then70
 
-if.then70:                                        ; preds = %expr_kvalue.exit
+if.then70:                                        ; preds = %expr_kvalue.argprom.exit
   %41 = load ptr, ptr %L, align 8
   %glref = getelementptr inbounds i8, ptr %41, i64 16
   %42 = load i64, ptr %glref, align 8
@@ -7510,7 +7510,7 @@ if.then70:                                        ; preds = %expr_kvalue.exit
   store i64 %45, ptr %grayagain.i, align 8
   br label %if.end72
 
-if.end72:                                         ; preds = %if.then70, %expr_kvalue.exit
+if.end72:                                         ; preds = %if.then70, %expr_kvalue.argprom.exit
   %46 = load i32, ptr %k36, align 8
   %cmp74 = icmp ult i32 %46, 5
   br i1 %cmp74, label %land.lhs.true76, label %if.else82
@@ -7529,7 +7529,7 @@ if.then.i136:                                     ; preds = %if.then81
   %conv.i137 = zext nneg i32 %46 to i64
   %shl.i138 = shl nuw nsw i64 %conv.i137, 47
   %not3.i139 = xor i64 %shl.i138, -1
-  br label %expr_kvalue.exit140
+  br label %expr_kvalue.argprom.exit140
 
 if.else.i130:                                     ; preds = %if.then81
   %cmp5.i131 = icmp eq i32 %46, 3
@@ -7539,13 +7539,13 @@ if.then7.i134:                                    ; preds = %if.else.i130
   %49 = load ptr, ptr %val, align 8
   %50 = ptrtoint ptr %49 to i64
   %or.i.i135 = or i64 %50, -703687441776640
-  br label %expr_kvalue.exit140
+  br label %expr_kvalue.argprom.exit140
 
 if.else8.i132:                                    ; preds = %if.else.i130
   %51 = load i64, ptr %val, align 8
-  br label %expr_kvalue.exit140
+  br label %expr_kvalue.argprom.exit140
 
-expr_kvalue.exit140:                              ; preds = %if.then.i136, %if.then7.i134, %if.else8.i132
+expr_kvalue.argprom.exit140:                      ; preds = %if.then.i136, %if.then7.i134, %if.else8.i132
   %or.i.sink.i133 = phi i64 [ %or.i.i135, %if.then7.i134 ], [ %51, %if.else8.i132 ], [ %not3.i139, %if.then.i136 ]
   store i64 %or.i.sink.i133, ptr %call65, align 8
   br label %if.end97
@@ -7617,7 +7617,7 @@ if.then15.i144:                                   ; preds = %if.then95
 
 if.then.i.i.i164:                                 ; preds = %if.then15.i144
   %60 = load i32, ptr %call.i.i.i148, align 8
-  br label %const_str.exit.i155
+  br label %const_str.argprom.exit.i155
 
 if.end.i.i.i151:                                  ; preds = %if.then15.i144
   %61 = load i32, ptr %nkgc.i, align 8
@@ -7626,19 +7626,19 @@ if.end.i.i.i151:                                  ; preds = %if.then15.i144
   %62 = load i32, ptr %nkgc.i, align 8
   %inc.i.i.i154 = add i32 %62, 1
   store i32 %inc.i.i.i154, ptr %nkgc.i, align 8
-  br label %const_str.exit.i155
+  br label %const_str.argprom.exit.i155
 
-const_str.exit.i155:                              ; preds = %if.end.i.i.i151, %if.then.i.i.i164
+const_str.argprom.exit.i155:                      ; preds = %if.end.i.i.i151, %if.then.i.i.i164
   %retval.0.i.i.i156 = phi i32 [ %60, %if.then.i.i.i164 ], [ %62, %if.end.i.i.i151 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i.i141)
   %cmp17.i157 = icmp ult i32 %retval.0.i.i.i156, 256
   br i1 %cmp17.i157, label %if.then19.i162, label %if.end24.i158
 
-if.then19.i162:                                   ; preds = %const_str.exit.i155
+if.then19.i162:                                   ; preds = %const_str.argprom.exit.i155
   %not.i163 = xor i32 %retval.0.i.i.i156, -1
   br label %expr_index.exit173
 
-if.end24.i158:                                    ; preds = %const_str.exit.i155, %if.then.i165, %if.then95
+if.end24.i158:                                    ; preds = %const_str.argprom.exit.i155, %if.then.i165, %if.then95
   %call25.i159 = call fastcc i32 @expr_toanyreg(ptr noundef %0, ptr noundef %key)
   br label %expr_index.exit173
 
@@ -7651,10 +7651,10 @@ if.end96:                                         ; preds = %expr_index.exit173,
   call fastcc void @bcemit_store(ptr noundef %0, ptr noundef %e, ptr noundef %val)
   br label %if.end97
 
-if.end97:                                         ; preds = %if.end96, %expr_kvalue.exit140
-  %fixt.3 = phi i32 [ %fixt.2, %if.end96 ], [ %fixt.0, %expr_kvalue.exit140 ]
-  %vcall.4 = phi i32 [ %vcall.5, %if.end96 ], [ 0, %expr_kvalue.exit140 ]
-  %t.4 = phi ptr [ %t.3, %if.end96 ], [ %t.2, %expr_kvalue.exit140 ]
+if.end97:                                         ; preds = %if.end96, %expr_kvalue.argprom.exit140
+  %fixt.3 = phi i32 [ %fixt.2, %if.end96 ], [ %fixt.0, %expr_kvalue.argprom.exit140 ]
+  %vcall.4 = phi i32 [ %vcall.5, %if.end96 ], [ 0, %expr_kvalue.argprom.exit140 ]
+  %t.4 = phi ptr [ %t.3, %if.end96 ], [ %t.2, %expr_kvalue.argprom.exit140 ]
   store i32 %inc, ptr %freereg, align 4
   %63 = load i32, ptr %tok1.i, align 4
   switch i32 %63, label %if.then.i184 [
@@ -8505,7 +8505,7 @@ if.then15.i:                                      ; preds = %lex_check.exit
 
 if.then.i.i.i:                                    ; preds = %if.then15.i
   %20 = load i32, ptr %call.i.i.i, align 8
-  br label %const_str.exit.i
+  br label %const_str.argprom.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.then15.i
   %21 = load i32, ptr %nkgc.i.i.i103, align 8
@@ -8514,19 +8514,19 @@ if.end.i.i.i:                                     ; preds = %if.then15.i
   %22 = load i32, ptr %nkgc.i.i.i103, align 8
   %inc.i.i.i = add i32 %22, 1
   store i32 %inc.i.i.i, ptr %nkgc.i.i.i103, align 8
-  br label %const_str.exit.i
+  br label %const_str.argprom.exit.i
 
-const_str.exit.i:                                 ; preds = %if.end.i.i.i, %if.then.i.i.i
+const_str.argprom.exit.i:                         ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i32 [ %20, %if.then.i.i.i ], [ %22, %if.end.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i.i)
   %cmp17.i = icmp ult i32 %retval.0.i.i.i, 256
   br i1 %cmp17.i, label %if.then19.i, label %if.end24.i
 
-if.then19.i:                                      ; preds = %const_str.exit.i
+if.then19.i:                                      ; preds = %const_str.argprom.exit.i
   %not.i = xor i32 %retval.0.i.i.i, -1
   br label %expr_index.exit
 
-if.end24.i:                                       ; preds = %const_str.exit.i, %if.then.i39, %lex_check.exit
+if.end24.i:                                       ; preds = %const_str.argprom.exit.i, %if.then.i39, %lex_check.exit
   %call25.i = call fastcc i32 @expr_toanyreg(ptr noundef %0, ptr noundef %key)
   br label %expr_index.exit
 
@@ -8595,7 +8595,7 @@ expr_free.exit.i:                                 ; preds = %expr_str.exit.expr_
 
 if.then.i.i23.i:                                  ; preds = %expr_free.exit.i
   %32 = load i32, ptr %call.i.i.i45, align 8
-  br label %const_str.exit.i52
+  br label %const_str.argprom.exit.i52
 
 if.end.i.i.i48:                                   ; preds = %expr_free.exit.i
   %33 = load i32, ptr %nkgc.i.i.i103, align 8
@@ -8604,9 +8604,9 @@ if.end.i.i.i48:                                   ; preds = %expr_free.exit.i
   %34 = load i32, ptr %nkgc.i.i.i103, align 8
   %inc.i.i.i51 = add i32 %34, 1
   store i32 %inc.i.i.i51, ptr %nkgc.i.i.i103, align 8
-  br label %const_str.exit.i52
+  br label %const_str.argprom.exit.i52
 
-const_str.exit.i52:                               ; preds = %if.end.i.i.i48, %if.then.i.i23.i
+const_str.argprom.exit.i52:                       ; preds = %if.end.i.i.i48, %if.then.i.i23.i
   %retval.0.i.i.i53 = phi i32 [ %32, %if.then.i.i23.i ], [ %34, %if.end.i.i.i48 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i.i40)
   %cmp.i54 = icmp ult i32 %retval.0.i.i.i53, 256
@@ -8615,7 +8615,7 @@ const_str.exit.i52:                               ; preds = %if.end.i.i.i48, %if
   %conv.i.i25.i = zext i8 %36 to i32
   br i1 %cmp.i54, label %if.then.i56, label %if.else.i55
 
-if.then.i56:                                      ; preds = %const_str.exit.i52
+if.then.i56:                                      ; preds = %const_str.argprom.exit.i52
   %add.i.i.i = add i32 %35, 3
   %cmp.i.i26.i = icmp ugt i32 %add.i.i.i, %conv.i.i25.i
   br i1 %cmp.i.i26.i, label %if.then.i.i27.i, label %bcreg_reserve.exit.i
@@ -8645,7 +8645,7 @@ bcreg_reserve.exit.i:                             ; preds = %if.end.i.i28.i, %if
   %call12.i = call fastcc i32 @bcemit_INS(ptr noundef nonnull %0, i32 noundef %or11.i)
   br label %bcemit_method.exit
 
-if.else.i55:                                      ; preds = %const_str.exit.i52
+if.else.i55:                                      ; preds = %const_str.argprom.exit.i52
   %add.i.i30.i = add i32 %35, 4
   %cmp.i.i33.i = icmp ugt i32 %add.i.i30.i, %conv.i.i25.i
   br i1 %cmp.i.i33.i, label %if.then.i.i34.i, label %bcreg_reserve.exit40.i
@@ -8722,7 +8722,7 @@ if.then3.i:                                       ; preds = %if.then34
 
 if.then.i.i.i108:                                 ; preds = %if.then3.i
   %48 = load i32, ptr %call.i.i.i99, align 8
-  br label %const_str.exit.i106
+  br label %const_str.argprom.exit.i106
 
 if.end.i.i.i102:                                  ; preds = %if.then3.i
   %49 = load i32, ptr %nkgc.i.i.i103, align 8
@@ -8731,9 +8731,9 @@ if.end.i.i.i102:                                  ; preds = %if.then3.i
   %50 = load i32, ptr %nkgc.i.i.i103, align 8
   %inc.i.i.i105 = add i32 %50, 1
   store i32 %inc.i.i.i105, ptr %nkgc.i.i.i103, align 8
-  br label %const_str.exit.i106
+  br label %const_str.argprom.exit.i106
 
-const_str.exit.i106:                              ; preds = %if.end.i.i.i102, %if.then.i.i.i108
+const_str.argprom.exit.i106:                      ; preds = %if.end.i.i.i102, %if.then.i.i.i108
   %retval.0.i.i.i107 = phi i32 [ %48, %if.then.i.i.i108 ], [ %50, %if.end.i.i.i102 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i.i86)
   %shl4.i = shl i32 %retval.0.i.i.i107, 16
@@ -8802,8 +8802,8 @@ if.then41.i:                                      ; preds = %if.then34
   %60 = load i32, ptr %aux43.i, align 4
   br label %return.sink.split.sink.split.i
 
-if.end55.i:                                       ; preds = %if.then.i29.i, %if.end35.i, %const_str.exit.i106, %if.then.i109
-  %ins.0.i = phi i32 [ %or.i110, %if.then.i109 ], [ %or5.i, %const_str.exit.i106 ], [ %ins.1.i, %if.end35.i ], [ %ins.1.i, %if.then.i29.i ]
+if.end55.i:                                       ; preds = %if.then.i29.i, %if.end35.i, %const_str.argprom.exit.i106, %if.then.i109
+  %ins.0.i = phi i32 [ %or.i110, %if.then.i109 ], [ %or5.i, %const_str.argprom.exit.i106 ], [ %ins.1.i, %if.end35.i ], [ %ins.1.i, %if.then.i29.i ]
   %call56.i = call fastcc i32 @bcemit_INS(ptr noundef %0, i32 noundef %ins.0.i)
   br label %return.sink.split.sink.split.i
 
@@ -9098,7 +9098,7 @@ if.then32:                                        ; preds = %if.else28
 
 if.then.i.i49:                                    ; preds = %if.then32
   %24 = load i32, ptr %call.i.i, align 8
-  br label %const_str.exit
+  br label %const_str.argprom.exit
 
 if.end.i.i:                                       ; preds = %if.then32
   %nkgc.i.i = getelementptr inbounds i8, ptr %fs, i64 64
@@ -9108,9 +9108,9 @@ if.end.i.i:                                       ; preds = %if.then32
   %26 = load i32, ptr %nkgc.i.i, align 8
   %inc.i.i = add i32 %26, 1
   store i32 %inc.i.i, ptr %nkgc.i.i, align 8
-  br label %const_str.exit
+  br label %const_str.argprom.exit
 
-const_str.exit:                                   ; preds = %if.then.i.i49, %if.end.i.i
+const_str.argprom.exit:                           ; preds = %if.then.i.i49, %if.end.i.i
   %retval.0.i.i = phi i32 [ %24, %if.then.i.i49 ], [ %26, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i)
   %shl37 = shl i32 %retval.0.i.i, 16
@@ -9175,7 +9175,7 @@ if.then65:                                        ; preds = %entry
 
 if.then.i.i64:                                    ; preds = %if.then65
   %37 = load i32, ptr %call.i.i56, align 8
-  br label %const_str.exit65
+  br label %const_str.argprom.exit65
 
 if.end.i.i59:                                     ; preds = %if.then65
   %nkgc.i.i60 = getelementptr inbounds i8, ptr %fs, i64 64
@@ -9185,9 +9185,9 @@ if.end.i.i59:                                     ; preds = %if.then65
   %39 = load i32, ptr %nkgc.i.i60, align 8
   %inc.i.i62 = add i32 %39, 1
   store i32 %inc.i.i62, ptr %nkgc.i.i60, align 8
-  br label %const_str.exit65
+  br label %const_str.argprom.exit65
 
-const_str.exit65:                                 ; preds = %if.then.i.i64, %if.end.i.i59
+const_str.argprom.exit65:                         ; preds = %if.then.i.i64, %if.end.i.i59
   %retval.0.i.i63 = phi i32 [ %37, %if.then.i.i64 ], [ %39, %if.end.i.i59 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i53)
   %shl70 = shl i32 %retval.0.i.i63, 16
@@ -9234,8 +9234,8 @@ if.else100:                                       ; preds = %if.else88
   %or108 = or disjoint i32 %or106, 60
   br label %if.end113
 
-if.end113:                                        ; preds = %const_str.exit, %if.else51, %const_num.exit, %if.then21, %if.then79, %if.else100, %if.then91, %const_str.exit65
-  %ins.0 = phi i32 [ %or27, %if.then21 ], [ %or38, %const_str.exit ], [ %or50, %const_num.exit ], [ %or58, %if.else51 ], [ %or71, %const_str.exit65 ], [ %or87, %if.then79 ], [ %or99, %if.then91 ], [ %or108, %if.else100 ]
+if.end113:                                        ; preds = %const_str.argprom.exit, %if.else51, %const_num.exit, %if.then21, %if.then79, %if.else100, %if.then91, %const_str.argprom.exit65
+  %ins.0 = phi i32 [ %or27, %if.then21 ], [ %or38, %const_str.argprom.exit ], [ %or50, %const_num.exit ], [ %or58, %if.else51 ], [ %or71, %const_str.argprom.exit65 ], [ %or87, %if.then79 ], [ %or99, %if.then91 ], [ %or108, %if.else100 ]
   %call114 = call fastcc i32 @bcemit_INS(ptr noundef %fs, i32 noundef %ins.0)
   %k.i66 = getelementptr inbounds i8, ptr %e, i64 8
   %43 = load i32, ptr %k.i66, align 8
@@ -9299,7 +9299,7 @@ if.then3:                                         ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then3
   %6 = load i32, ptr %call.i.i, align 8
-  br label %const_str.exit
+  br label %const_str.argprom.exit
 
 if.end.i.i:                                       ; preds = %if.then3
   %nkgc.i.i = getelementptr inbounds i8, ptr %fs, i64 64
@@ -9309,9 +9309,9 @@ if.end.i.i:                                       ; preds = %if.then3
   %8 = load i32, ptr %nkgc.i.i, align 8
   %inc.i.i = add i32 %8, 1
   store i32 %inc.i.i, ptr %nkgc.i.i, align 8
-  br label %const_str.exit
+  br label %const_str.argprom.exit
 
-const_str.exit:                                   ; preds = %if.then.i.i, %if.end.i.i
+const_str.argprom.exit:                           ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi i32 [ %6, %if.then.i.i ], [ %8, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i)
   %shl4 = shl i32 %retval.0.i.i, 16
@@ -9386,8 +9386,8 @@ if.then41:                                        ; preds = %entry
   %18 = load i32, ptr %aux43, align 4
   br label %return.sink.split.sink.split
 
-if.end55:                                         ; preds = %if.then.i29, %if.end35, %const_str.exit, %if.then
-  %ins.0 = phi i32 [ %or, %if.then ], [ %or5, %const_str.exit ], [ %ins.1, %if.end35 ], [ %ins.1, %if.then.i29 ]
+if.end55:                                         ; preds = %if.then.i29, %if.end35, %const_str.argprom.exit, %if.then
+  %ins.0 = phi i32 [ %or, %if.then ], [ %or5, %const_str.argprom.exit ], [ %ins.1, %if.end35 ], [ %ins.1, %if.then.i29 ]
   %call56 = call fastcc i32 @bcemit_INS(ptr noundef %fs, i32 noundef %ins.0)
   br label %return.sink.split.sink.split
 
@@ -9765,7 +9765,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then
   %5 = load i32, ptr %call.i.i, align 8
-  br label %const_str.exit
+  br label %const_str.argprom.exit
 
 if.end.i.i:                                       ; preds = %if.then
   %nkgc.i.i = getelementptr inbounds i8, ptr %fs, i64 64
@@ -9775,9 +9775,9 @@ if.end.i.i:                                       ; preds = %if.then
   %7 = load i32, ptr %nkgc.i.i, align 8
   %inc.i.i = add i32 %7, 1
   store i32 %inc.i.i, ptr %nkgc.i.i, align 8
-  br label %const_str.exit
+  br label %const_str.argprom.exit
 
-const_str.exit:                                   ; preds = %if.then.i.i, %if.end.i.i
+const_str.argprom.exit:                           ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi i32 [ %5, %if.then.i.i ], [ %7, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i)
   br label %if.end90
@@ -9943,9 +9943,9 @@ if.else73:                                        ; preds = %entry
   %cmp75 = icmp ult i32 %0, 3
   br i1 %cmp75, label %if.end90, label %return
 
-if.end90:                                         ; preds = %if.else73, %if.then55, %if.end.i, %if.then.i, %if.then5, %const_gc.exit, %const_str.exit
-  %retval.0.i.sink = phi i32 [ %retval.0.i46, %const_gc.exit ], [ %retval.0.i.i, %const_str.exit ], [ %conv, %if.then5 ], [ %13, %if.then.i ], [ %15, %if.end.i ], [ %27, %if.then55 ], [ %0, %if.else73 ]
-  %.sink = phi i32 [ 40, %const_gc.exit ], [ 39, %const_str.exit ], [ 41, %if.then5 ], [ 42, %if.then.i ], [ 42, %if.end.i ], [ 18, %if.then55 ], [ 43, %if.else73 ]
+if.end90:                                         ; preds = %if.else73, %if.then55, %if.end.i, %if.then.i, %if.then5, %const_gc.exit, %const_str.argprom.exit
+  %retval.0.i.sink = phi i32 [ %retval.0.i46, %const_gc.exit ], [ %retval.0.i.i, %const_str.argprom.exit ], [ %conv, %if.then5 ], [ %13, %if.then.i ], [ %15, %if.end.i ], [ %27, %if.then55 ], [ %0, %if.else73 ]
+  %.sink = phi i32 [ 40, %const_gc.exit ], [ 39, %const_str.argprom.exit ], [ 41, %if.then5 ], [ 42, %if.then.i ], [ 42, %if.end.i ], [ 18, %if.then55 ], [ 43, %if.else73 ]
   %shl16.sink = shl i32 %reg, 8
   %shl26 = shl i32 %retval.0.i.sink, 16
   %or24 = or i32 %shl16.sink, %shl26
@@ -10181,7 +10181,7 @@ if.then15.i:                                      ; preds = %entry, %entry
 
 if.then.i.i.i:                                    ; preds = %if.then15.i
   %7 = load i32, ptr %call.i.i.i, align 8
-  br label %const_str.exit.i
+  br label %const_str.argprom.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.then15.i
   %nkgc.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
@@ -10191,19 +10191,19 @@ if.end.i.i.i:                                     ; preds = %if.then15.i
   %9 = load i32, ptr %nkgc.i.i.i, align 8
   %inc.i.i.i = add i32 %9, 1
   store i32 %inc.i.i.i, ptr %nkgc.i.i.i, align 8
-  br label %const_str.exit.i
+  br label %const_str.argprom.exit.i
 
-const_str.exit.i:                                 ; preds = %if.end.i.i.i, %if.then.i.i.i
+const_str.argprom.exit.i:                         ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i32 [ %7, %if.then.i.i.i ], [ %9, %if.end.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i.i)
   %cmp17.i = icmp ult i32 %retval.0.i.i.i, 256
   br i1 %cmp17.i, label %if.then19.i, label %if.end24.i
 
-if.then19.i:                                      ; preds = %const_str.exit.i
+if.then19.i:                                      ; preds = %const_str.argprom.exit.i
   %not.i = xor i32 %retval.0.i.i.i, -1
   br label %expr_index.exit
 
-if.end24.i:                                       ; preds = %const_str.exit.i
+if.end24.i:                                       ; preds = %const_str.argprom.exit.i
   %call25.i = call fastcc i32 @expr_toanyreg(ptr noundef nonnull %0, ptr noundef %key)
   br label %expr_index.exit
 

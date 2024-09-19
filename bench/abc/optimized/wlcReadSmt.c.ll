@@ -135,9 +135,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
   %30 = load i32, ptr %.val148, align 4
   %31 = and i32 %30, 1
   %.not.i = icmp eq i32 %31, 0
-  br i1 %.not.i, label %Smt_VecEntryName.exit.thread, label %Smt_VecEntryName.exit
+  br i1 %.not.i, label %Smt_VecEntryName.argprom.exit.thread, label %Smt_VecEntryName.argprom.exit
 
-Smt_VecEntryName.exit:                            ; preds = %25
+Smt_VecEntryName.argprom.exit:                    ; preds = %25
   %.val5.i = load ptr, ptr %11, align 8
   %32 = ashr i32 %30, 1
   %33 = tail call ptr @Abc_NamStr(ptr noundef %.val5.i, i32 noundef %32) #17
@@ -146,22 +146,22 @@ Smt_VecEntryName.exit:                            ; preds = %25
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 1
   %.not.i151 = icmp eq i32 %36, 0
-  br i1 %.not.i151, label %Smt_VecEntryName.exit153.thread, label %Smt_VecEntryName.exit153
+  br i1 %.not.i151, label %Smt_VecEntryName.argprom.exit153.thread, label %Smt_VecEntryName.argprom.exit153
 
-Smt_VecEntryName.exit.thread:                     ; preds = %25
+Smt_VecEntryName.argprom.exit.thread:             ; preds = %25
   %37 = getelementptr inbounds i8, ptr %.val148, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 1
   %.not.i151181 = icmp eq i32 %39, 0
-  br i1 %.not.i151181, label %Smt_VecEntryName.exit153.thread.thread, label %Smt_VecEntryName.exit153
+  br i1 %.not.i151181, label %Smt_VecEntryName.argprom.exit153.thread.thread, label %Smt_VecEntryName.argprom.exit153
 
-Smt_VecEntryName.exit153.thread:                  ; preds = %Smt_VecEntryName.exit
+Smt_VecEntryName.argprom.exit153.thread:          ; preds = %Smt_VecEntryName.argprom.exit
   %.not183 = icmp eq ptr %33, null
-  br i1 %.not183, label %Smt_VecEntryName.exit153.thread.thread, label %68
+  br i1 %.not183, label %Smt_VecEntryName.argprom.exit153.thread.thread, label %68
 
-Smt_VecEntryName.exit153:                         ; preds = %Smt_VecEntryName.exit.thread, %Smt_VecEntryName.exit
-  %40 = phi i32 [ %38, %Smt_VecEntryName.exit.thread ], [ %35, %Smt_VecEntryName.exit ]
-  %41 = phi ptr [ null, %Smt_VecEntryName.exit.thread ], [ %33, %Smt_VecEntryName.exit ]
+Smt_VecEntryName.argprom.exit153:                 ; preds = %Smt_VecEntryName.argprom.exit.thread, %Smt_VecEntryName.argprom.exit
+  %40 = phi i32 [ %38, %Smt_VecEntryName.argprom.exit.thread ], [ %35, %Smt_VecEntryName.argprom.exit ]
+  %41 = phi ptr [ null, %Smt_VecEntryName.argprom.exit.thread ], [ %33, %Smt_VecEntryName.argprom.exit ]
   %.val5.i152 = load ptr, ptr %11, align 8
   %42 = ashr i32 %40, 1
   %43 = tail call ptr @Abc_NamStr(ptr noundef %.val5.i152, i32 noundef %42) #17
@@ -170,7 +170,7 @@ Smt_VecEntryName.exit153:                         ; preds = %Smt_VecEntryName.ex
   %or.cond = select i1 %44, i1 %45, i1 false
   br i1 %or.cond, label %46, label %67
 
-46:                                               ; preds = %Smt_VecEntryName.exit153
+46:                                               ; preds = %Smt_VecEntryName.argprom.exit153
   %47 = load i8, ptr %41, align 1
   %48 = icmp eq i8 %47, 95
   br i1 %48, label %49, label %.thread
@@ -192,15 +192,15 @@ Smt_VecEntryName.exit153:                         ; preds = %Smt_VecEntryName.ex
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 1
   %.not.i154 = icmp eq i32 %59, 0
-  br i1 %.not.i154, label %Smt_VecEntryName.exit156, label %60
+  br i1 %.not.i154, label %Smt_VecEntryName.argprom.exit156, label %60
 
 60:                                               ; preds = %56
   %.val5.i155 = load ptr, ptr %11, align 8
   %61 = ashr i32 %58, 1
   %62 = tail call ptr @Abc_NamStr(ptr noundef %.val5.i155, i32 noundef %61) #17
-  br label %Smt_VecEntryName.exit156
+  br label %Smt_VecEntryName.argprom.exit156
 
-Smt_VecEntryName.exit156:                         ; preds = %56, %60
+Smt_VecEntryName.argprom.exit156:                 ; preds = %56, %60
   %63 = phi ptr [ %62, %60 ], [ null, %56 ]
   %64 = getelementptr inbounds i8, ptr %43, i64 2
   %65 = tail call i32 @atoi(ptr nocapture noundef %63) #18
@@ -211,16 +211,16 @@ Smt_VecEntryName.exit156:                         ; preds = %56, %60
   %.val129.pre230.pre235 = load ptr, ptr %29, align 8
   br label %68
 
-67:                                               ; preds = %Smt_VecEntryName.exit153
+67:                                               ; preds = %Smt_VecEntryName.argprom.exit153
   %.val129.pre230.pre = load ptr, ptr %29, align 8
-  br i1 %44, label %68, label %Smt_VecEntryName.exit153.thread.thread
+  br i1 %44, label %68, label %Smt_VecEntryName.argprom.exit153.thread.thread
 
-68:                                               ; preds = %.thread, %Smt_VecEntryName.exit153.thread, %67
-  %.val129.pre230 = phi ptr [ %.val149, %Smt_VecEntryName.exit153.thread ], [ %.val129.pre230.pre, %67 ], [ %.val129.pre230.pre235, %.thread ]
-  %69 = phi ptr [ %33, %Smt_VecEntryName.exit153.thread ], [ %41, %67 ], [ %41, %.thread ]
+68:                                               ; preds = %.thread, %Smt_VecEntryName.argprom.exit153.thread, %67
+  %.val129.pre230 = phi ptr [ %.val149, %Smt_VecEntryName.argprom.exit153.thread ], [ %.val129.pre230.pre, %67 ], [ %.val129.pre230.pre235, %.thread ]
+  %69 = phi ptr [ %33, %Smt_VecEntryName.argprom.exit153.thread ], [ %41, %67 ], [ %41, %.thread ]
   %70 = load i8, ptr %69, align 1
   %71 = icmp eq i8 %70, 61
-  br i1 %71, label %72, label %Smt_VecEntryName.exit153.thread.thread
+  br i1 %71, label %72, label %Smt_VecEntryName.argprom.exit153.thread.thread
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds i8, ptr %.val129.pre230, i64 8
@@ -267,21 +267,21 @@ Vec_IntFree.exit:                                 ; preds = %81, %92
   tail call void @free(ptr noundef nonnull %82) #17
   br label %259
 
-Smt_VecEntryName.exit153.thread.thread:           ; preds = %Smt_VecEntryName.exit.thread, %Smt_VecEntryName.exit153.thread, %68, %67
-  %.val129 = phi ptr [ %.val129.pre230.pre, %67 ], [ %.val129.pre230, %68 ], [ %.val149, %Smt_VecEntryName.exit153.thread ], [ %.val148, %Smt_VecEntryName.exit.thread ]
+Smt_VecEntryName.argprom.exit153.thread.thread:   ; preds = %Smt_VecEntryName.argprom.exit.thread, %Smt_VecEntryName.argprom.exit153.thread, %68, %67
+  %.val129 = phi ptr [ %.val129.pre230.pre, %67 ], [ %.val129.pre230, %68 ], [ %.val149, %Smt_VecEntryName.argprom.exit153.thread ], [ %.val148, %Smt_VecEntryName.argprom.exit.thread ]
   %93 = load i32, ptr %.val129, align 4
   %94 = and i32 %93, 1
   %.not.i158 = icmp eq i32 %94, 0
   %95 = ashr i32 %93, 1
   br i1 %.not.i158, label %99, label %96
 
-96:                                               ; preds = %Smt_VecEntryName.exit153.thread.thread
+96:                                               ; preds = %Smt_VecEntryName.argprom.exit153.thread.thread
   %.val24.i = load ptr, ptr %11, align 8
   %97 = tail call ptr @Abc_NamStr(ptr noundef %.val24.i, i32 noundef %95) #17
   %98 = call fastcc i32 @Smt_StrToType(ptr noundef %97, ptr noundef %7)
   br label %Smt_PrsReadType.exit
 
-99:                                               ; preds = %Smt_VecEntryName.exit153.thread.thread
+99:                                               ; preds = %Smt_VecEntryName.argprom.exit153.thread.thread
   %.val23.i = load ptr, ptr %10, align 8
   %100 = sext i32 %95 to i64
   %101 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val23.i, i64 %100
@@ -290,50 +290,50 @@ Smt_VecEntryName.exit153.thread.thread:           ; preds = %Smt_VecEntryName.ex
   %103 = load i32, ptr %.val28.i, align 4
   %104 = and i32 %103, 1
   %.not.i.i = icmp eq i32 %104, 0
-  br i1 %.not.i.i, label %Smt_VecEntryName.exit.i, label %105
+  br i1 %.not.i.i, label %Smt_VecEntryName.argprom.exit.i, label %105
 
 105:                                              ; preds = %99
   %.val5.i.i = load ptr, ptr %11, align 8
   %106 = ashr i32 %103, 1
   %107 = tail call ptr @Abc_NamStr(ptr noundef %.val5.i.i, i32 noundef %106) #17
   %.val27.i.pre = load ptr, ptr %102, align 8
-  br label %Smt_VecEntryName.exit.i
+  br label %Smt_VecEntryName.argprom.exit.i
 
-Smt_VecEntryName.exit.i:                          ; preds = %105, %99
+Smt_VecEntryName.argprom.exit.i:                  ; preds = %105, %99
   %.val27.i = phi ptr [ %.val27.i.pre, %105 ], [ %.val28.i, %99 ]
   %108 = getelementptr inbounds i8, ptr %.val27.i, i64 4
   %109 = load i32, ptr %108, align 4
   %110 = and i32 %109, 1
   %.not.i29.i = icmp eq i32 %110, 0
-  br i1 %.not.i29.i, label %Smt_VecEntryName.exit31.i, label %111
+  br i1 %.not.i29.i, label %Smt_VecEntryName.argprom.exit31.i, label %111
 
-111:                                              ; preds = %Smt_VecEntryName.exit.i
+111:                                              ; preds = %Smt_VecEntryName.argprom.exit.i
   %.val5.i30.i = load ptr, ptr %11, align 8
   %112 = ashr i32 %109, 1
   %113 = tail call ptr @Abc_NamStr(ptr noundef %.val5.i30.i, i32 noundef %112) #17
-  br label %Smt_VecEntryName.exit31.i
+  br label %Smt_VecEntryName.argprom.exit31.i
 
-Smt_VecEntryName.exit31.i:                        ; preds = %111, %Smt_VecEntryName.exit.i
-  %114 = phi ptr [ %113, %111 ], [ null, %Smt_VecEntryName.exit.i ]
+Smt_VecEntryName.argprom.exit31.i:                ; preds = %111, %Smt_VecEntryName.argprom.exit.i
+  %114 = phi ptr [ %113, %111 ], [ null, %Smt_VecEntryName.argprom.exit.i ]
   %115 = call fastcc i32 @Smt_StrToType(ptr noundef %114, ptr noundef %7)
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %Smt_PrsReadType.exit, label %117
 
-117:                                              ; preds = %Smt_VecEntryName.exit31.i
+117:                                              ; preds = %Smt_VecEntryName.argprom.exit31.i
   %.val26.i = load ptr, ptr %102, align 8
   %118 = getelementptr inbounds i8, ptr %.val26.i, i64 8
   %119 = load i32, ptr %118, align 4
   %120 = and i32 %119, 1
   %.not.i32.i = icmp eq i32 %120, 0
-  br i1 %.not.i32.i, label %Smt_VecEntryName.exit34.i, label %121
+  br i1 %.not.i32.i, label %Smt_VecEntryName.argprom.exit34.i, label %121
 
 121:                                              ; preds = %117
   %.val5.i33.i = load ptr, ptr %11, align 8
   %122 = ashr i32 %119, 1
   %123 = tail call ptr @Abc_NamStr(ptr noundef %.val5.i33.i, i32 noundef %122) #17
-  br label %Smt_VecEntryName.exit34.i
+  br label %Smt_VecEntryName.argprom.exit34.i
 
-Smt_VecEntryName.exit34.i:                        ; preds = %121, %117
+Smt_VecEntryName.argprom.exit34.i:                ; preds = %121, %117
   %124 = phi ptr [ %123, %121 ], [ null, %117 ]
   %125 = tail call i32 @atoi(ptr nocapture noundef %124) #18
   %126 = getelementptr i8, ptr %101, i64 4
@@ -341,29 +341,29 @@ Smt_VecEntryName.exit34.i:                        ; preds = %121, %117
   %127 = icmp sgt i32 %.val.i, 3
   br i1 %127, label %128, label %Smt_PrsReadType.exit
 
-128:                                              ; preds = %Smt_VecEntryName.exit34.i
+128:                                              ; preds = %Smt_VecEntryName.argprom.exit34.i
   %.val25.i = load ptr, ptr %102, align 8
   %129 = getelementptr inbounds i8, ptr %.val25.i, i64 12
   %130 = load i32, ptr %129, align 4
   %131 = and i32 %130, 1
   %.not.i35.i = icmp eq i32 %131, 0
-  br i1 %.not.i35.i, label %Smt_VecEntryName.exit37.i, label %132
+  br i1 %.not.i35.i, label %Smt_VecEntryName.argprom.exit37.i, label %132
 
 132:                                              ; preds = %128
   %.val5.i36.i = load ptr, ptr %11, align 8
   %133 = ashr i32 %130, 1
   %134 = tail call ptr @Abc_NamStr(ptr noundef %.val5.i36.i, i32 noundef %133) #17
-  br label %Smt_VecEntryName.exit37.i
+  br label %Smt_VecEntryName.argprom.exit37.i
 
-Smt_VecEntryName.exit37.i:                        ; preds = %132, %128
+Smt_VecEntryName.argprom.exit37.i:                ; preds = %132, %128
   %135 = phi ptr [ %134, %132 ], [ null, %128 ]
   %136 = tail call i32 @atoi(ptr nocapture noundef %135) #18
   br label %Smt_PrsReadType.exit
 
-Smt_PrsReadType.exit:                             ; preds = %96, %Smt_VecEntryName.exit31.i, %Smt_VecEntryName.exit34.i, %Smt_VecEntryName.exit37.i
-  %.0175 = phi i32 [ -1, %Smt_VecEntryName.exit31.i ], [ %125, %Smt_VecEntryName.exit37.i ], [ %125, %Smt_VecEntryName.exit34.i ], [ -1, %96 ]
-  %.0174 = phi i32 [ -1, %Smt_VecEntryName.exit31.i ], [ %136, %Smt_VecEntryName.exit37.i ], [ -1, %Smt_VecEntryName.exit34.i ], [ -1, %96 ]
-  %.0.i = phi i32 [ 0, %Smt_VecEntryName.exit31.i ], [ %115, %Smt_VecEntryName.exit37.i ], [ %115, %Smt_VecEntryName.exit34.i ], [ %98, %96 ]
+Smt_PrsReadType.exit:                             ; preds = %96, %Smt_VecEntryName.argprom.exit31.i, %Smt_VecEntryName.argprom.exit34.i, %Smt_VecEntryName.argprom.exit37.i
+  %.0175 = phi i32 [ -1, %Smt_VecEntryName.argprom.exit31.i ], [ %125, %Smt_VecEntryName.argprom.exit37.i ], [ %125, %Smt_VecEntryName.argprom.exit34.i ], [ -1, %96 ]
+  %.0174 = phi i32 [ -1, %Smt_VecEntryName.argprom.exit31.i ], [ %136, %Smt_VecEntryName.argprom.exit37.i ], [ -1, %Smt_VecEntryName.argprom.exit34.i ], [ -1, %96 ]
+  %.0.i = phi i32 [ 0, %Smt_VecEntryName.argprom.exit31.i ], [ %115, %Smt_VecEntryName.argprom.exit37.i ], [ %115, %Smt_VecEntryName.argprom.exit34.i ], [ %98, %96 ]
   %137 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %138 = getelementptr inbounds i8, ptr %137, i64 4
   store i32 0, ptr %138, align 4
@@ -642,8 +642,8 @@ Vec_IntFree.exit169:                              ; preds = %.critedge7, %258
   call void @free(ptr noundef nonnull %137) #17
   br label %259
 
-259:                                              ; preds = %Vec_IntFree.exit169, %Vec_IntFree.exit160, %Vec_IntFree.exit, %Smt_VecEntryName.exit156, %21, %19
-  %.0 = phi i32 [ %20, %19 ], [ %24, %21 ], [ %66, %Smt_VecEntryName.exit156 ], [ %90, %Vec_IntFree.exit ], [ 0, %Vec_IntFree.exit160 ], [ %256, %Vec_IntFree.exit169 ]
+259:                                              ; preds = %Vec_IntFree.exit169, %Vec_IntFree.exit160, %Vec_IntFree.exit, %Smt_VecEntryName.argprom.exit156, %21, %19
+  %.0 = phi i32 [ %20, %19 ], [ %24, %21 ], [ %66, %Smt_VecEntryName.argprom.exit156 ], [ %90, %Vec_IntFree.exit ], [ 0, %Vec_IntFree.exit160 ], [ %256, %Vec_IntFree.exit169 ]
   ret i32 %.0
 }
 
@@ -2159,16 +2159,16 @@ define ptr @Smt_PrsBuild(ptr noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %.val210, i64 4
   %.val208315 = load i32, ptr %7, align 4
   %8 = icmp sgt i32 %.val208315, 0
-  br i1 %8, label %Smt_VecEntryNode.exit.lr.ph, label %.critedge
+  br i1 %8, label %Smt_VecEntryNode.argprom.exit.lr.ph, label %.critedge
 
-Smt_VecEntryNode.exit.lr.ph:                      ; preds = %1
+Smt_VecEntryNode.argprom.exit.lr.ph:              ; preds = %1
   %9 = getelementptr i8, ptr %.val210, i64 8
   %10 = getelementptr i8, ptr %0, i64 32
-  br label %Smt_VecEntryNode.exit
+  br label %Smt_VecEntryNode.argprom.exit
 
-Smt_VecEntryNode.exit:                            ; preds = %Smt_VecEntryNode.exit.lr.ph, %23
-  %.val208354 = phi i32 [ %.val208315, %Smt_VecEntryNode.exit.lr.ph ], [ %.val208, %23 ]
-  %indvars.iv = phi i64 [ 0, %Smt_VecEntryNode.exit.lr.ph ], [ %indvars.iv.next, %23 ]
+Smt_VecEntryNode.argprom.exit:                    ; preds = %Smt_VecEntryNode.argprom.exit.lr.ph, %23
+  %.val208354 = phi i32 [ %.val208315, %Smt_VecEntryNode.argprom.exit.lr.ph ], [ %.val208, %23 ]
+  %indvars.iv = phi i64 [ 0, %Smt_VecEntryNode.argprom.exit.lr.ph ], [ %indvars.iv.next, %23 ]
   %.val204 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i32, ptr %.val204, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
@@ -2185,19 +2185,19 @@ Smt_VecEntryNode.exit:                            ; preds = %Smt_VecEntryNode.ex
   %19 = icmp sgt i32 %18, 10
   br i1 %19, label %20, label %23
 
-20:                                               ; preds = %Smt_VecEntryNode.exit
+20:                                               ; preds = %Smt_VecEntryNode.argprom.exit
   %.val223 = load ptr, ptr %10, align 8
   %21 = tail call ptr @Abc_NamStr(ptr noundef %.val223, i32 noundef %18) #17
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %21)
   %.val208.pre = load i32, ptr %7, align 4
   br label %23
 
-23:                                               ; preds = %Smt_VecEntryNode.exit, %20
-  %.val208 = phi i32 [ %.val208354, %Smt_VecEntryNode.exit ], [ %.val208.pre, %20 ]
+23:                                               ; preds = %Smt_VecEntryNode.argprom.exit, %20
+  %.val208 = phi i32 [ %.val208354, %Smt_VecEntryNode.argprom.exit ], [ %.val208.pre, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = sext i32 %.val208 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %Smt_VecEntryNode.exit, label %.critedge, !llvm.loop !16
+  br i1 %25, label %Smt_VecEntryNode.argprom.exit, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %23, %1
   %26 = load ptr, ptr %0, align 8
@@ -2512,39 +2512,39 @@ Smt_VecEntryIsType.exit.thread:                   ; preds = %38, %42, %Vec_IntPu
   %169 = load i32, ptr %168, align 4
   %170 = and i32 %169, 1
   %.not181 = icmp eq i32 %170, 0
-  br i1 %.not181, label %Smt_VecEntryNode.exit257, label %171
+  br i1 %.not181, label %Smt_VecEntryNode.argprom.exit257, label %171
 
 171:                                              ; preds = %163
   %172 = getelementptr inbounds i8, ptr %.val196, i64 16
   %173 = load i32, ptr %172, align 4
   %174 = and i32 %173, 1
   %.not.i253 = icmp eq i32 %174, 0
-  br i1 %.not.i253, label %Smt_VecEntryName.exit, label %175
+  br i1 %.not.i253, label %Smt_VecEntryName.argprom.exit, label %175
 
 175:                                              ; preds = %171
   %.val5.i254 = load ptr, ptr %37, align 8
   %176 = ashr i32 %173, 1
   %177 = tail call ptr @Abc_NamStr(ptr noundef %.val5.i254, i32 noundef %176) #17
-  br label %Smt_VecEntryName.exit
+  br label %Smt_VecEntryName.argprom.exit
 
-Smt_VecEntryName.exit:                            ; preds = %171, %175
+Smt_VecEntryName.argprom.exit:                    ; preds = %171, %175
   %178 = phi ptr [ %177, %175 ], [ null, %171 ]
   %179 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.3, ptr noundef nonnull dereferenceable(1) %178) #18
   %.not182 = icmp eq i32 %179, 0
   br i1 %.not182, label %182, label %180
 
-180:                                              ; preds = %Smt_VecEntryName.exit
+180:                                              ; preds = %Smt_VecEntryName.argprom.exit
   %181 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.5, ptr noundef nonnull dereferenceable(1) %178) #18
   %.not183 = icmp eq i32 %181, 0
   %spec.store.select = select i1 %.not183, ptr @.str, ptr %178
   br label %182
 
-182:                                              ; preds = %Smt_VecEntryName.exit, %180
-  %.0170 = phi ptr [ %spec.store.select, %180 ], [ @.str.4, %Smt_VecEntryName.exit ]
+182:                                              ; preds = %Smt_VecEntryName.argprom.exit, %180
+  %.0170 = phi ptr [ %spec.store.select, %180 ], [ @.str.4, %Smt_VecEntryName.argprom.exit ]
   %183 = tail call fastcc i32 @Smt_PrsBuildConstant(ptr noundef %27, ptr noundef %.0170, i32 noundef 1, ptr noundef %167)
   br label %195
 
-Smt_VecEntryNode.exit257:                         ; preds = %163
+Smt_VecEntryNode.argprom.exit257:                 ; preds = %163
   %.val5.i256 = load ptr, ptr %6, align 8
   %184 = ashr exact i32 %169, 1
   %185 = sext i32 %184 to i64
@@ -2562,8 +2562,8 @@ Smt_VecEntryNode.exit257:                         ; preds = %163
   %194 = tail call i32 @Smt_PrsBuildNode(ptr noundef %27, ptr noundef nonnull %0, i32 noundef %193, i32 noundef %191, ptr noundef %167)
   br label %195
 
-195:                                              ; preds = %Smt_VecEntryNode.exit257, %182
-  %.0163 = phi i32 [ %183, %182 ], [ %194, %Smt_VecEntryNode.exit257 ]
+195:                                              ; preds = %Smt_VecEntryNode.argprom.exit257, %182
+  %.0163 = phi i32 [ %183, %182 ], [ %194, %Smt_VecEntryNode.argprom.exit257 ]
   %.not184 = icmp eq i32 %.0163, 0
   br i1 %.not184, label %196, label %.Smt_VecEntryIsType.exit252.thread_crit_edge
 
@@ -2693,9 +2693,9 @@ Smt_VecEntryIsType.exit252.thread:                ; preds = %.Smt_VecEntryIsType
   %244 = load i32, ptr %243, align 4
   %245 = and i32 %244, 1
   %.not173 = icmp eq i32 %245, 0
-  br i1 %.not173, label %Smt_VecEntryNode.exit272, label %Smt_VecEntryIsType.exit276.thread
+  br i1 %.not173, label %Smt_VecEntryNode.argprom.exit272, label %Smt_VecEntryIsType.exit276.thread
 
-Smt_VecEntryNode.exit272:                         ; preds = %242
+Smt_VecEntryNode.argprom.exit272:                 ; preds = %242
   %246 = ashr exact i32 %244, 1
   %247 = sext i32 %246 to i64
   %248 = getelementptr %struct.Vec_Int_t_, ptr %.val214, i64 %247, i32 1
@@ -2703,14 +2703,14 @@ Smt_VecEntryNode.exit272:                         ; preds = %242
   %249 = icmp sgt i32 %.val7.i273329, 0
   br i1 %249, label %.lr.ph332.preheader, label %Smt_VecEntryIsType.exit276.thread
 
-.lr.ph332.preheader:                              ; preds = %Smt_VecEntryNode.exit272
+.lr.ph332.preheader:                              ; preds = %Smt_VecEntryNode.argprom.exit272
   %250 = getelementptr %struct.Vec_Int_t_, ptr %.val214, i64 %247, i32 2
   %.val6.i274374 = load ptr, ptr %250, align 8
   %251 = load i32, ptr %.val6.i274374, align 4
   %or.cond314375 = icmp eq i32 %251, 15
   br i1 %or.cond314375, label %.lr.ph377, label %Smt_VecEntryIsType.exit276.thread
 
-.lr.ph332:                                        ; preds = %Smt_VecEntryNode.exit279
+.lr.ph332:                                        ; preds = %Smt_VecEntryNode.argprom.exit279
   %252 = getelementptr %struct.Vec_Int_t_, ptr %.val214, i64 %258, i32 2
   %.val6.i274 = load ptr, ptr %252, align 8
   %253 = load i32, ptr %.val6.i274, align 4
@@ -2723,9 +2723,9 @@ Smt_VecEntryNode.exit272:                         ; preds = %242
   %255 = load i32, ptr %254, align 4
   %256 = and i32 %255, 1
   %.not175 = icmp eq i32 %256, 0
-  br i1 %.not175, label %Smt_VecEntryNode.exit279, label %Smt_VecEntryIsType.exit276.thread
+  br i1 %.not175, label %Smt_VecEntryNode.argprom.exit279, label %Smt_VecEntryIsType.exit276.thread
 
-Smt_VecEntryNode.exit279:                         ; preds = %.lr.ph377
+Smt_VecEntryNode.argprom.exit279:                 ; preds = %.lr.ph377
   %257 = ashr exact i32 %255, 1
   %258 = sext i32 %257 to i64
   %259 = getelementptr %struct.Vec_Int_t_, ptr %.val214, i64 %258, i32 1
@@ -2733,8 +2733,8 @@ Smt_VecEntryNode.exit279:                         ; preds = %.lr.ph377
   %260 = icmp sgt i32 %.val7.i273, 0
   br i1 %260, label %.lr.ph332, label %Smt_VecEntryIsType.exit276.thread, !llvm.loop !21
 
-Smt_VecEntryIsType.exit276.thread:                ; preds = %Smt_VecEntryNode.exit279, %.lr.ph332, %.lr.ph377, %.lr.ph332.preheader, %Smt_VecEntryNode.exit272, %242
-  %.0165 = phi i32 [ %244, %242 ], [ %244, %Smt_VecEntryNode.exit272 ], [ %244, %.lr.ph332.preheader ], [ %255, %.lr.ph377 ], [ %255, %.lr.ph332 ], [ %255, %Smt_VecEntryNode.exit279 ]
+Smt_VecEntryIsType.exit276.thread:                ; preds = %Smt_VecEntryNode.argprom.exit279, %.lr.ph332, %.lr.ph377, %.lr.ph332.preheader, %Smt_VecEntryNode.argprom.exit272, %242
+  %.0165 = phi i32 [ %244, %242 ], [ %244, %Smt_VecEntryNode.argprom.exit272 ], [ %244, %.lr.ph332.preheader ], [ %255, %.lr.ph377 ], [ %255, %.lr.ph332 ], [ %255, %Smt_VecEntryNode.argprom.exit279 ]
   %261 = tail call i32 @Smt_PrsBuildNode(ptr noundef %27, ptr noundef nonnull %0, i32 noundef %.0165, i32 noundef -1, ptr noundef null)
   %.not176 = icmp eq i32 %261, 0
   br i1 %.not176, label %262, label %263
@@ -3390,9 +3390,9 @@ tailrecurse.backedge:                             ; preds = %.critedge, %359
 153:                                              ; preds = %90
   %154 = load i8, ptr %93, align 1
   %155 = icmp eq i8 %154, 95
-  br i1 %155, label %Smt_VecEntryName.exit, label %258
+  br i1 %155, label %Smt_VecEntryName.argprom.exit, label %258
 
-Smt_VecEntryName.exit:                            ; preds = %153
+Smt_VecEntryName.argprom.exit:                    ; preds = %153
   %.val295 = load ptr, ptr %87, align 8
   %156 = getelementptr inbounds i8, ptr %.val295, i64 4
   %157 = load i32, ptr %156, align 4
@@ -3406,7 +3406,7 @@ Smt_VecEntryName.exit:                            ; preds = %153
   %162 = icmp eq i8 %161, 98
   br i1 %162, label %163, label %187
 
-163:                                              ; preds = %Smt_VecEntryName.exit
+163:                                              ; preds = %Smt_VecEntryName.argprom.exit
   %164 = getelementptr inbounds i8, ptr %160, i64 1
   %165 = load i8, ptr %164, align 1
   %166 = icmp eq i8 %165, 118
@@ -3418,22 +3418,22 @@ Smt_VecEntryName.exit:                            ; preds = %153
   %169 = load i32, ptr %168, align 4
   %170 = and i32 %169, 1
   %.not.i296 = icmp eq i32 %170, 0
-  br i1 %.not.i296, label %Smt_VecEntryName.exit298, label %171
+  br i1 %.not.i296, label %Smt_VecEntryName.argprom.exit298, label %171
 
 171:                                              ; preds = %167
   %.val5.i297 = load ptr, ptr %15, align 8
   %172 = ashr i32 %169, 1
   %173 = tail call ptr @Abc_NamStr(ptr noundef %.val5.i297, i32 noundef %172) #17
-  br label %Smt_VecEntryName.exit298
+  br label %Smt_VecEntryName.argprom.exit298
 
-Smt_VecEntryName.exit298:                         ; preds = %167, %171
+Smt_VecEntryName.argprom.exit298:                 ; preds = %167, %171
   %174 = phi ptr [ %173, %171 ], [ null, %167 ]
   %175 = getelementptr inbounds i8, ptr %160, i64 2
   %176 = tail call i32 @atoi(ptr nocapture noundef %174) #18
   %.not243 = icmp eq ptr %4, null
   br i1 %.not243, label %177, label %184
 
-177:                                              ; preds = %Smt_VecEntryName.exit298
+177:                                              ; preds = %Smt_VecEntryName.argprom.exit298
   %178 = getelementptr inbounds i8, ptr %1, i64 76
   %179 = load i32, ptr %178, align 4
   %180 = getelementptr inbounds i8, ptr %1, i64 72
@@ -3443,12 +3443,12 @@ Smt_VecEntryName.exit298:                         ; preds = %167, %171
   %183 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Smt_PrsGenName.Buffer, ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %179, i32 noundef %182) #17
   br label %184
 
-184:                                              ; preds = %Smt_VecEntryName.exit298, %177
-  %185 = phi ptr [ @Smt_PrsGenName.Buffer, %177 ], [ %4, %Smt_VecEntryName.exit298 ]
+184:                                              ; preds = %Smt_VecEntryName.argprom.exit298, %177
+  %185 = phi ptr [ @Smt_PrsGenName.Buffer, %177 ], [ %4, %Smt_VecEntryName.argprom.exit298 ]
   %186 = tail call fastcc i32 @Smt_PrsBuildConstant(ptr noundef nonnull %0, ptr noundef nonnull %175, i32 noundef %176, ptr noundef nonnull %185)
   br label %.loopexit
 
-187:                                              ; preds = %163, %Smt_VecEntryName.exit
+187:                                              ; preds = %163, %Smt_VecEntryName.argprom.exit
   store i32 0, ptr %8, align 4
   %188 = call fastcc i32 @Smt_StrToType(ptr noundef nonnull %160, ptr noundef %8)
   %189 = icmp eq i32 %188, 0
@@ -4150,16 +4150,16 @@ define ptr @Smt_PrsBuild2(ptr noundef %0) local_unnamed_addr #0 {
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 1
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %23, label %Smt_VecEntryNode.exit
+  br i1 %.not.i, label %23, label %Smt_VecEntryNode.argprom.exit
 
 23:                                               ; preds = %19
   %.val5.i = load ptr, ptr %11, align 8
   %24 = ashr exact i32 %21, 1
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val5.i, i64 %25
-  br label %Smt_VecEntryNode.exit
+  br label %Smt_VecEntryNode.argprom.exit
 
-Smt_VecEntryNode.exit:                            ; preds = %19, %23
+Smt_VecEntryNode.argprom.exit:                    ; preds = %19, %23
   %27 = phi ptr [ %26, %23 ], [ null, %19 ]
   %28 = getelementptr i8, ptr %27, i64 8
   %.val122 = load ptr, ptr %28, align 8
@@ -4171,7 +4171,7 @@ Smt_VecEntryNode.exit:                            ; preds = %19, %23
     i32 6, label %168
   ]
 
-31:                                               ; preds = %Smt_VecEntryNode.exit
+31:                                               ; preds = %Smt_VecEntryNode.argprom.exit
   %32 = getelementptr inbounds i8, ptr %.val122, i64 4
   %33 = load i32, ptr %32, align 4
   %.val135 = load ptr, ptr %16, align 8
@@ -4402,7 +4402,7 @@ Vec_IntPush.exit152:                              ; preds = %.Vec_IntGrow.exit10
   tail call void @free(ptr noundef nonnull %38) #17
   br label %209
 
-143:                                              ; preds = %Smt_VecEntryNode.exit
+143:                                              ; preds = %Smt_VecEntryNode.argprom.exit
   %144 = getelementptr inbounds i8, ptr %.val122, i64 4
   %145 = load i32, ptr %144, align 4
   %.val133 = load ptr, ptr %16, align 8
@@ -4417,9 +4417,9 @@ Vec_IntPush.exit152:                              ; preds = %.Vec_IntGrow.exit10
   %153 = load i32, ptr %152, align 4
   %154 = and i32 %153, 1
   %.not = icmp eq i32 %154, 0
-  br i1 %.not, label %Smt_VecEntryNode.exit155, label %163
+  br i1 %.not, label %Smt_VecEntryNode.argprom.exit155, label %163
 
-Smt_VecEntryNode.exit155:                         ; preds = %143
+Smt_VecEntryNode.argprom.exit155:                 ; preds = %143
   %.val5.i154 = load ptr, ptr %11, align 8
   %155 = ashr exact i32 %153, 1
   %156 = sext i32 %155 to i64
@@ -4434,9 +4434,9 @@ Smt_VecEntryNode.exit155:                         ; preds = %143
   %.val113.pre = load ptr, ptr %28, align 8
   br label %163
 
-163:                                              ; preds = %143, %Smt_VecEntryNode.exit155
-  %.val113 = phi ptr [ %.val113.pre, %Smt_VecEntryNode.exit155 ], [ %.val115, %143 ]
-  %.1103 = phi i32 [ %162, %Smt_VecEntryNode.exit155 ], [ 1, %143 ]
+163:                                              ; preds = %143, %Smt_VecEntryNode.argprom.exit155
+  %.val113 = phi ptr [ %.val113.pre, %Smt_VecEntryNode.argprom.exit155 ], [ %.val115, %143 ]
+  %.1103 = phi i32 [ %162, %Smt_VecEntryNode.argprom.exit155 ], [ 1, %143 ]
   %164 = getelementptr inbounds i8, ptr %.val113, i64 16
   %165 = load i32, ptr %164, align 4
   %166 = tail call i32 @Smt_PrsBuild2_rec(ptr noundef %7, ptr noundef nonnull %0, i32 noundef %165, i32 noundef %.1103, ptr noundef %150)
@@ -4447,7 +4447,7 @@ Smt_VecEntryNode.exit155:                         ; preds = %143
   tail call void @free(ptr noundef nonnull %150) #17
   br label %209
 
-168:                                              ; preds = %Smt_VecEntryNode.exit
+168:                                              ; preds = %Smt_VecEntryNode.argprom.exit
   %169 = load i32, ptr %15, align 8
   %170 = add nsw i32 %169, 1
   store i32 %170, ptr %15, align 8
@@ -4526,7 +4526,7 @@ Vec_IntPush.exit162:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %173, ptr %203, align 4
   br label %209
 
-204:                                              ; preds = %Smt_VecEntryNode.exit
+204:                                              ; preds = %Smt_VecEntryNode.argprom.exit
   %205 = icmp sgt i32 %30, 10
   br i1 %205, label %206, label %209
 
@@ -4742,7 +4742,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %34 = sext i32 %32 to i64
   %35 = getelementptr inbounds i32, ptr %31, i64 %34
   store i32 %.val46, ptr %35, align 4
-  tail call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %3)
+  tail call fastcc void @Vec_WecPushLevel.retelim(ptr noundef nonnull %3)
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4951,7 +4951,7 @@ Vec_IntPush.exit64:                               ; preds = %.Vec_IntGrow.exit10
   %122 = sext i32 %120 to i64
   %123 = getelementptr inbounds i32, ptr %119, i64 %122
   store i32 %.val44, ptr %123, align 4
-  tail call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %3)
+  tail call fastcc void @Vec_WecPushLevel.retelim(ptr noundef nonnull %3)
   br label %.loopexit
 
 124:                                              ; preds = %56
@@ -5109,7 +5109,7 @@ Abc_Base16Log.exit:                               ; preds = %.lr.ph.i73, %._crit
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_WecPushLevel(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @Vec_WecPushLevel.retelim(ptr nocapture noundef %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8

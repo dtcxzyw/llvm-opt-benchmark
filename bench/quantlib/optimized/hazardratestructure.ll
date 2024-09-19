@@ -1229,7 +1229,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK8QuantLib19HazardRateStructure23survivalProbabilityImplEdE8integral, i64 8), align 8, !tbaa !45
   %conv.i = trunc i64 %3 to i32
   %cmp1.i = icmp sgt i32 %conv.i, 0
-  br i1 %cmp1.i, label %for.body.lr.ph.i, label %"_ZNK8QuantLib18GaussianQuadratureclINS_12_GLOBAL__N_18remapperIZNKS_19HazardRateStructure23survivalProbabilityImplEdE3$_0EEEEdRKT_.exit"
+  br i1 %cmp1.i, label %for.body.lr.ph.i, label %"_ZNK8QuantLib18GaussianQuadratureclINS_12_GLOBAL__N_18remapperIZNKS_19HazardRateStructure23survivalProbabilityImplEdE3$_0EEEEdRKT_.argprom.exit"
 
 for.body.lr.ph.i:                                 ; preds = %init.end
   %4 = and i64 %3, 2147483647
@@ -1254,9 +1254,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %call.i.i.i = tail call noundef double %9(ptr noundef nonnull align 8 dereferenceable(152) %this, double noundef %div.i.i)
   %10 = tail call double @llvm.fmuladd.f64(double %6, double %call.i.i.i, double %sum.02.i)
   %cmp.i = icmp ugt i64 %indvars.iv.i, 1
-  br i1 %cmp.i, label %for.body.i, label %"_ZNK8QuantLib18GaussianQuadratureclINS_12_GLOBAL__N_18remapperIZNKS_19HazardRateStructure23survivalProbabilityImplEdE3$_0EEEEdRKT_.exit", !llvm.loop !55
+  br i1 %cmp.i, label %for.body.i, label %"_ZNK8QuantLib18GaussianQuadratureclINS_12_GLOBAL__N_18remapperIZNKS_19HazardRateStructure23survivalProbabilityImplEdE3$_0EEEEdRKT_.argprom.exit", !llvm.loop !55
 
-"_ZNK8QuantLib18GaussianQuadratureclINS_12_GLOBAL__N_18remapperIZNKS_19HazardRateStructure23survivalProbabilityImplEdE3$_0EEEEdRKT_.exit": ; preds = %for.body.i, %init.end
+"_ZNK8QuantLib18GaussianQuadratureclINS_12_GLOBAL__N_18remapperIZNKS_19HazardRateStructure23survivalProbabilityImplEdE3$_0EEEEdRKT_.argprom.exit": ; preds = %for.body.i, %init.end
   %sum.0.lcssa.i = phi double [ 0.000000e+00, %init.end ], [ %10, %for.body.i ]
   %fneg = fneg double %sum.0.lcssa.i
   %mul = fmul double %t, %fneg

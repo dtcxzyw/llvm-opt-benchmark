@@ -153,13 +153,13 @@ define range(i32 -1, -2147483648) i32 @Fxu_Select(ptr noundef %0, ptr nocapture 
   %52 = icmp eq i32 %.val.val, -2
   %53 = icmp eq i32 %.val99.val, -2
   %or.cond.i = select i1 %52, i1 true, i1 %53
-  br i1 %or.cond.i, label %Fxu_MatrixFindComplementSingle.exit, label %54
+  br i1 %or.cond.i, label %Fxu_MatrixFindComplementSingle.argprom.argprom.exit, label %54
 
 54:                                               ; preds = %47
   %55 = call ptr @Fxu_MatrixFindDouble(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1, i32 noundef 1)
-  br label %Fxu_MatrixFindComplementSingle.exit
+  br label %Fxu_MatrixFindComplementSingle.argprom.argprom.exit
 
-Fxu_MatrixFindComplementSingle.exit:              ; preds = %47, %54
+Fxu_MatrixFindComplementSingle.argprom.argprom.exit: ; preds = %47, %54
   %.0.i = phi ptr [ %55, %54 ], [ null, %47 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -167,7 +167,7 @@ Fxu_MatrixFindComplementSingle.exit:              ; preds = %47, %54
   store ptr %.0.i, ptr %56, align 8
   br label %57
 
-57:                                               ; preds = %.lr.ph114, %Fxu_MatrixFindComplementSingle.exit
+57:                                               ; preds = %.lr.ph114, %Fxu_MatrixFindComplementSingle.argprom.argprom.exit
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next145, %.087.lcssa167
   br i1 %exitcond148.not, label %.preheader105, label %.lr.ph114, !llvm.loop !9
@@ -303,7 +303,7 @@ Fxu_MatrixGetDoubleVars.exit.i:                   ; preds = %102
   %110 = icmp eq i32 %108, -2
   %111 = icmp eq i32 %109, -2
   %or.cond.i102 = select i1 %110, i1 true, i1 %111
-  br i1 %or.cond.i102, label %Fxu_MatrixFindComplementDouble2.exit, label %112
+  br i1 %or.cond.i102, label %Fxu_MatrixFindComplementDouble2.argprom.argprom.argprom.exit, label %112
 
 112:                                              ; preds = %Fxu_MatrixGetDoubleVars.exit.i
   %113 = xor i32 %109, 1
@@ -312,7 +312,7 @@ Fxu_MatrixGetDoubleVars.exit.i:                   ; preds = %102
   %spec.select27.i = call i32 @llvm.smax.i32(i32 %114, i32 %113)
   %.01.i = load ptr, ptr %44, align 8
   %.not2.i = icmp eq ptr %.01.i, null
-  br i1 %.not2.i, label %Fxu_MatrixFindComplementDouble2.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %Fxu_MatrixFindComplementDouble2.argprom.argprom.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %112, %124
   %.03.i = phi ptr [ %.0.i103, %124 ], [ %.01.i, %112 ]
@@ -327,22 +327,22 @@ Fxu_MatrixGetDoubleVars.exit.i:                   ; preds = %102
   %121 = load ptr, ptr %120, align 8
   %122 = load i32, ptr %121, align 8
   %123 = icmp eq i32 %122, %spec.select27.i
-  br i1 %123, label %Fxu_MatrixFindComplementDouble2.exit, label %124
+  br i1 %123, label %Fxu_MatrixFindComplementDouble2.argprom.argprom.argprom.exit, label %124
 
 124:                                              ; preds = %119, %.lr.ph.i
   %125 = getelementptr inbounds i8, ptr %.03.i, i64 40
   %.0.i103 = load ptr, ptr %125, align 8
   %.not.i = icmp eq ptr %.0.i103, null
-  br i1 %.not.i, label %Fxu_MatrixFindComplementDouble2.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %Fxu_MatrixFindComplementDouble2.argprom.argprom.argprom.exit, label %.lr.ph.i, !llvm.loop !10
 
-Fxu_MatrixFindComplementDouble2.exit:             ; preds = %119, %124, %Fxu_MatrixGetDoubleVars.exit.i, %112
+Fxu_MatrixFindComplementDouble2.argprom.argprom.argprom.exit: ; preds = %119, %124, %Fxu_MatrixGetDoubleVars.exit.i, %112
   %.024.i = phi ptr [ null, %Fxu_MatrixGetDoubleVars.exit.i ], [ null, %112 ], [ null, %124 ], [ %.03.i, %119 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %61, %66, %Fxu_MatrixFindComplementDouble2.exit
-  %.sink = phi ptr [ %.024.i, %Fxu_MatrixFindComplementDouble2.exit ], [ null, %66 ], [ null, %61 ]
+.sink.split:                                      ; preds = %61, %66, %Fxu_MatrixFindComplementDouble2.argprom.argprom.argprom.exit
+  %.sink = phi ptr [ %.024.i, %Fxu_MatrixFindComplementDouble2.argprom.argprom.argprom.exit ], [ null, %66 ], [ null, %61 ]
   %126 = getelementptr inbounds [20 x ptr], ptr %11, i64 0, i64 %indvars.iv149
   store ptr %.sink, ptr %126, align 8
   br label %127

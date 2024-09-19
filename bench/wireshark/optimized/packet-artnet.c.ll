@@ -6182,7 +6182,7 @@ dissect_artnet_rdm.exit:                          ; preds = %proto_item_set_gene
   %937 = load i32, ptr @hf_artnet_spare, align 4
   %938 = call ptr @proto_tree_add_item(ptr noundef %911, i32 noundef %937, ptr noundef %0, i32 noundef %936, i32 noundef 4, i32 noundef 0) #5
   %939 = add nuw nsw i32 %.0557, 20
-  switch i8 %924, label %dissect_artnet_rdm_sub.exit [
+  switch i8 %924, label %dissect_artnet_rdm_sub.argprom.exit [
     i8 48, label %940
     i8 33, label %940
   ]
@@ -6192,9 +6192,9 @@ dissect_artnet_rdm.exit:                          ; preds = %proto_item_set_gene
   %942 = load i32, ptr @hf_artnet_rdm_sub_data, align 4
   %943 = call ptr @proto_tree_add_item(ptr noundef %911, i32 noundef %942, ptr noundef %0, i32 noundef %939, i32 noundef %941, i32 noundef 0) #5
   %944 = add i32 %941, %939
-  br label %dissect_artnet_rdm_sub.exit
+  br label %dissect_artnet_rdm_sub.argprom.exit
 
-dissect_artnet_rdm_sub.exit:                      ; preds = %907, %940
+dissect_artnet_rdm_sub.argprom.exit:              ; preds = %907, %940
   %.0.i571 = phi i32 [ %939, %907 ], [ %944, %940 ]
   %945 = sub i32 %.0.i571, %.0557
   call void @proto_item_set_len(ptr noundef %911, i32 noundef %945) #5
@@ -6790,8 +6790,8 @@ dissect_artnet_trigger.exit:                      ; preds = %1108, %1123, %1126,
   %1407 = icmp sgt i32 %1406, 0
   br i1 %1407, label %.sink.split, label %1413
 
-1408:                                             ; preds = %1375, %1345, %1340, %1335, %1306, %1292, %1269, %1264, %1259, %1229, %1212, %1180, %1154, %1140, %dissect_artnet_trigger.exit, %dissect_artnet_nzs.exit, %989, %966, %961, %956, %951, %946, %dissect_artnet_rdm_sub.exit, %dissect_artnet_rdm.exit, %dissect_artnet_tod_control.exit, %dissect_artnet_tod_data.exit, %712, %672, %dissect_artnet_address.exit, %590, %554, %dissect_artnet_data_reply.exit, %512, %495, %469, %464, %dissect_artnet_poll_reply.exit, %dissect_artnet_poll.exit
-  %.1 = phi i32 [ %1404, %1375 ], [ %1374, %1345 ], [ %.0557, %1340 ], [ %.0557, %1335 ], [ %1334, %1306 ], [ %1305, %1292 ], [ %1291, %1269 ], [ %.0557, %1264 ], [ %.0557, %1259 ], [ %1257, %1229 ], [ %1228, %1212 ], [ %1210, %1180 ], [ %1179, %1154 ], [ %1153, %1140 ], [ %1139, %dissect_artnet_trigger.exit ], [ %.0.i572, %dissect_artnet_nzs.exit ], [ %.0557, %989 ], [ %988, %966 ], [ %.0557, %961 ], [ %.0557, %956 ], [ %.0557, %951 ], [ %.0557, %946 ], [ %.0.i571, %dissect_artnet_rdm_sub.exit ], [ %905, %dissect_artnet_rdm.exit ], [ %842, %dissect_artnet_tod_control.exit ], [ %.0.lcssa.i, %dissect_artnet_tod_data.exit ], [ %740, %712 ], [ %711, %672 ], [ %671, %dissect_artnet_address.exit ], [ %597, %590 ], [ %588, %554 ], [ %.0.i559, %dissect_artnet_data_reply.exit ], [ %528, %512 ], [ %510, %495 ], [ %493, %469 ], [ %.0557, %464 ], [ %.0.i558, %dissect_artnet_poll_reply.exit ], [ %.0.i, %dissect_artnet_poll.exit ]
+1408:                                             ; preds = %1375, %1345, %1340, %1335, %1306, %1292, %1269, %1264, %1259, %1229, %1212, %1180, %1154, %1140, %dissect_artnet_trigger.exit, %dissect_artnet_nzs.exit, %989, %966, %961, %956, %951, %946, %dissect_artnet_rdm_sub.argprom.exit, %dissect_artnet_rdm.exit, %dissect_artnet_tod_control.exit, %dissect_artnet_tod_data.exit, %712, %672, %dissect_artnet_address.exit, %590, %554, %dissect_artnet_data_reply.exit, %512, %495, %469, %464, %dissect_artnet_poll_reply.exit, %dissect_artnet_poll.exit
+  %.1 = phi i32 [ %1404, %1375 ], [ %1374, %1345 ], [ %.0557, %1340 ], [ %.0557, %1335 ], [ %1334, %1306 ], [ %1305, %1292 ], [ %1291, %1269 ], [ %.0557, %1264 ], [ %.0557, %1259 ], [ %1257, %1229 ], [ %1228, %1212 ], [ %1210, %1180 ], [ %1179, %1154 ], [ %1153, %1140 ], [ %1139, %dissect_artnet_trigger.exit ], [ %.0.i572, %dissect_artnet_nzs.exit ], [ %.0557, %989 ], [ %988, %966 ], [ %.0557, %961 ], [ %.0557, %956 ], [ %.0557, %951 ], [ %.0557, %946 ], [ %.0.i571, %dissect_artnet_rdm_sub.argprom.exit ], [ %905, %dissect_artnet_rdm.exit ], [ %842, %dissect_artnet_tod_control.exit ], [ %.0.lcssa.i, %dissect_artnet_tod_data.exit ], [ %740, %712 ], [ %711, %672 ], [ %671, %dissect_artnet_address.exit ], [ %597, %590 ], [ %588, %554 ], [ %.0.i559, %dissect_artnet_data_reply.exit ], [ %528, %512 ], [ %510, %495 ], [ %493, %469 ], [ %.0557, %464 ], [ %.0.i558, %dissect_artnet_poll_reply.exit ], [ %.0.i, %dissect_artnet_poll.exit ]
   %1409 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #5
   %1410 = icmp sgt i32 %1409, 0
   br i1 %1410, label %.sink.split, label %1413

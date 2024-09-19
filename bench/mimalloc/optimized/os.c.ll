@@ -271,18 +271,18 @@ if.then10:                                        ; preds = %_mi_os_good_alloc_s
   %or.cond4.i = and i1 %cmp.i6, %cmp21.i
   br i1 %or.cond4.i, label %if.end.i.i, label %if.end13
 
-if.end.i.i:                                       ; preds = %if.then10, %mi_os_prim_free.exit.i
-  %base.03.i = phi ptr [ %add.ptr.i, %mi_os_prim_free.exit.i ], [ %base.0, %if.then10 ]
-  %size.addr.02.i = phi i64 [ %sub.i7, %mi_os_prim_free.exit.i ], [ %csize.0, %if.then10 ]
+if.end.i.i:                                       ; preds = %if.then10, %mi_os_prim_free.argprom.exit.i
+  %base.03.i = phi ptr [ %add.ptr.i, %mi_os_prim_free.argprom.exit.i ], [ %base.0, %if.then10 ]
+  %size.addr.02.i = phi i64 [ %sub.i7, %mi_os_prim_free.argprom.exit.i ], [ %csize.0, %if.then10 ]
   %call.i.i = tail call i32 @_mi_prim_free(ptr noundef nonnull %base.03.i, i64 noundef 1073741824) #7
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %cmp2.not.i.i, label %mi_os_prim_free.exit.i, label %if.then3.i.i
+  br i1 %cmp2.not.i.i, label %mi_os_prim_free.argprom.exit.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.6, i32 noundef %call.i.i, i32 noundef %call.i.i, i64 noundef 1073741824, ptr noundef nonnull %base.03.i) #7
-  br label %mi_os_prim_free.exit.i
+  br label %mi_os_prim_free.argprom.exit.i
 
-mi_os_prim_free.exit.i:                           ; preds = %if.then3.i.i, %if.end.i.i
+mi_os_prim_free.argprom.exit.i:                   ; preds = %if.then3.i.i, %if.end.i.i
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef 1073741824) #7
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef 1073741824) #7
   %sub.i7 = add i64 %size.addr.02.i, -1073741824
@@ -316,12 +316,12 @@ if.end6.i:                                        ; preds = %if.then5.i, %if.end
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef %csize.0) #7
   br label %if.end13
 
-if.end13:                                         ; preds = %mi_os_prim_free.exit.i, %if.end6.i, %if.else, %if.then10, %entry
+if.end13:                                         ; preds = %mi_os_prim_free.argprom.exit.i, %if.end6.i, %if.else, %if.then10, %entry
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_os_prim_free(ptr noundef %addr, i64 noundef %size, i1 noundef zeroext %still_committed) unnamed_addr #1 {
+define internal fastcc void @mi_os_prim_free.argprom(ptr noundef %addr, i64 noundef %size, i1 noundef zeroext %still_committed) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %addr, null
   %cmp1 = icmp eq i64 %size, 0
@@ -423,9 +423,9 @@ _mi_os_good_alloc_size.exit:                      ; preds = %if.then.i.i, %if.el
   store i8 0, ptr %os_is_large, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   %cmp.i5 = icmp eq i64 %retval.0.i, 0
-  br i1 %cmp.i5, label %mi_os_prim_alloc.exit.thread, label %if.end.i
+  br i1 %cmp.i5, label %mi_os_prim_alloc.argprom.exit.thread, label %if.end.i
 
-mi_os_prim_alloc.exit.thread:                     ; preds = %_mi_os_good_alloc_size.exit
+mi_os_prim_alloc.argprom.exit.thread:             ; preds = %_mi_os_good_alloc_size.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   br label %return
 
@@ -444,13 +444,13 @@ if.then10.i:                                      ; preds = %if.end.i
 if.end14.i:                                       ; preds = %if.then10.i, %if.end.i
   %3 = load ptr, ptr %p.i, align 8
   %cmp15.not.i = icmp eq ptr %3, null
-  br i1 %cmp15.not.i, label %mi_os_prim_alloc.exit.thread13, label %mi_os_prim_alloc.exit
+  br i1 %cmp15.not.i, label %mi_os_prim_alloc.argprom.exit.thread13, label %mi_os_prim_alloc.argprom.exit
 
-mi_os_prim_alloc.exit.thread13:                   ; preds = %if.end14.i
+mi_os_prim_alloc.argprom.exit.thread13:           ; preds = %if.end14.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   br label %return
 
-mi_os_prim_alloc.exit:                            ; preds = %if.end14.i
+mi_os_prim_alloc.argprom.exit:                    ; preds = %if.end14.i
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef %retval.0.i10) #7
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %retval.0.i10) #7
   %.pr = load ptr, ptr %p.i, align 8
@@ -458,7 +458,7 @@ mi_os_prim_alloc.exit:                            ; preds = %if.end14.i
   %cmp2.not = icmp eq ptr %.pr, null
   br i1 %cmp2.not, label %return, label %if.then3
 
-if.then3:                                         ; preds = %mi_os_prim_alloc.exit
+if.then3:                                         ; preds = %mi_os_prim_alloc.argprom.exit
   %4 = load i8, ptr %os_is_zero, align 1
   %5 = load i8, ptr %os_is_large, align 1
   %frombool1.i = and i8 %4, 1
@@ -476,8 +476,8 @@ if.then3:                                         ; preds = %mi_os_prim_alloc.ex
   store i32 3, ptr %tmp4.sroa.57.0.memid.sroa_idx, align 4
   br label %return
 
-return:                                           ; preds = %mi_os_prim_alloc.exit.thread13, %mi_os_prim_alloc.exit.thread, %mi_os_prim_alloc.exit, %if.then3, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %.pr, %if.then3 ], [ null, %mi_os_prim_alloc.exit ], [ null, %mi_os_prim_alloc.exit.thread ], [ null, %mi_os_prim_alloc.exit.thread13 ]
+return:                                           ; preds = %mi_os_prim_alloc.argprom.exit.thread13, %mi_os_prim_alloc.argprom.exit.thread, %mi_os_prim_alloc.argprom.exit, %if.then3, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %.pr, %if.then3 ], [ null, %mi_os_prim_alloc.argprom.exit ], [ null, %mi_os_prim_alloc.argprom.exit.thread ], [ null, %mi_os_prim_alloc.argprom.exit.thread13 ]
   ret ptr %retval.0
 }
 
@@ -585,9 +585,9 @@ _mi_align_up.exit.i:                              ; preds = %if.else.i.i19, %if.
   %retval.0.i.i = phi i64 [ %and1.i.i25, %if.then.i.i23 ], [ %mul.i.i20, %if.else.i.i19 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i.i)
   %cmp.i58.i = icmp eq i64 %retval.0.i.i, 0
-  br i1 %cmp.i58.i, label %mi_os_prim_alloc.exit.thread.i, label %if.end.i.i
+  br i1 %cmp.i58.i, label %mi_os_prim_alloc.argprom.exit.thread.i, label %if.end.i.i
 
-mi_os_prim_alloc.exit.thread.i:                   ; preds = %_mi_align_up.exit.i
+mi_os_prim_alloc.argprom.exit.thread.i:           ; preds = %_mi_align_up.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i)
   br label %return
 
@@ -608,27 +608,27 @@ if.then10.i.i:                                    ; preds = %if.end.i.i
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.end.i.i
   %8 = load ptr, ptr %p.i.i, align 8
   %cmp15.not.i.i = icmp eq ptr %8, null
-  br i1 %cmp15.not.i.i, label %mi_os_prim_alloc.exit.thread3.i, label %if.then17.i.i
+  br i1 %cmp15.not.i.i, label %mi_os_prim_alloc.argprom.exit.thread3.i, label %if.then17.i.i
 
-mi_os_prim_alloc.exit.thread3.i:                  ; preds = %if.end14.i.i
+mi_os_prim_alloc.argprom.exit.thread3.i:          ; preds = %if.end14.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i)
   br label %return
 
 if.then17.i.i:                                    ; preds = %if.end14.i.i
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef %retval.0.i.i) #7
-  br i1 %commit, label %if.then19.i.i, label %mi_os_prim_alloc.exit.i
+  br i1 %commit, label %if.then19.i.i, label %mi_os_prim_alloc.argprom.exit.i
 
 if.then19.i.i:                                    ; preds = %if.then17.i.i
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %retval.0.i.i) #7
-  br label %mi_os_prim_alloc.exit.i
+  br label %mi_os_prim_alloc.argprom.exit.i
 
-mi_os_prim_alloc.exit.i:                          ; preds = %if.then19.i.i, %if.then17.i.i
+mi_os_prim_alloc.argprom.exit.i:                  ; preds = %if.then19.i.i, %if.then17.i.i
   %.pr.i = load ptr, ptr %p.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i)
   %cmp10.i = icmp eq ptr %.pr.i, null
   br i1 %cmp10.i, label %return, label %if.end12.i21
 
-if.end12.i21:                                     ; preds = %mi_os_prim_alloc.exit.i
+if.end12.i21:                                     ; preds = %mi_os_prim_alloc.argprom.exit.i
   %9 = ptrtoint ptr %.pr.i to i64
   %10 = add i64 %retval.0.i13, -1
   %rem.i = and i64 %10, %9
@@ -647,19 +647,19 @@ if.then3.i.i:                                     ; preds = %if.end.i61.i
   br label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.end.i61.i
-  br i1 %commit, label %if.then5.i.i, label %mi_os_prim_free.exit.i
+  br i1 %commit, label %if.then5.i.i, label %mi_os_prim_free.argprom.exit.i
 
 if.then5.i.i:                                     ; preds = %if.end4.i.i
   call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %retval.0.i.i) #7
-  br label %mi_os_prim_free.exit.i
+  br label %mi_os_prim_free.argprom.exit.i
 
-mi_os_prim_free.exit.i:                           ; preds = %if.then5.i.i, %if.end4.i.i
+mi_os_prim_free.argprom.exit.i:                   ; preds = %if.then5.i.i, %if.end4.i.i
   call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef %retval.0.i.i) #7
   %sub17.i = xor i64 %retval.0.i13, -1
   %cmp18.not.i = icmp ult i64 %retval.0.i.i, %sub17.i
   br i1 %cmp18.not.i, label %if.end21.i, label %return
 
-if.end21.i:                                       ; preds = %mi_os_prim_free.exit.i
+if.end21.i:                                       ; preds = %mi_os_prim_free.argprom.exit.i
   %add.i22 = add i64 %retval.0.i.i, %retval.0.i13
   %11 = load i8, ptr getelementptr inbounds (i8, ptr @mi_os_mem_config, i64 25), align 1
   %tobool22.i = trunc i8 %11 to i1
@@ -668,9 +668,9 @@ if.end21.i:                                       ; preds = %mi_os_prim_free.exi
 
 if.then23.i:                                      ; preds = %if.end21.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i63.i)
-  br i1 %cmp.i64.i, label %mi_os_prim_alloc.exit74.thread.i, label %if.end.i65.i
+  br i1 %cmp.i64.i, label %mi_os_prim_alloc.argprom.exit74.thread.i, label %if.end.i65.i
 
-mi_os_prim_alloc.exit74.thread.i:                 ; preds = %if.then23.i
+mi_os_prim_alloc.argprom.exit74.thread.i:         ; preds = %if.then23.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i63.i)
   br label %return
 
@@ -688,36 +688,36 @@ if.then10.i68.i:                                  ; preds = %if.end.i65.i
 if.end14.i69.i:                                   ; preds = %if.then10.i68.i, %if.end.i65.i
   %12 = load ptr, ptr %p.i63.i, align 8
   %cmp15.not.i70.i = icmp eq ptr %12, null
-  br i1 %cmp15.not.i70.i, label %mi_os_prim_alloc.exit74.thread8.i, label %mi_os_prim_alloc.exit74.i
+  br i1 %cmp15.not.i70.i, label %mi_os_prim_alloc.argprom.exit74.thread8.i, label %mi_os_prim_alloc.argprom.exit74.i
 
-mi_os_prim_alloc.exit74.thread8.i:                ; preds = %if.end14.i69.i
+mi_os_prim_alloc.argprom.exit74.thread8.i:        ; preds = %if.end14.i69.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i63.i)
   br label %return
 
-mi_os_prim_alloc.exit74.i:                        ; preds = %if.end14.i69.i
+mi_os_prim_alloc.argprom.exit74.i:                ; preds = %if.end14.i69.i
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef %add.i22) #7
   %.pr7.i = load ptr, ptr %p.i63.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i63.i)
   %cmp25.i = icmp eq ptr %.pr7.i, null
   br i1 %cmp25.i, label %return, label %mi_align_up_ptr.exit.i
 
-mi_align_up_ptr.exit.i:                           ; preds = %mi_os_prim_alloc.exit74.i
+mi_align_up_ptr.exit.i:                           ; preds = %mi_os_prim_alloc.argprom.exit74.i
   %13 = ptrtoint ptr %.pr7.i to i64
   %add.i.i.i = add i64 %10, %13
   %not.i.i.i = sub i64 0, %retval.0.i13
   %and1.i.i.i = and i64 %add.i.i.i, %not.i.i.i
   %14 = inttoptr i64 %and1.i.i.i to ptr
-  br i1 %commit, label %if.then31.i, label %mi_os_prim_alloc_aligned.exit
+  br i1 %commit, label %if.then31.i, label %mi_os_prim_alloc_aligned.argprom.exit
 
 if.then31.i:                                      ; preds = %mi_align_up_ptr.exit.i
   %call32.i = call zeroext i1 @_mi_os_commit(ptr noundef %14, i64 noundef %retval.0.i.i, ptr noundef null, ptr nonnull poison) #8
-  br label %mi_os_prim_alloc_aligned.exit
+  br label %mi_os_prim_alloc_aligned.argprom.exit
 
 if.else34.i:                                      ; preds = %if.end21.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i75.i)
-  br i1 %cmp.i64.i, label %mi_os_prim_alloc.exit89.thread.i, label %if.end.i77.i
+  br i1 %cmp.i64.i, label %mi_os_prim_alloc.argprom.exit89.thread.i, label %if.end.i77.i
 
-mi_os_prim_alloc.exit89.thread.i:                 ; preds = %if.else34.i
+mi_os_prim_alloc.argprom.exit89.thread.i:         ; preds = %if.else34.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i75.i)
   br label %return
 
@@ -735,27 +735,27 @@ if.then10.i80.i:                                  ; preds = %if.end.i77.i
 if.end14.i83.i:                                   ; preds = %if.then10.i80.i, %if.end.i77.i
   %15 = load ptr, ptr %p.i75.i, align 8
   %cmp15.not.i84.i = icmp eq ptr %15, null
-  br i1 %cmp15.not.i84.i, label %mi_os_prim_alloc.exit89.thread13.i, label %if.then17.i85.i
+  br i1 %cmp15.not.i84.i, label %mi_os_prim_alloc.argprom.exit89.thread13.i, label %if.then17.i85.i
 
-mi_os_prim_alloc.exit89.thread13.i:               ; preds = %if.end14.i83.i
+mi_os_prim_alloc.argprom.exit89.thread13.i:       ; preds = %if.end14.i83.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i75.i)
   br label %return
 
 if.then17.i85.i:                                  ; preds = %if.end14.i83.i
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef %add.i22) #7
-  br i1 %commit, label %if.then19.i88.i, label %mi_os_prim_alloc.exit89.i
+  br i1 %commit, label %if.then19.i88.i, label %mi_os_prim_alloc.argprom.exit89.i
 
 if.then19.i88.i:                                  ; preds = %if.then17.i85.i
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %add.i22) #7
-  br label %mi_os_prim_alloc.exit89.i
+  br label %mi_os_prim_alloc.argprom.exit89.i
 
-mi_os_prim_alloc.exit89.i:                        ; preds = %if.then19.i88.i, %if.then17.i85.i
+mi_os_prim_alloc.argprom.exit89.i:                ; preds = %if.then19.i88.i, %if.then17.i85.i
   %.pr12.i = load ptr, ptr %p.i75.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i75.i)
   %cmp37.i = icmp eq ptr %.pr12.i, null
   br i1 %cmp37.i, label %return, label %mi_align_up_ptr.exit99.i
 
-mi_align_up_ptr.exit99.i:                         ; preds = %mi_os_prim_alloc.exit89.i
+mi_align_up_ptr.exit99.i:                         ; preds = %mi_os_prim_alloc.argprom.exit89.i
   %16 = ptrtoint ptr %.pr12.i to i64
   %add.i.i92.i = add i64 %10, %16
   %not.i.i97.i = sub i64 0, %retval.0.i13
@@ -787,27 +787,27 @@ _mi_align_up.exit109.i:                           ; preds = %if.else.i103.i, %if
   br i1 %cmp46.not.i, label %if.end50.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %_mi_align_up.exit109.i
-  call fastcc void @mi_os_prim_free(ptr noundef nonnull %.pr12.i, i64 noundef %sub.ptr.sub.i, i1 noundef zeroext %commit) #8
+  call fastcc void @mi_os_prim_free.argprom(ptr noundef nonnull %.pr12.i, i64 noundef %sub.ptr.sub.i, i1 noundef zeroext %commit) #8
   br label %if.end50.i
 
 if.end50.i:                                       ; preds = %if.then48.i, %_mi_align_up.exit109.i
   %cmp51.not.i = icmp eq i64 %add.i22, %21
-  br i1 %cmp51.not.i, label %mi_os_prim_alloc_aligned.exit, label %if.then53.i
+  br i1 %cmp51.not.i, label %mi_os_prim_alloc_aligned.argprom.exit, label %if.then53.i
 
 if.then53.i:                                      ; preds = %if.end50.i
   %add.ptr.i = getelementptr inbounds i8, ptr %17, i64 %retval.0.i105.i
-  call fastcc void @mi_os_prim_free(ptr noundef %add.ptr.i, i64 noundef %sub45.i, i1 noundef zeroext %commit) #8
-  br label %mi_os_prim_alloc_aligned.exit
+  call fastcc void @mi_os_prim_free.argprom(ptr noundef %add.ptr.i, i64 noundef %sub45.i, i1 noundef zeroext %commit) #8
+  br label %mi_os_prim_alloc_aligned.argprom.exit
 
-mi_os_prim_alloc_aligned.exit:                    ; preds = %if.end50.i, %if.then53.i, %mi_align_up_ptr.exit.i, %if.then31.i
+mi_os_prim_alloc_aligned.argprom.exit:            ; preds = %if.end50.i, %if.then53.i, %mi_align_up_ptr.exit.i, %if.then31.i
   %os_base.0 = phi ptr [ %.pr7.i, %if.then31.i ], [ %.pr7.i, %mi_align_up_ptr.exit.i ], [ %17, %if.then53.i ], [ %17, %if.end50.i ]
   %retval.0.i15 = phi ptr [ %14, %if.then31.i ], [ %14, %mi_align_up_ptr.exit.i ], [ %17, %if.then53.i ], [ %17, %if.end50.i ]
   %cmp6.not = icmp eq ptr %retval.0.i15, null
   br i1 %cmp6.not, label %return, label %if.then7
 
-if.then7:                                         ; preds = %if.end12.i21, %mi_os_prim_alloc_aligned.exit
-  %retval.0.i1535 = phi ptr [ %retval.0.i15, %mi_os_prim_alloc_aligned.exit ], [ %.pr.i, %if.end12.i21 ]
-  %os_base.034 = phi ptr [ %os_base.0, %mi_os_prim_alloc_aligned.exit ], [ %.pr.i, %if.end12.i21 ]
+if.then7:                                         ; preds = %if.end12.i21, %mi_os_prim_alloc_aligned.argprom.exit
+  %retval.0.i1535 = phi ptr [ %retval.0.i15, %mi_os_prim_alloc_aligned.argprom.exit ], [ %.pr.i, %if.end12.i21 ]
+  %os_base.034 = phi ptr [ %os_base.0, %mi_os_prim_alloc_aligned.argprom.exit ], [ %.pr.i, %if.end12.i21 ]
   %22 = load i8, ptr %os_is_zero, align 1
   %23 = load i8, ptr %os_is_large, align 1
   %frombool.i = zext i1 %commit to i8
@@ -828,8 +828,8 @@ if.then7:                                         ; preds = %if.end12.i21, %mi_o
   store i64 %retval.0.i13, ptr %alignment13, align 8
   br label %return
 
-return:                                           ; preds = %mi_os_prim_alloc.exit89.thread13.i, %mi_os_prim_alloc.exit89.thread.i, %mi_os_prim_alloc.exit74.thread8.i, %mi_os_prim_alloc.exit74.thread.i, %mi_os_prim_alloc.exit.thread3.i, %mi_os_prim_alloc.exit.thread.i, %mi_os_prim_alloc.exit89.i, %mi_os_prim_alloc.exit74.i, %mi_os_prim_free.exit.i, %mi_os_prim_alloc.exit.i, %_mi_align_up.exit, %mi_os_prim_alloc_aligned.exit, %if.then7, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %retval.0.i1535, %if.then7 ], [ null, %mi_os_prim_alloc_aligned.exit ], [ null, %_mi_align_up.exit ], [ null, %mi_os_prim_alloc.exit.i ], [ null, %mi_os_prim_free.exit.i ], [ null, %mi_os_prim_alloc.exit74.i ], [ null, %mi_os_prim_alloc.exit89.i ], [ null, %mi_os_prim_alloc.exit.thread.i ], [ null, %mi_os_prim_alloc.exit.thread3.i ], [ null, %mi_os_prim_alloc.exit74.thread.i ], [ null, %mi_os_prim_alloc.exit74.thread8.i ], [ null, %mi_os_prim_alloc.exit89.thread.i ], [ null, %mi_os_prim_alloc.exit89.thread13.i ]
+return:                                           ; preds = %mi_os_prim_alloc.argprom.exit89.thread13.i, %mi_os_prim_alloc.argprom.exit89.thread.i, %mi_os_prim_alloc.argprom.exit74.thread8.i, %mi_os_prim_alloc.argprom.exit74.thread.i, %mi_os_prim_alloc.argprom.exit.thread3.i, %mi_os_prim_alloc.argprom.exit.thread.i, %mi_os_prim_alloc.argprom.exit89.i, %mi_os_prim_alloc.argprom.exit74.i, %mi_os_prim_free.argprom.exit.i, %mi_os_prim_alloc.argprom.exit.i, %_mi_align_up.exit, %mi_os_prim_alloc_aligned.argprom.exit, %if.then7, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.0.i1535, %if.then7 ], [ null, %mi_os_prim_alloc_aligned.argprom.exit ], [ null, %_mi_align_up.exit ], [ null, %mi_os_prim_alloc.argprom.exit.i ], [ null, %mi_os_prim_free.argprom.exit.i ], [ null, %mi_os_prim_alloc.argprom.exit74.i ], [ null, %mi_os_prim_alloc.argprom.exit89.i ], [ null, %mi_os_prim_alloc.argprom.exit.thread.i ], [ null, %mi_os_prim_alloc.argprom.exit.thread3.i ], [ null, %mi_os_prim_alloc.argprom.exit74.thread.i ], [ null, %mi_os_prim_alloc.argprom.exit74.thread8.i ], [ null, %mi_os_prim_alloc.argprom.exit89.thread.i ], [ null, %mi_os_prim_alloc.argprom.exit89.thread13.i ]
   ret ptr %retval.0
 }
 
@@ -941,7 +941,7 @@ entry:
   %cmp1.i.i.i = icmp eq i64 %size, 0
   %cmp2.i.i.i = icmp eq ptr %addr, null
   %or.cond.i.i.i = or i1 %cmp2.i.i.i, %cmp1.i.i.i
-  br i1 %or.cond.i.i.i, label %mi_os_decommit_ex.exit, label %if.end4.i.i.i
+  br i1 %or.cond.i.i.i, label %mi_os_decommit_ex.argprom.exit, label %if.end4.i.i.i
 
 if.end4.i.i.i:                                    ; preds = %entry
   %0 = load i64, ptr @mi_os_mem_config, align 8
@@ -972,20 +972,20 @@ cond.end16.i.i.i:                                 ; preds = %if.else.i.i21.i.i.i
   %cond17.in.i.i.i = phi i64 [ %and1.i.i26.i.i.i, %if.then.i.i24.i.i.i ], [ %mul.i.i22.i.i.i, %if.else.i.i21.i.i.i ]
   %sub.ptr.sub.i.i.i = sub i64 %cond17.in.i.i.i, %cond39.in.i.i.i
   %cmp18.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i, 1
-  br i1 %cmp18.i.i.i, label %mi_os_decommit_ex.exit, label %if.end.i
+  br i1 %cmp18.i.i.i, label %mi_os_decommit_ex.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end16.i.i.i
   %cond39.i.i.i = inttoptr i64 %cond39.in.i.i.i to ptr
   store i8 1, ptr %needs_recommit, align 1
   %call1.i = call i32 @_mi_prim_decommit(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, ptr noundef nonnull %needs_recommit) #7
   %cmp2.not.i = icmp eq i32 %call1.i, 0
-  br i1 %cmp2.not.i, label %mi_os_decommit_ex.exit, label %if.then3.i
+  br i1 %cmp2.not.i, label %mi_os_decommit_ex.argprom.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.9, i32 noundef %call1.i, i32 noundef %call1.i, ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #7
-  br label %mi_os_decommit_ex.exit
+  br label %mi_os_decommit_ex.argprom.exit
 
-mi_os_decommit_ex.exit:                           ; preds = %entry, %cond.end16.i.i.i, %if.end.i, %if.then3.i
+mi_os_decommit_ex.argprom.exit:                   ; preds = %entry, %cond.end16.i.i.i, %if.end.i, %if.then3.i
   %retval.0.i = phi i1 [ false, %if.then3.i ], [ true, %if.end.i ], [ true, %entry ], [ true, %cond.end16.i.i.i ]
   ret i1 %retval.0.i
 }
@@ -1160,7 +1160,7 @@ if.then3:                                         ; preds = %land.lhs.true
   %cmp1.i.i.i = icmp eq i64 %size, 0
   %cmp2.i.i.i = icmp eq ptr %p, null
   %or.cond.i.i.i = or i1 %cmp2.i.i.i, %cmp1.i.i.i
-  br i1 %or.cond.i.i.i, label %mi_os_decommit_ex.exit, label %if.end4.i.i.i
+  br i1 %or.cond.i.i.i, label %mi_os_decommit_ex.argprom.exit, label %if.end4.i.i.i
 
 if.end4.i.i.i:                                    ; preds = %if.then3
   %0 = load i64, ptr @mi_os_mem_config, align 8
@@ -1191,20 +1191,20 @@ cond.end16.i.i.i:                                 ; preds = %if.else.i.i21.i.i.i
   %cond17.in.i.i.i = phi i64 [ %and1.i.i26.i.i.i, %if.then.i.i24.i.i.i ], [ %mul.i.i22.i.i.i, %if.else.i.i21.i.i.i ]
   %sub.ptr.sub.i.i.i = sub i64 %cond17.in.i.i.i, %cond39.in.i.i.i
   %cmp18.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i, 1
-  br i1 %cmp18.i.i.i, label %mi_os_decommit_ex.exit, label %if.end.i
+  br i1 %cmp18.i.i.i, label %mi_os_decommit_ex.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end16.i.i.i
   %cond39.i.i.i = inttoptr i64 %cond39.in.i.i.i to ptr
   store i8 1, ptr %needs_recommit, align 1
   %call1.i = call i32 @_mi_prim_decommit(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, ptr noundef nonnull %needs_recommit) #7
   %cmp2.not.i = icmp eq i32 %call1.i, 0
-  br i1 %cmp2.not.i, label %mi_os_decommit_ex.exit, label %if.then3.i
+  br i1 %cmp2.not.i, label %mi_os_decommit_ex.argprom.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.9, i32 noundef %call1.i, i32 noundef %call1.i, ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #7
-  br label %mi_os_decommit_ex.exit
+  br label %mi_os_decommit_ex.argprom.exit
 
-mi_os_decommit_ex.exit:                           ; preds = %if.then3, %cond.end16.i.i.i, %if.end.i, %if.then3.i
+mi_os_decommit_ex.argprom.exit:                   ; preds = %if.then3, %cond.end16.i.i.i, %if.end.i, %if.then3.i
   %6 = load i8, ptr %needs_recommit, align 1
   %tobool = trunc i8 %6 to i1
   br label %return
@@ -1263,8 +1263,8 @@ if.then3.i27:                                     ; preds = %if.end.i23
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.1, i32 noundef %call1.i25, i32 noundef %call1.i25, ptr noundef %cond39.i.i.i24, i64 noundef %sub.ptr.sub.i.i.i21) #7
   br label %return
 
-return:                                           ; preds = %if.then3.i27, %if.end.i23, %cond.end16.i.i.i18, %if.then6, %if.else, %entry, %mi_os_decommit_ex.exit
-  %retval.0 = phi i1 [ %tobool, %mi_os_decommit_ex.exit ], [ false, %entry ], [ false, %if.else ], [ false, %if.then6 ], [ false, %cond.end16.i.i.i18 ], [ false, %if.end.i23 ], [ false, %if.then3.i27 ]
+return:                                           ; preds = %if.then3.i27, %if.end.i23, %cond.end16.i.i.i18, %if.then6, %if.else, %entry, %mi_os_decommit_ex.argprom.exit
+  %retval.0 = phi i1 [ %tobool, %mi_os_decommit_ex.argprom.exit ], [ false, %entry ], [ false, %if.else ], [ false, %if.then6 ], [ false, %cond.end16.i.i.i18 ], [ false, %if.end.i23 ], [ false, %if.then3.i27 ]
   ret i1 %retval.0
 }
 

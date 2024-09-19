@@ -34,13 +34,13 @@ define dso_local void @load_current_idt() local_unnamed_addr #0 align 16 {
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @idt_setup_early_traps() local_unnamed_addr #1 section ".init.text" align 16 {
-  tail call fastcc void @idt_setup_from_table(ptr noundef nonnull @early_idts, i32 noundef 2) #5
+  tail call fastcc void @idt_setup_from_table.argelim(ptr noundef nonnull @early_idts, i32 noundef 2) #5
   tail call void asm sideeffect "lidt $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.desc_ptr) @idt_descr) #4, !srcloc !5
   ret void
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @idt_setup_from_table(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 20) %1) unnamed_addr #1 section ".init.text" align 16 {
+define internal fastcc void @idt_setup_from_table.argelim(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 20) %1) unnamed_addr #1 section ".init.text" align 16 {
   br label %3
 
 3:                                                ; preds = %2, %3
@@ -87,13 +87,13 @@ define internal fastcc void @idt_setup_from_table(ptr nocapture noundef readonly
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @idt_setup_traps() local_unnamed_addr #1 section ".init.text" align 16 {
-  tail call fastcc void @idt_setup_from_table(ptr noundef nonnull @def_idts, i32 noundef 19) #5
+  tail call fastcc void @idt_setup_from_table.argelim(ptr noundef nonnull @def_idts, i32 noundef 19) #5
   %1 = load i8, ptr @__ia32_enabled, align 1, !range !10, !noundef !11
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %0
-  tail call fastcc void @idt_setup_from_table(ptr noundef nonnull @ia32_idt, i32 noundef 1) #5
+  tail call fastcc void @idt_setup_from_table.argelim(ptr noundef nonnull @ia32_idt, i32 noundef 1) #5
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -102,13 +102,13 @@ define dso_local void @idt_setup_traps() local_unnamed_addr #1 section ".init.te
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @idt_setup_early_pf() local_unnamed_addr #1 section ".init.text" align 16 {
-  tail call fastcc void @idt_setup_from_table(ptr noundef nonnull @early_pf_idts, i32 noundef 1) #5
+  tail call fastcc void @idt_setup_from_table.argelim(ptr noundef nonnull @early_pf_idts, i32 noundef 1) #5
   ret void
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @idt_setup_apic_and_irq_gates() local_unnamed_addr #1 section ".init.text" align 16 {
-  tail call fastcc void @idt_setup_from_table(ptr noundef nonnull @apic_idts, i32 noundef 15) #5
+  tail call fastcc void @idt_setup_from_table.argelim(ptr noundef nonnull @apic_idts, i32 noundef 15) #5
   %1 = tail call i64 @_find_next_zero_bit(ptr noundef nonnull @system_vectors, i64 noundef 236, i64 noundef 32) #4
   %2 = trunc i64 %1 to i32
   %3 = icmp slt i32 %2, 236

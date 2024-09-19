@@ -1285,7 +1285,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc.i:                                         ; preds = %27
-  br i1 %29, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache8GetEntryERKNS_23PcpLayerStackIdentifierE.exit.i, label %.preheader, !llvm.loop !15
+  br i1 %29, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache8GetEntryERKNS_23PcpLayerStackIdentifierE.argprom.exit.i, label %.preheader, !llvm.loop !15
 
 30:                                               ; preds = %.critedge.i
   %31 = getelementptr inbounds nuw i8, ptr %.028.i, i64 72
@@ -1337,9 +1337,9 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__23PcpLayerSt
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierENS0_22PcpExpressionVariablesENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit.i.i.i: ; preds = %.noexc36.i
   %53 = load ptr, ptr %.013.i.i.i.i.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %53, null
-  br i1 %.not.i.i.i, label %.loopexit54.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache8GetEntryERKNS_23PcpLayerStackIdentifierE.exit.i
+  br i1 %.not.i.i.i, label %.loopexit54.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache8GetEntryERKNS_23PcpLayerStackIdentifierE.argprom.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache8GetEntryERKNS_23PcpLayerStackIdentifierE.exit.i: ; preds = %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierENS0_22PcpExpressionVariablesENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit.i.i.i, %.noexc.i
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache8GetEntryERKNS_23PcpLayerStackIdentifierE.argprom.exit.i: ; preds = %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierENS0_22PcpExpressionVariablesENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit.i.i.i, %.noexc.i
   %.sroa.06.1.i.i8.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i, %.noexc.i ], [ %53, %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierENS0_22PcpExpressionVariablesENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit.i.i.i ]
   %54 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i8.i.i.i, i64 88
   br label %.loopexit64.i
@@ -1394,8 +1394,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESaIS1_
   %62 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__28PcpExpressionVariablesSource27ResolveLayerStackIdentifierERKNS_23PcpLayerStackIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(80) %0)
           to label %18 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !llvm.loop !17
 
-.loopexit64.i:                                    ; preds = %25, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache8GetEntryERKNS_23PcpLayerStackIdentifierE.exit.i
-  %.023.i = phi ptr [ %54, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache8GetEntryERKNS_23PcpLayerStackIdentifierE.exit.i ], [ %5, %25 ]
+.loopexit64.i:                                    ; preds = %25, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache8GetEntryERKNS_23PcpLayerStackIdentifierE.argprom.exit.i
+  %.023.i = phi ptr [ %54, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache8GetEntryERKNS_23PcpLayerStackIdentifierE.argprom.exit.i ], [ %5, %25 ]
   %63 = load ptr, ptr %13, align 8
   %64 = load ptr, ptr %6, align 8
   %.not3081.i = icmp eq ptr %63, %64
@@ -1446,7 +1446,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESaIS1_
 .noexc39.i:                                       ; preds = %90
   %.fca.1.extract.i.i = extractvalue { ptr, i8 } %91, 1
   %92 = trunc i8 %.fca.1.extract.i.i to i1
-  br i1 %92, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache10CacheEntryIRKNS_22PcpExpressionVariablesEEEPS3_RKNS_23PcpLayerStackIdentifierEOT_.exit.i, label %93
+  br i1 %92, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache10CacheEntryIRKNS_22PcpExpressionVariablesEEEPS3_RKNS_23PcpLayerStackIdentifierEOT_.argprom.exit.i, label %93
 
 93:                                               ; preds = %.noexc39.i
   store ptr @.str.2, ptr %4, align 8
@@ -1455,9 +1455,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESaIS1_
   store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache10CacheEntryIRKNS_22PcpExpressionVariablesEEEPS3_RKNS_23PcpLayerStackIdentifierEOT_, ptr %78, align 8
   store i8 0, ptr %79, align 8
   %94 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef nonnull @.str.5, ptr noundef null)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache10CacheEntryIRKNS_22PcpExpressionVariablesEEEPS3_RKNS_23PcpLayerStackIdentifierEOT_.exit.i unwind label %95
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache10CacheEntryIRKNS_22PcpExpressionVariablesEEEPS3_RKNS_23PcpLayerStackIdentifierEOT_.argprom.exit.i unwind label %95
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache10CacheEntryIRKNS_22PcpExpressionVariablesEEEPS3_RKNS_23PcpLayerStackIdentifierEOT_.exit.i: ; preds = %93, %.noexc39.i
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache10CacheEntryIRKNS_22PcpExpressionVariablesEEEPS3_RKNS_23PcpLayerStackIdentifierEOT_.argprom.exit.i: ; preds = %93, %.noexc39.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   br label %126
 
@@ -1553,8 +1553,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__22PcpExpressionVariablesD2Ev.exit.i: ; pred
   call void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpExpressionVariablesD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   br label %134
 
-126:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__22PcpExpressionVariablesD2Ev.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache10CacheEntryIRKNS_22PcpExpressionVariablesEEEPS3_RKNS_23PcpLayerStackIdentifierEOT_.exit.i
-  %.pn53.i = phi { ptr, i8 } [ %112, %_ZN32pxrInternal_v0_24__pxrReserved__22PcpExpressionVariablesD2Ev.exit.i ], [ %91, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache10CacheEntryIRKNS_22PcpExpressionVariablesEEEPS3_RKNS_23PcpLayerStackIdentifierEOT_.exit.i ]
+126:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__22PcpExpressionVariablesD2Ev.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache10CacheEntryIRKNS_22PcpExpressionVariablesEEEPS3_RKNS_23PcpLayerStackIdentifierEOT_.argprom.exit.i
+  %.pn53.i = phi { ptr, i8 } [ %112, %_ZN32pxrInternal_v0_24__pxrReserved__22PcpExpressionVariablesD2Ev.exit.i ], [ %91, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15Cache10CacheEntryIRKNS_22PcpExpressionVariablesEEEPS3_RKNS_23PcpLayerStackIdentifierEOT_.argprom.exit.i ]
   %.fca.0.extract.i43.pn.i = extractvalue { ptr, i8 } %.pn53.i, 0
   %.2.i = getelementptr inbounds i8, ptr %.fca.0.extract.i43.pn.i, i64 88
   %127 = load ptr, ptr %7, align 8

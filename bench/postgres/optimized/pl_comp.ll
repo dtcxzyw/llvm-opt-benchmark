@@ -668,7 +668,7 @@ split:                                            ; preds = %delete_function.exi
 plpgsql_build_datatype.exit.i:                    ; preds = %153
   %163 = getelementptr i8, ptr %159, i64 16
   %.val.i.i = load ptr, ptr %163, align 8
-  %164 = call fastcc ptr @build_datatype(ptr %.val.i.i, i32 noundef -1, i32 noundef %157, ptr noundef null)
+  %164 = call fastcc ptr @build_datatype.argprom(ptr %.val.i.i, i32 noundef -1, i32 noundef %157, ptr noundef null)
   call void @ReleaseSysCache(ptr noundef nonnull %159) #10
   %165 = getelementptr inbounds i8, ptr %164, i64 12
   %166 = load i32, ptr %165, align 4
@@ -1053,7 +1053,7 @@ plpgsql_adddatum.exit.i:                          ; preds = %260, %build_row_fro
 342:                                              ; preds = %341, %338
   %343 = load i32, ptr %107, align 4
   %.val.i = load ptr, ptr %302, align 8
-  %344 = call fastcc ptr @build_datatype(ptr %.val.i, i32 noundef -1, i32 noundef %343, ptr noundef null)
+  %344 = call fastcc ptr @build_datatype.argprom(ptr %.val.i, i32 noundef -1, i32 noundef %343, ptr noundef null)
   %345 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.26, i32 noundef 0, ptr noundef %344, i1 noundef zeroext true)
   br label %346
 
@@ -1197,7 +1197,7 @@ plpgsql_build_record.exit306.i:                   ; preds = %400, %plpgsql_build
 plpgsql_build_datatype.exit309.i:                 ; preds = %plpgsql_build_record.exit306.i
   %421 = getelementptr i8, ptr %417, i64 16
   %.val.i308.i = load ptr, ptr %421, align 8
-  %422 = call fastcc ptr @build_datatype(ptr %.val.i308.i, i32 noundef -1, i32 noundef %416, ptr noundef null)
+  %422 = call fastcc ptr @build_datatype.argprom(ptr %.val.i308.i, i32 noundef -1, i32 noundef %416, ptr noundef null)
   call void @ReleaseSysCache(ptr noundef nonnull %417) #10
   %423 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.31, i32 noundef 0, ptr noundef %422, i1 noundef zeroext true)
   store i32 4, ptr %423, align 8
@@ -1218,7 +1218,7 @@ plpgsql_build_datatype.exit309.i:                 ; preds = %plpgsql_build_recor
 plpgsql_build_datatype.exit312.i:                 ; preds = %plpgsql_build_datatype.exit309.i
   %430 = getelementptr i8, ptr %426, i64 16
   %.val.i311.i = load ptr, ptr %430, align 8
-  %431 = call fastcc ptr @build_datatype(ptr %.val.i311.i, i32 noundef -1, i32 noundef %425, ptr noundef null)
+  %431 = call fastcc ptr @build_datatype.argprom(ptr %.val.i311.i, i32 noundef -1, i32 noundef %425, ptr noundef null)
   call void @ReleaseSysCache(ptr noundef nonnull %426) #10
   %432 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.32, i32 noundef 0, ptr noundef %431, i1 noundef zeroext true)
   store i32 4, ptr %432, align 8
@@ -1239,7 +1239,7 @@ plpgsql_build_datatype.exit312.i:                 ; preds = %plpgsql_build_datat
 plpgsql_build_datatype.exit315.i:                 ; preds = %plpgsql_build_datatype.exit312.i
   %439 = getelementptr i8, ptr %435, i64 16
   %.val.i314.i = load ptr, ptr %439, align 8
-  %440 = call fastcc ptr @build_datatype(ptr %.val.i314.i, i32 noundef -1, i32 noundef %434, ptr noundef null)
+  %440 = call fastcc ptr @build_datatype.argprom(ptr %.val.i314.i, i32 noundef -1, i32 noundef %434, ptr noundef null)
   call void @ReleaseSysCache(ptr noundef nonnull %435) #10
   %441 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.33, i32 noundef 0, ptr noundef %440, i1 noundef zeroext true)
   store i32 4, ptr %441, align 8
@@ -1260,7 +1260,7 @@ plpgsql_build_datatype.exit315.i:                 ; preds = %plpgsql_build_datat
 plpgsql_build_datatype.exit318.i:                 ; preds = %plpgsql_build_datatype.exit315.i
   %448 = getelementptr i8, ptr %444, i64 16
   %.val.i317.i = load ptr, ptr %448, align 8
-  %449 = call fastcc ptr @build_datatype(ptr %.val.i317.i, i32 noundef -1, i32 noundef %443, ptr noundef null)
+  %449 = call fastcc ptr @build_datatype.argprom(ptr %.val.i317.i, i32 noundef -1, i32 noundef %443, ptr noundef null)
   call void @ReleaseSysCache(ptr noundef nonnull %444) #10
   %450 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.34, i32 noundef 0, ptr noundef %449, i1 noundef zeroext true)
   store i32 4, ptr %450, align 8
@@ -1280,7 +1280,7 @@ plpgsql_build_datatype.exit318.i:                 ; preds = %plpgsql_build_datat
 plpgsql_build_datatype.exit321.i:                 ; preds = %plpgsql_build_datatype.exit318.i
   %456 = getelementptr i8, ptr %452, i64 16
   %.val.i320.i = load ptr, ptr %456, align 8
-  %457 = call fastcc ptr @build_datatype(ptr %.val.i320.i, i32 noundef -1, i32 noundef 0, ptr noundef null)
+  %457 = call fastcc ptr @build_datatype.argprom(ptr %.val.i320.i, i32 noundef -1, i32 noundef 0, ptr noundef null)
   call void @ReleaseSysCache(ptr noundef nonnull %452) #10
   %458 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.35, i32 noundef 0, ptr noundef %457, i1 noundef zeroext true)
   store i32 4, ptr %458, align 8
@@ -1301,7 +1301,7 @@ plpgsql_build_datatype.exit321.i:                 ; preds = %plpgsql_build_datat
 plpgsql_build_datatype.exit324.i:                 ; preds = %plpgsql_build_datatype.exit321.i
   %465 = getelementptr i8, ptr %461, i64 16
   %.val.i323.i = load ptr, ptr %465, align 8
-  %466 = call fastcc ptr @build_datatype(ptr %.val.i323.i, i32 noundef -1, i32 noundef %460, ptr noundef null)
+  %466 = call fastcc ptr @build_datatype.argprom(ptr %.val.i323.i, i32 noundef -1, i32 noundef %460, ptr noundef null)
   call void @ReleaseSysCache(ptr noundef nonnull %461) #10
   %467 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.36, i32 noundef 0, ptr noundef %466, i1 noundef zeroext true)
   store i32 4, ptr %467, align 8
@@ -1322,7 +1322,7 @@ plpgsql_build_datatype.exit324.i:                 ; preds = %plpgsql_build_datat
 plpgsql_build_datatype.exit327.i:                 ; preds = %plpgsql_build_datatype.exit324.i
   %474 = getelementptr i8, ptr %470, i64 16
   %.val.i326.i = load ptr, ptr %474, align 8
-  %475 = call fastcc ptr @build_datatype(ptr %.val.i326.i, i32 noundef -1, i32 noundef %469, ptr noundef null)
+  %475 = call fastcc ptr @build_datatype.argprom(ptr %.val.i326.i, i32 noundef -1, i32 noundef %469, ptr noundef null)
   call void @ReleaseSysCache(ptr noundef nonnull %470) #10
   %476 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.37, i32 noundef 0, ptr noundef %475, i1 noundef zeroext true)
   store i32 4, ptr %476, align 8
@@ -1343,7 +1343,7 @@ plpgsql_build_datatype.exit327.i:                 ; preds = %plpgsql_build_datat
 plpgsql_build_datatype.exit330.i:                 ; preds = %plpgsql_build_datatype.exit327.i
   %483 = getelementptr i8, ptr %479, i64 16
   %.val.i329.i = load ptr, ptr %483, align 8
-  %484 = call fastcc ptr @build_datatype(ptr %.val.i329.i, i32 noundef -1, i32 noundef %478, ptr noundef null)
+  %484 = call fastcc ptr @build_datatype.argprom(ptr %.val.i329.i, i32 noundef -1, i32 noundef %478, ptr noundef null)
   call void @ReleaseSysCache(ptr noundef nonnull %479) #10
   %485 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.38, i32 noundef 0, ptr noundef %484, i1 noundef zeroext true)
   store i32 4, ptr %485, align 8
@@ -1363,7 +1363,7 @@ plpgsql_build_datatype.exit330.i:                 ; preds = %plpgsql_build_datat
 plpgsql_build_datatype.exit333.i:                 ; preds = %plpgsql_build_datatype.exit330.i
   %491 = getelementptr i8, ptr %487, i64 16
   %.val.i332.i = load ptr, ptr %491, align 8
-  %492 = call fastcc ptr @build_datatype(ptr %.val.i332.i, i32 noundef -1, i32 noundef 0, ptr noundef null)
+  %492 = call fastcc ptr @build_datatype.argprom(ptr %.val.i332.i, i32 noundef -1, i32 noundef 0, ptr noundef null)
   call void @ReleaseSysCache(ptr noundef nonnull %487) #10
   %493 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.39, i32 noundef 0, ptr noundef %492, i1 noundef zeroext true)
   store i32 4, ptr %493, align 8
@@ -1384,7 +1384,7 @@ plpgsql_build_datatype.exit333.i:                 ; preds = %plpgsql_build_datat
 plpgsql_build_datatype.exit336.i:                 ; preds = %plpgsql_build_datatype.exit333.i
   %500 = getelementptr i8, ptr %496, i64 16
   %.val.i335.i = load ptr, ptr %500, align 8
-  %501 = call fastcc ptr @build_datatype(ptr %.val.i335.i, i32 noundef -1, i32 noundef %495, ptr noundef null)
+  %501 = call fastcc ptr @build_datatype.argprom(ptr %.val.i335.i, i32 noundef -1, i32 noundef %495, ptr noundef null)
   call void @ReleaseSysCache(ptr noundef nonnull %496) #10
   %502 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.40, i32 noundef 0, ptr noundef %501, i1 noundef zeroext true)
   store i32 4, ptr %502, align 8
@@ -1432,7 +1432,7 @@ plpgsql_build_datatype.exit336.i:                 ; preds = %plpgsql_build_datat
 plpgsql_build_datatype.exit339.i:                 ; preds = %516
   %522 = getelementptr i8, ptr %518, i64 16
   %.val.i338.i = load ptr, ptr %522, align 8
-  %523 = call fastcc ptr @build_datatype(ptr %.val.i338.i, i32 noundef -1, i32 noundef %517, ptr noundef null)
+  %523 = call fastcc ptr @build_datatype.argprom(ptr %.val.i338.i, i32 noundef -1, i32 noundef %517, ptr noundef null)
   call void @ReleaseSysCache(ptr noundef nonnull %518) #10
   %524 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.42, i32 noundef 0, ptr noundef %523, i1 noundef zeroext true)
   store i32 4, ptr %524, align 8
@@ -1453,7 +1453,7 @@ plpgsql_build_datatype.exit339.i:                 ; preds = %516
 plpgsql_build_datatype.exit342.i:                 ; preds = %plpgsql_build_datatype.exit339.i
   %531 = getelementptr i8, ptr %527, i64 16
   %.val.i341.i = load ptr, ptr %531, align 8
-  %532 = call fastcc ptr @build_datatype(ptr %.val.i341.i, i32 noundef -1, i32 noundef %526, ptr noundef null)
+  %532 = call fastcc ptr @build_datatype.argprom(ptr %.val.i341.i, i32 noundef -1, i32 noundef %526, ptr noundef null)
   call void @ReleaseSysCache(ptr noundef nonnull %527) #10
   %533 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.43, i32 noundef 0, ptr noundef %532, i1 noundef zeroext true)
   store i32 4, ptr %533, align 8
@@ -1492,7 +1492,7 @@ plpgsql_build_datatype.exit342.i:                 ; preds = %plpgsql_build_datat
 plpgsql_build_datatype.exit345.i:                 ; preds = %539
   %549 = getelementptr i8, ptr %545, i64 16
   %.val.i344.i = load ptr, ptr %549, align 8
-  %550 = call fastcc ptr @build_datatype(ptr %.val.i344.i, i32 noundef -1, i32 noundef 0, ptr noundef null)
+  %550 = call fastcc ptr @build_datatype.argprom(ptr %.val.i344.i, i32 noundef -1, i32 noundef 0, ptr noundef null)
   call void @ReleaseSysCache(ptr noundef nonnull %545) #10
   %551 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.5, i32 noundef 0, ptr noundef %550, i1 noundef zeroext true)
   %552 = getelementptr inbounds i8, ptr %551, i64 4
@@ -1872,7 +1872,7 @@ define hidden ptr @plpgsql_compile_inline(ptr noundef %0) local_unnamed_addr #0 
 plpgsql_build_datatype.exit:                      ; preds = %1
   %40 = getelementptr i8, ptr %36, i64 16
   %.val.i = load ptr, ptr %40, align 8
-  %41 = call fastcc ptr @build_datatype(ptr %.val.i, i32 noundef -1, i32 noundef 0, ptr noundef null)
+  %41 = call fastcc ptr @build_datatype.argprom(ptr %.val.i, i32 noundef -1, i32 noundef 0, ptr noundef null)
   call void @ReleaseSysCache(ptr noundef nonnull %36) #10
   %42 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.5, i32 noundef 0, ptr noundef %41, i1 noundef zeroext true)
   %43 = getelementptr inbounds i8, ptr %42, i64 4
@@ -2161,7 +2161,7 @@ define ptr @plpgsql_build_datatype(i32 noundef %0, i32 noundef %1, i32 noundef %
 10:                                               ; preds = %4
   %11 = getelementptr i8, ptr %6, i64 16
   %.val = load ptr, ptr %11, align 8
-  %12 = tail call fastcc ptr @build_datatype(ptr %.val, i32 noundef %1, i32 noundef %2, ptr noundef %3)
+  %12 = tail call fastcc ptr @build_datatype.argprom(ptr %.val, i32 noundef %1, i32 noundef %2, ptr noundef %3)
   tail call void @ReleaseSysCache(ptr noundef nonnull %6) #10
   ret ptr %12
 }
@@ -2839,7 +2839,7 @@ list_length.exit.thread:                          ; preds = %1, %list_length.exi
   %85 = load i32, ptr %84, align 4
   %86 = getelementptr i8, ptr %76, i64 16
   %.val = load ptr, ptr %86, align 8
-  %87 = call fastcc ptr @build_datatype(ptr %.val, i32 noundef %83, i32 noundef %85, ptr noundef null)
+  %87 = call fastcc ptr @build_datatype.argprom(ptr %.val, i32 noundef %83, i32 noundef %85, ptr noundef null)
   %88 = load ptr, ptr @plpgsql_compile_tmp_cxt, align 8
   store ptr %88, ptr @CurrentMemoryContext, align 8
   call void @ReleaseSysCache(ptr noundef nonnull %59) #10
@@ -2865,7 +2865,7 @@ declare i32 @RangeVarGetRelidExtended(ptr noundef, i32 noundef, i32 noundef, ptr
 declare ptr @SearchSysCacheAttName(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @build_datatype(ptr %.16.val, i32 noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @build_datatype.argprom(ptr %.16.val, i32 noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %.16.val, i64 22
   %5 = load i8, ptr %4, align 2
   %6 = zext i8 %5 to i64
@@ -3127,7 +3127,7 @@ define hidden ptr @plpgsql_parse_wordrowtype(ptr noundef %0) local_unnamed_addr 
 plpgsql_build_datatype.exit:                      ; preds = %13
   %20 = getelementptr i8, ptr %16, i64 16
   %.val.i = load ptr, ptr %20, align 8
-  %21 = tail call fastcc ptr @build_datatype(ptr %.val.i, i32 noundef -1, i32 noundef 0, ptr noundef %14)
+  %21 = tail call fastcc ptr @build_datatype.argprom(ptr %.val.i, i32 noundef -1, i32 noundef 0, ptr noundef %14)
   tail call void @ReleaseSysCache(ptr noundef nonnull %16) #10
   ret ptr %21
 }
@@ -3177,7 +3177,7 @@ define hidden ptr @plpgsql_parse_cwordrowtype(ptr noundef %0) local_unnamed_addr
 plpgsql_build_datatype.exit:                      ; preds = %13
   %20 = getelementptr i8, ptr %16, i64 16
   %.val.i = load ptr, ptr %20, align 8
-  %21 = tail call fastcc ptr @build_datatype(ptr %.val.i, i32 noundef -1, i32 noundef 0, ptr noundef %14)
+  %21 = tail call fastcc ptr @build_datatype.argprom(ptr %.val.i, i32 noundef -1, i32 noundef 0, ptr noundef %14)
   tail call void @ReleaseSysCache(ptr noundef nonnull %16) #10
   ret ptr %21
 }
@@ -3321,7 +3321,7 @@ define hidden ptr @plpgsql_build_datatype_arrayof(ptr noundef readonly %0) local
 plpgsql_build_datatype.exit:                      ; preds = %15
   %25 = getelementptr i8, ptr %21, i64 16
   %.val.i = load ptr, ptr %25, align 8
-  %26 = tail call fastcc ptr @build_datatype(ptr %.val.i, i32 noundef %17, i32 noundef %19, ptr noundef null)
+  %26 = tail call fastcc ptr @build_datatype.argprom(ptr %.val.i, i32 noundef %17, i32 noundef %19, ptr noundef null)
   tail call void @ReleaseSysCache(ptr noundef nonnull %21) #10
   br label %27
 

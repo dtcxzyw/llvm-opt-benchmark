@@ -4886,9 +4886,9 @@ define dso_local void @_ZN9Stockfish8Position4flipEv(ptr noundef nonnull align 8
   %.not6.i = icmp eq ptr %23, %24
   br i1 %.not6.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN9Stockfish8Position4flipEvE3$_0ET0_T_SE_SD_T1_.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %15, %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.exit.i"
-  %.sroa.0.08.i = phi ptr [ %36, %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.exit.i" ], [ %25, %15 ]
-  %.sroa.03.07.i = phi ptr [ %35, %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.exit.i" ], [ %23, %15 ]
+.lr.ph.i:                                         ; preds = %15, %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.argprom.exit.i"
+  %.sroa.0.08.i = phi ptr [ %36, %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.argprom.exit.i" ], [ %25, %15 ]
+  %.sroa.03.07.i = phi ptr [ %35, %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.argprom.exit.i" ], [ %23, %15 ]
   %26 = load i8, ptr %.sroa.03.07.i, align 1
   %27 = sext i8 %26 to i32
   %28 = call i32 @islower(i32 noundef %27) #19
@@ -4897,13 +4897,13 @@ define dso_local void @_ZN9Stockfish8Position4flipEv(ptr noundef nonnull align 8
 
 29:                                               ; preds = %.lr.ph.i
   %30 = call i32 @toupper(i32 noundef %27) #19
-  br label %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.exit.i"
+  br label %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.argprom.exit.i"
 
 31:                                               ; preds = %.lr.ph.i
   %32 = call i32 @tolower(i32 noundef %27) #19
-  br label %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.exit.i"
+  br label %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.argprom.exit.i"
 
-"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.exit.i": ; preds = %31, %29
+"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.argprom.exit.i": ; preds = %31, %29
   %33 = phi i32 [ %30, %29 ], [ %32, %31 ]
   %34 = trunc i32 %33 to i8
   store i8 %34, ptr %.sroa.0.08.i, align 1
@@ -4912,7 +4912,7 @@ define dso_local void @_ZN9Stockfish8Position4flipEv(ptr noundef nonnull align 8
   %.not.i = icmp eq ptr %35, %24
   br i1 %.not.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN9Stockfish8Position4flipEvE3$_0ET0_T_SE_SD_T1_.exit", label %.lr.ph.i, !llvm.loop !57
 
-"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN9Stockfish8Position4flipEvE3$_0ET0_T_SE_SD_T1_.exit": ; preds = %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.exit.i", %15
+"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN9Stockfish8Position4flipEvE3$_0ET0_T_SE_SD_T1_.exit": ; preds = %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.argprom.exit.i", %15
   %37 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %38 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.21) #18
   %39 = icmp eq i32 %38, 0

@@ -72,7 +72,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.c
 if.then.i.i:                                      ; preds = %while.body.backedge.i.i, %if.end.i
   %node.addr.0.lcssa.i.i = phi ptr [ %node, %if.end.i ], [ %15, %while.body.backedge.i.i ]
   store atomic i64 1, ptr %node.addr.0.lcssa.i.i monotonic, align 8
-  br label %rb_insert_augmented_cached.exit
+  br label %rb_insert_augmented_cached.argprom.exit
 
 if.end.i.i:                                       ; preds = %if.end.i, %while.body.backedge.i.i
   %node.addr.021.i.i = phi ptr [ %15, %while.body.backedge.i.i ], [ %node, %if.end.i ]
@@ -81,7 +81,7 @@ if.end.i.i:                                       ; preds = %if.end.i, %while.bo
   %13 = load atomic i64, ptr %parent.022.i.i monotonic, align 8
   %conv.i1.i.i.i.i.i = and i64 %13, 1
   %cmp.i.i.i.not.i.i = icmp eq i64 %conv.i1.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.not.i.i, label %if.end6.i.i, label %rb_insert_augmented_cached.exit
+  br i1 %cmp.i.i.i.not.i.i, label %if.end6.i.i, label %rb_insert_augmented_cached.argprom.exit
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
   %14 = load atomic i64, ptr %parent.022.i.i monotonic, align 8
@@ -240,7 +240,7 @@ if.then8.i.i114.i.i:                              ; preds = %if.end5.i.i110.i.i
 interval_tree_rotate.exit118.i.i:                 ; preds = %if.then8.i.i114.i.i, %if.end5.i.i110.i.i
   %max.1.i.i117.i.i = phi i64 [ %max.0.i.i111.i.i, %if.end5.i.i110.i.i ], [ %spec.select17.i.i116.i.i, %if.then8.i.i114.i.i ]
   store i64 %max.1.i.i117.i.i, ptr %subtree_last.i102.i.i, align 8
-  br label %rb_insert_augmented_cached.exit
+  br label %rb_insert_augmented_cached.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end6.i.i
   %rb_left61.i.i = getelementptr inbounds i8, ptr %15, i64 16
@@ -382,9 +382,9 @@ if.then8.i.i166.i.i:                              ; preds = %if.end5.i.i162.i.i
 interval_tree_rotate.exit170.i.i:                 ; preds = %if.then8.i.i166.i.i, %if.end5.i.i162.i.i
   %max.1.i.i169.i.i = phi i64 [ %max.0.i.i163.i.i, %if.end5.i.i162.i.i ], [ %spec.select17.i.i168.i.i, %if.then8.i.i166.i.i ]
   store i64 %max.1.i.i169.i.i, ptr %subtree_last.i154.i.i, align 8
-  br label %rb_insert_augmented_cached.exit
+  br label %rb_insert_augmented_cached.argprom.exit
 
-rb_insert_augmented_cached.exit:                  ; preds = %if.end.i.i, %if.then.i.i, %interval_tree_rotate.exit118.i.i, %interval_tree_rotate.exit170.i.i
+rb_insert_augmented_cached.argprom.exit:          ; preds = %if.end.i.i, %if.then.i.i, %interval_tree_rotate.exit118.i.i, %interval_tree_rotate.exit170.i.i
   ret void
 }
 
@@ -689,7 +689,7 @@ if.end.i110.i.i:                                  ; preds = %if.end19.i.i106.i.i
 interval_tree_propagate.exit113.i.i:              ; preds = %if.end.i110.i.i, %if.end19.i.i106.i.i, %if.end63.i.i
   %rebalance.179.i.i = phi ptr [ %rebalance.1.i.i, %if.end63.i.i ], [ %rebalance.178.i.i, %if.end19.i.i106.i.i ], [ %rebalance.178.i.i, %if.end.i110.i.i ]
   %tobool65.not.i.i = icmp eq ptr %rebalance.179.i.i, null
-  br i1 %tobool65.not.i.i, label %rb_erase_augmented_cached.exit, label %while.body.i114.i.i
+  br i1 %tobool65.not.i.i, label %rb_erase_augmented_cached.argprom.exit, label %while.body.i114.i.i
 
 while.body.i114.i.i:                              ; preds = %interval_tree_propagate.exit113.i.i, %while.body.backedge.i.i.i
   %node.0.i.i.i = phi ptr [ %parent.addr.0.i.i.i, %while.body.backedge.i.i.i ], [ null, %interval_tree_propagate.exit113.i.i ]
@@ -805,12 +805,12 @@ if.then23.i.i.i:                                  ; preds = %lor.lhs.false21.i.i
 if.then25.i.i.i:                                  ; preds = %if.then23.i.i.i
   %or.i134.i.i.i = or i64 %71, 1
   store atomic i64 %or.i134.i.i.i, ptr %parent.addr.0.i.i.i monotonic, align 8
-  br label %rb_erase_augmented_cached.exit
+  br label %rb_erase_augmented_cached.argprom.exit
 
 if.else.i121.i.i:                                 ; preds = %if.then23.i.i.i
   %and.i.i135.i.i.i = and i64 %71, -2
   %tobool27.not.i.i.i = icmp eq i64 %and.i.i135.i.i.i, 0
-  br i1 %tobool27.not.i.i.i, label %rb_erase_augmented_cached.exit, label %while.body.backedge.i.i.i
+  br i1 %tobool27.not.i.i.i, label %rb_erase_augmented_cached.argprom.exit, label %while.body.backedge.i.i.i
 
 while.body.backedge.i.i.i:                        ; preds = %if.else125.i.i.i, %if.else.i121.i.i
   %parent.addr.0.be.in.i.i.i = phi i64 [ %and.i.i135.i.i.i, %if.else.i121.i.i ], [ %and.i.i220.i.i.i, %if.else125.i.i.i ]
@@ -948,7 +948,7 @@ if.then8.i.i177.i.i.i:                            ; preds = %if.end5.i.i173.i.i.
 interval_tree_rotate.exit181.i.i.i:               ; preds = %if.then8.i.i177.i.i.i, %if.end5.i.i173.i.i.i
   %max.1.i.i180.i.i.i = phi i64 [ %max.0.i.i174.i.i.i, %if.end5.i.i173.i.i.i ], [ %spec.select17.i.i179.i.i.i, %if.then8.i.i177.i.i.i ]
   store i64 %max.1.i.i180.i.i.i, ptr %subtree_last.i165.i.i.i, align 8
-  br label %rb_erase_augmented_cached.exit
+  br label %rb_erase_augmented_cached.argprom.exit
 
 if.else88.i.i.i:                                  ; preds = %while.body.i114.i.i
   %rb_left89.i.i.i = getelementptr inbounds i8, ptr %parent.addr.0.i.i.i, i64 16
@@ -1057,12 +1057,12 @@ if.then122.i.i.i:                                 ; preds = %lor.lhs.false120.i.
 if.then124.i.i.i:                                 ; preds = %if.then122.i.i.i
   %or.i219.i.i.i = or i64 %116, 1
   store atomic i64 %or.i219.i.i.i, ptr %parent.addr.0.i.i.i monotonic, align 8
-  br label %rb_erase_augmented_cached.exit
+  br label %rb_erase_augmented_cached.argprom.exit
 
 if.else125.i.i.i:                                 ; preds = %if.then122.i.i.i
   %and.i.i220.i.i.i = and i64 %116, -2
   %tobool127.not.i.i.i = icmp eq i64 %and.i.i220.i.i.i, 0
-  br i1 %tobool127.not.i.i.i, label %rb_erase_augmented_cached.exit, label %while.body.backedge.i.i.i
+  br i1 %tobool127.not.i.i.i, label %rb_erase_augmented_cached.argprom.exit, label %while.body.backedge.i.i.i
 
 if.end131.i.i.i:                                  ; preds = %lor.lhs.false120.i.i.i
   %rb_left113.i.i.i.le = getelementptr inbounds i8, ptr %sibling.2.i.i.i, i64 16
@@ -1194,9 +1194,9 @@ if.then8.i.i264.i.i.i:                            ; preds = %if.end5.i.i260.i.i.
 interval_tree_rotate.exit268.i.i.i:               ; preds = %if.then8.i.i264.i.i.i, %if.end5.i.i260.i.i.i
   %max.1.i.i267.i.i.i = phi i64 [ %max.0.i.i261.i.i.i, %if.end5.i.i260.i.i.i ], [ %spec.select17.i.i266.i.i.i, %if.then8.i.i264.i.i.i ]
   store i64 %max.1.i.i267.i.i.i, ptr %subtree_last.i252.i.i.i, align 8
-  br label %rb_erase_augmented_cached.exit
+  br label %rb_erase_augmented_cached.argprom.exit
 
-rb_erase_augmented_cached.exit:                   ; preds = %if.else.i121.i.i, %if.else125.i.i.i, %interval_tree_propagate.exit113.i.i, %if.then25.i.i.i, %interval_tree_rotate.exit181.i.i.i, %if.then124.i.i.i, %interval_tree_rotate.exit268.i.i.i
+rb_erase_augmented_cached.argprom.exit:           ; preds = %if.else.i121.i.i, %if.else125.i.i.i, %interval_tree_propagate.exit113.i.i, %if.then25.i.i.i, %interval_tree_rotate.exit181.i.i.i, %if.then124.i.i.i, %interval_tree_rotate.exit268.i.i.i
   ret void
 }
 

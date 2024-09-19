@@ -4262,9 +4262,9 @@ define internal fastcc noundef ptr @_ZL17matchIsFiniteTestRN4llvm9IRBuilderINS_1
   %19 = zext nneg i16 %18 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %20 = icmp eq i16 %15, 7
-  br i1 %20, label %21, label %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit.thread29
+  br i1 %20, label %21, label %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit.thread29
 
-_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit.thread29: ; preds = %3
+_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit.thread29: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %47
 
@@ -4274,23 +4274,23 @@ _ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit.thread29: ; preds
   %23 = load ptr, ptr %5, align 8
   %.not.i.i.i = icmp ne ptr %23, null
   %or.cond.not.i.i.i = select i1 %22, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit.thread, label %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit
+  br i1 %or.cond.not.i.i.i, label %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit.thread, label %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit
 
-_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit.thread: ; preds = %21
+_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit.thread: ; preds = %21
   store ptr %8, ptr %23, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %24
 
-_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit: ; preds = %21
+_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit: ; preds = %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br i1 %22, label %24, label %47
 
-24:                                               ; preds = %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit.thread, %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit
+24:                                               ; preds = %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit.thread, %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %25 = call noundef zeroext i1 @_ZN4llvm7CmpInst11isUnorderedENS0_9PredicateE(i32 noundef %19) #16
-  br i1 %25, label %26, label %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit.thread30
+  br i1 %25, label %26, label %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit.thread30
 
-_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit.thread30: ; preds = %24
+_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit.thread30: ; preds = %24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %47
 
@@ -4300,18 +4300,18 @@ _ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit.thread
   %28 = load ptr, ptr %4, align 8
   %.not.i.i.i20 = icmp ne ptr %28, null
   %or.cond.not.i.i.i21 = select i1 %27, i1 %.not.i.i.i20, i1 false
-  br i1 %or.cond.not.i.i.i21, label %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit.thread, label %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit
+  br i1 %or.cond.not.i.i.i21, label %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit.thread, label %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit
 
-_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit.thread: ; preds = %26
+_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit.thread: ; preds = %26
   store ptr %12, ptr %28, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %29
 
-_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit: ; preds = %26
+_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit: ; preds = %26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br i1 %27, label %29, label %47
 
-29:                                               ; preds = %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit.thread, %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit
+29:                                               ; preds = %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit.thread, %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %31 = load i32, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -4338,8 +4338,8 @@ _ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit: ; pre
   store i8 %40, ptr %39, align 2
   br label %47
 
-47:                                               ; preds = %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit.thread30, %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit.thread29, %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit, %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit, %29
-  %.0 = phi ptr [ %46, %29 ], [ null, %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit ], [ null, %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit ], [ null, %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit.thread29 ], [ null, %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.exit.thread30 ]
+47:                                               ; preds = %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit.thread30, %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit.thread29, %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit, %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit, %29
+  %.0 = phi ptr [ %46, %29 ], [ null, %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit ], [ null, %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit ], [ null, %_ZL13matchIsNotNaNN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit.thread29 ], [ null, %_ZL24matchUnorderedInfCompareN4llvm7CmpInst9PredicateEPNS_5ValueES3_.argprom.exit.thread30 ]
   ret ptr %.0
 }
 
@@ -9640,7 +9640,7 @@ define internal fastcc noundef ptr @_ZL24foldComplexAndOrPatternsRN4llvm14Binary
   %72 = zext i8 %71 to i32
   %73 = add nuw nsw i32 %60, 29
   %74 = icmp eq i32 %73, %72
-  br i1 %74, label %75, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch7bind_tyINS_5ValueEEESC_SC_EEbPSB_T_T0_T1_RSD_b.exit.thread"
+  br i1 %74, label %75, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch7bind_tyINS_5ValueEEESC_SC_EEbPSB_T_T0_T1_RSD_b.argprom.exit.thread"
 
 75:                                               ; preds = %2
   %76 = getelementptr inbounds i8, ptr %62, i64 -64
@@ -9663,20 +9663,20 @@ _ZN4llvm12PatternMatch17match_combine_andINS0_7bind_tyINS_5ValueEEENS0_14BinaryO
   %83 = getelementptr inbounds i8, ptr %62, i64 -32
   %84 = load ptr, ptr %83, align 8
   %.not.i.not.i8.i.i.i.i = icmp eq ptr %84, null
-  br i1 %.not.i.not.i8.i.i.i.i, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch7bind_tyINS_5ValueEEESC_SC_EEbPSB_T_T0_T1_RSD_b.exit.thread", label %85
+  br i1 %.not.i.not.i8.i.i.i.i, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch7bind_tyINS_5ValueEEESC_SC_EEbPSB_T_T0_T1_RSD_b.argprom.exit.thread", label %85
 
 85:                                               ; preds = %_ZN4llvm12PatternMatch17match_combine_andINS0_7bind_tyINS_5ValueEEENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_22SpecificBinaryOp_matchIS4_S4_Lb1EEELj30ELb1EEEE5matchIS3_EEbPT_.exit.i.i.i.i
   %86 = load ptr, ptr %11, align 8
   store ptr %84, ptr %86, align 8
   %87 = call noundef zeroext i1 @_ZN4llvm12PatternMatch14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_22SpecificBinaryOp_matchINS0_7bind_tyINS_5ValueEEES9_Lb1EEELj30ELb1EE5matchIS8_EEbjPT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx.i, i32 noundef 30, ptr noundef nonnull %84)
-  br i1 %87, label %88, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch7bind_tyINS_5ValueEEESC_SC_EEbPSB_T_T0_T1_RSD_b.exit.thread"
+  br i1 %87, label %88, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch7bind_tyINS_5ValueEEESC_SC_EEbPSB_T_T0_T1_RSD_b.argprom.exit.thread"
 
 88:                                               ; preds = %85
   %89 = load ptr, ptr %76, align 8
   %.not.i12.not.i.i.i.i = icmp eq ptr %89, null
-  br i1 %.not.i12.not.i.i.i.i, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch7bind_tyINS_5ValueEEESC_SC_EEbPSB_T_T0_T1_RSD_b.exit.thread", label %90
+  br i1 %.not.i12.not.i.i.i.i, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch7bind_tyINS_5ValueEEESC_SC_EEbPSB_T_T0_T1_RSD_b.argprom.exit.thread", label %90
 
-"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch7bind_tyINS_5ValueEEESC_SC_EEbPSB_T_T0_T1_RSD_b.exit.thread": ; preds = %2, %_ZN4llvm12PatternMatch17match_combine_andINS0_7bind_tyINS_5ValueEEENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_22SpecificBinaryOp_matchIS4_S4_Lb1EEELj30ELb1EEEE5matchIS3_EEbPT_.exit.i.i.i.i, %85, %88
+"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch7bind_tyINS_5ValueEEESC_SC_EEbPSB_T_T0_T1_RSD_b.argprom.exit.thread": ; preds = %2, %_ZN4llvm12PatternMatch17match_combine_andINS0_7bind_tyINS_5ValueEEENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_22SpecificBinaryOp_matchIS4_S4_Lb1EEELj30ELb1EEEE5matchIS3_EEbPT_.exit.i.i.i.i, %85, %88
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
   br label %.critedge
 
@@ -9692,13 +9692,13 @@ _ZN4llvm12PatternMatch17match_combine_andINS0_7bind_tyINS_5ValueEEENS0_14BinaryO
   %95 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %96 = load ptr, ptr %95, align 8
   %.not.i.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i.i, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit.thread", label %_ZNK4llvm5Value9hasOneUseEv.exit.i
+  br i1 %.not.i.i.i, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit.thread", label %_ZNK4llvm5Value9hasOneUseEv.exit.i
 
 _ZNK4llvm5Value9hasOneUseEv.exit.i:               ; preds = %90
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %100, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit.thread"
+  br i1 %99, label %100, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit.thread"
 
 100:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.i
   %101 = ptrtoint ptr %92 to i64
@@ -9720,7 +9720,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i:               ; preds = %90
   store i32 %60, ptr %106, align 8, !alias.scope !151
   %107 = load i8, ptr %64, align 8
   %108 = icmp eq i8 %71, %107
-  br i1 %108, label %109, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit.thread"
+  br i1 %108, label %109, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit.thread"
 
 109:                                              ; preds = %100
   %110 = getelementptr inbounds i8, ptr %64, i64 -64
@@ -9744,34 +9744,34 @@ _ZN4llvm12PatternMatch17match_combine_andINS0_7bind_tyINS_5ValueEEENS0_14BinaryO
   %119 = getelementptr inbounds i8, ptr %64, i64 -32
   %120 = load ptr, ptr %119, align 8
   %.not.i.not.i8.i.i.i.i94 = icmp eq ptr %120, null
-  br i1 %.not.i.not.i8.i.i.i.i94, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit.thread", label %121
+  br i1 %.not.i.not.i8.i.i.i.i94, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit.thread", label %121
 
 121:                                              ; preds = %_ZN4llvm12PatternMatch17match_combine_andINS0_7bind_tyINS_5ValueEEENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_22SpecificBinaryOp_matchINS0_14specificval_tyESB_Lb1EEELj30ELb1EEEE5matchIS3_EEbPT_.exit.i.i.i.i
   %122 = load ptr, ptr %10, align 8
   store ptr %120, ptr %122, align 8
   %123 = call noundef zeroext i1 @_ZN4llvm12PatternMatch14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_22SpecificBinaryOp_matchINS0_14specificval_tyES7_Lb1EEELj30ELb1EE5matchINS_5ValueEEEbjPT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx.i89, i32 noundef 30, ptr noundef nonnull %120)
-  br i1 %123, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.i, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit.thread"
+  br i1 %123, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.i, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit.thread"
 
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.i: ; preds = %121
   %124 = load ptr, ptr %110, align 8
   %125 = load ptr, ptr %104, align 8
   %126 = icmp eq ptr %124, %125
-  br i1 %126, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.thread15.i, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit.thread"
+  br i1 %126, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.thread15.i, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit.thread"
 
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.thread15.i: ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.i, %114
   %127 = load ptr, ptr %17, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load ptr, ptr %128, align 8
   %.not.i.i7.i = icmp eq ptr %129, null
-  br i1 %.not.i.i7.i, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit.thread", label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit"
+  br i1 %.not.i.i7.i, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit.thread", label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit"
 
-"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit.thread": ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.i, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.i, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.thread15.i, %90, %100, %_ZN4llvm12PatternMatch17match_combine_andINS0_7bind_tyINS_5ValueEEENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_22SpecificBinaryOp_matchINS0_14specificval_tyESB_Lb1EEELj30ELb1EEEE5matchIS3_EEbPT_.exit.i.i.i.i, %121
+"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit.thread": ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.i, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.i, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.thread15.i, %90, %100, %_ZN4llvm12PatternMatch17match_combine_andINS0_7bind_tyINS_5ValueEEENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_22SpecificBinaryOp_matchINS0_14specificval_tyESB_Lb1EEELj30ELb1EEEE5matchIS3_EEbPT_.exit.i.i.i.i, %121
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   %.pre = load ptr, ptr %13, align 8
   %.pre399 = load ptr, ptr %14, align 8
   br label %189
 
-"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit": ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.thread15.i
+"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit": ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.thread15.i
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null
@@ -9780,7 +9780,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_
   %.pre400 = load ptr, ptr %14, align 8
   br i1 %132, label %133, label %189
 
-133:                                              ; preds = %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit"
+133:                                              ; preds = %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit"
   %134 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i16 257, ptr %134, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
@@ -9889,20 +9889,20 @@ _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %.l
   %188 = call noundef ptr @_ZN4llvm14BinaryOperator9CreateNotEPNS_5ValueERKNS_5TwineENS_14InsertPositionE(ptr noundef %.0.i98, ptr noundef nonnull align 8 dereferenceable(34) %22, ptr null, i64 0) #16
   br label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_22SpecificBinaryOp_matchINS4_INS0_7bind_tyIS2_EENS0_17match_combine_andIS6_NS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEES6_Lj30ELb1EEEEELb1EEES6_Lb1EEEEEEEbPT_RKT0_.exit.thread
 
-189:                                              ; preds = %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit.thread", %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit"
-  %190 = phi ptr [ %.pre399, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit.thread" ], [ %.pre400, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit" ]
-  %191 = phi ptr [ %.pre, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit.thread" ], [ %.pre398, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit" ]
+189:                                              ; preds = %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit.thread", %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit"
+  %190 = phi ptr [ %.pre399, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit.thread" ], [ %.pre400, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit" ]
+  %191 = phi ptr [ %.pre, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit.thread" ], [ %.pre398, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit" ]
   %192 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %193 = load ptr, ptr %95, align 8
   %.not.i.i.i106 = icmp eq ptr %193, null
-  br i1 %.not.i.i.i106, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120.thread", label %_ZNK4llvm5Value9hasOneUseEv.exit.i107
+  br i1 %.not.i.i.i106, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120.thread", label %_ZNK4llvm5Value9hasOneUseEv.exit.i107
 
 _ZNK4llvm5Value9hasOneUseEv.exit.i107:            ; preds = %189
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = load ptr, ptr %194, align 8
   %196 = icmp eq ptr %195, null
-  br i1 %196, label %197, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120.thread"
+  br i1 %196, label %197, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120.thread"
 
 197:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.i107
   %198 = ptrtoint ptr %191 to i64
@@ -9924,7 +9924,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i107:            ; preds = %189
   store i32 %60, ptr %203, align 8, !alias.scope !154
   %204 = load i8, ptr %64, align 8
   %205 = icmp eq i8 %71, %204
-  br i1 %205, label %206, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120.thread"
+  br i1 %205, label %206, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120.thread"
 
 206:                                              ; preds = %197
   %207 = getelementptr inbounds i8, ptr %64, i64 -64
@@ -9948,34 +9948,34 @@ _ZN4llvm12PatternMatch17match_combine_andINS0_7bind_tyINS_5ValueEEENS0_14BinaryO
   %216 = getelementptr inbounds i8, ptr %64, i64 -32
   %217 = load ptr, ptr %216, align 8
   %.not.i.not.i8.i.i.i.i115 = icmp eq ptr %217, null
-  br i1 %.not.i.not.i8.i.i.i.i115, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120.thread", label %218
+  br i1 %.not.i.not.i8.i.i.i.i115, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120.thread", label %218
 
 218:                                              ; preds = %_ZN4llvm12PatternMatch17match_combine_andINS0_7bind_tyINS_5ValueEEENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_22SpecificBinaryOp_matchINS0_14specificval_tyESB_Lb1EEELj30ELb1EEEE5matchIS3_EEbPT_.exit.i.i.i.i114
   %219 = load ptr, ptr %7, align 8
   store ptr %217, ptr %219, align 8
   %220 = call noundef zeroext i1 @_ZN4llvm12PatternMatch14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_22SpecificBinaryOp_matchINS0_14specificval_tyES7_Lb1EEELj30ELb1EE5matchINS_5ValueEEEbjPT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx.i109, i32 noundef 30, ptr noundef nonnull %217)
-  br i1 %220, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.i116, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120.thread"
+  br i1 %220, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.i116, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120.thread"
 
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.i116: ; preds = %218
   %221 = load ptr, ptr %207, align 8
   %222 = load ptr, ptr %201, align 8
   %223 = icmp eq ptr %221, %222
-  br i1 %223, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.thread15.i117, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120.thread"
+  br i1 %223, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.thread15.i117, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120.thread"
 
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.thread15.i117: ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.i116, %211
   %224 = load ptr, ptr %17, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
   %226 = load ptr, ptr %225, align 8
   %.not.i.i7.i118 = icmp eq ptr %226, null
-  br i1 %.not.i.i7.i118, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120.thread", label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120"
+  br i1 %.not.i.i7.i118, label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120.thread", label %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120"
 
-"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120.thread": ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.i107, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.i116, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.thread15.i117, %189, %197, %_ZN4llvm12PatternMatch17match_combine_andINS0_7bind_tyINS_5ValueEEENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_22SpecificBinaryOp_matchINS0_14specificval_tyESB_Lb1EEELj30ELb1EEEE5matchIS3_EEbPT_.exit.i.i.i.i114, %218
+"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120.thread": ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.i107, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.i116, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.thread15.i117, %189, %197, %_ZN4llvm12PatternMatch17match_combine_andINS0_7bind_tyINS_5ValueEEENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_22SpecificBinaryOp_matchINS0_14specificval_tyESB_Lb1EEELj30ELb1EEEE5matchIS3_EEbPT_.exit.i.i.i.i114, %218
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   %.pre401 = load ptr, ptr %12, align 8
   %.pre403 = load ptr, ptr %14, align 8
   br label %286
 
-"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120": ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.thread15.i117
+"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120": ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_combine_andINS0_7bind_tyIS2_EENS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_14specificval_tyESC_Lb1EEELj30ELb1EEEEESC_Lb1EEEEEbPT_RKT0_.exit.thread15.i117
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %228 = load ptr, ptr %227, align 8
   %229 = icmp eq ptr %228, null
@@ -9984,7 +9984,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_17match_
   %.pre404 = load ptr, ptr %14, align 8
   br i1 %229, label %230, label %286
 
-230:                                              ; preds = %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120"
+230:                                              ; preds = %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120"
   %231 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i16 257, ptr %231, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
@@ -10093,9 +10093,9 @@ _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit140: ; preds = 
   %285 = call noundef ptr @_ZN4llvm14BinaryOperator9CreateNotEPNS_5ValueERKNS_5TwineENS_14InsertPositionE(ptr noundef %.0.i132, ptr noundef nonnull align 8 dereferenceable(34) %27, ptr null, i64 0) #16
   br label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_22SpecificBinaryOp_matchINS4_INS0_7bind_tyIS2_EENS0_17match_combine_andIS6_NS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEES6_Lj30ELb1EEEEELb1EEES6_Lb1EEEEEEEbPT_RKT0_.exit.thread
 
-286:                                              ; preds = %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120.thread", %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120"
-  %287 = phi ptr [ %.pre403, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120.thread" ], [ %.pre404, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120" ]
-  %288 = phi ptr [ %.pre401, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120.thread" ], [ %.pre402, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.exit120" ]
+286:                                              ; preds = %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120.thread", %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120"
+  %287 = phi ptr [ %.pre403, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120.thread" ], [ %.pre404, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120" ]
+  %288 = phi ptr [ %.pre401, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120.thread" ], [ %.pre402, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch14specificval_tyESA_SA_EEbPNS_5ValueET_T0_T1_RSC_b.argprom.exit120" ]
   %289 = ptrtoint ptr %288 to i64
   %290 = ptrtoint ptr %287 to i64
   store i64 0, ptr %28, align 8
@@ -10259,7 +10259,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_14BinaryOp_matchIN
   %352 = call noundef ptr @_ZN4llvm14BinaryOperator9CreateNotEPNS_5ValueERKNS_5TwineENS_14InsertPositionE(ptr noundef %350, ptr noundef nonnull align 8 dereferenceable(34) %38, ptr null, i64 0) #16
   br label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_22SpecificBinaryOp_matchINS4_INS0_7bind_tyIS2_EENS0_17match_combine_andIS6_NS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEES6_Lj30ELb1EEEEELb1EEES6_Lb1EEEEEEEbPT_RKT0_.exit.thread
 
-.critedge:                                        ; preds = %333, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i145, %327, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch7bind_tyINS_5ValueEEESC_SC_EEbPSB_T_T0_T1_RSD_b.exit.thread", %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_17match_combine_andINS0_7bind_tyIS2_EENS0_22SpecificBinaryOp_matchINS0_14specificval_tyENS4_ISD_SD_Lj30ELb1EEELb1EEEEELj30ELb1EEEEEEEbPT_RKT0_.exit, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_22SpecificBinaryOp_matchINS0_14specificval_tyESA_Lb1EEEEELj30ELb1EEEEEEEbPT_RKT0_.exit143.thread, %_ZNK4llvm5Value9hasOneUseEv.exit
+.critedge:                                        ; preds = %333, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i145, %327, %"_ZZL24foldComplexAndOrPatternsRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clINS_12PatternMatch7bind_tyINS_5ValueEEESC_SC_EEbPSB_T_T0_T1_RSD_b.argprom.exit.thread", %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS0_17match_combine_andINS0_7bind_tyIS2_EENS0_22SpecificBinaryOp_matchINS0_14specificval_tyENS4_ISD_SD_Lj30ELb1EEELb1EEEEELj30ELb1EEEEEEEbPT_RKT0_.exit, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEENS3_INS0_22SpecificBinaryOp_matchINS0_14specificval_tyESA_Lb1EEEEELj30ELb1EEEEEEEbPT_RKT0_.exit143.thread, %_ZNK4llvm5Value9hasOneUseEv.exit
   store i64 %66, ptr %39, align 8
   %.sroa.2317.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 8
   store i64 %69, ptr %.sroa.2317.0..sroa_idx, align 8
@@ -12819,7 +12819,7 @@ _ZL15getNewICmpValuejbPN4llvm5ValueES1_RNS_9IRBuilderINS_12TargetFolderENS_25IRB
   br i1 %or.cond.i.i279, label %198, label %196
 
 196:                                              ; preds = %193
-  %197 = call fastcc noundef ptr @_ZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %4, ptr noundef %175, ptr noundef %176, ptr noundef %178, ptr noundef %179, i32 noundef %181, ptr noundef nonnull align 8 dereferenceable(184) %161)
+  %197 = call fastcc noundef ptr @_ZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.argelim(ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %4, ptr noundef %175, ptr noundef %176, ptr noundef %178, ptr noundef %179, i32 noundef %181, ptr noundef nonnull align 8 dereferenceable(184) %161)
   %.not39.i.i = icmp eq ptr %197, null
   br i1 %.not39.i.i, label %_ZL22foldLogOpOfMaskedICmpsPN4llvm8ICmpInstES1_bbRNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.exit.thread, label %_ZL22foldLogOpOfMaskedICmpsPN4llvm8ICmpInstES1_bbRNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.exit.thread444
 
@@ -12832,7 +12832,7 @@ _ZL15getNewICmpValuejbPN4llvm5ValueES1_RNS_9IRBuilderINS_12TargetFolderENS_25IRB
   br i1 %or.cond40.i.i, label %_ZL22foldLogOpOfMaskedICmpsPN4llvm8ICmpInstES1_bbRNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.exit.thread, label %201
 
 201:                                              ; preds = %198
-  %202 = call fastcc noundef ptr @_ZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef nonnull %2, ptr noundef nonnull %1, i1 noundef zeroext %4, ptr noundef %175, ptr noundef %178, ptr noundef %176, ptr noundef %177, i32 noundef %180, ptr noundef nonnull align 8 dereferenceable(184) %161)
+  %202 = call fastcc noundef ptr @_ZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.argelim(ptr noundef nonnull %2, ptr noundef nonnull %1, i1 noundef zeroext %4, ptr noundef %175, ptr noundef %178, ptr noundef %176, ptr noundef %177, i32 noundef %180, ptr noundef nonnull align 8 dereferenceable(184) %161)
   %.not38.i.i = icmp eq ptr %202, null
   br i1 %.not38.i.i, label %_ZL22foldLogOpOfMaskedICmpsPN4llvm8ICmpInstES1_bbRNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.exit.thread, label %_ZL22foldLogOpOfMaskedICmpsPN4llvm8ICmpInstES1_bbRNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.exit.thread444
 
@@ -19010,11 +19010,11 @@ define internal fastcc noundef ptr @_ZL25foldSignedTruncationCheckPN4llvm8ICmpIn
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 1, ptr %20, align 8
   store i64 0, ptr %9, align 8
-  %21 = call fastcc noundef zeroext i1 @"_ZZL25foldSignedTruncationCheckPN4llvm8ICmpInstES1_RNS_11InstructionERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clES1_RPNS_5ValueERNS_5APIntE"(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(12) %9)
+  %21 = call fastcc noundef zeroext i1 @"_ZZL25foldSignedTruncationCheckPN4llvm8ICmpInstES1_RNS_11InstructionERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clES1_RPNS_5ValueERNS_5APIntE.argprom"(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(12) %9)
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %4
-  %23 = call fastcc noundef zeroext i1 @"_ZZL25foldSignedTruncationCheckPN4llvm8ICmpInstES1_RNS_11InstructionERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clES1_RPNS_5ValueERNS_5APIntE"(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(12) %9)
+  %23 = call fastcc noundef zeroext i1 @"_ZZL25foldSignedTruncationCheckPN4llvm8ICmpInstES1_RNS_11InstructionERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clES1_RPNS_5ValueERNS_5APIntE.argprom"(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(12) %9)
   br i1 %23, label %24, label %_ZN4llvm5APIntD2Ev.exit32
 
 24:                                               ; preds = %22, %4
@@ -19053,7 +19053,7 @@ define internal fastcc noundef ptr @_ZL25foldSignedTruncationCheckPN4llvm8ICmpIn
   %41 = load i32, ptr %5, align 4
   %42 = icmp eq i32 %41, 32
   %43 = select i1 %40, i1 %42, i1 false
-  br i1 %43, label %44, label %"_ZZL25foldSignedTruncationCheckPN4llvm8ICmpInstES1_RNS_11InstructionERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clES1_RPNS_5ValueERNS_5APIntE.exit"
+  br i1 %43, label %44, label %"_ZZL25foldSignedTruncationCheckPN4llvm8ICmpInstES1_RNS_11InstructionERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clES1_RPNS_5ValueERNS_5APIntE.argprom.exit"
 
 44:                                               ; preds = %37
   %45 = load ptr, ptr %6, align 8
@@ -19077,7 +19077,7 @@ define internal fastcc noundef ptr @_ZL25foldSignedTruncationCheckPN4llvm8ICmpIn
   call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %45) #16
   br label %55
 
-"_ZZL25foldSignedTruncationCheckPN4llvm8ICmpInstES1_RNS_11InstructionERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clES1_RPNS_5ValueERNS_5APIntE.exit": ; preds = %37
+"_ZZL25foldSignedTruncationCheckPN4llvm8ICmpInstES1_RNS_11InstructionERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clES1_RPNS_5ValueERNS_5APIntE.argprom.exit": ; preds = %37
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
@@ -19388,8 +19388,8 @@ _ZN4llvm5APIntD2Ev.exit30:                        ; preds = %148, %183, %.crited
   call void @_ZdaPv(ptr noundef nonnull %187) #17
   br label %_ZN4llvm5APIntD2Ev.exit31
 
-_ZN4llvm5APIntD2Ev.exit31:                        ; preds = %59, %189, %186, %_ZN4llvm5APIntD2Ev.exit30, %"_ZZL25foldSignedTruncationCheckPN4llvm8ICmpInstES1_RNS_11InstructionERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clES1_RPNS_5ValueERNS_5APIntE.exit", %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CastInst_matchINS0_14specificval_tyENS_9TruncInstEEEEEbPT_RKT0_.exit
-  %.1 = phi ptr [ null, %"_ZZL25foldSignedTruncationCheckPN4llvm8ICmpInstES1_RNS_11InstructionERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clES1_RPNS_5ValueERNS_5APIntE.exit" ], [ null, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CastInst_matchINS0_14specificval_tyENS_9TruncInstEEEEEbPT_RKT0_.exit ], [ %.2, %_ZN4llvm5APIntD2Ev.exit30 ], [ %.2, %186 ], [ %.2, %189 ], [ null, %59 ]
+_ZN4llvm5APIntD2Ev.exit31:                        ; preds = %59, %189, %186, %_ZN4llvm5APIntD2Ev.exit30, %"_ZZL25foldSignedTruncationCheckPN4llvm8ICmpInstES1_RNS_11InstructionERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clES1_RPNS_5ValueERNS_5APIntE.argprom.exit", %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CastInst_matchINS0_14specificval_tyENS_9TruncInstEEEEEbPT_RKT0_.exit
+  %.1 = phi ptr [ null, %"_ZZL25foldSignedTruncationCheckPN4llvm8ICmpInstES1_RNS_11InstructionERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clES1_RPNS_5ValueERNS_5APIntE.argprom.exit" ], [ null, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CastInst_matchINS0_14specificval_tyENS_9TruncInstEEEEEbPT_RKT0_.exit ], [ %.2, %_ZN4llvm5APIntD2Ev.exit30 ], [ %.2, %186 ], [ %.2, %189 ], [ null, %59 ]
   %190 = load i32, ptr %25, align 8
   %191 = icmp ugt i32 %190, 64
   br i1 %191, label %192, label %_ZN4llvm5APIntD2Ev.exit32
@@ -20510,7 +20510,7 @@ _ZN4llvm19InstructionWorklist19pushUsersToWorkListERNS_11InstructionE.exit.i: ; 
   %220 = load ptr, ptr %219, align 8
   %.val = load ptr, ptr %171, align 8
   %.val500 = load ptr, ptr %173, align 8
-  %221 = call fastcc noundef ptr @_ZL11foldOrToXorRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr %.val, ptr %.val500, ptr noundef nonnull align 8 dereferenceable(184) %220)
+  %221 = call fastcc noundef ptr @_ZL11foldOrToXorRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.argprom(ptr %.val, ptr %.val500, ptr noundef nonnull align 8 dereferenceable(184) %220)
   %.not433 = icmp eq ptr %221, null
   br i1 %.not433, label %222, label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
@@ -23503,7 +23503,7 @@ _ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit: 
 declare noundef ptr @_ZN4llvm14simplifyOrInstEPNS_5ValueES1_RKNS_13SimplifyQueryE(ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(58)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL11foldOrToXorRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr %.-64.val, ptr %.-32.val, ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL11foldOrToXorRN4llvm14BinaryOperatorERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.argprom(ptr %.-64.val, ptr %.-32.val, ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 {
   %2 = alloca %"class.llvm::Twine", align 8
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca ptr, align 8
@@ -37327,7 +37327,7 @@ declare noundef zeroext i1 @_ZN4llvm20decomposeBitTestICmpEPNS_5ValueES1_RNS_7Cm
 declare noundef zeroext i1 @_ZNK4llvm5APInt18isSubsetOfSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(184) %8) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.argelim(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(184) %8) unnamed_addr #0 {
   %10 = alloca %"class.llvm::APInt", align 8
   %11 = alloca ptr, align 8
   %12 = alloca %"struct.llvm::PatternMatch::ElementWiseBitCast_match", align 8
@@ -37975,11 +37975,11 @@ _ZN4llvm5APIntD2Ev.exit94:                        ; preds = %_ZN4llvm5APIntD2Ev.
   br label %.critedge2
 
 329:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit87
-  %330 = call fastcc noundef zeroext i1 @"_ZZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPKNS_5APIntESE_"(ptr noundef nonnull %49, ptr noundef nonnull %65)
+  %330 = call fastcc noundef zeroext i1 @"_ZZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPKNS_5APIntESE_.argprom"(ptr noundef nonnull %49, ptr noundef nonnull %65)
   br i1 %330, label %333, label %331
 
 331:                                              ; preds = %329
-  %332 = call fastcc noundef zeroext i1 @"_ZZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clEPKNS_5APIntESE_"(ptr noundef nonnull %49, ptr noundef nonnull %65)
+  %332 = call fastcc noundef zeroext i1 @"_ZZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clEPKNS_5APIntESE_.argprom"(ptr noundef nonnull %49, ptr noundef nonnull %65)
   br i1 %332, label %333, label %.critedge2
 
 333:                                              ; preds = %331, %329
@@ -37998,7 +37998,7 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %333
   br i1 %340, label %341, label %349
 
 341:                                              ; preds = %336, %_ZNK4llvm5APInt6isZeroEv.exit
-  %342 = call fastcc noundef zeroext i1 @"_ZZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPKNS_5APIntESE_"(ptr noundef nonnull %49, ptr noundef nonnull %65)
+  %342 = call fastcc noundef zeroext i1 @"_ZZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPKNS_5APIntESE_.argprom"(ptr noundef nonnull %49, ptr noundef nonnull %65)
   br i1 %342, label %343, label %.critedge2
 
 343:                                              ; preds = %341
@@ -38010,7 +38010,7 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %333
   br label %.critedge2
 
 349:                                              ; preds = %336, %_ZNK4llvm5APInt6isZeroEv.exit
-  %350 = call fastcc noundef zeroext i1 @"_ZZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clEPKNS_5APIntESE_"(ptr noundef nonnull %49, ptr noundef nonnull %65)
+  %350 = call fastcc noundef zeroext i1 @"_ZZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clEPKNS_5APIntESE_.argprom"(ptr noundef nonnull %49, ptr noundef nonnull %65)
   br i1 %350, label %.critedge2, label %351
 
 351:                                              ; preds = %349
@@ -38148,7 +38148,7 @@ define linkonce_odr hidden void @_ZNK4llvm7APFloat14bitcastToAPIntEv(ptr dead_on
 declare noundef ptr @_ZN4llvm10ConstantFP7getZeroEPNS_4TypeEb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPKNS_5APIntESE_"(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPKNS_5APIntESE_.argprom"(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -38216,7 +38216,7 @@ _ZN4llvm5APIntD2Ev.exit3:                         ; preds = %18, %_ZNK4llvm5APIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clEPKNS_5APIntESE_"(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm8ICmpInstES1_bPNS_5ValueES3_S3_S3_NS_7CmpInst9PredicateES5_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clEPKNS_5APIntESE_.argprom"(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -38674,7 +38674,7 @@ _ZN4llvm12PatternMatch17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZL25foldSignedTruncationCheckPN4llvm8ICmpInstES1_RNS_11InstructionERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clES1_RPNS_5ValueERNS_5APIntE"(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZL25foldSignedTruncationCheckPN4llvm8ICmpInstES1_RNS_11InstructionERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clES1_RPNS_5ValueERNS_5APIntE.argprom"(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm5APIntaSERKS0_.exit, label %5
@@ -39273,11 +39273,11 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_15is_shifted_mas
   br i1 %or.cond11, label %52, label %.critedge
 
 52:                                               ; preds = %.lr.ph
-  %53 = call fastcc noundef zeroext i1 @"_ZZL32foldNegativePower2AndShiftedMaskPN4llvm5ValueES1_S1_S1_NS_7CmpInst9PredicateES3_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPKS0_SB_SB_"(ptr noundef nonnull %46, ptr noundef nonnull %47, ptr noundef nonnull %48)
+  %53 = call fastcc noundef zeroext i1 @"_ZZL32foldNegativePower2AndShiftedMaskPN4llvm5ValueES1_S1_S1_NS_7CmpInst9PredicateES3_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPKS0_SB_SB_.argprom"(ptr noundef nonnull %46, ptr noundef nonnull %47, ptr noundef nonnull %48)
   br i1 %53, label %43, label %.critedge
 
 54:                                               ; preds = %26
-  %55 = call fastcc noundef zeroext i1 @"_ZZL32foldNegativePower2AndShiftedMaskPN4llvm5ValueES1_S1_S1_NS_7CmpInst9PredicateES3_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPKS0_SB_SB_"(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  %55 = call fastcc noundef zeroext i1 @"_ZZL32foldNegativePower2AndShiftedMaskPN4llvm5ValueES1_S1_S1_NS_7CmpInst9PredicateES3_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPKS0_SB_SB_.argprom"(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   br i1 %55, label %.loopexit, label %.critedge
 
 .loopexit:                                        ; preds = %43, %.preheader, %54
@@ -39292,7 +39292,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_15is_shifted_mas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZL32foldNegativePower2AndShiftedMaskPN4llvm5ValueES1_S1_S1_NS_7CmpInst9PredicateES3_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPKS0_SB_SB_"(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZL32foldNegativePower2AndShiftedMaskPN4llvm5ValueES1_S1_S1_NS_7CmpInst9PredicateES3_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPKS0_SB_SB_.argprom"(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = load i8, ptr %0, align 8
   %.not.i.i = icmp eq i8 %4, 17
   br i1 %.not.i.i, label %18, label %5

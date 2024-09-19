@@ -5114,7 +5114,7 @@ define internal fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_16Parser28p
           to label %80 unwind label %.thread
 
 80:                                               ; preds = %78
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser10unexpectedERKNS0_5TokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %79, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser10unexpectedERKNS0_5TokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr dead_on_unwind noalias writable align 8 %79, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %81 unwind label %83
 
 81:                                               ; preds = %80
@@ -7369,7 +7369,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %154 unwind label %157
 
 154:                                              ; preds = %153
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser10unexpectedERKNS0_5TokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %152, ptr noundef nonnull align 8 dereferenceable(192) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser10unexpectedERKNS0_5TokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr dead_on_unwind noalias writable align 8 %152, ptr noundef nonnull align 8 dereferenceable(192) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %155 unwind label %159
 
 155:                                              ; preds = %154
@@ -7519,7 +7519,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %212 unwind label %.thread230
 
 212:                                              ; preds = %210
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser10unexpectedERKNS0_5TokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %211, ptr noundef nonnull align 8 dereferenceable(192) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser10unexpectedERKNS0_5TokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr dead_on_unwind noalias writable align 8 %211, ptr noundef nonnull align 8 dereferenceable(192) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %213 unwind label %215
 
 213:                                              ; preds = %212
@@ -7613,7 +7613,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %244 unwind label %.thread234
 
 244:                                              ; preds = %242
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser10unexpectedERKNS0_5TokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %243, ptr noundef nonnull align 8 dereferenceable(192) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser10unexpectedERKNS0_5TokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr dead_on_unwind noalias writable align 8 %243, ptr noundef nonnull align 8 dereferenceable(192) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %245 unwind label %247
 
 245:                                              ; preds = %244
@@ -10809,14 +10809,14 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit83.thread: ; pre
   %69 = load ptr, ptr %.val33.val, align 8, !noalias !115
   %70 = getelementptr inbounds i8, ptr %69, i64 16
   invoke void @_ZN7jsonnet8internal5TokenC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(192) %12, ptr noundef nonnull align 8 dereferenceable(192) %70)
-          to label %_ZN7jsonnet8internal12_GLOBAL__N_16Parser10doublePeekEv.exit unwind label %107
+          to label %_ZN7jsonnet8internal12_GLOBAL__N_16Parser10doublePeekEv.argprom.argprom.exit unwind label %107
 
-_ZN7jsonnet8internal12_GLOBAL__N_16Parser10doublePeekEv.exit: ; preds = %68
+_ZN7jsonnet8internal12_GLOBAL__N_16Parser10doublePeekEv.argprom.argprom.exit: ; preds = %68
   %71 = load i32, ptr %12, align 8
   %72 = icmp eq i32 %71, 12
   br i1 %72, label %73, label %117
 
-73:                                               ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_16Parser10doublePeekEv.exit
+73:                                               ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_16Parser10doublePeekEv.argprom.argprom.exit
   %74 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull @.str.76) #24
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %117
@@ -10926,7 +10926,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
   call void @_ZdlPv(ptr noundef %113) #25
   br label %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit44
 
-117:                                              ; preds = %100, %73, %_ZN7jsonnet8internal12_GLOBAL__N_16Parser10doublePeekEv.exit
+117:                                              ; preds = %100, %73, %_ZN7jsonnet8internal12_GLOBAL__N_16Parser10doublePeekEv.argprom.argprom.exit
   call void @_ZN7jsonnet8internal5TokenD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %12) #24
   br label %118
 
@@ -14559,7 +14559,7 @@ _ZNSt16allocator_traitsISaIN7jsonnet8internal8ArgParamEEE8allocateERS3_m.exit.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser10unexpectedERKNS0_5TokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser10unexpectedERKNS0_5TokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
@@ -17496,7 +17496,7 @@ _ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i543: ;
           to label %936 unwind label %.thread613
 
 936:                                              ; preds = %934
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser10unexpectedERKNS0_5TokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %935, ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull align 8 dereferenceable(32) %86)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser10unexpectedERKNS0_5TokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr dead_on_unwind noalias writable align 8 %935, ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull align 8 dereferenceable(32) %86)
           to label %937 unwind label %939
 
 937:                                              ; preds = %936
@@ -28008,8 +28008,8 @@ attributes #28 = { nounwind willreturn memory(read) }
 !113 = distinct !{!113, !114, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv: argument 0"}
 !114 = distinct !{!114, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv"}
 !115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser10doublePeekEv: argument 0"}
-!117 = distinct !{!117, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser10doublePeekEv"}
+!116 = distinct !{!116, !117, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser10doublePeekEv.argprom.argprom: argument 0"}
+!117 = distinct !{!117, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser10doublePeekEv.argprom.argprom"}
 !118 = !{!119}
 !119 = distinct !{!119, !120, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv: argument 0"}
 !120 = distinct !{!120, !"_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv"}

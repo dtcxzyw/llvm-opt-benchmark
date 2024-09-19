@@ -9969,7 +9969,7 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
   store i32 0, ptr %92, align 4
   %93 = getelementptr inbounds i8, ptr %0, i64 1048
   store i32 63, ptr %93, align 8
-  call fastcc void @setDecodeDefaults(ptr noundef %0)
+  call fastcc void @setDecodeDefaults.argelim(ptr noundef %0)
   %94 = getelementptr inbounds i8, ptr %0, i64 1104
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 8
@@ -10378,7 +10378,7 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setDecodeDefaults(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @setDecodeDefaults.argelim(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 520
   %3 = getelementptr inbounds i8, ptr %0, i64 592
   store i32 1, ptr %3, align 8

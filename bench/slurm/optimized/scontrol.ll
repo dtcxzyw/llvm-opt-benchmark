@@ -596,7 +596,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %116 = sub nsw i32 %0, %113
   %117 = sext i32 %113 to i64
   %118 = getelementptr inbounds ptr, ptr %1, i64 %117
-  call fastcc void @_process_command(i32 noundef %116, ptr noundef nonnull %118)
+  call fastcc void @_process_command.retelim(i32 noundef %116, ptr noundef nonnull %118)
   br label %218
 
 119:                                              ; preds = %112
@@ -830,7 +830,7 @@ _get_command.exit:                                ; preds = %.lr.ph61.i, %.loope
   br label %.loopexit73
 
 215:                                              ; preds = %_get_command.exit
-  call fastcc void @_process_command(i32 noundef %.2.ph, ptr noundef %152)
+  call fastcc void @_process_command.retelim(i32 noundef %.2.ph, ptr noundef %152)
   %216 = load i32, ptr @exit_flag, align 4
   %217 = icmp eq i32 %216, 0
   br i1 %217, label %153, label %.loopexit73, !llvm.loop !10
@@ -932,7 +932,7 @@ declare i32 @slurmdb_setup_cluster_flags() local_unnamed_addr #2
 declare i32 @log_alter(ptr noundef byval(%struct.log_options_t) align 8, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) unnamed_addr #7 {
+define internal fastcc void @_process_command.retelim(i32 noundef %0, ptr noundef %1) unnamed_addr #7 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.slurm_hash_t, align 1
   %5 = alloca %struct.slurm_hash_t, align 1
@@ -3572,7 +3572,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %68
-  tail call fastcc void @_print_config(i32 noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @_print_config.argprom(i32 noundef %0, ptr noundef nonnull %1)
   br label %169
 
 72:                                               ; preds = %68
@@ -3756,7 +3756,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br i1 %153, label %154, label %155
 
 154:                                              ; preds = %151
-  tail call fastcc void @_print_slurmd()
+  tail call fastcc void @_print_slurmd.argprom()
   br label %169
 
 155:                                              ; preds = %151
@@ -4378,7 +4378,7 @@ declare void @scontrol_print_burst_buffer() local_unnamed_addr #2
 declare void @scontrol_print_assoc_mgr_info(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_print_config(i32 noundef range(i32 2, -2147483648) %0, ptr noundef %1) unnamed_addr #7 {
+define internal fastcc void @_print_config.argprom(i32 noundef range(i32 2, -2147483648) %0, ptr noundef %1) unnamed_addr #7 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = load ptr, ptr @old_slurm_ctl_conf_ptr, align 8
@@ -4592,7 +4592,7 @@ declare void @scontrol_print_part(ptr noundef, i32 noundef, ptr noundef) local_u
 declare void @scontrol_print_res(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_print_slurmd() unnamed_addr #7 {
+define internal fastcc void @_print_slurmd.argprom() unnamed_addr #7 {
   %1 = alloca ptr, align 8
   %2 = call i32 @slurm_load_slurmd_status(ptr noundef nonnull %1) #17
   %.not = icmp eq i32 %2, 0

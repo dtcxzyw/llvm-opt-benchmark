@@ -2750,7 +2750,7 @@ define range(i32 0, 2) i32 @Abc_NtkDelayTraceCritPath_rec(ptr nocapture noundef 
   %.val3.i = load i32, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %14 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %13, i32 noundef %14)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %13, i32 noundef %14)
   %15 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %15, align 8
   %16 = sext i32 %.val3.i to i64
@@ -2775,7 +2775,7 @@ define range(i32 0, 2) i32 @Abc_NtkDelayTraceCritPath_rec(ptr nocapture noundef 
 27:                                               ; preds = %11
   %28 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %29 = add nsw i32 %.val38, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %28, i32 noundef %29)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %28, i32 noundef %29)
   %30 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i51 = load ptr, ptr %30, align 8
   %31 = sext i32 %.val38 to i64
@@ -3995,7 +3995,7 @@ define range(i32 -2147483647, -2147483648) i32 @Abc_ObjReverseLevelNew(ptr nocap
   %16 = getelementptr inbounds i8, ptr %12, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = add nsw i32 %17, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %15, i32 noundef %18)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %15, i32 noundef %18)
   %19 = load ptr, ptr %14, align 8
   %20 = load i32, ptr %16, align 8
   %21 = getelementptr i8, ptr %19, i64 8
@@ -4031,7 +4031,7 @@ define i32 @Abc_ObjReverseLevel(ptr nocapture noundef readonly %0) local_unnamed
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %4, i32 noundef %7)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %4, i32 noundef %7)
   %8 = load ptr, ptr %3, align 8
   %9 = load i32, ptr %5, align 8
   %10 = getelementptr i8, ptr %8, i64 8
@@ -4053,7 +4053,7 @@ define i32 @Abc_ObjRequiredLevel(ptr nocapture noundef readonly %0) local_unname
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = add nsw i32 %9, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %7, i32 noundef %10)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %7, i32 noundef %10)
   %11 = load ptr, ptr %6, align 8
   %12 = load i32, ptr %8, align 8
   %13 = getelementptr i8, ptr %11, i64 8
@@ -4066,7 +4066,7 @@ define i32 @Abc_ObjRequiredLevel(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #3 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -4168,7 +4168,7 @@ define void @Abc_ObjSetReverseLevel(ptr nocapture noundef readonly %0, i32 nound
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = add nsw i32 %7, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %5, i32 noundef %8)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %5, i32 noundef %8)
   %9 = load ptr, ptr %4, align 8
   %10 = load i32, ptr %6, align 8
   %11 = getelementptr i8, ptr %9, i64 8
@@ -4386,7 +4386,7 @@ Abc_ObjReverseLevelNew.exit:                      ; preds = %22, %.critedge.loop
   %94 = getelementptr inbounds i8, ptr %24, i64 16
   %95 = load i32, ptr %94, align 8
   %96 = add nsw i32 %95, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %93, i32 noundef %96)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %93, i32 noundef %96)
   %97 = load ptr, ptr %92, align 8
   %98 = load i32, ptr %94, align 8
   %99 = getelementptr i8, ptr %97, i64 8
@@ -4945,7 +4945,7 @@ define void @Abc_NtkUpdateReverseLevel(ptr noundef %0, ptr nocapture noundef %1)
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = add nsw i32 %7, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %5, i32 noundef %8)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %5, i32 noundef %8)
   %9 = load ptr, ptr %4, align 8
   %10 = load i32, ptr %6, align 8
   %11 = getelementptr i8, ptr %9, i64 8
@@ -4982,7 +4982,7 @@ define void @Abc_NtkUpdateReverseLevel(ptr noundef %0, ptr nocapture noundef %1)
   %29 = getelementptr inbounds i8, ptr %25, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = add nsw i32 %30, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %28, i32 noundef %31)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %28, i32 noundef %31)
   %32 = load ptr, ptr %27, align 8
   %33 = load i32, ptr %29, align 8
   %34 = getelementptr i8, ptr %32, i64 8
@@ -5864,7 +5864,7 @@ define void @Abc_NtkUpdate(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = add nsw i32 %15, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %13, i32 noundef %16)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %13, i32 noundef %16)
   %17 = load ptr, ptr %12, align 8
   %18 = load i32, ptr %14, align 8
   %19 = getelementptr i8, ptr %17, i64 8

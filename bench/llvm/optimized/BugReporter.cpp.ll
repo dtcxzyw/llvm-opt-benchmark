@@ -5661,9 +5661,9 @@ _ZNKSt14default_deleteIN5clang4ento13ExplodedGraphEEclEPS2_.exit.i.i.i.i.i.i: ; 
   %418 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1055", ptr %.val.val.i.i.i.i, i64 %417
   br i1 %415, label %_ZSt11min_elementIPKPKN5clang4ento12ExplodedNodeEN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEET_SB_SB_T0_.exit.i.i, label %.lr.ph.split.i.i.i.i
 
-.lr.ph.split.i.i.i.i:                             ; preds = %.lr.ph.i.i.i27.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.thread21.i.i.i.i
-  %419 = phi ptr [ %465, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.thread21.i.i.i.i ], [ %414, %.lr.ph.i.i.i27.i ]
-  %.026.i.i.i.i = phi ptr [ %464, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.thread21.i.i.i.i ], [ %411, %.lr.ph.i.i.i27.i ]
+.lr.ph.split.i.i.i.i:                             ; preds = %.lr.ph.i.i.i27.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.thread21.i.i.i.i
+  %419 = phi ptr [ %465, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.thread21.i.i.i.i ], [ %414, %.lr.ph.i.i.i27.i ]
+  %.026.i.i.i.i = phi ptr [ %464, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.thread21.i.i.i.i ], [ %411, %.lr.ph.i.i.i27.i ]
   %.val17.i.i.i.i = load ptr, ptr %419, align 8, !noalias !123
   %.0.val.i.i.i.i = load ptr, ptr %.026.i.i.i.i, align 8, !noalias !123
   %420 = ptrtoint ptr %.val17.i.i.i.i to i64
@@ -5729,32 +5729,32 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMap
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i.i.i: ; preds = %449, %.lr.ph.i.i.i5.i.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i.i.i.i
   %.0.i.i.pn.i11.i.i.i.i.i.i = phi ptr [ %444, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i.i.i.i ], [ %418, %.lr.ph.i.i.i5.i.i.i.i.i.i ], [ %453, %449 ]
   %456 = icmp eq ptr %.0.i.i.pn.i14.i.i.i.i.i.i, %418
-  br i1 %456, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.thread21.i.i.i.i, label %457
+  br i1 %456, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.thread21.i.i.i.i, label %457
 
 457:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i.i.i
   %458 = icmp eq ptr %.0.i.i.pn.i11.i.i.i.i.i.i, %418
-  br i1 %458, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.i.i.i.i
+  br i1 %458, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.i.i.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.i.i.i.i: ; preds = %457
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.i.i.i.i: ; preds = %457
   %459 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i14.i.i.i.i.i.i, i64 8
   %460 = load i32, ptr %459, align 8, !noalias !123
   %461 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i11.i.i.i.i.i.i, i64 8
   %462 = load i32, ptr %461, align 8, !noalias !123
   %463 = icmp ult i32 %460, %462
   %cond.fr.i.i.i.i = freeze i1 %463
-  br i1 %cond.fr.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.thread21.i.i.i.i
+  br i1 %cond.fr.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.thread21.i.i.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.i.i.i.i, %457
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.thread21.i.i.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.i.i.i.i, %457
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.thread21.i.i.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.thread21.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.thread.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i.i.i
-  %464 = phi ptr [ %419, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.thread.i.i.i.i ], [ %.026.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.i.i.i.i ], [ %.026.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i.i.i ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.thread21.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.thread.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i.i.i
+  %464 = phi ptr [ %419, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.thread.i.i.i.i ], [ %.026.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.i.i.i.i ], [ %.026.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i.i.i ]
   %465 = getelementptr inbounds i8, ptr %419, i64 8
   %.not.i.i12.i.i = icmp eq ptr %465, %412
   br i1 %.not.i.i12.i.i, label %_ZSt11min_elementIPKPKN5clang4ento12ExplodedNodeEN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEET_SB_SB_T0_.exit.i.i, label %.lr.ph.split.i.i.i.i, !llvm.loop !144
 
-_ZSt11min_elementIPKPKN5clang4ento12ExplodedNodeEN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEET_SB_SB_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.thread21.i.i.i.i, %.lr.ph.i.i.i27.i, %.preheader.i.i.i.i, %410
-  %.011.i.i.i.i = phi ptr [ %411, %410 ], [ %411, %.preheader.i.i.i.i ], [ %411, %.lr.ph.i.i.i27.i ], [ %464, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.exit.thread21.i.i.i.i ]
+_ZSt11min_elementIPKPKN5clang4ento12ExplodedNodeEN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEET_SB_SB_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.thread21.i.i.i.i, %.lr.ph.i.i.i27.i, %.preheader.i.i.i.i, %410
+  %.011.i.i.i.i = phi ptr [ %411, %410 ], [ %411, %.preheader.i.i.i.i ], [ %411, %.lr.ph.i.i.i27.i ], [ %464, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb0EEEEclIPKPKN5clang4ento12ExplodedNodeESE_EEbT_T0_.argprom.argprom.exit.thread21.i.i.i.i ]
   %466 = load ptr, ptr %.011.i.i.i.i, align 8, !noalias !123
   br label %355, !llvm.loop !145
 
@@ -6655,7 +6655,7 @@ _ZN4llvm15SmallVectorImplIjEaSERKS1_.exit.i:      ; preds = %849, %_ZSt4copyIPKj
 
 865:                                              ; preds = %862
   %866 = getelementptr inbounds nuw i8, ptr %.val23.i, i64 320
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit.i
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit.i
 
 867:                                              ; preds = %862
   %868 = load ptr, ptr %863, align 8, !noalias !162
@@ -6663,9 +6663,9 @@ _ZN4llvm15SmallVectorImplIjEaSERKS1_.exit.i:      ; preds = %849, %_ZSt4copyIPKj
   %870 = getelementptr inbounds ptr, ptr %868, i64 %869
   %871 = getelementptr inbounds i8, ptr %870, i64 -8
   %872 = load ptr, ptr %871, align 8, !noalias !162
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit.i
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit.i
 
-_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit.i: ; preds = %867, %865
+_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit.i: ; preds = %867, %865
   %.0.i.i71.i = phi ptr [ %866, %865 ], [ %872, %867 ]
   %873 = load ptr, ptr %.sroa.0153.0263.i, align 8, !noalias !162
   %874 = load ptr, ptr %873, align 8, !noalias !162
@@ -6683,7 +6683,7 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit.i: ; preds = %8
   %or.cond30.i.i = select i1 %.not26.i.i32, i1 true, i1 %878
   br i1 %or.cond30.i.i, label %_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit.i, label %879
 
-879:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit.i
+879:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit.i
   %880 = load ptr, ptr %582, align 8, !noalias !162
   %.not27.i.i = icmp eq ptr %880, null
   %.sroa.0.0.copyload.i7.i.i = load i32, ptr %583, align 8, !noalias !162
@@ -6751,7 +6751,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit.i.i: ;
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.8.0..sroa_idx192.i, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.8.i, i64 24, i1 false), !noalias !162
   br label %_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit.i
 
-_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit.i: ; preds = %.sink.split.i.i, %881, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit.i, %854
+_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit.i: ; preds = %.sink.split.i.i, %881, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit.i, %854
   %900 = load ptr, ptr %.sroa.0153.0263.i, align 8, !noalias !162
   %901 = getelementptr inbounds nuw i8, ptr %.sroa.0153.0263.i, i64 8
   %902 = load ptr, ptr %901, align 8, !noalias !162
@@ -7176,7 +7176,7 @@ _ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit91.i: ; preds = %_
 
 1083:                                             ; preds = %_ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit91.i
   %1084 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 320
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit94.i
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit94.i
 
 1085:                                             ; preds = %_ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit91.i
   %1086 = load ptr, ptr %1081, align 8, !noalias !162
@@ -7184,9 +7184,9 @@ _ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit91.i: ; preds = %_
   %1088 = getelementptr inbounds ptr, ptr %1086, i64 %1087
   %1089 = getelementptr inbounds i8, ptr %1088, i64 -8
   %1090 = load ptr, ptr %1089, align 8, !noalias !162
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit94.i
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit94.i
 
-_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit94.i: ; preds = %1085, %1083
+_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit94.i: ; preds = %1085, %1083
   %.0.i.i93.i = phi ptr [ %1084, %1083 ], [ %1090, %1085 ]
   %1091 = load ptr, ptr %.0.i.i93.i, align 8, !noalias !162
   %1092 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29, !noalias !162
@@ -7199,7 +7199,7 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit94.i: ; preds = 
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %1096, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE10push_frontERKS5_.exit.i, label %1097
 
-1097:                                             ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit94.i
+1097:                                             ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit94.i
   %1098 = getelementptr inbounds nuw i8, ptr %1096, i64 8
   %1099 = load i8, ptr @__libc_single_threaded, align 1, !noalias !162
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %1099, 0
@@ -7215,7 +7215,7 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit94.i: ; preds = 
   %1104 = atomicrmw volatile add ptr %1098, i32 1 acq_rel, align 4, !noalias !162
   br label %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE10push_frontERKS5_.exit.i
 
-_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE10push_frontERKS5_.exit.i: ; preds = %1103, %1100, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit94.i
+_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE10push_frontERKS5_.exit.i: ; preds = %1103, %1100, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit94.i
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %1092, ptr noundef %1091) #26, !noalias !162
   %1105 = getelementptr inbounds nuw i8, ptr %.0.i.i93.i, i64 16
   %1106 = load i64, ptr %1105, align 8, !noalias !162
@@ -7343,7 +7343,7 @@ _ZNK12_GLOBAL__N_123PathDiagnosticConstruct31getLocationContextForActivePathEv.e
 
 1172:                                             ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct31getLocationContextForActivePathEv.exit.i
   %1173 = getelementptr inbounds nuw i8, ptr %.val25.i, i64 320
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit99.i
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit99.i
 
 1174:                                             ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct31getLocationContextForActivePathEv.exit.i
   %1175 = load ptr, ptr %1170, align 8, !noalias !162
@@ -7351,9 +7351,9 @@ _ZNK12_GLOBAL__N_123PathDiagnosticConstruct31getLocationContextForActivePathEv.e
   %1177 = getelementptr inbounds ptr, ptr %1175, i64 %1176
   %1178 = getelementptr inbounds i8, ptr %1177, i64 -8
   %1179 = load ptr, ptr %1178, align 8, !noalias !162
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit99.i
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit99.i
 
-_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit99.i: ; preds = %1174, %1172
+_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit99.i: ; preds = %1174, %1172
   %.0.i.i98.i = phi ptr [ %1173, %1172 ], [ %1179, %1174 ]
   call void @_ZN5clang4ento22PathDiagnosticLocation11createBeginEPKNS_4DeclERKNS_13SourceManagerE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ento::PathDiagnosticLocation") align 8 %20, ptr noundef %1169, ptr noundef nonnull align 8 dereferenceable(696) %658) #26, !noalias !162
   %1180 = load i64, ptr %20, align 8, !noalias !162
@@ -7367,7 +7367,7 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit99.i: ; preds = 
   %or.cond30.i102.i = select i1 %.not26.i100.i, i1 true, i1 %1181
   br i1 %or.cond30.i102.i, label %_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit111.i, label %1182
 
-1182:                                             ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit99.i
+1182:                                             ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit99.i
   %1183 = load ptr, ptr %582, align 8, !noalias !162
   %.not27.i103.i = icmp eq ptr %1183, null
   %.sroa.0.0.copyload.i7.i104.i = load i32, ptr %583, align 8, !noalias !162
@@ -7435,7 +7435,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit.i109.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.8.0..sroa_idx192.i, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.8222.i, i64 24, i1 false), !noalias !162
   br label %_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit111.i
 
-_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit111.i: ; preds = %.sink.split.i110.i, %1184, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit99.i, %.loopexit.i24
+_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit111.i: ; preds = %.sink.split.i110.i, %1184, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit99.i, %.loopexit.i24
   %1203 = load ptr, ptr %572, align 8, !noalias !162
   %1204 = getelementptr inbounds nuw i8, ptr %1203, i64 472
   %1205 = load ptr, ptr %1204, align 8, !noalias !162
@@ -7720,7 +7720,7 @@ _ZL16removePopUpNotesRN5clang4ento10PathPiecesE.exit.i: ; preds = %_ZL16removePo
   %1348 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1193", ptr %.val8.i.i, i64 %1347
   %1349 = load ptr, ptr %1348, align 8, !noalias !162
   %1350 = icmp eq ptr %1331, %1349
-  br i1 %1350, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit.i.i, label %.lr.ph.i.i.i.i.i124.i
+  br i1 %1350, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i124.i
 
 .lr.ph.i.i.i.i.i124.i:                            ; preds = %1340, %1353
   %1351 = phi ptr [ %1358, %1353 ], [ %1349, %1340 ]
@@ -7737,14 +7737,14 @@ _ZL16removePopUpNotesRN5clang4ento10PathPiecesE.exit.i: ; preds = %_ZL16removePo
   %1357 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1193", ptr %.val8.i.i, i64 %1356
   %1358 = load ptr, ptr %1357, align 8, !noalias !162
   %1359 = icmp eq ptr %1331, %1358
-  br i1 %1359, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit.i.i, label %.lr.ph.i.i.i.i.i124.i, !llvm.loop !179
+  br i1 %1359, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i124.i, !llvm.loop !179
 
 .loopexit.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i.i124.i, %1338
   %1360 = zext i32 %.val9.i.i to i64
   %1361 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1193", ptr %.val8.i.i, i64 %1360
-  br label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit.i.i
+  br label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit.i.i
 
-_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit.i.i: ; preds = %1353, %.loopexit.i.i.i.i, %1340
+_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit.i.i: ; preds = %1353, %.loopexit.i.i.i.i, %1340
   %.0.i.i.pn.i.i.i.i = phi ptr [ %1361, %.loopexit.i.i.i.i ], [ %1348, %1340 ], [ %1357, %1353 ]
   %1362 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i.i.i.i, i64 8
   %1363 = load ptr, ptr %1362, align 8, !noalias !162
@@ -7765,7 +7765,7 @@ _ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ent
   %1371 = icmp eq i32 %.sroa.0.0.copyload.i.i, %1370
   br i1 %1371, label %1372, label %_ZL21dropFunctionEntryEdgeRKN12_GLOBAL__N_123PathDiagnosticConstructERN5clang4ento10PathPiecesE.exit.i
 
-1372:                                             ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit.i.i
+1372:                                             ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit.i.i
   %.sroa.311.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1369, i64 40
   %.sroa.311.0.copyload.i.i = load ptr, ptr %.sroa.311.0..sroa_idx.i.i, align 8, !noalias !162
   %.sroa.210.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1369, i64 32
@@ -7869,7 +7869,7 @@ _ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9po
   call void @_ZdlPvm(ptr noundef nonnull %1383, i64 noundef 32) #28, !noalias !162
   br label %_ZL21dropFunctionEntryEdgeRKN12_GLOBAL__N_123PathDiagnosticConstructERN5clang4ento10PathPiecesE.exit.i
 
-_ZL21dropFunctionEntryEdgeRKN12_GLOBAL__N_123PathDiagnosticConstructERN5clang4ento10PathPiecesE.exit.i: ; preds = %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9pop_frontEv.exit.i129.i, %_ZNK5clang4ento22PathDiagnosticLocationneERKS1_.exit.i.i, %1372, %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit.i.i, %1330
+_ZL21dropFunctionEntryEdgeRKN12_GLOBAL__N_123PathDiagnosticConstructERN5clang4ento10PathPiecesE.exit.i: ; preds = %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9pop_frontEv.exit.i129.i, %_ZNK5clang4ento22PathDiagnosticLocationneERKS1_.exit.i.i, %1372, %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit.i.i, %1330
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !162
   %1423 = load ptr, ptr %21, align 8, !noalias !162
   %1424 = load i32, ptr %590, align 8, !noalias !162
@@ -12405,26 +12405,26 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMap
   %79 = zext i32 %.val33.val36.i.i to i64
   %80 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1055", ptr %.val33.val.i.i, i64 %79
   %81 = icmp eq ptr %.0.i.i.pn.i13.i.i.i.i.i, %80
-  br i1 %81, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread.i.i, label %82
+  br i1 %81, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread.i.i, label %82
 
 82:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i.i
   %83 = icmp eq ptr %.0.i.i.pn.i11.i.i.i.i.i, %80
-  br i1 %83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread142.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i.i
+  br i1 %83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread142.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i.i: ; preds = %82
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i.i: ; preds = %82
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i13.i.i.i.i.i, i64 8
   %85 = load i32, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i11.i.i.i.i.i, i64 8
   %87 = load i32, ptr %86, align 8
   %88 = icmp ugt i32 %85, %87
-  br i1 %88, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread142.i.i
+  br i1 %88, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread142.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i.i
   %89 = getelementptr i8, ptr %.027, i64 -8
   %.val32.i.i = load ptr, ptr %89, align 8
   br i1 %36, label %_ZSt22__move_median_to_firstIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_SI_SI_T0_.exit.i, label %90
 
-90:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread.i.i
+90:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread.i.i
   %91 = ptrtoint ptr %.val35.i.i to i64
   %92 = trunc i64 %91 to i32
   %93 = lshr i32 %92, 4
@@ -12493,17 +12493,17 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMap
 
 129:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i58.i.i
   %130 = icmp eq ptr %.0.i.i.pn.i11.i.i.i60.i.i, %80
-  br i1 %130, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit65.thread148.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit65.i.i
+  br i1 %130, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit65.thread148.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit65.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit65.i.i: ; preds = %129
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit65.i.i: ; preds = %129
   %131 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i14.i.i.i52.i.i, i64 8
   %132 = load i32, ptr %131, align 8
   %133 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i11.i.i.i60.i.i, i64 8
   %134 = load i32, ptr %133, align 8
   %135 = icmp ugt i32 %132, %134
-  br i1 %135, label %_ZSt22__move_median_to_firstIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_SI_SI_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit65.thread148.i.i
+  br i1 %135, label %_ZSt22__move_median_to_firstIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_SI_SI_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit65.thread148.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit65.thread148.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit65.i.i, %129
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit65.thread148.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit65.i.i, %129
   %136 = ptrtoint ptr %.val34.i.i to i64
   %137 = trunc i64 %136 to i32
   %138 = lshr i32 %137, 4
@@ -12516,10 +12516,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
   %144 = icmp eq ptr %.val34.i.i, %143
   br i1 %144, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i75.i.i, label %.lr.ph.i.i.i.i.i.i67.i.i
 
-.lr.ph.i.i.i.i.i.i67.i.i:                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit65.thread148.i.i, %147
-  %145 = phi ptr [ %152, %147 ], [ %143, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit65.thread148.i.i ]
-  %.01620.i.i.i.i.i.i68.i.i = phi i32 [ %.016.i.i.i.i.i.i70.i.i, %147 ], [ %.01618.i.i.i.i.i.i66.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit65.thread148.i.i ]
-  %.01519.i.i.i.i.i.i69.i.i = phi i32 [ %148, %147 ], [ 1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit65.thread148.i.i ]
+.lr.ph.i.i.i.i.i.i67.i.i:                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit65.thread148.i.i, %147
+  %145 = phi ptr [ %152, %147 ], [ %143, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit65.thread148.i.i ]
+  %.01620.i.i.i.i.i.i68.i.i = phi i32 [ %.016.i.i.i.i.i.i70.i.i, %147 ], [ %.01618.i.i.i.i.i.i66.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit65.thread148.i.i ]
+  %.01519.i.i.i.i.i.i69.i.i = phi i32 [ %148, %147 ], [ 1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit65.thread148.i.i ]
   %146 = icmp eq ptr %145, inttoptr (i64 -4096 to ptr)
   br i1 %146, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i75.i.i, label %147
 
@@ -12533,8 +12533,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
   %153 = icmp eq ptr %.val34.i.i, %152
   br i1 %153, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i75.i.i, label %.lr.ph.i.i.i.i.i.i67.i.i, !llvm.loop !143
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i75.i.i: ; preds = %147, %.lr.ph.i.i.i.i.i.i67.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit65.thread148.i.i
-  %.0.i.i.pn.i14.i.i.i77.i.i = phi ptr [ %142, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit65.thread148.i.i ], [ %80, %.lr.ph.i.i.i.i.i.i67.i.i ], [ %151, %147 ]
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i75.i.i: ; preds = %147, %.lr.ph.i.i.i.i.i.i67.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit65.thread148.i.i
+  %.0.i.i.pn.i14.i.i.i77.i.i = phi ptr [ %142, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit65.thread148.i.i ], [ %80, %.lr.ph.i.i.i.i.i.i67.i.i ], [ %151, %147 ]
   br i1 %118, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i83.i.i, label %.lr.ph.i.i.i5.i.i.i79.i.i
 
 .lr.ph.i.i.i5.i.i.i79.i.i:                        ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i75.i.i, %156
@@ -12561,25 +12561,25 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMap
 
 164:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i83.i.i
   %165 = icmp eq ptr %.0.i.i.pn.i11.i.i.i85.i.i, %80
-  br i1 %165, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit90.thread154.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit90.i.i
+  br i1 %165, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit90.thread154.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit90.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit90.i.i: ; preds = %164
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit90.i.i: ; preds = %164
   %166 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i14.i.i.i77.i.i, i64 8
   %167 = load i32, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i11.i.i.i85.i.i, i64 8
   %169 = load i32, ptr %168, align 8
   %170 = icmp ugt i32 %167, %169
-  br i1 %170, label %_ZSt22__move_median_to_firstIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_SI_SI_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit90.thread154.i.i
+  br i1 %170, label %_ZSt22__move_median_to_firstIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_SI_SI_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit90.thread154.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit90.thread154.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit90.i.i, %164
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit90.thread154.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit90.i.i, %164
   br label %_ZSt22__move_median_to_firstIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_SI_SI_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread142.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i.i, %82
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread142.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i.i, %82
   %171 = getelementptr i8, ptr %.027, i64 -8
   %.val26.i.i = load ptr, ptr %171, align 8
   br i1 %36, label %_ZSt22__move_median_to_firstIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_SI_SI_T0_.exit.i, label %172
 
-172:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread142.i.i
+172:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread142.i.i
   %173 = ptrtoint ptr %.val34.i.i to i64
   %174 = trunc i64 %173 to i32
   %175 = lshr i32 %174, 4
@@ -12648,17 +12648,17 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMap
 
 211:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i108.i.i
   %212 = icmp eq ptr %.0.i.i.pn.i11.i.i.i110.i.i, %80
-  br i1 %212, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit115.thread160.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit115.i.i
+  br i1 %212, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit115.thread160.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit115.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit115.i.i: ; preds = %211
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit115.i.i: ; preds = %211
   %213 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i14.i.i.i102.i.i, i64 8
   %214 = load i32, ptr %213, align 8
   %215 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i11.i.i.i110.i.i, i64 8
   %216 = load i32, ptr %215, align 8
   %217 = icmp ugt i32 %214, %216
-  br i1 %217, label %_ZSt22__move_median_to_firstIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_SI_SI_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit115.thread160.i.i
+  br i1 %217, label %_ZSt22__move_median_to_firstIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_SI_SI_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit115.thread160.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit115.thread160.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit115.i.i, %211
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit115.thread160.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit115.i.i, %211
   %218 = ptrtoint ptr %.val35.i.i to i64
   %219 = trunc i64 %218 to i32
   %220 = lshr i32 %219, 4
@@ -12671,10 +12671,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
   %226 = icmp eq ptr %.val35.i.i, %225
   br i1 %226, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i125.i.i, label %.lr.ph.i.i.i.i.i.i117.i.i
 
-.lr.ph.i.i.i.i.i.i117.i.i:                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit115.thread160.i.i, %229
-  %227 = phi ptr [ %234, %229 ], [ %225, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit115.thread160.i.i ]
-  %.01620.i.i.i.i.i.i118.i.i = phi i32 [ %.016.i.i.i.i.i.i120.i.i, %229 ], [ %.01618.i.i.i.i.i.i116.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit115.thread160.i.i ]
-  %.01519.i.i.i.i.i.i119.i.i = phi i32 [ %230, %229 ], [ 1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit115.thread160.i.i ]
+.lr.ph.i.i.i.i.i.i117.i.i:                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit115.thread160.i.i, %229
+  %227 = phi ptr [ %234, %229 ], [ %225, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit115.thread160.i.i ]
+  %.01620.i.i.i.i.i.i118.i.i = phi i32 [ %.016.i.i.i.i.i.i120.i.i, %229 ], [ %.01618.i.i.i.i.i.i116.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit115.thread160.i.i ]
+  %.01519.i.i.i.i.i.i119.i.i = phi i32 [ %230, %229 ], [ 1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit115.thread160.i.i ]
   %228 = icmp eq ptr %227, inttoptr (i64 -4096 to ptr)
   br i1 %228, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i125.i.i, label %229
 
@@ -12688,8 +12688,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
   %235 = icmp eq ptr %.val35.i.i, %234
   br i1 %235, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i125.i.i, label %.lr.ph.i.i.i.i.i.i117.i.i, !llvm.loop !143
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i125.i.i: ; preds = %229, %.lr.ph.i.i.i.i.i.i117.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit115.thread160.i.i
-  %.0.i.i.pn.i14.i.i.i127.i.i = phi ptr [ %224, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit115.thread160.i.i ], [ %80, %.lr.ph.i.i.i.i.i.i117.i.i ], [ %233, %229 ]
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i125.i.i: ; preds = %229, %.lr.ph.i.i.i.i.i.i117.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit115.thread160.i.i
+  %.0.i.i.pn.i14.i.i.i127.i.i = phi ptr [ %224, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit115.thread160.i.i ], [ %80, %.lr.ph.i.i.i.i.i.i117.i.i ], [ %233, %229 ]
   br i1 %200, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i133.i.i, label %.lr.ph.i.i.i5.i.i.i129.i.i
 
 .lr.ph.i.i.i5.i.i.i129.i.i:                       ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i125.i.i, %238
@@ -12716,22 +12716,22 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMap
 
 246:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i133.i.i
   %247 = icmp eq ptr %.0.i.i.pn.i11.i.i.i135.i.i, %80
-  br i1 %247, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit140.thread166.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit140.i.i
+  br i1 %247, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit140.thread166.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit140.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit140.i.i: ; preds = %246
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit140.i.i: ; preds = %246
   %248 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i14.i.i.i127.i.i, i64 8
   %249 = load i32, ptr %248, align 8
   %250 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i11.i.i.i135.i.i, i64 8
   %251 = load i32, ptr %250, align 8
   %252 = icmp ugt i32 %249, %251
-  br i1 %252, label %_ZSt22__move_median_to_firstIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_SI_SI_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit140.thread166.i.i
+  br i1 %252, label %_ZSt22__move_median_to_firstIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_SI_SI_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit140.thread166.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit140.thread166.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit140.i.i, %246
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit140.thread166.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit140.i.i, %246
   br label %_ZSt22__move_median_to_firstIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_SI_SI_T0_.exit.i
 
-_ZSt22__move_median_to_firstIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_SI_SI_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit140.thread166.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit140.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i133.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit115.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i108.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread142.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit90.thread154.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit90.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i83.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit65.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i58.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread.i.i
-  %.sink178.i.i = phi ptr [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit140.thread166.i.i ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit90.thread154.i.i ], [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread.i.i ], [ %33, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i58.i.i ], [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit65.i.i ], [ %34, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i83.i.i ], [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit90.i.i ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread142.i.i ], [ %9, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i108.i.i ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit115.i.i ], [ %34, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i133.i.i ], [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit140.i.i ]
-  %.sink174.i.i = phi ptr [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit140.thread166.i.i ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit90.thread154.i.i ], [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread.i.i ], [ %35, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i58.i.i ], [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit65.i.i ], [ %89, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i83.i.i ], [ %89, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit90.i.i ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread142.i.i ], [ %10, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i108.i.i ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit115.i.i ], [ %171, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i133.i.i ], [ %171, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit140.i.i ]
+_ZSt22__move_median_to_firstIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_SI_SI_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit140.thread166.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit140.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i133.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit115.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i108.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread142.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit90.thread154.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit90.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i83.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit65.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i58.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread.i.i
+  %.sink178.i.i = phi ptr [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit140.thread166.i.i ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit90.thread154.i.i ], [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread.i.i ], [ %33, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i58.i.i ], [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit65.i.i ], [ %34, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i83.i.i ], [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit90.i.i ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread142.i.i ], [ %9, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i108.i.i ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit115.i.i ], [ %34, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i133.i.i ], [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit140.i.i ]
+  %.sink174.i.i = phi ptr [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit140.thread166.i.i ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit90.thread154.i.i ], [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread.i.i ], [ %35, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i58.i.i ], [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit65.i.i ], [ %89, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i83.i.i ], [ %89, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit90.i.i ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread142.i.i ], [ %10, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i108.i.i ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit115.i.i ], [ %171, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i133.i.i ], [ %171, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit140.i.i ]
   %253 = load ptr, ptr %0, align 8
   %254 = load ptr, ptr %.sink178.i.i, align 8
   store ptr %254, ptr %0, align 8
@@ -12771,8 +12771,8 @@ _ZSt22__move_median_to_firstIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS
   %272 = icmp eq ptr %.val17.i44.i, %271
   br label %273
 
-273:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread.i30.i, %.split.i
-  %.1.i.i = phi ptr [ %.0.i43.i, %.split.i ], [ %312, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread.i30.i ]
+273:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread.i30.i, %.split.i
+  %.1.i.i = phi ptr [ %.0.i43.i, %.split.i ], [ %312, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread.i30.i ]
   %274 = getelementptr i8, ptr %.1.i.i, i64 8
   %.1.val.i.i = load ptr, ptr %274, align 8
   %275 = ptrtoint ptr %.1.val.i.i to i64
@@ -12828,15 +12828,15 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMap
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i26.i: ; preds = %295, %.lr.ph.i.i.i5.i.i.i.i22.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i.i20.i
   %.0.i.i.pn.i11.i.i.i.i28.i = phi ptr [ %268, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i.i20.i ], [ %270, %.lr.ph.i.i.i5.i.i.i.i22.i ], [ %299, %295 ]
   %302 = icmp eq ptr %.0.i.i.pn.i14.i.i.i.i21.i, %270
-  br i1 %302, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread.i30.i, label %303
+  br i1 %302, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread.i30.i, label %303
 
 303:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i26.i
   %304 = icmp eq ptr %.0.i.i.pn.i11.i.i.i.i28.i, %270
-  br i1 %304, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.preheader.i.i, label %306
+  br i1 %304, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.preheader.i.i, label %306
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.preheader.i.i: ; preds = %306, %303
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.preheader.i.i: ; preds = %306, %303
   %305 = getelementptr i8, ptr %.1.i.i, i64 8
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i29.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i29.i
 
 306:                                              ; preds = %303
   %307 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i14.i.i.i.i21.i, i64 8
@@ -12844,23 +12844,23 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
   %309 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i11.i.i.i.i28.i, i64 8
   %310 = load i32, ptr %309, align 8
   %311 = icmp ugt i32 %308, %310
-  br i1 %311, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread.i30.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.preheader.i.i
+  br i1 %311, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread.i30.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.preheader.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread.i30.i: ; preds = %306, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i26.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread.i30.i: ; preds = %306, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i26.i
   %312 = getelementptr inbounds i8, ptr %.1.i.i, i64 16
   br label %273, !llvm.loop !238
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i29.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i29.i.backedge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.013.i42.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.preheader.i.i ], [ %.114.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i29.i.backedge ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i29.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i29.i.backedge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.013.i42.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.preheader.i.i ], [ %.114.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i29.i.backedge ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -16
   %313 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
   %.114.val.i.i = load ptr, ptr %313, align 8
   br i1 %272, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i29.i.i, label %.lr.ph.i.i.i.i.i.i21.i.i
 
-.lr.ph.i.i.i.i.i.i21.i.i:                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i29.i, %316
-  %314 = phi ptr [ %321, %316 ], [ %271, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i29.i ]
-  %.01620.i.i.i.i.i.i22.i.i = phi i32 [ %.016.i.i.i.i.i.i24.i.i, %316 ], [ %.01618.i.i.i4.i.i.i.i1246.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i29.i ]
-  %.01519.i.i.i.i.i.i23.i.i = phi i32 [ %317, %316 ], [ 1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i29.i ]
+.lr.ph.i.i.i.i.i.i21.i.i:                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i29.i, %316
+  %314 = phi ptr [ %321, %316 ], [ %271, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i29.i ]
+  %.01620.i.i.i.i.i.i22.i.i = phi i32 [ %.016.i.i.i.i.i.i24.i.i, %316 ], [ %.01618.i.i.i4.i.i.i.i1246.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i29.i ]
+  %.01519.i.i.i.i.i.i23.i.i = phi i32 [ %317, %316 ], [ 1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i29.i ]
   %315 = icmp eq ptr %314, inttoptr (i64 -4096 to ptr)
   br i1 %315, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i29.i.i, label %316
 
@@ -12874,8 +12874,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
   %322 = icmp eq ptr %.val17.i44.i, %321
   br i1 %322, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i29.i.i, label %.lr.ph.i.i.i.i.i.i21.i.i, !llvm.loop !143
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i29.i.i: ; preds = %316, %.lr.ph.i.i.i.i.i.i21.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i29.i
-  %.0.i.i.pn.i14.i.i.i31.i.i = phi ptr [ %268, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i29.i ], [ %320, %316 ], [ %270, %.lr.ph.i.i.i.i.i.i21.i.i ]
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i29.i.i: ; preds = %316, %.lr.ph.i.i.i.i.i.i21.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i29.i
+  %.0.i.i.pn.i14.i.i.i31.i.i = phi ptr [ %268, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i29.i ], [ %320, %316 ], [ %270, %.lr.ph.i.i.i.i.i.i21.i.i ]
   %323 = ptrtoint ptr %.114.val.i.i to i64
   %324 = trunc i64 %323 to i32
   %325 = lshr i32 %324, 4
@@ -12908,11 +12908,11 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMap
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i37.i.i: ; preds = %334, %.lr.ph.i.i.i5.i.i.i33.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i29.i.i
   %.0.i.i.pn.i11.i.i.i39.i.i = phi ptr [ %329, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit.thread.i.i.i29.i.i ], [ %270, %.lr.ph.i.i.i5.i.i.i33.i.i ], [ %338, %334 ]
   %341 = icmp eq ptr %.0.i.i.pn.i14.i.i.i31.i.i, %270
-  br i1 %341, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i29.i.backedge, label %342
+  br i1 %341, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i29.i.backedge, label %342
 
 342:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i37.i.i
   %343 = icmp eq ptr %.0.i.i.pn.i11.i.i.i39.i.i, %270
-  br i1 %343, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit44.thread.i.i, label %344
+  br i1 %343, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit44.thread.i.i, label %344
 
 344:                                              ; preds = %342
   %345 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i14.i.i.i31.i.i, i64 8
@@ -12920,16 +12920,16 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMap
   %347 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i11.i.i.i39.i.i, i64 8
   %348 = load i32, ptr %347, align 8
   %349 = icmp ugt i32 %346, %348
-  br i1 %349, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i29.i.backedge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit44.thread.i.i
+  br i1 %349, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i29.i.backedge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit44.thread.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i29.i.backedge: ; preds = %344, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i37.i.i
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.i29.i, !llvm.loop !239
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i29.i.backedge: ; preds = %344, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i37.i.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.i29.i, !llvm.loop !239
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit44.thread.i.i: ; preds = %344, %342
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit44.thread.i.i: ; preds = %344, %342
   %350 = icmp ult ptr %.1.i.i, %.114.i.i
   br i1 %350, label %351, label %_ZSt27__unguarded_partition_pivotIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEET_SI_SI_T0_.exit
 
-351:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit44.thread.i.i
+351:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit44.thread.i.i
   %352 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
   %353 = load ptr, ptr %.1.i.i, align 8
   %354 = load ptr, ptr %.114.i.i, align 8
@@ -12958,7 +12958,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
   tail call void @llvm.assume(i1 %358)
   br label %.split.i
 
-_ZSt27__unguarded_partition_pivotIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEET_SI_SI_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit44.thread.i.i
+_ZSt27__unguarded_partition_pivotIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEET_SI_SI_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit44.thread.i.i
   tail call fastcc void @_ZSt16__introsort_loopIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_T0_T1_(ptr noundef %.1.i.i, ptr noundef %.027, i64 noundef %31, ptr nonnull %3)
   %369 = ptrtoint ptr %.1.i.i to i64
   %370 = sub i64 %369, %5
@@ -12980,8 +12980,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIPN5clang4ento22PathSen
   %10 = getelementptr i8, ptr %5, i64 16
   br label %11
 
-11:                                               ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread37
-  %.043 = phi i64 [ %1, %.lr.ph ], [ %70, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread37 ]
+11:                                               ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread37
+  %.043 = phi i64 [ %1, %.lr.ph ], [ %70, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread37 ]
   %12 = shl i64 %.043, 1
   %13 = add i64 %12, 2
   %14 = or disjoint i64 %12, 1
@@ -13082,26 +13082,26 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMap
   %60 = zext i32 %.val.val32 to i64
   %61 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1055", ptr %.val.val, i64 %60
   %62 = icmp eq ptr %.0.i.i.pn.i13.i.i.i, %61
-  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread, label %63
+  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread, label %63
 
 63:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i
   %64 = icmp eq ptr %.0.i.i.pn.i11.i.i.i, %61
-  br i1 %64, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit
+  br i1 %64, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit: ; preds = %63
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit: ; preds = %63
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i13.i.i.i, i64 8
   %66 = load i32, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i11.i.i.i, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = icmp ugt i32 %66, %68
   %cond.fr = freeze i1 %69
-  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread37
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread37
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread37
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread37
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread37: ; preds = %63, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread
-  %70 = phi i64 [ %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread ], [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit ], [ %13, %63 ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread37: ; preds = %63, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread
+  %70 = phi i64 [ %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread ], [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit ], [ %13, %63 ]
   %71 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %70
   %72 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %.043
   %73 = load ptr, ptr %71, align 8
@@ -13113,8 +13113,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
   %77 = icmp slt i64 %70, %8
   br i1 %77, label %11, label %._crit_edge, !llvm.loop !241
 
-._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread37, %6
-  %.0.lcssa = phi i64 [ %1, %6 ], [ %70, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread37 ]
+._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread37, %6
+  %.0.lcssa = phi i64 [ %1, %6 ], [ %70, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread37 ]
   %78 = and i64 %2, 1
   %79 = icmp eq i64 %78, 0
   br i1 %79, label %80, label %93
@@ -13152,8 +13152,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
   %100 = getelementptr i8, ptr %5, i64 16
   br label %101
 
-101:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i, %.lr.ph.i
-  %.01323.i = phi i64 [ %.1, %.lr.ph.i ], [ %.024.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i ]
+101:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.argprom.argprom.exit.thread.i, %.lr.ph.i
+  %.01323.i = phi i64 [ %.1, %.lr.ph.i ], [ %.024.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.argprom.argprom.exit.thread.i ]
   %.024.in.i = add nsw i64 %.01323.i, -1
   %.024.i = sdiv i64 %.024.in.i, 2
   %102 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %.024.i
@@ -13247,21 +13247,21 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMap
   %142 = zext i32 %.val.val16.i to i64
   %143 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1055", ptr %.val.val.i, i64 %142
   %144 = icmp eq ptr %.0.i.i.pn.i13.i.i.i.i, %143
-  br i1 %144, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i, label %145
+  br i1 %144, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.argprom.argprom.exit.thread.i, label %145
 
 145:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i
   %146 = icmp eq ptr %.0.i.i.pn.i11.i.i.i.i, %143
-  br i1 %146, label %_ZSt11__push_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElS8_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_SJ_T1_RT2_.exit, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.i
+  br i1 %146, label %_ZSt11__push_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElS8_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_SJ_T1_RT2_.exit, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.argprom.argprom.exit.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.i: ; preds = %145
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.argprom.argprom.exit.i: ; preds = %145
   %147 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i13.i.i.i.i, i64 8
   %148 = load i32, ptr %147, align 8
   %149 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i11.i.i.i.i, i64 8
   %150 = load i32, ptr %149, align 8
   %151 = icmp ugt i32 %148, %150
-  br i1 %151, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElS8_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_SJ_T1_RT2_.exit
+  br i1 %151, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.argprom.argprom.exit.thread.i, label %_ZSt11__push_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElS8_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_SJ_T1_RT2_.exit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.argprom.argprom.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.argprom.argprom.exit.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i
   %152 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %.01323.i
   %153 = load ptr, ptr %102, align 8
   store ptr %153, ptr %152, align 8
@@ -13270,8 +13270,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityComp
   %155 = icmp sgt i64 %.024.i, %1
   br i1 %155, label %101, label %_ZSt11__push_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElS8_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_SJ_T1_RT2_.exit, !llvm.loop !242
 
-_ZSt11__push_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElS8_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_SJ_T1_RT2_.exit: ; preds = %145, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i, %93
-  %.013.lcssa.i = phi i64 [ %.1, %93 ], [ %.01323.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.i ], [ %.024.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i ], [ %.01323.i, %145 ]
+_ZSt11__push_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElS8_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_SJ_T1_RT2_.exit: ; preds = %145, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.argprom.argprom.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.argprom.argprom.exit.thread.i, %93
+  %.013.lcssa.i = phi i64 [ %.1, %93 ], [ %.01323.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.argprom.argprom.exit.i ], [ %.024.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.argprom.argprom.exit.thread.i ], [ %.01323.i, %145 ]
   %156 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
@@ -13397,21 +13397,21 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMap
   %53 = zext i32 %.val.val18 to i64
   %54 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1055", ptr %.val.val, i64 %53
   %55 = icmp eq ptr %.0.i.i.pn.i13.i.i.i, %54
-  br i1 %55, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread, label %56
+  br i1 %55, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread, label %56
 
 56:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i
   %57 = icmp eq ptr %.0.i.i.pn.i11.i.i.i, %54
-  br i1 %57, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit
+  br i1 %57, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit: ; preds = %56
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit: ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i13.i.i.i, i64 8
   %59 = load i32, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i11.i.i.i, i64 8
   %61 = load i32, ptr %60, align 8
   %62 = icmp ugt i32 %59, %61
-  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread22
+  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread22
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit
   %.sroa.0.0.copyload19 = load ptr, ptr %.028, align 8
   %63 = ptrtoint ptr %.028 to i64
   %64 = sub i64 %63, %7
@@ -13419,7 +13419,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
   %66 = icmp sgt i64 %65, 0
   br i1 %66, label %.lr.ph.i.i.i.i.i.preheader, label %_ZSt13move_backwardIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEES9_ET0_T_SB_SA_.exit
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread
   %67 = getelementptr inbounds i8, ptr %.pn27, i64 32
   br label %.lr.ph.i.i.i.i.i
 
@@ -13439,16 +13439,16 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
   %75 = icmp ugt i64 %.010.i.i.i.i.i, 1
   br i1 %75, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEES9_ET0_T_SB_SA_.exit, !llvm.loop !243
 
-_ZSt13move_backwardIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread
+_ZSt13move_backwardIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread
   store ptr %.sroa.0.0.copyload19, ptr %0, align 8
   store ptr %.0.val, ptr %5, align 8
   br label %76
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread22: ; preds = %56, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread22: ; preds = %56, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit
   tail call fastcc void @_ZSt25__unguarded_linear_insertIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_(ptr noundef nonnull %.028, ptr nonnull %2)
   br label %76
 
-76:                                               ; preds = %_ZSt13move_backwardIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEES9_ET0_T_SB_SA_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread22
+76:                                               ; preds = %_ZSt13move_backwardIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEES9_ET0_T_SB_SA_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.argprom.argprom.exit.thread22
   %.0 = getelementptr inbounds i8, ptr %.028, i64 16
   %.not = icmp eq ptr %.0, %1
   br i1 %.not, label %.loopexit, label %8, !llvm.loop !244
@@ -13470,8 +13470,8 @@ define internal fastcc void @_ZSt25__unguarded_linear_insertIPSt4pairIPN5clang4e
   %8 = xor i32 %6, %7
   br label %9
 
-9:                                                ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.exit.thread, %2
-  %.09 = phi ptr [ %0, %2 ], [ %.0, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.exit.thread ]
+9:                                                ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.argprom.argprom.exit.thread, %2
+  %.09 = phi ptr [ %0, %2 ], [ %.0, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.argprom.argprom.exit.thread ]
   %.0 = getelementptr inbounds i8, ptr %.09, i64 -16
   %10 = getelementptr i8, ptr %.09, i64 -8
   %.0.val = load ptr, ptr %10, align 8
@@ -13563,28 +13563,28 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMap
   %49 = zext i32 %.val.val11 to i64
   %50 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1055", ptr %.val.val, i64 %49
   %51 = icmp eq ptr %.0.i.i.pn.i13.i.i.i, %50
-  br i1 %51, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.exit.thread, label %52
+  br i1 %51, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.argprom.argprom.exit.thread, label %52
 
 52:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i
   %53 = icmp eq ptr %.0.i.i.pn.i11.i.i.i, %50
-  br i1 %53, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.exit.thread14, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.exit
+  br i1 %53, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.argprom.argprom.exit.thread14, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.argprom.argprom.exit
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.exit: ; preds = %52
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.argprom.argprom.exit: ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i13.i.i.i, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i11.i.i.i, i64 8
   %57 = load i32, ptr %56, align 8
   %58 = icmp ugt i32 %55, %57
-  br i1 %58, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.exit.thread14
+  br i1 %58, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.argprom.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.argprom.argprom.exit.thread14
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.exit.thread: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.exit
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.argprom.argprom.exit.thread: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.argprom.argprom.exit
   %59 = load ptr, ptr %.0, align 8
   store ptr %59, ptr %.09, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   store ptr %.0.val, ptr %60, align 8
   br label %9, !llvm.loop !245
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.exit.thread14: ; preds = %52, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.exit
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.argprom.argprom.exit.thread14: ; preds = %52, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEEPSG_EEbRT_T0_.argprom.argprom.exit
   store ptr %.sroa.0.0.copyload, ptr %.09, align 8
   %61 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   store ptr %.sroa.2.0.copyload, ptr %61, align 8
@@ -15576,7 +15576,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder30generate
 
 122:                                              ; preds = %118
   %123 = getelementptr inbounds nuw i8, ptr %.val110, i64 320
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit
 
 124:                                              ; preds = %118
   %125 = load ptr, ptr %120, align 8
@@ -15584,9 +15584,9 @@ define internal fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder30generate
   %127 = getelementptr inbounds ptr, ptr %125, i64 %126
   %128 = getelementptr inbounds i8, ptr %127, i64 -8
   %129 = load ptr, ptr %128, align 8
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit
 
-_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit: ; preds = %122, %124
+_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit: ; preds = %122, %124
   %.0.i.i = phi ptr [ %123, %122 ], [ %129, %124 ]
   call void @_ZN5clang4ento22PathDiagnosticLocation11createBeginEPKNS_4DeclERKNS_13SourceManagerE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ento::PathDiagnosticLocation") align 8 %63, ptr noundef nonnull %113, ptr noundef nonnull align 8 dereferenceable(696) %88) #26
   %130 = load i64, ptr %63, align 8
@@ -15605,7 +15605,7 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit: ; preds = %122
   %or.cond30.i = select i1 %.not26.i, i1 true, i1 %131
   br i1 %or.cond30.i, label %_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit, label %132
 
-132:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit
+132:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit
   %133 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %134 = load ptr, ptr %133, align 8
   %.not27.i = icmp eq ptr %134, null
@@ -15679,7 +15679,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit.i: ; p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.8302.0..sroa_idx304, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.8302, i64 24, i1 false)
   br label %_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit
 
-_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit: ; preds = %.sink.split.i, %136, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit, %107, %100
+_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit: ; preds = %.sink.split.i, %136, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit, %107, %100
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 344
@@ -15706,7 +15706,7 @@ _ZN5clang4ento14PathDiagnostic13popActivePathEv.exit: ; preds = %_ZL13addEdgeToP
 
 169:                                              ; preds = %166
   %170 = getelementptr inbounds nuw i8, ptr %.val111, i64 320
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit138
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit138
 
 171:                                              ; preds = %166
   %172 = load ptr, ptr %167, align 8
@@ -15714,9 +15714,9 @@ _ZN5clang4ento14PathDiagnostic13popActivePathEv.exit: ; preds = %_ZL13addEdgeToP
   %174 = getelementptr inbounds ptr, ptr %172, i64 %173
   %175 = getelementptr inbounds i8, ptr %174, i64 -8
   %176 = load ptr, ptr %175, align 8
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit138
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit138
 
-_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit138: ; preds = %169, %171
+_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit138: ; preds = %169, %171
   %.0.i.i137 = phi ptr [ %170, %169 ], [ %176, %171 ]
   %177 = load ptr, ptr %.0.i.i137, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
@@ -15737,7 +15737,7 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit138: ; preds = %
 
 189:                                              ; preds = %180
   %190 = getelementptr inbounds nuw i8, ptr %.val112, i64 320
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit140
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit140
 
 191:                                              ; preds = %180
   %192 = load ptr, ptr %187, align 8
@@ -15745,9 +15745,9 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit138: ; preds = %
   %194 = getelementptr inbounds ptr, ptr %192, i64 %193
   %195 = getelementptr inbounds i8, ptr %194, i64 -8
   %196 = load ptr, ptr %195, align 8
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit140
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit140
 
-_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit140: ; preds = %189, %191
+_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit140: ; preds = %189, %191
   %.0.i.i139 = phi ptr [ %190, %189 ], [ %196, %191 ]
   %197 = call noundef ptr @_ZN5clang4ento23PathDiagnosticCallPiece9constructERNS0_10PathPiecesEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i139, ptr noundef %186) #26
   %.val113 = load ptr, ptr %156, align 8
@@ -15755,19 +15755,19 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit140: ; preds = %
   %199 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %198) #26
   br i1 %199, label %200, label %202
 
-200:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit140
+200:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit140
   %201 = getelementptr inbounds nuw i8, ptr %.val113, i64 320
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit142
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit142
 
-202:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit140
+202:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit140
   %203 = load ptr, ptr %198, align 8
   %204 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %198) #26
   %205 = getelementptr inbounds ptr, ptr %203, i64 %204
   %206 = getelementptr inbounds i8, ptr %205, i64 -8
   %207 = load ptr, ptr %206, align 8
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit142
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit142
 
-_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit142: ; preds = %200, %202
+_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit142: ; preds = %200, %202
   %.0.i.i141 = phi ptr [ %201, %200 ], [ %207, %202 ]
   %.val123 = load ptr, ptr %79, align 8
   %208 = getelementptr i8, ptr %.val123, i64 24
@@ -15783,7 +15783,7 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit142: ; preds = %
   %215 = icmp eq i32 %214, 0
   br i1 %215, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento10PathPiecesEPKNS2_15LocationContextENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S9_EEEES6_S9_SB_SE_E15LookupBucketForIS6_EEbRKT_RPSE_.exit.i.i.i, label %216
 
-216:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit142
+216:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit142
   %217 = ptrtoint ptr %.0.i.i141 to i64
   %218 = trunc i64 %217 to i32
   %219 = lshr i32 %218, 4
@@ -15825,8 +15825,8 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit142: ; preds = %
   %240 = icmp eq ptr %.0.i.i141, %239
   br i1 %240, label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct15updateLocCtxMapEPKN5clang4ento10PathPiecesEPKNS1_15LocationContextE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !165
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento10PathPiecesEPKNS2_15LocationContextENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S9_EEEES6_S9_SB_SE_E15LookupBucketForIS6_EEbRKT_RPSE_.exit.i.i.i: ; preds = %230, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit142
-  %.sink.i.i.i.i.i = phi ptr [ %231, %230 ], [ null, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit142 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento10PathPiecesEPKNS2_15LocationContextENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S9_EEEES6_S9_SB_SE_E15LookupBucketForIS6_EEbRKT_RPSE_.exit.i.i.i: ; preds = %230, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit142
+  %.sink.i.i.i.i.i = phi ptr [ %231, %230 ], [ null, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit142 ]
   %241 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento10PathPiecesEPKNS2_15LocationContextENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S9_EEEES6_S9_SB_SE_E20InsertIntoBucketImplIS6_EEPSE_RKS6_RKT_SI_(ptr noundef nonnull align 1 dereferenceable(1) %211, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef %.sink.i.i.i.i.i)
   %242 = load ptr, ptr %61, align 8
   store ptr %242, ptr %241, align 8
@@ -15907,8 +15907,8 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct15updateLocCtxMapEPKN5clang4ento10Path
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60)
   br label %280
 
-280:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct15updateLocCtxMapEPKN5clang4ento10PathPiecesEPKNS1_15LocationContextE.exit156, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit138
-  %.0 = phi ptr [ %179, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit138 ], [ %197, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct15updateLocCtxMapEPKN5clang4ento10PathPiecesEPKNS1_15LocationContextE.exit156 ]
+280:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct15updateLocCtxMapEPKN5clang4ento10PathPiecesEPKNS1_15LocationContextE.exit156, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit138
+  %.0 = phi ptr [ %179, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit138 ], [ %197, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct15updateLocCtxMapEPKN5clang4ento10PathPiecesEPKNS1_15LocationContextE.exit156 ]
   call void @_ZN5clang4ento23PathDiagnosticCallPiece9setCalleeERKNS_9CallEnterERKNS_13SourceManagerE(ptr noundef nonnull align 8 dereferenceable(400) %.0, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(696) %88) #26
   %281 = load ptr, ptr %.0, align 8
   %282 = getelementptr inbounds i8, ptr %281, i64 16
@@ -16029,7 +16029,7 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct15updateLocCtxMapEPKN5clang4ento10Path
 
 340:                                              ; preds = %336
   %341 = getelementptr inbounds nuw i8, ptr %.val114, i64 320
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit175
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit175
 
 342:                                              ; preds = %336
   %343 = load ptr, ptr %338, align 8
@@ -16037,9 +16037,9 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct15updateLocCtxMapEPKN5clang4ento10Path
   %345 = getelementptr inbounds ptr, ptr %343, i64 %344
   %346 = getelementptr inbounds i8, ptr %345, i64 -8
   %347 = load ptr, ptr %346, align 8
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit175
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit175
 
-_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit175: ; preds = %340, %342
+_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit175: ; preds = %340, %342
   %.0.i.i174 = phi ptr [ %341, %340 ], [ %347, %342 ]
   %348 = load ptr, ptr %66, align 8
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 312
@@ -16059,7 +16059,7 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit175: ; preds = %
   %or.cond30.i178 = select i1 %.not26.i176, i1 true, i1 %351
   br i1 %or.cond30.i178, label %_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit187, label %352
 
-352:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit175
+352:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit175
   %353 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %354 = load ptr, ptr %353, align 8
   %.not27.i179 = icmp eq ptr %354, null
@@ -16121,7 +16121,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit.i185: 
   store i64 %375, ptr %373, align 8
   br label %_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit187
 
-_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit187: ; preds = %352, %_ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit.i185, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit175, %356
+_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_.exit187: ; preds = %352, %_ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit.i185, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit175, %356
   store i32 1, ptr %2, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.sroa.3.0..sroa_idx.i, i8 0, i64 56, i1 false)
@@ -16344,7 +16344,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 494:                                              ; preds = %475
   %495 = getelementptr inbounds nuw i8, ptr %.val116, i64 320
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit205
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit205
 
 496:                                              ; preds = %475
   %497 = load ptr, ptr %492, align 8
@@ -16352,9 +16352,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %499 = getelementptr inbounds ptr, ptr %497, i64 %498
   %500 = getelementptr inbounds i8, ptr %499, i64 -8
   %501 = load ptr, ptr %500, align 8
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit205
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit205
 
-_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit205: ; preds = %494, %496
+_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit205: ; preds = %494, %496
   %.0.i.i204 = phi ptr [ %495, %494 ], [ %501, %496 ]
   %502 = load i64, ptr %67, align 8
   %.sroa.2371.0.copyload = load ptr, ptr %480, align 8
@@ -16368,7 +16368,7 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit205: ; preds = %
   %or.cond30.i208 = select i1 %.not26.i206, i1 true, i1 %503
   br i1 %or.cond30.i208, label %_ZNSt10shared_ptrIN5clang4ento23PathDiagnosticCallPieceEED2Ev.exit, label %504
 
-504:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit205
+504:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit205
   %505 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %506 = load ptr, ptr %505, align 8
   %.not27.i209 = icmp eq ptr %506, null
@@ -16453,17 +16453,17 @@ _ZNK5clang12ProgramPoint5getAsINS_8PostStmtEEESt8optionalIT_Ev.exit: ; preds = %
   %532 = load ptr, ptr %531, align 8
   %533 = tail call noundef i32 %532(ptr noundef nonnull align 8 dereferenceable(32) %.val128) #26
   %534 = icmp eq i32 %533, 1
-  br i1 %534, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit.thread, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit
+  br i1 %534, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit.thread, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit
 
-_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit: ; preds = %529
+_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit: ; preds = %529
   %535 = load ptr, ptr %.val128, align 8
   %536 = getelementptr inbounds i8, ptr %535, i64 40
   %537 = load ptr, ptr %536, align 8
   %538 = tail call noundef i32 %537(ptr noundef nonnull align 8 dereferenceable(32) %.val128) #26
   %539 = icmp eq i32 %538, 3
-  br i1 %539, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit.thread, label %1323
+  br i1 %539, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit.thread, label %1323
 
-_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit.thread: ; preds = %529, %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit
+_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit.thread: ; preds = %529, %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %35)
@@ -16516,16 +16516,16 @@ _ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit.thread
   %.sink117.i.sroa.gep55.i = getelementptr inbounds i8, ptr %11, i64 57
   %.sink117.i.sroa.gep56.i = getelementptr inbounds i8, ptr %17, i64 57
   %.sink117.i.sroa.gep57.i = getelementptr inbounds i8, ptr %15, i64 57
-  br i1 %.not.i222, label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit, label %552
+  br i1 %.not.i222, label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit, label %552
 
-552:                                              ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit.thread
+552:                                              ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit.thread
   %.val94.i = load ptr, ptr %79, align 8
   %553 = getelementptr i8, ptr %.val94.i, i64 24
   %.val94.val.i = load i64, ptr %553, align 8
   %554 = and i64 %.val94.val.i, -8
   call void @_ZN5clang4ento22PathDiagnosticLocation11createBeginEPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ento::PathDiagnosticLocation") align 8 %33, ptr noundef nonnull %551, ptr noundef nonnull align 8 dereferenceable(696) %546, i64 %554) #26
   %555 = load i8, ptr %551, align 8
-  switch i8 %555, label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit [
+  switch i8 %555, label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit [
     i8 -28, label %556
     i8 -30, label %556
     i8 -125, label %616
@@ -16544,7 +16544,7 @@ _ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit.thread
   %.val.i = load ptr, ptr %79, align 8
   %557 = call noundef ptr @_ZNK5clang4ento12ExplodedNode25getNextStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %.val.i) #26
   %.not76.i = icmp eq ptr %557, null
-  br i1 %.not76.i, label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit, label %558
+  br i1 %.not76.i, label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit, label %558
 
 558:                                              ; preds = %556
   %559 = getelementptr inbounds i8, ptr %1, i64 160
@@ -16555,7 +16555,7 @@ _ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit.thread
 
 562:                                              ; preds = %558
   %563 = getelementptr inbounds nuw i8, ptr %.val87.i, i64 320
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit.i
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit.i
 
 564:                                              ; preds = %558
   %565 = load ptr, ptr %560, align 8
@@ -16563,9 +16563,9 @@ _ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit.thread
   %567 = getelementptr inbounds ptr, ptr %565, i64 %566
   %568 = getelementptr inbounds i8, ptr %567, i64 -8
   %569 = load ptr, ptr %568, align 8
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit.i
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit.i
 
-_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit.i: ; preds = %564, %562
+_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit.i: ; preds = %564, %562
   %.0.i.i.i225 = phi ptr [ %563, %562 ], [ %569, %564 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %30)
@@ -16600,11 +16600,11 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit.i: ; preds = %5
   %585 = icmp ult i64 %584, 22
   br i1 %585, label %586, label %588
 
-586:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit.i
+586:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit.i
   %587 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull @.str.39, i64 noundef 22) #26, !noalias !316
   br label %_ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit.i
 
-588:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit.i
+588:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %581, ptr noundef nonnull align 1 dereferenceable(22) @.str.39, i64 22, i1 false), !noalias !316
   %589 = load ptr, ptr %580, align 8, !noalias !316
   %590 = getelementptr inbounds i8, ptr %589, i64 22
@@ -16666,7 +16666,7 @@ _ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit.i: ; preds = %588
   %614 = load i64, ptr %613, align 8
   %615 = add i64 %614, 1
   store i64 %615, ptr %613, align 8
-  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit
+  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit
 
 616:                                              ; preds = %552
   %617 = getelementptr inbounds i8, ptr %1, i64 160
@@ -16677,7 +16677,7 @@ _ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit.i: ; preds = %588
 
 620:                                              ; preds = %616
   %621 = getelementptr inbounds nuw i8, ptr %.val86.i, i64 320
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit98.i
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit98.i
 
 622:                                              ; preds = %616
   %623 = load ptr, ptr %618, align 8
@@ -16685,9 +16685,9 @@ _ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit.i: ; preds = %588
   %625 = getelementptr inbounds ptr, ptr %623, i64 %624
   %626 = getelementptr inbounds i8, ptr %625, i64 -8
   %627 = load ptr, ptr %626, align 8
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit98.i
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit98.i
 
-_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit98.i: ; preds = %622, %620
+_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit98.i: ; preds = %622, %620
   %.0.i.i97.i = phi ptr [ %621, %620 ], [ %627, %622 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %21)
@@ -16724,7 +16724,7 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit98.i: ; preds = 
   %.not.i.i = icmp eq ptr %641, null
   br i1 %.not.i.i, label %739, label %642
 
-642:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit98.i
+642:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit98.i
   %.val.i99.i = load ptr, ptr %79, align 8, !noalias !325
   %643 = getelementptr i8, ptr %.val.i99.i, i64 24
   %.val.val.i100.i = load i64, ptr %643, align 8, !noalias !325
@@ -16920,7 +16920,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36.i.i:           ; preds = %732, %730
   %738 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i35.i.i, i64 noundef %737) #26, !noalias !325
   br label %_ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit108.i
 
-739:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit98.i
+739:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit98.i
   %740 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %741 = load ptr, ptr %740, align 8, !noalias !325
   %742 = getelementptr inbounds nuw i8, ptr %21, i64 32
@@ -17018,7 +17018,7 @@ _ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit108.i: ; preds = %
   %770 = load i64, ptr %769, align 8
   %771 = add i64 %770, 1
   store i64 %771, ptr %769, align 8
-  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit
+  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit
 
 772:                                              ; preds = %552, %552
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #26
@@ -17094,7 +17094,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit.i223: 
   store i64 %808, ptr %806, align 8
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %35) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #26
-  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit
+  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit
 
 809:                                              ; preds = %552, %552
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #26
@@ -17252,7 +17252,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit146.i: 
   store i64 %889, ptr %887, align 8
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %38) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #26
-  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit
+  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit
 
 890:                                              ; preds = %552
   %.val95.i = load ptr, ptr %1, align 8
@@ -17260,7 +17260,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit146.i: 
   %892 = getelementptr inbounds i8, ptr %891, i64 48
   %893 = load ptr, ptr %892, align 8
   %894 = call noundef zeroext i1 %893(ptr noundef nonnull align 8 dereferenceable(32) %.val95.i) #26
-  br i1 %894, label %895, label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit
+  br i1 %894, label %895, label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit
 
 895:                                              ; preds = %890
   %896 = getelementptr inbounds i8, ptr %1, i64 160
@@ -17271,7 +17271,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit146.i: 
 
 899:                                              ; preds = %895
   %900 = getelementptr inbounds nuw i8, ptr %.val83.i, i64 320
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit148.i
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit148.i
 
 901:                                              ; preds = %895
   %902 = load ptr, ptr %897, align 8
@@ -17279,9 +17279,9 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit146.i: 
   %904 = getelementptr inbounds ptr, ptr %902, i64 %903
   %905 = getelementptr inbounds i8, ptr %904, i64 -8
   %906 = load ptr, ptr %905, align 8
-  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit148.i
+  br label %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit148.i
 
-_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit148.i: ; preds = %901, %899
+_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit148.i: ; preds = %901, %899
   %.0.i.i147.i = phi ptr [ %900, %899 ], [ %906, %901 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
@@ -17329,12 +17329,12 @@ _ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit148.i: ; preds =
   %926 = icmp ult i64 %925, 14
   br i1 %926, label %927, label %929
 
-927:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit148.i
+927:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit148.i
   %928 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull @.str.50, i64 noundef 14) #26, !noalias !346
   %.pre.i = load ptr, ptr %921, align 8, !noalias !346
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i149.i
 
-929:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit148.i
+929:                                              ; preds = %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit148.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %922, ptr noundef nonnull align 1 dereferenceable(14) @.str.50, i64 14, i1 false), !noalias !346
   %930 = load ptr, ptr %921, align 8, !noalias !346
   %931 = getelementptr inbounds i8, ptr %930, i64 14
@@ -17765,7 +17765,7 @@ _ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit164.i: ; preds = %
   %1112 = load i64, ptr %1111, align 8
   %1113 = add i64 %1112, 1
   store i64 %1113, ptr %1111, align 8
-  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit
+  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit
 
 1114:                                             ; preds = %552
   %1115 = getelementptr inbounds nuw i8, ptr %.sroa.0265.0.copyload, i64 80
@@ -17808,7 +17808,7 @@ _ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit164.i: ; preds = %
 1132:                                             ; preds = %1128, %1119
   %1133 = getelementptr inbounds i8, ptr %1, i64 160
   %.val82.i = load ptr, ptr %1133, align 8
-  %1134 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv(ptr %.val82.i)
+  %1134 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom(ptr %.val82.i)
   %1135 = load ptr, ptr %1124, align 8
   call void @_ZSt11make_sharedIN5clang4ento30PathDiagnosticControlFlowPieceEJRNS1_22PathDiagnosticLocationES4_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.1306") align 8 %46, ptr noundef nonnull align 8 dereferenceable(60) %33, ptr noundef nonnull align 8 dereferenceable(60) %43, ptr noundef nonnull align 8 dereferenceable(32) %1135)
   %1136 = load ptr, ptr %46, align 8
@@ -17824,7 +17824,7 @@ _ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit164.i: ; preds = %
   call void @_ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #26
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %42) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #26
-  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit
+  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit
 
 1140:                                             ; preds = %1114
   call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
@@ -17898,7 +17898,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit180.i: 
   %1174 = load i64, ptr %1173, align 8
   %1175 = add i64 %1174, 1
   store i64 %1175, ptr %1173, align 8
-  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit
+  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit
 
 1176:                                             ; preds = %552, %552
   %1177 = getelementptr inbounds nuw i8, ptr %.sroa.0265.0.copyload, i64 80
@@ -18020,7 +18020,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit199.i: 
   store i64 %1238, ptr %1236, align 8
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %50) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #26
-  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit
+  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit
 
 1239:                                             ; preds = %1176
   call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
@@ -18094,7 +18094,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit215.i: 
   %1273 = load i64, ptr %1272, align 8
   %1274 = add i64 %1273, 1
   store i64 %1274, ptr %1272, align 8
-  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit
+  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit
 
 1275:                                             ; preds = %552
   call fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias writable align 8 %55, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(168) %1)
@@ -18124,7 +18124,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit215.i: 
   br i1 %1287, label %1289, label %1295
 
 1289:                                             ; preds = %1282
-  %1290 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv(ptr %.val78.i)
+  %1290 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom(ptr %.val78.i)
   call void @_ZSt11make_sharedIN5clang4ento30PathDiagnosticControlFlowPieceEJRNS1_22PathDiagnosticLocationES4_RA20_KcEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.1306") align 8 %58, ptr noundef nonnull align 8 dereferenceable(60) %33, ptr noundef nonnull align 8 dereferenceable(60) %55, ptr noundef nonnull align 1 dereferenceable(20) @.str.37)
   %1291 = load ptr, ptr %58, align 8
   store ptr %1291, ptr %57, align 8
@@ -18137,7 +18137,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit215.i: 
   call void @_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE10push_frontEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %1290, ptr noundef nonnull align 8 dereferenceable(16) %57)
   call void @_ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %57) #26
   call void @_ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %58) #26
-  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit
+  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit
 
 1295:                                             ; preds = %1282
   %1296 = getelementptr inbounds nuw i8, ptr %.val78.i, i64 344
@@ -18192,9 +18192,9 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit231.i: 
   %1321 = load i64, ptr %1320, align 8
   %1322 = add i64 %1321, 1
   store i64 %1322, ptr %1320, align 8
-  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit
+  br label %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit
 
-_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit: ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit.thread, %552, %556, %_ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit.i, %_ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit108.i, %_ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit.i223, %_ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit146.i, %890, %_ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit164.i, %1132, %_ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit180.i, %_ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit199.i, %_ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit215.i, %1289, %_ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit231.i
+_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit: ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit.thread, %552, %556, %_ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit.i, %_ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit108.i, %_ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit.i223, %_ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit146.i, %890, %_ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev.exit164.i, %1132, %_ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit180.i, %_ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit199.i, %_ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit215.i, %1289, %_ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit231.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %35)
@@ -18223,7 +18223,7 @@ _ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58)
   br label %1323
 
-1323:                                             ; preds = %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.exit, %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit
+1323:                                             ; preds = %_ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_23PathDiagnosticConstructEN5clang9BlockEdgeE.argprom.exit, %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit
   %.val109 = load ptr, ptr %1, align 8
   %1324 = load ptr, ptr %.val109, align 8
   %1325 = getelementptr inbounds i8, ptr %1324, i64 40
@@ -18296,7 +18296,7 @@ _ZNK12_GLOBAL__N_121PathDiagnosticBuilder31generateMinimalDiagForBlockEdgeERNS_2
 _ZN5clang4ento24PathDiagnosticEventPiece11setPrunableEbb.exit: ; preds = %1350, %1355
   %1357 = getelementptr inbounds i8, ptr %1, i64 160
   %.val117 = load ptr, ptr %1357, align 8
-  %1358 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv(ptr %.val117)
+  %1358 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom(ptr %.val117)
   %1359 = load ptr, ptr %69, align 8
   %1360 = load ptr, ptr %1359, align 8
   %1361 = getelementptr inbounds i8, ptr %1360, i64 16
@@ -18309,19 +18309,19 @@ _ZN5clang4ento24PathDiagnosticEventPiece11setPrunableEbb.exit: ; preds = %1350, 
   %1365 = load ptr, ptr %1364, align 8
   %1366 = call noundef i32 %1365(ptr noundef nonnull align 8 dereferenceable(32) %.val129) #26
   %1367 = icmp eq i32 %1366, 1
-  br i1 %1367, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit231.thread, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit231
+  br i1 %1367, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit231.thread, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit231
 
-_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit231: ; preds = %_ZN5clang4ento24PathDiagnosticEventPiece11setPrunableEbb.exit
+_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit231: ; preds = %_ZN5clang4ento24PathDiagnosticEventPiece11setPrunableEbb.exit
   %1368 = load ptr, ptr %.val129, align 8
   %1369 = getelementptr inbounds i8, ptr %1368, i64 40
   %1370 = load ptr, ptr %1369, align 8
   %1371 = call noundef i32 %1370(ptr noundef nonnull align 8 dereferenceable(32) %.val129) #26
   %1372 = icmp eq i32 %1371, 3
-  br i1 %1372, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit231.thread, label %1373
+  br i1 %1372, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit231.thread, label %1373
 
-1373:                                             ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit231
+1373:                                             ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit231
   %.val118 = load ptr, ptr %1357, align 8
-  %1374 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv(ptr %.val118)
+  %1374 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom(ptr %.val118)
   %1375 = load ptr, ptr %69, align 8
   store ptr %1375, ptr %71, align 8
   %1376 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -18332,25 +18332,25 @@ _ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit231: ; 
   store ptr null, ptr %69, align 8
   call void @_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE10push_frontEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %1374, ptr noundef nonnull align 8 dereferenceable(16) %71)
   call void @_ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %71) #26
-  br label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit231.thread
+  br label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit231.thread
 
-_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit231.thread: ; preds = %_ZN5clang4ento24PathDiagnosticEventPiece11setPrunableEbb.exit, %1373, %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit231
+_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit231.thread: ; preds = %_ZN5clang4ento24PathDiagnosticEventPiece11setPrunableEbb.exit, %1373, %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit231
   %.not.i.i232 = icmp eq ptr %.089, null
   br i1 %.not.i.i232, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtEKNS1_4StmtEEEDaPT0_.exit.thread, label %1379
 
-1379:                                             ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit231.thread
+1379:                                             ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit231.thread
   %1380 = load i8, ptr %.089, align 8
   %1381 = icmp eq i8 %1380, -21
   br i1 %1381, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtEKNS1_4StmtEEEDaPT0_.exit, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtEKNS1_4StmtEEEDaPT0_.exit.thread
 
 _ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtEKNS1_4StmtEEEDaPT0_.exit: ; preds = %1379
   %.val119 = load ptr, ptr %1357, align 8
-  %1382 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv(ptr %.val119)
+  %1382 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom(ptr %.val119)
   call void @_ZN5clang4ento22PathDiagnosticLocation14createEndBraceEPKNS_12CompoundStmtERKNS_13SourceManagerE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ento::PathDiagnosticLocation") align 8 %72, ptr noundef nonnull %.089, ptr noundef nonnull align 8 dereferenceable(696) %88) #26
   call fastcc void @_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_(ptr noundef nonnull align 8 dereferenceable(24) %1382, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %72)
   br label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtEKNS1_4StmtEEEDaPT0_.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtEKNS1_4StmtEEEDaPT0_.exit.thread: ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit231.thread, %1379, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtEKNS1_4StmtEEEDaPT0_.exit
+_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtEKNS1_4StmtEEEDaPT0_.exit.thread: ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit231.thread, %1379, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtEKNS1_4StmtEEEDaPT0_.exit
   call void @_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticEventPieceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %69) #26
   br label %1383
 
@@ -18460,7 +18460,7 @@ _ZL22getTerminatorConditionPKN5clang8CFGBlockE.exit: ; preds = %1394, %1396, %_Z
 _ZN5clang4ento24PathDiagnosticEventPiece11setPrunableEbb.exit238: ; preds = %1415, %1423
   %1425 = getelementptr inbounds i8, ptr %1, i64 160
   %.val120 = load ptr, ptr %1425, align 8
-  %1426 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv(ptr %.val120)
+  %1426 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom(ptr %.val120)
   %1427 = load ptr, ptr %75, align 8
   %1428 = load ptr, ptr %1427, align 8
   %1429 = getelementptr inbounds i8, ptr %1428, i64 16
@@ -18473,19 +18473,19 @@ _ZN5clang4ento24PathDiagnosticEventPiece11setPrunableEbb.exit238: ; preds = %141
   %1433 = load ptr, ptr %1432, align 8
   %1434 = call noundef i32 %1433(ptr noundef nonnull align 8 dereferenceable(32) %.val130) #26
   %1435 = icmp eq i32 %1434, 1
-  br i1 %1435, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit239.thread, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit239
+  br i1 %1435, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit239.thread, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit239
 
-_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit239: ; preds = %_ZN5clang4ento24PathDiagnosticEventPiece11setPrunableEbb.exit238
+_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit239: ; preds = %_ZN5clang4ento24PathDiagnosticEventPiece11setPrunableEbb.exit238
   %1436 = load ptr, ptr %.val130, align 8
   %1437 = getelementptr inbounds i8, ptr %1436, i64 40
   %1438 = load ptr, ptr %1437, align 8
   %1439 = call noundef i32 %1438(ptr noundef nonnull align 8 dereferenceable(32) %.val130) #26
   %1440 = icmp eq i32 %1439, 3
-  br i1 %1440, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit239.thread, label %1441
+  br i1 %1440, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit239.thread, label %1441
 
-1441:                                             ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit239
+1441:                                             ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit239
   %.val121 = load ptr, ptr %1425, align 8
-  %1442 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv(ptr %.val121)
+  %1442 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom(ptr %.val121)
   %1443 = load ptr, ptr %75, align 8
   store ptr %1443, ptr %77, align 8
   %1444 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -18496,9 +18496,9 @@ _ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit239: ; 
   store ptr null, ptr %75, align 8
   call void @_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE10push_frontEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %1442, ptr noundef nonnull align 8 dereferenceable(16) %77)
   call void @_ZNSt10shared_ptrIN5clang4ento19PathDiagnosticPieceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %77) #26
-  br label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit239.thread
+  br label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit239.thread
 
-_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit239.thread: ; preds = %_ZN5clang4ento24PathDiagnosticEventPiece11setPrunableEbb.exit238, %1441, %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit239
+_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit239.thread: ; preds = %_ZN5clang4ento24PathDiagnosticEventPiece11setPrunableEbb.exit238, %1441, %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit239
   call void @_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticEventPieceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %75) #26
   br label %_ZNSt10shared_ptrIN5clang4ento23PathDiagnosticCallPieceEED2Ev.exit
 
@@ -18510,11 +18510,11 @@ _ZN4llvm3isaIN5clang9BreakStmtENS1_12ContinueStmtEJNS1_8GotoStmtEEPKNS1_4StmtEEE
   call void @_ZN5clang4ento22PathDiagnosticLocationC2EPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr noundef nonnull align 8 dereferenceable(60) %78, ptr noundef nonnull %1392, ptr noundef nonnull align 8 dereferenceable(696) %88, i64 %1448)
   %1449 = getelementptr inbounds i8, ptr %1, i64 160
   %.val122 = load ptr, ptr %1449, align 8
-  %1450 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv(ptr %.val122)
+  %1450 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom(ptr %.val122)
   call fastcc void @_ZL13addEdgeToPathRN5clang4ento10PathPiecesERNS0_22PathDiagnosticLocationES3_(ptr noundef nonnull align 8 dereferenceable(24) %1450, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %78)
   br label %_ZNSt10shared_ptrIN5clang4ento23PathDiagnosticCallPieceEED2Ev.exit
 
-_ZNSt10shared_ptrIN5clang4ento23PathDiagnosticCallPieceEED2Ev.exit: ; preds = %.sink.split.i216, %508, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.exit205, %1408, %1393, %_ZNK5clang12ProgramPoint5getAsINS_8PostStmtEEESt8optionalIT_Ev.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i197, %454, %441, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang4ento23PathDiagnosticCallPieceEPKNS3_12ExplodedNodeEELb1EE9push_backES9_.exit, %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.exit239.thread, %_ZN4llvm3isaIN5clang9BreakStmtENS1_12ContinueStmtEJNS1_8GotoStmtEEPKNS1_4StmtEEEbRKT2_.exit.thread, %1383, %1323, %472, %466, %280, %286
+_ZNSt10shared_ptrIN5clang4ento23PathDiagnosticCallPieceEED2Ev.exit: ; preds = %.sink.split.i216, %508, %_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom.exit205, %1408, %1393, %_ZNK5clang12ProgramPoint5getAsINS_8PostStmtEEESt8optionalIT_Ev.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i197, %454, %441, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang4ento23PathDiagnosticCallPieceEPKNS3_12ExplodedNodeEELb1EE9push_backES9_.exit, %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21shouldAddControlNotesEv.argprom.exit239.thread, %_ZN4llvm3isaIN5clang9BreakStmtENS1_12ContinueStmtEJNS1_8GotoStmtEEPKNS1_4StmtEEEbRKT2_.exit.thread, %1383, %1323, %472, %466, %280, %286
   ret void
 }
 
@@ -18596,7 +18596,7 @@ _ZNSt10shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv(ptr %.160.val) unnamed_addr #3 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12_GLOBAL__N_123PathDiagnosticConstruct13getActivePathEv.argprom(ptr %.160.val) unnamed_addr #3 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.160.val, i64 344
   %2 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #26
   br i1 %2, label %3, label %5
@@ -18754,7 +18754,7 @@ _ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9po
   %72 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1193", ptr %.val, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %62, %73
-  br i1 %74, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit, label %.lr.ph.i.i.i.i
+  br i1 %74, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %64, %77
   %75 = phi ptr [ %82, %77 ], [ %73, %64 ]
@@ -18771,21 +18771,21 @@ _ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9po
   %81 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1193", ptr %.val, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %62, %82
-  br i1 %83, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !179
+  br i1 %83, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit, label %.lr.ph.i.i.i.i, !llvm.loop !179
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %61
   %84 = zext i32 %.val21 to i64
   %85 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1193", ptr %.val, i64 %84
-  br label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit
+  br label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit
 
-_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit: ; preds = %77, %64, %.loopexit.i.i
+_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit: ; preds = %77, %64, %.loopexit.i.i
   %.0.i.i.pn.i.i = phi ptr [ %85, %.loopexit.i.i ], [ %72, %64 ], [ %81, %77 ]
   %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i.i, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not.i = icmp eq ptr %87, null
   br i1 %.not.i, label %_ZNK5clang4ento22PathSensitiveBugReport13isInterestingEPKNS_15LocationContextE.exit, label %88
 
-88:                                               ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit
+88:                                               ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit
   %89 = load ptr, ptr %12, align 8
   %90 = load ptr, ptr %11, align 8
   %91 = icmp eq ptr %89, %90
@@ -18846,8 +18846,8 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang15LocationContextEE5countES4_.exit.i: ; pred
   %114 = icmp ne ptr %.0.i.i.i, %113
   br label %_ZNK5clang4ento22PathSensitiveBugReport13isInterestingEPKNS_15LocationContextE.exit
 
-_ZNK5clang4ento22PathSensitiveBugReport13isInterestingEPKNS_15LocationContextE.exit: ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit, %_ZNK4llvm15SmallPtrSetImplIPKN5clang15LocationContextEE5countES4_.exit.i
-  %.0.i = phi i1 [ %114, %_ZNK4llvm15SmallPtrSetImplIPKN5clang15LocationContextEE5countES4_.exit.i ], [ false, %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit ]
+_ZNK5clang4ento22PathSensitiveBugReport13isInterestingEPKNS_15LocationContextE.exit: ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit, %_ZNK4llvm15SmallPtrSetImplIPKN5clang15LocationContextEE5countES4_.exit.i
+  %.0.i = phi i1 [ %114, %_ZNK4llvm15SmallPtrSetImplIPKN5clang15LocationContextEE5countES4_.exit.i ], [ false, %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit ]
   %115 = tail call fastcc noundef zeroext i1 @_ZL19removeUnneededCallsRKN12_GLOBAL__N_123PathDiagnosticConstructERN5clang4ento10PathPiecesEPKNS4_22PathSensitiveBugReportEb(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull %2, i1 noundef zeroext %.0.i)
   br i1 %115, label %.thread, label %132
 
@@ -19311,7 +19311,7 @@ define internal fastcc noundef zeroext i1 @_ZL13optimizeEdgesRKN12_GLOBAL__N_123
   %22 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1193", ptr %.val113, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %1, %23
-  br i1 %24, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit, label %.lr.ph.i.i.i.i
+  br i1 %24, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %14, %27
   %25 = phi ptr [ %32, %27 ], [ %23, %14 ]
@@ -19328,14 +19328,14 @@ define internal fastcc noundef zeroext i1 @_ZL13optimizeEdgesRKN12_GLOBAL__N_123
   %31 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1193", ptr %.val113, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %1, %32
-  br i1 %33, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !179
+  br i1 %33, label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit, label %.lr.ph.i.i.i.i, !llvm.loop !179
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %3
   %34 = zext i32 %.val114 to i64
   %35 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1193", ptr %.val113, i64 %34
-  br label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit
+  br label %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit
 
-_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit: ; preds = %27, %14, %.loopexit.i.i
+_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit: ; preds = %27, %14, %.loopexit.i.i
   %.0.i.i.pn.i.i = phi ptr [ %35, %.loopexit.i.i ], [ %22, %14 ], [ %31, %27 ]
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i.i, i64 8
   %37 = load ptr, ptr %36, align 8
@@ -19348,7 +19348,7 @@ _ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ent
   %.not323350 = icmp eq ptr %42, %1
   br i1 %.not323350, label %.outer._crit_edge.thread, label %.lr.ph.lr.ph
 
-.lr.ph.lr.ph:                                     ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit
+.lr.ph.lr.ph:                                     ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %.lr.ph
@@ -20040,7 +20040,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang21ObjCForCollectionStmtEKNS1_4StmtEEEDaPT0_.ex
   %.0347439 = phi i1 [ %.0347448, %_ZL13getStmtParentPKN5clang4StmtERKNS_9ParentMapE.exit129 ], [ %.0347440, %.outer.backedge ]
   br i1 %.0347439, label %_ZL21removeIdenticalEventsRN5clang4ento10PathPiecesE.exit, label %.outer._crit_edge.thread
 
-.outer._crit_edge.thread:                         ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.exit, %.outer._crit_edge
+.outer._crit_edge.thread:                         ; preds = %_ZNK12_GLOBAL__N_123PathDiagnosticConstruct21getLocationContextForEPKN5clang4ento10PathPiecesE.argprom.exit, %.outer._crit_edge
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
@@ -29739,8 +29739,8 @@ attributes #29 = { builtin nounwind allocsize(0) }
 !314 = distinct !{!314, !"_ZSt11make_sharedIN5clang4ento30PathDiagnosticControlFlowPieceEJRNS1_22PathDiagnosticLocationES4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
 !315 = !{!313}
 !316 = !{!317}
-!317 = distinct !{!317, !318, !"_ZNK12_GLOBAL__N_121PathDiagnosticBuilder21generateDiagForGotoOPERKNS_23PathDiagnosticConstructEPKN5clang4StmtERNS4_4ento22PathDiagnosticLocationE: argument 0"}
-!318 = distinct !{!318, !"_ZNK12_GLOBAL__N_121PathDiagnosticBuilder21generateDiagForGotoOPERKNS_23PathDiagnosticConstructEPKN5clang4StmtERNS4_4ento22PathDiagnosticLocationE"}
+!317 = distinct !{!317, !318, !"_ZNK12_GLOBAL__N_121PathDiagnosticBuilder21generateDiagForGotoOPERKNS_23PathDiagnosticConstructEPKN5clang4StmtERNS4_4ento22PathDiagnosticLocationE.argprom: argument 0"}
+!318 = distinct !{!318, !"_ZNK12_GLOBAL__N_121PathDiagnosticBuilder21generateDiagForGotoOPERKNS_23PathDiagnosticConstructEPKN5clang4StmtERNS4_4ento22PathDiagnosticLocationE.argprom"}
 !319 = !{!320, !322, !317}
 !320 = distinct !{!320, !321, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN5clang4ento30PathDiagnosticControlFlowPieceESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_: argument 0"}
 !321 = distinct !{!321, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN5clang4ento30PathDiagnosticControlFlowPieceESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_"}

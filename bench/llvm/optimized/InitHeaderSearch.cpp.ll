@@ -273,7 +273,7 @@ _ZN12_GLOBAL__N_116InitHeaderSearchC2ERN5clang12HeaderSearchEbN4llvm9StringRefE.
   %90 = load i8, ptr %78, align 4
   %91 = and i8 %90, 1
   %92 = icmp ne i8 %91, 0
-  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr noundef nonnull align 8 dereferenceable(34) %34, i32 noundef %89, i1 noundef zeroext %92, i64 %.sroa.043.0.insert.insert)
+  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE.retelim(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr noundef nonnull align 8 dereferenceable(34) %34, i32 noundef %89, i1 noundef zeroext %92, i64 %.sroa.043.0.insert.insert)
   br label %93
 
 93:                                               ; preds = %82, %88
@@ -289,26 +289,26 @@ _ZN12_GLOBAL__N_116InitHeaderSearchC2ERN5clang12HeaderSearchEbN4llvm9StringRefE.
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29)
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %95 = load i32, ptr %94, align 4
-  switch i32 %95, label %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.i [
-    i32 19, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 2, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 25, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 36, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 3, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 4, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 16, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 34, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 7, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 38, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 18, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 10, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 11, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 23, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 24, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 17, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 12, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 35, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
-    i32 15, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
+  switch i32 %95, label %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.i [
+    i32 19, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 2, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 25, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 36, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 3, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 4, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 16, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 34, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 7, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 38, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 18, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 10, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 11, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 23, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 24, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 17, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 12, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 35, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
+    i32 15, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
     i32 14, label %96
     i32 0, label %102
   ]
@@ -321,21 +321,21 @@ _ZN12_GLOBAL__N_116InitHeaderSearchC2ERN5clang12HeaderSearchEbN4llvm9StringRefE.
   %100 = load i32, ptr %99, align 4
   %101 = icmp eq i32 %100, 5
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %101
-  br i1 %or.cond.i.i, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit, label %_ZNK4llvm6Triple10isOSDarwinEv.exit.i
+  br i1 %or.cond.i.i, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit, label %_ZNK4llvm6Triple10isOSDarwinEv.exit.i
 
 102:                                              ; preds = %._crit_edge
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %104 = load i32, ptr %103, align 8
   %105 = add i32 %104, -55
   %spec.select.i.i.i = icmp ult i32 %105, 2
-  br i1 %spec.select.i.i.i, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit, label %_ZNK4llvm6Triple10isOSDarwinEv.exit.i
+  br i1 %spec.select.i.i.i, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit, label %_ZNK4llvm6Triple10isOSDarwinEv.exit.i
 
-_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.i: ; preds = %._crit_edge
+_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.i: ; preds = %._crit_edge
   %106 = and i32 %95, -9
   %spec.select.i.i21.i = icmp eq i32 %106, 1
-  br i1 %spec.select.i.i21.i, label %107, label %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.thread24.i
+  br i1 %spec.select.i.i21.i, label %107, label %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.thread24.i
 
-_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.thread24.i: ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.i
+_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.thread24.i: ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.i
   switch i32 %95, label %_ZNK4llvm6Triple10isOSDarwinEv.exit.i [
     i32 26, label %107
     i32 5, label %107
@@ -344,11 +344,11 @@ _ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6Tripl
     i32 30, label %107
   ]
 
-107:                                              ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.thread24.i, %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.thread24.i, %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.thread24.i, %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.thread24.i, %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.thread24.i, %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.i
+107:                                              ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.thread24.i, %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.thread24.i, %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.thread24.i, %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.thread24.i, %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.thread24.i, %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.i
   %108 = load i16, ptr %40, align 8
   %109 = and i16 %108, 2
   %.not19.i = icmp eq i16 %109, 0
-  br i1 %.not19.i, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit, label %110
+  br i1 %.not19.i, label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit, label %110
 
 110:                                              ; preds = %107
   %111 = icmp eq i32 %95, 29
@@ -360,8 +360,8 @@ _ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6Tripl
   store i8 1, ptr %114, align 1
   store ptr @.str.9, ptr %26, align 8
   store i8 3, ptr %113, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr noundef nonnull align 8 dereferenceable(34) %26, i32 noundef 3, i1 noundef zeroext true, i64 0)
-  br label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
+  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE.retelim(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr noundef nonnull align 8 dereferenceable(34) %26, i32 noundef 3, i1 noundef zeroext true, i64 0)
+  br label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
 
 115:                                              ; preds = %110
   %116 = getelementptr inbounds nuw i8, ptr %27, i64 32
@@ -369,25 +369,25 @@ _ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6Tripl
   store i8 1, ptr %117, align 1
   store ptr @.str.10, ptr %27, align 8
   store i8 3, ptr %116, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr noundef nonnull align 8 dereferenceable(34) %27, i32 noundef 3, i1 noundef zeroext true, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE.retelim(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr noundef nonnull align 8 dereferenceable(34) %27, i32 noundef 3, i1 noundef zeroext true, i64 0)
   %118 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %119 = getelementptr inbounds nuw i8, ptr %28, i64 33
   store i8 1, ptr %119, align 1
   store ptr @.str.11, ptr %28, align 8
   store i8 3, ptr %118, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr noundef nonnull align 8 dereferenceable(34) %28, i32 noundef 3, i1 noundef zeroext true, i64 0)
-  br label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
+  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE.retelim(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr noundef nonnull align 8 dereferenceable(34) %28, i32 noundef 3, i1 noundef zeroext true, i64 0)
+  br label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
 
-_ZNK4llvm6Triple10isOSDarwinEv.exit.i:            ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.thread24.i, %102, %96
+_ZNK4llvm6Triple10isOSDarwinEv.exit.i:            ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.thread24.i, %102, %96
   %120 = and i64 %.val, 8589936640
   %or.cond.i = icmp eq i64 %120, 2048
-  br i1 %or.cond.i, label %121, label %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit.i
+  br i1 %or.cond.i, label %121, label %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit.i
 
 121:                                              ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit.i
   %122 = load i16, ptr %40, align 8
   %123 = and i16 %122, 6
   %or.cond20.not.i = icmp eq i16 %123, 6
-  br i1 %or.cond20.not.i, label %124, label %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit.i
+  br i1 %or.cond20.not.i, label %124, label %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit.i
 
 124:                                              ; preds = %121
   %125 = and i16 %122, 8
@@ -400,22 +400,22 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit.i:            ; preds = %_ZN12_GLOBAL__N_116
   store i8 1, ptr %128, align 1
   store ptr @.str.12, ptr %29, align 8
   store i8 3, ptr %127, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr noundef nonnull align 8 dereferenceable(34) %29, i32 noundef 6, i1 noundef zeroext false, i64 0)
-  br label %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit.i
+  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE.retelim(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr noundef nonnull align 8 dereferenceable(34) %29, i32 noundef 6, i1 noundef zeroext false, i64 0)
+  br label %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit.i
 
 129:                                              ; preds = %124
-  switch i32 %95, label %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit.i [
-    i32 0, label %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.i.i
+  switch i32 %95, label %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit.i [
+    i32 0, label %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.i.i
     i32 14, label %133
   ]
 
-_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.i.i: ; preds = %129
+_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.i.i: ; preds = %129
   %130 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %131 = load i32, ptr %130, align 8
   %132 = add i32 %131, -57
   %spec.select.i.i.i.i = icmp ult i32 %132, -2
   call void @llvm.assume(i1 %spec.select.i.i.i.i)
-  br label %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit.i
+  br label %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit.i
 
 133:                                              ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -426,13 +426,13 @@ _ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6Tripl
   %138 = icmp ne i32 %137, 5
   call void @llvm.assume(i1 %.not.i.i.i)
   call void @llvm.assume(i1 %138)
-  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch29AddMinGWCPlusPlusIncludePathsEN4llvm9StringRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr nonnull @.str.13, i64 12, ptr nonnull @.str.14, i64 14, ptr nonnull @.str.15, i64 5)
-  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch29AddMinGWCPlusPlusIncludePathsEN4llvm9StringRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr nonnull @.str.13, i64 12, ptr nonnull @.str.14, i64 14, ptr nonnull @.str.16, i64 5)
-  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch29AddMinGWCPlusPlusIncludePathsEN4llvm9StringRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr nonnull @.str.13, i64 12, ptr nonnull @.str.14, i64 14, ptr nonnull @.str.17, i64 5)
-  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch29AddMinGWCPlusPlusIncludePathsEN4llvm9StringRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr nonnull @.str.13, i64 12, ptr nonnull @.str.14, i64 14, ptr nonnull @.str.18, i64 5)
-  br label %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit.i
+  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch29AddMinGWCPlusPlusIncludePathsEN4llvm9StringRefES2_S2_.argprom(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr nonnull @.str.13, i64 12, ptr nonnull @.str.14, i64 14, ptr nonnull @.str.15, i64 5)
+  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch29AddMinGWCPlusPlusIncludePathsEN4llvm9StringRefES2_S2_.argprom(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr nonnull @.str.13, i64 12, ptr nonnull @.str.14, i64 14, ptr nonnull @.str.16, i64 5)
+  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch29AddMinGWCPlusPlusIncludePathsEN4llvm9StringRefES2_S2_.argprom(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr nonnull @.str.13, i64 12, ptr nonnull @.str.14, i64 14, ptr nonnull @.str.17, i64 5)
+  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch29AddMinGWCPlusPlusIncludePathsEN4llvm9StringRefES2_S2_.argprom(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr nonnull @.str.13, i64 12, ptr nonnull @.str.14, i64 14, ptr nonnull @.str.18, i64 5)
+  br label %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit.i
 
-_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit.i: ; preds = %133, %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.i.i, %129, %126, %121, %_ZNK4llvm6Triple10isOSDarwinEv.exit.i
+_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit.i: ; preds = %133, %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.i.i, %129, %126, %121, %_ZNK4llvm6Triple10isOSDarwinEv.exit.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19)
@@ -443,12 +443,12 @@ _ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25)
   %139 = load i32, ptr %94, align 4
-  switch i32 %139, label %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.i23.i [
+  switch i32 %139, label %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.i23.i [
     i32 0, label %146
     i32 14, label %140
   ]
 
-140:                                              ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit.i
+140:                                              ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit.i
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %142 = load i32, ptr %141, align 8
   %.not.i.i22.i = icmp eq i32 %142, 21
@@ -456,27 +456,27 @@ _ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11
   %144 = load i32, ptr %143, align 4
   %145 = icmp ne i32 %144, 5
   call void @llvm.assume(i1 %.not.i.i22.i)
-  br label %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.sink.split.i.i
+  br label %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.sink.split.i.i
 
-146:                                              ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit.i
+146:                                              ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit.i
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %148 = load i32, ptr %147, align 8
   %149 = add i32 %148, -57
   %spec.select.i.i.i26.i = icmp ult i32 %149, -2
-  br label %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.sink.split.i.i
+  br label %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.sink.split.i.i
 
-_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.sink.split.i.i: ; preds = %146, %140
+_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.sink.split.i.i: ; preds = %146, %140
   %spec.select.i.i.sink.i.i = phi i1 [ %spec.select.i.i.i26.i, %146 ], [ %145, %140 ]
   call void @llvm.assume(i1 %spec.select.i.i.sink.i.i)
-  br label %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.i23.i
+  br label %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.i23.i
 
-_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.i23.i: ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.sink.split.i.i, %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit.i
+_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.i23.i: ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.sink.split.i.i, %_ZN12_GLOBAL__N_116InitHeaderSearch31AddDefaultCPlusPlusIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit.i
   %150 = load i16, ptr %40, align 8
   %151 = and i16 %150, 2
   %.not.i24.i = icmp eq i16 %151, 0
   br i1 %.not.i24.i, label %157, label %152
 
-152:                                              ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.i23.i
+152:                                              ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.i23.i
   %cond1.i.i = icmp ne i32 %139, 14
   %153 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %154 = load i32, ptr %153, align 8
@@ -490,12 +490,12 @@ _ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6Tripl
   store i8 1, ptr %156, align 1
   store ptr @.str.4, ptr %17, align 8
   store i8 3, ptr %155, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr noundef nonnull align 8 dereferenceable(34) %17, i32 noundef 3, i1 noundef zeroext false, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE.retelim(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr noundef nonnull align 8 dereferenceable(34) %17, i32 noundef 3, i1 noundef zeroext false, i64 0)
   %.pre.i.i = load i16, ptr %40, align 8
   br label %157
 
-157:                                              ; preds = %.thread.i.i, %152, %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.i23.i
-  %158 = phi i16 [ %150, %152 ], [ %.pre.i.i, %.thread.i.i ], [ %150, %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.exit.i23.i ]
+157:                                              ; preds = %.thread.i.i, %152, %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.i23.i
+  %158 = phi i16 [ %150, %152 ], [ %.pre.i.i, %.thread.i.i ], [ %150, %_ZN12_GLOBAL__N_116InitHeaderSearch28ShouldAddDefaultIncludePathsERKN4llvm6TripleE.argprom.exit.i23.i ]
   %159 = and i16 %158, 1
   %.not18.i.i = icmp eq i16 %159, 0
   br i1 %.not18.i.i, label %_ZN4llvm11SmallStringILj128EED2Ev.exit.i.i, label %160
@@ -559,7 +559,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread.i.i:     ; preds = %_ZN4llvm11SmallStri
   store i8 1, ptr %187, align 1
   store ptr @.str.23, ptr %24, align 8
   store i8 3, ptr %186, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr noundef nonnull align 8 dereferenceable(34) %24, i32 noundef 3, i1 noundef zeroext false, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE.retelim(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr noundef nonnull align 8 dereferenceable(34) %24, i32 noundef 3, i1 noundef zeroext false, i64 0)
   br label %188
 
 188:                                              ; preds = %185, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i
@@ -568,7 +568,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread.i.i:     ; preds = %_ZN4llvm11SmallStri
   store i8 1, ptr %190, align 1
   store ptr @.str.3, ptr %25, align 8
   store i8 3, ptr %189, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr noundef nonnull align 8 dereferenceable(34) %25, i32 noundef 4, i1 noundef zeroext false, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE.retelim(ptr noundef nonnull align 8 dereferenceable(97) %32, ptr noundef nonnull align 8 dereferenceable(34) %25, i32 noundef 4, i1 noundef zeroext false, i64 0)
   br label %_ZN12_GLOBAL__N_116InitHeaderSearch23AddDefaultCIncludePathsERKN4llvm6TripleERKN5clang19HeaderSearchOptionsE.exit.i
 
 _ZN12_GLOBAL__N_116InitHeaderSearch23AddDefaultCIncludePathsERKN4llvm6TripleERKN5clang19HeaderSearchOptionsE.exit.i: ; preds = %188, %_ZN4llvm11SmallStringILj128EED2Ev.exit.i.i
@@ -581,9 +581,9 @@ _ZN12_GLOBAL__N_116InitHeaderSearch23AddDefaultCIncludePathsERKN4llvm6TripleERKN
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25)
-  br label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
+  br label %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
 
-_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit: ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %96, %102, %107, %112, %115, %_ZN12_GLOBAL__N_116InitHeaderSearch23AddDefaultCIncludePathsERKN4llvm6TripleERKN5clang19HeaderSearchOptionsE.exit.i
+_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit: ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %96, %102, %107, %112, %115, %_ZN12_GLOBAL__N_116InitHeaderSearch23AddDefaultCIncludePathsERKN4llvm6TripleERKN5clang19HeaderSearchOptionsE.exit.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28)
@@ -600,7 +600,7 @@ _ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptio
   %.not3082 = icmp eq i64 %199, 0
   br i1 %.not3082, label %._crit_edge85, label %.lr.ph84
 
-.lr.ph84:                                         ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
+.lr.ph84:                                         ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
   %200 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %201 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %202 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -662,7 +662,7 @@ _ZN12_GLOBAL__N_116InitHeaderSearch21AddSystemHeaderPrefixEN4llvm9StringRefEb.ex
   %.not30 = icmp eq i64 %indvars.iv.next107, %204
   br i1 %.not30, label %._crit_edge85, label %205, !llvm.loop !6
 
-._crit_edge85:                                    ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch21AddSystemHeaderPrefixEN4llvm9StringRefEb.exit, %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.exit
+._crit_edge85:                                    ; preds = %_ZN12_GLOBAL__N_116InitHeaderSearch21AddSystemHeaderPrefixEN4llvm9StringRefEb.exit, %_ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptionsERKN4llvm6TripleERKNS1_19HeaderSearchOptionsE.argprom.exit
   %228 = load i16, ptr %40, align 8
   %229 = and i16 %228, 1
   %.not31 = icmp eq i16 %229, 0
@@ -821,13 +821,13 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %272, %268, %._crit_
   %295 = ptrtoint ptr %287 to i64
   %296 = sub i64 %294, %295
   %297 = icmp eq i64 %296, 9223372036854775776
-  br i1 %297, label %298, label %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  br i1 %297, label %298, label %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
 
 298:                                              ; preds = %293
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #16
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %293
+_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %293
   %299 = ashr exact i64 %296, 5
   %300 = icmp eq ptr %285, %287
   %.sroa.speculated.i.i.i.i = select i1 %300, i64 1, i64 %299
@@ -843,17 +843,17 @@ _ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %307, ptr noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0173.0193.i, i64 32, i1 false)
   br i1 %300, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.03.i.i.i.i.i.i = phi ptr [ %309, %.lr.ph.i.i.i.i.i.i ], [ %306, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %.092.i.i.i.i.i.i = phi ptr [ %308, %.lr.ph.i.i.i.i.i.i ], [ %287, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
+  %.03.i.i.i.i.i.i = phi ptr [ %309, %.lr.ph.i.i.i.i.i.i ], [ %306, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ]
+  %.092.i.i.i.i.i.i = phi ptr [ %308, %.lr.ph.i.i.i.i.i.i ], [ %287, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !10
   %308 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 32
   %309 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %308, %285
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !14
 
-_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %306, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %309, %.lr.ph.i.i.i.i.i.i ]
+_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %306, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ], [ %309, %.lr.ph.i.i.i.i.i.i ]
   %310 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
   call void @_ZdlPvm(ptr noundef nonnull %287, i64 noundef %296) #18
   %311 = getelementptr inbounds %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %306, i64 %304
@@ -916,13 +916,13 @@ _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE7reserveEm.exit.i.thre
   %333 = ptrtoint ptr %326 to i64
   %334 = sub i64 %332, %333
   %335 = icmp eq i64 %334, 9223372036854775776
-  br i1 %335, label %336, label %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i101.i
+  br i1 %335, label %336, label %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i101.i
 
 336:                                              ; preds = %331
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #16
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i101.i: ; preds = %331
+_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i101.i: ; preds = %331
   %337 = ashr exact i64 %334, 5
   %338 = icmp eq ptr %324, %326
   %.sroa.speculated.i.i.i102.i = select i1 %338, i64 1, i64 %337
@@ -936,28 +936,28 @@ _ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.e
   %344 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %343) #17
   %345 = getelementptr inbounds i8, ptr %344, i64 %334
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %345, ptr noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0171.0208.i, i64 32, i1 false)
-  br i1 %338, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i108.i, label %.lr.ph.i.i.i.i.i104.i
+  br i1 %338, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i108.i, label %.lr.ph.i.i.i.i.i104.i
 
-.lr.ph.i.i.i.i.i104.i:                            ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i101.i, %.lr.ph.i.i.i.i.i104.i
-  %.03.i.i.i.i.i105.i = phi ptr [ %347, %.lr.ph.i.i.i.i.i104.i ], [ %344, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i101.i ]
-  %.092.i.i.i.i.i106.i = phi ptr [ %346, %.lr.ph.i.i.i.i.i104.i ], [ %326, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i101.i ]
+.lr.ph.i.i.i.i.i104.i:                            ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i101.i, %.lr.ph.i.i.i.i.i104.i
+  %.03.i.i.i.i.i105.i = phi ptr [ %347, %.lr.ph.i.i.i.i.i104.i ], [ %344, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i101.i ]
+  %.092.i.i.i.i.i106.i = phi ptr [ %346, %.lr.ph.i.i.i.i.i104.i ], [ %326, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i101.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i105.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i106.i, i64 32, i1 false), !alias.scope !15
   %346 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i106.i, i64 32
   %347 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i105.i, i64 32
   %.not.i.i.i.i.i107.i = icmp eq ptr %346, %324
-  br i1 %.not.i.i.i.i.i107.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i108.i, label %.lr.ph.i.i.i.i.i104.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i107.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i108.i, label %.lr.ph.i.i.i.i.i104.i, !llvm.loop !14
 
-_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i108.i: ; preds = %.lr.ph.i.i.i.i.i104.i, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i101.i
-  %.0.lcssa.i.i.i.i.i109.i = phi ptr [ %344, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i101.i ], [ %347, %.lr.ph.i.i.i.i.i104.i ]
+_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i108.i: ; preds = %.lr.ph.i.i.i.i.i104.i, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i101.i
+  %.0.lcssa.i.i.i.i.i109.i = phi ptr [ %344, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i101.i ], [ %347, %.lr.ph.i.i.i.i.i104.i ]
   %348 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i109.i, i64 32
   %.not.i27.i.i110.i = icmp eq ptr %326, null
   br i1 %.not.i27.i.i110.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i111.i, label %349
 
-349:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i108.i
+349:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i108.i
   call void @_ZdlPvm(ptr noundef nonnull %326, i64 noundef %334) #18
   br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i111.i
 
-_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i111.i: ; preds = %349, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i108.i
+_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i111.i: ; preds = %349, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i108.i
   %350 = getelementptr inbounds %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %344, i64 %342
   br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE9push_backERKS1_.exit112.i
 
@@ -1043,13 +1043,13 @@ _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE9push_backERKS1_.exit1
   %383 = ptrtoint ptr %365 to i64
   %384 = sub i64 %382, %383
   %385 = icmp eq i64 %384, 9223372036854775776
-  br i1 %385, label %386, label %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i115.i
+  br i1 %385, label %386, label %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i115.i
 
 386:                                              ; preds = %381
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #16
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i115.i: ; preds = %381
+_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i115.i: ; preds = %381
   %387 = ashr exact i64 %384, 5
   %388 = icmp eq ptr %363, %365
   %.sroa.speculated.i.i.i116.i = select i1 %388, i64 1, i64 %387
@@ -1063,28 +1063,28 @@ _ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.e
   %394 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %393) #17
   %395 = getelementptr inbounds i8, ptr %394, i64 %384
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %395, ptr noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0169.0225.i, i64 32, i1 false)
-  br i1 %388, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i122.i, label %.lr.ph.i.i.i.i.i118.i
+  br i1 %388, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i122.i, label %.lr.ph.i.i.i.i.i118.i
 
-.lr.ph.i.i.i.i.i118.i:                            ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i115.i, %.lr.ph.i.i.i.i.i118.i
-  %.03.i.i.i.i.i119.i = phi ptr [ %397, %.lr.ph.i.i.i.i.i118.i ], [ %394, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i115.i ]
-  %.092.i.i.i.i.i120.i = phi ptr [ %396, %.lr.ph.i.i.i.i.i118.i ], [ %365, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i115.i ]
+.lr.ph.i.i.i.i.i118.i:                            ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i115.i, %.lr.ph.i.i.i.i.i118.i
+  %.03.i.i.i.i.i119.i = phi ptr [ %397, %.lr.ph.i.i.i.i.i118.i ], [ %394, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i115.i ]
+  %.092.i.i.i.i.i120.i = phi ptr [ %396, %.lr.ph.i.i.i.i.i118.i ], [ %365, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i115.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i119.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i120.i, i64 32, i1 false), !alias.scope !19
   %396 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i120.i, i64 32
   %397 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i119.i, i64 32
   %.not.i.i.i.i.i121.i = icmp eq ptr %396, %363
-  br i1 %.not.i.i.i.i.i121.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i122.i, label %.lr.ph.i.i.i.i.i118.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i121.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i122.i, label %.lr.ph.i.i.i.i.i118.i, !llvm.loop !14
 
-_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i122.i: ; preds = %.lr.ph.i.i.i.i.i118.i, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i115.i
-  %.0.lcssa.i.i.i.i.i123.i = phi ptr [ %394, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i115.i ], [ %397, %.lr.ph.i.i.i.i.i118.i ]
+_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i122.i: ; preds = %.lr.ph.i.i.i.i.i118.i, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i115.i
+  %.0.lcssa.i.i.i.i.i123.i = phi ptr [ %394, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i115.i ], [ %397, %.lr.ph.i.i.i.i.i118.i ]
   %398 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i123.i, i64 32
   %.not.i27.i.i124.i = icmp eq ptr %365, null
   br i1 %.not.i27.i.i124.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i125.i, label %399
 
-399:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i122.i
+399:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i122.i
   call void @_ZdlPvm(ptr noundef nonnull %365, i64 noundef %384) #18
   br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i125.i
 
-_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i125.i: ; preds = %399, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i122.i
+_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i125.i: ; preds = %399, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i122.i
   %400 = getelementptr inbounds %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %394, i64 %392
   br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE9push_backERKS1_.exit126.i
 
@@ -1125,13 +1125,13 @@ _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE9push_backERKS1_.exit1
   %415 = ptrtoint ptr %407 to i64
   %416 = sub i64 %414, %415
   %417 = icmp eq i64 %416, 9223372036854775776
-  br i1 %417, label %418, label %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i129.i
+  br i1 %417, label %418, label %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i129.i
 
 418:                                              ; preds = %413
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #16
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i129.i: ; preds = %413
+_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i129.i: ; preds = %413
   %419 = ashr exact i64 %416, 5
   %420 = icmp eq ptr %405, %407
   %.sroa.speculated.i.i.i130.i = select i1 %420, i64 1, i64 %419
@@ -1145,28 +1145,28 @@ _ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.e
   %426 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %425) #17
   %427 = getelementptr inbounds i8, ptr %426, i64 %416
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %427, ptr noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0167.0242.i, i64 32, i1 false)
-  br i1 %420, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i136.i, label %.lr.ph.i.i.i.i.i132.i
+  br i1 %420, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i136.i, label %.lr.ph.i.i.i.i.i132.i
 
-.lr.ph.i.i.i.i.i132.i:                            ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i129.i, %.lr.ph.i.i.i.i.i132.i
-  %.03.i.i.i.i.i133.i = phi ptr [ %429, %.lr.ph.i.i.i.i.i132.i ], [ %426, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i129.i ]
-  %.092.i.i.i.i.i134.i = phi ptr [ %428, %.lr.ph.i.i.i.i.i132.i ], [ %407, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i129.i ]
+.lr.ph.i.i.i.i.i132.i:                            ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i129.i, %.lr.ph.i.i.i.i.i132.i
+  %.03.i.i.i.i.i133.i = phi ptr [ %429, %.lr.ph.i.i.i.i.i132.i ], [ %426, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i129.i ]
+  %.092.i.i.i.i.i134.i = phi ptr [ %428, %.lr.ph.i.i.i.i.i132.i ], [ %407, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i129.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i133.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i134.i, i64 32, i1 false), !alias.scope !23
   %428 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i134.i, i64 32
   %429 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i133.i, i64 32
   %.not.i.i.i.i.i135.i = icmp eq ptr %428, %405
-  br i1 %.not.i.i.i.i.i135.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i136.i, label %.lr.ph.i.i.i.i.i132.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i135.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i136.i, label %.lr.ph.i.i.i.i.i132.i, !llvm.loop !14
 
-_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i136.i: ; preds = %.lr.ph.i.i.i.i.i132.i, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i129.i
-  %.0.lcssa.i.i.i.i.i137.i = phi ptr [ %426, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i129.i ], [ %429, %.lr.ph.i.i.i.i.i132.i ]
+_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i136.i: ; preds = %.lr.ph.i.i.i.i.i132.i, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i129.i
+  %.0.lcssa.i.i.i.i.i137.i = phi ptr [ %426, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i129.i ], [ %429, %.lr.ph.i.i.i.i.i132.i ]
   %430 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i137.i, i64 32
   %.not.i27.i.i138.i = icmp eq ptr %407, null
   br i1 %.not.i27.i.i138.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i139.i, label %431
 
-431:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i136.i
+431:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i136.i
   call void @_ZdlPvm(ptr noundef nonnull %407, i64 noundef %416) #18
   br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i139.i
 
-_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i139.i: ; preds = %431, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i136.i
+_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i139.i: ; preds = %431, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i136.i
   %432 = getelementptr inbounds %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %426, i64 %424
   br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE9push_backERKS1_.exit140.i
 
@@ -1941,7 +1941,7 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit: ; preds
   %103 = load ptr, ptr %96, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 32
   store ptr %104, ptr %96, align 8
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.argprom.exit
 
 105:                                              ; preds = %93
   %.val21.i.i = load ptr, ptr %0, align 8
@@ -1949,13 +1949,13 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit: ; preds
   %107 = ptrtoint ptr %.val21.i.i to i64
   %108 = sub i64 %106, %107
   %109 = icmp eq i64 %108, 9223372036854775776
-  br i1 %109, label %110, label %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %109, label %110, label %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i
 
 110:                                              ; preds = %105
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #16
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %105
+_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %105
   %111 = ashr exact i64 %108, 5
   %112 = icmp eq ptr %97, %.val21.i.i
   %.sroa.speculated.i.i.i = select i1 %112, i64 1, i64 %111
@@ -1975,33 +1975,33 @@ _ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.e
   store i64 %.sroa.266.8.insert.ext, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 24
   store i64 %4, ptr %121, align 8
-  br i1 %112, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i, label %.lr.ph.i.i.i.i.i36
+  br i1 %112, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit32.i.i, label %.lr.ph.i.i.i.i.i36
 
-.lr.ph.i.i.i.i.i36:                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i36
-  %.03.i.i.i.i.i = phi ptr [ %123, %.lr.ph.i.i.i.i.i36 ], [ %118, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
-  %.092.i.i.i.i.i = phi ptr [ %122, %.lr.ph.i.i.i.i.i36 ], [ %.val21.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+.lr.ph.i.i.i.i.i36:                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i, %.lr.ph.i.i.i.i.i36
+  %.03.i.i.i.i.i = phi ptr [ %123, %.lr.ph.i.i.i.i.i36 ], [ %118, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
+  %.092.i.i.i.i.i = phi ptr [ %122, %.lr.ph.i.i.i.i.i36 ], [ %.val21.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i, i64 32, i1 false), !alias.scope !60
   %122 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 32
   %123 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i37 = icmp eq ptr %122, %97
-  br i1 %.not.i.i.i.i.i37, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i, label %.lr.ph.i.i.i.i.i36, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i37, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit32.i.i, label %.lr.ph.i.i.i.i.i36, !llvm.loop !14
 
-_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i: ; preds = %.lr.ph.i.i.i.i.i36, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %118, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %123, %.lr.ph.i.i.i.i.i36 ]
+_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit32.i.i: ; preds = %.lr.ph.i.i.i.i.i36, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %118, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i ], [ %123, %.lr.ph.i.i.i.i.i36 ]
   %124 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
   %.not.i33.i.i = icmp eq ptr %.val21.i.i, null
-  br i1 %.not.i33.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %125
+  br i1 %.not.i33.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i, label %125
 
-125:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i
+125:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit32.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.val21.i.i, i64 noundef %108) #18
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i
 
-_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %125, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i
+_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i: ; preds = %125, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit32.i.i
   store ptr %118, ptr %0, align 8
   store ptr %124, ptr %96, align 8
   %126 = getelementptr inbounds %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %118, i64 %116
   store ptr %126, ptr %98, align 8
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.argprom.exit
 
 127:                                              ; preds = %_ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit
   br i1 %3, label %188, label %128
@@ -2097,7 +2097,7 @@ _ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit: ; preds = %
   %164 = load ptr, ptr %157, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 32
   store ptr %165, ptr %157, align 8
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.argprom.exit
 
 166:                                              ; preds = %153
   %.val21.i.i46 = load ptr, ptr %0, align 8
@@ -2105,13 +2105,13 @@ _ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit: ; preds = %
   %168 = ptrtoint ptr %.val21.i.i46 to i64
   %169 = sub i64 %167, %168
   %170 = icmp eq i64 %169, 9223372036854775776
-  br i1 %170, label %171, label %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i47
+  br i1 %170, label %171, label %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i47
 
 171:                                              ; preds = %166
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #16
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i47: ; preds = %166
+_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i47: ; preds = %166
   %172 = ashr exact i64 %169, 5
   %173 = icmp eq ptr %158, %.val21.i.i46
   %.sroa.speculated.i.i.i48 = select i1 %173, i64 1, i64 %172
@@ -2131,39 +2131,39 @@ _ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.e
   store i64 %.sroa.2.8.insert.ext, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i50, align 8
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 24
   store i64 %4, ptr %182, align 8
-  br i1 %173, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i55, label %.lr.ph.i.i.i.i.i51
+  br i1 %173, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit32.i.i55, label %.lr.ph.i.i.i.i.i51
 
-.lr.ph.i.i.i.i.i51:                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i47, %.lr.ph.i.i.i.i.i51
-  %.03.i.i.i.i.i52 = phi ptr [ %184, %.lr.ph.i.i.i.i.i51 ], [ %179, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i47 ]
-  %.092.i.i.i.i.i53 = phi ptr [ %183, %.lr.ph.i.i.i.i.i51 ], [ %.val21.i.i46, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i47 ]
+.lr.ph.i.i.i.i.i51:                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i47, %.lr.ph.i.i.i.i.i51
+  %.03.i.i.i.i.i52 = phi ptr [ %184, %.lr.ph.i.i.i.i.i51 ], [ %179, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i47 ]
+  %.092.i.i.i.i.i53 = phi ptr [ %183, %.lr.ph.i.i.i.i.i51 ], [ %.val21.i.i46, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i47 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i52, ptr noundef nonnull readonly align 8 dereferenceable(32) %.092.i.i.i.i.i53, i64 32, i1 false), !alias.scope !67
   %183 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i53, i64 32
   %184 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i52, i64 32
   %.not.i.i.i.i.i54 = icmp eq ptr %183, %158
-  br i1 %.not.i.i.i.i.i54, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i55, label %.lr.ph.i.i.i.i.i51, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i54, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit32.i.i55, label %.lr.ph.i.i.i.i.i51, !llvm.loop !14
 
-_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i55: ; preds = %.lr.ph.i.i.i.i.i51, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i47
-  %.0.lcssa.i.i.i.i.i56 = phi ptr [ %179, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i47 ], [ %184, %.lr.ph.i.i.i.i.i51 ]
+_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit32.i.i55: ; preds = %.lr.ph.i.i.i.i.i51, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i47
+  %.0.lcssa.i.i.i.i.i56 = phi ptr [ %179, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i47 ], [ %184, %.lr.ph.i.i.i.i.i51 ]
   %185 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i56, i64 32
   %.not.i33.i.i57 = icmp eq ptr %.val21.i.i46, null
-  br i1 %.not.i33.i.i57, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i58, label %186
+  br i1 %.not.i33.i.i57, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i58, label %186
 
-186:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i55
+186:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit32.i.i55
   call void @_ZdlPvm(ptr noundef nonnull %.val21.i.i46, i64 noundef %169) #18
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i58
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i58
 
-_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i58: ; preds = %186, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i55
+_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i58: ; preds = %186, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit32.i.i55
   store ptr %179, ptr %0, align 8
   store ptr %185, ptr %157, align 8
   %187 = getelementptr inbounds %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %179, i64 %177
   store ptr %187, ptr %159, align 8
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.argprom.exit
 
 188:                                              ; preds = %_ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit, %149, %127
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %190 = load i8, ptr %189, align 8
   %191 = trunc i8 %190 to i1
-  br i1 %191, label %192, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.exit
+  br i1 %191, label %192, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.argprom.exit
 
 192:                                              ; preds = %188
   %193 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
@@ -2232,7 +2232,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %215, %217, %218
 
 228:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
   %229 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i, ptr noundef nonnull @.str.6, i64 noundef 2) #15
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.argprom.exit
 
 230:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
   %231 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
@@ -2240,25 +2240,25 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %215, %217, %218
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds i8, ptr %232, i64 2
   store ptr %233, ptr %231, align 8
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.argprom.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.exit: ; preds = %230, %228, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i58, %161, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %100, %188
-  %.0 = phi i1 [ false, %188 ], [ true, %100 ], [ true, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ true, %161 ], [ true, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i58 ], [ false, %228 ], [ false, %230 ]
+_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.argprom.exit: ; preds = %230, %228, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i58, %161, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i, %100, %188
+  %.0 = phi i1 [ false, %188 ], [ true, %100 ], [ true, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i ], [ true, %161 ], [ true, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i58 ], [ false, %228 ], [ false, %230 ]
   %234 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #15
   %235 = load ptr, ptr %14, align 8
   %236 = icmp eq ptr %235, %20
   br i1 %236, label %_ZN4llvm11SmallStringILj256EED2Ev.exit, label %237
 
-237:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.exit
+237:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.argprom.exit
   call void @free(ptr noundef %235) #15
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
-_ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.exit, %237
+_ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.argprom.exit, %237
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i32 noundef %2, i1 noundef zeroext %3, i64 %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE.retelim(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i32 noundef %2, i1 noundef zeroext %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::SmallString.180", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -3186,7 +3186,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5w
 declare noundef zeroext i1 @_ZN4llvm3sys4path11is_absoluteERKNS_5TwineENS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(34), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch29AddMinGWCPlusPlusIncludePathsEN4llvm9StringRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch29AddMinGWCPlusPlusIncludePathsEN4llvm9StringRefES2_S2_.argprom(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
 _ZN4llvmplERKNS_5TwineES2_.exit180:
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -3245,7 +3245,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit180:
   store i8 2, ptr %35, align 8, !alias.scope !145
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 3, ptr %36, align 1, !alias.scope !145
-  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(34) %5, i32 noundef 6, i1 noundef zeroext false, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE.retelim(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(34) %5, i32 noundef 6, i1 noundef zeroext false, i64 0)
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i8 5, ptr %37, align 8, !alias.scope !150
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 33
@@ -3296,7 +3296,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit180:
   store i8 2, ptr %54, align 8, !alias.scope !173
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 33
   store i8 5, ptr %55, align 1, !alias.scope !173
-  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(34) %10, i32 noundef 6, i1 noundef zeroext false, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE.retelim(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(34) %10, i32 noundef 6, i1 noundef zeroext false, i64 0)
   %56 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i8 5, ptr %56, align 8, !alias.scope !178
   %57 = getelementptr inbounds nuw i8, ptr %20, i64 33
@@ -3338,7 +3338,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit180:
   store i8 2, ptr %70, align 8, !alias.scope !196
   %71 = getelementptr inbounds nuw i8, ptr %16, i64 33
   store i8 3, ptr %71, align 1, !alias.scope !196
-  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(34) %16, i32 noundef 6, i1 noundef zeroext false, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE.retelim(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(34) %16, i32 noundef 6, i1 noundef zeroext false, i64 0)
   ret void
 }
 
@@ -4535,22 +4535,22 @@ attributes #18 = { builtin nounwind }
 !8 = distinct !{!8, !9, !"_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEE9takeErrorEv: argument 0"}
 !9 = distinct !{!9, !"_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEE9takeErrorEv"}
 !10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!12 = distinct !{!12, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!13 = distinct !{!13, !12, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!11 = distinct !{!11, !12, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
+!12 = distinct !{!12, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
+!13 = distinct !{!13, !12, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
 !14 = distinct !{!14, !5}
 !15 = !{!16, !18}
-!16 = distinct !{!16, !17, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!17 = distinct !{!17, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!18 = distinct !{!18, !17, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!16 = distinct !{!16, !17, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
+!17 = distinct !{!17, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
+!18 = distinct !{!18, !17, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
 !19 = !{!20, !22}
-!20 = distinct !{!20, !21, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!21 = distinct !{!21, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!22 = distinct !{!22, !21, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!20 = distinct !{!20, !21, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
+!21 = distinct !{!21, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
+!22 = distinct !{!22, !21, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
 !23 = !{!24, !26}
-!24 = distinct !{!24, !25, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!25 = distinct !{!25, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!26 = distinct !{!26, !25, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!24 = distinct !{!24, !25, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
+!25 = distinct !{!25, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
+!26 = distinct !{!26, !25, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
 !27 = !{!28}
 !28 = distinct !{!28, !29, !"_ZL14extractLookupsRKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE: argument 0"}
 !29 = distinct !{!29, !"_ZL14extractLookupsRKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE"}
@@ -4585,16 +4585,16 @@ attributes #18 = { builtin nounwind }
 !58 = distinct !{!58, !59, !"_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEE9takeErrorEv: argument 0"}
 !59 = distinct !{!59, !"_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEE9takeErrorEv"}
 !60 = !{!61, !63}
-!61 = distinct !{!61, !62, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!62 = distinct !{!62, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!63 = distinct !{!63, !62, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!61 = distinct !{!61, !62, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
+!62 = distinct !{!62, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
+!63 = distinct !{!63, !62, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
 !64 = !{!65}
 !65 = distinct !{!65, !66, !"_ZN4llvm8ExpectedIN5clang12FileEntryRefEE9takeErrorEv: argument 0"}
 !66 = distinct !{!66, !"_ZN4llvm8ExpectedIN5clang12FileEntryRefEE9takeErrorEv"}
 !67 = !{!68, !70}
-!68 = distinct !{!68, !69, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!69 = distinct !{!69, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!70 = distinct !{!70, !69, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!68 = distinct !{!68, !69, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
+!69 = distinct !{!69, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
+!70 = distinct !{!70, !69, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119DirectoryLookupInfoES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
 !71 = !{!72}
 !72 = distinct !{!72, !73, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
 !73 = distinct !{!73, !"_ZN4llvmplERKNS_5TwineES2_"}

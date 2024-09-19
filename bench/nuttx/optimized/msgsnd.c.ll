@@ -95,9 +95,9 @@ msgsnd_wait.exit:                                 ; preds = %40
 msgsnd_wait.exit.thread:                          ; preds = %.split.us.i, %42, %16
   %45 = load ptr, ptr getelementptr inbounds (i8, ptr @g_msgfreelist, i64 8), align 8
   %.not.i51 = icmp eq ptr %45, @g_msgfreelist
-  br i1 %.not.i51, label %msgsnd_wait.exit.thread56, label %list_remove_head.exit
+  br i1 %.not.i51, label %msgsnd_wait.exit.thread56, label %list_remove_head.argprom.exit
 
-list_remove_head.exit:                            ; preds = %msgsnd_wait.exit.thread
+list_remove_head.argprom.exit:                    ; preds = %msgsnd_wait.exit.thread
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %45, i64 8
   %48 = load ptr, ptr %47, align 8
@@ -131,7 +131,7 @@ list_remove_head.exit:                            ; preds = %msgsnd_wait.exit.th
   %65 = icmp sgt i16 %64, 0
   br i1 %65, label %66, label %msgsnd_wait.exit.thread56
 
-66:                                               ; preds = %list_remove_head.exit
+66:                                               ; preds = %list_remove_head.argprom.exit
   %67 = load ptr, ptr @g_readytorun, align 8
   %68 = call ptr @dq_remfirst(ptr noundef nonnull %9) #5
   %69 = getelementptr inbounds i8, ptr %68, i64 88
@@ -157,8 +157,8 @@ list_remove_head.exit:                            ; preds = %msgsnd_wait.exit.th
   call void @up_switch_context(ptr noundef nonnull %68, ptr noundef %67) #5
   br label %msgsnd_wait.exit.thread56
 
-msgsnd_wait.exit.thread56:                        ; preds = %msgsnd_wait.exit, %msgsnd_wait.exit.thread, %24, %42, %11, %7, %74, %79, %list_remove_head.exit
-  %.1 = phi i32 [ 0, %79 ], [ 0, %74 ], [ 0, %list_remove_head.exit ], [ %44, %msgsnd_wait.exit ], [ -22, %7 ], [ -90, %11 ], [ -11, %42 ], [ -11, %24 ], [ -12, %msgsnd_wait.exit.thread ]
+msgsnd_wait.exit.thread56:                        ; preds = %msgsnd_wait.exit, %msgsnd_wait.exit.thread, %24, %42, %11, %7, %74, %79, %list_remove_head.argprom.exit
+  %.1 = phi i32 [ 0, %79 ], [ 0, %74 ], [ 0, %list_remove_head.argprom.exit ], [ %44, %msgsnd_wait.exit ], [ -22, %7 ], [ -90, %11 ], [ -11, %42 ], [ -11, %24 ], [ -12, %msgsnd_wait.exit.thread ]
   %80 = and i64 %8, 512
   %.not.i53 = icmp eq i64 %80, 0
   br i1 %.not.i53, label %up_irq_restore.exit, label %81

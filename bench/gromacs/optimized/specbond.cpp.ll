@@ -102,7 +102,7 @@ define void @_Z20generateSpecialBondsv(ptr dead_on_unwind noalias writable sret(
 
 .preheader:                                       ; preds = %1
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.lr.ph, label %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit
+  br i1 %14, label %.lr.ph, label %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.argprom.exit
 
 .lr.ph:                                           ; preds = %.preheader
   %15 = getelementptr inbounds i8, ptr %12, i64 32
@@ -116,8 +116,8 @@ define void @_Z20generateSpecialBondsv(ptr dead_on_unwind noalias writable sret(
   %wide.trip.count = zext nneg i32 %13 to i64
   br label %23
 
-23:                                               ; preds = %.lr.ph, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit ]
+23:                                               ; preds = %.lr.ph, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit ]
   %24 = load ptr, ptr %11, align 8
   %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
@@ -294,19 +294,19 @@ _ZNSt6vectorI11SpecialBondSaIS0_EE9push_backERKS0_.exit: ; preds = %.noexc, %79
   %84 = getelementptr inbounds ptr, ptr %83, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 105, ptr noundef %85)
-          to label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit unwind label %.loopexit
+          to label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit unwind label %.loopexit
 
-_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit:           ; preds = %82
+_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit:   ; preds = %82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit
+._crit_edge:                                      ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit
   %86 = load ptr, ptr %11, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i32 noundef 109, ptr noundef %86)
-          to label %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit unwind label %.loopexit.split-lp
+          to label %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.argprom.exit unwind label %.loopexit.split-lp
 
-_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit:          ; preds = %.preheader, %._crit_edge
+_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.argprom.exit:  ; preds = %.preheader, %._crit_edge
   %87 = load ptr, ptr @stderr, align 8
   %88 = getelementptr inbounds i8, ptr %0, i64 8
   %89 = load ptr, ptr %88, align 8

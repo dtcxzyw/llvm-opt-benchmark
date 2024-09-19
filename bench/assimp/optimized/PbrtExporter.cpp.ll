@@ -7159,7 +7159,7 @@ for.cond4.preheader.i.i.i:                        ; preds = %for.body.i.i.i, %en
   %mNumChildren.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 1104
   %1 = load i32, ptr %mNumChildren.i.i.i, align 8
   %cmp510.not.i.i.i = icmp eq i32 %1, 0
-  br i1 %cmp510.not.i.i.i, label %"_ZSt10__invoke_rIvRZN6Assimp12PbrtExporter20WriteWorldDefinitionEvE3$_0JP6aiNodeEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %for.body6.lr.ph.i.i.i
+  br i1 %cmp510.not.i.i.i, label %"_ZSt10__invoke_rIvRZN6Assimp12PbrtExporter20WriteWorldDefinitionEvE3$_0JP6aiNodeEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit", label %for.body6.lr.ph.i.i.i
 
 for.body6.lr.ph.i.i.i:                            ; preds = %for.cond4.preheader.i.i.i
   %2 = getelementptr inbounds i8, ptr %__functor, i64 8
@@ -7209,9 +7209,9 @@ _ZNKSt8functionIFvP6aiNodeEEclES1_.exit.i.i.i:    ; preds = %for.body6.i.i.i
   %14 = load i32, ptr %mNumChildren.i.i.i, align 8
   %15 = zext i32 %14 to i64
   %cmp5.i.i.i = icmp ult i64 %indvars.iv.next14.i.i.i, %15
-  br i1 %cmp5.i.i.i, label %for.body6.i.i.i, label %"_ZSt10__invoke_rIvRZN6Assimp12PbrtExporter20WriteWorldDefinitionEvE3$_0JP6aiNodeEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", !llvm.loop !11
+  br i1 %cmp5.i.i.i, label %for.body6.i.i.i, label %"_ZSt10__invoke_rIvRZN6Assimp12PbrtExporter20WriteWorldDefinitionEvE3$_0JP6aiNodeEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit", !llvm.loop !11
 
-"_ZSt10__invoke_rIvRZN6Assimp12PbrtExporter20WriteWorldDefinitionEvE3$_0JP6aiNodeEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %_ZNKSt8functionIFvP6aiNodeEEclES1_.exit.i.i.i, %for.cond4.preheader.i.i.i
+"_ZSt10__invoke_rIvRZN6Assimp12PbrtExporter20WriteWorldDefinitionEvE3$_0JP6aiNodeEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %_ZNKSt8functionIFvP6aiNodeEEclES1_.exit.i.i.i, %for.cond4.preheader.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i.i.i)
   ret void
 }

@@ -1309,7 +1309,7 @@ entry:
   store i64 %retval.sroa.0.0.copyload.i, ptr %agg.tmp11, align 8
   %timeout.sroa.3.0.agg.tmp11.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp11, i64 8
   store i32 %retval.sroa.2.0.copyload.i, ptr %timeout.sroa.3.0.agg.tmp11.sroa_idx, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121AssertSleepForBoundedEN4absl8DurationES1_S1_S1_NS_11AlarmPolicyE(ptr noalias align 8 %gtest_ar_, i64 2, i32 2000000000, i64 0, i32 400000000, i64 0, i32 1200000000, ptr noundef nonnull byval(%"class.absl::Duration") align 8 %agg.tmp11, i32 noundef 0)
+  call fastcc void @_ZN12_GLOBAL__N_121AssertSleepForBoundedEN4absl8DurationES1_S1_S1_NS_11AlarmPolicyE.argprom(ptr noalias align 8 %gtest_ar_, i64 2, i32 2000000000, i64 0, i32 400000000, i64 0, i32 1200000000, ptr noundef nonnull byval(%"class.absl::Duration") align 8 %agg.tmp11, i32 noundef 0)
   %0 = load i8, ptr %gtest_ar_, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -1408,7 +1408,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store i64 %retval.sroa.0.0.copyload.i, ptr %agg.tmp28, align 8
   %timeout.sroa.3.0.agg.tmp28.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp28, i64 8
   store i32 %retval.sroa.2.0.copyload.i, ptr %timeout.sroa.3.0.agg.tmp28.sroa_idx, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121AssertSleepForBoundedEN4absl8DurationES1_S1_S1_NS_11AlarmPolicyE(ptr noalias align 8 %gtest_ar_24, i64 2, i32 2000000000, i64 0, i32 400000000, i64 0, i32 1200000000, ptr noundef nonnull byval(%"class.absl::Duration") align 8 %agg.tmp28, i32 noundef 1)
+  call fastcc void @_ZN12_GLOBAL__N_121AssertSleepForBoundedEN4absl8DurationES1_S1_S1_NS_11AlarmPolicyE.argprom(ptr noalias align 8 %gtest_ar_24, i64 2, i32 2000000000, i64 0, i32 400000000, i64 0, i32 1200000000, ptr noundef nonnull byval(%"class.absl::Duration") align 8 %agg.tmp28, i32 noundef 1)
   %10 = load i8, ptr %gtest_ar_24, align 8
   %tobool.i27 = trunc i8 %10 to i1
   br i1 %tobool.i27, label %if.end47, label %if.else31
@@ -1513,7 +1513,7 @@ eh.resume:                                        ; preds = %lpad33, %_ZN7testin
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121AssertSleepForBoundedEN4absl8DurationES1_S1_S1_NS_11AlarmPolicyE(ptr noalias nonnull align 8 %agg.result, i64 %d.coerce0, i32 %d.coerce1, i64 %early.coerce0, i32 %early.coerce1, i64 %late.0.val, i32 %late.8.val, ptr noundef byval(%"class.absl::Duration") align 8 %timeout, i32 noundef range(i32 0, 2) %alarm_policy) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_121AssertSleepForBoundedEN4absl8DurationES1_S1_S1_NS_11AlarmPolicyE.argprom(ptr noalias nonnull align 8 %agg.result, i64 %d.coerce0, i32 %d.coerce1, i64 %early.coerce0, i32 %early.coerce1, i64 %late.0.val, i32 %late.8.val, ptr noundef byval(%"class.absl::Duration") align 8 %timeout, i32 noundef range(i32 0, 2) %alarm_policy) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i159 = alloca %"class.testing::Message", align 8
   %ref.tmp.i138 = alloca %"class.testing::Message", align 8

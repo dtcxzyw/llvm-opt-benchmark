@@ -597,7 +597,7 @@ define noundef zeroext i1 @_ZN3nix23userNamespacesSupportedEv() local_unnamed_ad
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = invoke fastcc noundef zeroext i1 @"_ZZN3nix23userNamespacesSupportedEvENK3$_0clEv"()
+  %6 = invoke fastcc noundef zeroext i1 @"_ZZN3nix23userNamespacesSupportedEvENK3$_0clEv.argprom"()
           to label %7 unwind label %12
 
 7:                                                ; preds = %5
@@ -619,7 +619,7 @@ define noundef zeroext i1 @_ZN3nix23userNamespacesSupportedEv() local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN3nix23userNamespacesSupportedEvENK3$_0clEv"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN3nix23userNamespacesSupportedEvENK3$_0clEv.argprom"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::allocator", align 1
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"class.std::allocator", align 1
@@ -1342,7 +1342,7 @@ define noundef zeroext i1 @_ZN3nix30mountAndPidNamespacesSupportedEv() local_unn
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = invoke fastcc noundef zeroext i1 @"_ZZN3nix30mountAndPidNamespacesSupportedEvENK3$_0clEv"()
+  %6 = invoke fastcc noundef zeroext i1 @"_ZZN3nix30mountAndPidNamespacesSupportedEvENK3$_0clEv.argprom"()
           to label %7 unwind label %12
 
 7:                                                ; preds = %5
@@ -1364,7 +1364,7 @@ define noundef zeroext i1 @_ZN3nix30mountAndPidNamespacesSupportedEv() local_unn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN3nix30mountAndPidNamespacesSupportedEvENK3$_0clEv"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN3nix30mountAndPidNamespacesSupportedEvENK3$_0clEv.argprom"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::allocator", align 1
   %2 = alloca %"class.nix::Pid", align 4
   %3 = alloca %"class.std::function", align 8
@@ -1401,7 +1401,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN3nix30mountAndPidNamespacesSuppo
   br i1 %.not.i, label %25, label %20
 
 20:                                               ; preds = %18
-  %21 = invoke fastcc noundef zeroext i1 @"_ZZN3nix23userNamespacesSupportedEvENK3$_0clEv"()
+  %21 = invoke fastcc noundef zeroext i1 @"_ZZN3nix23userNamespacesSupportedEvENK3$_0clEv.argprom"()
           to label %22 unwind label %.body
 
 22:                                               ; preds = %20
@@ -1686,13 +1686,13 @@ define void @_ZN3nix18saveMountNamespaceEv() local_unnamed_addr #2 personality p
   %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3nix18saveMountNamespaceEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS6_ENUlvE_8__invokeEv", ptr %4, align 8
   %5 = invoke noundef i32 @pthread_once(ptr noundef nonnull @_ZZN3nix18saveMountNamespaceEvE4done, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %8
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %8
 
-_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %0
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %0
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %"_ZSt9call_onceIZN3nix18saveMountNamespaceEvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit", label %6
+  br i1 %.not.i, label %"_ZSt9call_onceIZN3nix18saveMountNamespaceEvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit", label %6
 
-6:                                                ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
+6:                                                ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %5) #30
           to label %7 unwind label %8
 
@@ -1706,7 +1706,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %0
   store ptr null, ptr %4, align 8
   resume { ptr, i32 } %9
 
-"_ZSt9call_onceIZN3nix18saveMountNamespaceEvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
+"_ZSt9call_onceIZN3nix18saveMountNamespaceEvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
@@ -11752,7 +11752,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3n
   %15 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.42, i32 noundef 0)
   call void @_ZN3nix11AutoCloseFDC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %15)
   %16 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN3nix11AutoCloseFDaSEOS0_(ptr noundef nonnull align 4 dereferenceable(4) @_ZN3nixL11fdSavedRootE, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3nix18saveMountNamespaceEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS6_ENKUlvE_clEv.exit" unwind label %17
+          to label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3nix18saveMountNamespaceEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS6_ENKUlvE_clEv.argprom.exit" unwind label %17
 
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
@@ -11764,7 +11764,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3n
   %.pn.i.i.i.i.i = phi { ptr, i32 } [ %18, %17 ], [ %13, %12 ], [ %11, %10 ]
   resume { ptr, i32 } %.pn.i.i.i.i.i
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3nix18saveMountNamespaceEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS6_ENKUlvE_clEv.exit": ; preds = %14
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3nix18saveMountNamespaceEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS6_ENKUlvE_clEv.argprom.exit": ; preds = %14
   call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)

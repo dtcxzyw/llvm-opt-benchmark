@@ -416,7 +416,7 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %if
   %shr.i.i = lshr i32 %13, 28
   switch i32 %shr.i.i, label %if.then.i [
     i32 8, label %while.body.i.i
-    i32 4, label %callback_conv_result.exit
+    i32 4, label %callback_conv_result.argprom.argprom.exit
   ]
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
@@ -433,13 +433,13 @@ if.then.i:                                        ; preds = %while.cond.i.i
   %14 = load i32, ptr %ct.i.0.i, align 8
   %and10.i = and i32 %14, -201326592
   %cmp11.i = icmp eq i32 %and10.i, 0
-  br i1 %cmp11.i, label %land.lhs.true.i, label %callback_conv_result.exit
+  br i1 %cmp11.i, label %land.lhs.true.i, label %callback_conv_result.argprom.argprom.exit
 
 land.lhs.true.i:                                  ; preds = %if.then.i
   %size.i = getelementptr inbounds i8, ptr %ct.i.0.i, i64 4
   %15 = load i32, ptr %size.i, align 4
   %cmp13.i = icmp ult i32 %15, 4
-  br i1 %cmp13.i, label %if.then15.i, label %callback_conv_result.exit
+  br i1 %cmp13.i, label %if.then15.i, label %callback_conv_result.argprom.argprom.exit
 
 if.then15.i:                                      ; preds = %land.lhs.true.i
   %and17.i = and i32 %14, 8388608
@@ -476,9 +476,9 @@ cond.false29.i:                                   ; preds = %if.else.i
 if.end35.sink.split.i:                            ; preds = %cond.false29.i, %cond.true27.i, %cond.false.i, %cond.true.i
   %cond32.sink.i = phi i32 [ %conv22.i, %cond.true.i ], [ %conv23.i, %cond.false.i ], [ %conv28.i, %cond.true27.i ], [ %conv30.i, %cond.false29.i ]
   store i32 %cond32.sink.i, ptr %spec.select.i, align 4
-  br label %callback_conv_result.exit
+  br label %callback_conv_result.argprom.argprom.exit
 
-callback_conv_result.exit:                        ; preds = %while.cond.i.i, %if.then.i, %land.lhs.true.i, %if.end35.sink.split.i
+callback_conv_result.argprom.argprom.exit:        ; preds = %while.cond.i.i, %if.then.i, %land.lhs.true.i, %if.end35.sink.split.i
   %20 = load ptr, ptr %top, align 8
   %add.ptr16 = getelementptr inbounds i8, ptr %20, i64 -32
   store ptr %add.ptr16, ptr %top, align 8

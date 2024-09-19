@@ -298,7 +298,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end8
   %len.0.i = phi i64 [ 9, %if.end8 ], [ 11, %if.then.i ]
   %6 = load i8, ptr %omit_length_in_ad, align 8
   %tobool7.not.i = icmp eq i8 %6, 0
-  br i1 %tobool7.not.i, label %if.then8.i, label %ssl_aead_ctx_get_ad.exit
+  br i1 %tobool7.not.i, label %if.then8.i, label %ssl_aead_ctx_get_ad.argprom.exit
 
 if.then8.i:                                       ; preds = %if.end.i
   %shr9.i = lshr i64 %plaintext_len.0, 8
@@ -308,16 +308,16 @@ if.then8.i:                                       ; preds = %if.end.i
   %inc14.i = add nuw nsw i64 %len.0.i, 2
   %arrayidx15.i = getelementptr inbounds i8, ptr %len.0.i.sroa.phi, i64 1
   store i8 %conv13.i, ptr %arrayidx15.i, align 1
-  br label %ssl_aead_ctx_get_ad.exit
+  br label %ssl_aead_ctx_get_ad.argprom.exit
 
-ssl_aead_ctx_get_ad.exit:                         ; preds = %if.end.i, %if.then8.i
+ssl_aead_ctx_get_ad.argprom.exit:                 ; preds = %if.end.i, %if.then8.i
   %len.1.i = phi i64 [ %len.0.i, %if.end.i ], [ %inc14.i, %if.then8.i ]
   %xor_fixed_nonce = getelementptr inbounds i8, ptr %aead, i64 42
   %7 = load i8, ptr %xor_fixed_nonce, align 2
   %tobool10.not = icmp eq i8 %7, 0
   br i1 %tobool10.not, label %if.else, label %if.then11
 
-if.then11:                                        ; preds = %ssl_aead_ctx_get_ad.exit
+if.then11:                                        ; preds = %ssl_aead_ctx_get_ad.argprom.exit
   %fixed_nonce_len = getelementptr inbounds i8, ptr %aead, i64 36
   %8 = load i8, ptr %fixed_nonce_len, align 4
   %conv = zext i8 %8 to i64
@@ -328,7 +328,7 @@ if.then11:                                        ; preds = %ssl_aead_ctx_get_ad
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %nonce, i8 0, i64 %sub13, i1 false)
   br label %if.end22
 
-if.else:                                          ; preds = %ssl_aead_ctx_get_ad.exit
+if.else:                                          ; preds = %ssl_aead_ctx_get_ad.argprom.exit
   %fixed_nonce = getelementptr inbounds i8, ptr %aead, i64 24
   %fixed_nonce_len18 = getelementptr inbounds i8, ptr %aead, i64 36
   %10 = load i8, ptr %fixed_nonce_len18, align 4
@@ -461,7 +461,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end3
   %omit_length_in_ad.i = getelementptr inbounds i8, ptr %aead, i64 40
   %2 = load i8, ptr %omit_length_in_ad.i, align 8
   %tobool7.not.i = icmp eq i8 %2, 0
-  br i1 %tobool7.not.i, label %if.then8.i, label %ssl_aead_ctx_get_ad.exit
+  br i1 %tobool7.not.i, label %if.then8.i, label %ssl_aead_ctx_get_ad.argprom.exit
 
 if.then8.i:                                       ; preds = %if.end.i
   %shr9.i = lshr i64 %in_len, 8
@@ -471,16 +471,16 @@ if.then8.i:                                       ; preds = %if.end.i
   %inc14.i = add nuw nsw i64 %len.0.i, 2
   %arrayidx15.i = getelementptr inbounds i8, ptr %len.0.i.sroa.phi, i64 1
   store i8 %conv13.i, ptr %arrayidx15.i, align 1
-  br label %ssl_aead_ctx_get_ad.exit
+  br label %ssl_aead_ctx_get_ad.argprom.exit
 
-ssl_aead_ctx_get_ad.exit:                         ; preds = %if.end.i, %if.then8.i
+ssl_aead_ctx_get_ad.argprom.exit:                 ; preds = %if.end.i, %if.then8.i
   %len.1.i = phi i64 [ %len.0.i, %if.end.i ], [ %inc14.i, %if.then8.i ]
   %xor_fixed_nonce = getelementptr inbounds i8, ptr %aead, i64 42
   %3 = load i8, ptr %xor_fixed_nonce, align 2
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.else, label %if.then4
 
-if.then4:                                         ; preds = %ssl_aead_ctx_get_ad.exit
+if.then4:                                         ; preds = %ssl_aead_ctx_get_ad.argprom.exit
   %fixed_nonce_len = getelementptr inbounds i8, ptr %aead, i64 36
   %4 = load i8, ptr %fixed_nonce_len, align 4
   %conv = zext i8 %4 to i64
@@ -491,7 +491,7 @@ if.then4:                                         ; preds = %ssl_aead_ctx_get_ad
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %nonce, i8 0, i64 %sub, i1 false)
   br label %if.end14
 
-if.else:                                          ; preds = %ssl_aead_ctx_get_ad.exit
+if.else:                                          ; preds = %ssl_aead_ctx_get_ad.argprom.exit
   %fixed_nonce = getelementptr inbounds i8, ptr %aead, i64 24
   %fixed_nonce_len10 = getelementptr inbounds i8, ptr %aead, i64 36
   %6 = load i8, ptr %fixed_nonce_len10, align 4

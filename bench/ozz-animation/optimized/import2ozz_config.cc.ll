@@ -874,23 +874,23 @@ define internal fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N
   %3 = alloca %"class.ozz::log::Err", align 8
   %4 = alloca %"class.ozz::animation::offline::TrackOptimizer", align 4
   %5 = alloca %"class.ozz::log::Err", align 8
-  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_117MakeDefaultObjectERN4Json5ValueEPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
+  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_117MakeDefaultObjectERN4Json5ValueEPKcS7_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
   %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.19)
-  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26)
-  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_117MakeDefaultObjectERN4Json5ValueEPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28)
+  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26)
+  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_117MakeDefaultObjectERN4Json5ValueEPKcS7_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28)
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.27)
-  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.29, i1 noundef zeroext true, ptr noundef nonnull @.str.30)
-  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.31, i1 noundef zeroext false, ptr noundef nonnull @.str.32)
-  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_117MakeDefaultObjectERN4Json5ValueEPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34)
+  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.29, i1 noundef zeroext true, ptr noundef nonnull @.str.30)
+  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.31, i1 noundef zeroext false, ptr noundef nonnull @.str.32)
+  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_117MakeDefaultObjectERN4Json5ValueEPKcS7_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34)
   %8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.33)
-  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.19, i1 noundef zeroext true, ptr noundef nonnull @.str.35)
-  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.36, i1 noundef zeroext false, ptr noundef nonnull @.str.37)
-  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.38, i1 noundef zeroext false, ptr noundef nonnull @.str.39)
-  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.40, i1 noundef zeroext false, ptr noundef nonnull @.str.41)
-  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.42, i1 noundef zeroext false, ptr noundef nonnull @.str.43)
-  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.44, i1 noundef zeroext false, ptr noundef nonnull @.str.45)
-  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.46, i1 noundef zeroext false, ptr noundef nonnull @.str.47)
-  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_116MakeDefaultArrayERN4Json5ValueEPKcS7_b(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i1 noundef zeroext false)
+  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.19, i1 noundef zeroext true, ptr noundef nonnull @.str.35)
+  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.36, i1 noundef zeroext false, ptr noundef nonnull @.str.37)
+  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.38, i1 noundef zeroext false, ptr noundef nonnull @.str.39)
+  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.40, i1 noundef zeroext false, ptr noundef nonnull @.str.41)
+  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.42, i1 noundef zeroext false, ptr noundef nonnull @.str.43)
+  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.44, i1 noundef zeroext false, ptr noundef nonnull @.str.45)
+  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.46, i1 noundef zeroext false, ptr noundef nonnull @.str.47)
+  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_116MakeDefaultArrayERN4Json5ValueEPKcS7_b.retelim(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i1 noundef zeroext false)
   %9 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.21)
   %10 = tail call noundef i32 @_ZNK4Json5Value4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
   %11 = icmp eq i32 %10, 0
@@ -904,11 +904,11 @@ define internal fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N
   %.022 = phi i32 [ 0, %.lr.ph ], [ %86, %.loopexit ]
   %14 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %.022)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.31, i1 noundef zeroext false, ptr noundef nonnull @.str.53)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.54, i1 noundef zeroext false, ptr noundef nonnull @.str.55)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.31, i1 noundef zeroext false, ptr noundef nonnull @.str.53)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.54, i1 noundef zeroext false, ptr noundef nonnull @.str.55)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58)
   %15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.56)
   %16 = call noundef ptr @_ZNK4Json5Value9asCStringEv(ptr noundef nonnull align 8 dereferenceable(32) %15)
   %17 = call { i64, ptr } @_ZN3ozz9animation7offline17AdditiveReference8GetNamesEv()
@@ -977,13 +977,13 @@ common.resume.i:                                  ; preds = %77, %41
   br label %common.resume.i
 
 43:                                               ; preds = %_ZN3ozz9animation7offline8JsonEnumINS1_17AdditiveReferenceENS1_21AdditiveReferenceEnum5ValueEE15IsValidEnumNameEPKc.exit.i
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.62, float noundef 0.000000e+00, ptr noundef nonnull @.str.63)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.64, float noundef 1.000000e+01, ptr noundef nonnull @.str.65)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.66, i1 noundef zeroext true, ptr noundef nonnull @.str.67)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.62, float noundef 0.000000e+00, ptr noundef nonnull @.str.63)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.64, float noundef 1.000000e+01, ptr noundef nonnull @.str.65)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.66, i1 noundef zeroext true, ptr noundef nonnull @.str.67)
   %44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.68)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.73, float noundef 0x3F50624DE0000000, ptr noundef nonnull @.str.74)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.75, float noundef 0x3FB99999A0000000, ptr noundef nonnull @.str.76)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_116MakeDefaultArrayERN4Json5ValueEPKcS7_b(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i1 noundef zeroext %12)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.73, float noundef 0x3F50624DE0000000, ptr noundef nonnull @.str.74)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.75, float noundef 0x3FB99999A0000000, ptr noundef nonnull @.str.76)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_116MakeDefaultArrayERN4Json5ValueEPKcS7_b.retelim(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i1 noundef zeroext %12)
   %45 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.71)
   %46 = call noundef i32 @_ZNK4Json5Value4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %45)
   %.not.i.i = icmp eq i32 %46, 0
@@ -992,16 +992,16 @@ common.resume.i:                                  ; preds = %77, %41
 .lr.ph.i24.i:                                     ; preds = %43, %.lr.ph.i24.i
   %.010.i.i = phi i32 [ %48, %.lr.ph.i24.i ], [ 0, %43 ]
   %47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(32) %45, i32 noundef %.010.i.i)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.78)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.73, float noundef 0x3F50624DE0000000, ptr noundef nonnull @.str.74)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.75, float noundef 0x3FB99999A0000000, ptr noundef nonnull @.str.76)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.78)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.73, float noundef 0x3F50624DE0000000, ptr noundef nonnull @.str.74)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.75, float noundef 0x3FB99999A0000000, ptr noundef nonnull @.str.76)
   %48 = add nuw i32 %.010.i.i, 1
   %49 = call noundef i32 @_ZNK4Json5Value4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %45)
   %50 = icmp ult i32 %48, %49
   br i1 %50, label %.lr.ph.i24.i, label %_ZN3ozz9animation7offline12_GLOBAL__N_128SanitizeOptimizationSettingsERN4Json5ValueEb.exit.i, !llvm.loop !8
 
 _ZN3ozz9animation7offline12_GLOBAL__N_128SanitizeOptimizationSettingsERN4Json5ValueEb.exit.i: ; preds = %.lr.ph.i24.i, %43
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_116MakeDefaultArrayERN4Json5ValueEPKcS7_b(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, i1 noundef zeroext %12)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_116MakeDefaultArrayERN4Json5ValueEPKcS7_b.retelim(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, i1 noundef zeroext %12)
   %51 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.69)
   %52 = call noundef i32 @_ZNK4Json5Value4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %51)
   %.not.i = icmp eq i32 %52, 0
@@ -1010,7 +1010,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_128SanitizeOptimizationSettingsERN4Json5Va
 .lr.ph.i:                                         ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_128SanitizeOptimizationSettingsERN4Json5ValueEb.exit.i, %.loopexit.i
   %.032.i = phi i32 [ %83, %.loopexit.i ], [ 0, %_ZN3ozz9animation7offline12_GLOBAL__N_128SanitizeOptimizationSettingsERN4Json5ValueEb.exit.i ]
   %53 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(32) %51, i32 noundef %.032.i)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_116MakeDefaultArrayERN4Json5ValueEPKcS7_b(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i1 noundef zeroext %12)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_116MakeDefaultArrayERN4Json5ValueEPKcS7_b.retelim(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i1 noundef zeroext %12)
   %54 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull @.str.79)
   %55 = call noundef i32 @_ZNK4Json5Value4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %54)
   %56 = icmp eq i32 %55, 0
@@ -1021,10 +1021,10 @@ _ZN3ozz9animation7offline12_GLOBAL__N_128SanitizeOptimizationSettingsERN4Json5Va
   %57 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(32) %54, i32 noundef %.013.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.81)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.83)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.85)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.81)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.83)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.85)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88)
   %58 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.86)
   %59 = call noundef ptr @_ZNK4Json5Value9asCStringEv(ptr noundef nonnull align 8 dereferenceable(32) %58)
   %60 = call { i64, ptr } @_ZN3ozz9animation7offline18PropertyTypeConfig8GetNamesEv()
@@ -1071,11 +1071,11 @@ _ZN3ozz3log6LoggerlsIA16_cEERSoRKT_.exit.i.i.i:   ; preds = %_ZN3ozz9animation7o
   br label %common.resume.i
 
 79:                                               ; preds = %_ZN3ozz9animation7offline8JsonEnumINS1_18PropertyTypeConfigENS1_11OzzImporter12NodeProperty4TypeEE15IsValidEnumNameEPKc.exit.i.i.i
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.31, i1 noundef zeroext false, ptr noundef nonnull @.str.91)
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.66, i1 noundef zeroext true, ptr noundef nonnull @.str.92)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.31, i1 noundef zeroext false, ptr noundef nonnull @.str.91)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.66, i1 noundef zeroext true, ptr noundef nonnull @.str.92)
   call void @_ZN3ozz9animation7offline14TrackOptimizerC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %4)
   %80 = load float, ptr %4, align 4
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.93, float noundef %80, ptr noundef nonnull @.str.94)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.93, float noundef %80, ptr noundef nonnull @.str.94)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %81 = add nuw i32 %.013.i.i, 1
@@ -2017,7 +2017,7 @@ _ZNSt5stackIPN4Json5ValueESt5dequeIS2_SaIS2_EEED2Ev.exit: ; preds = %1, %_ZNSt11
 declare void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_117MakeDefaultObjectERN4Json5ValueEPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_117MakeDefaultObjectERN4Json5ValueEPKcS7_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Json::Value", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2107,7 +2107,7 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_117MakeDefaul
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_116MakeDefaultArrayERN4Json5ValueEPKcS7_b(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_116MakeDefaultArrayERN4Json5ValueEPKcS7_b.retelim(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -2198,7 +2198,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIPKcEEbRN4Json5ValueES5_T_S5_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Json::Value", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2288,7 +2288,7 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaul
 declare void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIbEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Json::Value", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2382,7 +2382,7 @@ declare void @_ZN4Json5Value6resizeEj(ptr noundef nonnull align 8 dereferenceabl
 declare noundef ptr @_ZNK4Json5Value9asCStringEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, float noundef %2, ptr noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_.retelim(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, float noundef %2, ptr noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Json::Value", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

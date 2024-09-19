@@ -3994,7 +3994,7 @@ _ZSt7advanceISt20_List_const_iteratorISt10shared_ptrIN5clang4ento19PathDiagnosti
   %.sroa.051.160.i = phi ptr [ %1834, %.lr.ph.i167 ], [ %1803, %.lr.ph.i167.preheader ]
   %1832 = getelementptr inbounds nuw i8, ptr %.sroa.051.160.i, i64 16
   %1833 = load ptr, ptr %1832, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11ReportPieceERN4llvm11raw_ostreamERKN5clang4ento19PathDiagnosticPieceEjjbb(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(128) %1833, i32 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11ReportPieceERN4llvm11raw_ostreamERKN5clang4ento19PathDiagnosticPieceEjjbb.argelim(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(128) %1833, i32 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false)
   %1834 = load ptr, ptr %.sroa.051.160.i, align 8
   %.not57.i = icmp eq ptr %1834, %.sroa.012.1.i.i
   br i1 %.not57.i, label %._crit_edge.i, label %.lr.ph.i167, !llvm.loop !12
@@ -4069,7 +4069,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit31.i:             ; preds = %1865, %1863
   %.sroa.046.062.i = phi ptr [ %1870, %.lr.ph63.i ], [ %.sroa.051.0.i, %_ZN4llvm11raw_ostreamlsEPKc.exit31.i ]
   %1868 = getelementptr inbounds nuw i8, ptr %.sroa.046.062.i, i64 16
   %1869 = load ptr, ptr %1868, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11ReportPieceERN4llvm11raw_ostreamERKN5clang4ento19PathDiagnosticPieceEjjbb(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(128) %1869, i32 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11ReportPieceERN4llvm11raw_ostreamERKN5clang4ento19PathDiagnosticPieceEjjbb.argelim(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(128) %1869, i32 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false)
   %1870 = load ptr, ptr %.sroa.046.062.i, align 8
   %.not58.i = icmp eq ptr %1870, %1799
   br i1 %.not58.i, label %._crit_edge64.i, label %.lr.ph63.i
@@ -4224,21 +4224,21 @@ _ZNSt22_Optional_payload_baseIN5clang21MacroExpansionContextEE10_M_destroyEv.exi
   br label %_ZNSt8optionalIN5clang21MacroExpansionContextEED2Ev.exit.i.i.i
 
 _ZNSt8optionalIN5clang21MacroExpansionContextEED2Ev.exit.i.i.i: ; preds = %_ZNSt22_Optional_payload_baseIN5clang21MacroExpansionContextEE10_M_destroyEv.exit.i.i.i.i.i.i.i, %1914
-  br i1 %1912, label %_ZL16getExpandedMacroN5clang14SourceLocationERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextERKNS_13SourceManagerE.exit.i.i, label %1938
+  br i1 %1912, label %_ZL16getExpandedMacroN5clang14SourceLocationERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextERKNS_13SourceManagerE.argprom.exit.i.i, label %1938
 
 1938:                                             ; preds = %_ZNSt8optionalIN5clang21MacroExpansionContextEED2Ev.exit.i.i.i
   %.sroa.0.0.copyload.i46.i.i = load i32, ptr %5, align 4, !noalias !13
   call void @_ZNK5clang21MacroExpansionContext15getExpandedTextENS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.397") align 8 %10, ptr noundef nonnull align 8 dereferenceable(72) %1910, i32 %.sroa.0.0.copyload.i46.i.i) #18
-  br label %_ZL16getExpandedMacroN5clang14SourceLocationERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextERKNS_13SourceManagerE.exit.i.i
+  br label %_ZL16getExpandedMacroN5clang14SourceLocationERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextERKNS_13SourceManagerE.argprom.exit.i.i
 
-_ZL16getExpandedMacroN5clang14SourceLocationERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextERKNS_13SourceManagerE.exit.i.i: ; preds = %1938, %_ZNSt8optionalIN5clang21MacroExpansionContextEED2Ev.exit.i.i.i
+_ZL16getExpandedMacroN5clang14SourceLocationERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextERKNS_13SourceManagerE.argprom.exit.i.i: ; preds = %1938, %_ZNSt8optionalIN5clang21MacroExpansionContextEED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
   %1939 = load i8, ptr %1777, align 8
   %1940 = trunc i8 %1939 to i1
   br i1 %1940, label %1941, label %_ZN4llvm11raw_ostreamlsEPKc.exit88.i.i
 
-1941:                                             ; preds = %_ZL16getExpandedMacroN5clang14SourceLocationERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextERKNS_13SourceManagerE.exit.i.i
+1941:                                             ; preds = %_ZL16getExpandedMacroN5clang14SourceLocationERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextERKNS_13SourceManagerE.argprom.exit.i.i
   %1942 = load i8, ptr %1778, align 8
   %1943 = trunc i8 %1942 to i1
   br i1 %1943, label %.preheader.i.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit88.i.i
@@ -4346,7 +4346,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit59.i.i:           ; preds = %1981, %1979
   %1990 = ptrtoint ptr %1986 to i64
   %1991 = sub i64 %1989, %1990
   %1992 = ashr exact i64 %1991, 3
-  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitRangesERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang11SourceRangeEEEj(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %22, ptr %1986, i64 %1992)
+  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitRangesERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang11SourceRangeEEEj.argelim(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %22, ptr %1986, i64 %1992)
   br label %1993
 
 1993:                                             ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i64.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit59.i.i
@@ -4523,7 +4523,7 @@ _ZN5clang6markup6IndentERN4llvm11raw_ostreamEj.exit85.i.i: ; preds = %_ZN4llvm11
   store ptr %2065, ptr %1715, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit88.i.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit88.i.i:           ; preds = %2063, %2061, %1941, %_ZL16getExpandedMacroN5clang14SourceLocationERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextERKNS_13SourceManagerE.exit.i.i
+_ZN4llvm11raw_ostreamlsEPKc.exit88.i.i:           ; preds = %2063, %2061, %1941, %_ZL16getExpandedMacroN5clang14SourceLocationERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextERKNS_13SourceManagerE.argprom.exit.i.i
   %2066 = getelementptr inbounds i8, ptr %.04590.i.i, i64 8
   %.not.i40.i = icmp eq ptr %2066, %1898
   br i1 %.not.i40.i, label %_ZN12_GLOBAL__N_112PlistPrinter21ReportMacroExpansionsERN4llvm11raw_ostreamEj.exit.i, label %.lr.ph.i39.i
@@ -7393,7 +7393,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5w
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11ReportPieceERN4llvm11raw_ostreamERKN5clang4ento19PathDiagnosticPieceEjjbb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11ReportPieceERN4llvm11raw_ostreamERKN5clang4ento19PathDiagnosticPieceEjjbb.argelim(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %8 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %9 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
@@ -8009,7 +8009,7 @@ _ZN5clang6markup6IndentERN4llvm11raw_ostreamEj.exit175.i: ; preds = %_ZN4llvm11r
   %262 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %263 = load i8, ptr %262, align 8
   %264 = trunc i8 %263 to i1
-  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11ReportPieceERN4llvm11raw_ostreamERKN5clang4ento19PathDiagnosticPieceEjjbb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(128) %260, i32 noundef %3, i1 noundef zeroext true, i1 noundef zeroext %264)
+  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11ReportPieceERN4llvm11raw_ostreamERKN5clang4ento19PathDiagnosticPieceEjjbb.argelim(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(128) %260, i32 noundef %3, i1 noundef zeroext true, i1 noundef zeroext %264)
   br label %265
 
 265:                                              ; preds = %261, %259
@@ -8094,7 +8094,7 @@ _ZNSt10shared_ptrIN5clang4ento24PathDiagnosticEventPieceEED2Ev.exit67: ; preds =
   br i1 %.not77, label %305, label %304
 
 304:                                              ; preds = %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticEventPieceEED2Ev.exit67
-  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11ReportPieceERN4llvm11raw_ostreamERKN5clang4ento19PathDiagnosticPieceEjjbb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(128) %303, i32 noundef %302, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11ReportPieceERN4llvm11raw_ostreamERKN5clang4ento19PathDiagnosticPieceEjjbb.argelim(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(128) %303, i32 noundef %302, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %305
 
 305:                                              ; preds = %304, %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticEventPieceEED2Ev.exit67
@@ -8181,7 +8181,7 @@ _ZNSt10shared_ptrIN5clang4ento24PathDiagnosticEventPieceEED2Ev.exit60: ; preds =
   %.sroa.069.085 = phi ptr [ %.sroa.069.0, %.lr.ph86 ], [ %.sroa.069.083, %_ZNSt10shared_ptrIN5clang4ento24PathDiagnosticEventPieceEED2Ev.exit60 ]
   %343 = getelementptr inbounds nuw i8, ptr %.sroa.069.085, i64 16
   %344 = load ptr, ptr %343, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11ReportPieceERN4llvm11raw_ostreamERKN5clang4ento19PathDiagnosticPieceEjjbb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(128) %344, i32 noundef %302, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11ReportPieceERN4llvm11raw_ostreamERKN5clang4ento19PathDiagnosticPieceEjjbb.argelim(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(128) %344, i32 noundef %302, i1 noundef zeroext true, i1 noundef zeroext false)
   %.sroa.069.0 = load ptr, ptr %.sroa.069.085, align 8
   %.not78 = icmp eq ptr %.sroa.069.0, %342
   br i1 %.not78, label %._crit_edge, label %.lr.ph86, !llvm.loop !26
@@ -8193,7 +8193,7 @@ _ZNSt10shared_ptrIN5clang4ento24PathDiagnosticEventPieceEED2Ev.exit60: ; preds =
   br i1 %.not79, label %_ZN12_GLOBAL__N_112PlistPrinter10ReportCallERN4llvm11raw_ostreamERKN5clang4ento23PathDiagnosticCallPieceEjj.exit, label %346
 
 346:                                              ; preds = %._crit_edge
-  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11ReportPieceERN4llvm11raw_ostreamERKN5clang4ento19PathDiagnosticPieceEjjbb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(128) %345, i32 noundef %3, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11ReportPieceERN4llvm11raw_ostreamERKN5clang4ento19PathDiagnosticPieceEjjbb.argelim(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(128) %345, i32 noundef %3, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %_ZN12_GLOBAL__N_112PlistPrinter10ReportCallERN4llvm11raw_ostreamERKN5clang4ento23PathDiagnosticCallPieceEjj.exit
 
 _ZN12_GLOBAL__N_112PlistPrinter10ReportCallERN4llvm11raw_ostreamERKN5clang4ento23PathDiagnosticCallPieceEjj.exit: ; preds = %._crit_edge, %346
@@ -8480,7 +8480,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit63.i:             ; preds = %465, %463
   %474 = ptrtoint ptr %470 to i64
   %475 = sub i64 %473, %474
   %476 = ashr exact i64 %475, 3
-  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitRangesERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang11SourceRangeEEEj(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %470, i64 %476)
+  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitRangesERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang11SourceRangeEEEj.argelim(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %470, i64 %476)
   br label %477
 
 477:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i68.i, %_ZN4llvm11raw_ostreamlsEPKc.exit63.i
@@ -8589,7 +8589,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i31:               ; preds = %524, %522
   %526 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %527 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %526) #18
   %528 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %526) #18
-  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11EmitMessageERN4llvm11raw_ostreamENS1_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %527, i64 %528)
+  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11EmitMessageERN4llvm11raw_ostreamENS1_9StringRefEj.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %527, i64 %528)
   %529 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %530 = load ptr, ptr %529, align 8
   %531 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -8598,7 +8598,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i31:               ; preds = %524, %522
   %534 = ptrtoint ptr %530 to i64
   %535 = sub i64 %533, %534
   %536 = ashr exact i64 %535, 6
-  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitFixitsERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang9FixItHintEEEj(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %530, i64 %536)
+  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitFixitsERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang9FixItHintEEEj.argelim(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %530, i64 %536)
   br label %537
 
 537:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i80.i34, %_ZN4llvm11raw_ostreamlsEc.exit.i31
@@ -8678,7 +8678,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento24PathDiagnosticMacroPieceELb1EE
   %.sroa.073.082 = phi ptr [ %.sroa.073.0, %.lr.ph ], [ %.sroa.073.080, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento24PathDiagnosticMacroPieceELb1EE9push_backES5_.exit ]
   %570 = getelementptr inbounds nuw i8, ptr %.sroa.073.082, i64 16
   %571 = load ptr, ptr %570, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11ReportPieceERN4llvm11raw_ostreamERKN5clang4ento19PathDiagnosticPieceEjjbb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(128) %571, i32 noundef %3, i1 noundef zeroext false, i1 noundef zeroext false)
+  tail call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11ReportPieceERN4llvm11raw_ostreamERKN5clang4ento19PathDiagnosticPieceEjjbb.argelim(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(128) %571, i32 noundef %3, i1 noundef zeroext false, i1 noundef zeroext false)
   %.sroa.073.0 = load ptr, ptr %.sroa.073.082, align 8
   %.not = icmp eq ptr %.sroa.073.0, %569
   br i1 %.not, label %_ZN12_GLOBAL__N_112PlistPrinter17ReportControlFlowERN4llvm11raw_ostreamERKN5clang4ento30PathDiagnosticControlFlowPieceEj.exit, label %.lr.ph
@@ -8797,11 +8797,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit38.i:             ; preds = %618, %616
   %627 = ptrtoint ptr %623 to i64
   %628 = sub i64 %626, %627
   %629 = ashr exact i64 %628, 3
-  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitRangesERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang11SourceRangeEEEj(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %623, i64 %629)
+  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitRangesERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang11SourceRangeEEEj.argelim(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %623, i64 %629)
   %630 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %631 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %630) #18
   %632 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %630) #18
-  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11EmitMessageERN4llvm11raw_ostreamENS1_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %631, i64 %632)
+  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11EmitMessageERN4llvm11raw_ostreamENS1_9StringRefEj.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %631, i64 %632)
   %633 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %634 = load ptr, ptr %633, align 8
   %635 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -8810,7 +8810,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit38.i:             ; preds = %618, %616
   %638 = ptrtoint ptr %634 to i64
   %639 = sub i64 %637, %638
   %640 = ashr exact i64 %639, 6
-  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitFixitsERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang9FixItHintEEEj(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %634, i64 %640)
+  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitFixitsERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang9FixItHintEEEj.argelim(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %634, i64 %640)
   br label %641
 
 641:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i47.i, %_ZN4llvm11raw_ostreamlsEPKc.exit38.i
@@ -9018,11 +9018,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit42.i:             ; preds = %724, %722
   %733 = ptrtoint ptr %729 to i64
   %734 = sub i64 %732, %733
   %735 = ashr exact i64 %734, 3
-  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitRangesERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang11SourceRangeEEEj(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %729, i64 %735)
+  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitRangesERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang11SourceRangeEEEj.argelim(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %729, i64 %735)
   %736 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %737 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %736) #18
   %738 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %736) #18
-  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11EmitMessageERN4llvm11raw_ostreamENS1_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %737, i64 %738)
+  call fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11EmitMessageERN4llvm11raw_ostreamENS1_9StringRefEj.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %737, i64 %738)
   br label %739
 
 739:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i49.i, %_ZN4llvm11raw_ostreamlsEPKc.exit42.i
@@ -9196,7 +9196,7 @@ declare i32 @_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13So
 declare void @_ZNK5clang4ento23PathDiagnosticCallPiece16getCallExitEventEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.341") align 8, ptr noundef nonnull align 8 dereferenceable(400)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitRangesERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang11SourceRangeEEEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitRangesERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang11SourceRangeEEEj.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr readonly %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %_ZN4llvm11raw_ostreamlsEPKc.exit53, label %6
 
@@ -9387,7 +9387,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit53:               ; preds = %77, %75, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11EmitMessageERN4llvm11raw_ostreamENS1_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112PlistPrinter11EmitMessageERN4llvm11raw_ostreamENS1_9StringRefEj.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
@@ -9572,7 +9572,7 @@ _ZN4llvm11raw_ostreamlsEc.exit33:                 ; preds = %71, %73
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitFixitsERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang9FixItHintEEEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112PlistPrinter10EmitFixitsERN4llvm11raw_ostreamENS1_8ArrayRefIN5clang9FixItHintEEEj.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %_ZN4llvm11raw_ostreamlsEPKc.exit89, label %6
 
@@ -10172,8 +10172,8 @@ attributes #23 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZL16getExpandedMacroN5clang14SourceLocationERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextERKNS_13SourceManagerE: argument 0"}
-!15 = distinct !{!15, !"_ZL16getExpandedMacroN5clang14SourceLocationERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextERKNS_13SourceManagerE"}
+!14 = distinct !{!14, !15, !"_ZL16getExpandedMacroN5clang14SourceLocationERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextERKNS_13SourceManagerE.argprom: argument 0"}
+!15 = distinct !{!15, !"_ZL16getExpandedMacroN5clang14SourceLocationERKNS_8cross_tu27CrossTranslationUnitContextERKNS_21MacroExpansionContextERKNS_13SourceManagerE.argprom"}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}

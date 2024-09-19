@@ -8057,13 +8057,13 @@ define internal void @rjit_full_cfunc_return(ptr noundef %0, i64 noundef %1) #0 
   %22 = load i8, ptr %21, align 8
   %23 = and i8 %22, 15
   %24 = icmp eq i8 %23, 1
-  br i1 %24, label %rb_ec_ractor_hooks.exit, label %25
+  br i1 %24, label %rb_ec_ractor_hooks.argprom.exit, label %25
 
 25:                                               ; preds = %19
   tail call void @rb_assert_failure(ptr noundef nonnull @.str.709, i32 noundef 213, ptr noundef nonnull @__func__.rjit_full_cfunc_return, ptr noundef nonnull @.str.712) #18
   unreachable
 
-rb_ec_ractor_hooks.exit:                          ; preds = %19
+rb_ec_ractor_hooks.argprom.exit:                  ; preds = %19
   tail call void @rb_vm_pop_frame(ptr noundef nonnull %0) #17
   %26 = getelementptr i8, ptr %0, i64 48
   %.val22 = load ptr, ptr %26, align 8, !nonnull !26, !noundef !26
@@ -8075,7 +8075,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %19
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %53, label %32
 
-32:                                               ; preds = %rb_ec_ractor_hooks.exit
+32:                                               ; preds = %rb_ec_ractor_hooks.argprom.exit
   %33 = getelementptr inbounds i8, ptr %28, i64 16
   %34 = getelementptr inbounds i8, ptr %6, i64 24
   %35 = load i64, ptr %34, align 8
@@ -8111,7 +8111,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %19
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
   br label %53
 
-53:                                               ; preds = %32, %rb_ec_ractor_hooks.exit
+53:                                               ; preds = %32, %rb_ec_ractor_hooks.argprom.exit
   %54 = load i16, ptr @ruby_cmethod__return_semaphore, align 2
   %.not20 = icmp eq i16 %54, 0
   br i1 %.not20, label %70, label %55

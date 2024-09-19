@@ -453,20 +453,20 @@ do.body.i.i:                                      ; preds = %do.cond.i.i, %if.en
   %prefix.addr.0.ptr.i.i = getelementptr inbounds i8, ptr @.str.15, i64 %prefix.addr.0.idx.i.i
   %23 = load i8, ptr %prefix.addr.0.ptr.i.i, align 1
   %exitcond.i.i = icmp eq i64 %prefix.addr.0.idx.i.i, 17
-  br i1 %exitcond.i.i, label %skip_prefix.exit.i, label %do.cond.i.i
+  br i1 %exitcond.i.i, label %skip_prefix.argprom.exit.i, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %str.addr.0.i.i, i64 1
   %24 = load i8, ptr %str.addr.0.i.i, align 1
   %prefix.addr.0.add.i.i = add nuw nsw i64 %prefix.addr.0.idx.i.i, 1
   %cmp.i43.i = icmp eq i8 %24, %23
-  br i1 %cmp.i43.i, label %do.body.i.i, label %skip_prefix.exit.i, !llvm.loop !5
+  br i1 %cmp.i43.i, label %do.body.i.i, label %skip_prefix.argprom.exit.i, !llvm.loop !5
 
-skip_prefix.exit.i:                               ; preds = %do.cond.i.i, %do.body.i.i
+skip_prefix.argprom.exit.i:                       ; preds = %do.cond.i.i, %do.body.i.i
   %tobool.not.i44.i = icmp eq i8 %23, 0
   br i1 %tobool.not.i44.i, label %if.end35.i, label %if.then27.i
 
-if.then27.i:                                      ; preds = %skip_prefix.exit.i
+if.then27.i:                                      ; preds = %skip_prefix.argprom.exit.i
   %25 = load ptr, ptr %path.i.i, align 8
   %26 = load ptr, ptr %buf.i.i, align 8
   %27 = load ptr, ptr %eof.i.i, align 8
@@ -476,7 +476,7 @@ if.then27.i:                                      ; preds = %skip_prefix.exit.i
   tail call fastcc void @die_invalid_line(ptr noundef %25, ptr noundef %26, i64 noundef %sub.ptr.sub34.i) #22
   unreachable
 
-if.end35.i:                                       ; preds = %skip_prefix.exit.i
+if.end35.i:                                       ; preds = %skip_prefix.argprom.exit.i
   %call36.i = call i32 @string_list_split_in_place(ptr noundef nonnull %traits.i, ptr noundef %scevgep.i.i, ptr noundef nonnull @.str.16, i32 noundef -1) #18
   %call37.i = call i32 @unsorted_string_list_has_string(ptr noundef nonnull %traits.i, ptr noundef nonnull @.str.17) #18
   %tobool38.not.i = icmp eq i32 %call37.i, 0
@@ -2254,7 +2254,7 @@ cmp_record_to_refname.exit.i.i99.i:               ; preds = %if.end19.i.i.i95.i,
   %r2.0.lcssa.i.i.i100.i = phi ptr [ %25, %find_start_of_record.exit.i.i62.i ], [ %incdec.ptr20.i.i.i96.i, %if.end19.i.i.i95.i ]
   %50 = load i8, ptr %r2.0.lcssa.i.i.i100.i, align 1
   %tobool.not.i.not.i.i101.i = icmp eq i8 %50, 0
-  br i1 %tobool.not.i.not.i.i101.i, label %find_reference_location_end.exit.i, label %if.then.i.i80.i
+  br i1 %tobool.not.i.not.i.i101.i, label %find_reference_location_end.argprom.exit.i, label %if.then.i.i80.i
 
 if.then.i.i80.i:                                  ; preds = %if.end.i.i.i67.i, %cmp_record_to_refname.exit.i.i99.i, %if.then13.i.i.i73.i
   %incdec.ptr4.i.i.i81.i = getelementptr inbounds i8, ptr %add.ptr.i.i60.i, i64 1
@@ -2288,14 +2288,14 @@ if.end9.i.i75.i:                                  ; preds = %while.body.i18.i.i9
   %hi.1.i.i76.i = phi ptr [ %hi.018.i.i55.i, %if.then.i.i80.i ], [ %p.addr.0.lcssa.i.i.i63.i, %if.then13.i.i.i73.i ], [ %hi.018.i.i55.i, %lor.rhs.i20.i.i93.i ], [ %hi.018.i.i55.i, %while.body.i18.i.i90.i ]
   %lo.1.i.i77.i = phi ptr [ %incdec.ptr4.i.i.i81.i, %if.then.i.i80.i ], [ %lo.019.i.i54.i, %if.then13.i.i.i73.i ], [ %scevgep.i.i.i85.i, %while.body.i18.i.i90.i ], [ %incdec.ptr8.i.i.i87.i, %lor.rhs.i20.i.i93.i ]
   %cmp.not.i.i78.i = icmp eq ptr %lo.1.i.i77.i, %hi.1.i.i76.i
-  br i1 %cmp.not.i.i78.i, label %find_reference_location_end.exit.i, label %while.body.i.i53.i, !llvm.loop !15
+  br i1 %cmp.not.i.i78.i, label %find_reference_location_end.argprom.exit.i, label %while.body.i.i53.i, !llvm.loop !15
 
-find_reference_location_end.exit.i:               ; preds = %if.end9.i.i75.i, %cmp_record_to_refname.exit.i.i99.i
+find_reference_location_end.argprom.exit.i:       ; preds = %if.end9.i.i75.i, %cmp_record_to_refname.exit.i.i99.i
   %retval.0.i.i79.i = phi ptr [ %lo.1.i.i77.i, %if.end9.i.i75.i ], [ %p.addr.0.lcssa.i.i.i63.i, %cmp_record_to_refname.exit.i.i99.i ]
   %cmp.i = icmp eq ptr %retval.0.i.i.i, %retval.0.i.i79.i
   br i1 %cmp.i, label %for.inc.i, label %do.body.i
 
-do.body.i:                                        ; preds = %find_reference_location_end.exit.i
+do.body.i:                                        ; preds = %find_reference_location_end.argprom.exit.i
   %54 = load i64, ptr %jump_nr.i, align 8
   %add.i = add i64 %54, 1
   %55 = load i64, ptr %jump_alloc.i, align 8
@@ -2339,7 +2339,7 @@ do.end.i:                                         ; preds = %st_mult.exit.i, %do
   store ptr %retval.0.i.i79.i, ptr %end34.i, align 8
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %for.body.i.i, %do.end.i, %find_reference_location_end.exit.i, %if.end4.i
+for.inc.i:                                        ; preds = %for.body.i.i, %do.end.i, %find_reference_location_end.argprom.exit.i, %if.end4.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %pattern.0131.i, i64 8
   %60 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool1.not.i = icmp eq ptr %60, null
@@ -2550,7 +2550,7 @@ cmp_record_to_refname.exit.i.i:                   ; preds = %if.end19.i.i.i, %fi
   %r2.0.lcssa.i.i.i = phi ptr [ %refname, %find_start_of_record.exit.i.i ], [ %incdec.ptr20.i.i.i, %if.end19.i.i.i ]
   %14 = load i8, ptr %r2.0.lcssa.i.i.i, align 1
   %tobool.not.i.not.i.i = icmp eq i8 %14, 0
-  br i1 %tobool.not.i.not.i.i, label %find_reference_location.exit, label %if.then.i.i
+  br i1 %tobool.not.i.not.i.i, label %find_reference_location.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cmp_record_to_refname.exit.i.i, %if.then13.i.i.i
   %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
@@ -2586,11 +2586,11 @@ if.end9.i.i:                                      ; preds = %if.end.i.i.i, %whil
   %cmp.not.i.i = icmp eq ptr %lo.1.i.i, %hi.1.i.i
   br i1 %cmp.not.i.i, label %return, label %while.body.i.i, !llvm.loop !15
 
-find_reference_location.exit:                     ; preds = %cmp_record_to_refname.exit.i.i
+find_reference_location.argprom.exit:             ; preds = %cmp_record_to_refname.exit.i.i
   %tobool.not = icmp eq ptr %p.addr.0.lcssa.i.i.i, null
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %find_reference_location.exit
+if.end:                                           ; preds = %find_reference_location.argprom.exit
   %call3 = tail call i32 @get_oid_hex(ptr noundef nonnull %p.addr.0.lcssa.i.i.i, ptr noundef %oid) #18
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %return, label %if.then5
@@ -2605,9 +2605,9 @@ if.then5:                                         ; preds = %if.end
   tail call fastcc void @die_invalid_line(ptr noundef %18, ptr noundef nonnull %p.addr.0.lcssa.i.i.i, i64 noundef %sub.ptr.sub) #22
   unreachable
 
-return:                                           ; preds = %if.end9.i.i, %if.end, %find_reference_location.exit, %packed_downcast.exit
-  %type.sink = phi ptr [ %failure_errno, %packed_downcast.exit ], [ %failure_errno, %find_reference_location.exit ], [ %type, %if.end ], [ %failure_errno, %if.end9.i.i ]
-  %retval.0 = phi i32 [ -1, %packed_downcast.exit ], [ -1, %find_reference_location.exit ], [ 0, %if.end ], [ -1, %if.end9.i.i ]
+return:                                           ; preds = %if.end9.i.i, %if.end, %find_reference_location.argprom.exit, %packed_downcast.exit
+  %type.sink = phi ptr [ %failure_errno, %packed_downcast.exit ], [ %failure_errno, %find_reference_location.argprom.exit ], [ %type, %if.end ], [ %failure_errno, %if.end9.i.i ]
+  %retval.0 = phi i32 [ -1, %packed_downcast.exit ], [ -1, %find_reference_location.argprom.exit ], [ 0, %if.end ], [ -1, %if.end9.i.i ]
   store i32 2, ptr %type.sink, align 4
   ret i32 %retval.0
 }

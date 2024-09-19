@@ -260,9 +260,9 @@ while.body.i:                                     ; preds = %while.body.i, %_ZN4
   %sub5.i = add nsw i64 %size.02.i, %add4.neg.i
   %cond8.i = select i1 %cmp.i.i, i64 %sub5.i, i64 %shr.i
   %cmp.i30 = icmp sgt i64 %cond8.i, 0
-  br i1 %cmp.i30, label %while.body.i, label %"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit", !llvm.loop !5
+  br i1 %cmp.i30, label %while.body.i, label %"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.argprom.exit", !llvm.loop !5
 
-"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit": ; preds = %while.body.i
+"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.argprom.exit": ; preds = %while.body.i
   %.sroa.speculated173 = tail call i32 @llvm.smin.i32(i32 %conv, i32 62)
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %conv34, i32 62)
   %sub9.i = add nsw i64 %cond.i, -1
@@ -299,8 +299,8 @@ while.body.i:                                     ; preds = %while.body.i, %_ZN4
   %sub.i120 = fsub float 1.000000e+00, %div53
   br label %for.body
 
-for.body:                                         ; preds = %"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit", %for.body
-  %indvars.iv = phi i64 [ 0, %"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit" ], [ %indvars.iv.next, %for.body ]
+for.body:                                         ; preds = %"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.argprom.exit", %for.body
+  %indvars.iv = phi i64 [ 0, %"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.argprom.exit" ], [ %indvars.iv.next, %for.body ]
   %arrayidx11.i = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %6, i64 0, i64 %cond21264272290, i64 %retval.0.i.i, i64 %idxprom5.i, i64 %idxprom8.i, i64 %indvars.iv
   %7 = load float, ptr %arrayidx11.i, align 4
   %arrayidx11.i39 = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %6, i64 0, i64 %cond21264272290, i64 %retval.0.i.i, i64 %idxprom5.i, i64 %idxprom8.i37, i64 %indvars.iv
@@ -729,7 +729,7 @@ call.i.noexc.i.i.i.i:                             ; preds = %sw.bb.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %call.i.noexc.i.i.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.21, i64 23))
-          to label %"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_19LinearColorEncodingEEEDaT_.exit.i.i" unwind label %lpad.i.i.i.i.i
+          to label %"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_19LinearColorEncodingEEEDaT_.argprom.exit.i.i" unwind label %lpad.i.i.i.i.i
 
 lpad.i.i.i.i.i:                                   ; preds = %.noexc.i.i.i.i
   %4 = landingpad { ptr, i32 }
@@ -747,7 +747,7 @@ lpad.body.i.i.i.i:                                ; preds = %lpad.i.i.i.i, %lpad
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #23
   br label %common.resume
 
-"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_19LinearColorEncodingEEEDaT_.exit.i.i": ; preds = %.noexc.i.i.i.i
+"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_19LinearColorEncodingEEEDaT_.argprom.exit.i.i": ; preds = %.noexc.i.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i), !noalias !10
   br label %return
@@ -764,7 +764,7 @@ call.i.noexc.i.i10.i.i:                           ; preds = %sw.bb3.i.i
 
 .noexc.i.i11.i.i:                                 ; preds = %call.i.noexc.i.i10.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.22, i64 21))
-          to label %"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_17sRGBColorEncodingEEEDaT_.exit.i.i" unwind label %lpad.i.i.i12.i.i
+          to label %"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_17sRGBColorEncodingEEEDaT_.argprom.exit.i.i" unwind label %lpad.i.i.i12.i.i
 
 lpad.i.i.i12.i.i:                                 ; preds = %.noexc.i.i11.i.i
   %6 = landingpad { ptr, i32 }
@@ -782,7 +782,7 @@ lpad.body.i.i8.i.i:                               ; preds = %lpad.i.i7.i.i, %lpa
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i5.i.i) #23
   br label %common.resume
 
-"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_17sRGBColorEncodingEEEDaT_.exit.i.i": ; preds = %.noexc.i.i11.i.i
+"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_17sRGBColorEncodingEEEDaT_.argprom.exit.i.i": ; preds = %.noexc.i.i11.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i5.i.i) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i5.i.i), !noalias !20
   br label %return
@@ -798,7 +798,7 @@ lpad.i.i.i13.i.i:                                 ; preds = %sw.default.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #23
   br label %common.resume
 
-return:                                           ; preds = %sw.default.i.i, %"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_17sRGBColorEncodingEEEDaT_.exit.i.i", %"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_19LinearColorEncodingEEEDaT_.exit.i.i", %invoke.cont
+return:                                           ; preds = %sw.default.i.i, %"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_17sRGBColorEncodingEEEDaT_.argprom.exit.i.i", %"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_19LinearColorEncodingEEEDaT_.argprom.exit.i.i", %invoke.cont
   ret void
 }
 
@@ -3873,18 +3873,18 @@ attributes #28 = { builtin allocsize(0) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = !{!11, !13, !15}
-!11 = distinct !{!11, !12, !"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_19LinearColorEncodingEEEDaT_: %agg.result"}
-!12 = distinct !{!12, !"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_19LinearColorEncodingEEEDaT_"}
-!13 = distinct !{!13, !14, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_13ColorEncoding8ToStringB5cxx11EvE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_19LinearColorEncodingENS_17sRGBColorEncodingENS_18GammaColorEncodingEEEDaOT_PKvi: %agg.result"}
-!14 = distinct !{!14, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_13ColorEncoding8ToStringB5cxx11EvE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_19LinearColorEncodingENS_17sRGBColorEncodingENS_18GammaColorEncodingEEEDaOT_PKvi"}
-!15 = distinct !{!15, !16, !"_ZNK4pbrt13TaggedPointerIJNS_19LinearColorEncodingENS_17sRGBColorEncodingENS_18GammaColorEncodingEEE11DispatchCPUIRZNKS_13ColorEncoding8ToStringB5cxx11EvE3$_0EEDcOT_: %agg.result"}
-!16 = distinct !{!16, !"_ZNK4pbrt13TaggedPointerIJNS_19LinearColorEncodingENS_17sRGBColorEncodingENS_18GammaColorEncodingEEE11DispatchCPUIRZNKS_13ColorEncoding8ToStringB5cxx11EvE3$_0EEDcOT_"}
+!11 = distinct !{!11, !12, !"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_19LinearColorEncodingEEEDaT_.argprom: %agg.result"}
+!12 = distinct !{!12, !"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_19LinearColorEncodingEEEDaT_.argprom"}
+!13 = distinct !{!13, !14, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_13ColorEncoding8ToStringB5cxx11EvE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_19LinearColorEncodingENS_17sRGBColorEncodingENS_18GammaColorEncodingEEEDaOT_PKvi.argprom: %agg.result"}
+!14 = distinct !{!14, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_13ColorEncoding8ToStringB5cxx11EvE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_19LinearColorEncodingENS_17sRGBColorEncodingENS_18GammaColorEncodingEEEDaOT_PKvi.argprom"}
+!15 = distinct !{!15, !16, !"_ZNK4pbrt13TaggedPointerIJNS_19LinearColorEncodingENS_17sRGBColorEncodingENS_18GammaColorEncodingEEE11DispatchCPUIRZNKS_13ColorEncoding8ToStringB5cxx11EvE3$_0EEDcOT_.argprom: %agg.result"}
+!16 = distinct !{!16, !"_ZNK4pbrt13TaggedPointerIJNS_19LinearColorEncodingENS_17sRGBColorEncodingENS_18GammaColorEncodingEEE11DispatchCPUIRZNKS_13ColorEncoding8ToStringB5cxx11EvE3$_0EEDcOT_.argprom"}
 !17 = !{!18, !11, !13, !15}
 !18 = distinct !{!18, !19, !"_ZNK4pbrt19LinearColorEncoding8ToStringB5cxx11Ev: %agg.result"}
 !19 = distinct !{!19, !"_ZNK4pbrt19LinearColorEncoding8ToStringB5cxx11Ev"}
 !20 = !{!21, !13, !15}
-!21 = distinct !{!21, !22, !"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_17sRGBColorEncodingEEEDaT_: %agg.result"}
-!22 = distinct !{!22, !"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_17sRGBColorEncodingEEEDaT_"}
+!21 = distinct !{!21, !22, !"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_17sRGBColorEncodingEEEDaT_.argprom: %agg.result"}
+!22 = distinct !{!22, !"_ZZNK4pbrt13ColorEncoding8ToStringB5cxx11EvENK3$_0clIPKNS_17sRGBColorEncodingEEEDaT_.argprom"}
 !23 = !{!24, !21, !13, !15}
 !24 = distinct !{!24, !25, !"_ZNK4pbrt17sRGBColorEncoding8ToStringB5cxx11Ev: %agg.result"}
 !25 = distinct !{!25, !"_ZNK4pbrt17sRGBColorEncoding8ToStringB5cxx11Ev"}

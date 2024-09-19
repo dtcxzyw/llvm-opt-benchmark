@@ -630,7 +630,7 @@ if.then22:                                        ; preds = %if.end18
   br label %if.end79
 
 if.end23:                                         ; preds = %if.end18
-  %call24 = call fastcc ptr @rsa_blinding_get(ptr noundef nonnull %rsa, ptr noundef %blinding_index)
+  %call24 = call fastcc ptr @rsa_blinding_get.argprom(ptr noundef nonnull %rsa, ptr noundef %blinding_index)
   %cmp25 = icmp eq ptr %call24, null
   br i1 %cmp25, label %if.then26, label %if.end27
 
@@ -760,7 +760,7 @@ if.end82:                                         ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @rsa_blinding_get(ptr noundef %rsa, ptr nocapture noundef nonnull writeonly %index_used) unnamed_addr #0 {
+define internal fastcc ptr @rsa_blinding_get.argprom(ptr noundef %rsa, ptr nocapture noundef nonnull writeonly %index_used) unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds i8, ptr %rsa, i64 96
   tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %lock) #7

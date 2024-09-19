@@ -812,7 +812,7 @@ ident_inet.exit:                                  ; preds = %313, %314
 
 sendAuthRequest.exit.i.i:                         ; preds = %356, %344
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
-  %357 = call fastcc ptr @recv_password_packet()
+  %357 = call fastcc ptr @recv_password_packet.argprom()
   %358 = icmp eq ptr %357, null
   br i1 %358, label %CheckMD5Auth.exit.i, label %359
 
@@ -892,7 +892,7 @@ CheckMD5Auth.exit.i:                              ; preds = %363, %sendAuthReque
 
 sendAuthRequest.exit.i:                           ; preds = %387, %375
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
-  %388 = call fastcc ptr @recv_password_packet()
+  %388 = call fastcc ptr @recv_password_packet.argprom()
   %389 = icmp eq ptr %388, null
   br i1 %389, label %CheckPWChallengeAuth.exit.thread, label %390
 
@@ -987,7 +987,7 @@ sendAuthRequest.exit.i:                           ; preds = %387, %375
 
 sendAuthRequest.exit.i80:                         ; preds = %431, %419
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  %432 = call fastcc ptr @recv_password_packet()
+  %432 = call fastcc ptr @recv_password_packet.argprom()
   %433 = icmp eq ptr %432, null
   br i1 %433, label %CheckPWChallengeAuth.exit.thread, label %434
 
@@ -2116,7 +2116,7 @@ declare i32 @llvm.bswap.i32(i32) #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @recv_password_packet() unnamed_addr #0 {
+define internal fastcc ptr @recv_password_packet.argprom() unnamed_addr #0 {
   %1 = alloca %struct.StringInfoData, align 8
   tail call void @pq_startmsgread() #16
   %2 = tail call i32 @pq_getbyte() #16

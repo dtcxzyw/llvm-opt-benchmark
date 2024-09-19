@@ -661,7 +661,7 @@ if.end3:                                          ; preds = %if.then1, %trace_vh
   %len1.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i32, ptr %len1.i, align 8
   %cmp3.not.i = icmp eq i32 %12, 0
-  br i1 %cmp3.not.i, label %vhost_vdpa_svq_cleanup.exit, label %for.body.i
+  br i1 %cmp3.not.i, label %vhost_vdpa_svq_cleanup.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end3, %for.body.i
   %13 = phi ptr [ %16, %for.body.i ], [ %11, %if.end3 ]
@@ -676,9 +676,9 @@ for.body.i:                                       ; preds = %if.end3, %for.body.
   %17 = load i32, ptr %len.i, align 8
   %conv.i = zext i32 %17 to i64
   %cmp.i10 = icmp ult i64 %inc.i, %conv.i
-  br i1 %cmp.i10, label %for.body.i, label %vhost_vdpa_svq_cleanup.exit, !llvm.loop !7
+  br i1 %cmp.i10, label %for.body.i, label %vhost_vdpa_svq_cleanup.argprom.exit, !llvm.loop !7
 
-vhost_vdpa_svq_cleanup.exit:                      ; preds = %for.body.i, %if.end3
+vhost_vdpa_svq_cleanup.argprom.exit:              ; preds = %for.body.i, %if.end3
   %.lcssa.i = phi ptr [ %11, %if.end3 ], [ %16, %for.body.i ]
   %call.i = tail call ptr @g_ptr_array_free(ptr noundef nonnull %.lcssa.i, i32 noundef 1) #12
   store ptr null, ptr %opaque, align 8
@@ -2094,9 +2094,9 @@ if.end10.i:                                       ; preds = %if.end14.i.i.i
   store i64 %sub.i35.i, ptr %.compoundliteral.sroa.3.0.driver_region.sroa_idx.i.i, align 8
   store i32 1, ptr %.compoundliteral.sroa.4.0.driver_region.sroa_idx.i.i, align 8
   %call4.i.i31 = call fastcc zeroext i1 @vhost_vdpa_svq_map_ring(ptr noundef %dev.val.i30, ptr noundef %driver_region.i.i, ptr noundef nonnull %err.i)
-  br i1 %call4.i.i31, label %if.end10.i.i, label %vhost_vdpa_svq_map_rings.exit.thread.i
+  br i1 %call4.i.i31, label %if.end10.i.i, label %vhost_vdpa_svq_map_rings.argprom.exit.thread.i
 
-vhost_vdpa_svq_map_rings.exit.thread.i:           ; preds = %if.end10.i
+vhost_vdpa_svq_map_rings.argprom.exit.thread.i:   ; preds = %if.end10.i
   call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %err.i, ptr noundef nonnull @.str.94) #12
   call void @error_propagate(ptr noundef nonnull %err.i, ptr noundef null) #12
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %device_region.i.i)
@@ -2119,9 +2119,9 @@ if.end10.i.i:                                     ; preds = %if.end10.i
   store i64 %sub21.i.i, ptr %.compoundliteral17.sroa.3.0.device_region.sroa_idx.i.i, align 8
   store i32 3, ptr %.compoundliteral17.sroa.4.0.device_region.sroa_idx.i.i, align 8
   %call23.i.i = call fastcc zeroext i1 @vhost_vdpa_svq_map_ring(ptr noundef %dev.val.i30, ptr noundef %device_region.i.i, ptr noundef nonnull %err.i)
-  br i1 %call23.i.i, label %if.end24.i, label %vhost_vdpa_svq_map_rings.exit.i
+  br i1 %call23.i.i, label %if.end24.i, label %vhost_vdpa_svq_map_rings.argprom.exit.i
 
-vhost_vdpa_svq_map_rings.exit.i:                  ; preds = %if.end10.i.i
+vhost_vdpa_svq_map_rings.argprom.exit.i:          ; preds = %if.end10.i.i
   call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %err.i, ptr noundef nonnull @.str.95) #12
   %36 = load i64, ptr %.compoundliteral.sroa.2.0.driver_region.sroa_idx.i.i, align 8
   call fastcc void @vhost_vdpa_svq_unmap_ring(ptr noundef %dev.val.i30, i64 noundef %36)
@@ -2172,7 +2172,7 @@ for.inc.i33:                                      ; preds = %if.end24.i
   %cmp.i34 = icmp ult i64 %indvars.iv.next.i, %46
   br i1 %cmp.i34, label %for.body.i23, label %vhost_vdpa_svqs_start.exit.thread, !llvm.loop !10
 
-err_map.i:                                        ; preds = %if.then34.i, %vhost_vdpa_svq_map_rings.exit.i, %vhost_vdpa_svq_map_rings.exit.thread.i
+err_map.i:                                        ; preds = %if.then34.i, %vhost_vdpa_svq_map_rings.argprom.exit.i, %vhost_vdpa_svq_map_rings.argprom.exit.thread.i
   %47 = load ptr, ptr %shadow_vqs.i, align 16
   %48 = load ptr, ptr %47, align 8
   %arrayidx43.i = getelementptr ptr, ptr %48, i64 %indvars.iv.i

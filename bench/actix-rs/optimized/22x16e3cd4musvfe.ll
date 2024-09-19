@@ -3188,15 +3188,15 @@ _ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17hc65ec3ddb683e5
 573:                                              ; preds = %567
   %574 = load i32, ptr %73, align 8, !noundef !12
   %575 = trunc i32 %574 to i16
-  call fastcc void @"_ZN19brotli_decompressor7huffman42HuffmanTreeGroup$LT$AllocU32$C$AllocHC$GT$4init17hc688d62fc7942cc4E"(ptr noalias noundef align 8 dereferenceable(40) %72, i16 noundef 256, i16 noundef 256, i16 noundef %575)
+  call fastcc void @"_ZN19brotli_decompressor7huffman42HuffmanTreeGroup$LT$AllocU32$C$AllocHC$GT$4init17hc688d62fc7942cc4E.argprom"(ptr noalias noundef align 8 dereferenceable(40) %72, i16 noundef 256, i16 noundef 256, i16 noundef %575)
   %576 = load i32, ptr %75, align 4, !noundef !12
   %577 = trunc i32 %576 to i16
-  call fastcc void @"_ZN19brotli_decompressor7huffman42HuffmanTreeGroup$LT$AllocU32$C$AllocHC$GT$4init17hc688d62fc7942cc4E"(ptr noalias noundef align 8 dereferenceable(40) %74, i16 noundef 704, i16 noundef 704, i16 noundef %577)
+  call fastcc void @"_ZN19brotli_decompressor7huffman42HuffmanTreeGroup$LT$AllocU32$C$AllocHC$GT$4init17hc688d62fc7942cc4E.argprom"(ptr noalias noundef align 8 dereferenceable(40) %74, i16 noundef 704, i16 noundef 704, i16 noundef %577)
   %578 = trunc i32 %245 to i16
   %579 = trunc i32 %.092 to i16
   %580 = load i32, ptr %77, align 8, !noundef !12
   %581 = trunc i32 %580 to i16
-  call fastcc void @"_ZN19brotli_decompressor7huffman42HuffmanTreeGroup$LT$AllocU32$C$AllocHC$GT$4init17hc688d62fc7942cc4E"(ptr noalias noundef align 8 dereferenceable(40) %76, i16 noundef %578, i16 noundef %579, i16 noundef %581)
+  call fastcc void @"_ZN19brotli_decompressor7huffman42HuffmanTreeGroup$LT$AllocU32$C$AllocHC$GT$4init17hc688d62fc7942cc4E.argprom"(ptr noalias noundef align 8 dereferenceable(40) %76, i16 noundef %578, i16 noundef %579, i16 noundef %581)
   %.val143 = load i64, ptr %78, align 8, !noundef !12
   %582 = icmp eq i64 %.val143, 0
   %.val141 = load i64, ptr %79, align 8
@@ -7715,7 +7715,7 @@ _ZN19brotli_decompressor6decode22PrepareLiteralDecoding17h34b2842f9552236fE.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN19brotli_decompressor7huffman42HuffmanTreeGroup$LT$AllocU32$C$AllocHC$GT$4init17hc688d62fc7942cc4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, i16 noundef %1, i16 noundef %2, i16 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN19brotli_decompressor7huffman42HuffmanTreeGroup$LT$AllocU32$C$AllocHC$GT$4init17hc688d62fc7942cc4E.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, i16 noundef %1, i16 noundef %2, i16 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8

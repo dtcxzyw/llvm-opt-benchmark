@@ -7735,7 +7735,7 @@ define dso_local noundef ptr @_ZN4Luau6Parser15parseAssignmentEPNS_7AstExprE(ptr
   %17 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstExprIndexNameEE5valueE, align 4
   %18 = icmp eq i32 %.val, %17
   %or.cond = select i1 %or.cond3.i, i1 true, i1 %18
-  br i1 %or.cond, label %_ZN4LuauL12isExprLValueEPNS_7AstExprE.exit.thread, label %.lr.ph.i.i
+  br i1 %or.cond, label %_ZN4LuauL12isExprLValueEPNS_7AstExprE.argprom.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
   %19 = getelementptr inbounds i8, ptr %0, i64 128
@@ -7747,9 +7747,9 @@ define dso_local noundef ptr @_ZN4Luau6Parser15parseAssignmentEPNS_7AstExprE(ptr
   %23 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 1, ptr %23, align 8
   %24 = call noundef ptr (ptr, ptr, ptr, ptr, ...) @_ZN4Luau6Parser15reportExprErrorERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEPKcz(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.114)
-  br label %_ZN4LuauL12isExprLValueEPNS_7AstExprE.exit.thread
+  br label %_ZN4LuauL12isExprLValueEPNS_7AstExprE.argprom.exit.thread
 
-_ZN4LuauL12isExprLValueEPNS_7AstExprE.exit.thread: ; preds = %2, %.lr.ph.i.i
+_ZN4LuauL12isExprLValueEPNS_7AstExprE.argprom.exit.thread: ; preds = %2, %.lr.ph.i.i
   %.074 = phi ptr [ %24, %.lr.ph.i.i ], [ %1, %2 ]
   %25 = getelementptr inbounds i8, ptr %0, i64 448
   %26 = getelementptr inbounds i8, ptr %0, i64 456
@@ -7764,14 +7764,14 @@ _ZN4LuauL12isExprLValueEPNS_7AstExprE.exit.thread: ; preds = %2, %.lr.ph.i.i
   %.not.i.i = icmp eq ptr %27, %34
   br i1 %.not.i.i, label %38, label %35
 
-35:                                               ; preds = %_ZN4LuauL12isExprLValueEPNS_7AstExprE.exit.thread
+35:                                               ; preds = %_ZN4LuauL12isExprLValueEPNS_7AstExprE.argprom.exit.thread
   store ptr %.074, ptr %27, align 8
   %36 = load ptr, ptr %26, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %37, ptr %26, align 8
   br label %_ZN4Luau10TempVectorIPNS_7AstExprEE9push_backERKS2_.exit
 
-38:                                               ; preds = %_ZN4LuauL12isExprLValueEPNS_7AstExprE.exit.thread
+38:                                               ; preds = %_ZN4LuauL12isExprLValueEPNS_7AstExprE.argprom.exit.thread
   %39 = icmp eq i64 %31, 9223372036854775800
   br i1 %39, label %.invoke, label %_ZNKSt6vectorIPN4Luau7AstExprESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
@@ -7858,7 +7858,7 @@ _ZN4Luau10TempVectorIPNS_7AstExprEE9push_backERKS2_.exit: ; preds = %35, %_ZNSt6
   %71 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstExprIndexNameEE5valueE, align 4
   %72 = icmp eq i32 %.val6, %71
   %or.cond77 = select i1 %or.cond3.i9, i1 true, i1 %72
-  br i1 %or.cond77, label %_ZN4LuauL12isExprLValueEPNS_7AstExprE.exit10.thread, label %73
+  br i1 %or.cond77, label %_ZN4LuauL12isExprLValueEPNS_7AstExprE.argprom.exit10.thread, label %73
 
 73:                                               ; preds = %63
   %74 = load ptr, ptr %58, align 8
@@ -7871,7 +7871,7 @@ _ZN4Luau10TempVectorIPNS_7AstExprEE9push_backERKS2_.exit: ; preds = %35, %_ZNSt6
   store ptr %75, ptr %5, align 8
   store i64 1, ptr %59, align 8
   %77 = invoke noundef ptr (ptr, ptr, ptr, ptr, ...) @_ZN4Luau6Parser15reportExprErrorERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEPKcz(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull align 4 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.114)
-          to label %_ZN4LuauL12isExprLValueEPNS_7AstExprE.exit10.thread unwind label %.loopexit79
+          to label %_ZN4LuauL12isExprLValueEPNS_7AstExprE.argprom.exit10.thread unwind label %.loopexit79
 
 .loopexit79:                                      ; preds = %60, %61, %.lr.ph.i.i11.preheader, %73, %94
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -7883,21 +7883,21 @@ _ZN4Luau10TempVectorIPNS_7AstExprEE9push_backERKS2_.exit: ; preds = %35, %_ZNSt6
           cleanup
   br label %_ZN4Luau10TempVectorIPNS_7AstExprEED2Ev.exit56
 
-_ZN4LuauL12isExprLValueEPNS_7AstExprE.exit10.thread: ; preds = %63, %.lr.ph.i.i11.preheader
+_ZN4LuauL12isExprLValueEPNS_7AstExprE.argprom.exit10.thread: ; preds = %63, %.lr.ph.i.i11.preheader
   %.0 = phi ptr [ %77, %.lr.ph.i.i11.preheader ], [ %62, %63 ]
   %78 = load ptr, ptr %26, align 8
   %79 = load ptr, ptr %33, align 8
   %.not.i.i18 = icmp eq ptr %78, %79
   br i1 %.not.i.i18, label %83, label %80
 
-80:                                               ; preds = %_ZN4LuauL12isExprLValueEPNS_7AstExprE.exit10.thread
+80:                                               ; preds = %_ZN4LuauL12isExprLValueEPNS_7AstExprE.argprom.exit10.thread
   store ptr %.0, ptr %78, align 8
   %81 = load ptr, ptr %26, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   store ptr %82, ptr %26, align 8
   br label %_ZN4Luau10TempVectorIPNS_7AstExprEE9push_backERKS2_.exit28
 
-83:                                               ; preds = %_ZN4LuauL12isExprLValueEPNS_7AstExprE.exit10.thread
+83:                                               ; preds = %_ZN4LuauL12isExprLValueEPNS_7AstExprE.argprom.exit10.thread
   %84 = load ptr, ptr %25, align 8
   %85 = ptrtoint ptr %78 to i64
   %86 = ptrtoint ptr %84 to i64
@@ -8163,7 +8163,7 @@ define dso_local noundef ptr @_ZN4Luau6Parser23parseCompoundAssignmentEPNS_7AstE
   %13 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstExprIndexNameEE5valueE, align 4
   %14 = icmp eq i32 %.val, %13
   %or.cond = select i1 %or.cond3.i, i1 true, i1 %14
-  br i1 %or.cond, label %_ZN4LuauL12isExprLValueEPNS_7AstExprE.exit.thread, label %.lr.ph.i.i
+  br i1 %or.cond, label %_ZN4LuauL12isExprLValueEPNS_7AstExprE.argprom.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3
   %15 = getelementptr inbounds i8, ptr %0, i64 128
@@ -8175,9 +8175,9 @@ define dso_local noundef ptr @_ZN4Luau6Parser23parseCompoundAssignmentEPNS_7AstE
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 1, ptr %19, align 8
   %20 = call noundef ptr (ptr, ptr, ptr, ptr, ...) @_ZN4Luau6Parser15reportExprErrorERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEPKcz(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.114)
-  br label %_ZN4LuauL12isExprLValueEPNS_7AstExprE.exit.thread
+  br label %_ZN4LuauL12isExprLValueEPNS_7AstExprE.argprom.exit.thread
 
-_ZN4LuauL12isExprLValueEPNS_7AstExprE.exit.thread: ; preds = %3, %.lr.ph.i.i
+_ZN4LuauL12isExprLValueEPNS_7AstExprE.argprom.exit.thread: ; preds = %3, %.lr.ph.i.i
   %.0 = phi ptr [ %20, %.lr.ph.i.i ], [ %1, %3 ]
   call void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(840) %0)
   %21 = call noundef ptr @_ZN4Luau6Parser9parseExprEj(ptr noundef nonnull align 8 dereferenceable(840) %0, i32 noundef 0)

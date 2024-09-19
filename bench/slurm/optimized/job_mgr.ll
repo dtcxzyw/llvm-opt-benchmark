@@ -1864,7 +1864,7 @@ build_array_str.exit:                             ; preds = %14, %17, %20, %22, 
   %235 = getelementptr inbounds i8, ptr %0, i64 576
   %236 = load ptr, ptr %235, align 8
   %.not.i553 = icmp eq ptr %236, null
-  br i1 %.not.i553, label %_update_job_nodes_str.exit, label %237
+  br i1 %.not.i553, label %_update_job_nodes_str.argprom.exit, label %237
 
 237:                                              ; preds = %222
   %238 = load i32, ptr %178, align 8
@@ -1884,7 +1884,7 @@ build_array_str.exit:                             ; preds = %14, %17, %20, %22, 
 243:                                              ; preds = %.sink.split.i, %237
   %244 = load i32, ptr %186, align 8
   %245 = icmp eq i32 %244, 36
-  br i1 %245, label %246, label %_update_job_nodes_str.exit
+  br i1 %245, label %246, label %_update_job_nodes_str.argprom.exit
 
 246:                                              ; preds = %243
   %247 = getelementptr inbounds i8, ptr %0, i64 592
@@ -1904,15 +1904,15 @@ build_array_str.exit:                             ; preds = %14, %17, %20, %22, 
 .sink.split2.i:                                   ; preds = %251, %249
   %.sink.i = phi ptr [ %253, %251 ], [ %250, %249 ]
   store ptr %.sink.i, ptr %234, align 8
-  br label %_update_job_nodes_str.exit
+  br label %_update_job_nodes_str.argprom.exit
 
-_update_job_nodes_str.exit:                       ; preds = %222, %243, %.sink.split2.i
+_update_job_nodes_str.argprom.exit:               ; preds = %222, %243, %.sink.split2.i
   %254 = load i32, ptr %178, align 8
   %255 = and i32 %254, 32768
   %.not512 = icmp eq i32 %255, 0
   br i1 %.not512, label %263, label %256
 
-256:                                              ; preds = %_update_job_nodes_str.exit
+256:                                              ; preds = %_update_job_nodes_str.argprom.exit
   %257 = load ptr, ptr %233, align 8
   %.not513 = icmp eq ptr %257, null
   br i1 %.not513, label %262, label %258
@@ -1928,7 +1928,7 @@ _update_job_nodes_str.exit:                       ; preds = %222, %243, %.sink.s
   tail call void @packmem(ptr noundef %257, i32 noundef %.0441, ptr noundef %1) #28
   br label %263
 
-263:                                              ; preds = %262, %_update_job_nodes_str.exit
+263:                                              ; preds = %262, %_update_job_nodes_str.argprom.exit
   %264 = load i32, ptr %186, align 8
   %265 = icmp eq i32 %264, 36
   br i1 %265, label %266, label %273
@@ -4243,7 +4243,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i, %find_job
   br i1 %.not805, label %378, label %.loopexit
 
 378:                                              ; preds = %376
-  call fastcc void @_unpack_acct_policy_limit_members(ptr noundef %68, ptr noundef %0)
+  call fastcc void @_unpack_acct_policy_limit_members.argelim(ptr noundef %68, ptr noundef %0)
   %379 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %86, ptr noundef nonnull %125, ptr noundef %0) #28
   %.not806 = icmp eq i32 %379, 0
   br i1 %.not806, label %380, label %.loopexit
@@ -5049,7 +5049,7 @@ find_job_record.exit899:                          ; preds = %.lr.ph.i894, %find_
   br i1 %.not679, label %722, label %.loopexit
 
 722:                                              ; preds = %720
-  call fastcc void @_unpack_acct_policy_limit_members(ptr noundef %68, ptr noundef %0)
+  call fastcc void @_unpack_acct_policy_limit_members.argelim(ptr noundef %68, ptr noundef %0)
   %723 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %86, ptr noundef nonnull %172, ptr noundef %0) #28
   %.not680 = icmp eq i32 %723, 0
   br i1 %.not680, label %724, label %.loopexit
@@ -6695,7 +6695,7 @@ declare i32 @unpack64(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @unpack8(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_unpack_acct_policy_limit_members(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_unpack_acct_policy_limit_members.argelim(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call i32 @unpack16(ptr noundef nonnull %0, ptr noundef %1) #28
   %.not = icmp eq i32 %4, 0
@@ -15314,14 +15314,14 @@ _top_priority.exit:                               ; preds = %.sink.split.i203, %
   %774 = load ptr, ptr %773, align 8
   %775 = icmp ne ptr %774, null
   %brmerge185 = or i1 %.0131, %775
-  br i1 %brmerge185, label %.critedge190, label %_has_deadline.exit
+  br i1 %brmerge185, label %.critedge190, label %_has_deadline.argprom.exit
 
-_has_deadline.exit:                               ; preds = %772
+_has_deadline.argprom.exit:                       ; preds = %772
   %.0132.not186 = xor i1 %.0132, true
   %brmerge189 = or i1 %.0130.not178216, %.0132.not186
   br i1 %brmerge189, label %.critedge190, label %776
 
-776:                                              ; preds = %_has_deadline.exit
+776:                                              ; preds = %_has_deadline.argprom.exit
   %777 = call zeroext i1 @avail_front_end(ptr noundef nonnull %392) #28
   br i1 %777, label %778, label %.critedge190
 
@@ -15348,13 +15348,13 @@ _has_deadline.exit:                               ; preds = %772
   %787 = icmp ne i32 %786, 0
   br label %.critedge190
 
-.critedge190:                                     ; preds = %766, %767, %778, %772, %_has_deadline.exit, %776, %782, %785, %.critedge
-  %788 = phi i1 [ false, %.critedge ], [ false, %782 ], [ false, %785 ], [ false, %776 ], [ false, %_has_deadline.exit ], [ %775, %772 ], [ false, %778 ], [ true, %767 ], [ true, %766 ]
-  %789 = phi i1 [ true, %.critedge ], [ false, %782 ], [ %787, %785 ], [ true, %776 ], [ true, %_has_deadline.exit ], [ true, %772 ], [ true, %778 ], [ true, %767 ], [ true, %766 ]
+.critedge190:                                     ; preds = %766, %767, %778, %772, %_has_deadline.argprom.exit, %776, %782, %785, %.critedge
+  %788 = phi i1 [ false, %.critedge ], [ false, %782 ], [ false, %785 ], [ false, %776 ], [ false, %_has_deadline.argprom.exit ], [ %775, %772 ], [ false, %778 ], [ true, %767 ], [ true, %766 ]
+  %789 = phi i1 [ true, %.critedge ], [ false, %782 ], [ %787, %785 ], [ true, %776 ], [ true, %_has_deadline.argprom.exit ], [ true, %772 ], [ true, %778 ], [ true, %767 ], [ true, %766 ]
   %790 = getelementptr inbounds i8, ptr %392, i64 216
   %791 = load ptr, ptr %790, align 8
   call void @set_job_features_use(ptr noundef %791) #28
-  %792 = call fastcc i32 @_select_nodes_parts(ptr noundef %392, i1 noundef zeroext %789, ptr noundef %8)
+  %792 = call fastcc i32 @_select_nodes_parts.argprom(ptr noundef %392, i1 noundef zeroext %789, ptr noundef %8)
   %793 = icmp eq i32 %792, 2014
   br i1 %793, label %794, label %811
 
@@ -15380,7 +15380,7 @@ _has_deadline.exit:                               ; preds = %772
   %807 = load ptr, ptr %806, align 8
   %808 = getelementptr inbounds i8, ptr %805, i64 200
   store ptr %807, ptr %808, align 8
-  %809 = call fastcc i32 @_select_nodes_parts(ptr noundef nonnull %392, i1 noundef zeroext %789, ptr noundef %8)
+  %809 = call fastcc i32 @_select_nodes_parts.argprom(ptr noundef nonnull %392, i1 noundef zeroext %789, ptr noundef %8)
   %810 = load ptr, ptr %790, align 8
   call void @set_job_features_use(ptr noundef %810) #28
   br label %811
@@ -15976,7 +15976,7 @@ declare i32 @bb_g_job_test_stage_in(ptr noundef, i1 noundef zeroext) local_unnam
 declare i32 @get_magnetic_resv_count() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_select_nodes_parts(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @_select_nodes_parts.argprom(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4
@@ -16023,7 +16023,7 @@ define internal fastcc i32 @_select_nodes_parts(ptr noundef %0, i1 noundef zeroe
   br label %28
 
 28:                                               ; preds = %25, %22
-  %29 = call fastcc i32 @_select_nodes_resvs(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %2, ptr noundef %7, ptr noundef %6, ptr noundef %8)
+  %29 = call fastcc i32 @_select_nodes_resvs.argprom(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %2, ptr noundef %7, ptr noundef %6, ptr noundef %8)
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %20, !llvm.loop !43
 
@@ -16045,7 +16045,7 @@ define internal fastcc i32 @_select_nodes_parts(ptr noundef %0, i1 noundef zeroe
   br i1 %.not19, label %45, label %39
 
 39:                                               ; preds = %36
-  %40 = call fastcc i32 @_select_nodes_resvs(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %2, ptr noundef %7, ptr noundef %6, ptr noundef %8)
+  %40 = call fastcc i32 @_select_nodes_resvs.argprom(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %2, ptr noundef %7, ptr noundef %6, ptr noundef %8)
   %41 = load i32, ptr %7, align 4
   %.not20 = icmp eq i32 %41, -1
   br i1 %.not20, label %42, label %52
@@ -19590,13 +19590,13 @@ _mem_per_node_part.exit.thread:                   ; preds = %50
   %92 = getelementptr i8, ptr %1, i64 232
   %.val = load ptr, ptr %92, align 8
   %.not.i175 = icmp eq ptr %.val, null
-  br i1 %.not.i175, label %_cpus_per_node_part.exit, label %93
+  br i1 %.not.i175, label %_cpus_per_node_part.argprom.exit, label %93
 
 93:                                               ; preds = %91
   %94 = tail call i64 @bit_ffs(ptr noundef nonnull %.val) #28
   %95 = and i64 %94, 2147483648
   %96 = icmp eq i64 %95, 0
-  br i1 %96, label %97, label %_cpus_per_node_part.exit
+  br i1 %96, label %97, label %_cpus_per_node_part.argprom.exit
 
 97:                                               ; preds = %93
   %98 = load ptr, ptr @node_record_table_ptr, align 8
@@ -19671,20 +19671,20 @@ _mem_per_node_part.exit.thread:                   ; preds = %50
   %spec.select174 = select i1 %.not154.not, i16 %.3, i16 %132
   br i1 %106, label %137, label %133
 
-_cpus_per_node_part.exit:                         ; preds = %93, %91
+_cpus_per_node_part.argprom.exit:                 ; preds = %93, %91
   br i1 %70, label %137, label %133
 
-133:                                              ; preds = %97, %129, %_cpus_per_node_part.exit
-  %.0115186 = phi i16 [ %spec.select174, %129 ], [ 0, %_cpus_per_node_part.exit ], [ %105, %97 ]
-  %.0114180182184 = phi i64 [ %.0114180183, %129 ], [ %.0114, %_cpus_per_node_part.exit ], [ %.0114, %97 ]
+133:                                              ; preds = %97, %129, %_cpus_per_node_part.argprom.exit
+  %.0115186 = phi i16 [ %spec.select174, %129 ], [ 0, %_cpus_per_node_part.argprom.exit ], [ %105, %97 ]
+  %.0114180182184 = phi i64 [ %.0114180183, %129 ], [ %.0114, %_cpus_per_node_part.argprom.exit ], [ %.0114, %97 ]
   %134 = and i64 %.0114180182184, 9223372036854775807
   %135 = zext i16 %.0115186 to i64
   %136 = mul i64 %134, %135
   br label %171
 
-137:                                              ; preds = %97, %129, %_cpus_per_node_part.exit
-  %.0115187 = phi i16 [ %spec.select174, %129 ], [ 0, %_cpus_per_node_part.exit ], [ %105, %97 ]
-  %.0114180182185 = phi i64 [ %.0114180183, %129 ], [ %.0114, %_cpus_per_node_part.exit ], [ %.0114, %97 ]
+137:                                              ; preds = %97, %129, %_cpus_per_node_part.argprom.exit
+  %.0115187 = phi i16 [ %spec.select174, %129 ], [ 0, %_cpus_per_node_part.argprom.exit ], [ %105, %97 ]
+  %.0114180182185 = phi i64 [ %.0114180183, %129 ], [ %.0114, %_cpus_per_node_part.argprom.exit ], [ %.0114, %97 ]
   %138 = add nsw i64 %11, -1
   %139 = add i64 %138, %.0114180182185
   %140 = udiv i64 %139, %11
@@ -21862,7 +21862,7 @@ _het_job_configuring_test.exit.thread:            ; preds = %113, %.loopexit.i, 
   br label %173
 
 173:                                              ; preds = %172, %169
-  call fastcc void @_job_timed_out(ptr noundef %25)
+  call fastcc void @_job_timed_out.argelim(ptr noundef %25)
   %174 = getelementptr inbounds i8, ptr %25, i64 904
   store i32 26, ptr %174, align 8
   %175 = getelementptr inbounds i8, ptr %25, i64 896
@@ -22026,7 +22026,7 @@ _het_job_configuring_test.exit.thread:            ; preds = %113, %.loopexit.i, 
   br label %262
 
 262:                                              ; preds = %261, %258
-  call fastcc void @_job_timed_out(ptr noundef %25)
+  call fastcc void @_job_timed_out.argelim(ptr noundef %25)
   %263 = getelementptr inbounds i8, ptr %25, i64 904
   store i32 25, ptr %263, align 8
   %264 = getelementptr inbounds i8, ptr %25, i64 896
@@ -22072,7 +22072,7 @@ _het_job_configuring_test.exit.thread:            ; preds = %113, %.loopexit.i, 
   %286 = getelementptr inbounds i8, ptr %285, i64 184
   %287 = load ptr, ptr %286, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %284, ptr noundef nonnull @.str.178, ptr noundef %287) #28
-  call fastcc void @_job_timed_out(ptr noundef %25)
+  call fastcc void @_job_timed_out.argelim(ptr noundef %25)
   %288 = getelementptr inbounds i8, ptr %25, i64 904
   store i32 25, ptr %288, align 8
   call void @slurm_xfree(ptr noundef nonnull %284) #28
@@ -22091,7 +22091,7 @@ _het_job_configuring_test.exit.thread:            ; preds = %113, %.loopexit.i, 
 297:                                              ; preds = %289
   %298 = load i64, ptr %1, align 8
   store i64 %298, ptr @last_job_update, align 8
-  call fastcc void @_job_timed_out(ptr noundef %25)
+  call fastcc void @_job_timed_out.argelim(ptr noundef %25)
   %299 = getelementptr inbounds i8, ptr %25, i64 896
   call void @slurm_xfree(ptr noundef nonnull %299) #28
   br label %306
@@ -22155,7 +22155,7 @@ declare i32 @slurm_job_preempt(ptr noundef, ptr noundef, i16 noundef zeroext, i1
 declare zeroext i16 @slurm_job_preempt_mode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_job_timed_out(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @_job_timed_out.argelim(ptr noundef nonnull %0) unnamed_addr #0 {
   tail call void @srun_timeout(ptr noundef nonnull %0) #28
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
@@ -41298,14 +41298,14 @@ declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @priority_sort_part_tier(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_select_nodes_resvs(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_select_nodes_resvs.argprom(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 800
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call fastcc i32 @_select_nodes_parts_resvs(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %10 = tail call fastcc i32 @_select_nodes_parts_resvs.argprom(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %41
 
 11:                                               ; preds = %6
@@ -41354,7 +41354,7 @@ define internal fastcc range(i32 -1, 1) i32 @_select_nodes_resvs(ptr noundef %0,
   br label %34
 
 34:                                               ; preds = %31, %28
-  %35 = tail call fastcc i32 @_select_nodes_parts_resvs(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %35 = tail call fastcc i32 @_select_nodes_parts_resvs.argprom(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %39
 
@@ -41382,7 +41382,7 @@ define internal fastcc range(i32 -1, 1) i32 @_select_nodes_resvs(ptr noundef %0,
 declare i32 @select_nodes(ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_select_nodes_parts_resvs(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_select_nodes_parts_resvs.argprom(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   store ptr %0, ptr %7, align 8
   %8 = call i32 @job_limits_check(ptr noundef nonnull %7, i1 noundef zeroext false)
@@ -43314,13 +43314,13 @@ _get_mail_user.exit:                              ; preds = %204, %207, %208
   %267 = getelementptr inbounds i8, ptr %0, i64 716
   %268 = load i16, ptr %267, align 4
   %269 = icmp eq i16 %268, -2
-  br i1 %269, label %270, label %_default_wait_all_nodes.exit
+  br i1 %269, label %270, label %_default_wait_all_nodes.argprom.exit
 
 270:                                              ; preds = %216
   %271 = getelementptr i8, ptr %0, i64 568
   %.val = load ptr, ptr %271, align 8
   %.not.i404 = icmp eq ptr %.val, null
-  br i1 %.not.i404, label %_default_wait_all_nodes.exit, label %272
+  br i1 %.not.i404, label %_default_wait_all_nodes.argprom.exit, label %272
 
 272:                                              ; preds = %270
   %273 = load i16, ptr @_default_wait_all_nodes.default_batch_wait, align 2
@@ -43331,7 +43331,7 @@ _get_mail_user.exit:                              ; preds = %204, %207, %208
   %275 = load i64, ptr @_default_wait_all_nodes.sched_update, align 8
   %276 = load i64, ptr @slurm_conf, align 8
   %277 = icmp eq i64 %275, %276
-  br i1 %277, label %_default_wait_all_nodes.exit, label %278
+  br i1 %277, label %_default_wait_all_nodes.argprom.exit, label %278
 
 278:                                              ; preds = %274, %272
   %279 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1072), align 8
@@ -43341,9 +43341,9 @@ _get_mail_user.exit:                              ; preds = %204, %207, %208
   store i16 %..i, ptr @_default_wait_all_nodes.default_batch_wait, align 2
   %281 = load i64, ptr @slurm_conf, align 8
   store i64 %281, ptr @_default_wait_all_nodes.sched_update, align 8
-  br label %_default_wait_all_nodes.exit
+  br label %_default_wait_all_nodes.argprom.exit
 
-_default_wait_all_nodes.exit:                     ; preds = %216, %278, %274, %270
+_default_wait_all_nodes.argprom.exit:             ; preds = %216, %278, %274, %270
   %.sink422 = phi i16 [ %..i, %278 ], [ 0, %270 ], [ %273, %274 ], [ %268, %216 ]
   %282 = getelementptr inbounds i8, ptr %52, i64 1080
   store i16 %.sink422, ptr %282, align 8
@@ -43432,7 +43432,7 @@ _default_wait_all_nodes.exit:                     ; preds = %216, %278, %274, %2
   %or.cond = select i1 %.not378, i1 true, i1 %.not379
   br i1 %or.cond, label %353, label %342
 
-342:                                              ; preds = %_default_wait_all_nodes.exit
+342:                                              ; preds = %_default_wait_all_nodes.argprom.exit
   %343 = add i32 %338, 1
   %344 = zext i32 %343 to i64
   %345 = call ptr @bit_alloc(i64 noundef %344) #28
@@ -43456,7 +43456,7 @@ _default_wait_all_nodes.exit:                     ; preds = %216, %278, %274, %2
   store ptr null, ptr %346, align 8
   br label %353
 
-353:                                              ; preds = %342, %352, %_default_wait_all_nodes.exit
+353:                                              ; preds = %342, %352, %_default_wait_all_nodes.argprom.exit
   %354 = getelementptr inbounds i8, ptr %0, i64 800
   %355 = load ptr, ptr %354, align 8
   %356 = call ptr @xstrdup(ptr noundef %355) #28
@@ -46090,7 +46090,7 @@ define internal fastcc i32 @_job_requeue_op(i32 noundef %0, ptr noundef nonnull 
   br i1 %.not129, label %51, label %205
 
 51:                                               ; preds = %50
-  tail call fastcc void @_job_fail(ptr noundef %1)
+  tail call fastcc void @_job_fail.argelim(ptr noundef %1)
   br label %205
 
 52:                                               ; preds = %47
@@ -46112,7 +46112,7 @@ define internal fastcc i32 @_job_requeue_op(i32 noundef %0, ptr noundef nonnull 
   br i1 %.not129, label %61, label %205
 
 61:                                               ; preds = %60
-  tail call fastcc void @_job_fail(ptr noundef %1)
+  tail call fastcc void @_job_fail.argelim(ptr noundef %1)
   br label %205
 
 62:                                               ; preds = %52
@@ -46450,7 +46450,7 @@ _set_requeued_job_pending_completing.exit:        ; preds = %128, %131
 declare i32 @node_features_g_get_node(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_job_fail(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @_job_fail.argelim(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = tail call i64 @time(ptr noundef null) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8

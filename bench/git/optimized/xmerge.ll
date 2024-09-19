@@ -1588,7 +1588,7 @@ cond.end14.i:                                     ; preds = %cond.true10.i, %con
   %idx.ext.i.i.i = sext i32 %i.0150 to i64
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %xe1.val.i, i64 %idx.ext.i.i.i
   %cmp.i.i.i = icmp slt i32 %conv20.i, 1
-  br i1 %cmp.i.i.i, label %xdl_recs_copy.exit.i, label %for.cond.preheader.i.i.i
+  br i1 %cmp.i.i.i, label %xdl_recs_copy.argprom.exit.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %cond.end14.i
   %tobool4.not.i.i.i = icmp eq ptr %cond25.i, null
@@ -1606,7 +1606,7 @@ for.body.us.i.i.i:                                ; preds = %for.cond.preheader.
   %14 = trunc i64 %13 to i32
   %conv15.us.i.i.i = add i32 %size.027.us.i.i.i, %14
   %exitcond34.not.i.i.i = icmp eq i64 %indvars.iv.next31.i.i.i, %wide.trip.count33.i.i.i
-  br i1 %exitcond34.not.i.i.i, label %xdl_recs_copy.exit.i, label %for.body.us.i.i.i, !llvm.loop !18
+  br i1 %exitcond34.not.i.i.i, label %xdl_recs_copy.argprom.exit.i, label %for.body.us.i.i.i, !llvm.loop !18
 
 for.body.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.body.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.body.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
@@ -1627,20 +1627,20 @@ for.body.i.i.i:                                   ; preds = %for.cond.preheader.
   %20 = trunc i64 %19 to i32
   %conv15.i.i.i = add i32 %size.027.i.i.i, %20
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count33.i.i.i
-  br i1 %exitcond.not.i.i.i, label %xdl_recs_copy.exit.i, label %for.body.i.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i, label %xdl_recs_copy.argprom.exit.i, label %for.body.i.i.i, !llvm.loop !18
 
-xdl_recs_copy.exit.i:                             ; preds = %for.body.i.i.i, %for.body.us.i.i.i, %cond.end14.i
+xdl_recs_copy.argprom.exit.i:                     ; preds = %for.body.i.i.i, %for.body.us.i.i.i, %cond.end14.i
   %retval.0.i.i.i = phi i32 [ 0, %cond.end14.i ], [ %conv15.us.i.i.i, %for.body.us.i.i.i ], [ %conv15.i.i.i, %for.body.i.i.i ]
   %add27.i = add nsw i32 %retval.0.i.i.i, %size.0149
   br i1 %tobool10.not, label %if.then29.i, label %if.else.i
 
-if.then29.i:                                      ; preds = %xdl_recs_copy.exit.i
+if.then29.i:                                      ; preds = %xdl_recs_copy.argprom.exit.i
   %add31.i = add i32 %add30.i, %cond.i
   %add32.i = add i32 %add31.i, %call17.i
   %add33.i = add nsw i32 %add32.i, %add27.i
   br label %if.end55.i
 
-if.else.i:                                        ; preds = %xdl_recs_copy.exit.i
+if.else.i:                                        ; preds = %xdl_recs_copy.argprom.exit.i
   %idx.ext34.i = sext i32 %add27.i to i64
   %add.ptr35.i = getelementptr inbounds i8, ptr %dest, i64 %idx.ext34.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr35.i, i8 60, i64 %conv36.i, i1 false)
@@ -1693,7 +1693,7 @@ if.end55.i:                                       ; preds = %if.end51.i, %if.the
   %23 = ashr exact i64 %sext.i, 29
   %add.ptr.i.i120.i = getelementptr inbounds i8, ptr %xe1.val117.i, i64 %23
   %cmp.i.i121.i = icmp slt i32 %conv58.i, 1
-  br i1 %cmp.i.i121.i, label %xdl_recs_copy.exit148.i, label %for.cond.preheader.i.i122.i
+  br i1 %cmp.i.i121.i, label %xdl_recs_copy.argprom.exit148.i, label %for.cond.preheader.i.i122.i
 
 for.cond.preheader.i.i122.i:                      ; preds = %if.end55.i
   %tobool4.not.i.i123.i = icmp eq ptr %cond65.i, null
@@ -1754,7 +1754,7 @@ lor.lhs.false.i.i.i:                              ; preds = %for.end.i.i137.i
   %arrayidx30.i.i.i = getelementptr inbounds i8, ptr %37, i64 %idxprom29.i.i.i
   %38 = load i8, ptr %arrayidx30.i.i.i, align 1
   %cmp32.not.i.i.i = icmp eq i8 %38, 10
-  br i1 %cmp32.not.i.i.i, label %xdl_recs_copy.exit148.i, label %if.then34.i.i.i
+  br i1 %cmp32.not.i.i.i, label %xdl_recs_copy.argprom.exit148.i, label %if.then34.i.i.i
 
 if.then34.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %for.end.i.i137.i
   %tobool35.not.i.i.i = icmp eq i32 %call17.i, 0
@@ -1785,14 +1785,14 @@ if.then45.i.i.i:                                  ; preds = %if.end43.i.i.i
 
 if.end48.i.i.i:                                   ; preds = %if.then45.i.i.i, %if.end43.i.i.i
   %inc49.i.i.i = add nsw i32 %size.2.i.i.i, 1
-  br label %xdl_recs_copy.exit148.i
+  br label %xdl_recs_copy.argprom.exit148.i
 
-xdl_recs_copy.exit148.i:                          ; preds = %if.end48.i.i.i, %lor.lhs.false.i.i.i, %if.end55.i
+xdl_recs_copy.argprom.exit148.i:                  ; preds = %if.end48.i.i.i, %lor.lhs.false.i.i.i, %if.end55.i
   %retval.0.i.i139.i = phi i32 [ 0, %if.end55.i ], [ %inc49.i.i.i, %if.end48.i.i.i ], [ %.us-phi.i.i138.i, %lor.lhs.false.i.i.i ]
   %add67.i = add nsw i32 %retval.0.i.i139.i, %size.addr.0.i
   br i1 %or.cond.i, label %if.then72.i, label %if.end116.i
 
-if.then72.i:                                      ; preds = %xdl_recs_copy.exit148.i
+if.then72.i:                                      ; preds = %xdl_recs_copy.argprom.exit148.i
   br i1 %tobool10.not, label %if.then74.i, label %if.else79.i
 
 if.then74.i:                                      ; preds = %if.then72.i
@@ -1855,7 +1855,7 @@ if.end104.i:                                      ; preds = %if.end100.i, %if.th
   %41 = ashr exact i64 %sext258.i, 29
   %add.ptr.i.i150.i = getelementptr inbounds i8, ptr %xe1.val118.i, i64 %41
   %cmp.i.i151.i = icmp slt i32 %conv106.i, 1
-  br i1 %cmp.i.i151.i, label %xdl_orig_copy.exit.i, label %for.cond.preheader.i.i152.i
+  br i1 %cmp.i.i151.i, label %xdl_orig_copy.argprom.exit.i, label %for.cond.preheader.i.i152.i
 
 for.cond.preheader.i.i152.i:                      ; preds = %if.end104.i
   %tobool4.not.i.i153.i = icmp eq ptr %cond113.i, null
@@ -1916,7 +1916,7 @@ lor.lhs.false.i.i172.i:                           ; preds = %for.end.i.i167.i
   %arrayidx30.i.i177.i = getelementptr inbounds i8, ptr %55, i64 %idxprom29.i.i176.i
   %56 = load i8, ptr %arrayidx30.i.i177.i, align 1
   %cmp32.not.i.i178.i = icmp eq i8 %56, 10
-  br i1 %cmp32.not.i.i178.i, label %xdl_orig_copy.exit.i, label %if.then34.i.i179.i
+  br i1 %cmp32.not.i.i178.i, label %xdl_orig_copy.argprom.exit.i, label %if.then34.i.i179.i
 
 if.then34.i.i179.i:                               ; preds = %lor.lhs.false.i.i172.i, %for.end.i.i167.i
   %tobool35.not.i.i180.i = icmp eq i32 %call17.i, 0
@@ -1947,15 +1947,15 @@ if.then45.i.i189.i:                               ; preds = %if.end43.i.i187.i
 
 if.end48.i.i192.i:                                ; preds = %if.then45.i.i189.i, %if.end43.i.i187.i
   %inc49.i.i193.i = add nsw i32 %size.2.i.i188.i, 1
-  br label %xdl_orig_copy.exit.i
+  br label %xdl_orig_copy.argprom.exit.i
 
-xdl_orig_copy.exit.i:                             ; preds = %if.end48.i.i192.i, %lor.lhs.false.i.i172.i, %if.end104.i
+xdl_orig_copy.argprom.exit.i:                     ; preds = %if.end48.i.i192.i, %lor.lhs.false.i.i172.i, %if.end104.i
   %retval.0.i.i194.i = phi i32 [ 0, %if.end104.i ], [ %inc49.i.i193.i, %if.end48.i.i192.i ], [ %.us-phi.i.i168.i, %lor.lhs.false.i.i172.i ]
   %add115.i = add nsw i32 %retval.0.i.i194.i, %size.addr.4.i
   br label %if.end116.i
 
-if.end116.i:                                      ; preds = %xdl_orig_copy.exit.i, %xdl_recs_copy.exit148.i
-  %size.addr.3.i = phi i32 [ %add115.i, %xdl_orig_copy.exit.i ], [ %add67.i, %xdl_recs_copy.exit148.i ]
+if.end116.i:                                      ; preds = %xdl_orig_copy.argprom.exit.i, %xdl_recs_copy.argprom.exit148.i
+  %size.addr.3.i = phi i32 [ %add115.i, %xdl_orig_copy.argprom.exit.i ], [ %add67.i, %xdl_recs_copy.argprom.exit148.i ]
   br i1 %tobool10.not, label %if.then118.i, label %if.else122.i
 
 if.then118.i:                                     ; preds = %if.end116.i
@@ -2001,7 +2001,7 @@ if.end136.i:                                      ; preds = %if.end132.i, %if.th
   %59 = ashr exact i64 %sext259.i, 29
   %add.ptr.i.i204.i = getelementptr inbounds i8, ptr %xe2.val.i, i64 %59
   %cmp.i.i205.i = icmp slt i32 %conv138.i, 1
-  br i1 %cmp.i.i205.i, label %xdl_recs_copy.exit257.i, label %for.cond.preheader.i.i206.i
+  br i1 %cmp.i.i205.i, label %xdl_recs_copy.argprom.exit257.i, label %for.cond.preheader.i.i206.i
 
 for.cond.preheader.i.i206.i:                      ; preds = %if.end136.i
   %tobool4.not.i.i207.i = icmp eq ptr %cond145.i, null
@@ -2062,7 +2062,7 @@ lor.lhs.false.i.i226.i:                           ; preds = %for.end.i.i221.i
   %arrayidx30.i.i231.i = getelementptr inbounds i8, ptr %73, i64 %idxprom29.i.i230.i
   %74 = load i8, ptr %arrayidx30.i.i231.i, align 1
   %cmp32.not.i.i232.i = icmp eq i8 %74, 10
-  br i1 %cmp32.not.i.i232.i, label %xdl_recs_copy.exit257.i, label %if.then34.i.i233.i
+  br i1 %cmp32.not.i.i232.i, label %xdl_recs_copy.argprom.exit257.i, label %if.then34.i.i233.i
 
 if.then34.i.i233.i:                               ; preds = %lor.lhs.false.i.i226.i, %for.end.i.i221.i
   %tobool35.not.i.i234.i = icmp eq i32 %call17.i, 0
@@ -2093,20 +2093,20 @@ if.then45.i.i243.i:                               ; preds = %if.end43.i.i241.i
 
 if.end48.i.i246.i:                                ; preds = %if.then45.i.i243.i, %if.end43.i.i241.i
   %inc49.i.i247.i = add nsw i32 %size.2.i.i242.i, 1
-  br label %xdl_recs_copy.exit257.i
+  br label %xdl_recs_copy.argprom.exit257.i
 
-xdl_recs_copy.exit257.i:                          ; preds = %if.end48.i.i246.i, %lor.lhs.false.i.i226.i, %if.end136.i
+xdl_recs_copy.argprom.exit257.i:                  ; preds = %if.end48.i.i246.i, %lor.lhs.false.i.i226.i, %if.end136.i
   %retval.0.i.i248.i = phi i32 [ 0, %if.end136.i ], [ %inc49.i.i247.i, %if.end48.i.i246.i ], [ %.us-phi.i.i222.i, %lor.lhs.false.i.i226.i ]
   %add147.i = add nsw i32 %retval.0.i.i248.i, %size.addr.7.i
   br i1 %tobool10.not, label %if.then149.i, label %if.else154.i
 
-if.then149.i:                                     ; preds = %xdl_recs_copy.exit257.i
+if.then149.i:                                     ; preds = %xdl_recs_copy.argprom.exit257.i
   %add151.i = add i32 %add30.i, %cond7.i
   %add152.i = add i32 %add151.i, %call17.i
   %add153.i = add nsw i32 %add152.i, %add147.i
   br label %if.end50
 
-if.else154.i:                                     ; preds = %xdl_recs_copy.exit257.i
+if.else154.i:                                     ; preds = %xdl_recs_copy.argprom.exit257.i
   %idx.ext155.i = sext i32 %add147.i to i64
   %add.ptr156.i = getelementptr inbounds i8, ptr %dest, i64 %idx.ext155.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr156.i, i8 62, i64 %conv36.i, i1 false)
@@ -2164,7 +2164,7 @@ if.then8:                                         ; preds = %if.else
   %idx.ext.i.i = sext i32 %i.0150 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %xe1.val, i64 %idx.ext.i.i
   %cmp.i.i = icmp slt i32 %conv9, 1
-  br i1 %cmp.i.i, label %xdl_recs_copy.exit, label %for.cond.preheader.i.i
+  br i1 %cmp.i.i, label %xdl_recs_copy.argprom.exit, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.then8
   %tobool4.not.i.i = icmp eq ptr %cond, null
@@ -2182,7 +2182,7 @@ for.body.us.i.i:                                  ; preds = %for.cond.preheader.
   %80 = trunc i64 %79 to i32
   %conv15.us.i.i = add i32 %size.027.us.i.i, %80
   %exitcond34.not.i.i = icmp eq i64 %indvars.iv.next31.i.i, %wide.trip.count33.i.i
-  br i1 %exitcond34.not.i.i, label %xdl_recs_copy.exit, label %for.body.us.i.i, !llvm.loop !18
+  br i1 %exitcond34.not.i.i, label %xdl_recs_copy.argprom.exit, label %for.body.us.i.i, !llvm.loop !18
 
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.cond.preheader.i.i ]
@@ -2203,21 +2203,21 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   %86 = trunc i64 %85 to i32
   %conv15.i.i = add i32 %size.027.i.i, %86
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count33.i.i
-  br i1 %exitcond.not.i.i, label %xdl_recs_copy.exit.loopexit160, label %for.body.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %xdl_recs_copy.argprom.exit.loopexit160, label %for.body.i.i, !llvm.loop !18
 
-xdl_recs_copy.exit.loopexit160:                   ; preds = %for.body.i.i
+xdl_recs_copy.argprom.exit.loopexit160:           ; preds = %for.body.i.i
   %.pre161 = load i32, ptr %mode4165, align 8
-  br label %xdl_recs_copy.exit
+  br label %xdl_recs_copy.argprom.exit
 
-xdl_recs_copy.exit:                               ; preds = %for.body.us.i.i, %xdl_recs_copy.exit.loopexit160, %if.then8
-  %87 = phi i32 [ %75, %if.then8 ], [ %.pre161, %xdl_recs_copy.exit.loopexit160 ], [ %75, %for.body.us.i.i ]
-  %retval.0.i.i = phi i32 [ 0, %if.then8 ], [ %conv15.i.i, %xdl_recs_copy.exit.loopexit160 ], [ %conv15.us.i.i, %for.body.us.i.i ]
+xdl_recs_copy.argprom.exit:                       ; preds = %for.body.us.i.i, %xdl_recs_copy.argprom.exit.loopexit160, %if.then8
+  %87 = phi i32 [ %75, %if.then8 ], [ %.pre161, %xdl_recs_copy.argprom.exit.loopexit160 ], [ %75, %for.body.us.i.i ]
+  %retval.0.i.i = phi i32 [ 0, %if.then8 ], [ %conv15.i.i, %xdl_recs_copy.argprom.exit.loopexit160 ], [ %conv15.us.i.i, %for.body.us.i.i ]
   %add = add nsw i32 %retval.0.i.i, %size.0149
   %and13 = and i32 %87, 1
   %tobool14.not = icmp eq i32 %and13, 0
   br i1 %tobool14.not, label %if.end31, label %if.then15
 
-if.then15:                                        ; preds = %xdl_recs_copy.exit
+if.then15:                                        ; preds = %xdl_recs_copy.argprom.exit
   %call16 = tail call fastcc i32 @is_cr_needed(ptr noundef %xe1, ptr noundef %xe2, ptr noundef %m.addr.0151)
   %88 = load i64, ptr %i1, align 8
   %chg1 = getelementptr inbounds i8, ptr %m.addr.0151, i64 32
@@ -2232,7 +2232,7 @@ if.then15:                                        ; preds = %xdl_recs_copy.exit
   %90 = ashr exact i64 %sext, 29
   %add.ptr.i.i50 = getelementptr inbounds i8, ptr %xe1.val47, i64 %90
   %cmp.i.i51 = icmp slt i32 %conv19, 1
-  br i1 %cmp.i.i51, label %xdl_recs_copy.exit78, label %for.cond.preheader.i.i52
+  br i1 %cmp.i.i51, label %xdl_recs_copy.argprom.exit78, label %for.cond.preheader.i.i52
 
 for.cond.preheader.i.i52:                         ; preds = %if.then15
   %tobool4.not.i.i53 = icmp eq ptr %cond28, null
@@ -2276,7 +2276,7 @@ for.body.i.i55:                                   ; preds = %for.cond.preheader.
 for.end.i.i67:                                    ; preds = %for.body.i.i55, %for.body.us.i.i70
   %.us-phi.i.i68 = phi i32 [ %conv15.us.i.i76, %for.body.us.i.i70 ], [ %conv15.i.i65, %for.body.i.i55 ]
   %tobool16.not.i.i = icmp eq i32 %and21, 0
-  br i1 %tobool16.not.i.i, label %xdl_recs_copy.exit78, label %if.then17.i.i
+  br i1 %tobool16.not.i.i, label %xdl_recs_copy.argprom.exit78, label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %for.end.i.i67
   %100 = getelementptr ptr, ptr %add.ptr.i.i50, i64 %wide.trip.count33.i.i54
@@ -2297,7 +2297,7 @@ lor.lhs.false.i.i:                                ; preds = %if.then17.i.i
   %arrayidx30.i.i = getelementptr inbounds i8, ptr %104, i64 %idxprom29.i.i
   %105 = load i8, ptr %arrayidx30.i.i, align 1
   %cmp32.not.i.i = icmp eq i8 %105, 10
-  br i1 %cmp32.not.i.i, label %xdl_recs_copy.exit78, label %if.then34.i.i
+  br i1 %cmp32.not.i.i, label %xdl_recs_copy.argprom.exit78, label %if.then34.i.i
 
 if.then34.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.then17.i.i
   %tobool35.not.i.i = icmp eq i32 %call16, 0
@@ -2328,17 +2328,17 @@ if.then45.i.i:                                    ; preds = %if.end43.i.i
 
 if.end48.i.i:                                     ; preds = %if.then45.i.i, %if.end43.i.i
   %inc49.i.i = add nsw i32 %size.2.i.i, 1
-  br label %xdl_recs_copy.exit78
+  br label %xdl_recs_copy.argprom.exit78
 
-xdl_recs_copy.exit78:                             ; preds = %if.then15, %for.end.i.i67, %lor.lhs.false.i.i, %if.end48.i.i
+xdl_recs_copy.argprom.exit78:                     ; preds = %if.then15, %for.end.i.i67, %lor.lhs.false.i.i, %if.end48.i.i
   %retval.0.i.i69 = phi i32 [ 0, %if.then15 ], [ %inc49.i.i, %if.end48.i.i ], [ %.us-phi.i.i68, %lor.lhs.false.i.i ], [ %.us-phi.i.i68, %for.end.i.i67 ]
   %add30 = add nsw i32 %retval.0.i.i69, %add
   %.pre162 = load i32, ptr %mode4165, align 8
   br label %if.end31
 
-if.end31:                                         ; preds = %xdl_recs_copy.exit78, %xdl_recs_copy.exit
-  %106 = phi i32 [ %.pre162, %xdl_recs_copy.exit78 ], [ %87, %xdl_recs_copy.exit ]
-  %size.2 = phi i32 [ %add30, %xdl_recs_copy.exit78 ], [ %add, %xdl_recs_copy.exit ]
+if.end31:                                         ; preds = %xdl_recs_copy.argprom.exit78, %xdl_recs_copy.argprom.exit
+  %106 = phi i32 [ %.pre162, %xdl_recs_copy.argprom.exit78 ], [ %87, %xdl_recs_copy.argprom.exit ]
+  %size.2 = phi i32 [ %add30, %xdl_recs_copy.argprom.exit78 ], [ %add, %xdl_recs_copy.argprom.exit ]
   %and33 = and i32 %106, 2
   %tobool34.not = icmp eq i32 %and33, 0
   br i1 %tobool34.not, label %if.end50, label %if.then35
@@ -2357,7 +2357,7 @@ if.then35:                                        ; preds = %if.end31
   %109 = ashr exact i64 %sext139, 29
   %add.ptr.i.i80 = getelementptr inbounds i8, ptr %xe2.val, i64 %109
   %cmp.i.i81 = icmp slt i32 %conv37, 1
-  br i1 %cmp.i.i81, label %xdl_recs_copy.exit108, label %for.cond.preheader.i.i82
+  br i1 %cmp.i.i81, label %xdl_recs_copy.argprom.exit108, label %for.cond.preheader.i.i82
 
 for.cond.preheader.i.i82:                         ; preds = %if.then35
   %tobool4.not.i.i83 = icmp eq ptr %cond44, null
@@ -2375,7 +2375,7 @@ for.body.us.i.i100:                               ; preds = %for.cond.preheader.
   %112 = trunc i64 %111 to i32
   %conv15.us.i.i106 = add i32 %size.027.us.i.i102, %112
   %exitcond34.not.i.i107 = icmp eq i64 %indvars.iv.next31.i.i103, %wide.trip.count33.i.i84
-  br i1 %exitcond34.not.i.i107, label %xdl_recs_copy.exit108, label %for.body.us.i.i100, !llvm.loop !18
+  br i1 %exitcond34.not.i.i107, label %xdl_recs_copy.argprom.exit108, label %for.body.us.i.i100, !llvm.loop !18
 
 for.body.i.i85:                                   ; preds = %for.cond.preheader.i.i82, %for.body.i.i85
   %indvars.iv.i.i86 = phi i64 [ %indvars.iv.next.i.i93, %for.body.i.i85 ], [ 0, %for.cond.preheader.i.i82 ]
@@ -2396,15 +2396,15 @@ for.body.i.i85:                                   ; preds = %for.cond.preheader.
   %118 = trunc i64 %117 to i32
   %conv15.i.i95 = add i32 %size.027.i.i87, %118
   %exitcond.not.i.i96 = icmp eq i64 %indvars.iv.next.i.i93, %wide.trip.count33.i.i84
-  br i1 %exitcond.not.i.i96, label %xdl_recs_copy.exit108, label %for.body.i.i85, !llvm.loop !18
+  br i1 %exitcond.not.i.i96, label %xdl_recs_copy.argprom.exit108, label %for.body.i.i85, !llvm.loop !18
 
-xdl_recs_copy.exit108:                            ; preds = %for.body.i.i85, %for.body.us.i.i100, %if.then35
+xdl_recs_copy.argprom.exit108:                    ; preds = %for.body.i.i85, %for.body.us.i.i100, %if.then35
   %retval.0.i.i99 = phi i32 [ 0, %if.then35 ], [ %conv15.us.i.i106, %for.body.us.i.i100 ], [ %conv15.i.i95, %for.body.i.i85 ]
   %add46 = add nsw i32 %retval.0.i.i99, %size.2
   br label %if.end50
 
-if.end50:                                         ; preds = %if.end175.i, %if.then149.i, %xdl_recs_copy.exit108, %if.end31
-  %size.1 = phi i32 [ %add46, %xdl_recs_copy.exit108 ], [ %size.2, %if.end31 ], [ %inc176.i, %if.end175.i ], [ %add153.i, %if.then149.i ]
+if.end50:                                         ; preds = %if.end175.i, %if.then149.i, %xdl_recs_copy.argprom.exit108, %if.end31
+  %size.1 = phi i32 [ %add46, %xdl_recs_copy.argprom.exit108 ], [ %size.2, %if.end31 ], [ %inc176.i, %if.end175.i ], [ %add153.i, %if.then149.i ]
   %i151 = getelementptr inbounds i8, ptr %m.addr.0151, i64 16
   %119 = load i64, ptr %i151, align 8
   %chg152 = getelementptr inbounds i8, ptr %m.addr.0151, i64 32
@@ -2436,7 +2436,7 @@ for.end:                                          ; preds = %for.inc, %entry
   %idx.ext.i.i109 = sext i32 %i.0.lcssa to i64
   %add.ptr.i.i110 = getelementptr inbounds ptr, ptr %xe1.val48, i64 %idx.ext.i.i109
   %cmp.i.i111 = icmp slt i32 %conv57, 1
-  br i1 %cmp.i.i111, label %xdl_recs_copy.exit138, label %for.cond.preheader.i.i112
+  br i1 %cmp.i.i111, label %xdl_recs_copy.argprom.exit138, label %for.cond.preheader.i.i112
 
 for.cond.preheader.i.i112:                        ; preds = %for.end
   %tobool4.not.i.i113 = icmp eq ptr %cond64, null
@@ -2454,7 +2454,7 @@ for.body.us.i.i130:                               ; preds = %for.cond.preheader.
   %127 = trunc i64 %126 to i32
   %conv15.us.i.i136 = add i32 %size.027.us.i.i132, %127
   %exitcond34.not.i.i137 = icmp eq i64 %indvars.iv.next31.i.i133, %wide.trip.count33.i.i114
-  br i1 %exitcond34.not.i.i137, label %xdl_recs_copy.exit138, label %for.body.us.i.i130, !llvm.loop !18
+  br i1 %exitcond34.not.i.i137, label %xdl_recs_copy.argprom.exit138, label %for.body.us.i.i130, !llvm.loop !18
 
 for.body.i.i115:                                  ; preds = %for.cond.preheader.i.i112, %for.body.i.i115
   %indvars.iv.i.i116 = phi i64 [ %indvars.iv.next.i.i123, %for.body.i.i115 ], [ 0, %for.cond.preheader.i.i112 ]
@@ -2475,9 +2475,9 @@ for.body.i.i115:                                  ; preds = %for.cond.preheader.
   %133 = trunc i64 %132 to i32
   %conv15.i.i125 = add i32 %size.027.i.i117, %133
   %exitcond.not.i.i126 = icmp eq i64 %indvars.iv.next.i.i123, %wide.trip.count33.i.i114
-  br i1 %exitcond.not.i.i126, label %xdl_recs_copy.exit138, label %for.body.i.i115, !llvm.loop !18
+  br i1 %exitcond.not.i.i126, label %xdl_recs_copy.argprom.exit138, label %for.body.i.i115, !llvm.loop !18
 
-xdl_recs_copy.exit138:                            ; preds = %for.body.i.i115, %for.body.us.i.i130, %for.end
+xdl_recs_copy.argprom.exit138:                    ; preds = %for.body.i.i115, %for.body.us.i.i130, %for.end
   %retval.0.i.i129 = phi i32 [ 0, %for.end ], [ %conv15.us.i.i136, %for.body.us.i.i130 ], [ %conv15.i.i125, %for.body.i.i115 ]
   %add66 = add nsw i32 %retval.0.i.i129, %size.0.lcssa
   ret i32 %add66

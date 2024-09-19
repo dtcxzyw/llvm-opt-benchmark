@@ -61,13 +61,13 @@ for.body.i.i.i:                                   ; preds = %init.check.i.i, %fo
   store double %call.i.i.i, ptr %arrayidx.i.i.i.i.i, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 60
-  br i1 %exitcond.not.i.i.i, label %"_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiENK3$_0clEv.exit.i.i", label %for.body.i.i.i, !llvm.loop !5
+  br i1 %exitcond.not.i.i.i, label %"_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiENK3$_0clEv.argprom.exit.i.i", label %for.body.i.i.i, !llvm.loop !5
 
-"_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiENK3$_0clEv.exit.i.i": ; preds = %for.body.i.i.i
+"_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiENK3$_0clEv.argprom.exit.i.i": ; preds = %for.body.i.i.i
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo) #8
   br label %_ZN8facebook5velox9functions3kll6detail13levelCapacityEjhh.exit
 
-_ZN8facebook5velox9functions3kll6detail13levelCapacityEjhh.exit: ; preds = %for.body, %init.check.i.i, %"_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiENK3$_0clEv.exit.i.i"
+_ZN8facebook5velox9functions3kll6detail13levelCapacityEjhh.exit: ; preds = %for.body, %init.check.i.i, %"_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiENK3$_0clEv.argprom.exit.i.i"
   %3 = xor i64 %indvars.iv, -1
   %sub4.i = add nsw i64 %3, %conv2.i
   %arrayidx.i.i.i.i = getelementptr inbounds [60 x double], ptr @_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo, i64 0, i64 %sub4.i
@@ -106,13 +106,13 @@ for.body.i.i:                                     ; preds = %init.check.i, %for.
   store double %call.i.i, ptr %arrayidx.i.i.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 60
-  br i1 %exitcond.not.i.i, label %"_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiENK3$_0clEv.exit.i", label %for.body.i.i, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %"_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiENK3$_0clEv.argprom.exit.i", label %for.body.i.i, !llvm.loop !5
 
-"_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiENK3$_0clEv.exit.i": ; preds = %for.body.i.i
+"_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiENK3$_0clEv.argprom.exit.i": ; preds = %for.body.i.i
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo) #8
   br label %_ZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEi.exit
 
-_ZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEi.exit: ; preds = %entry, %init.check.i, %"_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiENK3$_0clEv.exit.i"
+_ZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEi.exit: ; preds = %entry, %init.check.i, %"_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiENK3$_0clEv.argprom.exit.i"
   %conv3 = zext i8 %height to i64
   %3 = xor i64 %conv3, -1
   %conv2 = zext i8 %numLevels to i64

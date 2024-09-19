@@ -2542,7 +2542,7 @@ land.lhs.true.us:                                 ; preds = %for.body.us
 land.lhs.true5.us:                                ; preds = %land.lhs.true.us
   %3 = load i8, ptr %in_drain, align 1
   %tobool6.us = trunc i8 %3 to i1
-  br i1 %tobool6.us, label %qemu_lockable_auto_unlock.exit.us, label %glib_autoptr_cleanup_QemuLockable.exit
+  br i1 %tobool6.us, label %qemu_lockable_auto_unlock.exit.us, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %land.lhs.true5.us, %land.lhs.true.us, %for.body.us
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 132) #12
@@ -2551,12 +2551,12 @@ qemu_lockable_auto_unlock.exit.us:                ; preds = %land.lhs.true5.us, 
   %tobool7 = icmp ne i32 %4, 0
   br label %return
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %land.lhs.true5.us
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %land.lhs.true5.us
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 132) #12
   br label %return
 
-return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.exit, %qemu_lockable_auto_unlock.exit.us
-  %retval.1 = phi i1 [ true, %glib_autoptr_cleanup_QemuLockable.exit ], [ %tobool7, %qemu_lockable_auto_unlock.exit.us ]
+return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.argprom.exit, %qemu_lockable_auto_unlock.exit.us
+  %retval.1 = phi i1 [ true, %glib_autoptr_cleanup_QemuLockable.argprom.exit ], [ %tobool7, %qemu_lockable_auto_unlock.exit.us ]
   ret i1 %retval.1
 }
 

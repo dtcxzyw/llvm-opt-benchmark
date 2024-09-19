@@ -30,7 +30,7 @@ declare void @_ZN4ncnn7UnaryOpC2Ev(ptr noundef nonnull align 8 dereferenceable(2
 define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatERKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(212) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i32, ptr %4, align 8
-  switch i32 %5, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit [
+  switch i32 %5, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit [
     i32 0, label %6
     i32 1, label %82
     i32 2, label %158
@@ -68,7 +68,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %18 = mul i32 %17, %12
   %19 = mul i32 %18, %16
   %20 = icmp sgt i32 %14, 0
-  br i1 %20, label %.lr.ph15.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %20, label %.lr.ph15.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph15.i:                                       ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -96,7 +96,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us.i:                                 ; preds = %.lr.ph12.us.i, %.preheader.us.i
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count58.i
-  br i1 %exitcond59.not.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.lr.ph.us.i, !llvm.loop !4
+  br i1 %exitcond59.not.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.lr.ph.us.i, !llvm.loop !4
 
 .lr.ph12.us.i:                                    ; preds = %.preheader.us.i, %.lr.ph12.us.i
   %.211.us.i = phi i32 [ %36, %.lr.ph12.us.i ], [ %.1.lcssa.us.i, %.preheader.us.i ]
@@ -165,7 +165,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us31.i:                               ; preds = %.lr.ph12.us30.i, %..preheader_crit_edge.us27.i
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
-  br i1 %exitcond53.not.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us17.i, !llvm.loop !4
+  br i1 %exitcond53.not.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us17.i, !llvm.loop !4
 
 .lr.ph12.us30.i:                                  ; preds = %..preheader_crit_edge.us27.i, %.lr.ph12.us30.i
   %.211.us19.i = phi i32 [ %62, %.lr.ph12.us30.i ], [ %52, %..preheader_crit_edge.us27.i ]
@@ -195,7 +195,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 
 .lr.ph15.split.split.i:                           ; preds = %.lr.ph15.split.i
   %70 = icmp sgt i32 %19, 0
-  br i1 %70, label %.preheader1.us32.preheader.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %70, label %.preheader1.us32.preheader.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .preheader1.us32.preheader.i:                     ; preds = %.lr.ph15.split.split.i
   %wide.trip.count.i = zext nneg i32 %14 to i64
@@ -225,7 +225,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us37.i:                               ; preds = %77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond47.not.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us32.i, !llvm.loop !4
+  br i1 %exitcond47.not.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us32.i, !llvm.loop !4
 
 82:                                               ; preds = %3
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -242,7 +242,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %94 = mul i32 %93, %88
   %95 = mul i32 %94, %92
   %96 = icmp sgt i32 %90, 0
-  br i1 %96, label %.lr.ph15.i42, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %96, label %.lr.ph15.i42, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph15.i42:                                     ; preds = %82
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -270,7 +270,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us.i74:                               ; preds = %.lr.ph12.us.i77, %.preheader.us.i72
   %indvars.iv.next56.i75 = add nuw nsw i64 %indvars.iv55.i69, 1
   %exitcond59.not.i76 = icmp eq i64 %indvars.iv.next56.i75, %wide.trip.count58.i67
-  br i1 %exitcond59.not.i76, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.lr.ph.us.i68, !llvm.loop !9
+  br i1 %exitcond59.not.i76, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.lr.ph.us.i68, !llvm.loop !9
 
 .lr.ph12.us.i77:                                  ; preds = %.preheader.us.i72, %.lr.ph12.us.i77
   %.211.us.i78 = phi i32 [ %112, %.lr.ph12.us.i77 ], [ %.1.lcssa.us.i73, %.preheader.us.i72 ]
@@ -339,7 +339,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us31.i60:                             ; preds = %.lr.ph12.us30.i63, %..preheader_crit_edge.us27.i59
   %indvars.iv.next50.i61 = add nuw nsw i64 %indvars.iv49.i57, 1
   %exitcond53.not.i62 = icmp eq i64 %indvars.iv.next50.i61, %wide.trip.count52.i55
-  br i1 %exitcond53.not.i62, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us17.i56, !llvm.loop !9
+  br i1 %exitcond53.not.i62, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us17.i56, !llvm.loop !9
 
 .lr.ph12.us30.i63:                                ; preds = %..preheader_crit_edge.us27.i59, %.lr.ph12.us30.i63
   %.211.us19.i64 = phi i32 [ %138, %.lr.ph12.us30.i63 ], [ %128, %..preheader_crit_edge.us27.i59 ]
@@ -369,7 +369,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 
 .lr.ph15.split.split.i44:                         ; preds = %.lr.ph15.split.i43
   %146 = icmp sgt i32 %95, 0
-  br i1 %146, label %.preheader1.us32.preheader.i45, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %146, label %.preheader1.us32.preheader.i45, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .preheader1.us32.preheader.i45:                   ; preds = %.lr.ph15.split.split.i44
   %wide.trip.count.i46 = zext nneg i32 %90 to i64
@@ -399,7 +399,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us37.i51:                             ; preds = %153
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i48, 1
   %exitcond47.not.i53 = icmp eq i64 %indvars.iv.next.i52, %wide.trip.count.i46
-  br i1 %exitcond47.not.i53, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us32.i47, !llvm.loop !9
+  br i1 %exitcond47.not.i53, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us32.i47, !llvm.loop !9
 
 158:                                              ; preds = %3
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -416,7 +416,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %170 = mul i32 %169, %164
   %171 = mul i32 %170, %168
   %172 = icmp sgt i32 %166, 0
-  br i1 %172, label %.lr.ph15.i82, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %172, label %.lr.ph15.i82, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph15.i82:                                     ; preds = %158
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -444,7 +444,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us.i114:                              ; preds = %.lr.ph12.us.i117, %.preheader.us.i112
   %indvars.iv.next56.i115 = add nuw nsw i64 %indvars.iv55.i109, 1
   %exitcond59.not.i116 = icmp eq i64 %indvars.iv.next56.i115, %wide.trip.count58.i107
-  br i1 %exitcond59.not.i116, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.lr.ph.us.i108, !llvm.loop !13
+  br i1 %exitcond59.not.i116, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.lr.ph.us.i108, !llvm.loop !13
 
 .lr.ph12.us.i117:                                 ; preds = %.preheader.us.i112, %.lr.ph12.us.i117
   %.211.us.i118 = phi i32 [ %188, %.lr.ph12.us.i117 ], [ %.1.lcssa.us.i113, %.preheader.us.i112 ]
@@ -513,7 +513,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us31.i100:                            ; preds = %.lr.ph12.us30.i103, %..preheader_crit_edge.us27.i99
   %indvars.iv.next50.i101 = add nuw nsw i64 %indvars.iv49.i97, 1
   %exitcond53.not.i102 = icmp eq i64 %indvars.iv.next50.i101, %wide.trip.count52.i95
-  br i1 %exitcond53.not.i102, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us17.i96, !llvm.loop !13
+  br i1 %exitcond53.not.i102, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us17.i96, !llvm.loop !13
 
 .lr.ph12.us30.i103:                               ; preds = %..preheader_crit_edge.us27.i99, %.lr.ph12.us30.i103
   %.211.us19.i104 = phi i32 [ %214, %.lr.ph12.us30.i103 ], [ %204, %..preheader_crit_edge.us27.i99 ]
@@ -543,7 +543,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 
 .lr.ph15.split.split.i84:                         ; preds = %.lr.ph15.split.i83
   %222 = icmp sgt i32 %171, 0
-  br i1 %222, label %.preheader1.us32.preheader.i85, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %222, label %.preheader1.us32.preheader.i85, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .preheader1.us32.preheader.i85:                   ; preds = %.lr.ph15.split.split.i84
   %wide.trip.count.i86 = zext nneg i32 %166 to i64
@@ -573,7 +573,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us37.i91:                             ; preds = %229
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i88, 1
   %exitcond47.not.i93 = icmp eq i64 %indvars.iv.next.i92, %wide.trip.count.i86
-  br i1 %exitcond47.not.i93, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us32.i87, !llvm.loop !13
+  br i1 %exitcond47.not.i93, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us32.i87, !llvm.loop !13
 
 234:                                              ; preds = %3
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -590,7 +590,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %246 = mul i32 %245, %240
   %247 = mul i32 %246, %244
   %248 = icmp sgt i32 %242, 0
-  br i1 %248, label %.lr.ph15.i122, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %248, label %.lr.ph15.i122, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph15.i122:                                    ; preds = %234
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -618,7 +618,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us.i159:                              ; preds = %.lr.ph12.us.i162, %.preheader.us.i156
   %indvars.iv.next56.i160 = add nuw nsw i64 %indvars.iv55.i152, 1
   %exitcond59.not.i161 = icmp eq i64 %indvars.iv.next56.i160, %wide.trip.count58.i150
-  br i1 %exitcond59.not.i161, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.lr.ph.us.i151, !llvm.loop !17
+  br i1 %exitcond59.not.i161, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.lr.ph.us.i151, !llvm.loop !17
 
 .lr.ph12.us.i162:                                 ; preds = %.preheader.us.i156, %.lr.ph12.us.i162
   %.211.us.i163 = phi i32 [ %264, %.lr.ph12.us.i162 ], [ %.1.lcssa.us.i158, %.preheader.us.i156 ]
@@ -687,7 +687,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us31.i142:                            ; preds = %.lr.ph12.us30.i145, %..preheader_crit_edge.us27.i141
   %indvars.iv.next50.i143 = add nuw nsw i64 %indvars.iv49.i138, 1
   %exitcond53.not.i144 = icmp eq i64 %indvars.iv.next50.i143, %wide.trip.count52.i136
-  br i1 %exitcond53.not.i144, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us17.i137, !llvm.loop !17
+  br i1 %exitcond53.not.i144, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us17.i137, !llvm.loop !17
 
 .lr.ph12.us30.i145:                               ; preds = %..preheader_crit_edge.us27.i141, %.lr.ph12.us30.i145
   %.211.us19.i146 = phi i32 [ %290, %.lr.ph12.us30.i145 ], [ %280, %..preheader_crit_edge.us27.i141 ]
@@ -717,7 +717,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 
 .lr.ph15.split.split.i124:                        ; preds = %.lr.ph15.split.i123
   %298 = icmp sgt i32 %247, 0
-  br i1 %298, label %.preheader1.us32.preheader.i125, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %298, label %.preheader1.us32.preheader.i125, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .preheader1.us32.preheader.i125:                  ; preds = %.lr.ph15.split.split.i124
   %wide.trip.count.i126 = zext nneg i32 %242 to i64
@@ -747,7 +747,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us37.i132:                            ; preds = %305
   %indvars.iv.next.i133 = add nuw nsw i64 %indvars.iv.i128, 1
   %exitcond47.not.i134 = icmp eq i64 %indvars.iv.next.i133, %wide.trip.count.i126
-  br i1 %exitcond47.not.i134, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us32.i127, !llvm.loop !17
+  br i1 %exitcond47.not.i134, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us32.i127, !llvm.loop !17
 
 310:                                              ; preds = %3
   %311 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -764,7 +764,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %322 = mul i32 %321, %316
   %323 = mul i32 %322, %320
   %324 = icmp sgt i32 %318, 0
-  br i1 %324, label %.lr.ph15.i169, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %324, label %.lr.ph15.i169, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph15.i169:                                    ; preds = %310
   %325 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -792,7 +792,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us.i201:                              ; preds = %.lr.ph12.us.i204, %.preheader.us.i199
   %indvars.iv.next56.i202 = add nuw nsw i64 %indvars.iv55.i196, 1
   %exitcond59.not.i203 = icmp eq i64 %indvars.iv.next56.i202, %wide.trip.count58.i194
-  br i1 %exitcond59.not.i203, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.lr.ph.us.i195, !llvm.loop !21
+  br i1 %exitcond59.not.i203, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.lr.ph.us.i195, !llvm.loop !21
 
 .lr.ph12.us.i204:                                 ; preds = %.preheader.us.i199, %.lr.ph12.us.i204
   %.211.us.i205 = phi i32 [ %340, %.lr.ph12.us.i204 ], [ %.1.lcssa.us.i200, %.preheader.us.i199 ]
@@ -861,7 +861,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us31.i187:                            ; preds = %.lr.ph12.us30.i190, %..preheader_crit_edge.us27.i186
   %indvars.iv.next50.i188 = add nuw nsw i64 %indvars.iv49.i184, 1
   %exitcond53.not.i189 = icmp eq i64 %indvars.iv.next50.i188, %wide.trip.count52.i182
-  br i1 %exitcond53.not.i189, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us17.i183, !llvm.loop !21
+  br i1 %exitcond53.not.i189, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us17.i183, !llvm.loop !21
 
 .lr.ph12.us30.i190:                               ; preds = %..preheader_crit_edge.us27.i186, %.lr.ph12.us30.i190
   %.211.us19.i191 = phi i32 [ %366, %.lr.ph12.us30.i190 ], [ %356, %..preheader_crit_edge.us27.i186 ]
@@ -891,7 +891,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 
 .lr.ph15.split.split.i171:                        ; preds = %.lr.ph15.split.i170
   %374 = icmp sgt i32 %323, 0
-  br i1 %374, label %.preheader1.us32.preheader.i172, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %374, label %.preheader1.us32.preheader.i172, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .preheader1.us32.preheader.i172:                  ; preds = %.lr.ph15.split.split.i171
   %wide.trip.count.i173 = zext nneg i32 %318 to i64
@@ -921,7 +921,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us37.i178:                            ; preds = %381
   %indvars.iv.next.i179 = add nuw nsw i64 %indvars.iv.i175, 1
   %exitcond47.not.i180 = icmp eq i64 %indvars.iv.next.i179, %wide.trip.count.i173
-  br i1 %exitcond47.not.i180, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us32.i174, !llvm.loop !21
+  br i1 %exitcond47.not.i180, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us32.i174, !llvm.loop !21
 
 386:                                              ; preds = %3
   %387 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -938,7 +938,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %398 = mul i32 %397, %392
   %399 = mul i32 %398, %396
   %400 = icmp sgt i32 %394, 0
-  br i1 %400, label %.lr.ph15.i209, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %400, label %.lr.ph15.i209, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph15.i209:                                    ; preds = %386
   %401 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -966,7 +966,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us.i241:                              ; preds = %.lr.ph12.us.i244, %.preheader.us.i239
   %indvars.iv.next56.i242 = add nuw nsw i64 %indvars.iv55.i236, 1
   %exitcond59.not.i243 = icmp eq i64 %indvars.iv.next56.i242, %wide.trip.count58.i234
-  br i1 %exitcond59.not.i243, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.lr.ph.us.i235, !llvm.loop !25
+  br i1 %exitcond59.not.i243, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.lr.ph.us.i235, !llvm.loop !25
 
 .lr.ph12.us.i244:                                 ; preds = %.preheader.us.i239, %.lr.ph12.us.i244
   %.211.us.i245 = phi i32 [ %416, %.lr.ph12.us.i244 ], [ %.1.lcssa.us.i240, %.preheader.us.i239 ]
@@ -1035,7 +1035,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us31.i227:                            ; preds = %.lr.ph12.us30.i230, %..preheader_crit_edge.us27.i226
   %indvars.iv.next50.i228 = add nuw nsw i64 %indvars.iv49.i224, 1
   %exitcond53.not.i229 = icmp eq i64 %indvars.iv.next50.i228, %wide.trip.count52.i222
-  br i1 %exitcond53.not.i229, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us17.i223, !llvm.loop !25
+  br i1 %exitcond53.not.i229, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us17.i223, !llvm.loop !25
 
 .lr.ph12.us30.i230:                               ; preds = %..preheader_crit_edge.us27.i226, %.lr.ph12.us30.i230
   %.211.us19.i231 = phi i32 [ %442, %.lr.ph12.us30.i230 ], [ %432, %..preheader_crit_edge.us27.i226 ]
@@ -1065,7 +1065,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 
 .lr.ph15.split.split.i211:                        ; preds = %.lr.ph15.split.i210
   %450 = icmp sgt i32 %399, 0
-  br i1 %450, label %.preheader1.us32.preheader.i212, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %450, label %.preheader1.us32.preheader.i212, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .preheader1.us32.preheader.i212:                  ; preds = %.lr.ph15.split.split.i211
   %wide.trip.count.i213 = zext nneg i32 %394 to i64
@@ -1095,7 +1095,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us37.i218:                            ; preds = %457
   %indvars.iv.next.i219 = add nuw nsw i64 %indvars.iv.i215, 1
   %exitcond47.not.i220 = icmp eq i64 %indvars.iv.next.i219, %wide.trip.count.i213
-  br i1 %exitcond47.not.i220, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us32.i214, !llvm.loop !25
+  br i1 %exitcond47.not.i220, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us32.i214, !llvm.loop !25
 
 462:                                              ; preds = %3
   %463 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -1112,7 +1112,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %474 = mul i32 %473, %468
   %475 = mul i32 %474, %472
   %476 = icmp sgt i32 %470, 0
-  br i1 %476, label %.lr.ph15.i249, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %476, label %.lr.ph15.i249, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph15.i249:                                    ; preds = %462
   %477 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1140,7 +1140,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us.i286:                              ; preds = %.lr.ph12.us.i289, %.preheader.us.i283
   %indvars.iv.next56.i287 = add nuw nsw i64 %indvars.iv55.i279, 1
   %exitcond59.not.i288 = icmp eq i64 %indvars.iv.next56.i287, %wide.trip.count58.i277
-  br i1 %exitcond59.not.i288, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.lr.ph.us.i278, !llvm.loop !29
+  br i1 %exitcond59.not.i288, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.lr.ph.us.i278, !llvm.loop !29
 
 .lr.ph12.us.i289:                                 ; preds = %.preheader.us.i283, %.lr.ph12.us.i289
   %.211.us.i290 = phi i32 [ %493, %.lr.ph12.us.i289 ], [ %.1.lcssa.us.i285, %.preheader.us.i283 ]
@@ -1210,7 +1210,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us31.i269:                            ; preds = %.lr.ph12.us30.i272, %..preheader_crit_edge.us27.i268
   %indvars.iv.next50.i270 = add nuw nsw i64 %indvars.iv49.i265, 1
   %exitcond53.not.i271 = icmp eq i64 %indvars.iv.next50.i270, %wide.trip.count52.i263
-  br i1 %exitcond53.not.i271, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us17.i264, !llvm.loop !29
+  br i1 %exitcond53.not.i271, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us17.i264, !llvm.loop !29
 
 .lr.ph12.us30.i272:                               ; preds = %..preheader_crit_edge.us27.i268, %.lr.ph12.us30.i272
   %.211.us19.i273 = phi i32 [ %520, %.lr.ph12.us30.i272 ], [ %509, %..preheader_crit_edge.us27.i268 ]
@@ -1241,7 +1241,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 
 .lr.ph15.split.split.i251:                        ; preds = %.lr.ph15.split.i250
   %528 = icmp sgt i32 %475, 0
-  br i1 %528, label %.preheader1.us32.preheader.i252, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %528, label %.preheader1.us32.preheader.i252, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .preheader1.us32.preheader.i252:                  ; preds = %.lr.ph15.split.split.i251
   %wide.trip.count.i253 = zext nneg i32 %470 to i64
@@ -1272,7 +1272,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us37.i259:                            ; preds = %535
   %indvars.iv.next.i260 = add nuw nsw i64 %indvars.iv.i255, 1
   %exitcond47.not.i261 = icmp eq i64 %indvars.iv.next.i260, %wide.trip.count.i253
-  br i1 %exitcond47.not.i261, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us32.i254, !llvm.loop !29
+  br i1 %exitcond47.not.i261, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us32.i254, !llvm.loop !29
 
 541:                                              ; preds = %3
   %542 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -1289,7 +1289,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %553 = mul i32 %552, %547
   %554 = mul i32 %553, %551
   %555 = icmp sgt i32 %549, 0
-  br i1 %555, label %.lr.ph15.i296, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %555, label %.lr.ph15.i296, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph15.i296:                                    ; preds = %541
   %556 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1417,7 +1417,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.i:                                    ; preds = %.lr.ph12.i, %.preheader.i
   %indvars.iv.next.i299 = add nuw nsw i64 %indvars.iv.i298, 1
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next.i299, %wide.trip.count.i297
-  br i1 %exitcond21.not.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %560, !llvm.loop !36
+  br i1 %exitcond21.not.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %560, !llvm.loop !36
 
 643:                                              ; preds = %3
   %644 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -1434,7 +1434,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %655 = mul i32 %654, %649
   %656 = mul i32 %655, %653
   %657 = icmp sgt i32 %651, 0
-  br i1 %657, label %.lr.ph20.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %657, label %.lr.ph20.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph20.i:                                       ; preds = %643
   %658 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1588,7 +1588,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.i306:                                 ; preds = %.lr.ph17.i, %.preheader.i304
   %indvars.iv.next.i307 = add nuw nsw i64 %indvars.iv.i302, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next.i307, %wide.trip.count.i301
-  br i1 %exitcond26.not.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %662, !llvm.loop !40
+  br i1 %exitcond26.not.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %662, !llvm.loop !40
 
 764:                                              ; preds = %3
   %765 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -1605,7 +1605,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %776 = mul i32 %775, %770
   %777 = mul i32 %776, %774
   %778 = icmp sgt i32 %772, 0
-  br i1 %778, label %.lr.ph22.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %778, label %.lr.ph22.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph22.i:                                       ; preds = %764
   %779 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1767,7 +1767,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.i318:                                 ; preds = %.lr.ph19.i, %.preheader.i315
   %indvars.iv.next.i319 = add nuw nsw i64 %indvars.iv.i312, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next.i319, %wide.trip.count.i311
-  br i1 %exitcond28.not.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %783, !llvm.loop !44
+  br i1 %exitcond28.not.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %783, !llvm.loop !44
 
 891:                                              ; preds = %3
   %892 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -1784,7 +1784,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %903 = mul i32 %902, %897
   %904 = mul i32 %903, %901
   %905 = icmp sgt i32 %899, 0
-  br i1 %905, label %.lr.ph22.i325, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %905, label %.lr.ph22.i325, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph22.i325:                                    ; preds = %891
   %906 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1950,7 +1950,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.i332:                                 ; preds = %.lr.ph19.i335, %.preheader.i330
   %indvars.iv.next.i333 = add nuw nsw i64 %indvars.iv.i327, 1
   %exitcond28.not.i334 = icmp eq i64 %indvars.iv.next.i333, %wide.trip.count.i326
-  br i1 %exitcond28.not.i334, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %910, !llvm.loop !48
+  br i1 %exitcond28.not.i334, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %910, !llvm.loop !48
 
 1022:                                             ; preds = %3
   %1023 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -1967,7 +1967,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %1034 = mul i32 %1033, %1028
   %1035 = mul i32 %1034, %1032
   %1036 = icmp sgt i32 %1030, 0
-  br i1 %1036, label %.lr.ph19.i352, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %1036, label %.lr.ph19.i352, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph19.i352:                                    ; preds = %1022
   %1037 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -2167,7 +2167,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.i358:                                 ; preds = %.lr.ph16.i, %.preheader.i356
   %indvars.iv.next.i359 = add nuw nsw i64 %indvars.iv.i354, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next.i359, %wide.trip.count.i353
-  br i1 %exitcond25.not.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %1041, !llvm.loop !52
+  br i1 %exitcond25.not.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %1041, !llvm.loop !52
 
 1190:                                             ; preds = %3
   %1191 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -2184,7 +2184,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %1202 = mul i32 %1201, %1196
   %1203 = mul i32 %1202, %1200
   %1204 = icmp sgt i32 %1198, 0
-  br i1 %1204, label %.lr.ph15.i368, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %1204, label %.lr.ph15.i368, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph15.i368:                                    ; preds = %1190
   %1205 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -2311,7 +2311,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.i375:                                 ; preds = %.lr.ph12.i378, %.preheader.i373
   %indvars.iv.next.i376 = add nuw nsw i64 %indvars.iv.i370, 1
   %exitcond21.not.i377 = icmp eq i64 %indvars.iv.next.i376, %wide.trip.count.i369
-  br i1 %exitcond21.not.i377, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %1209, !llvm.loop !56
+  br i1 %exitcond21.not.i377, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %1209, !llvm.loop !56
 
 1291:                                             ; preds = %3
   %1292 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -2328,7 +2328,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %1303 = mul i32 %1302, %1297
   %1304 = mul i32 %1303, %1301
   %1305 = icmp sgt i32 %1299, 0
-  br i1 %1305, label %.lr.ph16.i385, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %1305, label %.lr.ph16.i385, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph16.i385:                                    ; preds = %1291
   %1306 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -2463,7 +2463,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.i391:                                 ; preds = %.lr.ph13.i, %.preheader.i389
   %indvars.iv.next.i392 = add nuw nsw i64 %indvars.iv.i387, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next.i392, %wide.trip.count.i386
-  br i1 %exitcond22.not.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %1310, !llvm.loop !60
+  br i1 %exitcond22.not.i, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %1310, !llvm.loop !60
 
 1394:                                             ; preds = %3
   %1395 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -2480,7 +2480,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %1406 = mul i32 %1405, %1400
   %1407 = mul i32 %1406, %1404
   %1408 = icmp sgt i32 %1402, 0
-  br i1 %1408, label %.lr.ph15.i395, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %1408, label %.lr.ph15.i395, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph15.i395:                                    ; preds = %1394
   %1409 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -2609,7 +2609,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.i402:                                 ; preds = %.lr.ph12.i405, %.preheader.i400
   %indvars.iv.next.i403 = add nuw nsw i64 %indvars.iv.i397, 1
   %exitcond21.not.i404 = icmp eq i64 %indvars.iv.next.i403, %wide.trip.count.i396
-  br i1 %exitcond21.not.i404, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %1413, !llvm.loop !64
+  br i1 %exitcond21.not.i404, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %1413, !llvm.loop !64
 
 1497:                                             ; preds = %3
   %1498 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -2626,7 +2626,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %1509 = mul i32 %1508, %1503
   %1510 = mul i32 %1509, %1507
   %1511 = icmp sgt i32 %1505, 0
-  br i1 %1511, label %.lr.ph15.i412, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %1511, label %.lr.ph15.i412, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph15.i412:                                    ; preds = %1497
   %1512 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -2654,7 +2654,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us.i444:                              ; preds = %.lr.ph12.us.i447, %.preheader.us.i442
   %indvars.iv.next56.i445 = add nuw nsw i64 %indvars.iv55.i439, 1
   %exitcond59.not.i446 = icmp eq i64 %indvars.iv.next56.i445, %wide.trip.count58.i437
-  br i1 %exitcond59.not.i446, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.lr.ph.us.i438, !llvm.loop !65
+  br i1 %exitcond59.not.i446, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.lr.ph.us.i438, !llvm.loop !65
 
 .lr.ph12.us.i447:                                 ; preds = %.preheader.us.i442, %.lr.ph12.us.i447
   %.211.us.i448 = phi i32 [ %1527, %.lr.ph12.us.i447 ], [ %.1.lcssa.us.i443, %.preheader.us.i442 ]
@@ -2723,7 +2723,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us31.i430:                            ; preds = %.lr.ph12.us30.i433, %..preheader_crit_edge.us27.i429
   %indvars.iv.next50.i431 = add nuw nsw i64 %indvars.iv49.i427, 1
   %exitcond53.not.i432 = icmp eq i64 %indvars.iv.next50.i431, %wide.trip.count52.i425
-  br i1 %exitcond53.not.i432, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us17.i426, !llvm.loop !65
+  br i1 %exitcond53.not.i432, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us17.i426, !llvm.loop !65
 
 .lr.ph12.us30.i433:                               ; preds = %..preheader_crit_edge.us27.i429, %.lr.ph12.us30.i433
   %.211.us19.i434 = phi i32 [ %1553, %.lr.ph12.us30.i433 ], [ %1543, %..preheader_crit_edge.us27.i429 ]
@@ -2753,7 +2753,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 
 .lr.ph15.split.split.i414:                        ; preds = %.lr.ph15.split.i413
   %1561 = icmp sgt i32 %1510, 0
-  br i1 %1561, label %.preheader1.us32.preheader.i415, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %1561, label %.preheader1.us32.preheader.i415, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .preheader1.us32.preheader.i415:                  ; preds = %.lr.ph15.split.split.i414
   %wide.trip.count.i416 = zext nneg i32 %1505 to i64
@@ -2783,7 +2783,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us37.i421:                            ; preds = %1568
   %indvars.iv.next.i422 = add nuw nsw i64 %indvars.iv.i418, 1
   %exitcond47.not.i423 = icmp eq i64 %indvars.iv.next.i422, %wide.trip.count.i416
-  br i1 %exitcond47.not.i423, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us32.i417, !llvm.loop !65
+  br i1 %exitcond47.not.i423, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us32.i417, !llvm.loop !65
 
 1573:                                             ; preds = %3
   %1574 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -2800,7 +2800,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %1585 = mul i32 %1584, %1579
   %1586 = mul i32 %1585, %1583
   %1587 = icmp sgt i32 %1581, 0
-  br i1 %1587, label %.lr.ph15.i452, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %1587, label %.lr.ph15.i452, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph15.i452:                                    ; preds = %1573
   %1588 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -2936,7 +2936,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.i459:                                 ; preds = %.lr.ph12.i462, %.preheader.i457
   %indvars.iv.next.i460 = add nuw nsw i64 %indvars.iv.i454, 1
   %exitcond21.not.i461 = icmp eq i64 %indvars.iv.next.i460, %wide.trip.count.i453
-  br i1 %exitcond21.not.i461, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %1592, !llvm.loop !72
+  br i1 %exitcond21.not.i461, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %1592, !llvm.loop !72
 
 1683:                                             ; preds = %3
   %1684 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -2953,7 +2953,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %1695 = mul i32 %1694, %1689
   %1696 = mul i32 %1695, %1693
   %1697 = icmp sgt i32 %1691, 0
-  br i1 %1697, label %.lr.ph20.i469, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %1697, label %.lr.ph20.i469, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph20.i469:                                    ; preds = %1683
   %1698 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -3109,7 +3109,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.i476:                                 ; preds = %.lr.ph17.i479, %.preheader.i474
   %indvars.iv.next.i477 = add nuw nsw i64 %indvars.iv.i471, 1
   %exitcond26.not.i478 = icmp eq i64 %indvars.iv.next.i477, %wide.trip.count.i470
-  br i1 %exitcond26.not.i478, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %1702, !llvm.loop !76
+  br i1 %exitcond26.not.i478, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %1702, !llvm.loop !76
 
 1806:                                             ; preds = %3
   %1807 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -3126,7 +3126,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %1818 = mul i32 %1817, %1812
   %1819 = mul i32 %1818, %1816
   %1820 = icmp sgt i32 %1814, 0
-  br i1 %1820, label %.lr.ph15.i497, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %1820, label %.lr.ph15.i497, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph15.i497:                                    ; preds = %1806
   %1821 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -3154,7 +3154,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us.i534:                              ; preds = %.lr.ph12.us.i537, %.preheader.us.i531
   %indvars.iv.next56.i535 = add nuw nsw i64 %indvars.iv55.i527, 1
   %exitcond59.not.i536 = icmp eq i64 %indvars.iv.next56.i535, %wide.trip.count58.i525
-  br i1 %exitcond59.not.i536, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.lr.ph.us.i526, !llvm.loop !77
+  br i1 %exitcond59.not.i536, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.lr.ph.us.i526, !llvm.loop !77
 
 .lr.ph12.us.i537:                                 ; preds = %.preheader.us.i531, %.lr.ph12.us.i537
   %.211.us.i538 = phi i32 [ %1839, %.lr.ph12.us.i537 ], [ %.1.lcssa.us.i533, %.preheader.us.i531 ]
@@ -3226,7 +3226,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us31.i517:                            ; preds = %.lr.ph12.us30.i520, %..preheader_crit_edge.us27.i516
   %indvars.iv.next50.i518 = add nuw nsw i64 %indvars.iv49.i513, 1
   %exitcond53.not.i519 = icmp eq i64 %indvars.iv.next50.i518, %wide.trip.count52.i511
-  br i1 %exitcond53.not.i519, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us17.i512, !llvm.loop !77
+  br i1 %exitcond53.not.i519, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us17.i512, !llvm.loop !77
 
 .lr.ph12.us30.i520:                               ; preds = %..preheader_crit_edge.us27.i516, %.lr.ph12.us30.i520
   %.211.us19.i521 = phi i32 [ %1868, %.lr.ph12.us30.i520 ], [ %1855, %..preheader_crit_edge.us27.i516 ]
@@ -3259,7 +3259,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 
 .lr.ph15.split.split.i499:                        ; preds = %.lr.ph15.split.i498
   %1876 = icmp sgt i32 %1819, 0
-  br i1 %1876, label %.preheader1.us32.preheader.i500, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %1876, label %.preheader1.us32.preheader.i500, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .preheader1.us32.preheader.i500:                  ; preds = %.lr.ph15.split.split.i499
   %wide.trip.count.i501 = zext nneg i32 %1814 to i64
@@ -3292,7 +3292,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us37.i507:                            ; preds = %1883
   %indvars.iv.next.i508 = add nuw nsw i64 %indvars.iv.i503, 1
   %exitcond47.not.i509 = icmp eq i64 %indvars.iv.next.i508, %wide.trip.count.i501
-  br i1 %exitcond47.not.i509, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us32.i502, !llvm.loop !77
+  br i1 %exitcond47.not.i509, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us32.i502, !llvm.loop !77
 
 1891:                                             ; preds = %3
   %1892 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -3309,7 +3309,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
   %1903 = mul i32 %1902, %1897
   %1904 = mul i32 %1903, %1901
   %1905 = icmp sgt i32 %1899, 0
-  br i1 %1905, label %.lr.ph15.i544, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %1905, label %.lr.ph15.i544, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .lr.ph15.i544:                                    ; preds = %1891
   %1906 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -3337,7 +3337,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us.i576:                              ; preds = %.lr.ph12.us.i579, %.preheader.us.i574
   %indvars.iv.next56.i577 = add nuw nsw i64 %indvars.iv55.i571, 1
   %exitcond59.not.i578 = icmp eq i64 %indvars.iv.next56.i577, %wide.trip.count58.i569
-  br i1 %exitcond59.not.i578, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.lr.ph.us.i570, !llvm.loop !81
+  br i1 %exitcond59.not.i578, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.lr.ph.us.i570, !llvm.loop !81
 
 .lr.ph12.us.i579:                                 ; preds = %.preheader.us.i574, %.lr.ph12.us.i579
   %.211.us.i580 = phi i32 [ %1921, %.lr.ph12.us.i579 ], [ %.1.lcssa.us.i575, %.preheader.us.i574 ]
@@ -3406,7 +3406,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us31.i562:                            ; preds = %.lr.ph12.us30.i565, %..preheader_crit_edge.us27.i561
   %indvars.iv.next50.i563 = add nuw nsw i64 %indvars.iv49.i559, 1
   %exitcond53.not.i564 = icmp eq i64 %indvars.iv.next50.i563, %wide.trip.count52.i557
-  br i1 %exitcond53.not.i564, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us17.i558, !llvm.loop !81
+  br i1 %exitcond53.not.i564, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us17.i558, !llvm.loop !81
 
 .lr.ph12.us30.i565:                               ; preds = %..preheader_crit_edge.us27.i561, %.lr.ph12.us30.i565
   %.211.us19.i566 = phi i32 [ %1947, %.lr.ph12.us30.i565 ], [ %1937, %..preheader_crit_edge.us27.i561 ]
@@ -3436,7 +3436,7 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 
 .lr.ph15.split.split.i546:                        ; preds = %.lr.ph15.split.i545
   %1955 = icmp sgt i32 %1904, 0
-  br i1 %1955, label %.preheader1.us32.preheader.i547, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit
+  br i1 %1955, label %.preheader1.us32.preheader.i547, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit
 
 .preheader1.us32.preheader.i547:                  ; preds = %.lr.ph15.split.split.i546
   %wide.trip.count.i548 = zext nneg i32 %1899 to i64
@@ -3466,9 +3466,9 @@ define hidden noundef i32 @_ZNK4ncnn15UnaryOp_x86_avx15forward_inplaceERNS_3MatE
 ._crit_edge.us37.i553:                            ; preds = %1962
   %indvars.iv.next.i554 = add nuw nsw i64 %indvars.iv.i550, 1
   %exitcond47.not.i555 = icmp eq i64 %indvars.iv.next.i554, %wide.trip.count.i548
-  br i1 %exitcond47.not.i555, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit, label %.preheader1.us32.i549, !llvm.loop !81
+  br i1 %exitcond47.not.i555, label %_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit, label %.preheader1.us32.i549, !llvm.loop !81
 
-_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.exit: ; preds = %._crit_edge.us37.i553, %._crit_edge.us31.i562, %._crit_edge.us.i576, %._crit_edge.us37.i507, %._crit_edge.us31.i517, %._crit_edge.us.i534, %._crit_edge.i476, %._crit_edge.i459, %._crit_edge.us37.i421, %._crit_edge.us31.i430, %._crit_edge.us.i444, %._crit_edge.i402, %._crit_edge.i391, %._crit_edge.i375, %._crit_edge.i358, %._crit_edge.i332, %._crit_edge.i318, %._crit_edge.i306, %._crit_edge.i, %._crit_edge.us37.i259, %._crit_edge.us31.i269, %._crit_edge.us.i286, %._crit_edge.us37.i218, %._crit_edge.us31.i227, %._crit_edge.us.i241, %._crit_edge.us37.i178, %._crit_edge.us31.i187, %._crit_edge.us.i201, %._crit_edge.us37.i132, %._crit_edge.us31.i142, %._crit_edge.us.i159, %._crit_edge.us37.i91, %._crit_edge.us31.i100, %._crit_edge.us.i114, %._crit_edge.us37.i51, %._crit_edge.us31.i60, %._crit_edge.us.i74, %._crit_edge.us37.i, %._crit_edge.us31.i, %._crit_edge.us.i, %.lr.ph15.split.split.i546, %1891, %.lr.ph15.split.split.i499, %1806, %1683, %1573, %.lr.ph15.split.split.i414, %1497, %1394, %1291, %1190, %1022, %891, %764, %643, %541, %.lr.ph15.split.split.i251, %462, %.lr.ph15.split.split.i211, %386, %.lr.ph15.split.split.i171, %310, %.lr.ph15.split.split.i124, %234, %.lr.ph15.split.split.i84, %158, %.lr.ph15.split.split.i44, %82, %.lr.ph15.split.split.i, %6, %3
+_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_avx_functor12unary_op_absEEEiRNS_3MatERKNS_6OptionE.argprom.exit: ; preds = %._crit_edge.us37.i553, %._crit_edge.us31.i562, %._crit_edge.us.i576, %._crit_edge.us37.i507, %._crit_edge.us31.i517, %._crit_edge.us.i534, %._crit_edge.i476, %._crit_edge.i459, %._crit_edge.us37.i421, %._crit_edge.us31.i430, %._crit_edge.us.i444, %._crit_edge.i402, %._crit_edge.i391, %._crit_edge.i375, %._crit_edge.i358, %._crit_edge.i332, %._crit_edge.i318, %._crit_edge.i306, %._crit_edge.i, %._crit_edge.us37.i259, %._crit_edge.us31.i269, %._crit_edge.us.i286, %._crit_edge.us37.i218, %._crit_edge.us31.i227, %._crit_edge.us.i241, %._crit_edge.us37.i178, %._crit_edge.us31.i187, %._crit_edge.us.i201, %._crit_edge.us37.i132, %._crit_edge.us31.i142, %._crit_edge.us.i159, %._crit_edge.us37.i91, %._crit_edge.us31.i100, %._crit_edge.us.i114, %._crit_edge.us37.i51, %._crit_edge.us31.i60, %._crit_edge.us.i74, %._crit_edge.us37.i, %._crit_edge.us31.i, %._crit_edge.us.i, %.lr.ph15.split.split.i546, %1891, %.lr.ph15.split.split.i499, %1806, %1683, %1573, %.lr.ph15.split.split.i414, %1497, %1394, %1291, %1190, %1022, %891, %764, %643, %541, %.lr.ph15.split.split.i251, %462, %.lr.ph15.split.split.i211, %386, %.lr.ph15.split.split.i171, %310, %.lr.ph15.split.split.i124, %234, %.lr.ph15.split.split.i84, %158, %.lr.ph15.split.split.i44, %82, %.lr.ph15.split.split.i, %6, %3
   ret i32 0
 }
 

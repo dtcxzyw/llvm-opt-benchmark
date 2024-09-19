@@ -860,7 +860,7 @@ _ZNKSt10__weak_ptrIN3nix10eval_cache9EvalCacheELN9__gnu_cxx12_Lock_policyE2EE9us
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load atomic i32, ptr %32 monotonic, align 8, !noalias !4
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %"_ZSt11make_sharedIN3nix10eval_cache9EvalCacheEJRKSt9nullopt_tRNS0_9EvalStateEZNS0_16InstallableValue10getCursorsES7_E3$_0EESt10shared_ptrIT_EDpOT0_.exit"
+  br i1 %34, label %35, label %"_ZSt11make_sharedIN3nix10eval_cache9EvalCacheEJRKSt9nullopt_tRNS0_9EvalStateEZNS0_16InstallableValue10getCursorsES7_E3$_0EESt10shared_ptrIT_EDpOT0_.argprom.exit"
 
 35:                                               ; preds = %_ZNKSt10__weak_ptrIN3nix10eval_cache9EvalCacheELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i.i.i, %29
   store ptr %11, ptr %11, align 8, !noalias !4
@@ -915,14 +915,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i
 _ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i.i.i: ; preds = %53, %51, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i.i.i.i.i.i.i
   store ptr %8, ptr %30, align 8, !noalias !4
   %.pre = load ptr, ptr %5, align 8
-  br label %"_ZSt11make_sharedIN3nix10eval_cache9EvalCacheEJRKSt9nullopt_tRNS0_9EvalStateEZNS0_16InstallableValue10getCursorsES7_E3$_0EESt10shared_ptrIT_EDpOT0_.exit"
+  br label %"_ZSt11make_sharedIN3nix10eval_cache9EvalCacheEJRKSt9nullopt_tRNS0_9EvalStateEZNS0_16InstallableValue10getCursorsES7_E3$_0EESt10shared_ptrIT_EDpOT0_.argprom.exit"
 
-"_ZSt11make_sharedIN3nix10eval_cache9EvalCacheEJRKSt9nullopt_tRNS0_9EvalStateEZNS0_16InstallableValue10getCursorsES7_E3$_0EESt10shared_ptrIT_EDpOT0_.exit": ; preds = %_ZNKSt10__weak_ptrIN3nix10eval_cache9EvalCacheELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i.i.i, %_ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i.i.i
+"_ZSt11make_sharedIN3nix10eval_cache9EvalCacheEJRKSt9nullopt_tRNS0_9EvalStateEZNS0_16InstallableValue10getCursorsES7_E3$_0EESt10shared_ptrIT_EDpOT0_.argprom.exit": ; preds = %_ZNKSt10__weak_ptrIN3nix10eval_cache9EvalCacheELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i.i.i, %_ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i.i.i
   %57 = phi ptr [ %11, %_ZNKSt10__weak_ptrIN3nix10eval_cache9EvalCacheELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i.i.i ], [ %.pre, %_ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i.i.i ]
   invoke void @_ZN3nix10eval_cache9EvalCache7getRootEv(ptr dead_on_unwind nonnull writable sret(%"class.nix::ref.108") align 8 %6, ptr noundef nonnull align 8 dereferenceable(88) %57)
           to label %58 unwind label %146
 
-58:                                               ; preds = %"_ZSt11make_sharedIN3nix10eval_cache9EvalCacheEJRKSt9nullopt_tRNS0_9EvalStateEZNS0_16InstallableValue10getCursorsES7_E3$_0EESt10shared_ptrIT_EDpOT0_.exit"
+58:                                               ; preds = %"_ZSt11make_sharedIN3nix10eval_cache9EvalCacheEJRKSt9nullopt_tRNS0_9EvalStateEZNS0_16InstallableValue10getCursorsES7_E3$_0EESt10shared_ptrIT_EDpOT0_.argprom.exit"
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %59 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
           to label %.noexc3.i unwind label %.body
@@ -1109,7 +1109,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt10shared_ptrIN3nix10eval_cache9EvalCacheEED2Ev.exit: ; preds = %_ZN3nix3refINS_10eval_cache10AttrCursorEED2Ev.exit, %128, %141, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 
-146:                                              ; preds = %"_ZSt11make_sharedIN3nix10eval_cache9EvalCacheEJRKSt9nullopt_tRNS0_9EvalStateEZNS0_16InstallableValue10getCursorsES7_E3$_0EESt10shared_ptrIT_EDpOT0_.exit"
+146:                                              ; preds = %"_ZSt11make_sharedIN3nix10eval_cache9EvalCacheEJRKSt9nullopt_tRNS0_9EvalStateEZNS0_16InstallableValue10getCursorsES7_E3$_0EESt10shared_ptrIT_EDpOT0_.argprom.exit"
   %147 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -13575,8 +13575,8 @@ attributes #30 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZSt11make_sharedIN3nix10eval_cache9EvalCacheEJRKSt9nullopt_tRNS0_9EvalStateEZNS0_16InstallableValue10getCursorsES7_E3$_0EESt10shared_ptrIT_EDpOT0_: argument 0"}
-!6 = distinct !{!6, !"_ZSt11make_sharedIN3nix10eval_cache9EvalCacheEJRKSt9nullopt_tRNS0_9EvalStateEZNS0_16InstallableValue10getCursorsES7_E3$_0EESt10shared_ptrIT_EDpOT0_"}
+!5 = distinct !{!5, !6, !"_ZSt11make_sharedIN3nix10eval_cache9EvalCacheEJRKSt9nullopt_tRNS0_9EvalStateEZNS0_16InstallableValue10getCursorsES7_E3$_0EESt10shared_ptrIT_EDpOT0_.argprom: argument 0"}
+!6 = distinct !{!6, !"_ZSt11make_sharedIN3nix10eval_cache9EvalCacheEJRKSt9nullopt_tRNS0_9EvalStateEZNS0_16InstallableValue10getCursorsES7_E3$_0EESt10shared_ptrIT_EDpOT0_.argprom"}
 !7 = !{!8, !5}
 !8 = distinct !{!8, !9, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN3nix10eval_cache9EvalCacheESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_: argument 0"}
 !9 = distinct !{!9, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN3nix10eval_cache9EvalCacheESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_"}

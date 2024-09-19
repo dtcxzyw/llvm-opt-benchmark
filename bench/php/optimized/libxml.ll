@@ -845,8 +845,8 @@ define void @php_libxml_node_free_list(ptr noundef %0) local_unnamed_addr #0 {
   %12 = tail call i32 @xmlReconciliateNs(ptr noundef %11, ptr noundef nonnull %.031) #17
   br label %.backedge
 
-.backedge:                                        ; preds = %3, %9, %php_libxml_unregister_node.exit
-  %.0.be = phi ptr [ %61, %php_libxml_unregister_node.exit ], [ %5, %9 ], [ %5, %3 ]
+.backedge:                                        ; preds = %3, %9, %php_libxml_unregister_node.argprom.exit
+  %.0.be = phi ptr [ %61, %php_libxml_unregister_node.argprom.exit ], [ %5, %9 ], [ %5, %3 ]
   %.not27 = icmp eq ptr %.0.be, null
   br i1 %.not27, label %.loopexit, label %.preheader
 
@@ -943,7 +943,7 @@ php_libxml_unlink_entity_decl.exit:               ; preds = %36, %30, %16, %13, 
   tail call void @xmlUnlinkNode(ptr noundef nonnull %.031) #17
   %.0.val = load ptr, ptr %.031, align 8
   %.not.i30 = icmp eq ptr %.0.val, null
-  br i1 %.not.i30, label %php_libxml_unregister_node.exit, label %62
+  br i1 %.not.i30, label %php_libxml_unregister_node.argprom.exit, label %62
 
 62:                                               ; preds = %php_libxml_unlink_entity_decl.exit
   %63 = getelementptr inbounds i8, ptr %.0.val, i64 16
@@ -983,7 +983,7 @@ php_libxml_unlink_entity_decl.exit:               ; preds = %36, %30, %16, %13, 
 
 php_libxml_decrement_node_ptr.exit.i:             ; preds = %76, %65
   %77 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %64)
-  br label %php_libxml_unregister_node.exit
+  br label %php_libxml_unregister_node.argprom.exit
 
 78:                                               ; preds = %62
   %79 = load ptr, ptr %.0.val, align 8
@@ -1002,9 +1002,9 @@ php_libxml_decrement_node_ptr.exit.i:             ; preds = %76, %65
 
 84:                                               ; preds = %83, %80, %78
   store ptr null, ptr %.0.val, align 8
-  br label %php_libxml_unregister_node.exit
+  br label %php_libxml_unregister_node.argprom.exit
 
-php_libxml_unregister_node.exit:                  ; preds = %php_libxml_unlink_entity_decl.exit, %php_libxml_decrement_node_ptr.exit.i, %84
+php_libxml_unregister_node.argprom.exit:          ; preds = %php_libxml_unlink_entity_decl.exit, %php_libxml_decrement_node_ptr.exit.i, %84
   tail call fastcc void @php_libxml_node_free(ptr noundef %.031)
   br label %.backedge
 
@@ -1442,7 +1442,7 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 define void @php_libxml_pretend_ctx_error_ex(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ...) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
-  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 1, ptr noundef null, ptr %3, ptr noundef %5, i32 noundef %1, i32 noundef %2)
+  call fastcc void @php_libxml_internal_error_handler_ex.argprom(i32 noundef 1, ptr noundef null, ptr %3, ptr noundef %5, i32 noundef %1, i32 noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %5)
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 32), align 8
   %.not = icmp eq ptr %6, null
@@ -1474,7 +1474,7 @@ define void @php_libxml_pretend_ctx_error_ex(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_libxml_internal_error_handler_ex(i32 noundef range(i32 0, 3) %0, ptr noundef readonly %1, ptr %.0.val, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @php_libxml_internal_error_handler_ex.argprom(i32 noundef range(i32 0, 3) %0, ptr noundef readonly %1, ptr %.0.val, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct._xmlError, align 8
   %7 = alloca ptr, align 8
   %8 = call i64 @zend_vspprintf(ptr noundef nonnull %7, i64 noundef 0, ptr noundef %.0.val, ptr noundef nonnull %2) #17
@@ -1694,25 +1694,25 @@ define void @php_libxml_ctx_error(ptr noundef %0, ptr noundef %1, ...) local_unn
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %php_libxml_internal_error_handler.exit, label %4
+  br i1 %.not, label %php_libxml_internal_error_handler.argprom.exit, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %php_libxml_internal_error_handler.exit, label %7
+  br i1 %.not.i, label %php_libxml_internal_error_handler.argprom.exit, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %6, i64 52
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds i8, ptr %6, i64 56
   %11 = load i32, ptr %10, align 8
-  br label %php_libxml_internal_error_handler.exit
+  br label %php_libxml_internal_error_handler.argprom.exit
 
-php_libxml_internal_error_handler.exit:           ; preds = %2, %4, %7
+php_libxml_internal_error_handler.argprom.exit:   ; preds = %2, %4, %7
   %.012.i = phi i32 [ %11, %7 ], [ 0, %4 ], [ 0, %2 ]
   %.0.i = phi i32 [ %9, %7 ], [ 0, %4 ], [ 0, %2 ]
-  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 1, ptr noundef %0, ptr %1, ptr noundef %3, i32 noundef %.0.i, i32 noundef %.012.i)
+  call fastcc void @php_libxml_internal_error_handler_ex.argprom(i32 noundef 1, ptr noundef %0, ptr %1, ptr noundef %3, i32 noundef %.0.i, i32 noundef %.012.i)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -1722,25 +1722,25 @@ define void @php_libxml_ctx_warning(ptr noundef %0, ptr noundef %1, ...) local_u
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %php_libxml_internal_error_handler.exit, label %4
+  br i1 %.not, label %php_libxml_internal_error_handler.argprom.exit, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %php_libxml_internal_error_handler.exit, label %7
+  br i1 %.not.i, label %php_libxml_internal_error_handler.argprom.exit, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %6, i64 52
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds i8, ptr %6, i64 56
   %11 = load i32, ptr %10, align 8
-  br label %php_libxml_internal_error_handler.exit
+  br label %php_libxml_internal_error_handler.argprom.exit
 
-php_libxml_internal_error_handler.exit:           ; preds = %2, %4, %7
+php_libxml_internal_error_handler.argprom.exit:   ; preds = %2, %4, %7
   %.012.i = phi i32 [ %11, %7 ], [ 0, %4 ], [ 0, %2 ]
   %.0.i = phi i32 [ %9, %7 ], [ 0, %4 ], [ 0, %2 ]
-  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 2, ptr noundef %0, ptr %1, ptr noundef %3, i32 noundef %.0.i, i32 noundef %.012.i)
+  call fastcc void @php_libxml_internal_error_handler_ex.argprom(i32 noundef 2, ptr noundef %0, ptr %1, ptr noundef %3, i32 noundef %.0.i, i32 noundef %.012.i)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -1749,7 +1749,7 @@ php_libxml_internal_error_handler.exit:           ; preds = %2, %4, %7
 define void @php_libxml_error_handler(ptr noundef %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 0, ptr noundef %0, ptr %1, ptr noundef %3, i32 noundef 0, i32 noundef 0)
+  call fastcc void @php_libxml_internal_error_handler_ex.argprom(i32 noundef 0, ptr noundef %0, ptr %1, ptr noundef %3, i32 noundef 0, i32 noundef 0)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -3235,21 +3235,21 @@ declare void @_efree_56(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @php_libxml_node_free_resource(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %php_libxml_unregister_node.exit30, label %2
+  br i1 %.not, label %php_libxml_unregister_node.argprom.exit30, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %33 [
-    i32 9, label %php_libxml_unregister_node.exit30
-    i32 13, label %php_libxml_unregister_node.exit30
+    i32 9, label %php_libxml_unregister_node.argprom.exit30
+    i32 13, label %php_libxml_unregister_node.argprom.exit30
     i32 5, label %5
   ]
 
 5:                                                ; preds = %2
   %.val14 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %.val14, null
-  br i1 %.not.i, label %php_libxml_unregister_node.exit, label %6
+  br i1 %.not.i, label %php_libxml_unregister_node.argprom.exit, label %6
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds i8, ptr %.val14, i64 16
@@ -3289,7 +3289,7 @@ define void @php_libxml_node_free_resource(ptr noundef %0) local_unnamed_addr #0
 
 php_libxml_decrement_node_ptr.exit.i:             ; preds = %20, %9
   %21 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %8)
-  br label %php_libxml_unregister_node.exit
+  br label %php_libxml_unregister_node.argprom.exit
 
 22:                                               ; preds = %6
   %23 = load ptr, ptr %.val14, align 8
@@ -3308,17 +3308,17 @@ php_libxml_decrement_node_ptr.exit.i:             ; preds = %20, %9
 
 28:                                               ; preds = %27, %24, %22
   store ptr null, ptr %.val14, align 8
-  br label %php_libxml_unregister_node.exit
+  br label %php_libxml_unregister_node.argprom.exit
 
-php_libxml_unregister_node.exit:                  ; preds = %5, %php_libxml_decrement_node_ptr.exit.i, %28
+php_libxml_unregister_node.argprom.exit:          ; preds = %5, %php_libxml_decrement_node_ptr.exit.i, %28
   %29 = getelementptr inbounds i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %php_libxml_unregister_node.exit30
+  br i1 %31, label %32, label %php_libxml_unregister_node.argprom.exit30
 
-32:                                               ; preds = %php_libxml_unregister_node.exit
+32:                                               ; preds = %php_libxml_unregister_node.argprom.exit
   tail call fastcc void @php_libxml_node_free(ptr noundef %0)
-  br label %php_libxml_unregister_node.exit30
+  br label %php_libxml_unregister_node.argprom.exit30
 
 33:                                               ; preds = %2
   %34 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3352,7 +3352,7 @@ php_libxml_unregister_node.exit:                  ; preds = %5, %php_libxml_decr
 45:                                               ; preds = %38, %38, %38, %38, %38, %38, %38, %42
   %.val13 = load ptr, ptr %0, align 8
   %.not.i15 = icmp eq ptr %.val13, null
-  br i1 %.not.i15, label %php_libxml_unregister_node.exit22, label %46
+  br i1 %.not.i15, label %php_libxml_unregister_node.argprom.exit22, label %46
 
 46:                                               ; preds = %45
   %47 = getelementptr inbounds i8, ptr %.val13, i64 16
@@ -3392,7 +3392,7 @@ php_libxml_unregister_node.exit:                  ; preds = %5, %php_libxml_decr
 
 php_libxml_decrement_node_ptr.exit.i18:           ; preds = %60, %49
   %61 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %48)
-  br label %php_libxml_unregister_node.exit22
+  br label %php_libxml_unregister_node.argprom.exit22
 
 62:                                               ; preds = %46
   %63 = load ptr, ptr %.val13, align 8
@@ -3411,16 +3411,16 @@ php_libxml_decrement_node_ptr.exit.i18:           ; preds = %60, %49
 
 68:                                               ; preds = %67, %64, %62
   store ptr null, ptr %.val13, align 8
-  br label %php_libxml_unregister_node.exit22
+  br label %php_libxml_unregister_node.argprom.exit22
 
-php_libxml_unregister_node.exit22:                ; preds = %45, %php_libxml_decrement_node_ptr.exit.i18, %68
+php_libxml_unregister_node.argprom.exit22:        ; preds = %45, %php_libxml_decrement_node_ptr.exit.i18, %68
   tail call fastcc void @php_libxml_node_free(ptr noundef %0)
-  br label %php_libxml_unregister_node.exit30
+  br label %php_libxml_unregister_node.argprom.exit30
 
 69:                                               ; preds = %33
   %.val = load ptr, ptr %0, align 8
   %.not.i23 = icmp eq ptr %.val, null
-  br i1 %.not.i23, label %php_libxml_unregister_node.exit30, label %70
+  br i1 %.not.i23, label %php_libxml_unregister_node.argprom.exit30, label %70
 
 70:                                               ; preds = %69
   %71 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -3460,7 +3460,7 @@ php_libxml_unregister_node.exit22:                ; preds = %45, %php_libxml_dec
 
 php_libxml_decrement_node_ptr.exit.i26:           ; preds = %84, %73
   %85 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %72)
-  br label %php_libxml_unregister_node.exit30
+  br label %php_libxml_unregister_node.argprom.exit30
 
 86:                                               ; preds = %70
   %87 = load ptr, ptr %.val, align 8
@@ -3479,9 +3479,9 @@ php_libxml_decrement_node_ptr.exit.i26:           ; preds = %84, %73
 
 92:                                               ; preds = %91, %88, %86
   store ptr null, ptr %.val, align 8
-  br label %php_libxml_unregister_node.exit30
+  br label %php_libxml_unregister_node.argprom.exit30
 
-php_libxml_unregister_node.exit30:                ; preds = %92, %php_libxml_decrement_node_ptr.exit.i26, %69, %php_libxml_unregister_node.exit22, %php_libxml_unregister_node.exit, %32, %2, %2, %1
+php_libxml_unregister_node.argprom.exit30:        ; preds = %92, %php_libxml_decrement_node_ptr.exit.i26, %69, %php_libxml_unregister_node.argprom.exit22, %php_libxml_unregister_node.argprom.exit, %32, %2, %2, %1
   ret void
 }
 

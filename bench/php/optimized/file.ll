@@ -317,13 +317,13 @@ declare i32 @zend_register_ini_entries_ex(ptr noundef, i32 noundef, i32 noundef)
 define hidden noundef i32 @zm_shutdown_file(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 128), align 8
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %file_globals_dtor.exit, label %4
+  br i1 %.not.i, label %file_globals_dtor.argprom.exit, label %4
 
 4:                                                ; preds = %2
   tail call void @free(ptr noundef nonnull %3) #17
-  br label %file_globals_dtor.exit
+  br label %file_globals_dtor.argprom.exit
 
-file_globals_dtor.exit:                           ; preds = %2, %4
+file_globals_dtor.argprom.exit:                   ; preds = %2, %4
   ret i32 0
 }
 

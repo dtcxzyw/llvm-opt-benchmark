@@ -315,9 +315,9 @@ define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1,
   %118 = sub nuw i32 %.val60.i.i, %.182.i.i
   %119 = icmp ult i32 %118, 4
   %or.cond.i.i.i = select i1 %117, i1 true, i1 %119
-  br i1 %or.cond.i.i.i, label %nstrace_set_start_time.exit.threadthread-pre-split.sink.split, label %nstrace_ensure_buflen.exit.i.i
+  br i1 %or.cond.i.i.i, label %nstrace_set_start_time.exit.threadthread-pre-split.sink.split, label %nstrace_ensure_buflen.argprom.exit.i.i
 
-nstrace_ensure_buflen.exit.i.i:                   ; preds = %116
+nstrace_ensure_buflen.argprom.exit.i.i:           ; preds = %116
   %120 = zext i32 %.182.i.i to i64
   %121 = getelementptr i8, ptr %107, i64 %120
   %.val58.i.i = load i16, ptr %121, align 1
@@ -326,7 +326,7 @@ nstrace_ensure_buflen.exit.i.i:                   ; preds = %116
     i16 0, label %._crit_edge.i.i
   ]
 
-122:                                              ; preds = %nstrace_ensure_buflen.exit.i.i
+122:                                              ; preds = %nstrace_ensure_buflen.argprom.exit.i.i
   %123 = icmp ult i32 %118, 12
   br i1 %123, label %nstrace_set_start_time.exit.threadthread-pre-split.sink.split, label %nstrace_set_start_time.exit.thread119
 
@@ -352,7 +352,7 @@ nstrace_set_start_time.exit.thread119:            ; preds = %122
   store i32 %.046.i.i, ptr %110, align 4
   br label %182
 
-136:                                              ; preds = %nstrace_ensure_buflen.exit.i.i
+136:                                              ; preds = %nstrace_ensure_buflen.argprom.exit.i.i
   %137 = getelementptr inbounds i8, ptr %121, i64 2
   %.val.i.i = load i8, ptr %137, align 1
   %138 = getelementptr i8, ptr %121, i64 3
@@ -370,7 +370,7 @@ nstrace_set_start_time.exit.thread119:            ; preds = %122
   %147 = icmp ult i32 %146, %.046.i.i
   br i1 %147, label %116, label %._crit_edge.i.i, !llvm.loop !6
 
-._crit_edge.i.i:                                  ; preds = %144, %nstrace_ensure_buflen.exit.i.i, %114
+._crit_edge.i.i:                                  ; preds = %144, %nstrace_ensure_buflen.argprom.exit.i.i, %114
   %148 = zext i32 %.046.i.i to i64
   %149 = load i64, ptr %112, align 8
   %150 = add i64 %149, %148
@@ -779,27 +779,27 @@ ns_hrtime2nsec.exit209:                           ; preds = %101, %111, %113, %1
   %158 = sub nuw i32 %.val204, %.1269
   %159 = icmp ult i32 %158, 12
   %or.cond.i = select i1 %157, i1 true, i1 %159
-  br i1 %or.cond.i, label %nstrace_ensure_buflen.exit.thread, label %nstrace_ensure_buflen.exit
+  br i1 %or.cond.i, label %nstrace_ensure_buflen.argprom.exit.thread, label %nstrace_ensure_buflen.argprom.exit
 
-nstrace_ensure_buflen.exit.thread:                ; preds = %156
+nstrace_ensure_buflen.argprom.exit.thread:        ; preds = %156
   store i32 -13, ptr %3, align 4
   %160 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.9) #10
   store ptr %160, ptr %4, align 8
   br label %.critedge
 
-nstrace_ensure_buflen.exit:                       ; preds = %156
+nstrace_ensure_buflen.argprom.exit:               ; preds = %156
   %161 = getelementptr inbounds i8, ptr %28, i64 2
   %.val192 = load i16, ptr %161, align 1
   %162 = icmp eq i16 %.val192, 0
   br i1 %162, label %163, label %165
 
-163:                                              ; preds = %nstrace_ensure_buflen.exit
+163:                                              ; preds = %nstrace_ensure_buflen.argprom.exit
   store i32 -13, ptr %3, align 4
   %164 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.8) #10
   store ptr %164, ptr %4, align 8
   br label %.critedge
 
-165:                                              ; preds = %nstrace_ensure_buflen.exit
+165:                                              ; preds = %nstrace_ensure_buflen.argprom.exit
   %166 = getelementptr inbounds i8, ptr %28, i64 8
   %167 = load i32, ptr %166, align 1
   store i32 %167, ptr %18, align 8
@@ -817,27 +817,27 @@ nstrace_ensure_buflen.exit:                       ; preds = %156
   %175 = sub nuw i32 %.val205, %.1269
   %176 = icmp ult i32 %175, 12
   %or.cond.i211 = select i1 %174, i1 true, i1 %176
-  br i1 %or.cond.i211, label %nstrace_ensure_buflen.exit213.thread, label %nstrace_ensure_buflen.exit213
+  br i1 %or.cond.i211, label %nstrace_ensure_buflen.argprom.exit213.thread, label %nstrace_ensure_buflen.argprom.exit213
 
-nstrace_ensure_buflen.exit213.thread:             ; preds = %173
+nstrace_ensure_buflen.argprom.exit213.thread:     ; preds = %173
   store i32 -13, ptr %3, align 4
   %177 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.9) #10
   store ptr %177, ptr %4, align 8
   br label %.critedge
 
-nstrace_ensure_buflen.exit213:                    ; preds = %173
+nstrace_ensure_buflen.argprom.exit213:            ; preds = %173
   %178 = getelementptr inbounds i8, ptr %28, i64 2
   %.val196 = load i16, ptr %178, align 1
   %179 = icmp eq i16 %.val196, 0
   br i1 %179, label %180, label %182
 
-180:                                              ; preds = %nstrace_ensure_buflen.exit213
+180:                                              ; preds = %nstrace_ensure_buflen.argprom.exit213
   store i32 -13, ptr %3, align 4
   %181 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.8) #10
   store ptr %181, ptr %4, align 8
   br label %.critedge
 
-182:                                              ; preds = %nstrace_ensure_buflen.exit213
+182:                                              ; preds = %nstrace_ensure_buflen.argprom.exit213
   %183 = getelementptr inbounds i8, ptr %28, i64 4
   %184 = load i32, ptr %183, align 1
   %185 = zext i32 %184 to i64
@@ -862,15 +862,15 @@ nstrace_ensure_buflen.exit213:                    ; preds = %173
   %199 = sub nuw i32 %.val206, %.1269
   %200 = icmp ult i32 %199, 12
   %or.cond.i214 = select i1 %198, i1 true, i1 %200
-  br i1 %or.cond.i214, label %nstrace_ensure_buflen.exit216.thread, label %nstrace_ensure_buflen.exit216
+  br i1 %or.cond.i214, label %nstrace_ensure_buflen.argprom.exit216.thread, label %nstrace_ensure_buflen.argprom.exit216
 
-nstrace_ensure_buflen.exit216.thread:             ; preds = %197
+nstrace_ensure_buflen.argprom.exit216.thread:     ; preds = %197
   store i32 -13, ptr %3, align 4
   %201 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.9) #10
   store ptr %201, ptr %4, align 8
   br label %.critedge
 
-nstrace_ensure_buflen.exit216:                    ; preds = %197
+nstrace_ensure_buflen.argprom.exit216:            ; preds = %197
   %202 = getelementptr inbounds i8, ptr %28, i64 2
   %.val200 = load i8, ptr %202, align 1
   %203 = getelementptr i8, ptr %28, i64 3
@@ -882,7 +882,7 @@ nstrace_ensure_buflen.exit216:                    ; preds = %197
   %208 = icmp eq i16 %207, 0
   br i1 %208, label %209, label %211
 
-209:                                              ; preds = %nstrace_ensure_buflen.exit216
+209:                                              ; preds = %nstrace_ensure_buflen.argprom.exit216
   store i32 -13, ptr %3, align 4
   %210 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.8) #10
   store ptr %210, ptr %4, align 8
@@ -895,8 +895,8 @@ nstrace_ensure_buflen.exit216:                    ; preds = %197
   %.val198 = load i16, ptr %.sink, align 1
   br label %211
 
-211:                                              ; preds = %.sink.split, %nstrace_ensure_buflen.exit216
-  %.sink359 = phi i16 [ %207, %nstrace_ensure_buflen.exit216 ], [ %.val198, %.sink.split ]
+211:                                              ; preds = %.sink.split, %nstrace_ensure_buflen.argprom.exit216
+  %.sink359 = phi i16 [ %207, %nstrace_ensure_buflen.argprom.exit216 ], [ %.val198, %.sink.split ]
   %212 = zext i16 %.sink359 to i32
   %213 = add i32 %.1269, %212
   %214 = icmp ult i32 %213, %.0171
@@ -946,8 +946,8 @@ nstrace_read_page.exit:                           ; preds = %234
   store i32 %229, ptr %237, align 4
   br label %21, !llvm.loop !9
 
-.critedge:                                        ; preds = %._crit_edge, %236, %231, %nstrace_ensure_buflen.exit216.thread, %nstrace_ensure_buflen.exit213.thread, %nstrace_ensure_buflen.exit.thread, %209, %180, %163, %144, %142, %99, %93, %79, %77, %37, %31
-  %.0 = phi i32 [ 0, %209 ], [ 0, %180 ], [ 0, %163 ], [ 0, %93 ], [ 0, %99 ], [ 0, %142 ], [ 1, %144 ], [ 0, %31 ], [ 0, %37 ], [ 0, %77 ], [ 1, %79 ], [ 0, %nstrace_ensure_buflen.exit.thread ], [ 0, %nstrace_ensure_buflen.exit213.thread ], [ 0, %nstrace_ensure_buflen.exit216.thread ], [ 0, %231 ], [ 0, %236 ], [ 0, %._crit_edge ]
+.critedge:                                        ; preds = %._crit_edge, %236, %231, %nstrace_ensure_buflen.argprom.exit216.thread, %nstrace_ensure_buflen.argprom.exit213.thread, %nstrace_ensure_buflen.argprom.exit.thread, %209, %180, %163, %144, %142, %99, %93, %79, %77, %37, %31
+  %.0 = phi i32 [ 0, %209 ], [ 0, %180 ], [ 0, %163 ], [ 0, %93 ], [ 0, %99 ], [ 0, %142 ], [ 1, %144 ], [ 0, %31 ], [ 0, %37 ], [ 0, %77 ], [ 1, %79 ], [ 0, %nstrace_ensure_buflen.argprom.exit.thread ], [ 0, %nstrace_ensure_buflen.argprom.exit213.thread ], [ 0, %nstrace_ensure_buflen.argprom.exit216.thread ], [ 0, %231 ], [ 0, %236 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -3359,26 +3359,26 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
   %1285 = sub nuw i32 %.val1084, %.11281
   %1286 = icmp ult i32 %1285, 8
   %or.cond.i = select i1 %1284, i1 true, i1 %1286
-  br i1 %or.cond.i, label %nstrace_ensure_buflen.exit.thread, label %nstrace_ensure_buflen.exit
+  br i1 %or.cond.i, label %nstrace_ensure_buflen.argprom.exit.thread, label %nstrace_ensure_buflen.argprom.exit
 
-nstrace_ensure_buflen.exit.thread:                ; preds = %1283
+nstrace_ensure_buflen.argprom.exit.thread:        ; preds = %1283
   store i32 -13, ptr %3, align 4
   %1287 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.9) #10
   store ptr %1287, ptr %4, align 8
   br label %.critedge
 
-nstrace_ensure_buflen.exit:                       ; preds = %1283
+nstrace_ensure_buflen.argprom.exit:               ; preds = %1283
   %1288 = getelementptr inbounds i8, ptr %24, i64 1
   %1289 = load i8, ptr %1288, align 1
   %1290 = zext i8 %1289 to i32
   %.not1018 = icmp sgt i8 %1289, -1
   br i1 %.not1018, label %1291, label %.thread1377
 
-1291:                                             ; preds = %nstrace_ensure_buflen.exit
+1291:                                             ; preds = %nstrace_ensure_buflen.argprom.exit
   %1292 = icmp eq i8 %1289, 0
-  br i1 %1292, label %1300, label %nstrace_ensure_buflen.exit1108
+  br i1 %1292, label %1300, label %nstrace_ensure_buflen.argprom.exit1108
 
-.thread1377:                                      ; preds = %nstrace_ensure_buflen.exit
+.thread1377:                                      ; preds = %nstrace_ensure_buflen.argprom.exit
   %1293 = getelementptr inbounds i8, ptr %24, i64 2
   %1294 = load i8, ptr %1293, align 1
   %1295 = zext i8 %1294 to i32
@@ -3401,24 +3401,24 @@ nstrace_ensure_buflen.exit:                       ; preds = %1283
   %1306 = shl nuw nsw i32 %1305, 7
   %1307 = and i32 %1290, 127
   %1308 = or disjoint i32 %1306, %1307
-  br label %nstrace_ensure_buflen.exit1108
+  br label %nstrace_ensure_buflen.argprom.exit1108
 
-nstrace_ensure_buflen.exit1108:                   ; preds = %1291, %1302
+nstrace_ensure_buflen.argprom.exit1108:           ; preds = %1291, %1302
   %1309 = phi i32 [ %1308, %1302 ], [ %1290, %1291 ]
   %1310 = add i32 %1309, %.11281
   %1311 = icmp ugt i32 %1310, %.val1084
   %1312 = sub nuw i32 %.val1084, %1310
   %1313 = icmp ult i32 %1312, 8
   %or.cond.i1109 = select i1 %1311, i1 true, i1 %1313
-  br i1 %or.cond.i1109, label %nstrace_ensure_buflen.exit1111.thread, label %nstrace_ensure_buflen.exit1111
+  br i1 %or.cond.i1109, label %nstrace_ensure_buflen.argprom.exit1111.thread, label %nstrace_ensure_buflen.argprom.exit1111
 
-nstrace_ensure_buflen.exit1111.thread:            ; preds = %nstrace_ensure_buflen.exit1108
+nstrace_ensure_buflen.argprom.exit1111.thread:    ; preds = %nstrace_ensure_buflen.argprom.exit1108
   store i32 -13, ptr %3, align 4
   %1314 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.9) #10
   store ptr %1314, ptr %4, align 8
   br label %.critedge
 
-nstrace_ensure_buflen.exit1111:                   ; preds = %nstrace_ensure_buflen.exit1108
+nstrace_ensure_buflen.argprom.exit1111:           ; preds = %nstrace_ensure_buflen.argprom.exit1108
   %1315 = getelementptr inbounds i8, ptr %24, i64 4
   %1316 = load i32, ptr %1315, align 1
   store i32 %1316, ptr %18, align 8
@@ -3437,22 +3437,22 @@ nstrace_ensure_buflen.exit1111:                   ; preds = %nstrace_ensure_bufl
   %1323 = sub nuw i32 %.val1087, %.11281
   %1324 = icmp ult i32 %1323, 8
   %or.cond.i1112 = select i1 %1322, i1 true, i1 %1324
-  br i1 %or.cond.i1112, label %nstrace_ensure_buflen.exit1114.thread, label %nstrace_ensure_buflen.exit1114
+  br i1 %or.cond.i1112, label %nstrace_ensure_buflen.argprom.exit1114.thread, label %nstrace_ensure_buflen.argprom.exit1114
 
-nstrace_ensure_buflen.exit1114.thread:            ; preds = %1321
+nstrace_ensure_buflen.argprom.exit1114.thread:    ; preds = %1321
   store i32 -13, ptr %3, align 4
   %1325 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.9) #10
   store ptr %1325, ptr %4, align 8
   br label %.critedge
 
-nstrace_ensure_buflen.exit1114:                   ; preds = %1321
+nstrace_ensure_buflen.argprom.exit1114:           ; preds = %1321
   %1326 = getelementptr inbounds i8, ptr %24, i64 1
   %1327 = load i8, ptr %1326, align 1
   %1328 = zext i8 %1327 to i32
   %.not1014 = icmp sgt i8 %1327, -1
   br i1 %.not1014, label %1336, label %1329
 
-1329:                                             ; preds = %nstrace_ensure_buflen.exit1114
+1329:                                             ; preds = %nstrace_ensure_buflen.argprom.exit1114
   %1330 = getelementptr inbounds i8, ptr %24, i64 2
   %1331 = load i8, ptr %1330, align 1
   %1332 = zext i8 %1331 to i32
@@ -3461,10 +3461,10 @@ nstrace_ensure_buflen.exit1114:                   ; preds = %1321
   %1335 = or disjoint i32 %1333, %1334
   br label %1336
 
-1336:                                             ; preds = %nstrace_ensure_buflen.exit1114, %1329
-  %1337 = phi i32 [ %1335, %1329 ], [ %1328, %nstrace_ensure_buflen.exit1114 ]
+1336:                                             ; preds = %nstrace_ensure_buflen.argprom.exit1114, %1329
+  %1337 = phi i32 [ %1335, %1329 ], [ %1328, %nstrace_ensure_buflen.argprom.exit1114 ]
   %1338 = icmp eq i32 %1337, 0
-  br i1 %1338, label %1339, label %nstrace_ensure_buflen.exit1117
+  br i1 %1338, label %1339, label %nstrace_ensure_buflen.argprom.exit1117
 
 1339:                                             ; preds = %1336
   store i32 -13, ptr %3, align 4
@@ -3472,7 +3472,7 @@ nstrace_ensure_buflen.exit1114:                   ; preds = %1321
   store ptr %1340, ptr %4, align 8
   br label %.critedge
 
-nstrace_ensure_buflen.exit1117:                   ; preds = %1336
+nstrace_ensure_buflen.argprom.exit1117:           ; preds = %1336
   %1341 = getelementptr inbounds i8, ptr %24, i64 2
   %.val1082 = load i16, ptr %1341, align 1
   %1342 = zext i16 %.val1082 to i64
@@ -3495,7 +3495,7 @@ nstrace_ensure_buflen.exit1117:                   ; preds = %1336
   %.not1016 = icmp sgt i8 %1354, -1
   br i1 %.not1016, label %1362, label %1356
 
-1356:                                             ; preds = %nstrace_ensure_buflen.exit1117
+1356:                                             ; preds = %nstrace_ensure_buflen.argprom.exit1117
   %1357 = load i8, ptr %1341, align 1
   %1358 = zext i8 %1357 to i32
   %1359 = shl nuw nsw i32 %1358, 7
@@ -3503,8 +3503,8 @@ nstrace_ensure_buflen.exit1117:                   ; preds = %1336
   %1361 = or disjoint i32 %1359, %1360
   br label %1362
 
-1362:                                             ; preds = %nstrace_ensure_buflen.exit1117, %1356
-  %1363 = phi i32 [ %1361, %1356 ], [ %1355, %nstrace_ensure_buflen.exit1117 ]
+1362:                                             ; preds = %nstrace_ensure_buflen.argprom.exit1117, %1356
+  %1363 = phi i32 [ %1361, %1356 ], [ %1355, %nstrace_ensure_buflen.argprom.exit1117 ]
   %1364 = add i32 %1363, %.11281
   br label %1388
 
@@ -3519,26 +3519,26 @@ nstrace_ensure_buflen.exit1117:                   ; preds = %1336
   %1368 = sub nuw i32 %.val1089, %.11281
   %1369 = icmp ult i32 %1368, 8
   %or.cond.i1118 = select i1 %1367, i1 true, i1 %1369
-  br i1 %or.cond.i1118, label %nstrace_ensure_buflen.exit1120.thread, label %nstrace_ensure_buflen.exit1120
+  br i1 %or.cond.i1118, label %nstrace_ensure_buflen.argprom.exit1120.thread, label %nstrace_ensure_buflen.argprom.exit1120
 
-nstrace_ensure_buflen.exit1120.thread:            ; preds = %1366
+nstrace_ensure_buflen.argprom.exit1120.thread:    ; preds = %1366
   store i32 -13, ptr %3, align 4
   %1370 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.9) #10
   store ptr %1370, ptr %4, align 8
   br label %.critedge
 
-nstrace_ensure_buflen.exit1120:                   ; preds = %1366
+nstrace_ensure_buflen.argprom.exit1120:           ; preds = %1366
   %1371 = getelementptr inbounds i8, ptr %24, i64 1
   %1372 = load i8, ptr %1371, align 1
   %1373 = zext i8 %1372 to i32
   %.not1065 = icmp sgt i8 %1372, -1
   br i1 %.not1065, label %1374, label %.thread
 
-1374:                                             ; preds = %nstrace_ensure_buflen.exit1120
+1374:                                             ; preds = %nstrace_ensure_buflen.argprom.exit1120
   %1375 = icmp eq i8 %1372, 0
   br i1 %1375, label %1383, label %1385
 
-.thread:                                          ; preds = %nstrace_ensure_buflen.exit1120
+.thread:                                          ; preds = %nstrace_ensure_buflen.argprom.exit1120
   %1376 = getelementptr inbounds i8, ptr %24, i64 2
   %1377 = load i8, ptr %1376, align 1
   %1378 = zext i8 %1377 to i32
@@ -3559,8 +3559,8 @@ nstrace_ensure_buflen.exit1120:                   ; preds = %1366
   %1387 = add i32 %1386, %.11281
   br label %1388
 
-1388:                                             ; preds = %1365, %1385, %1362, %nstrace_ensure_buflen.exit1111
-  %.2 = phi i32 [ %1387, %1385 ], [ %1364, %1362 ], [ %1310, %nstrace_ensure_buflen.exit1111 ], [ %.0994., %1365 ]
+1388:                                             ; preds = %1365, %1385, %1362, %nstrace_ensure_buflen.argprom.exit1111
+  %.2 = phi i32 [ %1387, %1385 ], [ %1364, %1362 ], [ %1310, %nstrace_ensure_buflen.argprom.exit1111 ], [ %.0994., %1365 ]
   %1389 = icmp ult i32 %.2, %.0994
   br i1 %1389, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
@@ -3605,8 +3605,8 @@ nstrace_read_page.exit:                           ; preds = %1406
   store i32 %1401, ptr %1409, align 4
   br label %21, !llvm.loop !11
 
-.critedge:                                        ; preds = %._crit_edge, %1408, %1403, %nstrace_ensure_buflen.exit1120.thread, %nstrace_ensure_buflen.exit1114.thread, %nstrace_ensure_buflen.exit1111.thread, %nstrace_ensure_buflen.exit.thread, %1383, %1339, %1300, %1280, %1259, %1211, %1195, %1189, %1168, %1123, %1107, %1101, %1080, %1033, %1017, %1011, %990, %946, %930, %924, %903, %859, %843, %837, %816, %775, %759, %753, %732, %691, %675, %669, %648, %610, %594, %588, %567, %513, %497, %491, %470, %419, %403, %397, %376, %323, %307, %301, %280, %230, %214, %208, %187, %136, %120, %114, %93, %45, %29
-  %.0 = phi i32 [ 0, %1383 ], [ 0, %1339 ], [ 0, %1300 ], [ 0, %1195 ], [ 0, %1211 ], [ 0, %1259 ], [ 1, %1280 ], [ 0, %1107 ], [ 0, %1123 ], [ 0, %1168 ], [ 1, %1189 ], [ 0, %1017 ], [ 0, %1033 ], [ 0, %1080 ], [ 1, %1101 ], [ 0, %930 ], [ 0, %946 ], [ 0, %990 ], [ 1, %1011 ], [ 0, %843 ], [ 0, %859 ], [ 0, %903 ], [ 1, %924 ], [ 0, %759 ], [ 0, %775 ], [ 0, %816 ], [ 1, %837 ], [ 0, %675 ], [ 0, %691 ], [ 0, %732 ], [ 1, %753 ], [ 0, %594 ], [ 0, %610 ], [ 0, %648 ], [ 1, %669 ], [ 0, %497 ], [ 0, %513 ], [ 0, %567 ], [ 1, %588 ], [ 0, %403 ], [ 0, %419 ], [ 0, %470 ], [ 1, %491 ], [ 0, %307 ], [ 0, %323 ], [ 0, %376 ], [ 1, %397 ], [ 0, %214 ], [ 0, %230 ], [ 0, %280 ], [ 1, %301 ], [ 0, %120 ], [ 0, %136 ], [ 0, %187 ], [ 1, %208 ], [ 0, %29 ], [ 0, %45 ], [ 0, %93 ], [ 1, %114 ], [ 0, %nstrace_ensure_buflen.exit.thread ], [ 0, %nstrace_ensure_buflen.exit1111.thread ], [ 0, %nstrace_ensure_buflen.exit1114.thread ], [ 0, %nstrace_ensure_buflen.exit1120.thread ], [ 0, %1403 ], [ 0, %1408 ], [ 0, %._crit_edge ]
+.critedge:                                        ; preds = %._crit_edge, %1408, %1403, %nstrace_ensure_buflen.argprom.exit1120.thread, %nstrace_ensure_buflen.argprom.exit1114.thread, %nstrace_ensure_buflen.argprom.exit1111.thread, %nstrace_ensure_buflen.argprom.exit.thread, %1383, %1339, %1300, %1280, %1259, %1211, %1195, %1189, %1168, %1123, %1107, %1101, %1080, %1033, %1017, %1011, %990, %946, %930, %924, %903, %859, %843, %837, %816, %775, %759, %753, %732, %691, %675, %669, %648, %610, %594, %588, %567, %513, %497, %491, %470, %419, %403, %397, %376, %323, %307, %301, %280, %230, %214, %208, %187, %136, %120, %114, %93, %45, %29
+  %.0 = phi i32 [ 0, %1383 ], [ 0, %1339 ], [ 0, %1300 ], [ 0, %1195 ], [ 0, %1211 ], [ 0, %1259 ], [ 1, %1280 ], [ 0, %1107 ], [ 0, %1123 ], [ 0, %1168 ], [ 1, %1189 ], [ 0, %1017 ], [ 0, %1033 ], [ 0, %1080 ], [ 1, %1101 ], [ 0, %930 ], [ 0, %946 ], [ 0, %990 ], [ 1, %1011 ], [ 0, %843 ], [ 0, %859 ], [ 0, %903 ], [ 1, %924 ], [ 0, %759 ], [ 0, %775 ], [ 0, %816 ], [ 1, %837 ], [ 0, %675 ], [ 0, %691 ], [ 0, %732 ], [ 1, %753 ], [ 0, %594 ], [ 0, %610 ], [ 0, %648 ], [ 1, %669 ], [ 0, %497 ], [ 0, %513 ], [ 0, %567 ], [ 1, %588 ], [ 0, %403 ], [ 0, %419 ], [ 0, %470 ], [ 1, %491 ], [ 0, %307 ], [ 0, %323 ], [ 0, %376 ], [ 1, %397 ], [ 0, %214 ], [ 0, %230 ], [ 0, %280 ], [ 1, %301 ], [ 0, %120 ], [ 0, %136 ], [ 0, %187 ], [ 1, %208 ], [ 0, %29 ], [ 0, %45 ], [ 0, %93 ], [ 1, %114 ], [ 0, %nstrace_ensure_buflen.argprom.exit.thread ], [ 0, %nstrace_ensure_buflen.argprom.exit1111.thread ], [ 0, %nstrace_ensure_buflen.argprom.exit1114.thread ], [ 0, %nstrace_ensure_buflen.argprom.exit1120.thread ], [ 0, %1403 ], [ 0, %1408 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -4633,7 +4633,7 @@ define internal range(i32 0, 2) i32 @nstrace_read_v30(ptr nocapture noundef read
   %47 = sub i32 %.val383, %.1459
   %48 = icmp ult i32 %47, 3
   %or.cond.i = or i1 %46, %48
-  br i1 %or.cond.i, label %49, label %nstrace_ensure_buflen.exit
+  br i1 %or.cond.i, label %49, label %nstrace_ensure_buflen.argprom.exit
 
 49:                                               ; preds = %45
   store i32 -13, ptr %3, align 4
@@ -4641,14 +4641,14 @@ define internal range(i32 0, 2) i32 @nstrace_read_v30(ptr nocapture noundef read
   store ptr %50, ptr %4, align 8
   br label %.sink.split
 
-nstrace_ensure_buflen.exit:                       ; preds = %45
+nstrace_ensure_buflen.argprom.exit:               ; preds = %45
   %51 = getelementptr inbounds i8, ptr %43, i64 1
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %.not353 = icmp sgt i8 %52, -1
   br i1 %.not353, label %61, label %54
 
-54:                                               ; preds = %nstrace_ensure_buflen.exit
+54:                                               ; preds = %nstrace_ensure_buflen.argprom.exit
   %55 = getelementptr inbounds i8, ptr %43, i64 2
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
@@ -4657,8 +4657,8 @@ nstrace_ensure_buflen.exit:                       ; preds = %45
   %60 = or disjoint i32 %58, %59
   br label %61
 
-61:                                               ; preds = %nstrace_ensure_buflen.exit, %54
-  %62 = phi i32 [ %60, %54 ], [ %53, %nstrace_ensure_buflen.exit ]
+61:                                               ; preds = %nstrace_ensure_buflen.argprom.exit, %54
+  %62 = phi i32 [ %60, %54 ], [ %53, %nstrace_ensure_buflen.argprom.exit ]
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %66
 
@@ -4669,7 +4669,7 @@ nstrace_ensure_buflen.exit:                       ; preds = %45
   br label %.sink.split
 
 66:                                               ; preds = %61
-  switch i8 %44, label %nstrace_ensure_buflen.exit395 [
+  switch i8 %44, label %nstrace_ensure_buflen.argprom.exit395 [
     i8 -88, label %67
     i8 -87, label %67
     i8 -86, label %67
@@ -5188,7 +5188,7 @@ select.unfold399:                                 ; preds = %._crit_edge
   %314 = sub nuw i32 %.val383, %312
   %315 = icmp ult i32 %314, 8
   %or.cond.i387 = select i1 %313, i1 true, i1 %315
-  br i1 %or.cond.i387, label %316, label %nstrace_ensure_buflen.exit389
+  br i1 %or.cond.i387, label %316, label %nstrace_ensure_buflen.argprom.exit389
 
 316:                                              ; preds = %310
   store i32 -13, ptr %3, align 4
@@ -5196,7 +5196,7 @@ select.unfold399:                                 ; preds = %._crit_edge
   store ptr %317, ptr %4, align 8
   br label %.sink.split
 
-nstrace_ensure_buflen.exit389:                    ; preds = %310
+nstrace_ensure_buflen.argprom.exit389:            ; preds = %310
   %318 = zext nneg i32 %312 to i64
   %319 = getelementptr i8, ptr %9, i64 %318
   %320 = getelementptr inbounds i8, ptr %319, i64 4
@@ -5213,7 +5213,7 @@ nstrace_ensure_buflen.exit389:                    ; preds = %310
 
 326:                                              ; preds = %66
   %327 = icmp ult i32 %47, 8
-  br i1 %327, label %328, label %nstrace_ensure_buflen.exit392
+  br i1 %327, label %328, label %nstrace_ensure_buflen.argprom.exit392
 
 328:                                              ; preds = %326
   store i32 -13, ptr %3, align 4
@@ -5221,7 +5221,7 @@ nstrace_ensure_buflen.exit389:                    ; preds = %310
   store ptr %329, ptr %4, align 8
   br label %.sink.split
 
-nstrace_ensure_buflen.exit392:                    ; preds = %326
+nstrace_ensure_buflen.argprom.exit392:            ; preds = %326
   %330 = getelementptr inbounds i8, ptr %43, i64 2
   %.val381 = load i16, ptr %330, align 1
   %331 = zext i16 %.val381 to i64
@@ -5244,7 +5244,7 @@ nstrace_ensure_buflen.exit392:                    ; preds = %326
   %.not355 = icmp sgt i8 %343, -1
   br i1 %.not355, label %351, label %345
 
-345:                                              ; preds = %nstrace_ensure_buflen.exit392
+345:                                              ; preds = %nstrace_ensure_buflen.argprom.exit392
   %346 = load i8, ptr %330, align 1
   %347 = zext i8 %346 to i32
   %348 = shl nuw nsw i32 %347, 7
@@ -5252,15 +5252,15 @@ nstrace_ensure_buflen.exit392:                    ; preds = %326
   %350 = or disjoint i32 %348, %349
   br label %351
 
-351:                                              ; preds = %nstrace_ensure_buflen.exit392, %345
-  %352 = phi i32 [ %350, %345 ], [ %344, %nstrace_ensure_buflen.exit392 ]
+351:                                              ; preds = %nstrace_ensure_buflen.argprom.exit392, %345
+  %352 = phi i32 [ %350, %345 ], [ %344, %nstrace_ensure_buflen.argprom.exit392 ]
   %353 = add nuw nsw i32 %352, %.1459
   br label %364
 
-nstrace_ensure_buflen.exit395:                    ; preds = %66
+nstrace_ensure_buflen.argprom.exit395:            ; preds = %66
   br i1 %.not353, label %361, label %354
 
-354:                                              ; preds = %nstrace_ensure_buflen.exit395
+354:                                              ; preds = %nstrace_ensure_buflen.argprom.exit395
   %355 = getelementptr inbounds i8, ptr %43, i64 2
   %356 = load i8, ptr %355, align 1
   %357 = zext i8 %356 to i32
@@ -5269,13 +5269,13 @@ nstrace_ensure_buflen.exit395:                    ; preds = %66
   %360 = or disjoint i32 %358, %359
   br label %361
 
-361:                                              ; preds = %nstrace_ensure_buflen.exit395, %354
-  %362 = phi i32 [ %360, %354 ], [ %53, %nstrace_ensure_buflen.exit395 ]
+361:                                              ; preds = %nstrace_ensure_buflen.argprom.exit395, %354
+  %362 = phi i32 [ %360, %354 ], [ %53, %nstrace_ensure_buflen.argprom.exit395 ]
   %363 = add nuw nsw i32 %362, %.1459
   br label %364
 
-364:                                              ; preds = %361, %351, %nstrace_ensure_buflen.exit389
-  %.10 = phi i32 [ %363, %361 ], [ %353, %351 ], [ %312, %nstrace_ensure_buflen.exit389 ]
+364:                                              ; preds = %361, %351, %nstrace_ensure_buflen.argprom.exit389
+  %.10 = phi i32 [ %363, %361 ], [ %353, %351 ], [ %312, %nstrace_ensure_buflen.argprom.exit389 ]
   %365 = icmp ult i32 %.10, 16384
   br i1 %365, label %.lr.ph, label %.critedge, !llvm.loop !18
 
@@ -5673,15 +5673,15 @@ define internal fastcc range(i32 0, 2) i32 @nstrace_set_start_time_v20(ptr nocap
   %17 = sub nuw i32 %.val62, %.184
   %18 = icmp ult i32 %17, 3
   %or.cond.i = select i1 %16, i1 true, i1 %18
-  br i1 %or.cond.i, label %nstrace_ensure_buflen.exit.thread, label %nstrace_ensure_buflen.exit
+  br i1 %or.cond.i, label %nstrace_ensure_buflen.argprom.exit.thread, label %nstrace_ensure_buflen.argprom.exit
 
-nstrace_ensure_buflen.exit.thread:                ; preds = %15
+nstrace_ensure_buflen.argprom.exit.thread:        ; preds = %15
   store i32 -13, ptr %1, align 4
   %19 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.9) #10
   store ptr %19, ptr %2, align 8
   br label %.critedge
 
-nstrace_ensure_buflen.exit:                       ; preds = %15
+nstrace_ensure_buflen.argprom.exit:               ; preds = %15
   %20 = zext i32 %.184 to i64
   %21 = getelementptr i8, ptr %6, i64 %20
   %22 = load i8, ptr %21, align 1
@@ -5690,17 +5690,17 @@ nstrace_ensure_buflen.exit:                       ; preds = %15
     i8 0, label %._crit_edge
   ]
 
-23:                                               ; preds = %nstrace_ensure_buflen.exit
+23:                                               ; preds = %nstrace_ensure_buflen.argprom.exit
   %24 = icmp ult i32 %17, 8
-  br i1 %24, label %nstrace_ensure_buflen.exit66.thread, label %nstrace_ensure_buflen.exit66
+  br i1 %24, label %nstrace_ensure_buflen.argprom.exit66.thread, label %nstrace_ensure_buflen.argprom.exit66
 
-nstrace_ensure_buflen.exit66.thread:              ; preds = %23
+nstrace_ensure_buflen.argprom.exit66.thread:      ; preds = %23
   store i32 -13, ptr %1, align 4
   %25 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.9) #10
   store ptr %25, ptr %2, align 8
   br label %.critedge
 
-nstrace_ensure_buflen.exit66:                     ; preds = %23
+nstrace_ensure_buflen.argprom.exit66:             ; preds = %23
   %26 = getelementptr inbounds i8, ptr %21, i64 4
   %27 = load i32, ptr %26, align 1
   %28 = getelementptr inbounds i8, ptr %5, i64 32
@@ -5720,7 +5720,7 @@ nstrace_ensure_buflen.exit66:                     ; preds = %23
   %.not59 = icmp sgt i8 %36, -1
   br i1 %.not59, label %44, label %38
 
-38:                                               ; preds = %nstrace_ensure_buflen.exit66
+38:                                               ; preds = %nstrace_ensure_buflen.argprom.exit66
   %39 = load i8, ptr %29, align 1
   %40 = zext i8 %39 to i32
   %41 = shl nuw nsw i32 %40, 7
@@ -5728,14 +5728,14 @@ nstrace_ensure_buflen.exit66:                     ; preds = %23
   %43 = or disjoint i32 %41, %42
   br label %44
 
-44:                                               ; preds = %nstrace_ensure_buflen.exit66, %38
-  %45 = phi i32 [ %43, %38 ], [ %37, %nstrace_ensure_buflen.exit66 ]
+44:                                               ; preds = %nstrace_ensure_buflen.argprom.exit66, %38
+  %45 = phi i32 [ %43, %38 ], [ %37, %nstrace_ensure_buflen.argprom.exit66 ]
   %46 = add i32 %45, %.184
   store i32 %46, ptr %7, align 8
   store i32 %.052, ptr %9, align 4
   br label %.critedge
 
-47:                                               ; preds = %nstrace_ensure_buflen.exit
+47:                                               ; preds = %nstrace_ensure_buflen.argprom.exit
   %48 = getelementptr inbounds i8, ptr %21, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
@@ -5767,7 +5767,7 @@ nstrace_ensure_buflen.exit66:                     ; preds = %23
   %65 = icmp ult i32 %64, %.052
   br i1 %65, label %15, label %._crit_edge, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %nstrace_ensure_buflen.exit, %63, %13
+._crit_edge:                                      ; preds = %nstrace_ensure_buflen.argprom.exit, %63, %13
   %66 = zext i32 %.052 to i64
   %67 = load i64, ptr %11, align 8
   %68 = add i64 %67, %66
@@ -5808,8 +5808,8 @@ nstrace_read_page.exit:                           ; preds = %82
   store i32 %77, ptr %85, align 4
   br label %13, !llvm.loop !21
 
-.critedge:                                        ; preds = %._crit_edge, %84, %79, %nstrace_ensure_buflen.exit66.thread, %nstrace_ensure_buflen.exit.thread, %61, %44
-  %.0 = phi i32 [ 0, %61 ], [ 1, %44 ], [ 0, %nstrace_ensure_buflen.exit.thread ], [ 0, %nstrace_ensure_buflen.exit66.thread ], [ 0, %79 ], [ 0, %84 ], [ 0, %._crit_edge ]
+.critedge:                                        ; preds = %._crit_edge, %84, %79, %nstrace_ensure_buflen.argprom.exit66.thread, %nstrace_ensure_buflen.argprom.exit.thread, %61, %44
+  %.0 = phi i32 [ 0, %61 ], [ 1, %44 ], [ 0, %nstrace_ensure_buflen.argprom.exit.thread ], [ 0, %nstrace_ensure_buflen.argprom.exit66.thread ], [ 0, %79 ], [ 0, %84 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

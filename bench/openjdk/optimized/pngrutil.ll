@@ -1065,7 +1065,7 @@ png_crc_read.exit:                                ; preds = %14
   %20 = zext i8 %19 to i32
   %21 = shl nuw i32 %20, 24
   %22 = icmp sgt i32 %21, -1
-  br i1 %22, label %23, label %png_get_fixed_point.exit
+  br i1 %22, label %23, label %png_get_fixed_point.argprom.exit
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %4, i64 1
@@ -1082,16 +1082,16 @@ png_crc_read.exit:                                ; preds = %14
   %35 = or disjoint i32 %27, %34
   %36 = or disjoint i32 %35, %31
   %37 = or disjoint i32 %36, %21
-  br label %png_get_fixed_point.exit
+  br label %png_get_fixed_point.argprom.exit
 
-png_get_fixed_point.exit:                         ; preds = %18, %23
+png_get_fixed_point.argprom.exit:                 ; preds = %18, %23
   %.0.i = phi i32 [ %37, %23 ], [ -1, %18 ]
   %38 = getelementptr inbounds i8, ptr %0, i64 1072
   call void @png_colorspace_set_gamma(ptr noundef nonnull %0, ptr noundef nonnull %38, i32 noundef %.0.i) #12
   call void @png_colorspace_sync(ptr noundef nonnull %0, ptr noundef %1) #12
   br label %39
 
-39:                                               ; preds = %png_crc_read.exit, %png_get_fixed_point.exit, %15, %12
+39:                                               ; preds = %png_crc_read.exit, %png_get_fixed_point.argprom.exit, %15, %12
   ret void
 }
 
@@ -1283,7 +1283,7 @@ png_crc_read.exit:                                ; preds = %15
   %21 = zext i8 %20 to i32
   %22 = shl nuw i32 %21, 24
   %23 = icmp sgt i32 %22, -1
-  br i1 %23, label %24, label %png_get_fixed_point.exit
+  br i1 %23, label %24, label %png_get_fixed_point.argprom.exit
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %4, i64 1
@@ -1300,9 +1300,9 @@ png_crc_read.exit:                                ; preds = %15
   %36 = or disjoint i32 %28, %35
   %37 = or disjoint i32 %36, %32
   %38 = or disjoint i32 %37, %22
-  br label %png_get_fixed_point.exit
+  br label %png_get_fixed_point.argprom.exit
 
-png_get_fixed_point.exit:                         ; preds = %19, %24
+png_get_fixed_point.argprom.exit:                 ; preds = %19, %24
   %.0.i = phi i32 [ %38, %24 ], [ -1, %19 ]
   %39 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 %.0.i, ptr %39, align 4
@@ -1311,9 +1311,9 @@ png_get_fixed_point.exit:                         ; preds = %19, %24
   %42 = zext i8 %41 to i32
   %43 = shl nuw i32 %42, 24
   %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %45, label %png_get_fixed_point.exit48
+  br i1 %44, label %45, label %png_get_fixed_point.argprom.exit48
 
-45:                                               ; preds = %png_get_fixed_point.exit
+45:                                               ; preds = %png_get_fixed_point.argprom.exit
   %46 = getelementptr inbounds i8, ptr %4, i64 5
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
@@ -1328,10 +1328,10 @@ png_get_fixed_point.exit:                         ; preds = %19, %24
   %57 = or disjoint i32 %49, %56
   %58 = or disjoint i32 %57, %53
   %59 = or disjoint i32 %58, %43
-  br label %png_get_fixed_point.exit48
+  br label %png_get_fixed_point.argprom.exit48
 
-png_get_fixed_point.exit48:                       ; preds = %png_get_fixed_point.exit, %45
-  %.0.i47 = phi i32 [ %59, %45 ], [ -1, %png_get_fixed_point.exit ]
+png_get_fixed_point.argprom.exit48:               ; preds = %png_get_fixed_point.argprom.exit, %45
+  %.0.i47 = phi i32 [ %59, %45 ], [ -1, %png_get_fixed_point.argprom.exit ]
   %60 = getelementptr inbounds i8, ptr %5, i64 28
   store i32 %.0.i47, ptr %60, align 4
   %61 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1339,9 +1339,9 @@ png_get_fixed_point.exit48:                       ; preds = %png_get_fixed_point
   %63 = zext i8 %62 to i32
   %64 = shl nuw i32 %63, 24
   %65 = icmp sgt i32 %64, -1
-  br i1 %65, label %66, label %png_get_fixed_point.exit50
+  br i1 %65, label %66, label %png_get_fixed_point.argprom.exit50
 
-66:                                               ; preds = %png_get_fixed_point.exit48
+66:                                               ; preds = %png_get_fixed_point.argprom.exit48
   %67 = getelementptr inbounds i8, ptr %4, i64 9
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
@@ -1356,19 +1356,19 @@ png_get_fixed_point.exit48:                       ; preds = %png_get_fixed_point
   %78 = or disjoint i32 %70, %77
   %79 = or disjoint i32 %78, %74
   %80 = or disjoint i32 %79, %64
-  br label %png_get_fixed_point.exit50
+  br label %png_get_fixed_point.argprom.exit50
 
-png_get_fixed_point.exit50:                       ; preds = %png_get_fixed_point.exit48, %66
-  %.0.i49 = phi i32 [ %80, %66 ], [ -1, %png_get_fixed_point.exit48 ]
+png_get_fixed_point.argprom.exit50:               ; preds = %png_get_fixed_point.argprom.exit48, %66
+  %.0.i49 = phi i32 [ %80, %66 ], [ -1, %png_get_fixed_point.argprom.exit48 ]
   store i32 %.0.i49, ptr %5, align 4
   %81 = getelementptr inbounds i8, ptr %4, i64 12
   %82 = load i8, ptr %81, align 4
   %83 = zext i8 %82 to i32
   %84 = shl nuw i32 %83, 24
   %85 = icmp sgt i32 %84, -1
-  br i1 %85, label %86, label %png_get_fixed_point.exit52
+  br i1 %85, label %86, label %png_get_fixed_point.argprom.exit52
 
-86:                                               ; preds = %png_get_fixed_point.exit50
+86:                                               ; preds = %png_get_fixed_point.argprom.exit50
   %87 = getelementptr inbounds i8, ptr %4, i64 13
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
@@ -1383,10 +1383,10 @@ png_get_fixed_point.exit50:                       ; preds = %png_get_fixed_point
   %98 = or disjoint i32 %90, %97
   %99 = or disjoint i32 %98, %94
   %100 = or disjoint i32 %99, %84
-  br label %png_get_fixed_point.exit52
+  br label %png_get_fixed_point.argprom.exit52
 
-png_get_fixed_point.exit52:                       ; preds = %png_get_fixed_point.exit50, %86
-  %.0.i51 = phi i32 [ %100, %86 ], [ -1, %png_get_fixed_point.exit50 ]
+png_get_fixed_point.argprom.exit52:               ; preds = %png_get_fixed_point.argprom.exit50, %86
+  %.0.i51 = phi i32 [ %100, %86 ], [ -1, %png_get_fixed_point.argprom.exit50 ]
   %101 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.0.i51, ptr %101, align 4
   %102 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1394,9 +1394,9 @@ png_get_fixed_point.exit52:                       ; preds = %png_get_fixed_point
   %104 = zext i8 %103 to i32
   %105 = shl nuw i32 %104, 24
   %106 = icmp sgt i32 %105, -1
-  br i1 %106, label %107, label %png_get_fixed_point.exit54
+  br i1 %106, label %107, label %png_get_fixed_point.argprom.exit54
 
-107:                                              ; preds = %png_get_fixed_point.exit52
+107:                                              ; preds = %png_get_fixed_point.argprom.exit52
   %108 = getelementptr inbounds i8, ptr %4, i64 17
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
@@ -1411,10 +1411,10 @@ png_get_fixed_point.exit52:                       ; preds = %png_get_fixed_point
   %119 = or disjoint i32 %111, %118
   %120 = or disjoint i32 %119, %115
   %121 = or disjoint i32 %120, %105
-  br label %png_get_fixed_point.exit54
+  br label %png_get_fixed_point.argprom.exit54
 
-png_get_fixed_point.exit54:                       ; preds = %png_get_fixed_point.exit52, %107
-  %.0.i53 = phi i32 [ %121, %107 ], [ -1, %png_get_fixed_point.exit52 ]
+png_get_fixed_point.argprom.exit54:               ; preds = %png_get_fixed_point.argprom.exit52, %107
+  %.0.i53 = phi i32 [ %121, %107 ], [ -1, %png_get_fixed_point.argprom.exit52 ]
   %122 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %.0.i53, ptr %122, align 4
   %123 = getelementptr inbounds i8, ptr %4, i64 20
@@ -1422,9 +1422,9 @@ png_get_fixed_point.exit54:                       ; preds = %png_get_fixed_point
   %125 = zext i8 %124 to i32
   %126 = shl nuw i32 %125, 24
   %127 = icmp sgt i32 %126, -1
-  br i1 %127, label %128, label %png_get_fixed_point.exit56
+  br i1 %127, label %128, label %png_get_fixed_point.argprom.exit56
 
-128:                                              ; preds = %png_get_fixed_point.exit54
+128:                                              ; preds = %png_get_fixed_point.argprom.exit54
   %129 = getelementptr inbounds i8, ptr %4, i64 21
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
@@ -1439,10 +1439,10 @@ png_get_fixed_point.exit54:                       ; preds = %png_get_fixed_point
   %140 = or disjoint i32 %132, %139
   %141 = or disjoint i32 %140, %136
   %142 = or disjoint i32 %141, %126
-  br label %png_get_fixed_point.exit56
+  br label %png_get_fixed_point.argprom.exit56
 
-png_get_fixed_point.exit56:                       ; preds = %png_get_fixed_point.exit54, %128
-  %.0.i55 = phi i32 [ %142, %128 ], [ -1, %png_get_fixed_point.exit54 ]
+png_get_fixed_point.argprom.exit56:               ; preds = %png_get_fixed_point.argprom.exit54, %128
+  %.0.i55 = phi i32 [ %142, %128 ], [ -1, %png_get_fixed_point.argprom.exit54 ]
   %143 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 %.0.i55, ptr %143, align 4
   %144 = getelementptr inbounds i8, ptr %4, i64 24
@@ -1450,9 +1450,9 @@ png_get_fixed_point.exit56:                       ; preds = %png_get_fixed_point
   %146 = zext i8 %145 to i32
   %147 = shl nuw i32 %146, 24
   %148 = icmp sgt i32 %147, -1
-  br i1 %148, label %149, label %png_get_fixed_point.exit58
+  br i1 %148, label %149, label %png_get_fixed_point.argprom.exit58
 
-149:                                              ; preds = %png_get_fixed_point.exit56
+149:                                              ; preds = %png_get_fixed_point.argprom.exit56
   %150 = getelementptr inbounds i8, ptr %4, i64 25
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i32
@@ -1467,10 +1467,10 @@ png_get_fixed_point.exit56:                       ; preds = %png_get_fixed_point
   %161 = or disjoint i32 %153, %160
   %162 = or disjoint i32 %161, %157
   %163 = or disjoint i32 %162, %147
-  br label %png_get_fixed_point.exit58
+  br label %png_get_fixed_point.argprom.exit58
 
-png_get_fixed_point.exit58:                       ; preds = %png_get_fixed_point.exit56, %149
-  %.0.i57 = phi i32 [ %163, %149 ], [ -1, %png_get_fixed_point.exit56 ]
+png_get_fixed_point.argprom.exit58:               ; preds = %png_get_fixed_point.argprom.exit56, %149
+  %.0.i57 = phi i32 [ %163, %149 ], [ -1, %png_get_fixed_point.argprom.exit56 ]
   %164 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 %.0.i57, ptr %164, align 4
   %165 = getelementptr inbounds i8, ptr %4, i64 28
@@ -1478,9 +1478,9 @@ png_get_fixed_point.exit58:                       ; preds = %png_get_fixed_point
   %167 = zext i8 %166 to i32
   %168 = shl nuw i32 %167, 24
   %169 = icmp sgt i32 %168, -1
-  br i1 %169, label %170, label %png_get_fixed_point.exit60
+  br i1 %169, label %170, label %png_get_fixed_point.argprom.exit60
 
-170:                                              ; preds = %png_get_fixed_point.exit58
+170:                                              ; preds = %png_get_fixed_point.argprom.exit58
   %171 = getelementptr inbounds i8, ptr %4, i64 29
   %172 = load i8, ptr %171, align 1
   %173 = zext i8 %172 to i32
@@ -1495,10 +1495,10 @@ png_get_fixed_point.exit58:                       ; preds = %png_get_fixed_point
   %182 = or disjoint i32 %174, %181
   %183 = or disjoint i32 %182, %178
   %184 = or disjoint i32 %183, %168
-  br label %png_get_fixed_point.exit60
+  br label %png_get_fixed_point.argprom.exit60
 
-png_get_fixed_point.exit60:                       ; preds = %png_get_fixed_point.exit58, %170
-  %.0.i59 = phi i32 [ %184, %170 ], [ -1, %png_get_fixed_point.exit58 ]
+png_get_fixed_point.argprom.exit60:               ; preds = %png_get_fixed_point.argprom.exit58, %170
+  %.0.i59 = phi i32 [ %184, %170 ], [ -1, %png_get_fixed_point.argprom.exit58 ]
   %185 = getelementptr inbounds i8, ptr %5, i64 20
   store i32 %.0.i59, ptr %185, align 4
   %186 = icmp eq i32 %.0.i, -1
@@ -1518,11 +1518,11 @@ png_get_fixed_point.exit60:                       ; preds = %png_get_fixed_point
   %or.cond20 = select i1 %or.cond17, i1 true, i1 %193
   br i1 %or.cond20, label %194, label %195
 
-194:                                              ; preds = %png_get_fixed_point.exit60
+194:                                              ; preds = %png_get_fixed_point.argprom.exit60
   call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #12
   br label %206
 
-195:                                              ; preds = %png_get_fixed_point.exit60
+195:                                              ; preds = %png_get_fixed_point.argprom.exit60
   %196 = getelementptr inbounds i8, ptr %0, i64 1072
   %197 = getelementptr inbounds i8, ptr %0, i64 1146
   %198 = load i16, ptr %197, align 2

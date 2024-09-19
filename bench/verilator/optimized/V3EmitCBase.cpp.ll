@@ -806,8 +806,8 @@ define dso_local void @_ZN17EmitCParentModuleC2Ev(ptr noundef nonnull align 1 de
   %4 = load i32, ptr @_ZN12VNUser4InUse12s_userCntGblE, align 4
   br label %5
 
-5:                                                ; preds = %.lr.ph, %"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.exit"
-  %.023 = phi ptr [ %.021, %.lr.ph ], [ %.0, %"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.exit" ]
+5:                                                ; preds = %.lr.ph, %"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.argprom.exit"
+  %.023 = phi ptr [ %.021, %.lr.ph ], [ %.0, %"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.argprom.exit" ]
   %6 = getelementptr inbounds i8, ptr %.023, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %6, align 8
   %7 = add i16 %.sroa.0.0.copyload.i.i.i, -331
@@ -850,7 +850,7 @@ _ZN7AstNode9privateAsI13AstNodeModulePS_EEPT_S2_.exit: ; preds = %5
   %18 = getelementptr inbounds i8, ptr %.023, i64 32
   %.01.i = load ptr, ptr %18, align 8
   %.not2.i = icmp eq ptr %.01.i, null
-  br i1 %.not2.i, label %"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.exit", label %_ZN7AstNode9privateIsI8AstCFuncPS_EEbPKS_.exit.lr.ph.i
+  br i1 %.not2.i, label %"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.argprom.exit", label %_ZN7AstNode9privateIsI8AstCFuncPS_EEbPKS_.exit.lr.ph.i
 
 _ZN7AstNode9privateIsI8AstCFuncPS_EEbPKS_.exit.lr.ph.i: ; preds = %_ZN7AstNode9privateAsI13AstNodeModulePS_EEPT_S2_.exit
   %19 = ptrtoint ptr %.023 to i64
@@ -876,9 +876,9 @@ _ZN7AstNode9privateIsI8AstCFuncPS_EEbPKS_.exit.i: ; preds = %24, %_ZN7AstNode9pr
   %25 = getelementptr inbounds i8, ptr %.03.i, i64 8
   %.0.i = load ptr, ptr %25, align 8
   %.not.i10 = icmp eq ptr %.0.i, null
-  br i1 %.not.i10, label %"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.exit", label %_ZN7AstNode9privateIsI8AstCFuncPS_EEbPKS_.exit.i, !llvm.loop !5
+  br i1 %.not.i10, label %"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.argprom.exit", label %_ZN7AstNode9privateIsI8AstCFuncPS_EEbPKS_.exit.i, !llvm.loop !5
 
-"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.exit": ; preds = %24, %_ZN7AstNode9privateAsI13AstNodeModulePS_EEPT_S2_.exit
+"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.argprom.exit": ; preds = %24, %_ZN7AstNode9privateAsI13AstNodeModulePS_EEPT_S2_.exit
   %26 = getelementptr inbounds i8, ptr %.023, i64 8
   %.0 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %.0, null
@@ -890,7 +890,7 @@ _ZN7AstNode9privateIsI8AstCFuncPS_EEbPKS_.exit.i: ; preds = %24, %_ZN7AstNode9pr
   tail call void @_ZN12VNUser4InUseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #16
   resume { ptr, i32 } %28
 
-._crit_edge:                                      ; preds = %"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.exit", %1
+._crit_edge:                                      ; preds = %"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.argprom.exit", %1
   %29 = getelementptr inbounds i8, ptr %2, i64 168
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 264
@@ -898,7 +898,7 @@ _ZN7AstNode9privateIsI8AstCFuncPS_EEbPKS_.exit.i: ; preds = %24, %_ZN7AstNode9pr
   %33 = getelementptr inbounds i8, ptr %32, i64 32
   %.01.i11 = load ptr, ptr %33, align 8
   %.not2.i12 = icmp eq ptr %.01.i11, null
-  br i1 %.not2.i12, label %"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.exit19", label %_ZN7AstNode9privateIsI8AstCFuncPS_EEbPKS_.exit.lr.ph.i13
+  br i1 %.not2.i12, label %"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.argprom.exit19", label %_ZN7AstNode9privateIsI8AstCFuncPS_EEbPKS_.exit.lr.ph.i13
 
 _ZN7AstNode9privateIsI8AstCFuncPS_EEbPKS_.exit.lr.ph.i13: ; preds = %._crit_edge
   %34 = ptrtoint ptr %32 to i64
@@ -925,9 +925,9 @@ _ZN7AstNode9privateIsI8AstCFuncPS_EEbPKS_.exit.i14: ; preds = %40, %_ZN7AstNode9
   %41 = getelementptr inbounds i8, ptr %.03.i15, i64 8
   %.0.i17 = load ptr, ptr %41, align 8
   %.not.i18 = icmp eq ptr %.0.i17, null
-  br i1 %.not.i18, label %"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.exit19", label %_ZN7AstNode9privateIsI8AstCFuncPS_EEbPKS_.exit.i14, !llvm.loop !5
+  br i1 %.not.i18, label %"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.argprom.exit19", label %_ZN7AstNode9privateIsI8AstCFuncPS_EEbPKS_.exit.i14, !llvm.loop !5
 
-"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.exit19": ; preds = %40, %._crit_edge
+"_ZZN17EmitCParentModuleC1EvENK3$_0clEP13AstNodeModule.argprom.exit19": ; preds = %40, %._crit_edge
   ret void
 }
 
@@ -3069,7 +3069,7 @@ _ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 207:                                              ; preds = %_ZN21EmitCBaseVisitorConst5putnsEPK7AstNodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit212, %_ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit219
   %.val160 = load ptr, ptr %72, align 8
   %.val161 = load ptr, ptr %70, align 8
-  call fastcc void @"_ZZN21EmitCBaseVisitorConst11emitVarDeclEPK6AstVarbENK3$_0clES2_"(ptr nonnull %0, ptr %.val160, ptr %.val161)
+  call fastcc void @"_ZZN21EmitCBaseVisitorConst11emitVarDeclEPK6AstVarbENK3$_0clES2_.argprom"(ptr nonnull %0, ptr %.val160, ptr %.val161)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #16
   %208 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %25)
           to label %.noexc220 unwind label %213
@@ -3679,7 +3679,7 @@ _ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 355:                                              ; preds = %_ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit302, %_ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit309
   %.val163 = load ptr, ptr %72, align 8
   %.val164 = load ptr, ptr %70, align 8
-  call fastcc void @"_ZZN21EmitCBaseVisitorConst11emitVarDeclEPK6AstVarbENK3$_0clES2_"(ptr nonnull %0, ptr %.val163, ptr %.val164)
+  call fastcc void @"_ZZN21EmitCBaseVisitorConst11emitVarDeclEPK6AstVarbENK3$_0clES2_.argprom"(ptr nonnull %0, ptr %.val163, ptr %.val164)
   %356 = getelementptr inbounds i8, ptr %78, i64 24
   %357 = load ptr, ptr %356, align 8
   %.not.i310 = icmp eq ptr %357, null
@@ -4404,7 +4404,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6AstVar10isWritableEv(ptr 
 declare void @_ZNK6AstVar6scTypeB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(280)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN21EmitCBaseVisitorConst11emitVarDeclEPK6AstVarbENK3$_0clES2_"(ptr nocapture readonly %.0.val, ptr %.24.val, ptr %.72.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN21EmitCBaseVisitorConst11emitVarDeclEPK6AstVarbENK3$_0clES2_.argprom"(ptr nocapture readonly %.0.val, ptr %.24.val, ptr %.72.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4700,9 +4700,9 @@ define dso_local void @_ZN21EmitCBaseVisitorConst11emitModCUseEPK13AstNodeModule
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %.not13.i = icmp eq ptr %.val, null
-  br i1 %.not13.i, label %"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.exit.thread", label %_ZN7AstNode11privateCastI7AstCUsePS_EEPT_S2_.exit.lr.ph.i
+  br i1 %.not13.i, label %"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.argprom.exit.thread", label %_ZN7AstNode11privateCastI7AstCUsePS_EEPT_S2_.exit.lr.ph.i
 
-"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.exit.thread": ; preds = %3
+"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.argprom.exit.thread": ; preds = %3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -4824,7 +4824,7 @@ _ZN7AstNode11privateCastI7AstCUsePS_EEPT_S2_.exit.i: ; preds = %_ZN7AstNode11pri
   %51 = getelementptr inbounds i8, ptr %.01714.i, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not.i = icmp eq ptr %52, null
-  br i1 %.not.i, label %"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.exit", label %_ZN7AstNode11privateCastI7AstCUsePS_EEPT_S2_.exit.i, !llvm.loop !28
+  br i1 %.not.i, label %"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.argprom.exit", label %_ZN7AstNode11privateCastI7AstCUsePS_EEPT_S2_.exit.i, !llvm.loop !28
 
 .thread:                                          ; preds = %24, %40
   %.sink16.i = phi ptr [ %4, %24 ], [ %7, %40 ]
@@ -4836,9 +4836,9 @@ _ZN7AstNode11privateCastI7AstCUsePS_EEPT_S2_.exit.i: ; preds = %_ZN7AstNode11pri
   %53 = getelementptr inbounds i8, ptr %.01714.i, i64 8
   %54 = load ptr, ptr %53, align 8
   %.not.i11 = icmp eq ptr %54, null
-  br i1 %.not.i11, label %"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.exit.thread13", label %_ZN7AstNode11privateCastI7AstCUsePS_EEPT_S2_.exit.i.outer, !llvm.loop !28
+  br i1 %.not.i11, label %"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.argprom.exit.thread13", label %_ZN7AstNode11privateCastI7AstCUsePS_EEPT_S2_.exit.i.outer, !llvm.loop !28
 
-"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.exit.thread13": ; preds = %.thread
+"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.argprom.exit.thread13": ; preds = %.thread
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -4857,7 +4857,7 @@ common.resume:                                    ; preds = %.body, %55
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink17.i) #16
   br label %common.resume
 
-"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.exit": ; preds = %50
+"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.argprom.exit": ; preds = %50
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -4866,7 +4866,7 @@ common.resume:                                    ; preds = %.body, %55
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   br i1 %.0.ph, label %56, label %66
 
-56:                                               ; preds = %"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.exit.thread13", %"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.exit"
+56:                                               ; preds = %"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.argprom.exit.thread13", %"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.argprom.exit"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #16
   %57 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %.noexc unwind label %62
@@ -4912,7 +4912,7 @@ _ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #16
   br label %common.resume
 
-66:                                               ; preds = %"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.exit.thread", %_ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.exit"
+66:                                               ; preds = %"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.argprom.exit.thread", %_ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %"_ZN21EmitCBaseVisitorConst10forModCUseIZNS_11emitModCUseEPK13AstNodeModule8VUseTypeE3$_0EEvS3_S4_T_.argprom.exit"
   ret void
 }
 

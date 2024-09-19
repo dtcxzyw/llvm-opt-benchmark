@@ -921,13 +921,13 @@ define internal i32 @dissect_wccp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) @__const.dissect_wccp2_info.wccp_wccp_address_table, i64 32, i1 false)
   %86 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 8) #7
   %87 = icmp slt i32 %86, 4
-  br i1 %87, label %find_wccp_address_table.exit.i, label %.lr.ph.i.i
+  br i1 %87, label %find_wccp_address_table.argprom.exit.i, label %.lr.ph.i.i
 
 88:                                               ; preds = %99
   %89 = add i32 %96, %.02.i.i
   %90 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %89) #7
   %91 = icmp slt i32 %90, 4
-  br i1 %91, label %find_wccp_address_table.exit.i, label %.lr.ph.i.i
+  br i1 %91, label %find_wccp_address_table.argprom.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %85, %88
   %.02.i.i = phi i32 [ %89, %88 ], [ 8, %85 ]
@@ -938,7 +938,7 @@ define internal i32 @dissect_wccp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %96 = add nuw nsw i32 %95, 4
   %97 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.02.i.i) #7
   %98 = icmp sgt i32 %96, %97
-  br i1 %98, label %find_wccp_address_table.exit.i, label %99
+  br i1 %98, label %find_wccp_address_table.argprom.exit.i, label %99
 
 99:                                               ; preds = %.lr.ph.i.i
   %100 = icmp eq i16 %92, 17
@@ -947,28 +947,28 @@ define internal i32 @dissect_wccp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 101:                                              ; preds = %99
   %102 = add i32 %.02.i.i, 4
   %103 = call i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noundef %102, i32 noundef %95, ptr noundef %1, ptr noundef null, ptr noundef nonnull %6)
-  br label %find_wccp_address_table.exit.i
+  br label %find_wccp_address_table.argprom.exit.i
 
-find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %101, %85
+find_wccp_address_table.argprom.exit.i:           ; preds = %.lr.ph.i.i, %88, %101, %85
   %104 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 8) #7
   %105 = icmp sgt i32 %104, 0
   br i1 %105, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %find_wccp_address_table.exit.i, %148
-  %.0267.i = phi i32 [ %149, %148 ], [ 8, %find_wccp_address_table.exit.i ]
-  %.0181266.i = phi i32 [ %.1.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0182265.i = phi i32 [ %.1183.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0184264.i = phi i32 [ %.1185.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0186263.i = phi i32 [ %.1187.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0188262.i = phi i32 [ %.1189.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0190261.i = phi i32 [ %.1191.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0192260.i = phi i32 [ %.1193.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0194259.i = phi i32 [ %.1195.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0196258.i = phi i32 [ %.1197.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0198257.i = phi i32 [ %.1199.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0200256.i = phi i32 [ %.1201.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0202255.i = phi i32 [ %.1203.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0204254.i = phi i32 [ %.1205.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
+.lr.ph.i:                                         ; preds = %find_wccp_address_table.argprom.exit.i, %148
+  %.0267.i = phi i32 [ %149, %148 ], [ 8, %find_wccp_address_table.argprom.exit.i ]
+  %.0181266.i = phi i32 [ %.1.i, %148 ], [ 0, %find_wccp_address_table.argprom.exit.i ]
+  %.0182265.i = phi i32 [ %.1183.i, %148 ], [ 0, %find_wccp_address_table.argprom.exit.i ]
+  %.0184264.i = phi i32 [ %.1185.i, %148 ], [ 0, %find_wccp_address_table.argprom.exit.i ]
+  %.0186263.i = phi i32 [ %.1187.i, %148 ], [ 0, %find_wccp_address_table.argprom.exit.i ]
+  %.0188262.i = phi i32 [ %.1189.i, %148 ], [ 0, %find_wccp_address_table.argprom.exit.i ]
+  %.0190261.i = phi i32 [ %.1191.i, %148 ], [ 0, %find_wccp_address_table.argprom.exit.i ]
+  %.0192260.i = phi i32 [ %.1193.i, %148 ], [ 0, %find_wccp_address_table.argprom.exit.i ]
+  %.0194259.i = phi i32 [ %.1195.i, %148 ], [ 0, %find_wccp_address_table.argprom.exit.i ]
+  %.0196258.i = phi i32 [ %.1197.i, %148 ], [ 0, %find_wccp_address_table.argprom.exit.i ]
+  %.0198257.i = phi i32 [ %.1199.i, %148 ], [ 0, %find_wccp_address_table.argprom.exit.i ]
+  %.0200256.i = phi i32 [ %.1201.i, %148 ], [ 0, %find_wccp_address_table.argprom.exit.i ]
+  %.0202255.i = phi i32 [ %.1203.i, %148 ], [ 0, %find_wccp_address_table.argprom.exit.i ]
+  %.0204254.i = phi i32 [ %.1205.i, %148 ], [ 0, %find_wccp_address_table.argprom.exit.i ]
   %106 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0267.i) #7
   %107 = zext i16 %106 to i32
   switch i16 %106, label %121 [
@@ -1107,20 +1107,20 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   %161 = icmp eq i32 %.1183.i, 0
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %find_wccp_address_table.exit.i
-  %.0204.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %153, %._crit_edge.loopexit.i ]
-  %.0202.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %154, %._crit_edge.loopexit.i ]
-  %.0200.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %155, %._crit_edge.loopexit.i ]
-  %.0198.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %156, %._crit_edge.loopexit.i ]
-  %.0196.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %157, %._crit_edge.loopexit.i ]
-  %.0194.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %158, %._crit_edge.loopexit.i ]
-  %.0192.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1193.i, %._crit_edge.loopexit.i ]
-  %.0190.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %159, %._crit_edge.loopexit.i ]
-  %.0188.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %160, %._crit_edge.loopexit.i ]
-  %.0186.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1187.i, %._crit_edge.loopexit.i ]
-  %.0184.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1185.i, %._crit_edge.loopexit.i ]
-  %.0182.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %161, %._crit_edge.loopexit.i ]
-  %.0181.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1.i, %._crit_edge.loopexit.i ]
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %find_wccp_address_table.argprom.exit.i
+  %.0204.lcssa.i = phi i1 [ true, %find_wccp_address_table.argprom.exit.i ], [ %153, %._crit_edge.loopexit.i ]
+  %.0202.lcssa.i = phi i1 [ true, %find_wccp_address_table.argprom.exit.i ], [ %154, %._crit_edge.loopexit.i ]
+  %.0200.lcssa.i = phi i1 [ true, %find_wccp_address_table.argprom.exit.i ], [ %155, %._crit_edge.loopexit.i ]
+  %.0198.lcssa.i = phi i1 [ true, %find_wccp_address_table.argprom.exit.i ], [ %156, %._crit_edge.loopexit.i ]
+  %.0196.lcssa.i = phi i1 [ true, %find_wccp_address_table.argprom.exit.i ], [ %157, %._crit_edge.loopexit.i ]
+  %.0194.lcssa.i = phi i1 [ true, %find_wccp_address_table.argprom.exit.i ], [ %158, %._crit_edge.loopexit.i ]
+  %.0192.lcssa.i = phi i32 [ 0, %find_wccp_address_table.argprom.exit.i ], [ %.1193.i, %._crit_edge.loopexit.i ]
+  %.0190.lcssa.i = phi i1 [ true, %find_wccp_address_table.argprom.exit.i ], [ %159, %._crit_edge.loopexit.i ]
+  %.0188.lcssa.i = phi i1 [ true, %find_wccp_address_table.argprom.exit.i ], [ %160, %._crit_edge.loopexit.i ]
+  %.0186.lcssa.i = phi i32 [ 0, %find_wccp_address_table.argprom.exit.i ], [ %.1187.i, %._crit_edge.loopexit.i ]
+  %.0184.lcssa.i = phi i32 [ 0, %find_wccp_address_table.argprom.exit.i ], [ %.1185.i, %._crit_edge.loopexit.i ]
+  %.0182.lcssa.i = phi i1 [ true, %find_wccp_address_table.argprom.exit.i ], [ %161, %._crit_edge.loopexit.i ]
+  %.0181.lcssa.i = phi i32 [ 0, %find_wccp_address_table.argprom.exit.i ], [ %.1.i, %._crit_edge.loopexit.i ]
   switch i32 %7, label %dissect_wccp2_info.exit [
     i32 10, label %162
     i32 11, label %193
@@ -1736,13 +1736,13 @@ define internal i32 @dissect_wccp2_router_identity_info(ptr noundef %0, i32 noun
   %11 = load i32, ptr @hf_router_identity_router_ip_index, align 4
   %12 = load i32, ptr @hf_router_identity_router_ipv4, align 4
   %13 = load i32, ptr @hf_router_identity_router_ipv6, align 4
-  %14 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %1, ptr noundef %5)
+  %14 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %1, ptr noundef %5)
   %15 = load i32, ptr @ett_wc_view_info_router_element, align 4
   %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #7
   %17 = load i32, ptr @hf_router_identity_ip_index, align 4
   %18 = load i32, ptr @hf_router_identity_ipv4, align 4
   %19 = load i32, ptr @hf_router_identity_ipv6, align 4
-  %20 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef %1, ptr noundef readonly %5)
+  %20 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef %1, ptr noundef readonly %5)
   %21 = load i32, ptr @hf_router_identity_receive_id, align 4
   %22 = add i32 %1, 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef 0) #7
@@ -1767,7 +1767,7 @@ dissect_wccp2_router_identity_element.exit:       ; preds = %10, %26
   %33 = load i32, ptr @hf_router_identity_send_to_ip_index, align 4
   %34 = load i32, ptr @hf_router_identity_send_to_ipv4, align 4
   %35 = load i32, ptr @hf_router_identity_send_to_ipv6, align 4
-  %36 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %33, i32 noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef %32, ptr noundef %5)
+  %36 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %33, i32 noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef %32, ptr noundef %5)
   %37 = icmp ult i32 %2, 16
   br i1 %37, label %38, label %40
 
@@ -1805,7 +1805,7 @@ dissect_wccp2_router_identity_element.exit:       ; preds = %10, %26
   %51 = load i32, ptr @hf_router_identity_received_from_ip_index, align 4
   %52 = load i32, ptr @hf_router_identity_received_from_ipv4, align 4
   %53 = load i32, ptr @hf_router_identity_received_from_ipv6, align 4
-  %54 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %51, i32 noundef %52, i32 noundef %53, ptr noundef %0, i32 noundef %.04559, ptr noundef %5)
+  %54 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %51, i32 noundef %52, i32 noundef %53, ptr noundef %0, i32 noundef %.04559, ptr noundef %5)
   %55 = add nsw i32 %.04757, -4
   %56 = add i32 %.04559, 4
   %57 = add nuw nsw i32 %.04658, 1
@@ -1822,7 +1822,7 @@ define internal i32 @dissect_wccp2_wc_identity_info(ptr noundef %0, i32 noundef 
   %7 = load i32, ptr @hf_wc_identity_ip_address_index, align 4
   %8 = load i32, ptr @hf_wc_identity_ip_address_ipv4, align 4
   %9 = load i32, ptr @hf_wc_identity_ip_address_ipv6, align 4
-  %10 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef %1, ptr noundef %5)
+  %10 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef %1, ptr noundef %5)
   %11 = load i32, ptr @ett_wc_identity_element, align 4
   %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #7
   %13 = tail call fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %12, ptr noundef %5)
@@ -1832,20 +1832,20 @@ define internal i32 @dissect_wccp2_wc_identity_info(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_wccp2_router_view_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = icmp slt i32 %2, 20
-  br i1 %7, label %8, label %dissect_wccp2_assignment_key_element.exit
+  br i1 %7, label %8, label %dissect_wccp2_assignment_key_element.argprom.exit
 
 8:                                                ; preds = %6
   %9 = add i32 %2, -20
   br label %.loopexit
 
-dissect_wccp2_assignment_key_element.exit:        ; preds = %6
+dissect_wccp2_assignment_key_element.argprom.exit: ; preds = %6
   %10 = load i32, ptr @hf_router_view_member_change_num, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %10, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #7
   %12 = add i32 %1, 4
   %13 = load i32, ptr @hf_assignment_key_ip_index, align 4
   %14 = load i32, ptr @hf_assignment_key_ipv4, align 4
   %15 = load i32, ptr @hf_assignment_key_ipv6, align 4
-  %16 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %0, i32 noundef %12, ptr noundef readonly %5)
+  %16 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %0, i32 noundef %12, ptr noundef readonly %5)
   %17 = add i32 %1, 8
   %18 = load i32, ptr @hf_assignment_key_change_num, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef 0) #7
@@ -1853,7 +1853,7 @@ dissect_wccp2_assignment_key_element.exit:        ; preds = %6
   %.not = icmp slt i32 %12, %20
   br i1 %.not, label %21, label %.loopexit
 
-21:                                               ; preds = %dissect_wccp2_assignment_key_element.exit
+21:                                               ; preds = %dissect_wccp2_assignment_key_element.argprom.exit
   %22 = add nsw i32 %2, -12
   %23 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %20) #7
   %24 = load i32, ptr @hf_router_router_num, align 4
@@ -1887,7 +1887,7 @@ dissect_wccp2_assignment_key_element.exit:        ; preds = %6
   %32 = load i32, ptr @hf_router_view_ip_index, align 4
   %33 = load i32, ptr @hf_router_view_ipv4, align 4
   %34 = load i32, ptr @hf_router_view_ipv6, align 4
-  %35 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %32, i32 noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %.080110, ptr noundef %5)
+  %35 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %32, i32 noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %.080110, ptr noundef %5)
   %36 = add nuw nsw i32 %.083107, 1
   %.081 = add nsw i32 %.081109, -4
   %.080 = add i32 %.080110, 4
@@ -1934,7 +1934,7 @@ dissect_wccp2_assignment_key_element.exit:        ; preds = %6
   %49 = load i32, ptr @hf_router_query_info_ip_index, align 4
   %50 = load i32, ptr @hf_router_query_info_ipv4, align 4
   %51 = load i32, ptr @hf_router_query_info_ipv6, align 4
-  %52 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %49, i32 noundef %50, i32 noundef %51, ptr noundef %0, i32 noundef %.1115, ptr noundef %5)
+  %52 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %49, i32 noundef %50, i32 noundef %51, ptr noundef %0, i32 noundef %.1115, ptr noundef %5)
   %53 = load i32, ptr @ett_wc_identity_element, align 4
   %54 = tail call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53) #7
   %55 = tail call fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef %0, i32 noundef %.1115, i32 noundef %.182114, ptr noundef %3, ptr noundef %54, ptr noundef %5)
@@ -1948,8 +1948,8 @@ dissect_wccp2_assignment_key_element.exit:        ; preds = %6
   %exitcond130.not = icmp eq i32 %60, %40
   br i1 %exitcond130.not, label %.loopexit, label %.lr.ph117, !llvm.loop !14
 
-.loopexit:                                        ; preds = %48, %57, %._crit_edge.thread, %dissect_wccp2_assignment_key_element.exit, %46, %38, %28, %8
-  %.0 = phi i32 [ %9, %8 ], [ %30, %28 ], [ %39, %38 ], [ %47, %46 ], [ 8, %dissect_wccp2_assignment_key_element.exit ], [ %43, %._crit_edge.thread ], [ %55, %57 ], [ %55, %48 ]
+.loopexit:                                        ; preds = %48, %57, %._crit_edge.thread, %dissect_wccp2_assignment_key_element.argprom.exit, %46, %38, %28, %8
+  %.0 = phi i32 [ %9, %8 ], [ %30, %28 ], [ %39, %38 ], [ %47, %46 ], [ 8, %dissect_wccp2_assignment_key_element.argprom.exit ], [ %43, %._crit_edge.thread ], [ %55, %57 ], [ %55, %48 ]
   ret i32 %.0
 }
 
@@ -1999,14 +1999,14 @@ define internal i32 @dissect_wccp2_web_cache_view_info(ptr noundef %0, i32 nound
   %23 = load i32, ptr @hf_wc_view_info_router_ip_index, align 4
   %24 = load i32, ptr @hf_wc_view_info_router_ipv4, align 4
   %25 = load i32, ptr @hf_wc_view_info_router_ipv6, align 4
-  %26 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef %0, i32 noundef %.06188, ptr noundef %5)
+  %26 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef %0, i32 noundef %.06188, ptr noundef %5)
   tail call void @proto_item_set_len(ptr noundef %26, i32 noundef 8) #7
   %27 = load i32, ptr @ett_wc_view_info_router_element, align 4
   %28 = tail call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27) #7
   %29 = load i32, ptr @hf_router_identity_ip_index, align 4
   %30 = load i32, ptr @hf_router_identity_ipv4, align 4
   %31 = load i32, ptr @hf_router_identity_ipv6, align 4
-  %32 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31, ptr noundef %0, i32 noundef %.06188, ptr noundef readonly %5)
+  %32 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31, ptr noundef %0, i32 noundef %.06188, ptr noundef readonly %5)
   %33 = load i32, ptr @hf_router_identity_receive_id, align 4
   %34 = add i32 %.061.in86, 12
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef 0) #7
@@ -2066,7 +2066,7 @@ dissect_wccp2_router_identity_element.exit:       ; preds = %22, %38
   %52 = load i32, ptr @hf_wc_view_info_wc_ip_index, align 4
   %53 = load i32, ptr @hf_wc_view_info_wc_ipv4, align 4
   %54 = load i32, ptr @hf_wc_view_info_wc_ipv6, align 4
-  %55 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %52, i32 noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef %.195, ptr noundef %5)
+  %55 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %52, i32 noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef %.195, ptr noundef %5)
   %56 = add i32 %.195, 4
   %57 = add nuw nsw i32 %.16394, 1
   %.165 = add nsw i32 %.16596, -4
@@ -2092,7 +2092,7 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
   %12 = load i32, ptr @hf_assignment_key_ip_index, align 4
   %13 = load i32, ptr @hf_assignment_key_ipv4, align 4
   %14 = load i32, ptr @hf_assignment_key_ipv6, align 4
-  %15 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef %1, ptr noundef readonly %5)
+  %15 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef %1, ptr noundef readonly %5)
   %16 = add i32 %1, 4
   %17 = load i32, ptr @hf_assignment_key_change_num, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef 0) #7
@@ -2132,10 +2132,10 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
   %30 = load i32, ptr @hf_assignment_info_router_ip_index, align 4
   %31 = load i32, ptr @hf_assignment_info_router_ipv4, align 4
   %32 = load i32, ptr @hf_assignment_info_router_ipv6, align 4
-  %33 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %30, i32 noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %.06589, ptr noundef %5)
+  %33 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %30, i32 noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %.06589, ptr noundef %5)
   %34 = load i32, ptr @ett_router_assignment_element, align 4
   %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34) #7
-  tail call fastcc void @dissect_wccp2_router_assignment_element(ptr noundef %0, i32 noundef %.06589, ptr noundef %3, ptr noundef %35, ptr noundef %5)
+  tail call fastcc void @dissect_wccp2_router_assignment_element.argelim(ptr noundef %0, i32 noundef %.06589, ptr noundef %3, ptr noundef %35, ptr noundef %5)
   %36 = add nuw nsw i32 %.06787, 1
   %.065 = add i32 %.06589, 12
   %.066 = add nsw i32 %.06690, -12
@@ -2149,7 +2149,7 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
 
 38:                                               ; preds = %._crit_edge
   %39 = or disjoint i32 %.06690, -16
-  br label %dissect_wccp2_hash_buckets_assignment_element.exit.thread
+  br label %dissect_wccp2_hash_buckets_assignment_element.argprom.exit.thread
 
 40:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.066.lcssa117 = phi i32 [ %.06686, %._crit_edge.thread ], [ %.066, %._crit_edge ]
@@ -2182,7 +2182,7 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
   %.neg49.i = shl i32 %.neg48.i, 2
   %48 = or disjoint i32 %47, -256
   %49 = add i32 %48, %.neg49.i
-  br label %dissect_wccp2_hash_buckets_assignment_element.exit
+  br label %dissect_wccp2_hash_buckets_assignment_element.argprom.exit
 
 .lr.ph98:                                         ; preds = %.lr.ph.preheader.i, %.lr.ph.i
   %.0439.i97 = phi i32 [ %54, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
@@ -2191,7 +2191,7 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
   %50 = load i32, ptr @hf_hash_buckets_assignment_wc_ip_index, align 4
   %51 = load i32, ptr @hf_hash_buckets_assignment_wc_ipv4, align 4
   %52 = load i32, ptr @hf_hash_buckets_assignment_wc_ipv6, align 4
-  %53 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %44, i32 noundef %50, i32 noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %.04012.i95, ptr noundef readonly %5)
+  %53 = call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %44, i32 noundef %50, i32 noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %.04012.i95, ptr noundef readonly %5)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %53, ptr noundef nonnull @.str.431, i32 noundef %.0439.i97) #7
   %54 = add nuw nsw i32 %.0439.i97, 1
   %.041.i = add nsw i32 %.04111.i96, -4
@@ -2218,7 +2218,7 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
 
 61:                                               ; preds = %60
   %.neg.i = or disjoint i32 %59, -256
-  br label %dissect_wccp2_hash_buckets_assignment_element.exit.thread
+  br label %dissect_wccp2_hash_buckets_assignment_element.argprom.exit.thread
 
 62:                                               ; preds = %60
   %63 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.116.i) #7
@@ -2243,28 +2243,28 @@ assignment_bucket_name.exit.i:                    ; preds = %67, %62
   %75 = add i32 %.116.i, 1
   %76 = add nsw i32 %.14215.i, -1
   %exitcond25.not.i = icmp eq i32 %74, 256
-  br i1 %exitcond25.not.i, label %dissect_wccp2_hash_buckets_assignment_element.exit, label %60, !llvm.loop !19
+  br i1 %exitcond25.not.i, label %dissect_wccp2_hash_buckets_assignment_element.argprom.exit, label %60, !llvm.loop !19
 
-dissect_wccp2_hash_buckets_assignment_element.exit.thread: ; preds = %38, %61
+dissect_wccp2_hash_buckets_assignment_element.argprom.exit.thread: ; preds = %38, %61
   %.0.i76.ph = phi i32 [ %.neg.i, %61 ], [ %39, %38 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %81
 
-dissect_wccp2_hash_buckets_assignment_element.exit: ; preds = %assignment_bucket_name.exit.i, %.lr.ph.i._crit_edge
+dissect_wccp2_hash_buckets_assignment_element.argprom.exit: ; preds = %assignment_bucket_name.exit.i, %.lr.ph.i._crit_edge
   %.0.i76 = phi i32 [ %49, %.lr.ph.i._crit_edge ], [ %76, %assignment_bucket_name.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %77 = icmp slt i32 %.0.i76, 0
   br i1 %77, label %81, label %78
 
-78:                                               ; preds = %dissect_wccp2_hash_buckets_assignment_element.exit
+78:                                               ; preds = %dissect_wccp2_hash_buckets_assignment_element.argprom.exit
   %79 = sub i32 %.066.lcssa117, %.0.i76
   %80 = add i32 %79, %.065.lcssa116
   %.not75 = icmp slt i32 %.065.lcssa116, %80
   %. = select i1 %.not75, i32 %.0.i76, i32 %79
   br label %81
 
-81:                                               ; preds = %dissect_wccp2_hash_buckets_assignment_element.exit.thread, %78, %dissect_wccp2_hash_buckets_assignment_element.exit, %11, %25, %9
-  %.0 = phi i32 [ %10, %9 ], [ %28, %25 ], [ 8, %11 ], [ %.0.i76, %dissect_wccp2_hash_buckets_assignment_element.exit ], [ %., %78 ], [ %.0.i76.ph, %dissect_wccp2_hash_buckets_assignment_element.exit.thread ]
+81:                                               ; preds = %dissect_wccp2_hash_buckets_assignment_element.argprom.exit.thread, %78, %dissect_wccp2_hash_buckets_assignment_element.argprom.exit, %11, %25, %9
+  %.0 = phi i32 [ %10, %9 ], [ %28, %25 ], [ 8, %11 ], [ %.0.i76, %dissect_wccp2_hash_buckets_assignment_element.argprom.exit ], [ %., %78 ], [ %.0.i76.ph, %dissect_wccp2_hash_buckets_assignment_element.argprom.exit.thread ]
   ret i32 %.0
 }
 
@@ -2277,7 +2277,7 @@ define internal noundef i32 @dissect_wccp2_router_query_info(ptr noundef %0, i32
   %9 = load i32, ptr @hf_router_identity_ip_index, align 4
   %10 = load i32, ptr @hf_router_identity_ipv4, align 4
   %11 = load i32, ptr @hf_router_identity_ipv6, align 4
-  %12 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef %1, ptr noundef readonly %5)
+  %12 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef %1, ptr noundef readonly %5)
   %13 = load i32, ptr @hf_router_identity_receive_id, align 4
   %14 = add i32 %1, 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %13, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0) #7
@@ -2294,12 +2294,12 @@ dissect_wccp2_router_identity_element.exit:       ; preds = %8, %18
   %21 = load i32, ptr @hf_router_query_info_send_to_ip_index, align 4
   %22 = load i32, ptr @hf_router_query_info_send_to_ipv4, align 4
   %23 = load i32, ptr @hf_router_query_info_send_to_ipv6, align 4
-  %24 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef %20, ptr noundef %5)
+  %24 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef %20, ptr noundef %5)
   %25 = add i32 %1, 12
   %26 = load i32, ptr @hf_router_query_info_target_ip_index, align 4
   %27 = load i32, ptr @hf_router_query_info_target_ipv4, align 4
   %28 = load i32, ptr @hf_router_query_info_target_ipv6, align 4
-  %29 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %26, i32 noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %25, ptr noundef %5)
+  %29 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %26, i32 noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %25, ptr noundef %5)
   br label %30
 
 30:                                               ; preds = %6, %dissect_wccp2_router_identity_element.exit
@@ -2526,9 +2526,9 @@ define internal i32 @dissect_wccp2_alternate_assignment_info(ptr noundef %0, i32
 
 28:                                               ; preds = %26, %24
   %29 = icmp ult i32 %18, 8
-  br i1 %29, label %dissect_wccp2_assignment_key_element.exit.thread, label %31
+  br i1 %29, label %dissect_wccp2_assignment_key_element.argprom.exit.thread, label %31
 
-dissect_wccp2_assignment_key_element.exit.thread: ; preds = %28
+dissect_wccp2_assignment_key_element.argprom.exit.thread: ; preds = %28
   %30 = or disjoint i32 %18, -8
   br label %63
 
@@ -2536,7 +2536,7 @@ dissect_wccp2_assignment_key_element.exit.thread: ; preds = %28
   %32 = load i32, ptr @hf_assignment_key_ip_index, align 4
   %33 = load i32, ptr @hf_assignment_key_ipv4, align 4
   %34 = load i32, ptr @hf_assignment_key_ipv6, align 4
-  %35 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %32, i32 noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %19, ptr noundef readonly %5)
+  %35 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %32, i32 noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %19, ptr noundef readonly %5)
   %36 = add i32 %1, 8
   %37 = load i32, ptr @hf_assignment_key_change_num, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %37, ptr noundef %0, i32 noundef %36, i32 noundef 4, i32 noundef 0) #7
@@ -2568,9 +2568,9 @@ dissect_wccp2_assignment_key_element.exit.thread: ; preds = %28
 
 50:                                               ; preds = %.lr.ph
   %51 = load i32, ptr @ett_router_alt_assignment_element, align 4
-  %52 = tail call fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noundef %.0100120, ptr noundef %5)
+  %52 = tail call fastcc ptr @decode_wccp_encoded_address.argprom(ptr noundef %0, i32 noundef %.0100120, ptr noundef %5)
   %53 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %4, ptr noundef %0, i32 noundef %.0100120, i32 noundef 12, i32 noundef %51, ptr noundef null, ptr noundef nonnull @.str.451, i32 noundef %.0102118, ptr noundef %52) #7
-  tail call fastcc void @dissect_wccp2_router_assignment_element(ptr noundef %0, i32 noundef %.0100120, ptr noundef %3, ptr noundef %53, ptr noundef %5)
+  tail call fastcc void @dissect_wccp2_router_assignment_element.argelim(ptr noundef %0, i32 noundef %.0100120, ptr noundef %3, ptr noundef %53, ptr noundef %5)
   %54 = add nsw i32 %.0101119, -12
   %55 = add i32 %.0100120, 12
   %56 = add nuw nsw i32 %.0102118, 1
@@ -2587,19 +2587,19 @@ dissect_wccp2_assignment_key_element.exit.thread: ; preds = %28
   ]
 
 57:                                               ; preds = %._crit_edge
-  %58 = tail call fastcc i32 @dissect_wccp2_hash_assignment_info(ptr noundef %0, i32 noundef %.0100.lcssa, i32 noundef %.0101.lcssa, ptr noundef %4, ptr noundef %5)
+  %58 = tail call fastcc i32 @dissect_wccp2_hash_assignment_info.argprom(ptr noundef %0, i32 noundef %.0100.lcssa, i32 noundef %.0101.lcssa, ptr noundef %4, ptr noundef %5)
   br label %63
 
 59:                                               ; preds = %._crit_edge
-  %60 = tail call fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i32 noundef %.0100.lcssa, i32 noundef %.0101.lcssa, ptr noundef %4, ptr noundef %5)
+  %60 = tail call fastcc i32 @dissect_wccp2_mask_value_set_list.argprom(ptr noundef %0, i32 noundef %.0100.lcssa, i32 noundef %.0101.lcssa, ptr noundef %4, ptr noundef %5)
   br label %63
 
 61:                                               ; preds = %._crit_edge
-  %62 = tail call fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noundef %0, i32 noundef %.0100.lcssa, i32 noundef %.0101.lcssa, ptr noundef %4, ptr noundef %5)
+  %62 = tail call fastcc i32 @dissect_wccp2_alternate_mask_value_set_list.argprom(ptr noundef %0, i32 noundef %.0100.lcssa, i32 noundef %.0101.lcssa, ptr noundef %4, ptr noundef %5)
   br label %63
 
-63:                                               ; preds = %dissect_wccp2_assignment_key_element.exit.thread, %._crit_edge, %31, %61, %59, %57, %47, %8
-  %.0 = phi i32 [ %9, %8 ], [ %49, %47 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ 8, %31 ], [ %.0101.lcssa, %._crit_edge ], [ %30, %dissect_wccp2_assignment_key_element.exit.thread ]
+63:                                               ; preds = %dissect_wccp2_assignment_key_element.argprom.exit.thread, %._crit_edge, %31, %61, %59, %57, %47, %8
+  %.0 = phi i32 [ %9, %8 ], [ %49, %47 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ 8, %31 ], [ %.0101.lcssa, %._crit_edge ], [ %30, %dissect_wccp2_assignment_key_element.argprom.exit.thread ]
   ret i32 %.0
 }
 
@@ -2654,12 +2654,12 @@ define internal i32 @dissect_wccp2r1_alt_assignment_map_info(ptr noundef %0, i32
 
 33:                                               ; preds = %29
   %34 = zext i16 %.0 to i32
-  %35 = tail call fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i32 noundef %19, i32 noundef %34, ptr noundef %4, ptr noundef %5)
+  %35 = tail call fastcc i32 @dissect_wccp2_mask_value_set_list.argprom(ptr noundef %0, i32 noundef %19, i32 noundef %34, ptr noundef %4, ptr noundef %5)
   br label %39
 
 36:                                               ; preds = %29
   %37 = zext i16 %.0 to i32
-  %38 = tail call fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noundef %0, i32 noundef %19, i32 noundef %37, ptr noundef %4, ptr noundef %5)
+  %38 = tail call fastcc i32 @dissect_wccp2_alternate_mask_value_set_list.argprom(ptr noundef %0, i32 noundef %19, i32 noundef %37, ptr noundef %4, ptr noundef %5)
   br label %39
 
 39:                                               ; preds = %29, %36, %33, %30, %8
@@ -2887,7 +2887,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_wccp2_assignment_map(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
-  %7 = tail call fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %4, ptr noundef %5)
+  %7 = tail call fastcc i32 @dissect_wccp2_mask_value_set_list.argprom(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %4, ptr noundef %5)
   %8 = icmp slt i32 %7, 0
   %9 = sub i32 %2, %7
   %10 = add i32 %9, %1
@@ -2943,7 +2943,7 @@ define internal i32 @dissect_wccp2_command_extension(ptr noundef %0, i32 noundef
   %31 = load i32, ptr @hf_command_element_shutdown_ip_index, align 4
   %32 = load i32, ptr @hf_command_element_shutdown_ipv4, align 4
   %33 = load i32, ptr @hf_command_element_shutdown_ipv6, align 4
-  %34 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %31, i32 noundef %32, i32 noundef %33, ptr noundef %0, i32 noundef %22, ptr noundef %5)
+  %34 = call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %31, i32 noundef %32, i32 noundef %33, ptr noundef %0, i32 noundef %22, ptr noundef %5)
   br label %42
 
 35:                                               ; preds = %12
@@ -2985,7 +2985,7 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @wccp_add_ipaddress_item(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
   %8 = alloca %struct.e_in6_addr, align 1
   %9 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %9, 0
@@ -3118,7 +3118,7 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
   %12 = load i32, ptr @hf_web_cache_identity_index, align 4
   %13 = load i32, ptr @hf_web_cache_identity_ipv4, align 4
   %14 = load i32, ptr @hf_web_cache_identity_ipv6, align 4
-  %15 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef %1, ptr noundef %5)
+  %15 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %4, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef %1, ptr noundef %5)
   %16 = add i32 %1, 4
   %17 = load i32, ptr @hf_web_cache_identity_hash_rev, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef 2, i32 noundef 0) #7
@@ -3148,11 +3148,11 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
   ]
 
 32:                                               ; preds = %22
-  %33 = tail call fastcc i32 @dissect_wccp2_hash_assignment_data_element(ptr noundef %0, i32 noundef %31, i32 noundef %30, ptr noundef %4)
+  %33 = tail call fastcc i32 @dissect_wccp2_hash_assignment_data_element.argprom(ptr noundef %0, i32 noundef %31, i32 noundef %30, ptr noundef %4)
   br label %101
 
 34:                                               ; preds = %22
-  %35 = tail call fastcc i32 @dissect_wccp2_mask_assignment_data_element(ptr noundef %0, i32 noundef %31, i32 noundef %30, ptr noundef %4, ptr noundef %5)
+  %35 = tail call fastcc i32 @dissect_wccp2_mask_assignment_data_element.argprom(ptr noundef %0, i32 noundef %31, i32 noundef %30, ptr noundef %4, ptr noundef %5)
   br label %101
 
 36:                                               ; preds = %22
@@ -3213,12 +3213,12 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
   ]
 
 68:                                               ; preds = %65
-  %69 = call fastcc i32 @dissect_wccp2_hash_assignment_data_element(ptr noundef %0, i32 noundef %55, i32 noundef %.0.i, ptr noundef %45)
+  %69 = call fastcc i32 @dissect_wccp2_hash_assignment_data_element.argprom(ptr noundef %0, i32 noundef %55, i32 noundef %.0.i, ptr noundef %45)
   %70 = sub nsw i32 %54, %.0.i
   br label %dissect_wccp2_extended_assignment_data_element.exit
 
 71:                                               ; preds = %65
-  %72 = call fastcc i32 @dissect_wccp2_mask_assignment_data_element(ptr noundef %0, i32 noundef %55, i32 noundef %.0.i, ptr noundef %45, ptr noundef readonly %5)
+  %72 = call fastcc i32 @dissect_wccp2_mask_assignment_data_element.argprom(ptr noundef %0, i32 noundef %55, i32 noundef %.0.i, ptr noundef %45, ptr noundef readonly %5)
   %73 = sub nsw i32 %54, %.0.i
   br label %dissect_wccp2_extended_assignment_data_element.exit
 
@@ -3226,7 +3226,7 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
   %75 = load i32, ptr @ett_alternate_mask_assignment_data_element, align 4
   %76 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %55, i32 noundef %.0.i, i32 noundef %75, ptr noundef null, ptr noundef nonnull @.str.427) #7
   %77 = icmp ult i32 %.0.i, 4
-  br i1 %77, label %dissect_wccp2_alternate_mask_assignment_data_element.exit.i, label %78
+  br i1 %77, label %dissect_wccp2_alternate_mask_assignment_data_element.argprom.exit.i, label %78
 
 78:                                               ; preds = %74
   %.not.i.i = icmp eq i32 %.0.i, 4
@@ -3235,15 +3235,15 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
 .preheader.i.i:                                   ; preds = %78, %84
   %.135.i.i = phi i32 [ %79, %84 ], [ %.0.i, %78 ]
   %.1.i.i = phi i32 [ %83, %84 ], [ %55, %78 ]
-  %79 = call fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noundef %0, i32 noundef %.1.i.i, i32 noundef %.135.i.i, ptr noundef %76, ptr noundef readonly %5)
+  %79 = call fastcc i32 @dissect_wccp2_alternate_mask_value_set_list.argprom(ptr noundef %0, i32 noundef %.1.i.i, i32 noundef %.135.i.i, ptr noundef %76, ptr noundef readonly %5)
   %80 = icmp slt i32 %79, 0
-  br i1 %80, label %dissect_wccp2_alternate_mask_assignment_data_element.exit.i, label %81
+  br i1 %80, label %dissect_wccp2_alternate_mask_assignment_data_element.argprom.exit.i, label %81
 
 81:                                               ; preds = %.preheader.i.i
   %82 = sub nsw i32 %.135.i.i, %79
   %83 = add i32 %82, %.1.i.i
   %.not41.i.i = icmp slt i32 %.1.i.i, %83
-  br i1 %.not41.i.i, label %84, label %dissect_wccp2_alternate_mask_assignment_data_element.exit.i
+  br i1 %.not41.i.i, label %84, label %dissect_wccp2_alternate_mask_assignment_data_element.argprom.exit.i
 
 84:                                               ; preds = %81
   %.old1.i.i = icmp ugt i32 %79, 4
@@ -3251,7 +3251,7 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
 
 85:                                               ; preds = %84
   %.not10.i.i = icmp eq i32 %79, 4
-  br i1 %.not10.i.i, label %.thread5.i.i, label %dissect_wccp2_alternate_mask_assignment_data_element.exit.i
+  br i1 %.not10.i.i, label %.thread5.i.i, label %dissect_wccp2_alternate_mask_assignment_data_element.argprom.exit.i
 
 .thread5.i.i:                                     ; preds = %85, %78
   %.03348.i.i = phi i32 [ %55, %78 ], [ %83, %85 ]
@@ -3260,15 +3260,15 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
   %88 = add i32 %.03348.i.i, 2
   %89 = load i32, ptr @hf_assignment_status, align 4
   %90 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %89, ptr noundef %0, i32 noundef %88, i32 noundef 2, i32 noundef 0) #7
-  br label %dissect_wccp2_alternate_mask_assignment_data_element.exit.i
+  br label %dissect_wccp2_alternate_mask_assignment_data_element.argprom.exit.i
 
-dissect_wccp2_alternate_mask_assignment_data_element.exit.i: ; preds = %81, %.preheader.i.i, %.thread5.i.i, %85, %74
+dissect_wccp2_alternate_mask_assignment_data_element.argprom.exit.i: ; preds = %81, %.preheader.i.i, %.thread5.i.i, %85, %74
   %91 = sub nsw i32 %54, %.0.i
   br label %dissect_wccp2_extended_assignment_data_element.exit
 
 92:                                               ; preds = %65
   %93 = icmp ult i32 %.0.i, 4
-  br i1 %93, label %dissect_wccp2_assignment_weight_and_status_element.exit.i, label %94
+  br i1 %93, label %dissect_wccp2_assignment_weight_and_status_element.argprom.exit.i, label %94
 
 94:                                               ; preds = %92
   %95 = load i32, ptr @hf_assignment_weight, align 4
@@ -3276,14 +3276,14 @@ dissect_wccp2_alternate_mask_assignment_data_element.exit.i: ; preds = %81, %.pr
   %97 = add i32 %1, 14
   %98 = load i32, ptr @hf_assignment_status, align 4
   %99 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %98, ptr noundef %0, i32 noundef %97, i32 noundef 2, i32 noundef 0) #7
-  br label %dissect_wccp2_assignment_weight_and_status_element.exit.i
+  br label %dissect_wccp2_assignment_weight_and_status_element.argprom.exit.i
 
-dissect_wccp2_assignment_weight_and_status_element.exit.i: ; preds = %94, %92
+dissect_wccp2_assignment_weight_and_status_element.argprom.exit.i: ; preds = %94, %92
   %100 = sub nsw i32 %54, %.0.i
   br label %dissect_wccp2_extended_assignment_data_element.exit
 
-dissect_wccp2_extended_assignment_data_element.exit: ; preds = %41, %65, %68, %71, %dissect_wccp2_alternate_mask_assignment_data_element.exit.i, %dissect_wccp2_assignment_weight_and_status_element.exit.i
-  %.071.i = phi i32 [ %42, %41 ], [ %100, %dissect_wccp2_assignment_weight_and_status_element.exit.i ], [ %91, %dissect_wccp2_alternate_mask_assignment_data_element.exit.i ], [ %73, %71 ], [ %70, %68 ], [ %54, %65 ]
+dissect_wccp2_extended_assignment_data_element.exit: ; preds = %41, %65, %68, %71, %dissect_wccp2_alternate_mask_assignment_data_element.argprom.exit.i, %dissect_wccp2_assignment_weight_and_status_element.argprom.exit.i
+  %.071.i = phi i32 [ %42, %41 ], [ %100, %dissect_wccp2_assignment_weight_and_status_element.argprom.exit.i ], [ %91, %dissect_wccp2_alternate_mask_assignment_data_element.argprom.exit.i ], [ %73, %71 ], [ %70, %68 ], [ %54, %65 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %101
 
@@ -3296,7 +3296,7 @@ default.unreachable61:                            ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -36, 2147483635) i32 @dissect_wccp2_hash_assignment_data_element(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2147483640) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -36, 2147483635) i32 @dissect_wccp2_hash_assignment_data_element.argprom(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2147483640) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @ett_hash_assignment_buckets, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 32, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.417) #7
   %umin = tail call i32 @llvm.umin.i32(i32 %2, i32 31)
@@ -3313,7 +3313,7 @@ define internal fastcc range(i32 -36, 2147483635) i32 @dissect_wccp2_hash_assign
 
 10:                                               ; preds = %8
   %11 = sub nuw nsw i32 -4, %umin
-  br label %dissect_wccp2_assignment_weight_and_status_element.exit
+  br label %dissect_wccp2_assignment_weight_and_status_element.argprom.exit
 
 12:                                               ; preds = %8
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0245) #7
@@ -3343,7 +3343,7 @@ wccp_bucket_info.exit:                            ; preds = %15
 
 26:                                               ; preds = %wccp_bucket_info.exit
   %27 = icmp slt i32 %7, 3
-  br i1 %27, label %dissect_wccp2_assignment_weight_and_status_element.exit, label %28
+  br i1 %27, label %dissect_wccp2_assignment_weight_and_status_element.argprom.exit, label %28
 
 28:                                               ; preds = %26
   %29 = icmp ult i32 %7, 5
@@ -3351,7 +3351,7 @@ wccp_bucket_info.exit:                            ; preds = %15
 
 30:                                               ; preds = %28
   %31 = or disjoint i32 %23, -4
-  br label %dissect_wccp2_assignment_weight_and_status_element.exit
+  br label %dissect_wccp2_assignment_weight_and_status_element.argprom.exit
 
 32:                                               ; preds = %28
   %33 = load i32, ptr @hf_assignment_weight, align 4
@@ -3360,19 +3360,19 @@ wccp_bucket_info.exit:                            ; preds = %15
   %36 = load i32, ptr @hf_assignment_status, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %36, ptr noundef %0, i32 noundef %35, i32 noundef 2, i32 noundef 0) #7
   %38 = add nsw i32 %7, -5
-  br label %dissect_wccp2_assignment_weight_and_status_element.exit
+  br label %dissect_wccp2_assignment_weight_and_status_element.argprom.exit
 
-dissect_wccp2_assignment_weight_and_status_element.exit: ; preds = %32, %30, %26, %10
+dissect_wccp2_assignment_weight_and_status_element.argprom.exit: ; preds = %32, %30, %26, %10
   %.022 = phi i32 [ %11, %10 ], [ -4, %26 ], [ %31, %30 ], [ %38, %32 ]
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_wccp2_mask_assignment_data_element(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2147483640) %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_wccp2_mask_assignment_data_element.argprom(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2147483640) %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @ett_mask_assignment_data_element, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.418) #7
-  %9 = call fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %8, ptr noundef %4)
+  %9 = call fastcc i32 @dissect_wccp2_mask_value_set_list.argprom(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %8, ptr noundef %4)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %31, label %11
 
@@ -3392,9 +3392,9 @@ define internal fastcc i32 @dissect_wccp2_mask_assignment_data_element(ptr nound
 
 18:                                               ; preds = %14
   %19 = icmp ult i32 %9, 4
-  br i1 %19, label %dissect_wccp2_assignment_weight_and_status_element.exit.thread, label %21
+  br i1 %19, label %dissect_wccp2_assignment_weight_and_status_element.argprom.exit.thread, label %21
 
-dissect_wccp2_assignment_weight_and_status_element.exit.thread: ; preds = %18
+dissect_wccp2_assignment_weight_and_status_element.argprom.exit.thread: ; preds = %18
   %20 = or disjoint i32 %9, -4
   br label %31
 
@@ -3414,13 +3414,13 @@ dissect_wccp2_assignment_weight_and_status_element.exit.thread: ; preds = %18
   call void @proto_item_set_len(ptr noundef %29, i32 noundef %30) #7
   br label %31
 
-31:                                               ; preds = %dissect_wccp2_assignment_weight_and_status_element.exit.thread, %21, %11, %5, %27, %16
-  %.0 = phi i32 [ %17, %16 ], [ %28, %27 ], [ %9, %5 ], [ %12, %11 ], [ 4, %21 ], [ %20, %dissect_wccp2_assignment_weight_and_status_element.exit.thread ]
+31:                                               ; preds = %dissect_wccp2_assignment_weight_and_status_element.argprom.exit.thread, %21, %11, %5, %27, %16
+  %.0 = phi i32 [ %17, %16 ], [ %28, %27 ], [ %9, %5 ], [ %12, %11 ], [ 4, %21 ], [ %20, %dissect_wccp2_assignment_weight_and_status_element.argprom.exit.thread ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_wccp2_mask_value_set_list.argprom(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = icmp slt i32 %2, 4
@@ -3453,15 +3453,15 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %21 = load i32, ptr @ett_mv_set_element, align 4
   %22 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %13, ptr noundef %0, i32 noundef %.03740, i32 noundef 0, i32 noundef %21, ptr noundef nonnull %6, ptr noundef nonnull @.str.420, i32 noundef %.03938) #7
-  %23 = call fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 noundef %.03740, i32 noundef %.03839, ptr noundef %22)
+  %23 = call fastcc i32 @dissect_wccp2_mask_element.argprom(ptr noundef %0, i32 noundef %.03740, i32 noundef %.03839, ptr noundef %22)
   %24 = icmp slt i32 %23, 0
-  br i1 %24, label %dissect_wccp2_mask_value_set_element.exit.thread, label %25
+  br i1 %24, label %dissect_wccp2_mask_value_set_element.argprom.exit.thread, label %25
 
 25:                                               ; preds = %.lr.ph
   %26 = sub nsw i32 %.03839, %23
   %27 = add i32 %26, %.03740
   %.not.i = icmp slt i32 %.03740, %27
-  br i1 %.not.i, label %28, label %dissect_wccp2_mask_value_set_element.exit
+  br i1 %.not.i, label %28, label %dissect_wccp2_mask_value_set_element.argprom.exit
 
 28:                                               ; preds = %25
   %29 = icmp ult i32 %23, 4
@@ -3469,7 +3469,7 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
 
 30:                                               ; preds = %28
   %31 = or disjoint i32 %23, -4
-  br label %dissect_wccp2_mask_value_set_element.exit.thread
+  br label %dissect_wccp2_mask_value_set_element.argprom.exit.thread
 
 32:                                               ; preds = %28
   %33 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %27) #7
@@ -3496,38 +3496,38 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
 
 43:                                               ; preds = %.lr.ph.i
   %44 = or disjoint i32 %.0568.i, -16
-  br label %dissect_wccp2_mask_value_set_element.exit.thread
+  br label %dissect_wccp2_mask_value_set_element.argprom.exit.thread
 
 45:                                               ; preds = %.lr.ph.i
   %46 = load i32, ptr @ett_value_element, align 4
   %47 = add i32 %.05410.i, 8
   %48 = add i32 %.05410.i, 10
   %49 = add i32 %.05410.i, 12
-  %50 = call fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noundef %49, ptr noundef readonly %4)
+  %50 = call fastcc ptr @decode_wccp_encoded_address.argprom(ptr noundef %0, i32 noundef %49, ptr noundef readonly %4)
   %51 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %37, ptr noundef %0, i32 noundef %.05410.i, i32 noundef 16, i32 noundef %46, ptr noundef null, ptr noundef nonnull @.str.421, i32 noundef %.0559.i, ptr noundef %50) #7
   %52 = load i32, ptr @hf_value_element_src_ip_index, align 4
   %53 = load i32, ptr @hf_value_element_src_ipv4, align 4
   %54 = load i32, ptr @hf_value_element_src_ipv6, align 4
-  %55 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %37, i32 noundef %52, i32 noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef %.05410.i, ptr noundef readonly %4)
+  %55 = call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %37, i32 noundef %52, i32 noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef %.05410.i, ptr noundef readonly %4)
   %56 = icmp ult i32 %.0568.i, 8
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %45
   %58 = or disjoint i32 %.0568.i, -8
-  br label %dissect_wccp2_mask_value_set_element.exit.thread
+  br label %dissect_wccp2_mask_value_set_element.argprom.exit.thread
 
 59:                                               ; preds = %45
   %60 = add i32 %.05410.i, 4
   %61 = load i32, ptr @hf_value_element_dest_ip_index, align 4
   %62 = load i32, ptr @hf_value_element_dest_ipv4, align 4
   %63 = load i32, ptr @hf_value_element_dest_ipv6, align 4
-  %64 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %37, i32 noundef %61, i32 noundef %62, i32 noundef %63, ptr noundef %0, i32 noundef %60, ptr noundef readonly %4)
+  %64 = call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %37, i32 noundef %61, i32 noundef %62, i32 noundef %63, ptr noundef %0, i32 noundef %60, ptr noundef readonly %4)
   %65 = icmp ult i32 %.0568.i, 10
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %59
   %67 = add nuw nsw i32 %.0568.i, -10
-  br label %dissect_wccp2_mask_value_set_element.exit.thread
+  br label %dissect_wccp2_mask_value_set_element.argprom.exit.thread
 
 68:                                               ; preds = %59
   %69 = load i32, ptr @hf_value_element_src_port, align 4
@@ -3537,32 +3537,32 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
 
 72:                                               ; preds = %68
   %73 = add nuw nsw i32 %.0568.i, -12
-  br label %dissect_wccp2_mask_value_set_element.exit.thread
+  br label %dissect_wccp2_mask_value_set_element.argprom.exit.thread
 
 74:                                               ; preds = %68
   %75 = load i32, ptr @hf_value_element_dest_port, align 4
   %76 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %75, ptr noundef %0, i32 noundef %48, i32 noundef 2, i32 noundef 0) #7
   %77 = icmp ult i32 %.0568.i, 16
-  br i1 %77, label %78, label %dissect_wccp2_value_element.exit.i
+  br i1 %77, label %78, label %dissect_wccp2_value_element.argprom.exit.i
 
 78:                                               ; preds = %74
   %79 = or disjoint i32 %.0568.i, -16
-  br label %dissect_wccp2_mask_value_set_element.exit.thread
+  br label %dissect_wccp2_mask_value_set_element.argprom.exit.thread
 
-dissect_wccp2_value_element.exit.i:               ; preds = %74
+dissect_wccp2_value_element.argprom.exit.i:       ; preds = %74
   %80 = load i32, ptr @hf_value_element_web_cache_ip_index, align 4
   %81 = load i32, ptr @hf_value_element_web_cache_ipv4, align 4
   %82 = load i32, ptr @hf_value_element_web_cache_ipv6, align 4
-  %83 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %37, i32 noundef %80, i32 noundef %81, i32 noundef %82, ptr noundef %0, i32 noundef %49, ptr noundef readonly %4)
+  %83 = call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %37, i32 noundef %80, i32 noundef %81, i32 noundef %82, ptr noundef %0, i32 noundef %49, ptr noundef readonly %4)
   %84 = add nsw i32 %.0568.i, -16
   %85 = icmp slt i32 %.0568.i, 16
-  br i1 %85, label %dissect_wccp2_mask_value_set_element.exit, label %86
+  br i1 %85, label %dissect_wccp2_mask_value_set_element.argprom.exit, label %86
 
-86:                                               ; preds = %dissect_wccp2_value_element.exit.i
+86:                                               ; preds = %dissect_wccp2_value_element.argprom.exit.i
   %.not63.i = icmp slt i32 %.05410.i, 2147483632
-  br i1 %.not63.i, label %87, label %dissect_wccp2_mask_value_set_element.exit.thread2
+  br i1 %.not63.i, label %87, label %dissect_wccp2_mask_value_set_element.argprom.exit.thread2
 
-dissect_wccp2_mask_value_set_element.exit.thread2: ; preds = %86
+dissect_wccp2_mask_value_set_element.argprom.exit.thread2: ; preds = %86
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %93
 
@@ -3581,21 +3581,21 @@ dissect_wccp2_mask_value_set_element.exit.thread2: ; preds = %86
   %.056.lcssa.i = phi i32 [ %41, %._crit_edge.loopexit.i ], [ %38, %32 ]
   %91 = load ptr, ptr %6, align 8
   call void @proto_item_set_len(ptr noundef %91, i32 noundef %.pre-phi.i) #7
-  br label %dissect_wccp2_mask_value_set_element.exit
+  br label %dissect_wccp2_mask_value_set_element.argprom.exit
 
-dissect_wccp2_mask_value_set_element.exit.thread: ; preds = %.lr.ph, %30, %78, %72, %66, %57, %43
+dissect_wccp2_mask_value_set_element.argprom.exit.thread: ; preds = %.lr.ph, %30, %78, %72, %66, %57, %43
   %.0.i.ph = phi i32 [ %44, %43 ], [ %58, %57 ], [ %67, %66 ], [ %73, %72 ], [ %79, %78 ], [ %31, %30 ], [ %23, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit
 
-dissect_wccp2_mask_value_set_element.exit:        ; preds = %dissect_wccp2_value_element.exit.i, %25, %._crit_edge.i
-  %.0.i = phi i32 [ %.056.lcssa.i, %._crit_edge.i ], [ %26, %25 ], [ %84, %dissect_wccp2_value_element.exit.i ]
+dissect_wccp2_mask_value_set_element.argprom.exit: ; preds = %dissect_wccp2_value_element.argprom.exit.i, %25, %._crit_edge.i
+  %.0.i = phi i32 [ %.056.lcssa.i, %._crit_edge.i ], [ %26, %25 ], [ %84, %dissect_wccp2_value_element.argprom.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %92 = icmp slt i32 %.0.i, 0
   br i1 %92, label %.loopexit, label %93
 
-93:                                               ; preds = %dissect_wccp2_mask_value_set_element.exit.thread2, %dissect_wccp2_mask_value_set_element.exit
-  %.0.i4 = phi i32 [ 16, %dissect_wccp2_mask_value_set_element.exit.thread2 ], [ %.0.i, %dissect_wccp2_mask_value_set_element.exit ]
+93:                                               ; preds = %dissect_wccp2_mask_value_set_element.argprom.exit.thread2, %dissect_wccp2_mask_value_set_element.argprom.exit
+  %.0.i4 = phi i32 [ 16, %dissect_wccp2_mask_value_set_element.argprom.exit.thread2 ], [ %.0.i, %dissect_wccp2_mask_value_set_element.argprom.exit ]
   %94 = sub nsw i32 %.03839, %.0.i4
   %95 = add i32 %94, %.03740
   %.not = icmp slt i32 %.03740, %95
@@ -3609,13 +3609,13 @@ dissect_wccp2_mask_value_set_element.exit:        ; preds = %dissect_wccp2_value
   call void @proto_item_set_len(ptr noundef %96, i32 noundef %97) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %93, %dissect_wccp2_mask_value_set_element.exit, %dissect_wccp2_mask_value_set_element.exit.thread, %._crit_edge, %9
-  %.0 = phi i32 [ %10, %9 ], [ %.038.lcssa, %._crit_edge ], [ %.0.i.ph, %dissect_wccp2_mask_value_set_element.exit.thread ], [ %94, %93 ], [ %.0.i, %dissect_wccp2_mask_value_set_element.exit ]
+.loopexit:                                        ; preds = %93, %dissect_wccp2_mask_value_set_element.argprom.exit, %dissect_wccp2_mask_value_set_element.argprom.exit.thread, %._crit_edge, %9
+  %.0 = phi i32 [ %10, %9 ], [ %.038.lcssa, %._crit_edge ], [ %.0.i.ph, %dissect_wccp2_mask_value_set_element.argprom.exit.thread ], [ %94, %93 ], [ %.0.i, %dissect_wccp2_mask_value_set_element.argprom.exit ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_wccp2_mask_element.argprom(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = icmp slt i32 %2, 2
   br i1 %5, label %6, label %8
 
@@ -3668,7 +3668,7 @@ define internal fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @decode_wccp_encoded_address.argprom(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %5, 0
@@ -3809,7 +3809,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare void @ip6_to_str_buf(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list.argprom(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = icmp slt i32 %2, 4
   br i1 %7, label %8, label %10
@@ -3844,15 +3844,15 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %20 = load i32, ptr @ett_alternate_mask_value_set_element, align 4
   %21 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %12, ptr noundef %0, i32 noundef %.03623, i32 noundef 0, i32 noundef %20, ptr noundef nonnull %6, ptr noundef nonnull @.str.429, i32 noundef %.03722) #7
-  %22 = call fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 noundef %.03623, i32 noundef %.03821, ptr noundef %21)
+  %22 = call fastcc i32 @dissect_wccp2_mask_element.argprom(ptr noundef %0, i32 noundef %.03623, i32 noundef %.03821, ptr noundef %21)
   %23 = sub i32 %.03821, %22
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %dissect_wccp2_alternate_mask_value_set_element.exit.thread, label %25
+  br i1 %24, label %dissect_wccp2_alternate_mask_value_set_element.argprom.exit.thread, label %25
 
 25:                                               ; preds = %.lr.ph
   %26 = add i32 %23, %.03623
   %.not.i = icmp slt i32 %.03623, %26
-  br i1 %.not.i, label %27, label %dissect_wccp2_alternate_mask_value_set_element.exit
+  br i1 %.not.i, label %27, label %dissect_wccp2_alternate_mask_value_set_element.argprom.exit
 
 27:                                               ; preds = %25
   %28 = icmp ult i32 %22, 4
@@ -3860,7 +3860,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
 
 29:                                               ; preds = %27
   %30 = or disjoint i32 %22, -4
-  br label %dissect_wccp2_alternate_mask_value_set_element.exit.thread
+  br label %dissect_wccp2_alternate_mask_value_set_element.argprom.exit.thread
 
 31:                                               ; preds = %27
   %32 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %26) #7
@@ -3871,7 +3871,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   %37 = add i32 %23, 4
   %38 = add nsw i32 %22, -4
   %.not14.i = icmp eq i32 %32, 0
-  br i1 %.not14.i, label %dissect_wccp2_alternate_mask_value_set_element.exit.thread2, label %.lr.ph.preheader.i
+  br i1 %.not14.i, label %dissect_wccp2_alternate_mask_value_set_element.argprom.exit.thread2, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %31
   %39 = add i32 %26, 4
@@ -3881,7 +3881,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   %41 = add nuw i32 %.06111.i, 1
   %42 = add i32 %75, %.06210.i
   %exitcond.not.i = icmp eq i32 %41, %32
-  br i1 %exitcond.not.i, label %dissect_wccp2_alternate_mask_value_set_element.exit.thread2, label %.lr.ph.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %dissect_wccp2_alternate_mask_value_set_element.argprom.exit.thread2, label %.lr.ph.i, !llvm.loop !27
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.preheader.i
   %.06012.i = phi i32 [ %76, %40 ], [ %39, %.lr.ph.preheader.i ]
@@ -3893,13 +3893,13 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
 
 44:                                               ; preds = %.lr.ph.i
   %45 = or disjoint i32 %.0639.i, -8
-  br label %dissect_wccp2_alternate_mask_value_set_element.exit.thread
+  br label %dissect_wccp2_alternate_mask_value_set_element.argprom.exit.thread
 
 46:                                               ; preds = %.lr.ph.i
   %47 = load i32, ptr @hf_web_cache_value_element_wc_address_index, align 4
   %48 = load i32, ptr @hf_web_cache_value_element_wc_address_ipv4, align 4
   %49 = load i32, ptr @hf_web_cache_value_element_wc_address_ipv6, align 4
-  %50 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %36, i32 noundef %47, i32 noundef %48, i32 noundef %49, ptr noundef %0, i32 noundef %.06012.i, ptr noundef readonly %4)
+  %50 = call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %36, i32 noundef %47, i32 noundef %48, i32 noundef %49, ptr noundef %0, i32 noundef %.06012.i, ptr noundef readonly %4)
   %51 = load i32, ptr @ett_web_cache_value_element_list, align 4
   %52 = call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51) #7
   %53 = icmp ult i32 %.0639.i, 8
@@ -3907,7 +3907,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
 
 54:                                               ; preds = %46
   %55 = or disjoint i32 %.0639.i, -8
-  br label %dissect_wccp2_alternate_mask_value_set_element.exit.thread
+  br label %dissect_wccp2_alternate_mask_value_set_element.argprom.exit.thread
 
 56:                                               ; preds = %46
   %57 = add i32 %.06012.i, 4
@@ -3916,7 +3916,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   %60 = call ptr @proto_tree_add_uint(ptr noundef %52, i32 noundef %59, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef %58) #7
   %61 = add nsw i32 %.0639.i, -8
   %.not.i.i = icmp eq i32 %58, 0
-  br i1 %.not.i.i, label %dissect_wccp2_web_cache_value_element.exit.i, label %.lr.ph.preheader.i.i
+  br i1 %.not.i.i, label %dissect_wccp2_web_cache_value_element.argprom.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %56
   %62 = add i32 %.06012.i, 8
@@ -3934,7 +3934,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   %.neg.i.i = sub i32 %63, %58
   %.neg44.i.i = shl i32 %.neg.i.i, 2
   %65 = add i32 %.0393.i.i, %.neg44.i.i
-  br label %dissect_wccp2_web_cache_value_element.exit.i
+  br label %dissect_wccp2_web_cache_value_element.argprom.exit.i
 
 66:                                               ; preds = %.lr.ph.i.i
   %67 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0384.i.i) #7
@@ -3944,20 +3944,20 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   %71 = add nsw i32 %.0393.i.i, -4
   %72 = add i32 %.0384.i.i, 4
   %exitcond8.not.i.i = icmp eq i32 %69, %58
-  br i1 %exitcond8.not.i.i, label %dissect_wccp2_web_cache_value_element.exit.i, label %.lr.ph.i.i, !llvm.loop !28
+  br i1 %exitcond8.not.i.i, label %dissect_wccp2_web_cache_value_element.argprom.exit.i, label %.lr.ph.i.i, !llvm.loop !28
 
-dissect_wccp2_web_cache_value_element.exit.i:     ; preds = %66, %64, %56
+dissect_wccp2_web_cache_value_element.argprom.exit.i: ; preds = %66, %64, %56
   %.037.i.i = phi i32 [ %65, %64 ], [ %61, %56 ], [ %71, %66 ]
   %73 = icmp slt i32 %.037.i.i, 0
-  br i1 %73, label %dissect_wccp2_alternate_mask_value_set_element.exit.thread, label %74
+  br i1 %73, label %dissect_wccp2_alternate_mask_value_set_element.argprom.exit.thread, label %74
 
-74:                                               ; preds = %dissect_wccp2_web_cache_value_element.exit.i
+74:                                               ; preds = %dissect_wccp2_web_cache_value_element.argprom.exit.i
   %75 = sub i32 %.0639.i, %.037.i.i
   %76 = add i32 %75, %.06012.i
   %.not69.i = icmp slt i32 %.06012.i, %76
-  br i1 %.not69.i, label %40, label %dissect_wccp2_alternate_mask_value_set_element.exit
+  br i1 %.not69.i, label %40, label %dissect_wccp2_alternate_mask_value_set_element.argprom.exit
 
-dissect_wccp2_alternate_mask_value_set_element.exit.thread2: ; preds = %40, %31
+dissect_wccp2_alternate_mask_value_set_element.argprom.exit.thread2: ; preds = %40, %31
   %.063.lcssa.i = phi i32 [ %38, %31 ], [ %.037.i.i, %40 ]
   %.062.lcssa.i = phi i32 [ %37, %31 ], [ %42, %40 ]
   %77 = load ptr, ptr %6, align 8
@@ -3965,35 +3965,35 @@ dissect_wccp2_alternate_mask_value_set_element.exit.thread2: ; preds = %40, %31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %79
 
-dissect_wccp2_alternate_mask_value_set_element.exit.thread: ; preds = %.lr.ph, %dissect_wccp2_web_cache_value_element.exit.i, %29, %54, %44
-  %.0.i.ph = phi i32 [ %45, %44 ], [ %55, %54 ], [ %30, %29 ], [ %.037.i.i, %dissect_wccp2_web_cache_value_element.exit.i ], [ %22, %.lr.ph ]
+dissect_wccp2_alternate_mask_value_set_element.argprom.exit.thread: ; preds = %.lr.ph, %dissect_wccp2_web_cache_value_element.argprom.exit.i, %29, %54, %44
+  %.0.i.ph = phi i32 [ %45, %44 ], [ %55, %54 ], [ %30, %29 ], [ %.037.i.i, %dissect_wccp2_web_cache_value_element.argprom.exit.i ], [ %22, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit
 
-dissect_wccp2_alternate_mask_value_set_element.exit: ; preds = %74, %25
+dissect_wccp2_alternate_mask_value_set_element.argprom.exit: ; preds = %74, %25
   %.0.i = phi i32 [ %23, %25 ], [ %75, %74 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %78 = icmp slt i32 %.0.i, 0
   br i1 %78, label %.loopexit, label %79
 
-79:                                               ; preds = %dissect_wccp2_alternate_mask_value_set_element.exit.thread2, %dissect_wccp2_alternate_mask_value_set_element.exit
-  %.0.i4 = phi i32 [ %.063.lcssa.i, %dissect_wccp2_alternate_mask_value_set_element.exit.thread2 ], [ %.0.i, %dissect_wccp2_alternate_mask_value_set_element.exit ]
+79:                                               ; preds = %dissect_wccp2_alternate_mask_value_set_element.argprom.exit.thread2, %dissect_wccp2_alternate_mask_value_set_element.argprom.exit
+  %.0.i4 = phi i32 [ %.063.lcssa.i, %dissect_wccp2_alternate_mask_value_set_element.argprom.exit.thread2 ], [ %.0.i, %dissect_wccp2_alternate_mask_value_set_element.argprom.exit ]
   %80 = sub i32 %.03821, %.0.i4
   %81 = add i32 %80, %.03623
   %.not = icmp slt i32 %.03623, %81
   br i1 %.not, label %18, label %.loopexit
 
-.loopexit:                                        ; preds = %dissect_wccp2_alternate_mask_value_set_element.exit, %79, %18, %10, %dissect_wccp2_alternate_mask_value_set_element.exit.thread, %8
-  %.0 = phi i32 [ %9, %8 ], [ %.0.i.ph, %dissect_wccp2_alternate_mask_value_set_element.exit.thread ], [ %16, %10 ], [ %.0.i, %dissect_wccp2_alternate_mask_value_set_element.exit ], [ %80, %79 ], [ %.0.i4, %18 ]
+.loopexit:                                        ; preds = %dissect_wccp2_alternate_mask_value_set_element.argprom.exit, %79, %18, %10, %dissect_wccp2_alternate_mask_value_set_element.argprom.exit.thread, %8
+  %.0 = phi i32 [ %9, %8 ], [ %.0.i.ph, %dissect_wccp2_alternate_mask_value_set_element.argprom.exit.thread ], [ %16, %10 ], [ %.0.i, %dissect_wccp2_alternate_mask_value_set_element.argprom.exit ], [ %80, %79 ], [ %.0.i4, %18 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_wccp2_router_assignment_element(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_wccp2_router_assignment_element.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_router_identity_ip_index, align 4
   %7 = load i32, ptr @hf_router_identity_ipv4, align 4
   %8 = load i32, ptr @hf_router_identity_ipv6, align 4
-  %9 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %3, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %0, i32 noundef %1, ptr noundef readonly %4)
+  %9 = tail call fastcc ptr @wccp_add_ipaddress_item.argelim(ptr noundef %3, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %0, i32 noundef %1, ptr noundef readonly %4)
   %10 = load i32, ptr @hf_router_identity_receive_id, align 4
   %11 = add i32 %1, 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #7
@@ -4096,7 +4096,7 @@ define internal fastcc void @dissect_32_bit_capability_flags(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_wccp2_hash_assignment_info(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 -4, 2147483644) %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_wccp2_hash_assignment_info.argprom(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 -4, 2147483644) %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = icmp slt i32 %2, 260
   br i1 %7, label %8, label %10
@@ -4150,13 +4150,13 @@ define internal fastcc i32 @dissect_wccp2_hash_assignment_info(ptr noundef %0, i
 
 21:                                               ; preds = %.lr.ph42
   %22 = load i32, ptr @hf_cache_ip, align 4
-  %23 = call fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noundef %.0541239, ptr noundef nonnull %4)
+  %23 = call fastcc ptr @decode_wccp_encoded_address.argprom(ptr noundef %0, i32 noundef %.0541239, ptr noundef nonnull %4)
   %24 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %3, i32 noundef %22, ptr noundef %0, i32 noundef %.0541239, i32 noundef 4, i32 noundef %19, ptr noundef nonnull @.str.452, i32 noundef %.0531041, ptr noundef %23) #7
   br label %29
 
 25:                                               ; preds = %.lr.ph42
   %26 = load i32, ptr @hf_web_cache_identity_index, align 4
-  %27 = call fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noundef %.0541239, ptr noundef nonnull %4)
+  %27 = call fastcc ptr @decode_wccp_encoded_address.argprom(ptr noundef %0, i32 noundef %.0541239, ptr noundef nonnull %4)
   %28 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %3, i32 noundef %26, ptr noundef %0, i32 noundef %.0541239, i32 noundef 4, i32 noundef %19, ptr noundef nonnull @.str.452, i32 noundef %.0531041, ptr noundef %27) #7
   br label %29
 

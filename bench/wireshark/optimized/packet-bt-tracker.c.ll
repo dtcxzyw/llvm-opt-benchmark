@@ -347,7 +347,7 @@ proto_item_set_generated.exit.i:                  ; preds = %43, %40, %get_messa
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %88 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %89 = icmp sgt i32 %88, 98
-  br i1 %89, label %.lr.ph.i.i, label %dissect_bt_tracker_extension.exit.i
+  br i1 %89, label %.lr.ph.i.i, label %dissect_bt_tracker_extension.argprom.exit.i
 
 .lr.ph.i.i:                                       ; preds = %61, %120
   %.0352.i.i = phi i32 [ %.1.i.i, %120 ], [ 98, %61 ]
@@ -380,7 +380,7 @@ proto_item_set_generated.exit.i:                  ; preds = %43, %40, %get_messa
   %106 = load i32, ptr @hf_bt_tracker_extension_type, align 4
   %107 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef %0, i32 noundef %.0352.i.i, i32 noundef 1, i32 noundef 0) #4
   switch i8 %90, label %117 [
-    i8 0, label %dissect_bt_tracker_extension.exit.i
+    i8 0, label %dissect_bt_tracker_extension.argprom.exit.i
     i8 1, label %120
     i8 2, label %108
   ]
@@ -399,15 +399,15 @@ proto_item_set_generated.exit.i:                  ; preds = %43, %40, %get_messa
 117:                                              ; preds = %100
   %118 = load i32, ptr @hf_bt_tracker_extension_unknown, align 4
   %119 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %118, ptr noundef %0, i32 noundef %.pre-phi.i.i, i32 noundef -1, i32 noundef 0) #4
-  br label %dissect_bt_tracker_extension.exit.i
+  br label %dissect_bt_tracker_extension.argprom.exit.i
 
 120:                                              ; preds = %108, %100
   %.1.i.i = phi i32 [ %116, %108 ], [ %.pre-phi.i.i, %100 ]
   %121 = call i32 @tvb_reported_length(ptr noundef %0) #4
   %122 = icmp slt i32 %.1.i.i, %121
-  br i1 %122, label %.lr.ph.i.i, label %dissect_bt_tracker_extension.exit.i, !llvm.loop !4
+  br i1 %122, label %.lr.ph.i.i, label %dissect_bt_tracker_extension.argprom.exit.i, !llvm.loop !4
 
-dissect_bt_tracker_extension.exit.i:              ; preds = %120, %100, %117, %61
+dissect_bt_tracker_extension.argprom.exit.i:      ; preds = %120, %100, %117, %61
   %.034.i.i = phi i32 [ %.pre-phi.i.i, %117 ], [ 98, %61 ], [ %.pre-phi.i.i, %100 ], [ %.1.i.i, %120 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %dissect_bt_tracker_msg.exit
@@ -433,7 +433,7 @@ dissect_bt_tracker_extension.exit.i:              ; preds = %120, %100, %117, %6
   %138 = tail call ptr @wmem_list_tail(ptr noundef %.val.i) #4
   %139 = tail call ptr @wmem_list_frame_prev(ptr noundef %138) #4
   %.not1.i.i = icmp eq ptr %139, null
-  br i1 %.not1.i.i, label %is_ipv4_format.exit.i, label %sub_0.i.i
+  br i1 %.not1.i.i, label %is_ipv4_format.argprom.exit.i, label %sub_0.i.i
 
 sub_0.i.i:                                        ; preds = %136, %151
   %.072.i.i = phi ptr [ %152, %151 ], [ %139, %136 ]
@@ -455,19 +455,19 @@ sub_1.i.i:                                        ; preds = %sub_0.i.i
   %147 = getelementptr inbounds i8, ptr %143, i64 2
   %148 = load i8, ptr %147, align 1
   %149 = icmp eq i8 %148, 0
-  br i1 %149, label %is_ipv4_format.exit.i, label %.tail.thread.i.i
+  br i1 %149, label %is_ipv4_format.argprom.exit.i, label %.tail.thread.i.i
 
 .tail.thread.i.i:                                 ; preds = %.tail.i.i, %sub_1.i.i, %sub_0.i.i
   %150 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %143, ptr noundef nonnull dereferenceable(5) @.str.94) #5
   %.not9.i.i = icmp eq i32 %150, 0
-  br i1 %.not9.i.i, label %is_ipv4_format.exit.i, label %151
+  br i1 %.not9.i.i, label %is_ipv4_format.argprom.exit.i, label %151
 
 151:                                              ; preds = %.tail.thread.i.i
   %152 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.072.i.i) #4
   %.not.i212.i = icmp eq ptr %152, null
-  br i1 %.not.i212.i, label %is_ipv4_format.exit.i, label %sub_0.i.i, !llvm.loop !6
+  br i1 %.not.i212.i, label %is_ipv4_format.argprom.exit.i, label %sub_0.i.i, !llvm.loop !6
 
-is_ipv4_format.exit.i:                            ; preds = %151, %.tail.thread.i.i, %.tail.i.i, %136
+is_ipv4_format.argprom.exit.i:                    ; preds = %151, %.tail.thread.i.i, %.tail.i.i, %136
   %.not239.i = phi i1 [ false, %136 ], [ true, %.tail.thread.i.i ], [ false, %151 ], [ false, %.tail.i.i ]
   %153 = phi i32 [ 6, %136 ], [ 18, %.tail.thread.i.i ], [ 6, %151 ], [ 6, %.tail.i.i ]
   %154 = load i32, ptr @hf_bt_tracker_trackers, align 4
@@ -478,7 +478,7 @@ is_ipv4_format.exit.i:                            ; preds = %151, %.tail.thread.
   %.not211221.i = icmp slt i32 %158, %153
   br i1 %.not211221.i, label %._crit_edge.i, label %.lr.ph224.i
 
-.lr.ph224.i:                                      ; preds = %is_ipv4_format.exit.i
+.lr.ph224.i:                                      ; preds = %is_ipv4_format.argprom.exit.i
   %159 = getelementptr inbounds i8, ptr %1, i64 408
   br i1 %.not239.i, label %.lr.ph224.split.us.i, label %.lr.ph224.split.i
 
@@ -532,9 +532,9 @@ is_ipv4_format.exit.i:                            ; preds = %151, %.tail.thread.
   %.not211.i = icmp slt i32 %191, %153
   br i1 %.not211.i, label %._crit_edge.i, label %.lr.ph224.split.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %.lr.ph224.split.i, %.lr.ph224.split.us.i, %is_ipv4_format.exit.i
-  %.0209.lcssa.i = phi i32 [ 0, %is_ipv4_format.exit.i ], [ %160, %.lr.ph224.split.us.i ], [ %176, %.lr.ph224.split.i ]
-  %.1.lcssa.i = phi i32 [ 20, %is_ipv4_format.exit.i ], [ %174, %.lr.ph224.split.us.i ], [ %190, %.lr.ph224.split.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph224.split.i, %.lr.ph224.split.us.i, %is_ipv4_format.argprom.exit.i
+  %.0209.lcssa.i = phi i32 [ 0, %is_ipv4_format.argprom.exit.i ], [ %160, %.lr.ph224.split.us.i ], [ %176, %.lr.ph224.split.i ]
+  %.1.lcssa.i = phi i32 [ 20, %is_ipv4_format.argprom.exit.i ], [ %174, %.lr.ph224.split.us.i ], [ %190, %.lr.ph224.split.i ]
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %155, ptr noundef nonnull @.str.89, i32 noundef %.0209.lcssa.i) #4
   %192 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %192, i32 noundef 25, ptr noundef nonnull @.str.90, i32 noundef %.0209.lcssa.i) #4
@@ -597,8 +597,8 @@ is_ipv4_format.exit.i:                            ; preds = %151, %.tail.thread.
 default.unreachable:                              ; preds = %proto_item_set_generated.exit.i
   unreachable
 
-dissect_bt_tracker_msg.exit:                      ; preds = %.lr.ph.i, %.lr.ph219.i, %proto_item_set_generated.exit.i, %47, %54, %dissect_bt_tracker_extension.exit.i, %123, %._crit_edge.i, %193, %207, %225
-  %.0.i11 = phi i32 [ 0, %proto_item_set_generated.exit.i ], [ %232, %225 ], [ %.1.lcssa.i, %._crit_edge.i ], [ 20, %123 ], [ %.034.i.i, %dissect_bt_tracker_extension.exit.i ], [ 16, %54 ], [ 16, %47 ], [ 16, %193 ], [ 8, %207 ], [ %204, %.lr.ph219.i ], [ %222, %.lr.ph.i ]
+dissect_bt_tracker_msg.exit:                      ; preds = %.lr.ph.i, %.lr.ph219.i, %proto_item_set_generated.exit.i, %47, %54, %dissect_bt_tracker_extension.argprom.exit.i, %123, %._crit_edge.i, %193, %207, %225
+  %.0.i11 = phi i32 [ 0, %proto_item_set_generated.exit.i ], [ %232, %225 ], [ %.1.lcssa.i, %._crit_edge.i ], [ 20, %123 ], [ %.034.i.i, %dissect_bt_tracker_extension.argprom.exit.i ], [ 16, %54 ], [ 16, %47 ], [ 16, %193 ], [ 8, %207 ], [ %204, %.lr.ph219.i ], [ %222, %.lr.ph.i ]
   ret i32 %.0.i11
 }
 

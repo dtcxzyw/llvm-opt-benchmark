@@ -5,15 +5,15 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17h77f9b7420993a187E.llvm.3971154647890252431(ptr noundef nonnull readnone %0, ptr noundef readonly %1, ptr noundef nonnull readnone %2, ptr noundef readonly %3) unnamed_addr #0 personality ptr @rust_eh_personality {
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i"
+  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.argprom.exit.i.i.i"
 
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i": ; preds = %8, %4
+"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.argprom.exit.i.i.i": ; preds = %8, %4
   %.sroa.3.08 = phi ptr [ %3, %4 ], [ %10, %8 ]
   %5 = phi ptr [ %1, %4 ], [ %9, %8 ]
   %6 = icmp eq ptr %0, %5
   br i1 %6, label %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b007fc028ea3490E.exit", label %7
 
-7:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i"
+7:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.argprom.exit.i.i.i"
   %.not.not.not.i.not.not.not.i.not.not.not.i.not = icmp eq ptr %2, %.sroa.3.08
   br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not, label %.loopexit, label %8
 
@@ -23,13 +23,13 @@ define hidden { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17h77f9b742
   %10 = getelementptr inbounds i8, ptr %.sroa.3.08, i64 -8
   %.val7.i.i.i.i.i = load i64, ptr %10, align 8, !alias.scope !14, !noalias !17, !noundef !19
   %11 = icmp eq i64 %.val7.i.i.i, %.val7.i.i.i.i.i
-  br i1 %11, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i", label %.split.loop.exit.i.i.i
+  br i1 %11, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.argprom.exit.i.i.i", label %.split.loop.exit.i.i.i
 
 .split.loop.exit.i.i.i:                           ; preds = %8
   %.0.i.i.i.i.i.i.le.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val7.i.i.i, i64 %.val7.i.i.i.i.i)
   br label %.loopexit
 
-"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b007fc028ea3490E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i"
+"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b007fc028ea3490E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.argprom.exit.i.i.i"
   %12 = icmp ne ptr %.sroa.3.08, null
   tail call void @llvm.assume(i1 %12)
   %13 = icmp ne ptr %2, %.sroa.3.08
@@ -46,15 +46,15 @@ define hidden { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17h77f9b742
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator6cmp_by17h67ab812ead9b7dcdE(ptr noundef nonnull readnone %0, ptr noundef readonly %1, ptr noundef nonnull readnone %2, ptr noundef readonly %3) unnamed_addr #1 personality ptr @rust_eh_personality {
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i.i"
+  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.argprom.exit.i.i.i.i"
 
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i.i": ; preds = %8, %4
+"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.argprom.exit.i.i.i.i": ; preds = %8, %4
   %.sroa.3.08.i = phi ptr [ %3, %4 ], [ %10, %8 ]
   %5 = phi ptr [ %1, %4 ], [ %9, %8 ]
   %6 = icmp eq ptr %0, %5
   br i1 %6, label %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b007fc028ea3490E.exit.i", label %7
 
-7:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i.i"
+7:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.argprom.exit.i.i.i.i"
   %.not.not.not.i.not.not.not.i.not.not.not.i.not.i = icmp eq ptr %2, %.sroa.3.08.i
   br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i, label %_ZN4core4iter6traits8iterator12iter_compare17h77f9b7420993a187E.llvm.3971154647890252431.exit, label %8
 
@@ -64,13 +64,13 @@ define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator6cmp_by17h67ab81
   %10 = getelementptr inbounds i8, ptr %.sroa.3.08.i, i64 -8
   %.val7.i.i.i.i.i.i = load i64, ptr %10, align 8, !alias.scope !30, !noalias !33, !noundef !19
   %11 = icmp eq i64 %.val7.i.i.i.i, %.val7.i.i.i.i.i.i
-  br i1 %11, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i.i", label %.split.loop.exit.i.i.i.i
+  br i1 %11, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.argprom.exit.i.i.i.i", label %.split.loop.exit.i.i.i.i
 
 .split.loop.exit.i.i.i.i:                         ; preds = %8
   %.0.i.i.i.i.i.i.le.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val7.i.i.i.i, i64 %.val7.i.i.i.i.i.i)
   br label %_ZN4core4iter6traits8iterator12iter_compare17h77f9b7420993a187E.llvm.3971154647890252431.exit
 
-"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b007fc028ea3490E.exit.i": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i.i"
+"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b007fc028ea3490E.exit.i": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.argprom.exit.i.i.i.i"
   %12 = icmp ne ptr %.sroa.3.08.i, null
   tail call void @llvm.assume(i1 %12)
   %13 = icmp ne ptr %2, %.sroa.3.08.i
@@ -123,10 +123,10 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !12 = distinct !{!12, !"_ZN4core4iter6traits8iterator8Iterator12try_for_each17h24696c5db960fe56E"}
 !13 = distinct !{!13, !12, !"_ZN4core4iter6traits8iterator8Iterator12try_for_each17h24696c5db960fe56E: argument 1"}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hf2aabc971efdfbb1E: argument 1"}
-!16 = distinct !{!16, !"_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hf2aabc971efdfbb1E"}
+!15 = distinct !{!15, !16, !"_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hf2aabc971efdfbb1E.argprom: argument 1"}
+!16 = distinct !{!16, !"_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hf2aabc971efdfbb1E.argprom"}
 !17 = !{!18, !5, !7, !8, !10, !11, !13}
-!18 = distinct !{!18, !16, !"_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hf2aabc971efdfbb1E: argument 0"}
+!18 = distinct !{!18, !16, !"_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hf2aabc971efdfbb1E.argprom: argument 0"}
 !19 = !{}
 !20 = !{!21, !23, !24, !26, !27, !29}
 !21 = distinct !{!21, !22, !"_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h5aa0846475c62b2aE: argument 0"}
@@ -139,7 +139,7 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !28 = distinct !{!28, !"_ZN4core4iter6traits8iterator8Iterator12try_for_each17h24696c5db960fe56E"}
 !29 = distinct !{!29, !28, !"_ZN4core4iter6traits8iterator8Iterator12try_for_each17h24696c5db960fe56E: argument 1"}
 !30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hf2aabc971efdfbb1E: argument 1"}
-!32 = distinct !{!32, !"_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hf2aabc971efdfbb1E"}
+!31 = distinct !{!31, !32, !"_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hf2aabc971efdfbb1E.argprom: argument 1"}
+!32 = distinct !{!32, !"_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hf2aabc971efdfbb1E.argprom"}
 !33 = !{!34, !21, !23, !24, !26, !27, !29}
-!34 = distinct !{!34, !32, !"_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hf2aabc971efdfbb1E: argument 0"}
+!34 = distinct !{!34, !32, !"_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hf2aabc971efdfbb1E.argprom: argument 0"}

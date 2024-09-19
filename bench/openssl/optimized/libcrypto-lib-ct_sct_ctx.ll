@@ -277,7 +277,7 @@ entry:
   %sctx.val.i = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %sctx, i64 88
   %sctx.val3.i = load ptr, ptr %1, align 8
-  %call.i = tail call fastcc range(i32 0, 2) i32 @ct_public_key_hash(ptr %sctx.val.i, ptr %sctx.val3.i, ptr noundef %call, ptr noundef nonnull %ihash.i, ptr noundef nonnull %ihashlen.i)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @ct_public_key_hash.argprom(ptr %sctx.val.i, ptr %sctx.val3.i, ptr noundef %call, ptr noundef nonnull %ihash.i, ptr noundef nonnull %ihashlen.i)
   ret i32 %call.i
 }
 
@@ -290,14 +290,14 @@ entry:
   %sctx.val = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %sctx, i64 88
   %sctx.val3 = load ptr, ptr %1, align 8
-  %call = tail call fastcc i32 @ct_public_key_hash(ptr %sctx.val, ptr %sctx.val3, ptr noundef %pubkey, ptr noundef nonnull %ihash, ptr noundef nonnull %ihashlen)
+  %call = tail call fastcc i32 @ct_public_key_hash.argprom(ptr %sctx.val, ptr %sctx.val3, ptr noundef %pubkey, ptr noundef nonnull %ihash, ptr noundef nonnull %ihashlen)
   ret i32 %call
 }
 
 declare ptr @X509_get_X509_PUBKEY(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ct_public_key_hash(ptr %sctx.80.val, ptr %sctx.88.val, ptr noundef %pkey, ptr nocapture noundef %hash, ptr nocapture noundef %hash_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ct_public_key_hash.argprom(ptr %sctx.80.val, ptr %sctx.88.val, ptr noundef %pkey, ptr nocapture noundef %hash, ptr nocapture noundef %hash_len) unnamed_addr #0 {
 entry:
   %der = alloca ptr, align 8
   %md_len = alloca i32, align 4
@@ -369,7 +369,7 @@ if.end:                                           ; preds = %entry
   %sctx.val = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %sctx, i64 88
   %sctx.val8 = load ptr, ptr %1, align 8
-  %call1 = tail call fastcc i32 @ct_public_key_hash(ptr %sctx.val, ptr %sctx.val8, ptr noundef %pubkey, ptr noundef nonnull %pkeyhash, ptr noundef nonnull %pkeyhashlen)
+  %call1 = tail call fastcc i32 @ct_public_key_hash.argprom(ptr %sctx.val, ptr %sctx.val8, ptr noundef %pubkey, ptr noundef nonnull %pkeyhash, ptr noundef nonnull %pkeyhashlen)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then2, label %if.end3
 

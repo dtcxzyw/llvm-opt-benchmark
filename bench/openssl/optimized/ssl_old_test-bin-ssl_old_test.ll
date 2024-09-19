@@ -4484,7 +4484,7 @@ if.end292:                                        ; preds = %if.end.i
   br i1 %cmp294, label %err, label %lor.lhs.false296
 
 lor.lhs.false296:                                 ; preds = %if.end292
-  %call297 = call fastcc i32 @verify_servername(ptr noundef %s_ssl)
+  %call297 = call fastcc i32 @verify_servername.argprom(ptr noundef %s_ssl)
   %cmp298 = icmp slt i32 %call297, 0
   br i1 %cmp298, label %err, label %if.end301
 
@@ -4898,7 +4898,7 @@ if.end234:                                        ; preds = %if.end.i
   br i1 %cmp236, label %err, label %lor.lhs.false238
 
 lor.lhs.false238:                                 ; preds = %if.end234
-  %call239 = call fastcc i32 @verify_servername(ptr noundef %s_ssl)
+  %call239 = call fastcc i32 @verify_servername.argprom(ptr noundef %s_ssl)
   %cmp240 = icmp slt i32 %call239, 0
   br i1 %cmp240, label %err, label %if.end243
 
@@ -5355,7 +5355,7 @@ return:                                           ; preds = %err, %if.end27, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @verify_servername(ptr noundef %server) unnamed_addr #8 {
+define internal fastcc range(i32 -1, 1) i32 @verify_servername.argprom(ptr noundef %server) unnamed_addr #8 {
 entry:
   %call = tail call ptr @SSL_get_SSL_CTX(ptr noundef %server) #22
   %0 = load i32, ptr @sn_expect, align 4

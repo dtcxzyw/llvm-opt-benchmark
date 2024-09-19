@@ -1948,14 +1948,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit122.i:     ; preds = %333, %_ZNSt10filesy
 357:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit122.i, %252
   %358 = load ptr, ptr %12, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.3, i32 noundef 484, ptr noundef %358)
-          to label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.i unwind label %196
+          to label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit.i unwind label %196
 
-_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.i:         ; preds = %357
+_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit.i: ; preds = %357
   %359 = load ptr, ptr %17, align 8
   %.not.i.i.i126.i = icmp eq ptr %359, null
   br i1 %.not.i.i.i126.i, label %_ZL16write_checkpointPKcbP8_IO_FILEPK9t_commrecPii20IntegrationAlgorithmib23LambdaWeightCalculationldP7t_stateP18ObservablesHistoryRKN3gmx18MDModulesNotifiersEPNSD_25WriteCheckpointDataHolderEbP10tmpi_comm_.exit, label %360
 
-360:                                              ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.i
+360:                                              ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit.i
   call void @_ZdlPv(ptr noundef nonnull %359) #23
   br label %_ZL16write_checkpointPKcbP8_IO_FILEPK9t_commrecPii20IntegrationAlgorithmib23LambdaWeightCalculationldP7t_stateP18ObservablesHistoryRKN3gmx18MDModulesNotifiersEPNSD_25WriteCheckpointDataHolderEbP10tmpi_comm_.exit
 
@@ -1988,7 +1988,7 @@ _ZNSt6vectorI19gmx_file_position_tSaIS0_EED2Ev.exit128.i: ; preds = %363, %361, 
 369:                                              ; preds = %350, %304
   unreachable
 
-_ZL16write_checkpointPKcbP8_IO_FILEPK9t_commrecPii20IntegrationAlgorithmib23LambdaWeightCalculationldP7t_stateP18ObservablesHistoryRKN3gmx18MDModulesNotifiersEPNSD_25WriteCheckpointDataHolderEbP10tmpi_comm_.exit: ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit.i, %360
+_ZL16write_checkpointPKcbP8_IO_FILEPK9t_commrecPii20IntegrationAlgorithmib23LambdaWeightCalculationldP7t_stateP18ObservablesHistoryRKN3gmx18MDModulesNotifiersEPNSD_25WriteCheckpointDataHolderEbP10tmpi_comm_.exit: ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit.i, %360
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)

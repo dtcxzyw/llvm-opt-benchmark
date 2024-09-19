@@ -2666,19 +2666,19 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_13Ev() #5 personality
   %101 = getelementptr inbounds i8, ptr %6, i64 8
   %102 = load ptr, ptr %101, align 8, !noalias !9
   %.not.i.i.i.i.i.i = icmp eq ptr %102, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, label %103
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, label %103
 
 103:                                              ; preds = %.noexc48.i
   call void @_ZdlPv(ptr noundef nonnull %102) #21, !noalias !9
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i: ; preds = %103, %.noexc48.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i: ; preds = %103, %.noexc48.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !9
   %104 = getelementptr inbounds i8, ptr %50, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef %100, ptr noundef nonnull align 8 dereferenceable(184) %104)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i unwind label %111
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA4_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %16, ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %105 unwind label %113
 
@@ -2703,7 +2703,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #21
   br label %.body
 
-111:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, %91, %90
+111:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, %91, %90
   %112 = landingpad { ptr, i32 }
           catch ptr null
   br label %119
@@ -2803,19 +2803,19 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
   %146 = getelementptr inbounds i8, ptr %5, i64 8
   %147 = load ptr, ptr %146, align 8, !noalias !13
   %.not.i.i.i.i.i53.i = icmp eq ptr %147, null
-  br i1 %.not.i.i.i.i.i53.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i54.i, label %148
+  br i1 %.not.i.i.i.i.i53.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i54.i, label %148
 
 148:                                              ; preds = %.noexc55.i
   call void @_ZdlPv(ptr noundef nonnull %147) #21, !noalias !13
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i54.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i54.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i54.i: ; preds = %148, %.noexc55.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i54.i: ; preds = %148, %.noexc55.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !13
   %149 = getelementptr inbounds i8, ptr %50, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %25, ptr noundef %145, ptr noundef nonnull align 8 dereferenceable(184) %149)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit57.i unwind label %156
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit57.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i54.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit57.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i54.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA4_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %22, ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 8 dereferenceable(32) %25)
           to label %150 unwind label %158
 
@@ -2840,7 +2840,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit57
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #21
   br label %.body
 
-156:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i54.i, %136, %135
+156:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i54.i, %136, %135
   %157 = landingpad { ptr, i32 }
           catch ptr null
   br label %164
@@ -6149,13 +6149,13 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_28Ev() #5 personality
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.exit.i, label %21
+  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.argprom.exit.i, label %21
 
 21:                                               ; preds = %.noexc
   call void @_ZdlPv(ptr noundef nonnull %20) #21
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.exit.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.argprom.exit.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.exit.i: ; preds = %21, %.noexc
+_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.argprom.exit.i: ; preds = %21, %.noexc
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   %22 = load ptr, ptr %14, align 8
   %23 = load ptr, ptr %12, align 8
@@ -6165,23 +6165,23 @@ _ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.exit.i: ; preds = %2
   invoke void @_ZN4Luau13simplifyUnionENS_7NotNullINS_12BuiltinTypesEEENS0_INS_9TypeArenaEEEPKNS_4TypeES7_(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::SimplifyResult") align 8 %3, ptr %.val11.i, ptr %.val12.i, ptr noundef %22, ptr noundef %23)
           to label %.noexc1 unwind label %101
 
-.noexc1:                                          ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.exit.i
+.noexc1:                                          ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.argprom.exit.i
   %24 = load ptr, ptr %3, align 8
   %25 = getelementptr inbounds i8, ptr %3, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not.i.i.i.i15.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i15.i, label %_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.exit16.i, label %27
+  br i1 %.not.i.i.i.i15.i, label %_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.argprom.exit16.i, label %27
 
 27:                                               ; preds = %.noexc1
   call void @_ZdlPv(ptr noundef nonnull %26) #21
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.exit16.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.argprom.exit16.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.exit16.i: ; preds = %27, %.noexc1
+_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.argprom.exit16.i: ; preds = %27, %.noexc1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str)
           to label %.noexc2 unwind label %101
 
-.noexc2:                                          ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.exit16.i
+.noexc2:                                          ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.argprom.exit16.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %5, i32 noundef 10, ptr noundef nonnull @.str.57, i32 noundef 222, ptr noundef nonnull @.str.188, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %28 unwind label %62
 
@@ -6387,7 +6387,7 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_27D2Ev.exit: ; preds = %87, %93
   call void @_ZN4Luau7FixtureD2Ev(ptr noundef nonnull align 8 dereferenceable(2232) %11) #21
   ret void
 
-101:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.exit16.i, %_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.exit.i, %0
+101:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.argprom.exit16.i, %_ZN12_GLOBAL__N_115SimplifyFixture6union_EPKN4Luau4TypeES4_.argprom.exit.i, %0
   %102 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -9065,19 +9065,19 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_40Ev() #5 personality
   %65 = getelementptr inbounds i8, ptr %8, i64 8
   %66 = load ptr, ptr %65, align 8, !noalias !59
   %.not.i.i.i.i.i.i = icmp eq ptr %66, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, label %67
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, label %67
 
 67:                                               ; preds = %.noexc.i
   call void @_ZdlPv(ptr noundef nonnull %66) #21, !noalias !59
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i: ; preds = %67, %.noexc.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i: ; preds = %67, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !59
   %68 = getelementptr inbounds i8, ptr %53, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef %64, ptr noundef nonnull align 8 dereferenceable(184) %68)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i unwind label %74
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA18_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %11, ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %69 unwind label %76
 
@@ -9097,7 +9097,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #21
   br label %.body
 
-74:                                               ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, %55, %54
+74:                                               ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, %55, %54
   %75 = landingpad { ptr, i32 }
           catch ptr null
   br label %82
@@ -9197,19 +9197,19 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
   %109 = getelementptr inbounds i8, ptr %7, i64 8
   %110 = load ptr, ptr %109, align 8, !noalias !63
   %.not.i.i.i.i.i54.i = icmp eq ptr %110, null
-  br i1 %.not.i.i.i.i.i54.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i55.i, label %111
+  br i1 %.not.i.i.i.i.i54.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i55.i, label %111
 
 111:                                              ; preds = %.noexc56.i
   call void @_ZdlPv(ptr noundef nonnull %110) #21, !noalias !63
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i55.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i55.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i55.i: ; preds = %111, %.noexc56.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i55.i: ; preds = %111, %.noexc56.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !63
   %112 = getelementptr inbounds i8, ptr %53, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr noundef %108, ptr noundef nonnull align 8 dereferenceable(184) %112)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit58.i unwind label %119
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit58.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i55.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit58.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i55.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA18_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %17, ptr noundef nonnull align 8 dereferenceable(12) %18, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %113 unwind label %121
 
@@ -9234,7 +9234,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit58
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #21
   br label %.body
 
-119:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i55.i, %99, %98
+119:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i55.i, %99, %98
   %120 = landingpad { ptr, i32 }
           catch ptr null
   br label %127
@@ -9334,19 +9334,19 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit58
   %154 = getelementptr inbounds i8, ptr %6, i64 8
   %155 = load ptr, ptr %154, align 8, !noalias !67
   %.not.i.i.i.i.i62.i = icmp eq ptr %155, null
-  br i1 %.not.i.i.i.i.i62.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i63.i, label %156
+  br i1 %.not.i.i.i.i.i62.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i63.i, label %156
 
 156:                                              ; preds = %.noexc64.i
   call void @_ZdlPv(ptr noundef nonnull %155) #21, !noalias !67
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i63.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i63.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i63.i: ; preds = %156, %.noexc64.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i63.i: ; preds = %156, %.noexc64.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !67
   %157 = getelementptr inbounds i8, ptr %53, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %26, ptr noundef %153, ptr noundef nonnull align 8 dereferenceable(184) %157)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit66.i unwind label %164
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit66.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i63.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit66.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i63.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA17_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %23, ptr noundef nonnull align 8 dereferenceable(12) %24, ptr noundef nonnull align 8 dereferenceable(32) %26)
           to label %158 unwind label %166
 
@@ -9371,7 +9371,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit66
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #21
   br label %.body
 
-164:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i63.i, %144, %143
+164:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i63.i, %144, %143
   %165 = landingpad { ptr, i32 }
           catch ptr null
   br label %172
@@ -9471,19 +9471,19 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit66
   %199 = getelementptr inbounds i8, ptr %5, i64 8
   %200 = load ptr, ptr %199, align 8, !noalias !71
   %.not.i.i.i.i.i70.i = icmp eq ptr %200, null
-  br i1 %.not.i.i.i.i.i70.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i71.i, label %201
+  br i1 %.not.i.i.i.i.i70.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i71.i, label %201
 
 201:                                              ; preds = %.noexc72.i
   call void @_ZdlPv(ptr noundef nonnull %200) #21, !noalias !71
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i71.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i71.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i71.i: ; preds = %201, %.noexc72.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i71.i: ; preds = %201, %.noexc72.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !71
   %202 = getelementptr inbounds i8, ptr %53, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %32, ptr noundef %198, ptr noundef nonnull align 8 dereferenceable(184) %202)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit74.i unwind label %209
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit74.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i71.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit74.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i71.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA17_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %29, ptr noundef nonnull align 8 dereferenceable(12) %30, ptr noundef nonnull align 8 dereferenceable(32) %32)
           to label %203 unwind label %211
 
@@ -9508,7 +9508,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit74
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #21
   br label %.body
 
-209:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i71.i, %189, %188
+209:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i71.i, %189, %188
   %210 = landingpad { ptr, i32 }
           catch ptr null
   br label %217
@@ -11993,19 +11993,19 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_46Ev() #5 personality
   %427 = getelementptr inbounds i8, ptr %4, i64 8
   %428 = load ptr, ptr %427, align 8, !noalias !91
   %.not.i.i.i.i.i.i = icmp eq ptr %428, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, label %429
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, label %429
 
 429:                                              ; preds = %.noexc119.i
   call void @_ZdlPv(ptr noundef nonnull %428) #21, !noalias !91
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i: ; preds = %429, %.noexc119.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i: ; preds = %429, %.noexc119.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !91
   %430 = getelementptr inbounds i8, ptr %86, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %67, ptr noundef %426, ptr noundef nonnull align 8 dereferenceable(184) %430)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i unwind label %437
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA22_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %64, ptr noundef nonnull align 8 dereferenceable(12) %65, ptr noundef nonnull align 8 dereferenceable(32) %67)
           to label %431 unwind label %439
 
@@ -12030,7 +12030,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %63) #21
   br label %.body
 
-437:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, %418, %417
+437:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, %418, %417
   %438 = landingpad { ptr, i32 }
           catch ptr null
   br label %445
@@ -12129,19 +12129,19 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
   %471 = getelementptr inbounds i8, ptr %3, i64 8
   %472 = load ptr, ptr %471, align 8, !noalias !95
   %.not.i.i.i.i.i124.i = icmp eq ptr %472, null
-  br i1 %.not.i.i.i.i.i124.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i125.i, label %473
+  br i1 %.not.i.i.i.i.i124.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i125.i, label %473
 
 473:                                              ; preds = %.noexc126.i
   call void @_ZdlPv(ptr noundef nonnull %472) #21, !noalias !95
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i125.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i125.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i125.i: ; preds = %473, %.noexc126.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i125.i: ; preds = %473, %.noexc126.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !95
   %474 = getelementptr inbounds i8, ptr %86, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %73, ptr noundef %470, ptr noundef nonnull align 8 dereferenceable(184) %474)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit128.i unwind label %481
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit128.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i125.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit128.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i125.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA22_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %70, ptr noundef nonnull align 8 dereferenceable(12) %71, ptr noundef nonnull align 8 dereferenceable(32) %73)
           to label %475 unwind label %483
 
@@ -12166,7 +12166,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit12
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %69) #21
   br label %.body
 
-481:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i125.i, %462, %461
+481:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i125.i, %462, %461
   %482 = landingpad { ptr, i32 }
           catch ptr null
   br label %489
@@ -13994,19 +13994,19 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #5 personality
   %117 = getelementptr inbounds i8, ptr %1, i64 8
   %118 = load ptr, ptr %117, align 8, !noalias !110
   %.not.i.i.i.i.i.i = icmp eq ptr %118, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, label %119
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, label %119
 
 119:                                              ; preds = %.noexc27.i
   call void @_ZdlPv(ptr noundef nonnull %118) #21, !noalias !110
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i: ; preds = %119, %.noexc27.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i: ; preds = %119, %.noexc27.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1), !noalias !110
   %120 = getelementptr inbounds i8, ptr %22, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef %116, ptr noundef nonnull align 8 dereferenceable(184) %120)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i unwind label %127
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA30_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %18, ptr noundef nonnull align 8 dereferenceable(12) %19, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %121 unwind label %129
 
@@ -14031,7 +14031,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #21
   br label %.body
 
-127:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, %107, %106
+127:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, %107, %106
   %128 = landingpad { ptr, i32 }
           catch ptr null
   br label %135
@@ -18122,19 +18122,19 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4l
   %75 = getelementptr inbounds i8, ptr %2, i64 8
   %76 = load ptr, ptr %75, align 8, !noalias !136
   %.not.i.i.i.i.i.i = icmp eq ptr %76, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, label %77
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, label %77
 
 77:                                               ; preds = %.noexc.i
   call void @_ZdlPv(ptr noundef nonnull %76) #21, !noalias !136
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i: ; preds = %77, %.noexc.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i: ; preds = %77, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !136
   %78 = getelementptr inbounds i8, ptr %21, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef %74, ptr noundef nonnull align 8 dereferenceable(184) %78)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i unwind label %93
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA49_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %11, ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %79 unwind label %95
 
@@ -18188,7 +18188,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #21
   br label %.body
 
-93:                                               ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, %69, %68
+93:                                               ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, %69, %68
   %94 = landingpad { ptr, i32 }
           catch ptr null
   br label %101
@@ -18284,19 +18284,19 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
   %124 = getelementptr inbounds i8, ptr %1, i64 8
   %125 = load ptr, ptr %124, align 8, !noalias !140
   %.not.i.i.i.i.i42.i = icmp eq ptr %125, null
-  br i1 %.not.i.i.i.i.i42.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i43.i, label %126
+  br i1 %.not.i.i.i.i.i42.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i43.i, label %126
 
 126:                                              ; preds = %.noexc44.i
   call void @_ZdlPv(ptr noundef nonnull %125) #21, !noalias !140
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i43.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i43.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i43.i: ; preds = %126, %.noexc44.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i43.i: ; preds = %126, %.noexc44.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1), !noalias !140
   %127 = getelementptr inbounds i8, ptr %21, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr noundef %123, ptr noundef nonnull align 8 dereferenceable(184) %127)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit46.i unwind label %134
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit46.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i43.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit46.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i43.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA49_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %17, ptr noundef nonnull align 8 dereferenceable(12) %18, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %128 unwind label %136
 
@@ -18321,7 +18321,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit46
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #21
   br label %.body
 
-134:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i43.i, %118, %117
+134:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i43.i, %118, %117
   %135 = landingpad { ptr, i32 }
           catch ptr null
   br label %142
@@ -19653,19 +19653,19 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %33, %31
   %47 = getelementptr inbounds i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8, !noalias !148
   %.not.i.i.i.i.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, label %49
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, label %49
 
 49:                                               ; preds = %.noexc.i
   call void @_ZdlPv(ptr noundef nonnull %48) #21, !noalias !148
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i: ; preds = %49, %.noexc.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i: ; preds = %49, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1), !noalias !148
   %50 = getelementptr inbounds i8, ptr %9, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef %46, ptr noundef nonnull align 8 dereferenceable(184) %50)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i unwind label %66
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA7_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %51 unwind label %68
 
@@ -19705,7 +19705,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #21
   br label %_ZN12ScopedFValueIiED2Ev.exit16.i
 
-66:                                               ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, %40, %39
+66:                                               ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, %40, %39
   %67 = landingpad { ptr, i32 }
           catch ptr null
   br label %74
@@ -22015,19 +22015,19 @@ define internal void @_ZN12_GLOBAL__N_121DOCTEST_ANON_FUNC_100Ev() #5 personalit
   %138 = getelementptr inbounds i8, ptr %4, i64 8
   %139 = load ptr, ptr %138, align 8, !noalias !167
   %.not.i.i.i.i.i.i = icmp eq ptr %139, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, label %140
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, label %140
 
 140:                                              ; preds = %.noexc52.i
   call void @_ZdlPv(ptr noundef nonnull %139) #21, !noalias !167
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i: ; preds = %140, %.noexc52.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i: ; preds = %140, %.noexc52.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !167
   %141 = getelementptr inbounds i8, ptr %44, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %25, ptr noundef %137, ptr noundef nonnull align 8 dereferenceable(184) %141)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i unwind label %148
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA16_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %22, ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 8 dereferenceable(32) %25)
           to label %142 unwind label %150
 
@@ -22052,7 +22052,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #21
   br label %.body
 
-148:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, %132, %131
+148:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, %132, %131
   %149 = landingpad { ptr, i32 }
           catch ptr null
   br label %156
@@ -22148,19 +22148,19 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
   %179 = getelementptr inbounds i8, ptr %3, i64 8
   %180 = load ptr, ptr %179, align 8, !noalias !171
   %.not.i.i.i.i.i57.i = icmp eq ptr %180, null
-  br i1 %.not.i.i.i.i.i57.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i58.i, label %181
+  br i1 %.not.i.i.i.i.i57.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i58.i, label %181
 
 181:                                              ; preds = %.noexc59.i
   call void @_ZdlPv(ptr noundef nonnull %180) #21, !noalias !171
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i58.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i58.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i58.i: ; preds = %181, %.noexc59.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i58.i: ; preds = %181, %.noexc59.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !171
   %182 = getelementptr inbounds i8, ptr %44, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %31, ptr noundef %178, ptr noundef nonnull align 8 dereferenceable(184) %182)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit61.i unwind label %189
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit61.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i58.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit61.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i58.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA16_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %28, ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %183 unwind label %191
 
@@ -22185,7 +22185,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit61
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #21
   br label %.body
 
-189:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i58.i, %173, %172
+189:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i58.i, %173, %172
   %190 = landingpad { ptr, i32 }
           catch ptr null
   br label %197
@@ -25319,19 +25319,19 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit121
   %513 = getelementptr inbounds i8, ptr %8, i64 8
   %514 = load ptr, ptr %513, align 8, !noalias !191
   %.not.i.i.i.i.i138.i = icmp eq ptr %514, null
-  br i1 %.not.i.i.i.i.i138.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, label %515
+  br i1 %.not.i.i.i.i.i138.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, label %515
 
 515:                                              ; preds = %.noexc139.i
   call void @_ZdlPv(ptr noundef nonnull %514) #21, !noalias !191
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i: ; preds = %515, %.noexc139.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i: ; preds = %515, %.noexc139.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !191
   %516 = getelementptr inbounds i8, ptr %95, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %76, ptr noundef %512, ptr noundef nonnull align 8 dereferenceable(184) %516)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i unwind label %523
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA56_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %73, ptr noundef nonnull align 8 dereferenceable(12) %74, ptr noundef nonnull align 8 dereferenceable(32) %76)
           to label %517 unwind label %525
 
@@ -25356,7 +25356,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %72) #21
   br label %.body
 
-523:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, %504, %503
+523:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, %504, %503
   %524 = landingpad { ptr, i32 }
           catch ptr null
   br label %531
@@ -25455,19 +25455,19 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
   %557 = getelementptr inbounds i8, ptr %7, i64 8
   %558 = load ptr, ptr %557, align 8, !noalias !195
   %.not.i.i.i.i.i144.i = icmp eq ptr %558, null
-  br i1 %.not.i.i.i.i.i144.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i145.i, label %559
+  br i1 %.not.i.i.i.i.i144.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i145.i, label %559
 
 559:                                              ; preds = %.noexc146.i
   call void @_ZdlPv(ptr noundef nonnull %558) #21, !noalias !195
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i145.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i145.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i145.i: ; preds = %559, %.noexc146.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i145.i: ; preds = %559, %.noexc146.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !195
   %560 = getelementptr inbounds i8, ptr %95, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %82, ptr noundef %556, ptr noundef nonnull align 8 dereferenceable(184) %560)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit148.i unwind label %567
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit148.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i145.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit148.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i145.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA56_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %79, ptr noundef nonnull align 8 dereferenceable(12) %80, ptr noundef nonnull align 8 dereferenceable(32) %82)
           to label %561 unwind label %569
 
@@ -25492,7 +25492,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit14
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %78) #21
   br label %.body
 
-567:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i145.i, %548, %547
+567:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i145.i, %548, %547
   %568 = landingpad { ptr, i32 }
           catch ptr null
   br label %575
@@ -25591,19 +25591,19 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit14
   %601 = getelementptr inbounds i8, ptr %6, i64 8
   %602 = load ptr, ptr %601, align 8, !noalias !199
   %.not.i.i.i.i.i152.i = icmp eq ptr %602, null
-  br i1 %.not.i.i.i.i.i152.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i153.i, label %603
+  br i1 %.not.i.i.i.i.i152.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i153.i, label %603
 
 603:                                              ; preds = %.noexc154.i
   call void @_ZdlPv(ptr noundef nonnull %602) #21, !noalias !199
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i153.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i153.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i153.i: ; preds = %603, %.noexc154.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i153.i: ; preds = %603, %.noexc154.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !199
   %604 = getelementptr inbounds i8, ptr %95, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %88, ptr noundef %600, ptr noundef nonnull align 8 dereferenceable(184) %604)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit156.i unwind label %611
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit156.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i153.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit156.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i153.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA56_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %85, ptr noundef nonnull align 8 dereferenceable(12) %86, ptr noundef nonnull align 8 dereferenceable(32) %88)
           to label %605 unwind label %613
 
@@ -25628,7 +25628,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit15
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %84) #21
   br label %.body
 
-611:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i153.i, %592, %591
+611:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i153.i, %592, %591
   %612 = landingpad { ptr, i32 }
           catch ptr null
   br label %619
@@ -25727,19 +25727,19 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit15
   %645 = getelementptr inbounds i8, ptr %5, i64 8
   %646 = load ptr, ptr %645, align 8, !noalias !203
   %.not.i.i.i.i.i160.i = icmp eq ptr %646, null
-  br i1 %.not.i.i.i.i.i160.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i161.i, label %647
+  br i1 %.not.i.i.i.i.i160.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i161.i, label %647
 
 647:                                              ; preds = %.noexc162.i
   call void @_ZdlPv(ptr noundef nonnull %646) #21, !noalias !203
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i161.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i161.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i161.i: ; preds = %647, %.noexc162.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i161.i: ; preds = %647, %.noexc162.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !203
   %648 = getelementptr inbounds i8, ptr %95, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %94, ptr noundef %644, ptr noundef nonnull align 8 dereferenceable(184) %648)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit164.i unwind label %655
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit164.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i161.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit164.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i161.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA56_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %91, ptr noundef nonnull align 8 dereferenceable(12) %92, ptr noundef nonnull align 8 dereferenceable(32) %94)
           to label %649 unwind label %657
 
@@ -25764,7 +25764,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %90) #21
   br label %.body
 
-655:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i161.i, %636, %635
+655:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i161.i, %636, %635
   %656 = landingpad { ptr, i32 }
           catch ptr null
   br label %663
@@ -26049,19 +26049,19 @@ define internal void @_ZN12_GLOBAL__N_121DOCTEST_ANON_FUNC_112Ev() #5 personalit
   %41 = getelementptr inbounds i8, ptr %4, i64 8
   %42 = load ptr, ptr %41, align 8, !noalias !207
   %.not.i.i.i.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, label %43
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, label %43
 
 43:                                               ; preds = %.noexc.i
   call void @_ZdlPv(ptr noundef nonnull %42) #21, !noalias !207
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i: ; preds = %43, %.noexc.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i: ; preds = %43, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !207
   %44 = getelementptr inbounds i8, ptr %29, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(184) %44)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i unwind label %50
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA18_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %7, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %45 unwind label %52
 
@@ -26081,7 +26081,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #21
   br label %.body
 
-50:                                               ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, %31, %30
+50:                                               ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, %31, %30
   %51 = landingpad { ptr, i32 }
           catch ptr null
   br label %58
@@ -26181,19 +26181,19 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
   %85 = getelementptr inbounds i8, ptr %3, i64 8
   %86 = load ptr, ptr %85, align 8, !noalias !211
   %.not.i.i.i.i.i27.i = icmp eq ptr %86, null
-  br i1 %.not.i.i.i.i.i27.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i28.i, label %87
+  br i1 %.not.i.i.i.i.i27.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i28.i, label %87
 
 87:                                               ; preds = %.noexc29.i
   call void @_ZdlPv(ptr noundef nonnull %86) #21, !noalias !211
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i28.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i28.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i28.i: ; preds = %87, %.noexc29.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i28.i: ; preds = %87, %.noexc29.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !211
   %88 = getelementptr inbounds i8, ptr %29, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef %84, ptr noundef nonnull align 8 dereferenceable(184) %88)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit31.i unwind label %95
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit31.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i28.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit31.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i28.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA18_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %13, ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %89 unwind label %97
 
@@ -26218,7 +26218,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit31
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #21
   br label %.body
 
-95:                                               ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i28.i, %75, %74
+95:                                               ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i28.i, %75, %74
   %96 = landingpad { ptr, i32 }
           catch ptr null
   br label %103
@@ -26318,19 +26318,19 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit31
   %130 = getelementptr inbounds i8, ptr %2, i64 8
   %131 = load ptr, ptr %130, align 8, !noalias !215
   %.not.i.i.i.i.i35.i = icmp eq ptr %131, null
-  br i1 %.not.i.i.i.i.i35.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i36.i, label %132
+  br i1 %.not.i.i.i.i.i35.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i36.i, label %132
 
 132:                                              ; preds = %.noexc37.i
   call void @_ZdlPv(ptr noundef nonnull %131) #21, !noalias !215
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i36.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i36.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i36.i: ; preds = %132, %.noexc37.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i36.i: ; preds = %132, %.noexc37.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !215
   %133 = getelementptr inbounds i8, ptr %29, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr noundef %129, ptr noundef nonnull align 8 dereferenceable(184) %133)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit39.i unwind label %140
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit39.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i36.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit39.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i36.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA18_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %19, ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %134 unwind label %142
 
@@ -26355,7 +26355,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit39
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #21
   br label %.body
 
-140:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i36.i, %120, %119
+140:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i36.i, %120, %119
   %141 = landingpad { ptr, i32 }
           catch ptr null
   br label %148
@@ -26455,19 +26455,19 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit39
   %175 = getelementptr inbounds i8, ptr %1, i64 8
   %176 = load ptr, ptr %175, align 8, !noalias !219
   %.not.i.i.i.i.i43.i = icmp eq ptr %176, null
-  br i1 %.not.i.i.i.i.i43.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i44.i, label %177
+  br i1 %.not.i.i.i.i.i43.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i44.i, label %177
 
 177:                                              ; preds = %.noexc45.i
   call void @_ZdlPv(ptr noundef nonnull %176) #21, !noalias !219
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i44.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i44.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i44.i: ; preds = %177, %.noexc45.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i44.i: ; preds = %177, %.noexc45.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1), !noalias !219
   %178 = getelementptr inbounds i8, ptr %29, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %28, ptr noundef %174, ptr noundef nonnull align 8 dereferenceable(184) %178)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit47.i unwind label %185
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit47.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i44.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit47.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i44.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA18_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %25, ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 8 dereferenceable(32) %28)
           to label %179 unwind label %187
 
@@ -26492,7 +26492,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit47
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #21
   br label %.body
 
-185:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i44.i, %165, %164
+185:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i44.i, %165, %164
   %186 = landingpad { ptr, i32 }
           catch ptr null
   br label %193
@@ -26740,19 +26740,19 @@ define internal void @_ZN12_GLOBAL__N_121DOCTEST_ANON_FUNC_115Ev() #5 personalit
   %46 = getelementptr inbounds i8, ptr %1, i64 8
   %47 = load ptr, ptr %46, align 8, !noalias !229
   %.not.i.i.i.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, label %48
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, label %48
 
 48:                                               ; preds = %.noexc.i
   call void @_ZdlPv(ptr noundef nonnull %47) #21, !noalias !229
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i: ; preds = %48, %.noexc.i
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i: ; preds = %48, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1), !noalias !229
   %49 = getelementptr inbounds i8, ptr %11, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(184) %49)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i unwind label %57
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIS7_EEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISB_EEtlNS0_6ResultEEESC_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %6, ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %50 unwind label %59
 
@@ -26779,7 +26779,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit.i
           catch ptr null
   br label %.body.i
 
-57:                                               ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i.i, %41
+57:                                               ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i.i, %41
   %58 = landingpad { ptr, i32 }
           catch ptr null
   br label %65
@@ -32838,19 +32838,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEv(ptr no
   %133 = getelementptr inbounds i8, ptr %9, i64 8
   %134 = load ptr, ptr %133, align 8, !noalias !263
   %.not.i.i.i.i.i = icmp eq ptr %134, null
-  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i, label %135
+  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i, label %135
 
 135:                                              ; preds = %.noexc
   call void @_ZdlPv(ptr noundef nonnull %134) #21, !noalias !263
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i: ; preds = %135, %.noexc
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i: ; preds = %135, %.noexc
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !263
   %136 = getelementptr inbounds i8, ptr %0, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef %132, ptr noundef nonnull align 8 dereferenceable(184) %136)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit unwind label %142
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i
   invoke void @_ZN7doctest6detail14Expression_lhsIRA18_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %12, ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %137 unwind label %144
 
@@ -32870,7 +32870,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit: 
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #21
   br label %907
 
-142:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i, %123, %122
+142:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i, %123, %122
   %143 = landingpad { ptr, i32 }
           catch ptr null
   br label %150
@@ -32967,19 +32967,19 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit: 
   %177 = getelementptr inbounds i8, ptr %8, i64 8
   %178 = load ptr, ptr %177, align 8, !noalias !267
   %.not.i.i.i.i.i114 = icmp eq ptr %178, null
-  br i1 %.not.i.i.i.i.i114, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i115, label %179
+  br i1 %.not.i.i.i.i.i114, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i115, label %179
 
 179:                                              ; preds = %.noexc116
   call void @_ZdlPv(ptr noundef nonnull %178) #21, !noalias !267
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i115
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i115
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i115: ; preds = %179, %.noexc116
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i115: ; preds = %179, %.noexc116
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !267
   %180 = getelementptr inbounds i8, ptr %0, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef %176, ptr noundef nonnull align 8 dereferenceable(184) %180)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit118 unwind label %187
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit118: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i115
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit118: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i115
   invoke void @_ZN7doctest6detail14Expression_lhsIRA18_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %18, ptr noundef nonnull align 8 dereferenceable(12) %19, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %181 unwind label %189
 
@@ -33004,7 +33004,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit11
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #21
   br label %907
 
-187:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i115, %167, %166
+187:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i115, %167, %166
   %188 = landingpad { ptr, i32 }
           catch ptr null
   br label %195
@@ -33101,19 +33101,19 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit11
   %222 = getelementptr inbounds i8, ptr %7, i64 8
   %223 = load ptr, ptr %222, align 8, !noalias !271
   %.not.i.i.i.i.i122 = icmp eq ptr %223, null
-  br i1 %.not.i.i.i.i.i122, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i123, label %224
+  br i1 %.not.i.i.i.i.i122, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i123, label %224
 
 224:                                              ; preds = %.noexc124
   call void @_ZdlPv(ptr noundef nonnull %223) #21, !noalias !271
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i123
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i123
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i123: ; preds = %224, %.noexc124
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i123: ; preds = %224, %.noexc124
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !271
   %225 = getelementptr inbounds i8, ptr %0, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, ptr noundef %221, ptr noundef nonnull align 8 dereferenceable(184) %225)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit126 unwind label %232
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit126: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i123
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit126: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i123
   invoke void @_ZN7doctest6detail14Expression_lhsIRA17_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %24, ptr noundef nonnull align 8 dereferenceable(12) %25, ptr noundef nonnull align 8 dereferenceable(32) %27)
           to label %226 unwind label %234
 
@@ -33138,7 +33138,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit12
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #21
   br label %907
 
-232:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i123, %212, %211
+232:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i123, %212, %211
   %233 = landingpad { ptr, i32 }
           catch ptr null
   br label %240
@@ -33235,19 +33235,19 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit12
   %267 = getelementptr inbounds i8, ptr %6, i64 8
   %268 = load ptr, ptr %267, align 8, !noalias !275
   %.not.i.i.i.i.i130 = icmp eq ptr %268, null
-  br i1 %.not.i.i.i.i.i130, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i131, label %269
+  br i1 %.not.i.i.i.i.i130, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i131, label %269
 
 269:                                              ; preds = %.noexc132
   call void @_ZdlPv(ptr noundef nonnull %268) #21, !noalias !275
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i131
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i131
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i131: ; preds = %269, %.noexc132
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i131: ; preds = %269, %.noexc132
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !275
   %270 = getelementptr inbounds i8, ptr %0, i64 2328
   invoke void @_ZN4Luau8toStringB5cxx11EPKNS_4TypeERNS_15ToStringOptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %33, ptr noundef %266, ptr noundef nonnull align 8 dereferenceable(184) %270)
           to label %_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit134 unwind label %277
 
-_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit134: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i131
+_ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit134: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i131
   invoke void @_ZN7doctest6detail14Expression_lhsIRA17_KcEeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTcmcvveqclL_ZNS0_7declvalIS4_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %30, ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(32) %33)
           to label %271 unwind label %279
 
@@ -33272,7 +33272,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit13
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #21
   br label %907
 
-277:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit.i131, %257, %256
+277:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit.i131, %257, %256
   %278 = landingpad { ptr, i32 }
           catch ptr null
   br label %285
@@ -33352,26 +33352,26 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit13
   %308 = getelementptr inbounds i8, ptr %5, i64 8
   %309 = load ptr, ptr %308, align 8
   %.not.i.i.i.i = icmp eq ptr %309, null
-  br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit, label %310
+  br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit, label %310
 
 310:                                              ; preds = %297
   call void @_ZdlPv(ptr noundef nonnull %309) #21
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit: ; preds = %297, %310
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit: ; preds = %297, %310
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   %.not.i.i = icmp eq ptr %307, null
   br i1 %.not.i.i, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit, label %311
 
-311:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit
+311:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit
   %312 = load i32, ptr %307, align 8
   %313 = icmp eq i32 %312, 13
   %314 = getelementptr inbounds i8, ptr %307, i64 8
   %315 = select i1 %313, ptr %314, ptr null
   br label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit
 
-_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit, %311
-  %316 = phi ptr [ %315, %311 ], [ null, %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit ]
+_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit, %311
+  %316 = phi ptr [ %315, %311 ], [ null, %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit ]
   store ptr %316, ptr %34, align 8
   %317 = load ptr, ptr %303, align 8
   %318 = load ptr, ptr %301, align 8
@@ -33383,26 +33383,26 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %_ZN12_GLOBAL__N_11
   %320 = getelementptr inbounds i8, ptr %4, i64 8
   %321 = load ptr, ptr %320, align 8
   %.not.i.i.i.i135 = icmp eq ptr %321, null
-  br i1 %.not.i.i.i.i135, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit136, label %322
+  br i1 %.not.i.i.i.i135, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit136, label %322
 
 322:                                              ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit
   call void @_ZdlPv(ptr noundef nonnull %321) #21
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit136
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit136
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit136: ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit, %322
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit136: ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit, %322
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   %.not.i.i137 = icmp eq ptr %319, null
   br i1 %.not.i.i137, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit138, label %323
 
-323:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit136
+323:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit136
   %324 = load i32, ptr %319, align 8
   %325 = icmp eq i32 %324, 13
   %326 = getelementptr inbounds i8, ptr %319, i64 8
   %327 = select i1 %325, ptr %326, ptr null
   br label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit138
 
-_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit138: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit136, %323
-  %328 = phi ptr [ %327, %323 ], [ null, %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit136 ]
+_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit138: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit136, %323
+  %328 = phi ptr [ %327, %323 ], [ null, %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit136 ]
   store ptr %328, ptr %35, align 8
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %36, i32 noundef 12, ptr noundef nonnull @.str.57, i32 noundef 193, ptr noundef nonnull @.str.172, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %37)
@@ -34189,26 +34189,26 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit138: ; preds = %_ZN12_GLOBAL__N
   %609 = getelementptr inbounds i8, ptr %3, i64 8
   %610 = load ptr, ptr %609, align 8
   %.not.i.i.i.i154 = icmp eq ptr %610, null
-  br i1 %.not.i.i.i.i154, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit155, label %611
+  br i1 %.not.i.i.i.i154, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit155, label %611
 
 611:                                              ; preds = %601
   call void @_ZdlPv(ptr noundef nonnull %610) #21
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit155
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit155
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit155: ; preds = %601, %611
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit155: ; preds = %601, %611
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   %.not.i.i156 = icmp eq ptr %608, null
   br i1 %.not.i.i156, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit157, label %612
 
-612:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit155
+612:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit155
   %613 = load i32, ptr %608, align 8
   %614 = icmp eq i32 %613, 13
   %615 = getelementptr inbounds i8, ptr %608, i64 8
   %616 = select i1 %614, ptr %615, ptr null
   br label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit157
 
-_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit157: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit155, %612
-  %617 = phi ptr [ %616, %612 ], [ null, %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit155 ]
+_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit157: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit155, %612
+  %617 = phi ptr [ %616, %612 ], [ null, %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit155 ]
   store ptr %617, ptr %78, align 8
   %618 = load ptr, ptr %606, align 8
   %619 = load ptr, ptr %301, align 8
@@ -34220,26 +34220,26 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit157: ; preds = %_ZN12_GLOBAL__N
   %621 = getelementptr inbounds i8, ptr %2, i64 8
   %622 = load ptr, ptr %621, align 8
   %.not.i.i.i.i158 = icmp eq ptr %622, null
-  br i1 %.not.i.i.i.i158, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit159, label %623
+  br i1 %.not.i.i.i.i158, label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit159, label %623
 
 623:                                              ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit157
   call void @_ZdlPv(ptr noundef nonnull %622) #21
-  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit159
+  br label %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit159
 
-_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit159: ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit157, %623
+_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit159: ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit157, %623
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   %.not.i.i160 = icmp eq ptr %620, null
   br i1 %.not.i.i160, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit161, label %624
 
-624:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit159
+624:                                              ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit159
   %625 = load i32, ptr %620, align 8
   %626 = icmp eq i32 %625, 13
   %627 = getelementptr inbounds i8, ptr %620, i64 8
   %628 = select i1 %626, ptr %627, ptr null
   br label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit161
 
-_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit161: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit159, %624
-  %629 = phi ptr [ %628, %624 ], [ null, %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.exit159 ]
+_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit161: ; preds = %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit159, %624
+  %629 = phi ptr [ %628, %624 ], [ null, %_ZN12_GLOBAL__N_115SimplifyFixture9intersectEPKN4Luau4TypeES4_.argprom.exit159 ]
   store ptr %629, ptr %79, align 8
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %80, i32 noundef 12, ptr noundef nonnull @.str.57, i32 noundef 206, ptr noundef nonnull @.str.180, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %81)

@@ -37,7 +37,7 @@ define void @graphviz_tred(ptr noundef %0, ptr nocapture noundef readonly %1) lo
 11:                                               ; preds = %2
   %12 = load ptr, ptr @stderr, align 8
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.4, i64 noundef %7) #14
-  tail call fastcc void @graphviz_exit() #15
+  tail call fastcc void @graphviz_exit.argelim() #15
   unreachable
 
 gv_alloc.exit:                                    ; preds = %2
@@ -99,14 +99,14 @@ gv_alloc.exit:                                    ; preds = %2
   %42 = load ptr, ptr @stderr, align 8
   %43 = call ptr @strerror(i32 noundef 12) #12
   %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.8, ptr noundef %43) #14
-  call fastcc void @graphviz_exit() #15
+  call fastcc void @graphviz_exit.argelim() #15
   unreachable
 
 push.exit.i:                                      ; preds = %30
   store ptr %3, ptr %malloc.i, align 8
-  br label %top.exit.i
+  br label %top.argprom.exit.i
 
-top.exit.i:                                       ; preds = %pop.exit.i, %push.exit.i
+top.argprom.exit.i:                               ; preds = %pop.exit.i, %push.exit.i
   %.073148.i = phi i32 [ %.03347, %push.exit.i ], [ %.174137.i, %pop.exit.i ]
   %.078147.i = phi ptr [ null, %push.exit.i ], [ %.179.i, %pop.exit.i ]
   %.sroa.23.0146.i = phi i64 [ 1, %push.exit.i ], [ %.sroa.23.1.i, %pop.exit.i ]
@@ -116,9 +116,9 @@ top.exit.i:                                       ; preds = %pop.exit.i, %push.e
   %46 = getelementptr i8, ptr %45, i64 -8
   %47 = load ptr, ptr %46, align 8
   %.not.i = icmp eq ptr %47, null
-  br i1 %.not.i, label %top.exit.thread.i, label %48
+  br i1 %.not.i, label %top.argprom.exit.thread.i, label %48
 
-48:                                               ; preds = %top.exit.i
+48:                                               ; preds = %top.argprom.exit.i
   %49 = load i32, ptr %47, align 8
   %50 = and i32 %49, 3
   %51 = icmp eq i32 %50, 2
@@ -257,7 +257,7 @@ top.exit.i:                                       ; preds = %pop.exit.i, %push.e
   %128 = load ptr, ptr @stderr, align 8
   %129 = call ptr @strerror(i32 noundef %.0.i.ph.i.i.i.i104.i) #12
   %130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef nonnull @.str.8, ptr noundef %129) #14
-  call fastcc void @graphviz_exit() #15
+  call fastcc void @graphviz_exit.argelim() #15
   unreachable
 
 push.exit105.i:                                   ; preds = %124, %97
@@ -295,18 +295,18 @@ pop.exit.i:                                       ; preds = %.critedge.i, %push.
   %.sroa.23.1.i = phi i64 [ %.sroa.23.3.i, %push.exit105.i ], [ %.sroa.23.0146.i, %.critedge.i ]
   %.179.i = phi ptr [ null, %push.exit105.i ], [ %133, %.critedge.i ]
   %147 = icmp eq i64 %.sroa.11.1.i, 0
-  br i1 %147, label %top.exit.thread.i, label %top.exit.i
+  br i1 %147, label %top.argprom.exit.thread.i, label %top.argprom.exit.i
 
-top.exit.thread.i:                                ; preds = %pop.exit.i, %top.exit.i
-  %.sroa.0.0.lcssa.i = phi ptr [ %.sroa.0.1.i, %pop.exit.i ], [ %.sroa.0.0144.i, %top.exit.i ]
-  %.073.lcssa.i = phi i32 [ %.174137.i, %pop.exit.i ], [ %.073148.i, %top.exit.i ]
+top.argprom.exit.thread.i:                        ; preds = %pop.exit.i, %top.argprom.exit.i
+  %.sroa.0.0.lcssa.i = phi ptr [ %.sroa.0.1.i, %pop.exit.i ], [ %.sroa.0.0144.i, %top.argprom.exit.i ]
+  %.073.lcssa.i = phi i32 [ %.174137.i, %pop.exit.i ], [ %.073148.i, %top.argprom.exit.i ]
   %148 = call ptr @agfstout(ptr noundef %33, ptr noundef nonnull %.049) #12
   %.not87149.i = icmp eq ptr %148, null
   br i1 %.not87149.i, label %dfs.exit, label %.lr.ph152.i
 
-.lr.ph152.i:                                      ; preds = %top.exit.thread.i, %188
-  %.072151.i = phi ptr [ %.1133.i, %188 ], [ null, %top.exit.thread.i ]
-  %.077150.i = phi ptr [ %149, %188 ], [ %148, %top.exit.thread.i ]
+.lr.ph152.i:                                      ; preds = %top.argprom.exit.thread.i, %188
+  %.072151.i = phi ptr [ %.1133.i, %188 ], [ null, %top.argprom.exit.thread.i ]
+  %.077150.i = phi ptr [ %149, %188 ], [ %148, %top.argprom.exit.thread.i ]
   %149 = call ptr @agnxtout(ptr noundef %33, ptr noundef nonnull %.077150.i) #12
   %150 = load i32, ptr %.077150.i, align 8
   %151 = and i32 %150, 3
@@ -367,7 +367,7 @@ top.exit.thread.i:                                ; preds = %pop.exit.i, %top.ex
   %.not87.i = icmp eq ptr %149, null
   br i1 %.not87.i, label %dfs.exit, label %.lr.ph152.i
 
-dfs.exit:                                         ; preds = %188, %top.exit.thread.i
+dfs.exit:                                         ; preds = %188, %top.argprom.exit.thread.i
   call void @free(ptr noundef %.sroa.0.0.lcssa.i) #12
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   %189 = load i8, ptr %1, align 8
@@ -452,7 +452,7 @@ declare i32 @agwrite(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #6 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #6 {
   tail call void @exit(i32 noundef 1) #17
   unreachable
 }

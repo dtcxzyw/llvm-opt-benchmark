@@ -287,7 +287,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
 164:                                              ; preds = %160
   %165 = getelementptr i8, ptr %146, i64 160
   %.val161 = load ptr, ptr %165, align 8
-  %166 = tail call fastcc i32 @Gia_ObjLevelId(ptr %.val161, i32 noundef %109)
+  %166 = tail call fastcc i32 @Gia_ObjLevelId.argprom(ptr %.val161, i32 noundef %109)
   %167 = load ptr, ptr %6, align 8
   %168 = getelementptr inbounds i8, ptr %167, i64 28
   %169 = load i32, ptr %168, align 4
@@ -299,7 +299,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %173 = ashr i32 %156, 1
   %174 = getelementptr i8, ptr %172, i64 160
   %.val162 = load ptr, ptr %174, align 8
-  %175 = tail call fastcc i32 @Gia_ObjLevelId(ptr %.val162, i32 noundef %173)
+  %175 = tail call fastcc i32 @Gia_ObjLevelId.argprom(ptr %.val162, i32 noundef %173)
   %176 = load ptr, ptr %6, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 28
   %178 = load i32, ptr %177, align 4
@@ -381,7 +381,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
 
 224:                                              ; preds = %198
   %225 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %16, i32 noundef %131, i32 noundef %222) #19
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %16, i32 noundef %225)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %16, i32 noundef %225)
   %226 = load ptr, ptr %3, align 8
   %227 = load ptr, ptr %0, align 8
   %228 = getelementptr i8, ptr %227, i64 192
@@ -462,7 +462,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Gia_ObjLevelId(ptr nocapture %.160.val, i32 noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @Gia_ObjLevelId.argprom(ptr nocapture %.160.val, i32 noundef %0) unnamed_addr #0 {
   %2 = add nsw i32 %0, 1
   %3 = getelementptr inbounds i8, ptr %.160.val, i64 4
   %4 = load i32, ptr %3, align 4
@@ -566,7 +566,7 @@ Vec_IntGetEntry.exit:                             ; preds = %1, %._crit_edge.i.i
 declare i32 @Gia_ManHashXor(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648

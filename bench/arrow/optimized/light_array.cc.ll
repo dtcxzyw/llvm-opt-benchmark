@@ -7400,8 +7400,8 @@ for.body.preheader.i538:                          ; preds = %if.then.i524
   %245 = getelementptr i8, ptr %target, i64 64
   br label %for.body.i540
 
-for.body.i540:                                    ; preds = %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit.i", %for.body.preheader.i538
-  %indvars.iv.i541 = phi i64 [ 0, %for.body.preheader.i538 ], [ %indvars.iv.next.i560, %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit.i" ]
+for.body.i540:                                    ; preds = %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.argprom.argprom.argprom.exit.i", %for.body.preheader.i538
+  %indvars.iv.i541 = phi i64 [ 0, %for.body.preheader.i538 ], [ %indvars.iv.next.i560, %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.argprom.argprom.argprom.exit.i" ]
   %arrayidx.i542 = getelementptr inbounds i16, ptr %row_ids, i64 %indvars.iv.i541
   %246 = load i16, ptr %arrayidx.i542, align 2
   %idxprom12.i543 = zext i16 %246 to i64
@@ -7432,7 +7432,7 @@ for.body.i540:                                    ; preds = %"_ZZN5arrow7compute
   %sub.i.i.i = add nsw i64 %conv.i.i, -1
   %div.i.i.i = sdiv i64 %sub.i.i.i, 8
   %cmp.i.i.i558 = icmp eq i32 %248, %247
-  br i1 %cmp.i.i.i558, label %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit.i", label %for.body.i.i
+  br i1 %cmp.i.i.i558, label %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.argprom.argprom.argprom.exit.i", label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i540, %for.body.i.i
   %conv36.i.i = phi i64 [ %conv3.i.i, %for.body.i.i ], [ 0, %for.body.i540 ]
@@ -7444,9 +7444,9 @@ for.body.i.i:                                     ; preds = %for.body.i540, %for
   %inc.i.i = add i32 %word_id.05.i.i, 1
   %conv3.i.i = zext i32 %inc.i.i to i64
   %cmp.not.i.i559 = icmp ult i64 %div.i.i.i, %conv3.i.i
-  br i1 %cmp.not.i.i559, label %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit.i", label %for.body.i.i, !llvm.loop !127
+  br i1 %cmp.not.i.i559, label %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.argprom.argprom.argprom.exit.i", label %for.body.i.i, !llvm.loop !127
 
-"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit.i": ; preds = %for.body.i.i, %for.body.i540
+"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.argprom.argprom.argprom.exit.i": ; preds = %for.body.i.i, %for.body.i540
   %indvars.iv.next.i560 = add nuw nsw i64 %indvars.iv.i541, 1
   %exitcond.not.i561 = icmp eq i64 %indvars.iv.next.i560, %wide.trip.count.i539
   br i1 %exitcond.not.i561, label %"_ZN5arrow7compute16ExecBatchBuilder5VisitIZNS1_14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEE3$_4EEvS7_iSB_T_.exit", label %for.body.i540, !llvm.loop !128
@@ -7456,8 +7456,8 @@ lpad.i501:                                        ; preds = %if.then.i.i500
           cleanup
   br label %common.resume
 
-for.body26.i564:                                  ; preds = %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit57.loopexit.i", %for.body26.preheader.i563
-  %indvars.iv74.i = phi i64 [ 0, %for.body26.preheader.i563 ], [ %indvars.iv.next75.i, %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit57.loopexit.i" ]
+for.body26.i564:                                  ; preds = %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.argprom.argprom.argprom.exit57.loopexit.i", %for.body26.preheader.i563
+  %indvars.iv74.i = phi i64 [ 0, %for.body26.preheader.i563 ], [ %indvars.iv.next75.i, %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.argprom.argprom.argprom.exit57.loopexit.i" ]
   %arrayidx29.i565 = getelementptr inbounds i16, ptr %row_ids, i64 %indvars.iv74.i
   %255 = load i16, ptr %arrayidx29.i565, align 2
   %256 = load ptr, ptr %source, align 8
@@ -7505,14 +7505,14 @@ for.body.i48.i:                                   ; preds = %for.body.i48.i, %fo
   %inc.i54.i = add i32 %word_id.05.i50.i, 1
   %conv3.i55.i = zext i32 %inc.i54.i to i64
   %cmp.not.i56.i = icmp ult i64 %div.i.i46.i, %conv3.i55.i
-  br i1 %cmp.not.i56.i, label %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit57.loopexit.i", label %for.body.i48.i, !llvm.loop !127
+  br i1 %cmp.not.i56.i, label %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.argprom.argprom.argprom.exit57.loopexit.i", label %for.body.i48.i, !llvm.loop !127
 
-"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit57.loopexit.i": ; preds = %for.body.i48.i
+"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.argprom.argprom.argprom.exit57.loopexit.i": ; preds = %for.body.i48.i
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
   %exitcond78.not.i = icmp eq i64 %indvars.iv.next75.i, %wide.trip.count77.i
   br i1 %exitcond78.not.i, label %"_ZN5arrow7compute16ExecBatchBuilder5VisitIZNS1_14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEE3$_4EEvS7_iSB_T_.exit", label %for.body26.i564, !llvm.loop !129
 
-"_ZN5arrow7compute16ExecBatchBuilder5VisitIZNS1_14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEE3$_4EEvS7_iSB_T_.exit": ; preds = %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit.i", %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit57.loopexit.i", %for.cond24.preheader.i562, %for.body26.lr.ph.i, %if.then.i524
+"_ZN5arrow7compute16ExecBatchBuilder5VisitIZNS1_14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEE3$_4EEvS7_iSB_T_.exit": ; preds = %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.argprom.argprom.argprom.exit.i", %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.argprom.argprom.argprom.exit57.loopexit.i", %for.cond24.preheader.i562, %for.body26.lr.ph.i, %if.then.i524
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i498)
   %cmp40 = icmp sgt i32 %call38, 0
   br i1 %cmp40, label %if.then41, label %if.end92

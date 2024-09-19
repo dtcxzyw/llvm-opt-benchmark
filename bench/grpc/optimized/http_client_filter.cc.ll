@@ -847,7 +847,7 @@ invoke.cont.i:                                    ; preds = %if.end
   %retval.sroa.3.0.copyload.i.i14 = load ptr, ptr %retval.sroa.3.0.this.sroa_idx.i.i13, align 8, !noalias !19
   %retval.sroa.3.0.i.i15 = select i1 %tobool.i.i.i11, ptr %retval.sroa.3.0.copyload.i.i14, ptr @.str.8
   %retval.sroa.0.0.i.i16 = select i1 %tobool.i.i.i11, i64 %retval.sroa.0.0.copyload.i.i12, i64 0
-  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_117UserAgentFromArgsERKNS_11ChannelArgsESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clES7_"(ptr nonnull %fields.i, i64 %retval.sroa.0.0.i.i16, ptr %retval.sroa.3.0.i.i15)
+  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_117UserAgentFromArgsERKNS_11ChannelArgsESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clES7_.argprom"(ptr nonnull %fields.i, i64 %retval.sroa.0.0.i.i16, ptr %retval.sroa.3.0.i.i15)
           to label %invoke.cont6.i unwind label %lpad.i, !noalias !19
 
 invoke.cont6.i:                                   ; preds = %invoke.cont.i
@@ -875,7 +875,7 @@ invoke.cont10.i:                                  ; preds = %invoke.cont8.i
   %call11.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i) #24, !noalias !19
   %10 = extractvalue { i64, ptr } %call11.i, 0
   %11 = extractvalue { i64, ptr } %call11.i, 1
-  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_117UserAgentFromArgsERKNS_11ChannelArgsESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clES7_"(ptr nonnull %fields.i, i64 %10, ptr %11)
+  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_117UserAgentFromArgsERKNS_11ChannelArgsESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clES7_.argprom"(ptr nonnull %fields.i, i64 %10, ptr %11)
           to label %invoke.cont13.i unwind label %lpad12.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont10.i
@@ -892,7 +892,7 @@ invoke.cont17.i:                                  ; preds = %invoke.cont13.i
   %retval.sroa.3.0.copyload.i19.i = load ptr, ptr %retval.sroa.3.0.this.sroa_idx.i18.i, align 8, !noalias !19
   %retval.sroa.3.0.i12.i = select i1 %tobool.i.i9.i, ptr %retval.sroa.3.0.copyload.i19.i, ptr @.str.8
   %retval.sroa.0.0.i13.i = select i1 %tobool.i.i9.i, i64 %retval.sroa.0.0.copyload.i17.i, i64 0
-  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_117UserAgentFromArgsERKNS_11ChannelArgsESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clES7_"(ptr nonnull %fields.i, i64 %retval.sroa.0.0.i13.i, ptr %retval.sroa.3.0.i12.i)
+  invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_117UserAgentFromArgsERKNS_11ChannelArgsESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clES7_.argprom"(ptr nonnull %fields.i, i64 %retval.sroa.0.0.i13.i, ptr %retval.sroa.3.0.i12.i)
           to label %invoke.cont19.i unwind label %lpad.i, !noalias !19
 
 invoke.cont19.i:                                  ; preds = %invoke.cont17.i
@@ -1934,7 +1934,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN9grpc_core12_GLOBAL__N_117UserAgentFromArgsERKNS_11ChannelArgsESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clES7_"(ptr %this.0.val, i64 %x.coerce0, ptr %x.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN9grpc_core12_GLOBAL__N_117UserAgentFromArgsERKNS_11ChannelArgsESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clES7_.argprom"(ptr %this.0.val, i64 %x.coerce0, ptr %x.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -48,14 +48,14 @@ define hidden void @gc_globals_ctor() local_unnamed_addr #0 {
 define hidden void @gc_globals_dtor() local_unnamed_addr #1 {
   %1 = load ptr, ptr @gc_globals, align 8
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %root_buffer_dtor.exit, label %2
+  br i1 %.not.i, label %root_buffer_dtor.argprom.exit, label %2
 
 2:                                                ; preds = %0
   tail call void @free(ptr noundef nonnull %1) #15
   store ptr null, ptr @gc_globals, align 8
-  br label %root_buffer_dtor.exit
+  br label %root_buffer_dtor.argprom.exit
 
-root_buffer_dtor.exit:                            ; preds = %0, %2
+root_buffer_dtor.argprom.exit:                    ; preds = %0, %2
   ret void
 }
 
@@ -2592,7 +2592,7 @@ gc_collect_roots.exit.thread:                     ; preds = %gc_compact.exit.i16
 982:                                              ; preds = %gc_collect_roots.exit.thread, %gc_collect_roots.exit
   %.val = load ptr, ptr %114, align 8
   %.not1.i = icmp eq ptr %.val, null
-  br i1 %.not1.i, label %gc_stack_free.exit, label %.lr.ph.i232
+  br i1 %.not1.i, label %gc_stack_free.argprom.exit, label %.lr.ph.i232
 
 .lr.ph.i232:                                      ; preds = %982, %.lr.ph.i232
   %.02.i = phi ptr [ %984, %.lr.ph.i232 ], [ %.val, %982 ]
@@ -2600,9 +2600,9 @@ gc_collect_roots.exit.thread:                     ; preds = %gc_compact.exit.i16
   %984 = load ptr, ptr %983, align 8
   call void @_efree(ptr noundef nonnull %.02.i) #15
   %.not.i233 = icmp eq ptr %984, null
-  br i1 %.not.i233, label %gc_stack_free.exit, label %.lr.ph.i232
+  br i1 %.not.i233, label %gc_stack_free.argprom.exit, label %.lr.ph.i232
 
-gc_stack_free.exit:                               ; preds = %.lr.ph.i232, %982
+gc_stack_free.argprom.exit:                       ; preds = %.lr.ph.i232, %982
   store i8 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
   br label %.loopexit
 
@@ -3353,7 +3353,7 @@ gc_remove_nested_data_from_buffer.exit:           ; preds = %1241, %1249
   %.0120 = phi i32 [ %.1121.lcssa, %1290 ], [ %.1.i, %985 ], [ 0, %.thread ]
   %.val150 = load ptr, ptr %114, align 8
   %.not1.i251 = icmp eq ptr %.val150, null
-  br i1 %.not1.i251, label %gc_stack_free.exit256, label %.lr.ph.i252
+  br i1 %.not1.i251, label %gc_stack_free.argprom.exit256, label %.lr.ph.i252
 
 .lr.ph.i252:                                      ; preds = %1306, %.lr.ph.i252
   %.02.i253 = phi ptr [ %1309, %.lr.ph.i252 ], [ %.val150, %1306 ]
@@ -3361,23 +3361,23 @@ gc_remove_nested_data_from_buffer.exit:           ; preds = %1241, %1249
   %1309 = load ptr, ptr %1308, align 8
   call void @_efree(ptr noundef nonnull %.02.i253) #15
   %.not.i254 = icmp eq ptr %1309, null
-  br i1 %.not.i254, label %gc_stack_free.exit256, label %.lr.ph.i252
+  br i1 %.not.i254, label %gc_stack_free.argprom.exit256, label %.lr.ph.i252
 
-gc_stack_free.exit256:                            ; preds = %.lr.ph.i252, %1306
+gc_stack_free.argprom.exit256:                    ; preds = %.lr.ph.i252, %1306
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %1310 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #15
   %1311 = icmp eq i32 %1310, 0
   br i1 %1311, label %1312, label %1315
 
-1312:                                             ; preds = %gc_stack_free.exit256
+1312:                                             ; preds = %gc_stack_free.argprom.exit256
   %1313 = load i64, ptr %12, align 8
   %.neg432 = mul i64 %1313, -1000000000
   %1314 = load i64, ptr %117, align 8
   %.neg433 = sub i64 %.neg432, %1314
   br label %1315
 
-1315:                                             ; preds = %gc_stack_free.exit256, %1312
-  %.0113.neg434 = phi i64 [ %.neg433, %1312 ], [ 0, %gc_stack_free.exit256 ]
+1315:                                             ; preds = %gc_stack_free.argprom.exit256, %1312
+  %.0113.neg434 = phi i64 [ %.neg433, %1312 ], [ 0, %gc_stack_free.argprom.exit256 ]
   %.not140416 = icmp eq i32 %1307, 1
   br i1 %.not140416, label %._crit_edge426, label %.lr.ph419
 
@@ -3649,8 +3649,8 @@ gc_compact.exit:                                  ; preds = %.thread531, %1406, 
   %brmerge.not = and i1 %.0124.not, %.1126538
   br i1 %brmerge.not, label %119, label %.loopexit
 
-.loopexit:                                        ; preds = %gc_compact.exit, %gc_stack_free.exit
-  %.2130 = phi i32 [ %.0128, %gc_stack_free.exit ], [ %.1129536, %gc_compact.exit ]
+.loopexit:                                        ; preds = %gc_compact.exit, %gc_stack_free.argprom.exit
+  %.2130 = phi i32 [ %.0128, %gc_stack_free.argprom.exit ], [ %.1129536, %gc_compact.exit ]
   %1460 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1640), align 8
   call void @_efree(ptr noundef %1460) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @executor_globals, i64 1624), i8 0, i64 24, i1 false)

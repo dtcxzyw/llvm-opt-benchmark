@@ -143,13 +143,13 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.va_start.p0(ptr nonnull %params)
   %3 = load ptr, ptr @die_routine, align 8
-  %4 = call fastcc ptr @fmt_with_err(ptr noundef %buf, ptr noundef %fmt)
+  %4 = call fastcc ptr @fmt_with_err.argelim(ptr noundef %buf, ptr noundef %fmt)
   call void %3(ptr noundef nonnull %buf, ptr noundef nonnull %params) #19
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @fmt_with_err(ptr noundef nonnull returned writeonly %buf, ptr noundef %fmt) unnamed_addr #6 {
+define internal fastcc noundef nonnull ptr @fmt_with_err.argelim(ptr noundef nonnull returned writeonly %buf, ptr noundef %fmt) unnamed_addr #6 {
 entry:
   %str_error = alloca [256 x i8], align 16
   %call = tail call ptr @__errno_location() #20

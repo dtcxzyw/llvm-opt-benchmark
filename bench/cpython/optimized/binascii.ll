@@ -677,7 +677,7 @@ skip_optional_kwonly:                             ; preds = %if.end18, %if.end15
   call void @_PyBytesWriter_Init(ptr noundef nonnull %writer.i) #5
   %call.i = call ptr @_PyBytesWriter_Alloc(ptr noundef nonnull %writer.i, i64 noundef %mul.i) #5
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %binascii_a2b_base64_impl.exit, label %if.end.i
+  br i1 %cmp.i, label %binascii_a2b_base64_impl.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %skip_optional_kwonly
   %tobool.i = icmp ne i32 %strict_mode.0, 0
@@ -932,20 +932,20 @@ if.else104.i:                                     ; preds = %if.else.i
 
 error_end.i:                                      ; preds = %if.else104.i, %if.then98.i, %if.then91.i, %if.then60.i, %if.then57.i, %if.then48.i, %if.then45.i, %if.then33.i, %if.then30.i, %if.then8.i, %if.then5.i
   call void @_PyBytesWriter_Dealloc(ptr noundef nonnull %writer.i) #5
-  br label %binascii_a2b_base64_impl.exit
+  br label %binascii_a2b_base64_impl.argprom.exit
 
 done.i:                                           ; preds = %for.end.i, %if.then24.i, %if.end10.i
   %bin_data.010.i = phi ptr [ %bin_data.0.lcssa.i, %for.end.i ], [ %.us-phi.i, %if.then24.i ], [ %call.i, %if.end10.i ]
   %call109.i = call ptr @_PyBytesWriter_Finish(ptr noundef nonnull %writer.i, ptr noundef %bin_data.010.i) #5
-  br label %binascii_a2b_base64_impl.exit
+  br label %binascii_a2b_base64_impl.argprom.exit
 
-binascii_a2b_base64_impl.exit:                    ; preds = %skip_optional_kwonly, %error_end.i, %done.i
+binascii_a2b_base64_impl.argprom.exit:            ; preds = %skip_optional_kwonly, %error_end.i, %done.i
   %retval.0.i = phi ptr [ null, %error_end.i ], [ %call109.i, %done.i ], [ null, %skip_optional_kwonly ]
   call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %writer.i)
   br label %exit
 
-exit:                                             ; preds = %if.end18, %if.end, %cond.end9, %binascii_a2b_base64_impl.exit
-  %return_value.0 = phi ptr [ null, %if.end18 ], [ %retval.0.i, %binascii_a2b_base64_impl.exit ], [ null, %if.end ], [ null, %cond.end9 ]
+exit:                                             ; preds = %if.end18, %if.end, %cond.end9, %binascii_a2b_base64_impl.argprom.exit
+  %return_value.0 = phi ptr [ null, %if.end18 ], [ %retval.0.i, %binascii_a2b_base64_impl.argprom.exit ], [ null, %if.end ], [ null, %cond.end9 ]
   %obj = getelementptr inbounds i8, ptr %data, i64 8
   %18 = load ptr, ptr %obj, align 8
   %tobool25.not = icmp eq ptr %18, null
@@ -1019,12 +1019,12 @@ skip_optional_kwonly:                             ; preds = %if.end18, %if.end15
 if.then.i:                                        ; preds = %skip_optional_kwonly
   %call.i.i = call ptr @PyModule_GetState(ptr noundef %module) #5
   %cmp1.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp1.i, label %binascii_b2a_base64_impl.exit, label %if.end.i
+  br i1 %cmp1.i, label %binascii_b2a_base64_impl.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
   %6 = load ptr, ptr %call.i.i, align 8
   call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.28) #5
-  br label %binascii_b2a_base64_impl.exit
+  br label %binascii_b2a_base64_impl.argprom.exit
 
 if.end3.i:                                        ; preds = %skip_optional_kwonly
   %mul.i = shl i64 %data.val15, 1
@@ -1033,7 +1033,7 @@ if.end3.i:                                        ; preds = %skip_optional_kwonl
   %spec.select.i = add i64 %mul.i, %spec.select.v.i
   %call6.i = call ptr @_PyBytesWriter_Alloc(ptr noundef nonnull %writer.i, i64 noundef %spec.select.i) #5
   %cmp7.i = icmp eq ptr %call6.i, null
-  br i1 %cmp7.i, label %binascii_b2a_base64_impl.exit, label %for.cond.preheader.i
+  br i1 %cmp7.i, label %binascii_b2a_base64_impl.argprom.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end3.i
   %cmp105.i = icmp sgt i64 %data.val15, 0
@@ -1122,15 +1122,15 @@ if.then39.i:                                      ; preds = %if.end37.i
 if.end41.i:                                       ; preds = %if.then39.i, %if.end37.i
   %ascii_data.3.i = phi ptr [ %incdec.ptr40.i, %if.then39.i ], [ %ascii_data.2.i, %if.end37.i ]
   %call42.i = call ptr @_PyBytesWriter_Finish(ptr noundef nonnull %writer.i, ptr noundef %ascii_data.3.i) #5
-  br label %binascii_b2a_base64_impl.exit
+  br label %binascii_b2a_base64_impl.argprom.exit
 
-binascii_b2a_base64_impl.exit:                    ; preds = %if.then.i, %if.end.i, %if.end3.i, %if.end41.i
+binascii_b2a_base64_impl.argprom.exit:            ; preds = %if.then.i, %if.end.i, %if.end3.i, %if.end41.i
   %retval.0.i = phi ptr [ null, %if.end.i ], [ %call42.i, %if.end41.i ], [ null, %if.then.i ], [ null, %if.end3.i ]
   call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %writer.i)
   br label %exit
 
-exit:                                             ; preds = %if.end18, %if.end, %cond.end9, %binascii_b2a_base64_impl.exit
-  %return_value.0 = phi ptr [ null, %if.end ], [ null, %if.end18 ], [ %retval.0.i, %binascii_b2a_base64_impl.exit ], [ null, %cond.end9 ]
+exit:                                             ; preds = %if.end18, %if.end, %cond.end9, %binascii_b2a_base64_impl.argprom.exit
+  %return_value.0 = phi ptr [ null, %if.end ], [ null, %if.end18 ], [ %retval.0.i, %binascii_b2a_base64_impl.argprom.exit ], [ null, %cond.end9 ]
   %obj = getelementptr inbounds i8, ptr %data, i64 8
   %12 = load ptr, ptr %obj, align 8
   %tobool25.not = icmp eq ptr %12, null
@@ -1157,7 +1157,7 @@ if.end:                                           ; preds = %entry
   %hexstr.val = load ptr, ptr %hexstr, align 8
   %0 = getelementptr inbounds i8, ptr %hexstr, i64 16
   %hexstr.val1 = load i64, ptr %0, align 8
-  %call1 = call fastcc ptr @binascii_a2b_hex_impl(ptr noundef %module, ptr %hexstr.val, i64 %hexstr.val1)
+  %call1 = call fastcc ptr @binascii_a2b_hex_impl.argprom(ptr noundef %module, ptr %hexstr.val, i64 %hexstr.val1)
   br label %exit
 
 exit:                                             ; preds = %entry, %if.end
@@ -1356,7 +1356,7 @@ if.end:                                           ; preds = %entry
   %hexstr.val = load ptr, ptr %hexstr, align 8
   %0 = getelementptr inbounds i8, ptr %hexstr, i64 16
   %hexstr.val1 = load i64, ptr %0, align 8
-  %call.i = call fastcc ptr @binascii_a2b_hex_impl(ptr noundef %module, ptr readonly %hexstr.val, i64 %hexstr.val1)
+  %call.i = call fastcc ptr @binascii_a2b_hex_impl.argprom(ptr noundef %module, ptr readonly %hexstr.val, i64 %hexstr.val1)
   br label %exit
 
 exit:                                             ; preds = %entry, %if.end
@@ -1558,26 +1558,26 @@ while.end.i:                                      ; preds = %while.body.i, %if.t
   %conv8.i = trunc nuw nsw i64 %len2.0.lcssa.i to i32
   %call9.i = call i64 @crc32(i64 noundef %conv7.i, ptr noundef %buf.0.lcssa.i, i32 noundef %conv8.i) #5
   call void @PyEval_RestoreThread(ptr noundef %call.i) #5
-  br label %binascii_crc32_impl.exit
+  br label %binascii_crc32_impl.argprom.exit
 
 if.else.i:                                        ; preds = %skip_optional
   %conv11.i = zext i32 %crc.0 to i64
   %conv14.i = trunc i64 %data.val7 to i32
   %call15.i = call i64 @crc32(i64 noundef %conv11.i, ptr noundef %data.val, i32 noundef %conv14.i) #5
-  br label %binascii_crc32_impl.exit
+  br label %binascii_crc32_impl.argprom.exit
 
-binascii_crc32_impl.exit:                         ; preds = %while.end.i, %if.else.i
+binascii_crc32_impl.argprom.exit:                 ; preds = %while.end.i, %if.else.i
   %crc.addr.1.in.i = phi i64 [ %call9.i, %while.end.i ], [ %call15.i, %if.else.i ]
   %4 = and i64 %crc.addr.1.in.i, 4294967295
   %cmp19 = icmp eq i64 %4, 4294967295
   br i1 %cmp19, label %land.lhs.true21, label %if.end25
 
-land.lhs.true21:                                  ; preds = %binascii_crc32_impl.exit
+land.lhs.true21:                                  ; preds = %binascii_crc32_impl.argprom.exit
   %call22 = call ptr @PyErr_Occurred() #5
   %tobool23.not = icmp eq ptr %call22, null
   br i1 %tobool23.not, label %if.end25, label %exit
 
-if.end25:                                         ; preds = %land.lhs.true21, %binascii_crc32_impl.exit
+if.end25:                                         ; preds = %land.lhs.true21, %binascii_crc32_impl.argprom.exit
   %call27 = call ptr @PyLong_FromUnsignedLong(i64 noundef %4) #5
   br label %exit
 
@@ -2521,7 +2521,7 @@ declare ptr @_PyBytesWriter_Finish(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @_PyBytesWriter_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @binascii_a2b_hex_impl(ptr noundef %module, ptr nocapture readonly %hexstr.0.val, i64 %hexstr.16.val) unnamed_addr #0 {
+define internal fastcc ptr @binascii_a2b_hex_impl.argprom(ptr noundef %module, ptr nocapture readonly %hexstr.0.val, i64 %hexstr.16.val) unnamed_addr #0 {
 entry:
   %0 = and i64 %hexstr.16.val, 1
   %tobool.not = icmp eq i64 %0, 0

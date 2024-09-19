@@ -285,7 +285,7 @@ define hidden void @tm_update_val(ptr nocapture noundef readonly %0, ptr nocaptu
   %7 = getelementptr i8, ptr %0, i64 8
   %.val4 = load ptr, ptr %7, align 8
   %8 = icmp sgt i32 %6, 0
-  br i1 %8, label %.lr.ph.preheader.i, label %eval_grouping.exit
+  br i1 %8, label %.lr.ph.preheader.i, label %eval_grouping.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %2
   %wide.trip.count.i = zext nneg i32 %6 to i64
@@ -321,7 +321,7 @@ define hidden void @tm_update_val(ptr nocapture noundef readonly %0, ptr nocaptu
 ._crit_edge.us.i:                                 ; preds = %16
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count.i
-  br i1 %exitcond23.not.i, label %eval_grouping.exit, label %.lr.ph5.us.i, !llvm.loop !9
+  br i1 %exitcond23.not.i, label %eval_grouping.argprom.exit, label %.lr.ph5.us.i, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
@@ -338,7 +338,7 @@ define hidden void @tm_update_val(ptr nocapture noundef readonly %0, ptr nocaptu
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.lr.ph5.us.i, label %.lr.ph.i, !llvm.loop !10
 
-eval_grouping.exit:                               ; preds = %._crit_edge.us.i, %2
+eval_grouping.argprom.exit:                       ; preds = %._crit_edge.us.i, %2
   %.1.lcssa.i = phi double [ 0.000000e+00, %2 ], [ %24, %._crit_edge.us.i ]
   %33 = getelementptr inbounds i8, ptr %1, i64 32
   store double %.1.lcssa.i, ptr %33, align 8
@@ -2791,7 +2791,7 @@ group_nodes.exit:                                 ; preds = %890, %894
 
 .preheader3.thread.i:                             ; preds = %group_nodes.exit
   %898 = call noalias ptr @calloc(i64 noundef %150, i64 noundef 8) #28
-  br label %aggregate_aff_mat.exit
+  br label %aggregate_aff_mat.argprom.exit
 
 .lr.ph.preheader.i121:                            ; preds = %group_nodes.exit
   %wide.trip.count.i122 = zext nneg i32 %149 to i64
@@ -2914,7 +2914,7 @@ group_nodes.exit:                                 ; preds = %890, %894
 ._crit_edge15.us.i:                               ; preds = %941
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %exitcond46.not.i = icmp eq i64 %indvars.iv.next43.i, %wide.trip.count.i122
-  br i1 %exitcond46.not.i, label %aggregate_aff_mat.exit, label %.preheader2.us.i, !llvm.loop !65
+  br i1 %exitcond46.not.i, label %aggregate_aff_mat.argprom.exit, label %.preheader2.us.i, !llvm.loop !65
 
 956:                                              ; preds = %._crit_edge.i127
   %957 = lshr i32 %149, 9
@@ -3018,9 +3018,9 @@ group_nodes.exit:                                 ; preds = %890, %894
   call void @free(ptr noundef %966) #23
   call void @free(ptr noundef %970) #23
   %.pre57.i = load i32, ptr %8, align 4
-  br label %aggregate_aff_mat.exit
+  br label %aggregate_aff_mat.argprom.exit
 
-aggregate_aff_mat.exit:                           ; preds = %._crit_edge15.us.i, %.preheader3.thread.i, %._crit_edge28.i
+aggregate_aff_mat.argprom.exit:                   ; preds = %._crit_edge15.us.i, %.preheader3.thread.i, %._crit_edge28.i
   %1009 = phi ptr [ %901, %._crit_edge28.i ], [ %898, %.preheader3.thread.i ], [ %901, %._crit_edge15.us.i ]
   %1010 = phi i32 [ %.pre57.i, %._crit_edge28.i ], [ %149, %.preheader3.thread.i ], [ %149, %._crit_edge15.us.i ]
   %.1111.i = phi i64 [ %.0110.lcssa.i, %._crit_edge28.i ], [ 0, %.preheader3.thread.i ], [ %.4.us.i, %._crit_edge15.us.i ]
@@ -3031,11 +3031,11 @@ aggregate_aff_mat.exit:                           ; preds = %._crit_edge15.us.i,
   %1014 = icmp sgt i32 %1013, 4
   br i1 %1014, label %1015, label %1017
 
-1015:                                             ; preds = %aggregate_aff_mat.exit
+1015:                                             ; preds = %aggregate_aff_mat.argprom.exit
   %1016 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, double noundef %1012)
   br label %1017
 
-1017:                                             ; preds = %1015, %aggregate_aff_mat.exit
+1017:                                             ; preds = %1015, %aggregate_aff_mat.argprom.exit
   call void @tm_get_time() #23
   br i1 %.not.i.i, label %aggregate_obj_weight.exit, label %1018
 
@@ -3308,7 +3308,7 @@ define internal fastcc void @list_all_possible_groups(ptr nocapture noundef read
   %12 = getelementptr i8, ptr %0, i64 8
   %.val35 = load ptr, ptr %12, align 8
   %13 = icmp sgt i32 %4, 0
-  br i1 %13, label %.lr.ph.preheader.i, label %eval_grouping.exit
+  br i1 %13, label %.lr.ph.preheader.i, label %eval_grouping.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %11
   %wide.trip.count.i = zext nneg i32 %4 to i64
@@ -3344,7 +3344,7 @@ define internal fastcc void @list_all_possible_groups(ptr nocapture noundef read
 ._crit_edge.us.i:                                 ; preds = %21
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count.i
-  br i1 %exitcond23.not.i, label %eval_grouping.exit, label %.lr.ph5.us.i, !llvm.loop !9
+  br i1 %exitcond23.not.i, label %eval_grouping.argprom.exit, label %.lr.ph5.us.i, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
@@ -3361,7 +3361,7 @@ define internal fastcc void @list_all_possible_groups(ptr nocapture noundef read
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.lr.ph5.us.i, label %.lr.ph.i, !llvm.loop !10
 
-eval_grouping.exit:                               ; preds = %._crit_edge.us.i, %11
+eval_grouping.argprom.exit:                       ; preds = %._crit_edge.us.i, %11
   %.1.lcssa.i = phi double [ 0.000000e+00, %11 ], [ %29, %._crit_edge.us.i ]
   %38 = sext i32 %4 to i64
   %39 = shl nsw i64 %38, 3
@@ -3369,7 +3369,7 @@ eval_grouping.exit:                               ; preds = %._crit_edge.us.i, %
   %.pre22.i = load i32, ptr @verbose_level, align 4
   br i1 %13, label %.lr.ph.i36, label %._crit_edge.i
 
-.lr.ph.i36:                                       ; preds = %eval_grouping.exit
+.lr.ph.i36:                                       ; preds = %eval_grouping.argprom.exit
   %41 = icmp sgt i32 %.pre22.i, 5
   %wide.trip.count.i37 = zext nneg i32 %4 to i64
   br i1 %41, label %.lr.ph.split.i, label %._crit_edge.thread.i
@@ -3403,8 +3403,8 @@ eval_grouping.exit:                               ; preds = %._crit_edge.us.i, %
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i37
   br i1 %exitcond.not.i40, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !72
 
-._crit_edge.i:                                    ; preds = %53, %eval_grouping.exit
-  %55 = phi i32 [ %.pre22.i, %eval_grouping.exit ], [ %54, %53 ]
+._crit_edge.i:                                    ; preds = %53, %eval_grouping.argprom.exit
+  %55 = phi i32 [ %.pre22.i, %eval_grouping.argprom.exit ], [ %54, %53 ]
   %56 = icmp sgt i32 %55, 5
   br i1 %56, label %57, label %add_to_list.exit
 
@@ -3761,7 +3761,7 @@ define internal fastcc void @fast_group(ptr nocapture noundef readonly %0, ptr n
 ._crit_edge.us.i:                                 ; preds = %29
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count.i
-  br i1 %exitcond23.not.i, label %eval_grouping.exit, label %.lr.ph5.us.i, !llvm.loop !9
+  br i1 %exitcond23.not.i, label %eval_grouping.argprom.exit, label %.lr.ph5.us.i, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %18
   %indvars.iv.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i, %.lr.ph.i ]
@@ -3778,16 +3778,16 @@ define internal fastcc void @fast_group(ptr nocapture noundef readonly %0, ptr n
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.lr.ph5.us.i, label %.lr.ph.i, !llvm.loop !10
 
-eval_grouping.exit:                               ; preds = %._crit_edge.us.i
+eval_grouping.argprom.exit:                       ; preds = %._crit_edge.us.i
   %46 = load i32, ptr @verbose_level, align 4
   %47 = icmp sgt i32 %46, 5
   br i1 %47, label %48, label %50
 
-48:                                               ; preds = %eval_grouping.exit
+48:                                               ; preds = %eval_grouping.argprom.exit
   %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %20, double noundef %37)
   br label %50
 
-50:                                               ; preds = %48, %eval_grouping.exit
+50:                                               ; preds = %48, %eval_grouping.argprom.exit
   %51 = load double, ptr %6, align 8
   %52 = fcmp olt double %37, %51
   br i1 %52, label %53, label %.loopexit
@@ -4363,11 +4363,11 @@ define internal void @partial_exhaustive_search(i32 noundef %0, ptr nocapture no
   %123 = icmp sgt i32 %.079.i, %72
   br i1 %123, label %174, label %thread_derecurs_exhaustive_search.exit
 
-124:                                              ; preds = %independent_groups_mat.exit.i, %118
-  %.286.i = phi double [ %.387.i, %independent_groups_mat.exit.i ], [ %.084.i, %118 ]
-  %.281.i = phi i32 [ %.382.i, %independent_groups_mat.exit.i ], [ %.079.i, %118 ]
-  %.2.i = phi i32 [ %184, %independent_groups_mat.exit.i ], [ %.078.i, %118 ]
-  %.0.i = phi i32 [ %186, %independent_groups_mat.exit.i ], [ %120, %118 ]
+124:                                              ; preds = %independent_groups_mat.argprom.exit.i, %118
+  %.286.i = phi double [ %.387.i, %independent_groups_mat.argprom.exit.i ], [ %.084.i, %118 ]
+  %.281.i = phi i32 [ %.382.i, %independent_groups_mat.argprom.exit.i ], [ %.079.i, %118 ]
+  %.2.i = phi i32 [ %184, %independent_groups_mat.argprom.exit.i ], [ %.078.i, %118 ]
+  %.0.i = phi i32 [ %186, %independent_groups_mat.argprom.exit.i ], [ %120, %118 ]
   %125 = icmp slt i32 %.2.i, %6
   br i1 %125, label %126, label %190
 
@@ -4383,7 +4383,7 @@ define internal void @partial_exhaustive_search(i32 noundef %0, ptr nocapture no
   %134 = fadd double %.286.i, %133
   %135 = load double, ptr %15, align 8
   %136 = fcmp olt double %134, %135
-  br i1 %136, label %137, label %independent_groups_mat.exit.i
+  br i1 %136, label %137, label %independent_groups_mat.argprom.exit.i
 
 137:                                              ; preds = %126
   %138 = getelementptr inbounds i8, ptr %129, i64 48
@@ -4430,7 +4430,7 @@ define internal void @partial_exhaustive_search(i32 noundef %0, ptr nocapture no
   %162 = getelementptr inbounds i8, ptr %154, i64 %161
   %163 = load i8, ptr %162, align 1
   %164 = icmp eq i8 %163, 0
-  br i1 %164, label %independent_groups_mat.exit.i, label %155
+  br i1 %164, label %independent_groups_mat.argprom.exit.i, label %155
 
 .loopexit.i:                                      ; preds = %155, %149
   %165 = load i32, ptr @verbose_level, align 4
@@ -4465,9 +4465,9 @@ define internal void @partial_exhaustive_search(i32 noundef %0, ptr nocapture no
   %181 = fsub double %.185.i, %180
   %182 = getelementptr inbounds i32, ptr %37, i64 %176
   %183 = load i32, ptr %182, align 4
-  br label %independent_groups_mat.exit.i
+  br label %independent_groups_mat.argprom.exit.i
 
-independent_groups_mat.exit.i:                    ; preds = %156, %174, %126
+independent_groups_mat.argprom.exit.i:            ; preds = %156, %174, %126
   %.387.i = phi double [ %.286.i, %126 ], [ %181, %174 ], [ %.286.i, %156 ]
   %.382.i = phi i32 [ %.281.i, %126 ], [ %175, %174 ], [ %.281.i, %156 ]
   %.3.i = phi i32 [ %.2.i, %126 ], [ %183, %174 ], [ %.2.i, %156 ]
@@ -4477,7 +4477,7 @@ independent_groups_mat.exit.i:                    ; preds = %156, %174, %126
   %187 = icmp sgt i32 %186, %185
   br i1 %187, label %188, label %124, !llvm.loop !89
 
-188:                                              ; preds = %independent_groups_mat.exit.i
+188:                                              ; preds = %independent_groups_mat.argprom.exit.i
   %189 = icmp sgt i32 %.382.i, %72
   br i1 %189, label %174, label %thread_derecurs_exhaustive_search.exit
 

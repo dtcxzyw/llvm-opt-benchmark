@@ -5180,7 +5180,7 @@ if.then.i.i13.i:                                  ; preds = %if.then.i.i, %invok
   %9 = atomicrmw add ptr %use_count_.i.i.i.i.i, i32 1 monotonic, align 4, !noalias !175
   %10 = atomicrmw sub ptr %use_count_.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !175
   %cmp.i.i.i.i = icmp eq i32 %10, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %"_ZN5boost11make_sharedIN8QuantLib22ChebyshevInterpolationEJRKmZNKS1_20QdPlusAmericanEngine22getPutExerciseBoundaryEddddddE3$_0NS2_10PointsTypeEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_.exit"
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %"_ZN5boost11make_sharedIN8QuantLib22ChebyshevInterpolationEJRKmZNKS1_20QdPlusAmericanEngine22getPutExerciseBoundaryEddddddE3$_0NS2_10PointsTypeEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_.argprom.exit"
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i13.i
   %vtable.i.i.i.i = load ptr, ptr %call.i.i.i, align 8, !tbaa !35, !noalias !175
@@ -5192,14 +5192,14 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i13.i
 .noexc.i.i.i:                                     ; preds = %if.then.i.i.i.i
   %12 = atomicrmw sub ptr %weak_count_.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !175
   %cmp.i.i.i.i.i = icmp eq i32 %12, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZN5boost11make_sharedIN8QuantLib22ChebyshevInterpolationEJRKmZNKS1_20QdPlusAmericanEngine22getPutExerciseBoundaryEddddddE3$_0NS2_10PointsTypeEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_.exit"
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZN5boost11make_sharedIN8QuantLib22ChebyshevInterpolationEJRKmZNKS1_20QdPlusAmericanEngine22getPutExerciseBoundaryEddddddE3$_0NS2_10PointsTypeEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_.argprom.exit"
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %call.i.i.i, align 8, !tbaa !35, !noalias !175
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn.i.i.i.i.i, align 8, !noalias !175
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i)
-          to label %"_ZN5boost11make_sharedIN8QuantLib22ChebyshevInterpolationEJRKmZNKS1_20QdPlusAmericanEngine22getPutExerciseBoundaryEddddddE3$_0NS2_10PointsTypeEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_.exit" unwind label %terminate.lpad.i.i15.i, !noalias !175
+          to label %"_ZN5boost11make_sharedIN8QuantLib22ChebyshevInterpolationEJRKmZNKS1_20QdPlusAmericanEngine22getPutExerciseBoundaryEddddddE3$_0NS2_10PointsTypeEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_.argprom.exit" unwind label %terminate.lpad.i.i15.i, !noalias !175
 
 terminate.lpad.i.i15.i:                           ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i.i
   %14 = landingpad { ptr, i32 }
@@ -5238,7 +5238,7 @@ ehcleanup.i:                                      ; preds = %if.then.i19.i, %lpa
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pt.i) #34, !noalias !175
   br label %common.resume.i
 
-"_ZN5boost11make_sharedIN8QuantLib22ChebyshevInterpolationEJRKmZNKS1_20QdPlusAmericanEngine22getPutExerciseBoundaryEddddddE3$_0NS2_10PointsTypeEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_.exit": ; preds = %if.then.i.i13.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
+"_ZN5boost11make_sharedIN8QuantLib22ChebyshevInterpolationEJRKmZNKS1_20QdPlusAmericanEngine22getPutExerciseBoundaryEddddddE3$_0NS2_10PointsTypeEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_.argprom.exit": ; preds = %if.then.i.i13.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pt.i) #34, !noalias !175
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xmax) #34
   ret void
@@ -28468,8 +28468,8 @@ attributes #40 = { memory(none) }
 !173 = !{!138, !41, i64 304}
 !174 = !{!41, !41, i64 0}
 !175 = !{!176}
-!176 = distinct !{!176, !177, !"_ZN5boost11make_sharedIN8QuantLib22ChebyshevInterpolationEJRKmZNKS1_20QdPlusAmericanEngine22getPutExerciseBoundaryEddddddE3$_0NS2_10PointsTypeEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_: %agg.result"}
-!177 = distinct !{!177, !"_ZN5boost11make_sharedIN8QuantLib22ChebyshevInterpolationEJRKmZNKS1_20QdPlusAmericanEngine22getPutExerciseBoundaryEddddddE3$_0NS2_10PointsTypeEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_"}
+!176 = distinct !{!176, !177, !"_ZN5boost11make_sharedIN8QuantLib22ChebyshevInterpolationEJRKmZNKS1_20QdPlusAmericanEngine22getPutExerciseBoundaryEddddddE3$_0NS2_10PointsTypeEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_.argprom: %agg.result"}
+!177 = distinct !{!177, !"_ZN5boost11make_sharedIN8QuantLib22ChebyshevInterpolationEJRKmZNKS1_20QdPlusAmericanEngine22getPutExerciseBoundaryEddddddE3$_0NS2_10PointsTypeEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_.argprom"}
 !178 = !{!179, !62, i64 8}
 !179 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !62, i64 8, !62, i64 12}
 !180 = !{!179, !62, i64 12}

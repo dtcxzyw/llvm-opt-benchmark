@@ -186,9 +186,9 @@ if.end5.i:                                        ; preds = %if.end.i26
   store i32 65537, ptr %flags.i.i, align 4
   %call.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %vbasedev.val.i, i64 noundef 15221, ptr noundef nonnull %buf.i.i) #16
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end9.i, label %vfio_migration_query_flags.exit.i
+  br i1 %tobool.not.i.i, label %if.end9.i, label %vfio_migration_query_flags.argprom.exit.i
 
-vfio_migration_query_flags.exit.i:                ; preds = %if.end5.i
+vfio_migration_query_flags.argprom.exit.i:        ; preds = %if.end5.i
   %call2.i.i = tail call ptr @__errno_location() #17
   %8 = load i32, ptr %call2.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i.i)
@@ -268,14 +268,14 @@ vfio_migration_init.exit.thread55:                ; preds = %if.then23.i, %if.el
   %tobool14 = trunc i8 %13 to i1
   br i1 %tobool14, label %if.end22, label %if.then15
 
-vfio_migration_init.exit.thread:                  ; preds = %if.end, %if.end.i26, %if.end9.i, %vfio_migration_query_flags.exit.i
-  %retval.0.i28.ph = phi i32 [ -95, %if.end9.i ], [ -22, %if.end.i26 ], [ -22, %if.end ], [ -95, %vfio_migration_query_flags.exit.i ]
+vfio_migration_init.exit.thread:                  ; preds = %if.end, %if.end.i26, %if.end9.i, %vfio_migration_query_flags.argprom.exit.i
+  %retval.0.i28.ph = phi i32 [ -95, %if.end9.i ], [ -22, %if.end.i26 ], [ -22, %if.end ], [ -95, %vfio_migration_query_flags.argprom.exit.i ]
   call void @g_free(ptr noundef null) #16
   call void @g_free(ptr noundef null) #16
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %id.i)
   br label %if.else
 
-vfio_migration_init.exit:                         ; preds = %vfio_migration_query_flags.exit.i
+vfio_migration_init.exit:                         ; preds = %vfio_migration_query_flags.argprom.exit.i
   %sub.i.i = sub i32 0, %8
   call void @g_free(ptr noundef null) #16
   call void @g_free(ptr noundef null) #16

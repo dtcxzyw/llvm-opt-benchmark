@@ -1021,7 +1021,7 @@ readAt.exit:                                      ; preds = %35
   br i1 %or.cond5.i, label %is_zip64_endhdr.exit, label %is_zip64_endhdr.exit.thread
 
 is_zip64_endhdr.exit:                             ; preds = %125
-  %128 = tail call fastcc zeroext i8 @is_valid_end_header(i32 noundef %0, i64 noundef %33, i64 noundef %91, i64 noundef %99)
+  %128 = tail call fastcc zeroext i8 @is_valid_end_header.argelim(i32 noundef %0, i64 noundef %33, i64 noundef %91, i64 noundef %99)
   %.not50 = icmp eq i8 %128, 0
   br i1 %.not50, label %is_zip64_endhdr.exit.thread, label %152
 
@@ -1112,7 +1112,7 @@ is_zip64_endhdr.exit.thread:                      ; preds = %68, %125, %122, %83
   br label %187
 
 readAt.exit.thread:                               ; preds = %35, %150, %148, %is_zip64_endhdr.exit.thread, %55, %39, %readAt.exit, %32, %5
-  %183 = tail call fastcc zeroext i8 @is_valid_end_header(i32 noundef %0, i64 noundef %2, i64 noundef %14, i64 noundef %22)
+  %183 = tail call fastcc zeroext i8 @is_valid_end_header.argelim(i32 noundef %0, i64 noundef %2, i64 noundef %14, i64 noundef %22)
   %.not53 = icmp eq i8 %183, 0
   br i1 %.not53, label %188, label %184
 
@@ -1248,7 +1248,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @is_zip64_endhdr(i32 noundef ra
   br i1 %or.cond5, label %84, label %86
 
 84:                                               ; preds = %81
-  %85 = tail call fastcc zeroext i8 @is_valid_end_header(i32 noundef %0, i64 noundef %2, i64 noundef %39, i64 noundef %57)
+  %85 = tail call fastcc zeroext i8 @is_valid_end_header.argelim(i32 noundef %0, i64 noundef %2, i64 noundef %39, i64 noundef %57)
   br label %86
 
 86:                                               ; preds = %6, %84, %21, %78, %81
@@ -1257,7 +1257,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @is_zip64_endhdr(i32 noundef ra
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @is_valid_end_header(i32 noundef range(i32 0, -1) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @is_valid_end_header.argelim(i32 noundef range(i32 0, -1) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca [46 x i8], align 16
   %6 = alloca [30 x i8], align 16
   %7 = sub nsw i64 %1, %2

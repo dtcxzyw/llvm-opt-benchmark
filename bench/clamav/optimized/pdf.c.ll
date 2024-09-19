@@ -2345,27 +2345,27 @@ thread-pre-split:                                 ; preds = %.lr.ph, %135
   %.val = load ptr, ptr %289, align 8
   %340 = call i32 @cli_checklimits(ptr noundef nonnull @.str.212, ptr noundef %.val, i64 noundef %292, i64 noundef 0, i64 noundef 0) #23
   %.not.i = icmp eq i32 %340, 0
-  br i1 %.not.i, label %341, label %filter_writen.exit
+  br i1 %.not.i, label %341, label %filter_writen.argprom.exit
 
 341:                                              ; preds = %336
   %342 = add i64 %292, %339
   %343 = call i64 @cli_writen(i32 noundef %49, ptr noundef %.0271, i64 noundef %339) #23
-  br label %filter_writen.exit
+  br label %filter_writen.argprom.exit
 
-filter_writen.exit:                               ; preds = %336, %341
+filter_writen.argprom.exit:                       ; preds = %336, %341
   %344 = phi i64 [ %342, %341 ], [ %292, %336 ]
   %.0.i = phi i64 [ %343, %341 ], [ %339, %336 ]
   %345 = load i64, ptr %10, align 8
   %.not357 = icmp eq i64 %.0.i, %345
   br i1 %.not357, label %347, label %346
 
-346:                                              ; preds = %filter_writen.exit
+346:                                              ; preds = %filter_writen.argprom.exit
   store i64 %344, ptr %5, align 8
   store i32 14, ptr %6, align 4
   call void @free(ptr noundef nonnull %302) #23
   br label %.critedge.thread403
 
-347:                                              ; preds = %filter_writen.exit
+347:                                              ; preds = %filter_writen.argprom.exit
   call void @free(ptr noundef %.0272) #23
   call void @free(ptr noundef nonnull %302) #23
   %348 = trunc i64 %306 to i32
@@ -2443,7 +2443,7 @@ filter_writen.exit:                               ; preds = %336, %341
   %385 = getelementptr inbounds i8, ptr %382, i64 %384
   %386 = getelementptr i8, ptr %0, i64 80
   %.val392 = load ptr, ptr %386, align 8
-  %387 = call fastcc i64 @filter_writen(ptr %.val392, i32 noundef %49, ptr noundef %385, i64 noundef %378, ptr noundef %5)
+  %387 = call fastcc i64 @filter_writen.argprom(ptr %.val392, i32 noundef %49, ptr noundef %385, i64 noundef %378, ptr noundef %5)
   %.not346 = icmp eq i64 %387, %378
   br i1 %.not346, label %.critedge.thread403, label %388
 
@@ -2459,7 +2459,7 @@ filter_writen.exit:                               ; preds = %336, %341
   %394 = getelementptr inbounds i8, ptr %391, i64 %393
   %395 = getelementptr i8, ptr %0, i64 80
   %.val393 = load ptr, ptr %395, align 8
-  %396 = call fastcc i64 @filter_writen(ptr %.val393, i32 noundef %49, ptr noundef %394, i64 noundef %375, ptr noundef %5)
+  %396 = call fastcc i64 @filter_writen.argprom(ptr %.val393, i32 noundef %49, ptr noundef %394, i64 noundef %375, ptr noundef %5)
   %.not345 = icmp eq i64 %396, %375
   br i1 %.not345, label %.critedge.thread403, label %397
 
@@ -2519,7 +2519,7 @@ filter_writen.exit:                               ; preds = %336, %341
   %422 = and i32 %420, 255
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.101, i32 noundef %421, i32 noundef %422) #23
   %.val394 = load i32, ptr %11, align 8
-  %423 = call fastcc i32 @pdf_scan_contents(i32 noundef %49, ptr noundef nonnull %0, i32 %.val394)
+  %423 = call fastcc i32 @pdf_scan_contents.argprom(i32 noundef %49, ptr noundef nonnull %0, i32 %.val394)
   %.not379 = icmp eq i32 %423, 0
   br i1 %.not379, label %.thread408, label %.thread408.sink.split
 
@@ -3261,7 +3261,7 @@ declare ptr @cli_jsonarray(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @cli_jsonint_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @filter_writen(ptr %.80.val, i32 noundef range(i32 0, -2147483648) %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc i64 @filter_writen.argprom(ptr %.80.val, i32 noundef range(i32 0, -2147483648) %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load i64, ptr %3, align 8
   %6 = tail call i32 @cli_checklimits(ptr noundef nonnull @.str.212, ptr noundef %.80.val, i64 noundef %5, i64 noundef 0, i64 noundef 0) #23
   %.not = icmp eq i32 %6, 0
@@ -3459,7 +3459,7 @@ define internal fastcc i32 @run_pdf_hooks(ptr noundef %0, i32 noundef range(i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pdf_scan_contents(i32 noundef range(i32 0, -2147483648) %0, ptr nocapture noundef readonly %1, i32 %.16.val) unnamed_addr #0 {
+define internal fastcc i32 @pdf_scan_contents.argprom(i32 noundef range(i32 0, -2147483648) %0, ptr nocapture noundef readonly %1, i32 %.16.val) unnamed_addr #0 {
   %3 = alloca %struct.text_norm_state, align 8
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [8192 x i8], align 16
@@ -5347,7 +5347,7 @@ pdf_readint.exit207:                              ; preds = %102, %105, %._crit_
   br i1 %or.cond7, label %121, label %155
 
 121:                                              ; preds = %118
-  %122 = call fastcc i32 @pdf_readbool(ptr noundef %57, i32 noundef %49)
+  %122 = call fastcc i32 @pdf_readbool.argprom.argelim(ptr noundef %57, i32 noundef %49)
   %123 = call fastcc ptr @pdf_readval(ptr noundef %57, i32 noundef %49, ptr noundef nonnull @.str.139)
   %124 = call fastcc ptr @pdf_readval(ptr noundef %57, i32 noundef %49, ptr noundef nonnull @.str.140)
   %125 = call fastcc ptr @pdf_readval(ptr noundef %57, i32 noundef %49, ptr noundef nonnull @.str.141)
@@ -5561,7 +5561,7 @@ pdf_readint.exit207:                              ; preds = %102, %105, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pdf_readbool(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pdf_readbool.argprom.argelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
   %4 = call fastcc ptr @pdf_getdict(ptr noundef %0, ptr noundef %3, ptr noundef nonnull @.str.138)
@@ -5657,7 +5657,7 @@ dbg_printhex.exit30:                              ; preds = %6, %dbg_printhex.ex
 dbg_printhex.exit32:                              ; preds = %17, %19
   %22 = getelementptr inbounds i8, ptr %2, i64 32
   %.val = load i64, ptr %22, align 1
-  call fastcc void @compute_hash_r6(i64 %.val, ptr noundef %9, ptr noundef nonnull %3)
+  call fastcc void @compute_hash_r6.argprom.argelim(i64 %.val, ptr noundef %9, ptr noundef nonnull %3)
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %2, ptr noundef nonnull dereferenceable(32) %9, i64 32)
   %.not = icmp eq i32 %bcmp, 0
   br i1 %.not, label %24, label %23
@@ -5669,7 +5669,7 @@ dbg_printhex.exit32:                              ; preds = %17, %19
 24:                                               ; preds = %dbg_printhex.exit32
   %25 = getelementptr inbounds i8, ptr %2, i64 40
   %.val28 = load i64, ptr %25, align 1
-  call fastcc void @compute_hash_r6(i64 %.val28, ptr noundef %8, ptr noundef nonnull %3)
+  call fastcc void @compute_hash_r6.argprom.argelim(i64 %.val28, ptr noundef %8, ptr noundef nonnull %3)
   %.not26 = icmp eq i64 %5, 32
   br i1 %.not26, label %27, label %26
 
@@ -6022,7 +6022,7 @@ dbg_printhex.exit137:                             ; preds = %100, %104
 dbg_printhex.exit141:                             ; preds = %124, %126
   %129 = getelementptr inbounds i8, ptr %3, i64 32
   %.val = load i64, ptr %129, align 1
-  call fastcc void @compute_hash_r6(i64 %.val, ptr noundef %16, ptr noundef null)
+  call fastcc void @compute_hash_r6.argprom.argelim(i64 %.val, ptr noundef %16, ptr noundef null)
   %bcmp145 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %3, ptr noundef nonnull dereferenceable(32) %16, i64 32)
   %.not = icmp eq i32 %bcmp145, 0
   br i1 %.not, label %131, label %130
@@ -6034,7 +6034,7 @@ dbg_printhex.exit141:                             ; preds = %124, %126
 131:                                              ; preds = %dbg_printhex.exit141
   %132 = getelementptr inbounds i8, ptr %3, i64 40
   %.val127 = load i64, ptr %132, align 1
-  call fastcc void @compute_hash_r6(i64 %.val127, ptr noundef %15, ptr noundef null)
+  call fastcc void @compute_hash_r6.argprom.argelim(i64 %.val127, ptr noundef %15, ptr noundef null)
   %.not110 = icmp eq i64 %7, 32
   br i1 %.not110, label %134, label %133
 
@@ -9365,7 +9365,7 @@ declare void @pdf_free_array(ptr noundef) local_unnamed_addr #1
 declare ptr @cli_str2hex(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compute_hash_r6(i64 %.0.val, ptr nocapture noundef nonnull writeonly %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @compute_hash_r6.argprom.argelim(i64 %.0.val, ptr nocapture noundef nonnull writeonly %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca [44 x i32], align 16
   %4 = alloca [16 x i8], align 16
   %5 = alloca [15360 x i8], align 16

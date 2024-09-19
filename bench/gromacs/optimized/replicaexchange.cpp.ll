@@ -4640,7 +4640,7 @@ _ZL9print_indP8_IO_FILEPKciPiPKb.exit72:          ; preds = %.lr.ph.split.us.i68
   %78 = load ptr, ptr %77, align 8
   %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.105) #21
   %80 = icmp sgt i32 %76, 1
-  br i1 %80, label %.lr.ph.preheader.i, label %_ZL11print_countP8_IO_FILEPKciPi.exit
+  br i1 %80, label %.lr.ph.preheader.i, label %_ZL11print_countP8_IO_FILEPKciPi.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %_ZL9print_indP8_IO_FILEPKciPiPKb.exit72
   %wide.trip.count.i74 = zext nneg i32 %76 to i64
@@ -4653,17 +4653,17 @@ _ZL9print_indP8_IO_FILEPKciPiPKb.exit72:          ; preds = %.lr.ph.split.us.i68
   %83 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.108, i32 noundef %82) #21
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, %wide.trip.count.i74
-  br i1 %exitcond.not.i78, label %_ZL11print_countP8_IO_FILEPKciPi.exit, label %.lr.ph.i75, !llvm.loop !61
+  br i1 %exitcond.not.i78, label %_ZL11print_countP8_IO_FILEPKciPi.argprom.exit, label %.lr.ph.i75, !llvm.loop !61
 
-_ZL11print_countP8_IO_FILEPKciPi.exit:            ; preds = %.lr.ph.i75, %_ZL9print_indP8_IO_FILEPKciPiPKb.exit72
+_ZL11print_countP8_IO_FILEPKciPi.argprom.exit:    ; preds = %.lr.ph.i75, %_ZL9print_indP8_IO_FILEPKciPiPKb.exit72
   %fputc.i73 = call i32 @fputc(i32 10, ptr %0)
   %84 = call i64 @fwrite(ptr nonnull @.str.107, i64 35, i64 1, ptr %0)
   %85 = load i32, ptr %17, align 4
   %86 = icmp sgt i32 %85, 1
   br i1 %86, label %.lr.ph103, label %._crit_edge104
 
-.lr.ph103:                                        ; preds = %_ZL11print_countP8_IO_FILEPKciPi.exit, %98
-  %indvars.iv109 = phi i64 [ %indvars.iv.next110, %98 ], [ 1, %_ZL11print_countP8_IO_FILEPKciPi.exit ]
+.lr.ph103:                                        ; preds = %_ZL11print_countP8_IO_FILEPKciPi.argprom.exit, %98
+  %indvars.iv109 = phi i64 [ %indvars.iv.next110, %98 ], [ 1, %_ZL11print_countP8_IO_FILEPKciPi.argprom.exit ]
   %87 = and i64 %indvars.iv109, 1
   %88 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 %87
   %89 = load i32, ptr %88, align 4
@@ -4690,8 +4690,8 @@ _ZL11print_countP8_IO_FILEPKciPi.exit:            ; preds = %.lr.ph.i75, %_ZL9pr
   %103 = icmp slt i64 %indvars.iv.next110, %102
   br i1 %103, label %.lr.ph103, label %._crit_edge104, !llvm.loop !62
 
-._crit_edge104:                                   ; preds = %98, %_ZL11print_countP8_IO_FILEPKciPi.exit
-  %.lcssa = phi i32 [ %85, %_ZL11print_countP8_IO_FILEPKciPi.exit ], [ %101, %98 ]
+._crit_edge104:                                   ; preds = %98, %_ZL11print_countP8_IO_FILEPKciPi.argprom.exit
+  %.lcssa = phi i32 [ %85, %_ZL11print_countP8_IO_FILEPKciPi.argprom.exit ], [ %101, %98 ]
   %104 = load ptr, ptr %39, align 8
   %105 = load i32, ptr %104, align 4
   %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.105, i32 noundef %105) #21
@@ -4787,7 +4787,7 @@ _ZL10print_probP8_IO_FILEPKciPf.exit93:           ; preds = %129, %_ZL9print_ind
   %144 = call i64 @fwrite(ptr nonnull @.str.111, i64 28, i64 1, ptr %0)
   %145 = call i64 @fwrite(ptr nonnull @.str.109, i64 4, i64 1, ptr %0)
   %fputc3722.i = call i32 @fputc(i32 10, ptr %0)
-  br label %_ZL23print_transition_matrixP8_IO_FILEiPPiPKi.exit
+  br label %_ZL23print_transition_matrixP8_IO_FILEiPPiPKi.argprom.exit
 
 .lr.ph4.i:                                        ; preds = %.lr.ph4.i, %._crit_edge.i
   %.12.i = phi i32 [ %146, %.lr.ph4.i ], [ 0, %._crit_edge.i ]
@@ -4830,9 +4830,9 @@ _ZL10print_probP8_IO_FILEPKciPf.exit93:           ; preds = %129, %_ZL9print_ind
   %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.114, i32 noundef %162) #21
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count20.i
-  br i1 %exitcond21.not.i, label %_ZL23print_transition_matrixP8_IO_FILEiPPiPKi.exit, label %.lr.ph8.us.i, !llvm.loop !66
+  br i1 %exitcond21.not.i, label %_ZL23print_transition_matrixP8_IO_FILEiPPiPKi.argprom.exit, label %.lr.ph8.us.i, !llvm.loop !66
 
-_ZL23print_transition_matrixP8_IO_FILEiPPiPKi.exit: ; preds = %._crit_edge9.us.i, %._crit_edge5.thread.critedge.i
+_ZL23print_transition_matrixP8_IO_FILEiPPiPKi.argprom.exit: ; preds = %._crit_edge9.us.i, %._crit_edge5.thread.critedge.i
   ret void
 }
 

@@ -282,7 +282,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIaEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIaEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.3.8.copyload, 0
@@ -291,7 +291,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIaEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIaEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -333,7 +333,7 @@ if.then22.i:                                      ; preds = %_ZNK6hermes2vm10Nat
   %12 = getelementptr inbounds i8, ptr %ref.tmp23.i, i64 8
   store i32 3, ptr %12, align 8
   %call24.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp23.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIaEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIaEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end25.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %add.i = add i64 %conv.i.i, 1
@@ -354,7 +354,7 @@ if.then28.i:                                      ; preds = %if.end25.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp29.i, i64 8
   store i32 3, ptr %14, align 8
   %call30.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp29.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIaEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIaEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end31.i:                                       ; preds = %if.end25.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -382,9 +382,9 @@ _ZNK6hermes2vm10JSDataView3getIaEET_RNS0_7RuntimeEjb.exit.i: ; preds = %if.end31
   %result.0.copyload.i.i = load i8, ptr %add.ptr4.i.i, align 1
   %conv.i.i.i = sitofp i8 %result.0.copyload.i.i to double
   %20 = bitcast double %conv.i.i.i to i64
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIaEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIaEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIaEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getIaEET_RNS0_7RuntimeEjb.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIaEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getIaEET_RNS0_7RuntimeEjb.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call30.i, %if.then28.i ], [ 1, %_ZNK6hermes2vm10JSDataView3getIaEET_RNS0_7RuntimeEjb.exit.i ], [ %call24.i, %if.then22.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ]
   %retval.sroa.6.0.i = phi i64 [ undef, %if.then28.i ], [ %20, %_ZNK6hermes2vm10JSDataView3getIaEET_RNS0_7RuntimeEjb.exit.i ], [ undef, %if.then22.i ], [ undef, %if.then.i ], [ undef, %if.end.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
@@ -444,7 +444,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIaLNS0_8CellKindE35EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIaLNS0_8CellKindE35EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.4.8.copyload, 0
@@ -453,7 +453,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIaLNS0_8CellKindE35EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIaLNS0_8CellKindE35EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -477,7 +477,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit.i:       ; preds = %cond.true.i.i, %if.
   %8 = extractvalue { i32, i64 } %call27.i, 0
   %9 = extractvalue { i32, i64 } %call27.i, 1
   %cmp.i20.i = icmp eq i32 %8, 0
-  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIaLNS0_8CellKindE35EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end31.i
+  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIaLNS0_8CellKindE35EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
@@ -505,7 +505,7 @@ if.then34.i:                                      ; preds = %if.end31.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 8
   store i32 3, ptr %14, align 8
   %call36.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp35.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIaLNS0_8CellKindE35EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIaLNS0_8CellKindE35EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end37.i:                                       ; preds = %if.end31.i
   %15 = bitcast i64 %9 to double
@@ -549,7 +549,7 @@ if.then42.i:                                      ; preds = %_ZN6hermes2vm12JSTy
   %17 = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 8
   store i32 3, ptr %17, align 8
   %call44.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp43.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIaLNS0_8CellKindE35EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIaLNS0_8CellKindE35EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end45.i:                                       ; preds = %_ZN6hermes2vm12JSTypedArrayIaLNS0_8CellKindE35EE10toDestTypeERKNS0_11HermesValueE.exit.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -580,9 +580,9 @@ _ZN6hermes2vm10JSDataView3setIaEEvRNS0_7RuntimeEjT_b.exit.i: ; preds = %if.end45
   %idx.ext4.i.i = and i64 %conv.i.i, 4294967295
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.ext4.i.i
   store i8 %conv.i32.i, ptr %add.ptr5.i.i, align 1
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIaLNS0_8CellKindE35EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIaLNS0_8CellKindE35EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIaLNS0_8CellKindE35EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setIaEEvRNS0_7RuntimeEjT_b.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIaLNS0_8CellKindE35EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setIaEEvRNS0_7RuntimeEjT_b.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call44.i, %if.then42.i ], [ 1, %_ZN6hermes2vm10JSDataView3setIaEEvRNS0_7RuntimeEjT_b.exit.i ], [ %call36.i, %if.then34.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ], [ 0, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i32, i64 } %.fca.0.insert.i, i64 -1688849860263936, 1
@@ -641,7 +641,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIsEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIsEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.3.8.copyload, 0
@@ -650,7 +650,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIsEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIsEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -692,7 +692,7 @@ if.then22.i:                                      ; preds = %_ZNK6hermes2vm10Nat
   %12 = getelementptr inbounds i8, ptr %ref.tmp23.i, i64 8
   store i32 3, ptr %12, align 8
   %call24.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp23.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIsEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIsEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end25.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %add.i = add i64 %conv.i.i, 2
@@ -713,7 +713,7 @@ if.then28.i:                                      ; preds = %if.end25.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp29.i, i64 8
   store i32 3, ptr %14, align 8
   %call30.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp29.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIsEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIsEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end31.i:                                       ; preds = %if.end25.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -743,9 +743,9 @@ _ZNK6hermes2vm10JSDataView3getIsEET_RNS0_7RuntimeEjb.exit.i: ; preds = %if.end31
   %spec.select.i.i.i = select i1 %call19.i, i16 %result.0.copyload.i.i, i16 %rev.i.i.i.i.i.i
   %conv.i.i.i = sitofp i16 %spec.select.i.i.i to double
   %20 = bitcast double %conv.i.i.i to i64
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIsEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIsEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIsEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getIsEET_RNS0_7RuntimeEjb.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIsEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getIsEET_RNS0_7RuntimeEjb.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call30.i, %if.then28.i ], [ 1, %_ZNK6hermes2vm10JSDataView3getIsEET_RNS0_7RuntimeEjb.exit.i ], [ %call24.i, %if.then22.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ]
   %retval.sroa.6.0.i = phi i64 [ undef, %if.then28.i ], [ %20, %_ZNK6hermes2vm10JSDataView3getIsEET_RNS0_7RuntimeEjb.exit.i ], [ undef, %if.then22.i ], [ undef, %if.then.i ], [ undef, %if.end.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
@@ -805,7 +805,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIsLNS0_8CellKindE36EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIsLNS0_8CellKindE36EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.4.8.copyload, 0
@@ -814,7 +814,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIsLNS0_8CellKindE36EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIsLNS0_8CellKindE36EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -838,7 +838,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit.i:       ; preds = %cond.true.i.i, %if.
   %8 = extractvalue { i32, i64 } %call27.i, 0
   %9 = extractvalue { i32, i64 } %call27.i, 1
   %cmp.i20.i = icmp eq i32 %8, 0
-  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIsLNS0_8CellKindE36EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end31.i
+  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIsLNS0_8CellKindE36EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
@@ -866,7 +866,7 @@ if.then34.i:                                      ; preds = %if.end31.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 8
   store i32 3, ptr %14, align 8
   %call36.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp35.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIsLNS0_8CellKindE36EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIsLNS0_8CellKindE36EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end37.i:                                       ; preds = %if.end31.i
   %15 = bitcast i64 %9 to double
@@ -910,7 +910,7 @@ if.then42.i:                                      ; preds = %_ZN6hermes2vm12JSTy
   %17 = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 8
   store i32 3, ptr %17, align 8
   %call44.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp43.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIsLNS0_8CellKindE36EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIsLNS0_8CellKindE36EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end45.i:                                       ; preds = %_ZN6hermes2vm12JSTypedArrayIsLNS0_8CellKindE36EE10toDestTypeERKNS0_11HermesValueE.exit.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -943,9 +943,9 @@ _ZN6hermes2vm10JSDataView3setIsEEvRNS0_7RuntimeEjT_b.exit.i: ; preds = %if.end45
   %idx.ext4.i.i = and i64 %conv.i.i, 4294967295
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.ext4.i.i
   store i16 %spec.select.i.i.i, ptr %add.ptr5.i.i, align 1
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIsLNS0_8CellKindE36EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIsLNS0_8CellKindE36EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIsLNS0_8CellKindE36EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setIsEEvRNS0_7RuntimeEjT_b.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIsLNS0_8CellKindE36EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setIsEEvRNS0_7RuntimeEjT_b.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call44.i, %if.then42.i ], [ 1, %_ZN6hermes2vm10JSDataView3setIsEEvRNS0_7RuntimeEjT_b.exit.i ], [ %call36.i, %if.then34.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ], [ 0, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i32, i64 } %.fca.0.insert.i, i64 -1688849860263936, 1
@@ -1004,7 +1004,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIiEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIiEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.3.8.copyload, 0
@@ -1013,7 +1013,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIiEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIiEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -1055,7 +1055,7 @@ if.then22.i:                                      ; preds = %_ZNK6hermes2vm10Nat
   %12 = getelementptr inbounds i8, ptr %ref.tmp23.i, i64 8
   store i32 3, ptr %12, align 8
   %call24.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp23.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIiEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIiEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end25.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %add.i = add i64 %conv.i.i, 4
@@ -1076,7 +1076,7 @@ if.then28.i:                                      ; preds = %if.end25.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp29.i, i64 8
   store i32 3, ptr %14, align 8
   %call30.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp29.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIiEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIiEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end31.i:                                       ; preds = %if.end25.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -1106,9 +1106,9 @@ _ZNK6hermes2vm10JSDataView3getIiEET_RNS0_7RuntimeEjb.exit.i: ; preds = %if.end31
   %spec.select.i.i.i = select i1 %call19.i, i32 %result.0.copyload.i.i, i32 %20
   %conv.i.i.i = sitofp i32 %spec.select.i.i.i to double
   %21 = bitcast double %conv.i.i.i to i64
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIiEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIiEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIiEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getIiEET_RNS0_7RuntimeEjb.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIiEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getIiEET_RNS0_7RuntimeEjb.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call30.i, %if.then28.i ], [ 1, %_ZNK6hermes2vm10JSDataView3getIiEET_RNS0_7RuntimeEjb.exit.i ], [ %call24.i, %if.then22.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ]
   %retval.sroa.6.0.i = phi i64 [ undef, %if.then28.i ], [ %21, %_ZNK6hermes2vm10JSDataView3getIiEET_RNS0_7RuntimeEjb.exit.i ], [ undef, %if.then22.i ], [ undef, %if.then.i ], [ undef, %if.end.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
@@ -1168,7 +1168,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIiLNS0_8CellKindE37EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIiLNS0_8CellKindE37EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.4.8.copyload, 0
@@ -1177,7 +1177,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIiLNS0_8CellKindE37EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIiLNS0_8CellKindE37EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -1201,7 +1201,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit.i:       ; preds = %cond.true.i.i, %if.
   %8 = extractvalue { i32, i64 } %call27.i, 0
   %9 = extractvalue { i32, i64 } %call27.i, 1
   %cmp.i20.i = icmp eq i32 %8, 0
-  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIiLNS0_8CellKindE37EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end31.i
+  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIiLNS0_8CellKindE37EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
@@ -1229,7 +1229,7 @@ if.then34.i:                                      ; preds = %if.end31.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 8
   store i32 3, ptr %14, align 8
   %call36.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp35.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIiLNS0_8CellKindE37EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIiLNS0_8CellKindE37EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end37.i:                                       ; preds = %if.end31.i
   %15 = bitcast i64 %9 to double
@@ -1272,7 +1272,7 @@ if.then42.i:                                      ; preds = %_ZN6hermes2vm12JSTy
   %17 = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 8
   store i32 3, ptr %17, align 8
   %call44.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp43.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIiLNS0_8CellKindE37EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIiLNS0_8CellKindE37EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end45.i:                                       ; preds = %_ZN6hermes2vm12JSTypedArrayIiLNS0_8CellKindE37EE10toDestTypeERKNS0_11HermesValueE.exit.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -1305,9 +1305,9 @@ _ZN6hermes2vm10JSDataView3setIiEEvRNS0_7RuntimeEjT_b.exit.i: ; preds = %if.end45
   %idx.ext4.i.i = and i64 %conv.i.i, 4294967295
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.ext4.i.i
   store i32 %spec.select.i.i.i, ptr %add.ptr5.i.i, align 1
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIiLNS0_8CellKindE37EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIiLNS0_8CellKindE37EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIiLNS0_8CellKindE37EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setIiEEvRNS0_7RuntimeEjT_b.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIiLNS0_8CellKindE37EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setIiEEvRNS0_7RuntimeEjT_b.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call44.i, %if.then42.i ], [ 1, %_ZN6hermes2vm10JSDataView3setIiEEvRNS0_7RuntimeEjT_b.exit.i ], [ %call36.i, %if.then34.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ], [ 0, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i32, i64 } %.fca.0.insert.i, i64 -1688849860263936, 1
@@ -1366,7 +1366,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIhEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIhEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.3.8.copyload, 0
@@ -1375,7 +1375,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIhEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIhEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -1417,7 +1417,7 @@ if.then22.i:                                      ; preds = %_ZNK6hermes2vm10Nat
   %12 = getelementptr inbounds i8, ptr %ref.tmp23.i, i64 8
   store i32 3, ptr %12, align 8
   %call24.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp23.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIhEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIhEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end25.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %add.i = add i64 %conv.i.i, 1
@@ -1438,7 +1438,7 @@ if.then28.i:                                      ; preds = %if.end25.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp29.i, i64 8
   store i32 3, ptr %14, align 8
   %call30.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp29.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIhEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIhEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end31.i:                                       ; preds = %if.end25.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -1466,9 +1466,9 @@ _ZNK6hermes2vm10JSDataView3getIhEET_RNS0_7RuntimeEjb.exit.i: ; preds = %if.end31
   %result.0.copyload.i.i = load i8, ptr %add.ptr4.i.i, align 1
   %conv.i.i.i = uitofp i8 %result.0.copyload.i.i to double
   %20 = bitcast double %conv.i.i.i to i64
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIhEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIhEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIhEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getIhEET_RNS0_7RuntimeEjb.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIhEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getIhEET_RNS0_7RuntimeEjb.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call30.i, %if.then28.i ], [ 1, %_ZNK6hermes2vm10JSDataView3getIhEET_RNS0_7RuntimeEjb.exit.i ], [ %call24.i, %if.then22.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ]
   %retval.sroa.6.0.i = phi i64 [ undef, %if.then28.i ], [ %20, %_ZNK6hermes2vm10JSDataView3getIhEET_RNS0_7RuntimeEjb.exit.i ], [ undef, %if.then22.i ], [ undef, %if.then.i ], [ undef, %if.end.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
@@ -1528,7 +1528,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIhLNS0_8CellKindE38EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIhLNS0_8CellKindE38EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.4.8.copyload, 0
@@ -1537,7 +1537,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIhLNS0_8CellKindE38EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIhLNS0_8CellKindE38EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -1561,7 +1561,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit.i:       ; preds = %cond.true.i.i, %if.
   %8 = extractvalue { i32, i64 } %call27.i, 0
   %9 = extractvalue { i32, i64 } %call27.i, 1
   %cmp.i20.i = icmp eq i32 %8, 0
-  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIhLNS0_8CellKindE38EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end31.i
+  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIhLNS0_8CellKindE38EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
@@ -1589,7 +1589,7 @@ if.then34.i:                                      ; preds = %if.end31.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 8
   store i32 3, ptr %14, align 8
   %call36.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp35.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIhLNS0_8CellKindE38EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIhLNS0_8CellKindE38EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end37.i:                                       ; preds = %if.end31.i
   %15 = bitcast i64 %9 to double
@@ -1633,7 +1633,7 @@ if.then42.i:                                      ; preds = %_ZN6hermes2vm12JSTy
   %17 = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 8
   store i32 3, ptr %17, align 8
   %call44.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp43.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIhLNS0_8CellKindE38EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIhLNS0_8CellKindE38EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end45.i:                                       ; preds = %_ZN6hermes2vm12JSTypedArrayIhLNS0_8CellKindE38EE10toDestTypeERKNS0_11HermesValueE.exit.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -1664,9 +1664,9 @@ _ZN6hermes2vm10JSDataView3setIhEEvRNS0_7RuntimeEjT_b.exit.i: ; preds = %if.end45
   %idx.ext4.i.i = and i64 %conv.i.i, 4294967295
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.ext4.i.i
   store i8 %conv.i32.i, ptr %add.ptr5.i.i, align 1
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIhLNS0_8CellKindE38EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIhLNS0_8CellKindE38EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIhLNS0_8CellKindE38EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setIhEEvRNS0_7RuntimeEjT_b.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIhLNS0_8CellKindE38EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setIhEEvRNS0_7RuntimeEjT_b.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call44.i, %if.then42.i ], [ 1, %_ZN6hermes2vm10JSDataView3setIhEEvRNS0_7RuntimeEjT_b.exit.i ], [ %call36.i, %if.then34.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ], [ 0, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i32, i64 } %.fca.0.insert.i, i64 -1688849860263936, 1
@@ -1725,7 +1725,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetItEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetItEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.3.8.copyload, 0
@@ -1734,7 +1734,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetItEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetItEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -1776,7 +1776,7 @@ if.then22.i:                                      ; preds = %_ZNK6hermes2vm10Nat
   %12 = getelementptr inbounds i8, ptr %ref.tmp23.i, i64 8
   store i32 3, ptr %12, align 8
   %call24.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp23.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetItEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetItEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end25.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %add.i = add i64 %conv.i.i, 2
@@ -1797,7 +1797,7 @@ if.then28.i:                                      ; preds = %if.end25.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp29.i, i64 8
   store i32 3, ptr %14, align 8
   %call30.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp29.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetItEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetItEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end31.i:                                       ; preds = %if.end25.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -1827,9 +1827,9 @@ _ZNK6hermes2vm10JSDataView3getItEET_RNS0_7RuntimeEjb.exit.i: ; preds = %if.end31
   %spec.select.i.i.i = select i1 %call19.i, i16 %result.0.copyload.i.i, i16 %rev.i.i.i.i.i.i
   %conv.i.i.i = uitofp i16 %spec.select.i.i.i to double
   %20 = bitcast double %conv.i.i.i to i64
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetItEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetItEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetItEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getItEET_RNS0_7RuntimeEjb.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetItEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getItEET_RNS0_7RuntimeEjb.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call30.i, %if.then28.i ], [ 1, %_ZNK6hermes2vm10JSDataView3getItEET_RNS0_7RuntimeEjb.exit.i ], [ %call24.i, %if.then22.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ]
   %retval.sroa.6.0.i = phi i64 [ undef, %if.then28.i ], [ %20, %_ZNK6hermes2vm10JSDataView3getItEET_RNS0_7RuntimeEjb.exit.i ], [ undef, %if.then22.i ], [ undef, %if.then.i ], [ undef, %if.end.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
@@ -1889,7 +1889,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetItLNS0_8CellKindE40EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetItLNS0_8CellKindE40EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.4.8.copyload, 0
@@ -1898,7 +1898,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetItLNS0_8CellKindE40EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetItLNS0_8CellKindE40EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -1922,7 +1922,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit.i:       ; preds = %cond.true.i.i, %if.
   %8 = extractvalue { i32, i64 } %call27.i, 0
   %9 = extractvalue { i32, i64 } %call27.i, 1
   %cmp.i20.i = icmp eq i32 %8, 0
-  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetItLNS0_8CellKindE40EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end31.i
+  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetItLNS0_8CellKindE40EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
@@ -1950,7 +1950,7 @@ if.then34.i:                                      ; preds = %if.end31.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 8
   store i32 3, ptr %14, align 8
   %call36.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp35.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetItLNS0_8CellKindE40EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetItLNS0_8CellKindE40EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end37.i:                                       ; preds = %if.end31.i
   %15 = bitcast i64 %9 to double
@@ -1994,7 +1994,7 @@ if.then42.i:                                      ; preds = %_ZN6hermes2vm12JSTy
   %17 = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 8
   store i32 3, ptr %17, align 8
   %call44.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp43.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetItLNS0_8CellKindE40EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetItLNS0_8CellKindE40EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end45.i:                                       ; preds = %_ZN6hermes2vm12JSTypedArrayItLNS0_8CellKindE40EE10toDestTypeERKNS0_11HermesValueE.exit.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -2027,9 +2027,9 @@ _ZN6hermes2vm10JSDataView3setItEEvRNS0_7RuntimeEjT_b.exit.i: ; preds = %if.end45
   %idx.ext4.i.i = and i64 %conv.i.i, 4294967295
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.ext4.i.i
   store i16 %spec.select.i.i.i, ptr %add.ptr5.i.i, align 1
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetItLNS0_8CellKindE40EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetItLNS0_8CellKindE40EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetItLNS0_8CellKindE40EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setItEEvRNS0_7RuntimeEjT_b.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetItLNS0_8CellKindE40EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setItEEvRNS0_7RuntimeEjT_b.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call44.i, %if.then42.i ], [ 1, %_ZN6hermes2vm10JSDataView3setItEEvRNS0_7RuntimeEjT_b.exit.i ], [ %call36.i, %if.then34.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ], [ 0, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i32, i64 } %.fca.0.insert.i, i64 -1688849860263936, 1
@@ -2088,7 +2088,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIjEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIjEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.3.8.copyload, 0
@@ -2097,7 +2097,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIjEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIjEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -2139,7 +2139,7 @@ if.then22.i:                                      ; preds = %_ZNK6hermes2vm10Nat
   %12 = getelementptr inbounds i8, ptr %ref.tmp23.i, i64 8
   store i32 3, ptr %12, align 8
   %call24.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp23.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIjEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIjEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end25.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %add.i = add i64 %conv.i.i, 4
@@ -2160,7 +2160,7 @@ if.then28.i:                                      ; preds = %if.end25.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp29.i, i64 8
   store i32 3, ptr %14, align 8
   %call30.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp29.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIjEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIjEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end31.i:                                       ; preds = %if.end25.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -2190,9 +2190,9 @@ _ZNK6hermes2vm10JSDataView3getIjEET_RNS0_7RuntimeEjb.exit.i: ; preds = %if.end31
   %spec.select.i.i.i = select i1 %call19.i, i32 %result.0.copyload.i.i, i32 %20
   %conv.i.i.i = uitofp i32 %spec.select.i.i.i to double
   %21 = bitcast double %conv.i.i.i to i64
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIjEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIjEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIjEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getIjEET_RNS0_7RuntimeEjb.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIjEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getIjEET_RNS0_7RuntimeEjb.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call30.i, %if.then28.i ], [ 1, %_ZNK6hermes2vm10JSDataView3getIjEET_RNS0_7RuntimeEjb.exit.i ], [ %call24.i, %if.then22.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ]
   %retval.sroa.6.0.i = phi i64 [ undef, %if.then28.i ], [ %21, %_ZNK6hermes2vm10JSDataView3getIjEET_RNS0_7RuntimeEjb.exit.i ], [ undef, %if.then22.i ], [ undef, %if.then.i ], [ undef, %if.end.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
@@ -2252,7 +2252,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIjLNS0_8CellKindE41EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIjLNS0_8CellKindE41EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.4.8.copyload, 0
@@ -2261,7 +2261,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIjLNS0_8CellKindE41EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIjLNS0_8CellKindE41EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -2285,7 +2285,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit.i:       ; preds = %cond.true.i.i, %if.
   %8 = extractvalue { i32, i64 } %call27.i, 0
   %9 = extractvalue { i32, i64 } %call27.i, 1
   %cmp.i20.i = icmp eq i32 %8, 0
-  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIjLNS0_8CellKindE41EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end31.i
+  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIjLNS0_8CellKindE41EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
@@ -2313,7 +2313,7 @@ if.then34.i:                                      ; preds = %if.end31.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 8
   store i32 3, ptr %14, align 8
   %call36.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp35.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIjLNS0_8CellKindE41EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIjLNS0_8CellKindE41EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end37.i:                                       ; preds = %if.end31.i
   %15 = bitcast i64 %9 to double
@@ -2356,7 +2356,7 @@ if.then42.i:                                      ; preds = %_ZN6hermes2vm12JSTy
   %17 = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 8
   store i32 3, ptr %17, align 8
   %call44.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp43.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIjLNS0_8CellKindE41EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIjLNS0_8CellKindE41EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end45.i:                                       ; preds = %_ZN6hermes2vm12JSTypedArrayIjLNS0_8CellKindE41EE10toDestTypeERKNS0_11HermesValueE.exit.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -2389,9 +2389,9 @@ _ZN6hermes2vm10JSDataView3setIjEEvRNS0_7RuntimeEjT_b.exit.i: ; preds = %if.end45
   %idx.ext4.i.i = and i64 %conv.i.i, 4294967295
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.ext4.i.i
   store i32 %spec.select.i.i.i, ptr %add.ptr5.i.i, align 1
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIjLNS0_8CellKindE41EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIjLNS0_8CellKindE41EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIjLNS0_8CellKindE41EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setIjEEvRNS0_7RuntimeEjT_b.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIjLNS0_8CellKindE41EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setIjEEvRNS0_7RuntimeEjT_b.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call44.i, %if.then42.i ], [ 1, %_ZN6hermes2vm10JSDataView3setIjEEvRNS0_7RuntimeEjT_b.exit.i ], [ %call36.i, %if.then34.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ], [ 0, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i32, i64 } %.fca.0.insert.i, i64 -1688849860263936, 1
@@ -2450,7 +2450,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIfEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIfEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.3.8.copyload, 0
@@ -2459,7 +2459,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIfEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIfEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -2501,7 +2501,7 @@ if.then22.i:                                      ; preds = %_ZNK6hermes2vm10Nat
   %12 = getelementptr inbounds i8, ptr %ref.tmp23.i, i64 8
   store i32 3, ptr %12, align 8
   %call24.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp23.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIfEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIfEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end25.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %add.i = add i64 %conv.i.i, 4
@@ -2522,7 +2522,7 @@ if.then28.i:                                      ; preds = %if.end25.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp29.i, i64 8
   store i32 3, ptr %14, align 8
   %call30.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp29.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIfEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIfEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end31.i:                                       ; preds = %if.end25.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -2556,9 +2556,9 @@ _ZNK6hermes2vm10JSDataView3getIfEET_RNS0_7RuntimeEjb.exit.i: ; preds = %if.end31
   %23 = fcmp uno float %value.addr.0.i.i.i, 0.000000e+00
   %24 = bitcast double %conv.i39.i to i64
   %retval.sroa.0.0.i.i.i = select i1 %23, i64 9221120237041090560, i64 %24
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIfEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIfEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIfEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getIfEET_RNS0_7RuntimeEjb.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIfEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getIfEET_RNS0_7RuntimeEjb.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call30.i, %if.then28.i ], [ 1, %_ZNK6hermes2vm10JSDataView3getIfEET_RNS0_7RuntimeEjb.exit.i ], [ %call24.i, %if.then22.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ]
   %retval.sroa.6.0.i = phi i64 [ undef, %if.then28.i ], [ %retval.sroa.0.0.i.i.i, %_ZNK6hermes2vm10JSDataView3getIfEET_RNS0_7RuntimeEjb.exit.i ], [ undef, %if.then22.i ], [ undef, %if.then.i ], [ undef, %if.end.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
@@ -2618,7 +2618,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIfLNS0_8CellKindE42EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIfLNS0_8CellKindE42EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.4.8.copyload, 0
@@ -2627,7 +2627,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIfLNS0_8CellKindE42EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIfLNS0_8CellKindE42EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -2651,7 +2651,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit.i:       ; preds = %cond.true.i.i, %if.
   %8 = extractvalue { i32, i64 } %call27.i, 0
   %9 = extractvalue { i32, i64 } %call27.i, 1
   %cmp.i20.i = icmp eq i32 %8, 0
-  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIfLNS0_8CellKindE42EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end31.i
+  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIfLNS0_8CellKindE42EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
@@ -2679,7 +2679,7 @@ if.then34.i:                                      ; preds = %if.end31.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 8
   store i32 3, ptr %14, align 8
   %call36.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp35.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIfLNS0_8CellKindE42EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIfLNS0_8CellKindE42EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end37.i:                                       ; preds = %if.end31.i
   %15 = bitcast i64 %9 to double
@@ -2702,7 +2702,7 @@ if.then42.i:                                      ; preds = %if.end37.i
   %17 = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 8
   store i32 3, ptr %17, align 8
   %call44.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp43.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIfLNS0_8CellKindE42EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIfLNS0_8CellKindE42EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end45.i:                                       ; preds = %if.end37.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -2732,9 +2732,9 @@ _ZN6hermes2vm10JSDataView3setIfEEvRNS0_7RuntimeEjT_b.exit.i: ; preds = %if.end45
   %idx.ext4.i.i = and i64 %conv.i.i, 4294967295
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.ext4.i.i
   store float %value.addr.0.i.i.i, ptr %add.ptr5.i.i, align 1
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIfLNS0_8CellKindE42EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIfLNS0_8CellKindE42EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIfLNS0_8CellKindE42EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setIfEEvRNS0_7RuntimeEjT_b.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIfLNS0_8CellKindE42EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setIfEEvRNS0_7RuntimeEjT_b.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call44.i, %if.then42.i ], [ 1, %_ZN6hermes2vm10JSDataView3setIfEEvRNS0_7RuntimeEjT_b.exit.i ], [ %call36.i, %if.then34.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ], [ 0, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i32, i64 } %.fca.0.insert.i, i64 -1688849860263936, 1
@@ -2793,7 +2793,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIdEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIdEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.3.8.copyload, 0
@@ -2802,7 +2802,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIdEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIdEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -2844,7 +2844,7 @@ if.then22.i:                                      ; preds = %_ZNK6hermes2vm10Nat
   %12 = getelementptr inbounds i8, ptr %ref.tmp23.i, i64 8
   store i32 3, ptr %12, align 8
   %call24.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp23.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIdEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIdEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end25.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %add.i = add i64 %conv.i.i, 8
@@ -2865,7 +2865,7 @@ if.then28.i:                                      ; preds = %if.end25.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp29.i, i64 8
   store i32 3, ptr %14, align 8
   %call30.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp29.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIdEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIdEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end31.i:                                       ; preds = %if.end25.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -2898,9 +2898,9 @@ _ZNK6hermes2vm10JSDataView3getIdEET_RNS0_7RuntimeEjb.exit.i: ; preds = %if.end31
   %23 = fcmp uno double %value.addr.0.i.i.i, 0.000000e+00
   %24 = bitcast double %value.addr.0.i.i.i to i64
   %retval.sroa.0.0.i.i.i = select i1 %23, i64 9221120237041090560, i64 %24
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIdEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIdEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIdEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getIdEET_RNS0_7RuntimeEjb.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIdEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getIdEET_RNS0_7RuntimeEjb.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call30.i, %if.then28.i ], [ 1, %_ZNK6hermes2vm10JSDataView3getIdEET_RNS0_7RuntimeEjb.exit.i ], [ %call24.i, %if.then22.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ]
   %retval.sroa.6.0.i = phi i64 [ undef, %if.then28.i ], [ %retval.sroa.0.0.i.i.i, %_ZNK6hermes2vm10JSDataView3getIdEET_RNS0_7RuntimeEjb.exit.i ], [ undef, %if.then22.i ], [ undef, %if.then.i ], [ undef, %if.end.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
@@ -2960,7 +2960,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIdLNS0_8CellKindE43EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIdLNS0_8CellKindE43EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.4.8.copyload, 0
@@ -2969,7 +2969,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIdLNS0_8CellKindE43EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIdLNS0_8CellKindE43EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -2993,7 +2993,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit.i:       ; preds = %cond.true.i.i, %if.
   %8 = extractvalue { i32, i64 } %call27.i, 0
   %9 = extractvalue { i32, i64 } %call27.i, 1
   %cmp.i20.i = icmp eq i32 %8, 0
-  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIdLNS0_8CellKindE43EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end31.i
+  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIdLNS0_8CellKindE43EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
@@ -3021,7 +3021,7 @@ if.then34.i:                                      ; preds = %if.end31.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 8
   store i32 3, ptr %14, align 8
   %call36.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp35.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIdLNS0_8CellKindE43EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIdLNS0_8CellKindE43EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end37.i:                                       ; preds = %if.end31.i
   %add.i = add i64 %conv.i.i, 8
@@ -3042,7 +3042,7 @@ if.then42.i:                                      ; preds = %if.end37.i
   %16 = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 8
   store i32 3, ptr %16, align 8
   %call44.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp43.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIdLNS0_8CellKindE43EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIdLNS0_8CellKindE43EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end45.i:                                       ; preds = %if.end37.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -3070,9 +3070,9 @@ _ZN6hermes2vm10JSDataView3setIdEEvRNS0_7RuntimeEjT_b.exit.i: ; preds = %if.end45
   %idx.ext4.i.i = and i64 %conv.i.i, 4294967295
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.ext4.i.i
   store i64 %value.addr.0.i.i.v.i, ptr %add.ptr5.i.i, align 1
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIdLNS0_8CellKindE43EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIdLNS0_8CellKindE43EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIdLNS0_8CellKindE43EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setIdEEvRNS0_7RuntimeEjT_b.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIdLNS0_8CellKindE43EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setIdEEvRNS0_7RuntimeEjT_b.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call44.i, %if.then42.i ], [ 1, %_ZN6hermes2vm10JSDataView3setIdEEvRNS0_7RuntimeEjT_b.exit.i ], [ %call36.i, %if.then34.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ], [ 0, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i32, i64 } %.fca.0.insert.i, i64 -1688849860263936, 1
@@ -3132,7 +3132,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIlEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIlEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.3.8.copyload, 0
@@ -3141,7 +3141,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIlEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIlEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -3183,7 +3183,7 @@ if.then22.i:                                      ; preds = %_ZNK6hermes2vm10Nat
   %12 = getelementptr inbounds i8, ptr %ref.tmp23.i, i64 8
   store i32 3, ptr %12, align 8
   %call24.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp23.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIlEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIlEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end25.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %add.i = add i64 %conv.i.i, 8
@@ -3204,7 +3204,7 @@ if.then28.i:                                      ; preds = %if.end25.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp29.i, i64 8
   store i32 3, ptr %14, align 8
   %call30.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp29.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIlEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIlEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end31.i:                                       ; preds = %if.end25.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -3238,9 +3238,9 @@ _ZNK6hermes2vm10JSDataView3getIlEET_RNS0_7RuntimeEjb.exit.i: ; preds = %if.end31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.addr.i.i.i)
   %21 = extractvalue { i32, i64 } %call1.i.i.i, 0
   %22 = extractvalue { i32, i64 } %call1.i.i.i, 1
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIlEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIlEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIlEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getIlEET_RNS0_7RuntimeEjb.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetIlEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getIlEET_RNS0_7RuntimeEjb.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call30.i, %if.then28.i ], [ %21, %_ZNK6hermes2vm10JSDataView3getIlEET_RNS0_7RuntimeEjb.exit.i ], [ %call24.i, %if.then22.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ]
   %retval.sroa.6.0.i = phi i64 [ undef, %if.then28.i ], [ %22, %_ZNK6hermes2vm10JSDataView3getIlEET_RNS0_7RuntimeEjb.exit.i ], [ undef, %if.then22.i ], [ undef, %if.then.i ], [ undef, %if.end.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
@@ -3302,7 +3302,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIlLNS0_8CellKindE44EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIlLNS0_8CellKindE44EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.4.8.copyload, 0
@@ -3312,7 +3312,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %6 = getelementptr inbounds i8, ptr %res.i, i64 8
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIlLNS0_8CellKindE44EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIlLNS0_8CellKindE44EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %7 = extractvalue { i32, i64 } %call9.i, 1
@@ -3338,7 +3338,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit.i:       ; preds = %cond.true.i.i, %if.
   store i32 %9, ptr %res.i, align 8
   store i64 %10, ptr %6, align 8
   %cmp.i20.i = icmp eq i32 %9, 0
-  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIlLNS0_8CellKindE44EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end31.i
+  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIlLNS0_8CellKindE44EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
@@ -3366,7 +3366,7 @@ if.then34.i:                                      ; preds = %if.end31.i
   %15 = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 8
   store i32 3, ptr %15, align 8
   %call36.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp35.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIlLNS0_8CellKindE44EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIlLNS0_8CellKindE44EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end37.i:                                       ; preds = %if.end31.i
   %call39.i = call noundef i64 @_ZN6hermes2vm12JSTypedArrayIlLNS0_8CellKindE44EE10toDestTypeERKNS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
@@ -3391,7 +3391,7 @@ if.then42.i:                                      ; preds = %if.end37.i
   %18 = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 8
   store i32 3, ptr %18, align 8
   %call44.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp43.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIlLNS0_8CellKindE44EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIlLNS0_8CellKindE44EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end45.i:                                       ; preds = %if.end37.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -3424,9 +3424,9 @@ _ZN6hermes2vm10JSDataView3setIlEEvRNS0_7RuntimeEjT_b.exit.i: ; preds = %if.end45
   %idx.ext4.i.i = and i64 %conv.i.i, 4294967295
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.ext4.i.i
   store i64 %spec.select.i.i.i, ptr %add.ptr5.i.i, align 1
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIlLNS0_8CellKindE44EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIlLNS0_8CellKindE44EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIlLNS0_8CellKindE44EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setIlEEvRNS0_7RuntimeEjT_b.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetIlLNS0_8CellKindE44EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setIlEEvRNS0_7RuntimeEjT_b.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call44.i, %if.then42.i ], [ 1, %_ZN6hermes2vm10JSDataView3setIlEEvRNS0_7RuntimeEjT_b.exit.i ], [ %call36.i, %if.then34.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ], [ 0, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i32, i64 } %.fca.0.insert.i, i64 -1688849860263936, 1
@@ -3487,7 +3487,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetImEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetImEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.3.8.copyload, 0
@@ -3496,7 +3496,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %call9.i = tail call { i32, i64 } @_ZN6hermes2vm7toIndexERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr nonnull %retval.sroa.0.0.i9.i) #6
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetImEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetImEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %6 = extractvalue { i32, i64 } %call9.i, 1
@@ -3538,7 +3538,7 @@ if.then22.i:                                      ; preds = %_ZNK6hermes2vm10Nat
   %12 = getelementptr inbounds i8, ptr %ref.tmp23.i, i64 8
   store i32 3, ptr %12, align 8
   %call24.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp23.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetImEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetImEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end25.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %add.i = add i64 %conv.i.i, 8
@@ -3559,7 +3559,7 @@ if.then28.i:                                      ; preds = %if.end25.i
   %14 = getelementptr inbounds i8, ptr %ref.tmp29.i, i64 8
   store i32 3, ptr %14, align 8
   %call30.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp29.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetImEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetImEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end31.i:                                       ; preds = %if.end25.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -3595,9 +3595,9 @@ _ZNK6hermes2vm10JSDataView3getImEET_RNS0_7RuntimeEjb.exit.i: ; preds = %if.end31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i.i.i)
   %21 = extractvalue { i32, i64 } %call1.i.i.i, 0
   %22 = extractvalue { i32, i64 } %call1.i.i.i, 1
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetImEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetImEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetImEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getImEET_RNS0_7RuntimeEjb.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeGetImEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %if.then22.i, %if.then28.i, %_ZNK6hermes2vm10JSDataView3getImEET_RNS0_7RuntimeEjb.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call30.i, %if.then28.i ], [ %21, %_ZNK6hermes2vm10JSDataView3getImEET_RNS0_7RuntimeEjb.exit.i ], [ %call24.i, %if.then22.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ]
   %retval.sroa.6.0.i = phi i64 [ undef, %if.then28.i ], [ %22, %_ZNK6hermes2vm10JSDataView3getImEET_RNS0_7RuntimeEjb.exit.i ], [ undef, %if.then22.i ], [ undef, %if.then.i ], [ undef, %if.end.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
@@ -3659,7 +3659,7 @@ if.then.i:                                        ; preds = %_ZNK6hermes2vm10Nat
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call3.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetImLNS0_8CellKindE45EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetImLNS0_8CellKindE45EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_10JSDataViewEEENS0_6HandleIT_EEv.exit.i
   %cmp.i.not.i = icmp eq i32 %agg.tmp.sroa.4.8.copyload, 0
@@ -3669,7 +3669,7 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm10Nat
   %5 = extractvalue { i32, i64 } %call9.i, 0
   %6 = getelementptr inbounds i8, ptr %res.i, i64 8
   %cmp.i10.i = icmp eq i32 %5, 0
-  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetImLNS0_8CellKindE45EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end12.i
+  br i1 %cmp.i10.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetImLNS0_8CellKindE45EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %7 = extractvalue { i32, i64 } %call9.i, 1
@@ -3695,7 +3695,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit.i:       ; preds = %cond.true.i.i, %if.
   store i32 %9, ptr %res.i, align 8
   store i64 %10, ptr %6, align 8
   %cmp.i20.i = icmp eq i32 %9, 0
-  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetImLNS0_8CellKindE45EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit, label %if.end31.i
+  br i1 %cmp.i20.i, label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetImLNS0_8CellKindE45EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
@@ -3723,7 +3723,7 @@ if.then34.i:                                      ; preds = %if.end31.i
   %15 = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 8
   store i32 3, ptr %15, align 8
   %call36.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp35.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetImLNS0_8CellKindE45EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetImLNS0_8CellKindE45EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end37.i:                                       ; preds = %if.end31.i
   %call39.i = call noundef i64 @_ZN6hermes2vm12JSTypedArrayImLNS0_8CellKindE45EE10toDestTypeERKNS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
@@ -3748,7 +3748,7 @@ if.then42.i:                                      ; preds = %if.end37.i
   %18 = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 8
   store i32 3, ptr %18, align 8
   %call44.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %rt, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp43.i) #6
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetImLNS0_8CellKindE45EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetImLNS0_8CellKindE45EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
 if.end45.i:                                       ; preds = %if.end37.i
   %hasArrayBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 9092
@@ -3781,9 +3781,9 @@ _ZN6hermes2vm10JSDataView3setImEEvRNS0_7RuntimeEjT_b.exit.i: ; preds = %if.end45
   %idx.ext4.i.i = and i64 %conv.i.i, 4294967295
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.ext4.i.i
   store i64 %spec.select.i.i.i, ptr %add.ptr5.i.i, align 1
-  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetImLNS0_8CellKindE45EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetImLNS0_8CellKindE45EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit
 
-_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetImLNS0_8CellKindE45EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setImEEvRNS0_7RuntimeEjT_b.exit.i
+_ZN6hermes2vm12_GLOBAL__N_120dataViewPrototypeSetImLNS0_8CellKindE45EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsE.argprom.exit: ; preds = %if.then.i, %if.end.i, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i, %if.then34.i, %if.then42.i, %_ZN6hermes2vm10JSDataView3setImEEvRNS0_7RuntimeEjT_b.exit.i
   %retval.sroa.0.0.i = phi i32 [ %call44.i, %if.then42.i ], [ 1, %_ZN6hermes2vm10JSDataView3setImEEvRNS0_7RuntimeEjT_b.exit.i ], [ %call36.i, %if.then34.i ], [ %call3.i, %if.then.i ], [ 0, %if.end.i ], [ 0, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit.i ]
   %.fca.0.insert.i = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i32, i64 } %.fca.0.insert.i, i64 -1688849860263936, 1

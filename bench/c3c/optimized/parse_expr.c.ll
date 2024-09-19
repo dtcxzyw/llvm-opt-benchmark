@@ -4160,7 +4160,7 @@ define internal ptr @parse_call_expr(ptr noundef %0, ptr noundef %1) #1 {
 
 18:                                               ; preds = %16
   %.val = load i32, ptr %7, align 8
-  switch i32 %.val, label %parse_next_may_be_type_or_ident.exit [
+  switch i32 %.val, label %parse_next_may_be_type_or_ident.argprom.exit [
     i32 65, label %22
     i32 64, label %22
     i32 71, label %22
@@ -4198,7 +4198,7 @@ define internal ptr @parse_call_expr(ptr noundef %0, ptr noundef %1) #1 {
     i32 177, label %22
   ]
 
-parse_next_may_be_type_or_ident.exit:             ; preds = %18
+parse_next_may_be_type_or_ident.argprom.exit:     ; preds = %18
   %19 = getelementptr inbounds i8, ptr %0, i64 56
   %20 = load i64, ptr %19, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %20, ptr noundef nonnull @.str.25) #8
@@ -4437,8 +4437,8 @@ extend_span_with_token.exit:                      ; preds = %58, %59
   store i32 %146, ptr %147, align 4
   br label %148
 
-148:                                              ; preds = %.critedge.thread, %.critedge, %133, %109, %104, %98, %86, %.outer._crit_edge, %72, %29, %24, %parse_next_may_be_type_or_ident.exit, %14
-  %.0 = phi ptr [ %113, %109 ], [ %102, %98 ], [ %108, %104 ], [ %90, %86 ], [ %134, %133 ], [ %77, %.outer._crit_edge ], [ %75, %72 ], [ %32, %29 ], [ %25, %24 ], [ %21, %parse_next_may_be_type_or_ident.exit ], [ %15, %14 ], [ %36, %.critedge ], [ %36, %.critedge.thread ]
+148:                                              ; preds = %.critedge.thread, %.critedge, %133, %109, %104, %98, %86, %.outer._crit_edge, %72, %29, %24, %parse_next_may_be_type_or_ident.argprom.exit, %14
+  %.0 = phi ptr [ %113, %109 ], [ %102, %98 ], [ %108, %104 ], [ %90, %86 ], [ %134, %133 ], [ %77, %.outer._crit_edge ], [ %75, %72 ], [ %32, %29 ], [ %25, %24 ], [ %21, %parse_next_may_be_type_or_ident.argprom.exit ], [ %15, %14 ], [ %36, %.critedge ], [ %36, %.critedge.thread ]
   ret ptr %.0
 }
 

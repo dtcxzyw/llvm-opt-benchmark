@@ -13360,7 +13360,7 @@ invoke.cont53:                                    ; preds = %call.i.i.i.noexc
   store ptr @.str.28, ptr %ref.tmp55, align 8
   %size_.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 8
   store i64 0, ptr %size_.i, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp54, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp55, i8 noundef zeroext %cond, ptr noundef nonnull %mem_kv_prot_info)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE.argelim(ptr noalias align 8 %ref.tmp54, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp55, i8 noundef zeroext %cond, ptr noundef nonnull %mem_kv_prot_info)
           to label %invoke.cont57 unwind label %lpad
 
 invoke.cont57:                                    ; preds = %invoke.cont53
@@ -13420,7 +13420,7 @@ if.else59:                                        ; preds = %cond.end
   store ptr @.str.28, ptr %ref.tmp61, align 8
   %size_.i78 = getelementptr inbounds i8, ptr %ref.tmp61, i64 8
   store i64 0, ptr %size_.i78, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp60, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp61, i8 noundef zeroext %cond, ptr noundef null)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE.argelim(ptr noalias align 8 %ref.tmp60, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp61, i8 noundef zeroext %cond, ptr noundef null)
           to label %invoke.cont63 unwind label %lpad
 
 invoke.cont63:                                    ; preds = %if.else59
@@ -13836,7 +13836,7 @@ invoke.cont36:                                    ; preds = %invoke.cont33
   store ptr @.str.28, ptr %ref.tmp42, align 8
   %size_.i = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
   store i64 0, ptr %size_.i, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp41, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp42, i8 noundef zeroext 7, ptr noundef nonnull %mem_kv_prot_info)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE.argelim(ptr noalias align 8 %ref.tmp41, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp42, i8 noundef zeroext 7, ptr noundef nonnull %mem_kv_prot_info)
           to label %invoke.cont44 unwind label %lpad
 
 invoke.cont44:                                    ; preds = %invoke.cont36
@@ -13896,7 +13896,7 @@ if.else46:                                        ; preds = %if.end29
   store ptr @.str.28, ptr %ref.tmp48, align 8
   %size_.i71 = getelementptr inbounds i8, ptr %ref.tmp48, i64 8
   store i64 0, ptr %size_.i71, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp47, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp48, i8 noundef zeroext 7, ptr noundef null)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE.argelim(ptr noalias align 8 %ref.tmp47, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp48, i8 noundef zeroext 7, ptr noundef null)
           to label %invoke.cont50 unwind label %lpad
 
 invoke.cont50:                                    ; preds = %if.else46
@@ -14518,7 +14518,7 @@ invoke.cont110:                                   ; preds = %invoke.cont107
   %xor.i80 = xor i64 %xor.i, %call.i.i7981
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sequence_number.addr.i)
   store i64 %xor.i80, ptr %mem_kv_prot_info, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp115, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %begin_key, ptr noundef nonnull align 8 dereferenceable(16) %end_key, i8 noundef zeroext 15, ptr noundef nonnull %mem_kv_prot_info)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE.argelim(ptr noalias align 8 %ref.tmp115, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %begin_key, ptr noundef nonnull align 8 dereferenceable(16) %end_key, i8 noundef zeroext 15, ptr noundef nonnull %mem_kv_prot_info)
           to label %invoke.cont116 unwind label %lpad
 
 invoke.cont116:                                   ; preds = %invoke.cont110
@@ -14567,7 +14567,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit101:                ; preds = %invoke.cont116
   br i1 %cmp.not.i.i103, label %if.end122, label %if.end122.sink.split
 
 if.else118:                                       ; preds = %if.end103
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp119, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %begin_key, ptr noundef nonnull align 8 dereferenceable(16) %end_key, i8 noundef zeroext 15, ptr noundef null)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE.argelim(ptr noalias align 8 %ref.tmp119, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %begin_key, ptr noundef nonnull align 8 dereferenceable(16) %end_key, i8 noundef zeroext 15, ptr noundef null)
           to label %invoke.cont120 unwind label %lpad
 
 invoke.cont120:                                   ; preds = %if.else118
@@ -19998,7 +19998,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext range(i8 0, 21) %delete_type, ptr noundef %kv_prot_info) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE.argelim(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext range(i8 0, 21) %delete_type, ptr noundef %kv_prot_info) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mem.addr.i = alloca ptr, align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
@@ -21616,7 +21616,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %tobool.not.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i, label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit, label %if.then.i
+  br i1 %tobool.not.i, label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %op_type.addr.i.i), !noalias !212
@@ -21637,9 +21637,9 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %column_family_id.addr.i.i), !noalias !212
   store i64 %xor.i2.i, ptr %ref.tmp.i, align 8, !noalias !212
   call void @_ZN7rocksdb10autovectorINS_18ProtectionInfoKVOCImEELm8EE12emplace_backIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(104) %this.val, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i), !noalias !212
-  br label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit
+  br label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit
 
-_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit: ; preds = %entry, %if.then.i
+_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit: ; preds = %entry, %if.then.i
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !215
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !215
@@ -21661,7 +21661,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %tobool.not.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i, label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit, label %if.then.i
+  br i1 %tobool.not.i, label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %op_type.addr.i.i), !noalias !218
@@ -21682,9 +21682,9 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %column_family_id.addr.i.i), !noalias !218
   store i64 %xor.i2.i, ptr %ref.tmp.i, align 8, !noalias !218
   call void @_ZN7rocksdb10autovectorINS_18ProtectionInfoKVOCImEELm8EE12emplace_backIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(104) %this.val, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i), !noalias !218
-  br label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit
+  br label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit
 
-_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit: ; preds = %entry, %if.then.i
+_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit: ; preds = %entry, %if.then.i
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !221
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !221
@@ -21706,7 +21706,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %tobool.not.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i, label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit, label %if.then.i
+  br i1 %tobool.not.i, label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %op_type.addr.i.i), !noalias !224
@@ -21724,9 +21724,9 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %column_family_id.addr.i.i), !noalias !224
   store i64 %xor.i2.i, ptr %ref.tmp.i, align 8, !noalias !224
   call void @_ZN7rocksdb10autovectorINS_18ProtectionInfoKVOCImEELm8EE12emplace_backIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(104) %this.val, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i), !noalias !224
-  br label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit
+  br label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit
 
-_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit: ; preds = %entry, %if.then.i
+_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit: ; preds = %entry, %if.then.i
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !227
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !227
@@ -21748,7 +21748,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %tobool.not.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i, label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit, label %if.then.i
+  br i1 %tobool.not.i, label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %op_type.addr.i.i), !noalias !230
@@ -21766,9 +21766,9 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %column_family_id.addr.i.i), !noalias !230
   store i64 %xor.i2.i, ptr %ref.tmp.i, align 8, !noalias !230
   call void @_ZN7rocksdb10autovectorINS_18ProtectionInfoKVOCImEELm8EE12emplace_backIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(104) %this.val, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i), !noalias !230
-  br label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit
+  br label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit
 
-_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit: ; preds = %entry, %if.then.i
+_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit: ; preds = %entry, %if.then.i
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !233
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !233
@@ -21790,7 +21790,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %tobool.not.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i, label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit, label %if.then.i
+  br i1 %tobool.not.i, label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %op_type.addr.i.i), !noalias !236
@@ -21811,9 +21811,9 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %column_family_id.addr.i.i), !noalias !236
   store i64 %xor.i2.i, ptr %ref.tmp.i, align 8, !noalias !236
   call void @_ZN7rocksdb10autovectorINS_18ProtectionInfoKVOCImEELm8EE12emplace_backIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(104) %this.val, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i), !noalias !236
-  br label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit
+  br label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit
 
-_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit: ; preds = %entry, %if.then.i
+_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit: ; preds = %entry, %if.then.i
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !239
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !239
@@ -21835,7 +21835,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %tobool.not.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i, label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit, label %if.then.i
+  br i1 %tobool.not.i, label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %op_type.addr.i.i), !noalias !242
@@ -21856,9 +21856,9 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %column_family_id.addr.i.i), !noalias !242
   store i64 %xor.i2.i, ptr %ref.tmp.i, align 8, !noalias !242
   call void @_ZN7rocksdb10autovectorINS_18ProtectionInfoKVOCImEELm8EE12emplace_backIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(104) %this.val, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i), !noalias !242
-  br label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit
+  br label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit
 
-_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit: ; preds = %entry, %if.then.i
+_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit: ; preds = %entry, %if.then.i
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !245
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !245
@@ -21880,7 +21880,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %tobool.not.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i, label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit, label %if.then.i
+  br i1 %tobool.not.i, label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %op_type.addr.i.i), !noalias !248
@@ -21901,9 +21901,9 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %column_family_id.addr.i.i), !noalias !248
   store i64 %xor.i2.i, ptr %ref.tmp.i, align 8, !noalias !248
   call void @_ZN7rocksdb10autovectorINS_18ProtectionInfoKVOCImEELm8EE12emplace_backIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(104) %this.val, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i), !noalias !248
-  br label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit
+  br label %_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit
 
-_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.exit: ; preds = %entry, %if.then.i
+_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom.exit: ; preds = %entry, %if.then.i
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !251
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !251
@@ -23052,44 +23052,44 @@ attributes #30 = { nounwind willreturn memory(read) }
 !210 = distinct !{!210, !5}
 !211 = distinct !{!211, !5}
 !212 = !{!213}
-!213 = distinct !{!213, !214, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE: %agg.result"}
-!214 = distinct !{!214, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE"}
+!213 = distinct !{!213, !214, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom: %agg.result"}
+!214 = distinct !{!214, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom"}
 !215 = !{!216, !213}
 !216 = distinct !{!216, !217, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !217 = distinct !{!217, !"_ZN7rocksdb6Status2OKEv"}
 !218 = !{!219}
-!219 = distinct !{!219, !220, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE: %agg.result"}
-!220 = distinct !{!220, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE"}
+!219 = distinct !{!219, !220, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom: %agg.result"}
+!220 = distinct !{!220, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom"}
 !221 = !{!222, !219}
 !222 = distinct !{!222, !223, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !223 = distinct !{!223, !"_ZN7rocksdb6Status2OKEv"}
 !224 = !{!225}
-!225 = distinct !{!225, !226, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE: %agg.result"}
-!226 = distinct !{!226, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE"}
+!225 = distinct !{!225, !226, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom: %agg.result"}
+!226 = distinct !{!226, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom"}
 !227 = !{!228, !225}
 !228 = distinct !{!228, !229, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !229 = distinct !{!229, !"_ZN7rocksdb6Status2OKEv"}
 !230 = !{!231}
-!231 = distinct !{!231, !232, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE: %agg.result"}
-!232 = distinct !{!232, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE"}
+!231 = distinct !{!231, !232, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom: %agg.result"}
+!232 = distinct !{!232, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom"}
 !233 = !{!234, !231}
 !234 = distinct !{!234, !235, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !235 = distinct !{!235, !"_ZN7rocksdb6Status2OKEv"}
 !236 = !{!237}
-!237 = distinct !{!237, !238, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE: %agg.result"}
-!238 = distinct !{!238, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE"}
+!237 = distinct !{!237, !238, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom: %agg.result"}
+!238 = distinct !{!238, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom"}
 !239 = !{!240, !237}
 !240 = distinct !{!240, !241, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !241 = distinct !{!241, !"_ZN7rocksdb6Status2OKEv"}
 !242 = !{!243}
-!243 = distinct !{!243, !244, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE: %agg.result"}
-!244 = distinct !{!244, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE"}
+!243 = distinct !{!243, !244, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom: %agg.result"}
+!244 = distinct !{!244, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom"}
 !245 = !{!246, !243}
 !246 = distinct !{!246, !247, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !247 = distinct !{!247, !"_ZN7rocksdb6Status2OKEv"}
 !248 = !{!249}
-!249 = distinct !{!249, !250, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE: %agg.result"}
-!250 = distinct !{!250, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE"}
+!249 = distinct !{!249, !250, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom: %agg.result"}
+!250 = distinct !{!250, !"_ZN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdater14UpdateProtInfoEjRKNS_5SliceES4_NS_9ValueTypeE.argprom"}
 !251 = !{!252, !249}
 !252 = distinct !{!252, !253, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !253 = distinct !{!253, !"_ZN7rocksdb6Status2OKEv"}

@@ -1849,7 +1849,7 @@ _ZNK12_GLOBAL__N_124RenameIndependentSubregs10distributeERKN4llvm12IntEqClassesE
   %826 = load ptr, ptr %825, align 8
   %827 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #14
   %.not72.i.i = icmp eq i64 %827, 0
-  br i1 %.not72.i.i, label %_ZNK12_GLOBAL__N_124RenameIndependentSubregs25computeMainRangesFixFlagsERKN4llvm12IntEqClassesERKNS1_15SmallVectorImplINS0_12SubRangeInfoEEERKNS5_IPNS1_12LiveIntervalEEE.exit.i, label %.lr.ph70.i.i
+  br i1 %.not72.i.i, label %_ZNK12_GLOBAL__N_124RenameIndependentSubregs25computeMainRangesFixFlagsERKN4llvm12IntEqClassesERKNS1_15SmallVectorImplINS0_12SubRangeInfoEEERKNS5_IPNS1_12LiveIntervalEEE.argprom.exit.i, label %.lr.ph70.i.i
 
 .lr.ph70.i.i:                                     ; preds = %_ZNK12_GLOBAL__N_124RenameIndependentSubregs10distributeERKN4llvm12IntEqClassesERKNS1_15SmallVectorImplINS0_12SubRangeInfoEEERKNS5_IPNS1_12LiveIntervalEEE.exit.i
   %828 = getelementptr inbounds nuw i8, ptr %826, i64 288
@@ -1955,8 +1955,8 @@ _ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit.i.i: ; preds = %_ZNK
   %.not54.i.i = icmp eq i64 %881, 0
   br i1 %.not54.i.i, label %.loopexit.i71.i, label %.lr.ph56.i.i
 
-.lr.ph56.i.i:                                     ; preds = %_ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit.i.i, %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit.i.i
-  %.08555.i.i = phi ptr [ %1060, %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit.i.i ], [ %880, %_ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit.i.i ]
+.lr.ph56.i.i:                                     ; preds = %_ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit.i.i, %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit.i.i
+  %.08555.i.i = phi ptr [ %1060, %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit.i.i ], [ %880, %_ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit.i.i ]
   %883 = load ptr, ptr %.08555.i.i, align 8
   %884 = getelementptr inbounds nuw i8, ptr %883, i64 24
   %885 = load i32, ptr %884, align 8
@@ -2022,7 +2022,7 @@ _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i.i.i: ; preds = %910
   %923 = load i32, ptr %906, align 8
   %924 = or i32 %923, %909
   %.not.i95.i.i = icmp ugt i32 %922, %924
-  br i1 %.not.i95.i.i, label %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i.i.i, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit.i.i
+  br i1 %.not.i95.i.i, label %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i.i.i, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit.i.i
 
 _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i.i.i: ; preds = %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i.i.i, %910
   %925 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i.i, i64 104
@@ -2230,7 +2230,7 @@ _ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15M
 ._crit_edge.i123.i:                               ; preds = %_ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE.exit.i.i, %_ZN4llvm8DebugLocD2Ev.exit.i.i
   %.sroa.012.0.lcssa.i.i = phi i64 [ %962, %_ZN4llvm8DebugLocD2Ev.exit.i.i ], [ %966, %_ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE.exit.i.i ]
   %1017 = icmp eq i64 %.sroa.012.0.lcssa.i.i, 0
-  br i1 %1017, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit.i.i, label %1018
+  br i1 %1017, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit.i.i, label %1018
 
 1018:                                             ; preds = %._crit_edge.i123.i
   %1019 = load i64, ptr %830, align 8
@@ -2306,14 +2306,14 @@ _ZN4llvm12LiveInterval14createSubRangeERNS_20BumpPtrAllocatorImplINS_15MallocAll
   store ptr %1057, ptr %1058, align 8
   store ptr %.0.i.i.i.i111.i.i, ptr %839, align 8
   %1059 = call noundef ptr @_ZN4llvm9LiveRange13createDeadDefENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr noundef nonnull align 8 dereferenceable(104) %.0.i.i.i.i111.i.i, i64 %960, ptr noundef nonnull align 8 dereferenceable(96) %824) #14
-  br label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit.i.i
+  br label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit.i.i
 
-_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit.i.i: ; preds = %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i.i.i, %_ZN4llvm12LiveInterval14createSubRangeERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEENS_11LaneBitmaskE.exit.i124.i, %._crit_edge.i123.i
+_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit.i.i: ; preds = %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i.i.i, %_ZN4llvm12LiveInterval14createSubRangeERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEENS_11LaneBitmaskE.exit.i124.i, %._crit_edge.i123.i
   %1060 = getelementptr inbounds i8, ptr %.08555.i.i, i64 8
   %.not.i116.i = icmp eq ptr %1060, %882
   br i1 %.not.i116.i, label %.loopexit.i71.i, label %.lr.ph56.i.i
 
-.loopexit.i71.i:                                  ; preds = %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit.i.i, %_ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit.i.i, %.lr.ph58.i.i
+.loopexit.i71.i:                                  ; preds = %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit.i.i, %_ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit.i.i, %.lr.ph58.i.i
   %1061 = add i32 %.08457.i.i, 1
   %1062 = zext i32 %1061 to i64
   %1063 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %840) #14
@@ -2376,12 +2376,12 @@ _ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit.i.i: ; preds = %_Z
   %1085 = and i32 %1083, 1048320
   %1086 = icmp eq i32 %1085, 0
   %or.cond41.i.i = or i1 %.not37.i.i, %1086
-  br i1 %or.cond41.i.i, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit169.i.i.preheader, label %1087
+  br i1 %or.cond41.i.i, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit169.i.i.preheader, label %1087
 
 1087:                                             ; preds = %.lr.ph66.i.i
   %1088 = and i32 %1083, 268435456
   %.not38.i.i = icmp eq i32 %1088, 0
-  br i1 %.not38.i.i, label %1089, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit129.i.i
+  br i1 %.not38.i.i, label %1089, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit129.i.i
 
 1089:                                             ; preds = %1087
   %1090 = load ptr, ptr %40, align 8
@@ -2532,7 +2532,7 @@ _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i123.i.i: ; preds = %1150
   %1163 = load i32, ptr %1146, align 8
   %1164 = or i32 %1163, %1149
   %.not.i125.i.i = icmp ugt i32 %1162, %1164
-  br i1 %.not.i125.i.i, label %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i127.i.i, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit129.loopexit.i.i
+  br i1 %.not.i125.i.i, label %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i127.i.i, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit129.loopexit.i.i
 
 _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i127.i.i: ; preds = %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i123.i.i, %1150
   %1165 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i121.i.i, i64 104
@@ -2548,19 +2548,19 @@ _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i127.i.i: ; preds = %_ZNK4
   %1167 = phi i32 [ %.pre.i.i, %.loopexit43.loopexit.i.i ], [ %1083, %_ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit.i103.i ]
   %1168 = or i32 %1167, 268435456
   store i32 %1168, ptr %.sroa.02.065.i.i, align 8
-  br label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit129.i.i
+  br label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit129.i.i
 
-_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit129.loopexit.i.i: ; preds = %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i123.i.i
+_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit129.loopexit.i.i: ; preds = %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i123.i.i
   %.pre81.i.i = load i32, ptr %.sroa.02.065.i.i, align 8
-  br label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit129.i.i
+  br label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit129.i.i
 
-_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit129.i.i: ; preds = %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit129.loopexit.i.i, %.loopexit43.i.i, %1087
-  %1169 = phi i32 [ %.pre81.i.i, %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit129.loopexit.i.i ], [ %1168, %.loopexit43.i.i ], [ %1083, %1087 ]
+_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit129.i.i: ; preds = %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit129.loopexit.i.i, %.loopexit43.i.i, %1087
+  %1169 = phi i32 [ %.pre81.i.i, %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit129.loopexit.i.i ], [ %1168, %.loopexit43.i.i ], [ %1083, %1087 ]
   %1170 = and i32 %1169, 83886080
   %1171 = icmp eq i32 %1170, 83886080
-  br i1 %1171, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit169.i.i.preheader, label %1172
+  br i1 %1171, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit169.i.i.preheader, label %1172
 
-1172:                                             ; preds = %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit129.i.i
+1172:                                             ; preds = %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit129.i.i
   %1173 = load ptr, ptr %40, align 8
   %1174 = getelementptr inbounds nuw i8, ptr %.sroa.02.065.i.i, i64 8
   %1175 = load ptr, ptr %1174, align 8
@@ -2707,7 +2707,7 @@ _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i163.i.i: ; preds = %1231
   %1244 = load i32, ptr %1230, align 8
   %1245 = or i32 %1244, 3
   %.not.i165.i.i = icmp ugt i32 %1243, %1245
-  br i1 %.not.i165.i.i, label %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i167.i.i, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit169.i.i.preheader
+  br i1 %.not.i165.i.i, label %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i167.i.i, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit169.i.i.preheader
 
 _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i167.i.i: ; preds = %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i163.i.i, %1231
   %1246 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i161.i.i, i64 104
@@ -2723,24 +2723,24 @@ _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread.i167.i.i: ; preds = %_ZNK4
   %1248 = phi i32 [ %.pre82.i.i, %.loopexit42.loopexit.i.i ], [ %1169, %_ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit157.i.i ]
   %1249 = or i32 %1248, 67108864
   store i32 %1249, ptr %.sroa.02.065.i.i, align 8
-  br label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit169.i.i.preheader
+  br label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit169.i.i.preheader
 
-_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit169.i.i.preheader: ; preds = %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i163.i.i, %.loopexit42.i.i, %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit129.i.i, %.lr.ph66.i.i
-  br label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit169.i.i
+_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit169.i.i.preheader: ; preds = %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.i163.i.i, %.loopexit42.i.i, %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit129.i.i, %.lr.ph66.i.i
+  br label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit169.i.i
 
-_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit169.i.i: ; preds = %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit169.i.i.preheader, %1250
-  %.pn.i.i.i76.i = phi ptr [ %storemerge.i.i.i78.i, %1250 ], [ %.sroa.02.065.i.i, %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit169.i.i.preheader ]
+_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit169.i.i: ; preds = %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit169.i.i.preheader, %1250
+  %.pn.i.i.i76.i = phi ptr [ %storemerge.i.i.i78.i, %1250 ], [ %.sroa.02.065.i.i, %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit169.i.i.preheader ]
   %storemerge.in.i.i.i77.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i76.i, i64 24
   %storemerge.i.i.i78.i = load ptr, ptr %storemerge.in.i.i.i77.i, align 8
   %.not.i.i170.i.i = icmp eq ptr %storemerge.i.i.i78.i, null
   br i1 %.not.i.i170.i.i, label %._crit_edge67.i.i, label %1250
 
-1250:                                             ; preds = %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit169.i.i
+1250:                                             ; preds = %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit169.i.i
   %1251 = load i32, ptr %storemerge.i.i.i78.i, align 8
   %1252 = icmp slt i32 %1251, 0
-  br i1 %1252, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit169.i.i, label %.lr.ph66.i.loopexit.i, !llvm.loop !7
+  br i1 %1252, label %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit169.i.i, label %.lr.ph66.i.loopexit.i, !llvm.loop !7
 
-._crit_edge67.i.i:                                ; preds = %.preheader.i.i.i.i107.i, %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit169.i.i, %._crit_edge63.i.i
+._crit_edge67.i.i:                                ; preds = %.preheader.i.i.i.i107.i, %_ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.argprom.exit169.i.i, %._crit_edge63.i.i
   %1253 = icmp eq i64 %.068.i.i, 0
   br i1 %1253, label %1254, label %1260
 
@@ -2761,9 +2761,9 @@ _ZL14subRangeLiveAtRKN4llvm12LiveIntervalENS_9SlotIndexE.exit169.i.i: ; preds = 
   %1263 = call noundef zeroext i1 @_ZN4llvm13LiveIntervals12shrinkToUsesEPNS_12LiveIntervalEPNS_15SmallVectorImplIPNS_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(440) %1262, ptr noundef nonnull %837, ptr noundef null) #14
   %1264 = add nuw i64 %.068.i.i, 1
   %exitcond.not.i79.i = icmp eq i64 %1264, %827
-  br i1 %exitcond.not.i79.i, label %_ZNK12_GLOBAL__N_124RenameIndependentSubregs25computeMainRangesFixFlagsERKN4llvm12IntEqClassesERKNS1_15SmallVectorImplINS0_12SubRangeInfoEEERKNS5_IPNS1_12LiveIntervalEEE.exit.i, label %834, !llvm.loop !24
+  br i1 %exitcond.not.i79.i, label %_ZNK12_GLOBAL__N_124RenameIndependentSubregs25computeMainRangesFixFlagsERKN4llvm12IntEqClassesERKNS1_15SmallVectorImplINS0_12SubRangeInfoEEERKNS5_IPNS1_12LiveIntervalEEE.argprom.exit.i, label %834, !llvm.loop !24
 
-_ZNK12_GLOBAL__N_124RenameIndependentSubregs25computeMainRangesFixFlagsERKN4llvm12IntEqClassesERKNS1_15SmallVectorImplINS0_12SubRangeInfoEEERKNS5_IPNS1_12LiveIntervalEEE.exit.i: ; preds = %1260, %_ZNK12_GLOBAL__N_124RenameIndependentSubregs10distributeERKN4llvm12IntEqClassesERKNS1_15SmallVectorImplINS0_12SubRangeInfoEEERKNS5_IPNS1_12LiveIntervalEEE.exit.i
+_ZNK12_GLOBAL__N_124RenameIndependentSubregs25computeMainRangesFixFlagsERKN4llvm12IntEqClassesERKNS1_15SmallVectorImplINS0_12SubRangeInfoEEERKNS5_IPNS1_12LiveIntervalEEE.argprom.exit.i: ; preds = %1260, %_ZNK12_GLOBAL__N_124RenameIndependentSubregs10distributeERKN4llvm12IntEqClassesERKNS1_15SmallVectorImplINS0_12SubRangeInfoEEERKNS5_IPNS1_12LiveIntervalEEE.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -2772,12 +2772,12 @@ _ZNK12_GLOBAL__N_124RenameIndependentSubregs25computeMainRangesFixFlagsERKN4llvm
   %1267 = icmp eq ptr %1266, %61
   br i1 %1267, label %_ZN4llvm11SmallVectorIPNS_12LiveIntervalELj4EED2Ev.exit.i, label %1268
 
-1268:                                             ; preds = %_ZNK12_GLOBAL__N_124RenameIndependentSubregs25computeMainRangesFixFlagsERKN4llvm12IntEqClassesERKNS1_15SmallVectorImplINS0_12SubRangeInfoEEERKNS5_IPNS1_12LiveIntervalEEE.exit.i
+1268:                                             ; preds = %_ZNK12_GLOBAL__N_124RenameIndependentSubregs25computeMainRangesFixFlagsERKN4llvm12IntEqClassesERKNS1_15SmallVectorImplINS0_12SubRangeInfoEEERKNS5_IPNS1_12LiveIntervalEEE.argprom.exit.i
   call void @free(ptr noundef %1266) #14
   br label %_ZN4llvm11SmallVectorIPNS_12LiveIntervalELj4EED2Ev.exit.i
 
-_ZN4llvm11SmallVectorIPNS_12LiveIntervalELj4EED2Ev.exit.i: ; preds = %1268, %_ZNK12_GLOBAL__N_124RenameIndependentSubregs25computeMainRangesFixFlagsERKN4llvm12IntEqClassesERKNS1_15SmallVectorImplINS0_12SubRangeInfoEEERKNS5_IPNS1_12LiveIntervalEEE.exit.i, %_ZNK12_GLOBAL__N_124RenameIndependentSubregs14findComponentsERN4llvm12IntEqClassesERNS1_15SmallVectorImplINS0_12SubRangeInfoEEERNS1_12LiveIntervalE.exit.i, %_ZNK12_GLOBAL__N_124RenameIndependentSubregs14findComponentsERN4llvm12IntEqClassesERNS1_15SmallVectorImplINS0_12SubRangeInfoEEERNS1_12LiveIntervalE.exit.thread.i
-  %.0.i133.i = phi i1 [ false, %_ZNK12_GLOBAL__N_124RenameIndependentSubregs14findComponentsERN4llvm12IntEqClassesERNS1_15SmallVectorImplINS0_12SubRangeInfoEEERNS1_12LiveIntervalE.exit.thread.i ], [ false, %_ZNK12_GLOBAL__N_124RenameIndependentSubregs14findComponentsERN4llvm12IntEqClassesERNS1_15SmallVectorImplINS0_12SubRangeInfoEEERNS1_12LiveIntervalE.exit.i ], [ true, %_ZNK12_GLOBAL__N_124RenameIndependentSubregs25computeMainRangesFixFlagsERKN4llvm12IntEqClassesERKNS1_15SmallVectorImplINS0_12SubRangeInfoEEERKNS5_IPNS1_12LiveIntervalEEE.exit.i ], [ true, %1268 ]
+_ZN4llvm11SmallVectorIPNS_12LiveIntervalELj4EED2Ev.exit.i: ; preds = %1268, %_ZNK12_GLOBAL__N_124RenameIndependentSubregs25computeMainRangesFixFlagsERKN4llvm12IntEqClassesERKNS1_15SmallVectorImplINS0_12SubRangeInfoEEERKNS5_IPNS1_12LiveIntervalEEE.argprom.exit.i, %_ZNK12_GLOBAL__N_124RenameIndependentSubregs14findComponentsERN4llvm12IntEqClassesERNS1_15SmallVectorImplINS0_12SubRangeInfoEEERNS1_12LiveIntervalE.exit.i, %_ZNK12_GLOBAL__N_124RenameIndependentSubregs14findComponentsERN4llvm12IntEqClassesERNS1_15SmallVectorImplINS0_12SubRangeInfoEEERNS1_12LiveIntervalE.exit.thread.i
+  %.0.i133.i = phi i1 [ false, %_ZNK12_GLOBAL__N_124RenameIndependentSubregs14findComponentsERN4llvm12IntEqClassesERNS1_15SmallVectorImplINS0_12SubRangeInfoEEERNS1_12LiveIntervalE.exit.thread.i ], [ false, %_ZNK12_GLOBAL__N_124RenameIndependentSubregs14findComponentsERN4llvm12IntEqClassesERNS1_15SmallVectorImplINS0_12SubRangeInfoEEERNS1_12LiveIntervalE.exit.i ], [ true, %_ZNK12_GLOBAL__N_124RenameIndependentSubregs25computeMainRangesFixFlagsERKN4llvm12IntEqClassesERKNS1_15SmallVectorImplINS0_12SubRangeInfoEEERKNS5_IPNS1_12LiveIntervalEEE.argprom.exit.i ], [ true, %1268 ]
   %1269 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
   %1270 = load ptr, ptr %14, align 8
   %1271 = icmp eq ptr %1270, %53

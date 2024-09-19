@@ -276,7 +276,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIfEEiNS2_11Coord2ArrayIT_E
   store ptr %119, ptr %3, align 8, !alias.scope !9
   store i32 %5, ptr %112, align 8, !alias.scope !9
   %120 = trunc nuw nsw i64 %indvars.iv.i20 to i32
-  %121 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIfEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %.sroa.0.0.copyload, i32 noundef %120, i32 noundef %114, i1 noundef zeroext true, float noundef 0.000000e+00, float noundef %116, ptr noundef %3)
+  %121 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIfEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.argelim(i32 %.sroa.0.0.copyload, i32 noundef %120, i32 noundef %114, i1 noundef zeroext true, float noundef 0.000000e+00, float noundef %116, ptr noundef %3)
   %122 = add nsw i32 %121, %.015.i
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i
@@ -298,7 +298,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIfEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, float noundef %4, float noundef %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIfEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.argelim(i32 %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, float noundef %4, float noundef %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::Parameterization", align 4
   %9 = alloca [2 x float], align 4
   %10 = alloca [2 x float], align 4
@@ -680,7 +680,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIdEEiNS2_11Coord2ArrayIT_E
   store ptr %119, ptr %3, align 8, !alias.scope !16
   store i32 %5, ptr %112, align 8, !alias.scope !16
   %120 = trunc nuw nsw i64 %indvars.iv.i20 to i32
-  %121 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIdEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %.sroa.0.0.copyload, i32 noundef %120, i32 noundef %114, i1 noundef zeroext true, double noundef 0.000000e+00, double noundef %116, ptr noundef %3)
+  %121 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIdEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.argelim(i32 %.sroa.0.0.copyload, i32 noundef %120, i32 noundef %114, i1 noundef zeroext true, double noundef 0.000000e+00, double noundef %116, ptr noundef %3)
   %122 = add nsw i32 %121, %.015.i
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i
@@ -697,7 +697,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIdEEiNS2_11Coord2ArrayIT_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIdEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, double noundef %4, double noundef %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIdEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.argelim(i32 %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, double noundef %4, double noundef %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::Parameterization", align 4
   %9 = alloca [2 x double], align 16
   %10 = alloca [2 x double], align 16
@@ -838,19 +838,19 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation17GetInter
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %11 [
-    i32 0, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
+    i32 0, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit
     i32 1, label %10
   ]
 
 10:                                               ; preds = %2
   tail call void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetCenterCoordIfEEvPT_(ptr noundef nonnull align 2 dereferenceable(4) %0, ptr noundef %1)
-  br label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
+  br label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = load i8, ptr %0, align 8
-  switch i8 %14, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit [
+  switch i8 %14, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit [
     i8 0, label %15
     i8 1, label %89
     i8 2, label %138
@@ -865,7 +865,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation17GetInter
   %19 = sdiv i32 %.val9, 2
   %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %19, i32 %18)
   %20 = icmp eq i32 %.sroa.speculated.i, 0
-  br i1 %20, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %21
+  br i1 %20, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit, label %21
 
 21:                                               ; preds = %15
   %22 = sitofp i32 %.val to float
@@ -873,7 +873,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation17GetInter
   %24 = sitofp i32 %.val9 to float
   %25 = fdiv float 1.000000e+00, %24
   %26 = icmp sgt i32 %.sroa.speculated.i, 0
-  br i1 %26, label %.lr.ph.i.preheader, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
+  br i1 %26, label %.lr.ph.i.preheader, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit
 
 .lr.ph.i.preheader:                               ; preds = %21
   %27 = sext i32 %13 to i64
@@ -1032,7 +1032,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIfEEiiiT_S4_S4_S4_NS1_12_G
   %87 = fadd float %23, %.02916.i
   %88 = fadd float %25, %.03411.i
   %exitcond.not.i = icmp eq i32 %86, %.sroa.speculated.i
-  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit, label %.lr.ph.i, !llvm.loop !20
 
 89:                                               ; preds = %11
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1040,13 +1040,13 @@ _ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIfEEiiiT_S4_S4_S4_NS1_12_G
   %92 = sdiv i32 %91, 3
   %.off.i = add i32 %91, 2
   %93 = icmp ult i32 %.off.i, 5
-  br i1 %93, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %94
+  br i1 %93, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit, label %94
 
 94:                                               ; preds = %89
   %95 = sitofp i32 %91 to float
   %96 = fdiv float 1.000000e+00, %95
   %97 = icmp sgt i32 %91, 2
-  br i1 %97, label %.lr.ph.i10.preheader, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
+  br i1 %97, label %.lr.ph.i10.preheader, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit
 
 .lr.ph.i10.preheader:                             ; preds = %94
   %98 = sext i32 %13 to i64
@@ -1151,7 +1151,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIfEEiNS2_11Coord2ArrayIT_E
   %136 = fadd float %96, %.03145.i
   %137 = fadd float %96, %.03047.i
   %exitcond.not.i12 = icmp eq i32 %135, %92
-  br i1 %exitcond.not.i12, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.i10, !llvm.loop !21
+  br i1 %exitcond.not.i12, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit, label %.lr.ph.i10, !llvm.loop !21
 
 138:                                              ; preds = %11
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
@@ -1161,13 +1161,13 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIfEEiNS2_11Coord2ArrayIT_E
   %141 = sdiv i32 %140, 2
   %.off.i18 = add i32 %140, 1
   %142 = icmp ult i32 %.off.i18, 3
-  br i1 %142, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %143
+  br i1 %142, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit, label %143
 
 143:                                              ; preds = %138
   %144 = sitofp i32 %140 to float
   %145 = fdiv float 1.000000e+00, %144
   %146 = icmp sgt i32 %140, 1
-  br i1 %146, label %.lr.ph.i21, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
+  br i1 %146, label %.lr.ph.i21, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit
 
 .lr.ph.i21:                                       ; preds = %143
   %147 = lshr i32 %.sroa.0.0.copyload.fr, 16
@@ -1219,7 +1219,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16Parameterizatio
   %.1.i24.us.us = phi i32 [ %166, %161 ], [ %160, %._crit_edge.i.i.us.us ], [ %.03362.i.us.us, %.lr.ph.i21.split.us.split.us ]
   %167 = add nuw nsw i32 %.03263.i.us.us, 1
   %exitcond.not.i25.us.us = icmp eq i32 %167, %141
-  br i1 %exitcond.not.i25.us.us, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.i21.split.us.split.us, !llvm.loop !22
+  br i1 %exitcond.not.i25.us.us, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit, label %.lr.ph.i21.split.us.split.us, !llvm.loop !22
 
 .lr.ph.i21.split.us.split:                        ; preds = %.lr.ph.i21.split.us, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.i.us
   %.03263.i.us = phi i32 [ %177, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.i.us ], [ 0, %.lr.ph.i21.split.us ]
@@ -1257,7 +1257,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16Parameterizatio
   %.1.i24.us = phi i32 [ %176, %174 ], [ %173, %._crit_edge.i.i.us ], [ %.03362.i.us, %.lr.ph.i21.split.us.split ]
   %177 = add nuw nsw i32 %.03263.i.us, 1
   %exitcond.not.i25.us = icmp eq i32 %177, %141
-  br i1 %exitcond.not.i25.us, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.i21.split.us.split, !llvm.loop !22
+  br i1 %exitcond.not.i25.us, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit, label %.lr.ph.i21.split.us.split, !llvm.loop !22
 
 .lr.ph.i21.split:                                 ; preds = %.lr.ph.i21, %237
   %.02964.i = phi float [ %239, %237 ], [ %145, %.lr.ph.i21 ]
@@ -1427,9 +1427,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16Parameterizatio
   %238 = add nuw nsw i32 %.03263.i, 1
   %239 = fadd float %145, %.02964.i
   %exitcond.not.i25 = icmp eq i32 %238, %141
-  br i1 %exitcond.not.i25, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.i21.split, !llvm.loop !22
+  br i1 %exitcond.not.i25, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit, label %.lr.ph.i21.split, !llvm.loop !22
 
-_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit: ; preds = %237, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.i.us, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.i.us.us, %134, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIfEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i, %11, %21, %15, %94, %89, %143, %138, %2, %10
+_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit: ; preds = %237, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.i.us, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.i.us.us, %134, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIfEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i, %11, %21, %15, %94, %89, %143, %138, %2, %10
   %.0 = phi i32 [ 1, %10 ], [ %9, %2 ], [ 0, %11 ], [ 0, %15 ], [ 0, %21 ], [ 0, %89 ], [ 0, %94 ], [ 0, %138 ], [ 0, %143 ], [ %85, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIfEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i ], [ %.1.i, %134 ], [ %.1.i24.us.us, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.i.us.us ], [ %.1.i24.us, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.i.us ], [ %.1.i24, %237 ]
   ret i32 %.0
 }
@@ -1446,19 +1446,19 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation17GetInter
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %11 [
-    i32 0, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
+    i32 0, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit
     i32 1, label %10
   ]
 
 10:                                               ; preds = %2
   tail call void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetCenterCoordIdEEvPT_(ptr noundef nonnull align 2 dereferenceable(4) %0, ptr noundef %1)
-  br label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
+  br label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = load i8, ptr %0, align 8
-  switch i8 %14, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit [
+  switch i8 %14, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit [
     i8 0, label %15
     i8 1, label %89
     i8 2, label %138
@@ -1473,7 +1473,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation17GetInter
   %19 = sdiv i32 %.val9, 2
   %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %19, i32 %18)
   %20 = icmp eq i32 %.sroa.speculated.i, 0
-  br i1 %20, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %21
+  br i1 %20, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit, label %21
 
 21:                                               ; preds = %15
   %22 = sitofp i32 %.val to double
@@ -1481,7 +1481,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation17GetInter
   %24 = sitofp i32 %.val9 to double
   %25 = fdiv double 1.000000e+00, %24
   %26 = icmp sgt i32 %.sroa.speculated.i, 0
-  br i1 %26, label %.lr.ph.i.preheader, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
+  br i1 %26, label %.lr.ph.i.preheader, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit
 
 .lr.ph.i.preheader:                               ; preds = %21
   %27 = sext i32 %13 to i64
@@ -1640,7 +1640,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIdEEiiiT_S4_S4_S4_NS1_12_G
   %87 = fadd double %23, %.02916.i
   %88 = fadd double %25, %.03411.i
   %exitcond.not.i = icmp eq i32 %86, %.sroa.speculated.i
-  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit, label %.lr.ph.i, !llvm.loop !25
 
 89:                                               ; preds = %11
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1648,13 +1648,13 @@ _ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIdEEiiiT_S4_S4_S4_NS1_12_G
   %92 = sdiv i32 %91, 3
   %.off.i = add i32 %91, 2
   %93 = icmp ult i32 %.off.i, 5
-  br i1 %93, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %94
+  br i1 %93, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit, label %94
 
 94:                                               ; preds = %89
   %95 = sitofp i32 %91 to double
   %96 = fdiv double 1.000000e+00, %95
   %97 = icmp sgt i32 %91, 2
-  br i1 %97, label %.lr.ph.i10.preheader, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
+  br i1 %97, label %.lr.ph.i10.preheader, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit
 
 .lr.ph.i10.preheader:                             ; preds = %94
   %98 = sext i32 %13 to i64
@@ -1759,7 +1759,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIdEEiNS2_11Coord2ArrayIT_E
   %136 = fadd double %96, %.03145.i
   %137 = fadd double %96, %.03047.i
   %exitcond.not.i12 = icmp eq i32 %135, %92
-  br i1 %exitcond.not.i12, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.i10, !llvm.loop !26
+  br i1 %exitcond.not.i12, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit, label %.lr.ph.i10, !llvm.loop !26
 
 138:                                              ; preds = %11
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
@@ -1769,13 +1769,13 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIdEEiNS2_11Coord2ArrayIT_E
   %141 = sdiv i32 %140, 2
   %.off.i18 = add i32 %140, 1
   %142 = icmp ult i32 %.off.i18, 3
-  br i1 %142, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %143
+  br i1 %142, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit, label %143
 
 143:                                              ; preds = %138
   %144 = sitofp i32 %140 to double
   %145 = fdiv double 1.000000e+00, %144
   %146 = icmp sgt i32 %140, 1
-  br i1 %146, label %.lr.ph.i21, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
+  br i1 %146, label %.lr.ph.i21, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit
 
 .lr.ph.i21:                                       ; preds = %143
   %147 = lshr i32 %.sroa.0.0.copyload.fr, 16
@@ -1827,7 +1827,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16Parameterizatio
   %.1.i24.us.us = phi i32 [ %166, %161 ], [ %160, %._crit_edge.i.i.us.us ], [ %.03362.i.us.us, %.lr.ph.i21.split.us.split.us ]
   %167 = add nuw nsw i32 %.03263.i.us.us, 1
   %exitcond.not.i25.us.us = icmp eq i32 %167, %141
-  br i1 %exitcond.not.i25.us.us, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.i21.split.us.split.us, !llvm.loop !27
+  br i1 %exitcond.not.i25.us.us, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit, label %.lr.ph.i21.split.us.split.us, !llvm.loop !27
 
 .lr.ph.i21.split.us.split:                        ; preds = %.lr.ph.i21.split.us, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.i.us
   %.03263.i.us = phi i32 [ %177, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.i.us ], [ 0, %.lr.ph.i21.split.us ]
@@ -1865,7 +1865,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16Parameterizatio
   %.1.i24.us = phi i32 [ %176, %174 ], [ %173, %._crit_edge.i.i.us ], [ %.03362.i.us, %.lr.ph.i21.split.us.split ]
   %177 = add nuw nsw i32 %.03263.i.us, 1
   %exitcond.not.i25.us = icmp eq i32 %177, %141
-  br i1 %exitcond.not.i25.us, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.i21.split.us.split, !llvm.loop !27
+  br i1 %exitcond.not.i25.us, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit, label %.lr.ph.i21.split.us.split, !llvm.loop !27
 
 .lr.ph.i21.split:                                 ; preds = %.lr.ph.i21, %237
   %.02964.i = phi double [ %239, %237 ], [ %145, %.lr.ph.i21 ]
@@ -2035,9 +2035,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16Parameterizatio
   %238 = add nuw nsw i32 %.03263.i, 1
   %239 = fadd double %145, %.02964.i
   %exitcond.not.i25 = icmp eq i32 %238, %141
-  br i1 %exitcond.not.i25, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.i21.split, !llvm.loop !27
+  br i1 %exitcond.not.i25, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit, label %.lr.ph.i21.split, !llvm.loop !27
 
-_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit: ; preds = %237, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.i.us, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.i.us.us, %134, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIdEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i, %11, %21, %15, %94, %89, %143, %138, %2, %10
+_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.argprom.exit: ; preds = %237, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.i.us, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.i.us.us, %134, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIdEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i, %11, %21, %15, %94, %89, %143, %138, %2, %10
   %.0 = phi i32 [ 1, %10 ], [ %9, %2 ], [ 0, %11 ], [ 0, %15 ], [ 0, %21 ], [ 0, %89 ], [ 0, %94 ], [ 0, %138 ], [ 0, %143 ], [ %85, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIdEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i ], [ %.1.i, %134 ], [ %.1.i24.us.us, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.i.us.us ], [ %.1.i24.us, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.i.us ], [ %.1.i24, %237 ]
   ret i32 %.0
 }
@@ -2248,7 +2248,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation13GetEdgeC
   store ptr %2, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %11, ptr %.sroa.2.0..sroa_idx, align 8
-  %83 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIfEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %.sroa.0.0.copyload, i32 noundef %1, i32 noundef %9, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef %82, ptr noundef %4)
+  %83 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIfEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.argelim(i32 %.sroa.0.0.copyload, i32 noundef %1, i32 noundef %9, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef %82, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr4quad13GetEdgeCoordsIfEEiiiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
 
@@ -2461,7 +2461,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation13GetEdgeC
   store ptr %2, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %11, ptr %.sroa.2.0..sroa_idx, align 8
-  %83 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIdEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %.sroa.0.0.copyload, i32 noundef %1, i32 noundef %9, i1 noundef zeroext false, double noundef 0.000000e+00, double noundef %82, ptr noundef %4)
+  %83 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIdEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.argelim(i32 %.sroa.0.0.copyload, i32 noundef %1, i32 noundef %9, i1 noundef zeroext false, double noundef 0.000000e+00, double noundef %82, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr4quad13GetEdgeCoordsIdEEiiiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
 
@@ -3855,7 +3855,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   %.val = load i32, ptr %87, align 8
   %90 = getelementptr inbounds i8, ptr %0, i64 36
   %.val18 = load i32, ptr %90, align 4
-  %91 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad18GetSegmentedFacetsEPKibNS1_12_GLOBAL__N_110FacetArrayE(i32 %.val, i32 %.val18, i1 noundef zeroext %89, ptr noundef %4)
+  %91 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad18GetSegmentedFacetsEPKibNS1_12_GLOBAL__N_110FacetArrayE.argprom(i32 %.val, i32 %.val18, i1 noundef zeroext %89, ptr noundef %4)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit
 
 92:                                               ; preds = %84
@@ -3874,7 +3874,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   %.val19 = load i32, ptr %95, align 8
   %100 = getelementptr inbounds i8, ptr %0, i64 36
   %.val20 = load i32, ptr %100, align 4
-  %101 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUniformFacetsEPKiS4_ibNS1_12_GLOBAL__N_110FacetArrayE(ptr noundef %94, i32 %.val19, i32 %.val20, i32 noundef %97, i1 noundef zeroext %99, ptr noundef %5)
+  %101 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUniformFacetsEPKiS4_ibNS1_12_GLOBAL__N_110FacetArrayE.argprom(ptr noundef %94, i32 %.val19, i32 %.val20, i32 noundef %97, i1 noundef zeroext %99, ptr noundef %5)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit
 
 102:                                              ; preds = %74
@@ -3993,7 +3993,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad16GetUniformF
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad18GetSegmentedFacetsEPKibNS1_12_GLOBAL__N_110FacetArrayE(i32 %.0.val, i32 %.4.val, i1 noundef zeroext %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad18GetSegmentedFacetsEPKibNS1_12_GLOBAL__N_110FacetArrayE.argprom(i32 %.0.val, i32 %.4.val, i1 noundef zeroext %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetStrip", align 4
   %4 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
   %5 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
@@ -4050,7 +4050,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad18GetSegmente
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUniformFacetsEPKiS4_ibNS1_12_GLOBAL__N_110FacetArrayE(ptr nocapture noundef readonly %0, i32 %.0.val, i32 %.4.val, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUniformFacetsEPKiS4_ibNS1_12_GLOBAL__N_110FacetArrayE.argprom(ptr nocapture noundef readonly %0, i32 %.0.val, i32 %.4.val, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetStrip", align 4
   %6 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
   %7 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
@@ -6792,15 +6792,15 @@ attributes #22 = { builtin nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_111Coord2ArrayIfEplEi: argument 0"}
-!11 = distinct !{!11, !"_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_111Coord2ArrayIfEplEi"}
+!10 = distinct !{!10, !11, !"_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_111Coord2ArrayIfEplEi.argprom: argument 0"}
+!11 = distinct !{!11, !"_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_111Coord2ArrayIfEplEi.argprom"}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_111Coord2ArrayIdEplEi: argument 0"}
-!18 = distinct !{!18, !"_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_111Coord2ArrayIdEplEi"}
+!17 = distinct !{!17, !18, !"_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_111Coord2ArrayIdEplEi.argprom: argument 0"}
+!18 = distinct !{!18, !"_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_111Coord2ArrayIdEplEi.argprom"}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}

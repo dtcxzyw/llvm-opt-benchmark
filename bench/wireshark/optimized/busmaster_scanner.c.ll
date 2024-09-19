@@ -89,7 +89,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   br i1 %.not26.i, label %31, label %32
 
 31:                                               ; preds = %29
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.9) #21
   unreachable
 
 32:                                               ; preds = %29
@@ -116,7 +116,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   br i1 %.not28.i, label %43, label %44
 
 43:                                               ; preds = %39
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.9) #21
   unreachable
 
 44:                                               ; preds = %39
@@ -381,7 +381,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %160 = load i64, ptr %159, align 8
   %161 = add i64 %160, %157
   store i64 %161, ptr %159, align 8
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str) #21
   unreachable
 
 162:                                              ; preds = %137
@@ -945,7 +945,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %535 = load i64, ptr %534, align 8
   %536 = add i64 %535, %532
   store i64 %536, ptr %534, align 8
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.1) #21
   unreachable
 
 537:                                              ; preds = %137
@@ -1143,7 +1143,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i280, %621
   br i1 %651, label %652, label %653
 
 652:                                              ; preds = %646
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.6) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.6) #21
   unreachable
 
 653:                                              ; preds = %646
@@ -1251,7 +1251,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i280, %621
   br i1 %.not108.i, label %.loopexit.i, label %703
 
 .loopexit.i:                                      ; preds = %699, %.thread.i
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.7) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.7) #21
   unreachable
 
 703:                                              ; preds = %699
@@ -1364,7 +1364,7 @@ busmaster_yyinput.exit.i:                         ; preds = %721, %._crit_edge12
   br i1 %.not110.i, label %772, label %773
 
 772:                                              ; preds = %754
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.8) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.8) #21
   unreachable
 
 773:                                              ; preds = %754
@@ -1613,7 +1613,7 @@ yy_get_next_buffer.exit.thread318:                ; preds = %659, %yy_get_next_b
   br i1 %exitcond.not.i315, label %.outer.backedge, label %.lr.ph31.i303, !llvm.loop !8
 
 901:                                              ; preds = %137
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.2) #21
   unreachable
 
 default.unreachable622:                           ; preds = %yy_get_next_buffer.exit
@@ -1631,7 +1631,7 @@ define hidden nonnull ptr @busmaster__create_buffer(ptr noundef %0, i32 noundef 
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.3) #21
   unreachable
 
 6:                                                ; preds = %3
@@ -1646,7 +1646,7 @@ define hidden nonnull ptr @busmaster__create_buffer(ptr noundef %0, i32 noundef 
   br i1 %.not12, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.3) #21
   unreachable
 
 13:                                               ; preds = %6
@@ -1731,7 +1731,7 @@ busmaster__init_buffer.exit:                      ; preds = %45, %.thread.i
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc void @yy_fatal_error.argprom(ptr noundef %0) unnamed_addr #2 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.10, ptr noundef %0) #25
   tail call void @exit(i32 noundef 2) #26
@@ -1763,7 +1763,7 @@ define hidden void @busmaster_restart(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %.not26.i, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.9) #21
   unreachable
 
 13:                                               ; preds = %10
@@ -1790,7 +1790,7 @@ define hidden void @busmaster_restart(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %.not28.i, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.9) #21
   unreachable
 
 25:                                               ; preds = %20
@@ -1947,7 +1947,7 @@ define hidden void @busmaster__switch_to_buffer(ptr noundef %0, ptr nocapture no
   br i1 %.not26.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.9) #21
   unreachable
 
 8:                                                ; preds = %5
@@ -1976,7 +1976,7 @@ define hidden void @busmaster__switch_to_buffer(ptr noundef %0, ptr nocapture no
   br i1 %.not28.i, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.9) #21
   unreachable
 
 22:                                               ; preds = %17
@@ -2185,7 +2185,7 @@ define hidden void @busmaster_push_buffer_state(ptr noundef %0, ptr nocapture no
   br i1 %.not26.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.9) #21
   unreachable
 
 10:                                               ; preds = %7
@@ -2214,7 +2214,7 @@ define hidden void @busmaster_push_buffer_state(ptr noundef %0, ptr nocapture no
   br i1 %.not28.i, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.9) #21
   unreachable
 
 24:                                               ; preds = %19
@@ -2490,7 +2490,7 @@ define hidden void @busmaster_set_lineno(i32 noundef %0, ptr nocapture noundef r
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.4) #21
   unreachable
 
 11:                                               ; preds = %5
@@ -2515,7 +2515,7 @@ define hidden void @busmaster_set_column(i32 noundef %0, ptr nocapture noundef r
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.5) #21
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.5) #21
   unreachable
 
 11:                                               ; preds = %5

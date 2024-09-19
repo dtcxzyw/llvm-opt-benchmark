@@ -3344,13 +3344,13 @@ _ZL10canExecuteRN4llvm3vfs10FileSystemENS_9StringRefE.exit.i: ; preds = %1399
   %1439 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
   %1440 = load ptr, ptr %23, align 8, !noalias !98
   %1441 = icmp eq ptr %1440, %1408
-  br i1 %1441, label %_ZL26FindVisualStudioExecutableB5cxx11RKN5clang6driver9ToolChainEPKc.exit, label %1442
+  br i1 %1441, label %_ZL26FindVisualStudioExecutableB5cxx11RKN5clang6driver9ToolChainEPKc.argprom.exit, label %1442
 
 1442:                                             ; preds = %1432
   call void @free(ptr noundef %1440) #14
-  br label %_ZL26FindVisualStudioExecutableB5cxx11RKN5clang6driver9ToolChainEPKc.exit
+  br label %_ZL26FindVisualStudioExecutableB5cxx11RKN5clang6driver9ToolChainEPKc.argprom.exit
 
-_ZL26FindVisualStudioExecutableB5cxx11RKN5clang6driver9ToolChainEPKc.exit: ; preds = %1432, %1442
+_ZL26FindVisualStudioExecutableB5cxx11RKN5clang6driver9ToolChainEPKc.argprom.exit: ; preds = %1432, %1442
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25)
@@ -3369,7 +3369,7 @@ _ZL26FindVisualStudioExecutableB5cxx11RKN5clang6driver9ToolChainEPKc.exit: ; pre
   %1448 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1402) #14
   br i1 %1448, label %1449, label %_ZN4llvm11SmallStringILj128EED2Ev.exit512
 
-1449:                                             ; preds = %_ZL26FindVisualStudioExecutableB5cxx11RKN5clang6driver9ToolChainEPKc.exit
+1449:                                             ; preds = %_ZL26FindVisualStudioExecutableB5cxx11RKN5clang6driver9ToolChainEPKc.argprom.exit
   %1450 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZNK5clang6driver9ToolChain6getVFSEv(ptr noundef nonnull align 8 dereferenceable(2168) %167) #14
   %1451 = load ptr, ptr %153, align 8
   %1452 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %153) #14
@@ -3595,7 +3595,7 @@ _ZL10canExecuteRN4llvm3vfs10FileSystemENS_9StringRefE.exit497: ; preds = %1487
   call void @free(ptr noundef %1551) #14
   br label %_ZN4llvm11SmallStringILj128EED2Ev.exit512
 
-_ZN4llvm11SmallStringILj128EED2Ev.exit512:        ; preds = %1553, %1549, %_ZL10canExecuteRN4llvm3vfs10FileSystemENS_9StringRefE.exit, %_ZL26FindVisualStudioExecutableB5cxx11RKN5clang6driver9ToolChainEPKc.exit
+_ZN4llvm11SmallStringILj128EED2Ev.exit512:        ; preds = %1553, %1549, %_ZL10canExecuteRN4llvm3vfs10FileSystemENS_9StringRefE.exit, %_ZL26FindVisualStudioExecutableB5cxx11RKN5clang6driver9ToolChainEPKc.argprom.exit
   call void @_ZNK5clang6driver9ToolChain16getSanitizerArgsERKN4llvm3opt7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.clang::driver::SanitizerArgs") align 8 %161, ptr noundef nonnull align 8 dereferenceable(2168) %167, ptr noundef nonnull align 8 dereferenceable(176) %5) #14
   %.sroa.0.0.copyload.i.i513 = load i64, ptr %161, align 8
   %1554 = and i64 %.sroa.0.0.copyload.i.i513, 1
@@ -8370,8 +8370,8 @@ attributes #16 = { builtin nounwind allocsize(0) }
 !96 = distinct !{!96, !97, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !97 = distinct !{!97, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZL26FindVisualStudioExecutableB5cxx11RKN5clang6driver9ToolChainEPKc: argument 0"}
-!100 = distinct !{!100, !"_ZL26FindVisualStudioExecutableB5cxx11RKN5clang6driver9ToolChainEPKc"}
+!99 = distinct !{!99, !100, !"_ZL26FindVisualStudioExecutableB5cxx11RKN5clang6driver9ToolChainEPKc.argprom: argument 0"}
+!100 = distinct !{!100, !"_ZL26FindVisualStudioExecutableB5cxx11RKN5clang6driver9ToolChainEPKc.argprom"}
 !101 = !{!102, !99}
 !102 = distinct !{!102, !103, !"_ZNK5clang6driver10toolchains13MSVCToolChain19getSubDirectoryPathB5cxx11EN4llvm16SubDirectoryTypeENS3_9StringRefE: argument 0"}
 !103 = distinct !{!103, !"_ZNK5clang6driver10toolchains13MSVCToolChain19getSubDirectoryPathB5cxx11EN4llvm16SubDirectoryTypeENS3_9StringRefE"}

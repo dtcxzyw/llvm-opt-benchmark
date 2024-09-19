@@ -183,7 +183,7 @@ define internal noundef ptr @avx_component_op_query(ptr nocapture noundef readon
 
 16:                                               ; preds = %15, %10
   %.not9.i = icmp eq ptr %12, null
-  br i1 %.not9.i, label %opal_obj_new.exit, label %17
+  br i1 %.not9.i, label %opal_obj_new.argprom.exit, label %17
 
 17:                                               ; preds = %16
   store ptr @ompi_op_base_module_t_class, ptr %12, align 8
@@ -192,7 +192,7 @@ define internal noundef ptr @avx_component_op_query(ptr nocapture noundef readon
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_op_base_module_t_class, i64 40), align 8
   %20 = load ptr, ptr %19, align 8
   %.not6.i.i = icmp eq ptr %20, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %17, %.lr.ph.i.i
   %21 = phi ptr [ %23, %.lr.ph.i.i ], [ %20, %17 ]
@@ -201,9 +201,9 @@ define internal noundef ptr @avx_component_op_query(ptr nocapture noundef readon
   %22 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %.not.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i, !llvm.loop !7
 
-opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %16, %17
+opal_obj_new.argprom.exit:                        ; preds = %.lr.ph.i.i, %16, %17
   %24 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
   %25 = and i32 %24, 256
   %.not = icmp eq i32 %25, 0
@@ -218,8 +218,8 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %16, %1
   %32 = trunc i8 %31 to i1
   br label %33
 
-33:                                               ; preds = %opal_obj_new.exit, %opal_thread_add_fetch_32.exit57
-  %indvars.iv = phi i64 [ 0, %opal_obj_new.exit ], [ %indvars.iv.next, %opal_thread_add_fetch_32.exit57 ]
+33:                                               ; preds = %opal_obj_new.argprom.exit, %opal_thread_add_fetch_32.exit57
+  %indvars.iv = phi i64 [ 0, %opal_obj_new.argprom.exit ], [ %indvars.iv.next, %opal_thread_add_fetch_32.exit57 ]
   br i1 %.not, label %43, label %34
 
 34:                                               ; preds = %33

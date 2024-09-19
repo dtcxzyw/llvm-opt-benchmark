@@ -470,7 +470,7 @@ define ptr @mca_pml_ob1_peer_create(ptr nocapture noundef readonly %0, ptr nocap
 
 9:                                                ; preds = %8, %3
   %.not9.i = icmp eq ptr %5, null
-  br i1 %.not9.i, label %opal_obj_new.exit, label %10
+  br i1 %.not9.i, label %opal_obj_new.argprom.exit, label %10
 
 10:                                               ; preds = %9
   store ptr @mca_pml_ob1_comm_proc_t_class, ptr %5, align 8
@@ -479,7 +479,7 @@ define ptr @mca_pml_ob1_peer_create(ptr nocapture noundef readonly %0, ptr nocap
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1_comm_proc_t_class, i64 40), align 8
   %13 = load ptr, ptr %12, align 8
   %.not6.i.i = icmp eq ptr %13, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %14 = phi ptr [ %16, %.lr.ph.i.i ], [ %13, %10 ]
@@ -488,9 +488,9 @@ define ptr @mca_pml_ob1_peer_create(ptr nocapture noundef readonly %0, ptr nocap
   %15 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %9, %10
+opal_obj_new.argprom.exit:                        ; preds = %.lr.ph.i.i, %9, %10
   %17 = getelementptr i8, ptr %0, i64 256
   %.val = load ptr, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %.val, i64 32
@@ -501,9 +501,9 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %9, %10
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 1
   %.not.i.i.i.i = icmp eq i64 %24, 0
-  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.exit, label %25
+  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.argprom.exit, label %25
 
-25:                                               ; preds = %opal_obj_new.exit
+25:                                               ; preds = %opal_obj_new.argprom.exit
   %26 = lshr i64 %23, 1
   %27 = and i64 %26, 32767
   %28 = and i64 %23, -65536
@@ -514,7 +514,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %9, %10
   %32 = ptrtoint ptr %29 to i64
   %33 = cmpxchg volatile ptr %31, i64 %23, i64 %32 acquire monotonic, align 8
   %34 = extractvalue { i64, i1 } %33, 1
-  br i1 %34, label %35, label %ompi_comm_peer_lookup.exit
+  br i1 %34, label %35, label %ompi_comm_peer_lookup.argprom.exit
 
 35:                                               ; preds = %25
   %36 = getelementptr inbounds i8, ptr %29, i64 8
@@ -524,17 +524,17 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %9, %10
 
 39:                                               ; preds = %35
   %40 = atomicrmw volatile add ptr %36, i32 1 monotonic, align 4
-  br label %ompi_comm_peer_lookup.exit
+  br label %ompi_comm_peer_lookup.argprom.exit
 
 41:                                               ; preds = %35
   %42 = load volatile i32, ptr %36, align 4
   %43 = add nsw i32 %42, 1
   store volatile i32 %43, ptr %36, align 4
   %44 = load volatile i32, ptr %36, align 4
-  br label %ompi_comm_peer_lookup.exit
+  br label %ompi_comm_peer_lookup.argprom.exit
 
-ompi_comm_peer_lookup.exit:                       ; preds = %opal_obj_new.exit, %25, %39, %41
-  %45 = phi ptr [ %22, %opal_obj_new.exit ], [ %29, %41 ], [ %29, %39 ], [ %29, %25 ]
+ompi_comm_peer_lookup.argprom.exit:               ; preds = %opal_obj_new.argprom.exit, %25, %39, %41
+  %45 = phi ptr [ %22, %opal_obj_new.argprom.exit ], [ %29, %41 ], [ %29, %39 ], [ %29, %25 ]
   %46 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %45, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %0, i64 224
@@ -543,7 +543,7 @@ ompi_comm_peer_lookup.exit:                       ; preds = %opal_obj_new.exit, 
   %.not = icmp eq i32 %49, 0
   br i1 %.not, label %55, label %50
 
-50:                                               ; preds = %ompi_comm_peer_lookup.exit
+50:                                               ; preds = %ompi_comm_peer_lookup.argprom.exit
   %51 = getelementptr inbounds i8, ptr %0, i64 216
   %52 = load i32, ptr %51, align 8
   %53 = trunc i32 %52 to i16
@@ -551,7 +551,7 @@ ompi_comm_peer_lookup.exit:                       ; preds = %opal_obj_new.exit, 
   store i16 %53, ptr %54, align 2
   br label %55
 
-55:                                               ; preds = %50, %ompi_comm_peer_lookup.exit
+55:                                               ; preds = %50, %ompi_comm_peer_lookup.argprom.exit
   %56 = getelementptr inbounds i8, ptr %45, i64 8
   %57 = load i8, ptr @opal_uses_threads, align 1
   %58 = trunc i8 %57 to i1

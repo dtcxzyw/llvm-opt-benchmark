@@ -102,19 +102,19 @@ define hidden i32 @DecodeWebP(ptr noundef %0, i64 noundef %1, ptr noundef %2) lo
   %6 = getelementptr i8, ptr %2, i64 12
   %.val = load i32, ptr %6, align 4
   %.not.i = icmp eq i32 %.val, 0
-  br i1 %.not.i, label %PrintAnimationWarning.exit, label %7
+  br i1 %.not.i, label %PrintAnimationWarning.argprom.exit, label %7
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 147, i64 1, ptr %8) #8
-  br label %PrintAnimationWarning.exit
+  br label %PrintAnimationWarning.argprom.exit
 
-PrintAnimationWarning.exit:                       ; preds = %5, %7
+PrintAnimationWarning.argprom.exit:               ; preds = %5, %7
   %10 = tail call i32 @WebPDecode(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2) #7
   br label %11
 
-11:                                               ; preds = %3, %PrintAnimationWarning.exit
-  %.0 = phi i32 [ %10, %PrintAnimationWarning.exit ], [ 2, %3 ]
+11:                                               ; preds = %3, %PrintAnimationWarning.argprom.exit
+  %.0 = phi i32 [ %10, %PrintAnimationWarning.argprom.exit ], [ 2, %3 ]
   ret i32 %.0
 }
 
@@ -129,24 +129,24 @@ define hidden i32 @DecodeWebPIncremental(ptr noundef %0, i64 noundef %1, ptr nou
   %6 = getelementptr i8, ptr %2, i64 12
   %.val = load i32, ptr %6, align 4
   %.not.i = icmp eq i32 %.val, 0
-  br i1 %.not.i, label %PrintAnimationWarning.exit, label %7
+  br i1 %.not.i, label %PrintAnimationWarning.argprom.exit, label %7
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 147, i64 1, ptr %8) #8
-  br label %PrintAnimationWarning.exit
+  br label %PrintAnimationWarning.argprom.exit
 
-PrintAnimationWarning.exit:                       ; preds = %5, %7
+PrintAnimationWarning.argprom.exit:               ; preds = %5, %7
   %10 = tail call ptr @WebPIDecode(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2) #7
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %15
 
-12:                                               ; preds = %PrintAnimationWarning.exit
+12:                                               ; preds = %PrintAnimationWarning.argprom.exit
   %13 = load ptr, ptr @stderr, align 8
   %14 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 29, i64 1, ptr %13) #8
   br label %17
 
-15:                                               ; preds = %PrintAnimationWarning.exit
+15:                                               ; preds = %PrintAnimationWarning.argprom.exit
   %16 = tail call i32 @WebPIUpdate(ptr noundef nonnull %10, ptr noundef %0, i64 noundef %1) #7
   tail call void @WebPIDelete(ptr noundef nonnull %10) #7
   br label %17

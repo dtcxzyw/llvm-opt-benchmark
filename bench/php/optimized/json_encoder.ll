@@ -2144,7 +2144,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_json_encode_array(ptr noundef %
 10:                                               ; preds = %4
   %11 = and i32 %2, 16
   %.not760 = icmp eq i32 %11, 0
-  br i1 %.not760, label %12, label %php_json_determine_array_type.exit
+  br i1 %.not760, label %12, label %php_json_determine_array_type.argprom.exit
 
 12:                                               ; preds = %10
   %.not.i = icmp eq ptr %9, null
@@ -2154,7 +2154,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_json_encode_array(ptr noundef %
   %14 = getelementptr inbounds i8, ptr %9, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %php_json_determine_array_type.exit.thread, label %17
+  br i1 %16, label %php_json_determine_array_type.argprom.exit.thread, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %9, i64 8
@@ -2167,7 +2167,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_json_encode_array(ptr noundef %
   %22 = getelementptr inbounds i8, ptr %9, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, %15
-  br i1 %24, label %php_json_determine_array_type.exit.thread, label %25
+  br i1 %24, label %php_json_determine_array_type.argprom.exit.thread, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %9, i64 16
@@ -2175,7 +2175,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_json_encode_array(ptr noundef %
   %28 = zext i32 %23 to i64
   %29 = getelementptr inbounds %struct._zval_struct, ptr %27, i64 %28
   %.not513.i = icmp eq i32 %23, 0
-  br i1 %.not513.i, label %php_json_determine_array_type.exit.thread, label %.lr.ph.i
+  br i1 %.not513.i, label %php_json_determine_array_type.argprom.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25, %35
   %.0396.i = phi i64 [ %.1.i, %35 ], [ 0, %25 ]
@@ -2189,14 +2189,14 @@ define internal fastcc range(i32 -1, 1) i32 @php_json_encode_array(ptr noundef %
 33:                                               ; preds = %.lr.ph.i
   %34 = add i64 %.0396.i, 1
   %.not52.i = icmp eq i64 %.0415.i, %.0396.i
-  br i1 %.not52.i, label %35, label %php_json_determine_array_type.exit
+  br i1 %.not52.i, label %35, label %php_json_determine_array_type.argprom.exit
 
 35:                                               ; preds = %33, %.lr.ph.i
   %.1.i = phi i64 [ %.0396.i, %.lr.ph.i ], [ %34, %33 ]
   %36 = getelementptr inbounds i8, ptr %.0434.i, i64 16
   %37 = add nuw nsw i64 %.0415.i, 1
   %.not51.i = icmp eq ptr %36, %29
-  br i1 %.not51.i, label %php_json_determine_array_type.exit, label %.lr.ph.i
+  br i1 %.not51.i, label %php_json_determine_array_type.argprom.exit, label %.lr.ph.i
 
 38:                                               ; preds = %17
   %39 = getelementptr inbounds i8, ptr %9, i64 16
@@ -2206,7 +2206,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_json_encode_array(ptr noundef %
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds %struct._Bucket, ptr %40, i64 %43
   %.not489.i = icmp eq i32 %42, 0
-  br i1 %.not489.i, label %php_json_determine_array_type.exit.thread, label %.lr.ph12.i
+  br i1 %.not489.i, label %php_json_determine_array_type.argprom.exit.thread, label %.lr.ph12.i
 
 .lr.ph12.i:                                       ; preds = %38, %55
   %.211.i = phi i64 [ %.3.i, %55 ], [ 0, %38 ]
@@ -2220,20 +2220,20 @@ define internal fastcc range(i32 -1, 1) i32 @php_json_encode_array(ptr noundef %
   %49 = getelementptr inbounds i8, ptr %.04210.i, i64 24
   %50 = load ptr, ptr %49, align 8
   %.not49.i = icmp eq ptr %50, null
-  br i1 %.not49.i, label %51, label %php_json_determine_array_type.exit
+  br i1 %.not49.i, label %51, label %php_json_determine_array_type.argprom.exit
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds i8, ptr %.04210.i, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %.211.i, 1
   %.not50.i = icmp eq i64 %53, %.211.i
-  br i1 %.not50.i, label %55, label %php_json_determine_array_type.exit
+  br i1 %.not50.i, label %55, label %php_json_determine_array_type.argprom.exit
 
 55:                                               ; preds = %51, %.lr.ph12.i
   %.3.i = phi i64 [ %.211.i, %.lr.ph12.i ], [ %54, %51 ]
   %56 = getelementptr inbounds i8, ptr %.04210.i, i64 32
   %.not48.i = icmp eq ptr %56, %44
-  br i1 %.not48.i, label %php_json_determine_array_type.exit, label %.lr.ph12.i
+  br i1 %.not48.i, label %php_json_determine_array_type.argprom.exit, label %.lr.ph12.i
 
 57:                                               ; preds = %4
   %58 = getelementptr inbounds i8, ptr %9, i64 32
@@ -2716,26 +2716,26 @@ php_json_pretty_print_char.exit836._crit_edge:    ; preds = %php_json_pretty_pri
 
 292:                                              ; preds = %67, %61, %57
   %293 = tail call ptr @zend_get_properties_for(ptr noundef nonnull %1, i32 noundef 4) #7
-  br label %php_json_determine_array_type.exit
+  br label %php_json_determine_array_type.argprom.exit
 
-php_json_determine_array_type.exit:               ; preds = %35, %33, %55, %51, %48, %10, %292
+php_json_determine_array_type.argprom.exit:       ; preds = %35, %33, %55, %51, %48, %10, %292
   %.0670 = phi i1 [ false, %292 ], [ false, %10 ], [ false, %51 ], [ false, %48 ], [ true, %55 ], [ false, %33 ], [ true, %35 ]
   %.0667 = phi ptr [ %293, %292 ], [ %9, %10 ], [ %9, %48 ], [ %9, %51 ], [ %9, %55 ], [ %9, %33 ], [ %9, %35 ]
   %.0666 = phi ptr [ %293, %292 ], [ null, %10 ], [ null, %48 ], [ null, %51 ], [ null, %55 ], [ null, %33 ], [ null, %35 ]
   %.not761 = icmp eq ptr %.0667, null
-  br i1 %.not761, label %.critedge, label %php_json_determine_array_type.exit.thread
+  br i1 %.not761, label %.critedge, label %php_json_determine_array_type.argprom.exit.thread
 
-php_json_determine_array_type.exit.thread:        ; preds = %25, %38, %21, %13, %php_json_determine_array_type.exit
-  %.0666985 = phi ptr [ %.0666, %php_json_determine_array_type.exit ], [ null, %13 ], [ null, %21 ], [ null, %38 ], [ null, %25 ]
-  %.0667983 = phi ptr [ %.0667, %php_json_determine_array_type.exit ], [ %9, %13 ], [ %9, %21 ], [ %9, %38 ], [ %9, %25 ]
-  %.0670981 = phi i1 [ %.0670, %php_json_determine_array_type.exit ], [ true, %13 ], [ true, %21 ], [ true, %38 ], [ true, %25 ]
+php_json_determine_array_type.argprom.exit.thread: ; preds = %25, %38, %21, %13, %php_json_determine_array_type.argprom.exit
+  %.0666985 = phi ptr [ %.0666, %php_json_determine_array_type.argprom.exit ], [ null, %13 ], [ null, %21 ], [ null, %38 ], [ null, %25 ]
+  %.0667983 = phi ptr [ %.0667, %php_json_determine_array_type.argprom.exit ], [ %9, %13 ], [ %9, %21 ], [ %9, %38 ], [ %9, %25 ]
+  %.0670981 = phi i1 [ %.0670, %php_json_determine_array_type.argprom.exit ], [ true, %13 ], [ true, %21 ], [ true, %38 ], [ true, %25 ]
   %294 = getelementptr inbounds i8, ptr %.0667983, i64 4
   %295 = load i32, ptr %294, align 4
   %296 = and i32 %295, 32
   %.not762 = icmp eq i32 %296, 0
   br i1 %.not762, label %323, label %297
 
-297:                                              ; preds = %php_json_determine_array_type.exit.thread
+297:                                              ; preds = %php_json_determine_array_type.argprom.exit.thread
   %298 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 6, ptr %298, align 4
   %299 = load ptr, ptr %0, align 8
@@ -2792,7 +2792,7 @@ php_json_determine_array_type.exit.thread:        ; preds = %25, %38, %21, %13, 
   tail call void @zend_array_destroy(ptr noundef nonnull %.0666985) #7
   br label %785
 
-323:                                              ; preds = %php_json_determine_array_type.exit.thread
+323:                                              ; preds = %php_json_determine_array_type.argprom.exit.thread
   %324 = and i32 %295, 64
   %.not763 = icmp eq i32 %324, 0
   br i1 %.not763, label %325, label %.critedge
@@ -2802,11 +2802,11 @@ php_json_determine_array_type.exit.thread:        ; preds = %25, %38, %21, %13, 
   store i32 %326, ptr %294, align 4
   br i1 %.0670981, label %.critedge.thread, label %335
 
-.critedge:                                        ; preds = %php_json_determine_array_type.exit, %323
-  %.not761989 = phi i1 [ true, %php_json_determine_array_type.exit ], [ false, %323 ]
-  %.0666986 = phi ptr [ %.0666, %php_json_determine_array_type.exit ], [ %.0666985, %323 ]
-  %.0667984 = phi ptr [ null, %php_json_determine_array_type.exit ], [ %.0667983, %323 ]
-  %.0670982 = phi i1 [ %.0670, %php_json_determine_array_type.exit ], [ %.0670981, %323 ]
+.critedge:                                        ; preds = %php_json_determine_array_type.argprom.exit, %323
+  %.not761989 = phi i1 [ true, %php_json_determine_array_type.argprom.exit ], [ false, %323 ]
+  %.0666986 = phi ptr [ %.0666, %php_json_determine_array_type.argprom.exit ], [ %.0666985, %323 ]
+  %.0667984 = phi ptr [ null, %php_json_determine_array_type.argprom.exit ], [ %.0667983, %323 ]
+  %.0670982 = phi i1 [ %.0670, %php_json_determine_array_type.argprom.exit ], [ %.0670981, %323 ]
   br i1 %.0670982, label %.critedge.thread, label %335
 
 .critedge.thread:                                 ; preds = %12, %325, %.critedge

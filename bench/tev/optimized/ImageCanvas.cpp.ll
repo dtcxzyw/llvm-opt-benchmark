@@ -5612,7 +5612,7 @@ _ZN3tev11ImageCanvas22displayWindowToNanoguiEPKNS_5ImageE.exit: ; preds = %44, %
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %53
-  call fastcc void @"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_0clERKN7nanogui5ColorERKNSt3__16vectorINS_9VgCommandENS8_9allocatorISA_EEEE"(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(16) @_ZN3tevL15REFERENCE_COLORE)
+  call fastcc void @"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_0clERKN7nanogui5ColorERKNSt3__16vectorINS_9VgCommandENS8_9allocatorISA_EEEE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(16) @_ZN3tevL15REFERENCE_COLORE)
   br label %60
 
 60:                                               ; preds = %59, %53, %_ZN3tev11ImageCanvas22displayWindowToNanoguiEPKNS_5ImageE.exit
@@ -5625,7 +5625,7 @@ _ZN3tev11ImageCanvas22displayWindowToNanoguiEPKNS_5ImageE.exit: ; preds = %44, %
   br i1 %66, label %68, label %67
 
 67:                                               ; preds = %60
-  call fastcc void @"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_0clERKN7nanogui5ColorERKNSt3__16vectorINS_9VgCommandENS8_9allocatorISA_EEEE"(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(16) @_ZN3tevL11IMAGE_COLORE)
+  call fastcc void @"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_0clERKN7nanogui5ColorERKNSt3__16vectorINS_9VgCommandENS8_9allocatorISA_EEEE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(16) @_ZN3tevL11IMAGE_COLORE)
   br label %68
 
 68:                                               ; preds = %67, %60
@@ -5793,7 +5793,7 @@ _ZNK3tev3BoxIiLj2EEeqERKS1_.exit30:               ; preds = %121
 declare void @_ZN7nanogui6Canvas4drawEP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(165), ptr noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_0clERKN7nanogui5ColorERKNSt3__16vectorINS_9VgCommandENS8_9allocatorISA_EEEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_0clERKN7nanogui5ColorERKNSt3__16vectorINS_9VgCommandENS8_9allocatorISA_EEEE.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.040.i = alloca <2 x float>, align 8
   %3 = alloca %"struct.nanogui::Array.40", align 4
   %.sroa.037.i = alloca <2 x float>, align 8
@@ -5939,7 +5939,7 @@ define internal fastcc void @"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_0clE
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %80, align 8
   call void @nvgSave(ptr noundef %81)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 82:                                               ; preds = %76
   %83 = icmp eq i64 %.02073, 0
@@ -5988,7 +5988,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %93, align 8
   call void @nvgRestore(ptr noundef %94)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 95:                                               ; preds = %76
   %96 = load ptr, ptr %55, align 8
@@ -6050,13 +6050,13 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %107 = load float, ptr %106, align 4
   %.sroa.313.12.vec.insert.i = insertelement <2 x float> %.sroa.313.8.vec.insert.i, float %107, i64 1
   call void @nvgFillColor(ptr noundef %100, <2 x float> %.sroa.011.4.vec.insert.i, <2 x float> %.sroa.313.12.vec.insert.i)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 108:                                              ; preds = %95
   %109 = load ptr, ptr %96, align 8
   %110 = load ptr, ptr %109, align 8
   call void @nvgFill(ptr noundef %110)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 111:                                              ; preds = %95
   %112 = load ptr, ptr %96, align 8
@@ -6073,25 +6073,25 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %120 = load float, ptr %119, align 4
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i, float %120, i64 1
   call void @nvgStrokeColor(ptr noundef %113, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.3.12.vec.insert.i)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 121:                                              ; preds = %95
   %122 = load ptr, ptr %96, align 8
   %123 = load ptr, ptr %122, align 8
   call void @nvgStroke(ptr noundef %123)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 124:                                              ; preds = %95
   %125 = load ptr, ptr %96, align 8
   %126 = load ptr, ptr %125, align 8
   call void @nvgBeginPath(ptr noundef %126)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 127:                                              ; preds = %95
   %128 = load ptr, ptr %96, align 8
   %129 = load ptr, ptr %128, align 8
   call void @nvgClosePath(ptr noundef %129)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 130:                                              ; preds = %95
   %131 = load ptr, ptr %96, align 8
@@ -6099,13 +6099,13 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %133 = load float, ptr %.val23, align 4
   %134 = fptosi float %133 to i32
   call void @nvgPathWinding(ptr noundef %132, i32 noundef %134)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 135:                                              ; preds = %95
   %136 = load ptr, ptr %96, align 8
   %137 = load ptr, ptr %136, align 8
   call void @nvgDebugDumpPathCache(ptr noundef %137)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 138:                                              ; preds = %95
   %139 = getelementptr inbounds i8, ptr %96, i64 8
@@ -6147,7 +6147,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
 160:                                              ; preds = %151
   %161 = fadd float %155, %158
   %162 = icmp eq i64 %.01630.i.i.i, 2
-  br i1 %162, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit.i", label %163
+  br i1 %162, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit.i", label %163
 
 163:                                              ; preds = %160
   %164 = getelementptr inbounds [2 x float], ptr %17, i64 0, i64 %.01630.i.i.i
@@ -6155,7 +6155,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %165 = add nuw nsw i64 %.01630.i.i.i, 1
   br label %.preheader.i.i.i
 
-"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit.i": ; preds = %160
+"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit.i": ; preds = %160
   %166 = sitofp i32 %148 to float
   %167 = sitofp i32 %146 to float
   %168 = load float, ptr %17, align 4
@@ -6168,7 +6168,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %174 = load ptr, ptr %96, align 8
   %175 = load ptr, ptr %174, align 8
   call void @nvgMoveTo(ptr noundef %175, float noundef %172, float noundef %173)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 176:                                              ; preds = %95
   %177 = getelementptr inbounds i8, ptr %96, i64 8
@@ -6210,7 +6210,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
 198:                                              ; preds = %189
   %199 = fadd float %193, %196
   %200 = icmp eq i64 %.01630.i.i106.i, 2
-  br i1 %200, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit112.i", label %201
+  br i1 %200, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit112.i", label %201
 
 201:                                              ; preds = %198
   %202 = getelementptr inbounds [2 x float], ptr %16, i64 0, i64 %.01630.i.i106.i
@@ -6218,7 +6218,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %203 = add nuw nsw i64 %.01630.i.i106.i, 1
   br label %.preheader.i.i105.i
 
-"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit112.i": ; preds = %198
+"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit112.i": ; preds = %198
   %204 = sitofp i32 %186 to float
   %205 = sitofp i32 %184 to float
   %206 = load float, ptr %16, align 4
@@ -6231,7 +6231,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %212 = load ptr, ptr %96, align 8
   %213 = load ptr, ptr %212, align 8
   call void @nvgLineTo(ptr noundef %213, float noundef %210, float noundef %211)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 214:                                              ; preds = %95
   %215 = getelementptr inbounds i8, ptr %96, i64 8
@@ -6273,7 +6273,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
 236:                                              ; preds = %227
   %237 = fadd float %231, %234
   %238 = icmp eq i64 %.01630.i.i114.i, 2
-  br i1 %238, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit120.i", label %239
+  br i1 %238, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit120.i", label %239
 
 239:                                              ; preds = %236
   %240 = getelementptr inbounds [2 x float], ptr %15, i64 0, i64 %.01630.i.i114.i
@@ -6281,7 +6281,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %241 = add nuw nsw i64 %.01630.i.i114.i, 1
   br label %.preheader.i.i113.i
 
-"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit120.i": ; preds = %236
+"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit120.i": ; preds = %236
   %242 = load float, ptr %15, align 4
   %243 = load float, ptr %.06.i.sroa.gep21.i.i117.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
@@ -6294,8 +6294,8 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   br label %.preheader.i.i121.i
 
-.preheader.i.i121.i:                              ; preds = %262, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit120.i"
-  %.01630.i.i122.i = phi i64 [ 0, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit120.i" ], [ %264, %262 ]
+.preheader.i.i121.i:                              ; preds = %262, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit120.i"
+  %.01630.i.i122.i = phi i64 [ 0, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit120.i" ], [ %264, %262 ]
   %248 = getelementptr inbounds [3 x [3 x float]], ptr %.val80.i, i64 0, i64 0, i64 %.01630.i.i122.i
   %249 = load float, ptr %248, align 4
   br label %250
@@ -6316,7 +6316,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
 259:                                              ; preds = %250
   %260 = fadd float %254, %257
   %261 = icmp eq i64 %.01630.i.i122.i, 2
-  br i1 %261, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit128.i", label %262
+  br i1 %261, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit128.i", label %262
 
 262:                                              ; preds = %259
   %263 = getelementptr inbounds [2 x float], ptr %14, i64 0, i64 %.01630.i.i122.i
@@ -6324,7 +6324,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %264 = add nuw nsw i64 %.01630.i.i122.i, 1
   br label %.preheader.i.i121.i
 
-"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit128.i": ; preds = %259
+"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit128.i": ; preds = %259
   %265 = sitofp i32 %222 to float
   %266 = fdiv float %242, %237
   %267 = fadd float %266, %265
@@ -6357,7 +6357,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %293 = load ptr, ptr %96, align 8
   %294 = load ptr, ptr %293, align 8
   call void @nvgArcTo(ptr noundef %294, float noundef %267, float noundef %270, float noundef %275, float noundef %276, float noundef %292)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 295:                                              ; preds = %95
   %296 = getelementptr inbounds i8, ptr %96, i64 8
@@ -6399,7 +6399,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
 317:                                              ; preds = %308
   %318 = fadd float %312, %315
   %319 = icmp eq i64 %.01630.i.i130.i, 2
-  br i1 %319, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit136.i", label %320
+  br i1 %319, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit136.i", label %320
 
 320:                                              ; preds = %317
   %321 = getelementptr inbounds [2 x float], ptr %13, i64 0, i64 %.01630.i.i130.i
@@ -6407,7 +6407,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %322 = add nuw nsw i64 %.01630.i.i130.i, 1
   br label %.preheader.i.i129.i
 
-"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit136.i": ; preds = %317
+"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit136.i": ; preds = %317
   %323 = sitofp i32 %305 to float
   %324 = sitofp i32 %303 to float
   %325 = load float, ptr %13, align 4
@@ -6443,7 +6443,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %354 = load float, ptr %353, align 4
   %355 = fptosi float %354 to i32
   call void @nvgArc(ptr noundef %348, float noundef %329, float noundef %330, float noundef %346, float noundef %350, float noundef %352, i32 noundef %355)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 356:                                              ; preds = %95
   %357 = getelementptr inbounds i8, ptr %96, i64 8
@@ -6485,7 +6485,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
 378:                                              ; preds = %369
   %379 = fadd float %373, %376
   %380 = icmp eq i64 %.01630.i.i138.i, 2
-  br i1 %380, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit144.i", label %381
+  br i1 %380, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit144.i", label %381
 
 381:                                              ; preds = %378
   %382 = getelementptr inbounds [2 x float], ptr %12, i64 0, i64 %.01630.i.i138.i
@@ -6493,7 +6493,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %383 = add nuw nsw i64 %.01630.i.i138.i, 1
   br label %.preheader.i.i137.i
 
-"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit144.i": ; preds = %378
+"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit144.i": ; preds = %378
   %384 = load float, ptr %12, align 4
   %385 = load float, ptr %.06.i.sroa.gep21.i.i141.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
@@ -6506,8 +6506,8 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   br label %.preheader.i.i145.i
 
-.preheader.i.i145.i:                              ; preds = %404, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit144.i"
-  %.01630.i.i146.i = phi i64 [ 0, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit144.i" ], [ %406, %404 ]
+.preheader.i.i145.i:                              ; preds = %404, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit144.i"
+  %.01630.i.i146.i = phi i64 [ 0, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit144.i" ], [ %406, %404 ]
   %390 = getelementptr inbounds [3 x [3 x float]], ptr %.val86.i, i64 0, i64 0, i64 %.01630.i.i146.i
   %391 = load float, ptr %390, align 4
   br label %392
@@ -6528,7 +6528,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
 401:                                              ; preds = %392
   %402 = fadd float %396, %399
   %403 = icmp eq i64 %.01630.i.i146.i, 2
-  br i1 %403, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit152.i", label %404
+  br i1 %403, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit152.i", label %404
 
 404:                                              ; preds = %401
   %405 = getelementptr inbounds [2 x float], ptr %11, i64 0, i64 %.01630.i.i146.i
@@ -6536,7 +6536,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %406 = add nuw nsw i64 %.01630.i.i146.i, 1
   br label %.preheader.i.i145.i
 
-"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit152.i": ; preds = %401
+"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit152.i": ; preds = %401
   %407 = sitofp i32 %364 to float
   %408 = fdiv float %384, %379
   %409 = fadd float %408, %407
@@ -6552,8 +6552,8 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   br label %.preheader.i.i153.i
 
-.preheader.i.i153.i:                              ; preds = %430, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit152.i"
-  %.01630.i.i154.i = phi i64 [ 0, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit152.i" ], [ %432, %430 ]
+.preheader.i.i153.i:                              ; preds = %430, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit152.i"
+  %.01630.i.i154.i = phi i64 [ 0, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit152.i" ], [ %432, %430 ]
   %416 = getelementptr inbounds [3 x [3 x float]], ptr %.val86.i, i64 0, i64 0, i64 %.01630.i.i154.i
   %417 = load float, ptr %416, align 4
   br label %418
@@ -6574,7 +6574,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
 427:                                              ; preds = %418
   %428 = fadd float %422, %425
   %429 = icmp eq i64 %.01630.i.i154.i, 2
-  br i1 %429, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit160.i", label %430
+  br i1 %429, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit160.i", label %430
 
 430:                                              ; preds = %427
   %431 = getelementptr inbounds [2 x float], ptr %10, i64 0, i64 %.01630.i.i154.i
@@ -6582,7 +6582,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %432 = add nuw nsw i64 %.01630.i.i154.i, 1
   br label %.preheader.i.i153.i
 
-"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit160.i": ; preds = %427
+"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit160.i": ; preds = %427
   %433 = fdiv float %385, %379
   %434 = fdiv float %410, %402
   %435 = fadd float %434, %407
@@ -6600,7 +6600,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %446 = load ptr, ptr %96, align 8
   %447 = load ptr, ptr %446, align 8
   call void @nvgBezierTo(ptr noundef %447, float noundef %409, float noundef %437, float noundef %435, float noundef %439, float noundef %444, float noundef %445)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 448:                                              ; preds = %95
   %449 = getelementptr inbounds i8, ptr %96, i64 8
@@ -6642,7 +6642,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
 470:                                              ; preds = %461
   %471 = fadd float %465, %468
   %472 = icmp eq i64 %.01630.i.i162.i, 2
-  br i1 %472, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit168.i", label %473
+  br i1 %472, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit168.i", label %473
 
 473:                                              ; preds = %470
   %474 = getelementptr inbounds [2 x float], ptr %9, i64 0, i64 %.01630.i.i162.i
@@ -6650,7 +6650,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %475 = add nuw nsw i64 %.01630.i.i162.i, 1
   br label %.preheader.i.i161.i
 
-"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit168.i": ; preds = %470
+"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit168.i": ; preds = %470
   %476 = sitofp i32 %458 to float
   %477 = sitofp i32 %456 to float
   %478 = load float, ptr %9, align 4
@@ -6679,7 +6679,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %500 = load ptr, ptr %96, align 8
   %501 = load ptr, ptr %500, align 8
   call void @nvgCircle(ptr noundef %501, float noundef %482, float noundef %483, float noundef %499)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 502:                                              ; preds = %95
   %503 = getelementptr inbounds i8, ptr %96, i64 8
@@ -6721,7 +6721,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
 524:                                              ; preds = %515
   %525 = fadd float %519, %522
   %526 = icmp eq i64 %.01630.i.i170.i, 2
-  br i1 %526, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit176.i", label %527
+  br i1 %526, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit176.i", label %527
 
 527:                                              ; preds = %524
   %528 = getelementptr inbounds [2 x float], ptr %8, i64 0, i64 %.01630.i.i170.i
@@ -6729,7 +6729,7 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   %529 = add nuw nsw i64 %.01630.i.i170.i, 1
   br label %.preheader.i.i169.i
 
-"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit176.i": ; preds = %524
+"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit176.i": ; preds = %524
   %530 = load float, ptr %8, align 4
   %531 = load float, ptr %.06.i.sroa.gep21.i.i173.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -6749,10 +6749,10 @@ _ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit:           ; preds = %84
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.031.i)
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %547, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit176.i"
-  %541 = phi i1 [ true, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit176.i" ], [ false, %547 ]
-  %.01215.i.sroa.phi.i = phi ptr [ %.sroa.031.i, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit176.i" ], [ %.sroa.031.i.4.i.4.i.4.gep30.sroa_idx, %547 ]
-  %.01215.i.i = phi i64 [ 0, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit176.i" ], [ 1, %547 ]
+.preheader.i.i:                                   ; preds = %547, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit176.i"
+  %541 = phi i1 [ true, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit176.i" ], [ false, %547 ]
+  %.01215.i.sroa.phi.i = phi ptr [ %.sroa.031.i, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit176.i" ], [ %.sroa.031.i.4.i.4.i.4.gep30.sroa_idx, %547 ]
+  %.01215.i.i = phi i64 [ 0, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit176.i" ], [ 1, %547 ]
   br label %542
 
 542:                                              ; preds = %542, %.preheader.i.i
@@ -6783,7 +6783,7 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit.i: ; p
   %.sroa.019.0.vec.extract.i = extractelement <2 x float> %.sroa.031.i.0..sroa.031.i.0..sroa.031.i.0..sroa.031.0..sroa.031.0..sroa.031.0..i, i64 0
   %.sroa.019.4.vec.extract.i = extractelement <2 x float> %.sroa.031.i.0..sroa.031.i.0..sroa.031.i.0..sroa.031.0..sroa.031.0..sroa.031.0..i, i64 1
   call void @nvgEllipse(ptr noundef %555, float noundef %550, float noundef %553, float noundef %.sroa.019.0.vec.extract.i, float noundef %.sroa.019.4.vec.extract.i)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 556:                                              ; preds = %95
   %557 = getelementptr inbounds i8, ptr %96, i64 8
@@ -6825,7 +6825,7 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit.i: ; p
 578:                                              ; preds = %569
   %579 = fadd float %573, %576
   %580 = icmp eq i64 %.01630.i.i178.i, 2
-  br i1 %580, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit184.i", label %581
+  br i1 %580, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit184.i", label %581
 
 581:                                              ; preds = %578
   %582 = getelementptr inbounds [2 x float], ptr %7, i64 0, i64 %.01630.i.i178.i
@@ -6833,7 +6833,7 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit.i: ; p
   %583 = add nuw nsw i64 %.01630.i.i178.i, 1
   br label %.preheader.i.i177.i
 
-"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit184.i": ; preds = %578
+"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit184.i": ; preds = %578
   %584 = load float, ptr %7, align 4
   %585 = load float, ptr %.06.i.sroa.gep21.i.i181.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -6846,8 +6846,8 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit.i: ; p
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   br label %.preheader.i.i185.i
 
-.preheader.i.i185.i:                              ; preds = %604, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit184.i"
-  %.01630.i.i186.i = phi i64 [ 0, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit184.i" ], [ %606, %604 ]
+.preheader.i.i185.i:                              ; preds = %604, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit184.i"
+  %.01630.i.i186.i = phi i64 [ 0, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit184.i" ], [ %606, %604 ]
   %590 = getelementptr inbounds [3 x [3 x float]], ptr %.val96.i, i64 0, i64 0, i64 %.01630.i.i186.i
   %591 = load float, ptr %590, align 4
   br label %592
@@ -6868,7 +6868,7 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit.i: ; p
 601:                                              ; preds = %592
   %602 = fadd float %596, %599
   %603 = icmp eq i64 %.01630.i.i186.i, 2
-  br i1 %603, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit192.i", label %604
+  br i1 %603, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit192.i", label %604
 
 604:                                              ; preds = %601
   %605 = getelementptr inbounds [2 x float], ptr %6, i64 0, i64 %.01630.i.i186.i
@@ -6876,7 +6876,7 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit.i: ; p
   %606 = add nuw nsw i64 %.01630.i.i186.i, 1
   br label %.preheader.i.i185.i
 
-"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit192.i": ; preds = %601
+"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit192.i": ; preds = %601
   %607 = sitofp i32 %564 to float
   %608 = fdiv float %584, %579
   %609 = fadd float %608, %607
@@ -6893,7 +6893,7 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit.i: ; p
   %619 = load ptr, ptr %96, align 8
   %620 = load ptr, ptr %619, align 8
   call void @nvgQuadTo(ptr noundef %620, float noundef %609, float noundef %612, float noundef %617, float noundef %618)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 621:                                              ; preds = %95
   %622 = getelementptr inbounds i8, ptr %96, i64 8
@@ -6935,7 +6935,7 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit.i: ; p
 643:                                              ; preds = %634
   %644 = fadd float %638, %641
   %645 = icmp eq i64 %.01630.i.i194.i, 2
-  br i1 %645, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit200.i", label %646
+  br i1 %645, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit200.i", label %646
 
 646:                                              ; preds = %643
   %647 = getelementptr inbounds [2 x float], ptr %5, i64 0, i64 %.01630.i.i194.i
@@ -6943,7 +6943,7 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit.i: ; p
   %648 = add nuw nsw i64 %.01630.i.i194.i, 1
   br label %.preheader.i.i193.i
 
-"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit200.i": ; preds = %643
+"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit200.i": ; preds = %643
   %649 = load float, ptr %5, align 4
   %650 = load float, ptr %.06.i.sroa.gep21.i.i197.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -6963,10 +6963,10 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit.i: ; p
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.034.i)
   br label %.preheader.i205.i
 
-.preheader.i205.i:                                ; preds = %666, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit200.i"
-  %660 = phi i1 [ true, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit200.i" ], [ false, %666 ]
-  %.01215.i206.sroa.phi.i = phi ptr [ %.sroa.034.i, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit200.i" ], [ %.sroa.034.i.4.i.4.i.4.gep33.sroa_idx, %666 ]
-  %.01215.i206.i = phi i64 [ 0, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit200.i" ], [ 1, %666 ]
+.preheader.i205.i:                                ; preds = %666, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit200.i"
+  %660 = phi i1 [ true, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit200.i" ], [ false, %666 ]
+  %.01215.i206.sroa.phi.i = phi ptr [ %.sroa.034.i, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit200.i" ], [ %.sroa.034.i.4.i.4.i.4.gep33.sroa_idx, %666 ]
+  %.01215.i206.i = phi i64 [ 0, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit200.i" ], [ 1, %666 ]
   br label %661
 
 661:                                              ; preds = %661, %.preheader.i205.i
@@ -6997,7 +6997,7 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit209.i: 
   %.sroa.012.0.vec.extract.i = extractelement <2 x float> %.sroa.034.i.0..sroa.034.i.0..sroa.034.i.0..sroa.034.0..sroa.034.0..sroa.034.0..i, i64 0
   %.sroa.012.4.vec.extract.i = extractelement <2 x float> %.sroa.034.i.0..sroa.034.i.0..sroa.034.i.0..sroa.034.0..sroa.034.0..sroa.034.0..i, i64 1
   call void @nvgRect(ptr noundef %674, float noundef %669, float noundef %672, float noundef %.sroa.012.0.vec.extract.i, float noundef %.sroa.012.4.vec.extract.i)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 675:                                              ; preds = %95
   %676 = getelementptr inbounds i8, ptr %96, i64 8
@@ -7039,7 +7039,7 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit209.i: 
 697:                                              ; preds = %688
   %698 = fadd float %692, %695
   %699 = icmp eq i64 %.01630.i.i211.i, 2
-  br i1 %699, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit217.i", label %700
+  br i1 %699, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit217.i", label %700
 
 700:                                              ; preds = %697
   %701 = getelementptr inbounds [2 x float], ptr %4, i64 0, i64 %.01630.i.i211.i
@@ -7047,7 +7047,7 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit209.i: 
   %702 = add nuw nsw i64 %.01630.i.i211.i, 1
   br label %.preheader.i.i210.i
 
-"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit217.i": ; preds = %697
+"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit217.i": ; preds = %697
   %703 = load float, ptr %4, align 4
   %704 = load float, ptr %.06.i.sroa.gep21.i.i214.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -7069,10 +7069,10 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit209.i: 
   %715 = extractelement <4 x float> %707, i64 1
   br label %.preheader.i222.i
 
-.preheader.i222.i:                                ; preds = %722, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit217.i"
-  %716 = phi i1 [ true, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit217.i" ], [ false, %722 ]
-  %.01215.i223.sroa.phi.i = phi ptr [ %.sroa.037.i, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit217.i" ], [ %.sroa.037.i.4.i.4.i.4.gep36.sroa_idx, %722 ]
-  %.01215.i223.i = phi i64 [ 0, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit217.i" ], [ 1, %722 ]
+.preheader.i222.i:                                ; preds = %722, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit217.i"
+  %716 = phi i1 [ true, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit217.i" ], [ false, %722 ]
+  %.01215.i223.sroa.phi.i = phi ptr [ %.sroa.037.i, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit217.i" ], [ %.sroa.037.i.4.i.4.i.4.gep36.sroa_idx, %722 ]
+  %.01215.i223.i = phi i64 [ 0, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit217.i" ], [ 1, %722 ]
   br label %717
 
 717:                                              ; preds = %717, %.preheader.i222.i
@@ -7112,7 +7112,7 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit226.i: 
   %.sroa.07.0.vec.extract.i = extractelement <2 x float> %.sroa.037.i.0..sroa.037.i.0..sroa.037.i.0..sroa.037.0..sroa.037.0..sroa.037.0..i, i64 0
   %.sroa.07.4.vec.extract.i = extractelement <2 x float> %.sroa.037.i.0..sroa.037.i.0..sroa.037.i.0..sroa.037.0..sroa.037.0..sroa.037.0..i, i64 1
   call void @nvgRoundedRect(ptr noundef %739, float noundef %725, float noundef %730, float noundef %.sroa.07.0.vec.extract.i, float noundef %.sroa.07.4.vec.extract.i, float noundef %737)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 740:                                              ; preds = %95
   %741 = getelementptr inbounds i8, ptr %96, i64 8
@@ -7154,7 +7154,7 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit226.i: 
 762:                                              ; preds = %753
   %763 = fadd float %757, %760
   %764 = icmp eq i64 %.01630.i.i228.i, 2
-  br i1 %764, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit234.i", label %765
+  br i1 %764, label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit234.i", label %765
 
 765:                                              ; preds = %762
   %766 = getelementptr inbounds [2 x float], ptr %3, i64 0, i64 %.01630.i.i228.i
@@ -7162,7 +7162,7 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit226.i: 
   %767 = add nuw nsw i64 %.01630.i.i228.i, 1
   br label %.preheader.i.i227.i
 
-"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit234.i": ; preds = %762
+"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit234.i": ; preds = %762
   %768 = load float, ptr %3, align 4
   %769 = load float, ptr %.06.i.sroa.gep21.i.i231.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -7184,10 +7184,10 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit226.i: 
   %780 = extractelement <4 x float> %772, i64 1
   br label %.preheader.i239.i
 
-.preheader.i239.i:                                ; preds = %787, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit234.i"
-  %781 = phi i1 [ true, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit234.i" ], [ false, %787 ]
-  %.01215.i240.sroa.phi.i = phi ptr [ %.sroa.040.i, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit234.i" ], [ %.sroa.040.i.4.i.4.i.4.gep39.sroa_idx, %787 ]
-  %.01215.i240.i = phi i64 [ 0, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit234.i" ], [ 1, %787 ]
+.preheader.i239.i:                                ; preds = %787, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit234.i"
+  %781 = phi i1 [ true, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit234.i" ], [ false, %787 ]
+  %.01215.i240.sroa.phi.i = phi ptr [ %.sroa.040.i, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit234.i" ], [ %.sroa.040.i.4.i.4.i.4.gep39.sroa_idx, %787 ]
+  %.01215.i240.i = phi i64 [ 0, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit234.i" ], [ 1, %787 ]
   br label %782
 
 782:                                              ; preds = %782, %.preheader.i239.i
@@ -7236,7 +7236,7 @@ _ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit243.i: 
   %812 = load float, ptr %811, align 4
   %813 = fmul float %799, %812
   call void @nvgRoundedRectVarying(ptr noundef %801, float noundef %790, float noundef %795, float noundef %.sroa.02.0.vec.extract.i, float noundef %.sroa.02.4.vec.extract.i, float noundef %804, float noundef %807, float noundef %810, float noundef %813)
-  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit"
+  br label %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit"
 
 814:                                              ; preds = %95
   %815 = call ptr @__cxa_allocate_exception(i64 16) #35
@@ -7257,8 +7257,8 @@ common.resume:                                    ; preds = %89, %831, %817
   call void @__cxa_free_exception(ptr %815) #35
   br label %common.resume
 
-"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit": ; preds = %.thread, %.thread12, %98, %108, %111, %121, %124, %127, %130, %135, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit.i", %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit112.i", %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit128.i", %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit136.i", %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit160.i", %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit168.i", %_ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit.i, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit192.i", %_ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit209.i, %_ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit226.i, %_ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit243.i
-  %.110 = phi i64 [ %78, %.thread ], [ %91, %.thread12 ], [ %.02073, %98 ], [ %.02073, %108 ], [ %.02073, %111 ], [ %.02073, %121 ], [ %.02073, %124 ], [ %.02073, %127 ], [ %.02073, %130 ], [ %.02073, %135 ], [ %.02073, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit.i" ], [ %.02073, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit112.i" ], [ %.02073, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit128.i" ], [ %.02073, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit136.i" ], [ %.02073, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit160.i" ], [ %.02073, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit168.i" ], [ %.02073, %_ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit.i ], [ %.02073, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.exit192.i" ], [ %.02073, %_ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit209.i ], [ %.02073, %_ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit226.i ], [ %.02073, %_ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit243.i ]
+"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit": ; preds = %.thread, %.thread12, %98, %108, %111, %121, %124, %127, %130, %135, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit.i", %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit112.i", %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit128.i", %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit136.i", %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit160.i", %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit168.i", %_ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit.i, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit192.i", %_ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit209.i, %_ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit226.i, %_ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit243.i
+  %.110 = phi i64 [ %78, %.thread ], [ %91, %.thread12 ], [ %.02073, %98 ], [ %.02073, %108 ], [ %.02073, %111 ], [ %.02073, %121 ], [ %.02073, %124 ], [ %.02073, %127 ], [ %.02073, %130 ], [ %.02073, %135 ], [ %.02073, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit.i" ], [ %.02073, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit112.i" ], [ %.02073, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit128.i" ], [ %.02073, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit136.i" ], [ %.02073, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit160.i" ], [ %.02073, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit168.i" ], [ %.02073, %_ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit.i ], [ %.02073, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_2clERKN7nanogui5ArrayIfLm2EEE.argprom.exit192.i" ], [ %.02073, %_ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit209.i ], [ %.02073, %_ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit226.i ], [ %.02073, %_ZN7nanoguimlIfLm2EEENS_5ArrayIT_XT0_EEERKNS_6MatrixIS2_XT0_EEERKS3_.exit243.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
@@ -7280,8 +7280,8 @@ common.resume:                                    ; preds = %89, %831, %817
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
   br label %819
 
-819:                                              ; preds = %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit", %_ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit
-  %.2 = phi i64 [ %.110, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.exit" ], [ 0, %_ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit ]
+819:                                              ; preds = %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit", %_ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit
+  %.2 = phi i64 [ %.110, %"_ZZN3tev11ImageCanvas4drawEP10NVGcontextENK3$_1clERKNS_9VgCommandE.argprom.exit" ], [ 0, %_ZN4tlog6StreamlsIA56_cEERS0_RKT_.exit ]
   %820 = getelementptr inbounds i8, ptr %.sroa.01.072, i64 32
   %.not20 = icmp eq ptr %820, %54
   br i1 %.not20, label %._crit_edge, label %76
@@ -7711,12 +7711,12 @@ _ZN7nanogui4meanIfLm3EEET_RKNS_5ArrayIS1_XT0_EEE.exit: ; preds = %.preheader
   %58 = fadd float %57, 5.000000e-01
   %59 = load atomic i8, ptr @"_ZGVZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEfE3fcd" acquire, align 8
   %60 = icmp eq i8 %59, 0
-  br i1 %60, label %61, label %"_ZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEf.exit", !prof !184
+  br i1 %60, label %61, label %"_ZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEf.argprom.exit", !prof !184
 
 61:                                               ; preds = %_ZN7nanogui4meanIfLm3EEET_RKNS_5ArrayIS1_XT0_EEE.exit
   %62 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEfE3fcd") #35
   %.not.i = icmp eq i32 %62, 0
-  br i1 %.not.i, label %"_ZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEf.exit", label %63
+  br i1 %.not.i, label %"_ZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEf.argprom.exit", label %63
 
 63:                                               ; preds = %61
   %64 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tev8colormap5turboEv()
@@ -7725,7 +7725,7 @@ _ZN7nanogui4meanIfLm3EEET_RKNS_5ArrayIS1_XT0_EEE.exit: ; preds = %.preheader
 65:                                               ; preds = %63
   store ptr %64, ptr @"_ZZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEfE3fcd", align 8
   tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEfE3fcd") #35
-  br label %"_ZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEf.exit"
+  br label %"_ZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEf.argprom.exit"
 
 common.resume:                                    ; preds = %132, %66
   %common.resume.op = phi { ptr, i32 } [ %67, %66 ], [ %133, %132 ]
@@ -7737,7 +7737,7 @@ common.resume:                                    ; preds = %132, %66
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEfE3fcd") #35
   br label %common.resume
 
-"_ZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEf.exit": ; preds = %_ZN7nanogui4meanIfLm3EEET_RKNS_5ArrayIS1_XT0_EEE.exit, %61, %65
+"_ZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEf.argprom.exit": ; preds = %_ZN7nanogui4meanIfLm3EEET_RKNS_5ArrayIS1_XT0_EEE.exit, %61, %65
   %68 = load ptr, ptr @"_ZZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEfE3fcd", align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
@@ -7871,8 +7871,8 @@ _ZN7nanogui4meanIfLm3EEET_RKNS_5ArrayIS1_XT0_EEE.exit62: ; preds = %121
   tail call void @__cxa_free_exception(ptr %130) #35
   br label %common.resume
 
-_ZN7nanogui5ArrayIfLm3EEC2Ef.exit65:              ; preds = %_ZN7nanogui4meanIfLm3EEET_RKNS_5ArrayIS1_XT0_EEE.exit62, %"_ZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEf.exit", %40, %_ZN3tev6toSRGBEff.exit39
-  %.sink = phi float [ 0.000000e+00, %_ZN7nanogui4meanIfLm3EEET_RKNS_5ArrayIS1_XT0_EEE.exit62 ], [ %96, %"_ZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEf.exit" ], [ %49, %40 ], [ %.0.i38, %_ZN3tev6toSRGBEff.exit39 ]
+_ZN7nanogui5ArrayIfLm3EEC2Ef.exit65:              ; preds = %_ZN7nanogui4meanIfLm3EEET_RKNS_5ArrayIS1_XT0_EEE.exit62, %"_ZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEf.argprom.exit", %40, %_ZN3tev6toSRGBEff.exit39
+  %.sink = phi float [ 0.000000e+00, %_ZN7nanogui4meanIfLm3EEET_RKNS_5ArrayIS1_XT0_EEE.exit62 ], [ %96, %"_ZZN3tev11ImageCanvas12applyTonemapERKN7nanogui5ArrayIfLm3EEEfNS_8ETonemapEENK3$_0clEf.argprom.exit" ], [ %49, %40 ], [ %.0.i38, %_ZN3tev6toSRGBEff.exit39 ]
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store float %.sink, ptr %.sroa.3.0..sroa_idx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, i8 0, i64 12, i1 false)
@@ -8673,7 +8673,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %117, %114, %_ZNSt3_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #35, !noalias !195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, ptr noundef nonnull align 8 dereferenceable(24) %125, i64 24, i1 false), !noalias !195
   %201 = load i32, ptr %126, align 4, !noalias !195
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias writable align 8 %21, i32 noundef %199, i32 noundef %198, ptr noundef nonnull byval(%class.anon.130) align 8 %125, i32 noundef %201, ptr noundef %200)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_.argprom"(ptr dead_on_unwind noalias writable align 8 %21, i32 noundef %199, i32 noundef %198, ptr noundef nonnull byval(%class.anon.130) align 8 %125, i32 noundef %201, ptr noundef %200)
           to label %202 unwind label %230, !noalias !195
 
 202:                                              ; preds = %196
@@ -9331,7 +9331,7 @@ _ZN3tev4TaskIvE12await_resumeEv.exit.i6.i:        ; preds = %_ZN4tlog6StreamlsIA
   %.sroa.02.0.copyload.i.i = load ptr, ptr %360, align 8, !noalias !223
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.221.0..sroa_idx.i.i, align 8, !noalias !223
   %435 = load i32, ptr %361, align 4, !noalias !223
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_1EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef %433, i32 noundef %432, ptr %.sroa.02.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, i32 noundef %435, ptr noundef %434)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_1EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_.argprom"(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef %433, i32 noundef %432, ptr %.sroa.02.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, i32 noundef %435, ptr noundef %434)
           to label %436 unwind label %464, !noalias !223
 
 436:                                              ; preds = %430
@@ -10169,7 +10169,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %89, %86, %83
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #35, !noalias !251
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %104, i64 24, i1 false), !noalias !251
   %180 = load i32, ptr %105, align 4, !noalias !251
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_0EENS_4TaskIvEET_SJ_T0_iENKUliiSG_iPS0_E_clEiiSG_iSL_"(ptr dead_on_unwind noalias writable align 8 %23, i32 noundef %178, i32 noundef %177, ptr noundef nonnull byval(%class.anon.172) align 8 %104, i32 noundef %180, ptr noundef %179)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_0EENS_4TaskIvEET_SJ_T0_iENKUliiSG_iPS0_E_clEiiSG_iSL_.argprom"(ptr dead_on_unwind noalias writable align 8 %23, i32 noundef %178, i32 noundef %177, ptr noundef nonnull byval(%class.anon.172) align 8 %104, i32 noundef %180, ptr noundef %179)
           to label %181 unwind label %209, !noalias !251
 
 181:                                              ; preds = %175
@@ -10837,7 +10837,7 @@ _ZN3tev10ThreadPool6globalEv.exit41:              ; preds = %344, %341, %.crited
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #35, !noalias !278
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %363, ptr noundef nonnull align 8 dereferenceable(56) %358, i64 56, i1 false), !noalias !278
   %432 = load i32, ptr %359, align 4, !noalias !278
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_1EENS_4TaskIvEET_SJ_T0_iENKUlmmSG_iPS0_E_clEmmSG_iSL_"(ptr dead_on_unwind noalias writable align 8 %14, i64 noundef %430, i64 noundef %429, ptr noundef nonnull byval(%class.anon.173) align 8 %358, i32 noundef %432, ptr noundef %431)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_1EENS_4TaskIvEET_SJ_T0_iENKUlmmSG_iPS0_E_clEmmSG_iSL_.argprom"(ptr dead_on_unwind noalias writable align 8 %14, i64 noundef %430, i64 noundef %429, ptr noundef nonnull byval(%class.anon.173) align 8 %358, i32 noundef %432, ptr noundef %431)
           to label %433 unwind label %461, !noalias !278
 
 433:                                              ; preds = %427
@@ -11606,7 +11606,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %38, %35, %_ZNSt3__1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #35, !noalias !305
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false), !noalias !305
   %127 = load i32, ptr %54, align 4, !noalias !305
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_11ImageCanvas15getLdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias writable align 8 %12, i64 noundef %125, i64 noundef %124, ptr noundef nonnull byval(%class.anon.135) align 8 %53, i32 noundef %127, ptr noundef %126)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_11ImageCanvas15getLdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_.argprom"(ptr dead_on_unwind noalias writable align 8 %12, i64 noundef %125, i64 noundef %124, ptr noundef nonnull byval(%class.anon.135) align 8 %53, i32 noundef %127, ptr noundef %126)
           to label %128 unwind label %156, !noalias !305
 
 128:                                              ; preds = %122
@@ -15145,7 +15145,7 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit117: ; preds = %_ZNSt3__11
   %.not5.i = icmp eq ptr %180, %182
   br i1 %.not5.i, label %"_ZNSt3__16all_ofB8ne190000INS_11__wrap_iterIPN3tev7ChannelEEEZNS2_11ImageCanvas23computeCanvasStatisticsENS_10shared_ptrINS2_5ImageEEES9_RKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS2_7EMetricERKNS2_3BoxIiLj2EEEiE3$_0EEbT_SO_T0_.exit.thread", label %.lr.ph.i
 
-183:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_0clERKNS_7ChannelE.exit.i"
+183:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_0clERKNS_7ChannelE.argprom.exit.i"
   %184 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 56
   %.not.i118 = icmp eq ptr %184, %182
   br i1 %.not.i118, label %"_ZNSt3__16all_ofB8ne190000INS_11__wrap_iterIPN3tev7ChannelEEEZNS2_11ImageCanvas23computeCanvasStatisticsENS_10shared_ptrINS2_5ImageEEES9_RKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS2_7EMetricERKNS2_3BoxIiLj2EEEiE3$_0EEbT_SO_T0_.exit.thread", label %.lr.ph.i, !llvm.loop !462
@@ -15161,12 +15161,12 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit117: ; preds = %_ZNSt3__11
   %190 = zext nneg i8 %189 to i64
   %191 = select i1 %.not.i.i.i.i.i.i, i64 %190, i64 %188
   %.not.i.i.i.i = icmp eq i64 %191, 1
-  br i1 %.not.i.i.i.i, label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_0clERKNS_7ChannelE.exit.i", label %.lr.ph.preheader
+  br i1 %.not.i.i.i.i, label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_0clERKNS_7ChannelE.argprom.exit.i", label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_0clERKNS_7ChannelE.exit.i", %.lr.ph.i
+.lr.ph.preheader:                                 ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_0clERKNS_7ChannelE.argprom.exit.i", %.lr.ph.i
   br label %.lr.ph
 
-"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_0clERKNS_7ChannelE.exit.i": ; preds = %.lr.ph.i
+"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_0clERKNS_7ChannelE.argprom.exit.i": ; preds = %.lr.ph.i
   %192 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 1
   %193 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 16
   %194 = load ptr, ptr %193, align 8
@@ -15412,7 +15412,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE6resizeEm.exit: ; preds = %._crit_edge255.th
   %314 = tail call noundef float @logf(float noundef %313) #35
   %315 = load float, ptr @_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE8smallest, align 4
   %316 = fsub float %314, %315
-  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.exit"
+  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.argprom.exit"
 
 317:                                              ; preds = %309
   %318 = fsub float 0x3F50624DE0000000, %310
@@ -15420,23 +15420,23 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE6resizeEm.exit: ; preds = %._crit_edge255.th
   %320 = load float, ptr @_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE8smallest, align 4
   %321 = fsub float %319, %320
   %322 = fneg float %321
-  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.exit"
+  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.argprom.exit"
 
-"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.exit": ; preds = %312, %317
+"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.argprom.exit": ; preds = %312, %317
   %323 = phi float [ %316, %312 ], [ %322, %317 ]
   store float %323, ptr %41, align 4
   %324 = load float, ptr %32, align 4
   %325 = fcmp ogt float %324, 0.000000e+00
   br i1 %325, label %326, label %331
 
-326:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.exit"
+326:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.argprom.exit"
   %327 = fadd float %324, 0x3F50624DE0000000
   %328 = tail call noundef float @logf(float noundef %327) #35
   %329 = load float, ptr @_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE8smallest, align 4
   %330 = fsub float %328, %329
   br label %337
 
-331:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.exit"
+331:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.argprom.exit"
   %332 = fsub float 0x3F50624DE0000000, %324
   %333 = tail call noundef float @logf(float noundef %332) #35
   %334 = load float, ptr @_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE8smallest, align 4
@@ -15665,7 +15665,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %427, %424, %419
   store ptr %43, ptr %409, align 8
   store ptr %421, ptr %410, align 8
   %434 = load i32, ptr %27, align 4
-  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %431, ptr noundef nonnull byval(%class.anon.203) align 8 %49, i32 noundef %434)
+  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_i.argelim"(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %431, ptr noundef nonnull byval(%class.anon.203) align 8 %49, i32 noundef %434)
           to label %435 unwind label %464
 
 435:                                              ; preds = %_ZN3tev10ThreadPool6globalEv.exit
@@ -15874,7 +15874,7 @@ _ZN3tev10ThreadPool6globalEv.exit139:             ; preds = %509, %506, %._crit_
   %516 = getelementptr inbounds i8, ptr %20, i64 152
   store ptr %34, ptr %516, align 8
   %517 = load i32, ptr %27, align 4
-  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias writable align 8 %55, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %513, ptr noundef nonnull byval(%class.anon.205) align 8 %56, i32 noundef %517)
+  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_i.argelim"(ptr dead_on_unwind noalias writable align 8 %55, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %513, ptr noundef nonnull byval(%class.anon.205) align 8 %56, i32 noundef %517)
           to label %518 unwind label %540
 
 518:                                              ; preds = %_ZN3tev10ThreadPool6globalEv.exit139
@@ -16019,15 +16019,15 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPfS5_EEvT_T0_m.exit.i.i
   call void @_ZN3tev4TaskIvED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #35
   br label %.body137
 
-571:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit154"
+571:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit154"
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %572 = load i32, ptr %36, align 4
   %573 = sext i32 %572 to i64
   %574 = icmp slt i64 %indvars.iv.next284, %573
   br i1 %574, label %.preheader237, label %._crit_edge265, !llvm.loop !484
 
-575:                                              ; preds = %.preheader237, %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit154"
-  %indvars.iv279 = phi i64 [ 0, %.preheader237 ], [ %indvars.iv.next280, %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit154" ]
+575:                                              ; preds = %.preheader237, %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit154"
+  %indvars.iv279 = phi i64 [ 0, %.preheader237 ], [ %indvars.iv.next280, %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit154" ]
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %576 = trunc nuw nsw i64 %indvars.iv.next280 to i32
   %577 = uitofp nneg i32 %576 to float
@@ -16046,16 +16046,16 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPfS5_EEvT_T0_m.exit.i.i
   %584 = fadd float %582, %580
   %585 = call noundef float @expf(float noundef %584) #35
   %586 = fadd float %585, 0xBF50624DE0000000
-  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit"
+  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit"
 
 587:                                              ; preds = %575
   %588 = fsub float %582, %580
   %589 = call noundef float @expf(float noundef %588) #35
   %590 = fadd float %589, 0xBF50624DE0000000
   %591 = fneg float %590
-  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit"
+  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit"
 
-"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit": ; preds = %587, %583
+"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit": ; preds = %587, %583
   %592 = phi float [ %586, %583 ], [ %591, %587 ]
   %593 = trunc nuw nsw i64 %indvars.iv279 to i32
   %594 = uitofp nneg i32 %593 to float
@@ -16070,20 +16070,20 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPfS5_EEvT_T0_m.exit.i.i
   %599 = load float, ptr @_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE8smallest, align 4
   br i1 %598, label %600, label %604
 
-600:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit"
+600:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit"
   %601 = fadd float %599, %597
   %602 = call noundef float @expf(float noundef %601) #35
   %603 = fadd float %602, 0xBF50624DE0000000
-  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit154"
+  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit154"
 
-604:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit"
+604:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit"
   %605 = fsub float %599, %597
   %606 = call noundef float @expf(float noundef %605) #35
   %607 = fadd float %606, 0xBF50624DE0000000
   %608 = fneg float %607
-  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit154"
+  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit154"
 
-"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit154": ; preds = %604, %600
+"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit154": ; preds = %604, %600
   %609 = phi float [ %603, %600 ], [ %608, %604 ]
   %610 = fsub float %592, %609
   %611 = load ptr, ptr %35, align 8
@@ -16732,7 +16732,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #15
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.203) align 8 %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_i.argelim"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.203) align 8 %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.tlog::Stream", align 8
   %7 = alloca %"class.tlog::Stream", align 8
   %8 = alloca %"class.std::__1::future.202", align 8
@@ -16935,7 +16935,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11Image
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %17, i64 56, i1 false)
   %94 = load i32, ptr %18, align 4
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef %92, i32 noundef %91, ptr noundef nonnull byval(%class.anon.203) align 8 %17, i32 noundef %94, ptr noundef %93)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_.argprom"(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef %92, i32 noundef %91, ptr noundef nonnull byval(%class.anon.203) align 8 %17, i32 noundef %94, ptr noundef %93)
           to label %95 unwind label %123
 
 95:                                               ; preds = %89
@@ -17419,7 +17419,7 @@ _ZN3tev5Latch9countDownEv.exit:                   ; preds = %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.205) align 8 %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_i.argelim"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.205) align 8 %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.tlog::Stream", align 8
   %7 = alloca %"class.tlog::Stream", align 8
   %8 = alloca %"class.std::__1::future.202", align 8
@@ -17622,7 +17622,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11Image
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
   %94 = load i32, ptr %18, align 4
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef %92, i32 noundef %91, ptr noundef nonnull byval(%class.anon.205) align 8 %17, i32 noundef %94, ptr noundef %93)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_.argprom"(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef %92, i32 noundef %91, ptr noundef nonnull byval(%class.anon.205) align 8 %17, i32 noundef %94, ptr noundef %93)
           to label %95 unwind label %123
 
 95:                                               ; preds = %89
@@ -58307,7 +58307,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit1
 declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.130) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.130) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.175", align 8
   %8 = alloca %"class.std::__1::future.202", align 8
   %9 = alloca %"class.std::__1::future.202", align 8
@@ -59605,7 +59605,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_1EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr %3, i64 %4, i32 noundef %5, ptr noundef %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_1EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr %3, i64 %4, i32 noundef %5, ptr noundef %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.std::__1::coroutine_handle.175", align 8
   %9 = alloca %"class.std::__1::future.202", align 8
   %10 = alloca %"class.std::__1::future.202", align 8
@@ -59727,7 +59727,7 @@ _ZZN3tev10ThreadPool16enqueueCoroutineEiEN7Awaiter13await_suspendENSt3__116corou
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_11ImageCanvas15getLdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon.135) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_11ImageCanvas15getLdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon.135) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.175", align 8
   %8 = alloca %"class.std::__1::future.202", align 8
   %9 = alloca %"class.std::__1::future.202", align 8
@@ -63314,7 +63314,7 @@ _ZNSt3__16__treeINS_12__value_typeIiNS_6vectorINS_12basic_stringIcNS_11char_trai
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_0EENS_4TaskIvEET_SJ_T0_iENKUliiSG_iPS0_E_clEiiSG_iSL_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.172) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_0EENS_4TaskIvEET_SJ_T0_iENKUliiSG_iPS0_E_clEiiSG_iSL_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.172) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.175", align 8
   %8 = alloca %"class.std::__1::future.202", align 8
   %9 = alloca %"class.std::__1::future.202", align 8
@@ -63434,7 +63434,7 @@ _ZZN3tev10ThreadPool16enqueueCoroutineEiEN7Awaiter13await_suspendENSt3__116corou
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_1EENS_4TaskIvEET_SJ_T0_iENKUlmmSG_iPS0_E_clEmmSG_iSL_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon.173) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_1EENS_4TaskIvEET_SJ_T0_iENKUlmmSG_iPS0_E_clEmmSG_iSL_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon.173) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.175", align 8
   %8 = alloca %"class.std::__1::future.202", align 8
   %9 = alloca %"class.std::__1::future.202", align 8
@@ -64003,7 +64003,7 @@ define linkonce_odr hidden void @_ZNSt3__120__shared_ptr_emplaceIN3tev16CanvasSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.203) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.203) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.175", align 8
   %8 = alloca %"class.std::__1::future.202", align 8
   %9 = alloca %"class.std::__1::future.202", align 8
@@ -64199,7 +64199,7 @@ define internal fastcc void @"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt
 declare void @_ZNSt3__16futureIvE3getEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.205) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.205) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.175", align 8
   %8 = alloca %"class.std::__1::future.202", align 8
   %9 = alloca %"class.std::__1::future.202", align 8
@@ -64719,7 +64719,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11Image
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %64 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_0EENS_4TaskIvEET_SJ_T0_iENKUliiSG_iPS0_E_clEiiSG_iSL_"(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %62, i32 noundef %61, ptr noundef nonnull byval(%class.anon.172) align 8 %9, i32 noundef %64, ptr noundef %63)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_0EENS_4TaskIvEET_SJ_T0_iENKUliiSG_iPS0_E_clEiiSG_iSL_.argprom"(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %62, i32 noundef %61, ptr noundef nonnull byval(%class.anon.172) align 8 %9, i32 noundef %64, ptr noundef %63)
           to label %65 unwind label %93
 
 65:                                               ; preds = %59
@@ -65476,7 +65476,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNS_11Image
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   %62 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_1EENS_4TaskIvEET_SJ_T0_iENKUlmmSG_iPS0_E_clEmmSG_iSL_"(ptr dead_on_unwind noalias writable align 8 %5, i64 noundef %60, i64 noundef %59, ptr noundef nonnull byval(%class.anon.173) align 8 %9, i32 noundef %62, ptr noundef %61)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_1EENS_4TaskIvEET_SJ_T0_iENKUlmmSG_iPS0_E_clEmmSG_iSL_.argprom"(ptr dead_on_unwind noalias writable align 8 %5, i64 noundef %60, i64 noundef %59, ptr noundef nonnull byval(%class.anon.173) align 8 %9, i32 noundef %62, ptr noundef %61)
           to label %63 unwind label %91
 
 63:                                               ; preds = %57
@@ -66286,7 +66286,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_11Imag
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %64 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %62, i32 noundef %61, ptr noundef nonnull byval(%class.anon.130) align 8 %9, i32 noundef %64, ptr noundef %63)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_.argprom"(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %62, i32 noundef %61, ptr noundef nonnull byval(%class.anon.130) align 8 %9, i32 noundef %64, ptr noundef %63)
           to label %65 unwind label %93
 
 65:                                               ; preds = %59
@@ -67052,7 +67052,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_11Imag
   %.sroa.022.0.copyload = load ptr, ptr %9, align 8
   %.sroa.223.0.copyload = load i64, ptr %.sroa.223.0..sroa_idx, align 8
   %63 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_1EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %61, i32 noundef %60, ptr %.sroa.022.0.copyload, i64 %.sroa.223.0.copyload, i32 noundef %63, ptr noundef %62)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_1EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_.argprom"(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %61, i32 noundef %60, ptr %.sroa.022.0.copyload, i64 %.sroa.223.0.copyload, i32 noundef %63, ptr noundef %62)
           to label %64 unwind label %92
 
 64:                                               ; preds = %58
@@ -67809,7 +67809,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNKS_11Imag
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %62 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_11ImageCanvas15getLdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias writable align 8 %5, i64 noundef %60, i64 noundef %59, ptr noundef nonnull byval(%class.anon.135) align 8 %9, i32 noundef %62, ptr noundef %61)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_11ImageCanvas15getLdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_.argprom"(ptr dead_on_unwind noalias writable align 8 %5, i64 noundef %60, i64 noundef %59, ptr noundef nonnull byval(%class.anon.135) align 8 %9, i32 noundef %62, ptr noundef %61)
           to label %63 unwind label %91
 
 63:                                               ; preds = %57
@@ -68528,7 +68528,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11Image
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   %64 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %62, i32 noundef %61, ptr noundef nonnull byval(%class.anon.203) align 8 %9, i32 noundef %64, ptr noundef %63)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_.argprom"(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %62, i32 noundef %61, ptr noundef nonnull byval(%class.anon.203) align 8 %9, i32 noundef %64, ptr noundef %63)
           to label %65 unwind label %93
 
 65:                                               ; preds = %59
@@ -69321,7 +69321,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11Image
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   %64 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %62, i32 noundef %61, ptr noundef nonnull byval(%class.anon.205) align 8 %9, i32 noundef %64, ptr noundef %63)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_.argprom"(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %62, i32 noundef %61, ptr noundef nonnull byval(%class.anon.205) align 8 %9, i32 noundef %64, ptr noundef %63)
           to label %65 unwind label %93
 
 65:                                               ; preds = %59
@@ -70054,7 +70054,7 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit115: ; preds = %_ZNSt3__11
   %.not5.i = icmp eq ptr %156, %158
   br i1 %.not5.i, label %"_ZNSt3__16all_ofB8ne190000INS_11__wrap_iterIPN3tev7ChannelEEEZNS2_11ImageCanvas23computeCanvasStatisticsENS_10shared_ptrINS2_5ImageEEES9_RKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS2_7EMetricERKNS2_3BoxIiLj2EEEiE3$_0EEbT_SO_T0_.exit.thread", label %.lr.ph.i
 
-159:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_0clERKNS_7ChannelE.exit.i"
+159:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_0clERKNS_7ChannelE.argprom.exit.i"
   %160 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 56
   %.not.i116 = icmp eq ptr %160, %158
   br i1 %.not.i116, label %"_ZNSt3__16all_ofB8ne190000INS_11__wrap_iterIPN3tev7ChannelEEEZNS2_11ImageCanvas23computeCanvasStatisticsENS_10shared_ptrINS2_5ImageEEES9_RKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS2_7EMetricERKNS2_3BoxIiLj2EEEiE3$_0EEbT_SO_T0_.exit.thread", label %.lr.ph.i, !llvm.loop !462
@@ -70070,12 +70070,12 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit115: ; preds = %_ZNSt3__11
   %166 = zext nneg i8 %165 to i64
   %167 = select i1 %.not.i.i.i.i.i.i, i64 %166, i64 %164
   %.not.i.i.i.i = icmp eq i64 %167, 1
-  br i1 %.not.i.i.i.i, label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_0clERKNS_7ChannelE.exit.i", label %.lr.ph.preheader
+  br i1 %.not.i.i.i.i, label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_0clERKNS_7ChannelE.argprom.exit.i", label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_0clERKNS_7ChannelE.exit.i", %.lr.ph.i
+.lr.ph.preheader:                                 ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_0clERKNS_7ChannelE.argprom.exit.i", %.lr.ph.i
   br label %.lr.ph
 
-"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_0clERKNS_7ChannelE.exit.i": ; preds = %.lr.ph.i
+"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_0clERKNS_7ChannelE.argprom.exit.i": ; preds = %.lr.ph.i
   %168 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 1
   %169 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 16
   %170 = load ptr, ptr %169, align 8
@@ -70357,7 +70357,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE6resizeEm.exit: ; preds = %._crit_edge241.th
   %307 = tail call noundef float @logf(float noundef %306) #35
   %308 = load float, ptr @_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE8smallest, align 4
   %309 = fsub float %307, %308
-  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.exit"
+  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.argprom.exit"
 
 310:                                              ; preds = %302
   %311 = fsub float 0x3F50624DE0000000, %303
@@ -70365,23 +70365,23 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE6resizeEm.exit: ; preds = %._crit_edge241.th
   %313 = load float, ptr @_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE8smallest, align 4
   %314 = fsub float %312, %313
   %315 = fneg float %314
-  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.exit"
+  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.argprom.exit"
 
-"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.exit": ; preds = %305, %310
+"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.argprom.exit": ; preds = %305, %310
   %316 = phi float [ %309, %305 ], [ %315, %310 ]
   store float %316, ptr %33, align 8
   %317 = load float, ptr %24, align 8
   %318 = fcmp ogt float %317, 0.000000e+00
   br i1 %318, label %319, label %324
 
-319:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.exit"
+319:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.argprom.exit"
   %320 = fadd float %317, 0x3F50624DE0000000
   %321 = tail call noundef float @logf(float noundef %320) #35
   %322 = load float, ptr @_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE8smallest, align 4
   %323 = fsub float %321, %322
   br label %330
 
-324:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.exit"
+324:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_1clEf.argprom.exit"
   %325 = fsub float 0x3F50624DE0000000, %317
   %326 = tail call noundef float @logf(float noundef %325) #35
   %327 = load float, ptr @_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE8smallest, align 4
@@ -70603,7 +70603,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %419, %416, %411
   store ptr %35, ptr %402, align 8
   store ptr %413, ptr %403, align 8
   %426 = load i32, ptr %19, align 4
-  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %423, ptr noundef nonnull byval(%class.anon.203) align 8 %41, i32 noundef %426)
+  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_i.argelim"(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %423, ptr noundef nonnull byval(%class.anon.203) align 8 %41, i32 noundef %426)
           to label %427 unwind label %456
 
 427:                                              ; preds = %_ZN3tev10ThreadPool6globalEv.exit
@@ -70818,7 +70818,7 @@ _ZN3tev10ThreadPool6globalEv.exit133:             ; preds = %505, %502, %499
   %512 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %26, ptr %512, align 8
   %513 = load i32, ptr %19, align 4
-  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %509, ptr noundef nonnull byval(%class.anon.205) align 8 %48, i32 noundef %513)
+  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_i.argelim"(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %509, ptr noundef nonnull byval(%class.anon.205) align 8 %48, i32 noundef %513)
           to label %514 unwind label %535
 
 514:                                              ; preds = %_ZN3tev10ThreadPool6globalEv.exit133
@@ -70967,15 +70967,15 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPfS5_EEvT_T0_m.exit.i.i
   call void @_ZN3tev4TaskIvED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #35
   br label %.body131
 
-568:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit148"
+568:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit148"
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %569 = load i32, ptr %28, align 8
   %570 = sext i32 %569 to i64
   %571 = icmp slt i64 %indvars.iv.next275, %570
   br i1 %571, label %.preheader212, label %._crit_edge247, !llvm.loop !484
 
-572:                                              ; preds = %.preheader212, %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit148"
-  %indvars.iv270 = phi i64 [ 0, %.preheader212 ], [ %indvars.iv.next271, %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit148" ]
+572:                                              ; preds = %.preheader212, %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit148"
+  %indvars.iv270 = phi i64 [ 0, %.preheader212 ], [ %indvars.iv.next271, %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit148" ]
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
   %573 = trunc nuw nsw i64 %indvars.iv.next271 to i32
   %574 = uitofp nneg i32 %573 to float
@@ -70994,16 +70994,16 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPfS5_EEvT_T0_m.exit.i.i
   %581 = fadd float %579, %577
   %582 = call noundef float @expf(float noundef %581) #35
   %583 = fadd float %582, 0xBF50624DE0000000
-  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit"
+  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit"
 
 584:                                              ; preds = %572
   %585 = fsub float %579, %577
   %586 = call noundef float @expf(float noundef %585) #35
   %587 = fadd float %586, 0xBF50624DE0000000
   %588 = fneg float %587
-  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit"
+  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit"
 
-"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit": ; preds = %584, %580
+"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit": ; preds = %584, %580
   %589 = phi float [ %583, %580 ], [ %588, %584 ]
   %590 = trunc nuw nsw i64 %indvars.iv270 to i32
   %591 = uitofp nneg i32 %590 to float
@@ -71018,20 +71018,20 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPfS5_EEvT_T0_m.exit.i.i
   %596 = load float, ptr @_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE8smallest, align 4
   br i1 %595, label %597, label %601
 
-597:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit"
+597:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit"
   %598 = fadd float %596, %594
   %599 = call noundef float @expf(float noundef %598) #35
   %600 = fadd float %599, 0xBF50624DE0000000
-  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit148"
+  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit148"
 
-601:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit"
+601:                                              ; preds = %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit"
   %602 = fsub float %596, %594
   %603 = call noundef float @expf(float noundef %602) #35
   %604 = fadd float %603, 0xBF50624DE0000000
   %605 = fneg float %604
-  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit148"
+  br label %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit148"
 
-"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit148": ; preds = %601, %597
+"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.argprom.argprom.exit148": ; preds = %601, %597
   %606 = phi float [ %600, %597 ], [ %605, %601 ]
   %607 = fsub float %589, %606
   %608 = load ptr, ptr %27, align 8

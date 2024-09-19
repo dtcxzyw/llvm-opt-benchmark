@@ -3270,7 +3270,7 @@ _ZN6hermes2vm7Runtime10makeHandleINS0_15DictPropertyMapEEENS0_6HandleIT_EERKNS0_
 
 entry.cleanup_crit_edge.i.i:                      ; preds = %_ZN6hermes2vm7Runtime10makeHandleINS0_15DictPropertyMapEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit.i
   %.pre.i.i = zext i32 %9 to i64
-  br label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_21areAllNonConfigurableENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.exit"
+  br label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_21areAllNonConfigurableENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.argprom.exit"
 
 for.body.lr.ph.i.i:                               ; preds = %_ZN6hermes2vm7Runtime10makeHandleINS0_15DictPropertyMapEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit.i
   %chunks_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 144
@@ -3295,7 +3295,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i = load i64, ptr %second.i.i, align 4
   %15 = and i64 %agg.tmp7.sroa.0.0.copyload.i.i, 8
   %tobool.not.i.i.i = icmp eq i64 %15, 0
-  br i1 %tobool.not.i.i.i, label %if.end.i.i, label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_21areAllNonConfigurableENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.exit"
+  br i1 %tobool.not.i.i.i, label %if.end.i.i, label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_21areAllNonConfigurableENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.argprom.exit"
 
 if.end.i.i:                                       ; preds = %if.then.i.i
   %16 = load ptr, ptr %chunks_.i.i.i.i, align 8
@@ -3310,9 +3310,9 @@ if.end.i.i:                                       ; preds = %if.then.i.i
 for.inc.i.i:                                      ; preds = %if.end.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %12
-  br i1 %cmp.not.i.i, label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_21areAllNonConfigurableENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.exit", label %for.body.i.i, !llvm.loop !26
+  br i1 %cmp.not.i.i, label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_21areAllNonConfigurableENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.argprom.exit", label %for.body.i.i, !llvm.loop !26
 
-"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_21areAllNonConfigurableENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.exit": ; preds = %if.then.i.i, %for.inc.i.i, %entry.cleanup_crit_edge.i.i
+"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_21areAllNonConfigurableENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.argprom.exit": ; preds = %if.then.i.i, %for.inc.i.i, %entry.cleanup_crit_edge.i.i
   %conv.i.i.i.pre-phi.i.i = phi i64 [ %.pre.i.i, %entry.cleanup_crit_edge.i.i ], [ %conv.i.i.i.i, %for.inc.i.i ], [ %conv.i.i.i.i, %if.then.i.i ]
   %cmp.not.lcssa.i.i = phi i1 [ true, %entry.cleanup_crit_edge.i.i ], [ false, %if.then.i.i ], [ true, %for.inc.i.i ]
   %chunks_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 144
@@ -3392,7 +3392,7 @@ _ZN6hermes2vm7Runtime10makeHandleINS0_15DictPropertyMapEEENS0_6HandleIT_EERKNS0_
 
 entry.cleanup_crit_edge.i.i:                      ; preds = %_ZN6hermes2vm7Runtime10makeHandleINS0_15DictPropertyMapEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit.i
   %.pre.i.i = zext i32 %9 to i64
-  br label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_14areAllReadOnlyENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.exit"
+  br label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_14areAllReadOnlyENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.argprom.exit"
 
 for.body.lr.ph.i.i:                               ; preds = %_ZN6hermes2vm7Runtime10makeHandleINS0_15DictPropertyMapEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit.i
   %chunks_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 144
@@ -3421,7 +3421,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   %16 = and i16 %desc.sroa.0.0.extract.trunc.i.i.i, 8
   %tobool10.not.i.i.i = icmp eq i16 %16, 0
   %retval.0.i.i.i = and i1 %or.cond.not.i.i.i, %tobool10.not.i.i.i
-  br i1 %retval.0.i.i.i, label %if.end.i.i, label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_14areAllReadOnlyENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.exit"
+  br i1 %retval.0.i.i.i, label %if.end.i.i, label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_14areAllReadOnlyENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.argprom.exit"
 
 if.end.i.i:                                       ; preds = %if.then.i.i
   %17 = load ptr, ptr %chunks_.i.i.i.i, align 8
@@ -3436,9 +3436,9 @@ if.end.i.i:                                       ; preds = %if.then.i.i
 for.inc.i.i:                                      ; preds = %if.end.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %12
-  br i1 %cmp.not.i.i, label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_14areAllReadOnlyENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.exit", label %for.body.i.i, !llvm.loop !27
+  br i1 %cmp.not.i.i, label %"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_14areAllReadOnlyENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.argprom.exit", label %for.body.i.i, !llvm.loop !27
 
-"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_14areAllReadOnlyENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.exit": ; preds = %if.then.i.i, %for.inc.i.i, %entry.cleanup_crit_edge.i.i
+"_ZN6hermes2vm11HiddenClass20forEachPropertyWhileIZNS1_14areAllReadOnlyENS0_6HandleIS1_EERNS0_7RuntimeEE3$_0EEbS4_S6_RKT_.argprom.exit": ; preds = %if.then.i.i, %for.inc.i.i, %entry.cleanup_crit_edge.i.i
   %conv.i.i.i.pre-phi.i.i = phi i64 [ %.pre.i.i, %entry.cleanup_crit_edge.i.i ], [ %conv.i.i.i.i, %for.inc.i.i ], [ %conv.i.i.i.i, %if.then.i.i ]
   %cmp.not.lcssa.i.i = phi i1 [ true, %entry.cleanup_crit_edge.i.i ], [ false, %if.then.i.i ], [ true, %for.inc.i.i ]
   %chunks_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 144

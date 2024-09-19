@@ -2599,7 +2599,7 @@ _ZNK4ncnn11Convolution12make_paddingERKNS_3MatERS1_RKNS_6OptionE.exit: ; preds =
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %450 = load i32, ptr %449, align 4
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  invoke fastcc void @_ZN4ncnnL11convolutionERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %441, ptr noundef nonnull align 8 dereferenceable(72) %442, i32 noundef %443, i32 noundef %444, i32 noundef %445, i32 noundef %446, i32 noundef %447, i32 noundef %448, i32 noundef %450, ptr noundef nonnull align 8 dereferenceable(72) %451)
+  invoke fastcc void @_ZN4ncnnL11convolutionERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %441, ptr noundef nonnull align 8 dereferenceable(72) %442, i32 noundef %443, i32 noundef %444, i32 noundef %445, i32 noundef %446, i32 noundef %447, i32 noundef %448, i32 noundef %450, ptr noundef nonnull align 8 dereferenceable(72) %451)
           to label %.critedge unwind label %383
 
 .critedge:                                        ; preds = %440, %432, %429, %377, %_ZNK4ncnn11Convolution12make_paddingERKNS_3MatERS1_RKNS_6OptionE.exit
@@ -3389,7 +3389,7 @@ define hidden void @_ZNK4ncnn11Convolution12make_paddingERKNS_3MatERS1_RKNS_6Opt
 declare void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ncnnL11convolutionERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %11) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL11convolutionERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %11) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3906,7 +3906,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn11Convolution7forwardERKS
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %132 = load i32, ptr %131, align 4
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  invoke fastcc void @_ZN4ncnnL11convolutionERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %6, i32 noundef %12, i32 noundef %14, i32 noundef %127, i32 noundef %128, i32 noundef %129, i32 noundef %130, i32 noundef %132, ptr noundef nonnull align 8 dereferenceable(72) %133)
+  invoke fastcc void @_ZN4ncnnL11convolutionERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %6, i32 noundef %12, i32 noundef %14, i32 noundef %127, i32 noundef %128, i32 noundef %129, i32 noundef %130, i32 noundef %132, ptr noundef nonnull align 8 dereferenceable(72) %133)
           to label %.critedge4 unwind label %72
 
 .critedge4:                                       ; preds = %126, %118, %115, %66, %63

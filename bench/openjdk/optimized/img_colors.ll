@@ -103,19 +103,19 @@ init_matrices.exit:                               ; preds = %11, %40
   %48 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
-  tail call fastcc void @add_color(i32 noundef %44, i32 noundef %47, i32 noundef %50, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef %44, i32 noundef %47, i32 noundef %50, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %init_matrices.exit
-  tail call fastcc void @add_color(i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 255, i32 noundef 255, i32 noundef 255, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 255, i32 noundef 255, i32 noundef 255, i32 noundef 1)
   br label %51
 
 51:                                               ; preds = %51, %._crit_edge
   %.05.i = phi i32 [ 15, %._crit_edge ], [ %52, %51 ]
-  tail call fastcc void @add_color(i32 noundef %.05.i, i32 noundef %.05.i, i32 noundef %.05.i, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef %.05.i, i32 noundef %.05.i, i32 noundef %.05.i, i32 noundef 1)
   %52 = add nuw nsw i32 %.05.i, 16
   %53 = icmp ult i32 %.05.i, 239
   br i1 %53, label %51, label %init_grays.exit, !llvm.loop !9
@@ -125,27 +125,27 @@ init_grays.exit:                                  ; preds = %51
   br i1 %.not, label %.preheader, label %54
 
 54:                                               ; preds = %init_grays.exit
-  tail call fastcc void @add_color(i32 noundef 255, i32 noundef 255, i32 noundef 204, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 255, i32 noundef 255, i32 noundef 0, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 255, i32 noundef 204, i32 noundef 153, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 255, i32 noundef 102, i32 noundef 204, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 255, i32 noundef 102, i32 noundef 51, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 221, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 204, i32 noundef 204, i32 noundef 255, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 204, i32 noundef 153, i32 noundef 102, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 153, i32 noundef 255, i32 noundef 255, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 153, i32 noundef 153, i32 noundef 255, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 153, i32 noundef 102, i32 noundef 153, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 153, i32 noundef 0, i32 noundef 102, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 102, i32 noundef 102, i32 noundef 204, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 51, i32 noundef 255, i32 noundef 153, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 51, i32 noundef 153, i32 noundef 102, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 51, i32 noundef 102, i32 noundef 102, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 51, i32 noundef 51, i32 noundef 102, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 51, i32 noundef 0, i32 noundef 153, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 0, i32 noundef 187, i32 noundef 0, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 0, i32 noundef 153, i32 noundef 255, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 0, i32 noundef 0, i32 noundef 221, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 255, i32 noundef 255, i32 noundef 204, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 255, i32 noundef 255, i32 noundef 0, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 255, i32 noundef 204, i32 noundef 153, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 255, i32 noundef 102, i32 noundef 204, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 255, i32 noundef 102, i32 noundef 51, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 221, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 204, i32 noundef 204, i32 noundef 255, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 204, i32 noundef 153, i32 noundef 102, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 153, i32 noundef 255, i32 noundef 255, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 153, i32 noundef 153, i32 noundef 255, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 153, i32 noundef 102, i32 noundef 153, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 153, i32 noundef 0, i32 noundef 102, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 102, i32 noundef 102, i32 noundef 204, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 51, i32 noundef 255, i32 noundef 153, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 51, i32 noundef 153, i32 noundef 102, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 51, i32 noundef 102, i32 noundef 102, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 51, i32 noundef 51, i32 noundef 102, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 51, i32 noundef 0, i32 noundef 153, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 0, i32 noundef 187, i32 noundef 0, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 0, i32 noundef 153, i32 noundef 255, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 0, i32 noundef 0, i32 noundef 221, i32 noundef 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %54, %init_grays.exit
@@ -162,7 +162,7 @@ init_grays.exit:                                  ; preds = %51
   %60 = and i32 %.07.i, 1
   %.not6.i = icmp eq i32 %60, 0
   %61 = select i1 %.not6.i, i32 240, i32 255
-  tail call fastcc void @add_color(i32 noundef %57, i32 noundef %59, i32 noundef %61, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef %57, i32 noundef %59, i32 noundef %61, i32 noundef 1)
   %62 = add nsw i32 %.07.i, -1
   %.not8.i = icmp eq i32 %.07.i, 0
   br i1 %.not8.i, label %.preheader20.i, label %55, !llvm.loop !10
@@ -344,9 +344,9 @@ add_color.exit.i:                                 ; preds = %147, %.loopexit.i.i
   br i1 %174, label %.preheader20.i, label %init_primaries.exit, !llvm.loop !14
 
 init_primaries.exit:                              ; preds = %171
-  tail call fastcc void @add_color(i32 noundef 0, i32 noundef 0, i32 noundef 192, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 48, i32 noundef 32, i32 noundef 128, i32 noundef 1)
-  tail call fastcc void @add_color(i32 noundef 32, i32 noundef 96, i32 noundef 192, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 0, i32 noundef 0, i32 noundef 192, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 48, i32 noundef 32, i32 noundef 128, i32 noundef 1)
+  tail call fastcc void @add_color.retelim(i32 noundef 32, i32 noundef 96, i32 noundef 192, i32 noundef 1)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12)
   %175 = load ptr, ptr @virt_cmap, align 8
   %.not.i121 = icmp eq ptr %175, null
@@ -1494,7 +1494,7 @@ handle_biggest_offenders.exit:                    ; preds = %.loopexit.i, %.lr.p
   br i1 %or.cond, label %797, label %798
 
 797:                                              ; preds = %.lr.ph192
-  tail call fastcc void @find_nearest(ptr noundef nonnull %.092190)
+  tail call fastcc void @find_nearest.retelim(ptr noundef nonnull %.092190)
   br label %798
 
 798:                                              ; preds = %797, %.lr.ph192
@@ -1647,7 +1647,7 @@ handle_biggest_offenders.exit:                    ; preds = %.loopexit.i, %.lr.p
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @add_color(i32 noundef range(i32 -2147483648, 256) %0, i32 noundef range(i32 -2147483648, 256) %1, i32 noundef range(i32 -2147483648, 256) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
+define internal fastcc void @add_color.retelim(i32 noundef range(i32 -2147483648, 256) %0, i32 noundef range(i32 -2147483648, 256) %1, i32 noundef range(i32 -2147483648, 256) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = load i32, ptr @total, align 4
   %6 = load i32, ptr @cmapmax, align 4
   %.not = icmp slt i32 %5, %6
@@ -1800,7 +1800,7 @@ no_close_color.exit:                              ; preds = %89, %4, %.loopexit
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @find_nearest(ptr nocapture noundef %0) unnamed_addr #3 {
+define internal fastcc void @find_nearest.retelim(ptr nocapture noundef %0) unnamed_addr #3 {
   %2 = load i8, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1

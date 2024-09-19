@@ -4241,13 +4241,13 @@ define range(i32 -1, 1) i32 @H5C_pin_protected_entry(ptr nocapture noundef %0) l
   %14 = getelementptr inbounds i8, ptr %0, i64 100
   %15 = load i8, ptr %14, align 4
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %19, label %H5C__pin_entry_from_client.exit
+  br i1 %16, label %19, label %H5C__pin_entry_from_client.argprom.exit
 
 17:                                               ; preds = %9
   store i8 1, ptr %10, align 8
-  br label %H5C__pin_entry_from_client.exit
+  br label %H5C__pin_entry_from_client.argprom.exit
 
-H5C__pin_entry_from_client.exit:                  ; preds = %13, %17
+H5C__pin_entry_from_client.argprom.exit:          ; preds = %13, %17
   %18 = getelementptr inbounds i8, ptr %0, i64 100
   store i8 1, ptr %18, align 4
   br label %26
@@ -4261,8 +4261,8 @@ H5C__pin_entry_from_client.exit:                  ; preds = %13, %17
   %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_pin_protected_entry, i32 noundef 2914, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.42) #9
   br label %26
 
-26:                                               ; preds = %H5C__pin_entry_from_client.exit, %19, %5
-  %.0 = phi i32 [ -1, %19 ], [ 0, %H5C__pin_entry_from_client.exit ], [ -1, %5 ]
+26:                                               ; preds = %H5C__pin_entry_from_client.argprom.exit, %19, %5
+  %.0 = phi i32 [ -1, %19 ], [ 0, %H5C__pin_entry_from_client.argprom.exit ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -5277,7 +5277,7 @@ H5C__deserialize_prefetched_entry.exit:           ; preds = %506
 542:                                              ; preds = %538
   %543 = getelementptr i8, ptr %1, i64 16
   %.val.i = load i32, ptr %543, align 8
-  %544 = call fastcc i32 @H5C__verify_len_eoa(ptr noundef %0, i32 %.val.i, i64 noundef %2, ptr noundef %7, i1 noundef zeroext false)
+  %544 = call fastcc i32 @H5C__verify_len_eoa.argprom(ptr noundef %0, i32 %.val.i, i64 noundef %2, ptr noundef %7, i1 noundef zeroext false)
   %545 = icmp slt i32 %544, 0
   br i1 %545, label %546, label %550
 
@@ -5375,7 +5375,7 @@ H5C__deserialize_prefetched_entry.exit:           ; preds = %506
 
 597:                                              ; preds = %594
   %.val147.i = load i32, ptr %564, align 8
-  %598 = call fastcc i32 @H5C__verify_len_eoa(ptr noundef %0, i32 %.val147.i, i64 noundef %2, ptr noundef %8, i1 noundef zeroext true)
+  %598 = call fastcc i32 @H5C__verify_len_eoa.argprom(ptr noundef %0, i32 %.val147.i, i64 noundef %2, ptr noundef %8, i1 noundef zeroext true)
   %599 = icmp slt i32 %598, 0
   br i1 %599, label %600, label %604
 
@@ -6485,13 +6485,13 @@ define range(i32 -1, 1) i32 @H5C_unprotect(ptr noundef %0, i64 noundef %1, ptr n
   %37 = getelementptr inbounds i8, ptr %2, i64 100
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %42, label %H5C__pin_entry_from_client.exit
+  br i1 %39, label %42, label %H5C__pin_entry_from_client.argprom.exit
 
 40:                                               ; preds = %32
   store i8 1, ptr %33, align 8
-  br label %H5C__pin_entry_from_client.exit
+  br label %H5C__pin_entry_from_client.argprom.exit
 
-H5C__pin_entry_from_client.exit:                  ; preds = %36, %40
+H5C__pin_entry_from_client.argprom.exit:          ; preds = %36, %40
   %41 = getelementptr inbounds i8, ptr %2, i64 100
   store i8 1, ptr %41, align 4
   br label %421
@@ -6812,13 +6812,13 @@ H5C__mark_flush_dep_clean.exit.thread:            ; preds = %220, %138, %.crited
   %234 = getelementptr inbounds i8, ptr %2, i64 100
   %235 = load i8, ptr %234, align 4
   %236 = trunc i8 %235 to i1
-  br i1 %236, label %239, label %H5C__pin_entry_from_client.exit223
+  br i1 %236, label %239, label %H5C__pin_entry_from_client.argprom.exit223
 
 237:                                              ; preds = %229
   store i8 1, ptr %230, align 8
-  br label %H5C__pin_entry_from_client.exit223
+  br label %H5C__pin_entry_from_client.argprom.exit223
 
-H5C__pin_entry_from_client.exit223:               ; preds = %233, %237
+H5C__pin_entry_from_client.argprom.exit223:       ; preds = %233, %237
   %238 = getelementptr inbounds i8, ptr %2, i64 100
   store i8 1, ptr %238, align 4
   br label %272
@@ -6879,7 +6879,7 @@ H5C__unpin_entry_from_client.exit225:             ; preds = %263, %267
   %271 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_unprotect, i32 noundef 3593, i64 noundef %269, i64 noundef %270, ptr noundef nonnull @.str.53) #9
   br label %421
 
-272:                                              ; preds = %H5C__unpin_entry_from_client.exit225, %H5C__pin_entry_from_client.exit223, %246
+272:                                              ; preds = %H5C__unpin_entry_from_client.exit225, %H5C__pin_entry_from_client.argprom.exit223, %246
   %273 = getelementptr inbounds i8, ptr %11, i64 524760
   %274 = load ptr, ptr %273, align 8
   %275 = icmp eq ptr %274, %2
@@ -7156,8 +7156,8 @@ H5C__unpin_entry_from_client.exit225:             ; preds = %263, %267
   %420 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_unprotect, i32 noundef 3639, i64 noundef %418, i64 noundef %419, ptr noundef nonnull @.str.57) #9
   br label %421
 
-421:                                              ; preds = %H5C__unpin_entry_from_client.exit, %H5C__pin_entry_from_client.exit, %49, %412, %380, %417, %408, %._crit_edge, %353, %268, %239, %222, %193, %181, %171, %128, %92, %80, %71, %42, %26
-  %.0186 = phi i32 [ -1, %26 ], [ -1, %42 ], [ 0, %H5C__pin_entry_from_client.exit ], [ -1, %71 ], [ 0, %H5C__unpin_entry_from_client.exit ], [ 0, %49 ], [ -1, %80 ], [ -1, %128 ], [ -1, %171 ], [ -1, %181 ], [ -1, %239 ], [ -1, %._crit_edge ], [ -1, %408 ], [ -1, %417 ], [ 0, %412 ], [ 0, %380 ], [ -1, %353 ], [ -1, %268 ], [ -1, %193 ], [ -1, %222 ], [ -1, %92 ]
+421:                                              ; preds = %H5C__unpin_entry_from_client.exit, %H5C__pin_entry_from_client.argprom.exit, %49, %412, %380, %417, %408, %._crit_edge, %353, %268, %239, %222, %193, %181, %171, %128, %92, %80, %71, %42, %26
+  %.0186 = phi i32 [ -1, %26 ], [ -1, %42 ], [ 0, %H5C__pin_entry_from_client.argprom.exit ], [ -1, %71 ], [ 0, %H5C__unpin_entry_from_client.exit ], [ 0, %49 ], [ -1, %80 ], [ -1, %128 ], [ -1, %171 ], [ -1, %181 ], [ -1, %239 ], [ -1, %._crit_edge ], [ -1, %408 ], [ -1, %417 ], [ 0, %412 ], [ 0, %380 ], [ -1, %353 ], [ -1, %268 ], [ -1, %193 ], [ -1, %222 ], [ -1, %92 ]
   ret i32 %.0186
 }
 
@@ -7511,7 +7511,7 @@ define range(i32 -1, 1) i32 @H5C_destroy_flush_dependency(ptr noundef %0, ptr no
   br i1 %59, label %61, label %60
 
 60:                                               ; preds = %56
-  tail call fastcc void @H5C__unpin_entry_real(ptr noundef %3, ptr noundef nonnull %0, i1 noundef zeroext true)
+  tail call fastcc void @H5C__unpin_entry_real.retelim(ptr noundef %3, ptr noundef nonnull %0, i1 noundef zeroext true)
   br label %61
 
 61:                                               ; preds = %60, %56
@@ -7630,7 +7630,7 @@ define range(i32 -1, 1) i32 @H5C_destroy_flush_dependency(ptr noundef %0, ptr no
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5C__unpin_entry_real(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 {
+define internal fastcc void @H5C__unpin_entry_real.retelim(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 {
   br i1 %2, label %4, label %60
 
 4:                                                ; preds = %3
@@ -8210,7 +8210,7 @@ declare ptr @H5MM_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5C__verify_len_eoa(ptr noundef %0, i32 %.16.val, i64 noundef %1, ptr nocapture noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5C__verify_len_eoa.argprom(ptr noundef %0, i32 %.16.val, i64 noundef %1, ptr nocapture noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = icmp eq i32 %.16.val, 4
   %spec.select = select i1 %5, i32 3, i32 %.16.val
   %6 = tail call i64 @H5F_get_eoa(ptr noundef %0, i32 noundef %spec.select) #9

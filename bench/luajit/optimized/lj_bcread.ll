@@ -180,7 +180,7 @@ for.body.i88:                                     ; preds = %for.body.i88, %for.
 
 bcread_uv.exit:                                   ; preds = %for.body.i88, %bcread_bytecode.exit, %if.then.i
   %cmp1.not.i = icmp eq i32 %call.i108, 0
-  br i1 %cmp1.not.i, label %bcread_kgc.exit, label %for.body.lr.ph.i
+  br i1 %cmp1.not.i, label %bcread_kgc.argprom.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %bcread_uv.exit
   %call25.val = load i64, ptr %k, align 8
@@ -487,14 +487,14 @@ for.inc.i:                                        ; preds = %if.end49.i, %if.the
   %inc.i = add nuw i32 %i.03.i, 1
   %incdec.ptr57.i = getelementptr inbounds i8, ptr %kr.02.i, i64 8
   %exitcond.not.i98 = icmp eq i32 %inc.i, %call.i108
-  br i1 %exitcond.not.i98, label %bcread_kgc.exit, label %for.body.i95, !llvm.loop !9
+  br i1 %exitcond.not.i98, label %bcread_kgc.argprom.exit, label %for.body.i95, !llvm.loop !9
 
-bcread_kgc.exit:                                  ; preds = %for.inc.i, %bcread_uv.exit
+bcread_kgc.argprom.exit:                          ; preds = %for.inc.i, %bcread_uv.exit
   store i32 %call.i108, ptr %sizekgc34, align 8
   %cmp1.not.i101 = icmp eq i32 %call.i104, 0
-  br i1 %cmp1.not.i101, label %bcread_knum.exit, label %for.body.lr.ph.i102
+  br i1 %cmp1.not.i101, label %bcread_knum.argprom.exit, label %for.body.lr.ph.i102
 
-for.body.lr.ph.i102:                              ; preds = %bcread_kgc.exit
+for.body.lr.ph.i102:                              ; preds = %bcread_kgc.argprom.exit
   %call25.val76 = load i64, ptr %k, align 8
   %54 = inttoptr i64 %call25.val76 to ptr
   br label %for.body.i103
@@ -552,9 +552,9 @@ for.inc.i111:                                     ; preds = %if.else.i115, %if.t
   %inc.i112 = add nuw i32 %i.03.i104, 1
   %incdec.ptr.i113 = getelementptr inbounds i8, ptr %o.02.i, i64 8
   %exitcond.not.i114 = icmp eq i32 %inc.i112, %call.i104
-  br i1 %exitcond.not.i114, label %bcread_knum.exit, label %for.body.i103, !llvm.loop !11
+  br i1 %exitcond.not.i114, label %bcread_knum.argprom.exit, label %for.body.i103, !llvm.loop !11
 
-bcread_knum.exit:                                 ; preds = %for.inc.i111, %bcread_kgc.exit
+bcread_knum.argprom.exit:                         ; preds = %for.inc.i111, %bcread_kgc.argprom.exit
   %firstline49 = getelementptr inbounds i8, ptr %call25, i64 72
   store i32 %firstline.0, ptr %firstline49, align 8
   %numline50 = getelementptr inbounds i8, ptr %call25, i64 76
@@ -562,7 +562,7 @@ bcread_knum.exit:                                 ; preds = %for.inc.i111, %bcre
   %tobool51.not = icmp eq i32 %sizedbg.0, 0
   br i1 %tobool51.not, label %if.else, label %if.then52
 
-if.then52:                                        ; preds = %bcread_knum.exit
+if.then52:                                        ; preds = %bcread_knum.argprom.exit
   %cmp = icmp slt i32 %numline.0, 256
   %cmp55 = icmp slt i32 %numline.0, 65536
   %cond = select i1 %cmp55, i32 1, i32 2
@@ -638,7 +638,7 @@ bcread_dbg.exit:                                  ; preds = %for.body17.i, %for.
   %call25.val77 = load i8, ptr %sizeuv38, align 4
   %call25.val78 = load i64, ptr %uvinfo, align 8
   %tobool.not.i135 = icmp eq i8 %call25.val77, 0
-  br i1 %tobool.not.i135, label %bcread_varinfo.exit, label %while.cond.preheader.i
+  br i1 %tobool.not.i135, label %bcread_varinfo.argprom.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %bcread_dbg.exit
   %70 = inttoptr i64 %call25.val78 to ptr
@@ -660,24 +660,24 @@ while.cond.i:                                     ; preds = %while.cond.i.outer,
 lor.rhs.i:                                        ; preds = %while.cond.i
   %dec.i = add nsw i32 %n.0.i.ph, -1
   %tobool3.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool3.not.i, label %bcread_varinfo.exit.loopexit, label %while.cond.i.outer, !llvm.loop !14
+  br i1 %tobool3.not.i, label %bcread_varinfo.argprom.exit.loopexit, label %while.cond.i.outer, !llvm.loop !14
 
-bcread_varinfo.exit.loopexit:                     ; preds = %lor.rhs.i
+bcread_varinfo.argprom.exit.loopexit:             ; preds = %lor.rhs.i
   %72 = ptrtoint ptr %incdec.ptr.i137 to i64
-  br label %bcread_varinfo.exit
+  br label %bcread_varinfo.argprom.exit
 
-bcread_varinfo.exit:                              ; preds = %bcread_varinfo.exit.loopexit, %bcread_dbg.exit
-  %p.0.i = phi i64 [ %call25.val78, %bcread_dbg.exit ], [ %72, %bcread_varinfo.exit.loopexit ]
+bcread_varinfo.argprom.exit:                      ; preds = %bcread_varinfo.argprom.exit.loopexit, %bcread_dbg.exit
+  %p.0.i = phi i64 [ %call25.val78, %bcread_dbg.exit ], [ %72, %bcread_varinfo.argprom.exit.loopexit ]
   %varinfo = getelementptr inbounds i8, ptr %call25, i64 96
   store i64 %p.0.i, ptr %varinfo, align 8
   br label %if.end74
 
-if.else:                                          ; preds = %bcread_knum.exit
+if.else:                                          ; preds = %bcread_knum.argprom.exit
   %lineinfo68 = getelementptr inbounds i8, ptr %call25, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lineinfo68, i8 0, i64 24, i1 false)
   br label %if.end74
 
-if.end74:                                         ; preds = %if.else, %bcread_varinfo.exit
+if.end74:                                         ; preds = %if.else, %bcread_varinfo.argprom.exit
   ret ptr %call25
 }
 

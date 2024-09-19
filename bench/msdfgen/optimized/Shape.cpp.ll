@@ -913,7 +913,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.
   %orientations.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i55, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %conv241 = trunc i64 %sub.ptr.div.i to i32
   %cmp242 = icmp sgt i32 %conv241, 0
-  br i1 %cmp242, label %for.body.preheader, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123
+  br i1 %cmp242, label %for.body.preheader, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.argprom.argprom.exit123
 
 for.body.preheader:                               ; preds = %if.then.i.i.i.i.i, %invoke.cont
   %orientations.sroa.0.0298 = phi ptr [ %orientations.sroa.0.0, %invoke.cont ], [ %call5.i.i.i.i2.i.i55, %if.then.i.i.i.i.i ]
@@ -1030,17 +1030,17 @@ lpad17:                                           ; preds = %lpad17.loopexit.spl
   %intersections.sroa.0.1 = phi ptr [ %intersections.sroa.0.5, %lpad17.loopexit ], [ %intersections.sroa.0.4205, %lpad17.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.3215, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.0245, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.0245, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.1.ph.ph.ph.ph.ph.ph, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.4205, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad17.loopexit ], [ %lpad.loopexit145, %lpad17.loopexit.split-lp.loopexit ], [ %lpad.loopexit148, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit150, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit153, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit155, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp156, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i = icmp eq ptr %intersections.sroa.0.1, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.argprom.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad17
   call void @_ZdlPv(ptr noundef nonnull %intersections.sroa.0.1) #21
-  br label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit
+  br label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.argprom.argprom.exit
 
-_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit: ; preds = %lpad17, %if.then.i.i.i
+_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.argprom.argprom.exit: ; preds = %lpad17, %if.then.i.i.i
   %tobool.not.i.i.i67 = icmp eq ptr %orientations.sroa.0.0298, null
   br i1 %tobool.not.i.i.i67, label %eh.resume, label %if.then.i.i.i68
 
-if.then.i.i.i68:                                  ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit
+if.then.i.i.i68:                                  ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.argprom.argprom.exit
   call void @_ZdlPv(ptr noundef nonnull %orientations.sroa.0.0298) #21
   br label %eh.resume
 
@@ -1163,7 +1163,7 @@ if.else.i:                                        ; preds = %for.body119
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %intersections.sroa.0.4205 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775792
-  br i1 %cmp.i.i.i, label %if.then.i.i.i87, label %_ZNKSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i87, label %_ZNKSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
 
 if.then.i.i.i87:                                  ; preds = %if.else.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #22
@@ -1172,7 +1172,7 @@ if.then.i.i.i87:                                  ; preds = %if.else.i
 .noexc88:                                         ; preds = %if.then.i.i.i87
   unreachable
 
-_ZNKSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
+_ZNKSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
   %cmp.i.i.i.i = icmp eq ptr %intersections.sroa.18.3204, %intersections.sroa.0.4205
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
@@ -1181,15 +1181,15 @@ _ZNKSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE12_M_chec
   %40 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %40
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_M_allocateEm.argprom.exit.i.i, label %cond.true.i.i.i
 
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 4
   %call5.i.i.i.i.i89 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #23
-          to label %_ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_M_allocateEm.exit.i.i unwind label %lpad17.loopexit.split-lp.loopexit
+          to label %_ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_M_allocateEm.argprom.exit.i.i unwind label %lpad17.loopexit.split-lp.loopexit
 
-_ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i12.i.i = phi ptr [ null, %_ZNKSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i89, %cond.true.i.i.i ]
+_ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  %cond.i12.i.i = phi ptr [ null, %_ZNKSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i ], [ %call5.i.i.i.i.i89, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds %struct.Intersection, ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i
   store double %38, ptr %add.ptr.i.i, align 8
   %intersection.sroa.3.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
@@ -1197,22 +1197,22 @@ _ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_
   %intersection.sroa.4.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 12
   store i32 %36, ptr %intersection.sroa.4.0.add.ptr.i.i.sroa_idx, align 4
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i86, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i86, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i
 
-if.then.i.i.i.i.i86:                              ; preds = %_ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_M_allocateEm.exit.i.i
+if.then.i.i.i.i.i86:                              ; preds = %_ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_M_allocateEm.argprom.exit.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i, ptr align 8 %intersections.sroa.0.4205, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
+  br label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i
 
-_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %if.then.i.i.i.i.i86, %_ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_M_allocateEm.exit.i.i
+_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i: ; preds = %if.then.i.i.i.i.i86, %_ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_M_allocateEm.argprom.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i12.i.i, i64 %sub.ptr.sub.i.i.i.i
   %tobool.not.i.i.i85 = icmp eq ptr %intersections.sroa.0.4205, null
   br i1 %tobool.not.i.i.i85, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i20.i.i
 
-if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
+if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i
   call void @_ZdlPv(ptr noundef nonnull %intersections.sroa.0.4205) #21
   br label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
+_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i
   %add.ptr19.i.i = getelementptr inbounds %struct.Intersection, ptr %cond.i12.i.i, i64 %cond.i.i.i
   br label %for.inc124
 
@@ -1390,25 +1390,25 @@ for.inc210:                                       ; preds = %if.then204.for.inc2
 
 for.end212:                                       ; preds = %for.inc210, %for.cond195.preheader
   %tobool.not.i.i.i121 = icmp eq ptr %intersections.sroa.0.5, null
-  br i1 %tobool.not.i.i.i121, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123, label %if.then.i.i.i122
+  br i1 %tobool.not.i.i.i121, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.argprom.argprom.exit123, label %if.then.i.i.i122
 
 if.then.i.i.i122:                                 ; preds = %for.end212
   call void @_ZdlPv(ptr noundef nonnull %intersections.sroa.0.5) #21
-  br label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123
+  br label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.argprom.argprom.exit123
 
-_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123: ; preds = %invoke.cont, %for.end212, %if.then.i.i.i122
+_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.argprom.argprom.exit123: ; preds = %invoke.cont, %for.end212, %if.then.i.i.i122
   %orientations.sroa.0.0300304309 = phi ptr [ %orientations.sroa.0.0298, %for.end212 ], [ %orientations.sroa.0.0298, %if.then.i.i.i122 ], [ %orientations.sroa.0.0, %invoke.cont ]
   %tobool.not.i.i.i124 = icmp eq ptr %orientations.sroa.0.0300304309, null
   br i1 %tobool.not.i.i.i124, label %_ZNSt6vectorIiSaIiEED2Ev.exit126, label %if.then.i.i.i125
 
-if.then.i.i.i125:                                 ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123
+if.then.i.i.i125:                                 ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.argprom.argprom.exit123
   call void @_ZdlPv(ptr noundef nonnull %orientations.sroa.0.0300304309) #21
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit126
 
-_ZNSt6vectorIiSaIiEED2Ev.exit126:                 ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123, %if.then.i.i.i125
+_ZNSt6vectorIiSaIiEED2Ev.exit126:                 ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.argprom.argprom.exit123, %if.then.i.i.i125
   ret void
 
-eh.resume:                                        ; preds = %if.then.i.i.i68, %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit
+eh.resume:                                        ; preds = %if.then.i.i.i68, %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.argprom.argprom.exit
   resume { ptr, i32 } %lpad.phi
 }
 

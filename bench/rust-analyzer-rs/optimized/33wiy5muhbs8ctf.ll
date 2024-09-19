@@ -45,7 +45,7 @@ define hidden void @"_ZN4core3ptr133drop_in_place$LT$core..iter..adapters..rev..
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load i64, ptr %14, align 8, !alias.scope !10, !noundef !11
   %.not3.i.i.i.i = icmp eq i64 %15, %13
-  br i1 %.not3.i.i.i.i, label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.i.i", label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split.i.i"
+  br i1 %.not3.i.i.i.i, label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.i.i", label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split.i.i"
 
 16:                                               ; preds = %1
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr95drop_in_place$LT$alloc..vec..drain..Drain$LT$parser..syntax_kind..generated..SyntaxKind$GT$$GT$17hf1f07600d132bd04E.llvm.5939523040141051567.exit", label %17
@@ -58,9 +58,9 @@ define hidden void @"_ZN4core3ptr133drop_in_place$LT$core..iter..adapters..rev..
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8, !alias.scope !10, !noundef !11
   %.not3.i.i14.i.i = icmp eq i64 %23, %21
-  br i1 %.not3.i.i14.i.i, label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.i.i", label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split.i.i"
+  br i1 %.not3.i.i14.i.i, label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.i.i", label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split.i.i"
 
-"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split.i.i": ; preds = %17, %9
+"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split.i.i": ; preds = %17, %9
   %.sink.i.i = phi ptr [ %11, %9 ], [ %19, %17 ]
   %.sink25.i.i = phi i64 [ %15, %9 ], [ %23, %17 ]
   %.sink24.i.i = phi i64 [ %13, %9 ], [ %21, %17 ]
@@ -71,16 +71,16 @@ define hidden void @"_ZN4core3ptr133drop_in_place$LT$core..iter..adapters..rev..
   %27 = getelementptr inbounds i16, ptr %25, i64 %.sink24.i.i
   %28 = shl i64 %7, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %27, ptr nonnull align 2 %26, i64 %28, i1 false), !noalias !10
-  br label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.i.i"
+  br label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.i.i"
 
-"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.i.i": ; preds = %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split.i.i", %17, %9
-  %.sink20.i.i = phi i64 [ %13, %9 ], [ %21, %17 ], [ %.sink24.i.i, %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split.i.i" ]
-  %.sink19.i.i = phi ptr [ %12, %9 ], [ %20, %17 ], [ %.sink19.ph.i.i, %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split.i.i" ]
+"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.i.i": ; preds = %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split.i.i", %17, %9
+  %.sink20.i.i = phi i64 [ %13, %9 ], [ %21, %17 ], [ %.sink24.i.i, %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split.i.i" ]
+  %.sink19.i.i = phi ptr [ %12, %9 ], [ %20, %17 ], [ %.sink19.ph.i.i, %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split.i.i" ]
   %29 = add i64 %.sink20.i.i, %7
   store i64 %29, ptr %.sink19.i.i, align 8, !noalias !10
   br label %"_ZN4core3ptr95drop_in_place$LT$alloc..vec..drain..Drain$LT$parser..syntax_kind..generated..SyntaxKind$GT$$GT$17hf1f07600d132bd04E.llvm.5939523040141051567.exit"
 
-"_ZN4core3ptr95drop_in_place$LT$alloc..vec..drain..Drain$LT$parser..syntax_kind..generated..SyntaxKind$GT$$GT$17hf1f07600d132bd04E.llvm.5939523040141051567.exit": ; preds = %8, %16, %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.i.i"
+"_ZN4core3ptr95drop_in_place$LT$alloc..vec..drain..Drain$LT$parser..syntax_kind..generated..SyntaxKind$GT$$GT$17hf1f07600d132bd04E.llvm.5939523040141051567.exit": ; preds = %8, %16, %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.i.i"
   ret void
 }
 
@@ -1203,7 +1203,7 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..drain..Drain$LT$
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load i64, ptr %14, align 8, !alias.scope !756, !noundef !11
   %.not3.i.i.i = icmp eq i64 %15, %13
-  br i1 %.not3.i.i.i, label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.i", label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split.i"
+  br i1 %.not3.i.i.i, label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.i", label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split.i"
 
 16:                                               ; preds = %1
   br i1 %.not.i.i.i, label %"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d0c30c8aec01872E.llvm.5939523040141051567.exit", label %17
@@ -1216,9 +1216,9 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..drain..Drain$LT$
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8, !alias.scope !756, !noundef !11
   %.not3.i.i14.i = icmp eq i64 %23, %21
-  br i1 %.not3.i.i14.i, label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.i", label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split.i"
+  br i1 %.not3.i.i14.i, label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.i", label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split.i"
 
-"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split.i": ; preds = %17, %9
+"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split.i": ; preds = %17, %9
   %.sink.i = phi ptr [ %11, %9 ], [ %19, %17 ]
   %.sink25.i = phi i64 [ %15, %9 ], [ %23, %17 ]
   %.sink24.i = phi i64 [ %13, %9 ], [ %21, %17 ]
@@ -1229,16 +1229,16 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..drain..Drain$LT$
   %27 = getelementptr inbounds i16, ptr %25, i64 %.sink24.i
   %28 = shl i64 %7, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %27, ptr nonnull align 2 %26, i64 %28, i1 false), !noalias !756
-  br label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.i"
+  br label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.i"
 
-"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.i": ; preds = %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split.i", %17, %9
-  %.sink20.i = phi i64 [ %13, %9 ], [ %21, %17 ], [ %.sink24.i, %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split.i" ]
-  %.sink19.i = phi ptr [ %12, %9 ], [ %20, %17 ], [ %.sink19.ph.i, %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split.i" ]
+"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.i": ; preds = %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split.i", %17, %9
+  %.sink20.i = phi i64 [ %13, %9 ], [ %21, %17 ], [ %.sink24.i, %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split.i" ]
+  %.sink19.i = phi ptr [ %12, %9 ], [ %20, %17 ], [ %.sink19.ph.i, %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split.i" ]
   %29 = add i64 %.sink20.i, %7
   store i64 %29, ptr %.sink19.i, align 8, !noalias !756
   br label %"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d0c30c8aec01872E.llvm.5939523040141051567.exit"
 
-"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d0c30c8aec01872E.llvm.5939523040141051567.exit": ; preds = %8, %16, %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.i"
+"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d0c30c8aec01872E.llvm.5939523040141051567.exit": ; preds = %8, %16, %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.i"
   ret void
 }
 
@@ -1718,13 +1718,13 @@ define hidden void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..op
 define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd6bef6a47805145aE.llvm.5939523040141051567"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !11, !noundef !11
   %3 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
-  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0a7ff61864173133E.exit", label %4
+  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0a7ff61864173133E.argprom.exit", label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0a7ff61864173133E.exit"
+  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0a7ff61864173133E.argprom.exit"
 
 8:                                                ; preds = %4
   fence acquire
@@ -1742,13 +1742,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   %20 = icmp ult i64 %14, -9223372036854775807
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i64 %19, 0
-  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0a7ff61864173133E.exit", label %22
+  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0a7ff61864173133E.argprom.exit", label %22
 
 22:                                               ; preds = %8
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #16
-  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0a7ff61864173133E.exit"
+  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0a7ff61864173133E.argprom.exit"
 
-"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0a7ff61864173133E.exit": ; preds = %22, %8, %1, %4
+"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0a7ff61864173133E.argprom.exit": ; preds = %22, %8, %1, %4
   ret void
 }
 
@@ -1884,7 +1884,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   br i1 %5, label %8, label %16
 
 8:                                                ; preds = %1
-  br i1 %.not.i.i, label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit", label %9
+  br i1 %.not.i.i, label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit", label %9
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1894,10 +1894,10 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load i64, ptr %14, align 8, !noundef !11
   %.not3.i.i = icmp eq i64 %15, %13
-  br i1 %.not3.i.i, label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split", label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split"
+  br i1 %.not3.i.i, label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split", label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split"
 
 16:                                               ; preds = %1
-  br i1 %.not.i.i, label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit", label %17
+  br i1 %.not.i.i, label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit", label %17
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1907,9 +1907,9 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8, !noundef !11
   %.not3.i.i14 = icmp eq i64 %23, %21
-  br i1 %.not3.i.i14, label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split", label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split"
+  br i1 %.not3.i.i14, label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split", label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split"
 
-"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split": ; preds = %17, %9
+"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split": ; preds = %17, %9
   %.sink = phi ptr [ %11, %9 ], [ %19, %17 ]
   %.sink25 = phi i64 [ %15, %9 ], [ %23, %17 ]
   %.sink24 = phi i64 [ %13, %9 ], [ %21, %17 ]
@@ -1920,16 +1920,16 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %27 = getelementptr inbounds i16, ptr %25, i64 %.sink24
   %28 = shl i64 %7, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %27, ptr nonnull align 2 %26, i64 %28, i1 false)
-  br label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split"
+  br label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split"
 
-"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split": ; preds = %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split", %17, %9
-  %.sink20 = phi i64 [ %13, %9 ], [ %21, %17 ], [ %.sink24, %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split" ]
-  %.sink19 = phi ptr [ %12, %9 ], [ %20, %17 ], [ %.sink19.ph, %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split.sink.split" ]
+"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split": ; preds = %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split", %17, %9
+  %.sink20 = phi i64 [ %13, %9 ], [ %21, %17 ], [ %.sink24, %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split" ]
+  %.sink19 = phi ptr [ %12, %9 ], [ %20, %17 ], [ %.sink19.ph, %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split.sink.split" ]
   %29 = add i64 %.sink20, %7
   store i64 %29, ptr %.sink19, align 8
-  br label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit"
+  br label %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit"
 
-"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit": ; preds = %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.exit.sink.split", %16, %8
+"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit": ; preds = %"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$parser..syntax_kind..generated..SyntaxKind$C$alloc..alloc..Global$GT$$GT$17h47cc0f9bd0e53ae2E.argprom.exit.sink.split", %16, %8
   ret void
 }
 

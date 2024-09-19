@@ -11247,12 +11247,12 @@ track_gtp_session.exit:                           ; preds = %.thread, %635, %627
 
 672:                                              ; preds = %647
   %.val = load i64, ptr %29, align 8
-  call fastcc void @dissect_gtp_tpdu_as_pdcp_lte_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %.val, i32 noundef %.3456551)
+  call fastcc void @dissect_gtp_tpdu_as_pdcp_lte_info.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %.val, i32 noundef %.3456551)
   br label %690
 
 673:                                              ; preds = %647
   %.val508 = load i64, ptr %29, align 8
-  call fastcc void @dissect_gtp_tpsu_as_pdcp_nr_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %.val508, i32 noundef %.3456551)
+  call fastcc void @dissect_gtp_tpsu_as_pdcp_nr_info.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %.val508, i32 noundef %.3456551)
   br label %690
 
 674:                                              ; preds = %647
@@ -11495,7 +11495,7 @@ declare void @col_prepend_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gtp_tpdu_as_pdcp_lte_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %.8.val, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_gtp_tpdu_as_pdcp_lte_info.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %.8.val, i32 noundef %3) unnamed_addr #1 {
   %5 = trunc i64 %.8.val to i32
   %6 = load i32, ptr @num_pdcp_lte_keys_uat, align 4
   %.not.i = icmp eq i32 %6, 0
@@ -11620,7 +11620,7 @@ look_up_pdcp_lte_keys_record.exit.thread:         ; preds = %addresses_equal.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gtp_tpsu_as_pdcp_nr_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %.8.val, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_gtp_tpsu_as_pdcp_nr_info.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %.8.val, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca %struct.pdcp_nr_info, align 8
   %6 = trunc i64 %.8.val to i32
   %7 = load i32, ptr @num_pdcp_nr_keys_uat, align 4
@@ -12217,7 +12217,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @decode_gtp_qos_gprs(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
   %6 = add i32 %1, 1
-  tail call fastcc void @decode_qos_gprs(ptr noundef %0, i32 noundef %6, ptr noundef %3, ptr noundef nonnull @.str.1087, i8 noundef zeroext 1)
+  tail call fastcc void @decode_qos_gprs.retelim(ptr noundef %0, i32 noundef %6, ptr noundef %3, ptr noundef nonnull @.str.1087, i8 noundef zeroext 1)
   ret i32 4
 }
 
@@ -13102,11 +13102,11 @@ define internal range(i32 3, 65539) i32 @decode_gtp_pdp_cntxt(ptr noundef %0, i3
   br i1 %.b168, label %34, label %30
 
 30:                                               ; preds = %5
-  tail call fastcc void @decode_qos_gprs(ptr noundef %0, i32 noundef %29, ptr noundef %13, ptr noundef nonnull @.str.1728, i8 noundef zeroext 0)
+  tail call fastcc void @decode_qos_gprs.retelim(ptr noundef %0, i32 noundef %29, ptr noundef %13, ptr noundef nonnull @.str.1728, i8 noundef zeroext 0)
   %31 = add i32 %1, 8
-  tail call fastcc void @decode_qos_gprs(ptr noundef %0, i32 noundef %31, ptr noundef %13, ptr noundef nonnull @.str.1729, i8 noundef zeroext 0)
+  tail call fastcc void @decode_qos_gprs.retelim(ptr noundef %0, i32 noundef %31, ptr noundef %13, ptr noundef nonnull @.str.1729, i8 noundef zeroext 0)
   %32 = add i32 %1, 11
-  tail call fastcc void @decode_qos_gprs(ptr noundef %0, i32 noundef %32, ptr noundef %13, ptr noundef nonnull @.str.1730, i8 noundef zeroext 0)
+  tail call fastcc void @decode_qos_gprs.retelim(ptr noundef %0, i32 noundef %32, ptr noundef %13, ptr noundef nonnull @.str.1730, i8 noundef zeroext 0)
   %33 = add i32 %1, 14
   br label %41
 
@@ -13328,14 +13328,14 @@ define internal range(i32 3, 65539) i32 @decode_gtp_apn(ptr noundef %0, i32 noun
   %20 = load i32, ptr @hf_gtp_apn, align 4
   %21 = call ptr @proto_tree_add_item_ret_string(ptr noundef %14, i32 noundef %20, ptr noundef %0, i32 noundef %17, i32 noundef %10, i32 noundef 84, ptr noundef %.val, ptr noundef nonnull %6) #13
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %decode_apn.exit, label %22
+  br i1 %.not.i, label %decode_apn.argprom.exit, label %22
 
 22:                                               ; preds = %5
   %23 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %18, ptr noundef nonnull @.str.1690, ptr noundef %23) #13
-  br label %decode_apn.exit
+  br label %decode_apn.argprom.exit
 
-decode_apn.exit:                                  ; preds = %5, %22
+decode_apn.argprom.exit:                          ; preds = %5, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret i32 %11
 }
@@ -14924,7 +14924,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_fqdn(ptr noundef %0, i32 nou
   %15 = load i32, ptr @hf_gtp_fqdn_length, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef 0) #13
   %.not.i = icmp eq i16 %7, 0
-  br i1 %.not.i, label %decode_fqdn.exit, label %.sink.split.i
+  br i1 %.not.i, label %decode_fqdn.argprom.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %5
   %17 = add i32 %1, 3
@@ -14933,9 +14933,9 @@ define internal range(i32 3, 65539) i32 @decode_gtp_fqdn(ptr noundef %0, i32 nou
   %20 = load i32, ptr @hf_gtp_fqdn, align 4
   %..i = select i1 %19, i32 84, i32 0
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %20, ptr noundef %0, i32 noundef %17, i32 noundef %8, i32 noundef %..i) #13
-  br label %decode_fqdn.exit
+  br label %decode_fqdn.argprom.exit
 
-decode_fqdn.exit:                                 ; preds = %5, %.sink.split.i
+decode_fqdn.argprom.exit:                         ; preds = %5, %.sink.split.i
   ret i32 %9
 }
 
@@ -16298,7 +16298,7 @@ define internal i32 @decode_gtp_unknown(ptr noundef %0, i32 noundef %1, ptr noun
 declare ptr @dissect_e212_imsi(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_qos_gprs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 2) %4) unnamed_addr #1 {
+define internal fastcc void @decode_qos_gprs.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 2) %4) unnamed_addr #1 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #13
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #13
   %8 = and i8 %7, 56

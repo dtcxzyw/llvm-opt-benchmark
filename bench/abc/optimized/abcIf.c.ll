@@ -2714,14 +2714,14 @@ If_CutTruthWR.exit.i.i:                           ; preds = %193, %181
   br i1 %.not.i7.i.i, label %.preheader.i.i.i, label %.preheader14.i.i.i
 
 .preheader14.i.i.i:                               ; preds = %If_CutTruthWR.exit.i.i
-  br i1 %215, label %.lr.ph.preheader.i.i.i, label %If_CutTruth.exit
+  br i1 %215, label %.lr.ph.preheader.i.i.i, label %If_CutTruth.argprom.exit
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.preheader14.i.i.i
   %wide.trip.count.i.i.i = zext nneg i32 %213 to i64
   br label %.lr.ph.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %If_CutTruthWR.exit.i.i
-  br i1 %215, label %.lr.ph18.preheader.i.i.i, label %If_CutTruth.exit
+  br i1 %215, label %.lr.ph18.preheader.i.i.i, label %If_CutTruth.argprom.exit
 
 .lr.ph18.preheader.i.i.i:                         ; preds = %.preheader.i.i.i
   %wide.trip.count24.i.i.i = zext nneg i32 %213 to i64
@@ -2736,7 +2736,7 @@ If_CutTruthWR.exit.i.i:                           ; preds = %193, %181
   store i64 %218, ptr %219, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %If_CutTruth.exit, label %.lr.ph.i.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i, label %If_CutTruth.argprom.exit, label %.lr.ph.i.i.i, !llvm.loop !18
 
 .lr.ph18.i.i.i:                                   ; preds = %.lr.ph18.i.i.i, %.lr.ph18.preheader.i.i.i
   %indvars.iv21.i.i.i = phi i64 [ 0, %.lr.ph18.preheader.i.i.i ], [ %indvars.iv.next22.i.i.i, %.lr.ph18.i.i.i ]
@@ -2746,9 +2746,9 @@ If_CutTruthWR.exit.i.i:                           ; preds = %193, %181
   store i64 %221, ptr %222, align 8
   %indvars.iv.next22.i.i.i = add nuw nsw i64 %indvars.iv21.i.i.i, 1
   %exitcond25.not.i.i.i = icmp eq i64 %indvars.iv.next22.i.i.i, %wide.trip.count24.i.i.i
-  br i1 %exitcond25.not.i.i.i, label %If_CutTruth.exit, label %.lr.ph18.i.i.i, !llvm.loop !19
+  br i1 %exitcond25.not.i.i.i, label %If_CutTruth.argprom.exit, label %.lr.ph18.i.i.i, !llvm.loop !19
 
-If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.ph18.i.i.i, %.preheader14.i.i.i, %.preheader.i.i.i
+If_CutTruth.argprom.exit:                         ; preds = %.lr.ph.i.i.i, %.lr.ph18.i.i.i, %.preheader14.i.i.i, %.preheader.i.i.i
   %223 = load ptr, ptr %186, align 8
   %.val220 = load i64, ptr %185, align 4
   %224 = trunc i64 %.val220 to i32
@@ -2818,14 +2818,14 @@ If_CutTruthWR.exit.i.i230:                        ; preds = %246, %234
   br i1 %.not.i7.i.i231, label %.preheader.i.i.i239, label %.preheader14.i.i.i232
 
 .preheader14.i.i.i232:                            ; preds = %If_CutTruthWR.exit.i.i230
-  br i1 %268, label %.lr.ph.preheader.i.i.i233, label %If_CutTruth.exit246
+  br i1 %268, label %.lr.ph.preheader.i.i.i233, label %If_CutTruth.argprom.exit246
 
 .lr.ph.preheader.i.i.i233:                        ; preds = %.preheader14.i.i.i232
   %wide.trip.count.i.i.i234 = zext nneg i32 %266 to i64
   br label %.lr.ph.i.i.i235
 
 .preheader.i.i.i239:                              ; preds = %If_CutTruthWR.exit.i.i230
-  br i1 %268, label %.lr.ph18.preheader.i.i.i240, label %If_CutTruth.exit246
+  br i1 %268, label %.lr.ph18.preheader.i.i.i240, label %If_CutTruth.argprom.exit246
 
 .lr.ph18.preheader.i.i.i240:                      ; preds = %.preheader.i.i.i239
   %wide.trip.count24.i.i.i241 = zext nneg i32 %266 to i64
@@ -2840,7 +2840,7 @@ If_CutTruthWR.exit.i.i230:                        ; preds = %246, %234
   store i64 %271, ptr %272, align 8
   %indvars.iv.next.i.i.i237 = add nuw nsw i64 %indvars.iv.i.i.i236, 1
   %exitcond.not.i.i.i238 = icmp eq i64 %indvars.iv.next.i.i.i237, %wide.trip.count.i.i.i234
-  br i1 %exitcond.not.i.i.i238, label %If_CutTruth.exit246, label %.lr.ph.i.i.i235, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i238, label %If_CutTruth.argprom.exit246, label %.lr.ph.i.i.i235, !llvm.loop !18
 
 .lr.ph18.i.i.i242:                                ; preds = %.lr.ph18.i.i.i242, %.lr.ph18.preheader.i.i.i240
   %indvars.iv21.i.i.i243 = phi i64 [ 0, %.lr.ph18.preheader.i.i.i240 ], [ %indvars.iv.next22.i.i.i244, %.lr.ph18.i.i.i242 ]
@@ -2850,9 +2850,9 @@ If_CutTruthWR.exit.i.i230:                        ; preds = %246, %234
   store i64 %274, ptr %275, align 8
   %indvars.iv.next22.i.i.i244 = add nuw nsw i64 %indvars.iv21.i.i.i243, 1
   %exitcond25.not.i.i.i245 = icmp eq i64 %indvars.iv.next22.i.i.i244, %wide.trip.count24.i.i.i241
-  br i1 %exitcond25.not.i.i.i245, label %If_CutTruth.exit246, label %.lr.ph18.i.i.i242, !llvm.loop !19
+  br i1 %exitcond25.not.i.i.i245, label %If_CutTruth.argprom.exit246, label %.lr.ph18.i.i.i242, !llvm.loop !19
 
-If_CutTruth.exit246:                              ; preds = %.lr.ph.i.i.i235, %.lr.ph18.i.i.i242, %.preheader14.i.i.i232, %.preheader.i.i.i239
+If_CutTruth.argprom.exit246:                      ; preds = %.lr.ph.i.i.i235, %.lr.ph18.i.i.i242, %.preheader14.i.i.i232, %.preheader.i.i.i239
   %276 = load ptr, ptr %239, align 8
   %.val219 = load i64, ptr %238, align 4
   %277 = trunc i64 %.val219 to i32
@@ -2880,7 +2880,7 @@ If_CutTruth.exit246:                              ; preds = %.lr.ph.i.i.i235, %.
   %.val226 = load i32, ptr %289, align 4
   %290 = getelementptr i8, ptr %2, i64 108
   %.val227 = load i64, ptr %290, align 4
-  %291 = tail call fastcc ptr @If_CutTruth(ptr noundef nonnull %1, i32 %.val226, i64 %.val227)
+  %291 = tail call fastcc ptr @If_CutTruth.argprom(ptr noundef nonnull %1, i32 %.val226, i64 %.val227)
   %.val218 = load i64, ptr %290, align 4
   %292 = trunc i64 %.val218 to i32
   %293 = lshr i32 %292, 24
@@ -3044,8 +3044,8 @@ If_CutTruth.exit246:                              ; preds = %.lr.ph.i.i.i235, %.
   store ptr %375, ptr %376, align 8
   br label %377
 
-377:                                              ; preds = %308, %310, %If_CutTruth.exit246, %323, %339, %.loopexit, %347, %331, %319, %312, %If_CutTruth.exit
-  %.0167 = phi ptr [ %80, %If_CutTruth.exit ], [ %80, %If_CutTruth.exit246 ], [ %80, %319 ], [ %80, %312 ], [ %80, %323 ], [ %80, %331 ], [ %80, %339 ], [ %80, %347 ], [ %80, %.loopexit ], [ %309, %308 ], [ %311, %310 ]
+377:                                              ; preds = %308, %310, %If_CutTruth.argprom.exit246, %323, %339, %.loopexit, %347, %331, %319, %312, %If_CutTruth.argprom.exit
+  %.0167 = phi ptr [ %80, %If_CutTruth.argprom.exit ], [ %80, %If_CutTruth.argprom.exit246 ], [ %80, %319 ], [ %80, %312 ], [ %80, %323 ], [ %80, %331 ], [ %80, %339 ], [ %80, %347 ], [ %80, %.loopexit ], [ %309, %308 ], [ %311, %310 ]
   %378 = getelementptr inbounds i8, ptr %2, i64 108
   %379 = load i64, ptr %378, align 4
   %380 = and i64 %379, 4096
@@ -3203,7 +3203,7 @@ declare void @If_CutRotatePins(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @Kit_TruthToBdd(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @If_CutTruth(ptr nocapture noundef readonly %0, i32 %.16.val, i64 %.28.val) unnamed_addr #3 {
+define internal fastcc ptr @If_CutTruth.argprom(ptr nocapture noundef readonly %0, i32 %.16.val, i64 %.28.val) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1064
@@ -3672,7 +3672,7 @@ define void @Abc_NtkFindGoodOrder_rec(ptr noundef %0, ptr noundef %1) local_unna
   %.val3.i = load i32, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %8 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %7, i32 noundef %8)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %7, i32 noundef %8)
   %9 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %9, align 8
   %10 = sext i32 %.val3.i to i64
@@ -3688,7 +3688,7 @@ define void @Abc_NtkFindGoodOrder_rec(ptr noundef %0, ptr noundef %1) local_unna
   %.val15 = load i32, ptr %6, align 8
   %16 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %17 = add nsw i32 %.val15, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %16, i32 noundef %17)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %16, i32 noundef %17)
   %18 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i16 = load ptr, ptr %18, align 8
   %19 = sext i32 %.val15 to i64
@@ -4158,7 +4158,7 @@ declare ptr @Abc_FrameReadFlag(ptr noundef) local_unnamed_addr #1
 declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

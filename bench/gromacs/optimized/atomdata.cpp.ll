@@ -4366,7 +4366,7 @@ _ZL26nbnxn_atomdata_set_chargesP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8ArrayR
   %188 = load i8, ptr %187, align 8
   %189 = trunc i8 %188 to i1
   %.pre65 = load i32, ptr %88, align 8
-  br i1 %189, label %190, label %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.exit
+  br i1 %189, label %190, label %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.argprom.exit
 
 190:                                              ; preds = %_ZL26nbnxn_atomdata_set_chargesP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8ArrayRefIKfEE.exit
   %.val = load ptr, ptr %36, align 8
@@ -4388,7 +4388,7 @@ _ZL26nbnxn_atomdata_set_chargesP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8ArrayR
   %200 = phi i64 [ 4, %192 ], [ 1, %196 ]
   %201 = phi ptr [ %195, %192 ], [ %198, %196 ]
   %.not11.i = icmp eq ptr %.val, %.pre67
-  br i1 %.not11.i, label %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.exit, label %.lr.ph14.i
+  br i1 %.not11.i, label %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.argprom.exit, label %.lr.ph14.i
 
 .lr.ph14.i:                                       ; preds = %199, %._crit_edge.i22
   %.sroa.0.012.i = phi ptr [ %252, %._crit_edge.i22 ], [ %.val, %199 ]
@@ -4480,16 +4480,16 @@ _ZL26nbnxn_atomdata_set_chargesP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8ArrayR
 ._crit_edge.i22:                                  ; preds = %.loopexit.i24, %.lr.ph14.i
   %252 = getelementptr inbounds i8, ptr %.sroa.0.012.i, i64 376
   %.not.i23 = icmp eq ptr %252, %.pre67
-  br i1 %.not.i23, label %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.exit.loopexit, label %.lr.ph14.i
+  br i1 %.not.i23, label %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.argprom.exit.loopexit, label %.lr.ph14.i
 
-_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.exit.loopexit: ; preds = %._crit_edge.i22
+_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.argprom.exit.loopexit: ; preds = %._crit_edge.i22
   %.pre = load i32, ptr %88, align 8
   %.pre66 = load ptr, ptr %8, align 8
-  br label %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.exit
+  br label %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.argprom.exit
 
-_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.exit: ; preds = %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.exit.loopexit, %199, %_ZL26nbnxn_atomdata_set_chargesP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8ArrayRefIKfEE.exit
-  %253 = phi ptr [ %.pre66, %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.exit.loopexit ], [ %.pre67, %199 ], [ %.pre67, %_ZL26nbnxn_atomdata_set_chargesP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8ArrayRefIKfEE.exit ]
-  %254 = phi i32 [ %.pre, %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.exit.loopexit ], [ %.pre65, %199 ], [ %.pre65, %_ZL26nbnxn_atomdata_set_chargesP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8ArrayRefIKfEE.exit ]
+_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.argprom.exit: ; preds = %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.argprom.exit.loopexit, %199, %_ZL26nbnxn_atomdata_set_chargesP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8ArrayRefIKfEE.exit
+  %253 = phi ptr [ %.pre66, %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.argprom.exit.loopexit ], [ %.pre67, %199 ], [ %.pre67, %_ZL26nbnxn_atomdata_set_chargesP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8ArrayRefIKfEE.exit ]
+  %254 = phi i32 [ %.pre, %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.argprom.exit.loopexit ], [ %.pre65, %199 ], [ %.pre65, %_ZL26nbnxn_atomdata_set_chargesP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8ArrayRefIKfEE.exit ]
   %255 = getelementptr inbounds i8, ptr %253, i64 -284
   %256 = load i32, ptr %255, align 4
   %257 = getelementptr inbounds i8, ptr %253, i64 -288
@@ -4511,13 +4511,13 @@ _ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.exit: ; preds 
   %273 = icmp ult i64 %272, %264
   br i1 %273, label %274, label %277
 
-274:                                              ; preds = %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.exit
+274:                                              ; preds = %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.argprom.exit
   %275 = getelementptr inbounds i8, ptr %0, i64 136
   %276 = sub nuw nsw i64 %264, %272
   tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %275, i64 noundef %276)
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i30
 
-277:                                              ; preds = %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.exit
+277:                                              ; preds = %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.argprom.exit
   %278 = icmp ugt i64 %272, %264
   br i1 %278, label %279, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i30
 
@@ -5225,14 +5225,14 @@ define void @_Z31nbnxn_atomdata_copy_x_to_nbat_xRKN5Nbnxm7GridSetEN3gmx12AtomLoc
   %.val = load ptr, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %.val2 = load ptr, ptr %11, align 8
-  switch i32 %1, label %_ZL12getGridRangeRKN5Nbnxm7GridSetEN3gmx12AtomLocalityE.exit [
+  switch i32 %1, label %_ZL12getGridRangeRKN5Nbnxm7GridSetEN3gmx12AtomLocalityE.argprom.exit [
     i32 2, label %14
     i32 0, label %12
     i32 1, label %13
   ]
 
 12:                                               ; preds = %4
-  br label %_ZL12getGridRangeRKN5Nbnxm7GridSetEN3gmx12AtomLocalityE.exit
+  br label %_ZL12getGridRangeRKN5Nbnxm7GridSetEN3gmx12AtomLocalityE.argprom.exit
 
 13:                                               ; preds = %4
   br label %14
@@ -5245,13 +5245,13 @@ define void @_Z31nbnxn_atomdata_copy_x_to_nbat_xRKN5Nbnxm7GridSetEN3gmx12AtomLoc
   %.0.in.i = sdiv exact i64 %17, 376
   %.0.i = trunc i64 %.0.in.i to i32
   %.not.i.i = icmp sgt i32 %.04.i, %.0.i
-  br i1 %.not.i.i, label %18, label %_ZL12getGridRangeRKN5Nbnxm7GridSetEN3gmx12AtomLocalityE.exit
+  br i1 %.not.i.i, label %18, label %_ZL12getGridRangeRKN5Nbnxm7GridSetEN3gmx12AtomLocalityE.argprom.exit
 
 18:                                               ; preds = %14
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZN3gmx5RangeIiEC1EiiENKUlvE_clEv, ptr noundef nonnull @.str.27, i32 noundef 105) #30
   unreachable
 
-_ZL12getGridRangeRKN5Nbnxm7GridSetEN3gmx12AtomLocalityE.exit: ; preds = %4, %12, %14
+_ZL12getGridRangeRKN5Nbnxm7GridSetEN3gmx12AtomLocalityE.argprom.exit: ; preds = %4, %12, %14
   %.09.i = phi i64 [ %.0.in.i, %14 ], [ 1, %12 ], [ 0, %4 ]
   %.048.i = phi i32 [ %.04.i, %14 ], [ 0, %12 ], [ 0, %4 ]
   %.sroa.24.0.insert.ext.i = shl i64 %.09.i, 32
@@ -5448,7 +5448,7 @@ define void @_Z30nbnxn_atomdata_x_to_nbat_x_gpuRKN5Nbnxm7GridSetEN3gmx12AtomLoca
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %.val14 = load ptr, ptr %7, align 8
-  switch i32 %1, label %_ZL12getGridRangeRKN5Nbnxm7GridSetEN3gmx12AtomLocalityE.exit [
+  switch i32 %1, label %_ZL12getGridRangeRKN5Nbnxm7GridSetEN3gmx12AtomLocalityE.argprom.exit [
     i32 2, label %9
     i32 1, label %8
   ]
@@ -5464,13 +5464,13 @@ define void @_Z30nbnxn_atomdata_x_to_nbat_x_gpuRKN5Nbnxm7GridSetEN3gmx12AtomLoca
   %.0.in.i = sdiv exact i64 %12, 376
   %.0.i = trunc i64 %.0.in.i to i32
   %.not.i.i = icmp sgt i32 %.04.i, %.0.i
-  br i1 %.not.i.i, label %13, label %_ZL12getGridRangeRKN5Nbnxm7GridSetEN3gmx12AtomLocalityE.exit
+  br i1 %.not.i.i, label %13, label %_ZL12getGridRangeRKN5Nbnxm7GridSetEN3gmx12AtomLocalityE.argprom.exit
 
 13:                                               ; preds = %9
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZN3gmx5RangeIiEC1EiiENKUlvE_clEv, ptr noundef nonnull @.str.27, i32 noundef 105) #30
   unreachable
 
-_ZL12getGridRangeRKN5Nbnxm7GridSetEN3gmx12AtomLocalityE.exit: ; preds = %5, %9
+_ZL12getGridRangeRKN5Nbnxm7GridSetEN3gmx12AtomLocalityE.argprom.exit: ; preds = %5, %9
   ret void
 }
 
@@ -5782,7 +5782,7 @@ define void @_ZN16nbnxn_atomdata_t12reduceForcesEN3gmx12AtomLocalityERKN5Nbnxm7G
   %.val = load i32, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %2, i64 156
   %.val10 = load i32, ptr %14, align 4
-  switch i32 %1, label %_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.exit.thread [
+  switch i32 %1, label %_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.argprom.exit.thread [
     i32 2, label %17
     i32 0, label %15
     i32 1, label %16
@@ -5798,22 +5798,22 @@ define void @_ZN16nbnxn_atomdata_t12reduceForcesEN3gmx12AtomLocalityERKN5Nbnxm7G
   %.06.i = phi i32 [ %.val, %16 ], [ 0, %15 ], [ 0, %4 ]
   %.0.i = phi i32 [ %.val10, %16 ], [ %.val, %15 ], [ %.val10, %4 ]
   %.not.i.i = icmp sgt i32 %.06.i, %.0.i
-  br i1 %.not.i.i, label %18, label %_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.exit
+  br i1 %.not.i.i, label %18, label %_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.argprom.exit
 
 18:                                               ; preds = %17
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZN3gmx5RangeIiEC1EiiENKUlvE_clEv, ptr noundef nonnull @.str.27, i32 noundef 105) #30
   unreachable
 
-_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.exit: ; preds = %17
+_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.argprom.exit: ; preds = %17
   %.sroa.2.0.insert.ext.i = zext i32 %.0.i to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %.06.i to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   store i64 %.sroa.0.0.insert.insert.i, ptr %7, align 8
   %19 = icmp eq i32 %.0.i, %.06.i
-  br i1 %19, label %_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.exit.thread, label %20
+  br i1 %19, label %_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.argprom.exit.thread, label %20
 
-20:                                               ; preds = %_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.exit
+20:                                               ; preds = %_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.argprom.exit
   %21 = tail call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 3)
   store i32 %21, ptr %8, align 4
   %22 = getelementptr inbounds i8, ptr %0, i64 408
@@ -5885,9 +5885,9 @@ _ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.exit: ; preds = %17
 46:                                               ; preds = %44, %20
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %12, i32 %21)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN16nbnxn_atomdata_t12reduceForcesEN3gmx12AtomLocalityERKN5Nbnxm7GridSetEPA3_f.omp_outlined, ptr nonnull %8, ptr nonnull %2, ptr nonnull %0, ptr nonnull %7, ptr nonnull %6)
-  br label %_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.exit.thread
+  br label %_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.argprom.exit.thread
 
-_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.exit.thread: ; preds = %4, %_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.exit, %46
+_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.argprom.exit.thread: ; preds = %4, %_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.argprom.exit, %46
   ret void
 }
 
@@ -5927,8 +5927,8 @@ define internal void @_ZN16nbnxn_atomdata_t12reduceForcesEN3gmx12AtomLocalityERK
   %27 = getelementptr inbounds i8, ptr %4, i64 276
   br label %28
 
-28:                                               ; preds = %.lr.ph, %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.exit
-  %.027 = phi i32 [ %22, %.lr.ph ], [ %37, %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.exit ]
+28:                                               ; preds = %.lr.ph, %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.argprom.exit
+  %.027 = phi i32 [ %22, %.lr.ph ], [ %37, %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.argprom.exit ]
   %29 = load ptr, ptr %23, align 8
   %30 = load i32, ptr %5, align 4
   %31 = load i32, ptr %24, align 4
@@ -5958,7 +5958,7 @@ define internal void @_ZN16nbnxn_atomdata_t12reduceForcesEN3gmx12AtomLocalityERK
 
 .preheader4.i:                                    ; preds = %28
   %44 = icmp slt i32 %35, %39
-  br i1 %44, label %.lr.ph.preheader.i, label %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.exit
+  br i1 %44, label %.lr.ph.preheader.i, label %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader4.i
   %45 = sext i32 %36 to i64
@@ -5967,7 +5967,7 @@ define internal void @_ZN16nbnxn_atomdata_t12reduceForcesEN3gmx12AtomLocalityERK
 
 .preheader.i:                                     ; preds = %28
   %46 = icmp slt i32 %35, %39
-  br i1 %46, label %.lr.ph8.preheader.i, label %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.exit
+  br i1 %46, label %.lr.ph8.preheader.i, label %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.argprom.exit
 
 .lr.ph8.preheader.i:                              ; preds = %.preheader.i
   %47 = sext i32 %36 to i64
@@ -5976,7 +5976,7 @@ define internal void @_ZN16nbnxn_atomdata_t12reduceForcesEN3gmx12AtomLocalityERK
 
 48:                                               ; preds = %28, %28
   %49 = icmp slt i32 %35, %39
-  br i1 %49, label %.lr.ph10.i, label %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.exit
+  br i1 %49, label %.lr.ph10.i, label %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.argprom.exit
 
 .lr.ph10.i:                                       ; preds = %48
   %50 = sext i32 %36 to i64
@@ -6010,7 +6010,7 @@ define internal void @_ZN16nbnxn_atomdata_t12reduceForcesEN3gmx12AtomLocalityERK
   store float %71, ptr %69, align 4
   %indvars.iv.next20.i = add nsw i64 %indvars.iv19.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count22.i
-  br i1 %exitcond23.not.i, label %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.exit, label %51, !llvm.loop !110
+  br i1 %exitcond23.not.i, label %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.argprom.exit, label %51, !llvm.loop !110
 
 .lr.ph8.i:                                        ; preds = %.lr.ph8.i, %.lr.ph8.preheader.i
   %indvars.iv14.i = phi i64 [ %47, %.lr.ph8.preheader.i ], [ %indvars.iv.next15.i, %.lr.ph8.i ]
@@ -6041,7 +6041,7 @@ define internal void @_ZN16nbnxn_atomdata_t12reduceForcesEN3gmx12AtomLocalityERK
   store float %93, ptr %91, align 4
   %indvars.iv.next15.i = add nsw i64 %indvars.iv14.i, 1
   %exitcond18.not.i = icmp eq i64 %indvars.iv.next15.i, %wide.trip.count17.i
-  br i1 %exitcond18.not.i, label %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.exit, label %.lr.ph8.i, !llvm.loop !111
+  br i1 %exitcond18.not.i, label %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.argprom.exit, label %.lr.ph8.i, !llvm.loop !111
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %45, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
@@ -6072,7 +6072,7 @@ define internal void @_ZN16nbnxn_atomdata_t12reduceForcesEN3gmx12AtomLocalityERK
   store float %115, ptr %113, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.exit, label %.lr.ph.i, !llvm.loop !112
+  br i1 %exitcond.not.i, label %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.argprom.exit, label %.lr.ph.i, !llvm.loop !112
 
 116:                                              ; preds = %28
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #22
@@ -6123,7 +6123,7 @@ define internal void @_ZN16nbnxn_atomdata_t12reduceForcesEN3gmx12AtomLocalityERK
   %130 = icmp eq i32 %128, %129
   br i1 %130, label %132, label %139
 
-_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.exit: ; preds = %.lr.ph.i, %.lr.ph8.i, %51, %.preheader4.i, %.preheader.i, %48
+_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.argprom.exit: ; preds = %.lr.ph.i, %.lr.ph8.i, %51, %.preheader4.i, %.preheader.i, %48
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
@@ -6139,7 +6139,7 @@ _ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK
 134:                                              ; preds = %132
   unreachable
 
-._crit_edge:                                      ; preds = %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.exit, %17
+._crit_edge:                                      ; preds = %_ZL35nbnxn_atomdata_add_nbat_f_to_f_partRKN5Nbnxm7GridSetERK16nbnxn_atomdata_tRK23nbnxn_atomdata_output_tiiPA3_f.argprom.exit, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
   br label %135
 

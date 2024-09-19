@@ -144,8 +144,8 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
   %.not.i71.i = icmp eq ptr %49, null
   br label %.preheader.lr.ph.i
 
-.preheader.lr.ph.i:                               ; preds = %Extra_ProgressBarUpdate.exit.i, %.preheader.lr.ph.lr.ph.i
-  %.0.ph86.i = phi i32 [ 0, %.preheader.lr.ph.lr.ph.i ], [ %134, %Extra_ProgressBarUpdate.exit.i ]
+.preheader.lr.ph.i:                               ; preds = %Extra_ProgressBarUpdate.argprom.exit.i, %.preheader.lr.ph.lr.ph.i
+  %.0.ph86.i = phi i32 [ 0, %.preheader.lr.ph.lr.ph.i ], [ %134, %Extra_ProgressBarUpdate.argprom.exit.i ]
   br label %.preheader.i
 
 .loopexit.i:                                      ; preds = %.preheader.i
@@ -310,19 +310,19 @@ Map_LibraryReadGate.exit.i:                       ; preds = %107, %98
 135:                                              ; preds = %._crit_edge84.i
   %136 = load i32, ptr %49, align 4
   %137 = icmp slt i32 %134, %136
-  br i1 %137, label %Extra_ProgressBarUpdate.exit.i, label %138
+  br i1 %137, label %Extra_ProgressBarUpdate.argprom.exit.i, label %138
 
 138:                                              ; preds = %135, %._crit_edge84.i
   call void @Extra_ProgressBarUpdate_int(ptr noundef %49, i32 noundef %134, ptr noundef null) #12
-  br label %Extra_ProgressBarUpdate.exit.i
+  br label %Extra_ProgressBarUpdate.argprom.exit.i
 
-Extra_ProgressBarUpdate.exit.i:                   ; preds = %138, %135
+Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %138, %135
   %139 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 5000, ptr noundef nonnull %6)
   %.not6779.i = icmp eq ptr %139, null
   br i1 %.not6779.i, label %.outer._crit_edge.i, label %.preheader.lr.ph.i, !llvm.loop !9
 
-.outer._crit_edge.i:                              ; preds = %Extra_ProgressBarUpdate.exit.i, %.loopexit.i, %47
-  %.0.ph.lcssa.i = phi i32 [ 0, %47 ], [ %.0.ph86.i, %.loopexit.i ], [ %134, %Extra_ProgressBarUpdate.exit.i ]
+.outer._crit_edge.i:                              ; preds = %Extra_ProgressBarUpdate.argprom.exit.i, %.loopexit.i, %47
+  %.0.ph.lcssa.i = phi i32 [ 0, %47 ], [ %.0.ph86.i, %.loopexit.i ], [ %134, %Extra_ProgressBarUpdate.argprom.exit.i ]
   call void @Extra_ProgressBarStop(ptr noundef %49) #12
   %140 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %.0.ph.lcssa.i, ptr %140, align 4

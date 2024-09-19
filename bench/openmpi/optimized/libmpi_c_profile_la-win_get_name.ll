@@ -88,7 +88,7 @@ ompi_win_invalid.exit.thread:                     ; preds = %11, %ompi_win_inval
   %.pre15.i = load i8, ptr @opal_uses_threads, align 1
   br label %.lr.ph.i
 
-33:                                               ; preds = %opal_pointer_array_get_item.exit.i
+33:                                               ; preds = %opal_pointer_array_get_item.argprom.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = load i32, ptr @ompi_errcode_intern_lastused, align 4
   %35 = sext i32 %34 to i64
@@ -116,21 +116,21 @@ ompi_win_invalid.exit.thread:                     ; preds = %11, %ompi_win_inval
   %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8
   %48 = trunc i8 %44 to i1
-  br i1 %48, label %49, label %opal_pointer_array_get_item.exit.i
+  br i1 %48, label %49, label %opal_pointer_array_get_item.argprom.exit.i
 
 49:                                               ; preds = %43
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #4
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
-  br label %opal_pointer_array_get_item.exit.i
+  br label %opal_pointer_array_get_item.argprom.exit.i
 
-opal_pointer_array_get_item.exit.i:               ; preds = %49, %43
+opal_pointer_array_get_item.argprom.exit.i:       ; preds = %49, %43
   %51 = phi i8 [ %44, %43 ], [ %.pre.i, %49 ]
   %52 = getelementptr inbounds i8, ptr %47, i64 16
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, %28
   br i1 %54, label %55, label %33
 
-55:                                               ; preds = %opal_pointer_array_get_item.exit.i
+55:                                               ; preds = %opal_pointer_array_get_item.argprom.exit.i
   %56 = getelementptr inbounds i8, ptr %47, i64 20
   %57 = load i32, ptr %56, align 4
   br label %ompi_errcode_get_mpi_code.exit

@@ -1294,8 +1294,8 @@ define internal i32 @dissect_hl7(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %16 = getelementptr inbounds i8, ptr %1, i64 408
   br label %17
 
-17:                                               ; preds = %.lr.ph, %dissect_hl7_message.exit
-  %.03345 = phi i32 [ 0, %.lr.ph ], [ %182, %dissect_hl7_message.exit ]
+17:                                               ; preds = %.lr.ph, %dissect_hl7_message.argprom.exit
+  %.03345 = phi i32 [ 0, %.lr.ph ], [ %182, %dissect_hl7_message.argprom.exit ]
   %18 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03345) #4
   %19 = add i32 %18, %.03345
   %20 = call i32 @tvb_find_guint16(ptr noundef %0, i32 noundef %.03345, i32 noundef %19, i16 noundef zeroext 7181) #4
@@ -1445,7 +1445,7 @@ proto_item_set_hidden.exit.i.i:                   ; preds = %75, %72, %69, %67
 parse_msh.exit.i:                                 ; preds = %56, %30
   %.str.34.sink.i.i = phi ptr [ @.str.33, %30 ], [ @.str.34, %56 ]
   %99 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_hl7_malformed, ptr noundef nonnull %.str.34.sink.i.i) #4
-  br label %dissect_hl7_message.exit
+  br label %dissect_hl7_message.argprom.exit
 
 .loopexit.i:                                      ; preds = %.backedge.i.i, %56, %49
   %.val.i = load i8, ptr %10, align 1
@@ -1520,7 +1520,7 @@ parse_msh.exit.i:                                 ; preds = %56, %30
 
 132:                                              ; preds = %.lr.ph.i
   %133 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_hl7_malformed, ptr noundef nonnull @.str.33) #4
-  br label %dissect_hl7_message.exit
+  br label %dissect_hl7_message.argprom.exit
 
 134:                                              ; preds = %.lr.ph.i
   %135 = load i32, ptr %6, align 4
@@ -1616,14 +1616,14 @@ dissect_hl7_segment.exit.i:                       ; preds = %170, %153, %146, %1
 ._crit_edge.i:                                    ; preds = %dissect_hl7_segment.exit.i, %128
   %178 = load i32, ptr @global_hl7_llp, align 4
   %.not54.i = icmp eq i32 %178, 0
-  br i1 %.not54.i, label %dissect_hl7_message.exit, label %179
+  br i1 %.not54.i, label %dissect_hl7_message.argprom.exit, label %179
 
 179:                                              ; preds = %._crit_edge.i
   %180 = load i32, ptr @hf_hl7_llp_eob, align 4
   %181 = call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %180, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0) #4
-  br label %dissect_hl7_message.exit
+  br label %dissect_hl7_message.argprom.exit
 
-dissect_hl7_message.exit:                         ; preds = %parse_msh.exit.i, %132, %._crit_edge.i, %179
+dissect_hl7_message.argprom.exit:                 ; preds = %parse_msh.exit.i, %132, %._crit_edge.i, %179
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %182 = add i32 %20, 2
@@ -1631,7 +1631,7 @@ dissect_hl7_message.exit:                         ; preds = %parse_msh.exit.i, %
   %184 = icmp ult i32 %182, %183
   br i1 %184, label %17, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %dissect_hl7_message.exit, %4
+._crit_edge:                                      ; preds = %dissect_hl7_message.argprom.exit, %4
   %185 = call i32 @tvb_captured_length(ptr noundef %0) #4
   br label %186
 

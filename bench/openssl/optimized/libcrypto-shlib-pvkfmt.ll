@@ -225,7 +225,7 @@ entry:
   %isdss = alloca i32, align 4
   store i32 -1, ptr %isdss, align 4
   %in.val = load ptr, ptr %in, align 8
-  %call = call fastcc ptr @do_b2i_key(ptr %in.val, i32 noundef %length, ptr noundef %isdss, ptr noundef %ispub)
+  %call = call fastcc ptr @do_b2i_key.argprom(ptr %in.val, i32 noundef %length, ptr noundef %isdss, ptr noundef %ispub)
   %0 = load i32, ptr %isdss, align 4
   %cmp = icmp eq i32 %0, 0
   %cmp1 = icmp eq i32 %0, 1
@@ -236,7 +236,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @do_b2i_key(ptr %in.0.val, i32 noundef %length, ptr nocapture noundef nonnull %isdss, ptr nocapture noundef %ispub) unnamed_addr #0 {
+define internal fastcc ptr @do_b2i_key.argprom(ptr %in.0.val, i32 noundef %length, ptr nocapture noundef nonnull %isdss, ptr nocapture noundef %ispub) unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %bitlen = alloca i32, align 4
@@ -813,7 +813,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %isdss.i)
   store i32 -1, ptr %isdss.i, align 4
   %in.val.i = load ptr, ptr %in, align 8
-  %call.i = call fastcc ptr @do_b2i_key(ptr %in.val.i, i32 noundef %conv, ptr noundef %isdss.i, ptr noundef nonnull %ispub)
+  %call.i = call fastcc ptr @do_b2i_key.argprom(ptr %in.val.i, i32 noundef %conv, ptr noundef %isdss.i, ptr noundef nonnull %ispub)
   %0 = load i32, ptr %isdss.i, align 4
   %cmp.i = icmp eq i32 %0, 0
   %cmp1.i = icmp eq i32 %0, 1
@@ -834,7 +834,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %isdss.i)
   store i32 -1, ptr %isdss.i, align 4
   %in.val.i = load ptr, ptr %in, align 8
-  %call.i = call fastcc ptr @do_b2i_key(ptr %in.val.i, i32 noundef %conv, ptr noundef %isdss.i, ptr noundef nonnull %ispub)
+  %call.i = call fastcc ptr @do_b2i_key.argprom(ptr %in.val.i, i32 noundef %conv, ptr noundef %isdss.i, ptr noundef nonnull %ispub)
   %0 = load i32, ptr %isdss.i, align 4
   %cmp.i = icmp eq i32 %0, 0
   %cmp1.i = icmp eq i32 %0, 1
@@ -1099,7 +1099,7 @@ if.end10.i:                                       ; preds = %if.end7.i
   br i1 %cmp12.i, label %err.i, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end10.i
-  %call18.i = call fastcc i32 @derive_pvk_key(ptr noundef %keybuf.i, ptr noundef nonnull %call5, i32 noundef %1, ptr noundef %psbuf.i, i32 noundef %inlen.0.i, ptr noundef %libctx, ptr noundef %propq)
+  %call18.i = call fastcc i32 @derive_pvk_key.argelim(ptr noundef %keybuf.i, ptr noundef nonnull %call5, i32 noundef %1, ptr noundef %psbuf.i, i32 noundef %inlen.0.i, ptr noundef %libctx, ptr noundef %propq)
   %tobool19.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool19.not.i, label %err.i, label %if.end21.i
 
@@ -1187,7 +1187,7 @@ if.end85.i:                                       ; preds = %if.end73.i, %if.end
   %p.0.i = phi ptr [ %call5, %if.end.i ], [ %call11.i, %if.end73.i ], [ %call11.i, %if.end73.i ], [ %call11.i, %if.end47.i ], [ %call11.i, %if.end47.i ]
   %rc4.1.i = phi ptr [ null, %if.end.i ], [ %call28.i, %if.end73.i ], [ %call28.i, %if.end73.i ], [ %call28.i, %if.end47.i ], [ %call28.i, %if.end47.i ]
   %enctmp.1.i = phi ptr [ null, %if.end.i ], [ %call11.i, %if.end73.i ], [ %call11.i, %if.end73.i ], [ %call11.i, %if.end47.i ], [ %call11.i, %if.end47.i ]
-  %call86.i = call fastcc ptr @do_b2i_key(ptr nonnull %p.0.i, i32 noundef %0, ptr noundef %isdss, ptr noundef nonnull %ispub)
+  %call86.i = call fastcc ptr @do_b2i_key.argprom(ptr nonnull %p.0.i, i32 noundef %0, ptr noundef %isdss, ptr noundef nonnull %ispub)
   br label %err.i
 
 err.i:                                            ; preds = %if.end85.i, %if.then82.i, %if.end67.i, %if.end63.i, %if.then55.i, %if.end41.i, %if.end37.i, %if.end32.i, %if.end26.i, %if.then25.i, %if.end15.i, %if.end10.i, %if.then9.i, %if.then.i
@@ -1197,21 +1197,21 @@ err.i:                                            ; preds = %if.end85.i, %if.the
   call void @EVP_CIPHER_CTX_free(ptr noundef %call.i) #6
   call void @EVP_CIPHER_free(ptr noundef %rc4.0.i) #6
   %cmp87.not.i = icmp eq ptr %enctmp.0.i, null
-  br i1 %cmp87.not.i, label %do_PVK_body_key.exit, label %if.then89.i
+  br i1 %cmp87.not.i, label %do_PVK_body_key.argprom.exit, label %if.then89.i
 
 if.then89.i:                                      ; preds = %err.i
   call void @OPENSSL_cleanse(ptr noundef nonnull %keybuf.i, i64 noundef 20) #6
   call void @CRYPTO_free(ptr noundef nonnull %enctmp.0.i, ptr noundef nonnull @.str, i32 noundef 927) #6
-  br label %do_PVK_body_key.exit
+  br label %do_PVK_body_key.argprom.exit
 
-do_PVK_body_key.exit:                             ; preds = %err.i, %if.then89.i
+do_PVK_body_key.argprom.exit:                     ; preds = %err.i, %if.then89.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %keybuf.i)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %psbuf.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %enctmplen.i)
   br label %err
 
-err:                                              ; preds = %do_PVK_body_key.exit, %if.then13
-  %key.0 = phi ptr [ null, %if.then13 ], [ %key.0.i, %do_PVK_body_key.exit ]
+err:                                              ; preds = %do_PVK_body_key.argprom.exit, %if.then13
+  %key.0 = phi ptr [ null, %if.then13 ], [ %key.0.i, %do_PVK_body_key.argprom.exit ]
   call void @CRYPTO_clear_free(ptr noundef nonnull %call5, i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 962) #6
   br label %return
 
@@ -1423,7 +1423,7 @@ if.then50.i:                                      ; preds = %if.end47.i
   br label %error.i
 
 if.end51.i:                                       ; preds = %if.end47.i
-  %call54.i = call fastcc i32 @derive_pvk_key(ptr noundef %keybuf.i, ptr noundef nonnull %incdec.ptr11.i70.i, i32 noundef 16, ptr noundef %psbuf.i, i32 noundef %inlen.0.i, ptr noundef %libctx, ptr noundef %propq)
+  %call54.i = call fastcc i32 @derive_pvk_key.argelim(ptr noundef %keybuf.i, ptr noundef nonnull %incdec.ptr11.i70.i, i32 noundef 16, ptr noundef %psbuf.i, i32 noundef %inlen.0.i, ptr noundef %libctx, ptr noundef %propq)
   %tobool55.not.i = icmp eq i32 %call54.i, 0
   br i1 %tobool55.not.i, label %error.i, label %if.end57.i
 
@@ -2006,7 +2006,7 @@ declare ptr @EVP_CIPHER_CTX_new() local_unnamed_addr #1
 declare i32 @PEM_def_callback(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @derive_pvk_key(ptr noundef nonnull %key, ptr noundef %salt, i32 noundef range(i32 1, 0) %saltlen, ptr noundef nonnull %pass, i32 noundef range(i32 0, -2147483648) %passlen, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc i32 @derive_pvk_key.argelim(ptr noundef nonnull %key, ptr noundef %salt, i32 noundef range(i32 1, 0) %saltlen, ptr noundef nonnull %pass, i32 noundef range(i32 0, -2147483648) %passlen, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %params = alloca [5 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8

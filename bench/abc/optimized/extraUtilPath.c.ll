@@ -66,7 +66,7 @@ define ptr @Abc_EnumeratePaths(i32 noundef %0) local_unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.059 = phi i32 [ %9, %.lr.ph ], [ 0, %1 ]
-  tail call fastcc void @Gia_ManAppendCi(ptr noundef %2)
+  tail call fastcc void @Gia_ManAppendCi.retelim(ptr noundef %2)
   %9 = add nuw nsw i32 %.059, 1
   %exitcond.not = icmp eq i32 %9, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -144,7 +144,7 @@ define ptr @Abc_EnumeratePaths(i32 noundef %0) local_unnamed_addr #1 {
   %39 = sext i32 %0 to i64
   %40 = getelementptr inbounds i32, ptr %5, i64 %39
   %41 = load i32, ptr %40, align 4
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef %2, i32 noundef %41)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef %2, i32 noundef %41)
   %42 = tail call ptr @Gia_ManCleanup(ptr noundef %2) #23
   tail call void @Gia_ManStop(ptr noundef %2) #23
   tail call void @free(ptr noundef nonnull %5) #23
@@ -157,7 +157,7 @@ declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #2
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc void @Gia_ManAppendCi.retelim(ptr nocapture noundef %0) unnamed_addr #1 {
   %2 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %3 = load i64, ptr %2, align 4
   %4 = or i64 %3, 2684354559
@@ -256,7 +256,7 @@ declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed
 declare i32 @Gia_ManHashOr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -1733,7 +1733,7 @@ define ptr @Abc_GraphDeriveGia(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.045 = phi i32 [ %8, %.lr.ph ], [ 0, %2 ]
-  tail call fastcc void @Gia_ManAppendCi(ptr noundef nonnull %4)
+  tail call fastcc void @Gia_ManAppendCi.retelim(ptr noundef nonnull %4)
   %8 = add nuw nsw i32 %.045, 1
   %.val39 = load i32, ptr %6, align 4
   %9 = sdiv i32 %.val39, 2
@@ -1806,7 +1806,7 @@ define ptr @Abc_GraphDeriveGia(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %31
 
 31:                                               ; preds = %._crit_edge52, %._crit_edge52.thread
-  call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %4, i32 noundef %23)
+  call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %4, i32 noundef %23)
   %32 = call ptr @Gia_ManCleanup(ptr noundef nonnull %4) #23
   call void @Gia_ManStop(ptr noundef nonnull %4) #23
   ret ptr %32
@@ -2350,8 +2350,8 @@ Vec_IntAlloc.exit87:                              ; preds = %Vec_IntAlloc.exit, 
   store ptr %42, ptr %43, align 8
   %44 = sext i32 %18 to i64
   %45 = call noalias ptr @calloc(i64 noundef %44, i64 noundef 4) #24
-  %46 = call fastcc ptr @Hsh_VecManStart()
-  %47 = call fastcc ptr @Hsh_VecManStart()
+  %46 = call fastcc ptr @Hsh_VecManStart.argelim()
+  %47 = call fastcc ptr @Hsh_VecManStart.argelim()
   %48 = call fastcc i32 @Hsh_VecManAdd(ptr noundef %46, ptr noundef nonnull %27)
   %49 = icmp sgt i32 %.val77, 1
   br i1 %49, label %.lr.ph120, label %._crit_edge121
@@ -2606,7 +2606,7 @@ Vec_IntPush.exit94:                               ; preds = %.Vec_IntGrow.exit10
 
 ._crit_edge:                                      ; preds = %163, %105
   call fastcc void @Hsh_VecManStop(ptr noundef %.069117)
-  %164 = call fastcc ptr @Hsh_VecManStart()
+  %164 = call fastcc ptr @Hsh_VecManStart.argelim()
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
   br i1 %exitcond130.not, label %._crit_edge121, label %53, !llvm.loop !45
@@ -2767,7 +2767,7 @@ Vec_IntFree.exit112:                              ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define internal fastcc noalias noundef ptr @Hsh_VecManStart() unnamed_addr #11 {
+define internal fastcc noalias noundef ptr @Hsh_VecManStart.argelim() unnamed_addr #11 {
   %1 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #24
   br label %.loopexit.i
 

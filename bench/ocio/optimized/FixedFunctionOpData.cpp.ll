@@ -1278,7 +1278,7 @@ if.end:                                           ; preds = %if.then
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %if.end
-  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev19FixedFunctionOpData8validateEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40, double noundef %10, double noundef 1.001000e+00, double noundef 6.550400e+04)
+  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev19FixedFunctionOpData8validateEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40, double noundef %10, double noundef 1.001000e+00, double noundef 6.550400e+04)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont43
@@ -1289,7 +1289,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont45
-  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev19FixedFunctionOpData8validateEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48, double noundef %11, double noundef 1.001000e+00, double noundef 6.550400e+04)
+  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev19FixedFunctionOpData8validateEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48, double noundef %11, double noundef 1.001000e+00, double noundef 6.550400e+04)
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %invoke.cont51
@@ -1300,7 +1300,7 @@ invoke.cont53:                                    ; preds = %invoke.cont51
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont53
-  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev19FixedFunctionOpData8validateEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56, double noundef %12, double noundef 1.001000e+00, double noundef 6.550400e+04)
+  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev19FixedFunctionOpData8validateEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56, double noundef %12, double noundef 1.001000e+00, double noundef 6.550400e+04)
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %invoke.cont59
@@ -1311,7 +1311,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %invoke.cont67 unwind label %lpad66
 
 invoke.cont67:                                    ; preds = %invoke.cont61
-  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev19FixedFunctionOpData8validateEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64, double noundef %13, double noundef 0.000000e+00, double noundef 9.995000e-01)
+  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev19FixedFunctionOpData8validateEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64, double noundef %13, double noundef 0.000000e+00, double noundef 9.995000e-01)
           to label %invoke.cont69 unwind label %lpad68
 
 invoke.cont69:                                    ; preds = %invoke.cont67
@@ -1322,7 +1322,7 @@ invoke.cont69:                                    ; preds = %invoke.cont67
           to label %invoke.cont75 unwind label %lpad74
 
 invoke.cont75:                                    ; preds = %invoke.cont69
-  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev19FixedFunctionOpData8validateEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72, double noundef %14, double noundef 0.000000e+00, double noundef 9.995000e-01)
+  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev19FixedFunctionOpData8validateEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72, double noundef %14, double noundef 0.000000e+00, double noundef 9.995000e-01)
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %invoke.cont75
@@ -1333,7 +1333,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
           to label %invoke.cont83 unwind label %lpad82
 
 invoke.cont83:                                    ; preds = %invoke.cont77
-  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev19FixedFunctionOpData8validateEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80, double noundef %15, double noundef 0.000000e+00, double noundef 9.995000e-01)
+  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev19FixedFunctionOpData8validateEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80, double noundef %15, double noundef 0.000000e+00, double noundef 9.995000e-01)
           to label %invoke.cont85 unwind label %lpad84
 
 invoke.cont85:                                    ; preds = %invoke.cont83
@@ -1344,7 +1344,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %invoke.cont91 unwind label %lpad90
 
 invoke.cont91:                                    ; preds = %invoke.cont85
-  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev19FixedFunctionOpData8validateEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88, double noundef %16, double noundef 1.000000e+00, double noundef 6.550400e+04)
+  invoke fastcc void @"_ZZNK19OpenColorIO_v2_4dev19FixedFunctionOpData8validateEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88, double noundef %16, double noundef 1.000000e+00, double noundef 6.550400e+04)
           to label %invoke.cont93 unwind label %lpad92
 
 invoke.cont93:                                    ; preds = %invoke.cont91
@@ -1796,7 +1796,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK19OpenColorIO_v2_4dev19FixedFunctionOpData8validateEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd"(ptr noundef nonnull align 8 dereferenceable(32) %name, double noundef %val, double noundef %low, double noundef %high) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK19OpenColorIO_v2_4dev19FixedFunctionOpData8validateEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %name, double noundef %val, double noundef %low, double noundef %high) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -63,12 +63,12 @@ if.then:                                          ; preds = %entry, %entry
   %switch.selectcmp1.i.i.i = icmp eq i32 %call.i.i.i, 23
   %switch.select2.i.i.i = select i1 %switch.selectcmp1.i.i.i, i32 1, i32 %switch.select.i.i.i
   switch i32 %switch.select2.i.i.i, label %default.unreachable [
-    i32 0, label %cms_get_enveloped_type.exit.thread.i
+    i32 0, label %cms_get_enveloped_type.argprom.exit.thread.i
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb2.i
   ]
 
-cms_get_enveloped_type.exit.thread.i:             ; preds = %if.then
+cms_get_enveloped_type.argprom.exit.thread.i:     ; preds = %if.then
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 50, ptr noundef nonnull @__func__.cms_get_enveloped_type) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 107, ptr noundef null) #6
@@ -104,7 +104,7 @@ if.then3:                                         ; preds = %ossl_cms_get0_env_e
   tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 59) #6
   br label %if.end4
 
-if.end4:                                          ; preds = %entry, %cms_get_enveloped_type.exit.thread.i, %sw.bb2.i, %sw.bb.i, %ossl_cms_get0_env_enc_content.exit, %if.then3
+if.end4:                                          ; preds = %entry, %cms_get_enveloped_type.argprom.exit.thread.i, %sw.bb2.i, %sw.bb.i, %ossl_cms_get0_env_enc_content.exit, %if.then3
   ret void
 }
 
@@ -118,12 +118,12 @@ entry:
   %switch.selectcmp1.i.i = icmp eq i32 %call.i.i, 23
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i32 1, i32 %switch.select.i.i
   switch i32 %switch.select2.i.i, label %default.unreachable6 [
-    i32 0, label %cms_get_enveloped_type.exit.thread
+    i32 0, label %cms_get_enveloped_type.argprom.exit.thread
     i32 1, label %sw.bb
     i32 2, label %sw.bb2
   ]
 
-cms_get_enveloped_type.exit.thread:               ; preds = %entry
+cms_get_enveloped_type.argprom.exit.thread:       ; preds = %entry
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 50, ptr noundef nonnull @__func__.cms_get_enveloped_type) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 107, ptr noundef null) #6
@@ -154,8 +154,8 @@ cond.false6:                                      ; preds = %sw.bb2
 default.unreachable6:                             ; preds = %entry
   unreachable
 
-return:                                           ; preds = %cms_get_enveloped_type.exit.thread, %cond.false6, %sw.bb2, %cond.false, %sw.bb
-  %retval.0 = phi ptr [ %1, %cond.false ], [ null, %sw.bb ], [ %3, %cond.false6 ], [ null, %sw.bb2 ], [ null, %cms_get_enveloped_type.exit.thread ]
+return:                                           ; preds = %cms_get_enveloped_type.argprom.exit.thread, %cond.false6, %sw.bb2, %cond.false, %sw.bb
+  %retval.0 = phi ptr [ %1, %cond.false ], [ null, %sw.bb ], [ %3, %cond.false6 ], [ null, %sw.bb2 ], [ null, %cms_get_enveloped_type.argprom.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -338,12 +338,12 @@ entry:
   %switch.selectcmp1.i.i = icmp eq i32 %call.i.i, 23
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i32 1, i32 %switch.select.i.i
   switch i32 %switch.select2.i.i, label %default.unreachable3 [
-    i32 0, label %cms_get_enveloped_type.exit.thread
+    i32 0, label %cms_get_enveloped_type.argprom.exit.thread
     i32 1, label %sw.bb
     i32 2, label %sw.bb1
   ]
 
-cms_get_enveloped_type.exit.thread:               ; preds = %entry
+cms_get_enveloped_type.argprom.exit.thread:       ; preds = %entry
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 50, ptr noundef nonnull @__func__.cms_get_enveloped_type) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 107, ptr noundef null) #6
@@ -366,8 +366,8 @@ sw.bb1:                                           ; preds = %entry
 default.unreachable3:                             ; preds = %entry
   unreachable
 
-return:                                           ; preds = %cms_get_enveloped_type.exit.thread, %sw.bb1, %sw.bb
-  %retval.0 = phi ptr [ %3, %sw.bb1 ], [ %1, %sw.bb ], [ null, %cms_get_enveloped_type.exit.thread ]
+return:                                           ; preds = %cms_get_enveloped_type.argprom.exit.thread, %sw.bb1, %sw.bb
+  %retval.0 = phi ptr [ %3, %sw.bb1 ], [ %1, %sw.bb ], [ null, %cms_get_enveloped_type.argprom.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -382,12 +382,12 @@ entry:
   %switch.selectcmp1.i.i.i = icmp eq i32 %call.i.i.i, 23
   %switch.select2.i.i.i = select i1 %switch.selectcmp1.i.i.i, i32 1, i32 %switch.select.i.i.i
   switch i32 %switch.select2.i.i.i, label %default.unreachable [
-    i32 0, label %cms_get_enveloped_type.exit.thread.i
+    i32 0, label %cms_get_enveloped_type.argprom.exit.thread.i
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb1.i
   ]
 
-cms_get_enveloped_type.exit.thread.i:             ; preds = %entry
+cms_get_enveloped_type.argprom.exit.thread.i:     ; preds = %entry
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 50, ptr noundef nonnull @__func__.cms_get_enveloped_type) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 107, ptr noundef null) #6
@@ -410,8 +410,8 @@ sw.bb1.i:                                         ; preds = %entry
 default.unreachable:                              ; preds = %entry
   unreachable
 
-CMS_get0_RecipientInfos.exit:                     ; preds = %cms_get_enveloped_type.exit.thread.i, %sw.bb.i, %sw.bb1.i
-  %retval.0.i = phi ptr [ %3, %sw.bb1.i ], [ %1, %sw.bb.i ], [ null, %cms_get_enveloped_type.exit.thread.i ]
+CMS_get0_RecipientInfos.exit:                     ; preds = %cms_get_enveloped_type.argprom.exit.thread.i, %sw.bb.i, %sw.bb1.i
+  %retval.0.i = phi ptr [ %3, %sw.bb1.i ], [ %1, %sw.bb.i ], [ null, %cms_get_enveloped_type.argprom.exit.thread.i ]
   %call316 = tail call i32 @OPENSSL_sk_num(ptr noundef %retval.0.i) #6
   %cmp17 = icmp sgt i32 %call316, 0
   br i1 %cmp17, label %for.body, label %for.end
@@ -1509,12 +1509,12 @@ sw.bb:                                            ; preds = %entry
   %switch.selectcmp1.i.i.i.i = icmp eq i32 %call.i.i.i.i, 23
   %switch.select2.i.i.i.i = select i1 %switch.selectcmp1.i.i.i.i, i32 1, i32 %switch.select.i.i.i.i
   switch i32 %switch.select2.i.i.i.i, label %default.unreachable [
-    i32 0, label %cms_get_enveloped_type.exit.thread.i.i
+    i32 0, label %cms_get_enveloped_type.argprom.exit.thread.i.i
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb2.i.i
   ]
 
-cms_get_enveloped_type.exit.thread.i.i:           ; preds = %sw.bb
+cms_get_enveloped_type.argprom.exit.thread.i.i:   ; preds = %sw.bb
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 50, ptr noundef nonnull @__func__.cms_get_enveloped_type) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 107, ptr noundef null) #6
@@ -1545,8 +1545,8 @@ cond.false6.i.i:                                  ; preds = %sw.bb2.i.i
 default.unreachable:                              ; preds = %sw.bb1, %sw.bb
   unreachable
 
-ossl_cms_get0_env_enc_content.exit.i:             ; preds = %cond.false6.i.i, %sw.bb2.i.i, %cond.false.i.i, %sw.bb.i.i, %cms_get_enveloped_type.exit.thread.i.i
-  %retval.0.i.i = phi ptr [ %4, %cond.false.i.i ], [ null, %sw.bb.i.i ], [ %6, %cond.false6.i.i ], [ null, %sw.bb2.i.i ], [ null, %cms_get_enveloped_type.exit.thread.i.i ]
+ossl_cms_get0_env_enc_content.exit.i:             ; preds = %cond.false6.i.i, %sw.bb2.i.i, %cond.false.i.i, %sw.bb.i.i, %cms_get_enveloped_type.argprom.exit.thread.i.i
+  %retval.0.i.i = phi ptr [ %4, %cond.false.i.i ], [ null, %sw.bb.i.i ], [ %6, %cond.false6.i.i ], [ null, %sw.bb2.i.i ], [ null, %cms_get_enveloped_type.argprom.exit.thread.i.i ]
   %7 = load ptr, ptr %pkey1.i, align 8
   %cmp.i = icmp eq ptr %7, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1688,12 +1688,12 @@ sw.bb1:                                           ; preds = %entry
   %switch.selectcmp1.i.i.i.i11 = icmp eq i32 %call.i.i.i.i8, 23
   %switch.select2.i.i.i.i12 = select i1 %switch.selectcmp1.i.i.i.i11, i32 1, i32 %switch.select.i.i.i.i10
   switch i32 %switch.select2.i.i.i.i12, label %default.unreachable [
-    i32 0, label %cms_get_enveloped_type.exit.thread.i.i36
+    i32 0, label %cms_get_enveloped_type.argprom.exit.thread.i.i36
     i32 1, label %sw.bb.i.i33
     i32 2, label %sw.bb2.i.i13
   ]
 
-cms_get_enveloped_type.exit.thread.i.i36:         ; preds = %sw.bb1
+cms_get_enveloped_type.argprom.exit.thread.i.i36: ; preds = %sw.bb1
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 50, ptr noundef nonnull @__func__.cms_get_enveloped_type) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 107, ptr noundef null) #6
@@ -1874,8 +1874,8 @@ if.end49.i:                                       ; preds = %if.then48.i, %err.i
   call void @EVP_CIPHER_CTX_free(ptr noundef %ctx.042.i) #6
   br label %cms_RecipientInfo_kekri_decrypt.exit
 
-cms_RecipientInfo_kekri_decrypt.exit:             ; preds = %cms_get_enveloped_type.exit.thread.i.i36, %sw.bb.i.i33, %sw.bb2.i.i13, %ossl_cms_get0_env_enc_content.exit.i16, %if.then2.i, %if.then7.i, %if.end49.i
-  %retval.0.i24 = phi i32 [ 0, %if.then7.i ], [ %r.039.i, %if.end49.i ], [ 0, %if.then2.i ], [ 0, %ossl_cms_get0_env_enc_content.exit.i16 ], [ 0, %sw.bb.i.i33 ], [ 0, %sw.bb2.i.i13 ], [ 0, %cms_get_enveloped_type.exit.thread.i.i36 ]
+cms_RecipientInfo_kekri_decrypt.exit:             ; preds = %cms_get_enveloped_type.argprom.exit.thread.i.i36, %sw.bb.i.i33, %sw.bb2.i.i13, %ossl_cms_get0_env_enc_content.exit.i16, %if.then2.i, %if.then7.i, %if.end49.i
+  %retval.0.i24 = phi i32 [ 0, %if.then7.i ], [ %r.039.i, %if.end49.i ], [ 0, %if.then2.i ], [ 0, %ossl_cms_get0_env_enc_content.exit.i16 ], [ 0, %sw.bb.i.i33 ], [ 0, %sw.bb2.i.i13 ], [ 0, %cms_get_enveloped_type.argprom.exit.thread.i.i36 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ukeylen.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %outlen.i)
   br label %return
@@ -1934,12 +1934,12 @@ if.end.i:                                         ; preds = %sw.bb
   %switch.selectcmp1.i.i.i.i = icmp eq i32 %call.i.i.i.i, 23
   %switch.select2.i.i.i.i = select i1 %switch.selectcmp1.i.i.i.i, i32 1, i32 %switch.select.i.i.i.i
   switch i32 %switch.select2.i.i.i.i, label %default.unreachable [
-    i32 0, label %cms_get_enveloped_type.exit.thread.i.i
+    i32 0, label %cms_get_enveloped_type.argprom.exit.thread.i.i
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb2.i.i
   ]
 
-cms_get_enveloped_type.exit.thread.i.i:           ; preds = %if.end.i
+cms_get_enveloped_type.argprom.exit.thread.i.i:   ; preds = %if.end.i
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 50, ptr noundef nonnull @__func__.cms_get_enveloped_type) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 107, ptr noundef null) #6
@@ -1970,8 +1970,8 @@ cond.false6.i.i:                                  ; preds = %sw.bb2.i.i
 default.unreachable:                              ; preds = %sw.bb3, %if.end.i
   unreachable
 
-ossl_cms_get0_env_enc_content.exit.i:             ; preds = %cond.false6.i.i, %sw.bb2.i.i, %cond.false.i.i, %sw.bb.i.i, %cms_get_enveloped_type.exit.thread.i.i
-  %retval.0.i.i = phi ptr [ %4, %cond.false.i.i ], [ null, %sw.bb.i.i ], [ %6, %cond.false6.i.i ], [ null, %sw.bb2.i.i ], [ null, %cms_get_enveloped_type.exit.thread.i.i ]
+ossl_cms_get0_env_enc_content.exit.i:             ; preds = %cond.false6.i.i, %sw.bb2.i.i, %cond.false.i.i, %sw.bb.i.i, %cms_get_enveloped_type.argprom.exit.thread.i.i
+  %retval.0.i.i = phi ptr [ %4, %cond.false.i.i ], [ null, %sw.bb.i.i ], [ %6, %cond.false6.i.i ], [ null, %sw.bb2.i.i ], [ null, %cms_get_enveloped_type.argprom.exit.thread.i.i ]
   %pctx2.i = getelementptr inbounds i8, ptr %2, i64 48
   %7 = load ptr, ptr %pctx2.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
@@ -2057,12 +2057,12 @@ sw.bb3:                                           ; preds = %entry
   %switch.selectcmp1.i.i.i.i13 = icmp eq i32 %call.i.i.i.i10, 23
   %switch.select2.i.i.i.i14 = select i1 %switch.selectcmp1.i.i.i.i13, i32 1, i32 %switch.select.i.i.i.i12
   switch i32 %switch.select2.i.i.i.i14, label %default.unreachable [
-    i32 0, label %cms_get_enveloped_type.exit.thread.i.i39
+    i32 0, label %cms_get_enveloped_type.argprom.exit.thread.i.i39
     i32 1, label %sw.bb.i.i36
     i32 2, label %sw.bb2.i.i15
   ]
 
-cms_get_enveloped_type.exit.thread.i.i39:         ; preds = %sw.bb3
+cms_get_enveloped_type.argprom.exit.thread.i.i39: ; preds = %sw.bb3
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 50, ptr noundef nonnull @__func__.cms_get_enveloped_type) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 107, ptr noundef null) #6
@@ -2217,8 +2217,8 @@ if.end44.i:                                       ; preds = %if.then43.i, %err.i
   call void @EVP_CIPHER_CTX_free(ptr noundef %ctx.037.i) #6
   br label %cms_RecipientInfo_kekri_encrypt.exit
 
-cms_RecipientInfo_kekri_encrypt.exit:             ; preds = %cms_get_enveloped_type.exit.thread.i.i39, %sw.bb.i.i36, %sw.bb2.i.i15, %ossl_cms_get0_env_enc_content.exit.i18, %if.then3.i35, %if.end44.i
-  %retval.0.i32 = phi i32 [ 0, %if.then3.i35 ], [ %r.035.i, %if.end44.i ], [ 0, %ossl_cms_get0_env_enc_content.exit.i18 ], [ 0, %sw.bb.i.i36 ], [ 0, %sw.bb2.i.i15 ], [ 0, %cms_get_enveloped_type.exit.thread.i.i39 ]
+cms_RecipientInfo_kekri_encrypt.exit:             ; preds = %cms_get_enveloped_type.argprom.exit.thread.i.i39, %sw.bb.i.i36, %sw.bb2.i.i15, %ossl_cms_get0_env_enc_content.exit.i18, %if.then3.i35, %if.end44.i
+  %retval.0.i32 = phi i32 [ 0, %if.then3.i35 ], [ %r.035.i, %if.end44.i ], [ 0, %ossl_cms_get0_env_enc_content.exit.i18 ], [ 0, %sw.bb.i.i36 ], [ 0, %sw.bb2.i.i15 ], [ 0, %cms_get_enveloped_type.argprom.exit.thread.i.i39 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wkeylen.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %outlen.i)
   br label %return

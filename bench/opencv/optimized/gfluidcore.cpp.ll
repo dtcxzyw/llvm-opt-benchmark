@@ -12345,7 +12345,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidAbsDiff3runERKNS1_4Vie
   %36 = load i32, ptr %35, align 4
   %37 = mul nsw i32 %36, %34
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.exit
+  br i1 %38, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.argprom.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %22
   %wide.trip.count.i = zext nneg i32 %37 to i64
@@ -12369,7 +12369,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidAbsDiff3runERKNS1_4Vie
   store i8 %spec.select.i.i, ptr %49, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.exit, label %.lr.ph.i, !llvm.loop !103
+  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.argprom.argprom.exit, label %.lr.ph.i, !llvm.loop !103
 
 50:                                               ; preds = %3
   %51 = getelementptr inbounds i8, ptr %0, i64 8
@@ -12408,7 +12408,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidAbsDiff3runERKNS1_4Vie
   %76 = load i32, ptr %75, align 4
   %77 = mul nsw i32 %76, %74
   %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %.lr.ph.preheader.i46, label %_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.exit
+  br i1 %78, label %.lr.ph.preheader.i46, label %_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.argprom.argprom.exit
 
 .lr.ph.preheader.i46:                             ; preds = %62
   %wide.trip.count.i47 = zext nneg i32 %77 to i64
@@ -12432,7 +12432,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidAbsDiff3runERKNS1_4Vie
   store i16 %spec.select.i.i51, ptr %89, align 2
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, %wide.trip.count.i47
-  br i1 %exitcond.not.i53, label %_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.exit, label %.lr.ph.i48, !llvm.loop !104
+  br i1 %exitcond.not.i53, label %_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.argprom.argprom.exit, label %.lr.ph.i48, !llvm.loop !104
 
 90:                                               ; preds = %3
   %91 = getelementptr inbounds i8, ptr %0, i64 8
@@ -12471,7 +12471,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidAbsDiff3runERKNS1_4Vie
   %116 = load i32, ptr %115, align 4
   %117 = mul nsw i32 %116, %114
   %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %.lr.ph.preheader.i54, label %_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.exit
+  br i1 %118, label %.lr.ph.preheader.i54, label %_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.argprom.argprom.exit
 
 .lr.ph.preheader.i54:                             ; preds = %102
   %wide.trip.count.i55 = zext nneg i32 %117 to i64
@@ -12496,7 +12496,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidAbsDiff3runERKNS1_4Vie
   store i16 %130, ptr %131, align 2
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i57, 1
   %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i55
-  br i1 %exitcond.not.i60, label %_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.exit, label %.lr.ph.i56, !llvm.loop !105
+  br i1 %exitcond.not.i60, label %_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.argprom.argprom.exit, label %.lr.ph.i56, !llvm.loop !105
 
 132:                                              ; preds = %3
   %133 = getelementptr inbounds i8, ptr %0, i64 8
@@ -12535,7 +12535,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidAbsDiff3runERKNS1_4Vie
   %158 = load i32, ptr %157, align 4
   %159 = mul nsw i32 %158, %156
   %160 = icmp sgt i32 %159, 0
-  br i1 %160, label %.lr.ph.preheader.i61, label %_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.exit
+  br i1 %160, label %.lr.ph.preheader.i61, label %_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.argprom.argprom.exit
 
 .lr.ph.preheader.i61:                             ; preds = %144
   %wide.trip.count.i62 = zext nneg i32 %159 to i64
@@ -12555,7 +12555,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidAbsDiff3runERKNS1_4Vie
   store float %168, ptr %169, align 4
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i64, 1
   %exitcond.not.i66 = icmp eq i64 %indvars.iv.next.i65, %wide.trip.count.i62
-  br i1 %exitcond.not.i66, label %_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.exit, label %.lr.ph.i63, !llvm.loop !106
+  br i1 %exitcond.not.i66, label %_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.argprom.argprom.exit, label %.lr.ph.i63, !llvm.loop !106
 
 .thread70:                                        ; preds = %3, %10, %16, %50, %56, %90, %96, %138, %132
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -12585,7 +12585,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidAbsDiff3runERKNS1_4Vie
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.exit: ; preds = %.lr.ph.i63, %.lr.ph.i56, %.lr.ph.i48, %.lr.ph.i, %144, %102, %62, %22
+_ZN2cv4gapi5fluidL11run_absdiffIhhhEEvRNS1_6BufferERKNS1_4ViewES7_.argprom.argprom.exit: ; preds = %.lr.ph.i63, %.lr.ph.i56, %.lr.ph.i48, %.lr.ph.i, %144, %102, %62, %22
   ret void
 }
 
@@ -13363,7 +13363,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidAnd3runERKNS1_4ViewES5_
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %36, %34
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph9.preheader.i, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit
+  br i1 %38, label %.lr.ph9.preheader.i, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit
 
 .lr.ph9.preheader.i:                              ; preds = %22
   %wide.trip.count21.i = zext nneg i32 %37 to i64
@@ -13380,7 +13380,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidAnd3runERKNS1_4ViewES5_
   store i8 %43, ptr %44, align 1
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next19.i, %wide.trip.count21.i
-  br i1 %exitcond22.not.i, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit, label %.lr.ph9.i, !llvm.loop !113
+  br i1 %exitcond22.not.i, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit, label %.lr.ph9.i, !llvm.loop !113
 
 45:                                               ; preds = %3
   %46 = getelementptr inbounds i8, ptr %0, i64 8
@@ -13419,7 +13419,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidAnd3runERKNS1_4ViewES5_
   %71 = load i32, ptr %70, align 4
   %72 = mul i32 %71, %69
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph9.preheader.i35, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit
+  br i1 %73, label %.lr.ph9.preheader.i35, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit
 
 .lr.ph9.preheader.i35:                            ; preds = %57
   %wide.trip.count21.i36 = zext nneg i32 %72 to i64
@@ -13436,7 +13436,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidAnd3runERKNS1_4ViewES5_
   store i16 %78, ptr %79, align 2
   %indvars.iv.next19.i39 = add nuw nsw i64 %indvars.iv18.i38, 1
   %exitcond22.not.i40 = icmp eq i64 %indvars.iv.next19.i39, %wide.trip.count21.i36
-  br i1 %exitcond22.not.i40, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit, label %.lr.ph9.i37, !llvm.loop !114
+  br i1 %exitcond22.not.i40, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit, label %.lr.ph9.i37, !llvm.loop !114
 
 80:                                               ; preds = %3
   %81 = getelementptr inbounds i8, ptr %0, i64 8
@@ -13475,7 +13475,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidAnd3runERKNS1_4ViewES5_
   %106 = load i32, ptr %105, align 4
   %107 = mul i32 %106, %104
   %108 = icmp sgt i32 %107, 0
-  br i1 %108, label %.lr.ph9.preheader.i41, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit
+  br i1 %108, label %.lr.ph9.preheader.i41, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit
 
 .lr.ph9.preheader.i41:                            ; preds = %92
   %wide.trip.count21.i42 = zext nneg i32 %107 to i64
@@ -13492,7 +13492,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidAnd3runERKNS1_4ViewES5_
   store i16 %113, ptr %114, align 2
   %indvars.iv.next19.i45 = add nuw nsw i64 %indvars.iv18.i44, 1
   %exitcond22.not.i46 = icmp eq i64 %indvars.iv.next19.i45, %wide.trip.count21.i42
-  br i1 %exitcond22.not.i46, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit, label %.lr.ph9.i43, !llvm.loop !115
+  br i1 %exitcond22.not.i46, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit, label %.lr.ph9.i43, !llvm.loop !115
 
 .thread48:                                        ; preds = %3, %10, %16, %45, %51, %86, %80
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -13522,7 +13522,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidAnd3runERKNS1_4ViewES5_
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit: ; preds = %.lr.ph9.i43, %.lr.ph9.i37, %.lr.ph9.i, %92, %57, %22
+_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit: ; preds = %.lr.ph9.i43, %.lr.ph9.i37, %.lr.ph9.i, %92, %57, %22
   ret void
 }
 
@@ -14300,7 +14300,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid8GFluidOr3runERKNS1_4ViewES5_R
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %36, %34
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph7.preheader.i, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit
+  br i1 %38, label %.lr.ph7.preheader.i, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit
 
 .lr.ph7.preheader.i:                              ; preds = %22
   %wide.trip.count16.i = zext nneg i32 %37 to i64
@@ -14317,7 +14317,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid8GFluidOr3runERKNS1_4ViewES5_R
   store i8 %43, ptr %44, align 1
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond17.not.i = icmp eq i64 %indvars.iv.next14.i, %wide.trip.count16.i
-  br i1 %exitcond17.not.i, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit, label %.lr.ph7.i, !llvm.loop !122
+  br i1 %exitcond17.not.i, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit, label %.lr.ph7.i, !llvm.loop !122
 
 45:                                               ; preds = %3
   %46 = getelementptr inbounds i8, ptr %0, i64 8
@@ -14356,7 +14356,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid8GFluidOr3runERKNS1_4ViewES5_R
   %71 = load i32, ptr %70, align 4
   %72 = mul i32 %71, %69
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph7.preheader.i35, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit
+  br i1 %73, label %.lr.ph7.preheader.i35, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit
 
 .lr.ph7.preheader.i35:                            ; preds = %57
   %wide.trip.count16.i36 = zext nneg i32 %72 to i64
@@ -14373,7 +14373,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid8GFluidOr3runERKNS1_4ViewES5_R
   store i16 %78, ptr %79, align 2
   %indvars.iv.next14.i39 = add nuw nsw i64 %indvars.iv13.i38, 1
   %exitcond17.not.i40 = icmp eq i64 %indvars.iv.next14.i39, %wide.trip.count16.i36
-  br i1 %exitcond17.not.i40, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit, label %.lr.ph7.i37, !llvm.loop !123
+  br i1 %exitcond17.not.i40, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit, label %.lr.ph7.i37, !llvm.loop !123
 
 80:                                               ; preds = %3
   %81 = getelementptr inbounds i8, ptr %0, i64 8
@@ -14412,7 +14412,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid8GFluidOr3runERKNS1_4ViewES5_R
   %106 = load i32, ptr %105, align 4
   %107 = mul i32 %106, %104
   %108 = icmp sgt i32 %107, 0
-  br i1 %108, label %.lr.ph7.preheader.i41, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit
+  br i1 %108, label %.lr.ph7.preheader.i41, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit
 
 .lr.ph7.preheader.i41:                            ; preds = %92
   %wide.trip.count16.i42 = zext nneg i32 %107 to i64
@@ -14429,7 +14429,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid8GFluidOr3runERKNS1_4ViewES5_R
   store i16 %113, ptr %114, align 2
   %indvars.iv.next14.i45 = add nuw nsw i64 %indvars.iv13.i44, 1
   %exitcond17.not.i46 = icmp eq i64 %indvars.iv.next14.i45, %wide.trip.count16.i42
-  br i1 %exitcond17.not.i46, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit, label %.lr.ph7.i43, !llvm.loop !124
+  br i1 %exitcond17.not.i46, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit, label %.lr.ph7.i43, !llvm.loop !124
 
 .thread48:                                        ; preds = %3, %10, %16, %45, %51, %86, %80
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -14459,7 +14459,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid8GFluidOr3runERKNS1_4ViewES5_R
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit: ; preds = %.lr.ph7.i43, %.lr.ph7.i37, %.lr.ph7.i, %92, %57, %22
+_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit: ; preds = %.lr.ph7.i43, %.lr.ph7.i37, %.lr.ph7.i, %92, %57, %22
   ret void
 }
 
@@ -15237,7 +15237,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidXor3runERKNS1_4ViewES5_
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %36, %34
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit
+  br i1 %38, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %22
   %wide.trip.count.i = zext nneg i32 %37 to i64
@@ -15254,7 +15254,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidXor3runERKNS1_4ViewES5_
   store i8 %43, ptr %44, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit, label %.lr.ph.i, !llvm.loop !131
+  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit, label %.lr.ph.i, !llvm.loop !131
 
 45:                                               ; preds = %3
   %46 = getelementptr inbounds i8, ptr %0, i64 8
@@ -15293,7 +15293,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidXor3runERKNS1_4ViewES5_
   %71 = load i32, ptr %70, align 4
   %72 = mul i32 %71, %69
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph.preheader.i35, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit
+  br i1 %73, label %.lr.ph.preheader.i35, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit
 
 .lr.ph.preheader.i35:                             ; preds = %57
   %wide.trip.count.i36 = zext nneg i32 %72 to i64
@@ -15310,7 +15310,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidXor3runERKNS1_4ViewES5_
   store i16 %78, ptr %79, align 2
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i36
-  br i1 %exitcond.not.i40, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit, label %.lr.ph.i37, !llvm.loop !132
+  br i1 %exitcond.not.i40, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit, label %.lr.ph.i37, !llvm.loop !132
 
 80:                                               ; preds = %3
   %81 = getelementptr inbounds i8, ptr %0, i64 8
@@ -15349,7 +15349,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidXor3runERKNS1_4ViewES5_
   %106 = load i32, ptr %105, align 4
   %107 = mul i32 %106, %104
   %108 = icmp sgt i32 %107, 0
-  br i1 %108, label %.lr.ph.preheader.i41, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit
+  br i1 %108, label %.lr.ph.preheader.i41, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit
 
 .lr.ph.preheader.i41:                             ; preds = %92
   %wide.trip.count.i42 = zext nneg i32 %107 to i64
@@ -15366,7 +15366,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidXor3runERKNS1_4ViewES5_
   store i16 %113, ptr %114, align 2
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, %wide.trip.count.i42
-  br i1 %exitcond.not.i46, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit, label %.lr.ph.i43, !llvm.loop !133
+  br i1 %exitcond.not.i46, label %_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit, label %.lr.ph.i43, !llvm.loop !133
 
 .thread48:                                        ; preds = %3, %10, %16, %45, %51, %86, %80
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -15396,7 +15396,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidXor3runERKNS1_4ViewES5_
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.exit: ; preds = %.lr.ph.i43, %.lr.ph.i37, %.lr.ph.i, %92, %57, %22
+_ZN2cv4gapi5fluidL12run_bitwise2IhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7BitwiseE.argprom.argprom.exit: ; preds = %.lr.ph.i43, %.lr.ph.i37, %.lr.ph.i, %92, %57, %22
   ret void
 }
 
@@ -16159,7 +16159,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAndS3runERKNS1_4ViewER
   %.val16.val = load ptr, ptr %17, align 8
   %22 = getelementptr i8, ptr %17, i64 72
   %.val16.val17 = load i32, ptr %22, align 8
-  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIhhEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nonnull %12, ptr %.val16.val, i32 %.val16.val17, ptr noundef nonnull %4, i32 noundef 0)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIhhEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE.argprom.argprom(ptr nonnull %12, ptr %.val16.val, i32 %.val16.val17, ptr noundef nonnull %4, i32 noundef 0)
   br label %46
 
 23:                                               ; preds = %3
@@ -16174,7 +16174,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAndS3runERKNS1_4ViewER
   %.val19.val = load ptr, ptr %25, align 8
   %30 = getelementptr i8, ptr %25, i64 72
   %.val19.val20 = load i32, ptr %30, align 8
-  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIttEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nonnull %12, ptr %.val19.val, i32 %.val19.val20, ptr noundef nonnull %4, i32 noundef 0)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIttEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE.argprom.argprom(ptr nonnull %12, ptr %.val19.val, i32 %.val19.val20, ptr noundef nonnull %4, i32 noundef 0)
   br label %46
 
 31:                                               ; preds = %3
@@ -16189,7 +16189,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAndS3runERKNS1_4ViewER
   %.val22.val = load ptr, ptr %33, align 8
   %38 = getelementptr i8, ptr %33, i64 72
   %.val22.val23 = load i32, ptr %38, align 8
-  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIssEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nonnull %12, ptr %.val22.val, i32 %.val22.val23, ptr noundef nonnull %4, i32 noundef 0)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIssEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE.argprom.argprom(ptr nonnull %12, ptr %.val22.val, i32 %.val22.val23, ptr noundef nonnull %4, i32 noundef 0)
   br label %46
 
 .thread24:                                        ; preds = %3, %15, %23, %31
@@ -16295,7 +16295,7 @@ define internal fastcc { i64, i64 } @_ZN2cv4gapi5fluidL23convertScalarForBitwise
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIhhEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIhhEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE.argprom.argprom(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.26", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16958,7 +16958,7 @@ default.unreachable19:                            ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIttEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIttEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE.argprom.argprom(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.26", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17621,7 +17621,7 @@ default.unreachable19:                            ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIssEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIssEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE.argprom.argprom(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.26", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19034,7 +19034,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidOrS3runERKNS1_4ViewERKN
   %.val16.val = load ptr, ptr %17, align 8
   %22 = getelementptr i8, ptr %17, i64 72
   %.val16.val17 = load i32, ptr %22, align 8
-  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIhhEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nonnull %12, ptr %.val16.val, i32 %.val16.val17, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIhhEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE.argprom.argprom(ptr nonnull %12, ptr %.val16.val, i32 %.val16.val17, ptr noundef nonnull %4, i32 noundef 1)
   br label %46
 
 23:                                               ; preds = %3
@@ -19049,7 +19049,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidOrS3runERKNS1_4ViewERKN
   %.val19.val = load ptr, ptr %25, align 8
   %30 = getelementptr i8, ptr %25, i64 72
   %.val19.val20 = load i32, ptr %30, align 8
-  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIttEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nonnull %12, ptr %.val19.val, i32 %.val19.val20, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIttEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE.argprom.argprom(ptr nonnull %12, ptr %.val19.val, i32 %.val19.val20, ptr noundef nonnull %4, i32 noundef 1)
   br label %46
 
 31:                                               ; preds = %3
@@ -19064,7 +19064,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidOrS3runERKNS1_4ViewERKN
   %.val22.val = load ptr, ptr %33, align 8
   %38 = getelementptr i8, ptr %33, i64 72
   %.val22.val23 = load i32, ptr %38, align 8
-  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIssEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nonnull %12, ptr %.val22.val, i32 %.val22.val23, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIssEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE.argprom.argprom(ptr nonnull %12, ptr %.val22.val, i32 %.val22.val23, ptr noundef nonnull %4, i32 noundef 1)
   br label %46
 
 .thread24:                                        ; preds = %3, %15, %23, %31
@@ -19880,7 +19880,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidXorS3runERKNS1_4ViewER
   %.val16.val = load ptr, ptr %17, align 8
   %22 = getelementptr i8, ptr %17, i64 72
   %.val16.val17 = load i32, ptr %22, align 8
-  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIhhEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nonnull %12, ptr %.val16.val, i32 %.val16.val17, ptr noundef nonnull %4, i32 noundef 2)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIhhEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE.argprom.argprom(ptr nonnull %12, ptr %.val16.val, i32 %.val16.val17, ptr noundef nonnull %4, i32 noundef 2)
   br label %46
 
 23:                                               ; preds = %3
@@ -19895,7 +19895,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidXorS3runERKNS1_4ViewER
   %.val19.val = load ptr, ptr %25, align 8
   %30 = getelementptr i8, ptr %25, i64 72
   %.val19.val20 = load i32, ptr %30, align 8
-  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIttEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nonnull %12, ptr %.val19.val, i32 %.val19.val20, ptr noundef nonnull %4, i32 noundef 2)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIttEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE.argprom.argprom(ptr nonnull %12, ptr %.val19.val, i32 %.val19.val20, ptr noundef nonnull %4, i32 noundef 2)
   br label %46
 
 31:                                               ; preds = %3
@@ -19910,7 +19910,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidXorS3runERKNS1_4ViewER
   %.val22.val = load ptr, ptr %33, align 8
   %38 = getelementptr i8, ptr %33, i64 72
   %.val22.val23 = load i32, ptr %38, align 8
-  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIssEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nonnull %12, ptr %.val22.val, i32 %.val22.val23, ptr noundef nonnull %4, i32 noundef 2)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIssEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE.argprom.argprom(ptr nonnull %12, ptr %.val22.val, i32 %.val22.val23, ptr noundef nonnull %4, i32 noundef 2)
   br label %46
 
 .thread24:                                        ; preds = %3, %15, %23, %31
@@ -20742,7 +20742,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMin3runERKNS1_4ViewES5_
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %36, %34
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
+  br i1 %38, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %22
   %wide.trip.count.i = zext nneg i32 %37 to i64
@@ -20759,7 +20759,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMin3runERKNS1_4ViewES5_
   store i8 %..i, ptr %43, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph.i, !llvm.loop !179
+  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit, label %.lr.ph.i, !llvm.loop !179
 
 44:                                               ; preds = %3
   %45 = getelementptr inbounds i8, ptr %0, i64 8
@@ -20798,7 +20798,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMin3runERKNS1_4ViewES5_
   %70 = load i32, ptr %69, align 4
   %71 = mul i32 %70, %68
   %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.lr.ph.preheader.i46, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
+  br i1 %72, label %.lr.ph.preheader.i46, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit
 
 .lr.ph.preheader.i46:                             ; preds = %56
   %wide.trip.count.i47 = zext nneg i32 %71 to i64
@@ -20815,7 +20815,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMin3runERKNS1_4ViewES5_
   store i16 %..i50, ptr %77, align 2
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i47
-  br i1 %exitcond.not.i52, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph.i48, !llvm.loop !180
+  br i1 %exitcond.not.i52, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit, label %.lr.ph.i48, !llvm.loop !180
 
 78:                                               ; preds = %3
   %79 = getelementptr inbounds i8, ptr %0, i64 8
@@ -20854,7 +20854,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMin3runERKNS1_4ViewES5_
   %104 = load i32, ptr %103, align 4
   %105 = mul i32 %104, %102
   %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %.lr.ph.preheader.i53, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
+  br i1 %106, label %.lr.ph.preheader.i53, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit
 
 .lr.ph.preheader.i53:                             ; preds = %90
   %wide.trip.count.i54 = zext nneg i32 %105 to i64
@@ -20871,7 +20871,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMin3runERKNS1_4ViewES5_
   store i16 %..i57, ptr %111, align 2
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, %wide.trip.count.i54
-  br i1 %exitcond.not.i59, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph.i55, !llvm.loop !181
+  br i1 %exitcond.not.i59, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit, label %.lr.ph.i55, !llvm.loop !181
 
 112:                                              ; preds = %3
   %113 = getelementptr inbounds i8, ptr %0, i64 8
@@ -20910,7 +20910,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMin3runERKNS1_4ViewES5_
   %138 = load i32, ptr %137, align 4
   %139 = mul i32 %138, %136
   %140 = icmp sgt i32 %139, 0
-  br i1 %140, label %.lr.ph.preheader.i60, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
+  br i1 %140, label %.lr.ph.preheader.i60, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit
 
 .lr.ph.preheader.i60:                             ; preds = %124
   %wide.trip.count.i61 = zext nneg i32 %139 to i64
@@ -20928,7 +20928,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMin3runERKNS1_4ViewES5_
   store float %..i64, ptr %146, align 4
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i63, 1
   %exitcond.not.i66 = icmp eq i64 %indvars.iv.next.i65, %wide.trip.count.i61
-  br i1 %exitcond.not.i66, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph.i62, !llvm.loop !182
+  br i1 %exitcond.not.i66, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit, label %.lr.ph.i62, !llvm.loop !182
 
 .thread70:                                        ; preds = %3, %10, %16, %44, %50, %78, %84, %118, %112
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -20958,7 +20958,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMin3runERKNS1_4ViewES5_
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit: ; preds = %.lr.ph.i62, %.lr.ph.i55, %.lr.ph.i48, %.lr.ph.i, %124, %90, %56, %22
+_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit: ; preds = %.lr.ph.i62, %.lr.ph.i55, %.lr.ph.i48, %.lr.ph.i, %124, %90, %56, %22
   ret void
 }
 
@@ -21737,7 +21737,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMax3runERKNS1_4ViewES5_
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %36, %34
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph5.preheader.i, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
+  br i1 %38, label %.lr.ph5.preheader.i, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit
 
 .lr.ph5.preheader.i:                              ; preds = %22
   %wide.trip.count11.i = zext nneg i32 %37 to i64
@@ -21754,7 +21754,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMax3runERKNS1_4ViewES5_
   store i8 %.38.i, ptr %43, align 1
   %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 1
   %exitcond12.not.i = icmp eq i64 %indvars.iv.next9.i, %wide.trip.count11.i
-  br i1 %exitcond12.not.i, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph5.i, !llvm.loop !189
+  br i1 %exitcond12.not.i, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit, label %.lr.ph5.i, !llvm.loop !189
 
 44:                                               ; preds = %3
   %45 = getelementptr inbounds i8, ptr %0, i64 8
@@ -21793,7 +21793,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMax3runERKNS1_4ViewES5_
   %70 = load i32, ptr %69, align 4
   %71 = mul i32 %70, %68
   %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.lr.ph5.preheader.i46, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
+  br i1 %72, label %.lr.ph5.preheader.i46, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit
 
 .lr.ph5.preheader.i46:                            ; preds = %56
   %wide.trip.count11.i47 = zext nneg i32 %71 to i64
@@ -21810,7 +21810,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMax3runERKNS1_4ViewES5_
   store i16 %.38.i50, ptr %77, align 2
   %indvars.iv.next9.i51 = add nuw nsw i64 %indvars.iv8.i49, 1
   %exitcond12.not.i52 = icmp eq i64 %indvars.iv.next9.i51, %wide.trip.count11.i47
-  br i1 %exitcond12.not.i52, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph5.i48, !llvm.loop !190
+  br i1 %exitcond12.not.i52, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit, label %.lr.ph5.i48, !llvm.loop !190
 
 78:                                               ; preds = %3
   %79 = getelementptr inbounds i8, ptr %0, i64 8
@@ -21849,7 +21849,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMax3runERKNS1_4ViewES5_
   %104 = load i32, ptr %103, align 4
   %105 = mul i32 %104, %102
   %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %.lr.ph5.preheader.i53, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
+  br i1 %106, label %.lr.ph5.preheader.i53, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit
 
 .lr.ph5.preheader.i53:                            ; preds = %90
   %wide.trip.count11.i54 = zext nneg i32 %105 to i64
@@ -21866,7 +21866,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMax3runERKNS1_4ViewES5_
   store i16 %.38.i57, ptr %111, align 2
   %indvars.iv.next9.i58 = add nuw nsw i64 %indvars.iv8.i56, 1
   %exitcond12.not.i59 = icmp eq i64 %indvars.iv.next9.i58, %wide.trip.count11.i54
-  br i1 %exitcond12.not.i59, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph5.i55, !llvm.loop !191
+  br i1 %exitcond12.not.i59, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit, label %.lr.ph5.i55, !llvm.loop !191
 
 112:                                              ; preds = %3
   %113 = getelementptr inbounds i8, ptr %0, i64 8
@@ -21905,7 +21905,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMax3runERKNS1_4ViewES5_
   %138 = load i32, ptr %137, align 4
   %139 = mul i32 %138, %136
   %140 = icmp sgt i32 %139, 0
-  br i1 %140, label %.lr.ph5.preheader.i60, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
+  br i1 %140, label %.lr.ph5.preheader.i60, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit
 
 .lr.ph5.preheader.i60:                            ; preds = %124
   %wide.trip.count11.i61 = zext nneg i32 %139 to i64
@@ -21923,7 +21923,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMax3runERKNS1_4ViewES5_
   store float %.42.i, ptr %146, align 4
   %indvars.iv.next9.i64 = add nuw nsw i64 %indvars.iv8.i63, 1
   %exitcond12.not.i65 = icmp eq i64 %indvars.iv.next9.i64, %wide.trip.count11.i61
-  br i1 %exitcond12.not.i65, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph5.i62, !llvm.loop !192
+  br i1 %exitcond12.not.i65, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit, label %.lr.ph5.i62, !llvm.loop !192
 
 .thread69:                                        ; preds = %3, %10, %16, %44, %50, %78, %84, %118, %112
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -21953,7 +21953,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMax3runERKNS1_4ViewES5_
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit: ; preds = %.lr.ph5.i62, %.lr.ph5.i55, %.lr.ph5.i48, %.lr.ph5.i, %124, %90, %56, %22
+_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.argprom.argprom.exit: ; preds = %.lr.ph5.i62, %.lr.ph5.i55, %.lr.ph5.i48, %.lr.ph5.i, %124, %90, %56, %22
   ret void
 }
 
@@ -22731,7 +22731,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpGT3runERKNS1_4ViewE
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %36, %34
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph13.preheader.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %38, label %.lr.ph13.preheader.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph13.preheader.i:                             ; preds = %22
   %wide.trip.count31.i = zext nneg i32 %37 to i64
@@ -22749,7 +22749,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpGT3runERKNS1_4ViewE
   store i8 %44, ptr %45, align 1
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next29.i, %wide.trip.count31.i
-  br i1 %exitcond32.not.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph13.i, !llvm.loop !199
+  br i1 %exitcond32.not.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph13.i, !llvm.loop !199
 
 46:                                               ; preds = %11
   %47 = getelementptr inbounds i8, ptr %1, i64 8
@@ -22780,7 +22780,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpGT3runERKNS1_4ViewE
   %66 = load i32, ptr %65, align 4
   %67 = mul i32 %66, %64
   %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %.lr.ph13.preheader.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %68, label %.lr.ph13.preheader.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph13.preheader.i35:                           ; preds = %52
   %wide.trip.count31.i36 = zext nneg i32 %67 to i64
@@ -22798,7 +22798,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpGT3runERKNS1_4ViewE
   store i8 %74, ptr %75, align 1
   %indvars.iv.next29.i39 = add nuw nsw i64 %indvars.iv28.i38, 1
   %exitcond32.not.i40 = icmp eq i64 %indvars.iv.next29.i39, %wide.trip.count31.i36
-  br i1 %exitcond32.not.i40, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph13.i37, !llvm.loop !200
+  br i1 %exitcond32.not.i40, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph13.i37, !llvm.loop !200
 
 76:                                               ; preds = %11
   %77 = getelementptr inbounds i8, ptr %1, i64 8
@@ -22829,7 +22829,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpGT3runERKNS1_4ViewE
   %96 = load i32, ptr %95, align 4
   %97 = mul i32 %96, %94
   %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %.lr.ph13.preheader.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %98, label %.lr.ph13.preheader.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph13.preheader.i41:                           ; preds = %82
   %wide.trip.count31.i42 = zext nneg i32 %97 to i64
@@ -22847,7 +22847,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpGT3runERKNS1_4ViewE
   store i8 %104, ptr %105, align 1
   %indvars.iv.next29.i45 = add nuw nsw i64 %indvars.iv28.i44, 1
   %exitcond32.not.i46 = icmp eq i64 %indvars.iv.next29.i45, %wide.trip.count31.i42
-  br i1 %exitcond32.not.i46, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph13.i43, !llvm.loop !201
+  br i1 %exitcond32.not.i46, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph13.i43, !llvm.loop !201
 
 .thread53:                                        ; preds = %11, %16, %46, %3, %76
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -22877,7 +22877,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpGT3runERKNS1_4ViewE
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit: ; preds = %.lr.ph13.i43, %.lr.ph13.i37, %.lr.ph13.i, %82, %52, %22
+_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit: ; preds = %.lr.ph13.i43, %.lr.ph13.i37, %.lr.ph13.i, %82, %52, %22
   ret void
 }
 
@@ -23700,7 +23700,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpGE3runERKNS1_4ViewE
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %36, %34
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph17.preheader.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %38, label %.lr.ph17.preheader.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph17.preheader.i:                             ; preds = %22
   %wide.trip.count41.i = zext nneg i32 %37 to i64
@@ -23718,7 +23718,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpGE3runERKNS1_4ViewE
   store i8 %43, ptr %44, align 1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count41.i
-  br i1 %exitcond42.not.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph17.i, !llvm.loop !210
+  br i1 %exitcond42.not.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph17.i, !llvm.loop !210
 
 45:                                               ; preds = %11
   %46 = getelementptr inbounds i8, ptr %1, i64 8
@@ -23749,7 +23749,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpGE3runERKNS1_4ViewE
   %65 = load i32, ptr %64, align 4
   %66 = mul i32 %65, %63
   %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph17.preheader.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %67, label %.lr.ph17.preheader.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph17.preheader.i35:                           ; preds = %51
   %wide.trip.count41.i36 = zext nneg i32 %66 to i64
@@ -23767,7 +23767,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpGE3runERKNS1_4ViewE
   store i8 %72, ptr %73, align 1
   %indvars.iv.next39.i40 = add nuw nsw i64 %indvars.iv38.i38, 1
   %exitcond42.not.i41 = icmp eq i64 %indvars.iv.next39.i40, %wide.trip.count41.i36
-  br i1 %exitcond42.not.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph17.i37, !llvm.loop !211
+  br i1 %exitcond42.not.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph17.i37, !llvm.loop !211
 
 74:                                               ; preds = %11
   %75 = getelementptr inbounds i8, ptr %1, i64 8
@@ -23798,7 +23798,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpGE3runERKNS1_4ViewE
   %94 = load i32, ptr %93, align 4
   %95 = mul i32 %94, %92
   %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %.lr.ph17.preheader.i42, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %96, label %.lr.ph17.preheader.i42, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph17.preheader.i42:                           ; preds = %80
   %wide.trip.count41.i43 = zext nneg i32 %95 to i64
@@ -23816,7 +23816,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpGE3runERKNS1_4ViewE
   store i8 %102, ptr %103, align 1
   %indvars.iv.next39.i46 = add nuw nsw i64 %indvars.iv38.i45, 1
   %exitcond42.not.i47 = icmp eq i64 %indvars.iv.next39.i46, %wide.trip.count41.i43
-  br i1 %exitcond42.not.i47, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph17.i44, !llvm.loop !212
+  br i1 %exitcond42.not.i47, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph17.i44, !llvm.loop !212
 
 .thread54:                                        ; preds = %11, %16, %45, %3, %74
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -23846,7 +23846,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpGE3runERKNS1_4ViewE
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit: ; preds = %.lr.ph17.i44, %.lr.ph17.i37, %.lr.ph17.i, %80, %51, %22
+_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit: ; preds = %.lr.ph17.i44, %.lr.ph17.i37, %.lr.ph17.i, %80, %51, %22
   ret void
 }
 
@@ -24669,7 +24669,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpLE3runERKNS1_4ViewE
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %36, %34
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph15.preheader.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %38, label %.lr.ph15.preheader.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph15.preheader.i:                             ; preds = %22
   %wide.trip.count36.i = zext nneg i32 %37 to i64
@@ -24687,7 +24687,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpLE3runERKNS1_4ViewE
   store i8 %43, ptr %44, align 1
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count36.i
-  br i1 %exitcond37.not.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph15.i, !llvm.loop !221
+  br i1 %exitcond37.not.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph15.i, !llvm.loop !221
 
 45:                                               ; preds = %11
   %46 = getelementptr inbounds i8, ptr %1, i64 8
@@ -24718,7 +24718,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpLE3runERKNS1_4ViewE
   %65 = load i32, ptr %64, align 4
   %66 = mul i32 %65, %63
   %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph15.preheader.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %67, label %.lr.ph15.preheader.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph15.preheader.i35:                           ; preds = %51
   %wide.trip.count36.i36 = zext nneg i32 %66 to i64
@@ -24736,7 +24736,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpLE3runERKNS1_4ViewE
   store i8 %72, ptr %73, align 1
   %indvars.iv.next34.i40 = add nuw nsw i64 %indvars.iv33.i38, 1
   %exitcond37.not.i41 = icmp eq i64 %indvars.iv.next34.i40, %wide.trip.count36.i36
-  br i1 %exitcond37.not.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph15.i37, !llvm.loop !222
+  br i1 %exitcond37.not.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph15.i37, !llvm.loop !222
 
 74:                                               ; preds = %11
   %75 = getelementptr inbounds i8, ptr %1, i64 8
@@ -24767,7 +24767,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpLE3runERKNS1_4ViewE
   %94 = load i32, ptr %93, align 4
   %95 = mul i32 %94, %92
   %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %.lr.ph15.preheader.i42, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %96, label %.lr.ph15.preheader.i42, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph15.preheader.i42:                           ; preds = %80
   %wide.trip.count36.i43 = zext nneg i32 %95 to i64
@@ -24785,7 +24785,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpLE3runERKNS1_4ViewE
   store i8 %102, ptr %103, align 1
   %indvars.iv.next34.i46 = add nuw nsw i64 %indvars.iv33.i45, 1
   %exitcond37.not.i47 = icmp eq i64 %indvars.iv.next34.i46, %wide.trip.count36.i43
-  br i1 %exitcond37.not.i47, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph15.i44, !llvm.loop !223
+  br i1 %exitcond37.not.i47, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph15.i44, !llvm.loop !223
 
 .thread54:                                        ; preds = %11, %16, %45, %3, %74
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -24815,7 +24815,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpLE3runERKNS1_4ViewE
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit: ; preds = %.lr.ph15.i44, %.lr.ph15.i37, %.lr.ph15.i, %80, %51, %22
+_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit: ; preds = %.lr.ph15.i44, %.lr.ph15.i37, %.lr.ph15.i, %80, %51, %22
   ret void
 }
 
@@ -25638,7 +25638,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpLT3runERKNS1_4ViewE
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %36, %34
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %38, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %22
   %wide.trip.count.i = zext nneg i32 %37 to i64
@@ -25656,7 +25656,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpLT3runERKNS1_4ViewE
   store i8 %44, ptr %45, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph.i, !llvm.loop !232
+  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph.i, !llvm.loop !232
 
 46:                                               ; preds = %11
   %47 = getelementptr inbounds i8, ptr %1, i64 8
@@ -25687,7 +25687,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpLT3runERKNS1_4ViewE
   %66 = load i32, ptr %65, align 4
   %67 = mul i32 %66, %64
   %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %.lr.ph.preheader.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %68, label %.lr.ph.preheader.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph.preheader.i35:                             ; preds = %52
   %wide.trip.count.i36 = zext nneg i32 %67 to i64
@@ -25705,7 +25705,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpLT3runERKNS1_4ViewE
   store i8 %74, ptr %75, align 1
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i36
-  br i1 %exitcond.not.i40, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph.i37, !llvm.loop !233
+  br i1 %exitcond.not.i40, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph.i37, !llvm.loop !233
 
 76:                                               ; preds = %11
   %77 = getelementptr inbounds i8, ptr %1, i64 8
@@ -25736,7 +25736,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpLT3runERKNS1_4ViewE
   %96 = load i32, ptr %95, align 4
   %97 = mul i32 %96, %94
   %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %.lr.ph.preheader.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %98, label %.lr.ph.preheader.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph.preheader.i41:                             ; preds = %82
   %wide.trip.count.i42 = zext nneg i32 %97 to i64
@@ -25754,7 +25754,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpLT3runERKNS1_4ViewE
   store i8 %104, ptr %105, align 1
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, %wide.trip.count.i42
-  br i1 %exitcond.not.i46, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph.i43, !llvm.loop !234
+  br i1 %exitcond.not.i46, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph.i43, !llvm.loop !234
 
 .thread53:                                        ; preds = %11, %16, %46, %3, %76
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -25784,7 +25784,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpLT3runERKNS1_4ViewE
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit: ; preds = %.lr.ph.i43, %.lr.ph.i37, %.lr.ph.i, %82, %52, %22
+_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit: ; preds = %.lr.ph.i43, %.lr.ph.i37, %.lr.ph.i, %82, %52, %22
   ret void
 }
 
@@ -26607,7 +26607,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpEQ3runERKNS1_4ViewE
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %36, %34
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph21.preheader.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %38, label %.lr.ph21.preheader.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph21.preheader.i:                             ; preds = %22
   %wide.trip.count51.i = zext nneg i32 %37 to i64
@@ -26625,7 +26625,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpEQ3runERKNS1_4ViewE
   store i8 %44, ptr %45, align 1
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %exitcond52.not.i = icmp eq i64 %indvars.iv.next49.i, %wide.trip.count51.i
-  br i1 %exitcond52.not.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph21.i, !llvm.loop !243
+  br i1 %exitcond52.not.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph21.i, !llvm.loop !243
 
 46:                                               ; preds = %11
   %47 = getelementptr inbounds i8, ptr %1, i64 8
@@ -26656,7 +26656,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpEQ3runERKNS1_4ViewE
   %66 = load i32, ptr %65, align 4
   %67 = mul i32 %66, %64
   %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %.lr.ph21.preheader.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %68, label %.lr.ph21.preheader.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph21.preheader.i35:                           ; preds = %52
   %wide.trip.count51.i36 = zext nneg i32 %67 to i64
@@ -26674,7 +26674,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpEQ3runERKNS1_4ViewE
   store i8 %74, ptr %75, align 1
   %indvars.iv.next49.i39 = add nuw nsw i64 %indvars.iv48.i38, 1
   %exitcond52.not.i40 = icmp eq i64 %indvars.iv.next49.i39, %wide.trip.count51.i36
-  br i1 %exitcond52.not.i40, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph21.i37, !llvm.loop !244
+  br i1 %exitcond52.not.i40, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph21.i37, !llvm.loop !244
 
 76:                                               ; preds = %11
   %77 = getelementptr inbounds i8, ptr %1, i64 8
@@ -26705,7 +26705,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpEQ3runERKNS1_4ViewE
   %96 = load i32, ptr %95, align 4
   %97 = mul i32 %96, %94
   %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %.lr.ph21.preheader.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %98, label %.lr.ph21.preheader.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph21.preheader.i41:                           ; preds = %82
   %wide.trip.count51.i42 = zext nneg i32 %97 to i64
@@ -26723,7 +26723,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpEQ3runERKNS1_4ViewE
   store i8 %104, ptr %105, align 1
   %indvars.iv.next49.i45 = add nuw nsw i64 %indvars.iv48.i44, 1
   %exitcond52.not.i46 = icmp eq i64 %indvars.iv.next49.i45, %wide.trip.count51.i42
-  br i1 %exitcond52.not.i46, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph21.i43, !llvm.loop !245
+  br i1 %exitcond52.not.i46, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph21.i43, !llvm.loop !245
 
 .thread53:                                        ; preds = %11, %16, %46, %3, %76
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -26753,7 +26753,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpEQ3runERKNS1_4ViewE
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit: ; preds = %.lr.ph21.i43, %.lr.ph21.i37, %.lr.ph21.i, %82, %52, %22
+_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit: ; preds = %.lr.ph21.i43, %.lr.ph21.i37, %.lr.ph21.i, %82, %52, %22
   ret void
 }
 
@@ -27576,7 +27576,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpNE3runERKNS1_4ViewE
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %36, %34
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph19.preheader.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %38, label %.lr.ph19.preheader.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph19.preheader.i:                             ; preds = %22
   %wide.trip.count46.i = zext nneg i32 %37 to i64
@@ -27594,7 +27594,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpNE3runERKNS1_4ViewE
   store i8 %43, ptr %44, align 1
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next44.i, %wide.trip.count46.i
-  br i1 %exitcond47.not.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph19.i, !llvm.loop !254
+  br i1 %exitcond47.not.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph19.i, !llvm.loop !254
 
 45:                                               ; preds = %11
   %46 = getelementptr inbounds i8, ptr %1, i64 8
@@ -27625,7 +27625,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpNE3runERKNS1_4ViewE
   %65 = load i32, ptr %64, align 4
   %66 = mul i32 %65, %63
   %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph19.preheader.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %67, label %.lr.ph19.preheader.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph19.preheader.i35:                           ; preds = %51
   %wide.trip.count46.i36 = zext nneg i32 %66 to i64
@@ -27643,7 +27643,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpNE3runERKNS1_4ViewE
   store i8 %72, ptr %73, align 1
   %indvars.iv.next44.i40 = add nuw nsw i64 %indvars.iv43.i38, 1
   %exitcond47.not.i41 = icmp eq i64 %indvars.iv.next44.i40, %wide.trip.count46.i36
-  br i1 %exitcond47.not.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph19.i37, !llvm.loop !255
+  br i1 %exitcond47.not.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph19.i37, !llvm.loop !255
 
 74:                                               ; preds = %11
   %75 = getelementptr inbounds i8, ptr %1, i64 8
@@ -27674,7 +27674,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpNE3runERKNS1_4ViewE
   %94 = load i32, ptr %93, align 4
   %95 = mul i32 %94, %92
   %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %.lr.ph19.preheader.i42, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit
+  br i1 %96, label %.lr.ph19.preheader.i42, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit
 
 .lr.ph19.preheader.i42:                           ; preds = %80
   %wide.trip.count46.i43 = zext nneg i32 %95 to i64
@@ -27692,7 +27692,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpNE3runERKNS1_4ViewE
   store i8 %102, ptr %103, align 1
   %indvars.iv.next44.i46 = add nuw nsw i64 %indvars.iv43.i45, 1
   %exitcond47.not.i47 = icmp eq i64 %indvars.iv.next44.i46, %wide.trip.count46.i43
-  br i1 %exitcond47.not.i47, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit, label %.lr.ph19.i44, !llvm.loop !256
+  br i1 %exitcond47.not.i47, label %_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit, label %.lr.ph19.i44, !llvm.loop !256
 
 .thread54:                                        ; preds = %11, %16, %45, %3, %74
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -27722,7 +27722,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidCmpNE3runERKNS1_4ViewE
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.exit: ; preds = %.lr.ph19.i44, %.lr.ph19.i37, %.lr.ph19.i, %80, %51, %22
+_ZN2cv4gapi5fluidL7run_cmpIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_7CompareE.argprom.argprom.exit: ; preds = %.lr.ph19.i44, %.lr.ph19.i37, %.lr.ph19.i, %80, %51, %22
   ret void
 }
 
@@ -28568,7 +28568,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   %42 = fptrunc double %3 to float
   %43 = fptrunc double %4 to float
   %44 = icmp sgt i32 %40, 0
-  br i1 %44, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit
+  br i1 %44, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %25
   %wide.trip.count.i = zext nneg i32 %40 to i64
@@ -28595,7 +28595,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   store i8 %57, ptr %58, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit, label %.lr.ph.i, !llvm.loop !265
+  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit, label %.lr.ph.i, !llvm.loop !265
 
 59:                                               ; preds = %14
   %60 = getelementptr inbounds i8, ptr %2, i64 8
@@ -28629,7 +28629,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   %82 = fptrunc double %3 to float
   %83 = fptrunc double %4 to float
   %84 = icmp sgt i32 %80, 0
-  br i1 %84, label %.lr.ph.preheader.i114, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit
+  br i1 %84, label %.lr.ph.preheader.i114, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit
 
 .lr.ph.preheader.i114:                            ; preds = %65
   %wide.trip.count.i115 = zext nneg i32 %80 to i64
@@ -28656,7 +28656,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   store i8 %97, ptr %98, align 1
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i117, 1
   %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, %wide.trip.count.i115
-  br i1 %exitcond.not.i121, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit, label %.lr.ph.i116, !llvm.loop !266
+  br i1 %exitcond.not.i121, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit, label %.lr.ph.i116, !llvm.loop !266
 
 99:                                               ; preds = %14
   %100 = getelementptr inbounds i8, ptr %2, i64 8
@@ -28690,7 +28690,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   %122 = fptrunc double %3 to float
   %123 = fptrunc double %4 to float
   %124 = icmp sgt i32 %120, 0
-  br i1 %124, label %.lr.ph.preheader.i122, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit
+  br i1 %124, label %.lr.ph.preheader.i122, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit
 
 .lr.ph.preheader.i122:                            ; preds = %105
   %wide.trip.count.i123 = zext nneg i32 %120 to i64
@@ -28717,7 +28717,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   store i8 %137, ptr %138, align 1
   %indvars.iv.next.i128 = add nuw nsw i64 %indvars.iv.i125, 1
   %exitcond.not.i129 = icmp eq i64 %indvars.iv.next.i128, %wide.trip.count.i123
-  br i1 %exitcond.not.i129, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit, label %.lr.ph.i124, !llvm.loop !267
+  br i1 %exitcond.not.i129, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit, label %.lr.ph.i124, !llvm.loop !267
 
 139:                                              ; preds = %7
   %140 = getelementptr inbounds i8, ptr %0, i64 8
@@ -28759,7 +28759,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   %168 = fptrunc double %3 to float
   %169 = fptrunc double %4 to float
   %170 = icmp sgt i32 %166, 0
-  br i1 %170, label %.lr.ph.preheader.i130, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit
+  br i1 %170, label %.lr.ph.preheader.i130, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit
 
 .lr.ph.preheader.i130:                            ; preds = %151
   %wide.trip.count.i131 = zext nneg i32 %166 to i64
@@ -28782,7 +28782,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   store i16 %181, ptr %182, align 2
   %indvars.iv.next.i134 = add nuw nsw i64 %indvars.iv.i133, 1
   %exitcond.not.i135 = icmp eq i64 %indvars.iv.next.i134, %wide.trip.count.i131
-  br i1 %exitcond.not.i135, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit, label %.lr.ph.i132, !llvm.loop !268
+  br i1 %exitcond.not.i135, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit, label %.lr.ph.i132, !llvm.loop !268
 
 183:                                              ; preds = %7
   %184 = getelementptr inbounds i8, ptr %0, i64 8
@@ -28824,7 +28824,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   %212 = fptrunc double %3 to float
   %213 = fptrunc double %4 to float
   %214 = icmp sgt i32 %210, 0
-  br i1 %214, label %.lr.ph.preheader.i136, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit
+  br i1 %214, label %.lr.ph.preheader.i136, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit
 
 .lr.ph.preheader.i136:                            ; preds = %195
   %wide.trip.count.i137 = zext nneg i32 %210 to i64
@@ -28851,7 +28851,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   store i16 %227, ptr %228, align 2
   %indvars.iv.next.i142 = add nuw nsw i64 %indvars.iv.i139, 1
   %exitcond.not.i143 = icmp eq i64 %indvars.iv.next.i142, %wide.trip.count.i137
-  br i1 %exitcond.not.i143, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit, label %.lr.ph.i138, !llvm.loop !269
+  br i1 %exitcond.not.i143, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit, label %.lr.ph.i138, !llvm.loop !269
 
 229:                                              ; preds = %7
   %230 = getelementptr inbounds i8, ptr %0, i64 8
@@ -28896,7 +28896,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   %257 = fptrunc double %3 to float
   %258 = fptrunc double %4 to float
   %259 = icmp sgt i32 %255, 0
-  br i1 %259, label %.lr.ph.preheader.i144, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit
+  br i1 %259, label %.lr.ph.preheader.i144, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit
 
 .lr.ph.preheader.i144:                            ; preds = %240
   %wide.trip.count.i145 = zext nneg i32 %255 to i64
@@ -28917,7 +28917,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   store float %268, ptr %269, align 4
   %indvars.iv.next.i148 = add nuw nsw i64 %indvars.iv.i147, 1
   %exitcond.not.i149 = icmp eq i64 %indvars.iv.next.i148, %wide.trip.count.i145
-  br i1 %exitcond.not.i149, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit, label %.lr.ph.i146, !llvm.loop !270
+  br i1 %exitcond.not.i149, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit, label %.lr.ph.i146, !llvm.loop !270
 
 270:                                              ; preds = %229
   %271 = getelementptr inbounds i8, ptr %2, i64 8
@@ -28951,7 +28951,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   %293 = fptrunc double %3 to float
   %294 = fptrunc double %4 to float
   %295 = icmp sgt i32 %291, 0
-  br i1 %295, label %.lr.ph.preheader.i150, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit
+  br i1 %295, label %.lr.ph.preheader.i150, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit
 
 .lr.ph.preheader.i150:                            ; preds = %276
   %wide.trip.count.i151 = zext nneg i32 %291 to i64
@@ -28972,7 +28972,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   store float %304, ptr %305, align 4
   %indvars.iv.next.i154 = add nuw nsw i64 %indvars.iv.i153, 1
   %exitcond.not.i155 = icmp eq i64 %indvars.iv.next.i154, %wide.trip.count.i151
-  br i1 %exitcond.not.i155, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit, label %.lr.ph.i152, !llvm.loop !271
+  br i1 %exitcond.not.i155, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit, label %.lr.ph.i152, !llvm.loop !271
 
 306:                                              ; preds = %229
   %307 = getelementptr inbounds i8, ptr %2, i64 8
@@ -29006,7 +29006,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   %329 = fptrunc double %3 to float
   %330 = fptrunc double %4 to float
   %331 = icmp sgt i32 %327, 0
-  br i1 %331, label %.lr.ph.preheader.i156, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit
+  br i1 %331, label %.lr.ph.preheader.i156, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit
 
 .lr.ph.preheader.i156:                            ; preds = %312
   %wide.trip.count.i157 = zext nneg i32 %327 to i64
@@ -29027,7 +29027,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   store float %340, ptr %341, align 4
   %indvars.iv.next.i160 = add nuw nsw i64 %indvars.iv.i159, 1
   %exitcond.not.i161 = icmp eq i64 %indvars.iv.next.i160, %wide.trip.count.i157
-  br i1 %exitcond.not.i161, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit, label %.lr.ph.i158, !llvm.loop !272
+  br i1 %exitcond.not.i161, label %_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit, label %.lr.ph.i158, !llvm.loop !272
 
 .thread174:                                       ; preds = %229, %14, %234, %270, %19, %59, %7, %99, %139, %145, %183, %189, %306
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #23
@@ -29057,7 +29057,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAddW3runERKNS1_4ViewEd
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.exit: ; preds = %.lr.ph.i158, %.lr.ph.i152, %.lr.ph.i146, %.lr.ph.i138, %.lr.ph.i132, %.lr.ph.i124, %.lr.ph.i116, %.lr.ph.i, %312, %276, %240, %195, %151, %105, %65, %25
+_ZN2cv4gapi5fluidL15run_addweightedIhhhEEvRNS1_6BufferERKNS1_4ViewES7_ddd.argprom.argprom.exit: ; preds = %.lr.ph.i158, %.lr.ph.i152, %.lr.ph.i146, %.lr.ph.i138, %.lr.ph.i132, %.lr.ph.i124, %.lr.ph.i116, %.lr.ph.i, %312, %276, %240, %195, %151, %105, %65, %25
   ret void
 }
 
@@ -30112,7 +30112,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidNot3runERKNS1_4ViewERNS
   %25 = load i32, ptr %24, align 4
   %26 = mul nsw i32 %25, %23
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL12run_bitwise1IhhEEvRNS1_6BufferERKNS1_4ViewENS1_7BitwiseE.exit
+  br i1 %27, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL12run_bitwise1IhhEEvRNS1_6BufferERKNS1_4ViewENS1_7BitwiseE.argprom.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %15
   %wide.trip.count.i = zext nneg i32 %26 to i64
@@ -30127,7 +30127,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidNot3runERKNS1_4ViewERNS
   store i8 %30, ptr %31, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL12run_bitwise1IhhEEvRNS1_6BufferERKNS1_4ViewENS1_7BitwiseE.exit, label %.lr.ph.i, !llvm.loop !276
+  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL12run_bitwise1IhhEEvRNS1_6BufferERKNS1_4ViewENS1_7BitwiseE.argprom.argprom.exit, label %.lr.ph.i, !llvm.loop !276
 
 32:                                               ; preds = %2
   %33 = getelementptr inbounds i8, ptr %0, i64 8
@@ -30152,7 +30152,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidNot3runERKNS1_4ViewERNS
   %48 = load i32, ptr %47, align 4
   %49 = mul nsw i32 %48, %46
   %50 = icmp sgt i32 %49, 0
-  br i1 %50, label %.lr.ph.preheader.i23, label %_ZN2cv4gapi5fluidL12run_bitwise1IhhEEvRNS1_6BufferERKNS1_4ViewENS1_7BitwiseE.exit
+  br i1 %50, label %.lr.ph.preheader.i23, label %_ZN2cv4gapi5fluidL12run_bitwise1IhhEEvRNS1_6BufferERKNS1_4ViewENS1_7BitwiseE.argprom.argprom.exit
 
 .lr.ph.preheader.i23:                             ; preds = %38
   %wide.trip.count.i24 = zext nneg i32 %49 to i64
@@ -30167,7 +30167,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidNot3runERKNS1_4ViewERNS
   store i16 %53, ptr %54, align 2
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, %wide.trip.count.i24
-  br i1 %exitcond.not.i28, label %_ZN2cv4gapi5fluidL12run_bitwise1IhhEEvRNS1_6BufferERKNS1_4ViewENS1_7BitwiseE.exit, label %.lr.ph.i25, !llvm.loop !277
+  br i1 %exitcond.not.i28, label %_ZN2cv4gapi5fluidL12run_bitwise1IhhEEvRNS1_6BufferERKNS1_4ViewENS1_7BitwiseE.argprom.argprom.exit, label %.lr.ph.i25, !llvm.loop !277
 
 55:                                               ; preds = %2
   %56 = getelementptr inbounds i8, ptr %0, i64 8
@@ -30192,7 +30192,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidNot3runERKNS1_4ViewERNS
   %71 = load i32, ptr %70, align 4
   %72 = mul nsw i32 %71, %69
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph.preheader.i29, label %_ZN2cv4gapi5fluidL12run_bitwise1IhhEEvRNS1_6BufferERKNS1_4ViewENS1_7BitwiseE.exit
+  br i1 %73, label %.lr.ph.preheader.i29, label %_ZN2cv4gapi5fluidL12run_bitwise1IhhEEvRNS1_6BufferERKNS1_4ViewENS1_7BitwiseE.argprom.argprom.exit
 
 .lr.ph.preheader.i29:                             ; preds = %61
   %wide.trip.count.i30 = zext nneg i32 %72 to i64
@@ -30207,7 +30207,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidNot3runERKNS1_4ViewERNS
   store i16 %76, ptr %77, align 2
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, %wide.trip.count.i30
-  br i1 %exitcond.not.i34, label %_ZN2cv4gapi5fluidL12run_bitwise1IhhEEvRNS1_6BufferERKNS1_4ViewENS1_7BitwiseE.exit, label %.lr.ph.i31, !llvm.loop !278
+  br i1 %exitcond.not.i34, label %_ZN2cv4gapi5fluidL12run_bitwise1IhhEEvRNS1_6BufferERKNS1_4ViewENS1_7BitwiseE.argprom.argprom.exit, label %.lr.ph.i31, !llvm.loop !278
 
 .thread35:                                        ; preds = %2, %9, %32, %55
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
@@ -30237,7 +30237,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidNot3runERKNS1_4ViewERNS
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL12run_bitwise1IhhEEvRNS1_6BufferERKNS1_4ViewENS1_7BitwiseE.exit: ; preds = %.lr.ph.i31, %.lr.ph.i25, %.lr.ph.i, %61, %38, %15
+_ZN2cv4gapi5fluidL12run_bitwise1IhhEEvRNS1_6BufferERKNS1_4ViewENS1_7BitwiseE.argprom.argprom.exit: ; preds = %.lr.ph.i31, %.lr.ph.i25, %.lr.ph.i, %61, %38, %15
   ret void
 }
 
@@ -38701,7 +38701,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid12GFluidSelect3runERKNS1_4View
   %.val29.val = load ptr, ptr %29, align 8
   %36 = getelementptr i8, ptr %29, i64 72
   %.val29.val32 = load i32, ptr %36, align 8
-  tail call fastcc void @_ZN2cv4gapi5fluidL10run_selectIhhhhEEvRNS1_6BufferERKNS1_4ViewES7_S7_(ptr nonnull %12, ptr %.val27.val, i32 %.val27.val30, ptr %.val28.val, i32 %.val28.val31, ptr %.val29.val, i32 %.val29.val32)
+  tail call fastcc void @_ZN2cv4gapi5fluidL10run_selectIhhhhEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom(ptr nonnull %12, ptr %.val27.val, i32 %.val27.val30, ptr %.val28.val, i32 %.val28.val31, ptr %.val29.val, i32 %.val29.val32)
   br label %205
 
 37:                                               ; preds = %4
@@ -38764,7 +38764,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid12GFluidSelect3runERKNS1_4View
 
 74:                                               ; preds = %55
   %75 = icmp sgt i32 %71, 0
-  br i1 %75, label %.critedge.preheader.i.i, label %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit
+  br i1 %75, label %.critedge.preheader.i.i, label %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit
 
 .critedge.preheader.i.i:                          ; preds = %74
   %wide.trip.count.i.i = zext nneg i32 %71 to i64
@@ -38782,11 +38782,11 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid12GFluidSelect3runERKNS1_4View
   store i16 %78, ptr %79, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit, label %.critedge.i.i, !llvm.loop !360
+  br i1 %exitcond.not.i.i, label %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit, label %.critedge.i.i, !llvm.loop !360
 
 80:                                               ; preds = %55
   %81 = icmp sgt i32 %71, 0
-  br i1 %81, label %.preheader.preheader.i.i, label %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit
+  br i1 %81, label %.preheader.preheader.i.i, label %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit
 
 .preheader.preheader.i.i:                         ; preds = %80
   %wide.trip.count.i30.i = zext nneg i32 %71 to i64
@@ -38813,11 +38813,11 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid12GFluidSelect3runERKNS1_4View
   store i16 %89, ptr %90, align 2
   %indvars.iv.next20.i.i = add nuw nsw i64 %indvars.iv19.i.i, 1
   %exitcond.not.i35.i = icmp eq i64 %indvars.iv.next20.i.i, %wide.trip.count.i30.i
-  br i1 %exitcond.not.i35.i, label %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit, label %.preheader.i.i, !llvm.loop !361
+  br i1 %exitcond.not.i35.i, label %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit, label %.preheader.i.i, !llvm.loop !361
 
 91:                                               ; preds = %55
   %92 = icmp sgt i32 %71, 0
-  br i1 %92, label %.preheader.preheader.i36.i, label %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit
+  br i1 %92, label %.preheader.preheader.i36.i, label %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit
 
 .preheader.preheader.i36.i:                       ; preds = %91
   %wide.trip.count.i37.i = zext nneg i32 %71 to i64
@@ -38846,11 +38846,11 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid12GFluidSelect3runERKNS1_4View
 100:                                              ; preds = %95
   %indvars.iv.next20.i46.i = add nuw nsw i64 %indvars.iv19.i39.i, 1
   %exitcond22.not.i.i = icmp eq i64 %indvars.iv.next20.i46.i, %wide.trip.count.i37.i
-  br i1 %exitcond22.not.i.i, label %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit, label %.preheader.i38.i, !llvm.loop !363
+  br i1 %exitcond22.not.i.i, label %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit, label %.preheader.i38.i, !llvm.loop !363
 
 101:                                              ; preds = %55
   %102 = icmp sgt i32 %71, 0
-  br i1 %102, label %.preheader.preheader.i47.i, label %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit
+  br i1 %102, label %.preheader.preheader.i47.i, label %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit
 
 .preheader.preheader.i47.i:                       ; preds = %101
   %wide.trip.count.i48.i = zext nneg i32 %71 to i64
@@ -38879,7 +38879,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid12GFluidSelect3runERKNS1_4View
 110:                                              ; preds = %105
   %indvars.iv.next20.i57.i = add nuw nsw i64 %indvars.iv19.i50.i, 1
   %exitcond22.not.i58.i = icmp eq i64 %indvars.iv.next20.i57.i, %wide.trip.count.i48.i
-  br i1 %exitcond22.not.i58.i, label %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit, label %.preheader.i49.i, !llvm.loop !365
+  br i1 %exitcond22.not.i58.i, label %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit, label %.preheader.i49.i, !llvm.loop !365
 
 111:                                              ; preds = %55
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #23
@@ -38910,7 +38910,7 @@ common.resume:                                    ; preds = %201, %203, %195, %1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
   resume { ptr, i32 } %common.resume.op
 
-_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit: ; preds = %110, %100, %.preheader.i.i, %.critedge.i.i, %74, %80, %91, %101
+_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit: ; preds = %110, %100, %.preheader.i.i, %.critedge.i.i, %74, %80, %91, %101
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   br label %205
@@ -38975,7 +38975,7 @@ _ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit: ; pr
 
 155:                                              ; preds = %136
   %156 = icmp sgt i32 %152, 0
-  br i1 %156, label %.critedge.preheader.i.i83, label %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit
+  br i1 %156, label %.critedge.preheader.i.i83, label %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit
 
 .critedge.preheader.i.i83:                        ; preds = %155
   %wide.trip.count.i.i84 = zext nneg i32 %152 to i64
@@ -38993,11 +38993,11 @@ _ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit: ; pr
   store i16 %159, ptr %160, align 2
   %indvars.iv.next.i.i90 = add nuw nsw i64 %indvars.iv.i.i86, 1
   %exitcond.not.i.i91 = icmp eq i64 %indvars.iv.next.i.i90, %wide.trip.count.i.i84
-  br i1 %exitcond.not.i.i91, label %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit, label %.critedge.i.i85, !llvm.loop !366
+  br i1 %exitcond.not.i.i91, label %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit, label %.critedge.i.i85, !llvm.loop !366
 
 161:                                              ; preds = %136
   %162 = icmp sgt i32 %152, 0
-  br i1 %162, label %.preheader.preheader.i.i71, label %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit
+  br i1 %162, label %.preheader.preheader.i.i71, label %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit
 
 .preheader.preheader.i.i71:                       ; preds = %161
   %wide.trip.count.i30.i72 = zext nneg i32 %152 to i64
@@ -39024,11 +39024,11 @@ _ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit: ; pr
   store i16 %170, ptr %171, align 2
   %indvars.iv.next20.i.i81 = add nuw nsw i64 %indvars.iv19.i.i74, 1
   %exitcond.not.i35.i82 = icmp eq i64 %indvars.iv.next20.i.i81, %wide.trip.count.i30.i72
-  br i1 %exitcond.not.i35.i82, label %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit, label %.preheader.i.i73, !llvm.loop !367
+  br i1 %exitcond.not.i35.i82, label %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit, label %.preheader.i.i73, !llvm.loop !367
 
 172:                                              ; preds = %136
   %173 = icmp sgt i32 %152, 0
-  br i1 %173, label %.preheader.preheader.i36.i59, label %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit
+  br i1 %173, label %.preheader.preheader.i36.i59, label %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit
 
 .preheader.preheader.i36.i59:                     ; preds = %172
   %wide.trip.count.i37.i60 = zext nneg i32 %152 to i64
@@ -39057,11 +39057,11 @@ _ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit: ; pr
 181:                                              ; preds = %176
   %indvars.iv.next20.i46.i69 = add nuw nsw i64 %indvars.iv19.i39.i62, 1
   %exitcond22.not.i.i70 = icmp eq i64 %indvars.iv.next20.i46.i69, %wide.trip.count.i37.i60
-  br i1 %exitcond22.not.i.i70, label %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit, label %.preheader.i38.i61, !llvm.loop !369
+  br i1 %exitcond22.not.i.i70, label %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit, label %.preheader.i38.i61, !llvm.loop !369
 
 182:                                              ; preds = %136
   %183 = icmp sgt i32 %152, 0
-  br i1 %183, label %.preheader.preheader.i47.i47, label %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit
+  br i1 %183, label %.preheader.preheader.i47.i47, label %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit
 
 .preheader.preheader.i47.i47:                     ; preds = %182
   %wide.trip.count.i48.i48 = zext nneg i32 %152 to i64
@@ -39090,7 +39090,7 @@ _ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit: ; pr
 191:                                              ; preds = %186
   %indvars.iv.next20.i57.i57 = add nuw nsw i64 %indvars.iv19.i50.i50, 1
   %exitcond22.not.i58.i58 = icmp eq i64 %indvars.iv.next20.i57.i57, %wide.trip.count.i48.i48
-  br i1 %exitcond22.not.i58.i58, label %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit, label %.preheader.i49.i49, !llvm.loop !371
+  br i1 %exitcond22.not.i58.i58, label %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit, label %.preheader.i49.i49, !llvm.loop !371
 
 192:                                              ; preds = %136
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #23
@@ -39115,7 +39115,7 @@ _ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit: ; pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   br label %common.resume
 
-_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit: ; preds = %191, %181, %.preheader.i.i73, %.critedge.i.i85, %155, %161, %172, %182
+_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit: ; preds = %191, %181, %.preheader.i.i73, %.critedge.i.i85, %155, %161, %172, %182
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %205
@@ -39143,12 +39143,12 @@ _ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit: ; pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   br label %common.resume
 
-205:                                              ; preds = %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit, %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit, %33
+205:                                              ; preds = %_ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit, %_ZN2cv4gapi5fluidL10run_selectIttthEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom.exit, %33
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL10run_selectIhhhhEEvRNS1_6BufferERKNS1_4ViewES7_S7_(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture readonly %.8.val3.0.val, i32 %.8.val3.72.val, ptr nocapture readonly %.8.val5.0.val, i32 %.8.val5.72.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL10run_selectIhhhhEEvRNS1_6BufferERKNS1_4ViewES7_S7_.argprom.argprom(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture readonly %.8.val3.0.val, i32 %.8.val3.72.val, ptr nocapture readonly %.8.val5.0.val, i32 %.8.val5.72.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator.26", align 1
   %3 = load ptr, ptr %.8.val, align 8
@@ -56011,7 +56011,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidMask3runERKNS1_4ViewES
   %56 = getelementptr inbounds ptr, ptr %.val34.val, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = icmp sgt i32 %.val.val35, 0
-  br i1 %58, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL8run_maskIhhEEvRNS1_6BufferERKNS1_4ViewES7_.exit
+  br i1 %58, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL8run_maskIhhEEvRNS1_6BufferERKNS1_4ViewES7_.argprom.argprom.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %48
   %wide.trip.count.i = zext nneg i32 %.val.val35 to i64
@@ -56035,7 +56035,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidMask3runERKNS1_4ViewES
   store i8 %65, ptr %66, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL8run_maskIhhEEvRNS1_6BufferERKNS1_4ViewES7_.exit, label %.lr.ph.i, !llvm.loop !554
+  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL8run_maskIhhEEvRNS1_6BufferERKNS1_4ViewES7_.argprom.argprom.argprom.exit, label %.lr.ph.i, !llvm.loop !554
 
 67:                                               ; preds = %43
   %68 = load i32, ptr %12, align 8
@@ -56060,7 +56060,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidMask3runERKNS1_4ViewES
   %78 = getelementptr inbounds ptr, ptr %.val40.val, i64 %77
   %79 = load ptr, ptr %78, align 8
   %80 = icmp sgt i32 %.val38.val41, 0
-  br i1 %80, label %.lr.ph.preheader.i50, label %_ZN2cv4gapi5fluidL8run_maskIhhEEvRNS1_6BufferERKNS1_4ViewES7_.exit
+  br i1 %80, label %.lr.ph.preheader.i50, label %_ZN2cv4gapi5fluidL8run_maskIhhEEvRNS1_6BufferERKNS1_4ViewES7_.argprom.argprom.argprom.exit
 
 .lr.ph.preheader.i50:                             ; preds = %70
   %wide.trip.count.i51 = zext nneg i32 %.val38.val41 to i64
@@ -56084,7 +56084,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidMask3runERKNS1_4ViewES
   store i16 %87, ptr %88, align 2
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, %wide.trip.count.i51
-  br i1 %exitcond.not.i56, label %_ZN2cv4gapi5fluidL8run_maskIhhEEvRNS1_6BufferERKNS1_4ViewES7_.exit, label %.lr.ph.i52, !llvm.loop !555
+  br i1 %exitcond.not.i56, label %_ZN2cv4gapi5fluidL8run_maskIhhEEvRNS1_6BufferERKNS1_4ViewES7_.argprom.argprom.argprom.exit, label %.lr.ph.i52, !llvm.loop !555
 
 89:                                               ; preds = %43
   %90 = load i32, ptr %12, align 8
@@ -56109,7 +56109,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidMask3runERKNS1_4ViewES
   %100 = getelementptr inbounds ptr, ptr %.val46.val, i64 %99
   %101 = load ptr, ptr %100, align 8
   %102 = icmp sgt i32 %.val44.val47, 0
-  br i1 %102, label %.lr.ph.preheader.i57, label %_ZN2cv4gapi5fluidL8run_maskIhhEEvRNS1_6BufferERKNS1_4ViewES7_.exit
+  br i1 %102, label %.lr.ph.preheader.i57, label %_ZN2cv4gapi5fluidL8run_maskIhhEEvRNS1_6BufferERKNS1_4ViewES7_.argprom.argprom.argprom.exit
 
 .lr.ph.preheader.i57:                             ; preds = %92
   %wide.trip.count.i58 = zext nneg i32 %.val44.val47 to i64
@@ -56133,7 +56133,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidMask3runERKNS1_4ViewES
   store i16 %109, ptr %110, align 2
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, %wide.trip.count.i58
-  br i1 %exitcond.not.i63, label %_ZN2cv4gapi5fluidL8run_maskIhhEEvRNS1_6BufferERKNS1_4ViewES7_.exit, label %.lr.ph.i59, !llvm.loop !556
+  br i1 %exitcond.not.i63, label %_ZN2cv4gapi5fluidL8run_maskIhhEEvRNS1_6BufferERKNS1_4ViewES7_.argprom.argprom.argprom.exit, label %.lr.ph.i59, !llvm.loop !556
 
 .thread64:                                        ; preds = %43, %45, %67, %89
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #23
@@ -56158,7 +56158,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidMask3runERKNS1_4ViewES
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   br label %117
 
-_ZN2cv4gapi5fluidL8run_maskIhhEEvRNS1_6BufferERKNS1_4ViewES7_.exit: ; preds = %108, %86, %64, %92, %70, %48
+_ZN2cv4gapi5fluidL8run_maskIhhEEvRNS1_6BufferERKNS1_4ViewES7_.argprom.argprom.argprom.exit: ; preds = %108, %86, %64, %92, %70, %48
   ret void
 
 117:                                              ; preds = %113, %115, %39, %41, %24, %26
@@ -58100,7 +58100,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGTScalar3runERKNS1_
   br i1 %30, label %32, label %38
 
 32:                                               ; preds = %16
-  br i1 %31, label %.lr.ph71.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %31, label %.lr.ph71.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph71.preheader.i.i:                           ; preds = %32
   %wide.trip.count89.i.i = zext nneg i32 %27 to i64
@@ -58116,10 +58116,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGTScalar3runERKNS1_
   store i8 %36, ptr %37, align 1
   %indvars.iv.next87.i.i = add nuw nsw i64 %indvars.iv86.i.i, 1
   %exitcond90.not.i.i = icmp eq i64 %indvars.iv.next87.i.i, %wide.trip.count89.i.i
-  br i1 %exitcond90.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph71.i.i, !llvm.loop !579
+  br i1 %exitcond90.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph71.i.i, !llvm.loop !579
 
 38:                                               ; preds = %16
-  br i1 %31, label %.lr.ph69.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %31, label %.lr.ph69.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph69.preheader.i.i:                           ; preds = %38
   %wide.trip.count87.i.i = zext nneg i32 %27 to i64
@@ -58136,7 +58136,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGTScalar3runERKNS1_
   store i8 %43, ptr %44, align 1
   %indvars.iv.next85.i.i = add nuw nsw i64 %indvars.iv84.i.i, 1
   %exitcond88.not.i.i = icmp eq i64 %indvars.iv.next85.i.i, %wide.trip.count87.i.i
-  br i1 %exitcond88.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph69.i.i, !llvm.loop !580
+  br i1 %exitcond88.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph69.i.i, !llvm.loop !580
 
 45:                                               ; preds = %11
   %.val23 = load double, ptr %1, align 8
@@ -58160,7 +58160,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGTScalar3runERKNS1_
   br i1 %59, label %61, label %67
 
 61:                                               ; preds = %45
-  br i1 %60, label %.lr.ph71.preheader.i.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %60, label %.lr.ph71.preheader.i.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph71.preheader.i.i35:                         ; preds = %61
   %wide.trip.count89.i.i36 = zext nneg i32 %56 to i64
@@ -58176,10 +58176,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGTScalar3runERKNS1_
   store i8 %65, ptr %66, align 1
   %indvars.iv.next87.i.i39 = add nuw nsw i64 %indvars.iv86.i.i38, 1
   %exitcond90.not.i.i40 = icmp eq i64 %indvars.iv.next87.i.i39, %wide.trip.count89.i.i36
-  br i1 %exitcond90.not.i.i40, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph71.i.i37, !llvm.loop !581
+  br i1 %exitcond90.not.i.i40, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph71.i.i37, !llvm.loop !581
 
 67:                                               ; preds = %45
-  br i1 %60, label %.lr.ph69.preheader.i.i29, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %60, label %.lr.ph69.preheader.i.i29, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph69.preheader.i.i29:                         ; preds = %67
   %wide.trip.count87.i.i30 = zext nneg i32 %56 to i64
@@ -58196,7 +58196,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGTScalar3runERKNS1_
   store i8 %72, ptr %73, align 1
   %indvars.iv.next85.i.i33 = add nuw nsw i64 %indvars.iv84.i.i32, 1
   %exitcond88.not.i.i34 = icmp eq i64 %indvars.iv.next85.i.i33, %wide.trip.count87.i.i30
-  br i1 %exitcond88.not.i.i34, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph69.i.i31, !llvm.loop !582
+  br i1 %exitcond88.not.i.i34, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph69.i.i31, !llvm.loop !582
 
 74:                                               ; preds = %11
   %.val27 = load double, ptr %1, align 8
@@ -58220,7 +58220,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGTScalar3runERKNS1_
   br i1 %88, label %90, label %96
 
 90:                                               ; preds = %74
-  br i1 %89, label %.lr.ph69.preheader.i.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %89, label %.lr.ph69.preheader.i.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph69.preheader.i.i41:                         ; preds = %90
   %wide.trip.count87.i.i42 = zext nneg i32 %85 to i64
@@ -58236,10 +58236,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGTScalar3runERKNS1_
   store i8 %94, ptr %95, align 1
   %indvars.iv.next85.i.i45 = add nuw nsw i64 %indvars.iv84.i.i44, 1
   %exitcond88.not.i.i46 = icmp eq i64 %indvars.iv.next85.i.i45, %wide.trip.count87.i.i42
-  br i1 %exitcond88.not.i.i46, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph69.i.i43, !llvm.loop !583
+  br i1 %exitcond88.not.i.i46, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph69.i.i43, !llvm.loop !583
 
 96:                                               ; preds = %74
-  br i1 %89, label %.lr.ph69.preheader.i27.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %89, label %.lr.ph69.preheader.i27.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph69.preheader.i27.i:                         ; preds = %96
   %wide.trip.count87.i28.i = zext nneg i32 %85 to i64
@@ -58256,7 +58256,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGTScalar3runERKNS1_
   store i8 %101, ptr %102, align 1
   %indvars.iv.next85.i31.i = add nuw nsw i64 %indvars.iv84.i30.i, 1
   %exitcond88.not.i32.i = icmp eq i64 %indvars.iv.next85.i31.i, %wide.trip.count87.i28.i
-  br i1 %exitcond88.not.i32.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph69.i29.i, !llvm.loop !584
+  br i1 %exitcond88.not.i32.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph69.i29.i, !llvm.loop !584
 
 103:                                              ; preds = %11, %3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -58286,7 +58286,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGTScalar3runERKNS1_
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit: ; preds = %.lr.ph69.i29.i, %.lr.ph69.i.i43, %.lr.ph69.i.i31, %.lr.ph71.i.i37, %.lr.ph69.i.i, %.lr.ph71.i.i, %96, %90, %67, %61, %38, %32
+_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit: ; preds = %.lr.ph69.i29.i, %.lr.ph69.i.i43, %.lr.ph69.i.i31, %.lr.ph71.i.i37, %.lr.ph69.i.i, %.lr.ph71.i.i, %96, %90, %67, %61, %38, %32
   ret void
 }
 
@@ -59117,7 +59117,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGEScalar3runERKNS1_
   br i1 %30, label %32, label %37
 
 32:                                               ; preds = %16
-  br i1 %31, label %.lr.ph75.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %31, label %.lr.ph75.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph75.preheader.i.i:                           ; preds = %32
   %wide.trip.count99.i.i = zext nneg i32 %27 to i64
@@ -59133,10 +59133,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGEScalar3runERKNS1_
   store i8 %35, ptr %36, align 1
   %indvars.iv.next97.i.i = add nuw nsw i64 %indvars.iv96.i.i, 1
   %exitcond100.not.i.i = icmp eq i64 %indvars.iv.next97.i.i, %wide.trip.count99.i.i
-  br i1 %exitcond100.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph75.i.i, !llvm.loop !596
+  br i1 %exitcond100.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph75.i.i, !llvm.loop !596
 
 37:                                               ; preds = %16
-  br i1 %31, label %.lr.ph73.preheader.i31.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %31, label %.lr.ph73.preheader.i31.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph73.preheader.i31.i:                         ; preds = %37
   %wide.trip.count97.i.i = zext nneg i32 %27 to i64
@@ -59153,7 +59153,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGEScalar3runERKNS1_
   store i8 %42, ptr %43, align 1
   %indvars.iv.next95.i.i = add nuw nsw i64 %indvars.iv94.i.i, 1
   %exitcond98.not.i.i = icmp eq i64 %indvars.iv.next95.i.i, %wide.trip.count97.i.i
-  br i1 %exitcond98.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph73.i32.i, !llvm.loop !597
+  br i1 %exitcond98.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph73.i32.i, !llvm.loop !597
 
 44:                                               ; preds = %11
   %.val23 = load double, ptr %1, align 8
@@ -59177,7 +59177,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGEScalar3runERKNS1_
   br i1 %58, label %60, label %65
 
 60:                                               ; preds = %44
-  br i1 %59, label %.lr.ph75.preheader.i.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %59, label %.lr.ph75.preheader.i.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph75.preheader.i.i35:                         ; preds = %60
   %wide.trip.count99.i.i36 = zext nneg i32 %55 to i64
@@ -59193,10 +59193,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGEScalar3runERKNS1_
   store i8 %63, ptr %64, align 1
   %indvars.iv.next97.i.i40 = add nuw nsw i64 %indvars.iv96.i.i38, 1
   %exitcond100.not.i.i41 = icmp eq i64 %indvars.iv.next97.i.i40, %wide.trip.count99.i.i36
-  br i1 %exitcond100.not.i.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph75.i.i37, !llvm.loop !598
+  br i1 %exitcond100.not.i.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph75.i.i37, !llvm.loop !598
 
 65:                                               ; preds = %44
-  br i1 %59, label %.lr.ph73.preheader.i31.i29, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %59, label %.lr.ph73.preheader.i31.i29, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph73.preheader.i31.i29:                       ; preds = %65
   %wide.trip.count97.i.i30 = zext nneg i32 %55 to i64
@@ -59213,7 +59213,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGEScalar3runERKNS1_
   store i8 %70, ptr %71, align 1
   %indvars.iv.next95.i.i33 = add nuw nsw i64 %indvars.iv94.i.i32, 1
   %exitcond98.not.i.i34 = icmp eq i64 %indvars.iv.next95.i.i33, %wide.trip.count97.i.i30
-  br i1 %exitcond98.not.i.i34, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph73.i32.i31, !llvm.loop !599
+  br i1 %exitcond98.not.i.i34, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph73.i32.i31, !llvm.loop !599
 
 72:                                               ; preds = %11
   %.val27 = load double, ptr %1, align 8
@@ -59237,7 +59237,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGEScalar3runERKNS1_
   br i1 %86, label %88, label %94
 
 88:                                               ; preds = %72
-  br i1 %87, label %.lr.ph73.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %87, label %.lr.ph73.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph73.preheader.i.i:                           ; preds = %88
   %wide.trip.count97.i.i42 = zext nneg i32 %83 to i64
@@ -59253,10 +59253,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGEScalar3runERKNS1_
   store i8 %92, ptr %93, align 1
   %indvars.iv.next95.i.i44 = add nuw nsw i64 %indvars.iv94.i.i43, 1
   %exitcond98.not.i.i45 = icmp eq i64 %indvars.iv.next95.i.i44, %wide.trip.count97.i.i42
-  br i1 %exitcond98.not.i.i45, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph73.i.i, !llvm.loop !600
+  br i1 %exitcond98.not.i.i45, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph73.i.i, !llvm.loop !600
 
 94:                                               ; preds = %72
-  br i1 %87, label %.lr.ph73.preheader.i41.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %87, label %.lr.ph73.preheader.i41.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph73.preheader.i41.i:                         ; preds = %94
   %wide.trip.count97.i42.i = zext nneg i32 %83 to i64
@@ -59273,7 +59273,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGEScalar3runERKNS1_
   store i8 %99, ptr %100, align 1
   %indvars.iv.next95.i45.i = add nuw nsw i64 %indvars.iv94.i44.i, 1
   %exitcond98.not.i46.i = icmp eq i64 %indvars.iv.next95.i45.i, %wide.trip.count97.i42.i
-  br i1 %exitcond98.not.i46.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph73.i43.i, !llvm.loop !601
+  br i1 %exitcond98.not.i46.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph73.i43.i, !llvm.loop !601
 
 101:                                              ; preds = %11, %3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -59303,7 +59303,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpGEScalar3runERKNS1_
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit: ; preds = %.lr.ph73.i43.i, %.lr.ph73.i.i, %.lr.ph73.i32.i31, %.lr.ph75.i.i37, %.lr.ph73.i32.i, %.lr.ph75.i.i, %94, %88, %65, %60, %37, %32
+_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit: ; preds = %.lr.ph73.i43.i, %.lr.ph73.i.i, %.lr.ph73.i32.i31, %.lr.ph75.i.i37, %.lr.ph73.i32.i, %.lr.ph75.i.i, %94, %88, %65, %60, %37, %32
   ret void
 }
 
@@ -60134,7 +60134,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLEScalar3runERKNS1_
   br i1 %30, label %32, label %37
 
 32:                                               ; preds = %16
-  br i1 %31, label %.lr.ph73.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %31, label %.lr.ph73.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph73.preheader.i.i:                           ; preds = %32
   %wide.trip.count94.i.i = zext nneg i32 %27 to i64
@@ -60150,10 +60150,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLEScalar3runERKNS1_
   store i8 %35, ptr %36, align 1
   %indvars.iv.next92.i.i = add nuw nsw i64 %indvars.iv91.i.i, 1
   %exitcond95.not.i.i = icmp eq i64 %indvars.iv.next92.i.i, %wide.trip.count94.i.i
-  br i1 %exitcond95.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph73.i.i, !llvm.loop !613
+  br i1 %exitcond95.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph73.i.i, !llvm.loop !613
 
 37:                                               ; preds = %16
-  br i1 %31, label %.lr.ph71.preheader.i28.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %31, label %.lr.ph71.preheader.i28.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph71.preheader.i28.i:                         ; preds = %37
   %wide.trip.count92.i.i = zext nneg i32 %27 to i64
@@ -60170,7 +60170,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLEScalar3runERKNS1_
   store i8 %42, ptr %43, align 1
   %indvars.iv.next90.i.i = add nuw nsw i64 %indvars.iv89.i.i, 1
   %exitcond93.not.i.i = icmp eq i64 %indvars.iv.next90.i.i, %wide.trip.count92.i.i
-  br i1 %exitcond93.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph71.i29.i, !llvm.loop !614
+  br i1 %exitcond93.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph71.i29.i, !llvm.loop !614
 
 44:                                               ; preds = %11
   %.val23 = load double, ptr %1, align 8
@@ -60194,7 +60194,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLEScalar3runERKNS1_
   br i1 %58, label %60, label %65
 
 60:                                               ; preds = %44
-  br i1 %59, label %.lr.ph73.preheader.i.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %59, label %.lr.ph73.preheader.i.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph73.preheader.i.i35:                         ; preds = %60
   %wide.trip.count94.i.i36 = zext nneg i32 %55 to i64
@@ -60210,10 +60210,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLEScalar3runERKNS1_
   store i8 %63, ptr %64, align 1
   %indvars.iv.next92.i.i40 = add nuw nsw i64 %indvars.iv91.i.i38, 1
   %exitcond95.not.i.i41 = icmp eq i64 %indvars.iv.next92.i.i40, %wide.trip.count94.i.i36
-  br i1 %exitcond95.not.i.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph73.i.i37, !llvm.loop !615
+  br i1 %exitcond95.not.i.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph73.i.i37, !llvm.loop !615
 
 65:                                               ; preds = %44
-  br i1 %59, label %.lr.ph71.preheader.i28.i29, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %59, label %.lr.ph71.preheader.i28.i29, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph71.preheader.i28.i29:                       ; preds = %65
   %wide.trip.count92.i.i30 = zext nneg i32 %55 to i64
@@ -60230,7 +60230,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLEScalar3runERKNS1_
   store i8 %70, ptr %71, align 1
   %indvars.iv.next90.i.i33 = add nuw nsw i64 %indvars.iv89.i.i32, 1
   %exitcond93.not.i.i34 = icmp eq i64 %indvars.iv.next90.i.i33, %wide.trip.count92.i.i30
-  br i1 %exitcond93.not.i.i34, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph71.i29.i31, !llvm.loop !616
+  br i1 %exitcond93.not.i.i34, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph71.i29.i31, !llvm.loop !616
 
 72:                                               ; preds = %11
   %.val27 = load double, ptr %1, align 8
@@ -60254,7 +60254,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLEScalar3runERKNS1_
   br i1 %86, label %88, label %94
 
 88:                                               ; preds = %72
-  br i1 %87, label %.lr.ph71.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %87, label %.lr.ph71.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph71.preheader.i.i:                           ; preds = %88
   %wide.trip.count92.i.i42 = zext nneg i32 %83 to i64
@@ -60270,10 +60270,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLEScalar3runERKNS1_
   store i8 %92, ptr %93, align 1
   %indvars.iv.next90.i.i44 = add nuw nsw i64 %indvars.iv89.i.i43, 1
   %exitcond93.not.i.i45 = icmp eq i64 %indvars.iv.next90.i.i44, %wide.trip.count92.i.i42
-  br i1 %exitcond93.not.i.i45, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph71.i.i, !llvm.loop !617
+  br i1 %exitcond93.not.i.i45, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph71.i.i, !llvm.loop !617
 
 94:                                               ; preds = %72
-  br i1 %87, label %.lr.ph71.preheader.i34.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %87, label %.lr.ph71.preheader.i34.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph71.preheader.i34.i:                         ; preds = %94
   %wide.trip.count92.i35.i = zext nneg i32 %83 to i64
@@ -60290,7 +60290,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLEScalar3runERKNS1_
   store i8 %99, ptr %100, align 1
   %indvars.iv.next90.i38.i = add nuw nsw i64 %indvars.iv89.i37.i, 1
   %exitcond93.not.i39.i = icmp eq i64 %indvars.iv.next90.i38.i, %wide.trip.count92.i35.i
-  br i1 %exitcond93.not.i39.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph71.i36.i, !llvm.loop !618
+  br i1 %exitcond93.not.i39.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph71.i36.i, !llvm.loop !618
 
 101:                                              ; preds = %11, %3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -60320,7 +60320,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLEScalar3runERKNS1_
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit: ; preds = %.lr.ph71.i36.i, %.lr.ph71.i.i, %.lr.ph71.i29.i31, %.lr.ph73.i.i37, %.lr.ph71.i29.i, %.lr.ph73.i.i, %94, %88, %65, %60, %37, %32
+_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit: ; preds = %.lr.ph71.i36.i, %.lr.ph71.i.i, %.lr.ph71.i29.i31, %.lr.ph73.i.i37, %.lr.ph71.i29.i, %.lr.ph73.i.i, %94, %88, %65, %60, %37, %32
   ret void
 }
 
@@ -61151,7 +61151,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLTScalar3runERKNS1_
   br i1 %30, label %32, label %38
 
 32:                                               ; preds = %16
-  br i1 %31, label %.lr.ph.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %31, label %.lr.ph.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %32
   %wide.trip.count.i.i = zext nneg i32 %27 to i64
@@ -61167,10 +61167,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLTScalar3runERKNS1_
   store i8 %36, ptr %37, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph.i.i, !llvm.loop !630
+  br i1 %exitcond.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph.i.i, !llvm.loop !630
 
 38:                                               ; preds = %16
-  br i1 %31, label %.lr.ph.preheader.i20.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %31, label %.lr.ph.preheader.i20.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph.preheader.i20.i:                           ; preds = %38
   %wide.trip.count.i21.i = zext nneg i32 %27 to i64
@@ -61187,7 +61187,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLTScalar3runERKNS1_
   store i8 %43, ptr %44, align 1
   %indvars.iv.next.i24.i = add nuw nsw i64 %indvars.iv.i23.i, 1
   %exitcond.not.i25.i = icmp eq i64 %indvars.iv.next.i24.i, %wide.trip.count.i21.i
-  br i1 %exitcond.not.i25.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph.i22.i, !llvm.loop !631
+  br i1 %exitcond.not.i25.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph.i22.i, !llvm.loop !631
 
 45:                                               ; preds = %11
   %.val23 = load double, ptr %1, align 8
@@ -61211,7 +61211,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLTScalar3runERKNS1_
   br i1 %59, label %61, label %67
 
 61:                                               ; preds = %45
-  br i1 %60, label %.lr.ph.preheader.i.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %60, label %.lr.ph.preheader.i.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph.preheader.i.i35:                           ; preds = %61
   %wide.trip.count.i.i36 = zext nneg i32 %56 to i64
@@ -61227,10 +61227,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLTScalar3runERKNS1_
   store i8 %65, ptr %66, align 1
   %indvars.iv.next.i.i39 = add nuw nsw i64 %indvars.iv.i.i38, 1
   %exitcond.not.i.i40 = icmp eq i64 %indvars.iv.next.i.i39, %wide.trip.count.i.i36
-  br i1 %exitcond.not.i.i40, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph.i.i37, !llvm.loop !632
+  br i1 %exitcond.not.i.i40, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph.i.i37, !llvm.loop !632
 
 67:                                               ; preds = %45
-  br i1 %60, label %.lr.ph.preheader.i20.i29, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %60, label %.lr.ph.preheader.i20.i29, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph.preheader.i20.i29:                         ; preds = %67
   %wide.trip.count.i21.i30 = zext nneg i32 %56 to i64
@@ -61247,7 +61247,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLTScalar3runERKNS1_
   store i8 %72, ptr %73, align 1
   %indvars.iv.next.i24.i33 = add nuw nsw i64 %indvars.iv.i23.i32, 1
   %exitcond.not.i25.i34 = icmp eq i64 %indvars.iv.next.i24.i33, %wide.trip.count.i21.i30
-  br i1 %exitcond.not.i25.i34, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph.i22.i31, !llvm.loop !633
+  br i1 %exitcond.not.i25.i34, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph.i22.i31, !llvm.loop !633
 
 74:                                               ; preds = %11
   %.val27 = load double, ptr %1, align 8
@@ -61271,7 +61271,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLTScalar3runERKNS1_
   br i1 %88, label %90, label %96
 
 90:                                               ; preds = %74
-  br i1 %89, label %.lr.ph.preheader.i.i47, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %89, label %.lr.ph.preheader.i.i47, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph.preheader.i.i47:                           ; preds = %90
   %wide.trip.count.i.i48 = zext nneg i32 %85 to i64
@@ -61287,10 +61287,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLTScalar3runERKNS1_
   store i8 %94, ptr %95, align 1
   %indvars.iv.next.i.i51 = add nuw nsw i64 %indvars.iv.i.i50, 1
   %exitcond.not.i.i52 = icmp eq i64 %indvars.iv.next.i.i51, %wide.trip.count.i.i48
-  br i1 %exitcond.not.i.i52, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph.i.i49, !llvm.loop !634
+  br i1 %exitcond.not.i.i52, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph.i.i49, !llvm.loop !634
 
 96:                                               ; preds = %74
-  br i1 %89, label %.lr.ph.preheader.i20.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %89, label %.lr.ph.preheader.i20.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph.preheader.i20.i41:                         ; preds = %96
   %wide.trip.count.i21.i42 = zext nneg i32 %85 to i64
@@ -61307,7 +61307,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLTScalar3runERKNS1_
   store i8 %101, ptr %102, align 1
   %indvars.iv.next.i24.i45 = add nuw nsw i64 %indvars.iv.i23.i44, 1
   %exitcond.not.i25.i46 = icmp eq i64 %indvars.iv.next.i24.i45, %wide.trip.count.i21.i42
-  br i1 %exitcond.not.i25.i46, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph.i22.i43, !llvm.loop !635
+  br i1 %exitcond.not.i25.i46, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph.i22.i43, !llvm.loop !635
 
 103:                                              ; preds = %11, %3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -61337,7 +61337,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpLTScalar3runERKNS1_
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit: ; preds = %.lr.ph.i22.i43, %.lr.ph.i.i49, %.lr.ph.i22.i31, %.lr.ph.i.i37, %.lr.ph.i22.i, %.lr.ph.i.i, %96, %90, %67, %61, %38, %32
+_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit: ; preds = %.lr.ph.i22.i43, %.lr.ph.i.i49, %.lr.ph.i22.i31, %.lr.ph.i.i37, %.lr.ph.i22.i, %.lr.ph.i.i, %96, %90, %67, %61, %38, %32
   ret void
 }
 
@@ -62168,7 +62168,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpEQScalar3runERKNS1_
   br i1 %30, label %32, label %38
 
 32:                                               ; preds = %16
-  br i1 %31, label %.lr.ph79.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %31, label %.lr.ph79.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph79.preheader.i.i:                           ; preds = %32
   %wide.trip.count109.i.i = zext nneg i32 %27 to i64
@@ -62184,10 +62184,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpEQScalar3runERKNS1_
   store i8 %36, ptr %37, align 1
   %indvars.iv.next107.i.i = add nuw nsw i64 %indvars.iv106.i.i, 1
   %exitcond110.not.i.i = icmp eq i64 %indvars.iv.next107.i.i, %wide.trip.count109.i.i
-  br i1 %exitcond110.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph79.i.i, !llvm.loop !647
+  br i1 %exitcond110.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph79.i.i, !llvm.loop !647
 
 38:                                               ; preds = %16
-  br i1 %31, label %.lr.ph77.preheader.i36.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %31, label %.lr.ph77.preheader.i36.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph77.preheader.i36.i:                         ; preds = %38
   %wide.trip.count107.i.i = zext nneg i32 %27 to i64
@@ -62204,7 +62204,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpEQScalar3runERKNS1_
   store i8 %43, ptr %44, align 1
   %indvars.iv.next105.i.i = add nuw nsw i64 %indvars.iv104.i.i, 1
   %exitcond108.not.i.i = icmp eq i64 %indvars.iv.next105.i.i, %wide.trip.count107.i.i
-  br i1 %exitcond108.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph77.i37.i, !llvm.loop !648
+  br i1 %exitcond108.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph77.i37.i, !llvm.loop !648
 
 45:                                               ; preds = %11
   %.val23 = load double, ptr %1, align 8
@@ -62228,7 +62228,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpEQScalar3runERKNS1_
   br i1 %59, label %61, label %67
 
 61:                                               ; preds = %45
-  br i1 %60, label %.lr.ph79.preheader.i.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %60, label %.lr.ph79.preheader.i.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph79.preheader.i.i35:                         ; preds = %61
   %wide.trip.count109.i.i36 = zext nneg i32 %56 to i64
@@ -62244,10 +62244,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpEQScalar3runERKNS1_
   store i8 %65, ptr %66, align 1
   %indvars.iv.next107.i.i39 = add nuw nsw i64 %indvars.iv106.i.i38, 1
   %exitcond110.not.i.i40 = icmp eq i64 %indvars.iv.next107.i.i39, %wide.trip.count109.i.i36
-  br i1 %exitcond110.not.i.i40, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph79.i.i37, !llvm.loop !649
+  br i1 %exitcond110.not.i.i40, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph79.i.i37, !llvm.loop !649
 
 67:                                               ; preds = %45
-  br i1 %60, label %.lr.ph77.preheader.i36.i29, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %60, label %.lr.ph77.preheader.i36.i29, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph77.preheader.i36.i29:                       ; preds = %67
   %wide.trip.count107.i.i30 = zext nneg i32 %56 to i64
@@ -62264,7 +62264,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpEQScalar3runERKNS1_
   store i8 %72, ptr %73, align 1
   %indvars.iv.next105.i.i33 = add nuw nsw i64 %indvars.iv104.i.i32, 1
   %exitcond108.not.i.i34 = icmp eq i64 %indvars.iv.next105.i.i33, %wide.trip.count107.i.i30
-  br i1 %exitcond108.not.i.i34, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph77.i37.i31, !llvm.loop !650
+  br i1 %exitcond108.not.i.i34, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph77.i37.i31, !llvm.loop !650
 
 74:                                               ; preds = %11
   %.val27 = load double, ptr %1, align 8
@@ -62288,7 +62288,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpEQScalar3runERKNS1_
   br i1 %88, label %90, label %96
 
 90:                                               ; preds = %74
-  br i1 %89, label %.lr.ph77.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %89, label %.lr.ph77.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph77.preheader.i.i:                           ; preds = %90
   %wide.trip.count107.i.i41 = zext nneg i32 %85 to i64
@@ -62304,10 +62304,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpEQScalar3runERKNS1_
   store i8 %94, ptr %95, align 1
   %indvars.iv.next105.i.i43 = add nuw nsw i64 %indvars.iv104.i.i42, 1
   %exitcond108.not.i.i44 = icmp eq i64 %indvars.iv.next105.i.i43, %wide.trip.count107.i.i41
-  br i1 %exitcond108.not.i.i44, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph77.i.i, !llvm.loop !651
+  br i1 %exitcond108.not.i.i44, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph77.i.i, !llvm.loop !651
 
 96:                                               ; preds = %74
-  br i1 %89, label %.lr.ph77.preheader.i55.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %89, label %.lr.ph77.preheader.i55.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph77.preheader.i55.i:                         ; preds = %96
   %wide.trip.count107.i56.i = zext nneg i32 %85 to i64
@@ -62324,7 +62324,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpEQScalar3runERKNS1_
   store i8 %101, ptr %102, align 1
   %indvars.iv.next105.i59.i = add nuw nsw i64 %indvars.iv104.i58.i, 1
   %exitcond108.not.i60.i = icmp eq i64 %indvars.iv.next105.i59.i, %wide.trip.count107.i56.i
-  br i1 %exitcond108.not.i60.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph77.i57.i, !llvm.loop !652
+  br i1 %exitcond108.not.i60.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph77.i57.i, !llvm.loop !652
 
 103:                                              ; preds = %11, %3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -62354,7 +62354,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpEQScalar3runERKNS1_
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit: ; preds = %.lr.ph77.i57.i, %.lr.ph77.i.i, %.lr.ph77.i37.i31, %.lr.ph79.i.i37, %.lr.ph77.i37.i, %.lr.ph79.i.i, %96, %90, %67, %61, %38, %32
+_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit: ; preds = %.lr.ph77.i57.i, %.lr.ph77.i.i, %.lr.ph77.i37.i31, %.lr.ph79.i.i37, %.lr.ph77.i37.i, %.lr.ph79.i.i, %96, %90, %67, %61, %38, %32
   ret void
 }
 
@@ -63185,7 +63185,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpNEScalar3runERKNS1_
   br i1 %30, label %32, label %37
 
 32:                                               ; preds = %16
-  br i1 %31, label %.lr.ph77.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %31, label %.lr.ph77.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph77.preheader.i.i:                           ; preds = %32
   %wide.trip.count104.i.i = zext nneg i32 %27 to i64
@@ -63201,10 +63201,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpNEScalar3runERKNS1_
   store i8 %35, ptr %36, align 1
   %indvars.iv.next102.i.i = add nuw nsw i64 %indvars.iv101.i.i, 1
   %exitcond105.not.i.i = icmp eq i64 %indvars.iv.next102.i.i, %wide.trip.count104.i.i
-  br i1 %exitcond105.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph77.i.i, !llvm.loop !664
+  br i1 %exitcond105.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph77.i.i, !llvm.loop !664
 
 37:                                               ; preds = %16
-  br i1 %31, label %.lr.ph75.preheader.i33.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %31, label %.lr.ph75.preheader.i33.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph75.preheader.i33.i:                         ; preds = %37
   %wide.trip.count102.i.i = zext nneg i32 %27 to i64
@@ -63221,7 +63221,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpNEScalar3runERKNS1_
   store i8 %42, ptr %43, align 1
   %indvars.iv.next100.i.i = add nuw nsw i64 %indvars.iv99.i.i, 1
   %exitcond103.not.i.i = icmp eq i64 %indvars.iv.next100.i.i, %wide.trip.count102.i.i
-  br i1 %exitcond103.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph75.i34.i, !llvm.loop !665
+  br i1 %exitcond103.not.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph75.i34.i, !llvm.loop !665
 
 44:                                               ; preds = %11
   %.val23 = load double, ptr %1, align 8
@@ -63245,7 +63245,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpNEScalar3runERKNS1_
   br i1 %58, label %60, label %65
 
 60:                                               ; preds = %44
-  br i1 %59, label %.lr.ph77.preheader.i.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %59, label %.lr.ph77.preheader.i.i35, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph77.preheader.i.i35:                         ; preds = %60
   %wide.trip.count104.i.i36 = zext nneg i32 %55 to i64
@@ -63261,10 +63261,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpNEScalar3runERKNS1_
   store i8 %63, ptr %64, align 1
   %indvars.iv.next102.i.i40 = add nuw nsw i64 %indvars.iv101.i.i38, 1
   %exitcond105.not.i.i41 = icmp eq i64 %indvars.iv.next102.i.i40, %wide.trip.count104.i.i36
-  br i1 %exitcond105.not.i.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph77.i.i37, !llvm.loop !666
+  br i1 %exitcond105.not.i.i41, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph77.i.i37, !llvm.loop !666
 
 65:                                               ; preds = %44
-  br i1 %59, label %.lr.ph75.preheader.i33.i29, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %59, label %.lr.ph75.preheader.i33.i29, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph75.preheader.i33.i29:                       ; preds = %65
   %wide.trip.count102.i.i30 = zext nneg i32 %55 to i64
@@ -63281,7 +63281,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpNEScalar3runERKNS1_
   store i8 %70, ptr %71, align 1
   %indvars.iv.next100.i.i33 = add nuw nsw i64 %indvars.iv99.i.i32, 1
   %exitcond103.not.i.i34 = icmp eq i64 %indvars.iv.next100.i.i33, %wide.trip.count102.i.i30
-  br i1 %exitcond103.not.i.i34, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph75.i34.i31, !llvm.loop !667
+  br i1 %exitcond103.not.i.i34, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph75.i34.i31, !llvm.loop !667
 
 72:                                               ; preds = %11
   %.val27 = load double, ptr %1, align 8
@@ -63305,7 +63305,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpNEScalar3runERKNS1_
   br i1 %86, label %88, label %94
 
 88:                                               ; preds = %72
-  br i1 %87, label %.lr.ph75.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %87, label %.lr.ph75.preheader.i.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph75.preheader.i.i:                           ; preds = %88
   %wide.trip.count102.i.i42 = zext nneg i32 %83 to i64
@@ -63321,10 +63321,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpNEScalar3runERKNS1_
   store i8 %92, ptr %93, align 1
   %indvars.iv.next100.i.i44 = add nuw nsw i64 %indvars.iv99.i.i43, 1
   %exitcond103.not.i.i45 = icmp eq i64 %indvars.iv.next100.i.i44, %wide.trip.count102.i.i42
-  br i1 %exitcond103.not.i.i45, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph75.i.i, !llvm.loop !668
+  br i1 %exitcond103.not.i.i45, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph75.i.i, !llvm.loop !668
 
 94:                                               ; preds = %72
-  br i1 %87, label %.lr.ph75.preheader.i48.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit
+  br i1 %87, label %.lr.ph75.preheader.i48.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit
 
 .lr.ph75.preheader.i48.i:                         ; preds = %94
   %wide.trip.count102.i49.i = zext nneg i32 %83 to i64
@@ -63341,7 +63341,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpNEScalar3runERKNS1_
   store i8 %99, ptr %100, align 1
   %indvars.iv.next100.i52.i = add nuw nsw i64 %indvars.iv99.i51.i, 1
   %exitcond103.not.i53.i = icmp eq i64 %indvars.iv.next100.i52.i, %wide.trip.count102.i49.i
-  br i1 %exitcond103.not.i53.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit, label %.lr.ph75.i50.i, !llvm.loop !669
+  br i1 %exitcond103.not.i53.i, label %_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit, label %.lr.ph75.i50.i, !llvm.loop !669
 
 101:                                              ; preds = %11, %3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -63371,7 +63371,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCmpNEScalar3runERKNS1_
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.exit: ; preds = %.lr.ph75.i50.i, %.lr.ph75.i.i, %.lr.ph75.i34.i31, %.lr.ph77.i.i37, %.lr.ph75.i34.i, %.lr.ph77.i.i, %94, %88, %65, %60, %37, %32
+_ZN2cv4gapi5fluidL7run_cmpIhhEEvRNS1_6BufferERKNS1_4ViewENS1_7CompareERKNS_7Scalar_IdEE.argprom.argprom.exit: ; preds = %.lr.ph75.i50.i, %.lr.ph75.i.i, %.lr.ph75.i34.i31, %.lr.ph77.i.i37, %.lr.ph75.i34.i, %.lr.ph77.i.i, %94, %88, %65, %60, %37, %32
   ret void
 }
 
@@ -64243,7 +64243,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidThreshold3runERKNS1_4V
 
 .preheader13.i:                                   ; preds = %24
   %48 = icmp sgt i32 %35, 0
-  br i1 %48, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit
+  br i1 %48, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader13.i
   %wide.trip.count.i = zext nneg i32 %35 to i64
@@ -64251,7 +64251,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidThreshold3runERKNS1_4V
 
 .preheader11.i:                                   ; preds = %24
   %49 = icmp sgt i32 %35, 0
-  br i1 %49, label %.lr.ph17.preheader.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit
+  br i1 %49, label %.lr.ph17.preheader.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit
 
 .lr.ph17.preheader.i:                             ; preds = %.preheader11.i
   %wide.trip.count32.i = zext nneg i32 %35 to i64
@@ -64259,7 +64259,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidThreshold3runERKNS1_4V
 
 .preheader9.i:                                    ; preds = %24
   %50 = icmp sgt i32 %35, 0
-  br i1 %50, label %.lr.ph19.preheader.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit
+  br i1 %50, label %.lr.ph19.preheader.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit
 
 .lr.ph19.preheader.i:                             ; preds = %.preheader9.i
   %wide.trip.count37.i = zext nneg i32 %35 to i64
@@ -64267,7 +64267,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidThreshold3runERKNS1_4V
 
 .preheader7.i:                                    ; preds = %24
   %51 = icmp sgt i32 %35, 0
-  br i1 %51, label %.lr.ph21.preheader.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit
+  br i1 %51, label %.lr.ph21.preheader.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit
 
 .lr.ph21.preheader.i:                             ; preds = %.preheader7.i
   %wide.trip.count42.i = zext nneg i32 %35 to i64
@@ -64275,7 +64275,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidThreshold3runERKNS1_4V
 
 .preheader.i:                                     ; preds = %24
   %52 = icmp sgt i32 %35, 0
-  br i1 %52, label %.lr.ph23.preheader.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit
+  br i1 %52, label %.lr.ph23.preheader.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit
 
 .lr.ph23.preheader.i:                             ; preds = %.preheader.i
   %wide.trip.count47.i = zext nneg i32 %35 to i64
@@ -64291,7 +64291,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidThreshold3runERKNS1_4V
   store i8 %narrow89.i, ptr %56, align 1
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
-  br i1 %exitcond48.not.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, label %.lr.ph23.i, !llvm.loop !684
+  br i1 %exitcond48.not.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, label %.lr.ph23.i, !llvm.loop !684
 
 .lr.ph21.i:                                       ; preds = %.lr.ph21.i, %.lr.ph21.preheader.i
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph21.preheader.i ], [ %indvars.iv.next40.i, %.lr.ph21.i ]
@@ -64303,7 +64303,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidThreshold3runERKNS1_4V
   store i8 %narrow.i, ptr %60, align 1
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
-  br i1 %exitcond43.not.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, label %.lr.ph21.i, !llvm.loop !685
+  br i1 %exitcond43.not.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, label %.lr.ph21.i, !llvm.loop !685
 
 .lr.ph19.i:                                       ; preds = %.lr.ph19.i, %.lr.ph19.preheader.i
   %indvars.iv34.i = phi i64 [ 0, %.lr.ph19.preheader.i ], [ %indvars.iv.next35.i, %.lr.ph19.i ]
@@ -64315,7 +64315,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidThreshold3runERKNS1_4V
   store i8 %..i, ptr %64, align 1
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next35.i, %wide.trip.count37.i
-  br i1 %exitcond38.not.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, label %.lr.ph19.i, !llvm.loop !686
+  br i1 %exitcond38.not.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, label %.lr.ph19.i, !llvm.loop !686
 
 .lr.ph17.i:                                       ; preds = %.lr.ph17.i, %.lr.ph17.preheader.i
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph17.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph17.i ]
@@ -64327,7 +64327,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidThreshold3runERKNS1_4V
   store i8 %spec.select.i, ptr %68, align 1
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
-  br i1 %exitcond33.not.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, label %.lr.ph17.i, !llvm.loop !687
+  br i1 %exitcond33.not.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, label %.lr.ph17.i, !llvm.loop !687
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
@@ -64339,7 +64339,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidThreshold3runERKNS1_4V
   store i8 %spec.select91.i, ptr %72, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, label %.lr.ph.i, !llvm.loop !688
+  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, label %.lr.ph.i, !llvm.loop !688
 
 73:                                               ; preds = %24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #23
@@ -64370,7 +64370,7 @@ common.resume:                                    ; preds = %200, %202, %194, %1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
   resume { ptr, i32 } %common.resume.op
 
-_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit: ; preds = %.lr.ph.i, %.lr.ph17.i, %.lr.ph19.i, %.lr.ph21.i, %.lr.ph23.i, %.preheader13.i, %.preheader11.i, %.preheader9.i, %.preheader7.i, %.preheader.i
+_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit: ; preds = %.lr.ph.i, %.lr.ph17.i, %.lr.ph19.i, %.lr.ph21.i, %.lr.ph23.i, %.preheader13.i, %.preheader11.i, %.preheader9.i, %.preheader7.i, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   br label %204
@@ -64429,7 +64429,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
 
 .preheader13.i44:                                 ; preds = %86
   %110 = icmp sgt i32 %97, 0
-  br i1 %110, label %.lr.ph.preheader.i45, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit
+  br i1 %110, label %.lr.ph.preheader.i45, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit
 
 .lr.ph.preheader.i45:                             ; preds = %.preheader13.i44
   %wide.trip.count.i46 = zext nneg i32 %97 to i64
@@ -64437,7 +64437,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
 
 .preheader11.i52:                                 ; preds = %86
   %111 = icmp sgt i32 %97, 0
-  br i1 %111, label %.lr.ph17.preheader.i53, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit
+  br i1 %111, label %.lr.ph17.preheader.i53, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit
 
 .lr.ph17.preheader.i53:                           ; preds = %.preheader11.i52
   %wide.trip.count32.i54 = zext nneg i32 %97 to i64
@@ -64445,7 +64445,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
 
 .preheader9.i60:                                  ; preds = %86
   %112 = icmp sgt i32 %97, 0
-  br i1 %112, label %.lr.ph19.preheader.i61, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit
+  br i1 %112, label %.lr.ph19.preheader.i61, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit
 
 .lr.ph19.preheader.i61:                           ; preds = %.preheader9.i60
   %wide.trip.count37.i62 = zext nneg i32 %97 to i64
@@ -64453,7 +64453,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
 
 .preheader7.i68:                                  ; preds = %86
   %113 = icmp sgt i32 %97, 0
-  br i1 %113, label %.lr.ph21.preheader.i69, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit
+  br i1 %113, label %.lr.ph21.preheader.i69, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit
 
 .lr.ph21.preheader.i69:                           ; preds = %.preheader7.i68
   %wide.trip.count42.i70 = zext nneg i32 %97 to i64
@@ -64461,7 +64461,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
 
 .preheader.i76:                                   ; preds = %86
   %114 = icmp sgt i32 %97, 0
-  br i1 %114, label %.lr.ph23.preheader.i77, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit
+  br i1 %114, label %.lr.ph23.preheader.i77, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit
 
 .lr.ph23.preheader.i77:                           ; preds = %.preheader.i76
   %wide.trip.count47.i78 = zext nneg i32 %97 to i64
@@ -64477,7 +64477,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
   store i16 %narrow89.i81, ptr %118, align 2
   %indvars.iv.next45.i82 = add nuw nsw i64 %indvars.iv44.i80, 1
   %exitcond48.not.i83 = icmp eq i64 %indvars.iv.next45.i82, %wide.trip.count47.i78
-  br i1 %exitcond48.not.i83, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, label %.lr.ph23.i79, !llvm.loop !689
+  br i1 %exitcond48.not.i83, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, label %.lr.ph23.i79, !llvm.loop !689
 
 .lr.ph21.i71:                                     ; preds = %.lr.ph21.i71, %.lr.ph21.preheader.i69
   %indvars.iv39.i72 = phi i64 [ 0, %.lr.ph21.preheader.i69 ], [ %indvars.iv.next40.i74, %.lr.ph21.i71 ]
@@ -64489,7 +64489,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
   store i16 %narrow.i73, ptr %122, align 2
   %indvars.iv.next40.i74 = add nuw nsw i64 %indvars.iv39.i72, 1
   %exitcond43.not.i75 = icmp eq i64 %indvars.iv.next40.i74, %wide.trip.count42.i70
-  br i1 %exitcond43.not.i75, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, label %.lr.ph21.i71, !llvm.loop !690
+  br i1 %exitcond43.not.i75, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, label %.lr.ph21.i71, !llvm.loop !690
 
 .lr.ph19.i63:                                     ; preds = %.lr.ph19.i63, %.lr.ph19.preheader.i61
   %indvars.iv34.i64 = phi i64 [ 0, %.lr.ph19.preheader.i61 ], [ %indvars.iv.next35.i66, %.lr.ph19.i63 ]
@@ -64501,7 +64501,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
   store i16 %..i65, ptr %126, align 2
   %indvars.iv.next35.i66 = add nuw nsw i64 %indvars.iv34.i64, 1
   %exitcond38.not.i67 = icmp eq i64 %indvars.iv.next35.i66, %wide.trip.count37.i62
-  br i1 %exitcond38.not.i67, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, label %.lr.ph19.i63, !llvm.loop !691
+  br i1 %exitcond38.not.i67, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, label %.lr.ph19.i63, !llvm.loop !691
 
 .lr.ph17.i55:                                     ; preds = %.lr.ph17.i55, %.lr.ph17.preheader.i53
   %indvars.iv29.i56 = phi i64 [ 0, %.lr.ph17.preheader.i53 ], [ %indvars.iv.next30.i58, %.lr.ph17.i55 ]
@@ -64513,7 +64513,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
   store i16 %spec.select.i57, ptr %130, align 2
   %indvars.iv.next30.i58 = add nuw nsw i64 %indvars.iv29.i56, 1
   %exitcond33.not.i59 = icmp eq i64 %indvars.iv.next30.i58, %wide.trip.count32.i54
-  br i1 %exitcond33.not.i59, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, label %.lr.ph17.i55, !llvm.loop !692
+  br i1 %exitcond33.not.i59, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, label %.lr.ph17.i55, !llvm.loop !692
 
 .lr.ph.i47:                                       ; preds = %.lr.ph.i47, %.lr.ph.preheader.i45
   %indvars.iv.i48 = phi i64 [ 0, %.lr.ph.preheader.i45 ], [ %indvars.iv.next.i50, %.lr.ph.i47 ]
@@ -64525,7 +64525,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
   store i16 %spec.select91.i49, ptr %134, align 2
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i48, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, %wide.trip.count.i46
-  br i1 %exitcond.not.i51, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, label %.lr.ph.i47, !llvm.loop !693
+  br i1 %exitcond.not.i51, label %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, label %.lr.ph.i47, !llvm.loop !693
 
 135:                                              ; preds = %86
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #23
@@ -64550,7 +64550,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   br label %common.resume
 
-_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit: ; preds = %.lr.ph.i47, %.lr.ph17.i55, %.lr.ph19.i63, %.lr.ph21.i71, %.lr.ph23.i79, %.preheader13.i44, %.preheader11.i52, %.preheader9.i60, %.preheader7.i68, %.preheader.i76
+_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit: ; preds = %.lr.ph.i47, %.lr.ph17.i55, %.lr.ph19.i63, %.lr.ph21.i71, %.lr.ph23.i79, %.preheader13.i44, %.preheader11.i52, %.preheader9.i60, %.preheader7.i68, %.preheader.i76
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   br label %204
@@ -64597,7 +64597,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
 
 .preheader13.i85:                                 ; preds = %148
   %166 = icmp sgt i32 %159, 0
-  br i1 %166, label %.lr.ph.preheader.i86, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit
+  br i1 %166, label %.lr.ph.preheader.i86, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit
 
 .lr.ph.preheader.i86:                             ; preds = %.preheader13.i85
   %wide.trip.count.i87 = zext nneg i32 %159 to i64
@@ -64605,7 +64605,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
 
 .preheader11.i93:                                 ; preds = %148
   %167 = icmp sgt i32 %159, 0
-  br i1 %167, label %.lr.ph17.preheader.i94, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit
+  br i1 %167, label %.lr.ph17.preheader.i94, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit
 
 .lr.ph17.preheader.i94:                           ; preds = %.preheader11.i93
   %wide.trip.count32.i95 = zext nneg i32 %159 to i64
@@ -64613,7 +64613,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
 
 .preheader9.i101:                                 ; preds = %148
   %168 = icmp sgt i32 %159, 0
-  br i1 %168, label %.lr.ph19.preheader.i102, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit
+  br i1 %168, label %.lr.ph19.preheader.i102, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit
 
 .lr.ph19.preheader.i102:                          ; preds = %.preheader9.i101
   %wide.trip.count37.i103 = zext nneg i32 %159 to i64
@@ -64621,7 +64621,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
 
 .preheader7.i109:                                 ; preds = %148
   %169 = icmp sgt i32 %159, 0
-  br i1 %169, label %.lr.ph21.preheader.i110, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit
+  br i1 %169, label %.lr.ph21.preheader.i110, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit
 
 .lr.ph21.preheader.i110:                          ; preds = %.preheader7.i109
   %wide.trip.count42.i111 = zext nneg i32 %159 to i64
@@ -64629,7 +64629,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
 
 .preheader.i117:                                  ; preds = %148
   %170 = icmp sgt i32 %159, 0
-  br i1 %170, label %.lr.ph23.preheader.i118, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit
+  br i1 %170, label %.lr.ph23.preheader.i118, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit
 
 .lr.ph23.preheader.i118:                          ; preds = %.preheader.i117
   %wide.trip.count47.i119 = zext nneg i32 %159 to i64
@@ -64645,7 +64645,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
   store i16 %narrow89.i122, ptr %174, align 2
   %indvars.iv.next45.i123 = add nuw nsw i64 %indvars.iv44.i121, 1
   %exitcond48.not.i124 = icmp eq i64 %indvars.iv.next45.i123, %wide.trip.count47.i119
-  br i1 %exitcond48.not.i124, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, label %.lr.ph23.i120, !llvm.loop !694
+  br i1 %exitcond48.not.i124, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, label %.lr.ph23.i120, !llvm.loop !694
 
 .lr.ph21.i112:                                    ; preds = %.lr.ph21.i112, %.lr.ph21.preheader.i110
   %indvars.iv39.i113 = phi i64 [ 0, %.lr.ph21.preheader.i110 ], [ %indvars.iv.next40.i115, %.lr.ph21.i112 ]
@@ -64657,7 +64657,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
   store i16 %narrow.i114, ptr %178, align 2
   %indvars.iv.next40.i115 = add nuw nsw i64 %indvars.iv39.i113, 1
   %exitcond43.not.i116 = icmp eq i64 %indvars.iv.next40.i115, %wide.trip.count42.i111
-  br i1 %exitcond43.not.i116, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, label %.lr.ph21.i112, !llvm.loop !695
+  br i1 %exitcond43.not.i116, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, label %.lr.ph21.i112, !llvm.loop !695
 
 .lr.ph19.i104:                                    ; preds = %.lr.ph19.i104, %.lr.ph19.preheader.i102
   %indvars.iv34.i105 = phi i64 [ 0, %.lr.ph19.preheader.i102 ], [ %indvars.iv.next35.i107, %.lr.ph19.i104 ]
@@ -64669,7 +64669,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
   store i16 %..i106, ptr %182, align 2
   %indvars.iv.next35.i107 = add nuw nsw i64 %indvars.iv34.i105, 1
   %exitcond38.not.i108 = icmp eq i64 %indvars.iv.next35.i107, %wide.trip.count37.i103
-  br i1 %exitcond38.not.i108, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, label %.lr.ph19.i104, !llvm.loop !696
+  br i1 %exitcond38.not.i108, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, label %.lr.ph19.i104, !llvm.loop !696
 
 .lr.ph17.i96:                                     ; preds = %.lr.ph17.i96, %.lr.ph17.preheader.i94
   %indvars.iv29.i97 = phi i64 [ 0, %.lr.ph17.preheader.i94 ], [ %indvars.iv.next30.i99, %.lr.ph17.i96 ]
@@ -64681,7 +64681,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
   store i16 %spec.select.i98, ptr %186, align 2
   %indvars.iv.next30.i99 = add nuw nsw i64 %indvars.iv29.i97, 1
   %exitcond33.not.i100 = icmp eq i64 %indvars.iv.next30.i99, %wide.trip.count32.i95
-  br i1 %exitcond33.not.i100, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, label %.lr.ph17.i96, !llvm.loop !697
+  br i1 %exitcond33.not.i100, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, label %.lr.ph17.i96, !llvm.loop !697
 
 .lr.ph.i88:                                       ; preds = %.lr.ph.i88, %.lr.ph.preheader.i86
   %indvars.iv.i89 = phi i64 [ 0, %.lr.ph.preheader.i86 ], [ %indvars.iv.next.i91, %.lr.ph.i88 ]
@@ -64693,7 +64693,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
   store i16 %spec.select91.i90, ptr %190, align 2
   %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i89, 1
   %exitcond.not.i92 = icmp eq i64 %indvars.iv.next.i91, %wide.trip.count.i87
-  br i1 %exitcond.not.i92, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, label %.lr.ph.i88, !llvm.loop !698
+  br i1 %exitcond.not.i92, label %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, label %.lr.ph.i88, !llvm.loop !698
 
 191:                                              ; preds = %148
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #23
@@ -64718,7 +64718,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   br label %common.resume
 
-_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit: ; preds = %.lr.ph.i88, %.lr.ph17.i96, %.lr.ph19.i104, %.lr.ph21.i112, %.lr.ph23.i120, %.preheader13.i85, %.preheader11.i93, %.preheader9.i101, %.preheader7.i109, %.preheader.i117
+_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit: ; preds = %.lr.ph.i88, %.lr.ph17.i96, %.lr.ph19.i104, %.lr.ph21.i112, %.lr.ph23.i120, %.preheader13.i85, %.preheader11.i93, %.preheader9.i101, %.preheader7.i109, %.preheader.i117
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   br label %204
@@ -64746,7 +64746,7 @@ _ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   br label %common.resume
 
-204:                                              ; preds = %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit, %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.exit
+204:                                              ; preds = %_ZN2cv4gapi5fluidL13run_thresholdIssEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, %_ZN2cv4gapi5fluidL13run_thresholdIttEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit, %_ZN2cv4gapi5fluidL13run_thresholdIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_i.argprom.argprom.exit
   ret void
 }
 
@@ -65717,7 +65717,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidInRange3runERKNS1_4Vie
 
 .preheader9.i:                                    ; preds = %._crit_edge.i
   %76 = icmp sgt i32 %50, 0
-  br i1 %76, label %.lr.ph14.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+  br i1 %76, label %.lr.ph14.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
 
 .lr.ph14.i:                                       ; preds = %.preheader9.i
   %77 = load i8, ptr %25, align 1
@@ -65739,7 +65739,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidInRange3runERKNS1_4Vie
 
 .preheader7.i:                                    ; preds = %._crit_edge.i
   %91 = icmp sgt i32 %50, 0
-  br i1 %91, label %.lr.ph16.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+  br i1 %91, label %.lr.ph16.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
 
 .lr.ph16.i:                                       ; preds = %.preheader7.i
   %92 = load i8, ptr %25, align 1
@@ -65753,7 +65753,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidInRange3runERKNS1_4Vie
 
 .preheader.i:                                     ; preds = %._crit_edge.i
   %98 = icmp sgt i32 %50, 0
-  br i1 %98, label %.lr.ph18.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+  br i1 %98, label %.lr.ph18.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
 
 .lr.ph18.i:                                       ; preds = %.preheader.i
   %99 = load i8, ptr %25, align 1
@@ -65763,7 +65763,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidInRange3runERKNS1_4Vie
 
 101:                                              ; preds = %._crit_edge.i
   %102 = icmp sgt i32 %50, 0
-  br i1 %102, label %.lr.ph.i.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+  br i1 %102, label %.lr.ph.i.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
 
 .lr.ph.i.i:                                       ; preds = %101
   %103 = getelementptr inbounds i8, ptr %25, i64 1
@@ -65814,7 +65814,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidInRange3runERKNS1_4Vie
   store i8 %126, ptr %127, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, label %113, !llvm.loop !712
+  br i1 %exitcond.not.i.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, label %113, !llvm.loop !712
 
 128:                                              ; preds = %128, %.lr.ph18.i
   %indvars.iv33.i = phi i64 [ 0, %.lr.ph18.i ], [ %indvars.iv.next34.i, %128 ]
@@ -65828,7 +65828,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidInRange3runERKNS1_4Vie
   store i8 %131, ptr %132, align 1
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count36.i
-  br i1 %exitcond37.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, label %128, !llvm.loop !713
+  br i1 %exitcond37.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, label %128, !llvm.loop !713
 
 133:                                              ; preds = %143, %.lr.ph16.i
   %indvars.iv28.i = phi i64 [ 0, %.lr.ph16.i ], [ %indvars.iv.next29.i, %143 ]
@@ -65858,7 +65858,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidInRange3runERKNS1_4Vie
   store i8 %144, ptr %145, align 1
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next29.i, %wide.trip.count31.i
-  br i1 %exitcond32.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, label %133, !llvm.loop !714
+  br i1 %exitcond32.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, label %133, !llvm.loop !714
 
 146:                                              ; preds = %164, %.lr.ph14.i
   %indvars.iv23.i = phi i64 [ 0, %.lr.ph14.i ], [ %indvars.iv.next24.i, %164 ]
@@ -65906,7 +65906,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidInRange3runERKNS1_4Vie
   store i8 %165, ptr %166, align 1
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next24.i, %wide.trip.count26.i
-  br i1 %exitcond27.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, label %146, !llvm.loop !715
+  br i1 %exitcond27.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, label %146, !llvm.loop !715
 
 167:                                              ; preds = %._crit_edge.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #23
@@ -65937,7 +65937,7 @@ common.resume:                                    ; preds = %580, %582, %449, %4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
   resume { ptr, i32 } %common.resume.op
 
-_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit: ; preds = %164, %143, %128, %125, %.preheader9.i, %.preheader7.i, %.preheader.i, %101
+_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit: ; preds = %164, %143, %128, %125, %.preheader9.i, %.preheader7.i, %.preheader.i, %101
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
@@ -66037,7 +66037,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
 
 .preheader8.i:                                    ; preds = %._crit_edge.i39
   %209 = icmp sgt i32 %183, 0
-  br i1 %209, label %.lr.ph13.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+  br i1 %209, label %.lr.ph13.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
 
 .lr.ph13.i:                                       ; preds = %.preheader8.i
   %210 = load i16, ptr %19, align 2
@@ -66059,7 +66059,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
 
 .preheader6.i:                                    ; preds = %._crit_edge.i39
   %224 = icmp sgt i32 %183, 0
-  br i1 %224, label %.lr.ph15.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+  br i1 %224, label %.lr.ph15.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
 
 .lr.ph15.i:                                       ; preds = %.preheader6.i
   %225 = load i16, ptr %19, align 2
@@ -66077,7 +66077,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
 
 .preheader4.i:                                    ; preds = %._crit_edge.i39
   %235 = icmp sgt i32 %183, 0
-  br i1 %235, label %.lr.ph17.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+  br i1 %235, label %.lr.ph17.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
 
 .lr.ph17.i:                                       ; preds = %.preheader4.i
   %236 = load i16, ptr %19, align 2
@@ -66091,7 +66091,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
 
 .preheader.i57:                                   ; preds = %._crit_edge.i39
   %242 = icmp sgt i32 %183, 0
-  br i1 %242, label %.lr.ph19.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+  br i1 %242, label %.lr.ph19.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
 
 .lr.ph19.i:                                       ; preds = %.preheader.i57
   %243 = load i16, ptr %19, align 2
@@ -66111,7 +66111,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
   store i8 %248, ptr %249, align 1
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
-  br i1 %exitcond43.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, label %245, !llvm.loop !717
+  br i1 %exitcond43.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, label %245, !llvm.loop !717
 
 250:                                              ; preds = %260, %.lr.ph17.i
   %indvars.iv34.i = phi i64 [ 0, %.lr.ph17.i ], [ %indvars.iv.next35.i, %260 ]
@@ -66141,7 +66141,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
   store i8 %261, ptr %262, align 1
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next35.i, %wide.trip.count37.i
-  br i1 %exitcond38.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, label %250, !llvm.loop !718
+  br i1 %exitcond38.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, label %250, !llvm.loop !718
 
 263:                                              ; preds = %274, %.lr.ph15.i
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph15.i ], [ %indvars.iv.next30.i, %274 ]
@@ -66178,7 +66178,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
   store i8 %275, ptr %276, align 1
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
-  br i1 %exitcond33.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, label %263, !llvm.loop !719
+  br i1 %exitcond33.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, label %263, !llvm.loop !719
 
 277:                                              ; preds = %295, %.lr.ph13.i
   %indvars.iv24.i = phi i64 [ 0, %.lr.ph13.i ], [ %indvars.iv.next25.i, %295 ]
@@ -66226,7 +66226,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
   store i8 %296, ptr %297, align 1
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count27.i
-  br i1 %exitcond28.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, label %277, !llvm.loop !720
+  br i1 %exitcond28.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, label %277, !llvm.loop !720
 
 298:                                              ; preds = %._crit_edge.i39
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #23
@@ -66251,7 +66251,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #23
   br label %common.resume
 
-_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit: ; preds = %295, %274, %260, %245, %.preheader8.i, %.preheader6.i, %.preheader4.i, %.preheader.i57
+_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit: ; preds = %295, %274, %260, %245, %.preheader8.i, %.preheader6.i, %.preheader4.i, %.preheader.i57
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
@@ -66343,7 +66343,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
 
 .preheader8.i71:                                  ; preds = %._crit_edge.i70
   %336 = icmp sgt i32 %314, 0
-  br i1 %336, label %.lr.ph13.i72, label %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+  br i1 %336, label %.lr.ph13.i72, label %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
 
 .lr.ph13.i72:                                     ; preds = %.preheader8.i71
   %337 = load i16, ptr %13, align 2
@@ -66365,7 +66365,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
 
 .preheader6.i88:                                  ; preds = %._crit_edge.i70
   %351 = icmp sgt i32 %314, 0
-  br i1 %351, label %.lr.ph15.i89, label %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+  br i1 %351, label %.lr.ph15.i89, label %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
 
 .lr.ph15.i89:                                     ; preds = %.preheader6.i88
   %352 = load i16, ptr %13, align 2
@@ -66383,7 +66383,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
 
 .preheader4.i103:                                 ; preds = %._crit_edge.i70
   %362 = icmp sgt i32 %314, 0
-  br i1 %362, label %.lr.ph17.i104, label %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+  br i1 %362, label %.lr.ph17.i104, label %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
 
 .lr.ph17.i104:                                    ; preds = %.preheader4.i103
   %363 = load i16, ptr %13, align 2
@@ -66397,7 +66397,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
 
 .preheader.i114:                                  ; preds = %._crit_edge.i70
   %369 = icmp sgt i32 %314, 0
-  br i1 %369, label %.lr.ph19.i115, label %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+  br i1 %369, label %.lr.ph19.i115, label %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
 
 .lr.ph19.i115:                                    ; preds = %.preheader.i114
   %370 = load i16, ptr %13, align 2
@@ -66417,7 +66417,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
   store i8 %375, ptr %376, align 1
   %indvars.iv.next40.i121 = add nuw nsw i64 %indvars.iv39.i117, 1
   %exitcond43.not.i122 = icmp eq i64 %indvars.iv.next40.i121, %wide.trip.count42.i116
-  br i1 %exitcond43.not.i122, label %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, label %372, !llvm.loop !722
+  br i1 %exitcond43.not.i122, label %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, label %372, !llvm.loop !722
 
 377:                                              ; preds = %387, %.lr.ph17.i104
   %indvars.iv34.i106 = phi i64 [ 0, %.lr.ph17.i104 ], [ %indvars.iv.next35.i112, %387 ]
@@ -66447,7 +66447,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
   store i8 %388, ptr %389, align 1
   %indvars.iv.next35.i112 = add nuw nsw i64 %indvars.iv34.i106, 1
   %exitcond38.not.i113 = icmp eq i64 %indvars.iv.next35.i112, %wide.trip.count37.i105
-  br i1 %exitcond38.not.i113, label %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, label %377, !llvm.loop !723
+  br i1 %exitcond38.not.i113, label %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, label %377, !llvm.loop !723
 
 390:                                              ; preds = %401, %.lr.ph15.i89
   %indvars.iv29.i91 = phi i64 [ 0, %.lr.ph15.i89 ], [ %indvars.iv.next30.i101, %401 ]
@@ -66484,7 +66484,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
   store i8 %402, ptr %403, align 1
   %indvars.iv.next30.i101 = add nuw nsw i64 %indvars.iv29.i91, 1
   %exitcond33.not.i102 = icmp eq i64 %indvars.iv.next30.i101, %wide.trip.count32.i90
-  br i1 %exitcond33.not.i102, label %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, label %390, !llvm.loop !724
+  br i1 %exitcond33.not.i102, label %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, label %390, !llvm.loop !724
 
 404:                                              ; preds = %422, %.lr.ph13.i72
   %indvars.iv24.i74 = phi i64 [ 0, %.lr.ph13.i72 ], [ %indvars.iv.next25.i86, %422 ]
@@ -66532,7 +66532,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
   store i8 %423, ptr %424, align 1
   %indvars.iv.next25.i86 = add nuw nsw i64 %indvars.iv24.i74, 1
   %exitcond28.not.i87 = icmp eq i64 %indvars.iv.next25.i86, %wide.trip.count27.i73
-  br i1 %exitcond28.not.i87, label %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, label %404, !llvm.loop !725
+  br i1 %exitcond28.not.i87, label %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, label %404, !llvm.loop !725
 
 425:                                              ; preds = %._crit_edge.i70
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #23
@@ -66557,7 +66557,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #23
   br label %common.resume
 
-_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit: ; preds = %422, %401, %387, %372, %.preheader8.i71, %.preheader6.i88, %.preheader4.i103, %.preheader.i114
+_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit: ; preds = %422, %401, %387, %372, %.preheader8.i71, %.preheader6.i88, %.preheader4.i103, %.preheader.i114
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -66647,7 +66647,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
 
 .preheader5.i:                                    ; preds = %._crit_edge.i131
   %461 = icmp sgt i32 %441, 0
-  br i1 %461, label %.lr.ph10.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+  br i1 %461, label %.lr.ph10.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
 
 .lr.ph10.i:                                       ; preds = %.preheader5.i
   %462 = load float, ptr %7, align 16
@@ -66669,7 +66669,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
 
 .preheader3.i:                                    ; preds = %._crit_edge.i131
   %476 = icmp sgt i32 %441, 0
-  br i1 %476, label %.lr.ph12.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+  br i1 %476, label %.lr.ph12.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
 
 .lr.ph12.i:                                       ; preds = %.preheader3.i
   %477 = load float, ptr %7, align 16
@@ -66687,7 +66687,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
 
 .preheader1.i:                                    ; preds = %._crit_edge.i131
   %487 = icmp sgt i32 %441, 0
-  br i1 %487, label %.lr.ph14.i133, label %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+  br i1 %487, label %.lr.ph14.i133, label %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
 
 .lr.ph14.i133:                                    ; preds = %.preheader1.i
   %488 = load float, ptr %7, align 16
@@ -66701,7 +66701,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
 
 .preheader.i135:                                  ; preds = %._crit_edge.i131
   %494 = icmp sgt i32 %441, 0
-  br i1 %494, label %.lr.ph16.i136, label %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+  br i1 %494, label %.lr.ph16.i136, label %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
 
 .lr.ph16.i136:                                    ; preds = %.preheader.i135
   %495 = load float, ptr %7, align 16
@@ -66721,7 +66721,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
   store i8 %502, ptr %503, align 1
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count39.i
-  br i1 %exitcond40.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, label %497, !llvm.loop !727
+  br i1 %exitcond40.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, label %497, !llvm.loop !727
 
 504:                                              ; preds = %518, %.lr.ph14.i133
   %indvars.iv31.i = phi i64 [ 0, %.lr.ph14.i133 ], [ %indvars.iv.next32.i, %518 ]
@@ -66751,7 +66751,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
   store i8 %519, ptr %520, align 1
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count34.i
-  br i1 %exitcond35.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, label %504, !llvm.loop !728
+  br i1 %exitcond35.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, label %504, !llvm.loop !728
 
 521:                                              ; preds = %538, %.lr.ph12.i
   %indvars.iv26.i = phi i64 [ 0, %.lr.ph12.i ], [ %indvars.iv.next27.i, %538 ]
@@ -66788,7 +66788,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
   store i8 %539, ptr %540, align 1
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next27.i, %wide.trip.count29.i
-  br i1 %exitcond30.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, label %521, !llvm.loop !729
+  br i1 %exitcond30.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, label %521, !llvm.loop !729
 
 541:                                              ; preds = %567, %.lr.ph10.i
   %indvars.iv21.i = phi i64 [ 0, %.lr.ph10.i ], [ %indvars.iv.next22.i, %567 ]
@@ -66836,7 +66836,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
   store i8 %568, ptr %569, align 1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count24.i
-  br i1 %exitcond25.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, label %541, !llvm.loop !730
+  br i1 %exitcond25.not.i, label %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, label %541, !llvm.loop !730
 
 570:                                              ; preds = %._crit_edge.i131
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #23
@@ -66861,7 +66861,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   br label %common.resume
 
-_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit: ; preds = %567, %538, %518, %497, %.preheader5.i, %.preheader3.i, %.preheader1.i, %.preheader.i135
+_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit: ; preds = %567, %538, %518, %497, %.preheader5.i, %.preheader3.i, %.preheader1.i, %.preheader.i135
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -66893,7 +66893,7 @@ _ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEES
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #23
   br label %common.resume
 
-584:                                              ; preds = %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit, %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.exit
+584:                                              ; preds = %_ZN2cv4gapi5fluidL11run_inrangeIhfEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, %_ZN2cv4gapi5fluidL11run_inrangeIhsEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, %_ZN2cv4gapi5fluidL11run_inrangeIhtEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit, %_ZN2cv4gapi5fluidL11run_inrangeIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_7Scalar_IdEESB_.argprom.argprom.argprom.exit
   ret void
 }
 

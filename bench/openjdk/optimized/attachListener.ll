@@ -445,7 +445,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef range(i32 -1, 1) i32 @_ZL20get_agent_propertiesP15AttachOperationP12outputStream(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9064), align 8
-  %4 = tail call fastcc noundef i32 @_ZL14get_propertiesP15AttachOperationP12outputStreamP6Symbol(ptr noundef %1, ptr noundef %3)
+  %4 = tail call fastcc noundef i32 @_ZL14get_propertiesP15AttachOperationP12outputStreamP6Symbol.argprom(ptr noundef %1, ptr noundef %3)
   ret i32 %4
 }
 
@@ -641,7 +641,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %33, %35
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef range(i32 -1, 1) i32 @_ZL21get_system_propertiesP15AttachOperationP12outputStream(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9056), align 8
-  %4 = tail call fastcc noundef i32 @_ZL14get_propertiesP15AttachOperationP12outputStreamP6Symbol(ptr noundef %1, ptr noundef %3)
+  %4 = tail call fastcc noundef i32 @_ZL14get_propertiesP15AttachOperationP12outputStreamP6Symbol.argprom(ptr noundef %1, ptr noundef %3)
   ret i32 %4
 }
 
@@ -910,7 +910,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL4jcmdP15AttachOperationP12outpu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL14get_propertiesP15AttachOperationP12outputStreamP6Symbol(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL14get_propertiesP15AttachOperationP12outputStreamP6Symbol.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %class.HandleMark, align 8
   %4 = alloca %class.JavaValue, align 8
   %5 = alloca %class.JavaCallArguments, align 8

@@ -975,11 +975,11 @@ for.cond28.preheader:                             ; preds = %for.cond25.preheade
 
 for.body30:                                       ; preds = %for.cond28.preheader, %for.inc
   %byte4.093 = phi i32 [ 128, %for.cond28.preheader ], [ %inc, %for.inc ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext true, i32 noundef %byte2.095, i32 noundef %byte3.094, i32 noundef %byte4.093)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext true, i32 noundef %byte2.095, i32 noundef %byte3.094, i32 noundef %byte4.093)
           to label %invoke.cont31 unwind label %lpad18.loopexit
 
 invoke.cont31:                                    ; preds = %for.body30
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext true, i32 noundef %byte2.095, i32 noundef %byte3.094, i32 noundef %byte4.093)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext true, i32 noundef %byte2.095, i32 noundef %byte3.094, i32 noundef %byte4.093)
           to label %for.inc unwind label %lpad18.loopexit
 
 for.inc:                                          ; preds = %invoke.cont31
@@ -1058,11 +1058,11 @@ invoke.cont48:                                    ; preds = %invoke.cont46
   br i1 %call49, label %for.body54, label %if.end60
 
 for.body54:                                       ; preds = %invoke.cont48
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef -1, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef -1, i32 noundef -1, i32 noundef -1)
           to label %invoke.cont55 unwind label %lpad47
 
 invoke.cont55:                                    ; preds = %for.body54
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef -1, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef -1, i32 noundef -1, i32 noundef -1)
           to label %if.end60 unwind label %lpad47
 
 lpad45:                                           ; preds = %invoke.cont44
@@ -1096,11 +1096,11 @@ invoke.cont67:                                    ; preds = %invoke.cont65
 
 for.body77:                                       ; preds = %invoke.cont67, %for.inc80
   %byte274.096 = phi i32 [ %inc81, %for.inc80 ], [ 144, %invoke.cont67 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte274.096, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte274.096, i32 noundef -1, i32 noundef -1)
           to label %invoke.cont78 unwind label %lpad66.loopexit
 
 invoke.cont78:                                    ; preds = %for.body77
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef %byte274.096, i32 noundef -1, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte274.096, i32 noundef -1, i32 noundef -1)
           to label %for.inc80 unwind label %lpad66.loopexit
 
 for.inc80:                                        ; preds = %invoke.cont78
@@ -1152,11 +1152,11 @@ for.cond105.preheader:                            ; preds = %invoke.cont93, %for
 
 for.body107:                                      ; preds = %for.cond105.preheader, %for.inc110
   %byte3104.097 = phi i32 [ 128, %for.cond105.preheader ], [ %inc111, %for.inc110 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte2100.098, i32 noundef %byte3104.097, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte2100.098, i32 noundef %byte3104.097, i32 noundef -1)
           to label %invoke.cont108 unwind label %lpad92.loopexit
 
 invoke.cont108:                                   ; preds = %for.body107
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef %byte2100.098, i32 noundef %byte3104.097, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte2100.098, i32 noundef %byte3104.097, i32 noundef -1)
           to label %for.inc110 unwind label %lpad92.loopexit
 
 for.inc110:                                       ; preds = %invoke.cont108
@@ -1240,11 +1240,11 @@ for.cond146.preheader:                            ; preds = %for.body136, %for.i
 
 for.body148:                                      ; preds = %for.cond146.preheader, %for.inc151
   %byte4145.099 = phi i32 [ 128, %for.cond146.preheader ], [ %inc152, %for.inc151 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte2133.0101, i32 noundef %byte3141.0100, i32 noundef %byte4145.099)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte2133.0101, i32 noundef %byte3141.0100, i32 noundef %byte4145.099)
           to label %invoke.cont149 unwind label %lpad125.loopexit
 
 invoke.cont149:                                   ; preds = %for.body148
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef %byte2133.0101, i32 noundef %byte3141.0100, i32 noundef %byte4145.099)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte2133.0101, i32 noundef %byte3141.0100, i32 noundef %byte4145.099)
           to label %for.inc151 unwind label %lpad125.loopexit
 
 for.inc151:                                       ; preds = %invoke.cont149
@@ -1312,11 +1312,11 @@ lpad169:                                          ; preds = %lpad169.loopexit.sp
 
 for.body193:                                      ; preds = %for.body184, %for.inc196
   %byte4190.0102 = phi i32 [ %inc197, %for.inc196 ], [ 128, %for.body184 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte2177.0104, i32 noundef %byte3181.0103, i32 noundef %byte4190.0102)
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte2177.0104, i32 noundef %byte3181.0103, i32 noundef %byte4190.0102)
           to label %invoke.cont194 unwind label %lpad169.loopexit
 
 invoke.cont194:                                   ; preds = %for.body193
-  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext false, i32 noundef %byte2177.0104, i32 noundef %byte3181.0103, i32 noundef %byte4190.0102)
+  invoke fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext false, i32 noundef %byte2177.0104, i32 noundef %byte3181.0103, i32 noundef %byte4190.0102)
           to label %for.inc196 unwind label %lpad169.loopexit
 
 for.inc196:                                       ; preds = %invoke.cont194
@@ -1512,7 +1512,7 @@ entry:
   %m_stream.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_5.i, i64 40
   store ptr %s, ptr %m_stream.i, align 8
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA290_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_5.i, ptr noundef nonnull align 1 dereferenceable(290) @.str.9)
-          to label %"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.exit" unwind label %lpad.i
+          to label %"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.argprom.exit" unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
@@ -1520,7 +1520,7 @@ lpad.i:                                           ; preds = %entry
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_5.i) #24
   resume { ptr, i32 } %0
 
-"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.exit": ; preds = %entry
+"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.argprom.exit": ; preds = %entry
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_5.i) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %DOCTEST_CAPTURE_5.i)
   ret void
@@ -1623,7 +1623,7 @@ declare void @_ZN7doctest6detail7SubcaseC1ERKNS_6StringEPKci(ptr noundef nonnull
 declare noundef zeroext i1 @_ZNK7doctest6detail7SubcasecvbEv(ptr noundef nonnull align 8 dereferenceable(41)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext %success_expected, i32 noundef range(i32 -2147483648, 256) %byte2, i32 noundef range(i32 -2147483648, 256) %byte3, i32 noundef range(i32 -2147483648, 256) %byte4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii.argelim(i1 noundef zeroext %success_expected, i32 noundef range(i32 -2147483648, 256) %byte2, i32 noundef range(i32 -2147483648, 256) %byte3, i32 noundef range(i32 -2147483648, 256) %byte4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %byte1.addr = alloca i32, align 4
   %byte2.addr = alloca i32, align 4
@@ -2293,7 +2293,7 @@ terminate.lpad:                                   ; preds = %lpad114, %lpad106, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext %success_expected, i32 noundef range(i32 -2147483648, 256) %byte2, i32 noundef range(i32 -2147483648, 256) %byte3, i32 noundef range(i32 -2147483648, 256) %byte4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii.argelim(i1 noundef zeroext %success_expected, i32 noundef range(i32 -2147483648, 256) %byte2, i32 noundef range(i32 -2147483648, 256) %byte3, i32 noundef range(i32 -2147483648, 256) %byte4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %byte1.addr = alloca i32, align 4
   %byte2.addr = alloca i32, align 4
@@ -4426,7 +4426,7 @@ call.i.i.i.i.i.i.noexc.i:                         ; preds = %call.i.i.i.i.noexc.
 
 .noexc.i:                                         ; preds = %call.i.i.i.i.i.i.noexc.i
   %call.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7doctestlsERSoRKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i)
-          to label %"_ZZN12_GLOBAL__N_116check_utf8stringEbiiiiENK3$_4clEPSo.exit" unwind label %lpad.i.i
+          to label %"_ZZN12_GLOBAL__N_116check_utf8stringEbiiiiENK3$_4clEPSo.argprom.exit" unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i
   %1 = landingpad { ptr, i32 }
@@ -4444,7 +4444,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_35.i) #24
   resume { ptr, i32 } %eh.lpad-body.i
 
-"_ZZN12_GLOBAL__N_116check_utf8stringEbiiiiENK3$_4clEPSo.exit": ; preds = %.noexc.i
+"_ZZN12_GLOBAL__N_116check_utf8stringEbiiiiENK3$_4clEPSo.argprom.exit": ; preds = %.noexc.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_35.i) #24
@@ -21212,7 +21212,7 @@ call.i.i.i.i.i.i.noexc.i:                         ; preds = %call.i.i.i.i.noexc.
 
 .noexc.i:                                         ; preds = %call.i.i.i.i.i.i.noexc.i
   %call.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7doctestlsERSoRKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i)
-          to label %"_ZZN12_GLOBAL__N_114check_utf8dumpEbiiiiENK3$_4clEPSo.exit" unwind label %lpad.i.i
+          to label %"_ZZN12_GLOBAL__N_114check_utf8dumpEbiiiiENK3$_4clEPSo.argprom.exit" unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i
   %1 = landingpad { ptr, i32 }
@@ -21230,7 +21230,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_20.i) #24
   resume { ptr, i32 } %eh.lpad-body.i
 
-"_ZZN12_GLOBAL__N_114check_utf8dumpEbiiiiENK3$_4clEPSo.exit": ; preds = %.noexc.i
+"_ZZN12_GLOBAL__N_114check_utf8dumpEbiiiiENK3$_4clEPSo.argprom.exit": ; preds = %.noexc.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_20.i) #24
@@ -24606,8 +24606,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
-!7 = distinct !{!7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_"}
+!6 = distinct !{!6, !7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_.argprom: %agg.result"}
+!7 = distinct !{!7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_.argprom"}
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !9}
@@ -24642,8 +24642,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !39 = distinct !{!39, !40, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_3EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
 !40 = distinct !{!40, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_3EENS0_12ContextScopeIT_EERKS5_"}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
-!43 = distinct !{!43, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_"}
+!42 = distinct !{!42, !43, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_.argprom: %agg.result"}
+!43 = distinct !{!43, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_.argprom"}
 !44 = !{i64 2154954393}
 !45 = !{i64 2154956975}
 !46 = !{!47}
@@ -24659,8 +24659,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !56 = distinct !{!56, !57, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_3EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
 !57 = distinct !{!57, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_3EENS0_12ContextScopeIT_EERKS5_"}
 !58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
-!60 = distinct !{!60, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_"}
+!59 = distinct !{!59, !60, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_.argprom: %agg.result"}
+!60 = distinct !{!60, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_.argprom"}
 !61 = !{i64 2154926570}
 !62 = !{!63}
 !63 = distinct !{!63, !64, !"_ZN7doctest6detail20ExpressionDecomposerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_14Expression_lhsIT_EEOSA_: %agg.result"}

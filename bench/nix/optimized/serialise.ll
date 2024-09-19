@@ -16235,12 +16235,12 @@ _ZNSt8optionalIN5boost11coroutines26detail14push_coroutineIbEEED2Ev.exit.i: ; pr
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i, label %_ZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkD2Ev.exit, label %11
+  br i1 %.not.i.i.i, label %_ZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkD2Ev.argprom.exit, label %11
 
 11:                                               ; preds = %_ZNSt8optionalIN5boost11coroutines26detail14push_coroutineIbEEED2Ev.exit.i
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
-          to label %_ZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkD2Ev.exit unwind label %14
+          to label %_ZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkD2Ev.argprom.exit unwind label %14
 
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
@@ -16249,7 +16249,7 @@ _ZNSt8optionalIN5boost11coroutines26detail14push_coroutineIbEEED2Ev.exit.i: ; pr
   tail call void @__clang_call_terminate(ptr %16) #40
   unreachable
 
-_ZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkD2Ev.exit: ; preds = %_ZNSt8optionalIN5boost11coroutines26detail14push_coroutineIbEEED2Ev.exit.i, %11
+_ZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkD2Ev.argprom.exit: ; preds = %_ZNSt8optionalIN5boost11coroutines26detail14push_coroutineIbEEED2Ev.exit.i, %11
   ret void
 }
 
@@ -17032,11 +17032,11 @@ _ZNKSt8functionIFvRN3nix6SourceEEEclES2_.exit.i.i.i.i.i.i: ; preds = %42
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12LambdaSourceE, i64 16), ptr %4, align 8, !noalias !67
   %46 = load ptr, ptr %37, align 8, !noalias !67
   %.not.i.i.i7.i.i.i.i.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i.i7.i.i.i.i.i.i, label %_ZZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESF_.exit.i.i.i.i.i, label %47
+  br i1 %.not.i.i.i7.i.i.i.i.i.i, label %_ZZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESF_.argprom.exit.i.i.i.i.i, label %47
 
 47:                                               ; preds = %_ZNKSt8functionIFvRN3nix6SourceEEEclES2_.exit.i.i.i.i.i.i
   %48 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %36, i32 noundef 3)
-          to label %_ZZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESF_.exit.i.i.i.i.i unwind label %49, !noalias !67
+          to label %_ZZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESF_.argprom.exit.i.i.i.i.i unwind label %49, !noalias !67
 
 49:                                               ; preds = %47
   %50 = landingpad { ptr, i32 }
@@ -17057,7 +17057,7 @@ _ZNSt8functionIFmPcmEED2Ev.exit9.i.i.i.i.i.i:     ; preds = %42, %41
   %56 = icmp eq i32 %54, %55
   br i1 %56, label %59, label %61
 
-_ZZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESF_.exit.i.i.i.i.i: ; preds = %47, %_ZNKSt8functionIFvRN3nix6SourceEEEclES2_.exit.i.i.i.i.i.i
+_ZZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESF_.argprom.exit.i.i.i.i.i: ; preds = %47, %_ZNKSt8functionIFvRN3nix6SourceEEEclES2_.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !67
   br label %75
 
@@ -17127,7 +17127,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i: ; preds = %70, %_ZNSt1
   invoke void @__cxa_end_catch()
           to label %92 unwind label %95, !noalias !67
 
-75:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i, %_ZZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESF_.exit.i.i.i.i.i, %_ZN5boost7context5fiberD2Ev.exit.i.i.i.i.i
+75:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i, %_ZZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESF_.argprom.exit.i.i.i.i.i, %_ZN5boost7context5fiberD2Ev.exit.i.i.i.i.i
   %76 = load i32, ptr %.phi.trans.insert.i.i.i.i.i, align 4, !noalias !67
   %77 = or i32 %76, 2
   store i32 %77, ptr %.phi.trans.insert.i.i.i.i.i, align 4, !noalias !67
@@ -17368,7 +17368,7 @@ define internal noundef i64 @_ZNSt17_Function_handlerIFmPcmEZZZN3nix12sourceToSi
   %14 = getelementptr inbounds i8, ptr %13, i64 33
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %_ZSt10__invoke_rImRZZZN3nix12sourceToSinkESt8functionIFvRNS0_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESG_EUlPcmE_JSI_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit, label %._crit_edge.i.i.i
+  br i1 %16, label %_ZSt10__invoke_rImRZZZN3nix12sourceToSinkESt8functionIFvRNS0_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESG_EUlPcmE_JSI_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %8
   %.pre.i.i.i = load i64, ptr %5, align 8
@@ -17386,9 +17386,9 @@ define internal noundef i64 @_ZNSt17_Function_handlerIFmPcmEZZZN3nix12sourceToSi
   %23 = load i64, ptr %5, align 8
   %24 = sub i64 %23, %.sroa.speculated.i.i.i
   store i64 %24, ptr %5, align 8
-  br label %_ZSt10__invoke_rImRZZZN3nix12sourceToSinkESt8functionIFvRNS0_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESG_EUlPcmE_JSI_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit
+  br label %_ZSt10__invoke_rImRZZZN3nix12sourceToSinkESt8functionIFvRNS0_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESG_EUlPcmE_JSI_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit
 
-_ZSt10__invoke_rImRZZZN3nix12sourceToSinkESt8functionIFvRNS0_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESG_EUlPcmE_JSI_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit: ; preds = %8, %17
+_ZSt10__invoke_rImRZZZN3nix12sourceToSinkESt8functionIFvRNS0_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESG_EUlPcmE_JSI_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit: ; preds = %8, %17
   %.0.i.i.i = phi i64 [ %.sroa.speculated.i.i.i, %17 ], [ 0, %8 ]
   ret i64 %.0.i.i.i
 }
@@ -18467,11 +18467,11 @@ _ZNKSt8functionIFvRN3nix4SinkEEEclES2_.exit.i.i.i.i.i.i: ; preds = %34
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10LambdaSinkE, i64 16), ptr %4, align 8, !noalias !95
   %38 = load ptr, ptr %28, align 8, !noalias !95
   %.not.i.i.i7.i.i.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i7.i.i.i.i.i.i, label %_ZZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEEEN12SinkToSource4readEPcmENKUlRN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE_clESK_.exit.i.i.i.i.i, label %39
+  br i1 %.not.i.i.i7.i.i.i.i.i.i, label %_ZZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEEEN12SinkToSource4readEPcmENKUlRN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE_clESK_.argprom.exit.i.i.i.i.i, label %39
 
 39:                                               ; preds = %_ZNKSt8functionIFvRN3nix4SinkEEEclES2_.exit.i.i.i.i.i.i
   %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
-          to label %_ZZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEEEN12SinkToSource4readEPcmENKUlRN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE_clESK_.exit.i.i.i.i.i unwind label %41, !noalias !95
+          to label %_ZZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEEEN12SinkToSource4readEPcmENKUlRN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE_clESK_.argprom.exit.i.i.i.i.i unwind label %41, !noalias !95
 
 41:                                               ; preds = %39
   %42 = landingpad { ptr, i32 }
@@ -18492,7 +18492,7 @@ _ZNSt8functionIFvSt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit9.i.i.i.i.
   %48 = icmp eq i32 %46, %47
   br i1 %48, label %49, label %51
 
-_ZZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEEEN12SinkToSource4readEPcmENKUlRN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE_clESK_.exit.i.i.i.i.i: ; preds = %39, %_ZNKSt8functionIFvRN3nix4SinkEEEclES2_.exit.i.i.i.i.i.i
+_ZZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEEEN12SinkToSource4readEPcmENKUlRN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE_clESK_.argprom.exit.i.i.i.i.i: ; preds = %39, %_ZNKSt8functionIFvRN3nix4SinkEEEclES2_.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !95
   br label %67
 
@@ -18562,7 +18562,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i: ; preds = %60, %_ZNSt1
   invoke void @__cxa_end_catch()
           to label %84 unwind label %87, !noalias !95
 
-67:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i, %_ZZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEEEN12SinkToSource4readEPcmENKUlRN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE_clESK_.exit.i.i.i.i.i, %10
+67:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i, %_ZZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEEEN12SinkToSource4readEPcmENKUlRN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE_clESK_.argprom.exit.i.i.i.i.i, %10
   %68 = load i32, ptr %18, align 4, !noalias !95
   %69 = or i32 %68, 2
   store i32 %69, ptr %18, align 4, !noalias !95
@@ -18789,7 +18789,7 @@ define internal void @_ZNSt17_Function_handlerIFvSt17basic_string_viewIcSt11char
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %6 = icmp eq i64 %.val2, 0
-  br i1 %6, label %_ZSt10__invoke_rIvRZZZN3nix12sinkToSourceESt8functionIFvRNS0_4SinkEEES1_IFvvEEEN12SinkToSource4readEPcmENKUlRN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE_clESL_EUlSt17basic_string_viewIcSH_EE_JSO_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESS_E4typeEOST_DpOSU_.exit, label %7
+  br i1 %6, label %_ZSt10__invoke_rIvRZZZN3nix12sinkToSourceESt8functionIFvRNS0_4SinkEEES1_IFvvEEEN12SinkToSource4readEPcmENKUlRN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE_clESL_EUlSt17basic_string_viewIcSH_EE_JSO_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESS_E4typeEOST_DpOSU_.argprom.exit, label %7
 
 7:                                                ; preds = %2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #36
@@ -18821,7 +18821,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #36
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #36
-  br label %_ZSt10__invoke_rIvRZZZN3nix12sinkToSourceESt8functionIFvRNS0_4SinkEEES1_IFvvEEEN12SinkToSource4readEPcmENKUlRN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE_clESL_EUlSt17basic_string_viewIcSH_EE_JSO_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESS_E4typeEOST_DpOSU_.exit
+  br label %_ZSt10__invoke_rIvRZZZN3nix12sinkToSourceESt8functionIFvRNS0_4SinkEEES1_IFvvEEEN12SinkToSource4readEPcmENKUlRN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE_clESL_EUlSt17basic_string_viewIcSH_EE_JSO_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESS_E4typeEOST_DpOSU_.argprom.exit
 
 15:                                               ; preds = %7
   %16 = landingpad { ptr, i32 }
@@ -18839,7 +18839,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #36
   resume { ptr, i32 } %.pn.i.i.i
 
-_ZSt10__invoke_rIvRZZZN3nix12sinkToSourceESt8functionIFvRNS0_4SinkEEES1_IFvvEEEN12SinkToSource4readEPcmENKUlRN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE_clESL_EUlSt17basic_string_viewIcSH_EE_JSO_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESS_E4typeEOST_DpOSU_.exit: ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
+_ZSt10__invoke_rIvRZZZN3nix12sinkToSourceESt8functionIFvRNS0_4SinkEEES1_IFvvEEEN12SinkToSource4readEPcmENKUlRN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE_clESL_EUlSt17basic_string_viewIcSH_EE_JSO_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESS_E4typeEOST_DpOSU_.argprom.exit: ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
@@ -19453,8 +19453,8 @@ attributes #43 = { nounwind allocsize(0) }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNK3nix3$_1clEv: argument 0"}
-!15 = distinct !{!15, !"_ZNK3nix3$_1clEv"}
+!14 = distinct !{!14, !15, !"_ZNK3nix3$_1clEv.argprom: argument 0"}
+!15 = distinct !{!15, !"_ZNK3nix3$_1clEv.argprom"}
 !16 = !{!17}
 !17 = distinct !{!17, !18, !"_ZSt11make_uniqueIZN3nix12sourceToSinkESt8functionIFvRNS0_6SourceEEEE12SourceToSinkJRS5_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !18 = distinct !{!18, !"_ZSt11make_uniqueIZN3nix12sourceToSinkESt8functionIFvRNS0_6SourceEEEE12SourceToSinkJRS5_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}

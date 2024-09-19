@@ -136,7 +136,7 @@ define hidden void @_ZN7Package15findOwnerOfFileERKNSt7__cxx1112basic_stringIcSt
           to label %13 unwind label %18
 
 13:                                               ; preds = %2
-  invoke fastcc void @_ZN12_GLOBAL__N_115findOwnerOfFileERKSt9nothrow_tRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN12_GLOBAL__N_115findOwnerOfFileERKSt9nothrow_tRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.argprom(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %14 unwind label %20
 
 14:                                               ; preds = %13
@@ -173,7 +173,7 @@ define hidden void @_ZN7Package15findOwnerOfFileERKNSt7__cxx1112basic_stringIcSt
           to label %24 unwind label %37
 
 24:                                               ; preds = %23
-  invoke fastcc void @_ZN12_GLOBAL__N_115findOwnerOfFileERKSt9nothrow_tRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN12_GLOBAL__N_115findOwnerOfFileERKSt9nothrow_tRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.argprom(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %25 unwind label %39
 
 25:                                               ; preds = %24
@@ -295,7 +295,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115findOwnerOfFileERKSt9nothrow_tRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115findOwnerOfFileERKSt9nothrow_tRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.SourceCodePos, align 8
   %5 = alloca %"class.(anonymous namespace)::FirstLineConsumer", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

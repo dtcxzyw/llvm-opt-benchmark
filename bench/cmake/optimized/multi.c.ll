@@ -4961,21 +4961,21 @@ define dso_local range(i32 0, 9) i32 @curl_multi_cleanup(ptr noundef %0) local_u
   %11 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %unlink_all_msgsent_handles.exit, label %12
+  br i1 %.not.i, label %unlink_all_msgsent_handles.argprom.exit, label %12
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %.val, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 192
   store ptr null, ptr %14, align 8
-  br label %unlink_all_msgsent_handles.exit
+  br label %unlink_all_msgsent_handles.argprom.exit
 
-unlink_all_msgsent_handles.exit:                  ; preds = %10, %12
+unlink_all_msgsent_handles.argprom.exit:          ; preds = %10, %12
   %15 = getelementptr inbounds i8, ptr %0, i64 64
   %16 = load ptr, ptr %15, align 8
   %.not.i34 = icmp eq ptr %16, null
   br i1 %.not.i34, label %process_pending_handles.exit, label %17
 
-17:                                               ; preds = %unlink_all_msgsent_handles.exit
+17:                                               ; preds = %unlink_all_msgsent_handles.argprom.exit
   %18 = load ptr, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   store ptr null, ptr %19, align 8
@@ -5022,7 +5022,7 @@ mstate.exit.i:                                    ; preds = %33, %link_easy.exit
   store i32 %36, ptr %34, align 4
   br label %process_pending_handles.exit
 
-process_pending_handles.exit:                     ; preds = %unlink_all_msgsent_handles.exit, %mstate.exit.i
+process_pending_handles.exit:                     ; preds = %unlink_all_msgsent_handles.argprom.exit, %mstate.exit.i
   %37 = getelementptr inbounds i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not3136 = icmp eq ptr %38, null

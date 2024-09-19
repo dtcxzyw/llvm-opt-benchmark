@@ -112,7 +112,7 @@ wtap_file_read_pattern.exit.thread:               ; preds = %17
   %switch.selectcmp.case2.i.i = icmp ne i32 %32, -12
   %switch.selectcmp.not.i.i = and i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
   %33 = sext i1 %switch.selectcmp.not.i.i to i32
-  br label %wtap_file_read_till_separator.exit.i
+  br label %wtap_file_read_till_separator.argprom.exit.i
 
 34:                                               ; preds = %26
   %35 = trunc i32 %28 to i8
@@ -123,22 +123,22 @@ wtap_file_read_pattern.exit.thread:               ; preds = %17
 
 36:                                               ; preds = %34, %34
   store i8 0, ptr %.0185.i.i, align 1
-  br label %wtap_file_read_till_separator.exit.i
+  br label %wtap_file_read_till_separator.argprom.exit.i
 
 37:                                               ; preds = %34
   store i8 %35, ptr %.0185.i.i, align 1
   %38 = add nuw nsw i32 %.06.i.i, 1
   %39 = getelementptr i8, ptr %.0185.i.i, i64 1
   %exitcond.not.i.i = icmp eq i32 %38, 11
-  br i1 %exitcond.not.i.i, label %wtap_file_read_till_separator.exit.thread.i, label %26, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %wtap_file_read_till_separator.argprom.exit.thread.i, label %26, !llvm.loop !6
 
-wtap_file_read_till_separator.exit.i:             ; preds = %36, %30
+wtap_file_read_till_separator.argprom.exit.i:     ; preds = %36, %30
   %.019.i.i = phi i32 [ %.06.i.i, %36 ], [ %33, %30 ]
   %40 = add i32 %.019.i.i, 1
   %or.cond.i = icmp ult i32 %40, 2
-  br i1 %or.cond.i, label %wtap_file_read_number.exit, label %wtap_file_read_till_separator.exit.thread.i
+  br i1 %or.cond.i, label %wtap_file_read_number.exit, label %wtap_file_read_till_separator.argprom.exit.thread.i
 
-wtap_file_read_till_separator.exit.thread.i:      ; preds = %37, %wtap_file_read_till_separator.exit.i
+wtap_file_read_till_separator.argprom.exit.thread.i: ; preds = %37, %wtap_file_read_till_separator.argprom.exit.i
   %41 = call i64 @strtoul(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 10) #7
   %42 = load ptr, ptr %5, align 8
   %43 = icmp eq ptr %42, %4
@@ -148,16 +148,16 @@ wtap_file_read_till_separator.exit.thread.i:      ; preds = %37, %wtap_file_read
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br i1 %or.cond3.i, label %wtap_file_read_number.exit.thread85, label %45
 
-wtap_file_read_number.exit:                       ; preds = %wtap_file_read_till_separator.exit.i
+wtap_file_read_number.exit:                       ; preds = %wtap_file_read_till_separator.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %switch93 = icmp eq i32 %.019.i.i, -1
   br i1 %switch93, label %88, label %wtap_file_read_number.exit.thread85
 
-wtap_file_read_number.exit.thread85:              ; preds = %wtap_file_read_till_separator.exit.thread.i, %wtap_file_read_number.exit
+wtap_file_read_number.exit.thread85:              ; preds = %wtap_file_read_till_separator.argprom.exit.thread.i, %wtap_file_read_number.exit
   br label %88
 
-45:                                               ; preds = %wtap_file_read_till_separator.exit.thread.i
+45:                                               ; preds = %wtap_file_read_till_separator.argprom.exit.thread.i
   %.not77 = icmp eq i64 %41, 9
   br i1 %.not77, label %48, label %.thread
 
@@ -355,7 +355,7 @@ define internal fastcc i32 @wtap_file_read_number(ptr nocapture noundef readonly
   %switch.selectcmp.case2.i = icmp ne i32 %13, -12
   %switch.selectcmp.not.i = and i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
   %14 = sext i1 %switch.selectcmp.not.i to i32
-  br label %wtap_file_read_till_separator.exit
+  br label %wtap_file_read_till_separator.argprom.exit
 
 15:                                               ; preds = %7
   %16 = trunc i32 %9 to i8
@@ -366,22 +366,22 @@ define internal fastcc i32 @wtap_file_read_number(ptr nocapture noundef readonly
 
 17:                                               ; preds = %15, %15
   store i8 0, ptr %.0185.i, align 1
-  br label %wtap_file_read_till_separator.exit
+  br label %wtap_file_read_till_separator.argprom.exit
 
 18:                                               ; preds = %15
   store i8 %16, ptr %.0185.i, align 1
   %19 = add nuw nsw i32 %.06.i, 1
   %20 = getelementptr i8, ptr %.0185.i, i64 1
   %exitcond.not.i = icmp eq i32 %19, 11
-  br i1 %exitcond.not.i, label %wtap_file_read_till_separator.exit.thread, label %7, !llvm.loop !6
+  br i1 %exitcond.not.i, label %wtap_file_read_till_separator.argprom.exit.thread, label %7, !llvm.loop !6
 
-wtap_file_read_till_separator.exit:               ; preds = %11, %17
+wtap_file_read_till_separator.argprom.exit:       ; preds = %11, %17
   %.019.i = phi i32 [ %.06.i, %17 ], [ %14, %11 ]
   %21 = add i32 %.019.i, 1
   %or.cond = icmp ult i32 %21, 2
-  br i1 %or.cond, label %28, label %wtap_file_read_till_separator.exit.thread
+  br i1 %or.cond, label %28, label %wtap_file_read_till_separator.argprom.exit.thread
 
-wtap_file_read_till_separator.exit.thread:        ; preds = %18, %wtap_file_read_till_separator.exit
+wtap_file_read_till_separator.argprom.exit.thread: ; preds = %18, %wtap_file_read_till_separator.argprom.exit
   %22 = call i64 @strtoul(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 10) #7
   %23 = load ptr, ptr %6, align 8
   %24 = icmp eq ptr %23, %5
@@ -389,13 +389,13 @@ wtap_file_read_till_separator.exit.thread:        ; preds = %18, %wtap_file_read
   %or.cond3 = select i1 %24, i1 true, i1 %25
   br i1 %or.cond3, label %28, label %26
 
-26:                                               ; preds = %wtap_file_read_till_separator.exit.thread
+26:                                               ; preds = %wtap_file_read_till_separator.argprom.exit.thread
   %27 = trunc nuw i64 %22 to i32
   store i32 %27, ptr %1, align 4
   br label %28
 
-28:                                               ; preds = %wtap_file_read_till_separator.exit.thread, %wtap_file_read_till_separator.exit, %26
-  %.0 = phi i32 [ 1, %26 ], [ %.019.i, %wtap_file_read_till_separator.exit ], [ 0, %wtap_file_read_till_separator.exit.thread ]
+28:                                               ; preds = %wtap_file_read_till_separator.argprom.exit.thread, %wtap_file_read_till_separator.argprom.exit, %26
+  %.0 = phi i32 [ 1, %26 ], [ %.019.i, %wtap_file_read_till_separator.argprom.exit ], [ 0, %wtap_file_read_till_separator.argprom.exit.thread ]
   ret i32 %.0
 }
 

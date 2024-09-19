@@ -231,7 +231,7 @@ define dso_local void @tbm_add_tuples(ptr noundef %0, ptr nocapture noundef read
 30:                                               ; preds = %29
   %31 = load i32, ptr %7, align 4
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %pagetable_lookup.exit.thread.i, label %33
+  br i1 %32, label %pagetable_lookup.argprom.exit.thread.i, label %33
 
 33:                                               ; preds = %30
   %34 = and i32 %22, -256
@@ -253,7 +253,7 @@ define dso_local void @tbm_add_tuples(ptr noundef %0, ptr nocapture noundef read
   %47 = getelementptr inbounds i8, ptr %46, i64 4
   %48 = load i8, ptr %47, align 4
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %pagetable_lookup.exit.thread.i, label %.lr.ph.i.i.i
+  br i1 %49, label %pagetable_lookup.argprom.exit.thread.i, label %.lr.ph.i.i.i
 
 50:                                               ; preds = %.lr.ph.i.i.i
   %51 = add i32 %.01215.i.i.i, 1
@@ -263,22 +263,22 @@ define dso_local void @tbm_add_tuples(ptr noundef %0, ptr nocapture noundef read
   %54 = getelementptr inbounds i8, ptr %53, i64 4
   %55 = load i8, ptr %54, align 4
   %56 = icmp eq i8 %55, 0
-  br i1 %56, label %pagetable_lookup.exit.thread.i, label %.lr.ph.i.i.i
+  br i1 %56, label %pagetable_lookup.argprom.exit.thread.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %33, %50
   %57 = phi ptr [ %53, %50 ], [ %46, %33 ]
   %.01215.i.i.i = phi i32 [ %.012.i.i.i, %50 ], [ %.01214.i.i.i, %33 ]
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, %34
-  br i1 %59, label %pagetable_lookup.exit.i, label %50
+  br i1 %59, label %pagetable_lookup.argprom.exit.i, label %50
 
-pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
+pagetable_lookup.argprom.exit.i:                  ; preds = %.lr.ph.i.i.i
   %60 = getelementptr inbounds i8, ptr %57, i64 5
   %61 = load i8, ptr %60, align 1
   %62 = trunc i8 %61 to i1
-  br i1 %62, label %63, label %pagetable_lookup.exit.thread.i
+  br i1 %62, label %63, label %pagetable_lookup.argprom.exit.thread.i
 
-63:                                               ; preds = %pagetable_lookup.exit.i
+63:                                               ; preds = %pagetable_lookup.argprom.exit.i
   %64 = lshr i32 %21, 6
   %65 = and i32 %64, 3
   %66 = and i32 %21, 63
@@ -290,9 +290,9 @@ pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
   %72 = shl nuw i64 1, %71
   %73 = and i64 %70, %72
   %.not14.i = icmp eq i64 %73, 0
-  br i1 %.not14.i, label %pagetable_lookup.exit.thread.i, label %tbm_lossify.exit
+  br i1 %.not14.i, label %pagetable_lookup.argprom.exit.thread.i, label %tbm_lossify.exit
 
-pagetable_lookup.exit.thread.i:                   ; preds = %50, %33, %pagetable_lookup.exit.i, %63, %30
+pagetable_lookup.argprom.exit.thread.i:           ; preds = %50, %33, %pagetable_lookup.argprom.exit.i, %63, %30
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %74 = load i32, ptr %9, align 8
   switch i32 %74, label %79 [
@@ -300,11 +300,11 @@ pagetable_lookup.exit.thread.i:                   ; preds = %50, %33, %pagetable
     i32 1, label %75
   ]
 
-.thread.i:                                        ; preds = %pagetable_lookup.exit.thread.i
+.thread.i:                                        ; preds = %pagetable_lookup.argprom.exit.thread.i
   store i32 1, ptr %9, align 8
   br label %83
 
-75:                                               ; preds = %pagetable_lookup.exit.thread.i
+75:                                               ; preds = %pagetable_lookup.argprom.exit.thread.i
   %76 = load i32, ptr %10, align 8
   %77 = icmp eq i32 %76, %22
   br i1 %77, label %tbm_get_pageentry.exit, label %78
@@ -313,7 +313,7 @@ pagetable_lookup.exit.thread.i:                   ; preds = %50, %33, %pagetable
   tail call fastcc void @tbm_create_pagetable(ptr noundef nonnull %0)
   br label %79
 
-79:                                               ; preds = %78, %pagetable_lookup.exit.thread.i
+79:                                               ; preds = %78, %pagetable_lookup.argprom.exit.thread.i
   %80 = load ptr, ptr %8, align 8
   %81 = call fastcc ptr @pagetable_insert(ptr noundef %80, i32 noundef %22, ptr noundef %5)
   %.pre.i = load i8, ptr %5, align 1
@@ -1004,7 +1004,7 @@ define internal fastcc void @tbm_union_page(ptr noundef %0, ptr nocapture nounde
   %23 = getelementptr inbounds i8, ptr %0, i64 44
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %pagetable_lookup.exit.thread.i, label %26
+  br i1 %25, label %pagetable_lookup.argprom.exit.thread.i, label %26
 
 26:                                               ; preds = %21
   %27 = and i32 %22, -256
@@ -1028,7 +1028,7 @@ define internal fastcc void @tbm_union_page(ptr noundef %0, ptr nocapture nounde
   %42 = getelementptr inbounds i8, ptr %41, i64 4
   %43 = load i8, ptr %42, align 4
   %44 = icmp eq i8 %43, 0
-  br i1 %44, label %pagetable_lookup.exit.thread.i, label %.lr.ph.i.i.i
+  br i1 %44, label %pagetable_lookup.argprom.exit.thread.i, label %.lr.ph.i.i.i
 
 45:                                               ; preds = %.lr.ph.i.i.i
   %46 = add i32 %.01215.i.i.i, 1
@@ -1038,22 +1038,22 @@ define internal fastcc void @tbm_union_page(ptr noundef %0, ptr nocapture nounde
   %49 = getelementptr inbounds i8, ptr %48, i64 4
   %50 = load i8, ptr %49, align 4
   %51 = icmp eq i8 %50, 0
-  br i1 %51, label %pagetable_lookup.exit.thread.i, label %.lr.ph.i.i.i
+  br i1 %51, label %pagetable_lookup.argprom.exit.thread.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %26, %45
   %52 = phi ptr [ %48, %45 ], [ %41, %26 ]
   %.01215.i.i.i = phi i32 [ %.012.i.i.i, %45 ], [ %.01214.i.i.i, %26 ]
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, %27
-  br i1 %54, label %pagetable_lookup.exit.i, label %45
+  br i1 %54, label %pagetable_lookup.argprom.exit.i, label %45
 
-pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
+pagetable_lookup.argprom.exit.i:                  ; preds = %.lr.ph.i.i.i
   %55 = getelementptr inbounds i8, ptr %52, i64 5
   %56 = load i8, ptr %55, align 1
   %57 = trunc i8 %56 to i1
-  br i1 %57, label %58, label %pagetable_lookup.exit.thread.i
+  br i1 %57, label %58, label %pagetable_lookup.argprom.exit.thread.i
 
-58:                                               ; preds = %pagetable_lookup.exit.i
+58:                                               ; preds = %pagetable_lookup.argprom.exit.i
   %59 = lshr i32 %22, 6
   %60 = and i32 %59, 3
   %61 = and i32 %22, 63
@@ -1065,9 +1065,9 @@ pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
   %67 = shl nuw i64 1, %66
   %68 = and i64 %65, %67
   %.not14.i = icmp eq i64 %68, 0
-  br i1 %.not14.i, label %pagetable_lookup.exit.thread.i, label %tbm_page_is_lossy.exit
+  br i1 %.not14.i, label %pagetable_lookup.argprom.exit.thread.i, label %tbm_page_is_lossy.exit
 
-pagetable_lookup.exit.thread.i:                   ; preds = %45, %26, %pagetable_lookup.exit.i, %58, %21
+pagetable_lookup.argprom.exit.thread.i:           ; preds = %45, %26, %pagetable_lookup.argprom.exit.i, %58, %21
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %69 = getelementptr inbounds i8, ptr %0, i64 16
   %70 = load i32, ptr %69, align 8
@@ -1076,12 +1076,12 @@ pagetable_lookup.exit.thread.i:                   ; preds = %45, %26, %pagetable
     i32 1, label %72
   ]
 
-.thread.i:                                        ; preds = %pagetable_lookup.exit.thread.i
+.thread.i:                                        ; preds = %pagetable_lookup.argprom.exit.thread.i
   %71 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 1, ptr %69, align 8
   br label %82
 
-72:                                               ; preds = %pagetable_lookup.exit.thread.i
+72:                                               ; preds = %pagetable_lookup.argprom.exit.thread.i
   %73 = getelementptr inbounds i8, ptr %0, i64 56
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i32 %74, %22
@@ -1091,7 +1091,7 @@ pagetable_lookup.exit.thread.i:                   ; preds = %45, %26, %pagetable
   tail call fastcc void @tbm_create_pagetable(ptr noundef nonnull %0)
   br label %77
 
-77:                                               ; preds = %76, %pagetable_lookup.exit.thread.i
+77:                                               ; preds = %76, %pagetable_lookup.argprom.exit.thread.i
   %78 = getelementptr inbounds i8, ptr %0, i64 24
   %79 = load ptr, ptr %78, align 8
   %80 = call fastcc ptr @pagetable_insert(ptr noundef %79, i32 noundef %22, ptr noundef %3)
@@ -1307,7 +1307,7 @@ define dso_local void @tbm_intersect(ptr nocapture noundef %0, ptr nocapture nou
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 56
-  %12 = tail call fastcc zeroext i1 @tbm_intersect_page(ptr noundef nonnull %11, ptr noundef %1)
+  %12 = tail call fastcc zeroext i1 @tbm_intersect_page.argprom(ptr noundef nonnull %11, ptr noundef %1)
   br i1 %12, label %13, label %pagetable_iterate.exit.thread
 
 13:                                               ; preds = %10
@@ -1388,7 +1388,7 @@ pagetable_iterate.exit:                           ; preds = %41
   br i1 %.not, label %pagetable_iterate.exit.thread, label %54
 
 54:                                               ; preds = %pagetable_iterate.exit
-  %55 = tail call fastcc zeroext i1 @tbm_intersect_page(ptr noundef nonnull %44, ptr noundef %1)
+  %55 = tail call fastcc zeroext i1 @tbm_intersect_page.argprom(ptr noundef nonnull %44, ptr noundef %1)
   br i1 %55, label %56, label %131
 
 56:                                               ; preds = %54
@@ -1524,7 +1524,7 @@ pagetable_iterate.exit.thread:                    ; preds = %pagetable_iterate.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @tbm_intersect_page(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+define internal fastcc zeroext i1 @tbm_intersect_page.argprom(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 5
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -1566,7 +1566,7 @@ define internal fastcc zeroext i1 @tbm_intersect_page(ptr nocapture noundef %0, 
 21:                                               ; preds = %19
   %22 = load i32, ptr %6, align 4
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %pagetable_lookup.exit.thread.i, label %24
+  br i1 %23, label %pagetable_lookup.argprom.exit.thread.i, label %24
 
 24:                                               ; preds = %21
   %25 = and i32 %.04321, -256
@@ -1589,7 +1589,7 @@ define internal fastcc zeroext i1 @tbm_intersect_page(ptr nocapture noundef %0, 
   %39 = getelementptr inbounds i8, ptr %38, i64 4
   %40 = load i8, ptr %39, align 4
   %41 = icmp eq i8 %40, 0
-  br i1 %41, label %pagetable_lookup.exit.thread.i, label %.lr.ph.i.i.i
+  br i1 %41, label %pagetable_lookup.argprom.exit.thread.i, label %.lr.ph.i.i.i
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = add i32 %.01215.i.i.i, 1
@@ -1599,22 +1599,22 @@ define internal fastcc zeroext i1 @tbm_intersect_page(ptr nocapture noundef %0, 
   %46 = getelementptr inbounds i8, ptr %45, i64 4
   %47 = load i8, ptr %46, align 4
   %48 = icmp eq i8 %47, 0
-  br i1 %48, label %pagetable_lookup.exit.thread.i, label %.lr.ph.i.i.i
+  br i1 %48, label %pagetable_lookup.argprom.exit.thread.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %24, %42
   %49 = phi ptr [ %45, %42 ], [ %38, %24 ]
   %.01215.i.i.i = phi i32 [ %.012.i.i.i, %42 ], [ %.01214.i.i.i, %24 ]
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, %25
-  br i1 %51, label %pagetable_lookup.exit.i, label %42
+  br i1 %51, label %pagetable_lookup.argprom.exit.i, label %42
 
-pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
+pagetable_lookup.argprom.exit.i:                  ; preds = %.lr.ph.i.i.i
   %52 = getelementptr inbounds i8, ptr %49, i64 5
   %53 = load i8, ptr %52, align 1
   %54 = trunc i8 %53 to i1
-  br i1 %54, label %55, label %pagetable_lookup.exit.thread.i
+  br i1 %54, label %55, label %pagetable_lookup.argprom.exit.thread.i
 
-55:                                               ; preds = %pagetable_lookup.exit.i
+55:                                               ; preds = %pagetable_lookup.argprom.exit.i
   %56 = lshr i32 %.04321, 6
   %57 = and i32 %56, 3
   %58 = and i32 %.04321, 63
@@ -1626,14 +1626,14 @@ pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
   %64 = shl nuw i64 1, %63
   %65 = and i64 %62, %64
   %.not14.i = icmp eq i64 %65, 0
-  br i1 %.not14.i, label %pagetable_lookup.exit.thread.i, label %tbm_page_is_lossy.exit
+  br i1 %.not14.i, label %pagetable_lookup.argprom.exit.thread.i, label %tbm_page_is_lossy.exit
 
-pagetable_lookup.exit.thread.i:                   ; preds = %42, %24, %pagetable_lookup.exit.i, %55, %21
+pagetable_lookup.argprom.exit.thread.i:           ; preds = %42, %24, %pagetable_lookup.argprom.exit.i, %55, %21
   %66 = load i32, ptr %9, align 8
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %select.unfold2, label %68
 
-68:                                               ; preds = %pagetable_lookup.exit.thread.i
+68:                                               ; preds = %pagetable_lookup.argprom.exit.thread.i
   %69 = load i32, ptr %10, align 8
   %70 = icmp eq i32 %69, 1
   br i1 %70, label %71, label %73
@@ -1680,22 +1680,22 @@ pagetable_lookup.exit.thread.i:                   ; preds = %42, %24, %pagetable
   %.01215.i.i.i63 = phi i32 [ %.012.i.i.i64, %90 ], [ %.01214.i.i.i61, %73 ]
   %98 = load i32, ptr %97, align 8
   %99 = icmp eq i32 %98, %.04321
-  br i1 %99, label %pagetable_lookup.exit.i67, label %90
+  br i1 %99, label %pagetable_lookup.argprom.exit.i67, label %90
 
-pagetable_lookup.exit.i67:                        ; preds = %.lr.ph.i.i.i62
+pagetable_lookup.argprom.exit.i67:                ; preds = %.lr.ph.i.i.i62
   %100 = getelementptr inbounds i8, ptr %97, i64 5
   %101 = load i8, ptr %100, align 1
   %102 = trunc i8 %101 to i1
   br i1 %102, label %select.unfold2, label %tbm_page_is_lossy.exit
 
-select.unfold2:                                   ; preds = %90, %pagetable_lookup.exit.i67, %pagetable_lookup.exit.thread.i, %71, %73
+select.unfold2:                                   ; preds = %90, %pagetable_lookup.argprom.exit.i67, %pagetable_lookup.argprom.exit.thread.i, %71, %73
   %103 = shl nuw i64 1, %indvars.iv34
   %104 = xor i64 %103, -1
   %105 = and i64 %.04420, %104
   br label %tbm_page_is_lossy.exit
 
-tbm_page_is_lossy.exit:                           ; preds = %71, %pagetable_lookup.exit.i67, %55, %select.unfold2, %19
-  %.145 = phi i64 [ %105, %select.unfold2 ], [ %.04420, %19 ], [ %.04420, %55 ], [ %.04420, %pagetable_lookup.exit.i67 ], [ %.04420, %71 ]
+tbm_page_is_lossy.exit:                           ; preds = %71, %pagetable_lookup.argprom.exit.i67, %55, %select.unfold2, %19
+  %.145 = phi i64 [ %105, %select.unfold2 ], [ %.04420, %19 ], [ %.04420, %55 ], [ %.04420, %pagetable_lookup.argprom.exit.i67 ], [ %.04420, %71 ]
   %106 = add i32 %.04321, 1
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %107 = lshr i64 %.04619, 1
@@ -1718,7 +1718,7 @@ tbm_page_is_lossy.exit:                           ; preds = %71, %pagetable_look
   %111 = load i32, ptr %0, align 8
   %112 = load i32, ptr %6, align 4
   %113 = icmp eq i32 %112, 0
-  br i1 %113, label %pagetable_lookup.exit.thread.i74, label %114
+  br i1 %113, label %pagetable_lookup.argprom.exit.thread.i74, label %114
 
 114:                                              ; preds = %110
   %115 = and i32 %111, -256
@@ -1742,7 +1742,7 @@ tbm_page_is_lossy.exit:                           ; preds = %71, %pagetable_look
   %130 = getelementptr inbounds i8, ptr %129, i64 4
   %131 = load i8, ptr %130, align 4
   %132 = icmp eq i8 %131, 0
-  br i1 %132, label %pagetable_lookup.exit.thread.i74, label %.lr.ph.i.i.i71
+  br i1 %132, label %pagetable_lookup.argprom.exit.thread.i74, label %.lr.ph.i.i.i71
 
 133:                                              ; preds = %.lr.ph.i.i.i71
   %134 = add i32 %.01215.i.i.i72, 1
@@ -1752,22 +1752,22 @@ tbm_page_is_lossy.exit:                           ; preds = %71, %pagetable_look
   %137 = getelementptr inbounds i8, ptr %136, i64 4
   %138 = load i8, ptr %137, align 4
   %139 = icmp eq i8 %138, 0
-  br i1 %139, label %pagetable_lookup.exit.thread.i74, label %.lr.ph.i.i.i71
+  br i1 %139, label %pagetable_lookup.argprom.exit.thread.i74, label %.lr.ph.i.i.i71
 
 .lr.ph.i.i.i71:                                   ; preds = %114, %133
   %140 = phi ptr [ %136, %133 ], [ %129, %114 ]
   %.01215.i.i.i72 = phi i32 [ %.012.i.i.i73, %133 ], [ %.01214.i.i.i70, %114 ]
   %141 = load i32, ptr %140, align 8
   %142 = icmp eq i32 %141, %115
-  br i1 %142, label %pagetable_lookup.exit.i76, label %133
+  br i1 %142, label %pagetable_lookup.argprom.exit.i76, label %133
 
-pagetable_lookup.exit.i76:                        ; preds = %.lr.ph.i.i.i71
+pagetable_lookup.argprom.exit.i76:                ; preds = %.lr.ph.i.i.i71
   %143 = getelementptr inbounds i8, ptr %140, i64 5
   %144 = load i8, ptr %143, align 1
   %145 = trunc i8 %144 to i1
-  br i1 %145, label %146, label %pagetable_lookup.exit.thread.i74
+  br i1 %145, label %146, label %pagetable_lookup.argprom.exit.thread.i74
 
-146:                                              ; preds = %pagetable_lookup.exit.i76
+146:                                              ; preds = %pagetable_lookup.argprom.exit.i76
   %147 = lshr i32 %111, 6
   %148 = and i32 %147, 3
   %149 = and i32 %111, 63
@@ -1779,20 +1779,20 @@ pagetable_lookup.exit.i76:                        ; preds = %.lr.ph.i.i.i71
   %155 = shl nuw i64 1, %154
   %156 = and i64 %153, %155
   %.not14.i77 = icmp eq i64 %156, 0
-  br i1 %.not14.i77, label %pagetable_lookup.exit.thread.i74, label %tbm_page_is_lossy.exit78
+  br i1 %.not14.i77, label %pagetable_lookup.argprom.exit.thread.i74, label %tbm_page_is_lossy.exit78
 
 tbm_page_is_lossy.exit78:                         ; preds = %146
   %157 = getelementptr inbounds i8, ptr %0, i64 6
   store i8 1, ptr %157, align 2
   br label %tbm_find_pageentry.exit91.thread
 
-pagetable_lookup.exit.thread.i74:                 ; preds = %133, %114, %pagetable_lookup.exit.i76, %146, %110
+pagetable_lookup.argprom.exit.thread.i74:         ; preds = %133, %114, %pagetable_lookup.argprom.exit.i76, %146, %110
   %158 = getelementptr inbounds i8, ptr %1, i64 32
   %159 = load i32, ptr %158, align 8
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %tbm_find_pageentry.exit91.thread, label %161
 
-161:                                              ; preds = %pagetable_lookup.exit.thread.i74
+161:                                              ; preds = %pagetable_lookup.argprom.exit.thread.i74
   %162 = getelementptr inbounds i8, ptr %1, i64 16
   %163 = load i32, ptr %162, align 8
   %164 = icmp eq i32 %163, 1
@@ -1842,16 +1842,16 @@ pagetable_lookup.exit.thread.i74:                 ; preds = %133, %114, %pagetab
   %.01215.i.i.i83 = phi i32 [ %.012.i.i.i84, %186 ], [ %.01214.i.i.i81, %168 ]
   %194 = load i32, ptr %193, align 8
   %195 = icmp eq i32 %194, %111
-  br i1 %195, label %pagetable_lookup.exit.i87, label %186
+  br i1 %195, label %pagetable_lookup.argprom.exit.i87, label %186
 
-pagetable_lookup.exit.i87:                        ; preds = %.lr.ph.i.i.i82
+pagetable_lookup.argprom.exit.i87:                ; preds = %.lr.ph.i.i.i82
   %196 = getelementptr inbounds i8, ptr %193, i64 5
   %197 = load i8, ptr %196, align 1
   %198 = trunc i8 %197 to i1
   br i1 %198, label %tbm_find_pageentry.exit91.thread, label %tbm_find_pageentry.exit91
 
-tbm_find_pageentry.exit91:                        ; preds = %165, %pagetable_lookup.exit.i87
-  %.0.i86 = phi ptr [ %193, %pagetable_lookup.exit.i87 ], [ %166, %165 ]
+tbm_find_pageentry.exit91:                        ; preds = %165, %pagetable_lookup.argprom.exit.i87
+  %.0.i86 = phi ptr [ %193, %pagetable_lookup.argprom.exit.i87 ], [ %166, %165 ]
   %199 = getelementptr inbounds i8, ptr %.0.i86, i64 8
   %200 = getelementptr inbounds i8, ptr %0, i64 8
   br label %201
@@ -1881,8 +1881,8 @@ tbm_find_pageentry.exit91:                        ; preds = %165, %pagetable_loo
   store i8 %213, ptr %210, align 2
   br label %tbm_find_pageentry.exit91.thread
 
-tbm_find_pageentry.exit91.thread:                 ; preds = %186, %109, %pagetable_lookup.exit.i87, %168, %165, %pagetable_lookup.exit.thread.i74, %207, %tbm_page_is_lossy.exit78
-  %.051 = phi i1 [ false, %tbm_page_is_lossy.exit78 ], [ %spec.select59, %207 ], [ true, %pagetable_lookup.exit.thread.i74 ], [ true, %165 ], [ true, %168 ], [ true, %pagetable_lookup.exit.i87 ], [ %.148, %109 ], [ true, %186 ]
+tbm_find_pageentry.exit91.thread:                 ; preds = %186, %109, %pagetable_lookup.argprom.exit.i87, %168, %165, %pagetable_lookup.argprom.exit.thread.i74, %207, %tbm_page_is_lossy.exit78
+  %.051 = phi i1 [ false, %tbm_page_is_lossy.exit78 ], [ %spec.select59, %207 ], [ true, %pagetable_lookup.argprom.exit.thread.i74 ], [ true, %165 ], [ true, %168 ], [ true, %pagetable_lookup.argprom.exit.i87 ], [ %.148, %109 ], [ true, %186 ]
   ret i1 %.051
 }
 

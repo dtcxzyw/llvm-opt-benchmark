@@ -525,7 +525,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lbmsrs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @check_lbmsrs_packet(ptr noundef %0)
+  %5 = tail call fastcc i32 @check_lbmsrs_packet.argelim(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
@@ -713,12 +713,12 @@ define internal range(i32 0, 2) i32 @test_lbmsrs_packet(ptr noundef %0, ptr noun
   br label %lbmsrs_tag_find.exit
 
 lbmsrs_tag_find.exit.thread:                      ; preds = %12, %.preheader.i
-  %30 = tail call fastcc i32 @check_lbmsrs_packet(ptr noundef %0)
+  %30 = tail call fastcc i32 @check_lbmsrs_packet.argelim(ptr noundef %0)
   br label %34
 
 lbmsrs_tag_find.exit:                             ; preds = %16, %19
   %.0 = phi i1 [ %29, %19 ], [ %18, %16 ]
-  %31 = tail call fastcc i32 @check_lbmsrs_packet(ptr noundef %0)
+  %31 = tail call fastcc i32 @check_lbmsrs_packet.argelim(ptr noundef %0)
   %.not12 = icmp eq i32 %31, 0
   %brmerge = select i1 %.not12, i1 true, i1 %.0
   br i1 %brmerge, label %34, label %32
@@ -733,7 +733,7 @@ lbmsrs_tag_find.exit:                             ; preds = %16, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_lbmsrs_packet(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_lbmsrs_packet.argelim(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %3 = icmp ult i32 %2, 7
   br i1 %3, label %27, label %4

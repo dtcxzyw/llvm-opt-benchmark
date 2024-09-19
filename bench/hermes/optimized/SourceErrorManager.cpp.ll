@@ -212,27 +212,27 @@ entry:
   %ColumnNo.i = getelementptr inbounds i8, ptr %diag, i64 52
   %1 = load i32, ptr %ColumnNo.i, align 4
   %tobool.i = trunc i8 %opts.sroa.0.0.copyload to i1
-  br i1 %tobool.i, label %if.then.i, label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit"
+  br i1 %tobool.i, label %if.then.i, label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit"
 
 if.then.i:                                        ; preds = %entry
   %vtable.i = load ptr, ptr %call, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr %2(ptr noundef nonnull align 8 dereferenceable(36) %call, i32 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false) #24
-  br label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit"
+  br label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit"
 
-"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit": ; preds = %entry, %if.then.i
+"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit": ; preds = %entry, %if.then.i
   switch i64 %call2.i.i, label %cond.false [
     i64 0, label %if.end18
     i64 1, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
   ]
 
-_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit"
+_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit"
   %lhsc = load i8, ptr %call.i.i, align 1
   %cmp5.i = icmp eq i8 %lhsc, 45
   br i1 %cmp5.i, label %cond.end, label %cond.false
 
-cond.false:                                       ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit", %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
+cond.false:                                       ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit", %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %cond.false
@@ -331,7 +331,7 @@ if.then4.i.i:                                     ; preds = %if.end16
   store ptr %add.ptr.i.i, ptr %OutBufCur.i, align 8
   br label %if.end18
 
-if.end18:                                         ; preds = %if.then4.i.i, %if.then.i.i, %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit"
+if.end18:                                         ; preds = %if.then4.i.i, %if.then.i.i, %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit"
   %Kind.i = getelementptr inbounds i8, ptr %diag, i64 56
   %11 = load i32, ptr %Kind.i, align 8
   switch i32 %11, label %sw.epilog [
@@ -342,16 +342,16 @@ if.end18:                                         ; preds = %if.then4.i.i, %if.t
   ]
 
 sw.bb:                                            ; preds = %if.end18
-  br i1 %tobool.i, label %if.then.i71, label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit75"
+  br i1 %tobool.i, label %if.then.i71, label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit75"
 
 if.then.i71:                                      ; preds = %sw.bb
   %vtable.i72 = load ptr, ptr %call, align 8
   %vfn.i73 = getelementptr inbounds i8, ptr %vtable.i72, i64 16
   %12 = load ptr, ptr %vfn.i73, align 8
   %call.i74 = tail call noundef nonnull align 8 dereferenceable(36) ptr %12(ptr noundef nonnull align 8 dereferenceable(36) %call, i32 noundef 1, i1 noundef zeroext true, i1 noundef zeroext false) #24
-  br label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit75"
+  br label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit75"
 
-"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit75": ; preds = %sw.bb, %if.then.i71
+"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit75": ; preds = %sw.bb, %if.then.i71
   %OutBufEnd.i5.i77 = getelementptr inbounds i8, ptr %call, i64 16
   %13 = load ptr, ptr %OutBufEnd.i5.i77, align 8
   %OutBufCur.i6.i78 = getelementptr inbounds i8, ptr %call, i64 24
@@ -362,11 +362,11 @@ if.then.i71:                                      ; preds = %sw.bb
   %cmp.i.i82 = icmp ult i64 %sub.ptr.sub.i9.i81, 7
   br i1 %cmp.i.i82, label %if.then.i.i88, label %if.then4.i.i85
 
-if.then.i.i88:                                    ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit75"
+if.then.i.i88:                                    ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit75"
   %call3.i.i89 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call, ptr noundef nonnull @.str.6, i64 noundef 7) #24
   br label %sw.epilog
 
-if.then4.i.i85:                                   ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit75"
+if.then4.i.i85:                                   ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit75"
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %14, ptr noundef nonnull align 1 dereferenceable(7) @.str.6, i64 7, i1 false)
   %15 = load ptr, ptr %OutBufCur.i6.i78, align 8
   %add.ptr.i.i86 = getelementptr inbounds i8, ptr %15, i64 7
@@ -374,16 +374,16 @@ if.then4.i.i85:                                   ; preds = %"_ZZN6hermes18Sourc
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.end18
-  br i1 %tobool.i, label %if.then.i93, label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit97"
+  br i1 %tobool.i, label %if.then.i93, label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit97"
 
 if.then.i93:                                      ; preds = %sw.bb21
   %vtable.i94 = load ptr, ptr %call, align 8
   %vfn.i95 = getelementptr inbounds i8, ptr %vtable.i94, i64 16
   %16 = load ptr, ptr %vfn.i95, align 8
   %call.i96 = tail call noundef nonnull align 8 dereferenceable(36) ptr %16(ptr noundef nonnull align 8 dereferenceable(36) %call, i32 noundef 5, i1 noundef zeroext true, i1 noundef zeroext false) #24
-  br label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit97"
+  br label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit97"
 
-"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit97": ; preds = %sw.bb21, %if.then.i93
+"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit97": ; preds = %sw.bb21, %if.then.i93
   %OutBufEnd.i5.i99 = getelementptr inbounds i8, ptr %call, i64 16
   %17 = load ptr, ptr %OutBufEnd.i5.i99, align 8
   %OutBufCur.i6.i100 = getelementptr inbounds i8, ptr %call, i64 24
@@ -394,11 +394,11 @@ if.then.i93:                                      ; preds = %sw.bb21
   %cmp.i.i104 = icmp ult i64 %sub.ptr.sub.i9.i103, 9
   br i1 %cmp.i.i104, label %if.then.i.i110, label %if.then4.i.i107
 
-if.then.i.i110:                                   ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit97"
+if.then.i.i110:                                   ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit97"
   %call3.i.i111 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call, ptr noundef nonnull @.str.7, i64 noundef 9) #24
   br label %sw.epilog
 
-if.then4.i.i107:                                  ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit97"
+if.then4.i.i107:                                  ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit97"
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %18, ptr noundef nonnull align 1 dereferenceable(9) @.str.7, i64 9, i1 false)
   %19 = load ptr, ptr %OutBufCur.i6.i100, align 8
   %add.ptr.i.i108 = getelementptr inbounds i8, ptr %19, i64 9
@@ -406,16 +406,16 @@ if.then4.i.i107:                                  ; preds = %"_ZZN6hermes18Sourc
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %if.end18
-  br i1 %tobool.i, label %if.then.i115, label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit119"
+  br i1 %tobool.i, label %if.then.i115, label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit119"
 
 if.then.i115:                                     ; preds = %sw.bb23
   %vtable.i116 = load ptr, ptr %call, align 8
   %vfn.i117 = getelementptr inbounds i8, ptr %vtable.i116, i64 16
   %20 = load ptr, ptr %vfn.i117, align 8
   %call.i118 = tail call noundef nonnull align 8 dereferenceable(36) ptr %20(ptr noundef nonnull align 8 dereferenceable(36) %call, i32 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false) #24
-  br label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit119"
+  br label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit119"
 
-"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit119": ; preds = %sw.bb23, %if.then.i115
+"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit119": ; preds = %sw.bb23, %if.then.i115
   %OutBufEnd.i5.i121 = getelementptr inbounds i8, ptr %call, i64 16
   %21 = load ptr, ptr %OutBufEnd.i5.i121, align 8
   %OutBufCur.i6.i122 = getelementptr inbounds i8, ptr %call, i64 24
@@ -426,11 +426,11 @@ if.then.i115:                                     ; preds = %sw.bb23
   %cmp.i.i126 = icmp ult i64 %sub.ptr.sub.i9.i125, 6
   br i1 %cmp.i.i126, label %if.then.i.i132, label %if.then4.i.i129
 
-if.then.i.i132:                                   ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit119"
+if.then.i.i132:                                   ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit119"
   %call3.i.i133 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call, ptr noundef nonnull @.str.8, i64 noundef 6) #24
   br label %sw.epilog
 
-if.then4.i.i129:                                  ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit119"
+if.then4.i.i129:                                  ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit119"
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %22, ptr noundef nonnull align 1 dereferenceable(6) @.str.8, i64 6, i1 false)
   %23 = load ptr, ptr %OutBufCur.i6.i122, align 8
   %add.ptr.i.i130 = getelementptr inbounds i8, ptr %23, i64 6
@@ -438,16 +438,16 @@ if.then4.i.i129:                                  ; preds = %"_ZZN6hermes18Sourc
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %if.end18
-  br i1 %tobool.i, label %if.then.i137, label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit141"
+  br i1 %tobool.i, label %if.then.i137, label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit141"
 
 if.then.i137:                                     ; preds = %sw.bb25
   %vtable.i138 = load ptr, ptr %call, align 8
   %vfn.i139 = getelementptr inbounds i8, ptr %vtable.i138, i64 16
   %24 = load ptr, ptr %vfn.i139, align 8
   %call.i140 = tail call noundef nonnull align 8 dereferenceable(36) ptr %24(ptr noundef nonnull align 8 dereferenceable(36) %call, i32 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false) #24
-  br label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit141"
+  br label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit141"
 
-"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit141": ; preds = %sw.bb25, %if.then.i137
+"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit141": ; preds = %sw.bb25, %if.then.i137
   %OutBufEnd.i5.i143 = getelementptr inbounds i8, ptr %call, i64 16
   %25 = load ptr, ptr %OutBufEnd.i5.i143, align 8
   %OutBufCur.i6.i144 = getelementptr inbounds i8, ptr %call, i64 24
@@ -458,11 +458,11 @@ if.then.i137:                                     ; preds = %sw.bb25
   %cmp.i.i148 = icmp ult i64 %sub.ptr.sub.i9.i147, 8
   br i1 %cmp.i.i148, label %if.then.i.i154, label %if.then4.i.i151
 
-if.then.i.i154:                                   ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit141"
+if.then.i.i154:                                   ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit141"
   %call3.i.i155 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call, ptr noundef nonnull @.str.9, i64 noundef 8) #24
   br label %sw.epilog
 
-if.then4.i.i151:                                  ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit141"
+if.then4.i.i151:                                  ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit141"
   store i64 2322286696867915122, ptr %26, align 1
   %27 = load ptr, ptr %OutBufCur.i6.i144, align 8
   %add.ptr.i.i152 = getelementptr inbounds i8, ptr %27, i64 8
@@ -470,7 +470,7 @@ if.then4.i.i151:                                  ; preds = %"_ZZN6hermes18Sourc
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then4.i.i151, %if.then.i.i154, %if.then4.i.i129, %if.then.i.i132, %if.then4.i.i107, %if.then.i.i110, %if.then4.i.i85, %if.then.i.i88, %if.end18
-  br i1 %tobool.i, label %if.then.i165, label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit169"
+  br i1 %tobool.i, label %if.then.i165, label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit169"
 
 if.then.i165:                                     ; preds = %sw.epilog
   %vtable.i160 = load ptr, ptr %call, align 8
@@ -481,9 +481,9 @@ if.then.i165:                                     ; preds = %sw.epilog
   %vfn.i167 = getelementptr inbounds i8, ptr %vtable.i166, i64 16
   %29 = load ptr, ptr %vfn.i167, align 8
   %call.i168 = tail call noundef nonnull align 8 dereferenceable(36) ptr %29(ptr noundef nonnull align 8 dereferenceable(36) %call, i32 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false) #24
-  br label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit169"
+  br label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit169"
 
-"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit169": ; preds = %sw.epilog, %if.then.i165
+"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit169": ; preds = %sw.epilog, %if.then.i165
   %Message.i = getelementptr inbounds i8, ptr %diag, i64 64
   %call.i.i170 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %Message.i) #24
   %call2.i.i171 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %Message.i) #24
@@ -497,13 +497,13 @@ if.then.i165:                                     ; preds = %sw.epilog
   %cmp.i179 = icmp ugt i64 %call2.i.i171, %sub.ptr.sub.i178
   br i1 %cmp.i179, label %if.then.i185, label %if.end.i180
 
-if.then.i185:                                     ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit169"
+if.then.i185:                                     ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit169"
   %call3.i186 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call, ptr noundef %call.i.i170, i64 noundef %call2.i.i171) #24
   %OutBufCur.i188.phi.trans.insert = getelementptr inbounds i8, ptr %call3.i186, i64 24
   %.pre247 = load ptr, ptr %OutBufCur.i188.phi.trans.insert, align 8
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit187
 
-if.end.i180:                                      ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit169"
+if.end.i180:                                      ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit169"
   %tobool.not.i181 = icmp eq i64 %call2.i.i171, 0
   br i1 %tobool.not.i181, label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit187, label %if.then4.i182
 
@@ -534,22 +534,22 @@ if.end.i194:                                      ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEc.exit196
 
 _ZN4llvh11raw_ostreamlsEc.exit196:                ; preds = %if.then.i191, %if.end.i194
-  br i1 %tobool.i, label %if.then.i199, label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_1clEv.exit203"
+  br i1 %tobool.i, label %if.then.i199, label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_1clEv.argprom.argprom.exit203"
 
 if.then.i199:                                     ; preds = %_ZN4llvh11raw_ostreamlsEc.exit196
   %vtable.i200 = load ptr, ptr %call, align 8
   %vfn.i201 = getelementptr inbounds i8, ptr %vtable.i200, i64 24
   %35 = load ptr, ptr %vfn.i201, align 8
   %call.i202 = tail call noundef nonnull align 8 dereferenceable(36) ptr %35(ptr noundef nonnull align 8 dereferenceable(36) %call) #24
-  br label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_1clEv.exit203"
+  br label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_1clEv.argprom.argprom.exit203"
 
-"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_1clEv.exit203": ; preds = %_ZN4llvh11raw_ostreamlsEc.exit196, %if.then.i199
+"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_1clEv.argprom.argprom.exit203": ; preds = %_ZN4llvh11raw_ostreamlsEc.exit196, %if.then.i199
   %cmp31 = icmp eq i32 %0, -1
   %cmp32 = icmp eq i32 %1, -1
   %or.cond = or i1 %cmp31, %cmp32
   br i1 %or.cond, label %return, label %if.end34
 
-if.end34:                                         ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_1clEv.exit203"
+if.end34:                                         ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_1clEv.argprom.argprom.exit203"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sourceLine) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %caretLine) #24
   call void @_ZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsE(ptr nonnull sret(%"struct.std::pair.32") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(360) %diag, i8 poison, i64 %opts.sroa.12244.0.copyload)
@@ -598,16 +598,16 @@ _ZN4llvh11raw_ostreamlsEc.exit217:                ; preds = %if.then.i212, %if.e
   br i1 %cmp.i.lcssa.i, label %if.then48, label %if.end51
 
 if.then48:                                        ; preds = %_ZN4llvh11raw_ostreamlsEc.exit217
-  br i1 %tobool.i, label %if.then.i220, label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit224"
+  br i1 %tobool.i, label %if.then.i220, label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit224"
 
 if.then.i220:                                     ; preds = %if.then48
   %vtable.i221 = load ptr, ptr %call, align 8
   %vfn.i222 = getelementptr inbounds i8, ptr %vtable.i221, i64 16
   %39 = load ptr, ptr %vfn.i222, align 8
   %call.i223 = call noundef nonnull align 8 dereferenceable(36) ptr %39(ptr noundef nonnull align 8 dereferenceable(36) %call, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false) #24
-  br label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit224"
+  br label %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit224"
 
-"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit224": ; preds = %if.then48, %if.then.i220
+"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit224": ; preds = %if.then48, %if.then.i220
   %call.i225 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %caretLine) #24
   %call2.i226 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %caretLine) #24
   %call3.i227 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call, ptr noundef %call.i225, i64 noundef %call2.i226) #24
@@ -618,11 +618,11 @@ if.then.i220:                                     ; preds = %if.then48
   %cmp.not.i230 = icmp ult ptr %40, %41
   br i1 %cmp.not.i230, label %if.end.i234, label %if.then.i231
 
-if.then.i231:                                     ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit224"
+if.then.i231:                                     ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit224"
   %call.i232 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %call3.i227, i8 noundef zeroext 10) #24
   br label %_ZN4llvh11raw_ostreamlsEc.exit236
 
-if.end.i234:                                      ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.exit224"
+if.end.i234:                                      ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_0clENS1_11raw_ostream6ColorsE.argprom.argprom.exit224"
   %incdec.ptr.i235 = getelementptr inbounds i8, ptr %40, i64 1
   store ptr %incdec.ptr.i235, ptr %OutBufCur.i228, align 8
   store i8 10, ptr %40, align 1
@@ -643,7 +643,7 @@ if.end51:                                         ; preds = %if.then.i239, %_ZN4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sourceLine) #24
   br label %return
 
-return:                                           ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_1clEv.exit203", %if.end51
+return:                                           ; preds = %"_ZZN6hermes18SourceErrorManager15printDiagnosticERKN4llvh12SMDiagnosticEPvENK3$_1clEv.argprom.argprom.exit203", %if.end51
   ret void
 }
 
@@ -2697,13 +2697,13 @@ while.end7:                                       ; preds = %while.end7.loopexit
 cond.true.i:                                      ; preds = %while.end7
   %add.ptr.i.i = getelementptr inbounds i32, ptr %narrowByteToColumn.sroa.0.0.lcssa, i64 %conv.i
   %28 = load i32, ptr %add.ptr.i.i, align 4
-  br label %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit"
+  br label %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit"
 
 cond.false.i:                                     ; preds = %while.end7
   %29 = trunc i64 %26 to i32
-  br label %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit"
+  br label %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit"
 
-"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit": ; preds = %cond.true.i, %cond.false.i
+"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit": ; preds = %cond.true.i, %cond.false.i
   %cond.i = phi i32 [ %28, %cond.true.i ], [ %29, %cond.false.i ]
   %conv11 = zext i32 %cond.i to i64
   %Ranges.i = getelementptr inbounds i8, ptr %diag, i64 128
@@ -2713,7 +2713,7 @@ cond.false.i:                                     ; preds = %while.end7
   %cmp16.not262 = icmp eq ptr %30, %31
   br i1 %cmp16.not262, label %for.end, label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit"
+for.body.lr.ph:                                   ; preds = %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit"
   %32 = trunc i64 %26 to i32
   br label %for.body
 
@@ -2725,38 +2725,38 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %33 = load i32, ptr %__begin1.0266, align 4
   %conv.i51 = zext i32 %33 to i64
   %cmp.i56 = icmp ugt i64 %sub.ptr.div.i.i, %conv.i51
-  br i1 %cmp.i56, label %cond.true.i59, label %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit61"
+  br i1 %cmp.i56, label %cond.true.i59, label %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit61"
 
 cond.true.i59:                                    ; preds = %for.body
   %add.ptr.i.i60 = getelementptr inbounds i32, ptr %narrowByteToColumn.sroa.0.0.lcssa, i64 %conv.i51
   %34 = load i32, ptr %add.ptr.i.i60, align 4
-  br label %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit61"
+  br label %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit61"
 
-"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit61": ; preds = %for.body, %cond.true.i59
+"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit61": ; preds = %for.body, %cond.true.i59
   %cond.i58 = phi i32 [ %34, %cond.true.i59 ], [ %32, %for.body ]
   %second = getelementptr inbounds i8, ptr %__begin1.0266, i64 4
   %35 = load i32, ptr %second, align 4
   %conv.i62 = zext i32 %35 to i64
   %cmp.i67 = icmp ugt i64 %sub.ptr.div.i.i, %conv.i62
-  br i1 %cmp.i67, label %cond.true.i70, label %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit72"
+  br i1 %cmp.i67, label %cond.true.i70, label %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit72"
 
-cond.true.i70:                                    ; preds = %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit61"
+cond.true.i70:                                    ; preds = %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit61"
   %add.ptr.i.i71 = getelementptr inbounds i32, ptr %narrowByteToColumn.sroa.0.0.lcssa, i64 %conv.i62
   %36 = load i32, ptr %add.ptr.i.i71, align 4
-  br label %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit72"
+  br label %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit72"
 
-"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit72": ; preds = %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit61", %cond.true.i70
-  %cond.i69 = phi i32 [ %36, %cond.true.i70 ], [ %32, %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit61" ]
+"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit72": ; preds = %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit61", %cond.true.i70
+  %cond.i69 = phi i32 [ %36, %cond.true.i70 ], [ %32, %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit61" ]
   %cmp.not.i = icmp eq ptr %ranges.sroa.6.0264, %ranges.sroa.12.0263
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i73
 
-if.then.i73:                                      ; preds = %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit72"
+if.then.i73:                                      ; preds = %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit72"
   store i32 %cond.i58, ptr %ranges.sroa.6.0264, align 4
   %second.i.i.i.i = getelementptr inbounds i8, ptr %ranges.sroa.6.0264, i64 4
   store i32 %cond.i69, ptr %second.i.i.i.i, align 4
   br label %_ZNSt6vectorISt4pairIjjESaIS1_EE12emplace_backIJjjEEERS1_DpOT_.exit
 
-if.else.i:                                        ; preds = %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit72"
+if.else.i:                                        ; preds = %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit72"
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %ranges.sroa.6.0264 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %ranges.sroa.0.0265 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -2825,9 +2825,9 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE12emplace_backIJjjEEERS1_DpOT_.exit: ; preds = %
   %cmp16.not = icmp eq ptr %incdec.ptr22, %31
   br i1 %cmp16.not, label %for.end, label %for.body
 
-for.end:                                          ; preds = %_ZNSt6vectorISt4pairIjjESaIS1_EE12emplace_backIJjjEEERS1_DpOT_.exit, %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit"
-  %ranges.sroa.6.0.lcssa = phi ptr [ null, %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit" ], [ %ranges.sroa.6.1, %_ZNSt6vectorISt4pairIjjESaIS1_EE12emplace_backIJjjEEERS1_DpOT_.exit ]
-  %ranges.sroa.0.0.lcssa = phi ptr [ null, %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.exit" ], [ %ranges.sroa.0.1, %_ZNSt6vectorISt4pairIjjESaIS1_EE12emplace_backIJjjEEERS1_DpOT_.exit ]
+for.end:                                          ; preds = %_ZNSt6vectorISt4pairIjjESaIS1_EE12emplace_backIJjjEEERS1_DpOT_.exit, %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit"
+  %ranges.sroa.6.0.lcssa = phi ptr [ null, %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit" ], [ %ranges.sroa.6.1, %_ZNSt6vectorISt4pairIjjESaIS1_EE12emplace_backIJjjEEERS1_DpOT_.exit ]
+  %ranges.sroa.0.0.lcssa = phi ptr [ null, %"_ZZN6hermes18SourceErrorManager23buildSourceAndCaretLineB5cxx11ERKN4llvh12SMDiagnosticENS_24SourceErrorOutputOptionsEENK3$_1clEj.argprom.argprom.exit" ], [ %ranges.sroa.0.1, %_ZNSt6vectorISt4pairIjjESaIS1_EE12emplace_backIJjjEEERS1_DpOT_.exit ]
   %add = add i64 %26, 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #24
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %caretLine) #24
@@ -4732,9 +4732,9 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %cmp9.not.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i.i) #24
-  br i1 %cmp9.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_RT0_.exit.i.i", label %while.body.i.i.i
+  br i1 %cmp9.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_RT0_.argprom.exit.i.i", label %while.body.i.i.i
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_RT0_.exit.i.i": ; preds = %while.body.i.i.i
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_RT0_.argprom.exit.i.i": ; preds = %while.body.i.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %__value.i.i.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %agg.tmp6.i.i.i)
   %msg.i.i.i.i3.i = getelementptr inbounds i8, ptr %__value.i.i1.i, i64 32
@@ -4743,8 +4743,8 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %noteCount_.i7.i.i7.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i2.i, i64 64
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %while.body.i.i, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_RT0_.exit.i.i"
-  %__last.sroa.0.05.i.i = phi ptr [ %storemerge14, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_RT0_.exit.i.i" ], [ %incdec.ptr.i.i8.i, %while.body.i.i ]
+while.body.i.i:                                   ; preds = %while.body.i.i, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_RT0_.argprom.exit.i.i"
+  %__last.sroa.0.05.i.i = phi ptr [ %storemerge14, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_RT0_.argprom.exit.i.i" ], [ %incdec.ptr.i.i8.i, %while.body.i.i ]
   %incdec.ptr.i.i8.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -72
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %__value.i.i1.i)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %agg.tmp7.i.i2.i)
@@ -4801,23 +4801,23 @@ if.end.i.i.i.i:                                   ; preds = %land.lhs.true2.i.i.
   %8 = load ptr, ptr %loc7.i.i.i.i, align 8
   %cmp.i8.i.i.i.i = icmp ne ptr %8, null
   %or.cond1.i.i.i.i = select i1 %cmp5.i.i.i.i, i1 true, i1 %cmp.i8.i.i.i.i
-  br i1 %or.cond1.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i", label %land.lhs.true9.i.i.i.i
+  br i1 %or.cond1.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i.i", label %land.lhs.true9.i.i.i.i
 
 land.lhs.true9.i.i.i.i:                           ; preds = %if.end.i.i.i.i
   %msg10.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
   %call.i9.i.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %msg10.i.i.i.i, ptr noundef nonnull @_ZN6hermesL14sTooManyErrorsE) #24
   %cmp.i10.i.i.i.i = icmp eq i32 %call.i9.i.i.i.i, 0
   %.pre153.i.i = load ptr, ptr %loc7.i.i.i.i, align 8
-  br i1 %cmp.i10.i.i.i.i, label %if.then.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i"
+  br i1 %cmp.i10.i.i.i.i, label %if.then.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i": ; preds = %land.lhs.true9.i.i.i.i, %if.end.i.i.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i.i": ; preds = %land.lhs.true9.i.i.i.i, %if.end.i.i.i.i
   %9 = phi ptr [ %8, %if.end.i.i.i.i ], [ %.pre153.i.i, %land.lhs.true9.i.i.i.i ]
   %10 = load ptr, ptr %loc.i.i.i.i, align 8
   %cmp18.i.i.i.i = icmp ult ptr %10, %9
   br i1 %cmp18.i.i.i.i, label %if.then.i.i, label %if.else33.i.i
 
-if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i", %land.lhs.true9.i.i.i.i
-  %11 = phi ptr [ %.pre153.i.i, %land.lhs.true9.i.i.i.i ], [ %9, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i" ]
+if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i.i", %land.lhs.true9.i.i.i.i
+  %11 = phi ptr [ %.pre153.i.i, %land.lhs.true9.i.i.i.i ], [ %9, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i.i" ]
   %12 = load i32, ptr %add.ptr.i.i, align 8
   %cmp.i.i1.i.i = icmp ne i32 %12, 0
   %cmp.i.i.i3.i.i = icmp ne ptr %11, null
@@ -4837,7 +4837,7 @@ if.end.i.i9.i.i:                                  ; preds = %land.lhs.true2.i.i5
   %14 = load ptr, ptr %loc7.i.i11.i.i, align 8
   %cmp.i8.i.i12.i.i = icmp ne ptr %14, null
   %or.cond1.i.i13.i.i = select i1 %cmp5.i.i10.i.i, i1 true, i1 %cmp.i8.i.i12.i.i
-  br i1 %or.cond1.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit23.i.i", label %land.lhs.true9.i.i14.i.i
+  br i1 %or.cond1.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit23.i.i", label %land.lhs.true9.i.i14.i.i
 
 land.lhs.true9.i.i14.i.i:                         ; preds = %if.end.i.i9.i.i
   %msg10.i.i15.i.i = getelementptr inbounds i8, ptr %storemerge14, i64 -40
@@ -4847,15 +4847,15 @@ land.lhs.true9.i.i14.i.i:                         ; preds = %if.end.i.i9.i.i
 
 land.lhs.true9.if.end13_crit_edge.i.i18.i.i:      ; preds = %land.lhs.true9.i.i14.i.i
   %.pre.i.i19.i.i = load ptr, ptr %loc7.i.i11.i.i, align 8
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit23.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit23.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit23.i.i": ; preds = %land.lhs.true9.if.end13_crit_edge.i.i18.i.i, %if.end.i.i9.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit23.i.i": ; preds = %land.lhs.true9.if.end13_crit_edge.i.i18.i.i, %if.end.i.i9.i.i
   %15 = phi ptr [ %.pre.i.i19.i.i, %land.lhs.true9.if.end13_crit_edge.i.i18.i.i ], [ %14, %if.end.i.i9.i.i ]
   %16 = load ptr, ptr %loc7.i.i.i.i, align 8
   %cmp18.i.i21.i.i = icmp ult ptr %16, %15
   br i1 %cmp18.i.i21.i.i, label %if.then12.i.i, label %if.else.i.i
 
-if.then12.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit23.i.i", %land.lhs.true9.i.i14.i.i
+if.then12.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit23.i.i", %land.lhs.true9.i.i14.i.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %__tmp.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.coerce, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i.i.i131.i.i) #24
@@ -4875,7 +4875,7 @@ if.then12.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %__tmp.i.i.i.i)
   br label %while.body.i.i5.preheader
 
-if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit23.i.i", %land.lhs.true2.i.i5.i.i
+if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit23.i.i", %land.lhs.true2.i.i5.i.i
   %20 = load i32, ptr %add.ptr.i2.i, align 8
   %cmp.i.i24.i.i = icmp ne i32 %20, 0
   %21 = load ptr, ptr %loc.i.i.i.i, align 8
@@ -4895,7 +4895,7 @@ if.end.i.i32.i.i:                                 ; preds = %land.lhs.true2.i.i2
   %23 = load ptr, ptr %loc7.i.i34.i.i, align 8
   %cmp.i8.i.i35.i.i = icmp ne ptr %23, null
   %or.cond1.i.i36.i.i = select i1 %cmp5.i.i33.i.i, i1 true, i1 %cmp.i8.i.i35.i.i
-  br i1 %or.cond1.i.i36.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit46.i.i", label %land.lhs.true9.i.i37.i.i
+  br i1 %or.cond1.i.i36.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit46.i.i", label %land.lhs.true9.i.i37.i.i
 
 land.lhs.true9.i.i37.i.i:                         ; preds = %if.end.i.i32.i.i
   %msg10.i.i38.i.i = getelementptr inbounds i8, ptr %storemerge14, i64 -40
@@ -4905,15 +4905,15 @@ land.lhs.true9.i.i37.i.i:                         ; preds = %if.end.i.i32.i.i
 
 land.lhs.true9.if.end13_crit_edge.i.i41.i.i:      ; preds = %land.lhs.true9.i.i37.i.i
   %.pre.i.i42.i.i = load ptr, ptr %loc7.i.i34.i.i, align 8
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit46.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit46.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit46.i.i": ; preds = %land.lhs.true9.if.end13_crit_edge.i.i41.i.i, %if.end.i.i32.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit46.i.i": ; preds = %land.lhs.true9.if.end13_crit_edge.i.i41.i.i, %if.end.i.i32.i.i
   %24 = phi ptr [ %.pre.i.i42.i.i, %land.lhs.true9.if.end13_crit_edge.i.i41.i.i ], [ %23, %if.end.i.i32.i.i ]
   %25 = load ptr, ptr %loc.i.i.i.i, align 8
   %cmp18.i.i44.i.i = icmp ult ptr %25, %24
   br i1 %cmp18.i.i44.i.i, label %if.then22.i.i, label %if.else27.i.i
 
-if.then22.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit46.i.i", %land.lhs.true9.i.i37.i.i
+if.then22.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit46.i.i", %land.lhs.true9.i.i37.i.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %__tmp.i.i47.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i47.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.coerce, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i48.i.i, ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i.i.i131.i.i) #24
@@ -4933,7 +4933,7 @@ if.then22.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %__tmp.i.i47.i.i)
   br label %while.body.i.i5.preheader
 
-if.else27.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit46.i.i", %land.lhs.true2.i.i28.i.i
+if.else27.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit46.i.i", %land.lhs.true2.i.i28.i.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %__tmp.i.i56.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i56.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.coerce, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i57.i.i, ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i.i.i131.i.i) #24
@@ -4951,8 +4951,8 @@ if.else27.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %__tmp.i.i56.i.i)
   br label %while.body.i.i5.preheader
 
-if.else33.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i", %land.lhs.true2.i.i.if.else33_crit_edge.i.i
-  %32 = phi ptr [ %.pre.i.i, %land.lhs.true2.i.i.if.else33_crit_edge.i.i ], [ %10, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i" ]
+if.else33.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i.i", %land.lhs.true2.i.i.if.else33_crit_edge.i.i
+  %32 = phi ptr [ %.pre.i.i, %land.lhs.true2.i.i.if.else33_crit_edge.i.i ], [ %10, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i.i" ]
   %33 = load i32, ptr %add.ptr.i2.i, align 8
   %cmp.i.i65.i.i = icmp ne i32 %33, 0
   %cmp.i.i.i67.i.i = icmp ne ptr %32, null
@@ -4971,7 +4971,7 @@ if.end.i.i73.i.i:                                 ; preds = %land.lhs.true2.i.i6
   %35 = load ptr, ptr %loc7.i.i75.i.i, align 8
   %cmp.i8.i.i76.i.i = icmp ne ptr %35, null
   %or.cond1.i.i77.i.i = select i1 %cmp5.i.i74.i.i, i1 true, i1 %cmp.i8.i.i76.i.i
-  br i1 %or.cond1.i.i77.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit87.i.i", label %land.lhs.true9.i.i78.i.i
+  br i1 %or.cond1.i.i77.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit87.i.i", label %land.lhs.true9.i.i78.i.i
 
 land.lhs.true9.i.i78.i.i:                         ; preds = %if.end.i.i73.i.i
   %msg10.i.i79.i.i = getelementptr inbounds i8, ptr %storemerge14, i64 -40
@@ -4981,15 +4981,15 @@ land.lhs.true9.i.i78.i.i:                         ; preds = %if.end.i.i73.i.i
 
 land.lhs.true9.if.end13_crit_edge.i.i82.i.i:      ; preds = %land.lhs.true9.i.i78.i.i
   %.pre.i.i83.i.i = load ptr, ptr %loc7.i.i75.i.i, align 8
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit87.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit87.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit87.i.i": ; preds = %land.lhs.true9.if.end13_crit_edge.i.i82.i.i, %if.end.i.i73.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit87.i.i": ; preds = %land.lhs.true9.if.end13_crit_edge.i.i82.i.i, %if.end.i.i73.i.i
   %36 = phi ptr [ %.pre.i.i83.i.i, %land.lhs.true9.if.end13_crit_edge.i.i82.i.i ], [ %35, %if.end.i.i73.i.i ]
   %37 = load ptr, ptr %loc.i.i.i.i, align 8
   %cmp18.i.i85.i.i = icmp ult ptr %37, %36
   br i1 %cmp18.i.i85.i.i, label %if.then39.i.i, label %if.else44.i.i
 
-if.then39.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit87.i.i", %land.lhs.true9.i.i78.i.i
+if.then39.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit87.i.i", %land.lhs.true9.i.i78.i.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %__tmp.i.i88.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i88.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.coerce, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i89.i.i, ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i.i.i131.i.i) #24
@@ -5007,7 +5007,7 @@ if.then39.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %__tmp.i.i88.i.i)
   br label %while.body.i.i5.preheader
 
-if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit87.i.i", %land.lhs.true2.i.i69.i.i
+if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit87.i.i", %land.lhs.true2.i.i69.i.i
   %41 = load i32, ptr %add.ptr.i.i, align 8
   %cmp.i.i97.i.i = icmp ne i32 %41, 0
   %loc.i.i98.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
@@ -5029,7 +5029,7 @@ if.end.i.i105.i.i:                                ; preds = %land.lhs.true2.i.i1
   %44 = load ptr, ptr %loc7.i.i107.i.i, align 8
   %cmp.i8.i.i108.i.i = icmp ne ptr %44, null
   %or.cond1.i.i109.i.i = select i1 %cmp5.i.i106.i.i, i1 true, i1 %cmp.i8.i.i108.i.i
-  br i1 %or.cond1.i.i109.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit119.i.i", label %land.lhs.true9.i.i110.i.i
+  br i1 %or.cond1.i.i109.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit119.i.i", label %land.lhs.true9.i.i110.i.i
 
 land.lhs.true9.i.i110.i.i:                        ; preds = %if.end.i.i105.i.i
   %msg10.i.i111.i.i = getelementptr inbounds i8, ptr %storemerge14, i64 -40
@@ -5039,15 +5039,15 @@ land.lhs.true9.i.i110.i.i:                        ; preds = %if.end.i.i105.i.i
 
 land.lhs.true9.if.end13_crit_edge.i.i114.i.i:     ; preds = %land.lhs.true9.i.i110.i.i
   %.pre.i.i115.i.i = load ptr, ptr %loc7.i.i107.i.i, align 8
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit119.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit119.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit119.i.i": ; preds = %land.lhs.true9.if.end13_crit_edge.i.i114.i.i, %if.end.i.i105.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit119.i.i": ; preds = %land.lhs.true9.if.end13_crit_edge.i.i114.i.i, %if.end.i.i105.i.i
   %45 = phi ptr [ %.pre.i.i115.i.i, %land.lhs.true9.if.end13_crit_edge.i.i114.i.i ], [ %44, %if.end.i.i105.i.i ]
   %46 = load ptr, ptr %loc.i.i98.i.i, align 8
   %cmp18.i.i117.i.i = icmp ult ptr %46, %45
   br i1 %cmp18.i.i117.i.i, label %if.then50.i.i, label %if.else55.i.i
 
-if.then50.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit119.i.i", %land.lhs.true9.i.i110.i.i
+if.then50.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit119.i.i", %land.lhs.true9.i.i110.i.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %__tmp.i.i120.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i120.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.coerce, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i121.i.i, ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i.i.i131.i.i) #24
@@ -5067,7 +5067,7 @@ if.then50.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %__tmp.i.i120.i.i)
   br label %while.body.i.i5.preheader
 
-if.else55.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit119.i.i", %land.lhs.true2.i.i101.i.i
+if.else55.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit119.i.i", %land.lhs.true2.i.i101.i.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %__tmp.i.i129.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i129.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.coerce, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i130.i.i, ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i.i.i131.i.i) #24
@@ -5111,7 +5111,7 @@ land.lhs.true2.i.i.i14.i:                         ; preds = %while.cond3.i.i
   %cmp.i7.i.i.i17.i = icmp eq i32 %call.i.i.i.i16.i, 0
   br i1 %cmp.i7.i.i.i17.i, label %while.cond10.i.i.preheader, label %if.end.i.i.i18.i
 
-while.cond10.i.i.preheader:                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i25.i", %land.lhs.true2.i.i.i14.i
+while.cond10.i.i.preheader:                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i25.i", %land.lhs.true2.i.i.i14.i
   br label %while.cond10.i.i
 
 if.end.i.i.i18.i:                                 ; preds = %land.lhs.true2.i.i.i14.i, %while.cond3.i.i
@@ -5120,7 +5120,7 @@ if.end.i.i.i18.i:                                 ; preds = %land.lhs.true2.i.i.
   %56 = load ptr, ptr %loc7.i.i.i6.i, align 8
   %cmp.i8.i.i.i20.i = icmp ne ptr %56, null
   %or.cond1.i.i.i21.i = select i1 %cmp5.i.i.i19.i, i1 true, i1 %cmp.i8.i.i.i20.i
-  br i1 %or.cond1.i.i.i21.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i25.i", label %land.lhs.true9.i.i.i22.i
+  br i1 %or.cond1.i.i.i21.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i25.i", label %land.lhs.true9.i.i.i22.i
 
 land.lhs.true9.i.i.i22.i:                         ; preds = %if.end.i.i.i18.i
   %call.i9.i.i.i23.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i.i.i131.i.i, ptr noundef nonnull @_ZN6hermesL14sTooManyErrorsE) #24
@@ -5129,15 +5129,15 @@ land.lhs.true9.i.i.i22.i:                         ; preds = %if.end.i.i.i18.i
 
 land.lhs.true9.if.end13_crit_edge.i.i.i.i:        ; preds = %land.lhs.true9.i.i.i22.i
   %.pre.i.i.i.i = load ptr, ptr %loc7.i.i.i6.i, align 8
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i25.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i25.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i25.i": ; preds = %land.lhs.true9.if.end13_crit_edge.i.i.i.i, %if.end.i.i.i18.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i25.i": ; preds = %land.lhs.true9.if.end13_crit_edge.i.i.i.i, %if.end.i.i.i18.i
   %57 = phi ptr [ %.pre.i.i.i.i, %land.lhs.true9.if.end13_crit_edge.i.i.i.i ], [ %56, %if.end.i.i.i18.i ]
   %58 = load ptr, ptr %loc.i.i.i11.i, align 8
   %cmp18.i.i.i26.i = icmp ult ptr %58, %57
   br i1 %cmp18.i.i.i26.i, label %while.body7.i.i, label %while.cond10.i.i.preheader
 
-while.body7.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i25.i", %land.lhs.true9.i.i.i22.i
+while.body7.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.i25.i", %land.lhs.true9.i.i.i22.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 72
   br label %while.cond3.i.i, !llvm.loop !78
 
@@ -5163,7 +5163,7 @@ if.end.i.i10.i.i:                                 ; preds = %land.lhs.true2.i.i6
   %62 = load ptr, ptr %loc7.i.i12.i.i, align 8
   %cmp.i8.i.i13.i.i = icmp ne ptr %62, null
   %or.cond1.i.i14.i.i = select i1 %cmp5.i.i11.i.i, i1 true, i1 %cmp.i8.i.i13.i.i
-  br i1 %or.cond1.i.i14.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit24.i.i", label %land.lhs.true9.i.i15.i.i
+  br i1 %or.cond1.i.i14.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit24.i.i", label %land.lhs.true9.i.i15.i.i
 
 land.lhs.true9.i.i15.i.i:                         ; preds = %if.end.i.i10.i.i
   %msg10.i.i16.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -40
@@ -5173,18 +5173,18 @@ land.lhs.true9.i.i15.i.i:                         ; preds = %if.end.i.i10.i.i
 
 land.lhs.true9.if.end13_crit_edge.i.i19.i.i:      ; preds = %land.lhs.true9.i.i15.i.i
   %.pre.i.i20.i.i = load ptr, ptr %loc7.i.i12.i.i, align 8
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit24.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit24.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit24.i.i": ; preds = %land.lhs.true9.if.end13_crit_edge.i.i19.i.i, %if.end.i.i10.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit24.i.i": ; preds = %land.lhs.true9.if.end13_crit_edge.i.i19.i.i, %if.end.i.i10.i.i
   %63 = phi ptr [ %.pre.i.i20.i.i, %land.lhs.true9.if.end13_crit_edge.i.i19.i.i ], [ %62, %if.end.i.i10.i.i ]
   %64 = load ptr, ptr %loc7.i.i.i6.i, align 8
   %cmp18.i.i22.i.i = icmp ult ptr %64, %63
   br i1 %cmp18.i.i22.i.i, label %while.cond10.i.i.backedge, label %while.end18.i.i
 
-while.cond10.i.i.backedge:                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit24.i.i", %land.lhs.true9.i.i15.i.i
+while.cond10.i.i.backedge:                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit24.i.i", %land.lhs.true9.i.i15.i.i
   br label %while.cond10.i.i, !llvm.loop !79
 
-while.end18.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit24.i.i", %land.lhs.true2.i.i6.i.i
+while.end18.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit24.i.i", %land.lhs.true2.i.i6.i.i
   %cmp.i.i.i6 = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
   br i1 %cmp.i.i.i6, label %if.end.i.i, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEET_SE_SE_T0_.exit"
 
@@ -5231,8 +5231,8 @@ entry:
   %cmp45 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp45, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread42"
-  %__holeIndex.addr.046 = phi i64 [ %6, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread42" ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.thread42"
+  %__holeIndex.addr.046 = phi i64 [ %6, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.thread42" ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.046, 1
   %mul = add i64 %add, 2
   %add.ptr.i = getelementptr inbounds %"class.hermes::SourceErrorManager::BufferedMessage", ptr %__first.coerce, i64 %mul
@@ -5250,7 +5250,7 @@ land.lhs.true2.i.i:                               ; preds = %while.body
   %msg.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %call.i.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i, ptr noundef nonnull @_ZN6hermesL14sTooManyErrorsE) #24
   %cmp.i7.i.i = icmp eq i32 %call.i.i.i, 0
-  br i1 %cmp.i7.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread42", label %if.end.i.i
+  br i1 %cmp.i7.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.thread42", label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true2.i.i, %while.body
   %2 = load i32, ptr %add.ptr.i17, align 8
@@ -5259,30 +5259,30 @@ if.end.i.i:                                       ; preds = %land.lhs.true2.i.i,
   %3 = load ptr, ptr %loc7.i.i, align 8
   %cmp.i8.i.i = icmp ne ptr %3, null
   %or.cond1.i.i = select i1 %cmp5.i.i, i1 true, i1 %cmp.i8.i.i
-  br i1 %or.cond1.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit", label %land.lhs.true9.i.i
+  br i1 %or.cond1.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit", label %land.lhs.true9.i.i
 
 land.lhs.true9.i.i:                               ; preds = %if.end.i.i
   %msg10.i.i = getelementptr inbounds i8, ptr %add.ptr.i17, i64 32
   %call.i9.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %msg10.i.i, ptr noundef nonnull @_ZN6hermesL14sTooManyErrorsE) #24
   %cmp.i10.i.i = icmp eq i32 %call.i9.i.i, 0
-  br i1 %cmp.i10.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread", label %land.lhs.true9.if.end13_crit_edge.i.i
+  br i1 %cmp.i10.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.thread", label %land.lhs.true9.if.end13_crit_edge.i.i
 
 land.lhs.true9.if.end13_crit_edge.i.i:            ; preds = %land.lhs.true9.i.i
   %.pre.i.i = load ptr, ptr %loc7.i.i, align 8
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit": ; preds = %if.end.i.i, %land.lhs.true9.if.end13_crit_edge.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit": ; preds = %if.end.i.i, %land.lhs.true9.if.end13_crit_edge.i.i
   %4 = phi ptr [ %.pre.i.i, %land.lhs.true9.if.end13_crit_edge.i.i ], [ %3, %if.end.i.i ]
   %5 = load ptr, ptr %loc.i.i, align 8
   %cmp18.i.i = icmp ult ptr %5, %4
   %cond.fr = freeze i1 %cmp18.i.i
-  br i1 %cond.fr, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread42"
+  br i1 %cond.fr, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.thread42"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread": ; preds = %land.lhs.true9.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread42"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.thread": ; preds = %land.lhs.true9.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.thread42"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread42": ; preds = %land.lhs.true2.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread"
-  %6 = phi i64 [ %sub3, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread" ], [ %mul, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit" ], [ %mul, %land.lhs.true2.i.i ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.thread42": ; preds = %land.lhs.true2.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.thread"
+  %6 = phi i64 [ %sub3, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.thread" ], [ %mul, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit" ], [ %mul, %land.lhs.true2.i.i ]
   %add.ptr.i18 = getelementptr inbounds %"class.hermes::SourceErrorManager::BufferedMessage", ptr %__first.coerce, i64 %6
   %add.ptr.i19 = getelementptr inbounds %"class.hermes::SourceErrorManager::BufferedMessage", ptr %__first.coerce, i64 %__holeIndex.addr.046
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i19, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i18, i64 32, i1 false)
@@ -5296,8 +5296,8 @@ land.lhs.true9.if.end13_crit_edge.i.i:            ; preds = %land.lhs.true9.i.i
   %cmp = icmp slt i64 %6, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !82
 
-while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread42", %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %6, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread42" ]
+while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.thread42", %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %6, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit.thread42" ]
   %and = and i64 %__len, 1
   %cmp17 = icmp eq i64 %and, 0
   br i1 %cmp17, label %land.lhs.true, label %if.end35
@@ -5334,7 +5334,7 @@ if.end35:                                         ; preds = %if.then21, %land.lh
   %9 = load i64, ptr %noteCount_2.i31, align 8
   store i64 %9, ptr %noteCount_.i30, align 8
   %cmp9.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
-  br i1 %cmp9.i, label %land.rhs.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS3_16disableBufferingEvE3$_0EEEvT_T0_SF_T1_RT2_.exit"
+  br i1 %cmp9.i, label %land.rhs.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS3_16disableBufferingEvE3$_0EEEvT_T0_SF_T1_RT2_.argprom.exit"
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end35
   %loc7.i.i.i = getelementptr inbounds i8, ptr %agg.tmp37, i64 8
@@ -5357,7 +5357,7 @@ land.lhs.true2.i.i.i:                             ; preds = %land.rhs.i
   %msg.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
   %call.i.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i, ptr noundef nonnull @_ZN6hermesL14sTooManyErrorsE) #24
   %cmp.i7.i.i.i = icmp eq i32 %call.i.i.i.i, 0
-  br i1 %cmp.i7.i.i.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS3_16disableBufferingEvE3$_0EEEvT_T0_SF_T1_RT2_.exit", label %if.end.i.i.i
+  br i1 %cmp.i7.i.i.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS3_16disableBufferingEvE3$_0EEEvT_T0_SF_T1_RT2_.argprom.exit", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true2.i.i.i, %land.rhs.i
   %12 = load i32, ptr %agg.tmp37, align 8
@@ -5365,7 +5365,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true2.i.i.
   %13 = load ptr, ptr %loc7.i.i.i, align 8
   %cmp.i8.i.i.i = icmp ne ptr %13, null
   %or.cond1.i.i.i = select i1 %cmp5.i.i.i, i1 true, i1 %cmp.i8.i.i.i
-  br i1 %or.cond1.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i", label %land.lhs.true9.i.i.i
+  br i1 %or.cond1.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.argprom.exit.i", label %land.lhs.true9.i.i.i
 
 land.lhs.true9.i.i.i:                             ; preds = %if.end.i.i.i
   %call.i9.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i28, ptr noundef nonnull @_ZN6hermesL14sTooManyErrorsE) #24
@@ -5374,15 +5374,15 @@ land.lhs.true9.i.i.i:                             ; preds = %if.end.i.i.i
 
 land.lhs.true9.if.end13_crit_edge.i.i.i:          ; preds = %land.lhs.true9.i.i.i
   %.pre.i.i.i = load ptr, ptr %loc7.i.i.i, align 8
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i": ; preds = %land.lhs.true9.if.end13_crit_edge.i.i.i, %if.end.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.argprom.exit.i": ; preds = %land.lhs.true9.if.end13_crit_edge.i.i.i, %if.end.i.i.i
   %14 = phi ptr [ %.pre.i.i.i, %land.lhs.true9.if.end13_crit_edge.i.i.i ], [ %13, %if.end.i.i.i ]
   %15 = load ptr, ptr %loc.i.i.i, align 8
   %cmp18.i.i.i = icmp ult ptr %15, %14
-  br i1 %cmp18.i.i.i, label %while.body.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS3_16disableBufferingEvE3$_0EEEvT_T0_SF_T1_RT2_.exit"
+  br i1 %cmp18.i.i.i, label %while.body.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS3_16disableBufferingEvE3$_0EEEvT_T0_SF_T1_RT2_.argprom.exit"
 
-while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i", %land.lhs.true9.i.i.i
+while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.argprom.exit.i", %land.lhs.true9.i.i.i
   %add.ptr.i8.i = getelementptr inbounds %"class.hermes::SourceErrorManager::BufferedMessage", ptr %__first.coerce, i64 %__holeIndex.addr.010.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i8.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 32, i1 false)
   %msg.i.i9.i = getelementptr inbounds i8, ptr %add.ptr.i8.i, i64 32
@@ -5393,10 +5393,10 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
   %16 = load i64, ptr %noteCount_2.i.i, align 8
   store i64 %16, ptr %noteCount_.i.i, align 8
   %cmp.i = icmp sgt i64 %__parent.011.i, %__holeIndex
-  br i1 %cmp.i, label %land.rhs.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS3_16disableBufferingEvE3$_0EEEvT_T0_SF_T1_RT2_.exit", !llvm.loop !83
+  br i1 %cmp.i, label %land.rhs.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS3_16disableBufferingEvE3$_0EEEvT_T0_SF_T1_RT2_.argprom.exit", !llvm.loop !83
 
-"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS3_16disableBufferingEvE3$_0EEEvT_T0_SF_T1_RT2_.exit": ; preds = %land.lhs.true2.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i", %while.body.i, %if.end35
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i" ], [ %__parent.011.i, %while.body.i ], [ %__holeIndex.addr.010.i, %land.lhs.true2.i.i.i ]
+"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS3_16disableBufferingEvE3$_0EEEvT_T0_SF_T1_RT2_.argprom.exit": ; preds = %land.lhs.true2.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.argprom.exit.i", %while.body.i, %if.end35
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.argprom.exit.i" ], [ %__parent.011.i, %while.body.i ], [ %__holeIndex.addr.010.i, %land.lhs.true2.i.i.i ]
   %add.ptr.i10.i = getelementptr inbounds %"class.hermes::SourceErrorManager::BufferedMessage", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i10.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp37, i64 32, i1 false)
   %msg.i.i11.i = getelementptr inbounds i8, ptr %add.ptr.i10.i, i64 32
@@ -5461,7 +5461,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true2.i.i,
   %3 = load ptr, ptr %loc7.i.i, align 8
   %cmp.i8.i.i = icmp ne ptr %3, null
   %or.cond1.i.i = select i1 %cmp5.i.i, i1 true, i1 %cmp.i8.i.i
-  br i1 %or.cond1.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit", label %land.lhs.true9.i.i
+  br i1 %or.cond1.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit", label %land.lhs.true9.i.i
 
 land.lhs.true9.i.i:                               ; preds = %if.end.i.i
   %call.i9.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %msg10.i.i, ptr noundef nonnull @_ZN6hermesL14sTooManyErrorsE) #24
@@ -5470,15 +5470,15 @@ land.lhs.true9.i.i:                               ; preds = %if.end.i.i
 
 land.lhs.true9.if.end13_crit_edge.i.i:            ; preds = %land.lhs.true9.i.i
   %.pre.i.i = load ptr, ptr %loc7.i.i, align 8
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit": ; preds = %if.end.i.i, %land.lhs.true9.if.end13_crit_edge.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit": ; preds = %if.end.i.i, %land.lhs.true9.if.end13_crit_edge.i.i
   %4 = phi ptr [ %.pre.i.i, %land.lhs.true9.if.end13_crit_edge.i.i ], [ %3, %if.end.i.i ]
   %5 = load ptr, ptr %loc.i.i, align 8
   %cmp18.i.i = icmp ult ptr %5, %4
   br i1 %cmp18.i.i, label %if.then9, label %if.else
 
-if.then9:                                         ; preds = %land.lhs.true9.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
+if.then9:                                         ; preds = %land.lhs.true9.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__val, ptr noundef nonnull align 8 dereferenceable(32) %__i.sroa.0.021, i64 32, i1 false)
   %msg3.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn20, i64 104
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i) #24
@@ -5521,7 +5521,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i2) #24
   br label %for.inc
 
-if.else:                                          ; preds = %land.lhs.true2.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit"
+if.else:                                          ; preds = %land.lhs.true2.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.argprom.exit"
   call fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_T0_"(ptr nonnull %__i.sroa.0.021)
   br label %for.inc
 
@@ -5571,7 +5571,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true2.i.i,
   %4 = load ptr, ptr %loc7.i.i, align 8
   %cmp.i8.i.i = icmp ne ptr %4, null
   %or.cond1.i.i = select i1 %cmp5.i.i, i1 true, i1 %cmp.i8.i.i
-  br i1 %or.cond1.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS3_15BufferedMessageENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit", label %land.lhs.true9.i.i
+  br i1 %or.cond1.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS3_15BufferedMessageENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.argprom.exit", label %land.lhs.true9.i.i
 
 land.lhs.true9.i.i:                               ; preds = %if.end.i.i
   %msg10.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 -40
@@ -5581,15 +5581,15 @@ land.lhs.true9.i.i:                               ; preds = %if.end.i.i
 
 land.lhs.true9.if.end13_crit_edge.i.i:            ; preds = %land.lhs.true9.i.i
   %.pre.i.i = load ptr, ptr %loc7.i.i, align 8
-  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS3_15BufferedMessageENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit"
+  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS3_15BufferedMessageENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS3_15BufferedMessageENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit": ; preds = %if.end.i.i, %land.lhs.true9.if.end13_crit_edge.i.i
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS3_15BufferedMessageENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.argprom.exit": ; preds = %if.end.i.i, %land.lhs.true9.if.end13_crit_edge.i.i
   %5 = phi ptr [ %.pre.i.i, %land.lhs.true9.if.end13_crit_edge.i.i ], [ %4, %if.end.i.i ]
   %6 = load ptr, ptr %loc.i.i, align 8
   %cmp18.i.i = icmp ult ptr %6, %5
   br i1 %cmp18.i.i, label %while.body, label %while.end
 
-while.body:                                       ; preds = %land.lhs.true9.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS3_15BufferedMessageENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit"
+while.body:                                       ; preds = %land.lhs.true9.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS3_15BufferedMessageENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.argprom.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(32) %__next.sroa.0.0, i64 32, i1 false)
   %msg.i.i2 = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 32
   %msg3.i.i3 = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 -40
@@ -5600,7 +5600,7 @@ while.body:                                       ; preds = %land.lhs.true9.i.i,
   store i64 %7, ptr %noteCount_.i4, align 8
   br label %while.cond, !llvm.loop !86
 
-while.end:                                        ; preds = %land.lhs.true2.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS3_15BufferedMessageENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit"
+while.end:                                        ; preds = %land.lhs.true2.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS3_15BufferedMessageENS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.argprom.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(32) %__val, i64 32, i1 false)
   %msg.i.i7 = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 32
   %call.i.i9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i) #24

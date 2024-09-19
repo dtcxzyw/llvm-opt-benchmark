@@ -214,9 +214,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN9grpc_core24SecurityHandshakerCreateEP14tsi_handshakerP23grpc_security_connectorRKNS_11ChannelArgsE(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 %agg.result, ptr noundef %handshaker, ptr noundef %connector, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %handshaker, null
-  br i1 %cmp, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_114FailHandshakerEED2Ev.exit, label %if.else
+  br i1 %cmp, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_114FailHandshakerEED2Ev.argprom.exit, label %if.else
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_114FailHandshakerEED2Ev.exit: ; preds = %entry
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_114FailHandshakerEED2Ev.argprom.exit: ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21, !noalias !4
   %refs_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !4
@@ -267,7 +267,7 @@ invoke.cont13.i.i:                                ; preds = %invoke.cont7.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tsi_handshake_error_.i.i) #22, !noalias !7
   %outgoing_21.i.i = getelementptr inbounds i8, ptr %call.i1, i64 96
   invoke void @grpc_slice_buffer_init(ptr noundef nonnull %outgoing_21.i.i)
-          to label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit unwind label %lpad22.i.i, !noalias !7
+          to label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit unwind label %lpad22.i.i, !noalias !7
 
 lpad6.i.i:                                        ; preds = %if.else
   %4 = landingpad { ptr, i32 }
@@ -314,7 +314,7 @@ lpad.body.i:                                      ; preds = %if.then.i.i.i.i, %i
   tail call void @_ZdlPv(ptr noundef nonnull %call.i1) #23, !noalias !7
   resume { ptr, i32 } %.pn.pn.i.i
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit: ; preds = %invoke.cont13.i.i
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit: ; preds = %invoke.cont13.i.i
   %cb1.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 432
   store ptr @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker15OnPeerCheckedFnEPvN4absl12lts_202308026StatusE, ptr %cb1.i.i.i, align 8, !noalias !7
   %cb_arg2.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 440
@@ -323,8 +323,8 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit: ;
   store i64 0, ptr %error_data.i.i.i, align 8, !noalias !7
   br label %return
 
-return:                                           ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_114FailHandshakerEED2Ev.exit
-  %storemerge = phi ptr [ %call.i1, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit ], [ %call.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_114FailHandshakerEED2Ev.exit ]
+return:                                           ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_114FailHandshakerEED2Ev.argprom.exit
+  %storemerge = phi ptr [ %call.i1, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit ], [ %call.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_114FailHandshakerEED2Ev.argprom.exit ]
   store ptr %storemerge, ptr %agg.result, align 8
   ret void
 }
@@ -1656,22 +1656,22 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i8
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont3, %if.then.i.i8
   %cmp.not.i9 = icmp eq ptr %arg, null
-  br i1 %cmp.not.i9, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit, label %if.then.i10
+  br i1 %cmp.not.i9, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit, label %if.then.i10
 
 if.then.i10:                                      ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
   %refs_.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %103 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i11 = icmp eq i64 %103, 1
-  br i1 %cmp.i.i.i11, label %if.then.i.i13, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit
+  br i1 %cmp.i.i.i11, label %if.then.i.i13, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit
 
 if.then.i.i13:                                    ; preds = %if.then.i10
   %vtable.i.i.i = load ptr, ptr %arg, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %104 = load ptr, ptr %vfn.i.i.i, align 8
   call void %104(ptr noundef nonnull align 8 dereferenceable(16) %arg) #22
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.then.i10, %if.then.i.i13
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.then.i10, %if.then.i.i13
   ret void
 
 lpad2:                                            ; preds = %invoke.cont1
@@ -1683,22 +1683,22 @@ lpad2.body:                                       ; preds = %ehcleanup179.i, %lp
   %eh.lpad-body = phi { ptr, i32 } [ %105, %lpad2 ], [ %.pn21.i, %ehcleanup179.i ]
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #22
   %cmp.not.i14 = icmp eq ptr %arg, null
-  br i1 %cmp.not.i14, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit22, label %if.then.i15
+  br i1 %cmp.not.i14, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit22, label %if.then.i15
 
 if.then.i15:                                      ; preds = %lpad2.body
   %refs_.i.i16 = getelementptr inbounds i8, ptr %arg, i64 8
   %106 = atomicrmw sub ptr %refs_.i.i16, i64 1 acq_rel, align 8
   %cmp.i.i.i17 = icmp eq i64 %106, 1
-  br i1 %cmp.i.i.i17, label %if.then.i.i19, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit22
+  br i1 %cmp.i.i.i17, label %if.then.i.i19, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit22
 
 if.then.i.i19:                                    ; preds = %if.then.i15
   %vtable.i.i.i20 = load ptr, ptr %arg, align 8
   %vfn.i.i.i21 = getelementptr inbounds i8, ptr %vtable.i.i.i20, i64 8
   %107 = load ptr, ptr %vfn.i.i.i21, align 8
   call void %107(ptr noundef nonnull align 8 dereferenceable(16) %arg) #22
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit22
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit22
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit22: ; preds = %lpad2.body, %if.then.i15, %if.then.i.i19
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit22: ; preds = %lpad2.body, %if.then.i15, %if.then.i.i19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -3484,22 +3484,22 @@ terminate.lpad.i16:                               ; preds = %_ZN4absl12lts_20230
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit15
   %cmp.not.i = icmp eq ptr %h.sroa.0.0, null
-  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit
   %refs_.i.i = getelementptr inbounds i8, ptr %h.sroa.0.0, i64 8
   %14 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i17 = icmp eq i64 %14, 1
-  br i1 %cmp.i.i.i17, label %if.then.i.i18, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit
+  br i1 %cmp.i.i.i17, label %if.then.i.i18, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit
 
 if.then.i.i18:                                    ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %h.sroa.0.0, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %15 = load ptr, ptr %vfn.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %h.sroa.0.0) #22
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit: ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit, %if.then.i, %if.then.i.i18
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit: ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit, %if.then.i, %if.then.i.i18
   ret void
 
 ehcleanup13:                                      ; preds = %lpad9, %lpad2
@@ -3517,22 +3517,22 @@ terminate.lpad.i19:                               ; preds = %ehcleanup13
 ehcleanup14:                                      ; preds = %ehcleanup13, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %6, %lpad ], [ %.pn.pn, %ehcleanup13 ]
   %cmp.not.i21 = icmp eq ptr %user_data, null
-  br i1 %cmp.not.i21, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit28, label %if.then.i22
+  br i1 %cmp.not.i21, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit28, label %if.then.i22
 
 if.then.i22:                                      ; preds = %ehcleanup14
   %refs_.i.i23 = getelementptr inbounds i8, ptr %user_data, i64 8
   %18 = atomicrmw sub ptr %refs_.i.i23, i64 1 acq_rel, align 8
   %cmp.i.i.i24 = icmp eq i64 %18, 1
-  br i1 %cmp.i.i.i24, label %if.then.i.i25, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit28
+  br i1 %cmp.i.i.i24, label %if.then.i.i25, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit28
 
 if.then.i.i25:                                    ; preds = %if.then.i22
   %vtable.i.i.i26 = load ptr, ptr %user_data, align 8
   %vfn.i.i.i27 = getelementptr inbounds i8, ptr %vtable.i.i.i26, i64 8
   %19 = load ptr, ptr %vfn.i.i.i27, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(16) %user_data) #22
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit28
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit28
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit28: ; preds = %ehcleanup14, %if.then.i22, %if.then.i.i25
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit28: ; preds = %ehcleanup14, %if.then.i22, %if.then.i.i25
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -4484,22 +4484,22 @@ terminate.lpad.i39:                               ; preds = %cleanup
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %cleanup
   %cmp.not.i40 = icmp eq ptr %h.sroa.0.0, null
-  br i1 %cmp.not.i40, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit, label %if.then.i41
+  br i1 %cmp.not.i40, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit, label %if.then.i41
 
 if.then.i41:                                      ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit
   %refs_.i.i = getelementptr inbounds i8, ptr %h.sroa.0.0, i64 8
   %49 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i42 = icmp eq i64 %49, 1
-  br i1 %cmp.i.i.i42, label %if.then.i.i44, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit
+  br i1 %cmp.i.i.i42, label %if.then.i.i44, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit
 
 if.then.i.i44:                                    ; preds = %if.then.i41
   %vtable.i.i.i = load ptr, ptr %h.sroa.0.0, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %50 = load ptr, ptr %vfn.i.i.i, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(16) %h.sroa.0.0) #22
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit: ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit, %if.then.i41, %if.then.i.i44
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit: ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit, %if.then.i41, %if.then.i.i44
   ret void
 
 ehcleanup:                                        ; preds = %lpad1.loopexit, %lpad1.loopexit.split-lp, %lpad27, %lpad18, %lpad9
@@ -4517,22 +4517,22 @@ terminate.lpad.i45:                               ; preds = %ehcleanup
 ehcleanup32:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %5, %lpad ], [ %.pn, %ehcleanup ]
   %cmp.not.i47 = icmp eq ptr %arg, null
-  br i1 %cmp.not.i47, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit55, label %if.then.i48
+  br i1 %cmp.not.i47, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit55, label %if.then.i48
 
 if.then.i48:                                      ; preds = %ehcleanup32
   %refs_.i.i49 = getelementptr inbounds i8, ptr %arg, i64 8
   %53 = atomicrmw sub ptr %refs_.i.i49, i64 1 acq_rel, align 8
   %cmp.i.i.i50 = icmp eq i64 %53, 1
-  br i1 %cmp.i.i.i50, label %if.then.i.i52, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit55
+  br i1 %cmp.i.i.i50, label %if.then.i.i52, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit55
 
 if.then.i.i52:                                    ; preds = %if.then.i48
   %vtable.i.i.i53 = load ptr, ptr %arg, align 8
   %vfn.i.i.i54 = getelementptr inbounds i8, ptr %vtable.i.i.i53, i64 8
   %54 = load ptr, ptr %vfn.i.i.i54, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(16) %arg) #22
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit55
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit55
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit55: ; preds = %ehcleanup32, %if.then.i48, %if.then.i.i52
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit55: ; preds = %ehcleanup32, %if.then.i48, %if.then.i.i52
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -4735,22 +4735,22 @@ terminate.lpad.i31:                               ; preds = %cleanup
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %cleanup
   %cmp.not.i32 = icmp eq ptr %h.sroa.0.0, null
-  br i1 %cmp.not.i32, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit, label %if.then.i33
+  br i1 %cmp.not.i32, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit, label %if.then.i33
 
 if.then.i33:                                      ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit
   %refs_.i.i = getelementptr inbounds i8, ptr %h.sroa.0.0, i64 8
   %27 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i34 = icmp eq i64 %27, 1
-  br i1 %cmp.i.i.i34, label %if.then.i.i35, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit
+  br i1 %cmp.i.i.i34, label %if.then.i.i35, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit
 
 if.then.i.i35:                                    ; preds = %if.then.i33
   %vtable.i.i.i = load ptr, ptr %h.sroa.0.0, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %28 = load ptr, ptr %vfn.i.i.i, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(16) %h.sroa.0.0) #22
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit: ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit, %if.then.i33, %if.then.i.i35
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit: ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit, %if.then.i33, %if.then.i.i35
   ret void
 
 ehcleanup:                                        ; preds = %lpad33, %lpad24, %lpad9, %lpad1
@@ -4768,22 +4768,22 @@ terminate.lpad.i36:                               ; preds = %ehcleanup
 ehcleanup39:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %5, %lpad ], [ %.pn, %ehcleanup ]
   %cmp.not.i38 = icmp eq ptr %arg, null
-  br i1 %cmp.not.i38, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit45, label %if.then.i39
+  br i1 %cmp.not.i38, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit45, label %if.then.i39
 
 if.then.i39:                                      ; preds = %ehcleanup39
   %refs_.i.i40 = getelementptr inbounds i8, ptr %arg, i64 8
   %31 = atomicrmw sub ptr %refs_.i.i40, i64 1 acq_rel, align 8
   %cmp.i.i.i41 = icmp eq i64 %31, 1
-  br i1 %cmp.i.i.i41, label %if.then.i.i42, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit45
+  br i1 %cmp.i.i.i41, label %if.then.i.i42, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit45
 
 if.then.i.i42:                                    ; preds = %if.then.i39
   %vtable.i.i.i43 = load ptr, ptr %arg, align 8
   %vfn.i.i.i44 = getelementptr inbounds i8, ptr %vtable.i.i.i43, i64 8
   %32 = load ptr, ptr %vfn.i.i.i44, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(16) %arg) #22
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit45
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit45
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit45: ; preds = %ehcleanup39, %if.then.i39, %if.then.i.i42
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.argprom.exit45: ; preds = %ehcleanup39, %if.then.i39, %if.then.i.i42
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -4994,8 +4994,8 @@ attributes #26 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6, !"_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_114FailHandshakerEJEEENS_13RefCountedPtrIT_EEDpOT0_: %agg.result"}
 !6 = distinct !{!6, !"_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_114FailHandshakerEJEEENS_13RefCountedPtrIT_EEDpOT0_"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_118SecurityHandshakerEJRP14tsi_handshakerRP23grpc_security_connectorRKNS_11ChannelArgsEEEENS_13RefCountedPtrIT_EEDpOT0_: %agg.result"}
-!9 = distinct !{!9, !"_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_118SecurityHandshakerEJRP14tsi_handshakerRP23grpc_security_connectorRKNS_11ChannelArgsEEEENS_13RefCountedPtrIT_EEDpOT0_"}
+!8 = distinct !{!8, !9, !"_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_118SecurityHandshakerEJRP14tsi_handshakerRP23grpc_security_connectorRKNS_11ChannelArgsEEEENS_13RefCountedPtrIT_EEDpOT0_.argprom: %agg.result"}
+!9 = distinct !{!9, !"_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_118SecurityHandshakerEJRP14tsi_handshakerRP23grpc_security_connectorRKNS_11ChannelArgsEEEENS_13RefCountedPtrIT_EEDpOT0_.argprom"}
 !10 = !{!11}
 !11 = distinct !{!11, !12, !"_ZN9grpc_core10RefCountedI23grpc_security_connectorNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc: %agg.result"}
 !12 = distinct !{!12, !"_ZN9grpc_core10RefCountedI23grpc_security_connectorNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc"}

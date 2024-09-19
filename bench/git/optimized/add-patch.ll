@@ -2182,8 +2182,8 @@ if.else386.i:                                     ; preds = %while.end.i57
   %or.cond771.not.i = icmp ult i64 %227, %226
   br i1 %or.cond771.not.i, label %for.cond.i.backedge, label %if.else395.i
 
-for.cond.i.backedge:                              ; preds = %for.inc208.i, %for.cond451.i, %for.inc550.i, %if.else386.i, %_.exit441.i, %edit_hunk_loop.exit.thread.i, %_.exit388.i, %_.exit382.i, %_.exit353.i, %_.exit347.i, %_.exit341.i, %if.end430.i, %_.exit329.i, %Q_.exit.i, %_.exit316.i, %_.exit291.i, %_.exit285.i, %if.then309.i, %_.exit279.i, %if.then295.i, %_.exit273.i, %if.then280.i, %_.exit267.i, %if.then268.i69, %if.end253.i, %if.then215.i, %if.else211.i, %for.cond195.preheader.i, %cond.true176.i, %soft_increment.i, %if.end158.i
-  %hunk_index.0.i.be = phi i64 [ %227, %if.else386.i ], [ %spec.store.select.i, %_.exit441.i ], [ %spec.store.select.i, %edit_hunk_loop.exit.thread.i ], [ %spec.store.select.i, %_.exit388.i ], [ %spec.store.select.i, %_.exit382.i ], [ %spec.store.select.i, %_.exit353.i ], [ %spec.store.select.i, %_.exit347.i ], [ %spec.store.select.i, %_.exit341.i ], [ %spec.store.select.i, %if.end430.i ], [ %spec.store.select.i, %_.exit329.i ], [ %spec.store.select.i, %Q_.exit.i ], [ %spec.store.select.i, %_.exit316.i ], [ %spec.store.select.i, %_.exit291.i ], [ %spec.store.select.i, %_.exit285.i ], [ %undecided_next.0.i, %if.then309.i ], [ %spec.store.select.i, %_.exit279.i ], [ %undecided_previous.0.i, %if.then295.i ], [ %spec.store.select.i, %_.exit273.i ], [ %add130.i, %if.then280.i ], [ %spec.store.select.i, %_.exit267.i ], [ %dec269.i, %if.then268.i69 ], [ %hunk_index.4.i, %if.end253.i ], [ %spec.store.select.i, %if.then215.i ], [ %spec.store.select.i, %if.else211.i ], [ %hunk_index.0.i, %for.cond195.preheader.i ], [ %168, %cond.true176.i ], [ %undecided_next.0.i, %soft_increment.i ], [ %spec.store.select.i, %if.end158.i ], [ %spec.store.select.i, %for.inc550.i ], [ %i.4.i, %for.cond451.i ], [ %inc209.i, %for.inc208.i ]
+for.cond.i.backedge:                              ; preds = %for.inc208.i, %for.cond451.i, %for.inc550.i, %if.else386.i, %_.exit441.i, %edit_hunk_loop.exit.thread.i, %_.exit388.i, %_.exit382.i, %_.exit353.i, %_.exit347.i, %_.exit341.i, %if.end430.i, %_.exit329.i, %Q_.argprom.exit.i, %_.exit316.i, %_.exit291.i, %_.exit285.i, %if.then309.i, %_.exit279.i, %if.then295.i, %_.exit273.i, %if.then280.i, %_.exit267.i, %if.then268.i69, %if.end253.i, %if.then215.i, %if.else211.i, %for.cond195.preheader.i, %cond.true176.i, %soft_increment.i, %if.end158.i
+  %hunk_index.0.i.be = phi i64 [ %227, %if.else386.i ], [ %spec.store.select.i, %_.exit441.i ], [ %spec.store.select.i, %edit_hunk_loop.exit.thread.i ], [ %spec.store.select.i, %_.exit388.i ], [ %spec.store.select.i, %_.exit382.i ], [ %spec.store.select.i, %_.exit353.i ], [ %spec.store.select.i, %_.exit347.i ], [ %spec.store.select.i, %_.exit341.i ], [ %spec.store.select.i, %if.end430.i ], [ %spec.store.select.i, %_.exit329.i ], [ %spec.store.select.i, %Q_.argprom.exit.i ], [ %spec.store.select.i, %_.exit316.i ], [ %spec.store.select.i, %_.exit291.i ], [ %spec.store.select.i, %_.exit285.i ], [ %undecided_next.0.i, %if.then309.i ], [ %spec.store.select.i, %_.exit279.i ], [ %undecided_previous.0.i, %if.then295.i ], [ %spec.store.select.i, %_.exit273.i ], [ %add130.i, %if.then280.i ], [ %spec.store.select.i, %_.exit267.i ], [ %dec269.i, %if.then268.i69 ], [ %hunk_index.4.i, %if.end253.i ], [ %spec.store.select.i, %if.then215.i ], [ %spec.store.select.i, %if.else211.i ], [ %hunk_index.0.i, %for.cond195.preheader.i ], [ %168, %cond.true176.i ], [ %undecided_next.0.i, %soft_increment.i ], [ %spec.store.select.i, %if.end158.i ], [ %spec.store.select.i, %for.inc550.i ], [ %i.4.i, %for.cond451.i ], [ %inc209.i, %for.inc208.i ]
   br label %for.cond.i
 
 if.else395.i:                                     ; preds = %if.else386.i
@@ -2194,14 +2194,14 @@ if.else395.i:                                     ; preds = %if.else386.i
 if.then.i321.i:                                   ; preds = %if.else395.i
   %cmp.i322.i = icmp eq i64 %226, 1
   %cond.i323.i = select i1 %cmp.i322.i, ptr @.str.103, ptr @.str.104
-  br label %Q_.exit.i
+  br label %Q_.argprom.exit.i
 
 if.end.i318.i:                                    ; preds = %if.else395.i
   %call.i319.i = call ptr @ngettext(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.104, i64 noundef %226) #17
   %.pre686.i = load i64, ptr %hunk_nr.i21, align 8
-  br label %Q_.exit.i
+  br label %Q_.argprom.exit.i
 
-Q_.exit.i:                                        ; preds = %if.end.i318.i, %if.then.i321.i
+Q_.argprom.exit.i:                                ; preds = %if.end.i318.i, %if.then.i321.i
   %229 = phi i64 [ %.pre686.i, %if.end.i318.i ], [ %226, %if.then.i321.i ]
   %retval.0.i320.i = phi ptr [ %call.i319.i, %if.end.i318.i ], [ %cond.i323.i, %if.then.i321.i ]
   %conv399.i = trunc i64 %229 to i32

@@ -531,13 +531,13 @@ define hidden i32 @witness_dissect_struct_interfaceInfo(ptr noundef %0, i32 noun
   %24 = add i32 %.02.i, %.0
   %25 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %24) #4
   %26 = icmp eq i16 %25, 0
-  br i1 %26, label %witness_dissect_element_interfaceInfo_group_name.exit, label %27
+  br i1 %26, label %witness_dissect_element_interfaceInfo_group_name.argprom.exit, label %27
 
 27:                                               ; preds = %22
   %28 = icmp ult i32 %.02.i, 518
-  br i1 %28, label %22, label %witness_dissect_element_interfaceInfo_group_name.exit, !llvm.loop !6
+  br i1 %28, label %22, label %witness_dissect_element_interfaceInfo_group_name.argprom.exit, !llvm.loop !6
 
-witness_dissect_element_interfaceInfo_group_name.exit: ; preds = %22, %27
+witness_dissect_element_interfaceInfo_group_name.argprom.exit: ; preds = %22, %27
   %.lcssa.i = phi i32 [ %23, %22 ], [ 520, %27 ]
   %.014.lcssa.i = phi i32 [ %.02.i, %22 ], [ 520, %27 ]
   %29 = load i32, ptr @hf_witness_witness_interfaceInfo_group_name, align 4
@@ -560,9 +560,9 @@ witness_dissect_element_interfaceInfo_group_name.exit: ; preds = %22, %27
   %38 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.053, ptr noundef %4, ptr noundef %5, i32 noundef %37, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
   %39 = load i32, ptr @hf_witness_witness_interfaceInfo_ipv4, align 4
-  %40 = call fastcc noundef i32 @PIDL_dissect_ipv4address(ptr noundef %0, i32 noundef %38, ptr noundef readonly %2, ptr noundef %.053, ptr noundef readonly %4, i32 noundef %39)
+  %40 = call fastcc noundef i32 @PIDL_dissect_ipv4address.argprom.argelim(ptr noundef %0, i32 noundef %38, ptr noundef readonly %2, ptr noundef %.053, ptr noundef readonly %4, i32 noundef %39)
   %41 = load i32, ptr @hf_witness_witness_interfaceInfo_ipv6, align 4
-  %42 = call fastcc noundef i32 @PIDL_dissect_ipv6address(ptr noundef %0, i32 noundef %40, ptr noundef readonly %2, ptr noundef %.053, ptr noundef readonly %4, i32 noundef %41)
+  %42 = call fastcc noundef i32 @PIDL_dissect_ipv6address.argprom.argelim(ptr noundef %0, i32 noundef %40, ptr noundef readonly %2, ptr noundef %.053, ptr noundef readonly %4, i32 noundef %41)
   %43 = load i32, ptr @hf_witness_witness_interfaceInfo_flags, align 4
   %44 = call i32 @witness_dissect_bitmap_interfaceInfo_flags(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.053, ptr noundef %4, ptr noundef %5, i32 noundef %43, i32 poison)
   %45 = sub i32 %44, %.0
@@ -575,7 +575,7 @@ witness_dissect_element_interfaceInfo_group_name.exit: ; preds = %22, %27
   %.not58 = icmp eq i32 %50, 0
   br i1 %.not58, label %57, label %51
 
-51:                                               ; preds = %witness_dissect_element_interfaceInfo_group_name.exit
+51:                                               ; preds = %witness_dissect_element_interfaceInfo_group_name.argprom.exit
   %52 = load i32, ptr %12, align 4
   %.not59 = icmp ne i32 %52, 0
   %53 = and i32 %44, 3
@@ -588,8 +588,8 @@ witness_dissect_element_interfaceInfo_group_name.exit: ; preds = %22, %27
   %56 = add i32 %55, 4
   br label %57
 
-57:                                               ; preds = %51, %54, %witness_dissect_element_interfaceInfo_group_name.exit
-  %.1 = phi i32 [ %44, %51 ], [ %56, %54 ], [ %44, %witness_dissect_element_interfaceInfo_group_name.exit ]
+57:                                               ; preds = %51, %54, %witness_dissect_element_interfaceInfo_group_name.argprom.exit
+  %.1 = phi i32 [ %44, %51 ], [ %56, %54 ], [ %44, %witness_dissect_element_interfaceInfo_group_name.argprom.exit ]
   ret i32 %.1
 }
 
@@ -818,9 +818,9 @@ define hidden noundef i32 @witness_dissect_struct_IPaddrInfo(ptr noundef %0, i32
   %16 = load i32, ptr @hf_witness_witness_IPaddrInfo_flags, align 4
   %17 = tail call i32 @witness_dissect_bitmap_IPaddrInfo_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 poison)
   %18 = load i32, ptr @hf_witness_witness_IPaddrInfo_ipv4, align 4
-  %19 = tail call fastcc noundef i32 @PIDL_dissect_ipv4address(ptr noundef %0, i32 noundef %17, ptr noundef readonly %2, ptr noundef %.032, ptr noundef nonnull readonly %4, i32 noundef %18)
+  %19 = tail call fastcc noundef i32 @PIDL_dissect_ipv4address.argprom.argelim(ptr noundef %0, i32 noundef %17, ptr noundef readonly %2, ptr noundef %.032, ptr noundef nonnull readonly %4, i32 noundef %18)
   %20 = load i32, ptr @hf_witness_witness_IPaddrInfo_ipv6, align 4
-  %21 = tail call fastcc noundef i32 @PIDL_dissect_ipv6address(ptr noundef %0, i32 noundef %19, ptr noundef readonly %2, ptr noundef %.032, ptr noundef nonnull readonly %4, i32 noundef %20)
+  %21 = tail call fastcc noundef i32 @PIDL_dissect_ipv6address.argprom.argelim(ptr noundef %0, i32 noundef %19, ptr noundef readonly %2, ptr noundef %.032, ptr noundef nonnull readonly %4, i32 noundef %20)
   %22 = sub i32 %21, %1
   tail call void @proto_item_set_len(ptr noundef %.0, i32 noundef %22) #4
   store i32 %10, ptr %9, align 8
@@ -968,7 +968,7 @@ declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_item_ret_display_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @PIDL_dissect_ipv4address(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @PIDL_dissect_ipv4address.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
@@ -1021,7 +1021,7 @@ declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #1
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @PIDL_dissect_ipv6address(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @PIDL_dissect_ipv6address.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0

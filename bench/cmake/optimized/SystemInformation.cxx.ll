@@ -2178,13 +2178,13 @@ define dso_local void @_ZN5cmsys31SystemInformationImplementation15GetProgramSta
 _ZN5cmsys12_GLOBAL__N_116SymbolProperties9SetBinaryEPKc.exit.i: ; preds = %29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %31 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.211)
-          to label %_ZN5cmsys12_GLOBAL__N_116SymbolProperties13SetSourceFileEPKc.exit.i unwind label %41
+          to label %_ZN5cmsys12_GLOBAL__N_116SymbolProperties13SetSourceFileEPKc.argprom.exit.i unwind label %41
 
-_ZN5cmsys12_GLOBAL__N_116SymbolProperties13SetSourceFileEPKc.exit.i: ; preds = %_ZN5cmsys12_GLOBAL__N_116SymbolProperties9SetBinaryEPKc.exit.i
+_ZN5cmsys12_GLOBAL__N_116SymbolProperties13SetSourceFileEPKc.argprom.exit.i: ; preds = %_ZN5cmsys12_GLOBAL__N_116SymbolProperties9SetBinaryEPKc.exit.i
   invoke fastcc void @_ZN5cmsys12_GLOBAL__N_116SymbolProperties11SetFunctionEPKc(ptr noundef nonnull align 8 dereferenceable(124) %14, ptr noundef nonnull @.str.211)
           to label %32 unwind label %41
 
-32:                                               ; preds = %_ZN5cmsys12_GLOBAL__N_116SymbolProperties13SetSourceFileEPKc.exit.i
+32:                                               ; preds = %_ZN5cmsys12_GLOBAL__N_116SymbolProperties13SetSourceFileEPKc.argprom.exit.i
   store i64 -1, ptr %23, align 8
   store i32 0, ptr %24, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %21)
@@ -2216,7 +2216,7 @@ _ZNK5cmsys12_GLOBAL__N_116SymbolProperties11GetFunctionB5cxx11Ev.exit.i: ; preds
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #30
   br label %.body.i
 
-41:                                               ; preds = %_ZNK5cmsys12_GLOBAL__N_116SymbolProperties11GetFunctionB5cxx11Ev.exit.i, %32, %_ZN5cmsys12_GLOBAL__N_116SymbolProperties13SetSourceFileEPKc.exit.i, %_ZN5cmsys12_GLOBAL__N_116SymbolProperties9SetBinaryEPKc.exit.i, %29
+41:                                               ; preds = %_ZNK5cmsys12_GLOBAL__N_116SymbolProperties11GetFunctionB5cxx11Ev.exit.i, %32, %_ZN5cmsys12_GLOBAL__N_116SymbolProperties13SetSourceFileEPKc.argprom.exit.i, %_ZN5cmsys12_GLOBAL__N_116SymbolProperties9SetBinaryEPKc.exit.i, %29
   %42 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -7139,11 +7139,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 13:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
   %14 = load i32, ptr %4, align 4, !noalias !63
   %.not8.i = icmp eq i32 %14, 0
-  br i1 %.not8.i, label %15, label %_ZNK5cmsys12_GLOBAL__N_116SymbolProperties8DemangleB5cxx11EPKc.exit
+  br i1 %.not8.i, label %15, label %_ZNK5cmsys12_GLOBAL__N_116SymbolProperties8DemangleB5cxx11EPKc.argprom.exit
 
 15:                                               ; preds = %13
   %16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %12)
-          to label %_ZNK5cmsys12_GLOBAL__N_116SymbolProperties8DemangleB5cxx11EPKc.exit unwind label %19
+          to label %_ZNK5cmsys12_GLOBAL__N_116SymbolProperties8DemangleB5cxx11EPKc.argprom.exit unwind label %19
 
 17:                                               ; preds = %.noexc.i, %2
   %18 = landingpad { ptr, i32 }
@@ -7165,7 +7165,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %.pn.i = phi { ptr, i32 } [ %20, %19 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %.pn.i
 
-_ZNK5cmsys12_GLOBAL__N_116SymbolProperties8DemangleB5cxx11EPKc.exit: ; preds = %13, %15
+_ZNK5cmsys12_GLOBAL__N_116SymbolProperties8DemangleB5cxx11EPKc.argprom.exit: ; preds = %13, %15
   call void @free(ptr noundef %12) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -7869,6 +7869,6 @@ attributes #34 = { noreturn }
 !61 = distinct !{!61, !21}
 !62 = distinct !{!62, !21}
 !63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZNK5cmsys12_GLOBAL__N_116SymbolProperties8DemangleB5cxx11EPKc: argument 0"}
-!65 = distinct !{!65, !"_ZNK5cmsys12_GLOBAL__N_116SymbolProperties8DemangleB5cxx11EPKc"}
+!64 = distinct !{!64, !65, !"_ZNK5cmsys12_GLOBAL__N_116SymbolProperties8DemangleB5cxx11EPKc.argprom: argument 0"}
+!65 = distinct !{!65, !"_ZNK5cmsys12_GLOBAL__N_116SymbolProperties8DemangleB5cxx11EPKc.argprom"}
 !66 = distinct !{!66, !21}

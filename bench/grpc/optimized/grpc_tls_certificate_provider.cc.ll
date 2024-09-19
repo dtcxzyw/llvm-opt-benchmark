@@ -2957,18 +2957,18 @@ terminate.lpad.i67:                               ; preds = %if.then.i.i66
 _ZN4absl12lts_202308026StatusD2Ev.exit69:         ; preds = %cleanup76, %if.then.i.i66
   %cert_slice.val = load ptr, ptr %cert_slice, align 8
   %cmp.i.i = icmp ugt ptr %cert_slice.val, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i, label %if.then.i.i70, label %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.exit
+  br i1 %cmp.i.i, label %if.then.i.i70, label %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.argprom.exit
 
 if.then.i.i70:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit69
   %56 = atomicrmw sub ptr %cert_slice.val, i64 1 acq_rel, align 8
   %cmp.i.i.i71 = icmp eq i64 %56, 1
-  br i1 %cmp.i.i.i71, label %if.then.i.i.i72, label %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.exit
+  br i1 %cmp.i.i.i71, label %if.then.i.i.i72, label %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.argprom.exit
 
 if.then.i.i.i72:                                  ; preds = %if.then.i.i70
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %cert_slice.val, i64 8
   %57 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
   invoke void %57(ptr noundef nonnull %cert_slice.val)
-          to label %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.exit unwind label %terminate.lpad.i73
+          to label %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.argprom.exit unwind label %terminate.lpad.i73
 
 terminate.lpad.i73:                               ; preds = %if.then.i.i.i72
   %58 = landingpad { ptr, i32 }
@@ -2977,21 +2977,21 @@ terminate.lpad.i73:                               ; preds = %if.then.i.i.i72
   call void @__clang_call_terminate(ptr %59) #28
   unreachable
 
-_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit69, %if.then.i.i70, %if.then.i.i.i72
+_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.argprom.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit69, %if.then.i.i70, %if.then.i.i.i72
   %key_slice.val = load ptr, ptr %key_slice, align 8
   %cmp.i.i74 = icmp ugt ptr %key_slice.val, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i74, label %if.then.i.i75, label %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.exit80
+  br i1 %cmp.i.i74, label %if.then.i.i75, label %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.argprom.exit80
 
-if.then.i.i75:                                    ; preds = %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.exit
+if.then.i.i75:                                    ; preds = %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.argprom.exit
   %60 = atomicrmw sub ptr %key_slice.val, i64 1 acq_rel, align 8
   %cmp.i.i.i76 = icmp eq i64 %60, 1
-  br i1 %cmp.i.i.i76, label %if.then.i.i.i77, label %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.exit80
+  br i1 %cmp.i.i.i76, label %if.then.i.i.i77, label %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.argprom.exit80
 
 if.then.i.i.i77:                                  ; preds = %if.then.i.i75
   %destroyer_fn_.i.i.i78 = getelementptr inbounds i8, ptr %key_slice.val, i64 8
   %61 = load ptr, ptr %destroyer_fn_.i.i.i78, align 8
   invoke void %61(ptr noundef nonnull %key_slice.val)
-          to label %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.exit80 unwind label %terminate.lpad.i79
+          to label %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.argprom.exit80 unwind label %terminate.lpad.i79
 
 terminate.lpad.i79:                               ; preds = %if.then.i.i.i77
   %62 = landingpad { ptr, i32 }
@@ -3000,7 +3000,7 @@ terminate.lpad.i79:                               ; preds = %if.then.i.i.i77
   call void @__clang_call_terminate(ptr %63) #28
   unreachable
 
-_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.exit80: ; preds = %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.exit, %if.then.i.i75, %if.then.i.i.i77
+_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.argprom.exit80: ; preds = %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.argprom.exit, %if.then.i.i75, %if.then.i.i.i77
   %switch = icmp eq i32 %cleanup.dest.slot.0, 4
   br i1 %switch, label %for.inc, label %return
 
@@ -3012,13 +3012,13 @@ ehcleanup77:                                      ; preds = %ehcleanup75, %lpad2
 ehcleanup79:                                      ; preds = %ehcleanup77, %lpad12
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup77 ], [ %12, %lpad12 ]
   %cert_slice.val19 = load ptr, ptr %cert_slice, align 8
-  call fastcc void @_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev(ptr %cert_slice.val19) #27
+  call fastcc void @_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.argprom(ptr %cert_slice.val19) #27
   br label %ehcleanup81
 
 ehcleanup81:                                      ; preds = %ehcleanup79, %lpad
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup79 ], [ %11, %lpad ]
   %key_slice.val20 = load ptr, ptr %key_slice, align 8
-  call fastcc void @_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev(ptr %key_slice.val20) #27
+  call fastcc void @_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.argprom(ptr %key_slice.val20) #27
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 
 for.inc.sink.split:                               ; preds = %_ZN9grpc_core12_GLOBAL__N_119GetModificationTimeEPKc.exit27, %_ZN9grpc_core12_GLOBAL__N_119GetModificationTimeEPKc.exit
@@ -3028,7 +3028,7 @@ for.inc.sink.split:                               ; preds = %_ZN9grpc_core12_GLO
   call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef %.sink, i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef %call9)
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.sink.split, %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.exit80
+for.inc:                                          ; preds = %for.inc.sink.split, %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.argprom.exit80
   %inc = add nuw nsw i32 %i.082, 1
   %exitcond.not = icmp eq i32 %inc, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
@@ -3038,7 +3038,7 @@ for.end:                                          ; preds = %for.inc
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.exit80, %for.end
+return:                                           ; preds = %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.argprom.exit80, %for.end
   ret void
 }
 
@@ -3351,7 +3351,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev(ptr %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.argprom(ptr %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp ugt ptr %this.0.val, inttoptr (i64 1 to ptr)
   br i1 %cmp.i, label %if.then.i, label %invoke.cont2
@@ -4233,13 +4233,13 @@ while.body.i:                                     ; preds = %if.end5.i, %while.b
   %6 = extractvalue { i64, i64 } %call3.i.i, 1
   %call2.i = tail call ptr @gpr_event_wait(ptr noundef nonnull %shutdown_event_.i, i64 %5, i64 %6)
   %cmp3.not.i = icmp eq ptr %call2.i, null
-  br i1 %cmp3.not.i, label %if.end5.i, label %"_ZZN9grpc_core30FileWatcherCertificateProviderC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_lENK3$_0clEPv.exit"
+  br i1 %cmp3.not.i, label %if.end5.i, label %"_ZZN9grpc_core30FileWatcherCertificateProviderC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_lENK3$_0clEPv.argprom.exit"
 
 if.end5.i:                                        ; preds = %while.body.i
   tail call void @_ZN9grpc_core30FileWatcherCertificateProvider11ForceUpdateEv(ptr noundef nonnull align 8 dereferenceable(280) %arg)
   br label %while.body.i, !llvm.loop !23
 
-"_ZZN9grpc_core30FileWatcherCertificateProviderC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_lENK3$_0clEPv.exit": ; preds = %while.body.i
+"_ZZN9grpc_core30FileWatcherCertificateProviderC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_lENK3$_0clEPv.argprom.exit": ; preds = %while.body.i
   ret void
 }
 

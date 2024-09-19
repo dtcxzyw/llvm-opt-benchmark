@@ -510,13 +510,13 @@ _ZN4llvm4User8operandsEv.exit.i.i.i:              ; preds = %219, %216
   %248 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   %249 = load ptr, ptr %7, align 8
   %250 = icmp eq ptr %249, %53
-  br i1 %250, label %_ZL20createRelLookupTableRN4llvm8FunctionERNS_14GlobalVariableE.exit.i.i, label %251
+  br i1 %250, label %_ZL20createRelLookupTableRN4llvm8FunctionERNS_14GlobalVariableE.argprom.exit.i.i, label %251
 
 251:                                              ; preds = %._crit_edge.i.i.i
   call void @free(ptr noundef %249) #7
-  br label %_ZL20createRelLookupTableRN4llvm8FunctionERNS_14GlobalVariableE.exit.i.i
+  br label %_ZL20createRelLookupTableRN4llvm8FunctionERNS_14GlobalVariableE.argprom.exit.i.i
 
-_ZL20createRelLookupTableRN4llvm8FunctionERNS_14GlobalVariableE.exit.i.i: ; preds = %251, %._crit_edge.i.i.i
+_ZL20createRelLookupTableRN4llvm8FunctionERNS_14GlobalVariableE.argprom.exit.i.i: ; preds = %251, %._crit_edge.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %7)
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef nonnull %171)
@@ -542,7 +542,7 @@ _ZL20createRelLookupTableRN4llvm8FunctionERNS_14GlobalVariableE.exit.i.i: ; pred
   %.not.i25.i.i = icmp eq ptr %267, null
   br i1 %.not.i25.i.i, label %268, label %_ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueES2_RKNS_5TwineEbb.exit.i.i
 
-268:                                              ; preds = %_ZL20createRelLookupTableRN4llvm8FunctionERNS_14GlobalVariableE.exit.i.i
+268:                                              ; preds = %_ZL20createRelLookupTableRN4llvm8FunctionERNS_14GlobalVariableE.argprom.exit.i.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   store i8 1, ptr %56, align 8
   store i8 1, ptr %57, align 1
@@ -574,8 +574,8 @@ _ZN4llvm13IRBuilderBase23CreateInsertNUWNSWBinOpENS_11Instruction9BinaryOpsEPNS_
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %_ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueES2_RKNS_5TwineEbb.exit.i.i
 
-_ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueES2_RKNS_5TwineEbb.exit.i.i: ; preds = %_ZN4llvm13IRBuilderBase23CreateInsertNUWNSWBinOpENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineEbb.exit.i.i, %_ZL20createRelLookupTableRN4llvm8FunctionERNS_14GlobalVariableE.exit.i.i
-  %.0.i.i.i = phi ptr [ %269, %_ZN4llvm13IRBuilderBase23CreateInsertNUWNSWBinOpENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineEbb.exit.i.i ], [ %267, %_ZL20createRelLookupTableRN4llvm8FunctionERNS_14GlobalVariableE.exit.i.i ]
+_ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueES2_RKNS_5TwineEbb.exit.i.i: ; preds = %_ZN4llvm13IRBuilderBase23CreateInsertNUWNSWBinOpENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineEbb.exit.i.i, %_ZL20createRelLookupTableRN4llvm8FunctionERNS_14GlobalVariableE.argprom.exit.i.i
+  %.0.i.i.i = phi ptr [ %269, %_ZN4llvm13IRBuilderBase23CreateInsertNUWNSWBinOpENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineEbb.exit.i.i ], [ %267, %_ZL20createRelLookupTableRN4llvm8FunctionERNS_14GlobalVariableE.argprom.exit.i.i ]
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef %175)
   %281 = load ptr, ptr %260, align 8
   store ptr %281, ptr %10, align 8

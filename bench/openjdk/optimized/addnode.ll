@@ -4212,7 +4212,7 @@ define hidden noundef ptr @_ZN8XorINode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   %28 = zext i32 %.val49 to i64
   %29 = getelementptr inbounds ptr, ptr %.val, i64 %28
   %30 = icmp eq i32 %.val49, 0
-  br i1 %30, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread, label %.lr.ph.i
+  br i1 %30, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25, %39
   %.091.i = phi ptr [ %40, %39 ], [ %.val, %25 ]
@@ -4228,28 +4228,28 @@ define hidden noundef ptr @_ZN8XorINode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(52) %31) #7
   %.not10.i = icmp eq i32 %38, 342
-  br i1 %.not10.i, label %39, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit
+  br i1 %.not10.i, label %39, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit
 
 39:                                               ; preds = %35, %.lr.ph.i
   %40 = getelementptr inbounds i8, ptr %.091.i, i64 8
   %.not4.i = icmp ult ptr %40, %29
-  br i1 %.not4.i, label %.lr.ph.i, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread, !llvm.loop !9
+  br i1 %.not4.i, label %.lr.ph.i, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit.thread, !llvm.loop !9
 
-_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit: ; preds = %35
+_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit: ; preds = %35
   %41 = load ptr, ptr %7, align 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(52) %7) #7
   %44 = icmp eq i32 %43, 23
-  br i1 %44, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread, label %45
+  br i1 %44, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit.thread, label %45
 
-45:                                               ; preds = %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit
+45:                                               ; preds = %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit
   %46 = load ptr, ptr %7, align 8
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(52) %7) #7
   %49 = icmp eq i32 %48, 342
-  br i1 %49, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread, label %76
+  br i1 %49, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit.thread, label %76
 
-_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread: ; preds = %39, %25, %45, %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit
+_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit.thread: ; preds = %39, %25, %45, %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit
   %50 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 1808
@@ -4268,12 +4268,12 @@ _ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread: ; preds = %39, %25,
   %.not.i.i.i = icmp ult i64 %64, 56
   br i1 %.not.i.i.i, label %67, label %65
 
-65:                                               ; preds = %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread
+65:                                               ; preds = %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit.thread
   %66 = getelementptr inbounds i8, ptr %61, i64 56
   store ptr %66, ptr %60, align 8
   br label %_ZN4NodenwEm.exit
 
-67:                                               ; preds = %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread
+67:                                               ; preds = %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit.thread
   %68 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %57, i64 noundef 56, i32 noundef 0) #7
   br label %_ZN4NodenwEm.exit
 
@@ -4660,7 +4660,7 @@ define hidden noundef ptr @_ZN8XorLNode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   %28 = zext i32 %.val12 to i64
   %29 = getelementptr inbounds ptr, ptr %.val, i64 %28
   %30 = icmp eq i32 %.val12, 0
-  br i1 %30, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread, label %.lr.ph.i
+  br i1 %30, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25, %39
   %.091.i = phi ptr [ %40, %39 ], [ %.val, %25 ]
@@ -4676,28 +4676,28 @@ define hidden noundef ptr @_ZN8XorLNode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(52) %31) #7
   %.not10.i = icmp eq i32 %38, 343
-  br i1 %.not10.i, label %39, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit
+  br i1 %.not10.i, label %39, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit
 
 39:                                               ; preds = %35, %.lr.ph.i
   %40 = getelementptr inbounds i8, ptr %.091.i, i64 8
   %.not4.i = icmp ult ptr %40, %29
-  br i1 %.not4.i, label %.lr.ph.i, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread, !llvm.loop !9
+  br i1 %.not4.i, label %.lr.ph.i, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit.thread, !llvm.loop !9
 
-_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit: ; preds = %35
+_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit: ; preds = %35
   %41 = load ptr, ptr %7, align 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(52) %7) #7
   %44 = icmp eq i32 %43, 24
-  br i1 %44, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread, label %45
+  br i1 %44, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit.thread, label %45
 
-45:                                               ; preds = %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit
+45:                                               ; preds = %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit
   %46 = load ptr, ptr %7, align 8
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(52) %7) #7
   %49 = icmp eq i32 %48, 343
-  br i1 %49, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread, label %76
+  br i1 %49, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit.thread, label %76
 
-_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread: ; preds = %39, %25, %45, %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit
+_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit.thread: ; preds = %39, %25, %45, %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit
   %50 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 1808
@@ -4716,12 +4716,12 @@ _ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread: ; preds = %39, %25,
   %.not.i.i.i = icmp ult i64 %64, 56
   br i1 %.not.i.i.i, label %67, label %65
 
-65:                                               ; preds = %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread
+65:                                               ; preds = %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit.thread
   %66 = getelementptr inbounds i8, ptr %61, i64 56
   store ptr %66, ptr %60, align 8
   br label %_ZN4NodenwEm.exit
 
-67:                                               ; preds = %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread
+67:                                               ; preds = %_ZL26is_used_in_only_arithmeticP4Node9BasicType.argprom.exit.thread
   %68 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %57, i64 noundef 56, i32 noundef 0) #7
   br label %_ZN4NodenwEm.exit
 
@@ -6057,7 +6057,7 @@ define internal fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8P
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(52) %12) #7
   %18 = icmp eq i32 %17, 24
-  br i1 %18, label %19, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.exit.thread"
+  br i1 %18, label %19, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.argprom.argprom.argprom.argprom.exit.thread"
 
 19:                                               ; preds = %2
   %20 = getelementptr i8, ptr %14, i64 40
@@ -6074,7 +6074,7 @@ define internal fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8P
   %28 = icmp ne i32 %27, 4
   %.not1.i = icmp eq ptr %25, null
   %.not.i = or i1 %.not1.i, %28
-  br i1 %.not.i, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.exit.thread", label %29
+  br i1 %.not.i, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.argprom.argprom.argprom.argprom.exit.thread", label %29
 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds i8, ptr %25, i64 24
@@ -6084,7 +6084,7 @@ define internal fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8P
   %34 = icmp eq i64 %31, %33
   %35 = icmp eq i64 %31, %8
   %or.cond = and i1 %35, %34
-  br i1 %or.cond, label %36, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.exit.thread"
+  br i1 %or.cond, label %36, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.argprom.argprom.argprom.argprom.exit.thread"
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds i8, ptr %12, i64 8
@@ -6100,7 +6100,7 @@ define internal fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8P
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(52) %0) #7
   %49 = icmp eq i32 %45, %48
-  br i1 %49, label %50, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.exit.thread"
+  br i1 %49, label %50, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.argprom.argprom.argprom.argprom.exit.thread"
 
 50:                                               ; preds = %36
   %51 = getelementptr i8, ptr %42, i64 40
@@ -6116,7 +6116,7 @@ define internal fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8P
   %58 = icmp ne i32 %57, 4
   %.not2.i = icmp eq ptr %55, null
   %.not.i32 = or i1 %.not2.i, %58
-  br i1 %.not.i32, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.exit.thread", label %59
+  br i1 %.not.i32, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.argprom.argprom.argprom.argprom.exit.thread", label %59
 
 59:                                               ; preds = %50
   %60 = getelementptr inbounds i8, ptr %55, i64 24
@@ -6127,18 +6127,18 @@ define internal fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8P
   %65 = add i64 %61, 2147483647
   %66 = icmp ult i64 %65, 4294967294
   %or.cond1.i = and i1 %64, %66
-  br i1 %or.cond1.i, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_1clES0_.exit", label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.exit.thread"
+  br i1 %or.cond1.i, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_1clES0_.argprom.argprom.argprom.argprom.exit", label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.argprom.argprom.argprom.argprom.exit.thread"
 
-"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_1clES0_.exit": ; preds = %59
+"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_1clES0_.argprom.argprom.argprom.argprom.exit": ; preds = %59
   %67 = load ptr, ptr %0, align 8
   %68 = load ptr, ptr %67, align 8
   %69 = tail call noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(52) %0) #7
   %70 = icmp slt i64 %61, 0
   %71 = icmp ne i32 %69, 210
   %72 = xor i1 %70, %71
-  br i1 %72, label %73, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.exit.thread"
+  br i1 %72, label %73, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.argprom.argprom.argprom.argprom.exit.thread"
 
-73:                                               ; preds = %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_1clES0_.exit"
+73:                                               ; preds = %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_1clES0_.argprom.argprom.argprom.argprom.exit"
   %74 = getelementptr inbounds i8, ptr %40, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 8
@@ -6149,7 +6149,7 @@ define internal fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8P
   %81 = load ptr, ptr %80, align 8
   %82 = tail call noundef i32 %81(ptr noundef nonnull align 8 dereferenceable(52) %77) #7
   %83 = icmp eq i32 %82, 24
-  br i1 %83, label %84, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.exit.thread"
+  br i1 %83, label %84, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.argprom.argprom.argprom.argprom.exit.thread"
 
 84:                                               ; preds = %73
   %85 = getelementptr i8, ptr %79, i64 40
@@ -6165,7 +6165,7 @@ define internal fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8P
   %92 = icmp ne i32 %91, 4
   %.not1.i33 = icmp eq ptr %89, null
   %.not.i34 = or i1 %.not1.i33, %92
-  br i1 %.not.i34, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.exit.thread", label %93
+  br i1 %.not.i34, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.argprom.argprom.argprom.argprom.exit.thread", label %93
 
 93:                                               ; preds = %84
   %94 = getelementptr inbounds i8, ptr %89, i64 24
@@ -6175,7 +6175,7 @@ define internal fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8P
   %98 = icmp eq i64 %95, %97
   %99 = icmp eq i64 %95, %8
   %or.cond41 = and i1 %99, %98
-  br i1 %or.cond41, label %100, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.exit.thread"
+  br i1 %or.cond41, label %100, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.argprom.argprom.argprom.argprom.exit.thread"
 
 100:                                              ; preds = %93
   %101 = getelementptr inbounds i8, ptr %77, i64 8
@@ -6186,8 +6186,8 @@ define internal fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8P
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr i8, ptr %106, i64 40
   %.val31 = load i32, ptr %107, align 8
-  %108 = call fastcc noundef zeroext i1 @"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_1clES0_"(ptr nonnull %.val23.val.val.val, ptr nonnull %3, i32 %.val31)
-  br i1 %108, label %109, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.exit.thread"
+  %108 = call fastcc noundef zeroext i1 @"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_1clES0_.argprom.argprom.argprom.argprom"(ptr nonnull %.val23.val.val.val, ptr nonnull %3, i32 %.val31)
+  br i1 %108, label %109, label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.argprom.argprom.argprom.argprom.exit.thread"
 
 109:                                              ; preds = %100
   %110 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 56) #7
@@ -6221,10 +6221,10 @@ define internal fastcc noundef ptr @_ZL30fold_subI_no_underflow_patternP4NodeP8P
   %124 = load ptr, ptr %123, align 8
   %125 = tail call noundef ptr %124(ptr noundef nonnull align 8 dereferenceable(2400) %1, ptr noundef %118) #7
   tail call void @_ZN4Node9set_req_XEjPS_P8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 1, ptr noundef %125, ptr noundef nonnull %1) #7
-  br label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.exit.thread"
+  br label %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.argprom.argprom.argprom.argprom.exit.thread"
 
-"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.exit.thread": ; preds = %84, %93, %50, %59, %19, %29, %2, %73, %100, %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_1clES0_.exit", %36, %122
-  %.0 = phi ptr [ %0, %122 ], [ null, %36 ], [ null, %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_1clES0_.exit" ], [ null, %100 ], [ null, %73 ], [ null, %2 ], [ null, %29 ], [ null, %19 ], [ null, %59 ], [ null, %50 ], [ null, %93 ], [ null, %84 ]
+"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_0clES0_.argprom.argprom.argprom.argprom.exit.thread": ; preds = %84, %93, %50, %59, %19, %29, %2, %73, %100, %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_1clES0_.argprom.argprom.argprom.argprom.exit", %36, %122
+  %.0 = phi ptr [ %0, %122 ], [ null, %36 ], [ null, %"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_1clES0_.argprom.argprom.argprom.argprom.exit" ], [ null, %100 ], [ null, %73 ], [ null, %2 ], [ null, %29 ], [ null, %19 ], [ null, %59 ], [ null, %50 ], [ null, %93 ], [ null, %84 ]
   ret ptr %.0
 }
 
@@ -6881,7 +6881,7 @@ declare void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef) local
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_1clES0_"(ptr nocapture readonly %.0.val.0.val.40.val.16.val, ptr nocapture readonly %.8.val, i32 %.40.val) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZL30fold_subI_no_underflow_patternP4NodeP8PhaseGVNENK3$_1clES0_.argprom.argprom.argprom.argprom"(ptr nocapture readonly %.0.val.0.val.40.val.16.val, ptr nocapture readonly %.8.val, i32 %.40.val) unnamed_addr #0 align 2 {
   %1 = zext i32 %.40.val to i64
   %2 = getelementptr inbounds ptr, ptr %.0.val.0.val.40.val.16.val, i64 %1
   %3 = load ptr, ptr %2, align 8

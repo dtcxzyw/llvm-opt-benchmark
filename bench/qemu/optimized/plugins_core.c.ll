@@ -182,7 +182,7 @@ plugin_id_to_ctx_locked.exit:                     ; preds = %entry
   %uninstalling = getelementptr i8, ptr %call.i, i64 105
   %4 = load i8, ptr %uninstalling, align 1
   %tobool = trunc i8 %4 to i1
-  br i1 %tobool, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end
+  br i1 %tobool, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end
 
 if.end:                                           ; preds = %plugin_id_to_ctx_locked.exit
   %tobool5.not = icmp eq ptr %func, null
@@ -201,7 +201,7 @@ if.then8:                                         ; preds = %if.then6
   store ptr %func, ptr %f, align 8
   %udata9 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %udata, ptr %udata9, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.else:                                          ; preds = %if.then6
   %call10 = call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #12
@@ -235,17 +235,17 @@ do.end43:                                         ; preds = %if.then34, %if.else
   %9 = shl nuw i64 1, %and.i
   %10 = and i64 %8, %9
   %tobool46.not = icmp eq i64 %10, 0
-  br i1 %tobool46.not, label %if.then47, label %glib_autoptr_cleanup_QemuLockable.exit
+  br i1 %tobool46.not, label %if.then47, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.then47:                                        ; preds = %do.end43
   %or.i = or i64 %8, %9
   store i64 %or.i, ptr %arrayidx.i, align 8
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @plugin, i64 96), align 8
   call void @g_hash_table_foreach(ptr noundef %11, ptr noundef nonnull @plugin_cpu_update__locked, ptr noundef null) #10
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.else51:                                        ; preds = %if.end
-  br i1 %cmp.i31, label %glib_autoptr_cleanup_QemuLockable.exit, label %do.body.i
+  br i1 %cmp.i31, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %do.body.i
 
 do.body.i:                                        ; preds = %if.else51
   %entry1.i = getelementptr inbounds i8, ptr %5, i64 24
@@ -270,7 +270,7 @@ while.end.i:                                      ; preds = %if.then3.i, %do.bod
   %arrayidx27.i = getelementptr [9 x %struct.anon], ptr getelementptr inbounds (i8, ptr @plugin, i64 16), i64 0, i64 %idxprom.i
   %15 = load atomic i64, ptr %arrayidx27.i monotonic, align 8
   %cmp28.i = icmp eq i64 %15, 0
-  br i1 %cmp28.i, label %if.then29.i, label %glib_autoptr_cleanup_QemuLockable.exit
+  br i1 %cmp28.i, label %if.then29.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
 if.then29.i:                                      ; preds = %while.end.i
   %rem.i.i = and i64 %idxprom.i, 63
@@ -283,9 +283,9 @@ if.then29.i:                                      ; preds = %while.end.i
   store i64 %and.i.i, ptr %add.ptr.i.i, align 8
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @plugin, i64 96), align 8
   call void @g_hash_table_foreach(ptr noundef %17, ptr noundef nonnull @plugin_cpu_update__locked, ptr noundef null) #10
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.then29.i, %while.end.i, %if.else51, %do.end43, %if.then47, %if.then8, %plugin_id_to_ctx_locked.exit
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.then29.i, %while.end.i, %if.else51, %do.end43, %if.then47, %if.then8, %plugin_id_to_ctx_locked.exit
   call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.5, i32 noundef 147) #10
   ret void
 }

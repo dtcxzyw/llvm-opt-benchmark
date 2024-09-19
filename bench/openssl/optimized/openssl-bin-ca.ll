@@ -1689,7 +1689,7 @@ if.then740:                                       ; preds = %if.end737
   %call742 = call i64 @get_nameopt() #12
   %91 = load i32, ptr %ext_copy, align 4
   %92 = load i64, ptr %dateopt, align 8
-  %call743 = call fastcc i32 @certify_spkac(ptr noundef %x, ptr noundef %spkac_file.0, ptr noundef %call260, ptr noundef %x509.1, ptr noundef %dgst.2, ptr noundef %sigopts.0, ptr noundef %call726, ptr noundef %call374, ptr noundef %88, ptr noundef %subj.0, i64 noundef %chtype.2, i32 noundef %email_dn.2, ptr noundef nonnull %cmp651.not452, ptr noundef %enddate.2456, i64 noundef %89, ptr noundef %extensions.3, ptr noundef %call150, i32 noundef %verbose.0, i64 noundef %90, i64 noundef %call742, i32 noundef %default_op.1, i32 noundef %91, i64 noundef %92)
+  %call743 = call fastcc i32 @certify_spkac.argelim(ptr noundef %x, ptr noundef %spkac_file.0, ptr noundef %call260, ptr noundef %x509.1, ptr noundef %dgst.2, ptr noundef %sigopts.0, ptr noundef %call726, ptr noundef %call374, ptr noundef %88, ptr noundef %subj.0, i64 noundef %chtype.2, i32 noundef %email_dn.2, ptr noundef nonnull %cmp651.not452, ptr noundef %enddate.2456, i64 noundef %89, ptr noundef %extensions.3, ptr noundef %call150, i32 noundef %verbose.0, i64 noundef %90, i64 noundef %call742, i32 noundef %default_op.1, i32 noundef %91, i64 noundef %92)
   %cmp744 = icmp slt i32 %call743, 0
   br i1 %cmp744, label %if.then1233, label %if.end747
 
@@ -1731,7 +1731,7 @@ if.then768:                                       ; preds = %if.end765
   %call770 = call i64 @get_nameopt() #12
   %102 = load i32, ptr %ext_copy, align 4
   %103 = load i64, ptr %dateopt, align 8
-  %call771 = call fastcc i32 @certify_cert(ptr noundef %x, ptr noundef %ss_cert_file.0, i32 noundef %97, ptr noundef %98, ptr noundef %call260, ptr noundef %x509.1, ptr noundef %dgst.2, ptr noundef %sigopts.0, ptr noundef %vfyopts.0, ptr noundef %call726, ptr noundef %call374, ptr noundef %99, ptr noundef %subj.0, i64 noundef %chtype.2, i32 noundef %email_dn.2, ptr noundef nonnull %cmp651.not452, ptr noundef %enddate.2456, i64 noundef %100, i32 noundef %batch.2, ptr noundef %extensions.3, ptr noundef %call150, i32 noundef %verbose.0, i64 noundef %101, i64 noundef %call770, i32 noundef %default_op.1, i32 noundef %102, i64 noundef %103)
+  %call771 = call fastcc i32 @certify_cert.argelim(ptr noundef %x, ptr noundef %ss_cert_file.0, i32 noundef %97, ptr noundef %98, ptr noundef %call260, ptr noundef %x509.1, ptr noundef %dgst.2, ptr noundef %sigopts.0, ptr noundef %vfyopts.0, ptr noundef %call726, ptr noundef %call374, ptr noundef %99, ptr noundef %subj.0, i64 noundef %chtype.2, i32 noundef %email_dn.2, ptr noundef nonnull %cmp651.not452, ptr noundef %enddate.2456, i64 noundef %100, i32 noundef %batch.2, ptr noundef %extensions.3, ptr noundef %call150, i32 noundef %verbose.0, i64 noundef %101, i64 noundef %call770, i32 noundef %default_op.1, i32 noundef %102, i64 noundef %103)
   %cmp772 = icmp slt i32 %call771, 0
   br i1 %cmp772, label %if.then1233, label %if.end775
 
@@ -1774,7 +1774,7 @@ if.then796:                                       ; preds = %if.end793
   %call798 = call i64 @get_nameopt() #12
   %112 = load i32, ptr %ext_copy, align 4
   %113 = load i64, ptr %dateopt, align 8
-  %call799 = call fastcc i32 @certify(ptr noundef %x, ptr noundef nonnull %infile.0, i32 noundef %108, ptr noundef %call260, ptr noundef %spec.select428, ptr noundef %dgst.2, ptr noundef %sigopts.0, ptr noundef %vfyopts.0, ptr noundef %call726, ptr noundef %call374, ptr noundef %109, ptr noundef %subj.0, i64 noundef %chtype.2, i32 noundef %email_dn.2, ptr noundef nonnull %cmp651.not452, ptr noundef %enddate.2456, i64 noundef %110, i32 noundef %batch.2, ptr noundef %extensions.3, ptr noundef %call150, i32 noundef %verbose.0, i64 noundef %111, i64 noundef %call798, i32 noundef %default_op.1, i32 noundef %112, i32 noundef %selfsign.0, i64 noundef %113)
+  %call799 = call fastcc i32 @certify.argelim(ptr noundef %x, ptr noundef nonnull %infile.0, i32 noundef %108, ptr noundef %call260, ptr noundef %spec.select428, ptr noundef %dgst.2, ptr noundef %sigopts.0, ptr noundef %vfyopts.0, ptr noundef %call726, ptr noundef %call374, ptr noundef %109, ptr noundef %subj.0, i64 noundef %chtype.2, i32 noundef %email_dn.2, ptr noundef nonnull %cmp651.not452, ptr noundef %enddate.2456, i64 noundef %110, i32 noundef %batch.2, ptr noundef %extensions.3, ptr noundef %call150, i32 noundef %verbose.0, i64 noundef %111, i64 noundef %call798, i32 noundef %default_op.1, i32 noundef %112, i32 noundef %selfsign.0, i64 noundef %113)
   %cmp800 = icmp slt i32 %call799, 0
   br i1 %cmp800, label %if.then1233, label %if.end803
 
@@ -1825,7 +1825,7 @@ for.body825:                                      ; preds = %for.body825.prehead
   %call829 = call i64 @get_nameopt() #12
   %124 = load i32, ptr %ext_copy, align 4
   %125 = load i64, ptr %dateopt, align 8
-  %call830 = call fastcc i32 @certify(ptr noundef %x, ptr noundef %119, i32 noundef %120, ptr noundef %call260, ptr noundef %spec.select428, ptr noundef %dgst.2, ptr noundef %sigopts.0, ptr noundef %vfyopts.0, ptr noundef %call726, ptr noundef %call374, ptr noundef %121, ptr noundef %subj.0, i64 noundef %chtype.2, i32 noundef %email_dn.2, ptr noundef nonnull %cmp651.not452, ptr noundef %enddate.2456, i64 noundef %122, i32 noundef %batch.2, ptr noundef %extensions.3, ptr noundef %call150, i32 noundef %verbose.0, i64 noundef %123, i64 noundef %call829, i32 noundef %default_op.1, i32 noundef %124, i32 noundef %selfsign.0, i64 noundef %125)
+  %call830 = call fastcc i32 @certify.argelim(ptr noundef %x, ptr noundef %119, i32 noundef %120, ptr noundef %call260, ptr noundef %spec.select428, ptr noundef %dgst.2, ptr noundef %sigopts.0, ptr noundef %vfyopts.0, ptr noundef %call726, ptr noundef %call374, ptr noundef %121, ptr noundef %subj.0, i64 noundef %chtype.2, i32 noundef %email_dn.2, ptr noundef nonnull %cmp651.not452, ptr noundef %enddate.2456, i64 noundef %122, i32 noundef %batch.2, ptr noundef %extensions.3, ptr noundef %call150, i32 noundef %verbose.0, i64 noundef %123, i64 noundef %call829, i32 noundef %default_op.1, i32 noundef %124, i32 noundef %selfsign.0, i64 noundef %125)
   %cmp831 = icmp slt i32 %call830, 0
   br i1 %cmp831, label %if.then1233, label %if.end834
 
@@ -2898,7 +2898,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @NCONF_get_section(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @certify_spkac(ptr nocapture noundef nonnull writeonly %xret, ptr noundef nonnull %infile, ptr noundef nonnull %pkey, ptr noundef %x509, ptr noundef %dgst, ptr noundef %sigopts, ptr noundef nonnull %policy, ptr nocapture noundef nonnull readonly %db, ptr noundef %serial, ptr noundef %subj, i64 noundef range(i64 4096, 4098) %chtype, i32 noundef range(i32 0, 2) %email_dn, ptr noundef %startdate, ptr noundef %enddate, i64 noundef %days, ptr noundef %ext_sect, ptr noundef nonnull %lconf, i32 noundef range(i32 0, 2) %verbose, i64 noundef %certopt, i64 noundef %nameopt, i32 noundef range(i32 0, 2) %default_op, i32 noundef %ext_copy, i64 noundef %dateopt) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @certify_spkac.argelim(ptr nocapture noundef nonnull writeonly %xret, ptr noundef nonnull %infile, ptr noundef nonnull %pkey, ptr noundef %x509, ptr noundef %dgst, ptr noundef %sigopts, ptr noundef nonnull %policy, ptr nocapture noundef nonnull readonly %db, ptr noundef %serial, ptr noundef %subj, i64 noundef range(i64 4096, 4098) %chtype, i32 noundef range(i32 0, 2) %email_dn, ptr noundef %startdate, ptr noundef %enddate, i64 noundef %days, ptr noundef %ext_sect, ptr noundef nonnull %lconf, i32 noundef range(i32 0, 2) %verbose, i64 noundef %certopt, i64 noundef %nameopt, i32 noundef range(i32 0, 2) %default_op, i32 noundef %ext_copy, i64 noundef %dateopt) unnamed_addr #0 {
 entry:
   %errline = alloca i64, align 8
   %call = call ptr @CONF_load(ptr noundef null, ptr noundef nonnull %infile, ptr noundef nonnull %errline) #12
@@ -3039,7 +3039,7 @@ if.end79:                                         ; preds = %if.end73
   %call80 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %13, ptr noundef nonnull @.str.241) #12
   %call81 = call i32 @X509_REQ_set_pubkey(ptr noundef nonnull %call9, ptr noundef nonnull %call68) #12
   call void @EVP_PKEY_free(ptr noundef nonnull %call68) #12
-  %call82 = call fastcc i32 @do_body(ptr noundef %xret, ptr noundef %pkey, ptr noundef %x509, ptr noundef %dgst, ptr noundef %sigopts, ptr noundef %policy, ptr noundef %db, ptr noundef %serial, ptr noundef %subj, i64 noundef %chtype, i32 noundef %email_dn, ptr noundef %startdate, ptr noundef %enddate, i64 noundef %days, i32 noundef 1, i32 noundef %verbose, ptr noundef %call9, ptr noundef %ext_sect, ptr noundef %lconf, i64 noundef %certopt, i64 noundef %nameopt, i32 noundef %default_op, i32 noundef %ext_copy, i32 noundef 0, i64 noundef %dateopt)
+  %call82 = call fastcc i32 @do_body.argelim(ptr noundef %xret, ptr noundef %pkey, ptr noundef %x509, ptr noundef %dgst, ptr noundef %sigopts, ptr noundef %policy, ptr noundef %db, ptr noundef %serial, ptr noundef %subj, i64 noundef %chtype, i32 noundef %email_dn, ptr noundef %startdate, ptr noundef %enddate, i64 noundef %days, i32 noundef 1, i32 noundef %verbose, ptr noundef %call9, ptr noundef %ext_sect, ptr noundef %lconf, i64 noundef %certopt, i64 noundef %nameopt, i32 noundef %default_op, i32 noundef %ext_copy, i32 noundef 0, i64 noundef %dateopt)
   br label %end
 
 end:                                              ; preds = %if.end54, %if.end8, %if.end79, %if.then77, %if.then71, %if.then64, %if.then50, %if.then6, %if.then
@@ -3058,7 +3058,7 @@ declare i64 @get_nameopt() local_unnamed_addr #2
 declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @certify_cert(ptr nocapture noundef nonnull writeonly %xret, ptr noundef nonnull %infile, i32 noundef %certformat, ptr noundef %passin, ptr noundef nonnull %pkey, ptr noundef %x509, ptr noundef %dgst, ptr noundef %sigopts, ptr noundef %vfyopts, ptr noundef nonnull %policy, ptr nocapture noundef nonnull readonly %db, ptr noundef %serial, ptr noundef %subj, i64 noundef range(i64 4096, 4098) %chtype, i32 noundef range(i32 0, 2) %email_dn, ptr noundef %startdate, ptr noundef %enddate, i64 noundef %days, i32 noundef range(i32 0, 2) %batch, ptr noundef %ext_sect, ptr noundef nonnull %lconf, i32 noundef range(i32 0, 2) %verbose, i64 noundef %certopt, i64 noundef %nameopt, i32 noundef range(i32 0, 2) %default_op, i32 noundef %ext_copy, i64 noundef %dateopt) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @certify_cert.argelim(ptr nocapture noundef nonnull writeonly %xret, ptr noundef nonnull %infile, i32 noundef %certformat, ptr noundef %passin, ptr noundef nonnull %pkey, ptr noundef %x509, ptr noundef %dgst, ptr noundef %sigopts, ptr noundef %vfyopts, ptr noundef nonnull %policy, ptr nocapture noundef nonnull readonly %db, ptr noundef %serial, ptr noundef %subj, i64 noundef range(i64 4096, 4098) %chtype, i32 noundef range(i32 0, 2) %email_dn, ptr noundef %startdate, ptr noundef %enddate, i64 noundef %days, i32 noundef range(i32 0, 2) %batch, ptr noundef %ext_sect, ptr noundef nonnull %lconf, i32 noundef range(i32 0, 2) %verbose, i64 noundef %certopt, i64 noundef %nameopt, i32 noundef range(i32 0, 2) %default_op, i32 noundef %ext_copy, i64 noundef %dateopt) unnamed_addr #0 {
 entry:
   %call = tail call ptr @load_cert_pass(ptr noundef nonnull %infile, i32 noundef %certformat, i32 noundef 1, ptr noundef %passin, ptr noundef nonnull @.str.303) #12
   %cmp = icmp eq ptr %call, null
@@ -3111,7 +3111,7 @@ if.else:                                          ; preds = %if.end14
   br i1 %cmp21, label %end, label %if.end23
 
 if.end23:                                         ; preds = %if.else
-  %call24 = tail call fastcc i32 @do_body(ptr noundef %xret, ptr noundef %pkey, ptr noundef %x509, ptr noundef %dgst, ptr noundef %sigopts, ptr noundef %policy, ptr noundef %db, ptr noundef %serial, ptr noundef %subj, i64 noundef %chtype, i32 noundef %email_dn, ptr noundef %startdate, ptr noundef %enddate, i64 noundef %days, i32 noundef %batch, i32 noundef %verbose, ptr noundef %call20, ptr noundef %ext_sect, ptr noundef %lconf, i64 noundef %certopt, i64 noundef %nameopt, i32 noundef %default_op, i32 noundef %ext_copy, i32 noundef 0, i64 noundef %dateopt)
+  %call24 = tail call fastcc i32 @do_body.argelim(ptr noundef %xret, ptr noundef %pkey, ptr noundef %x509, ptr noundef %dgst, ptr noundef %sigopts, ptr noundef %policy, ptr noundef %db, ptr noundef %serial, ptr noundef %subj, i64 noundef %chtype, i32 noundef %email_dn, ptr noundef %startdate, ptr noundef %enddate, i64 noundef %days, i32 noundef %batch, i32 noundef %verbose, ptr noundef %call20, ptr noundef %ext_sect, ptr noundef %lconf, i64 noundef %certopt, i64 noundef %nameopt, i32 noundef %default_op, i32 noundef %ext_copy, i32 noundef 0, i64 noundef %dateopt)
   br label %end
 
 end:                                              ; preds = %if.else, %entry, %if.end23, %if.then16, %if.then12, %if.then7
@@ -3123,7 +3123,7 @@ end:                                              ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @certify(ptr nocapture noundef nonnull writeonly %xret, ptr noundef %infile, i32 noundef %informat, ptr noundef nonnull %pkey, ptr noundef %x509, ptr noundef %dgst, ptr noundef %sigopts, ptr noundef %vfyopts, ptr noundef nonnull %policy, ptr nocapture noundef nonnull readonly %db, ptr noundef %serial, ptr noundef %subj, i64 noundef range(i64 4096, 4098) %chtype, i32 noundef range(i32 0, 2) %email_dn, ptr noundef %startdate, ptr noundef %enddate, i64 noundef %days, i32 noundef range(i32 0, 2) %batch, ptr noundef %ext_sect, ptr noundef nonnull %lconf, i32 noundef range(i32 0, 2) %verbose, i64 noundef %certopt, i64 noundef %nameopt, i32 noundef range(i32 0, 2) %default_op, i32 noundef %ext_copy, i32 noundef range(i32 0, 2) %selfsign, i64 noundef %dateopt) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @certify.argelim(ptr nocapture noundef nonnull writeonly %xret, ptr noundef %infile, i32 noundef %informat, ptr noundef nonnull %pkey, ptr noundef %x509, ptr noundef %dgst, ptr noundef %sigopts, ptr noundef %vfyopts, ptr noundef nonnull %policy, ptr nocapture noundef nonnull readonly %db, ptr noundef %serial, ptr noundef %subj, i64 noundef range(i64 4096, 4098) %chtype, i32 noundef range(i32 0, 2) %email_dn, ptr noundef %startdate, ptr noundef %enddate, i64 noundef %days, i32 noundef range(i32 0, 2) %batch, ptr noundef %ext_sect, ptr noundef nonnull %lconf, i32 noundef range(i32 0, 2) %verbose, i64 noundef %certopt, i64 noundef %nameopt, i32 noundef range(i32 0, 2) %default_op, i32 noundef %ext_copy, i32 noundef range(i32 0, 2) %selfsign, i64 noundef %dateopt) unnamed_addr #0 {
 entry:
   %call = tail call ptr @load_csr_autofmt(ptr noundef %infile, i32 noundef %informat, ptr noundef %vfyopts, ptr noundef nonnull @.str.235) #12
   %cmp = icmp eq ptr %call, null
@@ -3185,7 +3185,7 @@ if.then22:                                        ; preds = %if.end20
 
 if.end24:                                         ; preds = %if.end20
   %call25 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %5, ptr noundef nonnull @.str.241) #12
-  %call26 = tail call fastcc i32 @do_body(ptr noundef %xret, ptr noundef %pkey, ptr noundef %x509, ptr noundef %dgst, ptr noundef %sigopts, ptr noundef %policy, ptr noundef %db, ptr noundef %serial, ptr noundef %subj, i64 noundef %chtype, i32 noundef %email_dn, ptr noundef %startdate, ptr noundef %enddate, i64 noundef %days, i32 noundef %batch, i32 noundef %verbose, ptr noundef %call, ptr noundef %ext_sect, ptr noundef %lconf, i64 noundef %certopt, i64 noundef %nameopt, i32 noundef %default_op, i32 noundef %ext_copy, i32 noundef %selfsign, i64 noundef %dateopt)
+  %call26 = tail call fastcc i32 @do_body.argelim(ptr noundef %xret, ptr noundef %pkey, ptr noundef %x509, ptr noundef %dgst, ptr noundef %sigopts, ptr noundef %policy, ptr noundef %db, ptr noundef %serial, ptr noundef %subj, i64 noundef %chtype, i32 noundef %email_dn, ptr noundef %startdate, ptr noundef %enddate, i64 noundef %days, i32 noundef %batch, i32 noundef %verbose, ptr noundef %call, ptr noundef %ext_sect, ptr noundef %lconf, i64 noundef %certopt, i64 noundef %nameopt, i32 noundef %default_op, i32 noundef %ext_copy, i32 noundef %selfsign, i64 noundef %dateopt)
   br label %end
 
 end:                                              ; preds = %entry, %if.end24, %if.then22, %if.then18, %if.then13, %if.then3
@@ -3847,7 +3847,7 @@ declare i32 @X509_REQ_check_private_key(ptr noundef, ptr noundef) local_unnamed_
 declare i32 @do_X509_REQ_verify(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @do_body(ptr nocapture noundef nonnull writeonly %xret, ptr noundef nonnull %pkey, ptr noundef %x509, ptr noundef %dgst, ptr noundef %sigopts, ptr noundef nonnull %policy, ptr nocapture noundef nonnull readonly %db, ptr noundef %serial, ptr noundef %subj, i64 noundef range(i64 4096, 4098) %chtype, i32 noundef range(i32 0, 2) %email_dn, ptr noundef %startdate, ptr noundef %enddate, i64 noundef %days, i32 noundef range(i32 0, 2) %batch, i32 noundef range(i32 0, 2) %verbose, ptr noundef nonnull %req, ptr noundef %ext_sect, ptr noundef nonnull %lconf, i64 noundef %certopt, i64 noundef %nameopt, i32 noundef range(i32 0, 2) %default_op, i32 noundef %ext_copy, i32 noundef range(i32 0, 2) %selfsign, i64 noundef %dateopt) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @do_body.argelim(ptr nocapture noundef nonnull writeonly %xret, ptr noundef nonnull %pkey, ptr noundef %x509, ptr noundef %dgst, ptr noundef %sigopts, ptr noundef nonnull %policy, ptr nocapture noundef nonnull readonly %db, ptr noundef %serial, ptr noundef %subj, i64 noundef range(i64 4096, 4098) %chtype, i32 noundef range(i32 0, 2) %email_dn, ptr noundef %startdate, ptr noundef %enddate, i64 noundef %days, i32 noundef range(i32 0, 2) %batch, i32 noundef range(i32 0, 2) %verbose, ptr noundef nonnull %req, ptr noundef %ext_sect, ptr noundef nonnull %lconf, i64 noundef %certopt, i64 noundef %nameopt, i32 noundef range(i32 0, 2) %default_op, i32 noundef %ext_copy, i32 noundef range(i32 0, 2) %selfsign, i64 noundef %dateopt) unnamed_addr #0 {
 entry:
   %buf.i = alloca [25 x i8], align 16
   %row = alloca [6 x ptr], align 16

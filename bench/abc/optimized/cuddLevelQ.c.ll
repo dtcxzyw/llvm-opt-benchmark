@@ -153,7 +153,7 @@ define ptr @cuddLevelQueueEnqueue(ptr nocapture noundef %0, ptr noundef %1, i32 
   %12 = getelementptr inbounds i8, ptr %.03.i, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %1
-  br i1 %14, label %hashLookup.exit, label %15
+  br i1 %14, label %hashLookup.argprom.exit, label %15
 
 15:                                               ; preds = %.lr.ph.i
   %16 = getelementptr inbounds i8, ptr %.03.i, i64 8
@@ -173,7 +173,7 @@ define ptr @cuddLevelQueueEnqueue(ptr nocapture noundef %0, ptr noundef %1, i32 
   %23 = sext i32 %22 to i64
   %24 = tail call noalias ptr @malloc(i64 noundef %23) #8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %hashLookup.exit, label %28
+  br i1 %25, label %hashLookup.argprom.exit, label %28
 
 26:                                               ; preds = %.loopexit
   %27 = load ptr, ptr %18, align 8
@@ -348,9 +348,9 @@ hashInsert.exit:                                  ; preds = %58, %73, %._crit_ed
   %105 = load ptr, ptr %4, align 8
   %106 = getelementptr inbounds ptr, ptr %105, i64 %101
   store ptr %.0, ptr %106, align 8
-  br label %hashLookup.exit
+  br label %hashLookup.argprom.exit
 
-hashLookup.exit:                                  ; preds = %.lr.ph.i, %20, %hashInsert.exit
+hashLookup.argprom.exit:                          ; preds = %.lr.ph.i, %20, %hashInsert.exit
   %.047 = phi ptr [ %.0, %hashInsert.exit ], [ null, %20 ], [ %.03.i, %.lr.ph.i ]
   ret ptr %.047
 }
@@ -372,7 +372,7 @@ define void @cuddLevelQueueDequeue(ptr nocapture noundef %0, i32 noundef %1) loc
   %13 = getelementptr inbounds ptr, ptr %.val, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %hashDelete.exit, label %16
+  br i1 %15, label %hashDelete.argprom.exit, label %16
 
 16:                                               ; preds = %2
   %17 = icmp eq ptr %14, %3
@@ -383,7 +383,7 @@ define void @cuddLevelQueueDequeue(ptr nocapture noundef %0, i32 noundef %1) loc
   %18 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %hashDelete.exit, label %20
+  br i1 %.not.i, label %hashDelete.argprom.exit, label %20
 
 20:                                               ; preds = %.preheader.i
   %21 = icmp eq ptr %19, %3
@@ -399,9 +399,9 @@ define void @cuddLevelQueueDequeue(ptr nocapture noundef %0, i32 noundef %1) loc
   %23 = getelementptr inbounds i8, ptr %.sink.i, i64 8
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %.sink4.i, align 8
-  br label %hashDelete.exit
+  br label %hashDelete.argprom.exit
 
-hashDelete.exit:                                  ; preds = %.preheader.i, %2, %.loopexit.sink.split.i
+hashDelete.argprom.exit:                          ; preds = %.preheader.i, %2, %.loopexit.sink.split.i
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = sext i32 %1 to i64
@@ -410,11 +410,11 @@ hashDelete.exit:                                  ; preds = %.preheader.i, %2, %
   %30 = icmp eq ptr %29, %3
   br i1 %30, label %31, label %32
 
-31:                                               ; preds = %hashDelete.exit
+31:                                               ; preds = %hashDelete.argprom.exit
   store ptr null, ptr %28, align 8
   br label %32
 
-32:                                               ; preds = %31, %hashDelete.exit
+32:                                               ; preds = %31, %hashDelete.argprom.exit
   %33 = load ptr, ptr %3, align 8
   store ptr %33, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 16

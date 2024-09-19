@@ -689,7 +689,7 @@ if.end23:                                         ; preds = %if.end18
   %26 = call noundef i64 @llvm.bswap.i64(i64 %25)
   %and.i.i = and i64 %.val86, 16
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %get_l2_bitmap.exit, label %if.then.i
+  br i1 %tobool.i.not.i, label %get_l2_bitmap.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end23
   %conv2.i = shl i32 %conv1.i105, 1
@@ -698,9 +698,9 @@ if.then.i:                                        ; preds = %if.end23
   %arrayidx.i113 = getelementptr i64, ptr %20, i64 %idxprom.i112
   %27 = load i64, ptr %arrayidx.i113, align 8
   %28 = call noundef i64 @llvm.bswap.i64(i64 %27)
-  br label %get_l2_bitmap.exit
+  br label %get_l2_bitmap.argprom.exit
 
-get_l2_bitmap.exit:                               ; preds = %if.end23, %if.then.i
+get_l2_bitmap.argprom.exit:                       ; preds = %if.end23, %if.then.i
   %retval.0.i = phi i64 [ %28, %if.then.i ], [ 0, %if.end23 ]
   %.val89 = load i32, ptr %1, align 4
   %sub.i114 = add i32 %.val89, -1
@@ -710,11 +710,11 @@ get_l2_bitmap.exit:                               ; preds = %if.end23, %if.then.
   %cmp29 = icmp ult i64 %shr.i118, 2147483648
   br i1 %cmp29, label %if.end32, label %if.else
 
-if.else:                                          ; preds = %get_l2_bitmap.exit
+if.else:                                          ; preds = %get_l2_bitmap.argprom.exit
   call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 654, ptr noundef nonnull @__PRETTY_FUNCTION__.qcow2_get_host_offset) #15
   unreachable
 
-if.end32:                                         ; preds = %get_l2_bitmap.exit
+if.end32:                                         ; preds = %get_l2_bitmap.argprom.exit
   %call33 = call fastcc i32 @qcow2_get_subcluster_type(ptr noundef nonnull %bs, i64 noundef %26, i64 noundef %retval.0.i, i32 noundef %conv1.i109)
   %qcow_version = getelementptr inbounds i8, ptr %0, i64 300
   %29 = load i32, ptr %qcow_version, align 4
@@ -835,7 +835,7 @@ for.body.i:                                       ; preds = %if.end32.i, %for.bo
   %44 = call noundef i64 @llvm.bswap.i64(i64 %43)
   %and.i.i.i126 = and i64 %.val.i, 16
   %tobool.i.not.i.i127 = icmp eq i64 %and.i.i.i126, 0
-  br i1 %tobool.i.not.i.i127, label %get_l2_bitmap.exit.i, label %if.then.i.i
+  br i1 %tobool.i.not.i.i127, label %get_l2_bitmap.argprom.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
   %conv2.i.i = shl i32 %add3.i, 1
@@ -844,16 +844,16 @@ if.then.i.i:                                      ; preds = %for.body.i
   %arrayidx.i27.i = getelementptr i64, ptr %35, i64 %idxprom.i26.i
   %45 = load i64, ptr %arrayidx.i27.i, align 8
   %46 = call noundef i64 @llvm.bswap.i64(i64 %45)
-  br label %get_l2_bitmap.exit.i
+  br label %get_l2_bitmap.argprom.exit.i
 
-get_l2_bitmap.exit.i:                             ; preds = %if.then.i.i, %for.body.i
+get_l2_bitmap.argprom.exit.i:                     ; preds = %if.then.i.i, %for.body.i
   %retval.0.i.i = phi i64 [ %46, %if.then.i.i ], [ 0, %for.body.i ]
   %47 = load ptr, ptr %opaque, align 8
   %call.i.i = call fastcc i32 @qcow2_get_subcluster_type(ptr noundef nonnull readonly %bs, i64 noundef %44, i64 noundef %retval.0.i.i, i32 noundef %cond.i)
   %cmp.i.i = icmp eq i32 %call.i.i, 6
   br i1 %cmp.i.i, label %if.then68, label %if.else.i.i
 
-if.else.i.i:                                      ; preds = %get_l2_bitmap.exit.i
+if.else.i.i:                                      ; preds = %get_l2_bitmap.argprom.exit.i
   %48 = getelementptr i8, ptr %47, i64 360
   %.val.i.i = load i64, ptr %48, align 8
   %and.i.i28.i = and i64 %.val.i.i, 16
@@ -963,8 +963,8 @@ count_contiguous_subclusters.exit:                ; preds = %if.else19.i, %if.th
   %cmp66 = icmp slt i32 %retval.0.i129, 0
   br i1 %cmp66, label %if.then68, label %if.end69
 
-if.then68:                                        ; preds = %get_l2_bitmap.exit.i, %qcow2_get_subcluster_range_type.exit.i, %count_contiguous_subclusters.exit
-  %l2_index.0146 = phi i32 [ %conv1.i105, %count_contiguous_subclusters.exit ], [ %add3.i, %qcow2_get_subcluster_range_type.exit.i ], [ %add3.i, %get_l2_bitmap.exit.i ]
+if.then68:                                        ; preds = %get_l2_bitmap.argprom.exit.i, %qcow2_get_subcluster_range_type.exit.i, %count_contiguous_subclusters.exit
+  %l2_index.0146 = phi i32 [ %conv1.i105, %count_contiguous_subclusters.exit ], [ %add3.i, %qcow2_get_subcluster_range_type.exit.i ], [ %add3.i, %get_l2_bitmap.argprom.exit.i ]
   call void (ptr, i1, i64, i64, ptr, ...) @qcow2_signal_corruption(ptr noundef %bs, i1 noundef zeroext true, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.7, i64 noundef %and, i32 noundef %l2_index.0146) #13
   br label %fail
 
@@ -1249,9 +1249,9 @@ do.end:                                           ; preds = %if.end26, %if.then3
   %.val = load i64, ptr %5, align 8
   %and.i = and i64 %.val, 16
   %tobool.i.not = icmp eq i64 %and.i, 0
-  br i1 %tobool.i.not, label %if.end37, label %set_l2_bitmap.exit
+  br i1 %tobool.i.not, label %if.end37, label %set_l2_bitmap.argprom.exit
 
-set_l2_bitmap.exit:                               ; preds = %do.end
+set_l2_bitmap.argprom.exit:                       ; preds = %do.end
   %conv2.i37 = shl i32 %4, 1
   %add.i = or disjoint i32 %conv2.i37, 1
   %idxprom.i38 = sext i32 %add.i to i64
@@ -1259,7 +1259,7 @@ set_l2_bitmap.exit:                               ; preds = %do.end
   store i64 0, ptr %arrayidx.i39, align 8
   br label %if.end37
 
-if.end37:                                         ; preds = %set_l2_bitmap.exit, %do.end
+if.end37:                                         ; preds = %set_l2_bitmap.argprom.exit, %do.end
   %23 = load ptr, ptr %l2_table_cache34, align 8
   call void @qcow2_cache_put(ptr noundef %23, ptr noundef nonnull %l2_slice) #13
   %24 = load i64, ptr %cluster_offset_mask, align 8
@@ -2020,9 +2020,9 @@ if.end61:                                         ; preds = %if.end56
 land.lhs.true:                                    ; preds = %if.end61
   %33 = load i8, ptr %prealloc, align 1
   %tobool65 = trunc i8 %33 to i1
-  br i1 %tobool65, label %for.inc, label %get_l2_bitmap.exit
+  br i1 %tobool65, label %for.inc, label %get_l2_bitmap.argprom.exit
 
-get_l2_bitmap.exit:                               ; preds = %land.lhs.true
+get_l2_bitmap.argprom.exit:                       ; preds = %land.lhs.true
   %34 = load i32, ptr %cow_start, align 8
   %35 = load i32, ptr %cow_end, align 8
   %36 = load i32, ptr %nb_bytes, align 4
@@ -2034,13 +2034,13 @@ get_l2_bitmap.exit:                               ; preds = %land.lhs.true
   %shl81 = shl i32 %add79, %37
   %cond88 = tail call i32 @llvm.umin.i32(i32 %add74, i32 %shl81)
   %cmp89 = icmp ult i32 %cond, %cond88
-  br i1 %cmp89, label %set_l2_bitmap.exit, label %if.else92
+  br i1 %cmp89, label %set_l2_bitmap.argprom.exit, label %if.else92
 
-if.else92:                                        ; preds = %get_l2_bitmap.exit
+if.else92:                                        ; preds = %get_l2_bitmap.argprom.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.2, i32 noundef 1095, ptr noundef nonnull @__PRETTY_FUNCTION__.qcow2_alloc_cluster_link_l2) #15
   unreachable
 
-set_l2_bitmap.exit:                               ; preds = %get_l2_bitmap.exit
+set_l2_bitmap.argprom.exit:                       ; preds = %get_l2_bitmap.argprom.exit
   %conv2.i88 = shl i32 %add49, 1
   %add.i = or disjoint i32 %conv2.i88, 1
   %idxprom.i89 = sext i32 %add.i to i64
@@ -2074,7 +2074,7 @@ set_l2_bitmap.exit:                               ; preds = %get_l2_bitmap.exit
   store i64 %42, ptr %arrayidx.i90, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end61, %land.lhs.true, %set_l2_bitmap.exit
+for.inc:                                          ; preds = %if.end61, %land.lhs.true, %set_l2_bitmap.argprom.exit
   %inc115 = add nuw nsw i32 %i.0106, 1
   %43 = load i32, ptr %nb_clusters, align 8
   %cmp42 = icmp slt i32 %inc115, %43
@@ -3410,7 +3410,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %12 = call noundef i64 @llvm.bswap.i64(i64 %11)
   %and.i.i.i = and i64 %.val49.i, 16
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
-  br i1 %tobool.i.not.i.i, label %get_l2_bitmap.exit.i, label %if.then.i.i
+  br i1 %tobool.i.not.i.i, label %get_l2_bitmap.argprom.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
   %conv2.i.i = shl i32 %add.i23, 1
@@ -3419,16 +3419,16 @@ if.then.i.i:                                      ; preds = %for.body.i
   %arrayidx.i54.i = getelementptr i64, ptr %.pre.i, i64 %idxprom.i53.i
   %13 = load i64, ptr %arrayidx.i54.i, align 8
   %14 = call noundef i64 @llvm.bswap.i64(i64 %13)
-  br label %get_l2_bitmap.exit.i
+  br label %get_l2_bitmap.argprom.exit.i
 
-get_l2_bitmap.exit.i:                             ; preds = %if.then.i.i, %for.body.i
+get_l2_bitmap.argprom.exit.i:                     ; preds = %if.then.i.i, %for.body.i
   %retval.0.i.i = phi i64 [ %14, %if.then.i.i ], [ 0, %for.body.i ]
   %15 = load ptr, ptr %opaque, align 8
   %and.i.i = and i64 %12, 4611686018427387904
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.else.i.i, label %land.end21.i
 
-if.else.i.i:                                      ; preds = %get_l2_bitmap.exit.i
+if.else.i.i:                                      ; preds = %get_l2_bitmap.argprom.exit.i
   %and1.i.i = and i64 %12, 1
   %tobool2.not.i.i = icmp eq i64 %and1.i.i, 0
   br i1 %tobool2.not.i.i, label %if.else7.i.i, label %land.lhs.true.i.i
@@ -3465,7 +3465,7 @@ qcow2_get_cluster_type.exit.i:                    ; preds = %if.then10.i.i, %if.
   %retval.0.i55.i = phi i32 [ %..i.i, %if.then3.i.i ], [ 3, %if.else7.i.i ], [ %spec.select.i.i, %if.then10.i.i ]
   br i1 %full_discard, label %if.end48.i, label %if.else25.i
 
-land.end21.i:                                     ; preds = %get_l2_bitmap.exit.i
+land.end21.i:                                     ; preds = %get_l2_bitmap.argprom.exit.i
   br i1 %full_discard, label %if.end55.i, label %if.then29.i
 
 if.else25.i:                                      ; preds = %qcow2_get_cluster_type.exit.i
@@ -3527,9 +3527,9 @@ if.end55.i:                                       ; preds = %if.end48.i, %land.e
   %.val.i = load i64, ptr %7, align 8
   %and.i63.i = and i64 %.val.i, 16
   %tobool.i64.not.i = icmp eq i64 %and.i63.i, 0
-  br i1 %tobool.i64.not.i, label %if.end60.i, label %set_l2_bitmap.exit.i
+  br i1 %tobool.i64.not.i, label %if.end60.i, label %set_l2_bitmap.argprom.exit.i
 
-set_l2_bitmap.exit.i:                             ; preds = %if.end55.i
+set_l2_bitmap.argprom.exit.i:                     ; preds = %if.end55.i
   %conv2.i67.i = shl i32 %add.i23, 1
   %31 = call noundef i64 @llvm.bswap.i64(i64 %new_l2_bitmap.097.i)
   %add.i68.i = or disjoint i32 %conv2.i67.i, 1
@@ -3538,7 +3538,7 @@ set_l2_bitmap.exit.i:                             ; preds = %if.end55.i
   store i64 %31, ptr %arrayidx.i70.i, align 8
   br label %if.end60.i
 
-if.end60.i:                                       ; preds = %set_l2_bitmap.exit.i, %if.end55.i
+if.end60.i:                                       ; preds = %set_l2_bitmap.argprom.exit.i, %if.end55.i
   br i1 %25, label %if.else63.i, label %if.then62.i
 
 if.then62.i:                                      ; preds = %if.end60.i
@@ -3861,7 +3861,7 @@ land.lhs.true.i:                                  ; preds = %if.else.i
 if.else7.i:                                       ; preds = %land.lhs.true.i, %if.else.i
   %and.i.i34 = and i64 %.val27, 16
   %tobool.i.not.i35 = icmp eq i64 %and.i.i34, 0
-  br i1 %tobool.i.not.i35, label %get_l2_bitmap.exit, label %if.then.i
+  br i1 %tobool.i.not.i35, label %get_l2_bitmap.argprom.exit, label %if.then.i
 
 do.body:                                          ; preds = %land.lhs.true.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 2137, ptr noundef nonnull @__func__.zero_l2_subclusters, ptr noundef null) #15
@@ -3874,9 +3874,9 @@ if.then.i:                                        ; preds = %if.else7.i
   %arrayidx.i37 = getelementptr i64, ptr %5, i64 %idxprom.i36
   %15 = load i64, ptr %arrayidx.i37, align 8
   %16 = tail call noundef i64 @llvm.bswap.i64(i64 %15)
-  br label %get_l2_bitmap.exit
+  br label %get_l2_bitmap.argprom.exit
 
-get_l2_bitmap.exit:                               ; preds = %if.else7.i, %if.then.i
+get_l2_bitmap.argprom.exit:                       ; preds = %if.else7.i, %if.then.i
   %retval.0.i38 = phi i64 [ %16, %if.then.i ], [ 0, %if.else7.i ]
   %sh_prom = zext nneg i32 %add to i64
   %shl = shl nuw i64 1, %sh_prom
@@ -3890,14 +3890,14 @@ get_l2_bitmap.exit:                               ; preds = %if.else7.i, %if.the
   %cmp30.not = icmp eq i64 %retval.0.i38, %and
   br i1 %cmp30.not, label %out, label %if.then31
 
-if.then31:                                        ; preds = %get_l2_bitmap.exit
-  br i1 %tobool.i.not.i35, label %if.else.i45, label %set_l2_bitmap.exit
+if.then31:                                        ; preds = %get_l2_bitmap.argprom.exit
+  br i1 %tobool.i.not.i35, label %if.else.i45, label %set_l2_bitmap.argprom.exit
 
 if.else.i45:                                      ; preds = %if.then31
   tail call void @__assert_fail(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.30, i32 noundef 639, ptr noundef nonnull @__PRETTY_FUNCTION__.set_l2_bitmap) #15
   unreachable
 
-set_l2_bitmap.exit:                               ; preds = %if.then31
+set_l2_bitmap.argprom.exit:                       ; preds = %if.then31
   %conv2.i41 = shl i32 %6, 1
   %17 = tail call noundef i64 @llvm.bswap.i64(i64 %and)
   %add.i42 = or disjoint i32 %conv2.i41, 1
@@ -3909,8 +3909,8 @@ set_l2_bitmap.exit:                               ; preds = %if.then31
   tail call void @qcow2_cache_entry_mark_dirty(ptr noundef %18, ptr noundef nonnull %5) #13
   br label %out
 
-out:                                              ; preds = %if.end15, %get_l2_bitmap.exit, %set_l2_bitmap.exit
-  %ret.0 = phi i32 [ 0, %set_l2_bitmap.exit ], [ 0, %get_l2_bitmap.exit ], [ -95, %if.end15 ]
+out:                                              ; preds = %if.end15, %get_l2_bitmap.argprom.exit, %set_l2_bitmap.argprom.exit
+  %ret.0 = phi i32 [ 0, %set_l2_bitmap.argprom.exit ], [ 0, %get_l2_bitmap.argprom.exit ], [ -95, %if.end15 ]
   %l2_table_cache33 = getelementptr inbounds i8, ptr %0, i64 80
   %19 = load ptr, ptr %l2_table_cache33, align 8
   call void @qcow2_cache_put(ptr noundef %19, ptr noundef nonnull %l2_slice) #13
@@ -3977,7 +3977,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = tail call noundef i64 @llvm.bswap.i64(i64 %8)
   %and.i.i = and i64 %.val44, 16
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %get_l2_bitmap.exit, label %if.then.i
+  br i1 %tobool.i.not.i, label %get_l2_bitmap.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
   %conv2.i = shl i32 %add, 1
@@ -3986,9 +3986,9 @@ if.then.i:                                        ; preds = %for.body
   %arrayidx.i49 = getelementptr i64, ptr %.pre, i64 %idxprom.i48
   %10 = load i64, ptr %arrayidx.i49, align 8
   %11 = tail call noundef i64 @llvm.bswap.i64(i64 %10)
-  br label %get_l2_bitmap.exit
+  br label %get_l2_bitmap.argprom.exit
 
-get_l2_bitmap.exit:                               ; preds = %for.body, %if.then.i
+get_l2_bitmap.argprom.exit:                       ; preds = %for.body, %if.then.i
   %new_l2_bitmap.0 = phi i64 [ -4294967296, %if.then.i ], [ 0, %for.body ]
   %retval.0.i = phi i64 [ %11, %if.then.i ], [ 0, %for.body ]
   %12 = load ptr, ptr %opaque, align 8
@@ -3996,7 +3996,7 @@ get_l2_bitmap.exit:                               ; preds = %for.body, %if.then.
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %lor.end.thread
 
-if.else.i:                                        ; preds = %get_l2_bitmap.exit
+if.else.i:                                        ; preds = %get_l2_bitmap.argprom.exit
   %and1.i = and i64 %9, 1
   %tobool2.not.i = icmp eq i64 %and1.i, 0
   br i1 %tobool2.not.i, label %if.else7.i, label %land.lhs.true.i
@@ -4048,11 +4048,11 @@ lor.end:                                          ; preds = %lor.rhs
   %spec.select87 = select i1 %spec.select.i53, i64 %spec.select, i64 %9
   br label %lor.end.thread
 
-lor.end.thread:                                   ; preds = %get_l2_bitmap.exit, %lor.end, %lor.end.thread80
-  %18 = phi i1 [ %tobool1883, %lor.end.thread80 ], [ %tobool18, %lor.end ], [ false, %get_l2_bitmap.exit ]
-  %19 = phi i1 [ false, %lor.end.thread80 ], [ %spec.select.i53, %lor.end ], [ true, %get_l2_bitmap.exit ]
-  %retval.0.i507077 = phi i32 [ %retval.0.i50.ph, %lor.end.thread80 ], [ %retval.0.i50.ph, %lor.end ], [ 4, %get_l2_bitmap.exit ]
-  %20 = phi i64 [ %9, %lor.end.thread80 ], [ %spec.select87, %lor.end ], [ 0, %get_l2_bitmap.exit ]
+lor.end.thread:                                   ; preds = %get_l2_bitmap.argprom.exit, %lor.end, %lor.end.thread80
+  %18 = phi i1 [ %tobool1883, %lor.end.thread80 ], [ %tobool18, %lor.end ], [ false, %get_l2_bitmap.argprom.exit ]
+  %19 = phi i1 [ false, %lor.end.thread80 ], [ %spec.select.i53, %lor.end ], [ true, %get_l2_bitmap.argprom.exit ]
+  %retval.0.i507077 = phi i32 [ %retval.0.i50.ph, %lor.end.thread80 ], [ %retval.0.i50.ph, %lor.end ], [ 4, %get_l2_bitmap.argprom.exit ]
+  %20 = phi i64 [ %9, %lor.end.thread80 ], [ %spec.select87, %lor.end ], [ 0, %get_l2_bitmap.argprom.exit ]
   %and.i.i.lobit = lshr exact i64 %and.i.i, 4
   %or = xor i64 %and.i.i.lobit, 1
   %new_l2_entry.1 = or i64 %20, %or
@@ -4076,9 +4076,9 @@ if.end40:                                         ; preds = %lor.end.thread
   %.val = load i64, ptr %3, align 8
   %and.i58 = and i64 %.val, 16
   %tobool.i59.not = icmp eq i64 %and.i58, 0
-  br i1 %tobool.i59.not, label %if.end45, label %set_l2_bitmap.exit
+  br i1 %tobool.i59.not, label %if.end45, label %set_l2_bitmap.argprom.exit
 
-set_l2_bitmap.exit:                               ; preds = %if.end40
+set_l2_bitmap.argprom.exit:                       ; preds = %if.end40
   %conv2.i62 = shl i32 %add, 1
   %26 = tail call noundef i64 @llvm.bswap.i64(i64 %new_l2_bitmap.0)
   %add.i63 = or disjoint i32 %conv2.i62, 1
@@ -4087,7 +4087,7 @@ set_l2_bitmap.exit:                               ; preds = %if.end40
   store i64 %26, ptr %arrayidx.i65, align 8
   br label %if.end45
 
-if.end45:                                         ; preds = %set_l2_bitmap.exit, %if.end40
+if.end45:                                         ; preds = %set_l2_bitmap.argprom.exit, %if.end40
   br i1 %19, label %if.then47, label %for.inc
 
 if.then47:                                        ; preds = %if.end45
@@ -5258,7 +5258,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %13 = tail call noundef i64 @llvm.bswap.i64(i64 %12)
   %and.i.i = and i64 %.val134, 16
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %get_l2_bitmap.exit, label %if.then.i
+  br i1 %tobool.i.not.i, label %get_l2_bitmap.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
   %conv2.i = shl i32 %add9, 1
@@ -5267,14 +5267,14 @@ if.then.i:                                        ; preds = %for.body
   %arrayidx.i149 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i148
   %14 = load i64, ptr %arrayidx.i149, align 8
   %15 = tail call noundef i64 @llvm.bswap.i64(i64 %14)
-  br label %get_l2_bitmap.exit
+  br label %get_l2_bitmap.argprom.exit
 
-get_l2_bitmap.exit:                               ; preds = %for.body, %if.then.i
+get_l2_bitmap.argprom.exit:                       ; preds = %for.body, %if.then.i
   %retval.0.i = phi i64 [ %15, %if.then.i ], [ 0, %for.body ]
   %tobool13 = trunc nuw i8 %skip_cow.0213 to i1
   br i1 %tobool13, label %if.then14, label %if.else40
 
-if.then14:                                        ; preds = %get_l2_bitmap.exit
+if.then14:                                        ; preds = %get_l2_bitmap.argprom.exit
   %16 = load i32, ptr %0, align 8
   %shl = shl i32 %i.0214, %16
   %cond = tail call i32 @llvm.umax.i32(i32 %shl, i32 %conv)
@@ -5369,7 +5369,7 @@ qcow2_get_subcluster_range_type.exit:             ; preds = %if.then14, %if.then
   %spec.select = select i1 %or.cond, i8 %skip_cow.0213, i8 0
   br label %if.end42
 
-if.else40:                                        ; preds = %get_l2_bitmap.exit
+if.else40:                                        ; preds = %get_l2_bitmap.argprom.exit
   %call41 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %13, i64 noundef %retval.0.i, i32 noundef 0)
   br label %if.end42
 
@@ -5416,7 +5416,7 @@ if.end51:                                         ; preds = %for.end.loopexit, %
   %35 = tail call noundef i64 @llvm.bswap.i64(i64 %34)
   %and.i.i173 = and i64 %.val133, 16
   %tobool.i.not.i174 = icmp eq i64 %and.i.i173, 0
-  br i1 %tobool.i.not.i174, label %get_l2_bitmap.exit181, label %if.then.i175
+  br i1 %tobool.i.not.i174, label %get_l2_bitmap.argprom.exit181, label %if.then.i175
 
 if.then.i175:                                     ; preds = %if.end51
   %conv2.i176 = shl i32 %conv1.i, 1
@@ -5425,9 +5425,9 @@ if.then.i175:                                     ; preds = %if.end51
   %arrayidx.i179 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i178
   %36 = load i64, ptr %arrayidx.i179, align 8
   %37 = tail call noundef i64 @llvm.bswap.i64(i64 %36)
-  br label %get_l2_bitmap.exit181
+  br label %get_l2_bitmap.argprom.exit181
 
-get_l2_bitmap.exit181:                            ; preds = %if.end51, %if.then.i175
+get_l2_bitmap.argprom.exit181:                    ; preds = %if.end51, %if.then.i175
   %retval.0.i180 = phi i64 [ %37, %if.then.i175 ], [ 0, %if.end51 ]
   %38 = getelementptr i8, ptr %0, i64 12
   %.val126 = load i32, ptr %38, align 4
@@ -5441,7 +5441,7 @@ get_l2_bitmap.exit181:                            ; preds = %if.end51, %if.then.
   %call55 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %35, i64 noundef %retval.0.i180, i32 noundef %conv1.i185)
   br i1 %keep_old, label %if.else77, label %if.then57
 
-if.then57:                                        ; preds = %get_l2_bitmap.exit181
+if.then57:                                        ; preds = %get_l2_bitmap.argprom.exit181
   switch i32 %call55, label %do.body [
     i32 5, label %if.end86
     i32 4, label %sw.bb58
@@ -5467,7 +5467,7 @@ do.body:                                          ; preds = %if.then57
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1240, ptr noundef nonnull @__func__.calculate_l2_meta, ptr noundef null) #15
   unreachable
 
-if.else77:                                        ; preds = %get_l2_bitmap.exit181
+if.else77:                                        ; preds = %get_l2_bitmap.argprom.exit181
   switch i32 %call55, label %do.body83 [
     i32 4, label %if.end86
     i32 3, label %if.end86.sink.split
@@ -5499,7 +5499,7 @@ if.end86:                                         ; preds = %if.end86.sink.split
   %47 = tail call noundef i64 @llvm.bswap.i64(i64 %46)
   %and.i.i190 = and i64 %.val132, 16
   %tobool.i.not.i191 = icmp eq i64 %and.i.i190, 0
-  br i1 %tobool.i.not.i191, label %get_l2_bitmap.exit198, label %if.then.i192
+  br i1 %tobool.i.not.i191, label %get_l2_bitmap.argprom.exit198, label %if.then.i192
 
 if.then.i192:                                     ; preds = %if.end86
   %conv2.i193 = shl i32 %add88, 1
@@ -5508,9 +5508,9 @@ if.then.i192:                                     ; preds = %if.end86
   %arrayidx.i196 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i195
   %48 = load i64, ptr %arrayidx.i196, align 8
   %49 = tail call noundef i64 @llvm.bswap.i64(i64 %48)
-  br label %get_l2_bitmap.exit198
+  br label %get_l2_bitmap.argprom.exit198
 
-get_l2_bitmap.exit198:                            ; preds = %if.end86, %if.then.i192
+get_l2_bitmap.argprom.exit198:                    ; preds = %if.end86, %if.then.i192
   %retval.0.i197 = phi i64 [ %49, %if.then.i192 ], [ 0, %if.end86 ]
   %conv91 = zext i32 %bytes to i64
   %add92 = add i64 %guest_offset, -1
@@ -5525,7 +5525,7 @@ get_l2_bitmap.exit198:                            ; preds = %if.end86, %if.then.
   %call95 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %47, i64 noundef %retval.0.i197, i32 noundef %conv1.i202)
   br i1 %keep_old, label %if.else140, label %if.then97
 
-if.then97:                                        ; preds = %get_l2_bitmap.exit198
+if.then97:                                        ; preds = %get_l2_bitmap.argprom.exit198
   switch i32 %call95, label %do.body137 [
     i32 5, label %sw.bb98
     i32 4, label %sw.bb104
@@ -5579,7 +5579,7 @@ do.body137:                                       ; preds = %if.then97
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1285, ptr noundef nonnull @__func__.calculate_l2_meta, ptr noundef null) #15
   unreachable
 
-if.else140:                                       ; preds = %get_l2_bitmap.exit198
+if.else140:                                       ; preds = %get_l2_bitmap.argprom.exit198
   switch i32 %call95, label %do.body150 [
     i32 4, label %if.end153
     i32 3, label %sw.bb142

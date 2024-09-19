@@ -1061,7 +1061,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   switch i32 %request, label %sw.epilog.i [
-    i32 5, label %ccid_control_to_str.exit
+    i32 5, label %ccid_control_to_str.argprom.exit
     i32 32774, label %sw.bb1.i
     i32 32776, label %sw.bb2.i
     i32 9, label %sw.bb3.i
@@ -1076,47 +1076,47 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb1.i:                                         ; preds = %if.then
-  br label %ccid_control_to_str.exit
+  br label %ccid_control_to_str.argprom.exit
 
 sw.bb2.i:                                         ; preds = %if.then
-  br label %ccid_control_to_str.exit
+  br label %ccid_control_to_str.argprom.exit
 
 sw.bb3.i:                                         ; preds = %if.then
-  br label %ccid_control_to_str.exit
+  br label %ccid_control_to_str.argprom.exit
 
 sw.bb4.i:                                         ; preds = %if.then
-  br label %ccid_control_to_str.exit
+  br label %ccid_control_to_str.argprom.exit
 
 sw.bb5.i:                                         ; preds = %if.then
-  br label %ccid_control_to_str.exit
+  br label %ccid_control_to_str.argprom.exit
 
 sw.bb6.i:                                         ; preds = %if.then
-  br label %ccid_control_to_str.exit
+  br label %ccid_control_to_str.argprom.exit
 
 sw.bb7.i:                                         ; preds = %if.then
-  br label %ccid_control_to_str.exit
+  br label %ccid_control_to_str.argprom.exit
 
 sw.bb8.i:                                         ; preds = %if.then
-  br label %ccid_control_to_str.exit
+  br label %ccid_control_to_str.argprom.exit
 
 sw.bb9.i:                                         ; preds = %if.then
-  br label %ccid_control_to_str.exit
+  br label %ccid_control_to_str.argprom.exit
 
 sw.bb10.i:                                        ; preds = %if.then
-  br label %ccid_control_to_str.exit
+  br label %ccid_control_to_str.argprom.exit
 
 sw.bb11.i:                                        ; preds = %if.then
-  br label %ccid_control_to_str.exit
+  br label %ccid_control_to_str.argprom.exit
 
 sw.epilog.i:                                      ; preds = %if.then
-  br label %ccid_control_to_str.exit
+  br label %ccid_control_to_str.argprom.exit
 
-ccid_control_to_str.exit:                         ; preds = %if.then, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb7.i, %sw.bb8.i, %sw.bb9.i, %sw.bb10.i, %sw.bb11.i, %sw.epilog.i
+ccid_control_to_str.argprom.exit:                 ; preds = %if.then, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb7.i, %sw.bb8.i, %sw.bb9.i, %sw.bb10.i, %sw.bb11.i, %sw.epilog.i
   %retval.0.i = phi ptr [ @.str.61, %sw.epilog.i ], [ @.str.60, %sw.bb11.i ], [ @.str.59, %sw.bb10.i ], [ @.str.58, %sw.bb9.i ], [ @.str.57, %sw.bb8.i ], [ @.str.56, %sw.bb7.i ], [ @.str.55, %sw.bb6.i ], [ @.str.54, %sw.bb5.i ], [ @.str.53, %sw.bb4.i ], [ @.str.52, %sw.bb3.i ], [ @.str.51, %sw.bb2.i ], [ @.str.50, %sw.bb1.i ], [ @.str.49, %if.then ]
   %call3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef nonnull @__func__.ccid_handle_control, ptr noundef nonnull %retval.0.i, i32 noundef %request, i32 noundef %value)
   br label %do.end
 
-do.end:                                           ; preds = %entry, %ccid_control_to_str.exit
+do.end:                                           ; preds = %entry, %ccid_control_to_str.argprom.exit
   %call4 = tail call i32 @usb_desc_handle_control(ptr noundef %dev, ptr noundef %p, i32 noundef %request, i32 noundef %value, i32 noundef %index, i32 noundef %length, ptr noundef %data) #10
   %cmp5 = icmp sgt i32 %call4, -1
   br i1 %cmp5, label %sw.epilog, label %if.end8

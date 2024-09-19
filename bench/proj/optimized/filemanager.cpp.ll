@@ -1456,7 +1456,7 @@ define hidden void @_Z11pj_load_iniP6pj_ctx(ptr noundef %0) local_unnamed_addr #
 
 56:                                               ; preds = %53, %43, %41
   store i8 1, ptr %7, align 8
-  %57 = tail call fastcc noundef ptr @_ZL20pj_open_lib_internalP6pj_ctxPKcS2_PFPvS0_S2_S2_EPcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, ptr noundef null, i64 noundef 0)
+  %57 = tail call fastcc noundef ptr @_ZL20pj_open_lib_internalP6pj_ctxPKcS2_PFPvS0_S2_S2_EPcm.argprom(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, ptr noundef null, i64 noundef 0)
   %.not113 = icmp eq ptr %57, null
   br i1 %.not113, label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit, label %58
 
@@ -1853,7 +1853,7 @@ define void @_Z26pj_get_relative_share_projB5cxx11P6pj_ctx(ptr dead_on_unwind no
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %5
-  invoke fastcc void @_ZL48pj_get_relative_share_proj_internal_check_existsB5cxx11P6pj_ctx(ptr noundef %1)
+  invoke fastcc void @_ZL48pj_get_relative_share_proj_internal_check_existsB5cxx11P6pj_ctx.argprom(ptr noundef %1)
           to label %8 unwind label %11
 
 8:                                                ; preds = %7
@@ -1876,7 +1876,7 @@ define void @_Z26pj_get_relative_share_projB5cxx11P6pj_ctx(ptr dead_on_unwind no
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL48pj_get_relative_share_proj_internal_check_existsB5cxx11P6pj_ctx(ptr noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL48pj_get_relative_share_proj_internal_check_existsB5cxx11P6pj_ctx.argprom(ptr noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %struct.Dl_info, align 8
@@ -2253,7 +2253,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %.not.i, label %42, label %39
 
 39:                                               ; preds = %37
-  invoke fastcc void @_ZL48pj_get_relative_share_proj_internal_check_existsB5cxx11P6pj_ctx(ptr noundef %1)
+  invoke fastcc void @_ZL48pj_get_relative_share_proj_internal_check_existsB5cxx11P6pj_ctx.argprom(ptr noundef %1)
           to label %40 unwind label %43, !noalias !17
 
 40:                                               ; preds = %39
@@ -2466,7 +2466,7 @@ define hidden void @_ZN5osgeo4proj11FileManager18open_resource_fileEP6pj_ctxPKcP
 
 33:                                               ; preds = %31, %5
   %.080 = phi ptr [ %32, %31 ], [ %1, %5 ]
-  %34 = tail call fastcc noundef ptr @_ZL20pj_open_lib_internalP6pj_ctxPKcS2_PFPvS0_S2_S2_EPcm(ptr noundef %.080, ptr noundef %2, ptr noundef %3, i64 noundef %4)
+  %34 = tail call fastcc noundef ptr @_ZL20pj_open_lib_internalP6pj_ctxPKcS2_PFPvS0_S2_S2_EPcm.argprom(ptr noundef %.080, ptr noundef %2, ptr noundef %3, i64 noundef %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %35, label %.thread261
@@ -2595,7 +2595,7 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
 
 69:                                               ; preds = %67
   %70 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
-  %71 = invoke fastcc noundef ptr @_ZL20pj_open_lib_internalP6pj_ctxPKcS2_PFPvS0_S2_S2_EPcm(ptr noundef nonnull %.080, ptr noundef %70, ptr noundef %3, i64 noundef %4)
+  %71 = invoke fastcc noundef ptr @_ZL20pj_open_lib_internalP6pj_ctxPKcS2_PFPvS0_S2_S2_EPcm.argprom(ptr noundef nonnull %.080, ptr noundef %70, ptr noundef %3, i64 noundef %4)
           to label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EE5resetEPS2_.exit unwind label %85
 
 _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EE5resetEPS2_.exit: ; preds = %69
@@ -2925,7 +2925,7 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
 
 179:                                              ; preds = %177
   %180 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #24
-  %181 = invoke fastcc noundef ptr @_ZL20pj_open_lib_internalP6pj_ctxPKcS2_PFPvS0_S2_S2_EPcm(ptr noundef nonnull %.080, ptr noundef %180, ptr noundef %3, i64 noundef %4)
+  %181 = invoke fastcc noundef ptr @_ZL20pj_open_lib_internalP6pj_ctxPKcS2_PFPvS0_S2_S2_EPcm.argprom(ptr noundef nonnull %.080, ptr noundef %180, ptr noundef %3, i64 noundef %4)
           to label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EE5resetEPS2_.exit153 unwind label %193
 
 _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EE5resetEPS2_.exit153: ; preds = %179
@@ -3415,7 +3415,7 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit181: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL20pj_open_lib_internalP6pj_ctxPKcS2_PFPvS0_S2_S2_EPcm(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL20pj_open_lib_internalP6pj_ctxPKcS2_PFPvS0_S2_S2_EPcm.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = alloca %"class.std::unique_ptr", align 8
@@ -4718,7 +4718,7 @@ define internal fastcc noundef zeroext i1 @_ZL33get_path_from_relative_share_pro
   br i1 %.not.i, label %_Z26pj_get_relative_share_projB5cxx11P6pj_ctx.exit, label %10
 
 10:                                               ; preds = %8
-  invoke fastcc void @_ZL48pj_get_relative_share_proj_internal_check_existsB5cxx11P6pj_ctx(ptr noundef %0)
+  invoke fastcc void @_ZL48pj_get_relative_share_proj_internal_check_existsB5cxx11P6pj_ctx.argprom(ptr noundef %0)
           to label %11 unwind label %13, !noalias !22
 
 11:                                               ; preds = %10

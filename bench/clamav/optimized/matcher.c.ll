@@ -2740,28 +2740,28 @@ lsig_eval.exit:                                   ; preds = %31, %38, %50, %.loo
 184:                                              ; preds = %181, %178, %174
   %185 = call i32 @yr_execute_code(ptr noundef nonnull %28, ptr noundef %2, ptr noundef nonnull %6, i32 noundef 0, i64 noundef 0) #12
   %186 = icmp eq i32 %185, 1
-  br i1 %186, label %187, label %yara_eval.exit
+  br i1 %186, label %187, label %yara_eval.argprom.exit
 
 187:                                              ; preds = %184
   %188 = getelementptr inbounds i8, ptr %28, i64 12
   %189 = load i8, ptr %188, align 4
   %190 = and i8 %189, 1
   %.not15.i = icmp eq i8 %190, 0
-  br i1 %.not15.i, label %191, label %yara_eval.exit
+  br i1 %.not15.i, label %191, label %yara_eval.argprom.exit
 
 191:                                              ; preds = %187
   %192 = getelementptr inbounds i8, ptr %28, i64 24
   %193 = load ptr, ptr %192, align 8
   %194 = call i32 @cli_append_virus(ptr noundef nonnull %0, ptr noundef %193) #12
-  br label %yara_eval.exit
+  br label %yara_eval.argprom.exit
 
-yara_eval.exit:                                   ; preds = %184, %187, %191
+yara_eval.argprom.exit:                           ; preds = %184, %187, %191
   %.0.i32 = phi i32 [ %194, %191 ], [ %185, %184 ], [ 0, %187 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br label %195
 
-195:                                              ; preds = %yara_eval.exit, %lsig_eval.exit
-  %.2 = phi i32 [ %.0.i, %lsig_eval.exit ], [ %.0.i32, %yara_eval.exit ]
+195:                                              ; preds = %yara_eval.argprom.exit, %lsig_eval.exit
+  %.2 = phi i32 [ %.0.i, %lsig_eval.exit ], [ %.0.i32, %yara_eval.argprom.exit ]
   %.not = icmp eq i32 %.2, 0
   br i1 %.not, label %.thread, label %.loopexit
 

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define zeroext i8 @crc8_0x2F(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %.not1.i = icmp eq i32 %1, 0
-  br i1 %.not1.i, label %crc8_precompiled.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %crc8_precompiled.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.04.i = phi i8 [ %10, %.lr.ph.i ], [ %2, %3 ]
@@ -24,9 +24,9 @@ define zeroext i8 @crc8_0x2F(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %9 = getelementptr i8, ptr @crc8_precompiled_2F, i64 %8
   %10 = load i8, ptr %9, align 1
   %.not.i = icmp eq i32 %4, 0
-  br i1 %.not.i, label %crc8_precompiled.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %crc8_precompiled.argprom.exit, label %.lr.ph.i, !llvm.loop !4
 
-crc8_precompiled.exit:                            ; preds = %.lr.ph.i, %3
+crc8_precompiled.argprom.exit:                    ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i8 [ %2, %3 ], [ %10, %.lr.ph.i ]
   ret i8 %.0.lcssa.i
 }

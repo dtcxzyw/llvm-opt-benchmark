@@ -1214,7 +1214,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
   br label %.loopexit
 
 49:                                               ; preds = %23
-  tail call fastcc void @print_nego(ptr noundef %0, i32 noundef 4, i32 noundef 0)
+  tail call fastcc void @print_nego.argelim(ptr noundef %0, i32 noundef 4, i32 noundef 0)
   br label %.loopexit
 
 50:                                               ; preds = %23
@@ -1226,7 +1226,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
   br label %.loopexit
 
 56:                                               ; preds = %23
-  tail call fastcc void @print_nego(ptr noundef %0, i32 noundef 5, i32 noundef 6)
+  tail call fastcc void @print_nego.argelim(ptr noundef %0, i32 noundef 5, i32 noundef 6)
   br label %.loopexit
 
 57:                                               ; preds = %23
@@ -1367,7 +1367,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @print_nego(ptr nocapture noundef readonly %0, i32 noundef range(i32 4, 6) %1, i32 noundef range(i32 0, 7) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @print_nego.argelim(ptr nocapture noundef readonly %0, i32 noundef range(i32 4, 6) %1, i32 noundef range(i32 0, 7) %2) unnamed_addr #0 align 16 {
   %4 = alloca [20 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false), !annotation !8

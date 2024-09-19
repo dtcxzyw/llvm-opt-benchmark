@@ -6294,27 +6294,27 @@ while.cond:                                       ; preds = %while.cond.preheade
   %skip_depth.0 = phi i64 [ %skip_depth.123, %if.end13 ], [ 0, %while.cond.preheader ]
   %a.0 = phi ptr [ %incdec.ptr14, %if.end13 ], [ %args, %while.cond.preheader ]
   %4 = load i8, ptr %a.0, align 1
-  switch i8 %4, label %_ZL27handleSkippedDepthFromTokenPKcRl.exit [
+  switch i8 %4, label %_ZL27handleSkippedDepthFromTokenPKcRl.argprom.exit [
     i8 0, label %while.end
-    i8 40, label %_ZL27handleSkippedDepthFromTokenPKcRl.exit.thread
+    i8 40, label %_ZL27handleSkippedDepthFromTokenPKcRl.argprom.exit.thread
     i8 41, label %if.then3.i
   ]
 
 if.then3.i:                                       ; preds = %while.cond
-  br label %_ZL27handleSkippedDepthFromTokenPKcRl.exit.thread
+  br label %_ZL27handleSkippedDepthFromTokenPKcRl.argprom.exit.thread
 
-_ZL27handleSkippedDepthFromTokenPKcRl.exit.thread: ; preds = %if.then3.i, %while.cond
+_ZL27handleSkippedDepthFromTokenPKcRl.argprom.exit.thread: ; preds = %if.then3.i, %while.cond
   %.sink1.i = phi i64 [ -1, %if.then3.i ], [ 1, %while.cond ]
   %dec.i = add nsw i64 %.sink1.i, %skip_depth.0
   br label %if.end13
 
-_ZL27handleSkippedDepthFromTokenPKcRl.exit:       ; preds = %while.cond
+_ZL27handleSkippedDepthFromTokenPKcRl.argprom.exit: ; preds = %while.cond
   %cmp = icmp sgt i64 %skip_depth.0, 0
   %cmp6 = icmp eq i8 %4, 35
   %or.cond = and i1 %cmp6, %cmp
   br i1 %or.cond, label %if.then7, label %if.end13
 
-if.then7:                                         ; preds = %_ZL27handleSkippedDepthFromTokenPKcRl.exit
+if.then7:                                         ; preds = %_ZL27handleSkippedDepthFromTokenPKcRl.argprom.exit
   %add.ptr = getelementptr inbounds i8, ptr %a.0, i64 1
   %5 = load i8, ptr %add.ptr, align 1
   %cmp9.not = icmp eq i8 %5, 35
@@ -6358,9 +6358,9 @@ _ZN6Assimp4STEP2DB7MarkRefEmm.exit:               ; preds = %if.then10, %invoke.
   store i64 %inc.i.i.i.i.i, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %if.end13
 
-if.end13:                                         ; preds = %_ZL27handleSkippedDepthFromTokenPKcRl.exit.thread, %if.then7, %_ZN6Assimp4STEP2DB7MarkRefEmm.exit, %_ZL27handleSkippedDepthFromTokenPKcRl.exit
-  %skip_depth.123 = phi i64 [ %skip_depth.0, %_ZN6Assimp4STEP2DB7MarkRefEmm.exit ], [ %skip_depth.0, %_ZL27handleSkippedDepthFromTokenPKcRl.exit ], [ %skip_depth.0, %if.then7 ], [ %dec.i, %_ZL27handleSkippedDepthFromTokenPKcRl.exit.thread ]
-  %a.1 = phi ptr [ %a.0, %_ZN6Assimp4STEP2DB7MarkRefEmm.exit ], [ %a.0, %_ZL27handleSkippedDepthFromTokenPKcRl.exit ], [ %add.ptr, %if.then7 ], [ %a.0, %_ZL27handleSkippedDepthFromTokenPKcRl.exit.thread ]
+if.end13:                                         ; preds = %_ZL27handleSkippedDepthFromTokenPKcRl.argprom.exit.thread, %if.then7, %_ZN6Assimp4STEP2DB7MarkRefEmm.exit, %_ZL27handleSkippedDepthFromTokenPKcRl.argprom.exit
+  %skip_depth.123 = phi i64 [ %skip_depth.0, %_ZN6Assimp4STEP2DB7MarkRefEmm.exit ], [ %skip_depth.0, %_ZL27handleSkippedDepthFromTokenPKcRl.argprom.exit ], [ %skip_depth.0, %if.then7 ], [ %dec.i, %_ZL27handleSkippedDepthFromTokenPKcRl.argprom.exit.thread ]
+  %a.1 = phi ptr [ %a.0, %_ZN6Assimp4STEP2DB7MarkRefEmm.exit ], [ %a.0, %_ZL27handleSkippedDepthFromTokenPKcRl.argprom.exit ], [ %add.ptr, %if.then7 ], [ %a.0, %_ZL27handleSkippedDepthFromTokenPKcRl.argprom.exit.thread ]
   %incdec.ptr14 = getelementptr inbounds i8, ptr %a.1, i64 1
   br label %while.cond, !llvm.loop !72
 

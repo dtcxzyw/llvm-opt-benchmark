@@ -2192,7 +2192,7 @@ if.then6.i:                                       ; preds = %if.else.i
   store ptr %cb, ptr %pwcb7.i, align 8
   %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
-  %call9.i = tail call fastcc i32 @key_to_pki_der_priv_bio(ptr noundef nonnull %call4.i, ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull %ctx) #14
+  %call9.i = tail call fastcc i32 @key_to_pki_der_priv_bio.argelim(ptr noundef nonnull %call4.i, ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull %ctx) #14
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6.i, %if.else.i
@@ -2220,7 +2220,7 @@ declare ptr @EVP_CIPHER_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @key_to_pki_der_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr noundef readonly %p2s, ptr nocapture noundef readonly %k2d, ptr nocapture noundef readonly %ctx) unnamed_addr #0 {
+define internal fastcc i32 @key_to_pki_der_priv_bio.argelim(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr noundef readonly %p2s, ptr nocapture noundef readonly %k2d, ptr nocapture noundef readonly %ctx) unnamed_addr #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -2287,7 +2287,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool2.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %land.lhs.true, %if.end
-  %call5 = call fastcc ptr @key_to_p8info(ptr noundef %key, i32 noundef %key_nid, ptr noundef %k2d)
+  %call5 = call fastcc ptr @key_to_p8info.argprom.argelim(ptr noundef %key, i32 noundef %key_nid, ptr noundef %k2d)
   %cmp6.not = icmp eq ptr %call5, null
   br i1 %cmp6.not, label %if.else, label %if.then7
 
@@ -2425,7 +2425,7 @@ declare ptr @BIO_new_from_core_bio(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @key_to_p8info(ptr noundef %key, i32 noundef %key_nid, ptr nocapture noundef readonly %k2d) unnamed_addr #0 {
+define internal fastcc ptr @key_to_p8info.argprom.argelim(ptr noundef %key, i32 noundef %key_nid, ptr nocapture noundef readonly %k2d) unnamed_addr #0 {
 entry:
   %der = alloca ptr, align 8
   store ptr null, ptr %der, align 8
@@ -2468,7 +2468,7 @@ define internal fastcc ptr @key_to_encp8(ptr noundef %key, i32 noundef %key_nid,
 entry:
   %kstr.i = alloca [1024 x i8], align 16
   %klen.i = alloca i64, align 8
-  %call = tail call fastcc ptr @key_to_p8info(ptr noundef %key, i32 noundef %key_nid, ptr noundef %k2d)
+  %call = tail call fastcc ptr @key_to_p8info.argprom.argelim(ptr noundef %key, i32 noundef %key_nid, ptr noundef %k2d)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.else
 
@@ -2732,7 +2732,7 @@ if.then6.i:                                       ; preds = %if.else.i
   store ptr %cb, ptr %pwcb7.i, align 8
   %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
-  %call9.i = tail call fastcc i32 @key_to_pki_pem_priv_bio(ptr noundef nonnull %call4.i, ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull %ctx) #14
+  %call9.i = tail call fastcc i32 @key_to_pki_pem_priv_bio.argelim(ptr noundef nonnull %call4.i, ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull %ctx) #14
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6.i, %if.else.i
@@ -2752,7 +2752,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @key_to_pki_pem_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr noundef readonly %p2s, ptr nocapture noundef readonly %k2d, ptr nocapture noundef readonly %ctx) unnamed_addr #0 {
+define internal fastcc i32 @key_to_pki_pem_priv_bio.argelim(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr noundef readonly %p2s, ptr nocapture noundef readonly %k2d, ptr nocapture noundef readonly %ctx) unnamed_addr #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -2819,7 +2819,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool2.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %land.lhs.true, %if.end
-  %call5 = call fastcc ptr @key_to_p8info(ptr noundef %key, i32 noundef %key_nid, ptr noundef %k2d)
+  %call5 = call fastcc ptr @key_to_p8info.argprom.argelim(ptr noundef %key, i32 noundef %key_nid, ptr noundef %k2d)
   %cmp6.not = icmp eq ptr %call5, null
   br i1 %cmp6.not, label %if.else, label %if.then7
 
@@ -3482,7 +3482,7 @@ if.then6.i:                                       ; preds = %if.else.i
   br i1 %tobool.not.i, label %key_to_spki_der_pub_bio.exit, label %land.lhs.true.if.end_crit_edge.i
 
 land.lhs.true.if.end_crit_edge.i:                 ; preds = %if.then6.i
-  %call1.i = tail call fastcc ptr @xorx_key_to_pubkey(ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull readonly @xorx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @xorx_key_to_pubkey.argprom.argelim(ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull readonly @xorx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %if.end5.i, label %if.then3.i
 
@@ -3551,7 +3551,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @xorx_key_to_pubkey(ptr noundef %key, i32 noundef %key_nid, ptr nocapture noundef readonly %k2d) unnamed_addr #0 {
+define internal fastcc ptr @xorx_key_to_pubkey.argprom.argelim(ptr noundef %key, i32 noundef %key_nid, ptr nocapture noundef readonly %k2d) unnamed_addr #0 {
 entry:
   %der = alloca ptr, align 8
   store ptr null, ptr %der, align 8
@@ -3776,7 +3776,7 @@ if.then6.i:                                       ; preds = %if.else.i
 
 land.lhs.true.if.end_crit_edge.i:                 ; preds = %if.then6.i
   %.pre.i = load i32, ptr %strtype.i, align 4
-  %call1.i = tail call fastcc ptr @xorx_key_to_pubkey(ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull readonly @xorx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @xorx_key_to_pubkey.argprom.argelim(ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull readonly @xorx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %if.else.i5, label %if.then3.i
 
@@ -3997,7 +3997,7 @@ if.then6.i:                                       ; preds = %if.else.i
   store ptr %cb, ptr %pwcb7.i, align 8
   %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
-  %call9.i = tail call fastcc i32 @key_to_pki_der_priv_bio(ptr noundef nonnull %call4.i, ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull %ctx) #14
+  %call9.i = tail call fastcc i32 @key_to_pki_der_priv_bio.argelim(ptr noundef nonnull %call4.i, ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull %ctx) #14
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6.i, %if.else.i
@@ -4185,7 +4185,7 @@ if.then6.i:                                       ; preds = %if.else.i
   store ptr %cb, ptr %pwcb7.i, align 8
   %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
-  %call9.i = tail call fastcc i32 @key_to_pki_pem_priv_bio(ptr noundef nonnull %call4.i, ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull %ctx) #14
+  %call9.i = tail call fastcc i32 @key_to_pki_pem_priv_bio.argelim(ptr noundef nonnull %call4.i, ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull %ctx) #14
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6.i, %if.else.i
@@ -4829,7 +4829,7 @@ if.then6.i:                                       ; preds = %if.else.i
   br i1 %tobool.not.i, label %key_to_spki_der_pub_bio.exit, label %land.lhs.true.if.end_crit_edge.i
 
 land.lhs.true.if.end_crit_edge.i:                 ; preds = %if.then6.i
-  %call1.i = tail call fastcc ptr @xorx_key_to_pubkey(ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull readonly @xorx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @xorx_key_to_pubkey.argprom.argelim(ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull readonly @xorx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %if.end5.i, label %if.then3.i
 
@@ -5045,7 +5045,7 @@ if.then6.i:                                       ; preds = %if.else.i
 
 land.lhs.true.if.end_crit_edge.i:                 ; preds = %if.then6.i
   %.pre.i = load i32, ptr %strtype.i, align 4
-  %call1.i = tail call fastcc ptr @xorx_key_to_pubkey(ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull readonly @xorx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @xorx_key_to_pubkey.argprom.argelim(ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull readonly @xorx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %if.else.i5, label %if.then3.i
 
@@ -5131,12 +5131,12 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsig_does_selectio
 entry:
   %PrivateKeyInfo_xorhmacsig_desc.val = load i32, ptr getelementptr inbounds (i8, ptr @PrivateKeyInfo_xorhmacsig_desc, i64 28), align 4
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !16
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -5150,9 +5150,9 @@ if.then7.i:                                       ; preds = %for.body.i
   %and4.i = and i32 %0, %PrivateKeyInfo_xorhmacsig_desc.val
   %cmp5.i = icmp ne i32 %and4.i, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.exit
+  br label %der2key_check_selection.argprom.exit
 
-der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -5197,9 +5197,9 @@ if.end6:                                          ; preds = %entry
   %call.i = tail call ptr @BIO_new_from_core_bio(ptr noundef %.val, ptr noundef %cin) #14
   %call1.i = call i32 @asn1_d2i_read_bio(ptr noundef %call.i, ptr noundef nonnull %mem.i) #14
   %cmp.i = icmp sgt i32 %call1.i, -1
-  br i1 %cmp.i, label %if.end8, label %xor_read_der.exit.thread
+  br i1 %cmp.i, label %if.end8, label %xor_read_der.argprom.exit.thread
 
-xor_read_der.exit.thread:                         ; preds = %if.end6
+xor_read_der.argprom.exit.thread:                 ; preds = %if.end6
   %call3.i52 = call i32 @BIO_free(ptr noundef %call.i) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mem.i)
   br label %next.thread
@@ -5344,8 +5344,8 @@ next.thread87:                                    ; preds = %land.lhs.true89
   call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.2, i32 noundef 2411) #14
   br label %if.then97
 
-next.thread:                                      ; preds = %if.end68, %if.then61, %xor_read_der.exit.thread, %if.end87, %land.lhs.true51, %land.lhs.true, %if.end87.thread, %if.end56
-  %der.154.ph = phi ptr [ %4, %if.end87.thread ], [ %4, %land.lhs.true ], [ %4, %land.lhs.true51 ], [ %4, %if.end87 ], [ null, %xor_read_der.exit.thread ], [ %4, %if.end56 ], [ %4, %if.then61 ], [ %4, %if.end68 ]
+next.thread:                                      ; preds = %if.end68, %if.then61, %xor_read_der.argprom.exit.thread, %if.end87, %land.lhs.true51, %land.lhs.true, %if.end87.thread, %if.end56
+  %der.154.ph = phi ptr [ %4, %if.end87.thread ], [ %4, %land.lhs.true ], [ %4, %land.lhs.true51 ], [ %4, %if.end87 ], [ null, %xor_read_der.argprom.exit.thread ], [ %4, %if.end56 ], [ %4, %if.then61 ], [ %4, %if.end68 ]
   call void @CRYPTO_free(ptr noundef %der.154.ph, ptr noundef nonnull @.str.2, i32 noundef 2411) #14
   br label %end
 
@@ -5443,12 +5443,12 @@ entry:
   store ptr null, ptr %alg.i, align 8
   %call.i = tail call ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef null, ptr noundef %der, i64 noundef %der_len) #14
   %cmp.not.i = icmp eq ptr %call.i, null
-  br i1 %cmp.not.i, label %xor_der2key_decode_p8.exit, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %xor_der2key_decode_p8.argprom.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %call1.i = call i32 @PKCS8_pkey_get0(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %alg.i, ptr noundef nonnull %call.i) #14
   %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %xor_der2key_decode_p8.exit, label %land.lhs.true2.i
+  br i1 %tobool.not.i, label %xor_der2key_decode_p8.argprom.exit, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
   %0 = load ptr, ptr %alg.i, align 8
@@ -5459,7 +5459,7 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
   %evp_type.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load i32, ptr %evp_type.i, align 8
   %cmp4.i = icmp eq i32 %call3.i, %3
-  br i1 %cmp4.i, label %if.then.i, label %xor_der2key_decode_p8.exit
+  br i1 %cmp4.i, label %if.then.i, label %xor_der2key_decode_p8.argprom.exit
 
 if.then.i:                                        ; preds = %land.lhs.true2.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
@@ -5492,7 +5492,7 @@ if.end6.i:                                        ; preds = %if.else.i, %if.then
   %storemerge.i = phi i32 [ %call5.i4, %if.else.i ], [ 0, %if.then3.i ]
   store i32 %storemerge.i, ptr %plen.i, align 4
   %6 = load ptr, ptr %palg.i, align 8
-  %call7.i = call fastcc ptr @xor_key_op(ptr noundef %6, ptr noundef %5, i32 noundef %storemerge.i, i32 noundef 1)
+  %call7.i = call fastcc ptr @xor_key_op.argprom(ptr noundef %6, ptr noundef %5, i32 noundef %storemerge.i, i32 noundef 1)
   call void @ASN1_OCTET_STRING_free(ptr noundef %call1.i3) #14
   br label %xor_key_from_pkcs8.exit
 
@@ -5501,9 +5501,9 @@ xor_key_from_pkcs8.exit:                          ; preds = %if.then.i, %if.end6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %plen.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %palg.i)
-  br label %xor_der2key_decode_p8.exit
+  br label %xor_der2key_decode_p8.argprom.exit
 
-xor_der2key_decode_p8.exit:                       ; preds = %entry, %land.lhs.true.i, %land.lhs.true2.i, %xor_key_from_pkcs8.exit
+xor_der2key_decode_p8.argprom.exit:               ; preds = %entry, %land.lhs.true.i, %land.lhs.true2.i, %xor_key_from_pkcs8.exit
   %key.0.i = phi ptr [ %retval.0.i, %xor_key_from_pkcs8.exit ], [ null, %land.lhs.true2.i ], [ null, %land.lhs.true.i ], [ null, %entry ]
   call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef %call.i) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alg.i)
@@ -5529,7 +5529,7 @@ declare ptr @ASN1_STRING_get0_data(ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_STRING_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @xor_key_op(ptr noundef %palg, ptr noundef readonly %p, i32 noundef %plen, i32 noundef range(i32 0, 2) %op) unnamed_addr #0 {
+define internal fastcc ptr @xor_key_op.argprom(ptr noundef %palg, ptr noundef readonly %p, i32 noundef %plen, i32 noundef range(i32 0, 2) %op) unnamed_addr #0 {
 entry:
   %ptype = alloca i32, align 4
   %cmp.not = icmp eq ptr %palg, null
@@ -5680,12 +5680,12 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsig_does_se
 entry:
   %SubjectPublicKeyInfo_xorhmacsig_desc.val = load i32, ptr getelementptr inbounds (i8, ptr @SubjectPublicKeyInfo_xorhmacsig_desc, i64 28), align 4
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !16
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -5699,9 +5699,9 @@ if.then7.i:                                       ; preds = %for.body.i
   %and4.i = and i32 %0, %SubjectPublicKeyInfo_xorhmacsig_desc.val
   %cmp5.i = icmp ne i32 %and4.i, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.exit
+  br label %der2key_check_selection.argprom.exit
 
-der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -5717,41 +5717,41 @@ entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str.2, i32 noundef 2177) #14
   store ptr %call.i, ptr %xpub.i, align 8
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %xorx_d2i_X509_PUBKEY_INTERNAL.exit.thread, label %xorx_d2i_X509_PUBKEY_INTERNAL.exit
+  br i1 %cmp.i, label %xorx_d2i_X509_PUBKEY_INTERNAL.argprom.exit.thread, label %xorx_d2i_X509_PUBKEY_INTERNAL.argprom.exit
 
-xorx_d2i_X509_PUBKEY_INTERNAL.exit.thread:        ; preds = %entry
+xorx_d2i_X509_PUBKEY_INTERNAL.argprom.exit.thread: ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xpub.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %plen.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %palg.i)
-  br label %xor_key_from_x509pubkey.exit.thread
+  br label %xor_key_from_x509pubkey.argprom.exit.thread
 
-xorx_d2i_X509_PUBKEY_INTERNAL.exit:               ; preds = %entry
+xorx_d2i_X509_PUBKEY_INTERNAL.argprom.exit:       ; preds = %entry
   %call2.i = call ptr @ASN1_item_d2i_ex(ptr noundef nonnull %xpub.i, ptr noundef %pp, i64 noundef %length, ptr noundef nonnull @X509_PUBKEY_INTERNAL_it.local_it, ptr noundef null, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xpub.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %plen.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %palg.i)
   %tobool.not.i = icmp eq ptr %call2.i, null
-  br i1 %tobool.not.i, label %xor_key_from_x509pubkey.exit.thread, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %xor_key_from_x509pubkey.argprom.exit.thread, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %xorx_d2i_X509_PUBKEY_INTERNAL.exit
+lor.lhs.false.i:                                  ; preds = %xorx_d2i_X509_PUBKEY_INTERNAL.argprom.exit
   %call.i6 = call i32 @X509_PUBKEY_get0_param(ptr noundef null, ptr noundef nonnull %p.i, ptr noundef nonnull %plen.i, ptr noundef nonnull %palg.i, ptr noundef nonnull %call2.i) #14
   %tobool1.not.i = icmp eq i32 %call.i6, 0
-  br i1 %tobool1.not.i, label %xor_key_from_x509pubkey.exit.thread, label %xor_key_from_x509pubkey.exit
+  br i1 %tobool1.not.i, label %xor_key_from_x509pubkey.argprom.exit.thread, label %xor_key_from_x509pubkey.argprom.exit
 
-xor_key_from_x509pubkey.exit.thread:              ; preds = %lor.lhs.false.i, %xorx_d2i_X509_PUBKEY_INTERNAL.exit, %xorx_d2i_X509_PUBKEY_INTERNAL.exit.thread
-  %retval.0.i14.ph = phi ptr [ null, %xorx_d2i_X509_PUBKEY_INTERNAL.exit.thread ], [ null, %xorx_d2i_X509_PUBKEY_INTERNAL.exit ], [ %call2.i, %lor.lhs.false.i ]
+xor_key_from_x509pubkey.argprom.exit.thread:      ; preds = %lor.lhs.false.i, %xorx_d2i_X509_PUBKEY_INTERNAL.argprom.exit, %xorx_d2i_X509_PUBKEY_INTERNAL.argprom.exit.thread
+  %retval.0.i14.ph = phi ptr [ null, %xorx_d2i_X509_PUBKEY_INTERNAL.argprom.exit.thread ], [ null, %xorx_d2i_X509_PUBKEY_INTERNAL.argprom.exit ], [ %call2.i, %lor.lhs.false.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %plen.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %palg.i)
   br label %err_exit
 
-xor_key_from_x509pubkey.exit:                     ; preds = %lor.lhs.false.i
+xor_key_from_x509pubkey.argprom.exit:             ; preds = %lor.lhs.false.i
   %0 = load ptr, ptr %palg.i, align 8
   %1 = load ptr, ptr %p.i, align 8
   %2 = load i32, ptr %plen.i, align 4
-  %call2.i8 = call fastcc ptr @xor_key_op(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 0)
+  %call2.i8 = call fastcc ptr @xor_key_op.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %plen.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %palg.i)
@@ -5760,7 +5760,7 @@ xor_key_from_x509pubkey.exit:                     ; preds = %lor.lhs.false.i
   %or.cond = and i1 %cmp2, %cmp
   br i1 %or.cond, label %if.then3, label %err_exit
 
-if.then3:                                         ; preds = %xor_key_from_x509pubkey.exit
+if.then3:                                         ; preds = %xor_key_from_x509pubkey.argprom.exit
   %3 = load ptr, ptr %a, align 8
   %cmp.i10 = icmp eq ptr %3, null
   br i1 %cmp.i10, label %xor_freekey.exit, label %if.end.i11
@@ -5791,9 +5791,9 @@ xor_freekey.exit:                                 ; preds = %if.then3, %CRYPTO_D
   store ptr %call2.i8, ptr %a, align 8
   br label %err_exit
 
-err_exit:                                         ; preds = %xor_key_from_x509pubkey.exit.thread, %xor_freekey.exit, %xor_key_from_x509pubkey.exit
-  %retval.0.i921 = phi ptr [ null, %xor_key_from_x509pubkey.exit.thread ], [ %call2.i8, %xor_freekey.exit ], [ %call2.i8, %xor_key_from_x509pubkey.exit ]
-  %retval.0.i1420 = phi ptr [ %retval.0.i14.ph, %xor_key_from_x509pubkey.exit.thread ], [ %call2.i, %xor_freekey.exit ], [ %call2.i, %xor_key_from_x509pubkey.exit ]
+err_exit:                                         ; preds = %xor_key_from_x509pubkey.argprom.exit.thread, %xor_freekey.exit, %xor_key_from_x509pubkey.argprom.exit
+  %retval.0.i921 = phi ptr [ null, %xor_key_from_x509pubkey.argprom.exit.thread ], [ %call2.i8, %xor_freekey.exit ], [ %call2.i8, %xor_key_from_x509pubkey.argprom.exit ]
+  %retval.0.i1420 = phi ptr [ %retval.0.i14.ph, %xor_key_from_x509pubkey.argprom.exit.thread ], [ %call2.i, %xor_freekey.exit ], [ %call2.i, %xor_key_from_x509pubkey.argprom.exit ]
   call void @X509_PUBKEY_free(ptr noundef %retval.0.i1420) #14
   ret ptr %retval.0.i921
 }
@@ -5835,12 +5835,12 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsha2sig_does_sele
 entry:
   %PrivateKeyInfo_xorhmacsha2sig_desc.val = load i32, ptr getelementptr inbounds (i8, ptr @PrivateKeyInfo_xorhmacsha2sig_desc, i64 28), align 4
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !16
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -5854,9 +5854,9 @@ if.then7.i:                                       ; preds = %for.body.i
   %and4.i = and i32 %0, %PrivateKeyInfo_xorhmacsha2sig_desc.val
   %cmp5.i = icmp ne i32 %and4.i, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.exit
+  br label %der2key_check_selection.argprom.exit
 
-der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -5890,12 +5890,12 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsha2sig_doe
 entry:
   %SubjectPublicKeyInfo_xorhmacsha2sig_desc.val = load i32, ptr getelementptr inbounds (i8, ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, i64 28), align 4
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !16
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -5909,9 +5909,9 @@ if.then7.i:                                       ; preds = %for.body.i
   %and4.i = and i32 %0, %SubjectPublicKeyInfo_xorhmacsha2sig_desc.val
   %cmp5.i = icmp ne i32 %and4.i, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.exit
+  br label %der2key_check_selection.argprom.exit
 
-der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }

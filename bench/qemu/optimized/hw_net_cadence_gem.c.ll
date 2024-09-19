@@ -1322,7 +1322,7 @@ if.end.i.i.i.i321:                                ; preds = %if.then.i.i317
   %dec.i.i.i.i322 = add i32 %48, -1
   store i32 %dec.i.i.i.i322, ptr %depth.i.i.i.i319, align 4
   %cmp2.not.i.i.i.i323 = icmp eq i32 %dec.i.i.i.i322, 0
-  br i1 %cmp2.not.i.i.i.i323, label %while.end.i.i.i.i324, label %glib_autoptr_cleanup_RCUReadAuto.exit329
+  br i1 %cmp2.not.i.i.i.i323, label %while.end.i.i.i.i324, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit329
 
 while.end.i.i.i.i324:                             ; preds = %if.end.i.i.i.i321
   store atomic i64 0, ptr %call.i.i.i.i318 release, align 8
@@ -1331,14 +1331,14 @@ while.end.i.i.i.i324:                             ; preds = %if.end.i.i.i.i321
   %waiting.i.i.i.i325 = getelementptr inbounds i8, ptr %call.i.i.i.i318, i64 8
   %49 = load atomic i8, ptr %waiting.i.i.i.i325 monotonic, align 8
   %tobool.i.i.i.i326 = trunc i8 %49 to i1
-  br i1 %tobool.i.i.i.i326, label %while.end21.i.i.i.i327, label %glib_autoptr_cleanup_RCUReadAuto.exit329
+  br i1 %tobool.i.i.i.i326, label %while.end21.i.i.i.i327, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit329
 
 while.end21.i.i.i.i327:                           ; preds = %while.end.i.i.i.i324
   store atomic i8 0, ptr %waiting.i.i.i.i325 monotonic, align 8
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #9
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit329
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit329
 
-glib_autoptr_cleanup_RCUReadAuto.exit329:         ; preds = %if.end.i.i.i.i321, %while.end.i.i.i.i324, %while.end21.i.i.i.i327
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit329: ; preds = %if.end.i.i.i.i321, %while.end.i.i.i.i324, %while.end21.i.i.i.i327
   %50 = load i32, ptr %arrayidx.i330, align 4
   %or.i331 = or i32 %50, -2147483648
   store i32 %or.i331, ptr %arrayidx.i330, align 4
@@ -1350,7 +1350,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit329:         ; preds = %if.end.i.i.i.i321, 
   %tobool211.not = icmp eq i32 %51, 0
   br i1 %tobool211.not, label %if.else, label %if.then212
 
-if.then212:                                       ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit329
+if.then212:                                       ; preds = %glib_autoptr_cleanup_RCUReadAuto.argprom.exit329
   switch i32 %15, label %do.body.i.i [
     i32 1, label %gem_get_tx_queue_base_addr.exit
     i32 2, label %sw.bb1.i.i
@@ -1374,7 +1374,7 @@ gem_get_tx_queue_base_addr.exit:                  ; preds = %if.then212, %sw.bb1
   %base_addr.0.i.i = load i32, ptr %base_addr.0.in.i.i, align 4
   br label %do.end225
 
-if.else:                                          ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit329
+if.else:                                          ; preds = %glib_autoptr_cleanup_RCUReadAuto.argprom.exit329
   %s.val184 = load i32, ptr %arrayidx.i.i, align 4
   %52 = and i32 %s.val184, 1073741824
   %tobool.not.i335 = icmp eq i32 %52, 0
@@ -2693,16 +2693,16 @@ do.end79:                                         ; preds = %if.then34.i, %if.en
   %and.i169 = zext i32 %74 to i64
   %75 = and i32 %call.val, 1073741824
   %tobool.not.i170 = icmp eq i32 %75, 0
-  br i1 %tobool.not.i170, label %rx_desc_get_buffer.exit, label %if.then.i171
+  br i1 %tobool.not.i170, label %rx_desc_get_buffer.argprom.exit, label %if.then.i171
 
 if.then.i171:                                     ; preds = %do.end79
   %76 = load i32, ptr %arrayidx2.i172, align 4
   %conv3.i173 = zext i32 %76 to i64
   %shl.i174 = shl nuw i64 %conv3.i173, 32
   %or.i175 = or disjoint i64 %shl.i174, %and.i169
-  br label %rx_desc_get_buffer.exit
+  br label %rx_desc_get_buffer.argprom.exit
 
-rx_desc_get_buffer.exit:                          ; preds = %do.end79, %if.then.i171
+rx_desc_get_buffer.argprom.exit:                  ; preds = %do.end79, %if.then.i171
   %ret.0.i = phi i64 [ %or.i175, %if.then.i171 ], [ %and.i169, %do.end79 ]
   %add84 = add i64 %ret.0.i, %conv83
   %cond118 = tail call i32 @llvm.umin.i32(i32 %bytes_to_copy.1276, i32 %spec.store.select)
@@ -2726,23 +2726,23 @@ rx_desc_get_buffer.exit:                          ; preds = %do.end79, %if.then.
     i32 -1, label %sw.bb180
   ]
 
-sw.bb165:                                         ; preds = %rx_desc_get_buffer.exit
+sw.bb165:                                         ; preds = %rx_desc_get_buffer.argprom.exit
   %or.i187 = or i32 %77, -2147483648
   br label %sw.epilog.sink.split
 
-sw.bb170:                                         ; preds = %rx_desc_get_buffer.exit
+sw.bb170:                                         ; preds = %rx_desc_get_buffer.argprom.exit
   %or.i189 = or i32 %77, 536870912
   br label %sw.epilog.sink.split
 
-sw.bb175:                                         ; preds = %rx_desc_get_buffer.exit
+sw.bb175:                                         ; preds = %rx_desc_get_buffer.argprom.exit
   %or.i191 = or i32 %77, 1073741824
   br label %sw.epilog.sink.split
 
-sw.bb180:                                         ; preds = %rx_desc_get_buffer.exit
+sw.bb180:                                         ; preds = %rx_desc_get_buffer.argprom.exit
   tail call void @abort() #10
   unreachable
 
-sw.default:                                       ; preds = %rx_desc_get_buffer.exit
+sw.default:                                       ; preds = %rx_desc_get_buffer.argprom.exit
   %and.i.i = and i32 %77, -234881025
   %or.i.i193 = or disjoint i32 %and6.i.i, %and.i.i
   %or.i194 = or disjoint i32 %or.i.i193, 134217728
@@ -2753,7 +2753,7 @@ sw.epilog.sink.split:                             ; preds = %sw.bb165, %sw.bb170
   store i32 %or.i194.sink, ptr %arrayidx.i177, align 4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %rx_desc_get_buffer.exit
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %rx_desc_get_buffer.argprom.exit
   %79 = load i32, ptr %arrayidx21, align 4
   %80 = and i32 %79, 1073741824
   %tobool.not.i.i = icmp eq i32 %80, 0

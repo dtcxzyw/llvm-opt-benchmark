@@ -1226,8 +1226,8 @@ CatalogCacheCompareTuple.exit:                    ; preds = %.lr.ph.i, %56, %.lr
   %.val.i = load i32, ptr %0, align 8
   switch i32 %.val.i, label %114 [
     i32 32, label %108
-    i32 2, label %IndexScanOK.exit.i
-    i32 1, label %IndexScanOK.exit.i
+    i32 2, label %IndexScanOK.argprom.exit.i
+    i32 1, label %IndexScanOK.argprom.exit.i
     i32 10, label %111
     i32 11, label %111
     i32 8, label %111
@@ -1237,24 +1237,24 @@ CatalogCacheCompareTuple.exit:                    ; preds = %.lr.ph.i, %56, %.lr
 108:                                              ; preds = %106
   %109 = load i8, ptr @criticalRelcachesBuilt, align 1
   %110 = trunc i8 %109 to i1
-  br i1 %110, label %114, label %IndexScanOK.exit.i
+  br i1 %110, label %114, label %IndexScanOK.argprom.exit.i
 
 111:                                              ; preds = %106, %106, %106, %106
   %112 = load i8, ptr @criticalSharedRelcachesBuilt, align 1
   %113 = trunc i8 %112 to i1
-  br i1 %113, label %114, label %IndexScanOK.exit.i
+  br i1 %113, label %114, label %IndexScanOK.argprom.exit.i
 
 114:                                              ; preds = %111, %108, %106
-  br label %IndexScanOK.exit.i
+  br label %IndexScanOK.argprom.exit.i
 
-IndexScanOK.exit.i:                               ; preds = %114, %111, %108, %106, %106
+IndexScanOK.argprom.exit.i:                       ; preds = %114, %111, %108, %106, %106
   %.0.i.i = phi i1 [ true, %114 ], [ false, %108 ], [ false, %106 ], [ false, %106 ], [ false, %111 ]
   %115 = call ptr @systable_beginscan(ptr noundef %97, i32 noundef %107, i1 noundef zeroext %.0.i.i, ptr noundef null, i32 noundef %1, ptr noundef nonnull %7) #12
   %116 = call ptr @systable_getnext(ptr noundef %115) #12
   %.not.i = icmp eq ptr %116, null
   br i1 %.not.i, label %.loopexit.i, label %117
 
-117:                                              ; preds = %IndexScanOK.exit.i
+117:                                              ; preds = %IndexScanOK.argprom.exit.i
   %118 = call fastcc ptr @CatalogCacheCreateEntry(ptr noundef nonnull %0, ptr noundef nonnull %116, ptr noundef %115, ptr noundef null, i32 noundef %41, i32 noundef %45)
   %119 = icmp eq ptr %118, null
   br i1 %119, label %128, label %120
@@ -1276,8 +1276,8 @@ IndexScanOK.exit.i:                               ; preds = %114, %111, %108, %1
   call void @systable_endscan(ptr noundef %115) #12
   br label %106, !llvm.loop !19
 
-.loopexit.i:                                      ; preds = %IndexScanOK.exit.i, %120
-  %.032.ph.i = phi ptr [ %118, %120 ], [ null, %IndexScanOK.exit.i ]
+.loopexit.i:                                      ; preds = %IndexScanOK.argprom.exit.i, %120
+  %.032.ph.i = phi ptr [ %118, %120 ], [ null, %IndexScanOK.argprom.exit.i ]
   call void @systable_endscan(ptr noundef %115) #12
   call void @table_close(ptr noundef %97, i32 noundef 1) #12
   %129 = icmp eq ptr %.032.ph.i, null
@@ -1718,8 +1718,8 @@ CatalogCacheCompareTuple.exit:                    ; preds = %.lr.ph.i, %53, %50,
   %.val = load i32, ptr %0, align 8
   switch i32 %.val, label %110 [
     i32 32, label %104
-    i32 2, label %IndexScanOK.exit
-    i32 1, label %IndexScanOK.exit
+    i32 2, label %IndexScanOK.argprom.exit
+    i32 1, label %IndexScanOK.argprom.exit
     i32 10, label %107
     i32 11, label %107
     i32 8, label %107
@@ -1729,27 +1729,27 @@ CatalogCacheCompareTuple.exit:                    ; preds = %.lr.ph.i, %53, %50,
 104:                                              ; preds = %99
   %105 = load i8, ptr @criticalRelcachesBuilt, align 1
   %106 = trunc i8 %105 to i1
-  br i1 %106, label %110, label %IndexScanOK.exit
+  br i1 %106, label %110, label %IndexScanOK.argprom.exit
 
 107:                                              ; preds = %99, %99, %99, %99
   %108 = load i8, ptr @criticalSharedRelcachesBuilt, align 1
   %109 = trunc i8 %108 to i1
-  br i1 %109, label %110, label %IndexScanOK.exit
+  br i1 %109, label %110, label %IndexScanOK.argprom.exit
 
 110:                                              ; preds = %107, %104, %99
-  br label %IndexScanOK.exit
+  br label %IndexScanOK.argprom.exit
 
-IndexScanOK.exit:                                 ; preds = %99, %99, %104, %107, %110
+IndexScanOK.argprom.exit:                         ; preds = %99, %99, %104, %107, %110
   %.0.i177 = phi i1 [ true, %110 ], [ false, %104 ], [ false, %99 ], [ false, %99 ], [ false, %107 ]
   %111 = call ptr @systable_beginscan(ptr noundef %89, i32 noundef %103, i1 noundef zeroext %.0.i177, ptr noundef null, i32 noundef %1, ptr noundef nonnull %10) #12
   %112 = getelementptr inbounds i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
   %114 = call ptr @systable_getnext(ptr noundef %111) #12
   %.not165.not223 = icmp eq ptr %114, null
-  br i1 %.not165.not223, label %IndexScanOK.exit._crit_edge, label %.lr.ph224
+  br i1 %.not165.not223, label %IndexScanOK.argprom.exit._crit_edge, label %.lr.ph224
 
-.lr.ph224:                                        ; preds = %IndexScanOK.exit, %164
-  %115 = phi ptr [ %169, %164 ], [ %114, %IndexScanOK.exit ]
+.lr.ph224:                                        ; preds = %IndexScanOK.argprom.exit, %164
+  %115 = phi ptr [ %169, %164 ], [ %114, %IndexScanOK.argprom.exit ]
   %116 = load i32, ptr %91, align 4
   %117 = call fastcc i32 @CatalogCacheComputeTupleHashValue(ptr noundef nonnull %0, i32 noundef %116, ptr noundef nonnull %115)
   %118 = load i32, ptr %97, align 4
@@ -1857,9 +1857,9 @@ IndexScanOK.exit:                                 ; preds = %99, %99, %104, %107
   store i32 %168, ptr %166, align 8
   %169 = call ptr @systable_getnext(ptr noundef %111) #12
   %.not165.not = icmp eq ptr %169, null
-  br i1 %.not165.not, label %IndexScanOK.exit._crit_edge, label %.lr.ph224, !llvm.loop !23
+  br i1 %.not165.not, label %IndexScanOK.argprom.exit._crit_edge, label %.lr.ph224, !llvm.loop !23
 
-IndexScanOK.exit._crit_edge:                      ; preds = %IndexScanOK.exit, %164
+IndexScanOK.argprom.exit._crit_edge:              ; preds = %IndexScanOK.argprom.exit, %164
   %.lcssa201.in = icmp ne ptr %113, null
   %.lcssa201 = zext i1 %.lcssa201.in to i8
   call void @systable_endscan(ptr noundef %111) #12
@@ -1873,13 +1873,13 @@ IndexScanOK.exit._crit_edge:                      ; preds = %IndexScanOK.exit, %
   %.not.i = icmp eq ptr %.0..0..0..0.47, null
   br i1 %.not.i, label %list_length.exit, label %173
 
-173:                                              ; preds = %IndexScanOK.exit._crit_edge
+173:                                              ; preds = %IndexScanOK.argprom.exit._crit_edge
   %174 = getelementptr inbounds i8, ptr %.0..0..0..0.47, i64 4
   %175 = load i32, ptr %174, align 4
   br label %list_length.exit
 
-list_length.exit:                                 ; preds = %IndexScanOK.exit._crit_edge, %173
-  %176 = phi i32 [ %175, %173 ], [ 0, %IndexScanOK.exit._crit_edge ]
+list_length.exit:                                 ; preds = %IndexScanOK.argprom.exit._crit_edge, %173
+  %176 = phi i32 [ %175, %173 ], [ 0, %IndexScanOK.argprom.exit._crit_edge ]
   %177 = sext i32 %176 to i64
   %178 = shl nsw i64 %177, 3
   %179 = add nsw i64 %178, 80

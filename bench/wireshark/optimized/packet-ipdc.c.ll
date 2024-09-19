@@ -581,7 +581,7 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %26 = tail call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %25, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 4) #3
   %27 = load ptr, ptr %10, align 8
   tail call void @col_set_fence(ptr noundef %27, i32 noundef 25) #3
-  br label %dissect_ipdc_common.exit
+  br label %dissect_ipdc_common.argprom.exit
 
 28:                                               ; preds = %4
   %29 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 6) #3
@@ -630,7 +630,7 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %62 = load ptr, ptr %10, align 8
   tail call void @col_set_fence(ptr noundef %62, i32 noundef 25) #3
   %63 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %dissect_ipdc_common.exit
+  br label %dissect_ipdc_common.argprom.exit
 
 64:                                               ; preds = %.loopexit.i, %.lr.ph16.i
   %.in.i = phi i8 [ %55, %.lr.ph16.i ], [ %182, %.loopexit.i ]
@@ -839,7 +839,7 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %183 = icmp eq i8 %182, 0
   br i1 %183, label %._crit_edge17.i, label %64
 
-dissect_ipdc_common.exit:                         ; preds = %16, %._crit_edge17.i
+dissect_ipdc_common.argprom.exit:                 ; preds = %16, %._crit_edge17.i
   %.0212.i = phi i32 [ 4, %16 ], [ %63, %._crit_edge17.i ]
   ret i32 %.0212.i
 }

@@ -4112,7 +4112,7 @@ define internal fastcc noundef range(i32 0, 512) i32 @_ZN4LuauL7getTypeEPKNS_7As
   %21 = getelementptr inbounds i8, ptr %0, i64 40
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
-  br i1 %23, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %_ZNK4Luau12DenseHashMapINS_7AstNameEPNS_16AstStatTypeAliasESt4hashIS1_ESt8equal_toIS1_EE4findERKS1_.exit.threadthread-pre-split.loopexit111.split.us
+  br i1 %23, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %_ZNK4Luau12DenseHashMapINS_7AstNameEPNS_16AstStatTypeAliasESt4hashIS1_ESt8equal_toIS1_EE4findERKS1_.exit.threadthread-pre-split.loopexit111.split.us
 
 _ZNK4Luau12DenseHashMapINS_7AstNameEPNS_16AstStatTypeAliasESt4hashIS1_ESt8equal_toIS1_EE4findERKS1_.exit.threadthread-pre-split.loopexit111.split.us: ; preds = %.lr.ph.split.us
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 72
@@ -4126,7 +4126,7 @@ _ZNK4Luau12DenseHashMapINS_7AstNameEPNS_16AstStatTypeAliasESt4hashIS1_ESt8equal_
   %24 = getelementptr inbounds i8, ptr %.tr141, i64 40
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1
-  br i1 %26, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %27
+  br i1 %26, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %27
 
 27:                                               ; preds = %.lr.ph.split
   %28 = getelementptr inbounds i8, ptr %.tr141, i64 72
@@ -4167,7 +4167,7 @@ _ZNK4Luau12DenseHashMapINS_7AstNameEPNS_16AstStatTypeAliasESt4hashIS1_ESt8equal_
   br i1 %.not80, label %_ZNK4Luau12DenseHashMapINS_7AstNameEPNS_16AstStatTypeAliasESt4hashIS1_ESt8equal_toIS1_EE4findERKS1_.exit.thread, label %48
 
 48:                                               ; preds = %45
-  br i1 %.tr105143, label %tailrecurse, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit
+  br i1 %.tr105143, label %tailrecurse, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit
 
 tailrecurse:                                      ; preds = %48
   %49 = getelementptr inbounds i8, ptr %47, i64 88
@@ -4201,7 +4201,7 @@ _ZNK4Luau12DenseHashMapINS_7AstNameEPNS_16AstStatTypeAliasESt4hashIS1_ESt8equal_
   %.092.i = phi ptr [ %59, %58 ], [ %.val, %_ZNK4Luau12DenseHashMapINS_7AstNameEPNS_16AstStatTypeAliasESt4hashIS1_ESt8equal_toIS1_EE4findERKS1_.exit.thread ]
   %60 = load ptr, ptr %.092.i, align 8
   %61 = icmp eq ptr %60, %.sroa.025.0.copyload
-  br i1 %61, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %58
+  br i1 %61, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %58
 
 .loopexit:                                        ; preds = %58, %_ZNK4Luau12DenseHashMapINS_7AstNameEPNS_16AstStatTypeAliasESt4hashIS1_ESt8equal_toIS1_EE4findERKS1_.exit.thread
   %.not81 = icmp eq ptr %4, null
@@ -4214,7 +4214,7 @@ _ZNK4Luau12DenseHashMapINS_7AstNameEPNS_16AstStatTypeAliasESt4hashIS1_ESt8equal_
 _ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %62
   %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.025.0.copyload, ptr noundef nonnull dereferenceable(1) %4) #17
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %_ZNK4Luau7AstNameeqEPKc.exit.i
+  br i1 %64, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %_ZNK4Luau7AstNameeqEPKc.exit.i
 
 65:                                               ; preds = %.loopexit
   br i1 %.not.i.i86, label %_ZN4LuauL16getPrimitiveTypeENS_7AstNameE.exit, label %_ZNK4Luau7AstNameeqEPKc.exit.i
@@ -4222,53 +4222,53 @@ _ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %62
 _ZNK4Luau7AstNameeqEPKc.exit.i:                   ; preds = %_ZNK4Luau7AstNameeqEPKc.exit, %65
   %66 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.sroa.025.0.copyload, ptr noundef nonnull dereferenceable(4) @.str) #17
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %_ZNK4Luau7AstNameeqEPKc.exit2.i
+  br i1 %67, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %_ZNK4Luau7AstNameeqEPKc.exit2.i
 
 _ZNK4Luau7AstNameeqEPKc.exit2.i:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit.i
   %68 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.sroa.025.0.copyload, ptr noundef nonnull dereferenceable(8) @.str.52) #17
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %_ZNK4Luau7AstNameeqEPKc.exit4.i
+  br i1 %69, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %_ZNK4Luau7AstNameeqEPKc.exit4.i
 
 _ZNK4Luau7AstNameeqEPKc.exit4.i:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit2.i
   %70 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.sroa.025.0.copyload, ptr noundef nonnull dereferenceable(7) @.str.53) #17
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %_ZNK4Luau7AstNameeqEPKc.exit6.i
+  br i1 %71, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %_ZNK4Luau7AstNameeqEPKc.exit6.i
 
 _ZNK4Luau7AstNameeqEPKc.exit6.i:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit4.i
   %72 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.sroa.025.0.copyload, ptr noundef nonnull dereferenceable(7) @.str.54) #17
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %_ZNK4Luau7AstNameeqEPKc.exit8.i
+  br i1 %73, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %_ZNK4Luau7AstNameeqEPKc.exit8.i
 
 _ZNK4Luau7AstNameeqEPKc.exit8.i:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit6.i
   %74 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.sroa.025.0.copyload, ptr noundef nonnull dereferenceable(7) @.str.55) #17
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %_ZNK4Luau7AstNameeqEPKc.exit10.i
+  br i1 %75, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %_ZNK4Luau7AstNameeqEPKc.exit10.i
 
 _ZNK4Luau7AstNameeqEPKc.exit10.i:                 ; preds = %_ZNK4Luau7AstNameeqEPKc.exit8.i
   %76 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.sroa.025.0.copyload, ptr noundef nonnull dereferenceable(7) @.str.56) #17
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %_ZNK4Luau7AstNameeqEPKc.exit12.i
+  br i1 %77, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %_ZNK4Luau7AstNameeqEPKc.exit12.i
 
 _ZNK4Luau7AstNameeqEPKc.exit12.i:                 ; preds = %_ZNK4Luau7AstNameeqEPKc.exit10.i
   %78 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.sroa.025.0.copyload, ptr noundef nonnull dereferenceable(4) @.str.57) #17
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %_ZNK4Luau7AstNameeqEPKc.exit14.i
+  br i1 %79, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %_ZNK4Luau7AstNameeqEPKc.exit14.i
 
 _ZNK4Luau7AstNameeqEPKc.exit14.i:                 ; preds = %_ZNK4Luau7AstNameeqEPKc.exit12.i
   %80 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.sroa.025.0.copyload, ptr noundef nonnull dereferenceable(8) @.str.58) #17
   %.fr.i = freeze i32 %80
   %81 = icmp eq i32 %.fr.i, 0
-  br i1 %81, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %_ZN4LuauL16getPrimitiveTypeENS_7AstNameE.exit
+  br i1 %81, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %_ZN4LuauL16getPrimitiveTypeENS_7AstNameE.exit
 
 _ZN4LuauL16getPrimitiveTypeENS_7AstNameE.exit:    ; preds = %62, %65, %_ZNK4Luau7AstNameeqEPKc.exit14.i
   %82 = load i8, ptr @_ZN5FFlag23LuauCompileUserdataInfoE, align 8
   %83 = trunc i8 %82 to i1
-  br i1 %83, label %84, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit
+  br i1 %83, label %84, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit
 
 84:                                               ; preds = %_ZN4LuauL16getPrimitiveTypeENS_7AstNameE.exit
   %85 = tail call noundef ptr @_ZNK4Luau12DenseHashMapINS_7AstNameEhSt4hashIS1_ESt8equal_toIS1_EE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(8) %55)
   %.not83 = icmp eq ptr %85, null
-  br i1 %.not83, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %86
+  br i1 %.not83, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %86
 
 86:                                               ; preds = %84
   %87 = load i8, ptr %85, align 1
@@ -4277,7 +4277,7 @@ _ZN4LuauL16getPrimitiveTypeENS_7AstNameE.exit:    ; preds = %62, %65, %_ZNK4Luau
   %89 = load i8, ptr %85, align 1
   %90 = zext i8 %89 to i32
   %91 = add nuw nsw i32 %90, 64
-  br label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit
+  br label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %.tr.lcssa = phi ptr [ %0, %7 ], [ %50, %tailrecurse ]
@@ -4286,17 +4286,17 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %.lcssa120 = phi i32 [ %10, %7 ], [ %53, %tailrecurse ]
   %92 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstTypeTableEE5valueE, align 4
   %.not202 = icmp eq i32 %.lcssa120, %92
-  br i1 %.not202, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %93
+  br i1 %.not202, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %93
 
 93:                                               ; preds = %tailrecurse._crit_edge
   %94 = load i32, ptr @_ZN4Luau7AstRttiINS_15AstTypeFunctionEE5valueE, align 4
   %.not203 = icmp eq i32 %.lcssa120, %94
-  br i1 %.not203, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %95
+  br i1 %.not203, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %95
 
 95:                                               ; preds = %93
   %96 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstTypeUnionEE5valueE, align 4
   %.not204 = icmp eq i32 %.lcssa120, %96
-  br i1 %.not204, label %97, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit
+  br i1 %.not204, label %97, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds i8, ptr %.tr.lcssa, i64 32
@@ -4305,7 +4305,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %101 = load i64, ptr %100, align 8
   %102 = getelementptr inbounds ptr, ptr %99, i64 %101
   %.not77150 = icmp eq i64 %101, 0
-  br i1 %.not77150, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %.lr.ph154
+  br i1 %.not77150, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %.lr.ph154
 
 .lr.ph154:                                        ; preds = %97, %109
   %.061153 = phi i1 [ %.1, %109 ], [ false, %97 ]
@@ -4322,7 +4322,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
 
 108:                                              ; preds = %106
   %.not78 = icmp eq i32 %.062152, %104
-  br i1 %.not78, label %109, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit
+  br i1 %.not78, label %109, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit
 
 109:                                              ; preds = %106, %.lr.ph154, %108
   %.163 = phi i32 [ %.062152, %108 ], [ %.062152, %.lr.ph154 ], [ %104, %106 ]
@@ -4333,16 +4333,16 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
 
 ._crit_edge:                                      ; preds = %109
   %111 = icmp eq i32 %.163, 256
-  br i1 %111, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit, label %112
+  br i1 %111, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit, label %112
 
 112:                                              ; preds = %._crit_edge
   %113 = icmp ne i32 %.163, 15
   %114 = and i1 %.1, %113
   %115 = select i1 %114, i32 128, i32 0
   %116 = or i32 %115, %.163
-  br label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit
+  br label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit
 
-_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.exit: ; preds = %.lr.ph.split, %48, %.lr.ph.i, %108, %97, %.lr.ph.split.us, %95, %_ZNK4Luau7AstNameeqEPKc.exit14.i, %_ZNK4Luau7AstNameeqEPKc.exit12.i, %_ZNK4Luau7AstNameeqEPKc.exit10.i, %_ZNK4Luau7AstNameeqEPKc.exit8.i, %_ZNK4Luau7AstNameeqEPKc.exit6.i, %_ZNK4Luau7AstNameeqEPKc.exit4.i, %_ZNK4Luau7AstNameeqEPKc.exit2.i, %_ZNK4Luau7AstNameeqEPKc.exit.i, %._crit_edge, %93, %tailrecurse._crit_edge, %_ZN4LuauL16getPrimitiveTypeENS_7AstNameE.exit, %84, %_ZNK4Luau7AstNameeqEPKc.exit, %112, %86
+_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayINS_14AstGenericTypeEEE.argprom.exit: ; preds = %.lr.ph.split, %48, %.lr.ph.i, %108, %97, %.lr.ph.split.us, %95, %_ZNK4Luau7AstNameeqEPKc.exit14.i, %_ZNK4Luau7AstNameeqEPKc.exit12.i, %_ZNK4Luau7AstNameeqEPKc.exit10.i, %_ZNK4Luau7AstNameeqEPKc.exit8.i, %_ZNK4Luau7AstNameeqEPKc.exit6.i, %_ZNK4Luau7AstNameeqEPKc.exit4.i, %_ZNK4Luau7AstNameeqEPKc.exit2.i, %_ZNK4Luau7AstNameeqEPKc.exit.i, %._crit_edge, %93, %tailrecurse._crit_edge, %_ZN4LuauL16getPrimitiveTypeENS_7AstNameE.exit, %84, %_ZNK4Luau7AstNameeqEPKc.exit, %112, %86
   %.0 = phi i32 [ %91, %86 ], [ %116, %112 ], [ 8, %_ZNK4Luau7AstNameeqEPKc.exit ], [ 7, %84 ], [ 7, %_ZN4LuauL16getPrimitiveTypeENS_7AstNameE.exit ], [ 4, %tailrecurse._crit_edge ], [ 5, %93 ], [ 15, %._crit_edge ], [ 15, %_ZNK4Luau7AstNameeqEPKc.exit12.i ], [ 9, %_ZNK4Luau7AstNameeqEPKc.exit10.i ], [ 6, %_ZNK4Luau7AstNameeqEPKc.exit8.i ], [ 3, %_ZNK4Luau7AstNameeqEPKc.exit6.i ], [ 2, %_ZNK4Luau7AstNameeqEPKc.exit4.i ], [ 1, %_ZNK4Luau7AstNameeqEPKc.exit2.i ], [ 0, %_ZNK4Luau7AstNameeqEPKc.exit.i ], [ 15, %_ZNK4Luau7AstNameeqEPKc.exit14.i ], [ 15, %95 ], [ 15, %.lr.ph.split.us ], [ 15, %97 ], [ 15, %108 ], [ 15, %.lr.ph.i ], [ 15, %48 ], [ 15, %.lr.ph.split ]
   ret i32 %.0
 }

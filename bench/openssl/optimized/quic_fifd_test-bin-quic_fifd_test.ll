@@ -280,13 +280,13 @@ if.then.i:                                        ; preds = %entry
   %sub.i = add nsw i64 %stream_id, -42
   %arrayidx.i = getelementptr inbounds [4 x ptr], ptr %sstream.i, i64 0, i64 %sub.i
   %2 = load ptr, ptr %arrayidx.i, align 8
-  br label %sstream_expect.exit
+  br label %sstream_expect.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   store i1 true, ptr @cb_fail, align 4
-  br label %sstream_expect.exit
+  br label %sstream_expect.argprom.exit
 
-sstream_expect.exit:                              ; preds = %if.then.i, %if.end.i
+sstream_expect.argprom.exit:                      ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %2, %if.then.i ], [ null, %if.end.i ]
   ret ptr %retval.0.i
 }

@@ -117,7 +117,7 @@ define void @_Z16pme_loadbal_initPP20pme_load_balancing_tP9t_commrecRKN3gmx8MDLo
   %11 = alloca %"class.gmx::LogEntryWriter", align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 340
   %.val = load i32, ptr %12, align 4
-  switch i32 %.val, label %_ZL8usingPmeRK22CoulombInteractionType.exit [
+  switch i32 %.val, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit [
     i32 3, label %13
     i32 14, label %13
     i32 13, label %13
@@ -125,7 +125,7 @@ define void @_Z16pme_loadbal_initPP20pme_load_balancing_tP9t_commrecRKN3gmx8MDLo
     i32 5, label %13
   ]
 
-_ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %9
+_ZL8usingPmeRK22CoulombInteractionType.argprom.exit: ; preds = %9
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ16pme_loadbal_initPP20pme_load_balancing_tP9t_commrecRKN3gmx8MDLoggerERK10t_inputrecPA3_KfRK19interaction_const_tRK18nonbonded_verlet_tP9gmx_pme_tbENK3$_0clEv", ptr noundef nonnull @.str.4, i32 noundef 223) #21
   unreachable
 
@@ -133,7 +133,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %9
   %14 = getelementptr inbounds i8, ptr %3, i64 368
   %.val106 = load i32, ptr %14, align 8
   %15 = icmp eq i32 %.val106, 5
-  br i1 %15, label %16, label %_ZL8usingPmeRK22CoulombInteractionType.exit111
+  br i1 %15, label %16, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit111
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %3, i64 352
@@ -141,13 +141,13 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %9
   %19 = getelementptr inbounds i8, ptr %3, i64 380
   %20 = load float, ptr %19, align 4
   %21 = fcmp une float %18, %20
-  br i1 %21, label %22, label %_ZL8usingPmeRK22CoulombInteractionType.exit111
+  br i1 %21, label %22, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit111
 
 22:                                               ; preds = %16
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ16pme_loadbal_initPP20pme_load_balancing_tP9t_commrecRKN3gmx8MDLoggerERK10t_inputrecPA3_KfRK19interaction_const_tRK18nonbonded_verlet_tP9gmx_pme_tbENK3$_0clEv", ptr noundef nonnull @.str.4, i32 noundef 227) #21
   unreachable
 
-_ZL8usingPmeRK22CoulombInteractionType.exit111:   ; preds = %13, %16
+_ZL8usingPmeRK22CoulombInteractionType.argprom.exit111: ; preds = %13, %16
   %23 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #22
   %24 = getelementptr inbounds i8, ptr %23, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
@@ -227,7 +227,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit111:   ; preds = %13, %16
   store float %79, ptr %80, align 4
   br i1 %52, label %81, label %_ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit
 
-81:                                               ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit111
+81:                                               ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit111
   %82 = fmul float %54, %74
   store float %82, ptr %73, align 4
   %83 = fmul float %54, %76
@@ -236,7 +236,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit111:   ; preds = %13, %16
   store float %84, ptr %80, align 4
   br label %_ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit
 
-_ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:  ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit111, %81
+_ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:  ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit111, %81
   %85 = getelementptr inbounds i8, ptr %23, i64 104
   %86 = load ptr, ptr %85, align 8
   %87 = load ptr, ptr %24, align 8
@@ -1056,7 +1056,7 @@ _ZL20continue_pme_loadbalP20pme_load_balancing_tb.exit: ; preds = %._crit_edge.i
   store i32 %209, ptr %207, align 8
   %210 = and i32 %208, 1
   %.not.not.i = icmp eq i32 %210, 0
-  br i1 %.not.not.i, label %_ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLoggerERK10t_inputrecPA3_KfNS5_8ArrayRefIKNS5_11BasicVectorIfEEEEdP19interaction_const_tP18nonbonded_verlet_tPP9gmx_pme_tl.exit, label %211
+  br i1 %.not.not.i, label %_ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLoggerERK10t_inputrecPA3_KfNS5_8ArrayRefIKNS5_11BasicVectorIfEEEEdP19interaction_const_tP18nonbonded_verlet_tPP9gmx_pme_tl.argprom.exit, label %211
 
 211:                                              ; preds = %200
   %212 = call noundef ptr @_Z12gmx_step_strlPc(i64 noundef %10, ptr noundef nonnull %19)
@@ -1991,13 +1991,13 @@ _ZL10print_gridP8_IO_FILES0_PKcS2_PK11pme_setup_td.exit.i: ; preds = %719
   %733 = getelementptr inbounds i8, ptr %0, i64 20
   %734 = load i32, ptr %733, align 4
   %735 = icmp eq i32 %732, %734
-  br i1 %735, label %736, label %_ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLoggerERK10t_inputrecPA3_KfNS5_8ArrayRefIKNS5_11BasicVectorIfEEEEdP19interaction_const_tP18nonbonded_verlet_tPP9gmx_pme_tl.exit
+  br i1 %735, label %736, label %_ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLoggerERK10t_inputrecPA3_KfNS5_8ArrayRefIKNS5_11BasicVectorIfEEEEdP19interaction_const_tP18nonbonded_verlet_tPP9gmx_pme_tl.argprom.exit
 
 736:                                              ; preds = %731
   call fastcc void @_ZL10print_gridP8_IO_FILES0_PKcS2_PK11pme_setup_td(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, ptr noundef %620, double noundef -1.000000e+00)
-  br label %_ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLoggerERK10t_inputrecPA3_KfNS5_8ArrayRefIKNS5_11BasicVectorIfEEEEdP19interaction_const_tP18nonbonded_verlet_tPP9gmx_pme_tl.exit
+  br label %_ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLoggerERK10t_inputrecPA3_KfNS5_8ArrayRefIKNS5_11BasicVectorIfEEEEdP19interaction_const_tP18nonbonded_verlet_tPP9gmx_pme_tl.argprom.exit
 
-_ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLoggerERK10t_inputrecPA3_KfNS5_8ArrayRefIKNS5_11BasicVectorIfEEEEdP19interaction_const_tP18nonbonded_verlet_tPP9gmx_pme_tl.exit: ; preds = %200, %731, %736
+_ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLoggerERK10t_inputrecPA3_KfNS5_8ArrayRefIKNS5_11BasicVectorIfEEEEdP19interaction_const_tP18nonbonded_verlet_tPP9gmx_pme_tl.argprom.exit: ; preds = %200, %731, %736
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %19)
@@ -2012,14 +2012,14 @@ _ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLo
   %.not95 = icmp eq i32 %741, 0
   br i1 %.not95, label %746, label %742
 
-742:                                              ; preds = %_ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLoggerERK10t_inputrecPA3_KfNS5_8ArrayRefIKNS5_11BasicVectorIfEEEEdP19interaction_const_tP18nonbonded_verlet_tPP9gmx_pme_tl.exit
+742:                                              ; preds = %_ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLoggerERK10t_inputrecPA3_KfNS5_8ArrayRefIKNS5_11BasicVectorIfEEEEdP19interaction_const_tP18nonbonded_verlet_tPP9gmx_pme_tl.argprom.exit
   %743 = getelementptr inbounds i8, ptr %6, i64 120
   %744 = load ptr, ptr %743, align 8
   %745 = load ptr, ptr %6, align 8
   call void @_ZN20DispersionCorrection13setParametersERK19interaction_const_t(ptr noundef nonnull align 8 dereferenceable(72) %744, ptr noundef nonnull align 8 dereferenceable(152) %745)
   br label %746
 
-746:                                              ; preds = %_ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLoggerERK10t_inputrecPA3_KfNS5_8ArrayRefIKNS5_11BasicVectorIfEEEEdP19interaction_const_tP18nonbonded_verlet_tPP9gmx_pme_tl.exit, %742, %175
+746:                                              ; preds = %_ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLoggerERK10t_inputrecPA3_KfNS5_8ArrayRefIKNS5_11BasicVectorIfEEEEdP19interaction_const_tP18nonbonded_verlet_tPP9gmx_pme_tl.argprom.exit, %742, %175
   %747 = load i8, ptr %87, align 1
   %748 = trunc i8 %747 to i1
   br i1 %748, label %757, label %749

@@ -2089,7 +2089,7 @@ define i32 @Acec_MatchCountCommon(ptr nocapture noundef readonly %0, ptr nocaptu
   %30 = icmp sgt i32 %.val23, 0
   %31 = icmp sgt i32 %.val25, 0
   %32 = select i1 %30, i1 %31, i1 false
-  br i1 %32, label %.lr.ph.i, label %Vec_IntTwoFindCommonReverse.exit
+  br i1 %32, label %.lr.ph.i, label %Vec_IntTwoFindCommonReverse.argprom.exit
 
 .lr.ph.i:                                         ; preds = %20, %72
   %.06.i = phi ptr [ %.1.i, %72 ], [ %.val24, %20 ]
@@ -2188,18 +2188,18 @@ Vec_IntPush.exit.i:                               ; preds = %58, %Vec_IntGrow.ex
 ._crit_edge.loopexit.i:                           ; preds = %72
   %.val.pre.i = load i32, ptr %5, align 4
   %.val20.pre.pre = load i32, ptr %8, align 4
-  br label %Vec_IntTwoFindCommonReverse.exit
+  br label %Vec_IntTwoFindCommonReverse.argprom.exit
 
-Vec_IntTwoFindCommonReverse.exit:                 ; preds = %20, %._crit_edge.loopexit.i
+Vec_IntTwoFindCommonReverse.argprom.exit:         ; preds = %20, %._crit_edge.loopexit.i
   %.val20.pre = phi i32 [ %.val20.pre.pre, %._crit_edge.loopexit.i ], [ %.val20.pre33, %20 ]
   %.val.i = phi i32 [ %.val.pre.i, %._crit_edge.loopexit.i ], [ 0, %20 ]
   %76 = add nsw i32 %.val.i, %.029
   br label %77
 
-77:                                               ; preds = %14, %18, %Vec_IntTwoFindCommonReverse.exit
-  %.val20.pre34 = phi i32 [ %.val20.pre33, %14 ], [ %.val20.pre33, %18 ], [ %.val20.pre, %Vec_IntTwoFindCommonReverse.exit ]
-  %.val20 = phi i32 [ %.val2031, %14 ], [ %.val2031, %18 ], [ %.val20.pre, %Vec_IntTwoFindCommonReverse.exit ]
-  %.1 = phi i32 [ %.029, %14 ], [ %.029, %18 ], [ %76, %Vec_IntTwoFindCommonReverse.exit ]
+77:                                               ; preds = %14, %18, %Vec_IntTwoFindCommonReverse.argprom.exit
+  %.val20.pre34 = phi i32 [ %.val20.pre33, %14 ], [ %.val20.pre33, %18 ], [ %.val20.pre, %Vec_IntTwoFindCommonReverse.argprom.exit ]
+  %.val20 = phi i32 [ %.val2031, %14 ], [ %.val2031, %18 ], [ %.val20.pre, %Vec_IntTwoFindCommonReverse.argprom.exit ]
+  %.1 = phi i32 [ %.029, %14 ], [ %.029, %18 ], [ %76, %Vec_IntTwoFindCommonReverse.argprom.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = sext i32 %.val20 to i64
   %79 = icmp slt i64 %indvars.iv.next, %78
@@ -2791,9 +2791,9 @@ define void @Acec_MatchCheckShift(ptr nocapture readnone %0, ptr nocapture readn
   %.sink45 = phi ptr [ %6, %8 ], [ %7, %15 ]
   %.sink = phi ptr [ %9, %8 ], [ %10, %15 ]
   %str.2.sink = phi ptr [ @str.3, %8 ], [ @str.2, %15 ]
-  tail call fastcc void @Vec_WecInsertLevel(ptr noundef %.sink46)
-  tail call fastcc void @Vec_WecInsertLevel(ptr noundef %.sink45)
-  tail call fastcc void @Vec_WecInsertLevel(ptr noundef %.sink)
+  tail call fastcc void @Vec_WecInsertLevel.argelim(ptr noundef %.sink46)
+  tail call fastcc void @Vec_WecInsertLevel.argelim(ptr noundef %.sink45)
+  tail call fastcc void @Vec_WecInsertLevel.argelim(ptr noundef %.sink)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.2.sink)
   br label %18
 
@@ -2878,7 +2878,7 @@ Vec_WecFree.exit39:                               ; preds = %._crit_edge.i.i32, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_WecInsertLevel(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @Vec_WecInsertLevel.argelim(ptr nocapture noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8

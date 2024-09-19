@@ -108,7 +108,7 @@ define void @_Z11pr_ffparamsP8_IO_FILEiPKcPK14gmx_ffparams_tb(ptr noundef %0, i3
   %63 = select i1 %.not.i, float 0.000000e+00, float %62
   %64 = mul i32 %.fr8.i, %.fr8.i
   %65 = tail call noundef zeroext i1 @_Z9availableP8_IO_FILEPKviPKc(ptr noundef %0, ptr noundef nonnull %58, i32 noundef %6, ptr noundef nonnull @.str.5)
-  br i1 %65, label %66, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit
+  br i1 %65, label %66, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.argprom.exit
 
 66:                                               ; preds = %._crit_edge
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5) #5
@@ -120,7 +120,7 @@ define void @_Z11pr_ffparamsP8_IO_FILEiPKcPK14gmx_ffparams_tb(ptr noundef %0, i3
   %73 = ptrtoint ptr %71 to i64
   %74 = sub i64 %72, %73
   %75 = icmp sgt i64 %74, 0
-  br i1 %75, label %.lr.ph5.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit
+  br i1 %75, label %.lr.ph5.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.argprom.exit
 
 .lr.ph5.i:                                        ; preds = %66
   br i1 %.not.i, label %.lr.ph5.split.i, label %.lr.ph.us.preheader.i
@@ -200,7 +200,7 @@ define void @_Z11pr_ffparamsP8_IO_FILEiPKcPK14gmx_ffparams_tb(ptr noundef %0, i3
   %126 = sub i64 %124, %125
   %127 = sdiv exact i64 %126, 24
   %128 = icmp slt i64 %121, %127
-  br i1 %128, label %.lr.ph.us.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit, !llvm.loop !8
+  br i1 %128, label %.lr.ph.us.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.argprom.exit, !llvm.loop !8
 
 .lr.ph5.split.i:                                  ; preds = %.lr.ph5.i
   br i1 %4, label %.lr.ph5.split.split.us.i, label %.lr.ph5.split.split.i
@@ -218,7 +218,7 @@ define void @_Z11pr_ffparamsP8_IO_FILEiPKcPK14gmx_ffparams_tb(ptr noundef %0, i3
   %136 = sub i64 %134, %135
   %137 = sdiv exact i64 %136, 24
   %138 = icmp slt i64 %131, %137
-  br i1 %138, label %.lr.ph5.split.split.us.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit, !llvm.loop !8
+  br i1 %138, label %.lr.ph5.split.split.us.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.argprom.exit, !llvm.loop !8
 
 .lr.ph5.split.split.i:                            ; preds = %.lr.ph5.split.i, %.lr.ph5.split.split.i
   %.0433.i = phi i64 [ %141, %.lr.ph5.split.split.i ], [ 0, %.lr.ph5.split.i ]
@@ -233,9 +233,9 @@ define void @_Z11pr_ffparamsP8_IO_FILEiPKcPK14gmx_ffparams_tb(ptr noundef %0, i3
   %146 = sub i64 %144, %145
   %147 = sdiv exact i64 %146, 24
   %148 = icmp slt i64 %141, %147
-  br i1 %148, label %.lr.ph5.split.split.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit, !llvm.loop !8
+  br i1 %148, label %.lr.ph5.split.split.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.argprom.exit, !llvm.loop !8
 
-_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit:    ; preds = %._crit_edge.us.i, %.lr.ph5.split.split.i, %.lr.ph5.split.split.us.i, %._crit_edge, %66
+_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.argprom.exit: ; preds = %._crit_edge.us.i, %.lr.ph5.split.split.i, %.lr.ph5.split.split.us.i, %._crit_edge, %66
   ret void
 }
 

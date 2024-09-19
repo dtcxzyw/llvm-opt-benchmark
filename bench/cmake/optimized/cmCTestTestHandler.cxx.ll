@@ -3726,7 +3726,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit142: ;
 
 259:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit142
   %260 = getelementptr inbounds i8, ptr %0, i64 688
-  invoke fastcc void @_ZL12BuildLabelRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERS_IN5cmsys17RegularExpressionESaISB_EE(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %260)
+  invoke fastcc void @_ZL12BuildLabelRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERS_IN5cmsys17RegularExpressionESaISB_EE.retelim(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %260)
           to label %261 unwind label %293
 
 261:                                              ; preds = %259
@@ -3783,7 +3783,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit147: ;
 
 271:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit147
   %272 = getelementptr inbounds i8, ptr %0, i64 712
-  invoke fastcc void @_ZL12BuildLabelRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERS_IN5cmsys17RegularExpressionESaISB_EE(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %272)
+  invoke fastcc void @_ZL12BuildLabelRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERS_IN5cmsys17RegularExpressionESaISB_EE.retelim(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %272)
           to label %273 unwind label %300
 
 273:                                              ; preds = %271
@@ -7693,7 +7693,7 @@ declare void @_ZN7cmCTest16SetParallelLevelEi(ptr noundef nonnull align 8 derefe
 declare void @_ZN7cmCTest16SetStopOnFailureEb(ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12BuildLabelRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERS_IN5cmsys17RegularExpressionESaISB_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12BuildLabelRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERS_IN5cmsys17RegularExpressionESaISB_EE.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -11251,9 +11251,9 @@ define dso_local void @_ZN18cmCTestTestHandler23CheckLabelFilterIncludeERNS_21cm
 24:                                               ; preds = %.lr.ph.i
   %25 = getelementptr inbounds i8, ptr %.sroa.05.017.i, i64 560
   %.not.i = icmp eq ptr %25, %7
-  br i1 %.not.i, label %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit, label %17
+  br i1 %.not.i, label %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.argprom.exit, label %17
 
-_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit: ; preds = %24
+_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.argprom.exit: ; preds = %24
   call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %3)
   br label %27
 
@@ -11263,7 +11263,7 @@ _ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_t
   store i8 0, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit, %2, %.loopexit, %15
+27:                                               ; preds = %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.argprom.exit, %2, %.loopexit, %15
   ret void
 }
 
@@ -11295,12 +11295,12 @@ define dso_local void @_ZN18cmCTestTestHandler23CheckLabelFilterExcludeERNS_21cm
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %12, align 8
   %.not812.not.i = icmp eq ptr %16, %17
-  br i1 %.not812.not.i, label %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit.thread, label %.lr.ph.i
+  br i1 %.not812.not.i, label %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.argprom.exit.thread, label %.lr.ph.i
 
 18:                                               ; preds = %.lr.ph.i
   %19 = getelementptr inbounds i8, ptr %.sroa.01.013.i, i64 32
   %.not8.i = icmp eq ptr %19, %17
-  br i1 %.not8.i, label %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit.thread, label %.lr.ph.i
+  br i1 %.not8.i, label %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.argprom.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %18
   %.sroa.01.013.i = phi ptr [ %19, %18 ], [ %16, %15 ]
@@ -11313,7 +11313,7 @@ define dso_local void @_ZN18cmCTestTestHandler23CheckLabelFilterExcludeERNS_21cm
   %.not.i = icmp eq ptr %23, %7
   br i1 %.not.i, label %24, label %15
 
-_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit.thread: ; preds = %15, %18
+_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.argprom.exit.thread: ; preds = %15, %18
   call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %3)
   br label %26
 
@@ -11323,7 +11323,7 @@ _ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_t
   store i8 0, ptr %25, align 8
   br label %26
 
-26:                                               ; preds = %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit.thread, %9, %2, %24
+26:                                               ; preds = %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.argprom.exit.thread, %9, %2, %24
   ret void
 }
 
@@ -11377,9 +11377,9 @@ define dso_local void @_ZN18cmCTestTestHandler16CheckLabelFilterERNS_21cmCTestTe
 25:                                               ; preds = %.lr.ph.i.i
   %26 = getelementptr inbounds i8, ptr %.sroa.05.017.i.i, i64 560
   %.not.i.i = icmp eq ptr %26, %8
-  br i1 %.not.i.i, label %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit.i, label %18
+  br i1 %.not.i.i, label %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.argprom.exit.i, label %18
 
-_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit.i: ; preds = %25
+_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.argprom.exit.i: ; preds = %25
   call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %4)
   br label %_ZN18cmCTestTestHandler23CheckLabelFilterIncludeERNS_21cmCTestTestPropertiesE.exit
 
@@ -11389,7 +11389,7 @@ _ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_t
   store i8 0, ptr %27, align 8
   br label %_ZN18cmCTestTestHandler23CheckLabelFilterIncludeERNS_21cmCTestTestPropertiesE.exit
 
-_ZN18cmCTestTestHandler23CheckLabelFilterIncludeERNS_21cmCTestTestPropertiesE.exit: ; preds = %2, %16, %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit.i, %.loopexit.i
+_ZN18cmCTestTestHandler23CheckLabelFilterIncludeERNS_21cmCTestTestPropertiesE.exit: ; preds = %2, %16, %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.argprom.exit.i, %.loopexit.i
   %28 = getelementptr inbounds i8, ptr %0, i64 712
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 720
@@ -11415,12 +11415,12 @@ _ZN18cmCTestTestHandler23CheckLabelFilterIncludeERNS_21cmCTestTestPropertiesE.ex
   %40 = load ptr, ptr %34, align 8
   %41 = load ptr, ptr %36, align 8
   %.not812.not.i.i5 = icmp eq ptr %40, %41
-  br i1 %.not812.not.i.i5, label %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit.thread.i, label %.lr.ph.i.i6
+  br i1 %.not812.not.i.i5, label %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.argprom.exit.thread.i, label %.lr.ph.i.i6
 
 42:                                               ; preds = %.lr.ph.i.i6
   %43 = getelementptr inbounds i8, ptr %.sroa.01.013.i.i7, i64 32
   %.not8.i.i8 = icmp eq ptr %43, %41
-  br i1 %.not8.i.i8, label %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit.thread.i, label %.lr.ph.i.i6
+  br i1 %.not8.i.i8, label %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.argprom.exit.thread.i, label %.lr.ph.i.i6
 
 .lr.ph.i.i6:                                      ; preds = %39, %42
   %.sroa.01.013.i.i7 = phi ptr [ %43, %42 ], [ %40, %39 ]
@@ -11433,7 +11433,7 @@ _ZN18cmCTestTestHandler23CheckLabelFilterIncludeERNS_21cmCTestTestPropertiesE.ex
   %.not.i.i9 = icmp eq ptr %47, %31
   br i1 %.not.i.i9, label %48, label %39
 
-_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit.thread.i: ; preds = %39, %42
+_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.argprom.exit.thread.i: ; preds = %39, %42
   call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %3)
   br label %_ZN18cmCTestTestHandler23CheckLabelFilterExcludeERNS_21cmCTestTestPropertiesE.exit
 
@@ -11443,7 +11443,7 @@ _ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_t
   store i8 0, ptr %49, align 8
   br label %_ZN18cmCTestTestHandler23CheckLabelFilterExcludeERNS_21cmCTestTestPropertiesE.exit
 
-_ZN18cmCTestTestHandler23CheckLabelFilterExcludeERNS_21cmCTestTestPropertiesE.exit: ; preds = %_ZN18cmCTestTestHandler23CheckLabelFilterIncludeERNS_21cmCTestTestPropertiesE.exit, %33, %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit.thread.i, %48
+_ZN18cmCTestTestHandler23CheckLabelFilterExcludeERNS_21cmCTestTestPropertiesE.exit: ; preds = %_ZN18cmCTestTestHandler23CheckLabelFilterIncludeERNS_21cmCTestTestPropertiesE.exit, %33, %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.argprom.exit.thread.i, %48
   ret void
 }
 
@@ -38669,7 +38669,7 @@ _ZSt10__invoke_rIbRN12_GLOBAL__N_121cmCTestAddTestCommandEJRKSt6vectorI18cmListF
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %10
@@ -38678,12 +38678,12 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmL
 
 4:                                                ; preds = %3
   store ptr @_ZTIN12_GLOBAL__N_121cmCTestAddTestCommandE, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -38694,21 +38694,21 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmL
   store ptr %.val7.i, ptr %9, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121cmCTestAddTestCommandE, i64 16), ptr %8, align 8
   store ptr %8, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
 
 10:                                               ; preds = %3
   %.val8.i = load ptr, ptr %0, align 8
   %11 = icmp eq ptr %.val8.i, null
-  br i1 %11, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit, label %12
+  br i1 %11, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit, label %12
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %.val8.i, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %.val8.i) #26
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
 
-_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit: ; preds = %3, %12, %10, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit: ; preds = %3, %12, %10, %6, %5, %4
   ret i1 false
 }
 
@@ -38775,7 +38775,7 @@ _ZSt10__invoke_rIbRN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEJRKSt6vecto
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %10
@@ -38784,12 +38784,12 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmL
 
 4:                                                ; preds = %3
   store ptr @_ZTIN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandE, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -38800,21 +38800,21 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmL
   store ptr %.val7.i, ptr %9, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandE, i64 16), ptr %8, align 8
   store ptr %8, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
 
 10:                                               ; preds = %3
   %.val8.i = load ptr, ptr %0, align 8
   %11 = icmp eq ptr %.val8.i, null
-  br i1 %11, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit, label %12
+  br i1 %11, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit, label %12
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %.val8.i, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %.val8.i) #26
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
 
-_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit: ; preds = %3, %12, %10, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit: ; preds = %3, %12, %10, %6, %5, %4
   ret i1 false
 }
 
@@ -38879,7 +38879,7 @@ _ZSt10__invoke_rIbRN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEJRKSt6v
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %10
@@ -38888,12 +38888,12 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmL
 
 4:                                                ; preds = %3
   store ptr @_ZTIN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandE, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -38904,21 +38904,21 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmL
   store ptr %.val7.i, ptr %9, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandE, i64 16), ptr %8, align 8
   store ptr %8, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
 
 10:                                               ; preds = %3
   %.val8.i = load ptr, ptr %0, align 8
   %11 = icmp eq ptr %.val8.i, null
-  br i1 %11, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit, label %12
+  br i1 %11, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit, label %12
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %.val8.i, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %.val8.i) #26
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
 
-_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit: ; preds = %3, %12, %10, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit: ; preds = %3, %12, %10, %6, %5, %4
   ret i1 false
 }
 

@@ -703,7 +703,7 @@ define zeroext i1 @extra_constraints_test(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not7, label %8, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call fastcc zeroext i1 @_test_extra_constraints(ptr noundef nonnull %0, ptr noundef %1)
+  %7 = tail call fastcc zeroext i1 @_test_extra_constraints.argprom(ptr noundef nonnull %0, ptr noundef %1)
   br label %8
 
 8:                                                ; preds = %5, %2, %6
@@ -712,7 +712,7 @@ define zeroext i1 @extra_constraints_test(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_test_extra_constraints(ptr noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_test_extra_constraints.argprom(ptr noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_test.exit, label %3
 
@@ -880,7 +880,7 @@ _compare.exit:                                    ; preds = %52, %53
   %72 = load ptr, ptr %7, align 8
   %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8
-  %75 = tail call fastcc zeroext i1 @_test_extra_constraints(ptr noundef %74, ptr noundef %1)
+  %75 = tail call fastcc zeroext i1 @_test_extra_constraints.argprom(ptr noundef %74, ptr noundef %1)
   %76 = load i32, ptr %0, align 8
   %77 = icmp eq i32 %76, 3
   br i1 %77, label %78, label %79

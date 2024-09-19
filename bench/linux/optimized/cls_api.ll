@@ -447,7 +447,7 @@ define internal fastcc ptr @__tcf_chain_get(ptr noundef %0, i32 noundef %1, i1 n
   br i1 %47, label %50, label %48
 
 48:                                               ; preds = %.thread4._crit_edge
-  tail call fastcc void @tc_chain_notify(ptr noundef nonnull %37, ptr noundef null, i32 noundef 0, i16 noundef zeroext 1536, i32 noundef 100, i1 noundef zeroext false, ptr noundef null)
+  tail call fastcc void @tc_chain_notify.retelim(ptr noundef nonnull %37, ptr noundef null, i32 noundef 0, i16 noundef zeroext 1536, i32 noundef 100, i1 noundef zeroext false, ptr noundef null)
   br label %50
 
 49:                                               ; preds = %22, %.thread
@@ -890,7 +890,7 @@ define internal fastcc ptr @__tcf_get_next_proto(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tcf_proto_put(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @tcf_proto_put.argprom(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 -1, ptr elementtype(i32) %3) #14, !srcloc !20
   %5 = icmp eq i32 %4, 1
@@ -3572,7 +3572,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tc_chain_notify(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef range(i32 100, 103) %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc void @tc_chain_notify.retelim(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef range(i32 100, 103) %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = icmp eq ptr %1, null
   br i1 %8, label %12, label %9
 
@@ -3846,7 +3846,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 sect
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tcf_proto_destroy(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @tcf_proto_destroy.argelim(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 48
@@ -4700,8 +4700,8 @@ define internal fastcc void @tcf_chain_flush(ptr noundef %0, i1 noundef zeroext 
   %6 = getelementptr i8, ptr %0, i64 56
   br label %7
 
-7:                                                ; preds = %.preheader9, %tcf_proto_signal_destroying.exit
-  %8 = phi ptr [ %9, %tcf_proto_signal_destroying.exit ], [ %4, %.preheader9 ]
+7:                                                ; preds = %.preheader9, %tcf_proto_signal_destroying.argprom.exit
+  %8 = phi ptr [ %9, %tcf_proto_signal_destroying.argprom.exit ], [ %4, %.preheader9 ]
   %9 = load ptr, ptr %8, align 8
   %.val = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %.val, i64 1248
@@ -4752,19 +4752,19 @@ define internal fastcc void @tcf_chain_flush(ptr noundef %0, i1 noundef zeroext 
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !78
   store volatile ptr %11, ptr %49, align 8
   %52 = icmp eq ptr %50, null
-  br i1 %52, label %tcf_proto_signal_destroying.exit, label %53
+  br i1 %52, label %tcf_proto_signal_destroying.argprom.exit, label %53
 
 53:                                               ; preds = %7
   %54 = getelementptr inbounds i8, ptr %50, i64 8
   store volatile ptr %11, ptr %54, align 8
-  br label %tcf_proto_signal_destroying.exit
+  br label %tcf_proto_signal_destroying.argprom.exit
 
-tcf_proto_signal_destroying.exit:                 ; preds = %7, %53
+tcf_proto_signal_destroying.argprom.exit:         ; preds = %7, %53
   tail call void @mutex_unlock(ptr noundef %10) #14
   %55 = icmp eq ptr %9, null
   br i1 %55, label %thread-pre-split, label %7, !llvm.loop !79
 
-thread-pre-split:                                 ; preds = %tcf_proto_signal_destroying.exit
+thread-pre-split:                                 ; preds = %tcf_proto_signal_destroying.argprom.exit
   %.pr = load ptr, ptr %3, align 8
   br label %56
 
@@ -4886,7 +4886,7 @@ tcf_proto_destroy.exit:                           ; preds = %89, %108
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tcf_proto_signal_destroying(ptr %.56.val, ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @tcf_proto_signal_destroying.argprom(ptr %.56.val, ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %.56.val, i64 1248
   tail call void @mutex_lock(ptr noundef %2) #14
   %3 = getelementptr inbounds i8, ptr %0, i64 88
@@ -5515,7 +5515,7 @@ define internal i32 @tc_new_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
   %304 = and i8 %86, 1
   %305 = icmp ne i8 %304, 0
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !22
-  call fastcc void @tcf_proto_destroy(ptr noundef nonnull %290, i1 noundef zeroext %305, ptr noundef null)
+  call fastcc void @tcf_proto_destroy.argelim(ptr noundef nonnull %290, i1 noundef zeroext %305, ptr noundef null)
   br label %.thread74
 
 .thread74:                                        ; preds = %300, %302, %303, %.thread63
@@ -5845,7 +5845,7 @@ define internal i32 @tc_del_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 136:                                              ; preds = %135
   call void @mutex_lock(ptr noundef nonnull %129) #14
-  %137 = call fastcc ptr @tcf_chain_tp_find(ptr noundef nonnull %129, ptr noundef nonnull %8, i32 noundef %27, i32 noundef %28)
+  %137 = call fastcc ptr @tcf_chain_tp_find.argelim(ptr noundef nonnull %129, ptr noundef nonnull %8, i32 noundef %27, i32 noundef %28)
   %138 = icmp eq ptr %137, null
   %139 = icmp ugt ptr %137, inttoptr (i64 -4096 to ptr)
   %140 = or i1 %138, %139
@@ -5898,10 +5898,10 @@ define internal i32 @tc_del_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
 162:                                              ; preds = %158
   %163 = getelementptr i8, ptr %129, i64 56
   %.val = load ptr, ptr %163, align 8
-  call fastcc void @tcf_proto_signal_destroying(ptr %.val, ptr noundef nonnull %137)
+  call fastcc void @tcf_proto_signal_destroying.argprom(ptr %.val, ptr noundef nonnull %137)
   call fastcc void @tcf_chain_tp_remove(ptr noundef nonnull %129, ptr noundef nonnull %8, ptr noundef nonnull %137)
   call void @mutex_unlock(ptr noundef nonnull %129) #14
-  call fastcc void @tcf_proto_put(ptr noundef nonnull %137, i1 noundef zeroext %90)
+  call fastcc void @tcf_proto_put.argprom(ptr noundef nonnull %137, i1 noundef zeroext %90)
   %164 = call fastcc i32 @tfilter_notify(ptr noundef %13, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %137, ptr noundef %113, ptr noundef %92, i32 noundef %93, ptr noundef null, i32 noundef 45, i1 noundef zeroext false, i1 noundef zeroext %90, ptr noundef %2)
   br label %.thread42
 
@@ -5964,7 +5964,7 @@ define internal i32 @tc_del_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 191:                                              ; preds = %.thread42
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !22
-  call fastcc void @tcf_proto_destroy(ptr noundef nonnull %137, i1 noundef zeroext %90, ptr noundef null)
+  call fastcc void @tcf_proto_destroy.argelim(ptr noundef nonnull %137, i1 noundef zeroext %90, ptr noundef null)
   br label %.thread34
 
 .thread34:                                        ; preds = %.thread45, %188, %190, %.thread32, %191
@@ -6244,7 +6244,7 @@ define internal i32 @tc_get_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 122:                                              ; preds = %.thread31
   call void @mutex_lock(ptr noundef nonnull %117) #14
-  %123 = call fastcc ptr @tcf_chain_tp_find(ptr noundef nonnull %117, ptr noundef nonnull %8, i32 noundef %26, i32 noundef %27)
+  %123 = call fastcc ptr @tcf_chain_tp_find.argelim(ptr noundef nonnull %117, ptr noundef nonnull %8, i32 noundef %26, i32 noundef %27)
   call void @mutex_unlock(ptr noundef nonnull %117) #14
   %124 = icmp eq ptr %123, null
   %125 = icmp ugt ptr %123, inttoptr (i64 -4096 to ptr)
@@ -6356,7 +6356,7 @@ define internal i32 @tc_get_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 182:                                              ; preds = %175
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !22
-  call fastcc void @tcf_proto_destroy(ptr noundef nonnull %123, i1 noundef zeroext %78, ptr noundef null)
+  call fastcc void @tcf_proto_destroy.argelim(ptr noundef nonnull %123, i1 noundef zeroext %78, ptr noundef null)
   br label %.thread38
 
 .thread38:                                        ; preds = %179, %181, %130, %182, %.thread32
@@ -7368,7 +7368,7 @@ define internal i32 @tc_ctl_chain(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %236
 
 203:                                              ; preds = %.thread41, %198
-  call fastcc void @tc_chain_notify(ptr noundef nonnull %147, ptr noundef null, i32 noundef 0, i16 noundef zeroext 1536, i32 noundef 100, i1 noundef zeroext false, ptr noundef %2)
+  call fastcc void @tc_chain_notify.retelim(ptr noundef nonnull %147, ptr noundef null, i32 noundef 0, i16 noundef zeroext 1536, i32 noundef 100, i1 noundef zeroext false, ptr noundef %2)
   br label %236
 
 204:                                              ; preds = %155
@@ -7988,7 +7988,7 @@ define internal fastcc ptr @__tcf_block_find(ptr noundef %0, ptr noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @tcf_chain_tp_find(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 65536) %2, i32 noundef range(i32 1, -65535) %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @tcf_chain_tp_find.argelim(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 65536) %2, i32 noundef range(i32 1, -65535) %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   br label %6
 
@@ -8558,20 +8558,20 @@ define internal fastcc void @tcf_chain_tp_delete_empty(ptr noundef %0, ptr nound
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !78
   store volatile ptr %31, ptr %69, align 8
   %72 = icmp eq ptr %70, null
-  br i1 %72, label %tcf_proto_signal_destroying.exit, label %73
+  br i1 %72, label %tcf_proto_signal_destroying.argprom.exit, label %73
 
 73:                                               ; preds = %28
   %74 = getelementptr inbounds i8, ptr %70, i64 8
   store volatile ptr %31, ptr %74, align 8
-  br label %tcf_proto_signal_destroying.exit
+  br label %tcf_proto_signal_destroying.argprom.exit
 
-tcf_proto_signal_destroying.exit:                 ; preds = %28, %73
+tcf_proto_signal_destroying.argprom.exit:         ; preds = %28, %73
   tail call void @mutex_unlock(ptr noundef %30) #14
   %75 = load ptr, ptr %5, align 8
   %76 = icmp eq ptr %75, %1
   br i1 %76, label %77, label %97
 
-77:                                               ; preds = %tcf_proto_signal_destroying.exit
+77:                                               ; preds = %tcf_proto_signal_destroying.argprom.exit
   %78 = getelementptr inbounds i8, ptr %0, i64 64
   %79 = load i32, ptr %78, align 8
   %80 = icmp eq i32 %79, 0
@@ -8608,7 +8608,7 @@ tcf_proto_signal_destroying.exit:                 ; preds = %28, %73
   tail call void @mutex_unlock(ptr noundef %83) #14
   br label %97
 
-97:                                               ; preds = %.loopexit, %77, %tcf_proto_signal_destroying.exit
+97:                                               ; preds = %.loopexit, %77, %tcf_proto_signal_destroying.argprom.exit
   store volatile ptr %13, ptr %7, align 8
   tail call void @mutex_unlock(ptr noundef %0) #14
   %98 = getelementptr inbounds i8, ptr %1, i64 64
@@ -8626,7 +8626,7 @@ tcf_proto_signal_destroying.exit:                 ; preds = %28, %73
 
 104:                                              ; preds = %97
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !22
-  tail call fastcc void @tcf_proto_destroy(ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3)
+  tail call fastcc void @tcf_proto_destroy.argelim(ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3)
   br label %.thread7
 
 .thread7:                                         ; preds = %101, %103, %104, %.loopexit8

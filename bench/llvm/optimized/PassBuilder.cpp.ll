@@ -15249,7 +15249,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not.i = icmp eq ptr %51, null
-  br i1 %.not.i, label %52, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_0EEbOT_.exit"
+  br i1 %.not.i, label %52, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_0EEbOT_.argprom.exit"
 
 52:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i
   %53 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -15257,16 +15257,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %54 = load ptr, ptr %50, align 8
   store ptr %53, ptr %50, align 8
   %.not.i.i.i = icmp eq ptr %54, null
-  br i1 %.not.i.i.i, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_0EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i
+  br i1 %.not.i.i.i, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_0EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i: ; preds = %52
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(8) %54) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_0EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_0EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_0EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i, %52, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i
+"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_0EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i, %52, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store ptr @_ZN4llvm25CollectorMetadataAnalysis3KeyE, ptr %18, align 8
@@ -15275,7 +15275,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i38, label %61
 
-61:                                               ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_0EEbOT_.exit"
+61:                                               ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_0EEbOT_.argprom.exit"
   %62 = lshr i32 ptrtoint (ptr @_ZN4llvm25CollectorMetadataAnalysis3KeyE to i32), 4
   %63 = lshr i32 ptrtoint (ptr @_ZN4llvm25CollectorMetadataAnalysis3KeyE to i32), 9
   %64 = xor i32 %62, %63
@@ -15315,8 +15315,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %83 = icmp eq ptr %82, @_ZN4llvm25CollectorMetadataAnalysis3KeyE
   br i1 %83, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i32, label %.lr.ph.i.i.i.i.i25, !llvm.loop !6
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i38: ; preds = %73, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_0EEbOT_.exit"
-  %.sink.i.i.i.i.i39 = phi ptr [ %74, %73 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_0EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i38: ; preds = %73, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_0EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i39 = phi ptr [ %74, %73 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_0EEbOT_.argprom.exit" ]
   %84 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %.sink.i.i.i.i.i39)
   %85 = load ptr, ptr %18, align 8
   store ptr %85, ptr %84, align 8
@@ -15329,7 +15329,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %87 = getelementptr inbounds nuw i8, ptr %.0.i.i.i33, i64 8
   %88 = load ptr, ptr %87, align 8
   %.not.i34 = icmp eq ptr %88, null
-  br i1 %.not.i34, label %89, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_1EEbOT_.exit"
+  br i1 %.not.i34, label %89, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_1EEbOT_.argprom.exit"
 
 89:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i32
   %90 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -15337,16 +15337,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %91 = load ptr, ptr %87, align 8
   store ptr %90, ptr %87, align 8
   %.not.i.i.i35 = icmp eq ptr %91, null
-  br i1 %.not.i.i.i35, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_1EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i36
+  br i1 %.not.i.i.i35, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_1EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i36
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i36: ; preds = %89
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
   call void %94(ptr noundef nonnull align 8 dereferenceable(8) %91) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_1EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_1EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_1EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i32, %89, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i36
+"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_1EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i32, %89, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
@@ -15356,7 +15356,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i54, label %98
 
-98:                                               ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_1EEbOT_.exit"
+98:                                               ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_1EEbOT_.argprom.exit"
   %99 = lshr i32 ptrtoint (ptr @_ZN4llvm15CtxProfAnalysis3KeyE to i32), 4
   %100 = lshr i32 ptrtoint (ptr @_ZN4llvm15CtxProfAnalysis3KeyE to i32), 9
   %101 = xor i32 %99, %100
@@ -15396,8 +15396,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %120 = icmp eq ptr %119, @_ZN4llvm15CtxProfAnalysis3KeyE
   br i1 %120, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i48, label %.lr.ph.i.i.i.i.i41, !llvm.loop !6
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i54: ; preds = %110, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_1EEbOT_.exit"
-  %.sink.i.i.i.i.i55 = phi ptr [ %111, %110 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_1EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i54: ; preds = %110, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_1EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i55 = phi ptr [ %111, %110 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_1EEbOT_.argprom.exit" ]
   %121 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %.sink.i.i.i.i.i55)
   %122 = load ptr, ptr %16, align 8
   store ptr %122, ptr %121, align 8
@@ -15410,7 +15410,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %124 = getelementptr inbounds nuw i8, ptr %.0.i.i.i49, i64 8
   %125 = load ptr, ptr %124, align 8
   %.not.i50 = icmp eq ptr %125, null
-  br i1 %.not.i50, label %126, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_2EEbOT_.exit"
+  br i1 %.not.i50, label %126, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_2EEbOT_.argprom.exit"
 
 126:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i48
   %127 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
@@ -15425,16 +15425,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %130 = load ptr, ptr %124, align 8
   store ptr %127, ptr %124, align 8
   %.not.i.i.i51 = icmp eq ptr %130, null
-  br i1 %.not.i.i.i51, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_2EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i52
+  br i1 %.not.i.i.i51, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_2EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i52
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i52: ; preds = %126
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
   call void %133(ptr noundef nonnull align 8 dereferenceable(8) %130) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_2EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_2EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_2EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i48, %126, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i52
+"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_2EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i48, %126, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
@@ -15444,7 +15444,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i70, label %137
 
-137:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_2EEbOT_.exit"
+137:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_2EEbOT_.argprom.exit"
   %138 = lshr i32 ptrtoint (ptr @_ZN4llvm20DXILMetadataAnalysis3KeyE to i32), 4
   %139 = lshr i32 ptrtoint (ptr @_ZN4llvm20DXILMetadataAnalysis3KeyE to i32), 9
   %140 = xor i32 %138, %139
@@ -15484,8 +15484,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %159 = icmp eq ptr %158, @_ZN4llvm20DXILMetadataAnalysis3KeyE
   br i1 %159, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i64, label %.lr.ph.i.i.i.i.i57, !llvm.loop !6
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i70: ; preds = %149, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_2EEbOT_.exit"
-  %.sink.i.i.i.i.i71 = phi ptr [ %150, %149 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_2EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i70: ; preds = %149, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_2EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i71 = phi ptr [ %150, %149 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_2EEbOT_.argprom.exit" ]
   %160 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %.sink.i.i.i.i.i71)
   %161 = load ptr, ptr %14, align 8
   store ptr %161, ptr %160, align 8
@@ -15498,7 +15498,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %163 = getelementptr inbounds nuw i8, ptr %.0.i.i.i65, i64 8
   %164 = load ptr, ptr %163, align 8
   %.not.i66 = icmp eq ptr %164, null
-  br i1 %.not.i66, label %165, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_3EEbOT_.exit"
+  br i1 %.not.i66, label %165, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_3EEbOT_.argprom.exit"
 
 165:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i64
   %166 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -15506,16 +15506,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %167 = load ptr, ptr %163, align 8
   store ptr %166, ptr %163, align 8
   %.not.i.i.i67 = icmp eq ptr %167, null
-  br i1 %.not.i.i.i67, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_3EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i68
+  br i1 %.not.i.i.i67, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_3EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i68
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i68: ; preds = %165
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 8
   %170 = load ptr, ptr %169, align 8
   call void %170(ptr noundef nonnull align 8 dereferenceable(8) %167) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_3EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_3EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_3EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i64, %165, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i68
+"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_3EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i64, %165, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i68
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store ptr @_ZN4llvm20DXILResourceAnalysis3KeyE, ptr %13, align 8
@@ -15524,7 +15524,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i86, label %174
 
-174:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_3EEbOT_.exit"
+174:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_3EEbOT_.argprom.exit"
   %175 = lshr i32 ptrtoint (ptr @_ZN4llvm20DXILResourceAnalysis3KeyE to i32), 4
   %176 = lshr i32 ptrtoint (ptr @_ZN4llvm20DXILResourceAnalysis3KeyE to i32), 9
   %177 = xor i32 %175, %176
@@ -15564,8 +15564,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %196 = icmp eq ptr %195, @_ZN4llvm20DXILResourceAnalysis3KeyE
   br i1 %196, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i80, label %.lr.ph.i.i.i.i.i73, !llvm.loop !6
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i86: ; preds = %186, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_3EEbOT_.exit"
-  %.sink.i.i.i.i.i87 = phi ptr [ %187, %186 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_3EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i86: ; preds = %186, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_3EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i87 = phi ptr [ %187, %186 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_3EEbOT_.argprom.exit" ]
   %197 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %.sink.i.i.i.i.i87)
   %198 = load ptr, ptr %13, align 8
   store ptr %198, ptr %197, align 8
@@ -15578,7 +15578,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %200 = getelementptr inbounds nuw i8, ptr %.0.i.i.i81, i64 8
   %201 = load ptr, ptr %200, align 8
   %.not.i82 = icmp eq ptr %201, null
-  br i1 %.not.i82, label %202, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_4EEbOT_.exit"
+  br i1 %.not.i82, label %202, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_4EEbOT_.argprom.exit"
 
 202:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i80
   %203 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -15586,16 +15586,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %204 = load ptr, ptr %200, align 8
   store ptr %203, ptr %200, align 8
   %.not.i.i.i83 = icmp eq ptr %204, null
-  br i1 %.not.i.i.i83, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_4EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i84
+  br i1 %.not.i.i.i83, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_4EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i84
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i84: ; preds = %202
   %205 = load ptr, ptr %204, align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 8
   %207 = load ptr, ptr %206, align 8
   call void %207(ptr noundef nonnull align 8 dereferenceable(8) %204) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_4EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_4EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_4EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i80, %202, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i84
+"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_4EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i80, %202, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store ptr @_ZN4llvm21InlineAdvisorAnalysis3KeyE, ptr %12, align 8
@@ -15604,7 +15604,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i102, label %211
 
-211:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_4EEbOT_.exit"
+211:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_4EEbOT_.argprom.exit"
   %212 = lshr i32 ptrtoint (ptr @_ZN4llvm21InlineAdvisorAnalysis3KeyE to i32), 4
   %213 = lshr i32 ptrtoint (ptr @_ZN4llvm21InlineAdvisorAnalysis3KeyE to i32), 9
   %214 = xor i32 %212, %213
@@ -15644,8 +15644,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %233 = icmp eq ptr %232, @_ZN4llvm21InlineAdvisorAnalysis3KeyE
   br i1 %233, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i96, label %.lr.ph.i.i.i.i.i89, !llvm.loop !6
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i102: ; preds = %223, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_4EEbOT_.exit"
-  %.sink.i.i.i.i.i103 = phi ptr [ %224, %223 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_4EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i102: ; preds = %223, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_4EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i103 = phi ptr [ %224, %223 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_4EEbOT_.argprom.exit" ]
   %234 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %.sink.i.i.i.i.i103)
   %235 = load ptr, ptr %12, align 8
   store ptr %235, ptr %234, align 8
@@ -15658,7 +15658,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %237 = getelementptr inbounds nuw i8, ptr %.0.i.i.i97, i64 8
   %238 = load ptr, ptr %237, align 8
   %.not.i98 = icmp eq ptr %238, null
-  br i1 %.not.i98, label %239, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_5EEbOT_.exit"
+  br i1 %.not.i98, label %239, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_5EEbOT_.argprom.exit"
 
 239:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i96
   %240 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -15666,16 +15666,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %241 = load ptr, ptr %237, align 8
   store ptr %240, ptr %237, align 8
   %.not.i.i.i99 = icmp eq ptr %241, null
-  br i1 %.not.i.i.i99, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_5EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i100
+  br i1 %.not.i.i.i99, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_5EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i100
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i100: ; preds = %239
   %242 = load ptr, ptr %241, align 8
   %243 = getelementptr inbounds i8, ptr %242, i64 8
   %244 = load ptr, ptr %243, align 8
   call void %244(ptr noundef nonnull align 8 dereferenceable(8) %241) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_5EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_5EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_5EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i96, %239, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i100
+"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_5EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i96, %239, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i100
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr @_ZN4llvm20IRSimilarityAnalysis3KeyE, ptr %11, align 8
@@ -15684,7 +15684,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %247 = icmp eq i32 %246, 0
   br i1 %247, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i118, label %248
 
-248:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_5EEbOT_.exit"
+248:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_5EEbOT_.argprom.exit"
   %249 = lshr i32 ptrtoint (ptr @_ZN4llvm20IRSimilarityAnalysis3KeyE to i32), 4
   %250 = lshr i32 ptrtoint (ptr @_ZN4llvm20IRSimilarityAnalysis3KeyE to i32), 9
   %251 = xor i32 %249, %250
@@ -15724,8 +15724,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %270 = icmp eq ptr %269, @_ZN4llvm20IRSimilarityAnalysis3KeyE
   br i1 %270, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i112, label %.lr.ph.i.i.i.i.i105, !llvm.loop !6
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i118: ; preds = %260, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_5EEbOT_.exit"
-  %.sink.i.i.i.i.i119 = phi ptr [ %261, %260 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_5EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i118: ; preds = %260, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_5EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i119 = phi ptr [ %261, %260 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_5EEbOT_.argprom.exit" ]
   %271 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %.sink.i.i.i.i.i119)
   %272 = load ptr, ptr %11, align 8
   store ptr %272, ptr %271, align 8
@@ -15738,7 +15738,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %274 = getelementptr inbounds nuw i8, ptr %.0.i.i.i113, i64 8
   %275 = load ptr, ptr %274, align 8
   %.not.i114 = icmp eq ptr %275, null
-  br i1 %.not.i114, label %276, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_6EEbOT_.exit"
+  br i1 %.not.i114, label %276, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_6EEbOT_.argprom.exit"
 
 276:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i112
   %277 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -15746,16 +15746,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %278 = load ptr, ptr %274, align 8
   store ptr %277, ptr %274, align 8
   %.not.i.i.i115 = icmp eq ptr %278, null
-  br i1 %.not.i.i.i115, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_6EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i116
+  br i1 %.not.i.i.i115, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_6EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i116
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i116: ; preds = %276
   %279 = load ptr, ptr %278, align 8
   %280 = getelementptr inbounds i8, ptr %279, i64 8
   %281 = load ptr, ptr %280, align 8
   call void %281(ptr noundef nonnull align 8 dereferenceable(8) %278) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_6EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_6EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_6EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i112, %276, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i116
+"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_6EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i112, %276, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i116
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr @_ZN4llvm21LazyCallGraphAnalysis3KeyE, ptr %10, align 8
@@ -15764,7 +15764,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %284 = icmp eq i32 %283, 0
   br i1 %284, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i134, label %285
 
-285:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_6EEbOT_.exit"
+285:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_6EEbOT_.argprom.exit"
   %286 = lshr i32 ptrtoint (ptr @_ZN4llvm21LazyCallGraphAnalysis3KeyE to i32), 4
   %287 = lshr i32 ptrtoint (ptr @_ZN4llvm21LazyCallGraphAnalysis3KeyE to i32), 9
   %288 = xor i32 %286, %287
@@ -15804,8 +15804,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %307 = icmp eq ptr %306, @_ZN4llvm21LazyCallGraphAnalysis3KeyE
   br i1 %307, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i128, label %.lr.ph.i.i.i.i.i121, !llvm.loop !6
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i134: ; preds = %297, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_6EEbOT_.exit"
-  %.sink.i.i.i.i.i135 = phi ptr [ %298, %297 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_6EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i134: ; preds = %297, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_6EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i135 = phi ptr [ %298, %297 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_6EEbOT_.argprom.exit" ]
   %308 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %.sink.i.i.i.i.i135)
   %309 = load ptr, ptr %10, align 8
   store ptr %309, ptr %308, align 8
@@ -15818,7 +15818,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %311 = getelementptr inbounds nuw i8, ptr %.0.i.i.i129, i64 8
   %312 = load ptr, ptr %311, align 8
   %.not.i130 = icmp eq ptr %312, null
-  br i1 %.not.i130, label %313, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_7EEbOT_.exit"
+  br i1 %.not.i130, label %313, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_7EEbOT_.argprom.exit"
 
 313:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i128
   %314 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -15826,16 +15826,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %315 = load ptr, ptr %311, align 8
   store ptr %314, ptr %311, align 8
   %.not.i.i.i131 = icmp eq ptr %315, null
-  br i1 %.not.i.i.i131, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_7EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i132
+  br i1 %.not.i.i.i131, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_7EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i132
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i132: ; preds = %313
   %316 = load ptr, ptr %315, align 8
   %317 = getelementptr inbounds i8, ptr %316, i64 8
   %318 = load ptr, ptr %317, align 8
   call void %318(ptr noundef nonnull align 8 dereferenceable(8) %315) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_7EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_7EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_7EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i128, %313, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i132
+"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_7EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i128, %313, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i132
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr @_ZN4llvm26ModuleSummaryIndexAnalysis3KeyE, ptr %9, align 8
@@ -15844,7 +15844,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %321 = icmp eq i32 %320, 0
   br i1 %321, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i150, label %322
 
-322:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_7EEbOT_.exit"
+322:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_7EEbOT_.argprom.exit"
   %323 = lshr i32 ptrtoint (ptr @_ZN4llvm26ModuleSummaryIndexAnalysis3KeyE to i32), 4
   %324 = lshr i32 ptrtoint (ptr @_ZN4llvm26ModuleSummaryIndexAnalysis3KeyE to i32), 9
   %325 = xor i32 %323, %324
@@ -15884,8 +15884,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %344 = icmp eq ptr %343, @_ZN4llvm26ModuleSummaryIndexAnalysis3KeyE
   br i1 %344, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i144, label %.lr.ph.i.i.i.i.i137, !llvm.loop !6
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i150: ; preds = %334, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_7EEbOT_.exit"
-  %.sink.i.i.i.i.i151 = phi ptr [ %335, %334 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_7EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i150: ; preds = %334, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_7EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i151 = phi ptr [ %335, %334 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_7EEbOT_.argprom.exit" ]
   %345 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %.sink.i.i.i.i.i151)
   %346 = load ptr, ptr %9, align 8
   store ptr %346, ptr %345, align 8
@@ -15898,7 +15898,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %348 = getelementptr inbounds nuw i8, ptr %.0.i.i.i145, i64 8
   %349 = load ptr, ptr %348, align 8
   %.not.i146 = icmp eq ptr %349, null
-  br i1 %.not.i146, label %350, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_8EEbOT_.exit"
+  br i1 %.not.i146, label %350, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_8EEbOT_.argprom.exit"
 
 350:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i144
   %351 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -15906,16 +15906,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %352 = load ptr, ptr %348, align 8
   store ptr %351, ptr %348, align 8
   %.not.i.i.i147 = icmp eq ptr %352, null
-  br i1 %.not.i.i.i147, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_8EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i148
+  br i1 %.not.i.i.i147, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_8EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i148
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i148: ; preds = %350
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr inbounds i8, ptr %353, i64 8
   %355 = load ptr, ptr %354, align 8
   call void %355(ptr noundef nonnull align 8 dereferenceable(8) %352) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_8EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_8EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_8EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i144, %350, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i148
+"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_8EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i144, %350, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i148
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr @_ZN4llvm18NoOpModuleAnalysis3KeyE, ptr %8, align 8
@@ -15924,7 +15924,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %358 = icmp eq i32 %357, 0
   br i1 %358, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i166, label %359
 
-359:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_8EEbOT_.exit"
+359:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_8EEbOT_.argprom.exit"
   %360 = lshr i32 ptrtoint (ptr @_ZN4llvm18NoOpModuleAnalysis3KeyE to i32), 4
   %361 = lshr i32 ptrtoint (ptr @_ZN4llvm18NoOpModuleAnalysis3KeyE to i32), 9
   %362 = xor i32 %360, %361
@@ -15964,8 +15964,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %381 = icmp eq ptr %380, @_ZN4llvm18NoOpModuleAnalysis3KeyE
   br i1 %381, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i160, label %.lr.ph.i.i.i.i.i153, !llvm.loop !6
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i166: ; preds = %371, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_8EEbOT_.exit"
-  %.sink.i.i.i.i.i167 = phi ptr [ %372, %371 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_8EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i166: ; preds = %371, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_8EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i167 = phi ptr [ %372, %371 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_8EEbOT_.argprom.exit" ]
   %382 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sink.i.i.i.i.i167)
   %383 = load ptr, ptr %8, align 8
   store ptr %383, ptr %382, align 8
@@ -15978,7 +15978,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %385 = getelementptr inbounds nuw i8, ptr %.0.i.i.i161, i64 8
   %386 = load ptr, ptr %385, align 8
   %.not.i162 = icmp eq ptr %386, null
-  br i1 %.not.i162, label %387, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_9EEbOT_.exit"
+  br i1 %.not.i162, label %387, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_9EEbOT_.argprom.exit"
 
 387:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i160
   %388 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -15986,16 +15986,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %389 = load ptr, ptr %385, align 8
   store ptr %388, ptr %385, align 8
   %.not.i.i.i163 = icmp eq ptr %389, null
-  br i1 %.not.i.i.i163, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_9EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i164
+  br i1 %.not.i.i.i163, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_9EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i164
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i164: ; preds = %387
   %390 = load ptr, ptr %389, align 8
   %391 = getelementptr inbounds i8, ptr %390, i64 8
   %392 = load ptr, ptr %391, align 8
   call void %392(ptr noundef nonnull align 8 dereferenceable(8) %389) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_9EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_9EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_9EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i160, %387, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i164
+"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_9EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i160, %387, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i164
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr @_ZN4llvm27PassInstrumentationAnalysis3KeyE, ptr %7, align 8
@@ -16004,7 +16004,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %395 = icmp eq i32 %394, 0
   br i1 %395, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i182, label %396
 
-396:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_9EEbOT_.exit"
+396:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_9EEbOT_.argprom.exit"
   %397 = lshr i32 ptrtoint (ptr @_ZN4llvm27PassInstrumentationAnalysis3KeyE to i32), 4
   %398 = lshr i32 ptrtoint (ptr @_ZN4llvm27PassInstrumentationAnalysis3KeyE to i32), 9
   %399 = xor i32 %397, %398
@@ -16044,8 +16044,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %418 = icmp eq ptr %417, @_ZN4llvm27PassInstrumentationAnalysis3KeyE
   br i1 %418, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i176, label %.lr.ph.i.i.i.i.i169, !llvm.loop !6
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i182: ; preds = %408, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_9EEbOT_.exit"
-  %.sink.i.i.i.i.i183 = phi ptr [ %409, %408 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_9EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i182: ; preds = %408, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_9EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i183 = phi ptr [ %409, %408 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E3$_9EEbOT_.argprom.exit" ]
   %419 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.sink.i.i.i.i.i183)
   %420 = load ptr, ptr %7, align 8
   store ptr %420, ptr %419, align 8
@@ -16142,7 +16142,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %461 = getelementptr inbounds nuw i8, ptr %.0.i.i.i193, i64 8
   %462 = load ptr, ptr %461, align 8
   %.not.i194 = icmp eq ptr %462, null
-  br i1 %.not.i194, label %463, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_11EEbOT_.exit"
+  br i1 %.not.i194, label %463, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_11EEbOT_.argprom.exit"
 
 463:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i192
   %464 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -16150,16 +16150,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %465 = load ptr, ptr %461, align 8
   store ptr %464, ptr %461, align 8
   %.not.i.i.i195 = icmp eq ptr %465, null
-  br i1 %.not.i.i.i195, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_11EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i196
+  br i1 %.not.i.i.i195, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_11EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i196
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i196: ; preds = %463
   %466 = load ptr, ptr %465, align 8
   %467 = getelementptr inbounds i8, ptr %466, i64 8
   %468 = load ptr, ptr %467, align 8
   call void %468(ptr noundef nonnull align 8 dereferenceable(8) %465) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_11EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_11EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_11EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i192, %463, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i196
+"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_11EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i192, %463, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i196
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr @_ZN4llvm25StackSafetyGlobalAnalysis3KeyE, ptr %5, align 8
@@ -16168,7 +16168,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %471 = icmp eq i32 %470, 0
   br i1 %471, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i214, label %472
 
-472:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_11EEbOT_.exit"
+472:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_11EEbOT_.argprom.exit"
   %473 = lshr i32 ptrtoint (ptr @_ZN4llvm25StackSafetyGlobalAnalysis3KeyE to i32), 4
   %474 = lshr i32 ptrtoint (ptr @_ZN4llvm25StackSafetyGlobalAnalysis3KeyE to i32), 9
   %475 = xor i32 %473, %474
@@ -16208,8 +16208,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %494 = icmp eq ptr %493, @_ZN4llvm25StackSafetyGlobalAnalysis3KeyE
   br i1 %494, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i208, label %.lr.ph.i.i.i.i.i201, !llvm.loop !6
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i214: ; preds = %484, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_11EEbOT_.exit"
-  %.sink.i.i.i.i.i215 = phi ptr [ %485, %484 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_11EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i214: ; preds = %484, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_11EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i215 = phi ptr [ %485, %484 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_11EEbOT_.argprom.exit" ]
   %495 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.sink.i.i.i.i.i215)
   %496 = load ptr, ptr %5, align 8
   store ptr %496, ptr %495, align 8
@@ -16222,7 +16222,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %498 = getelementptr inbounds nuw i8, ptr %.0.i.i.i209, i64 8
   %499 = load ptr, ptr %498, align 8
   %.not.i210 = icmp eq ptr %499, null
-  br i1 %.not.i210, label %500, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_12EEbOT_.exit"
+  br i1 %.not.i210, label %500, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_12EEbOT_.argprom.exit"
 
 500:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i208
   %501 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -16230,16 +16230,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %502 = load ptr, ptr %498, align 8
   store ptr %501, ptr %498, align 8
   %.not.i.i.i211 = icmp eq ptr %502, null
-  br i1 %.not.i.i.i211, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_12EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i212
+  br i1 %.not.i.i.i211, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_12EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i212
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i212: ; preds = %500
   %503 = load ptr, ptr %502, align 8
   %504 = getelementptr inbounds i8, ptr %503, i64 8
   %505 = load ptr, ptr %504, align 8
   call void %505(ptr noundef nonnull align 8 dereferenceable(8) %502) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_12EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_12EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_12EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i208, %500, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i212
+"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_12EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i208, %500, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i212
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @_ZN4llvm16VerifierAnalysis3KeyE, ptr %4, align 8
@@ -16248,7 +16248,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %508 = icmp eq i32 %507, 0
   br i1 %508, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i230, label %509
 
-509:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_12EEbOT_.exit"
+509:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_12EEbOT_.argprom.exit"
   %510 = lshr i32 ptrtoint (ptr @_ZN4llvm16VerifierAnalysis3KeyE to i32), 4
   %511 = lshr i32 ptrtoint (ptr @_ZN4llvm16VerifierAnalysis3KeyE to i32), 9
   %512 = xor i32 %510, %511
@@ -16288,8 +16288,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %531 = icmp eq ptr %530, @_ZN4llvm16VerifierAnalysis3KeyE
   br i1 %531, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i224, label %.lr.ph.i.i.i.i.i217, !llvm.loop !6
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i230: ; preds = %521, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_12EEbOT_.exit"
-  %.sink.i.i.i.i.i231 = phi ptr [ %522, %521 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_12EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i230: ; preds = %521, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_12EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i231 = phi ptr [ %522, %521 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_12EEbOT_.argprom.exit" ]
   %532 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i.i231)
   %533 = load ptr, ptr %4, align 8
   store ptr %533, ptr %532, align 8
@@ -16302,7 +16302,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %535 = getelementptr inbounds nuw i8, ptr %.0.i.i.i225, i64 8
   %536 = load ptr, ptr %535, align 8
   %.not.i226 = icmp eq ptr %536, null
-  br i1 %.not.i226, label %537, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_13EEbOT_.exit"
+  br i1 %.not.i226, label %537, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_13EEbOT_.argprom.exit"
 
 537:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i224
   %538 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -16310,16 +16310,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %539 = load ptr, ptr %535, align 8
   store ptr %538, ptr %535, align 8
   %.not.i.i.i227 = icmp eq ptr %539, null
-  br i1 %.not.i.i.i227, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_13EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i228
+  br i1 %.not.i.i.i227, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_13EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i228
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i228: ; preds = %537
   %540 = load ptr, ptr %539, align 8
   %541 = getelementptr inbounds i8, ptr %540, i64 8
   %542 = load ptr, ptr %541, align 8
   call void %542(ptr noundef nonnull align 8 dereferenceable(8) %539) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_13EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_13EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_13EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i224, %537, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i228
+"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_13EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i224, %537, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i228
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr @_ZN4llvm9GlobalsAA3KeyE, ptr %3, align 8
@@ -16328,7 +16328,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %545 = icmp eq i32 %544, 0
   br i1 %545, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i246, label %546
 
-546:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_13EEbOT_.exit"
+546:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_13EEbOT_.argprom.exit"
   %547 = lshr i32 ptrtoint (ptr @_ZN4llvm9GlobalsAA3KeyE to i32), 4
   %548 = lshr i32 ptrtoint (ptr @_ZN4llvm9GlobalsAA3KeyE to i32), 9
   %549 = xor i32 %547, %548
@@ -16368,8 +16368,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %568 = icmp eq ptr %567, @_ZN4llvm9GlobalsAA3KeyE
   br i1 %568, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i240, label %.lr.ph.i.i.i.i.i233, !llvm.loop !6
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i246: ; preds = %558, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_13EEbOT_.exit"
-  %.sink.i.i.i.i.i247 = phi ptr [ %559, %558 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_13EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i246: ; preds = %558, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_13EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i247 = phi ptr [ %559, %558 ], [ null, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_13EEbOT_.argprom.exit" ]
   %569 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i.i247)
   %570 = load ptr, ptr %3, align 8
   store ptr %570, ptr %569, align 8
@@ -16382,7 +16382,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %572 = getelementptr inbounds nuw i8, ptr %.0.i.i.i241, i64 8
   %573 = load ptr, ptr %572, align 8
   %.not.i242 = icmp eq ptr %573, null
-  br i1 %.not.i242, label %574, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_14EEbOT_.exit"
+  br i1 %.not.i242, label %574, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_14EEbOT_.argprom.exit"
 
 574:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i240
   %575 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -16390,16 +16390,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %576 = load ptr, ptr %572, align 8
   store ptr %575, ptr %572, align 8
   %.not.i.i.i243 = icmp eq ptr %576, null
-  br i1 %.not.i.i.i243, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_14EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i244
+  br i1 %.not.i.i.i243, label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_14EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i244
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i244: ; preds = %574
   %577 = load ptr, ptr %576, align 8
   %578 = getelementptr inbounds i8, ptr %577, i64 8
   %579 = load ptr, ptr %578, align 8
   call void %579(ptr noundef nonnull align 8 dereferenceable(8) %576) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_14EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_14EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_14EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i240, %574, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i244
+"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_14EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_6ModuleENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i240, %574, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i244
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %580 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %581 = load ptr, ptr %580, align 8
@@ -16408,8 +16408,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_6ModuleENS0_15Anal
   %.not307 = icmp eq i64 %582, 0
   br i1 %.not307, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_14EEbOT_.exit", %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_6ModuleEJEEEEEclES4_.exit
-  %.0308 = phi ptr [ %589, %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_6ModuleEJEEEEEclES4_.exit ], [ %581, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_14EEbOT_.exit" ]
+.lr.ph:                                           ; preds = %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_14EEbOT_.argprom.exit", %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_6ModuleEJEEEEEclES4_.exit
+  %.0308 = phi ptr [ %589, %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_6ModuleEJEEEEEclES4_.exit ], [ %581, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_14EEbOT_.argprom.exit" ]
   %584 = getelementptr inbounds nuw i8, ptr %.0308, i64 16
   %585 = load ptr, ptr %584, align 8
   %.not.i.i = icmp eq ptr %585, null
@@ -16427,7 +16427,7 @@ _ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_6ModuleEJEEEEEclES4_.exit: ; pred
   %.not = icmp eq ptr %589, %583
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_6ModuleEJEEEEEclES4_.exit, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_14EEbOT_.exit"
+._crit_edge:                                      ; preds = %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_6ModuleEJEEEEEclES4_.exit, %"_ZN4llvm15AnalysisManagerINS_6ModuleEJEE12registerPassIZNS_11PassBuilder22registerModuleAnalysesERS2_E4$_14EEbOT_.argprom.exit"
   ret void
 }
 
@@ -16498,7 +16498,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %38, label %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_0EEbOT_.exit"
+  br i1 %.not.i, label %38, label %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_0EEbOT_.argprom.exit"
 
 38:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS8_JRS7_EE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i
   %39 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -16506,16 +16506,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %40 = load ptr, ptr %36, align 8
   store ptr %39, ptr %36, align 8
   %.not.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i, label %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_0EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_13LazyCallGraph3SCCENS0_15AnalysisManagerIS4_JRS3_EE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i
+  br i1 %.not.i.i.i, label %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_0EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_13LazyCallGraph3SCCENS0_15AnalysisManagerIS4_JRS3_EE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_13LazyCallGraph3SCCENS0_15AnalysisManagerIS4_JRS3_EE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i: ; preds = %38
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   call void %43(ptr noundef nonnull align 8 dereferenceable(8) %40) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_0EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_0EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_0EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS8_JRS7_EE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i, %38, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_13LazyCallGraph3SCCENS0_15AnalysisManagerIS4_JRS3_EE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i
+"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_0EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS8_JRS7_EE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i, %38, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_13LazyCallGraph3SCCENS0_15AnalysisManagerIS4_JRS3_EE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @_ZN4llvm33FunctionAnalysisManagerCGSCCProxy3KeyE, ptr %4, align 8
@@ -16524,7 +16524,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_13LazyCallGraph3SC
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS8_JRS7_EE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E15LookupBucketForIS3_EEbRKT_RPSK_.exit.i.i.i26, label %47
 
-47:                                               ; preds = %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_0EEbOT_.exit"
+47:                                               ; preds = %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_0EEbOT_.argprom.exit"
   %48 = lshr i32 ptrtoint (ptr @_ZN4llvm33FunctionAnalysisManagerCGSCCProxy3KeyE to i32), 4
   %49 = lshr i32 ptrtoint (ptr @_ZN4llvm33FunctionAnalysisManagerCGSCCProxy3KeyE to i32), 9
   %50 = xor i32 %48, %49
@@ -16564,8 +16564,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_13LazyCallGraph3SC
   %69 = icmp eq ptr %68, @_ZN4llvm33FunctionAnalysisManagerCGSCCProxy3KeyE
   br i1 %69, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS8_JRS7_EE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i20, label %.lr.ph.i.i.i.i.i13, !llvm.loop !10
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS8_JRS7_EE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E15LookupBucketForIS3_EEbRKT_RPSK_.exit.i.i.i26: ; preds = %59, %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_0EEbOT_.exit"
-  %.sink.i.i.i.i.i27 = phi ptr [ %60, %59 ], [ null, %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_0EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS8_JRS7_EE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E15LookupBucketForIS3_EEbRKT_RPSK_.exit.i.i.i26: ; preds = %59, %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_0EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i27 = phi ptr [ %60, %59 ], [ null, %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_0EEbOT_.argprom.exit" ]
   %70 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS8_JRS7_EE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E20InsertIntoBucketImplIS3_EEPSK_RKS3_RKT_SO_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i.i27)
   %71 = load ptr, ptr %4, align 8
   store ptr %71, ptr %70, align 8
@@ -16578,7 +16578,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i21, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not.i22 = icmp eq ptr %74, null
-  br i1 %.not.i22, label %75, label %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_1EEbOT_.exit"
+  br i1 %.not.i22, label %75, label %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_1EEbOT_.argprom.exit"
 
 75:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS8_JRS7_EE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i20
   %76 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -16586,16 +16586,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %77 = load ptr, ptr %73, align 8
   store ptr %76, ptr %73, align 8
   %.not.i.i.i23 = icmp eq ptr %77, null
-  br i1 %.not.i.i.i23, label %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_1EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_13LazyCallGraph3SCCENS0_15AnalysisManagerIS4_JRS3_EE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i24
+  br i1 %.not.i.i.i23, label %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_1EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_13LazyCallGraph3SCCENS0_15AnalysisManagerIS4_JRS3_EE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i24
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_13LazyCallGraph3SCCENS0_15AnalysisManagerIS4_JRS3_EE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i24: ; preds = %75
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
   call void %80(ptr noundef nonnull align 8 dereferenceable(8) %77) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_1EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_1EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_1EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS8_JRS7_EE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i20, %75, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_13LazyCallGraph3SCCENS0_15AnalysisManagerIS4_JRS3_EE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i24
+"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_1EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS8_JRS7_EE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i20, %75, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_13LazyCallGraph3SCCENS0_15AnalysisManagerIS4_JRS3_EE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr @_ZN4llvm27PassInstrumentationAnalysis3KeyE, ptr %3, align 8
@@ -16604,7 +16604,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_13LazyCallGraph3SC
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS8_JRS7_EE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E15LookupBucketForIS3_EEbRKT_RPSK_.exit.i.i.i42, label %84
 
-84:                                               ; preds = %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_1EEbOT_.exit"
+84:                                               ; preds = %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_1EEbOT_.argprom.exit"
   %85 = lshr i32 ptrtoint (ptr @_ZN4llvm27PassInstrumentationAnalysis3KeyE to i32), 4
   %86 = lshr i32 ptrtoint (ptr @_ZN4llvm27PassInstrumentationAnalysis3KeyE to i32), 9
   %87 = xor i32 %85, %86
@@ -16644,8 +16644,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_13LazyCallGraph3SC
   %106 = icmp eq ptr %105, @_ZN4llvm27PassInstrumentationAnalysis3KeyE
   br i1 %106, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS8_JRS7_EE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i36, label %.lr.ph.i.i.i.i.i29, !llvm.loop !10
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS8_JRS7_EE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E15LookupBucketForIS3_EEbRKT_RPSK_.exit.i.i.i42: ; preds = %96, %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_1EEbOT_.exit"
-  %.sink.i.i.i.i.i43 = phi ptr [ %97, %96 ], [ null, %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_1EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS8_JRS7_EE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E15LookupBucketForIS3_EEbRKT_RPSK_.exit.i.i.i42: ; preds = %96, %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_1EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i43 = phi ptr [ %97, %96 ], [ null, %"_ZN4llvm15AnalysisManagerINS_13LazyCallGraph3SCCEJRS1_EE12registerPassIZNS_11PassBuilder21registerCGSCCAnalysesERS4_E3$_1EEbOT_.argprom.exit" ]
   %107 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS8_JRS7_EE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E20InsertIntoBucketImplIS3_EEPSK_RKS3_RKT_SO_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i.i43)
   %108 = load ptr, ptr %3, align 8
   store ptr %108, ptr %107, align 8
@@ -16926,7 +16926,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %125 = getelementptr inbounds nuw i8, ptr %.0.i.i.i59, i64 8
   %126 = load ptr, ptr %125, align 8
   %.not.i60 = icmp eq ptr %126, null
-  br i1 %.not.i60, label %127, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_1EEbOT_.exit"
+  br i1 %.not.i60, label %127, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_1EEbOT_.argprom.exit"
 
 127:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i58
   %128 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27
@@ -16961,13 +16961,13 @@ _ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15Analysi
   %139 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %45) #25
   %140 = load ptr, ptr %45, align 8
   %141 = icmp eq ptr %140, %129
-  br i1 %141, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_1EEbOT_.exit", label %142
+  br i1 %141, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_1EEbOT_.argprom.exit", label %142
 
 142:                                              ; preds = %_ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEESt14default_deleteIS7_EE5resetEPS7_.exit.i64
   call void @free(ptr noundef %140) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_1EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_1EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_1EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i58, %_ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEESt14default_deleteIS7_EE5resetEPS7_.exit.i64, %142
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_1EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i58, %_ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEESt14default_deleteIS7_EE5resetEPS7_.exit.i64, %142
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
@@ -16977,7 +16977,7 @@ _ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15Analysi
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i83, label %146
 
-146:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_1EEbOT_.exit"
+146:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_1EEbOT_.argprom.exit"
   %147 = lshr i32 ptrtoint (ptr @_ZN4llvm18LoopAccessAnalysis3KeyE to i32), 4
   %148 = lshr i32 ptrtoint (ptr @_ZN4llvm18LoopAccessAnalysis3KeyE to i32), 9
   %149 = xor i32 %147, %148
@@ -17017,8 +17017,8 @@ _ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15Analysi
   %168 = icmp eq ptr %167, @_ZN4llvm18LoopAccessAnalysis3KeyE
   br i1 %168, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i76, label %.lr.ph.i.i.i.i.i69, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i83: ; preds = %158, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_1EEbOT_.exit"
-  %.sink.i.i.i.i.i84 = phi ptr [ %159, %158 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_1EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i83: ; preds = %158, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_1EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i84 = phi ptr [ %159, %158 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_1EEbOT_.argprom.exit" ]
   %169 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef %.sink.i.i.i.i.i84)
   %170 = load ptr, ptr %43, align 8
   store ptr %170, ptr %169, align 8
@@ -17031,7 +17031,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %172 = getelementptr inbounds nuw i8, ptr %.0.i.i.i77, i64 8
   %173 = load ptr, ptr %172, align 8
   %.not.i78 = icmp eq ptr %173, null
-  br i1 %.not.i78, label %174, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_2EEbOT_.exit"
+  br i1 %.not.i78, label %174, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_2EEbOT_.argprom.exit"
 
 174:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i76
   %175 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -17039,16 +17039,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %176 = load ptr, ptr %172, align 8
   store ptr %175, ptr %172, align 8
   %.not.i.i.i80 = icmp eq ptr %176, null
-  br i1 %.not.i.i.i80, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_2EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i81
+  br i1 %.not.i.i.i80, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_2EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i81
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i81: ; preds = %174
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 8
   %179 = load ptr, ptr %178, align 8
   call void %179(ptr noundef nonnull align 8 dereferenceable(8) %176) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_2EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_2EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_2EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i76, %174, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i81
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_2EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i76, %174, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i81
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42)
   store ptr @_ZN4llvm18AssumptionAnalysis3KeyE, ptr %42, align 8
@@ -17057,7 +17057,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i100, label %183
 
-183:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_2EEbOT_.exit"
+183:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_2EEbOT_.argprom.exit"
   %184 = lshr i32 ptrtoint (ptr @_ZN4llvm18AssumptionAnalysis3KeyE to i32), 4
   %185 = lshr i32 ptrtoint (ptr @_ZN4llvm18AssumptionAnalysis3KeyE to i32), 9
   %186 = xor i32 %184, %185
@@ -17097,8 +17097,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %205 = icmp eq ptr %204, @_ZN4llvm18AssumptionAnalysis3KeyE
   br i1 %205, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i93, label %.lr.ph.i.i.i.i.i86, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i100: ; preds = %195, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_2EEbOT_.exit"
-  %.sink.i.i.i.i.i101 = phi ptr [ %196, %195 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_2EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i100: ; preds = %195, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_2EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i101 = phi ptr [ %196, %195 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_2EEbOT_.argprom.exit" ]
   %206 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %.sink.i.i.i.i.i101)
   %207 = load ptr, ptr %42, align 8
   store ptr %207, ptr %206, align 8
@@ -17111,7 +17111,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %209 = getelementptr inbounds nuw i8, ptr %.0.i.i.i94, i64 8
   %210 = load ptr, ptr %209, align 8
   %.not.i95 = icmp eq ptr %210, null
-  br i1 %.not.i95, label %211, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_3EEbOT_.exit"
+  br i1 %.not.i95, label %211, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_3EEbOT_.argprom.exit"
 
 211:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i93
   %212 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -17119,16 +17119,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %213 = load ptr, ptr %209, align 8
   store ptr %212, ptr %209, align 8
   %.not.i.i.i97 = icmp eq ptr %213, null
-  br i1 %.not.i.i.i97, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_3EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i98
+  br i1 %.not.i.i.i97, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_3EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i98
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i98: ; preds = %211
   %214 = load ptr, ptr %213, align 8
   %215 = getelementptr inbounds i8, ptr %214, i64 8
   %216 = load ptr, ptr %215, align 8
   call void %216(ptr noundef nonnull align 8 dereferenceable(8) %213) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_3EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_3EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_3EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i93, %211, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i98
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_3EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i93, %211, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i98
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41)
   store ptr @_ZN4llvm39BasicBlockSectionsProfileReaderAnalysis3KeyE, ptr %41, align 8
@@ -17137,7 +17137,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %219 = icmp eq i32 %218, 0
   br i1 %219, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i118, label %220
 
-220:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_3EEbOT_.exit"
+220:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_3EEbOT_.argprom.exit"
   %221 = lshr i32 ptrtoint (ptr @_ZN4llvm39BasicBlockSectionsProfileReaderAnalysis3KeyE to i32), 4
   %222 = lshr i32 ptrtoint (ptr @_ZN4llvm39BasicBlockSectionsProfileReaderAnalysis3KeyE to i32), 9
   %223 = xor i32 %221, %222
@@ -17177,8 +17177,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %242 = icmp eq ptr %241, @_ZN4llvm39BasicBlockSectionsProfileReaderAnalysis3KeyE
   br i1 %242, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i110, label %.lr.ph.i.i.i.i.i103, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i118: ; preds = %232, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_3EEbOT_.exit"
-  %.sink.i.i.i.i.i119 = phi ptr [ %233, %232 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_3EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i118: ; preds = %232, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_3EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i119 = phi ptr [ %233, %232 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_3EEbOT_.argprom.exit" ]
   %243 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef %.sink.i.i.i.i.i119)
   %244 = load ptr, ptr %41, align 8
   store ptr %244, ptr %243, align 8
@@ -17274,7 +17274,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %284 = getelementptr inbounds nuw i8, ptr %.0.i.i.i129, i64 8
   %285 = load ptr, ptr %284, align 8
   %.not.i130 = icmp eq ptr %285, null
-  br i1 %.not.i130, label %286, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_5EEbOT_.exit"
+  br i1 %.not.i130, label %286, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_5EEbOT_.argprom.exit"
 
 286:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i128
   %287 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -17282,16 +17282,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %288 = load ptr, ptr %284, align 8
   store ptr %287, ptr %284, align 8
   %.not.i.i.i132 = icmp eq ptr %288, null
-  br i1 %.not.i.i.i132, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_5EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i133
+  br i1 %.not.i.i.i132, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_5EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i133
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i133: ; preds = %286
   %289 = load ptr, ptr %288, align 8
   %290 = getelementptr inbounds i8, ptr %289, i64 8
   %291 = load ptr, ptr %290, align 8
   call void %291(ptr noundef nonnull align 8 dereferenceable(8) %288) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_5EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_5EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_5EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i128, %286, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i133
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_5EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i128, %286, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i133
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
   store ptr @_ZN4llvm25BranchProbabilityAnalysis3KeyE, ptr %39, align 8
@@ -17300,7 +17300,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %294 = icmp eq i32 %293, 0
   br i1 %294, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i152, label %295
 
-295:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_5EEbOT_.exit"
+295:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_5EEbOT_.argprom.exit"
   %296 = lshr i32 ptrtoint (ptr @_ZN4llvm25BranchProbabilityAnalysis3KeyE to i32), 4
   %297 = lshr i32 ptrtoint (ptr @_ZN4llvm25BranchProbabilityAnalysis3KeyE to i32), 9
   %298 = xor i32 %296, %297
@@ -17340,8 +17340,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %317 = icmp eq ptr %316, @_ZN4llvm25BranchProbabilityAnalysis3KeyE
   br i1 %317, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i145, label %.lr.ph.i.i.i.i.i138, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i152: ; preds = %307, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_5EEbOT_.exit"
-  %.sink.i.i.i.i.i153 = phi ptr [ %308, %307 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_5EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i152: ; preds = %307, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_5EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i153 = phi ptr [ %308, %307 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_5EEbOT_.argprom.exit" ]
   %318 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %.sink.i.i.i.i.i153)
   %319 = load ptr, ptr %39, align 8
   store ptr %319, ptr %318, align 8
@@ -17354,7 +17354,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %321 = getelementptr inbounds nuw i8, ptr %.0.i.i.i146, i64 8
   %322 = load ptr, ptr %321, align 8
   %.not.i147 = icmp eq ptr %322, null
-  br i1 %.not.i147, label %323, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_6EEbOT_.exit"
+  br i1 %.not.i147, label %323, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_6EEbOT_.argprom.exit"
 
 323:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i145
   %324 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -17362,16 +17362,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %325 = load ptr, ptr %321, align 8
   store ptr %324, ptr %321, align 8
   %.not.i.i.i149 = icmp eq ptr %325, null
-  br i1 %.not.i.i.i149, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_6EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i150
+  br i1 %.not.i.i.i149, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_6EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i150
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i150: ; preds = %323
   %326 = load ptr, ptr %325, align 8
   %327 = getelementptr inbounds i8, ptr %326, i64 8
   %328 = load ptr, ptr %327, align 8
   call void %328(ptr noundef nonnull align 8 dereferenceable(8) %325) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_6EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_6EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_6EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i145, %323, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i150
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_6EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i145, %323, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i150
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
   store ptr @_ZN4llvm13CycleAnalysis3KeyE, ptr %38, align 8
@@ -17380,7 +17380,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %331 = icmp eq i32 %330, 0
   br i1 %331, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i169, label %332
 
-332:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_6EEbOT_.exit"
+332:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_6EEbOT_.argprom.exit"
   %333 = lshr i32 ptrtoint (ptr @_ZN4llvm13CycleAnalysis3KeyE to i32), 4
   %334 = lshr i32 ptrtoint (ptr @_ZN4llvm13CycleAnalysis3KeyE to i32), 9
   %335 = xor i32 %333, %334
@@ -17420,8 +17420,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %354 = icmp eq ptr %353, @_ZN4llvm13CycleAnalysis3KeyE
   br i1 %354, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i162, label %.lr.ph.i.i.i.i.i155, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i169: ; preds = %344, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_6EEbOT_.exit"
-  %.sink.i.i.i.i.i170 = phi ptr [ %345, %344 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_6EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i169: ; preds = %344, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_6EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i170 = phi ptr [ %345, %344 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_6EEbOT_.argprom.exit" ]
   %355 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %.sink.i.i.i.i.i170)
   %356 = load ptr, ptr %38, align 8
   store ptr %356, ptr %355, align 8
@@ -17434,7 +17434,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %358 = getelementptr inbounds nuw i8, ptr %.0.i.i.i163, i64 8
   %359 = load ptr, ptr %358, align 8
   %.not.i164 = icmp eq ptr %359, null
-  br i1 %.not.i164, label %360, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_7EEbOT_.exit"
+  br i1 %.not.i164, label %360, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_7EEbOT_.argprom.exit"
 
 360:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i162
   %361 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -17442,16 +17442,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %362 = load ptr, ptr %358, align 8
   store ptr %361, ptr %358, align 8
   %.not.i.i.i166 = icmp eq ptr %362, null
-  br i1 %.not.i.i.i166, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_7EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i167
+  br i1 %.not.i.i.i166, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_7EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i167
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i167: ; preds = %360
   %363 = load ptr, ptr %362, align 8
   %364 = getelementptr inbounds i8, ptr %363, i64 8
   %365 = load ptr, ptr %364, align 8
   call void %365(ptr noundef nonnull align 8 dereferenceable(8) %362) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_7EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_7EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_7EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i162, %360, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i167
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_7EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i162, %360, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i167
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37)
   store ptr @_ZN4llvm18DependenceAnalysis3KeyE, ptr %37, align 8
@@ -17460,7 +17460,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %368 = icmp eq i32 %367, 0
   br i1 %368, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i186, label %369
 
-369:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_7EEbOT_.exit"
+369:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_7EEbOT_.argprom.exit"
   %370 = lshr i32 ptrtoint (ptr @_ZN4llvm18DependenceAnalysis3KeyE to i32), 4
   %371 = lshr i32 ptrtoint (ptr @_ZN4llvm18DependenceAnalysis3KeyE to i32), 9
   %372 = xor i32 %370, %371
@@ -17500,8 +17500,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %391 = icmp eq ptr %390, @_ZN4llvm18DependenceAnalysis3KeyE
   br i1 %391, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i179, label %.lr.ph.i.i.i.i.i172, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i186: ; preds = %381, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_7EEbOT_.exit"
-  %.sink.i.i.i.i.i187 = phi ptr [ %382, %381 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_7EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i186: ; preds = %381, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_7EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i187 = phi ptr [ %382, %381 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_7EEbOT_.argprom.exit" ]
   %392 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef %.sink.i.i.i.i.i187)
   %393 = load ptr, ptr %37, align 8
   store ptr %393, ptr %392, align 8
@@ -17514,7 +17514,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %395 = getelementptr inbounds nuw i8, ptr %.0.i.i.i180, i64 8
   %396 = load ptr, ptr %395, align 8
   %.not.i181 = icmp eq ptr %396, null
-  br i1 %.not.i181, label %397, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_8EEbOT_.exit"
+  br i1 %.not.i181, label %397, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_8EEbOT_.argprom.exit"
 
 397:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i179
   %398 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -17522,16 +17522,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %399 = load ptr, ptr %395, align 8
   store ptr %398, ptr %395, align 8
   %.not.i.i.i183 = icmp eq ptr %399, null
-  br i1 %.not.i.i.i183, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_8EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i184
+  br i1 %.not.i.i.i183, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_8EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i184
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i184: ; preds = %397
   %400 = load ptr, ptr %399, align 8
   %401 = getelementptr inbounds i8, ptr %400, i64 8
   %402 = load ptr, ptr %401, align 8
   call void %402(ptr noundef nonnull align 8 dereferenceable(8) %399) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_8EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_8EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_8EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i179, %397, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i184
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_8EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i179, %397, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i184
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
   store ptr @_ZN4llvm31DebugAssignmentTrackingAnalysis3KeyE, ptr %36, align 8
@@ -17540,7 +17540,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %405 = icmp eq i32 %404, 0
   br i1 %405, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i203, label %406
 
-406:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_8EEbOT_.exit"
+406:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_8EEbOT_.argprom.exit"
   %407 = lshr i32 ptrtoint (ptr @_ZN4llvm31DebugAssignmentTrackingAnalysis3KeyE to i32), 4
   %408 = lshr i32 ptrtoint (ptr @_ZN4llvm31DebugAssignmentTrackingAnalysis3KeyE to i32), 9
   %409 = xor i32 %407, %408
@@ -17580,8 +17580,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %428 = icmp eq ptr %427, @_ZN4llvm31DebugAssignmentTrackingAnalysis3KeyE
   br i1 %428, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i196, label %.lr.ph.i.i.i.i.i189, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i203: ; preds = %418, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_8EEbOT_.exit"
-  %.sink.i.i.i.i.i204 = phi ptr [ %419, %418 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_8EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i203: ; preds = %418, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_8EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i204 = phi ptr [ %419, %418 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_8EEbOT_.argprom.exit" ]
   %429 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef %.sink.i.i.i.i.i204)
   %430 = load ptr, ptr %36, align 8
   store ptr %430, ptr %429, align 8
@@ -17594,7 +17594,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %432 = getelementptr inbounds nuw i8, ptr %.0.i.i.i197, i64 8
   %433 = load ptr, ptr %432, align 8
   %.not.i198 = icmp eq ptr %433, null
-  br i1 %.not.i198, label %434, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_9EEbOT_.exit"
+  br i1 %.not.i198, label %434, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_9EEbOT_.argprom.exit"
 
 434:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i196
   %435 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -17602,16 +17602,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %436 = load ptr, ptr %432, align 8
   store ptr %435, ptr %432, align 8
   %.not.i.i.i200 = icmp eq ptr %436, null
-  br i1 %.not.i.i.i200, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_9EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i201
+  br i1 %.not.i.i.i200, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_9EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i201
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i201: ; preds = %434
   %437 = load ptr, ptr %436, align 8
   %438 = getelementptr inbounds i8, ptr %437, i64 8
   %439 = load ptr, ptr %438, align 8
   call void %439(ptr noundef nonnull align 8 dereferenceable(8) %436) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_9EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_9EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_9EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i196, %434, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i201
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_9EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i196, %434, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i201
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
   store ptr @_ZN4llvm20DemandedBitsAnalysis3KeyE, ptr %35, align 8
@@ -17620,7 +17620,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %442 = icmp eq i32 %441, 0
   br i1 %442, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i220, label %443
 
-443:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_9EEbOT_.exit"
+443:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_9EEbOT_.argprom.exit"
   %444 = lshr i32 ptrtoint (ptr @_ZN4llvm20DemandedBitsAnalysis3KeyE to i32), 4
   %445 = lshr i32 ptrtoint (ptr @_ZN4llvm20DemandedBitsAnalysis3KeyE to i32), 9
   %446 = xor i32 %444, %445
@@ -17660,8 +17660,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %465 = icmp eq ptr %464, @_ZN4llvm20DemandedBitsAnalysis3KeyE
   br i1 %465, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i213, label %.lr.ph.i.i.i.i.i206, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i220: ; preds = %455, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_9EEbOT_.exit"
-  %.sink.i.i.i.i.i221 = phi ptr [ %456, %455 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_9EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i220: ; preds = %455, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_9EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i221 = phi ptr [ %456, %455 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E3$_9EEbOT_.argprom.exit" ]
   %466 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef %.sink.i.i.i.i.i221)
   %467 = load ptr, ptr %35, align 8
   store ptr %467, ptr %466, align 8
@@ -17674,7 +17674,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %469 = getelementptr inbounds nuw i8, ptr %.0.i.i.i214, i64 8
   %470 = load ptr, ptr %469, align 8
   %.not.i215 = icmp eq ptr %470, null
-  br i1 %.not.i215, label %471, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_10EEbOT_.exit"
+  br i1 %.not.i215, label %471, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_10EEbOT_.argprom.exit"
 
 471:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i213
   %472 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -17682,16 +17682,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %473 = load ptr, ptr %469, align 8
   store ptr %472, ptr %469, align 8
   %.not.i.i.i217 = icmp eq ptr %473, null
-  br i1 %.not.i.i.i217, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_10EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i218
+  br i1 %.not.i.i.i217, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_10EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i218
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i218: ; preds = %471
   %474 = load ptr, ptr %473, align 8
   %475 = getelementptr inbounds i8, ptr %474, i64 8
   %476 = load ptr, ptr %475, align 8
   call void %476(ptr noundef nonnull align 8 dereferenceable(8) %473) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_10EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_10EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_10EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i213, %471, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i218
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_10EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i213, %471, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i218
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
   store ptr @_ZN4llvm25DominanceFrontierAnalysis3KeyE, ptr %34, align 8
@@ -17700,7 +17700,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %479 = icmp eq i32 %478, 0
   br i1 %479, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i237, label %480
 
-480:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_10EEbOT_.exit"
+480:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_10EEbOT_.argprom.exit"
   %481 = lshr i32 ptrtoint (ptr @_ZN4llvm25DominanceFrontierAnalysis3KeyE to i32), 4
   %482 = lshr i32 ptrtoint (ptr @_ZN4llvm25DominanceFrontierAnalysis3KeyE to i32), 9
   %483 = xor i32 %481, %482
@@ -17740,8 +17740,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %502 = icmp eq ptr %501, @_ZN4llvm25DominanceFrontierAnalysis3KeyE
   br i1 %502, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i230, label %.lr.ph.i.i.i.i.i223, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i237: ; preds = %492, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_10EEbOT_.exit"
-  %.sink.i.i.i.i.i238 = phi ptr [ %493, %492 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_10EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i237: ; preds = %492, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_10EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i238 = phi ptr [ %493, %492 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_10EEbOT_.argprom.exit" ]
   %503 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef %.sink.i.i.i.i.i238)
   %504 = load ptr, ptr %34, align 8
   store ptr %504, ptr %503, align 8
@@ -17754,7 +17754,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %506 = getelementptr inbounds nuw i8, ptr %.0.i.i.i231, i64 8
   %507 = load ptr, ptr %506, align 8
   %.not.i232 = icmp eq ptr %507, null
-  br i1 %.not.i232, label %508, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_11EEbOT_.exit"
+  br i1 %.not.i232, label %508, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_11EEbOT_.argprom.exit"
 
 508:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i230
   %509 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -17762,16 +17762,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %510 = load ptr, ptr %506, align 8
   store ptr %509, ptr %506, align 8
   %.not.i.i.i234 = icmp eq ptr %510, null
-  br i1 %.not.i.i.i234, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_11EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i235
+  br i1 %.not.i.i.i234, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_11EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i235
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i235: ; preds = %508
   %511 = load ptr, ptr %510, align 8
   %512 = getelementptr inbounds i8, ptr %511, i64 8
   %513 = load ptr, ptr %512, align 8
   call void %513(ptr noundef nonnull align 8 dereferenceable(8) %510) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_11EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_11EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_11EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i230, %508, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i235
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_11EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i230, %508, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i235
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
   store ptr @_ZN4llvm21DominatorTreeAnalysis3KeyE, ptr %33, align 8
@@ -17780,7 +17780,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %516 = icmp eq i32 %515, 0
   br i1 %516, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i254, label %517
 
-517:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_11EEbOT_.exit"
+517:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_11EEbOT_.argprom.exit"
   %518 = lshr i32 ptrtoint (ptr @_ZN4llvm21DominatorTreeAnalysis3KeyE to i32), 4
   %519 = lshr i32 ptrtoint (ptr @_ZN4llvm21DominatorTreeAnalysis3KeyE to i32), 9
   %520 = xor i32 %518, %519
@@ -17820,8 +17820,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %539 = icmp eq ptr %538, @_ZN4llvm21DominatorTreeAnalysis3KeyE
   br i1 %539, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i247, label %.lr.ph.i.i.i.i.i240, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i254: ; preds = %529, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_11EEbOT_.exit"
-  %.sink.i.i.i.i.i255 = phi ptr [ %530, %529 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_11EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i254: ; preds = %529, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_11EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i255 = phi ptr [ %530, %529 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_11EEbOT_.argprom.exit" ]
   %540 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %.sink.i.i.i.i.i255)
   %541 = load ptr, ptr %33, align 8
   store ptr %541, ptr %540, align 8
@@ -17834,7 +17834,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %543 = getelementptr inbounds nuw i8, ptr %.0.i.i.i248, i64 8
   %544 = load ptr, ptr %543, align 8
   %.not.i249 = icmp eq ptr %544, null
-  br i1 %.not.i249, label %545, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_12EEbOT_.exit"
+  br i1 %.not.i249, label %545, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_12EEbOT_.argprom.exit"
 
 545:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i247
   %546 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -17842,16 +17842,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %547 = load ptr, ptr %543, align 8
   store ptr %546, ptr %543, align 8
   %.not.i.i.i251 = icmp eq ptr %547, null
-  br i1 %.not.i.i.i251, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_12EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i252
+  br i1 %.not.i.i.i251, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_12EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i252
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i252: ; preds = %545
   %548 = load ptr, ptr %547, align 8
   %549 = getelementptr inbounds i8, ptr %548, i64 8
   %550 = load ptr, ptr %549, align 8
   call void %550(ptr noundef nonnull align 8 dereferenceable(8) %547) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_12EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_12EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_12EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i247, %545, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i252
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_12EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i247, %545, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i252
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
   store ptr @_ZN4llvm26FunctionPropertiesAnalysis3KeyE, ptr %32, align 8
@@ -17860,7 +17860,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %553 = icmp eq i32 %552, 0
   br i1 %553, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i271, label %554
 
-554:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_12EEbOT_.exit"
+554:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_12EEbOT_.argprom.exit"
   %555 = lshr i32 ptrtoint (ptr @_ZN4llvm26FunctionPropertiesAnalysis3KeyE to i32), 4
   %556 = lshr i32 ptrtoint (ptr @_ZN4llvm26FunctionPropertiesAnalysis3KeyE to i32), 9
   %557 = xor i32 %555, %556
@@ -17900,8 +17900,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %576 = icmp eq ptr %575, @_ZN4llvm26FunctionPropertiesAnalysis3KeyE
   br i1 %576, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i264, label %.lr.ph.i.i.i.i.i257, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i271: ; preds = %566, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_12EEbOT_.exit"
-  %.sink.i.i.i.i.i272 = phi ptr [ %567, %566 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_12EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i271: ; preds = %566, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_12EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i272 = phi ptr [ %567, %566 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_12EEbOT_.argprom.exit" ]
   %577 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %.sink.i.i.i.i.i272)
   %578 = load ptr, ptr %32, align 8
   store ptr %578, ptr %577, align 8
@@ -17914,7 +17914,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %580 = getelementptr inbounds nuw i8, ptr %.0.i.i.i265, i64 8
   %581 = load ptr, ptr %580, align 8
   %.not.i266 = icmp eq ptr %581, null
-  br i1 %.not.i266, label %582, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_13EEbOT_.exit"
+  br i1 %.not.i266, label %582, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_13EEbOT_.argprom.exit"
 
 582:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i264
   %583 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -17922,16 +17922,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %584 = load ptr, ptr %580, align 8
   store ptr %583, ptr %580, align 8
   %.not.i.i.i268 = icmp eq ptr %584, null
-  br i1 %.not.i.i.i268, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_13EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i269
+  br i1 %.not.i.i.i268, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_13EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i269
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i269: ; preds = %582
   %585 = load ptr, ptr %584, align 8
   %586 = getelementptr inbounds i8, ptr %585, i64 8
   %587 = load ptr, ptr %586, align 8
   call void %587(ptr noundef nonnull align 8 dereferenceable(8) %584) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_13EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_13EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_13EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i264, %582, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i269
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_13EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i264, %582, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i269
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
   store ptr @_ZN4llvm23MachineFunctionAnalysis3KeyE, ptr %31, align 8
@@ -17940,7 +17940,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %590 = icmp eq i32 %589, 0
   br i1 %590, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i290, label %591
 
-591:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_13EEbOT_.exit"
+591:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_13EEbOT_.argprom.exit"
   %592 = lshr i32 ptrtoint (ptr @_ZN4llvm23MachineFunctionAnalysis3KeyE to i32), 4
   %593 = lshr i32 ptrtoint (ptr @_ZN4llvm23MachineFunctionAnalysis3KeyE to i32), 9
   %594 = xor i32 %592, %593
@@ -17980,8 +17980,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %613 = icmp eq ptr %612, @_ZN4llvm23MachineFunctionAnalysis3KeyE
   br i1 %613, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i281, label %.lr.ph.i.i.i.i.i274, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i290: ; preds = %603, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_13EEbOT_.exit"
-  %.sink.i.i.i.i.i291 = phi ptr [ %604, %603 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_13EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i290: ; preds = %603, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_13EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i291 = phi ptr [ %604, %603 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_13EEbOT_.argprom.exit" ]
   %614 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %.sink.i.i.i.i.i291)
   %615 = load ptr, ptr %31, align 8
   store ptr %615, ptr %614, align 8
@@ -18077,7 +18077,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %655 = getelementptr inbounds nuw i8, ptr %.0.i.i.i301, i64 8
   %656 = load ptr, ptr %655, align 8
   %.not.i302 = icmp eq ptr %656, null
-  br i1 %.not.i302, label %657, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_15EEbOT_.exit"
+  br i1 %.not.i302, label %657, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_15EEbOT_.argprom.exit"
 
 657:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i300
   %658 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -18085,16 +18085,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %659 = load ptr, ptr %655, align 8
   store ptr %658, ptr %655, align 8
   %.not.i.i.i304 = icmp eq ptr %659, null
-  br i1 %.not.i.i.i304, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_15EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i305
+  br i1 %.not.i.i.i304, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_15EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i305
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i305: ; preds = %657
   %660 = load ptr, ptr %659, align 8
   %661 = getelementptr inbounds i8, ptr %660, i64 8
   %662 = load ptr, ptr %661, align 8
   call void %662(ptr noundef nonnull align 8 dereferenceable(8) %659) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_15EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_15EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_15EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i300, %657, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i305
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_15EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i300, %657, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i305
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
@@ -18104,7 +18104,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %665 = icmp eq i32 %664, 0
   br i1 %665, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i324, label %666
 
-666:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_15EEbOT_.exit"
+666:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_15EEbOT_.argprom.exit"
   %667 = lshr i32 ptrtoint (ptr @_ZN4llvm27InlineSizeEstimatorAnalysis3KeyE to i32), 4
   %668 = lshr i32 ptrtoint (ptr @_ZN4llvm27InlineSizeEstimatorAnalysis3KeyE to i32), 9
   %669 = xor i32 %667, %668
@@ -18144,8 +18144,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %688 = icmp eq ptr %687, @_ZN4llvm27InlineSizeEstimatorAnalysis3KeyE
   br i1 %688, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i317, label %.lr.ph.i.i.i.i.i310, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i324: ; preds = %678, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_15EEbOT_.exit"
-  %.sink.i.i.i.i.i325 = phi ptr [ %679, %678 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_15EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i324: ; preds = %678, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_15EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i325 = phi ptr [ %679, %678 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_15EEbOT_.argprom.exit" ]
   %689 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %.sink.i.i.i.i.i325)
   %690 = load ptr, ptr %28, align 8
   store ptr %690, ptr %689, align 8
@@ -18158,7 +18158,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %692 = getelementptr inbounds nuw i8, ptr %.0.i.i.i318, i64 8
   %693 = load ptr, ptr %692, align 8
   %.not.i319 = icmp eq ptr %693, null
-  br i1 %.not.i319, label %694, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_16EEbOT_.exit"
+  br i1 %.not.i319, label %694, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_16EEbOT_.argprom.exit"
 
 694:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i317
   %695 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -18180,9 +18180,9 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
 
 _ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEESt14default_deleteIS7_EE5resetEPS7_.exit.i322: ; preds = %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i321, %694
   call void @_ZN4llvm27InlineSizeEstimatorAnalysisD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_16EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_16EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_16EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i317, %_ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEESt14default_deleteIS7_EE5resetEPS7_.exit.i322
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_16EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i317, %_ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEESt14default_deleteIS7_EE5resetEPS7_.exit.i322
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
@@ -18192,7 +18192,7 @@ _ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15Analysi
   %703 = icmp eq i32 %702, 0
   br i1 %703, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i341, label %704
 
-704:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_16EEbOT_.exit"
+704:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_16EEbOT_.argprom.exit"
   %705 = lshr i32 ptrtoint (ptr @_ZN4llvm17LazyValueAnalysis3KeyE to i32), 4
   %706 = lshr i32 ptrtoint (ptr @_ZN4llvm17LazyValueAnalysis3KeyE to i32), 9
   %707 = xor i32 %705, %706
@@ -18232,8 +18232,8 @@ _ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15Analysi
   %726 = icmp eq ptr %725, @_ZN4llvm17LazyValueAnalysis3KeyE
   br i1 %726, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i334, label %.lr.ph.i.i.i.i.i327, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i341: ; preds = %716, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_16EEbOT_.exit"
-  %.sink.i.i.i.i.i342 = phi ptr [ %717, %716 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_16EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i341: ; preds = %716, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_16EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i342 = phi ptr [ %717, %716 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_16EEbOT_.argprom.exit" ]
   %727 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %.sink.i.i.i.i.i342)
   %728 = load ptr, ptr %27, align 8
   store ptr %728, ptr %727, align 8
@@ -18246,7 +18246,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %730 = getelementptr inbounds nuw i8, ptr %.0.i.i.i335, i64 8
   %731 = load ptr, ptr %730, align 8
   %.not.i336 = icmp eq ptr %731, null
-  br i1 %.not.i336, label %732, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_17EEbOT_.exit"
+  br i1 %.not.i336, label %732, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_17EEbOT_.argprom.exit"
 
 732:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i334
   %733 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -18254,16 +18254,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %734 = load ptr, ptr %730, align 8
   store ptr %733, ptr %730, align 8
   %.not.i.i.i338 = icmp eq ptr %734, null
-  br i1 %.not.i.i.i338, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_17EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i339
+  br i1 %.not.i.i.i338, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_17EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i339
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i339: ; preds = %732
   %735 = load ptr, ptr %734, align 8
   %736 = getelementptr inbounds i8, ptr %735, i64 8
   %737 = load ptr, ptr %736, align 8
   call void %737(ptr noundef nonnull align 8 dereferenceable(8) %734) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_17EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_17EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_17EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i334, %732, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i339
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_17EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i334, %732, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i339
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   store ptr @_ZN4llvm12LoopAnalysis3KeyE, ptr %26, align 8
@@ -18272,7 +18272,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %740 = icmp eq i32 %739, 0
   br i1 %740, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i358, label %741
 
-741:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_17EEbOT_.exit"
+741:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_17EEbOT_.argprom.exit"
   %742 = lshr i32 ptrtoint (ptr @_ZN4llvm12LoopAnalysis3KeyE to i32), 4
   %743 = lshr i32 ptrtoint (ptr @_ZN4llvm12LoopAnalysis3KeyE to i32), 9
   %744 = xor i32 %742, %743
@@ -18312,8 +18312,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %763 = icmp eq ptr %762, @_ZN4llvm12LoopAnalysis3KeyE
   br i1 %763, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i351, label %.lr.ph.i.i.i.i.i344, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i358: ; preds = %753, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_17EEbOT_.exit"
-  %.sink.i.i.i.i.i359 = phi ptr [ %754, %753 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_17EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i358: ; preds = %753, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_17EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i359 = phi ptr [ %754, %753 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_17EEbOT_.argprom.exit" ]
   %764 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef %.sink.i.i.i.i.i359)
   %765 = load ptr, ptr %26, align 8
   store ptr %765, ptr %764, align 8
@@ -18326,7 +18326,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %767 = getelementptr inbounds nuw i8, ptr %.0.i.i.i352, i64 8
   %768 = load ptr, ptr %767, align 8
   %.not.i353 = icmp eq ptr %768, null
-  br i1 %.not.i353, label %769, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_18EEbOT_.exit"
+  br i1 %.not.i353, label %769, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_18EEbOT_.argprom.exit"
 
 769:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i351
   %770 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -18334,16 +18334,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %771 = load ptr, ptr %767, align 8
   store ptr %770, ptr %767, align 8
   %.not.i.i.i355 = icmp eq ptr %771, null
-  br i1 %.not.i.i.i355, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_18EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i356
+  br i1 %.not.i.i.i355, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_18EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i356
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i356: ; preds = %769
   %772 = load ptr, ptr %771, align 8
   %773 = getelementptr inbounds i8, ptr %772, i64 8
   %774 = load ptr, ptr %773, align 8
   call void %774(ptr noundef nonnull align 8 dereferenceable(8) %771) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_18EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_18EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_18EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i351, %769, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i356
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_18EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i351, %769, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i356
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   store ptr @_ZN4llvm24MemoryDependenceAnalysis3KeyE, ptr %25, align 8
@@ -18352,7 +18352,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %777 = icmp eq i32 %776, 0
   br i1 %777, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i375, label %778
 
-778:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_18EEbOT_.exit"
+778:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_18EEbOT_.argprom.exit"
   %779 = lshr i32 ptrtoint (ptr @_ZN4llvm24MemoryDependenceAnalysis3KeyE to i32), 4
   %780 = lshr i32 ptrtoint (ptr @_ZN4llvm24MemoryDependenceAnalysis3KeyE to i32), 9
   %781 = xor i32 %779, %780
@@ -18392,8 +18392,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %800 = icmp eq ptr %799, @_ZN4llvm24MemoryDependenceAnalysis3KeyE
   br i1 %800, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i368, label %.lr.ph.i.i.i.i.i361, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i375: ; preds = %790, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_18EEbOT_.exit"
-  %.sink.i.i.i.i.i376 = phi ptr [ %791, %790 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_18EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i375: ; preds = %790, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_18EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i376 = phi ptr [ %791, %790 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_18EEbOT_.argprom.exit" ]
   %801 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %.sink.i.i.i.i.i376)
   %802 = load ptr, ptr %25, align 8
   store ptr %802, ptr %801, align 8
@@ -18406,7 +18406,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %804 = getelementptr inbounds nuw i8, ptr %.0.i.i.i369, i64 8
   %805 = load ptr, ptr %804, align 8
   %.not.i370 = icmp eq ptr %805, null
-  br i1 %.not.i370, label %806, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_19EEbOT_.exit"
+  br i1 %.not.i370, label %806, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_19EEbOT_.argprom.exit"
 
 806:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i368
   %807 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -18416,16 +18416,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %809 = load ptr, ptr %804, align 8
   store ptr %807, ptr %804, align 8
   %.not.i.i.i372 = icmp eq ptr %809, null
-  br i1 %.not.i.i.i372, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_19EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i373
+  br i1 %.not.i.i.i372, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_19EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i373
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i373: ; preds = %806
   %810 = load ptr, ptr %809, align 8
   %811 = getelementptr inbounds i8, ptr %810, i64 8
   %812 = load ptr, ptr %811, align 8
   call void %812(ptr noundef nonnull align 8 dereferenceable(8) %809) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_19EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_19EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_19EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i368, %806, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i373
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_19EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i368, %806, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i373
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   store ptr @_ZN4llvm17MemorySSAAnalysis3KeyE, ptr %24, align 8
@@ -18434,7 +18434,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %815 = icmp eq i32 %814, 0
   br i1 %815, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i392, label %816
 
-816:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_19EEbOT_.exit"
+816:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_19EEbOT_.argprom.exit"
   %817 = lshr i32 ptrtoint (ptr @_ZN4llvm17MemorySSAAnalysis3KeyE to i32), 4
   %818 = lshr i32 ptrtoint (ptr @_ZN4llvm17MemorySSAAnalysis3KeyE to i32), 9
   %819 = xor i32 %817, %818
@@ -18474,8 +18474,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %838 = icmp eq ptr %837, @_ZN4llvm17MemorySSAAnalysis3KeyE
   br i1 %838, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i385, label %.lr.ph.i.i.i.i.i378, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i392: ; preds = %828, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_19EEbOT_.exit"
-  %.sink.i.i.i.i.i393 = phi ptr [ %829, %828 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_19EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i392: ; preds = %828, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_19EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i393 = phi ptr [ %829, %828 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_19EEbOT_.argprom.exit" ]
   %839 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %.sink.i.i.i.i.i393)
   %840 = load ptr, ptr %24, align 8
   store ptr %840, ptr %839, align 8
@@ -18488,7 +18488,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %842 = getelementptr inbounds nuw i8, ptr %.0.i.i.i386, i64 8
   %843 = load ptr, ptr %842, align 8
   %.not.i387 = icmp eq ptr %843, null
-  br i1 %.not.i387, label %844, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_20EEbOT_.exit"
+  br i1 %.not.i387, label %844, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_20EEbOT_.argprom.exit"
 
 844:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i385
   %845 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -18496,16 +18496,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %846 = load ptr, ptr %842, align 8
   store ptr %845, ptr %842, align 8
   %.not.i.i.i389 = icmp eq ptr %846, null
-  br i1 %.not.i.i.i389, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_20EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i390
+  br i1 %.not.i.i.i389, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_20EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i390
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i390: ; preds = %844
   %847 = load ptr, ptr %846, align 8
   %848 = getelementptr inbounds i8, ptr %847, i64 8
   %849 = load ptr, ptr %848, align 8
   call void %849(ptr noundef nonnull align 8 dereferenceable(8) %846) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_20EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_20EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_20EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i385, %844, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i390
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_20EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i385, %844, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i390
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store ptr @_ZN4llvm20NoOpFunctionAnalysis3KeyE, ptr %23, align 8
@@ -18514,7 +18514,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %852 = icmp eq i32 %851, 0
   br i1 %852, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i409, label %853
 
-853:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_20EEbOT_.exit"
+853:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_20EEbOT_.argprom.exit"
   %854 = lshr i32 ptrtoint (ptr @_ZN4llvm20NoOpFunctionAnalysis3KeyE to i32), 4
   %855 = lshr i32 ptrtoint (ptr @_ZN4llvm20NoOpFunctionAnalysis3KeyE to i32), 9
   %856 = xor i32 %854, %855
@@ -18554,8 +18554,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %875 = icmp eq ptr %874, @_ZN4llvm20NoOpFunctionAnalysis3KeyE
   br i1 %875, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i402, label %.lr.ph.i.i.i.i.i395, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i409: ; preds = %865, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_20EEbOT_.exit"
-  %.sink.i.i.i.i.i410 = phi ptr [ %866, %865 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_20EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i409: ; preds = %865, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_20EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i410 = phi ptr [ %866, %865 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_20EEbOT_.argprom.exit" ]
   %876 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %.sink.i.i.i.i.i410)
   %877 = load ptr, ptr %23, align 8
   store ptr %877, ptr %876, align 8
@@ -18568,7 +18568,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %879 = getelementptr inbounds nuw i8, ptr %.0.i.i.i403, i64 8
   %880 = load ptr, ptr %879, align 8
   %.not.i404 = icmp eq ptr %880, null
-  br i1 %.not.i404, label %881, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_21EEbOT_.exit"
+  br i1 %.not.i404, label %881, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_21EEbOT_.argprom.exit"
 
 881:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i402
   %882 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -18576,16 +18576,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %883 = load ptr, ptr %879, align 8
   store ptr %882, ptr %879, align 8
   %.not.i.i.i406 = icmp eq ptr %883, null
-  br i1 %.not.i.i.i406, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_21EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i407
+  br i1 %.not.i.i.i406, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_21EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i407
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i407: ; preds = %881
   %884 = load ptr, ptr %883, align 8
   %885 = getelementptr inbounds i8, ptr %884, i64 8
   %886 = load ptr, ptr %885, align 8
   call void %886(ptr noundef nonnull align 8 dereferenceable(8) %883) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_21EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_21EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_21EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i402, %881, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i407
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_21EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i402, %881, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i407
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   store ptr @_ZN4llvm33OptimizationRemarkEmitterAnalysis3KeyE, ptr %22, align 8
@@ -18594,7 +18594,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %889 = icmp eq i32 %888, 0
   br i1 %889, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i426, label %890
 
-890:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_21EEbOT_.exit"
+890:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_21EEbOT_.argprom.exit"
   %891 = lshr i32 ptrtoint (ptr @_ZN4llvm33OptimizationRemarkEmitterAnalysis3KeyE to i32), 4
   %892 = lshr i32 ptrtoint (ptr @_ZN4llvm33OptimizationRemarkEmitterAnalysis3KeyE to i32), 9
   %893 = xor i32 %891, %892
@@ -18634,8 +18634,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %912 = icmp eq ptr %911, @_ZN4llvm33OptimizationRemarkEmitterAnalysis3KeyE
   br i1 %912, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i419, label %.lr.ph.i.i.i.i.i412, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i426: ; preds = %902, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_21EEbOT_.exit"
-  %.sink.i.i.i.i.i427 = phi ptr [ %903, %902 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_21EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i426: ; preds = %902, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_21EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i427 = phi ptr [ %903, %902 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_21EEbOT_.argprom.exit" ]
   %913 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %.sink.i.i.i.i.i427)
   %914 = load ptr, ptr %22, align 8
   store ptr %914, ptr %913, align 8
@@ -18648,7 +18648,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %916 = getelementptr inbounds nuw i8, ptr %.0.i.i.i420, i64 8
   %917 = load ptr, ptr %916, align 8
   %.not.i421 = icmp eq ptr %917, null
-  br i1 %.not.i421, label %918, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_22EEbOT_.exit"
+  br i1 %.not.i421, label %918, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_22EEbOT_.argprom.exit"
 
 918:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i419
   %919 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -18656,16 +18656,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %920 = load ptr, ptr %916, align 8
   store ptr %919, ptr %916, align 8
   %.not.i.i.i423 = icmp eq ptr %920, null
-  br i1 %.not.i.i.i423, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_22EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i424
+  br i1 %.not.i.i.i423, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_22EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i424
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i424: ; preds = %918
   %921 = load ptr, ptr %920, align 8
   %922 = getelementptr inbounds i8, ptr %921, i64 8
   %923 = load ptr, ptr %922, align 8
   call void %923(ptr noundef nonnull align 8 dereferenceable(8) %920) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_22EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_22EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_22EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i419, %918, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i424
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_22EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i419, %918, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i424
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   store ptr @_ZN4llvm27PassInstrumentationAnalysis3KeyE, ptr %21, align 8
@@ -18674,7 +18674,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %926 = icmp eq i32 %925, 0
   br i1 %926, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i445, label %927
 
-927:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_22EEbOT_.exit"
+927:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_22EEbOT_.argprom.exit"
   %928 = lshr i32 ptrtoint (ptr @_ZN4llvm27PassInstrumentationAnalysis3KeyE to i32), 4
   %929 = lshr i32 ptrtoint (ptr @_ZN4llvm27PassInstrumentationAnalysis3KeyE to i32), 9
   %930 = xor i32 %928, %929
@@ -18714,8 +18714,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %949 = icmp eq ptr %948, @_ZN4llvm27PassInstrumentationAnalysis3KeyE
   br i1 %949, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i436, label %.lr.ph.i.i.i.i.i429, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i445: ; preds = %939, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_22EEbOT_.exit"
-  %.sink.i.i.i.i.i446 = phi ptr [ %940, %939 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_22EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i445: ; preds = %939, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_22EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i446 = phi ptr [ %940, %939 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_22EEbOT_.argprom.exit" ]
   %950 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %.sink.i.i.i.i.i446)
   %951 = load ptr, ptr %21, align 8
   store ptr %951, ptr %950, align 8
@@ -18812,7 +18812,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %992 = getelementptr inbounds nuw i8, ptr %.0.i.i.i456, i64 8
   %993 = load ptr, ptr %992, align 8
   %.not.i457 = icmp eq ptr %993, null
-  br i1 %.not.i457, label %994, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_24EEbOT_.exit"
+  br i1 %.not.i457, label %994, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_24EEbOT_.argprom.exit"
 
 994:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i455
   %995 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -18820,16 +18820,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %996 = load ptr, ptr %992, align 8
   store ptr %995, ptr %992, align 8
   %.not.i.i.i459 = icmp eq ptr %996, null
-  br i1 %.not.i.i.i459, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_24EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i460
+  br i1 %.not.i.i.i459, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_24EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i460
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i460: ; preds = %994
   %997 = load ptr, ptr %996, align 8
   %998 = getelementptr inbounds i8, ptr %997, i64 8
   %999 = load ptr, ptr %998, align 8
   call void %999(ptr noundef nonnull align 8 dereferenceable(8) %996) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_24EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_24EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_24EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i455, %994, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i460
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_24EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i455, %994, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i460
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store ptr @_ZN4llvm25PostDominatorTreeAnalysis3KeyE, ptr %19, align 8
@@ -18838,7 +18838,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1002 = icmp eq i32 %1001, 0
   br i1 %1002, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i479, label %1003
 
-1003:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_24EEbOT_.exit"
+1003:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_24EEbOT_.argprom.exit"
   %1004 = lshr i32 ptrtoint (ptr @_ZN4llvm25PostDominatorTreeAnalysis3KeyE to i32), 4
   %1005 = lshr i32 ptrtoint (ptr @_ZN4llvm25PostDominatorTreeAnalysis3KeyE to i32), 9
   %1006 = xor i32 %1004, %1005
@@ -18878,8 +18878,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1025 = icmp eq ptr %1024, @_ZN4llvm25PostDominatorTreeAnalysis3KeyE
   br i1 %1025, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i472, label %.lr.ph.i.i.i.i.i465, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i479: ; preds = %1015, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_24EEbOT_.exit"
-  %.sink.i.i.i.i.i480 = phi ptr [ %1016, %1015 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_24EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i479: ; preds = %1015, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_24EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i480 = phi ptr [ %1016, %1015 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_24EEbOT_.argprom.exit" ]
   %1026 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %.sink.i.i.i.i.i480)
   %1027 = load ptr, ptr %19, align 8
   store ptr %1027, ptr %1026, align 8
@@ -18892,7 +18892,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1029 = getelementptr inbounds nuw i8, ptr %.0.i.i.i473, i64 8
   %1030 = load ptr, ptr %1029, align 8
   %.not.i474 = icmp eq ptr %1030, null
-  br i1 %.not.i474, label %1031, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_25EEbOT_.exit"
+  br i1 %.not.i474, label %1031, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_25EEbOT_.argprom.exit"
 
 1031:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i472
   %1032 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -18900,16 +18900,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1033 = load ptr, ptr %1029, align 8
   store ptr %1032, ptr %1029, align 8
   %.not.i.i.i476 = icmp eq ptr %1033, null
-  br i1 %.not.i.i.i476, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_25EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i477
+  br i1 %.not.i.i.i476, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_25EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i477
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i477: ; preds = %1031
   %1034 = load ptr, ptr %1033, align 8
   %1035 = getelementptr inbounds i8, ptr %1034, i64 8
   %1036 = load ptr, ptr %1035, align 8
   call void %1036(ptr noundef nonnull align 8 dereferenceable(8) %1033) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_25EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_25EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_25EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i472, %1031, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i477
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_25EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i472, %1031, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i477
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store ptr @_ZN4llvm18RegionInfoAnalysis3KeyE, ptr %18, align 8
@@ -18918,7 +18918,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1039 = icmp eq i32 %1038, 0
   br i1 %1039, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i496, label %1040
 
-1040:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_25EEbOT_.exit"
+1040:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_25EEbOT_.argprom.exit"
   %1041 = lshr i32 ptrtoint (ptr @_ZN4llvm18RegionInfoAnalysis3KeyE to i32), 4
   %1042 = lshr i32 ptrtoint (ptr @_ZN4llvm18RegionInfoAnalysis3KeyE to i32), 9
   %1043 = xor i32 %1041, %1042
@@ -18958,8 +18958,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1062 = icmp eq ptr %1061, @_ZN4llvm18RegionInfoAnalysis3KeyE
   br i1 %1062, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i489, label %.lr.ph.i.i.i.i.i482, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i496: ; preds = %1052, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_25EEbOT_.exit"
-  %.sink.i.i.i.i.i497 = phi ptr [ %1053, %1052 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_25EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i496: ; preds = %1052, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_25EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i497 = phi ptr [ %1053, %1052 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_25EEbOT_.argprom.exit" ]
   %1063 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %.sink.i.i.i.i.i497)
   %1064 = load ptr, ptr %18, align 8
   store ptr %1064, ptr %1063, align 8
@@ -18972,7 +18972,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1066 = getelementptr inbounds nuw i8, ptr %.0.i.i.i490, i64 8
   %1067 = load ptr, ptr %1066, align 8
   %.not.i491 = icmp eq ptr %1067, null
-  br i1 %.not.i491, label %1068, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_26EEbOT_.exit"
+  br i1 %.not.i491, label %1068, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_26EEbOT_.argprom.exit"
 
 1068:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i489
   %1069 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -18980,16 +18980,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1070 = load ptr, ptr %1066, align 8
   store ptr %1069, ptr %1066, align 8
   %.not.i.i.i493 = icmp eq ptr %1070, null
-  br i1 %.not.i.i.i493, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_26EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i494
+  br i1 %.not.i.i.i493, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_26EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i494
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i494: ; preds = %1068
   %1071 = load ptr, ptr %1070, align 8
   %1072 = getelementptr inbounds i8, ptr %1071, i64 8
   %1073 = load ptr, ptr %1072, align 8
   call void %1073(ptr noundef nonnull align 8 dereferenceable(8) %1070) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_26EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_26EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_26EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i489, %1068, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i494
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_26EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i489, %1068, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i494
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store ptr @_ZN4llvm23ScalarEvolutionAnalysis3KeyE, ptr %17, align 8
@@ -18998,7 +18998,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1076 = icmp eq i32 %1075, 0
   br i1 %1076, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i513, label %1077
 
-1077:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_26EEbOT_.exit"
+1077:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_26EEbOT_.argprom.exit"
   %1078 = lshr i32 ptrtoint (ptr @_ZN4llvm23ScalarEvolutionAnalysis3KeyE to i32), 4
   %1079 = lshr i32 ptrtoint (ptr @_ZN4llvm23ScalarEvolutionAnalysis3KeyE to i32), 9
   %1080 = xor i32 %1078, %1079
@@ -19038,8 +19038,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1099 = icmp eq ptr %1098, @_ZN4llvm23ScalarEvolutionAnalysis3KeyE
   br i1 %1099, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i506, label %.lr.ph.i.i.i.i.i499, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i513: ; preds = %1089, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_26EEbOT_.exit"
-  %.sink.i.i.i.i.i514 = phi ptr [ %1090, %1089 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_26EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i513: ; preds = %1089, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_26EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i514 = phi ptr [ %1090, %1089 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_26EEbOT_.argprom.exit" ]
   %1100 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %.sink.i.i.i.i.i514)
   %1101 = load ptr, ptr %17, align 8
   store ptr %1101, ptr %1100, align 8
@@ -19052,7 +19052,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1103 = getelementptr inbounds nuw i8, ptr %.0.i.i.i507, i64 8
   %1104 = load ptr, ptr %1103, align 8
   %.not.i508 = icmp eq ptr %1104, null
-  br i1 %.not.i508, label %1105, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_27EEbOT_.exit"
+  br i1 %.not.i508, label %1105, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_27EEbOT_.argprom.exit"
 
 1105:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i506
   %1106 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -19060,16 +19060,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1107 = load ptr, ptr %1103, align 8
   store ptr %1106, ptr %1103, align 8
   %.not.i.i.i510 = icmp eq ptr %1107, null
-  br i1 %.not.i.i.i510, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_27EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i511
+  br i1 %.not.i.i.i510, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_27EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i511
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i511: ; preds = %1105
   %1108 = load ptr, ptr %1107, align 8
   %1109 = getelementptr inbounds i8, ptr %1108, i64 8
   %1110 = load ptr, ptr %1109, align 8
   call void %1110(ptr noundef nonnull align 8 dereferenceable(8) %1107) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_27EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_27EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_27EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i506, %1105, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i511
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_27EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i506, %1105, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i511
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store ptr @_ZN4llvm34ShouldNotRunFunctionPassesAnalysis3KeyE, ptr %16, align 8
@@ -19078,7 +19078,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1113 = icmp eq i32 %1112, 0
   br i1 %1113, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i530, label %1114
 
-1114:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_27EEbOT_.exit"
+1114:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_27EEbOT_.argprom.exit"
   %1115 = lshr i32 ptrtoint (ptr @_ZN4llvm34ShouldNotRunFunctionPassesAnalysis3KeyE to i32), 4
   %1116 = lshr i32 ptrtoint (ptr @_ZN4llvm34ShouldNotRunFunctionPassesAnalysis3KeyE to i32), 9
   %1117 = xor i32 %1115, %1116
@@ -19118,8 +19118,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1136 = icmp eq ptr %1135, @_ZN4llvm34ShouldNotRunFunctionPassesAnalysis3KeyE
   br i1 %1136, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i523, label %.lr.ph.i.i.i.i.i516, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i530: ; preds = %1126, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_27EEbOT_.exit"
-  %.sink.i.i.i.i.i531 = phi ptr [ %1127, %1126 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_27EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i530: ; preds = %1126, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_27EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i531 = phi ptr [ %1127, %1126 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_27EEbOT_.argprom.exit" ]
   %1137 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %.sink.i.i.i.i.i531)
   %1138 = load ptr, ptr %16, align 8
   store ptr %1138, ptr %1137, align 8
@@ -19132,7 +19132,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1140 = getelementptr inbounds nuw i8, ptr %.0.i.i.i524, i64 8
   %1141 = load ptr, ptr %1140, align 8
   %.not.i525 = icmp eq ptr %1141, null
-  br i1 %.not.i525, label %1142, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_28EEbOT_.exit"
+  br i1 %.not.i525, label %1142, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_28EEbOT_.argprom.exit"
 
 1142:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i523
   %1143 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -19140,16 +19140,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1144 = load ptr, ptr %1140, align 8
   store ptr %1143, ptr %1140, align 8
   %.not.i.i.i527 = icmp eq ptr %1144, null
-  br i1 %.not.i.i.i527, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_28EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i528
+  br i1 %.not.i.i.i527, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_28EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i528
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i528: ; preds = %1142
   %1145 = load ptr, ptr %1144, align 8
   %1146 = getelementptr inbounds i8, ptr %1145, i64 8
   %1147 = load ptr, ptr %1146, align 8
   call void %1147(ptr noundef nonnull align 8 dereferenceable(8) %1144) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_28EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_28EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_28EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i523, %1142, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i528
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_28EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i523, %1142, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i528
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store ptr @_ZN4llvm26ShouldRunExtraVectorPasses3KeyE, ptr %15, align 8
@@ -19158,7 +19158,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1150 = icmp eq i32 %1149, 0
   br i1 %1150, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i547, label %1151
 
-1151:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_28EEbOT_.exit"
+1151:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_28EEbOT_.argprom.exit"
   %1152 = lshr i32 ptrtoint (ptr @_ZN4llvm26ShouldRunExtraVectorPasses3KeyE to i32), 4
   %1153 = lshr i32 ptrtoint (ptr @_ZN4llvm26ShouldRunExtraVectorPasses3KeyE to i32), 9
   %1154 = xor i32 %1152, %1153
@@ -19198,8 +19198,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1173 = icmp eq ptr %1172, @_ZN4llvm26ShouldRunExtraVectorPasses3KeyE
   br i1 %1173, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i540, label %.lr.ph.i.i.i.i.i533, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i547: ; preds = %1163, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_28EEbOT_.exit"
-  %.sink.i.i.i.i.i548 = phi ptr [ %1164, %1163 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_28EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i547: ; preds = %1163, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_28EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i548 = phi ptr [ %1164, %1163 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_28EEbOT_.argprom.exit" ]
   %1174 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %.sink.i.i.i.i.i548)
   %1175 = load ptr, ptr %15, align 8
   store ptr %1175, ptr %1174, align 8
@@ -19212,7 +19212,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1177 = getelementptr inbounds nuw i8, ptr %.0.i.i.i541, i64 8
   %1178 = load ptr, ptr %1177, align 8
   %.not.i542 = icmp eq ptr %1178, null
-  br i1 %.not.i542, label %1179, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_29EEbOT_.exit"
+  br i1 %.not.i542, label %1179, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_29EEbOT_.argprom.exit"
 
 1179:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i540
   %1180 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -19220,16 +19220,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1181 = load ptr, ptr %1177, align 8
   store ptr %1180, ptr %1177, align 8
   %.not.i.i.i544 = icmp eq ptr %1181, null
-  br i1 %.not.i.i.i544, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_29EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i545
+  br i1 %.not.i.i.i544, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_29EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i545
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i545: ; preds = %1179
   %1182 = load ptr, ptr %1181, align 8
   %1183 = getelementptr inbounds i8, ptr %1182, i64 8
   %1184 = load ptr, ptr %1183, align 8
   call void %1184(ptr noundef nonnull align 8 dereferenceable(8) %1181) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_29EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_29EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_29EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i540, %1179, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i545
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_29EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i540, %1179, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i545
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store ptr @_ZN4llvm17SSPLayoutAnalysis3KeyE, ptr %14, align 8
@@ -19238,7 +19238,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1187 = icmp eq i32 %1186, 0
   br i1 %1187, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i564, label %1188
 
-1188:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_29EEbOT_.exit"
+1188:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_29EEbOT_.argprom.exit"
   %1189 = lshr i32 ptrtoint (ptr @_ZN4llvm17SSPLayoutAnalysis3KeyE to i32), 4
   %1190 = lshr i32 ptrtoint (ptr @_ZN4llvm17SSPLayoutAnalysis3KeyE to i32), 9
   %1191 = xor i32 %1189, %1190
@@ -19278,8 +19278,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1210 = icmp eq ptr %1209, @_ZN4llvm17SSPLayoutAnalysis3KeyE
   br i1 %1210, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i557, label %.lr.ph.i.i.i.i.i550, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i564: ; preds = %1200, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_29EEbOT_.exit"
-  %.sink.i.i.i.i.i565 = phi ptr [ %1201, %1200 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_29EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i564: ; preds = %1200, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_29EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i565 = phi ptr [ %1201, %1200 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_29EEbOT_.argprom.exit" ]
   %1211 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %.sink.i.i.i.i.i565)
   %1212 = load ptr, ptr %14, align 8
   store ptr %1212, ptr %1211, align 8
@@ -19292,7 +19292,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1214 = getelementptr inbounds nuw i8, ptr %.0.i.i.i558, i64 8
   %1215 = load ptr, ptr %1214, align 8
   %.not.i559 = icmp eq ptr %1215, null
-  br i1 %.not.i559, label %1216, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_30EEbOT_.exit"
+  br i1 %.not.i559, label %1216, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_30EEbOT_.argprom.exit"
 
 1216:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i557
   %1217 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -19300,16 +19300,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1218 = load ptr, ptr %1214, align 8
   store ptr %1217, ptr %1214, align 8
   %.not.i.i.i561 = icmp eq ptr %1218, null
-  br i1 %.not.i.i.i561, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_30EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i562
+  br i1 %.not.i.i.i561, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_30EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i562
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i562: ; preds = %1216
   %1219 = load ptr, ptr %1218, align 8
   %1220 = getelementptr inbounds i8, ptr %1219, i64 8
   %1221 = load ptr, ptr %1220, align 8
   call void %1221(ptr noundef nonnull align 8 dereferenceable(8) %1218) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_30EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_30EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_30EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i557, %1216, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i562
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_30EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i557, %1216, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i562
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store ptr @_ZN4llvm19StackSafetyAnalysis3KeyE, ptr %13, align 8
@@ -19318,7 +19318,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1224 = icmp eq i32 %1223, 0
   br i1 %1224, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i581, label %1225
 
-1225:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_30EEbOT_.exit"
+1225:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_30EEbOT_.argprom.exit"
   %1226 = lshr i32 ptrtoint (ptr @_ZN4llvm19StackSafetyAnalysis3KeyE to i32), 4
   %1227 = lshr i32 ptrtoint (ptr @_ZN4llvm19StackSafetyAnalysis3KeyE to i32), 9
   %1228 = xor i32 %1226, %1227
@@ -19358,8 +19358,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1247 = icmp eq ptr %1246, @_ZN4llvm19StackSafetyAnalysis3KeyE
   br i1 %1247, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i574, label %.lr.ph.i.i.i.i.i567, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i581: ; preds = %1237, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_30EEbOT_.exit"
-  %.sink.i.i.i.i.i582 = phi ptr [ %1238, %1237 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_30EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i581: ; preds = %1237, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_30EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i582 = phi ptr [ %1238, %1237 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_30EEbOT_.argprom.exit" ]
   %1248 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %.sink.i.i.i.i.i582)
   %1249 = load ptr, ptr %13, align 8
   store ptr %1249, ptr %1248, align 8
@@ -19372,7 +19372,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1251 = getelementptr inbounds nuw i8, ptr %.0.i.i.i575, i64 8
   %1252 = load ptr, ptr %1251, align 8
   %.not.i576 = icmp eq ptr %1252, null
-  br i1 %.not.i576, label %1253, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_31EEbOT_.exit"
+  br i1 %.not.i576, label %1253, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_31EEbOT_.argprom.exit"
 
 1253:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i574
   %1254 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -19380,16 +19380,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1255 = load ptr, ptr %1251, align 8
   store ptr %1254, ptr %1251, align 8
   %.not.i.i.i578 = icmp eq ptr %1255, null
-  br i1 %.not.i.i.i578, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_31EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i579
+  br i1 %.not.i.i.i578, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_31EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i579
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i579: ; preds = %1253
   %1256 = load ptr, ptr %1255, align 8
   %1257 = getelementptr inbounds i8, ptr %1256, i64 8
   %1258 = load ptr, ptr %1257, align 8
   call void %1258(ptr noundef nonnull align 8 dereferenceable(8) %1255) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_31EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_31EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_31EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i574, %1253, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i579
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_31EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i574, %1253, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i579
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
@@ -19399,7 +19399,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1261 = icmp eq i32 %1260, 0
   br i1 %1261, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i599, label %1262
 
-1262:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_31EEbOT_.exit"
+1262:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_31EEbOT_.argprom.exit"
   %1263 = lshr i32 ptrtoint (ptr @_ZN4llvm16TargetIRAnalysis3KeyE to i32), 4
   %1264 = lshr i32 ptrtoint (ptr @_ZN4llvm16TargetIRAnalysis3KeyE to i32), 9
   %1265 = xor i32 %1263, %1264
@@ -19439,8 +19439,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1284 = icmp eq ptr %1283, @_ZN4llvm16TargetIRAnalysis3KeyE
   br i1 %1284, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i591, label %.lr.ph.i.i.i.i.i584, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i599: ; preds = %1274, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_31EEbOT_.exit"
-  %.sink.i.i.i.i.i600 = phi ptr [ %1275, %1274 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_31EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i599: ; preds = %1274, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_31EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i600 = phi ptr [ %1275, %1274 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_31EEbOT_.argprom.exit" ]
   %1285 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %.sink.i.i.i.i.i600)
   %1286 = load ptr, ptr %11, align 8
   store ptr %1286, ptr %1285, align 8
@@ -19463,13 +19463,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
 
 1292:                                             ; preds = %1290
   call void @_ZNK4llvm13TargetMachine19getTargetIRAnalysisEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::TargetIRAnalysis") align 8 %12, ptr noundef nonnull align 8 dereferenceable(1232) %.val.val.i595) #25
-  br label %"_ZZN4llvm11PassBuilder24registerFunctionAnalysesERNS_15AnalysisManagerINS_8FunctionEJEEEENK4$_32clEv.exit.i"
+  br label %"_ZZN4llvm11PassBuilder24registerFunctionAnalysesERNS_15AnalysisManagerINS_8FunctionEJEEEENK4$_32clEv.argprom.argprom.exit.i"
 
 1293:                                             ; preds = %1290
   call void @_ZN4llvm16TargetIRAnalysisC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #25
-  br label %"_ZZN4llvm11PassBuilder24registerFunctionAnalysesERNS_15AnalysisManagerINS_8FunctionEJEEEENK4$_32clEv.exit.i"
+  br label %"_ZZN4llvm11PassBuilder24registerFunctionAnalysesERNS_15AnalysisManagerINS_8FunctionEJEEEENK4$_32clEv.argprom.argprom.exit.i"
 
-"_ZZN4llvm11PassBuilder24registerFunctionAnalysesERNS_15AnalysisManagerINS_8FunctionEJEEEENK4$_32clEv.exit.i": ; preds = %1293, %1292
+"_ZZN4llvm11PassBuilder24registerFunctionAnalysesERNS_15AnalysisManagerINS_8FunctionEJEEEENK4$_32clEv.argprom.argprom.exit.i": ; preds = %1293, %1292
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm6detail17AnalysisPassModelINS_8FunctionENS_16TargetIRAnalysisENS_15AnalysisManagerIS2_JEE11InvalidatorEJEEE, i64 16), ptr %1291, align 8
   %1294 = getelementptr inbounds nuw i8, ptr %1291, i64 8
   %1295 = getelementptr inbounds nuw i8, ptr %1291, i64 32
@@ -19482,14 +19482,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %.not.i.i.not.i.i.i.i = icmp eq ptr %1299, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZN4llvm6detail17AnalysisPassModelINS_8FunctionENS_16TargetIRAnalysisENS_15AnalysisManagerIS2_JEE11InvalidatorEJEEC2ES3_.exit.i, label %1300
 
-1300:                                             ; preds = %"_ZZN4llvm11PassBuilder24registerFunctionAnalysesERNS_15AnalysisManagerINS_8FunctionEJEEEENK4$_32clEv.exit.i"
+1300:                                             ; preds = %"_ZZN4llvm11PassBuilder24registerFunctionAnalysesERNS_15AnalysisManagerINS_8FunctionEJEEEENK4$_32clEv.argprom.argprom.exit.i"
   %1301 = getelementptr inbounds nuw i8, ptr %1291, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1294, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
   store ptr %1299, ptr %1301, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1298, i8 0, i64 16, i1 false)
   br label %_ZN4llvm6detail17AnalysisPassModelINS_8FunctionENS_16TargetIRAnalysisENS_15AnalysisManagerIS2_JEE11InvalidatorEJEEC2ES3_.exit.i
 
-_ZN4llvm6detail17AnalysisPassModelINS_8FunctionENS_16TargetIRAnalysisENS_15AnalysisManagerIS2_JEE11InvalidatorEJEEC2ES3_.exit.i: ; preds = %1300, %"_ZZN4llvm11PassBuilder24registerFunctionAnalysesERNS_15AnalysisManagerINS_8FunctionEJEEEENK4$_32clEv.exit.i"
+_ZN4llvm6detail17AnalysisPassModelINS_8FunctionENS_16TargetIRAnalysisENS_15AnalysisManagerIS2_JEE11InvalidatorEJEEC2ES3_.exit.i: ; preds = %1300, %"_ZZN4llvm11PassBuilder24registerFunctionAnalysesERNS_15AnalysisManagerINS_8FunctionEJEEEENK4$_32clEv.argprom.argprom.exit.i"
   %1302 = load ptr, ptr %1288, align 8
   store ptr %1291, ptr %1288, align 8
   %.not.i.i.i596 = icmp eq ptr %1302, null
@@ -19572,7 +19572,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1337 = getelementptr inbounds nuw i8, ptr %.0.i.i.i610, i64 8
   %1338 = load ptr, ptr %1337, align 8
   %.not.i611 = icmp eq ptr %1338, null
-  br i1 %.not.i611, label %_ZN4llvm6detail17AnalysisPassModelINS_8FunctionENS_21TargetLibraryAnalysisENS_15AnalysisManagerIS2_JEE11InvalidatorEJEEC2ES3_.exit.i, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_33EEbOT_.exit"
+  br i1 %.not.i611, label %_ZN4llvm6detail17AnalysisPassModelINS_8FunctionENS_21TargetLibraryAnalysisENS_15AnalysisManagerIS2_JEE11InvalidatorEJEEC2ES3_.exit.i, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_33EEbOT_.argprom.exit"
 
 _ZN4llvm6detail17AnalysisPassModelINS_8FunctionENS_21TargetLibraryAnalysisENS_15AnalysisManagerIS2_JEE11InvalidatorEJEEC2ES3_.exit.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i609
   %1339 = call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #27
@@ -19582,16 +19582,16 @@ _ZN4llvm6detail17AnalysisPassModelINS_8FunctionENS_21TargetLibraryAnalysisENS_15
   %.pre.i612 = load ptr, ptr %1337, align 8
   store ptr %1339, ptr %1337, align 8
   %.not.i.i.i613 = icmp eq ptr %.pre.i612, null
-  br i1 %.not.i.i.i613, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_33EEbOT_.exit", label %_ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEESt14default_deleteIS7_EE5resetEPS7_.exit.i614
+  br i1 %.not.i.i.i613, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_33EEbOT_.argprom.exit", label %_ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEESt14default_deleteIS7_EE5resetEPS7_.exit.i614
 
 _ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEESt14default_deleteIS7_EE5resetEPS7_.exit.i614: ; preds = %_ZN4llvm6detail17AnalysisPassModelINS_8FunctionENS_21TargetLibraryAnalysisENS_15AnalysisManagerIS2_JEE11InvalidatorEJEEC2ES3_.exit.i
   %1341 = load ptr, ptr %.pre.i612, align 8
   %1342 = getelementptr inbounds i8, ptr %1341, i64 8
   %1343 = load ptr, ptr %1342, align 8
   call void %1343(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i612) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_33EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_33EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_33EEbOT_.exit": ; preds = %_ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEESt14default_deleteIS7_EE5resetEPS7_.exit.i614, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i609, %_ZN4llvm6detail17AnalysisPassModelINS_8FunctionENS_21TargetLibraryAnalysisENS_15AnalysisManagerIS2_JEE11InvalidatorEJEEC2ES3_.exit.i
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_33EEbOT_.argprom.exit": ; preds = %_ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEESt14default_deleteIS7_EE5resetEPS7_.exit.i614, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i609, %_ZN4llvm6detail17AnalysisPassModelINS_8FunctionENS_21TargetLibraryAnalysisENS_15AnalysisManagerIS2_JEE11InvalidatorEJEEC2ES3_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr @_ZN4llvm22UniformityInfoAnalysis3KeyE, ptr %9, align 8
@@ -19600,7 +19600,7 @@ _ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15Analysi
   %1346 = icmp eq i32 %1345, 0
   br i1 %1346, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i633, label %1347
 
-1347:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_33EEbOT_.exit"
+1347:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_33EEbOT_.argprom.exit"
   %1348 = lshr i32 ptrtoint (ptr @_ZN4llvm22UniformityInfoAnalysis3KeyE to i32), 4
   %1349 = lshr i32 ptrtoint (ptr @_ZN4llvm22UniformityInfoAnalysis3KeyE to i32), 9
   %1350 = xor i32 %1348, %1349
@@ -19640,8 +19640,8 @@ _ZNSt10unique_ptrIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15Analysi
   %1369 = icmp eq ptr %1368, @_ZN4llvm22UniformityInfoAnalysis3KeyE
   br i1 %1369, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i626, label %.lr.ph.i.i.i.i.i619, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i633: ; preds = %1359, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_33EEbOT_.exit"
-  %.sink.i.i.i.i.i634 = phi ptr [ %1360, %1359 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_33EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i633: ; preds = %1359, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_33EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i634 = phi ptr [ %1360, %1359 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_33EEbOT_.argprom.exit" ]
   %1370 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %.sink.i.i.i.i.i634)
   %1371 = load ptr, ptr %9, align 8
   store ptr %1371, ptr %1370, align 8
@@ -19654,7 +19654,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1373 = getelementptr inbounds nuw i8, ptr %.0.i.i.i627, i64 8
   %1374 = load ptr, ptr %1373, align 8
   %.not.i628 = icmp eq ptr %1374, null
-  br i1 %.not.i628, label %1375, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_34EEbOT_.exit"
+  br i1 %.not.i628, label %1375, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_34EEbOT_.argprom.exit"
 
 1375:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i626
   %1376 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -19662,16 +19662,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1377 = load ptr, ptr %1373, align 8
   store ptr %1376, ptr %1373, align 8
   %.not.i.i.i630 = icmp eq ptr %1377, null
-  br i1 %.not.i.i.i630, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_34EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i631
+  br i1 %.not.i.i.i630, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_34EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i631
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i631: ; preds = %1375
   %1378 = load ptr, ptr %1377, align 8
   %1379 = getelementptr inbounds i8, ptr %1378, i64 8
   %1380 = load ptr, ptr %1379, align 8
   call void %1380(ptr noundef nonnull align 8 dereferenceable(8) %1377) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_34EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_34EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_34EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i626, %1375, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i631
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_34EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i626, %1375, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i631
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr @_ZN4llvm16VerifierAnalysis3KeyE, ptr %8, align 8
@@ -19680,7 +19680,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1383 = icmp eq i32 %1382, 0
   br i1 %1383, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i650, label %1384
 
-1384:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_34EEbOT_.exit"
+1384:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_34EEbOT_.argprom.exit"
   %1385 = lshr i32 ptrtoint (ptr @_ZN4llvm16VerifierAnalysis3KeyE to i32), 4
   %1386 = lshr i32 ptrtoint (ptr @_ZN4llvm16VerifierAnalysis3KeyE to i32), 9
   %1387 = xor i32 %1385, %1386
@@ -19720,8 +19720,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1406 = icmp eq ptr %1405, @_ZN4llvm16VerifierAnalysis3KeyE
   br i1 %1406, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i643, label %.lr.ph.i.i.i.i.i636, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i650: ; preds = %1396, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_34EEbOT_.exit"
-  %.sink.i.i.i.i.i651 = phi ptr [ %1397, %1396 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_34EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i650: ; preds = %1396, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_34EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i651 = phi ptr [ %1397, %1396 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_34EEbOT_.argprom.exit" ]
   %1407 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sink.i.i.i.i.i651)
   %1408 = load ptr, ptr %8, align 8
   store ptr %1408, ptr %1407, align 8
@@ -19734,7 +19734,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1410 = getelementptr inbounds nuw i8, ptr %.0.i.i.i644, i64 8
   %1411 = load ptr, ptr %1410, align 8
   %.not.i645 = icmp eq ptr %1411, null
-  br i1 %.not.i645, label %1412, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_35EEbOT_.exit"
+  br i1 %.not.i645, label %1412, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_35EEbOT_.argprom.exit"
 
 1412:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i643
   %1413 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -19742,16 +19742,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1414 = load ptr, ptr %1410, align 8
   store ptr %1413, ptr %1410, align 8
   %.not.i.i.i647 = icmp eq ptr %1414, null
-  br i1 %.not.i.i.i647, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_35EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i648
+  br i1 %.not.i.i.i647, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_35EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i648
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i648: ; preds = %1412
   %1415 = load ptr, ptr %1414, align 8
   %1416 = getelementptr inbounds i8, ptr %1415, i64 8
   %1417 = load ptr, ptr %1416, align 8
   call void %1417(ptr noundef nonnull align 8 dereferenceable(8) %1414) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_35EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_35EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_35EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i643, %1412, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i648
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_35EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i643, %1412, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i648
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr @_ZN4llvm7BasicAA3KeyE, ptr %7, align 8
@@ -19760,7 +19760,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1420 = icmp eq i32 %1419, 0
   br i1 %1420, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i667, label %1421
 
-1421:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_35EEbOT_.exit"
+1421:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_35EEbOT_.argprom.exit"
   %1422 = lshr i32 ptrtoint (ptr @_ZN4llvm7BasicAA3KeyE to i32), 4
   %1423 = lshr i32 ptrtoint (ptr @_ZN4llvm7BasicAA3KeyE to i32), 9
   %1424 = xor i32 %1422, %1423
@@ -19800,8 +19800,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1443 = icmp eq ptr %1442, @_ZN4llvm7BasicAA3KeyE
   br i1 %1443, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i660, label %.lr.ph.i.i.i.i.i653, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i667: ; preds = %1433, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_35EEbOT_.exit"
-  %.sink.i.i.i.i.i668 = phi ptr [ %1434, %1433 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_35EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i667: ; preds = %1433, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_35EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i668 = phi ptr [ %1434, %1433 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_35EEbOT_.argprom.exit" ]
   %1444 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.sink.i.i.i.i.i668)
   %1445 = load ptr, ptr %7, align 8
   store ptr %1445, ptr %1444, align 8
@@ -19814,7 +19814,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1447 = getelementptr inbounds nuw i8, ptr %.0.i.i.i661, i64 8
   %1448 = load ptr, ptr %1447, align 8
   %.not.i662 = icmp eq ptr %1448, null
-  br i1 %.not.i662, label %1449, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_36EEbOT_.exit"
+  br i1 %.not.i662, label %1449, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_36EEbOT_.argprom.exit"
 
 1449:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i660
   %1450 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -19822,16 +19822,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1451 = load ptr, ptr %1447, align 8
   store ptr %1450, ptr %1447, align 8
   %.not.i.i.i664 = icmp eq ptr %1451, null
-  br i1 %.not.i.i.i664, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_36EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i665
+  br i1 %.not.i.i.i664, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_36EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i665
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i665: ; preds = %1449
   %1452 = load ptr, ptr %1451, align 8
   %1453 = getelementptr inbounds i8, ptr %1452, i64 8
   %1454 = load ptr, ptr %1453, align 8
   call void %1454(ptr noundef nonnull align 8 dereferenceable(8) %1451) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_36EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_36EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_36EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i660, %1449, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i665
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_36EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i660, %1449, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i665
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr @_ZN4llvm7objcarc9ObjCARCAA3KeyE, ptr %6, align 8
@@ -19840,7 +19840,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1457 = icmp eq i32 %1456, 0
   br i1 %1457, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i684, label %1458
 
-1458:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_36EEbOT_.exit"
+1458:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_36EEbOT_.argprom.exit"
   %1459 = lshr i32 ptrtoint (ptr @_ZN4llvm7objcarc9ObjCARCAA3KeyE to i32), 4
   %1460 = lshr i32 ptrtoint (ptr @_ZN4llvm7objcarc9ObjCARCAA3KeyE to i32), 9
   %1461 = xor i32 %1459, %1460
@@ -19880,8 +19880,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1480 = icmp eq ptr %1479, @_ZN4llvm7objcarc9ObjCARCAA3KeyE
   br i1 %1480, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i677, label %.lr.ph.i.i.i.i.i670, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i684: ; preds = %1470, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_36EEbOT_.exit"
-  %.sink.i.i.i.i.i685 = phi ptr [ %1471, %1470 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_36EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i684: ; preds = %1470, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_36EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i685 = phi ptr [ %1471, %1470 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_36EEbOT_.argprom.exit" ]
   %1481 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %.sink.i.i.i.i.i685)
   %1482 = load ptr, ptr %6, align 8
   store ptr %1482, ptr %1481, align 8
@@ -19894,7 +19894,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1484 = getelementptr inbounds nuw i8, ptr %.0.i.i.i678, i64 8
   %1485 = load ptr, ptr %1484, align 8
   %.not.i679 = icmp eq ptr %1485, null
-  br i1 %.not.i679, label %1486, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_37EEbOT_.exit"
+  br i1 %.not.i679, label %1486, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_37EEbOT_.argprom.exit"
 
 1486:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i677
   %1487 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -19902,16 +19902,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1488 = load ptr, ptr %1484, align 8
   store ptr %1487, ptr %1484, align 8
   %.not.i.i.i681 = icmp eq ptr %1488, null
-  br i1 %.not.i.i.i681, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_37EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i682
+  br i1 %.not.i.i.i681, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_37EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i682
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i682: ; preds = %1486
   %1489 = load ptr, ptr %1488, align 8
   %1490 = getelementptr inbounds i8, ptr %1489, i64 8
   %1491 = load ptr, ptr %1490, align 8
   call void %1491(ptr noundef nonnull align 8 dereferenceable(8) %1488) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_37EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_37EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_37EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i677, %1486, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i682
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_37EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i677, %1486, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i682
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr @_ZN4llvm6SCEVAA3KeyE, ptr %5, align 8
@@ -19920,7 +19920,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1494 = icmp eq i32 %1493, 0
   br i1 %1494, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i701, label %1495
 
-1495:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_37EEbOT_.exit"
+1495:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_37EEbOT_.argprom.exit"
   %1496 = lshr i32 ptrtoint (ptr @_ZN4llvm6SCEVAA3KeyE to i32), 4
   %1497 = lshr i32 ptrtoint (ptr @_ZN4llvm6SCEVAA3KeyE to i32), 9
   %1498 = xor i32 %1496, %1497
@@ -19960,8 +19960,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1517 = icmp eq ptr %1516, @_ZN4llvm6SCEVAA3KeyE
   br i1 %1517, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i694, label %.lr.ph.i.i.i.i.i687, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i701: ; preds = %1507, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_37EEbOT_.exit"
-  %.sink.i.i.i.i.i702 = phi ptr [ %1508, %1507 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_37EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i701: ; preds = %1507, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_37EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i702 = phi ptr [ %1508, %1507 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_37EEbOT_.argprom.exit" ]
   %1518 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.sink.i.i.i.i.i702)
   %1519 = load ptr, ptr %5, align 8
   store ptr %1519, ptr %1518, align 8
@@ -19974,7 +19974,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1521 = getelementptr inbounds nuw i8, ptr %.0.i.i.i695, i64 8
   %1522 = load ptr, ptr %1521, align 8
   %.not.i696 = icmp eq ptr %1522, null
-  br i1 %.not.i696, label %1523, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_38EEbOT_.exit"
+  br i1 %.not.i696, label %1523, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_38EEbOT_.argprom.exit"
 
 1523:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i694
   %1524 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -19982,16 +19982,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1525 = load ptr, ptr %1521, align 8
   store ptr %1524, ptr %1521, align 8
   %.not.i.i.i698 = icmp eq ptr %1525, null
-  br i1 %.not.i.i.i698, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_38EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i699
+  br i1 %.not.i.i.i698, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_38EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i699
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i699: ; preds = %1523
   %1526 = load ptr, ptr %1525, align 8
   %1527 = getelementptr inbounds i8, ptr %1526, i64 8
   %1528 = load ptr, ptr %1527, align 8
   call void %1528(ptr noundef nonnull align 8 dereferenceable(8) %1525) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_38EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_38EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_38EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i694, %1523, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i699
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_38EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i694, %1523, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i699
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @_ZN4llvm15ScopedNoAliasAA3KeyE, ptr %4, align 8
@@ -20000,7 +20000,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1531 = icmp eq i32 %1530, 0
   br i1 %1531, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i718, label %1532
 
-1532:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_38EEbOT_.exit"
+1532:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_38EEbOT_.argprom.exit"
   %1533 = lshr i32 ptrtoint (ptr @_ZN4llvm15ScopedNoAliasAA3KeyE to i32), 4
   %1534 = lshr i32 ptrtoint (ptr @_ZN4llvm15ScopedNoAliasAA3KeyE to i32), 9
   %1535 = xor i32 %1533, %1534
@@ -20040,8 +20040,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1554 = icmp eq ptr %1553, @_ZN4llvm15ScopedNoAliasAA3KeyE
   br i1 %1554, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i711, label %.lr.ph.i.i.i.i.i704, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i718: ; preds = %1544, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_38EEbOT_.exit"
-  %.sink.i.i.i.i.i719 = phi ptr [ %1545, %1544 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_38EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i718: ; preds = %1544, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_38EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i719 = phi ptr [ %1545, %1544 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_38EEbOT_.argprom.exit" ]
   %1555 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i.i719)
   %1556 = load ptr, ptr %4, align 8
   store ptr %1556, ptr %1555, align 8
@@ -20054,7 +20054,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1558 = getelementptr inbounds nuw i8, ptr %.0.i.i.i712, i64 8
   %1559 = load ptr, ptr %1558, align 8
   %.not.i713 = icmp eq ptr %1559, null
-  br i1 %.not.i713, label %1560, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_39EEbOT_.exit"
+  br i1 %.not.i713, label %1560, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_39EEbOT_.argprom.exit"
 
 1560:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i711
   %1561 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -20062,16 +20062,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1562 = load ptr, ptr %1558, align 8
   store ptr %1561, ptr %1558, align 8
   %.not.i.i.i715 = icmp eq ptr %1562, null
-  br i1 %.not.i.i.i715, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_39EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i716
+  br i1 %.not.i.i.i715, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_39EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i716
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i716: ; preds = %1560
   %1563 = load ptr, ptr %1562, align 8
   %1564 = getelementptr inbounds i8, ptr %1563, i64 8
   %1565 = load ptr, ptr %1564, align 8
   call void %1565(ptr noundef nonnull align 8 dereferenceable(8) %1562) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_39EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_39EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_39EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i711, %1560, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i716
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_39EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i711, %1560, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i716
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr @_ZN4llvm11TypeBasedAA3KeyE, ptr %3, align 8
@@ -20080,7 +20080,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1568 = icmp eq i32 %1567, 0
   br i1 %1568, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i735, label %1569
 
-1569:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_39EEbOT_.exit"
+1569:                                             ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_39EEbOT_.argprom.exit"
   %1570 = lshr i32 ptrtoint (ptr @_ZN4llvm11TypeBasedAA3KeyE to i32), 4
   %1571 = lshr i32 ptrtoint (ptr @_ZN4llvm11TypeBasedAA3KeyE to i32), 9
   %1572 = xor i32 %1570, %1571
@@ -20120,8 +20120,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %1591 = icmp eq ptr %1590, @_ZN4llvm11TypeBasedAA3KeyE
   br i1 %1591, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i728, label %.lr.ph.i.i.i.i.i721, !llvm.loop !11
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i735: ; preds = %1581, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_39EEbOT_.exit"
-  %.sink.i.i.i.i.i736 = phi ptr [ %1582, %1581 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_39EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i735: ; preds = %1581, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_39EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i736 = phi ptr [ %1582, %1581 ], [ null, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_39EEbOT_.argprom.exit" ]
   %1592 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i.i736)
   %1593 = load ptr, ptr %3, align 8
   store ptr %1593, ptr %1592, align 8
@@ -20134,7 +20134,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1595 = getelementptr inbounds nuw i8, ptr %.0.i.i.i729, i64 8
   %1596 = load ptr, ptr %1595, align 8
   %.not.i730 = icmp eq ptr %1596, null
-  br i1 %.not.i730, label %1597, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_40EEbOT_.exit"
+  br i1 %.not.i730, label %1597, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_40EEbOT_.argprom.exit"
 
 1597:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i728
   %1598 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -20142,16 +20142,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %1599 = load ptr, ptr %1595, align 8
   store ptr %1598, ptr %1595, align 8
   %.not.i.i.i732 = icmp eq ptr %1599, null
-  br i1 %.not.i.i.i732, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_40EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i733
+  br i1 %.not.i.i.i732, label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_40EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i733
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i733: ; preds = %1597
   %1600 = load ptr, ptr %1599, align 8
   %1601 = getelementptr inbounds i8, ptr %1600, i64 8
   %1602 = load ptr, ptr %1601, align 8
   call void %1602(ptr noundef nonnull align 8 dereferenceable(8) %1599) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_40EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_40EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_40EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i728, %1597, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i733
+"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_40EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_8FunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i728, %1597, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i733
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %1603 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   %1604 = load ptr, ptr %1603, align 8
@@ -20160,8 +20160,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_8FunctionENS0_15An
   %.not911 = icmp eq i64 %1605, 0
   br i1 %.not911, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_40EEbOT_.exit", %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_8FunctionEJEEEEEclES4_.exit
-  %.0912 = phi ptr [ %1612, %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_8FunctionEJEEEEEclES4_.exit ], [ %1604, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_40EEbOT_.exit" ]
+.lr.ph:                                           ; preds = %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_40EEbOT_.argprom.exit", %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_8FunctionEJEEEEEclES4_.exit
+  %.0912 = phi ptr [ %1612, %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_8FunctionEJEEEEEclES4_.exit ], [ %1604, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_40EEbOT_.argprom.exit" ]
   %1607 = getelementptr inbounds nuw i8, ptr %.0912, i64 16
   %1608 = load ptr, ptr %1607, align 8
   %.not.i.i737 = icmp eq ptr %1608, null
@@ -20179,7 +20179,7 @@ _ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_8FunctionEJEEEEEclES4_.exit: ; pr
   %.not = icmp eq ptr %1612, %1606
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_8FunctionEJEEEEEclES4_.exit, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_40EEbOT_.exit"
+._crit_edge:                                      ; preds = %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_8FunctionEJEEEEEclES4_.exit, %"_ZN4llvm15AnalysisManagerINS_8FunctionEJEE12registerPassIZNS_11PassBuilder24registerFunctionAnalysesERS2_E4$_40EEbOT_.argprom.exit"
   ret void
 }
 
@@ -20257,7 +20257,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %45, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_0EEbOT_.exit"
+  br i1 %.not.i, label %45, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_0EEbOT_.argprom.exit"
 
 45:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i
   %46 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -20265,16 +20265,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %47 = load ptr, ptr %43, align 8
   store ptr %46, ptr %43, align 8
   %.not.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_0EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i
+  br i1 %.not.i.i.i, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_0EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i: ; preds = %45
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(8) %47) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_0EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_0EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_0EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i, %45, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i
+"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_0EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i, %45, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr @_ZN4llvm21LiveVariablesAnalysis3KeyE, ptr %11, align 8
@@ -20283,7 +20283,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i33, label %54
 
-54:                                               ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_0EEbOT_.exit"
+54:                                               ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_0EEbOT_.argprom.exit"
   %55 = lshr i32 ptrtoint (ptr @_ZN4llvm21LiveVariablesAnalysis3KeyE to i32), 4
   %56 = lshr i32 ptrtoint (ptr @_ZN4llvm21LiveVariablesAnalysis3KeyE to i32), 9
   %57 = xor i32 %55, %56
@@ -20323,8 +20323,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %76 = icmp eq ptr %75, @_ZN4llvm21LiveVariablesAnalysis3KeyE
   br i1 %76, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i27, label %.lr.ph.i.i.i.i.i20, !llvm.loop !15
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i33: ; preds = %66, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_0EEbOT_.exit"
-  %.sink.i.i.i.i.i34 = phi ptr [ %67, %66 ], [ null, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_0EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i33: ; preds = %66, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_0EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i34 = phi ptr [ %67, %66 ], [ null, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_0EEbOT_.argprom.exit" ]
   %77 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %.sink.i.i.i.i.i34)
   %78 = load ptr, ptr %11, align 8
   store ptr %78, ptr %77, align 8
@@ -20337,7 +20337,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %80 = getelementptr inbounds nuw i8, ptr %.0.i.i.i28, i64 8
   %81 = load ptr, ptr %80, align 8
   %.not.i29 = icmp eq ptr %81, null
-  br i1 %.not.i29, label %82, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_1EEbOT_.exit"
+  br i1 %.not.i29, label %82, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_1EEbOT_.argprom.exit"
 
 82:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i27
   %83 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -20345,16 +20345,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %84 = load ptr, ptr %80, align 8
   store ptr %83, ptr %80, align 8
   %.not.i.i.i30 = icmp eq ptr %84, null
-  br i1 %.not.i.i.i30, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_1EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i31
+  br i1 %.not.i.i.i30, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_1EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i31
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i31: ; preds = %82
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
   call void %87(ptr noundef nonnull align 8 dereferenceable(8) %84) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_1EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_1EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_1EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i27, %82, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i31
+"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_1EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i27, %82, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr @_ZN4llvm29MachineBlockFrequencyAnalysis3KeyE, ptr %10, align 8
@@ -20363,7 +20363,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i49, label %91
 
-91:                                               ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_1EEbOT_.exit"
+91:                                               ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_1EEbOT_.argprom.exit"
   %92 = lshr i32 ptrtoint (ptr @_ZN4llvm29MachineBlockFrequencyAnalysis3KeyE to i32), 4
   %93 = lshr i32 ptrtoint (ptr @_ZN4llvm29MachineBlockFrequencyAnalysis3KeyE to i32), 9
   %94 = xor i32 %92, %93
@@ -20403,8 +20403,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %113 = icmp eq ptr %112, @_ZN4llvm29MachineBlockFrequencyAnalysis3KeyE
   br i1 %113, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i43, label %.lr.ph.i.i.i.i.i36, !llvm.loop !15
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i49: ; preds = %103, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_1EEbOT_.exit"
-  %.sink.i.i.i.i.i50 = phi ptr [ %104, %103 ], [ null, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_1EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i49: ; preds = %103, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_1EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i50 = phi ptr [ %104, %103 ], [ null, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_1EEbOT_.argprom.exit" ]
   %114 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %.sink.i.i.i.i.i50)
   %115 = load ptr, ptr %10, align 8
   store ptr %115, ptr %114, align 8
@@ -20417,7 +20417,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %117 = getelementptr inbounds nuw i8, ptr %.0.i.i.i44, i64 8
   %118 = load ptr, ptr %117, align 8
   %.not.i45 = icmp eq ptr %118, null
-  br i1 %.not.i45, label %119, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_2EEbOT_.exit"
+  br i1 %.not.i45, label %119, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_2EEbOT_.argprom.exit"
 
 119:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i43
   %120 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -20425,16 +20425,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %121 = load ptr, ptr %117, align 8
   store ptr %120, ptr %117, align 8
   %.not.i.i.i46 = icmp eq ptr %121, null
-  br i1 %.not.i.i.i46, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_2EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i47
+  br i1 %.not.i.i.i46, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_2EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i47
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i47: ; preds = %119
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
   call void %124(ptr noundef nonnull align 8 dereferenceable(8) %121) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_2EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_2EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_2EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i43, %119, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i47
+"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_2EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i43, %119, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr @_ZN4llvm32MachineBranchProbabilityAnalysis3KeyE, ptr %9, align 8
@@ -20443,7 +20443,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i65, label %128
 
-128:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_2EEbOT_.exit"
+128:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_2EEbOT_.argprom.exit"
   %129 = lshr i32 ptrtoint (ptr @_ZN4llvm32MachineBranchProbabilityAnalysis3KeyE to i32), 4
   %130 = lshr i32 ptrtoint (ptr @_ZN4llvm32MachineBranchProbabilityAnalysis3KeyE to i32), 9
   %131 = xor i32 %129, %130
@@ -20483,8 +20483,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %150 = icmp eq ptr %149, @_ZN4llvm32MachineBranchProbabilityAnalysis3KeyE
   br i1 %150, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i59, label %.lr.ph.i.i.i.i.i52, !llvm.loop !15
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i65: ; preds = %140, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_2EEbOT_.exit"
-  %.sink.i.i.i.i.i66 = phi ptr [ %141, %140 ], [ null, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_2EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i65: ; preds = %140, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_2EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i66 = phi ptr [ %141, %140 ], [ null, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_2EEbOT_.argprom.exit" ]
   %151 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %.sink.i.i.i.i.i66)
   %152 = load ptr, ptr %9, align 8
   store ptr %152, ptr %151, align 8
@@ -20497,7 +20497,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %154 = getelementptr inbounds nuw i8, ptr %.0.i.i.i60, i64 8
   %155 = load ptr, ptr %154, align 8
   %.not.i61 = icmp eq ptr %155, null
-  br i1 %.not.i61, label %156, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_3EEbOT_.exit"
+  br i1 %.not.i61, label %156, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_3EEbOT_.argprom.exit"
 
 156:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i59
   %157 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -20505,16 +20505,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %158 = load ptr, ptr %154, align 8
   store ptr %157, ptr %154, align 8
   %.not.i.i.i62 = icmp eq ptr %158, null
-  br i1 %.not.i.i.i62, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_3EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i63
+  br i1 %.not.i.i.i62, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_3EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i63
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i63: ; preds = %156
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 8
   %161 = load ptr, ptr %160, align 8
   call void %161(ptr noundef nonnull align 8 dereferenceable(8) %158) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_3EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_3EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_3EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i59, %156, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i63
+"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_3EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i59, %156, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i63
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr @_ZN4llvm28MachineDominatorTreeAnalysis3KeyE, ptr %8, align 8
@@ -20523,7 +20523,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i81, label %165
 
-165:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_3EEbOT_.exit"
+165:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_3EEbOT_.argprom.exit"
   %166 = lshr i32 ptrtoint (ptr @_ZN4llvm28MachineDominatorTreeAnalysis3KeyE to i32), 4
   %167 = lshr i32 ptrtoint (ptr @_ZN4llvm28MachineDominatorTreeAnalysis3KeyE to i32), 9
   %168 = xor i32 %166, %167
@@ -20563,8 +20563,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %187 = icmp eq ptr %186, @_ZN4llvm28MachineDominatorTreeAnalysis3KeyE
   br i1 %187, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i75, label %.lr.ph.i.i.i.i.i68, !llvm.loop !15
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i81: ; preds = %177, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_3EEbOT_.exit"
-  %.sink.i.i.i.i.i82 = phi ptr [ %178, %177 ], [ null, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_3EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i81: ; preds = %177, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_3EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i82 = phi ptr [ %178, %177 ], [ null, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_3EEbOT_.argprom.exit" ]
   %188 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sink.i.i.i.i.i82)
   %189 = load ptr, ptr %8, align 8
   store ptr %189, ptr %188, align 8
@@ -20577,7 +20577,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %191 = getelementptr inbounds nuw i8, ptr %.0.i.i.i76, i64 8
   %192 = load ptr, ptr %191, align 8
   %.not.i77 = icmp eq ptr %192, null
-  br i1 %.not.i77, label %193, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_4EEbOT_.exit"
+  br i1 %.not.i77, label %193, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_4EEbOT_.argprom.exit"
 
 193:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i75
   %194 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -20585,16 +20585,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %195 = load ptr, ptr %191, align 8
   store ptr %194, ptr %191, align 8
   %.not.i.i.i78 = icmp eq ptr %195, null
-  br i1 %.not.i.i.i78, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_4EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i79
+  br i1 %.not.i.i.i78, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_4EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i79
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i79: ; preds = %193
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds i8, ptr %196, i64 8
   %198 = load ptr, ptr %197, align 8
   call void %198(ptr noundef nonnull align 8 dereferenceable(8) %195) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_4EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_4EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_4EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i75, %193, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i79
+"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_4EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i75, %193, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i79
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr @_ZN4llvm19MachineLoopAnalysis3KeyE, ptr %7, align 8
@@ -20603,7 +20603,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %201 = icmp eq i32 %200, 0
   br i1 %201, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i97, label %202
 
-202:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_4EEbOT_.exit"
+202:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_4EEbOT_.argprom.exit"
   %203 = lshr i32 ptrtoint (ptr @_ZN4llvm19MachineLoopAnalysis3KeyE to i32), 4
   %204 = lshr i32 ptrtoint (ptr @_ZN4llvm19MachineLoopAnalysis3KeyE to i32), 9
   %205 = xor i32 %203, %204
@@ -20643,8 +20643,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %224 = icmp eq ptr %223, @_ZN4llvm19MachineLoopAnalysis3KeyE
   br i1 %224, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i91, label %.lr.ph.i.i.i.i.i84, !llvm.loop !15
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i97: ; preds = %214, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_4EEbOT_.exit"
-  %.sink.i.i.i.i.i98 = phi ptr [ %215, %214 ], [ null, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_4EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i97: ; preds = %214, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_4EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i98 = phi ptr [ %215, %214 ], [ null, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_4EEbOT_.argprom.exit" ]
   %225 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.sink.i.i.i.i.i98)
   %226 = load ptr, ptr %7, align 8
   store ptr %226, ptr %225, align 8
@@ -20657,7 +20657,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %228 = getelementptr inbounds nuw i8, ptr %.0.i.i.i92, i64 8
   %229 = load ptr, ptr %228, align 8
   %.not.i93 = icmp eq ptr %229, null
-  br i1 %.not.i93, label %230, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_5EEbOT_.exit"
+  br i1 %.not.i93, label %230, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_5EEbOT_.argprom.exit"
 
 230:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i91
   %231 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -20665,16 +20665,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %232 = load ptr, ptr %228, align 8
   store ptr %231, ptr %228, align 8
   %.not.i.i.i94 = icmp eq ptr %232, null
-  br i1 %.not.i.i.i94, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_5EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i95
+  br i1 %.not.i.i.i94, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_5EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i95
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i95: ; preds = %230
   %233 = load ptr, ptr %232, align 8
   %234 = getelementptr inbounds i8, ptr %233, i64 8
   %235 = load ptr, ptr %234, align 8
   call void %235(ptr noundef nonnull align 8 dereferenceable(8) %232) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_5EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_5EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_5EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i91, %230, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i95
+"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_5EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i91, %230, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i95
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr @_ZN4llvm40MachineOptimizationRemarkEmitterAnalysis3KeyE, ptr %6, align 8
@@ -20683,7 +20683,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %238 = icmp eq i32 %237, 0
   br i1 %238, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i113, label %239
 
-239:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_5EEbOT_.exit"
+239:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_5EEbOT_.argprom.exit"
   %240 = lshr i32 ptrtoint (ptr @_ZN4llvm40MachineOptimizationRemarkEmitterAnalysis3KeyE to i32), 4
   %241 = lshr i32 ptrtoint (ptr @_ZN4llvm40MachineOptimizationRemarkEmitterAnalysis3KeyE to i32), 9
   %242 = xor i32 %240, %241
@@ -20723,8 +20723,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %261 = icmp eq ptr %260, @_ZN4llvm40MachineOptimizationRemarkEmitterAnalysis3KeyE
   br i1 %261, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i107, label %.lr.ph.i.i.i.i.i100, !llvm.loop !15
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i113: ; preds = %251, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_5EEbOT_.exit"
-  %.sink.i.i.i.i.i114 = phi ptr [ %252, %251 ], [ null, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_5EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i113: ; preds = %251, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_5EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i114 = phi ptr [ %252, %251 ], [ null, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_5EEbOT_.argprom.exit" ]
   %262 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %.sink.i.i.i.i.i114)
   %263 = load ptr, ptr %6, align 8
   store ptr %263, ptr %262, align 8
@@ -20737,7 +20737,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %265 = getelementptr inbounds nuw i8, ptr %.0.i.i.i108, i64 8
   %266 = load ptr, ptr %265, align 8
   %.not.i109 = icmp eq ptr %266, null
-  br i1 %.not.i109, label %267, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_6EEbOT_.exit"
+  br i1 %.not.i109, label %267, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_6EEbOT_.argprom.exit"
 
 267:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i107
   %268 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -20745,16 +20745,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %269 = load ptr, ptr %265, align 8
   store ptr %268, ptr %265, align 8
   %.not.i.i.i110 = icmp eq ptr %269, null
-  br i1 %.not.i.i.i110, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_6EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i111
+  br i1 %.not.i.i.i110, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_6EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i111
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i111: ; preds = %267
   %270 = load ptr, ptr %269, align 8
   %271 = getelementptr inbounds i8, ptr %270, i64 8
   %272 = load ptr, ptr %271, align 8
   call void %272(ptr noundef nonnull align 8 dereferenceable(8) %269) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_6EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_6EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_6EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i107, %267, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i111
+"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_6EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i107, %267, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i111
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr @_ZN4llvm32MachinePostDominatorTreeAnalysis3KeyE, ptr %5, align 8
@@ -20763,7 +20763,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %275 = icmp eq i32 %274, 0
   br i1 %275, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i129, label %276
 
-276:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_6EEbOT_.exit"
+276:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_6EEbOT_.argprom.exit"
   %277 = lshr i32 ptrtoint (ptr @_ZN4llvm32MachinePostDominatorTreeAnalysis3KeyE to i32), 4
   %278 = lshr i32 ptrtoint (ptr @_ZN4llvm32MachinePostDominatorTreeAnalysis3KeyE to i32), 9
   %279 = xor i32 %277, %278
@@ -20803,8 +20803,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %298 = icmp eq ptr %297, @_ZN4llvm32MachinePostDominatorTreeAnalysis3KeyE
   br i1 %298, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i123, label %.lr.ph.i.i.i.i.i116, !llvm.loop !15
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i129: ; preds = %288, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_6EEbOT_.exit"
-  %.sink.i.i.i.i.i130 = phi ptr [ %289, %288 ], [ null, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_6EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i129: ; preds = %288, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_6EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i130 = phi ptr [ %289, %288 ], [ null, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_6EEbOT_.argprom.exit" ]
   %299 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.sink.i.i.i.i.i130)
   %300 = load ptr, ptr %5, align 8
   store ptr %300, ptr %299, align 8
@@ -20817,7 +20817,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %302 = getelementptr inbounds nuw i8, ptr %.0.i.i.i124, i64 8
   %303 = load ptr, ptr %302, align 8
   %.not.i125 = icmp eq ptr %303, null
-  br i1 %.not.i125, label %304, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_7EEbOT_.exit"
+  br i1 %.not.i125, label %304, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_7EEbOT_.argprom.exit"
 
 304:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i123
   %305 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -20825,16 +20825,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %306 = load ptr, ptr %302, align 8
   store ptr %305, ptr %302, align 8
   %.not.i.i.i126 = icmp eq ptr %306, null
-  br i1 %.not.i.i.i126, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_7EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i127
+  br i1 %.not.i.i.i126, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_7EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i127
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i127: ; preds = %304
   %307 = load ptr, ptr %306, align 8
   %308 = getelementptr inbounds i8, ptr %307, i64 8
   %309 = load ptr, ptr %308, align 8
   call void %309(ptr noundef nonnull align 8 dereferenceable(8) %306) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_7EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_7EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_7EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i123, %304, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i127
+"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_7EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i123, %304, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i127
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @_ZN4llvm27PassInstrumentationAnalysis3KeyE, ptr %4, align 8
@@ -20843,7 +20843,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %312 = icmp eq i32 %311, 0
   br i1 %312, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i145, label %313
 
-313:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_7EEbOT_.exit"
+313:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_7EEbOT_.argprom.exit"
   %314 = lshr i32 ptrtoint (ptr @_ZN4llvm27PassInstrumentationAnalysis3KeyE to i32), 4
   %315 = lshr i32 ptrtoint (ptr @_ZN4llvm27PassInstrumentationAnalysis3KeyE to i32), 9
   %316 = xor i32 %314, %315
@@ -20883,8 +20883,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %335 = icmp eq ptr %334, @_ZN4llvm27PassInstrumentationAnalysis3KeyE
   br i1 %335, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i139, label %.lr.ph.i.i.i.i.i132, !llvm.loop !15
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i145: ; preds = %325, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_7EEbOT_.exit"
-  %.sink.i.i.i.i.i146 = phi ptr [ %326, %325 ], [ null, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_7EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E15LookupBucketForIS3_EEbRKT_RPSI_.exit.i.i.i145: ; preds = %325, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_7EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i146 = phi ptr [ %326, %325 ], [ null, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_7EEbOT_.argprom.exit" ]
   %336 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_E20InsertIntoBucketImplIS3_EEPSI_RKS3_RKT_SM_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i.i146)
   %337 = load ptr, ptr %4, align 8
   store ptr %337, ptr %336, align 8
@@ -20981,7 +20981,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %378 = getelementptr inbounds nuw i8, ptr %.0.i.i.i156, i64 8
   %379 = load ptr, ptr %378, align 8
   %.not.i157 = icmp eq ptr %379, null
-  br i1 %.not.i157, label %380, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_9EEbOT_.exit"
+  br i1 %.not.i157, label %380, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_9EEbOT_.argprom.exit"
 
 380:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i155
   %381 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -20989,16 +20989,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %382 = load ptr, ptr %378, align 8
   store ptr %381, ptr %378, align 8
   %.not.i.i.i158 = icmp eq ptr %382, null
-  br i1 %.not.i.i.i158, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_9EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i159
+  br i1 %.not.i.i.i158, label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_9EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i159
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i159: ; preds = %380
   %383 = load ptr, ptr %382, align 8
   %384 = getelementptr inbounds i8, ptr %383, i64 8
   %385 = load ptr, ptr %384, align 8
   call void %385(ptr noundef nonnull align 8 dereferenceable(8) %382) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_9EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_9EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_9EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i155, %380, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i159
+"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_9EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_15MachineFunctionENS_15AnalysisManagerIS7_JEE11InvalidatorEJEEESt14default_deleteISB_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SE_EEEES3_SE_SG_SI_EixEOS3_.exit.i155, %380, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEJEEEEclEPS7_.exit.i.i.i159
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 1968
   %387 = load ptr, ptr %386, align 8
@@ -21007,8 +21007,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_15MachineFunctionE
   %.not202 = icmp eq i64 %388, 0
   br i1 %.not202, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_9EEbOT_.exit", %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_15MachineFunctionEJEEEEEclES4_.exit
-  %.0203 = phi ptr [ %395, %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_15MachineFunctionEJEEEEEclES4_.exit ], [ %387, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_9EEbOT_.exit" ]
+.lr.ph:                                           ; preds = %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_9EEbOT_.argprom.exit", %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_15MachineFunctionEJEEEEEclES4_.exit
+  %.0203 = phi ptr [ %395, %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_15MachineFunctionEJEEEEEclES4_.exit ], [ %387, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_9EEbOT_.argprom.exit" ]
   %390 = getelementptr inbounds nuw i8, ptr %.0203, i64 16
   %391 = load ptr, ptr %390, align 8
   %.not.i.i = icmp eq ptr %391, null
@@ -21026,7 +21026,7 @@ _ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_15MachineFunctionEJEEEEEclES4_.ex
   %.not = icmp eq ptr %395, %389
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_15MachineFunctionEJEEEEEclES4_.exit, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_9EEbOT_.exit"
+._crit_edge:                                      ; preds = %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_15MachineFunctionEJEEEEEclES4_.exit, %"_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE12registerPassIZNS_11PassBuilder31registerMachineFunctionAnalysesERS2_E3$_9EEbOT_.argprom.exit"
   ret void
 }
 
@@ -21099,7 +21099,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %40, label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_0EEbOT_.exit"
+  br i1 %.not.i, label %40, label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_0EEbOT_.argprom.exit"
 
 40:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i
   %41 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -21107,16 +21107,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %42 = load ptr, ptr %38, align 8
   store ptr %41, ptr %38, align 8
   %.not.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i, label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_0EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i
+  br i1 %.not.i.i.i, label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_0EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i: ; preds = %40
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   call void %45(ptr noundef nonnull align 8 dereferenceable(8) %42) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_0EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_0EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_0EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i, %40, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i
+"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_0EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i, %40, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr @_ZN4llvm15IVUsersAnalysis3KeyE, ptr %6, align 8
@@ -21125,7 +21125,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15Analys
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E15LookupBucketForIS3_EEbRKT_RPSK_.exit.i.i.i28, label %49
 
-49:                                               ; preds = %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_0EEbOT_.exit"
+49:                                               ; preds = %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_0EEbOT_.argprom.exit"
   %50 = lshr i32 ptrtoint (ptr @_ZN4llvm15IVUsersAnalysis3KeyE to i32), 4
   %51 = lshr i32 ptrtoint (ptr @_ZN4llvm15IVUsersAnalysis3KeyE to i32), 9
   %52 = xor i32 %50, %51
@@ -21165,8 +21165,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15Analys
   %71 = icmp eq ptr %70, @_ZN4llvm15IVUsersAnalysis3KeyE
   br i1 %71, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i22, label %.lr.ph.i.i.i.i.i15, !llvm.loop !16
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E15LookupBucketForIS3_EEbRKT_RPSK_.exit.i.i.i28: ; preds = %61, %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_0EEbOT_.exit"
-  %.sink.i.i.i.i.i29 = phi ptr [ %62, %61 ], [ null, %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_0EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E15LookupBucketForIS3_EEbRKT_RPSK_.exit.i.i.i28: ; preds = %61, %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_0EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i29 = phi ptr [ %62, %61 ], [ null, %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_0EEbOT_.argprom.exit" ]
   %72 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E20InsertIntoBucketImplIS3_EEPSK_RKS3_RKT_SO_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %.sink.i.i.i.i.i29)
   %73 = load ptr, ptr %6, align 8
   store ptr %73, ptr %72, align 8
@@ -21179,7 +21179,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i23, i64 8
   %76 = load ptr, ptr %75, align 8
   %.not.i24 = icmp eq ptr %76, null
-  br i1 %.not.i24, label %77, label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_1EEbOT_.exit"
+  br i1 %.not.i24, label %77, label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_1EEbOT_.argprom.exit"
 
 77:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i22
   %78 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -21187,16 +21187,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %79 = load ptr, ptr %75, align 8
   store ptr %78, ptr %75, align 8
   %.not.i.i.i25 = icmp eq ptr %79, null
-  br i1 %.not.i.i.i25, label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_1EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i26
+  br i1 %.not.i.i.i25, label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_1EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i26
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i26: ; preds = %77
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8
   call void %82(ptr noundef nonnull align 8 dereferenceable(8) %79) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_1EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_1EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_1EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i22, %77, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i26
+"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_1EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i22, %77, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr @_ZN4llvm16NoOpLoopAnalysis3KeyE, ptr %5, align 8
@@ -21205,7 +21205,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15Analys
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E15LookupBucketForIS3_EEbRKT_RPSK_.exit.i.i.i44, label %86
 
-86:                                               ; preds = %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_1EEbOT_.exit"
+86:                                               ; preds = %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_1EEbOT_.argprom.exit"
   %87 = lshr i32 ptrtoint (ptr @_ZN4llvm16NoOpLoopAnalysis3KeyE to i32), 4
   %88 = lshr i32 ptrtoint (ptr @_ZN4llvm16NoOpLoopAnalysis3KeyE to i32), 9
   %89 = xor i32 %87, %88
@@ -21245,8 +21245,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15Analys
   %108 = icmp eq ptr %107, @_ZN4llvm16NoOpLoopAnalysis3KeyE
   br i1 %108, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i38, label %.lr.ph.i.i.i.i.i31, !llvm.loop !16
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E15LookupBucketForIS3_EEbRKT_RPSK_.exit.i.i.i44: ; preds = %98, %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_1EEbOT_.exit"
-  %.sink.i.i.i.i.i45 = phi ptr [ %99, %98 ], [ null, %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_1EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E15LookupBucketForIS3_EEbRKT_RPSK_.exit.i.i.i44: ; preds = %98, %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_1EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i45 = phi ptr [ %99, %98 ], [ null, %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_1EEbOT_.argprom.exit" ]
   %109 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E20InsertIntoBucketImplIS3_EEPSK_RKS3_RKT_SO_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.sink.i.i.i.i.i45)
   %110 = load ptr, ptr %5, align 8
   store ptr %110, ptr %109, align 8
@@ -21259,7 +21259,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %112 = getelementptr inbounds nuw i8, ptr %.0.i.i.i39, i64 8
   %113 = load ptr, ptr %112, align 8
   %.not.i40 = icmp eq ptr %113, null
-  br i1 %.not.i40, label %114, label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_2EEbOT_.exit"
+  br i1 %.not.i40, label %114, label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_2EEbOT_.argprom.exit"
 
 114:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i38
   %115 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -21267,16 +21267,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %116 = load ptr, ptr %112, align 8
   store ptr %115, ptr %112, align 8
   %.not.i.i.i41 = icmp eq ptr %116, null
-  br i1 %.not.i.i.i41, label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_2EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i42
+  br i1 %.not.i.i.i41, label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_2EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i42
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i42: ; preds = %114
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 8
   %119 = load ptr, ptr %118, align 8
   call void %119(ptr noundef nonnull align 8 dereferenceable(8) %116) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_2EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_2EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_2EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i38, %114, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i42
+"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_2EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i38, %114, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @_ZN4llvm27PassInstrumentationAnalysis3KeyE, ptr %4, align 8
@@ -21285,7 +21285,7 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15Analys
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E15LookupBucketForIS3_EEbRKT_RPSK_.exit.i.i.i60, label %123
 
-123:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_2EEbOT_.exit"
+123:                                              ; preds = %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_2EEbOT_.argprom.exit"
   %124 = lshr i32 ptrtoint (ptr @_ZN4llvm27PassInstrumentationAnalysis3KeyE to i32), 4
   %125 = lshr i32 ptrtoint (ptr @_ZN4llvm27PassInstrumentationAnalysis3KeyE to i32), 9
   %126 = xor i32 %124, %125
@@ -21325,8 +21325,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15Analys
   %145 = icmp eq ptr %144, @_ZN4llvm27PassInstrumentationAnalysis3KeyE
   br i1 %145, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i54, label %.lr.ph.i.i.i.i.i47, !llvm.loop !16
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E15LookupBucketForIS3_EEbRKT_RPSK_.exit.i.i.i60: ; preds = %135, %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_2EEbOT_.exit"
-  %.sink.i.i.i.i.i61 = phi ptr [ %136, %135 ], [ null, %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_2EEbOT_.exit" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E15LookupBucketForIS3_EEbRKT_RPSK_.exit.i.i.i60: ; preds = %135, %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_2EEbOT_.argprom.exit"
+  %.sink.i.i.i.i.i61 = phi ptr [ %136, %135 ], [ null, %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_2EEbOT_.argprom.exit" ]
   %146 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_E20InsertIntoBucketImplIS3_EEPSK_RKS3_RKT_SO_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i.i61)
   %147 = load ptr, ptr %4, align 8
   store ptr %147, ptr %146, align 8
@@ -21423,7 +21423,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %188 = getelementptr inbounds nuw i8, ptr %.0.i.i.i71, i64 8
   %189 = load ptr, ptr %188, align 8
   %.not.i72 = icmp eq ptr %189, null
-  br i1 %.not.i72, label %190, label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_4EEbOT_.exit"
+  br i1 %.not.i72, label %190, label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_4EEbOT_.argprom.exit"
 
 190:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i70
   %191 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -21431,16 +21431,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail1
   %192 = load ptr, ptr %188, align 8
   store ptr %191, ptr %188, align 8
   %.not.i.i.i73 = icmp eq ptr %192, null
-  br i1 %.not.i.i.i73, label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_4EEbOT_.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i74
+  br i1 %.not.i.i.i73, label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_4EEbOT_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i74
 
 _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i74: ; preds = %190
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load ptr, ptr %194, align 8
   call void %195(ptr noundef nonnull align 8 dereferenceable(8) %192) #25
-  br label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_4EEbOT_.exit"
+  br label %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_4EEbOT_.argprom.exit"
 
-"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_4EEbOT_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i70, %190, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i74
+"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_4EEbOT_.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11AnalysisKeyESt10unique_ptrINS_6detail19AnalysisPassConceptINS_4LoopENS_15AnalysisManagerIS7_JRNS_27LoopStandardAnalysisResultsEEE11InvalidatorEJSA_EEESt14default_deleteISD_EENS_12DenseMapInfoIS3_vEENS5_12DenseMapPairIS3_SG_EEEES3_SG_SI_SK_EixEOS3_.exit.i70, %190, %_ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEE11InvalidatorEJS6_EEEEclEPS9_.exit.i.i.i74
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 1728
   %197 = load ptr, ptr %196, align 8
@@ -21449,8 +21449,8 @@ _ZNKSt14default_deleteIN4llvm6detail19AnalysisPassConceptINS0_4LoopENS0_15Analys
   %.not97 = icmp eq i64 %198, 0
   br i1 %.not97, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_4EEbOT_.exit", %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_4LoopEJRNS0_27LoopStandardAnalysisResultsEEEEEEclES6_.exit
-  %.098 = phi ptr [ %205, %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_4LoopEJRNS0_27LoopStandardAnalysisResultsEEEEEEclES6_.exit ], [ %197, %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_4EEbOT_.exit" ]
+.lr.ph:                                           ; preds = %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_4EEbOT_.argprom.exit", %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_4LoopEJRNS0_27LoopStandardAnalysisResultsEEEEEEclES6_.exit
+  %.098 = phi ptr [ %205, %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_4LoopEJRNS0_27LoopStandardAnalysisResultsEEEEEEclES6_.exit ], [ %197, %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_4EEbOT_.argprom.exit" ]
   %200 = getelementptr inbounds nuw i8, ptr %.098, i64 16
   %201 = load ptr, ptr %200, align 8
   %.not.i.i = icmp eq ptr %201, null
@@ -21468,7 +21468,7 @@ _ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_4LoopEJRNS0_27LoopStandardAnalysi
   %.not = icmp eq ptr %205, %199
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_4LoopEJRNS0_27LoopStandardAnalysisResultsEEEEEEclES6_.exit, %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_4EEbOT_.exit"
+._crit_edge:                                      ; preds = %_ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_4LoopEJRNS0_27LoopStandardAnalysisResultsEEEEEEclES6_.exit, %"_ZN4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE12registerPassIZNS_11PassBuilder20registerLoopAnalysesERS4_E3$_4EEbOT_.argprom.exit"
   ret void
 }
 
@@ -25243,7 +25243,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit2633:            ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %1178, label %_ZN4llvm12ErrorSuccessD2Ev.exit2635, label %_ZN4llvmeqENS_9StringRefES0_.exit2663.thread7559
 
 _ZN4llvm12ErrorSuccessD2Ev.exit2635:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit2633
-  tail call fastcc void @_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_122TriggerCrashModulePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  tail call fastcc void @_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_122TriggerCrashModulePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %2)
   store ptr null, ptr %0, align 8
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
@@ -25253,7 +25253,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit2639:            ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %1179, label %_ZN4llvm12ErrorSuccessD2Ev.exit2641, label %_ZN4llvmeqENS_9StringRefES0_.exit2663.thread7559
 
 _ZN4llvm12ErrorSuccessD2Ev.exit2641:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit2639
-  tail call fastcc void @_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  tail call fastcc void @_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %2)
   store ptr null, ptr %0, align 8
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
@@ -25741,7 +25741,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2776:
 
 _ZN4llvm12ErrorSuccessD2Ev.exit2778:              ; preds = %_ZN4llvm11PassBuilder19parsePassParametersIRFNS_8ExpectedINS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEENS_9StringRefEEEEDTclfp_tlSC_EEEOT_SC_SC_.exit
   call void @_ZN4llvm11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(16) %219, ptr noundef nonnull align 8 dereferenceable(16) %217)
-  call fastcc void @"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEE"(ptr dead_on_unwind noalias writable align 8 %218, ptr noundef %219)
+  call fastcc void @"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEE.argprom"(ptr dead_on_unwind noalias writable align 8 %218, ptr noundef %219)
   call void @_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15InternalizePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(64) %218)
   call void @_ZN4llvm15InternalizePassD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %218) #25
   call void @_ZN4llvm11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %219) #25
@@ -25916,7 +25916,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2830:
 
 _ZN4llvm12ErrorSuccessD2Ev.exit2832:              ; preds = %_ZN4llvm11PassBuilder19parsePassParametersIRFNS_8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9StringRefEEEEDTclfp_tlSA_EEEOT_SA_SA_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %226, ptr noundef nonnull align 8 dereferenceable(32) %224) #25
-  call fastcc void @"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_9clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %225, ptr noundef %226)
+  call fastcc void @"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_9clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %225, ptr noundef %226)
   call void @_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MemProfUsePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(40) %225)
   call void @_ZN4llvm14MemProfUsePassD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %225) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %226) #25
@@ -38075,7 +38075,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS
 }
 
 ; Function Attrs: minsize mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_122TriggerCrashModulePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_122TriggerCrashModulePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = alloca %"class.std::unique_ptr.1880", align 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_122TriggerCrashModulePassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %3, align 8
@@ -38097,7 +38097,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS
 }
 
 ; Function Attrs: minsize mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = alloca %"class.std::unique_ptr.1880", align 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %3, align 8
@@ -39521,7 +39521,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEE.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.anon.2113, align 8
   %4 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25
   br i1 %4, label %5, label %6
@@ -40142,7 +40142,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_9clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_9clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1) #25
@@ -57877,23 +57877,23 @@ _ZN4llvmeqENS_9StringRefES0_.exit1380:            ; preds = %_ZN4llvm5ErrorD2Ev.
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit1380, %452
   %.036.i.i.i.i.i.i = phi i64 [ %454, %452 ], [ %440, %_ZN4llvmeqENS_9StringRefES0_.exit1380 ]
   %.sroa.025.035.i.i.i.i.i.i = phi ptr [ %453, %452 ], [ %.val, %_ZN4llvmeqENS_9StringRefES0_.exit1380 ]
-  %442 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr %.sroa.025.035.i.i.i.i.i.i)
-  br i1 %442, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.exit", label %443
+  %442 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.argprom"(ptr %.sroa.025.035.i.i.i.i.i.i)
+  br i1 %442, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.argprom.exit", label %443
 
 443:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %444 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i.i.i, i64 40
-  %445 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %444)
-  br i1 %445, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.exit", label %446
+  %445 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.argprom"(ptr nonnull %444)
+  br i1 %445, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.argprom.exit", label %446
 
 446:                                              ; preds = %443
   %447 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i.i.i, i64 80
-  %448 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %447)
-  br i1 %448, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.exit", label %449
+  %448 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.argprom"(ptr nonnull %447)
+  br i1 %448, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.argprom.exit", label %449
 
 449:                                              ; preds = %446
   %450 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i.i.i, i64 120
-  %451 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %450)
-  br i1 %451, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.exit", label %452
+  %451 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.argprom"(ptr nonnull %450)
+  br i1 %451, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.argprom.exit", label %452
 
 452:                                              ; preds = %449
   %453 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i.i.i, i64 160
@@ -57910,15 +57910,15 @@ _ZN4llvmeqENS_9StringRefES0_.exit1380:            ; preds = %_ZN4llvm5ErrorD2Ev.
   %.pre-phi38.i.i.i.i.i.i = phi i64 [ %.pre37.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %438, %_ZN4llvmeqENS_9StringRefES0_.exit1380 ]
   %.sroa.025.0.lcssa.i.i.i.i.i.i = phi ptr [ %453, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val, %_ZN4llvmeqENS_9StringRefES0_.exit1380 ]
   %456 = sdiv exact i64 %.pre-phi38.i.i.i.i.i.i, 40
-  switch i64 %456, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.exit" [
+  switch i64 %456, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.argprom.exit" [
     i64 3, label %457
     i64 2, label %461
     i64 1, label %465
   ]
 
 457:                                              ; preds = %._crit_edge.i.i.i.i.i.i
-  %458 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr %.sroa.025.0.lcssa.i.i.i.i.i.i)
-  br i1 %458, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.exit", label %459
+  %458 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.argprom"(ptr %.sroa.025.0.lcssa.i.i.i.i.i.i)
+  br i1 %458, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.argprom.exit", label %459
 
 459:                                              ; preds = %457
   %460 = getelementptr inbounds i8, ptr %.sroa.025.0.lcssa.i.i.i.i.i.i, i64 40
@@ -57926,8 +57926,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit1380:            ; preds = %_ZN4llvm5ErrorD2Ev.
 
 461:                                              ; preds = %459, %._crit_edge.i.i.i.i.i.i
   %.sroa.025.1.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %460, %459 ]
-  %462 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr %.sroa.025.1.i.i.i.i.i.i)
-  br i1 %462, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.exit", label %463
+  %462 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.argprom"(ptr %.sroa.025.1.i.i.i.i.i.i)
+  br i1 %462, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.argprom.exit", label %463
 
 463:                                              ; preds = %461
   %464 = getelementptr inbounds i8, ptr %.sroa.025.1.i.i.i.i.i.i, i64 40
@@ -57935,11 +57935,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit1380:            ; preds = %_ZN4llvm5ErrorD2Ev.
 
 465:                                              ; preds = %463, %._crit_edge.i.i.i.i.i.i
   %.sroa.025.2.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %464, %463 ]
-  %466 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr %.sroa.025.2.i.i.i.i.i.i)
+  %466 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.argprom"(ptr %.sroa.025.2.i.i.i.i.i.i)
   %spec.select.i.i.i.i.i.i = select i1 %466, ptr %.sroa.025.2.i.i.i.i.i.i, ptr %.val1358
-  br label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %443, %446, %449, %._crit_edge.i.i.i.i.i.i, %457, %461, %465
+"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %443, %446, %449, %._crit_edge.i.i.i.i.i.i, %457, %461, %465
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %457 ], [ %.sroa.025.1.i.i.i.i.i.i, %461 ], [ %.val1358, %._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %465 ], [ %.sroa.025.035.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %444, %443 ], [ %447, %446 ], [ %450, %449 ]
   %467 = icmp ne ptr %.val1358, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   %.val1359 = load ptr, ptr %385, align 8
@@ -57952,26 +57952,26 @@ _ZN4llvmeqENS_9StringRefES0_.exit1380:            ; preds = %_ZN4llvm5ErrorD2Ev.
   %473 = icmp sgt i64 %472, 0
   br i1 %473, label %.lr.ph.i.i.i.i.i.i1388, label %._crit_edge.i.i.i.i.i.i1381
 
-.lr.ph.i.i.i.i.i.i1388:                           ; preds = %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.exit", %484
-  %.036.i.i.i.i.i.i1389 = phi i64 [ %486, %484 ], [ %472, %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.exit" ]
-  %.sroa.025.035.i.i.i.i.i.i1390 = phi ptr [ %485, %484 ], [ %.val1359, %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.exit" ]
-  %474 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr %.sroa.025.035.i.i.i.i.i.i1390)
-  br i1 %474, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.exit", label %475
+.lr.ph.i.i.i.i.i.i1388:                           ; preds = %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.argprom.exit", %484
+  %.036.i.i.i.i.i.i1389 = phi i64 [ %486, %484 ], [ %472, %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.argprom.exit" ]
+  %.sroa.025.035.i.i.i.i.i.i1390 = phi ptr [ %485, %484 ], [ %.val1359, %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.argprom.exit" ]
+  %474 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.argprom"(ptr %.sroa.025.035.i.i.i.i.i.i1390)
+  br i1 %474, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.argprom.exit", label %475
 
 475:                                              ; preds = %.lr.ph.i.i.i.i.i.i1388
   %476 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i.i.i1390, i64 40
-  %477 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %476)
-  br i1 %477, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.exit", label %478
+  %477 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.argprom"(ptr nonnull %476)
+  br i1 %477, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.argprom.exit", label %478
 
 478:                                              ; preds = %475
   %479 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i.i.i1390, i64 80
-  %480 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %479)
-  br i1 %480, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.exit", label %481
+  %480 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.argprom"(ptr nonnull %479)
+  br i1 %480, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.argprom.exit", label %481
 
 481:                                              ; preds = %478
   %482 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i.i.i1390, i64 120
-  %483 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %482)
-  br i1 %483, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.exit", label %484
+  %483 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.argprom"(ptr nonnull %482)
+  br i1 %483, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.argprom.exit", label %484
 
 484:                                              ; preds = %481
   %485 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i.i.i1390, i64 160
@@ -57984,19 +57984,19 @@ _ZN4llvmeqENS_9StringRefES0_.exit1380:            ; preds = %_ZN4llvm5ErrorD2Ev.
   %.pre37.i.i.i.i.i.i1393 = sub i64 %468, %.pre.i.i.i.i.i.i1392
   br label %._crit_edge.i.i.i.i.i.i1381
 
-._crit_edge.i.i.i.i.i.i1381:                      ; preds = %._crit_edge.loopexit.i.i.i.i.i.i1391, %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.exit"
-  %.pre-phi38.i.i.i.i.i.i1382 = phi i64 [ %.pre37.i.i.i.i.i.i1393, %._crit_edge.loopexit.i.i.i.i.i.i1391 ], [ %470, %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.exit" ]
-  %.sroa.025.0.lcssa.i.i.i.i.i.i1383 = phi ptr [ %485, %._crit_edge.loopexit.i.i.i.i.i.i1391 ], [ %.val1359, %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.exit" ]
+._crit_edge.i.i.i.i.i.i1381:                      ; preds = %._crit_edge.loopexit.i.i.i.i.i.i1391, %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.argprom.exit"
+  %.pre-phi38.i.i.i.i.i.i1382 = phi i64 [ %.pre37.i.i.i.i.i.i1393, %._crit_edge.loopexit.i.i.i.i.i.i1391 ], [ %470, %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.argprom.exit" ]
+  %.sroa.025.0.lcssa.i.i.i.i.i.i1383 = phi ptr [ %485, %._crit_edge.loopexit.i.i.i.i.i.i1391 ], [ %.val1359, %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_0EEbOT_T0_.argprom.exit" ]
   %488 = sdiv exact i64 %.pre-phi38.i.i.i.i.i.i1382, 40
-  switch i64 %488, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.exit" [
+  switch i64 %488, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.argprom.exit" [
     i64 3, label %489
     i64 2, label %493
     i64 1, label %497
   ]
 
 489:                                              ; preds = %._crit_edge.i.i.i.i.i.i1381
-  %490 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr %.sroa.025.0.lcssa.i.i.i.i.i.i1383)
-  br i1 %490, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.exit", label %491
+  %490 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.argprom"(ptr %.sroa.025.0.lcssa.i.i.i.i.i.i1383)
+  br i1 %490, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.argprom.exit", label %491
 
 491:                                              ; preds = %489
   %492 = getelementptr inbounds i8, ptr %.sroa.025.0.lcssa.i.i.i.i.i.i1383, i64 40
@@ -58004,8 +58004,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit1380:            ; preds = %_ZN4llvm5ErrorD2Ev.
 
 493:                                              ; preds = %491, %._crit_edge.i.i.i.i.i.i1381
   %.sroa.025.1.i.i.i.i.i.i1387 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i1383, %._crit_edge.i.i.i.i.i.i1381 ], [ %492, %491 ]
-  %494 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr %.sroa.025.1.i.i.i.i.i.i1387)
-  br i1 %494, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.exit", label %495
+  %494 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.argprom"(ptr %.sroa.025.1.i.i.i.i.i.i1387)
+  br i1 %494, label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.argprom.exit", label %495
 
 495:                                              ; preds = %493
   %496 = getelementptr inbounds i8, ptr %.sroa.025.1.i.i.i.i.i.i1387, i64 40
@@ -58013,11 +58013,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit1380:            ; preds = %_ZN4llvm5ErrorD2Ev.
 
 497:                                              ; preds = %495, %._crit_edge.i.i.i.i.i.i1381
   %.sroa.025.2.i.i.i.i.i.i1384 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i1383, %._crit_edge.i.i.i.i.i.i1381 ], [ %496, %495 ]
-  %498 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr %.sroa.025.2.i.i.i.i.i.i1384)
+  %498 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.argprom"(ptr %.sroa.025.2.i.i.i.i.i.i1384)
   %spec.select.i.i.i.i.i.i1385 = select i1 %498, ptr %.sroa.025.2.i.i.i.i.i.i1384, ptr %.val1360
-  br label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i1388, %475, %478, %481, %._crit_edge.i.i.i.i.i.i1381, %489, %493, %497
+"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i1388, %475, %478, %481, %._crit_edge.i.i.i.i.i.i1381, %489, %493, %497
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i1386 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i1383, %489 ], [ %.sroa.025.1.i.i.i.i.i.i1387, %493 ], [ %.val1360, %._crit_edge.i.i.i.i.i.i1381 ], [ %spec.select.i.i.i.i.i.i1385, %497 ], [ %.sroa.025.035.i.i.i.i.i.i1390, %.lr.ph.i.i.i.i.i.i1388 ], [ %476, %475 ], [ %479, %478 ], [ %482, %481 ]
   %499 = icmp ne ptr %.val1360, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i1386
   call void @_ZN4llvm31createFunctionToLoopPassAdaptorINS_11PassManagerINS_4LoopENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS5_RNS_10LPMUpdaterEEEEEENSt9enable_ifIXsr11is_detectedINS_12_GLOBAL__N_113HasRunOnLoopTET_EE5valueENS_25FunctionToLoopPassAdaptorEE4typeEOSD_bbb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::FunctionToLoopPassAdaptor") align 8 %33, ptr noundef nonnull align 8 dereferenceable(120) %32, i1 noundef zeroext %.0.i1378, i1 noundef zeroext %467, i1 noundef zeroext %499)
@@ -58052,7 +58052,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit1380:            ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i3555 = icmp eq ptr %513, %515
   br i1 %.not.i.i3555, label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit3556, label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit3556.thread
 
-_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit3556.thread: ; preds = %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.exit"
+_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit3556.thread: ; preds = %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.argprom.exit"
   %516 = ptrtoint ptr %500 to i64
   store i64 %516, ptr %513, align 8
   %517 = load ptr, ptr %512, align 8
@@ -58060,7 +58060,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   store ptr %518, ptr %512, align 8
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_25FunctionToLoopPassAdaptorEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
-_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit3556: ; preds = %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.exit"
+_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit3556: ; preds = %"_ZN4llvm6any_ofIRKSt6vectorINS_11PassBuilder15PipelineElementESaIS3_EEZNS2_17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS9_JEEEJEEERKS3_E3$_1EEbOT_T0_.argprom.exit"
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %513, ptr noundef nonnull align 8 dereferenceable(8) %29)
   %.pr4838 = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %.pr4838, null
@@ -61018,7 +61018,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit2769:            ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %971, label %_ZN4llvm12ErrorSuccessD2Ev.exit2771, label %_ZN4llvmeqENS_9StringRefES0_.exit2775
 
 _ZN4llvm12ErrorSuccessD2Ev.exit2771:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit2769
-  tail call fastcc void @_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_124TriggerCrashFunctionPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  tail call fastcc void @_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_124TriggerCrashFunctionPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %2)
   store ptr null, ptr %0, align 8
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
@@ -61028,7 +61028,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit2775:            ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %972, label %_ZN4llvm12ErrorSuccessD2Ev.exit2777, label %_ZN4llvmeqENS_9StringRefES0_.exit2893.thread5578.thread
 
 _ZN4llvm12ErrorSuccessD2Ev.exit2777:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit2775
-  tail call fastcc void @_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  tail call fastcc void @_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %2)
   store ptr null, ptr %0, align 8
   br label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
@@ -68553,7 +68553,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManager
 }
 
 ; Function Attrs: minsize mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_124TriggerCrashFunctionPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_124TriggerCrashFunctionPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = alloca %"class.std::unique_ptr.458", align 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerCrashFunctionPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %3, align 8
@@ -68575,7 +68575,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManager
 }
 
 ; Function Attrs: minsize mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = alloca %"class.std::unique_ptr.458", align 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %3, align 8
@@ -72277,7 +72277,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit305:             ; preds = %62
   br i1 %150, label %_ZN4llvm12ErrorSuccessD2Ev.exit306, label %_ZN4llvmeqENS_9StringRefES0_.exit320.thread613
 
 _ZN4llvm12ErrorSuccessD2Ev.exit306:               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit305
-  tail call fastcc void @_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  tail call fastcc void @_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %2)
   store ptr null, ptr %0, align 8
   br label %204
 
@@ -72287,7 +72287,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit310:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %151, label %_ZN4llvm12ErrorSuccessD2Ev.exit311, label %_ZN4llvmeqENS_9StringRefES0_.exit320.thread613
 
 _ZN4llvm12ErrorSuccessD2Ev.exit311:               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit310
-  tail call fastcc void @_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  tail call fastcc void @_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %2)
   store ptr null, ptr %0, align 8
   br label %204
 
@@ -72320,7 +72320,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit320.thread613:   ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %154, label %155, label %181
 
 155:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit320.thread613
-  call fastcc void @"_ZN4llvm11PassBuilder19parsePassParametersIZNS0_16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS3_JEEEJEEERKNS0_15PipelineElementEE3$_0EEDTclfp_tlNS_9StringRefEEEEOT_SC_SC_"(ptr dead_on_unwind noalias writable align 8 %44, ptr nonnull %1, ptr %.sroa.085.0.copyload, i64 %.sroa.286.0.copyload, ptr nonnull @.str.511, i64 12)
+  call fastcc void @"_ZN4llvm11PassBuilder19parsePassParametersIZNS0_16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS3_JEEEJEEERKNS0_15PipelineElementEE3$_0EEDTclfp_tlNS_9StringRefEEEEOT_SC_SC_.argprom"(ptr dead_on_unwind noalias writable align 8 %44, ptr nonnull %1, ptr %.sroa.085.0.copyload, i64 %.sroa.286.0.copyload, ptr nonnull @.str.511, i64 12)
   %156 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %157 = load i8, ptr %156, align 8
   %158 = trunc i8 %157 to i1
@@ -72354,7 +72354,7 @@ _ZN4llvm23RegAllocFastPassOptionsC2ERKS0_.exit:   ; preds = %161, %164
   %171 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %172 = getelementptr inbounds nuw i8, ptr %44, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %171, ptr noundef nonnull align 8 dereferenceable(17) %172, i64 17, i1 false)
-  call fastcc void @"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clENS_23RegAllocFastPassOptionsE"(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef %46)
+  call fastcc void @"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clENS_23RegAllocFastPassOptionsE.argprom"(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef %46)
   call void @_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_16RegAllocFastPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(56) %45)
   %173 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %174 = load ptr, ptr %173, align 8
@@ -73130,7 +73130,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_15MachineFunctionENS0_15Analysi
 }
 
 ; Function Attrs: minsize mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = alloca %"class.std::unique_ptr.1497", align 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %3, align 8
@@ -73152,7 +73152,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_15MachineFunctionENS0_15Analysi
 }
 
 ; Function Attrs: minsize mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS9_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = alloca %"class.std::unique_ptr.1497", align 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %3, align 8
@@ -73225,7 +73225,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_15MachineFunctionENS0_15Analysi
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm11PassBuilder19parsePassParametersIZNS0_16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS3_JEEEJEEERKNS0_15PipelineElementEE3$_0EEDTclfp_tlNS_9StringRefEEEEOT_SC_SC_"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %.0.val, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm11PassBuilder19parsePassParametersIZNS0_16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS3_JEEEJEEERKNS0_15PipelineElementEE3$_0EEDTclfp_tlNS_9StringRefEEEEOT_SC_SC_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %.0.val, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::raw_string_ostream", align 8
   %.sroa.0.i.i.i.i.i = alloca { i64, i64 }, align 8
@@ -73661,13 +73661,13 @@ _ZN4llvm8ExpectedINS_23RegAllocFastPassOptionsEEC2IS1_EEOT_PNSt9enable_ifIXsr3st
   %157 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %158 = load ptr, ptr %157, align 8, !noalias !2545
   %.not.i.i.i17.i.i = icmp eq ptr %158, null
-  br i1 %.not.i.i.i17.i.i, label %"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_9StringRefE.exit", label %159
+  br i1 %.not.i.i.i17.i.i, label %"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_9StringRefE.argprom.exit", label %159
 
 159:                                              ; preds = %.loopexit38.i.i
   %160 = call noundef zeroext i1 %158(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3) #25, !noalias !2545
-  br label %"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_9StringRefE.exit"
+  br label %"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_9StringRefE.argprom.exit"
 
-"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_9StringRefE.exit": ; preds = %.loopexit38.i.i, %159
+"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_9StringRefE.argprom.exit": ; preds = %.loopexit38.i.i, %159
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !2539
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15), !noalias !2539
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !2539
@@ -73715,7 +73715,7 @@ _ZN4llvm16RegAllocFastPassD2Ev.exit:              ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clENS_23RegAllocFastPassOptionsE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clENS_23RegAllocFastPassOptionsE.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::RegAllocFastPassOptions", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
@@ -108940,7 +108940,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread12.i.i.i: ; preds = %_ZN4llvmeqENS_9Stri
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm11GlobalValueEEZZNS0_11PassBuilder15parseModulePassERNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS7_JEEEJEEERKNS5_15PipelineElementEENK3$_0clENS0_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlS3_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %12
@@ -108949,11 +108949,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm11Global
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -108968,12 +108968,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm11Global
 
 "_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E15_M_init_functorIRKSO_EEvRSt9_Any_dataOT_.exit.i": ; preds = %10, %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit"
 
 12:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %13 = icmp eq ptr %.val6.i, null
-  br i1 %13, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit", label %14
+  br i1 %13, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit", label %14
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %.val6.i, align 8
@@ -109004,9 +109004,9 @@ _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 "_ZZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEENUlRKNS_11GlobalValueEE_D2Ev.exit.i.i": ; preds = %22, %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 16) #26
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit": ; preds = %3, %"_ZZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEENUlRKNS_11GlobalValueEE_D2Ev.exit.i.i", %12, %"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E15_M_init_functorIRKSO_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEENUlRKNS_11GlobalValueEE_D2Ev.exit.i.i", %12, %"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E15_M_init_functorIRKSO_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -167265,20 +167265,20 @@ define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_122Trig
 
 16:                                               ; preds = %4
   %17 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %6, i64 noundef %7) #25
-  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_122TriggerCrashModulePassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit
+  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_122TriggerCrashModulePassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit
 
 18:                                               ; preds = %4
   %.not.i.i = icmp eq i64 %7, 0
-  br i1 %.not.i.i, label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_122TriggerCrashModulePassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit, label %19
+  br i1 %.not.i.i, label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_122TriggerCrashModulePassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit, label %19
 
 19:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %6, i64 %7, i1 false)
   %20 = load ptr, ptr %10, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 %7
   store ptr %21, ptr %10, align 8
-  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_122TriggerCrashModulePassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit
+  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_122TriggerCrashModulePassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit
 
-_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_122TriggerCrashModulePassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit: ; preds = %16, %18, %19
+_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_122TriggerCrashModulePassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit: ; preds = %16, %18, %19
   ret void
 }
 
@@ -167360,20 +167360,20 @@ define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_124Trig
 
 16:                                               ; preds = %4
   %17 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %6, i64 noundef %7) #25
-  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit
+  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit
 
 18:                                               ; preds = %4
   %.not.i.i = icmp eq i64 %7, 0
-  br i1 %.not.i.i, label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit, label %19
+  br i1 %.not.i.i, label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit, label %19
 
 19:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %6, i64 %7, i1 false)
   %20 = load ptr, ptr %10, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 %7
   store ptr %21, ptr %10, align 8
-  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit
+  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit
 
-_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit: ; preds = %16, %18, %19
+_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit: ; preds = %16, %18, %19
   ret void
 }
 
@@ -177253,7 +177253,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #25
-  call fastcc void @_ZN4llvmL15shortenFileNameERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh(ptr noundef nonnull align 8 dereferenceable(32) %12)
+  call fastcc void @_ZN4llvmL15shortenFileNameERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.argelim(ptr noundef nonnull align 8 dereferenceable(32) %12)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %12) #25
   %42 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.803) #25
   %43 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %16) #25
@@ -177443,7 +177443,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %131, %133
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvmL15shortenFileNameERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvmL15shortenFileNameERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.argelim(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 {
   %2 = alloca %"struct.std::__detail::_AllocNode", align 8
   %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   %4 = icmp ugt i64 %3, 250
@@ -180764,7 +180764,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #25
-  call fastcc void @_ZN4llvmL15shortenFileNameERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh(ptr noundef nonnull align 8 dereferenceable(32) %13)
+  call fastcc void @_ZN4llvmL15shortenFileNameERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.argelim(ptr noundef nonnull align 8 dereferenceable(32) %13)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %13) #25
   %43 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.803) #25
   %44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %17) #25
@@ -200930,20 +200930,20 @@ define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124Tr
 
 16:                                               ; preds = %4
   %17 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %6, i64 noundef %7) #25
-  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerCrashFunctionPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit
+  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerCrashFunctionPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit
 
 18:                                               ; preds = %4
   %.not.i.i = icmp eq i64 %7, 0
-  br i1 %.not.i.i, label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerCrashFunctionPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit, label %19
+  br i1 %.not.i.i, label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerCrashFunctionPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit, label %19
 
 19:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %6, i64 %7, i1 false)
   %20 = load ptr, ptr %10, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 %7
   store ptr %21, ptr %10, align 8
-  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerCrashFunctionPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit
+  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerCrashFunctionPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit
 
-_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerCrashFunctionPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit: ; preds = %16, %18, %19
+_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerCrashFunctionPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit: ; preds = %16, %18, %19
   ret void
 }
 
@@ -200981,7 +200981,7 @@ define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124Tr
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %13 = load ptr, ptr %12, align 8, !noalias !3742
   %14 = icmp eq ptr %12, %13
-  br i1 %14, label %_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEE.exit, label %15
+  br i1 %14, label %_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEE.argprom.exit, label %15
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds i8, ptr %13, i64 -24
@@ -200990,9 +200990,9 @@ define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124Tr
   %19 = add nsw i32 %18, -30
   %20 = icmp ult i32 %19, 11
   %spec.select.i.i.i = select i1 %20, ptr %16, ptr null
-  br label %_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEE.exit
+  br label %_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEE.argprom.exit
 
-_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEE.exit: ; preds = %4, %15
+_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEE.argprom.exit: ; preds = %4, %15
   %.0.i.i.i = phi ptr [ null, %4 ], [ %spec.select.i.i.i, %15 ]
   %21 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
   tail call void @_ZN4llvm15UnreachableInstC1ERNS_11LLVMContextENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr nonnull %21, i64 0) #25, !noalias !3742
@@ -201033,20 +201033,20 @@ define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124Tr
 
 16:                                               ; preds = %4
   %17 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %6, i64 noundef %7) #25
-  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit
+  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit
 
 18:                                               ; preds = %4
   %.not.i.i = icmp eq i64 %7, 0
-  br i1 %.not.i.i, label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit, label %19
+  br i1 %.not.i.i, label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit, label %19
 
 19:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %6, i64 %7, i1 false)
   %20 = load ptr, ptr %10, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 %7
   store ptr %21, ptr %10, align 8
-  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit
+  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit
 
-_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit: ; preds = %16, %18, %19
+_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit: ; preds = %16, %18, %19
   ret void
 }
 
@@ -212063,7 +212063,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_13L
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr nocapture readonly %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.argprom"(ptr nocapture readonly %0) unnamed_addr #0 align 2 {
   %2 = alloca %"struct.llvm::PassBuilder::PipelineElement", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -212197,7 +212197,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4llvm11PassBuilde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr nocapture readonly %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_.argprom"(ptr nocapture readonly %0) unnamed_addr #0 align 2 {
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
@@ -212237,24 +212237,24 @@ _ZN4llvm11PassBuilder15PipelineElementC2ERKS1_.exit: ; preds = %.lr.ph.i.i, %1
   %16 = phi ptr [ null, %1 ], [ %13, %.lr.ph.i.i ]
   %.0.i.i.lcssa.i.i = phi ptr [ null, %1 ], [ %15, %.lr.ph.i.i ]
   %.not.i.i2 = icmp eq i64 %.sroa.2.0.copyload, 16
-  br i1 %.not.i.i2, label %17, label %"_ZZN4llvm11PassBuilder17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clIS7_EEDaT_.exit"
+  br i1 %.not.i.i2, label %17, label %"_ZZN4llvm11PassBuilder17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clIS7_EEDaT_.argprom.exit"
 
 17:                                               ; preds = %_ZN4llvm11PassBuilder15PipelineElementC2ERKS1_.exit
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(16) @.str.363, i64 16)
   %18 = icmp eq i32 %bcmp.i.i, 0
-  br label %"_ZZN4llvm11PassBuilder17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clIS7_EEDaT_.exit"
+  br label %"_ZZN4llvm11PassBuilder17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clIS7_EEDaT_.argprom.exit"
 
-"_ZZN4llvm11PassBuilder17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clIS7_EEDaT_.exit": ; preds = %_ZN4llvm11PassBuilder15PipelineElementC2ERKS1_.exit, %17
+"_ZZN4llvm11PassBuilder17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clIS7_EEDaT_.argprom.exit": ; preds = %_ZN4llvm11PassBuilder15PipelineElementC2ERKS1_.exit, %17
   %.0.i.i = phi i1 [ %18, %17 ], [ false, %_ZN4llvm11PassBuilder15PipelineElementC2ERKS1_.exit ]
   tail call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4llvm11PassBuilder15PipelineElementEEEvT_S6_(ptr noundef %16, ptr noundef %.0.i.i.lcssa.i.i)
   %.not.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i, label %_ZN4llvm11PassBuilder15PipelineElementD2Ev.exit, label %19
 
-19:                                               ; preds = %"_ZZN4llvm11PassBuilder17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clIS7_EEDaT_.exit"
+19:                                               ; preds = %"_ZZN4llvm11PassBuilder17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clIS7_EEDaT_.argprom.exit"
   tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %8) #26
   br label %_ZN4llvm11PassBuilder15PipelineElementD2Ev.exit
 
-_ZN4llvm11PassBuilder15PipelineElementD2Ev.exit:  ; preds = %"_ZZN4llvm11PassBuilder17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clIS7_EEDaT_.exit", %19
+_ZN4llvm11PassBuilder15PipelineElementD2Ev.exit:  ; preds = %"_ZZN4llvm11PassBuilder17parseFunctionPassERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clIS7_EEDaT_.argprom.exit", %19
   ret i1 %.0.i.i
 }
 
@@ -237587,20 +237587,20 @@ define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL_
 
 16:                                               ; preds = %4
   %17 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %6, i64 noundef %7) #25
-  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit
+  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit
 
 18:                                               ; preds = %4
   %.not.i.i = icmp eq i64 %7, 0
-  br i1 %.not.i.i, label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit, label %19
+  br i1 %.not.i.i, label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit, label %19
 
 19:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %6, i64 %7, i1 false)
   %20 = load ptr, ptr %10, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 %7
   store ptr %21, ptr %10, align 8
-  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit
+  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit
 
-_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit: ; preds = %16, %18, %19
+_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit: ; preds = %16, %18, %19
   ret void
 }
 
@@ -237677,20 +237677,20 @@ define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL_
 
 16:                                               ; preds = %4
   %17 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %6, i64 noundef %7) #25
-  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit
+  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit
 
 18:                                               ; preds = %4
   %.not.i.i = icmp eq i64 %7, 0
-  br i1 %.not.i.i, label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit, label %19
+  br i1 %.not.i.i, label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit, label %19
 
 19:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %6, i64 %7, i1 false)
   %20 = load ptr, ptr %10, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 %7
   store ptr %21, ptr %10, align 8
-  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit
+  br label %_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit
 
-_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.exit: ; preds = %16, %18, %19
+_ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES7_EEE.argprom.exit: ; preds = %16, %18, %19
   ret void
 }
 
@@ -242769,13 +242769,13 @@ attributes #31 = { nounwind willreturn memory(none) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZZN4llvm11PassBuilder22registerModuleAnalysesERNS_15AnalysisManagerINS_6ModuleEJEEEENK3$_2clEv: argument 0"}
-!9 = distinct !{!9, !"_ZZN4llvm11PassBuilder22registerModuleAnalysesERNS_15AnalysisManagerINS_6ModuleEJEEEENK3$_2clEv"}
+!8 = distinct !{!8, !9, !"_ZZN4llvm11PassBuilder22registerModuleAnalysesERNS_15AnalysisManagerINS_6ModuleEJEEEENK3$_2clEv.argprom: argument 0"}
+!9 = distinct !{!9, !"_ZZN4llvm11PassBuilder22registerModuleAnalysesERNS_15AnalysisManagerINS_6ModuleEJEEEENK3$_2clEv.argprom"}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZZN4llvm11PassBuilder24registerFunctionAnalysesERNS_15AnalysisManagerINS_8FunctionEJEEEENK3$_1clEv: argument 0"}
-!14 = distinct !{!14, !"_ZZN4llvm11PassBuilder24registerFunctionAnalysesERNS_15AnalysisManagerINS_8FunctionEJEEEENK3$_1clEv"}
+!13 = distinct !{!13, !14, !"_ZZN4llvm11PassBuilder24registerFunctionAnalysesERNS_15AnalysisManagerINS_8FunctionEJEEEENK3$_1clEv.argprom: argument 0"}
+!14 = distinct !{!14, !"_ZZN4llvm11PassBuilder24registerFunctionAnalysesERNS_15AnalysisManagerINS_8FunctionEJEEEENK3$_1clEv.argprom"}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = !{!18}
@@ -242856,8 +242856,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !92 = distinct !{!92, !93, !"_ZN4llvm11PassBuilder19parsePassParametersIRFNS_8ExpectedINS_18GlobalMergeOptionsEEENS_9StringRefEEEEDTclfp_tlS5_EEEOT_S5_S5_: argument 0"}
 !93 = distinct !{!93, !"_ZN4llvm11PassBuilder19parsePassParametersIRFNS_8ExpectedINS_18GlobalMergeOptionsEEENS_9StringRefEEEEDTclfp_tlS5_EEEOT_S5_S5_"}
 !94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_3clENS_18GlobalMergeOptionsE: argument 0"}
-!96 = distinct !{!96, !"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_3clENS_18GlobalMergeOptionsE"}
+!95 = distinct !{!95, !96, !"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_3clENS_18GlobalMergeOptionsE.argprom: argument 0"}
+!96 = distinct !{!96, !"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_3clENS_18GlobalMergeOptionsE.argprom"}
 !97 = !{!98}
 !98 = distinct !{!98, !99, !"_ZN4llvm8ExpectedINS_18GlobalMergeOptionsEE9takeErrorEv: argument 0"}
 !99 = distinct !{!99, !"_ZN4llvm8ExpectedINS_18GlobalMergeOptionsEE9takeErrorEv"}
@@ -242874,8 +242874,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !110 = distinct !{!110, !111, !"_ZN12_GLOBAL__N_125parseGlobalDCEPassOptionsEN4llvm9StringRefE: argument 0"}
 !111 = distinct !{!111, !"_ZN12_GLOBAL__N_125parseGlobalDCEPassOptionsEN4llvm9StringRefE"}
 !112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_5clEb: argument 0"}
-!114 = distinct !{!114, !"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_5clEb"}
+!113 = distinct !{!113, !114, !"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_5clEb.argprom: argument 0"}
+!114 = distinct !{!114, !"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_5clEb.argprom"}
 !115 = !{!116}
 !116 = distinct !{!116, !117, !"_ZN4llvm8ExpectedIbE9takeErrorEv: argument 0"}
 !117 = distinct !{!117, !"_ZN4llvm8ExpectedIbE9takeErrorEv"}
@@ -243375,11 +243375,11 @@ attributes #31 = { nounwind willreturn memory(none) }
 !611 = distinct !{!611, !612, !"_ZN4llvm33createModuleToFunctionPassAdaptorINS_29WarnMissedTransformationsPassEEENS_27ModuleToFunctionPassAdaptorEOT_b: argument 0"}
 !612 = distinct !{!612, !"_ZN4llvm33createModuleToFunctionPassAdaptorINS_29WarnMissedTransformationsPassEEENS_27ModuleToFunctionPassAdaptorEOT_b"}
 !613 = !{!614}
-!614 = distinct !{!614, !615, !"_ZN4llvm33createModuleToFunctionPassAdaptorIN12_GLOBAL__N_124TriggerCrashFunctionPassEEENS_27ModuleToFunctionPassAdaptorEOT_b: argument 0"}
-!615 = distinct !{!615, !"_ZN4llvm33createModuleToFunctionPassAdaptorIN12_GLOBAL__N_124TriggerCrashFunctionPassEEENS_27ModuleToFunctionPassAdaptorEOT_b"}
+!614 = distinct !{!614, !615, !"_ZN4llvm33createModuleToFunctionPassAdaptorIN12_GLOBAL__N_124TriggerCrashFunctionPassEEENS_27ModuleToFunctionPassAdaptorEOT_b.argprom: argument 0"}
+!615 = distinct !{!615, !"_ZN4llvm33createModuleToFunctionPassAdaptorIN12_GLOBAL__N_124TriggerCrashFunctionPassEEENS_27ModuleToFunctionPassAdaptorEOT_b.argprom"}
 !616 = !{!617}
-!617 = distinct !{!617, !618, !"_ZN4llvm33createModuleToFunctionPassAdaptorIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENS_27ModuleToFunctionPassAdaptorEOT_b: argument 0"}
-!618 = distinct !{!618, !"_ZN4llvm33createModuleToFunctionPassAdaptorIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENS_27ModuleToFunctionPassAdaptorEOT_b"}
+!617 = distinct !{!617, !618, !"_ZN4llvm33createModuleToFunctionPassAdaptorIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENS_27ModuleToFunctionPassAdaptorEOT_b.argprom: argument 0"}
+!618 = distinct !{!618, !"_ZN4llvm33createModuleToFunctionPassAdaptorIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENS_27ModuleToFunctionPassAdaptorEOT_b.argprom"}
 !619 = !{!620}
 !620 = distinct !{!620, !621, !"_ZN4llvm33createModuleToFunctionPassAdaptorINS_19ThreadSanitizerPassEEENS_27ModuleToFunctionPassAdaptorEOT_b: argument 0"}
 !621 = distinct !{!621, !"_ZN4llvm33createModuleToFunctionPassAdaptorINS_19ThreadSanitizerPassEEENS_27ModuleToFunctionPassAdaptorEOT_b"}
@@ -244366,8 +244366,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !1602 = distinct !{!1602, !1603, !"_ZN12_GLOBAL__N_123parseInlinerPassOptionsEN4llvm9StringRefE: argument 0"}
 !1603 = distinct !{!1603, !"_ZN12_GLOBAL__N_123parseInlinerPassOptionsEN4llvm9StringRefE"}
 !1604 = !{!1605}
-!1605 = distinct !{!1605, !1606, !"_ZZN4llvm11PassBuilder14parseCGSCCPassERNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS3_JRS2_EEEJS5_RNS_17CGSCCUpdateResultEEEERKNS0_15PipelineElementEENK3$_2clEb: argument 0"}
-!1606 = distinct !{!1606, !"_ZZN4llvm11PassBuilder14parseCGSCCPassERNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS3_JRS2_EEEJS5_RNS_17CGSCCUpdateResultEEEERKNS0_15PipelineElementEENK3$_2clEb"}
+!1605 = distinct !{!1605, !1606, !"_ZZN4llvm11PassBuilder14parseCGSCCPassERNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS3_JRS2_EEEJS5_RNS_17CGSCCUpdateResultEEEERKNS0_15PipelineElementEENK3$_2clEb.argprom: argument 0"}
+!1606 = distinct !{!1606, !"_ZZN4llvm11PassBuilder14parseCGSCCPassERNS_11PassManagerINS_13LazyCallGraph3SCCENS_15AnalysisManagerIS3_JRS2_EEEJS5_RNS_17CGSCCUpdateResultEEEERKNS0_15PipelineElementEENK3$_2clEb.argprom"}
 !1607 = !{!1608}
 !1608 = distinct !{!1608, !1609, !"_ZN4llvm8ExpectedIbE9takeErrorEv: argument 0"}
 !1609 = distinct !{!1609, !"_ZN4llvm8ExpectedIbE9takeErrorEv"}
@@ -244771,11 +244771,11 @@ attributes #31 = { nounwind willreturn memory(none) }
 !2007 = distinct !{!2007, !2008, !"_ZN4llvm32createCGSCCToFunctionPassAdaptorINS_29WarnMissedTransformationsPassEEENS_26CGSCCToFunctionPassAdaptorEOT_bb: argument 0"}
 !2008 = distinct !{!2008, !"_ZN4llvm32createCGSCCToFunctionPassAdaptorINS_29WarnMissedTransformationsPassEEENS_26CGSCCToFunctionPassAdaptorEOT_bb"}
 !2009 = !{!2010}
-!2010 = distinct !{!2010, !2011, !"_ZN4llvm32createCGSCCToFunctionPassAdaptorIN12_GLOBAL__N_124TriggerCrashFunctionPassEEENS_26CGSCCToFunctionPassAdaptorEOT_bb: argument 0"}
-!2011 = distinct !{!2011, !"_ZN4llvm32createCGSCCToFunctionPassAdaptorIN12_GLOBAL__N_124TriggerCrashFunctionPassEEENS_26CGSCCToFunctionPassAdaptorEOT_bb"}
+!2010 = distinct !{!2010, !2011, !"_ZN4llvm32createCGSCCToFunctionPassAdaptorIN12_GLOBAL__N_124TriggerCrashFunctionPassEEENS_26CGSCCToFunctionPassAdaptorEOT_bb.argprom: argument 0"}
+!2011 = distinct !{!2011, !"_ZN4llvm32createCGSCCToFunctionPassAdaptorIN12_GLOBAL__N_124TriggerCrashFunctionPassEEENS_26CGSCCToFunctionPassAdaptorEOT_bb.argprom"}
 !2012 = !{!2013}
-!2013 = distinct !{!2013, !2014, !"_ZN4llvm32createCGSCCToFunctionPassAdaptorIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENS_26CGSCCToFunctionPassAdaptorEOT_bb: argument 0"}
-!2014 = distinct !{!2014, !"_ZN4llvm32createCGSCCToFunctionPassAdaptorIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENS_26CGSCCToFunctionPassAdaptorEOT_bb"}
+!2013 = distinct !{!2013, !2014, !"_ZN4llvm32createCGSCCToFunctionPassAdaptorIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENS_26CGSCCToFunctionPassAdaptorEOT_bb.argprom: argument 0"}
+!2014 = distinct !{!2014, !"_ZN4llvm32createCGSCCToFunctionPassAdaptorIN12_GLOBAL__N_124TriggerVerifierErrorPassEEENS_26CGSCCToFunctionPassAdaptorEOT_bb.argprom"}
 !2015 = !{!2016}
 !2016 = distinct !{!2016, !2017, !"_ZN4llvm32createCGSCCToFunctionPassAdaptorINS_19ThreadSanitizerPassEEENS_26CGSCCToFunctionPassAdaptorEOT_bb: argument 0"}
 !2017 = distinct !{!2017, !"_ZN4llvm32createCGSCCToFunctionPassAdaptorINS_19ThreadSanitizerPassEEENS_26CGSCCToFunctionPassAdaptorEOT_bb"}
@@ -245301,8 +245301,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !2537 = distinct !{!2537, !2538, !"_ZN4llvm7formatvIJRNS_9StringRefEEEEDaPKcDpOT_: argument 0"}
 !2538 = distinct !{!2538, !"_ZN4llvm7formatvIJRNS_9StringRefEEEEDaPKcDpOT_"}
 !2539 = !{!2540}
-!2540 = distinct !{!2540, !2541, !"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_9StringRefE: argument 0"}
-!2541 = distinct !{!2541, !"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_9StringRefE"}
+!2540 = distinct !{!2540, !2541, !"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_9StringRefE.argprom: argument 0"}
+!2541 = distinct !{!2541, !"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_9StringRefE.argprom"}
 !2542 = !{!2543}
 !2543 = distinct !{!2543, !2544, !"_ZN12_GLOBAL__N_128parseRegAllocFastPassOptionsERN4llvm11PassBuilderENS0_9StringRefE: argument 0"}
 !2544 = distinct !{!2544, !"_ZN12_GLOBAL__N_128parseRegAllocFastPassOptionsERN4llvm11PassBuilderENS0_9StringRefE"}
@@ -246250,8 +246250,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !3486 = distinct !{!3486, !3487, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_: argument 0"}
 !3487 = distinct !{!3487, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_"}
 !3488 = !{!3489}
-!3489 = distinct !{!3489, !3490, !"_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm6ModuleERNS1_15AnalysisManagerIS2_JEEE: argument 0"}
-!3490 = distinct !{!3490, !"_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm6ModuleERNS1_15AnalysisManagerIS2_JEEE"}
+!3489 = distinct !{!3489, !3490, !"_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm6ModuleERNS1_15AnalysisManagerIS2_JEEE.argprom: argument 0"}
+!3490 = distinct !{!3490, !"_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm6ModuleERNS1_15AnalysisManagerIS2_JEEE.argprom"}
 !3491 = !{!3492, !3489}
 !3492 = distinct !{!3492, !3493, !"_ZN4llvm17PreservedAnalyses4noneEv: argument 0"}
 !3493 = distinct !{!3493, !"_ZN4llvm17PreservedAnalyses4noneEv"}
@@ -246504,8 +246504,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !3740 = distinct !{!3740, !5}
 !3741 = distinct !{!3741, !5}
 !3742 = !{!3743}
-!3743 = distinct !{!3743, !3744, !"_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEE: argument 0"}
-!3744 = distinct !{!3744, !"_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEE"}
+!3743 = distinct !{!3743, !3744, !"_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEE.argprom: argument 0"}
+!3744 = distinct !{!3744, !"_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEE.argprom"}
 !3745 = !{!3746, !3743}
 !3746 = distinct !{!3746, !3747, !"_ZN4llvm17PreservedAnalyses4noneEv: argument 0"}
 !3747 = distinct !{!3747, !"_ZN4llvm17PreservedAnalyses4noneEv"}
@@ -247846,11 +247846,11 @@ attributes #31 = { nounwind willreturn memory(none) }
 !5082 = !{!5083, !5085}
 !5083 = distinct !{!5083, !5084, !"_ZN4llvm17PreservedAnalyses4noneEv: argument 0"}
 !5084 = distinct !{!5084, !"_ZN4llvm17PreservedAnalyses4noneEv"}
-!5085 = distinct !{!5085, !5086, !"_ZN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPass3runERN4llvm15MachineFunctionERNS1_15AnalysisManagerIS2_JEEE: argument 0"}
-!5086 = distinct !{!5086, !"_ZN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPass3runERN4llvm15MachineFunctionERNS1_15AnalysisManagerIS2_JEEE"}
+!5085 = distinct !{!5085, !5086, !"_ZN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPass3runERN4llvm15MachineFunctionERNS1_15AnalysisManagerIS2_JEEE.argprom: argument 0"}
+!5086 = distinct !{!5086, !"_ZN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPass3runERN4llvm15MachineFunctionERNS1_15AnalysisManagerIS2_JEEE.argprom"}
 !5087 = !{!5088}
-!5088 = distinct !{!5088, !5089, !"_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm15MachineFunctionERNS1_15AnalysisManagerIS2_JEEE: argument 0"}
-!5089 = distinct !{!5089, !"_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm15MachineFunctionERNS1_15AnalysisManagerIS2_JEEE"}
+!5088 = distinct !{!5088, !5089, !"_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm15MachineFunctionERNS1_15AnalysisManagerIS2_JEEE.argprom: argument 0"}
+!5089 = distinct !{!5089, !"_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm15MachineFunctionERNS1_15AnalysisManagerIS2_JEEE.argprom"}
 !5090 = !{!5091, !5088}
 !5091 = distinct !{!5091, !5092, !"_ZN4llvm17PreservedAnalyses3allEv: argument 0"}
 !5092 = distinct !{!5092, !"_ZN4llvm17PreservedAnalyses3allEv"}

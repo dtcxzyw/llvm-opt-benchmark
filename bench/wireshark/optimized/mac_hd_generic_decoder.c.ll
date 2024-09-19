@@ -1049,7 +1049,7 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
   %334 = and i32 %333, 2047
   store i32 %334, ptr @frag_len, align 4
   %335 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.5509) #4
-  br label %decode_packing_subheader.exit
+  br label %decode_packing_subheader.argprom.exit
 
 336:                                              ; preds = %317
   %337 = load i32, ptr @extended_type, align 4
@@ -1062,7 +1062,7 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
   %341 = and i32 %340, 2047
   store i32 %341, ptr @frag_len, align 4
   %342 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.5509) #4
-  br label %decode_packing_subheader.exit
+  br label %decode_packing_subheader.argprom.exit
 
 343:                                              ; preds = %336
   %344 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.5509) #4
@@ -1070,9 +1070,9 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
   %346 = zext nneg i16 %345 to i32
   store i32 %346, ptr @frag_len, align 4
   %347 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5509) #4
-  br label %decode_packing_subheader.exit
+  br label %decode_packing_subheader.argprom.exit
 
-decode_packing_subheader.exit:                    ; preds = %331, %338, %343
+decode_packing_subheader.argprom.exit:            ; preds = %331, %338, %343
   %hf_mac_header_generic_packing_subhd_fc_ext.sink.i = phi ptr [ @hf_mac_header_generic_packing_subhd_fc_ext, %338 ], [ @hf_mac_header_generic_packing_subhd_fc, %343 ], [ @hf_mac_header_generic_packing_subhd_fc_ext, %331 ]
   %.sink8.i = phi i32 [ 3, %338 ], [ 2, %343 ], [ 3, %331 ]
   %hf_mac_header_generic_packing_subhd_fsn_ext.sink.i = phi ptr [ @hf_mac_header_generic_packing_subhd_fsn_ext, %338 ], [ @hf_mac_header_generic_packing_subhd_fsn, %343 ], [ @hf_mac_header_generic_packing_subhd_bsn, %331 ]
@@ -1099,10 +1099,10 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
   %364 = tail call ptr @proto_tree_add_item(ptr noundef %361, i32 noundef %362, ptr noundef %0, i32 noundef %357, i32 noundef %363, i32 noundef 0) #4
   br label %365
 
-365:                                              ; preds = %decode_packing_subheader.exit, %316
-  %.8 = phi i32 [ %356, %decode_packing_subheader.exit ], [ %.7507, %316 ]
-  %.4428 = phi ptr [ %361, %decode_packing_subheader.exit ], [ %.3427508, %316 ]
-  %.6 = phi i32 [ %357, %decode_packing_subheader.exit ], [ %.5509, %316 ]
+365:                                              ; preds = %decode_packing_subheader.argprom.exit, %316
+  %.8 = phi i32 [ %356, %decode_packing_subheader.argprom.exit ], [ %.7507, %316 ]
+  %.4428 = phi ptr [ %361, %decode_packing_subheader.argprom.exit ], [ %.3427508, %316 ]
+  %.6 = phi i32 [ %357, %decode_packing_subheader.argprom.exit ], [ %.5509, %316 ]
   %366 = load i32, ptr @frag_type, align 4
   %367 = icmp eq i32 %366, 0
   br i1 %367, label %368, label %.preheader

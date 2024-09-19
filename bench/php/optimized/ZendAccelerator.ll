@@ -3224,7 +3224,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
 
 194:                                              ; preds = %190
   %.2.val = load ptr, ptr %.2, align 8
-  %195 = call fastcc i32 @check_persistent_script_access(ptr %.2.val)
+  %195 = call fastcc i32 @check_persistent_script_access.argprom(ptr %.2.val)
   %.not164 = icmp eq i32 %195, 0
   br i1 %.not164, label %204, label %196
 
@@ -3807,7 +3807,7 @@ define internal fastcc range(i32 -1, 1) i32 @accel_activate_add() unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_persistent_script_access(ptr %.0.val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_persistent_script_access.argprom(ptr %.0.val) unnamed_addr #0 {
   %1 = getelementptr inbounds i8, ptr %.0.val, i64 16
   %2 = load i64, ptr %1, align 8
   %3 = icmp ult i64 %2, 13
@@ -5399,7 +5399,7 @@ define internal range(i32 -1, 1) i32 @accel_startup(ptr nocapture noundef writeo
 .preheader.i:                                     ; preds = %28
   %30 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef nonnull %29)
   %.not4144.i = icmp eq ptr %30, null
-  br i1 %.not4144.i, label %accel_remap_huge_pages.exit.i, label %.lr.ph.i
+  br i1 %.not4144.i, label %accel_remap_huge_pages.argprom.exit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %31 = getelementptr inbounds i8, ptr %6, i64 1
@@ -5456,7 +5456,7 @@ define internal range(i32 -1, 1) i32 @accel_startup(ptr nocapture noundef writeo
   %.037.i = phi i64 [ %54, %49 ], [ %spec.select.i, %57 ]
   %.0.i = phi i64 [ %54, %49 ], [ %spec.select43.i, %57 ]
   %63 = icmp ugt i64 %.037.i, %52
-  br i1 %63, label %64, label %accel_remap_huge_pages.exit.i
+  br i1 %63, label %64, label %accel_remap_huge_pages.argprom.exit.i
 
 64:                                               ; preds = %62
   call void (i32, ptr, ...) @zend_accel_error(i32 noundef 4, ptr noundef nonnull @.str.53, i64 noundef %52, i64 noundef %.037.i, ptr noundef nonnull %8) #24
@@ -5473,7 +5473,7 @@ define internal range(i32 -1, 1) i32 @accel_startup(ptr nocapture noundef writeo
   %73 = call ptr @strerror(i32 noundef %72) #24
   %74 = load i32, ptr %71, align 4
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.54, ptr noundef %73, i32 noundef %74) #24
-  br label %accel_remap_huge_pages.exit.i
+  br label %accel_remap_huge_pages.argprom.exit.i
 
 75:                                               ; preds = %64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr align 2097152 %65, i64 %67, i1 false)
@@ -5498,7 +5498,7 @@ define internal range(i32 -1, 1) i32 @accel_startup(ptr nocapture noundef writeo
   %88 = call ptr @strerror(i32 noundef %87) #24
   %89 = load i32, ptr %86, align 4
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.55, ptr noundef %88, i32 noundef %89) #24
-  br label %accel_remap_huge_pages.exit.i
+  br label %accel_remap_huge_pages.argprom.exit.i
 
 90:                                               ; preds = %78, %75
   %.034.i.i = phi ptr [ %79, %78 ], [ %76, %75 ]
@@ -5508,18 +5508,18 @@ define internal range(i32 -1, 1) i32 @accel_startup(ptr nocapture noundef writeo
   call void @llvm.memcpy.p0.p0.i64(ptr align 2097152 %65, ptr align 1 %68, i64 %67, i1 false)
   %93 = call i32 @mprotect(ptr noundef %65, i64 noundef %66, i32 noundef 5) #24
   %94 = call i32 @munmap(ptr noundef %68, i64 noundef %66) #24
-  br label %accel_remap_huge_pages.exit.i
+  br label %accel_remap_huge_pages.argprom.exit.i
 
 95:                                               ; preds = %46, %36, %33
   %96 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef nonnull %29)
   %.not41.i = icmp eq ptr %96, null
-  br i1 %.not41.i, label %accel_remap_huge_pages.exit.i, label %33
+  br i1 %.not41.i, label %accel_remap_huge_pages.argprom.exit.i, label %33
 
-accel_remap_huge_pages.exit.i:                    ; preds = %95, %90, %83, %70, %62, %.preheader.i
+accel_remap_huge_pages.argprom.exit.i:            ; preds = %95, %90, %83, %70, %62, %.preheader.i
   %97 = call i32 @fclose(ptr noundef nonnull %29)
   br label %accel_move_code_to_huge_pages.exit
 
-accel_move_code_to_huge_pages.exit:               ; preds = %28, %accel_remap_huge_pages.exit.i
+accel_move_code_to_huge_pages.exit:               ; preds = %28, %accel_remap_huge_pages.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -6285,7 +6285,7 @@ accel_use_shm_interned_strings.exit:              ; preds = %192, %187, %161
   br label %accel_finish_startup.exit.thread
 
 211:                                              ; preds = %206
-  call fastcc void @accel_finish_startup_preload_subprocess(ptr noundef %1)
+  call fastcc void @accel_finish_startup_preload_subprocess.retelim(ptr noundef %1)
   %212 = load i32, ptr %1, align 4
   switch i32 %212, label %219 [
     i32 -1, label %213
@@ -8919,7 +8919,7 @@ define internal fastcc void @preload_load() unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @accel_finish_startup_preload_subprocess(ptr nocapture noundef nonnull writeonly %0) unnamed_addr #0 {
+define internal fastcc void @accel_finish_startup_preload_subprocess.retelim(ptr nocapture noundef nonnull writeonly %0) unnamed_addr #0 {
   %2 = tail call i32 @geteuid() #24
   %.not = icmp eq i32 %2, 0
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 176), align 8

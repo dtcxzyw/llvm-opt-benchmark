@@ -184,7 +184,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %26
 
 79:                                               ; preds = %78, %71
   %.not9.i = icmp eq ptr %75, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %80
+  br i1 %.not9.i, label %opal_obj_new.argprom.exit.thread, label %80
 
 80:                                               ; preds = %79
   store ptr @queried_module_t_class, ptr %75, align 8
@@ -193,7 +193,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %26
   %82 = load ptr, ptr getelementptr inbounds (i8, ptr @queried_module_t_class, i64 40), align 8
   %83 = load ptr, ptr %82, align 8
   %.not6.i.i = icmp eq ptr %83, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread96, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit.thread96, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %80, %.lr.ph.i.i
   %84 = phi ptr [ %86, %.lr.ph.i.i ], [ %83, %80 ]
@@ -202,9 +202,9 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %26
   %85 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %86 = load ptr, ptr %85, align 8
   %.not.i.i = icmp eq ptr %86, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread96, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %opal_obj_new.argprom.exit.thread96, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread:                         ; preds = %79
+opal_obj_new.argprom.exit.thread:                 ; preds = %79
   %87 = load ptr, ptr %4, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 48
   %89 = load ptr, ptr %88, align 8
@@ -212,16 +212,16 @@ opal_obj_new.exit.thread:                         ; preds = %79
   %.not6.i76 = icmp eq ptr %90, null
   br i1 %.not6.i76, label %opal_obj_run_destructors.exit, label %.lr.ph.i77
 
-.lr.ph.i77:                                       ; preds = %opal_obj_new.exit.thread, %.lr.ph.i77
-  %91 = phi ptr [ %93, %.lr.ph.i77 ], [ %90, %opal_obj_new.exit.thread ]
-  %.07.i78 = phi ptr [ %92, %.lr.ph.i77 ], [ %89, %opal_obj_new.exit.thread ]
+.lr.ph.i77:                                       ; preds = %opal_obj_new.argprom.exit.thread, %.lr.ph.i77
+  %91 = phi ptr [ %93, %.lr.ph.i77 ], [ %90, %opal_obj_new.argprom.exit.thread ]
+  %.07.i78 = phi ptr [ %92, %.lr.ph.i77 ], [ %89, %opal_obj_new.argprom.exit.thread ]
   call void %91(ptr noundef nonnull %4) #5
   %92 = getelementptr inbounds i8, ptr %.07.i78, i64 8
   %93 = load ptr, ptr %92, align 8
   %.not.i79 = icmp eq ptr %93, null
   br i1 %.not.i79, label %opal_obj_run_destructors.exit, label %.lr.ph.i77, !llvm.loop !6
 
-opal_obj_new.exit.thread96:                       ; preds = %.lr.ph.i.i, %80
+opal_obj_new.argprom.exit.thread96:               ; preds = %.lr.ph.i.i, %80
   %94 = getelementptr inbounds i8, ptr %75, i64 40
   store ptr %38, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %75, i64 48
@@ -240,9 +240,9 @@ opal_obj_new.exit.thread96:                       ; preds = %.lr.ph.i.i, %80
   store volatile i64 %102, ptr %35, align 8
   br label %103
 
-103:                                              ; preds = %49, %52, %63, %60, %opal_obj_new.exit.thread96
-  %.258 = phi i32 [ %.056104, %52 ], [ %.056104, %49 ], [ %.056104, %63 ], [ %.056104, %60 ], [ %spec.select, %opal_obj_new.exit.thread96 ]
-  %.2 = phi ptr [ %.052105, %52 ], [ %.052105, %49 ], [ %.052105, %63 ], [ %.052105, %60 ], [ %spec.select74, %opal_obj_new.exit.thread96 ]
+103:                                              ; preds = %49, %52, %63, %60, %opal_obj_new.argprom.exit.thread96
+  %.258 = phi i32 [ %.056104, %52 ], [ %.056104, %49 ], [ %.056104, %63 ], [ %.056104, %60 ], [ %spec.select, %opal_obj_new.argprom.exit.thread96 ]
+  %.2 = phi ptr [ %.052105, %52 ], [ %.052105, %49 ], [ %.052105, %63 ], [ %.052105, %60 ], [ %spec.select74, %opal_obj_new.argprom.exit.thread96 ]
   %104 = getelementptr inbounds i8, ptr %.054106, i64 16
   %.054 = load volatile ptr, ptr %104, align 8
   %.not71 = icmp eq ptr %.054, getelementptr inbounds (i8, ptr @ompi_fs_base_framework, i64 96)
@@ -407,8 +407,8 @@ opal_obj_run_destructors.exit90:                  ; preds = %.lr.ph.i87, %160
   %.not.i94 = icmp eq ptr %183, null
   br i1 %.not.i94, label %opal_obj_run_destructors.exit, label %.lr.ph.i92, !llvm.loop !6
 
-opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i77, %.lr.ph.i92, %.lr.ph.i81, %176, %._crit_edge.thread, %opal_obj_new.exit.thread, %17
-  %.055 = phi i32 [ %21, %17 ], [ -2, %opal_obj_new.exit.thread ], [ -1, %._crit_edge.thread ], [ %.0.lcssa, %176 ], [ -1, %.lr.ph.i81 ], [ %.0.lcssa, %.lr.ph.i92 ], [ -2, %.lr.ph.i77 ]
+opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i77, %.lr.ph.i92, %.lr.ph.i81, %176, %._crit_edge.thread, %opal_obj_new.argprom.exit.thread, %17
+  %.055 = phi i32 [ %21, %17 ], [ -2, %opal_obj_new.argprom.exit.thread ], [ -1, %._crit_edge.thread ], [ %.0.lcssa, %176 ], [ -1, %.lr.ph.i81 ], [ %.0.lcssa, %.lr.ph.i92 ], [ -2, %.lr.ph.i77 ]
   ret i32 %.055
 }
 

@@ -588,7 +588,7 @@ dissect_xtp_cntl.exit:                            ; preds = %136, %138
   br i1 %.not.i177, label %dissect_xtp_first.exit, label %163
 
 163:                                              ; preds = %161
-  call fastcc void @dissect_xtp_tspec(ptr noundef %0, ptr noundef %65, i32 noundef 48)
+  call fastcc void @dissect_xtp_tspec.retelim(ptr noundef %0, ptr noundef %65, i32 noundef 48)
   br label %dissect_xtp_first.exit
 
 164:                                              ; preds = %114
@@ -674,16 +674,16 @@ dissect_xtp_ecntl.exit:                           ; preds = %.lr.ph.i, %169, %18
   br label %dissect_xtp_first.exit
 
 215:                                              ; preds = %114
-  %216 = call fastcc i32 @dissect_xtp_traffic_cntl(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %65)
+  %216 = call fastcc i32 @dissect_xtp_traffic_cntl.argelim(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %65)
   %.not.i179 = icmp eq i32 %216, 0
   br i1 %.not.i179, label %dissect_xtp_first.exit, label %217
 
 217:                                              ; preds = %215
-  call fastcc void @dissect_xtp_tspec(ptr noundef %0, ptr noundef %65, i32 noundef 64)
+  call fastcc void @dissect_xtp_tspec.retelim(ptr noundef %0, ptr noundef %65, i32 noundef 64)
   br label %dissect_xtp_first.exit
 
 218:                                              ; preds = %114
-  %219 = call fastcc i32 @dissect_xtp_traffic_cntl(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %65)
+  %219 = call fastcc i32 @dissect_xtp_traffic_cntl.argelim(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %65)
   %.not.i180 = icmp eq i32 %219, 0
   br i1 %.not.i180, label %dissect_xtp_first.exit, label %220
 
@@ -693,7 +693,7 @@ dissect_xtp_ecntl.exit:                           ; preds = %.lr.ph.i, %169, %18
   br i1 %.not11.i, label %dissect_xtp_first.exit, label %222
 
 222:                                              ; preds = %220
-  call fastcc void @dissect_xtp_tspec(ptr noundef %0, ptr noundef %65, i32 noundef 80)
+  call fastcc void @dissect_xtp_tspec.retelim(ptr noundef %0, ptr noundef %65, i32 noundef 80)
   br label %dissect_xtp_first.exit
 
 223:                                              ; preds = %114
@@ -903,7 +903,7 @@ define internal fastcc range(i32 -28, 49) i32 @dissect_xtp_aseg(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_xtp_tspec(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 48, 81) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_xtp_tspec.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 48, 81) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #5
   %6 = load i32, ptr @ett_xtp_tspec, align 4
@@ -1018,7 +1018,7 @@ declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 29) i32 @dissect_xtp_traffic_cntl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 29) i32 @dissect_xtp_traffic_cntl.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 32) #5
   %6 = load i32, ptr @ett_xtp_tcntl, align 4

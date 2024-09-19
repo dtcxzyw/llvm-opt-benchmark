@@ -116,7 +116,7 @@ define noundef ptr @opal_datatype_create(i32 noundef %0) local_unnamed_addr #2 {
 
 7:                                                ; preds = %6, %1
   %.not9.i = icmp eq ptr %3, null
-  br i1 %.not9.i, label %opal_obj_new.exit, label %8
+  br i1 %.not9.i, label %opal_obj_new.argprom.exit, label %8
 
 8:                                                ; preds = %7
   store ptr @opal_datatype_t_class, ptr %3, align 8
@@ -125,7 +125,7 @@ define noundef ptr @opal_datatype_create(i32 noundef %0) local_unnamed_addr #2 {
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_datatype_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i.i = icmp eq ptr %11, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %8, %.lr.ph.i.i
   %12 = phi ptr [ %14, %.lr.ph.i.i ], [ %11, %8 ]
@@ -134,9 +134,9 @@ define noundef ptr @opal_datatype_create(i32 noundef %0) local_unnamed_addr #2 {
   %13 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %7, %8
+opal_obj_new.argprom.exit:                        ; preds = %.lr.ph.i.i, %7, %8
   %15 = icmp eq i32 %0, -1
   %16 = add nuw nsw i32 %0, 1
   %17 = select i1 %15, i32 9, i32 %16

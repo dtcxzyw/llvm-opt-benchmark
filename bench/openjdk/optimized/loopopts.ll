@@ -7582,13 +7582,13 @@ define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop12can_split_ifEP4Node(ptr n
   %13 = load i32, ptr %12, align 4
   %14 = sub i32 %11, %13
   %15 = icmp ugt i32 %14, %9
-  br i1 %15, label %_ZL16merge_point_safeP4Node.exit, label %16
+  br i1 %15, label %_ZL16merge_point_safeP4Node.argprom.exit, label %16
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %0, i64 228
   %18 = load i8, ptr %17, align 4
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %_ZL16merge_point_safeP4Node.exit, label %20
+  br i1 %19, label %_ZL16merge_point_safeP4Node.argprom.exit, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr i8, ptr %1, i64 16
@@ -7598,7 +7598,7 @@ define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop12can_split_ifEP4Node(ptr n
   %23 = zext i32 %.val17 to i64
   %24 = getelementptr inbounds ptr, ptr %.val, i64 %23
   %.not.i = icmp eq i32 %.val17, 0
-  br i1 %.not.i, label %_ZL21merge_point_too_heavyP7CompileP4Node.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZL21merge_point_too_heavyP7CompileP4Node.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
   %.0103.i = phi ptr [ %29, %.lr.ph.i ], [ %.val, %20 ]
@@ -7613,16 +7613,16 @@ define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop12can_split_ifEP4Node(ptr n
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %31 = shl nsw i32 %28, 3
-  br label %_ZL21merge_point_too_heavyP7CompileP4Node.exit
+  br label %_ZL21merge_point_too_heavyP7CompileP4Node.argprom.exit
 
-_ZL21merge_point_too_heavyP7CompileP4Node.exit:   ; preds = %20, %._crit_edge.loopexit.i
+_ZL21merge_point_too_heavyP7CompileP4Node.argprom.exit: ; preds = %20, %._crit_edge.loopexit.i
   %.011.lcssa.i = phi i32 [ 0, %20 ], [ %31, %._crit_edge.loopexit.i ]
   %.neg.i = sub i32 %7, %11
   %32 = add i32 %.neg.i, %13
   %33 = icmp sgt i32 %.011.lcssa.i, %32
-  br i1 %33, label %_ZL16merge_point_safeP4Node.exit, label %.preheader
+  br i1 %33, label %_ZL16merge_point_safeP4Node.argprom.exit, label %.preheader
 
-.preheader:                                       ; preds = %_ZL21merge_point_too_heavyP7CompileP4Node.exit
+.preheader:                                       ; preds = %_ZL21merge_point_too_heavyP7CompileP4Node.argprom.exit
   %34 = getelementptr inbounds i8, ptr %1, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = icmp ugt i32 %35, 1
@@ -7646,7 +7646,7 @@ _ZL21merge_point_too_heavyP7CompileP4Node.exit:   ; preds = %20, %._crit_edge.lo
   %43 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %40
-  br i1 %45, label %_ZL16merge_point_safeP4Node.exit, label %41
+  br i1 %45, label %_ZL16merge_point_safeP4Node.argprom.exit, label %41
 
 ._crit_edge:                                      ; preds = %41, %.preheader
   %46 = getelementptr inbounds i8, ptr %1, i64 40
@@ -7721,10 +7721,10 @@ _ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.thread.i22: ; preds = %_ZNK14PhaseIde
 _ZNK14PhaseIdealLoop8get_loopEP4Node.exit26:      ; preds = %_ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.i24, %_ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.thread.i22
   %.0.i23 = phi ptr [ %63, %_ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.thread.i22 ], [ %76, %_ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.i24 ]
   %.not = icmp eq ptr %.0.i23, %.0.i
-  br i1 %.not, label %64, label %_ZL16merge_point_safeP4Node.exit
+  br i1 %.not, label %64, label %_ZL16merge_point_safeP4Node.argprom.exit
 
 ._crit_edge37:                                    ; preds = %64, %_ZNK14PhaseIdealLoop8get_loopEP4Node.exit
-  br i1 %.not.i, label %_ZL16merge_point_safeP4Node.exit, label %.lr.ph7.i
+  br i1 %.not.i, label %_ZL16merge_point_safeP4Node.argprom.exit, label %.lr.ph7.i
 
 .lr.ph7.i:                                        ; preds = %._crit_edge37, %.loopexit.i
   %.0156.i = phi ptr [ %102, %.loopexit.i ], [ %.val, %._crit_edge37 ]
@@ -7757,22 +7757,22 @@ _ZNK14PhaseIdealLoop8get_loopEP4Node.exit26:      ; preds = %_ZNK14PhaseIdealLoo
   %94 = load ptr, ptr %93, align 8
   %95 = tail call noundef i32 %94(ptr noundef nonnull align 8 dereferenceable(52) %92) #9
   %96 = icmp eq i32 %95, 135
-  br i1 %96, label %_ZL16merge_point_safeP4Node.exit, label %97
+  br i1 %96, label %_ZL16merge_point_safeP4Node.argprom.exit, label %97
 
 97:                                               ; preds = %.lr.ph.i28
   %98 = getelementptr inbounds i8, ptr %92, i64 44
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, 63
   %101 = icmp eq i32 %100, 52
-  br i1 %101, label %_ZL16merge_point_safeP4Node.exit, label %89
+  br i1 %101, label %_ZL16merge_point_safeP4Node.argprom.exit, label %89
 
 .loopexit.i:                                      ; preds = %89, %82, %.lr.ph7.i
   %102 = getelementptr inbounds i8, ptr %.0156.i, i64 8
   %.not8.i = icmp ult ptr %102, %24
-  br i1 %.not8.i, label %.lr.ph7.i, label %_ZL16merge_point_safeP4Node.exit, !llvm.loop !38
+  br i1 %.not8.i, label %.lr.ph7.i, label %_ZL16merge_point_safeP4Node.argprom.exit, !llvm.loop !38
 
-_ZL16merge_point_safeP4Node.exit:                 ; preds = %42, %_ZNK14PhaseIdealLoop8get_loopEP4Node.exit26, %.loopexit.i, %97, %.lr.ph.i28, %._crit_edge37, %_ZL21merge_point_too_heavyP7CompileP4Node.exit, %16, %2
-  %.015 = phi i1 [ false, %2 ], [ false, %16 ], [ false, %_ZL21merge_point_too_heavyP7CompileP4Node.exit ], [ true, %._crit_edge37 ], [ false, %.lr.ph.i28 ], [ false, %97 ], [ true, %.loopexit.i ], [ false, %_ZNK14PhaseIdealLoop8get_loopEP4Node.exit26 ], [ false, %42 ]
+_ZL16merge_point_safeP4Node.argprom.exit:         ; preds = %42, %_ZNK14PhaseIdealLoop8get_loopEP4Node.exit26, %.loopexit.i, %97, %.lr.ph.i28, %._crit_edge37, %_ZL21merge_point_too_heavyP7CompileP4Node.argprom.exit, %16, %2
+  %.015 = phi i1 [ false, %2 ], [ false, %16 ], [ false, %_ZL21merge_point_too_heavyP7CompileP4Node.argprom.exit ], [ true, %._crit_edge37 ], [ false, %.lr.ph.i28 ], [ false, %97 ], [ true, %.loopexit.i ], [ false, %_ZNK14PhaseIdealLoop8get_loopEP4Node.exit26 ], [ false, %42 ]
   ret i1 %.015
 }
 
@@ -14669,7 +14669,7 @@ _ZN16Unique_Node_ListC2Ev.exit:                   ; preds = %771, %773
   %.val = load ptr, ptr %789, align 8
   %790 = getelementptr i8, ptr %788, i64 32
   %.val202 = load i32, ptr %790, align 8
-  call fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb(ptr %.val, i32 %.val202, ptr noundef %3, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef %0, i1 noundef zeroext true)
+  call fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb.argprom(ptr %.val, i32 %.val202, ptr noundef %3, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef %0, i1 noundef zeroext true)
   %indvars.iv.next380 = add nuw nsw i64 %indvars.iv379, 1
   %791 = load i32, ptr %779, align 8
   %792 = zext i32 %791 to i64
@@ -14685,7 +14685,7 @@ _ZN16Unique_Node_ListC2Ev.exit:                   ; preds = %771, %773
   %.val203 = load ptr, ptr %798, align 8
   %799 = getelementptr i8, ptr %797, i64 32
   %.val204 = load i32, ptr %799, align 8
-  call fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb(ptr %.val203, i32 %.val204, ptr noundef nonnull %3, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef %0, i1 noundef zeroext true)
+  call fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb.argprom(ptr %.val203, i32 %.val204, ptr noundef nonnull %3, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef %0, i1 noundef zeroext true)
   %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
   %800 = load i32, ptr %782, align 8
   %801 = zext i32 %800 to i64
@@ -14704,7 +14704,7 @@ _ZN16Unique_Node_ListC2Ev.exit:                   ; preds = %771, %773
 809:                                              ; preds = %._crit_edge356
   %810 = getelementptr i8, ptr %805, i64 16
   %.val205 = load ptr, ptr %810, align 8
-  call fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb(ptr %.val205, i32 %807, ptr noundef nonnull %3, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef %0, i1 noundef zeroext true)
+  call fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb.argprom(ptr %.val205, i32 %807, ptr noundef nonnull %3, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef %0, i1 noundef zeroext true)
   br label %811
 
 811:                                              ; preds = %809, %._crit_edge356
@@ -14814,7 +14814,7 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit319: ; preds = %_ZN9VectorSet
   %.val207 = load ptr, ptr %870, align 8
   %871 = getelementptr i8, ptr %826, i64 32
   %.val208 = load i32, ptr %871, align 8
-  call fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb(ptr %.val207, i32 %.val208, ptr noundef %3, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef %0, i1 noundef zeroext false)
+  call fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb.argprom(ptr %.val207, i32 %.val208, ptr noundef %3, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef %0, i1 noundef zeroext false)
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %872 = load i32, ptr %776, align 8
   %873 = zext i32 %872 to i64
@@ -14872,7 +14872,7 @@ declare noundef ptr @_ZNK15CountedLoopNode10outer_loopEv(ptr noundef nonnull ali
 declare void @_ZN14PhaseIdealLoop8set_idomEP4NodeS1_j(ptr noundef nonnull align 8 dereferenceable(237), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb(ptr readonly %.16.val, i32 %.32.val, ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %2, ptr noundef nonnull align 8 dereferenceable(68) %3, ptr nocapture noundef nonnull readonly %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb.argprom(ptr readonly %.16.val, i32 %.32.val, ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %2, ptr noundef nonnull align 8 dereferenceable(68) %3, ptr nocapture noundef nonnull readonly %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = zext i32 %.32.val to i64
   %8 = getelementptr inbounds ptr, ptr %.16.val, i64 %7
   %.not3 = icmp eq i32 %.32.val, 0
@@ -25205,9 +25205,9 @@ define hidden void @_ZN13DataNodeGraph30rewire_clones_to_cloned_inputsEv(ptr noc
   %.not20.i.i = icmp eq ptr %.01119.i.i, null
   br i1 %.not20.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN13DataNodeGraph30rewire_clones_to_cloned_inputsEvE3$_0EEvS8_ENKUlRS2_SG_E_clESG_SG_.exit.i.i"
-  %.01122.i.i = phi ptr [ %.011.i.i, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN13DataNodeGraph30rewire_clones_to_cloned_inputsEvE3$_0EEvS8_ENKUlRS2_SG_E_clESG_SG_.exit.i.i" ], [ %.01119.i.i, %.preheader.i.i ]
-  %.121.i.i = phi i32 [ %85, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN13DataNodeGraph30rewire_clones_to_cloned_inputsEvE3$_0EEvS8_ENKUlRS2_SG_E_clESG_SG_.exit.i.i" ], [ %.01224.i.i, %.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN13DataNodeGraph30rewire_clones_to_cloned_inputsEvE3$_0EEvS8_ENKUlRS2_SG_E_clESG_SG_.argprom.argprom.exit.i.i"
+  %.01122.i.i = phi ptr [ %.011.i.i, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN13DataNodeGraph30rewire_clones_to_cloned_inputsEvE3$_0EEvS8_ENKUlRS2_SG_E_clESG_SG_.argprom.argprom.exit.i.i" ], [ %.01119.i.i, %.preheader.i.i ]
+  %.121.i.i = phi i32 [ %85, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN13DataNodeGraph30rewire_clones_to_cloned_inputsEvE3$_0EEvS8_ENKUlRS2_SG_E_clESG_SG_.argprom.argprom.exit.i.i" ], [ %.01224.i.i, %.preheader.i.i ]
   %12 = getelementptr inbounds i8, ptr %.01122.i.i, i64 8
   %13 = getelementptr inbounds i8, ptr %.01122.i.i, i64 16
   %.val13.i.i = load ptr, ptr %12, align 8
@@ -25215,7 +25215,7 @@ define hidden void @_ZN13DataNodeGraph30rewire_clones_to_cloned_inputsEv(ptr noc
   %14 = getelementptr inbounds i8, ptr %.val13.i.i, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = icmp ugt i32 %15, 1
-  br i1 %16, label %.lr.ph.i.i.i.i, label %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN13DataNodeGraph30rewire_clones_to_cloned_inputsEvE3$_0EEvS8_ENKUlRS2_SG_E_clESG_SG_.exit.i.i"
+  br i1 %16, label %.lr.ph.i.i.i.i, label %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN13DataNodeGraph30rewire_clones_to_cloned_inputsEvE3$_0EEvS8_ENKUlRS2_SG_E_clESG_SG_.argprom.argprom.exit.i.i"
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i
   %17 = getelementptr inbounds i8, ptr %.val13.i.i, i64 8
@@ -25328,16 +25328,16 @@ _ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6Any
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %82 = zext i32 %81 to i64
   %83 = icmp ult i64 %indvars.iv.next.i.i.i.i, %82
-  br i1 %83, label %19, label %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN13DataNodeGraph30rewire_clones_to_cloned_inputsEvE3$_0EEvS8_ENKUlRS2_SG_E_clESG_SG_.exit.i.i", !llvm.loop !126
+  br i1 %83, label %19, label %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN13DataNodeGraph30rewire_clones_to_cloned_inputsEvE3$_0EEvS8_ENKUlRS2_SG_E_clESG_SG_.argprom.argprom.exit.i.i", !llvm.loop !126
 
-"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN13DataNodeGraph30rewire_clones_to_cloned_inputsEvE3$_0EEvS8_ENKUlRS2_SG_E_clESG_SG_.exit.i.i": ; preds = %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3getERKS2_.exit.thread.i.i.i.i, %.lr.ph.i.i
+"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN13DataNodeGraph30rewire_clones_to_cloned_inputsEvE3$_0EEvS8_ENKUlRS2_SG_E_clESG_SG_.argprom.argprom.exit.i.i": ; preds = %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3getERKS2_.exit.thread.i.i.i.i, %.lr.ph.i.i
   %84 = getelementptr inbounds i8, ptr %.01122.i.i, i64 24
   %85 = add nsw i32 %.121.i.i, -1
   %.011.i.i = load ptr, ptr %84, align 8
   %.not.i.i = icmp eq ptr %.011.i.i, null
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !127
 
-._crit_edge.loopexit.i.i:                         ; preds = %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN13DataNodeGraph30rewire_clones_to_cloned_inputsEvE3$_0EEvS8_ENKUlRS2_SG_E_clESG_SG_.exit.i.i"
+._crit_edge.loopexit.i.i:                         ; preds = %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN13DataNodeGraph30rewire_clones_to_cloned_inputsEvE3$_0EEvS8_ENKUlRS2_SG_E_clESG_SG_.argprom.argprom.exit.i.i"
   %.pre.i.i = load ptr, ptr %3, align 8
   br label %._crit_edge.i.i
 

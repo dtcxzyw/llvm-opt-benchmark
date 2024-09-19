@@ -538,7 +538,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit:  ; preds = %42, %44
   %48 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
   %49 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   %50 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
-  %51 = call fastcc noundef zeroext i1 @_ZL15ExecGraphViewerN4llvm9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %47, i64 %48, ptr nonnull %30, ptr nonnull %32, ptr %49, i64 %50, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %51 = call fastcc noundef zeroext i1 @_ZL15ExecGraphViewerN4llvm9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %47, i64 %48, ptr nonnull %30, ptr nonnull %32, ptr %49, i64 %50, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %8)
   call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef 32) #16
   br i1 %51, label %52, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit80
 
@@ -590,7 +590,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit60: ; preds = %52
   %78 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
   %79 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   %80 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
-  %81 = call fastcc noundef zeroext i1 @_ZL15ExecGraphViewerN4llvm9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %77, i64 %78, ptr nonnull %59, ptr nonnull %61, ptr %79, i64 %80, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %81 = call fastcc noundef zeroext i1 @_ZL15ExecGraphViewerN4llvm9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %77, i64 %78, ptr nonnull %59, ptr nonnull %61, ptr %79, i64 %80, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %8)
   call void @_ZdlPvm(ptr noundef nonnull %59, i64 noundef 32) #16
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit80
 
@@ -657,7 +657,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit125: ; preds = %82
   %112 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
   %113 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   %114 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
-  %115 = call fastcc noundef zeroext i1 @_ZL15ExecGraphViewerN4llvm9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %111, i64 %112, ptr nonnull %91, ptr nonnull %95, ptr %113, i64 %114, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %115 = call fastcc noundef zeroext i1 @_ZL15ExecGraphViewerN4llvm9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %111, i64 %112, ptr nonnull %91, ptr nonnull %95, ptr %113, i64 %114, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %8)
   call void @_ZdlPvm(ptr noundef nonnull %91, i64 noundef 64) #16
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit80
 
@@ -1101,7 +1101,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit258:              ; preds = %276, %278
   %283 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   %284 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   %.val25 = load ptr, ptr %13, align 8
-  %285 = call fastcc noundef zeroext i1 @_ZL15ExecGraphViewerN4llvm9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %281, i64 %282, ptr %.val25, ptr %.val26, ptr %283, i64 %284, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %285 = call fastcc noundef zeroext i1 @_ZL15ExecGraphViewerN4llvm9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %281, i64 %282, ptr %.val25, ptr %.val26, ptr %283, i64 %284, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %8)
   br i1 %285, label %305, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE5clearEv.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit258
@@ -1167,7 +1167,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit274: ; preds = %290, %
   %303 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #14
   %.val27 = load ptr, ptr %13, align 8
   %.val28 = load ptr, ptr %129, align 8
-  %304 = call fastcc noundef zeroext i1 @_ZL15ExecGraphViewerN4llvm9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %300, i64 %301, ptr %.val27, ptr %.val28, ptr %302, i64 %303, i1 noundef zeroext %.018.shrunk, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %304 = call fastcc noundef zeroext i1 @_ZL15ExecGraphViewerN4llvm9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %300, i64 %301, ptr %.val27, ptr %.val28, ptr %302, i64 %303, i1 noundef zeroext %.018.shrunk, ptr noundef nonnull align 8 dereferenceable(32) %8)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
   br label %305
 
@@ -1237,7 +1237,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit291: ; preds = %.threa
   %337 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
   %338 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   %339 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
-  %340 = call fastcc noundef zeroext i1 @_ZL15ExecGraphViewerN4llvm9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %336, i64 %337, ptr nonnull %318, ptr nonnull %320, ptr %338, i64 %339, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %340 = call fastcc noundef zeroext i1 @_ZL15ExecGraphViewerN4llvm9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %336, i64 %337, ptr nonnull %318, ptr nonnull %320, ptr %338, i64 %339, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %8)
   call void @_ZdlPvm(ptr noundef nonnull %318, i64 noundef 32) #16
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit311
 
@@ -1536,7 +1536,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL15ExecGraphViewerN4llvm9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %0, i64 %1, ptr %.0.val, ptr %.8.val, ptr %2, i64 %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZL15ExecGraphViewerN4llvm9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %0, i64 %1, ptr %.0.val, ptr %.8.val, ptr %2, i64 %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #1 {
   %7 = alloca %"class.std::optional.13", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.std::optional.13", align 8

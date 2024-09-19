@@ -320,7 +320,7 @@ define dso_local range(i32 -2, 5) i32 @BZ2_bzCompress(ptr noundef readonly %0, i
   br label %isempty_RL.exit.thread.loopexit
 
 .split68.us:                                      ; preds = %.preheader.split.us
-  %18 = tail call fastcc zeroext i8 @handle_compress(ptr nonnull %6)
+  %18 = tail call fastcc zeroext i8 @handle_compress.argprom(ptr nonnull %6)
   %.not48 = icmp eq i8 %18, 0
   %19 = select i1 %.not48, i32 -2, i32 1
   br label %isempty_RL.exit.thread
@@ -341,7 +341,7 @@ define dso_local range(i32 -2, 5) i32 @BZ2_bzCompress(ptr noundef readonly %0, i
 
 24:                                               ; preds = %20
   %.val49 = load ptr, ptr %5, align 8
-  %25 = tail call fastcc zeroext i8 @handle_compress(ptr %.val49)
+  %25 = tail call fastcc zeroext i8 @handle_compress.argprom(ptr %.val49)
   %26 = load i32, ptr %12, align 8
   %.not46 = icmp eq i32 %26, 0
   br i1 %.not46, label %27, label %isempty_RL.exit.thread
@@ -386,7 +386,7 @@ isempty_RL.exit:                                  ; preds = %31, %27
 
 45:                                               ; preds = %41
   %.val50 = load ptr, ptr %5, align 8
-  %46 = tail call fastcc zeroext i8 @handle_compress(ptr %.val50)
+  %46 = tail call fastcc zeroext i8 @handle_compress.argprom(ptr %.val50)
   %.not41 = icmp eq i8 %46, 0
   br i1 %.not41, label %isempty_RL.exit.thread, label %47
 
@@ -429,7 +429,7 @@ isempty_RL.exit.thread:                           ; preds = %.preheader.split.us
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @handle_compress(ptr %.48.val) unnamed_addr #4 {
+define internal fastcc zeroext range(i8 0, 2) i8 @handle_compress.argprom(ptr %.48.val) unnamed_addr #4 {
   %1 = getelementptr inbounds i8, ptr %.48.val, i64 92
   %2 = getelementptr inbounds i8, ptr %.48.val, i64 96
   %3 = getelementptr inbounds i8, ptr %.48.val, i64 12
@@ -2814,7 +2814,7 @@ define dso_local void @BZ2_bzWrite(ptr noundef writeonly %0, ptr noundef %1, ptr
   ]
 
 .split68.us.i:                                    ; preds = %.preheader.i
-  %45 = tail call fastcc zeroext i8 @handle_compress(ptr nonnull %40)
+  %45 = tail call fastcc zeroext i8 @handle_compress.argprom(ptr nonnull %40)
   %.not48.i = icmp eq i8 %45, 0
   br i1 %.not48.i, label %select.unfold, label %BZ2_bzCompress.exit
 
@@ -3037,7 +3037,7 @@ define dso_local void @BZ2_bzWriteClose64(ptr noundef writeonly %0, ptr noundef 
 
 56:                                               ; preds = %.split65.us.i
   %.val50.i = load ptr, ptr %41, align 8
-  %57 = tail call fastcc zeroext i8 @handle_compress(ptr %.val50.i)
+  %57 = tail call fastcc zeroext i8 @handle_compress.argprom(ptr %.val50.i)
   %.not41.i = icmp eq i8 %57, 0
   br i1 %.not41.i, label %.split62.us.i, label %58
 
@@ -3889,7 +3889,7 @@ define dso_local range(i32 -8, 1) i32 @BZ2_bzBuffToBuffCompress(ptr noundef %0, 
 
 39:                                               ; preds = %.split65.us.i
   %.val50.i = load ptr, ptr %27, align 8
-  %40 = call fastcc zeroext i8 @handle_compress(ptr %.val50.i)
+  %40 = call fastcc zeroext i8 @handle_compress.argprom(ptr %.val50.i)
   %.not41.i = icmp eq i8 %40, 0
   br i1 %.not41.i, label %.split62.us.i, label %41
 

@@ -188,22 +188,22 @@ land.lhs.true.i:                                  ; preds = %do.end
   %obj.val.i = load i32, ptr %obj, align 8
   %3 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %3, 6
-  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #17
   unreachable
 
-qobject_type.exit.i:                              ; preds = %land.lhs.true.i
+qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
   br i1 %cmp.i, label %do.end18, label %if.else16
 
-if.else16:                                        ; preds = %do.end, %qobject_type.exit.i
+if.else16:                                        ; preds = %do.end, %qobject_type.argprom.exit.i
   store ptr null, ptr %response, align 8
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 59, ptr noundef nonnull @__func__.qmp_response, ptr noundef nonnull @.str.18) #17
   unreachable
 
-do.end18:                                         ; preds = %qobject_type.exit.i
+do.end18:                                         ; preds = %qobject_type.argprom.exit.i
   store ptr %obj, ptr %response, align 8
   ret void
 }

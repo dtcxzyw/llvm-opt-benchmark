@@ -99,7 +99,7 @@ define dso_local range(i32 -14, 1) i32 @autofs_expire_run(ptr nocapture noundef 
   store i32 1, ptr %9, align 4
   %10 = getelementptr i8, ptr %0, i64 104
   %.val = load ptr, ptr %10, align 8
-  %11 = tail call fastcc ptr @autofs_expire_indirect(ptr %.val, ptr noundef %1, ptr noundef %2, i32 noundef 0)
+  %11 = tail call fastcc ptr @autofs_expire_indirect.argprom(ptr %.val, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %34, label %13
 
@@ -145,7 +145,7 @@ define dso_local range(i32 -14, 1) i32 @autofs_expire_run(ptr nocapture noundef 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @autofs_expire_indirect(ptr %.104.val, ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef ptr @autofs_expire_indirect.argprom(ptr %.104.val, ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %.104.val, null
   br i1 %4, label %.loopexit1, label %5
 
@@ -456,7 +456,7 @@ define dso_local i32 @autofs_do_expire_multi(ptr nocapture noundef readonly %0, 
 82:                                               ; preds = %4
   %83 = getelementptr i8, ptr %0, i64 104
   %.val = load ptr, ptr %83, align 8
-  %84 = tail call fastcc ptr @autofs_expire_indirect(ptr %.val, ptr noundef %1, ptr noundef %2, i32 noundef %3)
+  %84 = tail call fastcc ptr @autofs_expire_indirect.argprom(ptr %.val, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   %85 = icmp eq ptr %84, null
   br i1 %85, label %.thread, label %86
 

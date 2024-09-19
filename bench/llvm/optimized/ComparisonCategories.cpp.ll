@@ -687,7 +687,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseM
 
 30:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E4findERKc.exit
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 8
-  br label %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.exit.thread
+  br label %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.argprom.exit.thread
 
 32:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E4findERKc.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -742,7 +742,7 @@ _ZNK5clang23DeclContextLookupResult5frontEv.exit.i: ; preds = %53, %49
 _ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit: ; preds = %._crit_edge.i, %_ZNK5clang23DeclContextLookupResult5frontEv.exit.i
   %59 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %spec.select.i.i.i, %_ZNK5clang23DeclContextLookupResult5frontEv.exit.i ]
   %.not = icmp eq ptr %59, null
-  br i1 %.not, label %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.exit.thread, label %_ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit.thread
+  br i1 %.not, label %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.argprom.exit.thread, label %_ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit.thread
 
 _ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit.thread: ; preds = %32, %_ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit
   %60 = phi ptr [ %59, %_ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit ], [ %34, %32 ]
@@ -760,7 +760,7 @@ _ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit.thread: 
   %67 = ptrtoint ptr %66 to i64
   %68 = tail call i64 @_ZNK5clang11DeclContext6lookupENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(32) %65, i64 %67) #13
   %.not.i.i.i6 = icmp ult i64 %68, 8
-  br i1 %.not.i.i.i6, label %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.exit.thread, label %69
+  br i1 %.not.i.i.i6, label %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.argprom.exit.thread, label %69
 
 69:                                               ; preds = %_ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit.thread
   %70 = and i64 %68, 4
@@ -784,9 +784,9 @@ _ZNK5clang23DeclContextLookupResult5frontEv.exit.i9: ; preds = %73, %69
   %79 = icmp ult i32 %78, -3
   %.not3.i = icmp eq ptr %.0.i.i.i10, null
   %.not.i11 = or i1 %.not3.i, %79
-  br i1 %.not.i11, label %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.exit.thread, label %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.exit
+  br i1 %.not.i11, label %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.argprom.exit.thread, label %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.argprom.exit
 
-_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.exit: ; preds = %_ZNK5clang23DeclContextLookupResult5frontEv.exit.i9
+_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.argprom.exit: ; preds = %_ZNK5clang23DeclContextLookupResult5frontEv.exit.i9
   store i8 %1, ptr %3, align 1
   %80 = load ptr, ptr %0, align 8
   %81 = load ptr, ptr %4, align 8, !noalias !9
@@ -794,7 +794,7 @@ _ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22Comparis
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %106, label %84
 
-84:                                               ; preds = %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.exit
+84:                                               ; preds = %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.argprom.exit
   %85 = zext nneg i8 %1 to i32
   %86 = mul nuw nsw i32 %85, 37
   %87 = add i32 %82, -1
@@ -833,8 +833,8 @@ _ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22Comparis
   %105 = icmp eq i8 %1, %104
   br i1 %105, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E11try_emplaceIJRKNS2_10ASTContextERPKNS2_13CXXRecordDeclERNS2_22ComparisonCategoryTypeEEEESt4pairINS_16DenseMapIteratorIcS3_S5_S8_Lb0EEEbEOcDpOT_.exit, label %.lr.ph.i.i.i, !llvm.loop !12
 
-106:                                              ; preds = %95, %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.exit
-  %.sink.i.i.i = phi ptr [ %96, %95 ], [ null, %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.exit ]
+106:                                              ; preds = %95, %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.argprom.exit
+  %.sink.i.i.i = phi ptr [ %96, %95 ], [ null, %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.argprom.exit ]
   %107 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E20InsertIntoBucketImplIcEEPS8_RKcRKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %.sink.i.i.i), !noalias !9
   %108 = load i8, ptr %3, align 1, !noalias !9
   store i8 %108, ptr %107, align 1, !noalias !9
@@ -852,9 +852,9 @@ _ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22Comparis
 _ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E11try_emplaceIJRKNS2_10ASTContextERPKNS2_13CXXRecordDeclERNS2_22ComparisonCategoryTypeEEEESt4pairINS_16DenseMapIteratorIcS3_S5_S8_Lb0EEEbEOcDpOT_.exit: ; preds = %97, %84, %106
   %.sink27.i = phi ptr [ %107, %106 ], [ %89, %84 ], [ %103, %97 ]
   %114 = getelementptr inbounds nuw i8, ptr %.sink27.i, i64 8
-  br label %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.exit.thread
+  br label %_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.argprom.exit.thread
 
-_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.exit.thread: ; preds = %_ZNK5clang23DeclContextLookupResult5frontEv.exit.i9, %_ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit.thread, %_ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E11try_emplaceIJRKNS2_10ASTContextERPKNS2_13CXXRecordDeclERNS2_22ComparisonCategoryTypeEEEESt4pairINS_16DenseMapIteratorIcS3_S5_S8_Lb0EEEbEOcDpOT_.exit, %30
+_ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22ComparisonCategoryTypeE.argprom.exit.thread: ; preds = %_ZNK5clang23DeclContextLookupResult5frontEv.exit.i9, %_ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit.thread, %_ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E11try_emplaceIJRKNS2_10ASTContextERPKNS2_13CXXRecordDeclERNS2_22ComparisonCategoryTypeEEEESt4pairINS_16DenseMapIteratorIcS3_S5_S8_Lb0EEEbEOcDpOT_.exit, %30
   %.0 = phi ptr [ %31, %30 ], [ %114, %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E11try_emplaceIJRKNS2_10ASTContextERPKNS2_13CXXRecordDeclERNS2_22ComparisonCategoryTypeEEEESt4pairINS_16DenseMapIteratorIcS3_S5_S8_Lb0EEEbEOcDpOT_.exit ], [ null, %_ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit ], [ null, %_ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit.thread ], [ null, %_ZNK5clang23DeclContextLookupResult5frontEv.exit.i9 ]
   ret ptr %.0
 }

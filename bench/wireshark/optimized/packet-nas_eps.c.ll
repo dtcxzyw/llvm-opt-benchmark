@@ -5452,7 +5452,7 @@ define internal i32 @dissect_nas_eps(ptr noundef %0, ptr noundef %1, ptr noundef
   %47 = load ptr, ptr %18, align 8
   call void @col_append_sep_str(ptr noundef %47, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1292) #10
   %48 = add i32 %7, -1
-  call fastcc void @nas_emm_service_req(ptr noundef %0, ptr noundef %23, ptr noundef nonnull %1, i32 noundef %48)
+  call fastcc void @nas_emm_service_req.argelim(ptr noundef %0, ptr noundef %23, ptr noundef nonnull %1, i32 noundef %48)
   %49 = call i32 @tvb_captured_length(ptr noundef %0) #10
   br label %91
 
@@ -5573,7 +5573,7 @@ define internal i32 @dissect_nas_eps_plain(ptr noundef %0, ptr noundef %1, ptr n
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %21 = tail call i32 @tvb_reported_length(ptr noundef %0) #10
   %22 = add i32 %21, -1
-  tail call fastcc void @nas_emm_service_req(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %1, i32 noundef %22)
+  tail call fastcc void @nas_emm_service_req.argelim(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %1, i32 noundef %22)
   br label %36
 
 23:                                               ; preds = %4
@@ -10316,7 +10316,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nas_emm_service_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @nas_emm_service_req.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %5, align 8
   %6 = icmp sgt i32 %3, 0

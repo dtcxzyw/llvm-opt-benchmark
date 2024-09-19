@@ -1812,7 +1812,7 @@ define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E.argelim(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 57
   %.promoted = load i8, ptr %2, align 1, !alias.scope !224
   %.promoted22 = load i64, ptr %0, align 8, !alias.scope !224
@@ -1937,19 +1937,19 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_
 64:                                               ; preds = %62
   %65 = icmp eq i32 %.sroa.4.0.i.ph10.i14.i.i.i.i, 5760
   %66 = zext i1 %65 to i8
-  br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4aa9b31a535fa5c6E.exit.i.i.i.i"
+  br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4aa9b31a535fa5c6E.argprom.exit.i.i.i.i"
 
 67:                                               ; preds = %62
   %68 = icmp eq i32 %.sroa.4.0.i.ph10.i14.i.i.i.i, 12288
   %69 = zext i1 %68 to i8
-  br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4aa9b31a535fa5c6E.exit.i.i.i.i"
+  br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4aa9b31a535fa5c6E.argprom.exit.i.i.i.i"
 
 70:                                               ; preds = %62
   %71 = and i32 %.sroa.4.0.i.ph10.i14.i.i.i.i, 255
   %72 = zext nneg i32 %71 to i64
   %73 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17heb4e91ca37dc8ab9E, i64 0, i64 %72
   %74 = load i8, ptr %73, align 1, !noalias !249, !noundef !14
-  br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4aa9b31a535fa5c6E.exit.i.i.i.i"
+  br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4aa9b31a535fa5c6E.argprom.exit.i.i.i.i"
 
 75:                                               ; preds = %62
   %76 = and i32 %.sroa.4.0.i.ph10.i14.i.i.i.i, 255
@@ -1957,14 +1957,14 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_
   %78 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17heb4e91ca37dc8ab9E, i64 0, i64 %77
   %79 = load i8, ptr %78, align 1, !noalias !249, !noundef !14
   %80 = lshr i8 %79, 1
-  br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4aa9b31a535fa5c6E.exit.i.i.i.i"
+  br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4aa9b31a535fa5c6E.argprom.exit.i.i.i.i"
 
-"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4aa9b31a535fa5c6E.exit.i.i.i.i": ; preds = %75, %70, %67, %64
+"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4aa9b31a535fa5c6E.argprom.exit.i.i.i.i": ; preds = %75, %70, %67, %64
   %.0.i.i.i.i.i.i.i.i = phi i8 [ %69, %67 ], [ %80, %75 ], [ %66, %64 ], [ %74, %70 ]
   %81 = trunc i8 %.0.i.i.i.i.i.i.i.i to i1
   br i1 %81, label %86, label %82
 
-82:                                               ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4aa9b31a535fa5c6E.exit.i.i.i.i", %62, %60
+82:                                               ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4aa9b31a535fa5c6E.argprom.exit.i.i.i.i", %62, %60
   %83 = icmp eq ptr %.sink18.i.i.i.i, %6
   br i1 %83, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hf75163567e8feabbE.exit.sink.split.i.i", label %.lr.ph.i.i.i
 
@@ -1982,7 +1982,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_
   %or.cond.not.i.i.i = select i1 %10, i1 true, i1 %.not.i.i.i
   br i1 %or.cond.not.i.i.i, label %select.unfold, label %.loopexit
 
-86:                                               ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4aa9b31a535fa5c6E.exit.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread11.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread11.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread11.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread11.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread11.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread11.i.i.i.i"
+86:                                               ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4aa9b31a535fa5c6E.argprom.exit.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread11.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread11.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread11.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread11.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread11.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread11.i.i.i.i"
   store ptr %.sink18.i.i.i.i, ptr %4, align 8, !alias.scope !250, !noalias !234
   store i64 %59, ptr %0, align 8, !alias.scope !224
   br label %select.unfold
@@ -13749,18 +13749,18 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17hb3c3b848dd82ece7E.ex
   %146 = fcmp ule float %145, -1.000000e+00
   %147 = fcmp uge float %145, 2.560000e+02
   %or.cond.i.i.not.i.i120.us = or i1 %146, %147
-  br i1 %or.cond.i.i.not.i.i120.us, label %.split247.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.exit.i.us"
+  br i1 %or.cond.i.i.not.i.i120.us, label %.split247.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.argprom.exit.i.us"
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.exit.i.us": ; preds = %._crit_edge.i114.us
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.argprom.exit.i.us": ; preds = %._crit_edge.i114.us
   %148 = fmul float %142, %.sroa.6.0.lcssa.i119.us
   %149 = fmul float %141, %.sroa.643.0.lcssa.i116.us
   %150 = fadd float %149, %148
   %151 = fcmp ule float %150, -1.000000e+00
   %152 = fcmp uge float %150, 2.560000e+02
   %or.cond.i.i.not.i25.i121.us = or i1 %151, %152
-  br i1 %or.cond.i.i.not.i25.i121.us, label %.split247.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.exit26.i.us"
+  br i1 %or.cond.i.i.not.i25.i121.us, label %.split247.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.argprom.exit26.i.us"
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.exit26.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.exit.i.us"
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.argprom.exit26.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.argprom.exit.i.us"
   %153 = fmul float %142, %.sroa.945.0.lcssa.i117.us
   %154 = fmul float %141, %.sroa.945.0.lcssa.i117.us
   %155 = fadd float %154, %153
@@ -13769,7 +13769,7 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17hb3c3b848dd82ece7E.ex
   %or.cond.i.i.not.i27.i122.us = or i1 %156, %157
   br i1 %or.cond.i.i.not.i27.i122.us, label %.split247.us.invoke, label %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h67cc4ab3ea3f0125E.exit.us
 
-_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h67cc4ab3ea3f0125E.exit.us: ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.exit26.i.us"
+_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h67cc4ab3ea3f0125E.exit.us: ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.argprom.exit26.i.us"
   %158 = fptoui float %155 to i8
   %159 = fptoui float %150 to i8
   %160 = fptoui float %145 to i8
@@ -13846,18 +13846,18 @@ _ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h67cc4ab3ea3f0125
   %190 = fcmp ule float %189, -1.000000e+00
   %191 = fcmp uge float %189, 2.560000e+02
   %or.cond.i.i.not.i.i.us = or i1 %190, %191
-  br i1 %or.cond.i.i.not.i.i.us, label %.split247.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.exit.i.us"
+  br i1 %or.cond.i.i.not.i.i.us, label %.split247.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.argprom.exit.i.us"
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.exit.i.us": ; preds = %._crit_edge.i.us
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.argprom.exit.i.us": ; preds = %._crit_edge.i.us
   %192 = fmul float %186, %.sroa.6.0.lcssa.i82.us
   %193 = fmul float %184, %.sroa.643.0.lcssa.i.us
   %194 = fadd float %193, %192
   %195 = fcmp ule float %194, -1.000000e+00
   %196 = fcmp uge float %194, 2.560000e+02
   %or.cond.i.i.not.i25.i.us = or i1 %195, %196
-  br i1 %or.cond.i.i.not.i25.i.us, label %.split247.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.exit26.i.us"
+  br i1 %or.cond.i.i.not.i25.i.us, label %.split247.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.argprom.exit26.i.us"
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.exit26.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.exit.i.us"
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.argprom.exit26.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.argprom.exit.i.us"
   %197 = fmul float %186, %.sroa.945.0.lcssa.i.us
   %198 = fmul float %184, %.sroa.945.0.lcssa.i.us
   %199 = fadd float %198, %197
@@ -13866,7 +13866,7 @@ _ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h67cc4ab3ea3f0125
   %or.cond.i.i.not.i27.i.us = or i1 %200, %201
   br i1 %or.cond.i.i.not.i27.i.us, label %.split247.us.invoke, label %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h0914984aa3b8aeb2E.exit.us
 
-_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h0914984aa3b8aeb2E.exit.us: ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.exit26.i.us"
+_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h0914984aa3b8aeb2E.exit.us: ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.argprom.exit26.i.us"
   %202 = fptoui float %199 to i8
   %203 = fptoui float %194 to i8
   %204 = fptoui float %189 to i8
@@ -14018,8 +14018,8 @@ _ZN5image8imageops6sample22thumbnail_sample_block17hef81cf2301d290c4E.exit.us: ;
 .noexc80:                                         ; preds = %.split257.us
   unreachable
 
-.split247.us.invoke:                              ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.exit26.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.exit.i.us", %._crit_edge.i114.us, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h7a18246d2a119af5E.exit59.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h7a18246d2a119af5E.exit.i.us", %.noexc110.us, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.exit26.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.exit.i.us", %._crit_edge.i.us
-  %237 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %._crit_edge.i.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %.noexc110.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h7a18246d2a119af5E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h7a18246d2a119af5E.exit59.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %._crit_edge.i114.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.exit26.i.us" ]
+.split247.us.invoke:                              ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.argprom.exit26.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.argprom.exit.i.us", %._crit_edge.i114.us, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h7a18246d2a119af5E.exit59.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h7a18246d2a119af5E.exit.i.us", %.noexc110.us, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.argprom.exit26.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.argprom.exit.i.us", %._crit_edge.i.us
+  %237 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %._crit_edge.i.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.argprom.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf46725ef290a7e31E.argprom.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %.noexc110.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h7a18246d2a119af5E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h7a18246d2a119af5E.exit59.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %._crit_edge.i114.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.argprom.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h41678148bb7d6f94E.argprom.exit26.i.us" ]
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.81, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %237) #32
           to label %.split247.us.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -14414,27 +14414,27 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17h404e84f92ac1115cE.ex
   %165 = fcmp ule float %164, -1.000000e+00
   %166 = fcmp uge float %164, 2.560000e+02
   %or.cond.i.i.not.i.i125.us = or i1 %165, %166
-  br i1 %or.cond.i.i.not.i.i125.us, label %.split275.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.exit.i.us"
+  br i1 %or.cond.i.i.not.i.i125.us, label %.split275.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.argprom.exit.i.us"
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.exit.i.us": ; preds = %._crit_edge.i117.us
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.argprom.exit.i.us": ; preds = %._crit_edge.i117.us
   %167 = fmul float %161, %.sroa.6.0.lcssa.i123.us
   %168 = fmul float %160, %.sroa.644.0.lcssa.i119.us
   %169 = fadd float %168, %167
   %170 = fcmp ule float %169, -1.000000e+00
   %171 = fcmp uge float %169, 2.560000e+02
   %or.cond.i.i.not.i25.i126.us = or i1 %170, %171
-  br i1 %or.cond.i.i.not.i25.i126.us, label %.split275.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.exit26.i.us"
+  br i1 %or.cond.i.i.not.i25.i126.us, label %.split275.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.argprom.exit26.i.us"
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.exit26.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.exit.i.us"
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.argprom.exit26.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.argprom.exit.i.us"
   %172 = fmul float %161, %.sroa.9.0.lcssa.i124.us
   %173 = fmul float %160, %.sroa.946.0.lcssa.i120.us
   %174 = fadd float %173, %172
   %175 = fcmp ule float %174, -1.000000e+00
   %176 = fcmp uge float %174, 2.560000e+02
   %or.cond.i.i.not.i27.i127.us = or i1 %175, %176
-  br i1 %or.cond.i.i.not.i27.i127.us, label %.split275.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.exit28.i.us"
+  br i1 %or.cond.i.i.not.i27.i127.us, label %.split275.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.argprom.exit28.i.us"
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.exit28.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.exit26.i.us"
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.argprom.exit28.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.argprom.exit26.i.us"
   %177 = fmul float %161, %.sroa.1248.0.lcssa.i121.us
   %178 = fmul float %160, %.sroa.1248.0.lcssa.i121.us
   %179 = fadd float %178, %177
@@ -14443,7 +14443,7 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17h404e84f92ac1115cE.ex
   %or.cond.i.i.not.i29.i128.us = or i1 %180, %181
   br i1 %or.cond.i.i.not.i29.i128.us, label %.split275.us.invoke, label %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h57d0f8139165a8fbE.exit.us
 
-_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h57d0f8139165a8fbE.exit.us: ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.exit28.i.us"
+_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h57d0f8139165a8fbE.exit.us: ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.argprom.exit28.i.us"
   %182 = fptoui float %174 to i8
   %183 = fptoui float %169 to i8
   %184 = fptoui float %164 to i8
@@ -14532,27 +14532,27 @@ _ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h57d0f8139165a8fb
   %220 = fcmp ule float %219, -1.000000e+00
   %221 = fcmp uge float %219, 2.560000e+02
   %or.cond.i.i.not.i.i.us = or i1 %220, %221
-  br i1 %or.cond.i.i.not.i.i.us, label %.split275.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.exit.i.us"
+  br i1 %or.cond.i.i.not.i.i.us, label %.split275.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.argprom.exit.i.us"
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.exit.i.us": ; preds = %._crit_edge.i.us
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.argprom.exit.i.us": ; preds = %._crit_edge.i.us
   %222 = fmul float %216, %.sroa.6.0.lcssa.i81.us
   %223 = fmul float %214, %.sroa.644.0.lcssa.i.us
   %224 = fadd float %223, %222
   %225 = fcmp ule float %224, -1.000000e+00
   %226 = fcmp uge float %224, 2.560000e+02
   %or.cond.i.i.not.i25.i.us = or i1 %225, %226
-  br i1 %or.cond.i.i.not.i25.i.us, label %.split275.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.exit26.i.us"
+  br i1 %or.cond.i.i.not.i25.i.us, label %.split275.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.argprom.exit26.i.us"
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.exit26.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.exit.i.us"
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.argprom.exit26.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.argprom.exit.i.us"
   %227 = fmul float %216, %.sroa.9.0.lcssa.i82.us
   %228 = fmul float %214, %.sroa.946.0.lcssa.i.us
   %229 = fadd float %228, %227
   %230 = fcmp ule float %229, -1.000000e+00
   %231 = fcmp uge float %229, 2.560000e+02
   %or.cond.i.i.not.i27.i.us = or i1 %230, %231
-  br i1 %or.cond.i.i.not.i27.i.us, label %.split275.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.exit28.i.us"
+  br i1 %or.cond.i.i.not.i27.i.us, label %.split275.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.argprom.exit28.i.us"
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.exit28.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.exit26.i.us"
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.argprom.exit28.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.argprom.exit26.i.us"
   %232 = fmul float %216, %.sroa.1248.0.lcssa.i.us
   %233 = fmul float %214, %.sroa.1248.0.lcssa.i.us
   %234 = fadd float %233, %232
@@ -14561,7 +14561,7 @@ _ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h57d0f8139165a8fb
   %or.cond.i.i.not.i29.i.us = or i1 %235, %236
   br i1 %or.cond.i.i.not.i29.i.us, label %.split275.us.invoke, label %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h48851b5eb41a44a2E.exit.us
 
-_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h48851b5eb41a44a2E.exit.us: ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.exit28.i.us"
+_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h48851b5eb41a44a2E.exit.us: ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.argprom.exit28.i.us"
   %237 = fptoui float %229 to i8
   %238 = fptoui float %224 to i8
   %239 = fptoui float %219 to i8
@@ -14724,8 +14724,8 @@ _ZN5image8imageops6sample22thumbnail_sample_block17h00df2d7097e8919bE.exit.us: ;
 .noexc79:                                         ; preds = %.split287.us
   unreachable
 
-.split275.us.invoke:                              ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.exit28.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.exit26.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.exit.i.us", %._crit_edge.i117.us, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h3905c336eefc04a3E.exit65.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h3905c336eefc04a3E.exit63.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h3905c336eefc04a3E.exit.i.us", %.noexc112.us, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.exit28.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.exit26.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.exit.i.us", %._crit_edge.i.us
-  %276 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %._crit_edge.i.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.exit28.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %.noexc112.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h3905c336eefc04a3E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h3905c336eefc04a3E.exit63.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h3905c336eefc04a3E.exit65.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %._crit_edge.i117.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.exit28.i.us" ]
+.split275.us.invoke:                              ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.argprom.exit28.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.argprom.exit26.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.argprom.exit.i.us", %._crit_edge.i117.us, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h3905c336eefc04a3E.exit65.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h3905c336eefc04a3E.exit63.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h3905c336eefc04a3E.exit.i.us", %.noexc112.us, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.argprom.exit28.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.argprom.exit26.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.argprom.exit.i.us", %._crit_edge.i.us
+  %276 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %._crit_edge.i.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.argprom.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.argprom.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5bd84cb3e58bbf02E.argprom.exit28.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %.noexc112.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h3905c336eefc04a3E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h3905c336eefc04a3E.exit63.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h3905c336eefc04a3E.exit65.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %._crit_edge.i117.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.argprom.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.argprom.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h173c21f3c4800ddfE.argprom.exit28.i.us" ]
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.81, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %276) #32
           to label %.split275.us.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -15129,27 +15129,27 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17heb7da622f6ff65eeE.ex
   %174 = fcmp ogt float %173, -1.000000e+00
   %175 = fcmp olt float %173, 6.553600e+04
   %or.cond.i.i.i.i127.us = and i1 %174, %175
-  br i1 %or.cond.i.i.i.i127.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.exit.i.us", label %.split281.us.invoke
+  br i1 %or.cond.i.i.i.i127.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.argprom.exit.i.us", label %.split281.us.invoke
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.exit.i.us": ; preds = %._crit_edge.i118.us
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.argprom.exit.i.us": ; preds = %._crit_edge.i118.us
   %176 = fmul float %170, %.sroa.6.0.lcssa.i124.us
   %177 = fmul float %169, %.sroa.646.0.lcssa.i120.us
   %178 = fadd float %177, %176
   %179 = fcmp ogt float %178, -1.000000e+00
   %180 = fcmp olt float %178, 6.553600e+04
   %or.cond.i.i.i25.i128.us = and i1 %179, %180
-  br i1 %or.cond.i.i.i25.i128.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.exit26.i.us", label %.split281.us.invoke
+  br i1 %or.cond.i.i.i25.i128.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.argprom.exit26.i.us", label %.split281.us.invoke
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.exit26.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.exit.i.us"
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.argprom.exit26.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.argprom.exit.i.us"
   %181 = fmul float %170, %.sroa.9.0.lcssa.i125.us
   %182 = fmul float %169, %.sroa.948.0.lcssa.i121.us
   %183 = fadd float %182, %181
   %184 = fcmp ogt float %183, -1.000000e+00
   %185 = fcmp olt float %183, 6.553600e+04
   %or.cond.i.i.i27.i129.us = and i1 %184, %185
-  br i1 %or.cond.i.i.i27.i129.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.exit28.i.us", label %.split281.us.invoke
+  br i1 %or.cond.i.i.i27.i129.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.argprom.exit28.i.us", label %.split281.us.invoke
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.exit28.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.exit26.i.us"
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.argprom.exit28.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.argprom.exit26.i.us"
   %186 = fmul float %170, %.sroa.12.0.lcssa.i126.us
   %187 = fmul float %169, %.sroa.1250.0.lcssa.i122.us
   %188 = fadd float %187, %186
@@ -15158,7 +15158,7 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17heb7da622f6ff65eeE.ex
   %or.cond.i.i.i29.i130.us = and i1 %189, %190
   br i1 %or.cond.i.i.i29.i130.us, label %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h4c9034472f92b15eE.exit.us, label %.split281.us.invoke
 
-_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h4c9034472f92b15eE.exit.us: ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.exit28.i.us"
+_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h4c9034472f92b15eE.exit.us: ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.argprom.exit28.i.us"
   %191 = fptoui float %183 to i16
   %192 = fptoui float %178 to i16
   %193 = fptoui float %173 to i16
@@ -15262,27 +15262,27 @@ _ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h4c9034472f92b15e
   %234 = fcmp ogt float %233, -1.000000e+00
   %235 = fcmp olt float %233, 6.553600e+04
   %or.cond.i.i.i.i.us = and i1 %234, %235
-  br i1 %or.cond.i.i.i.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.exit.i.us", label %.split281.us.invoke
+  br i1 %or.cond.i.i.i.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.argprom.exit.i.us", label %.split281.us.invoke
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.exit.i.us": ; preds = %._crit_edge.i.us
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.argprom.exit.i.us": ; preds = %._crit_edge.i.us
   %236 = fmul float %230, %.sroa.6.0.lcssa.i82.us
   %237 = fmul float %228, %.sroa.646.0.lcssa.i.us
   %238 = fadd float %237, %236
   %239 = fcmp ogt float %238, -1.000000e+00
   %240 = fcmp olt float %238, 6.553600e+04
   %or.cond.i.i.i25.i.us = and i1 %239, %240
-  br i1 %or.cond.i.i.i25.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.exit26.i.us", label %.split281.us.invoke
+  br i1 %or.cond.i.i.i25.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.argprom.exit26.i.us", label %.split281.us.invoke
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.exit26.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.exit.i.us"
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.argprom.exit26.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.argprom.exit.i.us"
   %241 = fmul float %230, %.sroa.9.0.lcssa.i83.us
   %242 = fmul float %228, %.sroa.948.0.lcssa.i.us
   %243 = fadd float %242, %241
   %244 = fcmp ogt float %243, -1.000000e+00
   %245 = fcmp olt float %243, 6.553600e+04
   %or.cond.i.i.i27.i.us = and i1 %244, %245
-  br i1 %or.cond.i.i.i27.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.exit28.i.us", label %.split281.us.invoke
+  br i1 %or.cond.i.i.i27.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.argprom.exit28.i.us", label %.split281.us.invoke
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.exit28.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.exit26.i.us"
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.argprom.exit28.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.argprom.exit26.i.us"
   %246 = fmul float %230, %.sroa.12.0.lcssa.i84.us
   %247 = fmul float %228, %.sroa.1250.0.lcssa.i.us
   %248 = fadd float %247, %246
@@ -15291,7 +15291,7 @@ _ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h4c9034472f92b15e
   %or.cond.i.i.i29.i.us = and i1 %249, %250
   br i1 %or.cond.i.i.i29.i.us, label %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h4e69a46ba04c2de4E.exit.us, label %.split281.us.invoke
 
-_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h4e69a46ba04c2de4E.exit.us: ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.exit28.i.us"
+_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h4e69a46ba04c2de4E.exit.us: ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.argprom.exit28.i.us"
   %251 = fptoui float %243 to i16
   %252 = fptoui float %238 to i16
   %253 = fptoui float %233 to i16
@@ -15461,8 +15461,8 @@ _ZN5image8imageops6sample22thumbnail_sample_block17hec699ca89f8f9e1fE.exit.us: ;
 .noexc80:                                         ; preds = %.split293.us
   unreachable
 
-.split281.us.invoke:                              ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.exit28.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.exit26.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.exit.i.us", %._crit_edge.i118.us, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe5cec23995fb788E.exit55.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe5cec23995fb788E.exit53.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe5cec23995fb788E.exit.i.us", %.noexc113.us, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.exit28.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.exit26.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.exit.i.us", %._crit_edge.i.us
-  %292 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %._crit_edge.i.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.exit28.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %.noexc113.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe5cec23995fb788E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe5cec23995fb788E.exit53.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe5cec23995fb788E.exit55.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %._crit_edge.i118.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.exit28.i.us" ]
+.split281.us.invoke:                              ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.argprom.exit28.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.argprom.exit26.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.argprom.exit.i.us", %._crit_edge.i118.us, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe5cec23995fb788E.exit55.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe5cec23995fb788E.exit53.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe5cec23995fb788E.exit.i.us", %.noexc113.us, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.argprom.exit28.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.argprom.exit26.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.argprom.exit.i.us", %._crit_edge.i.us
+  %292 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %._crit_edge.i.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.argprom.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.argprom.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h5e1475b760dd9136E.argprom.exit28.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %.noexc113.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe5cec23995fb788E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe5cec23995fb788E.exit53.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe5cec23995fb788E.exit55.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %._crit_edge.i118.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.argprom.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.argprom.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h56d36d8af6614cb1E.argprom.exit28.i.us" ]
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.81, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %292) #32
           to label %.split281.us.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -17339,27 +17339,27 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17hc7c72bab9398f419E.ex
   %174 = fcmp ule float %173, -1.000000e+00
   %175 = fcmp uge float %173, 2.560000e+02
   %or.cond.i.i.not.i.i127.us = or i1 %174, %175
-  br i1 %or.cond.i.i.not.i.i127.us, label %.split277.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.exit.i.us"
+  br i1 %or.cond.i.i.not.i.i127.us, label %.split277.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.argprom.exit.i.us"
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.exit.i.us": ; preds = %._crit_edge.i118.us
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.argprom.exit.i.us": ; preds = %._crit_edge.i118.us
   %176 = fmul float %170, %.sroa.6.0.lcssa.i124.us
   %177 = fmul float %169, %.sroa.644.0.lcssa.i120.us
   %178 = fadd float %177, %176
   %179 = fcmp ule float %178, -1.000000e+00
   %180 = fcmp uge float %178, 2.560000e+02
   %or.cond.i.i.not.i25.i128.us = or i1 %179, %180
-  br i1 %or.cond.i.i.not.i25.i128.us, label %.split277.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.exit26.i.us"
+  br i1 %or.cond.i.i.not.i25.i128.us, label %.split277.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.argprom.exit26.i.us"
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.exit26.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.exit.i.us"
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.argprom.exit26.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.argprom.exit.i.us"
   %181 = fmul float %170, %.sroa.9.0.lcssa.i125.us
   %182 = fmul float %169, %.sroa.946.0.lcssa.i121.us
   %183 = fadd float %182, %181
   %184 = fcmp ule float %183, -1.000000e+00
   %185 = fcmp uge float %183, 2.560000e+02
   %or.cond.i.i.not.i27.i129.us = or i1 %184, %185
-  br i1 %or.cond.i.i.not.i27.i129.us, label %.split277.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.exit28.i.us"
+  br i1 %or.cond.i.i.not.i27.i129.us, label %.split277.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.argprom.exit28.i.us"
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.exit28.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.exit26.i.us"
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.argprom.exit28.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.argprom.exit26.i.us"
   %186 = fmul float %170, %.sroa.12.0.lcssa.i126.us
   %187 = fmul float %169, %.sroa.1248.0.lcssa.i122.us
   %188 = fadd float %187, %186
@@ -17368,7 +17368,7 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17hc7c72bab9398f419E.ex
   %or.cond.i.i.not.i29.i130.us = or i1 %189, %190
   br i1 %or.cond.i.i.not.i29.i130.us, label %.split277.us.invoke, label %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17he1fd55db0336f521E.exit.us
 
-_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17he1fd55db0336f521E.exit.us: ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.exit28.i.us"
+_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17he1fd55db0336f521E.exit.us: ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.argprom.exit28.i.us"
   %191 = fptoui float %183 to i8
   %192 = fptoui float %178 to i8
   %193 = fptoui float %173 to i8
@@ -17468,27 +17468,27 @@ _ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17he1fd55db0336f521
   %234 = fcmp ule float %233, -1.000000e+00
   %235 = fcmp uge float %233, 2.560000e+02
   %or.cond.i.i.not.i.i.us = or i1 %234, %235
-  br i1 %or.cond.i.i.not.i.i.us, label %.split277.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.exit.i.us"
+  br i1 %or.cond.i.i.not.i.i.us, label %.split277.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.argprom.exit.i.us"
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.exit.i.us": ; preds = %._crit_edge.i.us
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.argprom.exit.i.us": ; preds = %._crit_edge.i.us
   %236 = fmul float %230, %.sroa.6.0.lcssa.i82.us
   %237 = fmul float %228, %.sroa.644.0.lcssa.i.us
   %238 = fadd float %237, %236
   %239 = fcmp ule float %238, -1.000000e+00
   %240 = fcmp uge float %238, 2.560000e+02
   %or.cond.i.i.not.i25.i.us = or i1 %239, %240
-  br i1 %or.cond.i.i.not.i25.i.us, label %.split277.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.exit26.i.us"
+  br i1 %or.cond.i.i.not.i25.i.us, label %.split277.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.argprom.exit26.i.us"
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.exit26.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.exit.i.us"
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.argprom.exit26.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.argprom.exit.i.us"
   %241 = fmul float %230, %.sroa.9.0.lcssa.i83.us
   %242 = fmul float %228, %.sroa.946.0.lcssa.i.us
   %243 = fadd float %242, %241
   %244 = fcmp ule float %243, -1.000000e+00
   %245 = fcmp uge float %243, 2.560000e+02
   %or.cond.i.i.not.i27.i.us = or i1 %244, %245
-  br i1 %or.cond.i.i.not.i27.i.us, label %.split277.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.exit28.i.us"
+  br i1 %or.cond.i.i.not.i27.i.us, label %.split277.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.argprom.exit28.i.us"
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.exit28.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.exit26.i.us"
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.argprom.exit28.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.argprom.exit26.i.us"
   %246 = fmul float %230, %.sroa.12.0.lcssa.i84.us
   %247 = fmul float %228, %.sroa.1248.0.lcssa.i.us
   %248 = fadd float %247, %246
@@ -17497,7 +17497,7 @@ _ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17he1fd55db0336f521
   %or.cond.i.i.not.i29.i.us = or i1 %249, %250
   br i1 %or.cond.i.i.not.i29.i.us, label %.split277.us.invoke, label %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17hc06451acd818c193E.exit.us
 
-_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17hc06451acd818c193E.exit.us: ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.exit28.i.us"
+_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17hc06451acd818c193E.exit.us: ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.argprom.exit28.i.us"
   %251 = fptoui float %243 to i8
   %252 = fptoui float %238 to i8
   %253 = fptoui float %233 to i8
@@ -17660,8 +17660,8 @@ _ZN5image8imageops6sample22thumbnail_sample_block17h6bf59ad2fae3ac19E.exit.us: ;
 .noexc80:                                         ; preds = %.split289.us
   unreachable
 
-.split277.us.invoke:                              ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.exit28.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.exit26.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.exit.i.us", %._crit_edge.i118.us, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h11865742b5ea0f93E.exit55.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h11865742b5ea0f93E.exit53.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h11865742b5ea0f93E.exit.i.us", %.noexc113.us, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.exit28.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.exit26.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.exit.i.us", %._crit_edge.i.us
-  %291 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %._crit_edge.i.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.exit28.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %.noexc113.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h11865742b5ea0f93E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h11865742b5ea0f93E.exit53.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h11865742b5ea0f93E.exit55.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %._crit_edge.i118.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.exit28.i.us" ]
+.split277.us.invoke:                              ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.argprom.exit28.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.argprom.exit26.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.argprom.exit.i.us", %._crit_edge.i118.us, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h11865742b5ea0f93E.exit55.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h11865742b5ea0f93E.exit53.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h11865742b5ea0f93E.exit.i.us", %.noexc113.us, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.argprom.exit28.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.argprom.exit26.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.argprom.exit.i.us", %._crit_edge.i.us
+  %291 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %._crit_edge.i.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.argprom.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.argprom.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h3a538e69cf4a51d5E.argprom.exit28.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %.noexc113.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h11865742b5ea0f93E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h11865742b5ea0f93E.exit53.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h11865742b5ea0f93E.exit55.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %._crit_edge.i118.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.argprom.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.argprom.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h937d34a8181780dcE.argprom.exit28.i.us" ]
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.81, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %291) #32
           to label %.split277.us.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -18051,27 +18051,27 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17h1b36313f48b81dbbE.ex
   %163 = fcmp ogt float %162, -1.000000e+00
   %164 = fcmp olt float %162, 6.553600e+04
   %or.cond.i.i.i.i125.us = and i1 %163, %164
-  br i1 %or.cond.i.i.i.i125.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.exit.i.us", label %.split277.us.invoke
+  br i1 %or.cond.i.i.i.i125.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.argprom.exit.i.us", label %.split277.us.invoke
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.exit.i.us": ; preds = %._crit_edge.i117.us
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.argprom.exit.i.us": ; preds = %._crit_edge.i117.us
   %165 = fmul float %159, %.sroa.6.0.lcssa.i123.us
   %166 = fmul float %158, %.sroa.645.0.lcssa.i119.us
   %167 = fadd float %166, %165
   %168 = fcmp ogt float %167, -1.000000e+00
   %169 = fcmp olt float %167, 6.553600e+04
   %or.cond.i.i.i25.i126.us = and i1 %168, %169
-  br i1 %or.cond.i.i.i25.i126.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.exit26.i.us", label %.split277.us.invoke
+  br i1 %or.cond.i.i.i25.i126.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.argprom.exit26.i.us", label %.split277.us.invoke
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.exit26.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.exit.i.us"
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.argprom.exit26.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.argprom.exit.i.us"
   %170 = fmul float %159, %.sroa.9.0.lcssa.i124.us
   %171 = fmul float %158, %.sroa.947.0.lcssa.i120.us
   %172 = fadd float %171, %170
   %173 = fcmp ogt float %172, -1.000000e+00
   %174 = fcmp olt float %172, 6.553600e+04
   %or.cond.i.i.i27.i127.us = and i1 %173, %174
-  br i1 %or.cond.i.i.i27.i127.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.exit28.i.us", label %.split277.us.invoke
+  br i1 %or.cond.i.i.i27.i127.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.argprom.exit28.i.us", label %.split277.us.invoke
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.exit28.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.exit26.i.us"
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.argprom.exit28.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.argprom.exit26.i.us"
   %175 = fmul float %159, %.sroa.1249.0.lcssa.i121.us
   %176 = fmul float %158, %.sroa.1249.0.lcssa.i121.us
   %177 = fadd float %176, %175
@@ -18080,7 +18080,7 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17h1b36313f48b81dbbE.ex
   %or.cond.i.i.i29.i128.us = and i1 %178, %179
   br i1 %or.cond.i.i.i29.i128.us, label %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17had29d00a47a3930aE.exit.us, label %.split277.us.invoke
 
-_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17had29d00a47a3930aE.exit.us: ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.exit28.i.us"
+_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17had29d00a47a3930aE.exit.us: ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.argprom.exit28.i.us"
   %180 = fptoui float %172 to i16
   %181 = fptoui float %167 to i16
   %182 = fptoui float %162 to i16
@@ -18169,27 +18169,27 @@ _ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17had29d00a47a3930a
   %216 = fcmp ogt float %215, -1.000000e+00
   %217 = fcmp olt float %215, 6.553600e+04
   %or.cond.i.i.i.i.us = and i1 %216, %217
-  br i1 %or.cond.i.i.i.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.exit.i.us", label %.split277.us.invoke
+  br i1 %or.cond.i.i.i.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.argprom.exit.i.us", label %.split277.us.invoke
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.exit.i.us": ; preds = %._crit_edge.i.us
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.argprom.exit.i.us": ; preds = %._crit_edge.i.us
   %218 = fmul float %212, %.sroa.6.0.lcssa.i81.us
   %219 = fmul float %210, %.sroa.645.0.lcssa.i.us
   %220 = fadd float %219, %218
   %221 = fcmp ogt float %220, -1.000000e+00
   %222 = fcmp olt float %220, 6.553600e+04
   %or.cond.i.i.i25.i.us = and i1 %221, %222
-  br i1 %or.cond.i.i.i25.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.exit26.i.us", label %.split277.us.invoke
+  br i1 %or.cond.i.i.i25.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.argprom.exit26.i.us", label %.split277.us.invoke
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.exit26.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.exit.i.us"
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.argprom.exit26.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.argprom.exit.i.us"
   %223 = fmul float %212, %.sroa.9.0.lcssa.i82.us
   %224 = fmul float %210, %.sroa.947.0.lcssa.i.us
   %225 = fadd float %224, %223
   %226 = fcmp ogt float %225, -1.000000e+00
   %227 = fcmp olt float %225, 6.553600e+04
   %or.cond.i.i.i27.i.us = and i1 %226, %227
-  br i1 %or.cond.i.i.i27.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.exit28.i.us", label %.split277.us.invoke
+  br i1 %or.cond.i.i.i27.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.argprom.exit28.i.us", label %.split277.us.invoke
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.exit28.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.exit26.i.us"
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.argprom.exit28.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.argprom.exit26.i.us"
   %228 = fmul float %212, %.sroa.1249.0.lcssa.i.us
   %229 = fmul float %210, %.sroa.1249.0.lcssa.i.us
   %230 = fadd float %229, %228
@@ -18198,7 +18198,7 @@ _ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17had29d00a47a3930a
   %or.cond.i.i.i29.i.us = and i1 %231, %232
   br i1 %or.cond.i.i.i29.i.us, label %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17he5e58336e84bbbe4E.exit.us, label %.split277.us.invoke
 
-_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17he5e58336e84bbbe4E.exit.us: ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.exit28.i.us"
+_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17he5e58336e84bbbe4E.exit.us: ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.argprom.exit28.i.us"
   %233 = fptoui float %225 to i16
   %234 = fptoui float %220 to i16
   %235 = fptoui float %215 to i16
@@ -18366,8 +18366,8 @@ _ZN5image8imageops6sample22thumbnail_sample_block17h6468548f9781f37cE.exit.us: ;
 .noexc79:                                         ; preds = %.split289.us
   unreachable
 
-.split277.us.invoke:                              ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.exit28.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.exit26.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.exit.i.us", %._crit_edge.i117.us, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe0017181cefb666E.exit65.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe0017181cefb666E.exit63.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe0017181cefb666E.exit.i.us", %.noexc112.us, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.exit28.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.exit26.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.exit.i.us", %._crit_edge.i.us
-  %272 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %._crit_edge.i.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.exit28.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %.noexc112.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe0017181cefb666E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe0017181cefb666E.exit63.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe0017181cefb666E.exit65.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %._crit_edge.i117.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.exit28.i.us" ]
+.split277.us.invoke:                              ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.argprom.exit28.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.argprom.exit26.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.argprom.exit.i.us", %._crit_edge.i117.us, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe0017181cefb666E.exit65.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe0017181cefb666E.exit63.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe0017181cefb666E.exit.i.us", %.noexc112.us, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.argprom.exit28.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.argprom.exit26.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.argprom.exit.i.us", %._crit_edge.i.us
+  %272 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %._crit_edge.i.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.argprom.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.argprom.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hed0eb396f20842daE.argprom.exit28.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %.noexc112.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe0017181cefb666E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe0017181cefb666E.exit63.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17hfe0017181cefb666E.exit65.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %._crit_edge.i117.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.argprom.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.argprom.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h458bd1f885120e40E.argprom.exit28.i.us" ]
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.81, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %272) #32
           to label %.split277.us.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -18664,9 +18664,9 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17h08ada2920921563dE.ex
   %125 = fcmp ogt float %124, -1.000000e+00
   %126 = fcmp olt float %124, 6.553600e+04
   %or.cond.i.i.i.i114.us = and i1 %125, %126
-  br i1 %or.cond.i.i.i.i114.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h7af2646430f4a90cE.exit.i.us", label %.split209.us.invoke
+  br i1 %or.cond.i.i.i.i114.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h7af2646430f4a90cE.argprom.exit.i.us", label %.split209.us.invoke
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h7af2646430f4a90cE.exit.i.us": ; preds = %._crit_edge.i110.us
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h7af2646430f4a90cE.argprom.exit.i.us": ; preds = %._crit_edge.i110.us
   %127 = fmul float %121, %.sroa.641.0.lcssa.i112.us
   %128 = fmul float %120, %.sroa.641.0.lcssa.i112.us
   %129 = fadd float %128, %127
@@ -18675,7 +18675,7 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17h08ada2920921563dE.ex
   %or.cond.i.i.i25.i115.us = and i1 %130, %131
   br i1 %or.cond.i.i.i25.i115.us, label %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17hf4e79f29407f48f5E.exit.us, label %.split209.us.invoke
 
-_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17hf4e79f29407f48f5E.exit.us: ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h7af2646430f4a90cE.exit.i.us"
+_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17hf4e79f29407f48f5E.exit.us: ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h7af2646430f4a90cE.argprom.exit.i.us"
   %132 = fptoui float %124 to i16
   br label %178
 
@@ -18729,9 +18729,9 @@ _ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17hf4e79f29407f48f5
   %156 = fcmp ogt float %155, -1.000000e+00
   %157 = fcmp olt float %155, 6.553600e+04
   %or.cond.i.i.i.i.us = and i1 %156, %157
-  br i1 %or.cond.i.i.i.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf5db23194a6a8131E.exit.i.us", label %.split209.us.invoke
+  br i1 %or.cond.i.i.i.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf5db23194a6a8131E.argprom.exit.i.us", label %.split209.us.invoke
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf5db23194a6a8131E.exit.i.us": ; preds = %._crit_edge.i.us
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf5db23194a6a8131E.argprom.exit.i.us": ; preds = %._crit_edge.i.us
   %158 = fmul float %152, %.sroa.641.0.lcssa.i.us
   %159 = fmul float %150, %.sroa.641.0.lcssa.i.us
   %160 = fadd float %159, %158
@@ -18740,7 +18740,7 @@ _ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17hf4e79f29407f48f5
   %or.cond.i.i.i25.i.us = and i1 %161, %162
   br i1 %or.cond.i.i.i25.i.us, label %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17hba7b54b32d6e859aE.exit.us, label %.split209.us.invoke
 
-_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17hba7b54b32d6e859aE.exit.us: ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf5db23194a6a8131E.exit.i.us"
+_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17hba7b54b32d6e859aE.exit.us: ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf5db23194a6a8131E.argprom.exit.i.us"
   %163 = fptoui float %155 to i16
   br label %178
 
@@ -18854,8 +18854,8 @@ _ZN5image8imageops6sample22thumbnail_sample_block17he36bc5a17c356f00E.exit.us: ;
 .noexc80:                                         ; preds = %.split217.us
   unreachable
 
-.split209.us.invoke:                              ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h7af2646430f4a90cE.exit.i.us", %._crit_edge.i110.us, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h14325925ac7ad546E.exit.i.us", %.noexc107.us, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf5db23194a6a8131E.exit.i.us", %._crit_edge.i.us
-  %184 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %._crit_edge.i.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf5db23194a6a8131E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %.noexc107.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h14325925ac7ad546E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %._crit_edge.i110.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h7af2646430f4a90cE.exit.i.us" ]
+.split209.us.invoke:                              ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h7af2646430f4a90cE.argprom.exit.i.us", %._crit_edge.i110.us, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h14325925ac7ad546E.exit.i.us", %.noexc107.us, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf5db23194a6a8131E.argprom.exit.i.us", %._crit_edge.i.us
+  %184 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %._crit_edge.i.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hf5db23194a6a8131E.argprom.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %.noexc107.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h14325925ac7ad546E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %._crit_edge.i110.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h7af2646430f4a90cE.argprom.exit.i.us" ]
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.81, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %184) #32
           to label %.split209.us.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -19190,18 +19190,18 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17h025b0a7fe9ec053aE.ex
   %143 = fcmp ogt float %142, -1.000000e+00
   %144 = fcmp olt float %142, 6.553600e+04
   %or.cond.i.i.i.i120.us = and i1 %143, %144
-  br i1 %or.cond.i.i.i.i120.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.exit.i.us", label %.split245.us.invoke
+  br i1 %or.cond.i.i.i.i120.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.argprom.exit.i.us", label %.split245.us.invoke
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.exit.i.us": ; preds = %._crit_edge.i114.us
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.argprom.exit.i.us": ; preds = %._crit_edge.i114.us
   %145 = fmul float %139, %.sroa.6.0.lcssa.i119.us
   %146 = fmul float %138, %.sroa.642.0.lcssa.i116.us
   %147 = fadd float %146, %145
   %148 = fcmp ogt float %147, -1.000000e+00
   %149 = fcmp olt float %147, 6.553600e+04
   %or.cond.i.i.i25.i121.us = and i1 %148, %149
-  br i1 %or.cond.i.i.i25.i121.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.exit26.i.us", label %.split245.us.invoke
+  br i1 %or.cond.i.i.i25.i121.us, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.argprom.exit26.i.us", label %.split245.us.invoke
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.exit26.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.exit.i.us"
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.argprom.exit26.i.us": ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.argprom.exit.i.us"
   %150 = fmul float %139, %.sroa.944.0.lcssa.i117.us
   %151 = fmul float %138, %.sroa.944.0.lcssa.i117.us
   %152 = fadd float %151, %150
@@ -19210,7 +19210,7 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17h025b0a7fe9ec053aE.ex
   %or.cond.i.i.i27.i122.us = and i1 %153, %154
   br i1 %or.cond.i.i.i27.i122.us, label %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17ha4d49250716952fcE.exit.us, label %.split245.us.invoke
 
-_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17ha4d49250716952fcE.exit.us: ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.exit26.i.us"
+_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17ha4d49250716952fcE.exit.us: ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.argprom.exit26.i.us"
   %155 = fptoui float %147 to i16
   %156 = fptoui float %142 to i16
   %.sroa.2.0.insert.ext.i127.us = zext i16 %155 to i32
@@ -19279,18 +19279,18 @@ _ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17ha4d49250716952fc
   %184 = fcmp ogt float %183, -1.000000e+00
   %185 = fcmp olt float %183, 6.553600e+04
   %or.cond.i.i.i.i.us = and i1 %184, %185
-  br i1 %or.cond.i.i.i.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.exit.i.us", label %.split245.us.invoke
+  br i1 %or.cond.i.i.i.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.argprom.exit.i.us", label %.split245.us.invoke
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.exit.i.us": ; preds = %._crit_edge.i.us
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.argprom.exit.i.us": ; preds = %._crit_edge.i.us
   %186 = fmul float %180, %.sroa.6.0.lcssa.i82.us
   %187 = fmul float %178, %.sroa.642.0.lcssa.i.us
   %188 = fadd float %187, %186
   %189 = fcmp ogt float %188, -1.000000e+00
   %190 = fcmp olt float %188, 6.553600e+04
   %or.cond.i.i.i25.i.us = and i1 %189, %190
-  br i1 %or.cond.i.i.i25.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.exit26.i.us", label %.split245.us.invoke
+  br i1 %or.cond.i.i.i25.i.us, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.argprom.exit26.i.us", label %.split245.us.invoke
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.exit26.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.exit.i.us"
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.argprom.exit26.i.us": ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.argprom.exit.i.us"
   %191 = fmul float %180, %.sroa.944.0.lcssa.i.us
   %192 = fmul float %178, %.sroa.944.0.lcssa.i.us
   %193 = fadd float %192, %191
@@ -19299,7 +19299,7 @@ _ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17ha4d49250716952fc
   %or.cond.i.i.i27.i.us = and i1 %194, %195
   br i1 %or.cond.i.i.i27.i.us, label %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h99e1a5a3612b8f6dE.exit.us, label %.split245.us.invoke
 
-_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h99e1a5a3612b8f6dE.exit.us: ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.exit26.i.us"
+_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h99e1a5a3612b8f6dE.exit.us: ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.argprom.exit26.i.us"
   %196 = fptoui float %188 to i16
   %197 = fptoui float %183 to i16
   %.sroa.2.0.insert.ext.i.us = zext i16 %196 to i32
@@ -19433,8 +19433,8 @@ _ZN5image8imageops6sample22thumbnail_sample_block17hfb8d10c5f77b972bE.exit.us: ;
 .noexc80:                                         ; preds = %.split255.us
   unreachable
 
-.split245.us.invoke:                              ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.exit26.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.exit.i.us", %._crit_edge.i114.us, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h53cb9212999d1481E.exit59.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h53cb9212999d1481E.exit.i.us", %.noexc110.us, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.exit26.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.exit.i.us", %._crit_edge.i.us
-  %226 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %._crit_edge.i.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %.noexc110.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h53cb9212999d1481E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h53cb9212999d1481E.exit59.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %._crit_edge.i114.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.exit26.i.us" ]
+.split245.us.invoke:                              ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.argprom.exit26.i.us", %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.argprom.exit.i.us", %._crit_edge.i114.us, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h53cb9212999d1481E.exit59.i.us", %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h53cb9212999d1481E.exit.i.us", %.noexc110.us, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.argprom.exit26.i.us", %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.argprom.exit.i.us", %._crit_edge.i.us
+  %226 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %._crit_edge.i.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.argprom.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17hfe7ea1a79fa3e1ecE.argprom.exit26.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %.noexc110.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h53cb9212999d1481E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h53cb9212999d1481E.exit59.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %._crit_edge.i114.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.argprom.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h9fca3144007c38ffE.argprom.exit26.i.us" ]
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.81, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %226) #32
           to label %.split245.us.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -19741,9 +19741,9 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17hbbb8b7ab046a8420E.ex
   %126 = fcmp ule float %125, -1.000000e+00
   %127 = fcmp uge float %125, 2.560000e+02
   %or.cond.i.i.not.i.i114.us = or i1 %126, %127
-  br i1 %or.cond.i.i.not.i.i114.us, label %.split209.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h58021f6a8343a58bE.exit.i.us"
+  br i1 %or.cond.i.i.not.i.i114.us, label %.split209.us.invoke, label %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h58021f6a8343a58bE.argprom.exit.i.us"
 
-"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h58021f6a8343a58bE.exit.i.us": ; preds = %._crit_edge.i110.us
+"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h58021f6a8343a58bE.argprom.exit.i.us": ; preds = %._crit_edge.i110.us
   %128 = fmul float %122, %.sroa.641.0.lcssa.i112.us
   %129 = fmul float %121, %.sroa.641.0.lcssa.i112.us
   %130 = fadd float %129, %128
@@ -19752,7 +19752,7 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17hbbb8b7ab046a8420E.ex
   %or.cond.i.i.not.i25.i115.us = or i1 %131, %132
   br i1 %or.cond.i.i.not.i25.i115.us, label %.split209.us.invoke, label %_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h64561d534c6ab1ceE.exit.us
 
-_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h64561d534c6ab1ceE.exit.us: ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h58021f6a8343a58bE.exit.i.us"
+_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h64561d534c6ab1ceE.exit.us: ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h58021f6a8343a58bE.argprom.exit.i.us"
   %133 = fptoui float %130 to i8
   %134 = fptoui float %125 to i8
   %.sroa.4.0.insert.ext.i116.us = zext i8 %133 to i32
@@ -19811,9 +19811,9 @@ _ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h64561d534c6ab1ce
   %158 = fcmp ule float %157, -1.000000e+00
   %159 = fcmp uge float %157, 2.560000e+02
   %or.cond.i.i.not.i.i.us = or i1 %158, %159
-  br i1 %or.cond.i.i.not.i.i.us, label %.split209.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h017246e1cf3bdeb0E.exit.i.us"
+  br i1 %or.cond.i.i.not.i.i.us, label %.split209.us.invoke, label %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h017246e1cf3bdeb0E.argprom.exit.i.us"
 
-"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h017246e1cf3bdeb0E.exit.i.us": ; preds = %._crit_edge.i.us
+"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h017246e1cf3bdeb0E.argprom.exit.i.us": ; preds = %._crit_edge.i.us
   %160 = fmul float %154, %.sroa.641.0.lcssa.i.us
   %161 = fmul float %152, %.sroa.641.0.lcssa.i.us
   %162 = fadd float %161, %160
@@ -19822,7 +19822,7 @@ _ZN5image8imageops6sample34thumbnail_sample_fraction_vertical17h64561d534c6ab1ce
   %or.cond.i.i.not.i25.i.us = or i1 %163, %164
   br i1 %or.cond.i.i.not.i25.i.us, label %.split209.us.invoke, label %_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h37be9c1f52b908f0E.exit.us
 
-_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h37be9c1f52b908f0E.exit.us: ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h017246e1cf3bdeb0E.exit.i.us"
+_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h37be9c1f52b908f0E.exit.us: ; preds = %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h017246e1cf3bdeb0E.argprom.exit.i.us"
   %165 = fptoui float %162 to i8
   %166 = fptoui float %157 to i8
   %.sroa.4.0.insert.ext.i.us = zext i8 %165 to i32
@@ -19950,8 +19950,8 @@ _ZN5image8imageops6sample22thumbnail_sample_block17h9b58128ff1da5636E.exit.us: ;
 .noexc80:                                         ; preds = %.split217.us
   unreachable
 
-.split209.us.invoke:                              ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h58021f6a8343a58bE.exit.i.us", %._crit_edge.i110.us, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h22275d1c9b4cd4e3E.exit.i.us", %.noexc107.us, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h017246e1cf3bdeb0E.exit.i.us", %._crit_edge.i.us
-  %189 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %._crit_edge.i.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h017246e1cf3bdeb0E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %.noexc107.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h22275d1c9b4cd4e3E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %._crit_edge.i110.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h58021f6a8343a58bE.exit.i.us" ]
+.split209.us.invoke:                              ; preds = %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h58021f6a8343a58bE.argprom.exit.i.us", %._crit_edge.i110.us, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h22275d1c9b4cd4e3E.exit.i.us", %.noexc107.us, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h017246e1cf3bdeb0E.argprom.exit.i.us", %._crit_edge.i.us
+  %189 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %._crit_edge.i.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.82, %"_ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal28_$u7b$$u7b$closure$u7d$$u7d$17h017246e1cf3bdeb0E.argprom.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %.noexc107.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.90, %"_ZN5image8imageops6sample30thumbnail_sample_fraction_both28_$u7b$$u7b$closure$u7d$$u7d$17h22275d1c9b4cd4e3E.exit.i.us" ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %._crit_edge.i110.us ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.85, %"_ZN5image8imageops6sample34thumbnail_sample_fraction_vertical28_$u7b$$u7b$closure$u7d$$u7d$17h58021f6a8343a58bE.argprom.exit.i.us" ]
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.81, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %189) #32
           to label %.split209.us.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -23163,7 +23163,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %50
 
-50:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
+50:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
   ret void
 
 51:                                               ; preds = %.body, %31, %27
@@ -23186,7 +23186,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @llvm.experimental.noalias.scope.decl(metadata !2140)
   %56 = load i8, ptr %10, align 8, !range !2143, !alias.scope !2140, !noundef !14
   %57 = icmp eq i8 %56, 10
-  br i1 %57, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", label %58
+  br i1 %57, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", label %58
 
 58:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !2140
@@ -23209,7 +23209,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #34, !noalias !2140
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit": ; preds = %55
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit": ; preds = %55
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -23352,7 +23352,7 @@ common.resume:                                    ; preds = %29, %.body, %48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %52
 
-52:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
+52:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
   ret void
 
 53:                                               ; preds = %.body, %33, %29
@@ -23375,7 +23375,7 @@ common.resume:                                    ; preds = %29, %.body, %48
   call void @llvm.experimental.noalias.scope.decl(metadata !2166)
   %58 = load i8, ptr %10, align 8, !range !2143, !alias.scope !2166, !noundef !14
   %59 = icmp eq i8 %58, 10
-  br i1 %59, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", label %60
+  br i1 %59, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", label %60
 
 60:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !2166
@@ -23398,7 +23398,7 @@ common.resume:                                    ; preds = %29, %.body, %48
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #34, !noalias !2166
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit": ; preds = %57
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit": ; preds = %57
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -23541,7 +23541,7 @@ common.resume:                                    ; preds = %29, %.body, %48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %52
 
-52:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
+52:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
   ret void
 
 53:                                               ; preds = %.body, %33, %29
@@ -23564,7 +23564,7 @@ common.resume:                                    ; preds = %29, %.body, %48
   call void @llvm.experimental.noalias.scope.decl(metadata !2191)
   %58 = load i8, ptr %10, align 8, !range !2143, !alias.scope !2191, !noundef !14
   %59 = icmp eq i8 %58, 10
-  br i1 %59, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", label %60
+  br i1 %59, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", label %60
 
 60:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !2191
@@ -23587,7 +23587,7 @@ common.resume:                                    ; preds = %29, %.body, %48
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #34, !noalias !2191
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit": ; preds = %57
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit": ; preds = %57
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -23723,7 +23723,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %50
 
-50:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
+50:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
   ret void
 
 51:                                               ; preds = %.body, %31, %27
@@ -23746,7 +23746,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @llvm.experimental.noalias.scope.decl(metadata !2213)
   %56 = load i8, ptr %10, align 8, !range !2143, !alias.scope !2213, !noundef !14
   %57 = icmp eq i8 %56, 10
-  br i1 %57, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", label %58
+  br i1 %57, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", label %58
 
 58:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !2213
@@ -23769,7 +23769,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #34, !noalias !2213
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit": ; preds = %55
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit": ; preds = %55
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -23905,7 +23905,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %50
 
-50:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
+50:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
   ret void
 
 51:                                               ; preds = %.body, %31, %27
@@ -23928,7 +23928,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @llvm.experimental.noalias.scope.decl(metadata !2235)
   %56 = load i8, ptr %10, align 8, !range !2143, !alias.scope !2235, !noundef !14
   %57 = icmp eq i8 %56, 10
-  br i1 %57, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", label %58
+  br i1 %57, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", label %58
 
 58:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !2235
@@ -23951,7 +23951,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #34, !noalias !2235
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit": ; preds = %55
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit": ; preds = %55
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -24087,7 +24087,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %50
 
-50:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
+50:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
   ret void
 
 51:                                               ; preds = %.body, %31, %27
@@ -24110,7 +24110,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @llvm.experimental.noalias.scope.decl(metadata !2257)
   %56 = load i8, ptr %10, align 8, !range !2143, !alias.scope !2257, !noundef !14
   %57 = icmp eq i8 %56, 10
-  br i1 %57, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", label %58
+  br i1 %57, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", label %58
 
 58:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !2257
@@ -24133,7 +24133,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #34, !noalias !2257
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit": ; preds = %55
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit": ; preds = %55
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -24276,7 +24276,7 @@ common.resume:                                    ; preds = %29, %.body, %48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %52
 
-52:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
+52:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
   ret void
 
 53:                                               ; preds = %.body, %33, %29
@@ -24299,7 +24299,7 @@ common.resume:                                    ; preds = %29, %.body, %48
   call void @llvm.experimental.noalias.scope.decl(metadata !2282)
   %58 = load i8, ptr %10, align 8, !range !2143, !alias.scope !2282, !noundef !14
   %59 = icmp eq i8 %58, 10
-  br i1 %59, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", label %60
+  br i1 %59, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", label %60
 
 60:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !2282
@@ -24322,7 +24322,7 @@ common.resume:                                    ; preds = %29, %.body, %48
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #34, !noalias !2282
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit": ; preds = %57
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit": ; preds = %57
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -24458,7 +24458,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %50
 
-50:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
+50:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
   ret void
 
 51:                                               ; preds = %.body, %31, %27
@@ -24481,7 +24481,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @llvm.experimental.noalias.scope.decl(metadata !2304)
   %56 = load i8, ptr %10, align 8, !range !2143, !alias.scope !2304, !noundef !14
   %57 = icmp eq i8 %56, 10
-  br i1 %57, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", label %58
+  br i1 %57, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", label %58
 
 58:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !2304
@@ -24504,7 +24504,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #34, !noalias !2304
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit": ; preds = %55
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit": ; preds = %55
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -24647,7 +24647,7 @@ common.resume:                                    ; preds = %29, %.body, %48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %52
 
-52:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
+52:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
   ret void
 
 53:                                               ; preds = %.body, %33, %29
@@ -24670,7 +24670,7 @@ common.resume:                                    ; preds = %29, %.body, %48
   call void @llvm.experimental.noalias.scope.decl(metadata !2329)
   %58 = load i8, ptr %10, align 8, !range !2143, !alias.scope !2329, !noundef !14
   %59 = icmp eq i8 %58, 10
-  br i1 %59, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", label %60
+  br i1 %59, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", label %60
 
 60:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !2329
@@ -24693,7 +24693,7 @@ common.resume:                                    ; preds = %29, %.body, %48
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #34, !noalias !2329
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit": ; preds = %57
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit": ; preds = %57
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -24829,7 +24829,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %50
 
-50:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
+50:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", %"_ZN4core3ptr52drop_in_place$LT$image..imageops..sample..Filter$GT$17h0ec88a2909eae146E.exit"
   ret void
 
 51:                                               ; preds = %.body, %31, %27
@@ -24852,7 +24852,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @llvm.experimental.noalias.scope.decl(metadata !2351)
   %56 = load i8, ptr %10, align 8, !range !2143, !alias.scope !2351, !noundef !14
   %57 = icmp eq i8 %56, 10
-  br i1 %57, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit", label %58
+  br i1 %57, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit", label %58
 
 58:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !2351
@@ -24875,7 +24875,7 @@ common.resume:                                    ; preds = %27, %.body, %46
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #34, !noalias !2351
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.exit": ; preds = %55
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom.exit": ; preds = %55
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -29428,7 +29428,7 @@ define void @_ZN5image6codecs3hdr7decoder11HdrMetadata18update_header_info17h84a
   %25 = getelementptr inbounds i8, ptr %10, i64 26
   %26 = load i8, ptr %25, align 2, !range !56, !alias.scope !2979, !noalias !2982, !noundef !14
   %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.thread.i", label %.lr.ph.i.i.i
+  br i1 %27, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.thread.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
   %.promoted.i.i.i = load i64, ptr %24, align 8, !alias.scope !2979, !noalias !2982
@@ -29528,14 +29528,14 @@ define void @_ZN5image6codecs3hdr7decoder11HdrMetadata18update_header_info17h84a
 
 _ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i.i: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit17.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit15.i.i.i.i.i", %65, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit13.i.i.i.i.i"
   %.sroa.4.0.i.ph.i.i.i.i = phi i32 [ %63, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit13.i.i.i.i.i" ], [ %75, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit15.i.i.i.i.i" ], [ %86, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit17.i.i.i.i.i" ], [ %66, %65 ]
-  br i1 %36, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.i", label %87
+  br i1 %36, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.i", label %87
 
 .thread.i.i.i.i:                                  ; preds = %48
-  br i1 %36, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.i", label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.thread.i"
+  br i1 %36, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.i", label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.thread.i"
 
 87:                                               ; preds = %_ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i.i
   %88 = icmp eq i32 %.sroa.4.0.i.ph.i.i.i.i, 1114112
-  br i1 %88, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.thread.i", label %89
+  br i1 %88, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.thread.i", label %89
 
 89:                                               ; preds = %87
   %90 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 128
@@ -29578,7 +29578,7 @@ _ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i
   %.promoted.i5.i.i = load i64, ptr %108, align 8, !alias.scope !2994, !noalias !3001
   %111 = add i64 %.promoted.i5.i.i, %109
   %.not3855.i6.i.i = icmp ult i64 %111, %103
-  br i1 %.not3855.i6.i.i, label %.lr.ph.i9.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.thread.i"
+  br i1 %.not3855.i6.i.i, label %.lr.ph.i9.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.thread.i"
 
 .lr.ph.i9.i.i:                                    ; preds = %110
   %112 = getelementptr inbounds i8, ptr %10, i64 32
@@ -29611,7 +29611,7 @@ _ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i
   %.ph84.i.i.i = phi i64 [ %130, %129 ], [ %150, %149 ], [ %164, %162 ]
   %131 = add i64 %.ph84.i.i.i, %109
   %.not38.i16.i.i = icmp ult i64 %131, %103
-  br i1 %.not38.i16.i.i, label %118, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.thread.i"
+  br i1 %.not38.i16.i.i, label %118, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.thread.i"
 
 132:                                              ; preds = %118
   %.0.sroa.speculated.i.i11.i.i = tail call i64 @llvm.umax.i64(i64 %114, i64 %120)
@@ -29625,7 +29625,7 @@ _ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i
 .preheader4.i.i:                                  ; preds = %133, %143
   %.sroa.5.0.i13.i.i = phi i64 [ %137, %143 ], [ %114, %133 ]
   %135 = icmp ult i64 %120, %.sroa.5.0.i13.i.i
-  br i1 %135, label %136, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.i"
+  br i1 %135, label %136, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.i"
 
 136:                                              ; preds = %.preheader4.i.i
   %137 = add i64 %.sroa.5.0.i13.i.i, -1
@@ -29690,7 +29690,7 @@ _ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i
   %.promoted.i2.i.i = load i64, ptr %108, align 8, !alias.scope !3007, !noalias !3014
   %166 = add i64 %.promoted.i2.i.i, %109
   %.not3855.i.i.i = icmp ult i64 %166, %103
-  br i1 %.not3855.i.i.i, label %.lr.ph.i4.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.thread.i"
+  br i1 %.not3855.i.i.i, label %.lr.ph.i4.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.thread.i"
 
 .lr.ph.i4.i.i:                                    ; preds = %165
   %167 = getelementptr inbounds i8, ptr %10, i64 32
@@ -29748,12 +29748,12 @@ _ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i
   %196 = phi i64 [ %195, %194 ], [ %207, %.split46.us.us.i ], [ %193, %191 ]
   %197 = add i64 %196, %109
   %.not38.i.i.us.i = icmp ult i64 %197, %103
-  br i1 %.not38.i.i.us.i, label %.lr.ph.i4.i.split.us.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.thread.i"
+  br i1 %.not38.i.i.us.i, label %.lr.ph.i4.i.split.us.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.thread.i"
 
 .preheader.i.us.us.i:                             ; preds = %.preheader3.i.us.i, %202
   %.sroa.5.0.i.i.us.us.i = phi i64 [ %199, %202 ], [ %.fr59.i, %.preheader3.i.us.i ]
   %.not.i.us.us.i = icmp eq i64 %.sroa.5.0.i.i.us.us.i, 0
-  br i1 %.not.i.us.us.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.i", label %198
+  br i1 %.not.i.us.us.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.i", label %198
 
 198:                                              ; preds = %.preheader.i.us.us.i
   %199 = add i64 %.sroa.5.0.i.i.us.us.i, -1
@@ -29793,7 +29793,7 @@ _ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i
   %219 = phi i64 [ %218, %217 ], [ %235, %233 ]
   %220 = add i64 %219, %109
   %.not38.i.i.i = icmp ult i64 %220, %103
-  br i1 %.not38.i.i.i, label %.lr.ph.i4.i.split.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.thread.i"
+  br i1 %.not38.i.i.i, label %.lr.ph.i4.i.split.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.thread.i"
 
 .preheader3.i.i:                                  ; preds = %.lr.ph.i4.i.split.i, %226
   %.sroa.04.0.i.i.i = phi i64 [ %227, %226 ], [ %.fr59.i, %.lr.ph.i4.i.split.i ]
@@ -29802,7 +29802,7 @@ _ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader3.i.i
   %.not.i.i = icmp eq i64 %.fr59.i, 0
-  br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.i", label %222
+  br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.i", label %222
 
 222:                                              ; preds = %.preheader.i.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %172, i64 noundef %107, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.16) #32, !noalias !3018
@@ -29838,11 +29838,11 @@ _ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i
   %235 = add i64 %234, %.sroa.04.0.i.i.i
   br label %.backedge.i.i.i
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.thread.i": ; preds = %87, %.backedge.sink.split.i.i.i, %.backedge.i.i.i, %.backedge.i.i.us.i, %165, %110, %.thread.i.i.i.i, %.preheader.i.i.i
+"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.thread.i": ; preds = %87, %.backedge.sink.split.i.i.i, %.backedge.i.i.i, %.backedge.i.i.us.i, %165, %110, %.thread.i.i.i.i, %.preheader.i.i.i
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %10), !noalias !2969
   br label %.thread
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.i": ; preds = %_ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i.i, %.preheader4.i.i, %.preheader.i.us.us.i, %.preheader.i.i, %.thread.i.i.i.i
+"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.i": ; preds = %_ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i.i, %.preheader4.i.i, %.preheader.i.us.us.i, %.preheader.i.i, %.thread.i.i.i.i
   %.sroa.6.3.i.i = phi i64 [ %34, %.thread.i.i.i.i ], [ %208, %.preheader.i.i ], [ %173, %.preheader.i.us.us.i ], [ %119, %.preheader4.i.i ], [ %34, %_ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %10), !noalias !2969
   %236 = icmp ne i64 %.sroa.6.3.i.i, 0
@@ -29851,7 +29851,7 @@ _ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i
   %or.cond = and i1 %236, %.not.i
   br i1 %or.cond, label %238, label %.thread
 
-238:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.i"
+238:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.i"
   %.not.i.i18.i = icmp ult i64 %.sroa.6.3.i.i, %3
   br i1 %.not.i.i18.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17hdb1ceef1df4916faE.exit.i", label %239
 
@@ -29897,7 +29897,7 @@ _ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i
   %259 = icmp eq ptr %257, null
   br i1 %259, label %.thread, label %265
 
-.thread:                                          ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.thread.i", %253
+.thread:                                          ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom.exit.thread.i", %253
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   %260 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0685f8b8d660cb99E"(i64 noundef 0, i1 noundef zeroext false), !noalias !3029
@@ -30147,7 +30147,7 @@ common.resume:                                    ; preds = %412, %349, %362, %3
   %.sroa.0.0.idx54.i = phi i64 [ 0, %336 ], [ %.sroa.0.0.add.i, %353 ]
   %.sroa.0.0.ptr55.i = getelementptr inbounds i8, ptr %14, i64 %.sroa.0.0.idx54.i
   %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx54.i, 4
-  %341 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E(ptr noalias noundef align 8 dereferenceable(64) %9)
+  %341 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E.argelim(ptr noalias noundef align 8 dereferenceable(64) %9)
   %.fca.0.extract.i = extractvalue { ptr, i64 } %341, 0
   %342 = icmp eq ptr %.fca.0.extract.i, null
   br i1 %342, label %345, label %343
@@ -30267,7 +30267,7 @@ common.resume:                                    ; preds = %412, %349, %362, %3
   br label %369
 
 366:                                              ; preds = %353
-  %367 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E(ptr noalias noundef align 8 dereferenceable(64) %9)
+  %367 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E.argelim(ptr noalias noundef align 8 dereferenceable(64) %9)
   %.fca.0.extract14.i = extractvalue { ptr, i64 } %367, 0
   %368 = icmp ne ptr %.fca.0.extract14.i, null
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !3070
@@ -30544,14 +30544,14 @@ define void @_ZN5image6codecs3hdr7decoder21parse_dimensions_line17hb562814ed5719
   store i8 1, ptr %.sroa.0153.sroa.10.0..sroa_idx, align 8
   %.sroa.0153.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 57
   store i8 0, ptr %.sroa.0153.sroa.11.0..sroa_idx, align 1
-  %25 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E(ptr noalias noundef align 8 dereferenceable(64) %23)
+  %25 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E.argelim(ptr noalias noundef align 8 dereferenceable(64) %23)
   %.fca.0.extract = extractvalue { ptr, i64 } %25, 0
   %.fca.1.extract = extractvalue { ptr, i64 } %25, 1
   %26 = icmp eq ptr %.fca.0.extract, null
   br i1 %26, label %29, label %.thread
 
 .thread:                                          ; preds = %4
-  %27 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E(ptr noalias noundef align 8 dereferenceable(64) %23)
+  %27 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E.argelim(ptr noalias noundef align 8 dereferenceable(64) %23)
   %.fca.0.extract165 = extractvalue { ptr, i64 } %27, 0
   %.fca.1.extract166 = extractvalue { ptr, i64 } %27, 1
   %28 = icmp eq ptr %.fca.0.extract165, null
@@ -30569,7 +30569,7 @@ define void @_ZN5image6codecs3hdr7decoder21parse_dimensions_line17hb562814ed5719
           to label %.noexc.i.i unwind label %35, !noalias !3110
 
 .thread365:                                       ; preds = %.thread
-  %31 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E(ptr noalias noundef align 8 dereferenceable(64) %23)
+  %31 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E.argelim(ptr noalias noundef align 8 dereferenceable(64) %23)
   %.fca.0.extract179 = extractvalue { ptr, i64 } %31, 0
   %.fca.1.extract180 = extractvalue { ptr, i64 } %31, 1
   %32 = icmp eq ptr %.fca.0.extract179, null
@@ -30639,7 +30639,7 @@ common.resume:                                    ; preds = %110, %61, %53, %45,
           to label %.noexc.i.i255 unwind label %45, !noalias !3121
 
 .thread367:                                       ; preds = %.thread365
-  %41 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E(ptr noalias noundef align 8 dereferenceable(64) %23)
+  %41 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E.argelim(ptr noalias noundef align 8 dereferenceable(64) %23)
   %.fca.0.extract193 = extractvalue { ptr, i64 } %41, 0
   %.fca.1.extract194 = extractvalue { ptr, i64 } %41, 1
   %42 = icmp eq ptr %.fca.0.extract193, null
@@ -30826,7 +30826,7 @@ common.resume:                                    ; preds = %110, %61, %53, %45,
   br i1 %or.cond, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit280", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit.thread"
 
 67:                                               ; preds = %.thread369
-  %68 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E(ptr noalias noundef align 8 dereferenceable(64) %23)
+  %68 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E.argelim(ptr noalias noundef align 8 dereferenceable(64) %23)
   %.fca.0.extract207 = extractvalue { ptr, i64 } %68, 0
   %.not245 = icmp eq ptr %.fca.0.extract207, null
   br i1 %.not245, label %65, label %69
@@ -33563,14 +33563,14 @@ attributes #34 = { cold noreturn nounwind }
 !408 = distinct !{!408, !409, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !409 = distinct !{!409, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !410 = !{!411}
-!411 = distinct !{!411, !412, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h239baf0e07672104E: argument 0"}
-!412 = distinct !{!412, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h239baf0e07672104E"}
+!411 = distinct !{!411, !412, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h239baf0e07672104E.argprom: argument 0"}
+!412 = distinct !{!412, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h239baf0e07672104E.argprom"}
 !413 = !{!414}
 !414 = distinct !{!414, !415, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h4e9197dd0a56fe07E: argument 0"}
 !415 = distinct !{!415, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h4e9197dd0a56fe07E"}
 !416 = !{!417}
-!417 = distinct !{!417, !418, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E: argument 0"}
-!418 = distinct !{!418, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E"}
+!417 = distinct !{!417, !418, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom: argument 0"}
+!418 = distinct !{!418, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom"}
 !419 = !{!420}
 !420 = distinct !{!420, !421, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE: argument 0"}
 !421 = distinct !{!421, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE"}
@@ -33620,14 +33620,14 @@ attributes #34 = { cold noreturn nounwind }
 !465 = distinct !{!465, !466, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !466 = distinct !{!466, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !467 = !{!468}
-!468 = distinct !{!468, !469, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17hf5db9499b0aa4072E: argument 0"}
-!469 = distinct !{!469, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17hf5db9499b0aa4072E"}
+!468 = distinct !{!468, !469, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17hf5db9499b0aa4072E.argprom: argument 0"}
+!469 = distinct !{!469, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17hf5db9499b0aa4072E.argprom"}
 !470 = !{!471}
 !471 = distinct !{!471, !472, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h3fb57adc1d8f9aeeE: argument 0"}
 !472 = distinct !{!472, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h3fb57adc1d8f9aeeE"}
 !473 = !{!474}
-!474 = distinct !{!474, !475, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E: argument 0"}
-!475 = distinct !{!475, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E"}
+!474 = distinct !{!474, !475, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom: argument 0"}
+!475 = distinct !{!475, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom"}
 !476 = !{!477}
 !477 = distinct !{!477, !478, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E: argument 0"}
 !478 = distinct !{!478, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E"}
@@ -33680,14 +33680,14 @@ attributes #34 = { cold noreturn nounwind }
 !525 = distinct !{!525, !526, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !526 = distinct !{!526, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !527 = !{!528}
-!528 = distinct !{!528, !529, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h129584082e14c901E: argument 0"}
-!529 = distinct !{!529, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h129584082e14c901E"}
+!528 = distinct !{!528, !529, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h129584082e14c901E.argprom: argument 0"}
+!529 = distinct !{!529, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h129584082e14c901E.argprom"}
 !530 = !{!531}
 !531 = distinct !{!531, !532, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hbaf39d8fc0d38d1eE: argument 0"}
 !532 = distinct !{!532, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hbaf39d8fc0d38d1eE"}
 !533 = !{!534}
-!534 = distinct !{!534, !535, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E: argument 0"}
-!535 = distinct !{!535, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E"}
+!534 = distinct !{!534, !535, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom: argument 0"}
+!535 = distinct !{!535, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom"}
 !536 = !{!537}
 !537 = distinct !{!537, !538, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E: argument 0"}
 !538 = distinct !{!538, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E"}
@@ -33740,14 +33740,14 @@ attributes #34 = { cold noreturn nounwind }
 !585 = distinct !{!585, !586, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !586 = distinct !{!586, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !587 = !{!588}
-!588 = distinct !{!588, !589, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h6e1de0e75b371e19E: argument 0"}
-!589 = distinct !{!589, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h6e1de0e75b371e19E"}
+!588 = distinct !{!588, !589, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h6e1de0e75b371e19E.argprom: argument 0"}
+!589 = distinct !{!589, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h6e1de0e75b371e19E.argprom"}
 !590 = !{!591}
 !591 = distinct !{!591, !592, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17haa253593ced55989E: argument 0"}
 !592 = distinct !{!592, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17haa253593ced55989E"}
 !593 = !{!594}
-!594 = distinct !{!594, !595, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E: argument 0"}
-!595 = distinct !{!595, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E"}
+!594 = distinct !{!594, !595, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom: argument 0"}
+!595 = distinct !{!595, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom"}
 !596 = !{!597}
 !597 = distinct !{!597, !598, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E: argument 0"}
 !598 = distinct !{!598, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E"}
@@ -33800,14 +33800,14 @@ attributes #34 = { cold noreturn nounwind }
 !645 = distinct !{!645, !646, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !646 = distinct !{!646, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !647 = !{!648}
-!648 = distinct !{!648, !649, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h2d598d57668ee980E: argument 0"}
-!649 = distinct !{!649, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h2d598d57668ee980E"}
+!648 = distinct !{!648, !649, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h2d598d57668ee980E.argprom: argument 0"}
+!649 = distinct !{!649, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h2d598d57668ee980E.argprom"}
 !650 = !{!651}
 !651 = distinct !{!651, !652, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17he01a2c2e7222686fE: argument 0"}
 !652 = distinct !{!652, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17he01a2c2e7222686fE"}
 !653 = !{!654}
-!654 = distinct !{!654, !655, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E: argument 0"}
-!655 = distinct !{!655, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E"}
+!654 = distinct !{!654, !655, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom: argument 0"}
+!655 = distinct !{!655, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom"}
 !656 = !{!657}
 !657 = distinct !{!657, !658, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E: argument 0"}
 !658 = distinct !{!658, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E"}
@@ -33860,14 +33860,14 @@ attributes #34 = { cold noreturn nounwind }
 !705 = distinct !{!705, !706, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !706 = distinct !{!706, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !707 = !{!708}
-!708 = distinct !{!708, !709, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17hb5953b26e5496c03E: argument 0"}
-!709 = distinct !{!709, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17hb5953b26e5496c03E"}
+!708 = distinct !{!708, !709, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17hb5953b26e5496c03E.argprom: argument 0"}
+!709 = distinct !{!709, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17hb5953b26e5496c03E.argprom"}
 !710 = !{!711}
 !711 = distinct !{!711, !712, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hc72b79856674f5c1E: argument 0"}
 !712 = distinct !{!712, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hc72b79856674f5c1E"}
 !713 = !{!714}
-!714 = distinct !{!714, !715, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E: argument 0"}
-!715 = distinct !{!715, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E"}
+!714 = distinct !{!714, !715, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom: argument 0"}
+!715 = distinct !{!715, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom"}
 !716 = !{!717, !719}
 !717 = distinct !{!717, !718, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE: argument 0"}
 !718 = distinct !{!718, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE"}
@@ -33915,14 +33915,14 @@ attributes #34 = { cold noreturn nounwind }
 !760 = distinct !{!760, !761, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !761 = distinct !{!761, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !762 = !{!763}
-!763 = distinct !{!763, !764, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h78c3d1fc57b3065eE: argument 0"}
-!764 = distinct !{!764, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h78c3d1fc57b3065eE"}
+!763 = distinct !{!763, !764, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h78c3d1fc57b3065eE.argprom: argument 0"}
+!764 = distinct !{!764, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h78c3d1fc57b3065eE.argprom"}
 !765 = !{!766}
 !766 = distinct !{!766, !767, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h5306634c4070441aE: argument 0"}
 !767 = distinct !{!767, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h5306634c4070441aE"}
 !768 = !{!769}
-!769 = distinct !{!769, !770, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E: argument 0"}
-!770 = distinct !{!770, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E"}
+!769 = distinct !{!769, !770, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom: argument 0"}
+!770 = distinct !{!770, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom"}
 !771 = !{!772}
 !772 = distinct !{!772, !773, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E: argument 0"}
 !773 = distinct !{!773, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E"}
@@ -33972,14 +33972,14 @@ attributes #34 = { cold noreturn nounwind }
 !817 = distinct !{!817, !818, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !818 = distinct !{!818, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !819 = !{!820}
-!820 = distinct !{!820, !821, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h83f4a72ee295e461E: argument 0"}
-!821 = distinct !{!821, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h83f4a72ee295e461E"}
+!820 = distinct !{!820, !821, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h83f4a72ee295e461E.argprom: argument 0"}
+!821 = distinct !{!821, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h83f4a72ee295e461E.argprom"}
 !822 = !{!823}
 !823 = distinct !{!823, !824, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h01178aabac38044bE: argument 0"}
 !824 = distinct !{!824, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h01178aabac38044bE"}
 !825 = !{!826}
-!826 = distinct !{!826, !827, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E: argument 0"}
-!827 = distinct !{!827, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E"}
+!826 = distinct !{!826, !827, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom: argument 0"}
+!827 = distinct !{!827, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom"}
 !828 = !{!829}
 !829 = distinct !{!829, !830, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E: argument 0"}
 !830 = distinct !{!830, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E"}
@@ -34029,14 +34029,14 @@ attributes #34 = { cold noreturn nounwind }
 !874 = distinct !{!874, !875, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !875 = distinct !{!875, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !876 = !{!877}
-!877 = distinct !{!877, !878, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h9ae15aef3b4b6449E: argument 0"}
-!878 = distinct !{!878, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h9ae15aef3b4b6449E"}
+!877 = distinct !{!877, !878, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h9ae15aef3b4b6449E.argprom: argument 0"}
+!878 = distinct !{!878, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h9ae15aef3b4b6449E.argprom"}
 !879 = !{!880}
 !880 = distinct !{!880, !881, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17ha9745307575f0a2bE: argument 0"}
 !881 = distinct !{!881, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17ha9745307575f0a2bE"}
 !882 = !{!883}
-!883 = distinct !{!883, !884, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E: argument 0"}
-!884 = distinct !{!884, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E"}
+!883 = distinct !{!883, !884, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom: argument 0"}
+!884 = distinct !{!884, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom"}
 !885 = !{!886}
 !886 = distinct !{!886, !887, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE: argument 0"}
 !887 = distinct !{!887, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE"}
@@ -34086,14 +34086,14 @@ attributes #34 = { cold noreturn nounwind }
 !931 = distinct !{!931, !932, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !932 = distinct !{!932, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !933 = !{!934}
-!934 = distinct !{!934, !935, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h9a79b16b5e45f6e0E: argument 0"}
-!935 = distinct !{!935, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h9a79b16b5e45f6e0E"}
+!934 = distinct !{!934, !935, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h9a79b16b5e45f6e0E.argprom: argument 0"}
+!935 = distinct !{!935, !"_ZN5image8imageops6sample17horizontal_sample28_$u7b$$u7b$closure$u7d$$u7d$17h9a79b16b5e45f6e0E.argprom"}
 !936 = !{!937}
 !937 = distinct !{!937, !938, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h3b658eed71a30274E: argument 0"}
 !938 = distinct !{!938, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h3b658eed71a30274E"}
 !939 = !{!940}
-!940 = distinct !{!940, !941, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E: argument 0"}
-!941 = distinct !{!941, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E"}
+!940 = distinct !{!940, !941, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom: argument 0"}
+!941 = distinct !{!941, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.argprom"}
 !942 = !{!943}
 !943 = distinct !{!943, !944, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE: argument 0"}
 !944 = distinct !{!944, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE"}
@@ -34146,8 +34146,8 @@ attributes #34 = { cold noreturn nounwind }
 !991 = distinct !{!991, !992, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !992 = distinct !{!992, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !993 = !{!994}
-!994 = distinct !{!994, !995, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h791deca84097d188E: argument 0"}
-!995 = distinct !{!995, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h791deca84097d188E"}
+!994 = distinct !{!994, !995, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h791deca84097d188E.argprom: argument 0"}
+!995 = distinct !{!995, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h791deca84097d188E.argprom"}
 !996 = !{!997}
 !997 = distinct !{!997, !998, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hb0739373e1071096E: argument 0"}
 !998 = distinct !{!998, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hb0739373e1071096E"}
@@ -34199,8 +34199,8 @@ attributes #34 = { cold noreturn nounwind }
 !1044 = distinct !{!1044, !1045, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !1045 = distinct !{!1045, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !1046 = !{!1047}
-!1047 = distinct !{!1047, !1048, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h1f57bd0b38cab9adE: argument 0"}
-!1048 = distinct !{!1048, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h1f57bd0b38cab9adE"}
+!1047 = distinct !{!1047, !1048, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h1f57bd0b38cab9adE.argprom: argument 0"}
+!1048 = distinct !{!1048, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h1f57bd0b38cab9adE.argprom"}
 !1049 = !{!1050}
 !1050 = distinct !{!1050, !1051, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h30323d32674dfa12E: argument 0"}
 !1051 = distinct !{!1051, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h30323d32674dfa12E"}
@@ -34256,8 +34256,8 @@ attributes #34 = { cold noreturn nounwind }
 !1101 = distinct !{!1101, !1102, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !1102 = distinct !{!1102, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !1103 = !{!1104}
-!1104 = distinct !{!1104, !1105, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17hcf3c4bf478f617ffE: argument 0"}
-!1105 = distinct !{!1105, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17hcf3c4bf478f617ffE"}
+!1104 = distinct !{!1104, !1105, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17hcf3c4bf478f617ffE.argprom: argument 0"}
+!1105 = distinct !{!1105, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17hcf3c4bf478f617ffE.argprom"}
 !1106 = !{!1107}
 !1107 = distinct !{!1107, !1108, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hc320b3895218016bE: argument 0"}
 !1108 = distinct !{!1108, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hc320b3895218016bE"}
@@ -34309,8 +34309,8 @@ attributes #34 = { cold noreturn nounwind }
 !1154 = distinct !{!1154, !1155, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !1155 = distinct !{!1155, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !1156 = !{!1157}
-!1157 = distinct !{!1157, !1158, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h2fcd016c016b941bE: argument 0"}
-!1158 = distinct !{!1158, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h2fcd016c016b941bE"}
+!1157 = distinct !{!1157, !1158, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h2fcd016c016b941bE.argprom: argument 0"}
+!1158 = distinct !{!1158, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h2fcd016c016b941bE.argprom"}
 !1159 = !{!1160}
 !1160 = distinct !{!1160, !1161, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h7b5acd13234f9425E: argument 0"}
 !1161 = distinct !{!1161, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h7b5acd13234f9425E"}
@@ -34362,8 +34362,8 @@ attributes #34 = { cold noreturn nounwind }
 !1207 = distinct !{!1207, !1208, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !1208 = distinct !{!1208, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !1209 = !{!1210}
-!1210 = distinct !{!1210, !1211, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h0db2424d6f196b60E: argument 0"}
-!1211 = distinct !{!1211, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h0db2424d6f196b60E"}
+!1210 = distinct !{!1210, !1211, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h0db2424d6f196b60E.argprom: argument 0"}
+!1211 = distinct !{!1211, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h0db2424d6f196b60E.argprom"}
 !1212 = !{!1213}
 !1213 = distinct !{!1213, !1214, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hae6ab3282c7505e5E: argument 0"}
 !1214 = distinct !{!1214, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hae6ab3282c7505e5E"}
@@ -34419,8 +34419,8 @@ attributes #34 = { cold noreturn nounwind }
 !1264 = distinct !{!1264, !1265, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !1265 = distinct !{!1265, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !1266 = !{!1267}
-!1267 = distinct !{!1267, !1268, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h09b83f6a44a5ec89E: argument 0"}
-!1268 = distinct !{!1268, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h09b83f6a44a5ec89E"}
+!1267 = distinct !{!1267, !1268, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h09b83f6a44a5ec89E.argprom: argument 0"}
+!1268 = distinct !{!1268, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h09b83f6a44a5ec89E.argprom"}
 !1269 = !{!1270}
 !1270 = distinct !{!1270, !1271, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h947500002c14d177E: argument 0"}
 !1271 = distinct !{!1271, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h947500002c14d177E"}
@@ -34472,8 +34472,8 @@ attributes #34 = { cold noreturn nounwind }
 !1317 = distinct !{!1317, !1318, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !1318 = distinct !{!1318, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !1319 = !{!1320}
-!1320 = distinct !{!1320, !1321, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h1cb826a60eff729bE: argument 0"}
-!1321 = distinct !{!1321, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h1cb826a60eff729bE"}
+!1320 = distinct !{!1320, !1321, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h1cb826a60eff729bE.argprom: argument 0"}
+!1321 = distinct !{!1321, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h1cb826a60eff729bE.argprom"}
 !1322 = !{!1323}
 !1323 = distinct !{!1323, !1324, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h9bbce6801fd927a6E: argument 0"}
 !1324 = distinct !{!1324, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h9bbce6801fd927a6E"}
@@ -34525,8 +34525,8 @@ attributes #34 = { cold noreturn nounwind }
 !1370 = distinct !{!1370, !1371, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !1371 = distinct !{!1371, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !1372 = !{!1373}
-!1373 = distinct !{!1373, !1374, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17hea05b67e26adf042E: argument 0"}
-!1374 = distinct !{!1374, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17hea05b67e26adf042E"}
+!1373 = distinct !{!1373, !1374, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17hea05b67e26adf042E.argprom: argument 0"}
+!1374 = distinct !{!1374, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17hea05b67e26adf042E.argprom"}
 !1375 = !{!1376}
 !1376 = distinct !{!1376, !1377, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h333e777606b7d7ceE: argument 0"}
 !1377 = distinct !{!1377, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h333e777606b7d7ceE"}
@@ -34578,8 +34578,8 @@ attributes #34 = { cold noreturn nounwind }
 !1423 = distinct !{!1423, !1424, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !1424 = distinct !{!1424, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !1425 = !{!1426}
-!1426 = distinct !{!1426, !1427, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h86a10effd1be1782E: argument 0"}
-!1427 = distinct !{!1427, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h86a10effd1be1782E"}
+!1426 = distinct !{!1426, !1427, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h86a10effd1be1782E.argprom: argument 0"}
+!1427 = distinct !{!1427, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h86a10effd1be1782E.argprom"}
 !1428 = !{!1429}
 !1429 = distinct !{!1429, !1430, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h1dd1a4a3f6a85971E: argument 0"}
 !1430 = distinct !{!1430, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h1dd1a4a3f6a85971E"}
@@ -34631,8 +34631,8 @@ attributes #34 = { cold noreturn nounwind }
 !1476 = distinct !{!1476, !1477, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E: argument 0"}
 !1477 = distinct !{!1477, !"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E"}
 !1478 = !{!1479}
-!1479 = distinct !{!1479, !1480, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h680875b8e42aee16E: argument 0"}
-!1480 = distinct !{!1480, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h680875b8e42aee16E"}
+!1479 = distinct !{!1479, !1480, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h680875b8e42aee16E.argprom: argument 0"}
+!1480 = distinct !{!1480, !"_ZN5image8imageops6sample15vertical_sample28_$u7b$$u7b$closure$u7d$$u7d$17h680875b8e42aee16E.argprom"}
 !1481 = !{!1482}
 !1482 = distinct !{!1482, !1483, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hb4ed55174ac7a9f2E: argument 0"}
 !1483 = distinct !{!1483, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hb4ed55174ac7a9f2E"}
@@ -35293,8 +35293,8 @@ attributes #34 = { cold noreturn nounwind }
 !2138 = distinct !{!2138, !"_ZN4core3ptr128drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$f32$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$f32$GT$$GT$17hf06a07ed86c13bc6E.llvm.9832446184049035033"}
 !2139 = !{!2137, !2134}
 !2140 = !{!2141}
-!2141 = distinct !{!2141, !2142, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E: argument 0"}
-!2142 = distinct !{!2142, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E"}
+!2141 = distinct !{!2141, !2142, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom: argument 0"}
+!2142 = distinct !{!2142, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom"}
 !2143 = !{i8 0, i8 11}
 !2144 = !{!2145}
 !2145 = distinct !{!2145, !2146, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17haf224edb78b4a694E: argument 0"}
@@ -35319,8 +35319,8 @@ attributes #34 = { cold noreturn nounwind }
 !2164 = distinct !{!2164, !"_ZN4core3ptr128drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$f32$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$f32$GT$$GT$17hf06a07ed86c13bc6E.llvm.9832446184049035033"}
 !2165 = !{!2163, !2160}
 !2166 = !{!2167}
-!2167 = distinct !{!2167, !2168, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E: argument 0"}
-!2168 = distinct !{!2168, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E"}
+!2167 = distinct !{!2167, !2168, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom: argument 0"}
+!2168 = distinct !{!2168, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom"}
 !2169 = !{!2170}
 !2170 = distinct !{!2170, !2171, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7d54379abd5b2635E: argument 0"}
 !2171 = distinct !{!2171, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7d54379abd5b2635E"}
@@ -35344,8 +35344,8 @@ attributes #34 = { cold noreturn nounwind }
 !2189 = distinct !{!2189, !"_ZN4core3ptr128drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$f32$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$f32$GT$$GT$17hf06a07ed86c13bc6E.llvm.9832446184049035033"}
 !2190 = !{!2188, !2185}
 !2191 = !{!2192}
-!2192 = distinct !{!2192, !2193, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E: argument 0"}
-!2193 = distinct !{!2193, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E"}
+!2192 = distinct !{!2192, !2193, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom: argument 0"}
+!2193 = distinct !{!2193, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom"}
 !2194 = !{!2195}
 !2195 = distinct !{!2195, !2196, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h9aea4f9aafdf320cE: argument 0"}
 !2196 = distinct !{!2196, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h9aea4f9aafdf320cE"}
@@ -35366,8 +35366,8 @@ attributes #34 = { cold noreturn nounwind }
 !2211 = distinct !{!2211, !"_ZN4core3ptr128drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$f32$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$f32$GT$$GT$17hf06a07ed86c13bc6E.llvm.9832446184049035033"}
 !2212 = !{!2210, !2207}
 !2213 = !{!2214}
-!2214 = distinct !{!2214, !2215, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E: argument 0"}
-!2215 = distinct !{!2215, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E"}
+!2214 = distinct !{!2214, !2215, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom: argument 0"}
+!2215 = distinct !{!2215, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom"}
 !2216 = !{!2217}
 !2217 = distinct !{!2217, !2218, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hfb77a5305ae32976E: argument 0"}
 !2218 = distinct !{!2218, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hfb77a5305ae32976E"}
@@ -35388,8 +35388,8 @@ attributes #34 = { cold noreturn nounwind }
 !2233 = distinct !{!2233, !"_ZN4core3ptr128drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$f32$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$f32$GT$$GT$17hf06a07ed86c13bc6E.llvm.9832446184049035033"}
 !2234 = !{!2232, !2229}
 !2235 = !{!2236}
-!2236 = distinct !{!2236, !2237, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E: argument 0"}
-!2237 = distinct !{!2237, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E"}
+!2236 = distinct !{!2236, !2237, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom: argument 0"}
+!2237 = distinct !{!2237, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom"}
 !2238 = !{!2239}
 !2239 = distinct !{!2239, !2240, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7a48e41253f00959E: argument 0"}
 !2240 = distinct !{!2240, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h7a48e41253f00959E"}
@@ -35410,8 +35410,8 @@ attributes #34 = { cold noreturn nounwind }
 !2255 = distinct !{!2255, !"_ZN4core3ptr128drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$f32$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$f32$GT$$GT$17hf06a07ed86c13bc6E.llvm.9832446184049035033"}
 !2256 = !{!2254, !2251}
 !2257 = !{!2258}
-!2258 = distinct !{!2258, !2259, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E: argument 0"}
-!2259 = distinct !{!2259, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E"}
+!2258 = distinct !{!2258, !2259, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom: argument 0"}
+!2259 = distinct !{!2259, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom"}
 !2260 = !{!2261}
 !2261 = distinct !{!2261, !2262, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hc0888e8b98cdb465E: argument 0"}
 !2262 = distinct !{!2262, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17hc0888e8b98cdb465E"}
@@ -35435,8 +35435,8 @@ attributes #34 = { cold noreturn nounwind }
 !2280 = distinct !{!2280, !"_ZN4core3ptr128drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$f32$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$f32$GT$$GT$17hf06a07ed86c13bc6E.llvm.9832446184049035033"}
 !2281 = !{!2279, !2276}
 !2282 = !{!2283}
-!2283 = distinct !{!2283, !2284, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E: argument 0"}
-!2284 = distinct !{!2284, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E"}
+!2283 = distinct !{!2283, !2284, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom: argument 0"}
+!2284 = distinct !{!2284, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom"}
 !2285 = !{!2286}
 !2286 = distinct !{!2286, !2287, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h36d2e5a06662c27cE: argument 0"}
 !2287 = distinct !{!2287, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h36d2e5a06662c27cE"}
@@ -35457,8 +35457,8 @@ attributes #34 = { cold noreturn nounwind }
 !2302 = distinct !{!2302, !"_ZN4core3ptr128drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$f32$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$f32$GT$$GT$17hf06a07ed86c13bc6E.llvm.9832446184049035033"}
 !2303 = !{!2301, !2298}
 !2304 = !{!2305}
-!2305 = distinct !{!2305, !2306, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E: argument 0"}
-!2306 = distinct !{!2306, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E"}
+!2305 = distinct !{!2305, !2306, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom: argument 0"}
+!2306 = distinct !{!2306, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom"}
 !2307 = !{!2308}
 !2308 = distinct !{!2308, !2309, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h2b954201ea954ed0E: argument 0"}
 !2309 = distinct !{!2309, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17h2b954201ea954ed0E"}
@@ -35482,8 +35482,8 @@ attributes #34 = { cold noreturn nounwind }
 !2327 = distinct !{!2327, !"_ZN4core3ptr128drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$f32$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$f32$GT$$GT$17hf06a07ed86c13bc6E.llvm.9832446184049035033"}
 !2328 = !{!2326, !2323}
 !2329 = !{!2330}
-!2330 = distinct !{!2330, !2331, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E: argument 0"}
-!2331 = distinct !{!2331, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E"}
+!2330 = distinct !{!2330, !2331, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom: argument 0"}
+!2331 = distinct !{!2331, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom"}
 !2332 = !{!2333}
 !2333 = distinct !{!2333, !2334, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17he636f41be9545b48E: argument 0"}
 !2334 = distinct !{!2334, !"_ZN5image7buffer_97ImageBuffer$LT$P$C$alloc..vec..Vec$LT$$LT$P$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$3new17he636f41be9545b48E"}
@@ -35504,8 +35504,8 @@ attributes #34 = { cold noreturn nounwind }
 !2349 = distinct !{!2349, !"_ZN4core3ptr128drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$f32$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$f32$GT$$GT$17hf06a07ed86c13bc6E.llvm.9832446184049035033"}
 !2350 = !{!2348, !2345}
 !2351 = !{!2352}
-!2352 = distinct !{!2352, !2353, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E: argument 0"}
-!2353 = distinct !{!2353, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E"}
+!2352 = distinct !{!2352, !2353, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom: argument 0"}
+!2353 = distinct !{!2353, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d4b06f4236271d6E.argprom"}
 !2354 = !{!2355}
 !2355 = distinct !{!2355, !2356, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h489d67c20dbf92fcE.llvm.6960974148744716740: argument 0"}
 !2356 = distinct !{!2356, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h489d67c20dbf92fcE.llvm.6960974148744716740"}
@@ -36119,12 +36119,12 @@ attributes #34 = { cold noreturn nounwind }
 !2964 = distinct !{!2964, !2962, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.6960974148744716740: argument 1"}
 !2965 = distinct !{!2965, !2962, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.6960974148744716740: argument 2"}
 !2966 = !{!2967}
-!2967 = distinct !{!2967, !2968, !"_ZN5image6codecs3hdr7decoder14split_at_first17h8ce103681ea646d7E: argument 1"}
-!2968 = distinct !{!2968, !"_ZN5image6codecs3hdr7decoder14split_at_first17h8ce103681ea646d7E"}
+!2967 = distinct !{!2967, !2968, !"_ZN5image6codecs3hdr7decoder14split_at_first17h8ce103681ea646d7E.argprom: argument 1"}
+!2968 = distinct !{!2968, !"_ZN5image6codecs3hdr7decoder14split_at_first17h8ce103681ea646d7E.argprom"}
 !2969 = !{!2970, !2972, !2967}
-!2970 = distinct !{!2970, !2971, !"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E: argument 0"}
-!2971 = distinct !{!2971, !"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E"}
-!2972 = distinct !{!2972, !2968, !"_ZN5image6codecs3hdr7decoder14split_at_first17h8ce103681ea646d7E: argument 0"}
+!2970 = distinct !{!2970, !2971, !"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom: argument 0"}
+!2971 = distinct !{!2971, !"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.argprom"}
+!2972 = distinct !{!2972, !2968, !"_ZN5image6codecs3hdr7decoder14split_at_first17h8ce103681ea646d7E.argprom: argument 0"}
 !2973 = !{!2972}
 !2974 = !{!2975}
 !2975 = distinct !{!2975, !2976, !"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h93c72b3d81be7e75E: argument 1"}

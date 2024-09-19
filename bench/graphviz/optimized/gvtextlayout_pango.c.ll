@@ -113,7 +113,7 @@ define internal zeroext i1 @pango_textlayout(ptr nocapture noundef %0, ptr nound
   %39 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %34) #15
   %40 = add i64 %39, 1
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.19, i64 noundef %40) #16
-  tail call fastcc void @graphviz_exit() #17
+  tail call fastcc void @graphviz_exit.argelim() #17
   unreachable
 
 gv_strdup.exit:                                   ; preds = %32
@@ -764,20 +764,20 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 301:                                              ; preds = %294, %agxbuse.exit
   %.val94 = load i8, ptr %105, align 1
   %302 = icmp eq i8 %.val94, -1
-  br i1 %302, label %303, label %agxbfree.exit
+  br i1 %302, label %303, label %agxbfree.argprom.exit
 
 303:                                              ; preds = %301
   %.val = load ptr, ptr %7, align 8
   call void @free(ptr noundef %.val) #14
-  br label %agxbfree.exit
+  br label %agxbfree.argprom.exit
 
 304:                                              ; preds = %101, %98
   %305 = load ptr, ptr %0, align 8
   store ptr %305, ptr %6, align 8
   store ptr null, ptr %4, align 8
-  br label %agxbfree.exit
+  br label %agxbfree.argprom.exit
 
-agxbfree.exit:                                    ; preds = %303, %301, %304
+agxbfree.argprom.exit:                            ; preds = %303, %301, %304
   %306 = load ptr, ptr @pango_textlayout.context, align 8
   %307 = call ptr @pango_layout_new(ptr noundef %306) #14
   %308 = getelementptr inbounds i8, ptr %0, i64 16
@@ -792,11 +792,11 @@ agxbfree.exit:                                    ; preds = %303, %301, %304
   %.not92 = icmp eq ptr %312, null
   br i1 %.not92, label %314, label %313
 
-313:                                              ; preds = %agxbfree.exit
+313:                                              ; preds = %agxbfree.argprom.exit
   call void @pango_layout_set_attributes(ptr noundef %307, ptr noundef nonnull %312) #14
   br label %314
 
-314:                                              ; preds = %313, %agxbfree.exit
+314:                                              ; preds = %313, %agxbfree.argprom.exit
   call void @pango_layout_get_extents(ptr noundef %307, ptr noundef null, ptr noundef nonnull %3) #14
   %315 = getelementptr inbounds i8, ptr %3, i64 8
   %316 = load i32, ptr %315, align 4
@@ -1001,7 +1001,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #9 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #9 {
   tail call void @exit(i32 noundef 1) #18
   unreachable
 }
@@ -1044,7 +1044,7 @@ agxbsizeof.exit:                                  ; preds = %2
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.19, i64 noundef %spec.select33) #16
-  tail call fastcc void @graphviz_exit() #17
+  tail call fastcc void @graphviz_exit.argelim() #17
   unreachable
 
 18:                                               ; preds = %12
@@ -1067,7 +1067,7 @@ agxbsizeof.exit:                                  ; preds = %2
 27:                                               ; preds = %23
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.19, i64 noundef %spec.select) #16
-  tail call fastcc void @graphviz_exit() #17
+  tail call fastcc void @graphviz_exit.argelim() #17
   unreachable
 
 gv_calloc.exit:                                   ; preds = %23

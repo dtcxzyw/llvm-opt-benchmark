@@ -306,11 +306,11 @@ if.end15:                                         ; preds = %if.end8
   %3 = and i32 %bf.load16, 16777216
   %tobool18 = icmp ne i32 %3, 0
   %cf.val73 = load ptr, ptr %ctx1, align 8
-  %call19 = tail call fastcc i32 @do_connect(ptr %cf.val73, ptr noundef %data, i1 noundef zeroext %tobool18)
+  %call19 = tail call fastcc i32 @do_connect.argprom(ptr %cf.val73, ptr noundef %data, i1 noundef zeroext %tobool18)
   %call20 = tail call ptr @__errno_location() #14
   %4 = load i32, ptr %call20, align 4
   %cf.val = load ptr, ptr %ctx1, align 8
-  tail call fastcc void @set_local_ip(ptr %cf.val, ptr noundef %data)
+  tail call fastcc void @set_local_ip.argprom.retelim(ptr %cf.val, ptr noundef %data)
   %tobool22.not = icmp eq ptr %data, null
   br i1 %tobool22.not, label %do.end, label %land.lhs.true
 
@@ -423,7 +423,7 @@ if.then74:                                        ; preds = %verifyconnect.exit,
   %tmp.sroa.2.0.connected_at.sroa_idx = getelementptr inbounds i8, ptr %0, i64 352
   store i32 %17, ptr %tmp.sroa.2.0.connected_at.sroa_idx, align 8
   %cf.val71 = load ptr, ptr %ctx1, align 8
-  call fastcc void @set_local_ip(ptr %cf.val71, ptr noundef %data)
+  call fastcc void @set_local_ip.argprom.retelim(ptr %cf.val71, ptr noundef %data)
   store i8 1, ptr %done, align 1
   %bf.load78 = load i8, ptr %connected, align 4
   %bf.set = or i8 %bf.load78, 1
@@ -457,7 +457,7 @@ if.else100:                                       ; preds = %lor.lhs.false
 if.then102:                                       ; preds = %if.else100
   %21 = load i32, ptr %sock, align 8
   %error104 = getelementptr inbounds i8, ptr %0, i64 376
-  tail call fastcc void @verifyconnect(i32 noundef %21, ptr noundef nonnull %error104)
+  tail call fastcc void @verifyconnect.retelim(i32 noundef %21, ptr noundef nonnull %error104)
   br label %if.then110
 
 out:                                              ; preds = %verifyconnect.exit, %if.else100, %if.then35
@@ -474,7 +474,7 @@ if.then110:                                       ; preds = %if.then102, %if.the
 
 land.lhs.true120:                                 ; preds = %if.then110
   %cf.val72 = load ptr, ptr %ctx1, align 8
-  call fastcc void @set_local_ip(ptr %cf.val72, ptr noundef %data)
+  call fastcc void @set_local_ip.argprom.retelim(ptr %cf.val72, ptr noundef %data)
   %23 = load i32, ptr %error111, align 8
   %os_errno = getelementptr inbounds i8, ptr %data, i64 3412
   store i32 %23, ptr %os_errno, align 4
@@ -1120,7 +1120,7 @@ if.then.i:                                        ; preds = %sw.bb
   %r_ip.i.i = getelementptr inbounds i8, ptr %cf.val.i, i64 224
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(46) %primary_ip.i.i, ptr noundef nonnull readonly align 8 dereferenceable(46) %r_ip.i.i, i64 46, i1 false)
   %cf.val18.i = load ptr, ptr %ctx1, align 8
-  tail call fastcc void @set_local_ip(ptr %cf.val18.i, ptr noundef %data)
+  tail call fastcc void @set_local_ip.argprom.retelim(ptr %cf.val18.i, ptr noundef %data)
   %8 = load ptr, ptr %conn.i, align 8
   %l_ip.i = getelementptr inbounds i8, ptr %0, i64 276
   %l_port.i = getelementptr inbounds i8, ptr %0, i64 324
@@ -1554,7 +1554,7 @@ if.end.i:                                         ; preds = %if.then19
   %bf.set.i = or i8 %bf.load.i, 4
   store i8 %bf.set.i, ptr %sock_connected.i, align 4
   %cf.val.i = load ptr, ptr %ctx1, align 8
-  tail call fastcc void @set_local_ip(ptr %cf.val.i, ptr noundef %data)
+  tail call fastcc void @set_local_ip.argprom.retelim(ptr %cf.val.i, ptr noundef %data)
   %tobool.not.i = icmp eq ptr %data, null
   br i1 %tobool.not.i, label %do.end21.i, label %land.lhs.true.i
 
@@ -1888,7 +1888,7 @@ if.end5:                                          ; preds = %if.end
   %4 = load ptr, ptr %cf, align 8
   %5 = getelementptr i8, ptr %4, i64 16
   %.val = load ptr, ptr %5, align 8
-  call fastcc void @set_local_ip(ptr %.val, ptr noundef %data)
+  call fastcc void @set_local_ip.argprom.retelim(ptr %.val, ptr noundef %data)
   %bf.load9 = load i8, ptr %accepted, align 4
   %bf.set11 = or i8 %bf.load9, 8
   store i8 %bf.set11, ptr %accepted, align 4
@@ -1946,7 +1946,7 @@ declare void @Curl_conn_cf_discard_all(ptr noundef, ptr noundef, i32 noundef) lo
 declare void @Curl_conn_cf_add(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_local_ip(ptr %cf.16.val, ptr noundef %data) unnamed_addr #2 {
+define internal fastcc void @set_local_ip.argprom.retelim(ptr %cf.16.val, ptr noundef %data) unnamed_addr #2 {
 entry:
   %buffer = alloca [256 x i8], align 16
   %ssloc = alloca %struct.Curl_sockaddr_storage, align 8
@@ -2060,7 +2060,7 @@ socket_close.exit:                                ; preds = %if.then.i, %if.end7
 if.end.i27:                                       ; preds = %socket_close.exit
   %9 = load i32, ptr %plen.i, align 4
   %call7.i = call zeroext i1 @Curl_addr2string(ptr noundef nonnull %ssrem.i, i32 noundef %9, ptr noundef nonnull %r_ip.i, ptr noundef nonnull %r_port.i) #13
-  br i1 %call7.i, label %set_accepted_remote_ip.exit, label %if.end13.sink.split.i
+  br i1 %call7.i, label %set_accepted_remote_ip.argprom.exit, label %if.end13.sink.split.i
 
 if.end13.sink.split.i:                            ; preds = %if.end.i27, %socket_close.exit
   %.str.54.sink.i = phi ptr [ @.str.53, %socket_close.exit ], [ @.str.54, %if.end.i27 ]
@@ -2068,14 +2068,14 @@ if.end13.sink.split.i:                            ; preds = %if.end.i27, %socket
   %10 = load i32, ptr %call9.i, align 4
   %call12.i = call ptr @Curl_strerror(i32 noundef %10, ptr noundef nonnull %buffer.i, i64 noundef 256) #13
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull %.str.54.sink.i, i32 noundef %10, ptr noundef %call12.i) #13
-  br label %set_accepted_remote_ip.exit
+  br label %set_accepted_remote_ip.argprom.exit
 
-set_accepted_remote_ip.exit:                      ; preds = %if.end.i27, %if.end13.sink.split.i
+set_accepted_remote_ip.argprom.exit:              ; preds = %if.end.i27, %if.end13.sink.split.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buffer.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ssrem.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %plen.i)
   %.val = load ptr, ptr %ctx1, align 8
-  call fastcc void @set_local_ip(ptr %.val, ptr noundef %data)
+  call fastcc void @set_local_ip.argprom.retelim(ptr %.val, ptr noundef %data)
   %active = getelementptr inbounds i8, ptr %2, i64 380
   %bf.load = load i8, ptr %active, align 4
   %bf.set10 = or i8 %bf.load, 10
@@ -2094,7 +2094,7 @@ set_accepted_remote_ip.exit:                      ; preds = %if.end.i27, %if.end
   %tobool15.not = icmp eq ptr %data, null
   br i1 %tobool15.not, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %set_accepted_remote_ip.exit
+land.lhs.true:                                    ; preds = %set_accepted_remote_ip.argprom.exit
   %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load16 = load i64, ptr %verbose, align 2
   %13 = and i64 %bf.load16, 536870912
@@ -2116,8 +2116,8 @@ if.then24:                                        ; preds = %land.lhs.true21
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %data, ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i32 noundef %16, ptr noundef nonnull %r_ip, i32 noundef %17) #13
   br label %return
 
-return:                                           ; preds = %if.then24, %land.lhs.true21, %land.lhs.true, %set_accepted_remote_ip.exit, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ 2, %lor.lhs.false ], [ 2, %entry ], [ 0, %set_accepted_remote_ip.exit ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true21 ], [ 0, %if.then24 ]
+return:                                           ; preds = %if.then24, %land.lhs.true21, %land.lhs.true, %set_accepted_remote_ip.argprom.exit, %entry, %lor.lhs.false
+  %retval.0 = phi i32 [ 2, %lor.lhs.false ], [ 2, %entry ], [ 0, %set_accepted_remote_ip.argprom.exit ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true21 ], [ 0, %if.then24 ]
   ret i32 %retval.0
 }
 
@@ -2190,7 +2190,7 @@ if.end13:                                         ; preds = %if.then12, %if.end1
 
 if.then16:                                        ; preds = %if.end13
   %cf.val = load ptr, ptr %ctx, align 8
-  tail call fastcc void @set_local_ip(ptr %cf.val, ptr noundef %data)
+  tail call fastcc void @set_local_ip.argprom.retelim(ptr %cf.val, ptr noundef %data)
   br i1 %tobool15, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %if.then16
@@ -2306,9 +2306,9 @@ if.end:                                           ; preds = %if.then12.i, %land.
   %r_ip.i = getelementptr inbounds i8, ptr %cf.val69, i64 224
   %r_port.i = getelementptr inbounds i8, ptr %cf.val69, i64 272
   %call.i70 = tail call zeroext i1 @Curl_addr2string(ptr noundef nonnull %_sa_ex_u.i, i32 noundef %13, ptr noundef nonnull %r_ip.i, ptr noundef nonnull %r_port.i) #13
-  br i1 %call.i70, label %if.end6, label %set_remote_ip.exit
+  br i1 %call.i70, label %if.end6, label %set_remote_ip.argprom.exit
 
-set_remote_ip.exit:                               ; preds = %if.end
+set_remote_ip.argprom.exit:                       ; preds = %if.end
   %call3.i = tail call ptr @__errno_location() #14
   %14 = load i32, ptr %call3.i, align 4
   %error.i = getelementptr inbounds i8, ptr %cf.val69, i64 376
@@ -2816,8 +2816,8 @@ if.then97.thread:                                 ; preds = %if.then40.i, %for.e
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buffer237.i)
   br label %if.then111
 
-if.then111:                                       ; preds = %set_remote_ip.exit, %if.then68, %if.end.i, %67, %if.then97.thread
-  %result.0.ph = phi i32 [ 45, %if.then97.thread ], [ 7, %67 ], [ 7, %if.end.i ], [ 42, %if.then68 ], [ 2, %set_remote_ip.exit ]
+if.then111:                                       ; preds = %set_remote_ip.argprom.exit, %if.then68, %if.end.i, %67, %if.then97.thread
+  %result.0.ph = phi i32 [ 45, %if.then97.thread ], [ 7, %67 ], [ 7, %if.end.i ], [ 42, %if.then68 ], [ 2, %set_remote_ip.argprom.exit ]
   %68 = load i32, ptr %sock, align 8
   %cmp113.not = icmp eq i32 %68, -1
   br i1 %cmp113.not, label %land.lhs.true134, label %if.then115
@@ -2868,7 +2868,7 @@ if.else121:                                       ; preds = %bindlocal.exit, %if
 
 if.then123:                                       ; preds = %if.else121
   %cf.val = load ptr, ptr %ctx1, align 8
-  call fastcc void @set_local_ip(ptr %cf.val, ptr noundef nonnull %data)
+  call fastcc void @set_local_ip.argprom.retelim(ptr %cf.val, ptr noundef nonnull %data)
   %connected_at = getelementptr inbounds i8, ptr %0, i64 344
   %call126 = call { i64, i32 } @Curl_now() #13
   %75 = extractvalue { i64, i32 } %call126, 0
@@ -2909,7 +2909,7 @@ do.end150:                                        ; preds = %land.lhs.true134, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_connect(ptr %cf.16.val, ptr noundef %data, i1 noundef zeroext %is_tcp_fastopen) unnamed_addr #2 {
+define internal fastcc i32 @do_connect.argprom(ptr %cf.16.val, ptr noundef %data, i1 noundef zeroext %is_tcp_fastopen) unnamed_addr #2 {
 entry:
   %optval = alloca i32, align 4
   store i32 1, ptr %optval, align 4
@@ -2997,7 +2997,7 @@ return:                                           ; preds = %entry, %entry, %do.
 declare i32 @Curl_socket_check(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @verifyconnect(i32 noundef %sockfd, ptr noundef writeonly %error) unnamed_addr #2 {
+define internal fastcc void @verifyconnect.retelim(i32 noundef %sockfd, ptr noundef writeonly %error) unnamed_addr #2 {
 entry:
   %err = alloca i32, align 4
   %errSize = alloca i32, align 4

@@ -14711,19 +14711,19 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %112 = getelementptr i8, ptr %.val.pre, i64 60
   %.val.val = load i32, ptr %112, align 4
   %113 = icmp sgt i32 %.val.val, %89
-  br i1 %113, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %114
+  br i1 %113, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %114
 
 114:                                              ; preds = %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i54
   %115 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %7, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %115, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i54, %114
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i54, %114
   %116 = load ptr, ptr %82, align 8
   %.not65 = icmp eq ptr %116, null
   br i1 %.not65, label %117, label %.critedge51
 
-117:                                              ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+117:                                              ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   %.not50 = icmp eq i16 %88, 0
   br i1 %.not50, label %.critedge, label %118
 
@@ -14859,7 +14859,7 @@ _ZNK14objArrayHandleclEv.exit:                    ; preds = %_ZN14objArrayHandle
   %185 = call noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %7, ptr noundef %184, i32 noundef 0) #16
   br label %.loopexit
 
-.critedge51:                                      ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, %129
+.critedge51:                                      ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, %129
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   br label %.loopexit
 
@@ -15878,7 +15878,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %24
   store volatile i32 6, ptr %14, align 4
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 360), align 8
-  %26 = tail call fastcc noundef ptr @_ZL33get_class_declared_methods_helperP7JNIEnv_P7_jclasshbP5KlassP10JavaThread(ptr noundef %1, i8 noundef zeroext %2, i1 noundef zeroext false, ptr noundef %25, ptr noundef nonnull %6)
+  %26 = tail call fastcc noundef ptr @_ZL33get_class_declared_methods_helperP7JNIEnv_P7_jclasshbP5KlassP10JavaThread.argprom(ptr noundef %1, i8 noundef zeroext %2, i1 noundef zeroext false, ptr noundef %25, ptr noundef nonnull %6)
   %27 = getelementptr inbounds i8, ptr %6, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 16
@@ -15916,7 +15916,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL33get_class_declared_methods_helperP7JNIEnv_P7_jclasshbP5KlassP10JavaThread(ptr noundef %0, i8 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL33get_class_declared_methods_helperP7JNIEnv_P7_jclasshbP5KlassP10JavaThread.argprom(ptr noundef %0, i8 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %class.JvmtiVMObjectAllocEventCollector, align 8
   %7 = alloca %class.methodHandle, align 8
   %8 = alloca %class.methodHandle, align 8
@@ -16366,7 +16366,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %24
   store volatile i32 6, ptr %14, align 4
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 368), align 8
-  %26 = tail call fastcc noundef ptr @_ZL33get_class_declared_methods_helperP7JNIEnv_P7_jclasshbP5KlassP10JavaThread(ptr noundef %1, i8 noundef zeroext %2, i1 noundef zeroext true, ptr noundef %25, ptr noundef nonnull %6)
+  %26 = tail call fastcc noundef ptr @_ZL33get_class_declared_methods_helperP7JNIEnv_P7_jclasshbP5KlassP10JavaThread.argprom(ptr noundef %1, i8 noundef zeroext %2, i1 noundef zeroext true, ptr noundef %25, ptr noundef nonnull %6)
   %27 = getelementptr inbounds i8, ptr %6, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 16
@@ -18359,20 +18359,20 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %64 = icmp sgt i32 %3, -1
   %65 = icmp slt i32 %3, %.val.val
   %66 = select i1 %64, i1 %65, i1 false
-  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %67
+  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %67
 
 67:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %68, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
   %69 = getelementptr inbounds i8, ptr %9, i64 8
   %70 = load ptr, ptr %69, align 8
   %.not = icmp eq ptr %70, null
   br i1 %.not, label %71, label %113
 
-71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   %72 = getelementptr inbounds i8, ptr %40, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 4
@@ -18450,8 +18450,8 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %104, %108
   %112 = call noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %9, ptr noundef %111, i32 noundef 0) #16
   br label %113
 
-113:                                              ; preds = %_ZN12ConstantPool8klass_atEiP10JavaThread.exit, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, %_ZNK5Klass11java_mirrorEv.exit, %78
-  %.0 = phi ptr [ %112, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %78 ], [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ]
+113:                                              ; preds = %_ZN12ConstantPool8klass_atEiP10JavaThread.exit, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, %_ZNK5Klass11java_mirrorEv.exit, %78
+  %.0 = phi ptr [ %112, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %78 ], [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %114 = getelementptr inbounds i8, ptr %9, i64 408
   %115 = load ptr, ptr %114, align 8
@@ -18615,20 +18615,20 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %63 = icmp sgt i32 %3, -1
   %64 = icmp slt i32 %3, %.val.val
   %65 = select i1 %63, i1 %64, i1 false
-  br i1 %65, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %66
+  br i1 %65, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %66
 
 66:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %67 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %8, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %67, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %66
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %66
   %68 = getelementptr inbounds i8, ptr %8, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not = icmp eq ptr %69, null
   br i1 %.not, label %70, label %91
 
-70:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+70:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   %71 = getelementptr inbounds i8, ptr %39, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 4
@@ -18668,8 +18668,8 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %82, %86
   %90 = call noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %8, ptr noundef %89, i32 noundef 0) #16
   br label %91
 
-91:                                               ; preds = %79, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, %_ZNK5Klass11java_mirrorEv.exit, %77
-  %.0 = phi ptr [ %90, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %77 ], [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ], [ null, %79 ]
+91:                                               ; preds = %79, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, %_ZNK5Klass11java_mirrorEv.exit, %77
+  %.0 = phi ptr [ %90, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %77 ], [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ], [ null, %79 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %92 = getelementptr inbounds i8, ptr %8, i64 408
   %93 = load ptr, ptr %92, align 8
@@ -18837,28 +18837,28 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %64 = icmp sgt i32 %3, -1
   %65 = icmp slt i32 %3, %.val.val
   %66 = select i1 %64, i1 %65, i1 false
-  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %67
+  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %67
 
 67:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %68, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
   %69 = getelementptr inbounds i8, ptr %9, i64 8
   %70 = load ptr, ptr %69, align 8
   %.not = icmp eq ptr %70, null
   br i1 %.not, label %71, label %74
 
-71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   %72 = call fastcc noundef ptr @_ZL20get_method_at_helperRK18constantPoolHandleibP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %3, i1 noundef zeroext true, ptr noundef nonnull %9)
   %73 = load ptr, ptr %69, align 8
   %.not14 = icmp eq ptr %73, null
   %. = select i1 %.not14, ptr %72, ptr null
   br label %74
 
-74:                                               ; preds = %71, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
-  %.0 = phi ptr [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ], [ %., %71 ]
+74:                                               ; preds = %71, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
+  %.0 = phi ptr [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ], [ %., %71 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   call void @_ZN32JvmtiVMObjectAllocEventCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
   %75 = getelementptr inbounds i8, ptr %9, i64 408
@@ -19209,28 +19209,28 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %64 = icmp sgt i32 %3, -1
   %65 = icmp slt i32 %3, %.val.val
   %66 = select i1 %64, i1 %65, i1 false
-  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %67
+  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %67
 
 67:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %68, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
   %69 = getelementptr inbounds i8, ptr %9, i64 8
   %70 = load ptr, ptr %69, align 8
   %.not = icmp eq ptr %70, null
   br i1 %.not, label %71, label %74
 
-71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   %72 = call fastcc noundef ptr @_ZL20get_method_at_helperRK18constantPoolHandleibP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %3, i1 noundef zeroext false, ptr noundef nonnull %9)
   %73 = load ptr, ptr %69, align 8
   %.not14 = icmp eq ptr %73, null
   %. = select i1 %.not14, ptr %72, ptr null
   br label %74
 
-74:                                               ; preds = %71, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
-  %.0 = phi ptr [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ], [ %., %71 ]
+74:                                               ; preds = %71, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
+  %.0 = phi ptr [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ], [ %., %71 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   call void @_ZN32JvmtiVMObjectAllocEventCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
   %75 = getelementptr inbounds i8, ptr %9, i64 408
@@ -19398,20 +19398,20 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %65 = icmp sgt i32 %3, -1
   %66 = icmp slt i32 %3, %.val.val
   %67 = select i1 %65, i1 %66, i1 false
-  br i1 %67, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %68
+  br i1 %67, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %68
 
 68:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %69 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %69, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %68
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %68
   %70 = getelementptr inbounds i8, ptr %10, i64 8
   %71 = load ptr, ptr %70, align 8
   %.not = icmp eq ptr %71, null
   br i1 %.not, label %72, label %75
 
-72:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+72:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %73 = call fastcc noundef ptr @_ZL19get_field_at_helper18constantPoolHandleibP10JavaThread(ptr noundef %7, i32 noundef %3, i1 noundef zeroext true, ptr noundef nonnull %10)
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
@@ -19420,8 +19420,8 @@ _ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18cons
   %. = select i1 %.not14, ptr %73, ptr null
   br label %75
 
-75:                                               ; preds = %72, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
-  %.0 = phi ptr [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ], [ %., %72 ]
+75:                                               ; preds = %72, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
+  %.0 = phi ptr [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ], [ %., %72 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   call void @_ZN32JvmtiVMObjectAllocEventCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
   %76 = getelementptr inbounds i8, ptr %10, i64 408
@@ -19722,20 +19722,20 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %65 = icmp sgt i32 %3, -1
   %66 = icmp slt i32 %3, %.val.val
   %67 = select i1 %65, i1 %66, i1 false
-  br i1 %67, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %68
+  br i1 %67, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %68
 
 68:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %69 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %69, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %68
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %68
   %70 = getelementptr inbounds i8, ptr %10, i64 8
   %71 = load ptr, ptr %70, align 8
   %.not = icmp eq ptr %71, null
   br i1 %.not, label %72, label %75
 
-72:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+72:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %73 = call fastcc noundef ptr @_ZL19get_field_at_helper18constantPoolHandleibP10JavaThread(ptr noundef %7, i32 noundef %3, i1 noundef zeroext false, ptr noundef nonnull %10)
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
@@ -19744,8 +19744,8 @@ _ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18cons
   %. = select i1 %.not14, ptr %73, ptr null
   br label %75
 
-75:                                               ; preds = %72, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
-  %.0 = phi ptr [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ], [ %., %72 ]
+75:                                               ; preds = %72, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
+  %.0 = phi ptr [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ], [ %., %72 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   call void @_ZN32JvmtiVMObjectAllocEventCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
   %76 = getelementptr inbounds i8, ptr %10, i64 408
@@ -19912,20 +19912,20 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %64 = icmp sgt i32 %3, -1
   %65 = icmp slt i32 %3, %.val.val
   %66 = select i1 %64, i1 %65, i1 false
-  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %67
+  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %67
 
 67:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %68, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
   %69 = getelementptr inbounds i8, ptr %9, i64 8
   %70 = load ptr, ptr %69, align 8
   %.not = icmp eq ptr %70, null
   br i1 %.not, label %71, label %164
 
-71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   %72 = getelementptr inbounds i8, ptr %40, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 4
@@ -20078,8 +20078,8 @@ _ZNK14objArrayHandleclEv.exit:                    ; preds = %148, %151
   %163 = call noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %9, ptr noundef %162, i32 noundef 0) #16
   br label %164
 
-164:                                              ; preds = %_ZNK6HandleclEv.exit30, %_ZNK6HandleclEv.exit, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit, %80, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, %_ZNK14objArrayHandleclEv.exit, %78
-  %.0 = phi ptr [ %163, %_ZNK14objArrayHandleclEv.exit ], [ null, %78 ], [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ], [ null, %80 ], [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ null, %_ZNK6HandleclEv.exit ], [ null, %_ZNK6HandleclEv.exit30 ]
+164:                                              ; preds = %_ZNK6HandleclEv.exit30, %_ZNK6HandleclEv.exit, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit, %80, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, %_ZNK14objArrayHandleclEv.exit, %78
+  %.0 = phi ptr [ %163, %_ZNK14objArrayHandleclEv.exit ], [ null, %78 ], [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ], [ null, %80 ], [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ null, %_ZNK6HandleclEv.exit ], [ null, %_ZNK6HandleclEv.exit30 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   call void @_ZN32JvmtiVMObjectAllocEventCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
   %165 = getelementptr inbounds i8, ptr %9, i64 408
@@ -20248,20 +20248,20 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %64 = icmp sgt i32 %3, -1
   %65 = icmp slt i32 %3, %.val.val
   %66 = select i1 %64, i1 %65, i1 false
-  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %67
+  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %67
 
 67:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %68, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
   %69 = getelementptr inbounds i8, ptr %9, i64 8
   %70 = load ptr, ptr %69, align 8
   %.not = icmp eq ptr %70, null
   br i1 %.not, label %71, label %83
 
-71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   %72 = getelementptr inbounds i8, ptr %40, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 4
@@ -20283,8 +20283,8 @@ _ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18cons
   %82 = zext i16 %81 to i32
   br label %83
 
-83:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, %80, %78
-  %.0 = phi i32 [ %82, %80 ], [ 0, %78 ], [ 0, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ]
+83:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, %80, %78
+  %.0 = phi i32 [ %82, %80 ], [ 0, %78 ], [ 0, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   call void @_ZN32JvmtiVMObjectAllocEventCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
   %84 = getelementptr inbounds i8, ptr %9, i64 408
@@ -20451,20 +20451,20 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %64 = icmp sgt i32 %3, -1
   %65 = icmp slt i32 %3, %.val.val
   %66 = select i1 %64, i1 %65, i1 false
-  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %67
+  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %67
 
 67:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %68, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
   %69 = getelementptr inbounds i8, ptr %9, i64 8
   %70 = load ptr, ptr %69, align 8
   %.not = icmp eq ptr %70, null
   br i1 %.not, label %71, label %83
 
-71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   %72 = getelementptr inbounds i8, ptr %40, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 4
@@ -20489,8 +20489,8 @@ _ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18cons
   %82 = zext i16 %81 to i32
   br label %83
 
-83:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, %80, %78
-  %.0 = phi i32 [ %82, %80 ], [ 0, %78 ], [ 0, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ]
+83:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, %80, %78
+  %.0 = phi i32 [ %82, %80 ], [ 0, %78 ], [ 0, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   call void @_ZN32JvmtiVMObjectAllocEventCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
   %84 = getelementptr inbounds i8, ptr %9, i64 408
@@ -20659,20 +20659,20 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %64 = icmp sgt i32 %3, -1
   %65 = icmp slt i32 %3, %.val.val
   %66 = select i1 %64, i1 %65, i1 false
-  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %67
+  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %67
 
 67:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %68, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
   %69 = getelementptr inbounds i8, ptr %9, i64 8
   %70 = load ptr, ptr %69, align 8
   %.not = icmp eq ptr %70, null
   br i1 %.not, label %71, label %142
 
-71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   %72 = getelementptr inbounds i8, ptr %40, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 4
@@ -20791,8 +20791,8 @@ _ZNK14objArrayHandleclEv.exit:                    ; preds = %126, %129
   %141 = call noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %9, ptr noundef %140, i32 noundef 0) #16
   br label %142
 
-142:                                              ; preds = %_ZNK6HandleclEv.exit, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit, %81, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, %_ZNK14objArrayHandleclEv.exit, %79
-  %.0 = phi ptr [ %141, %_ZNK14objArrayHandleclEv.exit ], [ null, %79 ], [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ], [ null, %81 ], [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ null, %_ZNK6HandleclEv.exit ]
+142:                                              ; preds = %_ZNK6HandleclEv.exit, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit, %81, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, %_ZNK14objArrayHandleclEv.exit, %79
+  %.0 = phi ptr [ %141, %_ZNK14objArrayHandleclEv.exit ], [ null, %79 ], [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ], [ null, %81 ], [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ null, %_ZNK6HandleclEv.exit ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   call void @_ZN32JvmtiVMObjectAllocEventCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
   %143 = getelementptr inbounds i8, ptr %9, i64 408
@@ -20961,20 +20961,20 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %63 = icmp sgt i32 %3, -1
   %64 = icmp slt i32 %3, %.val.val
   %65 = select i1 %63, i1 %64, i1 false
-  br i1 %65, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %66
+  br i1 %65, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %66
 
 66:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %67 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %8, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %67, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %66
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %66
   %68 = getelementptr inbounds i8, ptr %8, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not = icmp eq ptr %69, null
   br i1 %.not, label %70, label %84
 
-70:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+70:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   %71 = getelementptr inbounds i8, ptr %39, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 4
@@ -20996,8 +20996,8 @@ _ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18cons
   %83 = load i32, ptr %82, align 4
   br label %84
 
-84:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, %80, %78
-  %.0 = phi i32 [ %83, %80 ], [ 0, %78 ], [ 0, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ]
+84:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, %80, %78
+  %.0 = phi i32 [ %83, %80 ], [ 0, %78 ], [ 0, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %85 = getelementptr inbounds i8, ptr %8, i64 408
   %86 = load ptr, ptr %85, align 8
@@ -21161,20 +21161,20 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %63 = icmp sgt i32 %3, -1
   %64 = icmp slt i32 %3, %.val.val
   %65 = select i1 %63, i1 %64, i1 false
-  br i1 %65, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %66
+  br i1 %65, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %66
 
 66:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %67 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %8, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %67, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %66
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %66
   %68 = getelementptr inbounds i8, ptr %8, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not = icmp eq ptr %69, null
   br i1 %.not, label %70, label %83
 
-70:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+70:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   %71 = getelementptr inbounds i8, ptr %39, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 4
@@ -21196,8 +21196,8 @@ _ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18cons
   %.0.i.i.i = load i64, ptr %82, align 1
   br label %83
 
-83:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, %80, %78
-  %.0 = phi i64 [ %.0.i.i.i, %80 ], [ 0, %78 ], [ 0, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ]
+83:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, %80, %78
+  %.0 = phi i64 [ %.0.i.i.i, %80 ], [ 0, %78 ], [ 0, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %84 = getelementptr inbounds i8, ptr %8, i64 408
   %85 = load ptr, ptr %84, align 8
@@ -21361,20 +21361,20 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %63 = icmp sgt i32 %3, -1
   %64 = icmp slt i32 %3, %.val.val
   %65 = select i1 %63, i1 %64, i1 false
-  br i1 %65, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %66
+  br i1 %65, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %66
 
 66:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %67 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %8, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %67, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %66
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %66
   %68 = getelementptr inbounds i8, ptr %8, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not = icmp eq ptr %69, null
   br i1 %.not, label %70, label %84
 
-70:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+70:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   %71 = getelementptr inbounds i8, ptr %39, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 4
@@ -21396,8 +21396,8 @@ _ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18cons
   %83 = load float, ptr %82, align 4
   br label %84
 
-84:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, %80, %78
-  %.0 = phi float [ %83, %80 ], [ 0.000000e+00, %78 ], [ 0.000000e+00, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ]
+84:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, %80, %78
+  %.0 = phi float [ %83, %80 ], [ 0.000000e+00, %78 ], [ 0.000000e+00, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %85 = getelementptr inbounds i8, ptr %8, i64 408
   %86 = load ptr, ptr %85, align 8
@@ -21561,20 +21561,20 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %63 = icmp sgt i32 %3, -1
   %64 = icmp slt i32 %3, %.val.val
   %65 = select i1 %63, i1 %64, i1 false
-  br i1 %65, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %66
+  br i1 %65, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %66
 
 66:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %67 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %8, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %67, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %66
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %66
   %68 = getelementptr inbounds i8, ptr %8, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not = icmp eq ptr %69, null
   br i1 %.not, label %70, label %83
 
-70:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+70:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   %71 = getelementptr inbounds i8, ptr %39, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 4
@@ -21596,8 +21596,8 @@ _ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18cons
   %.0.i.i2.i = load double, ptr %82, align 1
   br label %83
 
-83:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, %80, %78
-  %.0 = phi double [ %.0.i.i2.i, %80 ], [ 0.000000e+00, %78 ], [ 0.000000e+00, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ]
+83:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, %80, %78
+  %.0 = phi double [ %.0.i.i2.i, %80 ], [ 0.000000e+00, %78 ], [ 0.000000e+00, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %84 = getelementptr inbounds i8, ptr %8, i64 408
   %85 = load ptr, ptr %84, align 8
@@ -21762,20 +21762,20 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %64 = icmp sgt i32 %3, -1
   %65 = icmp slt i32 %3, %.val.val
   %66 = select i1 %64, i1 %65, i1 false
-  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %67
+  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %67
 
 67:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %68, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
   %69 = getelementptr inbounds i8, ptr %9, i64 8
   %70 = load ptr, ptr %69, align 8
   %.not = icmp eq ptr %70, null
   br i1 %.not, label %71, label %108
 
-71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   %72 = getelementptr inbounds i8, ptr %40, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 4
@@ -21839,8 +21839,8 @@ _ZN12ConstantPool9string_atEiP10JavaThread.exit:  ; preds = %81, %90
   %107 = call noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %9, ptr noundef %104, i32 noundef 0) #16
   br label %108
 
-108:                                              ; preds = %_ZN12ConstantPool9string_atEiP10JavaThread.exit, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, %106, %79
-  %.0 = phi ptr [ %107, %106 ], [ null, %79 ], [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ], [ null, %_ZN12ConstantPool9string_atEiP10JavaThread.exit ]
+108:                                              ; preds = %_ZN12ConstantPool9string_atEiP10JavaThread.exit, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, %106, %79
+  %.0 = phi ptr [ %107, %106 ], [ null, %79 ], [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ], [ null, %_ZN12ConstantPool9string_atEiP10JavaThread.exit ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %109 = getelementptr inbounds i8, ptr %9, i64 408
   %110 = load ptr, ptr %109, align 8
@@ -22006,20 +22006,20 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %64 = icmp sgt i32 %3, -1
   %65 = icmp slt i32 %3, %.val.val
   %66 = select i1 %64, i1 %65, i1 false
-  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %67
+  br i1 %66, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %67
 
 67:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %68, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %67
   %69 = getelementptr inbounds i8, ptr %9, i64 8
   %70 = load ptr, ptr %69, align 8
   %.not = icmp eq ptr %70, null
   br i1 %.not, label %71, label %93
 
-71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+71:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   %72 = getelementptr inbounds i8, ptr %40, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 4
@@ -22057,8 +22057,8 @@ _ZNK6HandleclEv.exit:                             ; preds = %87, %89
   %92 = call noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %9, ptr noundef %91, i32 noundef 0) #16
   br label %93
 
-93:                                               ; preds = %81, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, %_ZNK6HandleclEv.exit, %79
-  %.0 = phi ptr [ %92, %_ZNK6HandleclEv.exit ], [ null, %79 ], [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ], [ null, %81 ]
+93:                                               ; preds = %81, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, %_ZNK6HandleclEv.exit, %79
+  %.0 = phi ptr [ %92, %_ZNK6HandleclEv.exit ], [ null, %79 ], [ null, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ], [ null, %81 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   call void @_ZN32JvmtiVMObjectAllocEventCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
   %94 = getelementptr inbounds i8, ptr %9, i64 408
@@ -22223,20 +22223,20 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN10JNIHandl
   %63 = icmp sgt i32 %3, -1
   %64 = icmp slt i32 %3, %.val.val
   %65 = select i1 %63, i1 %64, i1 false
-  br i1 %65, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit, label %66
+  br i1 %65, label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit, label %66
 
 66:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %67 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %8, ptr noundef nonnull @.str, i32 noundef 1714, ptr noundef %67, ptr noundef nonnull @.str.97) #16
-  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  br label %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
 
-_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %66
+_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit: ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %66
   %68 = getelementptr inbounds i8, ptr %8, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not = icmp eq ptr %69, null
   br i1 %.not, label %70, label %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread
 
-70:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+70:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
   %71 = getelementptr inbounds i8, ptr %39, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 4
@@ -22268,8 +22268,8 @@ _ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split19: ; preds = %
 _ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split20: ; preds = %70
   br label %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread
 
-_ZNK11constantTag21is_klass_or_referenceEv.exit.thread: ; preds = %70, %70, %70, %70, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split20, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split19, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split, %77, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
-  %.011 = phi i8 [ 0, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ], [ %spec.select, %77 ], [ 7, %70 ], [ 7, %70 ], [ 8, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split ], [ 16, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split19 ], [ 15, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split20 ], [ 7, %70 ], [ 7, %70 ]
+_ZNK11constantTag21is_klass_or_referenceEv.exit.thread: ; preds = %70, %70, %70, %70, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split20, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split19, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split, %77, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit
+  %.011 = phi i8 [ 0, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.argprom.argprom.exit ], [ %spec.select, %77 ], [ 7, %70 ], [ 7, %70 ], [ 8, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split ], [ 16, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split19 ], [ 15, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split20 ], [ 7, %70 ], [ 7, %70 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %79 = getelementptr inbounds i8, ptr %8, i64 408
   %80 = load ptr, ptr %79, align 8
@@ -31464,7 +31464,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 25:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %5, ptr noundef nonnull @.str, i32 noundef 3342, ptr noundef %26, ptr noundef null) #16
-  br label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit
+  br label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit
 
 27:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %28 = ptrtoint ptr %1 to i64
@@ -31518,21 +31518,21 @@ _ZNK7oopDesc8is_arrayEv.exit.i:                   ; preds = %53, %43
   %55 = getelementptr inbounds i8, ptr %.0.i.i10.i, i64 12
   %56 = load i32, ptr %55, align 4
   %57 = icmp sgt i32 %56, 4
-  br i1 %57, label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit, label %58
+  br i1 %57, label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit, label %58
 
 58:                                               ; preds = %_ZNK7oopDesc8is_arrayEv.exit.i
   %59 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %5, ptr noundef nonnull @.str, i32 noundef 3346, ptr noundef %59, ptr noundef nonnull @.str.101) #16
-  br label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit
+  br label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit
 
-_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit: ; preds = %_ZNK7oopDesc8is_arrayEv.exit.i, %25, %58
+_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit: ; preds = %_ZNK7oopDesc8is_arrayEv.exit.i, %25, %58
   %.0.i = phi ptr [ null, %25 ], [ null, %58 ], [ %.0.i.i.i, %_ZNK7oopDesc8is_arrayEv.exit.i ]
   %60 = getelementptr inbounds i8, ptr %5, i64 8
   %61 = load ptr, ptr %60, align 8
   %.not = icmp eq ptr %61, null
   br i1 %.not, label %62, label %68
 
-62:                                               ; preds = %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit
+62:                                               ; preds = %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit
   %63 = load i8, ptr @UseCompressedClassPointers, align 1
   %64 = trunc i8 %63 to i1
   %65 = select i1 %64, i64 12, i64 16
@@ -31540,8 +31540,8 @@ _ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit: ; preds = %_ZNK7oopDesc8
   %67 = load i32, ptr %66, align 4
   br label %68
 
-68:                                               ; preds = %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit, %62
-  %.0 = phi i32 [ %67, %62 ], [ 0, %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit ]
+68:                                               ; preds = %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit, %62
+  %.0 = phi i32 [ %67, %62 ], [ 0, %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit ]
   %69 = getelementptr inbounds i8, ptr %5, i64 408
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 16
@@ -31579,7 +31579,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %68, %74
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 
@@ -31750,7 +31750,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 28:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %8, ptr noundef nonnull @.str, i32 noundef 3342, ptr noundef %29, ptr noundef null) #16
-  br label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit
+  br label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit
 
 30:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %31 = ptrtoint ptr %1 to i64
@@ -31804,21 +31804,21 @@ _ZNK7oopDesc8is_arrayEv.exit.i:                   ; preds = %56, %46
   %58 = getelementptr inbounds i8, ptr %.0.i.i10.i, i64 12
   %59 = load i32, ptr %58, align 4
   %60 = icmp sgt i32 %59, 4
-  br i1 %60, label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit, label %61
+  br i1 %60, label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit, label %61
 
 61:                                               ; preds = %_ZNK7oopDesc8is_arrayEv.exit.i
   %62 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %8, ptr noundef nonnull @.str, i32 noundef 3346, ptr noundef %62, ptr noundef nonnull @.str.101) #16
-  br label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit
+  br label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit
 
-_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit: ; preds = %_ZNK7oopDesc8is_arrayEv.exit.i, %28, %61
+_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit: ; preds = %_ZNK7oopDesc8is_arrayEv.exit.i, %28, %61
   %.0.i = phi ptr [ null, %28 ], [ null, %61 ], [ %.0.i.i.i, %_ZNK7oopDesc8is_arrayEv.exit.i ]
   %63 = getelementptr inbounds i8, ptr %8, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not = icmp eq ptr %64, null
   br i1 %.not, label %65, label %73
 
-65:                                               ; preds = %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit
+65:                                               ; preds = %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit
   %66 = call noundef zeroext i8 @_ZN10Reflection9array_getEP6jvalueP12arrayOopDesciP10JavaThread(ptr noundef nonnull %5, ptr noundef %.0.i, i32 noundef %2, ptr noundef nonnull %8) #16
   %67 = load ptr, ptr %63, align 8
   %.not18 = icmp eq ptr %67, null
@@ -31834,8 +31834,8 @@ _ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit: ; preds = %_ZNK7oopDesc8
   %72 = call noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %8, ptr noundef %69, i32 noundef 0) #16
   br label %73
 
-73:                                               ; preds = %68, %65, %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit, %71
-  %.0 = phi ptr [ %72, %71 ], [ null, %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit ], [ null, %65 ], [ null, %68 ]
+73:                                               ; preds = %68, %65, %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit, %71
+  %.0 = phi ptr [ %72, %71 ], [ null, %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit ], [ null, %65 ], [ null, %68 ]
   call void @_ZN32JvmtiVMObjectAllocEventCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #16
   %74 = getelementptr inbounds i8, ptr %8, i64 408
   %75 = load ptr, ptr %74, align 8
@@ -31932,7 +31932,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %26
   store volatile i32 6, ptr %16, align 4
   store i32 0, ptr %5, align 8
-  %27 = tail call fastcc noundef ptr @_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread(ptr noundef %1, i1 noundef zeroext true, ptr noundef nonnull %8)
+  %27 = tail call fastcc noundef ptr @_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom(ptr noundef %1, i1 noundef zeroext true, ptr noundef nonnull %8)
   %28 = getelementptr inbounds i8, ptr %8, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not19 = icmp eq ptr %29, null
@@ -32051,7 +32051,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 28:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %8, ptr noundef nonnull @.str, i32 noundef 3342, ptr noundef %29, ptr noundef null) #16
-  br label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit
+  br label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit
 
 30:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %31 = ptrtoint ptr %1 to i64
@@ -32105,21 +32105,21 @@ _ZNK7oopDesc8is_arrayEv.exit.i:                   ; preds = %56, %46
   %58 = getelementptr inbounds i8, ptr %.0.i.i10.i, i64 12
   %59 = load i32, ptr %58, align 4
   %60 = icmp sgt i32 %59, 4
-  br i1 %60, label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit, label %61
+  br i1 %60, label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit, label %61
 
 61:                                               ; preds = %_ZNK7oopDesc8is_arrayEv.exit.i
   %62 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %8, ptr noundef nonnull @.str, i32 noundef 3346, ptr noundef %62, ptr noundef nonnull @.str.101) #16
-  br label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit
+  br label %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit
 
-_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit: ; preds = %_ZNK7oopDesc8is_arrayEv.exit.i, %28, %61
+_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit: ; preds = %_ZNK7oopDesc8is_arrayEv.exit.i, %28, %61
   %.0.i = phi ptr [ null, %28 ], [ null, %61 ], [ %.0.i.i.i, %_ZNK7oopDesc8is_arrayEv.exit.i ]
   %63 = getelementptr inbounds i8, ptr %8, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not = icmp eq ptr %64, null
   br i1 %.not, label %65, label %103
 
-65:                                               ; preds = %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit
+65:                                               ; preds = %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN10JNIHandles7resolveEP8_jobject.exit, label %66
 
@@ -32193,7 +32193,7 @@ _ZNK7oopDesc11is_objArrayEv.exit:                 ; preds = %82, %92
   call void @_ZN10Reflection9array_setEP6jvalueP12arrayOopDesci9BasicTypeP10JavaThread(ptr noundef nonnull %5, ptr noundef nonnull %.0.i, i32 noundef %2, i8 noundef zeroext %.0, ptr noundef nonnull %8) #16
   br label %103
 
-103:                                              ; preds = %102, %99, %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.exit
+103:                                              ; preds = %102, %99, %_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom.exit
   %104 = getelementptr inbounds i8, ptr %8, i64 408
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 16
@@ -32291,7 +32291,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %27
   store volatile i32 6, ptr %17, align 4
-  %28 = tail call fastcc noundef ptr @_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread(ptr noundef %1, i1 noundef zeroext true, ptr noundef nonnull %9)
+  %28 = tail call fastcc noundef ptr @_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom(ptr noundef %1, i1 noundef zeroext true, ptr noundef nonnull %9)
   %29 = getelementptr inbounds i8, ptr %9, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
@@ -32528,7 +32528,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %25
   store volatile i32 6, ptr %15, align 4
   call void @_ZN32JvmtiVMObjectAllocEventCollectorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #16
-  %26 = call fastcc noundef ptr @_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread(ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %7)
+  %26 = call fastcc noundef ptr @_ZL11check_arrayP7JNIEnv_P8_jobjectbP10JavaThread.argprom(ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %7)
   %27 = getelementptr inbounds i8, ptr %7, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null

@@ -2116,7 +2116,7 @@ check_class.exit390.thread:                       ; preds = %125, %check_class.e
   br i1 %.not130, label %parse_vms.exit, label %469
 
 469:                                              ; preds = %check_class.exit390.thread
-  tail call fastcc void @parse_ddd(i64 noundef %10, i64 noundef %15)
+  tail call fastcc void @parse_ddd.retelim(i64 noundef %10, i64 noundef %15)
   br label %parse_vms.exit
 
 parse_vms.exit:                                   ; preds = %381, %379, %parse_iso24.exit.i, %parse_iso23.exit.i, %parse_iso22.exit.i, %parse_iso21.exit.i, %parse_vms12.exit.i, %parse_vms11.exit.i, %469, %check_class.exit390.thread, %465, %parse_mon.exit, %parse_year.exit, %parse_dot.exit, %parse_sla.exit, %parse_jis.exit, %parse_iso.exit, %parse_us.exit, %parse_eu.exit
@@ -2784,7 +2784,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_mday(i64 noundef %0, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_ddd(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @parse_ddd.retelim(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = load i64, ptr @parse_ddd.pat, align 8
   %4 = icmp eq i64 %3, 4
   br i1 %4, label %5, label %8
@@ -3979,7 +3979,7 @@ rbimpl_intern_const.exit.i.i50:                   ; preds = %.lr.ph.i.i.i53, %42
   br i1 %424, label %425, label %iso8601_ext_time.exit
 
 iso8601_ext_time.exit:                            ; preds = %rbimpl_intern_const.exit.i.i50
-  tail call fastcc void @iso8601_ext_time_cb(i64 noundef %423, i64 noundef %5) #13
+  tail call fastcc void @iso8601_ext_time_cb.retelim(i64 noundef %423, i64 noundef %5) #13
   br label %iso8601_bas_time.exit
 
 425:                                              ; preds = %rbimpl_intern_const.exit.i.i50
@@ -4013,7 +4013,7 @@ rbimpl_intern_const.exit.i.i57:                   ; preds = %.lr.ph.i.i.i60, %43
   br i1 %435, label %iso8601_bas_time.exit, label %436
 
 436:                                              ; preds = %rbimpl_intern_const.exit.i.i57
-  tail call fastcc void @iso8601_ext_time_cb(i64 noundef %434, i64 noundef %5) #13
+  tail call fastcc void @iso8601_ext_time_cb.retelim(i64 noundef %434, i64 noundef %5) #13
   br label %iso8601_bas_time.exit
 
 iso8601_bas_time.exit:                            ; preds = %436, %rbimpl_intern_const.exit.i.i57, %iso8601_ext_time.exit, %iso8601_bas_datetime.exit, %iso8601_ext_datetime.exit
@@ -10596,7 +10596,7 @@ rbimpl_intern_const.exit81:                       ; preds = %.lr.ph.i79, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @iso8601_ext_time_cb(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @iso8601_ext_time_cb.retelim(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca [6 x i64], align 16
   br label %4
 

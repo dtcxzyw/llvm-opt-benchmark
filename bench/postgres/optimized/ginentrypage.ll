@@ -929,7 +929,7 @@ BufferGetPage.exit.i:                             ; preds = %19, %13
   %25 = getelementptr inbounds i8, ptr %3, i64 8
   %26 = load i8, ptr %25, align 8
   %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %entryIsEnoughSpace.exit
+  br i1 %27, label %28, label %entryIsEnoughSpace.argprom.exit
 
 28:                                               ; preds = %BufferGetPage.exit.i
   %29 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
@@ -947,9 +947,9 @@ BufferGetPage.exit.i:                             ; preds = %19, %13
   %39 = and i16 %narrow.i, 16376
   %40 = or disjoint i16 %39, 4
   %41 = zext nneg i16 %40 to i64
-  br label %entryIsEnoughSpace.exit
+  br label %entryIsEnoughSpace.argprom.exit
 
-entryIsEnoughSpace.exit:                          ; preds = %BufferGetPage.exit.i, %28
+entryIsEnoughSpace.argprom.exit:                  ; preds = %BufferGetPage.exit.i, %28
   %.010.i = phi i64 [ %41, %28 ], [ 0, %BufferGetPage.exit.i ]
   %42 = load ptr, ptr %3, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 6
@@ -964,7 +964,7 @@ entryIsEnoughSpace.exit:                          ; preds = %BufferGetPage.exit.
   %.not.i.not = icmp ult i64 %50, %48
   br i1 %.not.i.not, label %51, label %187
 
-51:                                               ; preds = %entryIsEnoughSpace.exit
+51:                                               ; preds = %entryIsEnoughSpace.argprom.exit
   %.val = load i16, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %9)
   br i1 %12, label %52, label %62
@@ -1019,7 +1019,7 @@ BufferGetPage.exit97.i:                           ; preds = %62, %52
   %86 = icmp eq i16 %85, 0
   %87 = icmp ne i32 %4, -1
   %or.cond.i.i = and i1 %87, %86
-  br i1 %or.cond.i.i, label %88, label %entryPreparePage.exit.i
+  br i1 %or.cond.i.i, label %88, label %entryPreparePage.argprom.exit.i
 
 88:                                               ; preds = %78
   %89 = getelementptr inbounds i8, ptr %71, i64 24
@@ -1038,9 +1038,9 @@ BufferGetPage.exit97.i:                           ; preds = %62, %52
   store i16 %98, ptr %99, align 2
   %100 = getelementptr inbounds i8, ptr %95, i64 4
   store i16 0, ptr %100, align 2
-  br label %entryPreparePage.exit.i
+  br label %entryPreparePage.argprom.exit.i
 
-entryPreparePage.exit.i:                          ; preds = %88, %78
+entryPreparePage.argprom.exit.i:                  ; preds = %88, %78
   %101 = getelementptr i8, ptr %71, i64 12
   %.val.i13 = load i16, ptr %101, align 4
   %102 = icmp ult i16 %.val.i13, 25
@@ -1052,7 +1052,7 @@ entryPreparePage.exit.i:                          ; preds = %88, %78
   %.not2.i = icmp eq i16 %.0.i.i, 0
   br i1 %.not2.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %entryPreparePage.exit.i
+.lr.ph.i:                                         ; preds = %entryPreparePage.argprom.exit.i
   %107 = getelementptr inbounds i8, ptr %71, i64 24
   br label %108
 
@@ -1101,9 +1101,9 @@ entryPreparePage.exit.i:                          ; preds = %88, %78
   %.not.i14 = icmp ugt i16 %135, %.0.i.i
   br i1 %.not.i14, label %._crit_edge.i, label %108, !llvm.loop !10
 
-._crit_edge.i:                                    ; preds = %120, %entryPreparePage.exit.i
-  %.081.lcssa.i = phi i64 [ 0, %entryPreparePage.exit.i ], [ %134, %120 ]
-  %.076.lcssa.i = phi ptr [ %9, %entryPreparePage.exit.i ], [ %132, %120 ]
+._crit_edge.i:                                    ; preds = %120, %entryPreparePage.argprom.exit.i
+  %.081.lcssa.i = phi i64 [ 0, %entryPreparePage.argprom.exit.i ], [ %134, %120 ]
+  %.076.lcssa.i = phi ptr [ %9, %entryPreparePage.argprom.exit.i ], [ %132, %120 ]
   %narrow.i15 = add nuw nsw i16 %.0.i.i, 1
   %136 = icmp eq i16 %.val, %narrow.i15
   br i1 %136, label %137, label %146
@@ -1189,16 +1189,16 @@ entryPreparePage.exit.i:                          ; preds = %88, %78
   %185 = getelementptr i8, ptr %.2788.i, i64 %184
   %186 = add i16 %.111.i, 1
   %.not88.i = icmp ugt i16 %186, %narrow.i15
-  br i1 %.not88.i, label %entrySplitPage.exit, label %161, !llvm.loop !11
+  br i1 %.not88.i, label %entrySplitPage.argprom.exit, label %161, !llvm.loop !11
 
-entrySplitPage.exit:                              ; preds = %180
+entrySplitPage.argprom.exit:                      ; preds = %180
   store ptr %71, ptr %6, align 8
   store ptr %72, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %9)
   br label %187
 
-187:                                              ; preds = %entryIsEnoughSpace.exit, %entrySplitPage.exit
-  %.0 = phi i32 [ 2, %entrySplitPage.exit ], [ 1, %entryIsEnoughSpace.exit ]
+187:                                              ; preds = %entryIsEnoughSpace.argprom.exit, %entrySplitPage.argprom.exit
+  %.0 = phi i32 [ 2, %entrySplitPage.argprom.exit ], [ 1, %entryIsEnoughSpace.argprom.exit ]
   ret i32 %.0
 }
 
@@ -1247,7 +1247,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
   %33 = icmp eq i16 %32, 0
   %34 = icmp ne i32 %4, -1
   %or.cond.i = and i1 %34, %33
-  br i1 %or.cond.i, label %35, label %entryPreparePage.exit
+  br i1 %or.cond.i, label %35, label %entryPreparePage.argprom.exit
 
 35:                                               ; preds = %25
   %36 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
@@ -1266,9 +1266,9 @@ BufferGetPage.exit:                               ; preds = %8, %14
   store i16 %45, ptr %46, align 2
   %47 = getelementptr inbounds i8, ptr %42, i64 4
   store i16 0, ptr %47, align 2
-  br label %entryPreparePage.exit
+  br label %entryPreparePage.argprom.exit
 
-entryPreparePage.exit:                            ; preds = %25, %35
+entryPreparePage.argprom.exit:                    ; preds = %25, %35
   %48 = load ptr, ptr %3, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 6
   %50 = load i16, ptr %49, align 2
@@ -1278,7 +1278,7 @@ entryPreparePage.exit:                            ; preds = %25, %35
   %.not = icmp eq i16 %53, %21
   br i1 %.not, label %62, label %54
 
-54:                                               ; preds = %entryPreparePage.exit
+54:                                               ; preds = %entryPreparePage.argprom.exit
   %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %55)
   %56 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1290,7 +1290,7 @@ entryPreparePage.exit:                            ; preds = %25, %35
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 572, ptr noundef nonnull @__func__.entryExecPlaceToPage) #11
   unreachable
 
-62:                                               ; preds = %entryPreparePage.exit
+62:                                               ; preds = %entryPreparePage.argprom.exit
   tail call void @MarkBufferDirty(i32 noundef %1) #11
   %63 = getelementptr inbounds i8, ptr %0, i64 80
   %64 = load ptr, ptr %63, align 8

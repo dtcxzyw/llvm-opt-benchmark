@@ -1866,7 +1866,7 @@ cast_is_allowed.exit.thread.sink.split:           ; preds = %cast_is_allowed.exi
   %.val65 = load ptr, ptr %36, align 8
   %93 = getelementptr i8, ptr %0, i64 24
   %.val66 = load ptr, ptr %93, align 8
-  tail call fastcc void @report_cast_error(ptr %.val65, ptr %.val66, i1 noundef zeroext %.0.i75.sink)
+  tail call fastcc void @report_cast_error.argprom(ptr %.val65, ptr %.val66, i1 noundef zeroext %.0.i75.sink)
   br label %cast_is_allowed.exit.thread
 
 cast_is_allowed.exit.thread:                      ; preds = %cast_is_allowed.exit.thread.sink.split, %48, %cast_is_allowed.exit77, %cast_is_allowed.exit
@@ -2084,19 +2084,19 @@ define internal zeroext i1 @rule_int_to_ptr(ptr nocapture noundef readonly %0, i
   %23 = tail call ptr @type_quoted_error_string(ptr noundef %.0.i) #10
   %24 = tail call ptr @type_quoted_error_string(ptr noundef %.val28) #10
   %.not30.i = icmp eq ptr %.val28, null
-  br i1 %.not30.i, label %report_cast_error.exit, label %25
+  br i1 %.not30.i, label %report_cast_error.argprom.exit, label %25
 
 25:                                               ; preds = %22
   %26 = load i32, ptr %.val28, align 8
   %27 = icmp eq i32 %26, 40
-  br i1 %27, label %28, label %report_cast_error.exit
+  br i1 %27, label %28, label %report_cast_error.argprom.exit
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %.val28, i64 56
   %30 = load ptr, ptr %29, align 8
-  br label %report_cast_error.exit
+  br label %report_cast_error.argprom.exit
 
-report_cast_error.exit:                           ; preds = %22, %25, %28
+report_cast_error.argprom.exit:                   ; preds = %22, %25, %28
   %.024.i = phi ptr [ %30, %28 ], [ null, %22 ], [ %.val28, %25 ]
   %31 = tail call ptr @type_to_error_string(ptr noundef %.024.i) #10
   %32 = load i64, ptr %14, align 8
@@ -2166,27 +2166,27 @@ report_cast_error.exit:                           ; preds = %22, %25, %28
   %67 = tail call ptr @type_quoted_error_string(ptr noundef %.0.i32) #10
   %68 = tail call ptr @type_quoted_error_string(ptr noundef %.val30) #10
   %.not30.i33 = icmp eq ptr %.val30, null
-  br i1 %.not30.i33, label %report_cast_error.exit35, label %69
+  br i1 %.not30.i33, label %report_cast_error.argprom.exit35, label %69
 
 69:                                               ; preds = %66
   %70 = load i32, ptr %.val30, align 8
   %71 = icmp eq i32 %70, 40
-  br i1 %71, label %72, label %report_cast_error.exit35
+  br i1 %71, label %72, label %report_cast_error.argprom.exit35
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds i8, ptr %.val30, i64 56
   %74 = load ptr, ptr %73, align 8
-  br label %report_cast_error.exit35
+  br label %report_cast_error.argprom.exit35
 
-report_cast_error.exit35:                         ; preds = %66, %69, %72
+report_cast_error.argprom.exit35:                 ; preds = %66, %69, %72
   %.024.i34 = phi ptr [ %74, %72 ], [ null, %66 ], [ %.val30, %69 ]
   %75 = tail call ptr @type_to_error_string(ptr noundef %.024.i34) #10
   %76 = load i64, ptr %58, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %76, ptr noundef nonnull @.str.13, ptr noundef %67, ptr noundef %68, ptr noundef %75) #10
   br label %77
 
-77:                                               ; preds = %55, %33, %report_cast_error.exit35, %51, %report_cast_error.exit, %11, %52, %40
-  %.025 = phi i1 [ false, %40 ], [ false, %52 ], [ false, %11 ], [ false, %report_cast_error.exit ], [ %39, %33 ], [ false, %51 ], [ false, %report_cast_error.exit35 ], [ %1, %55 ]
+77:                                               ; preds = %55, %33, %report_cast_error.argprom.exit35, %51, %report_cast_error.argprom.exit, %11, %52, %40
+  %.025 = phi i1 [ false, %40 ], [ false, %52 ], [ false, %11 ], [ false, %report_cast_error.argprom.exit ], [ %39, %33 ], [ false, %51 ], [ false, %report_cast_error.argprom.exit35 ], [ %1, %55 ]
   ret i1 %.025
 }
 
@@ -2234,7 +2234,7 @@ define internal noundef zeroext i1 @rule_int_to_bits(ptr nocapture noundef reado
   %.val = load ptr, ptr %30, align 8
   %31 = getelementptr i8, ptr %0, i64 24
   %.val17 = load ptr, ptr %31, align 8
-  tail call fastcc void @report_cast_error(ptr %.val, ptr %.val17, i1 noundef zeroext %28)
+  tail call fastcc void @report_cast_error.argprom(ptr %.val, ptr %.val17, i1 noundef zeroext %28)
   br label %32
 
 32:                                               ; preds = %27, %29
@@ -2275,19 +2275,19 @@ define internal zeroext i1 @rule_int_to_enum(ptr nocapture noundef readonly %0, 
   %19 = tail call ptr @type_quoted_error_string(ptr noundef %.0.i) #10
   %20 = tail call ptr @type_quoted_error_string(ptr noundef %.val26) #10
   %.not30.i = icmp eq ptr %.val26, null
-  br i1 %.not30.i, label %report_cast_error.exit, label %21
+  br i1 %.not30.i, label %report_cast_error.argprom.exit, label %21
 
 21:                                               ; preds = %18
   %22 = load i32, ptr %.val26, align 8
   %23 = icmp eq i32 %22, 40
-  br i1 %23, label %24, label %report_cast_error.exit
+  br i1 %23, label %24, label %report_cast_error.argprom.exit
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %.val26, i64 56
   %26 = load ptr, ptr %25, align 8
-  br label %report_cast_error.exit
+  br label %report_cast_error.argprom.exit
 
-report_cast_error.exit:                           ; preds = %18, %21, %24
+report_cast_error.argprom.exit:                   ; preds = %18, %21, %24
   %.024.i = phi ptr [ %26, %24 ], [ null, %18 ], [ %.val26, %21 ]
   %27 = tail call ptr @type_to_error_string(ptr noundef %.024.i) #10
   %28 = load i64, ptr %10, align 8
@@ -2355,8 +2355,8 @@ report_cast_error.exit:                           ; preds = %18, %21, %24
   tail call void (i64, ptr, ...) @sema_error_at(i64 %63, ptr noundef nonnull @.str.22, ptr noundef %62) #10
   br label %64
 
-64:                                               ; preds = %55, %59, %50, %51, %29, %report_cast_error.exit, %6
-  %.023 = phi i1 [ false, %6 ], [ false, %report_cast_error.exit ], [ true, %29 ], [ false, %51 ], [ false, %50 ], [ false, %59 ], [ %.not25, %55 ]
+64:                                               ; preds = %55, %59, %50, %51, %29, %report_cast_error.argprom.exit, %6
+  %.023 = phi i1 [ false, %6 ], [ false, %report_cast_error.argprom.exit ], [ true, %29 ], [ false, %51 ], [ false, %50 ], [ false, %59 ], [ %.not25, %55 ]
   ret i1 %.023
 }
 
@@ -2378,7 +2378,7 @@ define internal zeroext i1 @rule_ptr_to_int(ptr nocapture noundef readonly %0, i
   %.val = load ptr, ptr %12, align 8
   %13 = getelementptr i8, ptr %0, i64 24
   %.val17 = load ptr, ptr %13, align 8
-  tail call fastcc void @report_cast_error(ptr %.val, ptr %.val17, i1 noundef zeroext %9)
+  tail call fastcc void @report_cast_error.argprom(ptr %.val, ptr %.val17, i1 noundef zeroext %9)
   br label %29
 
 14:                                               ; preds = %3
@@ -2456,19 +2456,19 @@ define internal noundef zeroext i1 @rule_ptr_to_ptr(ptr nocapture noundef readon
   %24 = tail call ptr @type_quoted_error_string(ptr noundef %.0.i) #10
   %25 = tail call ptr @type_quoted_error_string(ptr noundef %.val12) #10
   %.not30.i = icmp eq ptr %.val12, null
-  br i1 %.not30.i, label %report_cast_error.exit, label %26
+  br i1 %.not30.i, label %report_cast_error.argprom.exit, label %26
 
 26:                                               ; preds = %23
   %27 = load i32, ptr %.val12, align 8
   %28 = icmp eq i32 %27, 40
-  br i1 %28, label %29, label %report_cast_error.exit
+  br i1 %28, label %29, label %report_cast_error.argprom.exit
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %.val12, i64 56
   %31 = load ptr, ptr %30, align 8
-  br label %report_cast_error.exit
+  br label %report_cast_error.argprom.exit
 
-report_cast_error.exit:                           ; preds = %23, %26, %29
+report_cast_error.argprom.exit:                   ; preds = %23, %26, %29
   %.024.i = phi ptr [ %31, %29 ], [ null, %23 ], [ %.val12, %26 ]
   %32 = tail call ptr @type_to_error_string(ptr noundef %.024.i) #10
   %33 = load i64, ptr %15, align 8
@@ -2479,8 +2479,8 @@ report_cast_error.exit:                           ; preds = %23, %26, %29
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.rule_ptr_to_ptr, ptr noundef nonnull @.str.4, i32 noundef 689) #11
   unreachable
 
-35:                                               ; preds = %report_cast_error.exit, %11, %4, %3, %10
-  %.011 = phi i1 [ false, %10 ], [ true, %3 ], [ true, %4 ], [ false, %11 ], [ false, %report_cast_error.exit ]
+35:                                               ; preds = %report_cast_error.argprom.exit, %11, %4, %3, %10
+  %.011 = phi i1 [ false, %10 ], [ true, %3 ], [ true, %4 ], [ false, %11 ], [ false, %report_cast_error.argprom.exit ]
   ret i1 %.011
 }
 
@@ -2595,19 +2595,19 @@ define internal zeroext i1 @rule_ptr_to_infer(ptr noundef %0, i1 noundef zeroext
   %11 = getelementptr inbounds i8, ptr %.val, i64 8
   %12 = load ptr, ptr %.val, align 8
   %.not29.i = icmp eq ptr %12, null
-  br i1 %.not29.i, label %report_cast_error.exit, label %13
+  br i1 %.not29.i, label %report_cast_error.argprom.exit, label %13
 
 13:                                               ; preds = %8
   %14 = load i32, ptr %12, align 8
   %15 = icmp eq i32 %14, 40
-  br i1 %15, label %16, label %report_cast_error.exit
+  br i1 %15, label %16, label %report_cast_error.argprom.exit
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %12, i64 56
   %18 = load ptr, ptr %17, align 8
-  br label %report_cast_error.exit
+  br label %report_cast_error.argprom.exit
 
-report_cast_error.exit:                           ; preds = %8, %13, %16
+report_cast_error.argprom.exit:                   ; preds = %8, %13, %16
   %.025.i = phi ptr [ %18, %16 ], [ null, %8 ], [ %12, %13 ]
   %19 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i) #10
   %20 = tail call ptr @type_quoted_error_string(ptr noundef %.val71) #10
@@ -2781,8 +2781,8 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
   %91 = tail call zeroext i1 %79(ptr noundef nonnull %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #10
   br label %cast_is_allowed.exit
 
-cast_is_allowed.exit:                             ; preds = %90, %80, %.thread.i, %.loopexit, %report_cast_error.exit, %7
-  %.060 = phi i1 [ false, %7 ], [ false, %report_cast_error.exit ], [ %91, %90 ], [ true, %.loopexit ], [ false, %80 ], [ false, %.thread.i ]
+cast_is_allowed.exit:                             ; preds = %90, %80, %.thread.i, %.loopexit, %report_cast_error.argprom.exit, %7
+  %.060 = phi i1 [ false, %7 ], [ false, %report_cast_error.argprom.exit ], [ %91, %90 ], [ true, %.loopexit ], [ false, %80 ], [ false, %.thread.i ]
   ret i1 %.060
 }
 
@@ -2862,7 +2862,7 @@ switch.lookup:                                    ; preds = %29
   %.val = load ptr, ptr %40, align 8
   %41 = getelementptr i8, ptr %0, i64 24
   %.val21 = load ptr, ptr %41, align 8
-  tail call fastcc void @report_cast_error(ptr %.val, ptr %.val21, i1 noundef zeroext %switch.masked)
+  tail call fastcc void @report_cast_error.argprom(ptr %.val, ptr %.val21, i1 noundef zeroext %switch.masked)
   br label %rule_sa_to_ptr.exit
 
 rule_sa_to_ptr.exit:                              ; preds = %22, %.critedge, %switch.lookup, %14, %3, %27
@@ -3014,19 +3014,19 @@ type_flatten.exit72:                              ; preds = %type_flatten.exit, 
   %71 = getelementptr inbounds i8, ptr %68, i64 8
   %72 = load ptr, ptr %68, align 8
   %.not29.i = icmp eq ptr %72, null
-  br i1 %.not29.i, label %report_cast_error.exit, label %73
+  br i1 %.not29.i, label %report_cast_error.argprom.exit, label %73
 
 73:                                               ; preds = %69
   %74 = load i32, ptr %72, align 8
   %75 = icmp eq i32 %74, 40
-  br i1 %75, label %76, label %report_cast_error.exit
+  br i1 %75, label %76, label %report_cast_error.argprom.exit
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds i8, ptr %72, i64 56
   %78 = load ptr, ptr %77, align 8
-  br label %report_cast_error.exit
+  br label %report_cast_error.argprom.exit
 
-report_cast_error.exit:                           ; preds = %69, %73, %76
+report_cast_error.argprom.exit:                   ; preds = %69, %73, %76
   %.025.i = phi ptr [ %78, %76 ], [ null, %69 ], [ %72, %73 ]
   %79 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i) #10
   %80 = tail call ptr @type_quoted_error_string(ptr noundef %.val64) #10
@@ -3062,19 +3062,19 @@ report_cast_error.exit:                           ; preds = %69, %73, %76
   %99 = getelementptr inbounds i8, ptr %96, i64 8
   %100 = load ptr, ptr %96, align 8
   %.not29.i73 = icmp eq ptr %100, null
-  br i1 %.not29.i73, label %report_cast_error.exit75, label %101
+  br i1 %.not29.i73, label %report_cast_error.argprom.exit75, label %101
 
 101:                                              ; preds = %97
   %102 = load i32, ptr %100, align 8
   %103 = icmp eq i32 %102, 40
-  br i1 %103, label %104, label %report_cast_error.exit75
+  br i1 %103, label %104, label %report_cast_error.argprom.exit75
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds i8, ptr %100, i64 56
   %106 = load ptr, ptr %105, align 8
-  br label %report_cast_error.exit75
+  br label %report_cast_error.argprom.exit75
 
-report_cast_error.exit75:                         ; preds = %97, %101, %104
+report_cast_error.argprom.exit75:                 ; preds = %97, %101, %104
   %.025.i74 = phi ptr [ %106, %104 ], [ null, %97 ], [ %100, %101 ]
   %107 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i74) #10
   %108 = tail call ptr @type_quoted_error_string(ptr noundef %.val66) #10
@@ -3121,27 +3121,27 @@ report_cast_error.exit75:                         ; preds = %97, %101, %104
   %131 = tail call ptr @type_quoted_error_string(ptr noundef %.0.i77) #10
   %132 = tail call ptr @type_quoted_error_string(ptr noundef %.val68) #10
   %.not30.i = icmp eq ptr %.val68, null
-  br i1 %.not30.i, label %report_cast_error.exit78, label %133
+  br i1 %.not30.i, label %report_cast_error.argprom.exit78, label %133
 
 133:                                              ; preds = %130
   %134 = load i32, ptr %.val68, align 8
   %135 = icmp eq i32 %134, 40
-  br i1 %135, label %136, label %report_cast_error.exit78
+  br i1 %135, label %136, label %report_cast_error.argprom.exit78
 
 136:                                              ; preds = %133
   %137 = getelementptr inbounds i8, ptr %.val68, i64 56
   %138 = load ptr, ptr %137, align 8
-  br label %report_cast_error.exit78
+  br label %report_cast_error.argprom.exit78
 
-report_cast_error.exit78:                         ; preds = %130, %133, %136
+report_cast_error.argprom.exit78:                 ; preds = %130, %133, %136
   %.024.i = phi ptr [ %138, %136 ], [ null, %130 ], [ %.val68, %133 ]
   %139 = tail call ptr @type_to_error_string(ptr noundef %.024.i) #10
   %140 = load i64, ptr %122, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %140, ptr noundef nonnull @.str.13, ptr noundef %131, ptr noundef %132, ptr noundef %139) #10
   br label %141
 
-141:                                              ; preds = %60, %118, %62, %49, %type_flatten.exit72, %report_cast_error.exit78, %110, %report_cast_error.exit75, %82, %report_cast_error.exit
-  %.059 = phi i1 [ false, %82 ], [ false, %report_cast_error.exit ], [ false, %110 ], [ false, %report_cast_error.exit75 ], [ false, %report_cast_error.exit78 ], [ true, %type_flatten.exit72 ], [ %61, %60 ], [ true, %49 ], [ false, %62 ], [ true, %118 ]
+141:                                              ; preds = %60, %118, %62, %49, %type_flatten.exit72, %report_cast_error.argprom.exit78, %110, %report_cast_error.argprom.exit75, %82, %report_cast_error.argprom.exit
+  %.059 = phi i1 [ false, %82 ], [ false, %report_cast_error.argprom.exit ], [ false, %110 ], [ false, %report_cast_error.argprom.exit75 ], [ false, %report_cast_error.argprom.exit78 ], [ true, %type_flatten.exit72 ], [ %61, %60 ], [ true, %49 ], [ false, %62 ], [ true, %118 ]
   ret i1 %.059
 }
 
@@ -3705,19 +3705,19 @@ define internal zeroext i1 @rule_vec_to_vec(ptr noundef %0, i1 noundef zeroext %
   %16 = getelementptr inbounds i8, ptr %.val, i64 8
   %17 = load ptr, ptr %.val, align 8
   %.not29.i = icmp eq ptr %17, null
-  br i1 %.not29.i, label %report_cast_error.exit, label %18
+  br i1 %.not29.i, label %report_cast_error.argprom.exit, label %18
 
 18:                                               ; preds = %13
   %19 = load i32, ptr %17, align 8
   %20 = icmp eq i32 %19, 40
-  br i1 %20, label %21, label %report_cast_error.exit
+  br i1 %20, label %21, label %report_cast_error.argprom.exit
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %17, i64 56
   %23 = load ptr, ptr %22, align 8
-  br label %report_cast_error.exit
+  br label %report_cast_error.argprom.exit
 
-report_cast_error.exit:                           ; preds = %13, %18, %21
+report_cast_error.argprom.exit:                   ; preds = %13, %18, %21
   %.025.i = phi ptr [ %23, %21 ], [ null, %13 ], [ %17, %18 ]
   %24 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i) #10
   %25 = tail call ptr @type_quoted_error_string(ptr noundef %.val73) #10
@@ -3896,8 +3896,8 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   %97 = tail call zeroext i1 %85(ptr noundef nonnull %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #10
   br label %cast_is_allowed.exit
 
-cast_is_allowed.exit:                             ; preds = %96, %86, %.thread.i, %.loopexit, %48, %report_cast_error.exit, %12
-  %.062 = phi i1 [ false, %12 ], [ false, %report_cast_error.exit ], [ true, %48 ], [ %97, %96 ], [ true, %.loopexit ], [ false, %86 ], [ false, %.thread.i ]
+cast_is_allowed.exit:                             ; preds = %96, %86, %.thread.i, %.loopexit, %48, %report_cast_error.argprom.exit, %12
+  %.062 = phi i1 [ false, %12 ], [ false, %report_cast_error.argprom.exit ], [ true, %48 ], [ %97, %96 ], [ true, %.loopexit ], [ false, %86 ], [ false, %.thread.i ]
   ret i1 %.062
 }
 
@@ -3925,19 +3925,19 @@ define internal zeroext i1 @rule_vec_to_arr(ptr noundef %0, i1 noundef zeroext %
   %16 = getelementptr inbounds i8, ptr %.val, i64 8
   %17 = load ptr, ptr %.val, align 8
   %.not29.i = icmp eq ptr %17, null
-  br i1 %.not29.i, label %report_cast_error.exit, label %18
+  br i1 %.not29.i, label %report_cast_error.argprom.exit, label %18
 
 18:                                               ; preds = %13
   %19 = load i32, ptr %17, align 8
   %20 = icmp eq i32 %19, 40
-  br i1 %20, label %21, label %report_cast_error.exit
+  br i1 %20, label %21, label %report_cast_error.argprom.exit
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %17, i64 56
   %23 = load ptr, ptr %22, align 8
-  br label %report_cast_error.exit
+  br label %report_cast_error.argprom.exit
 
-report_cast_error.exit:                           ; preds = %13, %18, %21
+report_cast_error.argprom.exit:                   ; preds = %13, %18, %21
   %.025.i = phi ptr [ %23, %21 ], [ null, %13 ], [ %17, %18 ]
   %24 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i) #10
   %25 = tail call ptr @type_quoted_error_string(ptr noundef %.val44) #10
@@ -4049,8 +4049,8 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   %74 = tail call zeroext i1 %62(ptr noundef nonnull %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #10
   br label %cast_is_allowed.exit
 
-cast_is_allowed.exit:                             ; preds = %73, %63, %.thread.i, %.loopexit, %report_cast_error.exit, %12
-  %.039 = phi i1 [ false, %12 ], [ false, %report_cast_error.exit ], [ %74, %73 ], [ true, %.loopexit ], [ false, %63 ], [ false, %.thread.i ]
+cast_is_allowed.exit:                             ; preds = %73, %63, %.thread.i, %.loopexit, %report_cast_error.argprom.exit, %12
+  %.039 = phi i1 [ false, %12 ], [ false, %report_cast_error.argprom.exit ], [ %74, %73 ], [ true, %.loopexit ], [ false, %63 ], [ false, %.thread.i ]
   ret i1 %.039
 }
 
@@ -4223,19 +4223,19 @@ define internal noundef zeroext i1 @rule_bits_to_int(ptr nocapture noundef reado
   %34 = getelementptr inbounds i8, ptr %.val, i64 8
   %35 = load ptr, ptr %.val, align 8
   %.not29.i = icmp eq ptr %35, null
-  br i1 %.not29.i, label %report_cast_error.exit, label %36
+  br i1 %.not29.i, label %report_cast_error.argprom.exit, label %36
 
 36:                                               ; preds = %31
   %37 = load i32, ptr %35, align 8
   %38 = icmp eq i32 %37, 40
-  br i1 %38, label %39, label %report_cast_error.exit
+  br i1 %38, label %39, label %report_cast_error.argprom.exit
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds i8, ptr %35, i64 56
   %41 = load ptr, ptr %40, align 8
-  br label %report_cast_error.exit
+  br label %report_cast_error.argprom.exit
 
-report_cast_error.exit:                           ; preds = %31, %36, %39
+report_cast_error.argprom.exit:                   ; preds = %31, %36, %39
   %.025.i = phi ptr [ %41, %39 ], [ null, %31 ], [ %35, %36 ]
   %42 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i) #10
   %43 = tail call ptr @type_quoted_error_string(ptr noundef %.val36) #10
@@ -4272,27 +4272,27 @@ report_cast_error.exit:                           ; preds = %31, %36, %39
   %58 = tail call ptr @type_quoted_error_string(ptr noundef %.0.i) #10
   %59 = tail call ptr @type_quoted_error_string(ptr noundef %.val38) #10
   %.not30.i = icmp eq ptr %.val38, null
-  br i1 %.not30.i, label %report_cast_error.exit40, label %60
+  br i1 %.not30.i, label %report_cast_error.argprom.exit40, label %60
 
 60:                                               ; preds = %57
   %61 = load i32, ptr %.val38, align 8
   %62 = icmp eq i32 %61, 40
-  br i1 %62, label %63, label %report_cast_error.exit40
+  br i1 %62, label %63, label %report_cast_error.argprom.exit40
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds i8, ptr %.val38, i64 56
   %65 = load ptr, ptr %64, align 8
-  br label %report_cast_error.exit40
+  br label %report_cast_error.argprom.exit40
 
-report_cast_error.exit40:                         ; preds = %57, %60, %63
+report_cast_error.argprom.exit40:                 ; preds = %57, %60, %63
   %.024.i = phi ptr [ %65, %63 ], [ null, %57 ], [ %.val38, %60 ]
   %66 = tail call ptr @type_to_error_string(ptr noundef %.024.i) #10
   %67 = load i64, ptr %49, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %67, ptr noundef nonnull @.str.13, ptr noundef %58, ptr noundef %59, ptr noundef %66) #10
   br label %68
 
-68:                                               ; preds = %45, %report_cast_error.exit40, %report_cast_error.exit, %30, %3
-  %.029 = phi i1 [ false, %3 ], [ false, %30 ], [ false, %report_cast_error.exit ], [ false, %report_cast_error.exit40 ], [ %1, %45 ]
+68:                                               ; preds = %45, %report_cast_error.argprom.exit40, %report_cast_error.argprom.exit, %30, %3
+  %.029 = phi i1 [ false, %3 ], [ false, %30 ], [ false, %report_cast_error.argprom.exit ], [ false, %report_cast_error.argprom.exit40 ], [ %1, %45 ]
   ret i1 %.029
 }
 
@@ -4329,19 +4329,19 @@ define internal noundef zeroext i1 @rule_bits_to_arr(ptr nocapture noundef reado
   %21 = getelementptr inbounds i8, ptr %.val, i64 8
   %22 = load ptr, ptr %.val, align 8
   %.not29.i = icmp eq ptr %22, null
-  br i1 %.not29.i, label %report_cast_error.exit, label %23
+  br i1 %.not29.i, label %report_cast_error.argprom.exit, label %23
 
 23:                                               ; preds = %18
   %24 = load i32, ptr %22, align 8
   %25 = icmp eq i32 %24, 40
-  br i1 %25, label %26, label %report_cast_error.exit
+  br i1 %25, label %26, label %report_cast_error.argprom.exit
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %22, i64 56
   %28 = load ptr, ptr %27, align 8
-  br label %report_cast_error.exit
+  br label %report_cast_error.argprom.exit
 
-report_cast_error.exit:                           ; preds = %18, %23, %26
+report_cast_error.argprom.exit:                   ; preds = %18, %23, %26
   %.025.i = phi ptr [ %28, %26 ], [ null, %18 ], [ %22, %23 ]
   %29 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i) #10
   %30 = tail call ptr @type_quoted_error_string(ptr noundef %.val23) #10
@@ -4378,27 +4378,27 @@ report_cast_error.exit:                           ; preds = %18, %23, %26
   %45 = tail call ptr @type_quoted_error_string(ptr noundef %.0.i) #10
   %46 = tail call ptr @type_quoted_error_string(ptr noundef %.val25) #10
   %.not30.i = icmp eq ptr %.val25, null
-  br i1 %.not30.i, label %report_cast_error.exit27, label %47
+  br i1 %.not30.i, label %report_cast_error.argprom.exit27, label %47
 
 47:                                               ; preds = %44
   %48 = load i32, ptr %.val25, align 8
   %49 = icmp eq i32 %48, 40
-  br i1 %49, label %50, label %report_cast_error.exit27
+  br i1 %49, label %50, label %report_cast_error.argprom.exit27
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %.val25, i64 56
   %52 = load ptr, ptr %51, align 8
-  br label %report_cast_error.exit27
+  br label %report_cast_error.argprom.exit27
 
-report_cast_error.exit27:                         ; preds = %44, %47, %50
+report_cast_error.argprom.exit27:                 ; preds = %44, %47, %50
   %.024.i = phi ptr [ %52, %50 ], [ null, %44 ], [ %.val25, %47 ]
   %53 = tail call ptr @type_to_error_string(ptr noundef %.024.i) #10
   %54 = load i64, ptr %36, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %54, ptr noundef nonnull @.str.13, ptr noundef %45, ptr noundef %46, ptr noundef %53) #10
   br label %55
 
-55:                                               ; preds = %32, %report_cast_error.exit27, %report_cast_error.exit, %17, %3
-  %.020 = phi i1 [ false, %3 ], [ false, %17 ], [ false, %report_cast_error.exit ], [ false, %report_cast_error.exit27 ], [ %1, %32 ]
+55:                                               ; preds = %32, %report_cast_error.argprom.exit27, %report_cast_error.argprom.exit, %17, %3
+  %.020 = phi i1 [ false, %3 ], [ false, %17 ], [ false, %report_cast_error.argprom.exit ], [ false, %report_cast_error.argprom.exit27 ], [ %1, %32 ]
   ret i1 %.020
 }
 
@@ -4426,7 +4426,7 @@ define internal zeroext i1 @rule_from_distinct(ptr noundef %0, i1 noundef zeroex
   %.val = load ptr, ptr %15, align 8
   %16 = getelementptr i8, ptr %0, i64 24
   %.val45 = load ptr, ptr %16, align 8
-  tail call fastcc void @report_cast_error(ptr %.val, ptr %.val45, i1 noundef zeroext %14)
+  tail call fastcc void @report_cast_error.argprom(ptr %.val, ptr %.val45, i1 noundef zeroext %14)
   br label %.preheader51
 
 .preheader51:                                     ; preds = %13, %6, %3
@@ -4595,19 +4595,19 @@ define internal zeroext i1 @rule_arr_to_vec(ptr noundef %0, i1 noundef zeroext %
   %16 = getelementptr inbounds i8, ptr %.val, i64 8
   %17 = load ptr, ptr %.val, align 8
   %.not29.i = icmp eq ptr %17, null
-  br i1 %.not29.i, label %report_cast_error.exit, label %18
+  br i1 %.not29.i, label %report_cast_error.argprom.exit, label %18
 
 18:                                               ; preds = %13
   %19 = load i32, ptr %17, align 8
   %20 = icmp eq i32 %19, 40
-  br i1 %20, label %21, label %report_cast_error.exit
+  br i1 %20, label %21, label %report_cast_error.argprom.exit
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %17, i64 56
   %23 = load ptr, ptr %22, align 8
-  br label %report_cast_error.exit
+  br label %report_cast_error.argprom.exit
 
-report_cast_error.exit:                           ; preds = %13, %18, %21
+report_cast_error.argprom.exit:                   ; preds = %13, %18, %21
   %.025.i = phi ptr [ %23, %21 ], [ null, %13 ], [ %17, %18 ]
   %24 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i) #10
   %25 = tail call ptr @type_quoted_error_string(ptr noundef %.val77) #10
@@ -4729,19 +4729,19 @@ type_flatten.exit:                                ; preds = %30
   %66 = getelementptr inbounds i8, ptr %.val78, i64 8
   %67 = load ptr, ptr %.val78, align 8
   %.not29.i80 = icmp eq ptr %67, null
-  br i1 %.not29.i80, label %report_cast_error.exit82, label %68
+  br i1 %.not29.i80, label %report_cast_error.argprom.exit82, label %68
 
 68:                                               ; preds = %63
   %69 = load i32, ptr %67, align 8
   %70 = icmp eq i32 %69, 40
-  br i1 %70, label %71, label %report_cast_error.exit82
+  br i1 %70, label %71, label %report_cast_error.argprom.exit82
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds i8, ptr %67, i64 56
   %73 = load ptr, ptr %72, align 8
-  br label %report_cast_error.exit82
+  br label %report_cast_error.argprom.exit82
 
-report_cast_error.exit82:                         ; preds = %63, %68, %71
+report_cast_error.argprom.exit82:                 ; preds = %63, %68, %71
   %.025.i81 = phi ptr [ %73, %71 ], [ null, %63 ], [ %67, %68 ]
   %74 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i81) #10
   %75 = tail call ptr @type_quoted_error_string(ptr noundef %.val79) #10
@@ -4851,8 +4851,8 @@ report_cast_error.exit82:                         ; preds = %63, %68, %71
   %121 = tail call zeroext i1 %109(ptr noundef nonnull %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #10
   br label %cast_is_allowed.exit
 
-cast_is_allowed.exit:                             ; preds = %120, %110, %.thread.i, %.loopexit, %report_cast_error.exit82, %.thread86, %report_cast_error.exit, %12
-  %.064 = phi i1 [ false, %12 ], [ false, %report_cast_error.exit ], [ false, %.thread86 ], [ false, %report_cast_error.exit82 ], [ %121, %120 ], [ true, %.loopexit ], [ false, %110 ], [ false, %.thread.i ]
+cast_is_allowed.exit:                             ; preds = %120, %110, %.thread.i, %.loopexit, %report_cast_error.argprom.exit82, %.thread86, %report_cast_error.argprom.exit, %12
+  %.064 = phi i1 [ false, %12 ], [ false, %report_cast_error.argprom.exit ], [ false, %.thread86 ], [ false, %report_cast_error.argprom.exit82 ], [ %121, %120 ], [ true, %.loopexit ], [ false, %110 ], [ false, %.thread.i ]
   ret i1 %.064
 }
 
@@ -4877,7 +4877,7 @@ define internal noundef zeroext i1 @rule_arr_to_bits(ptr nocapture noundef reado
   %.val = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %0, i64 24
   %.val12 = load ptr, ptr %17, align 8
-  tail call fastcc void @report_cast_error(ptr %.val, ptr %.val12, i1 noundef zeroext %15)
+  tail call fastcc void @report_cast_error.argprom(ptr %.val, ptr %.val12, i1 noundef zeroext %15)
   br label %18
 
 18:                                               ; preds = %3, %4
@@ -4933,19 +4933,19 @@ define internal zeroext i1 @rule_struct_to_struct(ptr nocapture noundef readonly
   %12 = getelementptr inbounds i8, ptr %.val, i64 8
   %13 = load ptr, ptr %.val, align 8
   %.not29.i = icmp eq ptr %13, null
-  br i1 %.not29.i, label %report_cast_error.exit, label %14
+  br i1 %.not29.i, label %report_cast_error.argprom.exit, label %14
 
 14:                                               ; preds = %9
   %15 = load i32, ptr %13, align 8
   %16 = icmp eq i32 %15, 40
-  br i1 %16, label %17, label %report_cast_error.exit
+  br i1 %16, label %17, label %report_cast_error.argprom.exit
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %13, i64 56
   %19 = load ptr, ptr %18, align 8
-  br label %report_cast_error.exit
+  br label %report_cast_error.argprom.exit
 
-report_cast_error.exit:                           ; preds = %9, %14, %17
+report_cast_error.argprom.exit:                   ; preds = %9, %14, %17
   %.025.i = phi ptr [ %19, %17 ], [ null, %9 ], [ %13, %14 ]
   %20 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i) #10
   %21 = tail call ptr @type_quoted_error_string(ptr noundef %.val10) #10
@@ -4953,7 +4953,7 @@ report_cast_error.exit:                           ; preds = %9, %14, %17
   tail call void (i64, ptr, ...) @sema_error_at(i64 %22, ptr noundef nonnull @.str.14, ptr noundef %20, ptr noundef %21) #10
   br label %23
 
-23:                                               ; preds = %3, %report_cast_error.exit
+23:                                               ; preds = %3, %report_cast_error.argprom.exit
   ret i1 %8
 }
 
@@ -5180,7 +5180,7 @@ common.ret51:                                     ; preds = %49, %52, %47, %type
   %.val = load ptr, ptr %55, align 8
   %56 = getelementptr i8, ptr %0, i64 24
   %.val27 = load ptr, ptr %56, align 8
-  tail call fastcc void @report_cast_error(ptr %.val, ptr %.val27, i1 noundef zeroext %54)
+  tail call fastcc void @report_cast_error.argprom(ptr %.val, ptr %.val27, i1 noundef zeroext %54)
   br label %common.ret51
 }
 
@@ -7398,7 +7398,7 @@ type_flatten.exit74:                              ; preds = %22
   br label %200
 
 63:                                               ; preds = %47
-  tail call fastcc void @insert_runtime_cast(ptr noundef nonnull %1, i32 noundef 16, ptr noundef nonnull %24)
+  tail call fastcc void @insert_runtime_cast.retelim(ptr noundef nonnull %1, i32 noundef 16, ptr noundef nonnull %24)
   br label %200
 
 64:                                               ; preds = %47, %47, %47, %47, %47, %47, %47, %47, %47, %47
@@ -7567,7 +7567,7 @@ type_flatten.exit74:                              ; preds = %22
   br label %200
 
 148:                                              ; preds = %133
-  tail call fastcc void @insert_runtime_cast(ptr noundef nonnull %1, i32 noundef 20, ptr noundef nonnull %24)
+  tail call fastcc void @insert_runtime_cast.retelim(ptr noundef nonnull %1, i32 noundef 20, ptr noundef nonnull %24)
   br label %200
 
 149:                                              ; preds = %133, %133, %133, %133, %133, %133, %133, %133, %133, %133
@@ -7593,7 +7593,7 @@ type_flatten.exit74:                              ; preds = %22
   br label %200
 
 163:                                              ; preds = %133, %133, %133, %133
-  tail call fastcc void @insert_runtime_cast(ptr noundef nonnull %1, i32 noundef 39, ptr noundef nonnull %24)
+  tail call fastcc void @insert_runtime_cast.retelim(ptr noundef nonnull %1, i32 noundef 39, ptr noundef nonnull %24)
   br label %164
 
 164:                                              ; preds = %133, %163
@@ -7629,7 +7629,7 @@ type_flatten.exit74:                              ; preds = %22
   unreachable
 
 167:                                              ; preds = %165
-  tail call fastcc void @insert_runtime_cast(ptr noundef nonnull %1, i32 noundef 27, ptr noundef nonnull %24)
+  tail call fastcc void @insert_runtime_cast.retelim(ptr noundef nonnull %1, i32 noundef 27, ptr noundef nonnull %24)
   br label %200
 
 168:                                              ; preds = %165, %165, %165, %165, %165, %165, %165, %165, %165, %165
@@ -8623,7 +8623,7 @@ type_flatten.exit:                                ; preds = %6
 declare ptr @type_get_optional(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @insert_runtime_cast(ptr nocapture noundef %0, i32 noundef range(i32 0, 41) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @insert_runtime_cast.retelim(ptr nocapture noundef %0, i32 noundef range(i32 0, 41) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -8656,7 +8656,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @vmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @report_cast_error(ptr nocapture readonly %.8.val, ptr %.24.val, i1 noundef zeroext %0) unnamed_addr #0 {
+define internal fastcc void @report_cast_error.argprom(ptr nocapture readonly %.8.val, ptr %.24.val, i1 noundef zeroext %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
   %3 = load ptr, ptr %.8.val, align 8
   %.not29 = icmp eq ptr %3, null

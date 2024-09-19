@@ -1917,7 +1917,7 @@ define void @Aig_ManDump(ptr noundef %0) local_unnamed_addr #1 {
 
 14:                                               ; preds = %1
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  br label %Aig_ManDumpBlif.specialized.1.exit
+  br label %Aig_ManDumpBlif.specialized.1.argprom.exit
 
 15:                                               ; preds = %25, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
@@ -2374,9 +2374,9 @@ Aig_ManCleanCioIds.exit.i:                        ; preds = %.critedge.i45.i, %.
 
 Vec_PtrFree.exit.i:                               ; preds = %243, %Aig_ManCleanCioIds.exit.i
   tail call void @free(ptr noundef nonnull %26) #24
-  br label %Aig_ManDumpBlif.specialized.1.exit
+  br label %Aig_ManDumpBlif.specialized.1.argprom.exit
 
-Aig_ManDumpBlif.specialized.1.exit:               ; preds = %14, %Vec_PtrFree.exit.i
+Aig_ManDumpBlif.specialized.1.argprom.exit:       ; preds = %14, %Vec_PtrFree.exit.i
   %244 = getelementptr i8, ptr %0, i64 148
   %.val = load i32, ptr %244, align 4
   %245 = getelementptr i8, ptr %0, i64 152
@@ -3764,7 +3764,7 @@ define i32 @Aig_ManChoiceNum(ptr nocapture noundef readonly %0) local_unnamed_ad
 17:                                               ; preds = %12
   %.val14 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.val14, null
-  br i1 %.not.i, label %Aig_ObjIsChoice.exit, label %18
+  br i1 %.not.i, label %Aig_ObjIsChoice.argprom.exit, label %18
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %10, i64 36
@@ -3773,21 +3773,21 @@ define i32 @Aig_ManChoiceNum(ptr nocapture noundef readonly %0) local_unnamed_ad
   %22 = getelementptr inbounds ptr, ptr %.val14, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not4.i = icmp eq ptr %23, null
-  br i1 %.not4.i, label %Aig_ObjIsChoice.exit, label %24
+  br i1 %.not4.i, label %Aig_ObjIsChoice.argprom.exit, label %24
 
 24:                                               ; preds = %18
   %25 = and i64 %.val13, 4294967232
   %26 = icmp ne i64 %25, 0
   %27 = zext i1 %26 to i32
-  br label %Aig_ObjIsChoice.exit
+  br label %Aig_ObjIsChoice.argprom.exit
 
-Aig_ObjIsChoice.exit:                             ; preds = %17, %18, %24
+Aig_ObjIsChoice.argprom.exit:                     ; preds = %17, %18, %24
   %28 = phi i32 [ 0, %18 ], [ 0, %17 ], [ %27, %24 ]
   %29 = add nsw i32 %28, %.016
   br label %30
 
-30:                                               ; preds = %Aig_ObjIsChoice.exit, %12, %8
-  %.1 = phi i32 [ %.016, %8 ], [ %29, %Aig_ObjIsChoice.exit ], [ %.016, %12 ]
+30:                                               ; preds = %Aig_ObjIsChoice.argprom.exit, %12, %8
+  %.1 = phi i32 [ %.016, %8 ], [ %29, %Aig_ObjIsChoice.argprom.exit ], [ %.016, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !51
@@ -4481,7 +4481,7 @@ define void @Aig_ManCounterExampleValueStart(ptr nocapture noundef %0, ptr nocap
   %78 = getelementptr i8, ptr %69, i64 8
   %.val120 = load ptr, ptr %78, align 8
   %.not.i = icmp eq ptr %.val120, null
-  br i1 %.not.i, label %Aig_ObjFaninId0.exit, label %79
+  br i1 %.not.i, label %Aig_ObjFaninId0.argprom.exit, label %79
 
 79:                                               ; preds = %76
   %80 = ptrtoint ptr %.val120 to i64
@@ -4489,9 +4489,9 @@ define void @Aig_ManCounterExampleValueStart(ptr nocapture noundef %0, ptr nocap
   %82 = inttoptr i64 %81 to ptr
   %83 = getelementptr inbounds i8, ptr %82, i64 36
   %84 = load i32, ptr %83, align 4
-  br label %Aig_ObjFaninId0.exit
+  br label %Aig_ObjFaninId0.argprom.exit
 
-Aig_ObjFaninId0.exit:                             ; preds = %76, %79
+Aig_ObjFaninId0.argprom.exit:                     ; preds = %76, %79
   %85 = phi i32 [ %84, %79 ], [ -1, %76 ]
   %86 = add nsw i32 %85, %25
   %87 = ashr i32 %86, 5
@@ -4504,17 +4504,17 @@ Aig_ObjFaninId0.exit:                             ; preds = %76, %79
   %.val122 = load ptr, ptr %93, align 8
   %.not.i127 = icmp eq ptr %.val122, null
   %.pre168 = ptrtoint ptr %.val122 to i64
-  br i1 %.not.i127, label %Aig_ObjFaninId1.exit, label %94
+  br i1 %.not.i127, label %Aig_ObjFaninId1.argprom.exit, label %94
 
-94:                                               ; preds = %Aig_ObjFaninId0.exit
+94:                                               ; preds = %Aig_ObjFaninId0.argprom.exit
   %95 = and i64 %.pre168, -2
   %96 = inttoptr i64 %95 to ptr
   %97 = getelementptr inbounds i8, ptr %96, i64 36
   %98 = load i32, ptr %97, align 4
-  br label %Aig_ObjFaninId1.exit
+  br label %Aig_ObjFaninId1.argprom.exit
 
-Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exit, %94
-  %99 = phi i32 [ %98, %94 ], [ -1, %Aig_ObjFaninId0.exit ]
+Aig_ObjFaninId1.argprom.exit:                     ; preds = %Aig_ObjFaninId0.argprom.exit, %94
+  %99 = phi i32 [ %98, %94 ], [ -1, %Aig_ObjFaninId0.argprom.exit ]
   %100 = add nsw i32 %99, %25
   %101 = ashr i32 %100, 5
   %102 = sext i32 %101 to i64
@@ -4532,7 +4532,7 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
   %.not98 = icmp eq i32 %113, 0
   br i1 %.not98, label %.critedge2, label %114
 
-114:                                              ; preds = %Aig_ObjFaninId1.exit
+114:                                              ; preds = %Aig_ObjFaninId1.argprom.exit
   %115 = getelementptr i8, ptr %69, i64 36
   %.val112 = load i32, ptr %115, align 4
   %116 = add nsw i32 %.val112, %25
@@ -4547,8 +4547,8 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
   %.pre = load ptr, ptr %5, align 8
   br label %.critedge2
 
-.critedge2:                                       ; preds = %71, %.lr.ph141, %114, %Aig_ObjFaninId1.exit
-  %124 = phi ptr [ %66, %71 ], [ %66, %.lr.ph141 ], [ %.pre, %114 ], [ %66, %Aig_ObjFaninId1.exit ]
+.critedge2:                                       ; preds = %71, %.lr.ph141, %114, %Aig_ObjFaninId1.argprom.exit
+  %124 = phi ptr [ %66, %71 ], [ %66, %.lr.ph141 ], [ %.pre, %114 ], [ %66, %Aig_ObjFaninId1.argprom.exit ]
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %125 = getelementptr i8, ptr %124, i64 4
   %.val100 = load i32, ptr %125, align 4
@@ -4568,16 +4568,16 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
   %.val121 = load ptr, ptr %133, align 8
   %.not.i128 = icmp eq ptr %.val121, null
   %.pre167 = ptrtoint ptr %.val121 to i64
-  br i1 %.not.i128, label %Aig_ObjFaninId0.exit129, label %134
+  br i1 %.not.i128, label %Aig_ObjFaninId0.argprom.exit129, label %134
 
 134:                                              ; preds = %.lr.ph144
   %135 = and i64 %.pre167, -2
   %136 = inttoptr i64 %135 to ptr
   %137 = getelementptr inbounds i8, ptr %136, i64 36
   %138 = load i32, ptr %137, align 4
-  br label %Aig_ObjFaninId0.exit129
+  br label %Aig_ObjFaninId0.argprom.exit129
 
-Aig_ObjFaninId0.exit129:                          ; preds = %.lr.ph144, %134
+Aig_ObjFaninId0.argprom.exit129:                  ; preds = %.lr.ph144, %134
   %139 = phi i32 [ %138, %134 ], [ -1, %.lr.ph144 ]
   %140 = add nsw i32 %139, %25
   %141 = ashr i32 %140, 5
@@ -4592,7 +4592,7 @@ Aig_ObjFaninId0.exit129:                          ; preds = %.lr.ph144, %134
   %.not96 = icmp eq i32 %149, 0
   br i1 %.not96, label %.critedge4, label %150
 
-150:                                              ; preds = %Aig_ObjFaninId0.exit129
+150:                                              ; preds = %Aig_ObjFaninId0.argprom.exit129
   %151 = getelementptr i8, ptr %131, i64 36
   %.val111 = load i32, ptr %151, align 4
   %152 = add nsw i32 %.val111, %25
@@ -4607,8 +4607,8 @@ Aig_ObjFaninId0.exit129:                          ; preds = %.lr.ph144, %134
   %.pre163 = load ptr, ptr %21, align 8
   br label %.critedge4
 
-.critedge4:                                       ; preds = %Aig_ObjFaninId0.exit129, %150
-  %160 = phi ptr [ %128, %Aig_ObjFaninId0.exit129 ], [ %.pre163, %150 ]
+.critedge4:                                       ; preds = %Aig_ObjFaninId0.argprom.exit129, %150
+  %160 = phi ptr [ %128, %Aig_ObjFaninId0.argprom.exit129 ], [ %.pre163, %150 ]
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %161 = getelementptr i8, ptr %160, i64 4
   %.val = load i32, ptr %161, align 4
@@ -4736,7 +4736,7 @@ define range(i32 0, 2) i32 @Aig_ManCounterExampleValueLookup(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define void @Aig_ManCounterExampleValueTest(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-Aig_ManObj.exit:
+Aig_ManObj.argprom.exit:
   %2 = getelementptr i8, ptr %0, i64 32
   %.val13 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val13, i64 4

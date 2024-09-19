@@ -1077,7 +1077,7 @@ _ZL7scalbnAdi.exit318.i:                          ; preds = %366, %364, %361, %.
   %372 = icmp eq i32 %.02284.i, 0
   %373 = select i1 %372, double 0.000000e+00, double -0.000000e+00
   store double %373, ptr %1, align 8
-  br label %_ZL17__kernel_rem_pio2PdS_iiiPKi.exit
+  br label %_ZL17__kernel_rem_pio2PdS_iiiPKi.argprom.exit
 
 .lr.ph59.preheader.i:                             ; preds = %_ZL7scalbnAdi.exit318.i
   %374 = zext nneg i32 %.2233.i to i64
@@ -1146,7 +1146,7 @@ _ZL7scalbnAdi.exit318.i:                          ; preds = %366, %364, %361, %.
   store double %396, ptr %1, align 8
   %397 = fsub double %.pre, %393
   %.not26472.i = icmp eq i32 %.2233.i, 0
-  br i1 %.not26472.i, label %_ZL17__kernel_rem_pio2PdS_iiiPKi.exit, label %.lr.ph76.preheader.i
+  br i1 %.not26472.i, label %_ZL17__kernel_rem_pio2PdS_iiiPKi.argprom.exit, label %.lr.ph76.preheader.i
 
 .lr.ph76.preheader.i:                             ; preds = %._crit_edge70.i
   %398 = add nuw i32 %.2233.i, 1
@@ -1161,9 +1161,9 @@ _ZL7scalbnAdi.exit318.i:                          ; preds = %366, %364, %361, %.
   %401 = fadd double %.674.i, %400
   %indvars.iv.next156.i = add nuw nsw i64 %indvars.iv155.i, 1
   %exitcond159.not.i = icmp eq i64 %indvars.iv.next156.i, %wide.trip.count158.i
-  br i1 %exitcond159.not.i, label %_ZL17__kernel_rem_pio2PdS_iiiPKi.exit, label %.lr.ph76.i, !llvm.loop !23
+  br i1 %exitcond159.not.i, label %_ZL17__kernel_rem_pio2PdS_iiiPKi.argprom.exit, label %.lr.ph76.i, !llvm.loop !23
 
-_ZL17__kernel_rem_pio2PdS_iiiPKi.exit:            ; preds = %.lr.ph76.i, %._crit_edge70.i.thread, %._crit_edge70.i
+_ZL17__kernel_rem_pio2PdS_iiiPKi.argprom.exit:    ; preds = %.lr.ph76.i, %._crit_edge70.i.thread, %._crit_edge70.i
   %402 = phi double [ %396, %._crit_edge70.i ], [ %373, %._crit_edge70.i.thread ], [ %396, %.lr.ph76.i ]
   %403 = phi i1 [ %394, %._crit_edge70.i ], [ %372, %._crit_edge70.i.thread ], [ %394, %.lr.ph76.i ]
   %.6.lcssa.i = phi double [ %397, %._crit_edge70.i ], [ undef, %._crit_edge70.i.thread ], [ %401, %.lr.ph76.i ]
@@ -1179,7 +1179,7 @@ _ZL17__kernel_rem_pio2PdS_iiiPKi.exit:            ; preds = %.lr.ph76.i, %._crit
   %408 = icmp slt i64 %8, 0
   br i1 %408, label %409, label %413
 
-409:                                              ; preds = %_ZL17__kernel_rem_pio2PdS_iiiPKi.exit
+409:                                              ; preds = %_ZL17__kernel_rem_pio2PdS_iiiPKi.argprom.exit
   %410 = fneg double %402
   store double %410, ptr %1, align 8
   %411 = fneg double %405
@@ -1187,8 +1187,8 @@ _ZL17__kernel_rem_pio2PdS_iiiPKi.exit:            ; preds = %.lr.ph76.i, %._crit
   %412 = sub nsw i32 0, %407
   br label %413
 
-413:                                              ; preds = %_ZL17__kernel_rem_pio2PdS_iiiPKi.exit, %91, %32, %37, %19, %24, %409, %103, %97, %11
-  %.0 = phi i32 [ 0, %11 ], [ %100, %97 ], [ 0, %103 ], [ %412, %409 ], [ 1, %24 ], [ 1, %19 ], [ -1, %37 ], [ -1, %32 ], [ %49, %91 ], [ %407, %_ZL17__kernel_rem_pio2PdS_iiiPKi.exit ]
+413:                                              ; preds = %_ZL17__kernel_rem_pio2PdS_iiiPKi.argprom.exit, %91, %32, %37, %19, %24, %409, %103, %97, %11
+  %.0 = phi i32 [ 0, %11 ], [ %100, %97 ], [ 0, %103 ], [ %412, %409 ], [ 1, %24 ], [ 1, %19 ], [ -1, %37 ], [ -1, %32 ], [ %49, %91 ], [ %407, %_ZL17__kernel_rem_pio2PdS_iiiPKi.argprom.exit ]
   ret i32 %.0
 }
 

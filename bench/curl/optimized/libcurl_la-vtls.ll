@@ -77,12 +77,12 @@ entry:
   %.6 = select i1 %proxy, i64 576, i64 448
   %ssl = getelementptr inbounds i8, ptr %data, i64 %.
   %ssl_config = getelementptr inbounds i8, ptr %candidate, i64 %.6
-  %call3 = tail call fastcc zeroext i1 @match_ssl_primary_config(ptr noundef nonnull %ssl, ptr noundef nonnull %ssl_config)
+  %call3 = tail call fastcc zeroext i1 @match_ssl_primary_config.argprom(ptr noundef nonnull %ssl, ptr noundef nonnull %ssl_config)
   ret i1 %call3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @match_ssl_primary_config(ptr nocapture noundef readonly %c1, ptr nocapture noundef readonly %c2) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @match_ssl_primary_config.argprom(ptr nocapture noundef readonly %c1, ptr nocapture noundef readonly %c2) unnamed_addr #2 {
 entry:
   %version = getelementptr inbounds i8, ptr %c1, i64 120
   %0 = load i8, ptr %version, align 8
@@ -1232,7 +1232,7 @@ land.lhs.true72:                                  ; preds = %land.lhs.true70
 
 land.lhs.true77:                                  ; preds = %land.lhs.true72
   %ssl_config78 = getelementptr inbounds i8, ptr %arrayidx, i64 56
-  %call79 = tail call fastcc zeroext i1 @match_ssl_primary_config(ptr noundef nonnull %ssl_config.i, ptr noundef nonnull %ssl_config78)
+  %call79 = tail call fastcc zeroext i1 @match_ssl_primary_config.argprom(ptr noundef nonnull %ssl_config.i, ptr noundef nonnull %ssl_config78)
   br i1 %call79, label %if.then80, label %for.inc
 
 if.then80:                                        ; preds = %land.lhs.true77
@@ -3456,7 +3456,7 @@ entry:
   %1 = load ptr, ptr @Curl_ccalloc, align 8
   %call.i.i = tail call ptr %1(i64 noundef 1, i64 noundef 88) #18
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %cf_ssl_create.exit.thread, label %if.end.i.i
+  br i1 %tobool.not.i.i, label %cf_ssl_create.argprom.exit.thread, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %2 = and i32 %conn.val, 33554432
@@ -3477,7 +3477,7 @@ if.end.i.i:                                       ; preds = %entry
 if.then5.i.i:                                     ; preds = %if.end.i.i
   %6 = load ptr, ptr @Curl_cfree, align 8
   tail call void %6(ptr noundef nonnull %call.i.i) #18
-  br label %cf_ssl_create.exit.thread
+  br label %cf_ssl_create.argprom.exit.thread
 
 out.i:                                            ; preds = %if.end.i.i
   %call3.i = call i32 @Curl_cf_create(ptr noundef nonnull %cf.i, ptr noundef nonnull @Curl_cft_ssl, ptr noundef nonnull %call.i.i) #18
@@ -3490,9 +3490,9 @@ if.then.i.i:                                      ; preds = %out.i
   call void %7(ptr noundef %8) #18
   %9 = load ptr, ptr @Curl_cfree, align 8
   call void %9(ptr noundef nonnull %call.i.i) #18
-  br label %cf_ssl_create.exit.thread
+  br label %cf_ssl_create.argprom.exit.thread
 
-cf_ssl_create.exit.thread:                        ; preds = %if.then.i.i, %if.then5.i.i, %entry
+cf_ssl_create.argprom.exit.thread:                ; preds = %if.then.i.i, %if.then5.i.i, %entry
   %result.01223.i.ph = phi i32 [ 27, %entry ], [ 27, %if.then5.i.i ], [ %call3.i, %if.then.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cf.i)
   br label %if.end
@@ -3503,8 +3503,8 @@ if.then:                                          ; preds = %out.i
   call void @Curl_conn_cf_add(ptr noundef %data, ptr noundef nonnull %conn, i32 noundef %sockindex, ptr noundef %10) #18
   br label %if.end
 
-if.end:                                           ; preds = %cf_ssl_create.exit.thread, %if.then
-  %result.01223.i6 = phi i32 [ %result.01223.i.ph, %cf_ssl_create.exit.thread ], [ 0, %if.then ]
+if.end:                                           ; preds = %cf_ssl_create.argprom.exit.thread, %if.then
+  %result.01223.i6 = phi i32 [ %result.01223.i.ph, %cf_ssl_create.argprom.exit.thread ], [ 0, %if.then ]
   ret i32 %result.01223.i6
 }
 
@@ -3523,7 +3523,7 @@ entry:
   %2 = load ptr, ptr @Curl_ccalloc, align 8
   %call.i.i = tail call ptr %2(i64 noundef 1, i64 noundef 88) #18
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %cf_ssl_create.exit.thread, label %if.end.i.i
+  br i1 %tobool.not.i.i, label %cf_ssl_create.argprom.exit.thread, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %3 = and i32 %.val, 33554432
@@ -3544,7 +3544,7 @@ if.end.i.i:                                       ; preds = %entry
 if.then5.i.i:                                     ; preds = %if.end.i.i
   %7 = load ptr, ptr @Curl_cfree, align 8
   tail call void %7(ptr noundef nonnull %call.i.i) #18
-  br label %cf_ssl_create.exit.thread
+  br label %cf_ssl_create.argprom.exit.thread
 
 out.i:                                            ; preds = %if.end.i.i
   %call3.i = call i32 @Curl_cf_create(ptr noundef nonnull %cf.i, ptr noundef nonnull @Curl_cft_ssl, ptr noundef nonnull %call.i.i) #18
@@ -3557,9 +3557,9 @@ if.then.i.i:                                      ; preds = %out.i
   call void %8(ptr noundef %9) #18
   %10 = load ptr, ptr @Curl_cfree, align 8
   call void %10(ptr noundef nonnull %call.i.i) #18
-  br label %cf_ssl_create.exit.thread
+  br label %cf_ssl_create.argprom.exit.thread
 
-cf_ssl_create.exit.thread:                        ; preds = %if.then.i.i, %if.then5.i.i, %entry
+cf_ssl_create.argprom.exit.thread:                ; preds = %if.then.i.i, %if.then5.i.i, %entry
   %result.01223.i.ph = phi i32 [ 27, %entry ], [ 27, %if.then5.i.i ], [ %call3.i, %if.then.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cf.i)
   br label %if.end
@@ -3570,8 +3570,8 @@ if.then:                                          ; preds = %out.i
   call void @Curl_conn_cf_insert_after(ptr noundef nonnull %cf_at, ptr noundef %11) #18
   br label %if.end
 
-if.end:                                           ; preds = %cf_ssl_create.exit.thread, %if.then
-  %result.01223.i5 = phi i32 [ %result.01223.i.ph, %cf_ssl_create.exit.thread ], [ 0, %if.then ]
+if.end:                                           ; preds = %cf_ssl_create.argprom.exit.thread, %if.then
+  %result.01223.i5 = phi i32 [ %result.01223.i.ph, %cf_ssl_create.argprom.exit.thread ], [ 0, %if.then ]
   ret i32 %result.01223.i5
 }
 
@@ -3590,7 +3590,7 @@ entry:
   %2 = load ptr, ptr @Curl_ccalloc, align 8
   %call.i.i = tail call ptr %2(i64 noundef 1, i64 noundef 88) #18
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %cf_ssl_proxy_create.exit.thread, label %if.end.i.i
+  br i1 %tobool.not.i.i, label %cf_ssl_proxy_create.argprom.exit.thread, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %3 = and i32 %.val, 33554432
@@ -3611,7 +3611,7 @@ if.end.i.i:                                       ; preds = %entry
 if.then5.i.i:                                     ; preds = %if.end.i.i
   %7 = load ptr, ptr @Curl_cfree, align 8
   tail call void %7(ptr noundef nonnull %call.i.i) #18
-  br label %cf_ssl_proxy_create.exit.thread
+  br label %cf_ssl_proxy_create.argprom.exit.thread
 
 out.i:                                            ; preds = %if.end.i.i
   %call4.i = call i32 @Curl_cf_create(ptr noundef nonnull %cf.i, ptr noundef nonnull @Curl_cft_ssl_proxy, ptr noundef nonnull %call.i.i) #18
@@ -3624,9 +3624,9 @@ if.then.i.i:                                      ; preds = %out.i
   call void %8(ptr noundef %9) #18
   %10 = load ptr, ptr @Curl_cfree, align 8
   call void %10(ptr noundef nonnull %call.i.i) #18
-  br label %cf_ssl_proxy_create.exit.thread
+  br label %cf_ssl_proxy_create.argprom.exit.thread
 
-cf_ssl_proxy_create.exit.thread:                  ; preds = %if.then.i.i, %if.then5.i.i, %entry
+cf_ssl_proxy_create.argprom.exit.thread:          ; preds = %if.then.i.i, %if.then5.i.i, %entry
   %result.01223.i.ph = phi i32 [ 27, %entry ], [ 27, %if.then5.i.i ], [ %call4.i, %if.then.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cf.i)
   br label %if.end
@@ -3637,8 +3637,8 @@ if.then:                                          ; preds = %out.i
   call void @Curl_conn_cf_insert_after(ptr noundef nonnull %cf_at, ptr noundef %11) #18
   br label %if.end
 
-if.end:                                           ; preds = %cf_ssl_proxy_create.exit.thread, %if.then
-  %result.01223.i5 = phi i32 [ %result.01223.i.ph, %cf_ssl_proxy_create.exit.thread ], [ 0, %if.then ]
+if.end:                                           ; preds = %cf_ssl_proxy_create.argprom.exit.thread, %if.then
+  %result.01223.i5 = phi i32 [ %result.01223.i.ph, %cf_ssl_proxy_create.argprom.exit.thread ], [ 0, %if.then ]
   ret i32 %result.01223.i5
 }
 

@@ -1025,7 +1025,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit:                 ; preds = %281, %_ZNKSt14defau
   %311 = getelementptr inbounds i8, ptr %10, i64 88
   %.sroa.05.0.copyload.i = load i32, ptr %8, align 8, !noalias !51
   %.sroa.27.0.copyload.i = load ptr, ptr %304, align 8, !noalias !51
-  %312 = call fastcc noundef i32 @_ZL15adjustColumnPosN5clang13FullSourceLocEj(i32 %.sroa.05.0.copyload.i, ptr %.sroa.27.0.copyload.i)
+  %312 = call fastcc noundef i32 @_ZL15adjustColumnPosN5clang13FullSourceLocEj.argelim(i32 %.sroa.05.0.copyload.i, ptr %.sroa.27.0.copyload.i)
   store i16 3, ptr %311, align 8, !noalias !51
   %313 = zext i32 %312 to i64
   %314 = getelementptr inbounds i8, ptr %10, i64 96
@@ -1092,7 +1092,7 @@ _ZN4llvm4json6Object2KVD2Ev.exit.i:               ; preds = %_ZNKSt14default_del
   br i1 %336, label %337, label %343
 
 337:                                              ; preds = %328
-  %338 = call fastcc noundef i32 @_ZL15adjustColumnPosN5clang13FullSourceLocEj(i32 %330, ptr %333)
+  %338 = call fastcc noundef i32 @_ZL15adjustColumnPosN5clang13FullSourceLocEj.argelim(i32 %330, ptr %333)
   store i16 3, ptr %11, align 8, !noalias !51
   %339 = zext i32 %338 to i64
   %340 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1103,7 +1103,7 @@ _ZN4llvm4json6Object2KVD2Ev.exit.i:               ; preds = %_ZNKSt14default_del
   call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %341, ptr noundef nonnull align 8 dereferenceable(40) %11) #17
   %342 = load ptr, ptr %12, align 8, !noalias !51
   %.not.i.i.i60 = icmp eq ptr %342, null
-  br i1 %.not.i.i.i60, label %_ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE.exit, label %_ZN4llvm4json9ObjectKeyD2Ev.exit.sink.split.i
+  br i1 %.not.i.i.i60, label %_ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE.argprom.exit, label %_ZN4llvm4json9ObjectKeyD2Ev.exit.sink.split.i
 
 343:                                              ; preds = %328
   %344 = call noundef i32 @_ZNK5clang13FullSourceLoc22getExpansionLineNumberEPb(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null) #17
@@ -1129,7 +1129,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit19.i:             ; preds = %_ZNKSt14default_del
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %13) #17
   %.sroa.0.0.copyload.i = load i32, ptr %9, align 8, !noalias !51
   %.sroa.21.0.copyload.i = load ptr, ptr %305, align 8, !noalias !51
-  %349 = call fastcc noundef i32 @_ZL15adjustColumnPosN5clang13FullSourceLocEj(i32 %.sroa.0.0.copyload.i, ptr %.sroa.21.0.copyload.i)
+  %349 = call fastcc noundef i32 @_ZL15adjustColumnPosN5clang13FullSourceLocEj.argelim(i32 %.sroa.0.0.copyload.i, ptr %.sroa.21.0.copyload.i)
   store i16 3, ptr %15, align 8, !noalias !51
   %350 = zext i32 %349 to i64
   %351 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1140,7 +1140,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit19.i:             ; preds = %_ZNKSt14default_del
   call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %352, ptr noundef nonnull align 8 dereferenceable(40) %15) #17
   %353 = load ptr, ptr %16, align 8, !noalias !51
   %.not.i.i20.i = icmp eq ptr %353, null
-  br i1 %.not.i.i20.i, label %_ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE.exit, label %_ZN4llvm4json9ObjectKeyD2Ev.exit.sink.split.i
+  br i1 %.not.i.i20.i, label %_ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE.argprom.exit, label %_ZN4llvm4json9ObjectKeyD2Ev.exit.sink.split.i
 
 _ZN4llvm4json9ObjectKeyD2Ev.exit.sink.split.i:    ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit19.i, %337
   %.sink3.i = phi ptr [ %342, %337 ], [ %353, %_ZN4llvm4json9ObjectKeyD2Ev.exit19.i ]
@@ -1148,9 +1148,9 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.sink.split.i:    ; preds = %_ZN4llvm4json9Objec
   %.sink.ph.i = phi ptr [ %11, %337 ], [ %15, %_ZN4llvm4json9ObjectKeyD2Ev.exit19.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink3.i) #17
   call void @_ZdlPvm(ptr noundef nonnull %.sink3.i, i64 noundef 32) #18
-  br label %_ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE.exit
+  br label %_ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE.argprom.exit
 
-_ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE.exit: ; preds = %337, %_ZN4llvm4json9ObjectKeyD2Ev.exit19.i, %_ZN4llvm4json9ObjectKeyD2Ev.exit.sink.split.i
+_ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE.argprom.exit: ; preds = %337, %_ZN4llvm4json9ObjectKeyD2Ev.exit19.i, %_ZN4llvm4json9ObjectKeyD2Ev.exit.sink.split.i
   %.sink1.i = phi ptr [ %12, %337 ], [ %16, %_ZN4llvm4json9ObjectKeyD2Ev.exit19.i ], [ %.sink1.ph.i, %_ZN4llvm4json9ObjectKeyD2Ev.exit.sink.split.i ]
   %.sink.i = phi ptr [ %11, %337 ], [ %15, %_ZN4llvm4json9ObjectKeyD2Ev.exit19.i ], [ %.sink.ph.i, %_ZN4llvm4json9ObjectKeyD2Ev.exit.sink.split.i ]
   store ptr null, ptr %.sink1.i, align 8, !noalias !51
@@ -1188,8 +1188,8 @@ _ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE.exit: ; pr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   br label %.lr.ph.i61
 
-.lr.ph.i61:                                       ; preds = %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i63, %_ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE.exit
-  %.016.i62.idx = phi i64 [ %.016.i62.add, %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i63 ], [ 0, %_ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE.exit ]
+.lr.ph.i61:                                       ; preds = %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i63, %_ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE.argprom.exit
+  %.016.i62.idx = phi i64 [ %.016.i62.add, %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i63 ], [ 0, %_ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE.argprom.exit ]
   %.016.i62.ptr = getelementptr inbounds i8, ptr %53, i64 %.016.i62.idx
   store ptr null, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !60
@@ -5794,7 +5794,7 @@ declare void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 derefere
 declare noundef i32 @_ZNK5clang13FullSourceLoc22getExpansionLineNumberEPb(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL15adjustColumnPosN5clang13FullSourceLocEj(i32 %0, ptr %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL15adjustColumnPosN5clang13FullSourceLocEj.argelim(i32 %0, ptr %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.clang::FullSourceLoc", align 8
   %5 = alloca %"class.std::optional.173", align 8
@@ -8351,8 +8351,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !49 = distinct !{!49, !50, !"_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_: argument 0"}
 !50 = distinct !{!50, !"_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_"}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE: argument 0"}
-!53 = distinct !{!53, !"_ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE"}
+!52 = distinct !{!52, !53, !"_ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE.argprom: argument 0"}
+!53 = distinct !{!53, !"_ZL16createTextRegionRKN5clang13SourceManagerERKNS_15CharSourceRangeE.argprom"}
 !54 = !{!55, !57, !52}
 !55 = distinct !{!55, !56, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorIS3_S4_S7_SA_Lb0EEEbERKS3_DpOT_: argument 0"}
 !56 = distinct !{!56, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorIS3_S4_S7_SA_Lb0EEEbERKS3_DpOT_"}

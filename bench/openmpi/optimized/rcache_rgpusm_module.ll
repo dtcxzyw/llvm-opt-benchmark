@@ -375,7 +375,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %67, %53
   %156 = or i32 %155, 128
   store volatile i32 %156, ptr %154, align 4
   %157 = load ptr, ptr %5, align 8
-  tail call fastcc void @mca_rcache_rgpusm_deregister_no_lock(ptr noundef nonnull %0, ptr noundef %157)
+  tail call fastcc void @mca_rcache_rgpusm_deregister_no_lock.retelim(ptr noundef nonnull %0, ptr noundef %157)
   store ptr null, ptr %5, align 8
   %158 = getelementptr inbounds i8, ptr %0, i64 552
   %159 = load i32, ptr %158, align 8
@@ -576,7 +576,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %67, %53
   %274 = load volatile i32, ptr %273, align 4
   %275 = or i32 %274, 128
   store volatile i32 %275, ptr %273, align 4
-  call fastcc void @mca_rcache_rgpusm_deregister_no_lock(ptr noundef nonnull %0, ptr noundef nonnull %253)
+  call fastcc void @mca_rcache_rgpusm_deregister_no_lock.retelim(ptr noundef nonnull %0, ptr noundef nonnull %253)
   %276 = getelementptr inbounds i8, ptr %0, i64 560
   %277 = load i32, ptr %276, align 16
   %278 = add i32 %277, 1
@@ -1010,7 +1010,7 @@ define noundef i32 @mca_rcache_rgpusm_deregister(ptr noundef %0, ptr noundef %1)
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %67, align 8
   %.not6.i.i = icmp eq ptr %68, null
-  br i1 %.not6.i.i, label %mca_rcache_rgpusm_close_mem_handle.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %mca_rcache_rgpusm_close_mem_handle.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %63, %.lr.ph.i.i
   %69 = phi ptr [ %71, %.lr.ph.i.i ], [ %68, %63 ]
@@ -1019,21 +1019,21 @@ define noundef i32 @mca_rcache_rgpusm_deregister(ptr noundef %0, ptr noundef %1)
   %70 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %71 = load ptr, ptr %70, align 8
   %.not.i.i = icmp eq ptr %71, null
-  br i1 %.not.i.i, label %mca_rcache_rgpusm_close_mem_handle.exit, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %mca_rcache_rgpusm_close_mem_handle.argprom.exit, label %.lr.ph.i.i, !llvm.loop !9
 
-mca_rcache_rgpusm_close_mem_handle.exit:          ; preds = %.lr.ph.i.i, %63
+mca_rcache_rgpusm_close_mem_handle.argprom.exit:  ; preds = %.lr.ph.i.i, %63
   %72 = load i8, ptr @opal_uses_threads, align 1
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %77
 
-74:                                               ; preds = %mca_rcache_rgpusm_close_mem_handle.exit
+74:                                               ; preds = %mca_rcache_rgpusm_close_mem_handle.argprom.exit
   %75 = getelementptr inbounds i8, ptr %0, i64 72
   %76 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %75) #6
   %.pre = load i8, ptr @opal_uses_threads, align 1
   br label %77
 
-77:                                               ; preds = %74, %mca_rcache_rgpusm_close_mem_handle.exit
-  %78 = phi i8 [ %.pre, %74 ], [ %72, %mca_rcache_rgpusm_close_mem_handle.exit ]
+77:                                               ; preds = %74, %mca_rcache_rgpusm_close_mem_handle.argprom.exit
+  %78 = phi i8 [ %.pre, %74 ], [ %72, %mca_rcache_rgpusm_close_mem_handle.argprom.exit ]
   %79 = trunc i8 %78 to i1
   %80 = getelementptr inbounds i8, ptr %0, i64 152
   %81 = load volatile i64, ptr %80, align 8
@@ -1234,7 +1234,7 @@ define void @mca_rcache_rgpusm_finalize(ptr noundef %0) #0 {
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %70, align 8
   %.not6.i.i = icmp eq ptr %71, null
-  br i1 %.not6.i.i, label %mca_rcache_rgpusm_close_mem_handle.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %mca_rcache_rgpusm_close_mem_handle.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %66, %.lr.ph.i.i
   %72 = phi ptr [ %74, %.lr.ph.i.i ], [ %71, %66 ]
@@ -1243,20 +1243,20 @@ define void @mca_rcache_rgpusm_finalize(ptr noundef %0) #0 {
   %73 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not.i.i = icmp eq ptr %74, null
-  br i1 %.not.i.i, label %mca_rcache_rgpusm_close_mem_handle.exit, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %mca_rcache_rgpusm_close_mem_handle.argprom.exit, label %.lr.ph.i.i, !llvm.loop !9
 
-mca_rcache_rgpusm_close_mem_handle.exit:          ; preds = %.lr.ph.i.i, %66
+mca_rcache_rgpusm_close_mem_handle.argprom.exit:  ; preds = %.lr.ph.i.i, %66
   %75 = load i8, ptr @opal_uses_threads, align 1
   %76 = trunc i8 %75 to i1
   br i1 %76, label %77, label %79
 
-77:                                               ; preds = %mca_rcache_rgpusm_close_mem_handle.exit
+77:                                               ; preds = %mca_rcache_rgpusm_close_mem_handle.argprom.exit
   %78 = call i32 @pthread_mutex_lock(ptr noundef nonnull %30) #6
   %.pre = load i8, ptr @opal_uses_threads, align 1
   br label %79
 
-79:                                               ; preds = %77, %mca_rcache_rgpusm_close_mem_handle.exit
-  %80 = phi i8 [ %.pre, %77 ], [ %75, %mca_rcache_rgpusm_close_mem_handle.exit ]
+79:                                               ; preds = %77, %mca_rcache_rgpusm_close_mem_handle.argprom.exit
+  %80 = phi i8 [ %.pre, %77 ], [ %75, %mca_rcache_rgpusm_close_mem_handle.argprom.exit ]
   %81 = trunc i8 %80 to i1
   %82 = load volatile i64, ptr %31, align 8
   br i1 %81, label %83, label %97
@@ -1659,7 +1659,7 @@ opal_free_list_return_mt.exit:                    ; preds = %opal_free_list_retu
 declare i32 @mca_rcache_base_vma_find(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_rcache_rgpusm_deregister_no_lock(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @mca_rcache_rgpusm_deregister_no_lock.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 88
   %4 = load volatile i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -1720,7 +1720,7 @@ define internal fastcc void @mca_rcache_rgpusm_deregister_no_lock(ptr noundef %0
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
   %.not6.i.i = icmp eq ptr %39, null
-  br i1 %.not6.i.i, label %mca_rcache_rgpusm_close_mem_handle.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %mca_rcache_rgpusm_close_mem_handle.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %34, %.lr.ph.i.i
   %40 = phi ptr [ %42, %.lr.ph.i.i ], [ %39, %34 ]
@@ -1729,16 +1729,16 @@ define internal fastcc void @mca_rcache_rgpusm_deregister_no_lock(ptr noundef %0
   %41 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i, label %mca_rcache_rgpusm_close_mem_handle.exit, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %mca_rcache_rgpusm_close_mem_handle.argprom.exit, label %.lr.ph.i.i, !llvm.loop !9
 
-mca_rcache_rgpusm_close_mem_handle.exit:          ; preds = %.lr.ph.i.i, %34
+mca_rcache_rgpusm_close_mem_handle.argprom.exit:  ; preds = %.lr.ph.i.i, %34
   %43 = load i8, ptr @opal_uses_threads, align 1
   %44 = trunc i8 %43 to i1
   %45 = getelementptr inbounds i8, ptr %0, i64 152
   %46 = load volatile i64, ptr %45, align 8
   br i1 %44, label %47, label %64
 
-47:                                               ; preds = %mca_rcache_rgpusm_close_mem_handle.exit
+47:                                               ; preds = %mca_rcache_rgpusm_close_mem_handle.argprom.exit
   %48 = getelementptr inbounds i8, ptr %1, i64 16
   %.08.i.i.i = inttoptr i64 %46 to ptr
   store volatile ptr %.08.i.i.i, ptr %48, align 8
@@ -1776,7 +1776,7 @@ opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare
   %.not.i.i.i = icmp eq i32 %63, 0
   br i1 %.not.i.i.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
-64:                                               ; preds = %mca_rcache_rgpusm_close_mem_handle.exit
+64:                                               ; preds = %mca_rcache_rgpusm_close_mem_handle.argprom.exit
   %65 = inttoptr i64 %46 to ptr
   %66 = getelementptr inbounds i8, ptr %1, i64 16
   store volatile ptr %65, ptr %66, align 8
@@ -1863,7 +1863,7 @@ opal_list_remove_first.exit:                      ; preds = %1
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
   %.not6.i.i = icmp eq ptr %34, null
-  br i1 %.not6.i.i, label %mca_rcache_rgpusm_close_mem_handle.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %mca_rcache_rgpusm_close_mem_handle.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %29, %.lr.ph.i.i
   %35 = phi ptr [ %37, %.lr.ph.i.i ], [ %34, %29 ]
@@ -1872,21 +1872,21 @@ opal_list_remove_first.exit:                      ; preds = %1
   %36 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i, label %mca_rcache_rgpusm_close_mem_handle.exit, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %mca_rcache_rgpusm_close_mem_handle.argprom.exit, label %.lr.ph.i.i, !llvm.loop !9
 
-mca_rcache_rgpusm_close_mem_handle.exit:          ; preds = %.lr.ph.i.i, %29
+mca_rcache_rgpusm_close_mem_handle.argprom.exit:  ; preds = %.lr.ph.i.i, %29
   %38 = load i8, ptr @opal_uses_threads, align 1
   %39 = trunc i8 %38 to i1
   br i1 %39, label %40, label %43
 
-40:                                               ; preds = %mca_rcache_rgpusm_close_mem_handle.exit
+40:                                               ; preds = %mca_rcache_rgpusm_close_mem_handle.argprom.exit
   %41 = getelementptr inbounds i8, ptr %0, i64 72
   %42 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %41) #6
   %.pre = load i8, ptr @opal_uses_threads, align 1
   br label %43
 
-43:                                               ; preds = %40, %mca_rcache_rgpusm_close_mem_handle.exit
-  %44 = phi i8 [ %.pre, %40 ], [ %38, %mca_rcache_rgpusm_close_mem_handle.exit ]
+43:                                               ; preds = %40, %mca_rcache_rgpusm_close_mem_handle.argprom.exit
+  %44 = phi i8 [ %.pre, %40 ], [ %38, %mca_rcache_rgpusm_close_mem_handle.argprom.exit ]
   %45 = trunc i8 %44 to i1
   %46 = getelementptr inbounds i8, ptr %0, i64 152
   %47 = load volatile i64, ptr %46, align 8

@@ -1601,13 +1601,13 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i3
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont4, %if.then.i.i3
   %server_transport_.val = load ptr, ptr %server_transport_, align 8
   %cmp.not.i = icmp eq ptr %server_transport_.val, null
-  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
   %refs_.i.i = getelementptr inbounds i8, ptr %server_transport_.val, i64 8
   %11 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i5 = icmp eq i64 %11, 1
-  br i1 %cmp.i.i.i5, label %if.then.i.i7, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev.exit
+  br i1 %cmp.i.i.i5, label %if.then.i.i7, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev.argprom.exit
 
 if.then.i.i7:                                     ; preds = %if.then.i
   %state_tracker_.i.i.i.i = getelementptr inbounds i8, ptr %server_transport_.val, i64 96
@@ -1618,11 +1618,11 @@ if.then.i.i7:                                     ; preds = %if.then.i
   %12 = load i64, ptr %disconnect_error_.i.i.i.i, align 8
   %and.i.i.i.i.i.i.i = and i64 %12, 1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.exit.i.i, label %if.then.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.argprom.exit.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i7
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %12)
-          to label %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
+          to label %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.argprom.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %13 = landingpad { ptr, i32 }
@@ -1631,15 +1631,15 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   call void @__clang_call_terminate(ptr %14) #27
   unreachable
 
-_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i7
+_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.argprom.exit.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i7
   %accept_.i.i.i.i = getelementptr inbounds i8, ptr %server_transport_.val, i64 48
   %manager_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %server_transport_.val, i64 64
   %15 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
   call void %15(i1 noundef zeroext true, ptr noundef nonnull %accept_.i.i.i.i, ptr noundef nonnull %accept_.i.i.i.i) #23
   call void @_ZdlPv(ptr noundef nonnull %server_transport_.val) #26
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.then.i, %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.exit.i.i
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev.argprom.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.then.i, %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.argprom.exit.i.i
   ret void
 
 terminate.lpad:                                   ; preds = %_ZN4absl12lts_202308026StatusaSEOS1_.exit.i, %if.then.i.i.i, %entry
@@ -1891,7 +1891,7 @@ invoke.cont9:                                     ; preds = %tail0.i.i.i.i.i.i.i
 lpad5:                                            ; preds = %if.then.i.i
   %25 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev(ptr %8) #23
+  call fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev.argprom(ptr %8) #23
   call void @_ZN9grpc_core14promise_detail8SeqStateINS0_9SeqTraitsENS_11pipe_detail4NextISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEJZNS_12PipeReceiverIS9_E4NextEvEUlSt8optionalIS9_EE_EED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %agg.tmp3) #23
   resume { ptr, i32 } %25
 }
@@ -2068,11 +2068,11 @@ if.then.i:                                        ; preds = %entry
   %1 = load i64, ptr %disconnect_error_.i.i.i, align 16
   %and.i.i.i.i.i.i = and i64 %1, 1
   %cmp.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i, label %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.exit.i, label %if.then.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.argprom.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %1)
-          to label %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.exit.i unwind label %terminate.lpad.i.i.i.i
+          to label %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.argprom.exit.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %2 = landingpad { ptr, i32 }
@@ -2081,7 +2081,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   tail call void @__clang_call_terminate(ptr %3) #27
   unreachable
 
-_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
+_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.argprom.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
   %accept_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %manager_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
@@ -2089,7 +2089,7 @@ _ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.e
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   br label %_ZNK9grpc_core10RefCountedINS_12_GLOBAL__N_121InprocServerTransportENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefEv.exit
 
-_ZNK9grpc_core10RefCountedINS_12_GLOBAL__N_121InprocServerTransportENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefEv.exit: ; preds = %entry, %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.exit.i
+_ZNK9grpc_core10RefCountedINS_12_GLOBAL__N_121InprocServerTransportENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefEv.exit: ; preds = %entry, %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.argprom.exit.i
   ret void
 }
 
@@ -2307,11 +2307,11 @@ if.then.i.i:                                      ; preds = %entry
   %2 = load i64, ptr %disconnect_error_.i.i.i.i, align 8
   %and.i.i.i.i.i.i.i = and i64 %2, 1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.exit.i.i, label %if.then.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.argprom.exit.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %2)
-          to label %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
+          to label %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.argprom.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %3 = landingpad { ptr, i32 }
@@ -2320,7 +2320,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   tail call void @__clang_call_terminate(ptr %4) #27
   unreachable
 
-_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i
+_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.argprom.exit.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i
   %accept_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %manager_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
@@ -2328,7 +2328,7 @@ _ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.e
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   br label %_ZN9grpc_core12_GLOBAL__N_121InprocServerTransport6OrphanEv.exit
 
-_ZN9grpc_core12_GLOBAL__N_121InprocServerTransport6OrphanEv.exit: ; preds = %entry, %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.exit.i.i
+_ZN9grpc_core12_GLOBAL__N_121InprocServerTransport6OrphanEv.exit: ; preds = %entry, %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.argprom.exit.i.i
   ret void
 }
 
@@ -2492,7 +2492,7 @@ declare void @_ZN9grpc_core5CrashESt17basic_string_viewIcSt11char_traitsIcEENS_1
 declare void @_ZN4absl12lts_2023080216UnavailableErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8, i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev(ptr %this.0.val) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev.argprom(ptr %this.0.val) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %this.0.val, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2512,11 +2512,11 @@ if.then.i:                                        ; preds = %if.then
   %1 = load i64, ptr %disconnect_error_.i.i.i, align 8
   %and.i.i.i.i.i.i = and i64 %1, 1
   %cmp.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i, label %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.exit.i, label %if.then.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.argprom.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %1)
-          to label %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.exit.i unwind label %terminate.lpad.i.i.i.i
+          to label %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.argprom.exit.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %2 = landingpad { ptr, i32 }
@@ -2525,7 +2525,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   tail call void @__clang_call_terminate(ptr %3) #27
   unreachable
 
-_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
+_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.argprom.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
   %accept_.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 48
   %manager_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 64
   %4 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
@@ -2533,7 +2533,7 @@ _ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.e
   tail call void @_ZdlPv(ptr noundef nonnull %this.0.val) #26
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.exit.i, %if.then, %entry
+if.end:                                           ; preds = %_ZNK9grpc_core11UnrefDeleteclIKNS_12_GLOBAL__N_121InprocServerTransportEEEvPT_.argprom.exit.i, %if.then, %entry
   ret void
 }
 
@@ -2710,7 +2710,7 @@ terminate.lpad.body.i:                            ; preds = %lpad.i.i.i.i, %lpad
   %next_factory.sink.i = phi ptr [ %next_factory.i, %lpad.i.i.i.i ], [ %this, %lpad.i.i.i.i.i ]
   %eh.lpad-body.i = phi { ptr, i32 } [ %31, %lpad.i.i.i.i ], [ %23, %lpad.i.i.i.i.i ]
   %this.val.i.i.i.i = load ptr, ptr %next_factory.sink.i, align 8
-  tail call fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev(ptr %this.val.i.i.i.i) #23
+  tail call fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev.argprom(ptr %this.val.i.i.i.i) #23
   %32 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   tail call void @__clang_call_terminate(ptr %32) #27
   unreachable
@@ -3632,8 +3632,8 @@ attributes #27 = { noreturn nounwind }
 !15 = !{!16, !18, !5}
 !16 = distinct !{!16, !17, !"_ZN9grpc_core10RefCountedINS_12_GLOBAL__N_121InprocServerTransportENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
 !17 = distinct !{!17, !"_ZN9grpc_core10RefCountedINS_12_GLOBAL__N_121InprocServerTransportENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
-!18 = distinct !{!18, !19, !"_ZN9grpc_core12_GLOBAL__N_121InprocClientTransport18GetServerTransportEv: %agg.result"}
-!19 = distinct !{!19, !"_ZN9grpc_core12_GLOBAL__N_121InprocClientTransport18GetServerTransportEv"}
+!18 = distinct !{!18, !19, !"_ZN9grpc_core12_GLOBAL__N_121InprocClientTransport18GetServerTransportEv.argprom: %agg.result"}
+!19 = distinct !{!19, !"_ZN9grpc_core12_GLOBAL__N_121InprocClientTransport18GetServerTransportEv.argprom"}
 !20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
 !22 = !{!23}

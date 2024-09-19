@@ -377,7 +377,7 @@ if.end26:                                         ; preds = %_ZL13encode_base64P
 declare noundef i32 @_ZN3zmq15generate_randomEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 -2147483648, 2048) i32 @_ZL13encode_base64PKhiPci(ptr nocapture noundef nonnull readonly %in_, i32 noundef range(i32 16, 21) %in_len_, ptr nocapture noundef nonnull writeonly %out_) unnamed_addr #9 {
+define internal fastcc noundef range(i32 -2147483648, 2048) i32 @_ZL13encode_base64PKhiPci.argelim(ptr nocapture noundef nonnull readonly %in_, i32 noundef range(i32 16, 21) %in_len_, ptr nocapture noundef nonnull writeonly %out_) unnamed_addr #9 {
 entry:
   %wide.trip.count51 = zext nneg i32 %in_len_ to i64
   br label %for.body
@@ -1944,7 +1944,7 @@ if.then344:                                       ; preds = %land.lhs.true
   store i32 23, ptr %_server_handshake_state, align 4
   call fastcc void @_ZL18compute_accept_keyPcPh(ptr noundef %_websocket_key, ptr noundef %hash)
   %_websocket_accept = getelementptr inbounds i8, ptr %this, i64 23579
-  %call351 = call fastcc noundef i32 @_ZL13encode_base64PKhiPci(ptr noundef %hash, i32 noundef 20, ptr noundef %_websocket_accept)
+  %call351 = call fastcc noundef i32 @_ZL13encode_base64PKhiPci.argelim(ptr noundef %hash, i32 noundef 20, ptr noundef %_websocket_accept)
   %idxprom353 = sext i32 %call351 to i64
   %arrayidx354 = getelementptr inbounds [2049 x i8], ptr %_websocket_accept, i64 0, i64 %idxprom353
   store i8 0, ptr %arrayidx354, align 1

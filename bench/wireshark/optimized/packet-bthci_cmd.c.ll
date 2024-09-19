@@ -4711,8 +4711,8 @@ define internal i32 @dissect_bthci_cmd(ptr noundef %0, ptr noundef %1, ptr nound
 570:                                              ; preds = %190, %190
   %571 = load i32, ptr @hf_bthci_cmd_physical_link_handle, align 4
   %572 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %571, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #7
-  %573 = tail call fastcc i32 @dissect_bthci_cmd_flow_spec(ptr noundef %0, i32 noundef 4, ptr noundef %36, i32 noundef 1)
-  %574 = tail call fastcc i32 @dissect_bthci_cmd_flow_spec(ptr noundef %0, i32 noundef %573, ptr noundef %36, i32 noundef 0)
+  %573 = tail call fastcc i32 @dissect_bthci_cmd_flow_spec.argprom(ptr noundef %0, i32 noundef 4, ptr noundef %36, i32 noundef 1)
+  %574 = tail call fastcc i32 @dissect_bthci_cmd_flow_spec.argprom(ptr noundef %0, i32 noundef %573, ptr noundef %36, i32 noundef 0)
   br label %dissect_link_control_cmd.exit
 
 575:                                              ; preds = %190
@@ -4730,8 +4730,8 @@ define internal i32 @dissect_bthci_cmd(ptr noundef %0, ptr noundef %1, ptr nound
 583:                                              ; preds = %190
   %584 = load i32, ptr @hf_bthci_cmd_logical_link_handle, align 4
   %585 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %584, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #7
-  %586 = tail call fastcc i32 @dissect_bthci_cmd_flow_spec(ptr noundef %0, i32 noundef 4, ptr noundef %36, i32 noundef 1)
-  %587 = tail call fastcc i32 @dissect_bthci_cmd_flow_spec(ptr noundef %0, i32 noundef %586, ptr noundef %36, i32 noundef 0)
+  %586 = tail call fastcc i32 @dissect_bthci_cmd_flow_spec.argprom(ptr noundef %0, i32 noundef 4, ptr noundef %36, i32 noundef 1)
+  %587 = tail call fastcc i32 @dissect_bthci_cmd_flow_spec.argprom(ptr noundef %0, i32 noundef %586, ptr noundef %36, i32 noundef 0)
   br label %dissect_link_control_cmd.exit
 
 588:                                              ; preds = %190
@@ -5195,7 +5195,7 @@ dissect_link_control_cmd.exit:                    ; preds = %190, %190, %190, %1
   br label %dissect_link_policy_cmd.exit
 
 949:                                              ; preds = %189
-  %950 = tail call fastcc i32 @dissect_host_controller_baseband_cmd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %36, i16 noundef zeroext %94, ptr noundef %3, ptr noundef %.0214)
+  %950 = tail call fastcc i32 @dissect_host_controller_baseband_cmd.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %36, i16 noundef zeroext %94, ptr noundef %3, ptr noundef %.0214)
   br label %dissect_link_policy_cmd.exit
 
 951:                                              ; preds = %189
@@ -5342,7 +5342,7 @@ dissect_link_control_cmd.exit:                    ; preds = %190, %190, %190, %1
   br label %dissect_link_policy_cmd.exit
 
 1027:                                             ; preds = %189
-  %1028 = tail call fastcc i32 @dissect_le_cmd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %36, i16 noundef zeroext %94, ptr noundef %3)
+  %1028 = tail call fastcc i32 @dissect_le_cmd.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %36, i16 noundef zeroext %94, ptr noundef %3)
   br label %dissect_link_policy_cmd.exit
 
 1029:                                             ; preds = %189
@@ -6096,7 +6096,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_host_controller_baseband_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext range(i16 0, 1024) %3, ptr noundef nonnull %4, ptr noundef writeonly %5) unnamed_addr #1 {
+define internal fastcc i32 @dissect_host_controller_baseband_cmd.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext range(i16 0, 1024) %3, ptr noundef nonnull %4, ptr noundef writeonly %5) unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -6331,7 +6331,7 @@ define internal fastcc i32 @dissect_host_controller_baseband_cmd(ptr noundef %0,
   %115 = load ptr, ptr @btcommon_cod_handle, align 8
   %116 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 5, i32 noundef 3) #7
   %117 = tail call i32 @call_dissector(ptr noundef %115, ptr noundef %116, ptr noundef %1, ptr noundef %2) #7
-  tail call fastcc void @dissect_bthci_cmd_cod_mask(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @dissect_bthci_cmd_cod_mask.argprom.argelim(ptr noundef %0, ptr noundef %2)
   br label %.loopexit
 
 118:                                              ; preds = %110
@@ -6361,7 +6361,7 @@ define internal fastcc i32 @dissect_host_controller_baseband_cmd(ptr noundef %0,
   %132 = load ptr, ptr @btcommon_cod_handle, align 8
   %133 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 5, i32 noundef 3) #7
   %134 = tail call i32 @call_dissector(ptr noundef %132, ptr noundef %133, ptr noundef %1, ptr noundef %2) #7
-  tail call fastcc void @dissect_bthci_cmd_cod_mask(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @dissect_bthci_cmd_cod_mask.argprom.argelim(ptr noundef %0, ptr noundef %2)
   %135 = load i32, ptr @hf_bthci_cmd_auto_acc_flag, align 4
   %136 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %135, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef -2147483648) #7
   br label %.loopexit
@@ -7246,7 +7246,7 @@ define internal fastcc i32 @dissect_host_controller_baseband_cmd(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_le_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext range(i16 0, 1024) %3, ptr noundef nonnull %4) unnamed_addr #1 {
+define internal fastcc i32 @dissect_le_cmd.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext range(i16 0, 1024) %3, ptr noundef nonnull %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca [5 x %struct._wmem_tree_key_t], align 16
   %8 = alloca i32, align 4
@@ -9180,7 +9180,7 @@ declare i32 @dissect_bd_addr(i32 noundef, ptr noundef, ptr noundef, ptr noundef,
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_cmd_flow_spec(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_cmd_flow_spec.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_cmd_flow_spec, align 4
   %.not = icmp eq i32 %3, 0
   %6 = select i1 %.not, ptr @.str.2525, ptr @.str.2524
@@ -9231,7 +9231,7 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bthci_cmd_cod_mask(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_bthci_cmd_cod_mask.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_bthci_cmd_cod_class_of_device_mask, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 8, i32 noundef 3, i32 noundef -2147483648) #7
   %5 = load i32, ptr @ett_cod_mask, align 4

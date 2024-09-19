@@ -2503,25 +2503,25 @@ parse_proxy_auth.exit.i.i:                        ; preds = %439
   %492 = icmp ne ptr %.120.i.i.i, null
   %493 = icmp ne ptr %0, null
   %or.cond.i.i.i = and i1 %493, %492
-  br i1 %or.cond.i.i.i, label %494, label %detect_proxy.exit.i.i
+  br i1 %or.cond.i.i.i, label %494, label %detect_proxy.argprom.argprom.exit.i.i
 
 494:                                              ; preds = %.thread3.i.i.i
   %495 = load i64, ptr %31, align 2
   %496 = and i64 %495, 268435456
   %.not30.i.i.i = icmp eq i64 %496, 0
-  br i1 %.not30.i.i.i, label %detect_proxy.exit.i.i, label %497
+  br i1 %.not30.i.i.i, label %detect_proxy.argprom.argprom.exit.i.i, label %497
 
 497:                                              ; preds = %494
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %.1.i.i.i, ptr noundef nonnull %.120.i.i.i) #12
-  br label %detect_proxy.exit.i.i
+  br label %detect_proxy.argprom.argprom.exit.i.i
 
-detect_proxy.exit.i.i:                            ; preds = %497, %494, %.thread3.i.i.i
+detect_proxy.argprom.argprom.exit.i.i:            ; preds = %497, %494, %.thread3.i.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
   br label %498
 
-498:                                              ; preds = %detect_proxy.exit.i.i, %473, %470
-  %.2114.i.i = phi ptr [ null, %470 ], [ %.1113.i.i, %473 ], [ null, %detect_proxy.exit.i.i ]
-  %.2.i.i = phi ptr [ null, %470 ], [ %.1.i295.i, %473 ], [ %.120.i.i.i, %detect_proxy.exit.i.i ]
+498:                                              ; preds = %detect_proxy.argprom.argprom.exit.i.i, %473, %470
+  %.2114.i.i = phi ptr [ null, %470 ], [ %.1113.i.i, %473 ], [ null, %detect_proxy.argprom.argprom.exit.i.i ]
+  %.2.i.i = phi ptr [ null, %470 ], [ %.1.i295.i, %473 ], [ %.120.i.i.i, %detect_proxy.argprom.argprom.exit.i.i ]
   %499 = load i8, ptr %6, align 1
   %500 = trunc i8 %499 to i1
   %501 = icmp ne ptr %0, null

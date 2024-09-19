@@ -1113,7 +1113,7 @@ define dso_local ptr @pgstat_fetch_entry(i32 noundef %0, i32 noundef %1, i32 nou
   %44 = getelementptr inbounds i8, ptr %43, i64 12
   %45 = load i8, ptr %44, align 4
   %46 = icmp eq i8 %45, 0
-  br i1 %46, label %pgstat_snapshot_lookup.exit.thread, label %.lr.ph.i.i
+  br i1 %46, label %pgstat_snapshot_lookup.argprom.exit.thread, label %.lr.ph.i.i
 
 47:                                               ; preds = %.lr.ph.i.i
   %48 = add i32 %.01114.i.i, 1
@@ -1123,30 +1123,30 @@ define dso_local ptr @pgstat_fetch_entry(i32 noundef %0, i32 noundef %1, i32 nou
   %51 = getelementptr inbounds i8, ptr %50, i64 12
   %52 = load i8, ptr %51, align 4
   %53 = icmp eq i8 %52, 0
-  br i1 %53, label %pgstat_snapshot_lookup.exit.thread, label %.lr.ph.i.i
+  br i1 %53, label %pgstat_snapshot_lookup.argprom.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %15, %47
   %54 = phi ptr [ %50, %47 ], [ %43, %15 ]
   %.01114.i.i = phi i32 [ %.011.i.i, %47 ], [ %.01113.i.i, %15 ]
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %54, ptr noundef nonnull dereferenceable(12) %4, i64 12)
   %55 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %55, label %pgstat_snapshot_lookup.exit, label %47
+  br i1 %55, label %pgstat_snapshot_lookup.argprom.exit, label %47
 
-pgstat_snapshot_lookup.exit.thread:               ; preds = %47, %15
+pgstat_snapshot_lookup.argprom.exit.thread:       ; preds = %47, %15
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   br label %59
 
-pgstat_snapshot_lookup.exit:                      ; preds = %.lr.ph.i.i
+pgstat_snapshot_lookup.argprom.exit:              ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   %.not = icmp eq ptr %54, null
   br i1 %.not, label %59, label %56
 
-56:                                               ; preds = %pgstat_snapshot_lookup.exit
+56:                                               ; preds = %pgstat_snapshot_lookup.argprom.exit
   %57 = getelementptr inbounds i8, ptr %54, i64 16
   %58 = load ptr, ptr %57, align 8
   br label %104
 
-59:                                               ; preds = %pgstat_snapshot_lookup.exit.thread, %pgstat_snapshot_lookup.exit
+59:                                               ; preds = %pgstat_snapshot_lookup.argprom.exit.thread, %pgstat_snapshot_lookup.argprom.exit
   %60 = icmp eq i32 %13, 2
   br i1 %60, label %104, label %61
 
@@ -1987,13 +1987,13 @@ define dso_local ptr @pgstat_prep_pending_entry(i32 noundef %0, i32 noundef %1, 
 
 ._crit_edge.i:                                    ; preds = %14
   %.pre.i = load ptr, ptr @pgStatPending, align 8
-  br label %dlist_push_tail.exit
+  br label %dlist_push_tail.argprom.exit
 
 24:                                               ; preds = %14
   store ptr @pgStatPending, ptr getelementptr inbounds (i8, ptr @pgStatPending, i64 8), align 8
-  br label %dlist_push_tail.exit
+  br label %dlist_push_tail.argprom.exit
 
-dlist_push_tail.exit:                             ; preds = %._crit_edge.i, %24
+dlist_push_tail.argprom.exit:                     ; preds = %._crit_edge.i, %24
   %25 = phi ptr [ %.pre.i, %._crit_edge.i ], [ @pgStatPending, %24 ]
   %26 = getelementptr inbounds i8, ptr %10, i64 32
   store ptr @pgStatPending, ptr %26, align 8
@@ -2003,7 +2003,7 @@ dlist_push_tail.exit:                             ; preds = %._crit_edge.i, %24
   store ptr %21, ptr @pgStatPending, align 8
   br label %28
 
-28:                                               ; preds = %dlist_push_tail.exit, %9
+28:                                               ; preds = %dlist_push_tail.argprom.exit, %9
   ret ptr %10
 }
 

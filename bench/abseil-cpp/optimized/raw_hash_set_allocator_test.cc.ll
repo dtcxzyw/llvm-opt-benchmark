@@ -620,7 +620,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -662,7 +662,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -716,7 +716,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef range(i32 243, 376) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef range(i32 243, 376) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -758,7 +758,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef range(i32 243, 376) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef range(i32 243, 376) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -800,7 +800,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef range(i32 297, 421) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef range(i32 297, 421) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -842,7 +842,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef range(i32 297, 421) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef range(i32 297, 421) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -1144,7 +1144,7 @@ invoke.cont10:                                    ; preds = %if.else.i.i.i.i.i.i
 invoke.cont12:                                    ; preds = %invoke.cont10
   %ref.tmp.val = load ptr, ptr %_M_refcount.i.i.i.i23, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %ref.tmp.val, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont12
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.val, i64 8
@@ -1180,7 +1180,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %12, %if.then.i.i.i.i.i.i ], [ %15, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp.val, align 8
@@ -1205,16 +1205,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %18, %if.then.i.i.i.i.i.i.i.i ], [ %19, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i25
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp.val, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %20 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.val) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit: ; preds = %invoke.cont12, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit: ; preds = %invoke.cont12, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %21 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %21 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -1233,7 +1233,7 @@ lpad11:                                           ; preds = %invoke.cont10
   %24 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp.val10 = load ptr, ptr %_M_refcount.i.i.i.i23, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev(ptr %ref.tmp.val10) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom(ptr %ref.tmp.val10) #28
   br label %ehcleanup51
 
 lpad13:                                           ; preds = %if.else
@@ -1241,7 +1241,7 @@ lpad13:                                           ; preds = %if.else
           cleanup
   br label %ehcleanup24
 
-if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15)
           to label %invoke.cont16 unwind label %lpad13
 
@@ -1309,7 +1309,7 @@ _ZN7testing7MessageD2Ev.exit30:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp15, align 8
   br label %ehcleanup24
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %33 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i31 = icmp eq ptr %33, null
@@ -1850,12 +1850,12 @@ invoke.cont25.i.i:                                ; preds = %invoke.cont23.i.i
   %message_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %102 = load ptr, ptr %message_.i.i.i, align 8, !noalias !20
   %cmp.not.i.i.i.i46 = icmp eq ptr %102, null
-  br i1 %cmp.not.i.i.i.i46, label %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.exit.i, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i46, label %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom.exit.i, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i: ; preds = %invoke.cont25.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #28
   call void @_ZdlPv(ptr noundef nonnull %102) #29
-  br label %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.exit.i
+  br label %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom.exit.i
 
 lpad.i.i:                                         ; preds = %invoke.cont11.i.i, %invoke.cont9.i.i, %invoke.cont7.i.i, %invoke.cont5.i.i, %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %.noexc47
   %103 = landingpad { ptr, i32 }
@@ -1887,14 +1887,14 @@ ehcleanup26.i.i:                                  ; preds = %ehcleanup.i.i, %lpa
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i) #28
   br label %lpad30.body
 
-_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.exit.i: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i, %invoke.cont25.i.i
+_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom.exit.i: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i, %invoke.cont25.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp13.i.i), !noalias !17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp20.i.i), !noalias !17
   br label %invoke.cont31
 
-invoke.cont31:                                    ; preds = %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.exit.i, %if.then.i
-  br i1 %cmp.not.i.i.i.i.i37, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit78, label %if.then.i.i.i.i49
+invoke.cont31:                                    ; preds = %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom.exit.i, %if.then.i
+  br i1 %cmp.not.i.i.i.i.i37, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit78, label %if.then.i.i.i.i49
 
 if.then.i.i.i.i49:                                ; preds = %invoke.cont31
   %_M_use_count.i.i.i.i.i50 = getelementptr inbounds i8, ptr %35, i64 8
@@ -1930,7 +1930,7 @@ if.else.i.i.i.i.i.i73:                            ; preds = %if.end.i.i.i.i.i52
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i56: ; preds = %if.else.i.i.i.i.i.i73, %if.then.i.i.i.i.i.i54
   %retval.i.0.i.i.i.i.i57 = phi i32 [ %107, %if.then.i.i.i.i.i.i54 ], [ %110, %if.else.i.i.i.i.i.i73 ]
   %cmp6.i.i.i.i.i58 = icmp eq i32 %retval.i.0.i.i.i.i.i57, 1
-  br i1 %cmp6.i.i.i.i.i58, label %if.then7.i.i.i.i.i59, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit78
+  br i1 %cmp6.i.i.i.i.i58, label %if.then7.i.i.i.i.i59, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit78
 
 if.then7.i.i.i.i.i59:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i56
   %vtable.i.i.i.i.i.i.i60 = load ptr, ptr %35, align 8
@@ -1955,16 +1955,16 @@ if.else.i.i.i.i.i.i.i.i72:                        ; preds = %if.then7.i.i.i.i.i5
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i66: ; preds = %if.else.i.i.i.i.i.i.i.i72, %if.then.i.i.i.i.i.i.i.i64
   %retval.i.0.i.i.i.i.i.i.i67 = phi i32 [ %113, %if.then.i.i.i.i.i.i.i.i64 ], [ %114, %if.else.i.i.i.i.i.i.i.i72 ]
   %cmp.i.i.i.i.i.i.i68 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i67, 1
-  br i1 %cmp.i.i.i.i.i.i.i68, label %if.end8.sink.split.i.i.i.i.i69, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit78
+  br i1 %cmp.i.i.i.i.i.i.i68, label %if.end8.sink.split.i.i.i.i.i69, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit78
 
 if.end8.sink.split.i.i.i.i.i69:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i66, %if.then.i.i.i.i.i74
   %vtable2.i.i.i.i.i.i.i70 = load ptr, ptr %35, align 8
   %vfn3.i.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i70, i64 24
   %115 = load ptr, ptr %vfn3.i.i.i.i.i.i.i71, align 8
   call void %115(ptr noundef nonnull align 8 dereferenceable(16) %35) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit78
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit78
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit78: ; preds = %invoke.cont31, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i66, %if.end8.sink.split.i.i.i.i.i69
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit78: ; preds = %invoke.cont31, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i66, %if.end8.sink.split.i.i.i.i.i69
   %116 = load i8, ptr %gtest_ar25, align 8
   %tobool.i79 = trunc i8 %116 to i1
   br i1 %tobool.i79, label %if.end49, label %if.else37
@@ -1981,7 +1981,7 @@ lpad30:                                           ; preds = %if.else.i, %if.then
 
 lpad30.body:                                      ; preds = %ehcleanup26.i.i, %lpad30
   %eh.lpad-body = phi { ptr, i32 } [ %117, %lpad30 ], [ %.pn.pn.i.i, %ehcleanup26.i.i ]
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev(ptr %35) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom(ptr %35) #28
   br label %ehcleanup51
 
 lpad33:                                           ; preds = %if.else37
@@ -1989,7 +1989,7 @@ lpad33:                                           ; preds = %if.else37
           cleanup
   br label %ehcleanup50
 
-if.else37:                                        ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit78
+if.else37:                                        ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit78
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp38)
           to label %invoke.cont39 unwind label %lpad33
 
@@ -2057,7 +2057,7 @@ _ZN7testing7MessageD2Ev.exit95:                   ; preds = %ehcleanup48, %_ZNKS
   store ptr null, ptr %ref.tmp38, align 8
   br label %ehcleanup50
 
-if.end49:                                         ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit78, %_ZN7testing7MessageD2Ev.exit90
+if.end49:                                         ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit78, %_ZN7testing7MessageD2Ev.exit90
   %message_.i96 = getelementptr inbounds i8, ptr %gtest_ar25, i64 8
   %126 = load ptr, ptr %message_.i96, align 8
   %cmp.not.i.i97 = icmp eq ptr %126, null
@@ -2079,14 +2079,14 @@ ehcleanup50:                                      ; preds = %_ZN7testing7Message
 ehcleanup51:                                      ; preds = %ehcleanup50, %lpad30.body, %ehcleanup24, %lpad11
   %.pn3.pn.pn = phi { ptr, i32 } [ %.pn3.pn, %ehcleanup50 ], [ %eh.lpad-body, %lpad30.body ], [ %.pn.pn, %ehcleanup24 ], [ %24, %lpad11 ]
   %a2.val = load ptr, ptr %_M_refcount.i.i.i.i14, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev(ptr %a2.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom(ptr %a2.val) #28
   br label %ehcleanup52
 
 ehcleanup52:                                      ; preds = %ehcleanup51, %lpad5
   %.pn3.pn.pn.pn = phi { ptr, i32 } [ %.pn3.pn.pn, %ehcleanup51 ], [ %23, %lpad5 ]
   call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %t1) #28
   %a1.val = load ptr, ptr %_M_refcount.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev(ptr %a1.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom(ptr %a1.val) #28
   br label %ehcleanup54
 
 ehcleanup54:                                      ; preds = %ehcleanup52, %lpad
@@ -2280,7 +2280,7 @@ call1.i.i.i.i.i.i.i.noexc.i.i.i.i.i:              ; preds = %call.i.i.i.i.i.i.i.
 
 invoke.cont.i.i.i.i.i:                            ; preds = %call1.i.i.i.i.i.i.i.noexc.i.i.i.i.i
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i)
-          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !52
+          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !52
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
   %common.resume.op.i.i = phi { ptr, i32 } [ %1, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
@@ -2292,14 +2292,14 @@ lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !52
   br label %common.resume.i.i
 
-_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
+_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !52
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i.i.i), !noalias !42
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !53
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i)
           to label %.noexc.i.i unwind label %lpad.i.i, !noalias !52
 
-.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
+.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
   %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i, i64 16
   %call.i.i.i.i.i.i.i1.i.i.i6.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i5.i.i, ptr noundef nonnull @.str.56)
           to label %call.i.i.i.i.i.i.i.noexc.i.i.i8.i.i unwind label %lpad.i.i.i7.i.i, !noalias !58
@@ -2329,7 +2329,7 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i12
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
           to label %_ZN7testing8internal18CmpHelperEQFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
-lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
+lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
@@ -2357,10 +2357,10 @@ _ZN7testing8internal11CmpHelperEQIN4absl18container_internal12_GLOBAL__N_112Chec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i = icmp eq ptr %this.16.val, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %this.16.val, i64 8
@@ -2396,7 +2396,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %1, %if.then.i.i.i.i.i ], [ %4, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
@@ -2421,16 +2421,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.16.val) #28
-  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 }
 
@@ -2513,7 +2513,7 @@ invoke.cont:                                      ; preds = %entry, %_ZN4absl18c
   %5 = getelementptr inbounds i8, ptr %this, i64 48
   %this.val = load ptr, ptr %5, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %this.val, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi7EEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi7EEEEED2Ev.argprom.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont
   %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val, i64 8
@@ -2549,7 +2549,7 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i.i.i ], [ %10, %if.else.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi7EEEEED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi7EEEEED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.val, align 8
@@ -2574,16 +2574,16 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %13, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %14, %if.else.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi7EEEEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi7EEEEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.val, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %this.val) #28
-  br label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi7EEEEED2Ev.exit
+  br label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi7EEEEED2Ev.argprom.exit
 
-_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi7EEEEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i
+_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi7EEEEED2Ev.argprom.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i
   ret void
 
 terminate.lpad:                                   ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE13destroy_slotsEv.exit.i
@@ -2604,7 +2604,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 112
   %a2.val = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %a2.val, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %a2.val, i64 8
@@ -2640,7 +2640,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i.i ], [ %5, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %a2.val, align 8
@@ -2665,24 +2665,24 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %8, %if.then.i.i.i.i.i.i.i.i ], [ %9, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %a2.val, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %a2.val) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %t1 = getelementptr inbounds i8, ptr %this, i64 40
   tail call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %t1) #28
   %11 = getelementptr inbounds i8, ptr %this, i64 32
   %a1.val = load ptr, ptr %11, align 8
   %cmp.not.i.i.i.i1 = icmp eq ptr %a1.val, null
-  br i1 %cmp.not.i.i.i.i1, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit31, label %if.then.i.i.i.i2
+  br i1 %cmp.not.i.i.i.i1, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit31, label %if.then.i.i.i.i2
 
-if.then.i.i.i.i2:                                 ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+if.then.i.i.i.i2:                                 ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
   %_M_use_count.i.i.i.i.i3 = getelementptr inbounds i8, ptr %a1.val, i64 8
   %12 = load atomic i64, ptr %_M_use_count.i.i.i.i.i3 acquire, align 8
   %cmp.i.i.i.i.i4 = icmp eq i64 %12, 4294967297
@@ -2716,7 +2716,7 @@ if.else.i.i.i.i.i.i26:                            ; preds = %if.end.i.i.i.i.i5
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i9: ; preds = %if.else.i.i.i.i.i.i26, %if.then.i.i.i.i.i.i7
   %retval.i.0.i.i.i.i.i10 = phi i32 [ %13, %if.then.i.i.i.i.i.i7 ], [ %16, %if.else.i.i.i.i.i.i26 ]
   %cmp6.i.i.i.i.i11 = icmp eq i32 %retval.i.0.i.i.i.i.i10, 1
-  br i1 %cmp6.i.i.i.i.i11, label %if.then7.i.i.i.i.i12, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit31
+  br i1 %cmp6.i.i.i.i.i11, label %if.then7.i.i.i.i.i12, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit31
 
 if.then7.i.i.i.i.i12:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i9
   %vtable.i.i.i.i.i.i.i13 = load ptr, ptr %a1.val, align 8
@@ -2741,16 +2741,16 @@ if.else.i.i.i.i.i.i.i.i25:                        ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i19: ; preds = %if.else.i.i.i.i.i.i.i.i25, %if.then.i.i.i.i.i.i.i.i17
   %retval.i.0.i.i.i.i.i.i.i20 = phi i32 [ %19, %if.then.i.i.i.i.i.i.i.i17 ], [ %20, %if.else.i.i.i.i.i.i.i.i25 ]
   %cmp.i.i.i.i.i.i.i21 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i20, 1
-  br i1 %cmp.i.i.i.i.i.i.i21, label %if.end8.sink.split.i.i.i.i.i22, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit31
+  br i1 %cmp.i.i.i.i.i.i.i21, label %if.end8.sink.split.i.i.i.i.i22, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit31
 
 if.end8.sink.split.i.i.i.i.i22:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i19, %if.then.i.i.i.i.i27
   %vtable2.i.i.i.i.i.i.i23 = load ptr, ptr %a1.val, align 8
   %vfn3.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i23, i64 24
   %21 = load ptr, ptr %vfn3.i.i.i.i.i.i.i24, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %a1.val) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit31
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit31
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit31: ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i19, %if.end8.sink.split.i.i.i.i.i22
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit31: ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i19, %if.end8.sink.split.i.i.i.i.i22
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #28
   ret void
 }
@@ -2788,7 +2788,7 @@ entry:
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIPvS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE8_M_eraseEPSt13_Rb_tree_nodeIS0_E(ptr noundef nonnull align 8 dereferenceable(48) %owned.i.i.i, ptr noundef %0)
-          to label %_ZNSt16allocator_traitsISaIvEE7destroyIN4absl18container_internal12_GLOBAL__N_110AllocStateEEEvRS0_PT_.exit unwind label %terminate.lpad.i.i.i.i.i
+          to label %_ZNSt16allocator_traitsISaIvEE7destroyIN4absl18container_internal12_GLOBAL__N_110AllocStateEEEvRS0_PT_.argprom.exit unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   %1 = landingpad { ptr, i32 }
@@ -2797,13 +2797,13 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   tail call void @__clang_call_terminate(ptr %2) #31
   unreachable
 
-_ZNSt16allocator_traitsISaIvEE7destroyIN4absl18container_internal12_GLOBAL__N_110AllocStateEEEvRS0_PT_.exit: ; preds = %entry
+_ZNSt16allocator_traitsISaIvEE7destroyIN4absl18container_internal12_GLOBAL__N_110AllocStateEEEvRS0_PT_.argprom.exit: ; preds = %entry
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN4absl18container_internal12_GLOBAL__N_110AllocStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4absl18container_internal12_GLOBAL__N_110AllocStateESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4absl18container_internal12_GLOBAL__N_110AllocStateESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -3199,7 +3199,7 @@ lpad.i.i:                                         ; preds = %if.then.i3.i.i.i.i,
 
 lpad.body.i.i:                                    ; preds = %lpad.i.i, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i12.i.i.i.i.i, %ehcleanup.i.i.i.i.i
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %42, %lpad.i.i ], [ %.pn.i.i.i.i.i, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i12.i.i.i.i.i ], [ %.pn.i.i.i.i.i, %ehcleanup.i.i.i.i.i ]
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev(ptr %7) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev.argprom(ptr %7) #28
   br label %eh.resume
 
 _ZN4absl18container_internal8AllocateILm8ENS0_12_GLOBAL__N_112CheckedAllocIcLi7EEEEEPvPT0_m.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %invoke.cont.i.i
@@ -3241,7 +3241,7 @@ invoke.cont:                                      ; preds = %if.else.i, %.noexc
   %48 = phi i64 [ %.pre.i, %.noexc ], [ %44, %if.else.i ]
   %shr.i.i34.i = and i64 %48, -2
   store i64 %shr.i.i34.i, ptr %size_.i.i, align 8
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev.exit, label %if.then.i.i.i.i20
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev.argprom.exit, label %if.then.i.i.i.i20
 
 if.then.i.i.i.i20:                                ; preds = %invoke.cont
   %_M_use_count.i.i.i.i.i21 = getelementptr inbounds i8, ptr %7, i64 8
@@ -3277,7 +3277,7 @@ if.else.i.i.i.i.i.i35:                            ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i35, %if.then.i.i.i.i.i.i23
   %retval.i.0.i.i.i.i.i = phi i32 [ %50, %if.then.i.i.i.i.i.i23 ], [ %53, %if.else.i.i.i.i.i.i35 ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i25 = load ptr, ptr %7, align 8
@@ -3302,16 +3302,16 @@ if.else.i.i.i.i.i.i.i.i34:                        ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31: ; preds = %if.else.i.i.i.i.i.i.i.i34, %if.then.i.i.i.i.i.i.i.i29
   %retval.i.0.i.i.i.i.i.i.i32 = phi i32 [ %56, %if.then.i.i.i.i.i.i.i.i29 ], [ %57, %if.else.i.i.i.i.i.i.i.i34 ]
   %cmp.i.i.i.i.i.i.i33 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i32, 1
-  br i1 %cmp.i.i.i.i.i.i.i33, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i33, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31, %if.then.i.i.i.i.i36
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %58 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev.argprom.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31, %if.end8.sink.split.i.i.i.i.i
   %59 = load i64, ptr %old_capacity_.i, align 8
   %cmp = icmp eq i64 %59, 0
   br i1 %cmp, label %return, label %if.end
@@ -3321,7 +3321,7 @@ lpad:                                             ; preds = %if.then.i
           cleanup
   br label %eh.resume
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev.argprom.exit
   %call9.val = load ptr, ptr %4, align 8
   br i1 %47, label %if.then8, label %for.body
 
@@ -3588,7 +3588,7 @@ lpad.i.i84:                                       ; preds = %_ZN4absl18container
   %110 = landingpad { ptr, i32 }
           cleanup
   %my_mem_alloc.val.i.i = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev(ptr %my_mem_alloc.val.i.i) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev.argprom(ptr %my_mem_alloc.val.i.i) #28
   br label %eh.resume
 
 invoke.cont32:                                    ; preds = %if.end8.sink.split.i.i.i.i.i.i.i102, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i99, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i89, %invoke.cont.i.i85
@@ -3663,21 +3663,21 @@ if.end8.sink.split.i.i.i.i.i133:                  ; preds = %_ZN9__gnu_cxx27__ex
   call void %120(ptr noundef nonnull align 8 dereferenceable(16) %90) #28
   br label %return
 
-return:                                           ; preds = %if.end8.sink.split.i.i.i.i.i133, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i130, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i120, %invoke.cont32, %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev.exit
+return:                                           ; preds = %if.end8.sink.split.i.i.i.i.i133, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i130, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i120, %invoke.cont32, %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev.argprom.exit
   ret void
 
 eh.resume:                                        ; preds = %lpad, %lpad.body.i.i, %lpad.i.i84
   %.sink = phi ptr [ %90, %lpad.i.i84 ], [ %7, %lpad.body.i.i ], [ %7, %lpad ]
   %.pn = phi { ptr, i32 } [ %110, %lpad.i.i84 ], [ %eh.lpad-body.i.i, %lpad.body.i.i ], [ %60, %lpad ]
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev(ptr %.sink) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev.argprom(ptr %.sink) #28
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi7EEEEED2Ev(ptr %this.48.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi7EEEEED2Ev.argprom(ptr %this.48.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %this.48.val, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi7EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.exit, label %if.then.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi7EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.argprom.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.48.val, i64 8
@@ -3713,7 +3713,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %1, %if.then.i.i.i.i.i.i.i.i ], [ %4, %if.else.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi7EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi7EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.48.val, align 8
@@ -3738,24 +3738,24 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi7EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi7EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.48.val, align 8
   %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.48.val) #28
-  br label %_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi7EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.exit
+  br label %_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi7EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.argprom.exit
 
-_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi7EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
+_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi7EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi7EED2Ev.argprom(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i = icmp eq ptr %this.16.val, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %this.16.val, i64 8
@@ -3791,7 +3791,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %1, %if.then.i.i.i.i.i ], [ %4, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
@@ -3816,16 +3816,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.16.val) #28
-  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 }
 
@@ -3834,10 +3834,10 @@ declare { i64, i64 } @_ZN4absl18container_internal19find_first_non_fullIvEENS0_8
 declare void @_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm(ptr noundef nonnull align 8 dereferenceable(17), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev.argprom(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i = icmp eq ptr %this.16.val, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %this.16.val, i64 8
@@ -3873,7 +3873,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %1, %if.then.i.i.i.i.i ], [ %4, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
@@ -3898,16 +3898,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.16.val) #28
-  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 }
 
@@ -4512,7 +4512,7 @@ _ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EE
 invoke.cont:                                      ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EEC2INS0_7TrackedIiEEEERKNS2_IT_Li7EEE.exit
   %my_mem_alloc.val2 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i3 = icmp eq ptr %my_mem_alloc.val2, null
-  br i1 %cmp.not.i.i.i.i3, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev.exit, label %if.then.i.i.i.i4
+  br i1 %cmp.not.i.i.i.i3, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev.argprom.exit, label %if.then.i.i.i.i4
 
 if.then.i.i.i.i4:                                 ; preds = %invoke.cont
   %_M_use_count.i.i.i.i.i5 = getelementptr inbounds i8, ptr %my_mem_alloc.val2, i64 8
@@ -4548,7 +4548,7 @@ if.else.i.i.i.i.i.i8:                             ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i8, %if.then.i.i.i.i.i.i6
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i6 ], [ %10, %if.else.i.i.i.i.i.i8 ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %my_mem_alloc.val2, align 8
@@ -4573,23 +4573,23 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %13, %if.then.i.i.i.i.i.i.i.i ], [ %14, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %my_mem_alloc.val2, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %my_mem_alloc.val2) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev.argprom.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   ret void
 
 lpad:                                             ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EEC2INS0_7TrackedIiEEEERKNS2_IT_Li7EEE.exit
   %16 = landingpad { ptr, i32 }
           cleanup
   %my_mem_alloc.val = load ptr, ptr %_M_refcount.i.i.i, align 8
-  tail call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev(ptr %my_mem_alloc.val) #28
+  tail call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi7EED2Ev.argprom(ptr %my_mem_alloc.val) #28
   resume { ptr, i32 } %16
 }
 
@@ -4746,7 +4746,7 @@ entry:
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %this, i64 48
@@ -4771,7 +4771,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !107, !noalias !100
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !100
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !100
 
 common.resume:                                    ; preds = %ehcleanup14, %ehcleanup36, %ehcleanup58, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn6.pn, %ehcleanup58 ], [ %.pn3.pn, %ehcleanup36 ], [ %.pn.pn, %ehcleanup14 ]
@@ -4783,7 +4783,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !100
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !110
@@ -4794,9 +4794,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !110
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !107, !noalias !100
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !107, !noalias !100
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 48
   %.val2.i.i.i.i.i = load ptr, ptr %4, align 8, !noalias !100
   %add.ptr3.i.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val2.i.i.i.i.i, i64 %0
@@ -4809,11 +4809,11 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.i.i = icmp eq i64 %a1.val.val, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i:                                      ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
   br label %_ZN7testing8internal8EqHelper7CompareIimTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
 
-if.end.i.i:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.end.i.i:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   call void @_ZN7testing8internal18CmpHelperEQFailureIimEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.68, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
   br label %_ZN7testing8internal8EqHelper7CompareIimTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
 
@@ -5527,7 +5527,7 @@ entry:
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %this, i64 48
@@ -5552,7 +5552,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !132, !noalias !125
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !125
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !125
 
 common.resume:                                    ; preds = %ehcleanup14, %ehcleanup36, %ehcleanup58, %ehcleanup82, %ehcleanup104, %ehcleanup126, %ehcleanup148, %lpad.i.i.i.i.i.i.i.i.i.i.i.i110, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %42, %lpad.i.i.i.i.i.i.i.i.i.i.i.i110 ], [ %.pn19.pn, %ehcleanup148 ], [ %.pn16.pn, %ehcleanup126 ], [ %.pn13.pn, %ehcleanup104 ], [ %.pn9.pn.pn, %ehcleanup82 ], [ %.pn6.pn, %ehcleanup58 ], [ %.pn3.pn, %ehcleanup36 ], [ %.pn.pn, %ehcleanup14 ]
@@ -5564,7 +5564,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !125
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !135
@@ -5575,9 +5575,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !135
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !132, !noalias !125
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !132, !noalias !125
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 48
   %.val2.i.i.i.i.i = load ptr, ptr %4, align 8, !noalias !125
   %add.ptr3.i.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val2.i.i.i.i.i, i64 %0
@@ -5590,11 +5590,11 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.i.i = icmp eq i64 %a1.val23.val, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i:                                      ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
   br label %_ZN7testing8internal8EqHelper7CompareIimTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
 
-if.end.i.i:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.end.i.i:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   call void @_ZN7testing8internal18CmpHelperEQFailureIimEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.68, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
   br label %_ZN7testing8internal8EqHelper7CompareIimTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
 
@@ -5918,7 +5918,7 @@ _ZN7testing15AssertionResultD2Ev.exit88:          ; preds = %if.end57, %_ZNKSt14
   %call.i.i.i.i.i90 = call fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(56) %t1, ptr noundef nonnull readonly align 4 dereferenceable(4) %v.addr.i.i.i.i89), !noalias !146
   %40 = extractvalue { i64, i8 } %call.i.i.i.i.i90, 1
   %tobool.i.i.i.i.i91 = trunc i8 %40 to i1
-  br i1 %tobool.i.i.i.i.i91, label %if.then.i.i.i.i.i99, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit116
+  br i1 %tobool.i.i.i.i.i91, label %if.then.i.i.i.i.i99, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit116
 
 if.then.i.i.i.i.i99:                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit88
   %41 = extractvalue { i64, i8 } %call.i.i.i.i.i90, 0
@@ -5943,7 +5943,7 @@ if.then.i.i.i.i.i99:                              ; preds = %_ZN7testing15Assert
   call void @llvm.experimental.noalias.scope.decl(metadata !153)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i108, align 8, !alias.scope !153, !noalias !146
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i109 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i111 unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i110, !noalias !146
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i111 unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i110, !noalias !146
 
 lpad.i.i.i.i.i.i.i.i.i.i.i.i110:                  ; preds = %if.then.i.i.i.i.i99
   %42 = landingpad { ptr, i32 }
@@ -5951,7 +5951,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i110:                  ; preds = %if.then.i.i.i.i.i99
   call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i102) #28, !noalias !146
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i111: ; preds = %if.then.i.i.i.i.i99
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i111: ; preds = %if.then.i.i.i.i.i99
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i112 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i101, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i113 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i109, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i113, align 8, !noalias !156
@@ -5962,9 +5962,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i115, align 8, !noalias !156
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i109, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i112, align 8, !alias.scope !153, !noalias !146
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i115, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i108, align 8, !alias.scope !153, !noalias !146
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit116
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit116
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit116: ; preds = %_ZN7testing15AssertionResultD2Ev.exit88, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i111
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit116: ; preds = %_ZN7testing15AssertionResultD2Ev.exit88, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i111
   %frombool.i.i.i.i.i.i98 = and i8 %40, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i.i.i.i89), !noalias !136
   %frombool = xor i8 %frombool.i.i.i.i.i.i98, 1
@@ -5979,7 +5979,7 @@ ehcleanup58:                                      ; preds = %_ZN7testing7Message
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar37) #28
   br label %common.resume
 
-if.else65:                                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit116
+if.else65:                                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit116
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp66)
           to label %invoke.cont68 unwind label %lpad67
 
@@ -6064,7 +6064,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @_ZdlPv(ptr noundef nonnull %.pr) #29
   br label %_ZN7testing15AssertionResultD2Ev.exit132
 
-_ZN7testing15AssertionResultD2Ev.exit132:         ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit116, %if.end81, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i131
+_ZN7testing15AssertionResultD2Ev.exit132:         ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit116, %if.end81, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i131
   store ptr null, ptr %message_.i117, align 8
   store i32 1, ptr %ref.tmp84, align 4
   %a1.val = load ptr, ptr %5, align 8
@@ -6485,7 +6485,7 @@ entry:
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %this, i64 48
@@ -6510,7 +6510,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !174, !noalias !167
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !167
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !167
 
 common.resume:                                    ; preds = %ehcleanup15, %ehcleanup39, %ehcleanup65, %ehcleanup87, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn9.pn, %ehcleanup87 ], [ %.pn6.pn, %ehcleanup65 ], [ %.pn3.pn, %ehcleanup39 ], [ %.pn.pn, %ehcleanup15 ]
@@ -6522,7 +6522,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !167
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !177
@@ -6533,9 +6533,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !177
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !174, !noalias !167
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !174, !noalias !167
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 48
   %.val2.i.i.i.i.i = load ptr, ptr %4, align 8, !noalias !167
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i.i.i.i), !noalias !157
@@ -6547,11 +6547,11 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.i.i = icmp eq i64 %6, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i:                                      ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
   br label %_ZN7testing8internal8EqHelper7CompareIimTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
 
-if.end.i.i:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.end.i.i:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   call void @_ZN7testing8internal18CmpHelperEQFailureIimEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.70, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
   br label %_ZN7testing8internal8EqHelper7CompareIimTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
 
@@ -7158,7 +7158,7 @@ entry:
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %this, i64 48
@@ -7183,7 +7183,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !199, !noalias !192
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !192
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !192
 
 common.resume:                                    ; preds = %ehcleanup66, %lpad.i, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %21, %lpad.i ], [ %.pn6.pn.pn, %ehcleanup66 ]
@@ -7195,7 +7195,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !192
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !202
@@ -7206,9 +7206,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !202
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !199, !noalias !192
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !199, !noalias !192
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 48
   %.val2.i.i.i.i.i = load ptr, ptr %4, align 8, !noalias !192
   %add.ptr3.i.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val2.i.i.i.i.i, i64 %0
@@ -7231,7 +7231,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS1_7TrackedIiEELi7EEEE37select_on_container_copy_constructionERKS6_.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !212
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
@@ -7247,7 +7247,7 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i
   %10 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !212
   br label %_ZNSt16allocator_traitsIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS1_7TrackedIiEELi7EEEE37select_on_container_copy_constructionERKS6_.exit.i
 
-_ZNSt16allocator_traitsIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS1_7TrackedIiEELi7EEEE37select_on_container_copy_constructionERKS6_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+_ZNSt16allocator_traitsIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS1_7TrackedIiEELi7EEEE37select_on_container_copy_constructionERKS6_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2ERKSB_RKSA_(ptr noundef nonnull align 8 dereferenceable(56) %u, ptr noundef nonnull readonly align 8 dereferenceable(56) %t1, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -7328,7 +7328,7 @@ lpad.i:                                           ; preds = %_ZNSt16allocator_tr
   %21 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp.val.i = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev(ptr %ref.tmp.val.i) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom(ptr %ref.tmp.val.i) #28
   br label %common.resume
 
 _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2ERKSB_.exit: ; preds = %invoke.cont.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
@@ -7856,7 +7856,7 @@ invoke.cont10:                                    ; preds = %if.else.i.i.i.i.i.i
 invoke.cont12:                                    ; preds = %invoke.cont10
   %ref.tmp.val = load ptr, ptr %_M_refcount.i.i.i.i23, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %ref.tmp.val, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont12
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.val, i64 8
@@ -7892,7 +7892,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %12, %if.then.i.i.i.i.i.i ], [ %15, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp.val, align 8
@@ -7917,16 +7917,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %18, %if.then.i.i.i.i.i.i.i.i ], [ %19, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i25
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp.val, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %20 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.val) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit: ; preds = %invoke.cont12, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit: ; preds = %invoke.cont12, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %21 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %21 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -7945,10 +7945,10 @@ lpad11:                                           ; preds = %invoke.cont10
   %24 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp.val10 = load ptr, ptr %_M_refcount.i.i.i.i23, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev(ptr %ref.tmp.val10) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom(ptr %ref.tmp.val10) #28
   br label %ehcleanup49
 
-if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13)
           to label %invoke.cont15 unwind label %lpad14
 
@@ -8021,7 +8021,7 @@ _ZN7testing7MessageD2Ev.exit30:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp13, align 8
   br label %ehcleanup23
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %33 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i31 = icmp eq ptr %33, null
@@ -8562,12 +8562,12 @@ invoke.cont25.i.i:                                ; preds = %invoke.cont23.i.i
   %message_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %102 = load ptr, ptr %message_.i.i.i, align 8, !noalias !228
   %cmp.not.i.i.i.i46 = icmp eq ptr %102, null
-  br i1 %cmp.not.i.i.i.i46, label %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.exit.i, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i46, label %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom.exit.i, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i: ; preds = %invoke.cont25.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #28
   call void @_ZdlPv(ptr noundef nonnull %102) #29
-  br label %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.exit.i
+  br label %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom.exit.i
 
 lpad.i.i:                                         ; preds = %invoke.cont11.i.i, %invoke.cont9.i.i, %invoke.cont7.i.i, %invoke.cont5.i.i, %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %.noexc47
   %103 = landingpad { ptr, i32 }
@@ -8599,14 +8599,14 @@ ehcleanup26.i.i:                                  ; preds = %ehcleanup.i.i, %lpa
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i) #28
   br label %lpad29.body
 
-_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.exit.i: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i, %invoke.cont25.i.i
+_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom.exit.i: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i, %invoke.cont25.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !225
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp13.i.i), !noalias !225
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp20.i.i), !noalias !225
   br label %invoke.cont30
 
-invoke.cont30:                                    ; preds = %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.exit.i, %if.then.i
-  br i1 %cmp.not.i.i.i.i.i37, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit78, label %if.then.i.i.i.i49
+invoke.cont30:                                    ; preds = %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom.exit.i, %if.then.i
+  br i1 %cmp.not.i.i.i.i.i37, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit78, label %if.then.i.i.i.i49
 
 if.then.i.i.i.i49:                                ; preds = %invoke.cont30
   %_M_use_count.i.i.i.i.i50 = getelementptr inbounds i8, ptr %35, i64 8
@@ -8642,7 +8642,7 @@ if.else.i.i.i.i.i.i73:                            ; preds = %if.end.i.i.i.i.i52
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i56: ; preds = %if.else.i.i.i.i.i.i73, %if.then.i.i.i.i.i.i54
   %retval.i.0.i.i.i.i.i57 = phi i32 [ %107, %if.then.i.i.i.i.i.i54 ], [ %110, %if.else.i.i.i.i.i.i73 ]
   %cmp6.i.i.i.i.i58 = icmp eq i32 %retval.i.0.i.i.i.i.i57, 1
-  br i1 %cmp6.i.i.i.i.i58, label %if.then7.i.i.i.i.i59, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit78
+  br i1 %cmp6.i.i.i.i.i58, label %if.then7.i.i.i.i.i59, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit78
 
 if.then7.i.i.i.i.i59:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i56
   %vtable.i.i.i.i.i.i.i60 = load ptr, ptr %35, align 8
@@ -8667,16 +8667,16 @@ if.else.i.i.i.i.i.i.i.i72:                        ; preds = %if.then7.i.i.i.i.i5
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i66: ; preds = %if.else.i.i.i.i.i.i.i.i72, %if.then.i.i.i.i.i.i.i.i64
   %retval.i.0.i.i.i.i.i.i.i67 = phi i32 [ %113, %if.then.i.i.i.i.i.i.i.i64 ], [ %114, %if.else.i.i.i.i.i.i.i.i72 ]
   %cmp.i.i.i.i.i.i.i68 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i67, 1
-  br i1 %cmp.i.i.i.i.i.i.i68, label %if.end8.sink.split.i.i.i.i.i69, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit78
+  br i1 %cmp.i.i.i.i.i.i.i68, label %if.end8.sink.split.i.i.i.i.i69, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit78
 
 if.end8.sink.split.i.i.i.i.i69:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i66, %if.then.i.i.i.i.i74
   %vtable2.i.i.i.i.i.i.i70 = load ptr, ptr %35, align 8
   %vfn3.i.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i70, i64 24
   %115 = load ptr, ptr %vfn3.i.i.i.i.i.i.i71, align 8
   call void %115(ptr noundef nonnull align 8 dereferenceable(16) %35) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit78
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit78
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit78: ; preds = %invoke.cont30, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i66, %if.end8.sink.split.i.i.i.i.i69
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit78: ; preds = %invoke.cont30, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i66, %if.end8.sink.split.i.i.i.i.i69
   %116 = load i8, ptr %gtest_ar24, align 8
   %tobool.i79 = trunc i8 %116 to i1
   br i1 %tobool.i79, label %if.end47, label %if.else34
@@ -8693,10 +8693,10 @@ lpad29:                                           ; preds = %if.else.i, %if.then
 
 lpad29.body:                                      ; preds = %ehcleanup26.i.i, %lpad29
   %eh.lpad-body = phi { ptr, i32 } [ %117, %lpad29 ], [ %.pn.pn.i.i, %ehcleanup26.i.i ]
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev(ptr %35) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom(ptr %35) #28
   br label %ehcleanup49
 
-if.else34:                                        ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit78
+if.else34:                                        ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit78
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp35)
           to label %invoke.cont37 unwind label %lpad36
 
@@ -8769,7 +8769,7 @@ _ZN7testing7MessageD2Ev.exit95:                   ; preds = %ehcleanup46, %_ZNKS
   store ptr null, ptr %ref.tmp35, align 8
   br label %ehcleanup48
 
-if.end47:                                         ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit78, %_ZN7testing7MessageD2Ev.exit90
+if.end47:                                         ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit78, %_ZN7testing7MessageD2Ev.exit90
   %message_.i96 = getelementptr inbounds i8, ptr %gtest_ar24, i64 8
   %126 = load ptr, ptr %message_.i96, align 8
   %cmp.not.i.i97 = icmp eq ptr %126, null
@@ -8791,14 +8791,14 @@ ehcleanup48:                                      ; preds = %_ZN7testing7Message
 ehcleanup49:                                      ; preds = %ehcleanup48, %lpad29.body, %ehcleanup23, %lpad11
   %.pn3.pn.pn = phi { ptr, i32 } [ %.pn3.pn, %ehcleanup48 ], [ %eh.lpad-body, %lpad29.body ], [ %.pn.pn, %ehcleanup23 ], [ %24, %lpad11 ]
   %a2.val = load ptr, ptr %_M_refcount.i.i.i.i14, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev(ptr %a2.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom(ptr %a2.val) #28
   br label %ehcleanup50
 
 ehcleanup50:                                      ; preds = %ehcleanup49, %lpad5
   %.pn3.pn.pn.pn = phi { ptr, i32 } [ %.pn3.pn.pn, %ehcleanup49 ], [ %23, %lpad5 ]
   call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %t1) #28
   %a1.val = load ptr, ptr %_M_refcount.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev(ptr %a1.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom(ptr %a1.val) #28
   br label %ehcleanup52
 
 ehcleanup52:                                      ; preds = %ehcleanup50, %lpad
@@ -8849,7 +8849,7 @@ entry:
   %ref.tmp80 = alloca %"class.testing::Message", align 8
   %ref.tmp83 = alloca %"class.testing::internal::AssertHelper", align 8
   %t1 = getelementptr inbounds i8, ptr %this, i64 40
-  call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %t1, i32 0)
+  call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %t1, i32 0)
   %it.sroa.1.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %it.sroa.1.0.copyload = load ptr, ptr %it.sroa.1.0.ref.tmp.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
@@ -8952,7 +8952,7 @@ common.resume:                                    ; preds = %ehcleanup94, %lpad.
 lpad.i:                                           ; preds = %entry
   %11 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev(ptr nonnull %call5.i.i.i3.i.i.i.i.i.i.i.i.i) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom(ptr nonnull %call5.i.i.i3.i.i.i.i.i.i.i.i.i) #28
   br label %common.resume
 
 _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEEC2ERKSB_.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
@@ -9111,7 +9111,7 @@ if.end.i.i31:                                     ; preds = %invoke.cont23
           to label %invoke.cont27 unwind label %lpad24
 
 invoke.cont27:                                    ; preds = %if.then.i.i32, %if.end.i.i31
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont27
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
@@ -9147,7 +9147,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i36
   %retval.i.0.i.i.i.i.i = phi i32 [ %31, %if.then.i.i.i.i.i.i36 ], [ %34, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %25, align 8
@@ -9172,16 +9172,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %37, %if.then.i.i.i.i.i.i.i.i ], [ %38, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i37
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %25, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %39 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %39(ptr noundef nonnull align 8 dereferenceable(16) %25) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit: ; preds = %invoke.cont27, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit: ; preds = %invoke.cont27, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %40 = load i8, ptr %gtest_ar19, align 8
   %tobool.i38 = trunc i8 %40 to i1
   br i1 %tobool.i38, label %if.end44, label %if.else31
@@ -9194,10 +9194,10 @@ ehcleanup18:                                      ; preds = %_ZN7testing7Message
 lpad24:                                           ; preds = %if.end.i.i31, %if.then.i.i32
   %41 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev(ptr %25) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom(ptr %25) #28
   br label %ehcleanup94
 
-if.else31:                                        ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+if.else31:                                        ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp32)
           to label %invoke.cont34 unwind label %lpad33
 
@@ -9270,7 +9270,7 @@ _ZN7testing7MessageD2Ev.exit54:                   ; preds = %ehcleanup43, %_ZNKS
   store ptr null, ptr %ref.tmp32, align 8
   br label %ehcleanup45
 
-if.end44:                                         ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit49
+if.end44:                                         ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit, %_ZN7testing7MessageD2Ev.exit49
   %message_.i55 = getelementptr inbounds i8, ptr %gtest_ar19, i64 8
   %50 = load ptr, ptr %message_.i55, align 8
   %cmp.not.i.i56 = icmp eq ptr %50, null
@@ -9557,7 +9557,7 @@ call1.i.i.i.i.i.i.i.noexc.i.i.i.i.i:              ; preds = %call.i.i.i.i.i.i.i.
 
 invoke.cont.i.i.i.i.i:                            ; preds = %call1.i.i.i.i.i.i.i.noexc.i.i.i.i.i
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i)
-          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !282
+          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !282
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
   %common.resume.op.i.i = phi { ptr, i32 } [ %1, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
@@ -9569,14 +9569,14 @@ lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !282
   br label %common.resume.i.i
 
-_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
+_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !282
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i.i.i), !noalias !272
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !283
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i)
           to label %.noexc.i.i unwind label %lpad.i.i, !noalias !282
 
-.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
+.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
   %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i, i64 16
   %call.i.i.i.i.i.i.i1.i.i.i6.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i5.i.i, ptr noundef nonnull @.str.56)
           to label %call.i.i.i.i.i.i.i.noexc.i.i.i8.i.i unwind label %lpad.i.i.i7.i.i, !noalias !288
@@ -9606,7 +9606,7 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i12
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
           to label %_ZN7testing8internal18CmpHelperEQFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
-lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
+lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
@@ -9634,10 +9634,10 @@ _ZN7testing8internal11CmpHelperEQIN4absl18container_internal12_GLOBAL__N_112Chec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i = icmp eq ptr %this.16.val, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %this.16.val, i64 8
@@ -9673,7 +9673,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %1, %if.then.i.i.i.i.i ], [ %4, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
@@ -9698,16 +9698,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.16.val) #28
-  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 }
 
@@ -9763,7 +9763,7 @@ invoke.cont:                                      ; preds = %entry, %_ZN4absl18c
   %5 = getelementptr inbounds i8, ptr %this, i64 48
   %this.val = load ptr, ptr %5, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %this.val, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi6EEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi6EEEEED2Ev.argprom.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont
   %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val, i64 8
@@ -9799,7 +9799,7 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i.i.i ], [ %10, %if.else.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi6EEEEED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi6EEEEED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.val, align 8
@@ -9824,16 +9824,16 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %13, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %14, %if.else.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi6EEEEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi6EEEEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.val, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %this.val) #28
-  br label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi6EEEEED2Ev.exit
+  br label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi6EEEEED2Ev.argprom.exit
 
-_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi6EEEEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i
+_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi6EEEEED2Ev.argprom.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i
   ret void
 
 terminate.lpad:                                   ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE13destroy_slotsEv.exit.i
@@ -9851,7 +9851,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 112
   %a2.val = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %a2.val, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %a2.val, i64 8
@@ -9887,7 +9887,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i.i ], [ %5, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %a2.val, align 8
@@ -9912,24 +9912,24 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %8, %if.then.i.i.i.i.i.i.i.i ], [ %9, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %a2.val, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %a2.val) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %t1 = getelementptr inbounds i8, ptr %this, i64 40
   tail call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %t1) #28
   %11 = getelementptr inbounds i8, ptr %this, i64 32
   %a1.val = load ptr, ptr %11, align 8
   %cmp.not.i.i.i.i1 = icmp eq ptr %a1.val, null
-  br i1 %cmp.not.i.i.i.i1, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit31, label %if.then.i.i.i.i2
+  br i1 %cmp.not.i.i.i.i1, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit31, label %if.then.i.i.i.i2
 
-if.then.i.i.i.i2:                                 ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+if.then.i.i.i.i2:                                 ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
   %_M_use_count.i.i.i.i.i3 = getelementptr inbounds i8, ptr %a1.val, i64 8
   %12 = load atomic i64, ptr %_M_use_count.i.i.i.i.i3 acquire, align 8
   %cmp.i.i.i.i.i4 = icmp eq i64 %12, 4294967297
@@ -9963,7 +9963,7 @@ if.else.i.i.i.i.i.i26:                            ; preds = %if.end.i.i.i.i.i5
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i9: ; preds = %if.else.i.i.i.i.i.i26, %if.then.i.i.i.i.i.i7
   %retval.i.0.i.i.i.i.i10 = phi i32 [ %13, %if.then.i.i.i.i.i.i7 ], [ %16, %if.else.i.i.i.i.i.i26 ]
   %cmp6.i.i.i.i.i11 = icmp eq i32 %retval.i.0.i.i.i.i.i10, 1
-  br i1 %cmp6.i.i.i.i.i11, label %if.then7.i.i.i.i.i12, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit31
+  br i1 %cmp6.i.i.i.i.i11, label %if.then7.i.i.i.i.i12, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit31
 
 if.then7.i.i.i.i.i12:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i9
   %vtable.i.i.i.i.i.i.i13 = load ptr, ptr %a1.val, align 8
@@ -9988,16 +9988,16 @@ if.else.i.i.i.i.i.i.i.i25:                        ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i19: ; preds = %if.else.i.i.i.i.i.i.i.i25, %if.then.i.i.i.i.i.i.i.i17
   %retval.i.0.i.i.i.i.i.i.i20 = phi i32 [ %19, %if.then.i.i.i.i.i.i.i.i17 ], [ %20, %if.else.i.i.i.i.i.i.i.i25 ]
   %cmp.i.i.i.i.i.i.i21 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i20, 1
-  br i1 %cmp.i.i.i.i.i.i.i21, label %if.end8.sink.split.i.i.i.i.i22, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit31
+  br i1 %cmp.i.i.i.i.i.i.i21, label %if.end8.sink.split.i.i.i.i.i22, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit31
 
 if.end8.sink.split.i.i.i.i.i22:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i19, %if.then.i.i.i.i.i27
   %vtable2.i.i.i.i.i.i.i23 = load ptr, ptr %a1.val, align 8
   %vfn3.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i23, i64 24
   %21 = load ptr, ptr %vfn3.i.i.i.i.i.i.i24, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %a1.val) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit31
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit31
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit31: ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i19, %if.end8.sink.split.i.i.i.i.i22
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit31: ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i19, %if.end8.sink.split.i.i.i.i.i22
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #28
   ret void
 }
@@ -10329,7 +10329,7 @@ lpad.i.i:                                         ; preds = %if.then.i3.i.i.i.i,
 
 lpad.body.i.i:                                    ; preds = %lpad.i.i, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i12.i.i.i.i.i, %ehcleanup.i.i.i.i.i
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %42, %lpad.i.i ], [ %.pn.i.i.i.i.i, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i12.i.i.i.i.i ], [ %.pn.i.i.i.i.i, %ehcleanup.i.i.i.i.i ]
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev(ptr %7) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev.argprom(ptr %7) #28
   br label %eh.resume
 
 _ZN4absl18container_internal8AllocateILm8ENS0_12_GLOBAL__N_112CheckedAllocIcLi6EEEEEPvPT0_m.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %invoke.cont.i.i
@@ -10371,7 +10371,7 @@ invoke.cont:                                      ; preds = %if.else.i, %.noexc
   %48 = phi i64 [ %.pre.i, %.noexc ], [ %44, %if.else.i ]
   %shr.i.i34.i = and i64 %48, -2
   store i64 %shr.i.i34.i, ptr %size_.i.i, align 8
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev.exit, label %if.then.i.i.i.i20
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev.argprom.exit, label %if.then.i.i.i.i20
 
 if.then.i.i.i.i20:                                ; preds = %invoke.cont
   %_M_use_count.i.i.i.i.i21 = getelementptr inbounds i8, ptr %7, i64 8
@@ -10407,7 +10407,7 @@ if.else.i.i.i.i.i.i35:                            ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i35, %if.then.i.i.i.i.i.i23
   %retval.i.0.i.i.i.i.i = phi i32 [ %50, %if.then.i.i.i.i.i.i23 ], [ %53, %if.else.i.i.i.i.i.i35 ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i25 = load ptr, ptr %7, align 8
@@ -10432,16 +10432,16 @@ if.else.i.i.i.i.i.i.i.i34:                        ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31: ; preds = %if.else.i.i.i.i.i.i.i.i34, %if.then.i.i.i.i.i.i.i.i29
   %retval.i.0.i.i.i.i.i.i.i32 = phi i32 [ %56, %if.then.i.i.i.i.i.i.i.i29 ], [ %57, %if.else.i.i.i.i.i.i.i.i34 ]
   %cmp.i.i.i.i.i.i.i33 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i32, 1
-  br i1 %cmp.i.i.i.i.i.i.i33, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i33, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31, %if.then.i.i.i.i.i36
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %58 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev.argprom.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31, %if.end8.sink.split.i.i.i.i.i
   %59 = load i64, ptr %old_capacity_.i, align 8
   %cmp = icmp eq i64 %59, 0
   br i1 %cmp, label %return, label %if.end
@@ -10451,7 +10451,7 @@ lpad:                                             ; preds = %if.then.i
           cleanup
   br label %eh.resume
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev.argprom.exit
   %call9.val = load ptr, ptr %4, align 8
   br i1 %47, label %if.then8, label %for.body
 
@@ -10718,7 +10718,7 @@ lpad.i.i84:                                       ; preds = %_ZN4absl18container
   %110 = landingpad { ptr, i32 }
           cleanup
   %my_mem_alloc.val.i.i = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev(ptr %my_mem_alloc.val.i.i) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev.argprom(ptr %my_mem_alloc.val.i.i) #28
   br label %eh.resume
 
 invoke.cont32:                                    ; preds = %if.end8.sink.split.i.i.i.i.i.i.i102, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i99, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i89, %invoke.cont.i.i85
@@ -10793,21 +10793,21 @@ if.end8.sink.split.i.i.i.i.i133:                  ; preds = %_ZN9__gnu_cxx27__ex
   call void %120(ptr noundef nonnull align 8 dereferenceable(16) %90) #28
   br label %return
 
-return:                                           ; preds = %if.end8.sink.split.i.i.i.i.i133, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i130, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i120, %invoke.cont32, %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev.exit
+return:                                           ; preds = %if.end8.sink.split.i.i.i.i.i133, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i130, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i120, %invoke.cont32, %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev.argprom.exit
   ret void
 
 eh.resume:                                        ; preds = %lpad, %lpad.body.i.i, %lpad.i.i84
   %.sink = phi ptr [ %90, %lpad.i.i84 ], [ %7, %lpad.body.i.i ], [ %7, %lpad ]
   %.pn = phi { ptr, i32 } [ %110, %lpad.i.i84 ], [ %eh.lpad-body.i.i, %lpad.body.i.i ], [ %60, %lpad ]
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev(ptr %.sink) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev.argprom(ptr %.sink) #28
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi6EED2Ev.argprom(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i = icmp eq ptr %this.16.val, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %this.16.val, i64 8
@@ -10843,7 +10843,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %1, %if.then.i.i.i.i.i ], [ %4, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
@@ -10868,24 +10868,24 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.16.val) #28
-  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev.argprom(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i = icmp eq ptr %this.16.val, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %this.16.val, i64 8
@@ -10921,7 +10921,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %1, %if.then.i.i.i.i.i ], [ %4, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
@@ -10946,16 +10946,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.16.val) #28
-  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 }
 
@@ -11113,7 +11113,7 @@ _ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EE
 invoke.cont:                                      ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EEC2INS0_7TrackedIiEEEERKNS2_IT_Li6EEE.exit
   %my_mem_alloc.val2 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i3 = icmp eq ptr %my_mem_alloc.val2, null
-  br i1 %cmp.not.i.i.i.i3, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev.exit, label %if.then.i.i.i.i4
+  br i1 %cmp.not.i.i.i.i3, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev.argprom.exit, label %if.then.i.i.i.i4
 
 if.then.i.i.i.i4:                                 ; preds = %invoke.cont
   %_M_use_count.i.i.i.i.i5 = getelementptr inbounds i8, ptr %my_mem_alloc.val2, i64 8
@@ -11149,7 +11149,7 @@ if.else.i.i.i.i.i.i8:                             ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i8, %if.then.i.i.i.i.i.i6
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i6 ], [ %10, %if.else.i.i.i.i.i.i8 ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %my_mem_alloc.val2, align 8
@@ -11174,28 +11174,28 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %13, %if.then.i.i.i.i.i.i.i.i ], [ %14, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %my_mem_alloc.val2, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %my_mem_alloc.val2) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev.argprom.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   ret void
 
 lpad:                                             ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EEC2INS0_7TrackedIiEEEERKNS2_IT_Li6EEE.exit
   %16 = landingpad { ptr, i32 }
           cleanup
   %my_mem_alloc.val = load ptr, ptr %_M_refcount.i.i.i, align 8
-  tail call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev(ptr %my_mem_alloc.val) #28
+  tail call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi6EED2Ev.argprom(ptr %my_mem_alloc.val) #28
   resume { ptr, i32 } %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, i32 %value.0.val) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, i32 %value.0.val) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp.i.i.i.i.i.i.i.i = alloca [40 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !294)
@@ -11239,7 +11239,7 @@ for.body.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
   %add.ptr23.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %this.val6.i.i.i.i.i, i64 %and.i.i.i.i.i.i
   %call24.val.i.i.i.i.i = load i32, ptr %add.ptr23.i.i.i.i.i, align 4, !noalias !306
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %call24.val.i.i.i.i.i, %value.0.val
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.exit, label %for.inc.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom.exit, label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %7 = add i16 %__begin0.sroa.0.033.i.i.i.i.i, -1
@@ -11371,7 +11371,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i.i.i.i.
   call void @llvm.experimental.noalias.scope.decl(metadata !315)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !315, !noalias !306
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i, !noalias !306
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i, !noalias !306
 
 lpad.i.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
   %26 = landingpad { ptr, i32 }
@@ -11379,7 +11379,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
   call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !306
   resume { ptr, i32 } %26
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i3.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !318
@@ -11392,13 +11392,13 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !315, !noalias !306
   %.val1.pre.i.i.i.i = load ptr, ptr %this, align 8, !noalias !306
   %.val2.pre.i.i.i.i = load ptr, ptr %3, align 8, !noalias !306
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.exit: ; preds = %for.body.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i
-  %.val2.i.i.i.i = phi ptr [ %.val2.pre.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i ], [ %this.val6.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %.val1.i.i.i.i = phi ptr [ %.val1.pre.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i ], [ %this.val7.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %retval.sroa.3.0.i9.i.i.i.i = phi i8 [ 1, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i ], [ 0, %for.body.i.i.i.i.i ]
-  %retval.sroa.0.0.i8.i.i.i.i = phi i64 [ %target.sroa.0.0.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i ], [ %and.i.i.i.i.i.i, %for.body.i.i.i.i.i ]
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom.exit: ; preds = %for.body.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i
+  %.val2.i.i.i.i = phi ptr [ %.val2.pre.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i ], [ %this.val6.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %.val1.i.i.i.i = phi ptr [ %.val1.pre.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i ], [ %this.val7.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %retval.sroa.3.0.i9.i.i.i.i = phi i8 [ 1, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i ], [ 0, %for.body.i.i.i.i.i ]
+  %retval.sroa.0.0.i8.i.i.i.i = phi i64 [ %target.sroa.0.0.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i ], [ %and.i.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %add.ptr.i4.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i.i, i64 %retval.sroa.0.0.i8.i.i.i.i
   %add.ptr3.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val2.i.i.i.i, i64 %retval.sroa.0.0.i8.i.i.i.i
   store ptr %add.ptr.i4.i.i.i.i, ptr %agg.result, align 8, !alias.scope !306
@@ -11546,7 +11546,7 @@ entry:
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %this, i64 48
@@ -11571,7 +11571,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !336)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !336, !noalias !329
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !329
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !329
 
 common.resume:                                    ; preds = %ehcleanup67, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn6.pn.pn, %ehcleanup67 ]
@@ -11583,7 +11583,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !329
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !339
@@ -11594,9 +11594,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !339
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !336, !noalias !329
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !336, !noalias !329
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 48
   %.val2.i.i.i.i.i = load ptr, ptr %4, align 8, !noalias !329
   %add.ptr3.i.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val2.i.i.i.i.i, i64 %0
@@ -11611,11 +11611,11 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.i.i = icmp eq i64 %a1.val.val, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i:                                      ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
           to label %invoke.cont unwind label %lpad
 
-if.end.i.i:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.end.i.i:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIimEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.68, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5)
           to label %invoke.cont unwind label %lpad
 
@@ -12265,7 +12265,7 @@ entry:
   %ref.tmp53 = alloca %"class.testing::Message", align 8
   %ref.tmp56 = alloca %"class.testing::internal::AssertHelper", align 8
   %t1 = getelementptr inbounds i8, ptr %this, i64 40
-  call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %t1, i32 0)
+  call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %t1, i32 0)
   %it.sroa.1.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %it.sroa.1.0.copyload = load ptr, ptr %it.sroa.1.0.ref.tmp.sroa_idx, align 8
   %a1 = getelementptr inbounds i8, ptr %this, i64 16
@@ -12947,7 +12947,7 @@ entry:
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %this, i64 48
@@ -12972,7 +12972,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !360)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !360, !noalias !353
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !353
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !353
 
 common.resume:                                    ; preds = %ehcleanup112, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn12.pn.pn, %ehcleanup112 ]
@@ -12984,7 +12984,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !353
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !363
@@ -12995,9 +12995,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !363
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !360, !noalias !353
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !360, !noalias !353
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 48
   %.val2.i.i.i.i.i = load ptr, ptr %4, align 8, !noalias !353
   %add.ptr3.i.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val2.i.i.i.i.i, i64 %0
@@ -13019,7 +13019,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.not.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i20
 
-if.then.i.i.i.i.i20:                              ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i.i.i.i20:                              ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !364
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %8, 0
@@ -13035,14 +13035,14 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i20
   %10 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !364
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS4_7TrackedIiEELi7EEES9_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.80, ptr noundef nonnull align 8 dereferenceable(24) %a2, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
   %ref.tmp5.val16 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %ref.tmp5.val16, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont7
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5.val16, i64 8
@@ -13078,7 +13078,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %12, %if.then.i.i.i.i.i.i ], [ %15, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp5.val16, align 8
@@ -13103,16 +13103,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %18, %if.then.i.i.i.i.i.i.i.i ], [ %19, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i21
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp5.val16, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %20 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.val16) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit: ; preds = %invoke.cont7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit: ; preds = %invoke.cont7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %21 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %21 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -13126,10 +13126,10 @@ lpad6:                                            ; preds = %invoke.cont
   %23 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp5.val = load ptr, ptr %_M_refcount.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev(ptr %ref.tmp5.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom(ptr %ref.tmp5.val) #28
   br label %ehcleanup112
 
-if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8)
           to label %invoke.cont10 unwind label %lpad9
 
@@ -13202,7 +13202,7 @@ _ZN7testing7MessageD2Ev.exit26:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp8, align 8
   br label %ehcleanup18
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %32 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i27 = icmp eq ptr %32, null
@@ -13753,7 +13753,7 @@ entry:
   %ref.tmp98 = alloca %"class.testing::Message", align 8
   %ref.tmp101 = alloca %"class.testing::internal::AssertHelper", align 8
   %t1 = getelementptr inbounds i8, ptr %this, i64 40
-  call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %t1, i32 0)
+  call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %t1, i32 0)
   %it.sroa.1.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %it.sroa.1.0.copyload = load ptr, ptr %it.sroa.1.0.ref.tmp.sroa_idx, align 8
   %a2 = getelementptr inbounds i8, ptr %this, i64 96
@@ -13796,7 +13796,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
 invoke.cont7:                                     ; preds = %invoke.cont
   %ref.tmp5.val16 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %ref.tmp5.val16, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont7
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5.val16, i64 8
@@ -13832,7 +13832,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i ], [ %10, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp5.val16, align 8
@@ -13857,16 +13857,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %13, %if.then.i.i.i.i.i.i.i.i ], [ %14, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i20
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp5.val16, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.val16) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit: ; preds = %invoke.cont7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit: ; preds = %invoke.cont7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %16 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %16 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -13880,10 +13880,10 @@ lpad6:                                            ; preds = %invoke.cont
   %18 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp5.val = load ptr, ptr %_M_refcount.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev(ptr %ref.tmp5.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom(ptr %ref.tmp5.val) #28
   br label %ehcleanup112
 
-if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8)
           to label %invoke.cont10 unwind label %lpad9
 
@@ -13956,7 +13956,7 @@ _ZN7testing7MessageD2Ev.exit25:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp8, align 8
   br label %ehcleanup18
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %27 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i26 = icmp eq ptr %27, null
@@ -14503,7 +14503,7 @@ entry:
   %call.i.i.i.i.i = call fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(56) %t1, ptr noundef nonnull readonly align 4 dereferenceable(4) %v.addr.i.i.i.i), !noalias !380
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
@@ -14529,7 +14529,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !387)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !387, !noalias !380
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !380
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !380
 
 common.resume:                                    ; preds = %ehcleanup76, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn6.pn.pn, %ehcleanup76 ]
@@ -14541,7 +14541,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !380
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !390
@@ -14552,9 +14552,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !390
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !387, !noalias !380
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !387, !noalias !380
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 48
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i.i.i.i), !noalias !370
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -14573,7 +14573,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EOSB_.exit, label %if.then.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %9, 0
@@ -14589,7 +14589,7 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i
   %11 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EOSB_.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EOSB_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit, %if.then.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EOSB_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit, %if.then.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t1, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %u.val = load ptr, ptr %u, align 8, !nonnull !340, !noundef !340
@@ -16967,7 +16967,7 @@ invoke.cont10:                                    ; preds = %if.else.i.i.i.i.i.i
 invoke.cont12:                                    ; preds = %invoke.cont10
   %ref.tmp.val = load ptr, ptr %_M_refcount.i.i.i.i23, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %ref.tmp.val, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont12
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.val, i64 8
@@ -17003,7 +17003,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %12, %if.then.i.i.i.i.i.i ], [ %15, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp.val, align 8
@@ -17028,16 +17028,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %18, %if.then.i.i.i.i.i.i.i.i ], [ %19, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i25
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp.val, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %20 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.val) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit: ; preds = %invoke.cont12, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit: ; preds = %invoke.cont12, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %21 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %21 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -17056,10 +17056,10 @@ lpad11:                                           ; preds = %invoke.cont10
   %24 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp.val10 = load ptr, ptr %_M_refcount.i.i.i.i23, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev(ptr %ref.tmp.val10) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom(ptr %ref.tmp.val10) #28
   br label %ehcleanup49
 
-if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13)
           to label %invoke.cont15 unwind label %lpad14
 
@@ -17132,7 +17132,7 @@ _ZN7testing7MessageD2Ev.exit30:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp13, align 8
   br label %ehcleanup23
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %33 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i31 = icmp eq ptr %33, null
@@ -17673,12 +17673,12 @@ invoke.cont25.i.i:                                ; preds = %invoke.cont23.i.i
   %message_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %102 = load ptr, ptr %message_.i.i.i, align 8, !noalias !447
   %cmp.not.i.i.i.i46 = icmp eq ptr %102, null
-  br i1 %cmp.not.i.i.i.i46, label %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.exit.i, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i46, label %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom.exit.i, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i: ; preds = %invoke.cont25.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #28
   call void @_ZdlPv(ptr noundef nonnull %102) #29
-  br label %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.exit.i
+  br label %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom.exit.i
 
 lpad.i.i:                                         ; preds = %invoke.cont11.i.i, %invoke.cont9.i.i, %invoke.cont7.i.i, %invoke.cont5.i.i, %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %.noexc47
   %103 = landingpad { ptr, i32 }
@@ -17710,14 +17710,14 @@ ehcleanup26.i.i:                                  ; preds = %ehcleanup.i.i, %lpa
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i) #28
   br label %lpad29.body
 
-_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.exit.i: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i, %invoke.cont25.i.i
+_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom.exit.i: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i, %invoke.cont25.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !444
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp13.i.i), !noalias !444
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp20.i.i), !noalias !444
   br label %invoke.cont30
 
-invoke.cont30:                                    ; preds = %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.exit.i, %if.then.i
-  br i1 %cmp.not.i.i.i.i.i37, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit78, label %if.then.i.i.i.i49
+invoke.cont30:                                    ; preds = %_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom.exit.i, %if.then.i
+  br i1 %cmp.not.i.i.i.i.i37, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit78, label %if.then.i.i.i.i49
 
 if.then.i.i.i.i49:                                ; preds = %invoke.cont30
   %_M_use_count.i.i.i.i.i50 = getelementptr inbounds i8, ptr %35, i64 8
@@ -17753,7 +17753,7 @@ if.else.i.i.i.i.i.i73:                            ; preds = %if.end.i.i.i.i.i52
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i56: ; preds = %if.else.i.i.i.i.i.i73, %if.then.i.i.i.i.i.i54
   %retval.i.0.i.i.i.i.i57 = phi i32 [ %107, %if.then.i.i.i.i.i.i54 ], [ %110, %if.else.i.i.i.i.i.i73 ]
   %cmp6.i.i.i.i.i58 = icmp eq i32 %retval.i.0.i.i.i.i.i57, 1
-  br i1 %cmp6.i.i.i.i.i58, label %if.then7.i.i.i.i.i59, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit78
+  br i1 %cmp6.i.i.i.i.i58, label %if.then7.i.i.i.i.i59, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit78
 
 if.then7.i.i.i.i.i59:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i56
   %vtable.i.i.i.i.i.i.i60 = load ptr, ptr %35, align 8
@@ -17778,16 +17778,16 @@ if.else.i.i.i.i.i.i.i.i72:                        ; preds = %if.then7.i.i.i.i.i5
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i66: ; preds = %if.else.i.i.i.i.i.i.i.i72, %if.then.i.i.i.i.i.i.i.i64
   %retval.i.0.i.i.i.i.i.i.i67 = phi i32 [ %113, %if.then.i.i.i.i.i.i.i.i64 ], [ %114, %if.else.i.i.i.i.i.i.i.i72 ]
   %cmp.i.i.i.i.i.i.i68 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i67, 1
-  br i1 %cmp.i.i.i.i.i.i.i68, label %if.end8.sink.split.i.i.i.i.i69, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit78
+  br i1 %cmp.i.i.i.i.i.i.i68, label %if.end8.sink.split.i.i.i.i.i69, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit78
 
 if.end8.sink.split.i.i.i.i.i69:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i66, %if.then.i.i.i.i.i74
   %vtable2.i.i.i.i.i.i.i70 = load ptr, ptr %35, align 8
   %vfn3.i.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i70, i64 24
   %115 = load ptr, ptr %vfn3.i.i.i.i.i.i.i71, align 8
   call void %115(ptr noundef nonnull align 8 dereferenceable(16) %35) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit78
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit78
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit78: ; preds = %invoke.cont30, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i66, %if.end8.sink.split.i.i.i.i.i69
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit78: ; preds = %invoke.cont30, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i66, %if.end8.sink.split.i.i.i.i.i69
   %116 = load i8, ptr %gtest_ar24, align 8
   %tobool.i79 = trunc i8 %116 to i1
   br i1 %tobool.i79, label %if.end47, label %if.else34
@@ -17804,10 +17804,10 @@ lpad29:                                           ; preds = %if.else.i, %if.then
 
 lpad29.body:                                      ; preds = %ehcleanup26.i.i, %lpad29
   %eh.lpad-body = phi { ptr, i32 } [ %117, %lpad29 ], [ %.pn.pn.i.i, %ehcleanup26.i.i ]
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev(ptr %35) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom(ptr %35) #28
   br label %ehcleanup49
 
-if.else34:                                        ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit78
+if.else34:                                        ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit78
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp35)
           to label %invoke.cont37 unwind label %lpad36
 
@@ -17880,7 +17880,7 @@ _ZN7testing7MessageD2Ev.exit95:                   ; preds = %ehcleanup46, %_ZNKS
   store ptr null, ptr %ref.tmp35, align 8
   br label %ehcleanup48
 
-if.end47:                                         ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit78, %_ZN7testing7MessageD2Ev.exit90
+if.end47:                                         ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit78, %_ZN7testing7MessageD2Ev.exit90
   %message_.i96 = getelementptr inbounds i8, ptr %gtest_ar24, i64 8
   %126 = load ptr, ptr %message_.i96, align 8
   %cmp.not.i.i97 = icmp eq ptr %126, null
@@ -17902,14 +17902,14 @@ ehcleanup48:                                      ; preds = %_ZN7testing7Message
 ehcleanup49:                                      ; preds = %ehcleanup48, %lpad29.body, %ehcleanup23, %lpad11
   %.pn3.pn.pn = phi { ptr, i32 } [ %.pn3.pn, %ehcleanup48 ], [ %eh.lpad-body, %lpad29.body ], [ %.pn.pn, %ehcleanup23 ], [ %24, %lpad11 ]
   %a2.val = load ptr, ptr %_M_refcount.i.i.i.i14, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev(ptr %a2.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom(ptr %a2.val) #28
   br label %ehcleanup50
 
 ehcleanup50:                                      ; preds = %ehcleanup49, %lpad5
   %.pn3.pn.pn.pn = phi { ptr, i32 } [ %.pn3.pn.pn, %ehcleanup49 ], [ %23, %lpad5 ]
   call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %t1) #28
   %a1.val = load ptr, ptr %_M_refcount.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev(ptr %a1.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom(ptr %a1.val) #28
   br label %ehcleanup52
 
 ehcleanup52:                                      ; preds = %ehcleanup50, %lpad
@@ -17959,7 +17959,7 @@ entry:
   %call.i.i.i.i.i = call fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(56) %t1, ptr noundef nonnull readonly align 4 dereferenceable(4) %v.addr.i.i.i.i), !noalias !476
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
@@ -17985,7 +17985,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !483)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !483, !noalias !476
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !476
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !476
 
 common.resume:                                    ; preds = %ehcleanup77, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn6.pn.pn, %ehcleanup77 ]
@@ -17997,7 +17997,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !476
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !486
@@ -18008,9 +18008,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !486
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !483, !noalias !476
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !483, !noalias !476
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 48
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i.i.i.i), !noalias !466
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -18029,7 +18029,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEEC2EOSB_.exit, label %if.then.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %9, 0
@@ -18045,7 +18045,7 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i
   %11 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEEC2EOSB_.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEEC2EOSB_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit, %if.then.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEEC2EOSB_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit, %if.then.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t1, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %u.val = load ptr, ptr %u, align 8, !nonnull !340, !noundef !340
@@ -18443,7 +18443,7 @@ call1.i.i.i.i.i.i.i.noexc.i.i.i.i.i:              ; preds = %call.i.i.i.i.i.i.i.
 
 invoke.cont.i.i.i.i.i:                            ; preds = %call1.i.i.i.i.i.i.i.noexc.i.i.i.i.i
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i)
-          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !507
+          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !507
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
   %common.resume.op.i.i = phi { ptr, i32 } [ %1, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
@@ -18455,14 +18455,14 @@ lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !507
   br label %common.resume.i.i
 
-_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
+_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !507
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i.i.i), !noalias !497
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !508
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i)
           to label %.noexc.i.i unwind label %lpad.i.i, !noalias !507
 
-.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
+.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
   %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i, i64 16
   %call.i.i.i.i.i.i.i1.i.i.i6.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i5.i.i, ptr noundef nonnull @.str.56)
           to label %call.i.i.i.i.i.i.i.noexc.i.i.i8.i.i unwind label %lpad.i.i.i7.i.i, !noalias !513
@@ -18492,7 +18492,7 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i12
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
           to label %_ZN7testing8internal18CmpHelperEQFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
-lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
+lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
@@ -18520,10 +18520,10 @@ _ZN7testing8internal11CmpHelperEQIN4absl18container_internal12_GLOBAL__N_112Chec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i = icmp eq ptr %this.16.val, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %this.16.val, i64 8
@@ -18559,7 +18559,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %1, %if.then.i.i.i.i.i ], [ %4, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
@@ -18584,16 +18584,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.16.val) #28
-  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 }
 
@@ -18649,7 +18649,7 @@ invoke.cont:                                      ; preds = %entry, %_ZN4absl18c
   %5 = getelementptr inbounds i8, ptr %this, i64 48
   %this.val = load ptr, ptr %5, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %this.val, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi5EEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi5EEEEED2Ev.argprom.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont
   %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val, i64 8
@@ -18685,7 +18685,7 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i.i.i ], [ %10, %if.else.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi5EEEEED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi5EEEEED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.val, align 8
@@ -18710,16 +18710,16 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %13, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %14, %if.else.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi5EEEEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi5EEEEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.val, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %this.val) #28
-  br label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi5EEEEED2Ev.exit
+  br label %_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi5EEEEED2Ev.argprom.exit
 
-_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi5EEEEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i
+_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi5EEEEED2Ev.argprom.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i
   ret void
 
 terminate.lpad:                                   ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE13destroy_slotsEv.exit.i
@@ -18737,7 +18737,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 112
   %a2.val = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %a2.val, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %a2.val, i64 8
@@ -18773,7 +18773,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i.i ], [ %5, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %a2.val, align 8
@@ -18798,24 +18798,24 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %8, %if.then.i.i.i.i.i.i.i.i ], [ %9, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %a2.val, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %a2.val) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %t1 = getelementptr inbounds i8, ptr %this, i64 40
   tail call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %t1) #28
   %11 = getelementptr inbounds i8, ptr %this, i64 32
   %a1.val = load ptr, ptr %11, align 8
   %cmp.not.i.i.i.i1 = icmp eq ptr %a1.val, null
-  br i1 %cmp.not.i.i.i.i1, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit31, label %if.then.i.i.i.i2
+  br i1 %cmp.not.i.i.i.i1, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit31, label %if.then.i.i.i.i2
 
-if.then.i.i.i.i2:                                 ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+if.then.i.i.i.i2:                                 ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
   %_M_use_count.i.i.i.i.i3 = getelementptr inbounds i8, ptr %a1.val, i64 8
   %12 = load atomic i64, ptr %_M_use_count.i.i.i.i.i3 acquire, align 8
   %cmp.i.i.i.i.i4 = icmp eq i64 %12, 4294967297
@@ -18849,7 +18849,7 @@ if.else.i.i.i.i.i.i26:                            ; preds = %if.end.i.i.i.i.i5
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i9: ; preds = %if.else.i.i.i.i.i.i26, %if.then.i.i.i.i.i.i7
   %retval.i.0.i.i.i.i.i10 = phi i32 [ %13, %if.then.i.i.i.i.i.i7 ], [ %16, %if.else.i.i.i.i.i.i26 ]
   %cmp6.i.i.i.i.i11 = icmp eq i32 %retval.i.0.i.i.i.i.i10, 1
-  br i1 %cmp6.i.i.i.i.i11, label %if.then7.i.i.i.i.i12, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit31
+  br i1 %cmp6.i.i.i.i.i11, label %if.then7.i.i.i.i.i12, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit31
 
 if.then7.i.i.i.i.i12:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i9
   %vtable.i.i.i.i.i.i.i13 = load ptr, ptr %a1.val, align 8
@@ -18874,16 +18874,16 @@ if.else.i.i.i.i.i.i.i.i25:                        ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i19: ; preds = %if.else.i.i.i.i.i.i.i.i25, %if.then.i.i.i.i.i.i.i.i17
   %retval.i.0.i.i.i.i.i.i.i20 = phi i32 [ %19, %if.then.i.i.i.i.i.i.i.i17 ], [ %20, %if.else.i.i.i.i.i.i.i.i25 ]
   %cmp.i.i.i.i.i.i.i21 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i20, 1
-  br i1 %cmp.i.i.i.i.i.i.i21, label %if.end8.sink.split.i.i.i.i.i22, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit31
+  br i1 %cmp.i.i.i.i.i.i.i21, label %if.end8.sink.split.i.i.i.i.i22, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit31
 
 if.end8.sink.split.i.i.i.i.i22:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i19, %if.then.i.i.i.i.i27
   %vtable2.i.i.i.i.i.i.i23 = load ptr, ptr %a1.val, align 8
   %vfn3.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i23, i64 24
   %21 = load ptr, ptr %vfn3.i.i.i.i.i.i.i24, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %a1.val) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit31
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit31
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit31: ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i19, %if.end8.sink.split.i.i.i.i.i22
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit31: ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i19, %if.end8.sink.split.i.i.i.i.i22
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #28
   ret void
 }
@@ -19215,7 +19215,7 @@ lpad.i.i:                                         ; preds = %if.then.i3.i.i.i.i,
 
 lpad.body.i.i:                                    ; preds = %lpad.i.i, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i12.i.i.i.i.i, %ehcleanup.i.i.i.i.i
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %42, %lpad.i.i ], [ %.pn.i.i.i.i.i, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i12.i.i.i.i.i ], [ %.pn.i.i.i.i.i, %ehcleanup.i.i.i.i.i ]
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev(ptr %7) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev.argprom(ptr %7) #28
   br label %eh.resume
 
 _ZN4absl18container_internal8AllocateILm8ENS0_12_GLOBAL__N_112CheckedAllocIcLi5EEEEEPvPT0_m.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %invoke.cont.i.i
@@ -19257,7 +19257,7 @@ invoke.cont:                                      ; preds = %if.else.i, %.noexc
   %48 = phi i64 [ %.pre.i, %.noexc ], [ %44, %if.else.i ]
   %shr.i.i34.i = and i64 %48, -2
   store i64 %shr.i.i34.i, ptr %size_.i.i, align 8
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev.exit, label %if.then.i.i.i.i20
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev.argprom.exit, label %if.then.i.i.i.i20
 
 if.then.i.i.i.i20:                                ; preds = %invoke.cont
   %_M_use_count.i.i.i.i.i21 = getelementptr inbounds i8, ptr %7, i64 8
@@ -19293,7 +19293,7 @@ if.else.i.i.i.i.i.i35:                            ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i35, %if.then.i.i.i.i.i.i23
   %retval.i.0.i.i.i.i.i = phi i32 [ %50, %if.then.i.i.i.i.i.i23 ], [ %53, %if.else.i.i.i.i.i.i35 ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i25 = load ptr, ptr %7, align 8
@@ -19318,16 +19318,16 @@ if.else.i.i.i.i.i.i.i.i34:                        ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31: ; preds = %if.else.i.i.i.i.i.i.i.i34, %if.then.i.i.i.i.i.i.i.i29
   %retval.i.0.i.i.i.i.i.i.i32 = phi i32 [ %56, %if.then.i.i.i.i.i.i.i.i29 ], [ %57, %if.else.i.i.i.i.i.i.i.i34 ]
   %cmp.i.i.i.i.i.i.i33 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i32, 1
-  br i1 %cmp.i.i.i.i.i.i.i33, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i33, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31, %if.then.i.i.i.i.i36
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %58 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev.argprom.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31, %if.end8.sink.split.i.i.i.i.i
   %59 = load i64, ptr %old_capacity_.i, align 8
   %cmp = icmp eq i64 %59, 0
   br i1 %cmp, label %return, label %if.end
@@ -19337,7 +19337,7 @@ lpad:                                             ; preds = %if.then.i
           cleanup
   br label %eh.resume
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev.argprom.exit
   %call9.val = load ptr, ptr %4, align 8
   br i1 %47, label %if.then8, label %for.body
 
@@ -19604,7 +19604,7 @@ lpad.i.i84:                                       ; preds = %_ZN4absl18container
   %110 = landingpad { ptr, i32 }
           cleanup
   %my_mem_alloc.val.i.i = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev(ptr %my_mem_alloc.val.i.i) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev.argprom(ptr %my_mem_alloc.val.i.i) #28
   br label %eh.resume
 
 invoke.cont32:                                    ; preds = %if.end8.sink.split.i.i.i.i.i.i.i102, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i99, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i89, %invoke.cont.i.i85
@@ -19679,21 +19679,21 @@ if.end8.sink.split.i.i.i.i.i133:                  ; preds = %_ZN9__gnu_cxx27__ex
   call void %120(ptr noundef nonnull align 8 dereferenceable(16) %90) #28
   br label %return
 
-return:                                           ; preds = %if.end8.sink.split.i.i.i.i.i133, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i130, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i120, %invoke.cont32, %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev.exit
+return:                                           ; preds = %if.end8.sink.split.i.i.i.i.i133, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i130, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i120, %invoke.cont32, %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev.argprom.exit
   ret void
 
 eh.resume:                                        ; preds = %lpad, %lpad.body.i.i, %lpad.i.i84
   %.sink = phi ptr [ %90, %lpad.i.i84 ], [ %7, %lpad.body.i.i ], [ %7, %lpad ]
   %.pn = phi { ptr, i32 } [ %110, %lpad.i.i84 ], [ %eh.lpad-body.i.i, %lpad.body.i.i ], [ %60, %lpad ]
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev(ptr %.sink) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev.argprom(ptr %.sink) #28
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi5EEEEED2Ev(ptr %this.48.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi5EEEEED2Ev.argprom(ptr %this.48.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %this.48.val, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi5EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.exit, label %if.then.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi5EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.argprom.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.48.val, i64 8
@@ -19729,7 +19729,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %1, %if.then.i.i.i.i.i.i.i.i ], [ %4, %if.else.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi5EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi5EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.48.val, align 8
@@ -19754,24 +19754,24 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi5EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi5EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.48.val, align 8
   %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.48.val) #28
-  br label %_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi5EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.exit
+  br label %_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi5EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.argprom.exit
 
-_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi5EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
+_ZN4absl18container_internal25internal_compressed_tuple19CompressedTupleImplINS0_15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS5_12CheckedAllocINS0_7TrackedIiEELi5EEEEEESt16integer_sequenceImJLm0ELm1ELm2ELm3EEELb1EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocIcLi5EED2Ev.argprom(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i = icmp eq ptr %this.16.val, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %this.16.val, i64 8
@@ -19807,7 +19807,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %1, %if.then.i.i.i.i.i ], [ %4, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
@@ -19832,24 +19832,24 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.16.val) #28
-  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev.argprom(ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i = icmp eq ptr %this.16.val, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %this.16.val, i64 8
@@ -19885,7 +19885,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %1, %if.then.i.i.i.i.i ], [ %4, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
@@ -19910,16 +19910,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.16.val) #28
-  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN4absl18container_internal12_GLOBAL__N_110AllocStateEED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 }
 
@@ -20077,7 +20077,7 @@ _ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EE
 invoke.cont:                                      ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EEC2INS0_7TrackedIiEEEERKNS2_IT_Li5EEE.exit
   %my_mem_alloc.val2 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i3 = icmp eq ptr %my_mem_alloc.val2, null
-  br i1 %cmp.not.i.i.i.i3, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev.exit, label %if.then.i.i.i.i4
+  br i1 %cmp.not.i.i.i.i3, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev.argprom.exit, label %if.then.i.i.i.i4
 
 if.then.i.i.i.i4:                                 ; preds = %invoke.cont
   %_M_use_count.i.i.i.i.i5 = getelementptr inbounds i8, ptr %my_mem_alloc.val2, i64 8
@@ -20113,7 +20113,7 @@ if.else.i.i.i.i.i.i8:                             ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i8, %if.then.i.i.i.i.i.i6
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i6 ], [ %10, %if.else.i.i.i.i.i.i8 ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %my_mem_alloc.val2, align 8
@@ -20138,23 +20138,23 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %13, %if.then.i.i.i.i.i.i.i.i ], [ %14, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %my_mem_alloc.val2, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %my_mem_alloc.val2) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev.argprom.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   ret void
 
 lpad:                                             ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EEC2INS0_7TrackedIiEEEERKNS2_IT_Li5EEE.exit
   %16 = landingpad { ptr, i32 }
           cleanup
   %my_mem_alloc.val = load ptr, ptr %_M_refcount.i.i.i, align 8
-  tail call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev(ptr %my_mem_alloc.val) #28
+  tail call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_11AlignedTypeILm8EEELi5EED2Ev.argprom(ptr %my_mem_alloc.val) #28
   resume { ptr, i32 } %16
 }
 
@@ -20457,7 +20457,7 @@ entry:
   %call.i.i.i.i.i = call fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(56) %t1, ptr noundef nonnull readonly align 4 dereferenceable(4) %v.addr.i.i.i.i), !noalias !533
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
@@ -20483,7 +20483,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !540)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !540, !noalias !533
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !533
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !533
 
 common.resume:                                    ; preds = %ehcleanup77, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn6.pn.pn, %ehcleanup77 ]
@@ -20495,7 +20495,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !533
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !543
@@ -20506,9 +20506,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !543
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !540, !noalias !533
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !540, !noalias !533
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i.i.i.i), !noalias !523
   %a1 = getelementptr inbounds i8, ptr %this, i64 16
   call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EOSB_RKSA_(ptr noundef nonnull align 8 dereferenceable(56) %u, ptr noundef nonnull align 8 dereferenceable(56) %t1, ptr noundef nonnull align 8 dereferenceable(24) %a1)
@@ -20519,9 +20519,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.i3.i.i = icmp slt i8 %5, -1
   br i1 %cmp.i3.i.i, label %while.body.i.i, label %invoke.cont7
 
-while.body.i.i:                                   ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit, %while.body.i.i
-  %6 = phi ptr [ %add.ptr6.i.i, %while.body.i.i ], [ %u.val13, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit ]
-  %add.ptr24.i.i = phi ptr [ %add.ptr.i.i, %while.body.i.i ], [ %u.val, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit ]
+while.body.i.i:                                   ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit, %while.body.i.i
+  %6 = phi ptr [ %add.ptr6.i.i, %while.body.i.i ], [ %u.val13, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit ]
+  %add.ptr24.i.i = phi ptr [ %add.ptr.i.i, %while.body.i.i ], [ %u.val, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit ]
   %7 = load <16 x i8>, ptr %add.ptr24.i.i, align 1
   %cmp.i.i.i.i.i = icmp slt <16 x i8> %7, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %8 = bitcast <16 x i1> %cmp.i.i.i.i.i to i16
@@ -20535,8 +20535,8 @@ while.body.i.i:                                   ; preds = %_ZN4absl18container
   %cmp.i.i2.i = icmp slt i8 %11, -1
   br i1 %cmp.i.i2.i, label %while.body.i.i, label %invoke.cont7, !llvm.loop !341
 
-invoke.cont7:                                     ; preds = %while.body.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
-  %retval.sroa.5.0.i = phi ptr [ %u.val13, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit ], [ %add.ptr6.i.i, %while.body.i.i ]
+invoke.cont7:                                     ; preds = %while.body.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
+  %retval.sroa.5.0.i = phi ptr [ %u.val13, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit ], [ %add.ptr6.i.i, %while.body.i.i ]
   store i64 4294967298, ptr %ref.tmp3, align 8, !alias.scope !544
   %12 = getelementptr inbounds i8, ptr %this, i64 24
   %a1.val = load ptr, ptr %12, align 8
@@ -20936,7 +20936,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i, %for.e
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit9, %lpad.loopexit ], [ %lpad.loopexit.split-lp10, %lpad.loopexit.split-lp ]
   %this.val = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
-  tail call fastcc void @_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi7EEEEED2Ev(ptr %this.val) #28
+  tail call fastcc void @_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi7EEEEED2Ev.argprom(ptr %this.val) #28
   resume { ptr, i32 } %lpad.phi
 
 if.else:                                          ; preds = %invoke.cont
@@ -20972,7 +20972,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %that.val8.i = load ptr, ptr %11, align 8
   %12 = load i8, ptr %that.val7.i, align 1
   %cmp.i3.i.i.i = icmp slt i8 %12, -1
-  br i1 %cmp.i3.i.i.i, label %while.body.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE5beginEv.exit.i
+  br i1 %cmp.i3.i.i.i, label %while.body.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE5beginEv.argprom.exit.i
 
 while.body.i.i.i:                                 ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7reserveEm.exit.i, %while.body.i.i.i
   %13 = phi ptr [ %add.ptr6.i.i.i, %while.body.i.i.i ], [ %that.val8.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7reserveEm.exit.i ]
@@ -20988,18 +20988,18 @@ while.body.i.i.i:                                 ; preds = %_ZN4absl18container
   %add.ptr6.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %13, i64 %idx.ext.i.i.i
   %18 = load i8, ptr %add.ptr.i.i.i, align 1
   %cmp.i.i2.i.i = icmp slt i8 %18, -1
-  br i1 %cmp.i.i2.i.i, label %while.body.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE5beginEv.exit.i, !llvm.loop !341
+  br i1 %cmp.i.i2.i.i, label %while.body.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE5beginEv.argprom.exit.i, !llvm.loop !341
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE5beginEv.exit.i: ; preds = %while.body.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7reserveEm.exit.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE5beginEv.argprom.exit.i: ; preds = %while.body.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7reserveEm.exit.i
   %retval.sroa.5.0.i.i = phi ptr [ %that.val8.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7reserveEm.exit.i ], [ %add.ptr6.i.i.i, %while.body.i.i.i ]
   %retval.sroa.0.0.i.i = phi ptr [ %that.val7.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7reserveEm.exit.i ], [ %add.ptr.i.i.i, %while.body.i.i.i ]
   %.lcssa.i.i.i = phi i8 [ %12, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7reserveEm.exit.i ], [ %18, %while.body.i.i.i ]
   %cmp.i.i.i = icmp eq i8 %.lcssa.i.i.i, -1
   br i1 %cmp.i.i.i, label %for.end.i, label %for.body.i
 
-for.body.i:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE5beginEv.exit.i, %while.end.i.i.i
-  %it.sroa.6.032.i = phi ptr [ %it.sroa.6.1.i, %while.end.i.i.i ], [ %retval.sroa.5.0.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE5beginEv.exit.i ]
-  %it.sroa.0.031.i = phi ptr [ %it.sroa.0.1.i, %while.end.i.i.i ], [ %retval.sroa.0.0.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE5beginEv.exit.i ]
+for.body.i:                                       ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE5beginEv.argprom.exit.i, %while.end.i.i.i
+  %it.sroa.6.032.i = phi ptr [ %it.sroa.6.1.i, %while.end.i.i.i ], [ %retval.sroa.5.0.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE5beginEv.argprom.exit.i ]
+  %it.sroa.0.031.i = phi ptr [ %it.sroa.0.1.i, %while.end.i.i.i ], [ %retval.sroa.0.0.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE5beginEv.argprom.exit.i ]
   %call.i.i.i.i.i.i7 = invoke fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 4 dereferenceable(4) %it.sroa.6.032.i)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
@@ -21077,8 +21077,8 @@ for.end.loopexit.i:                               ; preds = %while.end.i.i.i
   %.pre.i = load ptr, ptr %that, align 8
   br label %for.end.i
 
-for.end.i:                                        ; preds = %for.end.loopexit.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE5beginEv.exit.i
-  %35 = phi ptr [ %.pre.i, %for.end.loopexit.i ], [ %that.val7.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE5beginEv.exit.i ]
+for.end.i:                                        ; preds = %for.end.loopexit.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE5beginEv.argprom.exit.i
+  %35 = phi ptr [ %.pre.i, %for.end.loopexit.i ], [ %that.val7.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE5beginEv.argprom.exit.i ]
   %36 = getelementptr inbounds i8, ptr %that, i64 16
   %this.val.i26.i = load i64, ptr %36, align 8
   %37 = load i64, ptr %7, align 8
@@ -21175,7 +21175,7 @@ entry:
   %call.i.i.i.i.i = call fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(56) %t1, ptr noundef nonnull readonly align 4 dereferenceable(4) %v.addr.i.i.i.i), !noalias !572
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
@@ -21201,7 +21201,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !579)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !579, !noalias !572
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !572
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !572
 
 common.resume:                                    ; preds = %ehcleanup77, %lpad.i, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %11, %lpad.i ], [ %.pn6.pn.pn, %ehcleanup77 ]
@@ -21213,7 +21213,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !572
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !582
@@ -21224,9 +21224,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !582
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !579, !noalias !572
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !579, !noalias !572
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i.i.i.i), !noalias !562
   %a1 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %u, align 8
@@ -21246,7 +21246,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont.i, label %if.then.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
@@ -21262,7 +21262,7 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i
   %10 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %a.val.i = load i64, ptr %a1, align 8
   %call3.val.i = load i64, ptr %add.ptr.i.i.i, align 8
@@ -21281,7 +21281,7 @@ lpad.i:                                           ; preds = %if.else.i
   %11 = landingpad { ptr, i32 }
           cleanup
   %this.val.i = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi5EEEEED2Ev(ptr %this.val.i) #28
+  call fastcc void @_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi5EEEEED2Ev.argprom(ptr %this.val.i) #28
   br label %common.resume
 
 if.else.i:                                        ; preds = %invoke.cont.i
@@ -21681,7 +21681,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %that.val8 = load ptr, ptr %4, align 8
   %5 = load i8, ptr %that.val7, align 1
   %cmp.i3.i.i = icmp slt i8 %5, -1
-  br i1 %cmp.i3.i.i, label %while.body.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE5beginEv.exit
+  br i1 %cmp.i3.i.i, label %while.body.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE5beginEv.argprom.exit
 
 while.body.i.i:                                   ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7reserveEm.exit, %while.body.i.i
   %6 = phi ptr [ %add.ptr6.i.i, %while.body.i.i ], [ %that.val8, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7reserveEm.exit ]
@@ -21697,16 +21697,16 @@ while.body.i.i:                                   ; preds = %_ZN4absl18container
   %add.ptr6.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %6, i64 %idx.ext.i.i
   %11 = load i8, ptr %add.ptr.i.i, align 1
   %cmp.i.i2.i = icmp slt i8 %11, -1
-  br i1 %cmp.i.i2.i, label %while.body.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE5beginEv.exit, !llvm.loop !487
+  br i1 %cmp.i.i2.i, label %while.body.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE5beginEv.argprom.exit, !llvm.loop !487
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE5beginEv.exit: ; preds = %while.body.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7reserveEm.exit
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE5beginEv.argprom.exit: ; preds = %while.body.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7reserveEm.exit
   %retval.sroa.5.0.i = phi ptr [ %that.val8, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7reserveEm.exit ], [ %add.ptr6.i.i, %while.body.i.i ]
   %retval.sroa.0.0.i = phi ptr [ %that.val7, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7reserveEm.exit ], [ %add.ptr.i.i, %while.body.i.i ]
   %.lcssa.i.i = phi i8 [ %5, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7reserveEm.exit ], [ %11, %while.body.i.i ]
   %cmp.i.i = icmp eq i8 %.lcssa.i.i, -1
   br i1 %cmp.i.i, label %for.end, label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE5beginEv.exit
+for.body.lr.ph:                                   ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE5beginEv.argprom.exit
   %12 = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
@@ -21787,8 +21787,8 @@ for.end.loopexit:                                 ; preds = %while.end.i.i
   %.pre = load ptr, ptr %that, align 8
   br label %for.end
 
-for.end:                                          ; preds = %for.end.loopexit, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE5beginEv.exit
-  %29 = phi ptr [ %.pre, %for.end.loopexit ], [ %that.val7, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE5beginEv.exit ]
+for.end:                                          ; preds = %for.end.loopexit, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE5beginEv.argprom.exit
+  %29 = phi ptr [ %.pre, %for.end.loopexit ], [ %that.val7, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE5beginEv.argprom.exit ]
   %30 = getelementptr inbounds i8, ptr %that, i64 16
   %this.val.i26 = load i64, ptr %30, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %that, i64 32
@@ -21891,7 +21891,7 @@ entry:
   %call.i.i.i.i.i = call fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(56) %t1, ptr noundef nonnull readonly align 4 dereferenceable(4) %v.addr.i.i.i.i), !noalias !611
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
@@ -21917,7 +21917,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !618)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !618, !noalias !611
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !611
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !611
 
 common.resume:                                    ; preds = %ehcleanup125, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn12.pn.pn, %ehcleanup125 ]
@@ -21929,7 +21929,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !611
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !621
@@ -21940,9 +21940,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !621
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !618, !noalias !611
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !618, !noalias !611
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i.i.i.i), !noalias !601
   %a2 = getelementptr inbounds i8, ptr %this, i64 96
   call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EOSB_RKSA_(ptr noundef nonnull align 8 dereferenceable(56) %u, ptr noundef nonnull align 8 dereferenceable(56) %t1, ptr noundef nonnull align 8 dereferenceable(24) %a2)
@@ -21956,9 +21956,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %this.val5.i.i = load ptr, ptr %6, align 8
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %if.end34.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
-  %xor.i.i.i.pn.i.i = phi i64 [ %shr.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit ], [ %add3.i.i.i, %if.end34.i.i ]
-  %seq.sroa.10.0.i.i = phi i64 [ 0, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit ], [ %add.i15.i.i, %if.end34.i.i ]
+while.body.i.i:                                   ; preds = %if.end34.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
+  %xor.i.i.i.pn.i.i = phi i64 [ %shr.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit ], [ %add3.i.i.i, %if.end34.i.i ]
+  %seq.sroa.10.0.i.i = phi i64 [ 0, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit ], [ %add.i15.i.i, %if.end34.i.i ]
   %seq.sroa.4.0.i.i = and i64 %xor.i.i.i.pn.i.i, %4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 %seq.sroa.4.0.i.i
   %7 = load <16 x i8>, ptr %add.ptr.i.i, align 1
@@ -22040,7 +22040,7 @@ invoke.cont8:                                     ; preds = %if.else.i.i.i.i.i.i
 invoke.cont10:                                    ; preds = %invoke.cont8
   %ref.tmp7.val16 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %ref.tmp7.val16, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont10
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.val16, i64 8
@@ -22076,7 +22076,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %20, %if.then.i.i.i.i.i.i ], [ %23, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp7.val16, align 8
@@ -22101,16 +22101,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %26, %if.then.i.i.i.i.i.i.i.i ], [ %27, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i22
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp7.val16, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %28 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7.val16) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit: ; preds = %invoke.cont10, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit: ; preds = %invoke.cont10, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %29 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %29 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -22124,10 +22124,10 @@ lpad9:                                            ; preds = %invoke.cont8
   %31 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp7.val = load ptr, ptr %_M_refcount.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev(ptr %ref.tmp7.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom(ptr %ref.tmp7.val) #28
   br label %ehcleanup125
 
-if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12)
           to label %invoke.cont14 unwind label %lpad13
 
@@ -22200,7 +22200,7 @@ _ZN7testing7MessageD2Ev.exit27:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp12, align 8
   br label %ehcleanup22
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %40 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i28 = icmp eq ptr %40, null
@@ -22741,7 +22741,7 @@ entry:
   %call.i.i.i.i.i = call fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(56) %t1, ptr noundef nonnull readonly align 4 dereferenceable(4) %v.addr.i.i.i.i), !noalias !644
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
@@ -22767,7 +22767,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !651)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !651, !noalias !644
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !644
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !644
 
 common.resume:                                    ; preds = %ehcleanup125, %lpad.i, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %11, %lpad.i ], [ %.pn12.pn.pn, %ehcleanup125 ]
@@ -22779,7 +22779,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !644
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !654
@@ -22790,9 +22790,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !654
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !651, !noalias !644
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !651, !noalias !644
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i.i.i.i), !noalias !634
   %a2 = getelementptr inbounds i8, ptr %this, i64 96
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %u, align 8
@@ -22812,7 +22812,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont.i, label %if.then.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
@@ -22828,7 +22828,7 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i
   %10 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %a.val.i = load i64, ptr %a2, align 8
   %call3.val.i = load i64, ptr %add.ptr.i.i.i, align 8
@@ -22847,7 +22847,7 @@ lpad.i:                                           ; preds = %if.else.i
   %11 = landingpad { ptr, i32 }
           cleanup
   %this.val.i = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi5EEEEED2Ev(ptr %this.val.i) #28
+  call fastcc void @_ZN4absl18container_internal15CompressedTupleIJNS0_12CommonFieldsENS0_12_GLOBAL__N_18IdentityESt8equal_toIiENS3_12CheckedAllocINS0_7TrackedIiEELi5EEEEED2Ev.argprom(ptr %this.val.i) #28
   br label %common.resume
 
 if.else.i:                                        ; preds = %invoke.cont.i
@@ -22945,7 +22945,7 @@ invoke.cont8:                                     ; preds = %if.else.i.i.i.i.i.i
 invoke.cont10:                                    ; preds = %invoke.cont8
   %ref.tmp7.val16 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %ref.tmp7.val16, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont10
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.val16, i64 8
@@ -22981,7 +22981,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %27, %if.then.i.i.i.i.i.i ], [ %30, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp7.val16, align 8
@@ -23006,16 +23006,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i24
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %33, %if.then.i.i.i.i.i.i.i.i24 ], [ %34, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i25
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp7.val16, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7.val16) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit: ; preds = %invoke.cont10, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit: ; preds = %invoke.cont10, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %36 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %36 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -23029,10 +23029,10 @@ lpad9:                                            ; preds = %invoke.cont8
   %38 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp7.val = load ptr, ptr %_M_refcount.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev(ptr %ref.tmp7.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom(ptr %ref.tmp7.val) #28
   br label %ehcleanup125
 
-if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12)
           to label %invoke.cont14 unwind label %lpad13
 
@@ -23105,7 +23105,7 @@ _ZN7testing7MessageD2Ev.exit30:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp12, align 8
   br label %ehcleanup22
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %47 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i31 = icmp eq ptr %47, null
@@ -23637,7 +23637,7 @@ entry:
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %this, i64 48
@@ -23662,7 +23662,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !685)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !685, !noalias !678
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !678
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !678
 
 common.resume:                                    ; preds = %ehcleanup78, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn6.pn.pn, %ehcleanup78 ]
@@ -23674,7 +23674,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !678
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !688
@@ -23685,9 +23685,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !688
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !685, !noalias !678
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !685, !noalias !678
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 48
   %.val2.i.i.i.i.i = load ptr, ptr %4, align 8, !noalias !678
   %add.ptr3.i.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val2.i.i.i.i.i, i64 %0
@@ -23710,7 +23710,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %9, 0
@@ -23726,7 +23726,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
   %11 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tmp.i)
   %cmp.i = icmp eq ptr %u, %t1
   br i1 %cmp.i, label %invoke.cont8, label %if.end.i
@@ -24325,7 +24325,7 @@ entry:
   %ref.tmp64 = alloca %"class.testing::Message", align 8
   %ref.tmp67 = alloca %"class.testing::internal::AssertHelper", align 8
   %t1 = getelementptr inbounds i8, ptr %this, i64 40
-  call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %t1, i32 0)
+  call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %t1, i32 0)
   %it.sroa.1.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %it.sroa.1.0.copyload = load ptr, ptr %it.sroa.1.0.ref.tmp.sroa_idx, align 8
   %a1 = getelementptr inbounds i8, ptr %this, i64 16
@@ -24855,7 +24855,7 @@ entry:
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %this, i64 48
@@ -24880,7 +24880,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !718)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !718, !noalias !711
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !711
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !711
 
 common.resume:                                    ; preds = %ehcleanup123, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn12.pn.pn, %ehcleanup123 ]
@@ -24892,7 +24892,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !711
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !721
@@ -24903,9 +24903,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !721
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !718, !noalias !711
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !718, !noalias !711
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 48
   %.val2.i.i.i.i.i = load ptr, ptr %4, align 8, !noalias !711
   %add.ptr3.i.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val2.i.i.i.i.i, i64 %0
@@ -24928,7 +24928,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %9, 0
@@ -24944,7 +24944,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
   %11 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tmp.i)
   %cmp.i = icmp eq ptr %u, %t1
   br i1 %cmp.i, label %invoke.cont, label %if.end.i
@@ -25006,7 +25006,7 @@ invoke.cont5:                                     ; preds = %if.else.i.i.i.i.i.i
 invoke.cont7:                                     ; preds = %invoke.cont5
   %ref.tmp4.val16 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %ref.tmp4.val16, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont7
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.val16, i64 8
@@ -25042,7 +25042,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %20, %if.then.i.i.i.i.i.i ], [ %23, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp4.val16, align 8
@@ -25067,16 +25067,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %26, %if.then.i.i.i.i.i.i.i.i ], [ %27, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i22
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp4.val16, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %28 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4.val16) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit: ; preds = %invoke.cont7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit: ; preds = %invoke.cont7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %29 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %29 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -25090,10 +25090,10 @@ lpad6:                                            ; preds = %invoke.cont5
   %31 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp4.val = load ptr, ptr %_M_refcount.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev(ptr %ref.tmp4.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom(ptr %ref.tmp4.val) #28
   br label %ehcleanup123
 
-if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9)
           to label %invoke.cont11 unwind label %lpad10
 
@@ -25166,7 +25166,7 @@ _ZN7testing7MessageD2Ev.exit27:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp9, align 8
   br label %ehcleanup19
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %40 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i28 = icmp eq ptr %40, null
@@ -25700,7 +25700,7 @@ entry:
   %ref.tmp109 = alloca %"class.testing::Message", align 8
   %ref.tmp112 = alloca %"class.testing::internal::AssertHelper", align 8
   %t1 = getelementptr inbounds i8, ptr %this, i64 40
-  call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %t1, i32 0)
+  call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %t1, i32 0)
   %it.sroa.1.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %it.sroa.1.0.copyload = load ptr, ptr %it.sroa.1.0.ref.tmp.sroa_idx, align 8
   %a2 = getelementptr inbounds i8, ptr %this, i64 96
@@ -25777,7 +25777,7 @@ invoke.cont6:                                     ; preds = %if.else.i.i.i.i.i.i
 invoke.cont8:                                     ; preds = %invoke.cont6
   %ref.tmp5.val16 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %ref.tmp5.val16, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont8
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5.val16, i64 8
@@ -25813,7 +25813,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %14, %if.then.i.i.i.i.i.i ], [ %17, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp5.val16, align 8
@@ -25838,16 +25838,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %20, %if.then.i.i.i.i.i.i.i.i ], [ %21, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i20
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp5.val16, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %22 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.val16) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit: ; preds = %invoke.cont8, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit: ; preds = %invoke.cont8, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %23 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %23 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -25861,10 +25861,10 @@ lpad7:                                            ; preds = %invoke.cont6
   %25 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp5.val = load ptr, ptr %_M_refcount.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev(ptr %ref.tmp5.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom(ptr %ref.tmp5.val) #28
   br label %ehcleanup123
 
-if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit
+if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10)
           to label %invoke.cont12 unwind label %lpad11
 
@@ -25937,7 +25937,7 @@ _ZN7testing7MessageD2Ev.exit25:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp10, align 8
   br label %ehcleanup20
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EED2Ev.argprom.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %34 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i26 = icmp eq ptr %34, null
@@ -26471,7 +26471,7 @@ entry:
   %call.i.i.i.i.i = call fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(56) %t1, ptr noundef nonnull readonly align 4 dereferenceable(4) %v.addr.i.i.i.i), !noalias !750
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
@@ -26497,7 +26497,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !757)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !757, !noalias !750
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !750
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !750
 
 common.resume:                                    ; preds = %ehcleanup102, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn9.pn.pn, %ehcleanup102 ]
@@ -26509,7 +26509,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !750
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !760
@@ -26520,9 +26520,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !760
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !757, !noalias !750
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !757, !noalias !750
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i.i.i.i), !noalias !740
   %a1 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %u, align 8
@@ -26542,7 +26542,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
@@ -26558,7 +26558,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
   %10 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i
   %call.i.i18 = invoke fastcc noundef nonnull align 8 dereferenceable(56) ptr @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE11assign_implILb1EEERSB_OSB_(ptr noundef nonnull align 8 dereferenceable(56) %u, ptr noundef nonnull align 8 dereferenceable(56) %t1)
           to label %invoke.cont unwind label %lpad
 
@@ -26622,7 +26622,7 @@ invoke.cont7:                                     ; preds = %if.else.i.i.i.i.i.i
 invoke.cont9:                                     ; preds = %invoke.cont7
   %ref.tmp6.val13 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %ref.tmp6.val13, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont9
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6.val13, i64 8
@@ -26658,7 +26658,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %25, %if.then.i.i.i.i.i.i ], [ %28, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp6.val13, align 8
@@ -26683,16 +26683,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %31, %if.then.i.i.i.i.i.i.i.i ], [ %32, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i21
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp6.val13, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %33 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6.val13) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit: ; preds = %invoke.cont9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit: ; preds = %invoke.cont9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %34 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %34 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -26706,10 +26706,10 @@ lpad8:                                            ; preds = %invoke.cont7
   %36 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp6.val = load ptr, ptr %_M_refcount.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev(ptr %ref.tmp6.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom(ptr %ref.tmp6.val) #28
   br label %ehcleanup102
 
-if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11)
           to label %invoke.cont13 unwind label %lpad12
 
@@ -26782,7 +26782,7 @@ _ZN7testing7MessageD2Ev.exit26:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp11, align 8
   br label %ehcleanup21
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %45 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i27 = icmp eq ptr %45, null
@@ -27204,7 +27204,7 @@ entry:
   %call.i.i.i.i.i = call fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(56) %t1, ptr noundef nonnull readonly align 4 dereferenceable(4) %v.addr.i.i.i.i), !noalias !780
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
@@ -27230,7 +27230,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !787)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !787, !noalias !780
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !780
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !780
 
 common.resume:                                    ; preds = %ehcleanup102, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn9.pn.pn, %ehcleanup102 ]
@@ -27242,7 +27242,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !780
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !790
@@ -27253,9 +27253,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !790
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !787, !noalias !780
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !787, !noalias !780
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i.i.i.i), !noalias !770
   %a1 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %u, align 8
@@ -27275,7 +27275,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEEC2EmRKSA_.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
@@ -27291,7 +27291,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
   %10 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEEC2EmRKSA_.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEEC2EmRKSA_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEEC2EmRKSA_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i
   %call = invoke fastcc noundef nonnull align 8 dereferenceable(56) ptr @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEEaSEOSB_(ptr noundef nonnull align 8 dereferenceable(56) %u, ptr noundef nonnull align 8 dereferenceable(56) %t1)
           to label %invoke.cont unwind label %lpad
 
@@ -27355,7 +27355,7 @@ invoke.cont7:                                     ; preds = %if.else.i.i.i.i.i.i
 invoke.cont9:                                     ; preds = %invoke.cont7
   %ref.tmp6.val13 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %ref.tmp6.val13, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont9
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6.val13, i64 8
@@ -27391,7 +27391,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %25, %if.then.i.i.i.i.i.i ], [ %28, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp6.val13, align 8
@@ -27416,16 +27416,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %31, %if.then.i.i.i.i.i.i.i.i ], [ %32, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i20
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp6.val13, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %33 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6.val13) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit: ; preds = %invoke.cont9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit: ; preds = %invoke.cont9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %34 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %34 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -27439,10 +27439,10 @@ lpad8:                                            ; preds = %invoke.cont7
   %36 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp6.val = load ptr, ptr %_M_refcount.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev(ptr %ref.tmp6.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom(ptr %ref.tmp6.val) #28
   br label %ehcleanup102
 
-if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11)
           to label %invoke.cont13 unwind label %lpad12
 
@@ -27515,7 +27515,7 @@ _ZN7testing7MessageD2Ev.exit25:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp11, align 8
   br label %ehcleanup21
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %45 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i26 = icmp eq ptr %45, null
@@ -28054,7 +28054,7 @@ entry:
   %call.i.i.i.i.i = call fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(56) %t1, ptr noundef nonnull readonly align 4 dereferenceable(4) %v.addr.i.i.i.i), !noalias !810
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
@@ -28080,7 +28080,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !817)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !817, !noalias !810
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !810
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !810
 
 common.resume:                                    ; preds = %ehcleanup124, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn12.pn.pn, %ehcleanup124 ]
@@ -28092,7 +28092,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !810
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !820
@@ -28103,9 +28103,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !820
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !817, !noalias !810
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !817, !noalias !810
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i.i.i.i), !noalias !800
   %a2 = getelementptr inbounds i8, ptr %this, i64 96
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %u, align 8
@@ -28125,7 +28125,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
@@ -28141,7 +28141,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
   %10 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i
   %call.i.i21 = invoke fastcc noundef nonnull align 8 dereferenceable(56) ptr @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE11assign_implILb1EEERSB_OSB_(ptr noundef nonnull align 8 dereferenceable(56) %u, ptr noundef nonnull align 8 dereferenceable(56) %t1)
           to label %invoke.cont unwind label %lpad
 
@@ -28206,7 +28206,7 @@ invoke.cont6:                                     ; preds = %if.else.i.i.i.i.i.i
 invoke.cont8:                                     ; preds = %invoke.cont6
   %ref.tmp5.val16 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %ref.tmp5.val16, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont8
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5.val16, i64 8
@@ -28242,7 +28242,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %25, %if.then.i.i.i.i.i.i ], [ %28, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp5.val16, align 8
@@ -28267,16 +28267,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %31, %if.then.i.i.i.i.i.i.i.i ], [ %32, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i24
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp5.val16, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %33 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.val16) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit: ; preds = %invoke.cont8, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit: ; preds = %invoke.cont8, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %34 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %34 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -28290,10 +28290,10 @@ lpad7:                                            ; preds = %invoke.cont6
   %36 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp5.val = load ptr, ptr %_M_refcount.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev(ptr %ref.tmp5.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom(ptr %ref.tmp5.val) #28
   br label %ehcleanup124
 
-if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10)
           to label %invoke.cont12 unwind label %lpad11
 
@@ -28366,7 +28366,7 @@ _ZN7testing7MessageD2Ev.exit29:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp10, align 8
   br label %ehcleanup20
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %45 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i30 = icmp eq ptr %45, null
@@ -28905,7 +28905,7 @@ entry:
   %call.i.i.i.i.i = call fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(56) %t1, ptr noundef nonnull readonly align 4 dereferenceable(4) %v.addr.i.i.i.i), !noalias !840
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
@@ -28931,7 +28931,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !847)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !847, !noalias !840
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !840
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !840
 
 common.resume:                                    ; preds = %ehcleanup125, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn12.pn.pn, %ehcleanup125 ]
@@ -28943,7 +28943,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !840
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !850
@@ -28954,9 +28954,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !850
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !847, !noalias !840
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !847, !noalias !840
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i.i.i.i), !noalias !830
   %a2 = getelementptr inbounds i8, ptr %this, i64 96
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %u, align 8
@@ -28976,7 +28976,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEEC2EmRKSA_.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
@@ -28992,7 +28992,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
   %10 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEEC2EmRKSA_.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEEC2EmRKSA_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEEC2EmRKSA_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i
   %call = invoke fastcc noundef nonnull align 8 dereferenceable(56) ptr @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEEaSEOSB_(ptr noundef nonnull align 8 dereferenceable(56) %u, ptr noundef nonnull align 8 dereferenceable(56) %t1)
           to label %invoke.cont unwind label %lpad
 
@@ -29087,7 +29087,7 @@ invoke.cont8:                                     ; preds = %if.else.i.i.i.i.i.i
 invoke.cont10:                                    ; preds = %invoke.cont8
   %ref.tmp7.val16 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %ref.tmp7.val16, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont10
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.val16, i64 8
@@ -29123,7 +29123,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %26, %if.then.i.i.i.i.i.i ], [ %29, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp7.val16, align 8
@@ -29148,16 +29148,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %32, %if.then.i.i.i.i.i.i.i.i ], [ %33, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i22
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp7.val16, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %34 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %34(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7.val16) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit: ; preds = %invoke.cont10, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit: ; preds = %invoke.cont10, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %35 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %35 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -29171,10 +29171,10 @@ lpad9:                                            ; preds = %invoke.cont8
   %37 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp7.val = load ptr, ptr %_M_refcount.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev(ptr %ref.tmp7.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom(ptr %ref.tmp7.val) #28
   br label %ehcleanup125
 
-if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit
+if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12)
           to label %invoke.cont14 unwind label %lpad13
 
@@ -29247,7 +29247,7 @@ _ZN7testing7MessageD2Ev.exit27:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp12, align 8
   br label %ehcleanup22
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi5EED2Ev.argprom.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %46 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i28 = icmp eq ptr %46, null
@@ -29792,7 +29792,7 @@ entry:
   %0 = extractvalue { i64, i8 } %call.i.i.i.i.i, 0
   %1 = extractvalue { i64, i8 } %call.i.i.i.i.i, 1
   %tobool.i.i.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %this, i64 48
@@ -29817,7 +29817,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !880)
   store ptr null, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !880, !noalias !873
   %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !873
+          to label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !873
 
 common.resume:                                    ; preds = %ehcleanup138, %lpad.i.i.i.i.i.i.i.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn15.pn.pn, %ehcleanup138 ]
@@ -29829,7 +29829,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
   tail call void @_ZNSt10shared_ptrImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %num_moves_.i.i.i.i.i.i.i.i.i.i.i.i) #28, !noalias !873
   br label %common.resume
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !883
@@ -29840,9 +29840,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   store i64 0, ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !883
   store ptr %call5.i.i.i2.i.i.i.i27.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !880, !noalias !873
   store ptr %_M_impl.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i, ptr %num_copies_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !880, !noalias !873
-  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
 
-_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i.i
+_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit: ; preds = %entry, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE10emplace_atIJRiEEEvmDpOT_.argprom.exit.i.i.i.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 48
   %.val2.i.i.i.i.i = load ptr, ptr %4, align 8, !noalias !873
   %add.ptr3.i.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val2.i.i.i.i.i, i64 %0
@@ -29865,7 +29865,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
   %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %9, 0
@@ -29884,10 +29884,10 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
   %.pre205 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit
-  %12 = phi ptr [ %.pre205, %if.else.i.i.i.i.i.i.i.i.i.i.i ], [ %8, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit ]
-  %13 = phi ptr [ %.pre204, %if.else.i.i.i.i.i.i.i.i.i.i.i ], [ %7, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %7, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit ]
-  %14 = phi i64 [ %.pre, %if.else.i.i.i.i.i.i.i.i.i.i.i ], [ %6, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %6, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit ]
+invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit
+  %12 = phi ptr [ %.pre205, %if.else.i.i.i.i.i.i.i.i.i.i.i ], [ %8, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit ]
+  %13 = phi ptr [ %.pre204, %if.else.i.i.i.i.i.i.i.i.i.i.i ], [ %7, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %7, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit ]
+  %14 = phi i64 [ %.pre, %if.else.i.i.i.i.i.i.i.i.i.i.i ], [ %6, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %6, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %u, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull align 8 dereferenceable(32) %t1, i64 32, i1 false)
@@ -29938,7 +29938,7 @@ invoke.cont5:                                     ; preds = %if.else.i.i.i.i.i.i
 invoke.cont7:                                     ; preds = %invoke.cont5
   %ref.tmp4.val20 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %ref.tmp4.val20, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont7
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.val20, i64 8
@@ -29974,7 +29974,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %22, %if.then.i.i.i.i.i.i ], [ %25, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp4.val20, align 8
@@ -29999,16 +29999,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %28, %if.then.i.i.i.i.i.i.i.i ], [ %29, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i26
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp4.val20, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %30 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4.val20) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit: ; preds = %invoke.cont7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit: ; preds = %invoke.cont7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %31 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %31 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -30022,10 +30022,10 @@ lpad6:                                            ; preds = %invoke.cont5
   %33 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp4.val = load ptr, ptr %_M_refcount.i.i.i.i, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev(ptr %ref.tmp4.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom(ptr %ref.tmp4.val) #28
   br label %ehcleanup138
 
-if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
+if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8)
           to label %invoke.cont10 unwind label %lpad9
 
@@ -30098,7 +30098,7 @@ _ZN7testing7MessageD2Ev.exit31:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp8, align 8
   br label %ehcleanup18
 
-if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %42 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i32 = icmp eq ptr %42, null
@@ -30146,7 +30146,7 @@ invoke.cont23:                                    ; preds = %if.else.i.i.i.i.i.i
 invoke.cont25:                                    ; preds = %invoke.cont23
   %ref.tmp21.val19 = load ptr, ptr %_M_refcount.i.i.i.i36, align 8
   %cmp.not.i.i.i.i46 = icmp eq ptr %ref.tmp21.val19, null
-  br i1 %cmp.not.i.i.i.i46, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit76, label %if.then.i.i.i.i47
+  br i1 %cmp.not.i.i.i.i46, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit76, label %if.then.i.i.i.i47
 
 if.then.i.i.i.i47:                                ; preds = %invoke.cont25
   %_M_use_count.i.i.i.i.i48 = getelementptr inbounds i8, ptr %ref.tmp21.val19, i64 8
@@ -30182,7 +30182,7 @@ if.else.i.i.i.i.i.i71:                            ; preds = %if.end.i.i.i.i.i50
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i54: ; preds = %if.else.i.i.i.i.i.i71, %if.then.i.i.i.i.i.i52
   %retval.i.0.i.i.i.i.i55 = phi i32 [ %50, %if.then.i.i.i.i.i.i52 ], [ %53, %if.else.i.i.i.i.i.i71 ]
   %cmp6.i.i.i.i.i56 = icmp eq i32 %retval.i.0.i.i.i.i.i55, 1
-  br i1 %cmp6.i.i.i.i.i56, label %if.then7.i.i.i.i.i57, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit76
+  br i1 %cmp6.i.i.i.i.i56, label %if.then7.i.i.i.i.i57, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit76
 
 if.then7.i.i.i.i.i57:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i54
   %vtable.i.i.i.i.i.i.i58 = load ptr, ptr %ref.tmp21.val19, align 8
@@ -30207,16 +30207,16 @@ if.else.i.i.i.i.i.i.i.i70:                        ; preds = %if.then7.i.i.i.i.i5
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i64: ; preds = %if.else.i.i.i.i.i.i.i.i70, %if.then.i.i.i.i.i.i.i.i62
   %retval.i.0.i.i.i.i.i.i.i65 = phi i32 [ %56, %if.then.i.i.i.i.i.i.i.i62 ], [ %57, %if.else.i.i.i.i.i.i.i.i70 ]
   %cmp.i.i.i.i.i.i.i66 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i65, 1
-  br i1 %cmp.i.i.i.i.i.i.i66, label %if.end8.sink.split.i.i.i.i.i67, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit76
+  br i1 %cmp.i.i.i.i.i.i.i66, label %if.end8.sink.split.i.i.i.i.i67, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit76
 
 if.end8.sink.split.i.i.i.i.i67:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i64, %if.then.i.i.i.i.i72
   %vtable2.i.i.i.i.i.i.i68 = load ptr, ptr %ref.tmp21.val19, align 8
   %vfn3.i.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i68, i64 24
   %58 = load ptr, ptr %vfn3.i.i.i.i.i.i.i69, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21.val19) #28
-  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit76
+  br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit76
 
-_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit76: ; preds = %invoke.cont25, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i54, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i64, %if.end8.sink.split.i.i.i.i.i67
+_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit76: ; preds = %invoke.cont25, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i54, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i64, %if.end8.sink.split.i.i.i.i.i67
   %59 = load i8, ptr %gtest_ar19, align 8
   %tobool.i77 = trunc i8 %59 to i1
   br i1 %tobool.i77, label %if.end42, label %if.else29
@@ -30230,10 +30230,10 @@ lpad24:                                           ; preds = %invoke.cont23
   %60 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp21.val = load ptr, ptr %_M_refcount.i.i.i.i36, align 8
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev(ptr %ref.tmp21.val) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom(ptr %ref.tmp21.val) #28
   br label %ehcleanup138
 
-if.else29:                                        ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit76
+if.else29:                                        ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit76
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp30)
           to label %invoke.cont32 unwind label %lpad31
 
@@ -30306,7 +30306,7 @@ _ZN7testing7MessageD2Ev.exit93:                   ; preds = %ehcleanup41, %_ZNKS
   store ptr null, ptr %ref.tmp30, align 8
   br label %ehcleanup43
 
-if.end42:                                         ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit76, %_ZN7testing7MessageD2Ev.exit88
+if.end42:                                         ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.argprom.exit76, %_ZN7testing7MessageD2Ev.exit88
   %message_.i94 = getelementptr inbounds i8, ptr %gtest_ar19, i64 8
   %69 = load ptr, ptr %message_.i94, align 8
   %cmp.not.i.i95 = icmp eq ptr %69, null
@@ -31147,7 +31147,7 @@ if.end.i:                                         ; preds = %entry
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.end.i
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i)
-          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !904
+          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !904
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
   %common.resume.op.i.i = phi { ptr, i32 } [ %0, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
@@ -31159,14 +31159,14 @@ lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !904
   br label %common.resume.i.i
 
-_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
+_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !904
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i.i.i), !noalias !894
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !905
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i)
           to label %.noexc.i.i unwind label %lpad.i.i, !noalias !904
 
-.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
+.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
   %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i, i64 16
   invoke void @_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo(ptr noundef nonnull %rhs, i64 noundef 8, ptr noundef nonnull %add.ptr.i.i.i5.i.i)
           to label %invoke.cont.i.i.i7.i.i unwind label %lpad.i.i.i6.i.i, !noalias !910
@@ -31187,7 +31187,7 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i7.
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
           to label %_ZN7testing8internal18CmpHelperEQFailureIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENS_15AssertionResultEPKcS9_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
-lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
+lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
@@ -31301,16 +31301,16 @@ if.then.i:                                        ; preds = %entry
   call void @_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm(ptr noundef nonnull align 8 dereferenceable(17) %resize_helper, ptr noundef nonnull %add.ptr12.i, i64 noundef %new_capacity)
   %.pre.i = load i64, ptr %size_.i.i, align 8
   %.pre = load i64, ptr %old_capacity_.i, align 8
-  br label %_ZN4absl18container_internal19HashSetResizeHelper15InitializeSlotsINS0_12_GLOBAL__N_16PAllocIcEELm40ELb0ELm8EEEbRNS0_12CommonFieldsEPvT_.exit
+  br label %_ZN4absl18container_internal19HashSetResizeHelper15InitializeSlotsINS0_12_GLOBAL__N_16PAllocIcEELm40ELb0ELm8EEEbRNS0_12CommonFieldsEPvT_.argprom.exit
 
 if.else.i:                                        ; preds = %entry
   %add1.i.i = add i64 %new_capacity, 16
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr12.i, i8 -128, i64 %add1.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i, i64 %new_capacity
   store i8 -1, ptr %arrayidx.i.i, align 1
-  br label %_ZN4absl18container_internal19HashSetResizeHelper15InitializeSlotsINS0_12_GLOBAL__N_16PAllocIcEELm40ELb0ELm8EEEbRNS0_12CommonFieldsEPvT_.exit
+  br label %_ZN4absl18container_internal19HashSetResizeHelper15InitializeSlotsINS0_12_GLOBAL__N_16PAllocIcEELm40ELb0ELm8EEEbRNS0_12CommonFieldsEPvT_.argprom.exit
 
-_ZN4absl18container_internal19HashSetResizeHelper15InitializeSlotsINS0_12_GLOBAL__N_16PAllocIcEELm40ELb0ELm8EEEbRNS0_12CommonFieldsEPvT_.exit: ; preds = %if.then.i, %if.else.i
+_ZN4absl18container_internal19HashSetResizeHelper15InitializeSlotsINS0_12_GLOBAL__N_16PAllocIcEELm40ELb0ELm8EEEbRNS0_12CommonFieldsEPvT_.argprom.exit: ; preds = %if.then.i, %if.else.i
   %7 = phi i64 [ %.pre, %if.then.i ], [ %1, %if.else.i ]
   %8 = phi i64 [ %.pre.i, %if.then.i ], [ %2, %if.else.i ]
   %shr.i.i33.i = and i64 %8, -2
@@ -31318,7 +31318,7 @@ _ZN4absl18container_internal19HashSetResizeHelper15InitializeSlotsINS0_12_GLOBAL
   %cmp = icmp eq i64 %7, 0
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %_ZN4absl18container_internal19HashSetResizeHelper15InitializeSlotsINS0_12_GLOBAL__N_16PAllocIcEELm40ELb0ELm8EEEbRNS0_12CommonFieldsEPvT_.exit
+if.end:                                           ; preds = %_ZN4absl18container_internal19HashSetResizeHelper15InitializeSlotsINS0_12_GLOBAL__N_16PAllocIcEELm40ELb0ELm8EEEbRNS0_12CommonFieldsEPvT_.argprom.exit
   %call9.val = load ptr, ptr %4, align 8
   br i1 %6, label %if.then8, label %for.body
 
@@ -31453,7 +31453,7 @@ if.end28:                                         ; preds = %for.inc, %for.inc.i
   call void @_ZdlPv(ptr noundef nonnull %add.ptr.i34) #29
   br label %return
 
-return:                                           ; preds = %_ZN4absl18container_internal19HashSetResizeHelper15InitializeSlotsINS0_12_GLOBAL__N_16PAllocIcEELm40ELb0ELm8EEEbRNS0_12CommonFieldsEPvT_.exit, %if.end28
+return:                                           ; preds = %_ZN4absl18container_internal19HashSetResizeHelper15InitializeSlotsINS0_12_GLOBAL__N_16PAllocIcEELm40ELb0ELm8EEEbRNS0_12CommonFieldsEPvT_.argprom.exit, %if.end28
   ret void
 }
 
@@ -32441,11 +32441,11 @@ invoke.cont.i:                                    ; preds = %.noexc.i
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
   %line.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
   store i32 204, ptr %line.i.i, align 8
-  %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 204)
+  %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 204)
           to label %invoke.cont6.i unwind label %lpad4.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont3.i
-  %call9.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 204)
+  %call9.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 204)
           to label %invoke.cont8.i unwind label %lpad4.i
 
 invoke.cont8.i:                                   ; preds = %invoke.cont6.i
@@ -32520,11 +32520,11 @@ invoke.cont.i10:                                  ; preds = %.noexc.i8
 invoke.cont3.i13:                                 ; preds = %invoke.cont.i10
   %line.i.i14 = getelementptr inbounds i8, ptr %agg.tmp.i1, i64 32
   store i32 206, ptr %line.i.i14, align 8
-  %call7.i15 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 206)
+  %call7.i15 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 206)
           to label %invoke.cont6.i17 unwind label %lpad4.i16
 
 invoke.cont6.i17:                                 ; preds = %invoke.cont3.i13
-  %call9.i18 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 206)
+  %call9.i18 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 206)
           to label %invoke.cont8.i19 unwind label %lpad4.i16
 
 invoke.cont8.i19:                                 ; preds = %invoke.cont6.i17
@@ -32593,11 +32593,11 @@ invoke.cont.i32:                                  ; preds = %.noexc.i30
 invoke.cont3.i36:                                 ; preds = %invoke.cont.i32
   %line.i.i37 = getelementptr inbounds i8, ptr %agg.tmp.i22, i64 32
   store i32 213, ptr %line.i.i37, align 8
-  %call7.i38 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 213)
+  %call7.i38 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 213)
           to label %invoke.cont6.i40 unwind label %lpad4.i39
 
 invoke.cont6.i40:                                 ; preds = %invoke.cont3.i36
-  %call9.i41 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 213)
+  %call9.i41 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 213)
           to label %invoke.cont8.i42 unwind label %lpad4.i39
 
 invoke.cont8.i42:                                 ; preds = %invoke.cont6.i40
@@ -32666,11 +32666,11 @@ invoke.cont.i56:                                  ; preds = %.noexc.i54
 invoke.cont3.i60:                                 ; preds = %invoke.cont.i56
   %line.i.i61 = getelementptr inbounds i8, ptr %agg.tmp.i46, i64 32
   store i32 225, ptr %line.i.i61, align 8
-  %call7.i62 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 225)
+  %call7.i62 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 225)
           to label %invoke.cont6.i64 unwind label %lpad4.i63
 
 invoke.cont6.i64:                                 ; preds = %invoke.cont3.i60
-  %call9.i65 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 225)
+  %call9.i65 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 225)
           to label %invoke.cont8.i66 unwind label %lpad4.i63
 
 invoke.cont8.i66:                                 ; preds = %invoke.cont6.i64
@@ -32739,11 +32739,11 @@ invoke.cont.i80:                                  ; preds = %.noexc.i78
 invoke.cont3.i84:                                 ; preds = %invoke.cont.i80
   %line.i.i85 = getelementptr inbounds i8, ptr %agg.tmp.i70, i64 32
   store i32 235, ptr %line.i.i85, align 8
-  %call7.i86 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 235)
+  %call7.i86 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 235)
           to label %invoke.cont6.i88 unwind label %lpad4.i87
 
 invoke.cont6.i88:                                 ; preds = %invoke.cont3.i84
-  %call9.i89 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 235)
+  %call9.i89 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 235)
           to label %invoke.cont8.i90 unwind label %lpad4.i87
 
 invoke.cont8.i90:                                 ; preds = %invoke.cont6.i88
@@ -32812,11 +32812,11 @@ invoke.cont.i104:                                 ; preds = %.noexc.i102
 invoke.cont3.i108:                                ; preds = %invoke.cont.i104
   %line.i.i109 = getelementptr inbounds i8, ptr %agg.tmp.i94, i64 32
   store i32 243, ptr %line.i.i109, align 8
-  %call7.i110 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 243)
+  %call7.i110 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 243)
           to label %invoke.cont6.i112 unwind label %lpad4.i111
 
 invoke.cont6.i112:                                ; preds = %invoke.cont3.i108
-  %call9.i113 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 243)
+  %call9.i113 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 243)
           to label %invoke.cont8.i114 unwind label %lpad4.i111
 
 invoke.cont8.i114:                                ; preds = %invoke.cont6.i112
@@ -32885,11 +32885,11 @@ invoke.cont.i128:                                 ; preds = %.noexc.i126
 invoke.cont3.i132:                                ; preds = %invoke.cont.i128
   %line.i.i133 = getelementptr inbounds i8, ptr %agg.tmp.i118, i64 32
   store i32 252, ptr %line.i.i133, align 8
-  %call7.i134 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 252)
+  %call7.i134 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 252)
           to label %invoke.cont6.i136 unwind label %lpad4.i135
 
 invoke.cont6.i136:                                ; preds = %invoke.cont3.i132
-  %call9.i137 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 252)
+  %call9.i137 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 252)
           to label %invoke.cont8.i138 unwind label %lpad4.i135
 
 invoke.cont8.i138:                                ; preds = %invoke.cont6.i136
@@ -32958,11 +32958,11 @@ invoke.cont.i152:                                 ; preds = %.noexc.i150
 invoke.cont3.i156:                                ; preds = %invoke.cont.i152
   %line.i.i157 = getelementptr inbounds i8, ptr %agg.tmp.i142, i64 32
   store i32 260, ptr %line.i.i157, align 8
-  %call7.i158 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 260)
+  %call7.i158 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 260)
           to label %invoke.cont6.i160 unwind label %lpad4.i159
 
 invoke.cont6.i160:                                ; preds = %invoke.cont3.i156
-  %call9.i161 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 260)
+  %call9.i161 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 260)
           to label %invoke.cont8.i162 unwind label %lpad4.i159
 
 invoke.cont8.i162:                                ; preds = %invoke.cont6.i160
@@ -33031,11 +33031,11 @@ invoke.cont.i176:                                 ; preds = %.noexc.i174
 invoke.cont3.i180:                                ; preds = %invoke.cont.i176
   %line.i.i181 = getelementptr inbounds i8, ptr %agg.tmp.i166, i64 32
   store i32 268, ptr %line.i.i181, align 8
-  %call7.i182 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 268)
+  %call7.i182 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 268)
           to label %invoke.cont6.i184 unwind label %lpad4.i183
 
 invoke.cont6.i184:                                ; preds = %invoke.cont3.i180
-  %call9.i185 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 268)
+  %call9.i185 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 268)
           to label %invoke.cont8.i186 unwind label %lpad4.i183
 
 invoke.cont8.i186:                                ; preds = %invoke.cont6.i184
@@ -33104,11 +33104,11 @@ invoke.cont.i200:                                 ; preds = %.noexc.i198
 invoke.cont3.i204:                                ; preds = %invoke.cont.i200
   %line.i.i205 = getelementptr inbounds i8, ptr %agg.tmp.i190, i64 32
   store i32 278, ptr %line.i.i205, align 8
-  %call7.i206 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 278)
+  %call7.i206 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 278)
           to label %invoke.cont6.i208 unwind label %lpad4.i207
 
 invoke.cont6.i208:                                ; preds = %invoke.cont3.i204
-  %call9.i209 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 278)
+  %call9.i209 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 278)
           to label %invoke.cont8.i210 unwind label %lpad4.i207
 
 invoke.cont8.i210:                                ; preds = %invoke.cont6.i208
@@ -33177,11 +33177,11 @@ invoke.cont.i224:                                 ; preds = %.noexc.i222
 invoke.cont3.i228:                                ; preds = %invoke.cont.i224
   %line.i.i229 = getelementptr inbounds i8, ptr %agg.tmp.i214, i64 32
   store i32 288, ptr %line.i.i229, align 8
-  %call7.i230 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 288)
+  %call7.i230 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 288)
           to label %invoke.cont6.i232 unwind label %lpad4.i231
 
 invoke.cont6.i232:                                ; preds = %invoke.cont3.i228
-  %call9.i233 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 288)
+  %call9.i233 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 288)
           to label %invoke.cont8.i234 unwind label %lpad4.i231
 
 invoke.cont8.i234:                                ; preds = %invoke.cont6.i232
@@ -33250,11 +33250,11 @@ invoke.cont.i248:                                 ; preds = %.noexc.i246
 invoke.cont3.i252:                                ; preds = %invoke.cont.i248
   %line.i.i253 = getelementptr inbounds i8, ptr %agg.tmp.i238, i64 32
   store i32 297, ptr %line.i.i253, align 8
-  %call7.i254 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 297)
+  %call7.i254 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 297)
           to label %invoke.cont6.i256 unwind label %lpad4.i255
 
 invoke.cont6.i256:                                ; preds = %invoke.cont3.i252
-  %call9.i257 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 297)
+  %call9.i257 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 297)
           to label %invoke.cont8.i258 unwind label %lpad4.i255
 
 invoke.cont8.i258:                                ; preds = %invoke.cont6.i256
@@ -33323,11 +33323,11 @@ invoke.cont.i272:                                 ; preds = %.noexc.i270
 invoke.cont3.i276:                                ; preds = %invoke.cont.i272
   %line.i.i277 = getelementptr inbounds i8, ptr %agg.tmp.i262, i64 32
   store i32 306, ptr %line.i.i277, align 8
-  %call7.i278 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 306)
+  %call7.i278 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 306)
           to label %invoke.cont6.i280 unwind label %lpad4.i279
 
 invoke.cont6.i280:                                ; preds = %invoke.cont3.i276
-  %call9.i281 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 306)
+  %call9.i281 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 306)
           to label %invoke.cont8.i282 unwind label %lpad4.i279
 
 invoke.cont8.i282:                                ; preds = %invoke.cont6.i280
@@ -33396,11 +33396,11 @@ invoke.cont.i296:                                 ; preds = %.noexc.i294
 invoke.cont3.i300:                                ; preds = %invoke.cont.i296
   %line.i.i301 = getelementptr inbounds i8, ptr %agg.tmp.i286, i64 32
   store i32 315, ptr %line.i.i301, align 8
-  %call7.i302 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 315)
+  %call7.i302 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 315)
           to label %invoke.cont6.i304 unwind label %lpad4.i303
 
 invoke.cont6.i304:                                ; preds = %invoke.cont3.i300
-  %call9.i305 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 315)
+  %call9.i305 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 315)
           to label %invoke.cont8.i306 unwind label %lpad4.i303
 
 invoke.cont8.i306:                                ; preds = %invoke.cont6.i304
@@ -33469,11 +33469,11 @@ invoke.cont.i320:                                 ; preds = %.noexc.i318
 invoke.cont3.i324:                                ; preds = %invoke.cont.i320
   %line.i.i325 = getelementptr inbounds i8, ptr %agg.tmp.i310, i64 32
   store i32 324, ptr %line.i.i325, align 8
-  %call7.i326 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 324)
+  %call7.i326 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 324)
           to label %invoke.cont6.i328 unwind label %lpad4.i327
 
 invoke.cont6.i328:                                ; preds = %invoke.cont3.i324
-  %call9.i329 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 324)
+  %call9.i329 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 324)
           to label %invoke.cont8.i330 unwind label %lpad4.i327
 
 invoke.cont8.i330:                                ; preds = %invoke.cont6.i328
@@ -33542,11 +33542,11 @@ invoke.cont.i344:                                 ; preds = %.noexc.i342
 invoke.cont3.i348:                                ; preds = %invoke.cont.i344
   %line.i.i349 = getelementptr inbounds i8, ptr %agg.tmp.i334, i64 32
   store i32 335, ptr %line.i.i349, align 8
-  %call7.i350 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 335)
+  %call7.i350 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 335)
           to label %invoke.cont6.i352 unwind label %lpad4.i351
 
 invoke.cont6.i352:                                ; preds = %invoke.cont3.i348
-  %call9.i353 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 335)
+  %call9.i353 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 335)
           to label %invoke.cont8.i354 unwind label %lpad4.i351
 
 invoke.cont8.i354:                                ; preds = %invoke.cont6.i352
@@ -33615,11 +33615,11 @@ invoke.cont.i368:                                 ; preds = %.noexc.i366
 invoke.cont3.i372:                                ; preds = %invoke.cont.i368
   %line.i.i373 = getelementptr inbounds i8, ptr %agg.tmp.i358, i64 32
   store i32 346, ptr %line.i.i373, align 8
-  %call7.i374 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 346)
+  %call7.i374 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 346)
           to label %invoke.cont6.i376 unwind label %lpad4.i375
 
 invoke.cont6.i376:                                ; preds = %invoke.cont3.i372
-  %call9.i377 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 346)
+  %call9.i377 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 346)
           to label %invoke.cont8.i378 unwind label %lpad4.i375
 
 invoke.cont8.i378:                                ; preds = %invoke.cont6.i376
@@ -33688,11 +33688,11 @@ invoke.cont.i392:                                 ; preds = %.noexc.i390
 invoke.cont3.i396:                                ; preds = %invoke.cont.i392
   %line.i.i397 = getelementptr inbounds i8, ptr %agg.tmp.i382, i64 32
   store i32 355, ptr %line.i.i397, align 8
-  %call7.i398 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 355)
+  %call7.i398 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 355)
           to label %invoke.cont6.i400 unwind label %lpad4.i399
 
 invoke.cont6.i400:                                ; preds = %invoke.cont3.i396
-  %call9.i401 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 355)
+  %call9.i401 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 355)
           to label %invoke.cont8.i402 unwind label %lpad4.i399
 
 invoke.cont8.i402:                                ; preds = %invoke.cont6.i400
@@ -33761,11 +33761,11 @@ invoke.cont.i416:                                 ; preds = %.noexc.i414
 invoke.cont3.i420:                                ; preds = %invoke.cont.i416
   %line.i.i421 = getelementptr inbounds i8, ptr %agg.tmp.i406, i64 32
   store i32 364, ptr %line.i.i421, align 8
-  %call7.i422 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 364)
+  %call7.i422 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 364)
           to label %invoke.cont6.i424 unwind label %lpad4.i423
 
 invoke.cont6.i424:                                ; preds = %invoke.cont3.i420
-  %call9.i425 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 364)
+  %call9.i425 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 364)
           to label %invoke.cont8.i426 unwind label %lpad4.i423
 
 invoke.cont8.i426:                                ; preds = %invoke.cont6.i424
@@ -33834,11 +33834,11 @@ invoke.cont.i440:                                 ; preds = %.noexc.i438
 invoke.cont3.i444:                                ; preds = %invoke.cont.i440
   %line.i.i445 = getelementptr inbounds i8, ptr %agg.tmp.i430, i64 32
   store i32 375, ptr %line.i.i445, align 8
-  %call7.i446 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 375)
+  %call7.i446 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 375)
           to label %invoke.cont6.i448 unwind label %lpad4.i447
 
 invoke.cont6.i448:                                ; preds = %invoke.cont3.i444
-  %call9.i449 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 375)
+  %call9.i449 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 375)
           to label %invoke.cont8.i450 unwind label %lpad4.i447
 
 invoke.cont8.i450:                                ; preds = %invoke.cont6.i448
@@ -33907,11 +33907,11 @@ invoke.cont.i464:                                 ; preds = %.noexc.i462
 invoke.cont3.i468:                                ; preds = %invoke.cont.i464
   %line.i.i469 = getelementptr inbounds i8, ptr %agg.tmp.i454, i64 32
   store i32 386, ptr %line.i.i469, align 8
-  %call7.i470 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 386)
+  %call7.i470 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 386)
           to label %invoke.cont6.i472 unwind label %lpad4.i471
 
 invoke.cont6.i472:                                ; preds = %invoke.cont3.i468
-  %call9.i473 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 386)
+  %call9.i473 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 386)
           to label %invoke.cont8.i474 unwind label %lpad4.i471
 
 invoke.cont8.i474:                                ; preds = %invoke.cont6.i472
@@ -33980,11 +33980,11 @@ invoke.cont.i488:                                 ; preds = %.noexc.i486
 invoke.cont3.i492:                                ; preds = %invoke.cont.i488
   %line.i.i493 = getelementptr inbounds i8, ptr %agg.tmp.i478, i64 32
   store i32 397, ptr %line.i.i493, align 8
-  %call7.i494 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 397)
+  %call7.i494 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 397)
           to label %invoke.cont6.i496 unwind label %lpad4.i495
 
 invoke.cont6.i496:                                ; preds = %invoke.cont3.i492
-  %call9.i497 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 397)
+  %call9.i497 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 397)
           to label %invoke.cont8.i498 unwind label %lpad4.i495
 
 invoke.cont8.i498:                                ; preds = %invoke.cont6.i496
@@ -34053,11 +34053,11 @@ invoke.cont.i512:                                 ; preds = %.noexc.i510
 invoke.cont3.i516:                                ; preds = %invoke.cont.i512
   %line.i.i517 = getelementptr inbounds i8, ptr %agg.tmp.i502, i64 32
   store i32 408, ptr %line.i.i517, align 8
-  %call7.i518 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 408)
+  %call7.i518 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 408)
           to label %invoke.cont6.i520 unwind label %lpad4.i519
 
 invoke.cont6.i520:                                ; preds = %invoke.cont3.i516
-  %call9.i521 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 408)
+  %call9.i521 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 408)
           to label %invoke.cont8.i522 unwind label %lpad4.i519
 
 invoke.cont8.i522:                                ; preds = %invoke.cont6.i520
@@ -34126,11 +34126,11 @@ invoke.cont.i536:                                 ; preds = %.noexc.i534
 invoke.cont3.i540:                                ; preds = %invoke.cont.i536
   %line.i.i541 = getelementptr inbounds i8, ptr %agg.tmp.i526, i64 32
   store i32 420, ptr %line.i.i541, align 8
-  %call7.i542 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 420)
+  %call7.i542 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 420)
           to label %invoke.cont6.i544 unwind label %lpad4.i543
 
 invoke.cont6.i544:                                ; preds = %invoke.cont3.i540
-  %call9.i545 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 420)
+  %call9.i545 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 420)
           to label %invoke.cont8.i546 unwind label %lpad4.i543
 
 invoke.cont8.i546:                                ; preds = %invoke.cont6.i544
@@ -34199,11 +34199,11 @@ invoke.cont.i560:                                 ; preds = %.noexc.i558
 invoke.cont3.i564:                                ; preds = %invoke.cont.i560
   %line.i.i565 = getelementptr inbounds i8, ptr %agg.tmp.i550, i64 32
   store i32 432, ptr %line.i.i565, align 8
-  %call7.i566 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 432)
+  %call7.i566 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 432)
           to label %invoke.cont6.i568 unwind label %lpad4.i567
 
 invoke.cont6.i568:                                ; preds = %invoke.cont3.i564
-  %call9.i569 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 432)
+  %call9.i569 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 432)
           to label %invoke.cont8.i570 unwind label %lpad4.i567
 
 invoke.cont8.i570:                                ; preds = %invoke.cont6.i568
@@ -34548,24 +34548,24 @@ attributes #33 = { nounwind willreturn memory(read) }
 !15 = distinct !{!15, !16, !"_ZNK4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE13get_allocatorEv: %agg.result"}
 !16 = distinct !{!16, !"_ZNK4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE13get_allocatorEv"}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN7testing8internal11CmpHelperNEIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
-!19 = distinct !{!19, !"_ZN7testing8internal11CmpHelperNEIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_"}
+!18 = distinct !{!18, !19, !"_ZN7testing8internal11CmpHelperNEIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_.argprom: %agg.result"}
+!19 = distinct !{!19, !"_ZN7testing8internal11CmpHelperNEIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_.argprom"}
 !20 = !{!21, !18}
-!21 = distinct !{!21, !22, !"_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_: %agg.result"}
-!22 = distinct !{!22, !"_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_"}
+!21 = distinct !{!21, !22, !"_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom: %agg.result"}
+!22 = distinct !{!22, !"_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom"}
 !23 = !{!24, !26, !21, !18}
 !24 = distinct !{!24, !25, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_E6FormatB5cxx11ERKS8_: %agg.result"}
 !25 = distinct !{!25, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_E6FormatB5cxx11ERKS8_"}
-!26 = distinct !{!26, !27, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!27 = distinct !{!27, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!26 = distinct !{!26, !27, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!27 = distinct !{!27, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !28 = !{!29, !24, !26, !21, !18}
 !29 = distinct !{!29, !30, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi7EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !30 = distinct !{!30, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi7EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
 !31 = !{!32, !34, !21, !18}
 !32 = distinct !{!32, !33, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_E6FormatB5cxx11ERKS8_: %agg.result"}
 !33 = distinct !{!33, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_E6FormatB5cxx11ERKS8_"}
-!34 = distinct !{!34, !35, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!35 = distinct !{!35, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!34 = distinct !{!34, !35, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!35 = distinct !{!35, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !36 = !{!37, !32, !34, !21, !18}
 !37 = distinct !{!37, !38, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi7EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !38 = distinct !{!38, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi7EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
@@ -34575,8 +34575,8 @@ attributes #33 = { nounwind willreturn memory(read) }
 !42 = !{!43, !45, !47, !40}
 !43 = distinct !{!43, !44, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_E6FormatB5cxx11ERKS8_: %agg.result"}
 !44 = distinct !{!44, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_E6FormatB5cxx11ERKS8_"}
-!45 = distinct !{!45, !46, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!46 = distinct !{!46, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!45 = distinct !{!45, !46, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!46 = distinct !{!46, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !47 = distinct !{!47, !48, !"_ZN7testing8internal18CmpHelperEQFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
 !48 = distinct !{!48, !"_ZN7testing8internal18CmpHelperEQFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_"}
 !49 = !{!50, !43, !45, !47, !40}
@@ -34586,8 +34586,8 @@ attributes #33 = { nounwind willreturn memory(read) }
 !53 = !{!54, !56, !47, !40}
 !54 = distinct !{!54, !55, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_E6FormatB5cxx11ERKS8_: %agg.result"}
 !55 = distinct !{!55, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_E6FormatB5cxx11ERKS8_"}
-!56 = distinct !{!56, !57, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!57 = distinct !{!57, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!56 = distinct !{!56, !57, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!57 = distinct !{!57, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi7EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !58 = !{!59, !54, !56, !47, !40}
 !59 = distinct !{!59, !60, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi7EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !60 = distinct !{!60, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi7EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
@@ -34621,12 +34621,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !88 = distinct !{!88, !89, !"_ZN7testing13PrintToStringImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !89 = distinct !{!89, !"_ZN7testing13PrintToStringImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
 !90 = !{!91, !93, !95}
-!91 = distinct !{!91, !92, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!92 = distinct !{!92, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!93 = distinct !{!93, !94, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!94 = distinct !{!94, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!95 = distinct !{!95, !96, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!96 = distinct !{!96, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!91 = distinct !{!91, !92, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!92 = distinct !{!92, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!93 = distinct !{!93, !94, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!94 = distinct !{!94, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!95 = distinct !{!95, !96, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!96 = distinct !{!96, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !97 = !{!98, !91, !93, !95}
 !98 = distinct !{!98, !99, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !99 = distinct !{!99, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -34646,12 +34646,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !113 = distinct !{!113, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm"}
 !114 = distinct !{!114, !62}
 !115 = !{!116, !118, !120}
-!116 = distinct !{!116, !117, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!117 = distinct !{!117, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!118 = distinct !{!118, !119, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!119 = distinct !{!119, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!120 = distinct !{!120, !121, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!121 = distinct !{!121, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!116 = distinct !{!116, !117, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!117 = distinct !{!117, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!118 = distinct !{!118, !119, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!119 = distinct !{!119, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!120 = distinct !{!120, !121, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!121 = distinct !{!121, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !122 = !{!123, !116, !118, !120}
 !123 = distinct !{!123, !124, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !124 = distinct !{!124, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -34667,12 +34667,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !134 = distinct !{!134, !"_ZSt11make_sharedImJiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES2_E4typeEEDpOT0_"}
 !135 = !{!133, !126, !123, !116, !118, !120}
 !136 = !{!137, !139, !141}
-!137 = distinct !{!137, !138, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!138 = distinct !{!138, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!139 = distinct !{!139, !140, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!140 = distinct !{!140, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!141 = distinct !{!141, !142, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!142 = distinct !{!142, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!137 = distinct !{!137, !138, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!138 = distinct !{!138, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!139 = distinct !{!139, !140, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!140 = distinct !{!140, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!141 = distinct !{!141, !142, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!142 = distinct !{!142, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !143 = !{!144, !137, !139, !141}
 !144 = distinct !{!144, !145, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !145 = distinct !{!145, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -34688,12 +34688,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !155 = distinct !{!155, !"_ZSt11make_sharedImJiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES2_E4typeEEDpOT0_"}
 !156 = !{!154, !147, !144, !137, !139, !141}
 !157 = !{!158, !160, !162}
-!158 = distinct !{!158, !159, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!159 = distinct !{!159, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!160 = distinct !{!160, !161, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!161 = distinct !{!161, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!162 = distinct !{!162, !163, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!163 = distinct !{!163, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!158 = distinct !{!158, !159, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!159 = distinct !{!159, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!160 = distinct !{!160, !161, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!161 = distinct !{!161, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!162 = distinct !{!162, !163, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!163 = distinct !{!163, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !164 = !{!165, !158, !160, !162}
 !165 = distinct !{!165, !166, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !166 = distinct !{!166, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -34713,12 +34713,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !180 = distinct !{!180, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm"}
 !181 = distinct !{!181, !62}
 !182 = !{!183, !185, !187}
-!183 = distinct !{!183, !184, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!184 = distinct !{!184, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!185 = distinct !{!185, !186, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!186 = distinct !{!186, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!187 = distinct !{!187, !188, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!188 = distinct !{!188, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!183 = distinct !{!183, !184, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!184 = distinct !{!184, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!185 = distinct !{!185, !186, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!186 = distinct !{!186, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!187 = distinct !{!187, !188, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!188 = distinct !{!188, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !189 = !{!190, !183, !185, !187}
 !190 = distinct !{!190, !191, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !191 = distinct !{!191, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -34756,36 +34756,36 @@ attributes #33 = { nounwind willreturn memory(read) }
 !223 = distinct !{!223, !224, !"_ZNK4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE13get_allocatorEv: %agg.result"}
 !224 = distinct !{!224, !"_ZNK4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE13get_allocatorEv"}
 !225 = !{!226}
-!226 = distinct !{!226, !227, !"_ZN7testing8internal11CmpHelperNEIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
-!227 = distinct !{!227, !"_ZN7testing8internal11CmpHelperNEIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_"}
+!226 = distinct !{!226, !227, !"_ZN7testing8internal11CmpHelperNEIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_.argprom: %agg.result"}
+!227 = distinct !{!227, !"_ZN7testing8internal11CmpHelperNEIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_.argprom"}
 !228 = !{!229, !226}
-!229 = distinct !{!229, !230, !"_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_: %agg.result"}
-!230 = distinct !{!230, !"_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_"}
+!229 = distinct !{!229, !230, !"_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom: %agg.result"}
+!230 = distinct !{!230, !"_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom"}
 !231 = !{!232, !234, !229, !226}
 !232 = distinct !{!232, !233, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_E6FormatB5cxx11ERKS8_: %agg.result"}
 !233 = distinct !{!233, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_E6FormatB5cxx11ERKS8_"}
-!234 = distinct !{!234, !235, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!235 = distinct !{!235, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!234 = distinct !{!234, !235, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!235 = distinct !{!235, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !236 = !{!237, !232, !234, !229, !226}
 !237 = distinct !{!237, !238, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi6EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !238 = distinct !{!238, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi6EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
 !239 = !{!240, !242, !229, !226}
 !240 = distinct !{!240, !241, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_E6FormatB5cxx11ERKS8_: %agg.result"}
 !241 = distinct !{!241, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_E6FormatB5cxx11ERKS8_"}
-!242 = distinct !{!242, !243, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!243 = distinct !{!243, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!242 = distinct !{!242, !243, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!243 = distinct !{!243, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !244 = !{!245, !240, !242, !229, !226}
 !245 = distinct !{!245, !246, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi6EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !246 = distinct !{!246, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi6EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
 !247 = !{!248}
-!248 = distinct !{!248, !249, !"_ZNSt16allocator_traitsIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS1_7TrackedIiEELi6EEEE37select_on_container_copy_constructionERKS6_: %agg.result"}
-!249 = distinct !{!249, !"_ZNSt16allocator_traitsIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS1_7TrackedIiEELi6EEEE37select_on_container_copy_constructionERKS6_"}
+!248 = distinct !{!248, !249, !"_ZNSt16allocator_traitsIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS1_7TrackedIiEELi6EEEE37select_on_container_copy_constructionERKS6_.argprom: %agg.result"}
+!249 = distinct !{!249, !"_ZNSt16allocator_traitsIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS1_7TrackedIiEELi6EEEE37select_on_container_copy_constructionERKS6_.argprom"}
 !250 = !{!251}
-!251 = distinct !{!251, !252, !"_ZNSt16allocator_traitsIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS1_7TrackedIiEELi6EEEE9_S_selectIKS6_EEDTcldtfp_37select_on_container_copy_constructionEERT_i: %agg.result"}
-!252 = distinct !{!252, !"_ZNSt16allocator_traitsIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS1_7TrackedIiEELi6EEEE9_S_selectIKS6_EEDTcldtfp_37select_on_container_copy_constructionEERT_i"}
+!251 = distinct !{!251, !252, !"_ZNSt16allocator_traitsIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS1_7TrackedIiEELi6EEEE9_S_selectIKS6_EEDTcldtfp_37select_on_container_copy_constructionEERT_i.argprom: %agg.result"}
+!252 = distinct !{!252, !"_ZNSt16allocator_traitsIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS1_7TrackedIiEELi6EEEE9_S_selectIKS6_EEDTcldtfp_37select_on_container_copy_constructionEERT_i.argprom"}
 !253 = !{!254}
-!254 = distinct !{!254, !255, !"_ZNK4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EE37select_on_container_copy_constructionEv: %agg.result"}
-!255 = distinct !{!255, !"_ZNK4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EE37select_on_container_copy_constructionEv"}
+!254 = distinct !{!254, !255, !"_ZNK4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EE37select_on_container_copy_constructionEv.argprom: %agg.result"}
+!255 = distinct !{!255, !"_ZNK4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi6EE37select_on_container_copy_constructionEv.argprom"}
 !256 = !{!254, !251, !248}
 !257 = !{!258}
 !258 = distinct !{!258, !259, !"_ZSt11make_sharedIN4absl18container_internal12_GLOBAL__N_110AllocStateEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
@@ -34805,8 +34805,8 @@ attributes #33 = { nounwind willreturn memory(read) }
 !272 = !{!273, !275, !277, !270}
 !273 = distinct !{!273, !274, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_E6FormatB5cxx11ERKS8_: %agg.result"}
 !274 = distinct !{!274, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_E6FormatB5cxx11ERKS8_"}
-!275 = distinct !{!275, !276, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!276 = distinct !{!276, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!275 = distinct !{!275, !276, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!276 = distinct !{!276, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !277 = distinct !{!277, !278, !"_ZN7testing8internal18CmpHelperEQFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
 !278 = distinct !{!278, !"_ZN7testing8internal18CmpHelperEQFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_"}
 !279 = !{!280, !273, !275, !277, !270}
@@ -34816,8 +34816,8 @@ attributes #33 = { nounwind willreturn memory(read) }
 !283 = !{!284, !286, !277, !270}
 !284 = distinct !{!284, !285, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_E6FormatB5cxx11ERKS8_: %agg.result"}
 !285 = distinct !{!285, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_E6FormatB5cxx11ERKS8_"}
-!286 = distinct !{!286, !287, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!287 = distinct !{!287, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!286 = distinct !{!286, !287, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!287 = distinct !{!287, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi6EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !288 = !{!289, !284, !286, !277, !270}
 !289 = distinct !{!289, !290, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi6EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !290 = distinct !{!290, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi6EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
@@ -34825,17 +34825,17 @@ attributes #33 = { nounwind willreturn memory(read) }
 !292 = distinct !{!292, !62}
 !293 = distinct !{!293, !62}
 !294 = !{!295}
-!295 = distinct !{!295, !296, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!296 = distinct !{!296, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
+!295 = distinct !{!295, !296, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!296 = distinct !{!296, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
 !297 = !{!298}
-!298 = distinct !{!298, !299, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!299 = distinct !{!299, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
+!298 = distinct !{!298, !299, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!299 = distinct !{!299, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
 !300 = !{!301}
 !301 = distinct !{!301, !302, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi6EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !302 = distinct !{!302, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi6EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
 !303 = !{!304}
-!304 = distinct !{!304, !305, !"_ZNK4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE19EmplaceDecomposableclIiJRiEEESt4pairINSB_8iteratorEbERKT_DpOT0_: %agg.result"}
-!305 = distinct !{!305, !"_ZNK4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE19EmplaceDecomposableclIiJRiEEESt4pairINSB_8iteratorEbERKT_DpOT0_"}
+!304 = distinct !{!304, !305, !"_ZNK4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE19EmplaceDecomposableclIiJRiEEESt4pairINSB_8iteratorEbERKT_DpOT0_.argprom: %agg.result"}
+!305 = distinct !{!305, !"_ZNK4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE19EmplaceDecomposableclIiJRiEEESt4pairINSB_8iteratorEbERKT_DpOT0_.argprom"}
 !306 = !{!304, !301, !298, !295}
 !307 = !{!308, !304, !301, !298, !295}
 !308 = distinct !{!308, !309, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm: %agg.result"}
@@ -34850,12 +34850,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !317 = distinct !{!317, !"_ZSt11make_sharedImJiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES2_E4typeEEDpOT0_"}
 !318 = !{!316, !304, !301, !298, !295}
 !319 = !{!320, !322, !324}
-!320 = distinct !{!320, !321, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!321 = distinct !{!321, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!322 = distinct !{!322, !323, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!323 = distinct !{!323, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!324 = distinct !{!324, !325, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!325 = distinct !{!325, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!320 = distinct !{!320, !321, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!321 = distinct !{!321, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!322 = distinct !{!322, !323, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!323 = distinct !{!323, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!324 = distinct !{!324, !325, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!325 = distinct !{!325, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !326 = !{!327, !320, !322, !324}
 !327 = distinct !{!327, !328, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !328 = distinct !{!328, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -34874,12 +34874,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !341 = distinct !{!341, !62}
 !342 = distinct !{!342, !62}
 !343 = !{!344, !346, !348}
-!344 = distinct !{!344, !345, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!345 = distinct !{!345, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!346 = distinct !{!346, !347, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!347 = distinct !{!347, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!348 = distinct !{!348, !349, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!349 = distinct !{!349, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!344 = distinct !{!344, !345, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!345 = distinct !{!345, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!346 = distinct !{!346, !347, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!347 = distinct !{!347, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!348 = distinct !{!348, !349, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!349 = distinct !{!349, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !350 = !{!351, !344, !346, !348}
 !351 = distinct !{!351, !352, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !352 = distinct !{!352, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -34901,12 +34901,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !368 = distinct !{!368, !369, !"_ZNK4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE13get_allocatorEv: %agg.result"}
 !369 = distinct !{!369, !"_ZNK4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE13get_allocatorEv"}
 !370 = !{!371, !373, !375}
-!371 = distinct !{!371, !372, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!372 = distinct !{!372, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!373 = distinct !{!373, !374, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!374 = distinct !{!374, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!375 = distinct !{!375, !376, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!376 = distinct !{!376, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!371 = distinct !{!371, !372, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!372 = distinct !{!372, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!373 = distinct !{!373, !374, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!374 = distinct !{!374, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!375 = distinct !{!375, !376, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!376 = distinct !{!376, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !377 = !{!378, !371, !373, !375}
 !378 = distinct !{!378, !379, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !379 = distinct !{!379, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -34975,34 +34975,34 @@ attributes #33 = { nounwind willreturn memory(read) }
 !442 = distinct !{!442, !443, !"_ZNK4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE13get_allocatorEv: %agg.result"}
 !443 = distinct !{!443, !"_ZNK4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE13get_allocatorEv"}
 !444 = !{!445}
-!445 = distinct !{!445, !446, !"_ZN7testing8internal11CmpHelperNEIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
-!446 = distinct !{!446, !"_ZN7testing8internal11CmpHelperNEIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_"}
+!445 = distinct !{!445, !446, !"_ZN7testing8internal11CmpHelperNEIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_.argprom: %agg.result"}
+!446 = distinct !{!446, !"_ZN7testing8internal11CmpHelperNEIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_.argprom"}
 !447 = !{!448, !445}
-!448 = distinct !{!448, !449, !"_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_: %agg.result"}
-!449 = distinct !{!449, !"_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_"}
+!448 = distinct !{!448, !449, !"_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom: %agg.result"}
+!449 = distinct !{!449, !"_ZN7testing8internal18CmpHelperOpFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_SB_.argprom"}
 !450 = !{!451, !453, !448, !445}
 !451 = distinct !{!451, !452, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_E6FormatB5cxx11ERKS8_: %agg.result"}
 !452 = distinct !{!452, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_E6FormatB5cxx11ERKS8_"}
-!453 = distinct !{!453, !454, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!454 = distinct !{!454, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!453 = distinct !{!453, !454, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!454 = distinct !{!454, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !455 = !{!456, !451, !453, !448, !445}
 !456 = distinct !{!456, !457, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi5EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !457 = distinct !{!457, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi5EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
 !458 = !{!459, !461, !448, !445}
 !459 = distinct !{!459, !460, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_E6FormatB5cxx11ERKS8_: %agg.result"}
 !460 = distinct !{!460, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_E6FormatB5cxx11ERKS8_"}
-!461 = distinct !{!461, !462, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!462 = distinct !{!462, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!461 = distinct !{!461, !462, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!462 = distinct !{!462, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !463 = !{!464, !459, !461, !448, !445}
 !464 = distinct !{!464, !465, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi5EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !465 = distinct !{!465, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi5EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
 !466 = !{!467, !469, !471}
-!467 = distinct !{!467, !468, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!468 = distinct !{!468, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!469 = distinct !{!469, !470, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!470 = distinct !{!470, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!471 = distinct !{!471, !472, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!472 = distinct !{!472, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!467 = distinct !{!467, !468, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!468 = distinct !{!468, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!469 = distinct !{!469, !470, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!470 = distinct !{!470, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!471 = distinct !{!471, !472, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!472 = distinct !{!472, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !473 = !{!474, !467, !469, !471}
 !474 = distinct !{!474, !475, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !475 = distinct !{!475, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -35030,8 +35030,8 @@ attributes #33 = { nounwind willreturn memory(read) }
 !497 = !{!498, !500, !502, !495}
 !498 = distinct !{!498, !499, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_E6FormatB5cxx11ERKS8_: %agg.result"}
 !499 = distinct !{!499, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_E6FormatB5cxx11ERKS8_"}
-!500 = distinct !{!500, !501, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!501 = distinct !{!501, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!500 = distinct !{!500, !501, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!501 = distinct !{!501, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !502 = distinct !{!502, !503, !"_ZN7testing8internal18CmpHelperEQFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
 !503 = distinct !{!503, !"_ZN7testing8internal18CmpHelperEQFailureIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENS_15AssertionResultEPKcSB_RKT_RKT0_"}
 !504 = !{!505, !498, !500, !502, !495}
@@ -35041,8 +35041,8 @@ attributes #33 = { nounwind willreturn memory(read) }
 !508 = !{!509, !511, !502, !495}
 !509 = distinct !{!509, !510, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_E6FormatB5cxx11ERKS8_: %agg.result"}
 !510 = distinct !{!510, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_E6FormatB5cxx11ERKS8_"}
-!511 = distinct !{!511, !512, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!512 = distinct !{!512, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!511 = distinct !{!511, !512, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!512 = distinct !{!512, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS3_7TrackedIiEELi5EEES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !513 = !{!514, !509, !511, !502, !495}
 !514 = distinct !{!514, !515, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi5EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !515 = distinct !{!515, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS2_7TrackedIiEELi5EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
@@ -35054,12 +35054,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !521 = distinct !{!521, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm"}
 !522 = distinct !{!522, !62}
 !523 = !{!524, !526, !528}
-!524 = distinct !{!524, !525, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!525 = distinct !{!525, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!526 = distinct !{!526, !527, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!527 = distinct !{!527, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!528 = distinct !{!528, !529, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!529 = distinct !{!529, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!524 = distinct !{!524, !525, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!525 = distinct !{!525, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!526 = distinct !{!526, !527, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!527 = distinct !{!527, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!528 = distinct !{!528, !529, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!529 = distinct !{!529, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !530 = !{!531, !524, !526, !528}
 !531 = distinct !{!531, !532, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !532 = distinct !{!532, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -35093,12 +35093,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !560 = distinct !{!560, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertEOS9_"}
 !561 = distinct !{!561, !62}
 !562 = !{!563, !565, !567}
-!563 = distinct !{!563, !564, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!564 = distinct !{!564, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!565 = distinct !{!565, !566, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!566 = distinct !{!566, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!567 = distinct !{!567, !568, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!568 = distinct !{!568, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!563 = distinct !{!563, !564, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!564 = distinct !{!564, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!565 = distinct !{!565, !566, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!566 = distinct !{!566, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!567 = distinct !{!567, !568, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!568 = distinct !{!568, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !569 = !{!570, !563, !565, !567}
 !570 = distinct !{!570, !571, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !571 = distinct !{!571, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -35132,12 +35132,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !599 = distinct !{!599, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertEOS9_"}
 !600 = distinct !{!600, !62}
 !601 = !{!602, !604, !606}
-!602 = distinct !{!602, !603, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!603 = distinct !{!603, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!604 = distinct !{!604, !605, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!605 = distinct !{!605, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!606 = distinct !{!606, !607, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!607 = distinct !{!607, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!602 = distinct !{!602, !603, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!603 = distinct !{!603, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!604 = distinct !{!604, !605, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!605 = distinct !{!605, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!606 = distinct !{!606, !607, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!607 = distinct !{!607, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !608 = !{!609, !602, !604, !606}
 !609 = distinct !{!609, !610, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !610 = distinct !{!610, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -35165,12 +35165,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !632 = distinct !{!632, !633, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEENS0_29PredicateFormatterFromMatcherIT_EES6_: %agg.result"}
 !633 = distinct !{!633, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEENS0_29PredicateFormatterFromMatcherIT_EES6_"}
 !634 = !{!635, !637, !639}
-!635 = distinct !{!635, !636, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!636 = distinct !{!636, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!637 = distinct !{!637, !638, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!638 = distinct !{!638, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!639 = distinct !{!639, !640, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!640 = distinct !{!640, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!635 = distinct !{!635, !636, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!636 = distinct !{!636, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!637 = distinct !{!637, !638, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!638 = distinct !{!638, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!639 = distinct !{!639, !640, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!640 = distinct !{!640, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !641 = !{!642, !635, !637, !639}
 !642 = distinct !{!642, !643, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !643 = distinct !{!643, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -35199,12 +35199,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !666 = distinct !{!666, !667, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEENS0_29PredicateFormatterFromMatcherIT_EES6_: %agg.result"}
 !667 = distinct !{!667, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEENS0_29PredicateFormatterFromMatcherIT_EES6_"}
 !668 = !{!669, !671, !673}
-!669 = distinct !{!669, !670, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!670 = distinct !{!670, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!671 = distinct !{!671, !672, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!672 = distinct !{!672, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!673 = distinct !{!673, !674, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!674 = distinct !{!674, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!669 = distinct !{!669, !670, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!670 = distinct !{!670, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!671 = distinct !{!671, !672, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!672 = distinct !{!672, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!673 = distinct !{!673, !674, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!674 = distinct !{!674, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !675 = !{!676, !669, !671, !673}
 !676 = distinct !{!676, !677, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !677 = distinct !{!677, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -35232,12 +35232,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !699 = distinct !{!699, !700, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEENS0_29PredicateFormatterFromMatcherIT_EES6_: %agg.result"}
 !700 = distinct !{!700, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEENS0_29PredicateFormatterFromMatcherIT_EES6_"}
 !701 = !{!702, !704, !706}
-!702 = distinct !{!702, !703, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!703 = distinct !{!703, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!704 = distinct !{!704, !705, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!705 = distinct !{!705, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!706 = distinct !{!706, !707, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!707 = distinct !{!707, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!702 = distinct !{!702, !703, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!703 = distinct !{!703, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!704 = distinct !{!704, !705, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!705 = distinct !{!705, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!706 = distinct !{!706, !707, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!707 = distinct !{!707, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !708 = !{!709, !702, !704, !706}
 !709 = distinct !{!709, !710, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !710 = distinct !{!710, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -35271,12 +35271,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !738 = distinct !{!738, !739, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEENS0_29PredicateFormatterFromMatcherIT_EES6_: %agg.result"}
 !739 = distinct !{!739, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEENS0_29PredicateFormatterFromMatcherIT_EES6_"}
 !740 = !{!741, !743, !745}
-!741 = distinct !{!741, !742, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!742 = distinct !{!742, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!743 = distinct !{!743, !744, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!744 = distinct !{!744, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!745 = distinct !{!745, !746, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!746 = distinct !{!746, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!741 = distinct !{!741, !742, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!742 = distinct !{!742, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!743 = distinct !{!743, !744, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!744 = distinct !{!744, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!745 = distinct !{!745, !746, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!746 = distinct !{!746, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !747 = !{!748, !741, !743, !745}
 !748 = distinct !{!748, !749, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !749 = distinct !{!749, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -35301,12 +35301,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !768 = distinct !{!768, !769, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEENS0_29PredicateFormatterFromMatcherIT_EES6_: %agg.result"}
 !769 = distinct !{!769, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEENS0_29PredicateFormatterFromMatcherIT_EES6_"}
 !770 = !{!771, !773, !775}
-!771 = distinct !{!771, !772, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!772 = distinct !{!772, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!773 = distinct !{!773, !774, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!774 = distinct !{!774, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!775 = distinct !{!775, !776, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!776 = distinct !{!776, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!771 = distinct !{!771, !772, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!772 = distinct !{!772, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!773 = distinct !{!773, !774, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!774 = distinct !{!774, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!775 = distinct !{!775, !776, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!776 = distinct !{!776, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !777 = !{!778, !771, !773, !775}
 !778 = distinct !{!778, !779, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !779 = distinct !{!779, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -35331,12 +35331,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !798 = distinct !{!798, !799, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEENS0_29PredicateFormatterFromMatcherIT_EES6_: %agg.result"}
 !799 = distinct !{!799, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEENS0_29PredicateFormatterFromMatcherIT_EES6_"}
 !800 = !{!801, !803, !805}
-!801 = distinct !{!801, !802, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!802 = distinct !{!802, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!803 = distinct !{!803, !804, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!804 = distinct !{!804, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!805 = distinct !{!805, !806, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!806 = distinct !{!806, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!801 = distinct !{!801, !802, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!802 = distinct !{!802, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!803 = distinct !{!803, !804, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!804 = distinct !{!804, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!805 = distinct !{!805, !806, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!806 = distinct !{!806, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !807 = !{!808, !801, !803, !805}
 !808 = distinct !{!808, !809, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !809 = distinct !{!809, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -35361,12 +35361,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !828 = distinct !{!828, !829, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEENS0_29PredicateFormatterFromMatcherIT_EES6_: %agg.result"}
 !829 = distinct !{!829, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEENS0_29PredicateFormatterFromMatcherIT_EES6_"}
 !830 = !{!831, !833, !835}
-!831 = distinct !{!831, !832, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!832 = distinct !{!832, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!833 = distinct !{!833, !834, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!834 = distinct !{!834, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!835 = distinct !{!835, !836, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!836 = distinct !{!836, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!831 = distinct !{!831, !832, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!832 = distinct !{!832, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!833 = distinct !{!833, !834, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!834 = distinct !{!834, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!835 = distinct !{!835, !836, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!836 = distinct !{!836, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !837 = !{!838, !831, !833, !835}
 !838 = distinct !{!838, !839, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !839 = distinct !{!839, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi5EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -35394,12 +35394,12 @@ attributes #33 = { nounwind willreturn memory(read) }
 !861 = distinct !{!861, !862, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEENS0_29PredicateFormatterFromMatcherIT_EES6_: %agg.result"}
 !862 = distinct !{!862, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEENS0_29PredicateFormatterFromMatcherIT_EES6_"}
 !863 = !{!864, !866, !868}
-!864 = distinct !{!864, !865, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_: %agg.result"}
-!865 = distinct !{!865, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_"}
-!866 = distinct !{!866, !867, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_: %agg.result"}
-!867 = distinct !{!867, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_"}
-!868 = distinct !{!868, !869, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_: %agg.result"}
-!869 = distinct !{!869, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_"}
+!864 = distinct !{!864, !865, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom: %agg.result"}
+!865 = distinct !{!865, !"_ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE5applyINS0_12raw_hash_setIS3_NS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEJiES3_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSH_DpOSI_.argprom"}
+!866 = distinct !{!866, !867, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom: %agg.result"}
+!867 = distinct !{!867, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE7emplaceIJiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbEDpOSE_.argprom"}
+!868 = distinct !{!868, !869, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom: %agg.result"}
+!869 = distinct !{!869, !"_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.argprom"}
 !870 = !{!871, !864, !866, !868}
 !871 = distinct !{!871, !872, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i: %agg.result"}
 !872 = distinct !{!872, !"_ZN4absl18container_internal12_GLOBAL__N_16Policy5applyINS0_12raw_hash_setIS2_NS1_8IdentityESt8equal_toIiENS1_12CheckedAllocINS0_7TrackedIiEELi7EEEE19EmplaceDecomposableEEEDTclclsr3stdE7forwardIT_Efp_Efp0_fp0_EEOSE_i"}
@@ -35427,8 +35427,8 @@ attributes #33 = { nounwind willreturn memory(read) }
 !894 = !{!895, !897, !899, !892}
 !895 = distinct !{!895, !896, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_E6FormatB5cxx11ERKS6_: %agg.result"}
 !896 = distinct !{!896, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_E6FormatB5cxx11ERKS6_"}
-!897 = distinct !{!897, !898, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!898 = distinct !{!898, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!897 = distinct !{!897, !898, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!898 = distinct !{!898, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !899 = distinct !{!899, !900, !"_ZN7testing8internal18CmpHelperEQFailureIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENS_15AssertionResultEPKcS9_RKT_RKT0_: %agg.result"}
 !900 = distinct !{!900, !"_ZN7testing8internal18CmpHelperEQFailureIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENS_15AssertionResultEPKcS9_RKT_RKT0_"}
 !901 = !{!902, !895, !897, !899, !892}
@@ -35438,8 +35438,8 @@ attributes #33 = { nounwind willreturn memory(read) }
 !905 = !{!906, !908, !899, !892}
 !906 = distinct !{!906, !907, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_E6FormatB5cxx11ERKS6_: %agg.result"}
 !907 = distinct !{!907, !"_ZN7testing8internal19FormatForComparisonIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_E6FormatB5cxx11ERKS6_"}
-!908 = distinct !{!908, !909, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!909 = distinct !{!909, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!908 = distinct !{!908, !909, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!909 = distinct !{!909, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN4absl18container_internal12_GLOBAL__N_16PAllocIcEES6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !910 = !{!911, !906, !908, !899, !892}
 !911 = distinct !{!911, !912, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_16PAllocIcEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !912 = distinct !{!912, !"_ZN7testing13PrintToStringIN4absl18container_internal12_GLOBAL__N_16PAllocIcEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}

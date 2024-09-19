@@ -32,12 +32,12 @@ entry:
   %zrle = getelementptr inbounds i8, ptr %vs, i64 49816
   %0 = load ptr, ptr %zrle, align 8
   store i32 16, ptr %0, align 8
-  tail call fastcc void @zrle_send_framebuffer_update(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h)
+  tail call fastcc void @zrle_send_framebuffer_update.retelim(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h)
   ret i32 1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_send_framebuffer_update(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) unnamed_addr #0 {
+define internal fastcc void @zrle_send_framebuffer_update.retelim(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) unnamed_addr #0 {
 entry:
   %tmp.i.i259 = alloca %struct.Buffer, align 8
   %tmp.i.i228 = alloca %struct.Buffer, align 8
@@ -227,9 +227,9 @@ if.then17.i.i.us.i:                               ; preds = %if.end25.i.us.i
   %cmp27.i.i.us.i = icmp ugt i32 %spec.select106107.i.us.i, %add25.i.i.us.i
   %call32.i.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #9
   %cmp33.i.i.us.i = icmp ult i64 %call32.i.i.us.i, 17
-  br i1 %cmp33.i.i.us.i, label %if.then35.i.i.us.i, label %zrle_choose_palette_rle.exit.i.us.i
+  br i1 %cmp33.i.i.us.i, label %if.then35.i.i.us.i, label %zrle_choose_palette_rle.argprom.exit.i.us.i
 
-zrle_choose_palette_rle.exit.i.us.i:              ; preds = %if.then17.i.i.us.i
+zrle_choose_palette_rle.argprom.exit.i.us.i:      ; preds = %if.then17.i.i.us.i
   br i1 %cmp27.i.i.us.i, label %if.else30.i.us.i, label %if.end43.thread.i.us.i
 
 if.then35.i.i.us.i:                               ; preds = %if.then17.i.i.us.i
@@ -249,8 +249,8 @@ if.then35.i.i.us.i:                               ; preds = %if.then17.i.i.us.i
   %.mux.i.us.i = select i1 %cmp47.i.i.us.i, i8 0, i8 %use_rle.1.i.us.i
   br i1 %brmerge.i.us.i, label %if.else30.i.us.i, label %if.end43.thread.i.us.i
 
-if.end43.thread.i.us.i:                           ; preds = %if.then35.i.i.us.i, %zrle_choose_palette_rle.exit.i.us.i, %if.end25.i.us.i
-  %use_rle.298.i.us.i = phi i8 [ %spec.select.i.us.i, %zrle_choose_palette_rle.exit.i.us.i ], [ %spec.select.i.us.i, %if.end25.i.us.i ], [ %use_rle.1.i.us.i, %if.then35.i.i.us.i ]
+if.end43.thread.i.us.i:                           ; preds = %if.then35.i.i.us.i, %zrle_choose_palette_rle.argprom.exit.i.us.i, %if.end25.i.us.i
+  %use_rle.298.i.us.i = phi i8 [ %spec.select.i.us.i, %zrle_choose_palette_rle.argprom.exit.i.us.i ], [ %spec.select.i.us.i, %if.end25.i.us.i ], [ %use_rle.1.i.us.i, %if.then35.i.i.us.i ]
   %tobool27.i.us.i = trunc nuw i8 %use_rle.298.i.us.i to i1
   %conv29.i.us.i = select i1 %tobool27.i.us.i, i8 -128, i8 0
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv29.i.us.i) #9
@@ -260,8 +260,8 @@ if.else150.i.us.i:                                ; preds = %if.end43.thread.i.u
   call void @vnc_write(ptr noundef %vs, ptr noundef %16, i64 noundef %idx.ext.i.us.i) #9
   br label %zrle_encode_tile8ne.exit.us.i
 
-if.else30.i.us.i:                                 ; preds = %if.then35.i.i.us.i, %zrle_choose_palette_rle.exit.i.us.i
-  %use_rle.290.i.us.i = phi i8 [ 1, %zrle_choose_palette_rle.exit.i.us.i ], [ %.mux.i.us.i, %if.then35.i.i.us.i ]
+if.else30.i.us.i:                                 ; preds = %if.then35.i.i.us.i, %zrle_choose_palette_rle.argprom.exit.i.us.i
+  %use_rle.290.i.us.i = phi i8 [ 1, %zrle_choose_palette_rle.argprom.exit.i.us.i ], [ %.mux.i.us.i, %if.then35.i.i.us.i ]
   %call31.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #9
   %tobool32.i.us.i = trunc nuw i8 %use_rle.290.i.us.i to i1
   %conv35.i.us.i = select i1 %tobool32.i.us.i, i64 128, i64 0
@@ -983,7 +983,7 @@ entry:
   %zrle = getelementptr inbounds i8, ptr %vs, i64 49816
   %0 = load ptr, ptr %zrle, align 8
   store i32 17, ptr %0, align 8
-  tail call fastcc void @zrle_send_framebuffer_update(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h)
+  tail call fastcc void @zrle_send_framebuffer_update.retelim(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h)
   ret i32 1
 }
 
@@ -1298,7 +1298,7 @@ declare void @vnc_write_u8(ptr noundef, i8 noundef zeroext) local_unnamed_addr #
 declare i32 @palette_color(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef %palette, i32 noundef range(i32 8, 33) %bpp_out, i32 noundef %runs, i32 noundef %single_pixels, i32 noundef range(i32 0, 256) %zywrle_level, ptr nocapture noundef nonnull writeonly %use_rle, ptr nocapture noundef nonnull writeonly %use_palette) unnamed_addr #0 {
+define internal fastcc void @zrle_choose_palette_rle.argprom(i32 noundef %w, i32 noundef %h, ptr noundef %palette, i32 noundef range(i32 8, 33) %bpp_out, i32 noundef %runs, i32 noundef %single_pixels, i32 noundef range(i32 0, 256) %zywrle_level, ptr nocapture noundef nonnull writeonly %use_rle, ptr nocapture noundef nonnull writeonly %use_palette) unnamed_addr #0 {
 entry:
   store i8 0, ptr %use_rle, align 1
   store i8 0, ptr %use_palette, align 1
@@ -1463,7 +1463,7 @@ if.then22:                                        ; preds = %while.end18
   br label %if.end165
 
 if.end25:                                         ; preds = %while.end18
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 16, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
+  call fastcc void @zrle_choose_palette_rle.argprom(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 16, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else30, label %if.end43.thread
@@ -2580,7 +2580,7 @@ if.then22:                                        ; preds = %while.end18
   br label %if.end165
 
 if.end25:                                         ; preds = %while.end18
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 16, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
+  call fastcc void @zrle_choose_palette_rle.argprom(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 16, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else30, label %if.end43.thread
@@ -3316,7 +3316,7 @@ if.then22:                                        ; preds = %while.end18
   br label %if.end165
 
 if.end25:                                         ; preds = %while.end18
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 16, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
+  call fastcc void @zrle_choose_palette_rle.argprom(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 16, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else30, label %if.end43.thread
@@ -4056,7 +4056,7 @@ if.then22:                                        ; preds = %while.end18
   br label %if.end165
 
 if.end25:                                         ; preds = %while.end18
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 16, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
+  call fastcc void @zrle_choose_palette_rle.argprom(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 16, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else30, label %if.end43.thread
@@ -4795,7 +4795,7 @@ if.then12:                                        ; preds = %while.end9
   br label %if.end154
 
 if.end14:                                         ; preds = %while.end9
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 24, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
+  call fastcc void @zrle_choose_palette_rle.argprom(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 24, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else17, label %if.end29.thread
@@ -4995,7 +4995,7 @@ for.cond142.preheader:                            ; preds = %if.else132
 
 if.then137:                                       ; preds = %if.else132
   %zywrle = getelementptr inbounds i8, ptr %vs, i64 49824
-  tail call fastcc void @zywrle_analyze_32be(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
+  tail call fastcc void @zywrle_analyze_32be.retelim(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
   %or140 = or disjoint i32 %zywrle_level.tr, 128
   br label %tailrecurse
 
@@ -5015,7 +5015,7 @@ if.end154:                                        ; preds = %for.body148, %for.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @zywrle_analyze_32be(ptr noundef %dst, ptr noundef %src, i32 noundef %w, i32 noundef %h, i32 noundef %scanline, i32 noundef range(i32 1, 256) %level, ptr noundef %buf) unnamed_addr #5 {
+define internal fastcc void @zywrle_analyze_32be.retelim(ptr noundef %dst, ptr noundef %src, i32 noundef %w, i32 noundef %h, i32 noundef %scanline, i32 noundef range(i32 1, 256) %level, ptr noundef %buf) unnamed_addr #5 {
 entry:
   %notmask.i = shl nsw i32 -1, %level
   %and.i = and i32 %notmask.i, %w
@@ -5593,7 +5593,7 @@ if.then12:                                        ; preds = %while.end9
   br label %if.end154
 
 if.end14:                                         ; preds = %while.end9
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 24, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
+  call fastcc void @zrle_choose_palette_rle.argprom(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 24, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else17, label %if.end29.thread
@@ -5793,7 +5793,7 @@ for.cond142.preheader:                            ; preds = %if.else132
 
 if.then137:                                       ; preds = %if.else132
   %zywrle = getelementptr inbounds i8, ptr %vs, i64 49824
-  tail call fastcc void @zywrle_analyze_32le(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
+  tail call fastcc void @zywrle_analyze_32le.retelim(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
   %or140 = or disjoint i32 %zywrle_level.tr, 128
   br label %tailrecurse
 
@@ -5813,7 +5813,7 @@ if.end154:                                        ; preds = %for.body148, %for.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @zywrle_analyze_32le(ptr noundef %dst, ptr noundef %src, i32 noundef %w, i32 noundef %h, i32 noundef %scanline, i32 noundef range(i32 1, 256) %level, ptr noundef %buf) unnamed_addr #5 {
+define internal fastcc void @zywrle_analyze_32le.retelim(ptr noundef %dst, ptr noundef %src, i32 noundef %w, i32 noundef %h, i32 noundef %scanline, i32 noundef range(i32 1, 256) %level, ptr noundef %buf) unnamed_addr #5 {
 entry:
   %notmask.i = shl nsw i32 -1, %level
   %and.i = and i32 %notmask.i, %w
@@ -6387,7 +6387,7 @@ if.then12:                                        ; preds = %while.end9
   br label %if.end154
 
 if.end14:                                         ; preds = %while.end9
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 24, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
+  call fastcc void @zrle_choose_palette_rle.argprom(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 24, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else17, label %if.end29.thread
@@ -6599,7 +6599,7 @@ for.body148.lr.ph:                                ; preds = %for.cond142.prehead
 
 if.then137:                                       ; preds = %if.else132
   %zywrle = getelementptr inbounds i8, ptr %vs, i64 49824
-  tail call fastcc void @zywrle_analyze_32be(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
+  tail call fastcc void @zywrle_analyze_32be.retelim(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
   %or140 = or disjoint i32 %zywrle_level.tr, 128
   br label %tailrecurse
 
@@ -6698,7 +6698,7 @@ if.then12:                                        ; preds = %while.end9
   br label %if.end154
 
 if.end14:                                         ; preds = %while.end9
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 24, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
+  call fastcc void @zrle_choose_palette_rle.argprom(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 24, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else17, label %if.end29.thread
@@ -6910,7 +6910,7 @@ for.body148.lr.ph:                                ; preds = %for.cond142.prehead
 
 if.then137:                                       ; preds = %if.else132
   %zywrle = getelementptr inbounds i8, ptr %vs, i64 49824
-  tail call fastcc void @zywrle_analyze_32le(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
+  tail call fastcc void @zywrle_analyze_32le.retelim(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
   %or140 = or disjoint i32 %zywrle_level.tr, 128
   br label %tailrecurse
 
@@ -7007,7 +7007,7 @@ if.then12:                                        ; preds = %while.end9
   br label %if.end147
 
 if.end14:                                         ; preds = %while.end9
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 32, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
+  call fastcc void @zrle_choose_palette_rle.argprom(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 32, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else17, label %if.end29.thread
@@ -7204,7 +7204,7 @@ if.else132:                                       ; preds = %if.end29.thread
 
 if.then137:                                       ; preds = %if.else132
   %zywrle = getelementptr inbounds i8, ptr %vs, i64 49824
-  tail call fastcc void @zywrle_analyze_32be(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
+  tail call fastcc void @zywrle_analyze_32be.retelim(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
   %or140 = or disjoint i32 %zywrle_level.tr, 128
   br label %tailrecurse
 
@@ -7296,7 +7296,7 @@ if.then12:                                        ; preds = %while.end9
   br label %if.end147
 
 if.end14:                                         ; preds = %while.end9
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 32, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
+  call fastcc void @zrle_choose_palette_rle.argprom(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 32, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else17, label %if.end29.thread
@@ -7493,7 +7493,7 @@ if.else132:                                       ; preds = %if.end29.thread
 
 if.then137:                                       ; preds = %if.else132
   %zywrle = getelementptr inbounds i8, ptr %vs, i64 49824
-  tail call fastcc void @zywrle_analyze_32le(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
+  tail call fastcc void @zywrle_analyze_32le.retelim(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
   %or140 = or disjoint i32 %zywrle_level.tr, 128
   br label %tailrecurse
 

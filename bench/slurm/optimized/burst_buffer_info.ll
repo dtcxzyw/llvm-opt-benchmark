@@ -225,15 +225,15 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   %21 = getelementptr inbounds i8, ptr %1, i64 152
   %22 = load i64, ptr %21, align 8
   %23 = sub i64 %20, %22
-  call fastcc void @_get_size_str(ptr noundef %13, i64 noundef %23)
+  call fastcc void @_get_size_str.argelim(ptr noundef %13, i64 noundef %23)
   %24 = getelementptr inbounds i8, ptr %1, i64 64
   %25 = load i64, ptr %24, align 8
-  call fastcc void @_get_size_str(ptr noundef %14, i64 noundef %25)
+  call fastcc void @_get_size_str.argelim(ptr noundef %14, i64 noundef %25)
   %26 = load i64, ptr %19, align 8
-  call fastcc void @_get_size_str(ptr noundef %15, i64 noundef %26)
+  call fastcc void @_get_size_str.argelim(ptr noundef %15, i64 noundef %26)
   %27 = getelementptr inbounds i8, ptr %1, i64 160
   %28 = load i64, ptr %27, align 8
-  call fastcc void @_get_size_str(ptr noundef %16, i64 noundef %28)
+  call fastcc void @_get_size_str.argelim(ptr noundef %16, i64 noundef %28)
   %29 = getelementptr inbounds i8, ptr %1, i64 88
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %1, i64 8
@@ -258,19 +258,19 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   %41 = getelementptr inbounds i8, ptr %38, i64 32
   %42 = load i64, ptr %41, align 8
   %43 = sub i64 %40, %42
-  call fastcc void @_get_size_str(ptr noundef %13, i64 noundef %43)
+  call fastcc void @_get_size_str.argelim(ptr noundef %13, i64 noundef %43)
   %44 = load ptr, ptr %35, align 8
   %45 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %44, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8
-  call fastcc void @_get_size_str(ptr noundef %14, i64 noundef %46)
+  call fastcc void @_get_size_str.argelim(ptr noundef %14, i64 noundef %46)
   %47 = load ptr, ptr %35, align 8
   %48 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %47, i64 %indvars.iv, i32 2
   %49 = load i64, ptr %48, align 8
-  call fastcc void @_get_size_str(ptr noundef %15, i64 noundef %49)
+  call fastcc void @_get_size_str.argelim(ptr noundef %15, i64 noundef %49)
   %50 = load ptr, ptr %35, align 8
   %51 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %50, i64 %indvars.iv, i32 3
   %52 = load i64, ptr %51, align 8
-  call fastcc void @_get_size_str(ptr noundef %16, i64 noundef %52)
+  call fastcc void @_get_size_str.argelim(ptr noundef %16, i64 noundef %52)
   %53 = load ptr, ptr %35, align 8
   %54 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %53, i64 %indvars.iv, i32 1
   %55 = load ptr, ptr %54, align 8
@@ -461,7 +461,7 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
 135:                                              ; preds = %132, %129, %128
   %136 = getelementptr inbounds i8, ptr %.086100, i64 64
   %137 = load i64, ptr %136, align 8
-  call fastcc void @_get_size_str(ptr noundef %8, i64 noundef %137)
+  call fastcc void @_get_size_str.argelim(ptr noundef %8, i64 noundef %137)
   %138 = getelementptr inbounds i8, ptr %.086100, i64 16
   %139 = load i64, ptr %138, align 8
   %.not24.i = icmp eq i64 %139, 0
@@ -552,7 +552,7 @@ _print_burst_buffer_resv.exit:                    ; preds = %146, %158
   store ptr %178, ptr %7, align 8
   %179 = getelementptr inbounds i8, ptr %.085105, i64 8
   %180 = load i64, ptr %179, align 8
-  call fastcc void @_get_size_str(ptr noundef %5, i64 noundef %180)
+  call fastcc void @_get_size_str.argelim(ptr noundef %5, i64 noundef %180)
   %181 = load i32, ptr %.085105, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.38, ptr noundef %178, i32 noundef %181, ptr noundef nonnull %5) #8
   call void @slurm_xfree(ptr noundef nonnull %7) #8
@@ -574,7 +574,7 @@ _print_burst_buffer_resv.exit:                    ; preds = %146, %158
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @_get_size_str(ptr nocapture noundef nonnull writeonly %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc void @_get_size_str.argelim(ptr nocapture noundef nonnull writeonly %0, i64 noundef %1) unnamed_addr #2 {
   %or.cond = icmp ugt i64 %1, -3
   br i1 %or.cond, label %3, label %4
 

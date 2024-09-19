@@ -13804,13 +13804,13 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
 
 49:                                               ; preds = %47
   invoke fastcc void @_ZN8LightGBM6CommonL4JoinINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKSt6vectorIT_SaIS9_EEPKcb(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %43, ptr noundef nonnull @.str.143, i1 noundef zeroext true)
-          to label %_ZN8LightGBM7CommonCL4JoinINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKSt6vectorIT_SaIS9_EEPKc.exit unwind label %.loopexit
+          to label %_ZN8LightGBM7CommonCL4JoinINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKSt6vectorIT_SaIS9_EEPKc.argprom.exit unwind label %.loopexit
 
-_ZN8LightGBM7CommonCL4JoinINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKSt6vectorIT_SaIS9_EEPKc.exit: ; preds = %49
+_ZN8LightGBM7CommonCL4JoinINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKSt6vectorIT_SaIS9_EEPKc.argprom.exit: ; preds = %49
   %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %51 unwind label %54
 
-51:                                               ; preds = %_ZN8LightGBM7CommonCL4JoinINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKSt6vectorIT_SaIS9_EEPKc.exit
+51:                                               ; preds = %_ZN8LightGBM7CommonCL4JoinINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKSt6vectorIT_SaIS9_EEPKc.argprom.exit
   %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull @.str.142)
           to label %53 unwind label %54
 
@@ -13818,7 +13818,7 @@ _ZN8LightGBM7CommonCL4JoinINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   br label %56
 
-54:                                               ; preds = %51, %_ZN8LightGBM7CommonCL4JoinINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKSt6vectorIT_SaIS9_EEPKc.exit
+54:                                               ; preds = %51, %_ZN8LightGBM7CommonCL4JoinINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKSt6vectorIT_SaIS9_EEPKc.argprom.exit
   %55 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
@@ -14646,8 +14646,8 @@ attributes #28 = { cold nounwind }
 !30 = distinct !{!30, !18}
 !31 = distinct !{!31, !18}
 !32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_: argument 0"}
-!34 = distinct !{!34, !"_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_"}
+!33 = distinct !{!33, !34, !"_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_.argprom: argument 0"}
+!34 = distinct !{!34, !"_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_.argprom"}
 !35 = distinct !{!35, !18}
 !36 = distinct !{!36, !18}
 !37 = !{!38}

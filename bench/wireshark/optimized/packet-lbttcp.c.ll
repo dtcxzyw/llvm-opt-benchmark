@@ -397,7 +397,7 @@ define internal i32 @dissect_lbttcp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call fastcc i32 @dissect_lbttcp_real(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %7 = tail call fastcc i32 @dissect_lbttcp_real.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %8
 
 8:                                                ; preds = %4, %6
@@ -657,7 +657,7 @@ lbttcp_tag_find.exit:                             ; preds = %lbttcp_tag_locate.e
   br i1 %.not45, label %lbttcp_tag_find.exit.thread, label %51
 
 51:                                               ; preds = %lbttcp_tag_find.exit
-  %52 = tail call fastcc i32 @dissect_lbttcp_real(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %52 = tail call fastcc i32 @dissect_lbttcp_real.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %lbttcp_tag_find.exit.thread
 
 53:                                               ; preds = %10
@@ -712,7 +712,7 @@ lbttcp_tag_find.exit:                             ; preds = %lbttcp_tag_locate.e
   br i1 %.not44, label %lbttcp_tag_find.exit.thread, label %71
 
 71:                                               ; preds = %69
-  %72 = tail call fastcc i32 @dissect_lbttcp_real(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %72 = tail call fastcc i32 @dissect_lbttcp_real.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   br label %lbttcp_tag_find.exit.thread
 
 lbttcp_tag_find.exit.thread:                      ; preds = %49, %.preheader.i.i, %lbttcp_tag_locate.exit.i, %69, %68, %lbttcp_tag_find.exit, %4, %7, %71, %51
@@ -729,7 +729,7 @@ declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_un
 declare i32 @lbmc_test_lbmc_header(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_lbttcp_real(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_lbttcp_real.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_add_str(ptr noundef %5, i32 noundef 34, ptr noundef nonnull @.str.11) #4

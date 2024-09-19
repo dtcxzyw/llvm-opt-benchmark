@@ -2008,7 +2008,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i.i:                    ; preds = %128, %_ZN4llvm5Erro
   %134 = load i64, ptr %.sroa.01.013.i.i.i, align 8, !noalias !16
   store i64 %134, ptr %43, align 8, !noalias !16
   store ptr null, ptr %.sroa.01.013.i.i.i, align 8, !noalias !16
-  call fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef %43), !noalias !16
+  call fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_.argprom"(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef %43), !noalias !16
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %40, ptr noundef nonnull %41, ptr noundef nonnull %42), !noalias !16
   %135 = load ptr, ptr %40, align 8, !noalias !16
   store ptr null, ptr %40, align 8, !noalias !16
@@ -2056,7 +2056,7 @@ _ZN4llvm5ErrorD2Ev.exit8.i.i.i:                   ; preds = %148, %_ZNSt10unique
 153:                                              ; preds = %123
   %154 = ptrtoint ptr %122 to i64
   store i64 %154, ptr %44, align 8, !noalias !16
-  call fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef %44)
+  call fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_.argprom"(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef %44)
   %155 = load ptr, ptr %44, align 8, !noalias !16
   %.not.i9.i.i.i = icmp eq ptr %155, null
   br i1 %.not.i9.i.i.i, label %159, label %.sink.split.i
@@ -2225,13 +2225,13 @@ _ZN4llvm5ErrorD2Ev.exit39.i:                      ; preds = %162, %159, %115, %1
   store ptr %257, ptr %253, align 8
   store ptr @"_ZNSt17_Function_handlerIFbjRKN4llvm6ModuleEEZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPS1_RKNS5_19HeaderSearchOptionsERKNS5_14CodeGenOptionsERKNS5_13TargetOptionsERKNS5_11LangOptionsESt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISO_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESX_NS5_13BackendActionEE3$_0E9_M_invokeERKSt9_Any_dataOjS3_", ptr %256, align 8
   %.not.i.i.i40.i = icmp eq ptr %255, null
-  br i1 %.not.i.i.i40.i, label %"_ZNSt8functionIFbjRKN4llvm6ModuleEEEaSIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPS1_RKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISQ_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESZ_NS7_13BackendActionEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS5_E4typeEOS13_.exit.i", label %258
+  br i1 %.not.i.i.i40.i, label %"_ZNSt8functionIFbjRKN4llvm6ModuleEEEaSIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPS1_RKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISQ_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESZ_NS7_13BackendActionEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS5_E4typeEOS13_.argprom.exit.i", label %258
 
 258:                                              ; preds = %250
   %259 = call noundef zeroext i1 %255(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef 3) #22
-  br label %"_ZNSt8functionIFbjRKN4llvm6ModuleEEEaSIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPS1_RKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISQ_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESZ_NS7_13BackendActionEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS5_E4typeEOS13_.exit.i"
+  br label %"_ZNSt8functionIFbjRKN4llvm6ModuleEEEaSIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPS1_RKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISQ_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESZ_NS7_13BackendActionEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS5_E4typeEOS13_.argprom.exit.i"
 
-"_ZNSt8functionIFbjRKN4llvm6ModuleEEEaSIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPS1_RKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISQ_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESZ_NS7_13BackendActionEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS5_E4typeEOS13_.exit.i": ; preds = %258, %250
+"_ZNSt8functionIFbjRKN4llvm6ModuleEEEaSIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPS1_RKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISQ_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESZ_NS7_13BackendActionEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS5_E4typeEOS13_.argprom.exit.i": ; preds = %258, %250
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39)
   br label %286
 
@@ -2320,7 +2320,7 @@ _ZN4llvm5ErrorD2Ev.exit39.i:                      ; preds = %162, %159, %115, %1
   store i32 %switch.select5.i.i, ptr %285, align 4
   br label %286
 
-286:                                              ; preds = %284, %"_ZNSt8functionIFbjRKN4llvm6ModuleEEEaSIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPS1_RKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISQ_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESZ_NS7_13BackendActionEE3$_2EENSt9enable_ifIXsr9_CallableIT_EE5valueERS5_E4typeEOS13_.exit.i", %"_ZNSt8functionIFbjRKN4llvm6ModuleEEEaSIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPS1_RKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISQ_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESZ_NS7_13BackendActionEE3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueERS5_E4typeEOS13_.exit.i", %"_ZNSt8functionIFbjRKN4llvm6ModuleEEEaSIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPS1_RKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISQ_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESZ_NS7_13BackendActionEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS5_E4typeEOS13_.exit.i"
+286:                                              ; preds = %284, %"_ZNSt8functionIFbjRKN4llvm6ModuleEEEaSIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPS1_RKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISQ_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESZ_NS7_13BackendActionEE3$_2EENSt9enable_ifIXsr9_CallableIT_EE5valueERS5_E4typeEOS13_.exit.i", %"_ZNSt8functionIFbjRKN4llvm6ModuleEEEaSIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPS1_RKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISQ_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESZ_NS7_13BackendActionEE3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueERS5_E4typeEOS13_.exit.i", %"_ZNSt8functionIFbjRKN4llvm6ModuleEEEaSIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPS1_RKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISQ_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESZ_NS7_13BackendActionEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS5_E4typeEOS13_.argprom.exit.i"
   %287 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %288 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store ptr %64, ptr %55, align 8
@@ -2397,7 +2397,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i50.i:                  ; preds = %310, %_ZN4llvm5Erro
   %316 = load i64, ptr %.sroa.01.013.i.i51.i, align 8, !noalias !19
   store i64 %316, ptr %33, align 8, !noalias !19
   store ptr null, ptr %.sroa.01.013.i.i51.i, align 8, !noalias !19
-  call fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef %33), !noalias !19
+  call fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_.argprom"(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef %33), !noalias !19
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %30, ptr noundef nonnull %31, ptr noundef nonnull %32), !noalias !19
   %317 = load ptr, ptr %30, align 8, !noalias !19
   store ptr null, ptr %30, align 8, !noalias !19
@@ -2445,7 +2445,7 @@ _ZN4llvm5ErrorD2Ev.exit8.i.i56.i:                 ; preds = %330, %_ZNSt10unique
 335:                                              ; preds = %305
   %336 = ptrtoint ptr %304 to i64
   store i64 %336, ptr %34, align 8, !noalias !19
-  call fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef %34)
+  call fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_.argprom"(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef %34)
   %337 = load ptr, ptr %34, align 8, !noalias !19
   %.not.i9.i.i46.i = icmp eq ptr %337, null
   br i1 %.not.i9.i.i46.i, label %341, label %.sink.split95.i
@@ -3028,13 +3028,13 @@ _ZN12_GLOBAL__N_118EmitAssemblyHelper19CreateTargetMachineEb.exit.i: ; preds = %
 
 576:                                              ; preds = %575
   call void @_ZNK4llvm13TargetMachine19getTargetIRAnalysisEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::TargetIRAnalysis") align 8 %14, ptr noundef nonnull align 8 dereferenceable(1232) %.val.i.i) #22
-  br label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper19getTargetIRAnalysisEv.exit.i.i
+  br label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper19getTargetIRAnalysisEv.argprom.exit.i.i
 
 577:                                              ; preds = %575
   call void @_ZN4llvm16TargetIRAnalysisC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #22
-  br label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper19getTargetIRAnalysisEv.exit.i.i
+  br label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper19getTargetIRAnalysisEv.argprom.exit.i.i
 
-_ZNK12_GLOBAL__N_118EmitAssemblyHelper19getTargetIRAnalysisEv.exit.i.i: ; preds = %577, %576
+_ZNK12_GLOBAL__N_118EmitAssemblyHelper19getTargetIRAnalysisEv.argprom.exit.i.i: ; preds = %577, %576
   %578 = call noundef ptr @_ZN4llvm36createTargetTransformInfoWrapperPassENS_16TargetIRAnalysisE(ptr noundef nonnull %14) #22
   call void @_ZN4llvm6legacy11PassManager3addEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %578) #22
   %579 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -3042,11 +3042,11 @@ _ZNK12_GLOBAL__N_118EmitAssemblyHelper19getTargetIRAnalysisEv.exit.i.i: ; preds 
   %.not.i.i.i.i7.i = icmp eq ptr %580, null
   br i1 %.not.i.i.i.i7.i, label %_ZN4llvm16TargetIRAnalysisD2Ev.exit.i.i, label %581
 
-581:                                              ; preds = %_ZNK12_GLOBAL__N_118EmitAssemblyHelper19getTargetIRAnalysisEv.exit.i.i
+581:                                              ; preds = %_ZNK12_GLOBAL__N_118EmitAssemblyHelper19getTargetIRAnalysisEv.argprom.exit.i.i
   %582 = call noundef zeroext i1 %580(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3) #22
   br label %_ZN4llvm16TargetIRAnalysisD2Ev.exit.i.i
 
-_ZN4llvm16TargetIRAnalysisD2Ev.exit.i.i:          ; preds = %581, %_ZNK12_GLOBAL__N_118EmitAssemblyHelper19getTargetIRAnalysisEv.exit.i.i
+_ZN4llvm16TargetIRAnalysisD2Ev.exit.i.i:          ; preds = %581, %_ZNK12_GLOBAL__N_118EmitAssemblyHelper19getTargetIRAnalysisEv.argprom.exit.i.i
   %583 = load ptr, ptr %403, align 8
   %584 = getelementptr inbounds nuw i8, ptr %583, i64 752
   %585 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %584) #22
@@ -7051,7 +7051,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit32: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
@@ -7703,20 +7703,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbjRKN4llvm6Module
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbjRKN4llvm6ModuleEEZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPS1_RKNS5_19HeaderSearchOptionsERKNS5_14CodeGenOptionsERKNS5_13TargetOptionsERKNS5_11LangOptionsESt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISO_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESX_NS5_13BackendActionEE3$_0E10_M_managerERSt9_Any_dataRKS11_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -7740,7 +7740,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbjRKN4llvm6Module
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbjRKN4llvm6ModuleEEZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPS1_RKNS5_19HeaderSearchOptionsERKNS5_14CodeGenOptionsERKNS5_13TargetOptionsERKNS5_11LangOptionsESt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISO_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESX_NS5_13BackendActionEE3$_1E10_M_managerERSt9_Any_dataRKS11_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_1E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_1E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -7750,29 +7750,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbjRKN4llvm6Module
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_1E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_1E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_1E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_1E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_1E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_1E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_1E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_1E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_1E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_1E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_1E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_1E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -7798,7 +7798,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbjRKN4llvm6Module
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbjRKN4llvm6ModuleEEZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPS1_RKNS5_19HeaderSearchOptionsERKNS5_14CodeGenOptionsERKNS5_13TargetOptionsERKNS5_11LangOptionsESt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISO_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESX_NS5_13BackendActionEE3$_2E10_M_managerERSt9_Any_dataRKS11_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_2E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_2E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -7808,29 +7808,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbjRKN4llvm6Module
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_2E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_2E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_2E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_2E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_2E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_2E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_2E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_2E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_2E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_2E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_2E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS4_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS4_17raw_pwrite_streamESt14default_deleteISM_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESV_NS1_13BackendActionEE3$_2E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -8373,7 +8373,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit: ; preds = %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
@@ -9925,7 +9925,7 @@ _ZNSt6vectorIN4llvm7VecDescESaIS1_EED2Ev.exit2.i.i.i: ; preds = %672, %_ZNSt6vec
   %680 = load i32, ptr %679, align 8, !noalias !161
   %681 = icmp eq i32 %680, 0
   %.pre1.i.i.i.i = load ptr, ptr %678, align 8, !noalias !161
-  br i1 %681, label %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEENK4$_11clEv.exit.i", label %.lr.ph.preheader.i.i.i.i.i
+  br i1 %681, label %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEENK4$_11clEv.argprom.argprom.exit.i", label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIN4llvm7VecDescESaIS1_EED2Ev.exit2.i.i.i
   %682 = zext i32 %680 to i64
@@ -9953,9 +9953,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsI
   %.pre2.i.i.i.i = load i32, ptr %679, align 8, !noalias !161
   %689 = zext i32 %.pre2.i.i.i.i to i64
   %690 = mul nuw nsw i64 %689, 40
-  br label %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEENK4$_11clEv.exit.i"
+  br label %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEENK4$_11clEv.argprom.argprom.exit.i"
 
-"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEENK4$_11clEv.exit.i": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E10destroyAllEv.exit.loopexit.i.i.i.i, %_ZNSt6vectorIN4llvm7VecDescESaIS1_EED2Ev.exit2.i.i.i
+"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEENK4$_11clEv.argprom.argprom.exit.i": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E10destroyAllEv.exit.loopexit.i.i.i.i, %_ZNSt6vectorIN4llvm7VecDescESaIS1_EED2Ev.exit2.i.i.i
   %691 = phi i64 [ %690, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E10destroyAllEv.exit.loopexit.i.i.i.i ], [ 0, %_ZNSt6vectorIN4llvm7VecDescESaIS1_EED2Ev.exit2.i.i.i ]
   %692 = phi ptr [ %.pre.i.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E10destroyAllEv.exit.loopexit.i.i.i.i ], [ %.pre1.i.i.i.i, %_ZNSt6vectorIN4llvm7VecDescESaIS1_EED2Ev.exit2.i.i.i ]
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %692, i64 noundef %691, i64 noundef 8) #22
@@ -9967,13 +9967,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsI
   %695 = trunc i8 %694 to i1
   br i1 %695, label %696, label %_ZN4llvm6detail17AnalysisPassModelINS_8FunctionENS_21TargetLibraryAnalysisENS_15AnalysisManagerIS2_JEE11InvalidatorEJEEC2ES3_.exit.i
 
-696:                                              ; preds = %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEENK4$_11clEv.exit.i"
+696:                                              ; preds = %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEENK4$_11clEv.argprom.argprom.exit.i"
   %697 = getelementptr inbounds nuw i8, ptr %660, i64 8
   call void @_ZN4llvm21TargetLibraryInfoImplC1EOS0_(ptr noundef nonnull align 8 dereferenceable(208) %697, ptr noundef nonnull align 8 dereferenceable(208) %18) #22
   store i8 1, ptr %693, align 8
   br label %_ZN4llvm6detail17AnalysisPassModelINS_8FunctionENS_21TargetLibraryAnalysisENS_15AnalysisManagerIS2_JEE11InvalidatorEJEEC2ES3_.exit.i
 
-_ZN4llvm6detail17AnalysisPassModelINS_8FunctionENS_21TargetLibraryAnalysisENS_15AnalysisManagerIS2_JEE11InvalidatorEJEEC2ES3_.exit.i: ; preds = %696, %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEENK4$_11clEv.exit.i"
+_ZN4llvm6detail17AnalysisPassModelINS_8FunctionENS_21TargetLibraryAnalysisENS_15AnalysisManagerIS2_JEE11InvalidatorEJEEC2ES3_.exit.i: ; preds = %696, %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEENK4$_11clEv.argprom.argprom.exit.i"
   %698 = load ptr, ptr %657, align 8
   store ptr %660, ptr %657, align 8
   %.not.i.i.i125 = icmp eq ptr %698, null
@@ -10109,7 +10109,7 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12Ve
   %752 = lshr i32 %751, 9
   %753 = and i32 %752, 3
   switch i32 %753, label %default.unreachable [
-    i32 0, label %_ZL10mapToLevelRKN5clang14CodeGenOptionsE.exit
+    i32 0, label %_ZL10mapToLevelRKN5clang14CodeGenOptionsE.argprom.exit
     i32 1, label %754
     i32 2, label %switch.lookup
     i32 3, label %757
@@ -10119,19 +10119,19 @@ default.unreachable:                              ; preds = %749
   unreachable
 
 754:                                              ; preds = %749
-  br label %_ZL10mapToLevelRKN5clang14CodeGenOptionsE.exit
+  br label %_ZL10mapToLevelRKN5clang14CodeGenOptionsE.argprom.exit
 
 switch.lookup:                                    ; preds = %749
   %755 = lshr i64 %.val, 11
   %756 = and i64 %755, 3
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerE, i64 0, i64 %756
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_ZL10mapToLevelRKN5clang14CodeGenOptionsE.exit
+  br label %_ZL10mapToLevelRKN5clang14CodeGenOptionsE.argprom.exit
 
 757:                                              ; preds = %749
-  br label %_ZL10mapToLevelRKN5clang14CodeGenOptionsE.exit
+  br label %_ZL10mapToLevelRKN5clang14CodeGenOptionsE.argprom.exit
 
-_ZL10mapToLevelRKN5clang14CodeGenOptionsE.exit:   ; preds = %switch.lookup, %749, %754, %757
+_ZL10mapToLevelRKN5clang14CodeGenOptionsE.argprom.exit: ; preds = %switch.lookup, %749, %754, %757
   %.sroa.0.0.in.i = phi ptr [ @_ZN4llvm17OptimizationLevel2O3E, %757 ], [ @_ZN4llvm17OptimizationLevel2O1E, %754 ], [ @_ZN4llvm17OptimizationLevel2O0E, %749 ], [ %switch.load, %switch.lookup ]
   %.sroa.0.0.i = load i64, ptr %.sroa.0.0.in.i, align 4
   %758 = getelementptr inbounds nuw i8, ptr %736, i64 24
@@ -10148,7 +10148,7 @@ _ZL10mapToLevelRKN5clang14CodeGenOptionsE.exit:   ; preds = %switch.lookup, %749
   %.not65 = icmp eq i64 %767, 0
   br i1 %.not65, label %_ZNSt8functionIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit, label %768
 
-768:                                              ; preds = %_ZL10mapToLevelRKN5clang14CodeGenOptionsE.exit
+768:                                              ; preds = %_ZL10mapToLevelRKN5clang14CodeGenOptionsE.argprom.exit
   %769 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %770 = getelementptr inbounds nuw i8, ptr %105, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
@@ -10196,7 +10196,7 @@ _ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJ
   %786 = call noundef zeroext i1 %784(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %107, i32 noundef 3) #22
   br label %_ZNSt8functionIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit
 
-_ZNSt8functionIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit: ; preds = %785, %_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit131, %_ZL10mapToLevelRKN5clang14CodeGenOptionsE.exit
+_ZNSt8functionIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit: ; preds = %785, %_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit131, %_ZL10mapToLevelRKN5clang14CodeGenOptionsE.argprom.exit
   %787 = load ptr, ptr %134, align 8
   %788 = getelementptr inbounds nuw i8, ptr %787, i64 1096
   %789 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %788) #22
@@ -10359,7 +10359,7 @@ _ZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsE
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %850 = icmp eq i32 %.val83, 38
-  br i1 %850, label %_ZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS_11PassBuilderE.exit, label %851
+  br i1 %850, label %_ZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS_11PassBuilderE.argprom.exit, label %851
 
 851:                                              ; preds = %_ZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderE.exit
   %.off.i.i.i = add i32 %.val83, -3
@@ -10370,12 +10370,12 @@ _ZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsE
   %853 = icmp eq i32 %.val83, 5
   %854 = icmp eq i32 %.val84, 10
   %or.cond.i.i = select i1 %853, i1 true, i1 %854
-  br i1 %or.cond.i.i, label %.thread.i, label %_ZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS_11PassBuilderE.exit
+  br i1 %or.cond.i.i, label %.thread.i, label %_ZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS_11PassBuilderE.argprom.exit
 
 855:                                              ; preds = %851
   %856 = add i32 %.val83, -27
   %spec.select.i.i = icmp ult i32 %856, 2
-  br i1 %spec.select.i.i, label %_ZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS_11PassBuilderE.exit, label %.thread.i
+  br i1 %spec.select.i.i, label %_ZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS_11PassBuilderE.argprom.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %855, %852
   %857 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -10408,38 +10408,38 @@ _ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJ
   call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS3_JEEEJEEENS_17OptimizationLevelEEELb0EE9push_backERKSA_(ptr noundef nonnull align 8 dereferenceable(16) %868, ptr noundef nonnull align 8 dereferenceable(32) %12)
   %869 = load ptr, ptr %865, align 8
   %.not.i.i8.i149 = icmp eq ptr %869, null
-  br i1 %.not.i.i8.i149, label %_ZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS_11PassBuilderE.exit, label %870
+  br i1 %.not.i.i8.i149, label %_ZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS_11PassBuilderE.argprom.exit, label %870
 
 870:                                              ; preds = %_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit.i148
   %871 = call noundef zeroext i1 %869(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3) #22
-  br label %_ZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS_11PassBuilderE.exit
+  br label %_ZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS_11PassBuilderE.argprom.exit
 
-_ZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS_11PassBuilderE.exit: ; preds = %_ZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderE.exit, %852, %855, %_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit.i148, %870
+_ZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS_11PassBuilderE.argprom.exit: ; preds = %_ZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderE.exit, %852, %855, %_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit.i148, %870
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   br label %872
 
-872:                                              ; preds = %_ZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS_11PassBuilderE.exit, %_ZNSt8functionIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit145
+872:                                              ; preds = %_ZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS_11PassBuilderE.argprom.exit, %_ZNSt8functionIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit145
   %873 = load ptr, ptr %134, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !165)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   %874 = getelementptr inbounds nuw i8, ptr %873, i64 264
   %875 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %874) #22, !noalias !165
-  br i1 %875, label %876, label %_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit
+  br i1 %875, label %876, label %_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit
 
 876:                                              ; preds = %872
   %877 = getelementptr inbounds nuw i8, ptr %873, i64 232
   %878 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %877) #22, !noalias !165
-  br i1 %878, label %_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit.thread, label %_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit
+  br i1 %878, label %_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit.thread, label %_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit
 
-_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit.thread: ; preds = %876
+_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit.thread: ; preds = %876
   %879 = getelementptr inbounds nuw i8, ptr %111, i64 72
   store i8 0, ptr %879, align 8, !alias.scope !165
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10)
   %880 = getelementptr inbounds nuw i8, ptr %111, i64 72
   br label %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEEN3$_8D2Ev.exit"
 
-_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit: ; preds = %872, %876
+_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit: ; preds = %872, %876
   %881 = getelementptr inbounds nuw i8, ptr %10, i64 7
   store i8 0, ptr %881, align 1, !noalias !165
   %882 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -10492,7 +10492,7 @@ _ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit: ; preds =
   %914 = getelementptr inbounds nuw i8, ptr %111, i64 72
   br i1 %913, label %_ZNSt8optionalIN4llvm11GCOVOptionsEEC2ERKS2_.exit, label %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEEN3$_8D2Ev.exit"
 
-_ZNSt8optionalIN4llvm11GCOVOptionsEEC2ERKS2_.exit: ; preds = %_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit
+_ZNSt8optionalIN4llvm11GCOVOptionsEEC2ERKS2_.exit: ; preds = %_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit
   %915 = getelementptr inbounds nuw i8, ptr %113, i64 72
   store i8 0, ptr %915, align 8
   %916 = load i64, ptr %111, align 8
@@ -10541,8 +10541,8 @@ _ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJ
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %917) #22
   br label %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEEN3$_8D2Ev.exit"
 
-"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEEN3$_8D2Ev.exit": ; preds = %_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit.thread, %934, %_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit151, %_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit
-  %935 = phi ptr [ %880, %_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit.thread ], [ %914, %934 ], [ %914, %_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit151 ], [ %914, %_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit ]
+"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEEN3$_8D2Ev.exit": ; preds = %_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit.thread, %934, %_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit151, %_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit
+  %935 = phi ptr [ %880, %_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit.thread ], [ %914, %934 ], [ %914, %_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit151 ], [ %914, %_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit ]
   %936 = load i8, ptr %935, align 8
   %937 = trunc i8 %936 to i1
   br i1 %937, label %938, label %_ZNSt8optionalIN4llvm11GCOVOptionsEED2Ev.exit
@@ -10563,16 +10563,16 @@ _ZNSt8optionalIN4llvm11GCOVOptionsEED2Ev.exit:    ; preds = %"_ZZN12_GLOBAL__N_1
   %943 = load i64, ptr %942, align 8, !noalias !168
   %944 = and i64 %943, 1572864
   %945 = icmp eq i64 %944, 524288
-  br i1 %945, label %_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit, label %_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit.thread
+  br i1 %945, label %_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit, label %_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit.thread
 
-_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit.thread: ; preds = %_ZNSt8optionalIN4llvm11GCOVOptionsEED2Ev.exit
+_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit.thread: ; preds = %_ZNSt8optionalIN4llvm11GCOVOptionsEED2Ev.exit
   %946 = getelementptr inbounds nuw i8, ptr %114, i64 40
   store i8 0, ptr %946, align 8, !alias.scope !168
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   %947 = getelementptr inbounds nuw i8, ptr %114, i64 40
   br label %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEEN3$_9D2Ev.exit"
 
-_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit: ; preds = %_ZNSt8optionalIN4llvm11GCOVOptionsEED2Ev.exit
+_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit: ; preds = %_ZNSt8optionalIN4llvm11GCOVOptionsEED2Ev.exit
   %948 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %9, i8 0, i64 5, i1 false), !noalias !168
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %948) #22, !noalias !168
@@ -10602,7 +10602,7 @@ _ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit: ; pr
   %964 = getelementptr inbounds nuw i8, ptr %114, i64 40
   br i1 %963, label %_ZNSt8optionalIN4llvm16InstrProfOptionsEEC2ERKS2_.exit, label %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEEN3$_9D2Ev.exit"
 
-_ZNSt8optionalIN4llvm16InstrProfOptionsEEC2ERKS2_.exit: ; preds = %_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit
+_ZNSt8optionalIN4llvm16InstrProfOptionsEEC2ERKS2_.exit: ; preds = %_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit
   %965 = getelementptr inbounds nuw i8, ptr %116, i64 40
   store i8 0, ptr %965, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %116, ptr noundef nonnull align 8 dereferenceable(5) %114, i64 5, i1 false)
@@ -10643,8 +10643,8 @@ _ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJ
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %966) #22
   br label %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEEN3$_9D2Ev.exit"
 
-"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEEN3$_9D2Ev.exit": ; preds = %_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit.thread, %979, %_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit153, %_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit
-  %980 = phi ptr [ %947, %_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit.thread ], [ %964, %979 ], [ %964, %_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit153 ], [ %964, %_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.exit ]
+"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEEN3$_9D2Ev.exit": ; preds = %_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit.thread, %979, %_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit153, %_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit
+  %980 = phi ptr [ %947, %_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit.thread ], [ %964, %979 ], [ %964, %_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit153 ], [ %964, %_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom.exit ]
   %981 = load i8, ptr %980, align 8
   %982 = trunc i8 %981 to i1
   br i1 %982, label %983, label %_ZNSt8optionalIN4llvm16InstrProfOptionsEED2Ev.exit
@@ -10686,12 +10686,12 @@ _ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJ
   br i1 %.not66, label %1055, label %999
 
 999:                                              ; preds = %_ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEED2Ev.exit155
-  br i1 %761, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit, label %1000
+  br i1 %761, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit, label %1000
 
 1000:                                             ; preds = %999
   %1001 = and i64 %997, 1099511627776
   %.not.i156 = icmp eq i64 %1001, 0
-  br i1 %.not.i156, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit, label %1002
+  br i1 %.not.i156, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit, label %1002
 
 1002:                                             ; preds = %1000
   %1003 = getelementptr inbounds i8, ptr %0, i64 280
@@ -10701,9 +10701,9 @@ _ZNSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJ
   %.not1.i = icmp eq i64 %1005, 0
   %1006 = icmp ne i32 %.val86, 1
   %spec.select.i157 = select i1 %.not1.i, i1 %1006, i1 false
-  br label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit
+  br label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit
 
-_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit: ; preds = %1002, %1000, %999
+_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit: ; preds = %1002, %1000, %999
   %1007 = phi i1 [ true, %999 ], [ false, %1000 ], [ %spec.select.i157, %1002 ]
   call void @_ZN4llvm11PassBuilder26buildFatLTODefaultPipelineENS_17OptimizationLevelEbb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::PassManager") align 8 %118, ptr noundef nonnull align 8 dereferenceable(2208) %92, i64 %.sroa.0.0.i, i1 noundef zeroext %761, i1 noundef zeroext %1007) #22
   %1008 = load ptr, ptr %118, align 8
@@ -10712,7 +10712,7 @@ _ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit: ; pr
   %.not.i158572 = icmp eq ptr %1008, %1010
   br i1 %.not.i158572, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i, label %.lr.ph574
 
-.lr.ph574:                                        ; preds = %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit
+.lr.ph574:                                        ; preds = %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit
   %1011 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %1012 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %.pre606 = load ptr, ptr %1011, align 8
@@ -10838,8 +10838,8 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analy
   %.pr.i.i = load ptr, ptr %118, align 8
   br label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i: ; preds = %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassIS4_EENSt9enable_ifIXsr3stdE9is_same_vIT_S4_EEvE4typeEOS7_.exit
-  %1054 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i ], [ %.pre607, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassIS4_EENSt9enable_ifIXsr3stdE9is_same_vIT_S4_EEvE4typeEOS7_.exit ], [ %1008, %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit ]
+_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i: ; preds = %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassIS4_EENSt9enable_ifIXsr3stdE9is_same_vIT_S4_EEvE4typeEOS7_.exit
+  %1054 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i ], [ %.pre607, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassIS4_EENSt9enable_ifIXsr3stdE9is_same_vIT_S4_EEvE4typeEOS7_.exit ], [ %1008, %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit ]
   %.not.i.i.i.i164 = icmp eq ptr %1054, null
   br i1 %.not.i.i.i.i164, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.sink.split
 
@@ -11495,7 +11495,7 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12Ve
   %1295 = load i64, ptr %1294, align 8
   %1296 = and i64 %1295, 8796093022208
   %.not69 = icmp eq i64 %1296, 0
-  br i1 %.not69, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit.thread, label %1297
+  br i1 %.not69, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.argprom.exit.thread, label %1297
 
 1297:                                             ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12VerifierPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit217._crit_edge, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12VerifierPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit217.thread
   %1298 = phi i64 [ %1295, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12VerifierPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit217.thread ], [ %.pre622, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12VerifierPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit217._crit_edge ]
@@ -11760,9 +11760,9 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15Pr
 1415:                                             ; preds = %1303, %1297
   %1416 = and i64 %1298, 1099511627776
   %.not.i227 = icmp eq i64 %1416, 0
-  br i1 %.not.i227, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit230.thread, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit230
+  br i1 %.not.i227, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit230.thread, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit230
 
-_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit230: ; preds = %1415
+_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit230: ; preds = %1415
   %1417 = getelementptr inbounds i8, ptr %0, i64 280
   %.val88 = load i32, ptr %1417, align 8
   %1418 = load i64, ptr %1299, align 8
@@ -11770,9 +11770,9 @@ _ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit230: ;
   %.not1.i228 = icmp eq i64 %1419, 0
   %1420 = icmp ne i32 %.val88, 1
   %spec.select.i229 = select i1 %.not1.i228, i1 %1420, i1 false
-  br i1 %spec.select.i229, label %1421, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit230.thread
+  br i1 %spec.select.i229, label %1421, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit230.thread
 
-1421:                                             ; preds = %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit230
+1421:                                             ; preds = %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit230
   %1422 = load ptr, ptr %461, align 8
   %1423 = call noundef ptr @_ZNK4llvm6Module13getModuleFlagENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %1422, ptr nonnull @.str.48, i64 7) #22
   %.not73 = icmp eq ptr %1423, null
@@ -11795,18 +11795,18 @@ _ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit230: ;
   %1432 = load ptr, ptr %461, align 8
   %1433 = call noundef ptr @_ZNK4llvm6Module13getModuleFlagENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %1432, ptr nonnull @.str.47, i64 18) #22
   %.not75 = icmp eq ptr %1433, null
-  br i1 %.not75, label %1434, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit230.thread
+  br i1 %.not75, label %1434, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit230.thread
 
 1434:                                             ; preds = %1431
   %1435 = load ptr, ptr %461, align 8
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %1435, i32 noundef 1, ptr nonnull @.str.47, i64 18, i32 noundef 1) #22
-  br label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit230.thread
+  br label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit230.thread
 
-_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit230.thread: ; preds = %1415, %1431, %1434, %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit230
-  %1436 = phi i1 [ true, %1431 ], [ true, %1434 ], [ false, %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit230 ], [ false, %1415 ]
+_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit230.thread: ; preds = %1415, %1431, %1434, %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit230
+  %1436 = phi i1 [ true, %1431 ], [ true, %1434 ], [ false, %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit230 ], [ false, %1415 ]
   br i1 %1301, label %1437, label %1480
 
-1437:                                             ; preds = %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit230.thread
+1437:                                             ; preds = %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit230.thread
   %1438 = load ptr, ptr %2, align 8
   %1439 = load ptr, ptr %134, align 8
   %1440 = getelementptr inbounds nuw i8, ptr %1439, i64 80
@@ -11904,7 +11904,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   store ptr %1479, ptr %1447, align 8
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24ThinLTOBitcodeWriterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
-1480:                                             ; preds = %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.exit230.thread
+1480:                                             ; preds = %_ZNK12_GLOBAL__N_118EmitAssemblyHelper27shouldEmitRegularLTOSummaryEv.argprom.exit230.thread
   br i1 %1300, label %1481, label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24ThinLTOBitcodeWriterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
 1481:                                             ; preds = %1480
@@ -12038,37 +12038,37 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24Th
   %1538 = load i64, ptr %1537, align 8
   %1539 = and i64 %1538, 35184372088832
   %.not.i240 = icmp eq i64 %1539, 0
-  br i1 %.not.i240, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit.thread, label %1540
+  br i1 %.not.i240, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.argprom.exit.thread, label %1540
 
 1540:                                             ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24ThinLTOBitcodeWriterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
   %1541 = and i64 %1538, 2199023255552
   %.not1.i241 = icmp eq i64 %1541, 0
-  br i1 %.not1.i241, label %1542, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit.thread543
+  br i1 %.not1.i241, label %1542, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.argprom.exit.thread543
 
 1542:                                             ; preds = %1540
   %1543 = and i64 %1538, 1099511627776
   %.not.i.i242 = icmp eq i64 %1543, 0
-  br i1 %.not.i.i242, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit.thread, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit
+  br i1 %.not.i.i242, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.argprom.exit.thread, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.argprom.exit
 
-_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit: ; preds = %1542
+_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.argprom.exit: ; preds = %1542
   %1544 = load i64, ptr %.val89, align 8
   %1545 = and i64 %1544, 134217728
   %.not1.i.i = icmp eq i64 %1545, 0
   %1546 = icmp ne i32 %.val90, 1
   %spec.select.i.i243 = select i1 %.not1.i.i, i1 %1546, i1 false
-  br i1 %spec.select.i.i243, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit.thread543, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit.thread
+  br i1 %spec.select.i.i243, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.argprom.exit.thread543, label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.argprom.exit.thread
 
-_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit.thread543: ; preds = %1540, %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit
+_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.argprom.exit.thread543: ; preds = %1540, %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.argprom.exit
   %1547 = load ptr, ptr %461, align 8
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %1547, i32 noundef 1, ptr nonnull @.str.49, i64 10, i32 noundef 1) #22
-  br label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit.thread
+  br label %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.argprom.exit.thread
 
-_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit.thread: ; preds = %1542, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24ThinLTOBitcodeWriterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit, %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit, %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit.thread543, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12VerifierPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit217.thread
+_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.argprom.exit.thread: ; preds = %1542, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24ThinLTOBitcodeWriterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit, %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.argprom.exit, %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.argprom.exit.thread543, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12VerifierPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit217.thread
   %1548 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm19PrintPipelinePassesE, i64 128), align 8
   %1549 = trunc i8 %1548 to i1
   br i1 %1549, label %1550, label %1564
 
-1550:                                             ; preds = %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit.thread
+1550:                                             ; preds = %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.argprom.exit.thread
   %1551 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #22
   store ptr %90, ptr %130, align 8
   %1552 = ptrtoint ptr %130 to i64
@@ -12092,7 +12092,7 @@ _ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit.thr
   store ptr %1563, ptr %1556, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-1564:                                             ; preds = %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.exit.thread
+1564:                                             ; preds = %_ZNK12_GLOBAL__N_118EmitAssemblyHelper29shouldEmitUnifiedLTOModueFlagEv.argprom.exit.thread
   %1565 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1566 = load ptr, ptr %1565, align 8
   %1567 = getelementptr inbounds nuw i8, ptr %1566, i64 96
@@ -15144,42 +15144,42 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %12, ptr %6, align 8
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_0JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_0JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i: ; preds = %3
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pr.i.i.i = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.pr.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_0JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_0JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i
   %13 = load ptr, ptr %.pr.i.i.i, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %.pr.i.i.i) #22
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_0JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_0JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_0JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_0JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISE_EERSD_INS0_14ToolOutputFileESF_ISJ_EEPNSB_15BackendConsumerEE3$_0E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -15424,7 +15424,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6Modu
   %6 = load i32, ptr @_ZN4llvm17OptimizationLevel2O0E, align 4
   %7 = icmp ne i32 %6, %.sroa.0.0.extract.trunc.i.i.i
   %8 = select i1 %.not.i.i.i.i, i1 true, i1 %7
-  br i1 %8, label %9, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_1JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br i1 %8, label %9, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_1JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -15461,28 +15461,28 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisMana
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22AssignmentTrackingPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_1JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_1JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_1JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit": ; preds = %3, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22AssignmentTrackingPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i
+"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_1JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit": ; preds = %3, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22AssignmentTrackingPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISE_EERSD_INS0_14ToolOutputFileESF_ISJ_EEPNSB_15BackendConsumerEE3$_1E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -16165,7 +16165,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6Modu
   %6 = load i32, ptr @_ZN4llvm17OptimizationLevel2O0E, align 4
   %7 = icmp ne i32 %6, %.sroa.01.0.extract.trunc.i.i.i
   %8 = select i1 %.not.i.i.i.i, i1 true, i1 %7
-  br i1 %8, label %9, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_2JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br i1 %8, label %9, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_2JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
 9:                                                ; preds = %3
   %10 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !291
@@ -16209,28 +16209,28 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisMana
 
 _ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_2JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_2JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_2JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit": ; preds = %3, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit.i.i.i
+"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_2JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit": ; preds = %3, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISE_EERSD_INS0_14ToolOutputFileESF_ISJ_EEPNSB_15BackendConsumerEE3$_2E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -16481,7 +16481,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6Modu
   %6 = load i32, ptr @_ZN4llvm17OptimizationLevel2O0E, align 4
   %7 = icmp ne i32 %6, %.sroa.0.0.extract.trunc.i.i.i
   %8 = select i1 %.not.i.i.i.i, i1 true, i1 %7
-  br i1 %8, label %9, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_3JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br i1 %8, label %9, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_3JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -16518,28 +16518,28 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisMana
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17ObjCARCAPElimPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_3JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_3JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_3JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit": ; preds = %3, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17ObjCARCAPElimPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i
+"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_3JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit": ; preds = %3, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17ObjCARCAPElimPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISE_EERSD_INS0_14ToolOutputFileESF_ISJ_EEPNSB_15BackendConsumerEE3$_3E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_3E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_3E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_3E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_3E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_3E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_3E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_3E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_3E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_3E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_3E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_3E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_3E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_3E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_3E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -16827,7 +16827,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_8Func
   %6 = load i32, ptr @_ZN4llvm17OptimizationLevel2O0E, align 4
   %7 = icmp ne i32 %6, %.sroa.0.0.extract.trunc.i.i.i
   %8 = select i1 %.not.i.i.i.i, i1 true, i1 %7
-  br i1 %8, label %9, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_4JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br i1 %8, label %9, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_4JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -16864,28 +16864,28 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14ObjCARCOptPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_4JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_4JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_4JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit": ; preds = %3, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14ObjCARCOptPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i
+"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_4JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit": ; preds = %3, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14ObjCARCOptPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISE_EERSD_INS0_14ToolOutputFileESF_ISJ_EEPNSB_15BackendConsumerEE3$_4E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_4E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_4E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_4E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_4E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_4E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_4E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_4E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_4E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_4E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_4E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_4E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_4E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_4E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_4E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -17142,42 +17142,42 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %12 = load ptr, ptr %7, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %13, ptr %7, align 8
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_5JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_5JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i: ; preds = %3
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %8, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pr.i.i.i = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.pr.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_5JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_5JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i
   %14 = load ptr, ptr %.pr.i.i.i, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %.pr.i.i.i) #22
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_5JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_5JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_5JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_5JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISE_EERSD_INS0_14ToolOutputFileESF_ISJ_EEPNSB_15BackendConsumerEE3$_5E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_5E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_5E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_5E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_5E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_5E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_5E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_5E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_5E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_5E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_5E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_5E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_5E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_5E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_5E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -17333,42 +17333,42 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %12, ptr %6, align 8
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_6JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_6JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i: ; preds = %3
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pr.i.i.i = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.pr.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_6JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_6JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i
   %13 = load ptr, ptr %.pr.i.i.i, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %.pr.i.i.i) #22
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_6JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_6JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_6JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_6JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISE_EERSD_INS0_14ToolOutputFileESF_ISJ_EEPNSB_15BackendConsumerEE3$_6E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_6E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_6E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_6E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_6E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_6E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_6E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_6E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_6E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_6E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_6E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_6E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_6E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_6E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_6E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -17529,22 +17529,22 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %14, ptr %8, align 8
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_7JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_7JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i: ; preds = %3
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %9, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pr.i.i.i = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.pr.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_7JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_7JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i
   %15 = load ptr, ptr %.pr.i.i.i, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %.pr.i.i.i) #22
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_7JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_7JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_7JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_7JRNS5_11PassManagerINS5_8FunctionENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
@@ -17553,20 +17553,20 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISE_EERSD_INS0_14ToolOutputFileESF_ISJ_EEPNSB_15BackendConsumerEE3$_7E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_7E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_7E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_7E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_7E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_7E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_7E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_7E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_7E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_7E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_7E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_7E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_7E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_7E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_7E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -17873,7 +17873,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analy
 _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassIS4_EENSt9enable_ifIXsr3stdE9is_same_vIT_S4_EEvE4typeEOS7_.exit.i.i.i
   %64 = phi ptr [ %.pr.i.i.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i.i.i.i ], [ %56, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassIS4_EENSt9enable_ifIXsr3stdE9is_same_vIT_S4_EEvE4typeEOS7_.exit.i.i.i ]
   %.not.i.i.i.i.i.i.i = icmp eq ptr %64, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %65
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit", label %65
 
 65:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i.i.i
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -17882,16 +17882,16 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analy
   %69 = ptrtoint ptr %64 to i64
   %70 = sub i64 %68, %69
   call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef %70) #24
-  br label %"_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
+  br label %"_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i.i.i, %65
+"_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i.i.i.i.i, %65
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEZL13addSanitizersRKNS0_6TripleERKN5clang14CodeGenOptionsERKNSC_11LangOptionsERNS0_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -17901,29 +17901,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassMan
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -18192,8 +18192,8 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27Sa
   store ptr %1, ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %12, ptr %128, align 8
-  call fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelEENKUlNS3_13SanitizerMaskEbE_clESK_b"(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 1024, i1 noundef zeroext false)
-  call fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelEENKUlNS3_13SanitizerMaskEbE_clESK_b"(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 2048, i1 noundef zeroext true)
+  call fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelEENKUlNS3_13SanitizerMaskEbE_clESK_b.argelim"(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 1024, i1 noundef zeroext false)
+  call fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelEENKUlNS3_13SanitizerMaskEbE_clESK_b.argelim"(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 2048, i1 noundef zeroext true)
   %129 = load ptr, ptr %124, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 208
   %.sroa.0.0.copyload.i = load i64, ptr %130, align 8
@@ -18337,8 +18337,8 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_31Nu
   store ptr %178, ptr %177, align 8
   %179 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %1, ptr %179, align 8
-  call fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelEENKUlNS3_13SanitizerMaskEbE0_clESK_b"(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 1, i1 noundef zeroext false)
-  call fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelEENKUlNS3_13SanitizerMaskEbE0_clESK_b"(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 8, i1 noundef zeroext true)
+  call fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelEENKUlNS3_13SanitizerMaskEbE0_clESK_b.argelim"(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelEENKUlNS3_13SanitizerMaskEbE0_clESK_b.argelim"(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 8, i1 noundef zeroext true)
   %180 = load ptr, ptr %124, align 8
   %181 = load ptr, ptr %0, align 8
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 208
@@ -18661,7 +18661,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit13: ; preds = %39, %3
 declare void @_ZN4llvm27SanitizerBinaryMetadataPassC1ENS_30SanitizerBinaryMetadataOptionsENS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(24), i24, ptr, i64) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelEENKUlNS3_13SanitizerMaskEbE_clESK_b"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 range(i64 1024, 2049) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelEENKUlNS3_13SanitizerMaskEbE_clESK_b.argelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 range(i64 1024, 2049) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.893", align 8
   %5 = alloca %"class.llvm::PassManager.1007", align 8
   %6 = alloca %"class.llvm::InstCombinePass", align 8
@@ -19377,7 +19377,7 @@ _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelEENKUlNS3_13SanitizerMaskEbE0_clESK_b"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 range(i64 1, 9) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS3_11LangOptionsERNS_11PassBuilderEENK3$_1clERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerISE_JEEEJEEENS_17OptimizationLevelEENKUlNS3_13SanitizerMaskEbE0_clESK_b.argelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 range(i64 1, 9) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.893", align 8
   %5 = alloca %"struct.llvm::AddressSanitizerOptions", align 4
   %6 = alloca %"class.llvm::AddressSanitizerPass", align 4
@@ -19397,7 +19397,7 @@ define internal fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14Cod
   %.val10 = load i64, ptr %14, align 8
   %15 = and i64 %.val10, 1099511627776
   %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %_ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.exit, label %16
+  br i1 %.not.i, label %_ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.argprom.exit, label %16
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19405,8 +19405,8 @@ define internal fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14Cod
   %19 = getelementptr i8, ptr %18, i64 52
   %.val = load i32, ptr %19, align 4
   switch i32 %.val, label %24 [
-    i32 5, label %_ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.exit
-    i32 1, label %_ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.exit
+    i32 5, label %_ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.argprom.exit
+    i32 1, label %_ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.argprom.exit
     i32 3, label %20
     i32 4, label %22
     i32 8, label %23
@@ -19415,7 +19415,7 @@ define internal fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14Cod
 20:                                               ; preds = %16
   %21 = and i64 %.val9, 1
   %.not4.i = icmp eq i64 %21, 0
-  br label %_ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.exit
+  br label %_ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.argprom.exit
 
 22:                                               ; preds = %16
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.57, i1 noundef zeroext true) #25
@@ -19426,9 +19426,9 @@ define internal fastcc void @"_ZZZL13addSanitizersRKN4llvm6TripleERKN5clang14Cod
   unreachable
 
 24:                                               ; preds = %16
-  br label %_ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.exit
+  br label %_ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.argprom.exit
 
-_ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.exit: ; preds = %10, %16, %16, %20, %24
+_ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.argprom.exit: ; preds = %10, %16, %16, %20, %24
   %.0.i = phi i1 [ false, %24 ], [ %.not4.i, %20 ], [ false, %10 ], [ true, %16 ], [ true, %16 ]
   %25 = and i64 %.val10, 2199023255552
   %26 = icmp ne i64 %25, 0
@@ -19476,7 +19476,7 @@ _ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.exit: ; preds = 
   %.not.i.i16 = icmp eq ptr %51, %53
   br i1 %.not.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit, label %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread
 
-_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread: ; preds = %_ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.exit
+_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread: ; preds = %_ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.argprom.exit
   %54 = ptrtoint ptr %48 to i64
   store i64 %54, ptr %51, align 8
   %55 = load ptr, ptr %50, align 8
@@ -19484,7 +19484,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   store ptr %56, ptr %50, align 8
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20AddressSanitizerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit
 
-_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit: ; preds = %_ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.exit
+_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit: ; preds = %_ZL16asanUseGlobalsGCRKN4llvm6TripleERKN5clang14CodeGenOptionsE.argprom.exit
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr %51, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pr = load ptr, ptr %4, align 8
   %.not.i.i15 = icmp eq ptr %.pr, null
@@ -23261,7 +23261,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6Modu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEZL13addSanitizersRKNS0_6TripleERKN5clang14CodeGenOptionsERKNSC_11LangOptionsERNS0_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -23271,29 +23271,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassMan
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -23317,42 +23317,42 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %12, ptr %6, align 8
-  br label %"_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_2JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
+  br label %"_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_2JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i: ; preds = %3
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pr.i.i.i = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.pr.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_2JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_2JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i
   %13 = load ptr, ptr %.pr.i.i.i, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %.pr.i.i.i) #22
-  br label %"_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_2JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
+  br label %"_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_2JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_2JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_2JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEZL13addSanitizersRKNS0_6TripleERKN5clang14CodeGenOptionsERKNSC_11LangOptionsERNS0_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS5_11LangOptionsERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -23500,7 +23500,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6Modu
   %7 = load i32, ptr @_ZN4llvm17OptimizationLevel2O0E, align 4
   %8 = icmp eq i32 %7, %.sroa.01.0.extract.trunc.i.i.i
   %9 = select i1 %6, i1 %8, i1 false
-  br i1 %9, label %10, label %"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
+  br i1 %9, label %10, label %"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit"
 
 10:                                               ; preds = %3
   %.val = load ptr, ptr %0, align 8
@@ -23508,7 +23508,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6Modu
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %11, align 8
   %12 = and i64 %.sroa.0.0.copyload.i.i.i.i, 36028797018963968
   %.not.i.i.not.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i.not.i.i.i, label %"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit", label %13
+  br i1 %.not.i.i.not.i.i.i, label %"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit", label %13
 
 13:                                               ; preds = %10
   %14 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !357
@@ -23552,15 +23552,15 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisMana
 
 _ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
+  br label %"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit": ; preds = %3, %10, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit.i.i.i
+"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit": ; preds = %3, %10, %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEZL11addKCFIPassRKNS0_6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -23568,18 +23568,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassMan
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -23727,7 +23727,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_8Func
   %6 = load i32, ptr @_ZN4llvm17OptimizationLevel2O0E, align 4
   %7 = icmp ne i32 %6, %.sroa.0.0.extract.trunc.i.i.i
   %8 = select i1 %.not.i.i.i.i, i1 true, i1 %7
-  br i1 %8, label %9, label %"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_1JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
+  br i1 %8, label %9, label %"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_1JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit"
 
 9:                                                ; preds = %3
   %.val = load ptr, ptr %0, align 8
@@ -23735,7 +23735,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_8Func
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %10, align 8
   %11 = and i64 %.sroa.0.0.copyload.i.i.i.i, 36028797018963968
   %.not.i.i.not.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i.not.i.i.i, label %"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_1JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit", label %12
+  br i1 %.not.i.i.not.i.i.i, label %"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_1JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit", label %12
 
 12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -23772,15 +23772,15 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_8KCFIPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_1JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
+  br label %"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_1JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_1JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit": ; preds = %3, %9, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_8KCFIPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i
+"_ZSt10__invoke_rIvRZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_1JRNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerISD_JEEEJEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit": ; preds = %3, %9, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_8KCFIPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEZL11addKCFIPassRKNS0_6TripleERKN5clang11LangOptionsERNS0_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -23788,18 +23788,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassMan
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZL11addKCFIPassRKN4llvm6TripleERKN5clang11LangOptionsERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -23849,22 +23849,22 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %26, ptr %20, align 8
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_8JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_8JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i: ; preds = %3
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %21, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pr.i.i.i = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.pr.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_8JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_8JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i
   %27 = load ptr, ptr %.pr.i.i.i, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(8) %.pr.i.i.i) #22
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_8JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_8JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_8JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_8JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
   store ptr null, ptr %4, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #22
@@ -23879,7 +23879,7 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisMana
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISE_EERSD_INS0_14ToolOutputFileESF_ISJ_EEPNSB_15BackendConsumerEE3$_8E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %18
@@ -23888,11 +23888,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassMan
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #23
@@ -23917,12 +23917,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassMan
 
 "_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E15_M_init_functorIRKSI_EEvRSt9_Any_dataOT_.exit.i": ; preds = %12, %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
 18:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %19 = icmp eq ptr %.val6.i, null
-  br i1 %19, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit", label %20
+  br i1 %19, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit", label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 72
@@ -23940,9 +23940,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassMan
 
 "_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEEN3$_8D2Ev.exit.i.i": ; preds = %24, %20
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 80) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit": ; preds = %3, %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEEN3$_8D2Ev.exit.i.i", %18, %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E15_M_init_functorIRKSI_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEEN3$_8D2Ev.exit.i.i", %18, %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_8E15_M_init_functorIRKSI_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -24134,22 +24134,22 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %26, ptr %20, align 8
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_9JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_9JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i: ; preds = %3
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %21, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pr.i.i.i = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.pr.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_9JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_9JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i
   %27 = load ptr, ptr %.pr.i.i.i, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(8) %.pr.i.i.i) #22
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_9JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_9JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_9JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE3$_9JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i.i
   store ptr null, ptr %4, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -24162,7 +24162,7 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisMana
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISE_EERSD_INS0_14ToolOutputFileESF_ISJ_EEPNSB_15BackendConsumerEE3$_9E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %15
@@ -24171,11 +24171,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassMan
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
@@ -24196,12 +24196,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassMan
 
 "_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E15_M_init_functorIRKSI_EEvRSt9_Any_dataOT_.exit.i": ; preds = %12, %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
 15:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %16 = icmp eq ptr %.val6.i, null
-  br i1 %16, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit", label %17
+  br i1 %16, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit", label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 40
@@ -24217,9 +24217,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassMan
 
 "_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEEN3$_9D2Ev.exit.i.i": ; preds = %21, %17
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit": ; preds = %3, %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEEN3$_9D2Ev.exit.i.i", %15, %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E15_M_init_functorIRKSI_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEEN3$_9D2Ev.exit.i.i", %15, %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE3$_9E15_M_init_functorIRKSI_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -24427,22 +24427,22 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %27 = load ptr, ptr %13, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %28, ptr %13, align 8
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE4$_10JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE4$_10JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit7.i.i.i: ; preds = %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit.i.i.i
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %24, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pr2.i.i.i = load ptr, ptr %4, align 8
   %.not.i.i3.i.i.i = icmp eq ptr %.pr2.i.i.i, null
-  br i1 %.not.i.i3.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE4$_10JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i4.i.i.i
+  br i1 %.not.i.i3.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE4$_10JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i4.i.i.i
 
 _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i4.i.i.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit7.i.i.i
   %29 = load ptr, ptr %.pr2.i.i.i, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(8) %.pr2.i.i.i) #22
-  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE4$_10JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit"
+  br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE4$_10JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE4$_10JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit7.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit7.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i4.i.i.i
+"_ZSt10__invoke_rIvRZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS6_EERS4_INS5_14ToolOutputFileES7_ISB_EEPNS2_15BackendConsumerEE4$_10JRNS5_11PassManagerINS5_6ModuleENS5_15AnalysisManagerISK_JEEEJEEENS5_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESR_E4typeEOSS_DpOST_.argprom.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit7.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit7.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i4.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
@@ -24451,20 +24451,20 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisMana
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEEJEEENS0_17OptimizationLevelEEZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteISE_EERSD_INS0_14ToolOutputFileESF_ISJ_EEPNSB_15BackendConsumerEE4$_10E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE4$_10E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE4$_10E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE4$_10E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE4$_10E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE4$_10E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE4$_10E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE4$_10E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE4$_10E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE4$_10E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE4$_10E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE4$_10E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE4$_10E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE4$_10E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS7_EERS5_INS6_14ToolOutputFileES8_ISC_EEPNS3_15BackendConsumerEE4$_10E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -26672,11 +26672,11 @@ attributes #27 = { nounwind willreturn memory(none) }
 !14 = distinct !{!14, !15, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
 !15 = distinct !{!15, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN4llvm12handleErrorsIJZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4EEENS_5ErrorESX_DpOT_: argument 0"}
-!18 = distinct !{!18, !"_ZN4llvm12handleErrorsIJZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4EEENS_5ErrorESX_DpOT_"}
+!17 = distinct !{!17, !18, !"_ZN4llvm12handleErrorsIJZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4EEENS_5ErrorESX_DpOT_.argprom: argument 0"}
+!18 = distinct !{!18, !"_ZN4llvm12handleErrorsIJZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4EEENS_5ErrorESX_DpOT_.argprom"}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN4llvm12handleErrorsIJZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5EEENS_5ErrorESX_DpOT_: argument 0"}
-!21 = distinct !{!21, !"_ZN4llvm12handleErrorsIJZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5EEENS_5ErrorESX_DpOT_"}
+!20 = distinct !{!20, !21, !"_ZN4llvm12handleErrorsIJZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5EEENS_5ErrorESX_DpOT_.argprom: argument 0"}
+!21 = distinct !{!21, !"_ZN4llvm12handleErrorsIJZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5EEENS_5ErrorESX_DpOT_.argprom"}
 !22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
 !24 = !{!25}
@@ -26761,8 +26761,8 @@ attributes #27 = { nounwind willreturn memory(none) }
 !103 = distinct !{!103, !104, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !104 = distinct !{!104, !"_ZN4llvm5Error11takePayloadEv"}
 !105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISR_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES10_NS7_13BackendActionEE3$_4EENS_5ErrorEOT_SQ_IS1_SS_IS1_EE: argument 0"}
-!107 = distinct !{!107, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISR_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES10_NS7_13BackendActionEE3$_4EENS_5ErrorEOT_SQ_IS1_SS_IS1_EE"}
+!106 = distinct !{!106, !107, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISR_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES10_NS7_13BackendActionEE3$_4EENS_5ErrorEOT_SQ_IS1_SS_IS1_EE.argprom: argument 0"}
+!107 = distinct !{!107, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISR_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES10_NS7_13BackendActionEE3$_4EENS_5ErrorEOT_SQ_IS1_SS_IS1_EE.argprom"}
 !108 = !{!109}
 !109 = distinct !{!109, !110, !"_ZN4llvm15handleErrorImplESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS1_EE: argument 0"}
 !110 = distinct !{!110, !"_ZN4llvm15handleErrorImplESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS1_EE"}
@@ -26779,20 +26779,20 @@ attributes #27 = { nounwind willreturn memory(none) }
 !121 = distinct !{!121, !119, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
 !122 = distinct !{!122, !23}
 !123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEERZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPNS0_6ModuleERKNS8_19HeaderSearchOptionsERKNS8_14CodeGenOptionsERKNS8_13TargetOptionsERKNS8_11LangOptionsES2_INS0_17raw_pwrite_streamES4_ISR_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESZ_NS8_13BackendActionEE3$_3JjRKNS0_5TwineEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES17_E4typeEOS18_DpOS19_: argument 0"}
-!125 = distinct !{!125, !"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEERZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPNS0_6ModuleERKNS8_19HeaderSearchOptionsERKNS8_14CodeGenOptionsERKNS8_13TargetOptionsERKNS8_11LangOptionsES2_INS0_17raw_pwrite_streamES4_ISR_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESZ_NS8_13BackendActionEE3$_3JjRKNS0_5TwineEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES17_E4typeEOS18_DpOS19_"}
+!124 = distinct !{!124, !125, !"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEERZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPNS0_6ModuleERKNS8_19HeaderSearchOptionsERKNS8_14CodeGenOptionsERKNS8_13TargetOptionsERKNS8_11LangOptionsES2_INS0_17raw_pwrite_streamES4_ISR_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESZ_NS8_13BackendActionEE3$_3JjRKNS0_5TwineEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES17_E4typeEOS18_DpOS19_.argprom: argument 0"}
+!125 = distinct !{!125, !"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEERZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPNS0_6ModuleERKNS8_19HeaderSearchOptionsERKNS8_14CodeGenOptionsERKNS8_13TargetOptionsERKNS8_11LangOptionsES2_INS0_17raw_pwrite_streamES4_ISR_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESZ_NS8_13BackendActionEE3$_3JjRKNS0_5TwineEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES17_E4typeEOS18_DpOS19_.argprom"}
 !126 = !{!127, !129, !124}
-!127 = distinct !{!127, !128, !"_ZZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS2_6ModuleERKNS_19HeaderSearchOptionsERKNS_14CodeGenOptionsERKNS_13TargetOptionsERKNS_11LangOptionsESt10unique_ptrINS2_17raw_pwrite_streamESt14default_deleteISK_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEST_NS_13BackendActionEENK3$_3clEmRKNS2_5TwineE: argument 0"}
-!128 = distinct !{!128, !"_ZZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS2_6ModuleERKNS_19HeaderSearchOptionsERKNS_14CodeGenOptionsERKNS_13TargetOptionsERKNS_11LangOptionsESt10unique_ptrINS2_17raw_pwrite_streamESt14default_deleteISK_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEST_NS_13BackendActionEENK3$_3clEmRKNS2_5TwineE"}
-!129 = distinct !{!129, !130, !"_ZSt13__invoke_implISt10unique_ptrIN4llvm16CachedFileStreamESt14default_deleteIS2_EERZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS1_18ModuleSummaryIndexEPNS1_6ModuleERKNS6_19HeaderSearchOptionsERKNS6_14CodeGenOptionsERKNS6_13TargetOptionsERKNS6_11LangOptionsES0_INS1_17raw_pwrite_streamES3_ISP_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESX_NS6_13BackendActionEE3$_3JjRKNS1_5TwineEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!130 = distinct !{!130, !"_ZSt13__invoke_implISt10unique_ptrIN4llvm16CachedFileStreamESt14default_deleteIS2_EERZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS1_18ModuleSummaryIndexEPNS1_6ModuleERKNS6_19HeaderSearchOptionsERKNS6_14CodeGenOptionsERKNS6_13TargetOptionsERKNS6_11LangOptionsES0_INS1_17raw_pwrite_streamES3_ISP_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESX_NS6_13BackendActionEE3$_3JjRKNS1_5TwineEEET_St14__invoke_otherOT0_DpOT1_"}
+!127 = distinct !{!127, !128, !"_ZZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS2_6ModuleERKNS_19HeaderSearchOptionsERKNS_14CodeGenOptionsERKNS_13TargetOptionsERKNS_11LangOptionsESt10unique_ptrINS2_17raw_pwrite_streamESt14default_deleteISK_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEST_NS_13BackendActionEENK3$_3clEmRKNS2_5TwineE.argprom: argument 0"}
+!128 = distinct !{!128, !"_ZZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPN4llvm18ModuleSummaryIndexEPNS2_6ModuleERKNS_19HeaderSearchOptionsERKNS_14CodeGenOptionsERKNS_13TargetOptionsERKNS_11LangOptionsESt10unique_ptrINS2_17raw_pwrite_streamESt14default_deleteISK_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEST_NS_13BackendActionEENK3$_3clEmRKNS2_5TwineE.argprom"}
+!129 = distinct !{!129, !130, !"_ZSt13__invoke_implISt10unique_ptrIN4llvm16CachedFileStreamESt14default_deleteIS2_EERZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS1_18ModuleSummaryIndexEPNS1_6ModuleERKNS6_19HeaderSearchOptionsERKNS6_14CodeGenOptionsERKNS6_13TargetOptionsERKNS6_11LangOptionsES0_INS1_17raw_pwrite_streamES3_ISP_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESX_NS6_13BackendActionEE3$_3JjRKNS1_5TwineEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!130 = distinct !{!130, !"_ZSt13__invoke_implISt10unique_ptrIN4llvm16CachedFileStreamESt14default_deleteIS2_EERZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS1_18ModuleSummaryIndexEPNS1_6ModuleERKNS6_19HeaderSearchOptionsERKNS6_14CodeGenOptionsERKNS6_13TargetOptionsERKNS6_11LangOptionsES0_INS1_17raw_pwrite_streamES3_ISP_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESX_NS6_13BackendActionEE3$_3JjRKNS1_5TwineEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !131 = !{!132, !127, !129, !124}
 !132 = distinct !{!132, !133, !"_ZSt11make_uniqueIN4llvm16CachedFileStreamEJSt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !133 = distinct !{!133, !"_ZSt11make_uniqueIN4llvm16CachedFileStreamEJSt10unique_ptrINS0_17raw_pwrite_streamESt14default_deleteIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !134 = distinct !{!134, !23}
 !135 = !{!136}
-!136 = distinct !{!136, !137, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISR_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES10_NS7_13BackendActionEE3$_5EENS_5ErrorEOT_SQ_IS1_SS_IS1_EE: argument 0"}
-!137 = distinct !{!137, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISR_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES10_NS7_13BackendActionEE3$_5EENS_5ErrorEOT_SQ_IS1_SS_IS1_EE"}
+!136 = distinct !{!136, !137, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISR_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES10_NS7_13BackendActionEE3$_5EENS_5ErrorEOT_SQ_IS1_SS_IS1_EE.argprom: argument 0"}
+!137 = distinct !{!137, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS7_19HeaderSearchOptionsERKNS7_14CodeGenOptionsERKNS7_13TargetOptionsERKNS7_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISR_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES10_NS7_13BackendActionEE3$_5EENS_5ErrorEOT_SQ_IS1_SS_IS1_EE.argprom"}
 !138 = !{!139}
 !139 = distinct !{!139, !140, !"_ZN4llvm15handleErrorImplESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS1_EE: argument 0"}
 !140 = distinct !{!140, !"_ZN4llvm15handleErrorImplESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS1_EE"}
@@ -26817,15 +26817,15 @@ attributes #27 = { nounwind willreturn memory(none) }
 !159 = distinct !{!159, !"_ZN4llvm8ExpectedINS_10PassPluginEE9takeErrorEv"}
 !160 = distinct !{!160, !23}
 !161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEENK4$_11clEv: argument 0"}
-!163 = distinct !{!163, !"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEENK4$_11clEv"}
+!162 = distinct !{!162, !163, !"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEENK4$_11clEv.argprom.argprom: argument 0"}
+!163 = distinct !{!163, !"_ZZN12_GLOBAL__N_118EmitAssemblyHelper23RunOptimizationPipelineEN5clang13BackendActionERSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS5_EERS3_INS4_14ToolOutputFileES6_ISA_EEPNS1_15BackendConsumerEENK4$_11clEv.argprom.argprom"}
 !164 = distinct !{!164, !23}
 !165 = !{!166}
-!166 = distinct !{!166, !167, !"_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE: argument 0"}
-!167 = distinct !{!167, !"_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE"}
+!166 = distinct !{!166, !167, !"_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom: argument 0"}
+!167 = distinct !{!167, !"_ZL14getGCOVOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom"}
 !168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE: argument 0"}
-!170 = distinct !{!170, !"_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE"}
+!169 = distinct !{!169, !170, !"_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom: argument 0"}
+!170 = distinct !{!170, !"_ZL19getInstrProfOptionsRKN5clang14CodeGenOptionsERKNS_11LangOptionsE.argprom"}
 !171 = !{!172}
 !172 = distinct !{!172, !173, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_SaISA_EEvPT_PT0_RT1_: argument 0"}
 !173 = distinct !{!173, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_SaISA_EEvPT_PT0_RT1_"}

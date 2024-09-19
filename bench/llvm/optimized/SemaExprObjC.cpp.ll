@@ -605,7 +605,7 @@ $_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS_11SourceRangeEEEE = comdat any
 @switch.table._ZL33LookupObjCInterfaceDeclForLiteralRN5clang4SemaENS_14SourceLocationENS_8SemaObjC15ObjCLiteralKindE.337 = private unnamed_addr constant [5 x i32] [i32 2, i32 4, i32 6, i32 9, i32 1], align 4
 @switch.table._ZL21stripObjCInstanceTypeRN5clang10ASTContextENS_8QualTypeE = private unnamed_addr constant [4 x i32] [i32 30, i32 76, i32 31, i32 32], align 4
 @switch.table._ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_114ARCCastCheckerENS2_9ACCResultEJEE5VisitEPNS_4StmtE = private unnamed_addr constant [4 x i32] [i32 1, i32 0, i32 1, i32 1], align 4
-@switch.table._ZN12_GLOBAL__N_114ARCCastChecker17checkCallToMethodEPN5clang14ObjCMethodDeclE = private unnamed_addr constant [5 x i32] [i32 3, i32 3, i32 2, i32 3, i32 3], align 4
+@switch.table._ZN12_GLOBAL__N_114ARCCastChecker17checkCallToMethodEPN5clang14ObjCMethodDeclE.argprom = private unnamed_addr constant [5 x i32] [i32 3, i32 3, i32 2, i32 3, i32 3], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i64 @_ZN5clang8SemaObjC22ParseObjCStringLiteralEPNS_14SourceLocationEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr nocapture noundef readonly %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 align 2 {
@@ -4959,13 +4959,13 @@ select.unfold.i.i.i.i:                            ; preds = %405, %._crit_edge.t
 421:                                              ; preds = %414
   %422 = load i64, ptr %5, align 8
   store i64 %422, ptr %417, align 8
-  br label %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE10_M_insert_IS6_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i.i
+  br label %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE10_M_insert_IS6_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSL_OT_RT0_.argprom.exit.i.i.i.i
 
 423:                                              ; preds = %414
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %417, ptr noundef nonnull align 8 dereferenceable(12) %5) #18
-  br label %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE10_M_insert_IS6_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i.i
+  br label %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE10_M_insert_IS6_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSL_OT_RT0_.argprom.exit.i.i.i.i
 
-_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE10_M_insert_IS6_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i.i: ; preds = %423, %421
+_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE10_M_insert_IS6_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSL_OT_RT0_.argprom.exit.i.i.i.i: ; preds = %423, %421
   %424 = getelementptr inbounds nuw i8, ptr %416, i64 44
   %425 = load i8, ptr %342, align 4
   %426 = and i8 %425, 1
@@ -4979,9 +4979,9 @@ _ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1st
   store i64 %430, ptr %329, align 8
   br label %_ZNSt3mapIN4llvm6APSIntEN5clang14SourceLocationEZL39CheckObjCDictionaryLiteralDuplicateKeysRNS2_4SemaEPNS2_21ObjCDictionaryLiteralEE13APSIntCompareSaISt4pairIKS1_S3_EEE6insertEOSB_.exit.i.i
 
-_ZNSt3mapIN4llvm6APSIntEN5clang14SourceLocationEZL39CheckObjCDictionaryLiteralDuplicateKeysRNS2_4SemaEPNS2_21ObjCDictionaryLiteralEE13APSIntCompareSaISt4pairIKS1_S3_EEE6insertEOSB_.exit.i.i: ; preds = %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE10_M_insert_IS6_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i.i, %405
-  %.sroa.09.0.i.i.i.i = phi ptr [ %416, %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE10_M_insert_IS6_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i.i ], [ %.sroa.08.0.i.i.i.i.i, %405 ]
-  %.sroa.3.0.i.i.i.i = phi i1 [ true, %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE10_M_insert_IS6_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i.i ], [ false, %405 ]
+_ZNSt3mapIN4llvm6APSIntEN5clang14SourceLocationEZL39CheckObjCDictionaryLiteralDuplicateKeysRNS2_4SemaEPNS2_21ObjCDictionaryLiteralEE13APSIntCompareSaISt4pairIKS1_S3_EEE6insertEOSB_.exit.i.i: ; preds = %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE10_M_insert_IS6_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSL_OT_RT0_.argprom.exit.i.i.i.i, %405
+  %.sroa.09.0.i.i.i.i = phi ptr [ %416, %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE10_M_insert_IS6_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSL_OT_RT0_.argprom.exit.i.i.i.i ], [ %.sroa.08.0.i.i.i.i.i, %405 ]
+  %.sroa.3.0.i.i.i.i = phi i1 [ true, %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE10_M_insert_IS6_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSL_OT_RT0_.argprom.exit.i.i.i.i ], [ false, %405 ]
   %431 = load i32, ptr %340, align 8
   %432 = icmp ugt i32 %431, 64
   br i1 %432, label %433, label %_ZNSt4pairIKN4llvm6APSIntEN5clang14SourceLocationEED2Ev.exit.i.i
@@ -5035,7 +5035,7 @@ _ZN5clang4Expr10EvalResultD2Ev.exit.i:            ; preds = %443, %441, %375, %3
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %324
   %.val.i = phi ptr [ %.val.pre.i, %._crit_edge.loopexit.i ], [ null, %324 ]
-  call fastcc void @_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %.val.i)
+  call fastcc void @_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E.argprom(ptr noundef %.val.i)
   %444 = load ptr, ptr %8, align 8
   %445 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %446 = load i32, ptr %445, align 8
@@ -5427,10 +5427,10 @@ _ZN5clang8SemaObjC16GlobalMethodPool5beginEv.exit.i: ; preds = %.lr.ph.i6.i12.i3
   %.sroa.023.028.i = phi ptr [ %.sroa.023.1.i, %_ZN4llvm16DenseMapIteratorIN5clang8SelectorESt4pairINS1_14ObjCMethodListES4_ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EELb0EEppEi.exit.i ], [ %.pn15.i.i.i, %_ZN5clang8SemaObjC16GlobalMethodPool5beginEv.exit.i ]
   %80 = getelementptr i8, ptr %.sroa.023.028.i, i64 16
   %.val.i = load i64, ptr %80, align 8
-  %81 = tail call fastcc noundef zeroext i1 @_ZL45HelperToDiagnoseMismatchedMethodsInGlobalPoolRN5clang4SemaENS_14SourceLocationES2_S2_PNS_14ObjCMethodDeclERNS_14ObjCMethodListE(ptr noundef nonnull align 8 dereferenceable(17560) %58, i32 %2, i32 %4, i32 %5, ptr noundef %.0113, i64 %.val.i)
+  %81 = tail call fastcc noundef zeroext i1 @_ZL45HelperToDiagnoseMismatchedMethodsInGlobalPoolRN5clang4SemaENS_14SourceLocationES2_S2_PNS_14ObjCMethodDeclERNS_14ObjCMethodListE.argprom(ptr noundef nonnull align 8 dereferenceable(17560) %58, i32 %2, i32 %4, i32 %5, ptr noundef %.0113, i64 %.val.i)
   %82 = getelementptr i8, ptr %.sroa.023.028.i, i64 32
   %.val22.i = load i64, ptr %82, align 8
-  %83 = tail call fastcc noundef zeroext i1 @_ZL45HelperToDiagnoseMismatchedMethodsInGlobalPoolRN5clang4SemaENS_14SourceLocationES2_S2_PNS_14ObjCMethodDeclERNS_14ObjCMethodListE(ptr noundef nonnull align 8 dereferenceable(17560) %58, i32 %2, i32 %4, i32 %5, ptr noundef %.0113, i64 %.val22.i)
+  %83 = tail call fastcc noundef zeroext i1 @_ZL45HelperToDiagnoseMismatchedMethodsInGlobalPoolRN5clang4SemaENS_14SourceLocationES2_S2_PNS_14ObjCMethodDeclERNS_14ObjCMethodListE.argprom(ptr noundef nonnull align 8 dereferenceable(17560) %58, i32 %2, i32 %4, i32 %5, ptr noundef %.0113, i64 %.val22.i)
   %brmerge.i = or i1 %81, %83
   %84 = getelementptr inbounds i8, ptr %.sroa.023.028.i, i64 40
   %.not9.i3.i.i.i = icmp eq ptr %84, %77
@@ -5552,17 +5552,17 @@ _ZN5clang8SemaObjC16GlobalMethodPool4findENS_8SelectorE.exit.i: ; preds = %104, 
   %133 = and i64 %.0.copyload.i.i.i.i13.i.i, -8
   %134 = inttoptr i64 %133 to ptr
   %.not.i.i = icmp eq i64 %133, 0
-  br i1 %.not.i.i, label %_ZL30LookupDirectMethodInMethodListRN5clang4SemaENS_8SelectorERNS_14ObjCMethodListERbS5_.exit.i, label %125, !llvm.loop !40
+  br i1 %.not.i.i, label %_ZL30LookupDirectMethodInMethodListRN5clang4SemaENS_8SelectorERNS_14ObjCMethodListERbS5_.argprom.exit.i, label %125, !llvm.loop !40
 
-_ZL30LookupDirectMethodInMethodListRN5clang4SemaENS_8SelectorERNS_14ObjCMethodListERbS5_.exit.i: ; preds = %131
+_ZL30LookupDirectMethodInMethodListRN5clang4SemaENS_8SelectorERNS_14ObjCMethodListERbS5_.argprom.exit.i: ; preds = %131
   %135 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i, i64 24
   br label %.outer
 
-.outer:                                           ; preds = %.thread137, %_ZL30LookupDirectMethodInMethodListRN5clang4SemaENS_8SelectorERNS_14ObjCMethodListERbS5_.exit.i
-  %.2108.ph = phi i1 [ false, %.thread137 ], [ %.1107, %_ZL30LookupDirectMethodInMethodListRN5clang4SemaENS_8SelectorERNS_14ObjCMethodListERbS5_.exit.i ]
-  %.2.ph = phi i1 [ %.2, %.thread137 ], [ %.1, %_ZL30LookupDirectMethodInMethodListRN5clang4SemaENS_8SelectorERNS_14ObjCMethodListERbS5_.exit.i ]
-  %.02.i17.i.ph = phi ptr [ %147, %.thread137 ], [ %135, %_ZL30LookupDirectMethodInMethodListRN5clang4SemaENS_8SelectorERNS_14ObjCMethodListERbS5_.exit.i ]
-  %.0101.i18.i.ph = phi ptr [ %.0101.i18.i, %.thread137 ], [ null, %_ZL30LookupDirectMethodInMethodListRN5clang4SemaENS_8SelectorERNS_14ObjCMethodListERbS5_.exit.i ]
+.outer:                                           ; preds = %.thread137, %_ZL30LookupDirectMethodInMethodListRN5clang4SemaENS_8SelectorERNS_14ObjCMethodListERbS5_.argprom.exit.i
+  %.2108.ph = phi i1 [ false, %.thread137 ], [ %.1107, %_ZL30LookupDirectMethodInMethodListRN5clang4SemaENS_8SelectorERNS_14ObjCMethodListERbS5_.argprom.exit.i ]
+  %.2.ph = phi i1 [ %.2, %.thread137 ], [ %.1, %_ZL30LookupDirectMethodInMethodListRN5clang4SemaENS_8SelectorERNS_14ObjCMethodListERbS5_.argprom.exit.i ]
+  %.02.i17.i.ph = phi ptr [ %147, %.thread137 ], [ %135, %_ZL30LookupDirectMethodInMethodListRN5clang4SemaENS_8SelectorERNS_14ObjCMethodListERbS5_.argprom.exit.i ]
+  %.0101.i18.i.ph = phi ptr [ %.0101.i18.i, %.thread137 ], [ null, %_ZL30LookupDirectMethodInMethodListRN5clang4SemaENS_8SelectorERNS_14ObjCMethodListERbS5_.argprom.exit.i ]
   br label %136
 
 136:                                              ; preds = %.outer, %141
@@ -15995,7 +15995,7 @@ define internal fastcc void @_ZL13checkCocoaAPIRN5clang4SemaEPKNS_15ObjCMessageE
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i32 @_ZNK5clang13DiagnosticIDs21getDiagnosticSeverityEjNS_14SourceLocationERKNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef 6743, i32 %14, ptr noundef nonnull align 8 dereferenceable(1304) %16) #19
   %20 = icmp eq i32 %19, 1
-  br i1 %20, label %_ZL18applyCocoaAPICheckRN5clang4SemaEPKNS_15ObjCMessageExprEjPFbS4_RKNS_5NSAPIERNS_4edit6CommitEE.exit, label %21
+  br i1 %20, label %_ZL18applyCocoaAPICheckRN5clang4SemaEPKNS_15ObjCMessageExprEjPFbS4_RKNS_5NSAPIERNS_4edit6CommitEE.argprom.exit, label %21
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -16213,13 +16213,13 @@ _ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit.i: ; preds = %52, %42
   %114 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #18
   %115 = load ptr, ptr %29, align 8
   %116 = icmp eq ptr %115, %30
-  br i1 %116, label %_ZL18applyCocoaAPICheckRN5clang4SemaEPKNS_15ObjCMessageExprEjPFbS4_RKNS_5NSAPIERNS_4edit6CommitEE.exit, label %117
+  br i1 %116, label %_ZL18applyCocoaAPICheckRN5clang4SemaEPKNS_15ObjCMessageExprEjPFbS4_RKNS_5NSAPIERNS_4edit6CommitEE.argprom.exit, label %117
 
 117:                                              ; preds = %113
   call void @free(ptr noundef %115) #18
-  br label %_ZL18applyCocoaAPICheckRN5clang4SemaEPKNS_15ObjCMessageExprEjPFbS4_RKNS_5NSAPIERNS_4edit6CommitEE.exit
+  br label %_ZL18applyCocoaAPICheckRN5clang4SemaEPKNS_15ObjCMessageExprEjPFbS4_RKNS_5NSAPIERNS_4edit6CommitEE.argprom.exit
 
-_ZL18applyCocoaAPICheckRN5clang4SemaEPKNS_15ObjCMessageExprEjPFbS4_RKNS_5NSAPIERNS_4edit6CommitEE.exit: ; preds = %2, %113, %117
+_ZL18applyCocoaAPICheckRN5clang4SemaEPKNS_15ObjCMessageExprEjPFbS4_RKNS_5NSAPIERNS_4edit6CommitEE.argprom.exit: ; preds = %2, %113, %117
   call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
@@ -17582,7 +17582,7 @@ define internal fastcc noundef zeroext i1 @_ZL21CheckObjCBridgeNSCastIN5clang14O
   %27 = load ptr, ptr %26, align 16
   %28 = getelementptr i8, ptr %27, i64 80
   %.val.val = load i64, ptr %28, align 8
-  %29 = tail call fastcc noundef ptr @_ZL17getObjCBridgeAttrIN5clang14ObjCBridgeAttrEEPT_PKNS0_11TypedefTypeE(i64 %.val.val)
+  %29 = tail call fastcc noundef ptr @_ZL17getObjCBridgeAttrIN5clang14ObjCBridgeAttrEEPT_PKNS0_11TypedefTypeE.argprom.argprom(i64 %.val.val)
   %.not47 = icmp eq ptr %29, null
   br i1 %.not47, label %192, label %30
 
@@ -17968,7 +17968,7 @@ define internal fastcc noundef zeroext i1 @_ZL21CheckObjCBridgeNSCastIN5clang21O
   %27 = load ptr, ptr %26, align 16
   %28 = getelementptr i8, ptr %27, i64 80
   %.val.val = load i64, ptr %28, align 8
-  %29 = tail call fastcc noundef ptr @_ZL17getObjCBridgeAttrIN5clang21ObjCBridgeMutableAttrEEPT_PKNS0_11TypedefTypeE(i64 %.val.val)
+  %29 = tail call fastcc noundef ptr @_ZL17getObjCBridgeAttrIN5clang21ObjCBridgeMutableAttrEEPT_PKNS0_11TypedefTypeE.argprom.argprom(i64 %.val.val)
   %.not47 = icmp eq ptr %29, null
   br i1 %.not47, label %192, label %30
 
@@ -18352,7 +18352,7 @@ define internal fastcc noundef zeroext i1 @_ZL21CheckObjCBridgeCFCastIN5clang14O
   %26 = load ptr, ptr %25, align 16
   %27 = getelementptr i8, ptr %26, i64 80
   %.val.val = load i64, ptr %27, align 8
-  %28 = tail call fastcc noundef ptr @_ZL17getObjCBridgeAttrIN5clang14ObjCBridgeAttrEEPT_PKNS0_11TypedefTypeE(i64 %.val.val)
+  %28 = tail call fastcc noundef ptr @_ZL17getObjCBridgeAttrIN5clang14ObjCBridgeAttrEEPT_PKNS0_11TypedefTypeE.argprom.argprom(i64 %.val.val)
   %.not61 = icmp eq ptr %28, null
   br i1 %.not61, label %133, label %29
 
@@ -18640,7 +18640,7 @@ define internal fastcc noundef zeroext i1 @_ZL21CheckObjCBridgeCFCastIN5clang21O
   %26 = load ptr, ptr %25, align 16
   %27 = getelementptr i8, ptr %26, i64 80
   %.val.val = load i64, ptr %27, align 8
-  %28 = tail call fastcc noundef ptr @_ZL17getObjCBridgeAttrIN5clang21ObjCBridgeMutableAttrEEPT_PKNS0_11TypedefTypeE(i64 %.val.val)
+  %28 = tail call fastcc noundef ptr @_ZL17getObjCBridgeAttrIN5clang21ObjCBridgeMutableAttrEEPT_PKNS0_11TypedefTypeE.argprom.argprom(i64 %.val.val)
   %.not61 = icmp eq ptr %28, null
   br i1 %.not61, label %133, label %29
 
@@ -19680,7 +19680,7 @@ define internal fastcc noundef ptr @_ZL29ObjCBridgeRelatedAttrFromTypeN5clang8Qu
   %5 = load ptr, ptr %4, align 16
   %6 = tail call noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %5) #18
   %.not20 = icmp eq ptr %6, null
-  br i1 %.not20, label %_ZL17getObjCBridgeAttrIN5clang21ObjCBridgeRelatedAttrEEPT_PKNS0_11TypedefTypeE.exit, label %.lr.ph
+  br i1 %.not20, label %_ZL17getObjCBridgeAttrIN5clang21ObjCBridgeRelatedAttrEEPT_PKNS0_11TypedefTypeE.argprom.argprom.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.loopexit
   %7 = phi ptr [ %87, %.loopexit ], [ %6, %2 ]
@@ -19792,7 +19792,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_21ObjCBridgeRelatedAttrEN4llvm11Small
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load i16, ptr %66, align 8
   %68 = icmp eq i16 %67, 283
-  br i1 %68, label %_ZL17getObjCBridgeAttrIN5clang21ObjCBridgeRelatedAttrEEPT_PKNS0_11TypedefTypeE.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %68, label %_ZL17getObjCBridgeAttrIN5clang21ObjCBridgeRelatedAttrEEPT_PKNS0_11TypedefTypeE.argprom.argprom.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %64, %.lr.ph.i.i.i.i.i
   %69 = phi ptr [ %70, %.lr.ph.i.i.i.i.i ], [ %47, %64 ]
@@ -19801,7 +19801,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_21ObjCBridgeRelatedAttrEN4llvm11Small
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load i16, ptr %72, align 8
   %74 = icmp eq i16 %73, 283
-  br i1 %74, label %_ZL17getObjCBridgeAttrIN5clang21ObjCBridgeRelatedAttrEEPT_PKNS0_11TypedefTypeE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !126
+  br i1 %74, label %_ZL17getObjCBridgeAttrIN5clang21ObjCBridgeRelatedAttrEEPT_PKNS0_11TypedefTypeE.argprom.argprom.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !126
 
 .loopexit.i:                                      ; preds = %62, %55, %_ZN5clangneENS_22specific_attr_iteratorINS_21ObjCBridgeRelatedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i, %57, %.lr.ph.i
   %75 = getelementptr inbounds i8, ptr %.sroa.01.021.i, i64 96
@@ -19834,9 +19834,9 @@ _ZN5clangneENS_22specific_attr_iteratorINS_21ObjCBridgeRelatedAttrEN4llvm11Small
   %86 = load ptr, ptr %85, align 16
   %87 = tail call noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %86) #18
   %.not = icmp eq ptr %87, null
-  br i1 %.not, label %_ZL17getObjCBridgeAttrIN5clang21ObjCBridgeRelatedAttrEEPT_PKNS0_11TypedefTypeE.exit, label %.lr.ph, !llvm.loop !127
+  br i1 %.not, label %_ZL17getObjCBridgeAttrIN5clang21ObjCBridgeRelatedAttrEEPT_PKNS0_11TypedefTypeE.argprom.argprom.exit, label %.lr.ph, !llvm.loop !127
 
-_ZL17getObjCBridgeAttrIN5clang21ObjCBridgeRelatedAttrEEPT_PKNS0_11TypedefTypeE.exit: ; preds = %.loopexit, %.lr.ph.i.i.i.i.i, %2, %64
+_ZL17getObjCBridgeAttrIN5clang21ObjCBridgeRelatedAttrEEPT_PKNS0_11TypedefTypeE.argprom.argprom.exit: ; preds = %.loopexit, %.lr.ph.i.i.i.i.i, %2, %64
   %.0 = phi ptr [ %65, %64 ], [ null, %2 ], [ %71, %.lr.ph.i.i.i.i.i ], [ null, %.loopexit ]
   ret ptr %.0
 }
@@ -23955,111 +23955,111 @@ define dso_local noundef i64 @_ZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExpr
   %14 = icmp eq i64 %.val.val53.i.fr.i.i.i.i, 0
   br i1 %14, label %.lr.ph.i.split.us.i.i.i.i, label %.lr.ph.i.split.split.i.i.i.i
 
-.lr.ph.i.split.us.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.thread88.i.us.i.i.i.i"
-  %.0121.i.us.i.i.i.i = phi i64 [ %20, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.thread88.i.us.i.i.i.i" ], [ %11, %.lr.ph.i.i.i.i.i ]
-  %.029120.i.us.i.i.i.i = phi ptr [ %19, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.thread88.i.us.i.i.i.i" ], [ %1, %.lr.ph.i.i.i.i.i ]
+.lr.ph.i.split.us.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.thread88.i.us.i.i.i.i"
+  %.0121.i.us.i.i.i.i = phi i64 [ %20, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.thread88.i.us.i.i.i.i" ], [ %11, %.lr.ph.i.i.i.i.i ]
+  %.029120.i.us.i.i.i.i = phi ptr [ %19, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.thread88.i.us.i.i.i.i" ], [ %1, %.lr.ph.i.i.i.i.i ]
   %15 = getelementptr i8, ptr %.029120.i.us.i.i.i.i, i64 24
   %.029.val30.i.us.i.i.i.i = load i64, ptr %15, align 8, !noalias !135
   %.not.i.i.i.i.us.i.i.i.i = icmp eq i64 %.029.val30.i.us.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.us.i.i.i.i, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread79.i.us.i.i.i.i"
+  br i1 %.not.i.i.i.i.us.i.i.i.i, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread79.i.us.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread79.i.us.i.i.i.i": ; preds = %.lr.ph.i.split.us.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread79.i.us.i.i.i.i": ; preds = %.lr.ph.i.split.us.i.i.i.i
   %16 = getelementptr i8, ptr %.029120.i.us.i.i.i.i, i64 64
   %.val33.i.us.i.i.i.i = load i64, ptr %16, align 8, !noalias !135
   %.not.i.i.i54.i.us.i.i.i.i = icmp eq i64 %.val33.i.us.i.i.i.i, 0
-  br i1 %.not.i.i.i54.i.us.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit108.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit57.thread82.i.us.i.i.i.i"
+  br i1 %.not.i.i.i54.i.us.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit108.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit57.thread82.i.us.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit57.thread82.i.us.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread79.i.us.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit57.thread82.i.us.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread79.i.us.i.i.i.i"
   %17 = getelementptr i8, ptr %.029120.i.us.i.i.i.i, i64 104
   %.val36.i.us.i.i.i.i = load i64, ptr %17, align 8, !noalias !135
   %.not.i.i.i58.i.us.i.i.i.i = icmp eq i64 %.val36.i.us.i.i.i.i, 0
-  br i1 %.not.i.i.i58.i.us.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit110.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit61.thread85.i.us.i.i.i.i"
+  br i1 %.not.i.i.i58.i.us.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit110.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit61.thread85.i.us.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit61.thread85.i.us.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit57.thread82.i.us.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit61.thread85.i.us.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit57.thread82.i.us.i.i.i.i"
   %18 = getelementptr i8, ptr %.029120.i.us.i.i.i.i, i64 144
   %.val39.i.us.i.i.i.i = load i64, ptr %18, align 8, !noalias !135
   %.not.i.i.i62.i.us.i.i.i.i = icmp eq i64 %.val39.i.us.i.i.i.i, 0
-  br i1 %.not.i.i.i62.i.us.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit112.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.thread88.i.us.i.i.i.i"
+  br i1 %.not.i.i.i62.i.us.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit112.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.thread88.i.us.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.thread88.i.us.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit61.thread85.i.us.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.thread88.i.us.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit61.thread85.i.us.i.i.i.i"
   %19 = getelementptr inbounds i8, ptr %.029120.i.us.i.i.i.i, i64 160
   %20 = add nsw i64 %.0121.i.us.i.i.i.i, -1
   %21 = icmp sgt i64 %.0121.i.us.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.split.us.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !138
 
-.lr.ph.i.split.split.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.thread88.i.i.i.i.i"
-  %.0121.i.i.i.i.i = phi i64 [ %35, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.thread88.i.i.i.i.i" ], [ %11, %.lr.ph.i.i.i.i.i ]
-  %.029120.i.i.i.i.i = phi ptr [ %34, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.thread88.i.i.i.i.i" ], [ %1, %.lr.ph.i.i.i.i.i ]
+.lr.ph.i.split.split.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.thread88.i.i.i.i.i"
+  %.0121.i.i.i.i.i = phi i64 [ %35, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.thread88.i.i.i.i.i" ], [ %11, %.lr.ph.i.i.i.i.i ]
+  %.029120.i.i.i.i.i = phi ptr [ %34, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.thread88.i.i.i.i.i" ], [ %1, %.lr.ph.i.i.i.i.i ]
   %22 = getelementptr i8, ptr %.029120.i.i.i.i.i, i64 24
   %.029.val30.i.i.i.i.i = load i64, ptr %22, align 8, !noalias !135
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.029.val30.i.i.i.i.i, %.val.val53.i.fr.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread79.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread79.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.i.i.i.i.i": ; preds = %.lr.ph.i.split.split.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.i.i.i.i.i": ; preds = %.lr.ph.i.split.split.i.i.i.i
   %23 = getelementptr i8, ptr %.029120.i.i.i.i.i, i64 16
   %.029.val.i.i.i.i.i = load ptr, ptr %23, align 8, !noalias !135
   %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.029.val.i.i.i.i.i, ptr readonly %.sroa.0.0.copyload.i, i64 %.val.val53.i.fr.i.i.i.i), !noalias !135
   %24 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
-  br i1 %24, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread79.i.thread.i.i.i.i"
+  br i1 %24, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread79.i.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread79.i.i.i.i.i": ; preds = %.lr.ph.i.split.split.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread79.i.i.i.i.i": ; preds = %.lr.ph.i.split.split.i.i.i.i
   %25 = getelementptr i8, ptr %.029120.i.i.i.i.i, i64 64
   %.val33.i.i.i.i.i = load i64, ptr %25, align 8, !noalias !135
   %.not.i.i.i54.i.i.i.i.i = icmp eq i64 %.val33.i.i.i.i.i, %.val.val53.i.fr.i.i.i.i
-  br i1 %.not.i.i.i54.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit57.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit57.thread82.i.i.i.i.i"
+  br i1 %.not.i.i.i54.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit57.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit57.thread82.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread79.i.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread79.i.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.i.i.i.i.i"
   %26 = getelementptr i8, ptr %.029120.i.i.i.i.i, i64 64
   %.val33.i3.i.i.i.i = load i64, ptr %26, align 8, !noalias !135
   %.not.i.i.i54.i4.i.i.i.i = icmp eq i64 %.val33.i3.i.i.i.i, %.val.val53.i.fr.i.i.i.i
-  br i1 %.not.i.i.i54.i4.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit57.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit57.thread82.i.i.i.i.i"
+  br i1 %.not.i.i.i54.i4.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit57.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit57.thread82.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit57.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread79.i.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread79.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit57.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread79.i.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread79.i.i.i.i.i"
   %.val32.i57.in.i.i.i.i = getelementptr i8, ptr %.029120.i.i.i.i.i, i64 56
   %.val32.i57.i.i.i.i = load ptr, ptr %.val32.i57.in.i.i.i.i, align 8, !noalias !135
   %bcmp.i.i.i56.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val32.i57.i.i.i.i, ptr readonly %.sroa.0.0.copyload.i, i64 %.val.val53.i.fr.i.i.i.i), !noalias !135
   %27 = icmp eq i32 %bcmp.i.i.i56.i.i.i.i.i, 0
-  br i1 %27, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit100.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit57.thread82.i.i.i.i.i"
+  br i1 %27, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit100.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit57.thread82.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit57.thread82.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit57.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread79.i.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread79.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit57.thread82.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit57.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread79.i.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread79.i.i.i.i.i"
   %28 = getelementptr i8, ptr %.029120.i.i.i.i.i, i64 104
   %.val36.i.i.i.i.i = load i64, ptr %28, align 8, !noalias !135
   %.not.i.i.i58.i.i.i.i.i = icmp eq i64 %.val36.i.i.i.i.i, %.val.val53.i.fr.i.i.i.i
-  br i1 %.not.i.i.i58.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit61.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit61.thread85.i.i.i.i.i"
+  br i1 %.not.i.i.i58.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit61.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit61.thread85.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit61.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit57.thread82.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit61.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit57.thread82.i.i.i.i.i"
   %29 = getelementptr i8, ptr %.029120.i.i.i.i.i, i64 96
   %.val35.i.i.i.i.i = load ptr, ptr %29, align 8, !noalias !135
   %bcmp.i.i.i60.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val35.i.i.i.i.i, ptr readonly %.sroa.0.0.copyload.i, i64 %.val.val53.i.fr.i.i.i.i), !noalias !135
   %30 = icmp eq i32 %bcmp.i.i.i60.i.i.i.i.i, 0
-  br i1 %30, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit102.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit61.thread85.i.thread.i.i.i.i"
+  br i1 %30, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit102.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit61.thread85.i.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit61.thread85.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit57.thread82.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit61.thread85.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit57.thread82.i.i.i.i.i"
   %31 = getelementptr i8, ptr %.029120.i.i.i.i.i, i64 144
   %.val39.i.i.i.i.i = load i64, ptr %31, align 8, !noalias !135
   %.not.i.i.i62.i.i.i.i.i = icmp eq i64 %.val39.i.i.i.i.i, %.val.val53.i.fr.i.i.i.i
-  br i1 %.not.i.i.i62.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.thread88.i.i.i.i.i"
+  br i1 %.not.i.i.i62.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.thread88.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit61.thread85.i.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit61.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit61.thread85.i.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit61.i.i.i.i.i"
   %32 = getelementptr i8, ptr %.029120.i.i.i.i.i, i64 144
   %.val39.i9.i.i.i.i = load i64, ptr %32, align 8, !noalias !135
   %.not.i.i.i62.i10.i.i.i.i = icmp eq i64 %.val39.i9.i.i.i.i, %.val.val53.i.fr.i.i.i.i
-  br i1 %.not.i.i.i62.i10.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.thread88.i.i.i.i.i"
+  br i1 %.not.i.i.i62.i10.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.thread88.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit61.thread85.i.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit61.thread85.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit61.thread85.i.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit61.thread85.i.i.i.i.i"
   %.val38.i1114.in.i.i.i.i = getelementptr i8, ptr %.029120.i.i.i.i.i, i64 136
   %.val38.i1114.i.i.i.i = load ptr, ptr %.val38.i1114.in.i.i.i.i, align 8, !noalias !135
   %bcmp.i.i.i64.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val38.i1114.i.i.i.i, ptr readonly %.sroa.0.0.copyload.i, i64 %.val.val53.i.fr.i.i.i.i), !noalias !135
   %33 = icmp eq i32 %bcmp.i.i.i64.i.i.i.i.i, 0
-  br i1 %33, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit104.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.thread88.i.i.i.i.i"
+  br i1 %33, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit104.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.thread88.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.thread88.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit61.thread85.i.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit61.thread85.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.thread88.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit61.thread85.i.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit61.thread85.i.i.i.i.i"
   %34 = getelementptr inbounds i8, ptr %.029120.i.i.i.i.i, i64 160
   %35 = add nsw i64 %.0121.i.i.i.i.i, -1
   %36 = icmp sgt i64 %.0121.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.split.split.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !138
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.thread88.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.thread88.i.us.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.thread88.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.thread88.i.us.i.i.i.i"
   %gepdiff.i.i = sub i64 %.idx5.i.i, %13
   %37 = sdiv exact i64 %gepdiff.i.i, 40
   br label %._crit_edge.i.i.i.i.i
@@ -24067,7 +24067,7 @@ define dso_local noundef i64 @_ZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExpr
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %5
   %.pre-phi136.i.i.i.i.i = phi i64 [ %37, %._crit_edge.loopexit.i.i.i.i.i ], [ %2, %5 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %1, %5 ]
-  switch i64 %.pre-phi136.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.thread97.i.i.i.i.i" [
+  switch i64 %.pre-phi136.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit77.thread97.i.i.i.i.i" [
     i64 3, label %38
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i64 1, label %._crit_edge._crit_edge131.i.i.i.i.i
@@ -24079,105 +24079,105 @@ define dso_local noundef i64 @_ZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExpr
   %40 = getelementptr i8, ptr %.029.lcssa.i.i.i.i.i, i64 24
   %.029.val42.i.i.i.i.i = load i64, ptr %40, align 8, !noalias !135
   %.not.i.i.i66.i.i.i.i.i = icmp eq i64 %.029.val42.i.i.i.i.i, %.val.val53.i.fr.i.i.i.i
-  br i1 %.not.i.i.i66.i.i.i.i.i, label %41, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit69.thread91.i.i.i.i.i"
+  br i1 %.not.i.i.i66.i.i.i.i.i, label %41, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit69.thread91.i.i.i.i.i"
 
 41:                                               ; preds = %38
   %42 = icmp eq i64 %.val.val53.i.fr.i.i.i.i, 0
-  br i1 %42, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit69.i.i.i.i.i"
+  br i1 %42, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.thread.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit69.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit69.i.i.i.i.i": ; preds = %41
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit69.i.i.i.i.i": ; preds = %41
   %bcmp.i.i.i68.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.029.val41.i.i.i.i.i, ptr readonly %.sroa.0.0.copyload.i, i64 %.val.val53.i.fr.i.i.i.i), !noalias !135
   %43 = icmp eq i32 %bcmp.i.i.i68.i.i.i.i.i, 0
-  br i1 %43, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit69.thread91.i.i.i.i.i"
+  br i1 %43, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit69.thread91.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit69.thread91.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit69.i.i.i.i.i", %38
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit69.thread91.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit69.i.i.i.i.i", %38
   %44 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 40
   br label %._crit_edge._crit_edge.i.i.i.i.i
 
-._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit69.thread91.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %44, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit69.thread91.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit69.thread91.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.1.i.i.i.i.i = phi ptr [ %44, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit69.thread91.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %45 = getelementptr i8, ptr %.1.i.i.i.i.i, i64 16
   %.1.val.i.i.i.i.i = load ptr, ptr %45, align 8, !noalias !135
   %46 = getelementptr i8, ptr %.1.i.i.i.i.i, i64 24
   %.1.val44.i.i.i.i.i = load i64, ptr %46, align 8, !noalias !135
   %.not.i.i.i70.i.i.i.i.i = icmp eq i64 %.1.val44.i.i.i.i.i, %.val.val53.i.fr.i.i.i.i
-  br i1 %.not.i.i.i70.i.i.i.i.i, label %47, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit73.thread94.i.i.i.i.i"
+  br i1 %.not.i.i.i70.i.i.i.i.i, label %47, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit73.thread94.i.i.i.i.i"
 
 47:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
   %48 = icmp eq i64 %.val.val53.i.fr.i.i.i.i, 0
-  br i1 %48, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit73.i.i.i.i.i"
+  br i1 %48, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.thread.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit73.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit73.i.i.i.i.i": ; preds = %47
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit73.i.i.i.i.i": ; preds = %47
   %bcmp.i.i.i72.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.1.val.i.i.i.i.i, ptr readonly %.sroa.0.0.copyload.i, i64 %.val.val53.i.fr.i.i.i.i), !noalias !135
   %49 = icmp eq i32 %bcmp.i.i.i72.i.i.i.i.i, 0
-  br i1 %49, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit73.thread94.i.i.i.i.i"
+  br i1 %49, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit73.thread94.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit73.thread94.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit73.i.i.i.i.i", %._crit_edge._crit_edge.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit73.thread94.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit73.i.i.i.i.i", %._crit_edge._crit_edge.i.i.i.i.i
   %50 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 40
   br label %._crit_edge._crit_edge131.i.i.i.i.i
 
-._crit_edge._crit_edge131.i.i.i.i.i:              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit73.thread94.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %50, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit73.thread94.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+._crit_edge._crit_edge131.i.i.i.i.i:              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit73.thread94.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.2.i.i.i.i.i = phi ptr [ %50, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit73.thread94.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %51 = getelementptr i8, ptr %.2.i.i.i.i.i, i64 16
   %.2.val.i.i.i.i.i = load ptr, ptr %51, align 8, !noalias !135
   %52 = getelementptr i8, ptr %.2.i.i.i.i.i, i64 24
   %.2.val46.i.i.i.i.i = load i64, ptr %52, align 8, !noalias !135
   %.not.i.i.i74.i.i.i.i.i = icmp eq i64 %.2.val46.i.i.i.i.i, %.val.val53.i.fr.i.i.i.i
-  br i1 %.not.i.i.i74.i.i.i.i.i, label %53, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.thread97.i.i.i.i.i"
+  br i1 %.not.i.i.i74.i.i.i.i.i, label %53, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit77.thread97.i.i.i.i.i"
 
 53:                                               ; preds = %._crit_edge._crit_edge131.i.i.i.i.i
   %54 = icmp eq i64 %.val.val53.i.fr.i.i.i.i, 0
-  br i1 %54, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.i.i.i.i.i"
+  br i1 %54, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.thread.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit77.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.i.i.i.i.i": ; preds = %53
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit77.i.i.i.i.i": ; preds = %53
   %bcmp.i.i.i76.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.2.val.i.i.i.i.i, ptr readonly %.sroa.0.0.copyload.i, i64 %.val.val53.i.fr.i.i.i.i), !noalias !135
   %55 = icmp eq i32 %bcmp.i.i.i76.i.i.i.i.i, 0
-  br i1 %55, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.thread97.i.i.i.i.i"
+  br i1 %55, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit77.thread97.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.thread97.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.i.i.i.i.i", %._crit_edge._crit_edge131.i.i.i.i.i, %._crit_edge.i.i.i.i.i
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit77.thread97.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit77.i.i.i.i.i", %._crit_edge._crit_edge131.i.i.i.i.i, %._crit_edge.i.i.i.i.i
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit100.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit57.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit100.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit57.i.i.i.i.i"
   %56 = getelementptr inbounds i8, ptr %.029120.i.i.i.i.i, i64 40
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit102.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit61.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit102.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit61.i.i.i.i.i"
   %57 = getelementptr inbounds i8, ptr %.029120.i.i.i.i.i, i64 80
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit104.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit65.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit104.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit65.i.i.i.i.i"
   %58 = getelementptr inbounds i8, ptr %.029120.i.i.i.i.i, i64 120
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit108.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread79.i.us.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit108.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread79.i.us.i.i.i.i"
   %59 = getelementptr inbounds i8, ptr %.029120.i.us.i.i.i.i, i64 40
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit110.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit57.thread82.i.us.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit110.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit57.thread82.i.us.i.i.i.i"
   %60 = getelementptr inbounds i8, ptr %.029120.i.us.i.i.i.i, i64 80
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit112.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit61.thread85.i.us.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit112.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit61.thread85.i.us.i.i.i.i"
   %61 = getelementptr inbounds i8, ptr %.029120.i.us.i.i.i.i, i64 120
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.thread.i": ; preds = %53, %47, %41
+"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.thread.i": ; preds = %53, %47, %41
   %.028.i.i.i.i.ph.i = phi ptr [ %.2.i.i.i.i.i, %53 ], [ %.1.i.i.i.i.i, %47 ], [ %.029.lcssa.i.i.i.i.i, %41 ]
   %62 = getelementptr inbounds %"class.clang::AvailabilitySpec", ptr %1, i64 %2
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.argprom.exit.i"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.i.i.i.i.i", %.lr.ph.i.split.us.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit112.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit110.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit108.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit104.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit102.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit100.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.thread97.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit73.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit69.i.i.i.i.i"
-  %.028.i.i.i.i.i = phi ptr [ %10, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.thread97.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit69.i.i.i.i.i" ], [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit73.i.i.i.i.i" ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit77.i.i.i.i.i" ], [ %56, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit100.i.i.i.i.i" ], [ %57, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit102.i.i.i.i.i" ], [ %58, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit104.i.i.i.i.i" ], [ %59, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit108.i.i.i.i.i" ], [ %60, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit110.i.i.i.i.i" ], [ %61, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.thread.loopexit.split.loop.exit112.i.i.i.i.i" ], [ %.029120.i.us.i.i.i.i, %.lr.ph.i.split.us.i.i.i.i ], [ %.029120.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.exit.i.i.i.i.i" ]
+"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.i.i.i.i.i", %.lr.ph.i.split.us.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit112.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit110.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit108.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit104.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit102.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit100.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit77.thread97.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit77.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit73.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit69.i.i.i.i.i"
+  %.028.i.i.i.i.i = phi ptr [ %10, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit77.thread97.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit69.i.i.i.i.i" ], [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit73.i.i.i.i.i" ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit77.i.i.i.i.i" ], [ %56, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit100.i.i.i.i.i" ], [ %57, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit102.i.i.i.i.i" ], [ %58, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit104.i.i.i.i.i" ], [ %59, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit108.i.i.i.i.i" ], [ %60, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit110.i.i.i.i.i" ], [ %61, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.thread.loopexit.split.loop.exit112.i.i.i.i.i" ], [ %.029120.i.us.i.i.i.i, %.lr.ph.i.split.us.i.i.i.i ], [ %.029120.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E_EclIPSB_EEbT_.argprom.argprom.exit.i.i.i.i.i" ]
   %63 = getelementptr inbounds %"class.clang::AvailabilitySpec", ptr %1, i64 %2
   %64 = icmp eq ptr %.028.i.i.i.i.i, %63
   %.not.i.i = icmp eq i64 %.val.val53.i.fr.i.i.i.i, 11
   %or.cond.i = and i1 %.not.i.i, %64
-  br i1 %or.cond.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i"
+  br i1 %or.cond.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.argprom.exit.i"
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i"
+_ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i"
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %.sroa.0.0.copyload.i, ptr noundef nonnull dereferenceable(11) @.str.37, i64 11), !noalias !135
   %65 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %65, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, label %"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE.exit"
+  br i1 %65, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, label %"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE.argprom.argprom.exit"
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
   br i1 %12, label %.lr.ph.preheader.i.i.i.i.i, label %._crit_edge.i.i.i.i11.i
@@ -24187,67 +24187,67 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   %scevgep.i.i.i.i18.i = getelementptr i8, ptr %1, i64 %66
   br label %.lr.ph.i.i.i.i19.i
 
-.lr.ph.i.i.i.i19.i:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit51.thread.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i
-  %.082.i.i.i.i.i = phi i64 [ %80, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit51.thread.i.i.i.i.i" ], [ %11, %.lr.ph.preheader.i.i.i.i.i ]
-  %.02981.i.i.i.i.i = phi ptr [ %79, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit51.thread.i.i.i.i.i" ], [ %1, %.lr.ph.preheader.i.i.i.i.i ]
+.lr.ph.i.i.i.i19.i:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit51.thread.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i
+  %.082.i.i.i.i.i = phi i64 [ %80, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit51.thread.i.i.i.i.i" ], [ %11, %.lr.ph.preheader.i.i.i.i.i ]
+  %.02981.i.i.i.i.i = phi ptr [ %79, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit51.thread.i.i.i.i.i" ], [ %1, %.lr.ph.preheader.i.i.i.i.i ]
   %67 = getelementptr i8, ptr %.02981.i.i.i.i.i, i64 24
   %.029.val30.i.i.i.i20.i = load i64, ptr %67, align 8, !noalias !135
   %.not.i.i.i.i.i.i.i21.i = icmp eq i64 %.029.val30.i.i.i.i20.i, 3
-  br i1 %.not.i.i.i.i.i.i.i21.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit.thread.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i21.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i19.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i19.i
   %68 = getelementptr i8, ptr %.02981.i.i.i.i.i, i64 16
   %.029.val.i.i.i.i26.i = load ptr, ptr %68, align 8, !noalias !135
   %bcmp.i.i.i.i.i.i.i27.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.029.val.i.i.i.i26.i, ptr noundef nonnull dereferenceable(3) @.str.38, i64 3), !noalias !135
   %69 = icmp eq i32 %bcmp.i.i.i.i.i.i.i27.i, 0
-  br i1 %69, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit.thread.i.i.i.i.i"
+  br i1 %69, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit.i.i.i.i.i", %.lr.ph.i.i.i.i19.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit.i.i.i.i.i", %.lr.ph.i.i.i.i19.i
   %70 = getelementptr i8, ptr %.02981.i.i.i.i.i, i64 64
   %.val31.i.i.i.i.i = load i64, ptr %70, align 8, !noalias !135
   %.not.i.i.i40.i.i.i.i.i = icmp eq i64 %.val31.i.i.i.i.i, 3
-  br i1 %.not.i.i.i40.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit43.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit43.thread.i.i.i.i.i"
+  br i1 %.not.i.i.i40.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit43.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit43.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit43.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit43.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit.thread.i.i.i.i.i"
   %71 = getelementptr i8, ptr %.02981.i.i.i.i.i, i64 56
   %.val.i.i.i.i.i = load ptr, ptr %71, align 8, !noalias !135
   %bcmp.i.i.i42.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.val.i.i.i.i.i, ptr noundef nonnull dereferenceable(3) @.str.38, i64 3), !noalias !135
   %72 = icmp eq i32 %bcmp.i.i.i42.i.i.i.i.i, 0
-  br i1 %72, label %.loopexit.split.loop.exit72.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit43.thread.i.i.i.i.i"
+  br i1 %72, label %.loopexit.split.loop.exit72.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit43.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit43.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit43.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit43.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit43.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit.thread.i.i.i.i.i"
   %73 = getelementptr i8, ptr %.02981.i.i.i.i.i, i64 104
   %.val33.i.i.i.i22.i = load i64, ptr %73, align 8, !noalias !135
   %.not.i.i.i44.i.i.i.i.i = icmp eq i64 %.val33.i.i.i.i22.i, 3
-  br i1 %.not.i.i.i44.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit47.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit47.thread.i.i.i.i.i"
+  br i1 %.not.i.i.i44.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit47.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit47.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit47.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit43.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit47.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit43.thread.i.i.i.i.i"
   %74 = getelementptr i8, ptr %.02981.i.i.i.i.i, i64 96
   %.val32.i.i.i.i.i = load ptr, ptr %74, align 8, !noalias !135
   %bcmp.i.i.i46.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.val32.i.i.i.i.i, ptr noundef nonnull dereferenceable(3) @.str.38, i64 3), !noalias !135
   %75 = icmp eq i32 %bcmp.i.i.i46.i.i.i.i.i, 0
-  br i1 %75, label %.loopexit.split.loop.exit74.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit47.thread.i.i.i.i.i"
+  br i1 %75, label %.loopexit.split.loop.exit74.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit47.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit47.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit47.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit43.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit47.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit47.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit43.thread.i.i.i.i.i"
   %76 = getelementptr i8, ptr %.02981.i.i.i.i.i, i64 144
   %.val35.i.i.i.i23.i = load i64, ptr %76, align 8, !noalias !135
   %.not.i.i.i48.i.i.i.i.i = icmp eq i64 %.val35.i.i.i.i23.i, 3
-  br i1 %.not.i.i.i48.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit51.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit51.thread.i.i.i.i.i"
+  br i1 %.not.i.i.i48.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit51.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit51.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit51.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit47.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit51.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit47.thread.i.i.i.i.i"
   %77 = getelementptr i8, ptr %.02981.i.i.i.i.i, i64 136
   %.val34.i.i.i.i.i = load ptr, ptr %77, align 8, !noalias !135
   %bcmp.i.i.i50.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.val34.i.i.i.i.i, ptr noundef nonnull dereferenceable(3) @.str.38, i64 3), !noalias !135
   %78 = icmp eq i32 %bcmp.i.i.i50.i.i.i.i.i, 0
-  br i1 %78, label %.loopexit.split.loop.exit76.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit51.thread.i.i.i.i.i"
+  br i1 %78, label %.loopexit.split.loop.exit76.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit51.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit51.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit51.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit47.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit51.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit51.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit47.thread.i.i.i.i.i"
   %79 = getelementptr inbounds i8, ptr %.02981.i.i.i.i.i, i64 160
   %80 = add nsw i64 %.082.i.i.i.i.i, -1
   %81 = icmp sgt i64 %.082.i.i.i.i.i, 1
   br i1 %81, label %.lr.ph.i.i.i.i19.i, label %._crit_edge.loopexit.i.i.i.i24.i, !llvm.loop !139
 
-._crit_edge.loopexit.i.i.i.i24.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit51.thread.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i24.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit51.thread.i.i.i.i.i"
   %gepdiff.i25.i = sub i64 %.idx5.i.i, %66
   %82 = sdiv exact i64 %gepdiff.i25.i, 40
   br label %._crit_edge.i.i.i.i11.i
@@ -24255,7 +24255,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
 ._crit_edge.i.i.i.i11.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i24.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
   %.pre-phi88.i.i.i.i.i = phi i64 [ %82, %._crit_edge.loopexit.i.i.i.i24.i ], [ %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ]
   %.029.lcssa.i.i.i.i12.i = phi ptr [ %scevgep.i.i.i.i18.i, %._crit_edge.loopexit.i.i.i.i24.i ], [ %1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ]
-  switch i64 %.pre-phi88.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.thread.i.i.i.i.i" [
+  switch i64 %.pre-phi88.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit63.thread.i.i.i.i.i" [
     i64 3, label %83
     i64 2, label %88
     i64 1, label %93
@@ -24265,94 +24265,94 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   %84 = getelementptr i8, ptr %.029.lcssa.i.i.i.i12.i, i64 24
   %.029.val37.i.i.i.i.i = load i64, ptr %84, align 8, !noalias !135
   %.not.i.i.i52.i.i.i.i.i = icmp eq i64 %.029.val37.i.i.i.i.i, 3
-  br i1 %.not.i.i.i52.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit55.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit55.thread.i.i.i.i.i"
+  br i1 %.not.i.i.i52.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit55.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit55.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit55.i.i.i.i.i": ; preds = %83
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit55.i.i.i.i.i": ; preds = %83
   %85 = getelementptr i8, ptr %.029.lcssa.i.i.i.i12.i, i64 16
   %.029.val36.i.i.i.i.i = load ptr, ptr %85, align 8, !noalias !135
   %bcmp.i.i.i54.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.029.val36.i.i.i.i.i, ptr noundef nonnull dereferenceable(3) @.str.38, i64 3), !noalias !135
   %86 = icmp eq i32 %bcmp.i.i.i54.i.i.i.i.i, 0
-  br i1 %86, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit55.thread.i.i.i.i.i"
+  br i1 %86, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit55.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit55.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit55.i.i.i.i.i", %83
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit55.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit55.i.i.i.i.i", %83
   %87 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i12.i, i64 40
   br label %88
 
-88:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit55.thread.i.i.i.i.i", %._crit_edge.i.i.i.i11.i
-  %.1.i.i.i.i16.i = phi ptr [ %.029.lcssa.i.i.i.i12.i, %._crit_edge.i.i.i.i11.i ], [ %87, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit55.thread.i.i.i.i.i" ]
+88:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit55.thread.i.i.i.i.i", %._crit_edge.i.i.i.i11.i
+  %.1.i.i.i.i16.i = phi ptr [ %.029.lcssa.i.i.i.i12.i, %._crit_edge.i.i.i.i11.i ], [ %87, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit55.thread.i.i.i.i.i" ]
   %89 = getelementptr i8, ptr %.1.i.i.i.i16.i, i64 24
   %.1.val38.i.i.i.i.i = load i64, ptr %89, align 8, !noalias !135
   %.not.i.i.i56.i.i.i.i.i = icmp eq i64 %.1.val38.i.i.i.i.i, 3
-  br i1 %.not.i.i.i56.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit59.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit59.thread.i.i.i.i.i"
+  br i1 %.not.i.i.i56.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit59.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit59.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit59.i.i.i.i.i": ; preds = %88
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit59.i.i.i.i.i": ; preds = %88
   %90 = getelementptr i8, ptr %.1.i.i.i.i16.i, i64 16
   %.1.val.i.i.i.i17.i = load ptr, ptr %90, align 8, !noalias !135
   %bcmp.i.i.i58.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.1.val.i.i.i.i17.i, ptr noundef nonnull dereferenceable(3) @.str.38, i64 3), !noalias !135
   %91 = icmp eq i32 %bcmp.i.i.i58.i.i.i.i.i, 0
-  br i1 %91, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit59.thread.i.i.i.i.i"
+  br i1 %91, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit59.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit59.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit59.i.i.i.i.i", %88
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit59.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit59.i.i.i.i.i", %88
   %92 = getelementptr inbounds i8, ptr %.1.i.i.i.i16.i, i64 40
   br label %93
 
-93:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit59.thread.i.i.i.i.i", %._crit_edge.i.i.i.i11.i
-  %.2.i.i.i.i13.i = phi ptr [ %.029.lcssa.i.i.i.i12.i, %._crit_edge.i.i.i.i11.i ], [ %92, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit59.thread.i.i.i.i.i" ]
+93:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit59.thread.i.i.i.i.i", %._crit_edge.i.i.i.i11.i
+  %.2.i.i.i.i13.i = phi ptr [ %.029.lcssa.i.i.i.i12.i, %._crit_edge.i.i.i.i11.i ], [ %92, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit59.thread.i.i.i.i.i" ]
   %94 = getelementptr i8, ptr %.2.i.i.i.i13.i, i64 24
   %.2.val39.i.i.i.i.i = load i64, ptr %94, align 8, !noalias !135
   %.not.i.i.i60.i.i.i.i.i = icmp eq i64 %.2.val39.i.i.i.i.i, 3
-  br i1 %.not.i.i.i60.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.thread.i.i.i.i.i"
+  br i1 %.not.i.i.i60.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit63.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit63.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.i.i.i.i.i": ; preds = %93
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit63.i.i.i.i.i": ; preds = %93
   %95 = getelementptr i8, ptr %.2.i.i.i.i13.i, i64 16
   %.2.val.i.i.i.i15.i = load ptr, ptr %95, align 8, !noalias !135
   %bcmp.i.i.i62.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.2.val.i.i.i.i15.i, ptr noundef nonnull dereferenceable(3) @.str.38, i64 3), !noalias !135
   %96 = icmp eq i32 %bcmp.i.i.i62.i.i.i.i.i, 0
-  br i1 %96, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.thread.i.i.i.i.i"
+  br i1 %96, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.argprom.exit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit63.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.i.i.i.i.i", %93, %._crit_edge.i.i.i.i11.i
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit63.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit63.i.i.i.i.i", %93, %._crit_edge.i.i.i.i11.i
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.argprom.exit.i"
 
-.loopexit.split.loop.exit72.i.i.i.i.i:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit43.i.i.i.i.i"
+.loopexit.split.loop.exit72.i.i.i.i.i:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit43.i.i.i.i.i"
   %97 = getelementptr inbounds i8, ptr %.02981.i.i.i.i.i, i64 40
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.argprom.exit.i"
 
-.loopexit.split.loop.exit74.i.i.i.i.i:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit47.i.i.i.i.i"
+.loopexit.split.loop.exit74.i.i.i.i.i:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit47.i.i.i.i.i"
   %98 = getelementptr inbounds i8, ptr %.02981.i.i.i.i.i, i64 80
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.argprom.exit.i"
 
-.loopexit.split.loop.exit76.i.i.i.i.i:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit51.i.i.i.i.i"
+.loopexit.split.loop.exit76.i.i.i.i.i:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit51.i.i.i.i.i"
   %99 = getelementptr inbounds i8, ptr %.02981.i.i.i.i.i, i64 120
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.argprom.exit.i"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit.i.i.i.i.i", %.loopexit.split.loop.exit76.i.i.i.i.i, %.loopexit.split.loop.exit74.i.i.i.i.i, %.loopexit.split.loop.exit72.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.thread.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit59.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit55.i.i.i.i.i", %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i", %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.thread.i"
-  %100 = phi ptr [ %63, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.thread.i.i.i.i.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit55.i.i.i.i.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit59.i.i.i.i.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.i.i.i.i.i" ], [ %63, %.loopexit.split.loop.exit72.i.i.i.i.i ], [ %63, %.loopexit.split.loop.exit74.i.i.i.i.i ], [ %63, %.loopexit.split.loop.exit76.i.i.i.i.i ], [ %62, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.thread.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit.i.i.i.i.i" ]
-  %.0.i = phi ptr [ %.028.i.i.i.i.i, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.i" ], [ %10, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.thread.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i12.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit55.i.i.i.i.i" ], [ %.1.i.i.i.i16.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit59.i.i.i.i.i" ], [ %.2.i.i.i.i13.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit63.i.i.i.i.i" ], [ %97, %.loopexit.split.loop.exit72.i.i.i.i.i ], [ %98, %.loopexit.split.loop.exit74.i.i.i.i.i ], [ %99, %.loopexit.split.loop.exit76.i.i.i.i.i ], [ %.028.i.i.i.i.ph.i, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit.thread.i" ], [ %.02981.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.exit.i.i.i.i.i" ]
+"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.argprom.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit.i.i.i.i.i", %.loopexit.split.loop.exit76.i.i.i.i.i, %.loopexit.split.loop.exit74.i.i.i.i.i, %.loopexit.split.loop.exit72.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit63.thread.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit63.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit59.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit55.i.i.i.i.i", %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i", %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.thread.i"
+  %100 = phi ptr [ %63, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit63.thread.i.i.i.i.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit55.i.i.i.i.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit59.i.i.i.i.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit63.i.i.i.i.i" ], [ %63, %.loopexit.split.loop.exit72.i.i.i.i.i ], [ %63, %.loopexit.split.loop.exit74.i.i.i.i.i ], [ %63, %.loopexit.split.loop.exit76.i.i.i.i.i ], [ %62, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.thread.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit.i.i.i.i.i" ]
+  %.0.i = phi ptr [ %.028.i.i.i.i.i, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.i" ], [ %10, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit63.thread.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i12.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit55.i.i.i.i.i" ], [ %.1.i.i.i.i16.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit59.i.i.i.i.i" ], [ %.2.i.i.i.i13.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit63.i.i.i.i.i" ], [ %97, %.loopexit.split.loop.exit72.i.i.i.i.i ], [ %98, %.loopexit.split.loop.exit74.i.i.i.i.i ], [ %99, %.loopexit.split.loop.exit76.i.i.i.i.i ], [ %.028.i.i.i.i.ph.i, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.argprom.exit.thread.i" ], [ %.02981.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS2_16AvailabilitySpecEEENS2_14SourceLocationES8_ENK3$_0clENS4_9StringRefEEUlRKS6_E0_EclIPSB_EEbT_.argprom.exit.i.i.i.i.i" ]
   %101 = icmp eq ptr %.0.i, %100
-  br i1 %101, label %"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE.exit", label %102
+  br i1 %101, label %"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE.argprom.argprom.exit", label %102
 
-102:                                              ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i"
+102:                                              ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.argprom.exit.i"
   %.sroa.0.0.copyload.i.i = load i64, ptr %.0.i, align 8, !noalias !135
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.0.i, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !135
-  br label %"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE.exit"
+  br label %"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE.argprom.argprom.exit"
 
-"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE.exit": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i", %102
-  %.sroa.320.0 = phi i64 [ %.sroa.2.0.copyload.i.i, %102 ], [ 0, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i" ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %.sroa.019.0 = phi i64 [ %.sroa.0.0.copyload.i.i, %102 ], [ 0, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.exit.i" ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE.argprom.argprom.exit": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.argprom.exit.i", %102
+  %.sroa.320.0 = phi i64 [ %.sroa.2.0.copyload.i.i, %102 ], [ 0, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.argprom.exit.i" ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %.sroa.019.0 = phi i64 [ %.sroa.0.0.copyload.i.i, %102 ], [ 0, %"_ZN4llvm7find_ifIRNS_8ArrayRefIN5clang16AvailabilitySpecEEEZZNS2_8SemaObjC30ActOnObjCAvailabilityCheckExprES4_NS2_14SourceLocationES7_ENK3$_0clENS_9StringRefEEUlRKS3_E0_EEDaOT_T0_.argprom.exit.i" ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %103 = load ptr, ptr %0, align 8
   %104 = tail call noundef ptr @_ZN5clang4Sema33getCurFunctionAvailabilityContextEv(ptr noundef nonnull align 8 dereferenceable(17560) %103) #18
   %.not = icmp eq ptr %104, null
   br i1 %.not, label %109, label %105
 
-105:                                              ; preds = %"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE.exit"
+105:                                              ; preds = %"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE.argprom.argprom.exit"
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %107 = load i32, ptr %106, align 8
   %108 = or i32 %107, 2048
   store i32 %108, ptr %106, align 8
   br label %109
 
-109:                                              ; preds = %105, %"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE.exit"
+109:                                              ; preds = %105, %"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE.argprom.argprom.exit"
   %110 = tail call noundef ptr @_ZN5clang4StmtnwEmRKNS_10ASTContextEj(i64 noundef 40, ptr noundef nonnull align 8 dereferenceable(23096) %6, i32 noundef 8) #18
   %111 = getelementptr inbounds nuw i8, ptr %6, i64 18432
   %.sroa.0.0.copyload.i15 = load i64, ptr %111, align 8
@@ -26427,38 +26427,38 @@ declare void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 der
 declare void @_ZN5clang7APValue24DestroyDataAndMakeUninitEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E.argprom(ptr noundef %0) unnamed_addr #0 align 2 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit
-  %.02 = phi ptr [ %.0.val, %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit ], [ %0, %1 ]
+.lr.ph:                                           ; preds = %1, %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.argprom.exit
+  %.02 = phi ptr [ %.0.val, %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.argprom.exit ], [ %0, %1 ]
   %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val6 = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %.0.val6)
+  tail call fastcc void @_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E.argprom(ptr noundef %.0.val6)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.02, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp ugt i32 %5, 64
-  br i1 %6, label %7, label %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit
+  br i1 %6, label %7, label %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.argprom.exit
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.02, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit, label %11
+  br i1 %10, label %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.argprom.exit, label %11
 
 11:                                               ; preds = %7
   tail call void @_ZdaPv(ptr noundef nonnull %9) #20
-  br label %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit
+  br label %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.argprom.exit
 
-_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit: ; preds = %.lr.ph, %7, %11
+_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.argprom.exit: ; preds = %.lr.ph, %7, %11
   tail call void @_ZdlPvm(ptr noundef nonnull %.02, i64 noundef 56) #20
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !160
 
-._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit, %1
+._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIN4llvm6APSIntESt4pairIKS1_N5clang14SourceLocationEESt10_Select1stIS6_EZL39CheckObjCDictionaryLiteralDuplicateKeysRNS4_4SemaEPNS4_21ObjCDictionaryLiteralEE13APSIntCompareSaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.argprom.exit, %1
   ret void
 }
 
@@ -26480,7 +26480,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrappe
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL45HelperToDiagnoseMismatchedMethodsInGlobalPoolRN5clang4SemaENS_14SourceLocationES2_S2_PNS_14ObjCMethodDeclERNS_14ObjCMethodListE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, i32 %2, i32 %3, ptr noundef nonnull %4, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL45HelperToDiagnoseMismatchedMethodsInGlobalPoolRN5clang4SemaENS_14SourceLocationES2_S2_PNS_14ObjCMethodDeclERNS_14ObjCMethodListE.argprom(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, i32 %2, i32 %3, ptr noundef nonnull %4, i64 %.8.val) unnamed_addr #0 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.145", align 1
@@ -27946,224 +27946,224 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %10 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val300, i32 noundef 2) #18
   %.not.i.i.i = icmp ne i32 %10, 0
   %..i.i.i = zext i1 %.not.i.i.i to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 11:                                               ; preds = %5
   %.val301 = load ptr, ptr %0, align 8
   %12 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val301, i32 noundef 2) #18
   %.not.i.i.i456 = icmp ne i32 %12, 0
   %..i.i.i457 = zext i1 %.not.i.i.i456 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 13:                                               ; preds = %5
   %.val302 = load ptr, ptr %0, align 8
   %14 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val302, i32 noundef 2) #18
   %.not.i.i.i458 = icmp ne i32 %14, 0
   %..i.i.i459 = zext i1 %.not.i.i.i458 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 15:                                               ; preds = %5
   %.val303 = load ptr, ptr %0, align 8
   %16 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val303, i32 noundef 2) #18
   %.not.i.i.i460 = icmp ne i32 %16, 0
   %..i.i.i461 = zext i1 %.not.i.i.i460 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 17:                                               ; preds = %5
   %.val304 = load ptr, ptr %0, align 8
   %18 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val304, i32 noundef 2) #18
   %.not.i.i.i462 = icmp ne i32 %18, 0
   %..i.i.i463 = zext i1 %.not.i.i.i462 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 19:                                               ; preds = %5
   %.val305 = load ptr, ptr %0, align 8
   %20 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val305, i32 noundef 2) #18
   %.not.i.i.i464 = icmp ne i32 %20, 0
   %..i.i.i465 = zext i1 %.not.i.i.i464 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 21:                                               ; preds = %5
   %.val306 = load ptr, ptr %0, align 8
   %22 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val306, i32 noundef 2) #18
   %.not.i.i.i466 = icmp ne i32 %22, 0
   %..i.i.i467 = zext i1 %.not.i.i.i466 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 23:                                               ; preds = %5
   %.val307 = load ptr, ptr %0, align 8
   %24 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val307, i32 noundef 2) #18
   %.not.i.i.i468 = icmp ne i32 %24, 0
   %..i.i.i469 = zext i1 %.not.i.i.i468 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 25:                                               ; preds = %5
   %.val308 = load ptr, ptr %0, align 8
   %26 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val308, i32 noundef 2) #18
   %.not.i.i.i470 = icmp ne i32 %26, 0
   %..i.i.i471 = zext i1 %.not.i.i.i470 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 27:                                               ; preds = %5
   %.val309 = load ptr, ptr %0, align 8
   %28 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val309, i32 noundef 2) #18
   %.not.i.i.i472 = icmp ne i32 %28, 0
   %..i.i.i473 = zext i1 %.not.i.i.i472 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 29:                                               ; preds = %5
   %.val310 = load ptr, ptr %0, align 8
   %30 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val310, i32 noundef 2) #18
   %.not.i.i.i474 = icmp ne i32 %30, 0
   %..i.i.i475 = zext i1 %.not.i.i.i474 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 31:                                               ; preds = %5
   %.val311 = load ptr, ptr %0, align 8
   %32 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val311, i32 noundef 2) #18
   %.not.i.i.i476 = icmp ne i32 %32, 0
   %..i.i.i477 = zext i1 %.not.i.i.i476 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 33:                                               ; preds = %5
   %.val312 = load ptr, ptr %0, align 8
   %34 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val312, i32 noundef 2) #18
   %.not.i.i.i478 = icmp ne i32 %34, 0
   %..i.i.i479 = zext i1 %.not.i.i.i478 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 35:                                               ; preds = %5
   %.val313 = load ptr, ptr %0, align 8
   %36 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val313, i32 noundef 2) #18
   %.not.i.i.i480 = icmp ne i32 %36, 0
   %..i.i.i481 = zext i1 %.not.i.i.i480 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 37:                                               ; preds = %5
   %.val314 = load ptr, ptr %0, align 8
   %38 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val314, i32 noundef 2) #18
   %.not.i.i.i482 = icmp ne i32 %38, 0
   %..i.i.i483 = zext i1 %.not.i.i.i482 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 39:                                               ; preds = %5
   %.val315 = load ptr, ptr %0, align 8
   %40 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val315, i32 noundef 2) #18
   %.not.i.i.i484 = icmp ne i32 %40, 0
   %..i.i.i485 = zext i1 %.not.i.i.i484 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 41:                                               ; preds = %5
   %.val316 = load ptr, ptr %0, align 8
   %42 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val316, i32 noundef 2) #18
   %.not.i.i.i486 = icmp ne i32 %42, 0
   %..i.i.i487 = zext i1 %.not.i.i.i486 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 43:                                               ; preds = %5
   %.val317 = load ptr, ptr %0, align 8
   %44 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val317, i32 noundef 2) #18
   %.not.i.i.i488 = icmp ne i32 %44, 0
   %..i.i.i489 = zext i1 %.not.i.i.i488 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 45:                                               ; preds = %5
   %.val318 = load ptr, ptr %0, align 8
   %46 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val318, i32 noundef 2) #18
   %.not.i.i.i490 = icmp ne i32 %46, 0
   %..i.i.i491 = zext i1 %.not.i.i.i490 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 47:                                               ; preds = %5
   %.val319 = load ptr, ptr %0, align 8
   %48 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val319, i32 noundef 2) #18
   %.not.i.i.i492 = icmp ne i32 %48, 0
   %..i.i.i493 = zext i1 %.not.i.i.i492 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 49:                                               ; preds = %5
   %.val320 = load ptr, ptr %0, align 8
   %50 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val320, i32 noundef 2) #18
   %.not.i.i.i494 = icmp ne i32 %50, 0
   %..i.i.i495 = zext i1 %.not.i.i.i494 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 51:                                               ; preds = %5
   %.val321 = load ptr, ptr %0, align 8
   %52 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val321, i32 noundef 2) #18
   %.not.i.i.i496 = icmp ne i32 %52, 0
   %..i.i.i497 = zext i1 %.not.i.i.i496 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 53:                                               ; preds = %5
   %.val323 = load ptr, ptr %0, align 8
   %54 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val323, i32 noundef 2) #18
   %.not.i.i.i.i = icmp ne i32 %54, 0
   %..i.i.i.i = zext i1 %.not.i.i.i.i to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 55:                                               ; preds = %5
   %.val324 = load ptr, ptr %0, align 8
   %56 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val324, i32 noundef 2) #18
   %.not.i.i.i.i498 = icmp ne i32 %56, 0
   %..i.i.i.i499 = zext i1 %.not.i.i.i.i498 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 57:                                               ; preds = %5
   %.val325 = load ptr, ptr %0, align 8
   %58 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val325, i32 noundef 2) #18
   %.not.i.i.i.i500 = icmp ne i32 %58, 0
   %..i.i.i.i501 = zext i1 %.not.i.i.i.i500 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 59:                                               ; preds = %5
   %.val326 = load ptr, ptr %0, align 8
   %60 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val326, i32 noundef 2) #18
   %.not.i.i.i.i502 = icmp ne i32 %60, 0
   %..i.i.i.i503 = zext i1 %.not.i.i.i.i502 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 61:                                               ; preds = %5
   %.val327 = load ptr, ptr %0, align 8
   %62 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val327, i32 noundef 2) #18
   %.not.i.i.i.i504 = icmp ne i32 %62, 0
   %..i.i.i.i505 = zext i1 %.not.i.i.i.i504 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 63:                                               ; preds = %5
   %.val328 = load ptr, ptr %0, align 8
   %64 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val328, i32 noundef 2) #18
   %.not.i.i.i.i506 = icmp ne i32 %64, 0
   %..i.i.i.i507 = zext i1 %.not.i.i.i.i506 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 65:                                               ; preds = %5
   %.val329 = load ptr, ptr %0, align 8
   %66 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val329, i32 noundef 2) #18
   %.not.i.i.i.i508 = icmp ne i32 %66, 0
   %..i.i.i.i509 = zext i1 %.not.i.i.i.i508 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 67:                                               ; preds = %5
   %.val330 = load ptr, ptr %0, align 8
   %68 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val330, i32 noundef 2) #18
   %.not.i.i.i.i510 = icmp ne i32 %68, 0
   %..i.i.i.i511 = zext i1 %.not.i.i.i.i510 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 69:                                               ; preds = %5
   %.val331 = load ptr, ptr %0, align 8
   %70 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val331, i32 noundef 2) #18
   %.not.i.i.i.i512 = icmp ne i32 %70, 0
   %..i.i.i.i513 = zext i1 %.not.i.i.i.i512 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 71:                                               ; preds = %5
   %.val332 = load ptr, ptr %0, align 8
   %72 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val332, i32 noundef 2) #18
   %.not.i.i.i.i514 = icmp ne i32 %72, 0
   %..i.i.i.i515 = zext i1 %.not.i.i.i.i514 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 73:                                               ; preds = %5
   %74 = getelementptr inbounds i8, ptr %.tr756, i64 24
@@ -28210,84 +28210,84 @@ tailrecurse.backedge1964:                         ; preds = %tailrecurse.backedg
   %84 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val334, i32 noundef 2) #18
   %.not.i.i.i517 = icmp ne i32 %84, 0
   %..i.i.i518 = zext i1 %.not.i.i.i517 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 85:                                               ; preds = %79
   %.val335 = load ptr, ptr %0, align 8
   %86 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val335, i32 noundef 2) #18
   %.not.i.i.i519 = icmp ne i32 %86, 0
   %..i.i.i520 = zext i1 %.not.i.i.i519 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 87:                                               ; preds = %79
   %.val336 = load ptr, ptr %0, align 8
   %88 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val336, i32 noundef 2) #18
   %.not.i.i.i521 = icmp ne i32 %88, 0
   %..i.i.i522 = zext i1 %.not.i.i.i521 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 89:                                               ; preds = %79
   %.val337 = load ptr, ptr %0, align 8
   %90 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val337, i32 noundef 2) #18
   %.not.i.i.i523 = icmp ne i32 %90, 0
   %..i.i.i524 = zext i1 %.not.i.i.i523 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 91:                                               ; preds = %79
   %.val338 = load ptr, ptr %0, align 8
   %92 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val338, i32 noundef 2) #18
   %.not.i.i.i525 = icmp ne i32 %92, 0
   %..i.i.i526 = zext i1 %.not.i.i.i525 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 93:                                               ; preds = %79
   %.val339 = load ptr, ptr %0, align 8
   %94 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val339, i32 noundef 2) #18
   %.not.i.i.i527 = icmp ne i32 %94, 0
   %..i.i.i528 = zext i1 %.not.i.i.i527 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 95:                                               ; preds = %79
   %.val340 = load ptr, ptr %0, align 8
   %96 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val340, i32 noundef 2) #18
   %.not.i.i.i529 = icmp ne i32 %96, 0
   %..i.i.i530 = zext i1 %.not.i.i.i529 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 97:                                               ; preds = %79
   %.val341 = load ptr, ptr %0, align 8
   %98 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val341, i32 noundef 2) #18
   %.not.i.i.i531 = icmp ne i32 %98, 0
   %..i.i.i532 = zext i1 %.not.i.i.i531 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 99:                                               ; preds = %79
   %.val342 = load ptr, ptr %0, align 8
   %100 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val342, i32 noundef 2) #18
   %.not.i.i.i533 = icmp ne i32 %100, 0
   %..i.i.i534 = zext i1 %.not.i.i.i533 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 101:                                              ; preds = %79
   %.val343 = load ptr, ptr %0, align 8
   %102 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val343, i32 noundef 2) #18
   %.not.i.i.i535 = icmp ne i32 %102, 0
   %..i.i.i536 = zext i1 %.not.i.i.i535 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 103:                                              ; preds = %79
   %.val344 = load ptr, ptr %0, align 8
   %104 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val344, i32 noundef 2) #18
   %.not.i.i.i537 = icmp ne i32 %104, 0
   %..i.i.i538 = zext i1 %.not.i.i.i537 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 105:                                              ; preds = %79
   %.val345 = load ptr, ptr %0, align 8
   %106 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val345, i32 noundef 2) #18
   %.not.i.i.i539 = icmp ne i32 %106, 0
   %..i.i.i540 = zext i1 %.not.i.i.i539 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 107:                                              ; preds = %79
   %108 = getelementptr inbounds nuw i8, ptr %.tr756, i64 16
@@ -28298,12 +28298,12 @@ tailrecurse.backedge1964:                         ; preds = %tailrecurse.backedg
   %110 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val346, i32 noundef 2) #18
   %.not.i.i.i541 = icmp ne i32 %110, 0
   %..i.i.i542 = zext i1 %.not.i.i.i541 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 111:                                              ; preds = %77, %5
   switch i8 %3, label %112 [
-    i8 1, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 2, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+    i8 1, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 2, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
     i8 3, label %113
     i8 4, label %.thread
     i8 5, label %116
@@ -28431,119 +28431,119 @@ tailrecurse.backedge1964:                         ; preds = %tailrecurse.backedg
     i8 127, label %388
     i8 -128, label %390
     i8 -127, label %392
-    i8 -126, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -125, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -124, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -123, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -122, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -121, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -120, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -119, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -118, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -117, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -116, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -115, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -114, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -113, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -112, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -111, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -110, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -109, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -108, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -107, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -106, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -105, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -104, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -103, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -102, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -101, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -100, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -99, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -98, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -97, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -96, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -95, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -94, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -93, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -92, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -91, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -90, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -89, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -88, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -87, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -86, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -85, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -84, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -83, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -82, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -81, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -80, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -79, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -78, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -77, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -76, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -75, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -74, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -73, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -72, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -71, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -70, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -69, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -68, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -67, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -66, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -65, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -64, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -63, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -62, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -61, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -60, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -59, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -58, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -57, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -56, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -55, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -54, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -53, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -52, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -51, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -50, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -49, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -48, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -47, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -46, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -45, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -44, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -43, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -42, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -41, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -40, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -39, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -38, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -37, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -36, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -35, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -34, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -33, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -32, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -31, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -30, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -29, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -28, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -27, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -26, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -25, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -24, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -23, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -22, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -21, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -20, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -19, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -18, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -17, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -16, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -15, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
-    i8 -14, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+    i8 -126, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -125, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -124, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -123, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -122, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -121, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -120, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -119, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -118, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -117, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -116, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -115, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -114, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -113, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -112, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -111, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -110, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -109, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -108, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -107, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -106, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -105, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -104, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -103, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -102, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -101, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -100, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -99, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -98, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -97, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -96, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -95, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -94, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -93, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -92, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -91, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -90, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -89, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -88, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -87, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -86, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -85, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -84, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -83, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -82, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -81, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -80, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -79, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -78, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -77, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -76, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -75, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -74, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -73, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -72, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -71, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -70, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -69, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -68, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -67, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -66, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -65, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -64, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -63, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -62, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -61, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -60, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -59, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -58, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -57, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -56, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -55, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -54, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -53, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -52, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -51, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -50, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -49, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -48, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -47, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -46, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -45, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -44, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -43, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -42, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -41, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -40, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -39, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -38, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -37, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -36, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -35, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -34, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -33, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -32, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -31, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -30, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -29, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -28, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -27, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -26, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -25, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -24, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -23, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -22, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -21, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -20, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -19, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -18, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -17, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -16, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -15, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
+    i8 -14, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
   ]
 
 112:                                              ; preds = %111
@@ -28554,56 +28554,56 @@ tailrecurse.backedge1964:                         ; preds = %tailrecurse.backedg
   %114 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val347, i32 noundef 2) #18
   %.not.i.i = icmp ne i32 %114, 0
   %..i.i = zext i1 %.not.i.i to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 .thread:                                          ; preds = %79, %111
   %.val333 = load ptr, ptr %0, align 8
   %115 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val333, i32 noundef 2) #18
   %.not.i.i543 = icmp ne i32 %115, 0
   %..i.i544 = zext i1 %.not.i.i543 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 116:                                              ; preds = %111
   %.val348 = load ptr, ptr %0, align 8
   %117 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val348, i32 noundef 2) #18
   %.not.i.i545 = icmp ne i32 %117, 0
   %..i.i546 = zext i1 %.not.i.i545 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 118:                                              ; preds = %111
   %.val349 = load ptr, ptr %0, align 8
   %119 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val349, i32 noundef 2) #18
   %.not.i.i547 = icmp ne i32 %119, 0
   %..i.i548 = zext i1 %.not.i.i547 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 120:                                              ; preds = %111
   %.val350 = load ptr, ptr %0, align 8
   %121 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val350, i32 noundef 2) #18
   %.not.i.i549 = icmp ne i32 %121, 0
   %..i.i550 = zext i1 %.not.i.i549 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 122:                                              ; preds = %111
   %.val351 = load ptr, ptr %0, align 8
   %123 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val351, i32 noundef 2) #18
   %.not.i.i551 = icmp ne i32 %123, 0
   %..i.i552 = zext i1 %.not.i.i551 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 124:                                              ; preds = %111
   %.val352 = load ptr, ptr %0, align 8
   %125 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val352, i32 noundef 2) #18
   %.not.i.i553 = icmp ne i32 %125, 0
   %..i.i554 = zext i1 %.not.i.i553 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 126:                                              ; preds = %111
   %.val353 = load ptr, ptr %0, align 8
   %127 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val353, i32 noundef 2) #18
   %.not.i.i555 = icmp ne i32 %127, 0
   %..i.i556 = zext i1 %.not.i.i555 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 128:                                              ; preds = %111
   %129 = getelementptr inbounds nuw i8, ptr %.tr756, i64 16
@@ -28626,42 +28626,42 @@ tailrecurse.backedge1964:                         ; preds = %tailrecurse.backedg
   %141 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val354, i32 noundef 2) #18
   %.not.i.i557 = icmp ne i32 %141, 0
   %..i.i558 = zext i1 %.not.i.i557 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 142:                                              ; preds = %111
   %.val355 = load ptr, ptr %0, align 8
   %143 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val355, i32 noundef 2) #18
   %.not.i.i559 = icmp ne i32 %143, 0
   %..i.i560 = zext i1 %.not.i.i559 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 144:                                              ; preds = %111
   %.val356 = load ptr, ptr %0, align 8
   %145 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val356, i32 noundef 2) #18
   %.not.i.i561 = icmp ne i32 %145, 0
   %..i.i562 = zext i1 %.not.i.i561 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 146:                                              ; preds = %111
   %.val357 = load ptr, ptr %0, align 8
   %147 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val357, i32 noundef 2) #18
   %.not.i.i563 = icmp ne i32 %147, 0
   %..i.i564 = zext i1 %.not.i.i563 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 148:                                              ; preds = %111
   %.val358 = load ptr, ptr %0, align 8
   %149 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val358, i32 noundef 2) #18
   %.not.i.i565 = icmp ne i32 %149, 0
   %..i.i566 = zext i1 %.not.i.i565 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 150:                                              ; preds = %111
   %.val359 = load ptr, ptr %0, align 8
   %151 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val359, i32 noundef 2) #18
   %.not.i.i567 = icmp ne i32 %151, 0
   %..i.i568 = zext i1 %.not.i.i567 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 _ZN5clang16PseudoObjectExpr13getResultExprEv.exit: ; preds = %111
   %152 = load i64, ptr %.tr756, align 8
@@ -28677,91 +28677,91 @@ _ZN5clang16PseudoObjectExpr13getResultExprEv.exit: ; preds = %111
   %158 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val360, i32 noundef 2) #18
   %.not.i.i569 = icmp ne i32 %158, 0
   %..i.i570 = zext i1 %.not.i.i569 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 159:                                              ; preds = %111
   %.val361 = load ptr, ptr %0, align 8
   %160 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val361, i32 noundef 2) #18
   %.not.i.i571 = icmp ne i32 %160, 0
   %..i.i572 = zext i1 %.not.i.i571 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 161:                                              ; preds = %111
   %.val362 = load ptr, ptr %0, align 8
   %162 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val362, i32 noundef 2) #18
   %.not.i.i573 = icmp ne i32 %162, 0
   %..i.i574 = zext i1 %.not.i.i573 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 163:                                              ; preds = %111
   %.val363 = load ptr, ptr %0, align 8
   %164 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val363, i32 noundef 2) #18
   %.not.i.i575 = icmp ne i32 %164, 0
   %..i.i576 = zext i1 %.not.i.i575 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 165:                                              ; preds = %111
   %.val364 = load ptr, ptr %0, align 8
   %166 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val364, i32 noundef 2) #18
   %.not.i.i577 = icmp ne i32 %166, 0
   %..i.i578 = zext i1 %.not.i.i577 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 167:                                              ; preds = %111
   %.val365 = load ptr, ptr %0, align 8
   %168 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val365, i32 noundef 2) #18
   %.not.i.i.i579 = icmp ne i32 %168, 0
   %..i.i.i580 = zext i1 %.not.i.i.i579 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 169:                                              ; preds = %111
   %.val366 = load ptr, ptr %0, align 8
   %170 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val366, i32 noundef 2) #18
   %.not.i.i.i581 = icmp ne i32 %170, 0
   %..i.i.i582 = zext i1 %.not.i.i.i581 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 171:                                              ; preds = %111
   %.val367 = load ptr, ptr %0, align 8
   %172 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val367, i32 noundef 2) #18
   %.not.i.i583 = icmp ne i32 %172, 0
   %..i.i584 = zext i1 %.not.i.i583 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 173:                                              ; preds = %111
   %.val368 = load ptr, ptr %0, align 8
   %174 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val368, i32 noundef 2) #18
   %.not.i.i585 = icmp ne i32 %174, 0
   %..i.i586 = zext i1 %.not.i.i585 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 175:                                              ; preds = %111
   %.val369 = load ptr, ptr %0, align 8
   %176 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val369, i32 noundef 2) #18
   %.not.i.i587 = icmp ne i32 %176, 0
   %..i.i588 = zext i1 %.not.i.i587 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 177:                                              ; preds = %111
   %178 = getelementptr i8, ptr %0, i64 12
   %.val370 = load i32, ptr %178, align 4
   %switch.tableidx = add i32 %.val370, -1
   %179 = icmp ult i32 %switch.tableidx, 4
-  br i1 %179, label %switch.lookup, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br i1 %179, label %switch.lookup, label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 180:                                              ; preds = %111
   %.val371 = load ptr, ptr %0, align 8
   %181 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val371, i32 noundef 2) #18
   %.not.i.i589 = icmp ne i32 %181, 0
   %..i.i590 = zext i1 %.not.i.i589 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 182:                                              ; preds = %111
   %.val372 = load ptr, ptr %0, align 8
   %183 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val372, i32 noundef 2) #18
   %.not.i.i591 = icmp ne i32 %183, 0
   %..i.i592 = zext i1 %.not.i.i591 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 184:                                              ; preds = %111
   %185 = getelementptr i8, ptr %0, i64 12
@@ -28772,17 +28772,17 @@ _ZN5clang16PseudoObjectExpr13getResultExprEv.exit: ; preds = %111
   %.not.i.i593 = icmp eq i64 %187, 0
   %188 = and i64 %.val374, -8
   %189 = inttoptr i64 %188 to ptr
-  br i1 %.not.i.i593, label %190, label %_ZN12_GLOBAL__N_114ARCCastChecker24VisitObjCPropertyRefExprEPN5clang19ObjCPropertyRefExprE.exit
+  br i1 %.not.i.i593, label %190, label %_ZN12_GLOBAL__N_114ARCCastChecker24VisitObjCPropertyRefExprEPN5clang19ObjCPropertyRefExprE.argprom.exit
 
 190:                                              ; preds = %184
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 104
   %192 = load ptr, ptr %191, align 8
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker24VisitObjCPropertyRefExprEPN5clang19ObjCPropertyRefExprE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker24VisitObjCPropertyRefExprEPN5clang19ObjCPropertyRefExprE.argprom.exit
 
-_ZN12_GLOBAL__N_114ARCCastChecker24VisitObjCPropertyRefExprEPN5clang19ObjCPropertyRefExprE.exit: ; preds = %184, %190
+_ZN12_GLOBAL__N_114ARCCastChecker24VisitObjCPropertyRefExprEPN5clang19ObjCPropertyRefExprE.argprom.exit: ; preds = %184, %190
   %.0.i = phi ptr [ %192, %190 ], [ %189, %184 ]
-  %193 = tail call fastcc noundef range(i32 0, 4) i32 @_ZN12_GLOBAL__N_114ARCCastChecker17checkCallToMethodEPN5clang14ObjCMethodDeclE(i32 %.val373, ptr noundef %.0.i)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  %193 = tail call fastcc noundef range(i32 0, 4) i32 @_ZN12_GLOBAL__N_114ARCCastChecker17checkCallToMethodEPN5clang14ObjCMethodDeclE.argprom(i32 %.val373, ptr noundef %.0.i)
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 194:                                              ; preds = %111
   %195 = getelementptr i8, ptr %0, i64 12
@@ -28795,645 +28795,645 @@ _ZN12_GLOBAL__N_114ARCCastChecker24VisitObjCPropertyRefExprEPN5clang19ObjCProper
   %.not.i.i594 = icmp eq i32 %198, 0
   %199 = inttoptr i64 %.val376 to ptr
   %.0.i.i = select i1 %.not.i.i594, ptr null, ptr %199
-  %200 = tail call fastcc noundef range(i32 0, 4) i32 @_ZN12_GLOBAL__N_114ARCCastChecker17checkCallToMethodEPN5clang14ObjCMethodDeclE(i32 %.val375, ptr noundef %.0.i.i)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  %200 = tail call fastcc noundef range(i32 0, 4) i32 @_ZN12_GLOBAL__N_114ARCCastChecker17checkCallToMethodEPN5clang14ObjCMethodDeclE.argprom(i32 %.val375, ptr noundef %.0.i.i)
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 201:                                              ; preds = %111
   %.val378 = load ptr, ptr %0, align 8
   %202 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val378, i32 noundef 2) #18
   %.not.i.i595 = icmp ne i32 %202, 0
   %..i.i596 = zext i1 %.not.i.i595 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 203:                                              ; preds = %111
   %.val379 = load ptr, ptr %0, align 8
   %204 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val379, i32 noundef 2) #18
   %.not.i.i597 = icmp ne i32 %204, 0
   %..i.i598 = zext i1 %.not.i.i597 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 205:                                              ; preds = %111
   %.val380 = load ptr, ptr %0, align 8
   %206 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val380, i32 noundef 2) #18
   %.not.i.i599 = icmp ne i32 %206, 0
   %..i.i600 = zext i1 %.not.i.i599 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 207:                                              ; preds = %111
   %.val381 = load ptr, ptr %0, align 8
   %208 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val381, i32 noundef 2) #18
   %.not.i.i601 = icmp ne i32 %208, 0
   %..i.i602 = zext i1 %.not.i.i601 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 209:                                              ; preds = %111
   %.val382 = load ptr, ptr %0, align 8
   %210 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val382, i32 noundef 2) #18
   %.not.i.i603 = icmp ne i32 %210, 0
   %..i.i604 = zext i1 %.not.i.i603 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 211:                                              ; preds = %111
   %.val383 = load ptr, ptr %0, align 8
   %212 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val383, i32 noundef 2) #18
   %.not.i.i605 = icmp ne i32 %212, 0
   %..i.i606 = zext i1 %.not.i.i605 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 213:                                              ; preds = %111
   %.val384 = load ptr, ptr %0, align 8
   %214 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val384, i32 noundef 2) #18
   %.not.i.i607 = icmp ne i32 %214, 0
   %..i.i608 = zext i1 %.not.i.i607 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 215:                                              ; preds = %111
   %.val385 = load ptr, ptr %0, align 8
   %216 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val385, i32 noundef 2) #18
   %.not.i.i609 = icmp ne i32 %216, 0
   %..i.i610 = zext i1 %.not.i.i609 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 217:                                              ; preds = %111
   %.val386 = load ptr, ptr %0, align 8
   %218 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val386, i32 noundef 2) #18
   %.not.i.i611 = icmp ne i32 %218, 0
   %..i.i612 = zext i1 %.not.i.i611 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 219:                                              ; preds = %111
   %.val387 = load ptr, ptr %0, align 8
   %220 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val387, i32 noundef 2) #18
   %.not.i.i613 = icmp ne i32 %220, 0
   %..i.i614 = zext i1 %.not.i.i613 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 221:                                              ; preds = %111
   %.val388 = load ptr, ptr %0, align 8
   %222 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val388, i32 noundef 2) #18
   %.not.i.i615 = icmp ne i32 %222, 0
   %..i.i616 = zext i1 %.not.i.i615 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 223:                                              ; preds = %111
   %.val389 = load ptr, ptr %0, align 8
   %224 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val389, i32 noundef 2) #18
   %.not.i.i617 = icmp ne i32 %224, 0
   %..i.i618 = zext i1 %.not.i.i617 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 225:                                              ; preds = %111
   %.val390 = load ptr, ptr %0, align 8
   %226 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val390, i32 noundef 2) #18
   %.not.i.i619 = icmp ne i32 %226, 0
   %..i.i620 = zext i1 %.not.i.i619 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 227:                                              ; preds = %111
   %.val391 = load ptr, ptr %0, align 8
   %228 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val391, i32 noundef 2) #18
   %.not.i.i621 = icmp ne i32 %228, 0
   %..i.i622 = zext i1 %.not.i.i621 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 229:                                              ; preds = %111
   %.val392 = load ptr, ptr %0, align 8
   %230 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val392, i32 noundef 2) #18
   %.not.i.i623 = icmp ne i32 %230, 0
   %..i.i624 = zext i1 %.not.i.i623 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 231:                                              ; preds = %111
   %.val393 = load ptr, ptr %0, align 8
   %232 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val393, i32 noundef 2) #18
   %.not.i.i625 = icmp ne i32 %232, 0
   %..i.i626 = zext i1 %.not.i.i625 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 233:                                              ; preds = %111
   %.val394 = load ptr, ptr %0, align 8
   %234 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val394, i32 noundef 2) #18
   %.not.i.i627 = icmp ne i32 %234, 0
   %..i.i628 = zext i1 %.not.i.i627 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 235:                                              ; preds = %111
   %.val395 = load ptr, ptr %0, align 8
   %236 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val395, i32 noundef 2) #18
   %.not.i.i629 = icmp ne i32 %236, 0
   %..i.i630 = zext i1 %.not.i.i629 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 237:                                              ; preds = %111
   %.val396 = load ptr, ptr %0, align 8
   %238 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val396, i32 noundef 2) #18
   %.not.i.i631 = icmp ne i32 %238, 0
   %..i.i632 = zext i1 %.not.i.i631 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 239:                                              ; preds = %111
   %.val397 = load ptr, ptr %0, align 8
   %240 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val397, i32 noundef 2) #18
   %.not.i.i633 = icmp ne i32 %240, 0
   %..i.i634 = zext i1 %.not.i.i633 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 241:                                              ; preds = %111
   %.val398 = load ptr, ptr %0, align 8
   %242 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val398, i32 noundef 2) #18
   %.not.i.i635 = icmp ne i32 %242, 0
   %..i.i636 = zext i1 %.not.i.i635 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 243:                                              ; preds = %111
   %.val399 = load ptr, ptr %0, align 8
   %244 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val399, i32 noundef 2) #18
   %.not.i.i637 = icmp ne i32 %244, 0
   %..i.i638 = zext i1 %.not.i.i637 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 245:                                              ; preds = %111
   %.val400 = load ptr, ptr %0, align 8
   %246 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val400, i32 noundef 2) #18
   %.not.i.i639 = icmp ne i32 %246, 0
   %..i.i640 = zext i1 %.not.i.i639 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 247:                                              ; preds = %111
   %.val401 = load ptr, ptr %0, align 8
   %248 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val401, i32 noundef 2) #18
   %.not.i.i641 = icmp ne i32 %248, 0
   %..i.i642 = zext i1 %.not.i.i641 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 249:                                              ; preds = %111
   %.val402 = load ptr, ptr %0, align 8
   %250 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val402, i32 noundef 2) #18
   %.not.i.i643 = icmp ne i32 %250, 0
   %..i.i644 = zext i1 %.not.i.i643 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 251:                                              ; preds = %111
   %.val403 = load ptr, ptr %0, align 8
   %252 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val403, i32 noundef 2) #18
   %.not.i.i645 = icmp ne i32 %252, 0
   %..i.i646 = zext i1 %.not.i.i645 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 253:                                              ; preds = %111
   %.val404 = load ptr, ptr %0, align 8
   %254 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val404, i32 noundef 2) #18
   %.not.i.i.i647 = icmp ne i32 %254, 0
   %..i.i.i648 = zext i1 %.not.i.i.i647 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 255:                                              ; preds = %111
   %.val405 = load ptr, ptr %0, align 8
   %256 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val405, i32 noundef 2) #18
   %.not.i.i.i649 = icmp ne i32 %256, 0
   %..i.i.i650 = zext i1 %.not.i.i.i649 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 257:                                              ; preds = %111
   %.val406 = load ptr, ptr %0, align 8
   %258 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val406, i32 noundef 2) #18
   %.not.i.i651 = icmp ne i32 %258, 0
   %..i.i652 = zext i1 %.not.i.i651 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 259:                                              ; preds = %111
   %.val407 = load ptr, ptr %0, align 8
   %260 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val407, i32 noundef 2) #18
   %.not.i.i653 = icmp ne i32 %260, 0
   %..i.i654 = zext i1 %.not.i.i653 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 261:                                              ; preds = %111
   %.val408 = load ptr, ptr %0, align 8
   %262 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val408, i32 noundef 2) #18
   %.not.i.i655 = icmp ne i32 %262, 0
   %..i.i656 = zext i1 %.not.i.i655 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 263:                                              ; preds = %111
   %.val409 = load ptr, ptr %0, align 8
   %264 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val409, i32 noundef 2) #18
   %.not.i.i657 = icmp ne i32 %264, 0
   %..i.i658 = zext i1 %.not.i.i657 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 265:                                              ; preds = %111
   %.val410 = load ptr, ptr %0, align 8
   %266 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val410, i32 noundef 2) #18
   %.not.i.i659 = icmp ne i32 %266, 0
   %..i.i660 = zext i1 %.not.i.i659 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 267:                                              ; preds = %111
   %.val411 = load ptr, ptr %0, align 8
   %268 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val411, i32 noundef 2) #18
   %.not.i.i661 = icmp ne i32 %268, 0
   %..i.i662 = zext i1 %.not.i.i661 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 269:                                              ; preds = %111
   %.val412 = load ptr, ptr %0, align 8
   %270 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val412, i32 noundef 2) #18
   %.not.i.i663 = icmp ne i32 %270, 0
   %..i.i664 = zext i1 %.not.i.i663 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 271:                                              ; preds = %111
   %.val413 = load ptr, ptr %0, align 8
   %272 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val413, i32 noundef 2) #18
   %.not.i.i665 = icmp ne i32 %272, 0
   %..i.i666 = zext i1 %.not.i.i665 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 273:                                              ; preds = %111
   %.val414 = load ptr, ptr %0, align 8
   %274 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val414, i32 noundef 2) #18
   %.not.i.i667 = icmp ne i32 %274, 0
   %..i.i668 = zext i1 %.not.i.i667 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 275:                                              ; preds = %111
   %276 = getelementptr i8, ptr %.tr756, i64 16
   %.val415 = load ptr, ptr %276, align 8
-  %277 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_114ARCCastChecker16VisitDeclRefExprEPN5clang11DeclRefExprE(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr %.val415)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  %277 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_114ARCCastChecker16VisitDeclRefExprEPN5clang11DeclRefExprE.argprom(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr %.val415)
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 278:                                              ; preds = %111
   %.val416 = load ptr, ptr %0, align 8
   %279 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val416, i32 noundef 2) #18
   %.not.i.i.i669 = icmp ne i32 %279, 0
   %..i.i.i670 = zext i1 %.not.i.i.i669 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 280:                                              ; preds = %111
   %.val417 = load ptr, ptr %0, align 8
   %281 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val417, i32 noundef 2) #18
   %.not.i.i.i671 = icmp ne i32 %281, 0
   %..i.i.i672 = zext i1 %.not.i.i.i671 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 282:                                              ; preds = %111
   %.val418 = load ptr, ptr %0, align 8
   %283 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val418, i32 noundef 2) #18
   %.not.i.i673 = icmp ne i32 %283, 0
   %..i.i674 = zext i1 %.not.i.i673 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 284:                                              ; preds = %111
   %.val419 = load ptr, ptr %0, align 8
   %285 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val419, i32 noundef 2) #18
   %.not.i.i675 = icmp ne i32 %285, 0
   %..i.i676 = zext i1 %.not.i.i675 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 286:                                              ; preds = %111
   %.val420 = load ptr, ptr %0, align 8
   %287 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val420, i32 noundef 2) #18
   %.not.i.i677 = icmp ne i32 %287, 0
   %..i.i678 = zext i1 %.not.i.i677 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 288:                                              ; preds = %111
   %.val421 = load ptr, ptr %0, align 8
   %289 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val421, i32 noundef 2) #18
   %.not.i.i679 = icmp ne i32 %289, 0
   %..i.i680 = zext i1 %.not.i.i679 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 290:                                              ; preds = %111
   %.val422 = load ptr, ptr %0, align 8
   %291 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val422, i32 noundef 2) #18
   %.not.i.i681 = icmp ne i32 %291, 0
   %..i.i682 = zext i1 %.not.i.i681 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 292:                                              ; preds = %111
   %293 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_114ARCCastChecker13VisitCastExprEPN5clang8CastExprE(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull %.tr756)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 294:                                              ; preds = %111
   %295 = tail call fastcc noundef i32 @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_114ARCCastCheckerENS2_9ACCResultEJEE21VisitExplicitCastExprEPNS_16ExplicitCastExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr756)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 296:                                              ; preds = %111
   %297 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_114ARCCastChecker13VisitCastExprEPN5clang8CastExprE(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull %.tr756)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 298:                                              ; preds = %111
   %299 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_114ARCCastChecker13VisitCastExprEPN5clang8CastExprE(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull %.tr756)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 300:                                              ; preds = %111
   %301 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_114ARCCastChecker13VisitCastExprEPN5clang8CastExprE(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull %.tr756)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 302:                                              ; preds = %111
   %303 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_114ARCCastChecker13VisitCastExprEPN5clang8CastExprE(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull %.tr756)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 304:                                              ; preds = %111
   %305 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_114ARCCastChecker13VisitCastExprEPN5clang8CastExprE(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull %.tr756)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 306:                                              ; preds = %111
   %307 = tail call fastcc noundef i32 @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_114ARCCastCheckerENS2_9ACCResultEJEE21VisitExplicitCastExprEPNS_16ExplicitCastExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr756)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 308:                                              ; preds = %111
   %309 = tail call fastcc noundef i32 @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_114ARCCastCheckerENS2_9ACCResultEJEE21VisitExplicitCastExprEPNS_16ExplicitCastExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr756)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 310:                                              ; preds = %111
   %311 = tail call fastcc noundef i32 @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_114ARCCastCheckerENS2_9ACCResultEJEE21VisitExplicitCastExprEPNS_16ExplicitCastExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr756)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 312:                                              ; preds = %111
   %313 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_114ARCCastChecker13VisitCallExprEPN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull %.tr756)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 314:                                              ; preds = %111
   %315 = tail call fastcc noundef range(i32 0, 4) i32 @_ZN12_GLOBAL__N_114ARCCastChecker13VisitCallExprEPN5clang8CallExprE(ptr noundef nonnull readonly align 8 dereferenceable(17) %0, ptr noundef nonnull %.tr756)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 316:                                              ; preds = %111
   %317 = tail call fastcc noundef range(i32 0, 4) i32 @_ZN12_GLOBAL__N_114ARCCastChecker13VisitCallExprEPN5clang8CallExprE(ptr noundef nonnull readonly align 8 dereferenceable(17) %0, ptr noundef nonnull %.tr756)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 318:                                              ; preds = %111
   %319 = tail call fastcc noundef range(i32 0, 4) i32 @_ZN12_GLOBAL__N_114ARCCastChecker13VisitCallExprEPN5clang8CallExprE(ptr noundef nonnull readonly align 8 dereferenceable(17) %0, ptr noundef nonnull %.tr756)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 320:                                              ; preds = %111
   %321 = tail call fastcc noundef range(i32 0, 4) i32 @_ZN12_GLOBAL__N_114ARCCastChecker13VisitCallExprEPN5clang8CallExprE(ptr noundef nonnull readonly align 8 dereferenceable(17) %0, ptr noundef nonnull %.tr756)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 322:                                              ; preds = %111
   %.val423 = load ptr, ptr %0, align 8
   %323 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val423, i32 noundef 2) #18
   %.not.i.i683 = icmp ne i32 %323, 0
   %..i.i684 = zext i1 %.not.i.i683 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 324:                                              ; preds = %111
   %.val424 = load ptr, ptr %0, align 8
   %325 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val424, i32 noundef 2) #18
   %.not.i.i685 = icmp ne i32 %325, 0
   %..i.i686 = zext i1 %.not.i.i685 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 326:                                              ; preds = %111
   %.val425 = load ptr, ptr %0, align 8
   %327 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val425, i32 noundef 2) #18
   %.not.i.i687 = icmp ne i32 %327, 0
   %..i.i688 = zext i1 %.not.i.i687 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 328:                                              ; preds = %111
   %.val426 = load ptr, ptr %0, align 8
   %329 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val426, i32 noundef 2) #18
   %.not.i.i689 = icmp ne i32 %329, 0
   %..i.i690 = zext i1 %.not.i.i689 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 330:                                              ; preds = %111
   %.val427 = load ptr, ptr %0, align 8
   %331 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val427, i32 noundef 2) #18
   %.not.i.i691 = icmp ne i32 %331, 0
   %..i.i692 = zext i1 %.not.i.i691 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 332:                                              ; preds = %111
   %.val428 = load ptr, ptr %0, align 8
   %333 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val428, i32 noundef 2) #18
   %.not.i.i693 = icmp ne i32 %333, 0
   %..i.i694 = zext i1 %.not.i.i693 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 334:                                              ; preds = %111
   %.val429 = load ptr, ptr %0, align 8
   %335 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val429, i32 noundef 2) #18
   %.not.i.i695 = icmp ne i32 %335, 0
   %..i.i696 = zext i1 %.not.i.i695 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 336:                                              ; preds = %111
   %.val430 = load ptr, ptr %0, align 8
   %337 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val430, i32 noundef 2) #18
   %.not.i.i697 = icmp ne i32 %337, 0
   %..i.i698 = zext i1 %.not.i.i697 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 338:                                              ; preds = %111
   %.val431 = load ptr, ptr %0, align 8
   %339 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val431, i32 noundef 2) #18
   %.not.i.i699 = icmp ne i32 %339, 0
   %..i.i700 = zext i1 %.not.i.i699 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 340:                                              ; preds = %111
   %.val432 = load ptr, ptr %0, align 8
   %341 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val432, i32 noundef 2) #18
   %.not.i.i701 = icmp ne i32 %341, 0
   %..i.i702 = zext i1 %.not.i.i701 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 342:                                              ; preds = %111
   %.val433 = load ptr, ptr %0, align 8
   %343 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val433, i32 noundef 2) #18
   %.not.i.i703 = icmp ne i32 %343, 0
   %..i.i704 = zext i1 %.not.i.i703 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 344:                                              ; preds = %111
   %.val434 = load ptr, ptr %0, align 8
   %345 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val434, i32 noundef 2) #18
   %.not.i.i705 = icmp ne i32 %345, 0
   %..i.i706 = zext i1 %.not.i.i705 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 346:                                              ; preds = %111
   %.val435 = load ptr, ptr %0, align 8
   %347 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val435, i32 noundef 2) #18
   %.not.i.i707 = icmp ne i32 %347, 0
   %..i.i708 = zext i1 %.not.i.i707 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 348:                                              ; preds = %111
   %.val436 = load ptr, ptr %0, align 8
   %349 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val436, i32 noundef 2) #18
   %.not.i.i709 = icmp ne i32 %349, 0
   %..i.i710 = zext i1 %.not.i.i709 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 350:                                              ; preds = %111
   %.val437 = load ptr, ptr %0, align 8
   %351 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val437, i32 noundef 2) #18
   %.not.i.i711 = icmp ne i32 %351, 0
   %..i.i712 = zext i1 %.not.i.i711 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 352:                                              ; preds = %111
   %.val438 = load ptr, ptr %0, align 8
   %353 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val438, i32 noundef 2) #18
   %.not.i.i713 = icmp ne i32 %353, 0
   %..i.i714 = zext i1 %.not.i.i713 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 354:                                              ; preds = %111
   %.val439 = load ptr, ptr %0, align 8
   %355 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val439, i32 noundef 2) #18
   %.not.i.i715 = icmp ne i32 %355, 0
   %..i.i716 = zext i1 %.not.i.i715 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 356:                                              ; preds = %111
   %.val440 = load ptr, ptr %0, align 8
   %357 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val440, i32 noundef 2) #18
   %.not.i.i717 = icmp ne i32 %357, 0
   %..i.i718 = zext i1 %.not.i.i717 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 358:                                              ; preds = %111
   %.val441 = load ptr, ptr %0, align 8
   %359 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val441, i32 noundef 2) #18
   %.not.i.i719 = icmp ne i32 %359, 0
   %..i.i720 = zext i1 %.not.i.i719 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 360:                                              ; preds = %111
   %.val442 = load ptr, ptr %0, align 8
   %361 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val442, i32 noundef 2) #18
   %.not.i.i721 = icmp ne i32 %361, 0
   %..i.i722 = zext i1 %.not.i.i721 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 362:                                              ; preds = %111
   %.val443 = load ptr, ptr %0, align 8
   %363 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val443, i32 noundef 2) #18
   %.not.i.i.i723 = icmp ne i32 %363, 0
   %..i.i.i724 = zext i1 %.not.i.i.i723 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 364:                                              ; preds = %111
   %.val444 = load ptr, ptr %0, align 8
   %365 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val444, i32 noundef 2) #18
   %.not.i.i725 = icmp ne i32 %365, 0
   %..i.i726 = zext i1 %.not.i.i725 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 366:                                              ; preds = %111
   %.val445 = load ptr, ptr %0, align 8
   %367 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val445, i32 noundef 2) #18
   %.not.i.i727 = icmp ne i32 %367, 0
   %..i.i728 = zext i1 %.not.i.i727 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 368:                                              ; preds = %111
   %.val446 = load ptr, ptr %0, align 8
   %369 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val446, i32 noundef 2) #18
   %.not.i.i729 = icmp ne i32 %369, 0
   %..i.i730 = zext i1 %.not.i.i729 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 370:                                              ; preds = %111
   %.val = load ptr, ptr %0, align 8
   %371 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val, i32 noundef 2) #18
   %.not.i.i731 = icmp ne i32 %371, 0
   %..i.i732 = zext i1 %.not.i.i731 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 372:                                              ; preds = %111
   %.val322 = load ptr, ptr %0, align 8
   %373 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val322, i32 noundef 2) #18
   %.not.i.i.i733 = icmp ne i32 %373, 0
   %..i.i.i734 = zext i1 %.not.i.i.i733 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 374:                                              ; preds = %111
   %.val447 = load ptr, ptr %0, align 8
   %375 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val447, i32 noundef 2) #18
   %.not.i.i735 = icmp ne i32 %375, 0
   %..i.i736 = zext i1 %.not.i.i735 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 376:                                              ; preds = %111
   %.val448 = load ptr, ptr %0, align 8
   %377 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val448, i32 noundef 2) #18
   %.not.i.i737 = icmp ne i32 %377, 0
   %..i.i738 = zext i1 %.not.i.i737 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 378:                                              ; preds = %111
   %.val449 = load ptr, ptr %0, align 8
   %379 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val449, i32 noundef 2) #18
   %.not.i.i739 = icmp ne i32 %379, 0
   %..i.i740 = zext i1 %.not.i.i739 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 380:                                              ; preds = %111
   %.val450 = load ptr, ptr %0, align 8
   %381 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val450, i32 noundef 2) #18
   %.not.i.i741 = icmp ne i32 %381, 0
   %..i.i742 = zext i1 %.not.i.i741 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 382:                                              ; preds = %111
   %.val451 = load ptr, ptr %0, align 8
   %383 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val451, i32 noundef 2) #18
   %.not.i.i743 = icmp ne i32 %383, 0
   %..i.i744 = zext i1 %.not.i.i743 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 384:                                              ; preds = %111
   %.val452 = load ptr, ptr %0, align 8
   %385 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val452, i32 noundef 2) #18
   %.not.i.i745 = icmp ne i32 %385, 0
   %..i.i746 = zext i1 %.not.i.i745 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 386:                                              ; preds = %111
   %.val453 = load ptr, ptr %0, align 8
   %387 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val453, i32 noundef 2) #18
   %.not.i.i747 = icmp ne i32 %387, 0
   %..i.i748 = zext i1 %.not.i.i747 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 388:                                              ; preds = %111
   %.val454 = load ptr, ptr %0, align 8
   %389 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val454, i32 noundef 2) #18
   %.not.i.i749 = icmp ne i32 %389, 0
   %..i.i750 = zext i1 %.not.i.i749 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 390:                                              ; preds = %111
   %391 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_114ARCCastChecker24VisitConditionalOperatorEPN5clang19ConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull %.tr756)
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 392:                                              ; preds = %111
   %.val455 = load ptr, ptr %0, align 8
   %393 = tail call noundef i32 @_ZNK5clang4Expr21isNullPointerConstantERNS_10ASTContextENS0_34NullPointerConstantValueDependenceE(ptr noundef nonnull align 8 dereferenceable(16) %.tr756, ptr noundef nonnull align 8 dereferenceable(23096) %.val455, i32 noundef 2) #18
   %.not.i.i.i751 = icmp ne i32 %393, 0
   %..i.i.i752 = zext i1 %.not.i.i.i751 to i32
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
 switch.lookup:                                    ; preds = %177
   %394 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_114ARCCastCheckerENS2_9ACCResultEJEE5VisitEPNS_4StmtE, i64 0, i64 %394
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit
+  br label %_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit
 
-_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.exit: ; preds = %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %switch.lookup, %177, %392, %390, %388, %386, %384, %382, %380, %378, %376, %374, %372, %370, %368, %366, %364, %362, %360, %358, %356, %354, %352, %350, %348, %346, %344, %342, %340, %338, %336, %334, %332, %330, %328, %326, %324, %322, %320, %318, %316, %314, %312, %310, %308, %306, %304, %302, %300, %298, %296, %294, %292, %290, %288, %286, %284, %282, %280, %278, %275, %273, %271, %269, %267, %265, %263, %261, %259, %257, %255, %253, %251, %249, %247, %245, %243, %241, %239, %237, %235, %233, %231, %229, %227, %225, %223, %221, %219, %217, %215, %213, %211, %209, %207, %205, %203, %201, %194, %_ZN12_GLOBAL__N_114ARCCastChecker24VisitObjCPropertyRefExprEPN5clang19ObjCPropertyRefExprE.exit, %182, %180, %175, %173, %171, %169, %167, %165, %163, %161, %159, %157, %150, %148, %146, %144, %142, %140, %126, %124, %122, %120, %118, %116, %.thread, %113, %109, %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %83, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9
-  %.0 = phi i32 [ %..i.i.i752, %392 ], [ %391, %390 ], [ %..i.i750, %388 ], [ %..i.i748, %386 ], [ %..i.i746, %384 ], [ %..i.i744, %382 ], [ %..i.i742, %380 ], [ %..i.i740, %378 ], [ %..i.i738, %376 ], [ %..i.i736, %374 ], [ %..i.i.i734, %372 ], [ %..i.i732, %370 ], [ %..i.i730, %368 ], [ %..i.i728, %366 ], [ %..i.i726, %364 ], [ %..i.i.i724, %362 ], [ %..i.i722, %360 ], [ %..i.i720, %358 ], [ %..i.i718, %356 ], [ %..i.i716, %354 ], [ %..i.i714, %352 ], [ %..i.i712, %350 ], [ %..i.i710, %348 ], [ %..i.i708, %346 ], [ %..i.i706, %344 ], [ %..i.i704, %342 ], [ %..i.i702, %340 ], [ %..i.i700, %338 ], [ %..i.i698, %336 ], [ %..i.i696, %334 ], [ %..i.i694, %332 ], [ %..i.i692, %330 ], [ %..i.i690, %328 ], [ %..i.i688, %326 ], [ %..i.i686, %324 ], [ %..i.i684, %322 ], [ %321, %320 ], [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %297, %296 ], [ %295, %294 ], [ %293, %292 ], [ %..i.i682, %290 ], [ %..i.i680, %288 ], [ %..i.i678, %286 ], [ %..i.i676, %284 ], [ %..i.i674, %282 ], [ %..i.i.i672, %280 ], [ %..i.i.i670, %278 ], [ %277, %275 ], [ %..i.i668, %273 ], [ %..i.i666, %271 ], [ %..i.i664, %269 ], [ %..i.i662, %267 ], [ %..i.i660, %265 ], [ %..i.i658, %263 ], [ %..i.i656, %261 ], [ %..i.i654, %259 ], [ %..i.i652, %257 ], [ %..i.i.i650, %255 ], [ %..i.i.i648, %253 ], [ %..i.i646, %251 ], [ %..i.i644, %249 ], [ %..i.i642, %247 ], [ %..i.i640, %245 ], [ %..i.i638, %243 ], [ %..i.i636, %241 ], [ %..i.i634, %239 ], [ %..i.i632, %237 ], [ %..i.i630, %235 ], [ %..i.i628, %233 ], [ %..i.i626, %231 ], [ %..i.i624, %229 ], [ %..i.i622, %227 ], [ %..i.i620, %225 ], [ %..i.i618, %223 ], [ %..i.i616, %221 ], [ %..i.i614, %219 ], [ %..i.i612, %217 ], [ %..i.i610, %215 ], [ %..i.i608, %213 ], [ %..i.i606, %211 ], [ %..i.i604, %209 ], [ %..i.i602, %207 ], [ %..i.i600, %205 ], [ %..i.i598, %203 ], [ %..i.i596, %201 ], [ %200, %194 ], [ %193, %_ZN12_GLOBAL__N_114ARCCastChecker24VisitObjCPropertyRefExprEPN5clang19ObjCPropertyRefExprE.exit ], [ %..i.i592, %182 ], [ %..i.i590, %180 ], [ %..i.i588, %175 ], [ %..i.i586, %173 ], [ %..i.i584, %171 ], [ %..i.i.i582, %169 ], [ %..i.i.i580, %167 ], [ %..i.i578, %165 ], [ %..i.i576, %163 ], [ %..i.i574, %161 ], [ %..i.i572, %159 ], [ %..i.i570, %157 ], [ %..i.i568, %150 ], [ %..i.i566, %148 ], [ %..i.i564, %146 ], [ %..i.i562, %144 ], [ %..i.i560, %142 ], [ %..i.i558, %140 ], [ %..i.i556, %126 ], [ %..i.i554, %124 ], [ %..i.i552, %122 ], [ %..i.i550, %120 ], [ %..i.i548, %118 ], [ %..i.i546, %116 ], [ %..i.i544, %.thread ], [ %..i.i, %113 ], [ %..i.i.i.i515, %71 ], [ %..i.i.i.i513, %69 ], [ %..i.i.i.i511, %67 ], [ %..i.i.i.i509, %65 ], [ %..i.i.i.i507, %63 ], [ %..i.i.i.i505, %61 ], [ %..i.i.i.i503, %59 ], [ %..i.i.i.i501, %57 ], [ %..i.i.i.i499, %55 ], [ %..i.i.i.i, %53 ], [ %..i.i.i497, %51 ], [ %..i.i.i495, %49 ], [ %..i.i.i493, %47 ], [ %..i.i.i491, %45 ], [ %..i.i.i489, %43 ], [ %..i.i.i487, %41 ], [ %..i.i.i485, %39 ], [ %..i.i.i483, %37 ], [ %..i.i.i481, %35 ], [ %..i.i.i479, %33 ], [ %..i.i.i477, %31 ], [ %..i.i.i475, %29 ], [ %..i.i.i473, %27 ], [ %..i.i.i471, %25 ], [ %..i.i.i469, %23 ], [ %..i.i.i467, %21 ], [ %..i.i.i465, %19 ], [ %..i.i.i463, %17 ], [ %..i.i.i461, %15 ], [ %..i.i.i459, %13 ], [ %..i.i.i457, %11 ], [ %..i.i.i, %9 ], [ %..i.i.i542, %109 ], [ %..i.i.i540, %105 ], [ %..i.i.i538, %103 ], [ %..i.i.i536, %101 ], [ %..i.i.i534, %99 ], [ %..i.i.i532, %97 ], [ %..i.i.i530, %95 ], [ %..i.i.i528, %93 ], [ %..i.i.i526, %91 ], [ %..i.i.i524, %89 ], [ %..i.i.i522, %87 ], [ %..i.i.i520, %85 ], [ %..i.i.i518, %83 ], [ 0, %177 ], [ %switch.load, %switch.lookup ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ]
+_ZN12_GLOBAL__N_114ARCCastChecker22VisitObjCStringLiteralEPN5clang17ObjCStringLiteralE.argprom.exit: ; preds = %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %switch.lookup, %177, %392, %390, %388, %386, %384, %382, %380, %378, %376, %374, %372, %370, %368, %366, %364, %362, %360, %358, %356, %354, %352, %350, %348, %346, %344, %342, %340, %338, %336, %334, %332, %330, %328, %326, %324, %322, %320, %318, %316, %314, %312, %310, %308, %306, %304, %302, %300, %298, %296, %294, %292, %290, %288, %286, %284, %282, %280, %278, %275, %273, %271, %269, %267, %265, %263, %261, %259, %257, %255, %253, %251, %249, %247, %245, %243, %241, %239, %237, %235, %233, %231, %229, %227, %225, %223, %221, %219, %217, %215, %213, %211, %209, %207, %205, %203, %201, %194, %_ZN12_GLOBAL__N_114ARCCastChecker24VisitObjCPropertyRefExprEPN5clang19ObjCPropertyRefExprE.argprom.exit, %182, %180, %175, %173, %171, %169, %167, %165, %163, %161, %159, %157, %150, %148, %146, %144, %142, %140, %126, %124, %122, %120, %118, %116, %.thread, %113, %109, %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %83, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9
+  %.0 = phi i32 [ %..i.i.i752, %392 ], [ %391, %390 ], [ %..i.i750, %388 ], [ %..i.i748, %386 ], [ %..i.i746, %384 ], [ %..i.i744, %382 ], [ %..i.i742, %380 ], [ %..i.i740, %378 ], [ %..i.i738, %376 ], [ %..i.i736, %374 ], [ %..i.i.i734, %372 ], [ %..i.i732, %370 ], [ %..i.i730, %368 ], [ %..i.i728, %366 ], [ %..i.i726, %364 ], [ %..i.i.i724, %362 ], [ %..i.i722, %360 ], [ %..i.i720, %358 ], [ %..i.i718, %356 ], [ %..i.i716, %354 ], [ %..i.i714, %352 ], [ %..i.i712, %350 ], [ %..i.i710, %348 ], [ %..i.i708, %346 ], [ %..i.i706, %344 ], [ %..i.i704, %342 ], [ %..i.i702, %340 ], [ %..i.i700, %338 ], [ %..i.i698, %336 ], [ %..i.i696, %334 ], [ %..i.i694, %332 ], [ %..i.i692, %330 ], [ %..i.i690, %328 ], [ %..i.i688, %326 ], [ %..i.i686, %324 ], [ %..i.i684, %322 ], [ %321, %320 ], [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %297, %296 ], [ %295, %294 ], [ %293, %292 ], [ %..i.i682, %290 ], [ %..i.i680, %288 ], [ %..i.i678, %286 ], [ %..i.i676, %284 ], [ %..i.i674, %282 ], [ %..i.i.i672, %280 ], [ %..i.i.i670, %278 ], [ %277, %275 ], [ %..i.i668, %273 ], [ %..i.i666, %271 ], [ %..i.i664, %269 ], [ %..i.i662, %267 ], [ %..i.i660, %265 ], [ %..i.i658, %263 ], [ %..i.i656, %261 ], [ %..i.i654, %259 ], [ %..i.i652, %257 ], [ %..i.i.i650, %255 ], [ %..i.i.i648, %253 ], [ %..i.i646, %251 ], [ %..i.i644, %249 ], [ %..i.i642, %247 ], [ %..i.i640, %245 ], [ %..i.i638, %243 ], [ %..i.i636, %241 ], [ %..i.i634, %239 ], [ %..i.i632, %237 ], [ %..i.i630, %235 ], [ %..i.i628, %233 ], [ %..i.i626, %231 ], [ %..i.i624, %229 ], [ %..i.i622, %227 ], [ %..i.i620, %225 ], [ %..i.i618, %223 ], [ %..i.i616, %221 ], [ %..i.i614, %219 ], [ %..i.i612, %217 ], [ %..i.i610, %215 ], [ %..i.i608, %213 ], [ %..i.i606, %211 ], [ %..i.i604, %209 ], [ %..i.i602, %207 ], [ %..i.i600, %205 ], [ %..i.i598, %203 ], [ %..i.i596, %201 ], [ %200, %194 ], [ %193, %_ZN12_GLOBAL__N_114ARCCastChecker24VisitObjCPropertyRefExprEPN5clang19ObjCPropertyRefExprE.argprom.exit ], [ %..i.i592, %182 ], [ %..i.i590, %180 ], [ %..i.i588, %175 ], [ %..i.i586, %173 ], [ %..i.i584, %171 ], [ %..i.i.i582, %169 ], [ %..i.i.i580, %167 ], [ %..i.i578, %165 ], [ %..i.i576, %163 ], [ %..i.i574, %161 ], [ %..i.i572, %159 ], [ %..i.i570, %157 ], [ %..i.i568, %150 ], [ %..i.i566, %148 ], [ %..i.i564, %146 ], [ %..i.i562, %144 ], [ %..i.i560, %142 ], [ %..i.i558, %140 ], [ %..i.i556, %126 ], [ %..i.i554, %124 ], [ %..i.i552, %122 ], [ %..i.i550, %120 ], [ %..i.i548, %118 ], [ %..i.i546, %116 ], [ %..i.i544, %.thread ], [ %..i.i, %113 ], [ %..i.i.i.i515, %71 ], [ %..i.i.i.i513, %69 ], [ %..i.i.i.i511, %67 ], [ %..i.i.i.i509, %65 ], [ %..i.i.i.i507, %63 ], [ %..i.i.i.i505, %61 ], [ %..i.i.i.i503, %59 ], [ %..i.i.i.i501, %57 ], [ %..i.i.i.i499, %55 ], [ %..i.i.i.i, %53 ], [ %..i.i.i497, %51 ], [ %..i.i.i495, %49 ], [ %..i.i.i493, %47 ], [ %..i.i.i491, %45 ], [ %..i.i.i489, %43 ], [ %..i.i.i487, %41 ], [ %..i.i.i485, %39 ], [ %..i.i.i483, %37 ], [ %..i.i.i481, %35 ], [ %..i.i.i479, %33 ], [ %..i.i.i477, %31 ], [ %..i.i.i475, %29 ], [ %..i.i.i473, %27 ], [ %..i.i.i471, %25 ], [ %..i.i.i469, %23 ], [ %..i.i.i467, %21 ], [ %..i.i.i465, %19 ], [ %..i.i.i463, %17 ], [ %..i.i.i461, %15 ], [ %..i.i.i459, %13 ], [ %..i.i.i457, %11 ], [ %..i.i.i, %9 ], [ %..i.i.i542, %109 ], [ %..i.i.i540, %105 ], [ %..i.i.i538, %103 ], [ %..i.i.i536, %101 ], [ %..i.i.i534, %99 ], [ %..i.i.i532, %97 ], [ %..i.i.i530, %95 ], [ %..i.i.i528, %93 ], [ %..i.i.i526, %91 ], [ %..i.i.i524, %89 ], [ %..i.i.i522, %87 ], [ %..i.i.i520, %85 ], [ %..i.i.i518, %83 ], [ 0, %177 ], [ %switch.load, %switch.lookup ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ], [ 0, %111 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_114ARCCastChecker16VisitDeclRefExprEPN5clang11DeclRefExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr %.16.val) unnamed_addr #0 align 2 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_114ARCCastChecker16VisitDeclRefExprEPN5clang11DeclRefExprE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr %.16.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %.16.val, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 127
@@ -29774,7 +29774,7 @@ _ZN12_GLOBAL__N_15mergeENS_9ACCResultES0_.exit:   ; preds = %16, %14, %8, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZN12_GLOBAL__N_114ARCCastChecker17checkCallToMethodEPN5clang14ObjCMethodDeclE(i32 %.12.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZN12_GLOBAL__N_114ARCCastChecker17checkCallToMethodEPN5clang14ObjCMethodDeclE.argprom(i32 %.12.val, ptr noundef %0) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZL15isAnyRetainable22ARCConversionTypeClass.exit, label %2
 
@@ -29905,7 +29905,7 @@ _ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.thread: ; preds = %
 
 switch.lookup:                                    ; preds = %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.thread
   %56 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN12_GLOBAL__N_114ARCCastChecker17checkCallToMethodEPN5clang14ObjCMethodDeclE, i64 0, i64 %56
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN12_GLOBAL__N_114ARCCastChecker17checkCallToMethodEPN5clang14ObjCMethodDeclE.argprom, i64 0, i64 %56
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL15isAnyRetainable22ARCConversionTypeClass.exit
 
@@ -31651,7 +31651,7 @@ define linkonce_odr hidden void @_ZN5clang4Sema18BoundTypeDiagnoserIJNS_11Source
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL17getObjCBridgeAttrIN5clang14ObjCBridgeAttrEEPT_PKNS0_11TypedefTypeE(i64 %.32.val.80.val) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL17getObjCBridgeAttrIN5clang14ObjCBridgeAttrEEPT_PKNS0_11TypedefTypeE.argprom.argprom(i64 %.32.val.80.val) unnamed_addr #0 {
   %1 = and i64 %.32.val.80.val, -8
   %2 = inttoptr i64 %1 to ptr
   %3 = shl i64 %.32.val.80.val, 1
@@ -31822,7 +31822,7 @@ _ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread: ; preds = %_ZN5clang18
 declare noundef zeroext i1 @_ZN5clang10ASTContext30ObjCObjectAdoptsQTypeProtocolsENS_8QualTypeEPNS_17ObjCInterfaceDeclE(ptr noundef nonnull align 8 dereferenceable(23096), i64, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL17getObjCBridgeAttrIN5clang21ObjCBridgeMutableAttrEEPT_PKNS0_11TypedefTypeE(i64 %.32.val.80.val) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL17getObjCBridgeAttrIN5clang21ObjCBridgeMutableAttrEEPT_PKNS0_11TypedefTypeE.argprom.argprom(i64 %.32.val.80.val) unnamed_addr #0 {
   %1 = and i64 %.32.val.80.val, -8
   %2 = inttoptr i64 %1 to ptr
   %3 = shl i64 %.32.val.80.val, 1
@@ -32852,8 +32852,8 @@ attributes #21 = { builtin nounwind allocsize(0) }
 !133 = distinct !{!133, !"_ZN5clang9FixItHint15CreateInsertionENS_14SourceLocationEN4llvm9StringRefEb"}
 !134 = distinct !{!134, !5}
 !135 = !{!136}
-!136 = distinct !{!136, !137, !"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE: argument 0"}
-!137 = distinct !{!137, !"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE"}
+!136 = distinct !{!136, !137, !"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE.argprom.argprom: argument 0"}
+!137 = distinct !{!137, !"_ZZN5clang8SemaObjC30ActOnObjCAvailabilityCheckExprEN4llvm8ArrayRefINS_16AvailabilitySpecEEENS_14SourceLocationES5_ENK3$_0clENS1_9StringRefE.argprom.argprom"}
 !138 = distinct !{!138, !5}
 !139 = distinct !{!139, !5}
 !140 = distinct !{!140, !5}

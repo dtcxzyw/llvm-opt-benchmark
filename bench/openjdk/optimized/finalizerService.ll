@@ -207,7 +207,7 @@ _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %5, %2
   %8 = phi ptr [ %7, %5 ], [ null, %2 ]
   %9 = tail call noundef ptr @_ZN15java_lang_Class17protection_domainEP7oopDesc(ptr noundef %8) #16
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %_ZL14get_codesourcePK13InstanceKlass.exit, label %11
+  br i1 %10, label %_ZL14get_codesourcePK13InstanceKlass.argprom.exit, label %11
 
 11:                                               ; preds = %_ZNK5Klass11java_mirrorEv.exit.i
   %12 = load atomic i8, ptr @_ZGVZL10codesourceP7oopDescE17codesource_offset acquire, align 8
@@ -254,7 +254,7 @@ _ZL10codesourceP7oopDesc.exit.i:                  ; preds = %_ZNK7oopDesc5klassE
   %35 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %36 = tail call noundef ptr %35(ptr noundef nonnull %9, i64 noundef %34) #16
   %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %_ZL14get_codesourcePK13InstanceKlass.exit, label %37
+  br i1 %.not.i, label %_ZL14get_codesourcePK13InstanceKlass.argprom.exit, label %37
 
 37:                                               ; preds = %_ZL10codesourceP7oopDesc.exit.i
   %38 = load atomic i8, ptr @_ZGVZL23location_no_frag_stringP7oopDescE18loc_no_frag_offset acquire, align 8
@@ -301,7 +301,7 @@ _ZNK7oopDesc5klassEv.exit.i9.i:                   ; preds = %56, %46
   %62 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %63 = tail call noundef ptr %62(ptr noundef nonnull %36, i64 noundef %61) #16
   %.not4.i.i = icmp eq ptr %63, null
-  br i1 %.not4.i.i, label %_ZL14get_codesourcePK13InstanceKlass.exit, label %64
+  br i1 %.not4.i.i, label %_ZL14get_codesourcePK13InstanceKlass.argprom.exit, label %64
 
 64:                                               ; preds = %59
   %65 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
@@ -309,7 +309,7 @@ _ZNK7oopDesc5klassEv.exit.i9.i:                   ; preds = %56, %46
   %67 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %68 = tail call noundef ptr %67(ptr noundef nonnull %63, i64 noundef %66) #16
   %.not.i.i.i = icmp eq ptr %68, null
-  br i1 %.not.i.i.i, label %_ZL14get_codesourcePK13InstanceKlass.exit, label %69
+  br i1 %.not.i.i.i, label %_ZL14get_codesourcePK13InstanceKlass.argprom.exit, label %69
 
 69:                                               ; preds = %64
   %70 = tail call noundef i32 @_ZN16java_lang_String11utf8_lengthEP7oopDescP16typeArrayOopDesc(ptr noundef nonnull %63, ptr noundef nonnull %68) #16
@@ -317,9 +317,9 @@ _ZNK7oopDesc5klassEv.exit.i9.i:                   ; preds = %56, %46
   %72 = sext i32 %71 to i64
   %73 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %72, i8 noundef zeroext 23, i32 noundef 0) #16
   %74 = tail call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescP16typeArrayOopDescPci(ptr noundef nonnull %63, ptr noundef nonnull %68, ptr noundef %73, i32 noundef %71) #16
-  br label %_ZL14get_codesourcePK13InstanceKlass.exit
+  br label %_ZL14get_codesourcePK13InstanceKlass.argprom.exit
 
-_ZL14get_codesourcePK13InstanceKlass.exit:        ; preds = %_ZNK5Klass11java_mirrorEv.exit.i, %_ZL10codesourceP7oopDesc.exit.i, %59, %64, %69
+_ZL14get_codesourcePK13InstanceKlass.argprom.exit: ; preds = %_ZNK5Klass11java_mirrorEv.exit.i, %_ZL10codesourceP7oopDesc.exit.i, %59, %64, %69
   %.0.i = phi ptr [ null, %_ZNK5Klass11java_mirrorEv.exit.i ], [ null, %_ZL10codesourceP7oopDesc.exit.i ], [ null, %59 ], [ %73, %69 ], [ null, %64 ]
   %75 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.0.i, ptr %75, align 8

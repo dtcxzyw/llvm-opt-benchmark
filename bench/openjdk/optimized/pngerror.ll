@@ -262,7 +262,7 @@ define hidden void @png_warning(ptr noalias noundef %0, ptr noundef %1) local_un
   br i1 %exitcond.not, label %.thread20.loopexit, label %.preheader, !llvm.loop !9
 
 .split:                                           ; preds = %2
-  tail call fastcc void @png_default_warning(ptr noundef %1)
+  tail call fastcc void @png_default_warning.argprom(ptr noundef %1)
   br label %15
 
 .thread20.loopexit:                               ; preds = %.preheader, %9
@@ -279,7 +279,7 @@ define hidden void @png_warning(ptr noalias noundef %0, ptr noundef %1) local_un
   br i1 %.not17, label %.split14, label %14
 
 .split14:                                         ; preds = %.thread20
-  tail call fastcc void @png_default_warning(ptr noundef nonnull %13)
+  tail call fastcc void @png_default_warning.argprom(ptr noundef nonnull %13)
   br label %15
 
 14:                                               ; preds = %.thread20
@@ -291,7 +291,7 @@ define hidden void @png_warning(ptr noalias noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @png_default_warning(ptr noundef %0) unnamed_addr #5 {
+define internal fastcc void @png_default_warning.argprom(ptr noundef %0) unnamed_addr #5 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.7, ptr noundef %0) #22
   %4 = load ptr, ptr @stderr, align 8
@@ -577,7 +577,7 @@ define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef re
   br i1 %exitcond.not.i, label %.thread20.loopexit.i, label %.preheader.i, !llvm.loop !9
 
 .split.i:                                         ; preds = %.critedge
-  call fastcc void @png_default_warning(ptr noundef nonnull %4)
+  call fastcc void @png_default_warning.argprom(ptr noundef nonnull %4)
   br label %png_warning.exit
 
 .thread20.loopexit.i:                             ; preds = %38, %.preheader.i
@@ -594,7 +594,7 @@ define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef re
   br i1 %.not17.i, label %.split14.i, label %43
 
 .split14.i:                                       ; preds = %.thread20.i
-  call fastcc void @png_default_warning(ptr noundef nonnull %42)
+  call fastcc void @png_default_warning.argprom(ptr noundef nonnull %42)
   br label %png_warning.exit
 
 43:                                               ; preds = %.thread20.i
@@ -662,7 +662,7 @@ define hidden void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) loc
   br i1 %.not17.i, label %.split14.i, label %25
 
 .split14.i:                                       ; preds = %.thread20.i
-  tail call fastcc void @png_default_warning(ptr noundef nonnull %24)
+  tail call fastcc void @png_default_warning.argprom(ptr noundef nonnull %24)
   br label %png_warning.exit
 
 25:                                               ; preds = %.thread20.i
@@ -697,7 +697,7 @@ define hidden void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) lo
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call fastcc void @png_default_warning(ptr noundef %1)
+  tail call fastcc void @png_default_warning.argprom(ptr noundef %1)
   br label %png_warning.exit
 
 6:                                                ; preds = %2
@@ -828,7 +828,7 @@ define hidden void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) lo
   br i1 %.not17.i, label %.split14.i, label %66
 
 .split14.i:                                       ; preds = %.thread20.i
-  call fastcc void @png_default_warning(ptr noundef nonnull %65)
+  call fastcc void @png_default_warning.argprom(ptr noundef nonnull %65)
   br label %png_warning.exit
 
 66:                                               ; preds = %.thread20.i
@@ -852,7 +852,7 @@ define hidden void @png_chunk_error(ptr noalias noundef %0, ptr noundef %1) loca
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %0, i64 456
   %.val = load i32, ptr %7, align 8
-  call fastcc void @png_format_buffer(i32 %.val, ptr noundef %3, ptr noundef %1)
+  call fastcc void @png_format_buffer.argprom(i32 %.val, ptr noundef %3, ptr noundef %1)
   call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull %3) #21
   unreachable
 }
@@ -897,7 +897,7 @@ define hidden void @png_app_warning(ptr noalias noundef %0, ptr noundef %1) loca
   br i1 %.not17.i, label %.split14.i, label %17
 
 .split14.i:                                       ; preds = %.thread20.i
-  tail call fastcc void @png_default_warning(ptr noundef nonnull %16)
+  tail call fastcc void @png_default_warning.argprom(ptr noundef nonnull %16)
   br label %png_warning.exit
 
 17:                                               ; preds = %.thread20.i
@@ -952,7 +952,7 @@ define hidden void @png_app_error(ptr noalias noundef %0, ptr noundef %1) local_
   br i1 %.not17.i, label %.split14.i, label %17
 
 .split14.i:                                       ; preds = %.thread20.i
-  tail call fastcc void @png_default_warning(ptr noundef nonnull %16)
+  tail call fastcc void @png_default_warning.argprom(ptr noundef nonnull %16)
   br label %png_warning.exit
 
 17:                                               ; preds = %.thread20.i
@@ -968,7 +968,7 @@ png_warning.exit:                                 ; preds = %.split14.i, %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @png_format_buffer(i32 %.456.val, ptr nocapture noundef nonnull writeonly %0, ptr noundef readonly %1) unnamed_addr #2 {
+define internal fastcc void @png_format_buffer.argprom(i32 %.456.val, ptr nocapture noundef nonnull writeonly %0, ptr noundef readonly %1) unnamed_addr #2 {
   br label %3
 
 3:                                                ; preds = %2, %32
@@ -1207,7 +1207,7 @@ define hidden ptr @png_set_longjmp_fn(ptr noalias noundef %0, ptr noundef %1, i6
   br i1 %.not17.i, label %.split14.i, label %26
 
 .split14.i:                                       ; preds = %23
-  tail call fastcc void @png_default_warning(ptr noundef nonnull @.str.2)
+  tail call fastcc void @png_default_warning.argprom(ptr noundef nonnull @.str.2)
   br label %png_warning.exit
 
 26:                                               ; preds = %23

@@ -3334,7 +3334,7 @@ if.then:                                          ; preds = %entry
   %5 = load i64, ptr %m_size_limit.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %4, %5
   %.pre.i.i = load ptr, ptr %function.val, align 8
-  br i1 %cmp.not.i.i, label %_ZZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEEEN11copy_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEEEN11copy_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
   %cmp2.i.i = icmp eq ptr %.pre.i.i, null
@@ -3345,9 +3345,9 @@ if.then.i.i:                                      ; preds = %if.then
   %call.i.i = tail call noundef ptr @_Z13toku_xreallocPvm(ptr noundef %.pre.i.i, i64 noundef %mul8.i.i)
   store ptr %call.i.i, ptr %function.val, align 8
   %.pre1.i.i = load i64, ptr %m_size.i.i, align 8
-  br label %_ZZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEEEN11copy_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector.exit
+  br label %_ZZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEEEN11copy_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector.argprom.exit
 
-_ZZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEEEN11copy_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector.exit: ; preds = %if.then, %if.then.i.i
+_ZZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEEEN11copy_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector.argprom.exit: ; preds = %if.then, %if.then.i.i
   %6 = phi i64 [ %.pre1.i.i, %if.then.i.i ], [ %4, %if.then ]
   %7 = phi ptr [ %call.i.i, %if.then.i.i ], [ %.pre.i.i, %if.then ]
   %frombool.i = and i8 %2, 1
@@ -3455,7 +3455,7 @@ if.end28:                                         ; preds = %if.then27, %if.then
   tail call void @_ZN4toku8treenode12mutex_unlockEv(ptr noundef nonnull align 8 dereferenceable(202) %call233640)
   br label %if.end29
 
-if.end29:                                         ; preds = %if.end22.thread, %if.end28, %if.end22, %_ZZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEEEN11copy_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector.exit
+if.end29:                                         ; preds = %if.end22.thread, %if.end28, %if.end22, %_ZZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked_keyrangeEPNS_13GrowableArrayINS_8row_lockEEEEN11copy_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector.argprom.exit
   ret void
 }
 
@@ -3485,7 +3485,7 @@ if.then:                                          ; preds = %entry
   %tobool = trunc i8 %2 to i1
   %m_owners = getelementptr inbounds i8, ptr %this, i64 152
   %3 = load ptr, ptr %m_owners, align 8
-  tail call fastcc void @_ZZN4tokuL38iterate_and_get_overlapping_row_locks2EPKNS_15concurrent_tree15locked_keyrangeEPK10__toku_dbtS6_PNS_10comparatorEmPNS_13GrowableArrayINS_8row_lockEEEEN11copy_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector(ptr noundef nonnull align 8 dereferenceable(40) %function, ptr noundef nonnull align 8 dereferenceable(81) %m_range, i64 noundef %1, i1 noundef zeroext %tobool, ptr noundef %3)
+  tail call fastcc void @_ZZN4tokuL38iterate_and_get_overlapping_row_locks2EPKNS_15concurrent_tree15locked_keyrangeEPK10__toku_dbtS6_PNS_10comparatorEmPNS_13GrowableArrayINS_8row_lockEEEEN11copy_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector.retelim(ptr noundef nonnull align 8 dereferenceable(40) %function, ptr noundef nonnull align 8 dereferenceable(81) %m_range, i64 noundef %1, i1 noundef zeroext %tobool, ptr noundef %3)
   br label %if.end29
 
 if.end:                                           ; preds = %entry
@@ -3524,7 +3524,7 @@ if.end22.thread:                                  ; preds = %if.end10
   %tobool16 = trunc i8 %5 to i1
   %m_owners17 = getelementptr inbounds i8, ptr %this, i64 152
   %6 = load ptr, ptr %m_owners17, align 8
-  tail call fastcc void @_ZZN4tokuL38iterate_and_get_overlapping_row_locks2EPKNS_15concurrent_tree15locked_keyrangeEPK10__toku_dbtS6_PNS_10comparatorEmPNS_13GrowableArrayINS_8row_lockEEEEN11copy_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector(ptr noundef nonnull align 8 dereferenceable(40) %function, ptr noundef nonnull align 8 dereferenceable(81) %m_range, i64 noundef %4, i1 noundef zeroext %tobool16, ptr noundef %6)
+  tail call fastcc void @_ZZN4tokuL38iterate_and_get_overlapping_row_locks2EPKNS_15concurrent_tree15locked_keyrangeEPK10__toku_dbtS6_PNS_10comparatorEmPNS_13GrowableArrayINS_8row_lockEEEEN11copy_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector.retelim(ptr noundef nonnull align 8 dereferenceable(40) %function, ptr noundef nonnull align 8 dereferenceable(81) %m_range, i64 noundef %4, i1 noundef zeroext %tobool16, ptr noundef %6)
   %m_right_child13 = getelementptr inbounds i8, ptr %this, i64 176
   %call2314 = tail call noundef ptr @_ZN4toku8treenode9child_ptr10get_lockedEv(ptr noundef nonnull align 8 dereferenceable(16) %m_right_child13)
   %tobool24.not15 = icmp eq ptr %call2314, null
@@ -3549,7 +3549,7 @@ if.end29:                                         ; preds = %if.end22.thread, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN4tokuL38iterate_and_get_overlapping_row_locks2EPKNS_15concurrent_tree15locked_keyrangeEPK10__toku_dbtS6_PNS_10comparatorEmPNS_13GrowableArrayINS_8row_lockEEEEN11copy_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 noundef %txnid, i1 noundef zeroext %is_shared, ptr noundef %owners) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN4tokuL38iterate_and_get_overlapping_row_locks2EPKNS_15concurrent_tree15locked_keyrangeEPK10__toku_dbtS6_PNS_10comparatorEmPNS_13GrowableArrayINS_8row_lockEEEEN11copy_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector.retelim(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 noundef %txnid, i1 noundef zeroext %is_shared, ptr noundef %owners) unnamed_addr #0 align 2 {
 entry:
   %agg.tmp26.sroa.0 = alloca %"class.toku::keyrange", align 8
   %first_call = getelementptr inbounds i8, ptr %this, i64 8

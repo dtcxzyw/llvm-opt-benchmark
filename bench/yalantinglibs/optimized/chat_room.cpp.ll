@@ -6382,7 +6382,7 @@ lor.lhs.false.i.i.i.i.i.i.i:                      ; preds = %if.end3.i.i.i.i.i.i
 
 if.end34.i.i.i.i.i:                               ; preds = %lor.lhs.false.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i, %lor.lhs.false.us.i.i.i.i.i.i.i, %if.end3.us.i.i.i.i.i.i.i, %if.then27.i.i.i.i.i, %invoke.cont22.i.i.i.i.i
   %call37.i.i.i.i.i = invoke ptr @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSB_18coro_http_responseEEEESaISI_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSK_18_Mod_range_hashingENSK_20_Default_ranged_hashENSK_20_Prime_rehash_policyENSK_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSK_10_Hash_nodeISI_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZZN7cinatra16coro_http_router8instanceEvE8instance, i64 152), i64 noundef %rem.i.i.i.i.i.i.i.i, i64 noundef %call.i2.i.i.i.i.i.i.i, ptr noundef nonnull %call5.i.i.i.i.i.i.i101.i.i, i64 noundef 1)
-          to label %"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ4mainE3$_0EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.exit.i.i" unwind label %lpad.i.i.i.i.i
+          to label %"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ4mainE3$_0EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.argprom.exit.i.i" unwind label %lpad.i.i.i.i.i
 
 if.then.i.i.i.i100.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i.i.i, %for.body.us.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i.i.i.i.i, %land.rhs.i.us.i.i.i.i.i.i.i
   %76 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -6402,13 +6402,13 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSD_18coro_http_responseEEEELb1EEEEE18_M_deallocate_nodeEPSL_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i100.i.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i.i101.i.i) #40
-  br label %"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ4mainE3$_0EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.exit.i.i"
+  br label %"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ4mainE3$_0EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.argprom.exit.i.i"
 
-"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ4mainE3$_0EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.exit.i.i": ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSD_18coro_http_responseEEEELb1EEEEE18_M_deallocate_nodeEPSL_.exit.i.i.i.i.i.i, %if.end34.i.i.i.i.i
+"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ4mainE3$_0EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.argprom.exit.i.i": ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNSD_18coro_http_responseEEEELb1EEEEE18_M_deallocate_nodeEPSL_.exit.i.i.i.i.i.i, %if.end34.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node.i.i.i.i.i)
   br label %cleanup.i.i
 
-cleanup.i.i:                                      ; preds = %"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ4mainE3$_0EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.exit.i.i", %_ZN7easylog8record_tD2Ev.exit.i.i, %invoke.cont10.i.i
+cleanup.i.i:                                      ; preds = %"_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SF_EEE7emplaceIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEZ4mainE3$_0EEESK_INSt8__detail14_Node_iteratorISM_Lb0ELb1EEEbEDpOT_.argprom.exit.i.i", %_ZN7easylog8record_tD2Ev.exit.i.i, %invoke.cont10.i.i
   %79 = load ptr, ptr %whole_str.i.i, align 8
   %cmp.i.i.i104.i.i = icmp eq ptr %79, %12
   br i1 %cmp.i.i.i104.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i105.i.i
@@ -94244,8 +94244,8 @@ attributes #48 = { cold }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ4mainE3$_0EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv: %agg.result"}
-!12 = distinct !{!12, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ4mainE3$_0EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv"}
+!11 = distinct !{!11, !12, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ4mainE3$_0EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.argprom: %agg.result"}
+!12 = distinct !{!12, !"_ZZN7cinatra16coro_http_router16set_http_handlerILNS_11http_methodE2EZ4mainE3$_0EEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_ENKUlvE_clEv.argprom"}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}

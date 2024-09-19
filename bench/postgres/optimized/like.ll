@@ -110,7 +110,7 @@ define internal fastcc range(i32 -1, 2) i32 @GenericMatchText(ptr noundef %0, i3
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %15
-  %19 = tail call fastcc i32 @SB_MatchText(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
+  %19 = tail call fastcc i32 @SB_MatchText.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
   br label %27
 
 20:                                               ; preds = %15
@@ -119,11 +119,11 @@ define internal fastcc range(i32 -1, 2) i32 @GenericMatchText(ptr noundef %0, i3
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
-  %24 = tail call fastcc i32 @UTF8_MatchText(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
+  %24 = tail call fastcc i32 @UTF8_MatchText.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
   br label %27
 
 25:                                               ; preds = %20
-  %26 = tail call fastcc i32 @MB_MatchText(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
+  %26 = tail call fastcc i32 @MB_MatchText.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
   br label %27
 
 27:                                               ; preds = %25, %23, %18
@@ -455,14 +455,14 @@ define dso_local range(i64 0, 2) i64 @bytealike(ptr nocapture noundef readonly %
   %57 = select i1 %.not29, ptr %56, ptr %36
   %58 = getelementptr inbounds i8, ptr %5, i64 4
   %59 = select i1 %.not, ptr %58, ptr %13
-  %60 = tail call fastcc i32 @SB_MatchText(ptr noundef nonnull %59, i32 noundef %32, ptr noundef nonnull %57, i32 noundef %55)
+  %60 = tail call fastcc i32 @SB_MatchText.argprom.argelim(ptr noundef nonnull %59, i32 noundef %32, ptr noundef nonnull %57, i32 noundef %55)
   %61 = icmp eq i32 %60, 1
   %62 = zext i1 %61 to i64
   ret i64 %62
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @SB_MatchText.argprom.argelim(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp eq i32 %3, 1
   br i1 %5, label %6, label %9
 
@@ -573,7 +573,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr nocapture noundef 
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %.lr.ph51
-  %47 = tail call fastcc i32 @SB_MatchText(ptr noundef nonnull %.349, i32 noundef %.36348, ptr noundef nonnull %.27043, i32 noundef %.26642)
+  %47 = tail call fastcc i32 @SB_MatchText.argprom.argelim(ptr noundef nonnull %.349, i32 noundef %.36348, ptr noundef nonnull %.27043, i32 noundef %.26642)
   %.not77 = icmp eq i32 %47, 0
   br i1 %.not77, label %48, label %.thread
 
@@ -712,7 +712,7 @@ define dso_local range(i64 0, 2) i64 @byteanlike(ptr nocapture noundef readonly 
   %57 = select i1 %.not29, ptr %56, ptr %36
   %58 = getelementptr inbounds i8, ptr %5, i64 4
   %59 = select i1 %.not, ptr %58, ptr %13
-  %60 = tail call fastcc i32 @SB_MatchText(ptr noundef nonnull %59, i32 noundef %32, ptr noundef nonnull %57, i32 noundef %55)
+  %60 = tail call fastcc i32 @SB_MatchText.argprom.argelim(ptr noundef nonnull %59, i32 noundef %32, ptr noundef nonnull %57, i32 noundef %55)
   %61 = icmp ne i32 %60, 1
   %62 = zext i1 %61 to i64
   ret i64 %62
@@ -878,11 +878,11 @@ define internal fastcc range(i32 -1, 2) i32 @Generic_Text_IC_like(ptr noundef %0
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %83
-  %88 = tail call fastcc i32 @UTF8_MatchText(ptr noundef nonnull %65, i32 noundef %84, ptr noundef nonnull %36, i32 noundef %55)
+  %88 = tail call fastcc i32 @UTF8_MatchText.argprom.argelim(ptr noundef nonnull %65, i32 noundef %84, ptr noundef nonnull %36, i32 noundef %55)
   br label %143
 
 89:                                               ; preds = %83
-  %90 = tail call fastcc i32 @MB_MatchText(ptr noundef nonnull %65, i32 noundef %84, ptr noundef nonnull %36, i32 noundef %55)
+  %90 = tail call fastcc i32 @MB_MatchText.argprom.argelim(ptr noundef nonnull %65, i32 noundef %84, ptr noundef nonnull %36, i32 noundef %55)
   br label %143
 
 91:                                               ; preds = %23, %22
@@ -1616,7 +1616,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare i32 @GetDatabaseEncoding() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText.argprom.argelim(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp eq i32 %3, 1
   br i1 %5, label %6, label %9
 
@@ -1743,7 +1743,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture nounde
   br i1 %50, label %51, label %.preheader31
 
 51:                                               ; preds = %.lr.ph58
-  %52 = tail call fastcc i32 @UTF8_MatchText(ptr noundef nonnull %.456, i32 noundef %.47655, ptr noundef nonnull %.28650, i32 noundef %.28149)
+  %52 = tail call fastcc i32 @UTF8_MatchText.argprom.argelim(ptr noundef nonnull %.456, i32 noundef %.47655, ptr noundef nonnull %.28650, i32 noundef %.28149)
   %.not96 = icmp eq i32 %52, 0
   br i1 %.not96, label %.preheader31, label %.thread
 
@@ -1835,7 +1835,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @MB_MatchText.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp eq i32 %3, 1
   br i1 %5, label %6, label %9
 
@@ -1948,7 +1948,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %.lr.ph51
-  %49 = tail call fastcc i32 @MB_MatchText(ptr noundef nonnull %.349, i32 noundef %.37148, ptr noundef nonnull %.27442, i32 noundef %.27943)
+  %49 = tail call fastcc i32 @MB_MatchText.argprom.argelim(ptr noundef nonnull %.349, i32 noundef %.37148, ptr noundef nonnull %.27442, i32 noundef %.27943)
   %.not86 = icmp eq i32 %49, 0
   br i1 %.not86, label %50, label %.thread
 

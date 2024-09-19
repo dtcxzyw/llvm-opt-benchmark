@@ -339,9 +339,9 @@ define void @Saig_StrSimulateRound(ptr nocapture noundef readonly %0, ptr nocapt
 34:                                               ; preds = %30, %27
   %.val107 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.val107, null
-  br i1 %.not.i, label %Saig_StrSimTransfer.exit, label %Aig_ObjRepr.exit
+  br i1 %.not.i, label %Saig_StrSimTransfer.exit, label %Aig_ObjRepr.argprom.exit
 
-Aig_ObjRepr.exit:                                 ; preds = %34
+Aig_ObjRepr.argprom.exit:                         ; preds = %34
   %35 = getelementptr inbounds i8, ptr %25, i64 36
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64
@@ -350,7 +350,7 @@ Aig_ObjRepr.exit:                                 ; preds = %34
   %40 = icmp eq ptr %39, null
   br i1 %40, label %Saig_StrSimTransfer.exit, label %41
 
-41:                                               ; preds = %Aig_ObjRepr.exit
+41:                                               ; preds = %Aig_ObjRepr.argprom.exit
   %42 = getelementptr inbounds i8, ptr %25, i64 40
   %43 = load ptr, ptr %42, align 8
   br label %44
@@ -384,8 +384,8 @@ Saig_StrSimTransfer.exit.loopexit:                ; preds = %50
   %.pre = load ptr, ptr %3, align 8
   br label %Saig_StrSimTransfer.exit
 
-Saig_StrSimTransfer.exit:                         ; preds = %Saig_StrSimTransfer.exit.loopexit, %34, %21, %Aig_ObjRepr.exit, %30
-  %54 = phi ptr [ %.pre, %Saig_StrSimTransfer.exit.loopexit ], [ %22, %34 ], [ %22, %21 ], [ %22, %Aig_ObjRepr.exit ], [ %22, %30 ]
+Saig_StrSimTransfer.exit:                         ; preds = %Saig_StrSimTransfer.exit.loopexit, %34, %21, %Aig_ObjRepr.argprom.exit, %30
+  %54 = phi ptr [ %.pre, %Saig_StrSimTransfer.exit.loopexit ], [ %22, %34 ], [ %22, %21 ], [ %22, %Aig_ObjRepr.argprom.exit ], [ %22, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = getelementptr i8, ptr %54, i64 4
   %.val = load i32, ptr %55, align 4
@@ -428,18 +428,18 @@ Saig_StrSimTransfer.exit:                         ; preds = %Saig_StrSimTransfer
 72:                                               ; preds = %67
   %.val108 = load ptr, ptr %11, align 8
   %.not.i128 = icmp eq ptr %.val108, null
-  br i1 %.not.i128, label %Aig_ObjRepr.exit129.thread, label %Aig_ObjRepr.exit129
+  br i1 %.not.i128, label %Aig_ObjRepr.argprom.exit129.thread, label %Aig_ObjRepr.argprom.exit129
 
-Aig_ObjRepr.exit129:                              ; preds = %72
+Aig_ObjRepr.argprom.exit129:                      ; preds = %72
   %73 = getelementptr inbounds i8, ptr %65, i64 36
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds ptr, ptr %.val108, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
-  br i1 %78, label %Aig_ObjRepr.exit129.thread, label %Saig_StrSimulateNode.exit
+  br i1 %78, label %Aig_ObjRepr.argprom.exit129.thread, label %Saig_StrSimulateNode.exit
 
-Aig_ObjRepr.exit129.thread:                       ; preds = %72, %Aig_ObjRepr.exit129
+Aig_ObjRepr.argprom.exit129.thread:               ; preds = %72, %Aig_ObjRepr.argprom.exit129
   %79 = getelementptr inbounds i8, ptr %65, i64 40
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr i8, ptr %65, i64 8
@@ -464,7 +464,7 @@ Aig_ObjRepr.exit129.thread:                       ; preds = %72, %Aig_ObjRepr.ex
   %96 = load i32, ptr %95, align 4
   br i1 %.not.i130, label %109, label %97
 
-97:                                               ; preds = %Aig_ObjRepr.exit129.thread
+97:                                               ; preds = %Aig_ObjRepr.argprom.exit129.thread
   %98 = getelementptr inbounds i32, ptr %80, i64 %indvars.iv176
   br i1 %.not36.i, label %104, label %99
 
@@ -484,7 +484,7 @@ Aig_ObjRepr.exit129.thread:                       ; preds = %72, %Aig_ObjRepr.ex
   store i32 %108, ptr %98, align 4
   br label %Saig_StrSimulateNode.exit
 
-109:                                              ; preds = %Aig_ObjRepr.exit129.thread
+109:                                              ; preds = %Aig_ObjRepr.argprom.exit129.thread
   %110 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv176
   %111 = load i32, ptr %110, align 4
   br i1 %.not36.i, label %116, label %112
@@ -502,7 +502,7 @@ Aig_ObjRepr.exit129.thread:                       ; preds = %72, %Aig_ObjRepr.ex
   store i32 %117, ptr %118, align 4
   br label %Saig_StrSimulateNode.exit
 
-Saig_StrSimulateNode.exit:                        ; preds = %116, %112, %104, %99, %67, %.lr.ph151, %Aig_ObjRepr.exit129
+Saig_StrSimulateNode.exit:                        ; preds = %116, %112, %104, %99, %67, %.lr.ph151, %Aig_ObjRepr.argprom.exit129
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %119 = load ptr, ptr %3, align 8
   %120 = getelementptr i8, ptr %119, i64 4
@@ -620,18 +620,18 @@ Saig_StrSimulateNode.exit:                        ; preds = %116, %112, %104, %9
 180:                                              ; preds = %175
   %.val109 = load ptr, ptr %16, align 8
   %.not.i133 = icmp eq ptr %.val109, null
-  br i1 %.not.i133, label %Aig_ObjRepr.exit134.thread, label %Aig_ObjRepr.exit134
+  br i1 %.not.i133, label %Aig_ObjRepr.argprom.exit134.thread, label %Aig_ObjRepr.argprom.exit134
 
-Aig_ObjRepr.exit134:                              ; preds = %180
+Aig_ObjRepr.argprom.exit134:                      ; preds = %180
   %181 = getelementptr inbounds i8, ptr %173, i64 36
   %182 = load i32, ptr %181, align 4
   %183 = sext i32 %182 to i64
   %184 = getelementptr inbounds ptr, ptr %.val109, i64 %183
   %185 = load ptr, ptr %184, align 8
   %186 = icmp eq ptr %185, null
-  br i1 %186, label %Aig_ObjRepr.exit134.thread, label %Saig_StrSimulateNode.exit139
+  br i1 %186, label %Aig_ObjRepr.argprom.exit134.thread, label %Saig_StrSimulateNode.exit139
 
-Aig_ObjRepr.exit134.thread:                       ; preds = %180, %Aig_ObjRepr.exit134
+Aig_ObjRepr.argprom.exit134.thread:               ; preds = %180, %Aig_ObjRepr.argprom.exit134
   %187 = getelementptr inbounds i8, ptr %173, i64 40
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr i8, ptr %173, i64 8
@@ -656,7 +656,7 @@ Aig_ObjRepr.exit134.thread:                       ; preds = %180, %Aig_ObjRepr.e
   %204 = load i32, ptr %203, align 4
   br i1 %.not.i137, label %217, label %205
 
-205:                                              ; preds = %Aig_ObjRepr.exit134.thread
+205:                                              ; preds = %Aig_ObjRepr.argprom.exit134.thread
   %206 = getelementptr inbounds i32, ptr %188, i64 %indvars.iv176
   br i1 %.not36.i138, label %212, label %207
 
@@ -676,7 +676,7 @@ Aig_ObjRepr.exit134.thread:                       ; preds = %180, %Aig_ObjRepr.e
   store i32 %216, ptr %206, align 4
   br label %Saig_StrSimulateNode.exit139
 
-217:                                              ; preds = %Aig_ObjRepr.exit134.thread
+217:                                              ; preds = %Aig_ObjRepr.argprom.exit134.thread
   %218 = getelementptr inbounds i32, ptr %200, i64 %indvars.iv176
   %219 = load i32, ptr %218, align 4
   br i1 %.not36.i138, label %224, label %220
@@ -694,7 +694,7 @@ Aig_ObjRepr.exit134.thread:                       ; preds = %180, %Aig_ObjRepr.e
   store i32 %225, ptr %226, align 4
   br label %Saig_StrSimulateNode.exit139
 
-Saig_StrSimulateNode.exit139:                     ; preds = %224, %220, %212, %207, %175, %.lr.ph160, %Aig_ObjRepr.exit134
+Saig_StrSimulateNode.exit139:                     ; preds = %224, %220, %212, %207, %175, %.lr.ph160, %Aig_ObjRepr.argprom.exit134
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %227 = load ptr, ptr %9, align 8
   %228 = getelementptr i8, ptr %227, i64 4
@@ -984,18 +984,18 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %11
 41:                                               ; preds = %37, %34
   %.val114 = load ptr, ptr %22, align 8
   %.not.i128 = icmp eq ptr %.val114, null
-  br i1 %.not.i128, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
+  br i1 %.not.i128, label %Aig_ObjRepr.argprom.exit.thread, label %Aig_ObjRepr.argprom.exit
 
-Aig_ObjRepr.exit:                                 ; preds = %41
+Aig_ObjRepr.argprom.exit:                         ; preds = %41
   %42 = getelementptr inbounds i8, ptr %32, i64 36
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds ptr, ptr %.val114, i64 %44
   %46 = load ptr, ptr %45, align 8
   %.not103 = icmp eq ptr %46, null
-  br i1 %.not103, label %Aig_ObjRepr.exit.thread, label %Saig_StrSimIsZero.exit
+  br i1 %.not103, label %Aig_ObjRepr.argprom.exit.thread, label %Saig_StrSimIsZero.exit
 
-Aig_ObjRepr.exit.thread:                          ; preds = %41, %Aig_ObjRepr.exit
+Aig_ObjRepr.argprom.exit.thread:                  ; preds = %41, %Aig_ObjRepr.argprom.exit
   %47 = getelementptr inbounds i8, ptr %32, i64 40
   %48 = load ptr, ptr %47, align 8
   br label %50
@@ -1005,8 +1005,8 @@ Aig_ObjRepr.exit.thread:                          ; preds = %41, %Aig_ObjRepr.ex
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %Saig_StrSimIsZero.exit, label %50, !llvm.loop !7
 
-50:                                               ; preds = %49, %Aig_ObjRepr.exit.thread
-  %indvars.iv.i = phi i64 [ 0, %Aig_ObjRepr.exit.thread ], [ %indvars.iv.next.i, %49 ]
+50:                                               ; preds = %49, %Aig_ObjRepr.argprom.exit.thread
+  %indvars.iv.i = phi i64 [ 0, %Aig_ObjRepr.argprom.exit.thread ], [ %indvars.iv.next.i, %49 ]
   %51 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv.i
   %52 = load i32, ptr %51, align 4
   %.not.i129 = icmp eq i32 %52, 0
@@ -1124,8 +1124,8 @@ Saig_StrSimTableLookup.exit:                      ; preds = %67
   %.pre = load ptr, ptr %3, align 8
   br label %Saig_StrSimIsZero.exit
 
-Saig_StrSimIsZero.exit:                           ; preds = %49, %53, %28, %Saig_StrSimTableLookup.exit, %Saig_StrSimTableInsert.exit, %Aig_ObjRepr.exit, %37
-  %99 = phi ptr [ %29, %28 ], [ %.pre, %Saig_StrSimTableLookup.exit ], [ %29, %Saig_StrSimTableInsert.exit ], [ %29, %Aig_ObjRepr.exit ], [ %29, %37 ], [ %29, %53 ], [ %29, %49 ]
+Saig_StrSimIsZero.exit:                           ; preds = %49, %53, %28, %Saig_StrSimTableLookup.exit, %Saig_StrSimTableInsert.exit, %Aig_ObjRepr.argprom.exit, %37
+  %99 = phi ptr [ %29, %28 ], [ %.pre, %Saig_StrSimTableLookup.exit ], [ %29, %Saig_StrSimTableInsert.exit ], [ %29, %Aig_ObjRepr.argprom.exit ], [ %29, %37 ], [ %29, %53 ], [ %29, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %100 = getelementptr i8, ptr %99, i64 4
   %.val106 = load i32, ptr %100, align 4
@@ -1170,18 +1170,18 @@ Saig_StrSimIsZero.exit:                           ; preds = %49, %53, %28, %Saig
 119:                                              ; preds = %115, %112
   %.val113 = load ptr, ptr %27, align 8
   %.not.i143 = icmp eq ptr %.val113, null
-  br i1 %.not.i143, label %Aig_ObjRepr.exit144.thread, label %Aig_ObjRepr.exit144
+  br i1 %.not.i143, label %Aig_ObjRepr.argprom.exit144.thread, label %Aig_ObjRepr.argprom.exit144
 
-Aig_ObjRepr.exit144:                              ; preds = %119
+Aig_ObjRepr.argprom.exit144:                      ; preds = %119
   %120 = getelementptr inbounds i8, ptr %110, i64 36
   %121 = load i32, ptr %120, align 4
   %122 = sext i32 %121 to i64
   %123 = getelementptr inbounds ptr, ptr %.val113, i64 %122
   %124 = load ptr, ptr %123, align 8
   %.not98 = icmp eq ptr %124, null
-  br i1 %.not98, label %Aig_ObjRepr.exit144.thread, label %Saig_StrSimIsZero.exit150
+  br i1 %.not98, label %Aig_ObjRepr.argprom.exit144.thread, label %Saig_StrSimIsZero.exit150
 
-Aig_ObjRepr.exit144.thread:                       ; preds = %119, %Aig_ObjRepr.exit144
+Aig_ObjRepr.argprom.exit144.thread:               ; preds = %119, %Aig_ObjRepr.argprom.exit144
   %125 = getelementptr inbounds i8, ptr %110, i64 40
   %126 = load ptr, ptr %125, align 8
   br label %128
@@ -1191,8 +1191,8 @@ Aig_ObjRepr.exit144.thread:                       ; preds = %119, %Aig_ObjRepr.e
   %exitcond.not.i149 = icmp eq i64 %indvars.iv.next.i148, 16
   br i1 %exitcond.not.i149, label %Saig_StrSimIsZero.exit150, label %128, !llvm.loop !7
 
-128:                                              ; preds = %127, %Aig_ObjRepr.exit144.thread
-  %indvars.iv.i145 = phi i64 [ 0, %Aig_ObjRepr.exit144.thread ], [ %indvars.iv.next.i148, %127 ]
+128:                                              ; preds = %127, %Aig_ObjRepr.argprom.exit144.thread
+  %indvars.iv.i145 = phi i64 [ 0, %Aig_ObjRepr.argprom.exit144.thread ], [ %indvars.iv.next.i148, %127 ]
   %129 = getelementptr inbounds i32, ptr %126, i64 %indvars.iv.i145
   %130 = load i32, ptr %129, align 4
   %.not.i146 = icmp eq i32 %130, 0
@@ -1281,8 +1281,8 @@ Saig_StrSimTableLookup.exit174:                   ; preds = %145
   %.pre235 = load ptr, ptr %23, align 8
   br label %Saig_StrSimIsZero.exit150
 
-Saig_StrSimIsZero.exit150:                        ; preds = %127, %131, %151, %Saig_StrSimHash.exit.i161, %106, %161, %160, %Aig_ObjRepr.exit144, %115
-  %165 = phi ptr [ %107, %Saig_StrSimHash.exit.i161 ], [ %107, %106 ], [ %.pre235, %161 ], [ %107, %160 ], [ %107, %Aig_ObjRepr.exit144 ], [ %107, %115 ], [ %107, %151 ], [ %107, %131 ], [ %107, %127 ]
+Saig_StrSimIsZero.exit150:                        ; preds = %127, %131, %151, %Saig_StrSimHash.exit.i161, %106, %161, %160, %Aig_ObjRepr.argprom.exit144, %115
+  %165 = phi ptr [ %107, %Saig_StrSimHash.exit.i161 ], [ %107, %106 ], [ %.pre235, %161 ], [ %107, %160 ], [ %107, %Aig_ObjRepr.argprom.exit144 ], [ %107, %115 ], [ %107, %151 ], [ %107, %131 ], [ %107, %127 ]
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %166 = getelementptr i8, ptr %165, i64 4
   %.val = load i32, ptr %166, align 4
@@ -1414,11 +1414,11 @@ define i32 @Saig_StrSimCountMatchedFlops(ptr nocapture noundef readonly %0) loca
   %9 = sext i32 %.val12 to i64
   %wide.trip.count = zext nneg i32 %.val11 to i64
   %invariant.gep = getelementptr ptr, ptr %.val, i64 %9
-  br label %Aig_ObjRepr.exit
+  br label %Aig_ObjRepr.argprom.exit
 
-Aig_ObjRepr.exit:                                 ; preds = %.lr.ph.split, %Aig_ObjRepr.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %Aig_ObjRepr.exit ]
-  %.014 = phi i32 [ 0, %.lr.ph.split ], [ %spec.select, %Aig_ObjRepr.exit ]
+Aig_ObjRepr.argprom.exit:                         ; preds = %.lr.ph.split, %Aig_ObjRepr.argprom.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %Aig_ObjRepr.argprom.exit ]
+  %.014 = phi i32 [ 0, %.lr.ph.split ], [ %spec.select, %Aig_ObjRepr.argprom.exit ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
   %10 = load ptr, ptr %gep, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 36
@@ -1431,10 +1431,10 @@ Aig_ObjRepr.exit:                                 ; preds = %.lr.ph.split, %Aig_
   %spec.select = add nuw nsw i32 %.014, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %Aig_ObjRepr.exit, !llvm.loop !26
+  br i1 %exitcond.not, label %.critedge, label %Aig_ObjRepr.argprom.exit, !llvm.loop !26
 
-.critedge:                                        ; preds = %Aig_ObjRepr.exit, %.lr.ph, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %spec.select, %Aig_ObjRepr.exit ]
+.critedge:                                        ; preds = %Aig_ObjRepr.argprom.exit, %.lr.ph, %1
+  %.0.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %spec.select, %Aig_ObjRepr.argprom.exit ]
   ret i32 %.0.lcssa
 }
 
@@ -1474,7 +1474,7 @@ define i32 @Saig_StrSimCountMatchedNodes(ptr nocapture noundef readonly %0) loca
 17:                                               ; preds = %12
   %.val15 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.val15, null
-  br i1 %.not.i, label %Aig_ObjRepr.exit, label %18
+  br i1 %.not.i, label %Aig_ObjRepr.argprom.exit, label %18
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %10, i64 36
@@ -1484,15 +1484,15 @@ define i32 @Saig_StrSimCountMatchedNodes(ptr nocapture noundef readonly %0) loca
   %23 = load ptr, ptr %22, align 8
   %24 = icmp ne ptr %23, null
   %25 = zext i1 %24 to i32
-  br label %Aig_ObjRepr.exit
+  br label %Aig_ObjRepr.argprom.exit
 
-Aig_ObjRepr.exit:                                 ; preds = %17, %18
+Aig_ObjRepr.argprom.exit:                         ; preds = %17, %18
   %.not12 = phi i32 [ %25, %18 ], [ 0, %17 ]
   %spec.select = add nsw i32 %.not12, %.017
   br label %26
 
-26:                                               ; preds = %Aig_ObjRepr.exit, %12, %8
-  %.1 = phi i32 [ %.017, %8 ], [ %.017, %12 ], [ %spec.select, %Aig_ObjRepr.exit ]
+26:                                               ; preds = %Aig_ObjRepr.argprom.exit, %12, %8
+  %.1 = phi i32 [ %.017, %8 ], [ %.017, %12 ], [ %spec.select, %Aig_ObjRepr.argprom.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !27
@@ -1701,7 +1701,7 @@ define void @Saig_StrSimSetFinalMatching(ptr noundef %0, ptr nocapture noundef r
   %14 = getelementptr i8, ptr %1, i64 108
   br label %19
 
-.critedge.preheader:                              ; preds = %Aig_ObjRepr.exit.thread
+.critedge.preheader:                              ; preds = %Aig_ObjRepr.argprom.exit.thread
   %15 = icmp sgt i32 %.val76, 0
   br i1 %15, label %.lr.ph118, label %.critedge2
 
@@ -1711,33 +1711,33 @@ define void @Saig_StrSimSetFinalMatching(ptr noundef %0, ptr nocapture noundef r
   %18 = getelementptr i8, ptr %1, i64 256
   br label %99
 
-19:                                               ; preds = %.lr.ph, %Aig_ObjRepr.exit.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Aig_ObjRepr.exit.thread ]
-  %20 = phi ptr [ %4, %.lr.ph ], [ %95, %Aig_ObjRepr.exit.thread ]
-  %.0114 = phi i32 [ 0, %.lr.ph ], [ %.1, %Aig_ObjRepr.exit.thread ]
-  %.057113 = phi i32 [ 0, %.lr.ph ], [ %.158, %Aig_ObjRepr.exit.thread ]
+19:                                               ; preds = %.lr.ph, %Aig_ObjRepr.argprom.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Aig_ObjRepr.argprom.exit.thread ]
+  %20 = phi ptr [ %4, %.lr.ph ], [ %95, %Aig_ObjRepr.argprom.exit.thread ]
+  %.0114 = phi i32 [ 0, %.lr.ph ], [ %.1, %Aig_ObjRepr.argprom.exit.thread ]
+  %.057113 = phi i32 [ 0, %.lr.ph ], [ %.158, %Aig_ObjRepr.argprom.exit.thread ]
   %21 = getelementptr i8, ptr %20, i64 8
   %.val78 = load ptr, ptr %21, align 8
   %22 = getelementptr inbounds ptr, ptr %.val78, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %Aig_ObjRepr.exit.thread, label %25
+  br i1 %24, label %Aig_ObjRepr.argprom.exit.thread, label %25
 
 25:                                               ; preds = %19
   %.val84 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.val84, null
-  br i1 %.not.i, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
+  br i1 %.not.i, label %Aig_ObjRepr.argprom.exit.thread, label %Aig_ObjRepr.argprom.exit
 
-Aig_ObjRepr.exit:                                 ; preds = %25
+Aig_ObjRepr.argprom.exit:                         ; preds = %25
   %26 = getelementptr inbounds i8, ptr %23, i64 36
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds ptr, ptr %.val84, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %Aig_ObjRepr.exit.thread, label %32
+  br i1 %31, label %Aig_ObjRepr.argprom.exit.thread, label %32
 
-32:                                               ; preds = %Aig_ObjRepr.exit
+32:                                               ; preds = %Aig_ObjRepr.argprom.exit
   %33 = add nsw i32 %.057113, 1
   %34 = getelementptr i8, ptr %23, i64 24
   %.val79 = load i64, ptr %34, align 8
@@ -1745,9 +1745,9 @@ Aig_ObjRepr.exit:                                 ; preds = %25
   %36 = and i32 %35, 7
   %37 = add nsw i32 %36, -7
   %narrow.i = icmp ult i32 %37, -2
-  br i1 %narrow.i, label %64, label %Aig_ObjRepr.exit96
+  br i1 %narrow.i, label %64, label %Aig_ObjRepr.argprom.exit96
 
-Aig_ObjRepr.exit96:                               ; preds = %32
+Aig_ObjRepr.argprom.exit96:                       ; preds = %32
   %38 = getelementptr i8, ptr %23, i64 8
   %.val72 = load ptr, ptr %38, align 8
   %39 = ptrtoint ptr %.val72 to i64
@@ -1764,9 +1764,9 @@ Aig_ObjRepr.exit96:                               ; preds = %32
   %49 = getelementptr inbounds ptr, ptr %.val84, i64 %48
   %50 = load ptr, ptr %49, align 8
   %.not68 = icmp eq ptr %50, %45
-  br i1 %.not68, label %Aig_ObjRepr.exit98, label %Aig_ObjRepr.exit.thread.sink.split
+  br i1 %.not68, label %Aig_ObjRepr.argprom.exit98, label %Aig_ObjRepr.argprom.exit.thread.sink.split
 
-Aig_ObjRepr.exit98:                               ; preds = %Aig_ObjRepr.exit96
+Aig_ObjRepr.argprom.exit98:                       ; preds = %Aig_ObjRepr.argprom.exit96
   %51 = getelementptr i8, ptr %30, i64 16
   %.val73 = load ptr, ptr %51, align 8
   %52 = ptrtoint ptr %.val73 to i64
@@ -1783,20 +1783,20 @@ Aig_ObjRepr.exit98:                               ; preds = %Aig_ObjRepr.exit96
   %62 = getelementptr inbounds ptr, ptr %.val84, i64 %61
   %63 = load ptr, ptr %62, align 8
   %.not69 = icmp eq ptr %63, %54
-  br i1 %.not69, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit.thread.sink.split
+  br i1 %.not69, label %Aig_ObjRepr.argprom.exit.thread, label %Aig_ObjRepr.argprom.exit.thread.sink.split
 
 64:                                               ; preds = %32
   %65 = and i64 %.val79, 7
   %.not.i99 = icmp eq i64 %65, 2
-  br i1 %.not.i99, label %Saig_ObjIsLo.exit, label %Aig_ObjRepr.exit.thread
+  br i1 %.not.i99, label %Saig_ObjIsLo.exit, label %Aig_ObjRepr.argprom.exit.thread
 
 Saig_ObjIsLo.exit:                                ; preds = %64
   %.val4.i = load i32, ptr %23, align 8
   %.val3.i = load i32, ptr %9, align 4
   %.not110 = icmp slt i32 %.val4.i, %.val3.i
-  br i1 %.not110, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit106
+  br i1 %.not110, label %Aig_ObjRepr.argprom.exit.thread, label %Aig_ObjRepr.argprom.exit106
 
-Aig_ObjRepr.exit106:                              ; preds = %Saig_ObjIsLo.exit
+Aig_ObjRepr.argprom.exit106:                      ; preds = %Saig_ObjIsLo.exit
   %66 = load ptr, ptr %10, align 8
   %.val4.i100 = load i32, ptr %11, align 8
   %67 = add nsw i32 %.val4.i100, %.val4.i
@@ -1833,18 +1833,18 @@ Aig_ObjRepr.exit106:                              ; preds = %Saig_ObjIsLo.exit
   %91 = getelementptr inbounds ptr, ptr %.val84, i64 %90
   %92 = load ptr, ptr %91, align 8
   %.not67 = icmp eq ptr %92, %87
-  br i1 %.not67, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit.thread.sink.split
+  br i1 %.not67, label %Aig_ObjRepr.argprom.exit.thread, label %Aig_ObjRepr.argprom.exit.thread.sink.split
 
-Aig_ObjRepr.exit.thread.sink.split:               ; preds = %Aig_ObjRepr.exit106, %Aig_ObjRepr.exit96, %Aig_ObjRepr.exit98
+Aig_ObjRepr.argprom.exit.thread.sink.split:       ; preds = %Aig_ObjRepr.argprom.exit106, %Aig_ObjRepr.argprom.exit96, %Aig_ObjRepr.argprom.exit98
   %.val90 = load i32, ptr %8, align 8
   %93 = getelementptr inbounds i8, ptr %23, i64 32
   store i32 %.val90, ptr %93, align 8
   %94 = add nsw i32 %.0114, 1
-  br label %Aig_ObjRepr.exit.thread
+  br label %Aig_ObjRepr.argprom.exit.thread
 
-Aig_ObjRepr.exit.thread:                          ; preds = %Aig_ObjRepr.exit.thread.sink.split, %64, %25, %19, %Saig_ObjIsLo.exit, %Aig_ObjRepr.exit106, %Aig_ObjRepr.exit98, %Aig_ObjRepr.exit
-  %.158 = phi i32 [ %.057113, %19 ], [ %.057113, %Aig_ObjRepr.exit ], [ %33, %Aig_ObjRepr.exit98 ], [ %33, %Aig_ObjRepr.exit106 ], [ %33, %Saig_ObjIsLo.exit ], [ %.057113, %25 ], [ %33, %64 ], [ %33, %Aig_ObjRepr.exit.thread.sink.split ]
-  %.1 = phi i32 [ %.0114, %19 ], [ %.0114, %Aig_ObjRepr.exit ], [ %.0114, %Aig_ObjRepr.exit98 ], [ %.0114, %Aig_ObjRepr.exit106 ], [ %.0114, %Saig_ObjIsLo.exit ], [ %.0114, %25 ], [ %.0114, %64 ], [ %94, %Aig_ObjRepr.exit.thread.sink.split ]
+Aig_ObjRepr.argprom.exit.thread:                  ; preds = %Aig_ObjRepr.argprom.exit.thread.sink.split, %64, %25, %19, %Saig_ObjIsLo.exit, %Aig_ObjRepr.argprom.exit106, %Aig_ObjRepr.argprom.exit98, %Aig_ObjRepr.argprom.exit
+  %.158 = phi i32 [ %.057113, %19 ], [ %.057113, %Aig_ObjRepr.argprom.exit ], [ %33, %Aig_ObjRepr.argprom.exit98 ], [ %33, %Aig_ObjRepr.argprom.exit106 ], [ %33, %Saig_ObjIsLo.exit ], [ %.057113, %25 ], [ %33, %64 ], [ %33, %Aig_ObjRepr.argprom.exit.thread.sink.split ]
+  %.1 = phi i32 [ %.0114, %19 ], [ %.0114, %Aig_ObjRepr.argprom.exit ], [ %.0114, %Aig_ObjRepr.argprom.exit98 ], [ %.0114, %Aig_ObjRepr.argprom.exit106 ], [ %.0114, %Saig_ObjIsLo.exit ], [ %.0114, %25 ], [ %.0114, %64 ], [ %94, %Aig_ObjRepr.argprom.exit.thread.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load ptr, ptr %3, align 8
   %96 = getelementptr i8, ptr %95, i64 4
@@ -1853,36 +1853,36 @@ Aig_ObjRepr.exit.thread:                          ; preds = %Aig_ObjRepr.exit.th
   %98 = icmp slt i64 %indvars.iv.next, %97
   br i1 %98, label %19, label %.critedge.preheader, !llvm.loop !32
 
-99:                                               ; preds = %.lr.ph118, %Aig_ObjRepr.exit108.thread
-  %100 = phi ptr [ %95, %.lr.ph118 ], [ %118, %Aig_ObjRepr.exit108.thread ]
-  %indvars.iv120 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next121, %Aig_ObjRepr.exit108.thread ]
+99:                                               ; preds = %.lr.ph118, %Aig_ObjRepr.argprom.exit108.thread
+  %100 = phi ptr [ %95, %.lr.ph118 ], [ %118, %Aig_ObjRepr.argprom.exit108.thread ]
+  %indvars.iv120 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next121, %Aig_ObjRepr.argprom.exit108.thread ]
   %101 = getelementptr i8, ptr %100, i64 8
   %.val77 = load ptr, ptr %101, align 8
   %102 = getelementptr inbounds ptr, ptr %.val77, i64 %indvars.iv120
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
-  br i1 %104, label %Aig_ObjRepr.exit108.thread, label %105
+  br i1 %104, label %Aig_ObjRepr.argprom.exit108.thread, label %105
 
 105:                                              ; preds = %99
   %.val80 = load ptr, ptr %16, align 8
   %.not.i107 = icmp eq ptr %.val80, null
-  br i1 %.not.i107, label %Aig_ObjRepr.exit108.thread, label %Aig_ObjRepr.exit108
+  br i1 %.not.i107, label %Aig_ObjRepr.argprom.exit108.thread, label %Aig_ObjRepr.argprom.exit108
 
-Aig_ObjRepr.exit108:                              ; preds = %105
+Aig_ObjRepr.argprom.exit108:                      ; preds = %105
   %106 = getelementptr i8, ptr %103, i64 36
   %107 = load i32, ptr %106, align 4
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds ptr, ptr %.val80, i64 %108
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, null
-  br i1 %111, label %Aig_ObjRepr.exit108.thread, label %112
+  br i1 %111, label %Aig_ObjRepr.argprom.exit108.thread, label %112
 
-112:                                              ; preds = %Aig_ObjRepr.exit108
+112:                                              ; preds = %Aig_ObjRepr.argprom.exit108
   %.val93 = load i32, ptr %17, align 8
   %113 = getelementptr i8, ptr %103, i64 32
   %.val94 = load i32, ptr %113, align 8
   %.not = icmp eq i32 %.val94, %.val93
-  br i1 %.not, label %114, label %Aig_ObjRepr.exit108.thread
+  br i1 %.not, label %114, label %Aig_ObjRepr.argprom.exit108.thread
 
 114:                                              ; preds = %112
   store ptr null, ptr %109, align 8
@@ -1893,10 +1893,10 @@ Aig_ObjRepr.exit108:                              ; preds = %105
   %117 = getelementptr inbounds ptr, ptr %.val85, i64 %116
   store ptr null, ptr %117, align 8
   %.pre = load ptr, ptr %3, align 8
-  br label %Aig_ObjRepr.exit108.thread
+  br label %Aig_ObjRepr.argprom.exit108.thread
 
-Aig_ObjRepr.exit108.thread:                       ; preds = %105, %99, %114, %112, %Aig_ObjRepr.exit108
-  %118 = phi ptr [ %100, %105 ], [ %100, %99 ], [ %.pre, %114 ], [ %100, %112 ], [ %100, %Aig_ObjRepr.exit108 ]
+Aig_ObjRepr.argprom.exit108.thread:               ; preds = %105, %99, %114, %112, %Aig_ObjRepr.argprom.exit108
+  %118 = phi ptr [ %100, %105 ], [ %100, %99 ], [ %.pre, %114 ], [ %100, %112 ], [ %100, %Aig_ObjRepr.argprom.exit108 ]
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %119 = getelementptr i8, ptr %118, i64 4
   %.val75 = load i32, ptr %119, align 4
@@ -1904,9 +1904,9 @@ Aig_ObjRepr.exit108.thread:                       ; preds = %105, %99, %114, %11
   %121 = icmp slt i64 %indvars.iv.next121, %120
   br i1 %121, label %99, label %.critedge2, !llvm.loop !33
 
-.critedge2:                                       ; preds = %Aig_ObjRepr.exit108.thread, %2, %.critedge.preheader
-  %.0.lcssa128 = phi i32 [ %.1, %.critedge.preheader ], [ 0, %2 ], [ %.1, %Aig_ObjRepr.exit108.thread ]
-  %.057.lcssa127 = phi i32 [ %.158, %.critedge.preheader ], [ 0, %2 ], [ %.158, %Aig_ObjRepr.exit108.thread ]
+.critedge2:                                       ; preds = %Aig_ObjRepr.argprom.exit108.thread, %2, %.critedge.preheader
+  %.0.lcssa128 = phi i32 [ %.1, %.critedge.preheader ], [ 0, %2 ], [ %.1, %Aig_ObjRepr.argprom.exit108.thread ]
+  %.057.lcssa127 = phi i32 [ %.158, %.critedge.preheader ], [ 0, %2 ], [ %.158, %Aig_ObjRepr.argprom.exit108.thread ]
   %122 = sitofp i32 %.0.lcssa128 to double
   %123 = fmul double %122, 1.000000e+02
   %124 = sitofp i32 %.057.lcssa127 to double
@@ -1959,7 +1959,7 @@ define void @Saig_StrSimSetContiguousMatching_rec(ptr noundef %0, ptr nocapture 
   %4 = getelementptr i8, ptr %1, i64 32
   %.val3962 = load i32, ptr %4, align 8
   %.not63 = icmp eq i32 %.val3962, %.val3861
-  br i1 %.not63, label %Aig_ObjRepr.exit.thread, label %.lr.ph66
+  br i1 %.not63, label %Aig_ObjRepr.argprom.exit.thread, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 112
@@ -1985,7 +1985,7 @@ Saig_ObjIsPo.exit:                                ; preds = %11
   %.val3.i = load i32, ptr %.tr5864, align 8
   %.val.i = load i32, ptr %5, align 8
   %.not55 = icmp slt i32 %.val3.i, %.val.i
-  br i1 %.not55, label %Aig_ObjRepr.exit.thread, label %Saig_ObjIsLi.exit
+  br i1 %.not55, label %Aig_ObjRepr.argprom.exit.thread, label %Saig_ObjIsLi.exit
 
 Saig_ObjIsLi.exit:                                ; preds = %Saig_ObjIsPo.exit
   %15 = load ptr, ptr %6, align 8
@@ -2005,30 +2005,30 @@ tailrecurse.backedge:                             ; preds = %Saig_ObjIsLi.exit, 
   %22 = getelementptr i8, ptr %.tr58.be, i64 32
   %.val39 = load i32, ptr %22, align 8
   %.not = icmp eq i32 %.val39, %.val38
-  br i1 %.not, label %Aig_ObjRepr.exit.thread, label %11
+  br i1 %.not, label %Aig_ObjRepr.argprom.exit.thread, label %11
 
 Saig_ObjIsLi.exit.thread:                         ; preds = %11
   %.val36 = load ptr, ptr %8, align 8
   %.not.i50 = icmp eq ptr %.val36, null
-  br i1 %.not.i50, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
+  br i1 %.not.i50, label %Aig_ObjRepr.argprom.exit.thread, label %Aig_ObjRepr.argprom.exit
 
-Aig_ObjRepr.exit:                                 ; preds = %Saig_ObjIsLi.exit.thread
+Aig_ObjRepr.argprom.exit:                         ; preds = %Saig_ObjIsLi.exit.thread
   %23 = getelementptr inbounds i8, ptr %.tr5864, i64 36
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %.val36, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %Aig_ObjRepr.exit.thread, label %.preheader
+  br i1 %28, label %Aig_ObjRepr.argprom.exit.thread, label %.preheader
 
-.preheader:                                       ; preds = %Aig_ObjRepr.exit
+.preheader:                                       ; preds = %Aig_ObjRepr.argprom.exit
   %29 = and i64 %.val4.i, 4294967232
   %.not67 = icmp eq i64 %29, 0
   br i1 %.not67, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %Aig_ManObj.exit
-  %.060 = phi i32 [ %42, %Aig_ManObj.exit ], [ -1, %.preheader ]
-  %.02959 = phi i32 [ %50, %Aig_ManObj.exit ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %Aig_ManObj.argprom.exit
+  %.060 = phi i32 [ %42, %Aig_ManObj.argprom.exit ], [ -1, %.preheader ]
+  %.02959 = phi i32 [ %50, %Aig_ManObj.argprom.exit ], [ 0, %.preheader ]
   %.not33 = icmp eq i32 %.02959, 0
   br i1 %.not33, label %36, label %30
 
@@ -2053,7 +2053,7 @@ Aig_ObjRepr.exit:                                 ; preds = %Saig_ObjIsLi.exit.t
   %42 = load i32, ptr %41, align 4
   %.val43 = load ptr, ptr %10, align 8
   %.not.i51 = icmp eq ptr %.val43, null
-  br i1 %.not.i51, label %Aig_ManObj.exit, label %43
+  br i1 %.not.i51, label %Aig_ManObj.argprom.exit, label %43
 
 43:                                               ; preds = %39
   %44 = ashr i32 %42, 1
@@ -2062,9 +2062,9 @@ Aig_ObjRepr.exit:                                 ; preds = %Saig_ObjIsLi.exit.t
   %46 = sext i32 %44 to i64
   %47 = getelementptr inbounds ptr, ptr %.val.i52, i64 %46
   %48 = load ptr, ptr %47, align 8
-  br label %Aig_ManObj.exit
+  br label %Aig_ManObj.argprom.exit
 
-Aig_ManObj.exit:                                  ; preds = %39, %43
+Aig_ManObj.argprom.exit:                          ; preds = %39, %43
   %49 = phi ptr [ %48, %43 ], [ null, %39 ]
   tail call void @Saig_StrSimSetContiguousMatching_rec(ptr noundef nonnull %0, ptr noundef %49)
   %50 = add nuw nsw i32 %.02959, 1
@@ -2074,14 +2074,14 @@ Aig_ManObj.exit:                                  ; preds = %39, %43
   %54 = icmp ult i32 %50, %53
   br i1 %54, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !34
 
-.critedge.loopexit:                               ; preds = %Aig_ManObj.exit
+.critedge.loopexit:                               ; preds = %Aig_ManObj.argprom.exit
   %.pre = and i64 %51, 7
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
   %.pre-phi = phi i64 [ %.pre, %.critedge.loopexit ], [ %14, %.preheader ]
   %.not57 = icmp eq i64 %.pre-phi, 2
-  br i1 %.not57, label %Aig_ObjRepr.exit.thread, label %55
+  br i1 %.not57, label %Aig_ObjRepr.argprom.exit.thread, label %55
 
 55:                                               ; preds = %.critedge
   %56 = getelementptr i8, ptr %.tr5864, i64 8
@@ -2097,7 +2097,7 @@ Aig_ManObj.exit:                                  ; preds = %39, %43
   %63 = inttoptr i64 %62 to ptr
   br label %tailrecurse.backedge
 
-Aig_ObjRepr.exit.thread:                          ; preds = %.critedge, %tailrecurse.backedge, %Saig_ObjIsPo.exit, %Aig_ObjRepr.exit, %Saig_ObjIsLi.exit.thread, %2
+Aig_ObjRepr.argprom.exit.thread:                  ; preds = %.critedge, %tailrecurse.backedge, %Saig_ObjIsPo.exit, %Aig_ObjRepr.argprom.exit, %Saig_ObjIsLi.exit.thread, %2
   ret void
 }
 
@@ -2146,39 +2146,39 @@ define void @Saig_StrSimSetContiguousMatching(ptr noundef %0, ptr nocapture noun
   %21 = icmp slt i64 %indvars.iv.next, %20
   br i1 %21, label %15, label %.critedge.preheader, !llvm.loop !35
 
-22:                                               ; preds = %.lr.ph56, %Aig_ObjRepr.exit.thread
-  %23 = phi ptr [ %10, %.lr.ph56 ], [ %43, %Aig_ObjRepr.exit.thread ]
-  %indvars.iv59 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next60, %Aig_ObjRepr.exit.thread ]
-  %.055 = phi i32 [ 0, %.lr.ph56 ], [ %.1, %Aig_ObjRepr.exit.thread ]
-  %.03254 = phi i32 [ 0, %.lr.ph56 ], [ %.133, %Aig_ObjRepr.exit.thread ]
+22:                                               ; preds = %.lr.ph56, %Aig_ObjRepr.argprom.exit.thread
+  %23 = phi ptr [ %10, %.lr.ph56 ], [ %43, %Aig_ObjRepr.argprom.exit.thread ]
+  %indvars.iv59 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next60, %Aig_ObjRepr.argprom.exit.thread ]
+  %.055 = phi i32 [ 0, %.lr.ph56 ], [ %.1, %Aig_ObjRepr.argprom.exit.thread ]
+  %.03254 = phi i32 [ 0, %.lr.ph56 ], [ %.133, %Aig_ObjRepr.argprom.exit.thread ]
   %24 = getelementptr i8, ptr %23, i64 8
   %.val38 = load ptr, ptr %24, align 8
   %25 = getelementptr inbounds ptr, ptr %.val38, i64 %indvars.iv59
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %Aig_ObjRepr.exit.thread, label %28
+  br i1 %27, label %Aig_ObjRepr.argprom.exit.thread, label %28
 
 28:                                               ; preds = %22
   %.val40 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %.val40, null
-  br i1 %.not.i, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
+  br i1 %.not.i, label %Aig_ObjRepr.argprom.exit.thread, label %Aig_ObjRepr.argprom.exit
 
-Aig_ObjRepr.exit:                                 ; preds = %28
+Aig_ObjRepr.argprom.exit:                         ; preds = %28
   %29 = getelementptr i8, ptr %26, i64 36
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds ptr, ptr %.val40, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %Aig_ObjRepr.exit.thread, label %35
+  br i1 %34, label %Aig_ObjRepr.argprom.exit.thread, label %35
 
-35:                                               ; preds = %Aig_ObjRepr.exit
+35:                                               ; preds = %Aig_ObjRepr.argprom.exit
   %36 = add nsw i32 %.03254, 1
   %.val48 = load i32, ptr %4, align 8
   %37 = getelementptr i8, ptr %26, i64 32
   %.val49 = load i32, ptr %37, align 8
   %.not = icmp eq i32 %.val49, %.val48
-  br i1 %.not, label %Aig_ObjRepr.exit.thread, label %38
+  br i1 %.not, label %Aig_ObjRepr.argprom.exit.thread, label %38
 
 38:                                               ; preds = %35
   store ptr null, ptr %32, align 8
@@ -2190,12 +2190,12 @@ Aig_ObjRepr.exit:                                 ; preds = %28
   store ptr null, ptr %41, align 8
   %42 = add nsw i32 %.055, 1
   %.pre = load ptr, ptr %9, align 8
-  br label %Aig_ObjRepr.exit.thread
+  br label %Aig_ObjRepr.argprom.exit.thread
 
-Aig_ObjRepr.exit.thread:                          ; preds = %28, %22, %38, %35, %Aig_ObjRepr.exit
-  %43 = phi ptr [ %23, %22 ], [ %23, %Aig_ObjRepr.exit ], [ %23, %35 ], [ %.pre, %38 ], [ %23, %28 ]
-  %.133 = phi i32 [ %.03254, %22 ], [ %.03254, %Aig_ObjRepr.exit ], [ %36, %35 ], [ %36, %38 ], [ %.03254, %28 ]
-  %.1 = phi i32 [ %.055, %22 ], [ %.055, %Aig_ObjRepr.exit ], [ %.055, %35 ], [ %42, %38 ], [ %.055, %28 ]
+Aig_ObjRepr.argprom.exit.thread:                  ; preds = %28, %22, %38, %35, %Aig_ObjRepr.argprom.exit
+  %43 = phi ptr [ %23, %22 ], [ %23, %Aig_ObjRepr.argprom.exit ], [ %23, %35 ], [ %.pre, %38 ], [ %23, %28 ]
+  %.133 = phi i32 [ %.03254, %22 ], [ %.03254, %Aig_ObjRepr.argprom.exit ], [ %36, %35 ], [ %36, %38 ], [ %.03254, %28 ]
+  %.1 = phi i32 [ %.055, %22 ], [ %.055, %Aig_ObjRepr.argprom.exit ], [ %.055, %35 ], [ %42, %38 ], [ %.055, %28 ]
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %44 = getelementptr i8, ptr %43, i64 4
   %.val = load i32, ptr %44, align 4
@@ -2203,9 +2203,9 @@ Aig_ObjRepr.exit.thread:                          ; preds = %28, %22, %38, %35, 
   %46 = icmp slt i64 %indvars.iv.next60, %45
   br i1 %46, label %22, label %.critedge2, !llvm.loop !36
 
-.critedge2:                                       ; preds = %Aig_ObjRepr.exit.thread, %.critedge.preheader
-  %.032.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.133, %Aig_ObjRepr.exit.thread ]
-  %.0.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.1, %Aig_ObjRepr.exit.thread ]
+.critedge2:                                       ; preds = %Aig_ObjRepr.argprom.exit.thread, %.critedge.preheader
+  %.032.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.133, %Aig_ObjRepr.argprom.exit.thread ]
+  %.0.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.1, %Aig_ObjRepr.argprom.exit.thread ]
   %47 = sitofp i32 %.0.lcssa to double
   %48 = fmul double %47, 1.000000e+02
   %49 = sitofp i32 %.032.lcssa to double
@@ -2263,21 +2263,21 @@ define void @Ssw_StrSimMatchingExtendOne(ptr noundef %0, ptr nocapture noundef %
 27:                                               ; preds = %21
   %.val101 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.val101, null
-  br i1 %.not.i, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
+  br i1 %.not.i, label %Aig_ObjRepr.argprom.exit.thread, label %Aig_ObjRepr.argprom.exit
 
-Aig_ObjRepr.exit:                                 ; preds = %27
+Aig_ObjRepr.argprom.exit:                         ; preds = %27
   %28 = getelementptr inbounds i8, ptr %19, i64 36
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds ptr, ptr %.val101, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not75 = icmp eq ptr %32, null
-  br i1 %.not75, label %Aig_ObjRepr.exit.thread, label %.critedge2
+  br i1 %.not75, label %Aig_ObjRepr.argprom.exit.thread, label %.critedge2
 
-Aig_ObjRepr.exit.thread:                          ; preds = %27, %Aig_ObjRepr.exit
+Aig_ObjRepr.argprom.exit.thread:                  ; preds = %27, %Aig_ObjRepr.argprom.exit
   br i1 %.not, label %Saig_ObjIsLo.exit, label %Saig_ObjIsLo.exit.thread
 
-Saig_ObjIsLo.exit:                                ; preds = %Aig_ObjRepr.exit.thread
+Saig_ObjIsLo.exit:                                ; preds = %Aig_ObjRepr.argprom.exit.thread
   %.val4.i = load i32, ptr %19, align 8
   %.val3.i = load i32, ptr %9, align 4
   %.not177 = icmp slt i32 %.val4.i, %.val3.i
@@ -2298,9 +2298,9 @@ Saig_ObjIsLo.exit:                                ; preds = %Aig_ObjRepr.exit.th
   %42 = ptrtoint ptr %.val90 to i64
   %43 = and i64 %42, -2
   %44 = inttoptr i64 %43 to ptr
-  br i1 %.not.i, label %Saig_ObjIsLo.exit.thread, label %Aig_ObjRepr.exit123
+  br i1 %.not.i, label %Saig_ObjIsLo.exit.thread, label %Aig_ObjRepr.argprom.exit123
 
-Aig_ObjRepr.exit123:                              ; preds = %33
+Aig_ObjRepr.argprom.exit123:                      ; preds = %33
   %45 = getelementptr inbounds i8, ptr %44, i64 36
   %46 = load i32, ptr %45, align 4
   %47 = sext i32 %46 to i64
@@ -2309,7 +2309,7 @@ Aig_ObjRepr.exit123:                              ; preds = %33
   %.not77 = icmp eq ptr %49, null
   br i1 %.not77, label %Saig_ObjIsLo.exit.thread, label %50
 
-50:                                               ; preds = %Aig_ObjRepr.exit123
+50:                                               ; preds = %Aig_ObjRepr.argprom.exit123
   %.val112 = load i32, ptr %12, align 8
   %51 = getelementptr i8, ptr %44, i64 32
   %.val113 = load i32, ptr %51, align 8
@@ -2392,11 +2392,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.pre196 = and i32 %.pre195, 7
   br label %Saig_ObjIsLo.exit.thread
 
-Saig_ObjIsLo.exit.thread:                         ; preds = %33, %Aig_ObjRepr.exit.thread, %Aig_ObjRepr.exit123, %50, %52, %Vec_PtrPush.exit, %Saig_ObjIsLo.exit
-  %.pre-phi197 = phi i32 [ %24, %33 ], [ %24, %Aig_ObjRepr.exit.thread ], [ %24, %Aig_ObjRepr.exit123 ], [ %24, %50 ], [ %24, %52 ], [ %.pre196, %Vec_PtrPush.exit ], [ %24, %Saig_ObjIsLo.exit ]
+Saig_ObjIsLo.exit.thread:                         ; preds = %33, %Aig_ObjRepr.argprom.exit.thread, %Aig_ObjRepr.argprom.exit123, %50, %52, %Vec_PtrPush.exit, %Saig_ObjIsLo.exit
+  %.pre-phi197 = phi i32 [ %24, %33 ], [ %24, %Aig_ObjRepr.argprom.exit.thread ], [ %24, %Aig_ObjRepr.argprom.exit123 ], [ %24, %50 ], [ %24, %52 ], [ %.pre196, %Vec_PtrPush.exit ], [ %24, %Saig_ObjIsLo.exit ]
   %84 = add nsw i32 %.pre-phi197, -7
   %narrow.i124 = icmp ult i32 %84, -2
-  br i1 %narrow.i124, label %Aig_ObjRepr.exit135.thread, label %85
+  br i1 %narrow.i124, label %Aig_ObjRepr.argprom.exit135.thread, label %85
 
 85:                                               ; preds = %Saig_ObjIsLo.exit.thread
   %86 = getelementptr i8, ptr %19, i64 8
@@ -2406,23 +2406,23 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %33, %Aig_ObjRepr.ex
   %89 = inttoptr i64 %88 to ptr
   %.val99 = load ptr, ptr %8, align 8
   %.not.i125 = icmp eq ptr %.val99, null
-  br i1 %.not.i125, label %Aig_ObjRepr.exit135.thread, label %Aig_ObjRepr.exit126
+  br i1 %.not.i125, label %Aig_ObjRepr.argprom.exit135.thread, label %Aig_ObjRepr.argprom.exit126
 
-Aig_ObjRepr.exit126:                              ; preds = %85
+Aig_ObjRepr.argprom.exit126:                      ; preds = %85
   %90 = getelementptr inbounds i8, ptr %89, i64 36
   %91 = load i32, ptr %90, align 4
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds ptr, ptr %.val99, i64 %92
   %94 = load ptr, ptr %93, align 8
   %.not81 = icmp eq ptr %94, null
-  br i1 %.not81, label %Aig_ObjRepr.exit135, label %95
+  br i1 %.not81, label %Aig_ObjRepr.argprom.exit135, label %95
 
-95:                                               ; preds = %Aig_ObjRepr.exit126
+95:                                               ; preds = %Aig_ObjRepr.argprom.exit126
   %.val110 = load i32, ptr %12, align 8
   %96 = getelementptr i8, ptr %89, i64 32
   %.val111 = load i32, ptr %96, align 8
   %.not180 = icmp eq i32 %.val111, %.val110
-  br i1 %.not180, label %Aig_ObjRepr.exit135, label %97
+  br i1 %.not180, label %Aig_ObjRepr.argprom.exit135, label %97
 
 97:                                               ; preds = %95
   store i32 %.val110, ptr %96, align 8
@@ -2490,10 +2490,10 @@ Vec_PtrGrow.exit.i132:                            ; preds = %107, %105
   store ptr %89, ptr %126, align 8
   %.val98.pr.pre = load ptr, ptr %8, align 8
   %.not.i134 = icmp eq ptr %.val98.pr.pre, null
-  br i1 %.not.i134, label %Aig_ObjRepr.exit135.thread, label %Aig_ObjRepr.exit135
+  br i1 %.not.i134, label %Aig_ObjRepr.argprom.exit135.thread, label %Aig_ObjRepr.argprom.exit135
 
-Aig_ObjRepr.exit135:                              ; preds = %Aig_ObjRepr.exit126, %95, %121
-  %.val98.pr201 = phi ptr [ %.val98.pr.pre, %121 ], [ %.val99, %95 ], [ %.val99, %Aig_ObjRepr.exit126 ]
+Aig_ObjRepr.argprom.exit135:                      ; preds = %Aig_ObjRepr.argprom.exit126, %95, %121
+  %.val98.pr201 = phi ptr [ %.val98.pr.pre, %121 ], [ %.val99, %95 ], [ %.val99, %Aig_ObjRepr.argprom.exit126 ]
   %.in.in.in.in = getelementptr i8, ptr %19, i64 16
   %.in.in.in = load ptr, ptr %.in.in.in.in, align 8
   %.in.in = ptrtoint ptr %.in.in.in to i64
@@ -2505,14 +2505,14 @@ Aig_ObjRepr.exit135:                              ; preds = %Aig_ObjRepr.exit126
   %131 = getelementptr inbounds ptr, ptr %.val98.pr201, i64 %130
   %132 = load ptr, ptr %131, align 8
   %.not83 = icmp eq ptr %132, null
-  br i1 %.not83, label %Aig_ObjRepr.exit135.thread, label %133
+  br i1 %.not83, label %Aig_ObjRepr.argprom.exit135.thread, label %133
 
-133:                                              ; preds = %Aig_ObjRepr.exit135
+133:                                              ; preds = %Aig_ObjRepr.argprom.exit135
   %.val108 = load i32, ptr %12, align 8
   %134 = getelementptr i8, ptr %127, i64 32
   %.val109 = load i32, ptr %134, align 8
   %.not181 = icmp eq i32 %.val109, %.val108
-  br i1 %.not181, label %Aig_ObjRepr.exit135.thread, label %135
+  br i1 %.not181, label %Aig_ObjRepr.argprom.exit135.thread, label %135
 
 135:                                              ; preds = %133
   store i32 %.val108, ptr %134, align 8
@@ -2578,22 +2578,22 @@ Vec_PtrPush.exit142:                              ; preds = %.Vec_PtrGrow.exit11
   %162 = sext i32 %160 to i64
   %163 = getelementptr inbounds ptr, ptr %159, i64 %162
   store ptr %127, ptr %163, align 8
-  br label %Aig_ObjRepr.exit135.thread
+  br label %Aig_ObjRepr.argprom.exit135.thread
 
-Aig_ObjRepr.exit135.thread:                       ; preds = %85, %121, %Aig_ObjRepr.exit135, %133, %Vec_PtrPush.exit142, %Saig_ObjIsLo.exit.thread
+Aig_ObjRepr.argprom.exit135.thread:               ; preds = %85, %121, %Aig_ObjRepr.argprom.exit135, %133, %Vec_PtrPush.exit142, %Saig_ObjIsLo.exit.thread
   %164 = load i64, ptr %22, align 8
   %165 = and i64 %164, 4294967232
   %.not191 = icmp eq i64 %165, 0
   br i1 %.not191, label %.critedge2, label %.lr.ph
 
-.lr.ph:                                           ; preds = %Aig_ObjRepr.exit135.thread
+.lr.ph:                                           ; preds = %Aig_ObjRepr.argprom.exit135.thread
   %166 = getelementptr inbounds i8, ptr %19, i64 36
   br label %167
 
-167:                                              ; preds = %.lr.ph, %Aig_ObjRepr.exit157.thread
-  %168 = phi i64 [ %164, %.lr.ph ], [ %234, %Aig_ObjRepr.exit157.thread ]
-  %.2186 = phi i32 [ %.0189, %.lr.ph ], [ %181, %Aig_ObjRepr.exit157.thread ]
-  %.070185 = phi i32 [ 0, %.lr.ph ], [ %235, %Aig_ObjRepr.exit157.thread ]
+167:                                              ; preds = %.lr.ph, %Aig_ObjRepr.argprom.exit157.thread
+  %168 = phi i64 [ %164, %.lr.ph ], [ %234, %Aig_ObjRepr.argprom.exit157.thread ]
+  %.2186 = phi i32 [ %.0189, %.lr.ph ], [ %181, %Aig_ObjRepr.argprom.exit157.thread ]
+  %.070185 = phi i32 [ 0, %.lr.ph ], [ %235, %Aig_ObjRepr.argprom.exit157.thread ]
   %.not85 = icmp eq i32 %.070185, 0
   br i1 %.not85, label %175, label %169
 
@@ -2618,7 +2618,7 @@ Aig_ObjRepr.exit135.thread:                       ; preds = %85, %121, %Aig_ObjR
   %181 = load i32, ptr %180, align 4
   %.val117 = load ptr, ptr %4, align 8
   %.not.i143 = icmp eq ptr %.val117, null
-  br i1 %.not.i143, label %Aig_ManObj.exit, label %182
+  br i1 %.not.i143, label %Aig_ManObj.argprom.exit, label %182
 
 182:                                              ; preds = %178
   %183 = ashr i32 %181, 1
@@ -2627,9 +2627,9 @@ Aig_ObjRepr.exit135.thread:                       ; preds = %85, %121, %Aig_ObjR
   %185 = sext i32 %183 to i64
   %186 = getelementptr inbounds ptr, ptr %.val.i144, i64 %185
   %187 = load ptr, ptr %186, align 8
-  br label %Aig_ManObj.exit
+  br label %Aig_ManObj.argprom.exit
 
-Aig_ManObj.exit:                                  ; preds = %178, %182
+Aig_ManObj.argprom.exit:                          ; preds = %178, %182
   %188 = phi ptr [ %187, %182 ], [ null, %178 ]
   %189 = getelementptr i8, ptr %188, i64 24
   %.val4.i145 = load i64, ptr %189, align 8
@@ -2637,11 +2637,11 @@ Aig_ManObj.exit:                                  ; preds = %178, %182
   %.not.i146 = icmp eq i64 %190, 3
   br i1 %.not.i146, label %Saig_ObjIsPo.exit, label %Saig_ObjIsLi.exit.thread
 
-Saig_ObjIsPo.exit:                                ; preds = %Aig_ManObj.exit
+Saig_ObjIsPo.exit:                                ; preds = %Aig_ManObj.argprom.exit
   %.val3.i147 = load i32, ptr %188, align 8
   %.val.i148 = load i32, ptr %11, align 8
   %.not182 = icmp slt i32 %.val3.i147, %.val.i148
-  br i1 %.not182, label %Aig_ObjRepr.exit157.thread, label %Saig_ObjIsLi.exit
+  br i1 %.not182, label %Aig_ObjRepr.argprom.exit157.thread, label %Saig_ObjIsLi.exit
 
 Saig_ObjIsLi.exit:                                ; preds = %Saig_ObjIsPo.exit
   %191 = load ptr, ptr %14, align 8
@@ -2655,27 +2655,27 @@ Saig_ObjIsLi.exit:                                ; preds = %Saig_ObjIsPo.exit
   %197 = load ptr, ptr %196, align 8
   br label %Saig_ObjIsLi.exit.thread
 
-Saig_ObjIsLi.exit.thread:                         ; preds = %Aig_ManObj.exit, %Saig_ObjIsLi.exit
-  %.072 = phi ptr [ %197, %Saig_ObjIsLi.exit ], [ %188, %Aig_ManObj.exit ]
+Saig_ObjIsLi.exit.thread:                         ; preds = %Aig_ManObj.argprom.exit, %Saig_ObjIsLi.exit
+  %.072 = phi ptr [ %197, %Saig_ObjIsLi.exit ], [ %188, %Aig_ManObj.argprom.exit ]
   %.val97 = load ptr, ptr %8, align 8
   %.not.i156 = icmp eq ptr %.val97, null
-  br i1 %.not.i156, label %Aig_ObjRepr.exit157.thread, label %Aig_ObjRepr.exit157
+  br i1 %.not.i156, label %Aig_ObjRepr.argprom.exit157.thread, label %Aig_ObjRepr.argprom.exit157
 
-Aig_ObjRepr.exit157:                              ; preds = %Saig_ObjIsLi.exit.thread
+Aig_ObjRepr.argprom.exit157:                      ; preds = %Saig_ObjIsLi.exit.thread
   %198 = getelementptr inbounds i8, ptr %.072, i64 36
   %199 = load i32, ptr %198, align 4
   %200 = sext i32 %199 to i64
   %201 = getelementptr inbounds ptr, ptr %.val97, i64 %200
   %202 = load ptr, ptr %201, align 8
   %.not88 = icmp eq ptr %202, null
-  br i1 %.not88, label %Aig_ObjRepr.exit157.thread, label %203
+  br i1 %.not88, label %Aig_ObjRepr.argprom.exit157.thread, label %203
 
-203:                                              ; preds = %Aig_ObjRepr.exit157
+203:                                              ; preds = %Aig_ObjRepr.argprom.exit157
   %.val107 = load i32, ptr %12, align 8
   %204 = getelementptr i8, ptr %.072, i64 32
   %.072.val = load i32, ptr %204, align 8
   %.not184 = icmp eq i32 %.072.val, %.val107
-  br i1 %.not184, label %Aig_ObjRepr.exit157.thread, label %205
+  br i1 %.not184, label %Aig_ObjRepr.argprom.exit157.thread, label %205
 
 205:                                              ; preds = %203
   store i32 %.val107, ptr %204, align 8
@@ -2742,18 +2742,18 @@ Vec_PtrPush.exit164:                              ; preds = %.Vec_PtrGrow.exit11
   %233 = getelementptr inbounds ptr, ptr %229, i64 %232
   store ptr %.072, ptr %233, align 8
   %.pre = load i64, ptr %22, align 8
-  br label %Aig_ObjRepr.exit157.thread
+  br label %Aig_ObjRepr.argprom.exit157.thread
 
-Aig_ObjRepr.exit157.thread:                       ; preds = %Saig_ObjIsLi.exit.thread, %Aig_ObjRepr.exit157, %203, %Vec_PtrPush.exit164, %Saig_ObjIsPo.exit
-  %234 = phi i64 [ %168, %Saig_ObjIsLi.exit.thread ], [ %168, %Aig_ObjRepr.exit157 ], [ %168, %203 ], [ %.pre, %Vec_PtrPush.exit164 ], [ %168, %Saig_ObjIsPo.exit ]
+Aig_ObjRepr.argprom.exit157.thread:               ; preds = %Saig_ObjIsLi.exit.thread, %Aig_ObjRepr.argprom.exit157, %203, %Vec_PtrPush.exit164, %Saig_ObjIsPo.exit
+  %234 = phi i64 [ %168, %Saig_ObjIsLi.exit.thread ], [ %168, %Aig_ObjRepr.argprom.exit157 ], [ %168, %203 ], [ %.pre, %Vec_PtrPush.exit164 ], [ %168, %Saig_ObjIsPo.exit ]
   %235 = add nuw nsw i32 %.070185, 1
   %236 = trunc i64 %234 to i32
   %237 = lshr i32 %236, 6
   %238 = icmp ult i32 %235, %237
   br i1 %238, label %167, label %.critedge2, !llvm.loop !37
 
-.critedge2:                                       ; preds = %Aig_ObjRepr.exit157.thread, %Aig_ObjRepr.exit135.thread, %21, %15, %Aig_ObjRepr.exit
-  %.1 = phi i32 [ %.0189, %15 ], [ %.0189, %Aig_ObjRepr.exit ], [ %.0189, %21 ], [ %.0189, %Aig_ObjRepr.exit135.thread ], [ %181, %Aig_ObjRepr.exit157.thread ]
+.critedge2:                                       ; preds = %Aig_ObjRepr.argprom.exit157.thread, %Aig_ObjRepr.argprom.exit135.thread, %21, %15, %Aig_ObjRepr.argprom.exit
+  %.1 = phi i32 [ %.0189, %15 ], [ %.0189, %Aig_ObjRepr.argprom.exit ], [ %.0189, %21 ], [ %.0189, %Aig_ObjRepr.argprom.exit135.thread ], [ %181, %Aig_ObjRepr.argprom.exit157.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %239 = load ptr, ptr %4, align 8
   %240 = getelementptr i8, ptr %239, i64 4
@@ -2805,7 +2805,7 @@ define i32 @Ssw_StrSimMatchingCountUnmached(ptr nocapture noundef readonly %0) l
 18:                                               ; preds = %12
   %.val18 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.val18, null
-  br i1 %.not.i, label %Aig_ObjRepr.exit, label %19
+  br i1 %.not.i, label %Aig_ObjRepr.argprom.exit, label %19
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds i8, ptr %10, i64 36
@@ -2815,15 +2815,15 @@ define i32 @Ssw_StrSimMatchingCountUnmached(ptr nocapture noundef readonly %0) l
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   %26 = zext i1 %25 to i32
-  br label %Aig_ObjRepr.exit
+  br label %Aig_ObjRepr.argprom.exit
 
-Aig_ObjRepr.exit:                                 ; preds = %18, %19
+Aig_ObjRepr.argprom.exit:                         ; preds = %18, %19
   %.not14 = phi i32 [ %26, %19 ], [ 1, %18 ]
   %spec.select = add nsw i32 %.not14, %.020
   br label %27
 
-27:                                               ; preds = %12, %Aig_ObjRepr.exit, %8
-  %.1 = phi i32 [ %.020, %8 ], [ %spec.select, %Aig_ObjRepr.exit ], [ %.020, %12 ]
+27:                                               ; preds = %12, %Aig_ObjRepr.argprom.exit, %8
+  %.1 = phi i32 [ %.020, %8 ], [ %spec.select, %Aig_ObjRepr.argprom.exit ], [ %.020, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !39
@@ -2890,7 +2890,7 @@ define void @Ssw_StrSimMatchingExtend(ptr noundef %0, ptr noundef %1, i32 nounde
 30:                                               ; preds = %24
   %.val18.i = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %.val18.i, null
-  br i1 %.not.i.i, label %Aig_ObjRepr.exit.i, label %31
+  br i1 %.not.i.i, label %Aig_ObjRepr.argprom.exit.i, label %31
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds i8, ptr %22, i64 36
@@ -2900,15 +2900,15 @@ define void @Ssw_StrSimMatchingExtend(ptr noundef %0, ptr noundef %1, i32 nounde
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   %38 = zext i1 %37 to i32
-  br label %Aig_ObjRepr.exit.i
+  br label %Aig_ObjRepr.argprom.exit.i
 
-Aig_ObjRepr.exit.i:                               ; preds = %31, %30
+Aig_ObjRepr.argprom.exit.i:                       ; preds = %31, %30
   %.not14.i = phi i32 [ %38, %31 ], [ 1, %30 ]
   %spec.select.i = add nsw i32 %.not14.i, %.020.i
   br label %39
 
-39:                                               ; preds = %Aig_ObjRepr.exit.i, %24, %20
-  %.1.i = phi i32 [ %.020.i, %20 ], [ %spec.select.i, %Aig_ObjRepr.exit.i ], [ %.020.i, %24 ]
+39:                                               ; preds = %Aig_ObjRepr.argprom.exit.i, %24, %20
+  %.1.i = phi i32 [ %.020.i, %20 ], [ %spec.select.i, %Aig_ObjRepr.argprom.exit.i ], [ %.020.i, %24 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Ssw_StrSimMatchingCountUnmached.exit, label %20, !llvm.loop !39
@@ -2964,7 +2964,7 @@ Ssw_StrSimMatchingCountUnmached.exit:             ; preds = %39, %13
   %wide.trip.count = zext nneg i32 %.val61 to i64
   br label %.lr.ph.split
 
-.critedge.preheader:                              ; preds = %Aig_ObjRepr.exit.thread, %.lr.ph, %59
+.critedge.preheader:                              ; preds = %Aig_ObjRepr.argprom.exit.thread, %.lr.ph, %59
   %.val = load i32, ptr %10, align 4
   %63 = icmp sgt i32 %.val, 0
   br i1 %63, label %.lr.ph125, label %.critedge2
@@ -2979,7 +2979,7 @@ Ssw_StrSimMatchingCountUnmached.exit:             ; preds = %39, %13
   %wide.trip.count134 = zext nneg i32 %.val to i64
   br label %.lr.ph125.split
 
-.lr.ph.splitthread-pre-split:                     ; preds = %Aig_ObjRepr.exit.thread
+.lr.ph.splitthread-pre-split:                     ; preds = %Aig_ObjRepr.argprom.exit.thread
   %.val65.pr = load ptr, ptr %51, align 8
   br label %.lr.ph.split
 
@@ -2987,9 +2987,9 @@ Ssw_StrSimMatchingCountUnmached.exit:             ; preds = %39, %13
   %.val65 = phi ptr [ %.val65.pr, %.lr.ph.splitthread-pre-split ], [ %61, %.lr.ph.split.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph.split.preheader ]
   %.not.i86 = icmp eq ptr %.val65, null
-  br i1 %.not.i86, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
+  br i1 %.not.i86, label %Aig_ObjRepr.argprom.exit.thread, label %Aig_ObjRepr.argprom.exit
 
-Aig_ObjRepr.exit:                                 ; preds = %.lr.ph.split
+Aig_ObjRepr.argprom.exit:                         ; preds = %.lr.ph.split
   %66 = getelementptr inbounds ptr, ptr %.val63, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr i8, ptr %67, i64 36
@@ -2998,9 +2998,9 @@ Aig_ObjRepr.exit:                                 ; preds = %.lr.ph.split
   %71 = getelementptr inbounds ptr, ptr %.val65, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %Aig_ObjRepr.exit.thread, label %74
+  br i1 %73, label %Aig_ObjRepr.argprom.exit.thread, label %74
 
-74:                                               ; preds = %Aig_ObjRepr.exit
+74:                                               ; preds = %Aig_ObjRepr.argprom.exit
   %75 = getelementptr i8, ptr %72, i64 24
   %.val.i87 = load i64, ptr %75, align 8
   %76 = and i64 %.val.i87, 7
@@ -3011,7 +3011,7 @@ Saig_ObjIsPi.exit:                                ; preds = %74
   %.val4.i = load i32, ptr %72, align 8
   %.val3.i = load i32, ptr %52, align 4
   %.not122 = icmp slt i32 %.val4.i, %.val3.i
-  br i1 %.not122, label %Aig_ObjRepr.exit.thread, label %Saig_ObjIsPi.exit.thread
+  br i1 %.not122, label %Aig_ObjRepr.argprom.exit.thread, label %Saig_ObjIsPi.exit.thread
 
 Saig_ObjIsPi.exit.thread:                         ; preds = %74, %Saig_ObjIsPi.exit
   store ptr null, ptr %71, align 8
@@ -3021,14 +3021,14 @@ Saig_ObjIsPi.exit.thread:                         ; preds = %74, %Saig_ObjIsPi.e
   %78 = sext i32 %.val71 to i64
   %79 = getelementptr inbounds ptr, ptr %.val70, i64 %78
   store ptr null, ptr %79, align 8
-  br label %Aig_ObjRepr.exit.thread
+  br label %Aig_ObjRepr.argprom.exit.thread
 
-Aig_ObjRepr.exit.thread:                          ; preds = %.lr.ph.split, %Saig_ObjIsPi.exit, %Aig_ObjRepr.exit, %Saig_ObjIsPi.exit.thread
+Aig_ObjRepr.argprom.exit.thread:                  ; preds = %.lr.ph.split, %Saig_ObjIsPi.exit, %Aig_ObjRepr.argprom.exit, %Saig_ObjIsPi.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.preheader, label %.lr.ph.splitthread-pre-split, !llvm.loop !40
 
-.lr.ph125.splitthread-pre-split:                  ; preds = %Aig_ObjRepr.exit90.thread
+.lr.ph125.splitthread-pre-split:                  ; preds = %Aig_ObjRepr.argprom.exit90.thread
   %.val64.pr = load ptr, ptr %53, align 8
   br label %.lr.ph125.split
 
@@ -3036,9 +3036,9 @@ Aig_ObjRepr.exit.thread:                          ; preds = %.lr.ph.split, %Saig
   %.val64 = phi ptr [ %.val64.pr, %.lr.ph125.splitthread-pre-split ], [ %64, %.lr.ph125.split.preheader ]
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.lr.ph125.splitthread-pre-split ], [ 0, %.lr.ph125.split.preheader ]
   %.not.i89 = icmp eq ptr %.val64, null
-  br i1 %.not.i89, label %Aig_ObjRepr.exit90.thread, label %Aig_ObjRepr.exit90
+  br i1 %.not.i89, label %Aig_ObjRepr.argprom.exit90.thread, label %Aig_ObjRepr.argprom.exit90
 
-Aig_ObjRepr.exit90:                               ; preds = %.lr.ph125.split
+Aig_ObjRepr.argprom.exit90:                       ; preds = %.lr.ph125.split
   %80 = getelementptr inbounds ptr, ptr %.val62, i64 %indvars.iv131
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr i8, ptr %81, i64 36
@@ -3047,9 +3047,9 @@ Aig_ObjRepr.exit90:                               ; preds = %.lr.ph125.split
   %85 = getelementptr inbounds ptr, ptr %.val64, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %Aig_ObjRepr.exit90.thread, label %88
+  br i1 %87, label %Aig_ObjRepr.argprom.exit90.thread, label %88
 
-88:                                               ; preds = %Aig_ObjRepr.exit90
+88:                                               ; preds = %Aig_ObjRepr.argprom.exit90
   %89 = getelementptr i8, ptr %86, i64 24
   %.val.i91 = load i64, ptr %89, align 8
   %90 = and i64 %.val.i91, 7
@@ -3060,7 +3060,7 @@ Saig_ObjIsPi.exit95:                              ; preds = %88
   %.val4.i93 = load i32, ptr %86, align 8
   %.val3.i94 = load i32, ptr %54, align 4
   %.not121 = icmp slt i32 %.val4.i93, %.val3.i94
-  br i1 %.not121, label %Aig_ObjRepr.exit90.thread, label %Saig_ObjIsPi.exit95.thread
+  br i1 %.not121, label %Aig_ObjRepr.argprom.exit90.thread, label %Saig_ObjIsPi.exit95.thread
 
 Saig_ObjIsPi.exit95.thread:                       ; preds = %88, %Saig_ObjIsPi.exit95
   %.val68 = load ptr, ptr %51, align 8
@@ -3074,14 +3074,14 @@ Saig_ObjIsPi.exit95.thread:                       ; preds = %88, %Saig_ObjIsPi.e
   %94 = sext i32 %.val67 to i64
   %95 = getelementptr inbounds ptr, ptr %.val66, i64 %94
   store ptr null, ptr %95, align 8
-  br label %Aig_ObjRepr.exit90.thread
+  br label %Aig_ObjRepr.argprom.exit90.thread
 
-Aig_ObjRepr.exit90.thread:                        ; preds = %.lr.ph125.split, %Saig_ObjIsPi.exit95, %Aig_ObjRepr.exit90, %Saig_ObjIsPi.exit95.thread
+Aig_ObjRepr.argprom.exit90.thread:                ; preds = %.lr.ph125.split, %Saig_ObjIsPi.exit95, %Aig_ObjRepr.argprom.exit90, %Saig_ObjIsPi.exit95.thread
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
   br i1 %exitcond135.not, label %.critedge2, label %.lr.ph125.splitthread-pre-split, !llvm.loop !42
 
-.critedge2:                                       ; preds = %Aig_ObjRepr.exit90.thread, %.lr.ph125, %.critedge.preheader
+.critedge2:                                       ; preds = %Aig_ObjRepr.argprom.exit90.thread, %.lr.ph125, %.critedge.preheader
   br i1 %.not, label %.critedge2._crit_edge, label %96
 
 .critedge2._crit_edge:                            ; preds = %.critedge2
@@ -3124,7 +3124,7 @@ Aig_ObjRepr.exit90.thread:                        ; preds = %.lr.ph125.split, %S
 111:                                              ; preds = %105
   %.val18.i110 = load ptr, ptr %51, align 8
   %.not.i.i111 = icmp eq ptr %.val18.i110, null
-  br i1 %.not.i.i111, label %Aig_ObjRepr.exit.i112, label %112
+  br i1 %.not.i.i111, label %Aig_ObjRepr.argprom.exit.i112, label %112
 
 112:                                              ; preds = %111
   %113 = getelementptr inbounds i8, ptr %103, i64 36
@@ -3134,15 +3134,15 @@ Aig_ObjRepr.exit90.thread:                        ; preds = %.lr.ph125.split, %S
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, null
   %119 = zext i1 %118 to i32
-  br label %Aig_ObjRepr.exit.i112
+  br label %Aig_ObjRepr.argprom.exit.i112
 
-Aig_ObjRepr.exit.i112:                            ; preds = %112, %111
+Aig_ObjRepr.argprom.exit.i112:                    ; preds = %112, %111
   %.not14.i113 = phi i32 [ %119, %112 ], [ 1, %111 ]
   %spec.select.i114 = add nsw i32 %.not14.i113, %.020.i102
   br label %120
 
-120:                                              ; preds = %Aig_ObjRepr.exit.i112, %105, %101
-  %.1.i107 = phi i32 [ %.020.i102, %101 ], [ %spec.select.i114, %Aig_ObjRepr.exit.i112 ], [ %.020.i102, %105 ]
+120:                                              ; preds = %Aig_ObjRepr.argprom.exit.i112, %105, %101
+  %.1.i107 = phi i32 [ %.020.i102, %101 ], [ %spec.select.i114, %Aig_ObjRepr.argprom.exit.i112 ], [ %.020.i102, %105 ]
   %indvars.iv.next.i108 = add nuw nsw i64 %indvars.iv.i101, 1
   %exitcond.not.i109 = icmp eq i64 %indvars.iv.next.i108, %wide.trip.count.i100
   br i1 %exitcond.not.i109, label %Ssw_StrSimMatchingCountUnmached.exit115, label %101, !llvm.loop !39
@@ -3462,11 +3462,11 @@ Abc_Clock.exit77:                                 ; preds = %115, %118
   %135 = sext i32 %.val12.i to i64
   %wide.trip.count.i = zext nneg i32 %.val11.i to i64
   %invariant.gep.i = getelementptr ptr, ptr %.val.i79, i64 %135
-  br label %Aig_ObjRepr.exit.i
+  br label %Aig_ObjRepr.argprom.exit.i
 
-Aig_ObjRepr.exit.i:                               ; preds = %Aig_ObjRepr.exit.i, %.lr.ph.split.i
-  %indvars.iv.i80 = phi i64 [ 0, %.lr.ph.split.i ], [ %indvars.iv.next.i81, %Aig_ObjRepr.exit.i ]
-  %.014.i = phi i32 [ 0, %.lr.ph.split.i ], [ %spec.select.i, %Aig_ObjRepr.exit.i ]
+Aig_ObjRepr.argprom.exit.i:                       ; preds = %Aig_ObjRepr.argprom.exit.i, %.lr.ph.split.i
+  %indvars.iv.i80 = phi i64 [ 0, %.lr.ph.split.i ], [ %indvars.iv.next.i81, %Aig_ObjRepr.argprom.exit.i ]
+  %.014.i = phi i32 [ 0, %.lr.ph.split.i ], [ %spec.select.i, %Aig_ObjRepr.argprom.exit.i ]
   %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %indvars.iv.i80
   %136 = load ptr, ptr %gep.i, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 36
@@ -3479,10 +3479,10 @@ Aig_ObjRepr.exit.i:                               ; preds = %Aig_ObjRepr.exit.i,
   %spec.select.i = add nuw nsw i32 %.014.i, %143
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Saig_StrSimCountMatchedFlops.exit, label %Aig_ObjRepr.exit.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %Saig_StrSimCountMatchedFlops.exit, label %Aig_ObjRepr.argprom.exit.i, !llvm.loop !26
 
-Saig_StrSimCountMatchedFlops.exit:                ; preds = %Aig_ObjRepr.exit.i, %126, %.lr.ph.i78
-  %.0.lcssa.i = phi i32 [ 0, %126 ], [ 0, %.lr.ph.i78 ], [ %spec.select.i, %Aig_ObjRepr.exit.i ]
+Saig_StrSimCountMatchedFlops.exit:                ; preds = %Aig_ObjRepr.argprom.exit.i, %126, %.lr.ph.i78
+  %.0.lcssa.i = phi i32 [ 0, %126 ], [ 0, %.lr.ph.i78 ], [ %spec.select.i, %Aig_ObjRepr.argprom.exit.i ]
   %144 = getelementptr inbounds i8, ptr %127, i64 32
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr i8, ptr %145, i64 4
@@ -3517,7 +3517,7 @@ Saig_StrSimCountMatchedFlops.exit:                ; preds = %Aig_ObjRepr.exit.i,
 159:                                              ; preds = %154
   %.val15.i = load ptr, ptr %149, align 8
   %.not.i.i87 = icmp eq ptr %.val15.i, null
-  br i1 %.not.i.i87, label %Aig_ObjRepr.exit.i88, label %160
+  br i1 %.not.i.i87, label %Aig_ObjRepr.argprom.exit.i88, label %160
 
 160:                                              ; preds = %159
   %161 = getelementptr inbounds i8, ptr %152, i64 36
@@ -3527,15 +3527,15 @@ Saig_StrSimCountMatchedFlops.exit:                ; preds = %Aig_ObjRepr.exit.i,
   %165 = load ptr, ptr %164, align 8
   %166 = icmp ne ptr %165, null
   %167 = zext i1 %166 to i32
-  br label %Aig_ObjRepr.exit.i88
+  br label %Aig_ObjRepr.argprom.exit.i88
 
-Aig_ObjRepr.exit.i88:                             ; preds = %160, %159
+Aig_ObjRepr.argprom.exit.i88:                     ; preds = %160, %159
   %.not12.i = phi i32 [ %167, %160 ], [ 0, %159 ]
   %spec.select.i89 = add nsw i32 %.not12.i, %.017.i
   br label %168
 
-168:                                              ; preds = %Aig_ObjRepr.exit.i88, %154, %150
-  %.1.i = phi i32 [ %.017.i, %150 ], [ %.017.i, %154 ], [ %spec.select.i89, %Aig_ObjRepr.exit.i88 ]
+168:                                              ; preds = %Aig_ObjRepr.argprom.exit.i88, %154, %150
+  %.1.i = phi i32 [ %.017.i, %150 ], [ %.017.i, %154 ], [ %spec.select.i89, %Aig_ObjRepr.argprom.exit.i88 ]
   %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i86, 1
   %exitcond.not.i91 = icmp eq i64 %indvars.iv.next.i90, %wide.trip.count.i85
   br i1 %exitcond.not.i91, label %Saig_StrSimCountMatchedNodes.exit, label %150, !llvm.loop !27
@@ -3667,33 +3667,33 @@ Vec_IntAlloc.exit:                                ; preds = %217, %227
   %233 = icmp sgt i32 %.val51.val, 0
   br i1 %233, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %Vec_IntAlloc.exit, %Aig_ObjRepr.exit.thread
-  %234 = phi ptr [ %305, %Aig_ObjRepr.exit.thread ], [ %220, %Vec_IntAlloc.exit ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Aig_ObjRepr.exit.thread ], [ 0, %Vec_IntAlloc.exit ]
-  %235 = phi ptr [ %307, %Aig_ObjRepr.exit.thread ], [ %.val51, %Vec_IntAlloc.exit ]
+.lr.ph:                                           ; preds = %Vec_IntAlloc.exit, %Aig_ObjRepr.argprom.exit.thread
+  %234 = phi ptr [ %305, %Aig_ObjRepr.argprom.exit.thread ], [ %220, %Vec_IntAlloc.exit ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %Aig_ObjRepr.argprom.exit.thread ], [ 0, %Vec_IntAlloc.exit ]
+  %235 = phi ptr [ %307, %Aig_ObjRepr.argprom.exit.thread ], [ %.val51, %Vec_IntAlloc.exit ]
   %236 = getelementptr i8, ptr %235, i64 8
   %.val49 = load ptr, ptr %236, align 8
   %237 = getelementptr inbounds ptr, ptr %.val49, i64 %indvars.iv
   %238 = load ptr, ptr %237, align 8
   %239 = icmp eq ptr %238, null
-  br i1 %239, label %Aig_ObjRepr.exit.thread, label %240
+  br i1 %239, label %Aig_ObjRepr.argprom.exit.thread, label %240
 
 240:                                              ; preds = %.lr.ph
   %241 = getelementptr i8, ptr %234, i64 256
   %.val50 = load ptr, ptr %241, align 8
   %.not.i97 = icmp eq ptr %.val50, null
-  br i1 %.not.i97, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
+  br i1 %.not.i97, label %Aig_ObjRepr.argprom.exit.thread, label %Aig_ObjRepr.argprom.exit
 
-Aig_ObjRepr.exit:                                 ; preds = %240
+Aig_ObjRepr.argprom.exit:                         ; preds = %240
   %242 = getelementptr inbounds i8, ptr %238, i64 36
   %243 = load i32, ptr %242, align 4
   %244 = sext i32 %243 to i64
   %245 = getelementptr inbounds ptr, ptr %.val50, i64 %244
   %246 = load ptr, ptr %245, align 8
   %247 = icmp eq ptr %246, null
-  br i1 %247, label %Aig_ObjRepr.exit.thread, label %248
+  br i1 %247, label %Aig_ObjRepr.argprom.exit.thread, label %248
 
-248:                                              ; preds = %Aig_ObjRepr.exit
+248:                                              ; preds = %Aig_ObjRepr.argprom.exit
   %249 = load i32, ptr %226, align 4
   %250 = load i32, ptr %224, align 8
   %251 = icmp eq i32 %249, %250
@@ -3819,10 +3819,10 @@ Vec_IntPush.exit104:                              ; preds = %.Vec_IntGrow.exit10
   %304 = getelementptr inbounds i32, ptr %301, i64 %303
   store i32 %277, ptr %304, align 4
   %.pre = load ptr, ptr %10, align 8
-  br label %Aig_ObjRepr.exit.thread
+  br label %Aig_ObjRepr.argprom.exit.thread
 
-Aig_ObjRepr.exit.thread:                          ; preds = %240, %Vec_IntPush.exit104, %.lr.ph, %Aig_ObjRepr.exit
-  %305 = phi ptr [ %234, %240 ], [ %.pre, %Vec_IntPush.exit104 ], [ %234, %.lr.ph ], [ %234, %Aig_ObjRepr.exit ]
+Aig_ObjRepr.argprom.exit.thread:                  ; preds = %240, %Vec_IntPush.exit104, %.lr.ph, %Aig_ObjRepr.argprom.exit
+  %305 = phi ptr [ %234, %240 ], [ %.pre, %Vec_IntPush.exit104 ], [ %234, %.lr.ph ], [ %234, %Aig_ObjRepr.argprom.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %306 = getelementptr inbounds i8, ptr %305, i64 32
   %307 = load ptr, ptr %306, align 8
@@ -3832,8 +3832,8 @@ Aig_ObjRepr.exit.thread:                          ; preds = %240, %Vec_IntPush.e
   %310 = icmp slt i64 %indvars.iv.next, %309
   br i1 %310, label %.lr.ph, label %.critedge, !llvm.loop !45
 
-.critedge:                                        ; preds = %Aig_ObjRepr.exit.thread, %Vec_IntAlloc.exit
-  %.lcssa = phi ptr [ %220, %Vec_IntAlloc.exit ], [ %305, %Aig_ObjRepr.exit.thread ]
+.critedge:                                        ; preds = %Aig_ObjRepr.argprom.exit.thread, %Vec_IntAlloc.exit
+  %.lcssa = phi ptr [ %220, %Vec_IntAlloc.exit ], [ %305, %Aig_ObjRepr.argprom.exit.thread ]
   %.not46 = icmp eq ptr %4, null
   br i1 %.not46, label %314, label %311
 

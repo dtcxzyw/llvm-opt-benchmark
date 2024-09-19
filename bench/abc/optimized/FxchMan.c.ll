@@ -1188,7 +1188,7 @@ define void @Fxch_ManDivCreate(ptr noundef %0) local_unnamed_addr #2 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.031 = phi i32 [ %5, %.lr.ph ], [ 0, %1 ]
-  tail call fastcc void @Fxch_ManDivSingleCube(ptr noundef nonnull %0, i32 noundef %.031, i32 noundef 1, i32 noundef 0)
+  tail call fastcc void @Fxch_ManDivSingleCube.retelim(ptr noundef nonnull %0, i32 noundef %.031, i32 noundef 1, i32 noundef 0)
   tail call fastcc void @Fxch_ManDivDoubleCube(ptr noundef nonnull %0, i32 noundef %.031, i32 noundef 1, i32 noundef 0)
   %5 = add nuw nsw i32 %.031, 1
   %6 = load ptr, ptr %0, align 8
@@ -1290,13 +1290,13 @@ define void @Fxch_ManDivCreate(ptr noundef %0) local_unnamed_addr #2 {
 59:                                               ; preds = %47
   %60 = getelementptr inbounds float, ptr %.val.val.i.i, i64 %indvars.iv
   %61 = load float, ptr %60, align 4
-  br label %Vec_QuePrio.exit.i.i
+  br label %Vec_QuePrio.argprom.argprom.exit.i.i
 
 62:                                               ; preds = %47
   %63 = uitofp nneg i32 %57 to float
-  br label %Vec_QuePrio.exit.i.i
+  br label %Vec_QuePrio.argprom.argprom.exit.i.i
 
-Vec_QuePrio.exit.i.i:                             ; preds = %62, %59
+Vec_QuePrio.argprom.argprom.exit.i.i:             ; preds = %62, %59
   %64 = phi float [ %61, %59 ], [ %63, %62 ]
   %65 = load ptr, ptr %49, align 8
   %66 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv
@@ -1304,8 +1304,8 @@ Vec_QuePrio.exit.i.i:                             ; preds = %62, %59
   %68 = icmp sgt i32 %67, 1
   br i1 %68, label %.lr.ph.i.i, label %Vec_QuePush.exit
 
-.lr.ph.i.i:                                       ; preds = %Vec_QuePrio.exit.i.i, %81
-  %.02732.i.i = phi i32 [ %.02634.i.i, %81 ], [ %67, %Vec_QuePrio.exit.i.i ]
+.lr.ph.i.i:                                       ; preds = %Vec_QuePrio.argprom.argprom.exit.i.i, %81
+  %.02732.i.i = phi i32 [ %.02634.i.i, %81 ], [ %67, %Vec_QuePrio.argprom.argprom.exit.i.i ]
   %.02634.i.i = lshr i32 %.02732.i.i, 1
   %69 = load ptr, ptr %52, align 8
   %70 = zext nneg i32 %.02634.i.i to i64
@@ -1320,18 +1320,18 @@ Vec_QuePrio.exit.i.i:                             ; preds = %62, %59
   %74 = sext i32 %72 to i64
   %75 = getelementptr inbounds float, ptr %.val28.val.i.i, i64 %74
   %76 = load float, ptr %75, align 4
-  br label %Vec_QuePrio.exit30.i.i
+  br label %Vec_QuePrio.argprom.argprom.exit30.i.i
 
 77:                                               ; preds = %.lr.ph.i.i
   %78 = sitofp i32 %72 to float
-  br label %Vec_QuePrio.exit30.i.i
+  br label %Vec_QuePrio.argprom.argprom.exit30.i.i
 
-Vec_QuePrio.exit30.i.i:                           ; preds = %77, %73
+Vec_QuePrio.argprom.argprom.exit30.i.i:           ; preds = %77, %73
   %79 = phi float [ %76, %73 ], [ %78, %77 ]
   %80 = fcmp ogt float %64, %79
   br i1 %80, label %81, label %Vec_QuePush.exit
 
-81:                                               ; preds = %Vec_QuePrio.exit30.i.i
+81:                                               ; preds = %Vec_QuePrio.argprom.argprom.exit30.i.i
   %82 = zext nneg i32 %.02732.i.i to i64
   %83 = getelementptr inbounds i32, ptr %69, i64 %82
   store i32 %72, ptr %83, align 4
@@ -1345,8 +1345,8 @@ Vec_QuePrio.exit30.i.i:                           ; preds = %77, %73
   %90 = icmp ugt i32 %.02732.i.i, 3
   br i1 %90, label %.lr.ph.i.i, label %Vec_QuePush.exit, !llvm.loop !18
 
-Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.exit30.i.i, %81, %Vec_QuePrio.exit.i.i
-  %.027.lcssa.i.i = phi i32 [ %67, %Vec_QuePrio.exit.i.i ], [ %.02634.i.i, %81 ], [ %.02732.i.i, %Vec_QuePrio.exit30.i.i ]
+Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.argprom.argprom.exit30.i.i, %81, %Vec_QuePrio.argprom.argprom.exit.i.i
+  %.027.lcssa.i.i = phi i32 [ %67, %Vec_QuePrio.argprom.argprom.exit.i.i ], [ %.02634.i.i, %81 ], [ %.02732.i.i, %Vec_QuePrio.argprom.argprom.exit30.i.i ]
   %91 = load ptr, ptr %52, align 8
   %92 = sext i32 %.027.lcssa.i.i to i64
   %93 = getelementptr inbounds i32, ptr %91, i64 %92
@@ -1371,7 +1371,7 @@ Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.exit30.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Fxch_ManDivSingleCube(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
+define internal fastcc void @Fxch_ManDivSingleCube.retelim(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr i8, ptr %5, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -1987,11 +1987,11 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %21 = icmp sgt i32 %.val29, 0
   br i1 %21, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %Vec_IntStart.exit, %Vec_IntUpdateEntry.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Vec_IntUpdateEntry.exit ], [ 0, %Vec_IntStart.exit ]
-  %22 = phi ptr [ %54, %Vec_IntUpdateEntry.exit ], [ %2, %Vec_IntStart.exit ]
-  %.032 = phi i32 [ %.1, %Vec_IntUpdateEntry.exit ], [ 0, %Vec_IntStart.exit ]
-  %.01931 = phi i32 [ %.120, %Vec_IntUpdateEntry.exit ], [ %5, %Vec_IntStart.exit ]
+.lr.ph:                                           ; preds = %Vec_IntStart.exit, %Vec_IntUpdateEntry.argprom.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %Vec_IntUpdateEntry.argprom.exit ], [ 0, %Vec_IntStart.exit ]
+  %22 = phi ptr [ %54, %Vec_IntUpdateEntry.argprom.exit ], [ %2, %Vec_IntStart.exit ]
+  %.032 = phi i32 [ %.1, %Vec_IntUpdateEntry.argprom.exit ], [ 0, %Vec_IntStart.exit ]
+  %.01931 = phi i32 [ %.120, %Vec_IntUpdateEntry.argprom.exit ], [ %5, %Vec_IntStart.exit ]
   %23 = getelementptr i8, ptr %22, i64 8
   %.val22 = load ptr, ptr %23, align 8
   %24 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val22, i64 %indvars.iv
@@ -2053,13 +2053,13 @@ Fxch_ManComputeLevelCube.exit:                    ; preds = %41, %36
   %50 = getelementptr inbounds i32, ptr %.val.i, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = icmp slt i32 %51, %.0.lcssa.i
-  br i1 %52, label %53, label %Vec_IntUpdateEntry.exit
+  br i1 %52, label %53, label %Vec_IntUpdateEntry.argprom.exit
 
 53:                                               ; preds = %Fxch_ManComputeLevelCube.exit
   store i32 %.0.lcssa.i, ptr %50, align 4
-  br label %Vec_IntUpdateEntry.exit
+  br label %Vec_IntUpdateEntry.argprom.exit
 
-Vec_IntUpdateEntry.exit:                          ; preds = %Fxch_ManComputeLevelCube.exit, %53
+Vec_IntUpdateEntry.argprom.exit:                  ; preds = %Fxch_ManComputeLevelCube.exit, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr i8, ptr %54, i64 4
@@ -2068,7 +2068,7 @@ Vec_IntUpdateEntry.exit:                          ; preds = %Fxch_ManComputeLeve
   %57 = icmp slt i64 %indvars.iv.next, %56
   br i1 %57, label %.lr.ph, label %.critedge, !llvm.loop !30
 
-.critedge:                                        ; preds = %Vec_IntUpdateEntry.exit, %Vec_IntStart.exit
+.critedge:                                        ; preds = %Vec_IntUpdateEntry.argprom.exit, %Vec_IntStart.exit
   ret void
 }
 
@@ -2565,7 +2565,7 @@ Vec_IntUniqifyPairs.exit:                         ; preds = %Vec_IntErase.exit, 
   %.val227 = load ptr, ptr %254, align 8
   %255 = getelementptr inbounds i32, ptr %.val227, i64 %indvars.iv385
   %256 = load i32, ptr %255, align 4
-  tail call fastcc void @Fxch_ManDivSingleCube(ptr noundef nonnull %0, i32 noundef %256, i32 noundef 0, i32 noundef 1)
+  tail call fastcc void @Fxch_ManDivSingleCube.retelim(ptr noundef nonnull %0, i32 noundef %256, i32 noundef 0, i32 noundef 1)
   %257 = load ptr, ptr %0, align 8
   %258 = getelementptr i8, ptr %257, i64 8
   %.val244 = load ptr, ptr %258, align 8
@@ -2596,7 +2596,7 @@ Vec_IntUniqifyPairs.exit:                         ; preds = %Vec_IntErase.exit, 
   %.val226 = load ptr, ptr %270, align 8
   %271 = getelementptr inbounds i32, ptr %.val226, i64 %indvars.iv388
   %272 = load i32, ptr %271, align 4
-  tail call fastcc void @Fxch_ManDivSingleCube(ptr noundef nonnull %0, i32 noundef %272, i32 noundef 0, i32 noundef 1)
+  tail call fastcc void @Fxch_ManDivSingleCube.retelim(ptr noundef nonnull %0, i32 noundef %272, i32 noundef 0, i32 noundef 1)
   %273 = load ptr, ptr %0, align 8
   %274 = getelementptr i8, ptr %273, i64 8
   %.val245 = load ptr, ptr %274, align 8
@@ -3846,7 +3846,7 @@ Fxch_ManExtractDivFromCube.exit:                  ; preds = %Vec_IntPush.exit57.
   %.val225 = load ptr, ptr %878, align 8
   %879 = getelementptr inbounds i32, ptr %.val225, i64 %indvars.iv391
   %880 = load i32, ptr %879, align 4
-  tail call fastcc void @Fxch_ManDivSingleCube(ptr noundef nonnull %0, i32 noundef %880, i32 noundef 1, i32 noundef 1)
+  tail call fastcc void @Fxch_ManDivSingleCube.retelim(ptr noundef nonnull %0, i32 noundef %880, i32 noundef 1, i32 noundef 1)
   %881 = load ptr, ptr %0, align 8
   %882 = getelementptr i8, ptr %881, i64 8
   %.val246 = load ptr, ptr %882, align 8
@@ -3999,7 +3999,7 @@ Vec_IntUniqifyPairs.exit319:                      ; preds = %896, %._crit_edge.i
   br i1 %.not208, label %962, label %965
 
 962:                                              ; preds = %938
-  tail call fastcc void @Fxch_ManDivSingleCube(ptr noundef nonnull %0, i32 noundef %943, i32 noundef 0, i32 noundef 1)
+  tail call fastcc void @Fxch_ManDivSingleCube.retelim(ptr noundef nonnull %0, i32 noundef %943, i32 noundef 0, i32 noundef 1)
   tail call fastcc void @Fxch_ManDivDoubleCube(ptr noundef nonnull %0, i32 noundef %943, i32 noundef 0, i32 noundef 1)
   %963 = load i32, ptr %958, align 8
   %964 = or i32 %963, 1073741824
@@ -4013,7 +4013,7 @@ Vec_IntUniqifyPairs.exit319:                      ; preds = %896, %._crit_edge.i
   br i1 %.not209, label %967, label %970
 
 967:                                              ; preds = %965
-  tail call fastcc void @Fxch_ManDivSingleCube(ptr noundef nonnull %0, i32 noundef %945, i32 noundef 0, i32 noundef 1)
+  tail call fastcc void @Fxch_ManDivSingleCube.retelim(ptr noundef nonnull %0, i32 noundef %945, i32 noundef 0, i32 noundef 1)
   tail call fastcc void @Fxch_ManDivDoubleCube(ptr noundef nonnull %0, i32 noundef %945, i32 noundef 0, i32 noundef 1)
   %968 = load i32, ptr %960, align 8
   %969 = or i32 %968, 1073741824
@@ -4135,7 +4135,7 @@ Vec_IntUniqifyPairs.exit319:                      ; preds = %896, %._crit_edge.i
   br i1 %.not206, label %1031, label %1028
 
 1028:                                             ; preds = %.lr.ph366
-  tail call fastcc void @Fxch_ManDivSingleCube(ptr noundef nonnull %0, i32 noundef %1018, i32 noundef 1, i32 noundef 1)
+  tail call fastcc void @Fxch_ManDivSingleCube.retelim(ptr noundef nonnull %0, i32 noundef %1018, i32 noundef 1, i32 noundef 1)
   tail call fastcc void @Fxch_ManDivDoubleCube(ptr noundef nonnull %0, i32 noundef %1018, i32 noundef 1, i32 noundef 1)
   %1029 = load i32, ptr %1024, align 8
   %1030 = xor i32 %1029, 1073741824
@@ -4149,7 +4149,7 @@ Vec_IntUniqifyPairs.exit319:                      ; preds = %896, %._crit_edge.i
   br i1 %.not207, label %.critedge8, label %1033
 
 1033:                                             ; preds = %1031
-  tail call fastcc void @Fxch_ManDivSingleCube(ptr noundef nonnull %0, i32 noundef %1020, i32 noundef 1, i32 noundef 1)
+  tail call fastcc void @Fxch_ManDivSingleCube.retelim(ptr noundef nonnull %0, i32 noundef %1020, i32 noundef 1, i32 noundef 1)
   tail call fastcc void @Fxch_ManDivDoubleCube(ptr noundef nonnull %0, i32 noundef %1020, i32 noundef 1, i32 noundef 1)
   %1034 = load i32, ptr %1026, align 8
   %1035 = xor i32 %1034, 1073741824

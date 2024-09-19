@@ -2504,7 +2504,7 @@ define { ptr, ptr } @_ZN7uu_date19set_system_datetime17hb0aeefd6df10fc02E(ptr no
   %4 = ashr i32 %3, 13
   %5 = add nsw i32 %4, -1
   %6 = icmp slt i32 %4, 1
-  br i1 %6, label %7, label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.exit
+  br i1 %6, label %7, label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.argprom.exit
 
 7:                                                ; preds = %1
   %8 = sub nsw i32 1, %4
@@ -2513,9 +2513,9 @@ define { ptr, ptr } @_ZN7uu_date19set_system_datetime17hb0aeefd6df10fc02E(ptr no
   %11 = mul nuw nsw i32 %10, 400
   %12 = add nsw i32 %11, %5
   %.neg.i = mul nsw i32 %10, -146097
-  br label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.exit
+  br label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.argprom.exit
 
-_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.exit: ; preds = %1, %7
+_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.argprom.exit: ; preds = %1, %7
   %.07.i = phi i32 [ %.neg.i, %7 ], [ 0, %1 ]
   %.0.i = phi i32 [ %12, %7 ], [ %5, %1 ]
   %13 = sdiv i32 %.0.i, 100
@@ -2545,7 +2545,7 @@ _ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.exit: ; pr
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %42, label %35
 
-35:                                               ; preds = %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.exit
+35:                                               ; preds = %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.argprom.exit
   %36 = call noundef i32 @_ZN3std3sys3pal4unix2os5errno17h1f00abe72a00b97aE()
   %37 = sext i32 %36 to i64
   %38 = shl nsw i64 %37, 32
@@ -2554,8 +2554,8 @@ _ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.exit: ; pr
   %41 = call noundef nonnull align 8 ptr @"_ZN131_$LT$std..io..error..Error$u20$as$u20$uucore..mods..error..FromIo$LT$alloc..boxed..Box$LT$uucore..mods..error..UIoError$GT$$GT$$GT$15map_err_context17hb5112f3c92932807E"(ptr noundef nonnull %40)
   br label %42
 
-42:                                               ; preds = %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.exit, %35
-  %.sroa.0.0 = phi ptr [ %41, %35 ], [ null, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.exit ]
+42:                                               ; preds = %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.argprom.exit, %35
+  %.sroa.0.0 = phi ptr [ %41, %35 ], [ null, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.argprom.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %43 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %44 = insertvalue { ptr, ptr } %43, ptr @anon.e757aea1808e252d06bcdd209b6ae9a2.64, 1
@@ -2765,10 +2765,10 @@ attributes #15 = { cold noreturn nounwind }
 !45 = distinct !{!45, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc556fda373fbbb67E"}
 !46 = distinct !{!46, !45, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc556fda373fbbb67E: argument 1"}
 !47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!49 = distinct !{!49, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!48 = distinct !{!48, !49, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 0"}
+!49 = distinct !{!49, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom"}
 !50 = !{!51}
-!51 = distinct !{!51, !49, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!51 = distinct !{!51, !49, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 1"}
 !52 = !{!53}
 !53 = distinct !{!53, !54, !"_ZN12clap_builder7builder7command7Command7version17h43debee03de2f277E: argument 1"}
 !54 = distinct !{!54, !"_ZN12clap_builder7builder7command7Command7version17h43debee03de2f277E"}
@@ -3018,9 +3018,9 @@ attributes #15 = { cold noreturn nounwind }
 !298 = distinct !{!298, !"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17h93258645534a4298E.llvm.3418180498327249771"}
 !299 = !{!291, !292}
 !300 = !{!301, !303}
-!301 = distinct !{!301, !302, !"_ZN12clap_builder7builder3arg3Arg21default_missing_value17hf6d3dbfbc7801a0cE: argument 0"}
-!302 = distinct !{!302, !"_ZN12clap_builder7builder3arg3Arg21default_missing_value17hf6d3dbfbc7801a0cE"}
-!303 = distinct !{!303, !302, !"_ZN12clap_builder7builder3arg3Arg21default_missing_value17hf6d3dbfbc7801a0cE: argument 1"}
+!301 = distinct !{!301, !302, !"_ZN12clap_builder7builder3arg3Arg21default_missing_value17hf6d3dbfbc7801a0cE.argprom: argument 0"}
+!302 = distinct !{!302, !"_ZN12clap_builder7builder3arg3Arg21default_missing_value17hf6d3dbfbc7801a0cE.argprom"}
+!303 = distinct !{!303, !302, !"_ZN12clap_builder7builder3arg3Arg21default_missing_value17hf6d3dbfbc7801a0cE.argprom: argument 1"}
 !304 = !{!301}
 !305 = !{!306}
 !306 = distinct !{!306, !307, !"_ZN12clap_builder7builder3arg3Arg25default_missing_values_os17h2167602f297e827bE: argument 0"}

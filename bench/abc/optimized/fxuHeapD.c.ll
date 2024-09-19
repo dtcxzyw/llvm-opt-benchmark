@@ -215,7 +215,7 @@ Fxu_HeapDoubleResize.exit:                        ; preds = %13, %15
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp sgt i32 %31, 1
-  br i1 %32, label %.lr.ph.i, label %Fxu_HeapDoubleMoveUp.exit
+  br i1 %32, label %.lr.ph.i, label %Fxu_HeapDoubleMoveUp.argprom.exit
 
 .lr.ph.i:                                         ; preds = %18, %46
   %33 = phi i32 [ %55, %46 ], [ %31, %18 ]
@@ -232,7 +232,7 @@ Fxu_HeapDoubleResize.exit:                        ; preds = %13, %15
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = icmp sgt i32 %41, %44
-  br i1 %45, label %46, label %Fxu_HeapDoubleMoveUp.exit
+  br i1 %45, label %46, label %Fxu_HeapDoubleMoveUp.argprom.exit
 
 46:                                               ; preds = %.lr.ph.i
   store ptr %42, ptr %.01.i, align 8
@@ -249,9 +249,9 @@ Fxu_HeapDoubleResize.exit:                        ; preds = %13, %15
   %54 = getelementptr inbounds i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = icmp sgt i32 %55, 1
-  br i1 %56, label %.lr.ph.i, label %Fxu_HeapDoubleMoveUp.exit, !llvm.loop !7
+  br i1 %56, label %.lr.ph.i, label %Fxu_HeapDoubleMoveUp.argprom.exit, !llvm.loop !7
 
-Fxu_HeapDoubleMoveUp.exit:                        ; preds = %.lr.ph.i, %46, %18
+Fxu_HeapDoubleMoveUp.argprom.exit:                ; preds = %.lr.ph.i, %46, %18
   ret void
 }
 
@@ -282,7 +282,7 @@ define void @Fxu_HeapDoubleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %21 = getelementptr inbounds i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 1
-  br i1 %23, label %.lr.ph.i, label %Fxu_HeapDoubleMoveUp.exit
+  br i1 %23, label %.lr.ph.i, label %Fxu_HeapDoubleMoveUp.argprom.exit
 
 .lr.ph.i:                                         ; preds = %17, %37
   %24 = phi i32 [ %46, %37 ], [ %22, %17 ]
@@ -299,7 +299,7 @@ define void @Fxu_HeapDoubleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %32, %35
-  br i1 %36, label %37, label %Fxu_HeapDoubleMoveUp.exit
+  br i1 %36, label %37, label %Fxu_HeapDoubleMoveUp.argprom.exit
 
 37:                                               ; preds = %.lr.ph.i
   store ptr %33, ptr %.01.i, align 8
@@ -316,7 +316,7 @@ define void @Fxu_HeapDoubleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %45 = getelementptr inbounds i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = icmp sgt i32 %46, 1
-  br i1 %47, label %.lr.ph.i, label %Fxu_HeapDoubleMoveUp.exit, !llvm.loop !7
+  br i1 %47, label %.lr.ph.i, label %Fxu_HeapDoubleMoveUp.argprom.exit, !llvm.loop !7
 
 48:                                               ; preds = %6, %2
   %49 = shl i32 %4, 1
@@ -345,7 +345,7 @@ define void @Fxu_HeapDoubleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %67 = load i32, ptr %66, align 4
   %68 = shl i32 %67, 1
   %.not1.i = icmp sgt i32 %68, %51
-  br i1 %.not1.i, label %Fxu_HeapDoubleMoveUp.exit, label %.lr.ph.i25
+  br i1 %.not1.i, label %Fxu_HeapDoubleMoveUp.argprom.exit, label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %62, %91
   %69 = phi i32 [ %102, %91 ], [ %51, %62 ]
@@ -374,7 +374,7 @@ define void @Fxu_HeapDoubleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %.pre6.i = load i32, ptr %.phi.trans.insert.i, align 8
   %.not34.i = icmp slt i32 %81, %.pre6.i
   %or.cond.i = select i1 %.not33.i, i1 true, i1 %.not34.i
-  br i1 %or.cond.i, label %._crit_edge5.i, label %Fxu_HeapDoubleMoveUp.exit
+  br i1 %or.cond.i, label %._crit_edge5.i, label %Fxu_HeapDoubleMoveUp.argprom.exit
 
 ._crit_edge5.i:                                   ; preds = %76
   %.not35.i = icmp slt i32 %84, %.pre6.i
@@ -389,7 +389,7 @@ define void @Fxu_HeapDoubleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %89 = getelementptr inbounds i8, ptr %88, i64 8
   %90 = load i32, ptr %89, align 8
   %.not32.i = icmp slt i32 %87, %90
-  br i1 %.not32.i, label %91, label %Fxu_HeapDoubleMoveUp.exit
+  br i1 %.not32.i, label %91, label %Fxu_HeapDoubleMoveUp.argprom.exit
 
 91:                                               ; preds = %85, %._crit_edge5.i
   %.pre.sink.i = phi ptr [ %.pre..i, %._crit_edge5.i ], [ %88, %85 ]
@@ -410,11 +410,11 @@ define void @Fxu_HeapDoubleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %101 = shl i32 %100, 1
   %102 = load i32, ptr %50, align 8
   %.not.i = icmp sgt i32 %101, %102
-  br i1 %.not.i, label %Fxu_HeapDoubleMoveUp.exit, label %.lr.ph.i25, !llvm.loop !8
+  br i1 %.not.i, label %Fxu_HeapDoubleMoveUp.argprom.exit, label %.lr.ph.i25, !llvm.loop !8
 
 103:                                              ; preds = %52, %48
   %.not22.not = icmp slt i32 %49, %51
-  br i1 %.not22.not, label %104, label %Fxu_HeapDoubleMoveUp.exit
+  br i1 %.not22.not, label %104, label %Fxu_HeapDoubleMoveUp.argprom.exit
 
 104:                                              ; preds = %103
   %105 = or disjoint i32 %49, 1
@@ -427,7 +427,7 @@ define void @Fxu_HeapDoubleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %112 = getelementptr inbounds i8, ptr %111, i64 8
   %113 = load i32, ptr %112, align 8
   %114 = icmp slt i32 %107, %113
-  br i1 %114, label %115, label %Fxu_HeapDoubleMoveUp.exit
+  br i1 %114, label %115, label %Fxu_HeapDoubleMoveUp.argprom.exit
 
 115:                                              ; preds = %104
   %116 = sext i32 %4 to i64
@@ -437,7 +437,7 @@ define void @Fxu_HeapDoubleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %120 = load i32, ptr %119, align 4
   %121 = shl i32 %120, 1
   %.not1.i26 = icmp sgt i32 %121, %51
-  br i1 %.not1.i26, label %Fxu_HeapDoubleMoveUp.exit, label %.lr.ph.i27
+  br i1 %.not1.i26, label %Fxu_HeapDoubleMoveUp.argprom.exit, label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %115, %144
   %122 = phi i32 [ %155, %144 ], [ %51, %115 ]
@@ -466,7 +466,7 @@ define void @Fxu_HeapDoubleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %.pre6.i37 = load i32, ptr %.phi.trans.insert.i36, align 8
   %.not34.i38 = icmp slt i32 %134, %.pre6.i37
   %or.cond.i39 = select i1 %.not33.i34, i1 true, i1 %.not34.i38
-  br i1 %or.cond.i39, label %._crit_edge5.i40, label %Fxu_HeapDoubleMoveUp.exit
+  br i1 %or.cond.i39, label %._crit_edge5.i40, label %Fxu_HeapDoubleMoveUp.argprom.exit
 
 ._crit_edge5.i40:                                 ; preds = %129
   %.not35.i41 = icmp slt i32 %137, %.pre6.i37
@@ -481,7 +481,7 @@ define void @Fxu_HeapDoubleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %142 = getelementptr inbounds i8, ptr %141, i64 8
   %143 = load i32, ptr %142, align 8
   %.not32.i30 = icmp slt i32 %140, %143
-  br i1 %.not32.i30, label %144, label %Fxu_HeapDoubleMoveUp.exit
+  br i1 %.not32.i30, label %144, label %Fxu_HeapDoubleMoveUp.argprom.exit
 
 144:                                              ; preds = %138, %._crit_edge5.i40
   %.pre.sink.i31 = phi ptr [ %.pre..i42, %._crit_edge5.i40 ], [ %141, %138 ]
@@ -502,9 +502,9 @@ define void @Fxu_HeapDoubleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %154 = shl i32 %153, 1
   %155 = load i32, ptr %50, align 8
   %.not.i33 = icmp sgt i32 %154, %155
-  br i1 %.not.i33, label %Fxu_HeapDoubleMoveUp.exit, label %.lr.ph.i27, !llvm.loop !8
+  br i1 %.not.i33, label %Fxu_HeapDoubleMoveUp.argprom.exit, label %.lr.ph.i27, !llvm.loop !8
 
-Fxu_HeapDoubleMoveUp.exit:                        ; preds = %91, %85, %76, %144, %138, %129, %37, %.lr.ph.i, %115, %62, %17, %104, %103
+Fxu_HeapDoubleMoveUp.argprom.exit:                ; preds = %91, %85, %76, %144, %138, %129, %37, %.lr.ph.i, %115, %62, %17, %104, %103
   ret void
 }
 
@@ -561,7 +561,7 @@ define ptr @Fxu_HeapDoubleGetMax(ptr nocapture noundef %0) local_unnamed_addr #9
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %Fxu_HeapDoubleMoveDn.exit, label %5
+  br i1 %4, label %Fxu_HeapDoubleMoveDn.argprom.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
@@ -596,7 +596,7 @@ define ptr @Fxu_HeapDoubleGetMax(ptr nocapture noundef %0) local_unnamed_addr #9
   %30 = shl i32 %29, 1
   %31 = load i32, ptr %2, align 8
   %.not1.i = icmp sgt i32 %30, %31
-  br i1 %.not1.i, label %Fxu_HeapDoubleMoveDn.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %Fxu_HeapDoubleMoveDn.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %54
   %32 = phi i32 [ %65, %54 ], [ %31, %5 ]
@@ -625,7 +625,7 @@ define ptr @Fxu_HeapDoubleGetMax(ptr nocapture noundef %0) local_unnamed_addr #9
   %.pre6.i = load i32, ptr %.phi.trans.insert.i, align 8
   %.not34.i = icmp slt i32 %44, %.pre6.i
   %or.cond.i = select i1 %.not33.i, i1 true, i1 %.not34.i
-  br i1 %or.cond.i, label %._crit_edge5.i, label %Fxu_HeapDoubleMoveDn.exit
+  br i1 %or.cond.i, label %._crit_edge5.i, label %Fxu_HeapDoubleMoveDn.argprom.exit
 
 ._crit_edge5.i:                                   ; preds = %39
   %.not35.i = icmp slt i32 %47, %.pre6.i
@@ -640,7 +640,7 @@ define ptr @Fxu_HeapDoubleGetMax(ptr nocapture noundef %0) local_unnamed_addr #9
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 8
   %.not32.i = icmp slt i32 %50, %53
-  br i1 %.not32.i, label %54, label %Fxu_HeapDoubleMoveDn.exit
+  br i1 %.not32.i, label %54, label %Fxu_HeapDoubleMoveDn.argprom.exit
 
 54:                                               ; preds = %48, %._crit_edge5.i
   %.pre.sink.i = phi ptr [ %.pre..i, %._crit_edge5.i ], [ %51, %48 ]
@@ -661,9 +661,9 @@ define ptr @Fxu_HeapDoubleGetMax(ptr nocapture noundef %0) local_unnamed_addr #9
   %64 = shl i32 %63, 1
   %65 = load i32, ptr %2, align 8
   %.not.i = icmp sgt i32 %64, %65
-  br i1 %.not.i, label %Fxu_HeapDoubleMoveDn.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %Fxu_HeapDoubleMoveDn.argprom.exit, label %.lr.ph.i, !llvm.loop !8
 
-Fxu_HeapDoubleMoveDn.exit:                        ; preds = %54, %48, %39, %5, %1
+Fxu_HeapDoubleMoveDn.argprom.exit:                ; preds = %54, %48, %39, %5, %1
   %.0 = phi ptr [ null, %1 ], [ %8, %5 ], [ %8, %39 ], [ %8, %48 ], [ %8, %54 ]
   ret ptr %.0
 }

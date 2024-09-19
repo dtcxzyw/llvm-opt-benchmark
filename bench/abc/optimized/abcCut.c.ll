@@ -468,14 +468,14 @@ Abc_NtkGetNodeAttributes.exit:                    ; preds = %79, %Vec_IntStart.e
   %131 = load i32, ptr %113, align 4
   %132 = sext i32 %131 to i64
   %133 = icmp slt i64 %indvars.iv117, %132
-  br i1 %133, label %Extra_ProgressBarUpdate.exit, label %134
+  br i1 %133, label %Extra_ProgressBarUpdate.argprom.exit, label %134
 
 134:                                              ; preds = %130, %129
   %135 = trunc nuw nsw i64 %indvars.iv117 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %113, i32 noundef %135, ptr noundef null) #12
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %130, %134
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %130, %134
   %136 = load i32, ptr %116, align 4
   %137 = load i32, ptr %117, align 4
   %138 = call ptr @Abc_NodeGetCuts(ptr noundef %18, ptr noundef nonnull %121, i32 noundef %136, i32 noundef %137)
@@ -485,8 +485,8 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %130, %134
   %or.cond = select i1 %140, i1 %141, i1 false
   br i1 %or.cond, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %Extra_ProgressBarUpdate.exit, %151
-  %.0108 = phi ptr [ %153, %151 ], [ %138, %Extra_ProgressBarUpdate.exit ]
+.preheader:                                       ; preds = %Extra_ProgressBarUpdate.argprom.exit, %151
+  %.0108 = phi ptr [ %153, %151 ], [ %138, %Extra_ProgressBarUpdate.argprom.exit ]
   %142 = load i32, ptr %.0108, align 8
   %143 = icmp ugt i32 %142, 1073741823
   br i1 %143, label %144, label %151
@@ -507,7 +507,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %130, %134
   %.not79 = icmp eq ptr %153, null
   br i1 %.not79, label %.loopexit, label %.preheader, !llvm.loop !9
 
-.loopexit:                                        ; preds = %151, %Extra_ProgressBarUpdate.exit
+.loopexit:                                        ; preds = %151, %Extra_ProgressBarUpdate.argprom.exit
   %154 = load i32, ptr %86, align 4
   %.not80 = icmp eq i32 %154, 0
   br i1 %.not80, label %158, label %155
@@ -1177,7 +1177,7 @@ define i32 @Abc_NtkSubDagSize_rec(ptr nocapture noundef readonly %0, ptr nocaptu
   %.val3.i23 = load i32, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %.val2.i22, i64 224
   %5 = add nsw i32 %.val3.i23, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %4, i32 noundef %5)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %4, i32 noundef %5)
   %6 = getelementptr i8, ptr %.val2.i22, i64 232
   %.val.i.i.i24 = load ptr, ptr %6, align 8
   %7 = sext i32 %.val3.i23 to i64
@@ -1202,7 +1202,7 @@ define i32 @Abc_NtkSubDagSize_rec(ptr nocapture noundef readonly %0, ptr nocaptu
   %.val16 = load i32, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %.val.i29, i64 224
   %17 = add nsw i32 %.val16, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %16, i32 noundef %17)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %16, i32 noundef %17)
   %18 = getelementptr i8, ptr %.val.i29, i64 232
   %.val.i.i.i18 = load ptr, ptr %18, align 8
   %19 = sext i32 %.val16 to i64
@@ -1256,7 +1256,7 @@ tailrecurse:                                      ; preds = %25
   %.val3.i = load i32, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %45 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %44, i32 noundef %45)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %44, i32 noundef %45)
   %46 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %46, align 8
   %47 = sext i32 %.val3.i to i64
@@ -1462,7 +1462,7 @@ declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_
 declare i32 @Abc_NodeMffcSize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

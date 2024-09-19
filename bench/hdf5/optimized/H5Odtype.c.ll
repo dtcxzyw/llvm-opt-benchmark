@@ -233,10 +233,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.178 = private unnamed_addr constant [39 x i8] c"datatype message version out of bounds\00", align 1
 @.str.179 = private unnamed_addr constant [29 x i8] c"cannot mark datatype on disk\00", align 1
 @switch.table.H5O__dtype_encode_helper = private unnamed_addr constant [3 x i32] [i32 0, i32 1, i32 65], align 4
-@switch.table.H5O__dtype_debug = private unnamed_addr constant [11 x ptr] [ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.91, ptr @.str.90], align 8
-@switch.table.H5O__dtype_debug.6 = private unnamed_addr constant [5 x ptr] [ptr @.str.140, ptr @.str.141, ptr @.str.142, ptr @.str.144, ptr @.str.143], align 8
-@switch.table.H5O__dtype_debug.9 = private unnamed_addr constant [3 x ptr] [ptr @.str.150, ptr @.str.151, ptr @.str.152], align 8
-@switch.table.H5O__dtype_debug.10 = private unnamed_addr constant [3 x ptr] [ptr @.str.159, ptr @.str.160, ptr @.str.143], align 8
+@switch.table.H5O__dtype_debug.argprom.retelim = private unnamed_addr constant [11 x ptr] [ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.91, ptr @.str.90], align 8
+@switch.table.H5O__dtype_debug.argprom.retelim.6 = private unnamed_addr constant [5 x ptr] [ptr @.str.140, ptr @.str.141, ptr @.str.142, ptr @.str.144, ptr @.str.143], align 8
+@switch.table.H5O__dtype_debug.argprom.retelim.9 = private unnamed_addr constant [3 x ptr] [ptr @.str.150, ptr @.str.151, ptr @.str.152], align 8
+@switch.table.H5O__dtype_debug.argprom.retelim.10 = private unnamed_addr constant [3 x ptr] [ptr @.str.159, ptr @.str.160, ptr @.str.143], align 8
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @H5O__dtype_shared_decode(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #0 {
@@ -367,9 +367,9 @@ define internal range(i32 -1, 1) i32 @H5O__dtype_shared_encode(ptr noundef %0, i
   store ptr %3, ptr %6, align 8
   %17 = call fastcc i32 @H5O__dtype_encode_helper(ptr noundef %6, ptr noundef nonnull readonly %4)
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %19, label %H5O__dtype_encode.exit
+  br i1 %18, label %19, label %H5O__dtype_encode.argprom.exit
 
-H5O__dtype_encode.exit:                           ; preds = %16
+H5O__dtype_encode.argprom.exit:                   ; preds = %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %26
 
@@ -383,8 +383,8 @@ H5O__dtype_encode.exit:                           ; preds = %16
   %25 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__dtype_shared_encode, i32 noundef 124, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.59) #15
   br label %26
 
-26:                                               ; preds = %H5O__dtype_encode.exit, %9, %19, %12
-  %.0 = phi i32 [ -1, %19 ], [ 0, %H5O__dtype_encode.exit ], [ -1, %12 ], [ 0, %9 ]
+26:                                               ; preds = %H5O__dtype_encode.argprom.exit, %9, %19, %12
+  %.0 = phi i32 [ -1, %19 ], [ 0, %H5O__dtype_encode.argprom.exit ], [ -1, %12 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -434,7 +434,7 @@ define internal i64 @H5O__dtype_shared_size(ptr noundef %0, i1 noundef zeroext %
   br label %20
 
 13:                                               ; preds = %3
-  %14 = tail call fastcc i64 @H5O__dtype_size(ptr noundef nonnull %2)
+  %14 = tail call fastcc i64 @H5O__dtype_size.argprom(ptr noundef nonnull %2)
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %16, label %20
 
@@ -681,7 +681,7 @@ H5O__dtype_copy.exit.i:                           ; preds = %7
   %17 = tail call ptr @H5F_get_vol_obj(ptr noundef %2) #15
   %18 = tail call i32 @H5T_set_loc(ptr noundef nonnull %8, ptr noundef %17, i32 noundef 2) #15
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %H5O__dtype_copy_file.exit
+  br i1 %19, label %20, label %H5O__dtype_copy_file.argprom.exit
 
 20:                                               ; preds = %H5O__dtype_copy.exit.i
   %21 = load i64, ptr @H5E_DATATYPE_g, align 8
@@ -696,21 +696,21 @@ H5O__dtype_copy.exit.i:                           ; preds = %7
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__dtype_shared_copy_file, i32 noundef 303, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.72) #15
   br label %.thread
 
-H5O__dtype_copy_file.exit:                        ; preds = %H5O__dtype_copy.exit.i
+H5O__dtype_copy_file.argprom.exit:                ; preds = %H5O__dtype_copy.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   %29 = tail call i32 @H5O__shared_copy_file(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @H5O_MSG_DTYPE, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #15
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %31, label %.thread
 
-31:                                               ; preds = %H5O__dtype_copy_file.exit
+31:                                               ; preds = %H5O__dtype_copy_file.argprom.exit
   %32 = load i64, ptr @H5E_OHDR_g, align 8
   %33 = load i64, ptr @H5E_WRITEERROR_g, align 8
   %34 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__dtype_shared_copy_file, i32 noundef 316, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.73) #15
   %35 = tail call ptr @H5O_msg_free(i32 noundef 3, ptr noundef nonnull %8) #15
   br label %.thread
 
-.thread:                                          ; preds = %24, %H5O__dtype_copy_file.exit, %31
-  %.029 = phi ptr [ null, %31 ], [ %8, %H5O__dtype_copy_file.exit ], [ null, %24 ]
+.thread:                                          ; preds = %24, %H5O__dtype_copy_file.argprom.exit, %31
+  %.029 = phi ptr [ null, %31 ], [ %8, %H5O__dtype_copy_file.argprom.exit ], [ null, %24 ]
   ret ptr %.029
 }
 
@@ -725,12 +725,12 @@ define internal range(i32 -1, 1) i32 @H5O__dtype_shared_post_copy_file(ptr nocap
   %11 = load i64, ptr @H5E_OHDR_g, align 8
   %12 = load i64, ptr @H5E_WRITEERROR_g, align 8
   %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__dtype_shared_post_copy_file, i32 noundef 376, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.76) #15
-  br label %H5O__dtype_shared_post_copy_upd.exit.thread
+  br label %H5O__dtype_shared_post_copy_upd.argprom.exit.thread
 
 14:                                               ; preds = %6
   %15 = load i32, ptr %3, align 8
   %16 = icmp eq i32 %15, 2
-  br i1 %16, label %17, label %H5O__dtype_shared_post_copy_upd.exit.thread
+  br i1 %16, label %17, label %H5O__dtype_shared_post_copy_upd.argprom.exit.thread
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %3, i64 48
@@ -746,7 +746,7 @@ define internal range(i32 -1, 1) i32 @H5O__dtype_shared_post_copy_file(ptr nocap
   %25 = load i64, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %3, i64 56
   store i64 %25, ptr %26, align 8
-  br label %H5O__dtype_shared_post_copy_upd.exit.thread
+  br label %H5O__dtype_shared_post_copy_upd.argprom.exit.thread
 
 27:                                               ; preds = %17
   %28 = load i64, ptr @H5E_DATATYPE_g, align 8
@@ -755,9 +755,9 @@ define internal range(i32 -1, 1) i32 @H5O__dtype_shared_post_copy_file(ptr nocap
   %31 = load i64, ptr @H5E_OHDR_g, align 8
   %32 = load i64, ptr @H5E_CANTCOPY_g, align 8
   %33 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__dtype_shared_post_copy_file, i32 noundef 382, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.77) #15
-  br label %H5O__dtype_shared_post_copy_upd.exit.thread
+  br label %H5O__dtype_shared_post_copy_upd.argprom.exit.thread
 
-H5O__dtype_shared_post_copy_upd.exit.thread:      ; preds = %14, %21, %27, %10
+H5O__dtype_shared_post_copy_upd.argprom.exit.thread: ; preds = %14, %21, %27, %10
   %.0 = phi i32 [ -1, %10 ], [ -1, %27 ], [ 0, %21 ], [ 0, %14 ]
   ret i32 %.0
 }
@@ -781,7 +781,7 @@ define internal range(i32 -1, 1) i32 @H5O__dtype_shared_debug(ptr nocapture read
   br label %15
 
 14:                                               ; preds = %5, %7
-  tail call fastcc void @H5O__dtype_debug(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
+  tail call fastcc void @H5O__dtype_debug.argprom.retelim(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
   br label %15
 
 15:                                               ; preds = %14, %10
@@ -4944,7 +4944,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 declare i64 @H5O__shared_size(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @H5O__dtype_size(ptr nocapture noundef readonly %0) unnamed_addr #8 {
+define internal fastcc i64 @H5O__dtype_size.argprom(ptr nocapture noundef readonly %0) unnamed_addr #8 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %123, %1
@@ -5100,7 +5100,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %20, %26, %32, %38, 
   %.2.us = add i64 %82, %.16025.us
   %83 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %73, i64 %indvars.iv64, i32 3
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call fastcc i64 @H5O__dtype_size(ptr noundef %84)
+  %85 = tail call fastcc i64 @H5O__dtype_size.argprom(ptr noundef %84)
   %.3.us = add i64 %.2.us, %85
   %86 = add i64 %.3.us, %.pn64
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
@@ -5118,7 +5118,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %20, %26, %32, %38, 
   %.2 = add i64 %91, %.16025
   %92 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %73, i64 %indvars.iv59, i32 3
   %93 = load ptr, ptr %92, align 8
-  %94 = tail call fastcc i64 @H5O__dtype_size(ptr noundef %93)
+  %94 = tail call fastcc i64 @H5O__dtype_size.argprom(ptr noundef %93)
   %.3 = add i64 %.2, %94
   %95 = add i64 %.3, %.pn64
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
@@ -5128,7 +5128,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %20, %26, %32, %38, 
 96:                                               ; preds = %tailrecurse
   %97 = getelementptr inbounds i8, ptr %3, i64 32
   %98 = load ptr, ptr %97, align 8
-  %99 = tail call fastcc i64 @H5O__dtype_size(ptr noundef %98)
+  %99 = tail call fastcc i64 @H5O__dtype_size.argprom(ptr noundef %98)
   %100 = add i64 %99, 8
   %101 = getelementptr inbounds i8, ptr %3, i64 52
   %102 = load i32, ptr %101, align 4
@@ -5203,7 +5203,7 @@ common.ret146:                                    ; preds = %127, %.loopexit
   %135 = select i1 %130, i64 %134, i64 0
   %136 = getelementptr inbounds i8, ptr %3, i64 32
   %137 = load ptr, ptr %136, align 8
-  %138 = tail call fastcc i64 @H5O__dtype_size(ptr noundef %137)
+  %138 = tail call fastcc i64 @H5O__dtype_size.argprom(ptr noundef %137)
   %139 = add i64 %spec.select, %accumulator.tr
   %.7 = add i64 %139, %134
   %140 = add i64 %.7, %138
@@ -5245,7 +5245,7 @@ declare i32 @H5O_loc_reset(ptr noundef) local_unnamed_addr #1
 declare i32 @H5O__shared_debug(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @H5O__dtype_debug(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #10 {
+define internal fastcc void @H5O__dtype_debug.argprom.retelim(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #10 {
   %5 = alloca [256 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -5260,7 +5260,7 @@ define internal fastcc void @H5O__dtype_debug(ptr nocapture noundef readonly %0,
 
 switch.lookup:                                    ; preds = %4
   %13 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table.H5O__dtype_debug, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table.H5O__dtype_debug.argprom.retelim, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %14
 
@@ -5327,7 +5327,7 @@ switch.lookup:                                    ; preds = %4
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %56, i64 %indvars.iv22, i32 3
   %58 = load ptr, ptr %57, align 8
-  call fastcc void @H5O__dtype_debug(ptr noundef %58, ptr noundef %1, i32 noundef %36, i32 noundef %38)
+  call fastcc void @H5O__dtype_debug.argprom.retelim(ptr noundef %58, ptr noundef %1, i32 noundef %36, i32 noundef %38)
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %59 = load ptr, ptr %6, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 52
@@ -5344,7 +5344,7 @@ switch.lookup:                                    ; preds = %4
   %69 = add nsw i32 %2, 3
   %70 = call i32 @llvm.smax.i32(i32 %3, i32 3)
   %71 = add nsw i32 %70, -3
-  call fastcc void @H5O__dtype_debug(ptr noundef %68, ptr noundef %1, i32 noundef %69, i32 noundef %71)
+  call fastcc void @H5O__dtype_debug.argprom.retelim(ptr noundef %68, ptr noundef %1, i32 noundef %69, i32 noundef %71)
   %72 = load ptr, ptr %6, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 52
   %74 = load i32, ptr %73, align 4
@@ -5653,7 +5653,7 @@ switch.lookup:                                    ; preds = %4
   %212 = add nsw i32 %2, 3
   %213 = call i32 @llvm.smax.i32(i32 %3, i32 3)
   %214 = add nsw i32 %213, -3
-  call fastcc void @H5O__dtype_debug(ptr noundef %211, ptr noundef %1, i32 noundef %212, i32 noundef %214)
+  call fastcc void @H5O__dtype_debug.argprom.retelim(ptr noundef %211, ptr noundef %1, i32 noundef %212, i32 noundef %214)
   br label %.loopexit
 
 215:                                              ; preds = %14
@@ -5668,7 +5668,7 @@ switch.lookup:                                    ; preds = %4
 
 switch.lookup2:                                   ; preds = %215
   %221 = zext nneg i32 %217 to i64
-  %switch.gep3 = getelementptr inbounds [5 x ptr], ptr @switch.table.H5O__dtype_debug.6, i64 0, i64 %221
+  %switch.gep3 = getelementptr inbounds [5 x ptr], ptr @switch.table.H5O__dtype_debug.argprom.retelim.6, i64 0, i64 %221
   %switch.load4 = load ptr, ptr %switch.gep3, align 8
   br label %222
 
@@ -5695,7 +5695,7 @@ switch.lookup2:                                   ; preds = %215
 
 switch.lookup5:                                   ; preds = %222
   %240 = zext nneg i32 %238 to i64
-  %switch.gep6 = getelementptr inbounds [3 x ptr], ptr @switch.table.H5O__dtype_debug.9, i64 0, i64 %240
+  %switch.gep6 = getelementptr inbounds [3 x ptr], ptr @switch.table.H5O__dtype_debug.argprom.retelim.9, i64 0, i64 %240
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
   br label %241
 
@@ -5710,7 +5710,7 @@ switch.lookup5:                                   ; preds = %222
 
 switch.lookup8:                                   ; preds = %241
   %247 = zext nneg i32 %245 to i64
-  %switch.gep9 = getelementptr inbounds [3 x ptr], ptr @switch.table.H5O__dtype_debug.9, i64 0, i64 %247
+  %switch.gep9 = getelementptr inbounds [3 x ptr], ptr @switch.table.H5O__dtype_debug.argprom.retelim.9, i64 0, i64 %247
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
   br label %248
 
@@ -5746,7 +5746,7 @@ switch.lookup8:                                   ; preds = %241
 
 switch.lookup11:                                  ; preds = %253
   %264 = zext nneg i32 %255 to i64
-  %switch.gep12 = getelementptr inbounds [3 x ptr], ptr @switch.table.H5O__dtype_debug.9, i64 0, i64 %264
+  %switch.gep12 = getelementptr inbounds [3 x ptr], ptr @switch.table.H5O__dtype_debug.argprom.retelim.9, i64 0, i64 %264
   %switch.load13 = load ptr, ptr %switch.gep12, align 8
   br label %265
 
@@ -5765,7 +5765,7 @@ switch.lookup11:                                  ; preds = %253
 
 switch.lookup14:                                  ; preds = %265
   %273 = zext nneg i32 %269 to i64
-  %switch.gep15 = getelementptr inbounds [3 x ptr], ptr @switch.table.H5O__dtype_debug.10, i64 0, i64 %273
+  %switch.gep15 = getelementptr inbounds [3 x ptr], ptr @switch.table.H5O__dtype_debug.argprom.retelim.10, i64 0, i64 %273
   %switch.load16 = load ptr, ptr %switch.gep15, align 8
   br label %274
 

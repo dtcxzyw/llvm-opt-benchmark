@@ -4728,7 +4728,7 @@ define hidden noundef ptr @_ZN14PhaseIdealLoop14find_safepointEP4NodeS1_P13Ideal
   %16 = getelementptr inbounds i8, ptr %10, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 1
-  br i1 %18, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.exit, label %19
+  br i1 %18, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.argprom.exit, label %19
 
 19:                                               ; preds = %15, %4
   %.not39 = icmp eq ptr %1, %2
@@ -4796,7 +4796,7 @@ _ZNK14PhaseIdealLoop4idomEP4Node.exit:            ; preds = %_ZNK10Node_ArrayixE
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noundef i32 %54(ptr noundef nonnull align 8 dereferenceable(52) %.020.lcssa) #16
   %56 = icmp eq i32 %55, 300
-  br i1 %56, label %57, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.exit
+  br i1 %56, label %57, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.argprom.exit
 
 57:                                               ; preds = %.critedge
   %58 = getelementptr inbounds i8, ptr %.020.lcssa, i64 8
@@ -4812,7 +4812,7 @@ _ZNK14PhaseIdealLoop4idomEP4Node.exit:            ; preds = %_ZNK10Node_ArrayixE
   %66 = zext i32 %.val22 to i64
   %67 = getelementptr inbounds ptr, ptr %.val, i64 %66
   %68 = icmp eq i32 %.val22, 0
-  br i1 %68, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.exit, label %.lr.ph.i
+  br i1 %68, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %57
   %69 = getelementptr inbounds i8, ptr %61, i64 44
@@ -4863,7 +4863,7 @@ _ZNK4Node13is_memory_phiEv.exit.i:                ; preds = %73
   br i1 %100, label %103, label %161
 
 103:                                              ; preds = %96
-  br i1 %102, label %104, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.exit
+  br i1 %102, label %104, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.argprom.exit
 
 104:                                              ; preds = %103
   %.not32.i = icmp eq ptr %89, %61
@@ -4979,17 +4979,17 @@ _ZN16Unique_Node_List4pushEP4Node.exit.i:         ; preds = %_ZN9Node_List4pushE
   %.sroa.15.2.ph.i = phi ptr [ %150, %.split.us.i.i.i ], [ %160, %158 ], [ %150, %156 ]
   %.not33.i = icmp eq ptr %146, %.sroa.15.2.ph.i
   %or.cond.i = select i1 %153, i1 true, i1 %.not33.i
-  br i1 %or.cond.i, label %140, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.exit, !llvm.loop !20
+  br i1 %or.cond.i, label %140, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.argprom.exit, !llvm.loop !20
 
 161:                                              ; preds = %96
-  br i1 %102, label %162, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.exit
+  br i1 %102, label %162, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.argprom.exit
 
 162:                                              ; preds = %161
   %163 = load ptr, ptr %70, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 16
   %165 = load ptr, ptr %164, align 8
   %.not31.i = icmp eq ptr %89, %165
-  br i1 %.not31.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit.i, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.exit
+  br i1 %.not31.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit.i, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.argprom.exit
 
 166:                                              ; preds = %85
   %167 = load i32, ptr %69, align 4
@@ -5006,18 +5006,18 @@ _ZN16Unique_Node_List4pushEP4Node.exit.i:         ; preds = %_ZN9Node_List4pushE
   %176 = load i32, ptr %175, align 8
   %177 = tail call noundef ptr @_ZNK12MergeMemNode9memory_atEj(ptr noundef nonnull align 8 dereferenceable(52) %61, i32 noundef %176) #16
   %.not30.i = icmp eq ptr %89, %177
-  br i1 %.not30.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit.i, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.exit
+  br i1 %.not30.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit.i, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.argprom.exit
 
 178:                                              ; preds = %166
   %.not.i = icmp eq ptr %89, %61
-  br i1 %.not.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit.i, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.exit
+  br i1 %.not.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit.i, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.argprom.exit
 
 _ZN14MergeMemStream15next_non_empty2Ev.exit.i:    ; preds = %140, %.thread5.us.i.i.i, %178, %170, %162, %104, %_ZNK4Node13is_memory_phiEv.exit.i, %73
   %179 = getelementptr inbounds i8, ptr %.02724.i, i64 8
   %.not34.i = icmp ult ptr %179, %67
-  br i1 %.not34.i, label %73, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.exit, !llvm.loop !21
+  br i1 %.not34.i, label %73, label %_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.argprom.exit, !llvm.loop !21
 
-_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.exit: ; preds = %178, %170, %161, %162, %103, %_ZN14MergeMemStream15next_non_empty2Ev.exit.i, %.loopexit.i, %.critedge, %57, %15
+_ZL30no_side_effect_since_safepointP7CompileP4NodeS2_P12MergeMemNodeP14PhaseIdealLoop.argprom.exit: ; preds = %178, %170, %161, %162, %103, %_ZN14MergeMemStream15next_non_empty2Ev.exit.i, %.loopexit.i, %.critedge, %57, %15
   %.0 = phi ptr [ %10, %15 ], [ %.020.lcssa, %57 ], [ null, %.critedge ], [ null, %.loopexit.i ], [ null, %178 ], [ null, %170 ], [ null, %161 ], [ null, %162 ], [ null, %103 ], [ %.020.lcssa, %_ZN14MergeMemStream15next_non_empty2Ev.exit.i ]
   ret ptr %.0
 }

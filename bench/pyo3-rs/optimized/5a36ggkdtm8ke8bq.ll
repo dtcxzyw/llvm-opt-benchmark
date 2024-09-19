@@ -123,13 +123,13 @@ common.resume:                                    ; preds = %16, %19, %6
 20:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1901a67b92b931bbE.exit"
   store i8 0, ptr %12, align 1
   %21 = icmp eq i64 %14, 0
-  br i1 %21, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE.exit4", label %22
+  br i1 %21, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE.argprom.exit4", label %22
 
 22:                                               ; preds = %20
   tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %14, i64 noundef 1) #12
-  br label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE.exit4"
+  br label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE.argprom.exit4"
 
-"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE.exit4": ; preds = %20, %22
+"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE.argprom.exit4": ; preds = %20, %22
   store ptr %15, ptr @_ZN8pyo3_ffi8datetime18PyDateTimeAPI_impl17hab7e42c407a85f3aE, align 8
   ret void
 }

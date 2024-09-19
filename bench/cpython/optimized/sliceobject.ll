@@ -1604,15 +1604,15 @@ if.else:                                          ; preds = %entry
   %2 = getelementptr i8, ptr %v.val.i, i64 96
   %v.val.val.i = load ptr, ptr %2, align 8
   %cmp.not.i.i = icmp eq ptr %v.val.val.i, null
-  br i1 %cmp.not.i.i, label %Py_XDECREF.exit.thread.sink.split, label %_PyIndex_Check.exit.i
+  br i1 %cmp.not.i.i, label %Py_XDECREF.exit.thread.sink.split, label %_PyIndex_Check.argprom.argprom.exit.i
 
-_PyIndex_Check.exit.i:                            ; preds = %if.else
+_PyIndex_Check.argprom.argprom.exit.i:            ; preds = %if.else
   %nb_index.i.i = getelementptr inbounds i8, ptr %v.val.val.i, i64 264
   %3 = load ptr, ptr %nb_index.i.i, align 8
   %cmp2.i.not.i = icmp eq ptr %3, null
   br i1 %cmp2.i.not.i, label %Py_XDECREF.exit.thread.sink.split, label %evaluate_slice_index.exit
 
-evaluate_slice_index.exit:                        ; preds = %_PyIndex_Check.exit.i
+evaluate_slice_index.exit:                        ; preds = %_PyIndex_Check.argprom.argprom.exit.i
   %call1.i = tail call ptr @PyNumber_Index(ptr noundef nonnull %0) #6
   %cmp4 = icmp eq ptr %call1.i, null
   br i1 %cmp4, label %Py_XDECREF.exit.thread, label %if.end
@@ -1674,15 +1674,15 @@ if.else33:                                        ; preds = %if.end26
   %9 = getelementptr i8, ptr %v.val.i90, i64 96
   %v.val.val.i91 = load ptr, ptr %9, align 8
   %cmp.not.i.i92 = icmp eq ptr %v.val.val.i91, null
-  br i1 %cmp.not.i.i92, label %Py_XDECREF.exit.thread.sink.split, label %_PyIndex_Check.exit.i93
+  br i1 %cmp.not.i.i92, label %Py_XDECREF.exit.thread.sink.split, label %_PyIndex_Check.argprom.argprom.exit.i93
 
-_PyIndex_Check.exit.i93:                          ; preds = %if.else33
+_PyIndex_Check.argprom.argprom.exit.i93:          ; preds = %if.else33
   %nb_index.i.i94 = getelementptr inbounds i8, ptr %v.val.val.i91, i64 264
   %10 = load ptr, ptr %nb_index.i.i94, align 8
   %cmp2.i.not.i95 = icmp eq ptr %10, null
   br i1 %cmp2.i.not.i95, label %Py_XDECREF.exit.thread.sink.split, label %evaluate_slice_index.exit100
 
-evaluate_slice_index.exit100:                     ; preds = %_PyIndex_Check.exit.i93
+evaluate_slice_index.exit100:                     ; preds = %_PyIndex_Check.argprom.argprom.exit.i93
   %call1.i97 = tail call ptr @PyNumber_Index(ptr noundef nonnull %6) #6
   %cmp36 = icmp eq ptr %call1.i97, null
   br i1 %cmp36, label %Py_XDECREF.exit.thread, label %if.end39
@@ -1808,20 +1808,20 @@ if.else86:                                        ; preds = %if.end75
   %23 = getelementptr i8, ptr %v.val.i114, i64 96
   %v.val.val.i115 = load ptr, ptr %23, align 8
   %cmp.not.i.i116 = icmp eq ptr %v.val.val.i115, null
-  br i1 %cmp.not.i.i116, label %evaluate_slice_index.exit124.thread, label %_PyIndex_Check.exit.i117
+  br i1 %cmp.not.i.i116, label %evaluate_slice_index.exit124.thread, label %_PyIndex_Check.argprom.argprom.exit.i117
 
-_PyIndex_Check.exit.i117:                         ; preds = %if.else86
+_PyIndex_Check.argprom.argprom.exit.i117:         ; preds = %if.else86
   %nb_index.i.i118 = getelementptr inbounds i8, ptr %v.val.val.i115, i64 264
   %24 = load ptr, ptr %nb_index.i.i118, align 8
   %cmp2.i.not.i119 = icmp eq ptr %24, null
   br i1 %cmp2.i.not.i119, label %evaluate_slice_index.exit124.thread, label %evaluate_slice_index.exit124
 
-evaluate_slice_index.exit124.thread:              ; preds = %if.else86, %_PyIndex_Check.exit.i117
+evaluate_slice_index.exit124.thread:              ; preds = %if.else86, %_PyIndex_Check.argprom.argprom.exit.i117
   %25 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %25, ptr noundef nonnull @.str.6) #6
   br label %if.then.i135
 
-evaluate_slice_index.exit124:                     ; preds = %_PyIndex_Check.exit.i117
+evaluate_slice_index.exit124:                     ; preds = %_PyIndex_Check.argprom.argprom.exit.i117
   %call1.i121 = tail call ptr @PyNumber_Index(ptr noundef nonnull %20) #6
   %cmp89 = icmp eq ptr %call1.i121, null
   br i1 %cmp89, label %if.then.i135, label %if.end92
@@ -1956,12 +1956,12 @@ if.end.i:                                         ; preds = %Py_DECREF.exit142
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %return.sink.split, label %return
 
-Py_XDECREF.exit.thread.sink.split:                ; preds = %_PyIndex_Check.exit.i93, %if.else33, %if.end, %_PyIndex_Check.exit.i, %if.else
-  %PyExc_TypeError.sink = phi ptr [ @PyExc_TypeError, %if.else ], [ @PyExc_TypeError, %_PyIndex_Check.exit.i ], [ @PyExc_ValueError, %if.end ], [ @PyExc_TypeError, %if.else33 ], [ @PyExc_TypeError, %_PyIndex_Check.exit.i93 ]
-  %.str.6.sink = phi ptr [ @.str.6, %if.else ], [ @.str.6, %_PyIndex_Check.exit.i ], [ @.str.1, %if.end ], [ @.str.6, %if.else33 ], [ @.str.6, %_PyIndex_Check.exit.i93 ]
-  %lower.0.ph.ph = phi ptr [ null, %if.else ], [ null, %_PyIndex_Check.exit.i ], [ null, %if.end ], [ %lower.1, %if.else33 ], [ %lower.1, %_PyIndex_Check.exit.i93 ]
-  %upper.0.ph.ph = phi ptr [ null, %if.else ], [ null, %_PyIndex_Check.exit.i ], [ null, %if.end ], [ %upper.1, %if.else33 ], [ %upper.1, %_PyIndex_Check.exit.i93 ]
-  %step.1.ph.ph = phi ptr [ null, %if.else ], [ null, %_PyIndex_Check.exit.i ], [ %call1.i, %if.end ], [ %step.0179, %if.else33 ], [ %step.0179, %_PyIndex_Check.exit.i93 ]
+Py_XDECREF.exit.thread.sink.split:                ; preds = %_PyIndex_Check.argprom.argprom.exit.i93, %if.else33, %if.end, %_PyIndex_Check.argprom.argprom.exit.i, %if.else
+  %PyExc_TypeError.sink = phi ptr [ @PyExc_TypeError, %if.else ], [ @PyExc_TypeError, %_PyIndex_Check.argprom.argprom.exit.i ], [ @PyExc_ValueError, %if.end ], [ @PyExc_TypeError, %if.else33 ], [ @PyExc_TypeError, %_PyIndex_Check.argprom.argprom.exit.i93 ]
+  %.str.6.sink = phi ptr [ @.str.6, %if.else ], [ @.str.6, %_PyIndex_Check.argprom.argprom.exit.i ], [ @.str.1, %if.end ], [ @.str.6, %if.else33 ], [ @.str.6, %_PyIndex_Check.argprom.argprom.exit.i93 ]
+  %lower.0.ph.ph = phi ptr [ null, %if.else ], [ null, %_PyIndex_Check.argprom.argprom.exit.i ], [ null, %if.end ], [ %lower.1, %if.else33 ], [ %lower.1, %_PyIndex_Check.argprom.argprom.exit.i93 ]
+  %upper.0.ph.ph = phi ptr [ null, %if.else ], [ null, %_PyIndex_Check.argprom.argprom.exit.i ], [ null, %if.end ], [ %upper.1, %if.else33 ], [ %upper.1, %_PyIndex_Check.argprom.argprom.exit.i93 ]
+  %step.1.ph.ph = phi ptr [ null, %if.else ], [ null, %_PyIndex_Check.argprom.argprom.exit.i ], [ %call1.i, %if.end ], [ %step.0179, %if.else33 ], [ %step.0179, %_PyIndex_Check.argprom.argprom.exit.i93 ]
   %39 = load ptr, ptr %PyExc_TypeError.sink, align 8
   tail call void @PyErr_SetString(ptr noundef %39, ptr noundef nonnull %.str.6.sink) #6
   br label %Py_XDECREF.exit.thread

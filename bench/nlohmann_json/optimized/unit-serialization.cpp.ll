@@ -4067,7 +4067,7 @@ invoke.cont1408:                                  ; preds = %if.then1404
           to label %invoke.cont1412 unwind label %lpad1411
 
 invoke.cont1412:                                  ; preds = %invoke.cont1408
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1405, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1409)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1405, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1409)
           to label %invoke.cont1414 unwind label %lpad1413
 
 invoke.cont1414:                                  ; preds = %invoke.cont1412
@@ -4085,7 +4085,7 @@ invoke.cont1422:                                  ; preds = %invoke.cont1414
           to label %invoke.cont1426 unwind label %lpad1425
 
 invoke.cont1426:                                  ; preds = %invoke.cont1422
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1419, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1423)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1419, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1423)
           to label %invoke.cont1428 unwind label %lpad1427
 
 invoke.cont1428:                                  ; preds = %invoke.cont1426
@@ -4103,7 +4103,7 @@ invoke.cont1436:                                  ; preds = %invoke.cont1428
           to label %invoke.cont1440 unwind label %lpad1439
 
 invoke.cont1440:                                  ; preds = %invoke.cont1436
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1433, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1437)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1433, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1437)
           to label %invoke.cont1442 unwind label %lpad1441
 
 invoke.cont1442:                                  ; preds = %invoke.cont1440
@@ -4121,7 +4121,7 @@ invoke.cont1450:                                  ; preds = %invoke.cont1442
           to label %invoke.cont1454 unwind label %lpad1453
 
 invoke.cont1454:                                  ; preds = %invoke.cont1450
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1447, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1451)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1447, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1451)
           to label %invoke.cont1456 unwind label %lpad1455
 
 invoke.cont1456:                                  ; preds = %invoke.cont1454
@@ -4139,7 +4139,7 @@ invoke.cont1464:                                  ; preds = %invoke.cont1456
           to label %invoke.cont1468 unwind label %lpad1467
 
 invoke.cont1468:                                  ; preds = %invoke.cont1464
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1461, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1465)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1461, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1465)
           to label %invoke.cont1470 unwind label %lpad1469
 
 invoke.cont1470:                                  ; preds = %invoke.cont1468
@@ -4157,7 +4157,7 @@ invoke.cont1478:                                  ; preds = %invoke.cont1470
           to label %invoke.cont1482 unwind label %lpad1481
 
 invoke.cont1482:                                  ; preds = %invoke.cont1478
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1475, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1479)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1475, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1479)
           to label %invoke.cont1484 unwind label %lpad1483
 
 invoke.cont1484:                                  ; preds = %invoke.cont1482
@@ -4175,7 +4175,7 @@ invoke.cont1492:                                  ; preds = %invoke.cont1484
           to label %invoke.cont1496 unwind label %lpad1495
 
 invoke.cont1496:                                  ; preds = %invoke.cont1492
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1489, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1493)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1489, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1493)
           to label %invoke.cont1498 unwind label %lpad1497
 
 invoke.cont1498:                                  ; preds = %invoke.cont1496
@@ -4193,7 +4193,7 @@ invoke.cont1506:                                  ; preds = %invoke.cont1498
           to label %invoke.cont1510 unwind label %lpad1509
 
 invoke.cont1510:                                  ; preds = %invoke.cont1506
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1503, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1507)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1503, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1507)
           to label %invoke.cont1512 unwind label %lpad1511
 
 invoke.cont1512:                                  ; preds = %invoke.cont1510
@@ -4211,7 +4211,7 @@ invoke.cont1520:                                  ; preds = %invoke.cont1512
           to label %invoke.cont1524 unwind label %lpad1523
 
 invoke.cont1524:                                  ; preds = %invoke.cont1520
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1517, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1521)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1517, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1521)
           to label %invoke.cont1526 unwind label %lpad1525
 
 invoke.cont1526:                                  ; preds = %invoke.cont1524
@@ -4229,7 +4229,7 @@ invoke.cont1534:                                  ; preds = %invoke.cont1526
           to label %invoke.cont1538 unwind label %lpad1537
 
 invoke.cont1538:                                  ; preds = %invoke.cont1534
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1531, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1535)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1531, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1535)
           to label %invoke.cont1540 unwind label %lpad1539
 
 invoke.cont1540:                                  ; preds = %invoke.cont1538
@@ -4247,7 +4247,7 @@ invoke.cont1548:                                  ; preds = %invoke.cont1540
           to label %invoke.cont1552 unwind label %lpad1551
 
 invoke.cont1552:                                  ; preds = %invoke.cont1548
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1545, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1549)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1545, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1549)
           to label %invoke.cont1554 unwind label %lpad1553
 
 invoke.cont1554:                                  ; preds = %invoke.cont1552
@@ -4265,7 +4265,7 @@ invoke.cont1562:                                  ; preds = %invoke.cont1554
           to label %invoke.cont1566 unwind label %lpad1565
 
 invoke.cont1566:                                  ; preds = %invoke.cont1562
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1559, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1563)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1559, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1563)
           to label %invoke.cont1568 unwind label %lpad1567
 
 invoke.cont1568:                                  ; preds = %invoke.cont1566
@@ -4283,7 +4283,7 @@ invoke.cont1576:                                  ; preds = %invoke.cont1568
           to label %invoke.cont1580 unwind label %lpad1579
 
 invoke.cont1580:                                  ; preds = %invoke.cont1576
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1573, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1577)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1573, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1577)
           to label %invoke.cont1582 unwind label %lpad1581
 
 invoke.cont1582:                                  ; preds = %invoke.cont1580
@@ -4301,7 +4301,7 @@ invoke.cont1590:                                  ; preds = %invoke.cont1582
           to label %invoke.cont1594 unwind label %lpad1593
 
 invoke.cont1594:                                  ; preds = %invoke.cont1590
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1587, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1591)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1587, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1591)
           to label %invoke.cont1596 unwind label %lpad1595
 
 invoke.cont1596:                                  ; preds = %invoke.cont1594
@@ -4319,7 +4319,7 @@ invoke.cont1604:                                  ; preds = %invoke.cont1596
           to label %invoke.cont1608 unwind label %lpad1607
 
 invoke.cont1608:                                  ; preds = %invoke.cont1604
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1601, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1605)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1601, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1605)
           to label %invoke.cont1610 unwind label %lpad1609
 
 invoke.cont1610:                                  ; preds = %invoke.cont1608
@@ -4337,7 +4337,7 @@ invoke.cont1618:                                  ; preds = %invoke.cont1610
           to label %invoke.cont1622 unwind label %lpad1621
 
 invoke.cont1622:                                  ; preds = %invoke.cont1618
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1615, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1619)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1615, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1619)
           to label %invoke.cont1624 unwind label %lpad1623
 
 invoke.cont1624:                                  ; preds = %invoke.cont1622
@@ -4355,7 +4355,7 @@ invoke.cont1632:                                  ; preds = %invoke.cont1624
           to label %invoke.cont1636 unwind label %lpad1635
 
 invoke.cont1636:                                  ; preds = %invoke.cont1632
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1629, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1633)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1629, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1633)
           to label %invoke.cont1638 unwind label %lpad1637
 
 invoke.cont1638:                                  ; preds = %invoke.cont1636
@@ -4373,7 +4373,7 @@ invoke.cont1646:                                  ; preds = %invoke.cont1638
           to label %invoke.cont1650 unwind label %lpad1649
 
 invoke.cont1650:                                  ; preds = %invoke.cont1646
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1643, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1647)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1643, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1647)
           to label %invoke.cont1652 unwind label %lpad1651
 
 invoke.cont1652:                                  ; preds = %invoke.cont1650
@@ -4391,7 +4391,7 @@ invoke.cont1660:                                  ; preds = %invoke.cont1652
           to label %invoke.cont1664 unwind label %lpad1663
 
 invoke.cont1664:                                  ; preds = %invoke.cont1660
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1657, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1661)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1657, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1661)
           to label %invoke.cont1666 unwind label %lpad1665
 
 invoke.cont1666:                                  ; preds = %invoke.cont1664
@@ -4964,7 +4964,7 @@ invoke.cont1688:                                  ; preds = %if.then1683
           to label %invoke.cont1692 unwind label %lpad1691
 
 invoke.cont1692:                                  ; preds = %invoke.cont1688
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1685, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1689)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1685, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1689)
           to label %invoke.cont1694 unwind label %lpad1693
 
 invoke.cont1694:                                  ; preds = %invoke.cont1692
@@ -4982,7 +4982,7 @@ invoke.cont1702:                                  ; preds = %invoke.cont1694
           to label %invoke.cont1706 unwind label %lpad1705
 
 invoke.cont1706:                                  ; preds = %invoke.cont1702
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1699, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1703)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1699, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1703)
           to label %invoke.cont1708 unwind label %lpad1707
 
 invoke.cont1708:                                  ; preds = %invoke.cont1706
@@ -5000,7 +5000,7 @@ invoke.cont1716:                                  ; preds = %invoke.cont1708
           to label %invoke.cont1720 unwind label %lpad1719
 
 invoke.cont1720:                                  ; preds = %invoke.cont1716
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1713, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1717)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1713, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1717)
           to label %invoke.cont1722 unwind label %lpad1721
 
 invoke.cont1722:                                  ; preds = %invoke.cont1720
@@ -5018,7 +5018,7 @@ invoke.cont1730:                                  ; preds = %invoke.cont1722
           to label %invoke.cont1734 unwind label %lpad1733
 
 invoke.cont1734:                                  ; preds = %invoke.cont1730
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1727, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1731)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1727, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1731)
           to label %invoke.cont1736 unwind label %lpad1735
 
 invoke.cont1736:                                  ; preds = %invoke.cont1734
@@ -8872,7 +8872,7 @@ eh.resume:                                        ; preds = %lpad15, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %input, ptr noundef nonnull align 8 dereferenceable(32) %expected) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %input, ptr noundef nonnull align 8 dereferenceable(32) %expected) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %j = alloca %"class.nlohmann::json_abi_v3_11_3::basic_json", align 8
   %ref.tmp = alloca %"struct.doctest::detail::Result", align 8
@@ -9022,7 +9022,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(p
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_"(ptr noundef nonnull align 8 dereferenceable(32) %input, ptr noundef nonnull align 8 dereferenceable(32) %expected) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %input, ptr noundef nonnull align 8 dereferenceable(32) %expected) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %j = alloca %"class.nlohmann::json_abi_v3_11_3::basic_json", align 8
   %ref.tmp = alloca %"struct.doctest::detail::Result", align 8

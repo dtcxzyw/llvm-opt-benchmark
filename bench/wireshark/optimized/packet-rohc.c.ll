@@ -1035,7 +1035,7 @@ proto_item_set_generated.exit395:                 ; preds = %proto_item_set_gene
 
 214:                                              ; preds = %186
   %215 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %175, i32 noundef %.4, i32 noundef %215, ptr noundef %9)
+  call fastcc void @get_self_describing_var_len_val.retelim(ptr noundef %0, ptr noundef %175, i32 noundef %.4, i32 noundef %215, ptr noundef %9)
   %216 = zext i8 %.0310 to i32
   %217 = load i8, ptr %9, align 1
   %218 = zext i8 %217 to i32
@@ -1438,7 +1438,7 @@ proto_item_set_generated.exit.i409:               ; preds = %421, %418, %414, %4
 
 432:                                              ; preds = %proto_item_set_generated.exit.i409
   %433 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %428, i32 noundef %430, i32 noundef %433, ptr noundef %7)
+  call fastcc void @get_self_describing_var_len_val.retelim(ptr noundef %0, ptr noundef %428, i32 noundef %430, i32 noundef %433, ptr noundef %7)
   %434 = load i8, ptr %7, align 1
   %435 = zext i8 %434 to i32
   %436 = add i32 %430, %435
@@ -1835,7 +1835,7 @@ proto_item_set_generated.exit.i416:               ; preds = %648, %645, %641, %6
 
 658:                                              ; preds = %proto_item_set_generated.exit.i416
   %659 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %655, i32 noundef %656, i32 noundef %659, ptr noundef %5)
+  call fastcc void @get_self_describing_var_len_val.retelim(ptr noundef %0, ptr noundef %655, i32 noundef %656, i32 noundef %659, ptr noundef %5)
   %660 = load i8, ptr %5, align 1
   %661 = zext i8 %660 to i32
   %662 = add i32 %656, %661
@@ -2046,7 +2046,7 @@ proto_item_set_generated.exit.i416:               ; preds = %648, %645, %641, %6
 781:                                              ; preds = %778
   %782 = add i32 %.3467, 1
   %783 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %30, i32 noundef %782, i32 noundef %783, ptr noundef %9)
+  call fastcc void @get_self_describing_var_len_val.retelim(ptr noundef %0, ptr noundef %30, i32 noundef %782, i32 noundef %783, ptr noundef %9)
   %784 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.3467) #7
   %785 = load i8, ptr %9, align 1
   %786 = zext i8 %785 to i32
@@ -2253,7 +2253,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc void @get_self_describing_var_len_val.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = shl i32 %2, 3
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #7
   %8 = icmp sgt i8 %7, -1
@@ -2368,7 +2368,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_0(ptr noundef %0, ptr nocaptur
 18:                                               ; preds = %14
   %19 = add i32 %3, 1
   %20 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %19, i32 noundef %20, ptr noundef %7)
+  call fastcc void @get_self_describing_var_len_val.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %19, i32 noundef %20, ptr noundef %7)
   %.pre55 = load i8, ptr %7, align 1
   %21 = zext i8 %.pre55 to i32
   %22 = add nuw nsw i32 %21, 1
@@ -2402,7 +2402,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_0(ptr noundef %0, ptr nocaptur
 
 40:                                               ; preds = %37
   %41 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %.pre56, i32 noundef %41, ptr noundef %7)
+  call fastcc void @get_self_describing_var_len_val.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %.pre56, i32 noundef %41, ptr noundef %7)
   %42 = load i8, ptr %7, align 1
   %43 = zext i8 %42 to i32
   %44 = shl nuw nsw i32 %43, 3
@@ -2444,7 +2444,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_0(ptr noundef %0, ptr nocaptur
 70:                                               ; preds = %66
   %71 = add i32 %3, 1
   %72 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %71, i32 noundef %72, ptr noundef %7)
+  call fastcc void @get_self_describing_var_len_val.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %71, i32 noundef %72, ptr noundef %7)
   %.pre = load i8, ptr %7, align 1
   %73 = zext i8 %.pre to i32
   %74 = add nuw nsw i32 %73, 1
@@ -2495,7 +2495,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_1_r_mode(ptr noundef %0, ptr n
 11:                                               ; preds = %5
   %12 = add i32 %3, 1
   %13 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %13, ptr noundef %7)
+  call fastcc void @get_self_describing_var_len_val.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %13, ptr noundef %7)
   br label %14
 
 14:                                               ; preds = %11, %5
@@ -2641,7 +2641,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_1_u_o_mode(ptr noundef %0, ptr
 11:                                               ; preds = %5
   %12 = add i32 %3, 1
   %13 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %13, ptr noundef %7)
+  call fastcc void @get_self_describing_var_len_val.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %13, ptr noundef %7)
   br label %14
 
 14:                                               ; preds = %11, %5
@@ -2805,7 +2805,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_2(ptr noundef %0, ptr noundef 
 12:                                               ; preds = %5
   %13 = add i32 %3, 1
   %14 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %14, ptr noundef %7)
+  call fastcc void @get_self_describing_var_len_val.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %14, ptr noundef %7)
   br label %15
 
 15:                                               ; preds = %12, %5
@@ -3058,7 +3058,7 @@ define internal fastcc i32 @dissect_rohc_ir_profile_dynamic(ptr noundef %0, ptr 
   %52 = or disjoint i32 %51, 3
   %53 = call ptr @proto_tree_add_bits_item(ptr noundef %23, i32 noundef %50, ptr noundef %0, i32 noundef %52, i32 noundef 5, i32 noundef 0) #7
   %54 = add i32 %3, 5
-  %55 = call fastcc i32 @dissect_compressed_list(ptr noundef %23, ptr noundef %0, i32 noundef %54)
+  %55 = call fastcc i32 @dissect_compressed_list.argprom.argelim(ptr noundef %23, ptr noundef %0, i32 noundef %54)
   %56 = sub i32 %55, %3
   call void @proto_item_set_len(ptr noundef %21, i32 noundef %56) #7
   %57 = zext i8 %24 to i32
@@ -3142,7 +3142,7 @@ define internal fastcc i32 @dissect_rohc_ir_profile_dynamic(ptr noundef %0, ptr 
   %118 = load i32, ptr @hf_rohc_rtp_timestamp, align 4
   %119 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %118, ptr noundef %0, i32 noundef %116, i32 noundef 4, i32 noundef 0) #7
   %120 = add i32 %.0194, 10
-  %121 = call fastcc i32 @dissect_compressed_list(ptr noundef %96, ptr noundef %0, i32 noundef %120)
+  %121 = call fastcc i32 @dissect_compressed_list.argprom.argelim(ptr noundef %96, ptr noundef %0, i32 noundef %120)
   %122 = and i8 %105, 16
   %123 = icmp eq i8 %122, 0
   br i1 %123, label %159, label %124
@@ -3171,7 +3171,7 @@ define internal fastcc i32 @dissect_rohc_ir_profile_dynamic(ptr noundef %0, ptr 
 
 142:                                              ; preds = %124
   %143 = load i32, ptr @hf_rohc_rtp_ts_stride, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %96, i32 noundef %139, i32 noundef %143, ptr noundef %8)
+  call fastcc void @get_self_describing_var_len_val.retelim(ptr noundef %0, ptr noundef %96, i32 noundef %139, i32 noundef %143, ptr noundef %8)
   %144 = load i8, ptr %8, align 1
   %145 = zext i8 %144 to i32
   %146 = add i32 %139, %145
@@ -3185,7 +3185,7 @@ define internal fastcc i32 @dissect_rohc_ir_profile_dynamic(ptr noundef %0, ptr 
 
 149:                                              ; preds = %147
   %150 = load i32, ptr @hf_rohc_rtp_time_stride, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %96, i32 noundef %.4, i32 noundef %150, ptr noundef %8)
+  call fastcc void @get_self_describing_var_len_val.retelim(ptr noundef %0, ptr noundef %96, i32 noundef %.4, i32 noundef %150, ptr noundef %8)
   %151 = load i8, ptr %8, align 1
   %152 = zext i8 %151 to i32
   %153 = add i32 %.4, %152
@@ -3208,7 +3208,7 @@ define internal fastcc i32 @dissect_rohc_ir_profile_dynamic(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_compressed_list(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_compressed_list.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #7
   %5 = load i32, ptr @hf_rohc_compressed_list, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef 0) #7
@@ -3631,7 +3631,7 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
 134:                                              ; preds = %131
   store i8 0, ptr %10, align 1
   %135 = load i32, ptr @hf_rohc_ts, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %17, i32 noundef %.5, i32 noundef %135, ptr noundef %10)
+  call fastcc void @get_self_describing_var_len_val.retelim(ptr noundef %0, ptr noundef %17, i32 noundef %.5, i32 noundef %135, ptr noundef %10)
   %136 = load i8, ptr %10, align 1
   %137 = zext i8 %136 to i32
   %138 = add i32 %.5, %137
@@ -3694,7 +3694,7 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
   br i1 %.not190, label %168, label %166
 
 166:                                              ; preds = %163
-  %167 = call fastcc i32 @dissect_compressed_list(ptr noundef %17, ptr noundef %0, i32 noundef %.10)
+  %167 = call fastcc i32 @dissect_compressed_list.argprom.argelim(ptr noundef %17, ptr noundef %0, i32 noundef %.10)
   br label %168
 
 168:                                              ; preds = %163, %166, %139
@@ -3766,7 +3766,7 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
   br i1 %.not196, label %204, label %202
 
 202:                                              ; preds = %199
-  %203 = call fastcc i32 @dissect_compressed_list(ptr noundef %17, ptr noundef %0, i32 noundef %.15)
+  %203 = call fastcc i32 @dissect_compressed_list.argprom.argelim(ptr noundef %17, ptr noundef %0, i32 noundef %.15)
   %.pre211 = load i64, ptr %9, align 8
   br label %204
 
@@ -3828,7 +3828,7 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
   br i1 %.not200, label %239, label %237
 
 237:                                              ; preds = %234
-  %238 = call fastcc i32 @dissect_compressed_list(ptr noundef %17, ptr noundef %0, i32 noundef %.17)
+  %238 = call fastcc i32 @dissect_compressed_list.argprom.argelim(ptr noundef %17, ptr noundef %0, i32 noundef %.17)
   %.pre213 = load i64, ptr %11, align 8
   br label %239
 
@@ -3842,7 +3842,7 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
 242:                                              ; preds = %239
   store i8 0, ptr %12, align 1
   %243 = load i32, ptr @hf_rohc_rtp_ts_stride, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %17, i32 noundef %.18, i32 noundef %243, ptr noundef %12)
+  call fastcc void @get_self_describing_var_len_val.retelim(ptr noundef %0, ptr noundef %17, i32 noundef %.18, i32 noundef %243, ptr noundef %12)
   %244 = load i8, ptr %12, align 1
   %245 = zext i8 %244 to i32
   %246 = add i32 %.18, %245
@@ -3859,7 +3859,7 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
 250:                                              ; preds = %247
   store i8 0, ptr %13, align 1
   %251 = load i32, ptr @hf_rohc_rtp_time_stride, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %17, i32 noundef %.19, i32 noundef %251, ptr noundef %13)
+  call fastcc void @get_self_describing_var_len_val.retelim(ptr noundef %0, ptr noundef %17, i32 noundef %.19, i32 noundef %251, ptr noundef %13)
   %252 = load i8, ptr %13, align 1
   %253 = zext i8 %252 to i32
   %254 = add i32 %.19, %253

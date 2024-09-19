@@ -102795,11 +102795,11 @@ _ZNSt7promiseIvE8_M_stateEv.exit.i.i.i.i.i.i:     ; preds = %entry
 invoke.cont.i.i.i.i.i.i:                          ; preds = %_ZNSt7promiseIvE8_M_stateEv.exit.i.i.i.i.i.i
   %3 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZ4mainE3$_1EEEclEv.exit", label %if.then.i.i2.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZ4mainE3$_1EEEclEv.argprom.exit", label %if.then.i.i2.i.i.i.i.i.i
 
 if.then.i.i2.i.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i.i.i.i
   %call.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i.i, i32 noundef 3)
-          to label %"_ZNSt6thread8_InvokerISt5tupleIJZ4mainE3$_1EEEclEv.exit" unwind label %terminate.lpad.i.i.i.i.i.i.i.i
+          to label %"_ZNSt6thread8_InvokerISt5tupleIJZ4mainE3$_1EEEclEv.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i2.i.i.i.i.i.i
   %4 = landingpad { ptr, i32 }
@@ -102829,7 +102829,7 @@ terminate.lpad.i.i7.i.i.i.i.i.i:                  ; preds = %if.then.i.i5.i.i.i.
 _ZNSt8functionIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEvEED2Ev.exit8.i.i.i.i.i.i: ; preds = %if.then.i.i5.i.i.i.i.i.i, %lpad.i.i.i.i.i.i
   resume { ptr, i32 } %6
 
-"_ZNSt6thread8_InvokerISt5tupleIJZ4mainE3$_1EEEclEv.exit": ; preds = %invoke.cont.i.i.i.i.i.i, %if.then.i.i2.i.i.i.i.i.i
+"_ZNSt6thread8_InvokerISt5tupleIJZ4mainE3$_1EEEclEv.argprom.exit": ; preds = %invoke.cont.i.i.i.i.i.i, %if.then.i.i2.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   call void @_ZN7coro_io15io_context_pool3runEv(ptr noundef nonnull align 8 dereferenceable(112) @pool)
   ret void
@@ -202406,8 +202406,8 @@ attributes #44 = { nounwind allocsize(0) }
 !21 = distinct !{!21, !18}
 !22 = distinct !{!22, !18}
 !23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZZ4mainENK3$_0clEv: %agg.result"}
-!25 = distinct !{!25, !"_ZZ4mainENK3$_0clEv"}
+!24 = distinct !{!24, !25, !"_ZZ4mainENK3$_0clEv.argprom: %agg.result"}
+!25 = distinct !{!25, !"_ZZ4mainENK3$_0clEv.argprom"}
 !26 = !{!27}
 !27 = distinct !{!27, !28, !"_ZSt11make_sharedINSt13__future_base13_State_baseV2EJEESt10shared_ptrIT_EDpOT0_: %agg.result"}
 !28 = distinct !{!28, !"_ZSt11make_sharedINSt13__future_base13_State_baseV2EJEESt10shared_ptrIT_EDpOT0_"}

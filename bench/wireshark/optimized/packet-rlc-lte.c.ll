@@ -1478,7 +1478,7 @@ proto_item_set_generated.exit169:                 ; preds = %176, %173, %168, %p
   ]
 
 230:                                              ; preds = %203
-  tail call fastcc void @dissect_rlc_lte_tm(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %37, ptr noundef %40, ptr noundef %35)
+  tail call fastcc void @dissect_rlc_lte_tm.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %37, ptr noundef %40, ptr noundef %35)
   br label %1079
 
 231:                                              ; preds = %203
@@ -1569,7 +1569,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %237, %234, %231
   br i1 %.not160.i, label %279, label %277
 
 277:                                              ; preds = %269
-  %278 = call fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr noundef %244, i32 noundef %.0151.i, ptr noundef %40)
+  %278 = call fastcc i32 @dissect_rlc_lte_extension_header.argprom(ptr noundef %0, ptr noundef %244, i32 noundef %.0151.i, ptr noundef %40)
   br label %279
 
 279:                                              ; preds = %277, %269
@@ -1800,7 +1800,7 @@ thread-pre-split.i:                               ; preds = %354
   %380 = phi i16 [ %375, %373 ], [ %377, %.thread.i ]
   %381 = load i64, ptr %27, align 8
   %382 = trunc i64 %381 to i16
-  %383 = call fastcc i32 @checkChannelSequenceInfo(ptr noundef %1, ptr noundef %0, ptr noundef %40, i8 noundef zeroext %379, i16 noundef zeroext %367, i16 noundef zeroext %380, i16 noundef zeroext %.0149185.i, i16 noundef zeroext %382, i32 noundef %284, i32 noundef %286, ptr noundef %31, ptr noundef %244)
+  %383 = call fastcc i32 @checkChannelSequenceInfo.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %40, i8 noundef zeroext %379, i16 noundef zeroext %367, i16 noundef zeroext %380, i16 noundef zeroext %.0149185.i, i16 noundef zeroext %382, i32 noundef %284, i32 noundef %286, ptr noundef %31, ptr noundef %244)
   br label %384
 
 384:                                              ; preds = %378, %361, %358
@@ -2751,7 +2751,7 @@ dissect_rlc_lte_am_status_pdu.exit.i:             ; preds = %checkChannelACKWind
   br label %902
 
 902:                                              ; preds = %894, %890, %875, %869
-  %903 = call fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr noundef %459, i32 noundef %.1201.i, ptr noundef %40)
+  %903 = call fastcc i32 @dissect_rlc_lte_extension_header.argprom(ptr noundef %0, ptr noundef %459, i32 noundef %.1201.i, ptr noundef %40)
   br label %904
 
 904:                                              ; preds = %902, %867
@@ -2958,7 +2958,7 @@ thread-pre-split.i182:                            ; preds = %968
   %994 = add i8 %993, 1
   %995 = load i32, ptr %20, align 4
   %996 = trunc i32 %995 to i16
-  %997 = call fastcc i32 @checkChannelSequenceInfo(ptr noundef %1, ptr noundef %0, ptr noundef %40, i8 noundef zeroext %994, i16 noundef zeroext %981, i16 noundef zeroext %.0198.i, i16 noundef zeroext %.1.i, i16 noundef zeroext %996, i32 noundef %912, i32 noundef %914, ptr noundef %31, ptr noundef %37)
+  %997 = call fastcc i32 @checkChannelSequenceInfo.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %40, i8 noundef zeroext %994, i16 noundef zeroext %981, i16 noundef zeroext %.0198.i, i16 noundef zeroext %.1.i, i16 noundef zeroext %996, i32 noundef %912, i32 noundef %914, ptr noundef %31, ptr noundef %37)
   br label %998
 
 998:                                              ; preds = %992, %975, %972
@@ -3189,7 +3189,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rlc_lte_tm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_rlc_lte_tm.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3395,7 +3395,7 @@ declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef,
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 6) %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rlc_lte_extension_header.argprom(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 6) %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
 .lr.ph:
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -3488,7 +3488,7 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i32 noundef range(i32 0, 2) %8, i32 noundef range(i32 0, 2) %9, ptr nocapture noundef writeonly %10, ptr noundef %11) unnamed_addr #0 {
+define internal fastcc i32 @checkChannelSequenceInfo.argelim(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i32 noundef range(i32 0, 2) %8, i32 noundef range(i32 0, 2) %9, ptr nocapture noundef writeonly %10, ptr noundef %11) unnamed_addr #0 {
   %13 = alloca %struct.channel_hash_key, align 4
   %14 = getelementptr inbounds i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
@@ -3995,7 +3995,7 @@ reassembly_add_segment.exit310:                   ; preds = %303, %304
 
 327:                                              ; preds = %reassembly_add_segment.exit310
   %.val309 = load i32, ptr %293, align 4
-  call fastcc void @reassembly_record(ptr noundef nonnull %.0262, i32 %.val309, i16 noundef zeroext %7, ptr noundef %2)
+  call fastcc void @reassembly_record.argprom(ptr noundef nonnull %.0262, i32 %.val309, i16 noundef zeroext %7, ptr noundef %2)
   store ptr null, ptr %298, align 8
   br label %328
 
@@ -5733,7 +5733,7 @@ proto_item_set_hidden.exit.thread307:             ; preds = %316, %proto_item_se
 509:                                              ; preds = %495
   %510 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %494, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 1) #13
   %.not.i.i = icmp eq ptr %510, null
-  br i1 %.not.i.i, label %checkFIconsistency.exit, label %511
+  br i1 %.not.i.i, label %checkFIconsistency.argprom.exit, label %511
 
 511:                                              ; preds = %509
   %512 = getelementptr inbounds i8, ptr %510, i64 32
@@ -5762,7 +5762,7 @@ proto_item_set_hidden.exit.thread307:             ; preds = %316, %proto_item_se
 528:                                              ; preds = %514
   %529 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %494, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 1) #13
   %.not.i25.i = icmp eq ptr %529, null
-  br i1 %.not.i25.i, label %checkFIconsistency.exit, label %530
+  br i1 %.not.i25.i, label %checkFIconsistency.argprom.exit, label %530
 
 530:                                              ; preds = %528
   %531 = getelementptr inbounds i8, ptr %529, i64 32
@@ -5773,7 +5773,7 @@ proto_item_set_hidden.exit.thread307:             ; preds = %316, %proto_item_se
 proto_item_set_hidden.exit.i:                     ; preds = %515, %496
   %.0.i = phi ptr [ %497, %496 ], [ %516, %515 ]
   %.not.i28.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i28.i, label %checkFIconsistency.exit, label %proto_item_set_hidden.exit.thread.i
+  br i1 %.not.i28.i, label %checkFIconsistency.argprom.exit, label %proto_item_set_hidden.exit.thread.i
 
 proto_item_set_hidden.exit.thread.sink.split.i:   ; preds = %530, %511
   %.sink11.i = phi ptr [ %513, %511 ], [ %532, %530 ]
@@ -5789,22 +5789,22 @@ proto_item_set_hidden.exit.thread.i:              ; preds = %proto_item_set_hidd
   %536 = getelementptr inbounds i8, ptr %.03.i, i64 32
   %537 = load ptr, ptr %536, align 8
   %.not5.i29.i = icmp eq ptr %537, null
-  br i1 %.not5.i29.i, label %checkFIconsistency.exit, label %538
+  br i1 %.not5.i29.i, label %checkFIconsistency.argprom.exit, label %538
 
 538:                                              ; preds = %proto_item_set_hidden.exit.thread.i
   %539 = getelementptr inbounds i8, ptr %537, i64 28
   %540 = load i32, ptr %539, align 4
   %541 = or i32 %540, 2
   store i32 %541, ptr %539, align 4
-  br label %checkFIconsistency.exit
+  br label %checkFIconsistency.argprom.exit
 
-checkFIconsistency.exit:                          ; preds = %509, %528, %proto_item_set_hidden.exit.i, %proto_item_set_hidden.exit.thread.i, %538
+checkFIconsistency.argprom.exit:                  ; preds = %509, %528, %proto_item_set_hidden.exit.i, %proto_item_set_hidden.exit.thread.i, %538
   %542 = load i32, ptr @hf_rlc_lte_sequence_analysis_ok, align 4
   %543 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %542, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 1) #13
   %.not.i298 = icmp eq ptr %543, null
   br i1 %.not.i298, label %proto_item_set_generated.exit300, label %544
 
-544:                                              ; preds = %checkFIconsistency.exit
+544:                                              ; preds = %checkFIconsistency.argprom.exit
   %545 = getelementptr inbounds i8, ptr %543, i64 32
   %546 = load ptr, ptr %545, align 8
   %.not5.i299 = icmp eq ptr %546, null
@@ -5817,7 +5817,7 @@ checkFIconsistency.exit:                          ; preds = %509, %528, %proto_i
   store i32 %550, ptr %548, align 4
   br label %proto_item_set_generated.exit300
 
-proto_item_set_generated.exit300:                 ; preds = %checkFIconsistency.exit, %544, %547
+proto_item_set_generated.exit300:                 ; preds = %checkFIconsistency.argprom.exit, %544, %547
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.327) #13
   br label %551
 
@@ -5901,7 +5901,7 @@ define internal fastcc void @reassembly_add_segment(ptr nocapture noundef %0, i1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reassembly_record(ptr nocapture noundef readonly %0, i32 %.20.val, i16 noundef zeroext %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @reassembly_record.argprom(ptr nocapture noundef readonly %0, i32 %.20.val, i16 noundef zeroext %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = load ptr, ptr @reassembly_report_hash, align 8
   %5 = tail call ptr @wmem_file_scope() #13
   %6 = tail call noalias ptr @wmem_alloc0(ptr noundef %5, i64 noundef 8) #13

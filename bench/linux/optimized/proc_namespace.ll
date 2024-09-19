@@ -95,7 +95,7 @@ define internal noundef range(i32 65, 76) i32 @mounts_poll(ptr noundef %0, ptr n
 define internal i32 @mounts_open(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %3, align 8
-  %4 = tail call fastcc i32 @mounts_open_common(ptr %.val, ptr noundef %1, ptr noundef nonnull @show_vfsmnt)
+  %4 = tail call fastcc i32 @mounts_open_common.argprom(ptr %.val, ptr noundef %1, ptr noundef nonnull @show_vfsmnt)
   ret i32 %4
 }
 
@@ -120,7 +120,7 @@ declare dso_local i64 @copy_splice_read(ptr noundef, ptr noundef, ptr noundef, i
 define internal i32 @mountinfo_open(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %3, align 8
-  %4 = tail call fastcc i32 @mounts_open_common(ptr %.val, ptr noundef %1, ptr noundef nonnull @show_mountinfo)
+  %4 = tail call fastcc i32 @mounts_open_common.argprom(ptr %.val, ptr noundef %1, ptr noundef nonnull @show_mountinfo)
   ret i32 %4
 }
 
@@ -128,7 +128,7 @@ define internal i32 @mountinfo_open(ptr nocapture noundef readonly %0, ptr nound
 define internal i32 @mountstats_open(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %3, align 8
-  %4 = tail call fastcc i32 @mounts_open_common(ptr %.val, ptr noundef %1, ptr noundef nonnull @show_vfsstat)
+  %4 = tail call fastcc i32 @mounts_open_common.argprom(ptr %.val, ptr noundef %1, ptr noundef nonnull @show_vfsstat)
   ret i32 %4
 }
 
@@ -139,7 +139,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @mounts_open_common(ptr %.-72.val, ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc i32 @mounts_open_common.argprom(ptr %.-72.val, ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.path, align 8
   %4 = tail call ptr @get_pid_task(ptr noundef %.-72.val, i32 noundef 0) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6

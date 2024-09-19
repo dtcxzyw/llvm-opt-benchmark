@@ -952,7 +952,7 @@ _ZL14SafeCharToWidePKcPwm.exit.i:                 ; preds = %.preheader.i.i
   %75 = getelementptr inbounds i8, ptr %2, i64 22256
   %76 = getelementptr i8, ptr %0, i64 57431
   %.val.i = load i8, ptr %76, align 1
-  %77 = call fastcc noundef zeroext i1 @_ZL11UnixSymlinkP11CommandDataPKcPKwP7RarTimeS6_(i8 %.val.i, ptr noundef %8, ptr noundef %3, ptr noundef %74, ptr noundef %75)
+  %77 = call fastcc noundef zeroext i1 @_ZL11UnixSymlinkP11CommandDataPKcPKwP7RarTimeS6_.argprom(i8 %.val.i, ptr noundef %8, ptr noundef %3, ptr noundef %74, ptr noundef %75)
   br label %_ZL17ExtractUnixLink30P11CommandDataR11ComprDataIOR7ArchivePKwRb.exit
 
 _ZL17ExtractUnixLink30P11CommandDataR11ComprDataIOR7ArchivePKwRb.exit: ; preds = %20, %24, %28, %31, %43, %45, %_ZL14SafeCharToWidePKcPwm.exit.i, %65, %67, %70
@@ -1059,7 +1059,7 @@ _ZL14SafeCharToWidePKcPwm.exit.i29:               ; preds = %.preheader.i.i22
   %115 = getelementptr inbounds i8, ptr %2, i64 22256
   %116 = getelementptr i8, ptr %0, i64 57431
   %.val.i30 = load i8, ptr %116, align 1
-  %117 = call fastcc noundef zeroext i1 @_ZL11UnixSymlinkP11CommandDataPKcPKwP7RarTimeS6_(i8 %.val.i30, ptr noundef %6, ptr noundef %3, ptr noundef %114, ptr noundef %115)
+  %117 = call fastcc noundef zeroext i1 @_ZL11UnixSymlinkP11CommandDataPKcPKwP7RarTimeS6_.argprom(i8 %.val.i30, ptr noundef %6, ptr noundef %3, ptr noundef %114, ptr noundef %115)
   br label %_ZL17ExtractUnixLink50P11CommandDataPKwP10FileHeader.exit
 
 _ZL17ExtractUnixLink50P11CommandDataPKwP10FileHeader.exit: ; preds = %84, %84, %86, %88, %_ZL14SafeCharToWidePKcPwm.exit.i29, %108, %110, %113
@@ -1101,7 +1101,7 @@ declare noundef zeroext i1 @_Z10IsFullPathPKw(ptr noundef) local_unnamed_addr #1
 declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL11UnixSymlinkP11CommandDataPKcPKwP7RarTimeS6_(i8 %.57431.val, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL11UnixSymlinkP11CommandDataPKcPKwP7RarTimeS6_.argprom(i8 %.57431.val, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %class.uiMsgStore, align 8
   %6 = alloca %class.uiMsgStore, align 8
   %7 = alloca [2048 x i8], align 16

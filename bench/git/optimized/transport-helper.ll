@@ -1975,7 +1975,7 @@ entry:
   %helper.i = getelementptr inbounds i8, ptr %transport.val, i64 8
   %1 = load ptr, ptr %helper.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i, label %disconnect_helper.exit, label %if.then.i
+  br i1 %tobool.not.i, label %disconnect_helper.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %.b.i = load i1, ptr @debug, align 4
@@ -2020,9 +2020,9 @@ if.end10.i:                                       ; preds = %if.then5.i, %if.end
   tail call void @free(ptr noundef %13) #18
   store ptr null, ptr %helper.i, align 8
   %.pre = load ptr, ptr %data1, align 8
-  br label %disconnect_helper.exit
+  br label %disconnect_helper.argprom.exit
 
-disconnect_helper.exit:                           ; preds = %entry, %if.end10.i
+disconnect_helper.argprom.exit:                   ; preds = %entry, %if.end10.i
   %14 = phi ptr [ %.pre, %if.end10.i ], [ %transport.val, %entry ]
   %res.0.i = phi i32 [ %call19.i, %if.end10.i ], [ 0, %entry ]
   tail call void @free(ptr noundef %14) #18

@@ -217,8 +217,8 @@ define hidden range(i32 -1, 2) i32 @aom_decode_frame_from_obus(ptr noundef %0, p
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %.lr.ph387, label %read_and_decode_one_tile_list.exit.thread
 
-.lr.ph387:                                        ; preds = %.lr.ph, %is_obu_in_current_operating_point.exit
-  %.0122289386 = phi ptr [ %132, %is_obu_in_current_operating_point.exit ], [ %.0122.ph297, %.lr.ph ]
+.lr.ph387:                                        ; preds = %.lr.ph, %is_obu_in_current_operating_point.argprom.exit
+  %.0122289386 = phi ptr [ %132, %is_obu_in_current_operating_point.argprom.exit ], [ %.0122.ph297, %.lr.ph ]
   store i64 0, ptr %15, align 8
   store i64 0, ptr %16, align 8
   %97 = ptrtoint ptr %.0122289386 to i64
@@ -272,7 +272,7 @@ define hidden range(i32 -1, 2) i32 @aom_decode_frame_from_obus(ptr noundef %0, p
   %121 = load i8, ptr %39, align 8
   %122 = add i8 %121, -3
   %or.cond = icmp ult i8 %122, -2
-  br i1 %or.cond, label %123, label %is_obu_in_current_operating_point.exit.thread
+  br i1 %or.cond, label %123, label %is_obu_in_current_operating_point.argprom.exit.thread
 
 123:                                              ; preds = %118
   %.val = load i32, ptr %40, align 4
@@ -280,28 +280,28 @@ define hidden range(i32 -1, 2) i32 @aom_decode_frame_from_obus(ptr noundef %0, p
   %124 = load i32, ptr %41, align 8
   %.not7.i = icmp eq i32 %124, 0
   %or.cond226 = select i1 %.not.i, i1 true, i1 %.not7.i
-  br i1 %or.cond226, label %is_obu_in_current_operating_point.exit.thread, label %125
+  br i1 %or.cond226, label %is_obu_in_current_operating_point.argprom.exit.thread, label %125
 
 125:                                              ; preds = %123
   %126 = shl nuw i32 1, %119
   %127 = and i32 %.val, %126
   %.not8.i = icmp eq i32 %127, 0
-  br i1 %.not8.i, label %is_obu_in_current_operating_point.exit, label %128
+  br i1 %.not8.i, label %is_obu_in_current_operating_point.argprom.exit, label %128
 
 128:                                              ; preds = %125
   %129 = add nsw i32 %120, 8
   %130 = shl nuw i32 1, %129
   %131 = and i32 %.val, %130
   %.not9.i = icmp eq i32 %131, 0
-  br i1 %.not9.i, label %is_obu_in_current_operating_point.exit, label %is_obu_in_current_operating_point.exit.thread
+  br i1 %.not9.i, label %is_obu_in_current_operating_point.argprom.exit, label %is_obu_in_current_operating_point.argprom.exit.thread
 
-is_obu_in_current_operating_point.exit:           ; preds = %128, %125
+is_obu_in_current_operating_point.argprom.exit:   ; preds = %128, %125
   %132 = getelementptr inbounds i8, ptr %112, i64 %115
   %133 = load i32, ptr %30, align 8
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %.lr.ph387, label %read_and_decode_one_tile_list.exit.thread, !llvm.loop !7
 
-is_obu_in_current_operating_point.exit.thread:    ; preds = %128, %123, %118
+is_obu_in_current_operating_point.argprom.exit.thread: ; preds = %128, %123, %118
   %135 = getelementptr inbounds i8, ptr %112, i64 %115
   %136 = call ptr @av1_init_read_bit_buffer(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef %112, ptr noundef %135) #9
   %137 = load i8, ptr %39, align 8
@@ -317,7 +317,7 @@ is_obu_in_current_operating_point.exit.thread:    ; preds = %128, %123, %118
     i8 6, label %300
   ]
 
-138:                                              ; preds = %is_obu_in_current_operating_point.exit.thread
+138:                                              ; preds = %is_obu_in_current_operating_point.argprom.exit.thread
   %139 = load i32, ptr %18, align 8
   %.not168 = icmp eq i32 %139, 0
   br i1 %.not168, label %get_last_nonzero_byte.exit.thread, label %140
@@ -326,7 +326,7 @@ is_obu_in_current_operating_point.exit.thread:    ; preds = %128, %123, %118
   store i32 7, ptr %30, align 8
   br label %read_and_decode_one_tile_list.exit.thread
 
-141:                                              ; preds = %is_obu_in_current_operating_point.exit.thread
+141:                                              ; preds = %is_obu_in_current_operating_point.argprom.exit.thread
   call void @llvm.lifetime.start.p0(i64 1936, ptr nonnull %12)
   %142 = load i32, ptr %45, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1936) %12, ptr noundef nonnull align 16 dereferenceable(1936) %69, i64 1936, i1 false)
@@ -706,7 +706,7 @@ read_sequence_header_obu.exit:                    ; preds = %279, %287
   store i32 7, ptr %30, align 8
   br label %read_and_decode_one_tile_list.exit.thread
 
-297:                                              ; preds = %is_obu_in_current_operating_point.exit.thread
+297:                                              ; preds = %is_obu_in_current_operating_point.argprom.exit.thread
   %298 = load i32, ptr %18, align 8
   %.not150 = icmp eq i32 %298, 0
   br i1 %.not150, label %299, label %303
@@ -715,7 +715,7 @@ read_sequence_header_obu.exit:                    ; preds = %279, %287
   store i32 7, ptr %30, align 8
   br label %read_and_decode_one_tile_list.exit.thread
 
-300:                                              ; preds = %is_obu_in_current_operating_point.exit.thread, %is_obu_in_current_operating_point.exit.thread
+300:                                              ; preds = %is_obu_in_current_operating_point.argprom.exit.thread, %is_obu_in_current_operating_point.argprom.exit.thread
   %301 = load i32, ptr %18, align 8
   %.not149 = icmp eq i32 %301, 0
   br i1 %.not149, label %.thread, label %302
@@ -840,10 +840,10 @@ byte_alignment.exit:                              ; preds = %344
   store i32 7, ptr %30, align 8
   br label %read_and_decode_one_tile_list.exit.thread
 
-byte_alignment.exit.thread:                       ; preds = %.preheader301, %is_obu_in_current_operating_point.exit.thread
-  %.1131 = phi ptr [ %.0130.ph294, %is_obu_in_current_operating_point.exit.thread ], [ %.3133, %.preheader301 ]
-  %.1128 = phi i32 [ %.0127.ph295, %is_obu_in_current_operating_point.exit.thread ], [ %.3, %.preheader301 ]
-  %.0124 = phi i64 [ 0, %is_obu_in_current_operating_point.exit.thread ], [ %327, %.preheader301 ]
+byte_alignment.exit.thread:                       ; preds = %.preheader301, %is_obu_in_current_operating_point.argprom.exit.thread
+  %.1131 = phi ptr [ %.0130.ph294, %is_obu_in_current_operating_point.argprom.exit.thread ], [ %.3133, %.preheader301 ]
+  %.1128 = phi i32 [ %.0127.ph295, %is_obu_in_current_operating_point.argprom.exit.thread ], [ %.3, %.preheader301 ]
+  %.0124 = phi i64 [ 0, %is_obu_in_current_operating_point.argprom.exit.thread ], [ %327, %.preheader301 ]
   %346 = load i32, ptr %18, align 8
   %.not162 = icmp eq i32 %346, 0
   br i1 %.not162, label %347, label %348
@@ -1000,7 +1000,7 @@ read_one_tile_group_obu.exit:                     ; preds = %367, %380, %383, %3
   store i32 %418, ptr %20, align 8
   br label %get_last_nonzero_byte.exit
 
-419:                                              ; preds = %is_obu_in_current_operating_point.exit.thread
+419:                                              ; preds = %is_obu_in_current_operating_point.argprom.exit.thread
   %420 = load i64, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -1113,7 +1113,7 @@ get_last_nonzero_byte_index.exit.i.i:             ; preds = %450, %.critedge.spl
   br label %read_metadata_itut_t35.exit.i
 
 read_metadata_itut_t35.exit.i:                    ; preds = %464, %460
-  call fastcc void @alloc_read_metadata(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %428, i64 noundef %461)
+  call fastcc void @alloc_read_metadata.argelim(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %428, i64 noundef %461)
   br label %read_metadata.exit
 
 466:                                              ; preds = %436
@@ -1126,7 +1126,7 @@ read_metadata_itut_t35.exit.i:                    ; preds = %464, %460
   br label %read_metadata_hdr_cll.exit.i
 
 read_metadata_hdr_cll.exit.i:                     ; preds = %469, %466
-  call fastcc void @alloc_read_metadata(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %428, i64 noundef 4)
+  call fastcc void @alloc_read_metadata.argelim(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %428, i64 noundef 4)
   %470 = add i64 %427, 4
   %471 = getelementptr inbounds i8, ptr %112, i64 %470
   %472 = sub i64 %420, %470
@@ -1156,7 +1156,7 @@ read_metadata_hdr_cll.exit.i:                     ; preds = %469, %466
   br label %read_metadata_hdr_mdcv.exit.i
 
 read_metadata_hdr_mdcv.exit.i:                    ; preds = %481, %478
-  call fastcc void @alloc_read_metadata(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %428, i64 noundef 24)
+  call fastcc void @alloc_read_metadata.argelim(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %428, i64 noundef 24)
   %482 = add i64 %427, 24
   %483 = getelementptr inbounds i8, ptr %112, i64 %482
   %484 = sub i64 %420, %482
@@ -1321,7 +1321,7 @@ read_metadata.exit:                               ; preds = %486, %474, %432, %r
   %.not148 = icmp eq i32 %.pr217, 0
   br i1 %.not148, label %get_last_nonzero_byte.exit, label %read_and_decode_one_tile_list.exit.thread
 
-548:                                              ; preds = %is_obu_in_current_operating_point.exit.thread
+548:                                              ; preds = %is_obu_in_current_operating_point.argprom.exit.thread
   %549 = load i32, ptr %42, align 32
   %.not146 = icmp eq i32 %549, 0
   br i1 %.not146, label %550, label %551
@@ -1622,7 +1622,7 @@ read_and_decode_one_tile_list.exit:               ; preds = %read_and_decode_one
   %.not147 = icmp eq i32 %.pr220, 0
   br i1 %.not147, label %get_last_nonzero_byte.exit, label %read_and_decode_one_tile_list.exit.thread
 
-700:                                              ; preds = %is_obu_in_current_operating_point.exit.thread
+700:                                              ; preds = %is_obu_in_current_operating_point.argprom.exit.thread
   %701 = load i64, ptr %15, align 8
   %.not.i192 = icmp eq i64 %701, 0
   br i1 %.not.i192, label %read_padding.exit, label %.preheader.i
@@ -1650,7 +1650,7 @@ read_padding.exit:                                ; preds = %702, %700
   %.not145 = icmp eq i32 %.pr327, 0
   br i1 %.not145, label %get_last_nonzero_byte.exit, label %read_and_decode_one_tile_list.exit.thread
 
-706:                                              ; preds = %is_obu_in_current_operating_point.exit.thread
+706:                                              ; preds = %is_obu_in_current_operating_point.argprom.exit.thread
   %707 = load i64, ptr %15, align 8
   %.not169 = icmp eq i64 %707, 0
   br i1 %.not169, label %get_last_nonzero_byte.exit.thread, label %.preheader228
@@ -1725,8 +1725,8 @@ get_last_nonzero_byte.exit:                       ; preds = %708, %read_padding.
   %725 = select i1 %724, i32 %.1203335, i32 -1
   br label %read_and_decode_one_tile_list.exit.thread
 
-read_and_decode_one_tile_list.exit.thread:        ; preds = %read_padding.exit, %read_and_decode_one_tile_list.exit, %read_metadata.exit, %read_one_tile_group_obu.exit, %read_sequence_header_obu.exit, %.lr.ph, %is_obu_in_current_operating_point.exit, %read_padding.exit.thread, %102, %.critedge.loopexit302, %616, %607, %592, %562, %read_metadata.exit.thread, %read_one_tile_group_obu.exit.thread, %byte_alignment.exit, %read_sequence_header_obu.exit.thread, %722, %717, %712, %550, %351, %347, %332, %323, %302, %299, %296, %140, %117, %106, %22
-  %.0 = phi i32 [ -1, %22 ], [ -1, %106 ], [ -1, %117 ], [ -1, %712 ], [ -1, %717 ], [ -1, %722 ], [ -1, %550 ], [ -1, %351 ], [ -1, %347 ], [ -1, %323 ], [ -1, %332 ], [ -1, %299 ], [ -1, %302 ], [ -1, %296 ], [ -1, %140 ], [ -1, %byte_alignment.exit ], [ -1, %read_sequence_header_obu.exit.thread ], [ -1, %read_one_tile_group_obu.exit.thread ], [ -1, %read_metadata.exit.thread ], [ -1, %562 ], [ -1, %592 ], [ -1, %607 ], [ -1, %616 ], [ 0, %102 ], [ %725, %.critedge.loopexit302 ], [ -1, %read_padding.exit.thread ], [ -1, %is_obu_in_current_operating_point.exit ], [ -1, %.lr.ph ], [ -1, %read_sequence_header_obu.exit ], [ -1, %read_one_tile_group_obu.exit ], [ -1, %read_metadata.exit ], [ -1, %read_and_decode_one_tile_list.exit ], [ -1, %read_padding.exit ]
+read_and_decode_one_tile_list.exit.thread:        ; preds = %read_padding.exit, %read_and_decode_one_tile_list.exit, %read_metadata.exit, %read_one_tile_group_obu.exit, %read_sequence_header_obu.exit, %.lr.ph, %is_obu_in_current_operating_point.argprom.exit, %read_padding.exit.thread, %102, %.critedge.loopexit302, %616, %607, %592, %562, %read_metadata.exit.thread, %read_one_tile_group_obu.exit.thread, %byte_alignment.exit, %read_sequence_header_obu.exit.thread, %722, %717, %712, %550, %351, %347, %332, %323, %302, %299, %296, %140, %117, %106, %22
+  %.0 = phi i32 [ -1, %22 ], [ -1, %106 ], [ -1, %117 ], [ -1, %712 ], [ -1, %717 ], [ -1, %722 ], [ -1, %550 ], [ -1, %351 ], [ -1, %347 ], [ -1, %323 ], [ -1, %332 ], [ -1, %299 ], [ -1, %302 ], [ -1, %296 ], [ -1, %140 ], [ -1, %byte_alignment.exit ], [ -1, %read_sequence_header_obu.exit.thread ], [ -1, %read_one_tile_group_obu.exit.thread ], [ -1, %read_metadata.exit.thread ], [ -1, %562 ], [ -1, %592 ], [ -1, %607 ], [ -1, %616 ], [ 0, %102 ], [ %725, %.critedge.loopexit302 ], [ -1, %read_padding.exit.thread ], [ -1, %is_obu_in_current_operating_point.argprom.exit ], [ -1, %.lr.ph ], [ -1, %read_sequence_header_obu.exit ], [ -1, %read_one_tile_group_obu.exit ], [ -1, %read_metadata.exit ], [ -1, %read_and_decode_one_tile_list.exit ], [ -1, %read_padding.exit ]
   ret i32 %.0
 }
 
@@ -1771,7 +1771,7 @@ declare void @av1_decode_tg_tiles_and_wrapup(ptr noundef, ptr noundef, ptr nound
 declare i32 @aom_uleb_decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @alloc_read_metadata(ptr noundef %0, i32 noundef range(i32 1, 5) %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483647) %3) unnamed_addr #1 {
+define internal fastcc void @alloc_read_metadata.argelim(ptr noundef %0, i32 noundef range(i32 1, 5) %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483647) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 458872
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null

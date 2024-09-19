@@ -7394,7 +7394,7 @@ entry:
 ehcleanup.thread1146:                             ; preds = %entry
   %lpad.thr_comm.split-lp1148 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.exit336
+  br label %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.argprom.argprom.exit336
 
 for.cond:                                         ; preds = %entry, %for.inc
   %ci.sroa.0.0 = phi ptr [ %call.i.i, %for.inc ], [ %call2, %entry ]
@@ -7416,7 +7416,7 @@ for.body:                                         ; preds = %invoke.cont8
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  tail call fastcc void @_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvRS3_PT_DpOT0_(ptr noundef %cnh.sroa.24.0, ptr nonnull %_M_storage.i.i.i, i32 %c.0, ptr noundef nonnull readonly align 4 dereferenceable(13) %second.i)
+  tail call fastcc void @_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvRS3_PT_DpOT0_.argprom(ptr noundef %cnh.sroa.24.0, ptr nonnull %_M_storage.i.i.i, i32 %c.0, ptr noundef nonnull readonly align 4 dereferenceable(13) %second.i)
   br label %for.inc
 
 if.else.i:                                        ; preds = %for.body
@@ -7424,7 +7424,7 @@ if.else.i:                                        ; preds = %for.body
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %cnh.sroa.0.1 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i67 = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775760
-  br i1 %cmp.i.i.i67, label %if.then.i.i.i, label %_ZNKSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %cmp.i.i.i67, label %if.then.i.i.i, label %_ZNKSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.190) #30
@@ -7433,7 +7433,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 .noexc:                                           ; preds = %if.then.i.i.i
   unreachable
 
-_ZNKSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
+_ZNKSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 80
   %cmp.i.i.i.i = icmp eq ptr %cnh.sroa.32.0, %cnh.sroa.0.1
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
@@ -7442,22 +7442,22 @@ _ZNKSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE12_M_c
   %0 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 115292150460684697)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 115292150460684697, i64 %0
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.argprom.exit.i.i, label %cond.true.i.i.i
 
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 80
   %call5.i.i.i.i.i68 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #32
-          to label %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.exit.i.i unwind label %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.argprom.exit.i.i unwind label %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i21.i.i = phi ptr [ null, %_ZNKSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i68, %cond.true.i.i.i ]
+_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  %cond.i21.i.i = phi ptr [ null, %_ZNKSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i ], [ %call5.i.i.i.i.i68, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %cond.i21.i.i, i64 %sub.ptr.div.i.i.i.i
-  tail call fastcc void @_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvRS3_PT_DpOT0_(ptr noundef %add.ptr.i.i, ptr nonnull %_M_storage.i.i.i, i32 %c.0, ptr noundef nonnull readonly align 4 dereferenceable(13) %second.i)
+  tail call fastcc void @_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvRS3_PT_DpOT0_.argprom(ptr noundef %add.ptr.i.i, ptr nonnull %_M_storage.i.i.i, i32 %c.0, ptr noundef nonnull readonly align 4 dereferenceable(13) %second.i)
   br i1 %cmp.i.i.i.i, label %invoke.cont18.i.i, label %for.inc.i.i.i.i.i.i.i
 
-for.inc.i.i.i.i.i.i.i:                            ; preds = %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.exit.i.i, %for.inc.i.i.i.i.i.i.i
-  %__cur.09.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %cond.i21.i.i, %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.exit.i.i ]
-  %__first.addr.08.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %cnh.sroa.0.1, %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.exit.i.i ]
+for.inc.i.i.i.i.i.i.i:                            ; preds = %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.argprom.exit.i.i, %for.inc.i.i.i.i.i.i.i
+  %__cur.09.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %cond.i21.i.i, %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.argprom.exit.i.i ]
+  %__first.addr.08.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %cnh.sroa.0.1, %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.argprom.exit.i.i ]
   %1 = load ptr, ptr %__first.addr.08.i.i.i.i.i.i.i, align 8
   store ptr %1, ptr %__cur.09.i.i.i.i.i.i.i, align 8
   %m_len.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i.i, i64 8
@@ -7510,23 +7510,23 @@ for.inc.i.i.i.i.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %cnh.sroa.32.0
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont18.i.i, label %for.inc.i.i.i.i.i.i.i, !llvm.loop !51
 
-invoke.cont18.i.i:                                ; preds = %for.inc.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.exit.i.i
-  %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %cond.i21.i.i, %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ]
+invoke.cont18.i.i:                                ; preds = %for.inc.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.argprom.exit.i.i
+  %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %cond.i21.i.i, %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE11_M_allocateEm.argprom.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ]
   %tobool.not.i.i.i = icmp eq ptr %cnh.sroa.0.1, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE17_M_realloc_insertIJPKcRiRKN7Imf_2_57ChannelEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i54.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE17_M_realloc_insertIJPKcRiRKN7Imf_2_57ChannelEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i, label %if.then.i54.i.i
 
 if.then.i54.i.i:                                  ; preds = %invoke.cont18.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %cnh.sroa.0.1) #29
-  br label %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE17_M_realloc_insertIJPKcRiRKN7Imf_2_57ChannelEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
+  br label %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE17_M_realloc_insertIJPKcRiRKN7Imf_2_57ChannelEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i
 
-_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE17_M_realloc_insertIJPKcRiRKN7Imf_2_57ChannelEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i54.i.i, %invoke.cont18.i.i
+_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE17_M_realloc_insertIJPKcRiRKN7Imf_2_57ChannelEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i: ; preds = %if.then.i54.i.i, %invoke.cont18.i.i
   %add.ptr33.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::ChanNameHolder", ptr %cond.i21.i.i, i64 %cond.i.i.i
   br label %for.inc
 
-for.inc:                                          ; preds = %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE17_M_realloc_insertIJPKcRiRKN7Imf_2_57ChannelEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i
-  %cnh.sroa.32.1 = phi ptr [ %add.ptr33.i.i, %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE17_M_realloc_insertIJPKcRiRKN7Imf_2_57ChannelEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %cnh.sroa.32.0, %if.then.i ]
-  %__cur.0.lcssa.i.i.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i.i, %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE17_M_realloc_insertIJPKcRiRKN7Imf_2_57ChannelEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %cnh.sroa.24.0, %if.then.i ]
-  %cnh.sroa.0.3 = phi ptr [ %cond.i21.i.i, %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE17_M_realloc_insertIJPKcRiRKN7Imf_2_57ChannelEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %cnh.sroa.0.1, %if.then.i ]
+for.inc:                                          ; preds = %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE17_M_realloc_insertIJPKcRiRKN7Imf_2_57ChannelEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i, %if.then.i
+  %cnh.sroa.32.1 = phi ptr [ %add.ptr33.i.i, %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE17_M_realloc_insertIJPKcRiRKN7Imf_2_57ChannelEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i ], [ %cnh.sroa.32.0, %if.then.i ]
+  %__cur.0.lcssa.i.i.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i.i, %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE17_M_realloc_insertIJPKcRiRKN7Imf_2_57ChannelEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i ], [ %cnh.sroa.24.0, %if.then.i ]
+  %cnh.sroa.0.3 = phi ptr [ %cond.i21.i.i, %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EE17_M_realloc_insertIJPKcRiRKN7Imf_2_57ChannelEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i ], [ %cnh.sroa.0.1, %if.then.i ]
   %cnh.sroa.24.1 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.pn, i64 80
   %inc = add nuw nsw i32 %c.0, 1
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %ci.sroa.0.0) #34
@@ -9829,14 +9829,14 @@ invoke.cont.i.i:                                  ; preds = %if.then220
 cleanup:                                          ; preds = %if.then220, %invoke.cont.i.i, %if.then
   %retval.0 = phi i1 [ false, %if.then ], [ %ok.0.lcssa1236, %invoke.cont.i.i ], [ %ok.0.lcssa1236, %if.then220 ]
   %tobool.not.i.i.i326 = icmp eq ptr %cnh.sroa.0.1, null
-  br i1 %tobool.not.i.i.i326, label %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.exit, label %if.then.i.i.i327
+  br i1 %tobool.not.i.i.i326, label %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.argprom.argprom.exit, label %if.then.i.i.i327
 
 if.then.i.i.i327:                                 ; preds = %for.end218, %cleanup
   %retval.01239 = phi i1 [ %retval.0, %cleanup ], [ %ok.1, %for.end218 ]
   call void @_ZdlPv(ptr noundef nonnull %cnh.sroa.0.1) #29
-  br label %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.exit
+  br label %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.argprom.argprom.exit
 
-_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.exit: ; preds = %cleanup, %if.then.i.i.i327
+_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.argprom.argprom.exit: ; preds = %cleanup, %if.then.i.i.i327
   %retval.01240 = phi i1 [ %retval.0, %cleanup ], [ %retval.01239, %if.then.i.i.i327 ]
   %304 = load ptr, ptr %channelnames, align 8
   %_M_finish.i328 = getelementptr inbounds i8, ptr %channelnames, i64 8
@@ -9844,14 +9844,14 @@ _ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.ex
   %cmp.not3.i.i.i.i = icmp eq ptr %304, %305
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i329
 
-for.body.i.i.i.i329:                              ; preds = %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.exit, %for.body.i.i.i.i329
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i329 ], [ %304, %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.exit ]
+for.body.i.i.i.i329:                              ; preds = %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.argprom.argprom.exit, %for.body.i.i.i.i329
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i329 ], [ %304, %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.argprom.argprom.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #28
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i330 = icmp eq ptr %incdec.ptr.i.i.i.i, %305
   br i1 %cmp.not.i.i.i.i330, label %invoke.cont.i, label %for.body.i.i.i.i329, !llvm.loop !28
 
-invoke.cont.i:                                    ; preds = %for.body.i.i.i.i329, %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.exit
+invoke.cont.i:                                    ; preds = %for.body.i.i.i.i329, %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.argprom.argprom.exit
   %tobool.not.i.i.i331 = icmp eq ptr %304, null
   br i1 %tobool.not.i.i.i331, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i332
 
@@ -9915,14 +9915,14 @@ ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-l
 ehcleanup:                                        ; preds = %ehcleanup.loopexit.split-lp.loopexit, %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit, %ehcleanup.loopexit
   %lpad.phi1152 = phi { ptr, i32 } [ %lpad.loopexit1150, %ehcleanup.loopexit ], [ %lpad.loopexit1153, %ehcleanup.loopexit.split-lp.loopexit ], [ %lpad.loopexit1157, %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1160, %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1163, %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1166, %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1169, %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1170, %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i334 = icmp eq ptr %cnh.sroa.0.1, null
-  br i1 %tobool.not.i.i.i334, label %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.exit336, label %if.then.i.i.i335
+  br i1 %tobool.not.i.i.i334, label %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.argprom.argprom.exit336, label %if.then.i.i.i335
 
 if.then.i.i.i335:                                 ; preds = %ehcleanup.thread1142.loopexit, %ehcleanup.thread1142.loopexit.split-lp, %lpad.i, %lpad112, %ehcleanup
   %.pn1139 = phi { ptr, i32 } [ %lpad.phi1152, %ehcleanup ], [ %240, %lpad.i ], [ %291, %lpad112 ], [ %lpad.loopexit, %ehcleanup.thread1142.loopexit ], [ %lpad.loopexit.split-lp, %ehcleanup.thread1142.loopexit.split-lp ]
   call void @_ZdlPv(ptr noundef nonnull %cnh.sroa.0.1) #29
-  br label %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.exit336
+  br label %_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.argprom.argprom.exit336
 
-_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.exit336: ; preds = %ehcleanup.thread1146, %ehcleanup, %if.then.i.i.i335
+_ZNSt6vectorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESaIS2_EED2Ev.argprom.argprom.exit336: ; preds = %ehcleanup.thread1146, %ehcleanup, %if.then.i.i.i335
   %.pn1140 = phi { ptr, i32 } [ %lpad.phi1152, %ehcleanup ], [ %.pn1139, %if.then.i.i.i335 ], [ %lpad.thr_comm.split-lp1148, %ehcleanup.thread1146 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %channelnames) #28
   resume { ptr, i32 } %.pn1140
@@ -40878,7 +40878,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare void @_ZN18OpenImageIO_v2_6_05debugENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvRS3_PT_DpOT0_(ptr nocapture noundef writeonly %__p, ptr %__args.0.val, i32 %__args1.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(13) %__args3) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvRS3_PT_DpOT0_.argprom(ptr nocapture noundef writeonly %__p, ptr %__args.0.val, i32 %__args1.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(13) %__args3) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not.i.i = icmp eq ptr %__args.0.val, null
   br i1 %tobool.not.i.i, label %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.i, label %cond.true.i.i
@@ -41046,7 +41046,7 @@ if.then.i.i.i:                                    ; preds = %_ZNK18OpenImageIO_v
   %agg.tmp.sroa.4.0.suffix.sroa_idx.i.i = getelementptr inbounds i8, ptr %__p, i64 40
   store i64 %cond.i.i, ptr %agg.tmp.sroa.4.0.suffix.sroa_idx.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %layer.i.i, i8 0, i64 16, i1 false)
-  br label %_ZNSt15__new_allocatorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvPT_DpOT0_.exit
+  br label %_ZNSt15__new_allocatorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvPT_DpOT0_.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %_ZNK18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit.i.i.i
   %add.i.i.i = add nuw i64 %sub3.i.i.i.i.i.i, 1
@@ -41060,9 +41060,9 @@ if.else.i.i.i:                                    ; preds = %_ZNK18OpenImageIO_v
   store ptr %add.ptr5.i.i.i, ptr %suffix.i.i, align 8
   %ref.tmp3.sroa.2.0.suffix.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__p, i64 40
   store i64 %sub7.i.i.i, ptr %ref.tmp3.sroa.2.0.suffix.sroa_idx.i.i.i, align 8
-  br label %_ZNSt15__new_allocatorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvPT_DpOT0_.exit
+  br label %_ZNSt15__new_allocatorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvPT_DpOT0_.argprom.exit
 
-_ZNSt15__new_allocatorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvPT_DpOT0_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
+_ZNSt15__new_allocatorIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvPT_DpOT0_.argprom.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   ret void
 }
 

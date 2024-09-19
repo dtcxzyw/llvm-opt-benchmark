@@ -277,7 +277,7 @@ if.then4:                                         ; preds = %sw.bb1
   %arrayidx15.i = getelementptr [200 x i8], ptr %parenstack.i, i64 0, i64 %idxprom.i
   %6 = load i8, ptr %arrayidx15.i, align 1
   %conv16.i = sext i8 %6 to i32
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %0, i64 noundef %conv.i, i64 noundef %conv8.i, i64 noundef %conv.i, i64 noundef -1, ptr noundef nonnull @.str.21, i32 noundef %conv16.i)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %0, i64 noundef %conv.i, i64 noundef %conv8.i, i64 noundef %conv.i, i64 noundef -1, ptr noundef nonnull @.str.21, i32 noundef %conv16.i)
   br label %return
 
 if.else:                                          ; preds = %sw.bb1
@@ -337,7 +337,7 @@ sw.epilog:                                        ; preds = %if.end, %sw.default
   %15 = load i32, ptr %lineno, align 8
   %conv = sext i32 %15 to i64
   %cond = tail call i64 @llvm.smax.i64(i64 %col_offset.0, i64 0)
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %errtype.0, i64 noundef %conv, i64 noundef %cond, i64 noundef %conv, i64 noundef -1, ptr noundef nonnull %msg.0)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %errtype.0, i64 noundef %conv, i64 noundef %cond, i64 noundef %conv, i64 noundef -1, ptr noundef nonnull %msg.0)
   br label %return
 
 return:                                           ; preds = %sw.bb9, %if.then12, %if.then4, %if.else, %entry, %sw.epilog, %sw.bb21, %sw.bb14, %sw.bb7
@@ -487,7 +487,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr nocapture noundef %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #0 {
+define internal void @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr nocapture noundef %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -982,7 +982,7 @@ land.lhs.true:                                    ; preds = %if.then, %if.then
   br i1 %tobool6.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %land.lhs.true
-  tail call fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors(ptr noundef nonnull %p)
+  tail call fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors.retelim(ptr noundef nonnull %p)
   br label %return
 
 if.end9:                                          ; preds = %entry
@@ -1030,7 +1030,7 @@ if.then22:                                        ; preds = %if.then19
   %arrayidx15.i = getelementptr [200 x i8], ptr %parenstack.i, i64 0, i64 %idxprom.i
   %12 = load i8, ptr %arrayidx15.i, align 1
   %conv16.i = sext i8 %12 to i32
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %11, i64 noundef %conv.i, i64 noundef %conv8.i, i64 noundef %conv.i, i64 noundef -1, ptr noundef nonnull @.str.21, i32 noundef %conv16.i)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %11, i64 noundef %conv.i, i64 noundef %conv8.i, i64 noundef %conv.i, i64 noundef -1, ptr noundef nonnull @.str.21, i32 noundef %conv16.i)
   br label %return
 
 if.else:                                          ; preds = %if.then19
@@ -1064,8 +1064,8 @@ if.end34:                                         ; preds = %land.lhs.true15, %i
   %end_col_offset = getelementptr inbounds i8, ptr %last_token, i64 32
   %19 = load i32, ptr %end_col_offset, align 8
   %conv37 = sext i32 %19 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %15, i64 noundef %conv, i64 noundef %conv35, i64 noundef %conv36, i64 noundef %conv37, ptr noundef nonnull @.str.19)
-  tail call fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors(ptr noundef nonnull %p)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %15, i64 noundef %conv, i64 noundef %conv35, i64 noundef %conv36, i64 noundef %conv37, ptr noundef nonnull @.str.19)
+  tail call fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors.retelim(ptr noundef nonnull %p)
   br label %return
 
 return:                                           ; preds = %if.then, %if.then22, %if.else, %land.lhs.true, %if.then7, %if.end34, %if.then30
@@ -1073,7 +1073,7 @@ return:                                           ; preds = %if.then, %if.then22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors(ptr nocapture noundef %p) unnamed_addr #0 {
+define internal fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors.retelim(ptr nocapture noundef %p) unnamed_addr #0 {
 entry:
   %type = alloca ptr, align 8
   %value = alloca ptr, align 8
@@ -1150,7 +1150,7 @@ if.then20:                                        ; preds = %if.then10
   %arrayidx15.i = getelementptr [200 x i8], ptr %parenstack.i, i64 0, i64 %idxprom15
   %13 = load i8, ptr %arrayidx15.i, align 1
   %conv16.i = sext i8 %13 to i32
-  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %12, i64 noundef %conv.i, i64 noundef %conv8.i, i64 noundef %conv.i, i64 noundef -1, ptr noundef nonnull @.str.21, i32 noundef %conv16.i)
+  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %12, i64 noundef %conv.i, i64 noundef %conv8.i, i64 noundef %conv.i, i64 noundef -1, ptr noundef nonnull @.str.21, i32 noundef %conv16.i)
   br label %exit
 
 exit:                                             ; preds = %for.cond, %sw.bb, %if.end6, %if.then10, %if.then20

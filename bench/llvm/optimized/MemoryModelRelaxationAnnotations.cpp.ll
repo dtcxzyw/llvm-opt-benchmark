@@ -144,7 +144,7 @@ _ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit: ; preds = %38, %42
   br i1 %50, label %51, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
 
 51:                                               ; preds = %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit
-  tail call fastcc void @"_ZZN4llvm12MMRAMetadataC1EPNS_6MDNodeEENK3$_0clES2_"(ptr nonnull %0, ptr noundef nonnull %spec.select.i.i)
+  tail call fastcc void @"_ZZN4llvm12MMRAMetadataC1EPNS_6MDNodeEENK3$_0clES2_.argprom"(ptr nonnull %0, ptr noundef nonnull %spec.select.i.i)
   br label %.loopexit
 
 _ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread: ; preds = %3, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i, %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit
@@ -179,7 +179,7 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %55, %59
 .lr.ph:                                           ; preds = %_ZNK4llvm6MDNode8operandsEv.exit, %.lr.ph
   %.021 = phi ptr [ %68, %.lr.ph ], [ %.sroa.0.0.i.i, %_ZNK4llvm6MDNode8operandsEv.exit ]
   %67 = load ptr, ptr %.021, align 8
-  tail call fastcc void @"_ZZN4llvm12MMRAMetadataC1EPNS_6MDNodeEENK3$_0clES2_"(ptr nonnull %0, ptr noundef %67)
+  tail call fastcc void @"_ZZN4llvm12MMRAMetadataC1EPNS_6MDNodeEENK3$_0clES2_.argprom"(ptr nonnull %0, ptr noundef %67)
   %68 = getelementptr inbounds i8, ptr %.021, i64 8
   %.not15 = icmp eq ptr %68, %66
   br i1 %.not15, label %.loopexit, label %.lr.ph
@@ -277,7 +277,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit10:            ; preds = %34, %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm12MMRAMetadataC1EPNS_6MDNodeEENK3$_0clES2_"(ptr %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm12MMRAMetadataC1EPNS_6MDNodeEENK3$_0clES2_.argprom"(ptr %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"struct.std::pair", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -16

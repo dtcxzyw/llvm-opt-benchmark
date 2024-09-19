@@ -884,14 +884,14 @@ Vec_IntFree.exit:                                 ; preds = %Vec_StrFree.exit, %
   %193 = load i32, ptr %178, align 4
   %194 = sext i32 %193 to i64
   %195 = icmp slt i64 %indvars.iv380, %194
-  br i1 %195, label %Extra_ProgressBarUpdate.exit, label %196
+  br i1 %195, label %Extra_ProgressBarUpdate.argprom.exit, label %196
 
 196:                                              ; preds = %192, %191
   %197 = trunc nuw nsw i64 %indvars.iv380 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %178, i32 noundef %197, ptr noundef null) #14
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %192, %196
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %192, %196
   %198 = getelementptr i8, ptr %187, i64 64
   %.val241 = load ptr, ptr %198, align 8
   %199 = ptrtoint ptr %.val241 to i64
@@ -937,7 +937,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %192, %196
   %.not11.i = icmp ult i32 %227, 128
   br i1 %.not11.i, label %Io_WriteAigerEncode.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %Extra_ProgressBarUpdate.exit
+.lr.ph.preheader.i:                               ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %228 = sext i32 %.0189340 to i64
   br label %.lr.ph.i
 
@@ -957,9 +957,9 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %192, %196
   %233 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %Io_WriteAigerEncode.exit
 
-Io_WriteAigerEncode.exit:                         ; preds = %Extra_ProgressBarUpdate.exit, %._crit_edge.loopexit.i
-  %.010.lcssa.i = phi i32 [ %.0189340, %Extra_ProgressBarUpdate.exit ], [ %233, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i = phi i32 [ %227, %Extra_ProgressBarUpdate.exit ], [ %232, %._crit_edge.loopexit.i ]
+Io_WriteAigerEncode.exit:                         ; preds = %Extra_ProgressBarUpdate.argprom.exit, %._crit_edge.loopexit.i
+  %.010.lcssa.i = phi i32 [ %.0189340, %Extra_ProgressBarUpdate.argprom.exit ], [ %233, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi i32 [ %227, %Extra_ProgressBarUpdate.argprom.exit ], [ %232, %._crit_edge.loopexit.i ]
   %234 = trunc nuw i32 %.0.lcssa.i to i8
   %235 = add nsw i32 %.010.lcssa.i, 1
   %236 = sext i32 %.010.lcssa.i to i64
@@ -1556,14 +1556,14 @@ define void @Io_WriteAigerGz(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   %164 = load i32, ptr %149, align 4
   %165 = sext i32 %164 to i64
   %166 = icmp slt i64 %indvars.iv341, %165
-  br i1 %166, label %Extra_ProgressBarUpdate.exit, label %167
+  br i1 %166, label %Extra_ProgressBarUpdate.argprom.exit, label %167
 
 167:                                              ; preds = %163, %162
   %168 = trunc nuw nsw i64 %indvars.iv341 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %149, i32 noundef %168, ptr noundef null) #14
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %163, %167
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %163, %167
   %169 = getelementptr i8, ptr %158, i64 64
   %.val214 = load ptr, ptr %169, align 8
   %170 = ptrtoint ptr %.val214 to i64
@@ -1609,7 +1609,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %163, %167
   %.not11.i = icmp ult i32 %198, 128
   br i1 %.not11.i, label %Io_WriteAigerEncode.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %Extra_ProgressBarUpdate.exit
+.lr.ph.preheader.i:                               ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %199 = sext i32 %.0169304 to i64
   br label %.lr.ph.i
 
@@ -1629,9 +1629,9 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %163, %167
   %204 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %Io_WriteAigerEncode.exit
 
-Io_WriteAigerEncode.exit:                         ; preds = %Extra_ProgressBarUpdate.exit, %._crit_edge.loopexit.i
-  %.010.lcssa.i = phi i32 [ %.0169304, %Extra_ProgressBarUpdate.exit ], [ %204, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i = phi i32 [ %198, %Extra_ProgressBarUpdate.exit ], [ %203, %._crit_edge.loopexit.i ]
+Io_WriteAigerEncode.exit:                         ; preds = %Extra_ProgressBarUpdate.argprom.exit, %._crit_edge.loopexit.i
+  %.010.lcssa.i = phi i32 [ %.0169304, %Extra_ProgressBarUpdate.argprom.exit ], [ %204, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi i32 [ %198, %Extra_ProgressBarUpdate.argprom.exit ], [ %203, %._crit_edge.loopexit.i ]
   %205 = trunc nuw i32 %.0.lcssa.i to i8
   %206 = add nsw i32 %.010.lcssa.i, 1
   %207 = sext i32 %.010.lcssa.i to i64
@@ -2498,14 +2498,14 @@ Vec_IntFree.exit:                                 ; preds = %Vec_StrFree.exit317
   %243 = load i32, ptr %228, align 4
   %244 = sext i32 %243 to i64
   %245 = icmp slt i64 %indvars.iv409, %244
-  br i1 %245, label %Extra_ProgressBarUpdate.exit, label %246
+  br i1 %245, label %Extra_ProgressBarUpdate.argprom.exit, label %246
 
 246:                                              ; preds = %242, %241
   %247 = trunc nuw nsw i64 %indvars.iv409 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %228, i32 noundef %247, ptr noundef null) #14
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %242, %246
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %242, %246
   %248 = getelementptr i8, ptr %237, i64 64
   %.val263 = load ptr, ptr %248, align 8
   %249 = ptrtoint ptr %.val263 to i64
@@ -2551,7 +2551,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %242, %246
   %.not11.i = icmp ult i32 %277, 128
   br i1 %.not11.i, label %Io_WriteAigerEncode.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %Extra_ProgressBarUpdate.exit
+.lr.ph.preheader.i:                               ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %278 = sext i32 %.0184369 to i64
   br label %.lr.ph.i
 
@@ -2571,9 +2571,9 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %242, %246
   %283 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %Io_WriteAigerEncode.exit
 
-Io_WriteAigerEncode.exit:                         ; preds = %Extra_ProgressBarUpdate.exit, %._crit_edge.loopexit.i
-  %.010.lcssa.i = phi i32 [ %.0184369, %Extra_ProgressBarUpdate.exit ], [ %283, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i = phi i32 [ %277, %Extra_ProgressBarUpdate.exit ], [ %282, %._crit_edge.loopexit.i ]
+Io_WriteAigerEncode.exit:                         ; preds = %Extra_ProgressBarUpdate.argprom.exit, %._crit_edge.loopexit.i
+  %.010.lcssa.i = phi i32 [ %.0184369, %Extra_ProgressBarUpdate.argprom.exit ], [ %283, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi i32 [ %277, %Extra_ProgressBarUpdate.argprom.exit ], [ %282, %._crit_edge.loopexit.i ]
   %284 = trunc nuw i32 %.0.lcssa.i to i8
   %285 = add nsw i32 %.010.lcssa.i, 1
   %286 = sext i32 %.010.lcssa.i to i64

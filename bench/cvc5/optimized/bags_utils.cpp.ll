@@ -1581,22 +1581,22 @@ entry:
 for.body.i.i.i.i:                                 ; preds = %entry, %if.end24.i.i.i.i
   %__trip_count.029.i.i.i.i = phi i64 [ %dec.i.i.i.i, %if.end24.i.i.i.i ], [ %shr.i.i.i.i, %entry ]
   %__first.sroa.0.028.i.i.i.i = phi ptr [ %incdec.ptr.i11.i.i.i.i, %if.end24.i.i.i.i ], [ %spec.select.i.i, %entry ]
-  %call6.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_"(ptr nonnull %__first.sroa.0.028.i.i.i.i)
+  %call6.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom"(ptr nonnull %__first.sroa.0.028.i.i.i.i)
   br i1 %call6.i.i.i.i, label %"_ZSt6all_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory4bags9BagsUtils20areChildrenConstantsES6_E3$_0EbT_SC_T0_.exit", label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.028.i.i.i.i, i64 8
-  %call10.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_"(ptr nonnull %incdec.ptr.i.i.i.i.i)
+  %call10.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom"(ptr nonnull %incdec.ptr.i.i.i.i.i)
   br i1 %call10.i.i.i.i, label %"_ZSt6all_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory4bags9BagsUtils20areChildrenConstantsES6_E3$_0EbT_SC_T0_.exit", label %if.end12.i.i.i.i
 
 if.end12.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %incdec.ptr.i9.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.028.i.i.i.i, i64 16
-  %call16.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_"(ptr nonnull %incdec.ptr.i9.i.i.i.i)
+  %call16.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom"(ptr nonnull %incdec.ptr.i9.i.i.i.i)
   br i1 %call16.i.i.i.i, label %"_ZSt6all_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory4bags9BagsUtils20areChildrenConstantsES6_E3$_0EbT_SC_T0_.exit", label %if.end18.i.i.i.i
 
 if.end18.i.i.i.i:                                 ; preds = %if.end12.i.i.i.i
   %incdec.ptr.i10.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.028.i.i.i.i, i64 24
-  %call22.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_"(ptr nonnull %incdec.ptr.i10.i.i.i.i)
+  %call22.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom"(ptr nonnull %incdec.ptr.i10.i.i.i.i)
   br i1 %call22.i.i.i.i, label %"_ZSt6all_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory4bags9BagsUtils20areChildrenConstantsES6_E3$_0EbT_SC_T0_.exit", label %if.end24.i.i.i.i
 
 if.end24.i.i.i.i:                                 ; preds = %if.end18.i.i.i.i
@@ -1621,7 +1621,7 @@ for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.
   ]
 
 sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
-  %call31.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_"(ptr nonnull %__first.sroa.0.0.lcssa.i.i.i.i)
+  %call31.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom"(ptr nonnull %__first.sroa.0.0.lcssa.i.i.i.i)
   br i1 %call31.i.i.i.i, label %"_ZSt6all_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory4bags9BagsUtils20areChildrenConstantsES6_E3$_0EbT_SC_T0_.exit", label %if.end33.i.i.i.i
 
 if.end33.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
@@ -1630,7 +1630,7 @@ if.end33.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
 
 sw.bb35.i.i.i.i:                                  ; preds = %if.end33.i.i.i.i, %for.end.i.i.i.i
   %__first.sroa.0.1.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i16.i.i.i.i, %if.end33.i.i.i.i ]
-  %call38.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_"(ptr nonnull %__first.sroa.0.1.i.i.i.i)
+  %call38.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom"(ptr nonnull %__first.sroa.0.1.i.i.i.i)
   br i1 %call38.i.i.i.i, label %"_ZSt6all_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory4bags9BagsUtils20areChildrenConstantsES6_E3$_0EbT_SC_T0_.exit", label %if.end40.i.i.i.i
 
 if.end40.i.i.i.i:                                 ; preds = %sw.bb35.i.i.i.i
@@ -1639,7 +1639,7 @@ if.end40.i.i.i.i:                                 ; preds = %sw.bb35.i.i.i.i
 
 sw.bb42.i.i.i.i:                                  ; preds = %if.end40.i.i.i.i, %for.end.i.i.i.i
   %__first.sroa.0.2.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i17.i.i.i.i, %if.end40.i.i.i.i ]
-  %call45.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_"(ptr nonnull %__first.sroa.0.2.i.i.i.i)
+  %call45.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom"(ptr nonnull %__first.sroa.0.2.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %call45.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i, ptr %add.ptr.i.i
   br label %"_ZSt6all_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory4bags9BagsUtils20areChildrenConstantsES6_E3$_0EbT_SC_T0_.exit"
 
@@ -2955,7 +2955,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pa
   %_M_parent.i.i.i.i588.i = getelementptr inbounds i8, ptr %elementsA.i, i64 16
   %45 = load ptr, ptr %_M_parent.i.i.i.i588.i, align 8, !noalias !69
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_8RationalEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %elementsA.i, ptr noundef %45)
-          to label %"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_21evaluateUnionDisjointENS0_12NodeTemplateILb0EEEE3$_0RZNS3_21evaluateUnionDisjointES6_E3$_1RZNS3_21evaluateUnionDisjointES6_E3$_2RZNS3_21evaluateUnionDisjointES6_E3$_3RZNS3_21evaluateUnionDisjointES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.exit" unwind label %terminate.lpad.i.i589.i
+          to label %"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_21evaluateUnionDisjointENS0_12NodeTemplateILb0EEEE3$_0RZNS3_21evaluateUnionDisjointES6_E3$_1RZNS3_21evaluateUnionDisjointES6_E3$_2RZNS3_21evaluateUnionDisjointES6_E3$_3RZNS3_21evaluateUnionDisjointES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom.exit" unwind label %terminate.lpad.i.i589.i
 
 terminate.lpad.i.i589.i:                          ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit587.i
   %46 = landingpad { ptr, i32 }
@@ -2975,7 +2975,7 @@ ehcleanup115.i:                                   ; preds = %ehcleanup.i, %lpad4
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %elementsA.i) #20
   resume { ptr, i32 } %.pn.pn.i
 
-"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_21evaluateUnionDisjointENS0_12NodeTemplateILb0EEEE3$_0RZNS3_21evaluateUnionDisjointES6_E3$_1RZNS3_21evaluateUnionDisjointES6_E3$_2RZNS3_21evaluateUnionDisjointES6_E3$_3RZNS3_21evaluateUnionDisjointES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.exit": ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit587.i
+"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_21evaluateUnionDisjointENS0_12NodeTemplateILb0EEEE3$_0RZNS3_21evaluateUnionDisjointES6_E3$_1RZNS3_21evaluateUnionDisjointES6_E3$_2RZNS3_21evaluateUnionDisjointES6_E3$_3RZNS3_21evaluateUnionDisjointES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom.exit": ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit587.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %elementsA.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %elementsB.i)
@@ -3523,7 +3523,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pa
   %_M_parent.i.i.i.i593.i = getelementptr inbounds i8, ptr %elementsA.i, i64 16
   %39 = load ptr, ptr %_M_parent.i.i.i.i593.i, align 8, !noalias !83
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_8RationalEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %elementsA.i, ptr noundef %39)
-          to label %"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_16evaluateUnionMaxENS0_12NodeTemplateILb0EEEE3$_0RZNS3_16evaluateUnionMaxES6_E3$_1RZNS3_16evaluateUnionMaxES6_E3$_2RZNS3_16evaluateUnionMaxES6_E3$_3RZNS3_16evaluateUnionMaxES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.exit" unwind label %terminate.lpad.i.i594.i
+          to label %"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_16evaluateUnionMaxENS0_12NodeTemplateILb0EEEE3$_0RZNS3_16evaluateUnionMaxES6_E3$_1RZNS3_16evaluateUnionMaxES6_E3$_2RZNS3_16evaluateUnionMaxES6_E3$_3RZNS3_16evaluateUnionMaxES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom.exit" unwind label %terminate.lpad.i.i594.i
 
 terminate.lpad.i.i594.i:                          ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit592.i
   %40 = landingpad { ptr, i32 }
@@ -3543,7 +3543,7 @@ ehcleanup115.i:                                   ; preds = %ehcleanup.i, %lpad4
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %elementsA.i) #20
   resume { ptr, i32 } %.pn.pn.i
 
-"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_16evaluateUnionMaxENS0_12NodeTemplateILb0EEEE3$_0RZNS3_16evaluateUnionMaxES6_E3$_1RZNS3_16evaluateUnionMaxES6_E3$_2RZNS3_16evaluateUnionMaxES6_E3$_3RZNS3_16evaluateUnionMaxES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.exit": ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit592.i
+"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_16evaluateUnionMaxENS0_12NodeTemplateILb0EEEE3$_0RZNS3_16evaluateUnionMaxES6_E3$_1RZNS3_16evaluateUnionMaxES6_E3$_2RZNS3_16evaluateUnionMaxES6_E3$_3RZNS3_16evaluateUnionMaxES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom.exit": ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit592.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %elementsA.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %elementsB.i)
@@ -3821,7 +3821,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pa
   %_M_parent.i.i.i.i428.i = getelementptr inbounds i8, ptr %elementsA.i, i64 16
   %25 = load ptr, ptr %_M_parent.i.i.i.i428.i, align 8, !noalias !97
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_8RationalEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %elementsA.i, ptr noundef %25)
-          to label %"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_23evaluateIntersectionMinENS0_12NodeTemplateILb0EEEE3$_0RZNS3_23evaluateIntersectionMinES6_E3$_1RZNS3_23evaluateIntersectionMinES6_E3$_2RZNS3_23evaluateIntersectionMinES6_E3$_3RZNS3_23evaluateIntersectionMinES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.exit" unwind label %terminate.lpad.i.i429.i
+          to label %"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_23evaluateIntersectionMinENS0_12NodeTemplateILb0EEEE3$_0RZNS3_23evaluateIntersectionMinES6_E3$_1RZNS3_23evaluateIntersectionMinES6_E3$_2RZNS3_23evaluateIntersectionMinES6_E3$_3RZNS3_23evaluateIntersectionMinES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom.exit" unwind label %terminate.lpad.i.i429.i
 
 terminate.lpad.i.i429.i:                          ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit427.i
   %26 = landingpad { ptr, i32 }
@@ -3841,7 +3841,7 @@ ehcleanup115.i:                                   ; preds = %ehcleanup.i, %lpad4
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %elementsA.i) #20
   resume { ptr, i32 } %.pn.pn.i
 
-"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_23evaluateIntersectionMinENS0_12NodeTemplateILb0EEEE3$_0RZNS3_23evaluateIntersectionMinES6_E3$_1RZNS3_23evaluateIntersectionMinES6_E3$_2RZNS3_23evaluateIntersectionMinES6_E3$_3RZNS3_23evaluateIntersectionMinES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.exit": ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit427.i
+"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_23evaluateIntersectionMinENS0_12NodeTemplateILb0EEEE3$_0RZNS3_23evaluateIntersectionMinES6_E3$_1RZNS3_23evaluateIntersectionMinES6_E3$_2RZNS3_23evaluateIntersectionMinES6_E3$_3RZNS3_23evaluateIntersectionMinES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom.exit": ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit427.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %elementsA.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %elementsB.i)
@@ -4283,7 +4283,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pa
   %_M_parent.i.i.i.i501.i = getelementptr inbounds i8, ptr %elementsA.i, i64 16
   %38 = load ptr, ptr %_M_parent.i.i.i.i501.i, align 8, !noalias !109
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_8RationalEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %elementsA.i, ptr noundef %38)
-          to label %"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_26evaluateDifferenceSubtractENS0_12NodeTemplateILb0EEEE3$_0RZNS3_26evaluateDifferenceSubtractES6_E3$_1RZNS3_26evaluateDifferenceSubtractES6_E3$_2RZNS3_26evaluateDifferenceSubtractES6_E3$_3RZNS3_26evaluateDifferenceSubtractES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.exit" unwind label %terminate.lpad.i.i502.i
+          to label %"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_26evaluateDifferenceSubtractENS0_12NodeTemplateILb0EEEE3$_0RZNS3_26evaluateDifferenceSubtractES6_E3$_1RZNS3_26evaluateDifferenceSubtractES6_E3$_2RZNS3_26evaluateDifferenceSubtractES6_E3$_3RZNS3_26evaluateDifferenceSubtractES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom.exit" unwind label %terminate.lpad.i.i502.i
 
 terminate.lpad.i.i502.i:                          ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit500.i
   %39 = landingpad { ptr, i32 }
@@ -4303,7 +4303,7 @@ ehcleanup115.i:                                   ; preds = %ehcleanup.i, %lpad4
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %elementsA.i) #20
   resume { ptr, i32 } %.pn.pn.i
 
-"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_26evaluateDifferenceSubtractENS0_12NodeTemplateILb0EEEE3$_0RZNS3_26evaluateDifferenceSubtractES6_E3$_1RZNS3_26evaluateDifferenceSubtractES6_E3$_2RZNS3_26evaluateDifferenceSubtractES6_E3$_3RZNS3_26evaluateDifferenceSubtractES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.exit": ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit500.i
+"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_26evaluateDifferenceSubtractENS0_12NodeTemplateILb0EEEE3$_0RZNS3_26evaluateDifferenceSubtractES6_E3$_1RZNS3_26evaluateDifferenceSubtractES6_E3$_2RZNS3_26evaluateDifferenceSubtractES6_E3$_3RZNS3_26evaluateDifferenceSubtractES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom.exit": ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit500.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %elementsA.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %elementsB.i)
@@ -4651,7 +4651,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pa
   %_M_parent.i.i.i.i465.i = getelementptr inbounds i8, ptr %elementsA.i, i64 16
   %29 = load ptr, ptr %_M_parent.i.i.i.i465.i, align 8, !noalias !122
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_8RationalEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %elementsA.i, ptr noundef %29)
-          to label %"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_24evaluateDifferenceRemoveENS0_12NodeTemplateILb0EEEE3$_0RZNS3_24evaluateDifferenceRemoveES6_E3$_1RZNS3_24evaluateDifferenceRemoveES6_E3$_2RZNS3_24evaluateDifferenceRemoveES6_E3$_3RZNS3_24evaluateDifferenceRemoveES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.exit" unwind label %terminate.lpad.i.i466.i
+          to label %"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_24evaluateDifferenceRemoveENS0_12NodeTemplateILb0EEEE3$_0RZNS3_24evaluateDifferenceRemoveES6_E3$_1RZNS3_24evaluateDifferenceRemoveES6_E3$_2RZNS3_24evaluateDifferenceRemoveES6_E3$_3RZNS3_24evaluateDifferenceRemoveES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom.exit" unwind label %terminate.lpad.i.i466.i
 
 terminate.lpad.i.i466.i:                          ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit464.i
   %30 = landingpad { ptr, i32 }
@@ -4671,7 +4671,7 @@ ehcleanup115.i:                                   ; preds = %ehcleanup.i, %lpad4
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %elementsA.i) #20
   resume { ptr, i32 } %.pn.pn.i
 
-"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_24evaluateDifferenceRemoveENS0_12NodeTemplateILb0EEEE3$_0RZNS3_24evaluateDifferenceRemoveES6_E3$_1RZNS3_24evaluateDifferenceRemoveES6_E3$_2RZNS3_24evaluateDifferenceRemoveES6_E3$_3RZNS3_24evaluateDifferenceRemoveES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.exit": ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit464.i
+"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_24evaluateDifferenceRemoveENS0_12NodeTemplateILb0EEEE3$_0RZNS3_24evaluateDifferenceRemoveES6_E3$_1RZNS3_24evaluateDifferenceRemoveES6_E3$_2RZNS3_24evaluateDifferenceRemoveES6_E3$_3RZNS3_24evaluateDifferenceRemoveES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom.exit": ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit464.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %elementsA.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %elementsB.i)
@@ -18814,7 +18814,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_"(ptr nocapture readonly %__it.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_.argprom"(ptr nocapture readonly %__it.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %__it.coerce, align 8, !noalias !352
@@ -20705,8 +20705,8 @@ attributes #25 = { builtin allocsize(0) }
 !64 = distinct !{!64, !65, !"_ZNK4cvc58internal12NodeTemplateILb0EEixEi: %agg.result"}
 !65 = distinct !{!65, !"_ZNK4cvc58internal12NodeTemplateILb0EEixEi"}
 !66 = !{!64, !67}
-!67 = distinct !{!67, !68, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_21evaluateUnionDisjointENS0_12NodeTemplateILb0EEEE3$_0RZNS3_21evaluateUnionDisjointES6_E3$_1RZNS3_21evaluateUnionDisjointES6_E3$_2RZNS3_21evaluateUnionDisjointES6_E3$_3RZNS3_21evaluateUnionDisjointES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_: %agg.result"}
-!68 = distinct !{!68, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_21evaluateUnionDisjointENS0_12NodeTemplateILb0EEEE3$_0RZNS3_21evaluateUnionDisjointES6_E3$_1RZNS3_21evaluateUnionDisjointES6_E3$_2RZNS3_21evaluateUnionDisjointES6_E3$_3RZNS3_21evaluateUnionDisjointES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_"}
+!67 = distinct !{!67, !68, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_21evaluateUnionDisjointENS0_12NodeTemplateILb0EEEE3$_0RZNS3_21evaluateUnionDisjointES6_E3$_1RZNS3_21evaluateUnionDisjointES6_E3$_2RZNS3_21evaluateUnionDisjointES6_E3$_3RZNS3_21evaluateUnionDisjointES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom: %agg.result"}
+!68 = distinct !{!68, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_21evaluateUnionDisjointENS0_12NodeTemplateILb0EEEE3$_0RZNS3_21evaluateUnionDisjointES6_E3$_1RZNS3_21evaluateUnionDisjointES6_E3$_2RZNS3_21evaluateUnionDisjointES6_E3$_3RZNS3_21evaluateUnionDisjointES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom"}
 !69 = !{!67}
 !70 = !{!71}
 !71 = distinct !{!71, !72, !"_ZNK4cvc58internal12NodeTemplateILb0EEixEi: %agg.result"}
@@ -20719,8 +20719,8 @@ attributes #25 = { builtin allocsize(0) }
 !78 = distinct !{!78, !79, !"_ZNK4cvc58internal12NodeTemplateILb0EEixEi: %agg.result"}
 !79 = distinct !{!79, !"_ZNK4cvc58internal12NodeTemplateILb0EEixEi"}
 !80 = !{!78, !81}
-!81 = distinct !{!81, !82, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_16evaluateUnionMaxENS0_12NodeTemplateILb0EEEE3$_0RZNS3_16evaluateUnionMaxES6_E3$_1RZNS3_16evaluateUnionMaxES6_E3$_2RZNS3_16evaluateUnionMaxES6_E3$_3RZNS3_16evaluateUnionMaxES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_: %agg.result"}
-!82 = distinct !{!82, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_16evaluateUnionMaxENS0_12NodeTemplateILb0EEEE3$_0RZNS3_16evaluateUnionMaxES6_E3$_1RZNS3_16evaluateUnionMaxES6_E3$_2RZNS3_16evaluateUnionMaxES6_E3$_3RZNS3_16evaluateUnionMaxES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_"}
+!81 = distinct !{!81, !82, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_16evaluateUnionMaxENS0_12NodeTemplateILb0EEEE3$_0RZNS3_16evaluateUnionMaxES6_E3$_1RZNS3_16evaluateUnionMaxES6_E3$_2RZNS3_16evaluateUnionMaxES6_E3$_3RZNS3_16evaluateUnionMaxES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom: %agg.result"}
+!82 = distinct !{!82, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_16evaluateUnionMaxENS0_12NodeTemplateILb0EEEE3$_0RZNS3_16evaluateUnionMaxES6_E3$_1RZNS3_16evaluateUnionMaxES6_E3$_2RZNS3_16evaluateUnionMaxES6_E3$_3RZNS3_16evaluateUnionMaxES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom"}
 !83 = !{!81}
 !84 = !{!85}
 !85 = distinct !{!85, !86, !"_ZNK4cvc58internal12NodeTemplateILb0EEixEi: %agg.result"}
@@ -20733,8 +20733,8 @@ attributes #25 = { builtin allocsize(0) }
 !92 = distinct !{!92, !93, !"_ZNK4cvc58internal12NodeTemplateILb0EEixEi: %agg.result"}
 !93 = distinct !{!93, !"_ZNK4cvc58internal12NodeTemplateILb0EEixEi"}
 !94 = !{!92, !95}
-!95 = distinct !{!95, !96, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_23evaluateIntersectionMinENS0_12NodeTemplateILb0EEEE3$_0RZNS3_23evaluateIntersectionMinES6_E3$_1RZNS3_23evaluateIntersectionMinES6_E3$_2RZNS3_23evaluateIntersectionMinES6_E3$_3RZNS3_23evaluateIntersectionMinES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_: %agg.result"}
-!96 = distinct !{!96, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_23evaluateIntersectionMinENS0_12NodeTemplateILb0EEEE3$_0RZNS3_23evaluateIntersectionMinES6_E3$_1RZNS3_23evaluateIntersectionMinES6_E3$_2RZNS3_23evaluateIntersectionMinES6_E3$_3RZNS3_23evaluateIntersectionMinES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_"}
+!95 = distinct !{!95, !96, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_23evaluateIntersectionMinENS0_12NodeTemplateILb0EEEE3$_0RZNS3_23evaluateIntersectionMinES6_E3$_1RZNS3_23evaluateIntersectionMinES6_E3$_2RZNS3_23evaluateIntersectionMinES6_E3$_3RZNS3_23evaluateIntersectionMinES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom: %agg.result"}
+!96 = distinct !{!96, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_23evaluateIntersectionMinENS0_12NodeTemplateILb0EEEE3$_0RZNS3_23evaluateIntersectionMinES6_E3$_1RZNS3_23evaluateIntersectionMinES6_E3$_2RZNS3_23evaluateIntersectionMinES6_E3$_3RZNS3_23evaluateIntersectionMinES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom"}
 !97 = !{!95}
 !98 = !{!99}
 !99 = distinct !{!99, !100, !"_ZNK4cvc58internal12NodeTemplateILb0EEixEi: %agg.result"}
@@ -20745,8 +20745,8 @@ attributes #25 = { builtin allocsize(0) }
 !104 = distinct !{!104, !105, !"_ZNK4cvc58internal12NodeTemplateILb0EEixEi: %agg.result"}
 !105 = distinct !{!105, !"_ZNK4cvc58internal12NodeTemplateILb0EEixEi"}
 !106 = !{!104, !107}
-!107 = distinct !{!107, !108, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_26evaluateDifferenceSubtractENS0_12NodeTemplateILb0EEEE3$_0RZNS3_26evaluateDifferenceSubtractES6_E3$_1RZNS3_26evaluateDifferenceSubtractES6_E3$_2RZNS3_26evaluateDifferenceSubtractES6_E3$_3RZNS3_26evaluateDifferenceSubtractES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_: %agg.result"}
-!108 = distinct !{!108, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_26evaluateDifferenceSubtractENS0_12NodeTemplateILb0EEEE3$_0RZNS3_26evaluateDifferenceSubtractES6_E3$_1RZNS3_26evaluateDifferenceSubtractES6_E3$_2RZNS3_26evaluateDifferenceSubtractES6_E3$_3RZNS3_26evaluateDifferenceSubtractES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_"}
+!107 = distinct !{!107, !108, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_26evaluateDifferenceSubtractENS0_12NodeTemplateILb0EEEE3$_0RZNS3_26evaluateDifferenceSubtractES6_E3$_1RZNS3_26evaluateDifferenceSubtractES6_E3$_2RZNS3_26evaluateDifferenceSubtractES6_E3$_3RZNS3_26evaluateDifferenceSubtractES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom: %agg.result"}
+!108 = distinct !{!108, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_26evaluateDifferenceSubtractENS0_12NodeTemplateILb0EEEE3$_0RZNS3_26evaluateDifferenceSubtractES6_E3$_1RZNS3_26evaluateDifferenceSubtractES6_E3$_2RZNS3_26evaluateDifferenceSubtractES6_E3$_3RZNS3_26evaluateDifferenceSubtractES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom"}
 !109 = !{!107}
 !110 = !{!111}
 !111 = distinct !{!111, !112, !"_ZNK4cvc58internal12NodeTemplateILb0EEixEi: %agg.result"}
@@ -20758,8 +20758,8 @@ attributes #25 = { builtin allocsize(0) }
 !117 = distinct !{!117, !118, !"_ZNK4cvc58internal12NodeTemplateILb0EEixEi: %agg.result"}
 !118 = distinct !{!118, !"_ZNK4cvc58internal12NodeTemplateILb0EEixEi"}
 !119 = !{!117, !120}
-!120 = distinct !{!120, !121, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_24evaluateDifferenceRemoveENS0_12NodeTemplateILb0EEEE3$_0RZNS3_24evaluateDifferenceRemoveES6_E3$_1RZNS3_24evaluateDifferenceRemoveES6_E3$_2RZNS3_24evaluateDifferenceRemoveES6_E3$_3RZNS3_24evaluateDifferenceRemoveES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_: %agg.result"}
-!121 = distinct !{!121, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_24evaluateDifferenceRemoveENS0_12NodeTemplateILb0EEEE3$_0RZNS3_24evaluateDifferenceRemoveES6_E3$_1RZNS3_24evaluateDifferenceRemoveES6_E3$_2RZNS3_24evaluateDifferenceRemoveES6_E3$_3RZNS3_24evaluateDifferenceRemoveES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_"}
+!120 = distinct !{!120, !121, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_24evaluateDifferenceRemoveENS0_12NodeTemplateILb0EEEE3$_0RZNS3_24evaluateDifferenceRemoveES6_E3$_1RZNS3_24evaluateDifferenceRemoveES6_E3$_2RZNS3_24evaluateDifferenceRemoveES6_E3$_3RZNS3_24evaluateDifferenceRemoveES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom: %agg.result"}
+!121 = distinct !{!121, !"_ZN4cvc58internal6theory4bags9BagsUtils23evaluateBinaryOperationIRZNS3_24evaluateDifferenceRemoveENS0_12NodeTemplateILb0EEEE3$_0RZNS3_24evaluateDifferenceRemoveES6_E3$_1RZNS3_24evaluateDifferenceRemoveES6_E3$_2RZNS3_24evaluateDifferenceRemoveES6_E3$_3RZNS3_24evaluateDifferenceRemoveES6_E3$_4EENS5_ILb1EEERKS6_OT_OT0_OT1_OT2_OT3_.argprom"}
 !122 = !{!120}
 !123 = !{!124}
 !124 = distinct !{!124, !125, !"_ZNK4cvc58internal12NodeTemplateILb0EEixEi: %agg.result"}

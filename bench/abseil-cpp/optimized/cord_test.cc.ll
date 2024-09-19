@@ -7826,18 +7826,18 @@ invoke.cont.i:                                    ; preds = %call.i.noexc.i
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i: ; preds = %invoke.cont.i
   %dec.i.i.i = add nsw i64 %1, -1
   store i64 %dec.i.i.i, ptr %0, align 8, !noalias !26
-  br label %"_ZN4absl20MakeCordFromExternalIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+  br label %"_ZN4absl20MakeCordFromExternalIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i: ; preds = %invoke.cont.i
   %call.i1.i2.i = invoke noundef zeroext i1 @_ZN4absl13cord_internal25cordz_should_profile_slowEv()
           to label %call.i1.i.noexc.i unwind label %lpad.i, !noalias !26
 
 call.i1.i.noexc.i:                                ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i
-  br i1 %call.i1.i2.i, label %if.then.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+  br i1 %call.i1.i2.i, label %if.then.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
 
 if.then.i.i.i:                                    ; preds = %call.i1.i.noexc.i
   invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %from, i32 noundef 14)
-          to label %"_ZN4absl20MakeCordFromExternalIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit" unwind label %lpad.i
+          to label %"_ZN4absl20MakeCordFromExternalIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit" unwind label %lpad.i
 
 common.resume:                                    ; preds = %ehcleanup, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %.pn, %ehcleanup ]
@@ -7849,12 +7849,12 @@ lpad.i:                                           ; preds = %if.then.i.i.i, %_ZN
           cleanup
   br label %common.resume
 
-"_ZN4absl20MakeCordFromExternalIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit": ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i
+"_ZN4absl20MakeCordFromExternalIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit": ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c, i8 0, i64 16, i1 false)
   invoke void @_ZN4absl4Cord6AppendERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %from)
           to label %while.cond.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-while.cond.preheader:                             ; preds = %"_ZN4absl20MakeCordFromExternalIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+while.cond.preheader:                             ; preds = %"_ZN4absl20MakeCordFromExternalIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
   %rep.i.i.i.i.i = getelementptr inbounds i8, ptr %c, i64 8
   br label %while.cond
 
@@ -8000,7 +8000,7 @@ lpad.loopexit.split-lp.loopexit:                  ; preds = %if.else.i34, %invok
           cleanup
   br label %ehcleanup
 
-lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %for.end, %"_ZN4absl20MakeCordFromExternalIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %for.end, %"_ZN4absl20MakeCordFromExternalIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
   %lpad.loopexit.split-lp51 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -24488,8 +24488,8 @@ if.then.i.i.i.i.preheader:                        ; preds = %invoke.cont2
   %arrayidx48.i.i.i = getelementptr inbounds i8, ptr %rng, i64 1240
   br label %if.then.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i.i.preheader, %"_ZZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEmENK3$_0clEv.exit.i"
-  %__first.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i, %"_ZZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEmENK3$_0clEv.exit.i" ], [ %call, %if.then.i.i.i.i.preheader ]
+if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i.i.preheader, %"_ZZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEmENK3$_0clEv.argprom.argprom.exit.i"
+  %__first.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i, %"_ZZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEmENK3$_0clEv.argprom.argprom.exit.i" ], [ %call, %if.then.i.i.i.i.preheader ]
   %call.i.i.i.i.i3 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %rng)
           to label %call.i.i.i.i.i.noexc unwind label %lpad1
 
@@ -24500,7 +24500,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %if.then.i.i.i.i
   %extract.t10.i.i.i.i.i = trunc nuw nsw i128 %extract9.i.i.i.i.i to i8
   %1 = and i128 %mul.i.i.i.i.i, 18446744073709551600
   %cmp315.i.i.i.i.i = icmp eq i128 %1, 0
-  br i1 %cmp315.i.i.i.i.i, label %while.body.i.i.i.i.preheader.i, label %"_ZZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEmENK3$_0clEv.exit.i"
+  br i1 %cmp315.i.i.i.i.i, label %while.body.i.i.i.i.preheader.i, label %"_ZZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEmENK3$_0clEv.argprom.argprom.exit.i"
 
 while.body.i.i.i.i.preheader.i:                   ; preds = %call.i.i.i.i.i.noexc
   %.pre.i = load i64, ptr %_M_p.i.i, align 8
@@ -24607,9 +24607,9 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
 while.cond.if.end.loopexit_crit_edge.i.i.i.i.i:   ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit.i
   %extract13.le.i.i.i.i.i = lshr i128 %mul7.i.i.i.i.i, 64
   %extract.t14.le.i.i.i.i.i = trunc nuw nsw i128 %extract13.le.i.i.i.i.i to i8
-  br label %"_ZZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEmENK3$_0clEv.exit.i"
+  br label %"_ZZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEmENK3$_0clEv.argprom.argprom.exit.i"
 
-"_ZZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEmENK3$_0clEv.exit.i": ; preds = %while.cond.if.end.loopexit_crit_edge.i.i.i.i.i, %call.i.i.i.i.i.noexc
+"_ZZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEmENK3$_0clEv.argprom.argprom.exit.i": ; preds = %while.cond.if.end.loopexit_crit_edge.i.i.i.i.i, %call.i.i.i.i.i.noexc
   %__ret.0.i.i.i.i = phi i8 [ %extract.t10.i.i.i.i.i, %call.i.i.i.i.i.noexc ], [ %extract.t14.le.i.i.i.i.i, %while.cond.if.end.loopexit_crit_edge.i.i.i.i.i ]
   %conv22.i.i.i.i = add nuw nsw i8 %__ret.0.i.i.i.i, 97
   store i8 %conv22.i.i.i.i, ptr %__first.sroa.0.06.i, align 1
@@ -24633,7 +24633,7 @@ lpad1:                                            ; preds = %if.then.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #33
   br label %eh.resume
 
-nrvo.skipdtor:                                    ; preds = %"_ZZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEmENK3$_0clEv.exit.i", %invoke.cont2
+nrvo.skipdtor:                                    ; preds = %"_ZZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEmENK3$_0clEv.argprom.argprom.exit.i", %invoke.cont2
   ret void
 
 eh.resume:                                        ; preds = %lpad1, %lpad.body
@@ -43574,18 +43574,18 @@ invoke.cont.i:                                    ; preds = %call.i.noexc.i
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i: ; preds = %invoke.cont.i
   %dec.i.i.i = add nsw i64 %1, -1
   store i64 %dec.i.i.i, ptr %0, align 8, !noalias !577
-  br label %"_ZN4absl20MakeCordFromExternalIZN29CordTest_TryFlatExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+  br label %"_ZN4absl20MakeCordFromExternalIZN29CordTest_TryFlatExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i: ; preds = %invoke.cont.i
   %call.i1.i2.i = invoke noundef zeroext i1 @_ZN4absl13cord_internal25cordz_should_profile_slowEv()
           to label %call.i1.i.noexc.i unwind label %lpad.i, !noalias !577
 
 call.i1.i.noexc.i:                                ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i
-  br i1 %call.i1.i2.i, label %if.then.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZN29CordTest_TryFlatExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+  br i1 %call.i1.i2.i, label %if.then.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZN29CordTest_TryFlatExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
 
 if.then.i.i.i:                                    ; preds = %call.i1.i.noexc.i
   invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef 14)
-          to label %"_ZN4absl20MakeCordFromExternalIZN29CordTest_TryFlatExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit" unwind label %lpad.i
+          to label %"_ZN4absl20MakeCordFromExternalIZN29CordTest_TryFlatExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit" unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %ehcleanup16, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %.pn.pn, %ehcleanup16 ], [ %10, %lpad ]
@@ -43597,11 +43597,11 @@ lpad.i:                                           ; preds = %if.then.i.i.i, %_ZN
           cleanup
   br label %common.resume
 
-"_ZN4absl20MakeCordFromExternalIZN29CordTest_TryFlatExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit": ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i
+"_ZN4absl20MakeCordFromExternalIZN29CordTest_TryFlatExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit": ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i
   %call.i.i47 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i4.noexc unwind label %lpad
 
-call.i.i4.noexc:                                  ; preds = %"_ZN4absl20MakeCordFromExternalIZN29CordTest_TryFlatExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+call.i.i4.noexc:                                  ; preds = %"_ZN4absl20MakeCordFromExternalIZN29CordTest_TryFlatExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
   %3 = load i32, ptr %call.i.i47, align 4
   %cmp.i.i5 = icmp eq i32 %3, 2
   br i1 %cmp.i.i5, label %if.then.i6, label %_ZNK8CordTest6UseCrcEv.exit.i
@@ -43698,7 +43698,7 @@ invoke.cont4:                                     ; preds = %if.then.i.i, %if.en
   %tobool.i = trunc i8 %9 to i1
   br i1 %tobool.i, label %if.end, label %if.else
 
-lpad:                                             ; preds = %if.end.i.i, %if.then.i.i, %if.end.i, %if.then.i6, %_ZNK8CordTest6UseCrcEv.exit.i, %"_ZN4absl20MakeCordFromExternalIZN29CordTest_TryFlatExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+lpad:                                             ; preds = %if.end.i.i, %if.then.i.i, %if.end.i, %if.then.i6, %_ZNK8CordTest6UseCrcEv.exit.i, %"_ZN4absl20MakeCordFromExternalIZN29CordTest_TryFlatExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
   %10 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
@@ -43989,18 +43989,18 @@ invoke.cont.i:                                    ; preds = %call.i.noexc.i
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i: ; preds = %invoke.cont.i
   %dec.i.i.i = add nsw i64 %1, -1
   store i64 %dec.i.i.i, ptr %0, align 8, !noalias !588
-  br label %"_ZN4absl20MakeCordFromExternalIZN35CordTest_TryFlatSubstrExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+  br label %"_ZN4absl20MakeCordFromExternalIZN35CordTest_TryFlatSubstrExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i: ; preds = %invoke.cont.i
   %call.i1.i2.i = invoke noundef zeroext i1 @_ZN4absl13cord_internal25cordz_should_profile_slowEv()
           to label %call.i1.i.noexc.i unwind label %lpad.i, !noalias !588
 
 call.i1.i.noexc.i:                                ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i
-  br i1 %call.i1.i2.i, label %if.then.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZN35CordTest_TryFlatSubstrExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+  br i1 %call.i1.i2.i, label %if.then.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZN35CordTest_TryFlatSubstrExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
 
 if.then.i.i.i:                                    ; preds = %call.i1.i.noexc.i
   invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef 14)
-          to label %"_ZN4absl20MakeCordFromExternalIZN35CordTest_TryFlatSubstrExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit" unwind label %lpad.i
+          to label %"_ZN4absl20MakeCordFromExternalIZN35CordTest_TryFlatSubstrExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit" unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad3, %ehcleanup25, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %.pn.pn.pn, %ehcleanup25 ], [ %25, %lpad3 ], [ %24, %lpad ]
@@ -44012,7 +44012,7 @@ lpad.i:                                           ; preds = %if.then.i.i.i, %_ZN
           cleanup
   br label %common.resume
 
-"_ZN4absl20MakeCordFromExternalIZN35CordTest_TryFlatSubstrExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit": ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i
+"_ZN4absl20MakeCordFromExternalIZN35CordTest_TryFlatSubstrExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit": ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i
   %3 = load i8, ptr %c, align 8
   %4 = and i8 %3, 1
   %cmp.i.i.not.i.i.i = icmp eq i8 %4, 0
@@ -44021,7 +44021,7 @@ lpad.i:                                           ; preds = %if.then.i.i.i, %_ZN
   %tobool.not.i.i = select i1 %cmp.i.i.not.i.i.i, i1 true, i1 %tobool.not4.i.i
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %"_ZN4absl20MakeCordFromExternalIZN35CordTest_TryFlatSubstrExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+if.then.i.i:                                      ; preds = %"_ZN4absl20MakeCordFromExternalIZN35CordTest_TryFlatSubstrExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
   %refcount.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = atomicrmw add ptr %refcount.i.i.i, i32 2 monotonic, align 4
   %rep.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
@@ -44040,7 +44040,7 @@ if.then.i.i.i.i.invoke.cont_crit_edge:            ; preds = %if.then.i.i.i.i
   %.pre = load i8, ptr %c, align 8
   br label %invoke.cont
 
-if.else.i.i:                                      ; preds = %"_ZN4absl20MakeCordFromExternalIZN35CordTest_TryFlatSubstrExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+if.else.i.i:                                      ; preds = %"_ZN4absl20MakeCordFromExternalIZN35CordTest_TryFlatSubstrExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %c, i64 16, i1 false)
   br label %invoke.cont
 
@@ -91060,18 +91060,18 @@ invoke.cont.i:                                    ; preds = %call.i.noexc.i
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i: ; preds = %invoke.cont.i
   %dec.i.i.i = add nsw i64 %5, -1
   store i64 %dec.i.i.i, ptr %4, align 8, !noalias !1187
-  br label %"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_.exit"
+  br label %"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_.argprom.exit"
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i: ; preds = %invoke.cont.i
   %call.i1.i3.i = invoke noundef zeroext i1 @_ZN4absl13cord_internal25cordz_should_profile_slowEv()
           to label %call.i1.i.noexc.i unwind label %lpad.i, !noalias !1187
 
 call.i1.i.noexc.i:                                ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i
-  br i1 %call.i1.i3.i, label %if.then.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_.exit"
+  br i1 %call.i1.i3.i, label %if.then.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_.argprom.exit"
 
 if.then.i.i.i:                                    ; preds = %call.i1.i.noexc.i
   invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, i32 noundef 14)
-          to label %"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_.exit" unwind label %lpad.i
+          to label %"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_.argprom.exit" unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad6, %lpad, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %6, %lpad.i ], [ %12, %lpad6 ], [ %11, %lpad ]
@@ -91084,14 +91084,14 @@ lpad.i:                                           ; preds = %if.else.i, %if.then
   br label %common.resume
 
 if.else.i:                                        ; preds = %invoke.cont
-  invoke fastcc void @"_ZN4absl13cord_internal14InvokeReleaserIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0vEEvNS0_5Rank0EOT_S5_"(ptr %call, i64 0, ptr %1)
-          to label %"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_.exit" unwind label %lpad.i, !noalias !1187
+  invoke fastcc void @"_ZN4absl13cord_internal14InvokeReleaserIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0vEEvNS0_5Rank0EOT_S5_.argprom"(ptr %call, i64 0, ptr %1)
+          to label %"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_.argprom.exit" unwind label %lpad.i, !noalias !1187
 
-"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_.exit": ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i, %if.else.i
+"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_.argprom.exit": ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i, %if.else.i
   invoke void @_ZN4absl4Cord6AppendEOS0_(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3)
           to label %invoke.cont7 unwind label %lpad6
 
-invoke.cont7:                                     ; preds = %"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_.exit"
+invoke.cont7:                                     ; preds = %"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_.argprom.exit"
   %7 = load i8, ptr %ref.tmp3, align 8
   %8 = and i8 %7, 1
   %cmp.i.i.not.i = icmp eq i8 %8, 0
@@ -91118,7 +91118,7 @@ lpad:                                             ; preds = %entry
   call void @_ZdlPv(ptr noundef nonnull %call) #36
   br label %common.resume
 
-lpad6:                                            ; preds = %"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_.exit"
+lpad6:                                            ; preds = %"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_.argprom.exit"
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #33
@@ -91140,7 +91140,7 @@ declare x86_fp80 @logl(x86_fp80 noundef) local_unnamed_addr #21
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN4absl13cord_internal14InvokeReleaserIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0vEEvNS0_5Rank0EOT_S5_"(ptr nonnull %releaser.0.val, i64 %data.coerce0, ptr %data.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN4absl13cord_internal14InvokeReleaserIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0vEEvNS0_5Rank0EOT_S5_.argprom"(ptr nonnull %releaser.0.val, i64 %data.coerce0, ptr %data.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %data.i.i.i.i.i = alloca %"class.std::basic_string_view", align 8
   %gtest_ar.i.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
@@ -91258,19 +91258,19 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZN7testing7Message
   %message_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gtest_ar.i.i.i.i.i, i64 8
   %12 = load ptr, ptr %message_.i.i.i.i.i.i, align 8
   %cmp.not.i.i9.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %cmp.not.i.i9.i.i.i.i.i, label %"_ZSt6invokeIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordEE3$_0JRS3_EENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.exit", label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i9.i.i.i.i.i, label %"_ZSt6invokeIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordEE3$_0JRS3_EENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom.exit", label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #33
   call void @_ZdlPv(ptr noundef nonnull %12) #36
-  br label %"_ZSt6invokeIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordEE3$_0JRS3_EENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.exit"
+  br label %"_ZSt6invokeIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordEE3$_0JRS3_EENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom.exit"
 
 ehcleanup8.i.i.i.i.i:                             ; preds = %_ZN7testing7MessageD2Ev.exit8.i.i.i.i.i, %lpad.i.i.i.i.i
   %.pn.pn.i.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i, %_ZN7testing7MessageD2Ev.exit8.i.i.i.i.i ], [ %7, %lpad.i.i.i.i.i ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar.i.i.i.i.i) #33
   resume { ptr, i32 } %.pn.pn.i.i.i.i.i
 
-"_ZSt6invokeIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordEE3$_0JRS3_EENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.exit": ; preds = %if.end.i.i.i.i.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i.i
+"_ZSt6invokeIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordEE3$_0JRS3_EENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom.exit": ; preds = %if.end.i.i.i.i.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i.i
   store ptr null, ptr %message_.i.i.i.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %releaser.0.val) #33
   call void @_ZdlPv(ptr noundef nonnull %releaser.0.val) #36
@@ -91293,7 +91293,7 @@ delete.notnull:                                   ; preds = %entry
   %0 = load ptr, ptr %base.i, align 8
   %1 = load i64, ptr %rep, align 8
   %call.val.i = load ptr, ptr %add.ptr.i, align 8
-  invoke fastcc void @"_ZN4absl13cord_internal14InvokeReleaserIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0vEEvNS0_5Rank0EOT_S5_"(ptr %call.val.i, i64 %1, ptr %0)
+  invoke fastcc void @"_ZN4absl13cord_internal14InvokeReleaserIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0vEEvNS0_5Rank0EOT_S5_.argprom"(ptr %call.val.i, i64 %1, ptr %0)
           to label %"_ZN4absl13cord_internal19CordRepExternalImplIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0ED2Ev.exit" unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %delete.notnull
@@ -94793,18 +94793,18 @@ invoke.cont.i:                                    ; preds = %call.i.noexc.i
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i: ; preds = %invoke.cont.i
   %dec.i.i.i = add nsw i64 %1, -1
   store i64 %dec.i.i.i, ptr %0, align 8, !noalias !1254
-  br label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_149CordTest_RemoveSuffixWithExternalOrSubstring_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+  br label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_149CordTest_RemoveSuffixWithExternalOrSubstring_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i: ; preds = %invoke.cont.i
   %call.i1.i2.i = invoke noundef zeroext i1 @_ZN4absl13cord_internal25cordz_should_profile_slowEv()
           to label %call.i1.i.noexc.i unwind label %lpad.i, !noalias !1254
 
 call.i1.i.noexc.i:                                ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i
-  br i1 %call.i1.i2.i, label %if.then.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_149CordTest_RemoveSuffixWithExternalOrSubstring_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+  br i1 %call.i1.i2.i, label %if.then.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_149CordTest_RemoveSuffixWithExternalOrSubstring_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
 
 if.then.i.i.i:                                    ; preds = %call.i1.i.noexc.i
   invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %cord, i32 noundef 14)
-          to label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_149CordTest_RemoveSuffixWithExternalOrSubstring_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit" unwind label %lpad.i
+          to label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_149CordTest_RemoveSuffixWithExternalOrSubstring_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit" unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad3, %ehcleanup15, %lpad21, %ehcleanup40, %lpad46, %ehcleanup65, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %.pn6.pn, %ehcleanup65 ], [ %31, %lpad46 ], [ %4, %lpad ], [ %.pn3.pn, %ehcleanup40 ], [ %18, %lpad21 ], [ %.pn.pn, %ehcleanup15 ], [ %5, %lpad3 ]
@@ -94816,11 +94816,11 @@ lpad.i:                                           ; preds = %if.then.i.i.i, %_ZN
           cleanup
   br label %common.resume
 
-"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_149CordTest_RemoveSuffixWithExternalOrSubstring_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit": ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i
+"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_149CordTest_RemoveSuffixWithExternalOrSubstring_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit": ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i
   invoke void @_ZNK4absl4CordcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %cord)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_149CordTest_RemoveSuffixWithExternalOrSubstring_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+invoke.cont:                                      ; preds = %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_149CordTest_RemoveSuffixWithExternalOrSubstring_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
   %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str.594) #33, !noalias !1257
   %cmp.i.i.i10 = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i10, label %if.then.i.i, label %if.end.i.i
@@ -94839,7 +94839,7 @@ invoke.cont4:                                     ; preds = %if.then.i.i, %if.en
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end, label %if.else
 
-lpad:                                             ; preds = %if.then.i55, %_ZNK8CordTest6UseCrcEv.exit.i53, %_ZN7testing15AssertionResultD2Ev.exit50, %if.then.i20, %_ZNK8CordTest6UseCrcEv.exit.i, %_ZN7testing15AssertionResultD2Ev.exit, %invoke.cont42, %invoke.cont41, %invoke.cont17, %invoke.cont16, %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_149CordTest_RemoveSuffixWithExternalOrSubstring_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+lpad:                                             ; preds = %if.then.i55, %_ZNK8CordTest6UseCrcEv.exit.i53, %_ZN7testing15AssertionResultD2Ev.exit50, %if.then.i20, %_ZNK8CordTest6UseCrcEv.exit.i, %_ZN7testing15AssertionResultD2Ev.exit, %invoke.cont42, %invoke.cont41, %invoke.cont17, %invoke.cont16, %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_149CordTest_RemoveSuffixWithExternalOrSubstring_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
@@ -96535,18 +96535,18 @@ invoke.cont.i:                                    ; preds = %call.i.noexc.i
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i: ; preds = %invoke.cont.i
   %dec.i.i.i = add nsw i64 %1, -1
   store i64 %dec.i.i.i, ptr %0, align 8, !noalias !1331
-  br label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+  br label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i: ; preds = %invoke.cont.i
   %call.i1.i2.i = invoke noundef zeroext i1 @_ZN4absl13cord_internal25cordz_should_profile_slowEv()
           to label %call.i1.i.noexc.i unwind label %lpad.i, !noalias !1331
 
 call.i1.i.noexc.i:                                ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i
-  br i1 %call.i1.i2.i, label %if.then.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+  br i1 %call.i1.i2.i, label %if.then.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
 
 if.then.i.i.i:                                    ; preds = %call.i1.i.noexc.i
   invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i32 noundef 14)
-          to label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit" unwind label %lpad.i
+          to label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit" unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then.i.i.i, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i, %call.i.noexc.i, %if.then.i
   %2 = landingpad { ptr, i32 }
@@ -96557,9 +96557,9 @@ lpad.i:                                           ; preds = %if.then.i.i.i, %_ZN
 delete.notnull.i.i.i.i.i.i:                       ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !1334
   tail call void @_ZdaPv(ptr noundef nonnull %call) #36, !noalias !1331
-  br label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+  br label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
 
-"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit": ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i, %delete.notnull.i.i.i.i.i.i
+"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit": ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i, %delete.notnull.i.i.i.i.i.i
   ret void
 }
 
@@ -96573,17 +96573,17 @@ delete.notnull:                                   ; preds = %entry
   %0 = getelementptr i8, ptr %rep, i64 16
   %rep.val1 = load ptr, ptr %0, align 8
   %isnull.i.i.i.i.i.i = icmp eq ptr %rep.val1, null
-  br i1 %isnull.i.i.i.i.i.i, label %"_ZN4absl13cord_internal19CordRepExternalImplIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0ED2Ev.exit", label %delete.notnull.i.i.i.i.i.i
+  br i1 %isnull.i.i.i.i.i.i, label %"_ZN4absl13cord_internal19CordRepExternalImplIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0ED2Ev.argprom.exit", label %delete.notnull.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %delete.notnull
   tail call void @_ZdaPv(ptr noundef nonnull %rep.val1) #36
-  br label %"_ZN4absl13cord_internal19CordRepExternalImplIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0ED2Ev.exit"
+  br label %"_ZN4absl13cord_internal19CordRepExternalImplIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0ED2Ev.argprom.exit"
 
-"_ZN4absl13cord_internal19CordRepExternalImplIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0ED2Ev.exit": ; preds = %delete.notnull, %delete.notnull.i.i.i.i.i.i
+"_ZN4absl13cord_internal19CordRepExternalImplIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0ED2Ev.argprom.exit": ; preds = %delete.notnull, %delete.notnull.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %rep) #36
   br label %delete.end
 
-delete.end:                                       ; preds = %"_ZN4absl13cord_internal19CordRepExternalImplIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0ED2Ev.exit", %entry
+delete.end:                                       ; preds = %"_ZN4absl13cord_internal19CordRepExternalImplIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0ED2Ev.argprom.exit", %entry
   ret void
 }
 
@@ -101785,13 +101785,13 @@ invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyIN12_G
 invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
   %this.val = phi ptr [ %this.val.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
   %tobool.not.i.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_119CordCompareTestCaseESaIS1_EED2Ev.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_119CordCompareTestCaseESaIS1_EED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   tail call void @_ZdlPv(ptr noundef nonnull %this.val) #36
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_119CordCompareTestCaseESaIS1_EED2Ev.exit
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_119CordCompareTestCaseESaIS1_EED2Ev.argprom.exit
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_119CordCompareTestCaseESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
+_ZNSt12_Vector_baseIN12_GLOBAL__N_119CordCompareTestCaseESaIS1_EED2Ev.argprom.exit: ; preds = %invoke.cont, %if.then.i.i
   ret void
 }
 
@@ -102889,7 +102889,7 @@ invoke.cont19:                                    ; preds = %.noexc36
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont19
-  invoke fastcc void @_ZN12_GLOBAL__N_111TestCompareERKN4absl4CordES3_PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9)
+  invoke fastcc void @_ZN12_GLOBAL__N_111TestCompareERKN4absl4CordES3_PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont21
@@ -103013,7 +103013,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111TestCompareERKN4absl4CordES3_PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %d) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111TestCompareERKN4absl4CordES3_PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %d) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %cs = alloca %"class.std::__cxx11::basic_string.393", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -104733,7 +104733,7 @@ invoke.cont68:                                    ; preds = %cond.false66
           to label %cond.end72 unwind label %ehcleanup79.thread
 
 cond.end72:                                       ; preds = %if.else.i.i192, %if.then.i.i187, %if.then.i.i.i.i191, %invoke.cont68
-  invoke fastcc void @_ZN12_GLOBAL__N_111TestCompareERKN4absl4CordES3_PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp60)
+  invoke fastcc void @_ZN12_GLOBAL__N_111TestCompareERKN4absl4CordES3_PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp60)
           to label %invoke.cont74 unwind label %ehcleanup79
 
 invoke.cont74:                                    ; preds = %cond.end72
@@ -104952,17 +104952,17 @@ delete.notnull:                                   ; preds = %entry
   %0 = getelementptr i8, ptr %rep, i64 16
   %rep.val1 = load ptr, ptr %0, align 8
   %isnull.i.i.i.i.i.i = icmp eq ptr %rep.val1, null
-  br i1 %isnull.i.i.i.i.i.i, label %"_ZN4absl13cord_internal19CordRepExternalImplIZL16MakeExternalCordiE3$_0ED2Ev.exit", label %delete.notnull.i.i.i.i.i.i
+  br i1 %isnull.i.i.i.i.i.i, label %"_ZN4absl13cord_internal19CordRepExternalImplIZL16MakeExternalCordiE3$_0ED2Ev.argprom.exit", label %delete.notnull.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %delete.notnull
   tail call void @_ZdaPv(ptr noundef nonnull %rep.val1) #36
-  br label %"_ZN4absl13cord_internal19CordRepExternalImplIZL16MakeExternalCordiE3$_0ED2Ev.exit"
+  br label %"_ZN4absl13cord_internal19CordRepExternalImplIZL16MakeExternalCordiE3$_0ED2Ev.argprom.exit"
 
-"_ZN4absl13cord_internal19CordRepExternalImplIZL16MakeExternalCordiE3$_0ED2Ev.exit": ; preds = %delete.notnull, %delete.notnull.i.i.i.i.i.i
+"_ZN4absl13cord_internal19CordRepExternalImplIZL16MakeExternalCordiE3$_0ED2Ev.argprom.exit": ; preds = %delete.notnull, %delete.notnull.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %rep) #36
   br label %delete.end
 
-delete.end:                                       ; preds = %"_ZN4absl13cord_internal19CordRepExternalImplIZL16MakeExternalCordiE3$_0ED2Ev.exit", %entry
+delete.end:                                       ; preds = %"_ZN4absl13cord_internal19CordRepExternalImplIZL16MakeExternalCordiE3$_0ED2Ev.argprom.exit", %entry
   ret void
 }
 
@@ -120124,12 +120124,12 @@ _ZN7testing15AssertionResultD2Ev.exit36.i.i.i.i:  ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i33.i.i.i.i, align 8
   %22 = load ptr, ptr %releaser, align 8
   %isnull.i.i.i.i = icmp eq ptr %22, null
-  br i1 %isnull.i.i.i.i, label %"_ZSt6invokeIZN12_GLOBAL__N_150CordTest_ConstructFromExternalCompareContents_Test8TestBodyEvE3$_0JRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.exit", label %delete.notnull.i.i.i.i
+  br i1 %isnull.i.i.i.i, label %"_ZSt6invokeIZN12_GLOBAL__N_150CordTest_ConstructFromExternalCompareContents_Test8TestBodyEvE3$_0JRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.argprom.exit", label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %_ZN7testing15AssertionResultD2Ev.exit36.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #33
   call void @_ZdlPv(ptr noundef nonnull %22) #36
-  br label %"_ZSt6invokeIZN12_GLOBAL__N_150CordTest_ConstructFromExternalCompareContents_Test8TestBodyEvE3$_0JRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.exit"
+  br label %"_ZSt6invokeIZN12_GLOBAL__N_150CordTest_ConstructFromExternalCompareContents_Test8TestBodyEvE3$_0JRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.argprom.exit"
 
 eh.resume.i.i.i.i:                                ; preds = %_ZN7testing7MessageD2Ev.exit32.i.i.i.i, %lpad23.i.i.i.i, %_ZN7testing7MessageD2Ev.exit11.i.i.i.i, %lpad.i.i.i.i
   %gtest_ar14.sink.i.i.i.i = phi ptr [ %gtest_ar.i.i.i.i, %_ZN7testing7MessageD2Ev.exit11.i.i.i.i ], [ %gtest_ar.i.i.i.i, %lpad.i.i.i.i ], [ %gtest_ar14.i.i.i.i, %_ZN7testing7MessageD2Ev.exit32.i.i.i.i ], [ %gtest_ar14.i.i.i.i, %lpad23.i.i.i.i ]
@@ -120137,7 +120137,7 @@ eh.resume.i.i.i.i:                                ; preds = %_ZN7testing7Message
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar14.sink.i.i.i.i) #33
   resume { ptr, i32 } %.pn3.pn.pn.i.i.i.i
 
-"_ZSt6invokeIZN12_GLOBAL__N_150CordTest_ConstructFromExternalCompareContents_Test8TestBodyEvE3$_0JRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.exit": ; preds = %_ZN7testing15AssertionResultD2Ev.exit36.i.i.i.i, %delete.notnull.i.i.i.i
+"_ZSt6invokeIZN12_GLOBAL__N_150CordTest_ConstructFromExternalCompareContents_Test8TestBodyEvE3$_0JRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.argprom.exit": ; preds = %_ZN7testing15AssertionResultD2Ev.exit36.i.i.i.i, %delete.notnull.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i.i.i)
@@ -120685,19 +120685,19 @@ if.end.i.i.i.i:                                   ; preds = %_ZN7testing7Message
   %message_.i.i.i.i.i = getelementptr inbounds i8, ptr %gtest_ar.i.i.i.i, i64 8
   %10 = load ptr, ptr %message_.i.i.i.i.i, align 8
   %cmp.not.i.i8.i.i.i.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i.i8.i.i.i.i, label %"_ZSt6invokeIZN12_GLOBAL__N_148CordTest_ConstructFromExternalLargeReleaser_Test8TestBodyEvE3$_0JRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.exit", label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i
+  br i1 %cmp.not.i.i8.i.i.i.i, label %"_ZSt6invokeIZN12_GLOBAL__N_148CordTest_ConstructFromExternalLargeReleaser_Test8TestBodyEvE3$_0JRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.argprom.exit", label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #33
   call void @_ZdlPv(ptr noundef nonnull %10) #36
-  br label %"_ZSt6invokeIZN12_GLOBAL__N_148CordTest_ConstructFromExternalLargeReleaser_Test8TestBodyEvE3$_0JRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.exit"
+  br label %"_ZSt6invokeIZN12_GLOBAL__N_148CordTest_ConstructFromExternalLargeReleaser_Test8TestBodyEvE3$_0JRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.argprom.exit"
 
 ehcleanup12.i.i.i.i:                              ; preds = %_ZN7testing7MessageD2Ev.exit7.i.i.i.i, %lpad.i.i.i.i
   %.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %_ZN7testing7MessageD2Ev.exit7.i.i.i.i ], [ %5, %lpad.i.i.i.i ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar.i.i.i.i) #33
   resume { ptr, i32 } %.pn.pn.i.i.i.i
 
-"_ZSt6invokeIZN12_GLOBAL__N_148CordTest_ConstructFromExternalLargeReleaser_Test8TestBodyEvE3$_0JRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.exit": ; preds = %if.end.i.i.i.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i
+"_ZSt6invokeIZN12_GLOBAL__N_148CordTest_ConstructFromExternalLargeReleaser_Test8TestBodyEvE3$_0JRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.argprom.exit": ; preds = %if.end.i.i.i.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i
   %11 = getelementptr inbounds i8, ptr %releaser, i64 256
   %12 = load ptr, ptr %11, align 8
   store i8 1, ptr %12, align 1
@@ -121537,19 +121537,19 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %10 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i8.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i.i8.i, label %"_ZZN12_GLOBAL__N_158CordTest_ConstructFromExternalFunctionPointerReleaser_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit", label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i8.i, label %"_ZZN12_GLOBAL__N_158CordTest_ConstructFromExternalFunctionPointerReleaser_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit", label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #33
   call void @_ZdlPv(ptr noundef nonnull %10) #36
-  br label %"_ZZN12_GLOBAL__N_158CordTest_ConstructFromExternalFunctionPointerReleaser_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit"
+  br label %"_ZZN12_GLOBAL__N_158CordTest_ConstructFromExternalFunctionPointerReleaser_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit"
 
 ehcleanup9.i:                                     ; preds = %_ZN7testing7MessageD2Ev.exit7.i, %lpad.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %_ZN7testing7MessageD2Ev.exit7.i ], [ %5, %lpad.i ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar.i) #33
   resume { ptr, i32 } %.pn.pn.i
 
-"_ZZN12_GLOBAL__N_158CordTest_ConstructFromExternalFunctionPointerReleaser_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.exit": ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+"_ZZN12_GLOBAL__N_158CordTest_ConstructFromExternalFunctionPointerReleaser_Test8TestBodyEvENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit": ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store i1 true, ptr @_ZZN12_GLOBAL__N_158CordTest_ConstructFromExternalFunctionPointerReleaser_Test8TestBodyEvE7invoked, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sv.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i)
@@ -121699,18 +121699,18 @@ invoke.cont.i:                                    ; preds = %call.i.noexc.i
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i: ; preds = %invoke.cont.i
   %dec.i.i.i = add nsw i64 %2, -1
   store i64 %dec.i.i.i, ptr %1, align 8, !noalias !1539
-  br label %_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_151CordTest_ConstructFromExternalMoveOnlyReleaser_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit
+  br label %_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_151CordTest_ConstructFromExternalMoveOnlyReleaser_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i: ; preds = %invoke.cont.i
   %call.i1.i4.i = invoke noundef zeroext i1 @_ZN4absl13cord_internal25cordz_should_profile_slowEv()
           to label %call.i1.i.noexc.i unwind label %lpad.i, !noalias !1539
 
 call.i1.i.noexc.i:                                ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i
-  br i1 %call.i1.i4.i, label %if.then.i.i.i, label %_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_151CordTest_ConstructFromExternalMoveOnlyReleaser_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit
+  br i1 %call.i1.i4.i, label %if.then.i.i.i, label %_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_151CordTest_ConstructFromExternalMoveOnlyReleaser_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit
 
 if.then.i.i.i:                                    ; preds = %call.i1.i.noexc.i
   invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 14)
-          to label %_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_151CordTest_ConstructFromExternalMoveOnlyReleaser_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit unwind label %lpad.i
+          to label %_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_151CordTest_ConstructFromExternalMoveOnlyReleaser_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %ehcleanup16, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i ], [ %.pn.pn.pn, %ehcleanup16 ], [ %15, %lpad ]
@@ -121722,11 +121722,11 @@ lpad.i:                                           ; preds = %if.then.i.i.i, %_ZN
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #33
   br label %common.resume
 
-_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_151CordTest_ConstructFromExternalMoveOnlyReleaser_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit: ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i
+_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_151CordTest_ConstructFromExternalMoveOnlyReleaser_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit: ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i
   %call.i.i.i6 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.i.noexc unwind label %lpad
 
-call.i.i.i.noexc:                                 ; preds = %_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_151CordTest_ConstructFromExternalMoveOnlyReleaser_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit
+call.i.i.i.noexc:                                 ; preds = %_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_151CordTest_ConstructFromExternalMoveOnlyReleaser_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit
   %4 = load i32, ptr %call.i.i.i6, align 4, !noalias !1542
   %cmp.i.i.i5 = icmp eq i32 %4, 2
   br i1 %cmp.i.i.i5, label %if.then.i.i, label %_ZNK8CordTest6UseCrcEv.exit.i.i
@@ -121789,7 +121789,7 @@ _ZN4absl4CordD2Ev.exit14:                         ; preds = %invoke.cont, %_ZN4a
   %tobool.i = trunc i8 %14 to i1
   br i1 %tobool.i, label %_ZN7testing15AssertionResultD2Ev.exit, label %if.else
 
-lpad:                                             ; preds = %if.then.i.i, %_ZNK8CordTest6UseCrcEv.exit.i.i, %_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_151CordTest_ConstructFromExternalMoveOnlyReleaser_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit
+lpad:                                             ; preds = %if.then.i.i, %_ZNK8CordTest6UseCrcEv.exit.i.i, %_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_151CordTest_ConstructFromExternalMoveOnlyReleaser_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit
   %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #33
@@ -122035,18 +122035,18 @@ invoke.cont.i:                                    ; preds = %call.i.noexc.i
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i: ; preds = %invoke.cont.i
   %dec.i.i.i = add nsw i64 %3, -1
   store i64 %dec.i.i.i, ptr %2, align 8, !noalias !1545
-  br label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_146CordTest_ConstructFromExternalNoArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+  br label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_146CordTest_ConstructFromExternalNoArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i: ; preds = %invoke.cont.i
   %call.i1.i3.i = invoke noundef zeroext i1 @_ZN4absl13cord_internal25cordz_should_profile_slowEv()
           to label %call.i1.i.noexc.i unwind label %lpad.i, !noalias !1545
 
 call.i1.i.noexc.i:                                ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i
-  br i1 %call.i1.i3.i, label %if.then.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_146CordTest_ConstructFromExternalNoArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+  br i1 %call.i1.i3.i, label %if.then.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_146CordTest_ConstructFromExternalNoArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
 
 if.then.i.i.i:                                    ; preds = %call.i1.i.noexc.i
   invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 14)
-          to label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_146CordTest_ConstructFromExternalNoArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit" unwind label %lpad.i
+          to label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_146CordTest_ConstructFromExternalNoArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit" unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %ehcleanup16, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i ], [ %.pn.pn.pn, %ehcleanup16 ], [ %16, %lpad ]
@@ -122058,11 +122058,11 @@ lpad.i:                                           ; preds = %if.then.i.i.i, %_ZN
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #33
   br label %common.resume
 
-"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_146CordTest_ConstructFromExternalNoArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit": ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i
+"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_146CordTest_ConstructFromExternalNoArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit": ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i
   %call.i.i.i6 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.i.noexc unwind label %lpad
 
-call.i.i.i.noexc:                                 ; preds = %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_146CordTest_ConstructFromExternalNoArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+call.i.i.i.noexc:                                 ; preds = %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_146CordTest_ConstructFromExternalNoArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
   %5 = load i32, ptr %call.i.i.i6, align 4, !noalias !1548
   %cmp.i.i.i5 = icmp eq i32 %5, 2
   br i1 %cmp.i.i.i5, label %if.then.i.i, label %_ZNK8CordTest6UseCrcEv.exit.i.i
@@ -122125,7 +122125,7 @@ _ZN4absl4CordD2Ev.exit14:                         ; preds = %invoke.cont, %_ZN4a
   %tobool.i = trunc i8 %15 to i1
   br i1 %tobool.i, label %_ZN7testing15AssertionResultD2Ev.exit, label %if.else
 
-lpad:                                             ; preds = %if.then.i.i, %_ZNK8CordTest6UseCrcEv.exit.i.i, %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_146CordTest_ConstructFromExternalNoArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+lpad:                                             ; preds = %if.then.i.i, %_ZNK8CordTest6UseCrcEv.exit.i.i, %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_146CordTest_ConstructFromExternalNoArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
   %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #33
@@ -122371,18 +122371,18 @@ invoke.cont.i:                                    ; preds = %call.i.noexc.i
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i: ; preds = %invoke.cont.i
   %dec.i.i.i = add nsw i64 %3, -1
   store i64 %dec.i.i.i, ptr %2, align 8, !noalias !1551
-  br label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_154CordTest_ConstructFromExternalStringViewArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+  br label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_154CordTest_ConstructFromExternalStringViewArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i: ; preds = %invoke.cont.i
   %call.i1.i3.i = invoke noundef zeroext i1 @_ZN4absl13cord_internal25cordz_should_profile_slowEv()
           to label %call.i1.i.noexc.i unwind label %lpad.i, !noalias !1551
 
 call.i1.i.noexc.i:                                ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i
-  br i1 %call.i1.i3.i, label %if.then.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_154CordTest_ConstructFromExternalStringViewArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+  br i1 %call.i1.i3.i, label %if.then.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_154CordTest_ConstructFromExternalStringViewArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
 
 if.then.i.i.i:                                    ; preds = %call.i1.i.noexc.i
   invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 14)
-          to label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_154CordTest_ConstructFromExternalStringViewArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit" unwind label %lpad.i
+          to label %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_154CordTest_ConstructFromExternalStringViewArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit" unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %ehcleanup16, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i ], [ %.pn.pn.pn, %ehcleanup16 ], [ %16, %lpad ]
@@ -122394,11 +122394,11 @@ lpad.i:                                           ; preds = %if.then.i.i.i, %_ZN
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #33
   br label %common.resume
 
-"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_154CordTest_ConstructFromExternalStringViewArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit": ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i
+"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_154CordTest_ConstructFromExternalStringViewArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit": ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i
   %call.i.i.i6 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.i.noexc unwind label %lpad
 
-call.i.i.i.noexc:                                 ; preds = %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_154CordTest_ConstructFromExternalStringViewArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+call.i.i.i.noexc:                                 ; preds = %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_154CordTest_ConstructFromExternalStringViewArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
   %5 = load i32, ptr %call.i.i.i6, align 4, !noalias !1554
   %cmp.i.i.i5 = icmp eq i32 %5, 2
   br i1 %cmp.i.i.i5, label %if.then.i.i, label %_ZNK8CordTest6UseCrcEv.exit.i.i
@@ -122461,7 +122461,7 @@ _ZN4absl4CordD2Ev.exit14:                         ; preds = %invoke.cont, %_ZN4a
   %tobool.i = trunc i8 %15 to i1
   br i1 %tobool.i, label %_ZN7testing15AssertionResultD2Ev.exit, label %if.else
 
-lpad:                                             ; preds = %if.then.i.i, %_ZNK8CordTest6UseCrcEv.exit.i.i, %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_154CordTest_ConstructFromExternalStringViewArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit"
+lpad:                                             ; preds = %if.then.i.i, %_ZNK8CordTest6UseCrcEv.exit.i.i, %"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_154CordTest_ConstructFromExternalStringViewArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit"
   %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #33
@@ -123070,7 +123070,7 @@ entry:
   %ref.tmp252 = alloca %"class.testing::internal::AssertHelper", align 8
   %invoked_as.i = getelementptr inbounds i8, ptr %tracker, i64 4
   store i64 0, ptr %tracker, align 8
-  call fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias align 8 %agg.tmp, i64 0, ptr nonnull @.str.58, ptr nonnull %tracker)
+  call fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom(ptr noalias align 8 %agg.tmp, i64 0, ptr nonnull @.str.58, ptr nonnull %tracker)
   %call.i.i.i37 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.i.noexc unwind label %lpad
 
@@ -123130,7 +123130,7 @@ terminate.lpad.i41:                               ; preds = %if.then.i40
 
 _ZN4absl4CordD2Ev.exit42:                         ; preds = %invoke.cont, %_ZN4absl4CordD2Ev.exit, %if.then.i40
   store i32 2, ptr %ref.tmp, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias align 8 %gtest_ar, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
   %10 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %10 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -123325,7 +123325,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit69:          ; preds = %if.end31, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i68
   store ptr null, ptr %message_.i66, align 8
   store i64 0, ptr %tracker, align 8
-  call fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias align 8 %agg.tmp34, i64 0, ptr nonnull @.str.58, ptr nonnull %tracker)
+  call fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom(ptr noalias align 8 %agg.tmp34, i64 0, ptr nonnull @.str.58, ptr nonnull %tracker)
   %call.i.i.i77 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.i.noexc76 unwind label %lpad36
 
@@ -123385,7 +123385,7 @@ terminate.lpad.i88:                               ; preds = %if.then.i87
 
 _ZN4absl4CordD2Ev.exit89:                         ; preds = %invoke.cont37, %_ZN4absl4CordD2Ev.exit85, %if.then.i87
   store i32 2, ptr %ref.tmp41, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar39, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp41)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias align 8 %gtest_ar39, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp41)
   %41 = load i8, ptr %gtest_ar39, align 8
   %tobool.i90 = trunc i8 %41 to i1
   br i1 %tobool.i90, label %if.end57, label %if.else44
@@ -123585,7 +123585,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit131:         ; preds = %if.end77, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i130
   store ptr null, ptr %message_.i128, align 8
   store i64 0, ptr %tracker, align 8
-  call fastcc void @_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias align 8 %agg.tmp80, i64 0, ptr nonnull @.str.58, ptr nonnull %tracker)
+  call fastcc void @_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom(ptr noalias align 8 %agg.tmp80, i64 0, ptr nonnull @.str.58, ptr nonnull %tracker)
   %call.i.i.i139 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.i.noexc138 unwind label %lpad82
 
@@ -123645,7 +123645,7 @@ terminate.lpad.i150:                              ; preds = %if.then.i149
 
 _ZN4absl4CordD2Ev.exit151:                        ; preds = %invoke.cont83, %_ZN4absl4CordD2Ev.exit147, %if.then.i149
   store i32 1, ptr %ref.tmp87, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar85, ptr noundef nonnull @.str.718, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp87)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias align 8 %gtest_ar85, ptr noundef nonnull @.str.718, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp87)
   %72 = load i8, ptr %gtest_ar85, align 8
   %tobool.i152 = trunc i8 %72 to i1
   br i1 %tobool.i152, label %if.end103, label %if.else90
@@ -123873,18 +123873,18 @@ invoke.cont.i:                                    ; preds = %call.i.noexc.i
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i: ; preds = %invoke.cont.i
   %dec.i.i.i = add nsw i64 %95, -1
   store i64 %dec.i.i.i, ptr %94, align 8, !noalias !1572
-  br label %_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit
+  br label %_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i: ; preds = %invoke.cont.i
   %call.i1.i4.i = invoke noundef zeroext i1 @_ZN4absl13cord_internal25cordz_should_profile_slowEv()
           to label %call.i1.i.noexc.i unwind label %lpad.i, !noalias !1572
 
 call.i1.i.noexc.i:                                ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i
-  br i1 %call.i1.i4.i, label %if.then.i.i.i, label %_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit
+  br i1 %call.i1.i4.i, label %if.then.i.i.i, label %_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit
 
 if.then.i.i.i:                                    ; preds = %call.i1.i.noexc.i
   invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp126, i32 noundef 14)
-          to label %_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit unwind label %lpad.i
+          to label %_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %ehcleanup13, %ehcleanup32, %lpad36, %ehcleanup58, %ehcleanup78, %lpad82, %ehcleanup104, %ehcleanup124, %lpad128, %ehcleanup150, %ehcleanup170, %lpad174, %ehcleanup196, %ehcleanup216, %lpad220, %ehcleanup242, %ehcleanup262, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %96, %lpad.i ], [ %.pn33.pn, %ehcleanup262 ], [ %.pn30.pn, %ehcleanup242 ], [ %170, %lpad220 ], [ %.pn27.pn, %ehcleanup216 ], [ %.pn24.pn, %ehcleanup196 ], [ %139, %lpad174 ], [ %.pn21.pn, %ehcleanup170 ], [ %.pn18.pn, %ehcleanup150 ], [ %108, %lpad128 ], [ %.pn15.pn, %ehcleanup124 ], [ %.pn12.pn, %ehcleanup104 ], [ %73, %lpad82 ], [ %.pn9.pn, %ehcleanup78 ], [ %.pn6.pn, %ehcleanup58 ], [ %42, %lpad36 ], [ %.pn3.pn, %ehcleanup32 ], [ %.pn.pn, %ehcleanup13 ], [ %11, %lpad ]
@@ -123896,11 +123896,11 @@ lpad.i:                                           ; preds = %if.then.i.i.i, %_ZN
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp126) #33
   br label %common.resume
 
-_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit: ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i
+_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit: ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, %call.i1.i.noexc.i, %if.then.i.i.i
   %call.i.i.i203 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.i.noexc202 unwind label %lpad128
 
-call.i.i.i.noexc202:                              ; preds = %_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit
+call.i.i.i.noexc202:                              ; preds = %_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit
   %97 = load i32, ptr %call.i.i.i203, align 4, !noalias !1575
   %cmp.i.i.i198 = icmp eq i32 %97, 2
   br i1 %cmp.i.i.i198, label %if.then.i.i201, label %_ZNK8CordTest6UseCrcEv.exit.i.i199
@@ -123956,7 +123956,7 @@ terminate.lpad.i216:                              ; preds = %if.then.i215
 
 _ZN4absl4CordD2Ev.exit217:                        ; preds = %invoke.cont129, %_ZN4absl4CordD2Ev.exit212, %if.then.i215
   store i32 2, ptr %ref.tmp133, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar131, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp133)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias align 8 %gtest_ar131, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp133)
   %107 = load i8, ptr %gtest_ar131, align 8
   %tobool.i218 = trunc i8 %107 to i1
   br i1 %tobool.i218, label %if.end149, label %if.else136
@@ -123966,7 +123966,7 @@ ehcleanup124:                                     ; preds = %_ZN7testing7Message
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar105) #33
   br label %common.resume
 
-lpad128:                                          ; preds = %if.then.i.i201, %_ZNK8CordTest6UseCrcEv.exit.i.i199, %_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit
+lpad128:                                          ; preds = %if.then.i.i201, %_ZNK8CordTest6UseCrcEv.exit.i.i199, %_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit
   %108 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp126) #33
@@ -124156,7 +124156,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit259:         ; preds = %if.end169, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i258
   store ptr null, ptr %message_.i256, align 8
   store i64 0, ptr %tracker, align 8
-  call fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias align 8 %agg.tmp172, i64 5, ptr nonnull @.str.708, ptr nonnull %tracker)
+  call fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom(ptr noalias align 8 %agg.tmp172, i64 5, ptr nonnull @.str.708, ptr nonnull %tracker)
   %call.i.i.i267 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.i.noexc266 unwind label %lpad174
 
@@ -124216,7 +124216,7 @@ terminate.lpad.i280:                              ; preds = %if.then.i279
 
 _ZN4absl4CordD2Ev.exit281:                        ; preds = %invoke.cont175, %_ZN4absl4CordD2Ev.exit276, %if.then.i279
   store i32 2, ptr %ref.tmp179, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar177, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp179)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias align 8 %gtest_ar177, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp179)
   %138 = load i8, ptr %gtest_ar177, align 8
   %tobool.i282 = trunc i8 %138 to i1
   br i1 %tobool.i282, label %if.end195, label %if.else182
@@ -124416,7 +124416,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit323:         ; preds = %if.end215, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i322
   store ptr null, ptr %message_.i320, align 8
   store i64 0, ptr %tracker, align 8
-  call fastcc void @_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias align 8 %agg.tmp218, i64 3, ptr nonnull @.str.42, ptr nonnull %tracker)
+  call fastcc void @_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom(ptr noalias align 8 %agg.tmp218, i64 3, ptr nonnull @.str.42, ptr nonnull %tracker)
   %call.i.i.i331 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.i.noexc330 unwind label %lpad220
 
@@ -124476,7 +124476,7 @@ terminate.lpad.i344:                              ; preds = %if.then.i343
 
 _ZN4absl4CordD2Ev.exit345:                        ; preds = %invoke.cont221, %_ZN4absl4CordD2Ev.exit340, %if.then.i343
   store i32 1, ptr %ref.tmp225, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar223, ptr noundef nonnull @.str.718, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp225)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias align 8 %gtest_ar223, ptr noundef nonnull @.str.718, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp225)
   %169 = load i8, ptr %gtest_ar223, align 8
   %tobool.i346 = trunc i8 %169 to i1
   br i1 %tobool.i346, label %if.end241, label %if.else228
@@ -124700,7 +124700,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias nonnull align 8 %agg.result, i64 %data.coerce0, ptr %data.coerce1, ptr %releaser.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom(ptr noalias nonnull align 8 %agg.result, i64 %data.coerce0, ptr %data.coerce1, ptr %releaser.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %cmp.i = icmp eq i64 %data.coerce0, 0
@@ -124754,7 +124754,7 @@ lpad:                                             ; preds = %invoke.cont4, %if.t
 
 invoke.cont4:                                     ; preds = %entry
   store i32 2, ptr %releaser.0.val, align 4
-  invoke fastcc void @_ZN4absl13cord_internal14InvokeReleaserIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaservEEvNS0_5Rank0EOT_St17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull %releaser.0.val)
+  invoke fastcc void @_ZN4absl13cord_internal14InvokeReleaserIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaservEEvNS0_5Rank0EOT_St17basic_string_viewIcSt11char_traitsIcEE.argprom.argelim(ptr nonnull %releaser.0.val)
           to label %nrvo.skipdtor unwind label %lpad
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont4, %call.i1.i.noexc, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i, %if.then.i.i
@@ -124762,7 +124762,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont4, %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr noundef %rhs_expression, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.argprom(ptr noalias nonnull align 8 %agg.result, ptr noundef %rhs_expression, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -124775,7 +124775,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
-  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
+  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1584
@@ -124789,7 +124789,7 @@ if.end.i:                                         ; preds = %entry
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.end.i
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i)
-          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !1597
+          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !1597
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
   %common.resume.op.i.i = phi { ptr, i32 } [ %2, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
@@ -124801,14 +124801,14 @@ lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #33, !noalias !1597
   br label %common.resume.i.i
 
-_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
+_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #33, !noalias !1597
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i.i.i), !noalias !1587
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !1598
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i)
           to label %.noexc.i.i unwind label %lpad.i.i, !noalias !1597
 
-.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
+.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
   %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i, i64 16
   %value.val.i.i.i6.i.i = load i32, ptr %rhs, align 4, !noalias !1603
   %call.i.i.i.i.i.i1.i.i.i7.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i5.i.i, i32 noundef %value.val.i.i.i6.i.i)
@@ -124828,9 +124828,9 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i9.
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #33, !noalias !1597
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !1598
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.714, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
-          to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i unwind label %lpad2.i.i
+          to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i unwind label %lpad2.i.i
 
-lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
+lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
@@ -124846,14 +124846,14 @@ ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #33
   br label %common.resume.i.i
 
-_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i: ; preds = %invoke.cont.i.i
+_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i: ; preds = %invoke.cont.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i) #33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1584
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i), !noalias !1584
-  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
+  br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit
 
-_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit: ; preds = %if.then.i, %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i
+_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit: ; preds = %if.then.i, %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom.exit.i
   ret void
 }
 
@@ -124885,7 +124885,7 @@ if.end.i:                                         ; preds = %entry
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.end.i
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i)
-          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !1619
+          to label %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !1619
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
   %common.resume.op.i.i = phi { ptr, i32 } [ %2, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
@@ -124897,14 +124897,14 @@ lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #33, !noalias !1619
   br label %common.resume.i.i
 
-_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
+_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #33, !noalias !1619
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i.i.i), !noalias !1609
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !1620
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i)
           to label %.noexc.i.i unwind label %lpad.i.i, !noalias !1619
 
-.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
+.noexc.i.i:                                       ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
   %add.ptr.i.i.i5.i.i = getelementptr inbounds i8, ptr %ss.i.i.i4.i.i, i64 16
   %value.val.i.i.i6.i.i = load i32, ptr %rhs, align 4, !noalias !1625
   %call.i.i.i.i.i.i1.i.i.i7.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i5.i.i, i32 noundef %value.val.i.i.i6.i.i)
@@ -124926,7 +124926,7 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i9.
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
           to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
-lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
+lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom.exit.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
@@ -124954,7 +124954,7 @@ _ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExtern
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias nonnull align 8 %agg.result, i64 %data.coerce0, ptr %data.coerce1, ptr %releaser.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom(ptr noalias nonnull align 8 %agg.result, i64 %data.coerce0, ptr %data.coerce1, ptr %releaser.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %cmp.i = icmp eq i64 %data.coerce0, 0
@@ -125008,7 +125008,7 @@ if.then.i.i:                                      ; preds = %call.i1.i.noexc
   invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i32 noundef 14)
           to label %nrvo.skipdtor unwind label %lpad
 
-lpad:                                             ; preds = %_ZZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvEN8ReleaserC2EOS1_.exit, %if.then.i.i, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i, %invoke.cont.i, %if.then
+lpad:                                             ; preds = %_ZZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvEN8ReleaserC2EOS1_.argprom.exit, %if.then.i.i, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i, %invoke.cont.i, %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #33
@@ -125017,22 +125017,22 @@ lpad:                                             ; preds = %_ZZN12_GLOBAL__N_16
 if.else:                                          ; preds = %entry
   %5 = load i32, ptr %releaser.0.val, align 4
   %cmp.i.i5 = icmp eq i32 %5, 0
-  br i1 %cmp.i.i5, label %if.then.i.i6, label %_ZZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvEN8ReleaserC2EOS1_.exit
+  br i1 %cmp.i.i5, label %if.then.i.i6, label %_ZZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvEN8ReleaserC2EOS1_.argprom.exit
 
 if.then.i.i6:                                     ; preds = %if.else
   store i32 1, ptr %releaser.0.val, align 4
-  br label %_ZZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvEN8ReleaserC2EOS1_.exit
+  br label %_ZZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvEN8ReleaserC2EOS1_.argprom.exit
 
-_ZZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvEN8ReleaserC2EOS1_.exit: ; preds = %if.else, %if.then.i.i6
-  invoke fastcc void @_ZN4absl13cord_internal14InvokeReleaserIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaservEEvNS0_5Rank0EOT_St17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull %releaser.0.val)
+_ZZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvEN8ReleaserC2EOS1_.argprom.exit: ; preds = %if.else, %if.then.i.i6
+  invoke fastcc void @_ZN4absl13cord_internal14InvokeReleaserIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaservEEvNS0_5Rank0EOT_St17basic_string_viewIcSt11char_traitsIcEE.argprom.argelim(ptr nonnull %releaser.0.val)
           to label %nrvo.skipdtor unwind label %lpad
 
-nrvo.skipdtor:                                    ; preds = %_ZZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvEN8ReleaserC2EOS1_.exit, %call.i1.i.noexc, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i, %if.then.i.i
+nrvo.skipdtor:                                    ; preds = %_ZZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvEN8ReleaserC2EOS1_.argprom.exit, %call.i1.i.noexc, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i, %if.then.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl13cord_internal14InvokeReleaserIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaservEEvNS0_5Rank0EOT_St17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture %releaser.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl13cord_internal14InvokeReleaserIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaservEEvNS0_5Rank0EOT_St17basic_string_viewIcSt11char_traitsIcEE.argprom.argelim(ptr nocapture %releaser.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar.i.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp.i.i.i.i.i = alloca i32, align 4
@@ -125134,18 +125134,18 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit.i.i.i.i.i
 
 _ZN7testing15AssertionResultD2Ev.exit.i.i.i.i.i:  ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i.i, %cleanup.i.i.i.i.i
-  br i1 %tobool.i.i.i.i.i.i, label %cleanup.cont.i.i.i.i.i, label %_ZSt6invokeIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserJRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.exit
+  br i1 %tobool.i.i.i.i.i.i, label %cleanup.cont.i.i.i.i.i, label %_ZSt6invokeIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserJRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.argprom.exit
 
 cleanup.cont.i.i.i.i.i:                           ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i.i.i.i.i
   store i32 2, ptr %invoked_as.i.i.i.i.i, align 4
-  br label %_ZSt6invokeIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserJRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.exit
+  br label %_ZSt6invokeIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserJRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.argprom.exit
 
 ehcleanup10.i.i.i.i.i:                            ; preds = %_ZN7testing7MessageD2Ev.exit7.i.i.i.i.i, %lpad.i.i.i.i.i
   %.pn.pn.i.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i, %_ZN7testing7MessageD2Ev.exit7.i.i.i.i.i ], [ %4, %lpad.i.i.i.i.i ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar.i.i.i.i.i) #33
   resume { ptr, i32 } %.pn.pn.i.i.i.i.i
 
-_ZSt6invokeIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserJRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i.i.i.i.i, %cleanup.cont.i.i.i.i.i
+_ZSt6invokeIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserJRSt17basic_string_viewIcSt11char_traitsIcEEEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.argprom.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i.i.i.i.i, %cleanup.cont.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i.i.i.i)
@@ -125162,7 +125162,7 @@ entry:
 delete.notnull:                                   ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %rep, i64 32
   %call.val.i = load ptr, ptr %add.ptr.i, align 8
-  invoke fastcc void @_ZN4absl13cord_internal14InvokeReleaserIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaservEEvNS0_5Rank0EOT_St17basic_string_viewIcSt11char_traitsIcEE(ptr %call.val.i)
+  invoke fastcc void @_ZN4absl13cord_internal14InvokeReleaserIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaservEEvNS0_5Rank0EOT_St17basic_string_viewIcSt11char_traitsIcEE.argprom.argelim(ptr %call.val.i)
           to label %_ZN4absl13cord_internal19CordRepExternalImplIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %delete.notnull
@@ -125804,18 +125804,18 @@ invoke.cont.i.i.i:                                ; preds = %call.i.noexc.i.i.i
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i.i.i: ; preds = %invoke.cont.i.i.i
   %dec.i.i.i.i.i = add nsw i64 %2, -1
   store i64 %dec.i.i.i.i.i, ptr %1, align 8, !noalias !1637
-  br label %"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_.exit.i.i"
+  br label %"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_.argprom.exit.i.i"
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i.i.i: ; preds = %invoke.cont.i.i.i
   %call.i1.i2.i.i.i = invoke noundef zeroext i1 @_ZN4absl13cord_internal25cordz_should_profile_slowEv()
           to label %call.i1.i.noexc.i.i.i unwind label %lpad.i.i.i, !noalias !1634
 
 call.i1.i.noexc.i.i.i:                            ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i.i.i
-  br i1 %call.i1.i2.i.i.i, label %if.then.i.i.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_.exit.i.i"
+  br i1 %call.i1.i2.i.i.i, label %if.then.i.i.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_.argprom.exit.i.i"
 
 if.then.i.i.i.i.i:                                ; preds = %call.i1.i.noexc.i.i.i
   invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 14)
-          to label %"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_.exit.i.i" unwind label %lpad.i.i.i
+          to label %"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_.argprom.exit.i.i" unwind label %lpad.i.i.i
 
 common.resume.i.i:                                ; preds = %lpad.i18.i, %lpad.i.i.i
   %common.resume.op.i.i = phi { ptr, i32 } [ %3, %lpad.i.i.i ], [ %8, %lpad.i18.i ]
@@ -125829,13 +125829,13 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i.i.i, 
 
 delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %call1.i.noexc.i
   call void @_ZdaPv(ptr noundef nonnull %call1.i19.i) #36, !noalias !1634
-  br label %"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_.exit.i.i"
+  br label %"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_.argprom.exit.i.i"
 
-"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_.exit.i.i": ; preds = %delete.notnull.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i, %call.i1.i.noexc.i.i.i, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i.i.i
+"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_.argprom.exit.i.i": ; preds = %delete.notnull.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i, %call.i1.i.noexc.i.i.i, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i.i.i
   invoke void @_ZN4absl4Cord6AppendEOS0_(ptr noundef nonnull align 8 dereferenceable(16) %full.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i18.i
 
-invoke.cont.i.i:                                  ; preds = %"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_.exit.i.i"
+invoke.cont.i.i:                                  ; preds = %"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_.argprom.exit.i.i"
   %4 = load i8, ptr %ref.tmp.i.i, align 8, !noalias !1631
   %5 = and i8 %4, 1
   %cmp.i.i.not.i.i.i = icmp eq i8 %5, 0
@@ -125852,7 +125852,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i6.i.i
   call void @__clang_call_terminate(ptr %7) #38
   unreachable
 
-lpad.i18.i:                                       ; preds = %"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_.exit.i.i"
+lpad.i18.i:                                       ; preds = %"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_.argprom.exit.i.i"
   %8 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i
@@ -126556,17 +126556,17 @@ delete.notnull:                                   ; preds = %entry
   %0 = getelementptr i8, ptr %rep, i64 16
   %rep.val1 = load ptr, ptr %0, align 8
   %isnull.i.i.i.i.i.i = icmp eq ptr %rep.val1, null
-  br i1 %isnull.i.i.i.i.i.i, label %"_ZN4absl13cord_internal19CordRepExternalImplIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0ED2Ev.exit", label %delete.notnull.i.i.i.i.i.i
+  br i1 %isnull.i.i.i.i.i.i, label %"_ZN4absl13cord_internal19CordRepExternalImplIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0ED2Ev.argprom.exit", label %delete.notnull.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %delete.notnull
   tail call void @_ZdaPv(ptr noundef nonnull %rep.val1) #36
-  br label %"_ZN4absl13cord_internal19CordRepExternalImplIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0ED2Ev.exit"
+  br label %"_ZN4absl13cord_internal19CordRepExternalImplIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0ED2Ev.argprom.exit"
 
-"_ZN4absl13cord_internal19CordRepExternalImplIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0ED2Ev.exit": ; preds = %delete.notnull, %delete.notnull.i.i.i.i.i.i
+"_ZN4absl13cord_internal19CordRepExternalImplIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0ED2Ev.argprom.exit": ; preds = %delete.notnull, %delete.notnull.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %rep) #36
   br label %delete.end
 
-delete.end:                                       ; preds = %"_ZN4absl13cord_internal19CordRepExternalImplIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0ED2Ev.exit", %entry
+delete.end:                                       ; preds = %"_ZN4absl13cord_internal19CordRepExternalImplIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0ED2Ev.argprom.exit", %entry
   ret void
 }
 
@@ -128420,7 +128420,7 @@ invoke.cont:
   %ref.tmp50 = alloca i64, align 8
   %ref.tmp56 = alloca %"class.testing::Message", align 8
   %ref.tmp59 = alloca %"class.testing::internal::AssertHelper", align 8
-  call fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %cord, i64 noundef 1000)
+  call fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc.argelim(ptr noalias align 8 %cord, i64 noundef 1000)
   %0 = load i8, ptr %cord, align 8
   %1 = and i8 %0, 1
   %cmp.i.i.not.i.i = icmp eq i8 %1, 0
@@ -128847,7 +128847,7 @@ ehcleanup70:                                      ; preds = %ehcleanup69, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias nonnull align 8 %agg.result, i64 noundef range(i64 600, 2001) %n) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc.argelim(ptr noalias nonnull align 8 %agg.result, i64 noundef range(i64 600, 2001) %n) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -128968,7 +128968,7 @@ invoke.cont:
   %ref.tmp50 = alloca i64, align 8
   %ref.tmp56 = alloca %"class.testing::Message", align 8
   %ref.tmp59 = alloca %"class.testing::internal::AssertHelper", align 8
-  call fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %flat, i64 noundef 2000)
+  call fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc.argelim(ptr noalias align 8 %flat, i64 noundef 2000)
   %0 = load i8, ptr %flat, align 8
   %1 = and i8 %0, 1
   %cmp.i.i.not.i.i = icmp eq i8 %1, 0
@@ -129502,7 +129502,7 @@ entry:
   %ref.tmp50 = alloca i64, align 8
   %ref.tmp56 = alloca %"class.testing::Message", align 8
   %ref.tmp59 = alloca %"class.testing::internal::AssertHelper", align 8
-  call fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %shared, i64 noundef 1000)
+  call fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc.argelim(ptr noalias align 8 %shared, i64 noundef 1000)
   %0 = load i8, ptr %shared, align 8
   %1 = and i8 %0, 1
   %cmp.i.i.not.i.i.i = icmp eq i8 %1, 0
@@ -130063,7 +130063,7 @@ entry:
   %ref.tmp101 = alloca i64, align 8
   %ref.tmp110 = alloca %"class.testing::Message", align 8
   %ref.tmp113 = alloca %"class.testing::internal::AssertHelper", align 8
-  call fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %shared, i64 noundef 1000)
+  call fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc.argelim(ptr noalias align 8 %shared, i64 noundef 1000)
   %0 = load i8, ptr %shared, align 8
   %1 = and i8 %0, 1
   %cmp.i.i.not.i.i.i = icmp eq i8 %1, 0
@@ -130974,7 +130974,7 @@ entry:
   %ref.tmp272 = alloca %"class.testing::Message", align 8
   %ref.tmp275 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cord1, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %flats1, i64 noundef 1000)
+  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc.argelim(ptr noalias align 8 %flats1, i64 noundef 1000)
           to label %invoke.cont unwind label %lpad.thread
 
 lpad.thread:                                      ; preds = %entry
@@ -130984,17 +130984,17 @@ lpad.thread:                                      ; preds = %entry
 
 invoke.cont:                                      ; preds = %entry
   %arrayinit.element = getelementptr inbounds i8, ptr %flats1, i64 16
-  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %arrayinit.element, i64 noundef 1100)
+  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc.argelim(ptr noalias align 8 %arrayinit.element, i64 noundef 1100)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %arrayinit.element3 = getelementptr inbounds i8, ptr %flats1, i64 32
-  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %arrayinit.element3, i64 noundef 1200)
+  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc.argelim(ptr noalias align 8 %arrayinit.element3, i64 noundef 1200)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   %arrayinit.element5 = getelementptr inbounds i8, ptr %flats1, i64 48
-  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %arrayinit.element5, i64 noundef 1300)
+  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc.argelim(ptr noalias align 8 %arrayinit.element5, i64 noundef 1300)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -131518,7 +131518,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit145:         ; preds = %if.end95, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i144
   store ptr null, ptr %message_.i142, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cord2, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %flats2, i64 noundef 600)
+  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc.argelim(ptr noalias align 8 %flats2, i64 noundef 600)
           to label %invoke.cont100 unwind label %lpad99.thread
 
 lpad99.thread:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit145
@@ -131528,17 +131528,17 @@ lpad99.thread:                                    ; preds = %_ZN7testing15Assert
 
 invoke.cont100:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit145
   %arrayinit.element101 = getelementptr inbounds i8, ptr %flats2, i64 16
-  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %arrayinit.element101, i64 noundef 700)
+  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc.argelim(ptr noalias align 8 %arrayinit.element101, i64 noundef 700)
           to label %invoke.cont102 unwind label %lpad99
 
 invoke.cont102:                                   ; preds = %invoke.cont100
   %arrayinit.element103 = getelementptr inbounds i8, ptr %flats2, i64 32
-  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %arrayinit.element103, i64 noundef 800)
+  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc.argelim(ptr noalias align 8 %arrayinit.element103, i64 noundef 800)
           to label %invoke.cont104 unwind label %lpad99
 
 invoke.cont104:                                   ; preds = %invoke.cont102
   %arrayinit.element105 = getelementptr inbounds i8, ptr %flats2, i64 48
-  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %arrayinit.element105, i64 noundef 900)
+  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc.argelim(ptr noalias align 8 %arrayinit.element105, i64 noundef 900)
           to label %invoke.cont106 unwind label %lpad99
 
 invoke.cont106:                                   ; preds = %invoke.cont104
@@ -137226,7 +137226,7 @@ invoke.cont10.i:                                  ; preds = %invoke.cont8.i
   %7 = load ptr, ptr %rep.i.i.i.i.i.i, align 8, !alias.scope !1728
   %cmp5.i.i = icmp eq ptr %7, null
   %cmp.i.i = select i1 %cmp.i.i.not.i.i.i, i1 true, i1 %cmp5.i.i
-  br i1 %cmp.i.i, label %"_ZNK12_GLOBAL__N_14$_28clEv.exit", label %if.else.i.i
+  br i1 %cmp.i.i, label %"_ZNK12_GLOBAL__N_14$_28clEv.argprom.exit", label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %invoke.cont10.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i, i8 0, i64 16, i1 false), !noalias !1728
@@ -137234,11 +137234,11 @@ if.else.i.i:                                      ; preds = %invoke.cont10.i
           to label %call6.i.noexc.i unwind label %lpad12.i
 
 call6.i.noexc.i:                                  ; preds = %if.else.i.i
-  br i1 %call6.i6.i, label %"_ZNK12_GLOBAL__N_14$_28clEv.exit", label %if.end8.i.i
+  br i1 %call6.i6.i, label %"_ZNK12_GLOBAL__N_14$_28clEv.argprom.exit", label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %call6.i.noexc.i
   %call9.i7.i = invoke { i64, ptr } @_ZN4absl4Cord15FlattenSlowPathEv(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
-          to label %"_ZNK12_GLOBAL__N_14$_28clEv.exit" unwind label %lpad12.i
+          to label %"_ZNK12_GLOBAL__N_14$_28clEv.argprom.exit" unwind label %lpad12.i
 
 lpad.i:                                           ; preds = %call.i.noexc.i, %entry
   %8 = landingpad { ptr, i32 }
@@ -137276,7 +137276,7 @@ eh.resume.i:                                      ; preds = %lpad12.i, %ehcleanu
   %.pn3.i = phi { ptr, i32 } [ %11, %lpad12.i ], [ %.pn.pn.i, %ehcleanup11.i ]
   resume { ptr, i32 } %.pn3.i
 
-"_ZNK12_GLOBAL__N_14$_28clEv.exit":               ; preds = %invoke.cont10.i, %call6.i.noexc.i, %if.end8.i.i
+"_ZNK12_GLOBAL__N_14$_28clEv.argprom.exit":       ; preds = %invoke.cont10.i, %call6.i.noexc.i, %if.end8.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i), !noalias !1728
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i)
@@ -137315,18 +137315,18 @@ invoke.cont.i.i:                                  ; preds = %call.i.noexc.i.i
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i.i: ; preds = %invoke.cont.i.i
   %dec.i.i.i.i = add nsw i64 %1, -1
   store i64 %dec.i.i.i.i, ptr %0, align 8, !noalias !1737
-  br label %"_ZNK12_GLOBAL__N_14$_23clEv.exit"
+  br label %"_ZNK12_GLOBAL__N_14$_23clEv.argprom.exit"
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i.i: ; preds = %invoke.cont.i.i
   %call.i1.i2.i.i = invoke noundef zeroext i1 @_ZN4absl13cord_internal25cordz_should_profile_slowEv()
           to label %call.i1.i.noexc.i.i unwind label %lpad.i.i, !noalias !1737
 
 call.i1.i.noexc.i.i:                              ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i.i
-  br i1 %call.i1.i2.i.i, label %if.then.i.i.i.i, label %"_ZNK12_GLOBAL__N_14$_23clEv.exit"
+  br i1 %call.i1.i2.i.i, label %if.then.i.i.i.i, label %"_ZNK12_GLOBAL__N_14$_23clEv.argprom.exit"
 
 if.then.i.i.i.i:                                  ; preds = %call.i1.i.noexc.i.i
   invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i32 noundef 14)
-          to label %"_ZNK12_GLOBAL__N_14$_23clEv.exit" unwind label %lpad.i.i
+          to label %"_ZNK12_GLOBAL__N_14$_23clEv.argprom.exit" unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i.i, %call.i.noexc.i.i, %entry
   %2 = landingpad { ptr, i32 }
@@ -137334,7 +137334,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i.i.i, %_
   tail call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #33
   resume { ptr, i32 } %2
 
-"_ZNK12_GLOBAL__N_14$_23clEv.exit":               ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i.i, %call.i1.i.noexc.i.i, %if.then.i.i.i.i
+"_ZNK12_GLOBAL__N_14$_23clEv.argprom.exit":       ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i.i, %call.i1.i.noexc.i.i, %if.then.i.i.i.i
   ret void
 }
 
@@ -137370,18 +137370,18 @@ invoke.cont.i.i:                                  ; preds = %call.i.noexc.i.i
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i.i: ; preds = %invoke.cont.i.i
   %dec.i.i.i.i = add nsw i64 %1, -1
   store i64 %dec.i.i.i.i, ptr %0, align 8, !noalias !1744
-  br label %"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_24clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit.i"
+  br label %"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_24clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit.i"
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i.i: ; preds = %invoke.cont.i.i
   %call.i1.i2.i.i = invoke noundef zeroext i1 @_ZN4absl13cord_internal25cordz_should_profile_slowEv()
           to label %call.i1.i.noexc.i.i unwind label %lpad.i.i, !noalias !1744
 
 call.i1.i.noexc.i.i:                              ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i.i
-  br i1 %call.i1.i2.i.i, label %if.then.i.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_24clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit.i"
+  br i1 %call.i1.i2.i.i, label %if.then.i.i.i.i, label %"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_24clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit.i"
 
 if.then.i.i.i.i:                                  ; preds = %call.i1.i.noexc.i.i
   invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %ext.i, i32 noundef 14)
-          to label %"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_24clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit.i" unwind label %lpad.i.i, !noalias !1741
+          to label %"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_24clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit.i" unwind label %lpad.i.i, !noalias !1741
 
 common.resume.i:                                  ; preds = %lpad3.i, %lpad.i, %lpad.i.i
   %common.resume.op.i = phi { ptr, i32 } [ %2, %lpad.i.i ], [ %22, %lpad3.i ], [ %21, %lpad.i ]
@@ -137393,7 +137393,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i.i.i, %_
           cleanup
   br label %common.resume.i
 
-"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_24clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit.i": ; preds = %if.then.i.i.i.i, %call.i1.i.noexc.i.i, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i.i
+"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_24clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit.i": ; preds = %if.then.i.i.i.i, %call.i1.i.noexc.i.i, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i.i
   %3 = load i8, ptr %ext.i, align 8, !noalias !1741
   %4 = and i8 %3, 1
   %cmp.i.i.not.i.i.i.i = icmp eq i8 %4, 0
@@ -137402,7 +137402,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i.i.i, %_
   %tobool.not.i.i.i = select i1 %cmp.i.i.not.i.i.i.i, i1 true, i1 %tobool.not4.i.i.i
   br i1 %tobool.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_24clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit.i"
+if.then.i.i.i:                                    ; preds = %"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_24clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit.i"
   %refcount.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = atomicrmw add ptr %refcount.i.i.i.i, i32 2 monotonic, align 4, !noalias !1741
   %rep.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 8
@@ -137421,7 +137421,7 @@ if.then.i.i.i.i.invoke.cont_crit_edge.i:          ; preds = %if.then.i.i.i.i.i
   %.pre.i = load i8, ptr %ext.i, align 8, !noalias !1741
   br label %invoke.cont.i
 
-if.else.i.i.i:                                    ; preds = %"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_24clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.exit.i"
+if.else.i.i.i:                                    ; preds = %"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_24clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(16) %ext.i, i64 16, i1 false), !noalias !1741
   br label %invoke.cont.i
 
@@ -137468,11 +137468,11 @@ _ZN4absl4CordD2Ev.exit.i:                         ; preds = %if.then.i4.i, %invo
   %17 = load i8, ptr %ext.i, align 8, !noalias !1741
   %18 = and i8 %17, 1
   %cmp.i.i.not.i6.i = icmp eq i8 %18, 0
-  br i1 %cmp.i.i.not.i6.i, label %"_ZNK12_GLOBAL__N_14$_24clEv.exit", label %if.then.i7.i
+  br i1 %cmp.i.i.not.i6.i, label %"_ZNK12_GLOBAL__N_14$_24clEv.argprom.exit", label %if.then.i7.i
 
 if.then.i7.i:                                     ; preds = %_ZN4absl4CordD2Ev.exit.i
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %ext.i)
-          to label %"_ZNK12_GLOBAL__N_14$_24clEv.exit" unwind label %terminate.lpad.i8.i
+          to label %"_ZNK12_GLOBAL__N_14$_24clEv.argprom.exit" unwind label %terminate.lpad.i8.i
 
 terminate.lpad.i8.i:                              ; preds = %if.then.i7.i
   %19 = landingpad { ptr, i32 }
@@ -137492,7 +137492,7 @@ lpad3.i:                                          ; preds = %invoke.cont4.i
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i) #33
   br label %common.resume.i
 
-"_ZNK12_GLOBAL__N_14$_24clEv.exit":               ; preds = %_ZN4absl4CordD2Ev.exit.i, %if.then.i7.i
+"_ZNK12_GLOBAL__N_14$_24clEv.argprom.exit":       ; preds = %_ZN4absl4CordD2Ev.exit.i, %if.then.i7.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ext.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp2.i)
   ret void
@@ -137584,11 +137584,11 @@ invoke.cont14.i:                                  ; preds = %invoke.cont13.i
   %8 = load i8, ptr %flat.i, align 8, !noalias !1745
   %9 = and i8 %8, 1
   %cmp.i.i.not.i.i = icmp eq i8 %9, 0
-  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_29clEv.exit", label %if.then.i8.i
+  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_29clEv.argprom.exit", label %if.then.i8.i
 
 if.then.i8.i:                                     ; preds = %invoke.cont14.i
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %flat.i)
-          to label %"_ZNK12_GLOBAL__N_14$_29clEv.exit" unwind label %terminate.lpad.i.i
+          to label %"_ZNK12_GLOBAL__N_14$_29clEv.argprom.exit" unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i8.i
   %10 = landingpad { ptr, i32 }
@@ -137633,7 +137633,7 @@ eh.resume.i:                                      ; preds = %lpad12.i, %ehcleanu
   %.pn3.i = phi { ptr, i32 } [ %15, %lpad12.i ], [ %.pn.pn.i, %ehcleanup11.i ]
   resume { ptr, i32 } %.pn3.i
 
-"_ZNK12_GLOBAL__N_14$_29clEv.exit":               ; preds = %invoke.cont14.i, %if.then.i8.i
+"_ZNK12_GLOBAL__N_14$_29clEv.argprom.exit":       ; preds = %invoke.cont14.i, %if.then.i8.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %flat.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i)
@@ -137749,11 +137749,11 @@ invoke.contthread-pre-split.i.i:                  ; preds = %for.body.i.i.i.i.i
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %nrvo.skipdtor.i
   %11 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %9, %nrvo.skipdtor.i ]
   %tobool.not.i.i.i.i = icmp eq ptr %11, null
-  br i1 %tobool.not.i.i.i.i, label %"_ZNK12_GLOBAL__N_14$_30clEv.exit", label %if.then.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %"_ZNK12_GLOBAL__N_14$_30clEv.argprom.exit", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
   call void @_ZdlPv(ptr noundef nonnull %11) #36
-  br label %"_ZNK12_GLOBAL__N_14$_30clEv.exit"
+  br label %"_ZNK12_GLOBAL__N_14$_30clEv.argprom.exit"
 
 ehcleanup15.i:                                    ; preds = %lpad12.i, %lpad9.i
   %.pn2.i = phi { ptr, i32 } [ %8, %lpad12.i ], [ %7, %lpad9.i ]
@@ -137764,7 +137764,7 @@ eh.resume.i:                                      ; preds = %ehcleanup15.i, %ehc
   %.pn2.pn.i = phi { ptr, i32 } [ %.pn2.i, %ehcleanup15.i ], [ %.pn.i, %ehcleanup.i ]
   resume { ptr, i32 } %.pn2.pn.i
 
-"_ZNK12_GLOBAL__N_14$_30clEv.exit":               ; preds = %invoke.cont.i.i, %if.then.i.i.i.i
+"_ZNK12_GLOBAL__N_14$_30clEv.argprom.exit":       ; preds = %invoke.cont.i.i, %if.then.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fragment.i) #33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %fragment.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
@@ -137951,11 +137951,11 @@ invoke.cont.i:                                    ; preds = %entry
   %1 = load i8, ptr %ref.tmp.i, align 8
   %2 = and i8 %1, 1
   %cmp.i.i.not.i.i = icmp eq i8 %2, 0
-  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_35clERN4absl4CordE.exit", label %if.then.i.i
+  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_35clERN4absl4CordE.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont.i
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
-          to label %"_ZNK12_GLOBAL__N_14$_35clERN4absl4CordE.exit" unwind label %terminate.lpad.i.i
+          to label %"_ZNK12_GLOBAL__N_14$_35clERN4absl4CordE.argprom.exit" unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %3 = landingpad { ptr, i32 }
@@ -137970,7 +137970,7 @@ lpad.i:                                           ; preds = %entry
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #33
   resume { ptr, i32 } %5
 
-"_ZNK12_GLOBAL__N_14$_35clERN4absl4CordE.exit":   ; preds = %invoke.cont.i, %if.then.i.i
+"_ZNK12_GLOBAL__N_14$_35clERN4absl4CordE.argprom.exit": ; preds = %invoke.cont.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i)
   ret void
@@ -138009,11 +138009,11 @@ invoke.cont2.i:                                   ; preds = %invoke.cont.i
   %1 = load i8, ptr %to_append.i, align 8
   %2 = and i8 %1, 1
   %cmp.i.i.not.i.i = icmp eq i8 %2, 0
-  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_37clERN4absl4CordE.exit", label %if.then.i.i
+  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_37clERN4absl4CordE.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont2.i
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %to_append.i)
-          to label %"_ZNK12_GLOBAL__N_14$_37clERN4absl4CordE.exit" unwind label %terminate.lpad.i.i
+          to label %"_ZNK12_GLOBAL__N_14$_37clERN4absl4CordE.argprom.exit" unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %3 = landingpad { ptr, i32 }
@@ -138028,7 +138028,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %ent
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %to_append.i) #33
   resume { ptr, i32 } %5
 
-"_ZNK12_GLOBAL__N_14$_37clERN4absl4CordE.exit":   ; preds = %invoke.cont2.i, %if.then.i.i
+"_ZNK12_GLOBAL__N_14$_37clERN4absl4CordE.argprom.exit": ; preds = %invoke.cont2.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %to_append.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   ret void
@@ -138060,14 +138060,14 @@ cond.true.i.i.i:                                  ; preds = %entry
   %rep.i.i.i.i.i.i = getelementptr inbounds i8, ptr %c, i64 8
   %2 = load ptr, ptr %rep.i.i.i.i.i.i, align 8
   %3 = load i64, ptr %2, align 8
-  br label %"_ZNK12_GLOBAL__N_14$_40clERN4absl4CordE.exit"
+  br label %"_ZNK12_GLOBAL__N_14$_40clERN4absl4CordE.argprom.exit"
 
 cond.false.i.i.i:                                 ; preds = %entry
   %conv.i.i.i.i.i.i = sext i8 %0 to i64
   %shr.i.i.i.i.i.i = lshr exact i64 %conv.i.i.i.i.i.i, 1
-  br label %"_ZNK12_GLOBAL__N_14$_40clERN4absl4CordE.exit"
+  br label %"_ZNK12_GLOBAL__N_14$_40clERN4absl4CordE.argprom.exit"
 
-"_ZNK12_GLOBAL__N_14$_40clERN4absl4CordE.exit":   ; preds = %cond.true.i.i.i, %cond.false.i.i.i
+"_ZNK12_GLOBAL__N_14$_40clERN4absl4CordE.argprom.exit": ; preds = %cond.true.i.i.i, %cond.false.i.i.i
   %cond.i.i.i = phi i64 [ %3, %cond.true.i.i.i ], [ %shr.i.i.i.i.i.i, %cond.false.i.i.i ]
   %div2.i = lshr i64 %cond.i.i.i, 1
   tail call void @_ZN4absl4Cord12RemoveSuffixEm(ptr noundef nonnull align 8 dereferenceable(16) %c, i64 noundef %div2.i)
@@ -138100,11 +138100,11 @@ invoke.cont.i:                                    ; preds = %entry
   %0 = load i8, ptr %ref.tmp.i, align 8
   %1 = and i8 %0, 1
   %cmp.i.i.not.i.i = icmp eq i8 %1, 0
-  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_43clERN4absl4CordE.exit", label %if.then.i.i
+  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_43clERN4absl4CordE.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont.i
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
-          to label %"_ZNK12_GLOBAL__N_14$_43clERN4absl4CordE.exit" unwind label %terminate.lpad.i.i
+          to label %"_ZNK12_GLOBAL__N_14$_43clERN4absl4CordE.argprom.exit" unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
@@ -138119,7 +138119,7 @@ lpad.i:                                           ; preds = %entry
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #33
   resume { ptr, i32 } %4
 
-"_ZNK12_GLOBAL__N_14$_43clERN4absl4CordE.exit":   ; preds = %invoke.cont.i, %if.then.i.i
+"_ZNK12_GLOBAL__N_14$_43clERN4absl4CordE.argprom.exit": ; preds = %invoke.cont.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   ret void
 }
@@ -138147,11 +138147,11 @@ invoke.cont2.i:                                   ; preds = %invoke.cont.i
   %0 = load i8, ptr %to_append.i, align 8
   %1 = and i8 %0, 1
   %cmp.i.i.not.i.i = icmp eq i8 %1, 0
-  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_45clERN4absl4CordE.exit", label %if.then.i.i
+  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_45clERN4absl4CordE.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont2.i
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %to_append.i)
-          to label %"_ZNK12_GLOBAL__N_14$_45clERN4absl4CordE.exit" unwind label %terminate.lpad.i.i
+          to label %"_ZNK12_GLOBAL__N_14$_45clERN4absl4CordE.argprom.exit" unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
@@ -138166,7 +138166,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %ent
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %to_append.i) #33
   resume { ptr, i32 } %4
 
-"_ZNK12_GLOBAL__N_14$_45clERN4absl4CordE.exit":   ; preds = %invoke.cont2.i, %if.then.i.i
+"_ZNK12_GLOBAL__N_14$_45clERN4absl4CordE.argprom.exit": ; preds = %invoke.cont2.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %to_append.i)
   ret void
 }
@@ -138213,11 +138213,11 @@ invoke.cont.i:                                    ; preds = %entry
   %1 = load i8, ptr %ref.tmp.i, align 8
   %2 = and i8 %1, 1
   %cmp.i.i.not.i.i = icmp eq i8 %2, 0
-  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_49clERN4absl4CordE.exit", label %if.then.i.i
+  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_49clERN4absl4CordE.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont.i
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
-          to label %"_ZNK12_GLOBAL__N_14$_49clERN4absl4CordE.exit" unwind label %terminate.lpad.i.i
+          to label %"_ZNK12_GLOBAL__N_14$_49clERN4absl4CordE.argprom.exit" unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %3 = landingpad { ptr, i32 }
@@ -138232,7 +138232,7 @@ lpad.i:                                           ; preds = %entry
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #33
   resume { ptr, i32 } %5
 
-"_ZNK12_GLOBAL__N_14$_49clERN4absl4CordE.exit":   ; preds = %invoke.cont.i, %if.then.i.i
+"_ZNK12_GLOBAL__N_14$_49clERN4absl4CordE.argprom.exit": ; preds = %invoke.cont.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i)
   ret void
@@ -138271,11 +138271,11 @@ invoke.cont2.i:                                   ; preds = %invoke.cont.i
   %1 = load i8, ptr %to_prepend.i, align 8
   %2 = and i8 %1, 1
   %cmp.i.i.not.i.i = icmp eq i8 %2, 0
-  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_51clERN4absl4CordE.exit", label %if.then.i.i
+  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_51clERN4absl4CordE.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont2.i
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %to_prepend.i)
-          to label %"_ZNK12_GLOBAL__N_14$_51clERN4absl4CordE.exit" unwind label %terminate.lpad.i.i
+          to label %"_ZNK12_GLOBAL__N_14$_51clERN4absl4CordE.argprom.exit" unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %3 = landingpad { ptr, i32 }
@@ -138290,7 +138290,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %ent
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %to_prepend.i) #33
   resume { ptr, i32 } %5
 
-"_ZNK12_GLOBAL__N_14$_51clERN4absl4CordE.exit":   ; preds = %invoke.cont2.i, %if.then.i.i
+"_ZNK12_GLOBAL__N_14$_51clERN4absl4CordE.argprom.exit": ; preds = %invoke.cont2.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %to_prepend.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   ret void
@@ -138329,11 +138329,11 @@ invoke.cont.i:                                    ; preds = %entry
   %0 = load i8, ptr %ref.tmp.i, align 8
   %1 = and i8 %0, 1
   %cmp.i.i.not.i.i = icmp eq i8 %1, 0
-  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_55clERN4absl4CordE.exit", label %if.then.i.i
+  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_55clERN4absl4CordE.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont.i
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
-          to label %"_ZNK12_GLOBAL__N_14$_55clERN4absl4CordE.exit" unwind label %terminate.lpad.i.i
+          to label %"_ZNK12_GLOBAL__N_14$_55clERN4absl4CordE.argprom.exit" unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
@@ -138348,7 +138348,7 @@ lpad.i:                                           ; preds = %entry
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #33
   resume { ptr, i32 } %4
 
-"_ZNK12_GLOBAL__N_14$_55clERN4absl4CordE.exit":   ; preds = %invoke.cont.i, %if.then.i.i
+"_ZNK12_GLOBAL__N_14$_55clERN4absl4CordE.argprom.exit": ; preds = %invoke.cont.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   ret void
 }
@@ -138376,11 +138376,11 @@ invoke.cont2.i:                                   ; preds = %invoke.cont.i
   %0 = load i8, ptr %to_prepend.i, align 8
   %1 = and i8 %0, 1
   %cmp.i.i.not.i.i = icmp eq i8 %1, 0
-  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_57clERN4absl4CordE.exit", label %if.then.i.i
+  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_57clERN4absl4CordE.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont2.i
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %to_prepend.i)
-          to label %"_ZNK12_GLOBAL__N_14$_57clERN4absl4CordE.exit" unwind label %terminate.lpad.i.i
+          to label %"_ZNK12_GLOBAL__N_14$_57clERN4absl4CordE.argprom.exit" unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
@@ -138395,7 +138395,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %ent
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %to_prepend.i) #33
   resume { ptr, i32 } %4
 
-"_ZNK12_GLOBAL__N_14$_57clERN4absl4CordE.exit":   ; preds = %invoke.cont2.i, %if.then.i.i
+"_ZNK12_GLOBAL__N_14$_57clERN4absl4CordE.argprom.exit": ; preds = %invoke.cont2.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %to_prepend.i)
   ret void
 }
@@ -138425,14 +138425,14 @@ cond.true.i.i.i:                                  ; preds = %entry
   %rep.i.i.i.i.i.i = getelementptr inbounds i8, ptr %c, i64 8
   %2 = load ptr, ptr %rep.i.i.i.i.i.i, align 8
   %3 = load i64, ptr %2, align 8
-  br label %"_ZNK12_GLOBAL__N_14$_60clERN4absl4CordE.exit"
+  br label %"_ZNK12_GLOBAL__N_14$_60clERN4absl4CordE.argprom.exit"
 
 cond.false.i.i.i:                                 ; preds = %entry
   %conv.i.i.i.i.i.i = sext i8 %0 to i64
   %shr.i.i.i.i.i.i = lshr exact i64 %conv.i.i.i.i.i.i, 1
-  br label %"_ZNK12_GLOBAL__N_14$_60clERN4absl4CordE.exit"
+  br label %"_ZNK12_GLOBAL__N_14$_60clERN4absl4CordE.argprom.exit"
 
-"_ZNK12_GLOBAL__N_14$_60clERN4absl4CordE.exit":   ; preds = %cond.true.i.i.i, %cond.false.i.i.i
+"_ZNK12_GLOBAL__N_14$_60clERN4absl4CordE.argprom.exit": ; preds = %cond.true.i.i.i, %cond.false.i.i.i
   %cond.i.i.i = phi i64 [ %3, %cond.true.i.i.i ], [ %shr.i.i.i.i.i.i, %cond.false.i.i.i ]
   %div2.i = lshr i64 %cond.i.i.i, 1
   tail call void @_ZN4absl4Cord12RemovePrefixEm(ptr noundef nonnull align 8 dereferenceable(16) %c, i64 noundef %div2.i)
@@ -138451,14 +138451,14 @@ cond.true.i.i.i:                                  ; preds = %entry
   %rep.i.i.i.i.i.i = getelementptr inbounds i8, ptr %c, i64 8
   %2 = load ptr, ptr %rep.i.i.i.i.i.i, align 8
   %3 = load i64, ptr %2, align 8
-  br label %"_ZNK12_GLOBAL__N_14$_61clERN4absl4CordE.exit"
+  br label %"_ZNK12_GLOBAL__N_14$_61clERN4absl4CordE.argprom.exit"
 
 cond.false.i.i.i:                                 ; preds = %entry
   %conv.i.i.i.i.i.i = sext i8 %0 to i64
   %shr.i.i.i.i.i.i = lshr exact i64 %conv.i.i.i.i.i.i, 1
-  br label %"_ZNK12_GLOBAL__N_14$_61clERN4absl4CordE.exit"
+  br label %"_ZNK12_GLOBAL__N_14$_61clERN4absl4CordE.argprom.exit"
 
-"_ZNK12_GLOBAL__N_14$_61clERN4absl4CordE.exit":   ; preds = %cond.true.i.i.i, %cond.false.i.i.i
+"_ZNK12_GLOBAL__N_14$_61clERN4absl4CordE.argprom.exit": ; preds = %cond.true.i.i.i, %cond.false.i.i.i
   %cond.i.i.i = phi i64 [ %3, %cond.true.i.i.i ], [ %shr.i.i.i.i.i.i, %cond.false.i.i.i ]
   %div2.i = lshr i64 %cond.i.i.i, 1
   tail call void @_ZN4absl4Cord12RemovePrefixEm(ptr noundef nonnull align 8 dereferenceable(16) %c, i64 noundef %div2.i)
@@ -138477,14 +138477,14 @@ cond.true.i.i.i:                                  ; preds = %entry
   %rep.i.i.i.i.i.i = getelementptr inbounds i8, ptr %c, i64 8
   %2 = load ptr, ptr %rep.i.i.i.i.i.i, align 8
   %3 = load i64, ptr %2, align 8
-  br label %"_ZNK12_GLOBAL__N_14$_62clERN4absl4CordE.exit"
+  br label %"_ZNK12_GLOBAL__N_14$_62clERN4absl4CordE.argprom.exit"
 
 cond.false.i.i.i:                                 ; preds = %entry
   %conv.i.i.i.i.i.i = sext i8 %0 to i64
   %shr.i.i.i.i.i.i = lshr exact i64 %conv.i.i.i.i.i.i, 1
-  br label %"_ZNK12_GLOBAL__N_14$_62clERN4absl4CordE.exit"
+  br label %"_ZNK12_GLOBAL__N_14$_62clERN4absl4CordE.argprom.exit"
 
-"_ZNK12_GLOBAL__N_14$_62clERN4absl4CordE.exit":   ; preds = %cond.true.i.i.i, %cond.false.i.i.i
+"_ZNK12_GLOBAL__N_14$_62clERN4absl4CordE.argprom.exit": ; preds = %cond.true.i.i.i, %cond.false.i.i.i
   %cond.i.i.i = phi i64 [ %3, %cond.true.i.i.i ], [ %shr.i.i.i.i.i.i, %cond.false.i.i.i ]
   %div2.i = lshr i64 %cond.i.i.i, 1
   tail call void @_ZN4absl4Cord12RemoveSuffixEm(ptr noundef nonnull align 8 dereferenceable(16) %c, i64 noundef %div2.i)
@@ -138533,11 +138533,11 @@ _ZNK4absl4Cord4sizeEv.exit.i:                     ; preds = %cond.false.i.i.i, %
   %4 = load i8, ptr %c, align 8
   %5 = and i8 %4, 1
   %cmp.i.i.not.i.i3.i = icmp eq i8 %5, 0
-  br i1 %cmp.i.i.not.i.i3.i, label %"_ZNK12_GLOBAL__N_14$_65clERN4absl4CordE.exit", label %if.then.i.i.i
+  br i1 %cmp.i.i.not.i.i3.i, label %"_ZNK12_GLOBAL__N_14$_65clERN4absl4CordE.argprom.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK4absl4Cord4sizeEv.exit.i
   invoke void @_ZN4absl4Cord9InlineRep9UnrefTreeEv(ptr noundef nonnull align 8 dereferenceable(16) %c)
-          to label %"_ZNK12_GLOBAL__N_14$_65clERN4absl4CordE.exit" unwind label %terminate.lpad.i.i.i
+          to label %"_ZNK12_GLOBAL__N_14$_65clERN4absl4CordE.argprom.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %6 = landingpad { ptr, i32 }
@@ -138546,7 +138546,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   call void @__clang_call_terminate(ptr %7) #38
   unreachable
 
-"_ZNK12_GLOBAL__N_14$_65clERN4absl4CordE.exit":   ; preds = %_ZNK4absl4Cord4sizeEv.exit.i, %if.then.i.i.i
+"_ZNK12_GLOBAL__N_14$_65clERN4absl4CordE.argprom.exit": ; preds = %_ZNK4absl4Cord4sizeEv.exit.i, %if.then.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   ret void
@@ -138574,11 +138574,11 @@ _ZN4absl4Cord4swapERS0_.exit.i:                   ; preds = %if.end.i.i.i, %entr
   %0 = load i8, ptr %other.i, align 8
   %1 = and i8 %0, 1
   %cmp.i.i.not.i.i = icmp eq i8 %1, 0
-  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_66clERN4absl4CordE.exit", label %if.then.i.i
+  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_66clERN4absl4CordE.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl4Cord4swapERS0_.exit.i
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %other.i)
-          to label %"_ZNK12_GLOBAL__N_14$_66clERN4absl4CordE.exit" unwind label %terminate.lpad.i.i
+          to label %"_ZNK12_GLOBAL__N_14$_66clERN4absl4CordE.argprom.exit" unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
@@ -138587,7 +138587,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   call void @__clang_call_terminate(ptr %3) #38
   unreachable
 
-"_ZNK12_GLOBAL__N_14$_66clERN4absl4CordE.exit":   ; preds = %_ZN4absl4Cord4swapERS0_.exit.i, %if.then.i.i
+"_ZNK12_GLOBAL__N_14$_66clERN4absl4CordE.argprom.exit": ; preds = %_ZN4absl4Cord4swapERS0_.exit.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %other.i)
   ret void
 }
@@ -138642,11 +138642,11 @@ _ZN4absl4Cord4swapERS0_.exit.i:                   ; preds = %if.end.i.i.i, %invo
   %1 = load i8, ptr %other.i, align 8
   %2 = and i8 %1, 1
   %cmp.i.i.not.i.i = icmp eq i8 %2, 0
-  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_67clERN4absl4CordE.exit", label %if.then.i.i
+  br i1 %cmp.i.i.not.i.i, label %"_ZNK12_GLOBAL__N_14$_67clERN4absl4CordE.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl4Cord4swapERS0_.exit.i
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %other.i)
-          to label %"_ZNK12_GLOBAL__N_14$_67clERN4absl4CordE.exit" unwind label %terminate.lpad.i.i
+          to label %"_ZNK12_GLOBAL__N_14$_67clERN4absl4CordE.argprom.exit" unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %3 = landingpad { ptr, i32 }
@@ -138671,7 +138671,7 @@ ehcleanup.i:                                      ; preds = %lpad3.i, %lpad.i, %
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #33
   resume { ptr, i32 } %.pn.i
 
-"_ZNK12_GLOBAL__N_14$_67clERN4absl4CordE.exit":   ; preds = %_ZN4absl4Cord4swapERS0_.exit.i, %if.then.i.i
+"_ZNK12_GLOBAL__N_14$_67clERN4absl4CordE.argprom.exit": ; preds = %_ZN4absl4Cord4swapERS0_.exit.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %other.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
@@ -141166,17 +141166,17 @@ delete.notnull:                                   ; preds = %entry
   %0 = getelementptr i8, ptr %rep, i64 16
   %rep.val1 = load ptr, ptr %0, align 8
   %isnull.i.i.i.i.i.i = icmp eq ptr %rep.val1, null
-  br i1 %isnull.i.i.i.i.i.i, label %"_ZN4absl13cord_internal19CordRepExternalImplIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0ED2Ev.exit", label %delete.notnull.i.i.i.i.i.i
+  br i1 %isnull.i.i.i.i.i.i, label %"_ZN4absl13cord_internal19CordRepExternalImplIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0ED2Ev.argprom.exit", label %delete.notnull.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %delete.notnull
   tail call void @_ZdaPv(ptr noundef nonnull %rep.val1) #36
-  br label %"_ZN4absl13cord_internal19CordRepExternalImplIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0ED2Ev.exit"
+  br label %"_ZN4absl13cord_internal19CordRepExternalImplIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0ED2Ev.argprom.exit"
 
-"_ZN4absl13cord_internal19CordRepExternalImplIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0ED2Ev.exit": ; preds = %delete.notnull, %delete.notnull.i.i.i.i.i.i
+"_ZN4absl13cord_internal19CordRepExternalImplIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0ED2Ev.argprom.exit": ; preds = %delete.notnull, %delete.notnull.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %rep) #36
   br label %delete.end
 
-delete.end:                                       ; preds = %"_ZN4absl13cord_internal19CordRepExternalImplIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0ED2Ev.exit", %entry
+delete.end:                                       ; preds = %"_ZN4absl13cord_internal19CordRepExternalImplIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0ED2Ev.argprom.exit", %entry
   ret void
 }
 
@@ -157394,8 +157394,8 @@ attributes #41 = { nounwind willreturn memory(read) }
 !24 = distinct !{!24, !16}
 !25 = distinct !{!25, !16}
 !26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN4absl20MakeCordFromExternalIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!28 = distinct !{!28, !"_ZN4absl20MakeCordFromExternalIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!27 = distinct !{!27, !28, !"_ZN4absl20MakeCordFromExternalIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!28 = distinct !{!28, !"_ZN4absl20MakeCordFromExternalIZN38CordTest_GigabyteCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !29 = distinct !{!29, !16}
 !30 = !{!31, !33}
 !31 = distinct !{!31, !32, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA9_cEENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
@@ -157945,8 +157945,8 @@ attributes #41 = { nounwind willreturn memory(read) }
 !575 = distinct !{!575, !576, !"_ZNK4absl4Cord7TryFlatEv: %agg.result"}
 !576 = distinct !{!576, !"_ZNK4absl4Cord7TryFlatEv"}
 !577 = !{!578}
-!578 = distinct !{!578, !579, !"_ZN4absl20MakeCordFromExternalIZN29CordTest_TryFlatExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!579 = distinct !{!579, !"_ZN4absl20MakeCordFromExternalIZN29CordTest_TryFlatExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!578 = distinct !{!578, !579, !"_ZN4absl20MakeCordFromExternalIZN29CordTest_TryFlatExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!579 = distinct !{!579, !"_ZN4absl20MakeCordFromExternalIZN29CordTest_TryFlatExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !580 = !{!581}
 !581 = distinct !{!581, !582, !"_ZNK4absl4Cord7TryFlatEv: %agg.result"}
 !582 = distinct !{!582, !"_ZNK4absl4Cord7TryFlatEv"}
@@ -157956,8 +157956,8 @@ attributes #41 = { nounwind willreturn memory(read) }
 !586 = distinct !{!586, !587, !"_ZN7testing8internal8EqHelper7CompareISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEA5_cTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_: %agg.result"}
 !587 = distinct !{!587, !"_ZN7testing8internal8EqHelper7CompareISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEA5_cTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_"}
 !588 = !{!589}
-!589 = distinct !{!589, !590, !"_ZN4absl20MakeCordFromExternalIZN35CordTest_TryFlatSubstrExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!590 = distinct !{!590, !"_ZN4absl20MakeCordFromExternalIZN35CordTest_TryFlatSubstrExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!589 = distinct !{!589, !590, !"_ZN4absl20MakeCordFromExternalIZN35CordTest_TryFlatSubstrExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!590 = distinct !{!590, !"_ZN4absl20MakeCordFromExternalIZN35CordTest_TryFlatSubstrExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !591 = !{!592}
 !592 = distinct !{!592, !593, !"_ZNK4absl4Cord7TryFlatEv: %agg.result"}
 !593 = distinct !{!593, !"_ZNK4absl4Cord7TryFlatEv"}
@@ -158038,8 +158038,8 @@ attributes #41 = { nounwind willreturn memory(read) }
 !668 = distinct !{!668, !669, !"_ZL8MakeHugeSt17basic_string_viewIcSt11char_traitsIcEE: %agg.result"}
 !669 = distinct !{!669, !"_ZL8MakeHugeSt17basic_string_viewIcSt11char_traitsIcEE"}
 !670 = !{!671}
-!671 = distinct !{!671, !672, !"_ZN4absl20MakeCordFromExternalIZL8MakeHugeSt17basic_string_viewIcSt11char_traitsIcEEE3$_0EENS_4CordES4_OT_: %agg.result"}
-!672 = distinct !{!672, !"_ZN4absl20MakeCordFromExternalIZL8MakeHugeSt17basic_string_viewIcSt11char_traitsIcEEE3$_0EENS_4CordES4_OT_"}
+!671 = distinct !{!671, !672, !"_ZN4absl20MakeCordFromExternalIZL8MakeHugeSt17basic_string_viewIcSt11char_traitsIcEEE3$_0EENS_4CordES4_OT_.argprom: %agg.result"}
+!672 = distinct !{!672, !"_ZN4absl20MakeCordFromExternalIZL8MakeHugeSt17basic_string_viewIcSt11char_traitsIcEEE3$_0EENS_4CordES4_OT_.argprom"}
 !673 = !{!671, !668}
 !674 = !{!675}
 !675 = distinct !{!675, !676, !"_ZN7testing8internal11CmpHelperLEImmEENS_15AssertionResultEPKcS4_RKT_RKT0_: %agg.result"}
@@ -158136,8 +158136,8 @@ attributes #41 = { nounwind willreturn memory(read) }
 !766 = distinct !{!766, !767, !"_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
 !767 = distinct !{!767, !"_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
 !768 = !{!769}
-!769 = distinct !{!769, !770, !"_ZN4absl20MakeCordFromExternalIZN38CordTest_AdvanceAndReadOnDataEdge_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!770 = distinct !{!770, !"_ZN4absl20MakeCordFromExternalIZN38CordTest_AdvanceAndReadOnDataEdge_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!769 = distinct !{!769, !770, !"_ZN4absl20MakeCordFromExternalIZN38CordTest_AdvanceAndReadOnDataEdge_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!770 = distinct !{!770, !"_ZN4absl20MakeCordFromExternalIZN38CordTest_AdvanceAndReadOnDataEdge_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !771 = !{!772, !774}
 !772 = distinct !{!772, !773, !"_ZN7testing8internal11CmpHelperEQIN4absl4CordENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSC_RKT_RKT0_: %agg.result"}
 !773 = distinct !{!773, !"_ZN7testing8internal11CmpHelperEQIN4absl4CordENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSC_RKT_RKT0_"}
@@ -158159,8 +158159,8 @@ attributes #41 = { nounwind willreturn memory(read) }
 !789 = distinct !{!789, !790, !"_ZN7testing8internal8EqHelper7CompareIN4absl4CordENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_: %agg.result"}
 !790 = distinct !{!790, !"_ZN7testing8internal8EqHelper7CompareIN4absl4CordENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_"}
 !791 = !{!792}
-!792 = distinct !{!792, !793, !"_ZN4absl20MakeCordFromExternalIZN47CordTest_AdvanceAndReadOnSubstringDataEdge_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!793 = distinct !{!793, !"_ZN4absl20MakeCordFromExternalIZN47CordTest_AdvanceAndReadOnSubstringDataEdge_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!792 = distinct !{!792, !793, !"_ZN4absl20MakeCordFromExternalIZN47CordTest_AdvanceAndReadOnSubstringDataEdge_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!793 = distinct !{!793, !"_ZN4absl20MakeCordFromExternalIZN47CordTest_AdvanceAndReadOnSubstringDataEdge_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !794 = !{!795, !797}
 !795 = distinct !{!795, !796, !"_ZN7testing8internal11CmpHelperEQIN4absl4CordENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSC_RKT_RKT0_: %agg.result"}
 !796 = distinct !{!796, !"_ZN7testing8internal11CmpHelperEQIN4absl4CordENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSC_RKT_RKT0_"}
@@ -158555,8 +158555,8 @@ attributes #41 = { nounwind willreturn memory(read) }
 !1185 = !{!1186}
 !1186 = distinct !{!1186, !1184, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoI8CordTestE8TestInfoEES7_SaIS7_EEvPT_PT0_RT1_: %__orig"}
 !1187 = !{!1188}
-!1188 = distinct !{!1188, !1189, !"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_: %agg.result"}
-!1189 = distinct !{!1189, !"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_"}
+!1188 = distinct !{!1188, !1189, !"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_.argprom: %agg.result"}
+!1189 = distinct !{!1189, !"_ZN4absl20MakeCordFromExternalIZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPNS_4CordEE3$_0EES5_S4_OT_.argprom"}
 !1190 = !{!1191, !1193}
 !1191 = distinct !{!1191, !1192, !"_ZN7testing8internal11CmpHelperEQISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS4_SaIcEEEEENS_15AssertionResultEPKcSC_RKT_RKT0_: %agg.result"}
 !1192 = distinct !{!1192, !"_ZN7testing8internal11CmpHelperEQISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS4_SaIcEEEEENS_15AssertionResultEPKcSC_RKT_RKT0_"}
@@ -158622,8 +158622,8 @@ attributes #41 = { nounwind willreturn memory(read) }
 !1252 = distinct !{!1252, !1253, !"_ZN7testing13PrintToStringIPKvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !1253 = distinct !{!1253, !"_ZN7testing13PrintToStringIPKvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
 !1254 = !{!1255}
-!1255 = distinct !{!1255, !1256, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_149CordTest_RemoveSuffixWithExternalOrSubstring_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!1256 = distinct !{!1256, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_149CordTest_RemoveSuffixWithExternalOrSubstring_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!1255 = distinct !{!1255, !1256, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_149CordTest_RemoveSuffixWithExternalOrSubstring_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!1256 = distinct !{!1256, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_149CordTest_RemoveSuffixWithExternalOrSubstring_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !1257 = !{!1258, !1260}
 !1258 = distinct !{!1258, !1259, !"_ZN7testing8internal11CmpHelperEQIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
 !1259 = distinct !{!1259, !"_ZN7testing8internal11CmpHelperEQIA12_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_"}
@@ -158699,10 +158699,10 @@ attributes #41 = { nounwind willreturn memory(read) }
 !1329 = distinct !{!1329, !1330, !"_ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_: %agg.result"}
 !1330 = distinct !{!1330, !"_ZN7testing8internal8EqHelper7CompareIA11_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_"}
 !1331 = !{!1332}
-!1332 = distinct !{!1332, !1333, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!1333 = distinct !{!1333, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!1332 = distinct !{!1332, !1333, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!1333 = distinct !{!1333, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !1334 = !{!1335}
-!1335 = distinct !{!1335, !1333, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result:thread"}
+!1335 = distinct !{!1335, !1333, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result:thread"}
 !1336 = !{!1337, !1339}
 !1337 = distinct !{!1337, !1338, !"_ZN7testing8internal19FormatForComparisonIimE6FormatB5cxx11ERKi: %agg.result"}
 !1338 = distinct !{!1338, !"_ZN7testing8internal19FormatForComparisonIimE6FormatB5cxx11ERKi"}
@@ -158738,8 +158738,8 @@ attributes #41 = { nounwind willreturn memory(read) }
 !1368 = distinct !{!1368, !1369, !"_ZN7testing13PrintToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_: %agg.result"}
 !1369 = distinct !{!1369, !"_ZN7testing13PrintToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_"}
 !1370 = !{!1371, !1373}
-!1371 = distinct !{!1371, !1372, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result:thread"}
-!1372 = distinct !{!1372, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!1371 = distinct !{!1371, !1372, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result:thread"}
+!1372 = distinct !{!1372, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_116CordWithZedBlockEmE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !1373 = distinct !{!1373, !1374, !"_ZN12_GLOBAL__N_116CordWithZedBlockEm: %agg.result"}
 !1374 = distinct !{!1374, !"_ZN12_GLOBAL__N_116CordWithZedBlockEm"}
 !1375 = !{!1376, !1378}
@@ -158841,20 +158841,20 @@ attributes #41 = { nounwind willreturn memory(read) }
 !1471 = distinct !{!1471, !1472, !"_ZL16MakeExternalCordi: %agg.result"}
 !1472 = distinct !{!1472, !"_ZL16MakeExternalCordi"}
 !1473 = !{!1474}
-!1474 = distinct !{!1474, !1475, !"_ZN4absl20MakeCordFromExternalIZL16MakeExternalCordiE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!1475 = distinct !{!1475, !"_ZN4absl20MakeCordFromExternalIZL16MakeExternalCordiE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!1474 = distinct !{!1474, !1475, !"_ZN4absl20MakeCordFromExternalIZL16MakeExternalCordiE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!1475 = distinct !{!1475, !"_ZN4absl20MakeCordFromExternalIZL16MakeExternalCordiE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !1476 = !{!1474, !1471}
 !1477 = distinct !{!1477, !16}
 !1478 = distinct !{!1478, !16}
 !1479 = !{!1480}
-!1480 = distinct !{!1480, !1481, !"_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_150CordTest_ConstructFromExternalReleaserInvoked_Test8TestBodyEvE3$_1EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!1481 = distinct !{!1481, !"_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_150CordTest_ConstructFromExternalReleaserInvoked_Test8TestBodyEvE3$_1EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!1480 = distinct !{!1480, !1481, !"_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_150CordTest_ConstructFromExternalReleaserInvoked_Test8TestBodyEvE3$_1EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!1481 = distinct !{!1481, !"_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_150CordTest_ConstructFromExternalReleaserInvoked_Test8TestBodyEvE3$_1EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !1482 = !{!1483}
-!1483 = distinct !{!1483, !1484, !"_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_150CordTest_ConstructFromExternalReleaserInvoked_Test8TestBodyEvE3$_2EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!1484 = distinct !{!1484, !"_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_150CordTest_ConstructFromExternalReleaserInvoked_Test8TestBodyEvE3$_2EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!1483 = distinct !{!1483, !1484, !"_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_150CordTest_ConstructFromExternalReleaserInvoked_Test8TestBodyEvE3$_2EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!1484 = distinct !{!1484, !"_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_150CordTest_ConstructFromExternalReleaserInvoked_Test8TestBodyEvE3$_2EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !1485 = !{!1486}
-!1486 = distinct !{!1486, !1487, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_150CordTest_ConstructFromExternalCompareContents_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!1487 = distinct !{!1487, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_150CordTest_ConstructFromExternalCompareContents_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!1486 = distinct !{!1486, !1487, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_150CordTest_ConstructFromExternalCompareContents_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!1487 = distinct !{!1487, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_150CordTest_ConstructFromExternalCompareContents_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !1488 = !{!1489, !1491}
 !1489 = distinct !{!1489, !1490, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl4CordEEENS_15AssertionResultEPKcSC_RKT_RKT0_: %agg.result"}
 !1490 = distinct !{!1490, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl4CordEEENS_15AssertionResultEPKcSC_RKT_RKT0_"}
@@ -158907,26 +158907,26 @@ attributes #41 = { nounwind willreturn memory(read) }
 !1537 = distinct !{!1537, !1538, !"_ZN7testing8internal8EqHelper7CompareISt17basic_string_viewIcSt11char_traitsIcEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_: %agg.result"}
 !1538 = distinct !{!1538, !"_ZN7testing8internal8EqHelper7CompareISt17basic_string_viewIcSt11char_traitsIcEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_"}
 !1539 = !{!1540}
-!1540 = distinct !{!1540, !1541, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_151CordTest_ConstructFromExternalMoveOnlyReleaser_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!1541 = distinct !{!1541, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_151CordTest_ConstructFromExternalMoveOnlyReleaser_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!1540 = distinct !{!1540, !1541, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_151CordTest_ConstructFromExternalMoveOnlyReleaser_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!1541 = distinct !{!1541, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_151CordTest_ConstructFromExternalMoveOnlyReleaser_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !1542 = !{!1543}
 !1543 = distinct !{!1543, !1544, !"_ZN8CordTest13MaybeHardenedEN4absl4CordE: %agg.result"}
 !1544 = distinct !{!1544, !"_ZN8CordTest13MaybeHardenedEN4absl4CordE"}
 !1545 = !{!1546}
-!1546 = distinct !{!1546, !1547, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_146CordTest_ConstructFromExternalNoArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!1547 = distinct !{!1547, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_146CordTest_ConstructFromExternalNoArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!1546 = distinct !{!1546, !1547, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_146CordTest_ConstructFromExternalNoArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!1547 = distinct !{!1547, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_146CordTest_ConstructFromExternalNoArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !1548 = !{!1549}
 !1549 = distinct !{!1549, !1550, !"_ZN8CordTest13MaybeHardenedEN4absl4CordE: %agg.result"}
 !1550 = distinct !{!1550, !"_ZN8CordTest13MaybeHardenedEN4absl4CordE"}
 !1551 = !{!1552}
-!1552 = distinct !{!1552, !1553, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_154CordTest_ConstructFromExternalStringViewArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!1553 = distinct !{!1553, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_154CordTest_ConstructFromExternalStringViewArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!1552 = distinct !{!1552, !1553, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_154CordTest_ConstructFromExternalStringViewArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!1553 = distinct !{!1553, !"_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_154CordTest_ConstructFromExternalStringViewArgLambda_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !1554 = !{!1555}
 !1555 = distinct !{!1555, !1556, !"_ZN8CordTest13MaybeHardenedEN4absl4CordE: %agg.result"}
 !1556 = distinct !{!1556, !"_ZN8CordTest13MaybeHardenedEN4absl4CordE"}
 !1557 = !{!1558}
-!1558 = distinct !{!1558, !1559, !"_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_163CordTest_ConstructFromExternalNonTrivialReleaserDestructor_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!1559 = distinct !{!1559, !"_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_163CordTest_ConstructFromExternalNonTrivialReleaserDestructor_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!1558 = distinct !{!1558, !1559, !"_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_163CordTest_ConstructFromExternalNonTrivialReleaserDestructor_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!1559 = distinct !{!1559, !"_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_163CordTest_ConstructFromExternalNonTrivialReleaserDestructor_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !1560 = !{!1561}
 !1561 = distinct !{!1561, !1562, !"_ZN8CordTest13MaybeHardenedEN4absl4CordE: %agg.result"}
 !1562 = distinct !{!1562, !"_ZN8CordTest13MaybeHardenedEN4absl4CordE"}
@@ -158940,8 +158940,8 @@ attributes #41 = { nounwind willreturn memory(read) }
 !1570 = distinct !{!1570, !1571, !"_ZN8CordTest13MaybeHardenedEN4absl4CordE: %agg.result"}
 !1571 = distinct !{!1571, !"_ZN8CordTest13MaybeHardenedEN4absl4CordE"}
 !1572 = !{!1573}
-!1573 = distinct !{!1573, !1574, !"_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!1574 = distinct !{!1574, !"_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!1573 = distinct !{!1573, !1574, !"_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!1574 = distinct !{!1574, !"_ZN4absl20MakeCordFromExternalIRZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !1575 = !{!1576}
 !1576 = distinct !{!1576, !1577, !"_ZN8CordTest13MaybeHardenedEN4absl4CordE: %agg.result"}
 !1577 = distinct !{!1577, !"_ZN8CordTest13MaybeHardenedEN4absl4CordE"}
@@ -158952,15 +158952,15 @@ attributes #41 = { nounwind willreturn memory(read) }
 !1582 = distinct !{!1582, !1583, !"_ZN8CordTest13MaybeHardenedEN4absl4CordE: %agg.result"}
 !1583 = distinct !{!1583, !"_ZN8CordTest13MaybeHardenedEN4absl4CordE"}
 !1584 = !{!1585}
-!1585 = distinct !{!1585, !1586, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_: %agg.result"}
-!1586 = distinct !{!1586, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_"}
+!1585 = distinct !{!1585, !1586, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom: %agg.result"}
+!1586 = distinct !{!1586, !"_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom"}
 !1587 = !{!1588, !1590, !1592, !1585}
 !1588 = distinct !{!1588, !1589, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_E6FormatB5cxx11ERKS4_: %agg.result"}
 !1589 = distinct !{!1589, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_E6FormatB5cxx11ERKS4_"}
-!1590 = distinct !{!1590, !1591, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!1591 = distinct !{!1591, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
-!1592 = distinct !{!1592, !1593, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_: %agg.result"}
-!1593 = distinct !{!1593, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_"}
+!1590 = distinct !{!1590, !1591, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!1591 = distinct !{!1591, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
+!1592 = distinct !{!1592, !1593, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom: %agg.result"}
+!1593 = distinct !{!1593, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.argprom"}
 !1594 = !{!1595, !1588, !1590, !1592, !1585}
 !1595 = distinct !{!1595, !1596, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !1596 = distinct !{!1596, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
@@ -158968,8 +158968,8 @@ attributes #41 = { nounwind willreturn memory(read) }
 !1598 = !{!1599, !1601, !1592, !1585}
 !1599 = distinct !{!1599, !1600, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_E6FormatB5cxx11ERKS4_: %agg.result"}
 !1600 = distinct !{!1600, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_E6FormatB5cxx11ERKS4_"}
-!1601 = distinct !{!1601, !1602, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!1602 = distinct !{!1602, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!1601 = distinct !{!1601, !1602, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!1602 = distinct !{!1602, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !1603 = !{!1604, !1599, !1601, !1592, !1585}
 !1604 = distinct !{!1604, !1605, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !1605 = distinct !{!1605, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
@@ -158979,8 +158979,8 @@ attributes #41 = { nounwind willreturn memory(read) }
 !1609 = !{!1610, !1612, !1614, !1607}
 !1610 = distinct !{!1610, !1611, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_E6FormatB5cxx11ERKS4_: %agg.result"}
 !1611 = distinct !{!1611, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_E6FormatB5cxx11ERKS4_"}
-!1612 = distinct !{!1612, !1613, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!1613 = distinct !{!1613, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!1612 = distinct !{!1612, !1613, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!1613 = distinct !{!1613, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !1614 = distinct !{!1614, !1615, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_: %agg.result"}
 !1615 = distinct !{!1615, !"_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_"}
 !1616 = !{!1617, !1610, !1612, !1614, !1607}
@@ -158990,8 +158990,8 @@ attributes #41 = { nounwind willreturn memory(read) }
 !1620 = !{!1621, !1623, !1614, !1607}
 !1621 = distinct !{!1621, !1622, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_E6FormatB5cxx11ERKS4_: %agg.result"}
 !1622 = distinct !{!1622, !"_ZN7testing8internal19FormatForComparisonIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_E6FormatB5cxx11ERKS4_"}
-!1623 = distinct !{!1623, !1624, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: %agg.result"}
-!1624 = distinct !{!1624, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!1623 = distinct !{!1623, !1624, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom: %agg.result"}
+!1624 = distinct !{!1624, !"_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.argprom"}
 !1625 = !{!1626, !1621, !1623, !1614, !1607}
 !1626 = distinct !{!1626, !1627, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
 !1627 = distinct !{!1627, !"_ZN7testing13PrintToStringIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
@@ -159002,8 +159002,8 @@ attributes #41 = { nounwind willreturn memory(read) }
 !1632 = distinct !{!1632, !1633, !"_ZL13MakeCompositev: %agg.result"}
 !1633 = distinct !{!1633, !"_ZL13MakeCompositev"}
 !1634 = !{!1635}
-!1635 = distinct !{!1635, !1636, !"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_: %agg.result"}
-!1636 = distinct !{!1636, !"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_"}
+!1635 = distinct !{!1635, !1636, !"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_.argprom: %agg.result"}
+!1636 = distinct !{!1636, !"_ZN4absl20MakeCordFromExternalIZL17AddNewStringBlockRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4CordEE3$_0EES9_St17basic_string_viewIcS4_EOT_.argprom"}
 !1637 = !{!1635, !1632}
 !1638 = !{!1639}
 !1639 = distinct !{!1639, !1640, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: %agg.result"}
@@ -159096,28 +159096,28 @@ attributes #41 = { nounwind willreturn memory(read) }
 !1726 = distinct !{!1726, !1727, !"_ZN7testing22MakePolymorphicMatcherINS_8internal19MatchesRegexMatcherEEENS_18PolymorphicMatcherIT_EERKS4_: %agg.result"}
 !1727 = distinct !{!1727, !"_ZN7testing22MakePolymorphicMatcherINS_8internal19MatchesRegexMatcherEEENS_18PolymorphicMatcherIT_EERKS4_"}
 !1728 = !{!1729}
-!1729 = distinct !{!1729, !1730, !"_ZNK12_GLOBAL__N_14$_28clEv: %agg.result"}
-!1730 = distinct !{!1730, !"_ZNK12_GLOBAL__N_14$_28clEv"}
+!1729 = distinct !{!1729, !1730, !"_ZNK12_GLOBAL__N_14$_28clEv.argprom: %agg.result"}
+!1730 = distinct !{!1730, !"_ZNK12_GLOBAL__N_14$_28clEv.argprom"}
 !1731 = !{!1732}
-!1732 = distinct !{!1732, !1733, !"_ZNK12_GLOBAL__N_14$_23clEv: %agg.result"}
-!1733 = distinct !{!1733, !"_ZNK12_GLOBAL__N_14$_23clEv"}
+!1732 = distinct !{!1732, !1733, !"_ZNK12_GLOBAL__N_14$_23clEv.argprom: %agg.result"}
+!1733 = distinct !{!1733, !"_ZNK12_GLOBAL__N_14$_23clEv.argprom"}
 !1734 = !{!1735}
-!1735 = distinct !{!1735, !1736, !"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_23clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!1736 = distinct !{!1736, !"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_23clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!1735 = distinct !{!1735, !1736, !"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_23clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!1736 = distinct !{!1736, !"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_23clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !1737 = !{!1735, !1732}
 !1738 = !{!1739}
-!1739 = distinct !{!1739, !1740, !"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_24clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!1740 = distinct !{!1740, !"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_24clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!1739 = distinct !{!1739, !1740, !"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_24clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!1740 = distinct !{!1740, !"_ZN4absl20MakeCordFromExternalIZNK12_GLOBAL__N_14$_24clEvEUlvE_EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !1741 = !{!1742}
-!1742 = distinct !{!1742, !1743, !"_ZNK12_GLOBAL__N_14$_24clEv: %agg.result"}
-!1743 = distinct !{!1743, !"_ZNK12_GLOBAL__N_14$_24clEv"}
+!1742 = distinct !{!1742, !1743, !"_ZNK12_GLOBAL__N_14$_24clEv.argprom: %agg.result"}
+!1743 = distinct !{!1743, !"_ZNK12_GLOBAL__N_14$_24clEv.argprom"}
 !1744 = !{!1739, !1742}
 !1745 = !{!1746}
-!1746 = distinct !{!1746, !1747, !"_ZNK12_GLOBAL__N_14$_29clEv: %agg.result"}
-!1747 = distinct !{!1747, !"_ZNK12_GLOBAL__N_14$_29clEv"}
+!1746 = distinct !{!1746, !1747, !"_ZNK12_GLOBAL__N_14$_29clEv.argprom: %agg.result"}
+!1747 = distinct !{!1747, !"_ZNK12_GLOBAL__N_14$_29clEv.argprom"}
 !1748 = !{!1749}
-!1749 = distinct !{!1749, !1750, !"_ZNK12_GLOBAL__N_14$_30clEv: %agg.result"}
-!1750 = distinct !{!1750, !"_ZNK12_GLOBAL__N_14$_30clEv"}
+!1749 = distinct !{!1749, !1750, !"_ZNK12_GLOBAL__N_14$_30clEv.argprom: %agg.result"}
+!1750 = distinct !{!1750, !"_ZNK12_GLOBAL__N_14$_30clEv.argprom"}
 !1751 = distinct !{!1751, !16}
 !1752 = !{!1753}
 !1753 = distinct !{!1753, !1754, !"_ZN4absl18MakeFragmentedCordESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE: %agg.result"}

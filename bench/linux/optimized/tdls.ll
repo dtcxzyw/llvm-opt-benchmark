@@ -213,7 +213,7 @@ define dso_local noundef range(i32 -95, 1) i32 @ieee80211_tdls_mgmt(ptr nocaptur
   br label %70
 
 64:                                               ; preds = %26
-  tail call fastcc void @ieee80211_tdls_mgmt_teardown(ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %5, i16 noundef zeroext %6, i1 noundef zeroext %8, ptr noundef %9, i64 noundef %10)
+  tail call fastcc void @ieee80211_tdls_mgmt_teardown.argelim(ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %5, i16 noundef zeroext %6, i1 noundef zeroext %8, ptr noundef %9, i64 noundef %10)
   br label %70
 
 65:                                               ; preds = %26
@@ -232,7 +232,7 @@ define dso_local noundef range(i32 -95, 1) i32 @ieee80211_tdls_mgmt(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_tdls_mgmt_teardown(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i16 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %6, i64 noundef %7) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_tdls_mgmt_teardown.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i16 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %6, i64 noundef %7) unnamed_addr #0 align 16 {
   %9 = getelementptr i8, ptr %0, i64 2304
   %10 = getelementptr i8, ptr %0, i64 3560
   %11 = load ptr, ptr %10, align 8
@@ -618,7 +618,7 @@ define dso_local i32 @ieee80211_tdls_oper(ptr nocapture noundef readonly %0, ptr
   %.val = load ptr, ptr %6, align 8
   %27 = getelementptr i8, ptr %1, i64 7216
   %.val4 = load ptr, ptr %27, align 8
-  tail call fastcc void @iee80211_tdls_recalc_chanctx(ptr %.val, ptr %.val4, ptr noundef nonnull %24)
+  tail call fastcc void @iee80211_tdls_recalc_chanctx.argprom(ptr %.val, ptr %.val4, ptr noundef nonnull %24)
   tail call fastcc void @iee80211_tdls_recalc_ht_protection(ptr noundef %5, ptr noundef nonnull %24)
   %28 = getelementptr i8, ptr %24, i64 217
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %28, i32 16, ptr elementtype(i8) %28) #12, !srcloc !31
@@ -710,7 +710,7 @@ define dso_local i32 @ieee80211_tdls_oper(ptr nocapture noundef readonly %0, ptr
 declare dso_local ptr @sta_info_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @iee80211_tdls_recalc_chanctx(ptr %.1256.val, ptr %.4912.val, ptr noundef nonnull %0) unnamed_addr #0 align 16 {
+define internal fastcc void @iee80211_tdls_recalc_chanctx.argprom(ptr %.1256.val, ptr %.4912.val, ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %.4912.val, null
   br i1 %2, label %30, label %3
 

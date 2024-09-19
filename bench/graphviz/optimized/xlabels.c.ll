@@ -45,7 +45,7 @@ define range(i32 -2147483648, 2) i32 @placeLabels(ptr noundef %0, i64 noundef %1
 21:                                               ; preds = %5
   %22 = load ptr, ptr @stderr, align 8
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.2, i64 noundef 56) #16
-  tail call fastcc void @graphviz_exit() #17
+  tail call fastcc void @graphviz_exit.argelim() #17
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %5
@@ -59,7 +59,7 @@ gv_alloc.exit.i:                                  ; preds = %5
 27:                                               ; preds = %gv_alloc.exit.i
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i64 @fwrite(ptr nonnull @.str, i64 14, i64 1, ptr %28) #19
-  tail call fastcc void @graphviz_exit() #17
+  tail call fastcc void @graphviz_exit.argelim() #17
   unreachable
 
 30:                                               ; preds = %gv_alloc.exit.i
@@ -72,7 +72,7 @@ gv_alloc.exit.i:                                  ; preds = %5
 33:                                               ; preds = %30
   %34 = load ptr, ptr @stderr, align 8
   %35 = tail call i64 @fwrite(ptr nonnull @.str, i64 14, i64 1, ptr %34) #19
-  tail call fastcc void @graphviz_exit() #17
+  tail call fastcc void @graphviz_exit.argelim() #17
   unreachable
 
 xlnew.exit:                                       ; preds = %30
@@ -116,7 +116,7 @@ xlnew.exit:                                       ; preds = %30
 55:                                               ; preds = %52
   %56 = load ptr, ptr @stderr, align 8
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.2, i64 noundef 48) #16
-  tail call fastcc void @graphviz_exit() #17
+  tail call fastcc void @graphviz_exit.argelim() #17
   unreachable
 
 gv_alloc.exit.i.i:                                ; preds = %52
@@ -954,7 +954,7 @@ declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #5 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #5 {
   tail call void @exit(i32 noundef 1) #20
   unreachable
 }
@@ -1023,12 +1023,12 @@ define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nocaptur
   %18 = getelementptr inbounds i8, ptr %.fr, i64 8
   br label %.lr.ph.split.split
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %lblenclosing.exit.thread
-  %19 = phi i32 [ %48, %lblenclosing.exit.thread ], [ 0, %.lr.ph.split.split.preheader ]
-  %.0117 = phi i64 [ %49, %lblenclosing.exit.thread ], [ 0, %.lr.ph.split.split.preheader ]
+.lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %lblenclosing.argprom.exit.thread
+  %19 = phi i32 [ %48, %lblenclosing.argprom.exit.thread ], [ 0, %.lr.ph.split.split.preheader ]
+  %.0117 = phi i64 [ %49, %lblenclosing.argprom.exit.thread ], [ 0, %.lr.ph.split.split.preheader ]
   %20 = getelementptr inbounds %struct.object_t, ptr %16, i64 %.0117
   %21 = icmp eq ptr %2, %20
-  br i1 %21, label %lblenclosing.exit.thread, label %22
+  br i1 %21, label %lblenclosing.argprom.exit.thread, label %22
 
 22:                                               ; preds = %.lr.ph.split.split
   %23 = getelementptr inbounds i8, ptr %20, i64 16
@@ -1040,46 +1040,46 @@ define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nocaptur
   %27 = getelementptr inbounds i8, ptr %20, i64 24
   %28 = load double, ptr %27, align 8
   %29 = fcmp ogt double %28, 0.000000e+00
-  br i1 %29, label %lblenclosing.exit.thread, label %30
+  br i1 %29, label %lblenclosing.argprom.exit.thread, label %30
 
 30:                                               ; preds = %22, %26
   %31 = load double, ptr %20, align 8
   %32 = load double, ptr %13, align 8
   %33 = fcmp ogt double %31, %32
-  br i1 %33, label %34, label %lblenclosing.exit.thread
+  br i1 %33, label %34, label %lblenclosing.argprom.exit.thread
 
 34:                                               ; preds = %30
   %35 = load double, ptr %.fr, align 8
   %36 = fadd double %32, %35
   %37 = fcmp olt double %31, %36
-  br i1 %37, label %38, label %lblenclosing.exit.thread
+  br i1 %37, label %38, label %lblenclosing.argprom.exit.thread
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %20, i64 8
   %40 = load double, ptr %39, align 8
   %41 = load double, ptr %17, align 8
   %42 = fcmp ogt double %40, %41
-  br i1 %42, label %lblenclosing.exit, label %lblenclosing.exit.thread
+  br i1 %42, label %lblenclosing.argprom.exit, label %lblenclosing.argprom.exit.thread
 
-lblenclosing.exit:                                ; preds = %38
+lblenclosing.argprom.exit:                        ; preds = %38
   %43 = load double, ptr %18, align 8
   %44 = fadd double %41, %43
   %45 = fcmp olt double %40, %44
-  br i1 %45, label %46, label %lblenclosing.exit.thread
+  br i1 %45, label %46, label %lblenclosing.argprom.exit.thread
 
-46:                                               ; preds = %lblenclosing.exit
+46:                                               ; preds = %lblenclosing.argprom.exit
   %47 = add nsw i32 %19, 1
   store i32 %47, ptr %0, align 8
-  br label %lblenclosing.exit.thread
+  br label %lblenclosing.argprom.exit.thread
 
-lblenclosing.exit.thread:                         ; preds = %30, %34, %38, %lblenclosing.exit, %46, %26, %.lr.ph.split.split
-  %48 = phi i32 [ %19, %30 ], [ %19, %34 ], [ %19, %38 ], [ %19, %lblenclosing.exit ], [ %47, %46 ], [ %19, %26 ], [ %19, %.lr.ph.split.split ]
+lblenclosing.argprom.exit.thread:                 ; preds = %30, %34, %38, %lblenclosing.argprom.exit, %46, %26, %.lr.ph.split.split
+  %48 = phi i32 [ %19, %30 ], [ %19, %34 ], [ %19, %38 ], [ %19, %lblenclosing.argprom.exit ], [ %47, %46 ], [ %19, %26 ], [ %19, %.lr.ph.split.split ]
   %49 = add nuw i64 %.0117, 1
   %exitcond.not = icmp eq i64 %49, %15
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split
 
-._crit_edge:                                      ; preds = %lblenclosing.exit.thread, %4
-  %50 = phi i32 [ 0, %4 ], [ %48, %lblenclosing.exit.thread ]
+._crit_edge:                                      ; preds = %lblenclosing.argprom.exit.thread, %4
+  %50 = phi i32 [ 0, %4 ], [ %48, %lblenclosing.argprom.exit.thread ]
   %51 = load double, ptr %13, align 8
   %52 = fptosi double %51 to i32
   %53 = getelementptr inbounds i8, ptr %.fr, i64 24

@@ -589,18 +589,18 @@ define range(i32 0, 2) i32 @satoko_simplify(ptr noundef %0) local_unnamed_addr #
   %16 = getelementptr i8, ptr %15, i64 4
   %.val3240 = load i32, ptr %16, align 4
   %.not44 = icmp eq i32 %.val3240, 0
-  br i1 %.not44, label %.critedge, label %clause_fetch.exit.lr.ph
+  br i1 %.not44, label %.critedge, label %clause_fetch.argprom.exit.lr.ph
 
-clause_fetch.exit.lr.ph:                          ; preds = %.preheader
+clause_fetch.argprom.exit.lr.ph:                  ; preds = %.preheader
   %17 = getelementptr i8, ptr %0, i64 24
   %18 = getelementptr i8, ptr %0, i64 104
   %19 = getelementptr inbounds i8, ptr %0, i64 368
-  br label %clause_fetch.exit
+  br label %clause_fetch.argprom.exit
 
-clause_fetch.exit:                                ; preds = %clause_fetch.exit.lr.ph, %50
-  %indvars.iv = phi i64 [ 0, %clause_fetch.exit.lr.ph ], [ %indvars.iv.next, %50 ]
-  %20 = phi ptr [ %15, %clause_fetch.exit.lr.ph ], [ %51, %50 ]
-  %.03041 = phi i32 [ 0, %clause_fetch.exit.lr.ph ], [ %.1, %50 ]
+clause_fetch.argprom.exit:                        ; preds = %clause_fetch.argprom.exit.lr.ph, %50
+  %indvars.iv = phi i64 [ 0, %clause_fetch.argprom.exit.lr.ph ], [ %indvars.iv.next, %50 ]
+  %20 = phi ptr [ %15, %clause_fetch.argprom.exit.lr.ph ], [ %51, %50 ]
+  %.03041 = phi i32 [ 0, %clause_fetch.argprom.exit.lr.ph ], [ %.1, %50 ]
   %21 = getelementptr i8, ptr %20, i64 8
   %.val34 = load ptr, ptr %21, align 8
   %22 = getelementptr inbounds i32, ptr %.val34, i64 %indvars.iv
@@ -618,7 +618,7 @@ clause_fetch.exit:                                ; preds = %clause_fetch.exit.l
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %clause_fetch.exit
+.lr.ph.i:                                         ; preds = %clause_fetch.argprom.exit
   %.val.i = load ptr, ptr %18, align 8
   %31 = getelementptr i8, ptr %.val.i, i64 8
   %.val.val.i = load ptr, ptr %31, align 8
@@ -653,7 +653,7 @@ clause_is_satisfied.exit:                         ; preds = %33
   tail call fastcc void @clause_unwatch(ptr noundef %0, i32 noundef %23)
   br label %50
 
-.loopexit:                                        ; preds = %32, %clause_fetch.exit
+.loopexit:                                        ; preds = %32, %clause_fetch.argprom.exit
   %47 = add i32 %.03041, 1
   %48 = zext i32 %.03041 to i64
   %49 = getelementptr inbounds i32, ptr %.val34, i64 %48
@@ -668,7 +668,7 @@ clause_is_satisfied.exit:                         ; preds = %33
   %.val32 = load i32, ptr %52, align 4
   %53 = zext i32 %.val32 to i64
   %54 = icmp ult i64 %indvars.iv.next, %53
-  br i1 %54, label %clause_fetch.exit, label %.critedge, !llvm.loop !7
+  br i1 %54, label %clause_fetch.argprom.exit, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %50, %.preheader
   %.lcssa39 = phi ptr [ %15, %.preheader ], [ %51, %50 ]
@@ -2378,19 +2378,19 @@ solver_check_limits.exit:                         ; preds = %31
 solver_check_limits.exit.thread28:                ; preds = %31, %solver_check_limits.exit
   %.val26 = load ptr, ptr %22, align 8
   %.not.i27 = icmp eq ptr %.val26, null
-  br i1 %.not.i27, label %solver_stop.exit.thread, label %solver_stop.exit
+  br i1 %.not.i27, label %solver_stop.argprom.exit.thread, label %solver_stop.argprom.exit
 
-solver_stop.exit:                                 ; preds = %solver_check_limits.exit.thread28
+solver_stop.argprom.exit:                         ; preds = %solver_check_limits.exit.thread28
   %35 = load i32, ptr %.val26, align 4
   %.not31 = icmp eq i32 %35, 0
-  br i1 %.not31, label %solver_stop.exit.thread, label %solver_check_limits.exit.thread
+  br i1 %.not31, label %solver_stop.argprom.exit.thread, label %solver_check_limits.exit.thread
 
-solver_stop.exit.thread:                          ; preds = %solver_check_limits.exit.thread28, %solver_stop.exit
+solver_stop.argprom.exit.thread:                  ; preds = %solver_check_limits.exit.thread28, %solver_stop.argprom.exit
   %36 = load i64, ptr %23, align 8
   %.not22 = icmp eq i64 %36, 0
   br i1 %.not22, label %48, label %37
 
-37:                                               ; preds = %solver_stop.exit.thread
+37:                                               ; preds = %solver_stop.argprom.exit.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %38 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #28
   %39 = icmp slt i32 %38, 0
@@ -2411,7 +2411,7 @@ Abc_Clock.exit:                                   ; preds = %37, %40
   %47 = icmp sgt i64 %.0.i, %46
   br i1 %47, label %solver_check_limits.exit.thread, label %48
 
-48:                                               ; preds = %Abc_Clock.exit, %solver_stop.exit.thread
+48:                                               ; preds = %Abc_Clock.exit, %solver_stop.argprom.exit.thread
   %49 = load ptr, ptr %25, align 8
   %.not23 = icmp eq ptr %49, null
   br i1 %.not23, label %54, label %50
@@ -2431,7 +2431,7 @@ Abc_Clock.exit:                                   ; preds = %37, %40
 .backedge.backedge:                               ; preds = %54, %50
   br label %.backedge, !llvm.loop !20
 
-solver_check_limits.exit.thread:                  ; preds = %29, %50, %Abc_Clock.exit, %solver_check_limits.exit, %solver_stop.exit, %54
+solver_check_limits.exit.thread:                  ; preds = %29, %50, %Abc_Clock.exit, %solver_check_limits.exit, %solver_stop.argprom.exit, %54
   %55 = sext i8 %26 to i32
   %56 = getelementptr inbounds i8, ptr %0, i64 484
   %57 = load i8, ptr %56, align 4
@@ -3292,7 +3292,7 @@ define void @satoko_rollback(ptr noundef %0) local_unnamed_addr #3 {
   %wide.trip.count = zext i32 %.val84 to i64
   br label %30
 
-.critedge.preheader:                              ; preds = %clause_fetch.exit, %15
+.critedge.preheader:                              ; preds = %clause_fetch.argprom.exit, %15
   %26 = icmp ult i32 %16, %.val83
   br i1 %26, label %.lr.ph97, label %.critedge2.preheader
 
@@ -3304,12 +3304,12 @@ define void @satoko_rollback(ptr noundef %0) local_unnamed_addr #3 {
   %wide.trip.count108 = zext i32 %.val83 to i64
   br label %41
 
-30:                                               ; preds = %.lr.ph, %clause_fetch.exit
-  %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %clause_fetch.exit ]
+30:                                               ; preds = %.lr.ph, %clause_fetch.argprom.exit
+  %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %clause_fetch.argprom.exit ]
   %31 = getelementptr inbounds i32, ptr %.val86, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %.not.i.i = icmp eq i32 %32, -1
-  br i1 %.not.i.i, label %clause_fetch.exit, label %33
+  br i1 %.not.i.i, label %clause_fetch.argprom.exit, label %33
 
 33:                                               ; preds = %30
   %.val88 = load ptr, ptr %24, align 8
@@ -3317,9 +3317,9 @@ define void @satoko_rollback(ptr noundef %0) local_unnamed_addr #3 {
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %32 to i64
   %37 = getelementptr inbounds i32, ptr %35, i64 %36
-  br label %clause_fetch.exit
+  br label %clause_fetch.argprom.exit
 
-clause_fetch.exit:                                ; preds = %30, %33
+clause_fetch.argprom.exit:                        ; preds = %30, %33
   %38 = phi ptr [ %37, %33 ], [ null, %30 ]
   %39 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
   store ptr %38, ptr %39, align 8
@@ -3327,7 +3327,7 @@ clause_fetch.exit:                                ; preds = %30, %33
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.preheader, label %30, !llvm.loop !33
 
-.critedge2.preheader:                             ; preds = %clause_fetch.exit94, %.critedge.preheader
+.critedge2.preheader:                             ; preds = %clause_fetch.argprom.exit94, %.critedge.preheader
   %.not103 = icmp eq i32 %18, 0
   br i1 %.not103, label %.critedge2._crit_edge, label %.lr.ph99
 
@@ -3335,12 +3335,12 @@ clause_fetch.exit:                                ; preds = %30, %33
   %40 = getelementptr inbounds i8, ptr %0, i64 24
   br label %.critedge2
 
-41:                                               ; preds = %.lr.ph97, %clause_fetch.exit94
-  %indvars.iv105 = phi i64 [ %29, %.lr.ph97 ], [ %indvars.iv.next106, %clause_fetch.exit94 ]
+41:                                               ; preds = %.lr.ph97, %clause_fetch.argprom.exit94
+  %indvars.iv105 = phi i64 [ %29, %.lr.ph97 ], [ %indvars.iv.next106, %clause_fetch.argprom.exit94 ]
   %42 = getelementptr inbounds i32, ptr %.val85, i64 %indvars.iv105
   %43 = load i32, ptr %42, align 4
   %.not.i.i93 = icmp eq i32 %43, -1
-  br i1 %.not.i.i93, label %clause_fetch.exit94, label %44
+  br i1 %.not.i.i93, label %clause_fetch.argprom.exit94, label %44
 
 44:                                               ; preds = %41
   %.val87 = load ptr, ptr %28, align 8
@@ -3348,9 +3348,9 @@ clause_fetch.exit:                                ; preds = %30, %33
   %46 = load ptr, ptr %45, align 8
   %47 = zext i32 %43 to i64
   %48 = getelementptr inbounds i32, ptr %46, i64 %47
-  br label %clause_fetch.exit94
+  br label %clause_fetch.argprom.exit94
 
-clause_fetch.exit94:                              ; preds = %41, %44
+clause_fetch.argprom.exit94:                      ; preds = %41, %44
   %49 = phi ptr [ %48, %44 ], [ null, %41 ]
   %50 = trunc nuw i64 %indvars.iv105 to i32
   %51 = add i32 %7, %50
@@ -3571,22 +3571,22 @@ vec_char_init.exit:                               ; preds = %5, %11
   %33 = getelementptr i8, ptr %.val20, i64 4
   %.val.i21 = load i32, ptr %33, align 4
   %34 = icmp ult i32 %32, %.val.i21
-  br i1 %34, label %heap_in_heap.exit, label %heap_in_heap.exit.thread
+  br i1 %34, label %heap_in_heap.argprom.exit, label %heap_in_heap.argprom.exit.thread
 
-heap_in_heap.exit:                                ; preds = %20
+heap_in_heap.argprom.exit:                        ; preds = %20
   %35 = getelementptr i8, ptr %.val20, i64 8
   %.val3.i = load ptr, ptr %35, align 8
   %36 = zext i32 %32 to i64
   %37 = getelementptr inbounds i32, ptr %.val3.i, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = icmp slt i32 %38, 0
-  br i1 %39, label %heap_in_heap.exit.thread, label %40
+  br i1 %39, label %heap_in_heap.argprom.exit.thread, label %40
 
-heap_in_heap.exit.thread:                         ; preds = %20, %heap_in_heap.exit
+heap_in_heap.argprom.exit.thread:                 ; preds = %20, %heap_in_heap.argprom.exit
   tail call fastcc void @heap_insert(ptr noundef nonnull %31, i32 noundef %32)
   br label %40
 
-40:                                               ; preds = %heap_in_heap.exit, %heap_in_heap.exit.thread
+40:                                               ; preds = %heap_in_heap.argprom.exit, %heap_in_heap.argprom.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !37
@@ -3760,7 +3760,7 @@ define void @satoko_write_dimacs(ptr nocapture noundef readonly %0, ptr noundef 
   %70 = getelementptr inbounds i32, ptr %.val66, i64 %indvars.iv96
   %71 = load i32, ptr %70, align 4
   %.not.i.i = icmp eq i32 %71, -1
-  br i1 %.not.i.i, label %clause_fetch.exit, label %72
+  br i1 %.not.i.i, label %clause_fetch.argprom.exit, label %72
 
 72:                                               ; preds = %69
   %.val59 = load ptr, ptr %67, align 8
@@ -3768,16 +3768,16 @@ define void @satoko_write_dimacs(ptr nocapture noundef readonly %0, ptr noundef 
   %74 = load ptr, ptr %73, align 8
   %75 = zext i32 %71 to i64
   %76 = getelementptr inbounds i32, ptr %74, i64 %75
-  br label %clause_fetch.exit
+  br label %clause_fetch.argprom.exit
 
-clause_fetch.exit:                                ; preds = %69, %72
+clause_fetch.argprom.exit:                        ; preds = %69, %72
   %77 = phi ptr [ %76, %72 ], [ null, %69 ]
   %78 = getelementptr inbounds i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4
   %.not17.i = icmp eq i32 %79, 0
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %clause_fetch.exit
+.lr.ph.i:                                         ; preds = %clause_fetch.argprom.exit
   %80 = getelementptr inbounds i8, ptr %77, i64 8
   br label %81
 
@@ -3798,7 +3798,7 @@ clause_fetch.exit:                                ; preds = %69, %72
   %92 = icmp ult i64 %indvars.iv.next.i, %91
   br i1 %92, label %81, label %._crit_edge.i, !llvm.loop !40
 
-._crit_edge.i:                                    ; preds = %81, %clause_fetch.exit
+._crit_edge.i:                                    ; preds = %81, %clause_fetch.argprom.exit
   br i1 %.not52, label %93, label %95
 
 93:                                               ; preds = %._crit_edge.i
@@ -3840,7 +3840,7 @@ clause_dump.exit:                                 ; preds = %93, %95
   %106 = getelementptr inbounds i32, ptr %.val65, i64 %indvars.iv99
   %107 = load i32, ptr %106, align 4
   %.not.i.i67 = icmp eq i32 %107, -1
-  br i1 %.not.i.i67, label %clause_fetch.exit68, label %108
+  br i1 %.not.i.i67, label %clause_fetch.argprom.exit68, label %108
 
 108:                                              ; preds = %105
   %.val58 = load ptr, ptr %103, align 8
@@ -3848,16 +3848,16 @@ clause_dump.exit:                                 ; preds = %93, %95
   %110 = load ptr, ptr %109, align 8
   %111 = zext i32 %107 to i64
   %112 = getelementptr inbounds i32, ptr %110, i64 %111
-  br label %clause_fetch.exit68
+  br label %clause_fetch.argprom.exit68
 
-clause_fetch.exit68:                              ; preds = %105, %108
+clause_fetch.argprom.exit68:                      ; preds = %105, %108
   %113 = phi ptr [ %112, %108 ], [ null, %105 ]
   %114 = getelementptr inbounds i8, ptr %113, i64 4
   %115 = load i32, ptr %114, align 4
   %.not17.i69 = icmp eq i32 %115, 0
   br i1 %.not17.i69, label %._crit_edge.i74, label %.lr.ph.i70
 
-.lr.ph.i70:                                       ; preds = %clause_fetch.exit68
+.lr.ph.i70:                                       ; preds = %clause_fetch.argprom.exit68
   %116 = getelementptr inbounds i8, ptr %113, i64 8
   br label %117
 
@@ -3878,7 +3878,7 @@ clause_fetch.exit68:                              ; preds = %105, %108
   %128 = icmp ult i64 %indvars.iv.next.i73, %127
   br i1 %128, label %117, label %._crit_edge.i74, !llvm.loop !40
 
-._crit_edge.i74:                                  ; preds = %117, %clause_fetch.exit68
+._crit_edge.i74:                                  ; preds = %117, %clause_fetch.argprom.exit68
   br i1 %.not51, label %129, label %131
 
 129:                                              ; preds = %._crit_edge.i74

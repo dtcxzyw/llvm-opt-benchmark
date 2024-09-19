@@ -3988,9 +3988,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %31, %34
   store i32 33619968, ptr %3, align 8
   store ptr %11, ptr %70, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef -1, double noundef 0x3F70101010101010, double noundef 0.000000e+00)
-          to label %_ZN2cvdVERNS_3MatERKd.exit unwind label %37
+          to label %_ZN2cvdVERNS_3MatERKd.argprom.exit unwind label %37
 
-_ZN2cvdVERNS_3MatERKd.exit:                       ; preds = %69
+_ZN2cvdVERNS_3MatERKd.argprom.exit:               ; preds = %69
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %76
 
@@ -4003,7 +4003,7 @@ _ZN2cvdVERNS_3MatERKd.exit:                       ; preds = %69
   %75 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(96) %4)
           to label %76 unwind label %37
 
-76:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.exit, %74
+76:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.argprom.exit, %74
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #24
   ret void
 
@@ -10007,8 +10007,8 @@ attributes #27 = { builtin allocsize(0) }
 !60 = !{!61, !63}
 !61 = distinct !{!61, !62, !"_ZSt11make_sharedIN2cv11xfeatures2d10DAISY_ImplEJRKfRKiS6_S6_RKNS1_5DAISY17NormalizationTypeERKNS0_11_InputArrayERKbSF_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESI_E4typeEEDpOT0_: argument 0"}
 !62 = distinct !{!62, !"_ZSt11make_sharedIN2cv11xfeatures2d10DAISY_ImplEJRKfRKiS6_S6_RKNS1_5DAISY17NormalizationTypeERKNS0_11_InputArrayERKbSF_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESI_E4typeEEDpOT0_"}
-!63 = distinct !{!63, !64, !"_ZN2cvL7makePtrINS_11xfeatures2d10DAISY_ImplEJfiiiNS1_5DAISY17NormalizationTypeENS_11_InputArrayEbbEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!64 = distinct !{!64, !"_ZN2cvL7makePtrINS_11xfeatures2d10DAISY_ImplEJfiiiNS1_5DAISY17NormalizationTypeENS_11_InputArrayEbbEEENS_3PtrIT_EEDpRKT0_"}
+!63 = distinct !{!63, !64, !"_ZN2cvL7makePtrINS_11xfeatures2d10DAISY_ImplEJfiiiNS1_5DAISY17NormalizationTypeENS_11_InputArrayEbbEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!64 = distinct !{!64, !"_ZN2cvL7makePtrINS_11xfeatures2d10DAISY_ImplEJfiiiNS1_5DAISY17NormalizationTypeENS_11_InputArrayEbbEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !65 = !{!66}
 !66 = distinct !{!66, !67, !"_ZNK2cv11xfeatures2d5DAISY14getDefaultNameB5cxx11Ev: argument 0"}
 !67 = distinct !{!67, !"_ZNK2cv11xfeatures2d5DAISY14getDefaultNameB5cxx11Ev"}

@@ -698,7 +698,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread72.i: ; preds = %_ZNK4llvm9Strin
   store i64 %79, ptr %78, align 8
   %80 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr nonnull @.str.96, i64 6, i64 noundef 0) #19
   %81 = icmp ne i64 %80, -1
-  br i1 %81, label %82, label %_ZN12_GLOBAL__N_111MemProfiler37maybeInsertMemProfInitAtFunctionEntryERN4llvm8FunctionE.exit.i
+  br i1 %81, label %82, label %_ZN12_GLOBAL__N_111MemProfiler37maybeInsertMemProfInitAtFunctionEntryERN4llvm8FunctionE.argprom.exit.i
 
 82:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread72.i
   %83 = load ptr, ptr %38, align 8
@@ -748,13 +748,13 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread72.i: ; preds = %_ZNK4llvm9Strin
   %110 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #19
   %111 = load ptr, ptr %32, align 8
   %112 = icmp eq ptr %111, %97
-  br i1 %112, label %_ZN12_GLOBAL__N_111MemProfiler37maybeInsertMemProfInitAtFunctionEntryERN4llvm8FunctionE.exit.i, label %113
+  br i1 %112, label %_ZN12_GLOBAL__N_111MemProfiler37maybeInsertMemProfInitAtFunctionEntryERN4llvm8FunctionE.argprom.exit.i, label %113
 
 113:                                              ; preds = %82
   call void @free(ptr noundef %111) #19
-  br label %_ZN12_GLOBAL__N_111MemProfiler37maybeInsertMemProfInitAtFunctionEntryERN4llvm8FunctionE.exit.i
+  br label %_ZN12_GLOBAL__N_111MemProfiler37maybeInsertMemProfInitAtFunctionEntryERN4llvm8FunctionE.argprom.exit.i
 
-_ZN12_GLOBAL__N_111MemProfiler37maybeInsertMemProfInitAtFunctionEntryERN4llvm8FunctionE.exit.i: ; preds = %113, %82, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread72.i
+_ZN12_GLOBAL__N_111MemProfiler37maybeInsertMemProfInitAtFunctionEntryERN4llvm8FunctionE.argprom.exit.i: ; preds = %113, %82, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread72.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33)
@@ -800,9 +800,9 @@ _ZN12_GLOBAL__N_111MemProfiler37maybeInsertMemProfInitAtFunctionEntryERN4llvm8Fu
   %129 = getelementptr inbounds i8, ptr %25, i64 16
   br label %130
 
-130:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_4TypeELj2EED2Ev.exit.i.i, %_ZN12_GLOBAL__N_111MemProfiler37maybeInsertMemProfInitAtFunctionEntryERN4llvm8FunctionE.exit.i
-  %.not.i51.i = phi i1 [ true, %_ZN12_GLOBAL__N_111MemProfiler37maybeInsertMemProfInitAtFunctionEntryERN4llvm8FunctionE.exit.i ], [ false, %_ZN4llvm11SmallVectorIPNS_4TypeELj2EED2Ev.exit.i.i ]
-  %.024.i.i = phi i64 [ 0, %_ZN12_GLOBAL__N_111MemProfiler37maybeInsertMemProfInitAtFunctionEntryERN4llvm8FunctionE.exit.i ], [ 1, %_ZN4llvm11SmallVectorIPNS_4TypeELj2EED2Ev.exit.i.i ]
+130:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_4TypeELj2EED2Ev.exit.i.i, %_ZN12_GLOBAL__N_111MemProfiler37maybeInsertMemProfInitAtFunctionEntryERN4llvm8FunctionE.argprom.exit.i
+  %.not.i51.i = phi i1 [ true, %_ZN12_GLOBAL__N_111MemProfiler37maybeInsertMemProfInitAtFunctionEntryERN4llvm8FunctionE.argprom.exit.i ], [ false, %_ZN4llvm11SmallVectorIPNS_4TypeELj2EED2Ev.exit.i.i ]
+  %.024.i.i = phi i64 [ 0, %_ZN12_GLOBAL__N_111MemProfiler37maybeInsertMemProfInitAtFunctionEntryERN4llvm8FunctionE.argprom.exit.i ], [ 1, %_ZN4llvm11SmallVectorIPNS_4TypeELj2EED2Ev.exit.i.i ]
   %131 = select i1 %.not.i51.i, ptr @.str.98, ptr @.str.97
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #19
   %132 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #19
@@ -951,7 +951,7 @@ _ZN12_GLOBAL__N_111MemProfiler19initializeCallbacksERN4llvm6ModuleE.exit.i: ; pr
   %200 = getelementptr inbounds i8, ptr %.sroa.056.077.i, i64 -24
   %201 = select i1 %199, ptr null, ptr %200
   %.val.i = load ptr, ptr %191, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_111MemProfiler25isInterestingMemoryAccessEPN4llvm11InstructionE(ptr dead_on_unwind noalias writable align 8 %35, ptr %.val.i, ptr noundef nonnull %201)
+  call fastcc void @_ZNK12_GLOBAL__N_111MemProfiler25isInterestingMemoryAccessEPN4llvm11InstructionE.argprom(ptr dead_on_unwind noalias writable align 8 %35, ptr %.val.i, ptr noundef nonnull %201)
   %.val47.i = load i8, ptr %192, align 8
   %202 = trunc i8 %.val47.i to i1
   br i1 %202, label %.critedge.i, label %203
@@ -1175,9 +1175,9 @@ _ZN12_GLOBAL__N_111MemProfiler34insertDynamicShadowAtFunctionEntryERN4llvm8Funct
   %335 = getelementptr inbounds nuw i8, ptr %17, i64 32
   br label %336
 
-336:                                              ; preds = %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.exit.i, %.lr.ph86.i
-  %.04185.i = phi ptr [ %278, %.lr.ph86.i ], [ %480, %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.exit.i ]
-  %.04284.i = phi i32 [ 0, %.lr.ph86.i ], [ %479, %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.exit.i ]
+336:                                              ; preds = %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.argprom.exit.i, %.lr.ph86.i
+  %.04185.i = phi ptr [ %278, %.lr.ph86.i ], [ %480, %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.argprom.exit.i ]
+  %.04284.i = phi i32 [ 0, %.lr.ph86.i ], [ %479, %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.argprom.exit.i ]
   %337 = load ptr, ptr %.04185.i, align 8
   %338 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10ClDebugMin, i64 128), align 8
   %339 = icmp slt i32 %338, 0
@@ -1192,10 +1192,10 @@ _ZN12_GLOBAL__N_111MemProfiler34insertDynamicShadowAtFunctionEntryERN4llvm8Funct
   %.not44.i = icmp slt i32 %.04284.i, %338
   %.not45.i = icmp ugt i32 %.04284.i, %341
   %or.cond.i = or i1 %.not44.i, %.not45.i
-  br i1 %or.cond.i, label %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.exit.i, label %344
+  br i1 %or.cond.i, label %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.argprom.exit.i, label %344
 
 344:                                              ; preds = %343, %340, %336
-  call fastcc void @_ZNK12_GLOBAL__N_111MemProfiler25isInterestingMemoryAccessEPN4llvm11InstructionE(ptr dead_on_unwind noalias writable align 8 %36, ptr %272, ptr noundef %337)
+  call fastcc void @_ZNK12_GLOBAL__N_111MemProfiler25isInterestingMemoryAccessEPN4llvm11InstructionE.argprom(ptr dead_on_unwind noalias writable align 8 %36, ptr %272, ptr noundef %337)
   %.val48.i = load i8, ptr %281, align 8
   %345 = trunc i8 %.val48.i to i1
   br i1 %345, label %346, label %404
@@ -1211,7 +1211,7 @@ _ZN12_GLOBAL__N_111MemProfiler34insertDynamicShadowAtFunctionEntryERN4llvm8Funct
   %351 = call noundef ptr @_ZN4llvm19getUnderlyingObjectEPKNS_5ValueEj(ptr noundef %.pre.i, i32 noundef 6) #19
   %352 = load i8, ptr %351, align 8
   %353 = icmp eq i8 %352, 60
-  br i1 %353, label %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.exit.i, label %.critedge.i.i
+  br i1 %353, label %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.argprom.exit.i, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %350, %346
   %354 = load i8, ptr %304, align 8
@@ -1231,7 +1231,7 @@ _ZN12_GLOBAL__N_111MemProfiler34insertDynamicShadowAtFunctionEntryERN4llvm8Funct
   %360 = load i32, ptr %359, align 8
   %361 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %261, i64 noundef 0, i1 noundef zeroext false) #19
   %.not12.i.i.i = icmp eq i32 %360, 0
-  br i1 %.not12.i.i.i, label %_ZN12_GLOBAL__N_111MemProfiler27instrumentMaskedLoadOrStoreERKN4llvm10DataLayoutEPNS1_5ValueEPNS1_11InstructionES6_PNS1_4TypeEb.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %.not12.i.i.i, label %_ZN12_GLOBAL__N_111MemProfiler27instrumentMaskedLoadOrStoreERKN4llvm10DataLayoutEPNS1_5ValueEPNS1_11InstructionES6_PNS1_4TypeEb.argprom.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %357
   %362 = getelementptr inbounds i8, ptr %337, i64 24
@@ -1329,7 +1329,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.
   store ptr %397, ptr %334, align 8
   store i16 257, ptr %335, align 8
   %398 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateGEPEPNS_4TypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineENS_14GEPNoWrapFlagsE(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr noundef nonnull %358, ptr noundef %.pre.i, ptr nonnull %16, i64 2, ptr noundef nonnull align 8 dereferenceable(34) %17, i32 0)
-  call fastcc void @_ZN12_GLOBAL__N_111MemProfiler17instrumentAddressEPN4llvm11InstructionES3_PNS1_5ValueEb(ptr noundef nonnull readonly align 8 dereferenceable(136) %37, ptr noundef %.027.i.i.i, ptr noundef %398, i1 noundef zeroext %355)
+  call fastcc void @_ZN12_GLOBAL__N_111MemProfiler17instrumentAddressEPN4llvm11InstructionES3_PNS1_5ValueEb.argprom(ptr noundef nonnull readonly align 8 dereferenceable(136) %37, ptr noundef %.027.i.i.i, ptr noundef %398, i1 noundef zeroext %355)
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %322) #19
   call void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %321) #19
   %399 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #19
@@ -1344,19 +1344,19 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.
 _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit33.i.i.i: ; preds = %402, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i.i.i, %_ZNK4llvm11ConstantInt6isZeroEv.exit.i.i.i, %380
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN12_GLOBAL__N_111MemProfiler27instrumentMaskedLoadOrStoreERKN4llvm10DataLayoutEPNS1_5ValueEPNS1_11InstructionES6_PNS1_4TypeEb.exit.i.i, label %364, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i, label %_ZN12_GLOBAL__N_111MemProfiler27instrumentMaskedLoadOrStoreERKN4llvm10DataLayoutEPNS1_5ValueEPNS1_11InstructionES6_PNS1_4TypeEb.argprom.exit.i.i, label %364, !llvm.loop !9
 
-_ZN12_GLOBAL__N_111MemProfiler27instrumentMaskedLoadOrStoreERKN4llvm10DataLayoutEPNS1_5ValueEPNS1_11InstructionES6_PNS1_4TypeEb.exit.i.i: ; preds = %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit33.i.i.i, %357
+_ZN12_GLOBAL__N_111MemProfiler27instrumentMaskedLoadOrStoreERKN4llvm10DataLayoutEPNS1_5ValueEPNS1_11InstructionES6_PNS1_4TypeEb.argprom.exit.i.i: ; preds = %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit33.i.i.i, %357
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
-  br label %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.exit.i
+  br label %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.argprom.exit.i
 
 403:                                              ; preds = %.critedge.i.i
-  call fastcc void @_ZN12_GLOBAL__N_111MemProfiler17instrumentAddressEPN4llvm11InstructionES3_PNS1_5ValueEb(ptr noundef nonnull readonly align 8 dereferenceable(136) %37, ptr noundef %337, ptr noundef %.pre.i, i1 noundef zeroext %355)
-  br label %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.exit.i
+  call fastcc void @_ZN12_GLOBAL__N_111MemProfiler17instrumentAddressEPN4llvm11InstructionES3_PNS1_5ValueEb.argprom(ptr noundef nonnull readonly align 8 dereferenceable(136) %37, ptr noundef %337, ptr noundef %.pre.i, i1 noundef zeroext %355)
+  br label %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.argprom.exit.i
 
 404:                                              ; preds = %344
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
@@ -1507,16 +1507,16 @@ _ZN12_GLOBAL__N_111MemProfiler22instrumentMemIntrinsicEPN4llvm12MemIntrinsicE.ex
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
-  br label %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.exit.i
+  br label %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.argprom.exit.i
 
-_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.exit.i: ; preds = %_ZN12_GLOBAL__N_111MemProfiler22instrumentMemIntrinsicEPN4llvm12MemIntrinsicE.exit.i, %403, %_ZN12_GLOBAL__N_111MemProfiler27instrumentMaskedLoadOrStoreERKN4llvm10DataLayoutEPNS1_5ValueEPNS1_11InstructionES6_PNS1_4TypeEb.exit.i.i, %350, %343
+_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.argprom.exit.i: ; preds = %_ZN12_GLOBAL__N_111MemProfiler22instrumentMemIntrinsicEPN4llvm12MemIntrinsicE.exit.i, %403, %_ZN12_GLOBAL__N_111MemProfiler27instrumentMaskedLoadOrStoreERKN4llvm10DataLayoutEPNS1_5ValueEPNS1_11InstructionES6_PNS1_4TypeEb.argprom.exit.i.i, %350, %343
   %479 = add nuw nsw i32 %.04284.i, 1
   %480 = getelementptr inbounds i8, ptr %.04185.i, i64 8
   %.not.i = icmp eq ptr %480, %280
   br i1 %.not.i, label %.loopexit.i, label %336
 
-.loopexit.i:                                      ; preds = %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.exit.i, %_ZN12_GLOBAL__N_111MemProfiler34insertDynamicShadowAtFunctionEntryERN4llvm8FunctionE.exit.i, %._crit_edge82.i
-  %.1.i = phi i1 [ %81, %._crit_edge82.i ], [ true, %_ZN12_GLOBAL__N_111MemProfiler34insertDynamicShadowAtFunctionEntryERN4llvm8FunctionE.exit.i ], [ true, %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.exit.i ]
+.loopexit.i:                                      ; preds = %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.argprom.exit.i, %_ZN12_GLOBAL__N_111MemProfiler34insertDynamicShadowAtFunctionEntryERN4llvm8FunctionE.exit.i, %._crit_edge82.i
+  %.1.i = phi i1 [ %81, %._crit_edge82.i ], [ true, %_ZN12_GLOBAL__N_111MemProfiler34insertDynamicShadowAtFunctionEntryERN4llvm8FunctionE.exit.i ], [ true, %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.argprom.exit.i ]
   %481 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #19
   %482 = load ptr, ptr %34, align 8
   %483 = icmp eq ptr %482, %188
@@ -3321,16 +3321,16 @@ _ZNK4llvm12DISubprogram7getNameEv.exit.i:         ; preds = %611, %_ZNK4llvm6DIN
   %621 = getelementptr inbounds i8, ptr %.0103405.i, i64 -32
   %622 = load ptr, ptr %621, align 8
   %623 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %621) #19
-  br label %"_ZZL11readMemprofRN4llvm6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSA_EEEENK3$_1clEPKNS_10DILocationE.exit.i"
+  br label %"_ZZL11readMemprofRN4llvm6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSA_EEEENK3$_1clEPKNS_10DILocationE.argprom.exit.i"
 
 624:                                              ; preds = %_ZNK4llvm12DISubprogram7getNameEv.exit.i
   %625 = lshr i64 %618, 2
   %626 = and i64 %625, 15
   %627 = sub nsw i64 0, %626
   %628 = getelementptr inbounds %"class.llvm::MDOperand", ptr %552, i64 %627
-  br label %"_ZZL11readMemprofRN4llvm6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSA_EEEENK3$_1clEPKNS_10DILocationE.exit.i"
+  br label %"_ZZL11readMemprofRN4llvm6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSA_EEEENK3$_1clEPKNS_10DILocationE.argprom.exit.i"
 
-"_ZZL11readMemprofRN4llvm6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSA_EEEENK3$_1clEPKNS_10DILocationE.exit.i": ; preds = %624, %620
+"_ZZL11readMemprofRN4llvm6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSA_EEEENK3$_1clEPKNS_10DILocationE.argprom.exit.i": ; preds = %624, %620
   %.sroa.0.0.i.i.i.i.i151.i = phi ptr [ %628, %624 ], [ %622, %620 ]
   %629 = load ptr, ptr %.sroa.0.0.i.i.i.i.i151.i, align 8
   %630 = call noundef ptr @_ZNK4llvm12DILocalScope13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(16) %629) #19
@@ -3340,14 +3340,14 @@ _ZNK4llvm12DISubprogram7getNameEv.exit.i:         ; preds = %611, %_ZNK4llvm6DIN
   %634 = and i32 %633, 65535
   br i1 %524, label %635, label %639
 
-635:                                              ; preds = %"_ZZL11readMemprofRN4llvm6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSA_EEEENK3$_1clEPKNS_10DILocationE.exit.i"
+635:                                              ; preds = %"_ZZL11readMemprofRN4llvm6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSA_EEEENK3$_1clEPKNS_10DILocationE.argprom.exit.i"
   %636 = getelementptr inbounds nuw i8, ptr %.0103405.i, i64 2
   %637 = load i16, ptr %636, align 2
   %638 = zext i16 %637 to i32
   br label %639
 
-639:                                              ; preds = %635, %"_ZZL11readMemprofRN4llvm6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSA_EEEENK3$_1clEPKNS_10DILocationE.exit.i"
-  %640 = phi i32 [ %638, %635 ], [ 0, %"_ZZL11readMemprofRN4llvm6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSA_EEEENK3$_1clEPKNS_10DILocationE.exit.i" ]
+639:                                              ; preds = %635, %"_ZZL11readMemprofRN4llvm6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSA_EEEENK3$_1clEPKNS_10DILocationE.argprom.exit.i"
+  %640 = phi i32 [ %638, %635 ], [ 0, %"_ZZL11readMemprofRN4llvm6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSA_EEEENK3$_1clEPKNS_10DILocationE.argprom.exit.i" ]
   call void @llvm.lifetime.start.p0(i64 1928, ptr nonnull %31)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1912) %31, i8 0, i64 1912, i1 false)
   call void @llvm_blake3_hasher_init(ptr noundef nonnull %31) #19
@@ -3591,54 +3591,54 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i173.i: ; preds 
 
 _ZNK4llvm8CallBase17getCalledFunctionEv.exit174.thread.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i173.i, %719, %717
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
-  br label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread.i
+  br label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread.i
 
 727:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i173.i
   %.val.i = load ptr, ptr %253, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
   %728 = call noundef zeroext i1 @_ZNK4llvm21TargetLibraryInfoImpl10getLibFuncERKNS_8FunctionERNS_7LibFuncE(ptr noundef nonnull align 8 dereferenceable(208) %.val.i, ptr noundef nonnull align 8 dereferenceable(136) %718, ptr noundef nonnull align 4 dereferenceable(4) %26) #19
-  br i1 %728, label %729, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread.i
+  br i1 %728, label %729, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread.i
 
 729:                                              ; preds = %727
   %730 = load i32, ptr %26, align 4
-  switch i32 %730, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread.i [
-    i32 54, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread336.i
-    i32 56, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread336.i
-    i32 58, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread336.i
-    i32 60, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread336.i
-    i32 42, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread336.i
-    i32 44, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread336.i
-    i32 46, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread336.i
-    i32 48, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread336.i
-    i32 62, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread336.i
-    i32 64, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread336.i
-    i32 55, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.i
-    i32 57, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.i
-    i32 59, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.i
-    i32 61, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.i
-    i32 43, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.i
-    i32 45, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.i
-    i32 47, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.i
-    i32 49, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.i
-    i32 63, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.i
-    i32 65, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.i
+  switch i32 %730, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread.i [
+    i32 54, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread336.i
+    i32 56, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread336.i
+    i32 58, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread336.i
+    i32 60, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread336.i
+    i32 42, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread336.i
+    i32 44, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread336.i
+    i32 46, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread336.i
+    i32 48, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread336.i
+    i32 62, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread336.i
+    i32 64, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread336.i
+    i32 55, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.i
+    i32 57, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.i
+    i32 59, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.i
+    i32 61, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.i
+    i32 43, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.i
+    i32 45, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.i
+    i32 47, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.i
+    i32 49, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.i
+    i32 63, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.i
+    i32 65, label %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.i
   ]
 
-_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread.i: ; preds = %729, %727, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit174.thread.i
+_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread.i: ; preds = %729, %727, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit174.thread.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
   br label %.loopexit.i
 
-_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread336.i: ; preds = %729, %729, %729, %729, %729, %729, %729, %729, %729, %729
+_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread336.i: ; preds = %729, %729, %729, %729, %729, %729, %729, %729, %729, %729
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
   br label %733
 
-_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.i: ; preds = %729, %729, %729, %729, %729, %729, %729, %729, %729, %729
+_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.i: ; preds = %729, %729, %729, %729, %729, %729, %729, %729, %729, %729
   %731 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL24ClMemProfMatchHotColdNew, i64 128), align 8
   %732 = trunc i8 %731 to i1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
   br i1 %732, label %733, label %.loopexit.i
 
-733:                                              ; preds = %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.i, %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread336.i
+733:                                              ; preds = %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.i, %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread336.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
   %734 = getelementptr inbounds i8, ptr %.sroa.0257.1327.i, i64 64
   %735 = load ptr, ptr %734, align 8
@@ -4064,7 +4064,7 @@ _ZL34stackFrameIncludesInlinedCallStackN4llvm8ArrayRefINS_7memprof5FrameEEENS0_I
   %.not348.i = icmp eq ptr %890, %858
   br i1 %.not348.i, label %.loopexit.i, label %.lr.ph423.split.i
 
-.loopexit.i:                                      ; preds = %_ZL34stackFrameIncludesInlinedCallStackN4llvm8ArrayRefINS_7memprof5FrameEEENS0_ImEEj.exit213.thread.i, %.split.us.i, %855, %._crit_edge419.thread.i, %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.i, %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit.thread.i, %._crit_edge408.i
+.loopexit.i:                                      ; preds = %_ZL34stackFrameIncludesInlinedCallStackN4llvm8ArrayRefINS_7memprof5FrameEEENS0_ImEEj.exit213.thread.i, %.split.us.i, %855, %._crit_edge419.thread.i, %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.i, %_ZL30isAllocationWithHotColdVariantPN4llvm8FunctionERKNS_17TargetLibraryInfoE.argprom.exit.thread.i, %._crit_edge408.i
   %.not.i.i.i214.i = icmp eq ptr %.sroa.0260.4.i, null
   br i1 %.not.i.i.i214.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i, label %891
 
@@ -4622,7 +4622,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_111MemProfiler25isInterestingMemoryAccessEPN4llvm11InstructionE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr readnone %.128.val, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_111MemProfiler25isInterestingMemoryAccessEPN4llvm11InstructionE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr readnone %.128.val, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.anon.312, align 1
   %4 = alloca %"class.llvm::Triple", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -5844,7 +5844,7 @@ declare i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnul
 declare void @_ZN4llvm8LoadInstC1EPNS_4TypeEPNS_5ValueERKNS_5TwineEbNS_5AlignENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(73), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(34), i1 noundef zeroext, i8, ptr noundef byval(%"class.llvm::InsertPosition") align 8) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111MemProfiler17instrumentAddressEPN4llvm11InstructionES3_PNS1_5ValueEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111MemProfiler17instrumentAddressEPN4llvm11InstructionES3_PNS1_5ValueEb.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -10374,14 +10374,14 @@ attributes #23 = { noreturn nounwind }
 !34 = distinct !{!34, !"_ZN4llvm15handleErrorImplIZNS_14MemProfUsePass3runERNS_6ModuleERNS_15AnalysisManagerIS2_JEEEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISA_EEOT_DpOT0_"}
 !35 = !{!33, !30}
 !36 = !{!37, !33, !30}
-!37 = distinct !{!37, !38, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_14MemProfUsePass3runERNS_6ModuleERNS_15AnalysisManagerIS8_JEEEE3$_0EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE: argument 0"}
-!38 = distinct !{!38, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_14MemProfUsePass3runERNS_6ModuleERNS_15AnalysisManagerIS8_JEEEE3$_0EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE"}
+!37 = distinct !{!37, !38, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_14MemProfUsePass3runERNS_6ModuleERNS_15AnalysisManagerIS8_JEEEE3$_0EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE.argprom: argument 0"}
+!38 = distinct !{!38, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_14MemProfUsePass3runERNS_6ModuleERNS_15AnalysisManagerIS8_JEEEE3$_0EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE.argprom"}
 !39 = !{!40, !30}
 !40 = distinct !{!40, !41, !"_ZN4llvm15handleErrorImplIZNS_14MemProfUsePass3runERNS_6ModuleERNS_15AnalysisManagerIS2_JEEEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISA_EEOT_DpOT0_: argument 0"}
 !41 = distinct !{!41, !"_ZN4llvm15handleErrorImplIZNS_14MemProfUsePass3runERNS_6ModuleERNS_15AnalysisManagerIS2_JEEEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISA_EEOT_DpOT0_"}
 !42 = !{!43, !40, !30}
-!43 = distinct !{!43, !44, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_14MemProfUsePass3runERNS_6ModuleERNS_15AnalysisManagerIS8_JEEEE3$_0EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE: argument 0"}
-!44 = distinct !{!44, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_14MemProfUsePass3runERNS_6ModuleERNS_15AnalysisManagerIS8_JEEEE3$_0EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE"}
+!43 = distinct !{!43, !44, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_14MemProfUsePass3runERNS_6ModuleERNS_15AnalysisManagerIS8_JEEEE3$_0EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE.argprom: argument 0"}
+!44 = distinct !{!44, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_14MemProfUsePass3runERNS_6ModuleERNS_15AnalysisManagerIS8_JEEEE3$_0EENS_5ErrorEOT_St10unique_ptrIS1_St14default_deleteIS1_EE.argprom"}
 !45 = !{!46}
 !46 = distinct !{!46, !47, !"_ZN4llvm17PreservedAnalyses3allEv: argument 0"}
 !47 = distinct !{!47, !"_ZN4llvm17PreservedAnalyses3allEv"}
@@ -10451,8 +10451,8 @@ attributes #23 = { noreturn nounwind }
 !111 = distinct !{!111, !112, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !112 = distinct !{!112, !"_ZN4llvm5Error11takePayloadEv"}
 !113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_14InstrProfErrorEEE5applyIZL11readMemprofRNS_6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSH_EEEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISV_EE: argument 0"}
-!115 = distinct !{!115, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_14InstrProfErrorEEE5applyIZL11readMemprofRNS_6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSH_EEEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISV_EE"}
+!114 = distinct !{!114, !115, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_14InstrProfErrorEEE5applyIZL11readMemprofRNS_6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSH_EEEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISV_EE.argprom: argument 0"}
+!115 = distinct !{!115, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_14InstrProfErrorEEE5applyIZL11readMemprofRNS_6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSH_EEEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISV_EE.argprom"}
 !116 = !{!117, !119}
 !117 = distinct !{!117, !118, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !118 = distinct !{!118, !"_ZNK4llvm5Twine6concatERKS0_"}

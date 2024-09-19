@@ -2338,7 +2338,7 @@ Vec_VecExpand.exit:                               ; preds = %._crit_edge.i, %95,
 152:                                              ; preds = %151
   %153 = load i32, ptr %90, align 4
   %.not216 = icmp eq i32 %153, 0
-  br i1 %.not216, label %154, label %Extra_ProgressBarUpdate.exit
+  br i1 %.not216, label %154, label %Extra_ProgressBarUpdate.argprom.exit
 
 154:                                              ; preds = %152
   br i1 %.not.i, label %159, label %155
@@ -2347,21 +2347,21 @@ Vec_VecExpand.exit:                               ; preds = %._crit_edge.i, %95,
   %156 = load i32, ptr %.1, align 4
   %157 = sext i32 %156 to i64
   %158 = icmp slt i64 %indvars.iv, %157
-  br i1 %158, label %Extra_ProgressBarUpdate.exit, label %159
+  br i1 %158, label %Extra_ProgressBarUpdate.argprom.exit, label %159
 
 159:                                              ; preds = %155, %154
   %160 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %.1, i32 noundef %160, ptr noundef null) #15
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %159, %155, %152
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %159, %155, %152
   %161 = load ptr, ptr %57, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 16
   %163 = load i32, ptr %162, align 4
   %.not217 = icmp eq i32 %163, 0
   br i1 %.not217, label %Lpk_NodeHasChanged.exit, label %164
 
-164:                                              ; preds = %Extra_ProgressBarUpdate.exit
+164:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %165 = getelementptr inbounds i8, ptr %134, i64 16
   %166 = load i32, ptr %165, align 8
   %167 = load ptr, ptr %91, align 8
@@ -2408,7 +2408,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %159, %155, %152
   %190 = icmp eq ptr %189, null
   br i1 %190, label %Lpk_NodeHasChanged.exit, label %179
 
-Lpk_NodeHasChanged.exit:                          ; preds = %183, %164, %Extra_ProgressBarUpdate.exit
+Lpk_NodeHasChanged.exit:                          ; preds = %183, %164, %Extra_ProgressBarUpdate.argprom.exit
   store ptr %134, ptr %92, align 8
   %191 = getelementptr inbounds i8, ptr %161, i64 28
   %192 = load i32, ptr %191, align 4

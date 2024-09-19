@@ -61,7 +61,7 @@ define void @checkLabelOrder(ptr nocapture noundef readonly %0) local_unnamed_ad
   %7 = getelementptr inbounds i8, ptr %4, i64 348
   %8 = load i32, ptr %7, align 4
   %.not65 = icmp sgt i32 %6, %8
-  br i1 %.not65, label %agxbfree.exit, label %.lr.ph68
+  br i1 %.not65, label %agxbfree.argprom.exit, label %.lr.ph68
 
 .lr.ph68:                                         ; preds = %1
   %9 = getelementptr inbounds i8, ptr %2, i64 31
@@ -110,7 +110,7 @@ define void @checkLabelOrder(ptr nocapture noundef readonly %0) local_unnamed_ad
 34:                                               ; preds = %31, %30
   %.2 = phi ptr [ %.159, %30 ], [ %33, %31 ]
   %35 = trunc nuw nsw i64 %indvars.iv to i32
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %2, ptr nonnull poison, i32 noundef %35)
+  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %2, ptr nonnull poison, i32 noundef %35)
   %.val.i.i.i = load i8, ptr %9, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
   br i1 %.not.i.i.i, label %agxbsizeof.exit.i.i, label %agxbsizeof.exit.thread.i.i
@@ -147,7 +147,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %agxbsizeof.exit.i.i
 47:                                               ; preds = %44
   %48 = load ptr, ptr @stderr, align 8
   %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.12, i64 noundef %spec.select34.i.i.i) #25
-  call fastcc void @graphviz_exit() #26
+  call fastcc void @graphviz_exit.argelim() #26
   unreachable
 
 50:                                               ; preds = %44
@@ -173,7 +173,7 @@ gv_recalloc.exit:                                 ; preds = %43, %50, %52
 57:                                               ; preds = %.thread.i.i
   %58 = load ptr, ptr @stderr, align 8
   %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.12, i64 noundef 62) #25
-  call fastcc void @graphviz_exit() #26
+  call fastcc void @graphviz_exit.argelim() #26
   unreachable
 
 gv_calloc.exit.i.i.i:                             ; preds = %.thread.i.i
@@ -503,14 +503,14 @@ fixLabelOrder.exit:                               ; preds = %.lr.ph74.i.preheade
 ._crit_edge69:                                    ; preds = %._crit_edge.thread
   %.val48.pre = load i8, ptr %9, align 1
   %200 = icmp eq i8 %.val48.pre, -1
-  br i1 %200, label %201, label %agxbfree.exit
+  br i1 %200, label %201, label %agxbfree.argprom.exit
 
 201:                                              ; preds = %._crit_edge69
   %.val = load ptr, ptr %2, align 8
   call void @free(ptr noundef %.val) #23
-  br label %agxbfree.exit
+  br label %agxbfree.argprom.exit
 
-agxbfree.exit:                                    ; preds = %1, %._crit_edge69, %201
+agxbfree.argprom.exit:                            ; preds = %1, %._crit_edge69, %201
   ret void
 }
 
@@ -520,7 +520,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare ptr @agopen(ptr noundef, i32, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
+define internal void @agxbprint.retelim(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -533,7 +533,7 @@ define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture 
 
 7:                                                ; preds = %2
   call void @llvm.va_end.p0(ptr nonnull %4)
-  br label %vagxbprint.exit
+  br label %vagxbprint.argprom.exit
 
 8:                                                ; preds = %2
   %narrow.i = add nuw i32 %5, 1
@@ -581,7 +581,7 @@ agxbsizeof.exit.i.i:                              ; preds = %agxblen.exit.i
 31:                                               ; preds = %26
   %32 = load ptr, ptr @stderr, align 8
   %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.12, i64 noundef %spec.select.i.i) #25
-  call fastcc void @graphviz_exit() #26
+  call fastcc void @graphviz_exit.argelim() #26
   unreachable
 
 gv_calloc.exit.i.i:                               ; preds = %26
@@ -618,7 +618,7 @@ agxbnext.exit.i:                                  ; preds = %38, %36
   %42 = phi ptr [ %37, %36 ], [ %41, %38 ]
   %43 = call i32 @vsnprintf(ptr noundef %42, i64 noundef %9, ptr noundef nonnull @.str.1, ptr noundef nonnull %4) #23
   %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %45, label %vagxbprint.exit
+  br i1 %44, label %45, label %vagxbprint.argprom.exit
 
 45:                                               ; preds = %agxbnext.exit.i
   %.val.i = load i8, ptr %10, align 1
@@ -629,7 +629,7 @@ agxbnext.exit.i:                                  ; preds = %38, %36
   %47 = trunc i32 %43 to i8
   %48 = add i8 %.val.i, %47
   store i8 %48, ptr %10, align 1
-  br label %vagxbprint.exit
+  br label %vagxbprint.argprom.exit
 
 49:                                               ; preds = %45
   %50 = zext nneg i32 %43 to i64
@@ -637,9 +637,9 @@ agxbnext.exit.i:                                  ; preds = %38, %36
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, %50
   store i64 %53, ptr %51, align 8
-  br label %vagxbprint.exit
+  br label %vagxbprint.argprom.exit
 
-vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %46, %49
+vagxbprint.argprom.exit:                          ; preds = %7, %agxbnext.exit.i, %46, %49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret void
@@ -1795,7 +1795,7 @@ save_best.exit76:                                 ; preds = %._crit_edge.i70, %5
   %317 = getelementptr inbounds i8, ptr %316, i64 368
   %318 = load double, ptr %317, align 8
   %319 = fcmp ult double %318, 0.000000e+00
-  br i1 %319, label %flat_mval.exit.i.i, label %320
+  br i1 %319, label %flat_mval.argprom.exit.i.i, label %320
 
 320:                                              ; preds = %._crit_edge.i.i.i
   %321 = fadd double %318, 1.000000e+00
@@ -1805,7 +1805,7 @@ save_best.exit76:                                 ; preds = %._crit_edge.i70, %5
   %323 = getelementptr inbounds i8, ptr %274, i64 296
   %324 = load i64, ptr %323, align 8
   %.not43.i.i.i = icmp eq i64 %324, 0
-  br i1 %.not43.i.i.i, label %flat_mval.exit.i.i, label %325
+  br i1 %.not43.i.i.i, label %flat_mval.argprom.exit.i.i, label %325
 
 325:                                              ; preds = %322
   %326 = getelementptr inbounds i8, ptr %274, i64 288
@@ -1857,7 +1857,7 @@ save_best.exit76:                                 ; preds = %._crit_edge.i70, %5
   %357 = getelementptr inbounds i8, ptr %356, i64 368
   %358 = load double, ptr %357, align 8
   %359 = fcmp ogt double %358, 0.000000e+00
-  br i1 %359, label %360, label %flat_mval.exit.i.i
+  br i1 %359, label %360, label %flat_mval.argprom.exit.i.i
 
 360:                                              ; preds = %._crit_edge11.i.i.i
   %361 = fadd double %358, -1.000000e+00
@@ -1868,18 +1868,18 @@ save_best.exit76:                                 ; preds = %._crit_edge.i70, %5
   %362 = getelementptr inbounds i8, ptr %274, i64 368
   store double %.sink.i.i.i, ptr %362, align 8
   %.pre120.pre.i.i = load ptr, ptr %41, align 8
-  br label %flat_mval.exit.i.i
+  br label %flat_mval.argprom.exit.i.i
 
-flat_mval.exit.i.i:                               ; preds = %.sink.split.i.i.i, %._crit_edge11.i.i.i, %322, %._crit_edge.i.i.i
+flat_mval.argprom.exit.i.i:                       ; preds = %.sink.split.i.i.i, %._crit_edge11.i.i.i, %322, %._crit_edge.i.i.i
   %.pre120.i.i = phi ptr [ %.pre120121.i.i, %322 ], [ %.pre120121.i.i, %._crit_edge11.i.i.i ], [ %.pre120121.i.i, %._crit_edge.i.i.i ], [ %.pre120.pre.i.i, %.sink.split.i.i.i ]
   %.038.i.i.i = phi i1 [ true, %322 ], [ true, %._crit_edge11.i.i.i ], [ true, %._crit_edge.i.i.i ], [ false, %.sink.split.i.i.i ]
   %363 = or i1 %.083105.i.i, %.038.i.i.i
   br label %364
 
-364:                                              ; preds = %flat_mval.exit.i.i, %278, %.lr.ph107.i.i
-  %.pre120122.i.i = phi ptr [ %.pre120.i.i, %flat_mval.exit.i.i ], [ %.pre120121.i.i, %278 ], [ %.pre120121.i.i, %.lr.ph107.i.i ]
-  %365 = phi ptr [ %.pre120.i.i, %flat_mval.exit.i.i ], [ %270, %278 ], [ %270, %.lr.ph107.i.i ]
-  %.184.i.i = phi i1 [ %363, %flat_mval.exit.i.i ], [ %.083105.i.i, %278 ], [ %.083105.i.i, %.lr.ph107.i.i ]
+364:                                              ; preds = %flat_mval.argprom.exit.i.i, %278, %.lr.ph107.i.i
+  %.pre120122.i.i = phi ptr [ %.pre120.i.i, %flat_mval.argprom.exit.i.i ], [ %.pre120121.i.i, %278 ], [ %.pre120121.i.i, %.lr.ph107.i.i ]
+  %365 = phi ptr [ %.pre120.i.i, %flat_mval.argprom.exit.i.i ], [ %270, %278 ], [ %270, %.lr.ph107.i.i ]
+  %.184.i.i = phi i1 [ %363, %flat_mval.argprom.exit.i.i ], [ %.083105.i.i, %278 ], [ %.083105.i.i, %.lr.ph107.i.i ]
   %indvars.iv.next118.i.i = add nuw nsw i64 %indvars.iv117.i.i, 1
   %366 = getelementptr inbounds i8, ptr %365, i64 264
   %367 = load ptr, ptr %366, align 8
@@ -2495,10 +2495,10 @@ define void @rec_reset_vlists(ptr noundef %0) local_unnamed_addr #0 {
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %neighbor.exit.us.i, label %furthestnode.exit
 
-neighbor.exit.us.i:                               ; preds = %.lr.ph38, %is_a_vnode_of_an_edge_of.exit.us.i
-  %34 = phi i32 [ %80, %is_a_vnode_of_an_edge_of.exit.us.i ], [ %32, %.lr.ph38 ]
-  %35 = phi ptr [ %78, %is_a_vnode_of_an_edge_of.exit.us.i ], [ %30, %.lr.ph38 ]
-  %.0.us18.i = phi ptr [ %.1.us.i, %is_a_vnode_of_an_edge_of.exit.us.i ], [ %28, %.lr.ph38 ]
+neighbor.exit.us.i:                               ; preds = %.lr.ph38, %is_a_vnode_of_an_edge_of.argprom.exit.us.i
+  %34 = phi i32 [ %80, %is_a_vnode_of_an_edge_of.argprom.exit.us.i ], [ %32, %.lr.ph38 ]
+  %35 = phi ptr [ %78, %is_a_vnode_of_an_edge_of.argprom.exit.us.i ], [ %30, %.lr.ph38 ]
+  %.0.us18.i = phi ptr [ %.1.us.i, %is_a_vnode_of_an_edge_of.argprom.exit.us.i ], [ %28, %.lr.ph38 ]
   %36 = load ptr, ptr @Root, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
@@ -2528,7 +2528,7 @@ is_a_normal_node_of.exit.us.i:                    ; preds = %50
   %56 = tail call i32 @agcontains(ptr noundef %0, ptr noundef nonnull %49) #23
   %.not15.us.i = icmp eq i32 %56, 0
   %.pre29.i = load ptr, ptr %51, align 8
-  br i1 %.not15.us.i, label %is_a_normal_node_of.exit.us.is_a_normal_node_of.exit.thread.us_crit_edge.i, label %is_a_vnode_of_an_edge_of.exit.us.i
+  br i1 %.not15.us.i, label %is_a_normal_node_of.exit.us.is_a_normal_node_of.exit.thread.us_crit_edge.i, label %is_a_vnode_of_an_edge_of.argprom.exit.us.i
 
 is_a_normal_node_of.exit.us.is_a_normal_node_of.exit.thread.us_crit_edge.i: ; preds = %is_a_normal_node_of.exit.us.i
   %.phi.trans.insert26.i = getelementptr inbounds i8, ptr %.pre29.i, i64 216
@@ -2539,19 +2539,19 @@ is_a_normal_node_of.exit.thread.us.i:             ; preds = %is_a_normal_node_of
   %57 = phi i8 [ %.pre27.i, %is_a_normal_node_of.exit.us.is_a_normal_node_of.exit.thread.us_crit_edge.i ], [ %54, %50 ]
   %.val.us.i = phi ptr [ %.pre29.i, %is_a_normal_node_of.exit.us.is_a_normal_node_of.exit.thread.us_crit_edge.i ], [ %52, %50 ]
   %58 = icmp eq i8 %57, 1
-  br i1 %58, label %59, label %is_a_vnode_of_an_edge_of.exit.us.i
+  br i1 %58, label %59, label %is_a_vnode_of_an_edge_of.argprom.exit.us.i
 
 59:                                               ; preds = %is_a_normal_node_of.exit.thread.us.i
   %60 = getelementptr inbounds i8, ptr %.val.us.i, i64 264
   %61 = load i64, ptr %60, align 8
   %62 = icmp eq i64 %61, 1
-  br i1 %62, label %63, label %is_a_vnode_of_an_edge_of.exit.us.i
+  br i1 %62, label %63, label %is_a_vnode_of_an_edge_of.argprom.exit.us.i
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds i8, ptr %.val.us.i, i64 280
   %65 = load i64, ptr %64, align 8
   %66 = icmp eq i64 %65, 1
-  br i1 %66, label %67, label %is_a_vnode_of_an_edge_of.exit.us.i
+  br i1 %66, label %67, label %is_a_vnode_of_an_edge_of.argprom.exit.us.i
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds i8, ptr %.val.us.i, i64 272
@@ -2574,9 +2574,9 @@ is_a_normal_node_of.exit.thread.us.i:             ; preds = %is_a_normal_node_of
   %.not10.i.us.i = icmp eq i32 %77, 0
   %spec.select.us.i = select i1 %.not10.i.us.i, ptr %.0.us18.i, ptr %49
   %.pre28.i = load ptr, ptr %51, align 8
-  br label %is_a_vnode_of_an_edge_of.exit.us.i
+  br label %is_a_vnode_of_an_edge_of.argprom.exit.us.i
 
-is_a_vnode_of_an_edge_of.exit.us.i:               ; preds = %76, %63, %59, %is_a_normal_node_of.exit.thread.us.i, %is_a_normal_node_of.exit.us.i
+is_a_vnode_of_an_edge_of.argprom.exit.us.i:       ; preds = %76, %63, %59, %is_a_normal_node_of.exit.thread.us.i, %is_a_normal_node_of.exit.us.i
   %78 = phi ptr [ %.pre29.i, %is_a_normal_node_of.exit.us.i ], [ %.val.us.i, %is_a_normal_node_of.exit.thread.us.i ], [ %.val.us.i, %59 ], [ %.val.us.i, %63 ], [ %.pre28.i, %76 ]
   %.1.us.i = phi ptr [ %49, %is_a_normal_node_of.exit.us.i ], [ %.0.us18.i, %is_a_normal_node_of.exit.thread.us.i ], [ %.0.us18.i, %59 ], [ %.0.us18.i, %63 ], [ %spec.select.us.i, %76 ]
   %79 = getelementptr inbounds i8, ptr %78, i64 364
@@ -2584,8 +2584,8 @@ is_a_vnode_of_an_edge_of.exit.us.i:               ; preds = %76, %63, %59, %is_a
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %neighbor.exit.us.i, label %furthestnode.exit.loopexit
 
-furthestnode.exit.loopexit:                       ; preds = %is_a_vnode_of_an_edge_of.exit.us.i, %neighbor.exit.us.i
-  %.us-phi.i.ph = phi ptr [ %.0.us18.i, %neighbor.exit.us.i ], [ %.1.us.i, %is_a_vnode_of_an_edge_of.exit.us.i ]
+furthestnode.exit.loopexit:                       ; preds = %is_a_vnode_of_an_edge_of.argprom.exit.us.i, %neighbor.exit.us.i
+  %.us-phi.i.ph = phi ptr [ %.0.us18.i, %neighbor.exit.us.i ], [ %.1.us.i, %is_a_vnode_of_an_edge_of.argprom.exit.us.i ]
   %.pre = load ptr, ptr %29, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 364
   %.pre44 = load i32, ptr %.phi.trans.insert, align 4
@@ -2612,9 +2612,9 @@ furthestnode.exit:                                ; preds = %furthestnode.exit.l
   %.not16.i = icmp eq ptr %97, null
   br i1 %.not16.i, label %furthestnode.exit31, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %furthestnode.exit, %is_a_vnode_of_an_edge_of.exit.i
-  %98 = phi ptr [ %142, %is_a_vnode_of_an_edge_of.exit.i ], [ %97, %furthestnode.exit ]
-  %.017.i = phi ptr [ %.1.i, %is_a_vnode_of_an_edge_of.exit.i ], [ %28, %furthestnode.exit ]
+.lr.ph.i:                                         ; preds = %furthestnode.exit, %is_a_vnode_of_an_edge_of.argprom.exit.i
+  %98 = phi ptr [ %142, %is_a_vnode_of_an_edge_of.argprom.exit.i ], [ %97, %furthestnode.exit ]
+  %.017.i = phi ptr [ %.1.i, %is_a_vnode_of_an_edge_of.argprom.exit.i ], [ %28, %furthestnode.exit ]
   %99 = getelementptr inbounds i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 216
@@ -2626,7 +2626,7 @@ is_a_normal_node_of.exit.i:                       ; preds = %.lr.ph.i
   %104 = tail call i32 @agcontains(ptr noundef %0, ptr noundef nonnull %98) #23
   %.not15.i = icmp eq i32 %104, 0
   %.pre24.i = load ptr, ptr %99, align 8
-  br i1 %.not15.i, label %is_a_normal_node_of.exit.is_a_normal_node_of.exit.thread_crit_edge.i, label %is_a_vnode_of_an_edge_of.exit.i
+  br i1 %.not15.i, label %is_a_normal_node_of.exit.is_a_normal_node_of.exit.thread_crit_edge.i, label %is_a_vnode_of_an_edge_of.argprom.exit.i
 
 is_a_normal_node_of.exit.is_a_normal_node_of.exit.thread_crit_edge.i: ; preds = %is_a_normal_node_of.exit.i
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre24.i, i64 216
@@ -2637,19 +2637,19 @@ is_a_normal_node_of.exit.thread.i:                ; preds = %is_a_normal_node_of
   %105 = phi i8 [ %.pre.i, %is_a_normal_node_of.exit.is_a_normal_node_of.exit.thread_crit_edge.i ], [ %102, %.lr.ph.i ]
   %.val.i = phi ptr [ %.pre24.i, %is_a_normal_node_of.exit.is_a_normal_node_of.exit.thread_crit_edge.i ], [ %100, %.lr.ph.i ]
   %106 = icmp eq i8 %105, 1
-  br i1 %106, label %107, label %is_a_vnode_of_an_edge_of.exit.i
+  br i1 %106, label %107, label %is_a_vnode_of_an_edge_of.argprom.exit.i
 
 107:                                              ; preds = %is_a_normal_node_of.exit.thread.i
   %108 = getelementptr inbounds i8, ptr %.val.i, i64 264
   %109 = load i64, ptr %108, align 8
   %110 = icmp eq i64 %109, 1
-  br i1 %110, label %111, label %is_a_vnode_of_an_edge_of.exit.i
+  br i1 %110, label %111, label %is_a_vnode_of_an_edge_of.argprom.exit.i
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds i8, ptr %.val.i, i64 280
   %113 = load i64, ptr %112, align 8
   %114 = icmp eq i64 %113, 1
-  br i1 %114, label %115, label %is_a_vnode_of_an_edge_of.exit.i
+  br i1 %114, label %115, label %is_a_vnode_of_an_edge_of.argprom.exit.i
 
 115:                                              ; preds = %111
   %116 = getelementptr inbounds i8, ptr %.val.i, i64 272
@@ -2672,9 +2672,9 @@ is_a_normal_node_of.exit.thread.i:                ; preds = %is_a_normal_node_of
   %.not10.i.i = icmp eq i32 %125, 0
   %spec.select.i = select i1 %.not10.i.i, ptr %.017.i, ptr %98
   %.pre23.i = load ptr, ptr %99, align 8
-  br label %is_a_vnode_of_an_edge_of.exit.i
+  br label %is_a_vnode_of_an_edge_of.argprom.exit.i
 
-is_a_vnode_of_an_edge_of.exit.i:                  ; preds = %124, %111, %107, %is_a_normal_node_of.exit.thread.i, %is_a_normal_node_of.exit.i
+is_a_vnode_of_an_edge_of.argprom.exit.i:          ; preds = %124, %111, %107, %is_a_normal_node_of.exit.thread.i, %is_a_normal_node_of.exit.i
   %126 = phi ptr [ %.pre24.i, %is_a_normal_node_of.exit.i ], [ %.val.i, %is_a_normal_node_of.exit.thread.i ], [ %.val.i, %107 ], [ %.val.i, %111 ], [ %.pre23.i, %124 ]
   %.1.i = phi ptr [ %98, %is_a_normal_node_of.exit.i ], [ %.017.i, %is_a_normal_node_of.exit.thread.i ], [ %.017.i, %107 ], [ %.017.i, %111 ], [ %spec.select.i, %124 ]
   %127 = load ptr, ptr @Root, align 8
@@ -2696,8 +2696,8 @@ is_a_vnode_of_an_edge_of.exit.i:                  ; preds = %124, %111, %107, %i
   %.not.i = icmp eq ptr %142, null
   br i1 %.not.i, label %furthestnode.exit31, label %.lr.ph.i
 
-furthestnode.exit31:                              ; preds = %is_a_vnode_of_an_edge_of.exit.i, %furthestnode.exit
-  %.us-phi.i30 = phi ptr [ %28, %furthestnode.exit ], [ %.1.i, %is_a_vnode_of_an_edge_of.exit.i ]
+furthestnode.exit31:                              ; preds = %is_a_vnode_of_an_edge_of.argprom.exit.i, %furthestnode.exit
+  %.us-phi.i30 = phi ptr [ %28, %furthestnode.exit ], [ %.1.i, %is_a_vnode_of_an_edge_of.argprom.exit.i ]
   %143 = load ptr, ptr %2, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 392
   %145 = load ptr, ptr %144, align 8
@@ -2912,7 +2912,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1) #25
-  tail call fastcc void @graphviz_exit() #26
+  tail call fastcc void @graphviz_exit.argelim() #26
   unreachable
 
 8:                                                ; preds = %4
@@ -2924,7 +2924,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.12, i64 noundef %13) #25
-  tail call fastcc void @graphviz_exit() #26
+  tail call fastcc void @graphviz_exit.argelim() #26
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -4179,7 +4179,7 @@ left2right.exit.i:                                ; preds = %82
   br i1 %.not133.i, label %left2right.exit.thread.i, label %left2right.exit.thread131.i
 
 left2right.exit.thread.i:                         ; preds = %left2right.exit.i, %82, %77, %69
-  br i1 %43, label %110, label %in_cross.exit85.i
+  br i1 %43, label %110, label %in_cross.argprom.argprom.exit85.i
 
 110:                                              ; preds = %left2right.exit.thread.i
   %111 = getelementptr i8, ptr %60, i64 256
@@ -4190,7 +4190,7 @@ left2right.exit.thread.i:                         ; preds = %left2right.exit.i, 
   %.val61.val.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %.pre.i = load ptr, ptr %.val61.val.pre.i, align 8
   %.not5.i64159.i = icmp eq ptr %.pre.i, null
-  br i1 %.not5.i.i, label %in_cross.exit.thread156.i, label %.lr.ph9.i.i
+  br i1 %.not5.i.i, label %in_cross.argprom.argprom.exit.thread156.i, label %.lr.ph9.i.i
 
 .lr.ph9.i.i:                                      ; preds = %110
   br i1 %.not5.i64159.i, label %.lr.ph9.split.us.i.i, label %.lr.ph.i.i
@@ -4200,7 +4200,7 @@ left2right.exit.thread.i:                         ; preds = %left2right.exit.i, 
   %113 = getelementptr inbounds i8, ptr %.0217.us.i.i, i64 8
   %114 = load ptr, ptr %113, align 8
   %.not.us.i.i = icmp eq ptr %114, null
-  br i1 %.not.us.i.i, label %in_cross.exit85.i, label %.lr.ph9.split.us.i.i
+  br i1 %.not.us.i.i, label %in_cross.argprom.argprom.exit85.i, label %.lr.ph9.split.us.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph9.i.i, %._crit_edge.i.i
   %115 = phi ptr [ %165, %._crit_edge.i.i ], [ %112, %.lr.ph9.i.i ]
@@ -4283,15 +4283,15 @@ left2right.exit.thread.i:                         ; preds = %left2right.exit.i, 
   %.not.i.i = icmp eq ptr %165, null
   br i1 %.not.i.i, label %.lr.ph.i67.i, label %.lr.ph.i.i
 
-in_cross.exit.thread156.i:                        ; preds = %110
-  br i1 %.not5.i64159.i, label %in_cross.exit85.i, label %.lr.ph9.split.us.i82.i
+in_cross.argprom.argprom.exit.thread156.i:        ; preds = %110
+  br i1 %.not5.i64159.i, label %in_cross.argprom.argprom.exit85.i, label %.lr.ph9.split.us.i82.i
 
-.lr.ph9.split.us.i82.i:                           ; preds = %in_cross.exit.thread156.i, %.lr.ph9.split.us.i82.i
-  %.0217.us.i83.i = phi ptr [ %166, %.lr.ph9.split.us.i82.i ], [ %.val61.val.pre.i, %in_cross.exit.thread156.i ]
+.lr.ph9.split.us.i82.i:                           ; preds = %in_cross.argprom.argprom.exit.thread156.i, %.lr.ph9.split.us.i82.i
+  %.0217.us.i83.i = phi ptr [ %166, %.lr.ph9.split.us.i82.i ], [ %.val61.val.pre.i, %in_cross.argprom.argprom.exit.thread156.i ]
   %166 = getelementptr inbounds i8, ptr %.0217.us.i83.i, i64 8
   %167 = load ptr, ptr %166, align 8
   %.not.us.i84.i = icmp eq ptr %167, null
-  br i1 %.not.us.i84.i, label %in_cross.exit85.i, label %.lr.ph9.split.us.i82.i
+  br i1 %.not.us.i84.i, label %in_cross.argprom.argprom.exit85.i, label %.lr.ph9.split.us.i82.i
 
 .lr.ph.i67.i:                                     ; preds = %._crit_edge.i.i, %._crit_edge.i76.i
   %168 = phi ptr [ %218, %._crit_edge.i76.i ], [ %.pre.i, %._crit_edge.i.i ]
@@ -4372,17 +4372,17 @@ in_cross.exit.thread156.i:                        ; preds = %110
   %217 = getelementptr inbounds i8, ptr %.0217.i68.i, i64 8
   %218 = load ptr, ptr %217, align 8
   %.not.i77.i = icmp eq ptr %218, null
-  br i1 %.not.i77.i, label %in_cross.exit85.i, label %.lr.ph.i67.i
+  br i1 %.not.i77.i, label %in_cross.argprom.argprom.exit85.i, label %.lr.ph.i67.i
 
-in_cross.exit85.i:                                ; preds = %._crit_edge.i76.i, %.lr.ph9.split.us.i.i, %.lr.ph9.split.us.i82.i, %in_cross.exit.thread156.i, %left2right.exit.thread.i
-  %.057.i = phi i32 [ 0, %left2right.exit.thread.i ], [ 0, %in_cross.exit.thread156.i ], [ 0, %.lr.ph9.split.us.i82.i ], [ 0, %.lr.ph9.split.us.i.i ], [ %.2.i74.i, %._crit_edge.i76.i ]
-  %.054.i = phi i32 [ 0, %left2right.exit.thread.i ], [ 0, %in_cross.exit.thread156.i ], [ 0, %.lr.ph9.split.us.i82.i ], [ 0, %.lr.ph9.split.us.i.i ], [ %.2.i.i, %._crit_edge.i76.i ]
+in_cross.argprom.argprom.exit85.i:                ; preds = %._crit_edge.i76.i, %.lr.ph9.split.us.i.i, %.lr.ph9.split.us.i82.i, %in_cross.argprom.argprom.exit.thread156.i, %left2right.exit.thread.i
+  %.057.i = phi i32 [ 0, %left2right.exit.thread.i ], [ 0, %in_cross.argprom.argprom.exit.thread156.i ], [ 0, %.lr.ph9.split.us.i82.i ], [ 0, %.lr.ph9.split.us.i.i ], [ %.2.i74.i, %._crit_edge.i76.i ]
+  %.054.i = phi i32 [ 0, %left2right.exit.thread.i ], [ 0, %in_cross.argprom.argprom.exit.thread156.i ], [ 0, %.lr.ph9.split.us.i82.i ], [ 0, %.lr.ph9.split.us.i.i ], [ %.2.i.i, %._crit_edge.i76.i ]
   %219 = getelementptr inbounds %struct.rank_t, ptr %48, i64 %44
   %220 = load i32, ptr %219, align 8
   %221 = icmp sgt i32 %220, 0
   br i1 %221, label %222, label %334
 
-222:                                              ; preds = %in_cross.exit85.i
+222:                                              ; preds = %in_cross.argprom.argprom.exit85.i
   %223 = getelementptr i8, ptr %60, i64 272
   %.val62.val.i = load ptr, ptr %223, align 8
   %224 = load ptr, ptr %.val62.val.i, align 8
@@ -4391,7 +4391,7 @@ in_cross.exit85.i:                                ; preds = %._crit_edge.i76.i, 
   %.val63.val.pre.i = load ptr, ptr %.phi.trans.insert148.i, align 8
   %.pre150.i = load ptr, ptr %.val63.val.pre.i, align 8
   %.not5.i107172.i = icmp eq ptr %.pre150.i, null
-  br i1 %.not5.i86.i, label %out_cross.exit.thread169.i, label %.lr.ph9.i87.i
+  br i1 %.not5.i86.i, label %out_cross.argprom.argprom.exit.thread169.i, label %.lr.ph9.i87.i
 
 .lr.ph9.i87.i:                                    ; preds = %222
   br i1 %.not5.i107172.i, label %.lr.ph9.split.us.i104.i, label %.lr.ph.i89.i
@@ -4401,7 +4401,7 @@ in_cross.exit85.i:                                ; preds = %._crit_edge.i76.i, 
   %225 = getelementptr inbounds i8, ptr %.0217.us.i105.i, i64 8
   %226 = load ptr, ptr %225, align 8
   %.not.us.i106.i = icmp eq ptr %226, null
-  br i1 %.not.us.i106.i, label %out_cross.exit128.i, label %.lr.ph9.split.us.i104.i
+  br i1 %.not.us.i106.i, label %out_cross.argprom.argprom.exit128.i, label %.lr.ph9.split.us.i104.i
 
 .lr.ph.i89.i:                                     ; preds = %.lr.ph9.i87.i, %._crit_edge.i98.i
   %227 = phi ptr [ %277, %._crit_edge.i98.i ], [ %224, %.lr.ph9.i87.i ]
@@ -4484,15 +4484,15 @@ in_cross.exit85.i:                                ; preds = %._crit_edge.i76.i, 
   %.not.i99.i = icmp eq ptr %277, null
   br i1 %.not.i99.i, label %.lr.ph.i110.i, label %.lr.ph.i89.i
 
-out_cross.exit.thread169.i:                       ; preds = %222
-  br i1 %.not5.i107172.i, label %out_cross.exit128.i, label %.lr.ph9.split.us.i125.i
+out_cross.argprom.argprom.exit.thread169.i:       ; preds = %222
+  br i1 %.not5.i107172.i, label %out_cross.argprom.argprom.exit128.i, label %.lr.ph9.split.us.i125.i
 
-.lr.ph9.split.us.i125.i:                          ; preds = %out_cross.exit.thread169.i, %.lr.ph9.split.us.i125.i
-  %.0217.us.i126.i = phi ptr [ %278, %.lr.ph9.split.us.i125.i ], [ %.val63.val.pre.i, %out_cross.exit.thread169.i ]
+.lr.ph9.split.us.i125.i:                          ; preds = %out_cross.argprom.argprom.exit.thread169.i, %.lr.ph9.split.us.i125.i
+  %.0217.us.i126.i = phi ptr [ %278, %.lr.ph9.split.us.i125.i ], [ %.val63.val.pre.i, %out_cross.argprom.argprom.exit.thread169.i ]
   %278 = getelementptr inbounds i8, ptr %.0217.us.i126.i, i64 8
   %279 = load ptr, ptr %278, align 8
   %.not.us.i127.i = icmp eq ptr %279, null
-  br i1 %.not.us.i127.i, label %out_cross.exit128.i, label %.lr.ph9.split.us.i125.i
+  br i1 %.not.us.i127.i, label %out_cross.argprom.argprom.exit128.i, label %.lr.ph9.split.us.i125.i
 
 .lr.ph.i110.i:                                    ; preds = %._crit_edge.i98.i, %._crit_edge.i119.i
   %280 = phi ptr [ %330, %._crit_edge.i119.i ], [ %.pre150.i, %._crit_edge.i98.i ]
@@ -4573,21 +4573,21 @@ out_cross.exit.thread169.i:                       ; preds = %222
   %329 = getelementptr inbounds i8, ptr %.0217.i111.i, i64 8
   %330 = load ptr, ptr %329, align 8
   %.not.i120.i = icmp eq ptr %330, null
-  br i1 %.not.i120.i, label %out_cross.exit128.i.loopexit31, label %.lr.ph.i110.i
+  br i1 %.not.i120.i, label %out_cross.argprom.argprom.exit128.i.loopexit31, label %.lr.ph.i110.i
 
-out_cross.exit128.i.loopexit31:                   ; preds = %._crit_edge.i119.i
+out_cross.argprom.argprom.exit128.i.loopexit31:   ; preds = %._crit_edge.i119.i
   %331 = add nsw i32 %.2.i96.i, %.054.i
-  br label %out_cross.exit128.i
+  br label %out_cross.argprom.argprom.exit128.i
 
-out_cross.exit128.i:                              ; preds = %.lr.ph9.split.us.i104.i, %.lr.ph9.split.us.i125.i, %out_cross.exit128.i.loopexit31, %out_cross.exit.thread169.i
-  %332 = phi i32 [ %.054.i, %out_cross.exit.thread169.i ], [ %331, %out_cross.exit128.i.loopexit31 ], [ %.054.i, %.lr.ph9.split.us.i125.i ], [ %.054.i, %.lr.ph9.split.us.i104.i ]
-  %.022.lcssa.i121.i = phi i32 [ 0, %out_cross.exit.thread169.i ], [ %.2.i117.i, %out_cross.exit128.i.loopexit31 ], [ 0, %.lr.ph9.split.us.i125.i ], [ 0, %.lr.ph9.split.us.i104.i ]
+out_cross.argprom.argprom.exit128.i:              ; preds = %.lr.ph9.split.us.i104.i, %.lr.ph9.split.us.i125.i, %out_cross.argprom.argprom.exit128.i.loopexit31, %out_cross.argprom.argprom.exit.thread169.i
+  %332 = phi i32 [ %.054.i, %out_cross.argprom.argprom.exit.thread169.i ], [ %331, %out_cross.argprom.argprom.exit128.i.loopexit31 ], [ %.054.i, %.lr.ph9.split.us.i125.i ], [ %.054.i, %.lr.ph9.split.us.i104.i ]
+  %.022.lcssa.i121.i = phi i32 [ 0, %out_cross.argprom.argprom.exit.thread169.i ], [ %.2.i117.i, %out_cross.argprom.argprom.exit128.i.loopexit31 ], [ 0, %.lr.ph9.split.us.i125.i ], [ 0, %.lr.ph9.split.us.i104.i ]
   %333 = add nsw i32 %.022.lcssa.i121.i, %.057.i
   br label %334
 
-334:                                              ; preds = %out_cross.exit128.i, %in_cross.exit85.i
-  %.158.i = phi i32 [ %333, %out_cross.exit128.i ], [ %.057.i, %in_cross.exit85.i ]
-  %.1.i = phi i32 [ %332, %out_cross.exit128.i ], [ %.054.i, %in_cross.exit85.i ]
+334:                                              ; preds = %out_cross.argprom.argprom.exit128.i, %in_cross.argprom.argprom.exit85.i
+  %.158.i = phi i32 [ %333, %out_cross.argprom.argprom.exit128.i ], [ %.057.i, %in_cross.argprom.argprom.exit85.i ]
+  %.1.i = phi i32 [ %332, %out_cross.argprom.argprom.exit128.i ], [ %.054.i, %in_cross.argprom.argprom.exit85.i ]
   %335 = icmp slt i32 %.158.i, %.1.i
   br i1 %335, label %339, label %336
 
@@ -4733,16 +4733,16 @@ define void @virtual_weight(ptr nocapture noundef readonly %0) local_unnamed_add
   %9 = getelementptr inbounds i8, ptr %.val, i64 216
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 1
-  br i1 %11, label %endpoint_class.exit, label %12
+  br i1 %11, label %endpoint_class.argprom.exit, label %12
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %.val, i64 234
   %14 = load i8, ptr %13, align 2
   %15 = icmp slt i8 %14, 2
   %16 = zext i1 %15 to i64
-  br label %endpoint_class.exit
+  br label %endpoint_class.argprom.exit
 
-endpoint_class.exit:                              ; preds = %1, %12
+endpoint_class.argprom.exit:                      ; preds = %1, %12
   %.0.i = phi i64 [ 2, %1 ], [ %16, %12 ]
   %17 = icmp eq i32 %3, 2
   %.idx9 = select i1 %17, i64 0, i64 -64
@@ -4754,17 +4754,17 @@ endpoint_class.exit:                              ; preds = %1, %12
   %22 = getelementptr inbounds i8, ptr %.val10, i64 216
   %23 = load i8, ptr %22, align 8
   %24 = icmp eq i8 %23, 1
-  br i1 %24, label %endpoint_class.exit13, label %25
+  br i1 %24, label %endpoint_class.argprom.exit13, label %25
 
-25:                                               ; preds = %endpoint_class.exit
+25:                                               ; preds = %endpoint_class.argprom.exit
   %26 = getelementptr inbounds i8, ptr %.val10, i64 234
   %27 = load i8, ptr %26, align 2
   %28 = icmp slt i8 %27, 2
   %29 = zext i1 %28 to i64
-  br label %endpoint_class.exit13
+  br label %endpoint_class.argprom.exit13
 
-endpoint_class.exit13:                            ; preds = %endpoint_class.exit, %25
-  %.0.i12 = phi i64 [ 2, %endpoint_class.exit ], [ %29, %25 ]
+endpoint_class.argprom.exit13:                    ; preds = %endpoint_class.argprom.exit, %25
+  %.0.i12 = phi i64 [ 2, %endpoint_class.argprom.exit ], [ %29, %25 ]
   %30 = getelementptr inbounds [3 x [3 x i32]], ptr @table, i64 0, i64 %.0.i, i64 %.0.i12
   %31 = load i32, ptr %30, align 4
   %32 = sdiv i32 2147483647, %31
@@ -4775,19 +4775,19 @@ endpoint_class.exit13:                            ; preds = %endpoint_class.exit
   %37 = icmp slt i32 %32, %36
   br i1 %37, label %38, label %40
 
-38:                                               ; preds = %endpoint_class.exit13
+38:                                               ; preds = %endpoint_class.argprom.exit13
   %39 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.10) #23
-  tail call fastcc void @graphviz_exit() #26
+  tail call fastcc void @graphviz_exit.argelim() #26
   unreachable
 
-40:                                               ; preds = %endpoint_class.exit13
+40:                                               ; preds = %endpoint_class.argprom.exit13
   %41 = mul nsw i32 %36, %31
   store i32 %41, ptr %35, align 4
   ret void
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #8 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #8 {
   tail call void @exit(i32 noundef 1) #29
   unreachable
 }
@@ -4804,7 +4804,7 @@ define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.11, i64 noundef %2, i64 noundef %3) #25
-  tail call fastcc void @graphviz_exit() #26
+  tail call fastcc void @graphviz_exit.argelim() #26
   unreachable
 
 8:                                                ; preds = %4
@@ -4825,7 +4825,7 @@ define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0
 16:                                               ; preds = %13
   %17 = load ptr, ptr @stderr, align 8
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.12, i64 noundef %10) #25
-  tail call fastcc void @graphviz_exit() #26
+  tail call fastcc void @graphviz_exit.argelim() #26
   unreachable
 
 19:                                               ; preds = %13
@@ -5227,7 +5227,7 @@ define internal fastcc void @flat_breakcycles(ptr noundef %0) unnamed_addr #0 {
 41:                                               ; preds = %33
   %42 = load ptr, ptr @stderr, align 8
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.12, i64 noundef 24) #25
-  tail call fastcc void @graphviz_exit() #26
+  tail call fastcc void @graphviz_exit.argelim() #26
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %33
@@ -5251,7 +5251,7 @@ gv_alloc.exit.i:                                  ; preds = %33
 51:                                               ; preds = %47
   %52 = load ptr, ptr @stderr, align 8
   %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.12, i64 noundef %48) #25
-  tail call fastcc void @graphviz_exit() #26
+  tail call fastcc void @graphviz_exit.argelim() #26
   unreachable
 
 new_matrix.exit:                                  ; preds = %.thread.i.i, %47
@@ -5813,7 +5813,7 @@ constraining_flat_edge.exit147.thread:            ; preds = %constraining_flat_e
   %268 = load ptr, ptr @stderr, align 8
   %269 = tail call ptr @strerror(i32 noundef %.0.i.ph.i) #23
   %270 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %268, ptr noundef nonnull @.str.18, ptr noundef %269) #25
-  tail call fastcc void @graphviz_exit() #26
+  tail call fastcc void @graphviz_exit.argelim() #26
   unreachable
 
 nodes_append.exit:                                ; preds = %._crit_edge.i.i, %262
@@ -5832,7 +5832,7 @@ nodes_append.exit:                                ; preds = %._crit_edge.i.i, %2
   br i1 %or.cond3, label %278, label %279
 
 278:                                              ; preds = %274
-  call fastcc void @postorder(ptr noundef %0, ptr noundef nonnull %.0101, ptr noundef %2)
+  call fastcc void @postorder.argelim(ptr noundef %0, ptr noundef nonnull %.0101, ptr noundef %2)
   br label %279
 
 279:                                              ; preds = %nodes_append.exit, %278, %274
@@ -6859,7 +6859,7 @@ define internal fastcc void @nodes_append(ptr nocapture noundef nonnull %0, ptr 
   %23 = load ptr, ptr @stderr, align 8
   %24 = tail call ptr @strerror(i32 noundef %.0.i.ph) #23
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.18, ptr noundef %24) #25
-  tail call fastcc void @graphviz_exit() #26
+  tail call fastcc void @graphviz_exit.argelim() #26
   unreachable
 
 26:                                               ; preds = %16, %._crit_edge.i
@@ -6874,7 +6874,7 @@ define internal fastcc void @nodes_append(ptr nocapture noundef nonnull %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @postorder(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @postorder.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 224
@@ -6914,7 +6914,7 @@ define internal fastcc void @postorder(ptr noundef %0, ptr noundef %1, ptr nocap
   br i1 %.not19, label %26, label %27
 
 26:                                               ; preds = %15
-  tail call fastcc void @postorder(ptr noundef %0, ptr noundef nonnull %21, ptr noundef %2)
+  tail call fastcc void @postorder.argelim(ptr noundef %0, ptr noundef nonnull %21, ptr noundef %2)
   br label %27
 
 27:                                               ; preds = %15, %26, %.lr.ph
@@ -7237,7 +7237,7 @@ define internal fastcc ptr @realFillRanks(ptr noundef %0, ptr nocapture noundef 
 89:                                               ; preds = %70
   %90 = load ptr, ptr @stderr, align 8
   %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.12, i64 noundef 40) #25
-  tail call fastcc void @graphviz_exit() #26
+  tail call fastcc void @graphviz_exit.argelim() #26
   unreachable
 
 gv_calloc.exit:                                   ; preds = %70
@@ -7254,7 +7254,7 @@ gv_calloc.exit:                                   ; preds = %70
 98:                                               ; preds = %gv_calloc.exit
   %99 = load ptr, ptr @stderr, align 8
   %100 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef nonnull @.str.12, i64 noundef 40) #25
-  tail call fastcc void @graphviz_exit() #26
+  tail call fastcc void @graphviz_exit.argelim() #26
   unreachable
 
 gv_calloc.exit67:                                 ; preds = %gv_calloc.exit

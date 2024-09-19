@@ -2562,13 +2562,13 @@ _ZNK4llvm15SmallPtrSetImplIPN5clang16ObjCProtocolDeclEE5beginEv.exit: ; preds = 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %80 = and i64 %.val.val, 128
   %.not.i27 = icmp eq i64 %80, 0
-  br i1 %.not.i27, label %_ZL36Write_ProtocolExprReferencedMetadataPN5clang10ASTContextEPNS_16ObjCProtocolDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %81
+  br i1 %.not.i27, label %_ZL36Write_ProtocolExprReferencedMetadataPN5clang10ASTContextEPNS_16ObjCProtocolDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.argprom.exit, label %81
 
 81:                                               ; preds = %76
   %82 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull @.str.299) #18
-  br label %_ZL36Write_ProtocolExprReferencedMetadataPN5clang10ASTContextEPNS_16ObjCProtocolDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  br label %_ZL36Write_ProtocolExprReferencedMetadataPN5clang10ASTContextEPNS_16ObjCProtocolDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.argprom.exit
 
-_ZL36Write_ProtocolExprReferencedMetadataPN5clang10ASTContextEPNS_16ObjCProtocolDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %76, %81
+_ZL36Write_ProtocolExprReferencedMetadataPN5clang10ASTContextEPNS_16ObjCProtocolDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.argprom.exit: ; preds = %76, %81
   %83 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull @.str.378) #18
   %84 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull @.str.232) #18
   %85 = getelementptr inbounds nuw i8, ptr %77, i64 40
@@ -2587,8 +2587,8 @@ _ZL36Write_ProtocolExprReferencedMetadataPN5clang10ASTContextEPNS_16ObjCProtocol
   %.not3.i3.i = icmp eq ptr %91, %71
   br i1 %.not3.i3.i, label %_ZN4llvm19SmallPtrSetIteratorIPN5clang16ObjCProtocolDeclEEppEv.exit, label %.lr.ph.i4.i
 
-.lr.ph.i4.i:                                      ; preds = %_ZL36Write_ProtocolExprReferencedMetadataPN5clang10ASTContextEPNS_16ObjCProtocolDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %.critedge2.i6.i
-  %.sroa.035.1 = phi ptr [ %93, %.critedge2.i6.i ], [ %91, %_ZL36Write_ProtocolExprReferencedMetadataPN5clang10ASTContextEPNS_16ObjCProtocolDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+.lr.ph.i4.i:                                      ; preds = %_ZL36Write_ProtocolExprReferencedMetadataPN5clang10ASTContextEPNS_16ObjCProtocolDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.argprom.exit, %.critedge2.i6.i
+  %.sroa.035.1 = phi ptr [ %93, %.critedge2.i6.i ], [ %91, %_ZL36Write_ProtocolExprReferencedMetadataPN5clang10ASTContextEPNS_16ObjCProtocolDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.argprom.exit ]
   %92 = load ptr, ptr %.sroa.035.1, align 8
   %switch.i5.i = icmp ugt ptr %92, inttoptr (i64 -3 to ptr)
   br i1 %switch.i5.i, label %.critedge2.i6.i, label %_ZN4llvm19SmallPtrSetIteratorIPN5clang16ObjCProtocolDeclEEppEv.exit
@@ -2598,8 +2598,8 @@ _ZL36Write_ProtocolExprReferencedMetadataPN5clang10ASTContextEPNS_16ObjCProtocol
   %.not.i7.i = icmp eq ptr %93, %71
   br i1 %.not.i7.i, label %_ZN4llvm19SmallPtrSetIteratorIPN5clang16ObjCProtocolDeclEEppEv.exit, label %.lr.ph.i4.i, !llvm.loop !23
 
-_ZN4llvm19SmallPtrSetIteratorIPN5clang16ObjCProtocolDeclEEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %_ZL36Write_ProtocolExprReferencedMetadataPN5clang10ASTContextEPNS_16ObjCProtocolDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.sroa.035.2 = phi ptr [ %91, %_ZL36Write_ProtocolExprReferencedMetadataPN5clang10ASTContextEPNS_16ObjCProtocolDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.sroa.035.1, %.lr.ph.i4.i ], [ %93, %.critedge2.i6.i ]
+_ZN4llvm19SmallPtrSetIteratorIPN5clang16ObjCProtocolDeclEEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %_ZL36Write_ProtocolExprReferencedMetadataPN5clang10ASTContextEPNS_16ObjCProtocolDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.argprom.exit
+  %.sroa.035.2 = phi ptr [ %91, %_ZL36Write_ProtocolExprReferencedMetadataPN5clang10ASTContextEPNS_16ObjCProtocolDeclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.argprom.exit ], [ %.sroa.035.1, %.lr.ph.i4.i ], [ %93, %.critedge2.i6.i ]
   %.not39 = icmp eq ptr %.sroa.035.2, %71
   br i1 %.not39, label %._crit_edge46, label %76
 
@@ -2852,13 +2852,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %175, %173, %_ZNK5cl
   %.val26.val = load i64, ptr %.val26, align 8
   %194 = and i64 %.val26.val, 128
   %.not.i31 = icmp eq i64 %194, 0
-  br i1 %.not.i31, label %_ZN12_GLOBAL__N_117RewriteModernObjC14WriteImageInfoERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %195
+  br i1 %.not.i31, label %_ZN12_GLOBAL__N_117RewriteModernObjC14WriteImageInfoERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.argprom.exit, label %195
 
 195:                                              ; preds = %192
   %196 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.598) #18
-  br label %_ZN12_GLOBAL__N_117RewriteModernObjC14WriteImageInfoERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  br label %_ZN12_GLOBAL__N_117RewriteModernObjC14WriteImageInfoERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.argprom.exit
 
-_ZN12_GLOBAL__N_117RewriteModernObjC14WriteImageInfoERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %192, %195
+_ZN12_GLOBAL__N_117RewriteModernObjC14WriteImageInfoERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.argprom.exit: ; preds = %192, %195
   %197 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.599) #18
   %198 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.600) #18
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -2875,11 +2875,11 @@ _ZN12_GLOBAL__N_117RewriteModernObjC14WriteImageInfoERNSt7__cxx1112basic_stringI
   %.not.i32 = icmp eq ptr %206, %208
   br i1 %.not.i32, label %_ZN4llvm11raw_ostream5flushEv.exit, label %209
 
-209:                                              ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC14WriteImageInfoERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+209:                                              ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC14WriteImageInfoERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.argprom.exit
   call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(48) %204) #18
   br label %_ZN4llvm11raw_ostream5flushEv.exit
 
-_ZN4llvm11raw_ostream5flushEv.exit:               ; preds = %209, %_ZN12_GLOBAL__N_117RewriteModernObjC14WriteImageInfoERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %2
+_ZN4llvm11raw_ostream5flushEv.exit:               ; preds = %209, %_ZN12_GLOBAL__N_117RewriteModernObjC14WriteImageInfoERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.argprom.exit, %2
   ret void
 }
 
@@ -7230,7 +7230,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %617, %623
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit, %660, %663
   %664 = load ptr, ptr %519, align 8
-  %665 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC24NoTypeInfoCStyleCastExprEPN5clang10ASTContextENS1_8QualTypeENS1_8CastKindEPNS1_4ExprE(ptr noundef %664, i64 %644, i32 noundef 1, ptr noundef %656)
+  %665 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC24NoTypeInfoCStyleCastExprEPN5clang10ASTContextENS1_8QualTypeENS1_8CastKindEPNS1_4ExprE.argprom(ptr noundef %664, i64 %644, i32 noundef 1, ptr noundef %656)
   %666 = load ptr, ptr %519, align 8
   %667 = call noundef ptr @_ZN5clang4StmtnwEmRKNS_10ASTContextEj(i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(23096) %666, i32 noundef 8) #18
   call void @_ZN5clang9ParenExprC2ENS_14SourceLocationES1_PNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(32) %667, i32 0, i32 0, ptr noundef %665)
@@ -7819,7 +7819,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i: ; pr
   %961 = load ptr, ptr %928, align 8
   %962 = load ptr, ptr %25, align 8
   %963 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #18
-  %964 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %961, ptr %962, i64 %963, i32 0)
+  %964 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_.argelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %961, ptr %962, i64 %963, i32 0)
   %965 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.0423) #20
   call fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC20ReplaceStmtWithRangeEPN5clang4StmtES3_NS1_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef nonnull %.0423, ptr noundef %964, i64 %965)
   %966 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -8237,19 +8237,19 @@ _ZN12_GLOBAL__N_117RewriteModernObjC24RewriteObjCStringLiteralEPN5clang17ObjCStr
   br label %_ZN4llvm11SmallVectorIPN5clang11DeclRefExprELj8EED2Ev.exit
 
 1167:                                             ; preds = %904
-  call fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC30RewriteObjCAutoreleasePoolStmtEPN5clang23ObjCAutoreleasePoolStmtE(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %.0423)
+  call fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC30RewriteObjCAutoreleasePoolStmtEPN5clang23ObjCAutoreleasePoolStmtE.retelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %.0423)
   br label %_ZN4llvm11SmallVectorIPN5clang11DeclRefExprELj8EED2Ev.exit
 
 1168:                                             ; preds = %904
-  call fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC18RewriteObjCTryStmtEPN5clang13ObjCAtTryStmtE(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %.0423)
+  call fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC18RewriteObjCTryStmtEPN5clang13ObjCAtTryStmtE.retelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %.0423)
   br label %_ZN4llvm11SmallVectorIPN5clang11DeclRefExprELj8EED2Ev.exit
 
 1169:                                             ; preds = %904
-  call fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC27RewriteObjCSynchronizedStmtEPN5clang22ObjCAtSynchronizedStmtE(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %.0423)
+  call fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC27RewriteObjCSynchronizedStmtEPN5clang22ObjCAtSynchronizedStmtE.retelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %.0423)
   br label %_ZN4llvm11SmallVectorIPN5clang11DeclRefExprELj8EED2Ev.exit
 
 1170:                                             ; preds = %904
-  call fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC20RewriteObjCThrowStmtEPN5clang15ObjCAtThrowStmtE(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %.0423)
+  call fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC20RewriteObjCThrowStmtEPN5clang15ObjCAtThrowStmtE.retelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %.0423)
   br label %_ZN4llvm11SmallVectorIPN5clang11DeclRefExprELj8EED2Ev.exit
 
 1171:                                             ; preds = %904
@@ -8257,7 +8257,7 @@ _ZN12_GLOBAL__N_117RewriteModernObjC24RewriteObjCStringLiteralEPN5clang17ObjCStr
   br label %_ZN4llvm11SmallVectorIPN5clang11DeclRefExprELj8EED2Ev.exit
 
 1173:                                             ; preds = %904
-  call fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC28RewriteObjCForCollectionStmtEPN5clang21ObjCForCollectionStmtENS1_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %.0423, i32 %.sroa.1326.0.extract.trunc)
+  call fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC28RewriteObjCForCollectionStmtEPN5clang21ObjCForCollectionStmtENS1_14SourceLocationE.retelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %.0423, i32 %.sroa.1326.0.extract.trunc)
   br label %_ZN4llvm11SmallVectorIPN5clang11DeclRefExprELj8EED2Ev.exit
 
 1174:                                             ; preds = %904
@@ -8795,7 +8795,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockP
   %15 = ptrtoint ptr %14 to i64
   %16 = load i8, ptr %14, align 1
   %.not.i = icmp eq i8 %16, 0
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerFunctionArgsEPN5clang12FunctionDeclE.exit, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerFunctionArgsEPN5clang12FunctionDeclE.argprom.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %10
   %17 = ptrtoint ptr %13 to i64
@@ -8840,7 +8840,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockP
   %34 = icmp ne i8 %33, 0
   %35 = icmp ne i32 %.1.i, 0
   %36 = select i1 %34, i1 %35, i1 false
-  br i1 %36, label %.lr.ph.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerFunctionArgsEPN5clang12FunctionDeclE.exit, !llvm.loop !85
+  br i1 %36, label %.lr.ph.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerFunctionArgsEPN5clang12FunctionDeclE.argprom.exit, !llvm.loop !85
 
 37:                                               ; preds = %2
   %38 = add nsw i32 %6, -44
@@ -8946,8 +8946,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockP
   %.145.lcssa = phi i32 [ %.044, %78 ], [ %83, %.lr.ph ]
   %85 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext 41) #18
   %86 = add i32 %.145.lcssa, 1
-  %87 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117RewriteModernObjC33PointerTypeTakesAnyBlockArgumentsEN5clang8QualTypeE(i64 %.sroa.077.0)
-  br i1 %87, label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit, label %88
+  %87 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117RewriteModernObjC33PointerTypeTakesAnyBlockArgumentsEN5clang8QualTypeE.argprom(i64 %.sroa.077.0)
+  br i1 %87, label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit, label %88
 
 88:                                               ; preds = %._crit_edge
   %89 = and i64 %.sroa.077.0, -16
@@ -9001,7 +9001,7 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread9.i: ; preds = %_ZNK5c
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load i8, ptr %114, align 16
   %116 = icmp eq i8 %115, 26
-  br i1 %116, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit.thread
+  br i1 %116, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit.thread
 
 _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread.i: ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit._ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread_crit_edge.i, %94
   %117 = phi i8 [ %.pre27.i, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit._ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread_crit_edge.i ], [ %93, %94 ]
@@ -9043,13 +9043,13 @@ _ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit.i: ; preds = %119, %_ZN
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load i8, ptr %139, align 16
   %141 = icmp eq i8 %140, 26
-  br i1 %141, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit.thread
+  br i1 %141, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit.thread
 
 _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i: ; preds = %134, %109
   %.sink.i = phi ptr [ %106, %109 ], [ %131, %134 ]
   %142 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %.sink.i) #18
   %.not18.i = icmp eq ptr %142, null
-  br i1 %.not18.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit.thread, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread16.i
+  br i1 %.not18.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit.thread, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread16.i
 
 _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread16.i: ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i, %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit.i, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread9.i
   %.01519.i = phi ptr [ %142, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i ], [ %131, %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit.i ], [ %106, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread9.i ]
@@ -9061,7 +9061,7 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread16.i: ; preds = 
   %.add.i = add nuw nsw i64 %.idx.i, 48
   %.ptr26.i = getelementptr inbounds i8, ptr %.01519.i, i64 %.add.i
   %.not1921.i = icmp eq i64 %.idx.i.i, 0
-  br i1 %.not1921.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit.thread, label %.lr.ph.preheader.i65
+  br i1 %.not1921.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit.thread, label %.lr.ph.preheader.i65
 
 .lr.ph.preheader.i65:                             ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread16.i
   %.ptr.i = getelementptr inbounds i8, ptr %.01519.i, i64 48
@@ -9140,7 +9140,7 @@ _ZNK5clang4Type21isObjCQualifiedIdTypeEv.exit.i:  ; preds = %172
   %184 = load i32, ptr %181, align 16
   %185 = and i32 %184, 267911168
   %186 = icmp eq i32 %185, 252706816
-  br i1 %186, label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit, label %_ZNK5clang4Type21isObjCQualifiedIdTypeEv.exit.thread.i
+  br i1 %186, label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit, label %_ZNK5clang4Type21isObjCQualifiedIdTypeEv.exit.thread.i
 
 _ZNK5clang4Type21isObjCQualifiedIdTypeEv.exit.thread.i: ; preds = %_ZNK5clang4Type21isObjCQualifiedIdTypeEv.exit.i, %172, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i.i, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i.i, %151
   %.0.copyload.i.i.i.i.i37.i = load i64, ptr %.01622.i, align 8
@@ -9163,14 +9163,14 @@ _ZNK5clang4Type21isObjCQualifiedIdTypeEv.exit.thread.i: ; preds = %_ZNK5clang4Ty
   %200 = inttoptr i64 %199 to ptr
   %201 = load ptr, ptr %200, align 16
   %202 = call noundef zeroext i1 @_ZNK5clang4Type28isObjCQualifiedInterfaceTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %201) #18
-  br i1 %202, label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit, label %.critedge.i
+  br i1 %202, label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %197, %_ZNK5clang4Type21isObjCQualifiedIdTypeEv.exit.thread.i
   %203 = getelementptr inbounds i8, ptr %.01622.i, i64 8
   %.not19.i = icmp eq ptr %203, %.ptr26.i
-  br i1 %.not19.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit.thread, label %.lr.ph.i66
+  br i1 %.not19.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit.thread, label %.lr.ph.i66
 
-_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit: ; preds = %197, %_ZNK5clang4Type21isObjCQualifiedIdTypeEv.exit.i, %._crit_edge
+_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit: ; preds = %197, %_ZNK5clang4Type21isObjCQualifiedIdTypeEv.exit.i, %._crit_edge
   %.sroa.0.0.copyload.i69 = load i32, ptr %9, align 8
   %204 = load ptr, ptr %56, align 8
   %205 = call noundef ptr @_ZNK5clang13SourceManager16getCharacterDataENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %204, i32 %.sroa.0.0.copyload.i69, ptr noundef null) #18
@@ -9180,10 +9180,10 @@ _ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5cla
   %.not3.i = icmp eq i8 %208, 0
   br i1 %.not3.i, label %.lr.ph104.preheader, label %.lr.ph.i70
 
-.lr.ph.i70:                                       ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit, %214
-  %209 = phi i8 [ %215, %214 ], [ %208, %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit ]
-  %.02.i = phi i32 [ %.1.i71, %214 ], [ 1, %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit ]
-  %.0121.i = phi ptr [ %spec.select.i, %214 ], [ %207, %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit ]
+.lr.ph.i70:                                       ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit, %214
+  %209 = phi i8 [ %215, %214 ], [ %208, %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit ]
+  %.02.i = phi i32 [ %.1.i71, %214 ], [ 1, %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit ]
+  %.0121.i = phi ptr [ %spec.select.i, %214 ], [ %207, %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit ]
   switch i8 %209, label %214 [
     i8 40, label %210
     i8 41, label %212
@@ -9205,14 +9205,14 @@ _ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5cla
   %215 = load i8, ptr %spec.select.i, align 1
   %216 = icmp ne i8 %215, 0
   %217 = and i1 %.not.i72, %216
-  br i1 %217, label %.lr.ph.i70, label %_ZN12_GLOBAL__N_117RewriteModernObjC18GetExtentOfArgListEPKcRS2_S3_.exit, !llvm.loop !88
+  br i1 %217, label %.lr.ph.i70, label %_ZN12_GLOBAL__N_117RewriteModernObjC18GetExtentOfArgListEPKcRS2_S3_.argprom.exit, !llvm.loop !88
 
-_ZN12_GLOBAL__N_117RewriteModernObjC18GetExtentOfArgListEPKcRS2_S3_.exit: ; preds = %214
+_ZN12_GLOBAL__N_117RewriteModernObjC18GetExtentOfArgListEPKcRS2_S3_.argprom.exit: ; preds = %214
   %218 = icmp ult ptr %206, %spec.select.i
   br i1 %218, label %.lr.ph104.preheader, label %._crit_edge105
 
-.lr.ph104.preheader:                              ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit, %_ZN12_GLOBAL__N_117RewriteModernObjC18GetExtentOfArgListEPKcRS2_S3_.exit
-  %.012.lcssa.i113 = phi ptr [ %spec.select.i, %_ZN12_GLOBAL__N_117RewriteModernObjC18GetExtentOfArgListEPKcRS2_S3_.exit ], [ %207, %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit ]
+.lr.ph104.preheader:                              ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit, %_ZN12_GLOBAL__N_117RewriteModernObjC18GetExtentOfArgListEPKcRS2_S3_.argprom.exit
+  %.012.lcssa.i113 = phi ptr [ %spec.select.i, %_ZN12_GLOBAL__N_117RewriteModernObjC18GetExtentOfArgListEPKcRS2_S3_.argprom.exit ], [ %207, %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit ]
   br label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %.lr.ph104.preheader, %234
@@ -9268,21 +9268,21 @@ _ZN12_GLOBAL__N_117RewriteModernObjC18GetExtentOfArgListEPKcRS2_S3_.exit: ; pred
   %237 = icmp ult ptr %235, %.012.lcssa.i113
   br i1 %237, label %.lr.ph104, label %._crit_edge105, !llvm.loop !90
 
-._crit_edge105:                                   ; preds = %234, %_ZN12_GLOBAL__N_117RewriteModernObjC18GetExtentOfArgListEPKcRS2_S3_.exit
-  %.3.lcssa = phi i32 [ %86, %_ZN12_GLOBAL__N_117RewriteModernObjC18GetExtentOfArgListEPKcRS2_S3_.exit ], [ %236, %234 ]
+._crit_edge105:                                   ; preds = %234, %_ZN12_GLOBAL__N_117RewriteModernObjC18GetExtentOfArgListEPKcRS2_S3_.argprom.exit
+  %.3.lcssa = phi i32 [ %86, %_ZN12_GLOBAL__N_117RewriteModernObjC18GetExtentOfArgListEPKcRS2_S3_.argprom.exit ], [ %236, %234 ]
   %238 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext 41) #18
   %239 = add i32 %.3.lcssa, 1
-  br label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit.thread
+  br label %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit.thread
 
-_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit.thread: ; preds = %.critedge.i, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread16.i, %134, %109, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i, %._crit_edge105
+_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit.thread: ; preds = %.critedge.i, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread16.i, %134, %109, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i, %._crit_edge105
   %.246 = phi i32 [ %239, %._crit_edge105 ], [ %86, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i ], [ %86, %109 ], [ %86, %134 ], [ %86, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread16.i ], [ %86, %.critedge.i ]
   %240 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %241 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   call fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC11ReplaceTextEN5clang14SourceLocationEjN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(4192) %0, i32 %72, i32 noundef %.246, ptr %240, i64 %241)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  br label %_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerFunctionArgsEPN5clang12FunctionDeclE.exit
+  br label %_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerFunctionArgsEPN5clang12FunctionDeclE.argprom.exit
 
-_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerFunctionArgsEPN5clang12FunctionDeclE.exit: ; preds = %32, %10, %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.exit.thread
+_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerFunctionArgsEPN5clang12FunctionDeclE.argprom.exit: ; preds = %32, %10, %_ZN12_GLOBAL__N_117RewriteModernObjC36PointerTypeTakesAnyObjCQualifiedTypeEN5clang8QualTypeE.argprom.exit.thread
   ret void
 }
 
@@ -9360,7 +9360,7 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %9
 
 _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread10: ; preds = %3, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit
   %.0.i13 = phi ptr [ %17, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit ], [ %6, %3 ]
-  %18 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117RewriteModernObjC33PointerTypeTakesAnyBlockArgumentsEN5clang8QualTypeE(i64 %1)
+  %18 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117RewriteModernObjC33PointerTypeTakesAnyBlockArgumentsEN5clang8QualTypeE.argprom(i64 %1)
   br i1 %18, label %19, label %_ZN12_GLOBAL__N_117RewriteModernObjC32RewriteBlocksInFunctionProtoTypeEN5clang8QualTypeEPNS1_9NamedDeclE.exit
 
 19:                                               ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread10
@@ -9497,13 +9497,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC15RewriteCastEx
 
 38:                                               ; preds = %29
   %39 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  br label %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit
+  br label %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.argprom.exit
 
 .preheader.i:                                     ; preds = %29, %42
   %.0.i = phi ptr [ %45, %42 ], [ %36, %29 ]
   %40 = load i8, ptr %.0.i, align 1
   switch i8 %40, label %41 [
-    i8 0, label %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit
+    i8 0, label %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.argprom.exit
     i8 94, label %42
   ]
 
@@ -9516,7 +9516,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC15RewriteCastEx
   %45 = getelementptr inbounds i8, ptr %.0.i, i64 1
   br label %.preheader.i, !llvm.loop !91
 
-_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit: ; preds = %.preheader.i, %38
+_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.argprom.exit: ; preds = %.preheader.i, %38
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -9557,7 +9557,7 @@ _ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basi
   %67 = select i1 %65, i1 %66, i1 false
   br i1 %67, label %54, label %.loopexit, !llvm.loop !92
 
-.loopexit:                                        ; preds = %62, %.preheader, %2, %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit
+.loopexit:                                        ; preds = %62, %.preheader, %2, %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.argprom.exit
   ret void
 }
 
@@ -10683,7 +10683,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %550 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %149, ptr noundef nonnull @.str.309) #18
   %551 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %240) #18
   %.not.i147 = icmp eq i64 %551, 0
-  br i1 %.not.i147, label %_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit, label %552
+  br i1 %.not.i147, label %_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.argprom.exit, label %552
 
 552:                                              ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit146
   %553 = load ptr, ptr %254, align 8, !noalias !137
@@ -10963,7 +10963,7 @@ _ZL31HasLocalVariableExternalStoragePN5clang9ValueDeclE.exit.thread: ; preds = %
   %665 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %245) #18
   %666 = getelementptr inbounds ptr, ptr %664, i64 %665
   %.not3914.i = icmp eq i64 %665, 0
-  br i1 %.not3914.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit, label %.lr.ph18.i.preheader
+  br i1 %.not3914.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.argprom.exit, label %.lr.ph18.i.preheader
 
 .lr.ph18.i.preheader:                             ; preds = %._crit_edge13.i
   %667 = select i1 %.not388.i, ptr @.str.314, ptr @.str.157
@@ -10989,9 +10989,9 @@ _ZL31HasLocalVariableExternalStoragePN5clang9ValueDeclE.exit.thread: ; preds = %
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %172) #18
   %675 = getelementptr inbounds i8, ptr %.016.i, i64 8
   %.not39.i = icmp eq ptr %675, %666
-  br i1 %.not39.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit, label %.lr.ph18.i, !llvm.loop !176
+  br i1 %.not39.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.argprom.exit, label %.lr.ph18.i, !llvm.loop !176
 
-_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit: ; preds = %.lr.ph18.i, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit146, %._crit_edge13.i
+_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.argprom.exit: ; preds = %.lr.ph18.i, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit146, %._crit_edge13.i
   %.str.322.sink.i = phi ptr [ @.str.267, %._crit_edge13.i ], [ @.str.322, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit146 ], [ @.str.267, %.lr.ph18.i ]
   %676 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %149, ptr noundef nonnull %.str.322.sink.i) #18
   %677 = load ptr, ptr %209, align 8, !noalias !137
@@ -11106,11 +11106,11 @@ _ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKN
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %92), !noalias !177
   br i1 %.not.i132, label %701, label %702
 
-701:                                              ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit
+701:                                              ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.argprom.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #18
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i
 
-702:                                              ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit
+702:                                              ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.argprom.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #18, !noalias !189
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %92) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #18
@@ -11452,7 +11452,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %.0.i.i159 = phi i32 [ 0, %841 ], [ %.1.i.i, %860 ]
   %846 = load i8, ptr %.016.i.i, align 1
   switch i8 %846, label %858 [
-    i8 0, label %_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerTypeVariableERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5clang9ValueDeclE.exit.i
+    i8 0, label %_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerTypeVariableERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5clang9ValueDeclE.argprom.exit.i
     i8 40, label %847
     i8 41, label %850
     i8 94, label %853
@@ -11488,7 +11488,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %861 = getelementptr inbounds i8, ptr %.016.i.i, i64 1
   br label %845, !llvm.loop !225
 
-_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerTypeVariableERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5clang9ValueDeclE.exit.i: ; preds = %845
+_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerTypeVariableERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5clang9ValueDeclE.argprom.exit.i: ; preds = %845
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83), !noalias !177
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %84), !noalias !177
@@ -11508,15 +11508,15 @@ _ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerTypeVariableERNSt7__cxx
   %.not.i59.i = icmp eq ptr %867, null
   br i1 %.not.i59.i, label %868, label %.preheader.i.i
 
-868:                                              ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerTypeVariableERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5clang9ValueDeclE.exit.i
+868:                                              ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerTypeVariableERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5clang9ValueDeclE.argprom.exit.i
   %869 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %196, ptr noundef nonnull align 8 dereferenceable(32) %82) #18
-  br label %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit.i
+  br label %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.argprom.exit.i
 
-.preheader.i.i:                                   ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerTypeVariableERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5clang9ValueDeclE.exit.i, %872
-  %.0.i60.i = phi ptr [ %875, %872 ], [ %866, %_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerTypeVariableERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5clang9ValueDeclE.exit.i ]
+.preheader.i.i:                                   ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerTypeVariableERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5clang9ValueDeclE.argprom.exit.i, %872
+  %.0.i60.i = phi ptr [ %875, %872 ], [ %866, %_ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerTypeVariableERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5clang9ValueDeclE.argprom.exit.i ]
   %870 = load i8, ptr %.0.i60.i, align 1
   switch i8 %870, label %871 [
-    i8 0, label %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit.i
+    i8 0, label %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.argprom.exit.i
     i8 94, label %872
   ]
 
@@ -11529,7 +11529,7 @@ _ZN12_GLOBAL__N_117RewriteModernObjC31RewriteBlockPointerTypeVariableERNSt7__cxx
   %875 = getelementptr inbounds i8, ptr %.0.i60.i, i64 1
   br label %.preheader.i.i, !llvm.loop !91
 
-_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit.i: ; preds = %.preheader.i.i, %868
+_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.argprom.exit.i: ; preds = %.preheader.i.i, %868
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81), !noalias !177
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %82), !noalias !177
@@ -11796,10 +11796,10 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %127) #18
   br label %992
 
-992:                                              ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit64.i, %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit.i
-  %.sink96.i = phi ptr [ %121, %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit.i ], [ %129, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit64.i ]
-  %.sink95.i = phi ptr [ %122, %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit.i ], [ %128, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit64.i ]
-  %.sink94.i = phi ptr [ %123, %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit.i ], [ %124, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit64.i ]
+992:                                              ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit64.i, %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.argprom.exit.i
+  %.sink96.i = phi ptr [ %121, %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.argprom.exit.i ], [ %129, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit64.i ]
+  %.sink95.i = phi ptr [ %122, %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.argprom.exit.i ], [ %128, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit64.i ]
+  %.sink94.i = phi ptr [ %123, %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.argprom.exit.i ], [ %124, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit64.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink96.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink95.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink94.i) #18
@@ -12336,12 +12336,12 @@ _ZN4llvm6utostrB5cxx11Emb.exit46.i:               ; preds = %.lr.ph.i40.i, %.thr
 .critedge2.i7.i.i9.i11.i56.i:                     ; preds = %.lr.ph.i5.i.i7.i5.i50.i
   %1160 = getelementptr inbounds i8, ptr %.sroa.0.3.i6.i51.i, i64 8
   %.not.i8.i.i10.i12.i57.i = icmp eq ptr %1160, %1158
-  br i1 %.not.i8.i.i10.i12.i57.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i5.i.i7.i5.i50.i, !llvm.loop !23
+  br i1 %.not.i8.i.i10.i12.i57.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %.lr.ph.i5.i.i7.i5.i50.i, !llvm.loop !23
 
 _ZNK4llvm15SmallPtrSetImplIPN5clang9ValueDeclEE5beginEv.exit58.i: ; preds = %.lr.ph.i5.i.i7.i5.i50.i, %_ZN4llvm6utostrB5cxx11Emb.exit46.i
   %.sroa.0.4.i8.i53.i = phi ptr [ %1153, %_ZN4llvm6utostrB5cxx11Emb.exit46.i ], [ %.sroa.0.3.i6.i51.i, %.lr.ph.i5.i.i7.i5.i50.i ]
   %.not1326.i = icmp eq ptr %.sroa.0.4.i8.i53.i, %1158
-  br i1 %.not1326.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph28.i
+  br i1 %.not1326.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %.lr.ph28.i
 
 .lr.ph28.i:                                       ; preds = %_ZNK4llvm15SmallPtrSetImplIPN5clang9ValueDeclEE5beginEv.exit58.i, %_ZN4llvm19SmallPtrSetIteratorIPN5clang9ValueDeclEEppEv.exit106.i
   %.sroa.02.027.i = phi ptr [ %.sroa.02.1.i, %_ZN4llvm19SmallPtrSetIteratorIPN5clang9ValueDeclEEppEv.exit106.i ], [ %.sroa.0.4.i8.i53.i, %_ZNK4llvm15SmallPtrSetImplIPN5clang9ValueDeclEE5beginEv.exit58.i ]
@@ -12503,7 +12503,7 @@ _ZNK4llvm15SmallPtrSetImplIPN5clang9ValueDeclEE5countEPKS2_.exit79.i: ; preds = 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink53.i) #18
   %1219 = getelementptr inbounds i8, ptr %.sroa.02.027.i, i64 8
   %.not3.i3.i101.i = icmp eq ptr %1219, %1158
-  br i1 %.not3.i3.i101.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i4.i102.i
+  br i1 %.not3.i3.i101.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %.lr.ph.i4.i102.i
 
 .lr.ph.i4.i102.i:                                 ; preds = %1217, %.critedge2.i6.i104.i
   %.sroa.02.1.i = phi ptr [ %1221, %.critedge2.i6.i104.i ], [ %1219, %1217 ]
@@ -12514,13 +12514,13 @@ _ZNK4llvm15SmallPtrSetImplIPN5clang9ValueDeclEE5countEPKS2_.exit79.i: ; preds = 
 .critedge2.i6.i104.i:                             ; preds = %.lr.ph.i4.i102.i
   %1221 = getelementptr inbounds i8, ptr %.sroa.02.1.i, i64 8
   %.not.i7.i105.i = icmp eq ptr %1221, %1158
-  br i1 %.not.i7.i105.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i4.i102.i, !llvm.loop !23
+  br i1 %.not.i7.i105.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %.lr.ph.i4.i102.i, !llvm.loop !23
 
 _ZN4llvm19SmallPtrSetIteratorIPN5clang9ValueDeclEEppEv.exit106.i: ; preds = %.lr.ph.i4.i102.i
   %.not13.i = icmp eq ptr %.sroa.02.1.i, %1158
-  br i1 %.not13.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph28.i
+  br i1 %.not13.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %.lr.ph28.i
 
-_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.critedge2.i7.i.i9.i11.i56.i, %1217, %_ZN4llvm19SmallPtrSetIteratorIPN5clang9ValueDeclEEppEv.exit106.i, %.critedge2.i6.i104.i, %_ZNK4llvm15SmallPtrSetImplIPN5clang9ValueDeclEE5beginEv.exit58.i
+_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %.critedge2.i7.i.i9.i11.i56.i, %1217, %_ZN4llvm19SmallPtrSetIteratorIPN5clang9ValueDeclEEppEv.exit106.i, %.critedge2.i6.i104.i, %_ZNK4llvm15SmallPtrSetImplIPN5clang9ValueDeclEE5beginEv.exit58.i
   %1222 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %197, ptr noundef nonnull @.str.213) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %51)
@@ -12561,9 +12561,9 @@ _ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockE
   %.pre362 = load i32, ptr %268, align 8
   br label %1225
 
-1225:                                             ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockFuncEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %1226 = phi i32 [ %.pre362, %_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %1034, %_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockFuncEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
-  %1227 = phi i32 [ %.pre, %_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %1034, %_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockFuncEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+1225:                                             ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, %_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockFuncEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %1226 = phi i32 [ %.pre362, %_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit ], [ %1034, %_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockFuncEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+  %1227 = phi i32 [ %.pre, %_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit ], [ %1034, %_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockFuncEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %.not294 = icmp eq i32 %1227, %1226
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
@@ -12771,7 +12771,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #18
-  br label %_ZN12_GLOBAL__N_117RewriteModernObjC25SynthesizeBlockDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iN4llvm9StringRefEj.exit
+  br label %_ZN12_GLOBAL__N_117RewriteModernObjC25SynthesizeBlockDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iN4llvm9StringRefEj.argprom.exit
 
 .critedge.i:                                      ; preds = %1225
   %1293 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %198, ptr noundef nonnull @.str.350) #18
@@ -12782,9 +12782,9 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %185) #18
   %1296 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.206) #18
   %1297 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %198, ptr noundef nonnull align 8 dereferenceable(32) %16) #18
-  br label %_ZN12_GLOBAL__N_117RewriteModernObjC25SynthesizeBlockDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iN4llvm9StringRefEj.exit
+  br label %_ZN12_GLOBAL__N_117RewriteModernObjC25SynthesizeBlockDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iN4llvm9StringRefEj.argprom.exit
 
-_ZN12_GLOBAL__N_117RewriteModernObjC25SynthesizeBlockDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iN4llvm9StringRefEj.exit: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit23.i, %.critedge.i
+_ZN12_GLOBAL__N_117RewriteModernObjC25SynthesizeBlockDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iN4llvm9StringRefEj.argprom.exit: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit23.i, %.critedge.i
   %.sink.i184 = phi ptr [ %16, %.critedge.i ], [ %25, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit23.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i184) #18
   %1298 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %198, ptr noundef nonnull @.str.68) #18
@@ -12812,7 +12812,7 @@ _ZN12_GLOBAL__N_117RewriteModernObjC25SynthesizeBlockDescriptorERKNSt7__cxx1112b
   %1305 = icmp eq ptr %1303, %1304
   br i1 %1305, label %1318, label %1306
 
-1306:                                             ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC25SynthesizeBlockDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iN4llvm9StringRefEj.exit
+1306:                                             ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC25SynthesizeBlockDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iN4llvm9StringRefEj.argprom.exit
   %1307 = load i32, ptr %.phi.trans.insert.i65, align 4
   %1308 = load i32, ptr %301, align 8
   %1309 = sub i32 %1307, %1308
@@ -12833,7 +12833,7 @@ _ZN12_GLOBAL__N_117RewriteModernObjC25SynthesizeBlockDescriptorERKNSt7__cxx1112b
   call void @llvm.memset.p0.i64(ptr align 8 %1303, i8 -1, i64 %1317, i1 false)
   br label %1318
 
-1318:                                             ; preds = %1315, %_ZN12_GLOBAL__N_117RewriteModernObjC25SynthesizeBlockDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iN4llvm9StringRefEj.exit
+1318:                                             ; preds = %1315, %_ZN12_GLOBAL__N_117RewriteModernObjC25SynthesizeBlockDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iN4llvm9StringRefEj.argprom.exit
   store i32 0, ptr %.phi.trans.insert.i65, align 4
   store i32 0, ptr %301, align 8
   br label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit
@@ -15708,7 +15708,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit: ; pred
   %70 = load ptr, ptr %22, align 8
   %71 = load ptr, ptr %8, align 8
   %72 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
-  %73 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %70, ptr %71, i64 %72, i32 %.sroa.0.0.copyload.i.i74)
+  %73 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_.argelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %70, ptr %71, i64 %72, i32 %.sroa.0.0.copyload.i.i74)
   %74 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
   %75 = add i64 %74, 1
   %76 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
@@ -15789,7 +15789,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit82: ; pr
   %112 = load ptr, ptr %14, align 8
   %113 = load ptr, ptr %9, align 8
   %114 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #18
-  %115 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %112, ptr %113, i64 %114, i32 %.sroa.0.0.copyload.i.i74)
+  %115 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_.argelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %112, ptr %113, i64 %114, i32 %.sroa.0.0.copyload.i.i74)
   %116 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
   %117 = add i64 %116, 1
   %118 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
@@ -16515,7 +16515,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit108: ; p
   %224 = load ptr, ptr %32, align 8
   %225 = load ptr, ptr %17, align 8
   %226 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
-  %227 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %224, ptr %225, i64 %226, i32 %.sroa.0.0.copyload.i.i94)
+  %227 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_.argelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %224, ptr %225, i64 %226, i32 %.sroa.0.0.copyload.i.i94)
   %228 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
   %229 = add i64 %228, 1
   %230 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
@@ -16598,7 +16598,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit115: ; p
   %268 = load ptr, ptr %24, align 8
   %269 = load ptr, ptr %18, align 8
   %270 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #18
-  %271 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %268, ptr %269, i64 %270, i32 %.sroa.0.0.copyload.i.i94)
+  %271 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_.argelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %268, ptr %269, i64 %270, i32 %.sroa.0.0.copyload.i.i94)
   %272 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
   %273 = add i64 %272, 1
   %274 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
@@ -17405,7 +17405,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit133: ; p
   %264 = load ptr, ptr %35, align 8
   %265 = load ptr, ptr %19, align 8
   %266 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #18
-  %267 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %264, ptr %265, i64 %266, i32 %.sroa.0.0.copyload.i.i113)
+  %267 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_.argelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %264, ptr %265, i64 %266, i32 %.sroa.0.0.copyload.i.i113)
   %268 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #18
   %269 = add i64 %268, 1
   %270 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #18
@@ -17488,7 +17488,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit140: ; p
   %308 = load ptr, ptr %27, align 8
   %309 = load ptr, ptr %20, align 8
   %310 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #18
-  %311 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %308, ptr %309, i64 %310, i32 %.sroa.0.0.copyload.i.i113)
+  %311 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_.argelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %308, ptr %309, i64 %310, i32 %.sroa.0.0.copyload.i.i113)
   %312 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #18
   %313 = add i64 %312, 1
   %314 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #18
@@ -17917,7 +17917,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC18Rewrit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC30RewriteObjCAutoreleasePoolStmtEPN5clang23ObjCAutoreleasePoolStmtE(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC30RewriteObjCAutoreleasePoolStmtEPN5clang23ObjCAutoreleasePoolStmtE.retelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC11ReplaceTextEN5clang14SourceLocationEjN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(4192) %0, i32 %.sroa.0.0.copyload.i, i32 noundef 16, ptr nonnull @.str.200, i64 22)
@@ -17929,7 +17929,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC30RewriteObjCAu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC18RewriteObjCTryStmtEPN5clang13ObjCAtTryStmtE(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC18RewriteObjCTryStmtEPN5clang13ObjCAtTryStmtE.retelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18219,7 +18219,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC27RewriteObjCSynchronizedStmtEPN5clang22ObjCAtSynchronizedStmtE(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC27RewriteObjCSynchronizedStmtEPN5clang22ObjCAtSynchronizedStmtE.retelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %4, align 8
@@ -18306,7 +18306,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC27RewriteObjCSy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC20RewriteObjCThrowStmtEPN5clang15ObjCAtThrowStmtE(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC20RewriteObjCThrowStmtEPN5clang15ObjCAtThrowStmtE.retelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %4, align 8
@@ -18456,7 +18456,7 @@ _ZN4llvm15SmallPtrSetImplIPN5clang16ObjCProtocolDeclEE6insertES3_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC28RewriteObjCForCollectionStmtEPN5clang21ObjCForCollectionStmtENS1_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr nocapture noundef nonnull readonly %1, i32 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC28RewriteObjCForCollectionStmtEPN5clang21ObjCForCollectionStmtENS1_14SourceLocationE.retelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr nocapture noundef nonnull readonly %1, i32 %2) unnamed_addr #0 align 2 {
   %4 = alloca [21 x i8], align 16
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca [21 x i8], align 16
@@ -19451,7 +19451,7 @@ _ZNK5clang8QualType12isObjCGCWeakEv.exit:         ; preds = %97
   %118 = icmp eq i8 %117, 11
   %. = select i1 %118, i32 135, i32 131
   %.181 = select i1 %118, i64 135, i64 131
-  call fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC32SynthesizeByrefCopyDestroyHelperB5cxx11EPN5clang7VarDeclEi(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(4192) %0, i32 noundef %.)
+  call fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC32SynthesizeByrefCopyDestroyHelperB5cxx11EPN5clang7VarDeclEi.argprom(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(4192) %0, i32 noundef %.)
   %119 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #18
   br i1 %119, label %123, label %120
 
@@ -21870,7 +21870,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit276: ; p
   %529 = load ptr, ptr %373, align 8
   %530 = load ptr, ptr %68, align 8
   %531 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #18
-  %532 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %529, ptr %530, i64 %531, i32 %3)
+  %532 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_.argelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %529, ptr %530, i64 %531, i32 %3)
   %533 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #18
   %534 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i32 0, ptr %534, align 8
@@ -21896,7 +21896,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit278: ; p
   %545 = load ptr, ptr %320, align 8
   %546 = load ptr, ptr %68, align 8
   %547 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #18
-  %548 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %545, ptr %546, i64 %547, i32 %3)
+  %548 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_.argelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %545, ptr %546, i64 %547, i32 %3)
   %549 = load ptr, ptr %457, align 8
   %550 = call noundef ptr @_ZNK5clang10ASTContext13getObjCIdDeclEv(ptr noundef nonnull align 8 dereferenceable(23096) %549) #18
   %551 = getelementptr inbounds nuw i8, ptr %550, i64 48
@@ -22189,7 +22189,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit300: ; p
   %711 = load ptr, ptr %316, align 8
   %712 = load ptr, ptr %70, align 8
   %713 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %70) #18
-  %714 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %711, ptr %712, i64 %713, i32 %3)
+  %714 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_.argelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %711, ptr %712, i64 %713, i32 %3)
   %715 = load ptr, ptr %686, align 8
   %716 = call noundef ptr @_ZNK5clang10ASTContext13getObjCIdDeclEv(ptr noundef nonnull align 8 dereferenceable(23096) %715) #18
   %717 = getelementptr inbounds nuw i8, ptr %716, i64 48
@@ -22379,7 +22379,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit321: ; p
   %819 = load ptr, ptr %316, align 8
   %820 = load ptr, ptr %73, align 8
   %821 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
-  %822 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %819, ptr %820, i64 %821, i32 %3)
+  %822 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_.argelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %819, ptr %820, i64 %821, i32 %3)
   %823 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
   %824 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i32 0, ptr %824, align 8
@@ -22405,7 +22405,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit323: ; p
   %835 = load ptr, ptr %320, align 8
   %836 = load ptr, ptr %73, align 8
   %837 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
-  %838 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %835, ptr %836, i64 %837, i32 %3)
+  %838 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_.argelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %835, ptr %836, i64 %837, i32 %3)
   %839 = load ptr, ptr %747, align 8
   %840 = call noundef ptr @_ZNK5clang10ASTContext13getObjCIdDeclEv(ptr noundef nonnull align 8 dereferenceable(23096) %839) #18
   %841 = getelementptr inbounds nuw i8, ptr %840, i64 48
@@ -22704,7 +22704,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit350: ; p
   %1004 = load ptr, ptr %81, align 8
   %1005 = load ptr, ptr %75, align 8
   %1006 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %75) #18
-  %1007 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %1004, ptr %1005, i64 %1006, i32 %3)
+  %1007 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_.argelim(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %1004, ptr %1005, i64 %1006, i32 %3)
   %1008 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %65) #18
   %1009 = add i64 %1008, 1
   %1010 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %65) #18
@@ -23961,16 +23961,16 @@ _ZN4llvm6utostrB5cxx11Emb.exit108.i:              ; preds = %.lr.ph.i102.i, %.th
 
 1620:                                             ; preds = %._crit_edge45.i
   %1621 = call fastcc i32 @_ZL25getFunctionSourceLocationRN12_GLOBAL__N_117RewriteModernObjCEPN5clang12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef nonnull %1619)
-  br label %_ZN12_GLOBAL__N_117RewriteModernObjC25SynthMsgSendStretCallExprEPN5clang12FunctionDeclENS1_8QualTypeERN4llvm15SmallVectorImplIS4_EERNS6_IPNS1_4ExprEEEPNS1_14ObjCMethodDeclE.exit
+  br label %_ZN12_GLOBAL__N_117RewriteModernObjC25SynthMsgSendStretCallExprEPN5clang12FunctionDeclENS1_8QualTypeERN4llvm15SmallVectorImplIS4_EERNS6_IPNS1_4ExprEEEPNS1_14ObjCMethodDeclE.argprom.exit
 
 1622:                                             ; preds = %._crit_edge45.i
   %1623 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %1624 = load ptr, ptr %1623, align 8
   %1625 = getelementptr inbounds nuw i8, ptr %1624, i64 24
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %1625, align 8
-  br label %_ZN12_GLOBAL__N_117RewriteModernObjC25SynthMsgSendStretCallExprEPN5clang12FunctionDeclENS1_8QualTypeERN4llvm15SmallVectorImplIS4_EERNS6_IPNS1_4ExprEEEPNS1_14ObjCMethodDeclE.exit
+  br label %_ZN12_GLOBAL__N_117RewriteModernObjC25SynthMsgSendStretCallExprEPN5clang12FunctionDeclENS1_8QualTypeERN4llvm15SmallVectorImplIS4_EERNS6_IPNS1_4ExprEEEPNS1_14ObjCMethodDeclE.argprom.exit
 
-_ZN12_GLOBAL__N_117RewriteModernObjC25SynthMsgSendStretCallExprEPN5clang12FunctionDeclENS1_8QualTypeERN4llvm15SmallVectorImplIS4_EERNS6_IPNS1_4ExprEEEPNS1_14ObjCMethodDeclE.exit: ; preds = %1620, %1622
+_ZN12_GLOBAL__N_117RewriteModernObjC25SynthMsgSendStretCallExprEPN5clang12FunctionDeclENS1_8QualTypeERN4llvm15SmallVectorImplIS4_EERNS6_IPNS1_4ExprEEEPNS1_14ObjCMethodDeclE.argprom.exit: ; preds = %1620, %1622
   %storemerge.i456 = phi i32 [ %.sroa.0.0.copyload.i.i.i, %1622 ], [ %1621, %1620 ]
   %1626 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #18
   %1627 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #18
@@ -24057,8 +24057,8 @@ _ZN12_GLOBAL__N_117RewriteModernObjC25SynthMsgSendStretCallExprEPN5clang12Functi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   br label %1667
 
-1667:                                             ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC25SynthMsgSendStretCallExprEPN5clang12FunctionDeclENS1_8QualTypeERN4llvm15SmallVectorImplIS4_EERNS6_IPNS1_4ExprEEEPNS1_14ObjCMethodDeclE.exit, %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
-  %.0192 = phi ptr [ %1666, %_ZN12_GLOBAL__N_117RewriteModernObjC25SynthMsgSendStretCallExprEPN5clang12FunctionDeclENS1_8QualTypeERN4llvm15SmallVectorImplIS4_EERNS6_IPNS1_4ExprEEEPNS1_14ObjCMethodDeclE.exit ], [ %1397, %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit ]
+1667:                                             ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC25SynthMsgSendStretCallExprEPN5clang12FunctionDeclENS1_8QualTypeERN4llvm15SmallVectorImplIS4_EERNS6_IPNS1_4ExprEEEPNS1_14ObjCMethodDeclE.argprom.exit, %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
+  %.0192 = phi ptr [ %1666, %_ZN12_GLOBAL__N_117RewriteModernObjC25SynthMsgSendStretCallExprEPN5clang12FunctionDeclENS1_8QualTypeERN4llvm15SmallVectorImplIS4_EERNS6_IPNS1_4ExprEEEPNS1_14ObjCMethodDeclE.argprom.exit ], [ %1397, %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit ]
   %1668 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %78) #18
   %1669 = load ptr, ptr %78, align 8
   %1670 = icmp eq ptr %1669, %1185
@@ -24853,7 +24853,7 @@ declare noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef no
 declare noundef ptr @_ZN5clang14ObjCMethodDecl17getClassInterfaceEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC24NoTypeInfoCStyleCastExprEPN5clang10ASTContextENS1_8QualTypeENS1_8CastKindEPNS1_4ExprE(ptr noundef nonnull %0, i64 %1, i32 noundef range(i32 1, 42) %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC24NoTypeInfoCStyleCastExprEPN5clang10ASTContextENS1_8QualTypeENS1_8CastKindEPNS1_4ExprE.argprom(ptr noundef nonnull %0, i64 %1, i32 noundef range(i32 1, 42) %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %1, i32 0) #18
   %6 = tail call noundef ptr @_ZN5clang14CStyleCastExpr6CreateERKNS_10ASTContextENS_8QualTypeENS_13ExprValueKindENS_8CastKindEPNS_4ExprEPKN4llvm11SmallVectorIPNS_16CXXBaseSpecifierELj4EEENS_17FPOptionsOverrideEPNS_14TypeSourceInfoENS_14SourceLocationESJ_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %1, i32 noundef 0, i32 noundef %2, ptr noundef %3, ptr noundef null, i64 0, ptr noundef %5, i32 0, i32 0) #18
   ret ptr %6
@@ -24862,7 +24862,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC24NoType
 declare void @_ZN5clang11DeclRefExprC1ERKNS_10ASTContextEPNS_9ValueDeclEbNS_8QualTypeENS_13ExprValueKindENS_14SourceLocationERKNS_18DeclarationNameLocENS_15NonOdrUseReasonE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef, i1 noundef zeroext, i64, i32 noundef, i32, ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4192) %0, ptr noundef %1, ptr %2, i64 %3, i32 %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117RewriteModernObjC28SynthesizeCallToFunctionDeclEPN5clang12FunctionDeclEN4llvm8ArrayRefIPNS1_4ExprEEENS1_14SourceLocationES9_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4192) %0, ptr noundef %1, ptr %2, i64 %3, i32 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::DeclarationNameLoc", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -25947,13 +25947,13 @@ _ZNK5clang9NamedDecl7getNameEv.exit.i:            ; preds = %59, %48
 
 78:                                               ; preds = %73
   %79 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  br label %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit.i
+  br label %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.argprom.exit.i
 
 .preheader.i.i:                                   ; preds = %73, %82
   %.0.i26.i = phi ptr [ %85, %82 ], [ %76, %73 ]
   %80 = load i8, ptr %.0.i26.i, align 1
   switch i8 %80, label %81 [
-    i8 0, label %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit.i
+    i8 0, label %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.argprom.exit.i
     i8 94, label %82
   ]
 
@@ -25966,7 +25966,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit.i:            ; preds = %59, %48
   %85 = getelementptr inbounds i8, ptr %.0.i26.i, i64 1
   br label %.preheader.i.i, !llvm.loop !91
 
-_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit.i: ; preds = %.preheader.i.i, %78
+_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.argprom.exit.i: ; preds = %.preheader.i.i, %78
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -25974,11 +25974,11 @@ _ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basi
   %86 = icmp ult i64 %indvars.iv.next.i, %72
   br i1 %86, label %87, label %89
 
-87:                                               ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit.i
+87:                                               ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.argprom.exit.i
   %88 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.157) #18
   br label %89
 
-89:                                               ; preds = %87, %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.exit.i
+89:                                               ; preds = %87, %_ZN12_GLOBAL__N_117RewriteModernObjC23RewriteBlockPointerTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang8QualTypeE.argprom.exit.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %72
   br i1 %exitcond.not.i, label %._crit_edge.i, label %73, !llvm.loop !532
 
@@ -31931,7 +31931,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang9ValueDeclEjNS_12DenseMapInfoIS4_vEE
 declare noundef zeroext i1 @_ZN5clang10ASTContext20BlockRequiresCopyingENS_8QualTypeEPKNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(23096), i64, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC32SynthesizeByrefCopyDestroyHelperB5cxx11EPN5clang7VarDeclEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(4192) %1, i32 noundef range(i32 131, 136) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117RewriteModernObjC32SynthesizeByrefCopyDestroyHelperB5cxx11EPN5clang7VarDeclEi.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(4192) %1, i32 noundef range(i32 131, 136) %2) unnamed_addr #0 align 2 {
   %4 = alloca [21 x i8], align 16
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca [21 x i8], align 16
@@ -32836,7 +32836,7 @@ declare noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_19ConditionalOperat
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117RewriteModernObjC33PointerTypeTakesAnyBlockArgumentsEN5clang8QualTypeE(i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117RewriteModernObjC33PointerTypeTakesAnyBlockArgumentsEN5clang8QualTypeE.argprom(i64 %0) unnamed_addr #0 align 2 {
   %2 = and i64 %0, -16
   %3 = inttoptr i64 %2 to ptr
   %4 = load ptr, ptr %3, align 16
@@ -34099,7 +34099,7 @@ _ZNSt6vectorIPN5clang14ObjCMethodDeclESaIS2_EE9push_backERKS2_.exit246: ; preds 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %393 = icmp eq ptr %.sroa.12.3.lcssa, %.sroa.0337.3.lcssa
-  br i1 %393, label %_ZL38Write__extendedMethodTypes_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_.exit, label %394
+  br i1 %393, label %_ZL38Write__extendedMethodTypes_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_.argprom.exit, label %394
 
 394:                                              ; preds = %._crit_edge538
   %395 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.431) #18
@@ -34109,22 +34109,22 @@ _ZNSt6vectorIPN5clang14ObjCMethodDeclESaIS2_EE9push_backERKS2_.exit246: ; preds 
   %399 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.433) #18
   %400 = and i64 %389, 4294967295
   %.not.i247 = icmp eq i64 %400, 0
-  br i1 %.not.i247, label %_ZL38Write__extendedMethodTypes_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_.exit, label %.lr.ph.i
+  br i1 %.not.i247, label %_ZL38Write__extendedMethodTypes_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %394
   %401 = add nsw i64 %389, 4294967295
   %402 = and i64 %401, 4294967295
   br label %403
 
-403:                                              ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit.i ]
+403:                                              ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit.i ]
   %404 = getelementptr inbounds ptr, ptr %.sroa.0337.3.lcssa, i64 %indvars.iv.i
   %405 = load ptr, ptr %404, align 8
   call void @_ZNK5clang10ASTContext28getObjCEncodingForMethodDeclB5cxx11EPKNS_14ObjCMethodDeclEb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(23096) %385, ptr noundef %405, i1 noundef zeroext true) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   %406 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   %.not.i.i248 = icmp eq i64 %406, 0
-  br i1 %.not.i.i248, label %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit.i, label %.lr.ph.i.i249
+  br i1 %.not.i.i248, label %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit.i, label %.lr.ph.i.i249
 
 .lr.ph.i.i249:                                    ; preds = %403, %417
   %407 = phi i64 [ %419, %417 ], [ 0, %403 ]
@@ -34149,9 +34149,9 @@ _ZNSt6vectorIPN5clang14ObjCMethodDeclESaIS2_EE9push_backERKS2_.exit246: ; preds 
   %419 = zext i32 %418 to i64
   %420 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   %421 = icmp ugt i64 %420, %419
-  br i1 %421, label %.lr.ph.i.i249, label %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit.i, !llvm.loop !649
+  br i1 %421, label %.lr.ph.i.i249, label %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit.i, !llvm.loop !649
 
-_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit.i: ; preds = %417, %403
+_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit.i: ; preds = %417, %403
   %422 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.366) #18
   %423 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   %424 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.295) #18
@@ -34162,9 +34162,9 @@ _ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stri
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %400
-  br i1 %exitcond.not.i, label %_ZL38Write__extendedMethodTypes_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_.exit, label %403, !llvm.loop !650
+  br i1 %exitcond.not.i, label %_ZL38Write__extendedMethodTypes_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_.argprom.exit, label %403, !llvm.loop !650
 
-_ZL38Write__extendedMethodTypes_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_.exit: ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit.i, %._crit_edge538, %394
+_ZL38Write__extendedMethodTypes_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_.argprom.exit: ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit.i, %._crit_edge538, %394
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
@@ -34172,7 +34172,7 @@ _ZL38Write__extendedMethodTypes_initializerRN12_GLOBAL__N_117RewriteModernObjCEP
   %.not.i.i.i251 = icmp eq i64 %.0.copyload.i.i.i.i.i250, 0
   br i1 %.not.i.i.i251, label %427, label %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i.i252
 
-427:                                              ; preds = %_ZL38Write__extendedMethodTypes_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_.exit
+427:                                              ; preds = %_ZL38Write__extendedMethodTypes_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_.argprom.exit
   %428 = getelementptr inbounds i8, ptr %spec.select, i64 96
   %429 = load ptr, ptr %428, align 8
   %430 = getelementptr inbounds i8, ptr %429, i64 88
@@ -34180,8 +34180,8 @@ _ZL38Write__extendedMethodTypes_initializerRN12_GLOBAL__N_117RewriteModernObjCEP
   %.0.copyload.i.i.i.pre.i.i.i265 = load i64, ptr %76, align 8
   br label %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i.i252
 
-_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i.i252: ; preds = %427, %_ZL38Write__extendedMethodTypes_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_.exit
-  %.0.copyload.i.i.i.i1.i253 = phi i64 [ %.0.copyload.i.i.i.pre.i.i.i265, %427 ], [ %.0.copyload.i.i.i.i.i250, %_ZL38Write__extendedMethodTypes_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_.exit ]
+_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i.i252: ; preds = %427, %_ZL38Write__extendedMethodTypes_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_.argprom.exit
+  %.0.copyload.i.i.i.i1.i253 = phi i64 [ %.0.copyload.i.i.i.pre.i.i.i265, %427 ], [ %.0.copyload.i.i.i.i.i250, %_ZL38Write__extendedMethodTypes_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_.argprom.exit ]
   %432 = icmp ugt i64 %.0.copyload.i.i.i.i1.i253, 7
   br i1 %432, label %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.thread.i264, label %_ZNK5clang16ObjCProtocolDecl14protocol_beginEv.exit.i254
 
@@ -34232,31 +34232,31 @@ _ZNK5clang16ObjCProtocolDecl9protocolsEv.exit266: ; preds = %_ZNK5clang16ObjCPro
   call void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %390) #18
   %452 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   %453 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  call fastcc void @_ZL31Write_protocol_list_initializerPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS_16ObjCProtocolDeclEEENS9_9StringRefESE_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %450, i64 %451, ptr nonnull @.str.357, i64 20, ptr %452, i64 %453)
+  call fastcc void @_ZL31Write_protocol_list_initializerPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS_16ObjCProtocolDeclEEENS9_9StringRefESE_.argprom(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %450, i64 %451, ptr nonnull @.str.357, i64 20, ptr %452, i64 %453)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   %454 = load ptr, ptr %62, align 8
   call void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %390) #18
   %455 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   %456 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
-  call fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %454, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %.sroa.0411.0.lcssa, i64 %268, ptr nonnull @.str.358, i64 32, ptr %455, i64 %456, i1 noundef zeroext false)
+  call fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b.argprom(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %454, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %.sroa.0411.0.lcssa, i64 %268, ptr nonnull @.str.358, i64 32, ptr %455, i64 %456, i1 noundef zeroext false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   %457 = load ptr, ptr %62, align 8
   call void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %390) #18
   %458 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   %459 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
-  call fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %457, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %.sroa.0398.0.lcssa, i64 %298, ptr nonnull @.str.359, i64 29, ptr %458, i64 %459, i1 noundef zeroext false)
+  call fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b.argprom(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %457, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %.sroa.0398.0.lcssa, i64 %298, ptr nonnull @.str.359, i64 29, ptr %458, i64 %459, i1 noundef zeroext false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   %460 = load ptr, ptr %62, align 8
   call void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %390) #18
   %461 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
   %462 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
-  call fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %460, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %.sroa.0385.0.lcssa, i64 %328, ptr nonnull @.str.360, i64 36, ptr %461, i64 %462, i1 noundef zeroext false)
+  call fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b.argprom(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %460, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %.sroa.0385.0.lcssa, i64 %328, ptr nonnull @.str.360, i64 36, ptr %461, i64 %462, i1 noundef zeroext false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
   %463 = load ptr, ptr %62, align 8
   call void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %390) #18
   %464 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
   %465 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
-  call fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %463, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %.sroa.0374.0.lcssa, i64 %358, ptr nonnull @.str.361, i64 33, ptr %464, i64 %465, i1 noundef zeroext false)
+  call fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b.argprom(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %463, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %.sroa.0374.0.lcssa, i64 %358, ptr nonnull @.str.361, i64 33, ptr %464, i64 %465, i1 noundef zeroext false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
   %466 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %100) #18
   %.not3.i.i.i.i267 = icmp eq ptr %466, null
@@ -34296,7 +34296,7 @@ _ZNK5clang17ObjCContainerDecl19instance_propertiesEv.exit: ; preds = %471, %.cri
   call void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %390) #18
   %482 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
   %483 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
-  call fastcc void @_ZL29Write_prop_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_16ObjCPropertyDeclEEEPKNS2_4DeclENSC_9StringRefESK_(ptr noundef %479, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %480, i64 %481, ptr noundef null, ptr nonnull @.str.362, i64 26, ptr %482, i64 %483)
+  call fastcc void @_ZL29Write_prop_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_16ObjCPropertyDeclEEEPKNS2_4DeclENSC_9StringRefESK_.argprom(ptr noundef %479, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %480, i64 %481, ptr noundef null, ptr nonnull @.str.362, i64 26, ptr %482, i64 %483)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
   %484 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.122) #18
   %485 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -36221,7 +36221,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang12ObjCIvarDeclELb1EE9push_backES3_.exi
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %60)
   %.not.i.i = icmp eq i64 %165, 0
-  br i1 %.not.i.i, label %_ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_12ObjCIvarDeclEEENSC_9StringRefEPNS2_17ObjCInterfaceDeclE.exit.i, label %166
+  br i1 %.not.i.i, label %_ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_12ObjCIvarDeclEEENSC_9StringRefEPNS2_17ObjCInterfaceDeclE.argprom.exit.i, label %166
 
 166:                                              ; preds = %._crit_edge.i
   %167 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.122) #18
@@ -37088,7 +37088,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit.i.i:          ; preds = %534, %528
   call void @_ZNK5clang10ASTContext22getObjCEncodingForTypeENS_8QualTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9FieldDeclEPS1_(ptr noundef nonnull align 8 dereferenceable(23096) %163, i64 %.sroa.05.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %409, ptr noundef null) #18
   %551 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %57) #18
   %.not.i99.i.i = icmp eq i64 %551, 0
-  br i1 %.not.i99.i.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit.i.i, label %.lr.ph.i100.i.i
+  br i1 %.not.i99.i.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit.i.i, label %.lr.ph.i100.i.i
 
 .lr.ph.i100.i.i:                                  ; preds = %550, %562
   %552 = phi i64 [ %564, %562 ], [ 0, %550 ]
@@ -37113,9 +37113,9 @@ _ZNK5clang9NamedDecl7getNameEv.exit.i.i:          ; preds = %534, %528
   %564 = zext i32 %563 to i64
   %565 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %57) #18
   %566 = icmp ugt i64 %565, %564
-  br i1 %566, label %.lr.ph.i100.i.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit.i.i, !llvm.loop !649
+  br i1 %566, label %.lr.ph.i100.i.i, label %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit.i.i, !llvm.loop !649
 
-_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit.i.i: ; preds = %562, %550
+_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit.i.i: ; preds = %562, %550
   %567 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.295) #18
   %568 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %58) #18
   %569 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.536) #18
@@ -37133,12 +37133,12 @@ _ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stri
   %577 = icmp eq i32 %576, 31
   br i1 %577, label %.thread.i107.i.i, label %.lr.ph.i101.preheader.i.i
 
-.lr.ph.i101.preheader.i.i:                        ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit.i.i
+.lr.ph.i101.preheader.i.i:                        ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit.i.i
   %578 = sub nsw i32 31, %576
   %579 = zext i32 %578 to i64
   br label %.lr.ph.i101.i.i
 
-.thread.i107.i.i:                                 ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit.i.i
+.thread.i107.i.i:                                 ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit.i.i
   store i8 48, ptr %108, align 4, !noalias !697
   br label %_ZN4llvm6utostrB5cxx11Emb.exit108.i.i
 
@@ -37262,13 +37262,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St
   %620 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %54) #18
   %621 = load ptr, ptr %54, align 8
   %622 = icmp eq ptr %621, %100
-  br i1 %622, label %_ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_12ObjCIvarDeclEEENSC_9StringRefEPNS2_17ObjCInterfaceDeclE.exit.i, label %623
+  br i1 %622, label %_ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_12ObjCIvarDeclEEENSC_9StringRefEPNS2_17ObjCInterfaceDeclE.argprom.exit.i, label %623
 
 623:                                              ; preds = %._crit_edge26.i.i
   call void @free(ptr noundef %621) #18
-  br label %_ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_12ObjCIvarDeclEEENSC_9StringRefEPNS2_17ObjCInterfaceDeclE.exit.i
+  br label %_ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_12ObjCIvarDeclEEENSC_9StringRefEPNS2_17ObjCInterfaceDeclE.argprom.exit.i
 
-_ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_12ObjCIvarDeclEEENSC_9StringRefEPNS2_17ObjCInterfaceDeclE.exit.i: ; preds = %623, %._crit_edge26.i.i, %._crit_edge.i
+_ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_12ObjCIvarDeclEEENSC_9StringRefEPNS2_17ObjCInterfaceDeclE.argprom.exit.i: ; preds = %623, %._crit_edge26.i.i, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %54)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %55)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56)
@@ -37281,8 +37281,8 @@ _ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang1
   %.not4.i.i.i.i.i = icmp eq ptr %625, null
   br i1 %.not4.i.i.i.i.i, label %_ZNK5clang17ObjCContainerDecl16instance_methodsEv.exit.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_12ObjCIvarDeclEEENSC_9StringRefEPNS2_17ObjCInterfaceDeclE.exit.i, %.critedge2.i.i.i.i.i
-  %.sroa.0.0.i.i125.i = phi ptr [ %636, %.critedge2.i.i.i.i.i ], [ %625, %_ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_12ObjCIvarDeclEEENSC_9StringRefEPNS2_17ObjCInterfaceDeclE.exit.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_12ObjCIvarDeclEEENSC_9StringRefEPNS2_17ObjCInterfaceDeclE.argprom.exit.i, %.critedge2.i.i.i.i.i
+  %.sroa.0.0.i.i125.i = phi ptr [ %636, %.critedge2.i.i.i.i.i ], [ %625, %_ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_12ObjCIvarDeclEEENSC_9StringRefEPNS2_17ObjCInterfaceDeclE.argprom.exit.i ]
   %626 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i125.i, i64 28
   %627 = load i32, ptr %626, align 4
   %628 = and i32 %627, 127
@@ -37304,8 +37304,8 @@ _ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang1
   %.not.i.i.i.i126.i = icmp eq i64 %635, 0
   br i1 %.not.i.i.i.i126.i, label %_ZNK5clang17ObjCContainerDecl16instance_methodsEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !40
 
-_ZNK5clang17ObjCContainerDecl16instance_methodsEv.exit.i: ; preds = %.critedge2.i.i.i.i.i, %630, %_ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_12ObjCIvarDeclEEENSC_9StringRefEPNS2_17ObjCInterfaceDeclE.exit.i
-  %.sroa.0.1.i.i.i = phi ptr [ null, %_ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_12ObjCIvarDeclEEENSC_9StringRefEPNS2_17ObjCInterfaceDeclE.exit.i ], [ %636, %.critedge2.i.i.i.i.i ], [ %.sroa.0.0.i.i125.i, %630 ]
+_ZNK5clang17ObjCContainerDecl16instance_methodsEv.exit.i: ; preds = %.critedge2.i.i.i.i.i, %630, %_ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_12ObjCIvarDeclEEENSC_9StringRefEPNS2_17ObjCInterfaceDeclE.argprom.exit.i
+  %.sroa.0.1.i.i.i = phi ptr [ null, %_ZL30Write__ivar_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_12ObjCIvarDeclEEENSC_9StringRefEPNS2_17ObjCInterfaceDeclE.argprom.exit.i ], [ %636, %.critedge2.i.i.i.i.i ], [ %.sroa.0.0.i.i125.i, %630 ]
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull %123, i64 noundef 32) #18
   call void @_ZN4llvm15SmallVectorImplIPN5clang14ObjCMethodDeclEE6appendINS1_11DeclContext22filtered_decl_iteratorIS2_XadL_ZNKS2_16isInstanceMethodEvEEEEvEEvT_S9_(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr %.sroa.0.1.i.i.i, ptr null)
   %637 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %624) #18
@@ -37493,7 +37493,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_20ObjCPropertyImplDeclEEppEv.e
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %44)
   %723 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %63) #18
   %724 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %63) #18
-  call fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %703, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %704, i64 %705, ptr nonnull @.str.521, i64 25, ptr %723, i64 %724, i1 noundef zeroext true)
+  call fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b.argprom(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %703, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %704, i64 %705, ptr nonnull @.str.521, i64 25, ptr %723, i64 %724, i1 noundef zeroext true)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #18
   %725 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %624) #18
   %.not3.i.i.i.i149.i = icmp eq ptr %725, null
@@ -37557,7 +37557,7 @@ _ZNK5clang17ObjCContainerDecl13class_methodsEv.exit.i: ; preds = %.critedge2.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %42)
   %757 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %65) #18
   %758 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %65) #18
-  call fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %737, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %738, i64 %739, ptr nonnull @.str.522, i64 22, ptr %757, i64 %758, i1 noundef zeroext true)
+  call fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b.argprom(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %737, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %738, i64 %739, ptr nonnull @.str.522, i64 22, ptr %757, i64 %758, i1 noundef zeroext true)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #18
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %140, align 8
   %759 = and i64 %.0.copyload.i.i.i.i.i.i, -8
@@ -37702,7 +37702,7 @@ _ZNSt6vectorIPN5clang16ObjCProtocolDeclESaIS2_EE9push_backERKS2_.exit.i: ; preds
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %40)
   %819 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #18
   %820 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #18
-  call fastcc void @_ZL31Write_protocol_list_initializerPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS_16ObjCProtocolDeclEEENS9_9StringRefESE_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %.sroa.0224.0.lcssa.i, i64 %801, ptr nonnull @.str.523, i64 24, ptr %819, i64 %820)
+  call fastcc void @_ZL31Write_protocol_list_initializerPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS_16ObjCProtocolDeclEEENS9_9StringRefESE_.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %.sroa.0224.0.lcssa.i, i64 %801, ptr nonnull @.str.523, i64 24, ptr %819, i64 %820)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #18
   %821 = getelementptr inbounds i8, ptr %139, i64 48
   %822 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %821) #18
@@ -37743,7 +37743,7 @@ _ZNK5clang17ObjCContainerDecl19instance_propertiesEv.exit.i: ; preds = %.critedg
   call void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %68, ptr noundef nonnull align 8 dereferenceable(8) %837) #18
   %838 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %68) #18
   %839 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %68) #18
-  call fastcc void @_ZL29Write_prop_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_16ObjCPropertyDeclEEEPKNS2_4DeclENSC_9StringRefESK_(ptr noundef %834, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %835, i64 %836, ptr noundef nonnull %137, ptr nonnull @.str.524, i64 18, ptr %838, i64 %839)
+  call fastcc void @_ZL29Write_prop_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_16ObjCPropertyDeclEEEPKNS2_4DeclENSC_9StringRefESK_.argprom(ptr noundef %834, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %835, i64 %836, ptr noundef nonnull %137, ptr nonnull @.str.524, i64 18, ptr %838, i64 %839)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #18
@@ -37762,7 +37762,7 @@ _ZNK5clang17ObjCContainerDecl19instance_propertiesEv.exit.i: ; preds = %.critedg
   call void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %71, ptr noundef nonnull align 8 dereferenceable(8) %837) #18
   %849 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %71) #18
   %850 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %71) #18
-  call fastcc void @_ZL29Write__class_ro_t_initializerPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjRKS7_SA_N4llvm8ArrayRefIPNS_14ObjCMethodDeclEEENSC_IPNS_16ObjCProtocolDeclEEENSC_IPNS_12ObjCIvarDeclEEENSC_IPNS_16ObjCPropertyDeclEEENSB_9StringRefESP_(ptr noundef %847, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.1.i, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 %848, i64 1, i64 1, i64 1, ptr nonnull @.str.526, i64 21, ptr %849, i64 %850)
+  call fastcc void @_ZL29Write__class_ro_t_initializerPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjRKS7_SA_N4llvm8ArrayRefIPNS_14ObjCMethodDeclEEENSC_IPNS_16ObjCProtocolDeclEEENSC_IPNS_12ObjCIvarDeclEEENSC_IPNS_16ObjCPropertyDeclEEENSB_9StringRefESP_.argprom(ptr noundef %847, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.1.i, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 %848, i64 1, i64 1, i64 1, ptr nonnull @.str.526, i64 21, ptr %849, i64 %850)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #18
   %.2.i = select i1 %842, i32 16, i32 0
   br label %tailrecurse.i.i
@@ -37822,13 +37822,13 @@ _ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.i.i: ; preds = %.lr.ph.
 _ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread.i.i: ; preds = %871, %864, %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.i.i, %866, %tailrecurse.i.i
   %873 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128) %.tr.i.i) #18
   %.not.i178.i = icmp eq ptr %873, null
-  br i1 %.not.i178.i, label %_ZL25hasObjCExceptionAttributeRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclE.exit.i, label %tailrecurse.i.i
+  br i1 %.not.i178.i, label %_ZL25hasObjCExceptionAttributeRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclE.argprom.exit.i, label %tailrecurse.i.i
 
 874:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.i.i
   %875 = or disjoint i32 %.2.i, 32
-  br label %_ZL25hasObjCExceptionAttributeRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclE.exit.i
+  br label %_ZL25hasObjCExceptionAttributeRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclE.argprom.exit.i
 
-_ZL25hasObjCExceptionAttributeRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclE.exit.i: ; preds = %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread.i.i, %874
+_ZL25hasObjCExceptionAttributeRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclE.argprom.exit.i: ; preds = %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread.i.i, %874
   %876 = phi i32 [ %875, %874 ], [ %.2.i, %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread.i.i ]
   %877 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128) %139) #18
   %.not85.i = icmp eq ptr %877, null
@@ -37841,7 +37841,7 @@ _ZL25hasObjCExceptionAttributeRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclE.exi
   %881 = icmp eq ptr %879, %880
   br i1 %881, label %882, label %891
 
-882:                                              ; preds = %_ZL25hasObjCExceptionAttributeRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclE.exit.i
+882:                                              ; preds = %_ZL25hasObjCExceptionAttributeRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclE.argprom.exit.i
   %883 = load i32, ptr %.phi.trans.insert.i.i, align 4
   %884 = zext i32 %883 to i64
   %885 = getelementptr inbounds ptr, ptr %880, i64 %884
@@ -37863,7 +37863,7 @@ _ZL25hasObjCExceptionAttributeRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclE.exi
   %890 = getelementptr inbounds ptr, ptr %879, i64 %884
   br label %_ZNK4llvm15SmallPtrSetImplIPN5clang17ObjCInterfaceDeclEE5countEPKS2_.exit.i
 
-891:                                              ; preds = %_ZL25hasObjCExceptionAttributeRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclE.exit.i
+891:                                              ; preds = %_ZL25hasObjCExceptionAttributeRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclE.argprom.exit.i
   %892 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %129, ptr noundef nonnull %139) #18
   %.not.i.i179.i = icmp eq ptr %892, null
   %.pre.i180.i = load ptr, ptr %130, align 8
@@ -37927,10 +37927,10 @@ _ZNK4llvm15SmallPtrSetImplIPN5clang17ObjCInterfaceDeclEE5countEPKS2_.exit.i: ; p
   call void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %73, ptr noundef nonnull align 8 dereferenceable(8) %837) #18
   %920 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %73) #18
   %921 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %73) #18
-  call fastcc void @_ZL29Write__class_ro_t_initializerPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjRKS7_SA_N4llvm8ArrayRefIPNS_14ObjCMethodDeclEEENSC_IPNS_16ObjCProtocolDeclEEENSC_IPNS_12ObjCIvarDeclEEENSC_IPNS_16ObjCPropertyDeclEEENSB_9StringRefESP_(ptr noundef %916, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.4.i, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 %917, i64 %801, i64 %918, i64 %919, ptr nonnull @.str.529, i64 17, ptr %920, i64 %921)
+  call fastcc void @_ZL29Write__class_ro_t_initializerPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjRKS7_SA_N4llvm8ArrayRefIPNS_14ObjCMethodDeclEEENSC_IPNS_16ObjCProtocolDeclEEENSC_IPNS_12ObjCIvarDeclEEENSC_IPNS_16ObjCPropertyDeclEEENSB_9StringRefESP_.argprom(ptr noundef %916, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.4.i, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 %917, i64 %801, i64 %918, i64 %919, ptr nonnull @.str.529, i64 17, ptr %920, i64 %921)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #18
-  call fastcc void @_ZL13Write_class_tPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm9StringRefEPKNS_17ObjCInterfaceDeclEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nonnull @.str.530, i64 17, ptr noundef nonnull %139, i1 noundef zeroext true)
-  call fastcc void @_ZL13Write_class_tPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm9StringRefEPKNS_17ObjCInterfaceDeclEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nonnull @.str.531, i64 13, ptr noundef nonnull %139, i1 noundef zeroext false)
+  call fastcc void @_ZL13Write_class_tPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm9StringRefEPKNS_17ObjCInterfaceDeclEb.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nonnull @.str.530, i64 17, ptr noundef nonnull %139, i1 noundef zeroext true)
+  call fastcc void @_ZL13Write_class_tPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm9StringRefEPKNS_17ObjCInterfaceDeclEb.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nonnull @.str.531, i64 13, ptr noundef nonnull %139, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
   %922 = load ptr, ptr %89, align 8
   %923 = getelementptr inbounds nuw i8, ptr %922, i64 17296
@@ -38301,7 +38301,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_20ObjCPropertyImplDeclEEppEv.e
   %1088 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #18
   %1089 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #18
   %1090 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #18
-  call fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %1086, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %1087, i64 %1088, ptr nonnull @.str.583, i64 34, ptr %1089, i64 %1090, i1 noundef zeroext true)
+  call fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b.argprom(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %1086, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %1087, i64 %1088, ptr nonnull @.str.583, i64 34, ptr %1089, i64 %1090, i1 noundef zeroext true)
   %1091 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1015) #18
   %.not3.i.i.i.i80.i = icmp eq ptr %1091, null
   br i1 %.not3.i.i.i.i80.i, label %_ZNK5clang17ObjCContainerDecl13class_methodsEv.exit.i95, label %.lr.ph.i.i.i.i81.i
@@ -38338,7 +38338,7 @@ _ZNK5clang17ObjCContainerDecl13class_methodsEv.exit.i95: ; preds = %.critedge2.i
   %1105 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #18
   %1106 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #18
   %1107 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #18
-  call fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %1103, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %1104, i64 %1105, ptr nonnull @.str.584, i64 31, ptr %1106, i64 %1107, i1 noundef zeroext true)
+  call fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b.argprom(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %1103, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %1104, i64 %1105, ptr nonnull @.str.584, i64 31, ptr %1106, i64 %1107, i1 noundef zeroext true)
   %1108 = getelementptr inbounds nuw i8, ptr %1010, i64 104
   %1109 = load ptr, ptr %1108, align 8
   %1110 = getelementptr inbounds nuw i8, ptr %1010, i64 112
@@ -38367,7 +38367,7 @@ _ZNK5clang17ObjCContainerDecl13class_methodsEv.exit.i95: ; preds = %.critedge2.i
   %1121 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #18
   %1122 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #18
   %1123 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #18
-  call fastcc void @_ZL31Write_protocol_list_initializerPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS_16ObjCProtocolDeclEEENS9_9StringRefESE_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %1120, i64 %1121, ptr nonnull @.str.585, i64 27, ptr %1122, i64 %1123)
+  call fastcc void @_ZL31Write_protocol_list_initializerPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS_16ObjCProtocolDeclEEENS9_9StringRefESE_.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %1120, i64 %1121, ptr nonnull @.str.585, i64 27, ptr %1122, i64 %1123)
   %1124 = getelementptr inbounds i8, ptr %1010, i64 48
   %1125 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1124) #18
   %.not3.i.i.i.i95.i = icmp eq ptr %1125, null
@@ -38405,7 +38405,7 @@ _ZNK5clang17ObjCContainerDecl19instance_propertiesEv.exit.i97: ; preds = %.crite
   %1139 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #18
   %1140 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #18
   %1141 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #18
-  call fastcc void @_ZL29Write_prop_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_16ObjCPropertyDeclEEEPKNS2_4DeclENSC_9StringRefESK_(ptr noundef %1137, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %1138, i64 %1139, ptr noundef nonnull %1000, ptr nonnull @.str.524, i64 18, ptr %1140, i64 %1141)
+  call fastcc void @_ZL29Write_prop_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_16ObjCPropertyDeclEEEPKNS2_4DeclENSC_9StringRefESK_.argprom(ptr noundef %1137, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %1138, i64 %1139, ptr noundef nonnull %1000, ptr nonnull @.str.524, i64 18, ptr %1140, i64 %1141)
   %1142 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #18
   %1143 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #18
   %1144 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #18
@@ -38519,7 +38519,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit125.i.i:       ; preds = %1160, %_ZNK5clang9N
   %.str.365.sink8.i.i = phi ptr [ @.str.369, %1205 ], [ @.str.365, %1203 ]
   %1212 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %.str.365.sink8.i.i) #18
   %.not118.i.i = icmp eq i64 %1145, 0
-  br i1 %.not118.i.i, label %_ZL16Write_category_tRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_16ObjCCategoryDeclEPNS2_17ObjCInterfaceDeclEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEESK_NSH_IPNS2_16ObjCProtocolDeclEEENSH_IPNS2_16ObjCPropertyDeclEEE.exit.i, label %1213
+  br i1 %.not118.i.i, label %_ZL16Write_category_tRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_16ObjCCategoryDeclEPNS2_17ObjCInterfaceDeclEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEESK_NSH_IPNS2_16ObjCProtocolDeclEEENSH_IPNS2_16ObjCPropertyDeclEEE.argprom.exit.i, label %1213
 
 1213:                                             ; preds = %1211
   %1214 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.591) #18
@@ -38527,9 +38527,9 @@ _ZNK5clang9NamedDecl7getNameEv.exit125.i.i:       ; preds = %1160, %_ZNK5clang9N
   %1216 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %.sroa.0.0.i122.i.i, i64 noundef %.sroa.3.0.i121.i.i) #18
   %1217 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.517) #18
   %1218 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %.sroa.0.0.i.i108.i, i64 noundef %.sroa.3.0.i.i.i100) #18
-  br label %_ZL16Write_category_tRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_16ObjCCategoryDeclEPNS2_17ObjCInterfaceDeclEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEESK_NSH_IPNS2_16ObjCProtocolDeclEEENSH_IPNS2_16ObjCPropertyDeclEEE.exit.i
+  br label %_ZL16Write_category_tRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_16ObjCCategoryDeclEPNS2_17ObjCInterfaceDeclEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEESK_NSH_IPNS2_16ObjCProtocolDeclEEENSH_IPNS2_16ObjCPropertyDeclEEE.argprom.exit.i
 
-_ZL16Write_category_tRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_16ObjCCategoryDeclEPNS2_17ObjCInterfaceDeclEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEESK_NSH_IPNS2_16ObjCProtocolDeclEEENSH_IPNS2_16ObjCPropertyDeclEEE.exit.i: ; preds = %1213, %1211
+_ZL16Write_category_tRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_16ObjCCategoryDeclEPNS2_17ObjCInterfaceDeclEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEESK_NSH_IPNS2_16ObjCProtocolDeclEEENSH_IPNS2_16ObjCPropertyDeclEEE.argprom.exit.i: ; preds = %1213, %1211
   %.str.365.sink9.i.i = phi ptr [ @.str.369, %1213 ], [ @.str.365, %1211 ]
   %1219 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %.str.365.sink9.i.i) #18
   %1220 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.68) #18
@@ -38567,7 +38567,7 @@ _ZL16Write_category_tRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   br i1 %.not157.i, label %1254, label %1243
 
-1243:                                             ; preds = %_ZL16Write_category_tRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_16ObjCCategoryDeclEPNS2_17ObjCInterfaceDeclEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEESK_NSH_IPNS2_16ObjCProtocolDeclEEENSH_IPNS2_16ObjCPropertyDeclEEE.exit.i
+1243:                                             ; preds = %_ZL16Write_category_tRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_16ObjCCategoryDeclEPNS2_17ObjCInterfaceDeclEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEESK_NSH_IPNS2_16ObjCProtocolDeclEEENSH_IPNS2_16ObjCPropertyDeclEEE.argprom.exit.i
   %1244 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %995) #18
   %1245 = add i64 %1244, 1
   %1246 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %995) #18
@@ -38589,7 +38589,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang16ObjCCategoryDeclELb1EE9push_backES3_
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %995, i64 noundef %1253) #18
   br label %1254
 
-1254:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang16ObjCCategoryDeclELb1EE9push_backES3_.exit.i, %_ZL16Write_category_tRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_16ObjCCategoryDeclEPNS2_17ObjCInterfaceDeclEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEESK_NSH_IPNS2_16ObjCProtocolDeclEEENSH_IPNS2_16ObjCPropertyDeclEEE.exit.i
+1254:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang16ObjCCategoryDeclELb1EE9push_backES3_.exit.i, %_ZL16Write_category_tRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_16ObjCCategoryDeclEPNS2_17ObjCInterfaceDeclEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEESK_NSH_IPNS2_16ObjCProtocolDeclEEENSH_IPNS2_16ObjCPropertyDeclEEE.argprom.exit.i
   %1255 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #18
   %1256 = load ptr, ptr %37, align 8
   %1257 = icmp eq ptr %1256, %994
@@ -39108,7 +39108,7 @@ define internal fastcc void @_ZL31WriteModernMetadataDeclarationsPN5clang10ASTCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL31Write_protocol_list_initializerPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS_16ObjCProtocolDeclEEENS9_9StringRefESE_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture readonly %1, i64 %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZL31Write_protocol_list_initializerPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS_16ObjCProtocolDeclEEENS9_9StringRefESE_.argprom(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture readonly %1, i64 %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %6 = alloca [21 x i8], align 16
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca [21 x i8], align 16
@@ -39227,7 +39227,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @_ZL31Write_method_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_14ObjCMethodDeclEEENSC_9StringRefESH_b.argprom(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca [21 x i8], align 16
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca [21 x i8], align 16
@@ -39455,7 +39455,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang14ObjCMethodDeclENSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL29Write_prop_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_16ObjCPropertyDeclEEEPKNS2_4DeclENSC_9StringRefESK_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture readonly %2, i64 %3, ptr noundef %4, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3) unnamed_addr #0 {
+define internal fastcc void @_ZL29Write_prop_list_t_initializerRN12_GLOBAL__N_117RewriteModernObjCEPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8ArrayRefIPNS2_16ObjCPropertyDeclEEEPKNS2_4DeclENSC_9StringRefESK_.argprom(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture readonly %2, i64 %3, ptr noundef %4, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3) unnamed_addr #0 {
   %6 = alloca [21 x i8], align 16
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca [21 x i8], align 16
@@ -39567,8 +39567,8 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i
   %wide.trip.count = and i64 %3, 4294967295
   br label %56
 
-56:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit ]
+56:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit ]
   %57 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq i64 %indvars.iv, 0
@@ -39601,7 +39601,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %56, %66
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   %75 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
   %.not.i39 = icmp eq i64 %75, 0
-  br i1 %.not.i39, label %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit, label %.lr.ph.i40
+  br i1 %.not.i39, label %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit, label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit, %86
   %76 = phi i64 [ %88, %86 ], [ 0, %_ZNK5clang9NamedDecl7getNameEv.exit ]
@@ -39626,9 +39626,9 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %56, %66
   %88 = zext i32 %87 to i64
   %89 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
   %90 = icmp ugt i64 %89, %88
-  br i1 %90, label %.lr.ph.i40, label %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit, !llvm.loop !649
+  br i1 %90, label %.lr.ph.i40, label %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit, !llvm.loop !649
 
-_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit: ; preds = %86, %_ZNK5clang9NamedDecl7getNameEv.exit
+_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit: ; preds = %86, %_ZNK5clang9NamedDecl7getNameEv.exit
   %91 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.295) #18
   %92 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   %93 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.295) #18
@@ -39641,7 +39641,7 @@ _ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stri
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %56, !llvm.loop !754
 
-._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit, %_ZN4llvm6utostrB5cxx11Emb.exit
+._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_117RewriteModernObjC17QuoteDoublequotesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.argprom.exit, %_ZN4llvm6utostrB5cxx11Emb.exit
   %96 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.68) #18
   br label %97
 
@@ -43760,7 +43760,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIN4llvm22Rop
 declare void @_ZN4llvm22RopePieceBTreeIterator15MoveToNextPieceEv(ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL29Write__class_ro_t_initializerPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjRKS7_SA_N4llvm8ArrayRefIPNS_14ObjCMethodDeclEEENSC_IPNS_16ObjCProtocolDeclEEENSC_IPNS_12ObjCIvarDeclEEENSC_IPNS_16ObjCPropertyDeclEEENSB_9StringRefESP_(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 %.8.val, i64 %.8.val1, i64 %.8.val3, i64 %.8.val5, ptr %.0.val, i64 %.8.val7, ptr %.0.val9, i64 %.8.val11) unnamed_addr #0 {
+define internal fastcc void @_ZL29Write__class_ro_t_initializerPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjRKS7_SA_N4llvm8ArrayRefIPNS_14ObjCMethodDeclEEENSC_IPNS_16ObjCProtocolDeclEEENSC_IPNS_12ObjCIvarDeclEEENSC_IPNS_16ObjCPropertyDeclEEENSB_9StringRefESP_.argprom(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 %.8.val, i64 %.8.val1, i64 %.8.val3, i64 %.8.val5, ptr %.0.val, i64 %.8.val7, ptr %.0.val9, i64 %.8.val11) unnamed_addr #0 {
   %6 = alloca [21 x i8], align 16
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -43899,7 +43899,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13Write_class_tPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm9StringRefEPKNS_17ObjCInterfaceDeclEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZL13Write_class_tPN5clang10ASTContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm9StringRefEPKNS_17ObjCInterfaceDeclEb.argprom(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -44580,8 +44580,8 @@ attributes #21 = { noreturn nounwind }
 !135 = distinct !{!135, !136, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: argument 0"}
 !136 = distinct !{!136, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
 !137 = !{!138}
-!138 = distinct !{!138, !139, !"_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_: argument 0"}
-!139 = distinct !{!139, !"_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_"}
+!138 = distinct !{!138, !139, !"_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.argprom: argument 0"}
+!139 = distinct !{!139, !"_ZN12_GLOBAL__N_117RewriteModernObjC19SynthesizeBlockImplEPN5clang9BlockExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.argprom"}
 !140 = !{!141, !138}
 !141 = distinct !{!141, !142, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_: argument 0"}
 !142 = distinct !{!142, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_"}
@@ -44683,8 +44683,8 @@ attributes #21 = { noreturn nounwind }
 !238 = distinct !{!238, !8}
 !239 = distinct !{!239, !8}
 !240 = !{!241}
-!241 = distinct !{!241, !242, !"_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
-!242 = distinct !{!242, !"_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
+!241 = distinct !{!241, !242, !"_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom: argument 0"}
+!242 = distinct !{!242, !"_ZN12_GLOBAL__N_117RewriteModernObjC26SynthesizeBlockHelperFuncsEPN5clang9BlockExprEiN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"}
 !243 = !{!244, !241}
 !244 = distinct !{!244, !245, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_: argument 0"}
 !245 = distinct !{!245, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_"}
@@ -44772,8 +44772,8 @@ attributes #21 = { noreturn nounwind }
 !327 = distinct !{!327, !328, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
 !328 = distinct !{!328, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
 !329 = !{!330}
-!330 = distinct !{!330, !331, !"_ZN12_GLOBAL__N_117RewriteModernObjC25SynthesizeBlockDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iN4llvm9StringRefEj: argument 0"}
-!331 = distinct !{!331, !"_ZN12_GLOBAL__N_117RewriteModernObjC25SynthesizeBlockDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iN4llvm9StringRefEj"}
+!330 = distinct !{!330, !331, !"_ZN12_GLOBAL__N_117RewriteModernObjC25SynthesizeBlockDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iN4llvm9StringRefEj.argprom: argument 0"}
+!331 = distinct !{!331, !"_ZN12_GLOBAL__N_117RewriteModernObjC25SynthesizeBlockDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_iN4llvm9StringRefEj.argprom"}
 !332 = !{!333, !330}
 !333 = distinct !{!333, !334, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_: argument 0"}
 !334 = distinct !{!334, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_"}

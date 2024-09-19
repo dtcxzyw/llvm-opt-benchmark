@@ -1458,7 +1458,7 @@ entry:
   %stringLength = alloca i32, align 4
   %toConv = alloca [3 x i8], align 1
   %stopstring = alloca ptr, align 8
-  %call = call fastcc noundef ptr @_ZL18getInvariantStringP10ParseStatePjP7UStringRiP10UErrorCode(ptr noundef %state, ptr noundef nonnull %line, ptr noundef nonnull align 4 dereferenceable(4) %stringLength, ptr noundef %status)
+  %call = call fastcc noundef ptr @_ZL18getInvariantStringP10ParseStatePjP7UStringRiP10UErrorCode.argprom(ptr noundef %state, ptr noundef nonnull %line, ptr noundef nonnull align 4 dereferenceable(4) %stringLength, ptr noundef %status)
   %cmp.i.not = icmp eq ptr %call, null
   br i1 %cmp.i.not, label %cleanup62, label %lor.lhs.false
 
@@ -2012,7 +2012,7 @@ define internal noundef ptr @_ZL12parseIntegerP10ParseStatePcjPK7UStringP10UErro
 entry:
   %stopstring = alloca ptr, align 8
   %stringLength = alloca i32, align 4
-  %call = call fastcc noundef ptr @_ZL18getInvariantStringP10ParseStatePjP7UStringRiP10UErrorCode(ptr noundef %state, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %stringLength, ptr noundef %status)
+  %call = call fastcc noundef ptr @_ZL18getInvariantStringP10ParseStatePjP7UStringRiP10UErrorCode.argprom(ptr noundef %state, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %stringLength, ptr noundef %status)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
@@ -2464,7 +2464,7 @@ if.end14:                                         ; preds = %if.then13, %if.then
   br label %return
 
 if.end15:                                         ; preds = %for.cond, %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit
-  %call16 = call fastcc noundef ptr @_ZL18getInvariantStringP10ParseStatePjP7UStringRiP10UErrorCode(ptr noundef nonnull %state, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %stringLength, ptr noundef nonnull %status)
+  %call16 = call fastcc noundef ptr @_ZL18getInvariantStringP10ParseStatePjP7UStringRiP10UErrorCode.argprom(ptr noundef nonnull %state, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %stringLength, ptr noundef nonnull %status)
   %7 = load i32, ptr %status, align 4
   %cmp.i30 = icmp slt i32 %7, 1
   br i1 %cmp.i30, label %if.end20, label %if.then19
@@ -2545,7 +2545,7 @@ entry:
   %fullname = alloca %"class.icu_75::CharString", align 8
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
   %agg.tmp22 = alloca %"class.icu_75::StringPiece", align 8
-  %call = call fastcc noundef ptr @_ZL18getInvariantStringP10ParseStatePjP7UStringRiP10UErrorCode(ptr noundef %state, ptr noundef nonnull %line, ptr noundef nonnull align 4 dereferenceable(4) %stringLength, ptr noundef %status)
+  %call = call fastcc noundef ptr @_ZL18getInvariantStringP10ParseStatePjP7UStringRiP10UErrorCode.argprom(ptr noundef %state, ptr noundef nonnull %line, ptr noundef nonnull align 4 dereferenceable(4) %stringLength, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %cleanup60
@@ -2810,7 +2810,7 @@ entry:
   %stringLength = alloca i32, align 4
   store i32 0, ptr %len, align 4
   store ptr null, ptr %cp, align 8
-  %call = call fastcc noundef ptr @_ZL18getInvariantStringP10ParseStatePjP7UStringRiP10UErrorCode(ptr noundef %state, ptr noundef nonnull %line, ptr noundef nonnull align 4 dereferenceable(4) %stringLength, ptr noundef %status)
+  %call = call fastcc noundef ptr @_ZL18getInvariantStringP10ParseStatePjP7UStringRiP10UErrorCode.argprom(ptr noundef %state, ptr noundef nonnull %line, ptr noundef nonnull align 4 dereferenceable(4) %stringLength, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %return
@@ -3581,7 +3581,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare ptr @string_open(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL18getInvariantStringP10ParseStatePjP7UStringRiP10UErrorCode(ptr noundef %state, ptr noundef %line, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %stringLength, ptr noundef %status) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL18getInvariantStringP10ParseStatePjP7UStringRiP10UErrorCode.argprom(ptr noundef %state, ptr noundef %line, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %stringLength, ptr noundef %status) unnamed_addr #1 {
 entry:
   %tokenValue = alloca ptr, align 8
   call fastcc void @_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode(ptr noundef %state, i32 noundef 0, ptr noundef nonnull %tokenValue, ptr noundef null, ptr noundef %line, ptr noundef %status)
@@ -4047,11 +4047,11 @@ invoke.cont149:                                   ; preds = %invoke.cont147
   br i1 %or.cond, label %if.then157, label %if.end169
 
 if.then157:                                       ; preds = %invoke.cont149
-  invoke fastcc void @_ZN12_GLOBAL__N_16escapeEPKDsPcm(ptr noundef %preContext, ptr noundef %preBuffer)
+  invoke fastcc void @_ZN12_GLOBAL__N_16escapeEPKDsPcm.argelim(ptr noundef %preContext, ptr noundef %preBuffer)
           to label %invoke.cont161 unwind label %lpad140
 
 invoke.cont161:                                   ; preds = %if.then157
-  invoke fastcc void @_ZN12_GLOBAL__N_16escapeEPKDsPcm(ptr noundef %postContext, ptr noundef %postBuffer)
+  invoke fastcc void @_ZN12_GLOBAL__N_16escapeEPKDsPcm.argelim(ptr noundef %postContext, ptr noundef %postBuffer)
           to label %invoke.cont165 unwind label %lpad140
 
 invoke.cont165:                                   ; preds = %invoke.cont161
@@ -4497,7 +4497,7 @@ declare void @_ZN6icu_7516CollationBuilderC1EPKNS_18CollationTailoringEaR10UErro
 declare noundef ptr @_ZN6icu_7516CollationBuilder13parseAndBuildERKNS_13UnicodeStringEPKhPNS_19CollationRuleParser8ImporterEP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16escapeEPKDsPcm(ptr noundef nonnull %s, ptr nocapture noundef nonnull writeonly %buffer) unnamed_addr #1 {
+define internal fastcc void @_ZN12_GLOBAL__N_16escapeEPKDsPcm.argelim(ptr noundef nonnull %s, ptr nocapture noundef nonnull writeonly %buffer) unnamed_addr #1 {
 entry:
   %call = tail call i32 @u_strlen_75(ptr noundef nonnull %s)
   br label %for.cond

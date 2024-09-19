@@ -2933,7 +2933,7 @@ define dso_local i64 @simple_attr_write(ptr nocapture noundef readonly %0, ptr n
   %7 = getelementptr inbounds i8, ptr %.val, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %simple_attr_write_xsigned.exit, label %10
+  br i1 %9, label %simple_attr_write_xsigned.argprom.exit, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %.val, i64 80
@@ -2943,7 +2943,7 @@ define dso_local i64 @simple_attr_write(ptr nocapture noundef readonly %0, ptr n
 
 14:                                               ; preds = %10
   %15 = sext i32 %12 to i64
-  br label %simple_attr_write_xsigned.exit
+  br label %simple_attr_write_xsigned.argprom.exit
 
 16:                                               ; preds = %10
   store i64 0, ptr %5, align 8, !annotation !11
@@ -2975,9 +2975,9 @@ define dso_local i64 @simple_attr_write(ptr nocapture noundef readonly %0, ptr n
 35:                                               ; preds = %26, %21, %16
   %36 = phi i64 [ -14, %16 ], [ %24, %21 ], [ %34, %26 ]
   call void @mutex_unlock(ptr noundef %11) #15
-  br label %simple_attr_write_xsigned.exit
+  br label %simple_attr_write_xsigned.argprom.exit
 
-simple_attr_write_xsigned.exit:                   ; preds = %4, %14, %35
+simple_attr_write_xsigned.argprom.exit:           ; preds = %4, %14, %35
   %37 = phi i64 [ %15, %14 ], [ %36, %35 ], [ -13, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   ret i64 %37
@@ -2992,7 +2992,7 @@ define dso_local i64 @simple_attr_write_signed(ptr nocapture noundef readonly %0
   %7 = getelementptr inbounds i8, ptr %.val, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %simple_attr_write_xsigned.exit, label %10
+  br i1 %9, label %simple_attr_write_xsigned.argprom.exit, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %.val, i64 80
@@ -3002,7 +3002,7 @@ define dso_local i64 @simple_attr_write_signed(ptr nocapture noundef readonly %0
 
 14:                                               ; preds = %10
   %15 = sext i32 %12 to i64
-  br label %simple_attr_write_xsigned.exit
+  br label %simple_attr_write_xsigned.argprom.exit
 
 16:                                               ; preds = %10
   store i64 0, ptr %5, align 8, !annotation !11
@@ -3034,9 +3034,9 @@ define dso_local i64 @simple_attr_write_signed(ptr nocapture noundef readonly %0
 35:                                               ; preds = %26, %21, %16
   %36 = phi i64 [ -14, %16 ], [ %24, %21 ], [ %34, %26 ]
   call void @mutex_unlock(ptr noundef %11) #15
-  br label %simple_attr_write_xsigned.exit
+  br label %simple_attr_write_xsigned.argprom.exit
 
-simple_attr_write_xsigned.exit:                   ; preds = %4, %14, %35
+simple_attr_write_xsigned.argprom.exit:           ; preds = %4, %14, %35
   %37 = phi i64 [ %15, %14 ], [ %36, %35 ], [ -13, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   ret i64 %37

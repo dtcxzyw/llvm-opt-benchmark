@@ -126,7 +126,7 @@ if.end19.i:                                       ; preds = %if.end15.i
   %3 = load ptr, ptr %ctx.i, align 8
   %propq.i = getelementptr inbounds i8, ptr %call5.i, i64 48
   %4 = load ptr, ptr %propq.i, align 8
-  %call21.i = tail call fastcc i32 @parse_bags(ptr noundef nonnull %bags.0.i, ptr noundef %pass.addr.0, ptr noundef %pkey, ptr noundef %ocerts.1, ptr noundef %3, ptr noundef %4)
+  %call21.i = tail call fastcc i32 @parse_bags.argelim(ptr noundef nonnull %bags.0.i, ptr noundef %pass.addr.0, ptr noundef %pkey, ptr noundef %ocerts.1, ptr noundef %3, ptr noundef %4)
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %bags.0.i, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
   br i1 %tobool22.not.i, label %parse_pk12.exit.thread44, label %for.inc.i
@@ -375,7 +375,7 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @PKCS7_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_bags(ptr noundef %bags, ptr noundef %pass, ptr noundef %pkey, ptr noundef %ocerts, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_bags.argelim(ptr noundef %bags, ptr noundef %pass, ptr noundef %pkey, ptr noundef %ocerts, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %data47.i = alloca ptr, align 8
   %call112 = tail call i32 @OPENSSL_sk_num(ptr noundef %bags) #3
@@ -518,7 +518,7 @@ parse_bag.exit.thread7:                           ; preds = %if.end9.i, %if.end2
 
 parse_bag.exit:                                   ; preds = %if.end5.i
   %call64.i = call ptr @PKCS12_SAFEBAG_get0_safes(ptr noundef %call3) #3
-  %call65.i = call fastcc i32 @parse_bags(ptr noundef %call64.i, ptr noundef %pass, ptr noundef %pkey, ptr noundef %ocerts, ptr noundef %libctx, ptr noundef %propq)
+  %call65.i = call fastcc i32 @parse_bags.argelim(ptr noundef %call64.i, ptr noundef %pass, ptr noundef %pkey, ptr noundef %ocerts, ptr noundef %libctx, ptr noundef %propq)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data47.i)
   %tobool.not = icmp eq i32 %call65.i, 0
   br i1 %tobool.not, label %return, label %for.inc

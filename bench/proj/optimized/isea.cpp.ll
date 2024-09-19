@@ -340,7 +340,7 @@ define internal { double, double } @_ZL14isea_s_forward5PJ_LPP8PJconsts(double %
 .preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i, %3
   %.0.lcssa.i.i.i.i = phi double [ %33, %3 ], [ %36, %.lr.ph.i.i.i.i ]
   %35 = fcmp olt double %.0.lcssa.i.i.i.i, 0xC00921FB54442D18
-  br i1 %35, label %.lr.ph7.i.i.i.i, label %_ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES1_.exit.i.i.i
+  br i1 %35, label %.lr.ph7.i.i.i.i, label %_ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES1_.argprom.exit.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %3, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi double [ %36, %.lr.ph.i.i.i.i ], [ %33, %3 ]
@@ -352,9 +352,9 @@ define internal { double, double } @_ZL14isea_s_forward5PJ_LPP8PJconsts(double %
   %.16.i.i.i.i = phi double [ %38, %.lr.ph7.i.i.i.i ], [ %.0.lcssa.i.i.i.i, %.preheader.i.i.i.i ]
   %38 = fadd double %.16.i.i.i.i, 0x401921FB54442D18
   %39 = fcmp olt double %38, 0xC00921FB54442D18
-  br i1 %39, label %.lr.ph7.i.i.i.i, label %_ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES1_.exit.i.i.i, !llvm.loop !6
+  br i1 %39, label %.lr.ph7.i.i.i.i, label %_ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES1_.argprom.exit.i.i.i, !llvm.loop !6
 
-_ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES1_.exit.i.i.i: ; preds = %.lr.ph7.i.i.i.i, %.preheader.i.i.i.i
+_ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES1_.argprom.exit.i.i.i: ; preds = %.lr.ph7.i.i.i.i, %.preheader.i.i.i.i
   %.1.lcssa.i.i.i.i = phi double [ %.0.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %38, %.lr.ph7.i.i.i.i ]
   %40 = fmul double %17, %20
   %41 = fneg double %22
@@ -370,13 +370,13 @@ _ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES1_.exit.i.i.i: ; preds = %.lr.ph7.i.
   %51 = fcmp ogt double %50, 0x400921FB54442D18
   br i1 %51, label %.lr.ph.i.i.i, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %_ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES1_.exit.i.i.i
-  %.sroa.06.0.lcssa.i.i.i = phi double [ %50, %_ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES1_.exit.i.i.i ], [ %53, %.lr.ph.i.i.i ]
+.preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %_ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES1_.argprom.exit.i.i.i
+  %.sroa.06.0.lcssa.i.i.i = phi double [ %50, %_ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES1_.argprom.exit.i.i.i ], [ %53, %.lr.ph.i.i.i ]
   %52 = fcmp olt double %.sroa.06.0.lcssa.i.i.i, 0xC00921FB54442D18
   br i1 %52, label %.lr.ph19.i.i.i, label %_ZL10isea_ctranPN12_GLOBAL__N_18isea_geoES1_d.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES1_.exit.i.i.i, %.lr.ph.i.i.i
-  %.sroa.06.017.i.i.i = phi double [ %53, %.lr.ph.i.i.i ], [ %50, %_ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES1_.exit.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %_ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES1_.argprom.exit.i.i.i, %.lr.ph.i.i.i
+  %.sroa.06.017.i.i.i = phi double [ %53, %.lr.ph.i.i.i ], [ %50, %_ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES1_.argprom.exit.i.i.i ]
   %53 = fadd double %.sroa.06.017.i.i.i, 0xC01921FB54442D18
   %54 = fcmp ogt double %53, 0x400921FB54442D18
   br i1 %54, label %.lr.ph.i.i.i, label %.preheader.i.i.i, !llvm.loop !7
@@ -483,7 +483,7 @@ _ZL10isea_ctranPN12_GLOBAL__N_18isea_geoES1_d.exit.i.i: ; preds = %.lr.ph19.i.i.
   %116 = tail call double @atan2(double noundef 0x3FE87221919DB595, double noundef %115) #16
   %117 = fadd double %116, 5.000000e-06
   %118 = fcmp ogt double %68, %117
-  br i1 %118, label %119, label %_ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.exit.i
+  br i1 %118, label %119, label %_ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.argprom.exit.i
 
 119:                                              ; preds = %._crit_edge.i.i.i, %57
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -500,7 +500,7 @@ _ZL10isea_ctranPN12_GLOBAL__N_18isea_geoES1_d.exit.i.i: ; preds = %.lr.ph19.i.i.
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
-_ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.exit.i: ; preds = %._crit_edge.i.i.i
+_ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.argprom.exit.i: ; preds = %._crit_edge.i.i.i
   %127 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %128 = tail call double @sin(double noundef %.2.lcssa.i.i.i) #16
   %129 = fmul double %128, 0x3FE2CF2304755A5E
@@ -544,7 +544,7 @@ _ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.exit.i:
   %166 = icmp eq i32 %165, 4
   br i1 %166, label %167, label %197
 
-167:                                              ; preds = %_ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.exit.i
+167:                                              ; preds = %_ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.argprom.exit.i
   %168 = add nsw i32 %127, -1
   %169 = sdiv i32 %168, 5
   %170 = and i32 %169, -2147483647
@@ -592,7 +592,7 @@ switch.lookup:                                    ; preds = %178
   %196 = fadd double %179, %194
   br label %332
 
-197:                                              ; preds = %_ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.exit.i
+197:                                              ; preds = %_ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.argprom.exit.i
   %198 = getelementptr inbounds i8, ptr %5, i64 8
   %199 = fdiv double %161, %160
   %200 = fmul double %199, 0x3FEA90A6031F46A3

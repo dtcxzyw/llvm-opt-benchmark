@@ -184,12 +184,12 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 68:                                               ; preds = %58, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   %69 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit73
+  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit73
 
 70:                                               ; preds = %94, %88, %83, %79
   %71 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.exit71
+  br label %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.argprom.exit71
 
 72:                                               ; preds = %65, %60
   %73 = load ptr, ptr %6, align 8
@@ -264,7 +264,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 113:                                              ; preds = %104
   %114 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit69
+  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit69
 
 115:                                              ; preds = %175
   %116 = landingpad { ptr, i32 }
@@ -440,39 +440,39 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %164, %_ZNSt6vectorI
   store i8 1, ptr %181, align 1
   %182 = icmp ne ptr %108, null
   %or.cond.not.i = and i1 %109, %182
-  br i1 %or.cond.not.i, label %183, label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit
+  br i1 %or.cond.not.i, label %183, label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit
 
 183:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %108) #13
-  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit
+  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit
 
-_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit, %183
+_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit, %183
   %184 = icmp ne ptr %100, null
   %or.cond.not.i63 = and i1 %102, %184
-  br i1 %or.cond.not.i63, label %185, label %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.exit
+  br i1 %or.cond.not.i63, label %185, label %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.argprom.exit
 
-185:                                              ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit
+185:                                              ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit
   call void @_ZdaPv(ptr noundef nonnull %100) #13
-  br label %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.exit
+  br label %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.argprom.exit
 
-_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.exit: ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit, %185
+_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit, %185
   %186 = icmp ne ptr %61, null
   %or.cond.not.i64 = and i1 %62, %186
-  br i1 %or.cond.not.i64, label %187, label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit65
+  br i1 %or.cond.not.i64, label %187, label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit65
 
-187:                                              ; preds = %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.exit
+187:                                              ; preds = %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.argprom.exit
   call void @_ZdaPv(ptr noundef nonnull %61) #13
-  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit65
+  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit65
 
-_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit65: ; preds = %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.exit, %187
+_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit65: ; preds = %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.argprom.exit, %187
   %.not.i.i.i66 = icmp eq ptr %.sroa.0102.0, null
   br i1 %.not.i.i.i66, label %_ZNSt6vectorIfSaIfEED2Ev.exit67, label %188
 
-188:                                              ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit65
+188:                                              ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit65
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0102.0) #13
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit67
 
-_ZNSt6vectorIfSaIfEED2Ev.exit67:                  ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit65, %188
+_ZNSt6vectorIfSaIfEED2Ev.exit67:                  ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit65, %188
   call void @_ZN5faiss15Level1QuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #12
   ret void
 
@@ -480,43 +480,43 @@ _ZNSt6vectorIlSaIlEED2Ev.exit62:                  ; preds = %174, %_ZNSt6vectorI
   %.pn.pn = phi { ptr, i32 } [ %166, %165 ], [ %116, %115 ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit60 ], [ %.pn, %174 ]
   %189 = icmp ne ptr %108, null
   %or.cond.not.i68 = and i1 %109, %189
-  br i1 %or.cond.not.i68, label %190, label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit69
+  br i1 %or.cond.not.i68, label %190, label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit69
 
 190:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit62
   call void @_ZdaPv(ptr noundef nonnull %108) #13
-  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit69
+  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit69
 
-_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit69: ; preds = %190, %_ZNSt6vectorIlSaIlEED2Ev.exit62, %113
+_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit69: ; preds = %190, %_ZNSt6vectorIlSaIlEED2Ev.exit62, %113
   %.pn.pn.pn = phi { ptr, i32 } [ %114, %113 ], [ %.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit62 ], [ %.pn.pn, %190 ]
   %191 = icmp ne ptr %100, null
   %or.cond.not.i70 = and i1 %102, %191
-  br i1 %or.cond.not.i70, label %192, label %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.exit71
+  br i1 %or.cond.not.i70, label %192, label %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.argprom.exit71
 
-192:                                              ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit69
+192:                                              ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit69
   call void @_ZdaPv(ptr noundef nonnull %100) #13
-  br label %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.exit71
+  br label %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.argprom.exit71
 
-_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.exit71: ; preds = %192, %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit69, %70
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %.pn.pn.pn, %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit69 ], [ %.pn.pn.pn, %192 ]
+_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.argprom.exit71: ; preds = %192, %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit69, %70
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %.pn.pn.pn, %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit69 ], [ %.pn.pn.pn, %192 ]
   %193 = icmp ne ptr %61, null
   %or.cond.not.i72 = and i1 %62, %193
-  br i1 %or.cond.not.i72, label %194, label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit73
+  br i1 %or.cond.not.i72, label %194, label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit73
 
-194:                                              ; preds = %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.exit71
+194:                                              ; preds = %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.argprom.exit71
   call void @_ZdaPv(ptr noundef nonnull %61) #13
-  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit73
+  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit73
 
-_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit73: ; preds = %194, %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.exit71, %68
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %.pn.pn.pn.pn, %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.exit71 ], [ %.pn.pn.pn.pn, %194 ]
+_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit73: ; preds = %194, %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.argprom.exit71, %68
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %.pn.pn.pn.pn, %_ZN5faiss12_GLOBAL__N_117SubsampledVectorsD2Ev.argprom.exit71 ], [ %.pn.pn.pn.pn, %194 ]
   %.not.i.i.i74 = icmp eq ptr %.sroa.0102.0, null
   br i1 %.not.i.i.i74, label %_ZNSt6vectorIfSaIfEED2Ev.exit75, label %195
 
-195:                                              ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit73
+195:                                              ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit73
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0102.0) #13
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit75
 
-_ZNSt6vectorIfSaIfEED2Ev.exit75:                  ; preds = %195, %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit73, %66, %28
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %29, %28 ], [ %.pn.pn.pn.pn.pn, %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit73 ], [ %.pn.pn.pn.pn.pn, %195 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit75:                  ; preds = %195, %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit73, %66, %28
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %29, %28 ], [ %.pn.pn.pn.pn.pn, %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit73 ], [ %.pn.pn.pn.pn.pn, %195 ]
   call void @_ZN5faiss15Level1QuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #12
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }
@@ -605,21 +605,21 @@ _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPlmlET_
 34:                                               ; preds = %26
   %35 = icmp ne ptr %27, null
   %or.cond.not.i = and i1 %28, %35
-  br i1 %or.cond.not.i, label %36, label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit
+  br i1 %or.cond.not.i, label %36, label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit
 
 36:                                               ; preds = %34
   tail call void @_ZdaPv(ptr noundef nonnull %27) #13
-  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit
+  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit
 
-_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit: ; preds = %34, %36
+_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit: ; preds = %34, %36
   %.not.i.i.i = icmp eq ptr %.sroa.032.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %37
 
-37:                                               ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit
+37:                                               ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.032.0) #13
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit, %37
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit, %37
   %.not.i.i.i24 = icmp eq ptr %.sroa.039.04952, null
   br i1 %.not.i.i.i24, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %38
 
@@ -638,29 +638,29 @@ _ZNSt6vectorIlSaIlEED2Ev.exit28.thread:           ; preds = %11, %_ZNSt6vectorIl
 40:                                               ; preds = %24, %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit26
+  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit26
 
 42:                                               ; preds = %26
   %43 = landingpad { ptr, i32 }
           cleanup
   %44 = icmp ne ptr %27, null
   %or.cond.not.i25 = and i1 %28, %44
-  br i1 %or.cond.not.i25, label %45, label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit26
+  br i1 %or.cond.not.i25, label %45, label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit26
 
 45:                                               ; preds = %42
   tail call void @_ZdaPv(ptr noundef nonnull %27) #13
-  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit26
+  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit26
 
-_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit26: ; preds = %45, %42, %40
+_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit26: ; preds = %45, %42, %40
   %.pn = phi { ptr, i32 } [ %41, %40 ], [ %43, %42 ], [ %43, %45 ]
   %.not.i.i.i27 = icmp eq ptr %.sroa.032.0, null
   br i1 %.not.i.i.i27, label %_ZNSt6vectorIlSaIlEED2Ev.exit28, label %46
 
-46:                                               ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit26
+46:                                               ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit26
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.032.0) #13
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit28
 
-_ZNSt6vectorIlSaIlEED2Ev.exit28:                  ; preds = %46, %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit26
+_ZNSt6vectorIlSaIlEED2Ev.exit28:                  ; preds = %46, %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit26
   %.not.i.i.i29 = icmp eq ptr %.sroa.039.04952, null
   br i1 %.not.i.i.i29, label %_ZNSt6vectorIfSaIfEED2Ev.exit30, label %47
 
@@ -811,21 +811,21 @@ _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPlmlET_
 61:                                               ; preds = %54
   %62 = icmp ne ptr %55, null
   %or.cond.not.i = and i1 %56, %62
-  br i1 %or.cond.not.i, label %63, label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit
+  br i1 %or.cond.not.i, label %63, label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit
 
 63:                                               ; preds = %61
   tail call void @_ZdaPv(ptr noundef nonnull %55) #13
-  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit
+  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit
 
-_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit: ; preds = %61, %63
+_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit: ; preds = %61, %63
   %.not.i.i.i = icmp eq ptr %.sroa.043.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %64
 
-64:                                               ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit
+64:                                               ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.043.0) #13
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit, %64
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit, %64
   %.not.i.i.i35 = icmp eq ptr %.sroa.050.06265, null
   br i1 %.not.i.i.i35, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %65
 
@@ -844,29 +844,29 @@ _ZNSt6vectorIlSaIlEED2Ev.exit39.thread:           ; preds = %39, %_ZNSt6vectorIl
 67:                                               ; preds = %52, %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit
   %68 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit37
+  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit37
 
 69:                                               ; preds = %54
   %70 = landingpad { ptr, i32 }
           cleanup
   %71 = icmp ne ptr %55, null
   %or.cond.not.i36 = and i1 %56, %71
-  br i1 %or.cond.not.i36, label %72, label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit37
+  br i1 %or.cond.not.i36, label %72, label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit37
 
 72:                                               ; preds = %69
   tail call void @_ZdaPv(ptr noundef nonnull %55) #13
-  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit37
+  br label %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit37
 
-_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit37: ; preds = %72, %69, %67
+_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit37: ; preds = %72, %69, %67
   %.pn = phi { ptr, i32 } [ %68, %67 ], [ %70, %69 ], [ %70, %72 ]
   %.not.i.i.i38 = icmp eq ptr %.sroa.043.0, null
   br i1 %.not.i.i.i38, label %_ZNSt6vectorIlSaIlEED2Ev.exit39, label %73
 
-73:                                               ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit37
+73:                                               ; preds = %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit37
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.043.0) #13
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit39
 
-_ZNSt6vectorIlSaIlEED2Ev.exit39:                  ; preds = %73, %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.exit37
+_ZNSt6vectorIlSaIlEED2Ev.exit39:                  ; preds = %73, %_ZN5faiss12_GLOBAL__N_119VTransformedVectorsD2Ev.argprom.exit37
   %.not.i.i.i40 = icmp eq ptr %.sroa.050.06265, null
   br i1 %.not.i.i.i40, label %_ZNSt6vectorIfSaIfEED2Ev.exit41, label %74
 

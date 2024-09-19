@@ -4526,16 +4526,16 @@ if.end6.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %coverage_connection_.i.i.i = getelementptr inbounds i8, ptr %env, i64 1496
   %6 = load ptr, ptr %coverage_connection_.i.i.i, align 8
   %cmp8.not.i.i = icmp eq ptr %6, null
-  br i1 %cmp8.not.i.i, label %"_ZZN4node8profiler14StartProfilersEPNS_11EnvironmentEENK3$_0clEPv.exit", label %if.then9.i.i
+  br i1 %cmp8.not.i.i, label %"_ZZN4node8profiler14StartProfilersEPNS_11EnvironmentEENK3$_0clEPv.argprom.exit", label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.end6.i.i
   %vtable10.i.i = load ptr, ptr %6, align 8
   %vfn11.i.i = getelementptr inbounds i8, ptr %vtable10.i.i, i64 24
   %7 = load ptr, ptr %vfn11.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(88) %6) #21
-  br label %"_ZZN4node8profiler14StartProfilersEPNS_11EnvironmentEENK3$_0clEPv.exit"
+  br label %"_ZZN4node8profiler14StartProfilersEPNS_11EnvironmentEENK3$_0clEPv.argprom.exit"
 
-"_ZZN4node8profiler14StartProfilersEPNS_11EnvironmentEENK3$_0clEPv.exit": ; preds = %if.end6.i.i, %if.then9.i.i
+"_ZZN4node8profiler14StartProfilersEPNS_11EnvironmentEENK3$_0clEPv.argprom.exit": ; preds = %if.end6.i.i, %if.then9.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %message.addr.i14.i.i)
   ret void
 }

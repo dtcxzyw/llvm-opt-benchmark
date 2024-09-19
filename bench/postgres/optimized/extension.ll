@@ -993,7 +993,7 @@ get_required_extension.exit:                      ; preds = %.lr.ph156
   br label %205
 
 205:                                              ; preds = %204, %._crit_edge
-  tail call fastcc void @execute_extension_script(i32 noundef %.sroa.287.0.extract.trunc, ptr noundef nonnull %95, ptr noundef null, ptr noundef %.1, ptr noundef %.092.lcssa, ptr noundef %.0)
+  tail call fastcc void @execute_extension_script.argelim(i32 noundef %.sroa.287.0.extract.trunc, ptr noundef nonnull %95, ptr noundef null, ptr noundef %.1, ptr noundef %.092.lcssa, ptr noundef %.0)
   tail call fastcc void @ApplyExtensionUpdates(i32 noundef %.sroa.287.0.extract.trunc, ptr noundef nonnull %9, ptr noundef %.1, ptr noundef %.0123, ptr noundef %1, i1 noundef zeroext %3, i1 noundef zeroext %5)
   ret { i64, i32 } %201
 }
@@ -4063,7 +4063,7 @@ get_extension_schema.exit:                        ; preds = %get_required_extens
   br label %127
 
 127:                                              ; preds = %._crit_edge104, %126
-  call fastcc void @execute_extension_script(i32 noundef %0, ptr noundef %31, ptr noundef %.0109131, ptr noundef %30, ptr noundef %.066.lcssa, ptr noundef %47)
+  call fastcc void @execute_extension_script.argelim(i32 noundef %0, ptr noundef %31, ptr noundef %.0109131, ptr noundef %30, ptr noundef %.066.lcssa, ptr noundef %47)
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118130, 1
   %128 = load i32, ptr %16, align 4
   %129 = sext i32 %128 to i64
@@ -4563,7 +4563,7 @@ declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @CreateComments(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @execute_extension_script(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @execute_extension_script.argelim(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.stat, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -4584,16 +4584,16 @@ define internal fastcc void @execute_extension_script(i32 noundef %0, ptr nocapt
   %18 = getelementptr i8, ptr %1, i64 50
   %.val = load i8, ptr %18, align 2
   %19 = trunc i8 %.val to i1
-  br i1 %19, label %extension_is_trusted.exit, label %extension_is_trusted.exit.thread
+  br i1 %19, label %extension_is_trusted.argprom.exit, label %extension_is_trusted.argprom.exit.thread
 
-extension_is_trusted.exit:                        ; preds = %17
+extension_is_trusted.argprom.exit:                ; preds = %17
   %20 = load i32, ptr @MyDatabaseId, align 4
   %21 = call i32 @GetUserId() #13
   %22 = call i32 @object_aclcheck(i32 noundef 1262, i32 noundef %20, i32 noundef %21, i64 noundef 512) #13
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %38, label %extension_is_trusted.exit.thread
+  br i1 %23, label %38, label %extension_is_trusted.argprom.exit.thread
 
-extension_is_trusted.exit.thread:                 ; preds = %17, %extension_is_trusted.exit
+extension_is_trusted.argprom.exit.thread:         ; preds = %17, %extension_is_trusted.argprom.exit
   %24 = icmp eq ptr %2, null
   %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %25)
@@ -4601,7 +4601,7 @@ extension_is_trusted.exit.thread:                 ; preds = %17, %extension_is_t
   %27 = load ptr, ptr %1, align 8
   br i1 %24, label %28, label %33
 
-28:                                               ; preds = %extension_is_trusted.exit.thread
+28:                                               ; preds = %extension_is_trusted.argprom.exit.thread
   %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.74, ptr noundef %27) #13
   %30 = load i8, ptr %18, align 2
   %31 = trunc i8 %30 to i1
@@ -4610,7 +4610,7 @@ extension_is_trusted.exit.thread:                 ; preds = %17, %extension_is_t
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 900, ptr noundef nonnull @__func__.execute_extension_script) #13
   unreachable
 
-33:                                               ; preds = %extension_is_trusted.exit.thread
+33:                                               ; preds = %extension_is_trusted.argprom.exit.thread
   %34 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.77, ptr noundef %27) #13
   %35 = load i8, ptr %18, align 2
   %36 = trunc i8 %35 to i1
@@ -4619,8 +4619,8 @@ extension_is_trusted.exit.thread:                 ; preds = %17, %extension_is_t
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 908, ptr noundef nonnull @__func__.execute_extension_script) #13
   unreachable
 
-38:                                               ; preds = %extension_is_trusted.exit, %15, %6
-  %.0 = phi i1 [ false, %15 ], [ false, %6 ], [ true, %extension_is_trusted.exit ]
+38:                                               ; preds = %extension_is_trusted.argprom.exit, %15, %6
+  %.0 = phi i1 [ false, %15 ], [ false, %6 ], [ true, %extension_is_trusted.argprom.exit ]
   %39 = call fastcc ptr @get_extension_script_directory(ptr noundef nonnull readonly %1)
   %40 = call ptr @palloc(i64 noundef 1024) #13
   %.not.i = icmp eq ptr %2, null

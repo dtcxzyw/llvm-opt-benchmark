@@ -1681,16 +1681,16 @@ Vec_PtrDup.exit:                                  ; preds = %18, %27
   %36 = shl nsw i64 %35, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %34, i64 %36, i1 false)
   %37 = icmp slt i32 %24, 2
-  br i1 %37, label %Vec_PtrUniqify.exit, label %Vec_PtrSort.exit.i
+  br i1 %37, label %Vec_PtrUniqify.argprom.exit, label %Vec_PtrSort.argprom.exit.i
 
-Vec_PtrSort.exit.i:                               ; preds = %Vec_PtrDup.exit
+Vec_PtrSort.argprom.exit.i:                       ; preds = %Vec_PtrDup.exit
   %38 = zext nneg i32 %24 to i64
   tail call void @qsort(ptr noundef %31, i64 noundef %38, i64 noundef 8, ptr noundef nonnull @Vec_PtrSortCompare) #18
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %Vec_PtrSort.exit.i, %47
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %47 ], [ 1, %Vec_PtrSort.exit.i ]
-  %.02.i = phi i32 [ %.1.i, %47 ], [ 1, %Vec_PtrSort.exit.i ]
+.lr.ph.i:                                         ; preds = %Vec_PtrSort.argprom.exit.i, %47
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %47 ], [ 1, %Vec_PtrSort.argprom.exit.i ]
+  %.02.i = phi i32 [ %.1.i, %47 ], [ 1, %Vec_PtrSort.argprom.exit.i ]
   %39 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr i8, ptr %39, i64 -8
@@ -1713,16 +1713,16 @@ Vec_PtrSort.exit.i:                               ; preds = %Vec_PtrDup.exit
 
 ._crit_edge.i:                                    ; preds = %47
   store i32 %.1.i, ptr %25, align 4
-  br label %Vec_PtrUniqify.exit
+  br label %Vec_PtrUniqify.argprom.exit
 
-Vec_PtrUniqify.exit:                              ; preds = %Vec_PtrDup.exit, %._crit_edge.i
+Vec_PtrUniqify.argprom.exit:                      ; preds = %Vec_PtrDup.exit, %._crit_edge.i
   %.val73 = phi i32 [ %24, %Vec_PtrDup.exit ], [ %.1.i, %._crit_edge.i ]
   %48 = add nsw i32 %2, -2
   %49 = shl nuw i32 1, %48
   %50 = icmp sgt i32 %.val73, %49
   br i1 %50, label %51, label %91
 
-51:                                               ; preds = %Vec_PtrUniqify.exit
+51:                                               ; preds = %Vec_PtrUniqify.argprom.exit
   %.not.i79 = icmp eq ptr %34, null
   br i1 %.not.i79, label %Vec_PtrFree.exit, label %52
 
@@ -1816,7 +1816,7 @@ Vec_PtrFree.exit._crit_edge:                      ; preds = %Vec_PtrFree.exit
   %90 = call ptr @Abc_NtkBddMux411(ptr noundef %0, ptr noundef nonnull %5)
   br label %97
 
-91:                                               ; preds = %Vec_PtrUniqify.exit
+91:                                               ; preds = %Vec_PtrUniqify.argprom.exit
   %.not60 = icmp eq i32 %3, 0
   br i1 %.not60, label %95, label %92
 

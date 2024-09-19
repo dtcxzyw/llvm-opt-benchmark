@@ -81,17 +81,17 @@ if.end19:                                         ; preds = %lor.lhs.false
   %call.i = call i64 @BIO_ctrl(ptr noundef %bp.addr.0, i32 noundef 133, i64 noundef 0, ptr noundef null) #6
   %conv.i = trunc i64 %call.i to i32
   %cmp.i = icmp slt i32 %conv.i, 0
-  br i1 %cmp.i, label %pem_read_bio_key_decoder.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %pem_read_bio_key_decoder.argprom.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end19
   %call2.i = call ptr @OSSL_DECODER_CTX_new_for_pkey(ptr noundef nonnull %pkey.i, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef null, i32 noundef %selection, ptr noundef %libctx, ptr noundef %propq) #6
   %cmp3.i = icmp eq ptr %call2.i, null
-  br i1 %cmp3.i, label %pem_read_bio_key_decoder.exit.thread, label %if.end6.i
+  br i1 %cmp3.i, label %pem_read_bio_key_decoder.argprom.exit.thread, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %call11.i = call i32 @OSSL_DECODER_CTX_set_pem_password_cb(ptr noundef nonnull %call2.i, ptr noundef nonnull @ossl_pw_pem_password, ptr noundef nonnull %pwdata) #6
   %tobool.not.i = icmp eq i32 %call11.i, 0
-  br i1 %tobool.not.i, label %pem_read_bio_key_decoder.exit, label %if.end13.i
+  br i1 %tobool.not.i, label %pem_read_bio_key_decoder.argprom.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end6.i
   %call14.i = call i32 @ERR_set_mark() #6
@@ -119,7 +119,7 @@ lor.lhs.false.i:                                  ; preds = %while.body.i
 
 if.then30.i:                                      ; preds = %lor.lhs.false.i, %while.body.i
   %call31.i = call i32 @ERR_clear_last_mark() #6
-  br label %pem_read_bio_key_decoder.exit
+  br label %pem_read_bio_key_decoder.argprom.exit
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
   %call32.i = call i64 @ERR_peek_error() #6
@@ -143,7 +143,7 @@ if.then36.i:                                      ; preds = %if.else.i
 
 if.else39.i:                                      ; preds = %if.else.i
   %call40.i = call i32 @ERR_clear_last_mark() #6
-  br label %pem_read_bio_key_decoder.exit
+  br label %pem_read_bio_key_decoder.argprom.exit
 
 while.end.i:                                      ; preds = %if.then36.i, %if.end13.i
   %call43.i = call i32 @ERR_pop_to_mark() #6
@@ -162,31 +162,31 @@ if.then51.i:                                      ; preds = %while.end.i
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__func__.pem_read_bio_key_decoder) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef 126, ptr noundef null) #6
-  br label %pem_read_bio_key_decoder.exit
+  br label %pem_read_bio_key_decoder.argprom.exit
 
 if.end52.i:                                       ; preds = %while.end.i
   %cmp53.not.i = icmp eq ptr %x, null
-  br i1 %cmp53.not.i, label %pem_read_bio_key_decoder.exit, label %if.then55.i
+  br i1 %cmp53.not.i, label %pem_read_bio_key_decoder.argprom.exit, label %if.then55.i
 
 if.then55.i:                                      ; preds = %if.end52.i
   %9 = load ptr, ptr %x, align 8
   call void @EVP_PKEY_free(ptr noundef %9) #6
   %10 = load ptr, ptr %pkey.i, align 8
   store ptr %10, ptr %x, align 8
-  br label %pem_read_bio_key_decoder.exit
+  br label %pem_read_bio_key_decoder.argprom.exit
 
-pem_read_bio_key_decoder.exit.thread:             ; preds = %if.end19, %if.end.i
+pem_read_bio_key_decoder.argprom.exit.thread:     ; preds = %if.end19, %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i)
   br label %land.lhs.true
 
-pem_read_bio_key_decoder.exit:                    ; preds = %if.end6.i, %if.then30.i, %if.else39.i, %if.then51.i, %if.end52.i, %if.then55.i
+pem_read_bio_key_decoder.argprom.exit:            ; preds = %if.end6.i, %if.then30.i, %if.else39.i, %if.then51.i, %if.end52.i, %if.then55.i
   call void @OSSL_DECODER_CTX_free(ptr noundef nonnull %call2.i) #6
   %11 = load ptr, ptr %pkey.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i)
   %cmp22 = icmp eq ptr %11, null
   br i1 %cmp22, label %land.lhs.true, label %if.else
 
-land.lhs.true:                                    ; preds = %pem_read_bio_key_decoder.exit.thread, %pem_read_bio_key_decoder.exit
+land.lhs.true:                                    ; preds = %pem_read_bio_key_decoder.argprom.exit.thread, %pem_read_bio_key_decoder.argprom.exit
   %sext = shl i64 %pos.0, 32
   %conv24 = ashr exact i64 %sext, 32
   %call25 = call i64 @BIO_ctrl(ptr noundef %bp.addr.0, i32 noundef 128, i64 noundef %conv24, ptr noundef null) #6
@@ -210,7 +210,7 @@ lor.lhs.false29:                                  ; preds = %land.lhs.true
 if.then.i:                                        ; preds = %lor.lhs.false29
   %call1.i = call i32 @PEM_bytes_read_bio_secmem(ptr noundef nonnull %data.i, ptr noundef nonnull %len.i, ptr noundef nonnull %nm.i, ptr noundef nonnull @.str.6, ptr noundef %bp.addr.0, ptr noundef nonnull @ossl_pw_pem_password, ptr noundef nonnull %pwdata) #6
   %tobool.not.i18 = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i18, label %pem_read_bio_key_legacy.exit.thread, label %if.end13.i19
+  br i1 %tobool.not.i18, label %pem_read_bio_key_legacy.argprom.exit.thread, label %if.end13.i19
 
 if.else.i31:                                      ; preds = %lor.lhs.false29
   %and4.i = and i32 %selection, 2
@@ -218,7 +218,7 @@ if.else.i31:                                      ; preds = %lor.lhs.false29
   %spec.store.select.i = select i1 %cmp5.not.i, ptr @.str.7, ptr @.str.8
   %call8.i = call i32 @PEM_bytes_read_bio(ptr noundef nonnull %data.i, ptr noundef nonnull %len.i, ptr noundef nonnull %nm.i, ptr noundef nonnull %spec.store.select.i, ptr noundef %bp.addr.0, ptr noundef nonnull @ossl_pw_pem_password, ptr noundef nonnull %pwdata) #6
   %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %pem_read_bio_key_legacy.exit.thread, label %if.end13.i19
+  br i1 %tobool9.not.i, label %pem_read_bio_key_legacy.argprom.exit.thread, label %if.end13.i19
 
 if.end13.i19:                                     ; preds = %if.else.i31, %if.then.i
   %call14.i20 = call i32 @ERR_clear_last_mark() #6
@@ -271,7 +271,7 @@ if.then43.i:                                      ; preds = %if.then36.i26
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 159, ptr noundef nonnull @__func__.pem_read_bio_key_legacy) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef 104, ptr noundef null) #6
   call void @X509_SIG_free(ptr noundef nonnull %call31.i25) #6
-  br label %pem_read_bio_key_legacy.exit
+  br label %pem_read_bio_key_legacy.argprom.exit
 
 if.end44.i:                                       ; preds = %if.then36.i26
   %call46.i = call ptr @PKCS8_decrypt(ptr noundef nonnull %call31.i25, ptr noundef nonnull %psbuf.i, i32 noundef %call37.i27) #6
@@ -332,20 +332,20 @@ if.then77.i:                                      ; preds = %if.else70.i
 p8err.i:                                          ; preds = %if.then77.i, %if.end68.i, %if.end56.i, %if.end25.i
   %ret.0.i = phi ptr [ %call22.i, %if.end25.i ], [ %call52.i, %if.end56.i ], [ %call69.i, %if.end68.i ], [ %call78.i, %if.then77.i ]
   %cmp114.i = icmp eq ptr %ret.0.i, null
-  br i1 %cmp114.i, label %land.lhs.true116.i, label %pem_read_bio_key_legacy.exit
+  br i1 %cmp114.i, label %land.lhs.true116.i, label %pem_read_bio_key_legacy.argprom.exit
 
 land.lhs.true116.i:                               ; preds = %p8err.i, %if.else70.i, %lor.lhs.false.i24, %if.then61.i, %if.end44.i, %if.then29.i, %if.then17.i
   %call117.i = call i64 @ERR_peek_last_error() #6
   %cmp118.i = icmp eq i64 %call117.i, 0
-  br i1 %cmp118.i, label %if.then120.i, label %pem_read_bio_key_legacy.exit
+  br i1 %cmp118.i, label %if.then120.i, label %pem_read_bio_key_legacy.argprom.exit
 
 if.then120.i:                                     ; preds = %land.lhs.true116.i
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 207, ptr noundef nonnull @__func__.pem_read_bio_key_legacy) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef 524301, ptr noundef null) #6
-  br label %pem_read_bio_key_legacy.exit
+  br label %pem_read_bio_key_legacy.argprom.exit
 
-pem_read_bio_key_legacy.exit.thread:              ; preds = %if.else.i31, %if.then.i
+pem_read_bio_key_legacy.argprom.exit.thread:      ; preds = %if.else.i31, %if.then.i
   %call3.i = call i32 @ERR_pop_to_mark() #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nm.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
@@ -354,7 +354,7 @@ pem_read_bio_key_legacy.exit.thread:              ; preds = %if.else.i31, %if.th
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %psbuf.i)
   br label %if.then33
 
-pem_read_bio_key_legacy.exit:                     ; preds = %if.then43.i, %p8err.i, %land.lhs.true116.i, %if.then120.i
+pem_read_bio_key_legacy.argprom.exit:             ; preds = %if.then43.i, %p8err.i, %land.lhs.true116.i, %if.then120.i
   %ret.1.i = phi ptr [ null, %if.then120.i ], [ null, %land.lhs.true116.i ], [ %ret.0.i, %p8err.i ], [ null, %if.then43.i ]
   %25 = load ptr, ptr %nm.i, align 8
   call void @CRYPTO_secure_free(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 209) #6
@@ -369,12 +369,12 @@ pem_read_bio_key_legacy.exit:                     ; preds = %if.then43.i, %p8err
   %cmp31 = icmp eq ptr %ret.1.i, null
   br i1 %cmp31, label %if.then33, label %if.else
 
-if.then33:                                        ; preds = %pem_read_bio_key_legacy.exit.thread, %pem_read_bio_key_legacy.exit, %land.lhs.true
+if.then33:                                        ; preds = %pem_read_bio_key_legacy.argprom.exit.thread, %pem_read_bio_key_legacy.argprom.exit, %land.lhs.true
   %call34 = call i32 @ERR_clear_last_mark() #6
   br label %err
 
-if.else:                                          ; preds = %pem_read_bio_key_legacy.exit, %pem_read_bio_key_decoder.exit
-  %ret.1 = phi ptr [ %ret.1.i, %pem_read_bio_key_legacy.exit ], [ %11, %pem_read_bio_key_decoder.exit ]
+if.else:                                          ; preds = %pem_read_bio_key_legacy.argprom.exit, %pem_read_bio_key_decoder.argprom.exit
+  %ret.1 = phi ptr [ %ret.1.i, %pem_read_bio_key_legacy.argprom.exit ], [ %11, %pem_read_bio_key_decoder.argprom.exit ]
   %call35 = call i32 @ERR_pop_to_mark() #6
   br label %err
 

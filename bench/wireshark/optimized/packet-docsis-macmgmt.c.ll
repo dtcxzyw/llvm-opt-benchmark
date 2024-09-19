@@ -3344,13 +3344,13 @@ define internal i32 @dissect_sync(ptr noundef %0, ptr nocapture noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_map_v1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_any_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 1)
+  %5 = tail call fastcc i32 @dissect_any_map.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 1)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_map_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_any_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 5)
+  %5 = tail call fastcc i32 @dissect_any_map.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 5)
   ret i32 %5
 }
 
@@ -3445,7 +3445,7 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %27 = shl i32 %26, 16
   %28 = load i32, ptr %8, align 4
   %29 = add i32 %27, %28
-  %30 = call fastcc ptr @dissect_multipart(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13, i32 noundef 5, i32 noundef %29, i32 noundef 3)
+  %30 = call fastcc ptr @dissect_multipart.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13, i32 noundef 5, i32 noundef %29, i32 noundef 3)
   %.not20 = icmp eq ptr %30, null
   br i1 %.not20, label %183, label %31
 
@@ -5518,7 +5518,7 @@ define internal i32 @dissect_mdd(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %67 = and i32 %66, 65535
   %68 = add i32 %67, %55
   %69 = icmp slt i32 %55, %68
-  br i1 %69, label %.lr.ph.i, label %dissect_mdd_ds_active_channel_list.exit
+  br i1 %69, label %.lr.ph.i, label %dissect_mdd_ds_active_channel_list.argprom.exit
 
 .lr.ph.i:                                         ; preds = %65, %108
   %.01.i = phi i32 [ %110, %108 ], [ %55, %65 ]
@@ -5593,9 +5593,9 @@ define internal i32 @dissect_mdd(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %109 = load i32, ptr %25, align 4
   %110 = add i32 %109, %80
   %111 = icmp slt i32 %110, %68
-  br i1 %111, label %.lr.ph.i, label %dissect_mdd_ds_active_channel_list.exit, !llvm.loop !21
+  br i1 %111, label %.lr.ph.i, label %dissect_mdd_ds_active_channel_list.argprom.exit, !llvm.loop !21
 
-dissect_mdd_ds_active_channel_list.exit:          ; preds = %108, %65
+dissect_mdd_ds_active_channel_list.argprom.exit:  ; preds = %108, %65
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
   br label %.loopexit
@@ -5607,7 +5607,7 @@ dissect_mdd_ds_active_channel_list.exit:          ; preds = %108, %65
   %114 = and i32 %113, 65535
   %115 = add i32 %114, %55
   %116 = icmp slt i32 %55, %115
-  br i1 %116, label %.lr.ph3.i, label %dissect_mdd_ds_service_group.exit
+  br i1 %116, label %.lr.ph3.i, label %dissect_mdd_ds_service_group.argprom.exit
 
 .lr.ph3.i:                                        ; preds = %112, %.loopexit.i
   %.02.i = phi i32 [ %142, %.loopexit.i ], [ %55, %112 ]
@@ -5655,9 +5655,9 @@ dissect_mdd_ds_active_channel_list.exit:          ; preds = %108, %65
   %141 = load i32, ptr %23, align 4
   %142 = add i32 %141, %127
   %143 = icmp slt i32 %142, %115
-  br i1 %143, label %.lr.ph3.i, label %dissect_mdd_ds_service_group.exit, !llvm.loop !23
+  br i1 %143, label %.lr.ph3.i, label %dissect_mdd_ds_service_group.argprom.exit, !llvm.loop !23
 
-dissect_mdd_ds_service_group.exit:                ; preds = %.loopexit.i, %112
+dissect_mdd_ds_service_group.argprom.exit:        ; preds = %.loopexit.i, %112
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   br label %.loopexit
@@ -5679,7 +5679,7 @@ dissect_mdd_ds_service_group.exit:                ; preds = %.loopexit.i, %112
   %152 = and i32 %151, 65535
   %153 = add i32 %152, %55
   %154 = icmp slt i32 %55, %153
-  br i1 %154, label %.lr.ph.i143, label %dissect_mdd_channel_profile_reporting_control.exit
+  br i1 %154, label %.lr.ph.i143, label %dissect_mdd_channel_profile_reporting_control.argprom.exit
 
 .lr.ph.i143:                                      ; preds = %150, %173
   %.01.i144 = phi i32 [ %175, %173 ], [ %55, %150 ]
@@ -5714,9 +5714,9 @@ switch.lookup:                                    ; preds = %.lr.ph.i143
   %174 = load i32, ptr %21, align 4
   %175 = add i32 %174, %165
   %176 = icmp slt i32 %175, %153
-  br i1 %176, label %.lr.ph.i143, label %dissect_mdd_channel_profile_reporting_control.exit, !llvm.loop !25
+  br i1 %176, label %.lr.ph.i143, label %dissect_mdd_channel_profile_reporting_control.argprom.exit, !llvm.loop !25
 
-dissect_mdd_channel_profile_reporting_control.exit: ; preds = %173, %150
+dissect_mdd_channel_profile_reporting_control.argprom.exit: ; preds = %173, %150
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   br label %.loopexit
@@ -5728,7 +5728,7 @@ dissect_mdd_channel_profile_reporting_control.exit: ; preds = %173, %150
   %179 = and i32 %178, 65535
   %180 = add i32 %179, %55
   %181 = icmp slt i32 %55, %180
-  br i1 %181, label %.lr.ph.i145, label %dissect_mdd_ip_init_param.exit
+  br i1 %181, label %.lr.ph.i145, label %dissect_mdd_ip_init_param.argprom.exit
 
 .lr.ph.i145:                                      ; preds = %177, %199
   %.01.i146 = phi i32 [ %201, %199 ], [ %55, %177 ]
@@ -5766,9 +5766,9 @@ dissect_mdd_channel_profile_reporting_control.exit: ; preds = %173, %150
   %200 = load i32, ptr %19, align 4
   %201 = add i32 %200, %192
   %202 = icmp slt i32 %201, %180
-  br i1 %202, label %.lr.ph.i145, label %dissect_mdd_ip_init_param.exit, !llvm.loop !26
+  br i1 %202, label %.lr.ph.i145, label %dissect_mdd_ip_init_param.argprom.exit, !llvm.loop !26
 
-dissect_mdd_ip_init_param.exit:                   ; preds = %199, %177
+dissect_mdd_ip_init_param.argprom.exit:           ; preds = %199, %177
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   br label %.loopexit
@@ -5785,7 +5785,7 @@ dissect_mdd_ip_init_param.exit:                   ; preds = %199, %177
   %208 = and i32 %207, 65535
   %209 = add i32 %208, %55
   %210 = icmp slt i32 %55, %209
-  br i1 %210, label %.lr.ph.i148, label %dissect_mdd_upstream_active_channel_list.exit
+  br i1 %210, label %.lr.ph.i148, label %dissect_mdd_upstream_active_channel_list.argprom.exit
 
 .lr.ph.i148:                                      ; preds = %206, %dissect_mdd_upstream_active_channel_list_dschids_maps_ucds.exit.i
   %.01.i149 = phi i32 [ %252, %dissect_mdd_upstream_active_channel_list_dschids_maps_ucds.exit.i ], [ %55, %206 ]
@@ -5862,9 +5862,9 @@ dissect_mdd_upstream_active_channel_list_dschids_maps_ucds.exit.i: ; preds = %.l
   %251 = load i32, ptr %17, align 4
   %252 = add i32 %251, %221
   %253 = icmp slt i32 %252, %209
-  br i1 %253, label %.lr.ph.i148, label %dissect_mdd_upstream_active_channel_list.exit, !llvm.loop !28
+  br i1 %253, label %.lr.ph.i148, label %dissect_mdd_upstream_active_channel_list.argprom.exit, !llvm.loop !28
 
-dissect_mdd_upstream_active_channel_list.exit:    ; preds = %dissect_mdd_upstream_active_channel_list_dschids_maps_ucds.exit.i, %206
+dissect_mdd_upstream_active_channel_list.argprom.exit: ; preds = %dissect_mdd_upstream_active_channel_list_dschids_maps_ucds.exit.i, %206
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   br label %.loopexit
@@ -5897,7 +5897,7 @@ dissect_mdd_upstream_active_channel_list.exit:    ; preds = %dissect_mdd_upstrea
   %268 = and i32 %267, 65535
   %269 = add i32 %268, %55
   %270 = icmp slt i32 %55, %269
-  br i1 %270, label %.lr.ph.i150, label %dissect_mdd_cm_status_event_control.exit
+  br i1 %270, label %.lr.ph.i150, label %dissect_mdd_cm_status_event_control.argprom.exit
 
 .lr.ph.i150:                                      ; preds = %266, %296
   %.01.i151 = phi i32 [ %298, %296 ], [ %55, %266 ]
@@ -5944,9 +5944,9 @@ dissect_mdd_upstream_active_channel_list.exit:    ; preds = %dissect_mdd_upstrea
   %297 = load i32, ptr %14, align 4
   %298 = add i32 %297, %281
   %299 = icmp slt i32 %298, %269
-  br i1 %299, label %.lr.ph.i150, label %dissect_mdd_cm_status_event_control.exit, !llvm.loop !30
+  br i1 %299, label %.lr.ph.i150, label %dissect_mdd_cm_status_event_control.argprom.exit, !llvm.loop !30
 
-dissect_mdd_cm_status_event_control.exit:         ; preds = %296, %266
+dissect_mdd_cm_status_event_control.argprom.exit: ; preds = %296, %266
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
@@ -5964,7 +5964,7 @@ dissect_mdd_cm_status_event_control.exit:         ; preds = %296, %266
   %305 = and i32 %304, 65535
   %306 = add i32 %305, %55
   %307 = icmp slt i32 %55, %306
-  br i1 %307, label %.lr.ph.i152, label %dissect_mdd_dsg_da_to_dsid.exit
+  br i1 %307, label %.lr.ph.i152, label %dissect_mdd_dsg_da_to_dsid.argprom.exit
 
 .lr.ph.i152:                                      ; preds = %303, %325
   %.01.i153 = phi i32 [ %327, %325 ], [ %55, %303 ]
@@ -6002,9 +6002,9 @@ dissect_mdd_cm_status_event_control.exit:         ; preds = %296, %266
   %326 = load i32, ptr %12, align 4
   %327 = add i32 %326, %318
   %328 = icmp slt i32 %327, %306
-  br i1 %328, label %.lr.ph.i152, label %dissect_mdd_dsg_da_to_dsid.exit, !llvm.loop !31
+  br i1 %328, label %.lr.ph.i152, label %dissect_mdd_dsg_da_to_dsid.argprom.exit, !llvm.loop !31
 
-dissect_mdd_dsg_da_to_dsid.exit:                  ; preds = %325, %303
+dissect_mdd_dsg_da_to_dsid.argprom.exit:          ; preds = %325, %303
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   br label %.loopexit
@@ -6399,7 +6399,7 @@ dissect_mdd_full_duplex_descriptor.exit:          ; preds = %.loopexit.i159, %43
   %543 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %542, ptr noundef nonnull @ei_docsis_mgmt_tlvtype_unknown, ptr noundef nonnull @.str.1719, i32 noundef %47) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %354, %.lr.ph169, %.lr.ph171, %.preheader164, %.preheader162, %.preheader, %370, %371, %539, %dissect_mdd_full_duplex_descriptor.exit, %dissect_mdd_diplexer_band_edge.exit, %363, %359, %333, %329, %dissect_mdd_dsg_da_to_dsid.exit, %300, %dissect_mdd_cm_status_event_control.exit, %263, %260, %dissect_mdd_upstream_active_channel_list.exit, %203, %dissect_mdd_ip_init_param.exit, %dissect_mdd_channel_profile_reporting_control.exit, %dissect_mdd_ds_service_group.exit, %dissect_mdd_ds_active_channel_list.exit
+.loopexit:                                        ; preds = %354, %.lr.ph169, %.lr.ph171, %.preheader164, %.preheader162, %.preheader, %370, %371, %539, %dissect_mdd_full_duplex_descriptor.exit, %dissect_mdd_diplexer_band_edge.exit, %363, %359, %333, %329, %dissect_mdd_dsg_da_to_dsid.argprom.exit, %300, %dissect_mdd_cm_status_event_control.argprom.exit, %263, %260, %dissect_mdd_upstream_active_channel_list.argprom.exit, %203, %dissect_mdd_ip_init_param.argprom.exit, %dissect_mdd_channel_profile_reporting_control.argprom.exit, %dissect_mdd_ds_service_group.argprom.exit, %dissect_mdd_ds_active_channel_list.argprom.exit
   %544 = load i32, ptr %27, align 4
   %545 = add i32 %544, %55
   %546 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %545) #6
@@ -7942,7 +7942,7 @@ define internal i32 @dissect_optrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %33 = shl i32 %32, 16
   %34 = load i32, ptr %9, align 4
   %35 = add i32 %33, %34
-  %36 = call fastcc ptr @dissect_multipart(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef 55, i32 noundef %35, i32 noundef 5)
+  %36 = call fastcc ptr @dissect_multipart.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef 55, i32 noundef %35, i32 noundef 5)
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %125, label %37
 
@@ -9187,7 +9187,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare void @proto_item_prepend_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_any_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 1, 6) %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_any_map.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 1, 6) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -9344,7 +9344,7 @@ declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 nou
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dissect_multipart(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 5, 56) %3, i32 noundef %4, i32 noundef range(i32 3, 6) %5) unnamed_addr #0 {
+define internal fastcc ptr @dissect_multipart.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 5, 56) %3, i32 noundef %4, i32 noundef range(i32 3, 6) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @proto_docsis_mgmt, align 4

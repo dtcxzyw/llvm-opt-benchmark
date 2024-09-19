@@ -152,21 +152,21 @@ qobject_output_pop.exit:                          ; preds = %do.body.i
   %call1.val = load i32, ptr %3, align 8
   %4 = add i32 %call1.val, -1
   %or.cond.i = icmp ult i32 %4, 6
-  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i1
+  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i1
 
 if.else.i1:                                       ; preds = %qobject_output_pop.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #8
   unreachable
 
-qobject_type.exit:                                ; preds = %qobject_output_pop.exit
+qobject_type.argprom.exit:                        ; preds = %qobject_output_pop.exit
   %cmp = icmp eq i32 %call1.val, 4
   br i1 %cmp, label %if.end, label %if.else
 
-if.else:                                          ; preds = %qobject_type.exit
+if.else:                                          ; preds = %qobject_type.argprom.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 123, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_output_end_struct) #8
   unreachable
 
-if.end:                                           ; preds = %qobject_type.exit
+if.end:                                           ; preds = %qobject_type.argprom.exit
   ret void
 }
 
@@ -252,21 +252,21 @@ qobject_output_pop.exit:                          ; preds = %do.body.i
   %call1.val = load i32, ptr %3, align 8
   %4 = add i32 %call1.val, -1
   %or.cond.i = icmp ult i32 %4, 6
-  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i1
+  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i1
 
 if.else.i1:                                       ; preds = %qobject_output_pop.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #8
   unreachable
 
-qobject_type.exit:                                ; preds = %qobject_output_pop.exit
+qobject_type.argprom.exit:                        ; preds = %qobject_output_pop.exit
   %cmp = icmp eq i32 %call1.val, 5
   br i1 %cmp, label %if.end, label %if.else
 
-if.else:                                          ; preds = %qobject_type.exit
+if.else:                                          ; preds = %qobject_type.argprom.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_output_end_list) #8
   unreachable
 
-if.end:                                           ; preds = %qobject_type.exit
+if.end:                                           ; preds = %qobject_type.argprom.exit
   ret void
 }
 
@@ -502,19 +502,19 @@ if.else6:                                         ; preds = %cond.end
   %cond.val = load i32, ptr %1, align 8
   %3 = add i32 %cond.val, -1
   %or.cond.i = icmp ult i32 %3, 6
-  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.else6
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #8
   unreachable
 
-qobject_type.exit:                                ; preds = %if.else6
+qobject_type.argprom.exit:                        ; preds = %if.else6
   switch i32 %cond.val, label %do.body [
     i32 4, label %sw.bb
     i32 5, label %sw.bb12
   ]
 
-sw.bb:                                            ; preds = %qobject_type.exit
+sw.bb:                                            ; preds = %qobject_type.argprom.exit
   %tobool7.not = icmp eq ptr %name, null
   br i1 %tobool7.not, label %if.else9, label %qobject_check_type.exit
 
@@ -526,7 +526,7 @@ qobject_check_type.exit:                          ; preds = %sw.bb
   tail call void @qdict_put_obj(ptr noundef nonnull %1, ptr noundef nonnull %name, ptr noundef %value) #7
   br label %if.end18
 
-sw.bb12:                                          ; preds = %qobject_type.exit
+sw.bb12:                                          ; preds = %qobject_type.argprom.exit
   %tobool13.not = icmp eq ptr %name, null
   br i1 %tobool13.not, label %qobject_check_type.exit16, label %if.else15
 
@@ -538,7 +538,7 @@ qobject_check_type.exit16:                        ; preds = %sw.bb12
   tail call void @qlist_append_obj(ptr noundef nonnull %1, ptr noundef %value) #7
   br label %if.end18
 
-do.body:                                          ; preds = %qobject_type.exit
+do.body:                                          ; preds = %qobject_type.argprom.exit
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef nonnull @__func__.qobject_output_add_obj, ptr noundef null) #8
   unreachable
 

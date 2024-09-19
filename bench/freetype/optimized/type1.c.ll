@@ -369,7 +369,7 @@ read_pfb_tag.exit.i.i:                            ; preds = %64, %59
 
 ._crit_edge.i.i:                                  ; preds = %79
   %.pre.i.i = load i64, ptr %48, align 8
-  br label %T1_New_Parser.exit.thread.i
+  br label %T1_New_Parser.argprom.argprom.exit.thread.i
 
 85:                                               ; preds = %76
   %86 = call ptr @ft_mem_qalloc(ptr noundef %45, i64 noundef %.2.i.i, ptr noundef nonnull %14) #16
@@ -386,9 +386,9 @@ read_pfb_tag.exit.i.i:                            ; preds = %64, %59
 
 90:                                               ; preds = %88
   store i64 %.2.i.i, ptr %48, align 8
-  br label %T1_New_Parser.exit.thread.i
+  br label %T1_New_Parser.argprom.argprom.exit.thread.i
 
-T1_New_Parser.exit.thread.i:                      ; preds = %90, %._crit_edge.i.i
+T1_New_Parser.argprom.argprom.exit.thread.i:      ; preds = %90, %._crit_edge.i.i
   %91 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.2.i.i, %90 ]
   %92 = load ptr, ptr %49, align 8
   %93 = getelementptr inbounds i8, ptr %15, i64 8
@@ -404,14 +404,14 @@ T1_New_Parser.exit.thread.i:                      ; preds = %90, %._crit_edge.i.
   %96 = phi i32 [ %52, %53 ], [ %56, %55 ], [ %58, %57 ], [ %70, %69 ], [ %84, %79 ], [ %89, %88 ], [ %87, %85 ], [ %67, %read_pfb_tag.exit.i.i ]
   %97 = load i8, ptr %51, align 1
   %.not53.i.i = icmp eq i8 %97, 0
-  br i1 %.not53.i.i, label %T1_New_Parser.exit.i, label %T1_New_Parser.exit.thread165.i
+  br i1 %.not53.i.i, label %T1_New_Parser.argprom.argprom.exit.i, label %T1_New_Parser.argprom.argprom.exit.thread165.i
 
-T1_New_Parser.exit.thread165.i:                   ; preds = %.thread13.i.i
+T1_New_Parser.argprom.argprom.exit.thread165.i:   ; preds = %.thread13.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   store i32 %96, ptr %16, align 4
   br label %429
 
-T1_New_Parser.exit.i:                             ; preds = %.thread13.i.i
+T1_New_Parser.argprom.argprom.exit.i:             ; preds = %.thread13.i.i
   %98 = load ptr, ptr %49, align 8
   call void @ft_mem_free(ptr noundef %45, ptr noundef %98) #16
   store ptr null, ptr %49, align 8
@@ -419,15 +419,15 @@ T1_New_Parser.exit.i:                             ; preds = %.thread13.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   store i32 %.pre16.i.i, ptr %16, align 4
   %.not.i = icmp eq i32 %.pre16.i.i, 0
-  br i1 %.not.i, label %T1_New_Parser.exit._crit_edge.i, label %429
+  br i1 %.not.i, label %T1_New_Parser.argprom.argprom.exit._crit_edge.i, label %429
 
-T1_New_Parser.exit._crit_edge.i:                  ; preds = %T1_New_Parser.exit.i
+T1_New_Parser.argprom.argprom.exit._crit_edge.i:  ; preds = %T1_New_Parser.argprom.argprom.exit.i
   %.pre.i = load i64, ptr %48, align 8
   br label %99
 
-99:                                               ; preds = %T1_New_Parser.exit._crit_edge.i, %T1_New_Parser.exit.thread.i
-  %100 = phi i64 [ %91, %T1_New_Parser.exit.thread.i ], [ %.pre.i, %T1_New_Parser.exit._crit_edge.i ]
-  %101 = phi ptr [ %92, %T1_New_Parser.exit.thread.i ], [ null, %T1_New_Parser.exit._crit_edge.i ]
+99:                                               ; preds = %T1_New_Parser.argprom.argprom.exit._crit_edge.i, %T1_New_Parser.argprom.argprom.exit.thread.i
+  %100 = phi i64 [ %91, %T1_New_Parser.argprom.argprom.exit.thread.i ], [ %.pre.i, %T1_New_Parser.argprom.argprom.exit._crit_edge.i ]
+  %101 = phi ptr [ %92, %T1_New_Parser.argprom.argprom.exit.thread.i ], [ null, %T1_New_Parser.argprom.argprom.exit._crit_edge.i ]
   %102 = call fastcc i32 @parse_dict(ptr noundef nonnull %1, ptr noundef %15, ptr noundef %101, i64 noundef %100)
   store i32 %102, ptr %16, align 4
   %.not128.i = icmp eq i32 %102, 0
@@ -1217,7 +1217,7 @@ T1_Get_Private_Dict.exit.i:                       ; preds = %264
   store i32 1, ptr %38, align 4
   br label %429
 
-429:                                              ; preds = %428, %426, %329, %285, %T1_Get_Private_Dict.exit.i, %T1_Get_Private_Dict.exit.thread.i, %99, %T1_New_Parser.exit.i, %T1_New_Parser.exit.thread165.i
+429:                                              ; preds = %428, %426, %329, %285, %T1_Get_Private_Dict.exit.i, %T1_Get_Private_Dict.exit.thread.i, %99, %T1_New_Parser.argprom.argprom.exit.i, %T1_New_Parser.argprom.argprom.exit.thread165.i
   %430 = getelementptr inbounds i8, ptr %15, i64 32
   %431 = load ptr, ptr %430, align 8
   %432 = getelementptr inbounds i8, ptr %15, i64 288
@@ -1843,19 +1843,19 @@ define internal i32 @T1_Size_Init(ptr nocapture noundef readonly %0) #2 {
   %7 = icmp ne ptr %6, null
   %8 = icmp ne ptr %.val.val12, null
   %or.cond.i = select i1 %7, i1 %8, i1 false
-  br i1 %or.cond.i, label %9, label %T1_Size_Get_Globals_Funcs.exit.thread
+  br i1 %or.cond.i, label %9, label %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit.thread
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %.val.val12, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %T1_Size_Get_Globals_Funcs.exit.thread, label %T1_Size_Get_Globals_Funcs.exit
+  br i1 %.not.i, label %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit.thread, label %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit
 
-T1_Size_Get_Globals_Funcs.exit:                   ; preds = %9
+T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit: ; preds = %9
   %11 = tail call ptr %10(ptr noundef nonnull %6) #16
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %T1_Size_Get_Globals_Funcs.exit.thread, label %12
+  br i1 %.not, label %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit.thread, label %12
 
-12:                                               ; preds = %T1_Size_Get_Globals_Funcs.exit
+12:                                               ; preds = %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit
   %13 = load ptr, ptr %0, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 184
@@ -1863,17 +1863,17 @@ T1_Size_Get_Globals_Funcs.exit:                   ; preds = %9
   %17 = getelementptr inbounds i8, ptr %13, i64 312
   %18 = call i32 %14(ptr noundef %16, ptr noundef nonnull %17, ptr noundef nonnull %2) #16
   %.not11 = icmp eq i32 %18, 0
-  br i1 %.not11, label %19, label %T1_Size_Get_Globals_Funcs.exit.thread
+  br i1 %.not11, label %19, label %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit.thread
 
 19:                                               ; preds = %12
   %20 = load ptr, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 80
   %22 = load ptr, ptr %21, align 8
   store ptr %20, ptr %22, align 8
-  br label %T1_Size_Get_Globals_Funcs.exit.thread
+  br label %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit.thread
 
-T1_Size_Get_Globals_Funcs.exit.thread:            ; preds = %1, %9, %12, %19, %T1_Size_Get_Globals_Funcs.exit
-  %.0 = phi i32 [ %18, %12 ], [ 0, %19 ], [ 0, %T1_Size_Get_Globals_Funcs.exit ], [ 0, %9 ], [ 0, %1 ]
+T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit.thread: ; preds = %1, %9, %12, %19, %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit
+  %.0 = phi i32 [ %18, %12 ], [ 0, %19 ], [ 0, %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit ], [ 0, %9 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -1897,32 +1897,32 @@ define internal void @T1_Size_Done(ptr nocapture noundef readonly %0) #2 {
   %10 = icmp ne ptr %9, null
   %11 = icmp ne ptr %.val.val8, null
   %or.cond.i = select i1 %10, i1 %11, i1 false
-  br i1 %or.cond.i, label %12, label %T1_Size_Get_Globals_Funcs.exit.thread
+  br i1 %or.cond.i, label %12, label %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit.thread
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %.val.val8, align 8
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %T1_Size_Get_Globals_Funcs.exit.thread, label %T1_Size_Get_Globals_Funcs.exit
+  br i1 %.not.i, label %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit.thread, label %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit
 
-T1_Size_Get_Globals_Funcs.exit:                   ; preds = %12
+T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit: ; preds = %12
   %14 = tail call ptr %13(ptr noundef nonnull %9) #16
   %.not7 = icmp eq ptr %14, null
-  br i1 %.not7, label %T1_Size_Get_Globals_Funcs.exit.thread, label %15
+  br i1 %.not7, label %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit.thread, label %15
 
-15:                                               ; preds = %T1_Size_Get_Globals_Funcs.exit
+15:                                               ; preds = %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit
   %16 = getelementptr inbounds i8, ptr %14, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %2, align 8
   %19 = load ptr, ptr %18, align 8
   tail call void %17(ptr noundef %19) #16
-  br label %T1_Size_Get_Globals_Funcs.exit.thread
+  br label %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit.thread
 
-T1_Size_Get_Globals_Funcs.exit.thread:            ; preds = %5, %12, %15, %T1_Size_Get_Globals_Funcs.exit
+T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit.thread: ; preds = %5, %12, %15, %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit
   %20 = load ptr, ptr %2, align 8
   store ptr null, ptr %20, align 8
   br label %21
 
-21:                                               ; preds = %T1_Size_Get_Globals_Funcs.exit.thread, %1
+21:                                               ; preds = %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit.thread, %1
   ret void
 }
 
@@ -2422,7 +2422,7 @@ define internal noundef i32 @Get_Kerning(ptr nocapture noundef readonly %0, i32 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %T1_Get_Kerning.exit, label %8
+  br i1 %.not, label %T1_Get_Kerning.argprom.exit, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr i8, ptr %7, i64 72
@@ -2467,7 +2467,7 @@ define internal noundef i32 @Get_Kerning(ptr nocapture noundef readonly %0, i32 
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
   store i64 %38, ptr %5, align 8
-  br label %T1_Get_Kerning.exit
+  br label %T1_Get_Kerning.argprom.exit
 
 39:                                               ; preds = %.lr.ph.i
   %40 = icmp ult i64 %30, %14
@@ -2480,9 +2480,9 @@ define internal noundef i32 @Get_Kerning(ptr nocapture noundef readonly %0, i32 
 
 ._crit_edge.i:                                    ; preds = %39, %8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  br label %T1_Get_Kerning.exit
+  br label %T1_Get_Kerning.argprom.exit
 
-T1_Get_Kerning.exit:                              ; preds = %._crit_edge.i, %32, %4
+T1_Get_Kerning.argprom.exit:                      ; preds = %._crit_edge.i, %32, %4
   ret i32 0
 }
 
@@ -2841,18 +2841,18 @@ define internal i32 @T1_Size_Request(ptr nocapture noundef readonly %0, ptr noun
   %7 = icmp ne ptr %6, null
   %8 = icmp ne ptr %.val.val11, null
   %or.cond.i = select i1 %7, i1 %8, i1 false
-  br i1 %or.cond.i, label %9, label %T1_Size_Get_Globals_Funcs.exit
+  br i1 %or.cond.i, label %9, label %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %.val.val11, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %T1_Size_Get_Globals_Funcs.exit, label %11
+  br i1 %.not.i, label %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit, label %11
 
 11:                                               ; preds = %9
   %12 = tail call ptr %10(ptr noundef nonnull %6) #16
-  br label %T1_Size_Get_Globals_Funcs.exit
+  br label %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit
 
-T1_Size_Get_Globals_Funcs.exit:                   ; preds = %2, %9, %11
+T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit: ; preds = %2, %9, %11
   %13 = phi ptr [ %12, %11 ], [ null, %9 ], [ null, %2 ]
   %14 = load ptr, ptr %0, align 8
   %15 = tail call i32 @FT_Request_Metrics(ptr noundef %14, ptr noundef %1) #16
@@ -2861,7 +2861,7 @@ T1_Size_Get_Globals_Funcs.exit:                   ; preds = %2, %9, %11
   %or.cond = select i1 %16, i1 %17, i1 false
   br i1 %or.cond, label %18, label %28
 
-18:                                               ; preds = %T1_Size_Get_Globals_Funcs.exit
+18:                                               ; preds = %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit
   %19 = getelementptr inbounds i8, ptr %13, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 80
@@ -2874,7 +2874,7 @@ T1_Size_Get_Globals_Funcs.exit:                   ; preds = %2, %9, %11
   tail call void %20(ptr noundef %23, i64 noundef %25, i64 noundef %27, i64 noundef 0, i64 noundef 0) #16
   br label %28
 
-28:                                               ; preds = %18, %T1_Size_Get_Globals_Funcs.exit
+28:                                               ; preds = %18, %T1_Size_Get_Globals_Funcs.argprom.argprom.argprom.exit
   ret i32 %15
 }
 
@@ -3931,7 +3931,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Design(ptr nocapture noundef rea
   %5 = getelementptr inbounds i8, ptr %0, i64 848
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %t1_set_mm_blend.exit, label %7
+  br i1 %.not, label %t1_set_mm_blend.argprom.exit, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %6, i64 4
@@ -4052,7 +4052,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Design(ptr nocapture noundef rea
 ._crit_edge:                                      ; preds = %66
   %.val.pre = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %.val.pre, null
-  br i1 %.not.i, label %t1_set_mm_blend.exit, label %._crit_edge.thread
+  br i1 %.not.i, label %t1_set_mm_blend.argprom.exit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %7, %._crit_edge
   %.lcssa81107 = phi i32 [ %67, %._crit_edge ], [ 0, %7 ]
@@ -4060,7 +4060,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Design(ptr nocapture noundef rea
   %71 = getelementptr inbounds i8, ptr %.val106, i64 4
   %72 = load i32, ptr %.val106, align 8
   %.not9.i = icmp eq i32 %72, 0
-  br i1 %.not9.i, label %t1_set_mm_blend.exit, label %.preheader.lr.ph.i
+  br i1 %.not9.i, label %t1_set_mm_blend.argprom.exit, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %._crit_edge.thread
   %73 = load i32, ptr %71, align 4
@@ -4151,9 +4151,9 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Design(ptr nocapture noundef rea
 ._crit_edge8.loopexit.i:                          ; preds = %104
   %108 = icmp eq i8 %.132.i, 0
   %109 = sext i1 %108 to i32
-  br label %t1_set_mm_blend.exit
+  br label %t1_set_mm_blend.argprom.exit
 
-t1_set_mm_blend.exit:                             ; preds = %._crit_edge8.loopexit.i, %._crit_edge.thread, %._crit_edge, %3
+t1_set_mm_blend.argprom.exit:                     ; preds = %._crit_edge8.loopexit.i, %._crit_edge.thread, %._crit_edge, %3
   %.0 = phi i32 [ 6, %3 ], [ 6, %._crit_edge ], [ -1, %._crit_edge.thread ], [ %109, %._crit_edge8.loopexit.i ]
   ret i32 %.0
 }
@@ -4163,13 +4163,13 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Blend(ptr nocapture noundef read
   %4 = getelementptr i8, ptr %0, i64 848
   %.val = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %t1_set_mm_blend.exit, label %5
+  br i1 %.not.i, label %t1_set_mm_blend.argprom.exit, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %.val, i64 4
   %7 = load i32, ptr %.val, align 8
   %.not9.i = icmp eq i32 %7, 0
-  br i1 %.not9.i, label %t1_set_mm_blend.exit, label %.preheader.lr.ph.i
+  br i1 %.not9.i, label %t1_set_mm_blend.argprom.exit, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %5
   %8 = load i32, ptr %6, align 4
@@ -4260,9 +4260,9 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Blend(ptr nocapture noundef read
 ._crit_edge8.loopexit.i:                          ; preds = %39
   %43 = icmp eq i8 %.132.i, 0
   %44 = sext i1 %43 to i32
-  br label %t1_set_mm_blend.exit
+  br label %t1_set_mm_blend.argprom.exit
 
-t1_set_mm_blend.exit:                             ; preds = %3, %5, %._crit_edge8.loopexit.i
+t1_set_mm_blend.argprom.exit:                     ; preds = %3, %5, %._crit_edge8.loopexit.i
   %.035.i = phi i32 [ 6, %3 ], [ -1, %5 ], [ %44, %._crit_edge8.loopexit.i ]
   ret i32 %.035.i
 }

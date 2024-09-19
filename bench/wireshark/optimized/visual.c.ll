@@ -846,7 +846,7 @@ define internal range(i32 0, 2) i32 @visual_dump_finish(ptr noundef %0, ptr noun
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %7, i8 0, i64 180, i1 false)
   %8 = icmp eq ptr %6, null
-  br i1 %8, label %visual_dump_free.exit, label %9
+  br i1 %8, label %visual_dump_free.argprom.exit, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %6, i64 16
@@ -866,18 +866,18 @@ define internal range(i32 0, 2) i32 @visual_dump_finish(ptr noundef %0, ptr noun
 18:                                               ; preds = %12
   %.val = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %visual_dump_free.exit, label %19
+  br i1 %.not.i, label %visual_dump_free.argprom.exit, label %19
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds i8, ptr %.val, i64 16
   %21 = load ptr, ptr %20, align 8
   tail call void @g_free(ptr noundef %21) #7
-  br label %visual_dump_free.exit
+  br label %visual_dump_free.argprom.exit
 
 22:                                               ; preds = %12, %9
   %23 = tail call i64 @wtap_dump_file_seek(ptr noundef nonnull %0, i64 noundef 0, i32 noundef 0, ptr noundef %1) #7
   %24 = icmp eq i64 %23, -1
-  br i1 %24, label %visual_dump_free.exit, label %25
+  br i1 %24, label %visual_dump_free.argprom.exit, label %25
 
 25:                                               ; preds = %22
   %26 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @visual_magic, i64 noundef 4, ptr noundef %1) #7
@@ -887,13 +887,13 @@ define internal range(i32 0, 2) i32 @visual_dump_finish(ptr noundef %0, ptr noun
 27:                                               ; preds = %25
   %.val28 = load ptr, ptr %5, align 8
   %.not.i31 = icmp eq ptr %.val28, null
-  br i1 %.not.i31, label %visual_dump_free.exit, label %28
+  br i1 %.not.i31, label %visual_dump_free.argprom.exit, label %28
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds i8, ptr %.val28, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call void @g_free(ptr noundef %30) #7
-  br label %visual_dump_free.exit
+  br label %visual_dump_free.argprom.exit
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds i8, ptr %6, i64 4
@@ -948,24 +948,24 @@ define internal range(i32 0, 2) i32 @visual_dump_finish(ptr noundef %0, ptr noun
   br i1 %.not27, label %50, label %54
 
 50:                                               ; preds = %48
-  br i1 %.not.i33, label %visual_dump_free.exit, label %51
+  br i1 %.not.i33, label %visual_dump_free.argprom.exit, label %51
 
 51:                                               ; preds = %50
   %52 = getelementptr inbounds i8, ptr %.val29, i64 16
   %53 = load ptr, ptr %52, align 8
   call void @g_free(ptr noundef %53) #7
-  br label %visual_dump_free.exit
+  br label %visual_dump_free.argprom.exit
 
 54:                                               ; preds = %48
-  br i1 %.not.i33, label %visual_dump_free.exit, label %55
+  br i1 %.not.i33, label %visual_dump_free.argprom.exit, label %55
 
 55:                                               ; preds = %54
   %56 = getelementptr inbounds i8, ptr %.val29, i64 16
   %57 = load ptr, ptr %56, align 8
   call void @g_free(ptr noundef %57) #7
-  br label %visual_dump_free.exit
+  br label %visual_dump_free.argprom.exit
 
-visual_dump_free.exit:                            ; preds = %55, %54, %51, %50, %28, %27, %19, %18, %22, %3
+visual_dump_free.argprom.exit:                    ; preds = %55, %54, %51, %50, %28, %27, %19, %18, %22, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %22 ], [ 0, %18 ], [ 0, %19 ], [ 0, %27 ], [ 0, %28 ], [ 0, %50 ], [ 0, %51 ], [ 1, %54 ], [ 1, %55 ]
   ret i32 %.0
 }

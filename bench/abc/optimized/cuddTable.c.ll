@@ -477,7 +477,7 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 124:                                              ; preds = %._crit_edge260
   %125 = trunc nuw nsw i64 %indvars.iv333 to i32
-  tail call fastcc void @ddReportRefMess(ptr noundef nonnull %0, i32 noundef %125)
+  tail call fastcc void @ddReportRefMess.argprom(ptr noundef nonnull %0, i32 noundef %125)
   unreachable
 
 126:                                              ; preds = %._crit_edge260
@@ -571,7 +571,7 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not221, label %158, label %157
 
 157:                                              ; preds = %._crit_edge281
-  tail call fastcc void @ddReportRefMess(ptr noundef nonnull %0, i32 noundef 2147483647)
+  tail call fastcc void @ddReportRefMess.argprom(ptr noundef nonnull %0, i32 noundef 2147483647)
   unreachable
 
 158:                                              ; preds = %._crit_edge281
@@ -590,7 +590,7 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not222, label %166, label %165
 
 165:                                              ; preds = %163
-  tail call fastcc void @ddReportRefMess(ptr noundef nonnull %0, i32 noundef -1)
+  tail call fastcc void @ddReportRefMess.argprom(ptr noundef nonnull %0, i32 noundef -1)
   unreachable
 
 166:                                              ; preds = %163
@@ -685,7 +685,7 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 200:                                              ; preds = %._crit_edge296
   %201 = trunc nuw nsw i64 %indvars.iv346 to i32
-  tail call fastcc void @ddReportRefMess(ptr noundef nonnull %0, i32 noundef %201)
+  tail call fastcc void @ddReportRefMess.argprom(ptr noundef nonnull %0, i32 noundef %201)
   unreachable
 
 202:                                              ; preds = %._crit_edge296
@@ -715,7 +715,7 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not223, label %.lr.ph308, label %214
 
 214:                                              ; preds = %._crit_edge302
-  tail call fastcc void @ddReportRefMess(ptr noundef nonnull %0, i32 noundef -1)
+  tail call fastcc void @ddReportRefMess.argprom(ptr noundef nonnull %0, i32 noundef -1)
   unreachable
 
 .lr.ph308:                                        ; preds = %._crit_edge302
@@ -2082,7 +2082,7 @@ declare i64 @Extra_CpuTime(...) local_unnamed_addr #4
 declare void @cuddLocalCacheClearDead(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @ddReportRefMess(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc void @ddReportRefMess.argprom(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #5 {
   switch i32 %1, label %7 [
     i32 2147483647, label %3
     i32 -1, label %11

@@ -1220,20 +1220,20 @@ for.end:                                          ; preds = %for.cond.preheader,
   %11 = load i64, ptr %bit_size, align 8
   %conv.i = zext i32 %.lcssa to i64
   %cmp.i = icmp ugt i64 %11, %conv.i
-  br i1 %cmp.i, label %if.then.i, label %assert_index_minimum.exit
+  br i1 %cmp.i, label %if.then.i, label %assert_index_minimum.argprom.exit
 
 if.then.i:                                        ; preds = %for.end
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.5, i32 noundef 23, ptr noundef nonnull @.str.27, i64 noundef %11, i32 noundef %.lcssa) #9
   unreachable
 
-assert_index_minimum.exit:                        ; preds = %for.end
+assert_index_minimum.argprom.exit:                ; preds = %for.end
   tail call void @ewah_each_bit(ptr noundef nonnull %10, ptr noundef nonnull @fsmonitor_ewah_callback, ptr noundef nonnull %istate) #7
   tail call void @refresh_fsmonitor(ptr noundef nonnull %istate)
   %.pre23 = load ptr, ptr %fsmonitor_dirty, align 8
   br label %if.end13
 
-if.end13:                                         ; preds = %assert_index_minimum.exit, %if.then
-  %12 = phi ptr [ %.pre23, %assert_index_minimum.exit ], [ %1, %if.then ]
+if.end13:                                         ; preds = %assert_index_minimum.argprom.exit, %if.then
+  %12 = phi ptr [ %.pre23, %assert_index_minimum.argprom.exit ], [ %1, %if.then ]
   tail call void @ewah_free(ptr noundef %12) #7
   store ptr null, ptr %fsmonitor_dirty, align 8
   br label %if.end16
@@ -1289,13 +1289,13 @@ entry:
   %is.val = load i32, ptr %0, align 4
   %conv.i = zext i32 %is.val to i64
   %cmp.i = icmp ugt i64 %add, %conv.i
-  br i1 %cmp.i, label %if.then.i, label %assert_index_minimum.exit
+  br i1 %cmp.i, label %if.then.i, label %assert_index_minimum.argprom.exit
 
 if.then.i:                                        ; preds = %entry
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.5, i32 noundef 23, ptr noundef nonnull @.str.27, i64 noundef %add, i32 noundef %is.val) #9
   unreachable
 
-assert_index_minimum.exit:                        ; preds = %entry
+assert_index_minimum.argprom.exit:                ; preds = %entry
   %1 = load ptr, ptr %is, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %pos
   %2 = load ptr, ptr %arrayidx, align 8

@@ -268,7 +268,7 @@ if.then44.i:                                      ; preds = %if.end41.i
   %start_addr.i = getelementptr inbounds i8, ptr %create.i, i64 32
   %22 = getelementptr i8, ptr %container, i64 8
   %container.val.i = load i32, ptr %22, align 8
-  %23 = call fastcc i32 @vfio_spapr_remove_window(i32 %container.val.i, i64 noundef %20)
+  %23 = call fastcc i32 @vfio_spapr_remove_window.argprom(i32 %container.val.i, i64 noundef %20)
   %24 = load i64, ptr %offset_within_address_space.i, align 8
   %25 = load i64, ptr %start_addr.i, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.13, i64 noundef %24, i64 noundef %25) #14
@@ -420,7 +420,7 @@ if.end:                                           ; preds = %entry
   %1 = load i64, ptr %offset_within_address_space, align 8
   %2 = getelementptr i8, ptr %container, i64 8
   %container.val = load i32, ptr %2, align 8
-  %3 = tail call fastcc i32 @vfio_spapr_remove_window(i32 %container.val, i64 noundef %1)
+  %3 = tail call fastcc i32 @vfio_spapr_remove_window.argprom(i32 %container.val, i64 noundef %1)
   %4 = load i64, ptr %offset_within_address_space, align 8
   %5 = load i128, ptr %section, align 16
   %cmp.i = icmp ult i128 %5, 18446744073709551616
@@ -487,7 +487,7 @@ if.end8:                                          ; preds = %vfio_host_win_del.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vfio_spapr_remove_window(i32 %container.8.val, i64 noundef %offset_within_address_space) unnamed_addr #0 {
+define internal fastcc i32 @vfio_spapr_remove_window.argprom(i32 %container.8.val, i64 noundef %offset_within_address_space) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %remove = alloca %struct.vfio_iommu_spapr_tce_remove, align 8
@@ -613,7 +613,7 @@ if.then20:                                        ; preds = %if.end11
   %6 = load i32, ptr %dma32_window_start, align 8
   %conv = zext i32 %6 to i64
   %container.val = load i32, ptr %fd1, align 8
-  %call22 = call fastcc i32 @vfio_spapr_remove_window(i32 %container.val, i64 noundef %conv)
+  %call22 = call fastcc i32 @vfio_spapr_remove_window.argprom(i32 %container.val, i64 noundef %conv)
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %return, label %listener_unregister_exit.thread26
 
@@ -843,15 +843,15 @@ if.end.i:                                         ; preds = %memory_region_get_i
   %4 = getelementptr i8, ptr %section.val, i64 41
   %.val.i = load i8, ptr %4, align 1
   %tobool.i.i = trunc i8 %.val.i to i1
-  br i1 %tobool.i.i, label %vfio_prereg_listener_skipped_section.exit, label %if.then
+  br i1 %tobool.i.i, label %vfio_prereg_listener_skipped_section.argprom.exit, label %if.then
 
-vfio_prereg_listener_skipped_section.exit:        ; preds = %if.end.i
+vfio_prereg_listener_skipped_section.argprom.exit: ; preds = %if.end.i
   %call4.i = tail call zeroext i1 @memory_region_is_ram_device(ptr noundef nonnull %section.val) #14
   %.pre = load i64, ptr %offset_within_address_space, align 8
   br i1 %call4.i, label %if.then, label %if.end
 
-if.then:                                          ; preds = %if.end.i, %vfio_prereg_listener_skipped_section.exit
-  %5 = phi i64 [ %0, %if.end.i ], [ %.pre, %vfio_prereg_listener_skipped_section.exit ]
+if.then:                                          ; preds = %if.end.i, %vfio_prereg_listener_skipped_section.argprom.exit
+  %5 = phi i64 [ %0, %if.end.i ], [ %.pre, %vfio_prereg_listener_skipped_section.argprom.exit ]
   %6 = load i128, ptr %section, align 16
   %coerce5.sroa.2.0.extract.shift = lshr i128 %6, 64
   %coerce5.sroa.2.0.extract.trunc = trunc nuw i128 %coerce5.sroa.2.0.extract.shift to i64
@@ -906,7 +906,7 @@ trace_vfio_prereg_listener_region_add_skip.exit:  ; preds = %int128_get64.exit, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   br label %if.end51
 
-if.end:                                           ; preds = %vfio_prereg_listener_skipped_section.exit
+if.end:                                           ; preds = %vfio_prereg_listener_skipped_section.argprom.exit
   %not = add nsw i64 %conv.i.i, -1
   %and = and i64 %.pre, %not
   %tobool.not = icmp eq i64 %and, 0
@@ -1035,15 +1035,15 @@ if.end.i:                                         ; preds = %memory_region_get_i
   %4 = getelementptr i8, ptr %section.val, i64 41
   %.val.i = load i8, ptr %4, align 1
   %tobool.i.i = trunc i8 %.val.i to i1
-  br i1 %tobool.i.i, label %vfio_prereg_listener_skipped_section.exit, label %if.then
+  br i1 %tobool.i.i, label %vfio_prereg_listener_skipped_section.argprom.exit, label %if.then
 
-vfio_prereg_listener_skipped_section.exit:        ; preds = %if.end.i
+vfio_prereg_listener_skipped_section.argprom.exit: ; preds = %if.end.i
   %call4.i = tail call zeroext i1 @memory_region_is_ram_device(ptr noundef nonnull %section.val) #14
   %.pre = load i64, ptr %offset_within_address_space, align 8
   br i1 %call4.i, label %if.then, label %if.end
 
-if.then:                                          ; preds = %if.end.i, %vfio_prereg_listener_skipped_section.exit
-  %5 = phi i64 [ %0, %if.end.i ], [ %.pre, %vfio_prereg_listener_skipped_section.exit ]
+if.then:                                          ; preds = %if.end.i, %vfio_prereg_listener_skipped_section.argprom.exit
+  %5 = phi i64 [ %0, %if.end.i ], [ %.pre, %vfio_prereg_listener_skipped_section.argprom.exit ]
   %6 = load i128, ptr %section, align 16
   %coerce5.sroa.2.0.extract.shift = lshr i128 %6, 64
   %coerce5.sroa.2.0.extract.trunc = trunc nuw i128 %coerce5.sroa.2.0.extract.shift to i64
@@ -1098,7 +1098,7 @@ trace_vfio_prereg_listener_region_del_skip.exit:  ; preds = %int128_get64.exit, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   br label %return
 
-if.end:                                           ; preds = %vfio_prereg_listener_skipped_section.exit
+if.end:                                           ; preds = %vfio_prereg_listener_skipped_section.argprom.exit
   %not = add nsw i64 %conv.i.i, -1
   %and = and i64 %.pre, %not
   %tobool.not = icmp eq i64 %and, 0

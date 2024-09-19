@@ -98,7 +98,7 @@ define range(i32 -128, 302) i32 @jq_yylex(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not28.i, label %32, label %33
 
 32:                                               ; preds = %30
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.13) #20
   unreachable
 
 33:                                               ; preds = %30
@@ -125,7 +125,7 @@ define range(i32 -128, 302) i32 @jq_yylex(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not30.i, label %44, label %45
 
 44:                                               ; preds = %40
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.13) #20
   unreachable
 
 45:                                               ; preds = %40
@@ -142,7 +142,7 @@ jq_yyensure_buffer_stack.exit:                    ; preds = %33, %36, %45
   br i1 %.not.i558, label %50, label %51
 
 50:                                               ; preds = %jq_yyensure_buffer_stack.exit
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.3) #20
   unreachable
 
 51:                                               ; preds = %jq_yyensure_buffer_stack.exit
@@ -155,7 +155,7 @@ jq_yyensure_buffer_stack.exit:                    ; preds = %33, %36, %45
   br i1 %.not14.i, label %55, label %jq_yy_create_buffer.exit
 
 55:                                               ; preds = %51
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.3) #20
   unreachable
 
 jq_yy_create_buffer.exit:                         ; preds = %51
@@ -1025,7 +1025,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %581 = load ptr, ptr %84, align 8
   %582 = load i8, ptr %581, align 1
   %583 = sext i8 %582 to i32
-  %584 = tail call fastcc i32 @enter(i32 noundef %583, ptr noundef nonnull %2)
+  %584 = tail call fastcc i32 @enter.argelim(i32 noundef %583, ptr noundef nonnull %2)
   br label %.loopexit
 
 585:                                              ; preds = %154
@@ -1134,7 +1134,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %659 = getelementptr inbounds i8, ptr %658, i64 4
   %660 = load i32, ptr %659, align 4
   store i32 %660, ptr %2, align 8
-  %661 = tail call fastcc i32 @enter(i32 noundef 299, ptr noundef nonnull %2)
+  %661 = tail call fastcc i32 @enter.argelim(i32 noundef 299, ptr noundef nonnull %2)
   br label %.loopexit
 
 662:                                              ; preds = %154
@@ -1352,7 +1352,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %807 = getelementptr inbounds i8, ptr %806, i64 4
   %808 = load i32, ptr %807, align 4
   store i32 %808, ptr %2, align 8
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.1) #20
   unreachable
 
 809:                                              ; preds = %154
@@ -1440,7 +1440,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   br i1 %855, label %856, label %857
 
 856:                                              ; preds = %852
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.9) #20
   unreachable
 
 857:                                              ; preds = %852
@@ -1543,7 +1543,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   br i1 %.not149.i, label %.loopexit.i, label %905
 
 .loopexit.i:                                      ; preds = %896, %.thread.i
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.10) #20
   unreachable
 
 905:                                              ; preds = %896
@@ -1632,7 +1632,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   br i1 %.not145.i, label %946, label %945
 
 945:                                              ; preds = %942
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.11) #20
   unreachable
 
 946:                                              ; preds = %942, %.thread154.i, %.critedge.i
@@ -1672,7 +1672,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   br i1 %.not143.i, label %967, label %966
 
 966:                                              ; preds = %964
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.11) #20
   unreachable
 
 967:                                              ; preds = %964
@@ -1764,7 +1764,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   br i1 %.not151.i, label %1027, label %1028
 
 1027:                                             ; preds = %1009
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.12) #20
   unreachable
 
 1028:                                             ; preds = %1009
@@ -1855,7 +1855,7 @@ yy_get_next_buffer.exit.thread561:                ; preds = %863, %yy_get_next_b
   br label %.outer.backedge
 
 1074:                                             ; preds = %154
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.2) #20
   unreachable
 
 default.unreachable917:                           ; preds = %yy_get_next_buffer.exit
@@ -1873,7 +1873,7 @@ define nonnull ptr @jq_yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr noca
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.3) #20
   unreachable
 
 6:                                                ; preds = %3
@@ -1888,7 +1888,7 @@ define nonnull ptr @jq_yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr noca
   br i1 %.not14, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.3) #20
   unreachable
 
 13:                                               ; preds = %6
@@ -1953,7 +1953,7 @@ define internal fastcc void @yy_push_state(i32 noundef range(i32 0, 7) %0, ptr n
   br label %19
 
 18:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.14) #20
   unreachable
 
 19:                                               ; preds = %._crit_edge22, %._crit_edge
@@ -1984,7 +1984,7 @@ define internal fastcc void @yy_pop_state(ptr nocapture noundef %0) unnamed_addr
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.15) #20
   unreachable
 
 7:                                                ; preds = %1
@@ -2001,7 +2001,7 @@ define internal fastcc void @yy_pop_state(ptr nocapture noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 -128, 300) i32 @enter(i32 noundef returned range(i32 -128, 300) %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -128, 300) i32 @enter.argelim(i32 noundef returned range(i32 -128, 300) %0, ptr nocapture noundef %1) unnamed_addr #0 {
   switch i32 %0, label %7 [
     i32 40, label %3
     i32 91, label %4
@@ -2064,7 +2064,7 @@ define internal fastcc noundef range(i32 -128, 300) i32 @enter(i32 noundef retur
   br label %yy_push_state.exit
 
 23:                                               ; preds = %22
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.14) #20
   unreachable
 
 yy_push_state.exit:                               ; preds = %._crit_edge.i, %._crit_edge22.i
@@ -2108,7 +2108,7 @@ switch.lookup:                                    ; preds = %3
   br i1 %12, label %13, label %yy_pop_state.exit
 
 13:                                               ; preds = %8
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.15) #20
   unreachable
 
 yy_pop_state.exit:                                ; preds = %8
@@ -2145,7 +2145,7 @@ declare void @jv_free(i64, ptr) local_unnamed_addr #4
 declare { i64, ptr } @jv_string(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #5 {
+define internal fastcc void @yy_fatal_error.argprom(ptr noundef %0) unnamed_addr #5 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.16, ptr noundef %0) #22
   tail call void @exit(i32 noundef 2) #23
@@ -2321,7 +2321,7 @@ define void @jq_yyrestart(ptr noundef %0, ptr nocapture noundef %1) local_unname
   br i1 %.not28.i, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.13) #20
   unreachable
 
 13:                                               ; preds = %10
@@ -2348,7 +2348,7 @@ define void @jq_yyrestart(ptr noundef %0, ptr nocapture noundef %1) local_unname
   br i1 %.not30.i, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.13) #20
   unreachable
 
 25:                                               ; preds = %20
@@ -2366,7 +2366,7 @@ jq_yyensure_buffer_stack.exit:                    ; preds = %13, %16, %25
   br i1 %.not.i18, label %31, label %32
 
 31:                                               ; preds = %jq_yyensure_buffer_stack.exit
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.3) #20
   unreachable
 
 32:                                               ; preds = %jq_yyensure_buffer_stack.exit
@@ -2379,7 +2379,7 @@ jq_yyensure_buffer_stack.exit:                    ; preds = %13, %16, %25
   br i1 %.not14.i, label %36, label %37
 
 36:                                               ; preds = %32
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.3) #20
   unreachable
 
 37:                                               ; preds = %32
@@ -2546,7 +2546,7 @@ define void @jq_yy_switch_to_buffer(ptr noundef %0, ptr nocapture noundef %1) lo
   br i1 %.not28.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.13) #20
   unreachable
 
 8:                                                ; preds = %5
@@ -2575,7 +2575,7 @@ define void @jq_yy_switch_to_buffer(ptr noundef %0, ptr nocapture noundef %1) lo
   br i1 %.not30.i, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.13) #20
   unreachable
 
 22:                                               ; preds = %17
@@ -2799,7 +2799,7 @@ define void @jq_yypush_buffer_state(ptr noundef %0, ptr nocapture noundef %1) lo
   br i1 %.not28.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.13) #20
   unreachable
 
 10:                                               ; preds = %7
@@ -2828,7 +2828,7 @@ define void @jq_yypush_buffer_state(ptr noundef %0, ptr nocapture noundef %1) lo
   br i1 %.not30.i, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.13) #20
   unreachable
 
 24:                                               ; preds = %19
@@ -3023,7 +3023,7 @@ define ptr @jq_yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr nocapture noun
   br i1 %.not27, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.4) #20
   unreachable
 
 16:                                               ; preds = %13
@@ -3080,7 +3080,7 @@ define nonnull ptr @jq_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noun
   br label %.lr.ph
 
 8:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.5) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.5) #20
   unreachable
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3108,11 +3108,11 @@ define nonnull ptr @jq_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noun
   br i1 %.not27.i, label %18, label %20
 
 18:                                               ; preds = %16
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.4) #20
   unreachable
 
 19:                                               ; preds = %._crit_edge
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.6) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.6) #20
   unreachable
 
 20:                                               ; preds = %16
@@ -3237,7 +3237,7 @@ define void @jq_yyset_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.7) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.7) #20
   unreachable
 
 11:                                               ; preds = %5
@@ -3262,7 +3262,7 @@ define void @jq_yyset_column(i32 noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.8) #20
+  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.8) #20
   unreachable
 
 11:                                               ; preds = %5

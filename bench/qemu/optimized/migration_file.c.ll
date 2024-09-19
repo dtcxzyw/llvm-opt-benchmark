@@ -118,14 +118,14 @@ if.end8:                                          ; preds = %land.lhs.true, %if.
 
 cleanup:                                          ; preds = %trace_migration_file_outgoing.exit
   tail call void @g_free(ptr noundef %call) #6
-  br label %glib_autoptr_cleanup_QIOChannelFile.exit
+  br label %glib_autoptr_cleanup_QIOChannelFile.argprom.exit
 
 if.then.i.i6:                                     ; preds = %land.lhs.true, %if.end8
   tail call void @g_free(ptr noundef %call) #6
   tail call void @object_unref(ptr noundef nonnull %call3) #6
-  br label %glib_autoptr_cleanup_QIOChannelFile.exit
+  br label %glib_autoptr_cleanup_QIOChannelFile.argprom.exit
 
-glib_autoptr_cleanup_QIOChannelFile.exit:         ; preds = %cleanup, %if.then.i.i6
+glib_autoptr_cleanup_QIOChannelFile.argprom.exit: ; preds = %cleanup, %if.then.i.i6
   ret void
 }
 

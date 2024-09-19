@@ -334,7 +334,7 @@ define internal fastcc noundef ptr @BF_crypt(ptr nocapture noundef readonly %0, 
 52:                                               ; preds = %44
   %53 = getelementptr inbounds i8, ptr %6, i64 4240
   %54 = getelementptr inbounds i8, ptr %1, i64 7
-  %55 = call fastcc i32 @BF_decode(ptr noundef %53, ptr noundef nonnull %54)
+  %55 = call fastcc i32 @BF_decode.argelim(ptr noundef %53, ptr noundef nonnull %54)
   %.not1870 = icmp eq i32 %55, 0
   br i1 %.not1870, label %.preheader1886, label %56
 
@@ -2921,7 +2921,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
 
 BF_swap.exit1881:                                 ; preds = %2515
   %2520 = getelementptr inbounds i8, ptr %2, i64 29
-  call fastcc void @BF_encode(ptr noundef nonnull %2520, ptr noundef %53)
+  call fastcc void @BF_encode.argelim(ptr noundef nonnull %2520, ptr noundef %53)
   %2521 = getelementptr inbounds i8, ptr %2, i64 60
   store i8 0, ptr %2521, align 1
   br label %2522
@@ -3020,7 +3020,7 @@ define internal fastcc void @BF_set_key(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @BF_decode.argelim(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = add nsw i32 %4, -32
@@ -3115,7 +3115,7 @@ split:                                            ; preds = %53, %.lr.ph, %12, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @BF_encode(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #5 {
+define internal fastcc void @BF_encode.argelim(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = lshr i32 %4, 2

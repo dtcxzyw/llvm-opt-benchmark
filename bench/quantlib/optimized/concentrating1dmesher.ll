@@ -6258,7 +6258,7 @@ _ZN8QuantLib5ArrayD2Ev.exit623:                   ; preds = %_ZNSt6vectorISt4pai
   call void @_ZdaPv(ptr noundef nonnull %call.i135) #26
   %fct.val = load ptr, ptr %fct, align 8, !tbaa !18
   %tobool.not.i.i.i.i.i624 = icmp eq ptr %fct.val, null
-  br i1 %tobool.not.i.i.i.i.i624, label %_ZN8QuantLib12_GLOBAL__N_117OdeIntegrationFctD2Ev.exit, label %if.then.i.i.i.i.i625
+  br i1 %tobool.not.i.i.i.i.i624, label %_ZN8QuantLib12_GLOBAL__N_117OdeIntegrationFctD2Ev.argprom.exit, label %if.then.i.i.i.i.i625
 
 if.then.i.i.i.i.i625:                             ; preds = %_ZN8QuantLib5ArrayD2Ev.exit623
   %404 = getelementptr inbounds i8, ptr %fct, i64 16
@@ -6267,15 +6267,15 @@ if.then.i.i.i.i.i625:                             ; preds = %_ZN8QuantLib5ArrayD
   %sub.ptr.rhs.cast.i.i.i.i627 = ptrtoint ptr %fct.val to i64
   %sub.ptr.sub.i.i.i.i628 = sub i64 %sub.ptr.lhs.cast.i.i.i.i626, %sub.ptr.rhs.cast.i.i.i.i627
   call void @_ZdlPvm(ptr noundef nonnull %fct.val, i64 noundef %sub.ptr.sub.i.i.i.i628) #26
-  br label %_ZN8QuantLib12_GLOBAL__N_117OdeIntegrationFctD2Ev.exit
+  br label %_ZN8QuantLib12_GLOBAL__N_117OdeIntegrationFctD2Ev.argprom.exit
 
-_ZN8QuantLib12_GLOBAL__N_117OdeIntegrationFctD2Ev.exit: ; preds = %_ZN8QuantLib5ArrayD2Ev.exit623, %if.then.i.i.i.i.i625
+_ZN8QuantLib12_GLOBAL__N_117OdeIntegrationFctD2Ev.argprom.exit: ; preds = %_ZN8QuantLib5ArrayD2Ev.exit623, %if.then.i.i.i.i.i625
   call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %fct) #24
   %405 = load ptr, ptr %betas, align 8, !tbaa !18
   %tobool.not.i.i.i630 = icmp eq ptr %405, null
   br i1 %tobool.not.i.i.i630, label %_ZNSt6vectorIdSaIdEED2Ev.exit636, label %if.then.i.i.i631
 
-if.then.i.i.i631:                                 ; preds = %_ZN8QuantLib12_GLOBAL__N_117OdeIntegrationFctD2Ev.exit
+if.then.i.i.i631:                                 ; preds = %_ZN8QuantLib12_GLOBAL__N_117OdeIntegrationFctD2Ev.argprom.exit
   %_M_end_of_storage.i.i632 = getelementptr inbounds nuw i8, ptr %betas, i64 16
   %406 = load ptr, ptr %_M_end_of_storage.i.i632, align 8, !tbaa !40
   %sub.ptr.lhs.cast.i.i633 = ptrtoint ptr %406 to i64
@@ -6284,7 +6284,7 @@ if.then.i.i.i631:                                 ; preds = %_ZN8QuantLib12_GLOB
   call void @_ZdlPvm(ptr noundef nonnull %405, i64 noundef %sub.ptr.sub.i.i635) #26
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit636
 
-_ZNSt6vectorIdSaIdEED2Ev.exit636:                 ; preds = %_ZN8QuantLib12_GLOBAL__N_117OdeIntegrationFctD2Ev.exit, %if.then.i.i.i631
+_ZNSt6vectorIdSaIdEED2Ev.exit636:                 ; preds = %_ZN8QuantLib12_GLOBAL__N_117OdeIntegrationFctD2Ev.argprom.exit, %if.then.i.i.i631
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %betas) #24
   %407 = load ptr, ptr %points, align 8, !tbaa !18
   %tobool.not.i.i.i638 = icmp eq ptr %407, null
@@ -7246,7 +7246,7 @@ entry:
   %2 = getelementptr i8, ptr %call.val.val, i64 8
   %call.val.val.val3 = load ptr, ptr %2, align 8, !tbaa !41
   %cmp1.not.i.i.i.i = icmp eq ptr %call.val.val.val3, %call.val.val.val
-  br i1 %cmp1.not.i.i.i.i, label %_ZSt10__invoke_rIdRZN8QuantLib12_GLOBAL__N_117OdeIntegrationFct5solveEddddEUlddE_JddEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit, label %for.body.lr.ph.i.i.i.i
+  br i1 %cmp1.not.i.i.i.i, label %_ZSt10__invoke_rIdRZN8QuantLib12_GLOBAL__N_117OdeIntegrationFct5solveEddddEUlddE_JddEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.argprom.argprom.exit, label %for.body.lr.ph.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %entry
   %3 = getelementptr i8, ptr %call.val, i64 336
@@ -7273,9 +7273,9 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %add6.i.i.i.i = fadd double %s.02.i.i.i.i, %div.i.i.i.i
   %inc.i.i.i.i = add nuw i64 %i.03.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, %umax.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZSt10__invoke_rIdRZN8QuantLib12_GLOBAL__N_117OdeIntegrationFct5solveEddddEUlddE_JddEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit, label %for.body.i.i.i.i, !llvm.loop !130
+  br i1 %exitcond.not.i.i.i.i, label %_ZSt10__invoke_rIdRZN8QuantLib12_GLOBAL__N_117OdeIntegrationFct5solveEddddEUlddE_JddEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.argprom.argprom.exit, label %for.body.i.i.i.i, !llvm.loop !130
 
-_ZSt10__invoke_rIdRZN8QuantLib12_GLOBAL__N_117OdeIntegrationFct5solveEddddEUlddE_JddEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit: ; preds = %for.body.i.i.i.i, %entry
+_ZSt10__invoke_rIdRZN8QuantLib12_GLOBAL__N_117OdeIntegrationFct5solveEddddEUlddE_JddEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.argprom.argprom.exit: ; preds = %for.body.i.i.i.i, %entry
   %s.0.lcssa.i.i.i.i = phi double [ 0.000000e+00, %entry ], [ %add6.i.i.i.i, %for.body.i.i.i.i ]
   %call7.i.i.i.i = tail call double @sqrt(double noundef %s.0.lcssa.i.i.i.i) #24, !tbaa !20
   %div8.i.i.i.i = fdiv double %call.val1.val, %call7.i.i.i.i

@@ -660,14 +660,14 @@ entry:
   %1 = getelementptr i8, ptr %0, i64 40
   %.val = load i64, ptr %1, align 8
   %cmp.not.i = icmp eq i64 %.val, 0
-  br i1 %cmp.not.i, label %clock_get_hz.exit, label %cond.true.i
+  br i1 %cmp.not.i, label %clock_get_hz.argprom.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
   %div.i = udiv i64 4294967296000000000, %.val
   %2 = trunc i64 %div.i to i32
-  br label %clock_get_hz.exit
+  br label %clock_get_hz.argprom.exit
 
-clock_get_hz.exit:                                ; preds = %entry, %cond.true.i
+clock_get_hz.argprom.exit:                        ; preds = %entry, %cond.true.i
   %cond.i = phi i32 [ %2, %cond.true.i ], [ 0, %entry ]
   %arrayidx = getelementptr i8, ptr %s, i64 1092
   %3 = load i32, ptr %arrayidx, align 4
@@ -690,7 +690,7 @@ clock_get_hz.exit:                                ; preds = %entry, %cond.true.i
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_cadence_uart_baudrate.exit
 
-land.lhs.true5.i.i:                               ; preds = %clock_get_hz.exit
+land.lhs.true5.i.i:                               ; preds = %clock_get_hz.argprom.exit
   %8 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i = and i32 %8, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
@@ -714,7 +714,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %div5) #7
   br label %trace_cadence_uart_baudrate.exit
 
-trace_cadence_uart_baudrate.exit:                 ; preds = %clock_get_hz.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
+trace_cadence_uart_baudrate.exit:                 ; preds = %clock_get_hz.argprom.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   store i32 %div5, ptr %ssp, align 4
   %12 = load i32, ptr %arrayidx, align 4

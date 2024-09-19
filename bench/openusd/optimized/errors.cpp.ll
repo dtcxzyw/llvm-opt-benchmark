@@ -7015,15 +7015,15 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %44 = load i32, ptr %43, align 8
   %45 = icmp ult i32 %44, 4
-  br i1 %45, label %switch.lookup, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocation8ToStringB5cxx11EvENK3$_0clENS0_14ConflictReasonE.exit"
+  br i1 %45, label %switch.lookup, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocation8ToStringB5cxx11EvENK3$_0clENS0_14ConflictReasonE.argprom.exit"
 
 switch.lookup:                                    ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEptEv.exit6
   %46 = zext nneg i32 %44 to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocation8ToStringB5cxx11Ev, i64 0, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocation8ToStringB5cxx11EvENK3$_0clENS0_14ConflictReasonE.exit"
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocation8ToStringB5cxx11EvENK3$_0clENS0_14ConflictReasonE.argprom.exit"
 
-"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocation8ToStringB5cxx11EvENK3$_0clENS0_14ConflictReasonE.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEptEv.exit6, %switch.lookup
+"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocation8ToStringB5cxx11EvENK3$_0clENS0_14ConflictReasonE.argprom.exit": ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEptEv.exit6, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.96, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEptEv.exit6 ]
   tail call void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringPrintfB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.47, ptr noundef %6, ptr noundef %8, ptr noundef %21, ptr noundef %23, ptr noundef %25, ptr noundef %27, ptr noundef %40, ptr noundef %42, ptr noundef nonnull %.0.i)
   ret void
@@ -7245,7 +7245,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRe
   br label %35
 
 16:                                               ; preds = %2
-  call fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations8ToStringB5cxx11EvENK3$_0clB5cxx11ERKNS0_16RelocationSourceE"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  call fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations8ToStringB5cxx11EvENK3$_0clB5cxx11ERKNS0_16RelocationSourceE.argprom"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %7)
   %17 = getelementptr inbounds i8, ptr %7, i64 32
   %18 = load ptr, ptr %8, align 8
   %.not10 = icmp eq ptr %17, %18
@@ -7257,7 +7257,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRe
           to label %21 unwind label %.loopexit
 
 21:                                               ; preds = %.lr.ph
-  invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations8ToStringB5cxx11EvENK3$_0clB5cxx11ERKNS0_16RelocationSourceE"(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations8ToStringB5cxx11EvENK3$_0clB5cxx11ERKNS0_16RelocationSourceE.argprom"(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %22 unwind label %.loopexit
 
 22:                                               ; preds = %21
@@ -7313,7 +7313,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRe
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33), i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations8ToStringB5cxx11EvENK3$_0clB5cxx11ERKNS0_16RelocationSourceE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations8ToStringB5cxx11EvENK3$_0clB5cxx11ERKNS0_16RelocationSourceE.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath7GetTextEv(ptr noundef nonnull align 4 dereferenceable(8) %1)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
@@ -11114,8 +11114,8 @@ attributes #22 = { builtin nounwind }
 !60 = distinct !{!60, !61, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyINS_7PcpSiteEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
 !61 = distinct !{!61, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyINS_7PcpSiteEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
 !62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZZNK32pxrInternal_v0_24__pxrReserved__31PcpErrorVariableExpressionError8ToStringB5cxx11EvENK3$_0clB5cxx11Ev: argument 0"}
-!64 = distinct !{!64, !"_ZZNK32pxrInternal_v0_24__pxrReserved__31PcpErrorVariableExpressionError8ToStringB5cxx11EvENK3$_0clB5cxx11Ev"}
+!63 = distinct !{!63, !64, !"_ZZNK32pxrInternal_v0_24__pxrReserved__31PcpErrorVariableExpressionError8ToStringB5cxx11EvENK3$_0clB5cxx11Ev.argprom: argument 0"}
+!64 = distinct !{!64, !"_ZZNK32pxrInternal_v0_24__pxrReserved__31PcpErrorVariableExpressionError8ToStringB5cxx11EvENK3$_0clB5cxx11Ev.argprom"}
 !65 = distinct !{!65, !5}
 !66 = distinct !{!66, !5}
 !67 = distinct !{!67, !5}

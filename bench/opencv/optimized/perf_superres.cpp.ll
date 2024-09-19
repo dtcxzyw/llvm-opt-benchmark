@@ -1209,7 +1209,7 @@ _ZN2cvL7makePtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEJNS_4cuda6GpuM
 122:                                              ; preds = %_ZN2cvL7makePtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEJNS_4cuda6GpuMatEEEENS_3PtrIT_EEDpRKT0_.exit
   %123 = load ptr, ptr %121, align 8
   %.not.i.i.i.i = icmp eq ptr %123, null
-  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.exit, label %124
+  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.argprom.exit, label %124
 
 124:                                              ; preds = %122
   %125 = getelementptr inbounds i8, ptr %123, i64 8
@@ -1245,7 +1245,7 @@ _ZN2cvL7makePtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEJNS_4cuda6GpuM
 140:                                              ; preds = %138, %136
   %.0.i.i.i.i.i = phi i32 [ %128, %136 ], [ %139, %138 ]
   %141 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %141, label %142, label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.exit
+  br i1 %141, label %142, label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.argprom.exit
 
 142:                                              ; preds = %140
   %143 = load ptr, ptr %123, align 8
@@ -1270,27 +1270,27 @@ _ZN2cvL7makePtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEJNS_4cuda6GpuM
 153:                                              ; preds = %151, %148
   %.0.i.i.i.i.i.i.i = phi i32 [ %149, %148 ], [ %152, %151 ]
   %154 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %154, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.exit
+  br i1 %154, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.argprom.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %153, %129
   %155 = load ptr, ptr %123, align 8
   %156 = getelementptr inbounds i8, ptr %155, i64 24
   %157 = load ptr, ptr %156, align 8
   call void %157(ptr noundef nonnull align 8 dereferenceable(16) %123) #27
-  br label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.exit
+  br label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.argprom.exit
 
-_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %153, %140, %122
+_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.argprom.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %153, %140, %122
   invoke void @_ZN2cv4cuda6GpuMat7releaseEv(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZN2cv4cuda6GpuMatD2Ev.exit unwind label %158
 
-158:                                              ; preds = %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.exit
+158:                                              ; preds = %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.argprom.exit
   %159 = landingpad { ptr, i32 }
           catch ptr null
   %160 = extractvalue { ptr, i32 } %159, 0
   call void @__clang_call_terminate(ptr %160) #29
   unreachable
 
-_ZN2cv4cuda6GpuMatD2Ev.exit:                      ; preds = %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.exit
+_ZN2cv4cuda6GpuMatD2Ev.exit:                      ; preds = %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.argprom.exit
   %161 = invoke noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv()
           to label %162 unwind label %197
 
@@ -1394,7 +1394,7 @@ _ZN2cv4cuda6GpuMatD2Ev.exit:                      ; preds = %_ZN2cv3PtrIN11openc
   %204 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3PtrINS_8superres11FrameSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
-  call fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev(ptr null) #27
+  call fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.argprom(ptr null) #27
   br label %205
 
 205:                                              ; preds = %203, %201
@@ -1770,7 +1770,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %358 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3PtrINS_8superres11FrameSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #27
-  call fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUEED2Ev(ptr null) #27
+  call fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUEED2Ev.argprom(ptr null) #27
   br label %.body54
 
 .loopexit85:                                      ; preds = %343, %346, %354
@@ -2148,9 +2148,9 @@ _ZNSt10shared_ptrIN2cv8superres11FrameSourceEED2Ev.exit: ; preds = %1, %20, %33,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev(ptr %.8.val) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.argprom(ptr %.8.val) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.argprom.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -2186,7 +2186,7 @@ define internal fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSo
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.argprom.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -2211,16 +2211,16 @@ define internal fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_119OneFrameSo
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.argprom.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #27
-  br label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
@@ -2319,9 +2319,9 @@ _ZNSt10shared_ptrIN2cv8superres15SuperResolutionEED2Ev.exit: ; preds = %1, %20, 
 declare void @_ZN2cv8superres27createSuperResolution_BTVL1Ev(ptr dead_on_unwind writable sret(%"struct.cv::Ptr.25") align 8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUEED2Ev(ptr %.8.val) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUEED2Ev.argprom(ptr %.8.val) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUEED2Ev.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUEED2Ev.argprom.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -2357,7 +2357,7 @@ define internal fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_118OneFrameSo
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUEED2Ev.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUEED2Ev.argprom.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -2382,16 +2382,16 @@ define internal fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_118OneFrameSo
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUEED2Ev.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUEED2Ev.argprom.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #27
-  br label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
@@ -7706,7 +7706,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
@@ -7937,7 +7937,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }

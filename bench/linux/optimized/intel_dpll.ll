@@ -633,12 +633,12 @@ define dso_local zeroext i1 @bxt_find_best_dpll(ptr nocapture noundef readonly %
   %4 = load i32, ptr %3, align 8
   %.val = load ptr, ptr %0, align 8
   %.val.val = load ptr, ptr %.val, align 8
-  %5 = tail call fastcc zeroext i1 @chv_find_best_dpll(ptr noundef nonnull @intel_limits_bxt, ptr %.val.val, i32 noundef %4, ptr noundef %1)
+  %5 = tail call fastcc zeroext i1 @chv_find_best_dpll.argprom.argprom(ptr noundef nonnull @intel_limits_bxt, ptr %.val.val, i32 noundef %4, ptr noundef %1)
   ret i1 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @chv_find_best_dpll(ptr nocapture noundef readonly %0, ptr nocapture readonly %.0.val.0.val, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc zeroext i1 @chv_find_best_dpll.argprom.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.0.val.0.val, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #2 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(36) %2, i8 0, i64 36, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = getelementptr inbounds i8, ptr %0, i64 60
@@ -3054,7 +3054,7 @@ define internal noundef range(i32 -22, 1) i32 @chv_crtc_compute_clock(ptr nocapt
   %16 = getelementptr inbounds i8, ptr %9, i64 884
   %.val = load ptr, ptr %9, align 8
   %.val.val = load ptr, ptr %.val, align 8
-  %17 = tail call fastcc zeroext i1 @chv_find_best_dpll(ptr noundef nonnull @intel_limits_chv, ptr %.val.val, i32 noundef %15, ptr noundef %16)
+  %17 = tail call fastcc zeroext i1 @chv_find_best_dpll.argprom.argprom(ptr noundef nonnull @intel_limits_chv, ptr %.val.val, i32 noundef %15, ptr noundef %16)
   br i1 %17, label %18, label %85
 
 18:                                               ; preds = %13, %2

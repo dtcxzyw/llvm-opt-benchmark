@@ -1789,20 +1789,20 @@ define internal void @topo_cairo_box(ptr nocapture noundef readonly %0, ptr noca
   %14 = icmp ne i32 %.val, 0
   %15 = icmp ne ptr %7, null
   %or.cond.i = and i1 %15, %14
-  br i1 %or.cond.i, label %16, label %lstopo_obj_cpukind_style.exit
+  br i1 %or.cond.i, label %16, label %lstopo_obj_cpukind_style.argprom.exit
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 232
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %lstopo_obj_cpukind_style.exit, label %19
+  br i1 %.not.i, label %lstopo_obj_cpukind_style.argprom.exit, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %18, i64 68
   %21 = load i32, ptr %20, align 4
-  br label %lstopo_obj_cpukind_style.exit
+  br label %lstopo_obj_cpukind_style.argprom.exit
 
-lstopo_obj_cpukind_style.exit:                    ; preds = %9, %16, %19
+lstopo_obj_cpukind_style.argprom.exit:            ; preds = %9, %16, %19
   %.0.i = phi i32 [ %21, %19 ], [ 0, %16 ], [ 0, %9 ]
   %22 = getelementptr inbounds i8, ptr %12, i64 16
   %23 = load ptr, ptr %22, align 8
@@ -1832,7 +1832,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %16, %19
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %.critedge, label %42
 
-42:                                               ; preds = %lstopo_obj_cpukind_style.exit
+42:                                               ; preds = %lstopo_obj_cpukind_style.argprom.exit
   %43 = shl nuw i32 1, %.0.i
   %44 = uitofp i32 %43 to double
   store double %44, ptr %10, align 8
@@ -1850,7 +1850,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %16, %19
   call void @cairo_set_line_width(ptr noundef %23, double noundef %51) #13
   br label %52
 
-.critedge:                                        ; preds = %lstopo_obj_cpukind_style.exit
+.critedge:                                        ; preds = %lstopo_obj_cpukind_style.argprom.exit
   tail call void @cairo_stroke(ptr noundef %23) #13
   br label %52
 
@@ -1884,22 +1884,22 @@ define internal void @topo_cairo_text(ptr nocapture noundef readonly %0, ptr noc
   %13 = icmp ne i32 %.val, 0
   %14 = icmp ne ptr %7, null
   %or.cond.i = and i1 %14, %13
-  br i1 %or.cond.i, label %15, label %lstopo_obj_cpukind_style.exit
+  br i1 %or.cond.i, label %15, label %lstopo_obj_cpukind_style.argprom.exit
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %7, i64 232
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %lstopo_obj_cpukind_style.exit, label %18
+  br i1 %.not.i, label %lstopo_obj_cpukind_style.argprom.exit, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %17, i64 68
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 1
   %22 = icmp eq i32 %21, 0
-  br label %lstopo_obj_cpukind_style.exit
+  br label %lstopo_obj_cpukind_style.argprom.exit
 
-lstopo_obj_cpukind_style.exit:                    ; preds = %9, %15, %18
+lstopo_obj_cpukind_style.argprom.exit:            ; preds = %9, %15, %18
   %.0.i = phi i1 [ %22, %18 ], [ true, %15 ], [ true, %9 ]
   %23 = getelementptr inbounds i8, ptr %11, i64 16
   %24 = load ptr, ptr %23, align 8
@@ -1924,13 +1924,13 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %15, %18
   tail call void @cairo_set_source_rgb(ptr noundef %24, double noundef %35, double noundef %38, double noundef %41) #13
   br i1 %.0.i, label %.critedge, label %42
 
-42:                                               ; preds = %lstopo_obj_cpukind_style.exit
+42:                                               ; preds = %lstopo_obj_cpukind_style.argprom.exit
   tail call void @cairo_select_font_face(ptr noundef %24, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 1) #13
   tail call void @cairo_show_text(ptr noundef %24, ptr noundef %6) #13
   tail call void @cairo_select_font_face(ptr noundef %24, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 0) #13
   br label %43
 
-.critedge:                                        ; preds = %lstopo_obj_cpukind_style.exit
+.critedge:                                        ; preds = %lstopo_obj_cpukind_style.argprom.exit
   tail call void @cairo_show_text(ptr noundef %24, ptr noundef %6) #13
   br label %43
 

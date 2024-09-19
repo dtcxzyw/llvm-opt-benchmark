@@ -765,12 +765,12 @@ Vec_IntFillNatural.exit:                          ; preds = %31, %Vec_IntGrow.ex
   %36 = getelementptr inbounds i8, ptr %0, i64 28
   %37 = load i32, ptr %36, align 4
   %38 = mul nsw i32 %37, %9
-  tail call fastcc void @Vec_WrdFillExtra(ptr noundef nonnull %35, i32 noundef %38)
+  tail call fastcc void @Vec_WrdFillExtra.argelim(ptr noundef nonnull %35, i32 noundef %38)
   %39 = getelementptr inbounds i8, ptr %0, i64 88
   %40 = getelementptr inbounds i8, ptr %0, i64 32
   %41 = load i32, ptr %40, align 8
   %42 = mul nsw i32 %41, %9
-  tail call fastcc void @Vec_WrdFillExtra(ptr noundef nonnull %39, i32 noundef %42)
+  tail call fastcc void @Vec_WrdFillExtra.argelim(ptr noundef nonnull %39, i32 noundef %42)
   %.val5467.pre = load i32, ptr %10, align 4
   br label %43
 
@@ -886,7 +886,7 @@ Vec_IntFillNatural.exit:                          ; preds = %31, %Vec_IntGrow.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_WrdFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #6 {
+define internal fastcc void @Vec_WrdFillExtra.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

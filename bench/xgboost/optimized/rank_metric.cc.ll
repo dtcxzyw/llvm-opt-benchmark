@@ -2019,7 +2019,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost6Metri
   %.val = load ptr, ptr %1, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #36
   invoke void @_ZN7xgboost6metric7EvalAMSC2EPKc(ptr noundef nonnull align 8 dereferenceable(52) %3, ptr noundef %.val)
-          to label %"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_0EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit" unwind label %4
+          to label %"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_0EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit" unwind label %4
 
 4:                                                ; preds = %2
   %5 = landingpad { ptr, i32 }
@@ -2027,7 +2027,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost6Metri
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 56) #37
   resume { ptr, i32 } %5
 
-"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_0EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %2
+"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_0EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %2
   ret ptr %3
 }
 
@@ -13552,7 +13552,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost6Metri
   %.val = load ptr, ptr %1, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #36
   invoke void @_ZN7xgboost6metric17EvalRankWithCacheINS_3ltr8PreCacheEEC2ENS_10StringViewEPKc(ptr noundef nonnull align 8 dereferenceable(280) %3, ptr nonnull @.str.7, i64 3, ptr noundef %.val)
-          to label %"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_2EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit" unwind label %4
+          to label %"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_2EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit" unwind label %4
 
 4:                                                ; preds = %2
   %5 = landingpad { ptr, i32 }
@@ -13560,7 +13560,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost6Metri
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 280) #37
   resume { ptr, i32 } %5
 
-"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_2EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %2
+"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_2EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %2
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN7xgboost6metric13EvalPrecisionE, i64 16), ptr %3, align 8
   ret ptr %3
 }
@@ -14642,7 +14642,7 @@ _ZNSt10shared_ptrIN7xgboost3ltr8PreCacheEED2Ev.exit: ; preds = %_ZN7xgboost6metr
   %110 = load ptr, ptr %57, align 8
   %111 = getelementptr inbounds i8, ptr %2, i64 56
   %.val = load i32, ptr %111, align 8, !noalias !220
-  %112 = call fastcc noundef double @_ZN7xgboost6metric12_GLOBAL__N_18FinalizeEPKNS_7ContextERKNS_8MetaInfoEdd(ptr noundef %110, i32 %.val, double noundef 0.000000e+00, double noundef 0.000000e+00)
+  %112 = call fastcc noundef double @_ZN7xgboost6metric12_GLOBAL__N_18FinalizeEPKNS_7ContextERKNS_8MetaInfoEdd.argprom(ptr noundef %110, i32 %.val, double noundef 0.000000e+00, double noundef 0.000000e+00)
   br label %234
 
 113:                                              ; preds = %_ZNSt10shared_ptrIN7xgboost3ltr8PreCacheEEC2ERKS3_.exit
@@ -14940,7 +14940,7 @@ _ZSt10accumulateIN7xgboost6common6detail12SpanIteratorINS1_4SpanIdLm184467440737
   %231 = load ptr, ptr %57, align 8
   %232 = getelementptr inbounds i8, ptr %2, i64 56
   %.val47 = load i32, ptr %232, align 8, !noalias !220
-  %233 = call fastcc noundef double @_ZN7xgboost6metric12_GLOBAL__N_18FinalizeEPKNS_7ContextERKNS_8MetaInfoEdd(ptr noundef %231, i32 %.val47, double noundef %.0.lcssa.i, double noundef %.036.lcssa116)
+  %233 = call fastcc noundef double @_ZN7xgboost6metric12_GLOBAL__N_18FinalizeEPKNS_7ContextERKNS_8MetaInfoEdd.argprom(ptr noundef %231, i32 %.val47, double noundef %.0.lcssa.i, double noundef %.036.lcssa116)
   br label %234
 
 234:                                              ; preds = %_ZSt10accumulateIN7xgboost6common6detail12SpanIteratorINS1_4SpanIdLm18446744073709551615EEELb1EEEdET0_T_S8_S7_.exit, %_ZNSt10shared_ptrIN7xgboost3ltr8PreCacheEED2Ev.exit
@@ -23831,7 +23831,7 @@ _ZNSt10shared_ptrIN7xgboost3ltr8PreCacheEEaSEOS3_.exit: ; preds = %_ZNSt8weak_pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZN7xgboost6metric12_GLOBAL__N_18FinalizeEPKNS_7ContextERKNS_8MetaInfoEdd(ptr noundef %0, i32 %.56.val, double noundef %1, double noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN7xgboost6metric12_GLOBAL__N_18FinalizeEPKNS_7ContextERKNS_8MetaInfoEdd.argprom(ptr noundef %0, i32 %.56.val, double noundef %1, double noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.xgboost::linalg::TensorView.316", align 8
   %5 = alloca double, align 8
   %6 = alloca %"struct.std::array", align 8
@@ -25105,7 +25105,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost6Metri
   %.val = load ptr, ptr %1, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #36
   invoke void @_ZN7xgboost6metric17EvalRankWithCacheINS_3ltr8MAPCacheEEC2ENS_10StringViewEPKc(ptr noundef nonnull align 8 dereferenceable(280) %3, ptr nonnull @.str.10, i64 3, ptr noundef %.val)
-          to label %"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_3EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit" unwind label %4
+          to label %"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_3EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit" unwind label %4
 
 4:                                                ; preds = %2
   %5 = landingpad { ptr, i32 }
@@ -25113,7 +25113,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost6Metri
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 280) #37
   resume { ptr, i32 } %5
 
-"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_3EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %2
+"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_3EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %2
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN7xgboost6metric12EvalMAPScoreE, i64 16), ptr %3, align 8
   ret ptr %3
 }
@@ -26067,7 +26067,7 @@ _ZNSt10shared_ptrIN7xgboost3ltr8MAPCacheEED2Ev.exit: ; preds = %_ZN7xgboost6metr
   %73 = load ptr, ptr %20, align 8
   %74 = getelementptr inbounds i8, ptr %2, i64 56
   %.val48 = load i32, ptr %74, align 8, !noalias !220
-  %75 = tail call fastcc noundef double @_ZN7xgboost6metric12_GLOBAL__N_18FinalizeEPKNS_7ContextERKNS_8MetaInfoEdd(ptr noundef %73, i32 %.val48, double noundef 0.000000e+00, double noundef 0.000000e+00)
+  %75 = tail call fastcc noundef double @_ZN7xgboost6metric12_GLOBAL__N_18FinalizeEPKNS_7ContextERKNS_8MetaInfoEdd.argprom(ptr noundef %73, i32 %.val48, double noundef 0.000000e+00, double noundef 0.000000e+00)
   br label %248
 
 76:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost3ltr8MAPCacheEEC2ERKS3_.exit
@@ -26518,7 +26518,7 @@ _ZSt10accumulateIN7xgboost6common6detail12SpanIteratorINS1_4SpanIdLm184467440737
   %245 = load ptr, ptr %20, align 8
   %246 = getelementptr inbounds i8, ptr %2, i64 56
   %.val = load i32, ptr %246, align 8, !noalias !220
-  %247 = call fastcc noundef double @_ZN7xgboost6metric12_GLOBAL__N_18FinalizeEPKNS_7ContextERKNS_8MetaInfoEdd(ptr noundef %245, i32 %.val, double noundef %.0.lcssa.i, double noundef %.036.lcssa132)
+  %247 = call fastcc noundef double @_ZN7xgboost6metric12_GLOBAL__N_18FinalizeEPKNS_7ContextERKNS_8MetaInfoEdd.argprom(ptr noundef %245, i32 %.val, double noundef %.0.lcssa.i, double noundef %.036.lcssa132)
   br label %248
 
 248:                                              ; preds = %_ZSt10accumulateIN7xgboost6common6detail12SpanIteratorINS1_4SpanIdLm18446744073709551615EEELb1EEEdET0_T_S8_S7_.exit, %_ZNSt10shared_ptrIN7xgboost3ltr8MAPCacheEED2Ev.exit
@@ -32310,7 +32310,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost6Metri
   %.val = load ptr, ptr %1, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #36
   invoke void @_ZN7xgboost6metric17EvalRankWithCacheINS_3ltr9NDCGCacheEEC2ENS_10StringViewEPKc(ptr noundef nonnull align 8 dereferenceable(280) %3, ptr nonnull @.str.13, i64 4, ptr noundef %.val)
-          to label %"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_4EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit" unwind label %4
+          to label %"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_4EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit" unwind label %4
 
 4:                                                ; preds = %2
   %5 = landingpad { ptr, i32 }
@@ -32318,7 +32318,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost6Metri
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 280) #37
   resume { ptr, i32 } %5
 
-"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_4EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %2
+"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_4EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %2
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN7xgboost6metric8EvalNDCGE, i64 16), ptr %3, align 8
   ret ptr %3
 }
@@ -33271,7 +33271,7 @@ _ZNSt10shared_ptrIN7xgboost3ltr9NDCGCacheEED2Ev.exit: ; preds = %_ZN7xgboost6met
   %72 = load ptr, ptr %19, align 8
   %73 = getelementptr inbounds i8, ptr %2, i64 56
   %.val36 = load i32, ptr %73, align 8, !noalias !220
-  %74 = tail call fastcc noundef double @_ZN7xgboost6metric12_GLOBAL__N_18FinalizeEPKNS_7ContextERKNS_8MetaInfoEdd(ptr noundef %72, i32 %.val36, double noundef 0.000000e+00, double noundef 0.000000e+00)
+  %74 = tail call fastcc noundef double @_ZN7xgboost6metric12_GLOBAL__N_18FinalizeEPKNS_7ContextERKNS_8MetaInfoEdd.argprom(ptr noundef %72, i32 %.val36, double noundef 0.000000e+00, double noundef 0.000000e+00)
   br label %309
 
 75:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost3ltr9NDCGCacheEEC2ERKS3_.exit
@@ -33786,7 +33786,7 @@ _ZSt10accumulateIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIdLi1EE
   %306 = load ptr, ptr %19, align 8
   %307 = getelementptr inbounds i8, ptr %2, i64 56
   %.val = load i32, ptr %307, align 8, !noalias !220
-  %308 = call fastcc noundef double @_ZN7xgboost6metric12_GLOBAL__N_18FinalizeEPKNS_7ContextERKNS_8MetaInfoEdd(ptr noundef %306, i32 %.val, double noundef %.0.lcssa.i67, double noundef %.028)
+  %308 = call fastcc noundef double @_ZN7xgboost6metric12_GLOBAL__N_18FinalizeEPKNS_7ContextERKNS_8MetaInfoEdd.argprom(ptr noundef %306, i32 %.val, double noundef %.0.lcssa.i67, double noundef %.028)
   br label %309
 
 309:                                              ; preds = %_ZSt10accumulateIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIdLi1EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEdET0_S6_S6_SC_.exit, %_ZNSt10shared_ptrIN7xgboost3ltr9NDCGCacheEED2Ev.exit

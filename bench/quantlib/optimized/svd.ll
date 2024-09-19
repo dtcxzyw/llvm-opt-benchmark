@@ -291,9 +291,9 @@ if.then72:                                        ; preds = %for.body
   %cmp791040 = icmp slt i64 %indvars.iv, %conv30
   br i1 %cmp791040, label %invoke.cont86, label %if.end137
 
-invoke.cont86:                                    ; preds = %if.then72, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit
-  %indvars.iv1209 = phi i64 [ %indvars.iv.next1210, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit ], [ %indvars.iv, %if.then72 ]
-  %retval.0.i1042 = phi double [ %retval.0.i, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit ], [ 0.000000e+00, %if.then72 ]
+invoke.cont86:                                    ; preds = %if.then72, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit
+  %indvars.iv1209 = phi i64 [ %indvars.iv.next1210, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit ], [ %indvars.iv, %if.then72 ]
+  %retval.0.i1042 = phi double [ %retval.0.i, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit ], [ 0.000000e+00, %if.then72 ]
   %mul.i.i513 = mul i64 %A.sroa.31.0, %indvars.iv1209
   %gep = getelementptr double, ptr %invariant.gep, i64 %mul.i.i513
   %arrayidx.val = load double, ptr %gep, align 8
@@ -302,7 +302,7 @@ invoke.cont86:                                    ; preds = %if.then72, %_ZN8Qua
 
 if.then.i:                                        ; preds = %invoke.cont86
   %41 = tail call double @llvm.fabs.f64(double %arrayidx.val)
-  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit
+  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit
 
 if.else.i:                                        ; preds = %invoke.cont86
   %div.i = fdiv double %arrayidx.val, %retval.0.i1042
@@ -310,9 +310,9 @@ if.else.i:                                        ; preds = %invoke.cont86
   %43 = tail call double @llvm.fmuladd.f64(double %div.i, double %div.i, double 1.000000e+00)
   %sqrt.i = tail call double @llvm.sqrt.f64(double %43)
   %mul.i516 = fmul double %42, %sqrt.i
-  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit
+  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit
 
-_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit:     ; preds = %if.then.i, %if.else.i
+_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit: ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi double [ %41, %if.then.i ], [ %mul.i516, %if.else.i ]
   store double %retval.0.i, ptr %arrayidx.i, align 8, !tbaa !19
   %indvars.iv.next1210 = add nuw nsw i64 %indvars.iv1209, 1
@@ -345,7 +345,7 @@ lpad52:                                           ; preds = %cond.true.i501
   %cmp.not.i.i874 = icmp eq ptr %cond.i495, null
   br i1 %cmp.not.i.i874, label %ehcleanup1474, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i875
 
-for.end:                                          ; preds = %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit
+for.end:                                          ; preds = %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit
   %cmp98 = fcmp une double %retval.0.i, 0.000000e+00
   br i1 %cmp98, label %invoke.cont101, label %if.end137
 
@@ -492,9 +492,9 @@ if.end298.thread:                                 ; preds = %if.then236
   store double -0.000000e+00, ptr %arrayidx.i559, align 8, !tbaa !19
   br label %for.inc407
 
-for.body244:                                      ; preds = %if.then236, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit569
-  %indvars.iv1239 = phi i64 [ %indvars.iv.next1240, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit569 ], [ %indvars.iv1227, %if.then236 ]
-  %retval.0.i5671063 = phi double [ %retval.0.i567, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit569 ], [ 0.000000e+00, %if.then236 ]
+for.body244:                                      ; preds = %if.then236, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit569
+  %indvars.iv1239 = phi i64 [ %indvars.iv.next1240, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit569 ], [ %indvars.iv1227, %if.then236 ]
+  %retval.0.i5671063 = phi double [ %retval.0.i567, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit569 ], [ 0.000000e+00, %if.then236 ]
   %arrayidx.i561 = getelementptr inbounds nuw double, ptr %cond.i495, i64 %indvars.iv1239
   %call250.val = load double, ptr %arrayidx.i561, align 8
   %cmp.i562 = fcmp oeq double %retval.0.i5671063, 0.000000e+00
@@ -502,7 +502,7 @@ for.body244:                                      ; preds = %if.then236, %_ZN8Qu
 
 if.then.i568:                                     ; preds = %for.body244
   %65 = tail call double @llvm.fabs.f64(double %call250.val)
-  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit569
+  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit569
 
 if.else.i563:                                     ; preds = %for.body244
   %div.i564 = fdiv double %call250.val, %retval.0.i5671063
@@ -510,16 +510,16 @@ if.else.i563:                                     ; preds = %for.body244
   %67 = tail call double @llvm.fmuladd.f64(double %div.i564, double %div.i564, double 1.000000e+00)
   %sqrt.i565 = tail call double @llvm.sqrt.f64(double %67)
   %mul.i566 = fmul double %66, %sqrt.i565
-  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit569
+  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit569
 
-_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit569:  ; preds = %if.then.i568, %if.else.i563
+_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit569: ; preds = %if.then.i568, %if.else.i563
   %retval.0.i567 = phi double [ %65, %if.then.i568 ], [ %mul.i566, %if.else.i563 ]
   store double %retval.0.i567, ptr %arrayidx.i559, align 8, !tbaa !19
   %indvars.iv.next1240 = add nuw nsw i64 %indvars.iv1239, 1
   %exitcond1243.not = icmp eq i64 %indvars.iv.next1240, %wide.trip.count1242
   br i1 %exitcond1243.not, label %for.end258, label %for.body244, !llvm.loop !38
 
-for.end258:                                       ; preds = %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit569
+for.end258:                                       ; preds = %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit569
   %cmp262 = fcmp une double %retval.0.i567, 0.000000e+00
   br i1 %cmp262, label %if.then263, label %if.end298
 
@@ -1197,7 +1197,7 @@ for.body799:                                      ; preds = %for.body799.lr.ph, 
 
 if.then.i688:                                     ; preds = %for.body799
   %179 = tail call double @llvm.fabs.f64(double %f.01171)
-  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit689
+  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit689
 
 if.else.i683:                                     ; preds = %for.body799
   %div.i684 = fdiv double %f.01171, %call805.val
@@ -1205,9 +1205,9 @@ if.else.i683:                                     ; preds = %for.body799
   %181 = tail call double @llvm.fmuladd.f64(double %div.i684, double %div.i684, double 1.000000e+00)
   %sqrt.i685 = tail call double @llvm.sqrt.f64(double %181)
   %mul.i686 = fmul double %180, %sqrt.i685
-  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit689
+  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit689
 
-_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit689:  ; preds = %if.then.i688, %if.else.i683
+_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit689: ; preds = %if.then.i688, %if.else.i683
   %retval.0.i687 = phi double [ %179, %if.then.i688 ], [ %mul.i686, %if.else.i683 ]
   %div813 = fdiv double %call805.val, %retval.0.i687
   %div814 = fdiv double %f.01171, %retval.0.i687
@@ -1215,7 +1215,7 @@ _ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit689:  ; preds = %if.then.i688, %if.e
   %182 = icmp eq i64 %indvars.iv1359, %sext1362
   br i1 %182, label %if.end837, label %if.then821
 
-if.then821:                                       ; preds = %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit689
+if.then821:                                       ; preds = %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit689
   %fneg822 = fneg double %div814
   %183 = add nsw i64 %indvars.iv1359, -1
   %arrayidx.i692 = getelementptr inbounds nuw double, ptr %cond.i495, i64 %183
@@ -1225,8 +1225,8 @@ if.then821:                                       ; preds = %_ZN8QuantLib12_GLOB
   store double %mul832, ptr %arrayidx.i692, align 8, !tbaa !19
   br label %if.end837
 
-if.end837:                                        ; preds = %if.then821, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit689
-  %f.1 = phi double [ %f.01171, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit689 ], [ %mul827, %if.then821 ]
+if.end837:                                        ; preds = %if.then821, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit689
+  %f.1 = phi double [ %f.01171, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit689 ], [ %mul827, %if.then821 ]
   br i1 %cmp8401168, label %invoke.cont882.lr.ph, label %for.end888
 
 invoke.cont882.lr.ph:                             ; preds = %if.end837
@@ -1281,7 +1281,7 @@ for.body907:                                      ; preds = %for.body907.lr.ph, 
 
 if.then.i722:                                     ; preds = %for.body907
   %194 = tail call double @llvm.fabs.f64(double %f895.01166)
-  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit723
+  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit723
 
 if.else.i717:                                     ; preds = %for.body907
   %div.i718 = fdiv double %f895.01166, %call913.val
@@ -1289,9 +1289,9 @@ if.else.i717:                                     ; preds = %for.body907
   %196 = tail call double @llvm.fmuladd.f64(double %div.i718, double %div.i718, double 1.000000e+00)
   %sqrt.i719 = tail call double @llvm.sqrt.f64(double %196)
   %mul.i720 = fmul double %195, %sqrt.i719
-  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit723
+  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit723
 
-_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit723:  ; preds = %if.then.i722, %if.else.i717
+_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit723: ; preds = %if.then.i722, %if.else.i717
   %retval.0.i721 = phi double [ %194, %if.then.i722 ], [ %mul.i720, %if.else.i717 ]
   %div922 = fdiv double %call913.val, %retval.0.i721
   %div924 = fdiv double %f895.01166, %retval.0.i721
@@ -1304,8 +1304,8 @@ _ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit723:  ; preds = %if.then.i722, %if.e
   store double %mul938, ptr %arrayidx.i726, align 8, !tbaa !19
   br i1 %cmp9441163, label %invoke.cont986, label %for.end992
 
-invoke.cont986:                                   ; preds = %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit723, %invoke.cont986
-  %indvars.iv1345 = phi i64 [ %indvars.iv.next1346, %invoke.cont986 ], [ 0, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit723 ]
+invoke.cont986:                                   ; preds = %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit723, %invoke.cont986
+  %indvars.iv1345 = phi i64 [ %indvars.iv.next1346, %invoke.cont986 ], [ 0, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit723 ]
   %mul.i.i730 = mul i64 %192, %indvars.iv1345
   %add.ptr.i.i731 = getelementptr inbounds nuw double, ptr %191, i64 %mul.i.i730
   %arrayidx951 = getelementptr inbounds double, ptr %add.ptr.i.i731, i64 %indvars.iv1350
@@ -1322,7 +1322,7 @@ invoke.cont986:                                   ; preds = %_ZN8QuantLib12_GLOB
   %exitcond1349.not = icmp eq i64 %indvars.iv.next1346, %wide.trip.count1348
   br i1 %exitcond1349.not, label %for.end992, label %invoke.cont986, !llvm.loop !64
 
-for.end992:                                       ; preds = %invoke.cont986, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit723
+for.end992:                                       ; preds = %invoke.cont986, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit723
   %indvars.iv.next1351 = add nsw i64 %indvars.iv1350, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1351 to i32
   %exitcond1353.not = icmp eq i32 %p.01194, %lftr.wideiv
@@ -1366,7 +1366,7 @@ for.body1104:                                     ; preds = %for.body1104.lr.ph,
 
 if.then.i771:                                     ; preds = %for.body1104
   %210 = tail call double @llvm.fabs.f64(double %g.01179)
-  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit772
+  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit772
 
 if.else.i766:                                     ; preds = %for.body1104
   %div.i767 = fdiv double %g.01179, %f1096.01178
@@ -1374,22 +1374,22 @@ if.else.i766:                                     ; preds = %for.body1104
   %212 = tail call double @llvm.fmuladd.f64(double %div.i767, double %div.i767, double 1.000000e+00)
   %sqrt.i768 = tail call double @llvm.sqrt.f64(double %212)
   %mul.i769 = fmul double %211, %sqrt.i768
-  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit772
+  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit772
 
-_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit772:  ; preds = %if.then.i771, %if.else.i766
+_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit772: ; preds = %if.then.i771, %if.else.i766
   %retval.0.i770 = phi double [ %210, %if.then.i771 ], [ %mul.i769, %if.else.i766 ]
   %div1110 = fdiv double %f1096.01178, %retval.0.i770
   %div1112 = fdiv double %g.01179, %retval.0.i770
   %213 = icmp eq i64 %indvars.iv1374, %conv1027
   br i1 %213, label %if.end1120, label %if.then1114
 
-if.then1114:                                      ; preds = %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit772
+if.then1114:                                      ; preds = %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit772
   %214 = add nsw i64 %indvars.iv1374, -1
   %arrayidx.i773 = getelementptr inbounds nuw double, ptr %cond.i495, i64 %214
   store double %retval.0.i770, ptr %arrayidx.i773, align 8, !tbaa !19
   br label %if.end1120
 
-if.end1120:                                       ; preds = %if.then1114, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit772
+if.end1120:                                       ; preds = %if.then1114, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit772
   %arrayidx.i774 = getelementptr inbounds nuw double, ptr %118, i64 %indvars.iv1374
   %215 = load double, ptr %arrayidx.i774, align 8, !tbaa !19
   %arrayidx.i775 = getelementptr inbounds nuw double, ptr %cond.i495, i64 %indvars.iv1374
@@ -1436,7 +1436,7 @@ for.end1209:                                      ; preds = %invoke.cont1203, %i
 
 if.then.i806:                                     ; preds = %for.end1209
   %225 = tail call double @llvm.fabs.f64(double %mul1147)
-  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit807
+  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit807
 
 if.else.i801:                                     ; preds = %for.end1209
   %div.i802 = fdiv double %mul1147, %217
@@ -1444,9 +1444,9 @@ if.else.i801:                                     ; preds = %for.end1209
   %227 = tail call double @llvm.fmuladd.f64(double %div.i802, double %div.i802, double 1.000000e+00)
   %sqrt.i803 = tail call double @llvm.sqrt.f64(double %227)
   %mul.i804 = fmul double %226, %sqrt.i803
-  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit807
+  br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit807
 
-_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit807:  ; preds = %if.then.i806, %if.else.i801
+_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit807: ; preds = %if.then.i806, %if.else.i801
   %retval.0.i805 = phi double [ %225, %if.then.i806 ], [ %mul.i804, %if.else.i801 ]
   %div1212 = fdiv double %217, %retval.0.i805
   %div1213 = fdiv double %mul1147, %retval.0.i805
@@ -1468,8 +1468,8 @@ _ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit807:  ; preds = %if.then.i806, %if.e
   %brmerge = or i1 %cmp1260, %cmp12641175
   br i1 %brmerge, label %if.end1313, label %invoke.cont1306
 
-invoke.cont1306:                                  ; preds = %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit807, %invoke.cont1306
-  %indvars.iv1369 = phi i64 [ %indvars.iv.next1370, %invoke.cont1306 ], [ 0, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit807 ]
+invoke.cont1306:                                  ; preds = %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit807, %invoke.cont1306
+  %indvars.iv1369 = phi i64 [ %indvars.iv.next1370, %invoke.cont1306 ], [ 0, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit807 ]
   %mul.i.i818 = mul i64 %207, %indvars.iv1369
   %add.ptr.i.i819 = getelementptr inbounds nuw double, ptr %206, i64 %mul.i.i818
   %arrayidx1271 = getelementptr inbounds double, ptr %add.ptr.i.i819, i64 %indvars.iv1374
@@ -1486,7 +1486,7 @@ invoke.cont1306:                                  ; preds = %_ZN8QuantLib12_GLOB
   %exitcond1373.not = icmp eq i64 %indvars.iv.next1370, %wide.trip.count1372
   br i1 %exitcond1373.not, label %if.end1313, label %invoke.cont1306, !llvm.loop !67
 
-if.end1313:                                       ; preds = %invoke.cont1306, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit807
+if.end1313:                                       ; preds = %invoke.cont1306, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.argprom.exit807
   %exitcond1380.not = icmp eq i64 %indvars.iv.next1375, %wide.trip.count1379
   br i1 %exitcond1380.not, label %for.end1319, label %for.body1104, !llvm.loop !68
 

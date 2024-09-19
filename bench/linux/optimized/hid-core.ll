@@ -1414,7 +1414,7 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
   %305 = or i8 %304, 8
   store i8 %305, ptr %303, align 8
   %.val = load ptr, ptr %10, align 8
-  %306 = tail call fastcc i32 @hid_start_in(ptr %.val)
+  %306 = tail call fastcc i32 @hid_start_in.argprom(ptr %.val)
   %307 = icmp eq i32 %306, 0
   br i1 %307, label %309, label %308
 
@@ -1733,7 +1733,7 @@ define internal noundef range(i32 -16, 1) i32 @usbhid_open(ptr nocapture noundef
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %5, i32 16, ptr elementtype(i8) %5) #17, !srcloc !12
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %5, i32 64, ptr elementtype(i8) %5) #17, !srcloc !12
   %.val = load ptr, ptr %2, align 8
-  %21 = tail call fastcc i32 @hid_start_in(ptr %.val)
+  %21 = tail call fastcc i32 @hid_start_in.argprom(ptr %.val)
   switch i32 %21, label %22 [
     i32 0, label %29
     i32 -28, label %23
@@ -1741,7 +1741,7 @@ define internal noundef range(i32 -16, 1) i32 @usbhid_open(ptr nocapture noundef
 
 22:                                               ; preds = %16
   %.val1 = load ptr, ptr %2, align 8
-  tail call fastcc void @hid_io_error(ptr %.val1)
+  tail call fastcc void @hid_io_error.argprom(ptr %.val1)
   br label %29
 
 23:                                               ; preds = %16
@@ -2344,7 +2344,7 @@ define internal void @hid_irq_in(ptr noundef %0) #0 align 16 {
   %56 = getelementptr inbounds i8, ptr %5, i64 10416
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %56, i32 -9, ptr elementtype(i8) %56) #17, !srcloc !13
   %.val = load ptr, ptr %4, align 8
-  tail call fastcc void @hid_io_error(ptr %.val)
+  tail call fastcc void @hid_io_error.argprom(ptr %.val)
   br label %80
 
 57:                                               ; preds = %1
@@ -2380,7 +2380,7 @@ define internal void @hid_irq_in(ptr noundef %0) #0 align 16 {
   %79 = load i32, ptr %78, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %68, ptr noundef nonnull @.str.12, ptr noundef %76, ptr noundef %77, i32 noundef %79, i32 noundef %62) #18
   %.val1 = load ptr, ptr %4, align 8
-  tail call fastcc void @hid_io_error(ptr %.val1)
+  tail call fastcc void @hid_io_error.argprom(ptr %.val1)
   br label %80
 
 80:                                               ; preds = %67, %64, %61, %49, %47, %36
@@ -2619,7 +2619,7 @@ define internal void @hid_ctrl(ptr nocapture noundef readonly %0) #0 align 16 {
 declare dso_local i32 @usb_autopm_get_interface(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @hid_start_in(ptr %.7456.val) unnamed_addr #0 align 16 {
+define internal fastcc i32 @hid_start_in.argprom(ptr %.7456.val) unnamed_addr #0 align 16 {
   %1 = getelementptr inbounds i8, ptr %.7456.val, i64 10408
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %1) #17
   %3 = getelementptr inbounds i8, ptr %.7456.val, i64 10416
@@ -2706,7 +2706,7 @@ declare dso_local i32 @hid_input_report(ptr noundef, i32 noundef, ptr noundef, i
 declare dso_local i32 @hid_check_keys_pressed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @hid_io_error(ptr %.7456.val) unnamed_addr #0 align 16 {
+define internal fastcc void @hid_io_error.argprom(ptr %.7456.val) unnamed_addr #0 align 16 {
   %1 = getelementptr inbounds i8, ptr %.7456.val, i64 10408
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %1) #17
   %3 = getelementptr inbounds i8, ptr %.7456.val, i64 10416
@@ -3435,7 +3435,7 @@ define internal void @hid_reset(ptr noundef %0) #0 align 16 {
 20:                                               ; preds = %8
   %21 = getelementptr i8, ptr %3, i64 7456
   %.val = load ptr, ptr %21, align 8
-  %22 = tail call fastcc i32 @hid_start_in(ptr %.val)
+  %22 = tail call fastcc i32 @hid_start_in.argprom(ptr %.val)
   br label %24
 
 23:                                               ; preds = %8
@@ -3467,13 +3467,13 @@ define internal void @hid_retry_timeout(ptr nocapture noundef readonly %0) #0 al
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 7456
   %.val = load ptr, ptr %4, align 8
-  %5 = tail call fastcc i32 @hid_start_in(ptr %.val)
+  %5 = tail call fastcc i32 @hid_start_in.argprom(ptr %.val)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %1
   %.val1 = load ptr, ptr %4, align 8
-  tail call fastcc void @hid_io_error(ptr %.val1)
+  tail call fastcc void @hid_io_error.argprom(ptr %.val1)
   br label %8
 
 8:                                                ; preds = %7, %1
@@ -3551,13 +3551,13 @@ define internal fastcc void @hid_restart_io(ptr nocapture noundef readonly %0) u
 
 30:                                               ; preds = %29
   %.val = load ptr, ptr %2, align 8
-  %31 = tail call fastcc i32 @hid_start_in(ptr %.val)
+  %31 = tail call fastcc i32 @hid_start_in.argprom(ptr %.val)
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %30
   %.val1 = load ptr, ptr %2, align 8
-  tail call fastcc void @hid_io_error(ptr %.val1)
+  tail call fastcc void @hid_io_error.argprom(ptr %.val1)
   br label %34
 
 34:                                               ; preds = %33, %30, %29

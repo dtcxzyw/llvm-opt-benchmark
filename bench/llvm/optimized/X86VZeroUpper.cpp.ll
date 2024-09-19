@@ -318,7 +318,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118VZeroUpperInserter20runOn
   %30 = getelementptr i8, ptr %20, i64 496
   %.val53 = load ptr, ptr %30, align 8
   %.not3.not.i = icmp eq ptr %.val, %.val53
-  br i1 %.not3.not.i, label %_ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.exit, label %.lr.ph.i
+  br i1 %.not3.not.i, label %_ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
   %.084.i = phi ptr [ %36, %.lr.ph.i ], [ %.val, %16 ]
@@ -332,9 +332,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118VZeroUpperInserter20runOn
   %36 = getelementptr inbounds i8, ptr %.084.i, i64 8
   %.not.not.i = icmp eq ptr %36, %.val53
   %or.cond = select i1 %35, i1 true, i1 %.not.not.i
-  br i1 %or.cond, label %_ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.exit, label %.lr.ph.i
+  br i1 %or.cond, label %_ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.argprom.exit, label %.lr.ph.i
 
-_ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.exit: ; preds = %.lr.ph.i, %16
+_ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.argprom.exit: ; preds = %.lr.ph.i, %16
   %.not.lcssa.i = phi i1 [ false, %16 ], [ %35, %.lr.ph.i ]
   %37 = zext i1 %.not.lcssa.i to i8
   store ptr @_ZN4llvm3X8613VR256RegClassE, ptr %3, align 8
@@ -343,9 +343,9 @@ _ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.exit: ; preds = %.lr.
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 304
   br label %40
 
-40:                                               ; preds = %_ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.exit, %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit
-  %.04781 = phi i8 [ %37, %_ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.exit ], [ %.1, %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit ]
-  %.049.idx80 = phi i64 [ 0, %_ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.exit ], [ %.049.add, %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit ]
+40:                                               ; preds = %_ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.argprom.exit, %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit
+  %.04781 = phi i8 [ %37, %_ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.argprom.exit ], [ %.1, %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit ]
+  %.049.idx80 = phi i64 [ 0, %_ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.argprom.exit ], [ %.049.add, %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit ]
   %41 = trunc nuw i8 %.04781 to i1
   br i1 %41, label %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit, label %42
 
@@ -543,19 +543,19 @@ _ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i: ; preds = %128, %121
   %131 = load i8, ptr %27, align 1
   %132 = trunc i8 %131 to i1
   %brmerge.demorgan.i = and i1 %.0.i.i47.i, %132
-  br i1 %brmerge.demorgan.i, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i, label %133
+  br i1 %brmerge.demorgan.i, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.thread.i, label %133
 
 133:                                              ; preds = %_ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.054.071.i, i64 68
   %135 = load i16, ptr %134, align 4
   %136 = and i16 %135, -2
   %switch.i = icmp eq i16 %136, 22034
-  br i1 %switch.i, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i, label %137
+  br i1 %switch.i, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.thread.i, label %137
 
 137:                                              ; preds = %133
   %138 = icmp ne i32 %.070.i, 2
   %or.cond.not.i = select i1 %130, i1 true, i1 %138
-  br i1 %or.cond.not.i, label %139, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i
+  br i1 %or.cond.not.i, label %139, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.thread.i
 
 139:                                              ; preds = %137
   %140 = getelementptr inbounds nuw i8, ptr %.sroa.054.071.i, i64 32
@@ -587,17 +587,17 @@ _ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i: ; preds = %128, %121
   %156 = load i64, ptr %155, align 8
   %157 = and i64 %156, 128
   %.not17.i.i = icmp eq i64 %157, 0
-  br i1 %.not17.i.i, label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exitthread-pre-split.i.i, label %159
+  br i1 %.not17.i.i, label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.argprom.exitthread-pre-split.i.i, label %159
 
 _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i: ; preds = %147
   %158 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.054.071.i, i64 noundef 128, i32 noundef 1) #12
-  br i1 %158, label %159, label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exitthread-pre-split.i.i
+  br i1 %158, label %159, label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.argprom.exitthread-pre-split.i.i
 
 159:                                              ; preds = %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i, %153
   %160 = load i32, ptr %.01424.i.i, align 8
   %161 = and i32 %160, 255
   %162 = icmp eq i32 %161, 12
-  br i1 %162, label %163, label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exit.i.i
+  br i1 %162, label %163, label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.argprom.exit.i.i
 
 163:                                              ; preds = %159
   %164 = getelementptr i8, ptr %.01424.i.i, i64 16
@@ -619,12 +619,12 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i: ; preds = %147
   %173 = shl nuw i32 1, %172
   %174 = and i32 %173, %171
   %.not.i.i.i.i.i = icmp eq i32 %174, 0
-  br i1 %.not.i.i.i.i.i, label %165, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i
+  br i1 %.not.i.i.i.i.i, label %165, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.thread.i
 
 175:                                              ; preds = %.preheader.i.i.i58
   %176 = add nuw nsw i32 %.04.i.i.i, 1
   %exitcond6.not.i.i.i = icmp eq i32 %176, 263
-  br i1 %exitcond6.not.i.i.i, label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exitthread-pre-split.i.i, label %.preheader.i.i.i58, !llvm.loop !7
+  br i1 %exitcond6.not.i.i.i, label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.argprom.exitthread-pre-split.i.i, label %.preheader.i.i.i58, !llvm.loop !7
 
 .preheader.i.i.i58:                               ; preds = %165, %175
   %.04.i.i.i = phi i32 [ %176, %175 ], [ 247, %165 ]
@@ -636,19 +636,19 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i: ; preds = %147
   %182 = shl nuw i32 1, %181
   %183 = and i32 %182, %180
   %.not.i.i10.i.i.i = icmp eq i32 %183, 0
-  br i1 %.not.i.i10.i.i.i, label %175, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i
+  br i1 %.not.i.i10.i.i.i, label %175, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.thread.i
 
-_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exitthread-pre-split.i.i: ; preds = %175, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i, %153
+_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.argprom.exitthread-pre-split.i.i: ; preds = %175, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i, %153
   %.pr.i.i = load i32, ptr %.01424.i.i, align 8
-  br label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exit.i.i
+  br label %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.argprom.exit.i.i
 
-_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exit.i.i: ; preds = %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exitthread-pre-split.i.i, %159
-  %184 = phi i32 [ %.pr.i.i, %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exitthread-pre-split.i.i ], [ %160, %159 ]
+_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.argprom.exit.i.i: ; preds = %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.argprom.exitthread-pre-split.i.i, %159
+  %184 = phi i32 [ %.pr.i.i, %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.argprom.exitthread-pre-split.i.i ], [ %160, %159 ]
   %185 = and i32 %184, -2147483393
   %or.cond.not.i.i = icmp eq i32 %185, 0
   br i1 %or.cond.not.i.i, label %186, label %193
 
-186:                                              ; preds = %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exit.i.i
+186:                                              ; preds = %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.argprom.exit.i.i
   %187 = getelementptr inbounds nuw i8, ptr %.01424.i.i, i64 4
   %188 = load i32, ptr %187, align 4
   %189 = add i32 %188, -191
@@ -656,18 +656,18 @@ _ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exit.i.i: ; preds = %_ZL2
   %190 = add i32 %188, -247
   %191 = icmp ult i32 %190, 16
   %192 = or i1 %or.cond.i.i48.i, %191
-  br i1 %192, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i, label %193
+  br i1 %192, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.thread.i, label %193
 
-193:                                              ; preds = %186, %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exit.i.i
+193:                                              ; preds = %186, %_ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.argprom.exit.i.i
   %194 = getelementptr inbounds i8, ptr %.01424.i.i, i64 32
   %.not.not.i.i = icmp eq ptr %194, %145
   br i1 %.not.not.i.i, label %.loopexit67.i, label %147
 
 .loopexit67.i:                                    ; preds = %193, %139
-  br i1 %130, label %195, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i
+  br i1 %130, label %195, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.thread.i
 
 195:                                              ; preds = %.loopexit67.i
-  br i1 %.0.i.i.i56, label %196, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.i
+  br i1 %.0.i.i.i56, label %196, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.i
 
 196:                                              ; preds = %195
   %.val44.i = load ptr, ptr %140, align 8
@@ -675,30 +675,30 @@ _ZL24clobbersAllYmmAndZmmRegsRKN4llvm14MachineOperandE.exit.i.i: ; preds = %_ZL2
   %197 = zext i24 %.val45.i to i64
   %198 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %.val44.i, i64 %197
   %.not1.not.i.i = icmp eq i24 %.val45.i, 0
-  br i1 %.not1.not.i.i, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i, label %.lr.ph.i49.i
+  br i1 %.not1.not.i.i, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.thread.i, label %.lr.ph.i49.i
 
 199:                                              ; preds = %.lr.ph.i49.i
   %200 = getelementptr inbounds i8, ptr %.092.i.i, i64 32
   %.not.not.i50.i = icmp eq ptr %200, %198
-  br i1 %.not.not.i50.i, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i, label %.lr.ph.i49.i
+  br i1 %.not.not.i50.i, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.thread.i, label %.lr.ph.i49.i
 
 .lr.ph.i49.i:                                     ; preds = %196, %199
   %.092.i.i = phi ptr [ %200, %199 ], [ %.val44.i, %196 ]
   %201 = load i32, ptr %.092.i.i, align 8
   %202 = and i32 %201, 255
   %203 = icmp eq i32 %202, 12
-  br i1 %203, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.i, label %199
+  br i1 %203, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.i, label %199
 
-_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.i: ; preds = %.lr.ph.i49.i, %195
+_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.i: ; preds = %.lr.ph.i49.i, %195
   br i1 %138, label %205, label %204
 
-204:                                              ; preds = %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.i
+204:                                              ; preds = %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.i
   tail call fastcc void @_ZN12_GLOBAL__N_118VZeroUpperInserter16insertVZeroUpperEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERNS1_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr %.sroa.054.071.i, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.061.085)
-  br label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i
+  br label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.thread.i
 
-205:                                              ; preds = %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.i
+205:                                              ; preds = %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.i
   %206 = icmp eq i32 %.070.i, 0
-  br i1 %206, label %207, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i
+  br i1 %206, label %207, label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.thread.i
 
 207:                                              ; preds = %205
   %208 = load i32, ptr %97, align 8
@@ -707,9 +707,9 @@ _ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.i: ; preds = %.lr.ph.i49.i, %195
   %210 = getelementptr inbounds %"struct.(anonymous namespace)::VZeroUpperInserter::BlockState", ptr %.val42.i, i64 %209, i32 2
   %211 = ptrtoint ptr %.sroa.054.071.i to i64
   store i64 %211, ptr %210, align 8
-  br label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i
+  br label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.thread.i
 
-_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i: ; preds = %186, %199, %167, %.preheader.i.i.i58, %207, %205, %204, %196, %.loopexit67.i, %137, %133, %_ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i
+_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.thread.i: ; preds = %186, %199, %167, %.preheader.i.i.i58, %207, %205, %204, %196, %.loopexit67.i, %137, %133, %_ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i
   %.1.i = phi i32 [ 2, %137 ], [ 1, %204 ], [ 1, %207 ], [ 1, %205 ], [ %.070.i, %_ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i ], [ %.070.i, %.loopexit67.i ], [ %.070.i, %196 ], [ 1, %133 ], [ 2, %.preheader.i.i.i58 ], [ 2, %167 ], [ %.070.i, %199 ], [ 2, %186 ]
   %212 = icmp ne ptr %.sroa.054.071.i, null
   tail call void @llvm.assume(i1 %212)
@@ -718,7 +718,7 @@ _ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i: ; preds = %186, %199, %
   %.not.i.i.i.i57 = icmp eq i64 %213, 0
   br i1 %.not.i.i.i.i57, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i
 
-_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i: ; preds = %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i
+_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i: ; preds = %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.thread.i
   %214 = load i32, ptr %102, align 4
   %215 = and i32 %214, 8
   %.not34.i.i.i.i = icmp eq i32 %215, 0
@@ -734,8 +734,8 @@ _ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1E
   %.not3.i.i.i.i = icmp eq i32 %220, 0
   br i1 %.not3.i.i.i.i, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i, !llvm.loop !8
 
-_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i, %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i
-  %.sroa.0.0.i.i.i.i = phi ptr [ %.sroa.054.071.i, %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i ], [ %.sroa.054.071.i, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i ], [ %217, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i ]
+_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i, %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.thread.i
+  %.sroa.0.0.i.i.i.i = phi ptr [ %.sroa.054.071.i, %_ZL14callHasRegMaskRN4llvm12MachineInstrE.argprom.exit.thread.i ], [ %.sroa.054.071.i, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i ], [ %217, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i ]
   %221 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 8
   %.sroa.054.0.i = load ptr, ptr %221, align 8
   %.not63.i = icmp eq ptr %.sroa.054.0.i, %96

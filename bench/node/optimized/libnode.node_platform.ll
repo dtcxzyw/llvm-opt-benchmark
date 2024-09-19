@@ -1532,20 +1532,20 @@ _ZNSt6vectorISt10unique_ptrIN4node11DelayedTaskEPFvPS2_EESaIS6_EE11_S_relocateEP
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4node11DelayedTaskEPFvPS2_EESaIS6_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %12, null
-  br i1 %tobool.not.i.i.i, label %"_ZNSt6vectorISt10unique_ptrIN4node11DelayedTaskEPFvPS2_EESaIS6_EE17_M_realloc_insertIJS3_ZNS1_22PerIsolatePlatformData28FlushForegroundTasksInternalEvE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i", label %if.then.i21.i.i
+  br i1 %tobool.not.i.i.i, label %"_ZNSt6vectorISt10unique_ptrIN4node11DelayedTaskEPFvPS2_EESaIS6_EE17_M_realloc_insertIJS3_ZNS1_22PerIsolatePlatformData28FlushForegroundTasksInternalEvE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.argprom.exit.i", label %if.then.i21.i.i
 
 if.then.i21.i.i:                                  ; preds = %_ZNSt6vectorISt10unique_ptrIN4node11DelayedTaskEPFvPS2_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit20.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %12) #27
-  br label %"_ZNSt6vectorISt10unique_ptrIN4node11DelayedTaskEPFvPS2_EESaIS6_EE17_M_realloc_insertIJS3_ZNS1_22PerIsolatePlatformData28FlushForegroundTasksInternalEvE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i"
+  br label %"_ZNSt6vectorISt10unique_ptrIN4node11DelayedTaskEPFvPS2_EESaIS6_EE17_M_realloc_insertIJS3_ZNS1_22PerIsolatePlatformData28FlushForegroundTasksInternalEvE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.argprom.exit.i"
 
-"_ZNSt6vectorISt10unique_ptrIN4node11DelayedTaskEPFvPS2_EESaIS6_EE17_M_realloc_insertIJS3_ZNS1_22PerIsolatePlatformData28FlushForegroundTasksInternalEvE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i": ; preds = %if.then.i21.i.i, %_ZNSt6vectorISt10unique_ptrIN4node11DelayedTaskEPFvPS2_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit20.i.i
+"_ZNSt6vectorISt10unique_ptrIN4node11DelayedTaskEPFvPS2_EESaIS6_EE17_M_realloc_insertIJS3_ZNS1_22PerIsolatePlatformData28FlushForegroundTasksInternalEvE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.argprom.exit.i": ; preds = %if.then.i21.i.i, %_ZNSt6vectorISt10unique_ptrIN4node11DelayedTaskEPFvPS2_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit20.i.i
   store ptr %cond.i10.i.i, ptr %scheduled_delayed_tasks_, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %add.ptr21.i.i = getelementptr inbounds %"class.std::unique_ptr.99", ptr %cond.i10.i.i, i64 %cond.i.i.i
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.then.i, %"_ZNSt6vectorISt10unique_ptrIN4node11DelayedTaskEPFvPS2_EESaIS6_EE17_M_realloc_insertIJS3_ZNS1_22PerIsolatePlatformData28FlushForegroundTasksInternalEvE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i"
+_ZNSt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.then.i, %"_ZNSt6vectorISt10unique_ptrIN4node11DelayedTaskEPFvPS2_EESaIS6_EE17_M_realloc_insertIJS3_ZNS1_22PerIsolatePlatformData28FlushForegroundTasksInternalEvE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.argprom.exit.i"
   tail call void @uv_mutex_lock(ptr noundef nonnull %foreground_delayed_tasks_) #24, !noalias !37
   %18 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !37
   %19 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !37
@@ -6596,7 +6596,7 @@ _ZN4node22PerIsolatePlatformData19DecreaseHandleCountEv.exit.i: ; preds = %for.b
   %6 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr null, ptr %_M_refcount3.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %6, null
-  br i1 %cmp.not.i.i.i.i, label %"_ZZN4node22PerIsolatePlatformData8ShutdownEvENK3$_0clEP11uv_handle_s.exit", label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %"_ZZN4node22PerIsolatePlatformData8ShutdownEvENK3$_0clEP11uv_handle_s.argprom.exit", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN4node22PerIsolatePlatformData19DecreaseHandleCountEv.exit.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
@@ -6632,7 +6632,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %8, %if.then.i.i.i.i.i.i ], [ %11, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %"_ZZN4node22PerIsolatePlatformData8ShutdownEvENK3$_0clEP11uv_handle_s.exit"
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %"_ZZN4node22PerIsolatePlatformData8ShutdownEvENK3$_0clEP11uv_handle_s.argprom.exit"
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
@@ -6657,16 +6657,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %14, %if.then.i.i.i.i.i.i.i.i ], [ %15, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %"_ZZN4node22PerIsolatePlatformData8ShutdownEvENK3$_0clEP11uv_handle_s.exit"
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %"_ZZN4node22PerIsolatePlatformData8ShutdownEvENK3$_0clEP11uv_handle_s.argprom.exit"
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #24
-  br label %"_ZZN4node22PerIsolatePlatformData8ShutdownEvENK3$_0clEP11uv_handle_s.exit"
+  br label %"_ZZN4node22PerIsolatePlatformData8ShutdownEvENK3$_0clEP11uv_handle_s.argprom.exit"
 
-"_ZZN4node22PerIsolatePlatformData8ShutdownEvENK3$_0clEP11uv_handle_s.exit": ; preds = %_ZN4node22PerIsolatePlatformData19DecreaseHandleCountEv.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+"_ZZN4node22PerIsolatePlatformData8ShutdownEvENK3$_0clEP11uv_handle_s.argprom.exit": ; preds = %_ZN4node22PerIsolatePlatformData19DecreaseHandleCountEv.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %handle) #27
   ret void
 }
@@ -8222,7 +8222,7 @@ for.body.i.i:                                     ; preds = %if.then8.i.i, %for.
 
 _ZN4node22PerIsolatePlatformData19DecreaseHandleCountEv.exit.i: ; preds = %for.body.i.i
   %cmp.not.i1.i = icmp eq ptr %handle.val, null
-  br i1 %cmp.not.i1.i, label %"_ZZZN4node22PerIsolatePlatformData28FlushForegroundTasksInternalEvENK3$_0clEPNS_11DelayedTaskEENKUlP11uv_handle_sE_clES5_.exit", label %delete.notnull.i.i.i
+  br i1 %cmp.not.i1.i, label %"_ZZZN4node22PerIsolatePlatformData28FlushForegroundTasksInternalEvENK3$_0clEPNS_11DelayedTaskEENKUlP11uv_handle_sE_clES5_.argprom.exit", label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %_ZN4node22PerIsolatePlatformData19DecreaseHandleCountEv.exit.i, %if.then8.i.i, %do.end5.i.i
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %handle.val, i64 176
@@ -8312,9 +8312,9 @@ _ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i.i.i.i: ; preds = %_ZNSt10shar
 
 _ZNKSt14default_deleteIN4node11DelayedTaskEEclEPS1_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i.i.i.i, %_ZNSt10shared_ptrIN4node22PerIsolatePlatformDataEED2Ev.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %handle.val) #27
-  br label %"_ZZZN4node22PerIsolatePlatformData28FlushForegroundTasksInternalEvENK3$_0clEPNS_11DelayedTaskEENKUlP11uv_handle_sE_clES5_.exit"
+  br label %"_ZZZN4node22PerIsolatePlatformData28FlushForegroundTasksInternalEvENK3$_0clEPNS_11DelayedTaskEENKUlP11uv_handle_sE_clES5_.argprom.exit"
 
-"_ZZZN4node22PerIsolatePlatformData28FlushForegroundTasksInternalEvENK3$_0clEPNS_11DelayedTaskEENKUlP11uv_handle_sE_clES5_.exit": ; preds = %_ZN4node22PerIsolatePlatformData19DecreaseHandleCountEv.exit.i, %_ZNKSt14default_deleteIN4node11DelayedTaskEEclEPS1_.exit.i.i
+"_ZZZN4node22PerIsolatePlatformData28FlushForegroundTasksInternalEvENK3$_0clEPNS_11DelayedTaskEENKUlP11uv_handle_sE_clES5_.argprom.exit": ; preds = %_ZN4node22PerIsolatePlatformData19DecreaseHandleCountEv.exit.i, %_ZNKSt14default_deleteIN4node11DelayedTaskEEclEPS1_.exit.i.i
   ret void
 }
 

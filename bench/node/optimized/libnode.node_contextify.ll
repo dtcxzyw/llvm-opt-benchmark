@@ -7159,16 +7159,16 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i: ; pre
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i, %arraydestroy.body.i.i
   store ptr null, ptr %arraydestroy.element.i.i, align 8
   %arraydestroy.done.i.i = icmp eq ptr %arraydestroy.element.i.i, %arg_convertibles.i.i
-  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventINS0_19TraceStringWithCopyEEEmcPKhPKcS6_mmjS6_OT_.exit, label %arraydestroy.body.i.i
+  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventINS0_19TraceStringWithCopyEEEmcPKhPKcS6_mmjS6_OT_.argprom.exit, label %arraydestroy.body.i.i
 
-_ZN4node7tracingL13AddTraceEventINS0_19TraceStringWithCopyEEEmcPKhPKcS6_mmjS6_OT_.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
+_ZN4node7tracingL13AddTraceEventINS0_19TraceStringWithCopyEEEmcPKhPKcS6_mmjS6_OT_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg1_name.addr.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %arg_type.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg_value.i)
   br label %do.end306
 
-do.end306:                                        ; preds = %_ZN4node7tracingL13AddTraceEventINS0_19TraceStringWithCopyEEEmcPKhPKcS6_mmjS6_OT_.exit, %if.end298
+do.end306:                                        ; preds = %_ZN4node7tracingL13AddTraceEventINS0_19TraceStringWithCopyEEEmcPKhPKcS6_mmjS6_OT_.argprom.exit, %if.end298
   %buf_.i.i.i.i = getelementptr inbounds i8, ptr %fn, i64 16
   %160 = load ptr, ptr %buf_.i.i.i.i, align 8
   %cmp.i.i.i.i170 = icmp ne ptr %160, null
@@ -7334,9 +7334,9 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i198: ; 
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i201: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i198, %arraydestroy.body.i.i194
   store ptr null, ptr %arraydestroy.element.i.i196, align 8
   %arraydestroy.done.i.i202 = icmp eq ptr %arraydestroy.element.i.i196, %arg_convertibles.i.i184
-  br i1 %arraydestroy.done.i.i202, label %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit, label %arraydestroy.body.i.i194
+  br i1 %arraydestroy.done.i.i202, label %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argprom.exit, label %arraydestroy.body.i.i194
 
-_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i201
+_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argprom.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i201
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i184)
   br label %cleanup523.thread
 
@@ -7524,7 +7524,7 @@ _ZNKSt14default_deleteIN2v814ScriptCompiler10CachedDataEEclEPS2_.exit.i259: ; pr
   call void @_ZdlPv(ptr noundef nonnull %new_cached_data.sroa.0.0) #23
   br label %if.then.i.i262.sink.split
 
-cleanup523.thread:                                ; preds = %if.end390, %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit
+cleanup523.thread:                                ; preds = %if.end390, %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argprom.exit
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %parsing_context.sroa.0.0) #21
   br label %_ZN4node29ShouldNotAbortOnUncaughtScopeD2Ev.exit
 
@@ -8075,9 +8075,9 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i: ; pre
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i, %arraydestroy.body.i.i
   store ptr null, ptr %arraydestroy.element.i.i, align 8
   %arraydestroy.done.i.i = icmp eq ptr %arraydestroy.element.i.i, %arg_convertibles.i.i
-  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit, label %arraydestroy.body.i.i
+  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argprom.exit, label %arraydestroy.body.i.i
 
-_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
+_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argprom.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
   %data_.i = getelementptr inbounds i8, ptr %trace_event_unique_tracer1042, i64 8
   store ptr %trace_event_unique_category_group_enabled1042.0, ptr %data_.i, align 8
@@ -8088,7 +8088,7 @@ _ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit: ; preds = %_ZNSt10unique_pt
   store ptr %data_.i, ptr %trace_event_unique_tracer1042, align 8
   br label %lor.lhs.false.i352
 
-lor.lhs.false.i352:                               ; preds = %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit, %if.end101
+lor.lhs.false.i352:                               ; preds = %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argprom.exit, %if.end101
   %79 = load i32, ptr %length_.i, align 8
   %cmp2.i354 = icmp slt i32 %79, 2
   br i1 %cmp2.i354, label %if.then.i360, label %if.end.i355

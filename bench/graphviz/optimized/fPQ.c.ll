@@ -31,7 +31,7 @@ define void @PQgen(i32 noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %3
   %7 = load ptr, ptr @stderr, align 8
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.4, i64 noundef %5, i64 noundef 8) #15
-  tail call fastcc void @graphviz_exit() #16
+  tail call fastcc void @graphviz_exit.argelim() #16
   unreachable
 
 9:                                                ; preds = %3
@@ -45,7 +45,7 @@ define void @PQgen(i32 noundef %0) local_unnamed_addr #0 {
   %14 = load ptr, ptr @stderr, align 8
   %15 = shl nuw nsw i64 %5, 3
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.5, i64 noundef %15) #15
-  tail call fastcc void @graphviz_exit() #16
+  tail call fastcc void @graphviz_exit.argelim() #16
   unreachable
 
 gv_calloc.exit:                                   ; preds = %9
@@ -424,7 +424,7 @@ define void @PQprint() local_unnamed_addr #8 {
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #10 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #10 {
   tail call void @exit(i32 noundef 1) #20
   unreachable
 }

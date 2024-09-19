@@ -3129,8 +3129,8 @@ define internal fastcc i32 @_select_nodes(ptr noundef %0, ptr nocapture noundef 
   br label %79
 
 79:                                               ; preds = %77, %.lr.ph
-  call fastcc void @_filter_resv(ptr noundef %0, ptr noundef %74, ptr noundef %5)
-  call fastcc void @_filter_resv(ptr noundef %0, ptr noundef %74, ptr noundef %62)
+  call fastcc void @_filter_resv.argelim(ptr noundef %0, ptr noundef %74, ptr noundef %5)
+  call fastcc void @_filter_resv.argelim(ptr noundef %0, ptr noundef %74, ptr noundef %62)
   %80 = call ptr @list_next(ptr noundef %72) #21
   %.not100 = icmp eq ptr %80, null
   br i1 %.not100, label %._crit_edge, label %.lr.ph, !llvm.loop !17
@@ -4313,11 +4313,11 @@ define internal fastcc void @_set_tres_cnt(ptr noundef %0, ptr noundef readonly 
   br i1 %.not86, label %110, label %109
 
 109:                                              ; preds = %93
-  call fastcc void @_post_resv_update(ptr noundef nonnull %0, ptr noundef %1)
+  call fastcc void @_post_resv_update.retelim(ptr noundef nonnull %0, ptr noundef %1)
   br label %111
 
 110:                                              ; preds = %93
-  call fastcc void @_post_resv_create(ptr noundef nonnull %0)
+  call fastcc void @_post_resv_create.retelim(ptr noundef nonnull %0)
   br label %111
 
 111:                                              ; preds = %110, %109
@@ -8500,7 +8500,7 @@ _advance_time.exit80:                             ; preds = %_advance_time.exit,
   %134 = load i32, ptr %37, align 8
   %135 = and i32 %134, -49
   store i32 %135, ptr %37, align 8
-  call fastcc void @_post_resv_create(ptr noundef nonnull %0)
+  call fastcc void @_post_resv_create.retelim(ptr noundef nonnull %0)
   %136 = call i64 @time(ptr noundef null) #21
   store i64 %136, ptr @last_resv_update, align 8
   call void @schedule_resv_save() #21
@@ -13315,7 +13315,7 @@ _update_constraint_planning.exit:                 ; preds = %171, %._crit_edge.i
   %173 = call ptr @list_iterator_create(ptr noundef %14) #21
   %174 = call ptr @list_next(ptr noundef %173) #21
   %.not1.i = icmp eq ptr %174, null
-  br i1 %.not1.i, label %_max_constraint_planning.exit, label %.lr.ph.i35
+  br i1 %.not1.i, label %_max_constraint_planning.argprom.exit, label %.lr.ph.i35
 
 .lr.ph.i35:                                       ; preds = %._crit_edge, %183
   %175 = phi ptr [ %184, %183 ], [ %174, %._crit_edge ]
@@ -13337,9 +13337,9 @@ _update_constraint_planning.exit:                 ; preds = %171, %._crit_edge.i
   %.1.i36 = phi i32 [ %177, %179 ], [ %.02.i, %.lr.ph.i35 ]
   %184 = call ptr @list_next(ptr noundef %173) #21
   %.not.i = icmp eq ptr %184, null
-  br i1 %.not.i, label %_max_constraint_planning.exit, label %.lr.ph.i35, !llvm.loop !88
+  br i1 %.not.i, label %_max_constraint_planning.argprom.exit, label %.lr.ph.i35, !llvm.loop !88
 
-_max_constraint_planning.exit:                    ; preds = %183, %._crit_edge
+_max_constraint_planning.argprom.exit:            ; preds = %183, %._crit_edge
   %.0.lcssa.i = phi i32 [ 0, %._crit_edge ], [ %.1.i36, %183 ]
   call void @list_iterator_destroy(ptr noundef %173) #21
   %185 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
@@ -13347,7 +13347,7 @@ _max_constraint_planning.exit:                    ; preds = %183, %._crit_edge
   %.not29 = icmp eq i64 %186, 0
   br i1 %.not29, label %205, label %187
 
-187:                                              ; preds = %_max_constraint_planning.exit
+187:                                              ; preds = %_max_constraint_planning.argprom.exit
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
@@ -13361,7 +13361,7 @@ _max_constraint_planning.exit:                    ; preds = %183, %._crit_edge
   %190 = call ptr @list_iterator_create(ptr noundef %14) #21
   %191 = call ptr @list_next(ptr noundef %190) #21
   %.not1.i38 = icmp eq ptr %191, null
-  br i1 %.not1.i38, label %_print_constraint_planning.exit, label %.lr.ph.i39
+  br i1 %.not1.i38, label %_print_constraint_planning.argprom.exit, label %.lr.ph.i39
 
 .lr.ph.i39:                                       ; preds = %187, %199
   %192 = phi ptr [ %201, %199 ], [ %191, %187 ]
@@ -13383,9 +13383,9 @@ _max_constraint_planning.exit:                    ; preds = %183, %._crit_edge
   %200 = add i32 %.02.i40, 1
   %201 = call ptr @list_next(ptr noundef %190) #21
   %.not.i41 = icmp eq ptr %201, null
-  br i1 %.not.i41, label %_print_constraint_planning.exit, label %.lr.ph.i39, !llvm.loop !89
+  br i1 %.not.i41, label %_print_constraint_planning.argprom.exit, label %.lr.ph.i39, !llvm.loop !89
 
-_print_constraint_planning.exit:                  ; preds = %199, %187
+_print_constraint_planning.argprom.exit:          ; preds = %199, %187
   call void @list_iterator_destroy(ptr noundef %190) #21
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
@@ -13395,11 +13395,11 @@ _print_constraint_planning.exit:                  ; preds = %199, %187
   %203 = icmp sgt i32 %202, 5
   br i1 %203, label %204, label %205
 
-204:                                              ; preds = %_print_constraint_planning.exit
+204:                                              ; preds = %_print_constraint_planning.argprom.exit
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.89, i32 noundef %.0.lcssa.i, ptr noundef nonnull %9, ptr noundef nonnull %10) #21
   br label %205
 
-205:                                              ; preds = %_print_constraint_planning.exit, %204, %_max_constraint_planning.exit
+205:                                              ; preds = %_print_constraint_planning.argprom.exit, %204, %_max_constraint_planning.argprom.exit
   %.not.i43 = icmp eq ptr %14, null
   br i1 %.not.i43, label %_free_constraint_planning.exit, label %206
 
@@ -15147,7 +15147,7 @@ define dso_local noundef i32 @send_resvs_to_accounting(i32 noundef %0) local_unn
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %.lr.ph.split.split.us
   %8 = phi ptr [ %9, %.lr.ph.split.split.us ], [ %7, %.lr.ph ]
-  tail call fastcc void @_post_resv_create(ptr noundef nonnull %8)
+  tail call fastcc void @_post_resv_create.retelim(ptr noundef nonnull %8)
   %9 = tail call ptr @list_next(ptr noundef %6) #21
   %.not8.us = icmp eq ptr %9, null
   br i1 %.not8.us, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !94
@@ -15155,7 +15155,7 @@ define dso_local noundef i32 @send_resvs_to_accounting(i32 noundef %0) local_unn
 .lr.ph.split.split:                               ; preds = %.lr.ph, %.lr.ph.split.split
   %10 = phi ptr [ %11, %.lr.ph.split.split ], [ %7, %.lr.ph ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %2, i8 0, i64 312, i1 false)
-  call fastcc void @_post_resv_update(ptr noundef nonnull %10, ptr noundef %2)
+  call fastcc void @_post_resv_update.retelim(ptr noundef nonnull %10, ptr noundef %2)
   %11 = tail call ptr @list_next(ptr noundef %6) #21
   %.not8 = icmp eq ptr %11, null
   br i1 %.not8, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !94
@@ -15174,7 +15174,7 @@ define dso_local noundef i32 @send_resvs_to_accounting(i32 noundef %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_post_resv_create(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @_post_resv_create.retelim(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.slurmdb_reservation_rec_t, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %3, align 8
@@ -15253,7 +15253,7 @@ _set_boot_time.exit:                              ; preds = %1, %6, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_post_resv_update(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_post_resv_update.retelim(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca %struct.slurmdb_reservation_rec_t, align 8
   %4 = tail call i64 @time(ptr noundef null) #21
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -17138,7 +17138,7 @@ declare void @bit_and(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @bit_pick_cnt(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_filter_resv(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @_filter_resv.argelim(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [2 x ptr], align 16
   %5 = alloca [2 x ptr], align 16
   %6 = getelementptr inbounds i8, ptr %1, i64 192

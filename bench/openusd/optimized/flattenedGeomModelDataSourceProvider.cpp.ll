@@ -155,7 +155,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__46UsdImagingFlattenedGeomMode
   %12 = load ptr, ptr %11, align 8, !noalias !4
   store ptr %12, ptr %10, align 8, !alias.scope !4
   %.not.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.exit, label %13
+  br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.argprom.exit, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -167,11 +167,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__46UsdImagingFlattenedGeomMode
   %17 = load i32, ptr %14, align 4, !noalias !4
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %14, align 4, !noalias !4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.argprom.exit
 
 19:                                               ; preds = %13
   %20 = atomicrmw volatile add ptr %14, i32 1 acq_rel, align 4, !noalias !4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.argprom.exit
 
 21:                                               ; preds = %6
   %.not1.i = icmp eq ptr %8, null
@@ -182,7 +182,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__46UsdImagingFlattenedGeomMode
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val5, ptr %23, align 8, !alias.scope !4
   %.not.i.i.i8.i = icmp eq ptr %.val5, null
-  br i1 %.not.i.i.i8.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.exit, label %24
+  br i1 %.not.i.i.i8.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.argprom.exit, label %24
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %.val5, i64 8
@@ -194,11 +194,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__46UsdImagingFlattenedGeomMode
   %28 = load i32, ptr %25, align 4, !noalias !4
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %25, align 4, !noalias !4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.argprom.exit
 
 30:                                               ; preds = %24
   %31 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4, !noalias !4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.argprom.exit
 
 32:                                               ; preds = %21
   %33 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
@@ -259,7 +259,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSourceC2ERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.exit.i.i: ; preds = %55, %52, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2ERKS2_.exit.i.i.i
   %57 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSourceEED2Ev.exit.i unwind label %58, !noalias !7
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSourceEED2Ev.argprom.exit.i unwind label %58, !noalias !7
 
 58:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSourceC2ERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.exit.i.i
   %59 = landingpad { ptr, i32 }
@@ -289,7 +289,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSourceC2ERKSt10sh
 70:                                               ; preds = %58
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSourceEED2Ev.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSourceC2ERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.exit.i.i
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSourceEED2Ev.argprom.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSourceC2ERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.exit.i.i
   %71 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 1, ptr %71, align 8, !noalias !7
   %72 = getelementptr inbounds nuw i8, ptr %57, i64 12
@@ -300,15 +300,15 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataS
   store ptr %33, ptr %0, align 8, !alias.scope !4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %57, ptr %74, align 8, !alias.scope !4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.argprom.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSourceEED2Ev.exit.i, %30, %27, %22, %19, %16, %9
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.argprom.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSourceEED2Ev.argprom.exit.i, %30, %27, %22, %19, %16, %9
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %76 = load ptr, ptr %75, align 8
   %.not.i.i.i = icmp eq ptr %76, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, label %77
 
-77:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.exit
+77:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.argprom.exit
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %79 = load atomic i64, ptr %78 acquire, align 8
   %80 = icmp eq i64 %79, 4294967297
@@ -376,7 +376,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %110(ptr noundef nonnull align 8 dereferenceable(16) %76) #15
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.exit, %93, %106, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.argprom.exit, %93, %106, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   %111 = load ptr, ptr %7, align 8
   %.not.i.i.i8 = icmp eq ptr %111, null
   br i1 %.not.i.i.i8, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit14, label %112
@@ -1357,7 +1357,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %.loopexit
   %74 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %.loopexit ]
   %.not.i.i.i23 = icmp eq ptr %74, null
-  br i1 %.not.i.i.i23, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ContainsDrawModeERKSt6vectorINS_7TfTokenESaIS2_EE.exit, label %80
+  br i1 %.not.i.i.i23, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ContainsDrawModeERKSt6vectorINS_7TfTokenESaIS2_EE.argprom.exit, label %80
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.thread: ; preds = %40
   %.not.i.i.i2345 = icmp eq ptr %.val9, null
@@ -1381,10 +1381,10 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
   call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %85) #16
   br i1 %64, label %86, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ContainsDrawModeERKSt6vectorINS_7TfTokenESaIS2_EE.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ContainsDrawModeERKSt6vectorINS_7TfTokenESaIS2_EE.argprom.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i
   br i1 %64, label %86, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1_.exit
 
-86:                                               ; preds = %80, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ContainsDrawModeERKSt6vectorINS_7TfTokenESaIS2_EE.exit
+86:                                               ; preds = %80, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ContainsDrawModeERKSt6vectorINS_7TfTokenESaIS2_EE.argprom.exit
   %87 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__31UsdImagingGeomModelSchemaTokensE seq_cst, align 8
   %88 = inttoptr i64 %87 to ptr
   %.not.i.i = icmp eq i64 %87, 0
@@ -1479,7 +1479,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constr
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   br label %.body
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_47UsdImagingGeomModelSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i, %.thread, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.thread, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i, %119, %80, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ContainsDrawModeERKSt6vectorINS_7TfTokenESaIS2_EE.exit
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_47UsdImagingGeomModelSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i, %.thread, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.thread, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i, %119, %80, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ContainsDrawModeERKSt6vectorINS_7TfTokenESaIS2_EE.argprom.exit
   ret void
 
 .body:                                            ; preds = %.loopexit36, %.loopexit.split-lp, %16, %91, %.body20
@@ -6664,11 +6664,11 @@ attributes #20 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_: argument 0"}
-!6 = distinct !{!6, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_"}
+!5 = distinct !{!5, !6, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.argprom: argument 0"}
+!6 = distinct !{!6, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource14UseOrCreateNewERKSt10shared_ptrINS_21HdContainerDataSourceEES6_.argprom"}
 !7 = !{!8, !5}
-!8 = distinct !{!8, !9, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource3NewIJRKSt10shared_ptrINS_21HdContainerDataSourceEES7_EEES3_IS1_EDpOT_: argument 0"}
-!9 = distinct !{!9, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource3NewIJRKSt10shared_ptrINS_21HdContainerDataSourceEES7_EEES3_IS1_EDpOT_"}
+!8 = distinct !{!8, !9, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource3NewIJRKSt10shared_ptrINS_21HdContainerDataSourceEES7_EEES3_IS1_EDpOT_.argprom: argument 0"}
+!9 = distinct !{!9, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ModelDataSource3NewIJRKSt10shared_ptrINS_21HdContainerDataSourceEES7_EEES3_IS1_EDpOT_.argprom"}
 !10 = !{!"branch_weights", i32 1, i32 1048575}
 !11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}

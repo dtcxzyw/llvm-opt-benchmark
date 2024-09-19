@@ -506,7 +506,7 @@ land.lhs.true261:                                 ; preds = %if.then258
   br i1 %or.cond2, label %if.then267, label %if.end269
 
 if.then267:                                       ; preds = %land.lhs.true261
-  %call268 = call fastcc ptr @_()
+  %call268 = call fastcc ptr @_.argprom()
   call void (ptr, ...) @die(ptr noundef %call268) #9
   unreachable
 
@@ -875,7 +875,7 @@ declare i32 @repo_hold_locked_index(ptr noundef, ptr noundef, i32 noundef) local
 declare i32 @repo_read_index_unmerged(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_() unnamed_addr #0 {
+define internal fastcc ptr @_.argprom() unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not = icmp eq i32 %0, 0

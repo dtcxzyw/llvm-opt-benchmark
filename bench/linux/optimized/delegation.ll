@@ -2259,9 +2259,9 @@ define internal noundef i32 @nfs_server_reap_unclaimed_delegations(ptr noundef %
   %35 = getelementptr i8, ptr %25, i64 -72
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, %31
-  br i1 %37, label %38, label %nfs_detach_delegation.exit.thread
+  br i1 %37, label %38, label %nfs_detach_delegation.argprom.exit.thread
 
-nfs_detach_delegation.exit.thread:                ; preds = %33
+nfs_detach_delegation.argprom.exit.thread:        ; preds = %33
   tail call void @_raw_spin_unlock(ptr noundef %34) #12
   br label %47
 
@@ -2271,9 +2271,9 @@ nfs_detach_delegation.exit.thread:                ; preds = %33
   %40 = getelementptr inbounds i8, ptr %31, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.critedge, label %nfs_detach_delegation.exit
+  br i1 %42, label %.critedge, label %nfs_detach_delegation.argprom.exit
 
-nfs_detach_delegation.exit:                       ; preds = %38
+nfs_detach_delegation.argprom.exit:               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %31, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %31, align 8
@@ -2293,7 +2293,7 @@ nfs_detach_delegation.exit:                       ; preds = %38
   tail call void @_raw_spin_unlock(ptr noundef %34) #12
   br label %47
 
-47:                                               ; preds = %.critedge, %nfs_detach_delegation.exit.thread, %nfs_detach_delegation.exit
+47:                                               ; preds = %.critedge, %nfs_detach_delegation.argprom.exit.thread, %nfs_detach_delegation.argprom.exit
   %48 = getelementptr inbounds i8, ptr %31, i64 88
   %49 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %48, i32 -1, ptr elementtype(i32) %48) #12, !srcloc !32
   %50 = icmp eq i32 %49, 1

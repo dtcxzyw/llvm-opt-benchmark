@@ -1255,7 +1255,7 @@ define hidden noundef ptr @_ZN12PhaseChaitin19split_RematerializeEP4NodeP5Blockj
   %53 = trunc nuw i64 %indvars.iv to i32
   %54 = tail call noundef ptr @_ZN12PhaseChaitin18get_spillcopy_wideEN17MachSpillCopyNode9SpillTypeEP4NodeS3_j(ptr noundef nonnull align 8 dereferenceable(364) %0, i32 noundef 10, ptr noundef nonnull %23, ptr noundef nonnull %1, i32 noundef %53)
   %.not98 = icmp eq ptr %54, null
-  br i1 %.not98, label %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit.thread, label %55
+  br i1 %.not98, label %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit.thread, label %55
 
 55:                                               ; preds = %52
   %56 = load i32, ptr %4, align 4
@@ -1342,7 +1342,7 @@ define hidden noundef ptr @_ZN12PhaseChaitin19split_RematerializeEP4NodeP5Blockj
   %103 = load ptr, ptr %102, align 8
   tail call void @_ZN5ciEnv28record_method_not_compilableEPKcb(ptr noundef nonnull align 8 dereferenceable(1265) %103, ptr noundef nonnull @.str.4, i1 noundef zeroext false) #9
   tail call void @_ZN7Compile14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(2316) %101, ptr noundef nonnull @.str.4) #9
-  br label %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit.thread
+  br label %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit.thread
 
 _ZN4Node7set_reqEjPS_.exit:                       ; preds = %91, %80, %97, %32
   %.2 = phi i32 [ %.1123, %32 ], [ %.1123, %97 ], [ %spec.select, %80 ], [ %spec.select, %91 ]
@@ -1357,7 +1357,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %91, %80, %97, %32
   %107 = getelementptr inbounds i8, ptr %0, i64 16
   %108 = load ptr, ptr %107, align 8
   %109 = tail call noundef zeroext i1 @_ZNK4Node27needs_anti_dependence_checkEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
-  br i1 %109, label %110, label %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit
+  br i1 %109, label %110, label %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit
 
 110:                                              ; preds = %.loopexit118
   %111 = getelementptr inbounds i8, ptr %108, i64 20
@@ -1380,19 +1380,19 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %91, %80, %97, %32
 124:                                              ; preds = %116
   %125 = tail call noundef ptr @_ZN10C2Compiler24retry_no_subsuming_loadsEv() #9
   tail call void @_ZN7Compile14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(2316) %108, ptr noundef %125) #9
-  br label %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit.thread
+  br label %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit.thread
 
 ._crit_edge.i:                                    ; preds = %116, %110
   tail call void @_ZN5ciEnv28record_method_not_compilableEPKcb(ptr noundef nonnull align 8 dereferenceable(1265) %115, ptr noundef nonnull @.str.9, i1 noundef zeroext false) #9
   tail call void @_ZN7Compile14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(2316) %108, ptr noundef nonnull @.str.9) #9
-  br label %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit.thread
+  br label %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit.thread
 
-_ZL10clone_nodeP4NodeP5BlockP7Compile.exit:       ; preds = %.loopexit118
+_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit: ; preds = %.loopexit118
   %126 = tail call noundef ptr @_ZNK4Node5cloneEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
   %127 = icmp eq ptr %126, null
-  br i1 %127, label %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit.thread, label %128
+  br i1 %127, label %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit.thread, label %128
 
-128:                                              ; preds = %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit
+128:                                              ; preds = %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit
   %129 = load ptr, ptr %107, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 2088
   %131 = load i8, ptr %130, align 8
@@ -1401,7 +1401,7 @@ _ZL10clone_nodeP4NodeP5BlockP7Compile.exit:       ; preds = %.loopexit118
 
 133:                                              ; preds = %128
   tail call void @_ZN7Compile32record_method_not_compilable_oomEv(ptr noundef nonnull align 8 dereferenceable(2316) %129) #9
-  br label %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit.thread
+  br label %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit.thread
 
 134:                                              ; preds = %128
   %135 = load i64, ptr @NodeLimitFudgeFactor, align 8
@@ -1423,7 +1423,7 @@ _ZL10clone_nodeP4NodeP5BlockP7Compile.exit:       ; preds = %.loopexit118
   %149 = load ptr, ptr %148, align 8
   tail call void @_ZN5ciEnv28record_method_not_compilableEPKcb(ptr noundef nonnull align 8 dereferenceable(1265) %149, ptr noundef nonnull @_ZL12out_of_nodes, i1 noundef zeroext false) #9
   tail call void @_ZN7Compile14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(2316) %129, ptr noundef nonnull @_ZL12out_of_nodes) #9
-  br label %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit.thread
+  br label %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit.thread
 
 _ZN7Compile16check_node_countEjPKc.exit:          ; preds = %134
   %150 = getelementptr inbounds i8, ptr %126, i64 24
@@ -1625,7 +1625,7 @@ _ZNK9VectorSet4testEj.exit.thread:                ; preds = %.loopexit, %260, %_
   %263 = add i32 %.081, 1
   %264 = tail call noundef i32 @_ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_Rj(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef %2, i32 noundef %263, ptr noundef nonnull %1, ptr noundef nonnull %126, ptr noundef nonnull align 4 dereferenceable(4) %4) #9
   %265 = icmp sgt i32 %264, 0
-  br i1 %265, label %266, label %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit.thread
+  br i1 %265, label %266, label %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit.thread
 
 266:                                              ; preds = %_ZNK9VectorSet4testEj.exit.thread
   %267 = getelementptr inbounds i8, ptr %2, i64 112
@@ -1642,15 +1642,15 @@ _ZNK9VectorSet4testEj.exit.thread:                ; preds = %.loopexit, %260, %_
   %272 = getelementptr inbounds i8, ptr %2, i64 120
   %273 = load i32, ptr %272, align 8
   %.not94 = icmp ugt i32 %263, %273
-  br i1 %.not94, label %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit.thread, label %274
+  br i1 %.not94, label %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit.thread, label %274
 
 274:                                              ; preds = %271
   %275 = add i32 %273, %264
   store i32 %275, ptr %272, align 8
-  br label %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit.thread
+  br label %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit.thread
 
-_ZL10clone_nodeP4NodeP5BlockP7Compile.exit.thread: ; preds = %52, %147, %133, %124, %._crit_edge.i, %_ZNK9VectorSet4testEj.exit.thread, %274, %271, %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit, %99
-  %.0 = phi ptr [ null, %99 ], [ null, %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit ], [ %126, %271 ], [ %126, %274 ], [ %126, %_ZNK9VectorSet4testEj.exit.thread ], [ null, %._crit_edge.i ], [ null, %124 ], [ null, %133 ], [ null, %147 ], [ null, %52 ]
+_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit.thread: ; preds = %52, %147, %133, %124, %._crit_edge.i, %_ZNK9VectorSet4testEj.exit.thread, %274, %271, %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit, %99
+  %.0 = phi ptr [ null, %99 ], [ null, %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit ], [ %126, %271 ], [ %126, %274 ], [ %126, %_ZNK9VectorSet4testEj.exit.thread ], [ null, %._crit_edge.i ], [ null, %124 ], [ null, %133 ], [ null, %147 ], [ null, %52 ]
   ret ptr %.0
 }
 
@@ -3504,7 +3504,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
 897:                                              ; preds = %891
   %898 = load ptr, ptr %216, align 8
   %899 = call noundef zeroext i1 @_ZNK4Node27needs_anti_dependence_checkEv(ptr noundef nonnull align 8 dereferenceable(52) %881) #9
-  br i1 %899, label %900, label %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit
+  br i1 %899, label %900, label %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit
 
 900:                                              ; preds = %897
   %901 = getelementptr inbounds i8, ptr %898, i64 20
@@ -3534,12 +3534,12 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   call void @_ZN7Compile14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(2316) %898, ptr noundef nonnull @.str.9) #9
   br label %_ZN7Compile16check_node_countEjPKc.exit.thread
 
-_ZL10clone_nodeP4NodeP5BlockP7Compile.exit:       ; preds = %897
+_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit: ; preds = %897
   %916 = call noundef ptr @_ZNK4Node5cloneEv(ptr noundef nonnull align 8 dereferenceable(52) %881) #9
   %917 = icmp eq ptr %916, null
   br i1 %917, label %_ZN7Compile16check_node_countEjPKc.exit.thread, label %918
 
-918:                                              ; preds = %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit
+918:                                              ; preds = %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit
   %919 = load ptr, ptr %216, align 8
   %920 = getelementptr inbounds i8, ptr %919, i64 2088
   %921 = load i8, ptr %920, align 8
@@ -5542,9 +5542,9 @@ _ZN12LiveRangeMap4findEPK4Node.exit993:           ; preds = %_ZN12LiveRangeMap4f
   %.pre1765 = and i64 %30, 1
   br label %_ZN7Compile16check_node_countEjPKc.exit.thread
 
-_ZN7Compile16check_node_countEjPKc.exit.thread:   ; preds = %1627, %_ZN13GrowableArrayIjED2Ev.exit962, %_ZN13GrowableArrayIjED2Ev.exit, %_ZN13GrowableArrayIjED2Ev.exit950, %_ZN13GrowableArrayIjED2Ev.exit948, %_ZN13GrowableArrayIjED2Ev.exit938, %_ZN13GrowableArrayIjED2Ev.exit916, %_ZN13GrowableArrayIjED2Ev.exit911, %_ZN13GrowableArrayIjED2Ev.exit899, %_ZN13GrowableArrayIjED2Ev.exit897, %_ZN13GrowableArrayIjED2Ev.exit879, %_ZN13GrowableArrayIjED2Ev.exit877, %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit, %_ZN13GrowableArrayIjED2Ev.exit989, %_ZN13GrowableArrayIjED2Ev.exit979, %937, %923, %914, %._crit_edge.i, %247, %235, %._crit_edge1604
-  %.pre-phi1766 = phi i64 [ %221, %937 ], [ %221, %923 ], [ %221, %914 ], [ %221, %._crit_edge.i ], [ %221, %247 ], [ %221, %235 ], [ %.pre1765, %._crit_edge1604 ], [ %1706, %_ZN13GrowableArrayIjED2Ev.exit979 ], [ %1706, %_ZN13GrowableArrayIjED2Ev.exit989 ], [ %221, %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit877 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit879 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit897 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit899 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit911 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit916 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit938 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit948 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit950 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit962 ], [ %221, %1627 ]
-  %.0 = phi i32 [ 0, %937 ], [ 0, %923 ], [ 0, %914 ], [ 0, %._crit_edge.i ], [ 0, %247 ], [ 0, %235 ], [ %2045, %._crit_edge1604 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit979 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit989 ], [ 0, %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit877 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit879 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit897 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit899 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit911 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit916 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit938 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit948 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit950 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit962 ], [ 0, %1627 ]
+_ZN7Compile16check_node_countEjPKc.exit.thread:   ; preds = %1627, %_ZN13GrowableArrayIjED2Ev.exit962, %_ZN13GrowableArrayIjED2Ev.exit, %_ZN13GrowableArrayIjED2Ev.exit950, %_ZN13GrowableArrayIjED2Ev.exit948, %_ZN13GrowableArrayIjED2Ev.exit938, %_ZN13GrowableArrayIjED2Ev.exit916, %_ZN13GrowableArrayIjED2Ev.exit911, %_ZN13GrowableArrayIjED2Ev.exit899, %_ZN13GrowableArrayIjED2Ev.exit897, %_ZN13GrowableArrayIjED2Ev.exit879, %_ZN13GrowableArrayIjED2Ev.exit877, %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit, %_ZN13GrowableArrayIjED2Ev.exit989, %_ZN13GrowableArrayIjED2Ev.exit979, %937, %923, %914, %._crit_edge.i, %247, %235, %._crit_edge1604
+  %.pre-phi1766 = phi i64 [ %221, %937 ], [ %221, %923 ], [ %221, %914 ], [ %221, %._crit_edge.i ], [ %221, %247 ], [ %221, %235 ], [ %.pre1765, %._crit_edge1604 ], [ %1706, %_ZN13GrowableArrayIjED2Ev.exit979 ], [ %1706, %_ZN13GrowableArrayIjED2Ev.exit989 ], [ %221, %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit877 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit879 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit897 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit899 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit911 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit916 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit938 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit948 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit950 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit962 ], [ %221, %1627 ]
+  %.0 = phi i32 [ 0, %937 ], [ 0, %923 ], [ 0, %914 ], [ 0, %._crit_edge.i ], [ 0, %247 ], [ 0, %235 ], [ %2045, %._crit_edge1604 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit979 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit989 ], [ 0, %_ZL10clone_nodeP4NodeP5BlockP7Compile.argprom.exit ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit877 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit879 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit897 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit899 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit911 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit916 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit938 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit948 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit950 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit962 ], [ 0, %1627 ]
   %.not.i994 = icmp eq i64 %.pre-phi1766, 0
   br i1 %.not.i994, label %_ZN13GrowableArrayIjED2Ev.exit997, label %2046
 

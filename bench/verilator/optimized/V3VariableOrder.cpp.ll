@@ -7638,18 +7638,18 @@ _ZN19GatherMTaskAffinity5applyEPK9ExecMTaskRSt13unordered_mapIPK6AstVarSt6vector
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %37 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %"_ZZN15V3VariableOrder8orderAllEP10AstNetlistENK3$_0clEP12AstExecGraph.exit", label %13
+  br i1 %.not.i, label %"_ZZN15V3VariableOrder8orderAllEP10AstNetlistENK3$_0clEP12AstExecGraph.argprom.argprom.exit", label %13
 
-"_ZZN15V3VariableOrder8orderAllEP10AstNetlistENK3$_0clEP12AstExecGraph.exit": ; preds = %_ZN19GatherMTaskAffinity5applyEPK9ExecMTaskRSt13unordered_mapIPK6AstVarSt6vectorIbSaIbEESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S9_EEE.exit.i
+"_ZZN15V3VariableOrder8orderAllEP10AstNetlistENK3$_0clEP12AstExecGraph.argprom.argprom.exit": ; preds = %_ZN19GatherMTaskAffinity5applyEPK9ExecMTaskRSt13unordered_mapIPK6AstVarSt6vectorIbSaIbEESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S9_EEE.exit.i
   %.not.i.i = icmp eq ptr %1, null
-  br i1 %.not.i.i, label %_ZN7AstNode10mayBeUnderI12AstExecGraphEEbPKS_.exit.thread, label %"_ZZN15V3VariableOrder8orderAllEP10AstNetlistENK3$_0clEP12AstExecGraph.exit._ZN7AstNode9privateIsI12AstExecGraphPKS_EEbS3_.exit.i_crit_edge"
+  br i1 %.not.i.i, label %_ZN7AstNode10mayBeUnderI12AstExecGraphEEbPKS_.exit.thread, label %"_ZZN15V3VariableOrder8orderAllEP10AstNetlistENK3$_0clEP12AstExecGraph.argprom.argprom.exit._ZN7AstNode9privateIsI12AstExecGraphPKS_EEbS3_.exit.i_crit_edge"
 
-"_ZZN15V3VariableOrder8orderAllEP10AstNetlistENK3$_0clEP12AstExecGraph.exit._ZN7AstNode9privateIsI12AstExecGraphPKS_EEbS3_.exit.i_crit_edge": ; preds = %"_ZZN15V3VariableOrder8orderAllEP10AstNetlistENK3$_0clEP12AstExecGraph.exit"
+"_ZZN15V3VariableOrder8orderAllEP10AstNetlistENK3$_0clEP12AstExecGraph.argprom.argprom.exit._ZN7AstNode9privateIsI12AstExecGraphPKS_EEbS3_.exit.i_crit_edge": ; preds = %"_ZZN15V3VariableOrder8orderAllEP10AstNetlistENK3$_0clEP12AstExecGraph.argprom.argprom.exit"
   %.sroa.0.0.copyload.i.i.i.i.pre = load i16, ptr %4, align 8
   br label %_ZN7AstNode9privateIsI12AstExecGraphPKS_EEbS3_.exit.i
 
-_ZN7AstNode9privateIsI12AstExecGraphPKS_EEbS3_.exit.i: ; preds = %"_ZZN15V3VariableOrder8orderAllEP10AstNetlistENK3$_0clEP12AstExecGraph.exit._ZN7AstNode9privateIsI12AstExecGraphPKS_EEbS3_.exit.i_crit_edge", %2
-  %.sroa.0.0.copyload.i.i.i.i = phi i16 [ %.sroa.0.0.copyload.i.i.i.i.pre, %"_ZZN15V3VariableOrder8orderAllEP10AstNetlistENK3$_0clEP12AstExecGraph.exit._ZN7AstNode9privateIsI12AstExecGraphPKS_EEbS3_.exit.i_crit_edge" ], [ %.sroa.0.0.copyload.i.i, %2 ]
+_ZN7AstNode9privateIsI12AstExecGraphPKS_EEbS3_.exit.i: ; preds = %"_ZZN15V3VariableOrder8orderAllEP10AstNetlistENK3$_0clEP12AstExecGraph.argprom.argprom.exit._ZN7AstNode9privateIsI12AstExecGraphPKS_EEbS3_.exit.i_crit_edge", %2
+  %.sroa.0.0.copyload.i.i.i.i = phi i16 [ %.sroa.0.0.copyload.i.i.i.i.pre, %"_ZZN15V3VariableOrder8orderAllEP10AstNetlistENK3$_0clEP12AstExecGraph.argprom.argprom.exit._ZN7AstNode9privateIsI12AstExecGraphPKS_EEbS3_.exit.i_crit_edge" ], [ %.sroa.0.0.copyload.i.i, %2 ]
   %.sroa.0.0.copyload.i.i.i4.fr.i = freeze i16 %.sroa.0.0.copyload.i.i.i.i
   %38 = icmp ne i16 %.sroa.0.0.copyload.i.i.i4.fr.i, 20
   %39 = add i16 %.sroa.0.0.copyload.i.i.i4.fr.i, -413
@@ -7657,7 +7657,7 @@ _ZN7AstNode9privateIsI12AstExecGraphPKS_EEbS3_.exit.i: ; preds = %"_ZZN15V3Varia
   %or.cond = and i1 %38, %spec.select.i.i.i
   br i1 %or.cond, label %_ZN7AstNode10mayBeUnderI12AstExecGraphEEbPKS_.exit.thread, label %_ZN7AstNode10mayBeUnderI12AstExecGraphEEbPKS_.exit.thread24
 
-_ZN7AstNode10mayBeUnderI12AstExecGraphEEbPKS_.exit.thread: ; preds = %_ZN7AstNode9privateIsI12AstExecGraphPKS_EEbS3_.exit.i, %"_ZZN15V3VariableOrder8orderAllEP10AstNetlistENK3$_0clEP12AstExecGraph.exit"
+_ZN7AstNode10mayBeUnderI12AstExecGraphEEbPKS_.exit.thread: ; preds = %_ZN7AstNode9privateIsI12AstExecGraphPKS_EEbS3_.exit.i, %"_ZZN15V3VariableOrder8orderAllEP10AstNetlistENK3$_0clEP12AstExecGraph.argprom.argprom.exit"
   %40 = getelementptr inbounds i8, ptr %1, i64 48
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null

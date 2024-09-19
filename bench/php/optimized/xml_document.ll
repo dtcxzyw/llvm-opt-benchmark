@@ -196,12 +196,12 @@ declare void @php_dom_throw_error(i32 noundef, i32 noundef) local_unnamed_addr #
 define hidden void @zim_DOM_XMLDocument_createFromString(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
-  tail call fastcc void @load_from_helper(i32 %.val, ptr noundef %1, i32 noundef 0)
+  tail call fastcc void @load_from_helper.argprom(i32 %.val, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @load_from_helper.argprom(i32 %.44.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -211,7 +211,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
   store i64 0, ptr %7, align 8
   %8 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %.44.val, ptr noundef nonnull @.str.3, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %6) #4
   %9 = icmp eq i32 %8, -1
-  br i1 %9, label %dom_mark_namespaces_as_attributes_too.exit.sink.split, label %10
+  br i1 %9, label %dom_mark_namespaces_as_attributes_too.argprom.exit.sink.split, label %10
 
 10:                                               ; preds = %2
   %11 = load i64, ptr %5, align 8
@@ -220,7 +220,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
 
 12:                                               ; preds = %10
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.4) #4
-  br label %dom_mark_namespaces_as_attributes_too.exit.sink.split
+  br label %dom_mark_namespaces_as_attributes_too.argprom.exit.sink.split
 
 13:                                               ; preds = %10
   %14 = icmp ugt i64 %11, 2147483647
@@ -228,7 +228,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
 
 15:                                               ; preds = %13
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.5) #4
-  br label %dom_mark_namespaces_as_attributes_too.exit.sink.split
+  br label %dom_mark_namespaces_as_attributes_too.argprom.exit.sink.split
 
 16:                                               ; preds = %13
   %.not18 = icmp eq i32 %1, 0
@@ -242,7 +242,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
 
 20:                                               ; preds = %17
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.7) #4
-  br label %dom_mark_namespaces_as_attributes_too.exit.sink.split
+  br label %dom_mark_namespaces_as_attributes_too.argprom.exit.sink.split
 
 21:                                               ; preds = %17, %16
   %22 = load i64, ptr %7, align 8
@@ -252,7 +252,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
 
 24:                                               ; preds = %21
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.10) #4
-  br label %dom_mark_namespaces_as_attributes_too.exit.sink.split
+  br label %dom_mark_namespaces_as_attributes_too.argprom.exit.sink.split
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %4, align 8
@@ -266,7 +266,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
 
 29:                                               ; preds = %27
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.8) #4
-  br label %dom_mark_namespaces_as_attributes_too.exit.sink.split
+  br label %dom_mark_namespaces_as_attributes_too.argprom.exit.sink.split
 
 30:                                               ; preds = %27
   %31 = load i64, ptr %7, align 8
@@ -287,7 +287,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
 39:                                               ; preds = %33
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not23 = icmp eq ptr %40, null
-  br i1 %.not23, label %41, label %dom_mark_namespaces_as_attributes_too.exit.sink.split
+  br i1 %.not23, label %41, label %dom_mark_namespaces_as_attributes_too.argprom.exit.sink.split
 
 41:                                               ; preds = %39
   br i1 %.not18, label %45, label %42
@@ -295,11 +295,11 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
 42:                                               ; preds = %41
   %43 = load ptr, ptr %3, align 8
   %44 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %43) #4
-  br label %dom_mark_namespaces_as_attributes_too.exit.sink.split
+  br label %dom_mark_namespaces_as_attributes_too.argprom.exit.sink.split
 
 45:                                               ; preds = %41
   call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1) #4
-  br label %dom_mark_namespaces_as_attributes_too.exit.sink.split
+  br label %dom_mark_namespaces_as_attributes_too.argprom.exit.sink.split
 
 46:                                               ; preds = %33
   %47 = getelementptr inbounds i8, ptr %37, i64 112
@@ -325,7 +325,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
   %58 = getelementptr i8, ptr %37, i64 24
   %.val = load ptr, ptr %58, align 8
   %.not3.i = icmp eq ptr %.val, null
-  br i1 %.not3.i, label %dom_mark_namespaces_as_attributes_too.exit, label %.lr.ph.i
+  br i1 %.not3.i, label %dom_mark_namespaces_as_attributes_too.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %52, %.lr.ph.i.backedge
   %.04.i = phi ptr [ %.04.i.be, %.lr.ph.i.backedge ], [ %.val, %52 ]
@@ -358,7 +358,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
   %70 = getelementptr inbounds i8, ptr %.2.i, i64 40
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
-  br i1 %72, label %dom_mark_namespaces_as_attributes_too.exit, label %73
+  br i1 %72, label %dom_mark_namespaces_as_attributes_too.argprom.exit, label %73
 
 73:                                               ; preds = %.preheader.i
   %74 = getelementptr inbounds i8, ptr %71, i64 48
@@ -366,13 +366,13 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.preheader.i, label %.lr.ph.i.backedge
 
-dom_mark_namespaces_as_attributes_too.exit.sink.split: ; preds = %42, %45, %39, %2, %12, %15, %20, %24, %29
+dom_mark_namespaces_as_attributes_too.argprom.exit.sink.split: ; preds = %42, %45, %39, %2, %12, %15, %20, %24, %29
   %77 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %78 = icmp ne ptr %77, null
   call void @llvm.assume(i1 %78)
-  br label %dom_mark_namespaces_as_attributes_too.exit
+  br label %dom_mark_namespaces_as_attributes_too.argprom.exit
 
-dom_mark_namespaces_as_attributes_too.exit:       ; preds = %.preheader.i, %dom_mark_namespaces_as_attributes_too.exit.sink.split, %52
+dom_mark_namespaces_as_attributes_too.argprom.exit: ; preds = %.preheader.i, %dom_mark_namespaces_as_attributes_too.argprom.exit.sink.split, %52
   ret void
 }
 
@@ -380,7 +380,7 @@ dom_mark_namespaces_as_attributes_too.exit:       ; preds = %.preheader.i, %dom_
 define hidden void @zim_DOM_XMLDocument_createFromFile(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
-  tail call fastcc void @load_from_helper(i32 %.val, ptr noundef %1, i32 noundef 1)
+  tail call fastcc void @load_from_helper.argprom(i32 %.val, ptr noundef %1, i32 noundef 1)
   ret void
 }
 

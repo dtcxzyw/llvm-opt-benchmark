@@ -715,7 +715,7 @@ dissect_etf_versioned_type.exit:                  ; preds = %106, %110
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %126 = call zeroext i8 @tvb_get_guint8(ptr noundef %125, i32 noundef 0) #5
   %.not.i49 = icmp eq i8 %126, -125
-  br i1 %.not.i49, label %127, label %dissect_etf_pdu.exit
+  br i1 %.not.i49, label %127, label %dissect_etf_pdu.argprom.exit
 
 127:                                              ; preds = %123
   %128 = load i32, ptr @ett_etf, align 4
@@ -725,7 +725,7 @@ dissect_etf_versioned_type.exit:                  ; preds = %106, %110
   %132 = load i32, ptr @hf_etf_dist_header_tag, align 4
   %133 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %129, i32 noundef %132, ptr noundef %125, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #5
   %134 = load i32, ptr %5, align 4
-  switch i32 %134, label %dissect_etf_pdu.exit [
+  switch i32 %134, label %dissect_etf_pdu.argprom.exit [
     i32 68, label %135
     i32 69, label %138
     i32 70, label %138
@@ -735,8 +735,8 @@ dissect_etf_versioned_type.exit:                  ; preds = %106, %110
   %136 = call fastcc i32 @dissect_etf_dist_header(ptr noundef nonnull %1, ptr noundef %125, i32 noundef 2, ptr noundef %129)
   %137 = load ptr, ptr %6, align 8
   call void @proto_item_set_len(ptr noundef %137, i32 noundef %136) #5
-  call fastcc void @dissect_etf_pdu_data(ptr noundef nonnull %1, ptr noundef %125, i32 noundef %136, ptr noundef %18)
-  br label %dissect_etf_pdu.exit
+  call fastcc void @dissect_etf_pdu_data.retelim(ptr noundef nonnull %1, ptr noundef %125, i32 noundef %136, ptr noundef %18)
+  br label %dissect_etf_pdu.argprom.exit
 
 138:                                              ; preds = %127, %127
   %139 = load i32, ptr @hf_erldp_sequence_id, align 4
@@ -747,7 +747,7 @@ dissect_etf_versioned_type.exit:                  ; preds = %106, %110
   %144 = load i32, ptr %143, align 8
   %145 = call i32 @tvb_reported_length_remaining(ptr noundef %125, i32 noundef 18) #5
   %146 = icmp slt i32 %145, 1
-  br i1 %146, label %dissect_etf_pdu.exit, label %147
+  br i1 %146, label %dissect_etf_pdu.argprom.exit, label %147
 
 147:                                              ; preds = %138
   store i32 1, ptr %143, align 8
@@ -770,7 +770,7 @@ dissect_etf_versioned_type.exit:                  ; preds = %106, %110
   %160 = call fastcc i32 @dissect_etf_dist_header(ptr noundef nonnull %1, ptr noundef nonnull %154, i32 noundef 0, ptr noundef %129)
   %161 = load ptr, ptr %6, align 8
   call void @proto_item_set_len(ptr noundef %161, i32 noundef %160) #5
-  call fastcc void @dissect_etf_pdu_data(ptr noundef nonnull %1, ptr noundef nonnull %154, i32 noundef %160, ptr noundef %18)
+  call fastcc void @dissect_etf_pdu_data.retelim(ptr noundef nonnull %1, ptr noundef nonnull %154, i32 noundef %160, ptr noundef %18)
   br label %162
 
 162:                                              ; preds = %159, %156
@@ -781,9 +781,9 @@ dissect_etf_versioned_type.exit:                  ; preds = %106, %110
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %163, i32 noundef 25, ptr noundef nonnull %.str.243.sink.i, i64 noundef %164) #5
   store i32 %144, ptr %143, align 8
   %165 = call i32 @tvb_reported_length_remaining(ptr noundef %125, i32 noundef %.1.i) #5
-  br label %dissect_etf_pdu.exit
+  br label %dissect_etf_pdu.argprom.exit
 
-dissect_etf_pdu.exit:                             ; preds = %123, %127, %135, %138, %162
+dissect_etf_pdu.argprom.exit:                     ; preds = %123, %127, %135, %138, %162
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -797,7 +797,7 @@ dissect_etf_pdu.exit:                             ; preds = %123, %127, %135, %1
   call void @col_set_str(ptr noundef %169, i32 noundef 25, ptr noundef nonnull @.str.213) #5
   br label %dissect_etf_versioned_type.exit48
 
-dissect_etf_versioned_type.exit48:                ; preds = %120, %116, %dissect_etf_versioned_type.exit, %166, %dissect_etf_pdu.exit
+dissect_etf_versioned_type.exit48:                ; preds = %120, %116, %dissect_etf_versioned_type.exit, %166, %dissect_etf_pdu.argprom.exit
   %170 = call i32 @tvb_captured_length(ptr noundef %0) #5
   br label %171
 
@@ -1570,7 +1570,7 @@ define internal fastcc i32 @dissect_etf_dist_header(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_etf_pdu_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_etf_pdu_data.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #5
   %6 = icmp eq i8 %5, 104
   br i1 %6, label %7, label %18

@@ -1083,7 +1083,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit: ; preds = %65, 
   %84 = load i32, ptr %83, align 4
   %85 = zext i32 %84 to i64
   %86 = icmp ugt i64 %.0.i.i.i29, %85
-  br i1 %86, label %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit, label %.thread.i
+  br i1 %86, label %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.argprom.exit, label %.thread.i
 
 87:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit
   %88 = getelementptr inbounds nuw i8, ptr %56, i64 352
@@ -1109,35 +1109,35 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit: ; preds = %65, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   %.fca.0.extract93.i = extractvalue { ptr, i32 } %96, 0
   %.fca.1.extract94.i = extractvalue { ptr, i32 } %96, 1
-  br label %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit
+  br label %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.argprom.exit
 
 .thread11.i:                                      ; preds = %.thread.i
   %.not.i = icmp ugt i8 %8, 1
-  br i1 %.not.i, label %97, label %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit
+  br i1 %.not.i, label %97, label %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.argprom.exit
 
 97:                                               ; preds = %.thread11.i, %87
   %98 = zext nneg i8 %8 to i64
   %99 = shl nuw i64 1, %98
   switch i64 %99, label %102 [
-    i64 1, label %_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i
+    i64 1, label %_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.argprom.exit.i
     i64 2, label %100
     i64 4, label %101
   ]
 
 100:                                              ; preds = %97
-  br label %_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i
+  br label %_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.argprom.exit.i
 
 101:                                              ; preds = %97
-  br label %_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i
+  br label %_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.argprom.exit.i
 
 102:                                              ; preds = %97
   %103 = getelementptr inbounds i8, ptr %56, i64 455
   %.val.i = load i8, ptr %103, align 1
   %104 = trunc i8 %.val.i to i1
   %105 = select i1 %104, i16 8, i16 7
-  br label %_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i
+  br label %_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.argprom.exit.i
 
-_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i: ; preds = %102, %101, %100, %97
+_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.argprom.exit.i: ; preds = %102, %101, %100, %97
   %.sroa.01.0.i.i = phi i16 [ %105, %102 ], [ 7, %101 ], [ 6, %100 ], [ 5, %97 ]
   %106 = zext nneg i16 %.sroa.01.0.i.i to i64
   %107 = add nsw i64 %106, -1
@@ -1162,9 +1162,9 @@ _ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i: ; preds = %1
   %.fca.0.extract67.i = extractvalue { ptr, i32 } %114, 0
   %.fca.1.extract68.i = extractvalue { ptr, i32 } %114, 1
   %115 = icmp eq i64 %112, 0
-  br i1 %115, label %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit, label %116
+  br i1 %115, label %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.argprom.exit, label %116
 
-116:                                              ; preds = %_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i
+116:                                              ; preds = %_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.argprom.exit.i
   %117 = load ptr, ptr %35, align 8
   %118 = load ptr, ptr %117, align 8
   %119 = call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %118, i32 noundef 17) #12
@@ -1182,7 +1182,7 @@ _ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i: ; preds = %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   %.fca.0.extract60.i = extractvalue { ptr, i32 } %122, 0
   %.fca.1.extract61.i = extractvalue { ptr, i32 } %122, 1
-  br label %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit
+  br label %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.argprom.exit
 
 123:                                              ; preds = %116
   %124 = getelementptr inbounds i8, ptr %18, i64 16
@@ -1455,15 +1455,15 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit167.i: ; p
   %241 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #12
   %242 = load ptr, ptr %18, align 8
   %243 = icmp eq ptr %242, %124
-  br i1 %243, label %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit, label %244
+  br i1 %243, label %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.argprom.exit, label %244
 
 244:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit167.i
   call void @free(ptr noundef %242) #12
-  br label %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit
+  br label %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.argprom.exit
 
-_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit: ; preds = %82, %94, %.thread11.i, %_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i, %120, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit167.i, %244
-  %.sroa.9.0.i = phi i32 [ %.fca.1.extract94.i, %94 ], [ %.fca.1.extract61.i, %120 ], [ 0, %82 ], [ 0, %.thread11.i ], [ %.fca.1.extract68.i, %_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i ], [ %.fca.1.extract.i, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit167.i ], [ %.fca.1.extract.i, %244 ]
-  %.sroa.07.0.i = phi ptr [ %.fca.0.extract93.i, %94 ], [ %.fca.0.extract60.i, %120 ], [ null, %82 ], [ null, %.thread11.i ], [ %.fca.0.extract67.i, %_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i ], [ %.fca.0.extract.i, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit167.i ], [ %.fca.0.extract.i, %244 ]
+_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.argprom.exit: ; preds = %82, %94, %.thread11.i, %_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.argprom.exit.i, %120, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit167.i, %244
+  %.sroa.9.0.i = phi i32 [ %.fca.1.extract94.i, %94 ], [ %.fca.1.extract61.i, %120 ], [ 0, %82 ], [ 0, %.thread11.i ], [ %.fca.1.extract68.i, %_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.argprom.exit.i ], [ %.fca.1.extract.i, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit167.i ], [ %.fca.1.extract.i, %244 ]
+  %.sroa.07.0.i = phi ptr [ %.fca.0.extract93.i, %94 ], [ %.fca.0.extract60.i, %120 ], [ null, %82 ], [ null, %.thread11.i ], [ %.fca.0.extract67.i, %_ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.argprom.exit.i ], [ %.fca.0.extract.i, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit167.i ], [ %.fca.0.extract.i, %244 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18)
@@ -1479,9 +1479,9 @@ _ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLoc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
   br label %_ZNK4llvm19X86SelectionDAGInfo25isBaseRegConflictPossibleERNS_12SelectionDAGENS_8ArrayRefItEE.exit.thread58
 
-_ZNK4llvm19X86SelectionDAGInfo25isBaseRegConflictPossibleERNS_12SelectionDAGENS_8ArrayRefItEE.exit.thread58: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %65, %13, %31, %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit, %63
-  %.sroa.9.0 = phi i32 [ %.fca.1.extract6, %63 ], [ %.sroa.9.0.i, %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit ], [ 0, %31 ], [ 0, %13 ], [ 0, %65 ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ]
-  %.sroa.034.0 = phi ptr [ %.fca.0.extract5, %63 ], [ %.sroa.07.0.i, %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit ], [ null, %31 ], [ null, %13 ], [ null, %65 ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ]
+_ZNK4llvm19X86SelectionDAGInfo25isBaseRegConflictPossibleERNS_12SelectionDAGENS_8ArrayRefItEE.exit.thread58: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %65, %13, %31, %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.argprom.exit, %63
+  %.sroa.9.0 = phi i32 [ %.fca.1.extract6, %63 ], [ %.sroa.9.0.i, %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.argprom.exit ], [ 0, %31 ], [ 0, %13 ], [ 0, %65 ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ]
+  %.sroa.034.0 = phi ptr [ %.fca.0.extract5, %63 ], [ %.sroa.07.0.i, %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.argprom.exit ], [ null, %31 ], [ null, %13 ], [ null, %65 ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.034.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.9.0, 1
   ret { ptr, i32 } %.fca.1.insert

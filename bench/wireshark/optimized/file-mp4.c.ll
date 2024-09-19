@@ -337,7 +337,7 @@ define internal noundef i32 @dissect_mp4(ptr noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph:                                           ; preds = %11, %22
   %.01921 = phi i32 [ %23, %22 ], [ 0, %11 ]
-  %26 = tail call fastcc i32 @dissect_mp4_box(i32 noundef 0, ptr noundef %0, i32 noundef %.01921, ptr noundef %1, ptr noundef %19)
+  %26 = tail call fastcc i32 @dissect_mp4_box.argelim(i32 noundef 0, ptr noundef %0, i32 noundef %.01921, ptr noundef %1, ptr noundef %19)
   %27 = icmp slt i32 %26, 1
   br i1 %27, label %.loopexit, label %22
 
@@ -378,7 +378,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box.argelim(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #5
   %8 = zext i32 %7 to i64
@@ -473,63 +473,63 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 nound
   ]
 
 47:                                               ; preds = %46, %46
-  call fastcc void @dissect_mp4_ftyp_body(ptr noundef %1, i32 noundef %34, i32 noundef %41, ptr noundef %19)
+  call fastcc void @dissect_mp4_ftyp_body.argprom.argelim(ptr noundef %1, i32 noundef %34, i32 noundef %41, ptr noundef %19)
   br label %.loopexit
 
 48:                                               ; preds = %46
-  call fastcc void @dissect_mp4_mvhd_body(ptr noundef %1, i32 noundef %34, ptr noundef nonnull %3, ptr noundef %19)
+  call fastcc void @dissect_mp4_mvhd_body.argelim(ptr noundef %1, i32 noundef %34, ptr noundef nonnull %3, ptr noundef %19)
   br label %.loopexit
 
 49:                                               ; preds = %46
-  call fastcc void @dissect_mp4_mfhd_body(ptr noundef %1, i32 noundef %34, ptr noundef %19)
+  call fastcc void @dissect_mp4_mfhd_body.argprom.argelim(ptr noundef %1, i32 noundef %34, ptr noundef %19)
   br label %.loopexit
 
 50:                                               ; preds = %46
-  call fastcc void @dissect_mp4_tkhd_body(ptr noundef %1, i32 noundef %34, ptr noundef %19)
+  call fastcc void @dissect_mp4_tkhd_body.argprom.argelim(ptr noundef %1, i32 noundef %34, ptr noundef %19)
   br label %.loopexit
 
 51:                                               ; preds = %46
-  call fastcc void @dissect_mp4_stsz_body(ptr noundef %1, i32 noundef %34, ptr noundef %19)
+  call fastcc void @dissect_mp4_stsz_body.argprom.argelim(ptr noundef %1, i32 noundef %34, ptr noundef %19)
   br label %.loopexit
 
 52:                                               ; preds = %46
-  call fastcc void @dissect_mp4_stsc_body(ptr noundef %1, i32 noundef %34, ptr noundef %19)
+  call fastcc void @dissect_mp4_stsc_body.argprom.argelim(ptr noundef %1, i32 noundef %34, ptr noundef %19)
   br label %.loopexit
 
 53:                                               ; preds = %46
-  call fastcc void @dissect_mp4_hdlr_body(ptr noundef %1, i32 noundef %34, ptr noundef %19)
+  call fastcc void @dissect_mp4_hdlr_body.argprom.argelim(ptr noundef %1, i32 noundef %34, ptr noundef %19)
   br label %.loopexit
 
 54:                                               ; preds = %46
-  call fastcc void @dissect_mp4_dref_body(ptr noundef %1, i32 noundef %34, ptr noundef nonnull %3, i32 noundef %42, ptr noundef %19)
+  call fastcc void @dissect_mp4_dref_body.argelim(ptr noundef %1, i32 noundef %34, ptr noundef nonnull %3, i32 noundef %42, ptr noundef %19)
   br label %.loopexit
 
 55:                                               ; preds = %46
-  call fastcc void @dissect_mp4_url_body(ptr noundef %1, i32 noundef %34, ptr noundef %19)
+  call fastcc void @dissect_mp4_url_body.argprom.argelim(ptr noundef %1, i32 noundef %34, ptr noundef %19)
   br label %.loopexit
 
 56:                                               ; preds = %46
-  call fastcc void @dissect_mp4_stsd_body(ptr noundef %1, i32 noundef %34, ptr noundef nonnull %3, i32 noundef %42, ptr noundef %19)
+  call fastcc void @dissect_mp4_stsd_body.argelim(ptr noundef %1, i32 noundef %34, ptr noundef nonnull %3, i32 noundef %42, ptr noundef %19)
   br label %.loopexit
 
 57:                                               ; preds = %46
-  call fastcc void @dissect_mp4_stts_body(ptr noundef %1, i32 noundef %34, ptr noundef %19)
+  call fastcc void @dissect_mp4_stts_body.argprom.argelim(ptr noundef %1, i32 noundef %34, ptr noundef %19)
   br label %.loopexit
 
 58:                                               ; preds = %46
-  call fastcc void @dissect_mp4_stco_body(ptr noundef %1, i32 noundef %34, ptr noundef %19)
+  call fastcc void @dissect_mp4_stco_body.argprom.argelim(ptr noundef %1, i32 noundef %34, ptr noundef %19)
   br label %.loopexit
 
 59:                                               ; preds = %46
-  call fastcc void @dissect_mp4_ctts_body(ptr noundef %1, i32 noundef %34, ptr noundef %19)
+  call fastcc void @dissect_mp4_ctts_body.argprom.argelim(ptr noundef %1, i32 noundef %34, ptr noundef %19)
   br label %.loopexit
 
 60:                                               ; preds = %46
-  call fastcc void @dissect_mp4_elst_body(ptr noundef %1, i32 noundef %34, ptr noundef nonnull %3, ptr noundef %19)
+  call fastcc void @dissect_mp4_elst_body.argelim(ptr noundef %1, i32 noundef %34, ptr noundef nonnull %3, ptr noundef %19)
   br label %.loopexit
 
 61:                                               ; preds = %46
-  call fastcc void @dissect_mp4_sidx_body(ptr noundef %1, i32 noundef %34, ptr noundef %19)
+  call fastcc void @dissect_mp4_sidx_body.argprom.argelim(ptr noundef %1, i32 noundef %34, ptr noundef %19)
   br label %.loopexit
 
 62:                                               ; preds = %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46
@@ -544,7 +544,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 nound
 
 .lr.ph:                                           ; preds = %62, %64
   %.1157 = phi i32 [ %65, %64 ], [ %34, %62 ]
-  %68 = call fastcc i32 @dissect_mp4_box(i32 noundef %42, ptr noundef %1, i32 noundef %.1157, ptr noundef %3, ptr noundef %19)
+  %68 = call fastcc i32 @dissect_mp4_box.argelim(i32 noundef %42, ptr noundef %1, i32 noundef %.1157, ptr noundef %3, ptr noundef %19)
   %69 = icmp slt i32 %68, 1
   br i1 %69, label %.loopexit, label %64
 
@@ -572,7 +572,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mp4_ftyp_body(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4_ftyp_body.argprom.argelim(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mp4_ftyp_brand, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #5
   %7 = add i32 %1, 4
@@ -599,7 +599,7 @@ define internal fastcc void @dissect_mp4_ftyp_body(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mp4_mvhd_body(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4_mvhd_body.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
   %6 = load i32, ptr @hf_mp4_full_box_ver, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
@@ -714,7 +714,7 @@ make_fract.exit81:                                ; preds = %make_fract.exit, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mp4_mfhd_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4_mfhd_body.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mp4_full_box_ver, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
   %6 = add i32 %1, 1
@@ -727,7 +727,7 @@ define internal fastcc void @dissect_mp4_mfhd_body(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mp4_tkhd_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4_tkhd_body.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
   %5 = load i32, ptr @hf_mp4_full_box_ver, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
@@ -802,7 +802,7 @@ make_fract.exit58:                                ; preds = %make_fract.exit, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mp4_stsz_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4_stsz_body.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mp4_full_box_ver, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
   %6 = add i32 %1, 1
@@ -842,7 +842,7 @@ define internal fastcc void @dissect_mp4_stsz_body(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mp4_stsc_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4_stsc_body.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -893,7 +893,7 @@ define internal fastcc void @dissect_mp4_stsc_body(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mp4_hdlr_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4_hdlr_body.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mp4_full_box_ver, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
   %6 = add i32 %1, 1
@@ -910,7 +910,7 @@ define internal fastcc void @dissect_mp4_hdlr_body(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mp4_dref_body(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4_dref_body.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_mp4_full_box_ver, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
   %8 = add i32 %1, 1
@@ -930,7 +930,7 @@ define internal fastcc void @dissect_mp4_dref_body(ptr noundef %0, i32 noundef %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %.026 = phi i32 [ %19, %18 ], [ %15, %.lr.ph.preheader ]
   %.02325 = phi i32 [ %20, %18 ], [ 0, %.lr.ph.preheader ]
-  %16 = tail call fastcc i32 @dissect_mp4_box(i32 noundef %3, ptr noundef %0, i32 noundef %.026, ptr noundef %2, ptr noundef %4)
+  %16 = tail call fastcc i32 @dissect_mp4_box.argelim(i32 noundef %3, ptr noundef %0, i32 noundef %.026, ptr noundef %2, ptr noundef %4)
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %._crit_edge, label %18
 
@@ -945,7 +945,7 @@ define internal fastcc void @dissect_mp4_dref_body(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mp4_url_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4_url_body.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mp4_full_box_ver, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
   %6 = add i32 %1, 1
@@ -957,7 +957,7 @@ define internal fastcc void @dissect_mp4_url_body(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mp4_stsd_body(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4_stsd_body.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_mp4_full_box_ver, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
   %8 = add i32 %1, 1
@@ -977,7 +977,7 @@ define internal fastcc void @dissect_mp4_stsd_body(ptr noundef %0, i32 noundef %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %.024 = phi i32 [ %19, %18 ], [ %15, %.lr.ph.preheader ]
   %.02123 = phi i32 [ %20, %18 ], [ 0, %.lr.ph.preheader ]
-  %16 = tail call fastcc i32 @dissect_mp4_box(i32 noundef %3, ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %4)
+  %16 = tail call fastcc i32 @dissect_mp4_box.argelim(i32 noundef %3, ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %4)
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %._crit_edge, label %18
 
@@ -992,7 +992,7 @@ define internal fastcc void @dissect_mp4_stsd_body(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mp4_stts_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4_stts_body.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1034,7 +1034,7 @@ define internal fastcc void @dissect_mp4_stts_body(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mp4_stco_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4_stco_body.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_mp4_full_box_ver, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
@@ -1069,7 +1069,7 @@ define internal fastcc void @dissect_mp4_stco_body(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mp4_ctts_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4_ctts_body.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1115,7 +1115,7 @@ define internal fastcc void @dissect_mp4_ctts_body(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mp4_elst_body(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4_elst_body.argelim(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca i32, align 4
@@ -1251,7 +1251,7 @@ timescaled_val_to_str.exit58:                     ; preds = %62, %64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mp4_sidx_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4_sidx_body.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
   %6 = load i32, ptr @hf_mp4_full_box_ver, align 4

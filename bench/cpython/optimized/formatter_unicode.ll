@@ -210,7 +210,7 @@ calc_padding.exit.i:                              ; preds = %if.else11.i.i, %if.
   %value.val55.i = load i32, ptr %20, align 8
   %21 = and i32 %value.val55.i, 64
   %tobool.not.i.i = icmp eq i32 %21, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i13, label %PyUnicode_MAX_CHAR_VALUE.exit.i
+  br i1 %tobool.not.i.i, label %if.end.i.i13, label %PyUnicode_MAX_CHAR_VALUE.argprom.exit.i
 
 if.end.i.i13:                                     ; preds = %calc_padding.exit.i
   %bf.lshr.i.i = lshr i32 %value.val55.i, 2
@@ -219,22 +219,22 @@ if.end.i.i13:                                     ; preds = %calc_padding.exit.i
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, i32 65535, i32 1114111
   %switch.selectcmp3.i.i = icmp eq i32 %bf.clear.i.i, 1
   %switch.select4.i.i = select i1 %switch.selectcmp3.i.i, i32 255, i32 %switch.select.i.i
-  br label %PyUnicode_MAX_CHAR_VALUE.exit.i
+  br label %PyUnicode_MAX_CHAR_VALUE.argprom.exit.i
 
-PyUnicode_MAX_CHAR_VALUE.exit.i:                  ; preds = %if.end.i.i13, %calc_padding.exit.i
+PyUnicode_MAX_CHAR_VALUE.argprom.exit.i:          ; preds = %if.end.i.i13, %calc_padding.exit.i
   %retval.0.i.i = phi i32 [ 127, %calc_padding.exit.i ], [ %switch.select4.i.i, %if.end.i.i13 ]
   %cmp42.i = icmp ugt i32 %retval.0.i.i, %maxchar.0.i
   br i1 %cmp42.i, label %if.then43.i, label %if.end50.i
 
-if.then43.i:                                      ; preds = %PyUnicode_MAX_CHAR_VALUE.exit.i
+if.then43.i:                                      ; preds = %PyUnicode_MAX_CHAR_VALUE.argprom.exit.i
   %call44.i = tail call i32 @_PyUnicode_FindMaxChar(ptr noundef nonnull %obj, i64 noundef 0, i64 noundef %len.0.i) #12
   %cond49.i = tail call i32 @llvm.umax.i32(i32 %maxchar.0.i, i32 %call44.i)
   %.pre62.i = load i32, ptr %maxchar33.i, align 4
   br label %if.end50.i
 
-if.end50.i:                                       ; preds = %if.then43.i, %PyUnicode_MAX_CHAR_VALUE.exit.i
-  %22 = phi i32 [ %.pre62.i, %if.then43.i ], [ %18, %PyUnicode_MAX_CHAR_VALUE.exit.i ]
-  %maxchar.1.i = phi i32 [ %cond49.i, %if.then43.i ], [ %maxchar.0.i, %PyUnicode_MAX_CHAR_VALUE.exit.i ]
+if.end50.i:                                       ; preds = %if.then43.i, %PyUnicode_MAX_CHAR_VALUE.argprom.exit.i
+  %22 = phi i32 [ %.pre62.i, %if.then43.i ], [ %18, %PyUnicode_MAX_CHAR_VALUE.argprom.exit.i ]
+  %maxchar.1.i = phi i32 [ %cond49.i, %if.then43.i ], [ %maxchar.0.i, %PyUnicode_MAX_CHAR_VALUE.argprom.exit.i ]
   %cmp52.not.i = icmp ugt i32 %maxchar.1.i, %22
   br i1 %cmp52.not.i, label %cond.false56.i, label %land.lhs.true53.i
 
@@ -259,7 +259,7 @@ cond.false59.i:                                   ; preds = %cond.false56.i, %la
   br i1 %25, label %return, label %if.end67.i
 
 if.end67.i:                                       ; preds = %cond.false59.i, %cond.false56.i, %land.lhs.true53.i
-  tail call fastcc void @fill_padding(ptr noundef nonnull %writer, i64 noundef %len.0.i, i32 noundef %19, i64 noundef %div.sink.i.i, i64 noundef %sub20.i.i)
+  tail call fastcc void @fill_padding.retelim(ptr noundef nonnull %writer, i64 noundef %len.0.i, i32 noundef %19, i64 noundef %div.sink.i.i, i64 noundef %sub20.i.i)
   %tobool73.not.i = icmp eq i64 %len.0.i, 0
   br i1 %tobool73.not.i, label %if.end76.i, label %if.then74.i
 
@@ -2151,12 +2151,12 @@ if.end74.i:                                       ; preds = %if.end67.i
   br i1 %cmp76.i, label %done.i, label %if.end79.i
 
 if.end79.i:                                       ; preds = %if.end74.i
-  %call80.i = call fastcc i32 @PyUnicode_READ_CHAR(ptr noundef %call70.i)
+  %call80.i = call fastcc i32 @PyUnicode_READ_CHAR.argelim(ptr noundef %call70.i)
   %cmp81.i = icmp eq i32 %call80.i, 45
   %dec.i = sext i1 %cmp81.i to i64
   %n_re_digits.0.i = add i64 %call68.i, %dec.i
   %i_re.0.i = zext i1 %cmp81.i to i64
-  %call85.i = call fastcc i32 @PyUnicode_READ_CHAR(ptr noundef %call75.i)
+  %call85.i = call fastcc i32 @PyUnicode_READ_CHAR.argelim(ptr noundef %call75.i)
   %cmp86.i = icmp eq i32 %call85.i, 45
   %dec90.i = sext i1 %cmp86.i to i64
   %n_im_digits.0.i = add i64 %call69.i, %dec90.i
@@ -2271,7 +2271,7 @@ if.end159.i:                                      ; preds = %cond.false150.i, %c
   %29 = load i32, ptr %kind.i, align 8
   %data.i = getelementptr inbounds i8, ptr %writer, i64 8
   %30 = load ptr, ptr %data.i, align 8
-  call fastcc void @fill_padding(ptr noundef nonnull %writer, i64 noundef %add124.i, i32 noundef %5, i64 noundef %div.sink.i.i, i64 noundef %sub20.i.i)
+  call fastcc void @fill_padding.retelim(ptr noundef nonnull %writer, i64 noundef %add124.i, i32 noundef %5, i64 noundef %div.sink.i.i, i64 noundef %sub20.i.i)
   br i1 %tobool171.not137152.i, label %if.end176.i, label %if.then172.i
 
 if.then172.i:                                     ; preds = %if.end159.i
@@ -2653,7 +2653,7 @@ declare i32 @_PyUnicode_FindMaxChar(ptr noundef, i64 noundef, i64 noundef) local
 declare i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_padding(ptr nocapture noundef %writer, i64 noundef %nchars, i32 noundef %fill_char, i64 noundef %n_lpadding, i64 noundef %n_rpadding) unnamed_addr #0 {
+define internal fastcc void @fill_padding.retelim(ptr nocapture noundef %writer, i64 noundef %nchars, i32 noundef %fill_char, i64 noundef %n_lpadding, i64 noundef %n_rpadding) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %n_lpadding, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2702,7 +2702,7 @@ declare ptr @PyUnicode_FromOrdinal(i32 noundef) local_unnamed_addr #1
 declare ptr @_PyLong_Format(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @PyUnicode_READ_CHAR(ptr nocapture noundef nonnull readonly %unicode) unnamed_addr #3 {
+define internal fastcc i32 @PyUnicode_READ_CHAR.argelim(ptr nocapture noundef nonnull readonly %unicode) unnamed_addr #3 {
 entry:
   %state = getelementptr inbounds i8, ptr %unicode, i64 32
   %bf.load = load i32, ptr %state, align 8
@@ -3065,9 +3065,9 @@ if.then100:                                       ; preds = %if.end97
   %.val82 = load i32, ptr %24, align 8
   %25 = and i32 %.val82, 64
   %tobool.not.i = icmp eq i32 %25, 0
-  br i1 %tobool.not.i, label %PyUnicode_MAX_CHAR_VALUE.exit, label %cond.end109
+  br i1 %tobool.not.i, label %PyUnicode_MAX_CHAR_VALUE.argprom.exit, label %cond.end109
 
-PyUnicode_MAX_CHAR_VALUE.exit:                    ; preds = %if.then100
+PyUnicode_MAX_CHAR_VALUE.argprom.exit:            ; preds = %if.then100
   %bf.lshr.i = lshr i32 %.val82, 2
   %bf.clear.i = and i32 %bf.lshr.i, 7
   %switch.selectcmp.i = icmp eq i32 %bf.clear.i, 2
@@ -3076,8 +3076,8 @@ PyUnicode_MAX_CHAR_VALUE.exit:                    ; preds = %if.then100
   %switch.select4.i = select i1 %switch.selectcmp3.i, i32 255, i32 %switch.select.i
   br label %cond.end109
 
-cond.end109:                                      ; preds = %if.then100, %PyUnicode_MAX_CHAR_VALUE.exit
-  %switch.select4.i.sink = phi i32 [ %switch.select4.i, %PyUnicode_MAX_CHAR_VALUE.exit ], [ 127, %if.then100 ]
+cond.end109:                                      ; preds = %if.then100, %PyUnicode_MAX_CHAR_VALUE.argprom.exit
+  %switch.select4.i.sink = phi i32 [ %switch.select4.i, %PyUnicode_MAX_CHAR_VALUE.argprom.exit ], [ 127, %if.then100 ]
   %spec.select99 = call i32 @llvm.umax.i32(i32 %22, i32 %switch.select4.i.sink)
   store i32 %spec.select99, ptr %maxchar, align 4
   %.pre97 = load i64, ptr %n_decimal, align 8

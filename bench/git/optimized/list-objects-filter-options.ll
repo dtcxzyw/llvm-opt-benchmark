@@ -470,12 +470,12 @@ lor.lhs.false.i:                                  ; preds = %while.body.i
 if.then.i21:                                      ; preds = %lor.lhs.false.i, %while.body.i
   %16 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i.i = icmp eq i32 %16, 0
-  br i1 %tobool1.not.i.i, label %has_reserved_character.exit, label %if.end3.i.i
+  br i1 %tobool1.not.i.i, label %has_reserved_character.argprom.exit, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then.i21
   %call.i.i = tail call ptr @gettext(ptr noundef nonnull @.str.31) #14
   %.pre.i = load i8, ptr %c.03.i, align 1
-  br label %has_reserved_character.exit
+  br label %has_reserved_character.argprom.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %c.03.i, i64 1
@@ -483,7 +483,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %tobool.not.i23 = icmp eq i8 %17, 0
   br i1 %tobool.not.i23, label %lor.rhs.i, label %while.body.i, !llvm.loop !7
 
-has_reserved_character.exit:                      ; preds = %if.then.i21, %if.end3.i.i
+has_reserved_character.argprom.exit:              ; preds = %if.then.i21, %if.end3.i.i
   %18 = phi i8 [ %.pre.i, %if.end3.i.i ], [ %15, %if.then.i21 ]
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.31, %if.then.i21 ]
   %conv5.i = sext i8 %18 to i32
@@ -497,8 +497,8 @@ lor.rhs.i:                                        ; preds = %if.end.i, %do.end.i
   %20 = icmp eq i32 %call30.i, 0
   br label %parse_combine_subfilter.exit
 
-parse_combine_subfilter.exit:                     ; preds = %has_reserved_character.exit, %lor.rhs.i
-  %lor.ext.i = phi i1 [ false, %has_reserved_character.exit ], [ %20, %lor.rhs.i ]
+parse_combine_subfilter.exit:                     ; preds = %has_reserved_character.argprom.exit, %lor.rhs.i
+  %lor.ext.i = phi i1 [ false, %has_reserved_character.argprom.exit ], [ %20, %lor.rhs.i ]
   tail call void @free(ptr noundef %call26.i) #14
   %21 = load ptr, ptr %arrayidx5, align 8
   %tobool3 = icmp ne ptr %21, null

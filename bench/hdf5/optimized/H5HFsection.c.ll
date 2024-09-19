@@ -1576,7 +1576,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i, %6
   br i1 %.not.i, label %H5HF__sect_indirect_top.exit, label %tailrecurse.i
 
 H5HF__sect_indirect_top.exit:                     ; preds = %tailrecurse.i
-  tail call fastcc void @H5HF__sect_indirect_valid(ptr noundef nonnull %.tr.i)
+  tail call fastcc void @H5HF__sect_indirect_valid.argelim(ptr noundef nonnull %.tr.i)
   br label %11
 
 11:                                               ; preds = %H5HF__sect_indirect_top.exit, %2
@@ -3553,7 +3553,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_decr(ptr nounde
 declare i32 @H5HF__man_iblock_parent_info(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc void @H5HF__sect_indirect_valid(ptr nocapture noundef readonly %0) unnamed_addr #5 {
+define internal fastcc void @H5HF__sect_indirect_valid.argelim(ptr nocapture noundef readonly %0) unnamed_addr #5 {
 .loopexit42:
   %1 = getelementptr inbounds i8, ptr %0, i64 96
   %2 = load i32, ptr %1, align 8
@@ -3570,7 +3570,7 @@ define internal fastcc void @H5HF__sect_indirect_valid(ptr nocapture noundef rea
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
-  tail call fastcc void @H5HF__sect_indirect_valid(ptr noundef %7)
+  tail call fastcc void @H5HF__sect_indirect_valid.argelim(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %5

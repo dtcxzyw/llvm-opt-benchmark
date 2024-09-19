@@ -577,7 +577,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %183 = lshr exact i64 %182, 2
   %184 = trunc i64 %183 to i32
   %185 = icmp sgt i32 %184, 0
-  br i1 %185, label %.lr.ph.preheader.i.i, label %_ZN2cv4reidL10similarityERKSt6vectorIfSaIfEES5_.exit.i
+  br i1 %185, label %.lr.ph.preheader.i.i, label %_ZN2cv4reidL10similarityERKSt6vectorIfSaIfEES5_.argprom.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph.i
   %wide.trip.count.i.i = and i64 %183, 2147483647
@@ -593,22 +593,22 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %190 = call float @llvm.fmuladd.f32(float %187, float %189, float %.083.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN2cv4reidL10similarityERKSt6vectorIfSaIfEES5_.exit.i, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %_ZN2cv4reidL10similarityERKSt6vectorIfSaIfEES5_.argprom.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
-_ZN2cv4reidL10similarityERKSt6vectorIfSaIfEES5_.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i
+_ZN2cv4reidL10similarityERKSt6vectorIfSaIfEES5_.argprom.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i
   %.08.lcssa.i.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %190, %.lr.ph.i.i ]
   %191 = load ptr, ptr %160, align 8
   %192 = load ptr, ptr %161, align 8
   %.not.i.i.i = icmp eq ptr %191, %192
   br i1 %.not.i.i.i, label %195, label %193
 
-193:                                              ; preds = %_ZN2cv4reidL10similarityERKSt6vectorIfSaIfEES5_.exit.i
+193:                                              ; preds = %_ZN2cv4reidL10similarityERKSt6vectorIfSaIfEES5_.argprom.exit.i
   store float %.08.lcssa.i.i, ptr %191, align 4
   %194 = getelementptr inbounds i8, ptr %191, i64 4
   store ptr %194, ptr %160, align 8
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit.i
 
-195:                                              ; preds = %_ZN2cv4reidL10similarityERKSt6vectorIfSaIfEES5_.exit.i
+195:                                              ; preds = %_ZN2cv4reidL10similarityERKSt6vectorIfSaIfEES5_.argprom.exit.i
   %196 = load ptr, ptr %34, align 8
   %197 = ptrtoint ptr %191 to i64
   %198 = ptrtoint ptr %196 to i64

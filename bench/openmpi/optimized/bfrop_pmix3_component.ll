@@ -44,7 +44,7 @@ define internal noundef i32 @component_open() #0 {
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not1.i = icmp eq ptr %6, null
-  br i1 %.not1.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %pmix_obj_run_constructors.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %7 = phi ptr [ %9, %.lr.ph.i ], [ %6, %4 ]
@@ -53,9 +53,9 @@ define internal noundef i32 @component_open() #0 {
   %8 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %pmix_obj_run_constructors.argprom.exit, label %.lr.ph.i, !llvm.loop !4
 
-pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
+pmix_obj_run_constructors.argprom.exit:           ; preds = %.lr.ph.i, %4
   %10 = tail call i32 @pmix_pointer_array_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v3_component, i64 232), i32 noundef 32, i32 noundef 2147483647, i32 noundef 16) #4
   ret i32 0
 }
@@ -67,7 +67,7 @@ define internal noundef i32 @component_close() #0 {
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %.not1.i = icmp eq ptr %4, null
-  br i1 %.not1.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %pmix_obj_run_destructors.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %5 = phi ptr [ %7, %.lr.ph.i ], [ %4, %0 ]
@@ -76,9 +76,9 @@ define internal noundef i32 @component_close() #0 {
   %6 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %pmix_obj_run_destructors.argprom.exit, label %.lr.ph.i, !llvm.loop !6
 
-pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %0
+pmix_obj_run_destructors.argprom.exit:            ; preds = %.lr.ph.i, %0
   ret i32 0
 }
 

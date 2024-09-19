@@ -7022,7 +7022,7 @@ entry:
   %call.val.val = load ptr, ptr %2, align 8, !noalias !168
   %3 = getelementptr i8, ptr %call.val, i64 16
   %call.val.val30 = load ptr, ptr %3, align 8, !noalias !168
-  %call2 = tail call fastcc noundef i32 @_ZNK5arrow8internal12_GLOBAL__N_132TensorBuilderFromSparseCSFTensor11ElementSizeERKSt10shared_ptrINS_6TensorEE(ptr %call.val.val, ptr %call.val.val30)
+  %call2 = tail call fastcc noundef i32 @_ZNK5arrow8internal12_GLOBAL__N_132TensorBuilderFromSparseCSFTensor11ElementSizeERKSt10shared_ptrINS_6TensorEE.argprom.argprom(ptr %call.val.val, ptr %call.val.val30)
   %4 = load ptr, ptr %add.ptr.i, align 8
   %data_.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %data_.i, align 8
@@ -7097,7 +7097,7 @@ if.else:                                          ; preds = %entry
   %call18.val.val = load ptr, ptr %20, align 8, !noalias !168
   %21 = getelementptr i8, ptr %call18.val, i64 16
   %call18.val.val29 = load ptr, ptr %21, align 8, !noalias !168
-  %call19 = tail call fastcc noundef i32 @_ZNK5arrow8internal12_GLOBAL__N_132TensorBuilderFromSparseCSFTensor11ElementSizeERKSt10shared_ptrINS_6TensorEE(ptr %call18.val.val, ptr %call18.val.val29)
+  %call19 = tail call fastcc noundef i32 @_ZNK5arrow8internal12_GLOBAL__N_132TensorBuilderFromSparseCSFTensor11ElementSizeERKSt10shared_ptrINS_6TensorEE.argprom.argprom(ptr %call18.val.val, ptr %call18.val.val29)
   %conv22 = sext i32 %call19 to i64
   %cmp2742 = icmp slt i64 %start, %stop
   br i1 %cmp2742, label %for.body28.lr.ph, label %if.end
@@ -7266,7 +7266,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZNK5arrow8internal12_GLOBAL__N_132TensorBuilderFromSparseCSFTensor11ElementSizeERKSt10shared_ptrINS_6TensorEE(ptr %tensor.0.val.8.val, ptr %tensor.0.val.16.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZNK5arrow8internal12_GLOBAL__N_132TensorBuilderFromSparseCSFTensor11ElementSizeERKSt10shared_ptrINS_6TensorEE.argprom.argprom(ptr %tensor.0.val.8.val, ptr %tensor.0.val.16.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.3", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)

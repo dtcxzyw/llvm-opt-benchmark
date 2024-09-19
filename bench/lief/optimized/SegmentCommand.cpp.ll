@@ -1353,11 +1353,11 @@ define void @_ZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEE(ptr nounde
 19:                                               ; preds = %12
   %20 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit", label %21
+  br i1 %.not.i.i, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.argprom.exit", label %21
 
 21:                                               ; preds = %19
   %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit" unwind label %23
+          to label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.argprom.exit" unwind label %23
 
 23:                                               ; preds = %21
   %24 = landingpad { ptr, i32 }
@@ -1366,7 +1366,7 @@ define void @_ZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEE(ptr nounde
   call void @__clang_call_terminate(ptr %25) #25
   unreachable
 
-"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit": ; preds = %21, %19
+"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.argprom.exit": ; preds = %21, %19
   ret void
 
 26:                                               ; preds = %12
@@ -1374,11 +1374,11 @@ define void @_ZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEE(ptr nounde
           cleanup
   %28 = load ptr, ptr %9, align 8
   %.not.i.i5 = icmp eq ptr %28, null
-  br i1 %.not.i.i5, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8", label %29
+  br i1 %.not.i.i5, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.argprom.exit8", label %29
 
 29:                                               ; preds = %26
   %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8" unwind label %31
+          to label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.argprom.exit8" unwind label %31
 
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
@@ -1391,13 +1391,13 @@ _ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6:  ; preds = %2
   %34 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i.i7 = icmp eq ptr %4, null
-  br i1 %.not.i.i.i.i7, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8", label %35
+  br i1 %.not.i.i.i.i7, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.argprom.exit8", label %35
 
 35:                                               ; preds = %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6
   tail call void @_ZdlPv(ptr noundef nonnull %4) #22
-  br label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8"
+  br label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.argprom.exit8"
 
-"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8": ; preds = %29, %26, %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6, %35
+"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.argprom.exit8": ; preds = %29, %26, %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6, %35
   %.pn12 = phi { ptr, i32 } [ %34, %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6 ], [ %34, %35 ], [ %27, %26 ], [ %27, %29 ]
   resume { ptr, i32 } %.pn12
 }
@@ -2492,7 +2492,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEEZN4LIEF5Mac
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEEZN4LIEF5MachO14SegmentCommand7contentES2_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %26
@@ -2501,12 +2501,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIh
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -2527,7 +2527,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIh
   %14 = getelementptr inbounds i8, ptr %8, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store ptr %13, ptr %14, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.argprom.exit.i"
 
 15:                                               ; preds = %6
   %16 = icmp slt i64 %11, 0
@@ -2552,7 +2552,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %1
   %21 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %20, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %.val7.i, i64 %11, i1 false)
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.argprom.exit.i"
 
 22:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i
   %23 = landingpad { ptr, i32 }
@@ -2560,32 +2560,32 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %8) #22
   resume { ptr, i32 } %23
 
-"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.exit.i": ; preds = %18, %.noexc3.thread.i.i.i
+"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.argprom.exit.i": ; preds = %18, %.noexc3.thread.i.i.i
   %24 = phi ptr [ %13, %.noexc3.thread.i.i.i ], [ %20, %18 ]
   %25 = phi ptr [ %12, %.noexc3.thread.i.i.i ], [ %19, %18 ]
   store ptr %24, ptr %25, align 8
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 26:                                               ; preds = %3
   %.val9.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val9.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %28
 
 28:                                               ; preds = %26
   %.val.i.i = load ptr, ptr %.val9.i, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit.i.i", label %29
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.argprom.exit.i.i", label %29
 
 29:                                               ; preds = %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val.i.i) #22
-  br label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit.i.i"
+  br label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.argprom.exit.i.i"
 
-"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit.i.i": ; preds = %29, %28
+"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.argprom.exit.i.i": ; preds = %29, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val9.i) #22
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.argprom.exit.i", %5, %4
   ret i1 false
 }
 
@@ -2737,21 +2737,21 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4
   %8 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %10 = icmp eq i64 %8, %9
-  br i1 %10, label %11, label %"_ZZNK4LIEF5MachO14SegmentCommand11has_sectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKSt10unique_ptrINS0_7SectionESt14default_deleteISC_EE.exit"
+  br i1 %10, label %11, label %"_ZZNK4LIEF5MachO14SegmentCommand11has_sectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKSt10unique_ptrINS0_7SectionESt14default_deleteISC_EE.argprom.exit"
 
 11:                                               ; preds = %2
   %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %13 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %14 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %"_ZZNK4LIEF5MachO14SegmentCommand11has_sectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKSt10unique_ptrINS0_7SectionESt14default_deleteISC_EE.exit", label %16
+  br i1 %15, label %"_ZZNK4LIEF5MachO14SegmentCommand11has_sectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKSt10unique_ptrINS0_7SectionESt14default_deleteISC_EE.argprom.exit", label %16
 
 16:                                               ; preds = %11
   %bcmp.i.i = call i32 @bcmp(ptr %12, ptr %13, i64 %14)
   %17 = icmp eq i32 %bcmp.i.i, 0
-  br label %"_ZZNK4LIEF5MachO14SegmentCommand11has_sectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKSt10unique_ptrINS0_7SectionESt14default_deleteISC_EE.exit"
+  br label %"_ZZNK4LIEF5MachO14SegmentCommand11has_sectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKSt10unique_ptrINS0_7SectionESt14default_deleteISC_EE.argprom.exit"
 
-"_ZZNK4LIEF5MachO14SegmentCommand11has_sectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKSt10unique_ptrINS0_7SectionESt14default_deleteISC_EE.exit": ; preds = %2, %11, %16
+"_ZZNK4LIEF5MachO14SegmentCommand11has_sectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKSt10unique_ptrINS0_7SectionESt14default_deleteISC_EE.argprom.exit": ; preds = %2, %11, %16
   %18 = phi i1 [ false, %2 ], [ %17, %16 ], [ true, %11 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -2770,15 +2770,15 @@ define internal void @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEEZN4LIEF5Mac
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %.not.i.i.i = icmp ult i64 %9, %.val
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i.i.i, label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_resizeEmE3$_0JRSt6vectorIhSaIhEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i.i.i, label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_resizeEmE3$_0JRSt6vectorIhSaIhEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 _ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i.i.i:      ; preds = %2
   store i8 0, ptr %3, align 1
   %10 = sub nuw i64 %.val, %9
   call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %5, i64 noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  br label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_resizeEmE3$_0JRSt6vectorIhSaIhEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_resizeEmE3$_0JRSt6vectorIhSaIhEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_resizeEmE3$_0JRSt6vectorIhSaIhEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %2, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i.i.i
+"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_resizeEmE3$_0JRSt6vectorIhSaIhEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %2, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   ret void
 }
@@ -2960,7 +2960,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEmmEZN4LIEF5M
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   %7 = icmp eq i64 %.val4, 0
-  br i1 %7, label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_insertEmmE3$_0JRSt6vectorIhSaIhEEmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %8
+  br i1 %7, label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_insertEmmE3$_0JRSt6vectorIhSaIhEEmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2976,7 +2976,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEmmEZN4LIEF5M
   %17 = getelementptr inbounds i8, ptr %11, i64 %.val
   store i8 0, ptr %5, align 1
   call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %17, i64 noundef %.val4, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  br label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_insertEmmE3$_0JRSt6vectorIhSaIhEEmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_insertEmmE3$_0JRSt6vectorIhSaIhEEmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 18:                                               ; preds = %8
   %19 = add i64 %.val4, %.val
@@ -2987,22 +2987,22 @@ define internal void @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEmmEZN4LIEF5M
 
 22:                                               ; preds = %18
   call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %10, i64 noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  br label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_insertEmmE3$_0JRSt6vectorIhSaIhEEmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_insertEmmE3$_0JRSt6vectorIhSaIhEEmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 23:                                               ; preds = %18
   %24 = icmp ult i64 %20, %14
-  br i1 %24, label %25, label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_insertEmmE3$_0JRSt6vectorIhSaIhEEmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %24, label %25, label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_insertEmmE3$_0JRSt6vectorIhSaIhEEmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %11, i64 %20
   %.not.i.i.i.i.i = icmp eq ptr %10, %26
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_insertEmmE3$_0JRSt6vectorIhSaIhEEmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %27
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_insertEmmE3$_0JRSt6vectorIhSaIhEEmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %27
 
 27:                                               ; preds = %25
   store ptr %26, ptr %9, align 8
-  br label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_insertEmmE3$_0JRSt6vectorIhSaIhEEmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_insertEmmE3$_0JRSt6vectorIhSaIhEEmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_insertEmmE3$_0JRSt6vectorIhSaIhEEmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %4, %16, %22, %23, %25, %27
+"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_insertEmmE3$_0JRSt6vectorIhSaIhEEmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %4, %16, %22, %23, %25, %27
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   ret void
@@ -3040,21 +3040,21 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4
   %8 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %10 = icmp eq i64 %8, %9
-  br i1 %10, label %11, label %"_ZZNK4LIEF5MachO14SegmentCommand11get_sectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKSt10unique_ptrINS0_7SectionESt14default_deleteISC_EE.exit"
+  br i1 %10, label %11, label %"_ZZNK4LIEF5MachO14SegmentCommand11get_sectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKSt10unique_ptrINS0_7SectionESt14default_deleteISC_EE.argprom.exit"
 
 11:                                               ; preds = %2
   %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %13 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %14 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %"_ZZNK4LIEF5MachO14SegmentCommand11get_sectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKSt10unique_ptrINS0_7SectionESt14default_deleteISC_EE.exit", label %16
+  br i1 %15, label %"_ZZNK4LIEF5MachO14SegmentCommand11get_sectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKSt10unique_ptrINS0_7SectionESt14default_deleteISC_EE.argprom.exit", label %16
 
 16:                                               ; preds = %11
   %bcmp.i.i = call i32 @bcmp(ptr %12, ptr %13, i64 %14)
   %17 = icmp eq i32 %bcmp.i.i, 0
-  br label %"_ZZNK4LIEF5MachO14SegmentCommand11get_sectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKSt10unique_ptrINS0_7SectionESt14default_deleteISC_EE.exit"
+  br label %"_ZZNK4LIEF5MachO14SegmentCommand11get_sectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKSt10unique_ptrINS0_7SectionESt14default_deleteISC_EE.argprom.exit"
 
-"_ZZNK4LIEF5MachO14SegmentCommand11get_sectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKSt10unique_ptrINS0_7SectionESt14default_deleteISC_EE.exit": ; preds = %2, %11, %16
+"_ZZNK4LIEF5MachO14SegmentCommand11get_sectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERKSt10unique_ptrINS0_7SectionESt14default_deleteISC_EE.argprom.exit": ; preds = %2, %11, %16
   %18 = phi i1 [ false, %2 ], [ %17, %16 ], [ true, %11 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)

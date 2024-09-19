@@ -2565,7 +2565,7 @@ if.end22:                                         ; preds = %if.else, %if.then9
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3156), align 4
   %8 = load volatile i32, ptr @faulthandler_dump_traceback.reentrant, align 4
   %tobool.not.i16 = icmp eq i32 %8, 0
-  br i1 %tobool.not.i16, label %if.end.i17, label %faulthandler_dump_traceback.exit
+  br i1 %tobool.not.i16, label %if.end.i17, label %faulthandler_dump_traceback.argprom.exit
 
 if.end.i17:                                       ; preds = %if.end22
   store volatile i32 1, ptr @faulthandler_dump_traceback.reentrant, align 4
@@ -2587,16 +2587,16 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.end6.i:                                        ; preds = %if.then4.i, %if.else.i, %if.then2.i
   store volatile i32 0, ptr @faulthandler_dump_traceback.reentrant, align 4
-  br label %faulthandler_dump_traceback.exit
+  br label %faulthandler_dump_traceback.argprom.exit
 
-faulthandler_dump_traceback.exit:                 ; preds = %if.end22, %if.end6.i
+faulthandler_dump_traceback.argprom.exit:         ; preds = %if.end22, %if.end6.i
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3160), align 8
   call void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %9) #16
   store i32 %1, ptr %call, align 4
   %call24 = call i32 @raise(i32 noundef %signum) #16
   br label %return
 
-return:                                           ; preds = %entry, %faulthandler_dump_traceback.exit
+return:                                           ; preds = %entry, %faulthandler_dump_traceback.argprom.exit
   ret void
 }
 
@@ -2741,7 +2741,7 @@ if.end:                                           ; preds = %entry
   %4 = load i32, ptr %all_threads, align 4
   %5 = load volatile i32, ptr @faulthandler_dump_traceback.reentrant, align 4
   %tobool.not.i = icmp eq i32 %5, 0
-  br i1 %tobool.not.i, label %if.end.i, label %faulthandler_dump_traceback.exit
+  br i1 %tobool.not.i, label %if.end.i, label %faulthandler_dump_traceback.argprom.exit
 
 if.end.i:                                         ; preds = %if.end
   store volatile i32 1, ptr @faulthandler_dump_traceback.reentrant, align 4
@@ -2763,15 +2763,15 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.end6.i:                                        ; preds = %if.then4.i, %if.else.i, %if.then2.i
   store volatile i32 0, ptr @faulthandler_dump_traceback.reentrant, align 4
-  br label %faulthandler_dump_traceback.exit
+  br label %faulthandler_dump_traceback.argprom.exit
 
-faulthandler_dump_traceback.exit:                 ; preds = %if.end, %if.end6.i
+faulthandler_dump_traceback.argprom.exit:         ; preds = %if.end, %if.end6.i
   %chain = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %6 = load i32, ptr %chain, align 8
   %tobool1.not = icmp eq i32 %6, 0
   br i1 %tobool1.not, label %if.end10, label %if.then2
 
-if.then2:                                         ; preds = %faulthandler_dump_traceback.exit
+if.then2:                                         ; preds = %faulthandler_dump_traceback.argprom.exit
   %previous = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %call3 = tail call i32 @sigaction(i32 noundef %signum, ptr noundef nonnull %previous, ptr noundef null) #16
   store i32 %0, ptr %call, align 4
@@ -2791,7 +2791,7 @@ if.then2:                                         ; preds = %faulthandler_dump_t
   store i32 %7, ptr %call, align 4
   br label %if.end10
 
-if.end10:                                         ; preds = %entry, %if.then2, %faulthandler_dump_traceback.exit
+if.end10:                                         ; preds = %entry, %if.then2, %faulthandler_dump_traceback.argprom.exit
   ret void
 }
 

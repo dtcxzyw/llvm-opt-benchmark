@@ -1079,7 +1079,7 @@ do.body27.i:                                      ; preds = %do.body20.i
 do.end30.i:                                       ; preds = %do.body20.i
   %10 = load ptr, ptr %isolate_.i.i, align 8
   %call35.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr nonnull %9) #23
-  br label %_ZN4node6crypto12_GLOBAL__N_118ExportJWKSecretKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.exit
+  br label %_ZN4node6crypto12_GLOBAL__N_118ExportJWKSecretKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.argprom.exit
 
 if.end44.i:                                       ; preds = %_ZNK4node6crypto13KeyObjectData19GetSymmetricKeySizeEv.exit.i
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %env, i64 2728
@@ -1096,7 +1096,7 @@ if.end44.i:                                       ; preds = %_ZNK4node6crypto13K
   %15 = load ptr, ptr %jwk_oct_string_.i.i.i, align 8
   %call78.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %result.coerce, ptr %call2.i.i, ptr %14, ptr %15) #23
   %tobool.i137.i = trunc i16 %call78.i to i1
-  br i1 %tobool.i137.i, label %lor.rhs.i, label %_ZN4node6crypto12_GLOBAL__N_118ExportJWKSecretKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.exit
+  br i1 %tobool.i137.i, label %lor.rhs.i, label %_ZN4node6crypto12_GLOBAL__N_118ExportJWKSecretKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.argprom.exit
 
 lor.rhs.i:                                        ; preds = %if.end44.i
   %16 = load ptr, ptr %principal_realm_.i.i.i, align 8
@@ -1110,14 +1110,14 @@ lor.rhs.i:                                        ; preds = %if.end44.i
   %call106.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %result.coerce, ptr %call2.i18.i, ptr %19, ptr nonnull %call13.i) #23
   %tobool.i.i = trunc i16 %call106.i to i1
   %spec.select.i = select i1 %tobool.i.i, i16 257, i16 0
-  br label %_ZN4node6crypto12_GLOBAL__N_118ExportJWKSecretKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.exit
+  br label %_ZN4node6crypto12_GLOBAL__N_118ExportJWKSecretKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.argprom.exit
 
-_ZN4node6crypto12_GLOBAL__N_118ExportJWKSecretKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.exit: ; preds = %do.end30.i, %if.end44.i, %lor.rhs.i
+_ZN4node6crypto12_GLOBAL__N_118ExportJWKSecretKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.argprom.exit: ; preds = %do.end30.i, %if.end44.i, %lor.rhs.i
   %retval.sroa.0.0.i = phi i16 [ 0, %do.end30.i ], [ 0, %if.end44.i ], [ %spec.select.i, %lor.rhs.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %error.i)
   br i1 %cmp.not.i.i.i, label %return, label %if.then.i.i.i4
 
-if.then.i.i.i4:                                   ; preds = %_ZN4node6crypto12_GLOBAL__N_118ExportJWKSecretKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.exit
+if.then.i.i.i4:                                   ; preds = %_ZN4node6crypto12_GLOBAL__N_118ExportJWKSecretKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.argprom.exit
   %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %2, i64 8
   %20 = load atomic i64, ptr %_M_use_count.i.i.i.i5 acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %20, 4294967297
@@ -1792,8 +1792,8 @@ return.sink.split:                                ; preds = %return.sink.split.s
   call void %112(ptr noundef nonnull align 8 dereferenceable(16) %.sink79) #23
   br label %return
 
-return:                                           ; preds = %return.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i46, %_ZN4node6crypto12_GLOBAL__N_122ExportJWKAsymmetricKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEEb.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN4node6crypto12_GLOBAL__N_118ExportJWKSecretKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.exit
-  %retval.sroa.0.0 = phi i16 [ %retval.sroa.0.0.i, %_ZN4node6crypto12_GLOBAL__N_118ExportJWKSecretKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.exit ], [ %retval.sroa.0.0.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %retval.sroa.0.0.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %retval.sroa.0.0.i29, %_ZN4node6crypto12_GLOBAL__N_122ExportJWKAsymmetricKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEEb.exit ], [ %retval.sroa.0.0.i29, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i46 ], [ %retval.sroa.0.0.i29, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i56 ], [ %retval.sroa.0.0.ph, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i46, %_ZN4node6crypto12_GLOBAL__N_122ExportJWKAsymmetricKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEEb.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN4node6crypto12_GLOBAL__N_118ExportJWKSecretKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.argprom.exit
+  %retval.sroa.0.0 = phi i16 [ %retval.sroa.0.0.i, %_ZN4node6crypto12_GLOBAL__N_118ExportJWKSecretKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.argprom.exit ], [ %retval.sroa.0.0.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %retval.sroa.0.0.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %retval.sroa.0.0.i29, %_ZN4node6crypto12_GLOBAL__N_122ExportJWKAsymmetricKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEEb.exit ], [ %retval.sroa.0.0.i29, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i46 ], [ %retval.sroa.0.0.i29, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i56 ], [ %retval.sroa.0.0.ph, %return.sink.split ]
   ret i16 %retval.sroa.0.0
 }
 
@@ -9371,14 +9371,14 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit127: ; preds = %if.end.i119, %
   %retval.i110.sroa.0.0 = phi ptr [ %41, %if.then.i124 ], [ %42, %if.end.i119 ]
   %43 = load i32, ptr %key_type_.i, align 8
   %cmp.not.i.i = icmp eq i32 %43, 0
-  br i1 %cmp.not.i.i, label %_ZN4node6crypto12_GLOBAL__N_118GetSecretKeyDetailEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.exit, label %do.body4.i.i
+  br i1 %cmp.not.i.i, label %_ZN4node6crypto12_GLOBAL__N_118GetSecretKeyDetailEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.argprom.exit, label %do.body4.i.i
 
 do.body4.i.i:                                     ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit127
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData19GetSymmetricKeySizeEvE4args) #23
   tail call void @abort() #24
   unreachable
 
-_ZN4node6crypto12_GLOBAL__N_118GetSecretKeyDetailEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit127
+_ZN4node6crypto12_GLOBAL__N_118GetSecretKeyDetailEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.argprom.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit127
   %size_.i.i.i = getelementptr inbounds i8, ptr %28, i64 32
   %44 = load i64, ptr %size_.i.i.i, align 8
   %mul.i = shl i64 %44, 3
@@ -9400,7 +9400,7 @@ _ZN4node6crypto12_GLOBAL__N_118GetSecretKeyDetailEPNS_11EnvironmentESt10shared_p
   %tobool.i160 = trunc i16 %call37.i to i1
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit, label %if.then.i.i.i41
 
-if.then.i.i.i41:                                  ; preds = %_ZN4node6crypto12_GLOBAL__N_118GetSecretKeyDetailEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.exit
+if.then.i.i.i41:                                  ; preds = %_ZN4node6crypto12_GLOBAL__N_118GetSecretKeyDetailEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.argprom.exit
   %_M_use_count.i.i.i.i42 = getelementptr inbounds i8, ptr %29, i64 8
   %50 = load atomic i64, ptr %_M_use_count.i.i.i.i42 acquire, align 8
   %cmp.i.i.i.i43 = icmp eq i64 %50, 4294967297
@@ -9468,7 +9468,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   tail call void %59(ptr noundef nonnull align 8 dereferenceable(16) %29) #23
   br label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit
 
-_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit: ; preds = %_ZN4node6crypto12_GLOBAL__N_118GetSecretKeyDetailEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit: ; preds = %_ZN4node6crypto12_GLOBAL__N_118GetSecretKeyDetailEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS7_6ObjectEEE.argprom.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   br i1 %tobool.i160, label %sw.epilog, label %cleanup
 
 sw.bb48:                                          ; preds = %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit
@@ -15535,14 +15535,14 @@ entry:
   %__args1.val = load i64, ptr %__args1, align 8
   %call.i.i.i = tail call ptr @d2i_X509(ptr noundef null, ptr noundef %__args.val, i64 noundef %__args1.val) #23
   %cmp.i.not.i.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i.not.i.i.i, label %"_ZSt10__invoke_rIP11evp_pkey_stRZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrIS0_NS2_15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEPKciE3$_2JPPKhlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %if.then.i.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %"_ZSt10__invoke_rIP11evp_pkey_stRZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrIS0_NS2_15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEPKciE3$_2JPPKhlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %call4.i.i.i = tail call ptr @X509_get_pubkey(ptr noundef nonnull %call.i.i.i) #23
   tail call void @X509_free(ptr noundef nonnull %call.i.i.i) #23
-  br label %"_ZSt10__invoke_rIP11evp_pkey_stRZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrIS0_NS2_15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEPKciE3$_2JPPKhlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
+  br label %"_ZSt10__invoke_rIP11evp_pkey_stRZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrIS0_NS2_15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEPKciE3$_2JPPKhlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
 
-"_ZSt10__invoke_rIP11evp_pkey_stRZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrIS0_NS2_15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEPKciE3$_2JPPKhlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %entry, %if.then.i.i.i.i
+"_ZSt10__invoke_rIP11evp_pkey_stRZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrIS0_NS2_15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEPKciE3$_2JPPKhlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %entry, %if.then.i.i.i.i
   %cond5.i.i.i = phi ptr [ %call4.i.i.i, %if.then.i.i.i.i ], [ null, %entry ]
   ret ptr %cond5.i.i.i
 }

@@ -614,7 +614,7 @@ inBoxf.exit243.thread.i:                          ; preds = %255
 367:                                              ; preds = %.thread260.i
   %368 = load ptr, ptr @stderr, align 8
   %369 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %368, ptr noundef nonnull @.str.9, i64 noundef %366, i64 noundef 16) #12
-  call fastcc void @graphviz_exit() #13
+  call fastcc void @graphviz_exit.argelim() #13
   unreachable
 
 370:                                              ; preds = %.thread260.i
@@ -628,7 +628,7 @@ inBoxf.exit243.thread.i:                          ; preds = %255
   %375 = load ptr, ptr @stderr, align 8
   %376 = shl nuw i64 %366, 4
   %377 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %375, ptr noundef nonnull @.str.10, i64 noundef %376) #12
-  call fastcc void @graphviz_exit() #13
+  call fastcc void @graphviz_exit.argelim() #13
   unreachable
 
 gv_calloc.exit.i:                                 ; preds = %370
@@ -1053,7 +1053,7 @@ declare double @llvm.fabs.f64(double) #5
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #7 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #7 {
   tail call void @exit(i32 noundef 1) #15
   unreachable
 }

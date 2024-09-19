@@ -3234,9 +3234,9 @@ is_thrift_strict_version.exit.i:                  ; preds = %24
   %39 = add i32 %28, %32
   %40 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %39) #7
   %41 = icmp slt i32 %40, 5
-  br i1 %41, label %42, label %test_thrift_strict.exit
+  br i1 %41, label %42, label %test_thrift_strict.argprom.exit
 
-test_thrift_strict.exit:                          ; preds = %38
+test_thrift_strict.argprom.exit:                  ; preds = %38
   store i32 -2147362182, ptr %6, align 8
   br label %89
 
@@ -3244,7 +3244,7 @@ test_thrift_strict.exit:                          ; preds = %38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %43 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   %44 = icmp ult i32 %43, 5
-  br i1 %44, label %test_thrift_compact.exit.thread, label %45
+  br i1 %44, label %test_thrift_compact.argprom.exit.thread, label %45
 
 45:                                               ; preds = %42
   %46 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef 0) #7
@@ -3256,7 +3256,7 @@ test_thrift_strict.exit:                          ; preds = %38
   %50 = icmp slt i32 %49, 5
   %51 = icmp ult i32 %43, 9
   %or.cond.i18 = or i1 %51, %50
-  br i1 %or.cond.i18, label %test_thrift_compact.exit.thread, label %52
+  br i1 %or.cond.i18, label %test_thrift_compact.argprom.exit.thread, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds i8, ptr %6, i64 8
@@ -3277,14 +3277,14 @@ test_thrift_strict.exit:                          ; preds = %38
   %60 = zext i16 %59 to i32
   %61 = and i32 %60, 65311
   %62 = icmp eq i32 %61, 33281
-  br i1 %62, label %63, label %test_thrift_compact.exit.thread
+  br i1 %62, label %63, label %test_thrift_compact.argprom.exit.thread
 
 63:                                               ; preds = %57
   %64 = lshr i32 %60, 5
   %65 = and i32 %64, 7
   %66 = add nsw i32 %65, -1
   %or.cond.i.i17 = icmp ult i32 %66, 4
-  br i1 %or.cond.i.i17, label %is_thrift_compact_version.exit.i, label %test_thrift_compact.exit.thread
+  br i1 %or.cond.i.i17, label %is_thrift_compact_version.exit.i, label %test_thrift_compact.argprom.exit.thread
 
 is_thrift_compact_version.exit.i:                 ; preds = %63
   %67 = or disjoint i32 %.0485.i, 2
@@ -3292,52 +3292,52 @@ is_thrift_compact_version.exit.i:                 ; preds = %63
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %68, i32 5)
   %69 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %67, i32 noundef %spec.store.select.i, ptr noundef nonnull %5, i32 noundef 8) #7
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %test_thrift_compact.exit.thread, label %71
+  br i1 %70, label %test_thrift_compact.argprom.exit.thread, label %71
 
 71:                                               ; preds = %is_thrift_compact_version.exit.i
   %72 = add i32 %69, %67
   %.not56.i = icmp ult i32 %72, %43
-  br i1 %.not56.i, label %73, label %test_thrift_compact.exit.thread
+  br i1 %.not56.i, label %73, label %test_thrift_compact.argprom.exit.thread
 
 73:                                               ; preds = %71
   %74 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %72) #7
   %75 = zext i8 %74 to i32
   %.not57.i = icmp sgt i8 %74, -1
-  br i1 %.not57.i, label %76, label %test_thrift_compact.exit.thread
+  br i1 %.not57.i, label %76, label %test_thrift_compact.argprom.exit.thread
 
 76:                                               ; preds = %73
   %77 = add nuw i32 %72, 1
   %78 = add i32 %77, %75
   %79 = icmp slt i32 %.0493.i, %78
   %or.cond10.i = select i1 %47, i1 %79, i1 false
-  br i1 %or.cond10.i, label %test_thrift_compact.exit.thread, label %80
+  br i1 %or.cond10.i, label %test_thrift_compact.argprom.exit.thread, label %80
 
 80:                                               ; preds = %76
   %81 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %77) #7
   %82 = icmp slt i32 %81, %75
-  br i1 %82, label %test_thrift_compact.exit.thread, label %83
+  br i1 %82, label %test_thrift_compact.argprom.exit.thread, label %83
 
 83:                                               ; preds = %80
   %84 = call fastcc i32 @thrift_binary_utf8_isprint(ptr noundef %0, i32 noundef %77, i32 noundef %75, i32 noundef 0)
   %85 = icmp slt i32 %84, %75
-  br i1 %85, label %test_thrift_compact.exit.thread, label %86
+  br i1 %85, label %test_thrift_compact.argprom.exit.thread, label %86
 
 86:                                               ; preds = %83
   %87 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %78) #7
   %88 = icmp slt i32 %87, 1
-  br i1 %88, label %test_thrift_compact.exit.thread, label %test_thrift_compact.exit
+  br i1 %88, label %test_thrift_compact.argprom.exit.thread, label %test_thrift_compact.argprom.exit
 
-test_thrift_compact.exit.thread:                  ; preds = %42, %48, %is_thrift_compact_version.exit.i, %71, %73, %80, %83, %86, %57, %63, %76
+test_thrift_compact.argprom.exit.thread:          ; preds = %42, %48, %is_thrift_compact_version.exit.i, %71, %73, %80, %83, %86, %57, %63, %76
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %99
 
-test_thrift_compact.exit:                         ; preds = %86
+test_thrift_compact.argprom.exit:                 ; preds = %86
   store i32 -2147362182, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %89
 
-89:                                               ; preds = %test_thrift_compact.exit, %test_thrift_strict.exit
-  %90 = phi i32 [ %58, %test_thrift_compact.exit ], [ %spec.select.i, %test_thrift_strict.exit ]
+89:                                               ; preds = %test_thrift_compact.argprom.exit, %test_thrift_strict.argprom.exit
+  %90 = phi i32 [ %58, %test_thrift_compact.argprom.exit ], [ %spec.select.i, %test_thrift_strict.argprom.exit ]
   %91 = getelementptr inbounds i8, ptr %1, i64 8
   %92 = load ptr, ptr %91, align 8
   call void @col_set_str(ptr noundef %92, i32 noundef 34, ptr noundef nonnull @.str.181) #7
@@ -3356,8 +3356,8 @@ test_thrift_compact.exit:                         ; preds = %86
   %98 = call fastcc i32 @dissect_thrift_loop(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %6)
   br label %99
 
-99:                                               ; preds = %test_thrift_compact.exit.thread, %95, %97
-  %.0 = phi i32 [ 1, %97 ], [ 1, %95 ], [ 0, %test_thrift_compact.exit.thread ]
+99:                                               ; preds = %test_thrift_compact.argprom.exit.thread, %95, %97
+  %.0 = phi i32 [ 1, %97 ], [ 1, %95 ], [ 0, %test_thrift_compact.argprom.exit.thread ]
   ret i32 %.0
 }
 

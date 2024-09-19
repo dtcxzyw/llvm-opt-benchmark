@@ -78,7 +78,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef %0, ptr nocapture noundef rea
   br i1 %.not98, label %40, label %39
 
 39:                                               ; preds = %37
-  call fastcc void @_bind_ldom(i32 noundef %2, ptr noundef nonnull %0)
+  call fastcc void @_bind_ldom.retelim(i32 noundef %2, ptr noundef nonnull %0)
   br label %.loopexit
 
 40:                                               ; preds = %37
@@ -252,7 +252,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef %0, ptr nocapture noundef rea
   br i1 %.not112, label %110, label %109
 
 109:                                              ; preds = %107
-  call fastcc void @_bind_ldom(i32 noundef %.078135, ptr noundef %0)
+  call fastcc void @_bind_ldom.retelim(i32 noundef %.078135, ptr noundef %0)
   br label %110
 
 110:                                              ; preds = %109, %107
@@ -262,7 +262,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef %0, ptr nocapture noundef rea
 
 112:                                              ; preds = %110
   %113 = or disjoint i32 %.078135, 1
-  call fastcc void @_bind_ldom(i32 noundef %113, ptr noundef %0)
+  call fastcc void @_bind_ldom.retelim(i32 noundef %113, ptr noundef %0)
   br label %114
 
 114:                                              ; preds = %112, %110
@@ -272,7 +272,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef %0, ptr nocapture noundef rea
 
 116:                                              ; preds = %114
   %117 = or disjoint i32 %.078135, 2
-  call fastcc void @_bind_ldom(i32 noundef %117, ptr noundef %0)
+  call fastcc void @_bind_ldom.retelim(i32 noundef %117, ptr noundef %0)
   br label %118
 
 118:                                              ; preds = %116, %114
@@ -282,7 +282,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef %0, ptr nocapture noundef rea
 
 120:                                              ; preds = %118
   %121 = or disjoint i32 %.078135, 3
-  call fastcc void @_bind_ldom(i32 noundef %121, ptr noundef %0)
+  call fastcc void @_bind_ldom.retelim(i32 noundef %121, ptr noundef %0)
   br label %122
 
 122:                                              ; preds = %120, %118
@@ -313,7 +313,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef %0, ptr nocapture noundef rea
 134:                                              ; preds = %132, %129
   %.0.in = phi i64 [ %131, %129 ], [ %133, %132 ]
   %.0 = trunc i64 %.0.in to i32
-  call fastcc void @_bind_ldom(i32 noundef %.0, ptr noundef %0)
+  call fastcc void @_bind_ldom.retelim(i32 noundef %.0, ptr noundef %0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph138, %122, %.preheader, %97, %124, %88, %85, %70, %._crit_edge130, %40, %29, %19, %14, %134, %73, %39
@@ -331,7 +331,7 @@ declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_bind_ldom(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @_bind_ldom.retelim(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @numa_max_node() #7
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %8

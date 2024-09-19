@@ -793,7 +793,7 @@ sw.bb31:                                          ; preds = %if.else
   store i32 %div, ptr %century, align 4
   %minRepresentDigits = getelementptr inbounds i8, ptr %__begin2.sroa.0.0196, i64 16
   %16 = load i64, ptr %minRepresentDigits, align 8
-  %call40 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b(ptr noundef nonnull align 4 dereferenceable(4) %century, i64 noundef %16, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
+  %call40 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b.argelim(ptr noundef nonnull align 4 dereferenceable(4) %century, i64 noundef %16, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
   %idx.ext41 = sext i32 %call40 to i64
   %add.ptr42 = getelementptr inbounds i8, ptr %result.addr.0197, i64 %idx.ext41
   br label %for.inc
@@ -807,14 +807,14 @@ sw.bb43:                                          ; preds = %if.else
 
 if.then51:                                        ; preds = %sw.bb43
   store i32 %rem103, ptr %ref.tmp52, align 4
-  %call53 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp52, i64 noundef 2, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
+  %call53 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b.argelim(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp52, i64 noundef 2, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
   %idx.ext54 = sext i32 %call53 to i64
   %add.ptr55 = getelementptr inbounds i8, ptr %result.addr.0197, i64 %idx.ext54
   br label %for.inc
 
 if.else56:                                        ; preds = %sw.bb43
   store i32 %cond62, ptr %year44, align 4
-  %call64 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b(ptr noundef nonnull align 4 dereferenceable(4) %year44, i64 noundef %17, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
+  %call64 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b.argelim(ptr noundef nonnull align 4 dereferenceable(4) %year44, i64 noundef %17, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
   %idx.ext65 = sext i32 %call64 to i64
   %add.ptr66 = getelementptr inbounds i8, ptr %result.addr.0197, i64 %idx.ext65
   br label %for.inc
@@ -826,7 +826,7 @@ sw.bb68:                                          ; preds = %if.else, %if.else
   store i32 %spec.store.select, ptr %weekdayNum, align 4
   %minRepresentDigits75 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0196, i64 16
   %18 = load i64, ptr %minRepresentDigits75, align 8
-  %call76 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIjEEiRKT_cmPcS7_b(ptr noundef nonnull align 4 dereferenceable(4) %weekdayNum, i64 noundef %18, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
+  %call76 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIjEEiRKT_cmPcS7_b.argelim(ptr noundef nonnull align 4 dereferenceable(4) %weekdayNum, i64 noundef %18, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
   %idx.ext77 = sext i32 %call76 to i64
   %add.ptr78 = getelementptr inbounds i8, ptr %result.addr.0197, i64 %idx.ext77
   br label %for.inc
@@ -851,14 +851,14 @@ sw.bb94:                                          ; preds = %if.else
 
 if.then102:                                       ; preds = %sw.bb94
   store i32 %rem103, ptr %twoDigitYear, align 4
-  %call105 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b(ptr noundef nonnull align 4 dereferenceable(4) %twoDigitYear, i64 noundef 2, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
+  %call105 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b.argelim(ptr noundef nonnull align 4 dereferenceable(4) %twoDigitYear, i64 noundef 2, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
   %idx.ext106 = sext i32 %call105 to i64
   %add.ptr107 = getelementptr inbounds i8, ptr %result.addr.0197, i64 %idx.ext106
   br label %for.inc
 
 if.else108:                                       ; preds = %sw.bb94
   store i32 %add37.i.i, ptr %ref.tmp109, align 4
-  %call115 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp109, i64 noundef %20, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
+  %call115 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b.argelim(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp109, i64 noundef %20, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
   %idx.ext116 = sext i32 %call115 to i64
   %add.ptr117 = getelementptr inbounds i8, ptr %result.addr.0197, i64 %idx.ext116
   br label %for.inc
@@ -867,7 +867,7 @@ sw.bb119:                                         ; preds = %if.else
   store i32 %add, ptr %delta, align 4
   %minRepresentDigits137 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0196, i64 16
   %21 = load i64, ptr %minRepresentDigits137, align 8
-  %call138 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b(ptr noundef nonnull align 4 dereferenceable(4) %delta, i64 noundef %21, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
+  %call138 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b.argelim(ptr noundef nonnull align 4 dereferenceable(4) %delta, i64 noundef %21, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
   %idx.ext139 = sext i32 %call138 to i64
   %add.ptr140 = getelementptr inbounds i8, ptr %result.addr.0197, i64 %idx.ext139
   br label %for.inc
@@ -876,7 +876,7 @@ sw.bb141:                                         ; preds = %if.else
   store i32 %conv.i157, ptr %ref.tmp142, align 4
   %minRepresentDigits147 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0196, i64 16
   %22 = load i64, ptr %minRepresentDigits147, align 8
-  %call148 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIjEEiRKT_cmPcS7_b(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp142, i64 noundef %22, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
+  %call148 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIjEEiRKT_cmPcS7_b.argelim(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp142, i64 noundef %22, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
   %idx.ext149 = sext i32 %call148 to i64
   %add.ptr150 = getelementptr inbounds i8, ptr %result.addr.0197, i64 %idx.ext149
   br label %for.inc
@@ -897,7 +897,7 @@ sw.bb176:                                         ; preds = %if.else
   store i32 %conv.i161, ptr %ref.tmp177, align 4
   %minRepresentDigits182 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0196, i64 16
   %24 = load i64, ptr %minRepresentDigits182, align 8
-  %call183 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIjEEiRKT_cmPcS7_b(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp177, i64 noundef %24, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
+  %call183 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIjEEiRKT_cmPcS7_b.argelim(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp177, i64 noundef %24, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
   %idx.ext184 = sext i32 %call183 to i64
   %add.ptr185 = getelementptr inbounds i8, ptr %result.addr.0197, i64 %idx.ext184
   br label %for.inc
@@ -929,7 +929,7 @@ if.end227.sink.split:                             ; preds = %sw.bb202, %if.then2
 if.end227:                                        ; preds = %if.end227.sink.split, %sw.bb202
   %minRepresentDigits228 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0196, i64 16
   %25 = load i64, ptr %minRepresentDigits228, align 8
-  %call229 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIlEEiRKT_cmPcS7_b(ptr noundef nonnull align 8 dereferenceable(8) %hourNum, i64 noundef %25, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
+  %call229 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIlEEiRKT_cmPcS7_b.argelim(ptr noundef nonnull align 8 dereferenceable(8) %hourNum, i64 noundef %25, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
   %idx.ext230 = sext i32 %call229 to i64
   %add.ptr231 = getelementptr inbounds i8, ptr %result.addr.0197, i64 %idx.ext230
   br label %for.inc
@@ -938,7 +938,7 @@ sw.bb232:                                         ; preds = %if.else
   store i64 %rem238, ptr %ref.tmp233, align 8
   %minRepresentDigits239 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0196, i64 16
   %26 = load i64, ptr %minRepresentDigits239, align 8
-  %call240 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIlEEiRKT_cmPcS7_b(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp233, i64 noundef %26, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
+  %call240 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIlEEiRKT_cmPcS7_b.argelim(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp233, i64 noundef %26, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
   %idx.ext241 = sext i32 %call240 to i64
   %add.ptr242 = getelementptr inbounds i8, ptr %result.addr.0197, i64 %idx.ext241
   br label %for.inc
@@ -947,7 +947,7 @@ sw.bb243:                                         ; preds = %if.else
   store i64 %rem249, ptr %ref.tmp244, align 8
   %minRepresentDigits250 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0196, i64 16
   %27 = load i64, ptr %minRepresentDigits250, align 8
-  %call251 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIlEEiRKT_cmPcS7_b(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp244, i64 noundef %27, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
+  %call251 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIlEEiRKT_cmPcS7_b.argelim(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp244, i64 noundef %27, ptr noundef %add.ptr, ptr noundef %result.addr.0197)
   %idx.ext252 = sext i32 %call251 to i64
   %add.ptr253 = getelementptr inbounds i8, ptr %result.addr.0197, i64 %idx.ext252
   br label %for.inc
@@ -1017,7 +1017,7 @@ declare void @_ZN8facebook5velox9Timestamp10toTimezoneERKN4date9time_zoneE(ptr n
 declare i64 @_ZNK8facebook5velox9Timestamp11toTimePointEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %content, i64 noundef %totalDigits, ptr noundef %maxResultEnd, ptr noundef %result) unnamed_addr #9 {
+define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b.argelim(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %content, i64 noundef %totalDigits, ptr noundef %maxResultEnd, ptr noundef %result) unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %content, align 4
   %cmp = icmp slt i32 %0, 0
@@ -1570,7 +1570,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIjEEiRKT_cmPcS7_b(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %content, i64 noundef %totalDigits, ptr noundef %maxResultEnd, ptr noundef %result) unnamed_addr #9 {
+define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIjEEiRKT_cmPcS7_b.argelim(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %content, i64 noundef %totalDigits, ptr noundef %maxResultEnd, ptr noundef %result) unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %content, align 4
   %cmp.i142 = icmp ult i32 %0, 10
@@ -1861,7 +1861,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIlEEiRKT_cmPcS7_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %content, i64 noundef %totalDigits, ptr noundef %maxResultEnd, ptr noundef %result) unnamed_addr #9 {
+define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIlEEiRKT_cmPcS7_b.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %content, i64 noundef %totalDigits, ptr noundef %maxResultEnd, ptr noundef %result) unnamed_addr #9 {
 entry:
   %0 = load i64, ptr %content, align 8
   %cmp = icmp slt i64 %0, 0
@@ -2618,7 +2618,7 @@ if.then26.invoke:                                 ; preds = %land.lhs.true, %sw.
   %agg.tmp28.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %agg.tmp28.sroa.25.0.copyload = load i64, ptr %agg.tmp28.sroa.25.0..sroa_idx, align 8
   %14 = load i32, ptr %type_29, align 8
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116parseFromPatternENS1_13FormatPatternERKSt17basic_string_viewIcSt11char_traitsIcEERPKcSB_RNS2_4DateEbNS1_21DateTimeFormatterTypeE(i8 %agg.tmp28.sroa.0.0.copyload, i64 %agg.tmp28.sroa.25.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %cur, ptr noundef %add.ptr, ptr noundef nonnull align 8 dereferenceable(120) %date, i1 noundef zeroext %12, i32 noundef %14)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116parseFromPatternENS1_13FormatPatternERKSt17basic_string_viewIcSt11char_traitsIcEERPKcSB_RNS2_4DateEbNS1_21DateTimeFormatterTypeE.argprom(i8 %agg.tmp28.sroa.0.0.copyload, i64 %agg.tmp28.sroa.25.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %cur, ptr noundef %add.ptr, ptr noundef nonnull align 8 dereferenceable(120) %date, i1 noundef zeroext %12, i32 noundef %14)
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc:                                          ; preds = %if.then26.invoke, %for.body, %if.end
@@ -2826,7 +2826,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_14DateD2Ev.exit: ; preds = %_ZNSt6vecto
 }
 
 ; Function Attrs: uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116parseFromPatternENS1_13FormatPatternERKSt17basic_string_viewIcSt11char_traitsIcEERPKcSB_RNS2_4DateEbNS1_21DateTimeFormatterTypeE(i8 %curPattern.coerce0, i64 %curPattern.coerce1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %cur, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(120) %date, i1 noundef zeroext %specifierNext, i32 noundef %type) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116parseFromPatternENS1_13FormatPatternERKSt17basic_string_viewIcSt11char_traitsIcEERPKcSB_RNS2_4DateEbNS1_21DateTimeFormatterTypeE.argprom(i8 %curPattern.coerce0, i64 %curPattern.coerce1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %cur, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(120) %date, i1 noundef zeroext %specifierNext, i32 noundef %type) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i336 = alloca %"class.std::basic_string_view", align 8
   %ref.tmp.i294 = alloca %"class.std::basic_string_view", align 8

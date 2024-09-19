@@ -6209,7 +6209,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5mul8uEPKhmS3_mPhmiiPKd(ptr nocaptur
   br i1 %14, label %32, label %16
 
 16:                                               ; preds = %9
-  br i1 %or.cond.i16.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit
+  br i1 %or.cond.i16.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %16
   %wide.trip.count.i.i = zext nneg i32 %6 to i64
@@ -6245,10 +6245,10 @@ define hidden void @_ZN2cv3hal12cpu_baseline5mul8uEPKhmS3_mPhmiiPKd(ptr nocaptur
   %30 = getelementptr inbounds i8, ptr %.02124.us.i.i, i64 %3
   %31 = getelementptr inbounds i8, ptr %.02025.us.i.i, i64 %5
   %.not.us.i.i = icmp eq i32 %28, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !149
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader.us.i.i, !llvm.loop !149
 
 32:                                               ; preds = %9
-  br i1 %or.cond.i16.i, label %.preheader.us.preheader.i17.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit
+  br i1 %or.cond.i16.i, label %.preheader.us.preheader.i17.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i17.i:                    ; preds = %32
   %wide.trip.count.i18.i = zext nneg i32 %6 to i64
@@ -6294,15 +6294,15 @@ define hidden void @_ZN2cv3hal12cpu_baseline5mul8uEPKhmS3_mPhmiiPKd(ptr nocaptur
   %56 = getelementptr inbounds i8, ptr %.02225.us.i.i, i64 %3
   %57 = getelementptr inbounds i8, ptr %.02126.us.i.i, i64 %5
   %.not.us.i25.i = icmp eq i32 %54, 0
-  br i1 %.not.us.i25.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i19.i, !llvm.loop !151
+  br i1 %.not.us.i25.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader.us.i19.i, !llvm.loop !151
 
-_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.us.i24.i, %32, %16
+_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.us.i24.i, %32, %16
   %58 = getelementptr inbounds i8, ptr %10, i64 8
   %59 = load i32, ptr %58, align 8
   %.not.i = icmp eq i32 %59, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %60
 
-60:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit
+60:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %61
 
@@ -6313,7 +6313,7 @@ _ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   call void @__clang_call_terminate(ptr %63) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %60
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, %60
   ret void
 }
 
@@ -6332,7 +6332,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5mul8sEPKamS3_mPamiiPKd(ptr nocaptur
   br i1 %14, label %33, label %16
 
 16:                                               ; preds = %9
-  br i1 %or.cond.i16.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit
+  br i1 %or.cond.i16.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %16
   %wide.trip.count.i.i = zext nneg i32 %6 to i64
@@ -6369,10 +6369,10 @@ define hidden void @_ZN2cv3hal12cpu_baseline5mul8sEPKamS3_mPamiiPKd(ptr nocaptur
   %31 = getelementptr inbounds i8, ptr %.02124.us.i.i, i64 %3
   %32 = getelementptr inbounds i8, ptr %.02025.us.i.i, i64 %5
   %.not.us.i.i = icmp eq i32 %29, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !153
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader.us.i.i, !llvm.loop !153
 
 33:                                               ; preds = %9
-  br i1 %or.cond.i16.i, label %.preheader.us.preheader.i17.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit
+  br i1 %or.cond.i16.i, label %.preheader.us.preheader.i17.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i17.i:                    ; preds = %33
   %wide.trip.count.i18.i = zext nneg i32 %6 to i64
@@ -6412,15 +6412,15 @@ define hidden void @_ZN2cv3hal12cpu_baseline5mul8sEPKamS3_mPamiiPKd(ptr nocaptur
   %51 = getelementptr inbounds i8, ptr %.02225.us.i.i, i64 %3
   %52 = getelementptr inbounds i8, ptr %.02126.us.i.i, i64 %5
   %.not.us.i25.i = icmp eq i32 %49, 0
-  br i1 %.not.us.i25.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i19.i, !llvm.loop !155
+  br i1 %.not.us.i25.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader.us.i19.i, !llvm.loop !155
 
-_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.us.i24.i, %33, %16
+_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.us.i24.i, %33, %16
   %53 = getelementptr inbounds i8, ptr %10, i64 8
   %54 = load i32, ptr %53, align 8
   %.not.i = icmp eq i32 %54, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %55
 
-55:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit
+55:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %56
 
@@ -6431,7 +6431,7 @@ _ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   call void @__clang_call_terminate(ptr %58) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %55
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, %55
   ret void
 }
 
@@ -6453,7 +6453,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul16uEPKtmS3_mPtmiiPKd(ptr nocaptu
   br i1 %14, label %35, label %19
 
 19:                                               ; preds = %9
-  br i1 %or.cond.i16.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit
+  br i1 %or.cond.i16.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %19
   %wide.trip.count.i.i = zext nneg i32 %6 to i64
@@ -6489,10 +6489,10 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul16uEPKtmS3_mPtmiiPKd(ptr nocaptu
   %33 = getelementptr inbounds i16, ptr %.02124.us.i.i, i64 %16
   %34 = getelementptr inbounds i16, ptr %.02025.us.i.i, i64 %17
   %.not.us.i.i = icmp eq i32 %31, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !157
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader.us.i.i, !llvm.loop !157
 
 35:                                               ; preds = %9
-  br i1 %or.cond.i16.i, label %.preheader.us.preheader.i17.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit
+  br i1 %or.cond.i16.i, label %.preheader.us.preheader.i17.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i17.i:                    ; preds = %35
   %wide.trip.count.i18.i = zext nneg i32 %6 to i64
@@ -6532,15 +6532,15 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul16uEPKtmS3_mPtmiiPKd(ptr nocaptu
   %53 = getelementptr inbounds i16, ptr %.02225.us.i.i, i64 %16
   %54 = getelementptr inbounds i16, ptr %.02126.us.i.i, i64 %17
   %.not.us.i25.i = icmp eq i32 %51, 0
-  br i1 %.not.us.i25.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i19.i, !llvm.loop !159
+  br i1 %.not.us.i25.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader.us.i19.i, !llvm.loop !159
 
-_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.us.i24.i, %35, %19
+_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.us.i24.i, %35, %19
   %55 = getelementptr inbounds i8, ptr %10, i64 8
   %56 = load i32, ptr %55, align 8
   %.not.i = icmp eq i32 %56, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %57
 
-57:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit
+57:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %58
 
@@ -6551,7 +6551,7 @@ _ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   call void @__clang_call_terminate(ptr %60) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %57
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, %57
   ret void
 }
 
@@ -6573,7 +6573,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul16sEPKsmS3_mPsmiiPKd(ptr nocaptu
   br i1 %14, label %36, label %19
 
 19:                                               ; preds = %9
-  br i1 %or.cond.i16.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit
+  br i1 %or.cond.i16.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %19
   %wide.trip.count.i.i = zext nneg i32 %6 to i64
@@ -6610,10 +6610,10 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul16sEPKsmS3_mPsmiiPKd(ptr nocaptu
   %34 = getelementptr inbounds i16, ptr %.02124.us.i.i, i64 %16
   %35 = getelementptr inbounds i16, ptr %.02025.us.i.i, i64 %17
   %.not.us.i.i = icmp eq i32 %32, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !161
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader.us.i.i, !llvm.loop !161
 
 36:                                               ; preds = %9
-  br i1 %or.cond.i16.i, label %.preheader.us.preheader.i17.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit
+  br i1 %or.cond.i16.i, label %.preheader.us.preheader.i17.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i17.i:                    ; preds = %36
   %wide.trip.count.i18.i = zext nneg i32 %6 to i64
@@ -6653,15 +6653,15 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul16sEPKsmS3_mPsmiiPKd(ptr nocaptu
   %54 = getelementptr inbounds i16, ptr %.02225.us.i.i, i64 %16
   %55 = getelementptr inbounds i16, ptr %.02126.us.i.i, i64 %17
   %.not.us.i25.i = icmp eq i32 %52, 0
-  br i1 %.not.us.i25.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i19.i, !llvm.loop !163
+  br i1 %.not.us.i25.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader.us.i19.i, !llvm.loop !163
 
-_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.us.i24.i, %36, %19
+_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.us.i24.i, %36, %19
   %56 = getelementptr inbounds i8, ptr %10, i64 8
   %57 = load i32, ptr %56, align 8
   %.not.i = icmp eq i32 %57, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %58
 
-58:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit
+58:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %59
 
@@ -6672,7 +6672,7 @@ _ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   call void @__clang_call_terminate(ptr %61) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %58
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, %58
   ret void
 }
 
@@ -7423,7 +7423,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5div8uEPKhmS3_mPhmiiPKd(ptr nocaptur
   %.not24.i.i = icmp ne i32 %7, 0
   %12 = icmp sgt i32 %6, 0
   %or.cond.i.i = and i1 %12, %.not24.i.i
-  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit
+  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %9
   %wide.trip.count.i.i = zext nneg i32 %6 to i64
@@ -7477,15 +7477,15 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIhfNS_12hal_baseline5v_regIhLi16EEEE1rEhhP
   %38 = getelementptr inbounds i8, ptr %.02225.us.i.i, i64 %3
   %39 = getelementptr inbounds i8, ptr %.02126.us.i.i, i64 %5
   %.not.us.i.i = icmp eq i32 %36, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !181
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader.us.i.i, !llvm.loop !181
 
-_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %9
+_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit: ; preds = %._crit_edge.us.i.i, %9
   %40 = getelementptr inbounds i8, ptr %10, i64 8
   %41 = load i32, ptr %40, align 8
   %.not.i = icmp eq i32 %41, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %42
 
-42:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit
+42:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %43
 
@@ -7496,7 +7496,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   call void @__clang_call_terminate(ptr %45) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %42
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, %42
   ret void
 }
 
@@ -7509,7 +7509,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5div8sEPKamS3_mPamiiPKd(ptr nocaptur
   %.not24.i.i = icmp ne i32 %7, 0
   %12 = icmp sgt i32 %6, 0
   %or.cond.i.i = and i1 %12, %.not24.i.i
-  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit
+  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %9
   %wide.trip.count.i.i = zext nneg i32 %6 to i64
@@ -7557,15 +7557,15 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIafNS_12hal_baseline5v_regIaLi16EEEE1rEaaP
   %32 = getelementptr inbounds i8, ptr %.02225.us.i.i, i64 %3
   %33 = getelementptr inbounds i8, ptr %.02126.us.i.i, i64 %5
   %.not.us.i.i = icmp eq i32 %30, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !183
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader.us.i.i, !llvm.loop !183
 
-_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %9
+_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit: ; preds = %._crit_edge.us.i.i, %9
   %34 = getelementptr inbounds i8, ptr %10, i64 8
   %35 = load i32, ptr %34, align 8
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %36
 
-36:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit
+36:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %37
 
@@ -7576,7 +7576,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   call void @__clang_call_terminate(ptr %39) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %36
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, %36
   ret void
 }
 
@@ -7592,7 +7592,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div16uEPKtmS3_mPtmiiPKd(ptr nocaptu
   %.not24.i.i = icmp ne i32 %7, 0
   %15 = icmp sgt i32 %6, 0
   %or.cond.i.i = and i1 %15, %.not24.i.i
-  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit
+  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %9
   %wide.trip.count.i.i = zext nneg i32 %6 to i64
@@ -7640,15 +7640,15 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleItfNS_12hal_baseline5v_regItLi8EEEE1rEttPK
   %35 = getelementptr inbounds i16, ptr %.02225.us.i.i, i64 %13
   %36 = getelementptr inbounds i16, ptr %.02126.us.i.i, i64 %14
   %.not.us.i.i = icmp eq i32 %33, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !185
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader.us.i.i, !llvm.loop !185
 
-_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %9
+_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit: ; preds = %._crit_edge.us.i.i, %9
   %37 = getelementptr inbounds i8, ptr %10, i64 8
   %38 = load i32, ptr %37, align 8
   %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %39
 
-39:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit
+39:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %40
 
@@ -7659,7 +7659,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   call void @__clang_call_terminate(ptr %42) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %39
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, %39
   ret void
 }
 
@@ -7675,7 +7675,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div16sEPKsmS3_mPsmiiPKd(ptr nocaptu
   %.not24.i.i = icmp ne i32 %7, 0
   %15 = icmp sgt i32 %6, 0
   %or.cond.i.i = and i1 %15, %.not24.i.i
-  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit
+  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %9
   %wide.trip.count.i.i = zext nneg i32 %6 to i64
@@ -7723,15 +7723,15 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIsfNS_12hal_baseline5v_regIsLi8EEEE1rEssPK
   %35 = getelementptr inbounds i16, ptr %.02225.us.i.i, i64 %13
   %36 = getelementptr inbounds i16, ptr %.02126.us.i.i, i64 %14
   %.not.us.i.i = icmp eq i32 %33, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !187
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader.us.i.i, !llvm.loop !187
 
-_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %9
+_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit: ; preds = %._crit_edge.us.i.i, %9
   %37 = getelementptr inbounds i8, ptr %10, i64 8
   %38 = load i32, ptr %37, align 8
   %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %39
 
-39:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit
+39:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %40
 
@@ -7742,7 +7742,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   call void @__clang_call_terminate(ptr %42) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %39
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, %39
   ret void
 }
 
@@ -7758,7 +7758,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div32sEPKimS3_mPimiiPKd(ptr nocaptu
   %.not24.i.i = icmp ne i32 %7, 0
   %15 = icmp sgt i32 %6, 0
   %or.cond.i.i = and i1 %15, %.not24.i.i
-  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit
+  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %9
   %wide.trip.count.i.i = zext nneg i32 %6 to i64
@@ -7803,15 +7803,15 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIifNS_12hal_baseline5v_regIiLi4EEEE1rEiiPK
   %32 = getelementptr inbounds i32, ptr %.02225.us.i.i, i64 %13
   %33 = getelementptr inbounds i32, ptr %.02126.us.i.i, i64 %14
   %.not.us.i.i = icmp eq i32 %30, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !189
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader.us.i.i, !llvm.loop !189
 
-_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %9
+_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit: ; preds = %._crit_edge.us.i.i, %9
   %34 = getelementptr inbounds i8, ptr %10, i64 8
   %35 = load i32, ptr %34, align 8
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %36
 
-36:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit
+36:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %37
 
@@ -7822,7 +7822,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mP
   call void @__clang_call_terminate(ptr %39) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %36
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, %36
   ret void
 }
 
@@ -7844,7 +7844,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr nocaptu
   %.not23.i.i = icmp ne i32 %7, 0
   %19 = icmp sgt i32 %6, 0
   %or.cond.i.i = and i1 %19, %.not23.i.i
-  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit
+  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %18
   %wide.trip.count.i.i = zext nneg i32 %6 to i64
@@ -7876,12 +7876,12 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr nocaptu
   %29 = getelementptr inbounds float, ptr %.02124.us.i.i, i64 %16
   %30 = getelementptr inbounds float, ptr %.02025.us.i.i, i64 %17
   %.not.us.i.i = icmp eq i32 %27, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !191
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader.us.i.i, !llvm.loop !191
 
 31:                                               ; preds = %9
   %32 = add nsw i32 %7, -1
   %.not64.i.i = icmp eq i32 %7, 0
-  br i1 %.not64.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.lr.ph.i.i
+  br i1 %.not64.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader59.lr.ph.i.i
 
 .preheader59.lr.ph.i.i:                           ; preds = %31
   %.not5860.i.i = icmp slt i32 %6, 4
@@ -7897,7 +7897,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr nocaptu
 
 .preheader59.lr.ph.split.us.i.i:                  ; preds = %.preheader59.lr.ph.i.i
   %38 = icmp sgt i32 %6, 0
-  br i1 %38, label %.preheader59.us.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit
+  br i1 %38, label %.preheader59.us.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
 
 .preheader59.us.us.preheader.i.i:                 ; preds = %.preheader59.lr.ph.split.us.i.i
   %wide.trip.count.i18.i = zext nneg i32 %6 to i64
@@ -7930,7 +7930,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr nocaptu
   %50 = getelementptr inbounds float, ptr %.05765.us.us.i.i, i64 %17
   %51 = add nsw i32 %39, -1
   %.not.us.us.i.i = icmp eq i32 %39, 0
-  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.us.us.i.i, !llvm.loop !193
+  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader59.us.us.i.i, !llvm.loop !193
 
 .preheader59.i.i:                                 ; preds = %._crit_edge.i.i, %.preheader59.preheader.i.i
   %52 = phi i32 [ %98, %._crit_edge.i.i ], [ %32, %.preheader59.preheader.i.i ]
@@ -8005,15 +8005,15 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr nocaptu
   %97 = getelementptr inbounds float, ptr %.05765.i.i, i64 %17
   %98 = add nsw i32 %52, -1
   %.not.i.i = icmp eq i32 %52, 0
-  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.i.i, !llvm.loop !193
+  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, label %.preheader59.i.i, !llvm.loop !193
 
-_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.i.i, %._crit_edge.us.us.i.i, %.preheader59.lr.ph.split.us.i.i, %31, %18
+_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.i.i, %._crit_edge.us.us.i.i, %.preheader59.lr.ph.split.us.i.i, %31, %18
   %99 = getelementptr inbounds i8, ptr %10, i64 8
   %100 = load i32, ptr %99, align 8
   %.not.i = icmp eq i32 %100, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %101
 
-101:                                              ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit
+101:                                              ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %102
 
@@ -8024,7 +8024,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mP
   call void @__clang_call_terminate(ptr %104) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %101
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit, %101
   ret void
 }
 
@@ -9881,7 +9881,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline7recip8uEPKhmPhmiiPKd(ptr nocapture 
   %.not18.i.i = icmp ne i32 %5, 0
   %10 = icmp sgt i32 %4, 0
   %or.cond.i.i = and i1 %10, %.not18.i.i
-  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit
+  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %7
   %wide.trip.count.i.i = zext nneg i32 %4 to i64
@@ -9926,15 +9926,15 @@ _ZN2cv3hal12cpu_baseline8op_recipIhfNS_12hal_baseline5v_regIhLi16EEEE1rEhPKf.exi
   %28 = getelementptr inbounds i8, ptr %.01420.us.i.i, i64 %1
   %29 = getelementptr inbounds i8, ptr %.01619.us.i.i, i64 %3
   %.not.us.i.i = icmp eq i32 %27, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !236
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit, label %.preheader.us.i.i, !llvm.loop !236
 
-_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %7
+_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit: ; preds = %._crit_edge.us.i.i, %7
   %30 = getelementptr inbounds i8, ptr %8, i64 8
   %31 = load i32, ptr %30, align 8
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %32
 
-32:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit
+32:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %8)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %33
 
@@ -9945,7 +9945,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mP
   call void @__clang_call_terminate(ptr %35) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit, %32
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit, %32
   ret void
 }
 
@@ -9958,7 +9958,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline7recip8sEPKamPamiiPKd(ptr nocapture 
   %.not18.i.i = icmp ne i32 %5, 0
   %10 = icmp sgt i32 %4, 0
   %or.cond.i.i = and i1 %10, %.not18.i.i
-  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit
+  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %7
   %wide.trip.count.i.i = zext nneg i32 %4 to i64
@@ -10000,15 +10000,15 @@ _ZN2cv3hal12cpu_baseline8op_recipIafNS_12hal_baseline5v_regIaLi16EEEE1rEaPKf.exi
   %25 = getelementptr inbounds i8, ptr %.01420.us.i.i, i64 %1
   %26 = getelementptr inbounds i8, ptr %.01619.us.i.i, i64 %3
   %.not.us.i.i = icmp eq i32 %24, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !238
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit, label %.preheader.us.i.i, !llvm.loop !238
 
-_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %7
+_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit: ; preds = %._crit_edge.us.i.i, %7
   %27 = getelementptr inbounds i8, ptr %8, i64 8
   %28 = load i32, ptr %27, align 8
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %29
 
-29:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit
+29:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %8)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %30
 
@@ -10019,7 +10019,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mP
   call void @__clang_call_terminate(ptr %32) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit, %29
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit, %29
   ret void
 }
 
@@ -10034,7 +10034,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline8recip16uEPKtmPtmiiPKd(ptr nocapture
   %.not18.i.i = icmp ne i32 %5, 0
   %12 = icmp sgt i32 %4, 0
   %or.cond.i.i = and i1 %12, %.not18.i.i
-  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit
+  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %7
   %wide.trip.count.i.i = zext nneg i32 %4 to i64
@@ -10076,15 +10076,15 @@ _ZN2cv3hal12cpu_baseline8op_recipItfNS_12hal_baseline5v_regItLi8EEEE1rEtPKf.exit
   %27 = getelementptr inbounds i16, ptr %.01420.us.i.i, i64 %10
   %28 = getelementptr inbounds i16, ptr %.01619.us.i.i, i64 %11
   %.not.us.i.i = icmp eq i32 %26, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !240
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit, label %.preheader.us.i.i, !llvm.loop !240
 
-_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %7
+_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit: ; preds = %._crit_edge.us.i.i, %7
   %29 = getelementptr inbounds i8, ptr %8, i64 8
   %30 = load i32, ptr %29, align 8
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %31
 
-31:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit
+31:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %8)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %32
 
@@ -10095,7 +10095,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS
   call void @__clang_call_terminate(ptr %34) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit, %31
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit, %31
   ret void
 }
 
@@ -10110,7 +10110,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline8recip16sEPKsmPsmiiPKd(ptr nocapture
   %.not18.i.i = icmp ne i32 %5, 0
   %12 = icmp sgt i32 %4, 0
   %or.cond.i.i = and i1 %12, %.not18.i.i
-  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit
+  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %7
   %wide.trip.count.i.i = zext nneg i32 %4 to i64
@@ -10152,15 +10152,15 @@ _ZN2cv3hal12cpu_baseline8op_recipIsfNS_12hal_baseline5v_regIsLi8EEEE1rEsPKf.exit
   %27 = getelementptr inbounds i16, ptr %.01420.us.i.i, i64 %10
   %28 = getelementptr inbounds i16, ptr %.01619.us.i.i, i64 %11
   %.not.us.i.i = icmp eq i32 %26, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !242
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit, label %.preheader.us.i.i, !llvm.loop !242
 
-_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %7
+_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit: ; preds = %._crit_edge.us.i.i, %7
   %29 = getelementptr inbounds i8, ptr %8, i64 8
   %30 = load i32, ptr %29, align 8
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %31
 
-31:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit
+31:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %8)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %32
 
@@ -10171,7 +10171,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS
   call void @__clang_call_terminate(ptr %34) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit, %31
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit, %31
   ret void
 }
 
@@ -10186,7 +10186,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline8recip32sEPKimPimiiPKd(ptr nocapture
   %.not18.i.i = icmp ne i32 %5, 0
   %12 = icmp sgt i32 %4, 0
   %or.cond.i.i = and i1 %12, %.not18.i.i
-  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit
+  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %7
   %wide.trip.count.i.i = zext nneg i32 %4 to i64
@@ -10225,15 +10225,15 @@ _ZN2cv3hal12cpu_baseline8op_recipIifNS_12hal_baseline5v_regIiLi4EEEE1rEiPKf.exit
   %24 = getelementptr inbounds i32, ptr %.01420.us.i.i, i64 %10
   %25 = getelementptr inbounds i32, ptr %.01619.us.i.i, i64 %11
   %.not.us.i.i = icmp eq i32 %23, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !244
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit, label %.preheader.us.i.i, !llvm.loop !244
 
-_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %7
+_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit: ; preds = %._crit_edge.us.i.i, %7
   %26 = getelementptr inbounds i8, ptr %8, i64 8
   %27 = load i32, ptr %26, align 8
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %28
 
-28:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit
+28:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %8)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %29
 
@@ -10244,7 +10244,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS
   call void @__clang_call_terminate(ptr %31) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit, %28
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit, %28
   ret void
 }
 
@@ -10259,7 +10259,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline8recip32fEPKfmPfmiiPKd(ptr nocapture
   %.not18.i.i = icmp ne i32 %5, 0
   %12 = icmp sgt i32 %4, 0
   %or.cond.i.i = and i1 %12, %.not18.i.i
-  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit
+  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %7
   %wide.trip.count.i.i = zext nneg i32 %4 to i64
@@ -10287,15 +10287,15 @@ define hidden void @_ZN2cv3hal12cpu_baseline8recip32fEPKfmPfmiiPKd(ptr nocapture
   %19 = getelementptr inbounds float, ptr %.01420.us.i.i, i64 %10
   %20 = getelementptr inbounds float, ptr %.01619.us.i.i, i64 %11
   %.not.us.i.i = icmp eq i32 %18, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !246
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit, label %.preheader.us.i.i, !llvm.loop !246
 
-_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %7
+_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit: ; preds = %._crit_edge.us.i.i, %7
   %21 = getelementptr inbounds i8, ptr %8, i64 8
   %22 = load i32, ptr %21, align 8
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %23
 
-23:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit
+23:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %8)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %24
 
@@ -10306,7 +10306,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS
   call void @__clang_call_terminate(ptr %26) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit, %23
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit, %23
   ret void
 }
 
@@ -14355,7 +14355,7 @@ define void @_ZN2cv3hal5div8uEPKhmS2_mPhmiiPv(ptr nocapture noundef readonly %0,
   %.not24.i.i.i = icmp ne i32 %7, 0
   %13 = icmp sgt i32 %6, 0
   %or.cond.i.i.i = and i1 %13, %.not24.i.i.i
-  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
+  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i
 
 .preheader.us.preheader.i.i.i:                    ; preds = %.noexc
   %wide.trip.count.i.i.i = zext nneg i32 %6 to i64
@@ -14409,15 +14409,15 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIhfNS_12hal_baseline5v_regIhLi16EEEE1rEhhP
   %39 = getelementptr inbounds i8, ptr %.02225.us.i.i.i, i64 %3
   %40 = getelementptr inbounds i8, ptr %.02126.us.i.i.i, i64 %5
   %.not.us.i.i.i = icmp eq i32 %37, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !181
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i, label %.preheader.us.i.i.i, !llvm.loop !181
 
-_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
+_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %41 = getelementptr inbounds i8, ptr %10, i64 8
   %42 = load i32, ptr %41, align 8
   %.not.i.i = icmp eq i32 %42, 0
   br i1 %.not.i.i, label %47, label %43
 
-43:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
+43:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %47 unwind label %44
 
@@ -14428,7 +14428,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   call void @__clang_call_terminate(ptr %46) #12
   unreachable
 
-47:                                               ; preds = %43, %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
+47:                                               ; preds = %43, %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %48 = getelementptr inbounds i8, ptr %11, i64 8
   %49 = load i32, ptr %48, align 8
@@ -14471,7 +14471,7 @@ define void @_ZN2cv3hal5div8sEPKamS2_mPamiiPv(ptr nocapture noundef readonly %0,
   %.not24.i.i.i = icmp ne i32 %7, 0
   %13 = icmp sgt i32 %6, 0
   %or.cond.i.i.i = and i1 %13, %.not24.i.i.i
-  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
+  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i
 
 .preheader.us.preheader.i.i.i:                    ; preds = %.noexc
   %wide.trip.count.i.i.i = zext nneg i32 %6 to i64
@@ -14519,15 +14519,15 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIafNS_12hal_baseline5v_regIaLi16EEEE1rEaaP
   %33 = getelementptr inbounds i8, ptr %.02225.us.i.i.i, i64 %3
   %34 = getelementptr inbounds i8, ptr %.02126.us.i.i.i, i64 %5
   %.not.us.i.i.i = icmp eq i32 %31, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !183
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i, label %.preheader.us.i.i.i, !llvm.loop !183
 
-_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
+_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %35 = getelementptr inbounds i8, ptr %10, i64 8
   %36 = load i32, ptr %35, align 8
   %.not.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i, label %41, label %37
 
-37:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
+37:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %41 unwind label %38
 
@@ -14538,7 +14538,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   call void @__clang_call_terminate(ptr %40) #12
   unreachable
 
-41:                                               ; preds = %37, %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
+41:                                               ; preds = %37, %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %42 = getelementptr inbounds i8, ptr %11, i64 8
   %43 = load i32, ptr %42, align 8
@@ -14584,7 +14584,7 @@ define void @_ZN2cv3hal6div16uEPKtmS2_mPtmiiPv(ptr nocapture noundef readonly %0
   %.not24.i.i.i = icmp ne i32 %7, 0
   %16 = icmp sgt i32 %6, 0
   %or.cond.i.i.i = and i1 %16, %.not24.i.i.i
-  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
+  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i
 
 .preheader.us.preheader.i.i.i:                    ; preds = %.noexc
   %wide.trip.count.i.i.i = zext nneg i32 %6 to i64
@@ -14632,15 +14632,15 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleItfNS_12hal_baseline5v_regItLi8EEEE1rEttPK
   %36 = getelementptr inbounds i16, ptr %.02225.us.i.i.i, i64 %14
   %37 = getelementptr inbounds i16, ptr %.02126.us.i.i.i, i64 %15
   %.not.us.i.i.i = icmp eq i32 %34, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !185
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i, label %.preheader.us.i.i.i, !llvm.loop !185
 
-_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
+_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %38 = getelementptr inbounds i8, ptr %10, i64 8
   %39 = load i32, ptr %38, align 8
   %.not.i.i = icmp eq i32 %39, 0
   br i1 %.not.i.i, label %44, label %40
 
-40:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
+40:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %44 unwind label %41
 
@@ -14651,7 +14651,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   call void @__clang_call_terminate(ptr %43) #12
   unreachable
 
-44:                                               ; preds = %40, %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
+44:                                               ; preds = %40, %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %45 = getelementptr inbounds i8, ptr %11, i64 8
   %46 = load i32, ptr %45, align 8
@@ -14697,7 +14697,7 @@ define void @_ZN2cv3hal6div16sEPKsmS2_mPsmiiPv(ptr nocapture noundef readonly %0
   %.not24.i.i.i = icmp ne i32 %7, 0
   %16 = icmp sgt i32 %6, 0
   %or.cond.i.i.i = and i1 %16, %.not24.i.i.i
-  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
+  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i
 
 .preheader.us.preheader.i.i.i:                    ; preds = %.noexc
   %wide.trip.count.i.i.i = zext nneg i32 %6 to i64
@@ -14745,15 +14745,15 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIsfNS_12hal_baseline5v_regIsLi8EEEE1rEssPK
   %36 = getelementptr inbounds i16, ptr %.02225.us.i.i.i, i64 %14
   %37 = getelementptr inbounds i16, ptr %.02126.us.i.i.i, i64 %15
   %.not.us.i.i.i = icmp eq i32 %34, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !187
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i, label %.preheader.us.i.i.i, !llvm.loop !187
 
-_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
+_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %38 = getelementptr inbounds i8, ptr %10, i64 8
   %39 = load i32, ptr %38, align 8
   %.not.i.i = icmp eq i32 %39, 0
   br i1 %.not.i.i, label %44, label %40
 
-40:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
+40:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %44 unwind label %41
 
@@ -14764,7 +14764,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   call void @__clang_call_terminate(ptr %43) #12
   unreachable
 
-44:                                               ; preds = %40, %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
+44:                                               ; preds = %40, %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %45 = getelementptr inbounds i8, ptr %11, i64 8
   %46 = load i32, ptr %45, align 8
@@ -14810,7 +14810,7 @@ define void @_ZN2cv3hal6div32sEPKimS2_mPimiiPv(ptr nocapture noundef readonly %0
   %.not24.i.i.i = icmp ne i32 %7, 0
   %16 = icmp sgt i32 %6, 0
   %or.cond.i.i.i = and i1 %16, %.not24.i.i.i
-  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
+  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i
 
 .preheader.us.preheader.i.i.i:                    ; preds = %.noexc
   %wide.trip.count.i.i.i = zext nneg i32 %6 to i64
@@ -14855,15 +14855,15 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIifNS_12hal_baseline5v_regIiLi4EEEE1rEiiPK
   %33 = getelementptr inbounds i32, ptr %.02225.us.i.i.i, i64 %14
   %34 = getelementptr inbounds i32, ptr %.02126.us.i.i.i, i64 %15
   %.not.us.i.i.i = icmp eq i32 %31, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !189
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i, label %.preheader.us.i.i.i, !llvm.loop !189
 
-_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
+_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %35 = getelementptr inbounds i8, ptr %10, i64 8
   %36 = load i32, ptr %35, align 8
   %.not.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i, label %41, label %37
 
-37:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
+37:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %41 unwind label %38
 
@@ -14874,7 +14874,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mP
   call void @__clang_call_terminate(ptr %40) #12
   unreachable
 
-41:                                               ; preds = %37, %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
+41:                                               ; preds = %37, %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %42 = getelementptr inbounds i8, ptr %11, i64 8
   %43 = load i32, ptr %42, align 8
@@ -15223,7 +15223,7 @@ define void @_ZN2cv3hal7recip8uEPKhmS2_mPhmiiPv(ptr nocapture noundef readnone %
   %.not18.i.i.i = icmp ne i32 %7, 0
   %13 = icmp sgt i32 %6, 0
   %or.cond.i.i.i = and i1 %13, %.not18.i.i.i
-  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit.i
+  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
 
 .preheader.us.preheader.i.i.i:                    ; preds = %.noexc
   %wide.trip.count.i.i.i = zext nneg i32 %6 to i64
@@ -15268,15 +15268,15 @@ _ZN2cv3hal12cpu_baseline8op_recipIhfNS_12hal_baseline5v_regIhLi16EEEE1rEhPKf.exi
   %31 = getelementptr inbounds i8, ptr %.01420.us.i.i.i, i64 %3
   %32 = getelementptr inbounds i8, ptr %.01619.us.i.i.i, i64 %5
   %.not.us.i.i.i = icmp eq i32 %30, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !236
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit.i, label %.preheader.us.i.i.i, !llvm.loop !236
 
-_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
+_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %33 = getelementptr inbounds i8, ptr %10, i64 8
   %34 = load i32, ptr %33, align 8
   %.not.i.i = icmp eq i32 %34, 0
   br i1 %.not.i.i, label %39, label %35
 
-35:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit.i
+35:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %39 unwind label %36
 
@@ -15287,7 +15287,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mP
   call void @__clang_call_terminate(ptr %38) #12
   unreachable
 
-39:                                               ; preds = %35, %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit.i
+39:                                               ; preds = %35, %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %40 = getelementptr inbounds i8, ptr %11, i64 8
   %41 = load i32, ptr %40, align 8
@@ -15330,7 +15330,7 @@ define void @_ZN2cv3hal7recip8sEPKamS2_mPamiiPv(ptr nocapture noundef readnone %
   %.not18.i.i.i = icmp ne i32 %7, 0
   %13 = icmp sgt i32 %6, 0
   %or.cond.i.i.i = and i1 %13, %.not18.i.i.i
-  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit.i
+  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
 
 .preheader.us.preheader.i.i.i:                    ; preds = %.noexc
   %wide.trip.count.i.i.i = zext nneg i32 %6 to i64
@@ -15372,15 +15372,15 @@ _ZN2cv3hal12cpu_baseline8op_recipIafNS_12hal_baseline5v_regIaLi16EEEE1rEaPKf.exi
   %28 = getelementptr inbounds i8, ptr %.01420.us.i.i.i, i64 %3
   %29 = getelementptr inbounds i8, ptr %.01619.us.i.i.i, i64 %5
   %.not.us.i.i.i = icmp eq i32 %27, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !238
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit.i, label %.preheader.us.i.i.i, !llvm.loop !238
 
-_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
+_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %30 = getelementptr inbounds i8, ptr %10, i64 8
   %31 = load i32, ptr %30, align 8
   %.not.i.i = icmp eq i32 %31, 0
   br i1 %.not.i.i, label %36, label %32
 
-32:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit.i
+32:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %36 unwind label %33
 
@@ -15391,7 +15391,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mP
   call void @__clang_call_terminate(ptr %35) #12
   unreachable
 
-36:                                               ; preds = %32, %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit.i
+36:                                               ; preds = %32, %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %37 = getelementptr inbounds i8, ptr %11, i64 8
   %38 = load i32, ptr %37, align 8
@@ -15436,7 +15436,7 @@ define void @_ZN2cv3hal8recip16uEPKtmS2_mPtmiiPv(ptr nocapture noundef readnone 
   %.not18.i.i.i = icmp ne i32 %7, 0
   %15 = icmp sgt i32 %6, 0
   %or.cond.i.i.i = and i1 %15, %.not18.i.i.i
-  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit.i
+  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
 
 .preheader.us.preheader.i.i.i:                    ; preds = %.noexc
   %wide.trip.count.i.i.i = zext nneg i32 %6 to i64
@@ -15478,15 +15478,15 @@ _ZN2cv3hal12cpu_baseline8op_recipItfNS_12hal_baseline5v_regItLi8EEEE1rEtPKf.exit
   %30 = getelementptr inbounds i16, ptr %.01420.us.i.i.i, i64 %13
   %31 = getelementptr inbounds i16, ptr %.01619.us.i.i.i, i64 %14
   %.not.us.i.i.i = icmp eq i32 %29, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !240
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit.i, label %.preheader.us.i.i.i, !llvm.loop !240
 
-_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
+_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %32 = getelementptr inbounds i8, ptr %10, i64 8
   %33 = load i32, ptr %32, align 8
   %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %38, label %34
 
-34:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit.i
+34:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %38 unwind label %35
 
@@ -15497,7 +15497,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS
   call void @__clang_call_terminate(ptr %37) #12
   unreachable
 
-38:                                               ; preds = %34, %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit.i
+38:                                               ; preds = %34, %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %39 = getelementptr inbounds i8, ptr %11, i64 8
   %40 = load i32, ptr %39, align 8
@@ -15542,7 +15542,7 @@ define void @_ZN2cv3hal8recip16sEPKsmS2_mPsmiiPv(ptr nocapture noundef readnone 
   %.not18.i.i.i = icmp ne i32 %7, 0
   %15 = icmp sgt i32 %6, 0
   %or.cond.i.i.i = and i1 %15, %.not18.i.i.i
-  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit.i
+  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
 
 .preheader.us.preheader.i.i.i:                    ; preds = %.noexc
   %wide.trip.count.i.i.i = zext nneg i32 %6 to i64
@@ -15584,15 +15584,15 @@ _ZN2cv3hal12cpu_baseline8op_recipIsfNS_12hal_baseline5v_regIsLi8EEEE1rEsPKf.exit
   %30 = getelementptr inbounds i16, ptr %.01420.us.i.i.i, i64 %13
   %31 = getelementptr inbounds i16, ptr %.01619.us.i.i.i, i64 %14
   %.not.us.i.i.i = icmp eq i32 %29, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !242
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit.i, label %.preheader.us.i.i.i, !llvm.loop !242
 
-_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
+_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %32 = getelementptr inbounds i8, ptr %10, i64 8
   %33 = load i32, ptr %32, align 8
   %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %38, label %34
 
-34:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit.i
+34:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %38 unwind label %35
 
@@ -15603,7 +15603,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS
   call void @__clang_call_terminate(ptr %37) #12
   unreachable
 
-38:                                               ; preds = %34, %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit.i
+38:                                               ; preds = %34, %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %39 = getelementptr inbounds i8, ptr %11, i64 8
   %40 = load i32, ptr %39, align 8
@@ -15648,7 +15648,7 @@ define void @_ZN2cv3hal8recip32sEPKimS2_mPimiiPv(ptr nocapture noundef readnone 
   %.not18.i.i.i = icmp ne i32 %7, 0
   %15 = icmp sgt i32 %6, 0
   %or.cond.i.i.i = and i1 %15, %.not18.i.i.i
-  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit.i
+  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
 
 .preheader.us.preheader.i.i.i:                    ; preds = %.noexc
   %wide.trip.count.i.i.i = zext nneg i32 %6 to i64
@@ -15687,15 +15687,15 @@ _ZN2cv3hal12cpu_baseline8op_recipIifNS_12hal_baseline5v_regIiLi4EEEE1rEiPKf.exit
   %27 = getelementptr inbounds i32, ptr %.01420.us.i.i.i, i64 %13
   %28 = getelementptr inbounds i32, ptr %.01619.us.i.i.i, i64 %14
   %.not.us.i.i.i = icmp eq i32 %26, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !244
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit.i, label %.preheader.us.i.i.i, !llvm.loop !244
 
-_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
+_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %29 = getelementptr inbounds i8, ptr %10, i64 8
   %30 = load i32, ptr %29, align 8
   %.not.i.i = icmp eq i32 %30, 0
   br i1 %.not.i.i, label %35, label %31
 
-31:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit.i
+31:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %35 unwind label %32
 
@@ -15706,7 +15706,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS
   call void @__clang_call_terminate(ptr %34) #12
   unreachable
 
-35:                                               ; preds = %31, %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit.i
+35:                                               ; preds = %31, %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %36 = getelementptr inbounds i8, ptr %11, i64 8
   %37 = load i32, ptr %36, align 8
@@ -15751,7 +15751,7 @@ define void @_ZN2cv3hal8recip32fEPKfmS2_mPfmiiPv(ptr nocapture noundef readnone 
   %.not18.i.i.i = icmp ne i32 %7, 0
   %15 = icmp sgt i32 %6, 0
   %or.cond.i.i.i = and i1 %15, %.not18.i.i.i
-  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit.i
+  br i1 %or.cond.i.i.i, label %.preheader.us.preheader.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
 
 .preheader.us.preheader.i.i.i:                    ; preds = %.noexc
   %wide.trip.count.i.i.i = zext nneg i32 %6 to i64
@@ -15779,15 +15779,15 @@ define void @_ZN2cv3hal8recip32fEPKfmS2_mPfmiiPv(ptr nocapture noundef readnone 
   %22 = getelementptr inbounds float, ptr %.01420.us.i.i.i, i64 %13
   %23 = getelementptr inbounds float, ptr %.01619.us.i.i.i, i64 %14
   %.not.us.i.i.i = icmp eq i32 %21, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !246
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit.i, label %.preheader.us.i.i.i, !llvm.loop !246
 
-_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
+_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %24 = getelementptr inbounds i8, ptr %10, i64 8
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %30, label %26
 
-26:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit.i
+26:                                               ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
           to label %30 unwind label %27
 
@@ -15798,7 +15798,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS
   call void @__clang_call_terminate(ptr %29) #12
   unreachable
 
-30:                                               ; preds = %26, %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit.i
+30:                                               ; preds = %26, %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %31 = getelementptr inbounds i8, ptr %11, i64 8
   %32 = load i32, ptr %31, align 8

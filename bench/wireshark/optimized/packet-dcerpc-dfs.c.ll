@@ -2825,7 +2825,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumStruct(ptr noundef %0, i32 noun
 58:                                               ; preds = %55, %53, %50, %48
   %.0.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
   %59 = load i32, ptr %10, align 4
-  switch i32 %59, label %netdfs_dissect_element_dfs_EnumStruct_e.exit [
+  switch i32 %59, label %netdfs_dissect_element_dfs_EnumStruct_e.argprom.exit [
     i32 1, label %60
     i32 2, label %63
     i32 3, label %66
@@ -2837,34 +2837,34 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumStruct(ptr noundef %0, i32 noun
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_netdfs_dfs_EnumInfo_info1, align 4
   %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.057.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info1_, i32 noundef 2, ptr noundef nonnull @.str.276, i32 noundef %61) #4
-  br label %netdfs_dissect_element_dfs_EnumStruct_e.exit
+  br label %netdfs_dissect_element_dfs_EnumStruct_e.argprom.exit
 
 63:                                               ; preds = %58
   %64 = load i32, ptr @hf_netdfs_dfs_EnumInfo_info2, align 4
   %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.057.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info2_, i32 noundef 2, ptr noundef nonnull @.str.277, i32 noundef %64) #4
-  br label %netdfs_dissect_element_dfs_EnumStruct_e.exit
+  br label %netdfs_dissect_element_dfs_EnumStruct_e.argprom.exit
 
 66:                                               ; preds = %58
   %67 = load i32, ptr @hf_netdfs_dfs_EnumInfo_info3, align 4
   %68 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.057.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info3_, i32 noundef 2, ptr noundef nonnull @.str.278, i32 noundef %67) #4
-  br label %netdfs_dissect_element_dfs_EnumStruct_e.exit
+  br label %netdfs_dissect_element_dfs_EnumStruct_e.argprom.exit
 
 69:                                               ; preds = %58
   %70 = load i32, ptr @hf_netdfs_dfs_EnumInfo_info4, align 4
   %71 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.057.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info4_, i32 noundef 2, ptr noundef nonnull @.str.279, i32 noundef %70) #4
-  br label %netdfs_dissect_element_dfs_EnumStruct_e.exit
+  br label %netdfs_dissect_element_dfs_EnumStruct_e.argprom.exit
 
 72:                                               ; preds = %58
   %73 = load i32, ptr @hf_netdfs_dfs_EnumInfo_info200, align 4
   %74 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.057.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info200_, i32 noundef 2, ptr noundef nonnull @.str.280, i32 noundef %73) #4
-  br label %netdfs_dissect_element_dfs_EnumStruct_e.exit
+  br label %netdfs_dissect_element_dfs_EnumStruct_e.argprom.exit
 
 75:                                               ; preds = %58
   %76 = load i32, ptr @hf_netdfs_dfs_EnumInfo_info300, align 4
   %77 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.057.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info300_, i32 noundef 2, ptr noundef nonnull @.str.281, i32 noundef %76) #4
-  br label %netdfs_dissect_element_dfs_EnumStruct_e.exit
+  br label %netdfs_dissect_element_dfs_EnumStruct_e.argprom.exit
 
-netdfs_dissect_element_dfs_EnumStruct_e.exit:     ; preds = %58, %60, %63, %66, %69, %72, %75
+netdfs_dissect_element_dfs_EnumStruct_e.argprom.exit: ; preds = %58, %60, %63, %66, %69, %72, %75
   %.1.i.i = phi i32 [ %.0.i.i, %58 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ]
   %78 = load ptr, ptr %9, align 8
   %79 = sub i32 %.1.i.i, %35
@@ -2880,7 +2880,7 @@ netdfs_dissect_element_dfs_EnumStruct_e.exit:     ; preds = %58, %60, %63, %66, 
   %.not45 = icmp eq i32 %84, 0
   br i1 %.not45, label %91, label %85
 
-85:                                               ; preds = %netdfs_dissect_element_dfs_EnumStruct_e.exit
+85:                                               ; preds = %netdfs_dissect_element_dfs_EnumStruct_e.argprom.exit
   %86 = load i32, ptr %46, align 4
   %.not46 = icmp ne i32 %86, 0
   %87 = and i32 %.1.i.i, 7
@@ -2893,8 +2893,8 @@ netdfs_dissect_element_dfs_EnumStruct_e.exit:     ; preds = %58, %60, %63, %66, 
   %90 = add i32 %89, 8
   br label %91
 
-91:                                               ; preds = %88, %85, %netdfs_dissect_element_dfs_EnumStruct_e.exit
-  %.1 = phi i32 [ %.1.i.i, %85 ], [ %90, %88 ], [ %.1.i.i, %netdfs_dissect_element_dfs_EnumStruct_e.exit ]
+91:                                               ; preds = %88, %85, %netdfs_dissect_element_dfs_EnumStruct_e.argprom.exit
+  %.1 = phi i32 [ %.1.i.i, %85 ], [ %90, %88 ], [ %.1.i.i, %netdfs_dissect_element_dfs_EnumStruct_e.argprom.exit ]
   ret i32 %.1
 }
 
@@ -4434,12 +4434,12 @@ define internal i32 @netdfs_dissect_element_dfs_SetInfo_sharename_(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_element_dfs_SetInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_netdfs_dfs_SetInfo_info, align 4
-  %8 = tail call fastcc i32 @netdfs_dissect_dfs_Info(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @netdfs_dissect_dfs_Info.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @netdfs_dissect_dfs_Info(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @netdfs_dissect_dfs_Info.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr null, ptr %8, align 8
@@ -4728,7 +4728,7 @@ define internal i32 @netdfs_dissect_element_dfs_GetInfo_sharename_(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_element_dfs_GetInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_netdfs_dfs_GetInfo_info, align 4
-  %8 = tail call fastcc i32 @netdfs_dissect_dfs_Info(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @netdfs_dissect_dfs_Info.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 

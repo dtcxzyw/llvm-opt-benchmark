@@ -274,7 +274,7 @@ invoke.cont:                                      ; preds = %invoke.cont8.i
   %prunable.i = getelementptr inbounds i8, ptr %autom, i64 88
   %frombool.i = zext i1 %call.i5 to i8
   store i8 %frombool.i, ptr %prunable.i, align 8
-  %call3 = invoke fastcc noundef zeroext i1 @_ZN3ue211determiniseINS_12_GLOBAL__N_115Automaton_MergeENS_6dstateEEEbRT_RSt6vectorIT0_SaIS7_EEmPS6_INS4_8StateSetESaISB_EE(ptr noundef nonnull align 8 dereferenceable(1148) %autom, ptr noundef nonnull align 8 dereferenceable(24) %states.i.i, i64 noundef %max_states)
+  %call3 = invoke fastcc noundef zeroext i1 @_ZN3ue211determiniseINS_12_GLOBAL__N_115Automaton_MergeENS_6dstateEEEbRT_RSt6vectorIT0_SaIS7_EEmPS6_INS4_8StateSetESaISB_EE.argprom(ptr noundef nonnull align 8 dereferenceable(1148) %autom, ptr noundef nonnull align 8 dereferenceable(24) %states.i.i, i64 noundef %max_states)
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -298,7 +298,7 @@ if.then:                                          ; preds = %invoke.cont2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(514) %alpha_remap, ptr noundef nonnull align 2 dereferenceable(514) %alpha, i64 514, i1 false)
   %autom.val = load ptr, ptr %nfas.i, align 8
   %autom.val4 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %call11 = invoke fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_115Automaton_Merge14shouldMinimizeEv(ptr %autom.val, ptr %autom.val4)
+  %call11 = invoke fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_115Automaton_Merge14shouldMinimizeEv.argprom(ptr %autom.val, ptr %autom.val4)
           to label %invoke.cont10 unwind label %lpad1
 
 invoke.cont10:                                    ; preds = %if.then
@@ -384,7 +384,7 @@ _ZNSt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS1_EED2Ev.exit17: ; preds = %
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue211determiniseINS_12_GLOBAL__N_115Automaton_MergeENS_6dstateEEEbRT_RSt6vectorIT0_SaIS7_EEmPS6_INS4_8StateSetESaISB_EE(ptr noundef nonnull align 8 dereferenceable(1148) %n, ptr noundef nonnull align 8 dereferenceable(24) %dstates, i64 noundef %state_limit) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue211determiniseINS_12_GLOBAL__N_115Automaton_MergeENS_6dstateEEEbRT_RSt6vectorIT0_SaIS7_EEmPS6_INS4_8StateSetESaISB_EE.argprom(ptr noundef nonnull align 8 dereferenceable(1148) %n, ptr noundef nonnull align 8 dereferenceable(24) %dstates, i64 noundef %state_limit) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i = alloca [257 x i16], align 16
   %ref.tmp.i = alloca [1 x %"class.std::vector.7"], align 8
@@ -2162,7 +2162,7 @@ ehcleanup232:                                     ; preds = %ehcleanup230, %lpad
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_115Automaton_Merge14shouldMinimizeEv(ptr readonly %this.16.val, ptr readnone %this.24.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_115Automaton_Merge14shouldMinimizeEv.argprom(ptr readonly %this.16.val, ptr readnone %this.24.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %seen_reports = alloca %"class.ue2::flat_set", align 8
   %ref.tmp7 = alloca %"class.std::set", align 8
@@ -3370,7 +3370,7 @@ do.end:                                           ; preds = %invoke.cont5.i
   %prunable.i = getelementptr inbounds i8, ptr %n, i64 88
   %frombool.i = zext i1 %call7.i to i8
   store i8 %frombool.i, ptr %prunable.i, align 8
-  %call5 = invoke fastcc noundef zeroext i1 @_ZN3ue211determiniseINS_12_GLOBAL__N_115Automaton_MergeENS_6dstateEEEbRT_RSt6vectorIT0_SaIS7_EEmPS6_INS4_8StateSetESaISB_EE(ptr noundef nonnull align 8 dereferenceable(1148) %n, ptr noundef nonnull align 8 dereferenceable(24) %states.i.i, i64 noundef %max_states)
+  %call5 = invoke fastcc noundef zeroext i1 @_ZN3ue211determiniseINS_12_GLOBAL__N_115Automaton_MergeENS_6dstateEEEbRT_RSt6vectorIT0_SaIS7_EEmPS6_INS4_8StateSetESaISB_EE.argprom(ptr noundef nonnull align 8 dereferenceable(1148) %n, ptr noundef nonnull align 8 dereferenceable(24) %states.i.i, i64 noundef %max_states)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %do.end
@@ -3405,7 +3405,7 @@ if.end:                                           ; preds = %invoke.cont4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(514) %alpha_remap, ptr noundef nonnull align 2 dereferenceable(514) %alpha, i64 514, i1 false)
   %n.val = load ptr, ptr %nfas.i, align 8
   %n.val4 = load ptr, ptr %_M_finish.i.i.i.i303853, align 8
-  %call19 = invoke fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_115Automaton_Merge14shouldMinimizeEv(ptr %n.val, ptr %n.val4)
+  %call19 = invoke fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_115Automaton_Merge14shouldMinimizeEv.argprom(ptr %n.val, ptr %n.val4)
           to label %invoke.cont18 unwind label %lpad3
 
 invoke.cont18:                                    ; preds = %if.end

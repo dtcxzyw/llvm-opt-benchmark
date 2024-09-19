@@ -915,8 +915,8 @@ define void @Amap_ManMergeNodeChoice(ptr nocapture noundef %0, ptr noundef %1) l
   %6 = getelementptr i8, ptr %0, i64 48
   br label %7
 
-7:                                                ; preds = %.lr.ph28, %Amap_ObjChoice.exit
-  %.01926 = phi ptr [ %1, %.lr.ph28 ], [ %119, %Amap_ObjChoice.exit ]
+7:                                                ; preds = %.lr.ph28, %Amap_ObjChoice.argprom.exit
+  %.01926 = phi ptr [ %1, %.lr.ph28 ], [ %119, %Amap_ObjChoice.argprom.exit ]
   %8 = getelementptr inbounds i8, ptr %.01926, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %.01926, i64 12
@@ -1114,9 +1114,9 @@ Amap_ManCutStore.exit:                            ; preds = %17, %Vec_IntPushOrd
   %115 = getelementptr i8, ptr %.01926, i64 20
   %.019.val = load i32, ptr %115, align 4
   %.not.i = icmp eq i32 %.019.val, 0
-  br i1 %.not.i, label %._crit_edge29, label %Amap_ObjChoice.exit
+  br i1 %.not.i, label %._crit_edge29, label %Amap_ObjChoice.argprom.exit
 
-Amap_ObjChoice.exit:                              ; preds = %._crit_edge
+Amap_ObjChoice.argprom.exit:                      ; preds = %._crit_edge
   %.val.i = load ptr, ptr %6, align 8
   %116 = getelementptr i8, ptr %.val.i, i64 8
   %.val.val.i = load ptr, ptr %116, align 8
@@ -1126,7 +1126,7 @@ Amap_ObjChoice.exit:                              ; preds = %._crit_edge
   %.not = icmp eq ptr %119, null
   br i1 %.not, label %._crit_edge29, label %7, !llvm.loop !23
 
-._crit_edge29:                                    ; preds = %._crit_edge, %Amap_ObjChoice.exit, %2
+._crit_edge29:                                    ; preds = %._crit_edge, %Amap_ObjChoice.argprom.exit, %2
   tail call void @Amap_ManCutSaveStored(ptr noundef %0, ptr noundef %1)
   ret void
 }

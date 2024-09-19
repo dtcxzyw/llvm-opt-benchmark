@@ -316,7 +316,7 @@ _ZL14get_interfacesv.exit.i:                      ; preds = %50, %39
   %80 = getelementptr inbounds i8, ptr %78, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %79, %81
-  br i1 %82, label %83, label %_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.exit.i
+  br i1 %82, label %83, label %_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.argprom.exit.i
 
 83:                                               ; preds = %67
   %84 = add nsw i32 %79, 1
@@ -330,9 +330,9 @@ _ZL14get_interfacesv.exit.i:                      ; preds = %50, %39
   %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %84, i32 %90
   call void @_ZN26GrowableArrayWithAllocatorI14InterfaceEntry13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %78, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %78, align 8
-  br label %_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.exit.i
+  br label %_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.argprom.exit.i
 
-_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.exit.i: ; preds = %83, %67
+_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.argprom.exit.i: ; preds = %83, %67
   %91 = phi i32 [ %.pre.i.i.i, %83 ], [ %79, %67 ]
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %78, align 8
@@ -357,8 +357,8 @@ _ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.exit.i: ; pr
   store i32 %61, ptr @_ZZL9get_entryPK16NetworkInterfaceE11saved_index, align 4
   br label %_ZL9get_entryPK16NetworkInterface.exit
 
-_ZL9get_entryPK16NetworkInterface.exit:           ; preds = %_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.exit.i, %.loopexit.i
-  %.05.i = phi ptr [ %98, %_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.exit.i ], [ %63, %.loopexit.i ]
+_ZL9get_entryPK16NetworkInterface.exit:           ; preds = %_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.argprom.exit.i, %.loopexit.i
+  %.05.i = phi ptr [ %98, %_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.argprom.exit.i ], [ %63, %.loopexit.i ]
   %99 = getelementptr inbounds i8, ptr %.042, i64 8
   %100 = load i64, ptr %99, align 8
   %101 = getelementptr inbounds i8, ptr %.042, i64 16
@@ -366,36 +366,36 @@ _ZL9get_entryPK16NetworkInterface.exit:           ; preds = %_ZL9new_entryPK16Ne
   %103 = getelementptr inbounds i8, ptr %.05.i, i64 16
   %104 = load i64, ptr %103, align 8
   %.not.i21 = icmp ugt i64 %100, %104
-  br i1 %.not.i21, label %105, label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit
+  br i1 %.not.i21, label %105, label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit
 
 105:                                              ; preds = %_ZL9get_entryPK16NetworkInterface.exit
   %106 = sub nuw i64 %100, %104
   %107 = mul i64 %106, 1000000000
   %108 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource11nanosecondsEl(i64 noundef %31) #13
   %109 = udiv i64 %107, %108
-  br label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit
+  br label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit
 
-_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit: ; preds = %_ZL9get_entryPK16NetworkInterface.exit, %105
+_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit: ; preds = %_ZL9get_entryPK16NetworkInterface.exit, %105
   %.0.i22 = phi i64 [ %109, %105 ], [ 0, %_ZL9get_entryPK16NetworkInterface.exit ]
   %110 = getelementptr inbounds i8, ptr %.05.i, i64 24
   %111 = load i64, ptr %110, align 8
   %.not.i23 = icmp ugt i64 %102, %111
-  br i1 %.not.i23, label %112, label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit25
+  br i1 %.not.i23, label %112, label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit25
 
-112:                                              ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit
+112:                                              ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit
   %113 = sub nuw i64 %102, %111
   %114 = mul i64 %113, 1000000000
   %115 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource11nanosecondsEl(i64 noundef %31) #13
   %116 = udiv i64 %114, %115
-  br label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit25
+  br label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit25
 
-_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit25: ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit, %112
-  %.0.i24 = phi i64 [ %116, %112 ], [ 0, %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit ]
+_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit25: ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit, %112
+  %.0.i24 = phi i64 [ %116, %112 ], [ 0, %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit ]
   %117 = or i64 %.0.i24, %.0.i22
   %or.cond.not = icmp eq i64 %117, 0
   br i1 %or.cond.not, label %130, label %118
 
-118:                                              ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit25
+118:                                              ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit25
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %1)
   %119 = getelementptr inbounds i8, ptr %.05.i, i64 32
   %120 = load i8, ptr %119, align 8
@@ -432,7 +432,7 @@ _ZL24write_interface_constantRK14InterfaceEntry.exit: ; preds = %118, %122
   call void @_ZN8JfrEventI23EventNetworkUtilizationE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %3)
   br label %130
 
-130:                                              ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit25, %_ZL24write_interface_constantRK14InterfaceEntry.exit
+130:                                              ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.argprom.exit25, %_ZL24write_interface_constantRK14InterfaceEntry.exit
   store i64 %100, ptr %103, align 8
   store i64 %102, ptr %110, align 8
   %131 = getelementptr inbounds i8, ptr %.042, i64 24

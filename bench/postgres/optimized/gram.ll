@@ -14311,7 +14311,7 @@ sub_1:                                            ; preds = %sub_0
   %6927 = getelementptr i8, ptr %6926, i64 16
   %.val9645 = load ptr, ptr %6927, align 8
   %.val9645.val = load ptr, ptr %.val9645, align 8
-  %6928 = call fastcc ptr @extractAggrArgTypes(ptr %.val9645.val)
+  %6928 = call fastcc ptr @extractAggrArgTypes.argprom.argprom(ptr %.val9645.val)
   %6929 = getelementptr inbounds i8, ptr %6922, i64 16
   store ptr %6928, ptr %6929, align 8
   %6930 = load ptr, ptr %.29480, align 8
@@ -28754,7 +28754,7 @@ list_length.exit18:                               ; preds = %.list_length.exit18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extractAggrArgTypes(ptr readonly %.16.val.0.val) unnamed_addr #0 {
+define internal fastcc ptr @extractAggrArgTypes.argprom.argprom(ptr readonly %.16.val.0.val) unnamed_addr #0 {
   %1 = getelementptr inbounds i8, ptr %.16.val.0.val, i64 4
   %.not.i = icmp eq ptr %.16.val.0.val, null
   br i1 %.not.i, label %extractArgTypes.exit, label %.lr.ph.i

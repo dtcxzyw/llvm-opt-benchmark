@@ -204,7 +204,7 @@ define hidden void @_ZN2cv12cpu_baseline34getInitUndistortRectifyMapComputerENS_
   %48 = getelementptr inbounds i8, ptr %25, i64 176
   store double %22, ptr %48, align 8
   %49 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
-          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_131initUndistortRectifyMapComputerEED2Ev.exit unwind label %50
+          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_131initUndistortRectifyMapComputerEED2Ev.argprom.exit unwind label %50
 
 50:                                               ; preds = %26
   %51 = landingpad { ptr, i32 }
@@ -234,7 +234,7 @@ define hidden void @_ZN2cv12cpu_baseline34getInitUndistortRectifyMapComputerENS_
 62:                                               ; preds = %50
   unreachable
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_131initUndistortRectifyMapComputerEED2Ev.exit: ; preds = %26
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_131initUndistortRectifyMapComputerEED2Ev.argprom.exit: ; preds = %26
   %63 = getelementptr inbounds i8, ptr %49, i64 8
   store i32 1, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %49, i64 12
@@ -250,7 +250,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_131initUndistortRectifyMapComputerEED2E
   %.not.i = icmp eq i32 %68, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %69
 
-69:                                               ; preds = %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_131initUndistortRectifyMapComputerEED2Ev.exit
+69:                                               ; preds = %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_131initUndistortRectifyMapComputerEED2Ev.argprom.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %24)
           to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %70
 
@@ -261,7 +261,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_131initUndistortRectifyMapComputerEED2E
   call void @__clang_call_terminate(ptr %72) #25
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_131initUndistortRectifyMapComputerEED2Ev.exit, %69
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_131initUndistortRectifyMapComputerEED2Ev.argprom.exit, %69
   ret void
 
 73:                                               ; preds = %23

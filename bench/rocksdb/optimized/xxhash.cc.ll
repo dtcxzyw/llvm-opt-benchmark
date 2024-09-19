@@ -1532,7 +1532,7 @@ for.end.i.i:                                      ; preds = %_ZL22XXH3_accumulat
   %div1327.i.i = lshr i64 %sub12.i.i, 6
   %add.ptr19.i.i = getelementptr inbounds i8, ptr %input, i64 %mul11.i.i
   %cmp5.not.i29.i.i = icmp ult i64 %sub12.i.i, 64
-  br i1 %cmp5.not.i29.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i, label %for.body.i34.i.i
+  br i1 %cmp5.not.i29.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i, label %for.body.i34.i.i
 
 for.body.i34.i.i:                                 ; preds = %for.end.i.i, %for.body.i34.i.i
   %add.i.i7.i35.i.i = phi <8 x i64> [ %add.i.i.i45.i.i, %for.body.i34.i.i ], [ %.pre.i.i, %for.end.i.i ]
@@ -1554,9 +1554,9 @@ for.body.i34.i.i:                                 ; preds = %for.end.i.i, %for.b
   %add.i.i.i45.i.i = add <8 x i64> %add.i12.i.i44.i.i, %20
   %inc.i46.i.i = add nuw nsw i64 %n.06.i36.i.i, 1
   %exitcond.not.i47.i.i = icmp eq i64 %inc.i46.i.i, %div1327.i.i
-  br i1 %exitcond.not.i47.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i, label %for.body.i34.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i47.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i, label %for.body.i34.i.i, !llvm.loop !18
 
-_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i: ; preds = %for.body.i34.i.i, %for.end.i.i
+_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i: ; preds = %for.body.i34.i.i, %for.end.i.i
   %22 = phi <8 x i64> [ %.pre.i.i, %for.end.i.i ], [ %add.i.i.i45.i.i, %for.body.i34.i.i ]
   %add.ptr20.i.i = getelementptr inbounds i8, ptr %input, i64 %len
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %add.ptr20.i.i, i64 -64
@@ -1573,9 +1573,9 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i: ; preds
   %mul.i = mul i64 %len, -7046029288634856825
   br label %for.body.i4.i
 
-for.body.i4.i:                                    ; preds = %for.body.i4.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i
-  %i.09.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i ], [ %inc.i7.i, %for.body.i4.i ]
-  %result64.08.i.i = phi i64 [ %mul.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i ], [ %add.i.i, %for.body.i4.i ]
+for.body.i4.i:                                    ; preds = %for.body.i4.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i
+  %i.09.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i ], [ %inc.i7.i, %for.body.i4.i ]
+  %result64.08.i.i = phi i64 [ %mul.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i ], [ %add.i.i, %for.body.i4.i ]
   %add.ptr.idx.i.i = shl nuw nsw i64 %i.09.i.i, 4
   %add.ptr.i5.i = getelementptr inbounds i8, ptr %acc.i, i64 %add.ptr.idx.i.i
   %add.ptr2.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 11), i64 %add.ptr.idx.i.i
@@ -1596,9 +1596,9 @@ for.body.i4.i:                                    ; preds = %for.body.i4.i, %_ZL
   %add.i.i = add i64 %result64.08.i.i, %xor.i.i.i6.i
   %inc.i7.i = add nuw nsw i64 %i.09.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i7.i, 4
-  br i1 %exitcond.not.i.i, label %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit, label %for.body.i4.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom.exit, label %for.body.i4.i, !llvm.loop !20
 
-_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit: ; preds = %for.body.i4.i
+_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom.exit: ; preds = %for.body.i4.i
   %shr.i.i.i.i = lshr i64 %add.i.i, 37
   %xor.i.i7.i.i = xor i64 %shr.i.i.i.i, %add.i.i
   %mul.i.i9.i = mul i64 %xor.i.i7.i.i, 1609587791953885689
@@ -1694,7 +1694,7 @@ for.end.i.i:                                      ; preds = %_ZL22XXH3_accumulat
   tail call void @llvm.assume(i1 %cmp15.i.i)
   %add.ptr19.i.i = getelementptr inbounds i8, ptr %input, i64 %mul11.i.i
   %cmp5.not.i29.i.i = icmp ult i64 %sub12.i.i.recomposed, 64
-  br i1 %cmp5.not.i29.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i, label %for.body.i34.i.i
+  br i1 %cmp5.not.i29.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i, label %for.body.i34.i.i
 
 for.body.i34.i.i:                                 ; preds = %for.end.i.i, %for.body.i34.i.i
   %add.i.i7.i35.i.i = phi <8 x i64> [ %add.i.i.i45.i.i, %for.body.i34.i.i ], [ %.pre.i.i, %for.end.i.i ]
@@ -1716,9 +1716,9 @@ for.body.i34.i.i:                                 ; preds = %for.end.i.i, %for.b
   %add.i.i.i45.i.i = add <8 x i64> %add.i12.i.i44.i.i, %20
   %inc.i46.i.i = add nuw i64 %n.06.i36.i.i, 1
   %exitcond.not.i47.i.i = icmp eq i64 %inc.i46.i.i, %div1327.i.i
-  br i1 %exitcond.not.i47.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i, label %for.body.i34.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i47.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i, label %for.body.i34.i.i, !llvm.loop !18
 
-_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i: ; preds = %for.body.i34.i.i, %for.end.i.i
+_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i: ; preds = %for.body.i34.i.i, %for.end.i.i
   %22 = phi <8 x i64> [ %.pre.i.i, %for.end.i.i ], [ %add.i.i.i45.i.i, %for.body.i34.i.i ]
   %add.ptr20.i.i = getelementptr inbounds i8, ptr %input, i64 %len
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %add.ptr20.i.i, i64 -64
@@ -1738,9 +1738,9 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i: ; preds
   %mul.i = mul i64 %len, -7046029288634856825
   br label %for.body.i4.i
 
-for.body.i4.i:                                    ; preds = %for.body.i4.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i
-  %i.09.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i ], [ %inc.i7.i, %for.body.i4.i ]
-  %result64.08.i.i = phi i64 [ %mul.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i ], [ %add.i.i, %for.body.i4.i ]
+for.body.i4.i:                                    ; preds = %for.body.i4.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i
+  %i.09.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i ], [ %inc.i7.i, %for.body.i4.i ]
+  %result64.08.i.i = phi i64 [ %mul.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i ], [ %add.i.i, %for.body.i4.i ]
   %add.ptr.idx.i.i = shl nuw nsw i64 %i.09.i.i, 4
   %add.ptr.i5.i = getelementptr inbounds i8, ptr %acc.i, i64 %add.ptr.idx.i.i
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %add.ptr.idx.i.i
@@ -1761,9 +1761,9 @@ for.body.i4.i:                                    ; preds = %for.body.i4.i, %_ZL
   %add.i.i = add i64 %result64.08.i.i, %xor.i.i.i6.i
   %inc.i7.i = add nuw nsw i64 %i.09.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i7.i, 4
-  br i1 %exitcond.not.i.i, label %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit, label %for.body.i4.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom.exit, label %for.body.i4.i, !llvm.loop !20
 
-_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit: ; preds = %for.body.i4.i
+_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom.exit: ; preds = %for.body.i4.i
   %shr.i.i.i.i = lshr i64 %add.i.i, 37
   %xor.i.i7.i.i = xor i64 %shr.i.i.i.i, %add.i.i
   %mul.i.i9.i = mul i64 %xor.i.i7.i.i, 1609587791953885689
@@ -1856,7 +1856,7 @@ for.end.i.i.i:                                    ; preds = %_ZL22XXH3_accumulat
   %div1327.i.i.i = lshr i64 %sub12.i.i.i, 6
   %add.ptr19.i.i.i = getelementptr inbounds i8, ptr %input, i64 %mul11.i.i.i
   %cmp5.not.i29.i.i.i = icmp ult i64 %sub12.i.i.i, 64
-  br i1 %cmp5.not.i29.i.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i, label %for.body.i34.i.i.i
+  br i1 %cmp5.not.i29.i.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i, label %for.body.i34.i.i.i
 
 for.body.i34.i.i.i:                               ; preds = %for.end.i.i.i, %for.body.i34.i.i.i
   %add.i.i7.i35.i.i.i = phi <8 x i64> [ %add.i.i.i45.i.i.i, %for.body.i34.i.i.i ], [ %.pre.i.i.i, %for.end.i.i.i ]
@@ -1878,9 +1878,9 @@ for.body.i34.i.i.i:                               ; preds = %for.end.i.i.i, %for
   %add.i.i.i45.i.i.i = add <8 x i64> %add.i12.i.i44.i.i.i, %20
   %inc.i46.i.i.i = add nuw nsw i64 %n.06.i36.i.i.i, 1
   %exitcond.not.i47.i.i.i = icmp eq i64 %inc.i46.i.i.i, %div1327.i.i.i
-  br i1 %exitcond.not.i47.i.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i, label %for.body.i34.i.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i47.i.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i, label %for.body.i34.i.i.i, !llvm.loop !18
 
-_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i: ; preds = %for.body.i34.i.i.i, %for.end.i.i.i
+_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i: ; preds = %for.body.i34.i.i.i, %for.end.i.i.i
   %22 = phi <8 x i64> [ %.pre.i.i.i, %for.end.i.i.i ], [ %add.i.i.i45.i.i.i, %for.body.i34.i.i.i ]
   %add.ptr20.i.i.i = getelementptr inbounds i8, ptr %input, i64 %len
   %add.ptr21.i.i.i = getelementptr inbounds i8, ptr %add.ptr20.i.i.i, i64 -64
@@ -1897,9 +1897,9 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i: ; pre
   %mul.i.i = mul i64 %len, -7046029288634856825
   br label %for.body.i4.i.i
 
-for.body.i4.i.i:                                  ; preds = %for.body.i4.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i
-  %i.09.i.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i ], [ %inc.i7.i.i, %for.body.i4.i.i ]
-  %result64.08.i.i.i = phi i64 [ %mul.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i ], [ %add.i.i.i, %for.body.i4.i.i ]
+for.body.i4.i.i:                                  ; preds = %for.body.i4.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i
+  %i.09.i.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i ], [ %inc.i7.i.i, %for.body.i4.i.i ]
+  %result64.08.i.i.i = phi i64 [ %mul.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i ], [ %add.i.i.i, %for.body.i4.i.i ]
   %add.ptr.idx.i.i.i = shl nuw nsw i64 %i.09.i.i.i, 4
   %add.ptr.i5.i.i = getelementptr inbounds i8, ptr %acc.i.i, i64 %add.ptr.idx.i.i.i
   %add.ptr2.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 11), i64 %add.ptr.idx.i.i.i
@@ -1920,16 +1920,16 @@ for.body.i4.i.i:                                  ; preds = %for.body.i4.i.i, %_
   %add.i.i.i = add i64 %result64.08.i.i.i, %xor.i.i.i6.i.i
   %inc.i7.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i7.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit.i, label %for.body.i4.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i.i, label %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom.exit.i, label %for.body.i4.i.i, !llvm.loop !20
 
-_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit.i: ; preds = %for.body.i4.i.i
+_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom.exit.i: ; preds = %for.body.i4.i.i
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i, 37
   %xor.i.i7.i.i.i = xor i64 %shr.i.i.i.i.i, %add.i.i.i
   %mul.i.i9.i.i = mul i64 %xor.i.i7.i.i.i, 1609587791953885689
   %shr.i4.i.i.i.i = lshr i64 %mul.i.i9.i.i, 32
   %xor.i5.i.i.i.i = xor i64 %shr.i4.i.i.i.i, %mul.i.i9.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %acc.i.i)
-  br label %_ZL35XXH3_hashLong_64b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit
+  br label %_ZL35XXH3_hashLong_64b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %vecinit.i.i.i = insertelement <8 x i64> poison, i64 %seed, i64 0
@@ -2016,7 +2016,7 @@ for.end.i.i36.i:                                  ; preds = %_ZL22XXH3_accumulat
   %div1327.i.i41.i = lshr i64 %sub12.i.i40.i, 6
   %add.ptr19.i.i43.i = getelementptr inbounds i8, ptr %input, i64 %mul11.i.i39.i
   %cmp5.not.i29.i.i44.i = icmp ult i64 %sub12.i.i40.i, 64
-  br i1 %cmp5.not.i29.i.i44.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i59.i, label %for.body.i34.i.i45.i
+  br i1 %cmp5.not.i29.i.i44.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i59.i, label %for.body.i34.i.i45.i
 
 for.body.i34.i.i45.i:                             ; preds = %for.end.i.i36.i, %for.body.i34.i.i45.i
   %add.i.i7.i35.i.i46.i = phi <8 x i64> [ %add.i.i.i45.i.i56.i, %for.body.i34.i.i45.i ], [ %.pre.i.i37.i, %for.end.i.i36.i ]
@@ -2038,9 +2038,9 @@ for.body.i34.i.i45.i:                             ; preds = %for.end.i.i36.i, %f
   %add.i.i.i45.i.i56.i = add <8 x i64> %add.i12.i.i44.i.i55.i, %53
   %inc.i46.i.i57.i = add nuw nsw i64 %n.06.i36.i.i47.i, 1
   %exitcond.not.i47.i.i58.i = icmp eq i64 %inc.i46.i.i57.i, %div1327.i.i41.i
-  br i1 %exitcond.not.i47.i.i58.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i59.i, label %for.body.i34.i.i45.i, !llvm.loop !18
+  br i1 %exitcond.not.i47.i.i58.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i59.i, label %for.body.i34.i.i45.i, !llvm.loop !18
 
-_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i59.i: ; preds = %for.body.i34.i.i45.i, %for.end.i.i36.i
+_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i59.i: ; preds = %for.body.i34.i.i45.i, %for.end.i.i36.i
   %55 = phi <8 x i64> [ %.pre.i.i37.i, %for.end.i.i36.i ], [ %add.i.i.i45.i.i56.i, %for.body.i34.i.i45.i ]
   %add.ptr20.i.i60.i = getelementptr inbounds i8, ptr %input, i64 %len
   %add.ptr21.i.i61.i = getelementptr inbounds i8, ptr %add.ptr20.i.i60.i, i64 -64
@@ -2059,9 +2059,9 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i59.i: ; p
   %mul.i67.i = mul i64 %len, -7046029288634856825
   br label %for.body.i4.i68.i
 
-for.body.i4.i68.i:                                ; preds = %for.body.i4.i68.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i59.i
-  %i.09.i.i69.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i59.i ], [ %inc.i7.i87.i, %for.body.i4.i68.i ]
-  %result64.08.i.i70.i = phi i64 [ %mul.i67.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i59.i ], [ %add.i.i86.i, %for.body.i4.i68.i ]
+for.body.i4.i68.i:                                ; preds = %for.body.i4.i68.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i59.i
+  %i.09.i.i69.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i59.i ], [ %inc.i7.i87.i, %for.body.i4.i68.i ]
+  %result64.08.i.i70.i = phi i64 [ %mul.i67.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i59.i ], [ %add.i.i86.i, %for.body.i4.i68.i ]
   %add.ptr.idx.i.i71.i = shl nuw nsw i64 %i.09.i.i69.i, 4
   %add.ptr.i5.i72.i = getelementptr inbounds i8, ptr %acc.i7.i, i64 %add.ptr.idx.i.i71.i
   %add.ptr2.i.i73.i = getelementptr inbounds i8, ptr %add.ptr.i66.i, i64 %add.ptr.idx.i.i71.i
@@ -2082,19 +2082,19 @@ for.body.i4.i68.i:                                ; preds = %for.body.i4.i68.i, 
   %add.i.i86.i = add i64 %result64.08.i.i70.i, %xor.i.i.i6.i85.i
   %inc.i7.i87.i = add nuw nsw i64 %i.09.i.i69.i, 1
   %exitcond.not.i.i88.i = icmp eq i64 %inc.i7.i87.i, 4
-  br i1 %exitcond.not.i.i88.i, label %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit94.i, label %for.body.i4.i68.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i88.i, label %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom.exit94.i, label %for.body.i4.i68.i, !llvm.loop !20
 
-_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit94.i: ; preds = %for.body.i4.i68.i
+_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom.exit94.i: ; preds = %for.body.i4.i68.i
   %shr.i.i.i.i89.i = lshr i64 %add.i.i86.i, 37
   %xor.i.i7.i.i90.i = xor i64 %shr.i.i.i.i89.i, %add.i.i86.i
   %mul.i.i9.i91.i = mul i64 %xor.i.i7.i.i90.i, 1609587791953885689
   %shr.i4.i.i.i92.i = lshr i64 %mul.i.i9.i91.i, 32
   %xor.i5.i.i.i93.i = xor i64 %shr.i4.i.i.i92.i, %mul.i.i9.i91.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %acc.i7.i)
-  br label %_ZL35XXH3_hashLong_64b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit
+  br label %_ZL35XXH3_hashLong_64b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.argprom.exit
 
-_ZL35XXH3_hashLong_64b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit: ; preds = %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit.i, %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit94.i
-  %retval.0.i = phi i64 [ %xor.i5.i.i.i.i, %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit.i ], [ %xor.i5.i.i.i93.i, %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit94.i ]
+_ZL35XXH3_hashLong_64b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.argprom.exit: ; preds = %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom.exit.i, %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom.exit94.i
+  %retval.0.i = phi i64 [ %xor.i5.i.i.i.i, %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom.exit.i ], [ %xor.i5.i.i.i93.i, %_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom.exit94.i ]
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %secret.i)
   ret i64 %retval.0.i
 }
@@ -2184,7 +2184,7 @@ for.end.i.i.i:                                    ; preds = %_ZL22XXH3_accumulat
   tail call void @llvm.assume(i1 %cmp15.i.i.i)
   %add.ptr19.i.i.i = getelementptr inbounds i8, ptr %input, i64 %mul11.i.i.i
   %cmp5.not.i29.i.i.i = icmp ult i64 %sub12.i.i.i.recomposed, 64
-  br i1 %cmp5.not.i29.i.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i, label %for.body.i34.i.i.i
+  br i1 %cmp5.not.i29.i.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i, label %for.body.i34.i.i.i
 
 for.body.i34.i.i.i:                               ; preds = %for.end.i.i.i, %for.body.i34.i.i.i
   %add.i.i7.i35.i.i.i = phi <8 x i64> [ %add.i.i.i45.i.i.i, %for.body.i34.i.i.i ], [ %.pre.i.i.i, %for.end.i.i.i ]
@@ -2206,9 +2206,9 @@ for.body.i34.i.i.i:                               ; preds = %for.end.i.i.i, %for
   %add.i.i.i45.i.i.i = add <8 x i64> %add.i12.i.i44.i.i.i, %20
   %inc.i46.i.i.i = add nuw i64 %n.06.i36.i.i.i, 1
   %exitcond.not.i47.i.i.i = icmp eq i64 %inc.i46.i.i.i, %div1327.i.i.i
-  br i1 %exitcond.not.i47.i.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i, label %for.body.i34.i.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i47.i.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i, label %for.body.i34.i.i.i, !llvm.loop !18
 
-_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i: ; preds = %for.body.i34.i.i.i, %for.end.i.i.i
+_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i: ; preds = %for.body.i34.i.i.i, %for.end.i.i.i
   %22 = phi <8 x i64> [ %.pre.i.i.i, %for.end.i.i.i ], [ %add.i.i.i45.i.i.i, %for.body.i34.i.i.i ]
   %add.ptr20.i.i.i = getelementptr inbounds i8, ptr %input, i64 %length
   %add.ptr21.i.i.i = getelementptr inbounds i8, ptr %add.ptr20.i.i.i, i64 -64
@@ -2228,9 +2228,9 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i: ; pre
   %mul.i.i = mul i64 %length, -7046029288634856825
   br label %for.body.i4.i.i
 
-for.body.i4.i.i:                                  ; preds = %for.body.i4.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i
-  %i.09.i.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i ], [ %inc.i7.i.i, %for.body.i4.i.i ]
-  %result64.08.i.i.i = phi i64 [ %mul.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i ], [ %add.i.i.i, %for.body.i4.i.i ]
+for.body.i4.i.i:                                  ; preds = %for.body.i4.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i
+  %i.09.i.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i ], [ %inc.i7.i.i, %for.body.i4.i.i ]
+  %result64.08.i.i.i = phi i64 [ %mul.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i ], [ %add.i.i.i, %for.body.i4.i.i ]
   %add.ptr.idx.i.i.i = shl nuw nsw i64 %i.09.i.i.i, 4
   %add.ptr.i5.i.i = getelementptr inbounds i8, ptr %acc.i.i, i64 %add.ptr.idx.i.i.i
   %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add.ptr.idx.i.i.i
@@ -2560,12 +2560,12 @@ return:                                           ; preds = %entry, %if.end6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define noundef i32 @ROCKSDB_XXH3_64bits_update(ptr nocapture noundef %state, ptr nocapture noundef %input, i64 noundef %len) local_unnamed_addr #17 {
 entry:
-  tail call fastcc void @_ZL11XXH3_updateP12XXH3_state_sPKhmPFvPmS2_S2_mEPFvPvPKvE(ptr noundef %state, ptr noundef %input, i64 noundef %len)
+  tail call fastcc void @_ZL11XXH3_updateP12XXH3_state_sPKhmPFvPmS2_S2_mEPFvPvPKvE.argprom.retelim(ptr noundef %state, ptr noundef %input, i64 noundef %len)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZL11XXH3_updateP12XXH3_state_sPKhmPFvPmS2_S2_mEPFvPvPKvE(ptr noundef %state, ptr noundef %input, i64 noundef %len) unnamed_addr #18 {
+define internal fastcc void @_ZL11XXH3_updateP12XXH3_state_sPKhmPFvPmS2_S2_mEPFvPvPKvE.argprom.retelim(ptr noundef %state, ptr noundef %input, i64 noundef %len) unnamed_addr #18 {
 entry:
   %cmp = icmp eq ptr %input, null
   br i1 %cmp, label %if.then, label %if.end3
@@ -2685,7 +2685,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i:      ; preds = %for.body.i.i
   %mul9.i = shl nuw nsw i64 %sub.i, 6
   %add.ptr10.i = getelementptr inbounds i8, ptr %buffer29, i64 %mul9.i
   %cmp5.not.i27.i = icmp eq i64 %sub.i, 4
-  br i1 %cmp5.not.i27.i, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %for.body.i32.i
+  br i1 %cmp5.not.i27.i, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit, label %for.body.i32.i
 
 for.body.i32.i:                                   ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i, %for.body.i32.i
   %add.i.i7.i33.i = phi <8 x i64> [ %add.i.i.i43.i, %for.body.i32.i ], [ %add.i.i.i, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i ]
@@ -2708,7 +2708,7 @@ for.body.i32.i:                                   ; preds = %_ZL22XXH3_accumulat
   store <8 x i64> %add.i.i.i43.i, ptr %state, align 64
   %inc.i44.i = add nuw i64 %n.06.i34.i, 1
   %exitcond.not.i45.i = icmp eq i64 %inc.i44.i, %sub7.i
-  br i1 %exitcond.not.i45.i, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %for.body.i32.i, !llvm.loop !18
+  br i1 %exitcond.not.i45.i, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit, label %for.body.i32.i, !llvm.loop !18
 
 for.body.i52.i:                                   ; preds = %if.then26, %for.body.i52.i
   %add.i.i7.i53.i = phi <8 x i64> [ %add.i.i.i63.i, %for.body.i52.i ], [ %acc.promoted.i51.i, %if.then26 ]
@@ -2735,17 +2735,17 @@ for.body.i52.i:                                   ; preds = %if.then26, %for.bod
 
 _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit66.loopexit.i: ; preds = %for.body.i52.i
   %add.i = add i64 %6, 4
-  br label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit
+  br label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit
 
-_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %for.body.i32.i, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit66.loopexit.i
+_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit: ; preds = %for.body.i32.i, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit66.loopexit.i
   %storemerge.i = phi i64 [ %add.i, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit66.loopexit.i ], [ 0, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i ], [ %sub7.i, %for.body.i32.i ]
   store i64 %storemerge.i, ptr %nbStripesSoFar, align 8
   store i32 0, ptr %bufferedSize, align 64
   br label %if.end39
 
-if.end39:                                         ; preds = %do.end.if.end39_crit_edge, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit
-  %36 = phi i64 [ %4, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit ], [ %.pre, %do.end.if.end39_crit_edge ]
-  %input.addr.0 = phi ptr [ %add.ptr35, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit ], [ %input, %do.end.if.end39_crit_edge ]
+if.end39:                                         ; preds = %do.end.if.end39_crit_edge, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit
+  %36 = phi i64 [ %4, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit ], [ %.pre, %do.end.if.end39_crit_edge ]
+  %input.addr.0 = phi ptr [ %add.ptr35, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit ], [ %input, %do.end.if.end39_crit_edge ]
   %cmp40 = icmp ult ptr %input.addr.0, %add.ptr
   tail call void @llvm.assume(i1 %cmp40)
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
@@ -2944,9 +2944,9 @@ if.then102:                                       ; preds = %if.else
   tail call void @llvm.assume(i1 %cmp.i.i.i168)
   br label %do.body104
 
-do.body104:                                       ; preds = %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit227, %if.then102
-  %storemerge.i2051 = phi i64 [ %nbStripesSoFar105.promoted, %if.then102 ], [ %storemerge.i205, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit227 ]
-  %input.addr.3 = phi ptr [ %input.addr.0, %if.then102 ], [ %add.ptr108, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit227 ]
+do.body104:                                       ; preds = %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit227, %if.then102
+  %storemerge.i2051 = phi i64 [ %nbStripesSoFar105.promoted, %if.then102 ], [ %storemerge.i205, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit227 ]
+  %input.addr.3 = phi ptr [ %input.addr.0, %if.then102 ], [ %add.ptr108, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit227 ]
   %cmp1.i161 = icmp ult i64 %storemerge.i2051, %36
   tail call void @llvm.assume(i1 %cmp1.i161)
   %sub.i162 = sub i64 %36, %storemerge.i2051
@@ -2996,7 +2996,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i184:   ; preds = %for.body.i.i170
   %mul9.i188 = shl nuw nsw i64 %sub.i162, 6
   %add.ptr10.i189 = getelementptr inbounds i8, ptr %input.addr.3, i64 %mul9.i188
   %cmp5.not.i27.i190 = icmp eq i64 %sub.i162, 4
-  br i1 %cmp5.not.i27.i190, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit227, label %for.body.i32.i191
+  br i1 %cmp5.not.i27.i190, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit227, label %for.body.i32.i191
 
 for.body.i32.i191:                                ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i184, %for.body.i32.i191
   %add.i.i7.i33.i192 = phi <8 x i64> [ %add.i.i.i43.i202, %for.body.i32.i191 ], [ %add.i.i.i187, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i184 ]
@@ -3019,7 +3019,7 @@ for.body.i32.i191:                                ; preds = %_ZL22XXH3_accumulat
   store <8 x i64> %add.i.i.i43.i202, ptr %state, align 64
   %inc.i44.i203 = add nuw i64 %n.06.i34.i193, 1
   %exitcond.not.i45.i204 = icmp eq i64 %inc.i44.i203, %sub7.i185
-  br i1 %exitcond.not.i45.i204, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit227, label %for.body.i32.i191, !llvm.loop !18
+  br i1 %exitcond.not.i45.i204, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit227, label %for.body.i32.i191, !llvm.loop !18
 
 for.body.i52.i210:                                ; preds = %do.body104, %for.body.i52.i210
   %add.i.i7.i53.i211 = phi <8 x i64> [ %add.i.i.i63.i221, %for.body.i52.i210 ], [ %acc.promoted.i51.i209, %do.body104 ]
@@ -3046,16 +3046,16 @@ for.body.i52.i210:                                ; preds = %do.body104, %for.bo
 
 _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit66.loopexit.i224: ; preds = %for.body.i52.i210
   %add.i226 = add i64 %storemerge.i2051, 4
-  br label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit227
+  br label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit227
 
-_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit227: ; preds = %for.body.i32.i191, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i184, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit66.loopexit.i224
+_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit227: ; preds = %for.body.i32.i191, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i184, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit66.loopexit.i224
   %storemerge.i205 = phi i64 [ %add.i226, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit66.loopexit.i224 ], [ 0, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i184 ], [ %sub7.i185, %for.body.i32.i191 ]
   store i64 %storemerge.i205, ptr %nbStripesSoFar105, align 8
   %add.ptr108 = getelementptr inbounds i8, ptr %input.addr.3, i64 256
   %cmp109 = icmp ult ptr %add.ptr108, %add.ptr103
   br i1 %cmp109, label %do.body104, label %do.end110, !llvm.loop !23
 
-do.end110:                                        ; preds = %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit227
+do.end110:                                        ; preds = %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit227
   %add.ptr114 = getelementptr inbounds i8, ptr %state, i64 448
   %add.ptr115 = getelementptr inbounds i8, ptr %input.addr.3, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %add.ptr114, ptr noundef nonnull readonly align 1 dereferenceable(64) %add.ptr115, i64 64, i1 false)
@@ -3234,7 +3234,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i:      ; preds = %for.body.i.i
   %mul9.i = shl nuw nsw i64 %sub.i, 6
   %add.ptr10.i = getelementptr inbounds i8, ptr %buffer, i64 %mul9.i
   %cmp5.not.i27.i = icmp eq i64 %sub.i, %conv
-  br i1 %cmp5.not.i27.i, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %for.body.i32.i
+  br i1 %cmp5.not.i27.i, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit, label %for.body.i32.i
 
 for.body.i32.i:                                   ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i, %for.body.i32.i
   %add.i.i7.i33.i = phi <8 x i64> [ %add.i.i.i43.i, %for.body.i32.i ], [ %add.i.i.i, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i ]
@@ -3257,18 +3257,18 @@ for.body.i32.i:                                   ; preds = %_ZL22XXH3_accumulat
   store <8 x i64> %add.i.i.i43.i, ptr %acc, align 64
   %inc.i44.i = add nuw i64 %n.06.i34.i, 1
   %exitcond.not.i45.i = icmp eq i64 %inc.i44.i, %sub7.i
-  br i1 %exitcond.not.i45.i, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %for.body.i32.i, !llvm.loop !18
+  br i1 %exitcond.not.i45.i, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit, label %for.body.i32.i, !llvm.loop !18
 
 if.else.i:                                        ; preds = %if.then
   %cmp5.not.i47.i = icmp eq i32 %0, 64
   %.pre = load <8 x i64>, ptr %acc, align 64
-  br i1 %cmp5.not.i47.i, label %if.else.i._ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit_crit_edge, label %for.body.i52.i
+  br i1 %cmp5.not.i47.i, label %if.else.i._ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit_crit_edge, label %for.body.i52.i
 
-if.else.i._ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit_crit_edge: ; preds = %if.else.i
+if.else.i._ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit_crit_edge: ; preds = %if.else.i
   %.pre34 = ptrtoint ptr %acc to i64
   %.pre35 = and i64 %.pre34, 63
   %26 = icmp eq i64 %.pre35, 0
-  br label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit
+  br label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit
 
 for.body.i52.i:                                   ; preds = %if.else.i, %for.body.i52.i
   %add.i.i7.i53.i = phi <8 x i64> [ %add.i.i.i63.i, %for.body.i52.i ], [ %.pre, %if.else.i ]
@@ -3291,11 +3291,11 @@ for.body.i52.i:                                   ; preds = %if.else.i, %for.bod
   store <8 x i64> %add.i.i.i63.i, ptr %acc, align 64
   %inc.i64.i = add nuw nsw i64 %n.06.i54.i, 1
   %exitcond.not.i65.i = icmp eq i64 %inc.i64.i, %conv
-  br i1 %exitcond.not.i65.i, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %for.body.i52.i, !llvm.loop !18
+  br i1 %exitcond.not.i65.i, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit, label %for.body.i52.i, !llvm.loop !18
 
-_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %for.body.i32.i, %for.body.i52.i, %if.else.i._ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit_crit_edge, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i
-  %and.i.pre-phi = phi i1 [ %26, %if.else.i._ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit_crit_edge ], [ true, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i ], [ true, %for.body.i52.i ], [ true, %for.body.i32.i ]
-  %33 = phi <8 x i64> [ %.pre, %if.else.i._ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit_crit_edge ], [ %add.i.i.i, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i ], [ %add.i.i.i63.i, %for.body.i52.i ], [ %add.i.i.i43.i, %for.body.i32.i ]
+_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit: ; preds = %for.body.i32.i, %for.body.i52.i, %if.else.i._ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit_crit_edge, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i
+  %and.i.pre-phi = phi i1 [ %26, %if.else.i._ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit_crit_edge ], [ true, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i ], [ true, %for.body.i52.i ], [ true, %for.body.i32.i ]
+  %33 = phi <8 x i64> [ %.pre, %if.else.i._ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit_crit_edge ], [ %add.i.i.i, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i ], [ %add.i.i.i63.i, %for.body.i52.i ], [ %add.i.i.i43.i, %for.body.i32.i ]
   %34 = load i32, ptr %bufferedSize, align 64
   %idx.ext = zext i32 %34 to i64
   %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %idx.ext
@@ -3347,8 +3347,8 @@ if.else:                                          ; preds = %entry
   %add.i.i30 = add <8 x i64> %add.i12.i29, %48
   br label %if.end35
 
-if.end35:                                         ; preds = %if.else, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit
-  %storemerge = phi <8 x i64> [ %add.i.i30, %if.else ], [ %add.i.i, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit ]
+if.end35:                                         ; preds = %if.else, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit
+  %storemerge = phi <8 x i64> [ %add.i.i30, %if.else ], [ %add.i.i, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit ]
   store <8 x i64> %storemerge, ptr %acc, align 64
   ret void
 }
@@ -4011,7 +4011,7 @@ return:                                           ; preds = %if.end11, %_ZL22XXH
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
 define internal { i64, i64 } @_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m(ptr nocapture noundef readonly %input, i64 noundef %len, i64 %seed64, ptr nocapture readnone %secret, i64 %secretLen) #19 {
 entry:
-  %call = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef %input, i64 noundef %len, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192) #32
+  %call = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.argprom(ptr noundef %input, i64 noundef %len, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192) #32
   ret { i64, i64 } %call
 }
 
@@ -4025,7 +4025,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal { i64, i64 } @_ZL29XXH3_hashLong_128b_withSecretPKvmmS0_m(ptr nocapture noundef readonly %input, i64 noundef %len, i64 %seed64, ptr nocapture noundef readonly %secret, i64 noundef %secretLen) #20 {
 entry:
-  %call = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef %input, i64 noundef %len, ptr noundef %secret, i64 noundef %secretLen)
+  %call = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.argprom(ptr noundef %input, i64 noundef %len, ptr noundef %secret, i64 noundef %secretLen)
   ret { i64, i64 } %call
 }
 
@@ -4045,8 +4045,8 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef readonly %input, i64 noundef %len, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192)
-  br label %_ZL36XXH3_hashLong_128b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit
+  %call.i = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.argprom(ptr noundef readonly %input, i64 noundef %len, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192)
+  br label %_ZL36XXH3_hashLong_128b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %vecinit.i.i.i = insertelement <8 x i64> poison, i64 %seed64, i64 0
@@ -4067,10 +4067,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   br i1 %exitcond.not.i.i, label %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i, label %for.body.i.i, !llvm.loop !21
 
 _ZL28XXH3_initCustomSecret_avx512Pvm.exit.i:      ; preds = %for.body.i.i
-  %call2.i = call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef readonly %input, i64 noundef %len, ptr noundef nonnull %secret.i, i64 noundef 192)
-  br label %_ZL36XXH3_hashLong_128b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit
+  %call2.i = call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.argprom(ptr noundef readonly %input, i64 noundef %len, ptr noundef nonnull %secret.i, i64 noundef 192)
+  br label %_ZL36XXH3_hashLong_128b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.argprom.exit
 
-_ZL36XXH3_hashLong_128b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit: ; preds = %if.then.i, %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i
+_ZL36XXH3_hashLong_128b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.argprom.exit: ; preds = %if.then.i, %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i
   %call.pn.i = phi { i64, i64 } [ %call.i, %if.then.i ], [ %call2.i, %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i ]
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %secret.i)
   ret { i64, i64 } %call.pn.i
@@ -4087,7 +4087,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef readonly %input, i64 noundef %len, ptr noundef readonly %secret, i64 noundef %secretSize)
+  %call.i = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.argprom(ptr noundef readonly %input, i64 noundef %len, ptr noundef readonly %secret, i64 noundef %secretSize)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -4341,7 +4341,7 @@ ROCKSDB_XXH3_64bits_reset_withSecretandSeed.exit: ; preds = %entry, %if.end6.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define noundef i32 @ROCKSDB_XXH3_128bits_update(ptr nocapture noundef %state, ptr nocapture noundef %input, i64 noundef %len) local_unnamed_addr #17 {
 entry:
-  tail call fastcc void @_ZL11XXH3_updateP12XXH3_state_sPKhmPFvPmS2_S2_mEPFvPvPKvE(ptr noundef %state, ptr noundef %input, i64 noundef %len)
+  tail call fastcc void @_ZL11XXH3_updateP12XXH3_state_sPKhmPFvPmS2_S2_mEPFvPvPKvE.argprom.retelim(ptr noundef %state, ptr noundef %input, i64 noundef %len)
   ret i32 0
 }
 
@@ -4684,7 +4684,7 @@ declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i
 declare <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32>, <16 x i32>, <16 x i32>, i32 immarg) #27
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr nocapture noundef readonly %input, i64 noundef %len, ptr nocapture noundef readonly %secret, i64 noundef %secretSize) unnamed_addr #13 {
+define internal fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.argprom(ptr nocapture noundef readonly %input, i64 noundef %len, ptr nocapture noundef readonly %secret, i64 noundef %secretSize) unnamed_addr #13 {
 entry:
   %acc = alloca [8 x i64], align 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %acc, ptr noundef nonnull align 64 dereferenceable(64) @__const._ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.acc, i64 64, i1 false)
@@ -4761,7 +4761,7 @@ for.end.i:                                        ; preds = %_ZL22XXH3_accumulat
   tail call void @llvm.assume(i1 %cmp15.i)
   %add.ptr19.i = getelementptr inbounds i8, ptr %input, i64 %mul11.i
   %cmp5.not.i29.i = icmp ult i64 %sub12.i.recomposed, 64
-  br i1 %cmp5.not.i29.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %for.body.i34.i
+  br i1 %cmp5.not.i29.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit, label %for.body.i34.i
 
 for.body.i34.i:                                   ; preds = %for.end.i, %for.body.i34.i
   %add.i.i7.i35.i = phi <8 x i64> [ %add.i.i.i45.i, %for.body.i34.i ], [ %.pre.i, %for.end.i ]
@@ -4783,9 +4783,9 @@ for.body.i34.i:                                   ; preds = %for.end.i, %for.bod
   %add.i.i.i45.i = add <8 x i64> %add.i12.i.i44.i, %20
   %inc.i46.i = add nuw i64 %n.06.i36.i, 1
   %exitcond.not.i47.i = icmp eq i64 %inc.i46.i, %div1327.i
-  br i1 %exitcond.not.i47.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %for.body.i34.i, !llvm.loop !18
+  br i1 %exitcond.not.i47.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit, label %for.body.i34.i, !llvm.loop !18
 
-_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %for.body.i34.i, %for.end.i
+_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit: ; preds = %for.body.i34.i, %for.end.i
   %22 = phi <8 x i64> [ %.pre.i, %for.end.i ], [ %add.i.i.i45.i, %for.body.i34.i ]
   %add.ptr20.i = getelementptr inbounds i8, ptr %input, i64 %len
   %add.ptr21.i = getelementptr inbounds i8, ptr %add.ptr20.i, i64 -64
@@ -4805,9 +4805,9 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds =
   %mul = mul i64 %len, -7046029288634856825
   br label %for.body.i7
 
-for.body.i7:                                      ; preds = %for.body.i7, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit
-  %i.09.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit ], [ %inc.i10, %for.body.i7 ]
-  %result64.08.i = phi i64 [ %mul, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit ], [ %add.i, %for.body.i7 ]
+for.body.i7:                                      ; preds = %for.body.i7, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit
+  %i.09.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit ], [ %inc.i10, %for.body.i7 ]
+  %result64.08.i = phi i64 [ %mul, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit ], [ %add.i, %for.body.i7 ]
   %add.ptr.idx.i = shl nuw nsw i64 %i.09.i, 4
   %add.ptr.i8 = getelementptr inbounds i8, ptr %acc, i64 %add.ptr.idx.i
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr, i64 %add.ptr.idx.i

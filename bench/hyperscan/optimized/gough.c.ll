@@ -3567,7 +3567,7 @@ land.lhs.true117.i:                               ; preds = %if.then106.i
 if.then119.i:                                     ; preds = %land.lhs.true117.i
   %81 = getelementptr i8, ptr %add.ptr113.i, i64 80
   %add.ptr113.i.val = load i8, ptr %81, align 16
-  tail call fastcc void @run_accel_prog(ptr noundef nonnull %add.ptr2.i, i8 %add.ptr113.i.val, i32 %80, ptr noundef %buf, i64 noundef %offAdj, ptr noundef nonnull %incdec.ptr55.i, ptr noundef %call114.i, ptr noundef %som)
+  tail call fastcc void @run_accel_prog.argprom(ptr noundef nonnull %add.ptr2.i, i8 %add.ptr113.i.val, i32 %80, ptr noundef %buf, i64 noundef %offAdj, ptr noundef nonnull %incdec.ptr55.i, ptr noundef %call114.i, ptr noundef %som)
   br label %if.end120.i
 
 if.end120.i:                                      ; preds = %if.then119.i, %land.lhs.true117.i, %if.then106.i
@@ -3614,7 +3614,7 @@ goughExec8_i.exit:                                ; preds = %cond.end.i229.i, %d
 declare ptr @run_accel(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @run_accel_prog(ptr nocapture noundef readonly %nfa, i8 %gacc.80.val, i32 %gacc.84.val, ptr noundef %buf, i64 noundef %offAdj, ptr noundef %c, ptr noundef %c2, ptr nocapture noundef %som) unnamed_addr #6 {
+define internal fastcc void @run_accel_prog.argprom(ptr nocapture noundef readonly %nfa, i8 %gacc.80.val, i32 %gacc.84.val, ptr noundef %buf, i64 noundef %offAdj, ptr noundef %c, ptr noundef %c2, ptr nocapture noundef %som) unnamed_addr #6 {
 entry:
   %idx.ext = zext i32 %gacc.84.val to i64
   %add.ptr = getelementptr inbounds i8, ptr %nfa, i64 %idx.ext
@@ -4485,7 +4485,7 @@ land.lhs.true153.i:                               ; preds = %if.then141.i
 if.then155.i:                                     ; preds = %land.lhs.true153.i
   %73 = getelementptr i8, ptr %add.ptr149.i, i64 80
   %add.ptr149.i.val = load i8, ptr %73, align 16
-  tail call fastcc void @run_accel_prog(ptr noundef nonnull %add.ptr.i, i8 %add.ptr149.i.val, i32 %72, ptr noundef %buf, i64 noundef %offAdj, ptr noundef nonnull %incdec.ptr75.i, ptr noundef %call150.i, ptr noundef %som)
+  tail call fastcc void @run_accel_prog.argprom(ptr noundef nonnull %add.ptr.i, i8 %add.ptr149.i.val, i32 %72, ptr noundef %buf, i64 noundef %offAdj, ptr noundef nonnull %incdec.ptr75.i, ptr noundef %call150.i, ptr noundef %som)
   br label %if.end156.i
 
 if.end156.i:                                      ; preds = %if.then155.i, %land.lhs.true153.i, %if.then141.i

@@ -167,16 +167,16 @@ define ptr @zend_get_exception_base(ptr nocapture noundef readonly %0) local_unn
   %.val = load ptr, ptr %2, align 8
   %3 = load ptr, ptr @zend_ce_exception, align 8
   %4 = icmp eq ptr %.val, %3
-  br i1 %4, label %i_get_exception_base.exit, label %5
+  br i1 %4, label %i_get_exception_base.argprom.exit, label %5
 
 5:                                                ; preds = %1
   %6 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %.val, ptr noundef %3) #15
   %zend_ce_exception.val.i = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i = load ptr, ptr @zend_ce_error, align 8
   %.pre.i = select i1 %6, ptr %zend_ce_exception.val.i, ptr %zend_ce_error.val.i
-  br label %i_get_exception_base.exit
+  br label %i_get_exception_base.argprom.exit
 
-i_get_exception_base.exit:                        ; preds = %1, %5
+i_get_exception_base.argprom.exit:                ; preds = %1, %5
   %7 = phi ptr [ %3, %1 ], [ %.pre.i, %5 ]
   ret ptr %7
 }
@@ -240,16 +240,16 @@ define void @zend_exception_set_previous(ptr noundef %0, ptr noundef %1) local_u
   %.val53 = load ptr, ptr %10, align 8
   %30 = load ptr, ptr @zend_ce_exception, align 8
   %31 = icmp eq ptr %.val53, %30
-  br i1 %31, label %i_get_exception_base.exit, label %32
+  br i1 %31, label %i_get_exception_base.argprom.exit, label %32
 
 32:                                               ; preds = %29
   %33 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val53, ptr noundef %30) #15
   %zend_ce_exception.val.i = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i = load ptr, ptr @zend_ce_error, align 8
   %.pre.i = select i1 %33, ptr %zend_ce_exception.val.i, ptr %zend_ce_error.val.i
-  br label %i_get_exception_base.exit
+  br label %i_get_exception_base.argprom.exit
 
-i_get_exception_base.exit:                        ; preds = %29, %32
+i_get_exception_base.argprom.exit:                ; preds = %29, %32
   %34 = phi ptr [ %30, %29 ], [ %.pre.i, %32 ]
   %35 = load ptr, ptr @zend_known_strings, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 184
@@ -260,8 +260,8 @@ i_get_exception_base.exit:                        ; preds = %29, %32
   %41 = icmp eq i8 %40, 8
   br i1 %41, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %i_get_exception_base.exit, %i_get_exception_base.exit57
-  %.066 = phi ptr [ %68, %i_get_exception_base.exit57 ], [ %38, %i_get_exception_base.exit ]
+.lr.ph:                                           ; preds = %i_get_exception_base.argprom.exit, %i_get_exception_base.argprom.exit57
+  %.066 = phi ptr [ %68, %i_get_exception_base.argprom.exit57 ], [ %38, %i_get_exception_base.argprom.exit ]
   %42 = load ptr, ptr %.066, align 8
   %43 = load ptr, ptr %.048, align 8
   %44 = icmp eq ptr %42, %43
@@ -296,7 +296,7 @@ i_get_exception_base.exit:                        ; preds = %29, %32
   %.val52 = load ptr, ptr %58, align 8
   %59 = load ptr, ptr @zend_ce_exception, align 8
   %60 = icmp eq ptr %.val52, %59
-  br i1 %60, label %i_get_exception_base.exit57, label %61
+  br i1 %60, label %i_get_exception_base.argprom.exit57, label %61
 
 61:                                               ; preds = %57
   %62 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val52, ptr noundef %59) #15
@@ -304,9 +304,9 @@ i_get_exception_base.exit:                        ; preds = %29, %32
   %zend_ce_error.val.i55 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i56 = select i1 %62, ptr %zend_ce_exception.val.i54, ptr %zend_ce_error.val.i55
   %.pre = load ptr, ptr %.066, align 8
-  br label %i_get_exception_base.exit57
+  br label %i_get_exception_base.argprom.exit57
 
-i_get_exception_base.exit57:                      ; preds = %57, %61
+i_get_exception_base.argprom.exit57:              ; preds = %57, %61
   %63 = phi ptr [ %42, %57 ], [ %.pre, %61 ]
   %64 = phi ptr [ %59, %57 ], [ %.pre.i56, %61 ]
   %65 = load ptr, ptr @zend_known_strings, align 8
@@ -318,13 +318,13 @@ i_get_exception_base.exit57:                      ; preds = %57, %61
   %71 = icmp eq i8 %70, 8
   br i1 %71, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %i_get_exception_base.exit57, %i_get_exception_base.exit
+._crit_edge:                                      ; preds = %i_get_exception_base.argprom.exit57, %i_get_exception_base.argprom.exit
   %72 = load ptr, ptr %.048, align 8
   %73 = getelementptr i8, ptr %72, i64 16
   %.val = load ptr, ptr %73, align 8
   %74 = load ptr, ptr @zend_ce_exception, align 8
   %75 = icmp eq ptr %.val, %74
-  br i1 %75, label %i_get_exception_base.exit61, label %76
+  br i1 %75, label %i_get_exception_base.argprom.exit61, label %76
 
 76:                                               ; preds = %._crit_edge
   %77 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val, ptr noundef %74) #15
@@ -332,9 +332,9 @@ i_get_exception_base.exit57:                      ; preds = %57, %61
   %zend_ce_error.val.i59 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i60 = select i1 %77, ptr %zend_ce_exception.val.i58, ptr %zend_ce_error.val.i59
   %.pre70 = load ptr, ptr %.048, align 8
-  br label %i_get_exception_base.exit61
+  br label %i_get_exception_base.argprom.exit61
 
-i_get_exception_base.exit61:                      ; preds = %._crit_edge, %76
+i_get_exception_base.argprom.exit61:              ; preds = %._crit_edge, %76
   %78 = phi ptr [ %72, %._crit_edge ], [ %.pre70, %76 ]
   %79 = phi ptr [ %74, %._crit_edge ], [ %.pre.i60, %76 ]
   %80 = load ptr, ptr @zend_known_strings, align 8
@@ -346,7 +346,7 @@ i_get_exception_base.exit61:                      ; preds = %._crit_edge, %76
   %86 = icmp eq i8 %85, 1
   br i1 %86, label %87, label %95
 
-87:                                               ; preds = %i_get_exception_base.exit61
+87:                                               ; preds = %i_get_exception_base.argprom.exit61
   %88 = load ptr, ptr %.048, align 8
   %89 = load ptr, ptr @zend_known_strings, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 184
@@ -359,7 +359,7 @@ i_get_exception_base.exit61:                      ; preds = %._crit_edge, %76
   store i32 %94, ptr %1, align 4
   br label %.loopexit
 
-95:                                               ; preds = %i_get_exception_base.exit61
+95:                                               ; preds = %i_get_exception_base.argprom.exit61
   %96 = load ptr, ptr %83, align 8
   %.not = icmp eq ptr %96, %1
   br i1 %.not, label %.loopexit, label %29
@@ -605,16 +605,16 @@ define noundef i32 @zend_exception_error(ptr noundef %0, i32 noundef %1) local_u
   %.val228 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr @zend_ce_exception, align 8
   %13 = icmp eq ptr %.val228, %12
-  br i1 %13, label %i_get_exception_base.exit, label %14
+  br i1 %13, label %i_get_exception_base.argprom.exit, label %14
 
 14:                                               ; preds = %11
   %15 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %.val228, ptr noundef %12) #15
   %zend_ce_exception.val.i = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i = load ptr, ptr @zend_ce_error, align 8
   %.pre.i = select i1 %15, ptr %zend_ce_exception.val.i, ptr %zend_ce_error.val.i
-  br label %i_get_exception_base.exit
+  br label %i_get_exception_base.argprom.exit
 
-i_get_exception_base.exit:                        ; preds = %11, %14
+i_get_exception_base.argprom.exit:                ; preds = %11, %14
   %16 = phi ptr [ %12, %11 ], [ %.pre.i, %14 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 200
@@ -625,7 +625,7 @@ i_get_exception_base.exit:                        ; preds = %11, %14
   %23 = icmp eq i8 %22, 6
   br i1 %23, label %24, label %32
 
-24:                                               ; preds = %i_get_exception_base.exit
+24:                                               ; preds = %i_get_exception_base.argprom.exit
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
@@ -639,7 +639,7 @@ i_get_exception_base.exit:                        ; preds = %11, %14
   store i32 %31, ptr %25, align 4
   br label %34
 
-32:                                               ; preds = %i_get_exception_base.exit
+32:                                               ; preds = %i_get_exception_base.argprom.exit
   %33 = call ptr @zval_get_string_func(ptr noundef nonnull %20) #15
   br label %34
 
@@ -648,16 +648,16 @@ i_get_exception_base.exit:                        ; preds = %11, %14
   %.val227 = load ptr, ptr %5, align 8
   %36 = load ptr, ptr @zend_ce_exception, align 8
   %37 = icmp eq ptr %.val227, %36
-  br i1 %37, label %i_get_exception_base.exit232, label %38
+  br i1 %37, label %i_get_exception_base.argprom.exit232, label %38
 
 38:                                               ; preds = %34
   %39 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val227, ptr noundef %36) #15
   %zend_ce_exception.val.i229 = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i230 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i231 = select i1 %39, ptr %zend_ce_exception.val.i229, ptr %zend_ce_error.val.i230
-  br label %i_get_exception_base.exit232
+  br label %i_get_exception_base.argprom.exit232
 
-i_get_exception_base.exit232:                     ; preds = %34, %38
+i_get_exception_base.argprom.exit232:             ; preds = %34, %38
   %40 = phi ptr [ %36, %34 ], [ %.pre.i231, %38 ]
   %41 = load ptr, ptr @zend_known_strings, align 8
   %42 = load ptr, ptr %41, align 8
@@ -667,7 +667,7 @@ i_get_exception_base.exit232:                     ; preds = %34, %38
   %46 = icmp eq i8 %45, 6
   br i1 %46, label %47, label %55
 
-47:                                               ; preds = %i_get_exception_base.exit232
+47:                                               ; preds = %i_get_exception_base.argprom.exit232
   %48 = load ptr, ptr %43, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
@@ -681,7 +681,7 @@ i_get_exception_base.exit232:                     ; preds = %34, %38
   store i32 %54, ptr %48, align 4
   br label %57
 
-55:                                               ; preds = %i_get_exception_base.exit232
+55:                                               ; preds = %i_get_exception_base.argprom.exit232
   %56 = call ptr @zval_get_string_func(ptr noundef nonnull %43) #15
   br label %57
 
@@ -690,16 +690,16 @@ i_get_exception_base.exit232:                     ; preds = %34, %38
   %.val226 = load ptr, ptr %5, align 8
   %59 = load ptr, ptr @zend_ce_exception, align 8
   %60 = icmp eq ptr %.val226, %59
-  br i1 %60, label %i_get_exception_base.exit236, label %61
+  br i1 %60, label %i_get_exception_base.argprom.exit236, label %61
 
 61:                                               ; preds = %57
   %62 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val226, ptr noundef %59) #15
   %zend_ce_exception.val.i233 = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i234 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i235 = select i1 %62, ptr %zend_ce_exception.val.i233, ptr %zend_ce_error.val.i234
-  br label %i_get_exception_base.exit236
+  br label %i_get_exception_base.argprom.exit236
 
-i_get_exception_base.exit236:                     ; preds = %57, %61
+i_get_exception_base.argprom.exit236:             ; preds = %57, %61
   %63 = phi ptr [ %59, %57 ], [ %.pre.i235, %61 ]
   %64 = load ptr, ptr @zend_known_strings, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 8
@@ -710,11 +710,11 @@ i_get_exception_base.exit236:                     ; preds = %57, %61
   %70 = icmp eq i8 %69, 4
   br i1 %70, label %71, label %73
 
-71:                                               ; preds = %i_get_exception_base.exit236
+71:                                               ; preds = %i_get_exception_base.argprom.exit236
   %72 = load i64, ptr %67, align 8
   br label %75
 
-73:                                               ; preds = %i_get_exception_base.exit236
+73:                                               ; preds = %i_get_exception_base.argprom.exit236
   %74 = call i64 @zval_get_long_func(ptr noundef nonnull %67, i1 noundef zeroext false) #15
   br label %75
 
@@ -809,16 +809,16 @@ zend_observer_error_notify.exit:                  ; preds = %75, %83
   %.val225 = load ptr, ptr %5, align 8
   %121 = load ptr, ptr @zend_ce_exception, align 8
   %122 = icmp eq ptr %.val225, %121
-  br i1 %122, label %i_get_exception_base.exit240, label %123
+  br i1 %122, label %i_get_exception_base.argprom.exit240, label %123
 
 123:                                              ; preds = %120
   %124 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val225, ptr noundef %121) #15
   %zend_ce_exception.val.i237 = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i238 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i239 = select i1 %124, ptr %zend_ce_exception.val.i237, ptr %zend_ce_error.val.i238
-  br label %i_get_exception_base.exit240
+  br label %i_get_exception_base.argprom.exit240
 
-i_get_exception_base.exit240:                     ; preds = %120, %123
+i_get_exception_base.argprom.exit240:             ; preds = %120, %123
   %125 = phi ptr [ %121, %120 ], [ %.pre.i239, %123 ]
   %126 = load ptr, ptr @zend_known_strings, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 216
@@ -826,7 +826,7 @@ i_get_exception_base.exit240:                     ; preds = %120, %123
   call void @zend_update_property_ex(ptr noundef %125, ptr noundef nonnull %0, ptr noundef %128, ptr noundef nonnull %4) #15
   br label %129
 
-129:                                              ; preds = %116, %i_get_exception_base.exit240, %.critedge
+129:                                              ; preds = %116, %i_get_exception_base.argprom.exit240, %.critedge
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #15
   %130 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not202 = icmp eq ptr %130, null
@@ -855,16 +855,16 @@ i_get_exception_base.exit240:                     ; preds = %120, %123
   %.val224 = load ptr, ptr %141, align 8
   %142 = load ptr, ptr @zend_ce_exception, align 8
   %143 = icmp eq ptr %.val224, %142
-  br i1 %143, label %i_get_exception_base.exit244, label %144
+  br i1 %143, label %i_get_exception_base.argprom.exit244, label %144
 
 144:                                              ; preds = %.critedge2
   %145 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val224, ptr noundef %142) #15
   %zend_ce_exception.val.i241 = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i242 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i243 = select i1 %145, ptr %zend_ce_exception.val.i241, ptr %zend_ce_error.val.i242
-  br label %i_get_exception_base.exit244
+  br label %i_get_exception_base.argprom.exit244
 
-i_get_exception_base.exit244:                     ; preds = %.critedge2, %144
+i_get_exception_base.argprom.exit244:             ; preds = %.critedge2, %144
   %146 = phi ptr [ %142, %.critedge2 ], [ %.pre.i243, %144 ]
   %147 = load ptr, ptr @zend_known_strings, align 8
   %148 = load ptr, ptr %147, align 8
@@ -874,7 +874,7 @@ i_get_exception_base.exit244:                     ; preds = %.critedge2, %144
   %152 = icmp eq i8 %151, 6
   br i1 %152, label %153, label %161
 
-153:                                              ; preds = %i_get_exception_base.exit244
+153:                                              ; preds = %i_get_exception_base.argprom.exit244
   %154 = load ptr, ptr %149, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 4
   %156 = load i32, ptr %155, align 4
@@ -888,7 +888,7 @@ i_get_exception_base.exit244:                     ; preds = %.critedge2, %144
   store i32 %160, ptr %154, align 4
   br label %163
 
-161:                                              ; preds = %i_get_exception_base.exit244
+161:                                              ; preds = %i_get_exception_base.argprom.exit244
   %162 = call ptr @zval_get_string_func(ptr noundef nonnull %149) #15
   br label %163
 
@@ -897,16 +897,16 @@ i_get_exception_base.exit244:                     ; preds = %.critedge2, %144
   %.val223 = load ptr, ptr %141, align 8
   %165 = load ptr, ptr @zend_ce_exception, align 8
   %166 = icmp eq ptr %.val223, %165
-  br i1 %166, label %i_get_exception_base.exit248, label %167
+  br i1 %166, label %i_get_exception_base.argprom.exit248, label %167
 
 167:                                              ; preds = %163
   %168 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val223, ptr noundef %165) #15
   %zend_ce_exception.val.i245 = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i246 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i247 = select i1 %168, ptr %zend_ce_exception.val.i245, ptr %zend_ce_error.val.i246
-  br label %i_get_exception_base.exit248
+  br label %i_get_exception_base.argprom.exit248
 
-i_get_exception_base.exit248:                     ; preds = %163, %167
+i_get_exception_base.argprom.exit248:             ; preds = %163, %167
   %169 = phi ptr [ %165, %163 ], [ %.pre.i247, %167 ]
   %170 = load ptr, ptr @zend_known_strings, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 8
@@ -917,11 +917,11 @@ i_get_exception_base.exit248:                     ; preds = %163, %167
   %176 = icmp eq i8 %175, 4
   br i1 %176, label %177, label %179
 
-177:                                              ; preds = %i_get_exception_base.exit248
+177:                                              ; preds = %i_get_exception_base.argprom.exit248
   %178 = load i64, ptr %173, align 8
   br label %181
 
-179:                                              ; preds = %i_get_exception_base.exit248
+179:                                              ; preds = %i_get_exception_base.argprom.exit248
   %180 = call i64 @zval_get_long_func(ptr noundef nonnull %173, i1 noundef zeroext false) #15
   br label %181
 
@@ -980,16 +980,16 @@ i_get_exception_base.exit248:                     ; preds = %163, %167
   %.val222 = load ptr, ptr %5, align 8
   %212 = load ptr, ptr @zend_ce_exception, align 8
   %213 = icmp eq ptr %.val222, %212
-  br i1 %213, label %i_get_exception_base.exit252, label %214
+  br i1 %213, label %i_get_exception_base.argprom.exit252, label %214
 
 214:                                              ; preds = %211
   %215 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val222, ptr noundef %212) #15
   %zend_ce_exception.val.i249 = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i250 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i251 = select i1 %215, ptr %zend_ce_exception.val.i249, ptr %zend_ce_error.val.i250
-  br label %i_get_exception_base.exit252
+  br label %i_get_exception_base.argprom.exit252
 
-i_get_exception_base.exit252:                     ; preds = %211, %214
+i_get_exception_base.argprom.exit252:             ; preds = %211, %214
   %216 = phi ptr [ %212, %211 ], [ %.pre.i251, %214 ]
   %217 = load ptr, ptr @zend_known_strings, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 216
@@ -1000,7 +1000,7 @@ i_get_exception_base.exit252:                     ; preds = %211, %214
   %223 = icmp eq i8 %222, 6
   br i1 %223, label %224, label %232
 
-224:                                              ; preds = %i_get_exception_base.exit252
+224:                                              ; preds = %i_get_exception_base.argprom.exit252
   %225 = load ptr, ptr %220, align 8
   %226 = getelementptr inbounds i8, ptr %225, i64 4
   %227 = load i32, ptr %226, align 4
@@ -1014,7 +1014,7 @@ i_get_exception_base.exit252:                     ; preds = %211, %214
   store i32 %231, ptr %225, align 4
   br label %234
 
-232:                                              ; preds = %i_get_exception_base.exit252
+232:                                              ; preds = %i_get_exception_base.argprom.exit252
   %233 = call ptr @zval_get_string_func(ptr noundef nonnull %220) #15
   br label %234
 
@@ -1023,16 +1023,16 @@ i_get_exception_base.exit252:                     ; preds = %211, %214
   %.val221 = load ptr, ptr %5, align 8
   %236 = load ptr, ptr @zend_ce_exception, align 8
   %237 = icmp eq ptr %.val221, %236
-  br i1 %237, label %i_get_exception_base.exit256, label %238
+  br i1 %237, label %i_get_exception_base.argprom.exit256, label %238
 
 238:                                              ; preds = %234
   %239 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val221, ptr noundef %236) #15
   %zend_ce_exception.val.i253 = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i254 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i255 = select i1 %239, ptr %zend_ce_exception.val.i253, ptr %zend_ce_error.val.i254
-  br label %i_get_exception_base.exit256
+  br label %i_get_exception_base.argprom.exit256
 
-i_get_exception_base.exit256:                     ; preds = %234, %238
+i_get_exception_base.argprom.exit256:             ; preds = %234, %238
   %240 = phi ptr [ %236, %234 ], [ %.pre.i255, %238 ]
   %241 = load ptr, ptr @zend_known_strings, align 8
   %242 = load ptr, ptr %241, align 8
@@ -1042,7 +1042,7 @@ i_get_exception_base.exit256:                     ; preds = %234, %238
   %246 = icmp eq i8 %245, 6
   br i1 %246, label %247, label %255
 
-247:                                              ; preds = %i_get_exception_base.exit256
+247:                                              ; preds = %i_get_exception_base.argprom.exit256
   %248 = load ptr, ptr %243, align 8
   %249 = getelementptr inbounds i8, ptr %248, i64 4
   %250 = load i32, ptr %249, align 4
@@ -1056,7 +1056,7 @@ i_get_exception_base.exit256:                     ; preds = %234, %238
   store i32 %254, ptr %248, align 4
   br label %257
 
-255:                                              ; preds = %i_get_exception_base.exit256
+255:                                              ; preds = %i_get_exception_base.argprom.exit256
   %256 = call ptr @zval_get_string_func(ptr noundef nonnull %243) #15
   br label %257
 
@@ -1065,16 +1065,16 @@ i_get_exception_base.exit256:                     ; preds = %234, %238
   %.val = load ptr, ptr %5, align 8
   %259 = load ptr, ptr @zend_ce_exception, align 8
   %260 = icmp eq ptr %.val, %259
-  br i1 %260, label %i_get_exception_base.exit260, label %261
+  br i1 %260, label %i_get_exception_base.argprom.exit260, label %261
 
 261:                                              ; preds = %257
   %262 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val, ptr noundef %259) #15
   %zend_ce_exception.val.i257 = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i258 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i259 = select i1 %262, ptr %zend_ce_exception.val.i257, ptr %zend_ce_error.val.i258
-  br label %i_get_exception_base.exit260
+  br label %i_get_exception_base.argprom.exit260
 
-i_get_exception_base.exit260:                     ; preds = %257, %261
+i_get_exception_base.argprom.exit260:             ; preds = %257, %261
   %263 = phi ptr [ %259, %257 ], [ %.pre.i259, %261 ]
   %264 = load ptr, ptr @zend_known_strings, align 8
   %265 = getelementptr inbounds i8, ptr %264, i64 8
@@ -1085,11 +1085,11 @@ i_get_exception_base.exit260:                     ; preds = %257, %261
   %270 = icmp eq i8 %269, 4
   br i1 %270, label %271, label %273
 
-271:                                              ; preds = %i_get_exception_base.exit260
+271:                                              ; preds = %i_get_exception_base.argprom.exit260
   %272 = load i64, ptr %267, align 8
   br label %275
 
-273:                                              ; preds = %i_get_exception_base.exit260
+273:                                              ; preds = %i_get_exception_base.argprom.exit260
   %274 = call i64 @zval_get_long_func(ptr noundef nonnull %267, i1 noundef zeroext false) #15
   br label %275
 
@@ -1411,16 +1411,16 @@ define hidden void @zim_Exception___construct(ptr nocapture noundef readonly %0,
   %.val = load ptr, ptr %9, align 8
   %10 = load ptr, ptr @zend_ce_exception, align 8
   %11 = icmp eq ptr %.val, %10
-  br i1 %11, label %i_get_exception_base.exit, label %12
+  br i1 %11, label %i_get_exception_base.argprom.exit, label %12
 
 12:                                               ; preds = %2
   %13 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %.val, ptr noundef %10) #15
   %zend_ce_exception.val.i = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i = load ptr, ptr @zend_ce_error, align 8
   %.pre.i = select i1 %13, ptr %zend_ce_exception.val.i, ptr %zend_ce_error.val.i
-  br label %i_get_exception_base.exit
+  br label %i_get_exception_base.argprom.exit
 
-i_get_exception_base.exit:                        ; preds = %2, %12
+i_get_exception_base.argprom.exit:                ; preds = %2, %12
   %14 = phi ptr [ %10, %2 ], [ %.pre.i, %12 ]
   %15 = getelementptr inbounds i8, ptr %0, i64 44
   %16 = load i32, ptr %15, align 4
@@ -1429,13 +1429,13 @@ i_get_exception_base.exit:                        ; preds = %2, %12
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %20, label %23
 
-20:                                               ; preds = %i_get_exception_base.exit
+20:                                               ; preds = %i_get_exception_base.argprom.exit
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %50
 
-23:                                               ; preds = %i_get_exception_base.exit
+23:                                               ; preds = %i_get_exception_base.argprom.exit
   %24 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %35, label %25
@@ -1513,7 +1513,7 @@ define hidden void @zim_Exception___wakeup(ptr nocapture noundef readonly %0, pt
   %.val25 = load ptr, ptr %10, align 8
   %11 = load ptr, ptr @zend_ce_exception, align 8
   %12 = icmp eq ptr %.val25, %11
-  br i1 %12, label %i_get_exception_base.exit, label %13
+  br i1 %12, label %i_get_exception_base.argprom.exit, label %13
 
 13:                                               ; preds = %8
   %14 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %.val25, ptr noundef %11) #15
@@ -1521,9 +1521,9 @@ define hidden void @zim_Exception___wakeup(ptr nocapture noundef readonly %0, pt
   %zend_ce_error.val.i = load ptr, ptr @zend_ce_error, align 8
   %.pre.i = select i1 %14, ptr %zend_ce_exception.val.i, ptr %zend_ce_error.val.i
   %.pre = load ptr, ptr %4, align 8
-  br label %i_get_exception_base.exit
+  br label %i_get_exception_base.argprom.exit
 
-i_get_exception_base.exit:                        ; preds = %8, %13
+i_get_exception_base.argprom.exit:                ; preds = %8, %13
   %15 = phi ptr [ %9, %8 ], [ %.pre, %13 ]
   %16 = phi ptr [ %11, %8 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
@@ -1537,13 +1537,13 @@ i_get_exception_base.exit:                        ; preds = %8, %13
     i8 6, label %38
   ]
 
-23:                                               ; preds = %i_get_exception_base.exit
+23:                                               ; preds = %i_get_exception_base.argprom.exit
   %24 = load ptr, ptr %4, align 8
   %25 = getelementptr i8, ptr %24, i64 16
   %.val24 = load ptr, ptr %25, align 8
   %26 = load ptr, ptr @zend_ce_exception, align 8
   %27 = icmp eq ptr %.val24, %26
-  br i1 %27, label %i_get_exception_base.exit29, label %28
+  br i1 %27, label %i_get_exception_base.argprom.exit29, label %28
 
 28:                                               ; preds = %23
   %29 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val24, ptr noundef %26) #15
@@ -1551,9 +1551,9 @@ i_get_exception_base.exit:                        ; preds = %8, %13
   %zend_ce_error.val.i27 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i28 = select i1 %29, ptr %zend_ce_exception.val.i26, ptr %zend_ce_error.val.i27
   %.pre38 = load ptr, ptr %4, align 8
-  br label %i_get_exception_base.exit29
+  br label %i_get_exception_base.argprom.exit29
 
-i_get_exception_base.exit29:                      ; preds = %23, %28
+i_get_exception_base.argprom.exit29:              ; preds = %23, %28
   %30 = phi ptr [ %24, %23 ], [ %.pre38, %28 ]
   %31 = phi ptr [ %26, %23 ], [ %.pre.i28, %28 ]
   %32 = load ptr, ptr @zend_known_strings, align 8
@@ -1565,13 +1565,13 @@ i_get_exception_base.exit29:                      ; preds = %23, %28
   call void @zend_unset_property(ptr noundef %31, ptr noundef %30, ptr noundef nonnull %35, i64 noundef %37) #15
   br label %38
 
-38:                                               ; preds = %i_get_exception_base.exit, %i_get_exception_base.exit, %i_get_exception_base.exit29
+38:                                               ; preds = %i_get_exception_base.argprom.exit, %i_get_exception_base.argprom.exit, %i_get_exception_base.argprom.exit29
   %39 = load ptr, ptr %4, align 8
   %40 = getelementptr i8, ptr %39, i64 16
   %.val23 = load ptr, ptr %40, align 8
   %41 = load ptr, ptr @zend_ce_exception, align 8
   %42 = icmp eq ptr %.val23, %41
-  br i1 %42, label %i_get_exception_base.exit33, label %43
+  br i1 %42, label %i_get_exception_base.argprom.exit33, label %43
 
 43:                                               ; preds = %38
   %44 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val23, ptr noundef %41) #15
@@ -1579,9 +1579,9 @@ i_get_exception_base.exit29:                      ; preds = %23, %28
   %zend_ce_error.val.i31 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i32 = select i1 %44, ptr %zend_ce_exception.val.i30, ptr %zend_ce_error.val.i31
   %.pre39 = load ptr, ptr %4, align 8
-  br label %i_get_exception_base.exit33
+  br label %i_get_exception_base.argprom.exit33
 
-i_get_exception_base.exit33:                      ; preds = %38, %43
+i_get_exception_base.argprom.exit33:              ; preds = %38, %43
   %45 = phi ptr [ %39, %38 ], [ %.pre39, %43 ]
   %46 = phi ptr [ %41, %38 ], [ %.pre.i32, %43 ]
   %47 = load ptr, ptr @zend_known_strings, align 8
@@ -1595,13 +1595,13 @@ i_get_exception_base.exit33:                      ; preds = %38, %43
     i8 4, label %68
   ]
 
-53:                                               ; preds = %i_get_exception_base.exit33
+53:                                               ; preds = %i_get_exception_base.argprom.exit33
   %54 = load ptr, ptr %4, align 8
   %55 = getelementptr i8, ptr %54, i64 16
   %.val = load ptr, ptr %55, align 8
   %56 = load ptr, ptr @zend_ce_exception, align 8
   %57 = icmp eq ptr %.val, %56
-  br i1 %57, label %i_get_exception_base.exit37, label %58
+  br i1 %57, label %i_get_exception_base.argprom.exit37, label %58
 
 58:                                               ; preds = %53
   %59 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val, ptr noundef %56) #15
@@ -1609,9 +1609,9 @@ i_get_exception_base.exit33:                      ; preds = %38, %43
   %zend_ce_error.val.i35 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i36 = select i1 %59, ptr %zend_ce_exception.val.i34, ptr %zend_ce_error.val.i35
   %.pre40 = load ptr, ptr %4, align 8
-  br label %i_get_exception_base.exit37
+  br label %i_get_exception_base.argprom.exit37
 
-i_get_exception_base.exit37:                      ; preds = %53, %58
+i_get_exception_base.argprom.exit37:              ; preds = %53, %58
   %60 = phi ptr [ %54, %53 ], [ %.pre40, %58 ]
   %61 = phi ptr [ %56, %53 ], [ %.pre.i36, %58 ]
   %62 = load ptr, ptr @zend_known_strings, align 8
@@ -1623,7 +1623,7 @@ i_get_exception_base.exit37:                      ; preds = %53, %58
   call void @zend_unset_property(ptr noundef %61, ptr noundef %60, ptr noundef nonnull %65, i64 noundef %67) #15
   br label %68
 
-68:                                               ; preds = %i_get_exception_base.exit33, %i_get_exception_base.exit33, %i_get_exception_base.exit37, %7
+68:                                               ; preds = %i_get_exception_base.argprom.exit33, %i_get_exception_base.argprom.exit33, %i_get_exception_base.argprom.exit37, %7
   ret void
 }
 
@@ -1822,7 +1822,7 @@ define hidden void @zim_Exception_getFile(ptr nocapture noundef readonly %0, ptr
   %.val = load ptr, ptr %10, align 8
   %11 = load ptr, ptr @zend_ce_exception, align 8
   %12 = icmp eq ptr %.val, %11
-  br i1 %12, label %i_get_exception_base.exit, label %13
+  br i1 %12, label %i_get_exception_base.argprom.exit, label %13
 
 13:                                               ; preds = %7
   %14 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %.val, ptr noundef %11) #15
@@ -1830,9 +1830,9 @@ define hidden void @zim_Exception_getFile(ptr nocapture noundef readonly %0, ptr
   %zend_ce_error.val.i = load ptr, ptr @zend_ce_error, align 8
   %.pre.i = select i1 %14, ptr %zend_ce_exception.val.i, ptr %zend_ce_error.val.i
   %.pre = load ptr, ptr %8, align 8
-  br label %i_get_exception_base.exit
+  br label %i_get_exception_base.argprom.exit
 
-i_get_exception_base.exit:                        ; preds = %7, %13
+i_get_exception_base.argprom.exit:                ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
   %16 = phi ptr [ %11, %7 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
@@ -1843,7 +1843,7 @@ i_get_exception_base.exit:                        ; preds = %7, %13
   %22 = icmp eq i8 %21, 6
   br i1 %22, label %23, label %31
 
-23:                                               ; preds = %i_get_exception_base.exit
+23:                                               ; preds = %i_get_exception_base.argprom.exit
   %24 = load ptr, ptr %19, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
@@ -1857,7 +1857,7 @@ i_get_exception_base.exit:                        ; preds = %7, %13
   store i32 %30, ptr %24, align 4
   br label %33
 
-31:                                               ; preds = %i_get_exception_base.exit
+31:                                               ; preds = %i_get_exception_base.argprom.exit
   %32 = call ptr @zval_get_string_func(ptr noundef nonnull %19) #15
   br label %33
 
@@ -1896,7 +1896,7 @@ define hidden void @zim_Exception_getLine(ptr nocapture noundef readonly %0, ptr
   %.val = load ptr, ptr %10, align 8
   %11 = load ptr, ptr @zend_ce_exception, align 8
   %12 = icmp eq ptr %.val, %11
-  br i1 %12, label %i_get_exception_base.exit, label %13
+  br i1 %12, label %i_get_exception_base.argprom.exit, label %13
 
 13:                                               ; preds = %7
   %14 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %.val, ptr noundef %11) #15
@@ -1904,9 +1904,9 @@ define hidden void @zim_Exception_getLine(ptr nocapture noundef readonly %0, ptr
   %zend_ce_error.val.i = load ptr, ptr @zend_ce_error, align 8
   %.pre.i = select i1 %14, ptr %zend_ce_exception.val.i, ptr %zend_ce_error.val.i
   %.pre = load ptr, ptr %8, align 8
-  br label %i_get_exception_base.exit
+  br label %i_get_exception_base.argprom.exit
 
-i_get_exception_base.exit:                        ; preds = %7, %13
+i_get_exception_base.argprom.exit:                ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
   %16 = phi ptr [ %11, %7 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
@@ -1918,11 +1918,11 @@ i_get_exception_base.exit:                        ; preds = %7, %13
   %23 = icmp eq i8 %22, 4
   br i1 %23, label %24, label %26
 
-24:                                               ; preds = %i_get_exception_base.exit
+24:                                               ; preds = %i_get_exception_base.argprom.exit
   %25 = load i64, ptr %20, align 8
   br label %28
 
-26:                                               ; preds = %i_get_exception_base.exit
+26:                                               ; preds = %i_get_exception_base.argprom.exit
   %27 = call i64 @zval_get_long_func(ptr noundef nonnull %20, i1 noundef zeroext false) #15
   br label %28
 
@@ -1956,7 +1956,7 @@ define hidden void @zim_Exception_getMessage(ptr nocapture noundef readonly %0, 
   %.val = load ptr, ptr %10, align 8
   %11 = load ptr, ptr @zend_ce_exception, align 8
   %12 = icmp eq ptr %.val, %11
-  br i1 %12, label %i_get_exception_base.exit, label %13
+  br i1 %12, label %i_get_exception_base.argprom.exit, label %13
 
 13:                                               ; preds = %7
   %14 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %.val, ptr noundef %11) #15
@@ -1964,9 +1964,9 @@ define hidden void @zim_Exception_getMessage(ptr nocapture noundef readonly %0, 
   %zend_ce_error.val.i = load ptr, ptr @zend_ce_error, align 8
   %.pre.i = select i1 %14, ptr %zend_ce_exception.val.i, ptr %zend_ce_error.val.i
   %.pre = load ptr, ptr %8, align 8
-  br label %i_get_exception_base.exit
+  br label %i_get_exception_base.argprom.exit
 
-i_get_exception_base.exit:                        ; preds = %7, %13
+i_get_exception_base.argprom.exit:                ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
   %16 = phi ptr [ %11, %7 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
@@ -1978,7 +1978,7 @@ i_get_exception_base.exit:                        ; preds = %7, %13
   %23 = icmp eq i8 %22, 6
   br i1 %23, label %24, label %32
 
-24:                                               ; preds = %i_get_exception_base.exit
+24:                                               ; preds = %i_get_exception_base.argprom.exit
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
@@ -1992,7 +1992,7 @@ i_get_exception_base.exit:                        ; preds = %7, %13
   store i32 %31, ptr %25, align 4
   br label %34
 
-32:                                               ; preds = %i_get_exception_base.exit
+32:                                               ; preds = %i_get_exception_base.argprom.exit
   %33 = call ptr @zval_get_string_func(ptr noundef nonnull %20) #15
   br label %34
 
@@ -2031,7 +2031,7 @@ define hidden void @zim_Exception_getCode(ptr nocapture noundef readonly %0, ptr
   %.val = load ptr, ptr %10, align 8
   %11 = load ptr, ptr @zend_ce_exception, align 8
   %12 = icmp eq ptr %.val, %11
-  br i1 %12, label %i_get_exception_base.exit, label %13
+  br i1 %12, label %i_get_exception_base.argprom.exit, label %13
 
 13:                                               ; preds = %7
   %14 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %.val, ptr noundef %11) #15
@@ -2039,9 +2039,9 @@ define hidden void @zim_Exception_getCode(ptr nocapture noundef readonly %0, ptr
   %zend_ce_error.val.i = load ptr, ptr @zend_ce_error, align 8
   %.pre.i = select i1 %14, ptr %zend_ce_exception.val.i, ptr %zend_ce_error.val.i
   %.pre = load ptr, ptr %8, align 8
-  br label %i_get_exception_base.exit
+  br label %i_get_exception_base.argprom.exit
 
-i_get_exception_base.exit:                        ; preds = %7, %13
+i_get_exception_base.argprom.exit:                ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
   %16 = phi ptr [ %11, %7 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
@@ -2053,13 +2053,13 @@ i_get_exception_base.exit:                        ; preds = %7, %13
   %23 = icmp eq i8 %22, 10
   br i1 %23, label %24, label %27
 
-24:                                               ; preds = %i_get_exception_base.exit
+24:                                               ; preds = %i_get_exception_base.argprom.exit
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   br label %27
 
-27:                                               ; preds = %24, %i_get_exception_base.exit
-  %.0 = phi ptr [ %26, %24 ], [ %20, %i_get_exception_base.exit ]
+27:                                               ; preds = %24, %i_get_exception_base.argprom.exit
+  %.0 = phi ptr [ %26, %24 ], [ %20, %i_get_exception_base.argprom.exit ]
   %28 = load ptr, ptr %.0, align 8
   %29 = getelementptr inbounds i8, ptr %.0, i64 8
   %30 = load i32, ptr %29, align 8
@@ -2099,7 +2099,7 @@ define hidden void @zim_Exception_getTrace(ptr nocapture noundef readonly %0, pt
   %.val = load ptr, ptr %10, align 8
   %11 = load ptr, ptr @zend_ce_exception, align 8
   %12 = icmp eq ptr %.val, %11
-  br i1 %12, label %i_get_exception_base.exit, label %13
+  br i1 %12, label %i_get_exception_base.argprom.exit, label %13
 
 13:                                               ; preds = %7
   %14 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %.val, ptr noundef %11) #15
@@ -2107,9 +2107,9 @@ define hidden void @zim_Exception_getTrace(ptr nocapture noundef readonly %0, pt
   %zend_ce_error.val.i = load ptr, ptr @zend_ce_error, align 8
   %.pre.i = select i1 %14, ptr %zend_ce_exception.val.i, ptr %zend_ce_error.val.i
   %.pre = load ptr, ptr %8, align 8
-  br label %i_get_exception_base.exit
+  br label %i_get_exception_base.argprom.exit
 
-i_get_exception_base.exit:                        ; preds = %7, %13
+i_get_exception_base.argprom.exit:                ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
   %16 = phi ptr [ %11, %7 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
@@ -2121,13 +2121,13 @@ i_get_exception_base.exit:                        ; preds = %7, %13
   %23 = icmp eq i8 %22, 10
   br i1 %23, label %24, label %27
 
-24:                                               ; preds = %i_get_exception_base.exit
+24:                                               ; preds = %i_get_exception_base.argprom.exit
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   br label %27
 
-27:                                               ; preds = %24, %i_get_exception_base.exit
-  %.0 = phi ptr [ %26, %24 ], [ %20, %i_get_exception_base.exit ]
+27:                                               ; preds = %24, %i_get_exception_base.argprom.exit
+  %.0 = phi ptr [ %26, %24 ], [ %20, %i_get_exception_base.argprom.exit ]
   %28 = load ptr, ptr %.0, align 8
   %29 = getelementptr inbounds i8, ptr %.0, i64 8
   %30 = load i32, ptr %29, align 8
@@ -2167,7 +2167,7 @@ define hidden void @zim_ErrorException_getSeverity(ptr nocapture noundef readonl
   %.val = load ptr, ptr %10, align 8
   %11 = load ptr, ptr @zend_ce_exception, align 8
   %12 = icmp eq ptr %.val, %11
-  br i1 %12, label %i_get_exception_base.exit, label %13
+  br i1 %12, label %i_get_exception_base.argprom.exit, label %13
 
 13:                                               ; preds = %7
   %14 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %.val, ptr noundef %11) #15
@@ -2175,9 +2175,9 @@ define hidden void @zim_ErrorException_getSeverity(ptr nocapture noundef readonl
   %zend_ce_error.val.i = load ptr, ptr @zend_ce_error, align 8
   %.pre.i = select i1 %14, ptr %zend_ce_exception.val.i, ptr %zend_ce_error.val.i
   %.pre = load ptr, ptr %8, align 8
-  br label %i_get_exception_base.exit
+  br label %i_get_exception_base.argprom.exit
 
-i_get_exception_base.exit:                        ; preds = %7, %13
+i_get_exception_base.argprom.exit:                ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
   %16 = phi ptr [ %11, %7 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
@@ -2189,13 +2189,13 @@ i_get_exception_base.exit:                        ; preds = %7, %13
   %23 = icmp eq i8 %22, 10
   br i1 %23, label %24, label %27
 
-24:                                               ; preds = %i_get_exception_base.exit
+24:                                               ; preds = %i_get_exception_base.argprom.exit
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   br label %27
 
-27:                                               ; preds = %24, %i_get_exception_base.exit
-  %.0 = phi ptr [ %26, %24 ], [ %20, %i_get_exception_base.exit ]
+27:                                               ; preds = %24, %i_get_exception_base.argprom.exit
+  %.0 = phi ptr [ %26, %24 ], [ %20, %i_get_exception_base.argprom.exit ]
   %28 = load ptr, ptr %.0, align 8
   %29 = getelementptr inbounds i8, ptr %.0, i64 8
   %30 = load i32, ptr %29, align 8
@@ -3596,7 +3596,7 @@ define hidden void @zim_Exception_getTraceAsString(ptr nocapture noundef readonl
   %.val = load ptr, ptr %10, align 8
   %11 = load ptr, ptr @zend_ce_exception, align 8
   %12 = icmp eq ptr %.val, %11
-  br i1 %12, label %i_get_exception_base.exit, label %13
+  br i1 %12, label %i_get_exception_base.argprom.exit, label %13
 
 13:                                               ; preds = %7
   %14 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %.val, ptr noundef %11) #15
@@ -3604,9 +3604,9 @@ define hidden void @zim_Exception_getTraceAsString(ptr nocapture noundef readonl
   %zend_ce_error.val.i = load ptr, ptr @zend_ce_error, align 8
   %.pre.i = select i1 %14, ptr %zend_ce_exception.val.i, ptr %zend_ce_error.val.i
   %.pre = load ptr, ptr %8, align 8
-  br label %i_get_exception_base.exit
+  br label %i_get_exception_base.argprom.exit
 
-i_get_exception_base.exit:                        ; preds = %7, %13
+i_get_exception_base.argprom.exit:                ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
   %16 = phi ptr [ %11, %7 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
@@ -3617,7 +3617,7 @@ i_get_exception_base.exit:                        ; preds = %7, %13
   %.not10 = icmp eq ptr %21, null
   br i1 %.not10, label %22, label %26
 
-22:                                               ; preds = %i_get_exception_base.exit
+22:                                               ; preds = %i_get_exception_base.argprom.exit
   %23 = load ptr, ptr %20, align 8
   %24 = call ptr @zend_trace_to_string(ptr noundef %23, i1 noundef zeroext true)
   store ptr %24, ptr %1, align 8
@@ -3625,7 +3625,7 @@ i_get_exception_base.exit:                        ; preds = %7, %13
   store i32 262, ptr %25, align 8
   br label %26
 
-26:                                               ; preds = %i_get_exception_base.exit, %22, %6
+26:                                               ; preds = %i_get_exception_base.argprom.exit, %22, %6
   ret void
 }
 
@@ -3648,7 +3648,7 @@ define hidden void @zim_Exception_getPrevious(ptr nocapture noundef readonly %0,
   %.val = load ptr, ptr %10, align 8
   %11 = load ptr, ptr @zend_ce_exception, align 8
   %12 = icmp eq ptr %.val, %11
-  br i1 %12, label %i_get_exception_base.exit, label %13
+  br i1 %12, label %i_get_exception_base.argprom.exit, label %13
 
 13:                                               ; preds = %7
   %14 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %.val, ptr noundef %11) #15
@@ -3656,9 +3656,9 @@ define hidden void @zim_Exception_getPrevious(ptr nocapture noundef readonly %0,
   %zend_ce_error.val.i = load ptr, ptr @zend_ce_error, align 8
   %.pre.i = select i1 %14, ptr %zend_ce_exception.val.i, ptr %zend_ce_error.val.i
   %.pre = load ptr, ptr %8, align 8
-  br label %i_get_exception_base.exit
+  br label %i_get_exception_base.argprom.exit
 
-i_get_exception_base.exit:                        ; preds = %7, %13
+i_get_exception_base.argprom.exit:                ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
   %16 = phi ptr [ %11, %7 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
@@ -3675,13 +3675,13 @@ i_get_exception_base.exit:                        ; preds = %7, %13
   %.not12 = icmp eq i32 %25, 0
   br i1 %.not12, label %29, label %26
 
-26:                                               ; preds = %i_get_exception_base.exit
+26:                                               ; preds = %i_get_exception_base.argprom.exit
   %27 = load i32, ptr %21, align 4
   %28 = add i32 %27, 1
   store i32 %28, ptr %21, align 4
   br label %29
 
-29:                                               ; preds = %i_get_exception_base.exit, %26, %6
+29:                                               ; preds = %i_get_exception_base.argprom.exit, %26, %6
   ret void
 }
 
@@ -3753,7 +3753,7 @@ define hidden void @zim_Exception___toString(ptr nocapture noundef readonly %0, 
   %35 = phi ptr [ %.pre355, %..critedge2_crit_edge ], [ %28, %.lr.ph ]
   %36 = load ptr, ptr @zend_ce_exception, align 8
   %37 = icmp eq ptr %.val326, %36
-  br i1 %37, label %i_get_exception_base.exit, label %38
+  br i1 %37, label %i_get_exception_base.argprom.exit, label %38
 
 38:                                               ; preds = %.critedge2
   %39 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val326, ptr noundef %36) #15
@@ -3761,9 +3761,9 @@ define hidden void @zim_Exception___toString(ptr nocapture noundef readonly %0, 
   %zend_ce_error.val.i = load ptr, ptr @zend_ce_error, align 8
   %.pre.i = select i1 %39, ptr %zend_ce_exception.val.i, ptr %zend_ce_error.val.i
   %.pre358 = load ptr, ptr %.0352365, align 8
-  br label %i_get_exception_base.exit
+  br label %i_get_exception_base.argprom.exit
 
-i_get_exception_base.exit:                        ; preds = %.critedge2, %38
+i_get_exception_base.argprom.exit:                ; preds = %.critedge2, %38
   %40 = phi ptr [ %35, %.critedge2 ], [ %.pre358, %38 ]
   %41 = phi ptr [ %36, %.critedge2 ], [ %.pre.i, %38 ]
   %42 = load ptr, ptr @zend_known_strings, align 8
@@ -3775,7 +3775,7 @@ i_get_exception_base.exit:                        ; preds = %.critedge2, %38
   %48 = icmp eq i8 %47, 6
   br i1 %48, label %49, label %57
 
-49:                                               ; preds = %i_get_exception_base.exit
+49:                                               ; preds = %i_get_exception_base.argprom.exit
   %50 = load ptr, ptr %45, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4
@@ -3789,7 +3789,7 @@ i_get_exception_base.exit:                        ; preds = %.critedge2, %38
   store i32 %56, ptr %50, align 4
   br label %59
 
-57:                                               ; preds = %i_get_exception_base.exit
+57:                                               ; preds = %i_get_exception_base.argprom.exit
   %58 = call ptr @zval_get_string_func(ptr noundef nonnull %45) #15
   br label %59
 
@@ -3800,7 +3800,7 @@ i_get_exception_base.exit:                        ; preds = %.critedge2, %38
   %.val325 = load ptr, ptr %62, align 8
   %63 = load ptr, ptr @zend_ce_exception, align 8
   %64 = icmp eq ptr %.val325, %63
-  br i1 %64, label %i_get_exception_base.exit330, label %65
+  br i1 %64, label %i_get_exception_base.argprom.exit330, label %65
 
 65:                                               ; preds = %59
   %66 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val325, ptr noundef %63) #15
@@ -3808,9 +3808,9 @@ i_get_exception_base.exit:                        ; preds = %.critedge2, %38
   %zend_ce_error.val.i328 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i329 = select i1 %66, ptr %zend_ce_exception.val.i327, ptr %zend_ce_error.val.i328
   %.pre359 = load ptr, ptr %.0352365, align 8
-  br label %i_get_exception_base.exit330
+  br label %i_get_exception_base.argprom.exit330
 
-i_get_exception_base.exit330:                     ; preds = %59, %65
+i_get_exception_base.argprom.exit330:             ; preds = %59, %65
   %67 = phi ptr [ %61, %59 ], [ %.pre359, %65 ]
   %68 = phi ptr [ %63, %59 ], [ %.pre.i329, %65 ]
   %69 = load ptr, ptr @zend_known_strings, align 8
@@ -3821,7 +3821,7 @@ i_get_exception_base.exit330:                     ; preds = %59, %65
   %74 = icmp eq i8 %73, 6
   br i1 %74, label %75, label %83
 
-75:                                               ; preds = %i_get_exception_base.exit330
+75:                                               ; preds = %i_get_exception_base.argprom.exit330
   %76 = load ptr, ptr %71, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4
@@ -3835,7 +3835,7 @@ i_get_exception_base.exit330:                     ; preds = %59, %65
   store i32 %82, ptr %76, align 4
   br label %85
 
-83:                                               ; preds = %i_get_exception_base.exit330
+83:                                               ; preds = %i_get_exception_base.argprom.exit330
   %84 = call ptr @zval_get_string_func(ptr noundef nonnull %71) #15
   br label %85
 
@@ -3846,7 +3846,7 @@ i_get_exception_base.exit330:                     ; preds = %59, %65
   %.val324 = load ptr, ptr %88, align 8
   %89 = load ptr, ptr @zend_ce_exception, align 8
   %90 = icmp eq ptr %.val324, %89
-  br i1 %90, label %i_get_exception_base.exit334, label %91
+  br i1 %90, label %i_get_exception_base.argprom.exit334, label %91
 
 91:                                               ; preds = %85
   %92 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val324, ptr noundef %89) #15
@@ -3854,9 +3854,9 @@ i_get_exception_base.exit330:                     ; preds = %59, %65
   %zend_ce_error.val.i332 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i333 = select i1 %92, ptr %zend_ce_exception.val.i331, ptr %zend_ce_error.val.i332
   %.pre360 = load ptr, ptr %.0352365, align 8
-  br label %i_get_exception_base.exit334
+  br label %i_get_exception_base.argprom.exit334
 
-i_get_exception_base.exit334:                     ; preds = %85, %91
+i_get_exception_base.argprom.exit334:             ; preds = %85, %91
   %93 = phi ptr [ %87, %85 ], [ %.pre360, %91 ]
   %94 = phi ptr [ %89, %85 ], [ %.pre.i333, %91 ]
   %95 = load ptr, ptr @zend_known_strings, align 8
@@ -3868,11 +3868,11 @@ i_get_exception_base.exit334:                     ; preds = %85, %91
   %101 = icmp eq i8 %100, 4
   br i1 %101, label %102, label %104
 
-102:                                              ; preds = %i_get_exception_base.exit334
+102:                                              ; preds = %i_get_exception_base.argprom.exit334
   %103 = load i64, ptr %98, align 8
   br label %106
 
-104:                                              ; preds = %i_get_exception_base.exit334
+104:                                              ; preds = %i_get_exception_base.argprom.exit334
   %105 = call i64 @zval_get_long_func(ptr noundef nonnull %98, i1 noundef zeroext false) #15
   br label %106
 
@@ -4097,7 +4097,7 @@ i_get_exception_base.exit334:                     ; preds = %85, %91
   %.val323 = load ptr, ptr %220, align 8
   %221 = load ptr, ptr @zend_ce_exception, align 8
   %222 = icmp eq ptr %.val323, %221
-  br i1 %222, label %i_get_exception_base.exit338, label %223
+  br i1 %222, label %i_get_exception_base.argprom.exit338, label %223
 
 223:                                              ; preds = %214
   %224 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val323, ptr noundef %221) #15
@@ -4105,9 +4105,9 @@ i_get_exception_base.exit334:                     ; preds = %85, %91
   %zend_ce_error.val.i336 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i337 = select i1 %224, ptr %zend_ce_exception.val.i335, ptr %zend_ce_error.val.i336
   %.pre361 = load ptr, ptr %.0352365, align 8
-  br label %i_get_exception_base.exit338
+  br label %i_get_exception_base.argprom.exit338
 
-i_get_exception_base.exit338:                     ; preds = %214, %223
+i_get_exception_base.argprom.exit338:             ; preds = %214, %223
   %225 = phi ptr [ %219, %214 ], [ %.pre361, %223 ]
   %226 = phi ptr [ %221, %214 ], [ %.pre.i337, %223 ]
   %227 = load ptr, ptr @zend_known_strings, align 8
@@ -4117,7 +4117,7 @@ i_get_exception_base.exit338:                     ; preds = %214, %223
   %cond = icmp eq ptr %230, null
   br i1 %cond, label %.critedge, label %231
 
-231:                                              ; preds = %i_get_exception_base.exit338
+231:                                              ; preds = %i_get_exception_base.argprom.exit338
   %232 = getelementptr inbounds i8, ptr %230, i64 8
   %233 = load i8, ptr %232, align 8
   %cond372 = icmp eq i8 %233, 8
@@ -4131,8 +4131,8 @@ i_get_exception_base.exit338:                     ; preds = %214, %223
   %.not313.not = icmp eq i32 %238, 0
   br i1 %.not313.not, label %.lr.ph, label %.critedge
 
-.critedge:                                        ; preds = %231, %33, %234, %i_get_exception_base.exit338, %11
-  %.1288.ph = phi ptr [ %12, %11 ], [ %.0287351366, %33 ], [ %.2, %234 ], [ %.2, %231 ], [ %.2, %i_get_exception_base.exit338 ]
+.critedge:                                        ; preds = %231, %33, %234, %i_get_exception_base.argprom.exit338, %11
+  %.1288.ph = phi ptr [ %12, %11 ], [ %.0287351366, %33 ], [ %.2, %234 ], [ %.2, %231 ], [ %.2, %i_get_exception_base.argprom.exit338 ]
   %239 = load i32, ptr %14, align 4
   %240 = and i32 %239, 64
   %.not314 = icmp eq i32 %240, 0
@@ -4154,8 +4154,8 @@ i_get_exception_base.exit338:                     ; preds = %214, %223
 .preheader:                                       ; preds = %241, %246, %.critedge
   br label %247
 
-247:                                              ; preds = %.preheader, %i_get_exception_base.exit346
-  %.1353 = phi ptr [ %283, %i_get_exception_base.exit346 ], [ %7, %.preheader ]
+247:                                              ; preds = %.preheader, %i_get_exception_base.argprom.exit346
+  %.1353 = phi ptr [ %283, %i_get_exception_base.argprom.exit346 ], [ %7, %.preheader ]
   %248 = getelementptr inbounds i8, ptr %.1353, i64 8
   %249 = load i8, ptr %248, align 8
   %250 = icmp eq i8 %249, 8
@@ -4167,21 +4167,21 @@ i_get_exception_base.exit338:                     ; preds = %214, %223
   %.val322 = load ptr, ptr %253, align 8
   %254 = load ptr, ptr @zend_ce_exception, align 8
   %255 = icmp eq ptr %.val322, %254
-  br i1 %255, label %i_get_exception_base.exit342, label %256
+  br i1 %255, label %i_get_exception_base.argprom.exit342, label %256
 
 256:                                              ; preds = %251
   %257 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val322, ptr noundef %254) #15
   %zend_ce_exception.val.i339 = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i340 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i341 = select i1 %257, ptr %zend_ce_exception.val.i339, ptr %zend_ce_error.val.i340
-  br label %i_get_exception_base.exit342
+  br label %i_get_exception_base.argprom.exit342
 
-i_get_exception_base.exit342:                     ; preds = %251, %256
+i_get_exception_base.argprom.exit342:             ; preds = %251, %256
   %258 = phi ptr [ %254, %251 ], [ %.pre.i341, %256 ]
   %.not316 = icmp eq ptr %258, null
   br i1 %.not316, label %.critedge4, label %259
 
-259:                                              ; preds = %i_get_exception_base.exit342
+259:                                              ; preds = %i_get_exception_base.argprom.exit342
   %260 = load ptr, ptr %.1353, align 8
   %261 = getelementptr inbounds i8, ptr %260, i64 16
   %262 = load ptr, ptr %261, align 8
@@ -4212,7 +4212,7 @@ i_get_exception_base.exit342:                     ; preds = %251, %256
   %.val321 = load ptr, ptr %273, align 8
   %274 = load ptr, ptr @zend_ce_exception, align 8
   %275 = icmp eq ptr %.val321, %274
-  br i1 %275, label %i_get_exception_base.exit346, label %276
+  br i1 %275, label %i_get_exception_base.argprom.exit346, label %276
 
 276:                                              ; preds = %270
   %277 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val321, ptr noundef %274) #15
@@ -4220,9 +4220,9 @@ i_get_exception_base.exit342:                     ; preds = %251, %256
   %zend_ce_error.val.i344 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i345 = select i1 %277, ptr %zend_ce_exception.val.i343, ptr %zend_ce_error.val.i344
   %.pre363 = load ptr, ptr %.1353, align 8
-  br label %i_get_exception_base.exit346
+  br label %i_get_exception_base.argprom.exit346
 
-i_get_exception_base.exit346:                     ; preds = %270, %276
+i_get_exception_base.argprom.exit346:             ; preds = %270, %276
   %278 = phi ptr [ %272, %270 ], [ %.pre363, %276 ]
   %279 = phi ptr [ %274, %270 ], [ %.pre.i345, %276 ]
   %280 = load ptr, ptr @zend_known_strings, align 8
@@ -4232,13 +4232,13 @@ i_get_exception_base.exit346:                     ; preds = %270, %276
   %.not315 = icmp eq ptr %283, null
   br i1 %.not315, label %.critedge4, label %247
 
-.critedge4:                                       ; preds = %i_get_exception_base.exit342, %247, %i_get_exception_base.exit346, %.critedge6, %264
+.critedge4:                                       ; preds = %i_get_exception_base.argprom.exit342, %247, %i_get_exception_base.argprom.exit346, %.critedge6, %264
   %284 = load ptr, ptr %7, align 8
   %285 = getelementptr i8, ptr %284, i64 16
   %.val = load ptr, ptr %285, align 8
   %286 = load ptr, ptr @zend_ce_exception, align 8
   %287 = icmp eq ptr %.val, %286
-  br i1 %287, label %i_get_exception_base.exit350, label %288
+  br i1 %287, label %i_get_exception_base.argprom.exit350, label %288
 
 288:                                              ; preds = %.critedge4
   %289 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val, ptr noundef %286) #15
@@ -4246,9 +4246,9 @@ i_get_exception_base.exit346:                     ; preds = %270, %276
   %zend_ce_error.val.i348 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i349 = select i1 %289, ptr %zend_ce_exception.val.i347, ptr %zend_ce_error.val.i348
   %.pre364 = load ptr, ptr %7, align 8
-  br label %i_get_exception_base.exit350
+  br label %i_get_exception_base.argprom.exit350
 
-i_get_exception_base.exit350:                     ; preds = %.critedge4, %288
+i_get_exception_base.argprom.exit350:             ; preds = %.critedge4, %288
   %290 = phi ptr [ %284, %.critedge4 ], [ %.pre364, %288 ]
   %291 = phi ptr [ %286, %.critedge4 ], [ %.pre.i349, %288 ]
   store ptr %.1288.ph, ptr %6, align 8
@@ -4272,7 +4272,7 @@ i_get_exception_base.exit350:                     ; preds = %.critedge4, %288
   store i32 %302, ptr %303, align 8
   br label %304
 
-304:                                              ; preds = %i_get_exception_base.exit350, %10
+304:                                              ; preds = %i_get_exception_base.argprom.exit350, %10
   ret void
 }
 
@@ -5786,16 +5786,16 @@ define internal noundef ptr @zend_default_exception_new(ptr noundef %0) #0 {
   %.val = load ptr, ptr %17, align 8
   %18 = load ptr, ptr @zend_ce_exception, align 8
   %19 = icmp eq ptr %.val, %18
-  br i1 %19, label %i_get_exception_base.exit, label %20
+  br i1 %19, label %i_get_exception_base.argprom.exit, label %20
 
 20:                                               ; preds = %14
   %21 = call zeroext i1 @instanceof_function_slow(ptr noundef %.val, ptr noundef %18) #15
   %zend_ce_exception.val.i = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i = load ptr, ptr @zend_ce_error, align 8
   %.pre.i = select i1 %21, ptr %zend_ce_exception.val.i, ptr %zend_ce_error.val.i
-  br label %i_get_exception_base.exit
+  br label %i_get_exception_base.argprom.exit
 
-i_get_exception_base.exit:                        ; preds = %14, %20
+i_get_exception_base.argprom.exit:                ; preds = %14, %20
   %22 = phi ptr [ %18, %14 ], [ %.pre.i, %20 ]
   %23 = load ptr, ptr @zend_ce_parse_error, align 8
   %.not95 = icmp eq ptr %0, %23
@@ -5804,12 +5804,12 @@ i_get_exception_base.exit:                        ; preds = %14, %20
   %or.cond = select i1 %.not95, i1 true, i1 %.not96
   br i1 %or.cond, label %25, label %.thread
 
-25:                                               ; preds = %i_get_exception_base.exit
+25:                                               ; preds = %i_get_exception_base.argprom.exit
   %26 = call ptr @zend_get_compiled_filename() #15
   %.not97 = icmp eq ptr %26, null
   br i1 %.not97, label %.thread, label %42
 
-.thread:                                          ; preds = %i_get_exception_base.exit, %25
+.thread:                                          ; preds = %i_get_exception_base.argprom.exit, %25
   %27 = call ptr @zend_get_executed_filename() #15
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #17
   %29 = and i64 %28, -8

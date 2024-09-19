@@ -18954,12 +18954,12 @@ declare void @_efree(ptr noundef) local_unnamed_addr #3
 define hidden void @zif_array_intersect_key(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
-  tail call fastcc void @php_array_intersect_key(i32 %.val, ptr noundef %1, i32 noundef -1)
+  tail call fastcc void @php_array_intersect_key.argprom(i32 %.val, ptr noundef %1, i32 noundef -1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_array_intersect_key(i32 %.44.val, ptr nocapture noundef %0, i32 noundef range(i32 -1, 2) %1) unnamed_addr #2 {
+define internal fastcc void @php_array_intersect_key.argprom(i32 %.44.val, ptr nocapture noundef %0, i32 noundef range(i32 -1, 2) %1) unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 %.44.val, ptr %3, align 4
@@ -19897,7 +19897,7 @@ define hidden void @zif_array_uintersect(ptr nocapture noundef readonly %0, ptr 
 define hidden void @zif_array_intersect_assoc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
-  tail call fastcc void @php_array_intersect_key(i32 %.val, ptr noundef %1, i32 noundef 0)
+  tail call fastcc void @php_array_intersect_key.argprom(i32 %.val, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
@@ -19911,7 +19911,7 @@ define hidden void @zif_array_intersect_uassoc(ptr nocapture noundef readonly %0
 define hidden void @zif_array_uintersect_assoc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
-  tail call fastcc void @php_array_intersect_key(i32 %.val, ptr noundef %1, i32 noundef 1)
+  tail call fastcc void @php_array_intersect_key.argprom(i32 %.val, ptr noundef %1, i32 noundef 1)
   ret void
 }
 
@@ -19925,12 +19925,12 @@ define hidden void @zif_array_uintersect_uassoc(ptr nocapture noundef readonly %
 define hidden void @zif_array_diff_key(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
-  tail call fastcc void @php_array_diff_key(i32 %.val, ptr noundef %1, i32 noundef -1)
+  tail call fastcc void @php_array_diff_key.argprom(i32 %.val, ptr noundef %1, i32 noundef -1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_array_diff_key(i32 %.44.val, ptr nocapture noundef %0, i32 noundef range(i32 -1, 2) %1) unnamed_addr #2 {
+define internal fastcc void @php_array_diff_key.argprom(i32 %.44.val, ptr nocapture noundef %0, i32 noundef range(i32 -1, 2) %1) unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 %.44.val, ptr %3, align 4
@@ -21392,7 +21392,7 @@ define hidden void @zif_array_udiff(ptr nocapture noundef readonly %0, ptr nocap
 define hidden void @zif_array_diff_assoc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
-  tail call fastcc void @php_array_diff_key(i32 %.val, ptr noundef %1, i32 noundef 0)
+  tail call fastcc void @php_array_diff_key.argprom(i32 %.val, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
@@ -21406,7 +21406,7 @@ define hidden void @zif_array_diff_uassoc(ptr nocapture noundef readonly %0, ptr
 define hidden void @zif_array_udiff_assoc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
-  tail call fastcc void @php_array_diff_key(i32 %.val, ptr noundef %1, i32 noundef 1)
+  tail call fastcc void @php_array_diff_key.argprom(i32 %.val, ptr noundef %1, i32 noundef 1)
   ret void
 }
 

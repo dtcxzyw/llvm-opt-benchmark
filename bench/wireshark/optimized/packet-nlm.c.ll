@@ -298,19 +298,19 @@ declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nlm1_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @dissect_nlm_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3)
+  %5 = tail call fastcc i32 @dissect_nlm_test.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nlm1_test_res(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = tail call fastcc i32 @dissect_nlm_test_res(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3)
+  %5 = tail call fastcc i32 @dissect_nlm_test_res.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nlm1_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @dissect_nlm_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3)
+  %5 = tail call fastcc i32 @dissect_nlm_lock.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3)
   ret i32 %5
 }
 
@@ -338,7 +338,7 @@ define internal i32 @dissect_nlm_gen_reply(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not26, label %17, label %18
 
 17:                                               ; preds = %11
-  tail call fastcc void @nlm_register_unmatched_res(ptr noundef nonnull %1, ptr noundef %0)
+  tail call fastcc void @nlm_register_unmatched_res.argelim(ptr noundef nonnull %1, ptr noundef %0)
   br label %33
 
 18:                                               ; preds = %11
@@ -415,24 +415,24 @@ nlm_match_fhandle_reply.exit:                     ; preds = %45, %42, %35, %7, %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nlm1_cancel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @dissect_nlm_cancel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3)
+  %5 = tail call fastcc i32 @dissect_nlm_cancel.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nlm1_unlock(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @dissect_nlm_unlock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3)
+  %5 = tail call fastcc i32 @dissect_nlm_unlock.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nlm1_granted(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @dissect_nlm_granted(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3)
+  %5 = tail call fastcc i32 @dissect_nlm_granted.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nlm_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nlm_test.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @nlm_match_msgres, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %nlm_match_fhandle_request.exit, label %7
@@ -453,8 +453,8 @@ define internal fastcc i32 @dissect_nlm_test(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not23, label %17, label %18
 
 17:                                               ; preds = %11
-  tail call fastcc void @nlm_register_unmatched_msg(ptr noundef nonnull %1, ptr noundef %0)
-  br label %nlm_print_msgres_request.exit
+  tail call fastcc void @nlm_register_unmatched_msg.argelim(ptr noundef nonnull %1, ptr noundef %0)
+  br label %nlm_print_msgres_request.argprom.exit
 
 18:                                               ; preds = %11
   %19 = getelementptr i8, ptr %1, i64 20
@@ -464,21 +464,21 @@ define internal fastcc i32 @dissect_nlm_test(ptr noundef %0, ptr noundef %1, ptr
   %22 = inttoptr i64 %21 to ptr
   %23 = tail call ptr @wmem_map_lookup(ptr noundef %20, ptr noundef %22) #8
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %nlm_print_msgres_request.exit, label %24
+  br i1 %.not.i, label %nlm_print_msgres_request.argprom.exit, label %24
 
 24:                                               ; preds = %18
   %25 = load i32, ptr @hf_nlm_reply_in, align 4
   %26 = getelementptr inbounds i8, ptr %23, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %27) #8
-  br label %nlm_print_msgres_request.exit
+  br label %nlm_print_msgres_request.argprom.exit
 
-nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
+nlm_print_msgres_request.argprom.exit:            ; preds = %24, %18, %17
   %29 = load i32, ptr @nfs_fhandle_reqrep_matching, align 4
   %.not24 = icmp eq i32 %29, 0
   br i1 %.not24, label %nlm_match_fhandle_request.exit, label %30
 
-30:                                               ; preds = %nlm_print_msgres_request.exit
+30:                                               ; preds = %nlm_print_msgres_request.argprom.exit
   %31 = load ptr, ptr @nlm_msg_res_matched, align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 20
   %33 = load i32, ptr %32, align 4
@@ -498,7 +498,7 @@ nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
   tail call void @dissect_fhandle_hidden(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %39) #8
   br label %nlm_match_fhandle_request.exit
 
-nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %nlm_print_msgres_request.exit, %5
+nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %nlm_print_msgres_request.argprom.exit, %5
   %41 = load i32, ptr @hf_nlm_cookie, align 4
   %42 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %41, i32 noundef 0) #8
   %43 = load i32, ptr @hf_nlm_exclusive, align 4
@@ -509,7 +509,7 @@ nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nlm_register_unmatched_msg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @nlm_register_unmatched_msg.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @wmem_file_scope() #8
   %4 = tail call noalias ptr @wmem_alloc(ptr noundef %3, i64 noundef 40) #8
   %5 = getelementptr inbounds i8, ptr %0, i64 20
@@ -647,7 +647,7 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @dissect_rpc_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nlm_test_res(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nlm_test_res.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = load i32, ptr @nlm_match_msgres, align 4
   %.not = icmp eq i32 %7, 0
@@ -669,7 +669,7 @@ define internal fastcc i32 @dissect_nlm_test_res(ptr noundef %0, ptr noundef %1,
   br i1 %.not57, label %18, label %19
 
 18:                                               ; preds = %12
-  tail call fastcc void @nlm_register_unmatched_res(ptr noundef nonnull %1, ptr noundef %0)
+  tail call fastcc void @nlm_register_unmatched_res.argelim(ptr noundef nonnull %1, ptr noundef %0)
   br label %34
 
 19:                                               ; preds = %12
@@ -790,7 +790,7 @@ nlm_match_fhandle_reply.exit:                     ; preds = %46, %43, %36, %8, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nlm_register_unmatched_res(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @nlm_register_unmatched_res.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct._nlm_msg_res_unmatched_data, align 8
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 0) #8
   %5 = getelementptr inbounds i8, ptr %3, i64 24
@@ -847,7 +847,7 @@ declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nlm_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nlm_lock.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @nlm_match_msgres, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %nlm_match_fhandle_request.exit, label %7
@@ -868,8 +868,8 @@ define internal fastcc i32 @dissect_nlm_lock(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not31, label %17, label %18
 
 17:                                               ; preds = %11
-  tail call fastcc void @nlm_register_unmatched_msg(ptr noundef nonnull %1, ptr noundef %0)
-  br label %nlm_print_msgres_request.exit
+  tail call fastcc void @nlm_register_unmatched_msg.argelim(ptr noundef nonnull %1, ptr noundef %0)
+  br label %nlm_print_msgres_request.argprom.exit
 
 18:                                               ; preds = %11
   %19 = getelementptr i8, ptr %1, i64 20
@@ -879,21 +879,21 @@ define internal fastcc i32 @dissect_nlm_lock(ptr noundef %0, ptr noundef %1, ptr
   %22 = inttoptr i64 %21 to ptr
   %23 = tail call ptr @wmem_map_lookup(ptr noundef %20, ptr noundef %22) #8
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %nlm_print_msgres_request.exit, label %24
+  br i1 %.not.i, label %nlm_print_msgres_request.argprom.exit, label %24
 
 24:                                               ; preds = %18
   %25 = load i32, ptr @hf_nlm_reply_in, align 4
   %26 = getelementptr inbounds i8, ptr %23, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %27) #8
-  br label %nlm_print_msgres_request.exit
+  br label %nlm_print_msgres_request.argprom.exit
 
-nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
+nlm_print_msgres_request.argprom.exit:            ; preds = %24, %18, %17
   %29 = load i32, ptr @nfs_fhandle_reqrep_matching, align 4
   %.not32 = icmp eq i32 %29, 0
   br i1 %.not32, label %nlm_match_fhandle_request.exit, label %30
 
-30:                                               ; preds = %nlm_print_msgres_request.exit
+30:                                               ; preds = %nlm_print_msgres_request.argprom.exit
   %31 = load ptr, ptr @nlm_msg_res_matched, align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 20
   %33 = load i32, ptr %32, align 4
@@ -913,7 +913,7 @@ nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
   tail call void @dissect_fhandle_hidden(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %39) #8
   br label %nlm_match_fhandle_request.exit
 
-nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %nlm_print_msgres_request.exit, %5
+nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %nlm_print_msgres_request.argprom.exit, %5
   %41 = load i32, ptr @hf_nlm_cookie, align 4
   %42 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %41, i32 noundef 0) #8
   %43 = load i32, ptr @hf_nlm_block, align 4
@@ -931,7 +931,7 @@ nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nlm_cancel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nlm_cancel.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @nlm_match_msgres, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %nlm_match_fhandle_request.exit, label %7
@@ -952,8 +952,8 @@ define internal fastcc i32 @dissect_nlm_cancel(ptr noundef %0, ptr noundef %1, p
   br i1 %.not25, label %17, label %18
 
 17:                                               ; preds = %11
-  tail call fastcc void @nlm_register_unmatched_msg(ptr noundef nonnull %1, ptr noundef %0)
-  br label %nlm_print_msgres_request.exit
+  tail call fastcc void @nlm_register_unmatched_msg.argelim(ptr noundef nonnull %1, ptr noundef %0)
+  br label %nlm_print_msgres_request.argprom.exit
 
 18:                                               ; preds = %11
   %19 = getelementptr i8, ptr %1, i64 20
@@ -963,21 +963,21 @@ define internal fastcc i32 @dissect_nlm_cancel(ptr noundef %0, ptr noundef %1, p
   %22 = inttoptr i64 %21 to ptr
   %23 = tail call ptr @wmem_map_lookup(ptr noundef %20, ptr noundef %22) #8
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %nlm_print_msgres_request.exit, label %24
+  br i1 %.not.i, label %nlm_print_msgres_request.argprom.exit, label %24
 
 24:                                               ; preds = %18
   %25 = load i32, ptr @hf_nlm_reply_in, align 4
   %26 = getelementptr inbounds i8, ptr %23, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %27) #8
-  br label %nlm_print_msgres_request.exit
+  br label %nlm_print_msgres_request.argprom.exit
 
-nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
+nlm_print_msgres_request.argprom.exit:            ; preds = %24, %18, %17
   %29 = load i32, ptr @nfs_fhandle_reqrep_matching, align 4
   %.not26 = icmp eq i32 %29, 0
   br i1 %.not26, label %nlm_match_fhandle_request.exit, label %30
 
-30:                                               ; preds = %nlm_print_msgres_request.exit
+30:                                               ; preds = %nlm_print_msgres_request.argprom.exit
   %31 = load ptr, ptr @nlm_msg_res_matched, align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 20
   %33 = load i32, ptr %32, align 4
@@ -997,7 +997,7 @@ nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
   tail call void @dissect_fhandle_hidden(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %39) #8
   br label %nlm_match_fhandle_request.exit
 
-nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %nlm_print_msgres_request.exit, %5
+nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %nlm_print_msgres_request.argprom.exit, %5
   %41 = load i32, ptr @hf_nlm_cookie, align 4
   %42 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %41, i32 noundef 0) #8
   %43 = load i32, ptr @hf_nlm_block, align 4
@@ -1009,7 +1009,7 @@ nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nlm_unlock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nlm_unlock.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @nlm_match_msgres, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %nlm_match_fhandle_request.exit, label %7
@@ -1030,8 +1030,8 @@ define internal fastcc i32 @dissect_nlm_unlock(ptr noundef %0, ptr noundef %1, p
   br i1 %.not19, label %17, label %18
 
 17:                                               ; preds = %11
-  tail call fastcc void @nlm_register_unmatched_msg(ptr noundef nonnull %1, ptr noundef %0)
-  br label %nlm_print_msgres_request.exit
+  tail call fastcc void @nlm_register_unmatched_msg.argelim(ptr noundef nonnull %1, ptr noundef %0)
+  br label %nlm_print_msgres_request.argprom.exit
 
 18:                                               ; preds = %11
   %19 = getelementptr i8, ptr %1, i64 20
@@ -1041,21 +1041,21 @@ define internal fastcc i32 @dissect_nlm_unlock(ptr noundef %0, ptr noundef %1, p
   %22 = inttoptr i64 %21 to ptr
   %23 = tail call ptr @wmem_map_lookup(ptr noundef %20, ptr noundef %22) #8
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %nlm_print_msgres_request.exit, label %24
+  br i1 %.not.i, label %nlm_print_msgres_request.argprom.exit, label %24
 
 24:                                               ; preds = %18
   %25 = load i32, ptr @hf_nlm_reply_in, align 4
   %26 = getelementptr inbounds i8, ptr %23, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %27) #8
-  br label %nlm_print_msgres_request.exit
+  br label %nlm_print_msgres_request.argprom.exit
 
-nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
+nlm_print_msgres_request.argprom.exit:            ; preds = %24, %18, %17
   %29 = load i32, ptr @nfs_fhandle_reqrep_matching, align 4
   %.not20 = icmp eq i32 %29, 0
   br i1 %.not20, label %nlm_match_fhandle_request.exit, label %30
 
-30:                                               ; preds = %nlm_print_msgres_request.exit
+30:                                               ; preds = %nlm_print_msgres_request.argprom.exit
   %31 = load ptr, ptr @nlm_msg_res_matched, align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 20
   %33 = load i32, ptr %32, align 4
@@ -1075,7 +1075,7 @@ nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
   tail call void @dissect_fhandle_hidden(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %39) #8
   br label %nlm_match_fhandle_request.exit
 
-nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %nlm_print_msgres_request.exit, %5
+nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %nlm_print_msgres_request.argprom.exit, %5
   %41 = load i32, ptr @hf_nlm_cookie, align 4
   %42 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %41, i32 noundef 0) #8
   %43 = tail call fastcc i32 @dissect_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %42, ptr noundef %4)
@@ -1083,7 +1083,7 @@ nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nlm_granted(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nlm_granted.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @nlm_match_msgres, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %nlm_match_fhandle_request.exit, label %7
@@ -1104,8 +1104,8 @@ define internal fastcc i32 @dissect_nlm_granted(ptr noundef %0, ptr noundef %1, 
   br i1 %.not22, label %17, label %18
 
 17:                                               ; preds = %11
-  tail call fastcc void @nlm_register_unmatched_msg(ptr noundef nonnull %1, ptr noundef %0)
-  br label %nlm_print_msgres_request.exit
+  tail call fastcc void @nlm_register_unmatched_msg.argelim(ptr noundef nonnull %1, ptr noundef %0)
+  br label %nlm_print_msgres_request.argprom.exit
 
 18:                                               ; preds = %11
   %19 = getelementptr i8, ptr %1, i64 20
@@ -1115,21 +1115,21 @@ define internal fastcc i32 @dissect_nlm_granted(ptr noundef %0, ptr noundef %1, 
   %22 = inttoptr i64 %21 to ptr
   %23 = tail call ptr @wmem_map_lookup(ptr noundef %20, ptr noundef %22) #8
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %nlm_print_msgres_request.exit, label %24
+  br i1 %.not.i, label %nlm_print_msgres_request.argprom.exit, label %24
 
 24:                                               ; preds = %18
   %25 = load i32, ptr @hf_nlm_reply_in, align 4
   %26 = getelementptr inbounds i8, ptr %23, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %27) #8
-  br label %nlm_print_msgres_request.exit
+  br label %nlm_print_msgres_request.argprom.exit
 
-nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
+nlm_print_msgres_request.argprom.exit:            ; preds = %24, %18, %17
   %29 = load i32, ptr @nfs_fhandle_reqrep_matching, align 4
   %.not23 = icmp eq i32 %29, 0
   br i1 %.not23, label %nlm_match_fhandle_request.exit, label %30
 
-30:                                               ; preds = %nlm_print_msgres_request.exit
+30:                                               ; preds = %nlm_print_msgres_request.argprom.exit
   %31 = load ptr, ptr @nlm_msg_res_matched, align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 20
   %33 = load i32, ptr %32, align 4
@@ -1149,7 +1149,7 @@ nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
   tail call void @dissect_fhandle_hidden(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %39) #8
   br label %nlm_match_fhandle_request.exit
 
-nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %nlm_print_msgres_request.exit, %5
+nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %nlm_print_msgres_request.argprom.exit, %5
   %41 = load i32, ptr @hf_nlm_cookie, align 4
   %42 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %41, i32 noundef 0) #8
   %43 = load i32, ptr @hf_nlm_exclusive, align 4
@@ -1160,13 +1160,13 @@ nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nlm3_share(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @dissect_nlm_share(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %5 = tail call fastcc i32 @dissect_nlm_share.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nlm3_shareres(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_nlm_shareres(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %5 = tail call fastcc i32 @dissect_nlm_shareres.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %5
 }
 
@@ -1180,7 +1180,7 @@ define internal i32 @dissect_nlm3_freeall(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nlm_share(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nlm_share.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_nlm_cookie, align 4
   %7 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0) #8
@@ -1219,7 +1219,7 @@ define internal fastcc i32 @dissect_nlm_share(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nlm_shareres(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nlm_shareres.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_nlm_cookie, align 4
   %5 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef 0) #8
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %5) #8
@@ -1243,49 +1243,49 @@ define internal fastcc i32 @dissect_nlm_shareres(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nlm4_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @dissect_nlm_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4, ptr noundef %3)
+  %5 = tail call fastcc i32 @dissect_nlm_test.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nlm4_test_res(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = tail call fastcc i32 @dissect_nlm_test_res(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4, ptr noundef %3)
+  %5 = tail call fastcc i32 @dissect_nlm_test_res.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nlm4_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @dissect_nlm_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4, ptr noundef %3)
+  %5 = tail call fastcc i32 @dissect_nlm_lock.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nlm4_cancel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @dissect_nlm_cancel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4, ptr noundef %3)
+  %5 = tail call fastcc i32 @dissect_nlm_cancel.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nlm4_unlock(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @dissect_nlm_unlock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4, ptr noundef %3)
+  %5 = tail call fastcc i32 @dissect_nlm_unlock.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nlm4_granted(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @dissect_nlm_granted(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4, ptr noundef %3)
+  %5 = tail call fastcc i32 @dissect_nlm_granted.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nlm4_share(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @dissect_nlm_share(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %5 = tail call fastcc i32 @dissect_nlm_share.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nlm4_shareres(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_nlm_shareres(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %5 = tail call fastcc i32 @dissect_nlm_shareres.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %5
 }
 

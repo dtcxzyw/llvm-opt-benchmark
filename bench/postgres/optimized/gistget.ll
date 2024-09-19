@@ -151,15 +151,15 @@ define dso_local noundef zeroext i1 @gistgettuple(ptr noundef %0, i32 noundef %1
   %65 = getelementptr inbounds i8, ptr %.val30.i, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %getNextNearest.exit, label %getNextGISTSearchItem.exit.i
+  br i1 %67, label %getNextNearest.exit, label %getNextGISTSearchItem.argprom.exit.i
 
-getNextGISTSearchItem.exit.i:                     ; preds = %63, %95
+getNextGISTSearchItem.argprom.exit.i:             ; preds = %63, %95
   %.val31.i = phi ptr [ %.val.i, %95 ], [ %.val30.i, %63 ]
   %68 = tail call ptr @pairingheap_remove_first(ptr noundef nonnull %.val31.i) #8
   %.not25.i = icmp eq ptr %68, null
   br i1 %.not25.i, label %getNextNearest.exit, label %69
 
-69:                                               ; preds = %getNextGISTSearchItem.exit.i
+69:                                               ; preds = %getNextGISTSearchItem.argprom.exit.i
   %70 = getelementptr inbounds i8, ptr %68, i64 24
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, -1
@@ -213,7 +213,7 @@ getNextGISTSearchItem.exit.i:                     ; preds = %63, %95
   %97 = getelementptr inbounds i8, ptr %.val.i, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %getNextNearest.exit, label %getNextGISTSearchItem.exit.i, !llvm.loop !5
+  br i1 %99, label %getNextNearest.exit, label %getNextGISTSearchItem.argprom.exit.i, !llvm.loop !5
 
 .loopexit:                                        ; preds = %241
   %100 = load i16, ptr %46, align 2
@@ -459,14 +459,14 @@ gistkillitems.exit:                               ; preds = %.sink.split.i, %184
   %234 = getelementptr inbounds i8, ptr %.val, i64 16
   %235 = load ptr, ptr %234, align 8
   %236 = icmp eq ptr %235, null
-  br i1 %236, label %getNextNearest.exit, label %getNextGISTSearchItem.exit
+  br i1 %236, label %getNextNearest.exit, label %getNextGISTSearchItem.argprom.exit
 
-getNextGISTSearchItem.exit:                       ; preds = %gistkillitems.exit
+getNextGISTSearchItem.argprom.exit:               ; preds = %gistkillitems.exit
   %237 = tail call ptr @pairingheap_remove_first(ptr noundef nonnull %.val) #8
   %.not76 = icmp eq ptr %237, null
   br i1 %.not76, label %getNextNearest.exit, label %238
 
-238:                                              ; preds = %getNextGISTSearchItem.exit
+238:                                              ; preds = %getNextGISTSearchItem.argprom.exit
   %239 = load volatile i32, ptr @InterruptPending, align 4
   %.not77 = icmp eq i32 %239, 0
   br i1 %.not77, label %241, label %240
@@ -486,8 +486,8 @@ getNextGISTSearchItem.exit:                       ; preds = %gistkillitems.exit
   %246 = icmp eq i16 %245, 0
   br i1 %246, label %179, label %.loopexit, !llvm.loop !7
 
-getNextNearest.exit:                              ; preds = %gistkillitems.exit, %getNextGISTSearchItem.exit, %95, %getNextGISTSearchItem.exit.i, %.thread.i, %63, %9, %149
-  %.0 = phi i1 [ true, %149 ], [ false, %9 ], [ true, %.thread.i ], [ false, %63 ], [ false, %getNextGISTSearchItem.exit.i ], [ false, %95 ], [ false, %getNextGISTSearchItem.exit ], [ false, %gistkillitems.exit ]
+getNextNearest.exit:                              ; preds = %gistkillitems.exit, %getNextGISTSearchItem.argprom.exit, %95, %getNextGISTSearchItem.argprom.exit.i, %.thread.i, %63, %9, %149
+  %.0 = phi i1 [ true, %149 ], [ false, %9 ], [ true, %.thread.i ], [ false, %63 ], [ false, %getNextGISTSearchItem.argprom.exit.i ], [ false, %95 ], [ false, %getNextGISTSearchItem.argprom.exit ], [ false, %gistkillitems.exit ]
   ret i1 %.0
 }
 
@@ -1289,15 +1289,15 @@ define dso_local i64 @gistgetbitmap(ptr nocapture noundef %0, ptr noundef %1) lo
   %36 = getelementptr inbounds i8, ptr %.val27, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %getNextGISTSearchItem.exit.thread, label %getNextGISTSearchItem.exit
+  br i1 %38, label %getNextGISTSearchItem.argprom.exit.thread, label %getNextGISTSearchItem.argprom.exit
 
-getNextGISTSearchItem.exit:                       ; preds = %32, %43
+getNextGISTSearchItem.argprom.exit:               ; preds = %32, %43
   %.val28 = phi ptr [ %.val, %43 ], [ %.val27, %32 ]
   %39 = tail call ptr @pairingheap_remove_first(ptr noundef nonnull %.val28) #8
   %.not23 = icmp eq ptr %39, null
-  br i1 %.not23, label %getNextGISTSearchItem.exit.thread, label %40
+  br i1 %.not23, label %getNextGISTSearchItem.argprom.exit.thread, label %40
 
-40:                                               ; preds = %getNextGISTSearchItem.exit
+40:                                               ; preds = %getNextGISTSearchItem.argprom.exit
   %41 = load volatile i32, ptr @InterruptPending, align 4
   %.not24 = icmp eq i32 %41, 0
   br i1 %.not24, label %43, label %42
@@ -1314,14 +1314,14 @@ getNextGISTSearchItem.exit:                       ; preds = %32, %43
   %45 = getelementptr inbounds i8, ptr %.val, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %getNextGISTSearchItem.exit.thread, label %getNextGISTSearchItem.exit
+  br i1 %47, label %getNextGISTSearchItem.argprom.exit.thread, label %getNextGISTSearchItem.argprom.exit
 
-getNextGISTSearchItem.exit.thread:                ; preds = %getNextGISTSearchItem.exit, %43, %32
+getNextGISTSearchItem.argprom.exit.thread:        ; preds = %getNextGISTSearchItem.argprom.exit, %43, %32
   %48 = load i64, ptr %3, align 8
   br label %49
 
-49:                                               ; preds = %2, %getNextGISTSearchItem.exit.thread
-  %.0 = phi i64 [ %48, %getNextGISTSearchItem.exit.thread ], [ 0, %2 ]
+49:                                               ; preds = %2, %getNextGISTSearchItem.argprom.exit.thread
+  %.0 = phi i64 [ %48, %getNextGISTSearchItem.argprom.exit.thread ], [ 0, %2 ]
   ret i64 %.0
 }
 

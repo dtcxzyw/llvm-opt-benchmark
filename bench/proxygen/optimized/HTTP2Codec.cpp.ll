@@ -8499,29 +8499,29 @@ _ZN5folly10IOBufQueue4moveEv.exit.i.i.i:          ; preds = %if.then.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i, i8 0, i64 24, i1 false), !noalias !89
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false), !noalias !89
   %cmp.not.i.i.i.i = icmp eq i64 %110, 0
-  br i1 %cmp.not.i.i.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen10HTTP2Codec24parseHeadersDecodeFramesERKNS_8OptionalINS2_5http214PriorityUpdateEEERKNS4_INS2_9HTTPCodec12ExAttributesEEEE3$_0Lb1EED2Ev.exit", label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen10HTTP2Codec24parseHeadersDecodeFramesERKNS_8OptionalINS2_5http214PriorityUpdateEEERKNS4_INS2_9HTTPCodec12ExAttributesEEEE3$_0Lb1EED2Ev.argprom.exit", label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i: ; preds = %_ZN5folly10IOBufQueue4moveEv.exit.i.i.i
   %111 = inttoptr i64 %110 to ptr
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %111) #29
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %111) #29
-  br label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen10HTTP2Codec24parseHeadersDecodeFramesERKNS_8OptionalINS2_5http214PriorityUpdateEEERKNS4_INS2_9HTTPCodec12ExAttributesEEEE3$_0Lb1EED2Ev.exit"
+  br label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen10HTTP2Codec24parseHeadersDecodeFramesERKNS_8OptionalINS2_5http214PriorityUpdateEEERKNS4_INS2_9HTTPCodec12ExAttributesEEEE3$_0Lb1EED2Ev.argprom.exit"
 
-"_ZN5folly6detail14ScopeGuardImplIZN8proxygen10HTTP2Codec24parseHeadersDecodeFramesERKNS_8OptionalINS2_5http214PriorityUpdateEEERKNS4_INS2_9HTTPCodec12ExAttributesEEEE3$_0Lb1EED2Ev.exit": ; preds = %_ZN5folly10IOBufQueue4moveEv.exit.i.i.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i
+"_ZN5folly6detail14ScopeGuardImplIZN8proxygen10HTTP2Codec24parseHeadersDecodeFramesERKNS_8OptionalINS2_5http214PriorityUpdateEEERKNS4_INS2_9HTTPCodec12ExAttributesEEEE3$_0Lb1EED2Ev.argprom.exit": ; preds = %_ZN5folly10IOBufQueue4moveEv.exit.i.i.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i
   %cmp.not.i163 = icmp eq ptr %102, null
   br i1 %cmp.not.i163, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit165, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i164
 
-_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i164: ; preds = %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen10HTTP2Codec24parseHeadersDecodeFramesERKNS_8OptionalINS2_5http214PriorityUpdateEEERKNS4_INS2_9HTTPCodec12ExAttributesEEEE3$_0Lb1EED2Ev.exit"
+_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i164: ; preds = %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen10HTTP2Codec24parseHeadersDecodeFramesERKNS_8OptionalINS2_5http214PriorityUpdateEEERKNS4_INS2_9HTTPCodec12ExAttributesEEEE3$_0Lb1EED2Ev.argprom.exit"
   call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %102) #29
   call void @_ZdlPv(ptr noundef nonnull %102) #28
   br label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit165
 
-_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit165: ; preds = %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen10HTTP2Codec24parseHeadersDecodeFramesERKNS_8OptionalINS2_5http214PriorityUpdateEEERKNS4_INS2_9HTTPCodec12ExAttributesEEEE3$_0Lb1EED2Ev.exit", %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i164
+_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit165: ; preds = %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen10HTTP2Codec24parseHeadersDecodeFramesERKNS_8OptionalINS2_5http214PriorityUpdateEEERKNS4_INS2_9HTTPCodec12ExAttributesEEEE3$_0Lb1EED2Ev.argprom.exit", %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i164
   ret void
 
 ehcleanup276:                                     ; preds = %lpad.i58, %lpad33, %lpad.i132, %lpad.i69, %cleanup.action227, %cleanup.action91, %lpad152, %lpad38, %lpad
   %.pn22.pn = phi { ptr, i32 } [ %.pn20, %cleanup.action91 ], [ %53, %lpad38 ], [ %51, %lpad ], [ %.pn, %cleanup.action227 ], [ %74, %lpad152 ], [ %56, %lpad.i58 ], [ %67, %lpad.i69 ], [ %52, %lpad33 ], [ %96, %lpad.i132 ]
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen10HTTP2Codec24parseHeadersDecodeFramesERKNS_8OptionalINS2_5http214PriorityUpdateEEERKNS4_INS2_9HTTPCodec12ExAttributesEEEE3$_0Lb1EED2Ev"(i8 0, ptr nonnull %this) #29
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen10HTTP2Codec24parseHeadersDecodeFramesERKNS_8OptionalINS2_5http214PriorityUpdateEEERKNS4_INS2_9HTTPCodec12ExAttributesEEEE3$_0Lb1EED2Ev.argprom"(i8 0, ptr nonnull %this) #29
   call void @_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %msg15) #29
   br label %common.resume
 }
@@ -9938,7 +9938,7 @@ nrvo.skipdtor:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen10HTTP2Codec24parseHeadersDecodeFramesERKNS_8OptionalINS2_5http214PriorityUpdateEEERKNS4_INS2_9HTTPCodec12ExAttributesEEEE3$_0Lb1EED2Ev"(i8 %this.0.val, ptr nocapture %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen10HTTP2Codec24parseHeadersDecodeFramesERKNS_8OptionalINS2_5http214PriorityUpdateEEERKNS4_INS2_9HTTPCodec12ExAttributesEEEE3$_0Lb1EED2Ev.argprom"(i8 %this.0.val, ptr nocapture %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool = trunc i8 %this.0.val to i1
   br i1 %tobool, label %if.end, label %if.then
@@ -23471,14 +23471,14 @@ attributes #32 = { nounwind willreturn memory(read) }
 !111 = distinct !{!111, !110, !"_ZSt19__relocate_object_aIN8proxygen11HTTPSettingES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
 !112 = distinct !{!112, !5}
 !113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZN5folly11makeTryWithIZN8proxygen10HTTP2Codec23onIngressUpgradeMessageERKNS1_11HTTPMessageEE3$_0EENSt9enable_ifIXntsr5isTryINS_13invoke_detail6traitsIT_E6resultIEEEE5valueENS_3TryISD_EEE4typeEOSA_: %agg.result"}
-!115 = distinct !{!115, !"_ZN5folly11makeTryWithIZN8proxygen10HTTP2Codec23onIngressUpgradeMessageERKNS1_11HTTPMessageEE3$_0EENSt9enable_ifIXntsr5isTryINS_13invoke_detail6traitsIT_E6resultIEEEE5valueENS_3TryISD_EEE4typeEOSA_"}
+!114 = distinct !{!114, !115, !"_ZN5folly11makeTryWithIZN8proxygen10HTTP2Codec23onIngressUpgradeMessageERKNS1_11HTTPMessageEE3$_0EENSt9enable_ifIXntsr5isTryINS_13invoke_detail6traitsIT_E6resultIEEEE5valueENS_3TryISD_EEE4typeEOSA_.argprom: %agg.result"}
+!115 = distinct !{!115, !"_ZN5folly11makeTryWithIZN8proxygen10HTTP2Codec23onIngressUpgradeMessageERKNS1_11HTTPMessageEE3$_0EENSt9enable_ifIXntsr5isTryINS_13invoke_detail6traitsIT_E6resultIEEEE5valueENS_3TryISD_EEE4typeEOSA_.argprom"}
 !116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZN5folly19makeTryWithNoUnwrapIZN8proxygen10HTTP2Codec23onIngressUpgradeMessageERKNS1_11HTTPMessageEE3$_0EENSt9enable_ifIXntsr3std7is_sameINS_13invoke_detail6traitsIT_E6resultIEEvEE5valueENS_3TryISD_EEE4typeEOSA_: %agg.result"}
-!118 = distinct !{!118, !"_ZN5folly19makeTryWithNoUnwrapIZN8proxygen10HTTP2Codec23onIngressUpgradeMessageERKNS1_11HTTPMessageEE3$_0EENSt9enable_ifIXntsr3std7is_sameINS_13invoke_detail6traitsIT_E6resultIEEvEE5valueENS_3TryISD_EEE4typeEOSA_"}
+!117 = distinct !{!117, !118, !"_ZN5folly19makeTryWithNoUnwrapIZN8proxygen10HTTP2Codec23onIngressUpgradeMessageERKNS1_11HTTPMessageEE3$_0EENSt9enable_ifIXntsr3std7is_sameINS_13invoke_detail6traitsIT_E6resultIEEvEE5valueENS_3TryISD_EEE4typeEOSA_.argprom: %agg.result"}
+!118 = distinct !{!118, !"_ZN5folly19makeTryWithNoUnwrapIZN8proxygen10HTTP2Codec23onIngressUpgradeMessageERKNS1_11HTTPMessageEE3$_0EENSt9enable_ifIXntsr3std7is_sameINS_13invoke_detail6traitsIT_E6resultIEEvEE5valueENS_3TryISD_EEE4typeEOSA_.argprom"}
 !119 = !{!120, !117, !114}
-!120 = distinct !{!120, !121, !"_ZZN8proxygen10HTTP2Codec23onIngressUpgradeMessageERKNS_11HTTPMessageEENK3$_0clB5cxx11Ev: %agg.result"}
-!121 = distinct !{!121, !"_ZZN8proxygen10HTTP2Codec23onIngressUpgradeMessageERKNS_11HTTPMessageEENK3$_0clB5cxx11Ev"}
+!120 = distinct !{!120, !121, !"_ZZN8proxygen10HTTP2Codec23onIngressUpgradeMessageERKNS_11HTTPMessageEENK3$_0clB5cxx11Ev.argprom: %agg.result"}
+!121 = distinct !{!121, !"_ZZN8proxygen10HTTP2Codec23onIngressUpgradeMessageERKNS_11HTTPMessageEENK3$_0clB5cxx11Ev.argprom"}
 !122 = !{!117, !114}
 !123 = !{!124, !117, !114}
 !124 = distinct !{!124, !125, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE: %agg.result"}

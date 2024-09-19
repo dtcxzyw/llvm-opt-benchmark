@@ -299,7 +299,7 @@ define dso_local range(i32 -1, 1) i32 @__secure_computing(ptr noundef %0) local_
 34:                                               ; preds = %30
   store i32 3, ptr %4, align 8
   %35 = sext i32 %19 to i64
-  tail call fastcc void @seccomp_log(i64 noundef %35)
+  tail call fastcc void @seccomp_log.argelim(i64 noundef %35)
   tail call void @do_exit(i64 noundef 9) #16
   unreachable
 
@@ -1380,7 +1380,7 @@ define internal fastcc i64 @do_seccomp(i32 noundef %0, i32 noundef %1, ptr nound
   br i1 %169, label %170, label %.loopexit25
 
 170:                                              ; preds = %.loopexit26
-  call fastcc void @seccomp_assign_mode(ptr noundef %50, i64 noundef %36)
+  call fastcc void @seccomp_assign_mode.argelim(ptr noundef %50, i64 noundef %36)
   br label %.loopexit25
 
 .loopexit25:                                      ; preds = %.preheader24, %170, %.loopexit26, %147
@@ -1551,7 +1551,7 @@ declare dso_local void @bpf_prog_destroy(ptr noundef) local_unnamed_addr #5
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @seccomp_log(i64 noundef range(i64 -2147483648, 2147483648) %0) unnamed_addr #6 align 16 {
+define internal fastcc void @seccomp_log.argelim(i64 noundef range(i64 -2147483648, 2147483648) %0) unnamed_addr #6 align 16 {
   %2 = load i32, ptr @seccomp_actions_logged, align 4
   %3 = and i32 %2, 2
   %4 = icmp eq i32 %3, 0
@@ -1620,7 +1620,7 @@ declare dso_local i32 @receive_fd_replace(i32 noundef, ptr noundef, i32 noundef)
 declare dso_local void @disable_TSC() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @seccomp_assign_mode(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #6 align 16 {
+define internal fastcc void @seccomp_assign_mode.argelim(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1888
   %4 = load ptr, ptr %3, align 32
   %5 = load volatile i32, ptr %4, align 4
@@ -1837,14 +1837,14 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @seccomp_attach_fi
   %.val = load ptr, ptr %11, align 8
   %98 = getelementptr i8, ptr %.val, i64 64
   %.val.val = load ptr, ptr %98, align 8
-  tail call fastcc void @seccomp_cache_prepare_bitmap(ptr %.val.val, ptr noundef %96, ptr noundef %95, i32 noundef -1073741762)
+  tail call fastcc void @seccomp_cache_prepare_bitmap.argprom.argprom(ptr %.val.val, ptr noundef %96, ptr noundef %95, i32 noundef -1073741762)
   %99 = getelementptr inbounds i8, ptr %1, i64 80
   %100 = getelementptr inbounds i8, ptr %95, i64 64
   %101 = select i1 %97, ptr null, ptr %100
   %.val12 = load ptr, ptr %11, align 8
   %102 = getelementptr i8, ptr %.val12, i64 64
   %.val12.val = load ptr, ptr %102, align 8
-  tail call fastcc void @seccomp_cache_prepare_bitmap(ptr %.val12.val, ptr noundef %99, ptr noundef %101, i32 noundef 1073741827)
+  tail call fastcc void @seccomp_cache_prepare_bitmap.argprom.argprom(ptr %.val12.val, ptr noundef %99, ptr noundef %101, i32 noundef 1073741827)
   store ptr %1, ptr %16, align 8
   %103 = getelementptr inbounds i8, ptr %4, i64 1996
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %103, ptr elementtype(i32) %103) #14, !srcloc !41
@@ -2932,7 +2932,7 @@ declare dso_local ptr @fget(i32 noundef) local_unnamed_addr #5
 declare dso_local zeroext i1 @mutex_is_locked(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @seccomp_cache_prepare_bitmap(ptr %.152.val.64.val, ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 -1073741762, 1073741828) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @seccomp_cache_prepare_bitmap.argprom.argprom(ptr %.152.val.64.val, ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 -1073741762, 1073741828) %2) unnamed_addr #0 align 16 {
   %.152.val.64.val.fr = freeze ptr %.152.val.64.val
   %4 = icmp eq ptr %1, null
   br i1 %4, label %6, label %5

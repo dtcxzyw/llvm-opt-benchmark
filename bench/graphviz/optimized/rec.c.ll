@@ -309,9 +309,9 @@ define range(i32 -1, 1) i32 @agdelrec(ptr noundef %0, ptr nocapture noundef read
   %28 = getelementptr inbounds i8, ptr %.0.i19, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not.i20 = icmp eq ptr %29, %.021.i
-  br i1 %.not.i20, label %listdelrec.exit, label %27
+  br i1 %.not.i20, label %listdelrec.argprom.exit, label %27
 
-listdelrec.exit:                                  ; preds = %27
+listdelrec.argprom.exit:                          ; preds = %27
   %30 = getelementptr inbounds i8, ptr %.0.i19, i64 8
   %31 = getelementptr inbounds i8, ptr %.021.i, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -321,7 +321,7 @@ listdelrec.exit:                                  ; preds = %27
   %switch = icmp eq i32 %34, 0
   br i1 %switch, label %35, label %41
 
-35:                                               ; preds = %listdelrec.exit
+35:                                               ; preds = %listdelrec.argprom.exit
   %36 = load ptr, ptr %4, align 8
   %37 = icmp eq ptr %36, %.021.i
   br i1 %37, label %38, label %objdelrec.exit
@@ -334,7 +334,7 @@ listdelrec.exit:                                  ; preds = %27
   store i32 %40, ptr %0, align 8
   br label %objdelrec.exit
 
-41:                                               ; preds = %listdelrec.exit
+41:                                               ; preds = %listdelrec.argprom.exit
   %42 = tail call ptr @agroot(ptr noundef %3) #6
   %43 = tail call i32 @agapply(ptr noundef %42, ptr noundef nonnull %0, ptr noundef nonnull @objdelrec, ptr noundef nonnull %.021.i, i32 noundef 0) #6
   br label %objdelrec.exit
@@ -569,9 +569,9 @@ define void @agclean(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnam
   %37 = getelementptr inbounds i8, ptr %.0.i19.i, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not.i20.i = icmp eq ptr %38, %.021.i.i
-  br i1 %.not.i20.i, label %listdelrec.exit.i, label %36
+  br i1 %.not.i20.i, label %listdelrec.argprom.exit.i, label %36
 
-listdelrec.exit.i:                                ; preds = %36
+listdelrec.argprom.exit.i:                        ; preds = %36
   %39 = getelementptr inbounds i8, ptr %.0.i19.i, i64 8
   %40 = getelementptr inbounds i8, ptr %.021.i.i, i64 8
   %41 = load ptr, ptr %40, align 8
@@ -581,7 +581,7 @@ listdelrec.exit.i:                                ; preds = %36
   %switch.i = icmp eq i32 %43, 0
   br i1 %switch.i, label %44, label %50
 
-44:                                               ; preds = %listdelrec.exit.i
+44:                                               ; preds = %listdelrec.argprom.exit.i
   %45 = load ptr, ptr %13, align 8
   %46 = icmp eq ptr %45, %.021.i.i
   br i1 %46, label %47, label %objdelrec.exit.i
@@ -594,7 +594,7 @@ listdelrec.exit.i:                                ; preds = %36
   store i32 %49, ptr %.022, align 8
   br label %objdelrec.exit.i
 
-50:                                               ; preds = %listdelrec.exit.i
+50:                                               ; preds = %listdelrec.argprom.exit.i
   %51 = tail call ptr @agroot(ptr noundef %12) #6
   %52 = tail call i32 @agapply(ptr noundef %51, ptr noundef nonnull %.022, ptr noundef nonnull @objdelrec, ptr noundef nonnull %.021.i.i, i32 noundef 0) #6
   br label %objdelrec.exit.i

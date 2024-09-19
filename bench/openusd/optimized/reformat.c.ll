@@ -1949,7 +1949,7 @@ define internal fastcc i32 @avifImageYUVToRGBImpl(ptr noundef %0, ptr noundef %1
   br i1 %105, label %.thread131, label %.thread127
 
 .thread131:                                       ; preds = %102
-  call fastcc void @avifImageIdentity8ToRGB8ColorFullRange(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  call fastcc void @avifImageIdentity8ToRGB8ColorFullRange.retelim(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
   br label %594
 
 106:                                              ; preds = %87
@@ -3382,7 +3382,7 @@ declare float @avifRoundf(float noundef) local_unnamed_addr #1
 declare i32 @avifImageYUVToRGBLibYUV(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @avifImageIdentity8ToRGB8ColorFullRange(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #5 {
+define internal fastcc void @avifImageIdentity8ToRGB8ColorFullRange.retelim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0

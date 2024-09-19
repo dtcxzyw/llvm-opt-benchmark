@@ -1752,7 +1752,7 @@ dissect_packetcable_ccc_option.exit:              ; preds = %142, %168
   %214 = load i32, ptr @hf_packetcable_cccV6_prov_srv_fqdn, align 4
   %215 = add i32 %.5276, 5
   %216 = add i16 %178, -1
-  tail call fastcc void @dhcpv6_domain(ptr noundef %188, ptr noundef %1, i32 noundef %214, ptr noundef %0, i32 noundef %215, i16 noundef zeroext %216)
+  tail call fastcc void @dhcpv6_domain.argprom(ptr noundef %188, ptr noundef %1, i32 noundef %214, ptr noundef %0, i32 noundef %215, i16 noundef zeroext %216)
   %.pre.i = zext i16 %178 to i32
   br label %.loopexit.i
 
@@ -1851,7 +1851,7 @@ dissect_packetcable_ccc_option.exit:              ; preds = %142, %168
 
 266:                                              ; preds = %264
   %267 = load i32, ptr @hf_packetcable_cccV6_krb_realm, align 4
-  tail call fastcc void @dhcpv6_domain(ptr noundef %188, ptr noundef %1, i32 noundef %267, ptr noundef %0, i32 noundef %179, i16 noundef zeroext %178)
+  tail call fastcc void @dhcpv6_domain.argprom(ptr noundef %188, ptr noundef %1, i32 noundef %267, ptr noundef %0, i32 noundef %179, i16 noundef zeroext %178)
   br label %268
 
 268:                                              ; preds = %266, %264
@@ -2479,7 +2479,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
 185:                                              ; preds = %165
   %186 = load i32, ptr @hf_option_ntpserver_fqdn, align 4
   %187 = add i32 %176, %42
-  call fastcc void @dhcpv6_domain(ptr noundef %170, ptr noundef %1, i32 noundef %186, ptr noundef %0, i32 noundef %187, i16 noundef zeroext %159)
+  call fastcc void @dhcpv6_domain.argprom(ptr noundef %170, ptr noundef %1, i32 noundef %186, ptr noundef %0, i32 noundef %187, i16 noundef zeroext %159)
   br label %188
 
 188:                                              ; preds = %185, %181, %177, %165
@@ -3150,7 +3150,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %581 = load i32, ptr @ett_dhcpv6_sip_server_domain_search_list_option, align 4
   %582 = call ptr @proto_tree_add_subtree(ptr noundef %37, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef %581, ptr noundef nonnull %11, ptr noundef nonnull @.str.799) #6
   %583 = load i32, ptr @hf_sip_server_domain_search_fqdn, align 4
-  call fastcc void @dhcpv6_domain(ptr noundef %582, ptr noundef %1, i32 noundef %583, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
+  call fastcc void @dhcpv6_domain.argprom(ptr noundef %582, ptr noundef %1, i32 noundef %583, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
   br label %proto_item_set_url.exit
 
 584:                                              ; preds = %30
@@ -3208,7 +3208,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %606 = load i32, ptr @ett_dhcpv6_dns_domain_search_list_option, align 4
   %607 = call ptr @proto_tree_add_subtree(ptr noundef %37, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef %606, ptr noundef nonnull %11, ptr noundef nonnull @.str.803) #6
   %608 = load i32, ptr @hf_domain_search_list_entry, align 4
-  call fastcc void @dhcpv6_domain(ptr noundef %607, ptr noundef %1, i32 noundef %608, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
+  call fastcc void @dhcpv6_domain.argprom(ptr noundef %607, ptr noundef %1, i32 noundef %608, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
   br label %proto_item_set_url.exit
 
 609:                                              ; preds = %30
@@ -3263,7 +3263,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %629 = load i32, ptr @ett_dhcpv6_nis_domain_name_option, align 4
   %630 = call ptr @proto_tree_add_subtree(ptr noundef %37, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef %629, ptr noundef nonnull %11, ptr noundef nonnull @.str.806) #6
   %631 = load i32, ptr @hf_nis_fqdn, align 4
-  call fastcc void @dhcpv6_domain(ptr noundef %630, ptr noundef %1, i32 noundef %631, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
+  call fastcc void @dhcpv6_domain.argprom(ptr noundef %630, ptr noundef %1, i32 noundef %631, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
   br label %proto_item_set_url.exit
 
 632:                                              ; preds = %30
@@ -3274,7 +3274,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %634 = load i32, ptr @ett_dhcpv6_nisp_domain_name_option, align 4
   %635 = call ptr @proto_tree_add_subtree(ptr noundef %37, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef %634, ptr noundef nonnull %11, ptr noundef nonnull @.str.807) #6
   %636 = load i32, ptr @hf_nisp_fqdn, align 4
-  call fastcc void @dhcpv6_domain(ptr noundef %635, ptr noundef %1, i32 noundef %636, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
+  call fastcc void @dhcpv6_domain.argprom(ptr noundef %635, ptr noundef %1, i32 noundef %636, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
   br label %proto_item_set_url.exit
 
 637:                                              ; preds = %30
@@ -3323,7 +3323,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %656 = load i32, ptr @ett_dhcpv6_bcmcs_servers_domain_search_list_option, align 4
   %657 = call ptr @proto_tree_add_subtree(ptr noundef %37, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef %656, ptr noundef nonnull %11, ptr noundef nonnull @.str.810) #6
   %658 = load i32, ptr @hf_bcmcs_servers_fqdn, align 4
-  call fastcc void @dhcpv6_domain(ptr noundef %657, ptr noundef %1, i32 noundef %658, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
+  call fastcc void @dhcpv6_domain.argprom(ptr noundef %657, ptr noundef %1, i32 noundef %658, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
   br label %proto_item_set_url.exit
 
 659:                                              ; preds = %30
@@ -3486,7 +3486,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %732 = load i32, ptr @hf_client_fqdn, align 4
   %733 = add i32 %3, 5
   %734 = add i16 %25, -1
-  tail call fastcc void @dhcpv6_domain(ptr noundef %37, ptr noundef %1, i32 noundef %732, ptr noundef %0, i32 noundef %733, i16 noundef zeroext %734)
+  tail call fastcc void @dhcpv6_domain.argprom(ptr noundef %37, ptr noundef %1, i32 noundef %732, ptr noundef %0, i32 noundef %733, i16 noundef zeroext %734)
   br label %proto_item_set_url.exit
 
 735:                                              ; preds = %30
@@ -3673,7 +3673,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 823:                                              ; preds = %30
   %824 = load i32, ptr @hf_aftr_name, align 4
-  tail call fastcc void @dhcpv6_domain(ptr noundef %37, ptr noundef %1, i32 noundef %824, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
+  tail call fastcc void @dhcpv6_domain.argprom(ptr noundef %37, ptr noundef %1, i32 noundef %824, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
   br label %proto_item_set_url.exit
 
 825:                                              ; preds = %30
@@ -4180,7 +4180,7 @@ declare ptr @tvb_arphrdaddr_to_str(ptr noundef, ptr noundef, i32 noundef, i32 no
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dhcpv6_domain(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @dhcpv6_domain.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5) unnamed_addr #0 {
   %7 = zext i16 %5 to i32
   %8 = icmp eq i16 %5, 0
   br i1 %8, label %9, label %13

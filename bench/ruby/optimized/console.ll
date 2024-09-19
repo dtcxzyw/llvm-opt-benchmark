@@ -227,7 +227,7 @@ declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i64 @console_raw(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.rawmode_arg_t, align 4
-  %5 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef %4)
+  %5 = call fastcc ptr @rawmode_opt.argprom.argelim(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef %4)
   %6 = call fastcc i64 @ttymode(i64 noundef %2, ptr noundef nonnull @rb_yield, i64 noundef %2, ptr noundef nonnull @set_rawmode, ptr noundef %5)
   ret i64 %6
 }
@@ -236,7 +236,7 @@ define internal i64 @console_raw(i32 noundef %0, ptr noundef %1, i64 noundef %2)
 define internal noundef i64 @console_set_raw(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
   %4 = alloca %struct.termios, align 4
   %5 = alloca %struct.rawmode_arg_t, align 4
-  %6 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef %5)
+  %6 = call fastcc ptr @rawmode_opt.argprom.argelim(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef %5)
   %7 = call i32 @rb_io_descriptor(i64 noundef %2) #10
   %8 = call i32 @tcgetattr(i32 noundef %7, ptr noundef nonnull %4) #10
   %9 = icmp eq i32 %8, 0
@@ -376,7 +376,7 @@ setattr.exit:                                     ; preds = %17
 ; Function Attrs: nounwind uwtable
 define internal i64 @console_getch(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.rawmode_arg_t, align 4
-  %5 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef %4)
+  %5 = call fastcc ptr @rawmode_opt.argprom.argelim(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef %4)
   %6 = call fastcc i64 @ttymode(i64 noundef %2, ptr noundef nonnull @getc_call, i64 noundef %2, ptr noundef nonnull @set_rawmode, ptr noundef %5)
   ret i64 %6
 }
@@ -768,7 +768,7 @@ define internal i64 @console_cursor_pos(i64 noundef %0) #0 {
   %2 = alloca %struct.ttymode_callback_args, align 8
   %3 = alloca %struct.rawmode_arg_t, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
-  %4 = call fastcc ptr @rawmode_opt(i32 0, ptr noundef null, i32 noundef 1, ptr noundef %3)
+  %4 = call fastcc ptr @rawmode_opt.argprom.argelim(i32 0, ptr noundef null, i32 noundef 1, ptr noundef %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store ptr @read_vt_response, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1579,7 +1579,7 @@ define internal noundef i64 @conmode_set_echo(i64 noundef returned %0, i64 nound
 define internal noundef i64 @conmode_set_raw(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
   %4 = alloca %struct.rawmode_arg_t, align 4
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @conmode_type) #10
-  %6 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef %4)
+  %6 = call fastcc ptr @rawmode_opt.argprom.argelim(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef %4)
   call void @cfmakeraw(ptr noundef %5) #10
   %7 = getelementptr inbounds i8, ptr %5, i64 12
   %8 = load i32, ptr %7, align 4
@@ -1639,7 +1639,7 @@ define internal i64 @conmode_raw_new(i32 noundef %0, ptr noundef %1, i64 noundef
   %5 = alloca %struct.rawmode_arg_t, align 4
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @conmode_type) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %4, ptr noundef nonnull align 4 dereferenceable(60) %6, i64 60, i1 false)
-  %7 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef %5)
+  %7 = call fastcc ptr @rawmode_opt.argprom.argelim(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef %5)
   call void @cfmakeraw(ptr noundef nonnull %4) #10
   %8 = getelementptr inbounds i8, ptr %4, i64 12
   %9 = load i32, ptr %8, align 4
@@ -1700,7 +1700,7 @@ set_rawmode.exit:                                 ; preds = %3, %24, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @rawmode_opt(i32 %.0.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rawmode_opt.argprom.argelim(i32 %.0.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca [3 x i64], align 16
   %6 = alloca i64, align 8
@@ -2165,13 +2165,13 @@ define internal fastcc void @RARRAY_ASET(i64 noundef %0, i64 noundef range(i64 0
   %7 = icmp ne i64 %6, 0
   %8 = icmp eq i64 %2, 0
   %9 = or i1 %8, %7
-  br i1 %9, label %rb_obj_write.exit, label %10
+  br i1 %9, label %rb_obj_write.argprom.exit, label %10
 
 10:                                               ; preds = %3
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %2) #10
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %3, %10
+rb_obj_write.argprom.exit:                        ; preds = %3, %10
   tail call void @rb_ary_ptr_use_end(i64 noundef %0) #10
   ret void
 }

@@ -607,13 +607,13 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_pUserSid_(p
   %7 = getelementptr i8, ptr %4, i64 28
   %.val = load i32, ptr %7, align 4
   %.not.i = icmp eq i32 %.val, 0
-  br i1 %.not.i, label %8, label %efs_dissect_struct_dom_sid.exit
+  br i1 %.not.i, label %8, label %efs_dissect_struct_dom_sid.argprom.exit
 
 8:                                                ; preds = %6
   %9 = tail call i32 @dissect_nt_sid(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef nonnull @.str.57, ptr noundef null, i32 noundef -1) #4
-  br label %efs_dissect_struct_dom_sid.exit
+  br label %efs_dissect_struct_dom_sid.argprom.exit
 
-efs_dissect_struct_dom_sid.exit:                  ; preds = %6, %8
+efs_dissect_struct_dom_sid.argprom.exit:          ; preds = %6, %8
   %.0.i = phi i32 [ %9, %8 ], [ %1, %6 ]
   ret i32 %.0.i
 }
@@ -673,13 +673,13 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_pUserSid_(ptr no
   %7 = getelementptr i8, ptr %4, i64 28
   %.val = load i32, ptr %7, align 4
   %.not.i = icmp eq i32 %.val, 0
-  br i1 %.not.i, label %8, label %efs_dissect_struct_dom_sid.exit
+  br i1 %.not.i, label %8, label %efs_dissect_struct_dom_sid.argprom.exit
 
 8:                                                ; preds = %6
   %9 = tail call i32 @dissect_nt_sid(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef nonnull @.str.57, ptr noundef null, i32 noundef -1) #4
-  br label %efs_dissect_struct_dom_sid.exit
+  br label %efs_dissect_struct_dom_sid.argprom.exit
 
-efs_dissect_struct_dom_sid.exit:                  ; preds = %6, %8
+efs_dissect_struct_dom_sid.argprom.exit:          ; preds = %6, %8
   %.0.i = phi i32 [ %9, %8 ], [ %1, %6 ]
   ret i32 %.0.i
 }

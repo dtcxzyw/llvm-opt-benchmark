@@ -282,7 +282,7 @@ define dso_local void @init_ps_display(ptr noundef %0) local_unnamed_addr #0 {
   %32 = trunc i8 %31 to i1
   %.not.i.i.i = icmp ne ptr %27, null
   %or.cond.i.i = and i1 %.not.i.i.i, %32
-  br i1 %or.cond.i.i, label %33, label %set_ps_display.exit
+  br i1 %or.cond.i.i, label %33, label %set_ps_display.argprom.exit
 
 33:                                               ; preds = %26
   store i64 0, ptr @ps_buffer_nosuffix_len, align 8
@@ -352,13 +352,13 @@ define dso_local void @init_ps_display(ptr noundef %0) local_unnamed_addr #0 {
 
 flush_ps_display.exit.i.i:                        ; preds = %68, %.lr.ph.preheader.i.i.i, %57, %43
   store i64 %storemerge.i.i, ptr @last_status_len, align 8
-  br label %set_ps_display.exit
+  br label %set_ps_display.argprom.exit
 
-set_ps_display.exit:                              ; preds = %26, %flush_ps_display.exit.i.i
+set_ps_display.argprom.exit:                      ; preds = %26, %flush_ps_display.exit.i.i
   store i8 %30, ptr @update_process_title, align 1
   br label %69
 
-69:                                               ; preds = %5, %set_ps_display.exit
+69:                                               ; preds = %5, %set_ps_display.argprom.exit
   ret void
 }
 

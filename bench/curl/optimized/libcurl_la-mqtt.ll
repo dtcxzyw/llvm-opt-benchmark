@@ -494,9 +494,9 @@ do.end32:                                         ; preds = %do.end32split, %do.
 if.end42:                                         ; preds = %do.end32
   %21 = load i64, ptr %npacket27, align 8
   %cmp1.not.i = icmp eq i64 %21, 0
-  br i1 %cmp1.not.i, label %mqtt_decode_len.exit.thread, label %for.body.i
+  br i1 %cmp1.not.i, label %mqtt_decode_len.argprom.exit.thread, label %for.body.i
 
-mqtt_decode_len.exit.thread:                      ; preds = %if.end42
+mqtt_decode_len.argprom.exit.thread:              ; preds = %if.end42
   %remaining_length89 = getelementptr inbounds i8, ptr %1, i64 32
   store i64 0, ptr %remaining_length89, align 8
   br label %if.end50
@@ -516,16 +516,16 @@ for.body.i:                                       ; preds = %if.end42, %for.body
   %cmp.i = icmp ult i64 %inc.i, %21
   %tobool.i = icmp slt i8 %22, 0
   %24 = select i1 %cmp.i, i1 %tobool.i, i1 false
-  br i1 %24, label %for.body.i, label %mqtt_decode_len.exit, !llvm.loop !7
+  br i1 %24, label %for.body.i, label %mqtt_decode_len.argprom.exit, !llvm.loop !7
 
-mqtt_decode_len.exit:                             ; preds = %for.body.i
+mqtt_decode_len.argprom.exit:                     ; preds = %for.body.i
   %remaining_length = getelementptr inbounds i8, ptr %1, i64 32
   store i64 %add.i, ptr %remaining_length, align 8
   store i64 0, ptr %npacket27, align 8
   %tobool48.not = icmp eq i64 %add.i, 0
   br i1 %tobool48.not, label %if.end50, label %if.then49
 
-if.then49:                                        ; preds = %mqtt_decode_len.exit
+if.then49:                                        ; preds = %mqtt_decode_len.argprom.exit
   %nextstate = getelementptr inbounds i8, ptr %0, i64 860
   %25 = load i32, ptr %nextstate, align 4
   %data.val58 = load ptr, ptr %conn1, align 8
@@ -539,7 +539,7 @@ if.then.i:                                        ; preds = %if.then49
   store i32 7, ptr %nextstate3.i, align 4
   br label %return
 
-if.end50:                                         ; preds = %mqtt_decode_len.exit.thread, %mqtt_decode_len.exit
+if.end50:                                         ; preds = %mqtt_decode_len.argprom.exit.thread, %mqtt_decode_len.argprom.exit
   %data.val59 = load ptr, ptr %conn1, align 8
   %proto.i67 = getelementptr inbounds i8, ptr %data.val59, i64 856
   store i32 0, ptr %proto.i67, align 4

@@ -410,12 +410,12 @@ define dso_local i64 @rb_fiber_new_storage(ptr noundef %0, i64 noundef %1, i64 n
   %4 = load i64, ptr @rb_cFiber, align 8
   %5 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %4, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %6 = tail call i64 @rb_proc_new(ptr noundef %0, i64 noundef %1) #9
-  %7 = tail call fastcc i64 @fiber_initialize(i64 noundef %5, i64 noundef %6, i32 noundef 1, i64 noundef %2)
+  %7 = tail call fastcc i64 @fiber_initialize.argprom(i64 noundef %5, i64 noundef %6, i32 noundef 1, i64 noundef %2)
   ret i64 %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @fiber_initialize(i64 noundef returned %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @fiber_initialize.argprom(i64 noundef returned %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i64 noundef %3) unnamed_addr #0 {
   switch i64 %3, label %11 [
     i64 36, label %5
     i64 20, label %5
@@ -580,7 +580,7 @@ define dso_local i64 @rb_fiber_new(ptr noundef %0, i64 noundef %1) local_unnamed
   %3 = load i64, ptr @rb_cFiber, align 8
   %4 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %3, ptr noundef null, ptr noundef nonnull @fiber_data_type) #9
   %5 = tail call i64 @rb_proc_new(ptr noundef %0, i64 noundef %1) #9
-  %6 = tail call fastcc i64 @fiber_initialize(i64 noundef %4, i64 noundef %5, i32 noundef 1, i64 noundef 20)
+  %6 = tail call fastcc i64 @fiber_initialize.argprom(i64 noundef %4, i64 noundef %5, i32 noundef 1, i64 noundef 20)
   ret i64 %4
 }
 
@@ -625,7 +625,7 @@ define hidden void @rb_fiber_start(ptr noundef %0) local_unnamed_addr #6 {
   %24 = getelementptr i8, ptr %19, i64 48
   %.0.14.val = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %.0.14.val, null
-  br i1 %.not.i.i, label %rb_ec_ractor_ptr.exit.i, label %25
+  br i1 %.not.i.i, label %rb_ec_ractor_ptr.argprom.exit.i, label %25
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds i8, ptr %.0.14.val, i64 32
@@ -633,23 +633,23 @@ define hidden void @rb_fiber_start(ptr noundef %0) local_unnamed_addr #6 {
   %28 = getelementptr inbounds i8, ptr %27, i64 88
   %29 = getelementptr inbounds i8, ptr %.0.14.val, i64 24
   %30 = load ptr, ptr %29, align 8
-  br label %rb_ec_ractor_ptr.exit.i
+  br label %rb_ec_ractor_ptr.argprom.exit.i
 
-rb_ec_ractor_ptr.exit.i:                          ; preds = %25, %17
+rb_ec_ractor_ptr.argprom.exit.i:                  ; preds = %25, %17
   %.in.i = phi ptr [ %28, %25 ], [ inttoptr (i64 88 to ptr), %17 ]
   %.0.i2.i = phi ptr [ %27, %25 ], [ null, %17 ]
   %.0.i6.i = phi ptr [ %30, %25 ], [ null, %17 ]
   %31 = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %31, %.0.i6.i
-  br i1 %.not.i, label %32, label %rb_ec_vm_lock_rec.exit
+  br i1 %.not.i, label %32, label %rb_ec_vm_lock_rec.argprom.exit
 
-32:                                               ; preds = %rb_ec_ractor_ptr.exit.i
+32:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i
   %33 = getelementptr inbounds i8, ptr %.0.i2.i, i64 96
   %34 = load i32, ptr %33, align 8
-  br label %rb_ec_vm_lock_rec.exit
+  br label %rb_ec_vm_lock_rec.argprom.exit
 
-rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %32
-  %.0.i = phi i32 [ %34, %32 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
+rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.argprom.exit.i, %32
+  %.0.i = phi i32 [ %34, %32 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i ]
   %35 = getelementptr inbounds i8, ptr %6, i64 68
   store i32 %.0.i, ptr %35, align 4
   %36 = getelementptr inbounds i8, ptr %6, i64 16
@@ -662,7 +662,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %.not43 = icmp eq i32 %40, 0
   br i1 %.not43, label %60, label %41
 
-41:                                               ; preds = %rb_ec_vm_lock_rec.exit
+41:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit
   %.0..0..0..0.15 = load volatile ptr, ptr %5, align 8
   %42 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 24
   %43 = load ptr, ptr %42, align 8
@@ -674,7 +674,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %48 = getelementptr i8, ptr %.0..0..0..0.15, i64 48
   %.val.i.i = load ptr, ptr %48, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.exit.i.i.i, label %49
+  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.argprom.exit.i.i.i, label %49
 
 49:                                               ; preds = %41
   %50 = getelementptr inbounds i8, ptr %.val.i.i, i64 32
@@ -682,32 +682,32 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %52 = getelementptr inbounds i8, ptr %51, i64 88
   %53 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
   %54 = load ptr, ptr %53, align 8
-  br label %rb_ec_ractor_ptr.exit.i.i.i
+  br label %rb_ec_ractor_ptr.argprom.exit.i.i.i
 
-rb_ec_ractor_ptr.exit.i.i.i:                      ; preds = %49, %41
+rb_ec_ractor_ptr.argprom.exit.i.i.i:              ; preds = %49, %41
   %.in.i.i.i = phi ptr [ %52, %49 ], [ inttoptr (i64 88 to ptr), %41 ]
   %.0.i2.i.i.i = phi ptr [ %51, %49 ], [ null, %41 ]
   %.0.i6.i.i.i = phi ptr [ %54, %49 ], [ null, %41 ]
   %55 = load ptr, ptr %.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %55, %.0.i6.i.i.i
-  br i1 %.not.i.i.i, label %56, label %rb_ec_vm_lock_rec.exit.i.i
+  br i1 %.not.i.i.i, label %56, label %rb_ec_vm_lock_rec.argprom.exit.i.i
 
-56:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i.i
+56:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i.i.i
   %57 = getelementptr inbounds i8, ptr %.0.i2.i.i.i, i64 96
   %58 = load i32, ptr %57, align 8
-  br label %rb_ec_vm_lock_rec.exit.i.i
+  br label %rb_ec_vm_lock_rec.argprom.exit.i.i
 
-rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %56, %rb_ec_ractor_ptr.exit.i.i.i
-  %.0.i.i.i = phi i32 [ %58, %56 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i ]
+rb_ec_vm_lock_rec.argprom.exit.i.i:               ; preds = %56, %rb_ec_ractor_ptr.argprom.exit.i.i.i
+  %.0.i.i.i = phi i32 [ %58, %56 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i.i.i ]
   %.not.i.i46 = icmp eq i32 %.0.i.i.i, %47
   br i1 %.not.i.i46, label %121, label %59
 
-59:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i
+59:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit.i.i
   call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.15, i32 noundef %47, i32 noundef %.0.i.i.i) #9
   %.0..0..0..0.17.pre = load ptr, ptr %5, align 8
   br label %121
 
-60:                                               ; preds = %rb_ec_vm_lock_rec.exit
+60:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit
   store ptr %6, ptr %21, align 8
   %.0..0..0..0.37 = load volatile ptr, ptr %3, align 8
   %61 = getelementptr inbounds i8, ptr %.0..0..0..0.37, i64 24
@@ -815,8 +815,8 @@ rb_array_const_ptr.exit:                          ; preds = %77, %75, %60
   %.0..0..0..0.40.pre = load ptr, ptr %3, align 8
   br label %133
 
-121:                                              ; preds = %59, %rb_ec_vm_lock_rec.exit.i.i
-  %.0..0..0.17 = phi ptr [ %.0..0..0..0.17.pre, %59 ], [ %.0..0..0..0.15, %rb_ec_vm_lock_rec.exit.i.i ]
+121:                                              ; preds = %59, %rb_ec_vm_lock_rec.argprom.exit.i.i
+  %.0..0..0.17 = phi ptr [ %.0..0..0..0.17.pre, %59 ], [ %.0..0..0..0.15, %rb_ec_vm_lock_rec.argprom.exit.i.i ]
   %122 = icmp ne i32 %45, 0
   call void @llvm.assume(i1 %122)
   %123 = load ptr, ptr %23, align 8
@@ -1451,7 +1451,7 @@ make_passing_arg.exit64:                          ; preds = %127, %130, %132, %1
   %164 = load i64, ptr %163, align 8, !noalias !15
   %spec.store.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %164, i64 1024)
   %spec.select.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %spec.store.select.i.i.i.i, i64 %162)
-  tail call fastcc void @fiber_pool_expand(ptr noundef nonnull %157, i64 noundef %spec.select.i.i.i.i)
+  tail call fastcc void @fiber_pool_expand.retelim(ptr noundef nonnull %157, i64 noundef %spec.select.i.i.i.i)
   %165 = load ptr, ptr %158, align 8, !noalias !15, !nonnull !13, !noundef !13
   br label %fiber_prepare_stack.exit.i
 
@@ -2352,7 +2352,7 @@ define hidden void @Init_Cont() local_unnamed_addr #0 {
   store i32 1, ptr getelementptr inbounds (i8, ptr @shared_fiber_pool, i64 40), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @shared_fiber_pool, i64 48), align 8
   store i64 %7, ptr getelementptr inbounds (i8, ptr @shared_fiber_pool, i64 56), align 8
-  tail call fastcc void @fiber_pool_expand(ptr noundef nonnull @shared_fiber_pool, i64 noundef 32)
+  tail call fastcc void @fiber_pool_expand.retelim(ptr noundef nonnull @shared_fiber_pool, i64 noundef 32)
   %20 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.2, i64 noundef 8) #9
   store i64 %20, ptr @fiber_initialize_keywords, align 16
   %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.3, i64 noundef 4) #9
@@ -2744,7 +2744,7 @@ rb_fiber_initialize_kw.exit:                      ; preds = %3, %7
   %.07.i = phi i32 [ %18, %7 ], [ 0, %3 ]
   %.0.i = phi i64 [ %15, %7 ], [ 36, %3 ]
   %19 = call i64 @rb_block_proc() #9
-  %20 = call fastcc i64 @fiber_initialize(i64 noundef %2, i64 noundef %19, i32 noundef %.07.i, i64 noundef %.0.i)
+  %20 = call fastcc i64 @fiber_initialize.argprom(i64 noundef %2, i64 noundef %19, i32 noundef %.07.i, i64 noundef %.0.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret i64 %2
@@ -3395,13 +3395,13 @@ define internal noundef i64 @rb_cont_call(i32 noundef %0, ptr noundef %1, i64 no
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %4, i64 496
   %25 = load ptr, ptr %24, align 8
-  tail call fastcc void @rollback_ensure_stack(ptr noundef %23, ptr noundef %25)
+  tail call fastcc void @rollback_ensure_stack.argelim(ptr noundef %23, ptr noundef %25)
   %26 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %0, ptr %26, align 4
   %27 = tail call fastcc i64 @make_passing_arg(i32 noundef %0, ptr noundef %1)
   %28 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %27, ptr %28, align 8
-  tail call fastcc void @cont_restore_0(ptr noundef nonnull %4) #34
+  tail call fastcc void @cont_restore_0.argprom(ptr noundef nonnull %4) #34
   unreachable
 }
 
@@ -4439,7 +4439,7 @@ define internal void @fiber_entry(ptr nocapture readnone %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @fiber_pool_expand(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @fiber_pool_expand.retelim(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr @pagesize, align 8
@@ -4622,7 +4622,7 @@ declare i64 @rb_fiber_scheduler_current() local_unnamed_addr #1
 declare i64 @rb_fiber_scheduler_fiber(i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rollback_ensure_stack(ptr noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @rollback_ensure_stack.argelim(ptr noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %.not63 = icmp eq ptr %0, null
@@ -4802,7 +4802,7 @@ lookup_rollback_func.exit56:                      ; preds = %59
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @cont_restore_0(ptr noundef %0) unnamed_addr #6 {
+define internal fastcc void @cont_restore_0.argprom(ptr noundef %0) unnamed_addr #6 {
   %2 = alloca [1 x i64], align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8

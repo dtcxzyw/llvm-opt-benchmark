@@ -19,11 +19,11 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canon
   %.val29 = load i64, ptr %5, align 8, !noundef !4
   br label %6
 
-6:                                                ; preds = %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i, %1
-  %.sroa.6.0.i = phi i64 [ %.val29, %1 ], [ %9, %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i ]
-  %.sroa.0.0.i = phi ptr [ %.val, %1 ], [ %10, %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i ]
+6:                                                ; preds = %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.argprom.exit.thread.i, %1
+  %.sroa.6.0.i = phi i64 [ %.val29, %1 ], [ %9, %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.argprom.exit.thread.i ]
+  %.sroa.0.0.i = phi ptr [ %.val, %1 ], [ %10, %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.argprom.exit.thread.i ]
   %7 = icmp ult i64 %.sroa.6.0.i, 2
-  br i1 %7, label %"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8ec19f77fce7b237E.exit", label %8
+  br i1 %7, label %"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8ec19f77fce7b237E.argprom.exit", label %8
 
 8:                                                ; preds = %6
   %9 = add i64 %.sroa.6.0.i, -1
@@ -35,15 +35,15 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canon
   %12 = getelementptr i8, ptr %.sroa.0.0.i, i64 3
   %.val9.i = load i8, ptr %12, align 1
   %13 = icmp ult i8 %.val.i, %.val8.i
-  br i1 %13, label %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i, label %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.i
+  br i1 %13, label %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.argprom.exit.thread.i, label %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.argprom.exit.i
 
-_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.i: ; preds = %8
+_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.argprom.exit.i: ; preds = %8
   %14 = icmp ne i8 %.val.i, %.val8.i
   %15 = icmp uge i8 %.val7.i, %.val9.i
   %spec.select.i.i = select i1 %14, i1 true, i1 %15
-  br i1 %spec.select.i.i, label %19, label %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i
+  br i1 %spec.select.i.i, label %19, label %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.argprom.exit.thread.i
 
-_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.i, %8
+_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.argprom.exit.thread.i: ; preds = %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.argprom.exit.i, %8
   %16 = tail call i8 @llvm.umax.i8(i8 %.val.i, i8 %.val8.i)
   %.0.sroa.speculated.i.i.i = zext i8 %16 to i32
   %17 = tail call i8 @llvm.umin.i8(i8 %.val7.i, i8 %.val9.i)
@@ -52,7 +52,7 @@ _ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4co
   %.not.i = icmp ult i32 %18, %.0.sroa.speculated.i.i.i
   br i1 %.not.i, label %6, label %19
 
-19:                                               ; preds = %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.i, %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i
+19:                                               ; preds = %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.argprom.exit.i, %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.argprom.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   call void @_ZN4core5slice4sort10merge_sort17h17cd8ade04ab8959E(ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val29, ptr noalias noundef nonnull align 1 %2)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
@@ -91,7 +91,7 @@ _ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4co
   store ptr %0, ptr %32, align 8, !alias.scope !5, !noalias !8
   call void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c7f61604a3dbfb2E.llvm.8519985026491776260"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  br label %"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8ec19f77fce7b237E.exit"
+  br label %"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8ec19f77fce7b237E.argprom.exit"
 
 .preheader.split:                                 ; preds = %19, %.backedge
   %.sroa.01.039 = phi i64 [ %33, %.backedge ], [ 0, %19 ]
@@ -100,7 +100,7 @@ _ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4co
   %35 = icmp ugt i64 %34, %.val29
   br i1 %35, label %36, label %50
 
-"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8ec19f77fce7b237E.exit": ; preds = %6, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hd3dc628e23f969f0E.exit"
+"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8ec19f77fce7b237E.argprom.exit": ; preds = %6, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hd3dc628e23f969f0E.exit"
   ret void
 
 36:                                               ; preds = %.preheader.split
@@ -189,11 +189,11 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canon
   %.val27 = load i64, ptr %5, align 8, !noundef !4
   br label %6
 
-6:                                                ; preds = %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i, %1
-  %.sroa.6.0.i = phi i64 [ %.val27, %1 ], [ %9, %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i ]
-  %.sroa.0.0.i = phi ptr [ %.val, %1 ], [ %10, %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i ]
+6:                                                ; preds = %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.argprom.exit.thread.i, %1
+  %.sroa.6.0.i = phi i64 [ %.val27, %1 ], [ %9, %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.argprom.exit.thread.i ]
+  %.sroa.0.0.i = phi ptr [ %.val, %1 ], [ %10, %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.argprom.exit.thread.i ]
   %7 = icmp ult i64 %.sroa.6.0.i, 2
-  br i1 %7, label %"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8345046ce51c8d7aE.exit", label %8
+  br i1 %7, label %"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8345046ce51c8d7aE.argprom.exit", label %8
 
 8:                                                ; preds = %6
   %9 = add i64 %.sroa.6.0.i, -1
@@ -205,22 +205,22 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canon
   %12 = getelementptr i8, ptr %.sroa.0.0.i, i64 12
   %.val9.i = load i32, ptr %12, align 4
   %13 = icmp ult i32 %.val.i, %.val8.i
-  br i1 %13, label %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i, label %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.i
+  br i1 %13, label %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.argprom.exit.thread.i, label %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.argprom.exit.i
 
-_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.i: ; preds = %8
+_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.argprom.exit.i: ; preds = %8
   %14 = icmp ne i32 %.val.i, %.val8.i
   %15 = icmp uge i32 %.val7.i, %.val9.i
   %spec.select.i.i = select i1 %14, i1 true, i1 %15
-  br i1 %spec.select.i.i, label %17, label %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i
+  br i1 %spec.select.i.i, label %17, label %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.argprom.exit.thread.i
 
-_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i: ; preds = %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.i, %8
+_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.argprom.exit.thread.i: ; preds = %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.argprom.exit.i, %8
   %.0.sroa.speculated.i.i.i = tail call noundef i32 @llvm.umax.i32(i32 %.val.i, i32 %.val8.i)
   %.0.sroa.speculated.i1.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.val7.i, i32 %.val9.i)
   %16 = add nuw nsw i32 %.0.sroa.speculated.i1.i.i, 1
   %.not.i = icmp ugt i32 %.0.sroa.speculated.i.i.i, %16
   br i1 %.not.i, label %6, label %17
 
-17:                                               ; preds = %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.i, %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i
+17:                                               ; preds = %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.argprom.exit.i, %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.argprom.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   call void @_ZN4core5slice4sort10merge_sort17hbcbeaab5146fd015E(ptr noalias noundef nonnull align 4 %.val, i64 noundef %.val27, ptr noalias noundef nonnull align 1 %2)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
@@ -259,7 +259,7 @@ _ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i: ; preds = %_ZN4co
   store ptr %0, ptr %30, align 8, !alias.scope !22, !noalias !25
   call void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0dfbeed64d5ab084E.llvm.8519985026491776260"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  br label %"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8345046ce51c8d7aE.exit"
+  br label %"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8345046ce51c8d7aE.argprom.exit"
 
 .preheader.split:                                 ; preds = %17, %.backedge
   %.sroa.01.040 = phi i64 [ %31, %.backedge ], [ 0, %17 ]
@@ -268,7 +268,7 @@ _ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i: ; preds = %_ZN4co
   %33 = icmp ugt i64 %32, %.val27
   br i1 %33, label %34, label %_ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit.thread
 
-"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8345046ce51c8d7aE.exit": ; preds = %6, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h83358d0a40e47624E.exit"
+"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8345046ce51c8d7aE.argprom.exit": ; preds = %6, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h83358d0a40e47624E.exit"
   ret void
 
 34:                                               ; preds = %.preheader.split

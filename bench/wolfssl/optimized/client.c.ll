@@ -448,7 +448,7 @@ if.then63.i:                                      ; preds = %for.body.i
   %takes_arg.i = getelementptr inbounds i8, ptr %i.07.i, i64 8
   %15 = load i32, ptr %takes_arg.i, align 8
   %tobool69.not.i = icmp eq i32 %15, 0
-  br i1 %tobool69.not.i, label %mygetopt_long.exit, label %if.then70.i
+  br i1 %tobool69.not.i, label %mygetopt_long.argprom.exit, label %if.then70.i
 
 if.then70.i:                                      ; preds = %if.then63.i
   %cmp71.i = icmp slt i32 %inc64.i, %0
@@ -464,13 +464,13 @@ if.then73.i:                                      ; preds = %if.then70.i
 lor.lhs.false77.i:                                ; preds = %if.then73.i
   %16 = load i8, ptr %.pre11.i, align 1
   %cmp82.not.i = icmp eq i8 %16, 45
-  br i1 %cmp82.not.i, label %mygetopt_long.exit, label %if.then84.i
+  br i1 %cmp82.not.i, label %mygetopt_long.argprom.exit, label %if.then84.i
 
 if.then84.i:                                      ; preds = %lor.lhs.false77.i, %if.then73.i
   store ptr %.pre11.i, ptr @myoptarg, align 8
   %inc87.i = add nsw i32 %5, 2
   store i32 %inc87.i, ptr @myoptind, align 4
-  br label %mygetopt_long.exit
+  br label %mygetopt_long.argprom.exit
 
 if.else.i:                                        ; preds = %if.then70.i
   %cmp90.not.i = icmp ne i32 %15, 2
@@ -568,12 +568,12 @@ if.then157.i:                                     ; preds = %land.lhs.true.i
   store i32 %inc160.i, ptr @myoptind, align 4
   br label %while.body
 
-mygetopt_long.exit:                               ; preds = %if.then63.i, %lor.lhs.false77.i, %if.then84.i
+mygetopt_long.argprom.exit:                       ; preds = %if.then63.i, %lor.lhs.false77.i, %if.then84.i
   %cmp.not.old = icmp eq i32 %14, -1
   br i1 %cmp.not.old, label %while.end, label %while.body
 
-while.body:                                       ; preds = %if.else.i, %if.then128.i, %if.then124.i, %if.then143.i, %if.then147.i, %land.lhs.true.i, %if.then157.i, %if.else144.i, %if.end115.i, %mygetopt_long.exit
-  %retval.0.i423 = phi i32 [ %14, %mygetopt_long.exit ], [ %conv104.i, %if.then128.i ], [ %conv104.i, %if.then124.i ], [ %conv104.i, %if.then143.i ], [ %conv104.i, %if.then147.i ], [ %conv104.i, %land.lhs.true.i ], [ %conv104.i, %if.then157.i ], [ %conv104.i, %if.else144.i ], [ %conv104.i, %if.end115.i ], [ %14, %if.else.i ]
+while.body:                                       ; preds = %if.else.i, %if.then128.i, %if.then124.i, %if.then143.i, %if.then147.i, %land.lhs.true.i, %if.then157.i, %if.else144.i, %if.end115.i, %mygetopt_long.argprom.exit
+  %retval.0.i423 = phi i32 [ %14, %mygetopt_long.argprom.exit ], [ %conv104.i, %if.then128.i ], [ %conv104.i, %if.then124.i ], [ %conv104.i, %if.then143.i ], [ %conv104.i, %if.then147.i ], [ %conv104.i, %land.lhs.true.i ], [ %conv104.i, %if.then157.i ], [ %conv104.i, %if.else144.i ], [ %conv104.i, %if.end115.i ], [ %14, %if.else.i ]
   switch i32 %retval.0.i423, label %sw.default [
     i32 63, label %sw.bb
     i32 257, label %sw.bb9
@@ -1046,7 +1046,7 @@ while.end.sink.split:                             ; preds = %if.end11.i, %while.
   store ptr %.sink, ptr @myoptarg, align 8
   br label %while.end
 
-while.end:                                        ; preds = %if.else.i, %mygetopt_long.exit, %for.inc.i, %while.end.sink.split, %if.then43.i
+while.end:                                        ; preds = %if.else.i, %mygetopt_long.argprom.exit, %for.inc.i, %while.end.sink.split, %if.then43.i
   store i32 0, ptr @myoptind, align 4
   %cmp217 = icmp eq i32 %version.01524, -99
   %tobool220.not = icmp eq i32 %doDTLS.01474, 0
@@ -1459,7 +1459,7 @@ if.end451:                                        ; preds = %if.then449, %if.end
   br i1 %tobool452.not, label %if.end456, label %if.then453
 
 if.then453:                                       ; preds = %if.end451
-  tail call fastcc void @ClientBenchmarkConnections(ptr noundef %call272, ptr noundef %host.05482686, i16 noundef zeroext %port.05262689, i32 noundef %dtlsUDP.012752590, i32 noundef %benchmark.07902656, i32 noundef %resumeSession.014292571, i32 noundef %helloRetry.09222638, i32 noundef %onlyKeyShare.09002641, i32 noundef %version.2435)
+  tail call fastcc void @ClientBenchmarkConnections.argprom.argelim(ptr noundef %call272, ptr noundef %host.05482686, i16 noundef zeroext %port.05262689, i32 noundef %dtlsUDP.012752590, i32 noundef %benchmark.07902656, i32 noundef %resumeSession.014292571, i32 noundef %helloRetry.09222638, i32 noundef %onlyKeyShare.09002641, i32 noundef %version.2435)
   store i32 0, ptr %return_code, align 8
   tail call void @wolfSSL_CTX_free(ptr noundef nonnull %call272) #23
   tail call void @exit(i32 noundef 0) #21
@@ -1500,7 +1500,7 @@ if.then.i315:                                     ; preds = %current_time.exit.i
   unreachable
 
 if.end.i308:                                      ; preds = %current_time.exit.i
-  call fastcc void @tcp_connect(ptr noundef %sockfd.i, ptr noundef %host.05482686, i16 noundef zeroext %port.05262689, i32 noundef %dtlsUDP.012752590, ptr noundef %call1.i)
+  call fastcc void @tcp_connect.argelim(ptr noundef %sockfd.i, ptr noundef %host.05482686, i16 noundef zeroext %port.05262689, i32 noundef %dtlsUDP.012752590, ptr noundef %call1.i)
   %61 = load i32, ptr %sockfd.i, align 4
   %call2.i = tail call i32 @wolfSSL_set_fd(ptr noundef nonnull %call1.i, i32 noundef %61) #23
   %cmp3.not.i = icmp eq i32 %call2.i, 1
@@ -1536,7 +1536,7 @@ if.end14.i400:                                    ; preds = %do.body6.i415
 
 if.end14.i400.thread:                             ; preds = %if.then7.i
   %or.cond1.i4022821 = icmp ult i32 %onlyKeyShare.09002641, 2
-  br i1 %or.cond1.i4022821, label %do.body19.i407, label %SetKeyShare.exit420
+  br i1 %or.cond1.i4022821, label %do.body19.i407, label %SetKeyShare.argprom.exit420
 
 do.body19.i407:                                   ; preds = %if.end14.i400.thread, %if.end14.i400
   %count.0.i4012822 = phi i32 [ 0, %if.end14.i400.thread ], [ 1, %if.end14.i400 ]
@@ -1559,17 +1559,17 @@ if.then37.i405:                                   ; preds = %if.end14.i400, %if.
   %count.2.i403442 = phi i32 [ %inc23.i412, %if.end34.i.thread ], [ 1, %if.end14.i400 ]
   %call38.i406 = call i32 @wolfSSL_set_groups(ptr noundef nonnull %call1.i, ptr noundef nonnull %groups.i398, i32 noundef %count.2.i403442) #23
   %cmp39.not.i = icmp eq i32 %call38.i406, 1
-  br i1 %cmp39.not.i, label %SetKeyShare.exit420, label %if.then40.i
+  br i1 %cmp39.not.i, label %SetKeyShare.argprom.exit420, label %if.then40.i
 
 if.then40.i:                                      ; preds = %if.then37.i405
   call fastcc void @err_sys(ptr noundef nonnull @.str.204) #25
   unreachable
 
-SetKeyShare.exit420:                              ; preds = %if.end14.i400.thread, %if.then37.i405
+SetKeyShare.argprom.exit420:                      ; preds = %if.end14.i400.thread, %if.then37.i405
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %groups.i398)
   br label %do.body.i.preheader
 
-do.body.i.preheader:                              ; preds = %SetKeyShare.exit420, %if.end5.i
+do.body.i.preheader:                              ; preds = %SetKeyShare.argprom.exit420, %if.end5.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i.preheader, %do.cond.i
@@ -1871,7 +1871,7 @@ if.then115.i:                                     ; preds = %while.cond.i, %do.e
   call void @wolfSSL_free(ptr noundef nonnull %call1.i) #23
   %call124.i = call i32 @close(i32 noundef %61) #23
   %tobool125.not.i = icmp eq i32 %exitWithRet.06582671, 0
-  br i1 %tobool125.not.i, label %if.end127.i, label %ClientBenchmarkThroughput.exit
+  br i1 %tobool125.not.i, label %if.end127.i, label %ClientBenchmarkThroughput.argprom.exit
 
 if.else121.i:                                     ; preds = %do.cond.i
   call fastcc void @err_sys(ptr noundef nonnull @.str.60) #25
@@ -1889,9 +1889,9 @@ if.end127.i:                                      ; preds = %if.then115.i
   %div135.i = fmul double %div134.i, 0x3F50000000000000
   %div136.i = fmul double %div135.i, 0x3F50000000000000
   %call137.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.200, i64 noundef %throughput.012082599, double noundef %mul.i, double noundef %mul128.i, double noundef %div131.i, double noundef %mul132.i, double noundef %div136.i)
-  br label %ClientBenchmarkThroughput.exit
+  br label %ClientBenchmarkThroughput.argprom.exit
 
-ClientBenchmarkThroughput.exit:                   ; preds = %if.then115.i, %if.end127.i
+ClientBenchmarkThroughput.argprom.exit:           ; preds = %if.then115.i, %if.end127.i
   %retval.0.i310 = phi i32 [ 0, %if.end127.i ], [ %err.3.i, %if.then115.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sockfd.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rng.i)
@@ -1903,7 +1903,7 @@ ClientBenchmarkThroughput.exit:                   ; preds = %if.then115.i, %if.e
   %or.cond27 = select i1 %cmp462, i1 true, i1 %tobool465
   br i1 %or.cond27, label %return, label %if.then466
 
-if.then466:                                       ; preds = %ClientBenchmarkThroughput.exit
+if.then466:                                       ; preds = %ClientBenchmarkThroughput.argprom.exit
   call void @exit(i32 noundef 0) #21
   unreachable
 
@@ -2000,7 +2000,7 @@ if.then514:                                       ; preds = %if.end512
   br label %if.end516
 
 if.end516:                                        ; preds = %if.then514, %if.end512
-  call fastcc void @tcp_connect(ptr noundef %sockfd, ptr noundef %host.05482686, i16 noundef zeroext %port.05262689, i32 noundef %dtlsUDP.012752590, ptr noundef %call472)
+  call fastcc void @tcp_connect.argelim(ptr noundef %sockfd, ptr noundef %host.05482686, i16 noundef zeroext %port.05262689, i32 noundef %dtlsUDP.012752590, ptr noundef %call472)
   %82 = load i32, ptr %sockfd, align 4
   %call517 = tail call i32 @wolfSSL_set_fd(ptr noundef nonnull %call472, i32 noundef %82) #23
   %cmp518.not = icmp eq i32 %call517, 1
@@ -2021,7 +2021,7 @@ if.end522:                                        ; preds = %if.end516
 if.then526:                                       ; preds = %if.end522
   call void @wolfSSL_SetIOWriteCtx(ptr noundef nonnull %call472, ptr noundef nonnull %sockfd) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %addr.i)
-  call fastcc void @build_addr(ptr noundef %addr.i, ptr noundef %host.05482686, i16 noundef zeroext %port.05262689)
+  call fastcc void @build_addr.argelim(ptr noundef %addr.i, ptr noundef %host.05482686, i16 noundef zeroext %port.05262689)
   %83 = load i32, ptr %sockfd, align 4
   %call.i320 = call i32 @connect(i32 noundef %83, ptr noundef nonnull %addr.i, i32 noundef 16) #23
   %cmp.not.i = icmp eq i32 %call.i320, 0
@@ -2491,7 +2491,7 @@ if.then660:                                       ; preds = %if.end658
   br label %if.end662
 
 if.end662:                                        ; preds = %if.then660, %if.end658
-  %call665 = call fastcc i32 @ClientWriteRead(ptr noundef %call472, ptr noundef %msg, i32 noundef %msgSz.0, ptr noundef %reply, i32 noundef 1, ptr noundef nonnull @.str.67, i32 noundef %exitWithRet.06582671)
+  %call665 = call fastcc i32 @ClientWriteRead.argelim(ptr noundef %call472, ptr noundef %msg, i32 noundef %msgSz.0, ptr noundef %reply, i32 noundef 1, ptr noundef nonnull @.str.67, i32 noundef %exitWithRet.06582671)
   %tobool666 = icmp ne i32 %exitWithRet.06582671, 0
   %cmp668 = icmp ne i32 %call665, 0
   %or.cond33 = select i1 %tobool666, i1 %cmp668, i1 false
@@ -2680,7 +2680,7 @@ if.then750:                                       ; preds = %land.lhs.true746
   unreachable
 
 if.end754:                                        ; preds = %land.lhs.true746, %do.body742, %if.end739
-  call fastcc void @tcp_connect(ptr noundef %sockfd, ptr noundef %host.05482686, i16 noundef zeroext %port.05262689, i32 noundef %dtlsUDP.012752590, ptr noundef %call731)
+  call fastcc void @tcp_connect.argelim(ptr noundef %sockfd, ptr noundef %host.05482686, i16 noundef zeroext %port.05262689, i32 noundef %dtlsUDP.012752590, ptr noundef %call731)
   %129 = load i32, ptr %sockfd, align 4
   %call755 = call i32 @wolfSSL_set_fd(ptr noundef nonnull %call731, i32 noundef %129) #23
   %cmp756.not = icmp eq i32 %call755, 1
@@ -2769,12 +2769,12 @@ if.end811:                                        ; preds = %if.then806, %do.bod
 
 if.then814:                                       ; preds = %if.end811
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %msg, ptr noundef nonnull align 16 dereferenceable(28) @kHttpGetMsg, i64 28, i1 false)
-  %136 = call fastcc i32 @ClientWriteRead(ptr noundef %call731, ptr noundef %msg, i32 noundef 28, ptr noundef %reply, i32 noundef %sendGET.07462662, ptr noundef nonnull @.str.75, i32 noundef 0)
+  %136 = call fastcc i32 @ClientWriteRead.argelim(ptr noundef %call731, ptr noundef %msg, i32 noundef 28, ptr noundef %reply, i32 noundef %sendGET.07462662, ptr noundef nonnull @.str.75, i32 noundef 0)
   br label %if.end820
 
 if.else817:                                       ; preds = %if.end811
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %msg, ptr noundef nonnull align 16 dereferenceable(17) @kResumeMsg, i64 17, i1 false)
-  %137 = call fastcc i32 @ClientWriteRead(ptr noundef %call731, ptr noundef %msg, i32 noundef 17, ptr noundef %reply, i32 noundef 0, ptr noundef nonnull @.str.75, i32 noundef 0)
+  %137 = call fastcc i32 @ClientWriteRead.argelim(ptr noundef %call731, ptr noundef %msg, i32 noundef 17, ptr noundef %reply, i32 noundef 0, ptr noundef nonnull @.str.75, i32 noundef 0)
   br label %if.end820
 
 if.end820:                                        ; preds = %if.else817, %if.then814
@@ -2798,7 +2798,7 @@ if.end833:                                        ; preds = %if.end831, %if.end7
   store i32 0, ptr %return_code, align 8
   br label %return
 
-return:                                           ; preds = %if.end575, %if.then670, %if.end833, %ClientBenchmarkThroughput.exit, %if.end645
+return:                                           ; preds = %if.end575, %if.then670, %if.end833, %ClientBenchmarkThroughput.argprom.exit, %if.end645
   ret ptr null
 }
 
@@ -3156,7 +3156,7 @@ declare i32 @wolfSSL_CTX_no_dhe_psk(ptr noundef) local_unnamed_addr #7
 declare i32 @wolfSSL_CTX_only_dhe_psk(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ClientBenchmarkConnections(ptr noundef nonnull %ctx, ptr noundef %host, i16 noundef zeroext %port, i32 noundef %dtlsUDP, i32 noundef range(i32 1, 0) %benchmark, i32 noundef %resumeSession, i32 noundef %helloRetry, i32 noundef %onlyKeyShare, i32 noundef range(i32 -98, -99) %version) unnamed_addr #0 {
+define internal fastcc void @ClientBenchmarkConnections.argprom.argelim(ptr noundef nonnull %ctx, ptr noundef %host, i16 noundef zeroext %port, i32 noundef %dtlsUDP, i32 noundef range(i32 1, 0) %benchmark, i32 noundef %resumeSession, i32 noundef %helloRetry, i32 noundef %onlyKeyShare, i32 noundef range(i32 -98, -99) %version) unnamed_addr #0 {
 entry:
   %tv.i52 = alloca %struct.timeval, align 8
   %on.i.i = alloca i32, align 4
@@ -3303,7 +3303,7 @@ if.end14.i.us:                                    ; preds = %do.body6.i.us
   br i1 %or.cond1.i, label %do.body19.i.us, label %if.then37.i.us
 
 if.end14.i.us.thread:                             ; preds = %if.then22.us
-  br i1 %or.cond1.i, label %do.body19.i.us, label %SetKeyShare.exit.us
+  br i1 %or.cond1.i, label %do.body19.i.us, label %SetKeyShare.argprom.exit.us
 
 do.body19.i.us:                                   ; preds = %if.end14.i.us.thread, %if.end14.i.us
   %count.0.i.us108 = phi i32 [ 0, %if.end14.i.us.thread ], [ 1, %if.end14.i.us ]
@@ -3322,9 +3322,9 @@ if.then37.i.us:                                   ; preds = %if.end14.i.us, %if.
   %count.2.i6.us = phi i32 [ %inc23.i.us, %if.end34.i.thread.us ], [ 1, %if.end14.i.us ]
   %call38.i.us = call i32 @wolfSSL_set_groups(ptr noundef nonnull %call10.us, ptr noundef nonnull %groups.i, i32 noundef %count.2.i6.us) #23
   %cmp39.not.i.us = icmp eq i32 %call38.i.us, 1
-  br i1 %cmp39.not.i.us, label %SetKeyShare.exit.us, label %if.then40.i
+  br i1 %cmp39.not.i.us, label %SetKeyShare.argprom.exit.us, label %if.then40.i
 
-SetKeyShare.exit.us:                              ; preds = %if.end14.i.us.thread, %if.then37.i.us
+SetKeyShare.argprom.exit.us:                      ; preds = %if.end14.i.us.thread, %if.then37.i.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %groups.i)
   br label %if.end27.us
 
@@ -3332,7 +3332,7 @@ if.then16.us:                                     ; preds = %if.end14.us
   %call17.us = call i32 @wolfSSL_set_session(ptr noundef nonnull %call10.us, ptr noundef %benchSession.152.us) #23
   br label %if.end27.us
 
-if.end27.us:                                      ; preds = %if.then16.us, %SetKeyShare.exit.us, %if.else23.us, %if.else.us
+if.end27.us:                                      ; preds = %if.then16.us, %SetKeyShare.argprom.exit.us, %if.else23.us, %if.else.us
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %addr.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr.i, i8 0, i64 16, i1 false)
   br i1 %cmp1.not.i, label %if.then16.i.us, label %land.lhs.true.i.us
@@ -3650,11 +3650,11 @@ declare i32 @wolfSSL_SetEnableDhKeyTest(ptr noundef, i32 noundef) local_unnamed_
 declare i32 @wolfSSL_AllowEncryptThenMac(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tcp_connect(ptr nocapture noundef nonnull %sockfd, ptr noundef %ip, i16 noundef zeroext %port, i32 noundef %udp, ptr noundef nonnull %ssl) unnamed_addr #0 {
+define internal fastcc void @tcp_connect.argelim(ptr nocapture noundef nonnull %sockfd, ptr noundef %ip, i16 noundef zeroext %port, i32 noundef %udp, ptr noundef nonnull %ssl) unnamed_addr #0 {
 entry:
   %on.i = alloca i32, align 4
   %addr = alloca %struct.sockaddr_in, align 4
-  call fastcc void @build_addr(ptr noundef %addr, ptr noundef %ip, i16 noundef zeroext %port)
+  call fastcc void @build_addr.argelim(ptr noundef %addr, ptr noundef %ip, i16 noundef zeroext %port)
   %tobool.not = icmp eq i32 %udp, 0
   br i1 %tobool.not, label %entry.split, label %if.end.thread.i
 
@@ -3723,7 +3723,7 @@ declare void @wolfSSL_SetIOWriteCtx(ptr noundef, ptr noundef) local_unnamed_addr
 define internal fastcc void @udp_connect(ptr nocapture noundef nonnull readonly %sockfd, ptr noundef %ip, i16 noundef zeroext %port) unnamed_addr #0 {
 entry:
   %addr = alloca %struct.sockaddr_in, align 4
-  call fastcc void @build_addr(ptr noundef %addr, ptr noundef %ip, i16 noundef zeroext %port)
+  call fastcc void @build_addr.argelim(ptr noundef %addr, ptr noundef %ip, i16 noundef zeroext %port)
   %0 = load i32, ptr %sockfd, align 4
   %call = call i32 @connect(i32 noundef %0, ptr noundef nonnull %addr, i32 noundef 16) #23
   %cmp.not = icmp eq i32 %call, 0
@@ -4016,7 +4016,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @wolfSSL_update_keys(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ClientWriteRead(ptr noundef nonnull %ssl, ptr noundef nonnull %msg, i32 noundef range(i32 14, 29) %msgSz, ptr noundef nonnull %reply, i32 noundef %mustRead, ptr noundef %str, i32 noundef %exitWithRet) unnamed_addr #0 {
+define internal fastcc i32 @ClientWriteRead.argelim(ptr noundef nonnull %ssl, ptr noundef nonnull %msg, i32 noundef range(i32 14, 29) %msgSz, ptr noundef nonnull %reply, i32 noundef %mustRead, ptr noundef %str, i32 noundef %exitWithRet) unnamed_addr #0 {
 entry:
   %tv.i23.i = alloca %struct.timeval, align 8
   %tv.i.i = alloca %struct.timeval, align 8
@@ -4379,7 +4379,7 @@ declare i32 @wolfSSL_UseKeyShare(ptr noundef, i16 noundef zeroext) local_unnamed
 declare i32 @wolfSSL_set_groups(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_addr(ptr nocapture noundef nonnull writeonly %addr, ptr noundef %peer, i16 noundef zeroext %port) unnamed_addr #0 {
+define internal fastcc void @build_addr.argelim(ptr nocapture noundef nonnull writeonly %addr, ptr noundef %peer, i16 noundef zeroext %port) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr, i8 0, i64 16, i1 false)
   %cmp1.not = icmp eq ptr %peer, null

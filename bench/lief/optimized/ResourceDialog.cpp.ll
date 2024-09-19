@@ -2178,8 +2178,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF2PElsERSoRKNS0_14
   %.not4.i = icmp eq ptr %31, %32
   br i1 %.not4.i, label %.loopexit132, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %2, %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13WINDOW_STYLESE.exit.i"
-  %.sroa.01.05.i = phi ptr [ %56, %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13WINDOW_STYLESE.exit.i" ], [ %31, %2 ]
+.lr.ph.i:                                         ; preds = %2, %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13WINDOW_STYLESE.argprom.exit.i"
+  %.sroa.01.05.i = phi ptr [ %56, %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13WINDOW_STYLESE.argprom.exit.i" ], [ %31, %2 ]
   %33 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 32
   %34 = load i64, ptr %33, align 8, !noalias !14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16), !noalias !14
@@ -2257,11 +2257,11 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 51:                                               ; preds = %49
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %50) #23, !noalias !14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #23, !noalias !14
-  br label %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13WINDOW_STYLESE.exit.i"
+  br label %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13WINDOW_STYLESE.argprom.exit.i"
 
 .critedge.i.i:                                    ; preds = %42
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #23, !noalias !14
-  br label %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13WINDOW_STYLESE.exit.i"
+  br label %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13WINDOW_STYLESE.argprom.exit.i"
 
 52:                                               ; preds = %49, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit.i.i
   %53 = landingpad { ptr, i32 }
@@ -2279,7 +2279,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #23, !noalias !14
   br label %.body
 
-"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13WINDOW_STYLESE.exit.i": ; preds = %.critedge.i.i, %51
+"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13WINDOW_STYLESE.argprom.exit.i": ; preds = %.critedge.i.i, %51
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16), !noalias !14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17), !noalias !14
   %55 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %18) #23, !noalias !14
@@ -2288,7 +2288,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.not.i = icmp eq ptr %56, %32
   br i1 %.not.i, label %.loopexit132, label %.lr.ph.i, !llvm.loop !20
 
-.loopexit132:                                     ; preds = %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13WINDOW_STYLESE.exit.i", %2
+.loopexit132:                                     ; preds = %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13WINDOW_STYLESE.argprom.exit.i", %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %21) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #23
@@ -2304,8 +2304,8 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.not4.i62 = icmp eq ptr %59, %60
   br i1 %.not4.i62, label %.loopexit131, label %.lr.ph.i63
 
-.lr.ph.i63:                                       ; preds = %57, %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17DIALOG_BOX_STYLESE.exit.i"
-  %.sroa.01.05.i64 = phi ptr [ %84, %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17DIALOG_BOX_STYLESE.exit.i" ], [ %59, %57 ]
+.lr.ph.i63:                                       ; preds = %57, %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17DIALOG_BOX_STYLESE.argprom.exit.i"
+  %.sroa.01.05.i64 = phi ptr [ %84, %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17DIALOG_BOX_STYLESE.argprom.exit.i" ], [ %59, %57 ]
   %61 = getelementptr inbounds i8, ptr %.sroa.01.05.i64, i64 32
   %62 = load i64, ptr %61, align 8, !noalias !21
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13), !noalias !21
@@ -2383,11 +2383,11 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 79:                                               ; preds = %77
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %78) #23, !noalias !21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #23, !noalias !21
-  br label %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17DIALOG_BOX_STYLESE.exit.i"
+  br label %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17DIALOG_BOX_STYLESE.argprom.exit.i"
 
 .critedge.i.i79:                                  ; preds = %70
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #23, !noalias !21
-  br label %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17DIALOG_BOX_STYLESE.exit.i"
+  br label %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17DIALOG_BOX_STYLESE.argprom.exit.i"
 
 80:                                               ; preds = %77, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit.i.i68
   %81 = landingpad { ptr, i32 }
@@ -2405,7 +2405,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #23, !noalias !21
   br label %.body84
 
-"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17DIALOG_BOX_STYLESE.exit.i": ; preds = %.critedge.i.i79, %79
+"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17DIALOG_BOX_STYLESE.argprom.exit.i": ; preds = %.critedge.i.i79, %79
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13), !noalias !21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14), !noalias !21
   %83 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %15) #23, !noalias !21
@@ -2414,7 +2414,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.not.i69 = icmp eq ptr %84, %60
   br i1 %.not.i69, label %.loopexit131, label %.lr.ph.i63, !llvm.loop !27
 
-.loopexit131:                                     ; preds = %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17DIALOG_BOX_STYLESE.exit.i", %57
+.loopexit131:                                     ; preds = %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17DIALOG_BOX_STYLESE.argprom.exit.i", %57
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #23
@@ -2430,8 +2430,8 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.not4.i86 = icmp eq ptr %87, %88
   br i1 %.not4.i86, label %.loopexit130, label %.lr.ph.i87
 
-.lr.ph.i87:                                       ; preds = %85, %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE.exit.i"
-  %.sroa.01.05.i88 = phi ptr [ %112, %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE.exit.i" ], [ %87, %85 ]
+.lr.ph.i87:                                       ; preds = %85, %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE.argprom.exit.i"
+  %.sroa.01.05.i88 = phi ptr [ %112, %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE.argprom.exit.i" ], [ %87, %85 ]
   %89 = getelementptr inbounds i8, ptr %.sroa.01.05.i88, i64 32
   %90 = load i64, ptr %89, align 8, !noalias !28
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10), !noalias !28
@@ -2509,11 +2509,11 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 107:                                              ; preds = %105
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %106) #23, !noalias !28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23, !noalias !28
-  br label %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE.exit.i"
+  br label %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE.argprom.exit.i"
 
 .critedge.i.i103:                                 ; preds = %98
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #23, !noalias !28
-  br label %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE.exit.i"
+  br label %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE.argprom.exit.i"
 
 108:                                              ; preds = %105, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit.i.i92
   %109 = landingpad { ptr, i32 }
@@ -2531,7 +2531,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #23, !noalias !28
   br label %.body108
 
-"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE.exit.i": ; preds = %.critedge.i.i103, %107
+"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE.argprom.exit.i": ; preds = %.critedge.i.i103, %107
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !28
   %111 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %12) #23, !noalias !28
@@ -2540,7 +2540,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.not.i93 = icmp eq ptr %112, %88
   br i1 %.not.i93, label %.loopexit130, label %.lr.ph.i87, !llvm.loop !34
 
-.loopexit130:                                     ; preds = %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE.exit.i", %85
+.loopexit130:                                     ; preds = %"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE.argprom.exit.i", %85
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %27) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #23
@@ -4689,22 +4689,22 @@ attributes #25 = { nounwind willreturn memory(read) }
 !15 = distinct !{!15, !16, !"_ZSt10accumulateISt23_Rb_tree_const_iteratorIN4LIEF2PE13WINDOW_STYLESEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS2_lsERSoRKNS2_14ResourceDialogEE3$_0ET0_T_SH_SG_T1_: argument 0"}
 !16 = distinct !{!16, !"_ZSt10accumulateISt23_Rb_tree_const_iteratorIN4LIEF2PE13WINDOW_STYLESEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS2_lsERSoRKNS2_14ResourceDialogEE3$_0ET0_T_SH_SG_T1_"}
 !17 = !{!18, !15}
-!18 = distinct !{!18, !19, !"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13WINDOW_STYLESE: argument 0"}
-!19 = distinct !{!19, !"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13WINDOW_STYLESE"}
+!18 = distinct !{!18, !19, !"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13WINDOW_STYLESE.argprom: argument 0"}
+!19 = distinct !{!19, !"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13WINDOW_STYLESE.argprom"}
 !20 = distinct !{!20, !5}
 !21 = !{!22}
 !22 = distinct !{!22, !23, !"_ZSt10accumulateISt23_Rb_tree_const_iteratorIN4LIEF2PE17DIALOG_BOX_STYLESEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS2_lsERSoRKNS2_14ResourceDialogEE3$_1ET0_T_SH_SG_T1_: argument 0"}
 !23 = distinct !{!23, !"_ZSt10accumulateISt23_Rb_tree_const_iteratorIN4LIEF2PE17DIALOG_BOX_STYLESEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS2_lsERSoRKNS2_14ResourceDialogEE3$_1ET0_T_SH_SG_T1_"}
 !24 = !{!25, !22}
-!25 = distinct !{!25, !26, !"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17DIALOG_BOX_STYLESE: argument 0"}
-!26 = distinct !{!26, !"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17DIALOG_BOX_STYLESE"}
+!25 = distinct !{!25, !26, !"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17DIALOG_BOX_STYLESE.argprom: argument 0"}
+!26 = distinct !{!26, !"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17DIALOG_BOX_STYLESE.argprom"}
 !27 = distinct !{!27, !5}
 !28 = !{!29}
 !29 = distinct !{!29, !30, !"_ZSt10accumulateISt23_Rb_tree_const_iteratorIN4LIEF2PE22EXTENDED_WINDOW_STYLESEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS2_lsERSoRKNS2_14ResourceDialogEE3$_2ET0_T_SH_SG_T1_: argument 0"}
 !30 = distinct !{!30, !"_ZSt10accumulateISt23_Rb_tree_const_iteratorIN4LIEF2PE22EXTENDED_WINDOW_STYLESEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS2_lsERSoRKNS2_14ResourceDialogEE3$_2ET0_T_SH_SG_T1_"}
 !31 = !{!32, !29}
-!32 = distinct !{!32, !33, !"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE: argument 0"}
-!33 = distinct !{!33, !"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE"}
+!32 = distinct !{!32, !33, !"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE.argprom: argument 0"}
+!33 = distinct !{!33, !"_ZZN4LIEF2PElsERSoRKNS0_14ResourceDialogEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22EXTENDED_WINDOW_STYLESE.argprom"}
 !34 = distinct !{!34, !5}
 !35 = !{}
 !36 = !{!37}

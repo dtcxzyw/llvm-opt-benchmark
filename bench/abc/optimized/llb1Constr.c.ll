@@ -108,24 +108,24 @@ Llb_ManCountEntries.exit.thread:                  ; preds = %Llb_ManCountEntries
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %25)
   %.val20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %.val20, null
-  br i1 %.not.i, label %Aig_ManObj.exit, label %27
+  br i1 %.not.i, label %Aig_ManObj.argprom.exit, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr i8, ptr %.val20, i64 8
   %.val.i21 = load ptr, ptr %28, align 8
   %29 = getelementptr inbounds ptr, ptr %.val.i21, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
-  br label %Aig_ManObj.exit
+  br label %Aig_ManObj.argprom.exit
 
-Aig_ManObj.exit:                                  ; preds = %23, %27
+Aig_ManObj.argprom.exit:                          ; preds = %23, %27
   %31 = phi ptr [ %30, %27 ], [ null, %23 ]
   tail call void @Aig_ObjPrint(ptr noundef nonnull %0, ptr noundef %31) #8
   %putchar18 = tail call i32 @putchar(i32 10)
   %.val.pre = load i32, ptr %6, align 4
   br label %32
 
-32:                                               ; preds = %20, %Aig_ManObj.exit
-  %.val = phi i32 [ %.val29, %20 ], [ %.val.pre, %Aig_ManObj.exit ]
+32:                                               ; preds = %20, %Aig_ManObj.argprom.exit
+  %.val = phi i32 [ %.val29, %20 ], [ %.val.pre, %Aig_ManObj.argprom.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = sext i32 %.val to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
@@ -383,16 +383,16 @@ Vec_PtrStart.exit:                                ; preds = %3, %8
 70:                                               ; preds = %67
   %.val78 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.val78, null
-  br i1 %.not.i, label %Aig_ManObj.exit, label %71
+  br i1 %.not.i, label %Aig_ManObj.argprom.exit, label %71
 
 71:                                               ; preds = %70
   %72 = getelementptr i8, ptr %.val78, i64 8
   %.val.i95 = load ptr, ptr %72, align 8
   %73 = getelementptr inbounds ptr, ptr %.val.i95, i64 %indvars.iv109
   %74 = load ptr, ptr %73, align 8
-  br label %Aig_ManObj.exit
+  br label %Aig_ManObj.argprom.exit
 
-Aig_ManObj.exit:                                  ; preds = %70, %71
+Aig_ManObj.argprom.exit:                          ; preds = %70, %71
   %75 = phi ptr [ %74, %71 ], [ null, %70 ]
   %76 = tail call ptr @Llb_ManComputeIndCase_rec(ptr noundef nonnull %0, ptr noundef %75, ptr noundef %1, ptr noundef nonnull %6)
   %switch = icmp eq i32 %69, 0
@@ -400,7 +400,7 @@ Aig_ManObj.exit:                                  ; preds = %70, %71
   %78 = load ptr, ptr %77, align 8
   br i1 %switch, label %79, label %87
 
-79:                                               ; preds = %Aig_ManObj.exit
+79:                                               ; preds = %Aig_ManObj.argprom.exit
   %80 = ptrtoint ptr %78 to i64
   %81 = xor i64 %80, 1
   %82 = inttoptr i64 %81 to ptr
@@ -411,7 +411,7 @@ Aig_ManObj.exit:                                  ; preds = %70, %71
   %.not73 = icmp eq i32 %86, 0
   br i1 %.not73, label %.critedge2.sink.split, label %.critedge2
 
-87:                                               ; preds = %Aig_ManObj.exit
+87:                                               ; preds = %Aig_ManObj.argprom.exit
   %88 = tail call i32 @Cudd_bddLeq(ptr noundef %1, ptr noundef %78, ptr noundef %76) #8
   %.not72 = icmp eq i32 %88, 0
   br i1 %.not72, label %.critedge2.sink.split, label %.critedge2

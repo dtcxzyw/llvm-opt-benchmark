@@ -3670,31 +3670,31 @@ _ZNK4llvm12RecordKeeper6getDefENS_9StringRefE.exit: ; preds = %2
   %92 = getelementptr inbounds i8, ptr %3, i64 16
   br label %93
 
-93:                                               ; preds = %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread.i, %.lr.ph.i
-  %.082.i = phi ptr [ %71, %.lr.ph.i ], [ %178, %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread.i ]
+93:                                               ; preds = %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.thread.i, %.lr.ph.i
+  %.082.i = phi ptr [ %71, %.lr.ph.i ], [ %178, %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.thread.i ]
   %94 = getelementptr inbounds nuw i8, ptr %.082.i, i64 16
   %.0.copyload.i.i.i.i.i = load i64, ptr %94, align 8
   %95 = and i64 %.0.copyload.i.i.i.i.i, 6
   %96 = icmp eq i64 %95, 2
-  br i1 %96, label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread.i, label %97
+  br i1 %96, label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.thread.i, label %97
 
 97:                                               ; preds = %93
   %98 = getelementptr inbounds nuw i8, ptr %.082.i, i64 24
   %99 = load ptr, ptr %98, align 8
   %.not15.i = icmp eq ptr %99, null
-  br i1 %.not15.i, label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread.i, label %100
+  br i1 %.not15.i, label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.thread.i, label %100
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %102 = load i8, ptr %101, align 8
   %103 = icmp eq i8 %102, 3
-  br i1 %103, label %104, label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.i
+  br i1 %103, label %104, label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.i
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %106 = load i32, ptr %105, align 8
   %.not7.i.i = icmp eq i32 %106, 0
-  br i1 %.not7.i.i, label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread.i, label %.lr.ph.i.i
+  br i1 %.not7.i.i, label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.thread.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %104
   %107 = getelementptr inbounds i8, ptr %99, i64 40
@@ -3754,21 +3754,21 @@ _ZNK4llvm12RecordKeeper6getDefENS_9StringRefE.exit: ; preds = %2
   %137 = getelementptr inbounds i8, ptr %136, i64 32
   %138 = load ptr, ptr %137, align 8
   %139 = call noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(10) %111) #17
-  br i1 %139, label %_ZN4llvm6Record8getValueENS_9StringRefE.exit.i.i, label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread80.i
+  br i1 %139, label %_ZN4llvm6Record8getValueENS_9StringRefE.exit.i.i, label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.thread80.i
 
 _ZN4llvm6Record8getValueENS_9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.critedge.i.i, %134
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %108
-  br i1 %.not.i.i, label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread.i, label %109, !llvm.loop !172
+  br i1 %.not.i.i, label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.thread.i, label %109, !llvm.loop !172
 
-_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.i: ; preds = %100
+_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.i: ; preds = %100
   %140 = load ptr, ptr %99, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 32
   %142 = load ptr, ptr %141, align 8
   %143 = call noundef zeroext i1 %142(ptr noundef nonnull align 8 dereferenceable(10) %99) #17
-  br i1 %143, label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread.i, label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread80.i
+  br i1 %143, label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.thread.i, label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.thread80.i
 
-_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread80.i: ; preds = %.critedge.i.i, %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.i
+_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.thread80.i: ; preds = %.critedge.i.i, %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.i
   %144 = load ptr, ptr %75, align 8
   %145 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %75) #17
   store i8 1, ptr %77, align 1
@@ -3787,12 +3787,12 @@ _ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread80.i: ; preds =
     i8 1, label %153
   ]
 
-_ZN4llvmplERKNS_5TwineES2_.exit.thread107.i:      ; preds = %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread80.i
+_ZN4llvmplERKNS_5TwineES2_.exit.thread107.i:      ; preds = %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.thread80.i
   store i8 0, ptr %78, align 8, !alias.scope !182
   store i8 1, ptr %79, align 1, !alias.scope !182
   br label %_ZN4llvmplERKNS_5TwineES2_.exit32.i
 
-_ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread80.i
+_ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.thread80.i
   %151 = load i8, ptr %77, align 1, !noalias !182
   %152 = icmp eq i8 %151, 1
   %.sroa.05.0.copyload.i.i.i = load ptr, ptr %8, align 8, !noalias !182
@@ -3809,7 +3809,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %_ZL17checkBitsConcr
   call void @llvm.experimental.noalias.scope.decl(metadata !186)
   br label %154
 
-153:                                              ; preds = %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread80.i
+153:                                              ; preds = %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.thread80.i
   store ptr %9, ptr %7, align 8
   store i8 4, ptr %78, align 8
   store i8 1, ptr %79, align 1
@@ -3927,14 +3927,14 @@ _ZN4llvmplERKNS_5TwineES2_.exit77.i:              ; preds = %_ZN4llvmplERKNS_5Tw
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
-  br label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread.i
+  br label %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.thread.i
 
-_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread.i: ; preds = %_ZN4llvm6Record8getValueENS_9StringRefE.exit.i.i, %_ZN4llvmplERKNS_5TwineES2_.exit77.i, %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.i, %104, %97, %93
+_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.thread.i: ; preds = %_ZN4llvm6Record8getValueENS_9StringRefE.exit.i.i, %_ZN4llvmplERKNS_5TwineES2_.exit77.i, %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.i, %104, %97, %93
   %178 = getelementptr inbounds i8, ptr %.082.i, i64 104
   %.not.i = icmp eq ptr %178, %73
   br i1 %.not.i, label %_ZL13checkConcreteRN4llvm6RecordE.exit, label %93
 
-_ZL13checkConcreteRN4llvm6RecordE.exit:           ; preds = %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.exit.thread.i, %67
+_ZL13checkConcreteRN4llvm6RecordE.exit:           ; preds = %_ZL17checkBitsConcreteRN4llvm6RecordERKNS_9RecordValE.argprom.exit.thread.i, %67
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -23809,7 +23809,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParse
   %18 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %.val3, %19
-  br i1 %20, label %"_ZSt10__invoke_rIvRZN4llvm8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0JPNS0_4InitESE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %.lr.ph.i.i.i.i.i.i.i.i
+  br i1 %20, label %"_ZSt10__invoke_rIvRZN4llvm8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0JPNS0_4InitESE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %10, %26
   %21 = phi ptr [ %33, %26 ], [ %19, %10 ]
@@ -23837,7 +23837,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParse
   %32 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %.val3, %33
-  br i1 %34, label %"_ZSt10__invoke_rIvRZN4llvm8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0JPNS0_4InitESE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !107
+  br i1 %34, label %"_ZSt10__invoke_rIvRZN4llvm8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0JPNS0_4InitESE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !107
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4InitENS_11MapResolver11MappedValueENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit.i.i.i.i.i.i: ; preds = %24, %3
   %.sink.i.i.i.i.i.i.i.i = phi ptr [ %25, %24 ], [ null, %3 ]
@@ -23848,9 +23848,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4InitENS_11MapResolver11MappedValueENS_1
   store ptr null, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i8 0, ptr %38, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0JPNS0_4InitESE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0JPNS0_4InitESE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0JPNS0_4InitESE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %26, %10, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4InitENS_11MapResolver11MappedValueENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN4llvm8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0JPNS0_4InitESE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit": ; preds = %26, %10, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4InitENS_11MapResolver11MappedValueENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit.i.i.i.i.i.i
   %.0.i.i.i.i.i.i = phi ptr [ %35, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4InitENS_11MapResolver11MappedValueENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit.i.i.i.i.i.i ], [ %18, %10 ], [ %32, %26 ]
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
   store ptr %.val4, ptr %39, align 8
@@ -23862,7 +23862,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4InitENS_11MapResolver11MappedValueENS_1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPNS0_6RecordENS0_8ArrayRefIPNS0_12ArgumentInitEEENS0_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #11 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser23resolveArgumentsOfClassERNS1_11MapResolverEPNS1_6RecordENS1_8ArrayRefIPNS1_12ArgumentInitEEENS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser23resolveArgumentsOfClassERNS1_11MapResolverEPNS1_6RecordENS1_8ArrayRefIPNS1_12ArgumentInitEEENS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -23870,18 +23870,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser23resolveArgumentsOfClassERNS1_11MapResolverEPNS1_6RecordENS1_8ArrayRefIPNS1_12ArgumentInitEEENS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser23resolveArgumentsOfClassERNS1_11MapResolverEPNS1_6RecordENS1_8ArrayRefIPNS1_12ArgumentInitEEENS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser23resolveArgumentsOfClassERNS1_11MapResolverEPNS1_6RecordENS1_8ArrayRefIPNS1_12ArgumentInitEEENS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser23resolveArgumentsOfClassERNS1_11MapResolverEPNS1_6RecordENS1_8ArrayRefIPNS1_12ArgumentInitEEENS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser23resolveArgumentsOfClassERNS1_11MapResolverEPNS1_6RecordENS1_8ArrayRefIPNS1_12ArgumentInitEEENS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser23resolveArgumentsOfClassERNS1_11MapResolverEPNS1_6RecordENS1_8ArrayRefIPNS1_12ArgumentInitEEENS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser23resolveArgumentsOfClassERNS1_11MapResolverEPNS1_6RecordENS1_8ArrayRefIPNS1_12ArgumentInitEEENS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser23resolveArgumentsOfClassERNS1_11MapResolverEPNS1_6RecordENS1_8ArrayRefIPNS1_12ArgumentInitEEENS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -23904,7 +23904,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParse
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_EZNS0_8TGParser28resolveArgumentsOfMultiClassERNS0_11SmallVectorISt4pairIS2_S2_ELj8EEEPNS0_10MultiClassENS0_8ArrayRefIPNS0_12ArgumentInitEEES2_NS0_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #11 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser28resolveArgumentsOfMultiClassERNS1_11SmallVectorISt4pairIPNS1_4InitES6_ELj8EEEPNS1_10MultiClassENS1_8ArrayRefIPNS1_12ArgumentInitEEES6_NS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser28resolveArgumentsOfMultiClassERNS1_11SmallVectorISt4pairIPNS1_4InitES6_ELj8EEEPNS1_10MultiClassENS1_8ArrayRefIPNS1_12ArgumentInitEEES6_NS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -23912,18 +23912,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN4llvm4InitES2_
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser28resolveArgumentsOfMultiClassERNS1_11SmallVectorISt4pairIPNS1_4InitES6_ELj8EEEPNS1_10MultiClassENS1_8ArrayRefIPNS1_12ArgumentInitEEES6_NS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser28resolveArgumentsOfMultiClassERNS1_11SmallVectorISt4pairIPNS1_4InitES6_ELj8EEEPNS1_10MultiClassENS1_8ArrayRefIPNS1_12ArgumentInitEEES6_NS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser28resolveArgumentsOfMultiClassERNS1_11SmallVectorISt4pairIPNS1_4InitES6_ELj8EEEPNS1_10MultiClassENS1_8ArrayRefIPNS1_12ArgumentInitEEES6_NS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser28resolveArgumentsOfMultiClassERNS1_11SmallVectorISt4pairIPNS1_4InitES6_ELj8EEEPNS1_10MultiClassENS1_8ArrayRefIPNS1_12ArgumentInitEEES6_NS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser28resolveArgumentsOfMultiClassERNS1_11SmallVectorISt4pairIPNS1_4InitES6_ELj8EEEPNS1_10MultiClassENS1_8ArrayRefIPNS1_12ArgumentInitEEES6_NS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser28resolveArgumentsOfMultiClassERNS1_11SmallVectorISt4pairIPNS1_4InitES6_ELj8EEEPNS1_10MultiClassENS1_8ArrayRefIPNS1_12ArgumentInitEEES6_NS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser28resolveArgumentsOfMultiClassERNS1_11SmallVectorISt4pairIPNS1_4InitES6_ELj8EEEPNS1_10MultiClassENS1_8ArrayRefIPNS1_12ArgumentInitEEES6_NS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm8TGParser28resolveArgumentsOfMultiClassERNS1_11SmallVectorISt4pairIPNS1_4InitES6_ELj8EEEPNS1_10MultiClassENS1_8ArrayRefIPNS1_12ArgumentInitEEES6_NS1_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 

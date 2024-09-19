@@ -1356,14 +1356,14 @@ cleanup.i:                                        ; preds = %if.end8.sink.split.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i) #22
   %129 = load ptr, ptr %ret.i, align 8
   %cmp.not.i.i133.i = icmp eq ptr %129, null
-  br i1 %cmp.not.i.i133.i, label %_ZN12_GLOBAL__N_19attributeESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EERN6hermes11JSONEmitterE.exit, label %_ZNKSt14default_deleteIN6hermes3hbc20BCProviderFromBufferEEclEPS2_.exit.i.i.i
+  br i1 %cmp.not.i.i133.i, label %_ZN12_GLOBAL__N_19attributeESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EERN6hermes11JSONEmitterE.argprom.exit, label %_ZNKSt14default_deleteIN6hermes3hbc20BCProviderFromBufferEEclEPS2_.exit.i.i.i
 
 _ZNKSt14default_deleteIN6hermes3hbc20BCProviderFromBufferEEclEPS2_.exit.i.i.i: ; preds = %cleanup.i
   call void @_ZN6hermes3hbc20BCProviderFromBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %129) #22
   call void @_ZdlPv(ptr noundef nonnull %129) #28
-  br label %_ZN12_GLOBAL__N_19attributeESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EERN6hermes11JSONEmitterE.exit
+  br label %_ZN12_GLOBAL__N_19attributeESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EERN6hermes11JSONEmitterE.argprom.exit
 
-_ZN12_GLOBAL__N_19attributeESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EERN6hermes11JSONEmitterE.exit: ; preds = %cleanup.i, %_ZNKSt14default_deleteIN6hermes3hbc20BCProviderFromBufferEEclEPS2_.exit.i.i.i
+_ZN12_GLOBAL__N_19attributeESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EERN6hermes11JSONEmitterE.argprom.exit: ; preds = %cleanup.i, %_ZNKSt14default_deleteIN6hermes3hbc20BCProviderFromBufferEEclEPS2_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ret.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bc.i)
@@ -1372,14 +1372,14 @@ _ZN12_GLOBAL__N_19attributeESt10unique_ptrIN4llvh12MemoryBufferESt14default_dele
   %cmp.not.i93 = icmp eq i64 %29, 0
   br i1 %cmp.not.i93, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i: ; preds = %_ZN12_GLOBAL__N_19attributeESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EERN6hermes11JSONEmitterE.exit
+_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i: ; preds = %_ZN12_GLOBAL__N_19attributeESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EERN6hermes11JSONEmitterE.argprom.exit
   %vtable.i.i94 = load ptr, ptr %30, align 8
   %vfn.i.i95 = getelementptr inbounds i8, ptr %vtable.i.i94, i64 8
   %130 = load ptr, ptr %vfn.i.i95, align 8
   call void %130(ptr noundef nonnull align 8 dereferenceable(24) %30) #22
   br label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_19attributeESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EERN6hermes11JSONEmitterE.exit, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_19attributeESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EERN6hermes11JSONEmitterE.argprom.exit, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i
   br i1 %cmp.i.i87.not, label %cleanup, label %if.end35
 
 if.end35:                                         ; preds = %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit
@@ -3313,7 +3313,7 @@ sw.bb92:                                          ; preds = %entry
   %op396 = getelementptr inbounds i8, ptr %ip, i64 4
   %28 = load i16, ptr %op396, align 1
   %conv97 = zext i16 %28 to i32
-  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i, i32 noundef %conv95, i32 noundef %conv97)
+  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj.argelim(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i, i32 noundef %conv95, i32 noundef %conv97)
   %29 = load ptr, ptr %bcProvider_, align 8
   %objValueBuffer_.i = getelementptr inbounds i8, ptr %29, i64 104
   %retval.sroa.0.0.copyload.i58 = load ptr, ptr %objValueBuffer_.i, align 8
@@ -3322,7 +3322,7 @@ sw.bb92:                                          ; preds = %entry
   %conv102 = zext i16 %30 to i32
   %31 = load i16, ptr %op396, align 1
   %conv104 = zext i16 %31 to i32
-  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i58, i32 noundef %conv102, i32 noundef %conv104)
+  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj.argelim(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i58, i32 noundef %conv102, i32 noundef %conv104)
   br label %sw.epilog
 
 sw.bb105:                                         ; preds = %entry
@@ -3335,7 +3335,7 @@ sw.bb105:                                         ; preds = %entry
   %op3111 = getelementptr inbounds i8, ptr %ip, i64 4
   %34 = load i16, ptr %op3111, align 1
   %conv112 = zext i16 %34 to i32
-  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i63, i32 noundef %33, i32 noundef %conv112)
+  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj.argelim(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i63, i32 noundef %33, i32 noundef %conv112)
   %35 = load ptr, ptr %bcProvider_107, align 8
   %objValueBuffer_.i68 = getelementptr inbounds i8, ptr %35, i64 104
   %retval.sroa.0.0.copyload.i69 = load ptr, ptr %objValueBuffer_.i68, align 8
@@ -3343,7 +3343,7 @@ sw.bb105:                                         ; preds = %entry
   %36 = load i32, ptr %op5117, align 1
   %37 = load i16, ptr %op3111, align 1
   %conv119 = zext i16 %37 to i32
-  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i69, i32 noundef %36, i32 noundef %conv119)
+  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj.argelim(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i69, i32 noundef %36, i32 noundef %conv119)
   br label %sw.epilog
 
 sw.bb120:                                         ; preds = %entry
@@ -3357,7 +3357,7 @@ sw.bb120:                                         ; preds = %entry
   %op3127 = getelementptr inbounds i8, ptr %ip, i64 4
   %40 = load i16, ptr %op3127, align 1
   %conv128 = zext i16 %40 to i32
-  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i74, i32 noundef %conv126, i32 noundef %conv128)
+  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj.argelim(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i74, i32 noundef %conv126, i32 noundef %conv128)
   br label %sw.epilog
 
 sw.bb129:                                         ; preds = %entry
@@ -3370,7 +3370,7 @@ sw.bb129:                                         ; preds = %entry
   %op3135 = getelementptr inbounds i8, ptr %ip, i64 4
   %43 = load i16, ptr %op3135, align 1
   %conv136 = zext i16 %43 to i32
-  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i79, i32 noundef %42, i32 noundef %conv136)
+  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj.argelim(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %retval.sroa.0.0.copyload.i79, i32 noundef %42, i32 noundef %conv136)
   br label %sw.epilog
 
 sw.bb137:                                         ; preds = %entry
@@ -4456,7 +4456,7 @@ return:                                           ; preds = %for.body.i, %if.the
 declare noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr, i64, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %array.coerce0, i32 noundef %offset, i32 noundef range(i32 0, 65536) %count) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj.argelim(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %array.coerce0, i32 noundef %offset, i32 noundef range(i32 0, 65536) %count) unnamed_addr #3 align 2 {
 entry:
   %ConstFoundBucket.i.i.i.i64 = alloca ptr, align 8
   %TheBucket.i.i65 = alloca ptr, align 8

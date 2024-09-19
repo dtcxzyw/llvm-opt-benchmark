@@ -429,7 +429,7 @@ proc_stack.exit:                                  ; preds = %131, %140, %149
   %166 = sext i32 %165 to i64
   %167 = call i64 @procfs_memcpy(ptr noundef nonnull %162, i64 noundef %166, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %7) #15
   %.not.i46 = icmp ult i64 %167, %2
-  br i1 %.not.i46, label %168, label %proc_groupstatus.exit
+  br i1 %.not.i46, label %168, label %proc_groupstatus.argprom.exit
 
 168:                                              ; preds = %158
   %169 = sub nuw i64 %2, %167
@@ -441,7 +441,7 @@ proc_stack.exit:                                  ; preds = %131, %140, %149
   %175 = call i64 @procfs_memcpy(ptr noundef nonnull %162, i64 noundef %174, ptr noundef %170, i64 noundef %169, ptr noundef nonnull %7) #15
   %176 = add i64 %175, %167
   %.not123.i = icmp ult i64 %176, %2
-  br i1 %.not123.i, label %177, label %proc_groupstatus.exit
+  br i1 %.not123.i, label %177, label %proc_groupstatus.argprom.exit
 
 177:                                              ; preds = %168
   %178 = sub i64 %169, %175
@@ -454,7 +454,7 @@ proc_stack.exit:                                  ; preds = %131, %140, %149
   %185 = call i64 @procfs_memcpy(ptr noundef nonnull %162, i64 noundef %184, ptr noundef %179, i64 noundef %178, ptr noundef nonnull %7) #15
   %186 = add i64 %185, %176
   %.not124.i = icmp ult i64 %186, %2
-  br i1 %.not124.i, label %187, label %proc_groupstatus.exit
+  br i1 %.not124.i, label %187, label %proc_groupstatus.argprom.exit
 
 187:                                              ; preds = %177
   %188 = sub i64 %178, %185
@@ -467,7 +467,7 @@ proc_stack.exit:                                  ; preds = %131, %140, %149
   %195 = call i64 @procfs_memcpy(ptr noundef nonnull %162, i64 noundef %194, ptr noundef %189, i64 noundef %188, ptr noundef nonnull %7) #15
   %196 = add i64 %195, %186
   %.not125.i = icmp ult i64 %196, %2
-  br i1 %.not125.i, label %197, label %proc_groupstatus.exit
+  br i1 %.not125.i, label %197, label %proc_groupstatus.argprom.exit
 
 197:                                              ; preds = %187
   %198 = sub i64 %188, %195
@@ -477,7 +477,7 @@ proc_stack.exit:                                  ; preds = %131, %140, %149
   %202 = call i64 @procfs_memcpy(ptr noundef nonnull %162, i64 noundef %201, ptr noundef %199, i64 noundef %198, ptr noundef nonnull %7) #15
   %203 = add i64 %202, %196
   %.not126.i = icmp ult i64 %203, %2
-  br i1 %.not126.i, label %204, label %proc_groupstatus.exit
+  br i1 %.not126.i, label %204, label %proc_groupstatus.argprom.exit
 
 204:                                              ; preds = %197
   %205 = sub i64 %198, %202
@@ -503,7 +503,7 @@ proc_stack.exit:                                  ; preds = %131, %140, %149
   %215 = call i64 @procfs_memcpy(ptr noundef nonnull %162, i64 noundef %214, ptr noundef %.01104.i, i64 noundef %.01085.i, ptr noundef nonnull %7) #15
   %216 = add i64 %215, %.01076.i
   %.not127.i = icmp ult i64 %216, %2
-  br i1 %.not127.i, label %217, label %proc_groupstatus.exit
+  br i1 %.not127.i, label %217, label %proc_groupstatus.argprom.exit
 
 217:                                              ; preds = %209
   %218 = sub i64 %.01085.i, %215
@@ -522,9 +522,9 @@ proc_stack.exit:                                  ; preds = %131, %140, %149
   %224 = sext i32 %223 to i64
   %225 = call i64 @procfs_memcpy(ptr noundef nonnull %162, i64 noundef %224, ptr noundef %.0110.lcssa.i, i64 noundef %.0108.lcssa.i, ptr noundef nonnull %7) #15
   %226 = add i64 %225, %.0107.lcssa.i
-  br label %proc_groupstatus.exit
+  br label %proc_groupstatus.argprom.exit
 
-proc_groupstatus.exit:                            ; preds = %209, %158, %168, %177, %187, %197, %._crit_edge.i
+proc_groupstatus.argprom.exit:                    ; preds = %209, %158, %168, %177, %187, %197, %._crit_edge.i
   %.0109.i = phi i64 [ %226, %._crit_edge.i ], [ %167, %158 ], [ %176, %168 ], [ %186, %177 ], [ %196, %187 ], [ %203, %197 ], [ %216, %209 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %279
@@ -540,7 +540,7 @@ proc_groupstatus.exit:                            ; preds = %209, %158, %168, %1
   %231 = getelementptr inbounds i8, ptr %.val40, i64 928
   %232 = tail call i32 @files_countlist(ptr noundef nonnull %231) #15
   %233 = icmp eq i32 %232, 0
-  br i1 %233, label %proc_groupfd.exit, label %234
+  br i1 %233, label %proc_groupfd.argprom.exit, label %234
 
 234:                                              ; preds = %227
   %235 = getelementptr inbounds i8, ptr %13, i64 20
@@ -550,7 +550,7 @@ proc_groupstatus.exit:                            ; preds = %209, %158, %168, %1
   %.not.i47 = icmp ult i64 %238, %2
   %239 = icmp sgt i32 %232, 0
   %or.cond.i = and i1 %239, %.not.i47
-  br i1 %or.cond.i, label %.lr.ph.preheader.i, label %proc_groupfd.exit
+  br i1 %or.cond.i, label %.lr.ph.preheader.i, label %proc_groupfd.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %234
   %240 = getelementptr inbounds i8, ptr %1, i64 %238
@@ -594,7 +594,7 @@ proc_groupstatus.exit:                            ; preds = %209, %158, %168, %1
   %264 = getelementptr inbounds i8, ptr %.0481.i, i64 %262
   %265 = sub i64 %.0462.i, %262
   %.not56.i = icmp ult i64 %263, %2
-  br i1 %.not56.i, label %266, label %proc_groupfd.exit
+  br i1 %.not56.i, label %266, label %proc_groupfd.argprom.exit
 
 266:                                              ; preds = %250, %.lr.ph.i48
   %.149.i = phi ptr [ %.0481.i, %.lr.ph.i48 ], [ %264, %250 ]
@@ -602,9 +602,9 @@ proc_groupstatus.exit:                            ; preds = %209, %158, %168, %1
   %.1.i = phi i64 [ %.0453.i, %.lr.ph.i48 ], [ %263, %250 ]
   %267 = add nuw nsw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %267, %232
-  br i1 %exitcond.not.i, label %proc_groupfd.exit, label %.lr.ph.i48, !llvm.loop !9
+  br i1 %exitcond.not.i, label %proc_groupfd.argprom.exit, label %.lr.ph.i48, !llvm.loop !9
 
-proc_groupfd.exit:                                ; preds = %250, %266, %227, %234
+proc_groupfd.argprom.exit:                        ; preds = %250, %266, %227, %234
   %.044.i = phi i64 [ 0, %227 ], [ %238, %234 ], [ %.1.i, %266 ], [ %263, %250 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
@@ -632,8 +632,8 @@ proc_groupfd.exit:                                ; preds = %250, %266, %227, %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   br label %279
 
-279:                                              ; preds = %268, %proc_groupfd.exit, %proc_groupstatus.exit, %proc_stack.exit, %proc_cmdline.exit, %proc_status.exit
-  %.0 = phi i64 [ %278, %268 ], [ %.044.i, %proc_groupfd.exit ], [ %.0109.i, %proc_groupstatus.exit ], [ %.0.i45, %proc_stack.exit ], [ %.0.i43, %proc_cmdline.exit ], [ %.0.i, %proc_status.exit ]
+279:                                              ; preds = %268, %proc_groupfd.argprom.exit, %proc_groupstatus.argprom.exit, %proc_stack.exit, %proc_cmdline.exit, %proc_status.exit
+  %.0 = phi i64 [ %278, %268 ], [ %.044.i, %proc_groupfd.argprom.exit ], [ %.0109.i, %proc_groupstatus.argprom.exit ], [ %.0.i45, %proc_stack.exit ], [ %.0.i43, %proc_cmdline.exit ], [ %.0.i, %proc_status.exit ]
   %280 = icmp sgt i64 %.0, 0
   br i1 %280, label %281, label %.thread
 

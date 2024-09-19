@@ -125,7 +125,7 @@ define dso_local noundef range(i32 -12, 1) i32 @snd_info_init() local_unnamed_ad
 9:                                                ; preds = %3
   %10 = tail call fastcc noundef ptr @snd_info_create_entry(ptr noundef nonnull @.str.10, ptr noundef %6, ptr noundef null)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %create_subdir.exit.thread, label %12
+  br i1 %11, label %create_subdir.argprom.exit.thread, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %10, i64 8
@@ -136,9 +136,9 @@ define dso_local noundef range(i32 -12, 1) i32 @snd_info_init() local_unnamed_ad
 
 16:                                               ; preds = %12
   tail call void @snd_info_free_entry(ptr noundef nonnull %10)
-  br label %create_subdir.exit.thread
+  br label %create_subdir.argprom.exit.thread
 
-create_subdir.exit.thread:                        ; preds = %16, %9
+create_subdir.argprom.exit.thread:                ; preds = %16, %9
   store ptr null, ptr @snd_seq_root, align 8
   br label %26
 
@@ -158,7 +158,7 @@ create_subdir.exit.thread:                        ; preds = %16, %9
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %28
 
-26:                                               ; preds = %create_subdir.exit.thread, %23, %20, %17, %3
+26:                                               ; preds = %create_subdir.argprom.exit.thread, %23, %20, %17, %3
   %27 = load ptr, ptr @snd_proc_root, align 8
   tail call void @snd_info_free_entry(ptr noundef %27)
   br label %28

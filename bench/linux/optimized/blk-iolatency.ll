@@ -699,7 +699,7 @@ define internal i64 @iolatency_set_limit(ptr noundef %0, ptr noundef %1, i64 nou
 91:                                               ; preds = %._crit_edge
   %92 = getelementptr i8, ptr %86, i64 48
   %.val = load ptr, ptr %92, align 8
-  call fastcc void @iolatency_clear_scaling(ptr %.val)
+  call fastcc void @iolatency_clear_scaling.argprom(ptr %.val)
   br label %94
 
 .thread14:                                        ; preds = %4, %.loopexit, %47, %.loopexit16, %.thread11, %.thread12
@@ -856,7 +856,7 @@ define internal fastcc void @iolatency_set_min_lat_nsec(ptr noundef %0, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @iolatency_clear_scaling(ptr readonly %.48.val) unnamed_addr #2 align 16 {
+define internal fastcc void @iolatency_clear_scaling.argprom(ptr readonly %.48.val) unnamed_addr #2 align 16 {
   %1 = icmp eq ptr %.48.val, null
   br i1 %1, label %14, label %2
 
@@ -1934,7 +1934,7 @@ define internal void @blkcg_iolatency_done_bio(ptr nocapture readnone %0, ptr no
   store i64 %30, ptr %252, align 8
   %287 = getelementptr inbounds i8, ptr %45, i64 64
   %288 = load ptr, ptr %287, align 8
-  call fastcc void @scale_cookie_change(ptr noundef %288, ptr noundef %178)
+  call fastcc void @scale_cookie_change.argelim(ptr noundef %288, ptr noundef %178)
   br label %326
 
 289:                                              ; preds = %269, %260, %266
@@ -2098,7 +2098,7 @@ declare void @llvm.write_register.i64(metadata, i64) #9
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @scale_cookie_change(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @scale_cookie_change.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 80

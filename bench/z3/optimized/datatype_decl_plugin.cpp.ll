@@ -20779,11 +20779,11 @@ entry:
   store i32 0, ptr %nullable.i5.i.i, align 8
   %min_length.i6.i.i = getelementptr inbounds i8, ptr %sutil, i64 132
   store i32 0, ptr %min_length.i6.i.i, align 4
-  %call = invoke fastcc noundef ptr @"_ZZN8datatype4util12are_siblingsEP4sortS2_ENK3$_0clES2_"(ptr nonnull %autil, ptr nonnull %sutil, ptr noundef %s1)
+  %call = invoke fastcc noundef ptr @"_ZZN8datatype4util12are_siblingsEP4sortS2_ENK3$_0clES2_.argprom"(ptr nonnull %autil, ptr nonnull %sutil, ptr noundef %s1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %call4 = invoke fastcc noundef ptr @"_ZZN8datatype4util12are_siblingsEP4sortS2_ENK3$_0clES2_"(ptr nonnull %autil, ptr nonnull %sutil, ptr noundef %s2)
+  %call4 = invoke fastcc noundef ptr @"_ZZN8datatype4util12are_siblingsEP4sortS2_ENK3$_0clES2_.argprom"(ptr nonnull %autil, ptr nonnull %sutil, ptr noundef %s2)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -20987,7 +20987,7 @@ cleanup:                                          ; preds = %invoke.cont13, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @"_ZZN8datatype4util12are_siblingsEP4sortS2_ENK3$_0clES2_"(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, ptr noundef readonly %s) unnamed_addr #3 align 2 {
+define internal fastcc noundef ptr @"_ZZN8datatype4util12are_siblingsEP4sortS2_ENK3$_0clES2_.argprom"(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, ptr noundef readonly %s) unnamed_addr #3 align 2 {
 entry:
   %m_info.i.i.i.i9 = getelementptr inbounds i8, ptr %s, i64 24
   %0 = load ptr, ptr %m_info.i.i.i.i9, align 8

@@ -194,9 +194,9 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %54 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %t.01.i, <2 x i64> %53)
   %inc.i = add nuw nsw i64 %i.02.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 14
-  br i1 %exitcond.not.i, label %encrypt.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %encrypt.argprom.exit, label %for.body.i, !llvm.loop !4
 
-encrypt.exit:                                     ; preds = %for.body.i
+encrypt.argprom.exit:                             ; preds = %for.body.i
   %55 = tail call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %54, <2 x i64> %xor.i.i)
   %hx = getelementptr inbounds i8, ptr %st_, i64 240
   %56 = bitcast <2 x i64> %55 to <16 x i8>
@@ -225,8 +225,8 @@ encrypt.exit:                                     ; preds = %for.body.i
   store <2 x i64> %xor.i.i.i, ptr %arrayidx15.i, align 16
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %encrypt.exit
-  %i.028.i.i = phi i64 [ 2, %encrypt.exit ], [ %add7.i.i, %for.body.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %encrypt.argprom.exit
+  %i.028.i.i = phi i64 [ 2, %encrypt.argprom.exit ], [ %add7.i.i, %for.body.i.i ]
   %67 = getelementptr <2 x i64>, ptr %hx, i64 %i.028.i.i
   %arrayidx1.i.i = getelementptr i8, ptr %67, i64 -16
   %68 = load <2 x i64>, ptr %arrayidx1.i.i, align 16
@@ -264,9 +264,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %encr
   store <2 x i64> %xor.i.i27.i.i, ptr %arrayidx6.i.i, align 16
   %add7.i.i = add nuw nsw i64 %i.028.i.i, 2
   %cmp.i.i = icmp ult i64 %i.028.i.i, 12
-  br i1 %cmp.i.i, label %for.body.i.i, label %precomp_for_block_count.exit, !llvm.loop !6
+  br i1 %cmp.i.i, label %for.body.i.i, label %precomp_for_block_count.argprom.exit, !llvm.loop !6
 
-precomp_for_block_count.exit:                     ; preds = %for.body.i.i
+precomp_for_block_count.argprom.exit:             ; preds = %for.body.i.i
   ret i32 0
 }
 
@@ -1355,9 +1355,9 @@ for.body.i564.i:                                  ; preds = %for.body.i564.i, %f
   %227 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %t.01.i.i, <2 x i64> %226)
   %inc.i565.i = add nuw nsw i64 %i.02.i.i, 1
   %exitcond.not.i566.i = icmp eq i64 %inc.i565.i, 14
-  br i1 %exitcond.not.i566.i, label %encrypt.exit.i, label %for.body.i564.i, !llvm.loop !4
+  br i1 %exitcond.not.i566.i, label %encrypt.argprom.exit.i, label %for.body.i564.i, !llvm.loop !4
 
-encrypt.exit.i:                                   ; preds = %for.body.i564.i
+encrypt.argprom.exit.i:                           ; preds = %for.body.i564.i
   %228 = bitcast <2 x i64> %vecinit1.i447.i to <16 x i8>
   %229 = shufflevector <16 x i8> %228, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %arrayidx6.i.i = getelementptr i8, ptr %st_, i64 224
@@ -1368,7 +1368,7 @@ encrypt.exit.i:                                   ; preds = %for.body.i564.i
   %cmp254.not.i = icmp eq i64 %m_len_, %i.6.lcssa.i
   br i1 %cmp254.not.i, label %if.else.i, label %for.end264.i
 
-for.end264.i:                                     ; preds = %encrypt.exit.i
+for.end264.i:                                     ; preds = %encrypt.argprom.exit.i
   %232 = getelementptr i8, ptr %m, i64 %i.6.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_blocks.i, ptr readonly align 1 %232, i64 %sub253.i, i1 false)
   %add.ptr266.i = getelementptr inbounds i8, ptr %last_blocks.i, i64 16
@@ -1411,7 +1411,7 @@ for.end286.i:                                     ; preds = %for.body273.prehead
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %243, ptr nonnull align 16 %last_blocks.i, i64 %sub253.i, i1 false)
   br label %aes_gcm_encrypt_generic.exit
 
-if.else.i:                                        ; preds = %encrypt.exit.i
+if.else.i:                                        ; preds = %encrypt.argprom.exit.i
   store <16 x i8> %229, ptr %last_blocks.i, align 16
   br label %aes_gcm_encrypt_generic.exit
 
@@ -1536,7 +1536,7 @@ if.then3:                                         ; preds = %entry
   %or.cond.i.i = or i1 %cmp3.i.i, %cmp.i.i
   %cmp5.i.i = icmp ult i64 %ad_len_, %div9.i.i
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp5.i.i
-  br i1 %or.cond11.i.i, label %crypto_aead_aes256gcm_verify_mac.exit, label %lor.lhs.false6.i.i
+  br i1 %or.cond11.i.i, label %crypto_aead_aes256gcm_verify_mac.argprom.exit, label %lor.lhs.false6.i.i
 
 lor.lhs.false6.i.i:                               ; preds = %if.then3
   %add1.i.i = add nuw i64 %c_len_, 15
@@ -1544,7 +1544,7 @@ lor.lhs.false6.i.i:                               ; preds = %if.then3
   %cmp7.i.i = icmp ult i64 %c_len_, %div210.i.i
   %cmp9.i.i = icmp ugt i64 %c_len_, 68719476688
   %or.cond1.i.i = or i1 %cmp9.i.i, %cmp7.i.i
-  br i1 %or.cond1.i.i, label %crypto_aead_aes256gcm_verify_mac.exit, label %required_blocks.exit.i
+  br i1 %or.cond1.i.i, label %crypto_aead_aes256gcm_verify_mac.argprom.exit, label %required_blocks.exit.i
 
 required_blocks.exit.i:                           ; preds = %lor.lhs.false6.i.i
   store <2 x i64> zeroinitializer, ptr %sth.i, align 16
@@ -1604,9 +1604,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %7 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %t.01.i.i, <2 x i64> %6)
   %inc.i.i = add nuw nsw i64 %i.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 14
-  br i1 %exitcond.not.i.i, label %encrypt.exit.i, label %for.body.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %encrypt.argprom.exit.i, label %for.body.i.i, !llvm.loop !4
 
-encrypt.exit.i:                                   ; preds = %for.body.i.i
+encrypt.argprom.exit.i:                           ; preds = %for.body.i.i
   %8 = bitcast <2 x i64> %vecinit1.i89.i to <16 x i8>
   %9 = shufflevector <16 x i8> %8, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %arrayidx6.i.i = getelementptr i8, ptr %st_, i64 224
@@ -1621,10 +1621,10 @@ encrypt.exit.i:                                   ; preds = %for.body.i.i
   store <2 x i64> %xor.i.i, ptr %computed_mac.i, align 16
   %call44.i = call i32 @crypto_verify_16(ptr noundef nonnull %mac, ptr noundef nonnull %computed_mac.i) #12
   call void @sodium_memzero(ptr noundef nonnull %computed_mac.i, i64 noundef 16) #12
-  br label %crypto_aead_aes256gcm_verify_mac.exit
+  br label %crypto_aead_aes256gcm_verify_mac.argprom.exit
 
-crypto_aead_aes256gcm_verify_mac.exit:            ; preds = %if.then3, %lor.lhs.false6.i.i, %encrypt.exit.i
-  %retval.0.i = phi i32 [ %call44.i, %encrypt.exit.i ], [ -1, %lor.lhs.false6.i.i ], [ -1, %if.then3 ]
+crypto_aead_aes256gcm_verify_mac.argprom.exit:    ; preds = %if.then3, %lor.lhs.false6.i.i, %encrypt.argprom.exit.i
+  %retval.0.i = phi i32 [ %call44.i, %encrypt.argprom.exit.i ], [ -1, %lor.lhs.false6.i.i ], [ -1, %if.then3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sth.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %computed_mac.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %last_block.i)
@@ -2414,9 +2414,9 @@ for.body.i387.i:                                  ; preds = %for.body.i387.i, %f
   %178 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %t.01.i.i28, <2 x i64> %177)
   %inc.i388.i = add nuw nsw i64 %i.02.i.i27, 1
   %exitcond.not.i389.i = icmp eq i64 %inc.i388.i, 14
-  br i1 %exitcond.not.i389.i, label %encrypt.exit.i30, label %for.body.i387.i, !llvm.loop !4
+  br i1 %exitcond.not.i389.i, label %encrypt.argprom.exit.i30, label %for.body.i387.i, !llvm.loop !4
 
-encrypt.exit.i30:                                 ; preds = %for.body.i387.i
+encrypt.argprom.exit.i30:                         ; preds = %for.body.i387.i
   %179 = bitcast <2 x i64> %vecinit1.i372.i to <16 x i8>
   %180 = shufflevector <16 x i8> %179, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %arrayidx6.i.i31 = getelementptr i8, ptr %st_, i64 224
@@ -2426,7 +2426,7 @@ encrypt.exit.i30:                                 ; preds = %for.body.i387.i
   %cmp179.not.i = icmp eq i64 %c_len_, %i.4.lcssa.i
   br i1 %cmp179.not.i, label %if.else.i, label %for.cond190.preheader.i
 
-for.cond190.preheader.i:                          ; preds = %encrypt.exit.i30
+for.cond190.preheader.i:                          ; preds = %encrypt.argprom.exit.i30
   %183 = getelementptr i8, ptr %c, i64 %i.4.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_blocks.i, ptr readonly align 1 %183, i64 %sub178.i, i1 false)
   %cmp191485.i = icmp ult i64 %sub178.i, 16
@@ -2468,7 +2468,7 @@ for.body206.lr.ph.i:                              ; preds = %for.body.i391.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %192, ptr nonnull align 16 %last_blocks.i, i64 %sub178.i, i1 false)
   br label %aes_gcm_decrypt_generic.exit
 
-if.else.i:                                        ; preds = %encrypt.exit.i30
+if.else.i:                                        ; preds = %encrypt.argprom.exit.i30
   store <16 x i8> %180, ptr %last_blocks.i, align 16
   call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth, ptr noundef nonnull %last_blocks.i, i64 noundef 16)
   br label %aes_gcm_decrypt_generic.exit
@@ -2491,8 +2491,8 @@ if.then15:                                        ; preds = %aes_gcm_decrypt_gen
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %m, i8 -48, i64 %c_len_, i1 false)
   br label %return
 
-return:                                           ; preds = %if.end4, %lor.lhs.false6.i, %aes_gcm_decrypt_generic.exit, %if.then15, %crypto_aead_aes256gcm_verify_mac.exit
-  %retval.0 = phi i32 [ %retval.0.i, %crypto_aead_aes256gcm_verify_mac.exit ], [ -1, %if.then15 ], [ 0, %aes_gcm_decrypt_generic.exit ], [ -1, %lor.lhs.false6.i ], [ -1, %if.end4 ]
+return:                                           ; preds = %if.end4, %lor.lhs.false6.i, %aes_gcm_decrypt_generic.exit, %if.then15, %crypto_aead_aes256gcm_verify_mac.argprom.exit
+  %retval.0 = phi i32 [ %retval.0.i, %crypto_aead_aes256gcm_verify_mac.argprom.exit ], [ -1, %if.then15 ], [ 0, %aes_gcm_decrypt_generic.exit ], [ -1, %lor.lhs.false6.i ], [ -1, %if.end4 ]
   ret i32 %retval.0
 }
 

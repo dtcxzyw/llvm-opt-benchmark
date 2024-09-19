@@ -792,13 +792,13 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
   %174 = sext i32 %.lcssa to i64
   br label %.preheader.i156.lr.ph
 
-.preheader.i156.lr.ph:                            ; preds = %.preheader.i156.lr.ph.lr.ph, %Extra_ProgressBarUpdate.exit
-  %.val.i154 = phi ptr [ %.val.i154249256, %.preheader.i156.lr.ph.lr.ph ], [ %.val.i154249, %Extra_ProgressBarUpdate.exit ]
-  %indvars.iv318 = phi i64 [ %174, %.preheader.i156.lr.ph.lr.ph ], [ %indvars.iv.next319, %Extra_ProgressBarUpdate.exit ]
-  %175 = phi ptr [ %171, %.preheader.i156.lr.ph.lr.ph ], [ %222, %Extra_ProgressBarUpdate.exit ]
-  %.val36.i155 = phi i32 [ %.val36.i155250257, %.preheader.i156.lr.ph.lr.ph ], [ %.val36.i155250, %Extra_ProgressBarUpdate.exit ]
-  %176 = phi ptr [ %173, %.preheader.i156.lr.ph.lr.ph ], [ %220, %Extra_ProgressBarUpdate.exit ]
-  %.1182.ph258 = phi i32 [ %.5, %.preheader.i156.lr.ph.lr.ph ], [ %.6, %Extra_ProgressBarUpdate.exit ]
+.preheader.i156.lr.ph:                            ; preds = %.preheader.i156.lr.ph.lr.ph, %Extra_ProgressBarUpdate.argprom.exit
+  %.val.i154 = phi ptr [ %.val.i154249256, %.preheader.i156.lr.ph.lr.ph ], [ %.val.i154249, %Extra_ProgressBarUpdate.argprom.exit ]
+  %indvars.iv318 = phi i64 [ %174, %.preheader.i156.lr.ph.lr.ph ], [ %indvars.iv.next319, %Extra_ProgressBarUpdate.argprom.exit ]
+  %175 = phi ptr [ %171, %.preheader.i156.lr.ph.lr.ph ], [ %222, %Extra_ProgressBarUpdate.argprom.exit ]
+  %.val36.i155 = phi i32 [ %.val36.i155250257, %.preheader.i156.lr.ph.lr.ph ], [ %.val36.i155250, %Extra_ProgressBarUpdate.argprom.exit ]
+  %176 = phi ptr [ %173, %.preheader.i156.lr.ph.lr.ph ], [ %220, %Extra_ProgressBarUpdate.argprom.exit ]
+  %.1182.ph258 = phi i32 [ %.5, %.preheader.i156.lr.ph.lr.ph ], [ %.6, %Extra_ProgressBarUpdate.argprom.exit ]
   %177 = trunc nsw i64 %indvars.iv318 to i32
   %178 = sext i32 %.val36.i155 to i64
   %179 = getelementptr inbounds i8, ptr %.val.i154, i64 %178
@@ -821,7 +821,7 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
   %186 = ptrtoint ptr %184 to i64
   br label %188
 
-.outer._crit_edge.loopexit269:                    ; preds = %Extra_ProgressBarUpdate.exit
+.outer._crit_edge.loopexit269:                    ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %187 = trunc nsw i64 %indvars.iv.next319 to i32
   br label %.outer._crit_edge
 
@@ -904,14 +904,14 @@ Vec_StrGets.exit161:                              ; preds = %190, %197
   %214 = load i32, ptr %168, align 4
   %215 = sext i32 %214 to i64
   %216 = icmp slt i64 %indvars.iv.next319, %215
-  br i1 %216, label %Extra_ProgressBarUpdate.exit, label %217
+  br i1 %216, label %Extra_ProgressBarUpdate.argprom.exit, label %217
 
 217:                                              ; preds = %213, %210
   %218 = trunc nsw i64 %indvars.iv.next319 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %168, i32 noundef %218, ptr noundef null) #16
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %213, %217
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %213, %217
   %.val.i154249 = load ptr, ptr %6, align 8
   %219 = sext i32 %.6 to i64
   %220 = getelementptr inbounds i8, ptr %.val.i154249, i64 %219

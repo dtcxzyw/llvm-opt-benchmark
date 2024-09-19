@@ -302,12 +302,12 @@ define internal fastcc void @acpi_pcc_cpufreq_init() unnamed_addr #0 section ".i
   store ptr null, ptr %2, align 8, !annotation !5
   %3 = call i32 @acpi_get_handle(ptr noundef null, ptr noundef nonnull @.str.42, ptr noundef nonnull %2) #14
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %cpufreq_add_device.exit
+  br i1 %4, label %5, label %cpufreq_add_device.argprom.exit
 
 5:                                                ; preds = %0
   %6 = load ptr, ptr %2, align 8
   %7 = call zeroext i1 @acpi_has_method(ptr noundef %6, ptr noundef nonnull @.str.43) #14
-  br i1 %7, label %8, label %cpufreq_add_device.exit
+  br i1 %7, label %8, label %cpufreq_add_device.argprom.exit
 
 8:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %1) #14
@@ -321,14 +321,14 @@ define internal fastcc void @acpi_pcc_cpufreq_init() unnamed_addr #0 section ".i
   %12 = call ptr @platform_device_register_full(ptr noundef nonnull %1) #14
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %1) #14
   %13 = icmp ugt ptr %12, inttoptr (i64 -4096 to ptr)
-  br i1 %13, label %14, label %cpufreq_add_device.exit
+  br i1 %13, label %14, label %cpufreq_add_device.argprom.exit
 
 14:                                               ; preds = %8
   %15 = ptrtoint ptr %12 to i64
   %16 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.44, i64 noundef %15) #16
-  br label %cpufreq_add_device.exit
+  br label %cpufreq_add_device.argprom.exit
 
-cpufreq_add_device.exit:                          ; preds = %14, %8, %5, %0
+cpufreq_add_device.argprom.exit:                  ; preds = %14, %8, %5, %0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
   ret void
 }

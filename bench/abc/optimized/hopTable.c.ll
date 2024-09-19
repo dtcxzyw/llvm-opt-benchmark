@@ -197,8 +197,8 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
   %.not32.i = icmp eq ptr %35, null
   br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph50.i, %Hop_TableFind.exit.i
-  %.sink59.i = phi ptr [ %37, %Hop_TableFind.exit.i ], [ %35, %.lr.ph50.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph50.i, %Hop_TableFind.argprom.exit.i
+  %.sink59.i = phi ptr [ %37, %Hop_TableFind.argprom.exit.i ], [ %35, %.lr.ph50.i ]
   %36 = getelementptr inbounds i8, ptr %.sink59.i, i64 8
   %37 = load ptr, ptr %36, align 8
   %.val38.i = load ptr, ptr %18, align 8
@@ -246,15 +246,15 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
   %71 = icmp eq ptr %70, %.sink59.i
   %or.cond.i.i = or i1 %.not.i41.i, %71
   %72 = getelementptr inbounds i8, ptr %70, i64 8
-  br i1 %or.cond.i.i, label %Hop_TableFind.exit.i, label %69, !llvm.loop !8
+  br i1 %or.cond.i.i, label %Hop_TableFind.argprom.exit.i, label %69, !llvm.loop !8
 
-Hop_TableFind.exit.i:                             ; preds = %69
+Hop_TableFind.argprom.exit.i:                     ; preds = %69
   store ptr %.sink59.i, ptr %.0.i40.i, align 8
   store ptr null, ptr %36, align 8
   %.not34.i = icmp eq ptr %37, null
   br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
-._crit_edge.i:                                    ; preds = %Hop_TableFind.exit.i, %.lr.ph50.i
+._crit_edge.i:                                    ; preds = %Hop_TableFind.argprom.exit.i, %.lr.ph50.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge51.i, label %.lr.ph50.i, !llvm.loop !10
@@ -315,9 +315,9 @@ Hop_TableResize.exit:                             ; preds = %73, %._crit_edge51.
   %109 = icmp eq ptr %108, %1
   %or.cond.i = or i1 %.not.i11, %109
   %110 = getelementptr inbounds i8, ptr %108, i64 8
-  br i1 %or.cond.i, label %Hop_TableFind.exit, label %107, !llvm.loop !8
+  br i1 %or.cond.i, label %Hop_TableFind.argprom.exit, label %107, !llvm.loop !8
 
-Hop_TableFind.exit:                               ; preds = %107
+Hop_TableFind.argprom.exit:                       ; preds = %107
   store ptr %1, ptr %.0.i, align 8
   ret void
 }
@@ -371,9 +371,9 @@ define void @Hop_TableDelete(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %38 = icmp eq ptr %37, %1
   %or.cond.i = or i1 %.not.i, %38
   %39 = getelementptr inbounds i8, ptr %37, i64 8
-  br i1 %or.cond.i, label %Hop_TableFind.exit, label %36, !llvm.loop !8
+  br i1 %or.cond.i, label %Hop_TableFind.argprom.exit, label %36, !llvm.loop !8
 
-Hop_TableFind.exit:                               ; preds = %36
+Hop_TableFind.argprom.exit:                       ; preds = %36
   %40 = getelementptr inbounds i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %.0.i, align 8

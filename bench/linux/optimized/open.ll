@@ -219,7 +219,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @vfs_truncate(ptr nocapt
   br i1 %39, label %.lr.ph, label %.loopexit, !prof !11, !llvm.loop !12
 
 40:                                               ; preds = %.lr.ph
-  %41 = tail call fastcc i32 @break_lease(ptr noundef %6)
+  %41 = tail call fastcc i32 @break_lease.argelim(ptr noundef %6)
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %46
 
@@ -252,7 +252,7 @@ declare dso_local i32 @mnt_want_write(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @inode_permission(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @break_lease(ptr noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc i32 @break_lease.argelim(ptr noundef %0) unnamed_addr #4 align 16 {
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !16
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
@@ -776,7 +776,7 @@ define dso_local i32 @vfs_fallocate(ptr noundef %0, i32 noundef %1, i64 noundef 
 
 74:                                               ; preds = %68
   %.val = load ptr, ptr %5, align 8
-  tail call fastcc void @file_start_write(ptr %.val)
+  tail call fastcc void @file_start_write.argprom(ptr %.val)
   %75 = load ptr, ptr %69, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 208
   %77 = load ptr, ptr %76, align 8
@@ -790,7 +790,7 @@ define dso_local i32 @vfs_fallocate(ptr noundef %0, i32 noundef %1, i64 noundef 
 
 81:                                               ; preds = %80, %74
   %.val3 = load ptr, ptr %5, align 8
-  tail call fastcc void @file_end_write(ptr %.val3)
+  tail call fastcc void @file_end_write.argprom(ptr %.val3)
   %82 = trunc i64 %78 to i32
   br label %83
 
@@ -803,7 +803,7 @@ define dso_local i32 @vfs_fallocate(ptr noundef %0, i32 noundef %1, i64 noundef 
 declare dso_local i32 @security_file_permission(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @file_start_write(ptr nocapture readonly %.168.val) unnamed_addr #4 align 16 {
+define internal fastcc void @file_start_write.argprom(ptr nocapture readonly %.168.val) unnamed_addr #4 align 16 {
   %1 = load i16, ptr %.168.val, align 8
   %2 = and i16 %1, -4096
   %3 = icmp eq i16 %2, -32768
@@ -902,7 +902,7 @@ define internal fastcc void @fsnotify_modify(ptr noundef %0) unnamed_addr #4 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @file_end_write(ptr nocapture readonly %.168.val) unnamed_addr #4 align 16 {
+define internal fastcc void @file_end_write.argprom(ptr nocapture readonly %.168.val) unnamed_addr #4 align 16 {
   %1 = load i16, ptr %.168.val, align 8
   %2 = and i16 %1, -4096
   %3 = icmp eq i16 %2, -32768

@@ -1546,7 +1546,7 @@ define internal ptr @anextawaitable_iternext(ptr nocapture noundef readonly %obj
 entry:
   %0 = getelementptr i8, ptr %obj, i64 16
   %obj.val = load ptr, ptr %0, align 8
-  %call = tail call fastcc ptr @anextawaitable_getiter(ptr %obj.val)
+  %call = tail call fastcc ptr @anextawaitable_getiter.argprom(ptr %obj.val)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -1808,7 +1808,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @anextawaitable_getiter(ptr %obj.16.val) unnamed_addr #0 {
+define internal fastcc ptr @anextawaitable_getiter.argprom(ptr %obj.16.val) unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyCoro_GetAwaitableIter(ptr noundef %obj.16.val) #4
   %cmp = icmp eq ptr %call, null
@@ -1895,7 +1895,7 @@ define internal ptr @anextawaitable_send(ptr nocapture noundef readonly %obj, pt
 entry:
   %0 = getelementptr i8, ptr %obj, i64 16
   %obj.val.i = load ptr, ptr %0, align 8
-  %call.i = tail call fastcc ptr @anextawaitable_getiter(ptr %obj.val.i)
+  %call.i = tail call fastcc ptr @anextawaitable_getiter.argprom(ptr %obj.val.i)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %anextawaitable_proxy.exit, label %if.end.i
 
@@ -1942,7 +1942,7 @@ define internal ptr @anextawaitable_throw(ptr nocapture noundef readonly %obj, p
 entry:
   %0 = getelementptr i8, ptr %obj, i64 16
   %obj.val.i = load ptr, ptr %0, align 8
-  %call.i = tail call fastcc ptr @anextawaitable_getiter(ptr %obj.val.i)
+  %call.i = tail call fastcc ptr @anextawaitable_getiter.argprom(ptr %obj.val.i)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %anextawaitable_proxy.exit, label %if.end.i
 
@@ -1989,7 +1989,7 @@ define internal ptr @anextawaitable_close(ptr nocapture noundef readonly %obj, p
 entry:
   %0 = getelementptr i8, ptr %obj, i64 16
   %obj.val.i = load ptr, ptr %0, align 8
-  %call.i = tail call fastcc ptr @anextawaitable_getiter(ptr %obj.val.i)
+  %call.i = tail call fastcc ptr @anextawaitable_getiter.argprom(ptr %obj.val.i)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %anextawaitable_proxy.exit, label %if.end.i
 

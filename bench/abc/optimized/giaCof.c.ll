@@ -1235,7 +1235,7 @@ define i32 @Cof_ManCountRemoved(ptr nocapture noundef %0, ptr noundef %1, i32 no
   %.val95 = load i32, ptr %8, align 4
   %9 = getelementptr i8, ptr %.val94, i64 160
   %.val94.val99 = load ptr, ptr %9, align 8
-  %10 = tail call fastcc i32 @Cof_ObjLevel(ptr %.val94.val99, i32 %.val95)
+  %10 = tail call fastcc i32 @Cof_ObjLevel.argprom.argprom.argelim(ptr %.val94.val99, i32 %.val95)
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   store i32 0, ptr %11, align 4
   %12 = getelementptr i8, ptr %0, i64 40
@@ -1399,7 +1399,7 @@ define i32 @Cof_ManCountRemoved(ptr nocapture noundef %0, ptr noundef %1, i32 no
   %107 = getelementptr inbounds i8, ptr %.val96.val98, i64 4
   %108 = load i32, ptr %107, align 4
   %.not.i.not.i.i.i.i = icmp sgt i32 %108, %.val97
-  br i1 %.not.i.not.i.i.i.i, label %Cof_ObjLevel.exit, label %109
+  br i1 %.not.i.not.i.i.i.i, label %Cof_ObjLevel.argprom.argprom.exit, label %109
 
 109:                                              ; preds = %103
   %110 = load i32, ptr %.val96.val98, align 8
@@ -1484,9 +1484,9 @@ Vec_IntGrow.exit.i.i.i.i.i:                       ; preds = %Vec_IntGrow.exit.si
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %139, %Vec_IntGrow.exit.i.i.i.i.i
   store i32 %106, ptr %107, align 4
-  br label %Cof_ObjLevel.exit
+  br label %Cof_ObjLevel.argprom.argprom.exit
 
-Cof_ObjLevel.exit:                                ; preds = %103, %._crit_edge.i.i.i.i.i
+Cof_ObjLevel.argprom.argprom.exit:                ; preds = %103, %._crit_edge.i.i.i.i.i
   %142 = zext i32 %.val97 to i64
   %143 = getelementptr i8, ptr %.val96.val98, i64 8
   %.val.i.i.i.i = load ptr, ptr %143, align 8
@@ -1512,8 +1512,8 @@ Cof_ObjLevel.exit:                                ; preds = %103, %._crit_edge.i
   %159 = add nsw i32 %.2108, 1
   br label %160
 
-160:                                              ; preds = %100, %44, %32, %Cof_ObjLevel.exit
-  %.3 = phi i32 [ %.2108, %32 ], [ %.2108, %44 ], [ %.2108, %100 ], [ %159, %Cof_ObjLevel.exit ]
+160:                                              ; preds = %100, %44, %32, %Cof_ObjLevel.argprom.argprom.exit
+  %.3 = phi i32 [ %.2108, %32 ], [ %.2108, %44 ], [ %.2108, %100 ], [ %159, %Cof_ObjLevel.argprom.argprom.exit ]
   %161 = add nuw nsw i32 %.071107, 1
   %162 = load i32, ptr %29, align 4
   %163 = lshr i32 %162, 8
@@ -1548,12 +1548,12 @@ Cof_ObjLevel.exit:                                ; preds = %103, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Cof_ObjLevel(ptr nocapture %.0.val.160.val, i32 %.12.val) unnamed_addr #0 {
+define internal fastcc i32 @Cof_ObjLevel.argprom.argprom.argelim(ptr nocapture %.0.val.160.val, i32 %.12.val) unnamed_addr #0 {
   %1 = add nsw i32 %.12.val, 1
   %2 = getelementptr inbounds i8, ptr %.0.val.160.val, i64 4
   %3 = load i32, ptr %2, align 4
   %.not.i.not.i.i.i = icmp sgt i32 %3, %.12.val
-  br i1 %.not.i.not.i.i.i, label %Gia_ObjLevel.exit, label %4
+  br i1 %.not.i.not.i.i.i, label %Gia_ObjLevel.argprom.exit, label %4
 
 4:                                                ; preds = %0
   %5 = load i32, ptr %.0.val.160.val, align 8
@@ -1638,9 +1638,9 @@ Vec_IntGrow.exit.i.i.i.i:                         ; preds = %Vec_IntGrow.exit.si
 
 ._crit_edge.i.i.i.i:                              ; preds = %34, %Vec_IntGrow.exit.i.i.i.i
   store i32 %1, ptr %2, align 4
-  br label %Gia_ObjLevel.exit
+  br label %Gia_ObjLevel.argprom.exit
 
-Gia_ObjLevel.exit:                                ; preds = %0, %._crit_edge.i.i.i.i
+Gia_ObjLevel.argprom.exit:                        ; preds = %0, %._crit_edge.i.i.i.i
   %37 = zext i32 %.12.val to i64
   %38 = getelementptr i8, ptr %.0.val.160.val, i64 8
   %.val.i.i.i = load ptr, ptr %38, align 8
@@ -1671,7 +1671,7 @@ define void @Cof_ManPrintHighFanoutOne(ptr nocapture noundef %0, ptr noundef %1)
   %.val7 = load i32, ptr %2, align 4
   %12 = getelementptr i8, ptr %.val6, i64 160
   %.val6.val8 = load ptr, ptr %12, align 8
-  %13 = tail call fastcc i32 @Cof_ObjLevel(ptr %.val6.val8, i32 %.val7)
+  %13 = tail call fastcc i32 @Cof_ObjLevel.argprom.argprom.argelim(ptr %.val6.val8, i32 %.val7)
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %13)
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   %16 = load i32, ptr %15, align 8

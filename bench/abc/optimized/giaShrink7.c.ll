@@ -88,7 +88,7 @@ Abc_UtilStrsav.exit22:                            ; preds = %Abc_UtilStrsav.exit
   store i32 %16, ptr %36, align 8
   call void @Gia_ManIncrementTravId(ptr noundef nonnull %18) #19
   store i32 1, ptr %36, align 8
-  %37 = call fastcc ptr @Hash_IntManStart()
+  %37 = call fastcc ptr @Hash_IntManStart.argelim()
   %38 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %37, ptr %38, align 8
   %39 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
@@ -123,7 +123,7 @@ declare void @Gia_ManCleanLevels(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: write) uwtable
-define internal fastcc noalias noundef ptr @Hash_IntManStart() unnamed_addr #3 {
+define internal fastcc noalias noundef ptr @Hash_IntManStart.argelim() unnamed_addr #3 {
   %1 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #18
   br label %.loopexit.i
 
@@ -505,7 +505,7 @@ define noalias noundef ptr @Unm_ManComputePairs(ptr nocapture noundef readonly %
   br label %Vec_IntStart.exit
 
 Vec_IntStart.exit:                                ; preds = %2, %11
-  %12 = tail call fastcc ptr @Hash_IntManStart()
+  %12 = tail call fastcc ptr @Hash_IntManStart.argelim()
   %13 = load ptr, ptr %0, align 8
   tail call void @Gia_ManSetRefsMapped(ptr noundef %13) #19
   %14 = load ptr, ptr %0, align 8
@@ -715,7 +715,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %119 = load i32, ptr %118, align 4
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.081165, i32 %119)
   %spec.select91 = tail call i32 @llvm.smax.i32(i32 %.081165, i32 %119)
-  %120 = tail call fastcc i32 @Hash_Int2ManInsert(ptr noundef %12, i32 noundef %spec.select, i32 noundef %spec.select91)
+  %120 = tail call fastcc i32 @Hash_Int2ManInsert.argelim(ptr noundef %12, i32 noundef %spec.select, i32 noundef %spec.select91)
   %.not.i.i = icmp ne i32 %120, 0
   tail call void @llvm.assume(i1 %.not.i.i)
   %121 = load ptr, ptr %18, align 8
@@ -1247,7 +1247,7 @@ Hash_IntManStop.exit:                             ; preds = %Vec_IntFree.exit.i,
 declare void @Gia_ManSetRefsMapped(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Hash_Int2ManInsert(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @Hash_Int2ManInsert.argelim(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
@@ -2195,8 +2195,8 @@ Vec_IntStart.exit:                                ; preds = %3, %8
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   br label %20
 
-20:                                               ; preds = %.lr.ph157, %Abc_TtCheckDsdAnd.exit
-  %indvars.iv161 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next162, %Abc_TtCheckDsdAnd.exit ]
+20:                                               ; preds = %.lr.ph157, %Abc_TtCheckDsdAnd.argprom.exit
+  %indvars.iv161 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next162, %Abc_TtCheckDsdAnd.argprom.exit ]
   %.val82 = load ptr, ptr %15, align 8
   %21 = getelementptr inbounds i32, ptr %.val82, i64 %indvars.iv161
   %22 = load i32, ptr %21, align 4
@@ -2429,7 +2429,7 @@ Vec_IntFind.exit93:                               ; preds = %102, %.critedge, %.
 153:                                              ; preds = %152
   %154 = icmp eq i64 %138, %141
   %or.cond71.i = select i1 %148, i1 %154, i1 false
-  br i1 %or.cond71.i, label %select.unfold, label %Abc_TtCheckDsdAnd.exit
+  br i1 %or.cond71.i, label %select.unfold, label %Abc_TtCheckDsdAnd.argprom.exit
 
 select.unfold:                                    ; preds = %153, %Vec_IntFind.exit93, %147, %150, %152
   %155 = phi i1 [ false, %152 ], [ false, %150 ], [ false, %147 ], [ false, %Vec_IntFind.exit93 ], [ true, %153 ]
@@ -2444,7 +2444,7 @@ select.unfold:                                    ; preds = %153, %Vec_IntFind.e
   %spec.select = select i1 %155, i32 %158, i32 %162
   %spec.select74 = select i1 %155, i32 %162, i32 %158
   %163 = load ptr, ptr %19, align 8
-  %164 = tail call fastcc i32 @Hash_Int2ManInsert(ptr noundef %163, i32 noundef %spec.select74, i32 noundef %spec.select)
+  %164 = tail call fastcc i32 @Hash_Int2ManInsert.argelim(ptr noundef %163, i32 noundef %spec.select74, i32 noundef %spec.select)
   %165 = load ptr, ptr %19, align 8
   %.not.i.i = icmp ne i32 %164, 0
   tail call void @llvm.assume(i1 %.not.i.i)
@@ -2472,7 +2472,7 @@ select.unfold:                                    ; preds = %153, %Vec_IntFind.e
 
 .Vec_IntGrow.exit10_crit_edge.i94:                ; preds = %175
   %.pre.i96 = load ptr, ptr %7, align 8
-  br label %Abc_TtCheckDsdAnd.exit.sink.split
+  br label %Abc_TtCheckDsdAnd.argprom.exit.sink.split
 
 179:                                              ; preds = %175
   %180 = icmp slt i32 %176, 16
@@ -2495,7 +2495,7 @@ Vec_IntGrow.exit.i99:                             ; preds = %185, %183
   %187 = phi ptr [ %184, %183 ], [ %186, %185 ]
   store ptr %187, ptr %7, align 8
   store i32 16, ptr %4, align 8
-  br label %Abc_TtCheckDsdAnd.exit.sink.split
+  br label %Abc_TtCheckDsdAnd.argprom.exit.sink.split
 
 188:                                              ; preds = %179
   %189 = shl nuw nsw i32 %176, 1
@@ -2517,7 +2517,7 @@ Vec_IntGrow.exit.i99:                             ; preds = %185, %183
   %198 = phi ptr [ %194, %193 ], [ %196, %195 ]
   store ptr %198, ptr %7, align 8
   store i32 %189, ptr %4, align 8
-  br label %Abc_TtCheckDsdAnd.exit.sink.split
+  br label %Abc_TtCheckDsdAnd.argprom.exit.sink.split
 
 199:                                              ; preds = %select.unfold
   %.val78 = load ptr, ptr %7, align 8
@@ -2839,7 +2839,7 @@ Vec_IntPush.exit135:                              ; preds = %.Vec_IntGrow.exit10
 
 .Vec_IntGrow.exit10_crit_edge.i136:               ; preds = %Vec_IntPush.exit135
   %.pre.i138 = load ptr, ptr %12, align 8
-  br label %Abc_TtCheckDsdAnd.exit.sink.split
+  br label %Abc_TtCheckDsdAnd.argprom.exit.sink.split
 
 342:                                              ; preds = %Vec_IntPush.exit135
   %343 = icmp slt i32 %339, 16
@@ -2862,7 +2862,7 @@ Vec_IntGrow.exit.i141:                            ; preds = %348, %346
   %350 = phi ptr [ %347, %346 ], [ %349, %348 ]
   store ptr %350, ptr %12, align 8
   store i32 16, ptr %9, align 8
-  br label %Abc_TtCheckDsdAnd.exit.sink.split
+  br label %Abc_TtCheckDsdAnd.argprom.exit.sink.split
 
 351:                                              ; preds = %342
   %352 = shl nuw nsw i32 %339, 1
@@ -2884,9 +2884,9 @@ Vec_IntGrow.exit.i141:                            ; preds = %348, %346
   %361 = phi ptr [ %357, %356 ], [ %359, %358 ]
   store ptr %361, ptr %12, align 8
   store i32 %352, ptr %9, align 8
-  br label %Abc_TtCheckDsdAnd.exit.sink.split
+  br label %Abc_TtCheckDsdAnd.argprom.exit.sink.split
 
-Abc_TtCheckDsdAnd.exit.sink.split:                ; preds = %360, %Vec_IntGrow.exit.i141, %.Vec_IntGrow.exit10_crit_edge.i136, %197, %Vec_IntGrow.exit.i99, %.Vec_IntGrow.exit10_crit_edge.i94
+Abc_TtCheckDsdAnd.argprom.exit.sink.split:        ; preds = %360, %Vec_IntGrow.exit.i141, %.Vec_IntGrow.exit10_crit_edge.i136, %197, %Vec_IntGrow.exit.i99, %.Vec_IntGrow.exit10_crit_edge.i94
   %.sink170 = phi i32 [ %176, %.Vec_IntGrow.exit10_crit_edge.i94 ], [ %176, %Vec_IntGrow.exit.i99 ], [ %176, %197 ], [ %339, %.Vec_IntGrow.exit10_crit_edge.i136 ], [ %339, %Vec_IntGrow.exit.i141 ], [ %339, %360 ]
   %.sink169 = phi ptr [ %5, %.Vec_IntGrow.exit10_crit_edge.i94 ], [ %5, %Vec_IntGrow.exit.i99 ], [ %5, %197 ], [ %10, %.Vec_IntGrow.exit10_crit_edge.i136 ], [ %10, %Vec_IntGrow.exit.i141 ], [ %10, %360 ]
   %.sink166 = phi ptr [ %.pre.i96, %.Vec_IntGrow.exit10_crit_edge.i94 ], [ %187, %Vec_IntGrow.exit.i99 ], [ %198, %197 ], [ %.pre.i138, %.Vec_IntGrow.exit10_crit_edge.i136 ], [ %350, %Vec_IntGrow.exit.i141 ], [ %361, %360 ]
@@ -2896,16 +2896,16 @@ Abc_TtCheckDsdAnd.exit.sink.split:                ; preds = %360, %Vec_IntGrow.e
   %363 = sext i32 %.sink170 to i64
   %364 = getelementptr inbounds i32, ptr %.sink166, i64 %363
   store i32 %spec.select.sink, ptr %364, align 4
-  br label %Abc_TtCheckDsdAnd.exit
+  br label %Abc_TtCheckDsdAnd.argprom.exit
 
-Abc_TtCheckDsdAnd.exit:                           ; preds = %Abc_TtCheckDsdAnd.exit.sink.split, %153
+Abc_TtCheckDsdAnd.argprom.exit:                   ; preds = %Abc_TtCheckDsdAnd.argprom.exit.sink.split, %153
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 3
   %.val76 = load i32, ptr %13, align 4
   %365 = trunc nuw i64 %indvars.iv.next162 to i32
   %366 = icmp sgt i32 %.val76, %365
   br i1 %366, label %20, label %._crit_edge.loopexit, !llvm.loop !22
 
-._crit_edge.loopexit:                             ; preds = %Abc_TtCheckDsdAnd.exit
+._crit_edge.loopexit:                             ; preds = %Abc_TtCheckDsdAnd.argprom.exit
   %.pre = load ptr, ptr %7, align 8
   br label %._crit_edge
 

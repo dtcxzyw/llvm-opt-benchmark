@@ -2025,7 +2025,7 @@ define dso_local range(i64 -2147483649, 2147483647) i64 @pg_strxfrm(ptr noundef 
   br i1 %.not, label %.split, label %5
 
 .split:                                           ; preds = %4
-  tail call fastcc void @pg_strxfrm_libc(ptr noundef null)
+  tail call fastcc void @pg_strxfrm_libc.argprom.argelim(ptr noundef null)
   unreachable
 
 5:                                                ; preds = %4
@@ -2036,7 +2036,7 @@ define dso_local range(i64 -2147483649, 2147483647) i64 @pg_strxfrm(ptr noundef 
   ]
 
 .split12:                                         ; preds = %5
-  tail call fastcc void @pg_strxfrm_libc(ptr noundef nonnull %3)
+  tail call fastcc void @pg_strxfrm_libc.argprom.argelim(ptr noundef nonnull %3)
   unreachable
 
 7:                                                ; preds = %5
@@ -2055,7 +2055,7 @@ define dso_local range(i64 -2147483649, 2147483647) i64 @pg_strxfrm(ptr noundef 
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @pg_strxfrm_libc(ptr nocapture noundef readonly %0) unnamed_addr #15 {
+define internal fastcc void @pg_strxfrm_libc.argprom.argelim(ptr nocapture noundef readonly %0) unnamed_addr #15 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
   tail call void @llvm.assume(i1 %2)
   %3 = load i8, ptr %0, align 8
@@ -2145,7 +2145,7 @@ define dso_local range(i64 -2147483649, 2147483647) i64 @pg_strnxfrm(ptr noundef
   br i1 %.not, label %.split, label %6
 
 .split:                                           ; preds = %5
-  tail call fastcc void @pg_strnxfrm_libc(ptr noundef %2, i64 noundef %3, ptr noundef null)
+  tail call fastcc void @pg_strnxfrm_libc.argprom.argelim(ptr noundef %2, i64 noundef %3, ptr noundef null)
   unreachable
 
 6:                                                ; preds = %5
@@ -2156,7 +2156,7 @@ define dso_local range(i64 -2147483649, 2147483647) i64 @pg_strnxfrm(ptr noundef
   ]
 
 .split14:                                         ; preds = %6
-  tail call fastcc void @pg_strnxfrm_libc(ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4)
+  tail call fastcc void @pg_strnxfrm_libc.argprom.argelim(ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4)
   unreachable
 
 8:                                                ; preds = %6
@@ -2176,7 +2176,7 @@ define dso_local range(i64 -2147483649, 2147483647) i64 @pg_strnxfrm(ptr noundef
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @pg_strnxfrm_libc(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #15 {
+define internal fastcc void @pg_strnxfrm_libc.argprom.argelim(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #15 {
   %4 = alloca [1024 x i8], align 16
   %5 = add i64 %1, 1
   %6 = icmp ugt i64 %5, 1024
@@ -2191,7 +2191,7 @@ define internal fastcc void @pg_strnxfrm_libc(ptr nocapture noundef readonly %0,
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0, ptr align 1 %0, i64 %1, i1 false)
   %10 = getelementptr i8, ptr %.0, i64 %1
   store i8 0, ptr %10, align 1
-  tail call fastcc void @pg_strxfrm_libc(ptr noundef %2)
+  tail call fastcc void @pg_strxfrm_libc.argprom.argelim(ptr noundef %2)
   unreachable
 }
 
@@ -2243,7 +2243,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_strxfrm_prefix(ptr n
 
 11:                                               ; preds = %8
   %12 = trunc i64 %2 to i32
-  %13 = tail call fastcc i64 @pg_strnxfrm_prefix_icu(ptr noundef %0, ptr noundef %1, i32 noundef %12, ptr noundef %3)
+  %13 = tail call fastcc i64 @pg_strnxfrm_prefix_icu.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %12, ptr noundef %3)
   ret i64 %13
 
 14:                                               ; preds = %8
@@ -2257,7 +2257,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_strxfrm_prefix(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @pg_strnxfrm_prefix_icu(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @pg_strnxfrm_prefix_icu.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [1024 x i8], align 16
@@ -2404,7 +2404,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_strnxfrm_prefix(ptr 
 
 12:                                               ; preds = %9
   %13 = trunc i64 %1 to i32
-  %14 = tail call fastcc i64 @pg_strnxfrm_prefix_icu(ptr noundef %0, ptr noundef %2, i32 noundef %13, ptr noundef %4)
+  %14 = tail call fastcc i64 @pg_strnxfrm_prefix_icu.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %13, ptr noundef %4)
   ret i64 %14
 
 15:                                               ; preds = %9

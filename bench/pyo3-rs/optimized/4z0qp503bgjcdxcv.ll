@@ -3315,7 +3315,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass10impl_class17h7c9b
   %57 = alloca [64 x i8], align 8
   %58 = alloca [392 x i8], align 8
   %59 = alloca [32 x i8], align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias align 8 %59, ptr align 8 %1, ptr align 8 %2, ptr align 8 %6)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E.argprom(ptr noalias align 8 %59, ptr align 8 %1, ptr align 8 %2, ptr align 8 %6)
           to label %64 unwind label %62
 
 60:                                               ; preds = %65, %62
@@ -5006,7 +5006,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
 292:                                              ; preds = %291
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef nonnull align 8 dereferenceable(24) %106, i64 24, i1 false), !noalias !33
   %293 = load ptr, ptr %104, align 8, !noalias !33
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias align 8 %99, ptr align 8 %293, ptr nonnull align 8 %2, ptr align 8 %134)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E.argprom(ptr noalias align 8 %99, ptr align 8 %293, ptr nonnull align 8 %2, ptr align 8 %134)
           to label %297 unwind label %295, !noalias !33
 
 294:                                              ; preds = %299, %295
@@ -7645,7 +7645,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass17impl_complex_enum
   %244 = load ptr, ptr %198, align 8
   store ptr %244, ptr %186, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %185, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias align 8 %184, ptr align 8 %244, ptr nonnull align 8 %193, ptr align 8 %187)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E.argprom(ptr noalias align 8 %184, ptr align 8 %244, ptr nonnull align 8 %193, ptr align 8 %187)
           to label %249 unwind label %247
 
 245:                                              ; preds = %250, %247
@@ -8053,7 +8053,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
   %.val181 = load ptr, ptr %289, align 8
   %370 = getelementptr i8, ptr %.val181, i64 144
   %.val181.val = load i32, ptr %370, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_pyclass17h72fbf856312104ecE(ptr noalias align 8 %156, ptr %.val, i32 %.val181.val, ptr align 8 %187)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_pyclass17h72fbf856312104ecE.argprom.argprom(ptr noalias align 8 %156, ptr %.val, i32 %.val181.val, ptr align 8 %187)
           to label %373 unwind label %372
 
 371:                                              ; preds = %375
@@ -8075,7 +8075,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
   %.val183 = load ptr, ptr %289, align 8
   %374 = getelementptr i8, ptr %.val183, i64 144
   %.val183.val = load i32, ptr %374, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder15impl_extractext17h8bf58c9bd65dd6b1E(ptr noalias align 8 %155, ptr %.val182, i32 %.val183.val, ptr align 8 %187)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder15impl_extractext17h8bf58c9bd65dd6b1E.argprom.argprom(ptr noalias align 8 %155, ptr %.val182, i32 %.val183.val, ptr align 8 %187)
           to label %378 unwind label %376
 
 375:                                              ; preds = %1075, %376
@@ -8111,7 +8111,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.224.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %383, i64 24, i1 false)
   store i64 %382, ptr %153, align 8
   %.val184 = load ptr, ptr %288, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder18impl_add_to_module17h9aa1f7cd41371401E(ptr noalias align 8 %151, ptr %.val184, ptr align 8 %187)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder18impl_add_to_module17h9aa1f7cd41371401E.argprom(ptr noalias align 8 %151, ptr %.val184, ptr align 8 %187)
           to label %390 unwind label %388
 
 385:                                              ; preds = %381
@@ -8926,7 +8926,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
 661:                                              ; preds = %658
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %129, ptr noundef nonnull align 8 dereferenceable(304) %128, i64 304, i1 false)
   store i8 0, ptr %419, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias align 8 %125, ptr nonnull align 8 %140, ptr nonnull align 8 %129, ptr align 8 %187)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E.argprom(ptr noalias align 8 %125, ptr nonnull align 8 %140, ptr nonnull align 8 %129, ptr align 8 %187)
           to label %662 unwind label %.loopexit309
 
 .thread244:                                       ; preds = %.loopexit309, %.loopexit.split-lp310, %1039, %1032, %1044, %670, %1051
@@ -15785,7 +15785,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_vari
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass15impl_pytypeinfo17hd9e873f2a802d870E.argprom(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [32 x i8], align 8
@@ -17605,12 +17605,12 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   %.val14 = load ptr, ptr %30, align 8
   %31 = getelementptr i8, ptr %.val14, i64 144
   %.val14.val = load i32, ptr %31, align 8
-  call fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_pyclass17h72fbf856312104ecE(ptr noalias align 8 %25, ptr %.val, i32 %.val14.val, ptr align 8 %2)
+  call fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_pyclass17h72fbf856312104ecE.argprom.argprom(ptr noalias align 8 %25, ptr %.val, i32 %.val14.val, ptr align 8 %2)
   %.val15 = load ptr, ptr %29, align 8
   %.val16 = load ptr, ptr %30, align 8
   %32 = getelementptr i8, ptr %.val16, i64 144
   %.val16.val = load i32, ptr %32, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder15impl_extractext17h8bf58c9bd65dd6b1E(ptr noalias align 8 %24, ptr %.val15, i32 %.val16.val, ptr align 8 %2)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder15impl_extractext17h8bf58c9bd65dd6b1E.argprom.argprom(ptr noalias align 8 %24, ptr %.val15, i32 %.val16.val, ptr align 8 %2)
           to label %36 unwind label %34
 
 33:                                               ; preds = %.body, %34
@@ -17973,7 +17973,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 24, i1 false)
   store i64 %117, ptr %22, align 8
   %.val19 = load ptr, ptr %29, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder18impl_add_to_module17h9aa1f7cd41371401E(ptr noalias align 8 %20, ptr %.val19, ptr align 8 %2)
+  invoke fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder18impl_add_to_module17h9aa1f7cd41371401E.argprom(ptr noalias align 8 %20, ptr %.val19, ptr align 8 %2)
           to label %125 unwind label %123
 
 120:                                              ; preds = %116
@@ -18089,7 +18089,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_pyclass17h72fbf856312104ecE(ptr noalias nocapture nonnull writeonly align 8 %0, ptr %.120.val, i32 %.128.val.144.val, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_pyclass17h72fbf856312104ecE.argprom.argprom(ptr noalias nocapture nonnull writeonly align 8 %0, ptr %.120.val, i32 %.128.val.144.val, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -18271,7 +18271,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder15impl_extractext17h8bf58c9bd65dd6b1E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr %.120.val, i32 %.128.val.144.val, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder15impl_extractext17h8bf58c9bd65dd6b1E.argprom.argprom(ptr noalias nocapture nonnull writeonly align 8 %0, ptr %.120.val, i32 %.128.val.144.val, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -23943,7 +23943,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder18impl_add_to_module17h9aa1f7cd41371401E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr %.120.val, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder18impl_add_to_module17h9aa1f7cd41371401E.argprom(ptr noalias nocapture nonnull writeonly align 8 %0, ptr %.120.val, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -25861,8 +25861,8 @@ attributes #16 = { noreturn }
 !47 = distinct !{!47, !48, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E: argument 0"}
 !48 = distinct !{!48, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E"}
 !49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder13impl_freelist17h679af0f93574dbbdE: argument 0"}
-!51 = distinct !{!51, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder13impl_freelist17h679af0f93574dbbdE"}
+!50 = distinct !{!50, !51, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder13impl_freelist17h679af0f93574dbbdE.argprom: argument 0"}
+!51 = distinct !{!51, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder13impl_freelist17h679af0f93574dbbdE.argprom"}
 !52 = !{!53}
 !53 = distinct !{!53, !54, !"_ZN19pyo3_macros_backend7pyclass24complex_enum_variant_new17h893df0c60f61f46cE: argument 0"}
 !54 = distinct !{!54, !"_ZN19pyo3_macros_backend7pyclass24complex_enum_variant_new17h893df0c60f61f46cE"}
@@ -25884,8 +25884,8 @@ attributes #16 = { noreturn }
 !70 = distinct !{!70, !71, !"_ZN19pyo3_macros_backend7pyclass35impl_complex_enum_tuple_variant_cls17hf4091065a9cf710eE: argument 0"}
 !71 = distinct !{!71, !"_ZN19pyo3_macros_backend7pyclass35impl_complex_enum_tuple_variant_cls17hf4091065a9cf710eE"}
 !72 = !{!73, !70}
-!73 = distinct !{!73, !74, !"_ZN19pyo3_macros_backend7pyclass45impl_complex_enum_tuple_variant_field_getters17h58881531cd7002c5E: argument 0"}
-!74 = distinct !{!74, !"_ZN19pyo3_macros_backend7pyclass45impl_complex_enum_tuple_variant_field_getters17h58881531cd7002c5E"}
+!73 = distinct !{!73, !74, !"_ZN19pyo3_macros_backend7pyclass45impl_complex_enum_tuple_variant_field_getters17h58881531cd7002c5E.argprom: argument 0"}
+!74 = distinct !{!74, !"_ZN19pyo3_macros_backend7pyclass45impl_complex_enum_tuple_variant_field_getters17h58881531cd7002c5E.argprom"}
 !75 = !{!76, !70}
 !76 = distinct !{!76, !77, !"_ZN19pyo3_macros_backend7pyclass35impl_complex_enum_tuple_variant_len17h6c32e5f8d4709df6E: argument 0"}
 !77 = distinct !{!77, !"_ZN19pyo3_macros_backend7pyclass35impl_complex_enum_tuple_variant_len17h6c32e5f8d4709df6E"}
@@ -25893,14 +25893,14 @@ attributes #16 = { noreturn }
 !79 = distinct !{!79, !80, !"_ZN19pyo3_macros_backend7pyclass39impl_complex_enum_tuple_variant_getitem17he2fcb0df113692e2E: argument 0"}
 !80 = distinct !{!80, !"_ZN19pyo3_macros_backend7pyclass39impl_complex_enum_tuple_variant_getitem17he2fcb0df113692e2E"}
 !81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_into_py17h817e4d4de0704ffaE: argument 0"}
-!83 = distinct !{!83, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_into_py17h817e4d4de0704ffaE"}
+!82 = distinct !{!82, !83, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_into_py17h817e4d4de0704ffaE.argprom.argprom: argument 0"}
+!83 = distinct !{!83, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder12impl_into_py17h817e4d4de0704ffaE.argprom.argprom"}
 !84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder13impl_freelist17h679af0f93574dbbdE: argument 0"}
-!86 = distinct !{!86, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder13impl_freelist17h679af0f93574dbbdE"}
+!85 = distinct !{!85, !86, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder13impl_freelist17h679af0f93574dbbdE.argprom: argument 0"}
+!86 = distinct !{!86, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder13impl_freelist17h679af0f93574dbbdE.argprom"}
 !87 = !{!88}
 !88 = distinct !{!88, !89, !"_ZN19pyo3_macros_backend7pyclass22define_inventory_class17h56ee6c979fefa44fE: argument 0"}
 !89 = distinct !{!89, !"_ZN19pyo3_macros_backend7pyclass22define_inventory_class17h56ee6c979fefa44fE"}
 !90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder14freelist_slots17he5bbe4c49f66abacE: argument 0"}
-!92 = distinct !{!92, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder14freelist_slots17he5bbe4c49f66abacE"}
+!91 = distinct !{!91, !92, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder14freelist_slots17he5bbe4c49f66abacE.argprom.argprom: argument 0"}
+!92 = distinct !{!92, !"_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder14freelist_slots17he5bbe4c49f66abacE.argprom.argprom"}

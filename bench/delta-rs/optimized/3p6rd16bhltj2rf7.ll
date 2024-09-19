@@ -1561,7 +1561,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   store ptr %.val, ptr %5, align 8, !noalias !297
   %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.167f273de0ab0fee07b0d1f6f2adeccd.70, i64 noundef 3, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.167f273de0ab0fee07b0d1f6f2adeccd.75), !noalias !300
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !297
-  br label %_ZN4core3ops8function6FnOnce9call_once17he6aaac1204ab48e5E.exit
+  br label %_ZN4core3ops8function6FnOnce9call_once17he6aaac1204ab48e5E.argprom.exit
 
 15:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !297
@@ -1569,9 +1569,9 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   store ptr %16, ptr %4, align 8, !noalias !297
   %17 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.167f273de0ab0fee07b0d1f6f2adeccd.72, i64 noundef 15, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.167f273de0ab0fee07b0d1f6f2adeccd.73), !noalias !300
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !297
-  br label %_ZN4core3ops8function6FnOnce9call_once17he6aaac1204ab48e5E.exit
+  br label %_ZN4core3ops8function6FnOnce9call_once17he6aaac1204ab48e5E.argprom.exit
 
-_ZN4core3ops8function6FnOnce9call_once17he6aaac1204ab48e5E.exit: ; preds = %13, %15
+_ZN4core3ops8function6FnOnce9call_once17he6aaac1204ab48e5E.argprom.exit: ; preds = %13, %15
   %.0.in.i.i.i = phi i1 [ %17, %15 ], [ %14, %13 ]
   ret i1 %.0.in.i.i.i
 }
@@ -1605,16 +1605,16 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   store ptr %14, ptr %5, align 8, !noalias !317
   %15 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.167f273de0ab0fee07b0d1f6f2adeccd.70, i64 noundef 3, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.167f273de0ab0fee07b0d1f6f2adeccd.74), !noalias !318
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !317
-  br label %_ZN4core3ops8function6FnOnce9call_once17h81f99d7ce23f2e71E.exit
+  br label %_ZN4core3ops8function6FnOnce9call_once17h81f99d7ce23f2e71E.argprom.exit
 
 16:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !317
   store ptr %.val, ptr %4, align 8, !noalias !317
   %17 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.167f273de0ab0fee07b0d1f6f2adeccd.72, i64 noundef 15, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.167f273de0ab0fee07b0d1f6f2adeccd.73), !noalias !318
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !317
-  br label %_ZN4core3ops8function6FnOnce9call_once17h81f99d7ce23f2e71E.exit
+  br label %_ZN4core3ops8function6FnOnce9call_once17h81f99d7ce23f2e71E.argprom.exit
 
-_ZN4core3ops8function6FnOnce9call_once17h81f99d7ce23f2e71E.exit: ; preds = %13, %16
+_ZN4core3ops8function6FnOnce9call_once17h81f99d7ce23f2e71E.argprom.exit: ; preds = %13, %16
   %.0.in.i.i.i = phi i1 [ %15, %13 ], [ %17, %16 ]
   ret i1 %.0.in.i.i.i
 }
@@ -1647,7 +1647,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   store ptr %.val, ptr %5, align 8, !noalias !335
   %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.167f273de0ab0fee07b0d1f6f2adeccd.70, i64 noundef 3, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.167f273de0ab0fee07b0d1f6f2adeccd.71), !noalias !336
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !335
-  br label %_ZN4core3ops8function6FnOnce9call_once17h755fcef6be847d3bE.exit
+  br label %_ZN4core3ops8function6FnOnce9call_once17h755fcef6be847d3bE.argprom.exit
 
 15:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !335
@@ -1655,9 +1655,9 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   store ptr %16, ptr %4, align 8, !noalias !335
   %17 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.167f273de0ab0fee07b0d1f6f2adeccd.72, i64 noundef 15, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.167f273de0ab0fee07b0d1f6f2adeccd.73), !noalias !336
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !335
-  br label %_ZN4core3ops8function6FnOnce9call_once17h755fcef6be847d3bE.exit
+  br label %_ZN4core3ops8function6FnOnce9call_once17h755fcef6be847d3bE.argprom.exit
 
-_ZN4core3ops8function6FnOnce9call_once17h755fcef6be847d3bE.exit: ; preds = %13, %15
+_ZN4core3ops8function6FnOnce9call_once17h755fcef6be847d3bE.argprom.exit: ; preds = %13, %15
   %.0.in.i.i.i = phi i1 [ %17, %15 ], [ %14, %13 ]
   ret i1 %.0.in.i.i.i
 }
@@ -1672,13 +1672,13 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   %.val.i.i = load ptr, ptr %6, align 8, !noalias !342
   %7 = tail call noundef i128 %.val.i.i(ptr noundef nonnull align 1 %.val), !noalias !342
   %.not.i.i = icmp eq i128 %7, 38445013334021853377815126566474195616
-  br i1 %.not.i.i, label %_ZN4core3ops8function6FnOnce9call_once17hcb85f6c3173ff1bcE.exit, label %8
+  br i1 %.not.i.i, label %_ZN4core3ops8function6FnOnce9call_once17hcb85f6c3173ff1bcE.argprom.exit, label %8
 
 8:                                                ; preds = %3
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.167f273de0ab0fee07b0d1f6f2adeccd.40, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.167f273de0ab0fee07b0d1f6f2adeccd.42) #26, !noalias !342
   unreachable
 
-_ZN4core3ops8function6FnOnce9call_once17hcb85f6c3173ff1bcE.exit: ; preds = %3
+_ZN4core3ops8function6FnOnce9call_once17hcb85f6c3173ff1bcE.argprom.exit: ; preds = %3
   %9 = getelementptr inbounds i8, ptr %.val, i64 24
   %10 = getelementptr inbounds i8, ptr %.val, i64 48
   %11 = getelementptr inbounds i8, ptr %.val, i64 72
@@ -5602,8 +5602,8 @@ attributes #26 = { noreturn }
 !292 = distinct !{!292, !293, !"_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new28_$u7b$$u7b$closure$u7d$$u7d$17hf345db266f3bb37eE.llvm.16377625001461121484: argument 0"}
 !293 = distinct !{!293, !"_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new28_$u7b$$u7b$closure$u7d$$u7d$17hf345db266f3bb37eE.llvm.16377625001461121484"}
 !294 = distinct !{!294, !293, !"_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new28_$u7b$$u7b$closure$u7d$$u7d$17hf345db266f3bb37eE.llvm.16377625001461121484: argument 1"}
-!295 = distinct !{!295, !296, !"_ZN4core3ops8function6FnOnce9call_once17he6aaac1204ab48e5E: argument 0"}
-!296 = distinct !{!296, !"_ZN4core3ops8function6FnOnce9call_once17he6aaac1204ab48e5E"}
+!295 = distinct !{!295, !296, !"_ZN4core3ops8function6FnOnce9call_once17he6aaac1204ab48e5E.argprom: argument 0"}
+!296 = distinct !{!296, !"_ZN4core3ops8function6FnOnce9call_once17he6aaac1204ab48e5E.argprom"}
 !297 = !{!298, !292, !294, !295}
 !298 = distinct !{!298, !299, !"_ZN88_$LT$aws_smithy_types..config_bag..value..Value$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h719b770327bc7418E: argument 0"}
 !299 = distinct !{!299, !"_ZN88_$LT$aws_smithy_types..config_bag..value..Value$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h719b770327bc7418E"}
@@ -5617,8 +5617,8 @@ attributes #26 = { noreturn }
 !307 = distinct !{!307, !308, !"_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new28_$u7b$$u7b$closure$u7d$$u7d$17hc57137cfda4e2f4eE.llvm.16377625001461121484: argument 0"}
 !308 = distinct !{!308, !"_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new28_$u7b$$u7b$closure$u7d$$u7d$17hc57137cfda4e2f4eE.llvm.16377625001461121484"}
 !309 = distinct !{!309, !308, !"_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new28_$u7b$$u7b$closure$u7d$$u7d$17hc57137cfda4e2f4eE.llvm.16377625001461121484: argument 1"}
-!310 = distinct !{!310, !311, !"_ZN4core3ops8function6FnOnce9call_once17h81f99d7ce23f2e71E: argument 0"}
-!311 = distinct !{!311, !"_ZN4core3ops8function6FnOnce9call_once17h81f99d7ce23f2e71E"}
+!310 = distinct !{!310, !311, !"_ZN4core3ops8function6FnOnce9call_once17h81f99d7ce23f2e71E.argprom: argument 0"}
+!311 = distinct !{!311, !"_ZN4core3ops8function6FnOnce9call_once17h81f99d7ce23f2e71E.argprom"}
 !312 = !{!313}
 !313 = distinct !{!313, !314, !"_ZN88_$LT$aws_smithy_types..config_bag..value..Value$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h3d193a875ee82c6cE: argument 0"}
 !314 = distinct !{!314, !"_ZN88_$LT$aws_smithy_types..config_bag..value..Value$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h3d193a875ee82c6cE"}
@@ -5635,8 +5635,8 @@ attributes #26 = { noreturn }
 !325 = distinct !{!325, !326, !"_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new28_$u7b$$u7b$closure$u7d$$u7d$17h3212229d491d3af6E.llvm.16377625001461121484: argument 0"}
 !326 = distinct !{!326, !"_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new28_$u7b$$u7b$closure$u7d$$u7d$17h3212229d491d3af6E.llvm.16377625001461121484"}
 !327 = distinct !{!327, !326, !"_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new28_$u7b$$u7b$closure$u7d$$u7d$17h3212229d491d3af6E.llvm.16377625001461121484: argument 1"}
-!328 = distinct !{!328, !329, !"_ZN4core3ops8function6FnOnce9call_once17h755fcef6be847d3bE: argument 0"}
-!329 = distinct !{!329, !"_ZN4core3ops8function6FnOnce9call_once17h755fcef6be847d3bE"}
+!328 = distinct !{!328, !329, !"_ZN4core3ops8function6FnOnce9call_once17h755fcef6be847d3bE.argprom: argument 0"}
+!329 = distinct !{!329, !"_ZN4core3ops8function6FnOnce9call_once17h755fcef6be847d3bE.argprom"}
 !330 = !{!331}
 !331 = distinct !{!331, !332, !"_ZN88_$LT$aws_smithy_types..config_bag..value..Value$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ebbe5f9f5fc68cdE: argument 0"}
 !332 = distinct !{!332, !"_ZN88_$LT$aws_smithy_types..config_bag..value..Value$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ebbe5f9f5fc68cdE"}
@@ -5653,8 +5653,8 @@ attributes #26 = { noreturn }
 !343 = distinct !{!343, !344, !"_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new28_$u7b$$u7b$closure$u7d$$u7d$17h9d707bd514c25d54E.llvm.16377625001461121484: argument 0"}
 !344 = distinct !{!344, !"_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new28_$u7b$$u7b$closure$u7d$$u7d$17h9d707bd514c25d54E.llvm.16377625001461121484"}
 !345 = distinct !{!345, !344, !"_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new28_$u7b$$u7b$closure$u7d$$u7d$17h9d707bd514c25d54E.llvm.16377625001461121484: argument 1"}
-!346 = distinct !{!346, !347, !"_ZN4core3ops8function6FnOnce9call_once17hcb85f6c3173ff1bcE: argument 0"}
-!347 = distinct !{!347, !"_ZN4core3ops8function6FnOnce9call_once17hcb85f6c3173ff1bcE"}
+!346 = distinct !{!346, !347, !"_ZN4core3ops8function6FnOnce9call_once17hcb85f6c3173ff1bcE.argprom: argument 0"}
+!347 = distinct !{!347, !"_ZN4core3ops8function6FnOnce9call_once17hcb85f6c3173ff1bcE.argprom"}
 !348 = !{!349, !351, !343, !345, !346}
 !349 = distinct !{!349, !350, !"_ZN104_$LT$aws_sdk_glue..operation..get_table.._get_table_input..GetTableInput$u20$as$u20$core..fmt..Debug$GT$3fmt17h461d6f9a0d4378b9E: argument 0"}
 !350 = distinct !{!350, !"_ZN104_$LT$aws_sdk_glue..operation..get_table.._get_table_input..GetTableInput$u20$as$u20$core..fmt..Debug$GT$3fmt17h461d6f9a0d4378b9E"}

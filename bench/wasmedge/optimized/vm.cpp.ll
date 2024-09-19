@@ -145406,7 +145406,7 @@ _ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i: ; pred
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERSt10unique_ptrINS4_3AST6ModuleESt14default_deleteISR_EEEZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS18_IKSJ_Lm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKS1F_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -145415,30 +145415,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN5cxx208expectedI
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENSC_IKNS_7ValTypeELm18446744073709551615EEEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #27
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -145487,14 +145487,14 @@ _ZNSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS3_EEaSE
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %4, i64 4
   %19 = load i32, ptr %18, align 4, !noalias !1314
-  br label %"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS1A_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1G_E4typeEOS1H_DpOS1I_.exit"
+  br label %"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS1A_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1G_E4typeEOS1H_DpOS1I_.argprom.exit"
 
 20:                                               ; preds = %13
   %21 = call noundef ptr @_ZN6spdlog18default_logger_rawEv(), !noalias !1313
   call void @_ZN6spdlog6logger5errorIA37_cEEvRKT_(ptr noundef nonnull align 8 dereferenceable(208) %21, ptr noundef nonnull align 1 dereferenceable(37) @.str.14), !noalias !1313
-  br label %"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS1A_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1G_E4typeEOS1H_DpOS1I_.exit"
+  br label %"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS1A_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1G_E4typeEOS1H_DpOS1I_.argprom.exit"
 
-"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS1A_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1G_E4typeEOS1H_DpOS1I_.exit": ; preds = %17, %20
+"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS1A_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1G_E4typeEOS1H_DpOS1I_.argprom.exit": ; preds = %17, %20
   %.sink.i.i.i.i = phi i32 [ 2, %20 ], [ %19, %17 ]
   store i8 0, ptr %0, align 8, !alias.scope !1313
   %22 = getelementptr inbounds i8, ptr %0, i64 8
@@ -145505,7 +145505,7 @@ _ZNSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS3_EEaSE
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteISS_EEEZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS19_IKSJ_Lm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS1G_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -145514,30 +145514,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN5cxx208expectedI
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENSC_IKNS_7ValTypeELm18446744073709551615EEEE3$_1", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #27
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENSE_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -145594,7 +145594,7 @@ _ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i: ; pred
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERSt10unique_ptrINS4_3AST6ModuleESt14default_deleteISR_EEEZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENSZ_IKSI_Lm18446744073709551615EEENSZ_IKSJ_Lm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -145603,30 +145603,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN5cxx208expectedI
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS3_IKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #27
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -145675,14 +145675,14 @@ _ZNSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS3_EEaSE
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %4, i64 4
   %19 = load i32, ptr %18, align 4, !noalias !1342
-  br label %"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENSR_IKSI_Lm18446744073709551615EEENSR_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS17_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1D_E4typeEOS1E_DpOS1F_.exit"
+  br label %"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENSR_IKSI_Lm18446744073709551615EEENSR_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS17_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1D_E4typeEOS1E_DpOS1F_.argprom.exit"
 
 20:                                               ; preds = %13
   %21 = call noundef ptr @_ZN6spdlog18default_logger_rawEv(), !noalias !1341
   call void @_ZN6spdlog6logger5errorIA37_cEEvRKT_(ptr noundef nonnull align 8 dereferenceable(208) %21, ptr noundef nonnull align 1 dereferenceable(37) @.str.14), !noalias !1341
-  br label %"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENSR_IKSI_Lm18446744073709551615EEENSR_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS17_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1D_E4typeEOS1E_DpOS1F_.exit"
+  br label %"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENSR_IKSI_Lm18446744073709551615EEENSR_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS17_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1D_E4typeEOS1E_DpOS1F_.argprom.exit"
 
-"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENSR_IKSI_Lm18446744073709551615EEENSR_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS17_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1D_E4typeEOS1E_DpOS1F_.exit": ; preds = %17, %20
+"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENSR_IKSI_Lm18446744073709551615EEENSR_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS17_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1D_E4typeEOS1E_DpOS1F_.argprom.exit": ; preds = %17, %20
   %.sink.i.i.i.i = phi i32 [ 2, %20 ], [ %19, %17 ]
   store i8 0, ptr %0, align 8, !alias.scope !1341
   %22 = getelementptr inbounds i8, ptr %0, i64 8
@@ -145693,7 +145693,7 @@ _ZNSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS3_EEaSE
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteISS_EEEZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS10_IKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKS1D_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -145702,30 +145702,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN5cxx208expectedI
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS3_IKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEEE3$_1", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #27
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS5_IKNS1_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEELm18446744073709551615EEENS5_IKNS1_7ValTypeELm18446744073709551615EEEE3$_1E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -146806,13 +146806,13 @@ define linkonce_odr hidden void @_ZNSt13__future_base13_State_baseV213_M_set_res
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENUlvE_8__invokeEv, ptr %15, align 8
   %16 = invoke noundef i32 @pthread_once(ptr noundef nonnull %10, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %19
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %19
 
-_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit, label %17
 
-17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
+17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %16) #29
           to label %18 unwind label %19
 
@@ -146826,7 +146826,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
   store ptr null, ptr %15, align 8
   resume { ptr, i32 } %20
 
-_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
+_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
   store ptr null, ptr %14, align 8
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -151743,14 +151743,14 @@ define internal void @"_ZNSt17_Function_handlerIFvRSt10unique_ptrIN8WasmEdge3AST
   %5 = load ptr, ptr %3, align 8
   store ptr %4, ptr %3, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmERKNSt10filesystem7__cxx114pathEE3$_0JRSt10unique_ptrINS0_3AST6ModuleESt14default_deleteISC_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmERKNSt10filesystem7__cxx114pathEE3$_0JRSt10unique_ptrINS0_3AST6ModuleESt14default_deleteISC_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i: ; preds = %2
   tail call void @_ZN8WasmEdge3AST6ModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(705) %5) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 712) #27
-  br label %"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmERKNSt10filesystem7__cxx114pathEE3$_0JRSt10unique_ptrINS0_3AST6ModuleESt14default_deleteISC_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
+  br label %"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmERKNSt10filesystem7__cxx114pathEE3$_0JRSt10unique_ptrINS0_3AST6ModuleESt14default_deleteISC_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmERKNSt10filesystem7__cxx114pathEE3$_0JRSt10unique_ptrINS0_3AST6ModuleESt14default_deleteISC_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %2, %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmERKNSt10filesystem7__cxx114pathEE3$_0JRSt10unique_ptrINS0_3AST6ModuleESt14default_deleteISC_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %2, %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i
   ret void
 }
 
@@ -151788,14 +151788,14 @@ define internal void @"_ZNSt17_Function_handlerIFvRSt10unique_ptrIN8WasmEdge3AST
   %5 = load ptr, ptr %3, align 8
   store ptr %4, ptr %3, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmERKNSt10filesystem7__cxx114pathEE3$_1JRSt10unique_ptrINS0_3AST9Component9ComponentESt14default_deleteISD_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmERKNSt10filesystem7__cxx114pathEE3$_1JRSt10unique_ptrINS0_3AST9Component9ComponentESt14default_deleteISD_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit", label %_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i: ; preds = %2
   tail call void @_ZN8WasmEdge3AST9Component9ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 96) #27
-  br label %"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmERKNSt10filesystem7__cxx114pathEE3$_1JRSt10unique_ptrINS0_3AST9Component9ComponentESt14default_deleteISD_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
+  br label %"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmERKNSt10filesystem7__cxx114pathEE3$_1JRSt10unique_ptrINS0_3AST9Component9ComponentESt14default_deleteISD_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmERKNSt10filesystem7__cxx114pathEE3$_1JRSt10unique_ptrINS0_3AST9Component9ComponentESt14default_deleteISD_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %2, %_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmERKNSt10filesystem7__cxx114pathEE3$_1JRSt10unique_ptrINS0_3AST9Component9ComponentESt14default_deleteISD_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit": ; preds = %2, %_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i
   ret void
 }
 
@@ -151833,14 +151833,14 @@ define internal void @"_ZNSt17_Function_handlerIFvRSt10unique_ptrIN8WasmEdge3AST
   %5 = load ptr, ptr %3, align 8
   store ptr %4, ptr %3, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm18446744073709551615EEEE3$_0JRSt10unique_ptrINS0_3AST6ModuleESt14default_deleteISB_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm18446744073709551615EEEE3$_0JRSt10unique_ptrINS0_3AST6ModuleESt14default_deleteISB_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit", label %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i: ; preds = %2
   tail call void @_ZN8WasmEdge3AST6ModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(705) %5) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 712) #27
-  br label %"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm18446744073709551615EEEE3$_0JRSt10unique_ptrINS0_3AST6ModuleESt14default_deleteISB_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
+  br label %"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm18446744073709551615EEEE3$_0JRSt10unique_ptrINS0_3AST6ModuleESt14default_deleteISB_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm18446744073709551615EEEE3$_0JRSt10unique_ptrINS0_3AST6ModuleESt14default_deleteISB_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %2, %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm18446744073709551615EEEE3$_0JRSt10unique_ptrINS0_3AST6ModuleESt14default_deleteISB_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit": ; preds = %2, %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i
   ret void
 }
 
@@ -151878,14 +151878,14 @@ define internal void @"_ZNSt17_Function_handlerIFvRSt10unique_ptrIN8WasmEdge3AST
   %5 = load ptr, ptr %3, align 8
   store ptr %4, ptr %3, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm18446744073709551615EEEE3$_1JRSt10unique_ptrINS0_3AST9Component9ComponentESt14default_deleteISC_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm18446744073709551615EEEE3$_1JRSt10unique_ptrINS0_3AST9Component9ComponentESt14default_deleteISC_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i: ; preds = %2
   tail call void @_ZN8WasmEdge3AST9Component9ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 96) #27
-  br label %"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm18446744073709551615EEEE3$_1JRSt10unique_ptrINS0_3AST9Component9ComponentESt14default_deleteISC_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
+  br label %"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm18446744073709551615EEEE3$_1JRSt10unique_ptrINS0_3AST9Component9ComponentESt14default_deleteISC_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm18446744073709551615EEEE3$_1JRSt10unique_ptrINS0_3AST9Component9ComponentESt14default_deleteISC_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %2, %_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN8WasmEdge2VM2VM14unsafeLoadWasmEN5cxx204spanIKhLm18446744073709551615EEEE3$_1JRSt10unique_ptrINS0_3AST9Component9ComponentESt14default_deleteISC_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %2, %_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i
   ret void
 }
 
@@ -154175,11 +154175,11 @@ attributes #31 = { nounwind willreturn memory(none) }
 !1298 = distinct !{!1298, !1299, !"_ZZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENSC_IKNS_7ValTypeELm18446744073709551615EEEENK3$_1clISt10unique_ptrINS_3AST9Component9ComponentESt14default_deleteIS11_EEEENSB_8expectedISt6vectorISt4pairISQ_ST_ESaIS18_EENS_7ErrCodeEEERT_: argument 0"}
 !1299 = distinct !{!1299, !"_ZZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENSC_IKNS_7ValTypeELm18446744073709551615EEEENK3$_1clISt10unique_ptrINS_3AST9Component9ComponentESt14default_deleteIS11_EEEENSB_8expectedISt6vectorISt4pairISQ_ST_ESaIS18_EENS_7ErrCodeEEERT_"}
 !1300 = !{!1301}
-!1301 = distinct !{!1301, !1302, !"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS1A_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1G_E4typeEOS1H_DpOS1I_: argument 0"}
-!1302 = distinct !{!1302, !"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS1A_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1G_E4typeEOS1H_DpOS1I_"}
+!1301 = distinct !{!1301, !1302, !"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS1A_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1G_E4typeEOS1H_DpOS1I_.argprom: argument 0"}
+!1302 = distinct !{!1302, !"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS1A_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1G_E4typeEOS1H_DpOS1I_.argprom"}
 !1303 = !{!1304}
-!1304 = distinct !{!1304, !1305, !"_ZSt13__invoke_implIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS1A_EEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!1305 = distinct !{!1305, !"_ZSt13__invoke_implIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS1A_EEEET_St14__invoke_otherOT0_DpOT1_"}
+!1304 = distinct !{!1304, !1305, !"_ZSt13__invoke_implIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS1A_EEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!1305 = distinct !{!1305, !"_ZSt13__invoke_implIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS1A_EEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !1306 = !{!1307}
 !1307 = distinct !{!1307, !1308, !"_ZZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENSC_IKNS_7ValTypeELm18446744073709551615EEEENK3$_1clISt10unique_ptrINS_3AST9Component9ComponentESt14default_deleteIS11_EEEENSB_8expectedISt6vectorISt4pairISQ_ST_ESaIS18_EENS_7ErrCodeEEERT_: argument 0"}
 !1308 = distinct !{!1308, !"_ZZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENSC_IKNS_7ValTypeELm18446744073709551615EEEENK3$_1clISt10unique_ptrINS_3AST9Component9ComponentESt14default_deleteIS11_EEEENSB_8expectedISt6vectorISt4pairISQ_ST_ESaIS18_EENS_7ErrCodeEEERT_"}
@@ -154203,11 +154203,11 @@ attributes #31 = { nounwind willreturn memory(none) }
 !1326 = distinct !{!1326, !1327, !"_ZZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS3_IKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEEENK3$_1clISt10unique_ptrINS_3AST9Component9ComponentESt14default_deleteISY_EEEENS2_8expectedISt6vectorISt4pairISN_SQ_ESaIS15_EENS_7ErrCodeEEERT_: argument 0"}
 !1327 = distinct !{!1327, !"_ZZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS3_IKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEEENK3$_1clISt10unique_ptrINS_3AST9Component9ComponentESt14default_deleteISY_EEEENS2_8expectedISt6vectorISt4pairISN_SQ_ESaIS15_EENS_7ErrCodeEEERT_"}
 !1328 = !{!1329}
-!1329 = distinct !{!1329, !1330, !"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENSR_IKSI_Lm18446744073709551615EEENSR_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS17_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1D_E4typeEOS1E_DpOS1F_: argument 0"}
-!1330 = distinct !{!1330, !"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENSR_IKSI_Lm18446744073709551615EEENSR_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS17_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1D_E4typeEOS1E_DpOS1F_"}
+!1329 = distinct !{!1329, !1330, !"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENSR_IKSI_Lm18446744073709551615EEENSR_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS17_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1D_E4typeEOS1E_DpOS1F_.argprom: argument 0"}
+!1330 = distinct !{!1330, !"_ZSt10__invoke_rIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENSR_IKSI_Lm18446744073709551615EEENSR_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS17_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES1D_E4typeEOS1E_DpOS1F_.argprom"}
 !1331 = !{!1332}
-!1332 = distinct !{!1332, !1333, !"_ZSt13__invoke_implIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENSR_IKSI_Lm18446744073709551615EEENSR_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS17_EEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!1333 = distinct !{!1333, !"_ZSt13__invoke_implIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENSR_IKSI_Lm18446744073709551615EEENSR_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS17_EEEET_St14__invoke_otherOT0_DpOT1_"}
+!1332 = distinct !{!1332, !1333, !"_ZSt13__invoke_implIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENSR_IKSI_Lm18446744073709551615EEENSR_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS17_EEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!1333 = distinct !{!1333, !"_ZSt13__invoke_implIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENSR_IKSI_Lm18446744073709551615EEENSR_IKSJ_Lm18446744073709551615EEEE3$_1JRSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteIS17_EEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !1334 = !{!1335}
 !1335 = distinct !{!1335, !1336, !"_ZZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS3_IKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEEENK3$_1clISt10unique_ptrINS_3AST9Component9ComponentESt14default_deleteISY_EEEENS2_8expectedISt6vectorISt4pairISN_SQ_ESaIS15_EENS_7ErrCodeEEERT_: argument 0"}
 !1336 = distinct !{!1336, !"_ZZN8WasmEdge2VM2VM17unsafeRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS3_IKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEEENK3$_1clISt10unique_ptrINS_3AST9Component9ComponentESt14default_deleteISY_EEEENS2_8expectedISt6vectorISt4pairISN_SQ_ESaIS15_EENS_7ErrCodeEEERT_"}

@@ -637,7 +637,7 @@ hwloc__nvml_store_peer_obj.exit:                  ; preds = %hwloc__nvml_get_pee
   br i1 %exitcond247.not, label %._crit_edge222, label %284, !llvm.loop !13
 
 ._crit_edge222:                                   ; preds = %284, %.preheader
-  call fastcc void @hwloc__nvml_add_nvlink_bandwidth(ptr noundef %17, i32 noundef %.0183.lcssa, ptr noundef %42, ptr noundef %45)
+  call fastcc void @hwloc__nvml_add_nvlink_bandwidth.retelim(ptr noundef %17, i32 noundef %.0183.lcssa, ptr noundef %42, ptr noundef %45)
   br label %._crit_edge218.thread
 
 ._crit_edge218.thread:                            ; preds = %._crit_edge218, %._crit_edge222, %._crit_edge
@@ -721,7 +721,7 @@ declare i64 @hwloc_topology_get_flags(ptr noundef) local_unnamed_addr #2
 declare i32 @nvmlDeviceGetNvLinkVersion(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc__nvml_add_nvlink_bandwidth(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #1 {
+define internal fastcc void @hwloc__nvml_add_nvlink_bandwidth.retelim(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #1 {
   %5 = tail call ptr @hwloc_backend_distances_add_create(ptr noundef %0, ptr noundef nonnull @.str.26, i64 noundef 9, i64 noundef 0) #11
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %12, label %6

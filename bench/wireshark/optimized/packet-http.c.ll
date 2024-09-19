@@ -2892,7 +2892,7 @@ starts_with_chunk_size.exit:                      ; preds = %151
   %177 = phi i1 [ false, %174 ], [ false, %171 ], [ false, %.thread ], [ true, %starts_with_chunk_size.exit ], [ true, %136 ], [ true, %starts_with_chunk_size.exit.thread ], [ false, %168 ]
   %178 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.0663, i32 noundef %118) #14
   store i32 3, ptr %18, align 4
-  %179 = call fastcc i32 @is_http_request_or_reply(ptr noundef nonnull %2, ptr noundef %178, i32 noundef %118, ptr noundef %18, ptr noundef null)
+  %179 = call fastcc i32 @is_http_request_or_reply.argprom(ptr noundef nonnull %2, ptr noundef %178, i32 noundef %118, ptr noundef %18, ptr noundef null)
   %180 = icmp ne i32 %179, 0
   %or.cond5 = or i1 %175, %180
   br i1 %or.cond5, label %181, label %255
@@ -3272,7 +3272,7 @@ switch.early.test:                                ; preds = %226, %229
   %366 = zext nneg i32 %362 to i64
   %367 = getelementptr i8, ptr %365, i64 %366
   store ptr null, ptr %20, align 8
-  %368 = call fastcc i32 @is_http_request_or_reply(ptr noundef %2, ptr noundef %365, i32 noundef %362, ptr noundef %18, ptr noundef nonnull %20)
+  %368 = call fastcc i32 @is_http_request_or_reply.argprom(ptr noundef %2, ptr noundef %365, i32 noundef %362, ptr noundef %18, ptr noundef nonnull %20)
   %369 = icmp ne i32 %368, 0
   %370 = icmp eq i32 %362, 0
   %or.cond61 = or i1 %370, %369
@@ -4904,7 +4904,7 @@ declare i32 @req_resp_hdrs_do_reassembly(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_http_request_or_reply(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_http_request_or_reply.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_http, align 4
@@ -5711,7 +5711,7 @@ proto_item_set_hidden.exit429:                    ; preds = %proto_item_set_hidd
   br i1 %.not413, label %202, label %proto_item_set_hidden.exit
 
 202:                                              ; preds = %200
-  %203 = call fastcc i32 @check_auth_digest(ptr noundef %.0367, ptr noundef %0, ptr noundef %98, i32 noundef %1, i32 noundef %100)
+  %203 = call fastcc i32 @check_auth_digest.argprom(ptr noundef %.0367, ptr noundef %0, ptr noundef %98, i32 noundef %1, i32 noundef %100)
   %.not414 = icmp eq i32 %203, 0
   br i1 %.not414, label %204, label %proto_item_set_hidden.exit
 
@@ -7062,7 +7062,7 @@ define internal fastcc range(i32 0, 2) i32 @check_auth_kerberos(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_auth_digest(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_auth_digest.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.503, i64 noundef 6) #15
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %.loopexit

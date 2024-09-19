@@ -2460,15 +2460,15 @@ psmouse_do_detect.exit12:                         ; preds = %254, %255
   br i1 %270, label %340, label %psmouse_do_detect.exit12.thread
 
 psmouse_do_detect.exit12.thread:                  ; preds = %.thread44, %psmouse_do_detect.exit12
-  %271 = call fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %5, i1 noundef zeroext %2)
+  %271 = call fastcc zeroext i1 @psmouse_try_protocol.argelim(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %5, i1 noundef zeroext %2)
   br i1 %271, label %340, label %272
 
 272:                                              ; preds = %psmouse_do_detect.exit12.thread
-  %273 = call fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %5, i1 noundef zeroext %2)
+  %273 = call fastcc zeroext i1 @psmouse_try_protocol.argelim(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %5, i1 noundef zeroext %2)
   br i1 %273, label %340, label %274
 
 274:                                              ; preds = %272
-  %275 = call fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef 11, ptr noundef nonnull %5, i1 noundef zeroext %2)
+  %275 = call fastcc zeroext i1 @psmouse_try_protocol.argelim(ptr noundef %0, i32 noundef 11, ptr noundef nonnull %5, i1 noundef zeroext %2)
   br i1 %275, label %340, label %.thread43
 
 .thread43:                                        ; preds = %274
@@ -2540,7 +2540,7 @@ psmouse_do_detect.exit12.thread:                  ; preds = %.thread44, %psmouse
   br i1 %310, label %.thread51, label %312
 
 .thread51:                                        ; preds = %307, %309
-  %311 = call fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %5, i1 noundef zeroext %2)
+  %311 = call fastcc zeroext i1 @psmouse_try_protocol.argelim(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %5, i1 noundef zeroext %2)
   br i1 %311, label %340, label %312
 
 312:                                              ; preds = %.thread51, %309
@@ -2719,7 +2719,7 @@ define internal fastcc zeroext i1 @psmouse_do_detect(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef range(i32 2, 12) %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #2 align 16 {
+define internal fastcc zeroext i1 @psmouse_try_protocol.argelim(ptr noundef %0, i32 noundef range(i32 2, 12) %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #2 align 16 {
   br label %8
 
 5:                                                ; preds = %8

@@ -275,30 +275,30 @@ resolve_zip_library.exit:                         ; preds = %.backedge.i, %.preh
   store ptr %.0, ptr %93, align 8
   %94 = call ptr @json_obj_get(ptr noundef %.0114, ptr noundef nonnull @.str.13) #8
   %.not.i.i.i = icmp eq ptr %94, null
-  br i1 %.not.i.i.i, label %95, label %get_mandatory.exit.i.i
+  br i1 %.not.i.i.i, label %95, label %get_mandatory.argprom.exit.i.i
 
 95:                                               ; preds = %92
   %96 = load ptr, ptr %93, align 8
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.19, ptr noundef %96) #9
   unreachable
 
-get_mandatory.exit.i.i:                           ; preds = %92
+get_mandatory.argprom.exit.i.i:                   ; preds = %92
   %97 = load i32, ptr %94, align 8
   %.not.i.i = icmp eq i32 %97, 1
-  br i1 %.not.i.i, label %get_mandatory_string.exit.i, label %98
+  br i1 %.not.i.i, label %get_mandatory_string.argprom.exit.i, label %98
 
-98:                                               ; preds = %get_mandatory.exit.i.i
+98:                                               ; preds = %get_mandatory.argprom.exit.i.i
   %99 = load ptr, ptr %93, align 8
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.18, ptr noundef %99) #9
   unreachable
 
-get_mandatory_string.exit.i:                      ; preds = %get_mandatory.exit.i.i
+get_mandatory_string.argprom.exit.i:              ; preds = %get_mandatory.argprom.exit.i.i
   %100 = getelementptr inbounds i8, ptr %94, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = call zeroext i1 @str_is_valid_lowercase_name(ptr noundef %101) #8
   br i1 %102, label %109, label %103
 
-103:                                              ; preds = %get_mandatory_string.exit.i
+103:                                              ; preds = %get_mandatory_string.argprom.exit.i
   %104 = call noalias ptr @strdup(ptr noundef %101) #8
   call void @str_ellide_in_place(ptr noundef %104, i64 noundef 32) #8
   %105 = load ptr, ptr %93, align 8
@@ -308,7 +308,7 @@ get_mandatory_string.exit.i:                      ; preds = %get_mandatory.exit.
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.14, ptr noundef %105, ptr noundef %108) #9
   unreachable
 
-109:                                              ; preds = %get_mandatory_string.exit.i
+109:                                              ; preds = %get_mandatory_string.argprom.exit.i
   %110 = getelementptr inbounds i8, ptr %93, i64 8
   store ptr %101, ptr %110, align 8
   %111 = call fastcc ptr @get_optional_string_array_as_array(ptr noundef nonnull %93, ptr noundef %.0114, ptr noundef nonnull @.str.15)

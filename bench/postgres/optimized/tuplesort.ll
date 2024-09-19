@@ -140,13 +140,13 @@ define dso_local ptr @tuplesort_begin_common(i32 noundef %0, ptr noundef readonl
 39:                                               ; preds = %33
   %40 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %37, i8 1, ptr elementtype(i8) %37) #12, !srcloc !5
   %.not.i = icmp eq i8 %40, 0
-  br i1 %.not.i, label %worker_get_identifier.exit, label %41
+  br i1 %.not.i, label %worker_get_identifier.argprom.exit, label %41
 
 41:                                               ; preds = %39
   %42 = tail call i32 @s_lock(ptr noundef %37, ptr noundef nonnull @.str.1, i32 noundef 3023, ptr noundef nonnull @__func__.worker_get_identifier) #12
-  br label %worker_get_identifier.exit
+  br label %worker_get_identifier.argprom.exit
 
-worker_get_identifier.exit:                       ; preds = %39, %41
+worker_get_identifier.argprom.exit:               ; preds = %39, %41
   %43 = getelementptr inbounds i8, ptr %37, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %44, 1
@@ -164,8 +164,8 @@ worker_get_identifier.exit:                       ; preds = %39, %41
   %50 = load i32, ptr %49, align 4
   br label %51
 
-51:                                               ; preds = %worker_get_identifier.exit, %47, %30
-  %.sink = phi i32 [ -1, %worker_get_identifier.exit ], [ %50, %47 ], [ -1, %30 ]
+51:                                               ; preds = %worker_get_identifier.argprom.exit, %47, %30
+  %.sink = phi i32 [ -1, %worker_get_identifier.argprom.exit ], [ %50, %47 ], [ -1, %30 ]
   %52 = getelementptr inbounds i8, ptr %13, i64 336
   store i32 %.sink, ptr %52, align 8
   store ptr %12, ptr @CurrentMemoryContext, align 8

@@ -132,20 +132,20 @@ define internal noundef zeroext i1 @_ZL23setup_syllables_myanmarPK18hb_ot_shape_
   %gep.i = getelementptr inbounds %struct.hb_glyph_info_t, ptr %invariant.gep.i, i64 %indvars.iv.next, i32 3
   %16 = load i8, ptr %gep.i, align 1
   %17 = icmp eq i8 %12, %16
-  br i1 %17, label %14, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !10
+  br i1 %17, label %14, label %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit, !llvm.loop !10
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %15
+_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit: ; preds = %15
   %18 = trunc nuw i64 %indvars.iv.next to i32
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %14, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit
-  %19 = phi i32 [ %18, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit ], [ %8, %14 ]
+.lr.ph:                                           ; preds = %14, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit
+  %19 = phi i32 [ %18, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit ], [ %8, %14 ]
   %20 = getelementptr i8, ptr %2, i64 104
   br label %21
 
-21:                                               ; preds = %.lr.ph, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit21
-  %.023 = phi i32 [ %19, %.lr.ph ], [ %.lcssa.i19, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit21 ]
-  %.01222 = phi i32 [ 0, %.lr.ph ], [ %.023, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit21 ]
+21:                                               ; preds = %.lr.ph, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit21
+  %.023 = phi i32 [ %19, %.lr.ph ], [ %.lcssa.i19, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit21 ]
+  %.01222 = phi i32 [ 0, %.lr.ph ], [ %.023, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit21 ]
   tail call void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef 3, i32 noundef %.01222, i32 noundef %.023, i1 noundef zeroext true, i1 noundef zeroext false)
   %.val14 = load i32, ptr %7, align 8
   %.val15 = load ptr, ptr %20, align 8
@@ -162,7 +162,7 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %15
 28:                                               ; preds = %29, %21
   %.0.i18 = phi i32 [ %.023, %21 ], [ %30, %29 ]
   %exitcond26.not = icmp eq i32 %.0.i18, %27
-  br i1 %exitcond26.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit21, label %29
+  br i1 %exitcond26.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit21, label %29
 
 29:                                               ; preds = %28
   %30 = add i32 %.0.i18, 1
@@ -170,14 +170,14 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %15
   %gep.i20 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %invariant.gep.i16, i64 %31, i32 3
   %32 = load i8, ptr %gep.i20, align 1
   %33 = icmp eq i8 %25, %32
-  br i1 %33, label %28, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit21, !llvm.loop !10
+  br i1 %33, label %28, label %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit21, !llvm.loop !10
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.exit21:     ; preds = %28, %29
+_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit21: ; preds = %28, %29
   %.lcssa.i19 = phi i32 [ %umax.i17, %28 ], [ %30, %29 ]
   %34 = icmp ult i32 %.023, %8
   br i1 %34, label %21, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit21, %3
+._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit21, %3
   ret i1 false
 }
 
@@ -217,14 +217,14 @@ define internal noundef zeroext i1 @_ZL15reorder_myanmarPK18hb_ot_shape_plan_tP9
   %gep.i = getelementptr inbounds %struct.hb_glyph_info_t, ptr %invariant.gep.i, i64 %indvars.iv.next, i32 3
   %20 = load i8, ptr %gep.i, align 1
   %21 = icmp eq i8 %16, %20
-  br i1 %21, label %18, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !10
+  br i1 %21, label %18, label %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit, !llvm.loop !10
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %19
+_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit: ; preds = %19
   %22 = trunc nuw i64 %indvars.iv.next to i32
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %18, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit
-  %23 = phi i32 [ %22, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit ], [ %12, %18 ]
+.lr.ph:                                           ; preds = %18, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit
+  %23 = phi i32 [ %22, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit.split.loop.exit ], [ %12, %18 ]
   %24 = getelementptr inbounds i8, ptr %2, i64 104
   %25 = getelementptr inbounds i8, ptr %2, i64 83
   %26 = getelementptr inbounds i8, ptr %2, i64 120
@@ -233,15 +233,15 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %19
   %.pre40 = load i8, ptr %.phi.trans.insert39, align 1
   br label %27
 
-27:                                               ; preds = %.lr.ph, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit31
-  %28 = phi i8 [ %.pre40, %.lr.ph ], [ %171, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit31 ]
-  %29 = phi ptr [ %.pre, %.lr.ph ], [ %.val25, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit31 ]
-  %.034 = phi i32 [ %23, %.lr.ph ], [ %.lcssa.i29, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit31 ]
-  %.02133 = phi i32 [ 0, %.lr.ph ], [ %.034, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit31 ]
+27:                                               ; preds = %.lr.ph, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit31
+  %28 = phi i8 [ %.pre40, %.lr.ph ], [ %171, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit31 ]
+  %29 = phi ptr [ %.pre, %.lr.ph ], [ %.val25, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit31 ]
+  %.034 = phi i32 [ %23, %.lr.ph ], [ %.lcssa.i29, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit31 ]
+  %.02133 = phi i32 [ 0, %.lr.ph ], [ %.034, %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit31 ]
   %30 = zext i32 %.02133 to i64
   %31 = and i8 %28, 14
   %switch.i = icmp eq i8 %31, 0
-  br i1 %switch.i, label %32, label %_ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit
+  br i1 %switch.i, label %32, label %_ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit
 
 32:                                               ; preds = %27
   %33 = add i32 %.02133, 3
@@ -280,22 +280,22 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %19
   %.0124167.i.i = phi i32 [ %.02133, %.thread.i.i ], [ %33, %46 ]
   %.0125166.i.i = phi i32 [ 0, %.thread.i.i ], [ 3, %46 ]
   %54 = icmp ult i32 %.0124167.i.i, %.034
-  br i1 %54, label %.lr.ph.preheader.i.i, label %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit._crit_edge.i.i
+  br i1 %54, label %.lr.ph.preheader.i.i, label %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %53
   %55 = zext i32 %.0124167.i.i to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit.thread.i.i, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %55, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit.thread.i.i ]
+.lr.ph.i.i:                                       ; preds = %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit.thread.i.i, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ %55, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit.thread.i.i ]
   %56 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %29, i64 %indvars.iv.i.i
   %57 = getelementptr i8, ptr %56, i64 12
   %.val.i.i = load i16, ptr %57, align 4
   %58 = and i16 %.val.i.i, 32
   %.not.i.i.i.i = icmp eq i16 %58, 0
-  br i1 %.not.i.i.i.i, label %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit.i.i, label %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit.thread.i.i
+  br i1 %.not.i.i.i.i, label %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit.i.i, label %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit.thread.i.i
 
-_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit.i.i: ; preds = %.lr.ph.i.i
+_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit.i.i: ; preds = %.lr.ph.i.i
   %59 = getelementptr i8, ptr %56, i64 18
   %.val138.i.i = load i8, ptr %59, align 2
   %60 = icmp ult i8 %.val138.i.i, 32
@@ -304,31 +304,31 @@ _ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit.i.i: ; preds = %.lr.ph.i.i
   %63 = and i32 %62, 297990
   %64 = icmp ne i32 %63, 0
   %65 = select i1 %60, i1 %64, i1 false
-  br i1 %65, label %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit._crit_edge.loopexit.split.loop.exit.i.i, label %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit.thread.i.i
+  br i1 %65, label %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit._crit_edge.loopexit.split.loop.exit.i.i, label %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit.thread.i.i
 
-_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit.thread.i.i: ; preds = %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit.i.i, %.lr.ph.i.i
+_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit.thread.i.i: ; preds = %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit.i.i, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
   %exitcond.not.i.i = icmp eq i32 %.034, %lftr.wideiv.i.i
-  br i1 %exitcond.not.i.i, label %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !12
 
-_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit._crit_edge.loopexit.split.loop.exit.i.i: ; preds = %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit.i.i
+_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit._crit_edge.loopexit.split.loop.exit.i.i: ; preds = %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit.i.i
   %66 = trunc nuw i64 %indvars.iv.i.i to i32
-  br label %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit._crit_edge.i.i
+  br label %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit._crit_edge.i.i
 
-_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit._crit_edge.i.i: ; preds = %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit.thread.i.i, %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit._crit_edge.loopexit.split.loop.exit.i.i, %53
-  %.2128.i.i = phi i32 [ %.02133, %53 ], [ %66, %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit._crit_edge.loopexit.split.loop.exit.i.i ], [ %.02133, %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit.thread.i.i ]
+_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit._crit_edge.i.i: ; preds = %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit.thread.i.i, %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit._crit_edge.loopexit.split.loop.exit.i.i, %53
+  %.2128.i.i = phi i32 [ %.02133, %53 ], [ %66, %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit._crit_edge.loopexit.split.loop.exit.i.i ], [ %.02133, %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit.thread.i.i ]
   %67 = add i32 %.0125166.i.i, %.02133
   %invariant.gep.i.i = getelementptr inbounds i8, ptr %29, i64 3
   %68 = icmp ult i32 %.02133, %67
   br i1 %68, label %.lr.ph173.preheader.i.i, label %.preheader.i.i
 
-.lr.ph173.preheader.i.i:                          ; preds = %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit._crit_edge.i.i
+.lr.ph173.preheader.i.i:                          ; preds = %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit._crit_edge.i.i
   %wide.trip.count.i.i = zext i32 %67 to i64
   br label %.lr.ph173.i.i
 
-.preheader.i.i:                                   ; preds = %.lr.ph173.i.i, %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit._crit_edge.i.i
-  %.0120.lcssa.i.i = phi i32 [ %.02133, %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit._crit_edge.i.i ], [ %67, %.lr.ph173.i.i ]
+.preheader.i.i:                                   ; preds = %.lr.ph173.i.i, %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit._crit_edge.i.i
+  %.0120.lcssa.i.i = phi i32 [ %.02133, %_ZL20is_consonant_myanmarRK15hb_glyph_info_t.argprom.exit._crit_edge.i.i ], [ %67, %.lr.ph173.i.i ]
   %69 = icmp ult i32 %.0120.lcssa.i.i, %.2128.i.i
   br i1 %69, label %.lr.ph178.preheader.i.i, label %._crit_edge179.i.i
 
@@ -456,7 +456,7 @@ _ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit._crit_edge.i.i: ; preds = %_ZL
 ._crit_edge187.i.i:                               ; preds = %106, %77
   tail call void @_ZN11hb_buffer_t4sortEjjPFiPK15hb_glyph_info_tS2_E(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef %.02133, i32 noundef %.034, ptr noundef nonnull @_ZL21compare_myanmar_orderPK15hb_glyph_info_tS1_)
   %107 = icmp ult i32 %.02133, %.034
-  br i1 %107, label %.lr.ph194.preheader.i.i, label %_ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit
+  br i1 %107, label %.lr.ph194.preheader.i.i, label %_ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit
 
 .lr.ph194.preheader.i.i:                          ; preds = %._crit_edge187.i.i
   %wide.trip.count223.i.i = zext i32 %.034 to i64
@@ -480,7 +480,7 @@ _ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit._crit_edge.i.i: ; preds = %_ZL
 
 ._crit_edge195.i.i:                               ; preds = %.lr.ph194.i.i
   %113 = icmp ult i32 %.2.i.i, %.1115.i.i
-  br i1 %113, label %114, label %_ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit
+  br i1 %113, label %114, label %_ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit
 
 114:                                              ; preds = %._crit_edge195.i.i
   %115 = add i32 %.1115.i.i, 1
@@ -642,9 +642,9 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i143.i.i: ; preds = %.lr.ph.i
 _ZN11hb_buffer_t13reverse_rangeEjj.exit162.i.i:   ; preds = %.lr.ph.i10.i150.i.i, %157, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i143.i.i, %139
   %.1.i.i = phi i32 [ %143, %157 ], [ %143, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i143.i.i ], [ %.0112201.i.i, %139 ], [ %143, %.lr.ph.i10.i150.i.i ]
   %.not134.i.i = icmp ugt i32 %143, %.1115.i.i
-  br i1 %.not134.i.i, label %_ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit, label %139, !llvm.loop !19
+  br i1 %.not134.i.i, label %_ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit, label %139, !llvm.loop !19
 
-_ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit: ; preds = %_ZN11hb_buffer_t13reverse_rangeEjj.exit162.i.i, %27, %._crit_edge187.i.i, %._crit_edge195.i.i
+_ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit: ; preds = %_ZN11hb_buffer_t13reverse_rangeEjj.exit162.i.i, %27, %._crit_edge187.i.i, %._crit_edge195.i.i
   %.val24 = load i32, ptr %11, align 8
   %.val25 = load ptr, ptr %24, align 8
   %168 = zext i32 %.034 to i64
@@ -657,10 +657,10 @@ _ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.e
   %173 = add i32 %umax.i27, -1
   br label %174
 
-174:                                              ; preds = %175, %_ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit
-  %.0.i28 = phi i32 [ %.034, %_ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit ], [ %176, %175 ]
+174:                                              ; preds = %175, %_ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit
+  %.0.i28 = phi i32 [ %.034, %_ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.argprom.exit ], [ %176, %175 ]
   %exitcond38.not = icmp eq i32 %.0.i28, %173
-  br i1 %exitcond38.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit31, label %175
+  br i1 %exitcond38.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit31, label %175
 
 175:                                              ; preds = %174
   %176 = add i32 %.0.i28, 1
@@ -668,14 +668,14 @@ _ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.e
   %gep.i30 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %invariant.gep.i26, i64 %177, i32 3
   %178 = load i8, ptr %gep.i30, align 1
   %179 = icmp eq i8 %171, %178
-  br i1 %179, label %174, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit31, !llvm.loop !10
+  br i1 %179, label %174, label %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit31, !llvm.loop !10
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.exit31:     ; preds = %174, %175
+_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit31: ; preds = %174, %175
   %.lcssa.i29 = phi i32 [ %umax.i27, %174 ], [ %176, %175 ]
   %180 = icmp ult i32 %.034, %12
   br i1 %180, label %27, label %._crit_edge, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit31, %9
+._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.argprom.exit31, %9
   %181 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.3)
   br label %182
 

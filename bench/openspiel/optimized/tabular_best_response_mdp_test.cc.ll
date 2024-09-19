@@ -1097,7 +1097,7 @@ _ZN10open_spiel10algorithms12_GLOBAL__N_114TicTacToeTestsEv.exit: ; preds = %_ZN
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i3: ; preds = %358
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_112NashConvTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PolicyEN4absl7debian28optionalIdEE(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull align 8 dereferenceable(8) %120, i8 1, double 0x3FED555555555558)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_112NashConvTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PolicyEN4absl7debian28optionalIdEE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull align 8 dereferenceable(8) %120, i8 1, double 0x3FED555555555558)
           to label %360 unwind label %372
 
 360:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i3
@@ -1144,7 +1144,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i3: ;
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit13.i: ; preds = %368
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_112NashConvTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PolicyEN4absl7debian28optionalIdEE(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(8) %123, i8 1, double 2.000000e+00)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_112NashConvTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PolicyEN4absl7debian28optionalIdEE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(8) %123, i8 1, double 2.000000e+00)
           to label %_ZN10open_spiel10algorithms12_GLOBAL__N_117KuhnNashConvTestsEv.exit unwind label %376
 
 370:                                              ; preds = %.noexc.i2, %_ZN10open_spiel10algorithms12_GLOBAL__N_114TicTacToeTestsEv.exit
@@ -1231,7 +1231,7 @@ _ZN10open_spiel10algorithms12_GLOBAL__N_117KuhnNashConvTestsEv.exit: ; preds = %
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i9: ; preds = %385
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_112NashConvTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PolicyEN4absl7debian28optionalIdEE(ptr noundef nonnull align 8 dereferenceable(32) %115, ptr noundef nonnull align 8 dereferenceable(8) %114, i8 1, double 0x4012FD27D27D27D2)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_112NashConvTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PolicyEN4absl7debian28optionalIdEE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %115, ptr noundef nonnull align 8 dereferenceable(8) %114, i8 1, double 0x4012FD27D27D27D2)
           to label %387 unwind label %399
 
 387:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i9
@@ -1278,7 +1278,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i9: ;
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit13.i12: ; preds = %395
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_112NashConvTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PolicyEN4absl7debian28optionalIdEE(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 8 dereferenceable(8) %117, i8 1, double 2.000000e+00)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_112NashConvTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PolicyEN4absl7debian28optionalIdEE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 8 dereferenceable(8) %117, i8 1, double 2.000000e+00)
           to label %_ZN10open_spiel10algorithms12_GLOBAL__N_118LeducNashConvTestsEv.exit unwind label %403
 
 397:                                              ; preds = %.noexc.i7, %_ZN10open_spiel10algorithms12_GLOBAL__N_117KuhnNashConvTestsEv.exit
@@ -1810,7 +1810,7 @@ _ZN10open_spiel10algorithms12_GLOBAL__N_120OnlyFirstPlayerTestsEv.exit: ; preds 
   br label %.body.i48
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i51: ; preds = %.noexc3.i
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_112NashConvTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PolicyEN4absl7debian28optionalIdEE(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(8) %101, i8 1, double 2.062500e+00)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_112NashConvTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PolicyEN4absl7debian28optionalIdEE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(8) %101, i8 1, double 2.062500e+00)
           to label %_ZN10open_spiel10algorithms12_GLOBAL__N_116KuhnLeduc3pTestsEv.exit unwind label %586
 
 584:                                              ; preds = %.noexc.i50, %_ZN10open_spiel10algorithms12_GLOBAL__N_120OnlyFirstPlayerTestsEv.exit
@@ -7372,7 +7372,7 @@ _ZN10open_spiel10algorithms7MDPNodeD2Ev.exit:     ; preds = %4, %._crit_edge.i.i
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_112NashConvTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PolicyEN4absl7debian28optionalIdEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i8 %2, double %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_112NashConvTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PolicyEN4absl7debian28optionalIdEE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i8 %2, double %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = alloca %"class.open_spiel::algorithms::TabularBestResponseMDP", align 8
   %7 = alloca %"struct.open_spiel::algorithms::TabularBestResponseMDPInfo", align 8

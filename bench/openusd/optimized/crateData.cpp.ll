@@ -5249,7 +5249,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13Usd_CrateData
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %.val5.i = load ptr, ptr %8, align 8
   %9 = icmp ne ptr %.val.i, %.val5.i
-  br i1 %9, label %10, label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.exit.i
+  br i1 %9, label %10, label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.argprom.exit.i
 
 10:                                               ; preds = %4
   %11 = load double, ptr %.val.i, align 8
@@ -5312,13 +5312,13 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8
 .sink.split.i.i:                                  ; preds = %35, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.i.i, %18, %13
   %.sink.i.i = phi double [ %16, %18 ], [ %37, %35 ], [ %11, %13 ], [ %33, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.i.i ]
   store double %.sink.i.i, ptr %2, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.exit.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.argprom.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.exit.i: ; preds = %.sink.split.i.i, %4
+_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.argprom.exit.i: ; preds = %.sink.split.i.i, %4
   %.not.i.i.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__17Usd_CrateDataImpl24GetBracketingTimeSamplesEdPdS1_.exit, label %38
 
-38:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.exit.i
+38:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.argprom.exit.i
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
@@ -5327,7 +5327,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEd
   call void @_ZdlPvm(ptr noundef nonnull %.val.i, i64 noundef %43) #27
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__17Usd_CrateDataImpl24GetBracketingTimeSamplesEdPdS1_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__17Usd_CrateDataImpl24GetBracketingTimeSamplesEdPdS1_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.exit.i, %38
+_ZNK32pxrInternal_v0_24__pxrReserved__17Usd_CrateDataImpl24GetBracketingTimeSamplesEdPdS1_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.argprom.exit.i, %38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret i1 %9
 }

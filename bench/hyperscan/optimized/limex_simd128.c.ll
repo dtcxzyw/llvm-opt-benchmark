@@ -640,13 +640,13 @@ while.end.i.i:                                    ; preds = %while.cond.i.backed
   %23 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %22)
   %cast.i.i = trunc nuw nsw i64 %23 to i32
   %add31.i.i = add i32 %base_index.i.010.i, %cast.i.i
-  br i1 %cmp.i.i, label %for.body.i.i, label %moProcessAcceptsNoSquash128.exit, !llvm.loop !13
+  br i1 %cmp.i.i, label %for.body.i.i, label %moProcessAcceptsNoSquash128.argprom.exit, !llvm.loop !13
 
-moProcessAcceptsNoSquash128.exit:                 ; preds = %while.end.i.i
+moProcessAcceptsNoSquash128.argprom.exit:         ; preds = %while.end.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %mask_chunks.i.i.sroa.0)
   br label %if.end11.i
 
-if.end11.i:                                       ; preds = %moProcessAcceptsNoSquash128.exit, %if.then
+if.end11.i:                                       ; preds = %moProcessAcceptsNoSquash128.argprom.exit, %if.then
   store i8 0, ptr %report_current, align 8
   br label %if.end4
 
@@ -2874,13 +2874,13 @@ while.end.i.i:                                    ; preds = %while.cond.i.backed
   %23 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %22)
   %cast.i.i = trunc nuw nsw i64 %23 to i32
   %add31.i.i = add i32 %base_index.i.010.i, %cast.i.i
-  br i1 %cmp.i.i, label %for.body.i.i, label %moProcessAcceptsNoSquash128.exit, !llvm.loop !13
+  br i1 %cmp.i.i, label %for.body.i.i, label %moProcessAcceptsNoSquash128.argprom.exit, !llvm.loop !13
 
-moProcessAcceptsNoSquash128.exit:                 ; preds = %while.end.i.i
+moProcessAcceptsNoSquash128.argprom.exit:         ; preds = %while.end.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %mask_chunks.i.i.sroa.0)
   br label %if.end11.i
 
-if.end11.i:                                       ; preds = %moProcessAcceptsNoSquash128.exit, %if.then
+if.end11.i:                                       ; preds = %moProcessAcceptsNoSquash128.argprom.exit, %if.then
   store i8 0, ptr %report_current, align 8
   br label %if.end4
 
@@ -7163,7 +7163,7 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %whil
 if.then.i9.i:                                     ; preds = %while.body.i.i
   %call.i10.i = tail call i32 %10(i64 noundef 0, i64 noundef %add.i, i32 noundef %16, ptr noundef %11) #10
   %17 = icmp eq i32 %call.i10.i, 0
-  br i1 %17, label %moProcessAcceptsNoSquash128.exit, label %while.cond.i.backedge.i
+  br i1 %17, label %moProcessAcceptsNoSquash128.argprom.exit, label %while.cond.i.backedge.i
 
 while.cond.i.backedge.i:                          ; preds = %for.cond.i20.i, %if.end.i6.i, %if.then.i9.i
   %cmp3.i.not.i = icmp eq i64 %asmresult1.i.i, 0
@@ -7187,20 +7187,20 @@ for.body.i23.i:                                   ; preds = %if.end.i6.i, %for.c
   %reports.addr.i.06.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i20.i ], [ %add.ptr.i8.i, %if.end.i6.i ]
   %call.i24.i = tail call i32 %10(i64 noundef 0, i64 noundef %add.i, i32 noundef %20, ptr noundef %11) #10
   %cmp1.i.i = icmp eq i32 %call.i24.i, 0
-  br i1 %cmp1.i.i, label %moProcessAcceptsNoSquash128.exit, label %for.cond.i20.i
+  br i1 %cmp1.i.i, label %moProcessAcceptsNoSquash128.argprom.exit, label %for.cond.i20.i
 
 while.end.i.i:                                    ; preds = %while.cond.i.backedge.i, %for.body.i.while.end.i_crit_edge.i
   %21 = phi i64 [ %.pre.i, %for.body.i.while.end.i_crit_edge.i ], [ %13, %while.cond.i.backedge.i ]
   %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %21)
   %cast.i.i = trunc nuw nsw i64 %22 to i32
   %add31.i.i = add i32 %base_index.i.010.i, %cast.i.i
-  br i1 %cmp.i.i, label %for.body.i.i, label %moProcessAcceptsNoSquash128.exit, !llvm.loop !13
+  br i1 %cmp.i.i, label %for.body.i.i, label %moProcessAcceptsNoSquash128.argprom.exit, !llvm.loop !13
 
-moProcessAcceptsNoSquash128.exit:                 ; preds = %while.end.i.i, %if.then.i9.i, %for.body.i23.i
+moProcessAcceptsNoSquash128.argprom.exit:         ; preds = %while.end.i.i, %if.then.i9.i, %for.body.i23.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %mask_chunks.i.i.sroa.0)
   br label %moNfaReportCurrent128.exit
 
-moNfaReportCurrent128.exit:                       ; preds = %moProcessAcceptsNoSquash128.exit, %entry
+moNfaReportCurrent128.exit:                       ; preds = %moProcessAcceptsNoSquash128.argprom.exit, %entry
   ret i8 1
 }
 
@@ -7230,7 +7230,7 @@ entry:
 
 do.end:                                           ; preds = %entry
   %sub = sub i64 %offset, %buflen
-  call fastcc void @nfaExecLimEx128_Rev_Stream(ptr noundef nonnull %add.ptr, ptr noundef %buf, i64 noundef %buflen, ptr noundef %ctx, i64 noundef %sub)
+  call fastcc void @nfaExecLimEx128_Rev_Stream.retelim(ptr noundef nonnull %add.ptr, ptr noundef %buf, i64 noundef %buflen, ptr noundef %ctx, i64 noundef %sub)
   br label %if.end
 
 if.end:                                           ; preds = %do.end, %entry
@@ -7240,7 +7240,7 @@ if.end:                                           ; preds = %do.end, %entry
 
 do.end7:                                          ; preds = %if.end
   %sub8 = sub i64 %offset.addr.0, %hlen
-  call fastcc void @nfaExecLimEx128_Rev_Stream(ptr noundef nonnull %add.ptr, ptr noundef %hbuf, i64 noundef %hlen, ptr noundef %ctx, i64 noundef %sub8)
+  call fastcc void @nfaExecLimEx128_Rev_Stream.retelim(ptr noundef nonnull %add.ptr, ptr noundef %hbuf, i64 noundef %hlen, ptr noundef %ctx, i64 noundef %sub8)
   br label %if.end10
 
 if.end10:                                         ; preds = %do.end7, %if.end
@@ -7410,7 +7410,7 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %whil
 if.then.i9.i:                                     ; preds = %while.body.i.i
   %call.i10.i = tail call i32 %cb(i64 noundef 0, i64 noundef 0, i32 noundef %25, ptr noundef %context) #10
   %26 = icmp eq i32 %call.i10.i, 0
-  br i1 %26, label %moProcessAcceptsNoSquash128.exit, label %while.cond.i.backedge.i
+  br i1 %26, label %moProcessAcceptsNoSquash128.argprom.exit, label %while.cond.i.backedge.i
 
 while.cond.i.backedge.i:                          ; preds = %for.cond.i20.i, %if.end.i6.i, %if.then.i9.i
   %cmp3.i.not.i = icmp eq i64 %asmresult1.i.i, 0
@@ -7434,25 +7434,25 @@ for.body.i23.i:                                   ; preds = %if.end.i6.i, %for.c
   %reports.addr.i.06.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i20.i ], [ %add.ptr.i8.i, %if.end.i6.i ]
   %call.i24.i = tail call i32 %cb(i64 noundef 0, i64 noundef 0, i32 noundef %29, ptr noundef %context) #10
   %cmp1.i.i = icmp eq i32 %call.i24.i, 0
-  br i1 %cmp1.i.i, label %moProcessAcceptsNoSquash128.exit, label %for.cond.i20.i
+  br i1 %cmp1.i.i, label %moProcessAcceptsNoSquash128.argprom.exit, label %for.cond.i20.i
 
 while.end.i.i:                                    ; preds = %while.cond.i.backedge.i, %for.body.i.while.end.i_crit_edge.i
   %30 = phi i64 [ %.pre.i, %for.body.i.while.end.i_crit_edge.i ], [ %22, %while.cond.i.backedge.i ]
   %31 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %30)
   %cast.i.i = trunc nuw nsw i64 %31 to i32
   %add31.i.i = add i32 %base_index.i.010.i, %cast.i.i
-  br i1 %cmp.i.i, label %for.body.i.i, label %moProcessAcceptsNoSquash128.exit, !llvm.loop !13
+  br i1 %cmp.i.i, label %for.body.i.i, label %moProcessAcceptsNoSquash128.argprom.exit, !llvm.loop !13
 
-moProcessAcceptsNoSquash128.exit:                 ; preds = %while.end.i.i, %if.then.i9.i, %for.body.i23.i
+moProcessAcceptsNoSquash128.argprom.exit:         ; preds = %while.end.i.i, %if.then.i9.i, %for.body.i23.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %mask_chunks.i.i.sroa.0)
   br label %if.end21
 
-if.end21:                                         ; preds = %moProcessAcceptsNoSquash128.exit, %lazyTug128.exit, %land.lhs.true12, %land.lhs.true, %if.end10
+if.end21:                                         ; preds = %moProcessAcceptsNoSquash128.argprom.exit, %lazyTug128.exit, %land.lhs.true12, %land.lhs.true, %if.end10
   ret i8 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nfaExecLimEx128_Rev_Stream(ptr noundef %limex, ptr nocapture noundef readonly %input, i64 noundef range(i64 1, 0) %length, ptr nocapture noundef nonnull %ctx, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc void @nfaExecLimEx128_Rev_Stream.retelim(ptr noundef %limex, ptr nocapture noundef readonly %input, i64 noundef range(i64 1, 0) %length, ptr nocapture noundef nonnull %ctx, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %mask_chunks.i.i.sroa.0 = alloca <2 x i64>, align 16
   %chunks.i = alloca [2 x i64], align 16
@@ -7879,7 +7879,7 @@ while.body.i.i:                                   ; preds = %for.body.i.i258, %w
 if.then.i9.i:                                     ; preds = %while.body.i.i
   %call.i10.i = tail call i32 %81(i64 noundef 0, i64 noundef %offset, i32 noundef %87, ptr noundef %82) #10
   %88 = icmp eq i32 %call.i10.i, 0
-  br i1 %88, label %moProcessAcceptsNoSquash128.exit.thread, label %while.cond.i.backedge.i
+  br i1 %88, label %moProcessAcceptsNoSquash128.argprom.exit.thread, label %while.cond.i.backedge.i
 
 while.cond.i.backedge.i:                          ; preds = %for.cond.i20.i, %if.end.i6.i, %if.then.i9.i
   %cmp3.i.not.i = icmp eq i64 %asmresult1.i.i260, 0
@@ -7903,24 +7903,24 @@ for.body.i23.i:                                   ; preds = %if.end.i6.i, %for.c
   %reports.addr.i.06.i = phi ptr [ %incdec.ptr.i.i266, %for.cond.i20.i ], [ %add.ptr.i8.i, %if.end.i6.i ]
   %call.i24.i = tail call i32 %81(i64 noundef 0, i64 noundef %offset, i32 noundef %91, ptr noundef %82) #10
   %cmp1.i.i265 = icmp eq i32 %call.i24.i, 0
-  br i1 %cmp1.i.i265, label %moProcessAcceptsNoSquash128.exit.thread, label %for.cond.i20.i
+  br i1 %cmp1.i.i265, label %moProcessAcceptsNoSquash128.argprom.exit.thread, label %for.cond.i20.i
 
 while.end.i.i:                                    ; preds = %while.cond.i.backedge.i, %for.body.i.while.end.i_crit_edge.i
   %92 = phi i64 [ %.pre.i, %for.body.i.while.end.i_crit_edge.i ], [ %84, %while.cond.i.backedge.i ]
   %93 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %92)
   %cast.i.i264 = trunc nuw nsw i64 %93 to i32
   %add31.i.i = add i32 %base_index.i.010.i, %cast.i.i264
-  br i1 %cmp.i.i, label %for.body.i.i258, label %moProcessAcceptsNoSquash128.exit, !llvm.loop !13
+  br i1 %cmp.i.i, label %for.body.i.i258, label %moProcessAcceptsNoSquash128.argprom.exit, !llvm.loop !13
 
-moProcessAcceptsNoSquash128.exit.thread:          ; preds = %if.then.i9.i, %for.body.i23.i
+moProcessAcceptsNoSquash128.argprom.exit.thread:  ; preds = %if.then.i9.i, %for.body.i23.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %mask_chunks.i.i.sroa.0)
   br label %return
 
-moProcessAcceptsNoSquash128.exit:                 ; preds = %while.end.i.i
+moProcessAcceptsNoSquash128.argprom.exit:         ; preds = %while.end.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %mask_chunks.i.i.sroa.0)
   br label %return
 
-return:                                           ; preds = %for.body.i.i, %for.body.i.i456, %for.end, %if.then100, %moProcessAcceptsNoSquash128.exit, %moProcessAcceptsNoSquash128.exit.thread, %do.end6
+return:                                           ; preds = %for.body.i.i, %for.body.i.i456, %for.end, %if.then100, %moProcessAcceptsNoSquash128.argprom.exit, %moProcessAcceptsNoSquash128.argprom.exit.thread, %do.end6
   ret void
 }
 

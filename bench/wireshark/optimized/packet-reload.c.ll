@@ -1410,7 +1410,7 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
 
 70:                                               ; preds = %66
   %71 = trunc i32 %9 to i16
-  tail call fastcc void @dissect_chordroutequeryans(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %71)
+  tail call fastcc void @dissect_chordroutequeryans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %71)
   br label %260
 
 72:                                               ; preds = %44
@@ -1419,16 +1419,16 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
   br i1 %.not560, label %75, label %74
 
 74:                                               ; preds = %72
-  tail call fastcc void @dissect_probereq(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %73)
+  tail call fastcc void @dissect_probereq.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %73)
   br label %260
 
 75:                                               ; preds = %72
-  tail call fastcc void @dissect_probeans(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %73)
+  tail call fastcc void @dissect_probeans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %73)
   br label %260
 
 76:                                               ; preds = %44
   %77 = trunc i32 %9 to i16
-  tail call fastcc void @dissect_attachreqans(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %77)
+  tail call fastcc void @dissect_attachreqans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %77)
   br label %260
 
 78:                                               ; preds = %44
@@ -1646,11 +1646,11 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
   br i1 %.not556, label %227, label %226
 
 226:                                              ; preds = %224
-  tail call fastcc void @dissect_storereq(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %225)
+  tail call fastcc void @dissect_storereq.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %225)
   br label %260
 
 227:                                              ; preds = %224
-  tail call fastcc void @dissect_storeans(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %225)
+  tail call fastcc void @dissect_storeans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %225)
   br label %260
 
 228:                                              ; preds = %44
@@ -1659,11 +1659,11 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
   br i1 %.not555, label %231, label %230
 
 230:                                              ; preds = %228
-  tail call fastcc void @dissect_fetchreq(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %229, i32 noundef 0)
+  tail call fastcc void @dissect_fetchreq.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %229, i32 noundef 0)
   br label %260
 
 231:                                              ; preds = %228
-  tail call fastcc void @dissect_fetchans(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %229)
+  tail call fastcc void @dissect_fetchans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %229)
   br label %260
 
 232:                                              ; preds = %44
@@ -1672,11 +1672,11 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
   br i1 %.not554, label %235, label %234
 
 234:                                              ; preds = %232
-  tail call fastcc void @dissect_fetchreq(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %233, i32 noundef 1)
+  tail call fastcc void @dissect_fetchreq.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %233, i32 noundef 1)
   br label %260
 
 235:                                              ; preds = %232
-  tail call fastcc void @dissect_statans(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %233)
+  tail call fastcc void @dissect_statans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %233)
   br label %260
 
 236:                                              ; preds = %44
@@ -1685,11 +1685,11 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
   br i1 %.not553, label %239, label %238
 
 238:                                              ; preds = %236
-  tail call fastcc void @dissect_findreq(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %237)
+  tail call fastcc void @dissect_findreq.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %237)
   br label %260
 
 239:                                              ; preds = %236
-  tail call fastcc void @dissect_findans(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %237)
+  tail call fastcc void @dissect_findans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %237)
   br label %260
 
 240:                                              ; preds = %44
@@ -1698,7 +1698,7 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
 
 241:                                              ; preds = %240
   %242 = trunc i32 %9 to i16
-  tail call fastcc void @dissect_leavereq(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %242)
+  tail call fastcc void @dissect_leavereq.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %242)
   br label %260
 
 243:                                              ; preds = %240
@@ -1712,11 +1712,11 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
   br i1 %.not551, label %249, label %248
 
 248:                                              ; preds = %246
-  tail call fastcc void @dissect_joinreq(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %247)
+  tail call fastcc void @dissect_joinreq.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %247)
   br label %260
 
 249:                                              ; preds = %246
-  tail call fastcc void @dissect_joinans(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %247)
+  tail call fastcc void @dissect_joinans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %247)
   br label %260
 
 250:                                              ; preds = %44
@@ -1729,7 +1729,7 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
 
 254:                                              ; preds = %250
   %255 = trunc i32 %9 to i16
-  tail call fastcc void @dissect_chordupdate(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %255)
+  tail call fastcc void @dissect_chordupdate.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %255)
   br label %260
 
 256:                                              ; preds = %44
@@ -1738,11 +1738,11 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
   br i1 %.not549, label %259, label %258
 
 258:                                              ; preds = %256
-  tail call fastcc void @dissect_pathtrackreq(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %257)
+  tail call fastcc void @dissect_pathtrackreq.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %257)
   br label %260
 
 259:                                              ; preds = %256
-  tail call fastcc void @dissect_pathtrackans(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %257)
+  tail call fastcc void @dissect_pathtrackans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %257)
   br label %260
 
 260:                                              ; preds = %258, %259, %254, %248, %249, %241, %243, %238, %239, %234, %235, %230, %231, %226, %227, %156, %158, %._crit_edge, %162, %167, %110, %120, %122, %78, %76, %74, %75, %46, %70, %66, %139
@@ -1801,7 +1801,7 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
   %295 = load i32, ptr @hf_reload_length_uint16, align 4
   %296 = tail call ptr @proto_tree_add_item(ptr noundef %287, i32 noundef %295, ptr noundef %0, i32 noundef %293, i32 noundef 2, i32 noundef 0) #5
   %297 = add i16 %3, 10
-  tail call fastcc void @dissect_storeans(ptr noundef %0, ptr noundef %1, ptr noundef %287, i16 noundef zeroext %297, i16 noundef zeroext %294)
+  tail call fastcc void @dissect_storeans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %287, i16 noundef zeroext %297, i16 noundef zeroext %294)
   br label %322
 
 298:                                              ; preds = %283
@@ -1810,7 +1810,7 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
   %301 = load i32, ptr @hf_reload_length_uint16, align 4
   %302 = tail call ptr @proto_tree_add_item(ptr noundef %287, i32 noundef %301, ptr noundef %0, i32 noundef %299, i32 noundef 2, i32 noundef 0) #5
   %303 = add i16 %3, 10
-  tail call fastcc void @dissect_kindid_list(ptr noundef %0, ptr noundef %1, ptr noundef %287, i16 noundef zeroext %303, i16 noundef zeroext %300)
+  tail call fastcc void @dissect_kindid_list.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %287, i16 noundef zeroext %303, i16 noundef zeroext %300)
   br label %322
 
 304:                                              ; preds = %283
@@ -2078,7 +2078,7 @@ define internal fastcc range(i32 0, 258) i32 @dissect_destination(i32 noundef %0
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_chordroutequeryans(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_chordroutequeryans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_reload_chordroutequeryans, align 4
   %7 = zext i16 %3 to i32
   %8 = zext i16 %4 to i32
@@ -2091,7 +2091,7 @@ define internal fastcc void @dissect_chordroutequeryans(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_probereq(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_probereq.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_reload_probereq, align 4
   %7 = zext i16 %3 to i32
   %8 = zext i16 %4 to i32
@@ -2143,7 +2143,7 @@ define internal fastcc void @dissect_probereq(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_probeans(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_probeans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_reload_probeans, align 4
   %7 = zext i16 %3 to i32
   %8 = zext i16 %4 to i32
@@ -2272,7 +2272,7 @@ dissect_probe_information.exit._crit_edge:        ; preds = %dissect_probe_infor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_attachreqans(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_attachreqans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = zext i16 %3 to i32
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #5
   %8 = zext i16 %4 to i32
@@ -2666,7 +2666,7 @@ declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef,
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_storereq(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_storereq.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = zext i16 %3 to i32
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #5
   %8 = zext i8 %7 to i32
@@ -2758,7 +2758,7 @@ define internal fastcc void @dissect_storereq(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_storeans(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_storeans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_reload_storeans, align 4
   %7 = zext i16 %3 to i32
   %8 = zext i16 %4 to i32
@@ -2904,7 +2904,7 @@ dissect_storekindresponse.exit._crit_edge:        ; preds = %76, %dissect_storek
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fetchreq(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc void @dissect_fetchreq.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 0
   %hf_reload_fetchreq.val = load i32, ptr @hf_reload_fetchreq, align 4
   %hf_reload_statreq.val = load i32, ptr @hf_reload_statreq, align 4
@@ -3174,7 +3174,7 @@ dissect_storeddataspecifier.exit._crit_edge:      ; preds = %dissect_storeddatas
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fetchans(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_fetchans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = zext i16 %3 to i32
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #5
   %8 = add i32 %7, 4
@@ -3216,7 +3216,7 @@ define internal fastcc void @dissect_fetchans(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_statans(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_statans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = zext i16 %3 to i32
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #5
   %8 = icmp ugt i32 %7, 65535
@@ -3278,7 +3278,7 @@ define internal fastcc void @dissect_statans(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_findreq(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_findreq.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_reload_findreq, align 4
   %7 = zext i16 %3 to i32
   %8 = zext i16 %4 to i32
@@ -3290,12 +3290,12 @@ define internal fastcc void @dissect_findreq(ptr noundef %0, ptr noundef %1, ptr
   %14 = trunc nuw nsw i32 %13 to i16
   %15 = add i16 %3, %14
   %16 = sub i16 %4, %14
-  tail call fastcc void @dissect_kindid_list(ptr noundef %0, ptr noundef %1, ptr noundef %11, i16 noundef zeroext %15, i16 noundef zeroext %16)
+  tail call fastcc void @dissect_kindid_list.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %11, i16 noundef zeroext %15, i16 noundef zeroext %16)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_findans(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_findans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_reload_findans, align 4
   %7 = zext i16 %3 to i32
   %8 = zext i16 %4 to i32
@@ -3431,7 +3431,7 @@ dissect_kindid.exit:                              ; preds = %getKindFromId.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_leavereq(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_leavereq.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_reload_leavereq, align 4
   %7 = zext i16 %3 to i32
   %8 = zext i16 %4 to i32
@@ -3499,7 +3499,7 @@ dissect_chordleavedata.exit:                      ; preds = %.sink.split.i, %18,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_joinreq(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_joinreq.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_reload_joinreq, align 4
   %7 = zext i16 %3 to i32
   %8 = zext i16 %4 to i32
@@ -3518,7 +3518,7 @@ define internal fastcc void @dissect_joinreq(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_joinans(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_joinans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_reload_joinans, align 4
   %7 = zext i16 %3 to i32
   %8 = zext i16 %4 to i32
@@ -3531,7 +3531,7 @@ define internal fastcc void @dissect_joinans(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_chordupdate(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_chordupdate.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_reload_chordupdate, align 4
   %7 = zext i16 %3 to i32
   %8 = zext i16 %4 to i32
@@ -3587,7 +3587,7 @@ define internal fastcc void @dissect_chordupdate(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_pathtrackreq(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_pathtrackreq.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_reload_pathtrackreq, align 4
   %7 = zext i16 %3 to i32
   %8 = zext i16 %4 to i32
@@ -3605,7 +3605,7 @@ define internal fastcc void @dissect_pathtrackreq(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_pathtrackans(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_pathtrackans.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_reload_pathtrackans, align 4
   %7 = zext i16 %3 to i32
   %8 = zext i16 %4 to i32
@@ -3627,7 +3627,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_kindid_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_kindid_list.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = zext i16 %3 to i32
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #5
   %8 = zext i8 %7 to i32
@@ -5205,7 +5205,7 @@ proto_item_set_generated.exit441.thread:          ; preds = %proto_item_set_gene
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %450, ptr noundef nonnull @.str.17, i32 noundef %.0384467) #5
   %489 = trunc i32 %432 to i16
   %490 = add i16 %428, %489
-  call fastcc void @dissect_signature(ptr noundef %.0383, ptr noundef %1, ptr noundef %448, i16 noundef zeroext %490)
+  call fastcc void @dissect_signature.retelim(ptr noundef %.0383, ptr noundef %1, ptr noundef %448, i16 noundef zeroext %490)
   br label %491
 
 491:                                              ; preds = %12, %4, %.loopexit, %297, %289, %146, %125, %103
@@ -5937,7 +5937,7 @@ dissect_arrayentry.exit.i:                        ; preds = %195, %156, %148, %1
   %205 = trunc i32 %.084.in.i to i16
   %206 = add i16 %61, 16
   %207 = add i16 %206, %205
-  call fastcc void @dissect_signature(ptr noundef %0, ptr noundef %1, ptr noundef %74, i16 noundef zeroext %207)
+  call fastcc void @dissect_signature.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %74, i16 noundef zeroext %207)
   br label %dissect_storeddata.exit
 
 dissect_storeddata.exit:                          ; preds = %68, %71, %88, %202, %dissect_arrayentry.exit.i, %204
@@ -6013,7 +6013,7 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_datavalue(i32 noundef %0
 34:                                               ; preds = %30
   %35 = add i16 %4, 5
   %36 = trunc i32 %31 to i16
-  tail call fastcc void @dissect_turnserver(ptr noundef %1, ptr noundef %25, i16 noundef zeroext %35, i16 noundef zeroext %36)
+  tail call fastcc void @dissect_turnserver.retelim(ptr noundef %1, ptr noundef %25, i16 noundef zeroext %35, i16 noundef zeroext %36)
   br label %64
 
 37:                                               ; preds = %22
@@ -6026,7 +6026,7 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_datavalue(i32 noundef %0
 41:                                               ; preds = %37
   %42 = add i16 %4, 5
   %43 = trunc i32 %38 to i16
-  tail call fastcc void @dissect_sipregistration(ptr noundef %1, ptr noundef %2, ptr noundef %25, i16 noundef zeroext %42, i16 noundef zeroext %43)
+  tail call fastcc void @dissect_sipregistration.retelim(ptr noundef %1, ptr noundef %2, ptr noundef %25, i16 noundef zeroext %42, i16 noundef zeroext %43)
   br label %64
 
 44:                                               ; preds = %22, %22
@@ -6053,7 +6053,7 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_datavalue(i32 noundef %0
 56:                                               ; preds = %52
   %57 = add i16 %4, 5
   %58 = trunc i32 %53 to i16
-  tail call fastcc void @dissect_redirserviceprovider(ptr noundef %1, ptr noundef %2, ptr noundef %25, i16 noundef zeroext %57, i16 noundef zeroext %58)
+  tail call fastcc void @dissect_redirserviceprovider.retelim(ptr noundef %1, ptr noundef %2, ptr noundef %25, i16 noundef zeroext %57, i16 noundef zeroext %58)
   br label %64
 
 59:                                               ; preds = %22
@@ -6121,7 +6121,7 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_datavalue(i32 noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @dissect_signature.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
   %5 = zext i16 %3 to i32
   %6 = add nuw nsw i32 %5, 2
   %7 = add nuw nsw i32 %5, 3
@@ -6205,7 +6205,7 @@ define internal fastcc void @dissect_signature(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_turnserver(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @dissect_turnserver.retelim(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_reload_turnserver, align 4
   %6 = zext i16 %2 to i32
   %7 = zext i16 %3 to i32
@@ -6221,7 +6221,7 @@ define internal fastcc void @dissect_turnserver(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sipregistration(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_sipregistration.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_reload_sipregistration, align 4
   %7 = zext i16 %3 to i32
   %8 = zext i16 %4 to i32
@@ -6312,7 +6312,7 @@ declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr no
 declare i32 @dissect_x509af_Certificate(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_redirserviceprovider(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_redirserviceprovider.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = zext i16 %3 to i32
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #5
   %8 = zext i16 %7 to i32

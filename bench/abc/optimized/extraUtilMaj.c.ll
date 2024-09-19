@@ -3896,14 +3896,14 @@ Vec_MemDump.exit.i:                               ; preds = %151, %._crit_edge.i
   %.val2.i = phi i32 [ %.val24.i.i, %142 ], [ %.val24.i.i, %.lr.ph.i.i ], [ %.val.i.i, %._crit_edge.i.i ], [ %.val.i.i, %151 ]
   %183 = load ptr, ptr @stdout, align 8
   %.not.i = icmp eq ptr %136, %183
-  br i1 %.not.i, label %Vec_MemDumpTruthTables.exit, label %184
+  br i1 %.not.i, label %Vec_MemDumpTruthTables.argprom.exit, label %184
 
 184:                                              ; preds = %Vec_MemDump.exit.i
   %185 = call i32 @fclose(ptr noundef %136)
   %.val.pre.i = load i32, ptr %144, align 4
-  br label %Vec_MemDumpTruthTables.exit
+  br label %Vec_MemDumpTruthTables.argprom.exit
 
-Vec_MemDumpTruthTables.exit:                      ; preds = %Vec_MemDump.exit.i, %184
+Vec_MemDumpTruthTables.argprom.exit:              ; preds = %Vec_MemDump.exit.i, %184
   %.val.i = phi i32 [ %.val.pre.i, %184 ], [ %.val2.i, %Vec_MemDump.exit.i ]
   %186 = sitofp i32 %.val.i to double
   %187 = fmul double %186, 8.000000e+00
@@ -3915,7 +3915,7 @@ Vec_MemDumpTruthTables.exit:                      ; preds = %Vec_MemDump.exit.i,
   call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4)
   br label %192
 
-192:                                              ; preds = %Vec_MemDumpTruthTables.exit, %Abc_Clock.exit81
+192:                                              ; preds = %Vec_MemDumpTruthTables.argprom.exit, %Abc_Clock.exit81
   %193 = call i32 @Gem_ManFree(ptr noundef %18)
   ret i32 0
 }

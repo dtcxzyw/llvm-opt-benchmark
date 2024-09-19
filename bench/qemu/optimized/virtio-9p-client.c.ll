@@ -1361,7 +1361,7 @@ for.end.i:                                        ; preds = %for.body.i, %if.the
   %call6.i = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #13
   %call7.i = tail call ptr @strtok(ptr noundef %call6.i, ptr noundef nonnull @.str.27) #13
   %cmp9.not4.i = icmp eq ptr %call7.i, null
-  br i1 %cmp9.not4.i, label %split.exit, label %for.body11.i
+  br i1 %cmp9.not4.i, label %split.argprom.exit, label %for.body11.i
 
 for.body11.i:                                     ; preds = %for.end.i, %for.inc19.i
   %p.16.i = phi ptr [ %call20.i, %for.inc19.i ], [ %call7.i, %for.end.i ]
@@ -1382,18 +1382,18 @@ for.inc19.i:                                      ; preds = %if.then15.i, %for.b
   %i.1.i = phi i32 [ %inc17.i, %if.then15.i ], [ %i.05.i, %for.body11.i ]
   %call20.i = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.27) #13
   %cmp9.not.i = icmp eq ptr %call20.i, null
-  br i1 %cmp9.not.i, label %split.exit, label %for.body11.i, !llvm.loop !7
+  br i1 %cmp9.not.i, label %split.argprom.exit, label %for.body11.i, !llvm.loop !7
 
-split.exit:                                       ; preds = %for.inc19.i, %for.end.i
+split.argprom.exit:                               ; preds = %for.inc19.i, %for.end.i
   tail call void @g_free(ptr noundef %call6.i) #13
   %conv31 = trunc i32 %n.0.lcssa.i to i16
   %wnames33 = getelementptr inbounds i8, ptr %opt, i64 24
   store ptr %call5.i, ptr %wnames33, align 8
   br label %if.end34
 
-if.end34:                                         ; preds = %if.end25.if.end34_crit_edge, %split.exit
-  %10 = phi i16 [ %.pre, %if.end25.if.end34_crit_edge ], [ %conv31, %split.exit ]
-  %wnames.0 = phi ptr [ null, %if.end25.if.end34_crit_edge ], [ %call5.i, %split.exit ]
+if.end34:                                         ; preds = %if.end25.if.end34_crit_edge, %split.argprom.exit
+  %10 = phi i16 [ %.pre, %if.end25.if.end34_crit_edge ], [ %conv31, %split.argprom.exit ]
+  %wnames.0 = phi ptr [ null, %if.end25.if.end34_crit_edge ], [ %call5.i, %split.argprom.exit ]
   %cmp49.not = icmp eq i16 %10, 0
   br i1 %cmp49.not, label %for.end, label %for.body.lr.ph
 

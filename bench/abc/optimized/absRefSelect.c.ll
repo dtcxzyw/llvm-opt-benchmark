@@ -52,9 +52,9 @@ define void @Rnm_ManPrintSelected(ptr nocapture noundef readonly %0, ptr nocaptu
   %.val19 = load i64, ptr %18, align 4
   %19 = and i64 %.val19, 2684354559
   %narrow.i.not.i = icmp eq i64 %19, 2684354559
-  br i1 %narrow.i.not.i, label %Gia_ObjIsPi.exit, label %Gia_ObjIsPi.exit.thread
+  br i1 %narrow.i.not.i, label %Gia_ObjIsPi.argprom.exit, label %Gia_ObjIsPi.argprom.exit.thread
 
-Gia_ObjIsPi.exit:                                 ; preds = %16
+Gia_ObjIsPi.argprom.exit:                         ; preds = %16
   %20 = lshr i64 %.val19, 32
   %21 = trunc nuw i64 %20 to i32
   %22 = and i32 %21, 536870911
@@ -66,18 +66,18 @@ Gia_ObjIsPi.exit:                                 ; preds = %16
   %.val5.val.i = load i32, ptr %25, align 4
   %26 = sub nsw i32 %.val5.val.i, %.val4.i
   %.not23 = icmp slt i32 %22, %26
-  br i1 %.not23, label %27, label %Gia_ObjIsPi.exit.thread
+  br i1 %.not23, label %27, label %Gia_ObjIsPi.argprom.exit.thread
 
-27:                                               ; preds = %Gia_ObjIsPi.exit
+27:                                               ; preds = %Gia_ObjIsPi.argprom.exit
   %putchar16 = tail call i32 @putchar(i32 45)
   br label %37
 
-Gia_ObjIsPi.exit.thread:                          ; preds = %16, %Gia_ObjIsPi.exit
+Gia_ObjIsPi.argprom.exit.thread:                  ; preds = %16, %Gia_ObjIsPi.argprom.exit
   %28 = load i32, ptr %7, align 4
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.lr.ph.i, label %Vec_IntFind.exit.thread
 
-.lr.ph.i:                                         ; preds = %Gia_ObjIsPi.exit.thread
+.lr.ph.i:                                         ; preds = %Gia_ObjIsPi.argprom.exit.thread
   %30 = load ptr, ptr %8, align 8
   %wide.trip.count.i = zext nneg i32 %28 to i64
   br label %31
@@ -99,7 +99,7 @@ Vec_IntFind.exit:                                 ; preds = %31
   %36 = add nsw i32 %.026, 1
   br label %37
 
-Vec_IntFind.exit.thread:                          ; preds = %35, %Gia_ObjIsPi.exit.thread
+Vec_IntFind.exit.thread:                          ; preds = %35, %Gia_ObjIsPi.argprom.exit.thread
   %putchar = tail call i32 @putchar(i32 48)
   br label %37
 
@@ -437,8 +437,8 @@ define noalias noundef ptr @Rnm_ManFilterSelected(ptr nocapture noundef readonly
   %40 = icmp sgt i32 %29, 0
   br i1 %40, label %.lr.ph, label %.critedge2
 
-.lr.ph:                                           ; preds = %.lr.ph195, %Rnm_ObjAddToCount.exit.thread
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Rnm_ObjAddToCount.exit.thread ], [ 0, %.lr.ph195 ]
+.lr.ph:                                           ; preds = %.lr.ph195, %Rnm_ObjAddToCount.argprom.argprom.exit.thread
+  %indvars.iv = phi i64 [ %indvars.iv.next, %Rnm_ObjAddToCount.argprom.argprom.exit.thread ], [ 0, %.lr.ph195 ]
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr i8, ptr %41, i64 32
   %.val104 = load ptr, ptr %42, align 8
@@ -458,15 +458,15 @@ define noalias noundef ptr @Rnm_ManFilterSelected(ptr nocapture noundef readonly
   %50 = getelementptr inbounds i8, ptr %.val114.val, i64 %46
   %51 = load i8, ptr %50, align 1
   %52 = icmp slt i8 %51, 16
-  br i1 %52, label %Rnm_ObjAddToCount.exit, label %Rnm_ObjAddToCount.exit.thread
+  br i1 %52, label %Rnm_ObjAddToCount.argprom.argprom.exit, label %Rnm_ObjAddToCount.argprom.argprom.exit.thread
 
-Rnm_ObjAddToCount.exit:                           ; preds = %43
+Rnm_ObjAddToCount.argprom.argprom.exit:           ; preds = %43
   %53 = add nsw i8 %51, 1
   store i8 %53, ptr %50, align 1
   %54 = icmp eq i8 %51, 0
-  br i1 %54, label %55, label %Rnm_ObjAddToCount.exit.thread
+  br i1 %54, label %55, label %Rnm_ObjAddToCount.argprom.argprom.exit.thread
 
-55:                                               ; preds = %Rnm_ObjAddToCount.exit
+55:                                               ; preds = %Rnm_ObjAddToCount.argprom.argprom.exit
   %56 = load ptr, ptr %3, align 8
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr i8, ptr %57, i64 32
@@ -541,16 +541,16 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %92 = sext i32 %90 to i64
   %93 = getelementptr inbounds i32, ptr %89, i64 %92
   store i32 %62, ptr %93, align 4
-  br label %Rnm_ObjAddToCount.exit.thread
+  br label %Rnm_ObjAddToCount.argprom.argprom.exit.thread
 
-Rnm_ObjAddToCount.exit.thread:                    ; preds = %43, %Rnm_ObjAddToCount.exit, %Vec_IntPush.exit
+Rnm_ObjAddToCount.argprom.argprom.exit.thread:    ; preds = %43, %Rnm_ObjAddToCount.argprom.argprom.exit, %Vec_IntPush.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %Ga2_ObjLeaves.v.val94 = load i32, ptr @Ga2_ObjLeaves.v.0, align 8
   %94 = sext i32 %Ga2_ObjLeaves.v.val94 to i64
   %95 = icmp slt i64 %indvars.iv.next, %94
   br i1 %95, label %.lr.ph, label %.critedge2, !llvm.loop !14
 
-.critedge2:                                       ; preds = %Rnm_ObjAddToCount.exit.thread, %.lr.ph, %.lr.ph195
+.critedge2:                                       ; preds = %Rnm_ObjAddToCount.argprom.argprom.exit.thread, %.lr.ph, %.lr.ph195
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169193, 1
   %.val95 = load i32, ptr %6, align 4
   %96 = sext i32 %.val95 to i64
@@ -595,9 +595,9 @@ Rnm_ObjAddToCount.exit.thread:                    ; preds = %43, %Rnm_ObjAddToCo
   %.val115 = load i64, ptr %112, align 4
   %114 = and i64 %.val115, 2684354559
   %narrow.i.not.i = icmp eq i64 %114, 2684354559
-  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.exit, label %Gia_ObjIsRo.exit.thread
+  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.argprom.exit, label %Gia_ObjIsRo.argprom.exit.thread
 
-Gia_ObjIsRo.exit:                                 ; preds = %113
+Gia_ObjIsRo.argprom.exit:                         ; preds = %113
   %115 = lshr i64 %.val115, 32
   %116 = trunc nuw i64 %115 to i32
   %117 = and i32 %116, 536870911
@@ -609,9 +609,9 @@ Gia_ObjIsRo.exit:                                 ; preds = %113
   %.val5.val.i = load i32, ptr %120, align 4
   %121 = sub nsw i32 %.val5.val.i, %.val4.i116
   %.not149 = icmp slt i32 %117, %121
-  br i1 %.not149, label %Gia_ObjIsRo.exit.thread, label %122
+  br i1 %.not149, label %Gia_ObjIsRo.argprom.exit.thread, label %122
 
-122:                                              ; preds = %Gia_ObjIsRo.exit
+122:                                              ; preds = %Gia_ObjIsRo.argprom.exit
   %123 = load i32, ptr %100, align 4
   %124 = load i32, ptr %99, align 8
   %125 = icmp eq i32 %123, %124
@@ -666,7 +666,7 @@ Vec_IntGrow.exit.i123:                            ; preds = %132, %130
   store i32 %136, ptr %99, align 8
   br label %.critedge6.sink.split
 
-Gia_ObjIsRo.exit.thread:                          ; preds = %113, %Gia_ObjIsRo.exit
+Gia_ObjIsRo.argprom.exit.thread:                  ; preds = %113, %Gia_ObjIsRo.argprom.exit
   %146 = getelementptr i8, ptr %107, i64 264
   %.val4.i126 = load ptr, ptr %146, align 8
   %147 = getelementptr i8, ptr %.val4.i126, i64 8
@@ -697,7 +697,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %113, %Gia_ObjIsRo.e
   %165 = icmp sgt i32 %154, 0
   br i1 %165, label %.lr.ph158, label %.critedge6
 
-.lr.ph158:                                        ; preds = %Gia_ObjIsRo.exit.thread
+.lr.ph158:                                        ; preds = %Gia_ObjIsRo.argprom.exit.thread
   %166 = load ptr, ptr %0, align 8
   %167 = getelementptr i8, ptr %166, i64 32
   %.val102 = load ptr, ptr %167, align 8
@@ -818,7 +818,7 @@ Vec_IntGrow.exit.i141:                            ; preds = %198, %196
   store i32 %.sink, ptr %214, align 4
   br label %.critedge6
 
-.critedge6:                                       ; preds = %168, %.critedge6.sink.split, %Gia_ObjIsRo.exit.thread, %.lr.ph158
+.critedge6:                                       ; preds = %168, %.critedge6.sink.split, %Gia_ObjIsRo.argprom.exit.thread, %.lr.ph158
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %.val93 = load i32, ptr %6, align 4
   %215 = sext i32 %.val93 to i64

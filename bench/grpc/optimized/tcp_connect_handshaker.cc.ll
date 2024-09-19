@@ -245,11 +245,11 @@ invoke.cont4.i.i:                                 ; preds = %invoke.cont3.i.i
   store i8 0, ptr %bind_endpoint_to_pollset_.i.i, align 8, !noalias !7
   %4 = load ptr, ptr %interested_parties_.i.i, align 8, !noalias !7
   %cmp.not.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i, label %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120TCPConnectHandshakerEJRP16grpc_pollset_setEEENS_13RefCountedPtrIT_EEDpOT0_.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120TCPConnectHandshakerEJRP16grpc_pollset_setEEENS_13RefCountedPtrIT_EEDpOT0_.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont4.i.i
   invoke void @_Z38grpc_polling_entity_add_to_pollset_setP19grpc_polling_entityP16grpc_pollset_set(ptr noundef nonnull %pollent_.i.i, ptr noundef nonnull %4)
-          to label %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120TCPConnectHandshakerEJRP16grpc_pollset_setEEENS_13RefCountedPtrIT_EEDpOT0_.exit unwind label %lpad2.i.i, !noalias !7
+          to label %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120TCPConnectHandshakerEJRP16grpc_pollset_setEEENS_13RefCountedPtrIT_EEDpOT0_.argprom.exit unwind label %lpad2.i.i, !noalias !7
 
 common.resume:                                    ; preds = %lpad, %if.then.i11, %if.then.i.i14, %lpad2.i.i
   %common.resume.op = phi { ptr, i32 } [ %5, %lpad2.i.i ], [ %9, %if.then.i.i14 ], [ %9, %if.then.i11 ], [ %9, %lpad ]
@@ -262,7 +262,7 @@ lpad2.i.i:                                        ; preds = %if.then.i.i, %invok
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #19, !noalias !7
   br label %common.resume
 
-_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120TCPConnectHandshakerEJRP16grpc_pollset_setEEENS_13RefCountedPtrIT_EEDpOT0_.exit: ; preds = %invoke.cont4.i.i, %if.then.i.i
+_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120TCPConnectHandshakerEJRP16grpc_pollset_setEEENS_13RefCountedPtrIT_EEDpOT0_.argprom.exit: ; preds = %invoke.cont4.i.i, %if.then.i.i
   %cb1.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   store ptr @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshaker9ConnectedEPvN4absl12lts_202308026StatusE, ptr %cb1.i.i.i, align 8, !noalias !7
   %cb_arg2.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 240
@@ -273,28 +273,28 @@ _ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120TCPConnectHandshakerEJRP16grpc_
   invoke void @_ZN9grpc_core16HandshakeManager3AddENS_13RefCountedPtrINS_10HandshakerEEE(ptr noundef nonnull align 8 dereferenceable(216) %handshake_mgr, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120TCPConnectHandshakerEJRP16grpc_pollset_setEEENS_13RefCountedPtrIT_EEDpOT0_.exit
+invoke.cont:                                      ; preds = %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120TCPConnectHandshakerEJRP16grpc_pollset_setEEENS_13RefCountedPtrIT_EEDpOT0_.argprom.exit
   %6 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i = icmp eq ptr %6, null
-  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
   %refs_.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %7, 1
-  br i1 %cmp.i.i.i, label %if.then.i.i2, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i2, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.argprom.exit
 
 if.then.i.i2:                                     ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %6, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit: ; preds = %if.then.i.i2, %if.then.i, %invoke.cont
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.argprom.exit: ; preds = %if.then.i.i2, %if.then.i, %invoke.cont
   ret void
 
-lpad:                                             ; preds = %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120TCPConnectHandshakerEJRP16grpc_pollset_setEEENS_13RefCountedPtrIT_EEDpOT0_.exit
+lpad:                                             ; preds = %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120TCPConnectHandshakerEJRP16grpc_pollset_setEEENS_13RefCountedPtrIT_EEDpOT0_.argprom.exit
   %9 = landingpad { ptr, i32 }
           cleanup
   %10 = load ptr, ptr %agg.tmp, align 8
@@ -635,16 +635,16 @@ if.then.i56:                                      ; preds = %cleanup
   %refs_.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %42 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i57 = icmp eq i64 %42, 1
-  br i1 %cmp.i.i.i57, label %if.then.i.i58, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit
+  br i1 %cmp.i.i.i57, label %if.then.i.i58, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.argprom.exit
 
 if.then.i.i58:                                    ; preds = %if.then.i56
   %vtable.i.i.i = load ptr, ptr %arg, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %43 = load ptr, ptr %vfn.i.i.i, align 8
   call void %43(ptr noundef nonnull align 8 dereferenceable(16) %arg) #18
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit: ; preds = %if.then.i56, %if.then.i.i58
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.argprom.exit: ; preds = %if.then.i56, %if.then.i.i58
   ret void
 
 lpad81:                                           ; preds = %invoke.cont80
@@ -669,23 +669,23 @@ ehcleanup88:                                      ; preds = %entry
   %47 = landingpad { ptr, i32 }
           cleanup
   %cmp.not.i62 = icmp eq ptr %arg, null
-  br i1 %cmp.not.i62, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit69, label %if.then.i63
+  br i1 %cmp.not.i62, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.argprom.exit69, label %if.then.i63
 
 if.then.i63:                                      ; preds = %ehcleanup84, %ehcleanup88
   %.pn2.pn73 = phi { ptr, i32 } [ %47, %ehcleanup88 ], [ %.pn2, %ehcleanup84 ]
   %refs_.i.i64 = getelementptr inbounds i8, ptr %arg, i64 8
   %48 = atomicrmw sub ptr %refs_.i.i64, i64 1 acq_rel, align 8
   %cmp.i.i.i65 = icmp eq i64 %48, 1
-  br i1 %cmp.i.i.i65, label %if.then.i.i66, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit69
+  br i1 %cmp.i.i.i65, label %if.then.i.i66, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.argprom.exit69
 
 if.then.i.i66:                                    ; preds = %if.then.i63
   %vtable.i.i.i67 = load ptr, ptr %arg, align 8
   %vfn.i.i.i68 = getelementptr inbounds i8, ptr %vtable.i.i.i67, i64 8
   %49 = load ptr, ptr %vfn.i.i.i68, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(16) %arg) #18
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit69
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.argprom.exit69
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit69: ; preds = %ehcleanup88, %if.then.i63, %if.then.i.i66
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.argprom.exit69: ; preds = %ehcleanup88, %if.then.i63, %if.then.i.i66
   %.pn2.pn74 = phi { ptr, i32 } [ %47, %ehcleanup88 ], [ %.pn2.pn73, %if.then.i63 ], [ %.pn2.pn73, %if.then.i.i66 ]
   resume { ptr, i32 } %.pn2.pn74
 }
@@ -1617,8 +1617,8 @@ attributes #21 = { noreturn }
 !5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_127TCPConnectHandshakerFactoryEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !6 = distinct !{!6, !"_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_127TCPConnectHandshakerFactoryEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120TCPConnectHandshakerEJRP16grpc_pollset_setEEENS_13RefCountedPtrIT_EEDpOT0_: %agg.result"}
-!9 = distinct !{!9, !"_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120TCPConnectHandshakerEJRP16grpc_pollset_setEEENS_13RefCountedPtrIT_EEDpOT0_"}
+!8 = distinct !{!8, !9, !"_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120TCPConnectHandshakerEJRP16grpc_pollset_setEEENS_13RefCountedPtrIT_EEDpOT0_.argprom: %agg.result"}
+!9 = distinct !{!9, !"_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120TCPConnectHandshakerEJRP16grpc_pollset_setEEENS_13RefCountedPtrIT_EEDpOT0_.argprom"}
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!13}

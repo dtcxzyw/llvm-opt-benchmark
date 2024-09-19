@@ -460,7 +460,7 @@ for.body.i.i.i.i:                                 ; preds = %if.end12.i.i.i.i, %
   br i1 %or.cond8.i.i.i.i.i.i, label %if.end.i.i.i.i, label %switch.early.test.i.i.i.i.i.i
 
 switch.early.test.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i
-  switch i8 %__first.addr.0.val.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit" [
+  switch i8 %__first.addr.0.val.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit" [
     i8 45, label %if.end.i.i.i.i
     i8 43, label %if.end.i.i.i.i
     i8 46, label %if.end.i.i.i.i
@@ -478,7 +478,7 @@ if.end.i.i.i.i:                                   ; preds = %switch.early.test.i
   br i1 %or.cond8.i.i28.i.i.i.i, label %if.end4.i.i.i.i, label %switch.early.test.i.i29.i.i.i.i
 
 switch.early.test.i.i29.i.i.i.i:                  ; preds = %if.end.i.i.i.i
-  switch i8 %incdec.ptr.val.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit" [
+  switch i8 %incdec.ptr.val.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit.loopexit.split.loop.exit" [
     i8 45, label %if.end4.i.i.i.i
     i8 43, label %if.end4.i.i.i.i
     i8 46, label %if.end4.i.i.i.i
@@ -496,7 +496,7 @@ if.end4.i.i.i.i:                                  ; preds = %switch.early.test.i
   br i1 %or.cond8.i.i34.i.i.i.i, label %if.end8.i.i.i.i, label %switch.early.test.i.i35.i.i.i.i
 
 switch.early.test.i.i35.i.i.i.i:                  ; preds = %if.end4.i.i.i.i
-  switch i8 %incdec.ptr5.val.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit19" [
+  switch i8 %incdec.ptr5.val.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit.loopexit.split.loop.exit19" [
     i8 45, label %if.end8.i.i.i.i
     i8 43, label %if.end8.i.i.i.i
     i8 46, label %if.end8.i.i.i.i
@@ -514,7 +514,7 @@ if.end8.i.i.i.i:                                  ; preds = %switch.early.test.i
   br i1 %or.cond8.i.i40.i.i.i.i, label %if.end12.i.i.i.i, label %switch.early.test.i.i41.i.i.i.i
 
 switch.early.test.i.i41.i.i.i.i:                  ; preds = %if.end8.i.i.i.i
-  switch i8 %incdec.ptr9.val.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit21" [
+  switch i8 %incdec.ptr9.val.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit.loopexit.split.loop.exit21" [
     i8 45, label %if.end12.i.i.i.i
     i8 43, label %if.end12.i.i.i.i
     i8 46, label %if.end12.i.i.i.i
@@ -530,7 +530,7 @@ for.end.i.i.i.i:                                  ; preds = %if.end12.i.i.i.i, %
   %__first.addr.0.lcssa.i.i.i.i = phi ptr [ %add.ptr, %if.end4 ], [ %scevgep.i.i.i.i, %if.end12.i.i.i.i ]
   %sub.ptr.rhs.cast15.pre-phi.i.i.i.i = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i to i64
   %sub.ptr.sub16.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast15.pre-phi.i.i.i.i
-  switch i64 %sub.ptr.sub16.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit" [
+  switch i64 %sub.ptr.sub16.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit" [
     i64 3, label %sw.bb.i.i.i.i
     i64 2, label %sw.bb21.i.i.i.i
     i64 1, label %sw.bb26.i.i.i.i
@@ -547,7 +547,7 @@ sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
   br i1 %or.cond8.i.i46.i.i.i.i, label %if.end19.i.i.i.i, label %switch.early.test.i.i47.i.i.i.i
 
 switch.early.test.i.i47.i.i.i.i:                  ; preds = %sw.bb.i.i.i.i
-  switch i8 %__first.addr.0.val26.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit" [
+  switch i8 %__first.addr.0.val26.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit" [
     i8 45, label %if.end19.i.i.i.i
     i8 43, label %if.end19.i.i.i.i
     i8 46, label %if.end19.i.i.i.i
@@ -569,7 +569,7 @@ sw.bb21.i.i.i.i:                                  ; preds = %if.end19.i.i.i.i, %
   br i1 %or.cond8.i.i52.i.i.i.i, label %if.end24.i.i.i.i, label %switch.early.test.i.i53.i.i.i.i
 
 switch.early.test.i.i53.i.i.i.i:                  ; preds = %sw.bb21.i.i.i.i
-  switch i8 %__first.addr.1.val.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit" [
+  switch i8 %__first.addr.1.val.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit" [
     i8 45, label %if.end24.i.i.i.i
     i8 43, label %if.end24.i.i.i.i
     i8 46, label %if.end24.i.i.i.i
@@ -588,37 +588,37 @@ sw.bb26.i.i.i.i:                                  ; preds = %if.end24.i.i.i.i, %
   %32 = add i8 %__first.addr.2.val.i.i.i.i, -48
   %or.cond.i.i57.i.i.i.i = icmp ult i8 %32, 10
   %or.cond8.i.i58.i.i.i.i = or i1 %or.cond.i.i57.i.i.i.i, %31
-  br i1 %or.cond8.i.i58.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.exit62.thread.i.i.i.i", label %switch.early.test.i.i59.i.i.i.i
+  br i1 %or.cond8.i.i58.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.argprom.exit62.thread.i.i.i.i", label %switch.early.test.i.i59.i.i.i.i
 
 switch.early.test.i.i59.i.i.i.i:                  ; preds = %sw.bb26.i.i.i.i
-  switch i8 %__first.addr.2.val.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit" [
-    i8 45, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.exit62.thread.i.i.i.i"
-    i8 43, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.exit62.thread.i.i.i.i"
-    i8 46, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.exit62.thread.i.i.i.i"
+  switch i8 %__first.addr.2.val.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit" [
+    i8 45, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.argprom.exit62.thread.i.i.i.i"
+    i8 43, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.argprom.exit62.thread.i.i.i.i"
+    i8 46, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.argprom.exit62.thread.i.i.i.i"
   ]
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.exit62.thread.i.i.i.i": ; preds = %switch.early.test.i.i59.i.i.i.i, %switch.early.test.i.i59.i.i.i.i, %switch.early.test.i.i59.i.i.i.i, %sw.bb26.i.i.i.i
-  br label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit"
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.argprom.exit62.thread.i.i.i.i": ; preds = %switch.early.test.i.i59.i.i.i.i, %switch.early.test.i.i59.i.i.i.i, %switch.early.test.i.i59.i.i.i.i, %sw.bb26.i.i.i.i
+  br label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit"
 
-"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit": ; preds = %switch.early.test.i.i29.i.i.i.i
+"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %switch.early.test.i.i29.i.i.i.i
   %incdec.ptr.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.081.i.i.i.i, i64 1
-  br label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit"
+  br label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit"
 
-"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit19": ; preds = %switch.early.test.i.i35.i.i.i.i
+"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit.loopexit.split.loop.exit19": ; preds = %switch.early.test.i.i35.i.i.i.i
   %incdec.ptr5.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.081.i.i.i.i, i64 2
-  br label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit"
+  br label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit"
 
-"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit21": ; preds = %switch.early.test.i.i41.i.i.i.i
+"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit.loopexit.split.loop.exit21": ; preds = %switch.early.test.i.i41.i.i.i.i
   %incdec.ptr9.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.081.i.i.i.i, i64 3
-  br label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit"
+  br label %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit"
 
-"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit": ; preds = %switch.early.test.i.i.i.i.i.i, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit19", %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit21", %for.end.i.i.i.i, %switch.early.test.i.i47.i.i.i.i, %switch.early.test.i.i53.i.i.i.i, %switch.early.test.i.i59.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.exit62.thread.i.i.i.i"
-  %retval.0.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %switch.early.test.i.i47.i.i.i.i ], [ %__first.addr.1.i.i.i.i, %switch.early.test.i.i53.i.i.i.i ], [ %__first.addr.2.i.i.i.i, %switch.early.test.i.i59.i.i.i.i ], [ %add.ptr.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.exit62.thread.i.i.i.i" ], [ %add.ptr.i, %for.end.i.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit" ], [ %incdec.ptr5.i.i.i.i.le, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit19" ], [ %incdec.ptr9.i.i.i.i.le, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit21" ], [ %__first.addr.081.i.i.i.i, %switch.early.test.i.i.i.i.i.i ]
+"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit": ; preds = %switch.early.test.i.i.i.i.i.i, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit.loopexit.split.loop.exit19", %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit.loopexit.split.loop.exit21", %for.end.i.i.i.i, %switch.early.test.i.i47.i.i.i.i, %switch.early.test.i.i53.i.i.i.i, %switch.early.test.i.i59.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.argprom.exit62.thread.i.i.i.i"
+  %retval.0.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %switch.early.test.i.i47.i.i.i.i ], [ %__first.addr.1.i.i.i.i, %switch.early.test.i.i53.i.i.i.i ], [ %__first.addr.2.i.i.i.i, %switch.early.test.i.i59.i.i.i.i ], [ %add.ptr.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.argprom.exit62.thread.i.i.i.i" ], [ %add.ptr.i, %for.end.i.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %incdec.ptr5.i.i.i.i.le, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit.loopexit.split.loop.exit19" ], [ %incdec.ptr9.i.i.i.i.le, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit.loopexit.split.loop.exit21" ], [ %__first.addr.081.i.i.i.i, %switch.early.test.i.i.i.i.i.i ]
   %cmp.i3 = icmp eq ptr %add.ptr.i, %retval.0.i.i.i.i
   br label %return
 
-return:                                           ; preds = %if.end, %entry, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit"
-  %retval.0 = phi i1 [ %cmp.i3, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit" ], [ false, %entry ], [ false, %if.end ]
+return:                                           ; preds = %if.end, %entry, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit"
+  %retval.0 = phi i1 [ %cmp.i3, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.argprom.exit" ], [ false, %entry ], [ false, %if.end ]
   ret i1 %retval.0
 }
 
@@ -764,7 +764,7 @@ entry:
   %5 = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   %6 = load ptr, ptr %5, align 8, !noalias !7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 %4, ptr %6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
-          to label %_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.exit unwind label %lpad.i
+          to label %_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.argprom.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
   %7 = landingpad { ptr, i32 }
@@ -772,7 +772,7 @@ lpad.i:                                           ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #19
   resume { ptr, i32 } %7
 
-_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.exit: ; preds = %entry
+_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.argprom.exit: ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -844,7 +844,7 @@ entry:
   %5 = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   %6 = load ptr, ptr %5, align 8, !noalias !10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 %4, ptr %6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
-          to label %_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.exit unwind label %lpad.i
+          to label %_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.argprom.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
   %7 = landingpad { ptr, i32 }
@@ -852,7 +852,7 @@ lpad.i:                                           ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #19
   resume { ptr, i32 } %7
 
-_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.exit: ; preds = %entry
+_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.argprom.exit: ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -1081,7 +1081,7 @@ entry:
   %5 = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   %6 = load ptr, ptr %5, align 8, !noalias !13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 %4, ptr %6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
-          to label %_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.exit unwind label %lpad.i
+          to label %_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.argprom.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
   %7 = landingpad { ptr, i32 }
@@ -1089,7 +1089,7 @@ lpad.i:                                           ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #19
   resume { ptr, i32 } %7
 
-_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.exit: ; preds = %entry
+_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.argprom.exit: ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -3732,14 +3732,14 @@ attributes #24 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA: %agg.result"}
-!9 = distinct !{!9, !"_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA"}
+!8 = distinct !{!8, !9, !"_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.argprom: %agg.result"}
+!9 = distinct !{!9, !"_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.argprom"}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA: %agg.result"}
-!12 = distinct !{!12, !"_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA"}
+!11 = distinct !{!11, !12, !"_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.argprom: %agg.result"}
+!12 = distinct !{!12, !"_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.argprom"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA: %agg.result"}
-!15 = distinct !{!15, !"_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA"}
+!14 = distinct !{!14, !15, !"_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.argprom: %agg.result"}
+!15 = distinct !{!15, !"_ZN5arrow8internal12_GLOBAL__N_117TextRangeToStringB5cxx11ERK19UriTextRangeStructA.argprom"}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = !{!19}

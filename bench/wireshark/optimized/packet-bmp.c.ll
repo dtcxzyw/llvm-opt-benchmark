@@ -637,7 +637,7 @@ switch.lookup:                                    ; preds = %4
   %42 = load i32, ptr @hf_bmp_type, align 4
   %43 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %42, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #5
   %44 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #5
-  switch i8 %26, label %dissect_bmp_init.exit [
+  switch i8 %26, label %dissect_bmp_init.argprom.exit [
     i8 4, label %45
     i8 0, label %71
     i8 1, label %71
@@ -656,7 +656,7 @@ switch.lookup:                                    ; preds = %4
   %50 = call ptr @proto_item_add_subtree(ptr noundef %48, i32 noundef %49) #5
   %51 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 6) #5
   %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %.lr.ph.i, label %dissect_bmp_init.exit
+  br i1 %52, label %.lr.ph.i, label %dissect_bmp_init.argprom.exit
 
 .lr.ph.i:                                         ; preds = %45, %.lr.ph.i
   %.01.i = phi i32 [ %68, %.lr.ph.i ], [ 6, %45 ]
@@ -679,7 +679,7 @@ switch.lookup:                                    ; preds = %4
   %68 = add i32 %64, %66
   %69 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %68) #5
   %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %.lr.ph.i, label %dissect_bmp_init.exit, !llvm.loop !4
+  br i1 %70, label %.lr.ph.i, label %dissect_bmp_init.argprom.exit, !llvm.loop !4
 
 71:                                               ; preds = %35, %35, %35, %35, %35
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
@@ -1151,7 +1151,7 @@ dissect_bmp_peer_header.exit:                     ; preds = %136, %.preheader.i,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
-  br label %dissect_bmp_init.exit
+  br label %dissect_bmp_init.argprom.exit
 
 349:                                              ; preds = %35
   %350 = load i32, ptr @hf_term_types, align 4
@@ -1174,7 +1174,7 @@ dissect_bmp_peer_header.exit:                     ; preds = %136, %.preheader.i,
   %hf_term_reason.val.i = load i32, ptr @hf_term_reason, align 4
   %365 = select i1 %363, i32 %hf_term_info.val.i, i32 %hf_term_reason.val.i
   %366 = call ptr @proto_tree_add_item(ptr noundef %354, i32 noundef %365, ptr noundef %0, i32 noundef 10, i32 noundef %364, i32 noundef 0) #5
-  br label %dissect_bmp_init.exit
+  br label %dissect_bmp_init.argprom.exit
 
 367:                                              ; preds = %35
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
@@ -1467,9 +1467,9 @@ dissect_bmp_route_policy_event.exit.i:            ; preds = %545, %392
 
 dissect_bmp_route_policy.exit:                    ; preds = %dissect_bmp_route_policy_event.exit.i, %384
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  br label %dissect_bmp_init.exit
+  br label %dissect_bmp_init.argprom.exit
 
-dissect_bmp_init.exit:                            ; preds = %.lr.ph.i, %45, %35, %dissect_bmp_route_policy.exit, %349, %dissect_bmp_peer_header.exit
+dissect_bmp_init.argprom.exit:                    ; preds = %.lr.ph.i, %45, %35, %dissect_bmp_route_policy.exit, %349, %dissect_bmp_peer_header.exit
   %550 = call i32 @tvb_captured_length(ptr noundef %0) #5
   ret i32 %550
 }

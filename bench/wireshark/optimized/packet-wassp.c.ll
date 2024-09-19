@@ -2176,7 +2176,7 @@ test_wassp.exit:                                  ; preds = %4
   br i1 %.not.i.not, label %8, label %test_wassp.exit.thread
 
 8:                                                ; preds = %test_wassp.exit
-  tail call fastcc void @dissect_wassp(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @dissect_wassp.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %test_wassp.exit.thread
 
 test_wassp.exit.thread:                           ; preds = %4, %test_wassp.exit, %8
@@ -2233,7 +2233,7 @@ test_wassp.exit:                                  ; preds = %4
   br i1 %.not.i.not, label %8, label %test_wassp.exit.thread
 
 8:                                                ; preds = %test_wassp.exit
-  tail call fastcc void @dissect_wassp(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @dissect_wassp.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %test_wassp.exit.thread
 
 test_wassp.exit.thread:                           ; preds = %4, %test_wassp.exit, %8
@@ -2251,7 +2251,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare void @reassembly_table_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_wassp(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_wassp.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 34, ptr noundef nonnull @.str.371) #6
@@ -3399,307 +3399,307 @@ define internal fastcc noundef i32 @dissect_wassp_tlv(ptr noundef %0, ptr nounde
 97:                                               ; preds = %29
   %98 = add i32 %.0506523, 4
   %99 = add nsw i32 %16, -4
-  %100 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %98, i32 noundef %99, i32 noundef 20, i32 noundef %.0524)
+  %100 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %98, i32 noundef %99, i32 noundef 20, i32 noundef %.0524)
   br label %424
 
 101:                                              ; preds = %29
   %102 = add i32 %.0506523, 4
   %103 = add nsw i32 %16, -4
-  %104 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %102, i32 noundef %103, i32 noundef 6, i32 noundef %.0524)
+  %104 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %102, i32 noundef %103, i32 noundef 6, i32 noundef %.0524)
   br label %424
 
 105:                                              ; preds = %29
   %106 = add i32 %.0506523, 4
   %107 = add nsw i32 %16, -4
-  %108 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %106, i32 noundef %107, i32 noundef 5, i32 noundef %.0524)
+  %108 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %106, i32 noundef %107, i32 noundef 5, i32 noundef %.0524)
   br label %424
 
 109:                                              ; preds = %29, %29
   %110 = add i32 %.0506523, 4
   %111 = add nsw i32 %16, -4
-  %112 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %110, i32 noundef %111, i32 noundef 0, i32 noundef %.0524)
+  %112 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %110, i32 noundef %111, i32 noundef 0, i32 noundef %.0524)
   br label %424
 
 113:                                              ; preds = %29
   %114 = add i32 %.0506523, 4
   %115 = add nsw i32 %16, -4
-  %116 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %114, i32 noundef %115, i32 noundef 1, i32 noundef %.0524)
+  %116 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %114, i32 noundef %115, i32 noundef 1, i32 noundef %.0524)
   br label %424
 
 117:                                              ; preds = %29
   %118 = add i32 %.0506523, 4
   %119 = add nsw i32 %16, -4
-  %120 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %118, i32 noundef %119, i32 noundef 2, i32 noundef %.0524)
+  %120 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %118, i32 noundef %119, i32 noundef 2, i32 noundef %.0524)
   br label %424
 
 121:                                              ; preds = %29
   %122 = add i32 %.0506523, 4
   %123 = add nsw i32 %16, -4
-  %124 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %122, i32 noundef %123, i32 noundef 23, i32 noundef %.0524)
+  %124 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %122, i32 noundef %123, i32 noundef 23, i32 noundef %.0524)
   br label %424
 
 125:                                              ; preds = %29
   %126 = add i32 %.0506523, 4
   %127 = add nsw i32 %16, -4
-  %128 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %126, i32 noundef %127, i32 noundef 24, i32 noundef %.0524)
+  %128 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %126, i32 noundef %127, i32 noundef 24, i32 noundef %.0524)
   br label %424
 
 129:                                              ; preds = %29
   %130 = add i32 %.0506523, 4
   %131 = add nsw i32 %16, -4
-  %132 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %130, i32 noundef %131, i32 noundef 25, i32 noundef %.0524)
+  %132 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %130, i32 noundef %131, i32 noundef 25, i32 noundef %.0524)
   br label %424
 
 133:                                              ; preds = %29
   %134 = add i32 %.0506523, 4
   %135 = add nsw i32 %16, -4
-  %136 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %134, i32 noundef %135, i32 noundef 26, i32 noundef %.0524)
+  %136 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %134, i32 noundef %135, i32 noundef 26, i32 noundef %.0524)
   br label %424
 
 137:                                              ; preds = %29
   %138 = add i32 %.0506523, 4
   %139 = add nsw i32 %16, -4
-  %140 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %138, i32 noundef %139, i32 noundef 27, i32 noundef %.0524)
+  %140 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %138, i32 noundef %139, i32 noundef 27, i32 noundef %.0524)
   br label %424
 
 141:                                              ; preds = %29
   %142 = add i32 %.0506523, 4
   %143 = add nsw i32 %16, -4
-  %144 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %142, i32 noundef %143, i32 noundef 28, i32 noundef %.0524)
+  %144 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %142, i32 noundef %143, i32 noundef 28, i32 noundef %.0524)
   br label %424
 
 145:                                              ; preds = %29
   %146 = add i32 %.0506523, 4
   %147 = add nsw i32 %16, -4
-  %148 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %146, i32 noundef %147, i32 noundef 29, i32 noundef %.0524)
+  %148 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %146, i32 noundef %147, i32 noundef 29, i32 noundef %.0524)
   br label %424
 
 149:                                              ; preds = %29
   %150 = add i32 %.0506523, 4
   %151 = add nsw i32 %16, -4
-  %152 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %150, i32 noundef %151, i32 noundef 30, i32 noundef %.0524)
+  %152 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %150, i32 noundef %151, i32 noundef 30, i32 noundef %.0524)
   br label %424
 
 153:                                              ; preds = %29
   %154 = add i32 %.0506523, 4
   %155 = add nsw i32 %16, -4
-  %156 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %154, i32 noundef %155, i32 noundef 29, i32 noundef %.0524)
+  %156 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %154, i32 noundef %155, i32 noundef 29, i32 noundef %.0524)
   br label %424
 
 157:                                              ; preds = %29
   %158 = add i32 %.0506523, 4
   %159 = add nsw i32 %16, -4
-  %160 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %158, i32 noundef %159, i32 noundef 31, i32 noundef %.0524)
+  %160 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %158, i32 noundef %159, i32 noundef 31, i32 noundef %.0524)
   br label %424
 
 161:                                              ; preds = %29
   %162 = add i32 %.0506523, 4
   %163 = add nsw i32 %16, -4
-  %164 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %162, i32 noundef %163, i32 noundef 26, i32 noundef %.0524)
+  %164 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %162, i32 noundef %163, i32 noundef 26, i32 noundef %.0524)
   br label %424
 
 165:                                              ; preds = %29
   %166 = add i32 %.0506523, 4
   %167 = add nsw i32 %16, -4
-  %168 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %166, i32 noundef %167, i32 noundef 21, i32 noundef %.0524)
+  %168 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %166, i32 noundef %167, i32 noundef 21, i32 noundef %.0524)
   br label %424
 
 169:                                              ; preds = %29
   %170 = add i32 %.0506523, 4
   %171 = add nsw i32 %16, -4
-  %172 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %170, i32 noundef %171, i32 noundef 32, i32 noundef %.0524)
+  %172 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %170, i32 noundef %171, i32 noundef 32, i32 noundef %.0524)
   br label %424
 
 173:                                              ; preds = %29
   %174 = add i32 %.0506523, 4
   %175 = add nsw i32 %16, -4
-  %176 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %174, i32 noundef %175, i32 noundef 33, i32 noundef %.0524)
+  %176 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %174, i32 noundef %175, i32 noundef 33, i32 noundef %.0524)
   br label %424
 
 177:                                              ; preds = %29
   %178 = add i32 %.0506523, 4
   %179 = add nsw i32 %16, -4
-  %180 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %178, i32 noundef %179, i32 noundef 34, i32 noundef %.0524)
+  %180 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %178, i32 noundef %179, i32 noundef 34, i32 noundef %.0524)
   br label %424
 
 181:                                              ; preds = %29
   %182 = add i32 %.0506523, 4
   %183 = add nsw i32 %16, -4
-  %184 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %182, i32 noundef %183, i32 noundef 35, i32 noundef %.0524)
+  %184 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %182, i32 noundef %183, i32 noundef 35, i32 noundef %.0524)
   br label %424
 
 185:                                              ; preds = %29
   %186 = add i32 %.0506523, 4
   %187 = add nsw i32 %16, -4
-  %188 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %186, i32 noundef %187, i32 noundef 36, i32 noundef %.0524)
+  %188 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %186, i32 noundef %187, i32 noundef 36, i32 noundef %.0524)
   br label %424
 
 189:                                              ; preds = %29
   %190 = add i32 %.0506523, 4
   %191 = add nsw i32 %16, -4
-  %192 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %190, i32 noundef %191, i32 noundef 37, i32 noundef %.0524)
+  %192 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %190, i32 noundef %191, i32 noundef 37, i32 noundef %.0524)
   br label %424
 
 193:                                              ; preds = %29
   %194 = add i32 %.0506523, 4
   %195 = add nsw i32 %16, -4
-  %196 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %194, i32 noundef %195, i32 noundef 38, i32 noundef %.0524)
+  %196 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %194, i32 noundef %195, i32 noundef 38, i32 noundef %.0524)
   br label %424
 
 197:                                              ; preds = %29
   %198 = add i32 %.0506523, 4
   %199 = add nsw i32 %16, -4
-  %200 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %198, i32 noundef %199, i32 noundef 39, i32 noundef %.0524)
+  %200 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %198, i32 noundef %199, i32 noundef 39, i32 noundef %.0524)
   br label %424
 
 201:                                              ; preds = %29
   %202 = add i32 %.0506523, 4
   %203 = add nsw i32 %16, -4
-  %204 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %202, i32 noundef %203, i32 noundef 40, i32 noundef %.0524)
+  %204 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %202, i32 noundef %203, i32 noundef 40, i32 noundef %.0524)
   br label %424
 
 205:                                              ; preds = %29
   %206 = add i32 %.0506523, 4
   %207 = add nsw i32 %16, -4
-  %208 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %206, i32 noundef %207, i32 noundef 41, i32 noundef %.0524)
+  %208 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %206, i32 noundef %207, i32 noundef 41, i32 noundef %.0524)
   br label %424
 
 209:                                              ; preds = %29
   %210 = add i32 %.0506523, 4
   %211 = add nsw i32 %16, -4
-  %212 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %210, i32 noundef %211, i32 noundef 42, i32 noundef %.0524)
+  %212 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %210, i32 noundef %211, i32 noundef 42, i32 noundef %.0524)
   br label %424
 
 213:                                              ; preds = %29
   %214 = add i32 %.0506523, 4
   %215 = add nsw i32 %16, -4
-  %216 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %214, i32 noundef %215, i32 noundef 43, i32 noundef %.0524)
+  %216 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %214, i32 noundef %215, i32 noundef 43, i32 noundef %.0524)
   br label %424
 
 217:                                              ; preds = %29
   %218 = add i32 %.0506523, 4
   %219 = add nsw i32 %16, -4
-  %220 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %218, i32 noundef %219, i32 noundef 44, i32 noundef %.0524)
+  %220 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %218, i32 noundef %219, i32 noundef 44, i32 noundef %.0524)
   br label %424
 
 221:                                              ; preds = %29
   %222 = add i32 %.0506523, 4
   %223 = add nsw i32 %16, -4
-  %224 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %222, i32 noundef %223, i32 noundef 45, i32 noundef %.0524)
+  %224 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %222, i32 noundef %223, i32 noundef 45, i32 noundef %.0524)
   br label %424
 
 225:                                              ; preds = %29
   %226 = add i32 %.0506523, 4
   %227 = add nsw i32 %16, -4
-  %228 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %226, i32 noundef %227, i32 noundef 46, i32 noundef %.0524)
+  %228 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %226, i32 noundef %227, i32 noundef 46, i32 noundef %.0524)
   br label %424
 
 229:                                              ; preds = %29
   %230 = add i32 %.0506523, 4
   %231 = add nsw i32 %16, -4
-  %232 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %230, i32 noundef %231, i32 noundef 49, i32 noundef %.0524)
+  %232 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %230, i32 noundef %231, i32 noundef 49, i32 noundef %.0524)
   br label %424
 
 233:                                              ; preds = %29
   %234 = add i32 %.0506523, 4
   %235 = add nsw i32 %16, -4
-  %236 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %234, i32 noundef %235, i32 noundef 50, i32 noundef %.0524)
+  %236 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %234, i32 noundef %235, i32 noundef 50, i32 noundef %.0524)
   br label %424
 
 237:                                              ; preds = %29
   %238 = add i32 %.0506523, 4
   %239 = add nsw i32 %16, -4
-  %240 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %238, i32 noundef %239, i32 noundef 51, i32 noundef %.0524)
+  %240 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %238, i32 noundef %239, i32 noundef 51, i32 noundef %.0524)
   br label %424
 
 241:                                              ; preds = %29
   %242 = add i32 %.0506523, 4
   %243 = add nsw i32 %16, -4
-  %244 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %242, i32 noundef %243, i32 noundef 52, i32 noundef %.0524)
+  %244 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %242, i32 noundef %243, i32 noundef 52, i32 noundef %.0524)
   br label %424
 
 245:                                              ; preds = %29
   %246 = add i32 %.0506523, 4
   %247 = add nsw i32 %16, -4
-  %248 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %246, i32 noundef %247, i32 noundef 53, i32 noundef %.0524)
+  %248 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %246, i32 noundef %247, i32 noundef 53, i32 noundef %.0524)
   br label %424
 
 249:                                              ; preds = %29
   %250 = add i32 %.0506523, 4
   %251 = add nsw i32 %16, -4
-  %252 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %250, i32 noundef %251, i32 noundef 54, i32 noundef %.0524)
+  %252 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %250, i32 noundef %251, i32 noundef 54, i32 noundef %.0524)
   br label %424
 
 253:                                              ; preds = %29
   %254 = add i32 %.0506523, 4
   %255 = add nsw i32 %16, -4
-  %256 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %254, i32 noundef %255, i32 noundef 55, i32 noundef %.0524)
+  %256 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %254, i32 noundef %255, i32 noundef 55, i32 noundef %.0524)
   br label %424
 
 257:                                              ; preds = %29
   %258 = add i32 %.0506523, 4
   %259 = add nsw i32 %16, -4
-  %260 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %258, i32 noundef %259, i32 noundef 56, i32 noundef %.0524)
+  %260 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %258, i32 noundef %259, i32 noundef 56, i32 noundef %.0524)
   br label %424
 
 261:                                              ; preds = %29
   %262 = add i32 %.0506523, 4
   %263 = add nsw i32 %16, -4
-  %264 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %262, i32 noundef %263, i32 noundef 57, i32 noundef %.0524)
+  %264 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %262, i32 noundef %263, i32 noundef 57, i32 noundef %.0524)
   br label %424
 
 265:                                              ; preds = %29
   %266 = add i32 %.0506523, 4
   %267 = add nsw i32 %16, -4
-  %268 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %266, i32 noundef %267, i32 noundef 58, i32 noundef %.0524)
+  %268 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %266, i32 noundef %267, i32 noundef 58, i32 noundef %.0524)
   br label %424
 
 269:                                              ; preds = %29
   %270 = add i32 %.0506523, 4
   %271 = add nsw i32 %16, -4
-  %272 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %270, i32 noundef %271, i32 noundef 59, i32 noundef %.0524)
+  %272 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %270, i32 noundef %271, i32 noundef 59, i32 noundef %.0524)
   br label %424
 
 273:                                              ; preds = %29
   %274 = add i32 %.0506523, 4
   %275 = add nsw i32 %16, -4
-  %276 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %274, i32 noundef %275, i32 noundef 60, i32 noundef %.0524)
+  %276 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %274, i32 noundef %275, i32 noundef 60, i32 noundef %.0524)
   br label %424
 
 277:                                              ; preds = %29
   %278 = add i32 %.0506523, 4
   %279 = add nsw i32 %16, -4
-  %280 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %278, i32 noundef %279, i32 noundef 61, i32 noundef %.0524)
+  %280 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %278, i32 noundef %279, i32 noundef 61, i32 noundef %.0524)
   br label %424
 
 281:                                              ; preds = %29
   %282 = add i32 %.0506523, 4
   %283 = add nsw i32 %16, -4
-  %284 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %282, i32 noundef %283, i32 noundef 62, i32 noundef %.0524)
+  %284 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %282, i32 noundef %283, i32 noundef 62, i32 noundef %.0524)
   br label %424
 
 285:                                              ; preds = %29
   %286 = add i32 %.0506523, 4
   %287 = add nsw i32 %16, -4
-  %288 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %286, i32 noundef %287, i32 noundef 63, i32 noundef %.0524)
+  %288 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %286, i32 noundef %287, i32 noundef 63, i32 noundef %.0524)
   br label %424
 
 289:                                              ; preds = %29
   %290 = add i32 %.0506523, 4
   %291 = add nsw i32 %16, -4
-  %292 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %290, i32 noundef %291, i32 noundef 74, i32 noundef %.0524)
+  %292 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %290, i32 noundef %291, i32 noundef 74, i32 noundef %.0524)
   br label %424
 
 293:                                              ; preds = %29
   %294 = add i32 %.0506523, 4
   %295 = add nsw i32 %16, -4
-  %296 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %294, i32 noundef %295, i32 noundef 75, i32 noundef %.0524)
+  %296 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %294, i32 noundef %295, i32 noundef 75, i32 noundef %.0524)
   br label %424
 
 297:                                              ; preds = %29
   %298 = add i32 %.0506523, 4
   %299 = add nsw i32 %16, -4
-  %300 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %31, ptr noundef %1, i32 noundef %298, i32 noundef %299, i32 noundef 76, i32 noundef %.0524)
+  %300 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %31, ptr noundef %1, i32 noundef %298, i32 noundef %299, i32 noundef 76, i32 noundef %.0524)
   br label %424
 
 301:                                              ; preds = %29
@@ -3917,7 +3917,7 @@ decode_mu_appl_stats_block.exit:                  ; preds = %.lr.ph.i522, %378
 declare ptr @tfs_get_string(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -4, 65532) %3, i32 noundef range(i32 0, 65536) %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -4, 65532) %3, i32 noundef range(i32 0, 65536) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = icmp ugt i32 %4, 84
   br i1 %7, label %.critedge, label %8
 
@@ -4303,14 +4303,14 @@ decode_ipv4_list_struct.exit:                     ; preds = %.lr.ph.i249, %decod
 197:                                              ; preds = %193
   %198 = add i32 %.112, 4
   %199 = add nsw i32 %64, -4
-  %200 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %19, ptr noundef %1, i32 noundef %198, i32 noundef %199, i32 noundef 70, i32 noundef 10)
+  %200 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %19, ptr noundef %1, i32 noundef %198, i32 noundef %199, i32 noundef 70, i32 noundef 10)
   br label %.backedge
 
 201:                                              ; preds = %193
   %202 = zext i16 %195 to i32
   %203 = add i32 %.112, 4
   %204 = add nsw i32 %64, -4
-  %205 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %19, ptr noundef %1, i32 noundef %203, i32 noundef %204, i32 noundef %202, i32 noundef %5)
+  %205 = tail call fastcc i32 @dissect_wassp_sub_tlv.argprom(ptr noundef %19, ptr noundef %1, i32 noundef %203, i32 noundef %204, i32 noundef %202, i32 noundef %5)
   br label %.backedge
 
 .critedge:                                        ; preds = %33, %151, %.backedge, %13, %8, %100, %6

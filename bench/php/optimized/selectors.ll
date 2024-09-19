@@ -1845,7 +1845,7 @@ switch.early.test.i.i177.i:                       ; preds = %421
   %448 = load ptr, ptr %447, align 8
   %449 = getelementptr inbounds i8, ptr %2, i64 48
   %450 = load ptr, ptr %449, align 8
-  %451 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %448, ptr noundef %450, ptr noundef %5)
+  %451 = call fastcc ptr @lxb_selectors_next.argprom(ptr noundef %0, ptr noundef %3, ptr noundef %448, ptr noundef %450, ptr noundef %5)
   store ptr %451, ptr %447, align 8
   %452 = icmp eq ptr %451, null
   br i1 %452, label %lxb_selectors_pseudo_class_function.exit, label %453
@@ -1860,7 +1860,7 @@ switch.early.test.i.i177.i:                       ; preds = %421
   %458 = load ptr, ptr %457, align 8
   %459 = getelementptr inbounds i8, ptr %2, i64 48
   %460 = load ptr, ptr %459, align 8
-  %461 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %458, ptr noundef %460, ptr noundef %5)
+  %461 = call fastcc ptr @lxb_selectors_next.argprom(ptr noundef %0, ptr noundef %3, ptr noundef %458, ptr noundef %460, ptr noundef %5)
   store ptr %461, ptr %457, align 8
   %462 = icmp eq ptr %461, null
   br i1 %462, label %lxb_selectors_pseudo_class_function.exit, label %463
@@ -1875,7 +1875,7 @@ switch.early.test.i.i177.i:                       ; preds = %421
   %468 = load ptr, ptr %467, align 8
   %469 = getelementptr inbounds i8, ptr %2, i64 48
   %470 = load ptr, ptr %469, align 8
-  %471 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %468, ptr noundef %470, ptr noundef %5)
+  %471 = call fastcc ptr @lxb_selectors_next.argprom(ptr noundef %0, ptr noundef %3, ptr noundef %468, ptr noundef %470, ptr noundef %5)
   store ptr %471, ptr %467, align 8
   %472 = icmp eq ptr %471, null
   br i1 %472, label %lxb_selectors_pseudo_class_function.exit, label %473
@@ -1890,7 +1890,7 @@ switch.early.test.i.i177.i:                       ; preds = %421
   %478 = load ptr, ptr %477, align 8
   %479 = getelementptr inbounds i8, ptr %2, i64 48
   %480 = load ptr, ptr %479, align 8
-  %481 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %478, ptr noundef %480, ptr noundef %5)
+  %481 = call fastcc ptr @lxb_selectors_next.argprom(ptr noundef %0, ptr noundef %3, ptr noundef %478, ptr noundef %480, ptr noundef %5)
   store ptr %481, ptr %477, align 8
   %482 = icmp eq ptr %481, null
   br i1 %482, label %lxb_selectors_pseudo_class_function.exit, label %483
@@ -1933,7 +1933,7 @@ switch.early.test.i.i177.i:                       ; preds = %421
 496:                                              ; preds = %493
   %497 = load ptr, ptr %492, align 8
   %498 = load ptr, ptr %490, align 8
-  %499 = call fastcc ptr @lxb_selectors_current(ptr noundef %0, ptr noundef %.095.i199, ptr noundef %497, ptr noundef %498, ptr noundef %5)
+  %499 = call fastcc ptr @lxb_selectors_current.argprom(ptr noundef %0, ptr noundef %.095.i199, ptr noundef %497, ptr noundef %498, ptr noundef %5)
   store ptr %499, ptr %492, align 8
   %500 = icmp eq ptr %499, null
   br i1 %500, label %lxb_selectors_pseudo_class_function.exit, label %501
@@ -2011,7 +2011,7 @@ switch.early.test.i.i177.i:                       ; preds = %421
 525:                                              ; preds = %522
   %526 = load ptr, ptr %521, align 8
   %527 = load ptr, ptr %519, align 8
-  %528 = call fastcc ptr @lxb_selectors_current(ptr noundef %0, ptr noundef %.297.i186, ptr noundef %526, ptr noundef %527, ptr noundef %5)
+  %528 = call fastcc ptr @lxb_selectors_current.argprom(ptr noundef %0, ptr noundef %.297.i186, ptr noundef %526, ptr noundef %527, ptr noundef %5)
   store ptr %528, ptr %521, align 8
   %529 = icmp eq ptr %528, null
   br i1 %529, label %lxb_selectors_pseudo_class_function.exit, label %530
@@ -2144,7 +2144,7 @@ switch.early.test.i.i177.i:                       ; preds = %421
   %587 = load ptr, ptr %586, align 8
   %588 = getelementptr inbounds i8, ptr %2, i64 48
   %589 = load ptr, ptr %588, align 8
-  %590 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %587, ptr noundef %589, ptr noundef %5)
+  %590 = call fastcc ptr @lxb_selectors_next.argprom(ptr noundef %0, ptr noundef %3, ptr noundef %587, ptr noundef %589, ptr noundef %5)
   store ptr %590, ptr %586, align 8
   %591 = icmp eq ptr %590, null
   br i1 %591, label %lxb_selectors_pseudo_class_function.exit, label %592
@@ -2334,7 +2334,7 @@ declare zeroext i1 @lxb_dom_node_is_empty(ptr noundef) local_unnamed_addr #1
 declare ptr @lxb_dom_document_root(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @lxb_selectors_next(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @lxb_selectors_next.argprom(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %.loopexit, label %7
 
@@ -2414,7 +2414,7 @@ define internal noundef i32 @lxb_selectors_first_match(ptr nocapture readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lxb_selectors_current(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc ptr @lxb_selectors_current.argprom(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %.loopexit, label %7
 

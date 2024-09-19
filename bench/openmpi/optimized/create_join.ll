@@ -73,7 +73,7 @@ define noundef ptr @opal_thread_get_self() local_unnamed_addr #1 {
 
 6:                                                ; preds = %5, %0
   %.not9.i = icmp eq ptr %2, null
-  br i1 %.not9.i, label %opal_obj_new.exit, label %7
+  br i1 %.not9.i, label %opal_obj_new.argprom.exit, label %7
 
 7:                                                ; preds = %6
   store ptr @opal_thread_t_class, ptr %2, align 8
@@ -82,7 +82,7 @@ define noundef ptr @opal_thread_get_self() local_unnamed_addr #1 {
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_thread_t_class, i64 40), align 8
   %10 = load ptr, ptr %9, align 8
   %.not6.i.i = icmp eq ptr %10, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.i
   %11 = phi ptr [ %13, %.lr.ph.i.i ], [ %10, %7 ]
@@ -91,9 +91,9 @@ define noundef ptr @opal_thread_get_self() local_unnamed_addr #1 {
   %12 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %6, %7
+opal_obj_new.argprom.exit:                        ; preds = %.lr.ph.i.i, %6, %7
   %14 = tail call i64 @pthread_self() #9
   %15 = getelementptr inbounds i8, ptr %2, i64 32
   store i64 %14, ptr %15, align 8

@@ -19,12 +19,12 @@ define hidden range(i32 0, 2) i32 @mbedtls_ecdsa_can_do(i32 noundef %0) local_un
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ecdsa_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
-  %9 = tail call fastcc i32 @ecdsa_sign_restartable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %6, ptr noundef %7)
+  %9 = tail call fastcc i32 @ecdsa_sign_restartable.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %6, ptr noundef %7)
   ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecdsa_sign_restartable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #1 {
+define internal fastcc i32 @ecdsa_sign_restartable.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #1 {
   %11 = alloca %struct.mbedtls_ecp_point, align 8
   %12 = alloca %struct.mbedtls_mpi, align 8
   %13 = alloca %struct.mbedtls_mpi, align 8
@@ -162,12 +162,12 @@ define internal fastcc i32 @ecdsa_sign_restartable(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ecdsa_sign_det_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
-  %10 = tail call fastcc i32 @ecdsa_sign_det_restartable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8)
+  %10 = tail call fastcc i32 @ecdsa_sign_det_restartable.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecdsa_sign_det_restartable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #1 {
+define internal fastcc i32 @ecdsa_sign_det_restartable.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #1 {
   %10 = alloca %struct.mbedtls_hmac_drbg_context, align 8
   %11 = alloca [132 x i8], align 16
   %12 = alloca %struct.mbedtls_mpi, align 8
@@ -227,7 +227,7 @@ derive_mpi.exit.thread3:                          ; preds = %34, %derive_mpi.exi
 41:                                               ; preds = %derive_mpi.exit.thread3
   %42 = shl nuw nsw i64 %16, 1
   %43 = call i32 @mbedtls_hmac_drbg_seed_buf(ptr noundef nonnull %10, ptr noundef nonnull %17, ptr noundef nonnull %11, i64 noundef %42) #7
-  %44 = call fastcc i32 @ecdsa_sign_restartable(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef nonnull @mbedtls_hmac_drbg_random, ptr noundef nonnull %10, ptr noundef %7, ptr noundef %8)
+  %44 = call fastcc i32 @ecdsa_sign_restartable.argprom(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef nonnull @mbedtls_hmac_drbg_random, ptr noundef nonnull %10, ptr noundef %7, ptr noundef %8)
   br label %derive_mpi.exit.thread
 
 derive_mpi.exit.thread:                           ; preds = %31, %21, %derive_mpi.exit.thread3, %derive_mpi.exit, %19, %41
@@ -243,12 +243,12 @@ derive_mpi.exit.thread:                           ; preds = %31, %21, %derive_mp
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ecdsa_verify(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
-  %7 = tail call fastcc i32 @ecdsa_verify_restartable(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %7 = tail call fastcc i32 @ecdsa_verify_restartable.argprom(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecdsa_verify_restartable(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc i32 @ecdsa_verify_restartable.argprom(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
   %7 = alloca %struct.mbedtls_mpi, align 8
   %8 = alloca %struct.mbedtls_mpi, align 8
   %9 = alloca %struct.mbedtls_mpi, align 8
@@ -398,7 +398,7 @@ define hidden i32 @mbedtls_ecdsa_write_signature_restartable(ptr noundef %0, i32
   call void @mbedtls_mpi_init(ptr noundef nonnull %13) #7
   call void @mbedtls_mpi_init(ptr noundef nonnull %14) #7
   %17 = getelementptr inbounds i8, ptr %0, i64 248
-  %18 = call fastcc i32 @ecdsa_sign_det_restartable(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %17, ptr noundef %2, i64 noundef %3, i32 noundef %1, ptr noundef nonnull %7, ptr noundef %8)
+  %18 = call fastcc i32 @ecdsa_sign_det_restartable.argprom(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %17, ptr noundef %2, i64 noundef %3, i32 noundef %1, ptr noundef nonnull %7, ptr noundef %8)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %41
 
@@ -518,7 +518,7 @@ define hidden i32 @mbedtls_ecdsa_read_signature_restartable(ptr noundef %0, ptr 
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %0, i64 272
-  %27 = call fastcc i32 @ecdsa_verify_restartable(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %26, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %27 = call fastcc i32 @ecdsa_verify_restartable.argprom(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %26, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %.not24 = icmp eq i32 %27, 0
   br i1 %.not24, label %28, label %30
 

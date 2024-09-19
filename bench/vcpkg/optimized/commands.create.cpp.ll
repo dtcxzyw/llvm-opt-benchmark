@@ -235,7 +235,7 @@ define dso_local noundef i32 @_ZN5vcpkg14command_createERKNS_17VcpkgCmdArguments
   %35 = getelementptr inbounds i8, ptr %34, i64 -1
   %36 = load i8, ptr %35, align 1, !noalias !8
   %.not18.i.i.i.i = icmp eq i8 %36, 47
-  br i1 %.not18.i.i.i.i, label %37, label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.exit.i"
+  br i1 %.not18.i.i.i.i, label %37, label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.argprom.exit.i"
 
 37:                                               ; preds = %.lr.ph.i.i.i.i
   %38 = getelementptr inbounds i8, ptr %32, i64 -2
@@ -246,7 +246,7 @@ define dso_local noundef i32 @_ZN5vcpkg14command_createERKNS_17VcpkgCmdArguments
 40:                                               ; preds = %37
   %41 = getelementptr inbounds i8, ptr %32, i64 -1
   %.cast.i.i.i.i = ptrtoint ptr %41 to i64
-  br label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.exit.i"
+  br label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.argprom.exit.i"
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %32, i64 -3
@@ -257,7 +257,7 @@ define dso_local noundef i32 @_ZN5vcpkg14command_createERKNS_17VcpkgCmdArguments
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %32, i64 -2
   %.cast20.i.i.i.i = ptrtoint ptr %46 to i64
-  br label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.exit.i"
+  br label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.argprom.exit.i"
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds i8, ptr %32, i64 -4
@@ -268,7 +268,7 @@ define dso_local noundef i32 @_ZN5vcpkg14command_createERKNS_17VcpkgCmdArguments
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %32, i64 -3
   %.cast22.i.i.i.i = ptrtoint ptr %51 to i64
-  br label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.exit.i"
+  br label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.argprom.exit.i"
 
 52:                                               ; preds = %47
   %53 = add nsw i64 %.036.i.i.i.i, -1
@@ -280,7 +280,7 @@ define dso_local noundef i32 @_ZN5vcpkg14command_createERKNS_17VcpkgCmdArguments
   %56 = phi i64 [ %.val.i, %24 ], [ %30, %52 ]
   %57 = phi ptr [ %25, %24 ], [ %scevgep.i.i.i, %52 ]
   %58 = sub i64 %56, %.val1.i
-  switch i64 %58, label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.exit.i" [
+  switch i64 %58, label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.argprom.exit.i" [
     i64 3, label %59
     i64 2, label %66
     i64 1, label %75
@@ -291,7 +291,7 @@ define dso_local noundef i32 @_ZN5vcpkg14command_createERKNS_17VcpkgCmdArguments
   %61 = getelementptr inbounds i8, ptr %60, i64 -1
   %62 = load i8, ptr %61, align 1, !noalias !8
   %.not.i.i.i.i = icmp eq i8 %62, 47
-  br i1 %.not.i.i.i.i, label %63, label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.exit.i"
+  br i1 %.not.i.i.i.i, label %63, label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.argprom.exit.i"
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds i8, ptr %57, i64 -1
@@ -305,7 +305,7 @@ define dso_local noundef i32 @_ZN5vcpkg14command_createERKNS_17VcpkgCmdArguments
   %70 = getelementptr inbounds i8, ptr %69, i64 -1
   %71 = load i8, ptr %70, align 1, !noalias !8
   %.not16.i.i.i.i = icmp eq i8 %71, 47
-  br i1 %.not16.i.i.i.i, label %72, label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.exit.i"
+  br i1 %.not16.i.i.i.i, label %72, label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.argprom.exit.i"
 
 72:                                               ; preds = %66
   %73 = getelementptr inbounds i8, ptr %67, i64 -1
@@ -319,16 +319,16 @@ define dso_local noundef i32 @_ZN5vcpkg14command_createERKNS_17VcpkgCmdArguments
   %79 = load i8, ptr %78, align 1, !noalias !8
   %.not17.i.i.i.i = icmp eq i8 %79, 47
   %spec.select.i.i.i = select i1 %.not17.i.i.i.i, i64 %.val1.i, i64 %76
-  br label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.exit.i"
+  br label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.argprom.exit.i"
 
-"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i, %75, %66, %59, %._crit_edge.i.i.i.i, %50, %45, %40
+"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.argprom.exit.i": ; preds = %.lr.ph.i.i.i.i, %75, %66, %59, %._crit_edge.i.i.i.i, %50, %45, %40
   %.sink.i.i.i.i = phi i64 [ %.cast22.i.i.i.i, %50 ], [ %.cast20.i.i.i.i, %45 ], [ %.cast.i.i.i.i, %40 ], [ %56, %59 ], [ %68, %66 ], [ %.val1.i, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i, %75 ], [ %33, %.lr.ph.i.i.i.i ]
   %80 = inttoptr i64 %.sink.i.i.i.i to ptr
   %81 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #17, !noalias !5
   %82 = invoke ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr %80, ptr %81)
           to label %83 unwind label %150
 
-83:                                               ; preds = %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.exit.i"
+83:                                               ; preds = %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.argprom.exit.i"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -535,7 +535,7 @@ _ZSt8_DestroyIPN5vcpkg13CMakeVariableEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.
           cleanup
   br label %220
 
-150:                                              ; preds = %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.exit.i"
+150:                                              ; preds = %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.argprom.exit.i"
   %151 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
@@ -4465,10 +4465,10 @@ attributes #22 = { nounwind willreturn memory(read) }
 !8 = !{!9, !11, !13, !6}
 !9 = distinct !{!9, !10, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops12_Iter_negateIZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0EEET_SH_SH_T0_St26random_access_iterator_tag: argument 0"}
 !10 = distinct !{!10, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops12_Iter_negateIZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0EEET_SH_SH_T0_St26random_access_iterator_tag"}
-!11 = distinct !{!11, !12, !"_ZSt13__find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0EEET_SH_SH_T0_: argument 0"}
-!12 = distinct !{!12, !"_ZSt13__find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0EEET_SH_SH_T0_"}
-!13 = distinct !{!13, !14, !"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_: argument 0"}
-!14 = distinct !{!14, !"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_"}
+!11 = distinct !{!11, !12, !"_ZSt13__find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0EEET_SH_SH_T0_.argprom: argument 0"}
+!12 = distinct !{!12, !"_ZSt13__find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0EEET_SH_SH_T0_.argprom"}
+!13 = distinct !{!13, !14, !"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.argprom: argument 0"}
+!14 = distinct !{!14, !"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEZN12_GLOBAL__N_127remove_trailing_url_slashesES9_E3$_0ET_SE_SE_T0_.argprom"}
 !15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
 !17 = distinct !{!17, !16}

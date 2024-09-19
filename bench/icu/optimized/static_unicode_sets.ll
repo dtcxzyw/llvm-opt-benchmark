@@ -240,12 +240,12 @@ if.end87.i:                                       ; preds = %cleanup.done73.i
 invoke.cont90.i:                                  ; preds = %if.end87.i
   store ptr null, ptr %otherGrouping.i, align 8
   store ptr %call58.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 64), align 16
-  %call95.i = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_S2_(i32 noundef 3, i32 noundef 4)
+  %call95.i = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_S2_.argelim(i32 noundef 3, i32 noundef 4)
           to label %invoke.cont94.i unwind label %lpad82.loopexit.split-lp.i
 
 invoke.cont94.i:                                  ; preds = %invoke.cont90.i
   store ptr %call95.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 72), align 8
-  %call97.i = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_S2_(i32 noundef 5, i32 noundef 6)
+  %call97.i = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_S2_.argelim(i32 noundef 5, i32 noundef 6)
           to label %invoke.cont96.i unwind label %lpad82.loopexit.split-lp.i
 
 invoke.cont96.i:                                  ; preds = %invoke.cont94.i
@@ -336,12 +336,12 @@ cleanup.action147.i:                              ; preds = %lpad135.i, %lpad132
   br label %ehcleanup163.i
 
 if.end153.i:                                      ; preds = %cleanup.done140.i
-  %call155.i = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_(i32 noundef 9)
+  %call155.i = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_.argelim(i32 noundef 9)
           to label %invoke.cont154.i unwind label %lpad82.loopexit.split-lp.i
 
 invoke.cont154.i:                                 ; preds = %if.end153.i
   store ptr %call155.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 176), align 16
-  %call157.i = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_(i32 noundef 10)
+  %call157.i = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_.argelim(i32 noundef 10)
           to label %invoke.cont156.i unwind label %lpad82.loopexit.split-lp.i
 
 invoke.cont156.i:                                 ; preds = %invoke.cont154.i
@@ -570,7 +570,7 @@ declare void @ures_getAllItemsWithFallback_75(ptr noundef, ptr noundef, ptr noun
 declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_S2_(i32 noundef range(i32 3, 6) %k1, i32 noundef range(i32 4, 7) %k2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_S2_.argelim(i32 noundef range(i32 3, 6) %k1, i32 noundef range(i32 4, 7) %k2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 200) #8
   %new.isnull = icmp eq ptr %call, null
@@ -611,7 +611,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_(i32 noundef range(i32 9, 11) %k2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_.argelim(i32 noundef range(i32 9, 11) %k2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 200) #8
   %new.isnull = icmp eq ptr %call, null

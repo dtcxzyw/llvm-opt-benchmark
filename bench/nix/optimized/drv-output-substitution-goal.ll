@@ -2874,11 +2874,11 @@ _ZNSt10shared_ptrIN3nix25DrvOutputSubstitutionGoal13DownloadStateEEC2ERKS3_.exit
 _ZN3nix8CallbackISt10shared_ptrIKNS_11RealisationEEED2Ev.exit: ; preds = %265, %271
   %276 = load ptr, ptr %248, align 8
   %.not.i.i = icmp eq ptr %276, null
-  br i1 %.not.i.i, label %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.exit", label %277
+  br i1 %.not.i.i, label %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.argprom.exit", label %277
 
 277:                                              ; preds = %_ZN3nix8CallbackISt10shared_ptrIKNS_11RealisationEEED2Ev.exit
   %278 = invoke noundef zeroext i1 %276(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
-          to label %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.exit" unwind label %279
+          to label %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.argprom.exit" unwind label %279
 
 279:                                              ; preds = %277
   %280 = landingpad { ptr, i32 }
@@ -2887,7 +2887,7 @@ _ZN3nix8CallbackISt10shared_ptrIKNS_11RealisationEEED2Ev.exit: ; preds = %265, %
   call void @__clang_call_terminate(ptr %281) #33
   unreachable
 
-"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.exit": ; preds = %277, %_ZN3nix8CallbackISt10shared_ptrIKNS_11RealisationEEED2Ev.exit
+"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.argprom.exit": ; preds = %277, %_ZN3nix8CallbackISt10shared_ptrIKNS_11RealisationEEED2Ev.exit
   %282 = getelementptr inbounds i8, ptr %0, i64 24
   %283 = load ptr, ptr %282, align 8
   %284 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2899,7 +2899,7 @@ _ZN3nix8CallbackISt10shared_ptrIKNS_11RealisationEEED2Ev.exit: ; preds = %265, %
   %288 = icmp eq ptr %287, null
   br i1 %288, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %289
 
-289:                                              ; preds = %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.exit"
+289:                                              ; preds = %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.argprom.exit"
   %290 = getelementptr inbounds i8, ptr %287, i64 8
   %291 = load atomic i32, ptr %290 monotonic, align 8, !noalias !21
   br label %292
@@ -2916,7 +2916,7 @@ _ZN3nix8CallbackISt10shared_ptrIKNS_11RealisationEEED2Ev.exit: ; preds = %265, %
   %297 = extractvalue { i32, i1 } %295, 0
   br i1 %296, label %_ZNSt23enable_shared_from_thisIN3nix4GoalEE16shared_from_thisEv.exit, label %292, !llvm.loop !24
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i: ; preds = %292, %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.exit"
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i: ; preds = %292, %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.argprom.exit"
   %298 = call ptr @__cxa_allocate_exception(i64 8) #29, !noalias !21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %298, align 8, !noalias !21
   call void @__cxa_throw(ptr nonnull %298, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #31, !noalias !21
@@ -3055,7 +3055,7 @@ _ZNSt10shared_ptrIN3nix4GoalEED2Ev.exit:          ; preds = %_ZNSt3setIiSt4lessI
 _ZNSt8functionIFvSt6futureISt10shared_ptrIKN3nix11RealisationEEEEED2Ev.exit66: ; preds = %349, %347
   %.sroa.3.0 = phi ptr [ %239, %347 ], [ null, %349 ]
   %.pn = phi { ptr, i32 } [ %348, %347 ], [ %350, %349 ]
-  tail call fastcc void @"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev"(ptr %.sroa.3.0) #29
+  tail call fastcc void @"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.argprom"(ptr %.sroa.3.0) #29
   br label %common.resume
 
 355:                                              ; preds = %_ZNSt23enable_shared_from_thisIN3nix4GoalEE16shared_from_thisEv.exit
@@ -3174,7 +3174,7 @@ declare void @_ZN3nix4Pipe6createEv(ptr noundef nonnull align 4 dereferenceable(
 declare void @_ZN3nix5Store16queryRealisationERKNS_9DrvOutputENS_8CallbackISt10shared_ptrIKNS_11RealisationEEEE(ptr noundef nonnull align 8 dereferenceable(264), ptr noundef nonnull align 8 dereferenceable(112), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev"(ptr %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.argprom"(ptr %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3nix25DrvOutputSubstitutionGoal13DownloadStateEED2Ev.exit, label %1
 
@@ -18064,7 +18064,7 @@ _ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit.i.i.i: ; preds = %_ZNSt16_Sp_co
   %.val3.val.i.i.i = load ptr, ptr %.val, align 8
   %79 = getelementptr inbounds i8, ptr %.val3.val.i.i.i, i64 4
   invoke void @_ZN3nix11AutoCloseFD5closeEv(ptr noundef nonnull align 4 dereferenceable(4) %79)
-          to label %"_ZN7FinallyIZZN3nix25DrvOutputSubstitutionGoal7tryNextEvENK3$_0clESt6futureISt10shared_ptrIKNS0_11RealisationEEEEUlvE_ED2Ev.exit5.i.i.i" unwind label %80
+          to label %"_ZN7FinallyIZZN3nix25DrvOutputSubstitutionGoal7tryNextEvENK3$_0clESt6futureISt10shared_ptrIKNS0_11RealisationEEEEUlvE_ED2Ev.argprom.argprom.exit5.i.i.i" unwind label %80
 
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
@@ -18073,7 +18073,7 @@ _ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit.i.i.i: ; preds = %_ZNSt16_Sp_co
   call void @__clang_call_terminate(ptr %82) #33
   unreachable
 
-"_ZN7FinallyIZZN3nix25DrvOutputSubstitutionGoal7tryNextEvENK3$_0clESt6futureISt10shared_ptrIKNS0_11RealisationEEEEUlvE_ED2Ev.exit5.i.i.i": ; preds = %78
+"_ZN7FinallyIZZN3nix25DrvOutputSubstitutionGoal7tryNextEvENK3$_0clESt6futureISt10shared_ptrIKNS0_11RealisationEEEEUlvE_ED2Ev.argprom.argprom.exit5.i.i.i": ; preds = %78
   %.0.i.i.i = extractvalue { ptr, i32 } %.pn.i.i.i, 0
   %83 = call ptr @__cxa_begin_catch(ptr %.0.i.i.i) #29
   %84 = load ptr, ptr %.val, align 8
@@ -18082,7 +18082,7 @@ _ZNSt10shared_ptrIKN3nix11RealisationEED2Ev.exit.i.i.i: ; preds = %_ZNSt16_Sp_co
   invoke void @_ZNSt7promiseISt10shared_ptrIKN3nix11RealisationEEE13set_exceptionENSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull %5)
           to label %86 unwind label %89
 
-86:                                               ; preds = %"_ZN7FinallyIZZN3nix25DrvOutputSubstitutionGoal7tryNextEvENK3$_0clESt6futureISt10shared_ptrIKNS0_11RealisationEEEEUlvE_ED2Ev.exit5.i.i.i"
+86:                                               ; preds = %"_ZN7FinallyIZZN3nix25DrvOutputSubstitutionGoal7tryNextEvENK3$_0clESt6futureISt10shared_ptrIKNS0_11RealisationEEEEUlvE_ED2Ev.argprom.argprom.exit5.i.i.i"
   %87 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %87, null
   br i1 %.not.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i, label %88
@@ -18095,7 +18095,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %88, %86
   invoke void @__cxa_end_catch()
           to label %96 unwind label %132
 
-89:                                               ; preds = %"_ZN7FinallyIZZN3nix25DrvOutputSubstitutionGoal7tryNextEvENK3$_0clESt6futureISt10shared_ptrIKNS0_11RealisationEEEEUlvE_ED2Ev.exit5.i.i.i"
+89:                                               ; preds = %"_ZN7FinallyIZZN3nix25DrvOutputSubstitutionGoal7tryNextEvENK3$_0clESt6futureISt10shared_ptrIKNS0_11RealisationEEEEUlvE_ED2Ev.argprom.argprom.exit5.i.i.i"
   %90 = landingpad { ptr, i32 }
           cleanup
   %91 = load ptr, ptr %5, align 8
@@ -18209,7 +18209,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureISt10shared_ptrIKN3nix11RealisationEEEEZNS2_25DrvOutputSubstitutionGoal7tryNextEvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #4 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %18
@@ -18218,12 +18218,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureISt10sh
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -18235,7 +18235,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureISt10sh
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.val8.i, ptr %9, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val8.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit.i", label %10
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.argprom.exit.i", label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %.val8.i, i64 8
@@ -18247,26 +18247,26 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureISt10sh
   %14 = load i32, ptr %11, align 4
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %11, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.argprom.exit.i"
 
 16:                                               ; preds = %10
   %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.argprom.exit.i"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit.i": ; preds = %16, %13, %6
+"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.argprom.exit.i": ; preds = %16, %13, %6
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
 18:                                               ; preds = %3
   %.val9.i = load ptr, ptr %0, align 8
   %19 = icmp eq ptr %.val9.i, null
-  br i1 %19, label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %20
+  br i1 %19, label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr i8, ptr %.val9.i, i64 8
   %.val.i.i = load ptr, ptr %21, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.exit.i.i", label %22
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.argprom.exit.i.i", label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -18302,7 +18302,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureISt10sh
 38:                                               ; preds = %36, %34
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %34 ], [ %37, %36 ]
   %39 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %39, label %40, label %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.exit.i.i"
+  br i1 %39, label %40, label %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.argprom.exit.i.i"
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %.val.i.i, align 8
@@ -18327,20 +18327,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureISt10sh
 51:                                               ; preds = %49, %46
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %47, %46 ], [ %50, %49 ]
   %52 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %52, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.exit.i.i"
+  br i1 %52, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.argprom.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %51, %27
   %53 = load ptr, ptr %.val.i.i, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #29
-  br label %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.exit.i.i"
+  br label %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.argprom.exit.i.i"
 
-"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %51, %38, %20
+"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %51, %38, %20
   tail call void @_ZdlPv(ptr noundef nonnull %.val9.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.exit.i.i", %18, %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN3nix25DrvOutputSubstitutionGoal7tryNextEvEN3$_0D2Ev.argprom.exit.i.i", %18, %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.argprom.exit.i", %5, %4
   ret i1 false
 }
 
@@ -18439,13 +18439,13 @@ define linkonce_odr void @_ZNSt13__future_base13_State_baseV213_M_set_resultESt8
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENUlvE_8__invokeEv, ptr %15, align 8
   %16 = invoke noundef i32 @pthread_once(ptr noundef nonnull %10, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %19
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %19
 
-_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit, label %17
 
-17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
+17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %16) #31
           to label %18 unwind label %19
 
@@ -18459,7 +18459,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
   store ptr null, ptr %15, align 8
   resume { ptr, i32 } %20
 
-_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
+_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
   store ptr null, ptr %14, align 8
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)

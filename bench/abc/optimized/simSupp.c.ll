@@ -1438,7 +1438,7 @@ define i32 @Sim_NtkSimTwoPats_rec(ptr nocapture noundef %0) local_unnamed_addr #
   %.val3.i = load i32, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %4 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %3, i32 noundef %4)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %3, i32 noundef %4)
   %5 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %5, align 8
   %6 = sext i32 %.val3.i to i64
@@ -1465,7 +1465,7 @@ common.ret27:                                     ; preds = %15, %common.ret
   %.val22 = load i32, ptr %2, align 8
   %16 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %17 = add nsw i32 %.val22, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %16, i32 noundef %17)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %16, i32 noundef %17)
   %18 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i25 = load ptr, ptr %18, align 8
   %19 = sext i32 %.val22 to i64
@@ -2232,7 +2232,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val3.i150 = load i32, ptr %365, align 8
   %366 = getelementptr inbounds i8, ptr %.val2.i149, i64 224
   %367 = add nsw i32 %.val3.i150, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %366, i32 noundef %367)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %366, i32 noundef %367)
   %368 = getelementptr i8, ptr %.val2.i149, i64 232
   %.val.i.i.i151 = load ptr, ptr %368, align 8
   %369 = sext i32 %.val3.i150 to i64
@@ -2390,7 +2390,7 @@ declare void @Fraig_ManFree(ptr noundef) local_unnamed_addr #1
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

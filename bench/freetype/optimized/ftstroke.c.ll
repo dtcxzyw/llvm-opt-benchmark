@@ -2006,7 +2006,7 @@ define i32 @FT_Stroker_EndSubPath(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 112
   %9 = load i64, ptr %0, align 8
-  %10 = tail call fastcc i32 @ft_stroker_cap(ptr noundef %0, i64 noundef %9)
+  %10 = tail call fastcc i32 @ft_stroker_cap.argelim(ptr noundef %0, i64 noundef %9)
   %.not44 = icmp eq i32 %10, 0
   br i1 %.not44, label %11, label %210
 
@@ -2149,7 +2149,7 @@ ft_stroker_add_reverse_left.exit:                 ; preds = %32, %39
   %80 = getelementptr inbounds i8, ptr %0, i64 48
   %81 = load i64, ptr %80, align 8
   %82 = add nsw i64 %81, 11796480
-  %83 = call fastcc i32 @ft_stroker_cap(ptr noundef %0, i64 noundef %82)
+  %83 = call fastcc i32 @ft_stroker_cap.argelim(ptr noundef %0, i64 noundef %82)
   %.not46 = icmp eq i32 %83, 0
   br i1 %.not46, label %84, label %210
 
@@ -2385,7 +2385,7 @@ ft_stroke_border_close.exit54:                    ; preds = %173, %.loopexit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_stroker_cap(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @ft_stroker_cap.argelim(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.FT_Vector_, align 8
   %4 = alloca %struct.FT_Vector_, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 84

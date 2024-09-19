@@ -3324,7 +3324,7 @@ define void @Abc_NtkFinMiterCollect_rec(ptr nocapture noundef readonly %0, ptr n
   %.val3.i = load i32, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %6 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %5, i32 noundef %6)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %5, i32 noundef %6)
   %7 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %7, align 8
   %8 = sext i32 %.val3.i to i64
@@ -3340,7 +3340,7 @@ define void @Abc_NtkFinMiterCollect_rec(ptr nocapture noundef readonly %0, ptr n
   %.val21 = load i32, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %15 = add nsw i32 %.val21, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %14, i32 noundef %15)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %14, i32 noundef %15)
   %16 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i22 = load ptr, ptr %16, align 8
   %17 = sext i32 %.val21 to i64
@@ -7010,7 +7010,7 @@ define i32 @Abc_NtkFinCheckTypesOk(ptr nocapture noundef readonly %0) local_unna
 14:                                               ; preds = %11
   %15 = getelementptr i8, ptr %9, i64 56
   %.val13 = load ptr, ptr %15, align 8
-  %16 = tail call fastcc i32 @Abc_ObjFinGateType(ptr %.val13)
+  %16 = tail call fastcc i32 @Abc_ObjFinGateType.argprom(ptr %.val13)
   %17 = icmp eq i32 %16, -100
   br i1 %17, label %.critedge.loopexit.split.loop.exit18, label %18
 
@@ -7029,7 +7029,7 @@ define i32 @Abc_NtkFinCheckTypesOk(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 -100, -88) i32 @Abc_ObjFinGateType(ptr nocapture readonly %.56.val) unnamed_addr #3 {
+define internal fastcc range(i32 -100, -88) i32 @Abc_ObjFinGateType.argprom(ptr nocapture readonly %.56.val) unnamed_addr #3 {
   %1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.56.val, ptr noundef nonnull dereferenceable(5) @.str.41) #32
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %16, label %2
@@ -7208,7 +7208,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %.val14 = load i32, ptr %25, align 8
   %26 = getelementptr i8, ptr %19, i64 56
   %.val17 = load ptr, ptr %26, align 8
-  %27 = tail call fastcc i32 @Abc_ObjFinGateType(ptr %.val17)
+  %27 = tail call fastcc i32 @Abc_ObjFinGateType.argprom(ptr %.val17)
   %28 = sext i32 %.val14 to i64
   %29 = getelementptr inbounds i32, ptr %.val15, i64 %28
   store i32 %27, ptr %29, align 4
@@ -7621,7 +7621,7 @@ Abc_NtkIsSopLogic.exit:                           ; preds = %9
 26:                                               ; preds = %23
   %27 = getelementptr i8, ptr %21, i64 56
   %.val13.i = load ptr, ptr %27, align 8
-  %28 = tail call fastcc i32 @Abc_ObjFinGateType(ptr %.val13.i)
+  %28 = tail call fastcc i32 @Abc_ObjFinGateType.argprom(ptr %.val13.i)
   %29 = icmp eq i32 %28, -100
   br i1 %29, label %Abc_NtkFinCheckTypesOk.exit, label %30
 
@@ -7704,7 +7704,7 @@ Vec_IntStart.exit.i:                              ; preds = %45, %Vec_IntAlloc.e
   %.val14.i = load i32, ptr %57, align 8
   %58 = getelementptr i8, ptr %51, i64 56
   %.val17.i = load ptr, ptr %58, align 8
-  %59 = tail call fastcc i32 @Abc_ObjFinGateType(ptr %.val17.i)
+  %59 = tail call fastcc i32 @Abc_ObjFinGateType.argprom(ptr %.val17.i)
   %60 = sext i32 %.val14.i to i64
   %61 = getelementptr inbounds i32, ptr %.val15.i, i64 %60
   store i32 %59, ptr %61, align 4
@@ -8511,7 +8511,7 @@ define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

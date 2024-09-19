@@ -955,7 +955,7 @@ return:                                           ; preds = %sw.bb37, %sw.bb23, 
 define void @_ZN3irr5video6CImage6copyToEPNS0_6IImageERKNS_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef %target, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos) unnamed_addr #5 align 2 {
 if.end:
   %pos.val = load <2 x i32>, ptr %pos, align 4
-  %call2 = tail call fastcc noundef i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j(i32 noundef 3, ptr noundef %target, ptr noundef null, <2 x i32> %pos.val, ptr noundef nonnull %this, ptr noundef null, i32 noundef 0)
+  %call2 = tail call fastcc noundef i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j.argprom(i32 noundef 3, ptr noundef %target, ptr noundef null, <2 x i32> %pos.val, ptr noundef nonnull %this, ptr noundef null, i32 noundef 0)
   %tobool = icmp eq i32 %call2, 0
   %tobool3 = icmp ne ptr %target, null
   %or.cond = and i1 %tobool3, %tobool
@@ -997,7 +997,7 @@ if.end16:                                         ; preds = %if.then11, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j(i32 noundef range(i32 3, 7) %operation, ptr noundef readonly %dest, ptr noundef readonly %destClipping, <2 x i32> %destPos.0.val, ptr nocapture noundef nonnull readonly %source, ptr noundef readonly %sourceClipping, i32 noundef %argb) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j.argprom(i32 noundef range(i32 3, 7) %operation, ptr noundef readonly %dest, ptr noundef readonly %destClipping, <2 x i32> %destPos.0.val, ptr nocapture noundef nonnull readonly %source, ptr noundef readonly %sourceClipping, i32 noundef %argb) unnamed_addr #5 {
 entry:
   %job = alloca %"struct.irr::SBlitJob", align 16
   %Format.i.i = getelementptr inbounds i8, ptr %source, i64 8
@@ -1247,7 +1247,7 @@ declare noundef zeroext i1 @_ZN3irr5video15CColorConverter16canConvertFormatENS0
 define void @_ZN3irr5video6CImage6copyToEPNS0_6IImageERKNS_4core8vector2dIiEERKNS4_4rectIiEEPSB_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %this, ptr noundef %target, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr noundef %clipRect) unnamed_addr #5 align 2 {
 return:
   %pos.val = load <2 x i32>, ptr %pos, align 4
-  %0 = tail call fastcc noundef i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j(i32 noundef 3, ptr noundef %target, ptr noundef %clipRect, <2 x i32> %pos.val, ptr noundef nonnull %this, ptr noundef nonnull %sourceRect, i32 noundef 0)
+  %0 = tail call fastcc noundef i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j.argprom(i32 noundef 3, ptr noundef %target, ptr noundef %clipRect, <2 x i32> %pos.val, ptr noundef nonnull %this, ptr noundef nonnull %sourceRect, i32 noundef 0)
   ret void
 }
 
@@ -1259,7 +1259,7 @@ return:
   %cond = select i1 %cmp, i32 4, i32 5
   %cond3 = select i1 %combineAlpha, i32 6, i32 %cond
   %pos.val = load <2 x i32>, ptr %pos, align 4
-  %1 = tail call fastcc noundef i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j(i32 noundef %cond3, ptr noundef %target, ptr noundef %clipRect, <2 x i32> %pos.val, ptr noundef nonnull %this, ptr noundef nonnull %sourceRect, i32 noundef %0)
+  %1 = tail call fastcc noundef i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j.argprom(i32 noundef %cond3, ptr noundef %target, ptr noundef %clipRect, <2 x i32> %pos.val, ptr noundef nonnull %this, ptr noundef nonnull %sourceRect, i32 noundef %0)
   ret void
 }
 

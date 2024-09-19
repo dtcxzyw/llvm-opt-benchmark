@@ -89,9 +89,9 @@ for.body.lr.ph.i:                                 ; preds = %get0_trustedStore_v
   %cond.i.i.i = select i1 %cmp4.i.i, ptr @.str.9, ptr @.str.18
   br label %for.body.i
 
-for.body.i:                                       ; preds = %ossl_X509_check.exit.i, %for.body.lr.ph.i
-  %ret.04.i = phi i1 [ true, %for.body.lr.ph.i ], [ %2, %ossl_X509_check.exit.i ]
-  %i.03.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %ossl_X509_check.exit.i ]
+for.body.i:                                       ; preds = %ossl_X509_check.argprom.exit.i, %for.body.lr.ph.i
+  %ret.04.i = phi i1 [ true, %for.body.lr.ph.i ], [ %2, %ossl_X509_check.argprom.exit.i ]
+  %i.03.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %ossl_X509_check.argprom.exit.i ]
   %call3.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %i.03.i) #4
   %call.i.i = call i32 @X509_get_extension_flags(ptr noundef %call3.i) #4
   %call1.i.i = call ptr @X509_get0_notBefore(ptr noundef %call3.i) #4
@@ -112,27 +112,27 @@ if.then.i.i:                                      ; preds = %for.body.i
 land.lhs.true.i.i:                                ; preds = %if.then.i.i, %for.body.i
   %1 = and i32 %call.i.i, 80
   %or.cond.i.i = icmp eq i32 %1, 0
-  br i1 %or.cond.i.i, label %if.then21.i.i, label %ossl_X509_check.exit.i
+  br i1 %or.cond.i.i, label %if.then21.i.i, label %ossl_X509_check.argprom.exit.i
 
 if.then21.i.i:                                    ; preds = %land.lhs.true.i.i
   %call.i14.i.i = call ptr @X509_get_subject_name(ptr noundef %call3.i) #4
   %call1.i15.i.i = call ptr @X509_NAME_oneline(ptr noundef %call.i14.i.i, ptr noundef null, i32 noundef 0) #4
   %call2.i17.i.i = call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef %cond.i.i, ptr noundef %ctx, ptr noundef nonnull @__func__.ossl_X509_check, ptr noundef nonnull @.str, i32 noundef 52, ptr noundef nonnull %cond.i.i.i, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.2, ptr noundef %call1.i15.i.i, ptr noundef nonnull @.str.17) #4
   call void @CRYPTO_free(ptr noundef %call1.i15.i.i, ptr noundef nonnull @.str, i32 noundef 31) #4
-  br label %ossl_X509_check.exit.i
+  br label %ossl_X509_check.argprom.exit.i
 
-ossl_X509_check.exit.i:                           ; preds = %if.then21.i.i, %land.lhs.true.i.i
+ossl_X509_check.argprom.exit.i:                   ; preds = %if.then21.i.i, %land.lhs.true.i.i
   %ret.0.shrunk.i.i = phi i1 [ false, %if.then21.i.i ], [ %cmp.i.i, %land.lhs.true.i.i ]
   %2 = select i1 %ret.0.shrunk.i.i, i1 %ret.04.i, i1 false
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %call1.i9 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #4
   %cmp.i10 = icmp slt i32 %inc.i, %call1.i9
-  br i1 %cmp.i10, label %for.body.i, label %ossl_X509_check_all.exit, !llvm.loop !4
+  br i1 %cmp.i10, label %for.body.i, label %ossl_X509_check_all.argprom.exit, !llvm.loop !4
 
-ossl_X509_check_all.exit:                         ; preds = %ossl_X509_check.exit.i
+ossl_X509_check_all.argprom.exit:                 ; preds = %ossl_X509_check.argprom.exit.i
   br i1 %2, label %if.end18, label %end
 
-if.end18:                                         ; preds = %get0_trustedStore_vpm.exit, %ossl_X509_check_all.exit
+if.end18:                                         ; preds = %get0_trustedStore_vpm.exit, %ossl_X509_check_all.argprom.exit
   %3 = load ptr, ptr %certs, align 8
   %call21 = call i32 @OPENSSL_sk_num(ptr noundef %3) #4
   %call22 = call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef %call21) #4
@@ -148,8 +148,8 @@ if.then25:                                        ; preds = %if.end18
   store ptr null, ptr %out, align 8
   br label %end
 
-end:                                              ; preds = %ossl_X509_check_all.exit, %if.end18, %if.then25, %if.end10, %if.end7
-  %ret.0 = phi i32 [ 1, %if.end10 ], [ 1, %if.end18 ], [ 0, %if.then25 ], [ 0, %if.end7 ], [ 0, %ossl_X509_check_all.exit ]
+end:                                              ; preds = %ossl_X509_check_all.argprom.exit, %if.end18, %if.then25, %if.end10, %if.end7
+  %ret.0 = phi i32 [ 1, %if.end10 ], [ 1, %if.end18 ], [ 0, %if.then25 ], [ 0, %if.end7 ], [ 0, %ossl_X509_check_all.argprom.exit ]
   call void @OSSL_CMP_ITAV_free(ptr noundef nonnull %call4) #4
   br label %return
 

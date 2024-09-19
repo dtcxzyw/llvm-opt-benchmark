@@ -1976,7 +1976,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit190.i:            ; preds = %782, %780
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit178.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit178.i:            ; preds = %795, %793, %729, %727
-  call fastcc void @_ZN12_GLOBAL__N_114CodeEmitterGen11emitCaseMapERN4llvm11raw_ostreamERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EESt4lessISA_ESaISt4pairIKSA_SD_EEE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %52)
+  call fastcc void @_ZN12_GLOBAL__N_114CodeEmitterGen11emitCaseMapERN4llvm11raw_ostreamERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EESt4lessISA_ESaISt4pairIKSA_SD_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %52)
   %799 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %800 = load ptr, ptr %799, align 8
   %801 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2384,7 +2384,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit241.i:            ; preds = %997, %995
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit244.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit244.i:            ; preds = %1010, %1008
-  call fastcc void @_ZN12_GLOBAL__N_114CodeEmitterGen11emitCaseMapERN4llvm11raw_ostreamERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EESt4lessISA_ESaISt4pairIKSA_SD_EEE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %53)
+  call fastcc void @_ZN12_GLOBAL__N_114CodeEmitterGen11emitCaseMapERN4llvm11raw_ostreamERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EESt4lessISA_ESaISt4pairIKSA_SD_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %53)
   %1014 = load ptr, ptr %799, align 8
   %1015 = load ptr, ptr %801, align 8
   %1016 = ptrtoint ptr %1014 to i64
@@ -3335,7 +3335,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114CodeEmitterGen11emitCaseMapERN4llvm11raw_ostreamERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EESt4lessISA_ESaISt4pairIKSA_SD_EEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114CodeEmitterGen11emitCaseMapERN4llvm11raw_ostreamERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EESt4lessISA_ESaISt4pairIKSA_SD_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4349,7 +4349,7 @@ _ZNK4llvm13CodeGenTarget14getInstructionEPKNS_6RecordE.exit: ; preds = %149, %13
   br i1 %163, label %164, label %.thread
 
 164:                                              ; preds = %162
-  %165 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %2, i32 noundef %.0128)
+  %165 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %2, i32 noundef %.0128)
   %.not = icmp eq i32 %165, -1
   br i1 %.not, label %162, label %166, !llvm.loop !79
 
@@ -4833,13 +4833,13 @@ _ZN4llvm6utostrB5cxx11Emb.exit199:                ; preds = %.lr.ph.i193, %.thre
   %360 = getelementptr inbounds i8, ptr %2, i64 40
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %358, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread
-  %.0129.ph308 = phi i32 [ 0, %358 ], [ %412, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread ]
-  %.0130.ph307 = phi i32 [ %.0128, %358 ], [ %411, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread ]
+.lr.ph:                                           ; preds = %358, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread
+  %.0129.ph308 = phi i32 [ 0, %358 ], [ %412, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread ]
+  %.0130.ph307 = phi i32 [ %.0128, %358 ], [ %411, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread ]
   br label %364
 
-.preheader271:                                    ; preds = %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread, %369, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread.thread
-  %.0129.ph.lcssa = phi i32 [ %410, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread.thread ], [ %.0129.ph308, %369 ], [ %412, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread ]
+.preheader271:                                    ; preds = %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread, %369, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread.thread
+  %.0129.ph.lcssa = phi i32 [ %410, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread.thread ], [ %.0129.ph308, %369 ], [ %412, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread ]
   %361 = getelementptr inbounds i8, ptr %22, i64 21
   %362 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %363 = icmp eq i32 %.0129.ph.lcssa, 1
@@ -4849,13 +4849,13 @@ _ZN4llvm6utostrB5cxx11Emb.exit199:                ; preds = %.lr.ph.i193, %.thre
   %indvars.iv.in = phi i32 [ %.0130.ph307, %.lr.ph ], [ %indvars.iv, %369 ]
   %.0130289 = phi i32 [ %.0130.ph307, %.lr.ph ], [ %370, %369 ]
   %indvars.iv = add i32 %indvars.iv.in, -1
-  %365 = call fastcc noundef i32 @_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %2, i32 noundef %.0130289)
+  %365 = call fastcc noundef i32 @_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %2, i32 noundef %.0130289)
   %366 = icmp eq i32 %365, -1
   br i1 %366, label %369, label %.preheader272
 
 .preheader272:                                    ; preds = %364
   %367 = icmp sgt i32 %.0130289, 0
-  br i1 %367, label %.lr.ph294.preheader, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread.thread
+  br i1 %367, label %.lr.ph294.preheader, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread.thread
 
 .lr.ph294.preheader:                              ; preds = %.preheader272
   %368 = zext i32 %indvars.iv to i64
@@ -4866,11 +4866,11 @@ _ZN4llvm6utostrB5cxx11Emb.exit199:                ; preds = %.lr.ph.i193, %.thre
   %371 = icmp sgt i32 %.0130289, 0
   br i1 %371, label %364, label %.preheader271, !llvm.loop !145
 
-372:                                              ; preds = %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit
+372:                                              ; preds = %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit
   %373 = add nuw nsw i32 %.0133292, 1
   %indvars.iv.next364 = add nsw i64 %indvars.iv363, -1
   %374 = icmp sgt i64 %indvars.iv363, 0
-  br i1 %374, label %.lr.ph294, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread.thread, !llvm.loop !146
+  br i1 %374, label %.lr.ph294, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread.thread, !llvm.loop !146
 
 .lr.ph294:                                        ; preds = %.lr.ph294.preheader, %372
   %indvars.iv363 = phi i64 [ %368, %.lr.ph294.preheader ], [ %indvars.iv.next364, %372 ]
@@ -4892,7 +4892,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit199:                ; preds = %.lr.ph.i193, %.thre
   %385 = icmp ne i8 %384, 20
   %.not1910.i = icmp eq ptr %382, null
   %.not19.i = or i1 %.not1910.i, %385
-  br i1 %.not19.i, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread, label %386
+  br i1 %.not19.i, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread, label %386
 
 386:                                              ; preds = %380
   %387 = call { ptr, i64 } @_ZNK4llvm7VarInit7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %382) #14
@@ -4901,7 +4901,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit199:                ; preds = %.lr.ph.i193, %.thre
   %390 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   %391 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   %.not.i.i = icmp eq i64 %389, %391
-  br i1 %.not.i.i, label %392, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread
+  br i1 %.not.i.i, label %392, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread
 
 392:                                              ; preds = %386
   %393 = icmp eq i64 %389, 0
@@ -4910,17 +4910,17 @@ _ZN4llvm6utostrB5cxx11Emb.exit199:                ; preds = %.lr.ph.i193, %.thre
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %392
   %bcmp.i.i = call i32 @bcmp(ptr %388, ptr %390, i64 %389)
   %394 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %394, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread
+  br i1 %394, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %392
   %395 = getelementptr inbounds nuw i8, ptr %376, i64 32
   %396 = load i32, ptr %395, align 8
-  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit
+  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit
 
 397:                                              ; preds = %.lr.ph294
   %398 = icmp ne i8 %378, 20
   %.not18.i = or i1 %.not9.i, %398
-  br i1 %.not18.i, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread, label %399
+  br i1 %.not18.i, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread, label %399
 
 399:                                              ; preds = %397
   %400 = call { ptr, i64 } @_ZNK4llvm7VarInit7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %376) #14
@@ -4929,30 +4929,30 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   %403 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   %404 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   %.not.i22.i = icmp eq i64 %402, %404
-  br i1 %.not.i22.i, label %405, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread
+  br i1 %.not.i22.i, label %405, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread
 
 405:                                              ; preds = %399
   %406 = icmp eq i64 %402, 0
-  br i1 %406, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit25.i
+  br i1 %406, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit25.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit25.i:            ; preds = %405
   %bcmp.i24.i = call i32 @bcmp(ptr %401, ptr %403, i64 %402)
   %407 = icmp eq i32 %bcmp.i24.i, 0
-  br i1 %407, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread
+  br i1 %407, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread
 
-_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %405, %_ZN4llvmeqENS_9StringRefES0_.exit25.i
+_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %405, %_ZN4llvmeqENS_9StringRefES0_.exit25.i
   %.0.i201 = phi i32 [ %396, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit25.i ], [ 0, %405 ]
   %408 = icmp ne i32 %.0.i201, -1
   %409 = sub nsw i32 %365, %.0133292
   %.not143 = icmp eq i32 %.0.i201, %409
   %or.cond = select i1 %408, i1 %.not143, i1 false
-  br i1 %or.cond, label %372, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread
+  br i1 %or.cond, label %372, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread
 
-_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread.thread: ; preds = %.preheader272, %372
+_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread.thread: ; preds = %.preheader272, %372
   %410 = add nuw nsw i32 %.0129.ph308, 1
   br label %.preheader271
 
-_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit.thread: ; preds = %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit, %380, %386, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %397, %399, %_ZN4llvmeqENS_9StringRefES0_.exit25.i
+_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit.thread: ; preds = %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit, %380, %386, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %397, %399, %_ZN4llvmeqENS_9StringRefES0_.exit25.i
   %411 = trunc nuw nsw i64 %indvars.iv363 to i32
   %412 = add nuw nsw i32 %.0129.ph308, 1
   %413 = icmp sgt i64 %indvars.iv363, -1
@@ -4963,14 +4963,14 @@ _ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcS
   %indvars.iv366.in = phi i32 [ %.1.ph338, %.lr.ph310 ], [ %indvars.iv366, %420 ]
   %.1309 = phi i32 [ %.1.ph338, %.lr.ph310 ], [ %417, %420 ]
   %indvars.iv366 = add i32 %indvars.iv366.in, -1
-  %415 = call fastcc noundef i32 @_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %2, i32 noundef %.1309)
+  %415 = call fastcc noundef i32 @_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %2, i32 noundef %.1309)
   %416 = icmp eq i32 %415, -1
   %417 = add nsw i32 %.1309, -1
   %418 = icmp sgt i32 %.1309, 0
   br i1 %416, label %420, label %.preheader
 
 .preheader:                                       ; preds = %414
-  br i1 %418, label %.lr.ph316.preheader, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread
+  br i1 %418, label %.lr.ph316.preheader, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread
 
 .lr.ph316.preheader:                              ; preds = %.preheader
   %419 = zext i32 %indvars.iv366 to i64
@@ -5000,7 +5000,7 @@ _ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcS
   %431 = icmp ne i8 %430, 20
   %.not1910.i204 = icmp eq ptr %428, null
   %.not19.i205 = or i1 %.not1910.i204, %431
-  br i1 %.not19.i205, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit435, label %432
+  br i1 %.not19.i205, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit435, label %432
 
 432:                                              ; preds = %426
   %433 = call { ptr, i64 } @_ZNK4llvm7VarInit7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %428) #14
@@ -5009,7 +5009,7 @@ _ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcS
   %436 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   %437 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   %.not.i.i206 = icmp eq i64 %435, %437
-  br i1 %.not.i.i206, label %438, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit432
+  br i1 %.not.i.i206, label %438, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit432
 
 438:                                              ; preds = %432
   %439 = icmp eq i64 %435, 0
@@ -5018,17 +5018,17 @@ _ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcS
 _ZN4llvmeqENS_9StringRefES0_.exit.i209:           ; preds = %438
   %bcmp.i.i210 = call i32 @bcmp(ptr %434, ptr %436, i64 %435)
   %440 = icmp eq i32 %bcmp.i.i210, 0
-  br i1 %440, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i211, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit429
+  br i1 %440, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i211, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit429
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i211:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i209, %438
   %441 = getelementptr inbounds nuw i8, ptr %422, i64 32
   %442 = load i32, ptr %441, align 8
-  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216
+  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216
 
 443:                                              ; preds = %.lr.ph316
   %444 = icmp ne i8 %424, 20
   %.not18.i212 = or i1 %.not9.i202, %444
-  br i1 %.not18.i212, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit426, label %445
+  br i1 %.not18.i212, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit426, label %445
 
 445:                                              ; preds = %443
   %446 = call { ptr, i64 } @_ZNK4llvm7VarInit7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %422) #14
@@ -5037,62 +5037,62 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i211:    ; preds = %_ZN4llvmeqENS_9Stri
   %449 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   %450 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   %.not.i22.i213 = icmp eq i64 %448, %450
-  br i1 %.not.i22.i213, label %451, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit423
+  br i1 %.not.i22.i213, label %451, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit423
 
 451:                                              ; preds = %445
   %452 = icmp eq i64 %448, 0
-  br i1 %452, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216, label %_ZN4llvmeqENS_9StringRefES0_.exit25.i214
+  br i1 %452, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216, label %_ZN4llvmeqENS_9StringRefES0_.exit25.i214
 
 _ZN4llvmeqENS_9StringRefES0_.exit25.i214:         ; preds = %451
   %bcmp.i24.i215 = call i32 @bcmp(ptr %447, ptr %449, i64 %448)
   %453 = icmp eq i32 %bcmp.i24.i215, 0
-  br i1 %453, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit
+  br i1 %453, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit
 
-_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i211, %451, %_ZN4llvmeqENS_9StringRefES0_.exit25.i214
+_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i211, %451, %_ZN4llvmeqENS_9StringRefES0_.exit25.i214
   %.0.i208 = phi i32 [ %442, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i211 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit25.i214 ], [ 0, %451 ]
   %454 = icmp ne i32 %.0.i208, -1
   %455 = sub nsw i32 %415, %.0132314
   %.not142 = icmp eq i32 %.0.i208, %455
   %or.cond144 = select i1 %454, i1 %.not142, i1 false
-  br i1 %or.cond144, label %456, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit438
+  br i1 %or.cond144, label %456, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit438
 
-456:                                              ; preds = %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216
+456:                                              ; preds = %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216
   %457 = add nuw nsw i32 %.0132314, 1
   %indvars.iv.next370 = add nsw i64 %indvars.iv369, -1
   %458 = icmp sgt i64 %indvars.iv369, 0
-  br i1 %458, label %.lr.ph316, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread, !llvm.loop !148
+  br i1 %458, label %.lr.ph316, label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread, !llvm.loop !148
 
-_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit25.i214
+_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit25.i214
   %459 = trunc nuw nsw i64 %indvars.iv369 to i32
-  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread
+  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread
 
-_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit423: ; preds = %445
+_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit423: ; preds = %445
   %460 = trunc nuw nsw i64 %indvars.iv369 to i32
-  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread
+  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread
 
-_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit426: ; preds = %443
+_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit426: ; preds = %443
   %461 = trunc nuw nsw i64 %indvars.iv369 to i32
-  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread
+  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread
 
-_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit429: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i209
+_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit429: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i209
   %462 = trunc nuw nsw i64 %indvars.iv369 to i32
-  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread
+  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread
 
-_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit432: ; preds = %432
+_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit432: ; preds = %432
   %463 = trunc nuw nsw i64 %indvars.iv369 to i32
-  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread
+  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread
 
-_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit435: ; preds = %426
+_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit435: ; preds = %426
   %464 = trunc nuw nsw i64 %indvars.iv369 to i32
-  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread
+  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread
 
-_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit438: ; preds = %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216
+_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit438: ; preds = %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216
   %465 = trunc nuw nsw i64 %indvars.iv369 to i32
-  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread
+  br label %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread
 
-_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread: ; preds = %456, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit423, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit426, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit429, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit432, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit435, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit438, %.preheader
-  %.0132.lcssa = phi i32 [ 1, %.preheader ], [ %.0132314, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit ], [ %.0132314, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit423 ], [ %.0132314, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit426 ], [ %.0132314, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit429 ], [ %.0132314, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit432 ], [ %.0132314, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit435 ], [ %.0132314, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit438 ], [ %indvars.iv371, %456 ]
-  %.2.lcssa = phi i32 [ %417, %.preheader ], [ %459, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit ], [ %460, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit423 ], [ %461, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit426 ], [ %462, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit429 ], [ %463, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit432 ], [ %464, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit435 ], [ %465, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread.loopexit.split.loop.exit438 ], [ -1, %456 ]
+_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread: ; preds = %456, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit423, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit426, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit429, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit432, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit435, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit438, %.preheader
+  %.0132.lcssa = phi i32 [ 1, %.preheader ], [ %.0132314, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit ], [ %.0132314, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit423 ], [ %.0132314, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit426 ], [ %.0132314, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit429 ], [ %.0132314, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit432 ], [ %.0132314, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit435 ], [ %.0132314, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit438 ], [ %indvars.iv371, %456 ]
+  %.2.lcssa = phi i32 [ %417, %.preheader ], [ %459, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit ], [ %460, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit423 ], [ %461, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit426 ], [ %462, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit429 ], [ %463, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit432 ], [ %464, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit435 ], [ %465, %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread.loopexit.split.loop.exit438 ], [ -1, %456 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #14
   %466 = sub nsw i32 %415, %.0132.lcssa
   %467 = add nsw i32 %466, 1
@@ -5103,7 +5103,7 @@ _ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcS
   %472 = zext i32 %467 to i64
   br i1 %471, label %473, label %559
 
-473:                                              ; preds = %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread
+473:                                              ; preds = %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #14
   %474 = icmp ugt i32 %.0132.lcssa, 63
   %475 = zext nneg i32 %.0132.lcssa to i64
@@ -5322,7 +5322,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #14
   br label %.outer
 
-559:                                              ; preds = %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.exit216.thread
+559:                                              ; preds = %_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom.exit216.thread
   %560 = sub nsw i32 64, %.0132.lcssa
   %561 = zext nneg i32 %560 to i64
   %562 = lshr i64 -1, %561
@@ -5704,7 +5704,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_os
 declare void @_ZN4llvm9PrintNoteERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #1 align 2 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_114CodeEmitterGen14getVariableBitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm8BitsInitEi.argprom(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = zext nneg i32 %2 to i64
   %6 = getelementptr inbounds ptr, ptr %4, i64 %5

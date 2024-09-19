@@ -1307,9 +1307,9 @@ land.rhs.i.i.i.i:                                 ; preds = %do.body.i.i.i.i
 
 do.body8.i.i.i.i:                                 ; preds = %land.rhs.i.i.i.i
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 1072, ptr noundef nonnull @.str.14, ptr noundef nonnull %maps_path.i.i.i.i, i32 noundef %14)
-          to label %_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.exit.thread.i.i.i unwind label %lpad.loopexit.split-lp.i.loopexit.split-lp.i.i.i
+          to label %_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.argprom.exit.thread.i.i.i unwind label %lpad.loopexit.split-lp.i.loopexit.split-lp.i.i.i
 
-_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.exit.thread.i.i.i: ; preds = %do.body8.i.i.i.i
+_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.argprom.exit.thread.i.i.i: ; preds = %do.body8.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %maps_path.i.i.i.i)
   br label %if.then5.i.i.i
 
@@ -1355,7 +1355,7 @@ lpad.loopexit.split-lp.i.loopexit.split-lp.i.i.i: ; preds = %do.body8.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %lpad.loopexit.split-lp.i.loopexit.split-lp.i.i.i, %lpad.loopexit.split-lp.i.loopexit.i.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.i.loopexit.split-lp.loopexit.split-lp.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.i.loopexit.split-lp.loopexit.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.i.loopexit.i.i, %lpad.loopexit.i.loopexit.i.i.i
   %lpad.phi.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %lpad.loopexit.i.loopexit.i.i.i ], [ %lpad.loopexit59.i.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i ], [ %lpad.loopexit.split-lp60.i.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i ], [ %lpad.loopexit57.i.i.i, %lpad.loopexit.split-lp.i.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad.loopexit.split-lp.i.loopexit.split-lp.i.i.i ], [ %lpad.loopexit.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.i.loopexit.i.i ], [ %lpad.loopexit173.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.i.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp174.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.i.loopexit.split-lp.loopexit.split-lp.i.i ]
-  call fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev(i32 %call3.i.i.i.i) #21
+  call fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev.argprom(i32 %call3.i.i.i.i) #21
   resume { ptr, i32 } %lpad.phi.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %do.body.i.i.i.i, %while.cond.i.i.i.i.backedge
@@ -2019,7 +2019,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_17AddrMap3AddEv.exit.i.i.i.i: ; preds =
 
 call3.i.i.noexc.i.i.i:                            ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_17AddrMap3AddEv.exit.i.i.i.i
   %cmp.not.i.i.i.i.i = icmp eq ptr %call3.i.i37.i.i.i, null
-  br i1 %cmp.not.i.i.i.i.i, label %do.body4.i.i.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %do.body4.i.i.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.argprom.exit.i.i.i.i
 
 do.body4.i.i.i.i.i:                               ; preds = %call3.i.i.noexc.i.i.i
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 331, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
@@ -2028,7 +2028,7 @@ do.body4.i.i.i.i.i:                               ; preds = %call3.i.i.noexc.i.i
 .noexc38.i.i.i:                                   ; preds = %do.body4.i.i.i.i.i
   unreachable
 
-_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit.i.i.i.i: ; preds = %call3.i.i.noexc.i.i.i
+_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.argprom.exit.i.i.i.i: ; preds = %call3.i.i.noexc.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i.i37.i.i.i, ptr readonly align 1 %cursor.335.i.i.i.i, i64 %add.i37.i.i.i.i, i1 false)
   store ptr %call3.i.i37.i.i.i, ptr %arrayidx.i36.i.i.i.i, align 8
   %start_addr44.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i36.i.i.i.i, i64 8
@@ -2041,13 +2041,13 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit.i.i.
   store i32 -1, ptr %fd.i.i.i.i.i.i, align 8
   br label %while.cond.i.i.i.i.backedge
 
-while.cond.i.i.i.i.backedge:                      ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit.i.i.i.i, %if.then34.i.i.i.i, %do.body17.i.invoke.i.i.i, %lor.lhs.false.i32.i.i.i, %lor.lhs.false87.i.i.i.i, %land.lhs.true.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end63.i.i.i.i
+while.cond.i.i.i.i.backedge:                      ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.argprom.exit.i.i.i.i, %if.then34.i.i.i.i, %do.body17.i.invoke.i.i.i, %lor.lhs.false.i32.i.i.i, %lor.lhs.false87.i.i.i.i, %land.lhs.true.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end63.i.i.i.i
   br label %while.cond.i.i.i.i, !llvm.loop !20
 
 if.then.i59.i.i.i.i:                              ; preds = %if.end31.i.i.i.i.i, %call22.i.noexc.i.i.i.i, %while.cond.preheader.i.i.i, %call2.i.noexc.i.i.i.i, %do.body26.invoke.i.i.i.i, %do.body10.i.i.i, %do.body10.i.i.i.i
   %retval.0.i.i.i.i = phi i1 [ false, %do.body26.invoke.i.i.i.i ], [ true, %do.body10.i.i.i.i ], [ true, %do.body10.i.i.i ], [ true, %call2.i.noexc.i.i.i.i ], [ true, %while.cond.preheader.i.i.i ], [ true, %call22.i.noexc.i.i.i.i ], [ true, %if.end31.i.i.i.i.i ]
   %call.i.i.i.i.i = invoke i32 @close(i32 noundef %call3.i.i.i.i)
-          to label %_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
+          to label %_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.argprom.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i59.i.i.i.i
   %76 = landingpad { ptr, i32 }
@@ -2056,15 +2056,15 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i59.i.i.i.i
   tail call void @__clang_call_terminate(ptr %77) #26
   unreachable
 
-_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.exit.i.i.i: ; preds = %if.then.i59.i.i.i.i
+_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.argprom.exit.i.i.i: ; preds = %if.then.i59.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %maps_path.i.i.i.i)
   br i1 %retval.0.i.i.i.i, label %if.end8.i.i.i, label %if.then5.i.i.i
 
-if.then5.i.i.i:                                   ; preds = %_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.exit.i.i.i, %_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.exit.thread.i.i.i
+if.then5.i.i.i:                                   ; preds = %_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.argprom.exit.i.i.i, %_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.argprom.exit.thread.i.i.i
   store i8 0, ptr %ok_.i.i.i, align 8
   br label %if.else49.i.i
 
-if.end8.i.i.i:                                    ; preds = %_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.exit.i.i.i, %if.end.i.i.i
+if.end8.i.i.i:                                    ; preds = %_ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.argprom.exit.i.i.i, %if.end.i.i.i
   %this.val.i.i.i = load i64, ptr %retval.0.i, align 8
   %cmp10104.not.i.i.i = icmp eq i64 %this.val.i.i.i, 0
   br i1 %cmp10104.not.i.i.i, label %while.end.i.i.i, label %while.body.lr.ph.i.i.i
@@ -3297,9 +3297,9 @@ for.body.i.i139.i.i:                              ; preds = %for.body.i.i139.i.i
   store i32 %inc.i.i140.i.i, ptr %__begin2.0.ptr.i.i.i.i, align 4
   %__begin2.0.add.i.i.i.i = add nuw nsw i64 %__begin2.0.idx1.i.i.i.i, 4
   %cmp.not.i.i141.i.i = icmp eq i64 %__begin2.0.add.i.i.i.i, 80
-  br i1 %cmp.not.i.i141.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i, label %for.body.i.i139.i.i
+  br i1 %cmp.not.i.i141.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.argprom.exit.i.i.i, label %for.body.i.i139.i.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i: ; preds = %for.body.i.i139.i.i
+_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.argprom.exit.i.i.i: ; preds = %for.body.i.i139.i.i
   store ptr %pc, ptr %arrayidx.i.i4.i.le, align 8
   %call.i.i142.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %symbol_buf_.i) #23
   %add.i.i143.i.i = add i64 %call.i.i142.i.i, 1
@@ -3307,13 +3307,13 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15Symbol
   %atomic-temp.i.0.i.i.i.i.i.i = inttoptr i64 %158 to ptr
   %call3.i.i144.i.i = call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef %add.i.i143.i.i, ptr noundef %atomic-temp.i.0.i.i.i.i.i.i)
   %cmp.not.i31.i.i.i = icmp eq ptr %call3.i.i144.i.i, null
-  br i1 %cmp.not.i31.i.i.i, label %do.body4.i.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit.i.i.i
+  br i1 %cmp.not.i31.i.i.i, label %do.body4.i.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.argprom.exit.i.i.i
 
-do.body4.i.i.i.i:                                 ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i
+do.body4.i.i.i.i:                                 ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.argprom.exit.i.i.i
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 331, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
   unreachable
 
-_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit.i.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i
+_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.argprom.exit.i.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.argprom.exit.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i.i144.i.i, ptr nonnull readonly align 2 %symbol_buf_.i, i64 %add.i.i143.i.i, i1 false)
   %name8.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i133.i.i, i64 32
   %arrayidx9.i.i.i = getelementptr inbounds [4 x ptr], ptr %name8.i.i.i, i64 0, i64 %i.052.i.i.i
@@ -3339,16 +3339,16 @@ for.body.i32.i.i.i:                               ; preds = %if.end.i135.i.i, %f
   store i32 %inc.i35.i.i.i, ptr %__begin2.0.ptr.i34.i.i.i, align 4
   %__begin2.0.add.i36.i.i.i = add nuw nsw i64 %__begin2.0.idx1.i33.i.i.i, 4
   %cmp.not.i37.i.i.i = icmp eq i64 %__begin2.0.add.i36.i.i.i, 80
-  br i1 %cmp.not.i37.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit38.i.i.i, label %for.body.i32.i.i.i
+  br i1 %cmp.not.i37.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.argprom.exit38.i.i.i, label %for.body.i32.i.i.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit38.i.i.i: ; preds = %for.body.i32.i.i.i
+_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.argprom.exit38.i.i.i: ; preds = %for.body.i32.i.i.i
   br i1 %found_oldest_index.1.i.i.i, label %do.end25.i.i.i, label %do.body21.i.i.i
 
-do.body21.i.i.i:                                  ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit38.i.i.i
+do.body21.i.i.i:                                  ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.argprom.exit38.i.i.i
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 1331, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33)
   unreachable
 
-do.end25.i.i.i:                                   ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit38.i.i.i
+do.end25.i.i.i:                                   ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.argprom.exit38.i.i.i
   %name26.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i133.i.i, i64 32
   %arrayidx27.i.i.i = getelementptr inbounds [4 x ptr], ptr %name26.i.i.i, i64 0, i64 %oldest_index.1.i.i.i
   %161 = load ptr, ptr %arrayidx27.i.i.i, align 8
@@ -3361,20 +3361,20 @@ do.end25.i.i.i:                                   ; preds = %_ZN4absl18debugging
   %atomic-temp.i.0.i.i.i41.i.i.i = inttoptr i64 %162 to ptr
   %call3.i42.i.i.i = call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef %add.i40.i.i.i, ptr noundef %atomic-temp.i.0.i.i.i41.i.i.i)
   %cmp.not.i43.i.i.i = icmp eq ptr %call3.i42.i.i.i, null
-  br i1 %cmp.not.i43.i.i.i, label %do.body4.i44.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit45.i.i.i
+  br i1 %cmp.not.i43.i.i.i, label %do.body4.i44.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.argprom.exit45.i.i.i
 
 do.body4.i44.i.i.i:                               ; preds = %do.end25.i.i.i
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 331, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
   unreachable
 
-_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit45.i.i.i: ; preds = %do.end25.i.i.i
+_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.argprom.exit45.i.i.i: ; preds = %do.end25.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i42.i.i.i, ptr nonnull readonly align 2 %symbol_buf_.i, i64 %add.i40.i.i.i, i1 false)
   store ptr %call3.i42.i.i.i, ptr %arrayidx27.i.i.i, align 8
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer19InsertSymbolInCacheEPKvPKc.exit.i.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer19InsertSymbolInCacheEPKvPKc.exit.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit45.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit.i.i.i
-  %oldest_index.1.lcssa.sink.i.i.i = phi i64 [ %oldest_index.1.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit45.i.i.i ], [ %i.052.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit.i.i.i ]
-  %retval.0.in.i.i.i = phi ptr [ %arrayidx27.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit45.i.i.i ], [ %arrayidx9.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit.i.i.i ]
+_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer19InsertSymbolInCacheEPKvPKc.exit.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.argprom.exit45.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.argprom.exit.i.i.i
+  %oldest_index.1.lcssa.sink.i.i.i = phi i64 [ %oldest_index.1.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.argprom.exit45.i.i.i ], [ %i.052.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.argprom.exit.i.i.i ]
+  %retval.0.in.i.i.i = phi ptr [ %arrayidx27.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.argprom.exit45.i.i.i ], [ %arrayidx9.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.argprom.exit.i.i.i ]
   %arrayidx34.i.i.i = getelementptr inbounds [4 x i32], ptr %age13.i.i.i, i64 0, i64 %oldest_index.1.lcssa.sink.i.i.i
   store i32 0, ptr %arrayidx34.i.i.i, align 4
   %retval.0.i138.i.i = load ptr, ptr %retval.0.in.i.i.i, align 8
@@ -3634,7 +3634,7 @@ declare i32 @getpid() local_unnamed_addr #13
 declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev(i32 %this.0.val) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev.argprom(i32 %this.0.val) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp sgt i32 %this.0.val, -1
   br i1 %cmp, label %if.then, label %if.end

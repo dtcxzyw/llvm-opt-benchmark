@@ -1097,7 +1097,7 @@ GetCombineCostFactor.exit:                        ; preds = %229, %231, %238
   %.val = load i32, ptr %7, align 8
   %.val78 = load ptr, ptr %149, align 8
   %240 = icmp sgt i32 %.val, 0
-  br i1 %240, label %.lr.ph.preheader.i, label %HistogramAnalyzeEntropyBin.exit
+  br i1 %240, label %.lr.ph.preheader.i, label %HistogramAnalyzeEntropyBin.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %GetCombineCostFactor.exit
   %wide.trip.count.i91 = zext nneg i32 %.val to i64
@@ -1179,7 +1179,7 @@ GetBinIdForEntropy.exit15.i.us.i:                 ; preds = %273, %GetBinIdForEn
 284:                                              ; preds = %GetBinIdForEntropy.exit15.i.us.i, %.lr.ph20.split.us.i
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count.i91
-  br i1 %exitcond42.not.i, label %HistogramAnalyzeEntropyBin.exit, label %.lr.ph20.split.us.i, !llvm.loop !13
+  br i1 %exitcond42.not.i, label %HistogramAnalyzeEntropyBin.argprom.exit, label %.lr.ph20.split.us.i, !llvm.loop !13
 
 .lr.ph20.split.i:                                 ; preds = %.preheader.i
   br i1 %242, label %.lr.ph20.split.split.us.i, label %.lr.ph20.split.split.i
@@ -1207,7 +1207,7 @@ GetBinIdForEntropy.exit.i.us22.i:                 ; preds = %.lr.ph20.split.spli
 297:                                              ; preds = %GetBinIdForEntropy.exit.i.us22.i, %.lr.ph20.split.split.us.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count.i91
-  br i1 %exitcond37.not.i, label %HistogramAnalyzeEntropyBin.exit, label %.lr.ph20.split.split.us.i, !llvm.loop !13
+  br i1 %exitcond37.not.i, label %HistogramAnalyzeEntropyBin.argprom.exit, label %.lr.ph20.split.split.us.i, !llvm.loop !13
 
 .lr.ph.i92:                                       ; preds = %UpdateDominantCostRange.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i93 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i94, %UpdateDominantCostRange.exit.i ]
@@ -1271,9 +1271,9 @@ GetBinIdForEntropy.exit.i.i:                      ; preds = %.lr.ph20.split.spli
 319:                                              ; preds = %GetBinIdForEntropy.exit.i.i, %.lr.ph20.split.split.i
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next29.i, %wide.trip.count.i91
-  br i1 %exitcond32.not.i, label %HistogramAnalyzeEntropyBin.exit, label %.lr.ph20.split.split.i, !llvm.loop !13
+  br i1 %exitcond32.not.i, label %HistogramAnalyzeEntropyBin.argprom.exit, label %.lr.ph20.split.split.i, !llvm.loop !13
 
-HistogramAnalyzeEntropyBin.exit:                  ; preds = %319, %297, %284, %GetCombineCostFactor.exit
+HistogramAnalyzeEntropyBin.argprom.exit:          ; preds = %319, %297, %284, %GetCombineCostFactor.exit
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %25)
   %320 = load ptr, ptr %149, align 8
   %wide.trip.count.i96 = zext nneg i32 %75 to i64
@@ -1287,8 +1287,8 @@ HistogramAnalyzeEntropyBin.exit:                  ; preds = %319, %297, %284, %G
   %322 = zext nneg i32 %.3 to i64
   br label %.lr.ph.i107
 
-323:                                              ; preds = %323, %HistogramAnalyzeEntropyBin.exit
-  %indvars.iv.i97 = phi i64 [ 0, %HistogramAnalyzeEntropyBin.exit ], [ %indvars.iv.next.i98, %323 ]
+323:                                              ; preds = %323, %HistogramAnalyzeEntropyBin.argprom.exit
+  %indvars.iv.i97 = phi i64 [ 0, %HistogramAnalyzeEntropyBin.argprom.exit ], [ %indvars.iv.next.i98, %323 ]
   %324 = getelementptr inbounds [64 x %struct.anon], ptr %25, i64 0, i64 %indvars.iv.i97
   store i16 -1, ptr %324, align 4
   %325 = getelementptr inbounds i8, ptr %324, i64 2
@@ -1988,8 +1988,8 @@ HistogramSetRemoveHistogram.exit.i119:            ; preds = %659, %654, %.thread
   %664 = ashr exact i64 %sext223.i, 32
   br label %665
 
-665:                                              ; preds = %HistoQueueUpdateHead.exit.i, %.lr.ph177.i
-  %indvars.iv202.i = phi i64 [ %664, %.lr.ph177.i ], [ %indvars.iv.next203.i, %HistoQueueUpdateHead.exit.i ]
+665:                                              ; preds = %HistoQueueUpdateHead.argprom.exit.i, %.lr.ph177.i
+  %indvars.iv202.i = phi i64 [ %664, %.lr.ph177.i ], [ %indvars.iv.next203.i, %HistoQueueUpdateHead.argprom.exit.i ]
   %666 = getelementptr inbounds %struct.HistogramPair, ptr %531, i64 %indvars.iv202.i
   %667 = load i32, ptr %666, align 4
   %668 = icmp eq i32 %667, %619
@@ -2073,21 +2073,21 @@ HistogramSetRemoveHistogram.exit.i119:            ; preds = %659, %654, %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
   %709 = load float, ptr %535, align 4
   %710 = fcmp olt float %708, %709
-  br i1 %710, label %711, label %HistoQueueUpdateHead.exit.i
+  br i1 %710, label %711, label %HistoQueueUpdateHead.argprom.exit.i
 
 711:                                              ; preds = %707
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %531, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %531, ptr noundef nonnull align 4 dereferenceable(16) %666, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %666, ptr noundef nonnull align 4 dereferenceable(16) %20, i64 16, i1 false)
-  br label %HistoQueueUpdateHead.exit.i
+  br label %HistoQueueUpdateHead.argprom.exit.i
 
-HistoQueueUpdateHead.exit.i:                      ; preds = %711, %707
+HistoQueueUpdateHead.argprom.exit.i:              ; preds = %711, %707
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   %indvars.iv.next203.i = add nsw i64 %indvars.iv202.i, 1
   %712 = icmp slt i64 %indvars.iv.next203.i, %indvars.iv205.i
   br i1 %712, label %665, label %.loopexit.loopexit.i, !llvm.loop !24
 
-.loopexit.loopexit.i:                             ; preds = %HistoQueueUpdateHead.exit.i
+.loopexit.loopexit.i:                             ; preds = %HistoQueueUpdateHead.argprom.exit.i
   %713 = trunc nsw i64 %indvars.iv205.i to i32
   br label %.loopexit.i
 
@@ -2259,21 +2259,21 @@ RemoveEmptyHistograms.exit:                       ; preds = %731, %719
   %790 = load float, ptr %789, align 4
   %791 = load float, ptr %744, align 4
   %792 = fcmp olt float %790, %791
-  br i1 %792, label %793, label %HistoQueueUpdateHead.exit.i.i
+  br i1 %792, label %793, label %HistoQueueUpdateHead.argprom.exit.i.i
 
 793:                                              ; preds = %783
   %794 = getelementptr i8, ptr %788, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %739, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %739, ptr noundef nonnull align 4 dereferenceable(16) %794, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %794, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 16, i1 false)
-  br label %HistoQueueUpdateHead.exit.i.i
+  br label %HistoQueueUpdateHead.argprom.exit.i.i
 
-HistoQueueUpdateHead.exit.i.i:                    ; preds = %793, %783
+HistoQueueUpdateHead.argprom.exit.i.i:            ; preds = %793, %783
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br label %HistoQueuePush.exit.i157
 
-HistoQueuePush.exit.i157:                         ; preds = %HistoQueueUpdateHead.exit.i.i, %765, %763
-  %.sroa.11.9.i = phi i32 [ %736, %763 ], [ %784, %HistoQueueUpdateHead.exit.i.i ], [ %.sroa.11.292.i, %765 ]
+HistoQueuePush.exit.i157:                         ; preds = %HistoQueueUpdateHead.argprom.exit.i.i, %765, %763
+  %.sroa.11.9.i = phi i32 [ %736, %763 ], [ %784, %HistoQueueUpdateHead.argprom.exit.i.i ], [ %.sroa.11.292.i, %765 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
   br label %795
 
@@ -2389,22 +2389,22 @@ HistoQueuePush.exit.i157:                         ; preds = %HistoQueueUpdateHea
   %846 = load float, ptr %845, align 4
   %847 = load float, ptr %744, align 4
   %848 = fcmp olt float %846, %847
-  br i1 %848, label %849, label %HistoQueueUpdateHead.exit.i145
+  br i1 %848, label %849, label %HistoQueueUpdateHead.argprom.exit.i145
 
 849:                                              ; preds = %844
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %739, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %739, ptr noundef nonnull align 4 dereferenceable(16) %832, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %832, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false)
-  br label %HistoQueueUpdateHead.exit.i145
+  br label %HistoQueueUpdateHead.argprom.exit.i145
 
-HistoQueueUpdateHead.exit.i145:                   ; preds = %849, %844
+HistoQueueUpdateHead.argprom.exit.i145:           ; preds = %849, %844
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   %850 = add nsw i32 %.1100.i, 1
   br label %851
 
-851:                                              ; preds = %HistoQueueUpdateHead.exit.i145, %841
-  %.sroa.11.6.i = phi i32 [ %843, %841 ], [ %.sroa.11.599.i, %HistoQueueUpdateHead.exit.i145 ]
-  %.2.i146 = phi i32 [ %.1100.i, %841 ], [ %850, %HistoQueueUpdateHead.exit.i145 ]
+851:                                              ; preds = %HistoQueueUpdateHead.argprom.exit.i145, %841
+  %.sroa.11.6.i = phi i32 [ %843, %841 ], [ %.sroa.11.599.i, %HistoQueueUpdateHead.argprom.exit.i145 ]
+  %.2.i146 = phi i32 [ %.1100.i, %841 ], [ %850, %HistoQueueUpdateHead.argprom.exit.i145 ]
   %852 = icmp slt i32 %.2.i146, %.sroa.11.6.i
   br i1 %852, label %.lr.ph101.i, label %.preheader.i147, !llvm.loop !30
 
@@ -2465,21 +2465,21 @@ HistoQueueUpdateHead.exit.i145:                   ; preds = %849, %844
   %887 = load float, ptr %886, align 4
   %888 = load float, ptr %744, align 4
   %889 = fcmp olt float %887, %888
-  br i1 %889, label %890, label %HistoQueueUpdateHead.exit.i65.i
+  br i1 %889, label %890, label %HistoQueueUpdateHead.argprom.exit.i65.i
 
 890:                                              ; preds = %880
   %891 = getelementptr i8, ptr %885, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %739, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %739, ptr noundef nonnull align 4 dereferenceable(16) %891, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %891, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false)
-  br label %HistoQueueUpdateHead.exit.i65.i
+  br label %HistoQueueUpdateHead.argprom.exit.i65.i
 
-HistoQueueUpdateHead.exit.i65.i:                  ; preds = %890, %880
+HistoQueueUpdateHead.argprom.exit.i65.i:          ; preds = %890, %880
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   br label %HistoQueuePush.exit66.i
 
-HistoQueuePush.exit66.i:                          ; preds = %HistoQueueUpdateHead.exit.i65.i, %862, %860
-  %.sroa.11.10.i = phi i32 [ %736, %860 ], [ %881, %HistoQueueUpdateHead.exit.i65.i ], [ %.sroa.11.7103.i, %862 ]
+HistoQueuePush.exit66.i:                          ; preds = %HistoQueueUpdateHead.argprom.exit.i65.i, %862, %860
+  %.sroa.11.10.i = phi i32 [ %736, %860 ], [ %881, %HistoQueueUpdateHead.argprom.exit.i65.i ], [ %.sroa.11.7103.i, %862 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   %.pre122.i = load i32, ptr %7, align 8
   br label %892
@@ -2702,7 +2702,7 @@ RemoveEmptyHistograms.exit168:                    ; preds = %914
 
 VP8LHistogramSetClear.exit.i170:                  ; preds = %.lr.ph.i.i177, %.loopexit.i169
   store i32 %.010.lcssa.i161230, ptr %7, align 8
-  br i1 %952, label %.lr.ph12.preheader.i, label %HistogramRemap.exit
+  br i1 %952, label %.lr.ph12.preheader.i, label %HistogramRemap.argprom.exit
 
 .lr.ph12.preheader.i:                             ; preds = %VP8LHistogramSetClear.exit.i170
   %wide.trip.count25.i = zext nneg i32 %953 to i64
@@ -2734,15 +2734,15 @@ VP8LHistogramSetClear.exit.i170:                  ; preds = %.lr.ph.i.i177, %.lo
 1007:                                             ; preds = %996, %.lr.ph12.i
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, %wide.trip.count25.i
-  br i1 %exitcond26.not.i, label %HistogramRemap.exit, label %.lr.ph12.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %HistogramRemap.argprom.exit, label %.lr.ph12.i, !llvm.loop !34
 
-HistogramRemap.exit:                              ; preds = %1007, %VP8LHistogramSetClear.exit.i170
+HistogramRemap.argprom.exit:                      ; preds = %1007, %VP8LHistogramSetClear.exit.i170
   %1008 = load i32, ptr %12, align 4
   %1009 = add nsw i32 %1008, %11
   %1010 = call i32 @WebPReportProgress(ptr noundef %10, i32 noundef %1009, ptr noundef nonnull %12) #11
   br label %1011
 
-1011:                                             ; preds = %HistogramRemap.exit, %896, %716, %81
+1011:                                             ; preds = %HistogramRemap.argprom.exit, %896, %716, %81
   call void @WebPSafeFree(ptr noundef %46) #11
   call void @WebPSafeFree(ptr noundef %78) #11
   %1012 = getelementptr inbounds i8, ptr %10, i64 136

@@ -3170,7 +3170,7 @@ define internal void @xs_udp_setup_socket(ptr noundef %0) #0 align 16 {
   %15 = zext i16 %14 to i32
   %16 = getelementptr i8, ptr %0, i64 -176
   %.val = load ptr, ptr %16, align 8
-  %17 = tail call fastcc ptr @xs_create_sock(ptr %.val, ptr noundef %2, i32 noundef %15, i32 noundef 2, i32 noundef 17, i1 noundef zeroext false)
+  %17 = tail call fastcc ptr @xs_create_sock.argprom(ptr %.val, ptr noundef %2, i32 noundef %15, i32 noundef 2, i32 noundef 17, i1 noundef zeroext false)
   %18 = icmp ugt ptr %17, inttoptr (i64 -4096 to ptr)
   br i1 %18, label %98, label %19
 
@@ -3724,7 +3724,7 @@ declare dso_local i32 @csum_partial_copy_to_xdr(ptr noundef, ptr noundef) local_
 declare dso_local i32 @skb_copy_bits(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @xs_create_sock(ptr %.1376.val, ptr nocapture noundef %0, i32 noundef range(i32 0, 65536) %1, i32 noundef range(i32 1, 3) %2, i32 noundef range(i32 6, 18) %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc ptr @xs_create_sock.argprom(ptr %.1376.val, ptr nocapture noundef %0, i32 noundef range(i32 0, 65536) %1, i32 noundef range(i32 1, 3) %2, i32 noundef range(i32 6, 18) %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.__kernel_sockaddr_storage, align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
@@ -4186,7 +4186,7 @@ define internal void @xs_tcp_setup_socket(ptr noundef %0) #0 align 16 {
   %29 = zext i16 %28 to i32
   %30 = getelementptr i8, ptr %0, i64 -176
   %.val = load ptr, ptr %30, align 8
-  %31 = tail call fastcc ptr @xs_create_sock(ptr %.val, ptr noundef %2, i32 noundef %29, i32 noundef 1, i32 noundef 6, i1 noundef zeroext true)
+  %31 = tail call fastcc ptr @xs_create_sock.argprom(ptr %.val, ptr noundef %2, i32 noundef %29, i32 noundef 1, i32 noundef 6, i1 noundef zeroext true)
   %32 = icmp ugt ptr %31, inttoptr (i64 -4096 to ptr)
   br i1 %32, label %33, label %36
 

@@ -74298,7 +74298,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i4.i
 _ZN7testing7MatcherIdED2Ev.exit.i:                ; preds = %if.then.i.i.i4.i, %land.lhs.true.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i, %_ZN7testing8internal8MockSpecIFddEED2Ev.exit.i
   %25 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %25, 0
-  br i1 %cmp.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_141BasicMocking_FailsOnUnsatisfiedMocks_Test8TestBodyEvENK3$_0clEv.exit", label %if.end.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_141BasicMocking_FailsOnUnsatisfiedMocks_Test8TestBodyEvENK3$_0clEv.argprom.exit", label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %_ZN7testing7MatcherIdED2Ev.exit.i
   %26 = load ptr, ptr %gen.i, align 8
@@ -74341,7 +74341,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique
   %add.i.neg.i.i.i.i.i.i.i.i = sub nuw nsw i64 -8, %and.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 %add.i.neg.i.i.i.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i) #28
-  br label %"_ZZN12_GLOBAL__N_141BasicMocking_FailsOnUnsatisfiedMocks_Test8TestBodyEvENK3$_0clEv.exit"
+  br label %"_ZZN12_GLOBAL__N_141BasicMocking_FailsOnUnsatisfiedMocks_Test8TestBodyEvENK3$_0clEv.argprom.exit"
 
 lpad4.i:                                          ; preds = %invoke.cont.i
   %33 = landingpad { ptr, i32 }
@@ -74382,7 +74382,7 @@ ehcleanup18.i:                                    ; preds = %ehcleanup.i, %lpad4
   call void @_ZN4absl13MockingBitGenD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %gen.i) #27
   br label %lpad7.body
 
-"_ZZN12_GLOBAL__N_141BasicMocking_FailsOnUnsatisfiedMocks_Test8TestBodyEvENK3$_0clEv.exit": ; preds = %_ZN7testing7MatcherIdED2Ev.exit.i, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE13destroy_slotsEv.exit.i.i.i.i.i.i
+"_ZZN12_GLOBAL__N_141BasicMocking_FailsOnUnsatisfiedMocks_Test8TestBodyEvENK3$_0clEv.argprom.exit": ; preds = %_ZN7testing7MatcherIdED2Ev.exit.i, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE13destroy_slotsEv.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %gen.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
@@ -74422,7 +74422,7 @@ lpad7.body:                                       ; preds = %lpad.i.i, %ehcleanu
   call void @_ZN7testing32ScopedFakeTestPartResultReporterD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gtest_reporter) #27
   br label %ehcleanup12
 
-if.end:                                           ; preds = %"_ZZN12_GLOBAL__N_141BasicMocking_FailsOnUnsatisfiedMocks_Test8TestBodyEvENK3$_0clEv.exit", %invoke.cont8
+if.end:                                           ; preds = %"_ZZN12_GLOBAL__N_141BasicMocking_FailsOnUnsatisfiedMocks_Test8TestBodyEvENK3$_0clEv.argprom.exit", %invoke.cont8
   call void @_ZN7testing32ScopedFakeTestPartResultReporterD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gtest_reporter) #27
   call void @_ZN7testing8internal20SingleFailureCheckerD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %gtest_checker) #27
   %43 = load ptr, ptr %gtest_failures, align 8
@@ -82377,7 +82377,7 @@ invoke.cont:                                      ; preds = %.noexc.i
   store ptr @_ZN4absl9BitGenRef8MockCallINS_13MockingBitGenEEEbmPKvPvS5_, ptr %mock_call_.i, align 8
   %generate_impl_fn_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr @_ZN4absl9BitGenRef6ImplFnINS_13MockingBitGenEEEmm, ptr %generate_impl_fn_.i, align 8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_149RepeatedlyModifier_ForceSnakeEyesForManyDice_Test8TestBodyEvENK3$_0clEN4absl9BitGenRefE"(ptr noalias align 8 %ref.tmp, ptr noundef nonnull byval(%"class.absl::BitGenRef") align 8 %agg.tmp)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_149RepeatedlyModifier_ForceSnakeEyesForManyDice_Test8TestBodyEvENK3$_0clEN4absl9BitGenRefE.argprom"(ptr noalias align 8 %ref.tmp, ptr noundef nonnull byval(%"class.absl::BitGenRef") align 8 %agg.tmp)
           to label %_ZNSt6vectorIiSaIiEEaSEOS1_.exit unwind label %lpad2
 
 _ZNSt6vectorIiSaIiEEaSEOS1_.exit:                 ; preds = %invoke.cont
@@ -82674,7 +82674,7 @@ _ZN7testing7MatcherIN4absl23IntervalClosedClosedTagEED2Ev.exit: ; preds = %_ZN7t
   store ptr @_ZN4absl9BitGenRef8MockCallINS_13MockingBitGenEEEbmPKvPvS5_, ptr %mock_call_.i52, align 8
   %generate_impl_fn_.i53 = getelementptr inbounds i8, ptr %agg.tmp66, i64 16
   store ptr @_ZN4absl9BitGenRef6ImplFnINS_13MockingBitGenEEEmm, ptr %generate_impl_fn_.i53, align 8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_149RepeatedlyModifier_ForceSnakeEyesForManyDice_Test8TestBodyEvENK3$_0clEN4absl9BitGenRefE"(ptr noalias align 8 %ref.tmp65, ptr noundef nonnull byval(%"class.absl::BitGenRef") align 8 %agg.tmp66)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_149RepeatedlyModifier_ForceSnakeEyesForManyDice_Test8TestBodyEvENK3$_0clEN4absl9BitGenRefE.argprom"(ptr noalias align 8 %ref.tmp65, ptr noundef nonnull byval(%"class.absl::BitGenRef") align 8 %agg.tmp66)
           to label %invoke.cont68 unwind label %lpad2
 
 invoke.cont68:                                    ; preds = %_ZN7testing7MatcherIN4absl23IntervalClosedClosedTagEED2Ev.exit
@@ -82943,7 +82943,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit114:                 ; preds = %lpad.i, %ehcleanup1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_149RepeatedlyModifier_ForceSnakeEyesForManyDice_Test8TestBodyEvENK3$_0clEN4absl9BitGenRefE"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef readonly byval(%"class.absl::BitGenRef") align 8 %gen_ref) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_149RepeatedlyModifier_ForceSnakeEyesForManyDice_Test8TestBodyEvENK3$_0clEN4absl9BitGenRefE.argprom"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef readonly byval(%"class.absl::BitGenRef") align 8 %gen_ref) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arg_tuple.i.i.i = alloca %"class.std::tuple.682", align 4
   %result.i.i.i = alloca i32, align 4
@@ -87125,7 +87125,7 @@ _ZN7testing15AssertionResultD2Ev.exit137.i:       ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i.i118.i, align 8
   %91 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %91, 0
-  br i1 %cmp.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_146TimesModifier_ModifierSaturatesAndExpires_Test8TestBodyEvENK3$_0clEv.exit", label %if.end.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_146TimesModifier_ModifierSaturatesAndExpires_Test8TestBodyEvENK3$_0clEv.argprom.exit", label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit137.i
   %92 = load ptr, ptr %gen.i, align 8
@@ -87168,7 +87168,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique
   %add.i.neg.i.i.i.i.i.i.i.i = sub nuw nsw i64 -8, %and.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %97, i64 %add.i.neg.i.i.i.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i) #28
-  br label %"_ZZN12_GLOBAL__N_146TimesModifier_ModifierSaturatesAndExpires_Test8TestBodyEvENK3$_0clEv.exit"
+  br label %"_ZZN12_GLOBAL__N_146TimesModifier_ModifierSaturatesAndExpires_Test8TestBodyEvENK3$_0clEv.argprom.exit"
 
 ehcleanup115.i:                                   ; preds = %_ZN7testing7MessageD2Ev.exit133.i, %lpad103.i
   %.pn13.pn.i = phi { ptr, i32 } [ %.pn13.i, %_ZN7testing7MessageD2Ev.exit133.i ], [ %85, %lpad103.i ]
@@ -87180,7 +87180,7 @@ ehcleanup116.i:                                   ; preds = %ehcleanup115.i, %eh
   call void @_ZN4absl13MockingBitGenD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %gen.i) #27
   br label %lpad7.body
 
-"_ZZN12_GLOBAL__N_146TimesModifier_ModifierSaturatesAndExpires_Test8TestBodyEvENK3$_0clEv.exit": ; preds = %_ZN7testing15AssertionResultD2Ev.exit137.i, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE13destroy_slotsEv.exit.i.i.i.i.i.i
+"_ZZN12_GLOBAL__N_146TimesModifier_ModifierSaturatesAndExpires_Test8TestBodyEvENK3$_0clEv.argprom.exit": ; preds = %_ZN7testing15AssertionResultD2Ev.exit137.i, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE13destroy_slotsEv.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %gen.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
@@ -87241,7 +87241,7 @@ lpad7.body:                                       ; preds = %lpad.i.i, %ehcleanu
   call void @_ZN7testing32ScopedFakeTestPartResultReporterD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gtest_reporter) #27
   br label %ehcleanup12
 
-if.end:                                           ; preds = %"_ZZN12_GLOBAL__N_146TimesModifier_ModifierSaturatesAndExpires_Test8TestBodyEvENK3$_0clEv.exit", %invoke.cont8
+if.end:                                           ; preds = %"_ZZN12_GLOBAL__N_146TimesModifier_ModifierSaturatesAndExpires_Test8TestBodyEvENK3$_0clEv.argprom.exit", %invoke.cont8
   call void @_ZN7testing32ScopedFakeTestPartResultReporterD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gtest_reporter) #27
   call void @_ZN7testing8internal20SingleFailureCheckerD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %gtest_checker) #27
   %103 = load ptr, ptr %gtest_failures, align 8
@@ -101066,7 +101066,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique
 
 _ZN4absl13MockingBitGenD2Ev.exit.i.i:             ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE13destroy_slotsEv.exit.i.i.i.i.i.i.i, %_ZN7testing7MatcherIiED2Ev.exit19.i
   invoke void @_ZN7testing4Mock22UnregisterCallReactionEm(i64 noundef %0)
-          to label %"_ZZN12_GLOBAL__N_139MockingBitGen_StrictMock_NotEnough_Test8TestBodyEvENK3$_0clEv.exit" unwind label %terminate.lpad.i.i21.i
+          to label %"_ZZN12_GLOBAL__N_139MockingBitGen_StrictMock_NotEnough_Test8TestBodyEvENK3$_0clEv.argprom.exit" unwind label %terminate.lpad.i.i21.i
 
 terminate.lpad.i.i21.i:                           ; preds = %_ZN4absl13MockingBitGenD2Ev.exit.i.i
   %58 = landingpad { ptr, i32 }
@@ -101115,7 +101115,7 @@ ehcleanup21.i:                                    ; preds = %ehcleanup.i, %lpad7
   call void @_ZN7testing10StrictMockIN4absl13MockingBitGenEED2Ev(ptr noundef nonnull align 8 dereferenceable(320) %gen.i) #27
   br label %lpad7.body
 
-"_ZZN12_GLOBAL__N_139MockingBitGen_StrictMock_NotEnough_Test8TestBodyEvENK3$_0clEv.exit": ; preds = %_ZN4absl13MockingBitGenD2Ev.exit.i.i
+"_ZZN12_GLOBAL__N_139MockingBitGen_StrictMock_NotEnough_Test8TestBodyEvENK3$_0clEv.argprom.exit": ; preds = %_ZN4absl13MockingBitGenD2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %gen.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
@@ -101156,7 +101156,7 @@ lpad7.body:                                       ; preds = %lpad.i.i.i, %ehclea
   call void @_ZN7testing32ScopedFakeTestPartResultReporterD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gtest_reporter) #27
   br label %ehcleanup12
 
-if.end:                                           ; preds = %"_ZZN12_GLOBAL__N_139MockingBitGen_StrictMock_NotEnough_Test8TestBodyEvENK3$_0clEv.exit", %invoke.cont8
+if.end:                                           ; preds = %"_ZZN12_GLOBAL__N_139MockingBitGen_StrictMock_NotEnough_Test8TestBodyEvENK3$_0clEv.argprom.exit", %invoke.cont8
   call void @_ZN7testing32ScopedFakeTestPartResultReporterD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gtest_reporter) #27
   call void @_ZN7testing8internal20SingleFailureCheckerD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %gtest_checker) #27
   %70 = load ptr, ptr %gtest_failures, align 8
@@ -102240,19 +102240,19 @@ _ZN7testing7MessageD2Ev.exit7.i:                  ; preds = %_ZNKSt14default_del
 if.end.i:                                         ; preds = %_ZN7testing7MessageD2Ev.exit.i, %_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit.i
   %75 = load ptr, ptr %message_.i.i.i, align 8
   %cmp.not.i.i8.i = icmp eq ptr %75, null
-  br i1 %cmp.not.i.i8.i, label %"_ZZN12_GLOBAL__N_137MockingBitGen_StrictMock_TooMany_Test8TestBodyEvENK3$_0clEv.exit", label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i8.i, label %"_ZZN12_GLOBAL__N_137MockingBitGen_StrictMock_TooMany_Test8TestBodyEvENK3$_0clEv.argprom.exit", label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #27
   call void @_ZdlPv(ptr noundef nonnull %75) #28
-  br label %"_ZZN12_GLOBAL__N_137MockingBitGen_StrictMock_TooMany_Test8TestBodyEvENK3$_0clEv.exit"
+  br label %"_ZZN12_GLOBAL__N_137MockingBitGen_StrictMock_TooMany_Test8TestBodyEvENK3$_0clEv.argprom.exit"
 
 ehcleanup12.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit7.i, %lpad.i46
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %_ZN7testing7MessageD2Ev.exit7.i ], [ %70, %lpad.i46 ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar.i) #27
   br label %lpad52.body
 
-"_ZZN12_GLOBAL__N_137MockingBitGen_StrictMock_TooMany_Test8TestBodyEvENK3$_0clEv.exit": ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+"_ZZN12_GLOBAL__N_137MockingBitGen_StrictMock_TooMany_Test8TestBodyEvENK3$_0clEv.argprom.exit": ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp2.i)
@@ -102296,7 +102296,7 @@ lpad52.body:                                      ; preds = %ehcleanup12.i, %lpa
   call void @_ZN7testing32ScopedFakeTestPartResultReporterD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gtest_reporter) #27
   br label %ehcleanup60
 
-if.end58:                                         ; preds = %"_ZZN12_GLOBAL__N_137MockingBitGen_StrictMock_TooMany_Test8TestBodyEvENK3$_0clEv.exit", %invoke.cont53
+if.end58:                                         ; preds = %"_ZZN12_GLOBAL__N_137MockingBitGen_StrictMock_TooMany_Test8TestBodyEvENK3$_0clEv.argprom.exit", %invoke.cont53
   call void @_ZN7testing32ScopedFakeTestPartResultReporterD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gtest_reporter) #27
   call void @_ZN7testing8internal20SingleFailureCheckerD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %gtest_checker) #27
   %80 = load ptr, ptr %gtest_failures, align 8

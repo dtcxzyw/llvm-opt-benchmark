@@ -2384,7 +2384,7 @@ define internal fastcc void @_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_IN
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit, label %22
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.argprom.exit, label %22
 
 22:                                               ; preds = %7
   %23 = getelementptr inbounds i8, ptr %21, i64 8
@@ -2396,13 +2396,13 @@ define internal fastcc void @_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_IN
   %26 = load i32, ptr %23, align 4
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %23, align 4
-  br label %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit
+  br label %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.argprom.exit
 
 28:                                               ; preds = %22
   %29 = atomicrmw volatile add ptr %23, i32 1 acq_rel, align 4
-  br label %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit
+  br label %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.argprom.exit
 
-_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit: ; preds = %7, %25, %28
+_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.argprom.exit: ; preds = %7, %25, %28
   %30 = load ptr, ptr %3, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 72
   store ptr %31, ptr %3, align 8
@@ -2414,13 +2414,13 @@ _ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx
   %34 = ptrtoint ptr %.val.i to i64
   %35 = sub i64 %33, %34
   %36 = icmp eq i64 %35, 9223372036854775800
-  br i1 %36, label %37, label %_ZNKSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE12_M_check_lenEmPKc.exit.i
+  br i1 %36, label %37, label %_ZNKSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE12_M_check_lenEmPKc.argprom.exit.i
 
 37:                                               ; preds = %32
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.52) #28
   unreachable
 
-_ZNKSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE12_M_check_lenEmPKc.exit.i: ; preds = %32
+_ZNKSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE12_M_check_lenEmPKc.argprom.exit.i: ; preds = %32
   %38 = sdiv exact i64 %35, 72
   %39 = icmp eq ptr %4, %.val.i
   %.sroa.speculated.i.i = select i1 %39, i64 1, i64 %38
@@ -2429,15 +2429,15 @@ _ZNKSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt
   %42 = tail call i64 @llvm.umin.i64(i64 %40, i64 128102389400760775)
   %43 = select i1 %41, i64 128102389400760775, i64 %42
   %.not.i.i = icmp eq i64 %43, 0
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISF_EE11_M_allocateEm.exit.i, label %44
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISF_EE11_M_allocateEm.argprom.exit.i, label %44
 
-44:                                               ; preds = %_ZNKSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE12_M_check_lenEmPKc.exit.i
+44:                                               ; preds = %_ZNKSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE12_M_check_lenEmPKc.argprom.exit.i
   %45 = mul nuw nsw i64 %43, 72
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #32
-  br label %_ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISF_EE11_M_allocateEm.exit.i
+  br label %_ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISF_EE11_M_allocateEm.argprom.exit.i
 
-_ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISF_EE11_M_allocateEm.exit.i: ; preds = %44, %_ZNKSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE12_M_check_lenEmPKc.exit.i
-  %47 = phi ptr [ %46, %44 ], [ null, %_ZNKSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE12_M_check_lenEmPKc.exit.i ]
+_ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISF_EE11_M_allocateEm.argprom.exit.i: ; preds = %44, %_ZNKSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE12_M_check_lenEmPKc.argprom.exit.i
+  %47 = phi ptr [ %46, %44 ], [ null, %_ZNKSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE12_M_check_lenEmPKc.argprom.exit.i ]
   %48 = getelementptr inbounds %struct.expect_stdout_elem, ptr %47, i64 %38
   %49 = load i16, ptr %1, align 8
   store i16 %49, ptr %48, align 8
@@ -2446,7 +2446,7 @@ _ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112bas
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %51)
           to label %.noexc.i unwind label %91
 
-.noexc.i:                                         ; preds = %_ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISF_EE11_M_allocateEm.exit.i
+.noexc.i:                                         ; preds = %_ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISF_EE11_M_allocateEm.argprom.exit.i
   %52 = getelementptr inbounds i8, ptr %48, i64 40
   %53 = getelementptr inbounds i8, ptr %1, i64 40
   %54 = load i32, ptr %53, align 8
@@ -2463,7 +2463,7 @@ _ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112bas
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %60, align 8
   %.not.i.i.i.i.i.i.i.i3 = icmp eq ptr %62, null
-  br i1 %.not.i.i.i.i.i.i.i.i3, label %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit.i, label %63
+  br i1 %.not.i.i.i.i.i.i.i.i3, label %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.argprom.exit.i, label %63
 
 63:                                               ; preds = %.noexc.i
   %64 = getelementptr inbounds i8, ptr %62, i64 8
@@ -2475,18 +2475,18 @@ _ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112bas
   %67 = load i32, ptr %64, align 4
   %68 = add nsw i32 %67, 1
   store i32 %68, ptr %64, align 4
-  br label %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit.i
+  br label %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.argprom.exit.i
 
 69:                                               ; preds = %63
   %70 = atomicrmw volatile add ptr %64, i32 1 acq_rel, align 4
-  br label %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit.i
+  br label %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.argprom.exit.i
 
-_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit.i: ; preds = %69, %66, %.noexc.i
-  br i1 %39, label %_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit36.i, label %.lr.ph.i.i.i.i.i
+_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.argprom.exit.i: ; preds = %69, %66, %.noexc.i
+  br i1 %39, label %_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.argprom.exit36.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit.i, %.lr.ph.i.i.i.i.i
-  %.03.i.i.i.i.i = phi ptr [ %86, %.lr.ph.i.i.i.i.i ], [ %47, %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit.i ]
-  %.092.i.i.i.i.i = phi ptr [ %85, %.lr.ph.i.i.i.i.i ], [ %.val.i, %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.argprom.exit.i, %.lr.ph.i.i.i.i.i
+  %.03.i.i.i.i.i = phi ptr [ %86, %.lr.ph.i.i.i.i.i ], [ %47, %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.argprom.exit.i ]
+  %.092.i.i.i.i.i = phi ptr [ %85, %.lr.ph.i.i.i.i.i ], [ %.val.i, %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.argprom.exit.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %71 = load i16, ptr %.092.i.i.i.i.i, align 8, !alias.scope !13, !noalias !10
@@ -2516,15 +2516,15 @@ _ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx
   %85 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 72
   %86 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i = icmp eq ptr %85, %4
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit36.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.argprom.exit36.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !15
 
-_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit36.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %47, %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit.i ], [ %86, %.lr.ph.i.i.i.i.i ]
+_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.argprom.exit36.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.argprom.exit.i
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %47, %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.argprom.exit.i ], [ %86, %.lr.ph.i.i.i.i.i ]
   %87 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 72
   %.not.i37.i = icmp eq ptr %.val.i, null
   br i1 %.not.i37.i, label %_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit, label %88
 
-88:                                               ; preds = %_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit36.i
+88:                                               ; preds = %_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.argprom.exit36.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val.i) #27
   br label %_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit
 
@@ -2534,7 +2534,7 @@ _ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt1
   invoke void @__cxa_end_catch()
           to label %95 unwind label %96
 
-91:                                               ; preds = %_ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISF_EE11_M_allocateEm.exit.i
+91:                                               ; preds = %_ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISF_EE11_M_allocateEm.argprom.exit.i
   %92 = landingpad { ptr, i32 }
           catch ptr null
   %93 = extractvalue { ptr, i32 } %92, 0
@@ -2556,14 +2556,14 @@ _ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt1
 99:                                               ; preds = %91
   unreachable
 
-_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit: ; preds = %_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit36.i, %88
+_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit: ; preds = %_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE11_S_relocateEPSE_SH_SH_RSF_.argprom.exit36.i, %88
   store ptr %47, ptr %0, align 8
   store ptr %87, ptr %3, align 8
   %100 = getelementptr inbounds %struct.expect_stdout_elem, ptr %47, i64 %43
   store ptr %100, ptr %5, align 8
   br label %101
 
-101:                                              ; preds = %_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit, %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit
+101:                                              ; preds = %_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit, %_ZNSt16allocator_traitsISaIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.argprom.exit
   ret void
 }
 
@@ -2700,7 +2700,7 @@ define internal fastcc void @_ZNSt6vectorIZN12_GLOBAL__N_18ExecPass7executeES_IN
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not4.i.i.i = icmp eq ptr %2, %4
-  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.exit, label %.lr.ph.i.i.i
+  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.argprom.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %43, %_ZSt8_DestroyIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEvPT_.exit.i.i.i ], [ %2, %1 ]
@@ -2784,22 +2784,22 @@ _ZSt8_DestroyIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_str
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #26
   %43 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 72
   %.not.i.i.i = icmp eq ptr %43, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !16
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.argprom.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !16
 
-_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEvPT_.exit.i.i.i
+_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.argprom.exitthread-pre-split: ; preds = %_ZSt8_DestroyIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemEvPT_.exit.i.i.i
   %.val.pr = load ptr, ptr %0, align 8
-  br label %_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.exit
+  br label %_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.argprom.exit
 
-_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.exitthread-pre-split, %1
-  %.val = phi ptr [ %.val.pr, %_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
+_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.argprom.exit: ; preds = %_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.argprom.exitthread-pre-split, %1
+  %.val = phi ptr [ %.val.pr, %_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.argprom.exitthread-pre-split ], [ %2, %1 ]
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISF_EED2Ev.exit, label %44
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISF_EED2Ev.argprom.exit, label %44
 
-44:                                               ; preds = %_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.exit
+44:                                               ; preds = %_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.argprom.exit
   tail call void @_ZdlPv(ptr noundef nonnull %.val) #27
-  br label %_ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISF_EED2Ev.exit
+  br label %_ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISF_EED2Ev.argprom.exit
 
-_ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISF_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.exit, %44
+_ZNSt12_Vector_baseIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSaISF_EED2Ev.argprom.exit: ; preds = %_ZSt8_DestroyIPZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_EvT_SH_RSaIT0_E.argprom.exit, %44
   ret void
 }
 
@@ -28408,10 +28408,10 @@ attributes #32 = { builtin allocsize(0) }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt19__relocate_object_aIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_SaISF_EEvPT_PT0_RT1_: argument 0"}
-!12 = distinct !{!12, !"_ZSt19__relocate_object_aIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_SaISF_EEvPT_PT0_RT1_"}
+!11 = distinct !{!11, !12, !"_ZSt19__relocate_object_aIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_SaISF_EEvPT_PT0_RT1_.argprom: argument 0"}
+!12 = distinct !{!12, !"_ZSt19__relocate_object_aIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_SaISF_EEvPT_PT0_RT1_.argprom"}
 !13 = !{!14}
-!14 = distinct !{!14, !12, !"_ZSt19__relocate_object_aIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_SaISF_EEvPT_PT0_RT1_: argument 1"}
+!14 = distinct !{!14, !12, !"_ZSt19__relocate_object_aIZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPN5Yosys5RTLIL6DesignEE18expect_stdout_elemSF_SaISF_EEvPT_PT0_RT1_.argprom: argument 1"}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = !{!18}

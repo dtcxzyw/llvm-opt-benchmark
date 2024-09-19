@@ -11951,7 +11951,7 @@ define internal fastcc void @mb_free_blocks(ptr noundef readonly %0, ptr nocaptu
   %353 = getelementptr i8, ptr %8, i64 20
   %.val = load i8, ptr %353, align 4
   %.val21 = load ptr, ptr %21, align 8
-  tail call fastcc void @mb_set_largest_free_order(i8 %.val, ptr %.val21, ptr noundef %352)
+  tail call fastcc void @mb_set_largest_free_order.argprom(i8 %.val, ptr %.val21, ptr noundef %352)
   %354 = load ptr, ptr %32, align 8
   tail call fastcc void @mb_update_avg_fragment_size(ptr noundef %8, ptr noundef %354)
   br label %355
@@ -13387,7 +13387,7 @@ define internal fastcc void @ext4_mb_generate_buddy(ptr noundef %0, ptr noundef 
   %114 = getelementptr i8, ptr %0, i64 20
   %.val = load i8, ptr %114, align 4
   %.val7 = load ptr, ptr %6, align 8
-  tail call fastcc void @mb_set_largest_free_order(i8 %.val, ptr %.val7, ptr noundef %4)
+  tail call fastcc void @mb_set_largest_free_order.argprom(i8 %.val, ptr %.val7, ptr noundef %4)
   tail call fastcc void @mb_update_avg_fragment_size(ptr noundef %0, ptr noundef %4)
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4, i32 -2, ptr elementtype(i8) %4) #16, !srcloc !62
   %115 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !330
@@ -13419,7 +13419,7 @@ declare dso_local void @__ext4_grp_locked_error(ptr noundef, i32 noundef, ptr no
 declare dso_local void @ext4_mark_group_bitmap_corrupted(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mb_set_largest_free_order(i8 %.20.val, ptr nocapture readonly %.872.val, ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @mb_set_largest_free_order.argprom(i8 %.20.val, ptr nocapture readonly %.872.val, ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = zext i8 %.20.val to i32
   %4 = add nuw nsw i32 %3, 1
@@ -14635,7 +14635,7 @@ mb_find_order_for_block.exit:                     ; preds = %161, %147, %105
   %.val = load i8, ptr %339, align 4
   %340 = getelementptr i8, ptr %337, i64 872
   %.val22 = load ptr, ptr %340, align 8
-  tail call fastcc void @mb_set_largest_free_order(i8 %.val, ptr %.val22, ptr noundef %338)
+  tail call fastcc void @mb_set_largest_free_order.argprom(i8 %.val, ptr %.val22, ptr noundef %338)
   %341 = load ptr, ptr %9, align 8
   %342 = load ptr, ptr %35, align 8
   tail call fastcc void @mb_update_avg_fragment_size(ptr noundef %341, ptr noundef %342)

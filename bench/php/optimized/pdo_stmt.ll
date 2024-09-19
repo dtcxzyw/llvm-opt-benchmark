@@ -4519,11 +4519,11 @@ define internal fastcc noundef zeroext i1 @do_fetch_func_prepare(ptr noundef %0)
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.62, ptr noundef nonnull %10) #16
   %13 = load ptr, ptr %2, align 8
   call void @_efree(ptr noundef %13) #16
-  br label %make_callable_ex.exit.thread
+  br label %make_callable_ex.argprom.exit.thread
 
 14:                                               ; preds = %11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.63) #16
-  br label %make_callable_ex.exit.thread
+  br label %make_callable_ex.argprom.exit.thread
 
 15:                                               ; preds = %1
   br i1 %.not.i, label %17, label %16
@@ -4532,7 +4532,7 @@ define internal fastcc noundef zeroext i1 @do_fetch_func_prepare(ptr noundef %0)
   call void @_efree(ptr noundef nonnull %10) #16
   br label %17
 
-make_callable_ex.exit.thread:                     ; preds = %12, %14
+make_callable_ex.argprom.exit.thread:             ; preds = %12, %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %26
 
@@ -4551,7 +4551,7 @@ make_callable_ex.exit.thread:                     ; preds = %12, %14
   store ptr %24, ptr %25, align 8
   br label %26
 
-26:                                               ; preds = %make_callable_ex.exit.thread, %17
+26:                                               ; preds = %make_callable_ex.argprom.exit.thread, %17
   ret i1 %9
 }
 

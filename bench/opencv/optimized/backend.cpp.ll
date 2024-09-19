@@ -2346,7 +2346,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv15highgui_b
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZN2cv15highgui_backendL22createDefaultUIBackendEv()
+  invoke fastcc void @_ZN2cv15highgui_backendL22createDefaultUIBackendEv.argprom()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -2368,7 +2368,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv15highgui_b
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv15highgui_backendL22createDefaultUIBackendEv() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv15highgui_backendL22createDefaultUIBackendEv.argprom() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = tail call noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv()
@@ -2527,7 +2527,7 @@ define hidden void @_ZN2cv15highgui_backend12setUIBackendERKSt10shared_ptrINS0_9
   br i1 %.not.i, label %_ZN2cv15highgui_backend19getCurrentUIBackendEv.exit, label %6
 
 6:                                                ; preds = %4
-  invoke fastcc void @_ZN2cv15highgui_backendL22createDefaultUIBackendEv()
+  invoke fastcc void @_ZN2cv15highgui_backendL22createDefaultUIBackendEv.argprom()
           to label %7 unwind label %9
 
 7:                                                ; preds = %6
@@ -2702,7 +2702,7 @@ _ZN2cvL11toUpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   br i1 %.b54, label %27, label %188
 
 27:                                               ; preds = %_ZN2cvL11toUpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  invoke fastcc void @_ZN2cv15highgui_backendL16getUIBackendNameB5cxx11Ev()
+  invoke fastcc void @_ZN2cv15highgui_backendL16getUIBackendNameB5cxx11Ev.retelim()
           to label %28 unwind label %40
 
 28:                                               ; preds = %27
@@ -2900,7 +2900,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.body74
 
 102:                                              ; preds = %81, %96
-  invoke fastcc void @_ZN2cv15highgui_backendL16getUIBackendNameB5cxx11Ev()
+  invoke fastcc void @_ZN2cv15highgui_backendL16getUIBackendNameB5cxx11Ev.retelim()
           to label %103 unwind label %40
 
 103:                                              ; preds = %102
@@ -2922,7 +2922,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not.i, label %_ZN2cv15highgui_backend19getCurrentUIBackendEv.exit, label %111
 
 111:                                              ; preds = %109
-  invoke fastcc void @_ZN2cv15highgui_backendL22createDefaultUIBackendEv()
+  invoke fastcc void @_ZN2cv15highgui_backendL22createDefaultUIBackendEv.argprom()
           to label %112 unwind label %.body
 
 112:                                              ; preds = %111
@@ -3090,7 +3090,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN2cv15highgui_backend9UIBackendEED2Ev.exit
 
 188:                                              ; preds = %_ZN2cvL11toUpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  invoke fastcc void @_ZN2cv15highgui_backendL16getUIBackendNameB5cxx11Ev()
+  invoke fastcc void @_ZN2cv15highgui_backendL16getUIBackendNameB5cxx11Ev.retelim()
           to label %189 unwind label %40
 
 189:                                              ; preds = %188
@@ -3108,7 +3108,7 @@ _ZNSt10shared_ptrIN2cv15highgui_backend9UIBackendEED2Ev.exit: ; preds = %_ZNSt16
   br i1 %.not.i73, label %_ZN2cv15highgui_backend19getCurrentUIBackendEv.exit76, label %195
 
 195:                                              ; preds = %193
-  invoke fastcc void @_ZN2cv15highgui_backendL22createDefaultUIBackendEv()
+  invoke fastcc void @_ZN2cv15highgui_backendL22createDefaultUIBackendEv.argprom()
           to label %196 unwind label %198
 
 196:                                              ; preds = %195
@@ -3297,7 +3297,7 @@ _ZNSt10shared_ptrIN2cv15highgui_backend9UIBackendEEC2ERKS3_.exit: ; preds = %206
   br i1 %269, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit80.thread, label %270
 
 270:                                              ; preds = %268
-  invoke fastcc void @_ZN2cv15highgui_backendL16getUIBackendNameB5cxx11Ev()
+  invoke fastcc void @_ZN2cv15highgui_backendL16getUIBackendNameB5cxx11Ev.retelim()
           to label %271 unwind label %216
 
 271:                                              ; preds = %270
@@ -3487,7 +3487,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv15highgui_backendL16getUIBackendNameB5cxx11Ev() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv15highgui_backendL16getUIBackendNameB5cxx11Ev.retelim() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = load atomic i8, ptr @_ZGVZN2cv15highgui_backendL16getUIBackendNameB5cxx11EvE13g_backendNameB5cxx11 acquire, align 8
   %3 = icmp eq i8 %2, 0
@@ -3557,7 +3557,7 @@ define internal fastcc void @_ZN2cv15highgui_backendL15createUIBackendEv(ptr dea
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %17 = alloca %"class.std::__cxx11::basic_string", align 8
-  tail call fastcc void @_ZN2cv15highgui_backendL16getUIBackendNameB5cxx11Ev()
+  tail call fastcc void @_ZN2cv15highgui_backendL16getUIBackendNameB5cxx11Ev.retelim()
   %18 = load atomic i8, ptr @_ZGVZN2cv15highgui_backend17UIBackendRegistry11getInstanceEvE10g_instance acquire, align 8
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %20, label %_ZN2cv15highgui_backend15getBackendsInfoEv.exit, !prof !4
@@ -3951,7 +3951,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 179:                                              ; preds = %149, %173
   store i1 true, ptr @_ZN2cv15highgui_backendL22g_initializedUIBackendE, align 1
-  invoke fastcc void @_ZN2cv15highgui_backendL16getUIBackendNameB5cxx11Ev()
+  invoke fastcc void @_ZN2cv15highgui_backendL16getUIBackendNameB5cxx11Ev.retelim()
           to label %180 unwind label %146
 
 180:                                              ; preds = %179
@@ -12406,11 +12406,11 @@ attributes #31 = { noreturn }
 !27 = distinct !{!27, !"_ZSt11make_sharedIN2cv4impl22PluginUIBackendFactoryEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_"}
 !28 = distinct !{!28, !9}
 !29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZSt11make_sharedIN2cv15highgui_backend20StaticBackendFactoryEJZNS1_L22getBuiltinBackendsInfoEvE3$_0EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: argument 0"}
-!31 = distinct !{!31, !"_ZSt11make_sharedIN2cv15highgui_backend20StaticBackendFactoryEJZNS1_L22getBuiltinBackendsInfoEvE3$_0EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!30 = distinct !{!30, !31, !"_ZSt11make_sharedIN2cv15highgui_backend20StaticBackendFactoryEJZNS1_L22getBuiltinBackendsInfoEvE3$_0EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_.argprom: argument 0"}
+!31 = distinct !{!31, !"_ZSt11make_sharedIN2cv15highgui_backend20StaticBackendFactoryEJZNS1_L22getBuiltinBackendsInfoEvE3$_0EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_.argprom"}
 !32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZSt11make_sharedIN2cv15highgui_backend20StaticBackendFactoryEJZNS1_L22getBuiltinBackendsInfoEvE3$_1EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: argument 0"}
-!34 = distinct !{!34, !"_ZSt11make_sharedIN2cv15highgui_backend20StaticBackendFactoryEJZNS1_L22getBuiltinBackendsInfoEvE3$_1EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!33 = distinct !{!33, !34, !"_ZSt11make_sharedIN2cv15highgui_backend20StaticBackendFactoryEJZNS1_L22getBuiltinBackendsInfoEvE3$_1EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_.argprom: argument 0"}
+!34 = distinct !{!34, !"_ZSt11make_sharedIN2cv15highgui_backend20StaticBackendFactoryEJZNS1_L22getBuiltinBackendsInfoEvE3$_1EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_.argprom"}
 !35 = distinct !{!35, !9}
 !36 = distinct !{!36, !9}
 !37 = distinct !{!37, !9}

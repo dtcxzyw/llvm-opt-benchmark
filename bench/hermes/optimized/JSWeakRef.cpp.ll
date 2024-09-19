@@ -116,9 +116,9 @@ for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %_
   store i32 14, ptr %cur2.012.i.ptr.i.i, align 4
   %cur2.012.i.add.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i, 4
   %cmp4.not.i.i.i = icmp eq i64 %cur2.012.i.add.i.i, 40
-  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_9JSWeakRefEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS5_.exit, label %for.body5.i.i.i, !llvm.loop !4
+  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_9JSWeakRefEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS5_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !4
 
-_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_9JSWeakRefEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS5_.exit: ; preds = %for.body5.i.i.i
+_ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_9JSWeakRefEEENS0_12PseudoHandleIT_EERNS0_7RuntimeEPS5_.argprom.exit: ; preds = %for.body5.i.i.i
   ret ptr %cond.i.i.i.i.i
 }
 

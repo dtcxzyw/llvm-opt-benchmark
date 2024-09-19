@@ -9766,8 +9766,8 @@ _ZN4llvh11raw_ostreamlsEPKc.exit84:               ; preds = %if.then.i.i82, %if.
   %64 = inttoptr i64 %and.i.i to ptr
   br label %for.body.i
 
-for.body.i:                                       ; preds = %"_ZZN6hermes3hbc20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamEENK3$_0clEjiPKh.exit.i", %_ZN4llvh11raw_ostreamlsEPKc.exit84
-  %curJmpTableViewOffset.010.i = phi i32 [ 0, %_ZN4llvh11raw_ostreamlsEPKc.exit84 ], [ %inc.i, %"_ZZN6hermes3hbc20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamEENK3$_0clEjiPKh.exit.i" ]
+for.body.i:                                       ; preds = %"_ZZN6hermes3hbc20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamEENK3$_0clEjiPKh.argprom.exit.i", %_ZN4llvh11raw_ostreamlsEPKc.exit84
+  %curJmpTableViewOffset.010.i = phi i32 [ 0, %_ZN4llvh11raw_ostreamlsEPKc.exit84 ], [ %inc.i, %"_ZZN6hermes3hbc20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamEENK3$_0clEjiPKh.argprom.exit.i" ]
   %idxprom.i = zext i32 %curJmpTableViewOffset.010.i to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %64, i64 %idxprom.i
   %65 = load i32, ptr %arrayidx.i, align 4
@@ -9829,21 +9829,21 @@ _ZN4llvh11raw_ostreamlsEPKc.exit15.i.i:           ; preds = %if.then4.i.i10.i.i,
 
 if.then.i.i30.i.i:                                ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit15.i.i
   %call3.i.i31.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call.i17.i.i, ptr noundef nonnull @.str.2, i64 noundef 1) #17
-  br label %"_ZZN6hermes3hbc20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamEENK3$_0clEjiPKh.exit.i"
+  br label %"_ZZN6hermes3hbc20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamEENK3$_0clEjiPKh.argprom.exit.i"
 
 if.then4.i.i27.i.i:                               ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit15.i.i
   store i8 10, ptr %73, align 1
   %74 = load ptr, ptr %OutBufCur.i6.i20.i.i, align 8
   %add.ptr.i.i28.i.i = getelementptr inbounds i8, ptr %74, i64 1
   store ptr %add.ptr.i.i28.i.i, ptr %OutBufCur.i6.i20.i.i, align 8
-  br label %"_ZZN6hermes3hbc20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamEENK3$_0clEjiPKh.exit.i"
+  br label %"_ZZN6hermes3hbc20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamEENK3$_0clEjiPKh.argprom.exit.i"
 
-"_ZZN6hermes3hbc20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamEENK3$_0clEjiPKh.exit.i": ; preds = %if.then4.i.i27.i.i, %if.then.i.i30.i.i
+"_ZZN6hermes3hbc20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamEENK3$_0clEjiPKh.argprom.exit.i": ; preds = %if.then4.i.i27.i.i, %if.then.i.i30.i.i
   %inc.i = add i32 %curJmpTableViewOffset.010.i, 1
   %cmp.not.i = icmp ugt i32 %inc.i, %sub.i
   br i1 %cmp.not.i, label %"_ZN6hermes3hbc12_GLOBAL__N_122switchJumpTableForEachIZNS0_20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamEE3$_0EEvPKNS_4inst4InstET_.exit", label %for.body.i, !llvm.loop !90
 
-"_ZN6hermes3hbc12_GLOBAL__N_122switchJumpTableForEachIZNS0_20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamEE3$_0EEvPKNS_4inst4InstET_.exit": ; preds = %"_ZZN6hermes3hbc20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamEENK3$_0clEjiPKh.exit.i"
+"_ZN6hermes3hbc12_GLOBAL__N_122switchJumpTableForEachIZNS0_20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamEE3$_0EEvPKNS_4inst4InstET_.exit": ; preds = %"_ZZN6hermes3hbc20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamEENK3$_0clEjiPKh.argprom.exit.i"
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0127, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %48
   br i1 %cmp.i.not, label %if.end, label %for.body

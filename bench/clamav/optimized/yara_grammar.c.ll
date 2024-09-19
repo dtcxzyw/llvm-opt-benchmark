@@ -2869,13 +2869,13 @@ switch.lookup1680:                                ; preds = %367
 
 1152:                                             ; preds = %1147, %1146, %1144
   %1153 = phi i32 [ -2, %1144 ], [ %1151, %1147 ], [ 2, %1146 ]
-  switch i32 %.01173, label %yydestruct.exit [
+  switch i32 %.01173, label %yydestruct.argprom.exit [
     i32 0, label %1154
     i32 3, label %1165
   ]
 
 1154:                                             ; preds = %1152
-  %1155 = call fastcc i32 @yysyntax_error(ptr noundef %7, ptr %.01407, ptr noundef %.21183, i32 noundef %1153)
+  %1155 = call fastcc i32 @yysyntax_error.argprom(ptr noundef %7, ptr %.01407, ptr noundef %.21183, i32 noundef %1153)
   switch i32 %1155, label %.thread1422 [
     i32 0, label %.thread1426
     i32 1, label %1156
@@ -2883,7 +2883,7 @@ switch.lookup1680:                                ; preds = %367
 
 .thread1426:                                      ; preds = %1154
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef %.01407) #12
-  br label %yydestruct.exit
+  br label %yydestruct.argprom.exit
 
 1156:                                             ; preds = %1154
   %.not1389 = icmp eq ptr %.01407, %6
@@ -2909,10 +2909,10 @@ switch.lookup1680:                                ; preds = %367
   br label %.loopexit1483
 
 1162:                                             ; preds = %1158
-  %1163 = call fastcc i32 @yysyntax_error(ptr noundef %7, ptr nonnull %1160, ptr noundef %.21183, i32 noundef %1153)
+  %1163 = call fastcc i32 @yysyntax_error.argprom(ptr noundef %7, ptr nonnull %1160, ptr noundef %.21183, i32 noundef %1153)
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1160) #12
   %1164 = icmp eq i32 %1163, 2
-  br i1 %1164, label %.loopexit1483, label %yydestruct.exit
+  br i1 %1164, label %.loopexit1483, label %yydestruct.argprom.exit
 
 1165:                                             ; preds = %1152
   %1166 = icmp slt i32 %.4, 1
@@ -2920,10 +2920,10 @@ switch.lookup1680:                                ; preds = %367
 
 1167:                                             ; preds = %1165
   %1168 = icmp eq i32 %.4, 0
-  br i1 %1168, label %.thread1453, label %yydestruct.exit
+  br i1 %1168, label %.thread1453, label %yydestruct.argprom.exit
 
 1169:                                             ; preds = %1165
-  switch i32 %1153, label %yydestruct.exit [
+  switch i32 %1153, label %yydestruct.argprom.exit [
     i32 9, label %.sink.split.i
     i32 10, label %.sink.split.i
     i32 11, label %.sink.split.i
@@ -2937,7 +2937,7 @@ switch.lookup1680:                                ; preds = %367
 .sink.split.i:                                    ; preds = %1169, %1169, %1169, %1169, %1169, %1169, %1169, %1169
   %1170 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %1170) #12
-  br label %yydestruct.exit
+  br label %yydestruct.argprom.exit
 
 1171:                                             ; preds = %1108, %1103, %1093, %1088, %1078, %1069, %1064, %1054, %1049, %1039, %1034, %1024, %1019, %1009, %1004, %994, %989, %979, %974, %964, %959, %953, %933, %918, %908, %.thread1420, %890, %883, %880, %871, %868, %859, %856, %847, %844, %835, %832, %823, %820, %811, %806, %773, %767, %761, %735, %723, %711, %698, %693, %683, %678, %668, %663, %653, %648, %638, %580, %490, %487, %478, %467, %455, %448, %440, %432, %429, %424, %.thread1416, %410, %405, %396, %390, %384, %373, %361, %350, %321, %303, %289, %235, %226, %211, %194, %187, %180, %171, %153, %133, %128, %123, %108
   %1172 = sub nsw i64 0, %101
@@ -2945,9 +2945,9 @@ switch.lookup1680:                                ; preds = %367
   %1174 = getelementptr inbounds i8, ptr %.21183, i64 %1172
   %1175 = load i8, ptr %1174, align 1
   %1176 = zext i8 %1175 to i32
-  br label %yydestruct.exit
+  br label %yydestruct.argprom.exit
 
-yydestruct.exit:                                  ; preds = %1152, %1162, %.thread1426, %.sink.split.i, %1169, %1167, %1171
+yydestruct.argprom.exit:                          ; preds = %1152, %1162, %.thread1426, %.sink.split.i, %1169, %1167, %1171
   %.51411 = phi ptr [ %.01407, %1167 ], [ %.01407, %1171 ], [ %.01407, %1169 ], [ %.01407, %.sink.split.i ], [ %.01407, %.thread1426 ], [ %1160, %1162 ], [ %.01407, %1152 ]
   %.51197 = phi ptr [ %.21194, %1167 ], [ %1173, %1171 ], [ %.21194, %1169 ], [ %.21194, %.sink.split.i ], [ %.21194, %.thread1426 ], [ %.21194, %1162 ], [ %.21194, %1152 ]
   %.51186 = phi ptr [ %.21183, %1167 ], [ %1174, %1171 ], [ %.21183, %1169 ], [ %.21183, %.sink.split.i ], [ %.21183, %.thread1426 ], [ %.21183, %1162 ], [ %.21183, %1152 ]
@@ -2961,17 +2961,17 @@ yydestruct.exit:                                  ; preds = %1152, %1162, %.thre
   %or.cond1674 = and i1 %1180, %1181
   br i1 %or.cond1674, label %._crit_edge1678, label %.lr.ph1677
 
-.lr.ph1677:                                       ; preds = %yydestruct.exit, %yydestruct.exit1399
-  %1182 = phi i64 [ %1191, %yydestruct.exit1399 ], [ %1177, %yydestruct.exit ]
-  %.611871676 = phi ptr [ %1189, %yydestruct.exit1399 ], [ %.51186, %yydestruct.exit ]
-  %.611981675 = phi ptr [ %1188, %yydestruct.exit1399 ], [ %.51197, %yydestruct.exit ]
+.lr.ph1677:                                       ; preds = %yydestruct.argprom.exit, %yydestruct.argprom.exit1399
+  %1182 = phi i64 [ %1191, %yydestruct.argprom.exit1399 ], [ %1177, %yydestruct.argprom.exit ]
+  %.611871676 = phi ptr [ %1189, %yydestruct.argprom.exit1399 ], [ %.51186, %yydestruct.argprom.exit ]
+  %.611981675 = phi ptr [ %1188, %yydestruct.argprom.exit1399 ], [ %.51197, %yydestruct.argprom.exit ]
   %1183 = icmp eq ptr %.611871676, %.11177
   br i1 %1183, label %.loopexit.loopexit, label %1184
 
 1184:                                             ; preds = %.lr.ph1677
   %1185 = getelementptr inbounds [216 x i8], ptr @yystos, i64 0, i64 %1182
   %1186 = load i8, ptr %1185, align 1
-  switch i8 %1186, label %yydestruct.exit1399 [
+  switch i8 %1186, label %yydestruct.argprom.exit1399 [
     i8 9, label %.sink.split.i1398
     i8 10, label %.sink.split.i1398
     i8 11, label %.sink.split.i1398
@@ -2985,9 +2985,9 @@ yydestruct.exit:                                  ; preds = %1152, %1162, %.thre
 .sink.split.i1398:                                ; preds = %1184, %1184, %1184, %1184, %1184, %1184, %1184, %1184
   %1187 = load ptr, ptr %.611981675, align 8
   call void @free(ptr noundef %1187) #12
-  br label %yydestruct.exit1399
+  br label %yydestruct.argprom.exit1399
 
-yydestruct.exit1399:                              ; preds = %1184, %.sink.split.i1398
+yydestruct.argprom.exit1399:                      ; preds = %1184, %.sink.split.i1398
   %1188 = getelementptr inbounds i8, ptr %.611981675, i64 -8
   %1189 = getelementptr inbounds i8, ptr %.611871676, i64 -1
   %1190 = load i8, ptr %1189, align 1
@@ -2999,9 +2999,9 @@ yydestruct.exit1399:                              ; preds = %1184, %.sink.split.
   %or.cond = and i1 %1194, %1195
   br i1 %or.cond, label %._crit_edge1678, label %.lr.ph1677
 
-._crit_edge1678:                                  ; preds = %yydestruct.exit1399, %yydestruct.exit
-  %.61198.lcssa = phi ptr [ %.51197, %yydestruct.exit ], [ %1188, %yydestruct.exit1399 ]
-  %.61187.lcssa = phi ptr [ %.51186, %yydestruct.exit ], [ %1189, %yydestruct.exit1399 ]
+._crit_edge1678:                                  ; preds = %yydestruct.argprom.exit1399, %yydestruct.argprom.exit
+  %.61198.lcssa = phi ptr [ %.51197, %yydestruct.argprom.exit ], [ %1188, %yydestruct.argprom.exit1399 ]
+  %.61187.lcssa = phi ptr [ %.51186, %yydestruct.argprom.exit ], [ %1189, %yydestruct.argprom.exit1399 ]
   %1196 = getelementptr inbounds i8, ptr %.61198.lcssa, i64 8
   %1197 = load i64, ptr %3, align 8
   store i64 %1197, ptr %1196, align 8
@@ -3031,7 +3031,7 @@ yydestruct.exit1399:                              ; preds = %1184, %.sink.split.
   %.41180 = phi ptr [ %.21178, %.loopexit1483 ], [ %.11177, %.loopexit.loopexit ], [ %43, %50 ], [ %.11177, %54 ]
   %.9 = phi i32 [ %.2, %.loopexit1483 ], [ %.8, %.loopexit.loopexit ], [ %.01164, %54 ], [ %.01164, %50 ]
   %or.cond17 = icmp ult i32 %.9, 310
-  br i1 %or.cond17, label %.thread1453, label %yydestruct.exit1401
+  br i1 %or.cond17, label %.thread1453, label %yydestruct.argprom.exit1401
 
 .thread1453:                                      ; preds = %1167, %.loopexit
   %.6141214421471 = phi ptr [ %.61412, %.loopexit ], [ %.01407, %1167 ]
@@ -3043,7 +3043,7 @@ yydestruct.exit1399:                              ; preds = %1184, %.sink.split.
   %1199 = zext nneg i32 %.914521461 to i64
   %1200 = getelementptr inbounds [310 x i8], ptr @yytranslate, i64 0, i64 %1199
   %1201 = load i8, ptr %1200, align 1
-  switch i8 %1201, label %yydestruct.exit1401 [
+  switch i8 %1201, label %yydestruct.argprom.exit1401 [
     i8 9, label %.sink.split.i1400
     i8 10, label %.sink.split.i1400
     i8 11, label %.sink.split.i1400
@@ -3057,9 +3057,9 @@ yydestruct.exit1399:                              ; preds = %1184, %.sink.split.
 .sink.split.i1400:                                ; preds = %.thread1453, %.thread1453, %.thread1453, %.thread1453, %.thread1453, %.thread1453, %.thread1453, %.thread1453
   %1202 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %1202) #12
-  br label %yydestruct.exit1401
+  br label %yydestruct.argprom.exit1401
 
-yydestruct.exit1401:                              ; preds = %.sink.split.i1400, %.thread1453, %.loopexit
+yydestruct.argprom.exit1401:                      ; preds = %.sink.split.i1400, %.thread1453, %.loopexit
   %.411801451 = phi ptr [ %.41180, %.loopexit ], [ %.4118014501463, %.thread1453 ], [ %.4118014501463, %.sink.split.i1400 ]
   %.711881449 = phi ptr [ %.71188, %.loopexit ], [ %.7118814481465, %.thread1453 ], [ %.7118814481465, %.sink.split.i1400 ]
   %.711991447 = phi ptr [ %.71199, %.loopexit ], [ %.7119914461467, %.thread1453 ], [ %.7119914461467, %.sink.split.i1400 ]
@@ -3068,14 +3068,14 @@ yydestruct.exit1401:                              ; preds = %.sink.split.i1400, 
   %.not13921517 = icmp eq ptr %.711881449, %.411801451
   br i1 %.not13921517, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %yydestruct.exit1401, %yydestruct.exit1403
-  %.811891519 = phi ptr [ %1209, %yydestruct.exit1403 ], [ %.711881449, %yydestruct.exit1401 ]
-  %.812001518 = phi ptr [ %1208, %yydestruct.exit1403 ], [ %.711991447, %yydestruct.exit1401 ]
+.lr.ph:                                           ; preds = %yydestruct.argprom.exit1401, %yydestruct.argprom.exit1403
+  %.811891519 = phi ptr [ %1209, %yydestruct.argprom.exit1403 ], [ %.711881449, %yydestruct.argprom.exit1401 ]
+  %.812001518 = phi ptr [ %1208, %yydestruct.argprom.exit1403 ], [ %.711991447, %yydestruct.argprom.exit1401 ]
   %1203 = load i8, ptr %.811891519, align 1
   %1204 = zext i8 %1203 to i64
   %1205 = getelementptr inbounds [216 x i8], ptr @yystos, i64 0, i64 %1204
   %1206 = load i8, ptr %1205, align 1
-  switch i8 %1206, label %yydestruct.exit1403 [
+  switch i8 %1206, label %yydestruct.argprom.exit1403 [
     i8 9, label %.sink.split.i1402
     i8 10, label %.sink.split.i1402
     i8 11, label %.sink.split.i1402
@@ -3089,15 +3089,15 @@ yydestruct.exit1401:                              ; preds = %.sink.split.i1400, 
 .sink.split.i1402:                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %1207 = load ptr, ptr %.812001518, align 8
   call void @free(ptr noundef %1207) #12
-  br label %yydestruct.exit1403
+  br label %yydestruct.argprom.exit1403
 
-yydestruct.exit1403:                              ; preds = %.lr.ph, %.sink.split.i1402
+yydestruct.argprom.exit1403:                      ; preds = %.lr.ph, %.sink.split.i1402
   %1208 = getelementptr inbounds i8, ptr %.812001518, i64 -8
   %1209 = getelementptr inbounds i8, ptr %.811891519, i64 -1
   %.not1392 = icmp eq ptr %1209, %.411801451
   br i1 %.not1392, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %yydestruct.exit1403, %yydestruct.exit1401
+._crit_edge:                                      ; preds = %yydestruct.argprom.exit1403, %yydestruct.argprom.exit1401
   %.not1393 = icmp eq ptr %.411801451, %4
   br i1 %.not1393, label %1211, label %1210
 
@@ -3178,7 +3178,7 @@ declare i32 @yr_parser_emit_pushes_for_strings(ptr noundef, ptr noundef) local_u
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 3) i32 @yysyntax_error(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 -128, 128) %2) unnamed_addr #8 {
+define internal fastcc range(i32 0, 3) i32 @yysyntax_error.argprom(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 -128, 128) %2) unnamed_addr #8 {
   %4 = alloca [5 x ptr], align 16
   %.not = icmp eq i32 %2, -2
   br i1 %.not, label %.thread10, label %5

@@ -3920,58 +3920,58 @@ define internal fastcc void @_ZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4
 ._crit_edge:                                      ; preds = %18, %2
   %20 = call noundef ptr @_ZNK5vcpkg4Json6Object3getENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.22, i64 7) #19
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit", label %21
+  br i1 %.not.i, label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit", label %21
 
 21:                                               ; preds = %._crit_edge
   %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6Object17insert_or_replaceENS_10StringViewERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.22, i64 7, ptr noundef nonnull align 8 dereferenceable(8) %20)
-  br label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit"
+  br label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit"
 
-"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit": ; preds = %._crit_edge, %21
+"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit": ; preds = %._crit_edge, %21
   %23 = call noundef ptr @_ZNK5vcpkg4Json6Object3getENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.23, i64 7) #19
   %.not.i35 = icmp eq ptr %23, null
-  br i1 %.not.i35, label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit36", label %24
+  br i1 %.not.i35, label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit36", label %24
 
-24:                                               ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit"
+24:                                               ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit"
   %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6Object17insert_or_replaceENS_10StringViewERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.23, i64 7, ptr noundef nonnull align 8 dereferenceable(8) %23)
-  br label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit36"
+  br label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit36"
 
-"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit36": ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit", %24
+"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit36": ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit", %24
   %26 = call noundef ptr @_ZNK5vcpkg4Json6Object3getENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.24, i64 5) #19
   %.not.i37 = icmp eq ptr %26, null
-  br i1 %.not.i37, label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit38", label %27
+  br i1 %.not.i37, label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit38", label %27
 
-27:                                               ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit36"
+27:                                               ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit36"
   %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6Object17insert_or_replaceENS_10StringViewERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.24, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %26)
-  br label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit38"
+  br label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit38"
 
-"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit38": ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit36", %27
+"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit38": ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit36", %27
   %29 = call noundef ptr @_ZNK5vcpkg4Json6Object3getENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.25, i64 8) #19
   %.not.i39 = icmp eq ptr %29, null
-  br i1 %.not.i39, label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit40", label %30
+  br i1 %.not.i39, label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit40", label %30
 
-30:                                               ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit38"
+30:                                               ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit38"
   %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6Object17insert_or_replaceENS_10StringViewERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.25, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %29)
-  br label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit40"
+  br label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit40"
 
-"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit40": ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit38", %30
+"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit40": ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit38", %30
   %32 = call noundef ptr @_ZNK5vcpkg4Json6Object3getENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.26, i64 5) #19
   %.not.i41 = icmp eq ptr %32, null
-  br i1 %.not.i41, label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit42", label %33
+  br i1 %.not.i41, label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit42", label %33
 
-33:                                               ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit40"
+33:                                               ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit40"
   %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6Object17insert_or_replaceENS_10StringViewERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.26, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %32)
-  br label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit42"
+  br label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit42"
 
-"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit42": ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit40", %33
+"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit42": ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit40", %33
   %35 = call noundef ptr @_ZNK5vcpkg4Json6Object3getENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.27, i64 8) #19
   %.not.i43 = icmp eq ptr %35, null
-  br i1 %.not.i43, label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit44", label %36
+  br i1 %.not.i43, label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit44", label %36
 
-36:                                               ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit42"
+36:                                               ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit42"
   %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6Object17insert_or_replaceENS_10StringViewERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.27, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %35)
-  br label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit44"
+  br label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit44"
 
-"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit44": ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit42", %36
+"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit44": ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit42", %36
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -3979,7 +3979,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4
   %.not.i45 = icmp eq ptr %38, null
   br i1 %.not.i45, label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_1clES4_S5_.exit", label %39
 
-39:                                               ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit44"
+39:                                               ; preds = %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit44"
   %40 = call noundef zeroext i1 @_ZNK5vcpkg4Json5Value9is_objectEv(ptr noundef nonnull align 8 dereferenceable(8) %38) #19
   br i1 %40, label %41, label %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_1clES4_S5_.exit"
 
@@ -4118,7 +4118,7 @@ _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcp
   call void @_ZN5vcpkg4Json6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #19
   resume { ptr, i32 } %.pn.i
 
-"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_1clES4_S5_.exit": ; preds = %80, %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i, %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.exit44", %39
+"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_1clES4_S5_.exit": ; preds = %80, %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i, %"_ZZN12_GLOBAL__N_121serialize_ce_metadataERKN5vcpkg4Json6ObjectERS2_ENK3$_0clES4_NS0_10StringViewES5_.argprom.exit44", %39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -6043,22 +6043,22 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserv
 64:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i, %.lr.ph.i
   %.sroa.01.05.i = phi ptr [ %62, %.lr.ph.i ], [ %71, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i)
-          to label %"_ZZNK12_GLOBAL__N_120RegistryDeserializer12visit_objectERN5vcpkg4Json6ReaderERKNS2_6ObjectEENK3$_0clIRNS1_25PackagePatternDeclarationEEEDaOT_.exit.i" unwind label %.loopexit.i
+          to label %"_ZZNK12_GLOBAL__N_120RegistryDeserializer12visit_objectERN5vcpkg4Json6ReaderERKNS2_6ObjectEENK3$_0clIRNS1_25PackagePatternDeclarationEEEDaOT_.argprom.exit.i" unwind label %.loopexit.i
 
-"_ZZNK12_GLOBAL__N_120RegistryDeserializer12visit_objectERN5vcpkg4Json6ReaderERKNS2_6ObjectEENK3$_0clIRNS1_25PackagePatternDeclarationEEEDaOT_.exit.i": ; preds = %64
+"_ZZNK12_GLOBAL__N_120RegistryDeserializer12visit_objectERN5vcpkg4Json6ReaderERKNS2_6ObjectEENK3$_0clIRNS1_25PackagePatternDeclarationEEEDaOT_.argprom.exit.i": ; preds = %64
   %65 = load ptr, ptr %63, align 8, !alias.scope !165
   %66 = load ptr, ptr %56, align 8, !alias.scope !165
   %.not.i.i = icmp eq ptr %65, %66
   br i1 %.not.i.i, label %70, label %67
 
-67:                                               ; preds = %"_ZZNK12_GLOBAL__N_120RegistryDeserializer12visit_objectERN5vcpkg4Json6ReaderERKNS2_6ObjectEENK3$_0clIRNS1_25PackagePatternDeclarationEEEDaOT_.exit.i"
+67:                                               ; preds = %"_ZZNK12_GLOBAL__N_120RegistryDeserializer12visit_objectERN5vcpkg4Json6ReaderERKNS2_6ObjectEENK3$_0clIRNS1_25PackagePatternDeclarationEEEDaOT_.argprom.exit.i"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   %68 = load ptr, ptr %63, align 8, !alias.scope !165
   %69 = getelementptr inbounds i8, ptr %68, i64 32
   store ptr %69, ptr %63, align 8, !alias.scope !165
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i
 
-70:                                               ; preds = %"_ZZNK12_GLOBAL__N_120RegistryDeserializer12visit_objectERN5vcpkg4Json6ReaderERKNS2_6ObjectEENK3$_0clIRNS1_25PackagePatternDeclarationEEEDaOT_.exit.i"
+70:                                               ; preds = %"_ZZNK12_GLOBAL__N_120RegistryDeserializer12visit_objectERN5vcpkg4Json6ReaderERKNS2_6ObjectEENK3$_0clIRNS1_25PackagePatternDeclarationEEEDaOT_.argprom.exit.i"
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %65, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i unwind label %72
 
@@ -7825,19 +7825,19 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.sroa.01.0.ph.i.i.i = phi ptr [ %.sroa.083.0.i.i.i.i, %273 ], [ %.sroa.013.0.i51.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i52.i.i.i.i ], [ %.sroa.013.0.i26.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i27.i.i.i.i ], [ %.sroa.013.0.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i.i.i.i.i ], [ %.08.lcssa.i.i.i16.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit38.i.i.i.i ]
   %.val.i.i.i.i.i.i.i.i.i = load ptr, ptr %169, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.exit.i.i.i.i, label %286
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.argprom.exit.i.i.i.i, label %286
 
 286:                                              ; preds = %.thread15.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i.i.i.i.i.i.i.i.i) #22
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.exit.i.i.i.i
+  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.argprom.exit.i.i.i.i
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.exit.i.i.i.i: ; preds = %286, %.thread15.i.i.i
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.argprom.exit.i.i.i.i: ; preds = %286, %.thread15.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %157) #19
   call void @_ZdlPv(ptr noundef nonnull %156) #22
   br label %287
 
-287:                                              ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.exit.i.i.i.i, %282, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %.sroa.014.0.i.i = phi ptr [ %.19.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ %156, %282 ], [ %.sroa.01.0.ph.i.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.exit.i.i.i.i ]
+287:                                              ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.argprom.exit.i.i.i.i, %282, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
+  %.sroa.014.0.i.i = phi ptr [ %.19.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ %156, %282 ], [ %.sroa.01.0.ph.i.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.argprom.exit.i.i.i.i ]
   %288 = getelementptr inbounds i8, ptr %.sroa.014.0.i.i, i64 64
   %289 = getelementptr inbounds i8, ptr %.sroa.06.045.i, i64 32
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(32) %289) #19
@@ -7869,7 +7869,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   %303 = ptrtoint ptr %.val.i.i.i to i64
   %304 = sub i64 %302, %303
   %305 = icmp eq i64 %304, 9223372036854775776
-  br i1 %305, label %306, label %_ZNKSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE12_M_check_lenEmPKc.exit.i.i.i
+  br i1 %305, label %306, label %_ZNKSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
 
 306:                                              ; preds = %301
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.98) #21
@@ -7878,7 +7878,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 .noexc60.i:                                       ; preds = %306
   unreachable
 
-_ZNKSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %301
+_ZNKSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %301
   %307 = ashr exact i64 %304, 5
   %308 = icmp eq ptr %295, %.val.i.i.i
   %.sroa.speculated.i.i.i.i = select i1 %308, i64 1, i64 %307
@@ -7892,10 +7892,10 @@ _ZNKSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14R
   %314 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %313) #23
           to label %.noexc61.i unwind label %.loopexit17.i
 
-.noexc61.i:                                       ; preds = %_ZNKSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE12_M_check_lenEmPKc.exit.i.i.i
+.noexc61.i:                                       ; preds = %_ZNKSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
   %315 = getelementptr inbounds i8, ptr %314, i64 %304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %315, ptr noundef nonnull readonly align 8 dereferenceable(32) %22, i64 32, i1 false)
-  br i1 %308, label %_ZNSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %308, label %_ZNSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit26.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc61.i, %.lr.ph.i.i.i.i.i.i
   %.03.i.i.i.i.i.i = phi ptr [ %317, %.lr.ph.i.i.i.i.i.i ], [ %314, %.noexc61.i ]
@@ -7904,19 +7904,19 @@ _ZNKSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14R
   %316 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 32
   %317 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %316, %295
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !235
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit26.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !235
 
-_ZNSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc61.i
+_ZNSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit26.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc61.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %314, %.noexc61.i ], [ %317, %.lr.ph.i.i.i.i.i.i ]
   %318 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
   %.not.i27.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i27.i.i.i, label %_ZNSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i, label %319
 
-319:                                              ; preds = %_ZNSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26.i.i.i
+319:                                              ; preds = %_ZNSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit26.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i.i.i) #22
   br label %_ZNSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i: ; preds = %319, %_ZNSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26.i.i.i
+_ZNSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i: ; preds = %319, %_ZNSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit26.i.i.i
   store ptr %314, ptr %288, align 8
   store ptr %318, ptr %294, align 8
   %320 = getelementptr inbounds %struct.LocationAndRegistry, ptr %314, i64 %312
@@ -7928,7 +7928,7 @@ _ZNSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14Re
   %.not.i82 = icmp eq ptr %321, %141
   br i1 %.not.i82, label %.loopexit16.i, label %.lr.ph.i
 
-.loopexit17.i:                                    ; preds = %_ZNKSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE12_M_check_lenEmPKc.exit.i.i.i, %287, %.critedge.i.i
+.loopexit17.i:                                    ; preds = %_ZNKSt6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS_IN5vcpkg14RegistryConfigESaIS2_EEE19LocationAndRegistrySaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i.i, %287, %.critedge.i.i
   %lpad.loopexit19.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -8327,12 +8327,12 @@ _ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.ex
 .body.i:                                          ; preds = %423, %.loopexit.split-lp18.i, %.loopexit17.i, %162
   %.pn40.i = phi { ptr, i32 } [ %.pn.i, %423 ], [ %163, %162 ], [ %lpad.loopexit19.i, %.loopexit17.i ], [ %lpad.loopexit.split-lp20.i, %.loopexit.split-lp18.i ]
   %.val58.i = load ptr, ptr %127, align 8, !noalias !226
-  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE8_M_eraseEPSt13_Rb_tree_nodeISJ_E(ptr noundef %.val58.i)
+  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE8_M_eraseEPSt13_Rb_tree_nodeISJ_E.argprom(ptr noundef %.val58.i)
   br label %.body
 
 .loopexit:                                        ; preds = %421, %._crit_edge.i, %._crit_edge.thread.i
   %.val57.i = load ptr, ptr %127, align 8, !noalias !226
-  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE8_M_eraseEPSt13_Rb_tree_nodeISJ_E(ptr noundef %.val57.i)
+  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE8_M_eraseEPSt13_Rb_tree_nodeISJ_E.argprom(ptr noundef %.val57.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
@@ -17450,34 +17450,34 @@ _ZNSt12_Vector_baseIN5vcpkg15LocalizedStringESaIS1_EE13_M_deallocateEPS1_m.exit3
 declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE8_M_eraseEPSt13_Rb_tree_nodeISJ_E(ptr noundef %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE8_M_eraseEPSt13_Rb_tree_nodeISJ_E.argprom(ptr noundef %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.exit
-  %.02 = phi ptr [ %.0.val, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.exit ], [ %0, %1 ]
+.lr.ph:                                           ; preds = %1, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.argprom.exit
+  %.02 = phi ptr [ %.0.val, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.argprom.exit ], [ %0, %1 ]
   %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val6 = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE8_M_eraseEPSt13_Rb_tree_nodeISJ_E(ptr noundef %.0.val6)
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE8_M_eraseEPSt13_Rb_tree_nodeISJ_E.argprom(ptr noundef %.0.val6)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %.02, i64 64
   %.val.i.i.i.i.i = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.exit, label %5
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.argprom.exit, label %5
 
 5:                                                ; preds = %.lr.ph
   tail call void @_ZdlPv(ptr noundef nonnull %.val.i.i.i.i.i) #22
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.exit
+  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.argprom.exit
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.exit: ; preds = %.lr.ph, %5
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.argprom.exit: ; preds = %.lr.ph, %5
   %6 = getelementptr inbounds i8, ptr %.02, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   tail call void @_ZdlPv(ptr noundef nonnull %.02) #22
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !409
 
-._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.exit, %1
+._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIZN12_GLOBAL__N_132collect_package_pattern_warningsERKS8_IN5vcpkg14RegistryConfigESaISB_EEE19LocationAndRegistrySaISG_EEESt10_Select1stISJ_ESt4lessIS5_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E.argprom.exit, %1
   ret void
 }
 
@@ -18079,8 +18079,8 @@ attributes #24 = { nounwind willreturn memory(read) }
 !163 = distinct !{!163, !164, !"_ZNK12_GLOBAL__N_120RegistryDeserializer9type_nameEv: argument 0"}
 !164 = distinct !{!164, !"_ZNK12_GLOBAL__N_120RegistryDeserializer9type_nameEv"}
 !165 = !{!166}
-!166 = distinct !{!166, !167, !"_ZN5vcpkg4Util4fmapIRSt6vectorINS_25PackagePatternDeclarationESaIS3_EEZNK12_GLOBAL__N_120RegistryDeserializer12visit_objectERNS_4Json6ReaderERKNS9_6ObjectEE3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISM_EEOSJ_OSH_: argument 0"}
-!167 = distinct !{!167, !"_ZN5vcpkg4Util4fmapIRSt6vectorINS_25PackagePatternDeclarationESaIS3_EEZNK12_GLOBAL__N_120RegistryDeserializer12visit_objectERNS_4Json6ReaderERKNS9_6ObjectEE3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISM_EEOSJ_OSH_"}
+!166 = distinct !{!166, !167, !"_ZN5vcpkg4Util4fmapIRSt6vectorINS_25PackagePatternDeclarationESaIS3_EEZNK12_GLOBAL__N_120RegistryDeserializer12visit_objectERNS_4Json6ReaderERKNS9_6ObjectEE3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISM_EEOSJ_OSH_.argprom: argument 0"}
+!167 = distinct !{!167, !"_ZN5vcpkg4Util4fmapIRSt6vectorINS_25PackagePatternDeclarationESaIS3_EEZNK12_GLOBAL__N_120RegistryDeserializer12visit_objectERNS_4Json6ReaderERKNS9_6ObjectEE3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISM_EEOSJ_OSH_.argprom"}
 !168 = !{!169}
 !169 = distinct !{!169, !170, !"_ZNK5vcpkg4Json6Object14const_iteratordeEv: argument 0"}
 !170 = distinct !{!170, !"_ZNK5vcpkg4Json6Object14const_iteratordeEv"}
@@ -18140,14 +18140,14 @@ attributes #24 = { nounwind willreturn memory(read) }
 !224 = distinct !{!224, !225, !"_ZNK12_GLOBAL__N_125ConfigurationDeserializer9type_nameEv: argument 0"}
 !225 = distinct !{!225, !"_ZNK12_GLOBAL__N_125ConfigurationDeserializer9type_nameEv"}
 !226 = !{!227}
-!227 = distinct !{!227, !228, !"_ZN12_GLOBAL__N_132collect_package_pattern_warningsERKSt6vectorIN5vcpkg14RegistryConfigESaIS2_EE: argument 0"}
-!228 = distinct !{!228, !"_ZN12_GLOBAL__N_132collect_package_pattern_warningsERKSt6vectorIN5vcpkg14RegistryConfigESaIS2_EE"}
+!227 = distinct !{!227, !228, !"_ZN12_GLOBAL__N_132collect_package_pattern_warningsERKSt6vectorIN5vcpkg14RegistryConfigESaIS2_EE.argprom: argument 0"}
+!228 = distinct !{!228, !"_ZN12_GLOBAL__N_132collect_package_pattern_warningsERKSt6vectorIN5vcpkg14RegistryConfigESaIS2_EE.argprom"}
 !229 = distinct !{!229, !30}
 !230 = distinct !{!230, !30}
 !231 = !{!232, !234}
-!232 = distinct !{!232, !233, !"_ZSt19__relocate_object_aIZN12_GLOBAL__N_132collect_package_pattern_warningsERKSt6vectorIN5vcpkg14RegistryConfigESaIS3_EEE19LocationAndRegistryS8_SaIS8_EEvPT_PT0_RT1_: argument 0"}
-!233 = distinct !{!233, !"_ZSt19__relocate_object_aIZN12_GLOBAL__N_132collect_package_pattern_warningsERKSt6vectorIN5vcpkg14RegistryConfigESaIS3_EEE19LocationAndRegistryS8_SaIS8_EEvPT_PT0_RT1_"}
-!234 = distinct !{!234, !233, !"_ZSt19__relocate_object_aIZN12_GLOBAL__N_132collect_package_pattern_warningsERKSt6vectorIN5vcpkg14RegistryConfigESaIS3_EEE19LocationAndRegistryS8_SaIS8_EEvPT_PT0_RT1_: argument 1"}
+!232 = distinct !{!232, !233, !"_ZSt19__relocate_object_aIZN12_GLOBAL__N_132collect_package_pattern_warningsERKSt6vectorIN5vcpkg14RegistryConfigESaIS3_EEE19LocationAndRegistryS8_SaIS8_EEvPT_PT0_RT1_.argprom: argument 0"}
+!233 = distinct !{!233, !"_ZSt19__relocate_object_aIZN12_GLOBAL__N_132collect_package_pattern_warningsERKSt6vectorIN5vcpkg14RegistryConfigESaIS3_EEE19LocationAndRegistryS8_SaIS8_EEvPT_PT0_RT1_.argprom"}
+!234 = distinct !{!234, !233, !"_ZSt19__relocate_object_aIZN12_GLOBAL__N_132collect_package_pattern_warningsERKSt6vectorIN5vcpkg14RegistryConfigESaIS3_EEE19LocationAndRegistryS8_SaIS8_EEvPT_PT0_RT1_.argprom: argument 1"}
 !235 = distinct !{!235, !30}
 !236 = !{!237, !227}
 !237 = distinct !{!237, !238, !"_ZN5vcpkg3msg6formatIJNS0_14package_name_tEEJNS_10StringViewEEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS6_E4typeET0_EE: argument 0"}

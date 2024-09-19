@@ -326,7 +326,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %tileDesc, i64 12
   %tileDesc.val20 = load i32, ptr %1, align 4
   switch i32 %tileDesc.val, label %sw.default.i [
-    i32 0, label %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit
+    i32 0, label %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.argprom.exit
     i32 1, label %sw.bb1.i
     i32 2, label %sw.bb6.i
   ]
@@ -374,7 +374,7 @@ while.end.loopexit.i.i.i:                         ; preds = %while.body.i2.i.i
 _ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i: ; preds = %while.body.i.i.i, %while.end.loopexit.i.i.i, %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i32 [ 0, %cond.true.i.i ], [ 0, %cond.false.i.i ], [ %2, %while.end.loopexit.i.i.i ], [ %add.i.i.i, %while.body.i.i.i ]
   %add5.i = add nsw i32 %cond.i.i, 1
-  br label %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit
+  br label %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.argprom.exit
 
 sw.bb6.i:                                         ; preds = %entry
   %sub8.i = sub nsw i32 %maxX, %minX
@@ -416,7 +416,7 @@ while.end.loopexit.i.i20.i:                       ; preds = %while.body.i2.i10.i
 _ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit28.i: ; preds = %while.body.i.i22.i, %while.end.loopexit.i.i20.i, %cond.false.i8.i, %cond.true.i21.i
   %cond.i9.i = phi i32 [ 0, %cond.true.i21.i ], [ 0, %cond.false.i8.i ], [ %3, %while.end.loopexit.i.i20.i ], [ %add.i.i25.i, %while.body.i.i22.i ]
   %add12.i = add nsw i32 %cond.i9.i, 1
-  br label %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit
+  br label %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.argprom.exit
 
 sw.default.i:                                     ; preds = %entry
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #12
@@ -438,18 +438,18 @@ lpad.i:                                           ; preds = %sw.default.i
           cleanup
   br label %common.resume
 
-_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit: ; preds = %entry, %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i, %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit28.i
+_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.argprom.exit: ; preds = %entry, %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i, %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit28.i
   %num.0.i = phi i32 [ %add12.i, %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit28.i ], [ %add5.i, %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i ], [ 1, %entry ]
   store i32 %num.0.i, ptr %numXLevels, align 4
   %tileDesc.val21 = load i32, ptr %0, align 4
   %tileDesc.val22 = load i32, ptr %1, align 4
   switch i32 %tileDesc.val21, label %sw.default.i81 [
-    i32 0, label %_ZN7Imf_3_212_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit
+    i32 0, label %_ZN7Imf_3_212_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.argprom.exit
     i32 1, label %sw.bb1.i51
     i32 2, label %sw.bb6.i23
   ]
 
-sw.bb1.i51:                                       ; preds = %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit
+sw.bb1.i51:                                       ; preds = %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.argprom.exit
   %reass.sub113 = sub i32 %maxX, %minX
   %add.i53 = add i32 %reass.sub113, 1
   %reass.sub114 = sub i32 %maxY, %minY
@@ -492,9 +492,9 @@ while.end.loopexit.i.i.i73:                       ; preds = %while.body.i2.i.i63
 _ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60: ; preds = %while.body.i.i.i75, %while.end.loopexit.i.i.i73, %cond.false.i.i59, %cond.true.i.i74
   %cond.i.i61 = phi i32 [ 0, %cond.true.i.i74 ], [ 0, %cond.false.i.i59 ], [ %5, %while.end.loopexit.i.i.i73 ], [ %add.i.i.i78, %while.body.i.i.i75 ]
   %add5.i62 = add nsw i32 %cond.i.i61, 1
-  br label %_ZN7Imf_3_212_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit
+  br label %_ZN7Imf_3_212_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.argprom.exit
 
-sw.bb6.i23:                                       ; preds = %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit
+sw.bb6.i23:                                       ; preds = %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.argprom.exit
   %sub8.i24 = sub nsw i32 %maxY, %minY
   %add9.i25 = add nsw i32 %sub8.i24, 1
   %cmp.i6.i26 = icmp eq i32 %tileDesc.val22, 0
@@ -534,9 +534,9 @@ while.end.loopexit.i.i20.i43:                     ; preds = %while.body.i2.i10.i
 _ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit28.i29: ; preds = %while.body.i.i22.i45, %while.end.loopexit.i.i20.i43, %cond.false.i8.i28, %cond.true.i21.i44
   %cond.i9.i30 = phi i32 [ 0, %cond.true.i21.i44 ], [ 0, %cond.false.i8.i28 ], [ %6, %while.end.loopexit.i.i20.i43 ], [ %add.i.i25.i48, %while.body.i.i22.i45 ]
   %add12.i31 = add nsw i32 %cond.i9.i30, 1
-  br label %_ZN7Imf_3_212_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit
+  br label %_ZN7Imf_3_212_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.argprom.exit
 
-sw.default.i81:                                   ; preds = %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit
+sw.default.i81:                                   ; preds = %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.argprom.exit
   %exception.i82 = tail call ptr @__cxa_allocate_exception(i64 72) #12
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i82, ptr noundef nonnull @.str.3)
           to label %invoke.cont.i84 unwind label %lpad.i83
@@ -550,8 +550,8 @@ lpad.i83:                                         ; preds = %sw.default.i81
           cleanup
   br label %common.resume
 
-_ZN7Imf_3_212_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit: ; preds = %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit, %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60, %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit28.i29
-  %num.0.i32 = phi i32 [ %add12.i31, %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit28.i29 ], [ %add5.i62, %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60 ], [ 1, %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit ]
+_ZN7Imf_3_212_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.argprom.exit: ; preds = %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.argprom.exit, %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60, %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit28.i29
+  %num.0.i32 = phi i32 [ %add12.i31, %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit28.i29 ], [ %add5.i62, %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i60 ], [ 1, %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.argprom.exit ]
   store i32 %num.0.i32, ptr %numYLevels, align 4
   %8 = load i32, ptr %numXLevels, align 4
   %conv = sext i32 %8 to i64
@@ -572,7 +572,7 @@ _ZN7Imf_3_212_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit:
   %cmp5.i = icmp sgt i32 %17, 0
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %_ZN7Imf_3_212_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit
 
-for.body.lr.ph.i:                                 ; preds = %_ZN7Imf_3_212_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit
+for.body.lr.ph.i:                                 ; preds = %_ZN7Imf_3_212_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.argprom.exit
   %18 = load i32, ptr %1, align 4
   %19 = load i32, ptr %tileDesc, align 4
   %sub.i.i = sub nsw i32 %maxX, %minX
@@ -608,8 +608,8 @@ _ZN7Imf_3_212_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit.
   %.pre = load ptr, ptr %numYTiles, align 8
   br label %_ZN7Imf_3_212_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit
 
-_ZN7Imf_3_212_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit: ; preds = %_ZN7Imf_3_212_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit.loopexit, %_ZN7Imf_3_212_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit
-  %21 = phi ptr [ %.pre, %_ZN7Imf_3_212_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit.loopexit ], [ %call4, %_ZN7Imf_3_212_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit ]
+_ZN7Imf_3_212_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit: ; preds = %_ZN7Imf_3_212_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit.loopexit, %_ZN7Imf_3_212_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.argprom.exit
+  %21 = phi ptr [ %.pre, %_ZN7Imf_3_212_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit.loopexit ], [ %call4, %_ZN7Imf_3_212_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.argprom.exit ]
   %22 = load i32, ptr %numYLevels, align 4
   %cmp5.i86 = icmp sgt i32 %22, 0
   br i1 %cmp5.i86, label %for.body.lr.ph.i87, label %_ZN7Imf_3_212_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit111

@@ -57,7 +57,7 @@ define noalias noundef ptr @IPdr_ManPushClausesK(ptr noundef %0, i32 noundef %1)
   %9 = getelementptr inbounds i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp slt i32 %10, 2
-  br i1 %11, label %Vec_PtrSort.exit, label %12
+  br i1 %11, label %Vec_PtrSort.argprom.exit, label %12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %8, i64 8
@@ -65,9 +65,9 @@ define noalias noundef ptr @IPdr_ManPushClausesK(ptr noundef %0, i32 noundef %1)
   %15 = zext nneg i32 %10 to i64
   tail call void @qsort(ptr noundef %14, i64 noundef %15, i64 noundef 8, ptr noundef nonnull @Pdr_SetCompare) #16
   %.val6587.pre = load i32, ptr %9, align 4
-  br label %Vec_PtrSort.exit
+  br label %Vec_PtrSort.argprom.exit
 
-Vec_PtrSort.exit:                                 ; preds = %2, %12
+Vec_PtrSort.argprom.exit:                         ; preds = %2, %12
   %.val6587 = phi i32 [ %10, %2 ], [ %.val6587.pre, %12 ]
   %16 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %17 = getelementptr inbounds i8, ptr %16, i64 4
@@ -79,7 +79,7 @@ Vec_PtrSort.exit:                                 ; preds = %2, %12
   %20 = icmp sgt i32 %.val6587, 0
   br i1 %20, label %.lr.ph89, label %.critedge
 
-.lr.ph89:                                         ; preds = %Vec_PtrSort.exit
+.lr.ph89:                                         ; preds = %Vec_PtrSort.argprom.exit
   %21 = getelementptr i8, ptr %8, i64 8
   br label %22
 
@@ -268,7 +268,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %97 = icmp slt i32 %.pre-phi, %.val65
   br i1 %97, label %22, label %.critedge, !llvm.loop !7
 
-.critedge:                                        ; preds = %96, %Vec_PtrSort.exit
+.critedge:                                        ; preds = %96, %Vec_PtrSort.argprom.exit
   ret ptr %16
 }
 
@@ -303,7 +303,7 @@ define void @IPdr_ManPrintClauses(ptr nocapture noundef readonly %0, i32 noundef
   %11 = getelementptr inbounds i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %12, 2
-  br i1 %13, label %Vec_PtrSort.exit, label %14
+  br i1 %13, label %Vec_PtrSort.argprom.exit, label %14
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %10, i64 8
@@ -311,14 +311,14 @@ define void @IPdr_ManPrintClauses(ptr nocapture noundef readonly %0, i32 noundef
   %17 = zext nneg i32 %12 to i64
   tail call void @qsort(ptr noundef %16, i64 noundef %17, i64 noundef 8, ptr noundef nonnull @Pdr_SetCompare) #16
   %.val1821.pre = load i32, ptr %11, align 4
-  br label %Vec_PtrSort.exit
+  br label %Vec_PtrSort.argprom.exit
 
-Vec_PtrSort.exit:                                 ; preds = %8, %14
+Vec_PtrSort.argprom.exit:                         ; preds = %8, %14
   %.val1821 = phi i32 [ %12, %8 ], [ %.val1821.pre, %14 ]
   %18 = icmp sgt i32 %.val1821, 0
   br i1 %18, label %.lr.ph, label %.critedge2
 
-.lr.ph:                                           ; preds = %Vec_PtrSort.exit
+.lr.ph:                                           ; preds = %Vec_PtrSort.argprom.exit
   %19 = getelementptr i8, ptr %10, i64 8
   %20 = trunc nsw i64 %indvars.iv29 to i32
   br label %21
@@ -339,8 +339,8 @@ Vec_PtrSort.exit:                                 ; preds = %8, %14
   %26 = icmp slt i64 %indvars.iv.next, %25
   br i1 %26, label %21, label %.critedge2, !llvm.loop !8
 
-.critedge2:                                       ; preds = %21, %Vec_PtrSort.exit
-  %.1.lcssa = phi i32 [ %.026, %Vec_PtrSort.exit ], [ %24, %21 ]
+.critedge2:                                       ; preds = %21, %Vec_PtrSort.argprom.exit
+  %.1.lcssa = phi i32 [ %.026, %Vec_PtrSort.argprom.exit ], [ %24, %21 ]
   %indvars.iv.next30 = add nsw i64 %indvars.iv29, 1
   %.val20 = load i32, ptr %4, align 4
   %27 = sext i32 %.val20 to i64

@@ -187,9 +187,9 @@ list_length.exit:                                 ; preds = %36
   %39 = getelementptr inbounds i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 2
-  br i1 %41, label %get_leftop.exit, label %is_opclause.exit.thread
+  br i1 %41, label %get_leftop.argprom.exit, label %is_opclause.exit.thread
 
-get_leftop.exit:                                  ; preds = %list_length.exit
+get_leftop.argprom.exit:                          ; preds = %list_length.exit
   %42 = getelementptr i8, ptr %38, i64 16
   %.val.i = load ptr, ptr %42, align 8
   %43 = load ptr, ptr %.val.i, align 8
@@ -198,23 +198,23 @@ get_leftop.exit:                                  ; preds = %list_length.exit
   store ptr %44, ptr %45, align 8
   %.val78 = load ptr, ptr %37, align 8
   %.not.i.i = icmp eq ptr %.val78, null
-  br i1 %.not.i.i, label %get_rightop.exit, label %list_length.exit.i
+  br i1 %.not.i.i, label %get_rightop.argprom.exit, label %list_length.exit.i
 
-list_length.exit.i:                               ; preds = %get_leftop.exit
+list_length.exit.i:                               ; preds = %get_leftop.argprom.exit
   %46 = getelementptr inbounds i8, ptr %.val78, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = icmp sgt i32 %47, 1
-  br i1 %48, label %49, label %get_rightop.exit
+  br i1 %48, label %49, label %get_rightop.argprom.exit
 
 49:                                               ; preds = %list_length.exit.i
   %50 = getelementptr i8, ptr %.val78, i64 16
   %.val.i82 = load ptr, ptr %50, align 8
   %51 = getelementptr i8, ptr %.val.i82, i64 8
   %52 = load ptr, ptr %51, align 8
-  br label %get_rightop.exit
+  br label %get_rightop.argprom.exit
 
-get_rightop.exit:                                 ; preds = %get_leftop.exit, %list_length.exit.i, %49
-  %.0.i81 = phi ptr [ %52, %49 ], [ null, %list_length.exit.i ], [ null, %get_leftop.exit ]
+get_rightop.argprom.exit:                         ; preds = %get_leftop.argprom.exit, %list_length.exit.i, %49
+  %.0.i81 = phi ptr [ %52, %49 ], [ null, %list_length.exit.i ], [ null, %get_leftop.argprom.exit ]
   %53 = tail call ptr @pull_varnos(ptr noundef %0, ptr noundef %.0.i81) #5
   %54 = getelementptr inbounds i8, ptr %16, i64 80
   store ptr %53, ptr %54, align 8
@@ -226,7 +226,7 @@ get_rightop.exit:                                 ; preds = %get_leftop.exit, %l
   %59 = icmp eq ptr %58, null
   br i1 %59, label %69, label %60
 
-60:                                               ; preds = %get_rightop.exit
+60:                                               ; preds = %get_rightop.argprom.exit
   %61 = load ptr, ptr %54, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %69, label %63
@@ -247,7 +247,7 @@ is_opclause.exit.thread:                          ; preds = %36, %31, %list_leng
   store ptr %67, ptr %68, align 8
   br label %69
 
-69:                                               ; preds = %get_rightop.exit, %60, %63, %65, %is_opclause.exit.thread
+69:                                               ; preds = %get_rightop.argprom.exit, %60, %63, %65, %is_opclause.exit.thread
   %.not77 = icmp eq ptr %8, null
   %70 = getelementptr inbounds i8, ptr %16, i64 40
   %71 = load ptr, ptr %70, align 8
@@ -474,28 +474,28 @@ define dso_local ptr @extract_actual_clauses(ptr noundef readonly %0, i1 noundef
   %.val = load ptr, ptr %16, align 8
   %17 = load i32, ptr %.val, align 4
   %18 = icmp eq i32 %17, 7
-  br i1 %18, label %19, label %rinfo_is_constant_true.exit.thread
+  br i1 %18, label %19, label %rinfo_is_constant_true.argprom.exit.thread
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %.val, i64 32
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %rinfo_is_constant_true.exit.thread, label %rinfo_is_constant_true.exit
+  br i1 %22, label %rinfo_is_constant_true.argprom.exit.thread, label %rinfo_is_constant_true.argprom.exit
 
-rinfo_is_constant_true.exit:                      ; preds = %19
+rinfo_is_constant_true.argprom.exit:              ; preds = %19
   %23 = getelementptr inbounds i8, ptr %.val, i64 24
   %24 = load i64, ptr %23, align 8
   %.not16 = icmp eq i64 %24, 0
-  br i1 %.not16, label %rinfo_is_constant_true.exit.thread, label %26
+  br i1 %.not16, label %rinfo_is_constant_true.argprom.exit.thread, label %26
 
-rinfo_is_constant_true.exit.thread:               ; preds = %15, %19, %rinfo_is_constant_true.exit
+rinfo_is_constant_true.argprom.exit.thread:       ; preds = %15, %19, %rinfo_is_constant_true.argprom.exit
   %25 = tail call ptr @lappend(ptr noundef %.01822, ptr noundef nonnull %.val) #5
   %.pre = load i32, ptr %3, align 4
   br label %26
 
-26:                                               ; preds = %.lr.ph24, %rinfo_is_constant_true.exit, %rinfo_is_constant_true.exit.thread
-  %27 = phi i32 [ %7, %rinfo_is_constant_true.exit ], [ %.pre, %rinfo_is_constant_true.exit.thread ], [ %7, %.lr.ph24 ]
-  %.1 = phi ptr [ %.01822, %rinfo_is_constant_true.exit ], [ %25, %rinfo_is_constant_true.exit.thread ], [ %.01822, %.lr.ph24 ]
+26:                                               ; preds = %.lr.ph24, %rinfo_is_constant_true.argprom.exit, %rinfo_is_constant_true.argprom.exit.thread
+  %27 = phi i32 [ %7, %rinfo_is_constant_true.argprom.exit ], [ %.pre, %rinfo_is_constant_true.argprom.exit.thread ], [ %7, %.lr.ph24 ]
+  %.1 = phi ptr [ %.01822, %rinfo_is_constant_true.argprom.exit ], [ %25, %rinfo_is_constant_true.argprom.exit.thread ], [ %.01822, %.lr.ph24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
@@ -553,9 +553,9 @@ define dso_local void @extract_actual_join_clauses(ptr noundef readonly %0, ptr 
   %28 = getelementptr inbounds i8, ptr %.val22, i64 32
   %29 = load i8, ptr %28, align 8
   %30 = trunc i8 %29 to i1
-  br i1 %30, label %.sink.split, label %rinfo_is_constant_true.exit
+  br i1 %30, label %.sink.split, label %rinfo_is_constant_true.argprom.exit
 
-rinfo_is_constant_true.exit:                      ; preds = %27
+rinfo_is_constant_true.argprom.exit:              ; preds = %27
   %31 = getelementptr inbounds i8, ptr %.val22, i64 24
   %32 = load i64, ptr %31, align 8
   %.not27 = icmp eq i64 %32, 0
@@ -572,23 +572,23 @@ rinfo_is_constant_true.exit:                      ; preds = %27
   %38 = getelementptr inbounds i8, ptr %.val, i64 32
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1
-  br i1 %40, label %.sink.split, label %rinfo_is_constant_true.exit23
+  br i1 %40, label %.sink.split, label %rinfo_is_constant_true.argprom.exit23
 
-rinfo_is_constant_true.exit23:                    ; preds = %37
+rinfo_is_constant_true.argprom.exit23:            ; preds = %37
   %41 = getelementptr inbounds i8, ptr %.val, i64 24
   %42 = load i64, ptr %41, align 8
   %.not26 = icmp eq i64 %42, 0
   br i1 %.not26, label %.sink.split, label %45
 
-.sink.split:                                      ; preds = %rinfo_is_constant_true.exit23, %37, %33, %rinfo_is_constant_true.exit, %27, %23
-  %.sink = phi ptr [ %3, %23 ], [ %3, %27 ], [ %3, %rinfo_is_constant_true.exit ], [ %2, %33 ], [ %2, %37 ], [ %2, %rinfo_is_constant_true.exit23 ]
-  %.val22.sink = phi ptr [ %.val22, %23 ], [ %.val22, %27 ], [ %.val22, %rinfo_is_constant_true.exit ], [ %.val, %33 ], [ %.val, %37 ], [ %.val, %rinfo_is_constant_true.exit23 ]
+.sink.split:                                      ; preds = %rinfo_is_constant_true.argprom.exit23, %37, %33, %rinfo_is_constant_true.argprom.exit, %27, %23
+  %.sink = phi ptr [ %3, %23 ], [ %3, %27 ], [ %3, %rinfo_is_constant_true.argprom.exit ], [ %2, %33 ], [ %2, %37 ], [ %2, %rinfo_is_constant_true.argprom.exit23 ]
+  %.val22.sink = phi ptr [ %.val22, %23 ], [ %.val22, %27 ], [ %.val22, %rinfo_is_constant_true.argprom.exit ], [ %.val, %33 ], [ %.val, %37 ], [ %.val, %rinfo_is_constant_true.argprom.exit23 ]
   %43 = load ptr, ptr %.sink, align 8
   %44 = tail call ptr @lappend(ptr noundef %43, ptr noundef nonnull %.val22.sink) #5
   store ptr %44, ptr %.sink, align 8
   br label %45
 
-45:                                               ; preds = %.sink.split, %rinfo_is_constant_true.exit, %19, %rinfo_is_constant_true.exit23
+45:                                               ; preds = %.sink.split, %rinfo_is_constant_true.argprom.exit, %19, %rinfo_is_constant_true.argprom.exit23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %5, align 4
   %47 = sext i32 %46 to i64

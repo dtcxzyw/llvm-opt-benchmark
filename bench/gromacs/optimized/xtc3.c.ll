@@ -915,7 +915,7 @@ swap_is_better.exit.i:                            ; preds = %454
 
 462:                                              ; preds = %456, %swap_is_better.exit.i
   %463 = icmp slt i32 %spec.store.select.i.i, %spec.store.select1.i.i
-  br i1 %463, label %464, label %swapdecide.exit
+  br i1 %463, label %464, label %swapdecide.argprom.exit
 
 464:                                              ; preds = %462
   %465 = sitofp i32 %spec.store.select.i.i to double
@@ -923,7 +923,7 @@ swap_is_better.exit.i:                            ; preds = %454
   %467 = fdiv double %465, %466
   %468 = call double @llvm.fabs.f64(double %467)
   %469 = fcmp olt double %468, 0x3FEC823E074EC129
-  br i1 %469, label %471, label %swapdecide.exit
+  br i1 %469, label %471, label %swapdecide.argprom.exit
 
 470:                                              ; preds = %456
   %.not13.i = icmp eq i32 %.08801004, 0
@@ -944,7 +944,7 @@ swap_is_better.exit.i:                            ; preds = %454
 
 .allocate_enough_memory.exit_crit_edge.i.i:       ; preds = %472
   %.pre.i.i = load ptr, ptr %11, align 8
-  br label %insert_value_in_array.exit.i
+  br label %insert_value_in_array.argprom.exit.i
 
 476:                                              ; preds = %472
   %477 = sdiv i32 %474, 2
@@ -956,24 +956,24 @@ swap_is_better.exit.i:                            ; preds = %454
   %482 = call ptr @Ptngc_warnrealloc_x(ptr noundef %479, i64 noundef %481, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %482, ptr %11, align 8
   %.pre1.i.i = load i32, ptr %156, align 8
-  br label %insert_value_in_array.exit.i
+  br label %insert_value_in_array.argprom.exit.i
 
-insert_value_in_array.exit.i:                     ; preds = %476, %.allocate_enough_memory.exit_crit_edge.i.i
+insert_value_in_array.argprom.exit.i:             ; preds = %476, %.allocate_enough_memory.exit_crit_edge.i.i
   %483 = phi i32 [ %474, %.allocate_enough_memory.exit_crit_edge.i.i ], [ %.pre1.i.i, %476 ]
   %484 = phi ptr [ %.pre.i.i, %.allocate_enough_memory.exit_crit_edge.i.i ], [ %482, %476 ]
   %485 = sext i32 %483 to i64
   %486 = getelementptr i32, ptr %484, i64 %485
   %487 = getelementptr i8, ptr %486, i64 -4
   store i32 4, ptr %487, align 4
-  br label %swapdecide.exit
+  br label %swapdecide.argprom.exit
 
-swapdecide.exit:                                  ; preds = %462, %464, %insert_value_in_array.exit.i
-  %.4884 = phi i32 [ %storemerge.i, %insert_value_in_array.exit.i ], [ %.08801004, %464 ], [ %.08801004, %462 ]
+swapdecide.argprom.exit:                          ; preds = %462, %464, %insert_value_in_array.argprom.exit.i
+  %.4884 = phi i32 [ %storemerge.i, %insert_value_in_array.argprom.exit.i ], [ %.08801004, %464 ], [ %.08801004, %462 ]
   %.not536 = icmp eq i32 %.4884, 0
   br i1 %.not536, label %.loopexit925.thread, label %.preheader928
 
-.preheader928:                                    ; preds = %470, %swapdecide.exit
-  %.48841124 = phi i32 [ %.4884, %swapdecide.exit ], [ %.08801004, %470 ]
+.preheader928:                                    ; preds = %470, %swapdecide.argprom.exit
+  %.48841124 = phi i32 [ %.4884, %swapdecide.argprom.exit ], [ %.08801004, %470 ]
   %488 = add nsw i32 %.04851006, 3
   %489 = sext i32 %488 to i64
   %invariant.gep1155 = getelementptr i32, ptr %0, i64 %187
@@ -1019,8 +1019,8 @@ swapdecide.exit:                                  ; preds = %462, %464, %insert_
   %exitcond1045.not = icmp eq i64 %indvars.iv.next1043, 3
   br i1 %exitcond1045.not, label %.preheader912, label %501, !llvm.loop !14
 
-.loopexit925.thread:                              ; preds = %positive_int.exit.i571, %positive_int.exit.i582, %471, %is_quite_large.exit.thread, %positive_int.exit611, %swapdecide.exit
-  %.3883898 = phi i32 [ 0, %swapdecide.exit ], [ %.08801004, %positive_int.exit611 ], [ %.08801004, %is_quite_large.exit.thread ], [ 0, %471 ], [ %.08801004, %positive_int.exit.i582 ], [ %.08801004, %positive_int.exit.i571 ]
+.loopexit925.thread:                              ; preds = %positive_int.exit.i571, %positive_int.exit.i582, %471, %is_quite_large.exit.thread, %positive_int.exit611, %swapdecide.argprom.exit
+  %.3883898 = phi i32 [ 0, %swapdecide.argprom.exit ], [ %.08801004, %positive_int.exit611 ], [ %.08801004, %is_quite_large.exit.thread ], [ 0, %471 ], [ %.08801004, %positive_int.exit.i582 ], [ %.08801004, %positive_int.exit.i571 ]
   call fastcc void @buffer_large(ptr noundef %11, ptr noundef %0, i32 noundef %.04851006, i32 noundef %2, i32 noundef 1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %188, i64 12, i1 false)
   %.pre = add nsw i32 %.04851006, 3
@@ -1608,7 +1608,7 @@ positive_int.exit646:                             ; preds = %689, %692, %694
 
 .allocate_enough_memory.exit_crit_edge.i:         ; preds = %747
   %.pre.i = load ptr, ptr %11, align 8
-  br label %insert_value_in_array.exit
+  br label %insert_value_in_array.argprom.exit
 
 751:                                              ; preds = %747
   %752 = sdiv i32 %749, 2
@@ -1620,9 +1620,9 @@ positive_int.exit646:                             ; preds = %689, %692, %694
   %757 = call ptr @Ptngc_warnrealloc_x(ptr noundef %754, i64 noundef %756, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %757, ptr %11, align 8
   %.pre1.i = load i32, ptr %156, align 8
-  br label %insert_value_in_array.exit
+  br label %insert_value_in_array.argprom.exit
 
-insert_value_in_array.exit:                       ; preds = %.allocate_enough_memory.exit_crit_edge.i, %751
+insert_value_in_array.argprom.exit:               ; preds = %.allocate_enough_memory.exit_crit_edge.i, %751
   %758 = phi i32 [ %749, %.allocate_enough_memory.exit_crit_edge.i ], [ %.pre1.i, %751 ]
   %759 = phi ptr [ %.pre.i, %.allocate_enough_memory.exit_crit_edge.i ], [ %757, %751 ]
   %760 = sext i32 %758 to i64
@@ -1636,11 +1636,11 @@ insert_value_in_array.exit:                       ; preds = %.allocate_enough_me
   %.not.i.i651 = icmp slt i32 %763, %765
   br i1 %.not.i.i651, label %.allocate_enough_memory.exit_crit_edge.i653, label %766
 
-.allocate_enough_memory.exit_crit_edge.i653:      ; preds = %insert_value_in_array.exit
+.allocate_enough_memory.exit_crit_edge.i653:      ; preds = %insert_value_in_array.argprom.exit
   %.pre.i654 = load ptr, ptr %158, align 8
-  br label %insert_value_in_array.exit655
+  br label %insert_value_in_array.argprom.exit655
 
-766:                                              ; preds = %insert_value_in_array.exit
+766:                                              ; preds = %insert_value_in_array.argprom.exit
   %767 = sdiv i32 %764, 2
   %768 = add nsw i32 %767, %764
   store i32 %768, ptr %160, align 4
@@ -1650,9 +1650,9 @@ insert_value_in_array.exit:                       ; preds = %.allocate_enough_me
   %772 = call ptr @Ptngc_warnrealloc_x(ptr noundef %769, i64 noundef %771, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %772, ptr %158, align 8
   %.pre1.i652 = load i32, ptr %159, align 8
-  br label %insert_value_in_array.exit655
+  br label %insert_value_in_array.argprom.exit655
 
-insert_value_in_array.exit655:                    ; preds = %.allocate_enough_memory.exit_crit_edge.i653, %766
+insert_value_in_array.argprom.exit655:            ; preds = %.allocate_enough_memory.exit_crit_edge.i653, %766
   %773 = phi i32 [ %764, %.allocate_enough_memory.exit_crit_edge.i653 ], [ %.pre1.i652, %766 ]
   %774 = phi ptr [ %.pre.i654, %.allocate_enough_memory.exit_crit_edge.i653 ], [ %772, %766 ]
   %775 = sext i32 %773 to i64
@@ -1661,9 +1661,9 @@ insert_value_in_array.exit655:                    ; preds = %.allocate_enough_me
   store i32 %.0451, ptr %777, align 4
   br label %778
 
-778:                                              ; preds = %719, %.loopexit, %insert_value_in_array.exit655
-  %.2493 = phi i32 [ %.0451, %insert_value_in_array.exit655 ], [ %.04911005, %.loopexit ], [ %.04911005, %719 ]
-  %.2471 = phi i32 [ %.0449, %insert_value_in_array.exit655 ], [ %.0449, %.loopexit ], [ %.04691009, %719 ]
+778:                                              ; preds = %719, %.loopexit, %insert_value_in_array.argprom.exit655
+  %.2493 = phi i32 [ %.0451, %insert_value_in_array.argprom.exit655 ], [ %.04911005, %.loopexit ], [ %.04911005, %719 ]
+  %.2471 = phi i32 [ %.0449, %insert_value_in_array.argprom.exit655 ], [ %.0449, %.loopexit ], [ %.04691009, %719 ]
   %779 = load i32, ptr %14, align 8
   %.not543 = icmp eq i32 %779, 0
   br i1 %.not543, label %887, label %780
@@ -1683,7 +1683,7 @@ insert_value_in_array.exit655:                    ; preds = %.allocate_enough_me
 
 .allocate_enough_memory.exit_crit_edge.i658:      ; preds = %781
   %.pre.i659 = load ptr, ptr %11, align 8
-  br label %insert_value_in_array.exit660
+  br label %insert_value_in_array.argprom.exit660
 
 785:                                              ; preds = %781
   %786 = sdiv i32 %783, 2
@@ -1695,9 +1695,9 @@ insert_value_in_array.exit655:                    ; preds = %.allocate_enough_me
   %791 = call ptr @Ptngc_warnrealloc_x(ptr noundef %788, i64 noundef %790, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %791, ptr %11, align 8
   %.pre1.i657 = load i32, ptr %156, align 8
-  br label %insert_value_in_array.exit660
+  br label %insert_value_in_array.argprom.exit660
 
-insert_value_in_array.exit660:                    ; preds = %.allocate_enough_memory.exit_crit_edge.i658, %785
+insert_value_in_array.argprom.exit660:            ; preds = %.allocate_enough_memory.exit_crit_edge.i658, %785
   %792 = phi i32 [ %783, %.allocate_enough_memory.exit_crit_edge.i658 ], [ %.pre1.i657, %785 ]
   %793 = phi ptr [ %.pre.i659, %.allocate_enough_memory.exit_crit_edge.i658 ], [ %791, %785 ]
   %794 = sext i32 %792 to i64
@@ -1736,7 +1736,7 @@ insert_value_in_array.exit660:                    ; preds = %.allocate_enough_me
 
 .allocate_enough_memory.exit_crit_edge.i.i665:    ; preds = %804
   %.pre.i.i666 = load ptr, ptr %11, align 8
-  br label %insert_value_in_array.exit.i664
+  br label %insert_value_in_array.argprom.exit.i664
 
 808:                                              ; preds = %804
   %809 = sdiv i32 %806, 2
@@ -1748,9 +1748,9 @@ insert_value_in_array.exit660:                    ; preds = %.allocate_enough_me
   %814 = call ptr @Ptngc_warnrealloc_x(ptr noundef %811, i64 noundef %813, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %814, ptr %11, align 8
   %.pre1.i.i663 = load i32, ptr %156, align 8
-  br label %insert_value_in_array.exit.i664
+  br label %insert_value_in_array.argprom.exit.i664
 
-insert_value_in_array.exit.i664:                  ; preds = %808, %.allocate_enough_memory.exit_crit_edge.i.i665
+insert_value_in_array.argprom.exit.i664:          ; preds = %808, %.allocate_enough_memory.exit_crit_edge.i.i665
   %815 = phi i32 [ %806, %.allocate_enough_memory.exit_crit_edge.i.i665 ], [ %.pre1.i.i663, %808 ]
   %816 = phi ptr [ %.pre.i.i666, %.allocate_enough_memory.exit_crit_edge.i.i665 ], [ %814, %808 ]
   %817 = sext i32 %815 to i64
@@ -1759,7 +1759,7 @@ insert_value_in_array.exit.i664:                  ; preds = %808, %.allocate_eno
   store i32 %switch.select13.i, ptr %819, align 4
   br label %large_instruction_change.exit
 
-large_instruction_change.exit:                    ; preds = %801, %insert_value_in_array.exit.i664
+large_instruction_change.exit:                    ; preds = %801, %insert_value_in_array.argprom.exit.i664
   %820 = load i32, ptr %156, align 8
   %821 = add nsw i32 %820, 1
   store i32 %821, ptr %156, align 8
@@ -1769,7 +1769,7 @@ large_instruction_change.exit:                    ; preds = %801, %insert_value_
 
 .allocate_enough_memory.exit_crit_edge.i669:      ; preds = %large_instruction_change.exit
   %.pre.i670 = load ptr, ptr %11, align 8
-  br label %insert_value_in_array.exit671
+  br label %insert_value_in_array.argprom.exit671
 
 823:                                              ; preds = %large_instruction_change.exit
   %824 = sdiv i32 %821, 2
@@ -1781,9 +1781,9 @@ large_instruction_change.exit:                    ; preds = %801, %insert_value_
   %829 = call ptr @Ptngc_warnrealloc_x(ptr noundef %826, i64 noundef %828, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %829, ptr %11, align 8
   %.pre1.i668 = load i32, ptr %156, align 8
-  br label %insert_value_in_array.exit671
+  br label %insert_value_in_array.argprom.exit671
 
-insert_value_in_array.exit671:                    ; preds = %.allocate_enough_memory.exit_crit_edge.i669, %823
+insert_value_in_array.argprom.exit671:            ; preds = %.allocate_enough_memory.exit_crit_edge.i669, %823
   %830 = phi i32 [ %821, %.allocate_enough_memory.exit_crit_edge.i669 ], [ %.pre1.i668, %823 ]
   %831 = phi ptr [ %.pre.i670, %.allocate_enough_memory.exit_crit_edge.i669 ], [ %829, %823 ]
   %832 = sext i32 %830 to i64
@@ -1796,8 +1796,8 @@ insert_value_in_array.exit671:                    ; preds = %.allocate_enough_me
     i32 1, label %.preheader38.i
   ]
 
-.preheader36.i:                                   ; preds = %insert_value_in_array.exit671, %insert_value_in_array.exit.i678
-  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %insert_value_in_array.exit.i678 ], [ 0, %insert_value_in_array.exit671 ]
+.preheader36.i:                                   ; preds = %insert_value_in_array.argprom.exit671, %insert_value_in_array.argprom.exit.i678
+  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %insert_value_in_array.argprom.exit.i678 ], [ 0, %insert_value_in_array.argprom.exit671 ]
   %836 = getelementptr inbounds [3072 x i32], ptr %162, i64 0, i64 %indvars.iv46.i
   %837 = load i32, ptr %836, align 4
   %838 = load i32, ptr %167, align 8
@@ -1809,7 +1809,7 @@ insert_value_in_array.exit671:                    ; preds = %.allocate_enough_me
 
 .allocate_enough_memory.exit_crit_edge.i.i679:    ; preds = %.preheader36.i
   %.pre.i.i680 = load ptr, ptr %166, align 8
-  br label %insert_value_in_array.exit.i678
+  br label %insert_value_in_array.argprom.exit.i678
 
 841:                                              ; preds = %.preheader36.i
   %842 = sdiv i32 %839, 2
@@ -1821,9 +1821,9 @@ insert_value_in_array.exit671:                    ; preds = %.allocate_enough_me
   %847 = call ptr @Ptngc_warnrealloc_x(ptr noundef %844, i64 noundef %846, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %847, ptr %166, align 8
   %.pre1.i.i677 = load i32, ptr %167, align 8
-  br label %insert_value_in_array.exit.i678
+  br label %insert_value_in_array.argprom.exit.i678
 
-insert_value_in_array.exit.i678:                  ; preds = %841, %.allocate_enough_memory.exit_crit_edge.i.i679
+insert_value_in_array.argprom.exit.i678:          ; preds = %841, %.allocate_enough_memory.exit_crit_edge.i.i679
   %848 = phi i32 [ %839, %.allocate_enough_memory.exit_crit_edge.i.i679 ], [ %.pre1.i.i677, %841 ]
   %849 = phi ptr [ %.pre.i.i680, %.allocate_enough_memory.exit_crit_edge.i.i679 ], [ %847, %841 ]
   %850 = sext i32 %848 to i64
@@ -1834,8 +1834,8 @@ insert_value_in_array.exit.i678:                  ; preds = %841, %.allocate_eno
   %exitcond49.not.i = icmp eq i64 %indvars.iv.next47.i, 3
   br i1 %exitcond49.not.i, label %write_three_large.exit, label %.preheader36.i, !llvm.loop !30
 
-.preheader38.i:                                   ; preds = %insert_value_in_array.exit671, %insert_value_in_array.exit30.i
-  %indvars.iv.i672 = phi i64 [ %indvars.iv.next.i673, %insert_value_in_array.exit30.i ], [ 0, %insert_value_in_array.exit671 ]
+.preheader38.i:                                   ; preds = %insert_value_in_array.argprom.exit671, %insert_value_in_array.argprom.exit30.i
+  %indvars.iv.i672 = phi i64 [ %indvars.iv.next.i673, %insert_value_in_array.argprom.exit30.i ], [ 0, %insert_value_in_array.argprom.exit671 ]
   %853 = getelementptr inbounds [3072 x i32], ptr %162, i64 0, i64 %indvars.iv.i672
   %854 = load i32, ptr %853, align 4
   %855 = load i32, ptr %164, align 8
@@ -1847,7 +1847,7 @@ insert_value_in_array.exit.i678:                  ; preds = %841, %.allocate_eno
 
 .allocate_enough_memory.exit_crit_edge.i28.i:     ; preds = %.preheader38.i
   %.pre.i29.i = load ptr, ptr %163, align 8
-  br label %insert_value_in_array.exit30.i
+  br label %insert_value_in_array.argprom.exit30.i
 
 858:                                              ; preds = %.preheader38.i
   %859 = sdiv i32 %856, 2
@@ -1859,9 +1859,9 @@ insert_value_in_array.exit.i678:                  ; preds = %841, %.allocate_eno
   %864 = call ptr @Ptngc_warnrealloc_x(ptr noundef %861, i64 noundef %863, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %864, ptr %163, align 8
   %.pre1.i27.i = load i32, ptr %164, align 8
-  br label %insert_value_in_array.exit30.i
+  br label %insert_value_in_array.argprom.exit30.i
 
-insert_value_in_array.exit30.i:                   ; preds = %858, %.allocate_enough_memory.exit_crit_edge.i28.i
+insert_value_in_array.argprom.exit30.i:           ; preds = %858, %.allocate_enough_memory.exit_crit_edge.i28.i
   %865 = phi i32 [ %856, %.allocate_enough_memory.exit_crit_edge.i28.i ], [ %.pre1.i27.i, %858 ]
   %866 = phi ptr [ %.pre.i29.i, %.allocate_enough_memory.exit_crit_edge.i28.i ], [ %864, %858 ]
   %867 = sext i32 %865 to i64
@@ -1872,8 +1872,8 @@ insert_value_in_array.exit30.i:                   ; preds = %858, %.allocate_eno
   %exitcond.not.i674 = icmp eq i64 %indvars.iv.next.i673, 3
   br i1 %exitcond.not.i674, label %write_three_large.exit, label %.preheader38.i, !llvm.loop !31
 
-.preheader.i681:                                  ; preds = %insert_value_in_array.exit671, %insert_value_in_array.exit35.i
-  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %insert_value_in_array.exit35.i ], [ 0, %insert_value_in_array.exit671 ]
+.preheader.i681:                                  ; preds = %insert_value_in_array.argprom.exit671, %insert_value_in_array.argprom.exit35.i
+  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %insert_value_in_array.argprom.exit35.i ], [ 0, %insert_value_in_array.argprom.exit671 ]
   %870 = getelementptr inbounds [3072 x i32], ptr %162, i64 0, i64 %indvars.iv50.i
   %871 = load i32, ptr %870, align 4
   %872 = load i32, ptr %170, align 8
@@ -1885,7 +1885,7 @@ insert_value_in_array.exit30.i:                   ; preds = %858, %.allocate_eno
 
 .allocate_enough_memory.exit_crit_edge.i33.i:     ; preds = %.preheader.i681
   %.pre.i34.i = load ptr, ptr %169, align 8
-  br label %insert_value_in_array.exit35.i
+  br label %insert_value_in_array.argprom.exit35.i
 
 875:                                              ; preds = %.preheader.i681
   %876 = sdiv i32 %873, 2
@@ -1897,9 +1897,9 @@ insert_value_in_array.exit30.i:                   ; preds = %858, %.allocate_eno
   %881 = call ptr @Ptngc_warnrealloc_x(ptr noundef %878, i64 noundef %880, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %881, ptr %169, align 8
   %.pre1.i32.i = load i32, ptr %170, align 8
-  br label %insert_value_in_array.exit35.i
+  br label %insert_value_in_array.argprom.exit35.i
 
-insert_value_in_array.exit35.i:                   ; preds = %875, %.allocate_enough_memory.exit_crit_edge.i33.i
+insert_value_in_array.argprom.exit35.i:           ; preds = %875, %.allocate_enough_memory.exit_crit_edge.i33.i
   %882 = phi i32 [ %873, %.allocate_enough_memory.exit_crit_edge.i33.i ], [ %.pre1.i32.i, %875 ]
   %883 = phi ptr [ %.pre.i34.i, %.allocate_enough_memory.exit_crit_edge.i33.i ], [ %881, %875 ]
   %884 = sext i32 %882 to i64
@@ -1910,7 +1910,7 @@ insert_value_in_array.exit35.i:                   ; preds = %875, %.allocate_eno
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next51.i, 3
   br i1 %exitcond53.not.i, label %write_three_large.exit, label %.preheader.i681, !llvm.loop !32
 
-write_three_large.exit:                           ; preds = %insert_value_in_array.exit30.i, %insert_value_in_array.exit.i678, %insert_value_in_array.exit35.i
+write_three_large.exit:                           ; preds = %insert_value_in_array.argprom.exit30.i, %insert_value_in_array.argprom.exit.i678, %insert_value_in_array.argprom.exit35.i
   store i32 0, ptr %14, align 8
   br label %903
 
@@ -1924,7 +1924,7 @@ write_three_large.exit:                           ; preds = %insert_value_in_arr
 
 .allocate_enough_memory.exit_crit_edge.i684:      ; preds = %887
   %.pre.i685 = load ptr, ptr %11, align 8
-  br label %insert_value_in_array.exit686
+  br label %insert_value_in_array.argprom.exit686
 
 891:                                              ; preds = %887
   %892 = sdiv i32 %889, 2
@@ -1936,9 +1936,9 @@ write_three_large.exit:                           ; preds = %insert_value_in_arr
   %897 = call ptr @Ptngc_warnrealloc_x(ptr noundef %894, i64 noundef %896, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %897, ptr %11, align 8
   %.pre1.i683 = load i32, ptr %156, align 8
-  br label %insert_value_in_array.exit686
+  br label %insert_value_in_array.argprom.exit686
 
-insert_value_in_array.exit686:                    ; preds = %.allocate_enough_memory.exit_crit_edge.i684, %891
+insert_value_in_array.argprom.exit686:            ; preds = %.allocate_enough_memory.exit_crit_edge.i684, %891
   %898 = phi i32 [ %889, %.allocate_enough_memory.exit_crit_edge.i684 ], [ %.pre1.i683, %891 ]
   %899 = phi ptr [ %.pre.i685, %.allocate_enough_memory.exit_crit_edge.i684 ], [ %897, %891 ]
   %900 = sext i32 %898 to i64
@@ -1947,7 +1947,7 @@ insert_value_in_array.exit686:                    ; preds = %.allocate_enough_me
   store i32 3, ptr %902, align 4
   br label %903
 
-903:                                              ; preds = %insert_value_in_array.exit660, %write_three_large.exit, %insert_value_in_array.exit686
+903:                                              ; preds = %insert_value_in_array.argprom.exit660, %write_three_large.exit, %insert_value_in_array.argprom.exit686
   %904 = mul i32 %.2493, 3
   %905 = icmp sgt i32 %.2493, 0
   br i1 %905, label %.lr.ph983.preheader, label %._crit_edge992
@@ -1957,12 +1957,12 @@ insert_value_in_array.exit686:                    ; preds = %.allocate_enough_me
   %wide.trip.count1103 = zext nneg i32 %smax1102 to i64
   br label %.lr.ph983
 
-.lr.ph991.preheader:                              ; preds = %insert_value_in_array.exit691
+.lr.ph991.preheader:                              ; preds = %insert_value_in_array.argprom.exit691
   %wide.trip.count1108 = zext nneg i32 %.2493 to i64
   br label %.lr.ph991
 
-.lr.ph983:                                        ; preds = %.lr.ph983.preheader, %insert_value_in_array.exit691
-  %indvars.iv1099 = phi i64 [ 0, %.lr.ph983.preheader ], [ %indvars.iv.next1100, %insert_value_in_array.exit691 ]
+.lr.ph983:                                        ; preds = %.lr.ph983.preheader, %insert_value_in_array.argprom.exit691
+  %indvars.iv1099 = phi i64 [ 0, %.lr.ph983.preheader ], [ %indvars.iv.next1100, %insert_value_in_array.argprom.exit691 ]
   %906 = getelementptr inbounds [39 x i32], ptr %8, i64 0, i64 %indvars.iv1099
   %907 = load i32, ptr %906, align 4
   %908 = load i32, ptr %173, align 8
@@ -1974,7 +1974,7 @@ insert_value_in_array.exit686:                    ; preds = %.allocate_enough_me
 
 .allocate_enough_memory.exit_crit_edge.i689:      ; preds = %.lr.ph983
   %.pre.i690 = load ptr, ptr %172, align 8
-  br label %insert_value_in_array.exit691
+  br label %insert_value_in_array.argprom.exit691
 
 911:                                              ; preds = %.lr.ph983
   %912 = sdiv i32 %909, 2
@@ -1986,9 +1986,9 @@ insert_value_in_array.exit686:                    ; preds = %.allocate_enough_me
   %917 = call ptr @Ptngc_warnrealloc_x(ptr noundef %914, i64 noundef %916, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %917, ptr %172, align 8
   %.pre1.i688 = load i32, ptr %173, align 8
-  br label %insert_value_in_array.exit691
+  br label %insert_value_in_array.argprom.exit691
 
-insert_value_in_array.exit691:                    ; preds = %.allocate_enough_memory.exit_crit_edge.i689, %911
+insert_value_in_array.argprom.exit691:            ; preds = %.allocate_enough_memory.exit_crit_edge.i689, %911
   %918 = phi i32 [ %909, %.allocate_enough_memory.exit_crit_edge.i689 ], [ %.pre1.i688, %911 ]
   %919 = phi ptr [ %.pre.i690, %.allocate_enough_memory.exit_crit_edge.i689 ], [ %917, %911 ]
   %920 = sext i32 %918 to i64
@@ -3296,7 +3296,7 @@ define internal fastcc void @flush_large(ptr noundef nonnull %0, i32 noundef %1)
 
 .allocate_enough_memory.exit_crit_edge.i.i:       ; preds = %26
   %.pre.i.i = load ptr, ptr %0, align 8
-  br label %insert_value_in_array.exit.i
+  br label %insert_value_in_array.argprom.exit.i
 
 30:                                               ; preds = %26
   %31 = sdiv i32 %28, 2
@@ -3308,9 +3308,9 @@ define internal fastcc void @flush_large(ptr noundef nonnull %0, i32 noundef %1)
   %36 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %33, i64 noundef %35, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %36, ptr %0, align 8
   %.pre1.i.i = load i32, ptr %6, align 4
-  br label %insert_value_in_array.exit.i
+  br label %insert_value_in_array.argprom.exit.i
 
-insert_value_in_array.exit.i:                     ; preds = %30, %.allocate_enough_memory.exit_crit_edge.i.i
+insert_value_in_array.argprom.exit.i:             ; preds = %30, %.allocate_enough_memory.exit_crit_edge.i.i
   %37 = phi i32 [ %28, %.allocate_enough_memory.exit_crit_edge.i.i ], [ %.pre1.i.i, %30 ]
   %38 = phi ptr [ %.pre.i.i, %.allocate_enough_memory.exit_crit_edge.i.i ], [ %36, %30 ]
   %39 = sext i32 %37 to i64
@@ -3319,7 +3319,7 @@ insert_value_in_array.exit.i:                     ; preds = %30, %.allocate_enou
   store i32 %switch.select13.i, ptr %41, align 4
   br label %large_instruction_change.exit
 
-large_instruction_change.exit:                    ; preds = %21, %insert_value_in_array.exit.i
+large_instruction_change.exit:                    ; preds = %21, %insert_value_in_array.argprom.exit.i
   %42 = icmp slt i32 %.061124, %1
   br i1 %42, label %.lr.ph, label %.loopexit114
 
@@ -3372,7 +3372,7 @@ large_instruction_change.exit:                    ; preds = %21, %insert_value_i
 
 .allocate_enough_memory.exit_crit_edge.i:         ; preds = %.lr.ph123
   %.pre.i = load ptr, ptr %0, align 8
-  br label %insert_value_in_array.exit
+  br label %insert_value_in_array.argprom.exit
 
 56:                                               ; preds = %.lr.ph123
   %57 = sdiv i32 %54, 2
@@ -3384,9 +3384,9 @@ large_instruction_change.exit:                    ; preds = %21, %insert_value_i
   %62 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %59, i64 noundef %61, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %62, ptr %0, align 8
   %.pre1.i = load i32, ptr %6, align 4
-  br label %insert_value_in_array.exit
+  br label %insert_value_in_array.argprom.exit
 
-insert_value_in_array.exit:                       ; preds = %.allocate_enough_memory.exit_crit_edge.i, %56
+insert_value_in_array.argprom.exit:               ; preds = %.allocate_enough_memory.exit_crit_edge.i, %56
   %63 = phi i32 [ %54, %.allocate_enough_memory.exit_crit_edge.i ], [ %.pre1.i, %56 ]
   %64 = phi ptr [ %.pre.i, %.allocate_enough_memory.exit_crit_edge.i ], [ %62, %56 ]
   %65 = sext i32 %63 to i64
@@ -3401,8 +3401,8 @@ insert_value_in_array.exit:                       ; preds = %.allocate_enough_me
     i32 1, label %.preheader38.i
   ]
 
-.preheader36.i:                                   ; preds = %insert_value_in_array.exit, %insert_value_in_array.exit.i68
-  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %insert_value_in_array.exit.i68 ], [ 0, %insert_value_in_array.exit ]
+.preheader36.i:                                   ; preds = %insert_value_in_array.argprom.exit, %insert_value_in_array.argprom.exit.i68
+  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %insert_value_in_array.argprom.exit.i68 ], [ 0, %insert_value_in_array.argprom.exit ]
   %71 = add nuw nsw i64 %indvars.iv46.i, %70
   %72 = getelementptr inbounds [3072 x i32], ptr %11, i64 0, i64 %71
   %73 = load i32, ptr %72, align 4
@@ -3415,7 +3415,7 @@ insert_value_in_array.exit:                       ; preds = %.allocate_enough_me
 
 .allocate_enough_memory.exit_crit_edge.i.i69:     ; preds = %.preheader36.i
   %.pre.i.i70 = load ptr, ptr %15, align 8
-  br label %insert_value_in_array.exit.i68
+  br label %insert_value_in_array.argprom.exit.i68
 
 77:                                               ; preds = %.preheader36.i
   %78 = sdiv i32 %75, 2
@@ -3427,9 +3427,9 @@ insert_value_in_array.exit:                       ; preds = %.allocate_enough_me
   %83 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %80, i64 noundef %82, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %83, ptr %15, align 8
   %.pre1.i.i67 = load i32, ptr %16, align 4
-  br label %insert_value_in_array.exit.i68
+  br label %insert_value_in_array.argprom.exit.i68
 
-insert_value_in_array.exit.i68:                   ; preds = %77, %.allocate_enough_memory.exit_crit_edge.i.i69
+insert_value_in_array.argprom.exit.i68:           ; preds = %77, %.allocate_enough_memory.exit_crit_edge.i.i69
   %84 = phi i32 [ %75, %.allocate_enough_memory.exit_crit_edge.i.i69 ], [ %.pre1.i.i67, %77 ]
   %85 = phi ptr [ %.pre.i.i70, %.allocate_enough_memory.exit_crit_edge.i.i69 ], [ %83, %77 ]
   %86 = sext i32 %84 to i64
@@ -3440,8 +3440,8 @@ insert_value_in_array.exit.i68:                   ; preds = %77, %.allocate_enou
   %exitcond49.not.i = icmp eq i64 %indvars.iv.next47.i, 3
   br i1 %exitcond49.not.i, label %write_three_large.exit, label %.preheader36.i, !llvm.loop !30
 
-.preheader38.i:                                   ; preds = %insert_value_in_array.exit, %insert_value_in_array.exit30.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %insert_value_in_array.exit30.i ], [ 0, %insert_value_in_array.exit ]
+.preheader38.i:                                   ; preds = %insert_value_in_array.argprom.exit, %insert_value_in_array.argprom.exit30.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %insert_value_in_array.argprom.exit30.i ], [ 0, %insert_value_in_array.argprom.exit ]
   %89 = add nuw nsw i64 %indvars.iv.i, %70
   %90 = getelementptr inbounds [3072 x i32], ptr %11, i64 0, i64 %89
   %91 = load i32, ptr %90, align 4
@@ -3454,7 +3454,7 @@ insert_value_in_array.exit.i68:                   ; preds = %77, %.allocate_enou
 
 .allocate_enough_memory.exit_crit_edge.i28.i:     ; preds = %.preheader38.i
   %.pre.i29.i = load ptr, ptr %12, align 8
-  br label %insert_value_in_array.exit30.i
+  br label %insert_value_in_array.argprom.exit30.i
 
 95:                                               ; preds = %.preheader38.i
   %96 = sdiv i32 %93, 2
@@ -3466,9 +3466,9 @@ insert_value_in_array.exit.i68:                   ; preds = %77, %.allocate_enou
   %101 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %98, i64 noundef %100, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %101, ptr %12, align 8
   %.pre1.i27.i = load i32, ptr %13, align 4
-  br label %insert_value_in_array.exit30.i
+  br label %insert_value_in_array.argprom.exit30.i
 
-insert_value_in_array.exit30.i:                   ; preds = %95, %.allocate_enough_memory.exit_crit_edge.i28.i
+insert_value_in_array.argprom.exit30.i:           ; preds = %95, %.allocate_enough_memory.exit_crit_edge.i28.i
   %102 = phi i32 [ %93, %.allocate_enough_memory.exit_crit_edge.i28.i ], [ %.pre1.i27.i, %95 ]
   %103 = phi ptr [ %.pre.i29.i, %.allocate_enough_memory.exit_crit_edge.i28.i ], [ %101, %95 ]
   %104 = sext i32 %102 to i64
@@ -3479,8 +3479,8 @@ insert_value_in_array.exit30.i:                   ; preds = %95, %.allocate_enou
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %write_three_large.exit, label %.preheader38.i, !llvm.loop !31
 
-.preheader.i:                                     ; preds = %insert_value_in_array.exit, %insert_value_in_array.exit35.i
-  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %insert_value_in_array.exit35.i ], [ 0, %insert_value_in_array.exit ]
+.preheader.i:                                     ; preds = %insert_value_in_array.argprom.exit, %insert_value_in_array.argprom.exit35.i
+  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %insert_value_in_array.argprom.exit35.i ], [ 0, %insert_value_in_array.argprom.exit ]
   %107 = add nuw nsw i64 %indvars.iv50.i, %70
   %108 = getelementptr inbounds [3072 x i32], ptr %11, i64 0, i64 %107
   %109 = load i32, ptr %108, align 4
@@ -3493,7 +3493,7 @@ insert_value_in_array.exit30.i:                   ; preds = %95, %.allocate_enou
 
 .allocate_enough_memory.exit_crit_edge.i33.i:     ; preds = %.preheader.i
   %.pre.i34.i = load ptr, ptr %18, align 8
-  br label %insert_value_in_array.exit35.i
+  br label %insert_value_in_array.argprom.exit35.i
 
 113:                                              ; preds = %.preheader.i
   %114 = sdiv i32 %111, 2
@@ -3505,9 +3505,9 @@ insert_value_in_array.exit30.i:                   ; preds = %95, %.allocate_enou
   %119 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %116, i64 noundef %118, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %119, ptr %18, align 8
   %.pre1.i32.i = load i32, ptr %19, align 4
-  br label %insert_value_in_array.exit35.i
+  br label %insert_value_in_array.argprom.exit35.i
 
-insert_value_in_array.exit35.i:                   ; preds = %113, %.allocate_enough_memory.exit_crit_edge.i33.i
+insert_value_in_array.argprom.exit35.i:           ; preds = %113, %.allocate_enough_memory.exit_crit_edge.i33.i
   %120 = phi i32 [ %111, %.allocate_enough_memory.exit_crit_edge.i33.i ], [ %.pre1.i32.i, %113 ]
   %121 = phi ptr [ %.pre.i34.i, %.allocate_enough_memory.exit_crit_edge.i33.i ], [ %119, %113 ]
   %122 = sext i32 %120 to i64
@@ -3518,7 +3518,7 @@ insert_value_in_array.exit35.i:                   ; preds = %113, %.allocate_eno
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next51.i, 3
   br i1 %exitcond53.not.i, label %write_three_large.exit, label %.preheader.i, !llvm.loop !32
 
-write_three_large.exit:                           ; preds = %insert_value_in_array.exit30.i, %insert_value_in_array.exit.i68, %insert_value_in_array.exit35.i
+write_three_large.exit:                           ; preds = %insert_value_in_array.argprom.exit30.i, %insert_value_in_array.argprom.exit.i68, %insert_value_in_array.argprom.exit35.i
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
   br i1 %exitcond145.not, label %.loopexit114, label %.lr.ph123, !llvm.loop !38
@@ -3533,7 +3533,7 @@ write_three_large.exit:                           ; preds = %insert_value_in_arr
 
 .allocate_enough_memory.exit_crit_edge.i73:       ; preds = %125
   %.pre.i74 = load ptr, ptr %0, align 8
-  br label %insert_value_in_array.exit75
+  br label %insert_value_in_array.argprom.exit75
 
 129:                                              ; preds = %125
   %130 = sdiv i32 %127, 2
@@ -3545,9 +3545,9 @@ write_three_large.exit:                           ; preds = %insert_value_in_arr
   %135 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %132, i64 noundef %134, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %135, ptr %0, align 8
   %.pre1.i72 = load i32, ptr %6, align 4
-  br label %insert_value_in_array.exit75
+  br label %insert_value_in_array.argprom.exit75
 
-insert_value_in_array.exit75:                     ; preds = %.allocate_enough_memory.exit_crit_edge.i73, %129
+insert_value_in_array.argprom.exit75:             ; preds = %.allocate_enough_memory.exit_crit_edge.i73, %129
   %136 = phi i32 [ %127, %.allocate_enough_memory.exit_crit_edge.i73 ], [ %.pre1.i72, %129 ]
   %137 = phi ptr [ %.pre.i74, %.allocate_enough_memory.exit_crit_edge.i73 ], [ %135, %129 ]
   %138 = sext i32 %136 to i64
@@ -3561,11 +3561,11 @@ insert_value_in_array.exit75:                     ; preds = %.allocate_enough_me
   %.not.i.i76 = icmp slt i32 %141, %143
   br i1 %.not.i.i76, label %.allocate_enough_memory.exit_crit_edge.i78, label %144
 
-.allocate_enough_memory.exit_crit_edge.i78:       ; preds = %insert_value_in_array.exit75
+.allocate_enough_memory.exit_crit_edge.i78:       ; preds = %insert_value_in_array.argprom.exit75
   %.pre.i79 = load ptr, ptr %8, align 8
-  br label %insert_value_in_array.exit80
+  br label %insert_value_in_array.argprom.exit80
 
-144:                                              ; preds = %insert_value_in_array.exit75
+144:                                              ; preds = %insert_value_in_array.argprom.exit75
   %145 = sdiv i32 %142, 2
   %146 = add nsw i32 %145, %142
   store i32 %146, ptr %10, align 4
@@ -3575,9 +3575,9 @@ insert_value_in_array.exit75:                     ; preds = %.allocate_enough_me
   %150 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %147, i64 noundef %149, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %150, ptr %8, align 8
   %.pre1.i77 = load i32, ptr %9, align 4
-  br label %insert_value_in_array.exit80
+  br label %insert_value_in_array.argprom.exit80
 
-insert_value_in_array.exit80:                     ; preds = %.allocate_enough_memory.exit_crit_edge.i78, %144
+insert_value_in_array.argprom.exit80:             ; preds = %.allocate_enough_memory.exit_crit_edge.i78, %144
   %151 = phi i32 [ %142, %.allocate_enough_memory.exit_crit_edge.i78 ], [ %.pre1.i77, %144 ]
   %152 = phi ptr [ %.pre.i79, %.allocate_enough_memory.exit_crit_edge.i78 ], [ %150, %144 ]
   %153 = sext i32 %151 to i64
@@ -3587,8 +3587,8 @@ insert_value_in_array.exit80:                     ; preds = %.allocate_enough_me
   %wide.trip.count139 = zext i32 %.060.lcssa to i64
   br label %156
 
-156:                                              ; preds = %insert_value_in_array.exit80, %write_three_large.exit108
-  %indvars.iv136 = phi i64 [ 0, %insert_value_in_array.exit80 ], [ %indvars.iv.next137, %write_three_large.exit108 ]
+156:                                              ; preds = %insert_value_in_array.argprom.exit80, %write_three_large.exit108
+  %indvars.iv136 = phi i64 [ 0, %insert_value_in_array.argprom.exit80 ], [ %indvars.iv.next137, %write_three_large.exit108 ]
   %157 = add nuw nsw i64 %indvars.iv136, %22
   %158 = load i32, ptr %5, align 4
   %159 = mul nuw nsw i64 %157, 3
@@ -3597,8 +3597,8 @@ insert_value_in_array.exit80:                     ; preds = %.allocate_enough_me
     i32 1, label %.preheader38.i81
   ]
 
-.preheader36.i90:                                 ; preds = %156, %insert_value_in_array.exit.i94
-  %indvars.iv46.i91 = phi i64 [ %indvars.iv.next47.i95, %insert_value_in_array.exit.i94 ], [ 0, %156 ]
+.preheader36.i90:                                 ; preds = %156, %insert_value_in_array.argprom.exit.i94
+  %indvars.iv46.i91 = phi i64 [ %indvars.iv.next47.i95, %insert_value_in_array.argprom.exit.i94 ], [ 0, %156 ]
   %160 = add nuw nsw i64 %indvars.iv46.i91, %159
   %161 = getelementptr inbounds [3072 x i32], ptr %11, i64 0, i64 %160
   %162 = load i32, ptr %161, align 4
@@ -3611,7 +3611,7 @@ insert_value_in_array.exit80:                     ; preds = %.allocate_enough_me
 
 .allocate_enough_memory.exit_crit_edge.i.i97:     ; preds = %.preheader36.i90
   %.pre.i.i98 = load ptr, ptr %15, align 8
-  br label %insert_value_in_array.exit.i94
+  br label %insert_value_in_array.argprom.exit.i94
 
 166:                                              ; preds = %.preheader36.i90
   %167 = sdiv i32 %164, 2
@@ -3623,9 +3623,9 @@ insert_value_in_array.exit80:                     ; preds = %.allocate_enough_me
   %172 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %169, i64 noundef %171, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %172, ptr %15, align 8
   %.pre1.i.i93 = load i32, ptr %16, align 4
-  br label %insert_value_in_array.exit.i94
+  br label %insert_value_in_array.argprom.exit.i94
 
-insert_value_in_array.exit.i94:                   ; preds = %166, %.allocate_enough_memory.exit_crit_edge.i.i97
+insert_value_in_array.argprom.exit.i94:           ; preds = %166, %.allocate_enough_memory.exit_crit_edge.i.i97
   %173 = phi i32 [ %164, %.allocate_enough_memory.exit_crit_edge.i.i97 ], [ %.pre1.i.i93, %166 ]
   %174 = phi ptr [ %.pre.i.i98, %.allocate_enough_memory.exit_crit_edge.i.i97 ], [ %172, %166 ]
   %175 = sext i32 %173 to i64
@@ -3636,8 +3636,8 @@ insert_value_in_array.exit.i94:                   ; preds = %166, %.allocate_eno
   %exitcond49.not.i96 = icmp eq i64 %indvars.iv.next47.i95, 3
   br i1 %exitcond49.not.i96, label %write_three_large.exit108, label %.preheader36.i90, !llvm.loop !30
 
-.preheader38.i81:                                 ; preds = %156, %insert_value_in_array.exit30.i85
-  %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i86, %insert_value_in_array.exit30.i85 ], [ 0, %156 ]
+.preheader38.i81:                                 ; preds = %156, %insert_value_in_array.argprom.exit30.i85
+  %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i86, %insert_value_in_array.argprom.exit30.i85 ], [ 0, %156 ]
   %178 = add nuw nsw i64 %indvars.iv.i82, %159
   %179 = getelementptr inbounds [3072 x i32], ptr %11, i64 0, i64 %178
   %180 = load i32, ptr %179, align 4
@@ -3650,7 +3650,7 @@ insert_value_in_array.exit.i94:                   ; preds = %166, %.allocate_eno
 
 .allocate_enough_memory.exit_crit_edge.i28.i88:   ; preds = %.preheader38.i81
   %.pre.i29.i89 = load ptr, ptr %12, align 8
-  br label %insert_value_in_array.exit30.i85
+  br label %insert_value_in_array.argprom.exit30.i85
 
 184:                                              ; preds = %.preheader38.i81
   %185 = sdiv i32 %182, 2
@@ -3662,9 +3662,9 @@ insert_value_in_array.exit.i94:                   ; preds = %166, %.allocate_eno
   %190 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %187, i64 noundef %189, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %190, ptr %12, align 8
   %.pre1.i27.i84 = load i32, ptr %13, align 4
-  br label %insert_value_in_array.exit30.i85
+  br label %insert_value_in_array.argprom.exit30.i85
 
-insert_value_in_array.exit30.i85:                 ; preds = %184, %.allocate_enough_memory.exit_crit_edge.i28.i88
+insert_value_in_array.argprom.exit30.i85:         ; preds = %184, %.allocate_enough_memory.exit_crit_edge.i28.i88
   %191 = phi i32 [ %182, %.allocate_enough_memory.exit_crit_edge.i28.i88 ], [ %.pre1.i27.i84, %184 ]
   %192 = phi ptr [ %.pre.i29.i89, %.allocate_enough_memory.exit_crit_edge.i28.i88 ], [ %190, %184 ]
   %193 = sext i32 %191 to i64
@@ -3675,8 +3675,8 @@ insert_value_in_array.exit30.i85:                 ; preds = %184, %.allocate_eno
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, 3
   br i1 %exitcond.not.i87, label %write_three_large.exit108, label %.preheader38.i81, !llvm.loop !31
 
-.preheader.i99:                                   ; preds = %156, %insert_value_in_array.exit35.i103
-  %indvars.iv50.i100 = phi i64 [ %indvars.iv.next51.i104, %insert_value_in_array.exit35.i103 ], [ 0, %156 ]
+.preheader.i99:                                   ; preds = %156, %insert_value_in_array.argprom.exit35.i103
+  %indvars.iv50.i100 = phi i64 [ %indvars.iv.next51.i104, %insert_value_in_array.argprom.exit35.i103 ], [ 0, %156 ]
   %196 = add nuw nsw i64 %indvars.iv50.i100, %159
   %197 = getelementptr inbounds [3072 x i32], ptr %11, i64 0, i64 %196
   %198 = load i32, ptr %197, align 4
@@ -3689,7 +3689,7 @@ insert_value_in_array.exit30.i85:                 ; preds = %184, %.allocate_eno
 
 .allocate_enough_memory.exit_crit_edge.i33.i106:  ; preds = %.preheader.i99
   %.pre.i34.i107 = load ptr, ptr %18, align 8
-  br label %insert_value_in_array.exit35.i103
+  br label %insert_value_in_array.argprom.exit35.i103
 
 202:                                              ; preds = %.preheader.i99
   %203 = sdiv i32 %200, 2
@@ -3701,9 +3701,9 @@ insert_value_in_array.exit30.i85:                 ; preds = %184, %.allocate_eno
   %208 = tail call ptr @Ptngc_warnrealloc_x(ptr noundef %205, i64 noundef %207, ptr noundef nonnull @.str, i32 noundef 234) #12
   store ptr %208, ptr %18, align 8
   %.pre1.i32.i102 = load i32, ptr %19, align 4
-  br label %insert_value_in_array.exit35.i103
+  br label %insert_value_in_array.argprom.exit35.i103
 
-insert_value_in_array.exit35.i103:                ; preds = %202, %.allocate_enough_memory.exit_crit_edge.i33.i106
+insert_value_in_array.argprom.exit35.i103:        ; preds = %202, %.allocate_enough_memory.exit_crit_edge.i33.i106
   %209 = phi i32 [ %200, %.allocate_enough_memory.exit_crit_edge.i33.i106 ], [ %.pre1.i32.i102, %202 ]
   %210 = phi ptr [ %.pre.i34.i107, %.allocate_enough_memory.exit_crit_edge.i33.i106 ], [ %208, %202 ]
   %211 = sext i32 %209 to i64
@@ -3714,7 +3714,7 @@ insert_value_in_array.exit35.i103:                ; preds = %202, %.allocate_eno
   %exitcond53.not.i105 = icmp eq i64 %indvars.iv.next51.i104, 3
   br i1 %exitcond53.not.i105, label %write_three_large.exit108, label %.preheader.i99, !llvm.loop !32
 
-write_three_large.exit108:                        ; preds = %insert_value_in_array.exit30.i85, %insert_value_in_array.exit.i94, %insert_value_in_array.exit35.i103
+write_three_large.exit108:                        ; preds = %insert_value_in_array.argprom.exit30.i85, %insert_value_in_array.argprom.exit.i94, %insert_value_in_array.argprom.exit35.i103
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
   br i1 %exitcond140.not, label %.loopexit114, label %156, !llvm.loop !39

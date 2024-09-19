@@ -148,7 +148,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandReadPla(ptr nocapture noundef %0
   %27 = tail call ptr @Pla_ReadPla(ptr noundef %15) #8
   %28 = getelementptr i8, ptr %0, i64 544
   %.val.i = load ptr, ptr %28, align 8
-  tail call fastcc void @Pla_AbcFreeMan(ptr %.val.i)
+  tail call fastcc void @Pla_AbcFreeMan.argprom(ptr %.val.i)
   store ptr %27, ptr %28, align 8
   br label %32
 
@@ -618,7 +618,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr nocapture noundef %0, i3
   %.054 = phi ptr [ null, %49 ], [ %52, %51 ], [ %57, %._crit_edge ]
   %59 = getelementptr i8, ptr %0, i64 544
   %.val.i = load ptr, ptr %59, align 8
-  tail call fastcc void @Pla_AbcFreeMan(ptr %.val.i)
+  tail call fastcc void @Pla_AbcFreeMan.argprom(ptr %.val.i)
   store ptr %.054, ptr %59, align 8
   br label %63
 
@@ -766,12 +766,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandTest(ptr nocapture readnone %0, 
 define void @Pla_End(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 544
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @Pla_AbcFreeMan(ptr %.val)
+  tail call fastcc void @Pla_AbcFreeMan.argprom(ptr %.val)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Pla_AbcFreeMan(ptr %.544.val) unnamed_addr #0 {
+define internal fastcc void @Pla_AbcFreeMan.argprom(ptr %.544.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.544.val, null
   br i1 %.not, label %73, label %1
 
@@ -978,7 +978,7 @@ Pla_ManFree.exit:                                 ; preds = %69, %72
 define void @Pla_SetMan(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 544
   %.val.i = load ptr, ptr %3, align 8
-  tail call fastcc void @Pla_AbcFreeMan(ptr %.val.i)
+  tail call fastcc void @Pla_AbcFreeMan.argprom(ptr %.val.i)
   store ptr %1, ptr %3, align 8
   ret void
 }

@@ -4148,12 +4148,12 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %28 = getelementptr inbounds i8, ptr %0, i64 164
   %29 = load i8, ptr %28, align 4
   %30 = trunc i8 %29 to i1
-  br i1 %30, label %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.exit.thread", label %33
+  br i1 %30, label %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.argprom.exit.thread", label %33
 
-"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.exit.thread": ; preds = %27
+"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.argprom.exit.thread": ; preds = %27
   %31 = add nsw i32 %4, %2
   %32 = add nsw i32 %31, -1
-  br label %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.exit177"
+  br label %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.argprom.exit177"
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds i8, ptr %0, i64 44
@@ -4162,18 +4162,18 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %37 = add i32 %35, %36
   %38 = add nsw i32 %4, %2
   %39 = sub i32 %35, %38
-  br label %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.exit177"
+  br label %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.argprom.exit177"
 
-"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.exit177": ; preds = %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.exit.thread", %33
-  %40 = phi i32 [ %38, %33 ], [ %31, %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.exit.thread" ]
-  %.in = phi i32 [ %37, %33 ], [ %2, %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.exit.thread" ]
-  %41 = phi i32 [ %39, %33 ], [ %32, %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.exit.thread" ]
+"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.argprom.exit177": ; preds = %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.argprom.exit.thread", %33
+  %40 = phi i32 [ %38, %33 ], [ %31, %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.argprom.exit.thread" ]
+  %.in = phi i32 [ %37, %33 ], [ %2, %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.argprom.exit.thread" ]
+  %41 = phi i32 [ %39, %33 ], [ %32, %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.argprom.exit.thread" ]
   %42 = sdiv i32 %.in, 256
   %43 = sdiv i32 %41, 256
   %44 = icmp eq i32 %42, %43
   br i1 %44, label %45, label %281
 
-45:                                               ; preds = %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.exit177"
+45:                                               ; preds = %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.argprom.exit177"
   %46 = getelementptr inbounds i8, ptr %0, i64 328
   %47 = load i8, ptr %46, align 8
   %48 = trunc i8 %47 to i1
@@ -4568,7 +4568,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %exitcond248.not = icmp eq i32 %280, %4
   br i1 %exitcond248.not, label %.loopexit, label %.lr.ph.us210, !llvm.loop !27
 
-281:                                              ; preds = %56, %55, %68, %62, %49, %45, %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.exit177", %20, %9
+281:                                              ; preds = %56, %55, %68, %62, %49, %45, %"_ZZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRbENK3$_0clEi.argprom.exit177", %20, %9
   %282 = add nsw i32 %4, %2
   %283 = icmp sgt i32 %4, 0
   br i1 %283, label %.preheader178.lr.ph, label %.loopexit
@@ -17127,31 +17127,31 @@ _ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29: ; preds = %_ZN5
   %.val.i = load ptr, ptr %1, align 8
   %.val119.i = load ptr, ptr %6, align 8
   %.not46.i.i = icmp eq ptr %.val.i, %.val119.i
-  br i1 %.not46.i.i, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i, label %.lr.ph.i.i
+  br i1 %.not46.i.i, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.thread.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %188, %197
   %.sroa.01.07.i.i = phi ptr [ %198, %197 ], [ %.val.i, %188 ]
   %195 = load ptr, ptr %.sroa.01.07.i.i, align 8
   %196 = tail call noundef ptr @_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd(ptr noundef nonnull align 8 dereferenceable(96) %195, double noundef %191, double noundef %194)
   %.not.i.i = icmp eq ptr %196, null
-  br i1 %.not.i.i, label %197, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.i
+  br i1 %.not.i.i, label %197, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.i
 
 197:                                              ; preds = %.lr.ph.i.i
   %198 = getelementptr inbounds i8, ptr %.sroa.01.07.i.i, i64 8
   %.not4.i.i = icmp eq ptr %198, %.val119.i
-  br i1 %.not4.i.i, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i, label %.lr.ph.i.i
+  br i1 %.not4.i.i, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.thread.i, label %.lr.ph.i.i
 
-_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.i: ; preds = %.lr.ph.i.i
+_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.i: ; preds = %.lr.ph.i.i
   %199 = load ptr, ptr %.sroa.01.07.i.i, align 8
   %200 = icmp eq ptr %196, %.0.i18
-  br i1 %200, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i, label %201
+  br i1 %200, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.thread.i, label %201
 
-201:                                              ; preds = %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.i
+201:                                              ; preds = %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.i
   %202 = load ptr, ptr %196, align 8
   %203 = getelementptr inbounds i8, ptr %202, i64 24
   %204 = load ptr, ptr %203, align 8
   %205 = tail call noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(120) %196)
-  br i1 %205, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i, label %206
+  br i1 %205, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.thread.i, label %206
 
 206:                                              ; preds = %201
   %207 = getelementptr inbounds i8, ptr %.0.i18, i64 8
@@ -17219,27 +17219,27 @@ _ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSet
   %243 = fmul double %.sroa.5.0.i, %.sroa.5.0.i
   %244 = tail call double @llvm.fmuladd.f64(double %.sroa.032.0.i, double %.sroa.032.0.i, double %243)
   %245 = fcmp ogt double %244, 0x3AF357C299A88EA7
-  br i1 %245, label %178, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.i, !llvm.loop !129
+  br i1 %245, label %178, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.i, !llvm.loop !129
 
 .critedge.i:                                      ; preds = %240
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.104)
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %0, i32 noundef 2052)
   br label %.loopexit51.sink.split
 
-_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.i: ; preds = %242
-  br i1 %187, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i, label %246
+_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.i: ; preds = %242
+  br i1 %187, label %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.thread.i, label %246
 
-_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i: ; preds = %201, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.i, %188, %197, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.i
-  %.sroa.17.1.ph143.i = phi double [ %.sroa.17.2.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.i ], [ %.sroa.17.0.i, %197 ], [ %.sroa.17.0.i, %188 ], [ %.sroa.17.0.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.i ], [ %.sroa.17.0.i, %201 ]
-  %.sroa.058.1.ph141.i = phi double [ %.sroa.058.2.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.i ], [ %.sroa.058.0.i, %197 ], [ %.sroa.058.0.i, %188 ], [ %.sroa.058.0.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.i ], [ %.sroa.058.0.i, %201 ]
-  %.1108.ph139.i = phi ptr [ %.2.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.i ], [ %.0107.i, %197 ], [ %.0107.i, %188 ], [ %.0107.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.i ], [ %.0107.i, %201 ]
+_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.thread.i: ; preds = %201, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.i, %188, %197, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.i
+  %.sroa.17.1.ph143.i = phi double [ %.sroa.17.2.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.i ], [ %.sroa.17.0.i, %197 ], [ %.sroa.17.0.i, %188 ], [ %.sroa.17.0.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.i ], [ %.sroa.17.0.i, %201 ]
+  %.sroa.058.1.ph141.i = phi double [ %.sroa.058.2.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.i ], [ %.sroa.058.0.i, %197 ], [ %.sroa.058.0.i, %188 ], [ %.sroa.058.0.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.i ], [ %.sroa.058.0.i, %201 ]
+  %.1108.ph139.i = phi ptr [ %.2.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.i ], [ %.0107.i, %197 ], [ %.0107.i, %188 ], [ %.0107.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.i ], [ %.0107.i, %201 ]
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.105)
   br label %246
 
-246:                                              ; preds = %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.i
-  %.sroa.17.1.ph142.i = phi double [ %.sroa.17.1.ph143.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i ], [ %.sroa.17.2.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.i ]
-  %.sroa.058.1.ph140.i = phi double [ %.sroa.058.1.ph141.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i ], [ %.sroa.058.2.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.i ]
-  %.1108.ph138.i = phi ptr [ %.1108.ph139.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.thread.i ], [ %.2.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.thread.i ]
+246:                                              ; preds = %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.thread.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.i
+  %.sroa.17.1.ph142.i = phi double [ %.sroa.17.1.ph143.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.thread.i ], [ %.sroa.17.2.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.i ]
+  %.sroa.058.1.ph140.i = phi double [ %.sroa.058.1.ph141.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.thread.i ], [ %.sroa.058.2.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.i ]
+  %.1108.ph138.i = phi ptr [ %.1108.ph139.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.thread.i ], [ %.2.i, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.argprom.exit.thread.i ]
   %247 = getelementptr inbounds i8, ptr %.1108.ph138.i, i64 8
   %248 = load double, ptr %247, align 8
   %249 = fadd double %.sroa.058.1.ph140.i, %248

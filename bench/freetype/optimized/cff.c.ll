@@ -1565,14 +1565,14 @@ define internal i32 @cff_size_init(ptr nocapture noundef %0) #4 {
   %7 = icmp ne ptr %6, null
   %8 = icmp ne ptr %.val.val.val46, null
   %or.cond.i = select i1 %7, i1 %8, i1 false
-  br i1 %or.cond.i, label %9, label %cff_size_get_globals_funcs.exit.thread
+  br i1 %or.cond.i, label %9, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %.val.val.val46, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %cff_size_get_globals_funcs.exit.thread, label %cff_size_get_globals_funcs.exit
+  br i1 %.not.i, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit
 
-cff_size_get_globals_funcs.exit:                  ; preds = %9
+cff_size_get_globals_funcs.argprom.argprom.argprom.exit: ; preds = %9
   %11 = tail call ptr %10(ptr noundef nonnull %6) #19
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 184
@@ -1580,9 +1580,9 @@ cff_size_get_globals_funcs.exit:                  ; preds = %9
   %15 = getelementptr inbounds i8, ptr %12, i64 1168
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %cff_size_get_globals_funcs.exit.thread, label %17
+  br i1 %.not, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %17
 
-17:                                               ; preds = %cff_size_get_globals_funcs.exit
+17:                                               ; preds = %cff_size_get_globals_funcs.argprom.argprom.argprom.exit
   %18 = call ptr @ft_mem_alloc(ptr noundef %14, i64 noundef 2056, ptr noundef nonnull %2) #19
   %19 = load i32, ptr %2, align 4
   %.not39 = icmp eq i32 %19, 0
@@ -1628,7 +1628,7 @@ cff_size_get_globals_funcs.exit:                  ; preds = %9
   store ptr %18, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 88
   store i64 4294967295, ptr %41, align 8
-  br label %cff_size_get_globals_funcs.exit.thread
+  br label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread
 
 .thread:                                          ; preds = %31, %17, %20
   %.not44 = icmp eq ptr %18, null
@@ -1664,10 +1664,10 @@ cff_size_get_globals_funcs.exit:                  ; preds = %9
 52:                                               ; preds = %.thread, %._crit_edge
   call void @ft_mem_free(ptr noundef %14, ptr noundef %18) #19
   %.pre = load i32, ptr %2, align 4
-  br label %cff_size_get_globals_funcs.exit.thread
+  br label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread
 
-cff_size_get_globals_funcs.exit.thread:           ; preds = %38, %cff_size_get_globals_funcs.exit, %9, %1, %52
-  %53 = phi i32 [ %.pre, %52 ], [ 0, %1 ], [ 0, %9 ], [ 0, %cff_size_get_globals_funcs.exit ], [ 0, %38 ]
+cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread: ; preds = %38, %cff_size_get_globals_funcs.argprom.argprom.argprom.exit, %9, %1, %52
+  %53 = phi i32 [ %.pre, %52 ], [ 0, %1 ], [ 0, %9 ], [ 0, %cff_size_get_globals_funcs.argprom.argprom.argprom.exit ], [ 0, %38 ]
   ret i32 %53
 }
 
@@ -1692,19 +1692,19 @@ define internal void @cff_size_done(ptr nocapture noundef readonly %0) #4 {
   %13 = icmp ne ptr %12, null
   %14 = icmp ne ptr %.val.val.val21, null
   %or.cond.i = select i1 %13, i1 %14, i1 false
-  br i1 %or.cond.i, label %15, label %cff_size_get_globals_funcs.exit.thread
+  br i1 %or.cond.i, label %15, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %.val.val.val21, align 8
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %cff_size_get_globals_funcs.exit.thread, label %cff_size_get_globals_funcs.exit
+  br i1 %.not.i, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit
 
-cff_size_get_globals_funcs.exit:                  ; preds = %15
+cff_size_get_globals_funcs.argprom.argprom.argprom.exit: ; preds = %15
   %17 = tail call ptr %16(ptr noundef nonnull %12) #19
   %.not19 = icmp eq ptr %17, null
-  br i1 %.not19, label %cff_size_get_globals_funcs.exit.thread, label %18
+  br i1 %.not19, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %18
 
-18:                                               ; preds = %cff_size_get_globals_funcs.exit
+18:                                               ; preds = %cff_size_get_globals_funcs.argprom.argprom.argprom.exit
   %19 = getelementptr inbounds i8, ptr %17, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %9, align 8
@@ -1712,7 +1712,7 @@ cff_size_get_globals_funcs.exit:                  ; preds = %15
   %22 = getelementptr inbounds i8, ptr %6, i64 2864
   %23 = load i32, ptr %22, align 8
   %.not2023 = icmp eq i32 %23, 0
-  br i1 %.not2023, label %cff_size_get_globals_funcs.exit.thread, label %.lr.ph
+  br i1 %.not2023, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
   %24 = getelementptr inbounds i8, ptr %9, i64 8
@@ -1727,13 +1727,13 @@ cff_size_get_globals_funcs.exit:                  ; preds = %15
   %30 = load ptr, ptr %29, align 8
   tail call void %27(ptr noundef %30) #19
   %.not20.wide = icmp eq i64 %28, 0
-  br i1 %.not20.wide, label %cff_size_get_globals_funcs.exit.thread, label %26, !llvm.loop !12
+  br i1 %.not20.wide, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %26, !llvm.loop !12
 
-cff_size_get_globals_funcs.exit.thread:           ; preds = %26, %18, %10, %15, %cff_size_get_globals_funcs.exit
+cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread: ; preds = %26, %18, %10, %15, %cff_size_get_globals_funcs.argprom.argprom.argprom.exit
   tail call void @ft_mem_free(ptr noundef %4, ptr noundef nonnull %9) #19
   br label %31
 
-31:                                               ; preds = %cff_size_get_globals_funcs.exit.thread, %1
+31:                                               ; preds = %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, %1
   ret void
 }
 
@@ -3061,13 +3061,13 @@ define internal i32 @cff_size_request(ptr nocapture noundef %0, ptr noundef %1) 
 16:                                               ; preds = %8
   %17 = load i64, ptr %3, align 8
   %18 = call i32 @cff_size_select(ptr noundef nonnull %0, i64 noundef %17)
-  br label %cff_size_get_globals_funcs.exit.thread
+  br label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread
 
 19:                                               ; preds = %14, %2
   %20 = phi ptr [ %.pre, %14 ], [ %4, %2 ]
   %21 = call i32 @FT_Request_Metrics(ptr noundef %20, ptr noundef %1) #19
   %.not51 = icmp eq i32 %21, 0
-  br i1 %.not51, label %22, label %cff_size_get_globals_funcs.exit.thread
+  br i1 %.not51, label %22, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread
 
 22:                                               ; preds = %19
   %.val = load ptr, ptr %0, align 8
@@ -3080,19 +3080,19 @@ define internal i32 @cff_size_request(ptr nocapture noundef %0, ptr noundef %1) 
   %26 = icmp ne ptr %25, null
   %27 = icmp ne ptr %.val.val.val55, null
   %or.cond.i = select i1 %26, i1 %27, i1 false
-  br i1 %or.cond.i, label %28, label %cff_size_get_globals_funcs.exit.thread
+  br i1 %or.cond.i, label %28, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %.val.val.val55, align 8
   %.not.i = icmp eq ptr %29, null
-  br i1 %.not.i, label %cff_size_get_globals_funcs.exit.thread, label %cff_size_get_globals_funcs.exit
+  br i1 %.not.i, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit
 
-cff_size_get_globals_funcs.exit:                  ; preds = %28
+cff_size_get_globals_funcs.argprom.argprom.argprom.exit: ; preds = %28
   %30 = call ptr %29(ptr noundef nonnull %25) #19
   %.not52 = icmp eq ptr %30, null
-  br i1 %.not52, label %cff_size_get_globals_funcs.exit.thread, label %31
+  br i1 %.not52, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %31
 
-31:                                               ; preds = %cff_size_get_globals_funcs.exit
+31:                                               ; preds = %cff_size_get_globals_funcs.argprom.argprom.argprom.exit
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 1168
   %34 = load ptr, ptr %33, align 8
@@ -3112,7 +3112,7 @@ cff_size_get_globals_funcs.exit:                  ; preds = %28
   %47 = getelementptr inbounds i8, ptr %34, i64 2864
   %48 = load i32, ptr %47, align 8
   %.not5357 = icmp eq i32 %48, 0
-  br i1 %.not5357, label %cff_size_get_globals_funcs.exit.thread, label %.lr.ph
+  br i1 %.not5357, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31
   %49 = getelementptr inbounds i8, ptr %34, i64 2872
@@ -3149,10 +3149,10 @@ cff_size_get_globals_funcs.exit:                  ; preds = %28
   %68 = load ptr, ptr %67, align 8
   call void %66(ptr noundef %68, i64 noundef %.044, i64 noundef %.0, i64 noundef 0, i64 noundef 0) #19
   %.not53.wide = icmp eq i64 %53, 0
-  br i1 %.not53.wide, label %cff_size_get_globals_funcs.exit.thread, label %52, !llvm.loop !18
+  br i1 %.not53.wide, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %52, !llvm.loop !18
 
-cff_size_get_globals_funcs.exit.thread:           ; preds = %65, %31, %22, %28, %19, %cff_size_get_globals_funcs.exit, %16
-  %.045 = phi i32 [ 0, %16 ], [ 0, %cff_size_get_globals_funcs.exit ], [ %21, %19 ], [ 0, %28 ], [ 0, %22 ], [ 0, %31 ], [ 0, %65 ]
+cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread: ; preds = %65, %31, %22, %28, %19, %cff_size_get_globals_funcs.argprom.argprom.argprom.exit, %16
+  %.045 = phi i32 [ 0, %16 ], [ 0, %cff_size_get_globals_funcs.argprom.argprom.argprom.exit ], [ %21, %19 ], [ 0, %28 ], [ 0, %22 ], [ 0, %31 ], [ 0, %65 ]
   ret i32 %.045
 }
 
@@ -3172,19 +3172,19 @@ define internal noundef i32 @cff_size_select(ptr nocapture noundef %0, i64 nound
   %8 = icmp ne ptr %7, null
   %9 = icmp ne ptr %.val.val.val42, null
   %or.cond.i = select i1 %8, i1 %9, i1 false
-  br i1 %or.cond.i, label %10, label %cff_size_get_globals_funcs.exit.thread
+  br i1 %or.cond.i, label %10, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %.val.val.val42, align 8
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %cff_size_get_globals_funcs.exit.thread, label %cff_size_get_globals_funcs.exit
+  br i1 %.not.i, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit
 
-cff_size_get_globals_funcs.exit:                  ; preds = %10
+cff_size_get_globals_funcs.argprom.argprom.argprom.exit: ; preds = %10
   %12 = tail call ptr %11(ptr noundef nonnull %7) #19
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %cff_size_get_globals_funcs.exit.thread, label %13
+  br i1 %.not, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %13
 
-13:                                               ; preds = %cff_size_get_globals_funcs.exit
+13:                                               ; preds = %cff_size_get_globals_funcs.argprom.argprom.argprom.exit
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 1168
   %16 = load ptr, ptr %15, align 8
@@ -3204,7 +3204,7 @@ cff_size_get_globals_funcs.exit:                  ; preds = %10
   %29 = getelementptr inbounds i8, ptr %16, i64 2864
   %30 = load i32, ptr %29, align 8
   %.not4044 = icmp eq i32 %30, 0
-  br i1 %.not4044, label %cff_size_get_globals_funcs.exit.thread, label %.lr.ph
+  br i1 %.not4044, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %31 = getelementptr inbounds i8, ptr %16, i64 2872
@@ -3241,9 +3241,9 @@ cff_size_get_globals_funcs.exit:                  ; preds = %10
   %50 = load ptr, ptr %49, align 8
   tail call void %48(ptr noundef %50, i64 noundef %.035, i64 noundef %.0, i64 noundef 0, i64 noundef 0) #19
   %.not40.wide = icmp eq i64 %35, 0
-  br i1 %.not40.wide, label %cff_size_get_globals_funcs.exit.thread, label %34, !llvm.loop !19
+  br i1 %.not40.wide, label %cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread, label %34, !llvm.loop !19
 
-cff_size_get_globals_funcs.exit.thread:           ; preds = %47, %13, %2, %10, %cff_size_get_globals_funcs.exit
+cff_size_get_globals_funcs.argprom.argprom.argprom.exit.thread: ; preds = %47, %13, %2, %10, %cff_size_get_globals_funcs.argprom.argprom.argprom.exit
   ret i32 0
 }
 
@@ -5078,19 +5078,19 @@ define internal fastcc i32 @cff_parser_run(ptr noundef nonnull %0, ptr noundef %
 69:                                               ; preds = %68, %68, %68
   %70 = load ptr, ptr %4, align 8
   %.val = load ptr, ptr %70, align 8
-  %71 = tail call fastcc i64 @cff_parse_num(ptr noundef nonnull %0, ptr %.val)
+  %71 = tail call fastcc i64 @cff_parse_num.argprom(ptr noundef nonnull %0, ptr %.val)
   br label %78
 
 72:                                               ; preds = %68
   %73 = load ptr, ptr %4, align 8
   %.val166 = load ptr, ptr %73, align 8
-  %74 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr %.val166, i64 noundef 0)
+  %74 = tail call fastcc i64 @do_fixed.argprom(ptr noundef nonnull readonly %0, ptr %.val166, i64 noundef 0)
   br label %78
 
 75:                                               ; preds = %68
   %76 = load ptr, ptr %4, align 8
   %.val167 = load ptr, ptr %76, align 8
-  %77 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr %.val167, i64 noundef 3)
+  %77 = tail call fastcc i64 @do_fixed.argprom(ptr noundef nonnull readonly %0, ptr %.val167, i64 noundef 3)
   br label %78
 
 78:                                               ; preds = %75, %72, %69
@@ -5147,7 +5147,7 @@ define internal fastcc i32 @cff_parser_run(ptr noundef nonnull %0, ptr noundef %
   %.1141184 = phi i32 [ %spec.select164, %.lr.ph188 ], [ %112, %109 ]
   %98 = getelementptr inbounds i8, ptr %.0129187, i64 8
   %.0129.val = load ptr, ptr %.0129187, align 8
-  %99 = tail call fastcc i64 @cff_parse_num(ptr noundef nonnull %0, ptr %.0129.val)
+  %99 = tail call fastcc i64 @cff_parse_num.argprom(ptr noundef nonnull %0, ptr %.0129.val)
   %100 = add i64 %99, %.1137185
   %101 = load i8, ptr %96, align 4
   switch i8 %101, label %108 [
@@ -5207,7 +5207,7 @@ define internal fastcc i32 @cff_parser_run(ptr noundef nonnull %0, ptr noundef %
   %.3143179 = phi i32 [ %spec.select165, %.lr.ph ], [ %130, %123 ]
   %124 = getelementptr inbounds i8, ptr %.0182, i64 8
   %.0.val = load ptr, ptr %.0182, align 8
-  %125 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr %.0.val, i64 noundef 0)
+  %125 = tail call fastcc i64 @do_fixed.argprom(ptr noundef nonnull readonly %0, ptr %.0.val, i64 noundef 0)
   %126 = add i64 %125, %.2138180
   store i64 %126, ptr %.1135181, align 8
   %127 = load i8, ptr %122, align 4
@@ -5256,7 +5256,7 @@ declare hidden void @FT_Stream_ExitFrame(ptr noundef) local_unnamed_addr #8
 declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -140737488355328, 140737488355328) i64 @cff_parse_num(ptr nocapture noundef readonly %0, ptr %.0.val) unnamed_addr #4 {
+define internal fastcc range(i64 -140737488355328, 140737488355328) i64 @cff_parse_num.argprom(ptr nocapture noundef readonly %0, ptr %.0.val) unnamed_addr #4 {
   %2 = load i8, ptr %.0.val, align 1
   switch i8 %2, label %25 [
     i8 30, label %3
@@ -5428,7 +5428,7 @@ define internal range(i32 0, 162) i32 @cff_parse_font_matrix(ptr nocapture nound
 
 23:                                               ; preds = %17
   %24 = call fastcc i64 @cff_parse_real(ptr noundef nonnull %.068.val, ptr noundef %22, i64 noundef 0, ptr noundef nonnull %19)
-  br label %cff_parse_fixed_dynamic.exit
+  br label %cff_parse_fixed_dynamic.argprom.exit
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds i8, ptr %.068.val, i64 1
@@ -5562,35 +5562,35 @@ cff_parse_integer.exit.i:                         ; preds = %79, %71, %43
   %101 = getelementptr inbounds [10 x i64], ptr @power_tens, i64 0, i64 %100
   %102 = load i64, ptr %101, align 8
   %103 = call i64 @FT_DivFix(i64 noundef %.0.i.i, i64 noundef %102) #19
-  br label %cff_parse_fixed_dynamic.exit
+  br label %cff_parse_fixed_dynamic.argprom.exit
 
 104:                                              ; preds = %.split.loop.exit5.i
   store i64 %93, ptr %19, align 8
   %105 = call i64 @FT_DivFix(i64 noundef %.0.i.i, i64 noundef %95) #19
-  br label %cff_parse_fixed_dynamic.exit
+  br label %cff_parse_fixed_dynamic.argprom.exit
 
 cff_parse_integer.exit.thread.i:                  ; preds = %cff_parse_integer.exit.i, %78, %70, %63, %40, %31, %28
   %.0.i2.i = phi i64 [ %.0.i.i, %cff_parse_integer.exit.i ], [ 0, %28 ], [ 0, %40 ], [ 0, %70 ], [ 0, %78 ], [ %65, %63 ], [ %39, %31 ]
   store i64 0, ptr %19, align 8
   %106 = shl nsw i64 %.0.i2.i, 16
-  br label %cff_parse_fixed_dynamic.exit
+  br label %cff_parse_fixed_dynamic.argprom.exit
 
-cff_parse_fixed_dynamic.exit:                     ; preds = %23, %98, %104, %cff_parse_integer.exit.thread.i
+cff_parse_fixed_dynamic.argprom.exit:             ; preds = %23, %98, %104, %cff_parse_integer.exit.thread.i
   %.023.i = phi i64 [ %24, %23 ], [ %103, %98 ], [ %105, %104 ], [ %106, %cff_parse_integer.exit.thread.i ]
   %107 = getelementptr inbounds [6 x i64], ptr %2, i64 0, i64 %indvars.iv
   store i64 %.023.i, ptr %107, align 8
   %.not80 = icmp eq i64 %.023.i, 0
   br i1 %.not80, label %110, label %108
 
-108:                                              ; preds = %cff_parse_fixed_dynamic.exit
+108:                                              ; preds = %cff_parse_fixed_dynamic.argprom.exit
   %109 = load i64, ptr %19, align 8
   %spec.select = call i64 @llvm.smax.i64(i64 %109, i64 %.07285)
   %spec.select82 = call i64 @llvm.smin.i64(i64 %109, i64 %.06987)
   br label %110
 
-110:                                              ; preds = %108, %cff_parse_fixed_dynamic.exit
-  %.2 = phi i64 [ %.07285, %cff_parse_fixed_dynamic.exit ], [ %spec.select, %108 ]
-  %.1 = phi i64 [ %.06987, %cff_parse_fixed_dynamic.exit ], [ %spec.select82, %108 ]
+110:                                              ; preds = %108, %cff_parse_fixed_dynamic.argprom.exit
+  %.2 = phi i64 [ %.07285, %cff_parse_fixed_dynamic.argprom.exit ], [ %spec.select, %108 ]
+  %.1 = phi i64 [ %.06987, %cff_parse_fixed_dynamic.argprom.exit ], [ %spec.select82, %108 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %111, label %17, !llvm.loop !29
@@ -5706,23 +5706,23 @@ define internal range(i32 0, 162) i32 @cff_parse_font_bbox(ptr nocapture noundef
   %10 = getelementptr inbounds i8, ptr %9, i64 136
   %11 = getelementptr inbounds i8, ptr %3, i64 8
   %.val19 = load ptr, ptr %3, align 8
-  %12 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr %.val19, i64 noundef 0)
+  %12 = tail call fastcc i64 @do_fixed.argprom(ptr noundef nonnull readonly %0, ptr %.val19, i64 noundef 0)
   %13 = tail call i64 @FT_RoundFix(i64 noundef %12) #19
   store i64 %13, ptr %10, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %.val18 = load ptr, ptr %11, align 8
-  %15 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr %.val18, i64 noundef 0)
+  %15 = tail call fastcc i64 @do_fixed.argprom(ptr noundef nonnull readonly %0, ptr %.val18, i64 noundef 0)
   %16 = tail call i64 @FT_RoundFix(i64 noundef %15) #19
   %17 = getelementptr inbounds i8, ptr %9, i64 144
   store i64 %16, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %3, i64 24
   %.val17 = load ptr, ptr %14, align 8
-  %19 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr %.val17, i64 noundef 0)
+  %19 = tail call fastcc i64 @do_fixed.argprom(ptr noundef nonnull readonly %0, ptr %.val17, i64 noundef 0)
   %20 = tail call i64 @FT_RoundFix(i64 noundef %19) #19
   %21 = getelementptr inbounds i8, ptr %9, i64 152
   store i64 %20, ptr %21, align 8
   %.val = load ptr, ptr %18, align 8
-  %22 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr %.val, i64 noundef 0)
+  %22 = tail call fastcc i64 @do_fixed.argprom(ptr noundef nonnull readonly %0, ptr %.val, i64 noundef 0)
   %23 = tail call i64 @FT_RoundFix(i64 noundef %22) #19
   %24 = getelementptr inbounds i8, ptr %9, i64 160
   store i64 %23, ptr %24, align 8
@@ -5747,7 +5747,7 @@ define internal range(i32 0, 162) i32 @cff_parse_private_dict(ptr nocapture noun
 
 9:                                                ; preds = %1
   %.val16 = load ptr, ptr %5, align 8
-  %10 = tail call fastcc i64 @cff_parse_num(ptr noundef nonnull %0, ptr %.val16)
+  %10 = tail call fastcc i64 @cff_parse_num.argprom(ptr noundef nonnull %0, ptr %.val16)
   %11 = icmp slt i64 %10, 0
   br i1 %11, label %19, label %12
 
@@ -5756,7 +5756,7 @@ define internal range(i32 0, 162) i32 @cff_parse_private_dict(ptr nocapture noun
   %14 = getelementptr inbounds i8, ptr %3, i64 208
   store i64 %10, ptr %14, align 8
   %.val = load ptr, ptr %13, align 8
-  %15 = tail call fastcc i64 @cff_parse_num(ptr noundef nonnull %0, ptr %.val)
+  %15 = tail call fastcc i64 @cff_parse_num.argprom(ptr noundef nonnull %0, ptr %.val)
   %16 = icmp slt i64 %15, 0
   br i1 %16, label %19, label %17
 
@@ -5784,7 +5784,7 @@ define internal range(i32 0, 162) i32 @cff_parse_multiple_master(ptr nocapture n
 
 9:                                                ; preds = %1
   %.val = load ptr, ptr %7, align 8
-  %10 = tail call fastcc i64 @cff_parse_num(ptr noundef nonnull %0, ptr %.val)
+  %10 = tail call fastcc i64 @cff_parse_num.argprom(ptr noundef nonnull %0, ptr %.val)
   %11 = add nsw i64 %10, -17
   %or.cond = icmp ult i64 %11, -15
   br i1 %or.cond, label %27, label %12
@@ -5830,18 +5830,18 @@ define internal range(i32 0, 162) i32 @cff_parse_cid_ros(ptr nocapture noundef r
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   %.val16 = load ptr, ptr %3, align 8
-  %11 = tail call fastcc i64 @cff_parse_num(ptr noundef nonnull %0, ptr %.val16)
+  %11 = tail call fastcc i64 @cff_parse_num.argprom(ptr noundef nonnull %0, ptr %.val16)
   %12 = trunc i64 %11 to i32
   %13 = getelementptr inbounds i8, ptr %9, i64 228
   store i32 %12, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %.val15 = load ptr, ptr %10, align 8
-  %15 = tail call fastcc i64 @cff_parse_num(ptr noundef nonnull %0, ptr %.val15)
+  %15 = tail call fastcc i64 @cff_parse_num.argprom(ptr noundef nonnull %0, ptr %.val15)
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds i8, ptr %9, i64 232
   store i32 %16, ptr %17, align 8
   %.val = load ptr, ptr %14, align 8
-  %18 = tail call fastcc i64 @cff_parse_num(ptr noundef nonnull %0, ptr %.val)
+  %18 = tail call fastcc i64 @cff_parse_num.argprom(ptr noundef nonnull %0, ptr %.val)
   %19 = getelementptr inbounds i8, ptr %9, i64 240
   store i64 %18, ptr %19, align 8
   br label %20
@@ -5862,7 +5862,7 @@ define internal range(i32 0, 4) i32 @cff_parse_maxstack(ptr nocapture noundef re
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %.val = load ptr, ptr %6, align 8
-  %7 = tail call fastcc i64 @cff_parse_num(ptr noundef nonnull %0, ptr %.val)
+  %7 = tail call fastcc i64 @cff_parse_num.argprom(ptr noundef nonnull %0, ptr %.val)
   %8 = getelementptr inbounds i8, ptr %3, i64 320
   store i32 513, ptr %8, align 8
   br label %9
@@ -5895,7 +5895,7 @@ define internal range(i32 0, 161) i32 @cff_parse_vsindex(ptr nocapture noundef r
 
 12:                                               ; preds = %9
   %.val = load ptr, ptr %5, align 8
-  %13 = tail call fastcc i64 @cff_parse_num(ptr noundef nonnull %0, ptr %.val)
+  %13 = tail call fastcc i64 @cff_parse_num.argprom(ptr noundef nonnull %0, ptr %.val)
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds i8, ptr %3, i64 712
   store i32 %14, ptr %15, align 8
@@ -5967,7 +5967,7 @@ cff_blend_check_vector.exit:                      ; preds = %24, %23, %29
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 -8
   %.val = load ptr, ptr %33, align 8
-  %34 = tail call fastcc i64 @cff_parse_num(ptr noundef nonnull %0, ptr %.val)
+  %34 = tail call fastcc i64 @cff_parse_num.argprom(ptr noundef nonnull %0, ptr %.val)
   %35 = trunc i64 %34 to i32
   %36 = getelementptr inbounds i8, ptr %0, i64 48
   %37 = load i32, ptr %36, align 8
@@ -6093,17 +6093,17 @@ cff_blend_check_vector.exit:                      ; preds = %24, %23, %29
   %109 = zext i32 %108 to i64
   %110 = getelementptr inbounds ptr, ptr %106, i64 %109
   %.val92.i = load ptr, ptr %110, align 8
-  %111 = call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr %.val92.i, i64 noundef 0)
+  %111 = call fastcc i64 @do_fixed.argprom(ptr noundef nonnull readonly %0, ptr %.val92.i, i64 noundef 0)
   %112 = load i32, ptr %44, align 8
   %113 = icmp ugt i32 %112, 1
   br i1 %113, label %.lr.ph104.i, label %._crit_edge.i
 
-.lr.ph104.i:                                      ; preds = %104, %do_fixed.exit.i
-  %114 = phi i32 [ %207, %do_fixed.exit.i ], [ %112, %104 ]
-  %.0103.i = phi i64 [ %217, %do_fixed.exit.i ], [ %111, %104 ]
-  %.pn102.i = phi ptr [ %.078.i, %do_fixed.exit.i ], [ %105, %104 ]
-  %.1101.i = phi i32 [ %116, %do_fixed.exit.i ], [ %.080107.i, %104 ]
-  %.082100.i = phi i32 [ %218, %do_fixed.exit.i ], [ 1, %104 ]
+.lr.ph104.i:                                      ; preds = %104, %do_fixed.argprom.exit.i
+  %114 = phi i32 [ %207, %do_fixed.argprom.exit.i ], [ %112, %104 ]
+  %.0103.i = phi i64 [ %217, %do_fixed.argprom.exit.i ], [ %111, %104 ]
+  %.pn102.i = phi ptr [ %.078.i, %do_fixed.argprom.exit.i ], [ %105, %104 ]
+  %.1101.i = phi i32 [ %116, %do_fixed.argprom.exit.i ], [ %.080107.i, %104 ]
+  %.082100.i = phi i32 [ %218, %do_fixed.argprom.exit.i ], [ 1, %104 ]
   %.078.i = getelementptr inbounds i8, ptr %.pn102.i, i64 4
   %115 = load ptr, ptr %49, align 8
   %116 = add i32 %.1101.i, 1
@@ -6120,7 +6120,7 @@ cff_blend_check_vector.exit:                      ; preds = %24, %23, %29
   %121 = load ptr, ptr %102, align 8
   %122 = call fastcc i64 @cff_parse_real(ptr noundef nonnull %.val.i, ptr noundef %121, i64 noundef 0, ptr noundef null)
   %.pre115.i = load i32, ptr %44, align 8
-  br label %do_fixed.exit.i
+  br label %do_fixed.argprom.exit.i
 
 123:                                              ; preds = %.lr.ph104.i
   %124 = getelementptr inbounds i8, ptr %.val.i, i64 1
@@ -6141,7 +6141,7 @@ cff_blend_check_vector.exit:                      ; preds = %24, %23, %29
   %139 = load i8, ptr %138, align 1
   %140 = zext i8 %139 to i64
   %141 = or disjoint i64 %137, %140
-  br label %do_fixed.exit.i
+  br label %do_fixed.argprom.exit.i
 
 142:                                              ; preds = %.lr.ph104.i
   %143 = load ptr, ptr %102, align 8
@@ -6230,12 +6230,12 @@ cff_blend_check_vector.exit:                      ; preds = %24, %23, %29
 cff_parse_integer.exit.i.i:                       ; preds = %188, %180, %152
   %.0.i.i.i = phi i64 [ %169, %152 ], [ %186, %180 ], [ %194, %188 ]
   %195 = icmp sgt i64 %.0.i.i.i, 32767
-  br i1 %195, label %do_fixed.exit.i, label %cff_parse_integer.exit.i.thread.thread.i
+  br i1 %195, label %do_fixed.argprom.exit.i, label %cff_parse_integer.exit.i.thread.thread.i
 
 cff_parse_integer.exit.i.thread.thread.i:         ; preds = %cff_parse_integer.exit.i.i, %187, %179, %172, %149, %146
   %.0.i.i94.ph.i = phi i64 [ %174, %172 ], [ 0, %187 ], [ 0, %179 ], [ 0, %149 ], [ 0, %146 ], [ %.0.i.i.i, %cff_parse_integer.exit.i.i ]
   %196 = shl nsw i64 %.0.i.i94.ph.i, 16
-  br label %do_fixed.exit.i
+  br label %do_fixed.argprom.exit.i
 
 cff_parse_integer.exit.i.thread.i:                ; preds = %146
   %197 = load i8, ptr %144, align 1
@@ -6250,9 +6250,9 @@ cff_parse_integer.exit.i.thread.i:                ; preds = %146
   %205 = icmp eq i16 %.fr.i, -32768
   %206 = shl nsw i64 %204, 16
   %spec.select.i = select i1 %205, i64 -2147483647, i64 %206
-  br label %do_fixed.exit.i
+  br label %do_fixed.argprom.exit.i
 
-do_fixed.exit.i:                                  ; preds = %cff_parse_integer.exit.i.thread.i, %cff_parse_integer.exit.i.thread.thread.i, %cff_parse_integer.exit.i.i, %123, %120
+do_fixed.argprom.exit.i:                          ; preds = %cff_parse_integer.exit.i.thread.i, %cff_parse_integer.exit.i.thread.thread.i, %cff_parse_integer.exit.i.i, %123, %120
   %207 = phi i32 [ %.pre115.i, %120 ], [ %114, %123 ], [ %114, %cff_parse_integer.exit.i.i ], [ %114, %cff_parse_integer.exit.i.thread.thread.i ], [ %114, %cff_parse_integer.exit.i.thread.i ]
   %.033.i.i = phi i64 [ %122, %120 ], [ %141, %123 ], [ 2147483647, %cff_parse_integer.exit.i.i ], [ %196, %cff_parse_integer.exit.i.thread.thread.i ], [ %spec.select.i, %cff_parse_integer.exit.i.thread.i ]
   %208 = load i32, ptr %.078.i, align 4
@@ -6270,9 +6270,9 @@ do_fixed.exit.i:                                  ; preds = %cff_parse_integer.e
   %219 = icmp ult i32 %218, %207
   br i1 %219, label %.lr.ph104.i, label %._crit_edge.i, !llvm.loop !32
 
-._crit_edge.i:                                    ; preds = %do_fixed.exit.i, %104
-  %.1.lcssa.i = phi i32 [ %.080107.i, %104 ], [ %116, %do_fixed.exit.i ]
-  %.0.lcssa.i = phi i64 [ %111, %104 ], [ %217, %do_fixed.exit.i ]
+._crit_edge.i:                                    ; preds = %do_fixed.argprom.exit.i, %104
+  %.1.lcssa.i = phi i32 [ %.080107.i, %104 ], [ %116, %do_fixed.argprom.exit.i ]
+  %.0.lcssa.i = phi i64 [ %111, %104 ], [ %217, %do_fixed.argprom.exit.i ]
   %220 = load ptr, ptr %103, align 8
   %221 = load ptr, ptr %49, align 8
   %222 = getelementptr inbounds ptr, ptr %221, i64 %109
@@ -6715,7 +6715,7 @@ declare i64 @FT_DivFix(i64 noundef, i64 noundef) local_unnamed_addr #8
 declare i64 @FT_RoundFix(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @do_fixed(ptr nocapture noundef readonly %0, ptr %.0.val, i64 noundef range(i64 0, 4) %1) unnamed_addr #4 {
+define internal fastcc i64 @do_fixed.argprom(ptr nocapture noundef readonly %0, ptr %.0.val, i64 noundef range(i64 0, 4) %1) unnamed_addr #4 {
   %3 = load i8, ptr %.0.val, align 1
   switch i8 %3, label %40 [
     i8 30, label %4

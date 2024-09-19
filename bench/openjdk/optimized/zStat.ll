@@ -3415,7 +3415,7 @@ define hidden void @_ZN15ZStatRelocation18print_page_summaryEv(ptr nocapture nou
   call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_129ELS3_0ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.12, ptr noundef %106)
   %107 = getelementptr inbounds i8, ptr %0, i64 2328
   %108 = load i64, ptr %107, align 8
-  call fastcc void @"_ZZN15ZStatRelocation18print_page_summaryEvENK3$_1clEPKcR22ZStatRelocationSummarym"(ptr nonnull %5, ptr noundef nonnull @.str.49, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %108)
+  call fastcc void @"_ZZN15ZStatRelocation18print_page_summaryEvENK3$_1clEPKcR22ZStatRelocationSummarym.argprom"(ptr nonnull %5, ptr noundef nonnull @.str.49, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %108)
   %109 = load i64, ptr @ZPageSizeMedium, align 8
   %.not = icmp eq i64 %109, 0
   br i1 %.not, label %113, label %110
@@ -3423,11 +3423,11 @@ define hidden void @_ZN15ZStatRelocation18print_page_summaryEv(ptr nocapture nou
 110:                                              ; preds = %96
   %111 = getelementptr inbounds i8, ptr %0, i64 2344
   %112 = load i64, ptr %111, align 8
-  call fastcc void @"_ZZN15ZStatRelocation18print_page_summaryEvENK3$_1clEPKcR22ZStatRelocationSummarym"(ptr nonnull %5, ptr noundef nonnull @.str.50, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %112)
+  call fastcc void @"_ZZN15ZStatRelocation18print_page_summaryEvENK3$_1clEPKcR22ZStatRelocationSummarym.argprom"(ptr nonnull %5, ptr noundef nonnull @.str.50, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %112)
   br label %113
 
 113:                                              ; preds = %110, %96
-  call fastcc void @"_ZZN15ZStatRelocation18print_page_summaryEvENK3$_1clEPKcR22ZStatRelocationSummarym"(ptr nonnull %5, ptr noundef nonnull @.str.51, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef 0)
+  call fastcc void @"_ZZN15ZStatRelocation18print_page_summaryEvENK3$_1clEPKcR22ZStatRelocationSummarym.argprom"(ptr nonnull %5, ptr noundef nonnull @.str.51, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef 0)
   %114 = getelementptr inbounds i8, ptr %0, i64 2312
   %115 = load i64, ptr %114, align 8
   %116 = lshr i64 %115, 20
@@ -7261,7 +7261,7 @@ define linkonce_odr hidden void @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN15ZStatRelocation18print_page_summaryEvENK3$_1clEPKcR22ZStatRelocationSummarym"(ptr %.8.val, ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN15ZStatRelocation18print_page_summaryEvENK3$_1clEPKcR22ZStatRelocationSummarym.argprom"(ptr %.8.val, ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.ZStatTablePrinter::ZColumn", align 8
   %5 = alloca %"class.ZStatTablePrinter::ZColumn", align 8
   %6 = alloca %"class.ZStatTablePrinter::ZColumn", align 8

@@ -83,13 +83,13 @@ define dso_local ptr @smgropen(i64 %0, i32 %1, i32 noundef %2) local_unnamed_add
 
 ._crit_edge.i:                                    ; preds = %19
   %.pre.i = load ptr, ptr @unpinned_relns, align 8
-  br label %dlist_push_tail.exit
+  br label %dlist_push_tail.argprom.exit
 
 26:                                               ; preds = %19
   store ptr @unpinned_relns, ptr getelementptr inbounds (i8, ptr @unpinned_relns, i64 8), align 8
-  br label %dlist_push_tail.exit
+  br label %dlist_push_tail.argprom.exit
 
-dlist_push_tail.exit:                             ; preds = %._crit_edge.i, %26
+dlist_push_tail.argprom.exit:                     ; preds = %._crit_edge.i, %26
   %27 = phi ptr [ %.pre.i, %._crit_edge.i ], [ @unpinned_relns, %26 ]
   %28 = getelementptr inbounds i8, ptr %16, i64 104
   store ptr @unpinned_relns, ptr %28, align 8
@@ -99,7 +99,7 @@ dlist_push_tail.exit:                             ; preds = %._crit_edge.i, %26
   store ptr %23, ptr @unpinned_relns, align 8
   br label %30
 
-30:                                               ; preds = %dlist_push_tail.exit, %13
+30:                                               ; preds = %dlist_push_tail.argprom.exit, %13
   ret ptr %16
 }
 
@@ -150,13 +150,13 @@ define dso_local void @smgrunpin(ptr noundef %0) local_unnamed_addr #4 {
 
 ._crit_edge.i:                                    ; preds = %6
   %.pre.i = load ptr, ptr @unpinned_relns, align 8
-  br label %dlist_push_tail.exit
+  br label %dlist_push_tail.argprom.exit
 
 10:                                               ; preds = %6
   store ptr @unpinned_relns, ptr getelementptr inbounds (i8, ptr @unpinned_relns, i64 8), align 8
-  br label %dlist_push_tail.exit
+  br label %dlist_push_tail.argprom.exit
 
-dlist_push_tail.exit:                             ; preds = %._crit_edge.i, %10
+dlist_push_tail.argprom.exit:                     ; preds = %._crit_edge.i, %10
   %11 = phi ptr [ %.pre.i, %._crit_edge.i ], [ @unpinned_relns, %10 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @unpinned_relns, ptr %12, align 8
@@ -166,7 +166,7 @@ dlist_push_tail.exit:                             ; preds = %._crit_edge.i, %10
   store ptr %7, ptr @unpinned_relns, align 8
   br label %14
 
-14:                                               ; preds = %dlist_push_tail.exit, %1
+14:                                               ; preds = %dlist_push_tail.argprom.exit, %1
   ret void
 }
 

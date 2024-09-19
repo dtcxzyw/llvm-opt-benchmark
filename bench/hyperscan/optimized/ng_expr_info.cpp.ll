@@ -197,10 +197,10 @@ invoke.cont36:                                    ; preds = %if.end
   %start = getelementptr inbounds i8, ptr %g, i64 72
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %start, align 8
   %agg.tmp.sroa.2.0.start.sroa_idx = getelementptr inbounds i8, ptr %g, i64 80
-  tail call fastcc void @_ZN3ue2L36removeLeadingVirtualVerticesFromRootERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload)
+  tail call fastcc void @_ZN3ue2L36removeLeadingVirtualVerticesFromRootERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.argelim(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload)
   %startDs = getelementptr inbounds i8, ptr %g, i64 88
   %agg.tmp29.sroa.0.0.copyload = load ptr, ptr %startDs, align 8
-  tail call fastcc void @_ZN3ue2L36removeLeadingVirtualVerticesFromRootERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp29.sroa.0.0.copyload)
+  tail call fastcc void @_ZN3ue2L36removeLeadingVirtualVerticesFromRootERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.argelim(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp29.sroa.0.0.copyload)
   %agg.tmp30.sroa.0.0.copyload = load ptr, ptr %start, align 8
   %agg.tmp30.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.start.sroa_idx, align 8
   call void @_ZN3ue214calcDepthsFromERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr nonnull sret(%"class.std::vector.67") align 8 %depths, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp30.sroa.0.0.copyload, i64 %agg.tmp30.sroa.2.0.copyload)
@@ -224,7 +224,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
   %10 = load ptr, ptr %source.i.i.i, align 8
   %depths.val = load ptr, ptr %depths, align 8
   %depths.val55 = load ptr, ptr %9, align 8
-  invoke fastcc void @_ZN3ue2L11checkVertexERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt6vectorINS_11DepthMinMaxESaISE_EERSE_(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr nonnull %10, ptr %depths.val, ptr %depths.val55, ptr noundef nonnull align 4 dereferenceable(8) %d)
+  invoke fastcc void @_ZN3ue2L11checkVertexERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt6vectorINS_11DepthMinMaxESaISE_EERSE_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr nonnull %10, ptr %depths.val, ptr %depths.val55, ptr noundef nonnull align 4 dereferenceable(8) %d)
           to label %invoke.cont38 unwind label %lpad32.loopexit.split-lp.loopexit
 
 lpad32.loopexit:                                  ; preds = %invoke.cont58
@@ -269,7 +269,7 @@ invoke.cont58:                                    ; preds = %invoke.cont54
   %12 = load ptr, ptr %source.i.i.i63, align 8
   %depths.val56 = load ptr, ptr %depths, align 8
   %depths.val57 = load ptr, ptr %9, align 8
-  invoke fastcc void @_ZN3ue2L11checkVertexERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt6vectorINS_11DepthMinMaxESaISE_EERSE_(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr nonnull %12, ptr %depths.val56, ptr %depths.val57, ptr noundef nonnull align 4 dereferenceable(8) %d)
+  invoke fastcc void @_ZN3ue2L11checkVertexERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt6vectorINS_11DepthMinMaxESaISE_EERSE_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr nonnull %12, ptr %depths.val56, ptr %depths.val57, ptr noundef nonnull align 4 dereferenceable(8) %d)
           to label %invoke.cont54 unwind label %lpad32.loopexit
 
 for.end65:                                        ; preds = %invoke.cont54
@@ -441,7 +441,7 @@ declare noundef zeroext i1 @_ZN3ue221optimiseVirtualStartsERNS_8NGHolderE(ptr no
 declare void @_ZN3ue223propagateExtendedParamsERNS_8NGHolderERNS_14ExpressionInfoERNS_13ReportManagerE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(49), ptr noundef nonnull align 8 dereferenceable(505)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L36removeLeadingVirtualVerticesFromRootERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %root.coerce0) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L36removeLeadingVirtualVerticesFromRootERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.argelim(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %root.coerce0) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 invoke.cont1:
   %m_header.i.i.i.i.i.i = getelementptr inbounds i8, ptr %root.coerce0, i64 136
   %__begin1.sroa.0.063 = load ptr, ptr %m_header.i.i.i.i.i.i, align 8
@@ -750,7 +750,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN3ue214calcDepthsFromERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr sret(%"class.std::vector.67") align 8, ptr noundef nonnull align 8 dereferenceable(136), ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L11checkVertexERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt6vectorINS_11DepthMinMaxESaISE_EERSE_(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr nocapture readonly %v.coerce0, ptr %depths.0.val, ptr %depths.8.val, ptr noundef nonnull align 4 dereferenceable(8) %info) unnamed_addr #2 {
+define internal fastcc void @_ZN3ue2L11checkVertexERKNS_13ReportManagerERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt6vectorINS_11DepthMinMaxESaISE_EERSE_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr nocapture readonly %v.coerce0, ptr %depths.0.val, ptr %depths.8.val, ptr noundef nonnull align 4 dereferenceable(8) %info) unnamed_addr #2 {
 entry:
   %rd = alloca %"struct.ue2::DepthMinMax", align 8
   %index.i21 = getelementptr inbounds i8, ptr %v.coerce0, i64 80

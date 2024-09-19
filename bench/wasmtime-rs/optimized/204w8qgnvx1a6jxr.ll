@@ -147,7 +147,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 
 14:                                               ; preds = %3
   tail call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nonnull align 8 %2)
-  br label %"_ZN22cranelift_codegen_meta6srcgen9Formatter9add_match28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc241ebcca4aded31E.exit"
+  br label %"_ZN22cranelift_codegen_meta6srcgen9Formatter9add_match28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc241ebcca4aded31E.argprom.exit"
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -186,7 +186,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 
 27:                                               ; preds = %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  br label %"_ZN22cranelift_codegen_meta6srcgen9Formatter9add_match28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc241ebcca4aded31E.exit"
+  br label %"_ZN22cranelift_codegen_meta6srcgen9Formatter9add_match28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc241ebcca4aded31E.argprom.exit"
 
 28:                                               ; preds = %25, %21
   %29 = landingpad { ptr, i32 }
@@ -198,7 +198,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %.pn.i = phi { ptr, i32 } [ %26, %25 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn.i
 
-"_ZN22cranelift_codegen_meta6srcgen9Formatter9add_match28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc241ebcca4aded31E.exit": ; preds = %14, %27
+"_ZN22cranelift_codegen_meta6srcgen9Formatter9add_match28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc241ebcca4aded31E.argprom.exit": ; preds = %14, %27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -3411,17 +3411,17 @@ attributes #13 = { noreturn }
 !3 = !{}
 !4 = !{i64 8}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN22cranelift_codegen_meta6srcgen15parse_multiline28_$u7b$$u7b$closure$u7d$$u7d$17hfceae4b984155f74E: argument 0"}
-!7 = distinct !{!7, !"_ZN22cranelift_codegen_meta6srcgen15parse_multiline28_$u7b$$u7b$closure$u7d$$u7d$17hfceae4b984155f74E"}
+!6 = distinct !{!6, !7, !"_ZN22cranelift_codegen_meta6srcgen15parse_multiline28_$u7b$$u7b$closure$u7d$$u7d$17hfceae4b984155f74E.argprom: argument 0"}
+!7 = distinct !{!7, !"_ZN22cranelift_codegen_meta6srcgen15parse_multiline28_$u7b$$u7b$closure$u7d$$u7d$17hfceae4b984155f74E.argprom"}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN22cranelift_codegen_meta6srcgen15parse_multiline28_$u7b$$u7b$closure$u7d$$u7d$17h179fc6c7b1cc70d5E: argument 0"}
-!10 = distinct !{!10, !"_ZN22cranelift_codegen_meta6srcgen15parse_multiline28_$u7b$$u7b$closure$u7d$$u7d$17h179fc6c7b1cc70d5E"}
+!9 = distinct !{!9, !10, !"_ZN22cranelift_codegen_meta6srcgen15parse_multiline28_$u7b$$u7b$closure$u7d$$u7d$17h179fc6c7b1cc70d5E.argprom: argument 0"}
+!10 = distinct !{!10, !"_ZN22cranelift_codegen_meta6srcgen15parse_multiline28_$u7b$$u7b$closure$u7d$$u7d$17h179fc6c7b1cc70d5E.argprom"}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN22cranelift_codegen_meta6srcgen15parse_multiline28_$u7b$$u7b$closure$u7d$$u7d$17h62c26704c1ff829aE: argument 0"}
-!13 = distinct !{!13, !"_ZN22cranelift_codegen_meta6srcgen15parse_multiline28_$u7b$$u7b$closure$u7d$$u7d$17h62c26704c1ff829aE"}
+!12 = distinct !{!12, !13, !"_ZN22cranelift_codegen_meta6srcgen15parse_multiline28_$u7b$$u7b$closure$u7d$$u7d$17h62c26704c1ff829aE.argprom: argument 0"}
+!13 = distinct !{!13, !"_ZN22cranelift_codegen_meta6srcgen15parse_multiline28_$u7b$$u7b$closure$u7d$$u7d$17h62c26704c1ff829aE.argprom"}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN22cranelift_codegen_meta6srcgen9Formatter9add_match28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc241ebcca4aded31E: argument 0"}
-!16 = distinct !{!16, !"_ZN22cranelift_codegen_meta6srcgen9Formatter9add_match28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc241ebcca4aded31E"}
+!15 = distinct !{!15, !16, !"_ZN22cranelift_codegen_meta6srcgen9Formatter9add_match28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc241ebcca4aded31E.argprom: argument 0"}
+!16 = distinct !{!16, !"_ZN22cranelift_codegen_meta6srcgen9Formatter9add_match28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc241ebcca4aded31E.argprom"}
 !17 = !{i64 0, i64 -9223372036854775807}
 !18 = !{i32 0, i32 2}
 !19 = !{i32 0, i32 -1}

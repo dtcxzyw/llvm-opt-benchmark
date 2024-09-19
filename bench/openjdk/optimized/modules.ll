@@ -1759,7 +1759,7 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL19as_internal_packageP7oopDescPciRi(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL19as_internal_packageP7oopDescPciRi.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #0 {
   %4 = tail call noundef ptr @_ZN16java_lang_String19as_utf8_string_fullEP7oopDescPciRi(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 128, ptr noundef nonnull align 4 dereferenceable(4) %2) #14
   %5 = load i32, ptr %2, align 4
   %6 = icmp sgt i32 %5, 0
@@ -2678,7 +2678,7 @@ _ZL16get_module_entry6HandleP10JavaThread.exit.thread: ; preds = %_ZNK6HandleclE
 
 _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %85, %89, %93
   %.0.i.i = phi ptr [ %88, %85 ], [ %92, %89 ], [ %94, %93 ]
-  %95 = call fastcc noundef ptr @_ZL19as_internal_packageP7oopDescPciRi(ptr noundef %.0.i.i, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %95 = call fastcc noundef ptr @_ZL19as_internal_packageP7oopDescPciRi.argelim(ptr noundef %.0.i.i, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %96 = load ptr, ptr @Module_lock, align 8
   %.not.i.i41 = icmp eq ptr %96, null
   br i1 %.not.i.i41, label %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, label %97
@@ -3521,7 +3521,7 @@ _ZL16get_module_entry6HandleP10JavaThread.exit.thread: ; preds = %_ZNK6HandleclE
 
 _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %75, %79, %83
   %.0.i.i = phi ptr [ %78, %75 ], [ %82, %79 ], [ %84, %83 ]
-  %85 = call fastcc noundef ptr @_ZL19as_internal_packageP7oopDescPciRi(ptr noundef %.0.i.i, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %85 = call fastcc noundef ptr @_ZL19as_internal_packageP7oopDescPciRi.argelim(ptr noundef %.0.i.i, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %86 = load ptr, ptr @Module_lock, align 8
   %.not.i.i28 = icmp eq ptr %86, null
   br i1 %.not.i.i28, label %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, label %87

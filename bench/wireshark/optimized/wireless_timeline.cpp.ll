@@ -2402,7 +2402,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit185:  ; preds = %319
   br i1 %or.cond167, label %351, label %350
 
 350:                                              ; preds = %342
-  invoke fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %.0139242, ptr noundef %9, float noundef %33)
+  invoke fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff.argelim(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %.0139242, ptr noundef %9, float noundef %33)
           to label %351 unwind label %.loopexit
 
 351:                                              ; preds = %350, %342
@@ -2610,7 +2610,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit185:  ; preds = %319
   br i1 %exitcond.not.i197, label %_ZL14accumulate_rgbPA3_fiiffff.exit198, label %.lr.ph.i194, !llvm.loop !14
 
 _ZL14accumulate_rgbPA3_fiiffff.exit198:           ; preds = %.lr.ph.i194
-  invoke fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %349, ptr noundef %9, float noundef %33)
+  invoke fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff.argelim(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %349, ptr noundef %9, float noundef %33)
           to label %475 unwind label %.loopexit
 
 475:                                              ; preds = %_ZL14accumulate_rgbPA3_fiiffff.exit198
@@ -2781,7 +2781,7 @@ declare noundef ptr @_ZNK10PacketList14getFDataForRowEi(ptr noundef nonnull alig
 declare void @_ZN14QGraphicsSceneC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr nocapture noundef nonnull %2, float noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff.argelim(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr nocapture noundef nonnull %2, float noundef %3) unnamed_addr #0 {
   %5 = alloca %class.QRectF, align 8
   %6 = alloca %class.pcolor, align 4
   %7 = sitofp i32 %1 to float

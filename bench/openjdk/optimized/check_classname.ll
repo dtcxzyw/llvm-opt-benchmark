@@ -49,7 +49,7 @@ define hidden zeroext range(i8 0, 2) i8 @verifyClassname(ptr noundef %0, i8 noun
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %.01829.i, i64 1
   %17 = add i32 %.01630.i, -1
-  %18 = tail call fastcc ptr @skip_over_fieldname(ptr noundef nonnull %16, i32 noundef %17)
+  %18 = tail call fastcc ptr @skip_over_fieldname.argelim(ptr noundef nonnull %16, i32 noundef %17)
   %.not21.i = icmp ne ptr %18, null
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %.01829.i to i64
@@ -73,7 +73,7 @@ define hidden zeroext range(i8 0, 2) i8 @verifyClassname(ptr noundef %0, i8 noun
   br i1 %exitcond.i, label %skip_over_field_signature.exit, label %11, !llvm.loop !6
 
 31:                                               ; preds = %5, %2
-  %32 = tail call fastcc ptr @skip_over_fieldname(ptr noundef %0, i32 noundef %4)
+  %32 = tail call fastcc ptr @skip_over_fieldname.argelim(ptr noundef %0, i32 noundef %4)
   br label %skip_over_field_signature.exit
 
 skip_over_field_signature.exit:                   ; preds = %27, %11, %23, %15, %13, %31
@@ -97,7 +97,7 @@ skip_over_field_signature.exit:                   ; preds = %27, %11, %23, %15, 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc ptr @skip_over_fieldname(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc ptr @skip_over_fieldname.argelim(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 %3
   %.not87 = icmp eq i32 %1, 0

@@ -798,7 +798,7 @@ _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equ
   %call117 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp116, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 260, ptr noundef nonnull @.str.21)
   %pNode.01.i = load ptr, ptr %ihmSW1, align 8
   %tobool.not2.i = icmp eq ptr %pNode.01.i, null
-  br i1 %tobool.not2.i, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit, label %for.body.i457
+  br i1 %tobool.not2.i, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit, label %for.body.i457
 
 for.body.i457:                                    ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit448, %for.body.i457
   %pNode.04.i = phi ptr [ %pNode.0.i, %for.body.i457 ], [ %pNode.01.i, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit448 ]
@@ -810,22 +810,22 @@ for.body.i457:                                    ; preds = %_ZNK5eastl19intrusi
   %spec.select.i = add i64 %result.03.i, %inc.i459
   %pNode.0.i = load ptr, ptr %pNode.04.i, align 8
   %tobool.not.i460 = icmp eq ptr %pNode.0.i, null
-  br i1 %tobool.not.i460, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit.loopexit, label %for.body.i457, !llvm.loop !36
+  br i1 %tobool.not.i460, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit.loopexit, label %for.body.i457, !llvm.loop !36
 
-_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit.loopexit: ; preds = %for.body.i457
+_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit.loopexit: ; preds = %for.body.i457
   %73 = icmp eq i64 %spec.select.i, 0
-  br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit
+  br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit
 
-_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit: ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit.loopexit, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit448
-  %result.0.lcssa.i = phi i1 [ true, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit448 ], [ %73, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit.loopexit ]
+_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit: ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit.loopexit, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit448
+  %result.0.lcssa.i = phi i1 [ true, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit448 ], [ %73, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit.loopexit ]
   %call121 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %result.0.lcssa.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @.str.22)
   %pNode.01.i465 = load ptr, ptr %ihmSW1, align 8
   %tobool.not2.i466 = icmp eq ptr %pNode.01.i465, null
-  br i1 %tobool.not2.i466, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit477, label %for.body.i467
+  br i1 %tobool.not2.i466, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit477, label %for.body.i467
 
-for.body.i467:                                    ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit, %for.body.i467
-  %pNode.04.i468 = phi ptr [ %pNode.0.i474, %for.body.i467 ], [ %pNode.01.i465, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit ]
-  %result.03.i469 = phi i64 [ %spec.select.i473, %for.body.i467 ], [ 0, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit ]
+for.body.i467:                                    ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit, %for.body.i467
+  %pNode.04.i468 = phi ptr [ %pNode.0.i474, %for.body.i467 ], [ %pNode.01.i465, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit ]
+  %result.03.i469 = phi i64 [ %spec.select.i473, %for.body.i467 ], [ 0, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit ]
   %74 = getelementptr i8, ptr %pNode.04.i468, i64 8
   %call2.val.i470 = load i32, ptr %74, align 8
   %cmp.i.i.i471 = icmp eq i32 %call2.val.i470, 999999
@@ -833,22 +833,22 @@ for.body.i467:                                    ; preds = %_ZNK5eastl19intrusi
   %spec.select.i473 = add i64 %result.03.i469, %inc.i472
   %pNode.0.i474 = load ptr, ptr %pNode.04.i468, align 8
   %tobool.not.i475 = icmp eq ptr %pNode.0.i474, null
-  br i1 %tobool.not.i475, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit477.loopexit, label %for.body.i467, !llvm.loop !36
+  br i1 %tobool.not.i475, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit477.loopexit, label %for.body.i467, !llvm.loop !36
 
-_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit477.loopexit: ; preds = %for.body.i467
+_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit477.loopexit: ; preds = %for.body.i467
   %75 = icmp eq i64 %spec.select.i473, 0
-  br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit477
+  br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit477
 
-_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit477: ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit477.loopexit, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit
-  %result.0.lcssa.i476 = phi i1 [ true, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit ], [ %75, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit477.loopexit ]
+_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit477: ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit477.loopexit, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit
+  %result.0.lcssa.i476 = phi i1 [ true, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit ], [ %75, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit477.loopexit ]
   %call125 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %result.0.lcssa.i476, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 262, ptr noundef nonnull @.str.23)
   %pNode.01.i482 = load ptr, ptr %ihmSW2, align 8
   %tobool.not2.i483 = icmp eq ptr %pNode.01.i482, null
-  br i1 %tobool.not2.i483, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit494, label %for.body.i484
+  br i1 %tobool.not2.i483, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit494, label %for.body.i484
 
-for.body.i484:                                    ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit477, %for.body.i484
-  %pNode.04.i485 = phi ptr [ %pNode.0.i491, %for.body.i484 ], [ %pNode.01.i482, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit477 ]
-  %result.03.i486 = phi i64 [ %spec.select.i490, %for.body.i484 ], [ 0, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit477 ]
+for.body.i484:                                    ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit477, %for.body.i484
+  %pNode.04.i485 = phi ptr [ %pNode.0.i491, %for.body.i484 ], [ %pNode.01.i482, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit477 ]
+  %result.03.i486 = phi i64 [ %spec.select.i490, %for.body.i484 ], [ 0, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit477 ]
   %76 = getelementptr i8, ptr %pNode.04.i485, i64 8
   %call2.val.i487 = load i32, ptr %76, align 8
   %cmp.i.i.i488 = icmp eq i32 %call2.val.i487, 0
@@ -856,22 +856,22 @@ for.body.i484:                                    ; preds = %_ZNK5eastl19intrusi
   %spec.select.i490 = add i64 %result.03.i486, %inc.i489
   %pNode.0.i491 = load ptr, ptr %pNode.04.i485, align 8
   %tobool.not.i492 = icmp eq ptr %pNode.0.i491, null
-  br i1 %tobool.not.i492, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit494.loopexit, label %for.body.i484, !llvm.loop !36
+  br i1 %tobool.not.i492, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit494.loopexit, label %for.body.i484, !llvm.loop !36
 
-_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit494.loopexit: ; preds = %for.body.i484
+_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit494.loopexit: ; preds = %for.body.i484
   %77 = icmp eq i64 %spec.select.i490, 1
-  br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit494
+  br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit494
 
-_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit494: ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit494.loopexit, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit477
-  %result.0.lcssa.i493 = phi i1 [ false, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit477 ], [ %77, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit494.loopexit ]
+_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit494: ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit494.loopexit, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit477
+  %result.0.lcssa.i493 = phi i1 [ false, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit477 ], [ %77, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit494.loopexit ]
   %call129 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %result.0.lcssa.i493, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 263, ptr noundef nonnull @.str.24)
   %pNode.01.i499 = load ptr, ptr %ihmSW2, align 8
   %tobool.not2.i500 = icmp eq ptr %pNode.01.i499, null
-  br i1 %tobool.not2.i500, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit511, label %for.body.i501
+  br i1 %tobool.not2.i500, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit511, label %for.body.i501
 
-for.body.i501:                                    ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit494, %for.body.i501
-  %pNode.04.i502 = phi ptr [ %pNode.0.i508, %for.body.i501 ], [ %pNode.01.i499, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit494 ]
-  %result.03.i503 = phi i64 [ %spec.select.i507, %for.body.i501 ], [ 0, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit494 ]
+for.body.i501:                                    ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit494, %for.body.i501
+  %pNode.04.i502 = phi ptr [ %pNode.0.i508, %for.body.i501 ], [ %pNode.01.i499, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit494 ]
+  %result.03.i503 = phi i64 [ %spec.select.i507, %for.body.i501 ], [ 0, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit494 ]
   %78 = getelementptr i8, ptr %pNode.04.i502, i64 8
   %call2.val.i504 = load i32, ptr %78, align 8
   %cmp.i.i.i505 = icmp eq i32 %call2.val.i504, 999999
@@ -879,22 +879,22 @@ for.body.i501:                                    ; preds = %_ZNK5eastl19intrusi
   %spec.select.i507 = add i64 %result.03.i503, %inc.i506
   %pNode.0.i508 = load ptr, ptr %pNode.04.i502, align 8
   %tobool.not.i509 = icmp eq ptr %pNode.0.i508, null
-  br i1 %tobool.not.i509, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit511.loopexit, label %for.body.i501, !llvm.loop !36
+  br i1 %tobool.not.i509, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit511.loopexit, label %for.body.i501, !llvm.loop !36
 
-_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit511.loopexit: ; preds = %for.body.i501
+_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit511.loopexit: ; preds = %for.body.i501
   %79 = icmp eq i64 %spec.select.i507, 0
-  br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit511
+  br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit511
 
-_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit511: ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit511.loopexit, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit494
-  %result.0.lcssa.i510 = phi i1 [ true, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit494 ], [ %79, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit511.loopexit ]
+_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit511: ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit511.loopexit, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit494
+  %result.0.lcssa.i510 = phi i1 [ true, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit494 ], [ %79, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit511.loopexit ]
   %call133 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %result.0.lcssa.i510, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 264, ptr noundef nonnull @.str.25)
   %80 = load ptr, ptr %ihmSW2, align 8, !noalias !37
   %cmp.i.not4.i.i.i513 = icmp eq ptr %80, null
   br i1 %cmp.i.not4.i.i.i513, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11bucket_sizeEm.exit520, label %while.body.i.i.i514
 
-while.body.i.i.i514:                              ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit511, %while.body.i.i.i514
-  %first.val6.i.i.i515 = phi ptr [ %81, %while.body.i.i.i514 ], [ %80, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit511 ]
-  %n.05.i.i.i516 = phi i64 [ %inc.i.i.i517, %while.body.i.i.i514 ], [ 0, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit511 ]
+while.body.i.i.i514:                              ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit511, %while.body.i.i.i514
+  %first.val6.i.i.i515 = phi ptr [ %81, %while.body.i.i.i514 ], [ %80, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit511 ]
+  %n.05.i.i.i516 = phi i64 [ %inc.i.i.i517, %while.body.i.i.i514 ], [ 0, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit511 ]
   %81 = load ptr, ptr %first.val6.i.i.i515, align 8
   %inc.i.i.i517 = add nuw nsw i64 %n.05.i.i.i516, 1
   %cmp.i.not.i.i.i518 = icmp eq ptr %81, null
@@ -904,8 +904,8 @@ _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equ
   %82 = icmp eq i64 %inc.i.i.i517, 3
   br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11bucket_sizeEm.exit520
 
-_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11bucket_sizeEm.exit520: ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11bucket_sizeEm.exit520.loopexit, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit511
-  %n.0.lcssa.i.i.i519 = phi i1 [ false, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.exit511 ], [ %82, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11bucket_sizeEm.exit520.loopexit ]
+_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11bucket_sizeEm.exit520: ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11bucket_sizeEm.exit520.loopexit, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit511
+  %n.0.lcssa.i.i.i519 = phi i1 [ false, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5countERKS2_.argprom.exit511 ], [ %82, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11bucket_sizeEm.exit520.loopexit ]
   %call136 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i.i519, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 265, ptr noundef nonnull @.str.26)
   %call140 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 266, ptr noundef nonnull @.str.27)
   %call144 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 267, ptr noundef nonnull @.str.28)
@@ -1011,7 +1011,7 @@ for.body.i.i:                                     ; preds = %_ZNK5eastl19intrusi
   %97 = getelementptr i8, ptr %pNode.addr.02.i.i, i64 8
   %call.val.i.i571 = load i32, ptr %97, align 8
   %cmp.i.i.i.i = icmp eq i32 %95, %call.val.i.i571
-  br i1 %cmp.i.i.i.i, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit, label %for.inc.i.i
+  br i1 %cmp.i.i.i.i, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %98 = load ptr, ptr %pNode.addr.02.i.i, align 8
@@ -1020,9 +1020,9 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 cond.false.i:                                     ; preds = %for.inc.i.i, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE17validate_iteratorENS_28intrusive_hashtable_iteratorIS2_Lb1EEE.exit
   %99 = load ptr, ptr %arrayidx.i.i155, align 8
-  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit
+  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit
 
-_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit: ; preds = %for.body.i.i, %cond.false.i
+_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit: ; preds = %for.body.i.i, %cond.false.i
   %retval.sroa.0.0.i573 = phi ptr [ %99, %cond.false.i ], [ %pNode.addr.02.i.i, %for.body.i.i ]
   %cmp.i576 = icmp eq ptr %retval.sroa.0.0.i573, %it.sroa.0.03066
   %call164 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i576, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 286, ptr noundef nonnull @.str.30)
@@ -1030,16 +1030,16 @@ _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equa
   %cmp2.i.i = icmp eq ptr %storemerge1.i.i, null
   br i1 %cmp2.i.i, label %while.body.i.i, label %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit
 
-while.body.i.i:                                   ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit, %while.body.i.i
-  %100 = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %it.sroa.8.03067, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit ]
+while.body.i.i:                                   ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit, %while.body.i.i
+  %100 = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %it.sroa.8.03067, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %100, i64 8
   %storemerge.i.i577 = load ptr, ptr %incdec.ptr.i.i, align 8
   %cmp.i.i578 = icmp eq ptr %storemerge.i.i577, null
   br i1 %cmp.i.i578, label %while.body.i.i, label %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit, !llvm.loop !8
 
-_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit: ; preds = %while.body.i.i, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit
-  %it.sroa.0.1 = phi ptr [ %storemerge1.i.i, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit ], [ %storemerge.i.i577, %while.body.i.i ]
-  %it.sroa.8.1 = phi ptr [ %it.sroa.8.03067, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit ], [ %incdec.ptr.i.i, %while.body.i.i ]
+_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit: ; preds = %while.body.i.i, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit
+  %it.sroa.0.1 = phi ptr [ %storemerge1.i.i, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit ], [ %storemerge.i.i577, %while.body.i.i ]
+  %it.sroa.8.1 = phi ptr [ %it.sroa.8.03067, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit ], [ %incdec.ptr.i.i, %while.body.i.i ]
   %101 = load ptr, ptr %arrayidx.i.i155, align 8
   %cmp.i549.not = icmp eq ptr %it.sroa.0.1, %101
   br i1 %cmp.i549.not, label %for.end167.loopexit, label %for.body152, !llvm.loop !42
@@ -1080,21 +1080,21 @@ for.body177:                                      ; preds = %_ZNK5eastl19intrusi
   %arrayidx.i595 = getelementptr inbounds [38 x ptr], ptr %ihmSW1, i64 0, i64 %rem.i594
   %108 = load ptr, ptr %arrayidx.i595, align 8
   %tobool.not1.i.i596 = icmp eq ptr %108, null
-  br i1 %tobool.not1.i.i596, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit609, label %for.body.i.i597
+  br i1 %tobool.not1.i.i596, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit609, label %for.body.i.i597
 
 for.body.i.i597:                                  ; preds = %for.body177, %for.inc.i.i601
   %pNode.addr.02.i.i598 = phi ptr [ %110, %for.inc.i.i601 ], [ %108, %for.body177 ]
   %109 = getelementptr i8, ptr %pNode.addr.02.i.i598, i64 8
   %call.val.i.i599 = load i32, ptr %109, align 8
   %cmp.i.i.i.i600 = icmp eq i32 %107, %call.val.i.i599
-  br i1 %cmp.i.i.i.i600, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit609, label %for.inc.i.i601
+  br i1 %cmp.i.i.i.i600, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit609, label %for.inc.i.i601
 
 for.inc.i.i601:                                   ; preds = %for.body.i.i597
   %110 = load ptr, ptr %pNode.addr.02.i.i598, align 8
   %tobool.not.i.i602 = icmp eq ptr %110, null
-  br i1 %tobool.not.i.i602, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit609, label %for.body.i.i597, !llvm.loop !22
+  br i1 %tobool.not.i.i602, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit609, label %for.body.i.i597, !llvm.loop !22
 
-_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit609: ; preds = %for.inc.i.i601, %for.body.i.i597, %for.body177
+_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit609: ; preds = %for.inc.i.i601, %for.body.i.i597, %for.body177
   %retval.sroa.0.0.i606 = phi ptr [ %106, %for.body177 ], [ %106, %for.inc.i.i601 ], [ %pNode.addr.02.i.i598, %for.body.i.i597 ]
   %cmp.i610 = icmp eq ptr %retval.sroa.0.0.i606, %itc.sroa.0.03070
   %call186 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i610, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 302, ptr noundef nonnull @.str.32)
@@ -1102,16 +1102,16 @@ _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equa
   %cmp2.i.i612 = icmp eq ptr %storemerge1.i.i611, null
   br i1 %cmp2.i.i612, label %while.body.i.i616, label %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit620
 
-while.body.i.i616:                                ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit609, %while.body.i.i616
-  %111 = phi ptr [ %incdec.ptr.i.i617, %while.body.i.i616 ], [ %itc.sroa.7.03071, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit609 ]
+while.body.i.i616:                                ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit609, %while.body.i.i616
+  %111 = phi ptr [ %incdec.ptr.i.i617, %while.body.i.i616 ], [ %itc.sroa.7.03071, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit609 ]
   %incdec.ptr.i.i617 = getelementptr inbounds i8, ptr %111, i64 8
   %storemerge.i.i618 = load ptr, ptr %incdec.ptr.i.i617, align 8
   %cmp.i.i619 = icmp eq ptr %storemerge.i.i618, null
   br i1 %cmp.i.i619, label %while.body.i.i616, label %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit620, !llvm.loop !8
 
-_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit620: ; preds = %while.body.i.i616, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit609
-  %itc.sroa.0.1 = phi ptr [ %storemerge1.i.i611, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit609 ], [ %storemerge.i.i618, %while.body.i.i616 ]
-  %itc.sroa.7.1 = phi ptr [ %itc.sroa.7.03071, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit609 ], [ %incdec.ptr.i.i617, %while.body.i.i616 ]
+_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit620: ; preds = %while.body.i.i616, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit609
+  %itc.sroa.0.1 = phi ptr [ %storemerge1.i.i611, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit609 ], [ %storemerge.i.i618, %while.body.i.i616 ]
+  %itc.sroa.7.1 = phi ptr [ %itc.sroa.7.03071, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit609 ], [ %incdec.ptr.i.i617, %while.body.i.i616 ]
   %112 = load ptr, ptr %arrayidx.i.i155, align 8
   %cmp.i591.not = icmp eq ptr %itc.sroa.0.1, %112
   br i1 %cmp.i591.not, label %for.end189, label %for.body177, !llvm.loop !43
@@ -1162,7 +1162,7 @@ for.body.i.i629:                                  ; preds = %for.end216, %for.in
   %119 = getelementptr i8, ptr %pNode.addr.02.i.i630, i64 8
   %call.val.i.i631 = load i32, ptr %119, align 8
   %cmp.i.i.i.i632 = icmp eq i32 %call.val.i.i631, 99999
-  br i1 %cmp.i.i.i.i632, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit641.loopexit, label %for.inc.i.i633
+  br i1 %cmp.i.i.i.i632, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit641.loopexit, label %for.inc.i.i633
 
 for.inc.i.i633:                                   ; preds = %for.body.i.i629
   %120 = load ptr, ptr %pNode.addr.02.i.i630, align 8
@@ -1171,44 +1171,44 @@ for.inc.i.i633:                                   ; preds = %for.body.i.i629
 
 cond.false.i635:                                  ; preds = %for.inc.i.i633, %for.end216
   %121 = load ptr, ptr %arrayidx.i.i155, align 8
-  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit641
+  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit641
 
-_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit641.loopexit: ; preds = %for.body.i.i629
+_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit641.loopexit: ; preds = %for.body.i.i629
   %.pre3225 = load ptr, ptr %arrayidx.i.i155, align 8
-  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit641
+  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit641
 
-_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit641: ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit641.loopexit, %cond.false.i635
-  %122 = phi ptr [ %121, %cond.false.i635 ], [ %.pre3225, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit641.loopexit ]
-  %retval.sroa.0.0.i638 = phi ptr [ %121, %cond.false.i635 ], [ %pNode.addr.02.i.i630, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit641.loopexit ]
+_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit641: ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit641.loopexit, %cond.false.i635
+  %122 = phi ptr [ %121, %cond.false.i635 ], [ %.pre3225, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit641.loopexit ]
+  %retval.sroa.0.0.i638 = phi ptr [ %121, %cond.false.i635 ], [ %pNode.addr.02.i.i630, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit641.loopexit ]
   %cmp.i645 = icmp eq ptr %retval.sroa.0.0.i638, %122
   %call225 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i645, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 332, ptr noundef nonnull @.str.34)
   %123 = load ptr, ptr %arrayidx.i627, align 8
   %tobool.not1.i.i650 = icmp eq ptr %123, null
   br i1 %tobool.not1.i.i650, label %cond.false.i657, label %for.body.i.i651
 
-for.body.i.i651:                                  ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit641, %for.inc.i.i655
-  %pNode.addr.02.i.i652 = phi ptr [ %125, %for.inc.i.i655 ], [ %123, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit641 ]
+for.body.i.i651:                                  ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit641, %for.inc.i.i655
+  %pNode.addr.02.i.i652 = phi ptr [ %125, %for.inc.i.i655 ], [ %123, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit641 ]
   %124 = getelementptr i8, ptr %pNode.addr.02.i.i652, i64 8
   %call.val.i.i653 = load i32, ptr %124, align 8
   %cmp.i.i.i.i654 = icmp eq i32 %call.val.i.i653, 99999
-  br i1 %cmp.i.i.i.i654, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit.loopexit, label %for.inc.i.i655
+  br i1 %cmp.i.i.i.i654, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit.loopexit, label %for.inc.i.i655
 
 for.inc.i.i655:                                   ; preds = %for.body.i.i651
   %125 = load ptr, ptr %pNode.addr.02.i.i652, align 8
   %tobool.not.i.i656 = icmp eq ptr %125, null
   br i1 %tobool.not.i.i656, label %cond.false.i657, label %for.body.i.i651, !llvm.loop !22
 
-cond.false.i657:                                  ; preds = %for.inc.i.i655, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit641
+cond.false.i657:                                  ; preds = %for.inc.i.i655, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit641
   %126 = load ptr, ptr %arrayidx.i.i155, align 8
-  br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit
+  br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit
 
-_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit.loopexit: ; preds = %for.body.i.i651
+_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit.loopexit: ; preds = %for.body.i.i651
   %.pre3226 = load ptr, ptr %arrayidx.i.i155, align 8
-  br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit
+  br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit
 
-_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit: ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit.loopexit, %cond.false.i657
-  %127 = phi ptr [ %126, %cond.false.i657 ], [ %.pre3226, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit.loopexit ]
-  %retval.sroa.0.0.i660 = phi ptr [ %126, %cond.false.i657 ], [ %pNode.addr.02.i.i652, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit.loopexit ]
+_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit: ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit.loopexit, %cond.false.i657
+  %127 = phi ptr [ %126, %cond.false.i657 ], [ %.pre3226, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit.loopexit ]
+  %retval.sroa.0.0.i660 = phi ptr [ %126, %cond.false.i657 ], [ %pNode.addr.02.i.i652, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit.loopexit ]
   %cmp.i666 = icmp eq ptr %retval.sroa.0.0.i660, %127
   %call233 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i666, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 335, ptr noundef nonnull @.str.35)
   %arrayidx.i669 = getelementptr inbounds i8, ptr %ihmSW1, i64 56
@@ -1216,52 +1216,52 @@ _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equ
   %tobool.not1.i.i670 = icmp eq ptr %128, null
   br i1 %tobool.not1.i.i670, label %cond.false.i677, label %for.body.i.i671
 
-for.body.i.i671:                                  ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit, %for.inc.i.i675
-  %pNode.addr.02.i.i672 = phi ptr [ %130, %for.inc.i.i675 ], [ %128, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit ]
+for.body.i.i671:                                  ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit, %for.inc.i.i675
+  %pNode.addr.02.i.i672 = phi ptr [ %130, %for.inc.i.i675 ], [ %128, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit ]
   %129 = getelementptr i8, ptr %pNode.addr.02.i.i672, i64 8
   %call.val.i.i673 = load i32, ptr %129, align 8
   %cmp.i.i.i.i674 = icmp eq i32 %call.val.i.i673, 7
-  br i1 %cmp.i.i.i.i674, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit, label %for.inc.i.i675
+  br i1 %cmp.i.i.i.i674, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit, label %for.inc.i.i675
 
 for.inc.i.i675:                                   ; preds = %for.body.i.i671
   %130 = load ptr, ptr %pNode.addr.02.i.i672, align 8
   %tobool.not.i.i676 = icmp eq ptr %130, null
   br i1 %tobool.not.i.i676, label %cond.false.i677, label %for.body.i.i671, !llvm.loop !49
 
-cond.false.i677:                                  ; preds = %for.inc.i.i675, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit
+cond.false.i677:                                  ; preds = %for.inc.i.i675, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit
   %131 = load ptr, ptr %arrayidx.i.i155, align 8
   %mX241.phi.trans.insert = getelementptr inbounds i8, ptr %131, i64 8
   %.pre3227 = load i32, ptr %mX241.phi.trans.insert, align 8
   %132 = icmp eq i32 %.pre3227, 7
-  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit
+  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit
 
-_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit: ; preds = %for.body.i.i671, %cond.false.i677
+_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit: ; preds = %for.body.i.i671, %cond.false.i677
   %cmp242 = phi i1 [ %132, %cond.false.i677 ], [ true, %for.body.i.i671 ]
   %call243 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp242, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 352, ptr noundef nonnull @.str.36)
   %133 = load ptr, ptr %arrayidx.i669, align 8
   %tobool.not1.i.i685 = icmp eq ptr %133, null
   br i1 %tobool.not1.i.i685, label %cond.false.i692, label %for.body.i.i686
 
-for.body.i.i686:                                  ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit, %for.inc.i.i690
-  %pNode.addr.02.i.i687 = phi ptr [ %135, %for.inc.i.i690 ], [ %133, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit ]
+for.body.i.i686:                                  ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit, %for.inc.i.i690
+  %pNode.addr.02.i.i687 = phi ptr [ %135, %for.inc.i.i690 ], [ %133, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit ]
   %134 = getelementptr i8, ptr %pNode.addr.02.i.i687, i64 8
   %call.val.i.i688 = load i32, ptr %134, align 8
   %cmp.i.i.i.i689 = icmp eq i32 %call.val.i.i688, 7
-  br i1 %cmp.i.i.i.i689, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit, label %for.inc.i.i690
+  br i1 %cmp.i.i.i.i689, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit, label %for.inc.i.i690
 
 for.inc.i.i690:                                   ; preds = %for.body.i.i686
   %135 = load ptr, ptr %pNode.addr.02.i.i687, align 8
   %tobool.not.i.i691 = icmp eq ptr %135, null
   br i1 %tobool.not.i.i691, label %cond.false.i692, label %for.body.i.i686, !llvm.loop !49
 
-cond.false.i692:                                  ; preds = %for.inc.i.i690, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit
+cond.false.i692:                                  ; preds = %for.inc.i.i690, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit
   %136 = load ptr, ptr %arrayidx.i.i155, align 8
   %mX251.phi.trans.insert = getelementptr inbounds i8, ptr %136, i64 8
   %.pre3228 = load i32, ptr %mX251.phi.trans.insert, align 8
   %137 = icmp eq i32 %.pre3228, 7
-  br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit
+  br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit
 
-_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit: ; preds = %for.body.i.i686, %cond.false.i692
+_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit: ; preds = %for.body.i.i686, %cond.false.i692
   %cmp252 = phi i1 [ %137, %cond.false.i692 ], [ true, %for.body.i.i686 ]
   %call253 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp252, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 355, ptr noundef nonnull @.str.37)
   %138 = load i64, ptr %mnElementCount.i.i154, align 8
@@ -1269,9 +1269,9 @@ _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equ
   %tobool.not18.i = icmp eq ptr %.pr.i, null
   br i1 %tobool.not18.i, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5eraseERKS2_.exit, label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit, %while.body.i
-  %139 = phi i64 [ %dec.i, %while.body.i ], [ %138, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit ]
-  %140 = phi ptr [ %142, %while.body.i ], [ %.pr.i, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit ]
+land.rhs.i:                                       ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit, %while.body.i
+  %139 = phi i64 [ %dec.i, %while.body.i ], [ %138, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit ]
+  %140 = phi ptr [ %142, %while.body.i ], [ %.pr.i, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit ]
   %141 = getelementptr i8, ptr %140, i64 8
   %call2.val.i703 = load i32, ptr %141, align 8
   %cmp.i.i.i704 = icmp eq i32 %call2.val.i703, 99999
@@ -1313,8 +1313,8 @@ if.end.i:                                         ; preds = %if.then12.i, %while
   %cmp.not.i705 = icmp eq ptr %149, null
   br i1 %cmp.not.i705, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5eraseERKS2_.exit, label %while.body8.i, !llvm.loop !51
 
-_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5eraseERKS2_.exit: ; preds = %while.body.i, %if.end.i, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit, %while.cond6.preheader.i
-  %150 = phi i64 [ %138, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit ], [ %139, %while.cond6.preheader.i ], [ %148, %if.end.i ], [ %dec.i, %while.body.i ]
+_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5eraseERKS2_.exit: ; preds = %while.body.i, %if.end.i, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit, %while.cond6.preheader.i
+  %150 = phi i64 [ %138, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit ], [ %139, %while.cond6.preheader.i ], [ %148, %if.end.i ], [ %dec.i, %while.body.i ]
   %cmp256 = icmp eq i64 %138, %150
   %call257 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp256, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 363, ptr noundef nonnull @.str.38)
   %151 = load i64, ptr %mnElementCount.i.i154, align 8
@@ -1382,7 +1382,7 @@ for.body.i.i741:                                  ; preds = %_ZN5eastl19intrusiv
   %165 = getelementptr i8, ptr %pNode.addr.02.i.i742, i64 8
   %call.val.i.i743 = load i32, ptr %165, align 8
   %cmp.i.i.i.i744 = icmp eq i32 %call.val.i.i743, 18
-  br i1 %cmp.i.i.i.i744, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit753.loopexit, label %for.inc.i.i745
+  br i1 %cmp.i.i.i.i744, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit753.loopexit, label %for.inc.i.i745
 
 for.inc.i.i745:                                   ; preds = %for.body.i.i741
   %166 = load ptr, ptr %pNode.addr.02.i.i742, align 8
@@ -1391,32 +1391,32 @@ for.inc.i.i745:                                   ; preds = %for.body.i.i741
 
 cond.false.i747:                                  ; preds = %for.inc.i.i745, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5eraseERKS2_.exit735
   %167 = load ptr, ptr %arrayidx.i.i155, align 8
-  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit753
+  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit753
 
-_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit753.loopexit: ; preds = %for.body.i.i741
+_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit753.loopexit: ; preds = %for.body.i.i741
   %.pre3229 = load ptr, ptr %arrayidx.i.i155, align 8
-  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit753
+  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit753
 
-_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit753: ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit753.loopexit, %cond.false.i747
-  %168 = phi ptr [ %167, %cond.false.i747 ], [ %.pre3229, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit753.loopexit ]
-  %retval.sroa.3.0.i749 = phi ptr [ %arrayidx.i.i155, %cond.false.i747 ], [ %arrayidx.i739, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit753.loopexit ]
-  %retval.sroa.0.0.i750 = phi ptr [ %167, %cond.false.i747 ], [ %pNode.addr.02.i.i742, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit753.loopexit ]
+_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit753: ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit753.loopexit, %cond.false.i747
+  %168 = phi ptr [ %167, %cond.false.i747 ], [ %.pre3229, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit753.loopexit ]
+  %retval.sroa.3.0.i749 = phi ptr [ %arrayidx.i.i155, %cond.false.i747 ], [ %arrayidx.i739, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit753.loopexit ]
+  %retval.sroa.0.0.i750 = phi ptr [ %167, %cond.false.i747 ], [ %pNode.addr.02.i.i742, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit753.loopexit ]
   %cmp.i757 = icmp ne ptr %retval.sroa.0.0.i750, %168
   %call270 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i757, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 369, ptr noundef nonnull @.str.40)
   %169 = load ptr, ptr %ihmSW1, align 8
   %tobool.not.i.i758 = icmp eq ptr %169, null
   br i1 %tobool.not.i.i758, label %while.cond.i.i.i783, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i759
 
-while.cond.i.i.i783:                              ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit753, %while.cond.i.i.i783
-  %.pn.i.i.i784 = phi ptr [ %storemerge.i.i.i785, %while.cond.i.i.i783 ], [ %ihmSW1, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit753 ]
+while.cond.i.i.i783:                              ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit753, %while.cond.i.i.i783
+  %.pn.i.i.i784 = phi ptr [ %storemerge.i.i.i785, %while.cond.i.i.i783 ], [ %ihmSW1, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit753 ]
   %storemerge.i.i.i785 = getelementptr inbounds i8, ptr %.pn.i.i.i784, i64 8
   %170 = load ptr, ptr %storemerge.i.i.i785, align 8
   %cmp.i.i.i786 = icmp eq ptr %170, null
   br i1 %cmp.i.i.i786, label %while.cond.i.i.i783, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i759, !llvm.loop !7
 
-_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i759: ; preds = %while.cond.i.i.i783, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit753
-  %retval.sroa.4.0.i.i760 = phi ptr [ %ihmSW1, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit753 ], [ %storemerge.i.i.i785, %while.cond.i.i.i783 ]
-  %retval.sroa.0.0.i.i761 = phi ptr [ %169, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit753 ], [ %170, %while.cond.i.i.i783 ]
+_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i759: ; preds = %while.cond.i.i.i783, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit753
+  %retval.sroa.4.0.i.i760 = phi ptr [ %ihmSW1, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit753 ], [ %storemerge.i.i.i785, %while.cond.i.i.i783 ]
+  %retval.sroa.0.0.i.i761 = phi ptr [ %169, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit753 ], [ %170, %while.cond.i.i.i783 ]
   %171 = load ptr, ptr %arrayidx.i.i155, align 8
   %cmp.i.not12.i763 = icmp eq ptr %retval.sroa.0.0.i.i761, %171
   br i1 %cmp.i.not12.i763, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE17validate_iteratorENS_28intrusive_hashtable_iteratorIS2_Lb1EEE.exit787, label %for.body.i764
@@ -1536,7 +1536,7 @@ for.body.i.i841:                                  ; preds = %_ZNK5eastl19intrusi
   %183 = getelementptr i8, ptr %pNode.addr.02.i.i842, i64 8
   %call.val.i.i843 = load i32, ptr %183, align 8
   %cmp.i.i.i.i844 = icmp eq i32 %call.val.i.i843, 18
-  br i1 %cmp.i.i.i.i844, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit853.loopexit, label %for.inc.i.i845
+  br i1 %cmp.i.i.i.i844, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit853.loopexit, label %for.inc.i.i845
 
 for.inc.i.i845:                                   ; preds = %for.body.i.i841
   %184 = load ptr, ptr %pNode.addr.02.i.i842, align 8
@@ -1545,15 +1545,15 @@ for.inc.i.i845:                                   ; preds = %for.body.i.i841
 
 cond.false.i847:                                  ; preds = %for.inc.i.i845, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE17validate_iteratorENS_28intrusive_hashtable_iteratorIS2_Lb1EEE.exit835
   %185 = load ptr, ptr %arrayidx.i.i155, align 8
-  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit853
+  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit853
 
-_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit853.loopexit: ; preds = %for.body.i.i841
+_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit853.loopexit: ; preds = %for.body.i.i841
   %.pre3230 = load ptr, ptr %arrayidx.i.i155, align 8
-  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit853
+  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit853
 
-_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit853: ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit853.loopexit, %cond.false.i847
-  %186 = phi ptr [ %185, %cond.false.i847 ], [ %.pre3230, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit853.loopexit ]
-  %retval.sroa.0.0.i850 = phi ptr [ %185, %cond.false.i847 ], [ %pNode.addr.02.i.i842, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit853.loopexit ]
+_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit853: ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit853.loopexit, %cond.false.i847
+  %186 = phi ptr [ %185, %cond.false.i847 ], [ %.pre3230, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit853.loopexit ]
+  %retval.sroa.0.0.i850 = phi ptr [ %185, %cond.false.i847 ], [ %pNode.addr.02.i.i842, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit853.loopexit ]
   %cmp.i857 = icmp eq ptr %retval.sroa.0.0.i850, %186
   %call296 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i857, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 377, ptr noundef nonnull @.str.34)
   %arrayidx.i861 = getelementptr inbounds i8, ptr %ihmSW1, i64 152
@@ -1561,38 +1561,38 @@ _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equa
   %tobool.not1.i.i862 = icmp eq ptr %187, null
   br i1 %tobool.not1.i.i862, label %cond.false.i869, label %for.body.i.i863
 
-for.body.i.i863:                                  ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit853, %for.inc.i.i867
-  %pNode.addr.02.i.i864 = phi ptr [ %189, %for.inc.i.i867 ], [ %187, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit853 ]
+for.body.i.i863:                                  ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit853, %for.inc.i.i867
+  %pNode.addr.02.i.i864 = phi ptr [ %189, %for.inc.i.i867 ], [ %187, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit853 ]
   %188 = getelementptr i8, ptr %pNode.addr.02.i.i864, i64 8
   %call.val.i.i865 = load i32, ptr %188, align 8
   %cmp.i.i.i.i866 = icmp eq i32 %call.val.i.i865, 19
-  br i1 %cmp.i.i.i.i866, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit875.loopexit, label %for.inc.i.i867
+  br i1 %cmp.i.i.i.i866, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit875.loopexit, label %for.inc.i.i867
 
 for.inc.i.i867:                                   ; preds = %for.body.i.i863
   %189 = load ptr, ptr %pNode.addr.02.i.i864, align 8
   %tobool.not.i.i868 = icmp eq ptr %189, null
   br i1 %tobool.not.i.i868, label %cond.false.i869, label %for.body.i.i863, !llvm.loop !22
 
-cond.false.i869:                                  ; preds = %for.inc.i.i867, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit853
+cond.false.i869:                                  ; preds = %for.inc.i.i867, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit853
   %190 = load ptr, ptr %arrayidx.i.i155, align 8
-  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit875
+  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit875
 
-_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit875.loopexit: ; preds = %for.body.i.i863
+_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit875.loopexit: ; preds = %for.body.i.i863
   %.pre3231 = load ptr, ptr %arrayidx.i.i155, align 8
-  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit875
+  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit875
 
-_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit875: ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit875.loopexit, %cond.false.i869
-  %191 = phi ptr [ %190, %cond.false.i869 ], [ %.pre3231, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit875.loopexit ]
-  %retval.sroa.3.0.i871 = phi ptr [ %arrayidx.i.i155, %cond.false.i869 ], [ %arrayidx.i861, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit875.loopexit ]
-  %retval.sroa.0.0.i872 = phi ptr [ %190, %cond.false.i869 ], [ %pNode.addr.02.i.i864, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit875.loopexit ]
+_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit875: ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit875.loopexit, %cond.false.i869
+  %191 = phi ptr [ %190, %cond.false.i869 ], [ %.pre3231, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit875.loopexit ]
+  %retval.sroa.3.0.i871 = phi ptr [ %arrayidx.i.i155, %cond.false.i869 ], [ %arrayidx.i861, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit875.loopexit ]
+  %retval.sroa.0.0.i872 = phi ptr [ %190, %cond.false.i869 ], [ %pNode.addr.02.i.i864, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit875.loopexit ]
   %cmp.i879 = icmp ne ptr %retval.sroa.0.0.i872, %191
   %call305 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i879, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 380, ptr noundef nonnull @.str.40)
   br label %while.body.i.i880
 
-while.body.i.i880:                                ; preds = %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i.i, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit875
-  %incdec.ptr.i.i6.i.i = phi ptr [ %retval.sroa.3.0.i871, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit875 ], [ %incdec.ptr.i.i5.i.i, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i.i ]
-  %n.addr.04.i.i = phi i32 [ 7, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit875 ], [ %dec.i.i, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i.i ]
-  %storemerge.i.i13.i.i = phi ptr [ %retval.sroa.0.0.i872, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit875 ], [ %itf2.sroa.0.0, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i.i ]
+while.body.i.i880:                                ; preds = %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i.i, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit875
+  %incdec.ptr.i.i6.i.i = phi ptr [ %retval.sroa.3.0.i871, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit875 ], [ %incdec.ptr.i.i5.i.i, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i.i ]
+  %n.addr.04.i.i = phi i32 [ 7, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit875 ], [ %dec.i.i, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i.i ]
+  %storemerge.i.i13.i.i = phi ptr [ %retval.sroa.0.0.i872, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit875 ], [ %itf2.sroa.0.0, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i.i ]
   %dec.i.i = add nsw i32 %n.addr.04.i.i, -1
   %storemerge1.i.i.i.i = load ptr, ptr %storemerge.i.i13.i.i, align 8
   %cmp2.i.i.i.i = icmp eq ptr %storemerge1.i.i.i.i, null
@@ -1760,7 +1760,7 @@ for.body.i.i971:                                  ; preds = %_ZNK5eastl19intrusi
   %208 = getelementptr i8, ptr %pNode.addr.02.i.i972, i64 8
   %call.val.i.i973 = load i32, ptr %208, align 8
   %cmp.i.i.i.i974 = icmp eq i32 %call.val.i.i973, 19
-  br i1 %cmp.i.i.i.i974, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit983.loopexit, label %for.inc.i.i975
+  br i1 %cmp.i.i.i.i974, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit983.loopexit, label %for.inc.i.i975
 
 for.inc.i.i975:                                   ; preds = %for.body.i.i971
   %209 = load ptr, ptr %pNode.addr.02.i.i972, align 8
@@ -1769,15 +1769,15 @@ for.inc.i.i975:                                   ; preds = %for.body.i.i971
 
 cond.false.i977:                                  ; preds = %for.inc.i.i975, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE17validate_iteratorENS_28intrusive_hashtable_iteratorIS2_Lb1EEE.exit965
   %210 = load ptr, ptr %arrayidx.i.i155, align 8
-  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit983
+  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit983
 
-_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit983.loopexit: ; preds = %for.body.i.i971
+_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit983.loopexit: ; preds = %for.body.i.i971
   %.pre3232 = load ptr, ptr %arrayidx.i.i155, align 8
-  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit983
+  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit983
 
-_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit983: ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit983.loopexit, %cond.false.i977
-  %211 = phi ptr [ %210, %cond.false.i977 ], [ %.pre3232, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit983.loopexit ]
-  %retval.sroa.0.0.i980 = phi ptr [ %210, %cond.false.i977 ], [ %pNode.addr.02.i.i972, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit983.loopexit ]
+_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit983: ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit983.loopexit, %cond.false.i977
+  %211 = phi ptr [ %210, %cond.false.i977 ], [ %.pre3232, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit983.loopexit ]
+  %retval.sroa.0.0.i980 = phi ptr [ %210, %cond.false.i977 ], [ %pNode.addr.02.i.i972, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit983.loopexit ]
   %cmp.i987 = icmp eq ptr %retval.sroa.0.0.i980, %211
   %call337 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i987, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 392, ptr noundef nonnull @.str.34)
   %add.ptr.i991 = getelementptr inbounds i8, ptr %ihmSW1, i64 8
@@ -1785,8 +1785,8 @@ _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equa
   %tobool.not1.i.i992 = icmp eq ptr %212, null
   br i1 %tobool.not1.i.i992, label %if.end11.i, label %for.body.i.i993
 
-for.body.i.i993:                                  ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit983, %for.inc.i.i997
-  %pNode.addr.02.i.i994 = phi ptr [ %214, %for.inc.i.i997 ], [ %212, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit983 ]
+for.body.i.i993:                                  ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit983, %for.inc.i.i997
+  %pNode.addr.02.i.i994 = phi ptr [ %214, %for.inc.i.i997 ], [ %212, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit983 ]
   %213 = getelementptr i8, ptr %pNode.addr.02.i.i994, i64 8
   %call.val.i.i995 = load i32, ptr %213, align 8, !noalias !55
   %cmp.i.i.i.i996 = icmp eq i32 %call.val.i.i995, 1
@@ -1807,20 +1807,20 @@ for.body.i999:                                    ; preds = %for.cond.i
   %215 = getelementptr i8, ptr %p1.0.i, i64 8
   %call4.val.i = load i32, ptr %215, align 8, !noalias !55
   %cmp.i.i.i1000 = icmp eq i32 %call4.val.i, 1
-  br i1 %cmp.i.i.i1000, label %for.cond.i, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit, !llvm.loop !58
+  br i1 %cmp.i.i.i1000, label %for.cond.i, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit, !llvm.loop !58
 
 while.cond.i.i1001:                               ; preds = %for.cond.i, %while.cond.i.i1001
   %.pn.i.i1002 = phi ptr [ %storemerge.i.i1003, %while.cond.i.i1001 ], [ %add.ptr.i991, %for.cond.i ]
   %storemerge.i.i1003 = getelementptr inbounds i8, ptr %.pn.i.i1002, i64 8
   %216 = load ptr, ptr %storemerge.i.i1003, align 8, !noalias !55
   %cmp.i.i1004 = icmp eq ptr %216, null
-  br i1 %cmp.i.i1004, label %while.cond.i.i1001, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit, !llvm.loop !7
+  br i1 %cmp.i.i1004, label %while.cond.i.i1001, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit, !llvm.loop !7
 
-if.end11.i:                                       ; preds = %for.inc.i.i997, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit983
+if.end11.i:                                       ; preds = %for.inc.i.i997, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.argprom.exit983
   %217 = load ptr, ptr %arrayidx.i.i155, align 8, !noalias !55
-  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit
+  br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit
 
-_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit: ; preds = %for.body.i999, %while.cond.i.i1001, %if.end11.i
+_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit: ; preds = %for.body.i999, %while.cond.i.i1001, %if.end11.i
   %.sink14.i = phi ptr [ %217, %if.end11.i ], [ %pNode.addr.02.i.i994, %while.cond.i.i1001 ], [ %pNode.addr.02.i.i994, %for.body.i999 ]
   %.sink.i = phi ptr [ %217, %if.end11.i ], [ %216, %while.cond.i.i1001 ], [ %p1.0.i, %for.body.i999 ]
   %218 = load ptr, ptr %arrayidx.i.i155, align 8
@@ -1833,8 +1833,8 @@ _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equa
   %tobool.not1.i.i1017 = icmp eq ptr %220, null
   br i1 %tobool.not1.i.i1017, label %if.end11.i1024, label %for.body.i.i1018
 
-for.body.i.i1018:                                 ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit, %for.inc.i.i1022
-  %pNode.addr.02.i.i1019 = phi ptr [ %222, %for.inc.i.i1022 ], [ %220, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit ]
+for.body.i.i1018:                                 ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit, %for.inc.i.i1022
+  %pNode.addr.02.i.i1019 = phi ptr [ %222, %for.inc.i.i1022 ], [ %220, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit ]
   %221 = getelementptr i8, ptr %pNode.addr.02.i.i1019, i64 8
   %call.val.i.i1020 = load i32, ptr %221, align 8, !noalias !59
   %cmp.i.i.i.i1021 = icmp eq i32 %call.val.i.i1020, 1
@@ -1855,20 +1855,20 @@ for.body.i1038:                                   ; preds = %for.cond.i1034
   %223 = getelementptr i8, ptr %p1.0.i1036, i64 8
   %call4.val.i1039 = load i32, ptr %223, align 8, !noalias !59
   %cmp.i.i.i1040 = icmp eq i32 %call4.val.i1039, 1
-  br i1 %cmp.i.i.i1040, label %for.cond.i1034, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit, !llvm.loop !62
+  br i1 %cmp.i.i.i1040, label %for.cond.i1034, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit, !llvm.loop !62
 
 while.cond.i.i1041:                               ; preds = %for.cond.i1034, %while.cond.i.i1041
   %.pn.i.i1042 = phi ptr [ %storemerge.i.i1043, %while.cond.i.i1041 ], [ %add.ptr.i991, %for.cond.i1034 ]
   %storemerge.i.i1043 = getelementptr inbounds i8, ptr %.pn.i.i1042, i64 8
   %224 = load ptr, ptr %storemerge.i.i1043, align 8, !noalias !59
   %cmp.i.i1044 = icmp eq ptr %224, null
-  br i1 %cmp.i.i1044, label %while.cond.i.i1041, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit, !llvm.loop !7
+  br i1 %cmp.i.i1044, label %while.cond.i.i1041, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit, !llvm.loop !7
 
-if.end11.i1024:                                   ; preds = %for.inc.i.i1022, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit
+if.end11.i1024:                                   ; preds = %for.inc.i.i1022, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit
   %225 = load ptr, ptr %arrayidx.i.i155, align 8, !noalias !59
-  br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit
+  br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit
 
-_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit: ; preds = %for.body.i1038, %while.cond.i.i1041, %if.end11.i1024
+_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit: ; preds = %for.body.i1038, %while.cond.i.i1041, %if.end11.i1024
   %.sink14.i1026 = phi ptr [ %225, %if.end11.i1024 ], [ %pNode.addr.02.i.i1019, %while.cond.i.i1041 ], [ %pNode.addr.02.i.i1019, %for.body.i1038 ]
   %.sink.i1028 = phi ptr [ %225, %if.end11.i1024 ], [ %224, %while.cond.i.i1041 ], [ %p1.0.i1036, %for.body.i1038 ]
   %226 = load ptr, ptr %arrayidx.i.i155, align 8
@@ -1884,8 +1884,8 @@ _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equ
   %tobool.not.i1083 = icmp eq ptr %229, null
   br i1 %tobool.not.i1083, label %while.cond.i.i1089, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i1095
 
-while.cond.i.i1089:                               ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit, %while.cond.i.i1089
-  %.pn.i.i1090 = phi ptr [ %storemerge.i.i1091, %while.cond.i.i1089 ], [ %ihmSW1, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit ]
+while.cond.i.i1089:                               ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit, %while.cond.i.i1089
+  %.pn.i.i1090 = phi ptr [ %storemerge.i.i1091, %while.cond.i.i1089 ], [ %ihmSW1, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit ]
   %storemerge.i.i1091 = getelementptr inbounds i8, ptr %.pn.i.i1090, i64 8
   %230 = load ptr, ptr %storemerge.i.i1091, align 8
   %cmp.i.i1092 = icmp eq ptr %230, null
@@ -1898,10 +1898,10 @@ while.cond.i.i.i1119:                             ; preds = %while.cond.i.i1089,
   %cmp.i.i.i1122 = icmp eq ptr %231, null
   br i1 %cmp.i.i.i1122, label %while.cond.i.i.i1119, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i1095, !llvm.loop !7
 
-_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i1095: ; preds = %while.cond.i.i.i1119, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit
-  %retval.sroa.0.0.i10862931 = phi ptr [ %229, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit ], [ %230, %while.cond.i.i.i1119 ]
-  %retval.sroa.4.0.i.i1096 = phi ptr [ %ihmSW1, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit ], [ %storemerge.i.i.i1121, %while.cond.i.i.i1119 ]
-  %retval.sroa.0.0.i.i1097 = phi ptr [ %229, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit ], [ %231, %while.cond.i.i.i1119 ]
+_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i1095: ; preds = %while.cond.i.i.i1119, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit
+  %retval.sroa.0.0.i10862931 = phi ptr [ %229, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit ], [ %230, %while.cond.i.i.i1119 ]
+  %retval.sroa.4.0.i.i1096 = phi ptr [ %ihmSW1, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit ], [ %storemerge.i.i.i1121, %while.cond.i.i.i1119 ]
+  %retval.sroa.0.0.i.i1097 = phi ptr [ %229, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom.exit ], [ %231, %while.cond.i.i.i1119 ]
   %232 = load ptr, ptr %arrayidx.i.i155, align 8
   %cmp.i.not12.i1099 = icmp eq ptr %retval.sroa.0.0.i.i1097, %232
   br i1 %cmp.i.not12.i1099, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE17validate_iteratorENS_28intrusive_hashtable_iteratorIS2_Lb1EEE.exit1123, label %for.body.i1100
@@ -2800,7 +2800,7 @@ _ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal
   %call521 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp520, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 531, ptr noundef nonnull @.str.64)
   %pNode.01.i1646 = load ptr, ptr %ihmMW1, align 8
   %tobool.not2.i1647 = icmp eq ptr %pNode.01.i1646, null
-  br i1 %tobool.not2.i1647, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit, label %for.body.i1648
+  br i1 %tobool.not2.i1647, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit, label %for.body.i1648
 
 for.body.i1648:                                   ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE8validateEv.exit1636, %for.body.i1648
   %pNode.04.i1649 = phi ptr [ %pNode.0.i1654, %for.body.i1648 ], [ %pNode.01.i1646, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE8validateEv.exit1636 ]
@@ -2812,22 +2812,22 @@ for.body.i1648:                                   ; preds = %_ZNK5eastl19intrusi
   %spec.select.i1653 = add i64 %result.03.i1650, %inc.i1652
   %pNode.0.i1654 = load ptr, ptr %pNode.04.i1649, align 8
   %tobool.not.i1655 = icmp eq ptr %pNode.0.i1654, null
-  br i1 %tobool.not.i1655, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit.loopexit, label %for.body.i1648, !llvm.loop !99
+  br i1 %tobool.not.i1655, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit.loopexit, label %for.body.i1648, !llvm.loop !99
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit.loopexit: ; preds = %for.body.i1648
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit.loopexit: ; preds = %for.body.i1648
   %325 = icmp eq i64 %spec.select.i1653, 0
-  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit
+  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit: ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit.loopexit, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE8validateEv.exit1636
-  %result.0.lcssa.i1657 = phi i1 [ true, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE8validateEv.exit1636 ], [ %325, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit.loopexit ]
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit: ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit.loopexit, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE8validateEv.exit1636
+  %result.0.lcssa.i1657 = phi i1 [ true, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE8validateEv.exit1636 ], [ %325, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit.loopexit ]
   %call525 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %result.0.lcssa.i1657, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 532, ptr noundef nonnull @.str.65)
   %pNode.01.i1661 = load ptr, ptr %ihmMW1, align 8
   %tobool.not2.i1662 = icmp eq ptr %pNode.01.i1661, null
-  br i1 %tobool.not2.i1662, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1674, label %for.body.i1663
+  br i1 %tobool.not2.i1662, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1674, label %for.body.i1663
 
-for.body.i1663:                                   ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit, %for.body.i1663
-  %pNode.04.i1664 = phi ptr [ %pNode.0.i1670, %for.body.i1663 ], [ %pNode.01.i1661, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit ]
-  %result.03.i1665 = phi i64 [ %spec.select.i1669, %for.body.i1663 ], [ 0, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit ]
+for.body.i1663:                                   ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit, %for.body.i1663
+  %pNode.04.i1664 = phi ptr [ %pNode.0.i1670, %for.body.i1663 ], [ %pNode.01.i1661, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit ]
+  %result.03.i1665 = phi i64 [ %spec.select.i1669, %for.body.i1663 ], [ 0, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit ]
   %mKey.i.i1666 = getelementptr inbounds i8, ptr %pNode.04.i1664, i64 8
   %326 = load i32, ptr %mKey.i.i1666, align 4
   %cmp.i.i1667 = icmp eq i32 %326, 999999
@@ -2835,22 +2835,22 @@ for.body.i1663:                                   ; preds = %_ZNK5eastl19intrusi
   %spec.select.i1669 = add i64 %result.03.i1665, %inc.i1668
   %pNode.0.i1670 = load ptr, ptr %pNode.04.i1664, align 8
   %tobool.not.i1671 = icmp eq ptr %pNode.0.i1670, null
-  br i1 %tobool.not.i1671, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1674.loopexit, label %for.body.i1663, !llvm.loop !99
+  br i1 %tobool.not.i1671, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1674.loopexit, label %for.body.i1663, !llvm.loop !99
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1674.loopexit: ; preds = %for.body.i1663
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1674.loopexit: ; preds = %for.body.i1663
   %327 = icmp eq i64 %spec.select.i1669, 0
-  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1674
+  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1674
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1674: ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1674.loopexit, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit
-  %result.0.lcssa.i1673 = phi i1 [ true, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit ], [ %327, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1674.loopexit ]
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1674: ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1674.loopexit, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit
+  %result.0.lcssa.i1673 = phi i1 [ true, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit ], [ %327, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1674.loopexit ]
   %call529 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %result.0.lcssa.i1673, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 533, ptr noundef nonnull @.str.66)
   %pNode.01.i1678 = load ptr, ptr %ihmMW2, align 8
   %tobool.not2.i1679 = icmp eq ptr %pNode.01.i1678, null
-  br i1 %tobool.not2.i1679, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1691, label %for.body.i1680
+  br i1 %tobool.not2.i1679, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1691, label %for.body.i1680
 
-for.body.i1680:                                   ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1674, %for.body.i1680
-  %pNode.04.i1681 = phi ptr [ %pNode.0.i1687, %for.body.i1680 ], [ %pNode.01.i1678, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1674 ]
-  %result.03.i1682 = phi i64 [ %spec.select.i1686, %for.body.i1680 ], [ 0, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1674 ]
+for.body.i1680:                                   ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1674, %for.body.i1680
+  %pNode.04.i1681 = phi ptr [ %pNode.0.i1687, %for.body.i1680 ], [ %pNode.01.i1678, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1674 ]
+  %result.03.i1682 = phi i64 [ %spec.select.i1686, %for.body.i1680 ], [ 0, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1674 ]
   %mKey.i.i1683 = getelementptr inbounds i8, ptr %pNode.04.i1681, i64 8
   %328 = load i32, ptr %mKey.i.i1683, align 4
   %cmp.i.i1684 = icmp eq i32 %328, 0
@@ -2858,22 +2858,22 @@ for.body.i1680:                                   ; preds = %_ZNK5eastl19intrusi
   %spec.select.i1686 = add i64 %result.03.i1682, %inc.i1685
   %pNode.0.i1687 = load ptr, ptr %pNode.04.i1681, align 8
   %tobool.not.i1688 = icmp eq ptr %pNode.0.i1687, null
-  br i1 %tobool.not.i1688, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1691.loopexit, label %for.body.i1680, !llvm.loop !99
+  br i1 %tobool.not.i1688, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1691.loopexit, label %for.body.i1680, !llvm.loop !99
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1691.loopexit: ; preds = %for.body.i1680
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1691.loopexit: ; preds = %for.body.i1680
   %329 = icmp eq i64 %spec.select.i1686, 1
-  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1691
+  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1691
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1691: ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1691.loopexit, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1674
-  %result.0.lcssa.i1690 = phi i1 [ false, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1674 ], [ %329, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1691.loopexit ]
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1691: ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1691.loopexit, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1674
+  %result.0.lcssa.i1690 = phi i1 [ false, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1674 ], [ %329, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1691.loopexit ]
   %call533 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %result.0.lcssa.i1690, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 534, ptr noundef nonnull @.str.67)
   %pNode.01.i1695 = load ptr, ptr %ihmMW2, align 8
   %tobool.not2.i1696 = icmp eq ptr %pNode.01.i1695, null
-  br i1 %tobool.not2.i1696, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1708, label %for.body.i1697
+  br i1 %tobool.not2.i1696, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1708, label %for.body.i1697
 
-for.body.i1697:                                   ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1691, %for.body.i1697
-  %pNode.04.i1698 = phi ptr [ %pNode.0.i1704, %for.body.i1697 ], [ %pNode.01.i1695, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1691 ]
-  %result.03.i1699 = phi i64 [ %spec.select.i1703, %for.body.i1697 ], [ 0, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1691 ]
+for.body.i1697:                                   ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1691, %for.body.i1697
+  %pNode.04.i1698 = phi ptr [ %pNode.0.i1704, %for.body.i1697 ], [ %pNode.01.i1695, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1691 ]
+  %result.03.i1699 = phi i64 [ %spec.select.i1703, %for.body.i1697 ], [ 0, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1691 ]
   %mKey.i.i1700 = getelementptr inbounds i8, ptr %pNode.04.i1698, i64 8
   %330 = load i32, ptr %mKey.i.i1700, align 4
   %cmp.i.i1701 = icmp eq i32 %330, 999999
@@ -2881,22 +2881,22 @@ for.body.i1697:                                   ; preds = %_ZNK5eastl19intrusi
   %spec.select.i1703 = add i64 %result.03.i1699, %inc.i1702
   %pNode.0.i1704 = load ptr, ptr %pNode.04.i1698, align 8
   %tobool.not.i1705 = icmp eq ptr %pNode.0.i1704, null
-  br i1 %tobool.not.i1705, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1708.loopexit, label %for.body.i1697, !llvm.loop !99
+  br i1 %tobool.not.i1705, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1708.loopexit, label %for.body.i1697, !llvm.loop !99
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1708.loopexit: ; preds = %for.body.i1697
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1708.loopexit: ; preds = %for.body.i1697
   %331 = icmp eq i64 %spec.select.i1703, 0
-  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1708
+  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1708
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1708: ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1708.loopexit, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1691
-  %result.0.lcssa.i1707 = phi i1 [ true, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1691 ], [ %331, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1708.loopexit ]
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1708: ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1708.loopexit, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1691
+  %result.0.lcssa.i1707 = phi i1 [ true, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1691 ], [ %331, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1708.loopexit ]
   %call537 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %result.0.lcssa.i1707, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 535, ptr noundef nonnull @.str.68)
   %332 = load ptr, ptr %ihmMW2, align 8, !noalias !100
   %cmp.i.not4.i.i.i1710 = icmp eq ptr %332, null
   br i1 %cmp.i.not4.i.i.i1710, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11bucket_sizeEm.exit1717, label %while.body.i.i.i1711
 
-while.body.i.i.i1711:                             ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1708, %while.body.i.i.i1711
-  %first.val6.i.i.i1712 = phi ptr [ %333, %while.body.i.i.i1711 ], [ %332, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1708 ]
-  %n.05.i.i.i1713 = phi i64 [ %inc.i.i.i1714, %while.body.i.i.i1711 ], [ 0, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1708 ]
+while.body.i.i.i1711:                             ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1708, %while.body.i.i.i1711
+  %first.val6.i.i.i1712 = phi ptr [ %333, %while.body.i.i.i1711 ], [ %332, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1708 ]
+  %n.05.i.i.i1713 = phi i64 [ %inc.i.i.i1714, %while.body.i.i.i1711 ], [ 0, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1708 ]
   %333 = load ptr, ptr %first.val6.i.i.i1712, align 8
   %inc.i.i.i1714 = add nuw nsw i64 %n.05.i.i.i1713, 1
   %cmp.i.not.i.i.i1715 = icmp eq ptr %333, null
@@ -2906,8 +2906,8 @@ _ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal
   %334 = icmp eq i64 %inc.i.i.i1714, 3
   br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11bucket_sizeEm.exit1717
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11bucket_sizeEm.exit1717: ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11bucket_sizeEm.exit1717.loopexit, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1708
-  %n.0.lcssa.i.i.i1716 = phi i1 [ false, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.exit1708 ], [ %334, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11bucket_sizeEm.exit1717.loopexit ]
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11bucket_sizeEm.exit1717: ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11bucket_sizeEm.exit1717.loopexit, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1708
+  %n.0.lcssa.i.i.i1716 = phi i1 [ false, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5countERKi.argprom.exit1708 ], [ %334, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11bucket_sizeEm.exit1717.loopexit ]
   %call540 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i.i1716, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 536, ptr noundef nonnull @.str.69)
   %call544 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 537, ptr noundef nonnull @.str.70)
   %call548 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 538, ptr noundef nonnull @.str.71)
@@ -3018,7 +3018,7 @@ for.body.i.i1778:                                 ; preds = %_ZNK5eastl19intrusi
   %mKey.i.i.i1780 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i1779, i64 8
   %350 = load i32, ptr %mKey.i.i.i1780, align 4, !noalias !111
   %cmp.i.i.i1781 = icmp eq i32 %mKey556.val, %350
-  br i1 %cmp.i.i.i1781, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit, label %for.inc.i.i1782
+  br i1 %cmp.i.i.i1781, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit, label %for.inc.i.i1782
 
 for.inc.i.i1782:                                  ; preds = %for.body.i.i1778
   %351 = load ptr, ptr %pNode.addr.02.i.i1779, align 8, !noalias !111
@@ -3027,9 +3027,9 @@ for.inc.i.i1782:                                  ; preds = %for.body.i.i1778
 
 cond.false.i1784:                                 ; preds = %for.inc.i.i1782, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE17validate_iteratorENS_28intrusive_hashtable_iteratorIS2_Lb1EEE.exit
   %352 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !111
-  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit
+  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit
 
-_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit: ; preds = %for.body.i.i1778, %cond.false.i1784
+_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit: ; preds = %for.body.i.i1778, %cond.false.i1784
   %.sink.i1786 = phi ptr [ %352, %cond.false.i1784 ], [ %pNode.addr.02.i.i1779, %for.body.i.i1778 ]
   %cmp.i1787 = icmp eq ptr %.sink.i1786, %it550.sroa.0.03083
   %call570 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i1787, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 558, ptr noundef nonnull @.str.30)
@@ -3037,16 +3037,16 @@ _ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_
   %cmp2.i.i1789 = icmp eq ptr %storemerge1.i.i1788, null
   br i1 %cmp2.i.i1789, label %while.body.i.i1793, label %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb0EEppEv.exit
 
-while.body.i.i1793:                               ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit, %while.body.i.i1793
-  %353 = phi ptr [ %incdec.ptr.i.i1794, %while.body.i.i1793 ], [ %it550.sroa.9.03084, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit ]
+while.body.i.i1793:                               ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit, %while.body.i.i1793
+  %353 = phi ptr [ %incdec.ptr.i.i1794, %while.body.i.i1793 ], [ %it550.sroa.9.03084, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit ]
   %incdec.ptr.i.i1794 = getelementptr inbounds i8, ptr %353, i64 8
   %storemerge.i.i1795 = load ptr, ptr %incdec.ptr.i.i1794, align 8
   %cmp.i.i1796 = icmp eq ptr %storemerge.i.i1795, null
   br i1 %cmp.i.i1796, label %while.body.i.i1793, label %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb0EEppEv.exit, !llvm.loop !65
 
-_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb0EEppEv.exit: ; preds = %while.body.i.i1793, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit
-  %it550.sroa.0.2 = phi ptr [ %storemerge1.i.i1788, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit ], [ %storemerge.i.i1795, %while.body.i.i1793 ]
-  %it550.sroa.9.2 = phi ptr [ %it550.sroa.9.03084, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit ], [ %incdec.ptr.i.i1794, %while.body.i.i1793 ]
+_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb0EEppEv.exit: ; preds = %while.body.i.i1793, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit
+  %it550.sroa.0.2 = phi ptr [ %storemerge1.i.i1788, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit ], [ %storemerge.i.i1795, %while.body.i.i1793 ]
+  %it550.sroa.9.2 = phi ptr [ %it550.sroa.9.03084, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit ], [ %incdec.ptr.i.i1794, %while.body.i.i1793 ]
   %354 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !107
   %cmp.i1743.not = icmp eq ptr %it550.sroa.0.2, %354
   br i1 %cmp.i1743.not, label %for.end573.loopexit, label %for.body554, !llvm.loop !114
@@ -3098,7 +3098,7 @@ for.body.i.i1815:                                 ; preds = %for.body584, %for.i
   %mKey.i.i.i1817 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i1816, i64 8
   %362 = load i32, ptr %mKey.i.i.i1817, align 4
   %cmp.i.i.i1818 = icmp eq i32 %mKey587.val, %362
-  br i1 %cmp.i.i.i1818, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit, label %for.inc.i.i1819
+  br i1 %cmp.i.i.i1818, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit, label %for.inc.i.i1819
 
 for.inc.i.i1819:                                  ; preds = %for.body.i.i1815
   %363 = load ptr, ptr %pNode.addr.02.i.i1816, align 8
@@ -3107,9 +3107,9 @@ for.inc.i.i1819:                                  ; preds = %for.body.i.i1815
 
 cond.false.i1821:                                 ; preds = %for.inc.i.i1819, %for.body584
   %364 = load ptr, ptr %arrayidx.i.i1262, align 8
-  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit
+  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit: ; preds = %for.body.i.i1815, %cond.false.i1821
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit: ; preds = %for.body.i.i1815, %cond.false.i1821
   %retval.sroa.0.0.i1824 = phi ptr [ %364, %cond.false.i1821 ], [ %pNode.addr.02.i.i1816, %for.body.i.i1815 ]
   %cmp.i1827 = icmp eq ptr %retval.sroa.0.0.i1824, %itc576.sroa.0.03088
   %call596 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i1827, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 576, ptr noundef nonnull @.str.32)
@@ -3117,16 +3117,16 @@ _ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal
   %cmp2.i.i1829 = icmp eq ptr %storemerge1.i.i1828, null
   br i1 %cmp2.i.i1829, label %while.body.i.i1833, label %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb1EEppEv.exit
 
-while.body.i.i1833:                               ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit, %while.body.i.i1833
-  %365 = phi ptr [ %incdec.ptr.i.i1834, %while.body.i.i1833 ], [ %itc576.sroa.7.03089, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit ]
+while.body.i.i1833:                               ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit, %while.body.i.i1833
+  %365 = phi ptr [ %incdec.ptr.i.i1834, %while.body.i.i1833 ], [ %itc576.sroa.7.03089, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit ]
   %incdec.ptr.i.i1834 = getelementptr inbounds i8, ptr %365, i64 8
   %storemerge.i.i1835 = load ptr, ptr %incdec.ptr.i.i1834, align 8
   %cmp.i.i1836 = icmp eq ptr %storemerge.i.i1835, null
   br i1 %cmp.i.i1836, label %while.body.i.i1833, label %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb1EEppEv.exit, !llvm.loop !65
 
-_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb1EEppEv.exit: ; preds = %while.body.i.i1833, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit
-  %itc576.sroa.0.1 = phi ptr [ %storemerge1.i.i1828, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit ], [ %storemerge.i.i1835, %while.body.i.i1833 ]
-  %itc576.sroa.7.1 = phi ptr [ %itc576.sroa.7.03089, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit ], [ %incdec.ptr.i.i1834, %while.body.i.i1833 ]
+_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb1EEppEv.exit: ; preds = %while.body.i.i1833, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit
+  %itc576.sroa.0.1 = phi ptr [ %storemerge1.i.i1828, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit ], [ %storemerge.i.i1835, %while.body.i.i1833 ]
+  %itc576.sroa.7.1 = phi ptr [ %itc576.sroa.7.03089, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit ], [ %incdec.ptr.i.i1834, %while.body.i.i1833 ]
   %366 = load ptr, ptr %arrayidx.i.i1262, align 8
   %cmp.i1810.not = icmp eq ptr %itc576.sroa.0.1, %366
   br i1 %cmp.i1810.not, label %for.end599, label %for.body584, !llvm.loop !115
@@ -3177,7 +3177,7 @@ for.body.i.i1844:                                 ; preds = %for.end631, %for.in
   %mKey.i.i.i1846 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i1845, i64 8
   %375 = load i32, ptr %mKey.i.i.i1846, align 4, !noalias !121
   %cmp.i.i.i1847 = icmp eq i32 %375, 99999
-  br i1 %cmp.i.i.i1847, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1855.loopexit, label %for.inc.i.i1848
+  br i1 %cmp.i.i.i1847, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1855.loopexit, label %for.inc.i.i1848
 
 for.inc.i.i1848:                                  ; preds = %for.body.i.i1844
   %376 = load ptr, ptr %pNode.addr.02.i.i1845, align 8, !noalias !121
@@ -3186,44 +3186,44 @@ for.inc.i.i1848:                                  ; preds = %for.body.i.i1844
 
 cond.false.i1850:                                 ; preds = %for.inc.i.i1848, %for.end631
   %377 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !124
-  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1855
+  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1855
 
-_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1855.loopexit: ; preds = %for.body.i.i1844
+_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1855.loopexit: ; preds = %for.body.i.i1844
   %.pre3234 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !125
-  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1855
+  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1855
 
-_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1855: ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1855.loopexit, %cond.false.i1850
-  %378 = phi ptr [ %377, %cond.false.i1850 ], [ %.pre3234, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1855.loopexit ]
-  %.sink.i1852 = phi ptr [ %377, %cond.false.i1850 ], [ %pNode.addr.02.i.i1845, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1855.loopexit ]
+_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1855: ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1855.loopexit, %cond.false.i1850
+  %378 = phi ptr [ %377, %cond.false.i1850 ], [ %.pre3234, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1855.loopexit ]
+  %.sink.i1852 = phi ptr [ %377, %cond.false.i1850 ], [ %pNode.addr.02.i.i1845, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1855.loopexit ]
   %cmp.i1858 = icmp eq ptr %.sink.i1852, %378
   %call636 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i1858, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 606, ptr noundef nonnull @.str.73)
   %379 = load ptr, ptr %arrayidx.i1842, align 8
   %tobool.not1.i.i1862 = icmp eq ptr %379, null
   br i1 %tobool.not1.i.i1862, label %cond.false.i1869, label %for.body.i.i1863
 
-for.body.i.i1863:                                 ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1855, %for.inc.i.i1867
-  %pNode.addr.02.i.i1864 = phi ptr [ %381, %for.inc.i.i1867 ], [ %379, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1855 ]
+for.body.i.i1863:                                 ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1855, %for.inc.i.i1867
+  %pNode.addr.02.i.i1864 = phi ptr [ %381, %for.inc.i.i1867 ], [ %379, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1855 ]
   %mKey.i.i.i1865 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i1864, i64 8
   %380 = load i32, ptr %mKey.i.i.i1865, align 4
   %cmp.i.i.i1866 = icmp eq i32 %380, 99999
-  br i1 %cmp.i.i.i1866, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1875.loopexit, label %for.inc.i.i1867
+  br i1 %cmp.i.i.i1866, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1875.loopexit, label %for.inc.i.i1867
 
 for.inc.i.i1867:                                  ; preds = %for.body.i.i1863
   %381 = load ptr, ptr %pNode.addr.02.i.i1864, align 8
   %tobool.not.i.i1868 = icmp eq ptr %381, null
   br i1 %tobool.not.i.i1868, label %cond.false.i1869, label %for.body.i.i1863, !llvm.loop !85
 
-cond.false.i1869:                                 ; preds = %for.inc.i.i1867, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1855
+cond.false.i1869:                                 ; preds = %for.inc.i.i1867, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1855
   %382 = load ptr, ptr %arrayidx.i.i1262, align 8
-  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1875
+  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1875
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1875.loopexit: ; preds = %for.body.i.i1863
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1875.loopexit: ; preds = %for.body.i.i1863
   %.pre3235 = load ptr, ptr %arrayidx.i.i1262, align 8
-  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1875
+  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1875
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1875: ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1875.loopexit, %cond.false.i1869
-  %383 = phi ptr [ %382, %cond.false.i1869 ], [ %.pre3235, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1875.loopexit ]
-  %retval.sroa.0.0.i1872 = phi ptr [ %382, %cond.false.i1869 ], [ %pNode.addr.02.i.i1864, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1875.loopexit ]
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1875: ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1875.loopexit, %cond.false.i1869
+  %383 = phi ptr [ %382, %cond.false.i1869 ], [ %.pre3235, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1875.loopexit ]
+  %retval.sroa.0.0.i1872 = phi ptr [ %382, %cond.false.i1869 ], [ %pNode.addr.02.i.i1864, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1875.loopexit ]
   %cmp.i1879 = icmp eq ptr %retval.sroa.0.0.i1872, %383
   %call645 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i1879, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 609, ptr noundef nonnull @.str.74)
   %arrayidx.i.i.i1882 = getelementptr inbounds i8, ptr %ihmMW1, i64 56
@@ -3231,52 +3231,52 @@ _ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal
   %tobool.not1.i.i.i.i1883 = icmp eq ptr %384, null
   br i1 %tobool.not1.i.i.i.i1883, label %cond.false.i.i.i, label %for.body.i.i.i.i1884
 
-for.body.i.i.i.i1884:                             ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1875, %for.inc.i.i.i.i1888
-  %pNode.addr.02.i.i.i.i1885 = phi ptr [ %386, %for.inc.i.i.i.i1888 ], [ %384, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1875 ]
+for.body.i.i.i.i1884:                             ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1875, %for.inc.i.i.i.i1888
+  %pNode.addr.02.i.i.i.i1885 = phi ptr [ %386, %for.inc.i.i.i.i1888 ], [ %384, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1875 ]
   %mKey.i.i.i.i.i1886 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i.i.i1885, i64 8
   %385 = load i32, ptr %mKey.i.i.i.i.i1886, align 4
   %cmp.i.i.i.i.i1887 = icmp eq i32 %385, 7
-  br i1 %cmp.i.i.i.i.i1887, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.exit, label %for.inc.i.i.i.i1888
+  br i1 %cmp.i.i.i.i.i1887, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.argprom.exit, label %for.inc.i.i.i.i1888
 
 for.inc.i.i.i.i1888:                              ; preds = %for.body.i.i.i.i1884
   %386 = load ptr, ptr %pNode.addr.02.i.i.i.i1885, align 8, !noalias !128
   %tobool.not.i.i.i.i1889 = icmp eq ptr %386, null
   br i1 %tobool.not.i.i.i.i1889, label %cond.false.i.i.i, label %for.body.i.i.i.i1884, !llvm.loop !135
 
-cond.false.i.i.i:                                 ; preds = %for.inc.i.i.i.i1888, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit1875
+cond.false.i.i.i:                                 ; preds = %for.inc.i.i.i.i1888, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit1875
   %387 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !128
   %mKey649.phi.trans.insert = getelementptr inbounds i8, ptr %387, i64 8
   %.pre3236 = load i32, ptr %mKey649.phi.trans.insert, align 8
   %388 = icmp eq i32 %.pre3236, 7
-  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.exit
+  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.argprom.exit
 
-_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.exit: ; preds = %for.body.i.i.i.i1884, %cond.false.i.i.i
+_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.argprom.exit: ; preds = %for.body.i.i.i.i1884, %cond.false.i.i.i
   %cmp650 = phi i1 [ %388, %cond.false.i.i.i ], [ true, %for.body.i.i.i.i1884 ]
   %call651 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp650, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 616, ptr noundef nonnull @.str.75)
   %389 = load ptr, ptr %arrayidx.i.i.i1882, align 8
   %tobool.not1.i.i.i.i1893 = icmp eq ptr %389, null
   br i1 %tobool.not1.i.i.i.i1893, label %cond.false.i.i.i1901, label %for.body.i.i.i.i1894
 
-for.body.i.i.i.i1894:                             ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.exit, %for.inc.i.i.i.i1899
-  %pNode.addr.02.i.i.i.i1895 = phi ptr [ %391, %for.inc.i.i.i.i1899 ], [ %389, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.exit ]
+for.body.i.i.i.i1894:                             ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.argprom.exit, %for.inc.i.i.i.i1899
+  %pNode.addr.02.i.i.i.i1895 = phi ptr [ %391, %for.inc.i.i.i.i1899 ], [ %389, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.argprom.exit ]
   %mKey.i.i.i.i.i1896 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i.i.i1895, i64 8
   %390 = load i32, ptr %mKey.i.i.i.i.i1896, align 4
   %cmp.i.i.i.i.i1898 = icmp eq i32 %390, 7
-  br i1 %cmp.i.i.i.i.i1898, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.exit, label %for.inc.i.i.i.i1899
+  br i1 %cmp.i.i.i.i.i1898, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.argprom.exit, label %for.inc.i.i.i.i1899
 
 for.inc.i.i.i.i1899:                              ; preds = %for.body.i.i.i.i1894
   %391 = load ptr, ptr %pNode.addr.02.i.i.i.i1895, align 8
   %tobool.not.i.i.i.i1900 = icmp eq ptr %391, null
   br i1 %tobool.not.i.i.i.i1900, label %cond.false.i.i.i1901, label %for.body.i.i.i.i1894, !llvm.loop !135
 
-cond.false.i.i.i1901:                             ; preds = %for.inc.i.i.i.i1899, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.exit
+cond.false.i.i.i1901:                             ; preds = %for.inc.i.i.i.i1899, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.argprom.exit
   %392 = load ptr, ptr %arrayidx.i.i1262, align 8
   %mKey657.phi.trans.insert = getelementptr inbounds i8, ptr %392, i64 8
   %.pre3237 = load i32, ptr %mKey657.phi.trans.insert, align 8
   %393 = icmp eq i32 %.pre3237, 7
-  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.exit
+  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.argprom.exit
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.exit: ; preds = %for.body.i.i.i.i1894, %cond.false.i.i.i1901
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.argprom.exit: ; preds = %for.body.i.i.i.i1894, %cond.false.i.i.i1901
   %cmp658 = phi i1 [ %393, %cond.false.i.i.i1901 ], [ true, %for.body.i.i.i.i1894 ]
   %call659 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp658, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 619, ptr noundef nonnull @.str.76)
   %arrayidx.i.i.i1905 = getelementptr inbounds i8, ptr %ihmMW1, i64 64
@@ -3284,104 +3284,104 @@ _ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal
   %tobool.not1.i.i.i.i1906 = icmp eq ptr %394, null
   br i1 %tobool.not1.i.i.i.i1906, label %cond.false.i.i.i1913, label %for.body.i.i.i.i1907
 
-for.body.i.i.i.i1907:                             ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.exit, %for.inc.i.i.i.i1911
-  %pNode.addr.02.i.i.i.i1908 = phi ptr [ %396, %for.inc.i.i.i.i1911 ], [ %394, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.exit ]
+for.body.i.i.i.i1907:                             ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.argprom.exit, %for.inc.i.i.i.i1911
+  %pNode.addr.02.i.i.i.i1908 = phi ptr [ %396, %for.inc.i.i.i.i1911 ], [ %394, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.argprom.exit ]
   %mKey.i.i.i.i.i1909 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i.i.i1908, i64 8
   %395 = load i32, ptr %mKey.i.i.i.i.i1909, align 4
   %cmp.i.i.i.i.i1910 = icmp eq i32 %395, 8
-  br i1 %cmp.i.i.i.i.i1910, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.exit, label %for.inc.i.i.i.i1911
+  br i1 %cmp.i.i.i.i.i1910, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.argprom.exit, label %for.inc.i.i.i.i1911
 
 for.inc.i.i.i.i1911:                              ; preds = %for.body.i.i.i.i1907
   %396 = load ptr, ptr %pNode.addr.02.i.i.i.i1908, align 8, !noalias !136
   %tobool.not.i.i.i.i1912 = icmp eq ptr %396, null
   br i1 %tobool.not.i.i.i.i1912, label %cond.false.i.i.i1913, label %for.body.i.i.i.i1907, !llvm.loop !143
 
-cond.false.i.i.i1913:                             ; preds = %for.inc.i.i.i.i1911, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.exit
+cond.false.i.i.i1913:                             ; preds = %for.inc.i.i.i.i1911, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.argprom.exit
   %397 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !136
   %mKey663.phi.trans.insert = getelementptr inbounds i8, ptr %397, i64 8
   %.pre3238 = load i32, ptr %mKey663.phi.trans.insert, align 8
   %398 = icmp eq i32 %.pre3238, 8
-  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.exit
+  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.argprom.exit
 
-_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.exit: ; preds = %for.body.i.i.i.i1907, %cond.false.i.i.i1913
+_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.argprom.exit: ; preds = %for.body.i.i.i.i1907, %cond.false.i.i.i1913
   %cmp664 = phi i1 [ %398, %cond.false.i.i.i1913 ], [ true, %for.body.i.i.i.i1907 ]
   %call665 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp664, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 622, ptr noundef nonnull @.str.77)
   %399 = load ptr, ptr %arrayidx.i.i.i1905, align 8
   %tobool.not1.i.i.i.i1921 = icmp eq ptr %399, null
   br i1 %tobool.not1.i.i.i.i1921, label %cond.false.i.i.i1928, label %for.body.i.i.i.i1922
 
-for.body.i.i.i.i1922:                             ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.exit, %for.inc.i.i.i.i1926
-  %pNode.addr.02.i.i.i.i1923 = phi ptr [ %401, %for.inc.i.i.i.i1926 ], [ %399, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.exit ]
+for.body.i.i.i.i1922:                             ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.argprom.exit, %for.inc.i.i.i.i1926
+  %pNode.addr.02.i.i.i.i1923 = phi ptr [ %401, %for.inc.i.i.i.i1926 ], [ %399, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.argprom.exit ]
   %mKey.i.i.i.i.i1924 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i.i.i1923, i64 8
   %400 = load i32, ptr %mKey.i.i.i.i.i1924, align 4
   %cmp.i.i.i.i.i1925 = icmp eq i32 %400, 8
-  br i1 %cmp.i.i.i.i.i1925, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.exit, label %for.inc.i.i.i.i1926
+  br i1 %cmp.i.i.i.i.i1925, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.argprom.exit, label %for.inc.i.i.i.i1926
 
 for.inc.i.i.i.i1926:                              ; preds = %for.body.i.i.i.i1922
   %401 = load ptr, ptr %pNode.addr.02.i.i.i.i1923, align 8
   %tobool.not.i.i.i.i1927 = icmp eq ptr %401, null
   br i1 %tobool.not.i.i.i.i1927, label %cond.false.i.i.i1928, label %for.body.i.i.i.i1922, !llvm.loop !143
 
-cond.false.i.i.i1928:                             ; preds = %for.inc.i.i.i.i1926, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.exit
+cond.false.i.i.i1928:                             ; preds = %for.inc.i.i.i.i1926, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.argprom.exit
   %402 = load ptr, ptr %arrayidx.i.i1262, align 8
   %mKey671.phi.trans.insert = getelementptr inbounds i8, ptr %402, i64 8
   %.pre3239 = load i32, ptr %mKey671.phi.trans.insert, align 8
   %403 = icmp eq i32 %.pre3239, 8
-  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.exit
+  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.argprom.exit
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.exit: ; preds = %for.body.i.i.i.i1922, %cond.false.i.i.i1928
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.argprom.exit: ; preds = %for.body.i.i.i.i1922, %cond.false.i.i.i1928
   %cmp672 = phi i1 [ %403, %cond.false.i.i.i1928 ], [ true, %for.body.i.i.i.i1922 ]
   %call673 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp672, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 625, ptr noundef nonnull @.str.78)
   %404 = load ptr, ptr %arrayidx.i.i.i1882, align 8, !noalias !144
   %tobool.not1.i.i1937 = icmp eq ptr %404, null
   br i1 %tobool.not1.i.i1937, label %cond.false.i1945, label %for.body.i.i1938
 
-for.body.i.i1938:                                 ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.exit, %for.inc.i.i1943
-  %pNode.addr.02.i.i1939 = phi ptr [ %406, %for.inc.i.i1943 ], [ %404, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.exit ]
+for.body.i.i1938:                                 ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.argprom.exit, %for.inc.i.i1943
+  %pNode.addr.02.i.i1939 = phi ptr [ %406, %for.inc.i.i1943 ], [ %404, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.argprom.exit ]
   %mKey.i.i.i1940 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i1939, i64 8
   %405 = load i32, ptr %mKey.i.i.i1940, align 4
   %cmp.i.i.i1942 = icmp eq i32 %405, 7
-  br i1 %cmp.i.i.i1942, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.exit, label %for.inc.i.i1943
+  br i1 %cmp.i.i.i1942, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.argprom.exit, label %for.inc.i.i1943
 
 for.inc.i.i1943:                                  ; preds = %for.body.i.i1938
   %406 = load ptr, ptr %pNode.addr.02.i.i1939, align 8, !noalias !144
   %tobool.not.i.i1944 = icmp eq ptr %406, null
   br i1 %tobool.not.i.i1944, label %cond.false.i1945, label %for.body.i.i1938, !llvm.loop !135
 
-cond.false.i1945:                                 ; preds = %for.inc.i.i1943, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.exit
+cond.false.i1945:                                 ; preds = %for.inc.i.i1943, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_.argprom.exit
   %407 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !144
   %mKey679.phi.trans.insert = getelementptr inbounds i8, ptr %407, i64 8
   %.pre3240 = load i32, ptr %mKey679.phi.trans.insert, align 8
   %408 = icmp eq i32 %.pre3240, 7
-  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.exit
+  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.argprom.exit
 
-_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.exit: ; preds = %for.body.i.i1938, %cond.false.i1945
+_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.argprom.exit: ; preds = %for.body.i.i1938, %cond.false.i1945
   %cmp680 = phi i1 [ %408, %cond.false.i1945 ], [ true, %for.body.i.i1938 ]
   %call681 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp680, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 632, ptr noundef nonnull @.str.75)
   %409 = load ptr, ptr %arrayidx.i.i.i1882, align 8
   %tobool.not1.i.i1952 = icmp eq ptr %409, null
   br i1 %tobool.not1.i.i1952, label %cond.false.i1960, label %for.body.i.i1953
 
-for.body.i.i1953:                                 ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.exit, %for.inc.i.i1958
-  %pNode.addr.02.i.i1954 = phi ptr [ %411, %for.inc.i.i1958 ], [ %409, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.exit ]
+for.body.i.i1953:                                 ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.argprom.exit, %for.inc.i.i1958
+  %pNode.addr.02.i.i1954 = phi ptr [ %411, %for.inc.i.i1958 ], [ %409, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.argprom.exit ]
   %mKey.i.i.i1955 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i1954, i64 8
   %410 = load i32, ptr %mKey.i.i.i1955, align 4
   %cmp.i.i.i1957 = icmp eq i32 %410, 7
-  br i1 %cmp.i.i.i1957, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit, label %for.inc.i.i1958
+  br i1 %cmp.i.i.i1957, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit, label %for.inc.i.i1958
 
 for.inc.i.i1958:                                  ; preds = %for.body.i.i1953
   %411 = load ptr, ptr %pNode.addr.02.i.i1954, align 8
   %tobool.not.i.i1959 = icmp eq ptr %411, null
   br i1 %tobool.not.i.i1959, label %cond.false.i1960, label %for.body.i.i1953, !llvm.loop !135
 
-cond.false.i1960:                                 ; preds = %for.inc.i.i1958, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.exit
+cond.false.i1960:                                 ; preds = %for.inc.i.i1958, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.argprom.exit
   %412 = load ptr, ptr %arrayidx.i.i1262, align 8
   %mKey689.phi.trans.insert = getelementptr inbounds i8, ptr %412, i64 8
   %.pre3241 = load i32, ptr %mKey689.phi.trans.insert, align 8
   %413 = icmp eq i32 %.pre3241, 7
-  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit
+  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit: ; preds = %for.body.i.i1953, %cond.false.i1960
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit: ; preds = %for.body.i.i1953, %cond.false.i1960
   %cmp690 = phi i1 [ %413, %cond.false.i1960 ], [ true, %for.body.i.i1953 ]
   %call691 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp690, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 635, ptr noundef nonnull @.str.76)
   %414 = load i64, ptr %mnElementCount.i.i1261, align 8
@@ -3389,9 +3389,9 @@ _ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal
   %tobool.not17.i = icmp eq ptr %.pr.i1970, null
   br i1 %tobool.not17.i, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5eraseERKi.exit, label %land.rhs.i1971
 
-land.rhs.i1971:                                   ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit, %while.body.i1982
-  %415 = phi i64 [ %dec.i1983, %while.body.i1982 ], [ %414, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit ]
-  %416 = phi ptr [ %418, %while.body.i1982 ], [ %.pr.i1970, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit ]
+land.rhs.i1971:                                   ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit, %while.body.i1982
+  %415 = phi i64 [ %dec.i1983, %while.body.i1982 ], [ %414, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit ]
+  %416 = phi ptr [ %418, %while.body.i1982 ], [ %.pr.i1970, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit ]
   %mKey.i.i1972 = getelementptr inbounds i8, ptr %416, i64 8
   %417 = load i32, ptr %mKey.i.i1972, align 4
   %cmp.i.i1973 = icmp eq i32 %417, 99999
@@ -3433,8 +3433,8 @@ if.end.i1976:                                     ; preds = %if.then12.i1980, %w
   %cmp.not.i1978 = icmp eq ptr %425, null
   br i1 %cmp.not.i1978, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5eraseERKi.exit, label %while.body8.i1975, !llvm.loop !148
 
-_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5eraseERKi.exit: ; preds = %while.body.i1982, %if.end.i1976, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit, %while.cond6.preheader.i1974
-  %426 = phi i64 [ %414, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit ], [ %415, %while.cond6.preheader.i1974 ], [ %424, %if.end.i1976 ], [ %dec.i1983, %while.body.i1982 ]
+_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5eraseERKi.exit: ; preds = %while.body.i1982, %if.end.i1976, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit, %while.cond6.preheader.i1974
+  %426 = phi i64 [ %414, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.argprom.exit ], [ %415, %while.cond6.preheader.i1974 ], [ %424, %if.end.i1976 ], [ %dec.i1983, %while.body.i1982 ]
   %cmp695 = icmp eq i64 %414, %426
   %call696 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp695, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 643, ptr noundef nonnull @.str.38)
   %427 = load i64, ptr %mnElementCount.i.i1261, align 8
@@ -3502,7 +3502,7 @@ for.body.i.i2014:                                 ; preds = %_ZN5eastl19intrusiv
   %mKey.i.i.i2016 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i2015, i64 8
   %441 = load i32, ptr %mKey.i.i.i2016, align 4, !noalias !149
   %cmp.i.i.i2017 = icmp eq i32 %441, 18
-  br i1 %cmp.i.i.i2017, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2025.loopexit, label %for.inc.i.i2018
+  br i1 %cmp.i.i.i2017, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2025.loopexit, label %for.inc.i.i2018
 
 for.inc.i.i2018:                                  ; preds = %for.body.i.i2014
   %442 = load ptr, ptr %pNode.addr.02.i.i2015, align 8, !noalias !149
@@ -3511,32 +3511,32 @@ for.inc.i.i2018:                                  ; preds = %for.body.i.i2014
 
 cond.false.i2020:                                 ; preds = %for.inc.i.i2018, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5eraseERKi.exit2009
   %443 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !124
-  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2025
+  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2025
 
-_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2025.loopexit: ; preds = %for.body.i.i2014
+_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2025.loopexit: ; preds = %for.body.i.i2014
   %.pre3242 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !152
-  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2025
+  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2025
 
-_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2025: ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2025.loopexit, %cond.false.i2020
-  %444 = phi ptr [ %443, %cond.false.i2020 ], [ %.pre3242, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2025.loopexit ]
-  %.sink.i2022 = phi ptr [ %443, %cond.false.i2020 ], [ %pNode.addr.02.i.i2015, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2025.loopexit ]
-  %add.ptr6.sink.i2023 = phi ptr [ %arrayidx.i.i1262, %cond.false.i2020 ], [ %arrayidx.i2012, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2025.loopexit ]
+_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2025: ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2025.loopexit, %cond.false.i2020
+  %444 = phi ptr [ %443, %cond.false.i2020 ], [ %.pre3242, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2025.loopexit ]
+  %.sink.i2022 = phi ptr [ %443, %cond.false.i2020 ], [ %pNode.addr.02.i.i2015, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2025.loopexit ]
+  %add.ptr6.sink.i2023 = phi ptr [ %arrayidx.i.i1262, %cond.false.i2020 ], [ %arrayidx.i2012, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2025.loopexit ]
   %cmp.i2028 = icmp ne ptr %.sink.i2022, %444
   %call705 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i2028, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 649, ptr noundef nonnull @.str.79)
   %445 = load ptr, ptr %ihmMW1, align 8
   %tobool.not.i.i2030 = icmp eq ptr %445, null
   br i1 %tobool.not.i.i2030, label %while.cond.i.i.i2055, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5beginEv.exit.i2031
 
-while.cond.i.i.i2055:                             ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2025, %while.cond.i.i.i2055
-  %.pn.i.i.i2056 = phi ptr [ %storemerge.i.i.i2057, %while.cond.i.i.i2055 ], [ %ihmMW1, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2025 ]
+while.cond.i.i.i2055:                             ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2025, %while.cond.i.i.i2055
+  %.pn.i.i.i2056 = phi ptr [ %storemerge.i.i.i2057, %while.cond.i.i.i2055 ], [ %ihmMW1, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2025 ]
   %storemerge.i.i.i2057 = getelementptr inbounds i8, ptr %.pn.i.i.i2056, i64 8
   %446 = load ptr, ptr %storemerge.i.i.i2057, align 8
   %cmp.i.i.i2058 = icmp eq ptr %446, null
   br i1 %cmp.i.i.i2058, label %while.cond.i.i.i2055, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5beginEv.exit.i2031, !llvm.loop !64
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5beginEv.exit.i2031: ; preds = %while.cond.i.i.i2055, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2025
-  %retval.sroa.4.0.i.i2032 = phi ptr [ %ihmMW1, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2025 ], [ %storemerge.i.i.i2057, %while.cond.i.i.i2055 ]
-  %retval.sroa.0.0.i.i2033 = phi ptr [ %445, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2025 ], [ %446, %while.cond.i.i.i2055 ]
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5beginEv.exit.i2031: ; preds = %while.cond.i.i.i2055, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2025
+  %retval.sroa.4.0.i.i2032 = phi ptr [ %ihmMW1, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2025 ], [ %storemerge.i.i.i2057, %while.cond.i.i.i2055 ]
+  %retval.sroa.0.0.i.i2033 = phi ptr [ %445, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2025 ], [ %446, %while.cond.i.i.i2055 ]
   %447 = load ptr, ptr %arrayidx.i.i1262, align 8
   %cmp.i.not12.i2035 = icmp eq ptr %retval.sroa.0.0.i.i2033, %447
   br i1 %cmp.i.not12.i2035, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE17validate_iteratorENS_28intrusive_hashtable_iteratorIS2_Lb1EEE.exit2059, label %for.body.i2036
@@ -3656,7 +3656,7 @@ for.body.i.i2116:                                 ; preds = %_ZNK5eastl19intrusi
   %mKey.i.i.i2118 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i2117, i64 8
   %459 = load i32, ptr %mKey.i.i.i2118, align 4, !noalias !162
   %cmp.i.i.i2119 = icmp eq i32 %459, 18
-  br i1 %cmp.i.i.i2119, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2127.loopexit, label %for.inc.i.i2120
+  br i1 %cmp.i.i.i2119, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2127.loopexit, label %for.inc.i.i2120
 
 for.inc.i.i2120:                                  ; preds = %for.body.i.i2116
   %460 = load ptr, ptr %pNode.addr.02.i.i2117, align 8, !noalias !162
@@ -3665,15 +3665,15 @@ for.inc.i.i2120:                                  ; preds = %for.body.i.i2116
 
 cond.false.i2122:                                 ; preds = %for.inc.i.i2120, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE17validate_iteratorENS_28intrusive_hashtable_iteratorIS2_Lb1EEE.exit2111
   %461 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !124
-  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2127
+  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2127
 
-_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2127.loopexit: ; preds = %for.body.i.i2116
+_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2127.loopexit: ; preds = %for.body.i.i2116
   %.pre3243 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !165
-  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2127
+  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2127
 
-_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2127: ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2127.loopexit, %cond.false.i2122
-  %462 = phi ptr [ %461, %cond.false.i2122 ], [ %.pre3243, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2127.loopexit ]
-  %.sink.i2124 = phi ptr [ %461, %cond.false.i2122 ], [ %pNode.addr.02.i.i2117, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2127.loopexit ]
+_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2127: ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2127.loopexit, %cond.false.i2122
+  %462 = phi ptr [ %461, %cond.false.i2122 ], [ %.pre3243, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2127.loopexit ]
+  %.sink.i2124 = phi ptr [ %461, %cond.false.i2122 ], [ %pNode.addr.02.i.i2117, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2127.loopexit ]
   %cmp.i2130 = icmp eq ptr %.sink.i2124, %462
   %call723 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i2130, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 657, ptr noundef nonnull @.str.73)
   %arrayidx.i2133 = getelementptr inbounds i8, ptr %ihmMW1, i64 152
@@ -3681,38 +3681,38 @@ _ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_
   %tobool.not1.i.i2134 = icmp eq ptr %463, null
   br i1 %tobool.not1.i.i2134, label %cond.false.i2141, label %for.body.i.i2135
 
-for.body.i.i2135:                                 ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2127, %for.inc.i.i2139
-  %pNode.addr.02.i.i2136 = phi ptr [ %465, %for.inc.i.i2139 ], [ %463, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2127 ]
+for.body.i.i2135:                                 ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2127, %for.inc.i.i2139
+  %pNode.addr.02.i.i2136 = phi ptr [ %465, %for.inc.i.i2139 ], [ %463, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2127 ]
   %mKey.i.i.i2137 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i2136, i64 8
   %464 = load i32, ptr %mKey.i.i.i2137, align 4, !noalias !168
   %cmp.i.i.i2138 = icmp eq i32 %464, 19
-  br i1 %cmp.i.i.i2138, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2146.loopexit, label %for.inc.i.i2139
+  br i1 %cmp.i.i.i2138, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2146.loopexit, label %for.inc.i.i2139
 
 for.inc.i.i2139:                                  ; preds = %for.body.i.i2135
   %465 = load ptr, ptr %pNode.addr.02.i.i2136, align 8, !noalias !168
   %tobool.not.i.i2140 = icmp eq ptr %465, null
   br i1 %tobool.not.i.i2140, label %cond.false.i2141, label %for.body.i.i2135, !llvm.loop !85
 
-cond.false.i2141:                                 ; preds = %for.inc.i.i2139, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2127
+cond.false.i2141:                                 ; preds = %for.inc.i.i2139, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2127
   %466 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !124
-  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2146
+  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2146
 
-_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2146.loopexit: ; preds = %for.body.i.i2135
+_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2146.loopexit: ; preds = %for.body.i.i2135
   %.pre3244 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !171
-  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2146
+  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2146
 
-_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2146: ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2146.loopexit, %cond.false.i2141
-  %467 = phi ptr [ %466, %cond.false.i2141 ], [ %.pre3244, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2146.loopexit ]
-  %.sink.i2143 = phi ptr [ %466, %cond.false.i2141 ], [ %pNode.addr.02.i.i2136, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2146.loopexit ]
-  %add.ptr6.sink.i2144 = phi ptr [ %arrayidx.i.i1262, %cond.false.i2141 ], [ %arrayidx.i2133, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2146.loopexit ]
+_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2146: ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2146.loopexit, %cond.false.i2141
+  %467 = phi ptr [ %466, %cond.false.i2141 ], [ %.pre3244, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2146.loopexit ]
+  %.sink.i2143 = phi ptr [ %466, %cond.false.i2141 ], [ %pNode.addr.02.i.i2136, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2146.loopexit ]
+  %add.ptr6.sink.i2144 = phi ptr [ %arrayidx.i.i1262, %cond.false.i2141 ], [ %arrayidx.i2133, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2146.loopexit ]
   %cmp.i2149 = icmp ne ptr %.sink.i2143, %467
   %call728 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i2149, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 660, ptr noundef nonnull @.str.79)
   br label %while.body.i.i2154
 
-while.body.i.i2154:                               ; preds = %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb0EEppEv.exit.i.i, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2146
-  %incdec.ptr.i.i6.i.i2155 = phi ptr [ %add.ptr6.sink.i2144, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2146 ], [ %incdec.ptr.i.i5.i.i2161, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb0EEppEv.exit.i.i ]
-  %n.addr.04.i.i2156 = phi i32 [ 7, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2146 ], [ %dec.i.i2158, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb0EEppEv.exit.i.i ]
-  %storemerge.i.i13.i.i2157 = phi ptr [ %.sink.i2143, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2146 ], [ %itf2729.sroa.0.0, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb0EEppEv.exit.i.i ]
+while.body.i.i2154:                               ; preds = %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb0EEppEv.exit.i.i, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2146
+  %incdec.ptr.i.i6.i.i2155 = phi ptr [ %add.ptr6.sink.i2144, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2146 ], [ %incdec.ptr.i.i5.i.i2161, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb0EEppEv.exit.i.i ]
+  %n.addr.04.i.i2156 = phi i32 [ 7, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2146 ], [ %dec.i.i2158, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb0EEppEv.exit.i.i ]
+  %storemerge.i.i13.i.i2157 = phi ptr [ %.sink.i2143, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2146 ], [ %itf2729.sroa.0.0, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb0EEppEv.exit.i.i ]
   %dec.i.i2158 = add nsw i32 %n.addr.04.i.i2156, -1
   %storemerge1.i.i.i.i2159 = load ptr, ptr %storemerge.i.i13.i.i2157, align 8
   %cmp2.i.i.i.i2160 = icmp eq ptr %storemerge1.i.i.i.i2159, null
@@ -3880,7 +3880,7 @@ for.body.i.i2262:                                 ; preds = %_ZNK5eastl19intrusi
   %mKey.i.i.i2264 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i2263, i64 8
   %484 = load i32, ptr %mKey.i.i.i2264, align 4, !noalias !187
   %cmp.i.i.i2265 = icmp eq i32 %484, 19
-  br i1 %cmp.i.i.i2265, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2273.loopexit, label %for.inc.i.i2266
+  br i1 %cmp.i.i.i2265, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2273.loopexit, label %for.inc.i.i2266
 
 for.inc.i.i2266:                                  ; preds = %for.body.i.i2262
   %485 = load ptr, ptr %pNode.addr.02.i.i2263, align 8, !noalias !187
@@ -3889,15 +3889,15 @@ for.inc.i.i2266:                                  ; preds = %for.body.i.i2262
 
 cond.false.i2268:                                 ; preds = %for.inc.i.i2266, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE17validate_iteratorENS_28intrusive_hashtable_iteratorIS2_Lb1EEE.exit2257
   %486 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !124
-  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2273
+  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2273
 
-_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2273.loopexit: ; preds = %for.body.i.i2262
+_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2273.loopexit: ; preds = %for.body.i.i2262
   %.pre3245 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !190
-  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2273
+  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2273
 
-_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2273: ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2273.loopexit, %cond.false.i2268
-  %487 = phi ptr [ %486, %cond.false.i2268 ], [ %.pre3245, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2273.loopexit ]
-  %.sink.i2270 = phi ptr [ %486, %cond.false.i2268 ], [ %pNode.addr.02.i.i2263, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2273.loopexit ]
+_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2273: ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2273.loopexit, %cond.false.i2268
+  %487 = phi ptr [ %486, %cond.false.i2268 ], [ %.pre3245, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2273.loopexit ]
+  %.sink.i2270 = phi ptr [ %486, %cond.false.i2268 ], [ %pNode.addr.02.i.i2263, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2273.loopexit ]
   %cmp.i2276 = icmp eq ptr %.sink.i2270, %487
   %call751 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i2276, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 672, ptr noundef nonnull @.str.73)
   %add.ptr.i2279 = getelementptr inbounds i8, ptr %ihmMW1, i64 8
@@ -3905,8 +3905,8 @@ _ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_
   %tobool.not1.i.i2280 = icmp eq ptr %488, null
   br i1 %tobool.not1.i.i2280, label %if.end11.i2287, label %for.body.i.i2281
 
-for.body.i.i2281:                                 ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2273, %for.inc.i.i2285
-  %pNode.addr.02.i.i2282 = phi ptr [ %490, %for.inc.i.i2285 ], [ %488, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2273 ]
+for.body.i.i2281:                                 ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2273, %for.inc.i.i2285
+  %pNode.addr.02.i.i2282 = phi ptr [ %490, %for.inc.i.i2285 ], [ %488, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2273 ]
   %mKey.i.i.i2283 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i2282, i64 8
   %489 = load i32, ptr %mKey.i.i.i2283, align 4, !noalias !193
   %cmp.i.i.i2284 = icmp eq i32 %489, 1
@@ -3927,20 +3927,20 @@ for.body.i2298:                                   ; preds = %for.cond.i2294
   %mKey.i.i2299 = getelementptr inbounds i8, ptr %p1.0.i2296, i64 8
   %491 = load i32, ptr %mKey.i.i2299, align 4, !noalias !193
   %cmp.i.i2300 = icmp eq i32 %491, 1
-  br i1 %cmp.i.i2300, label %for.cond.i2294, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit, !llvm.loop !196
+  br i1 %cmp.i.i2300, label %for.cond.i2294, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit, !llvm.loop !196
 
 while.cond.i.i2301:                               ; preds = %for.cond.i2294, %while.cond.i.i2301
   %.pn.i.i2302 = phi ptr [ %storemerge.i.i2303, %while.cond.i.i2301 ], [ %add.ptr.i2279, %for.cond.i2294 ]
   %storemerge.i.i2303 = getelementptr inbounds i8, ptr %.pn.i.i2302, i64 8
   %492 = load ptr, ptr %storemerge.i.i2303, align 8, !noalias !193
   %cmp.i16.i = icmp eq ptr %492, null
-  br i1 %cmp.i16.i, label %while.cond.i.i2301, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit, !llvm.loop !64
+  br i1 %cmp.i16.i, label %while.cond.i.i2301, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit, !llvm.loop !64
 
-if.end11.i2287:                                   ; preds = %for.inc.i.i2285, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit2273
+if.end11.i2287:                                   ; preds = %for.inc.i.i2285, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom.exit2273
   %493 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !193
-  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit
+  br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit
 
-_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit: ; preds = %for.body.i2298, %while.cond.i.i2301, %if.end11.i2287
+_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit: ; preds = %for.body.i2298, %while.cond.i.i2301, %if.end11.i2287
   %.sink14.i2289 = phi ptr [ %493, %if.end11.i2287 ], [ %pNode.addr.02.i.i2282, %while.cond.i.i2301 ], [ %pNode.addr.02.i.i2282, %for.body.i2298 ]
   %.sink.i2291 = phi ptr [ %493, %if.end11.i2287 ], [ %492, %while.cond.i.i2301 ], [ %p1.0.i2296, %for.body.i2298 ]
   %494 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !197
@@ -3953,8 +3953,8 @@ _ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_
   %tobool.not1.i.i2313 = icmp eq ptr %496, null
   br i1 %tobool.not1.i.i2313, label %if.end11.i2320, label %for.body.i.i2314
 
-for.body.i.i2314:                                 ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit, %for.inc.i.i2318
-  %pNode.addr.02.i.i2315 = phi ptr [ %498, %for.inc.i.i2318 ], [ %496, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit ]
+for.body.i.i2314:                                 ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit, %for.inc.i.i2318
+  %pNode.addr.02.i.i2315 = phi ptr [ %498, %for.inc.i.i2318 ], [ %496, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit ]
   %mKey.i.i.i2316 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i2315, i64 8
   %497 = load i32, ptr %mKey.i.i.i2316, align 4, !noalias !203
   %cmp.i.i.i2317 = icmp eq i32 %497, 1
@@ -3975,20 +3975,20 @@ for.body.i2332:                                   ; preds = %for.cond.i2328
   %mKey.i.i2333 = getelementptr inbounds i8, ptr %p1.0.i2330, i64 8
   %499 = load i32, ptr %mKey.i.i2333, align 4, !noalias !203
   %cmp.i.i2334 = icmp eq i32 %499, 1
-  br i1 %cmp.i.i2334, label %for.cond.i2328, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit, !llvm.loop !206
+  br i1 %cmp.i.i2334, label %for.cond.i2328, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit, !llvm.loop !206
 
 while.cond.i.i2335:                               ; preds = %for.cond.i2328, %while.cond.i.i2335
   %.pn.i.i2336 = phi ptr [ %storemerge.i.i2337, %while.cond.i.i2335 ], [ %add.ptr.i2279, %for.cond.i2328 ]
   %storemerge.i.i2337 = getelementptr inbounds i8, ptr %.pn.i.i2336, i64 8
   %500 = load ptr, ptr %storemerge.i.i2337, align 8, !noalias !203
   %cmp.i14.i2338 = icmp eq ptr %500, null
-  br i1 %cmp.i14.i2338, label %while.cond.i.i2335, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit, !llvm.loop !64
+  br i1 %cmp.i14.i2338, label %while.cond.i.i2335, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit, !llvm.loop !64
 
-if.end11.i2320:                                   ; preds = %for.inc.i.i2318, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit
+if.end11.i2320:                                   ; preds = %for.inc.i.i2318, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit
   %501 = load ptr, ptr %arrayidx.i.i1262, align 8, !noalias !203
-  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit
+  br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit: ; preds = %for.body.i2332, %while.cond.i.i2335, %if.end11.i2320
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit: ; preds = %for.body.i2332, %while.cond.i.i2335, %if.end11.i2320
   %.sink14.i2322 = phi ptr [ %501, %if.end11.i2320 ], [ %pNode.addr.02.i.i2315, %while.cond.i.i2335 ], [ %pNode.addr.02.i.i2315, %for.body.i2332 ]
   %.sink.i2324 = phi ptr [ %501, %if.end11.i2320 ], [ %500, %while.cond.i.i2335 ], [ %p1.0.i2330, %for.body.i2332 ]
   %502 = load ptr, ptr %arrayidx.i.i1262, align 8
@@ -4004,8 +4004,8 @@ _ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal
   %tobool.not.i2379 = icmp eq ptr %505, null
   br i1 %tobool.not.i2379, label %while.cond.i.i2381, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5beginEv.exit.i2389
 
-while.cond.i.i2381:                               ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit, %while.cond.i.i2381
-  %.pn.i.i2382 = phi ptr [ %storemerge.i.i2383, %while.cond.i.i2381 ], [ %ihmMW1, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit ]
+while.cond.i.i2381:                               ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit, %while.cond.i.i2381
+  %.pn.i.i2382 = phi ptr [ %storemerge.i.i2383, %while.cond.i.i2381 ], [ %ihmMW1, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit ]
   %storemerge.i.i2383 = getelementptr inbounds i8, ptr %.pn.i.i2382, i64 8
   %506 = load ptr, ptr %storemerge.i.i2383, align 8, !noalias !207
   %cmp.i.i2384 = icmp eq ptr %506, null
@@ -4018,10 +4018,10 @@ while.cond.i.i.i2413:                             ; preds = %while.cond.i.i2381,
   %cmp.i.i.i2416 = icmp eq ptr %507, null
   br i1 %cmp.i.i.i2416, label %while.cond.i.i.i2413, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5beginEv.exit.i2389, !llvm.loop !64
 
-_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5beginEv.exit.i2389: ; preds = %while.cond.i.i.i2413, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit
-  %ref.tmp782.sroa.0.02938 = phi ptr [ %505, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit ], [ %506, %while.cond.i.i.i2413 ]
-  %retval.sroa.4.0.i.i2390 = phi ptr [ %ihmMW1, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit ], [ %storemerge.i.i.i2415, %while.cond.i.i.i2413 ]
-  %retval.sroa.0.0.i.i2391 = phi ptr [ %505, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit ], [ %507, %while.cond.i.i.i2413 ]
+_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5beginEv.exit.i2389: ; preds = %while.cond.i.i.i2413, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit
+  %ref.tmp782.sroa.0.02938 = phi ptr [ %505, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit ], [ %506, %while.cond.i.i.i2413 ]
+  %retval.sroa.4.0.i.i2390 = phi ptr [ %ihmMW1, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit ], [ %storemerge.i.i.i2415, %while.cond.i.i.i2413 ]
+  %retval.sroa.0.0.i.i2391 = phi ptr [ %505, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom.exit ], [ %507, %while.cond.i.i.i2413 ]
   %508 = load ptr, ptr %arrayidx.i.i1262, align 8
   %cmp.i.not12.i2393 = icmp eq ptr %retval.sroa.0.0.i.i2391, %508
   br i1 %cmp.i.not12.i2393, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE17validate_iteratorENS_28intrusive_hashtable_iteratorIS2_Lb1EEE.exit2417, label %for.body.i2394
@@ -4722,12 +4722,12 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !53 = distinct !{!53, !6}
 !54 = distinct !{!54, !6}
 !55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_: %agg.result"}
-!57 = distinct !{!57, !"_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_"}
+!56 = distinct !{!56, !57, !"_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom: %agg.result"}
+!57 = distinct !{!57, !"_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom"}
 !58 = distinct !{!58, !6}
 !59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_: %agg.result"}
-!61 = distinct !{!61, !"_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_"}
+!60 = distinct !{!60, !61, !"_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom: %agg.result"}
+!61 = distinct !{!61, !"_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.argprom"}
 !62 = distinct !{!62, !6}
 !63 = distinct !{!63, !6}
 !64 = distinct !{!64, !6}
@@ -4778,8 +4778,8 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !109 = distinct !{!109, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv"}
 !110 = distinct !{!110, !6}
 !111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi: %agg.result"}
-!113 = distinct !{!113, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi"}
+!112 = distinct !{!112, !113, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom: %agg.result"}
+!113 = distinct !{!113, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom"}
 !114 = distinct !{!114, !6}
 !115 = distinct !{!115, !6}
 !116 = distinct !{!116, !6}
@@ -4788,36 +4788,36 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !119 = distinct !{!119, !"_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5beginEm"}
 !120 = distinct !{!120, !6}
 !121 = !{!122}
-!122 = distinct !{!122, !123, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi: %agg.result"}
-!123 = distinct !{!123, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi"}
+!122 = distinct !{!122, !123, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom: %agg.result"}
+!123 = distinct !{!123, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom"}
 !124 = !{}
 !125 = !{!126}
 !126 = distinct !{!126, !127, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv: %agg.result"}
 !127 = distinct !{!127, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv"}
 !128 = !{!129, !131, !133}
-!129 = distinct !{!129, !130, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_: %agg.result"}
-!130 = distinct !{!130, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_"}
-!131 = distinct !{!131, !132, !"_ZN5eastl24intrusive_hashtable_findINS_19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EEEfEENT_8iteratorERS9_RKT0_: %agg.result"}
-!132 = distinct !{!132, !"_ZN5eastl24intrusive_hashtable_findINS_19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EEEfEENT_8iteratorERS9_RKT0_"}
-!133 = distinct !{!133, !134, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_: %agg.result"}
-!134 = distinct !{!134, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_"}
+!129 = distinct !{!129, !130, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.argprom: %agg.result"}
+!130 = distinct !{!130, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.argprom"}
+!131 = distinct !{!131, !132, !"_ZN5eastl24intrusive_hashtable_findINS_19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EEEfEENT_8iteratorERS9_RKT0_.argprom: %agg.result"}
+!132 = distinct !{!132, !"_ZN5eastl24intrusive_hashtable_findINS_19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EEEfEENT_8iteratorERS9_RKT0_.argprom"}
+!133 = distinct !{!133, !134, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.argprom: %agg.result"}
+!134 = distinct !{!134, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.argprom"}
 !135 = distinct !{!135, !6}
 !136 = !{!137, !139, !141}
-!137 = distinct !{!137, !138, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiS4_NS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_: %agg.result"}
-!138 = distinct !{!138, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiS4_NS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_"}
-!139 = distinct !{!139, !140, !"_ZN5eastl24intrusive_hashtable_findINS_19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EEEiEENT_8iteratorERS9_RKT0_: %agg.result"}
-!140 = distinct !{!140, !"_ZN5eastl24intrusive_hashtable_findINS_19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EEEiEENT_8iteratorERS9_RKT0_"}
-!141 = distinct !{!141, !142, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_: %agg.result"}
-!142 = distinct !{!142, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_"}
+!137 = distinct !{!137, !138, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiS4_NS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.argprom: %agg.result"}
+!138 = distinct !{!138, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiS4_NS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.argprom"}
+!139 = distinct !{!139, !140, !"_ZN5eastl24intrusive_hashtable_findINS_19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EEEiEENT_8iteratorERS9_RKT0_.argprom: %agg.result"}
+!140 = distinct !{!140, !"_ZN5eastl24intrusive_hashtable_findINS_19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EEEiEENT_8iteratorERS9_RKT0_.argprom"}
+!141 = distinct !{!141, !142, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.argprom: %agg.result"}
+!142 = distinct !{!142, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIiEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_.argprom"}
 !143 = distinct !{!143, !6}
 !144 = !{!145}
-!145 = distinct !{!145, !146, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_: %agg.result"}
-!146 = distinct !{!146, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_"}
+!145 = distinct !{!145, !146, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.argprom: %agg.result"}
+!146 = distinct !{!146, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb0EEERKT_T0_T1_.argprom"}
 !147 = distinct !{!147, !6}
 !148 = distinct !{!148, !6}
 !149 = !{!150}
-!150 = distinct !{!150, !151, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi: %agg.result"}
-!151 = distinct !{!151, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi"}
+!150 = distinct !{!150, !151, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom: %agg.result"}
+!151 = distinct !{!151, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom"}
 !152 = !{!153}
 !153 = distinct !{!153, !154, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv: %agg.result"}
 !154 = distinct !{!154, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv"}
@@ -4829,14 +4829,14 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !160 = distinct !{!160, !161, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv: %agg.result"}
 !161 = distinct !{!161, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv"}
 !162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi: %agg.result"}
-!164 = distinct !{!164, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi"}
+!163 = distinct !{!163, !164, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom: %agg.result"}
+!164 = distinct !{!164, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom"}
 !165 = !{!166}
 !166 = distinct !{!166, !167, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv: %agg.result"}
 !167 = distinct !{!167, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv"}
 !168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi: %agg.result"}
-!170 = distinct !{!170, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi"}
+!169 = distinct !{!169, !170, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom: %agg.result"}
+!170 = distinct !{!170, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom"}
 !171 = !{!172}
 !172 = distinct !{!172, !173, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv: %agg.result"}
 !173 = distinct !{!173, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv"}
@@ -4854,14 +4854,14 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !185 = distinct !{!185, !186, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv: %agg.result"}
 !186 = distinct !{!186, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv"}
 !187 = !{!188}
-!188 = distinct !{!188, !189, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi: %agg.result"}
-!189 = distinct !{!189, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi"}
+!188 = distinct !{!188, !189, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom: %agg.result"}
+!189 = distinct !{!189, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.argprom"}
 !190 = !{!191}
 !191 = distinct !{!191, !192, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv: %agg.result"}
 !192 = distinct !{!192, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv"}
 !193 = !{!194}
-!194 = distinct !{!194, !195, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi: %agg.result"}
-!195 = distinct !{!195, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi"}
+!194 = distinct !{!194, !195, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom: %agg.result"}
+!195 = distinct !{!195, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom"}
 !196 = distinct !{!196, !6}
 !197 = !{!198}
 !198 = distinct !{!198, !199, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv: %agg.result"}
@@ -4870,8 +4870,8 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !201 = distinct !{!201, !202, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv: %agg.result"}
 !202 = distinct !{!202, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE3endEv"}
 !203 = !{!204}
-!204 = distinct !{!204, !205, !"_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi: %agg.result"}
-!205 = distinct !{!205, !"_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi"}
+!204 = distinct !{!204, !205, !"_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom: %agg.result"}
+!205 = distinct !{!205, !"_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.argprom"}
 !206 = distinct !{!206, !6}
 !207 = !{!208}
 !208 = distinct !{!208, !209, !"_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5beginEv: %agg.result"}

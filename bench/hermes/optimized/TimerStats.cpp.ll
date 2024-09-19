@@ -1158,16 +1158,16 @@ entry:
   %add.i.i = add i64 %1, 1
   store i64 %add.i.i, ptr %count.i.i, align 8, !noalias !25
   %tobool.not.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
 
 if.then.i.i:                                      ; preds = %entry
   %count9.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i64, ptr %count9.i.i, align 8, !noalias !25
   %add10.i.i = add i64 %2, 1
   store i64 %add10.i.i, ptr %count9.i.i, align 8, !noalias !25
-  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
 
-_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit: ; preds = %entry, %if.then.i.i
+_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit: ; preds = %entry, %if.then.i.i
   %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %plain_.i.i, align 8, !noalias !28
   %vtable.i = load ptr, ptr %3, align 8, !noalias !28
@@ -1176,7 +1176,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit: ; preds
   invoke void %4(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 %buffer, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+invoke.cont:                                      ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
   %call.i1.i = invoke i64 @_ZN6hermes8oscompat15thread_cpu_timeEv()
           to label %call.i.noexc.i unwind label %terminate.lpad.i
 
@@ -1226,7 +1226,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %c
   store ptr %9, ptr %timerStack_.i, align 8
   ret void
 
-lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
   %14 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #22
@@ -1284,16 +1284,16 @@ entry:
   %add.i.i = add i64 %1, 1
   store i64 %add.i.i, ptr %count.i.i, align 8, !noalias !31
   %tobool.not.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
 
 if.then.i.i:                                      ; preds = %entry
   %count9.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i64, ptr %count9.i.i, align 8, !noalias !31
   %add10.i.i = add i64 %2, 1
   store i64 %add10.i.i, ptr %count9.i.i, align 8, !noalias !31
-  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
 
-_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit: ; preds = %entry, %if.then.i.i
+_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit: ; preds = %entry, %if.then.i.i
   %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %plain_.i.i, align 8, !noalias !34
   %vtable.i = load ptr, ptr %3, align 8, !noalias !34
@@ -1302,7 +1302,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit: ; preds
   invoke void %4(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %js)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+invoke.cont:                                      ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
   %call.i1.i = invoke i64 @_ZN6hermes8oscompat15thread_cpu_timeEv()
           to label %call.i.noexc.i unwind label %terminate.lpad.i
 
@@ -1352,7 +1352,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %c
   store ptr %9, ptr %timerStack_.i, align 8
   ret void
 
-lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
   %14 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #22
@@ -1386,16 +1386,16 @@ entry:
   %add.i.i = add i64 %1, 1
   store i64 %add.i.i, ptr %count.i.i, align 8, !noalias !37
   %tobool.not.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
 
 if.then.i.i:                                      ; preds = %entry
   %count9.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i64, ptr %count9.i.i, align 8, !noalias !37
   %add10.i.i = add i64 %2, 1
   store i64 %add10.i.i, ptr %count9.i.i, align 8, !noalias !37
-  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
 
-_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit: ; preds = %entry, %if.then.i.i
+_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit: ; preds = %entry, %if.then.i.i
   %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %plain_.i.i, align 8
   %vtable.i = load ptr, ptr %3, align 8
@@ -1404,7 +1404,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit: ; preds
   %call2.i1 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %maxMicrotasksHint)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+invoke.cont:                                      ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
   %call.i1.i = invoke i64 @_ZN6hermes8oscompat15thread_cpu_timeEv()
           to label %call.i.noexc.i unwind label %terminate.lpad.i
 
@@ -1454,7 +1454,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %c
   store ptr %9, ptr %timerStack_.i, align 8
   ret i1 %call2.i1
 
-lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
   %14 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #22
@@ -1894,7 +1894,7 @@ _ZSt11make_sharedIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEJRNS2_12Timed
 invoke.cont:                                      ; preds = %_ZSt11make_sharedIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEJRNS2_12TimedRuntimeESt10shared_ptrINS0_3jsi10HostObjectEERNS2_12RuntimeStatsEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.exit
   %16 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
@@ -1930,7 +1930,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %18, %if.then.i.i.i.i.i ], [ %21, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %16, align 8
@@ -1955,23 +1955,23 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %24, %if.then.i.i.i.i.i.i.i ], [ %25, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %16, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %26 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(16) %16) #22
-  br label %_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %invoke.cont
+_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev.argprom.exit: ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %invoke.cont
   ret void
 
 lpad:                                             ; preds = %_ZSt11make_sharedIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEJRNS2_12TimedRuntimeESt10shared_ptrINS0_3jsi10HostObjectEERNS2_12RuntimeStatsEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.exit
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #22
-  call fastcc void @_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev(ptr null) #22
+  call fastcc void @_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev.argprom(ptr null) #22
   resume { ptr, i32 } %27
 }
 
@@ -2910,16 +2910,16 @@ entry:
   %add.i.i = add i64 %1, 1
   store i64 %add.i.i, ptr %count.i.i, align 8, !noalias !46
   %tobool.not.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
 
 if.then.i.i:                                      ; preds = %entry
   %count9.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i64, ptr %count9.i.i, align 8, !noalias !46
   %add10.i.i = add i64 %2, 1
   store i64 %add10.i.i, ptr %count9.i.i, align 8, !noalias !46
-  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
 
-_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit: ; preds = %entry, %if.then.i.i
+_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit: ; preds = %entry, %if.then.i.i
   %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %plain_.i, align 8, !noalias !49
   %vtable.i = load ptr, ptr %3, align 8, !noalias !49
@@ -2928,7 +2928,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit: ; preds
   invoke void %4(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef nonnull align 8 dereferenceable(16) %jsThis, ptr noundef %args, i64 noundef %count)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+invoke.cont:                                      ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
   %call.i1.i = invoke i64 @_ZN6hermes8oscompat15thread_cpu_timeEv()
           to label %call.i.noexc.i unwind label %terminate.lpad.i
 
@@ -2978,7 +2978,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %c
   store ptr %9, ptr %timerStack_.i, align 8
   ret void
 
-lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
   %14 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #22
@@ -3012,16 +3012,16 @@ entry:
   %add.i.i = add i64 %1, 1
   store i64 %add.i.i, ptr %count.i.i, align 8, !noalias !52
   %tobool.not.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
 
 if.then.i.i:                                      ; preds = %entry
   %count9.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i64, ptr %count9.i.i, align 8, !noalias !52
   %add10.i.i = add i64 %2, 1
   store i64 %add10.i.i, ptr %count9.i.i, align 8, !noalias !52
-  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
 
-_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit: ; preds = %entry, %if.then.i.i
+_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit: ; preds = %entry, %if.then.i.i
   %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %plain_.i, align 8, !noalias !55
   %vtable.i = load ptr, ptr %3, align 8, !noalias !55
@@ -3030,7 +3030,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit: ; preds
   invoke void %4(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef %args, i64 noundef %count)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+invoke.cont:                                      ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
   %call.i1.i = invoke i64 @_ZN6hermes8oscompat15thread_cpu_timeEv()
           to label %call.i.noexc.i unwind label %terminate.lpad.i
 
@@ -3080,7 +3080,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %c
   store ptr %9, ptr %timerStack_.i, align 8
   ret void
 
-lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
+lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom.exit
   %14 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #22
@@ -4403,7 +4403,7 @@ invoke.cont16.i.i.i:                              ; preds = %invoke.cont11.i.i.i
   %rts_.val5.i.i.i = load double, ptr %14, align 8, !noalias !86
   store double %rts_.val5.i.i.i, ptr %ref.tmp17.i.i.i, align 8, !noalias !86
   invoke void @_ZNK8facebook3jsi6Object11setPropertyIdEEvRNS0_7RuntimeEPKcOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %call.val, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17.i.i.i)
-          to label %_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlRNS1_7RuntimeERKS2_PS8_mE_JS7_S9_SA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit unwind label %lpad.loopexit.split-lp.i.i.i, !noalias !76
+          to label %_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlRNS1_7RuntimeERKS2_PS8_mE_JS7_S9_SA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit unwind label %lpad.loopexit.split-lp.i.i.i, !noalias !76
 
 lpad.loopexit.i.i.i:                              ; preds = %for.body.i.i.i.i
   %lpad.loopexit1.i.i.i = landingpad { ptr, i32 }
@@ -4438,7 +4438,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i9.i.i.i
 _ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i:           ; preds = %if.then.i.i9.i.i.i, %lpad.i.i.i
   resume { ptr, i32 } %lpad.phi.i.i.i
 
-_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlRNS1_7RuntimeERKS2_PS8_mE_JS7_S9_SA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit: ; preds = %invoke.cont16.i.i.i
+_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlRNS1_7RuntimeERKS2_PS8_mE_JS7_S9_SA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit: ; preds = %invoke.cont16.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !85
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp7.i.i.i), !noalias !85
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i), !noalias !85
@@ -5127,10 +5127,10 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev(ptr %this.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev.argprom(ptr %this.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
@@ -5166,7 +5166,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.i.0.i.i.i = phi i32 [ %1, %if.then.i.i.i.i ], [ %4, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.i.0.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
@@ -5191,16 +5191,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then7.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #22
-  br label %_ZNSt12__shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br label %_ZNSt12__shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
-_ZNSt12__shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
+_ZNSt12__shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
   ret void
 }
 
@@ -5225,7 +5225,7 @@ entry:
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEEEvRS0_PT_.exit, label %if.then.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEEEvRS0_PT_.argprom.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
   %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -5261,7 +5261,7 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i.i.i.i.i ], [ %5, %if.else.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEEEvRS0_PT_.exit
+  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEEEvRS0_PT_.argprom.exit
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
@@ -5286,23 +5286,23 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %8, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %9, %if.else.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEEEvRS0_PT_.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEEEvRS0_PT_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
-  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEEEvRS0_PT_.exit
+  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEEEvRS0_PT_.argprom.exit
 
-_ZNSt16allocator_traitsISaIvEE7destroyIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEEEvRS0_PT_.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i
+_ZNSt16allocator_traitsISaIvEE7destroyIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEEEvRS0_PT_.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i
   tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -5531,16 +5531,16 @@ entry:
   %add.i.i = add i64 %2, 1
   store i64 %add.i.i, ptr %count.i.i, align 8, !noalias !157
   %tobool.not.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
+  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit
 
 if.then.i.i:                                      ; preds = %entry
   %count9.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i64, ptr %count9.i.i, align 8, !noalias !157
   %add10.i.i = add i64 %3, 1
   store i64 %add10.i.i, ptr %count9.i.i, align 8, !noalias !157
-  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
+  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit
 
-_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit: ; preds = %entry, %if.then.i.i
+_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit: ; preds = %entry, %if.then.i.i
   %plainHO_.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %plainHO_.i, align 8, !noalias !160
   %drt_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -5551,7 +5551,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit: ; preds
   invoke void %6(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %name)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
+invoke.cont:                                      ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit
   %call.i1.i = invoke i64 @_ZN6hermes8oscompat15thread_cpu_timeEv()
           to label %call.i.noexc.i unwind label %terminate.lpad.i
 
@@ -5601,7 +5601,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %c
   store ptr %11, ptr %timerStack_.i, align 8
   ret void
 
-lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
+lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit
   %16 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #22
@@ -5635,16 +5635,16 @@ entry:
   %add.i.i = add i64 %2, 1
   store i64 %add.i.i, ptr %count.i.i, align 8, !noalias !163
   %tobool.not.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
+  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit
 
 if.then.i.i:                                      ; preds = %entry
   %count9.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i64, ptr %count9.i.i, align 8, !noalias !163
   %add10.i.i = add i64 %3, 1
   store i64 %add10.i.i, ptr %count9.i.i, align 8, !noalias !163
-  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
+  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit
 
-_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit: ; preds = %entry, %if.then.i.i
+_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit: ; preds = %entry, %if.then.i.i
   %plainHO_.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %plainHO_.i, align 8
   %drt_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -5655,7 +5655,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit: ; preds
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef nonnull align 8 dereferenceable(16) %value)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
+invoke.cont:                                      ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit
   %call.i1.i = invoke i64 @_ZN6hermes8oscompat15thread_cpu_timeEv()
           to label %call.i.noexc.i unwind label %terminate.lpad.i
 
@@ -5705,7 +5705,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %c
   store ptr %11, ptr %timerStack_.i, align 8
   ret void
 
-lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
+lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit
   %16 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #22
@@ -5739,16 +5739,16 @@ entry:
   %add.i.i = add i64 %2, 1
   store i64 %add.i.i, ptr %count.i.i, align 8, !noalias !166
   %tobool.not.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
+  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit
 
 if.then.i.i:                                      ; preds = %entry
   %count9.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i64, ptr %count9.i.i, align 8, !noalias !166
   %add10.i.i = add i64 %3, 1
   store i64 %add10.i.i, ptr %count9.i.i, align 8, !noalias !166
-  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
+  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit
 
-_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit: ; preds = %entry, %if.then.i.i
+_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit: ; preds = %entry, %if.then.i.i
   %plainHO_.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %plainHO_.i, align 8, !noalias !169
   %drt_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -5759,7 +5759,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit: ; preds
   invoke void %6(ptr sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
+invoke.cont:                                      ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit
   %call.i1.i = invoke i64 @_ZN6hermes8oscompat15thread_cpu_timeEv()
           to label %call.i.noexc.i unwind label %terminate.lpad.i
 
@@ -5809,7 +5809,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %c
   store ptr %11, ptr %timerStack_.i, align 8
   ret void
 
-lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
+lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit
   %16 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #22
@@ -6009,16 +6009,16 @@ entry:
   %add.i.i.i.i.i = add i64 %2, 1
   store i64 %add.i.i.i.i.i, ptr %count.i.i.i.i.i, align 8, !noalias !183
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %count9.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i64, ptr %count9.i.i.i.i.i, align 8, !noalias !183
   %add10.i.i.i.i.i = add i64 %3, 1
   store i64 %add10.i.i.i.i.i, ptr %count9.i.i.i.i.i, align 8, !noalias !183
-  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit.i.i.i
+  br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit.i.i.i
 
-_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %entry
+_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %entry
   %4 = load ptr, ptr %__functor.val, align 8, !noalias !184
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i.i.i.i.i), !noalias !184
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr6.i.i.i.i.i), !noalias !184
@@ -6029,14 +6029,14 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit.i.i.i: ;
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i1.i.i.i, label %_ZNKSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEclES4_S6_S7_m.exit.i.i.i.i
 
-if.then.i.i1.i.i.i:                               ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit.i.i.i
+if.then.i.i1.i.i.i:                               ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit.i.i.i
   invoke void @_ZSt25__throw_bad_function_callv() #25
           to label %.noexc.i.i.i unwind label %lpad.i.i.i, !noalias !177
 
 .noexc.i.i.i:                                     ; preds = %if.then.i.i1.i.i.i
   unreachable
 
-_ZNKSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEclES4_S6_S7_m.exit.i.i.i.i: ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit.i.i.i
+_ZNKSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEclES4_S6_S7_m.exit.i.i.i.i: ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom.exit.i.i.i
   %plainHF_.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %_M_invoker.i.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 32
   %6 = load ptr, ptr %_M_invoker.i.i.i.i.i, align 8, !noalias !187
@@ -6070,7 +6070,7 @@ call.i.noexc.i.i.i.i:                             ; preds = %invoke.cont.i.i.i
   %11 = load ptr, ptr %parent_.i.i.i.i.i, align 8, !noalias !177
   %tobool.not.i.i7.i.i.i = icmp eq ptr %11, null
   %.pre.i.i.i = load ptr, ptr %runtimeStats_.i.i.i.i.i, align 8, !noalias !177
-  br i1 %tobool.not.i.i7.i.i.i, label %if.then.i.i8.i.i.i, label %_ZSt10__invoke_rIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit
+  br i1 %tobool.not.i.i7.i.i.i, label %if.then.i.i8.i.i.i, label %_ZSt10__invoke_rIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit
 
 if.then.i.i8.i.i.i:                               ; preds = %call.i.noexc.i.i.i.i
   %total_.i.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 48
@@ -6081,7 +6081,7 @@ if.then.i.i8.i.i.i:                               ; preds = %call.i.noexc.i.i.i.
   %13 = load double, ptr %cpuDuration.i4.i.i.i.i.i, align 8
   %add2.i5.i.i.i.i.i = fadd double %div.i.i.i2.i.i.i.i.i, %13
   store double %add2.i5.i.i.i.i.i, ptr %cpuDuration.i4.i.i.i.i.i, align 8
-  br label %_ZSt10__invoke_rIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit
+  br label %_ZSt10__invoke_rIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit
 
 terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i.i.i
   %14 = landingpad { ptr, i32 }
@@ -6096,7 +6096,7 @@ lpad.i.i.i:                                       ; preds = %_ZNKSt8functionIFN8
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer.i.i.i) #22
   resume { ptr, i32 } %16
 
-_ZSt10__invoke_rIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %call.i.noexc.i.i.i.i, %if.then.i.i8.i.i.i
+_ZSt10__invoke_rIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit: ; preds = %call.i.noexc.i.i.i.i, %if.then.i.i8.i.i.i
   %timerStack_.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 72
   store ptr %11, ptr %timerStack_.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %timer.i.i.i), !noalias !172
@@ -6281,20 +6281,20 @@ attributes #25 = { noreturn }
 !23 = distinct !{!23, !24, !"_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E6globalEv: %agg.result"}
 !24 = distinct !{!24, !"_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E6globalEv"}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc: %agg.result"}
-!27 = distinct !{!27, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc"}
+!26 = distinct !{!26, !27, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom: %agg.result"}
+!27 = distinct !{!27, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom"}
 !28 = !{!29}
 !29 = distinct !{!29, !30, !"_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E18evaluateJavaScriptERKSt10shared_ptrIKNS0_6BufferEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: %agg.result"}
 !30 = distinct !{!30, !"_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E18evaluateJavaScriptERKSt10shared_ptrIKNS0_6BufferEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc: %agg.result"}
-!33 = distinct !{!33, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc"}
+!32 = distinct !{!32, !33, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom: %agg.result"}
+!33 = distinct !{!33, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom"}
 !34 = !{!35}
 !35 = distinct !{!35, !36, !"_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E26evaluatePreparedJavaScriptERKSt10shared_ptrIKNS0_18PreparedJavaScriptEE: %agg.result"}
 !36 = distinct !{!36, !"_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E26evaluatePreparedJavaScriptERKSt10shared_ptrIKNS0_18PreparedJavaScriptEE"}
 !37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc: %agg.result"}
-!39 = distinct !{!39, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc"}
+!38 = distinct !{!38, !39, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom: %agg.result"}
+!39 = distinct !{!39, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom"}
 !40 = !{!41}
 !41 = distinct !{!41, !42, !"_ZSt11make_sharedIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEJRNS2_12TimedRuntimeESt10shared_ptrINS0_3jsi10HostObjectEERNS2_12RuntimeStatsEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_: %agg.result"}
 !42 = distinct !{!42, !"_ZSt11make_sharedIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEJRNS2_12TimedRuntimeESt10shared_ptrINS0_3jsi10HostObjectEERNS2_12RuntimeStatsEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_"}
@@ -6302,14 +6302,14 @@ attributes #25 = { noreturn }
 !44 = distinct !{!44, !45, !"_ZN8facebook3jsi8Function22createFromHostFunctionERNS0_7RuntimeERKNS0_10PropNameIDEjSt8functionIFNS0_5ValueES3_RKS8_PS9_mEE: %agg.result"}
 !45 = distinct !{!45, !"_ZN8facebook3jsi8Function22createFromHostFunctionERNS0_7RuntimeERKNS0_10PropNameIDEjSt8functionIFNS0_5ValueES3_RKS8_PS9_mEE"}
 !46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc: %agg.result"}
-!48 = distinct !{!48, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc"}
+!47 = distinct !{!47, !48, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom: %agg.result"}
+!48 = distinct !{!48, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom"}
 !49 = !{!50}
 !50 = distinct !{!50, !51, !"_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E4callERKNS0_8FunctionERKNS0_5ValueEPS8_m: %agg.result"}
 !51 = distinct !{!51, !"_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E4callERKNS0_8FunctionERKNS0_5ValueEPS8_m"}
 !52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc: %agg.result"}
-!54 = distinct !{!54, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc"}
+!53 = distinct !{!53, !54, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom: %agg.result"}
+!54 = distinct !{!54, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.argprom"}
 !55 = !{!56}
 !56 = distinct !{!56, !57, !"_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E17callAsConstructorERKNS0_8FunctionEPKNS0_5ValueEm: %agg.result"}
 !57 = distinct !{!57, !"_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E17callAsConstructorERKNS0_8FunctionEPKNS0_5ValueEm"}
@@ -6332,14 +6332,14 @@ attributes #25 = { noreturn }
 !74 = distinct !{!74, !75, !"_ZN8facebook3jsi6detail7toValueINS0_8FunctionEEENS0_5ValueERNS0_7RuntimeERKT_: %agg.result"}
 !75 = distinct !{!75, !"_ZN8facebook3jsi6detail7toValueINS0_8FunctionEEENS0_5ValueERNS0_7RuntimeERKT_"}
 !76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlRNS1_7RuntimeERKS2_PS8_mE_JS7_S9_SA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_: %agg.result"}
-!78 = distinct !{!78, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlRNS1_7RuntimeERKS2_PS8_mE_JS7_S9_SA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_"}
+!77 = distinct !{!77, !78, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlRNS1_7RuntimeERKS2_PS8_mE_JS7_S9_SA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom: %agg.result"}
+!78 = distinct !{!78, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlRNS1_7RuntimeERKS2_PS8_mE_JS7_S9_SA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom"}
 !79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZSt13__invoke_implIN8facebook3jsi6ObjectERZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlRNS1_7RuntimeERKNS1_5ValueEPS9_mE_JS7_SA_SB_mEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!81 = distinct !{!81, !"_ZSt13__invoke_implIN8facebook3jsi6ObjectERZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlRNS1_7RuntimeERKNS1_5ValueEPS9_mE_JS7_SA_SB_mEET_St14__invoke_otherOT0_DpOT1_"}
+!80 = distinct !{!80, !81, !"_ZSt13__invoke_implIN8facebook3jsi6ObjectERZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlRNS1_7RuntimeERKNS1_5ValueEPS9_mE_JS7_SA_SB_mEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!81 = distinct !{!81, !"_ZSt13__invoke_implIN8facebook3jsi6ObjectERZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlRNS1_7RuntimeERKNS1_5ValueEPS9_mE_JS7_SA_SB_mEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZZN8facebook6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvENKUlRNS_3jsi7RuntimeERKNS3_5ValueEPS7_mE_clES5_S8_S9_m: %agg.result"}
-!84 = distinct !{!84, !"_ZZN8facebook6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvENKUlRNS_3jsi7RuntimeERKNS3_5ValueEPS7_mE_clES5_S8_S9_m"}
+!83 = distinct !{!83, !84, !"_ZZN8facebook6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvENKUlRNS_3jsi7RuntimeERKNS3_5ValueEPS7_mE_clES5_S8_S9_m.argprom: %agg.result"}
+!84 = distinct !{!84, !"_ZZN8facebook6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvENKUlRNS_3jsi7RuntimeERKNS3_5ValueEPS7_mE_clES5_S8_S9_m.argprom"}
 !85 = !{!80, !77}
 !86 = !{!83, !80, !77}
 !87 = !{!83, !80}
@@ -6413,31 +6413,31 @@ attributes #25 = { noreturn }
 !155 = distinct !{!155, !156, !"_ZNK8facebook3jsi8Function4callERNS0_7RuntimeEPKNS0_5ValueEm: %agg.result"}
 !156 = distinct !{!156, !"_ZNK8facebook3jsi8Function4callERNS0_7RuntimeEPKNS0_5ValueEm"}
 !157 = !{!158}
-!158 = distinct !{!158, !159, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc: %agg.result"}
-!159 = distinct !{!159, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc"}
+!158 = distinct !{!158, !159, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom: %agg.result"}
+!159 = distinct !{!159, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom"}
 !160 = !{!161}
 !161 = distinct !{!161, !162, !"_ZN8facebook3jsi19DecoratedHostObject3getERNS0_7RuntimeERKNS0_10PropNameIDE: %agg.result"}
 !162 = distinct !{!162, !"_ZN8facebook3jsi19DecoratedHostObject3getERNS0_7RuntimeERKNS0_10PropNameIDE"}
 !163 = !{!164}
-!164 = distinct !{!164, !165, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc: %agg.result"}
-!165 = distinct !{!165, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc"}
+!164 = distinct !{!164, !165, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom: %agg.result"}
+!165 = distinct !{!165, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom"}
 !166 = !{!167}
-!167 = distinct !{!167, !168, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc: %agg.result"}
-!168 = distinct !{!168, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc"}
+!167 = distinct !{!167, !168, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom: %agg.result"}
+!168 = distinct !{!168, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom"}
 !169 = !{!170}
 !170 = distinct !{!170, !171, !"_ZN8facebook3jsi19DecoratedHostObject16getPropertyNamesERNS0_7RuntimeE: %agg.result"}
 !171 = distinct !{!171, !"_ZN8facebook3jsi19DecoratedHostObject16getPropertyNamesERNS0_7RuntimeE"}
 !172 = !{!173, !175}
-!173 = distinct !{!173, !174, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!174 = distinct !{!174, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEET_St14__invoke_otherOT0_DpOT1_"}
-!175 = distinct !{!175, !176, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_: %agg.result"}
-!176 = distinct !{!176, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_"}
+!173 = distinct !{!173, !174, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!174 = distinct !{!174, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!175 = distinct !{!175, !176, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom: %agg.result"}
+!176 = distinct !{!176, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom"}
 !177 = !{!178, !173, !175}
-!178 = distinct !{!178, !179, !"_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionclERNS_3jsi7RuntimeERKNS3_5ValueEPS7_m: %agg.result"}
-!179 = distinct !{!179, !"_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionclERNS_3jsi7RuntimeERKNS3_5ValueEPS7_m"}
+!178 = distinct !{!178, !179, !"_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionclERNS_3jsi7RuntimeERKNS3_5ValueEPS7_m.argprom: %agg.result"}
+!179 = distinct !{!179, !"_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionclERNS_3jsi7RuntimeERKNS3_5ValueEPS7_m.argprom"}
 !180 = !{!181}
-!181 = distinct !{!181, !182, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc: %agg.result"}
-!182 = distinct !{!182, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc"}
+!181 = distinct !{!181, !182, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom: %agg.result"}
+!182 = distinct !{!182, !"_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.argprom"}
 !183 = !{!181, !178, !173, !175}
 !184 = !{!185, !178, !173, !175}
 !185 = distinct !{!185, !186, !"_ZN8facebook3jsi21DecoratedHostFunctionclERNS0_7RuntimeERKNS0_5ValueEPS5_m: %agg.result"}

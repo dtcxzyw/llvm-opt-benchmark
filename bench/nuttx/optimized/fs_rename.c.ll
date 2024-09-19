@@ -69,7 +69,7 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
   %36 = getelementptr inbounds i8, ptr %35, i64 184
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %mountptrename.exit, label %39
+  br i1 %38, label %mountptrename.argprom.exit, label %39
 
 39:                                               ; preds = %33
   store ptr %1, ptr %6, align 8
@@ -200,13 +200,13 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
 102:                                              ; preds = %101, %99
   %103 = load ptr, ptr %7, align 8
   %.not48.i = icmp eq ptr %103, null
-  br i1 %.not48.i, label %mountptrename.exit, label %104
+  br i1 %.not48.i, label %mountptrename.argprom.exit, label %104
 
 104:                                              ; preds = %102
   call void @free(ptr noundef nonnull %103)
-  br label %mountptrename.exit
+  br label %mountptrename.argprom.exit
 
-mountptrename.exit:                               ; preds = %33, %102, %104
+mountptrename.argprom.exit:                       ; preds = %33, %102, %104
   %.0.i = phi i32 [ -38, %33 ], [ %.136.i, %104 ], [ %.136.i, %102 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -380,8 +380,8 @@ pseudorename.exit:                                ; preds = %172, %174
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %175
 
-175:                                              ; preds = %pseudorename.exit, %mountptrename.exit
-  %.1 = phi i32 [ %.0.i, %mountptrename.exit ], [ %.1.i, %pseudorename.exit ]
+175:                                              ; preds = %pseudorename.exit, %mountptrename.argprom.exit
+  %.1 = phi i32 [ %.0.i, %mountptrename.argprom.exit ], [ %.1.i, %pseudorename.exit ]
   call void @inode_release(ptr noundef %25) #6
   br label %176
 

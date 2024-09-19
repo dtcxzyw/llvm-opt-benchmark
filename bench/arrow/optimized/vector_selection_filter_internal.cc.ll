@@ -15116,7 +15116,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %9 = load i64, ptr %out_position_.i.i.i, align 8
   %add2.i.i.i.i = add nsw i64 %9, %8
   tail call void @_ZN5arrow8internal10CopyBitmapEPKhllPhl(ptr noundef %5, i64 noundef %add.i.i.i.i, i64 noundef %__args1.val, ptr noundef %7, i64 noundef %add2.i.i.i.i)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_11BooleanTypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_11BooleanTypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %entry
   %out_is_valid_3.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 56
@@ -15134,9 +15134,9 @@ if.else.i.i.i:                                    ; preds = %entry
   %15 = load i64, ptr %out_position_5.i.i.i, align 8
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %15
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr9.i.i.i, i8 0, i64 %__args1.val, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_11BooleanTypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_11BooleanTypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_11BooleanTypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_11BooleanTypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %out_position_5.sink1.i.i.i = phi ptr [ %out_position_5.i.i.i, %if.else.i.i.i ], [ %out_position_.i.i.i, %if.then.i.i.i ]
   %16 = load i64, ptr %out_position_5.sink1.i.i.i, align 8
   %add11.i.i.i = add nsw i64 %16, %__args1.val
@@ -15194,7 +15194,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %4 = load i64, ptr %out_position_.i.i.i.i, align 8
   %add2.i.i.i.i = add nsw i64 %4, %3
   tail call void @_ZN5arrow8internal10CopyBitmapEPKhllPhl(ptr noundef %0, i64 noundef %add.i.i.i.i, i64 noundef %__args1.val, ptr noundef %2, i64 noundef %add2.i.i.i.i)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_11BooleanTypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_11BooleanTypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %entry
   %out_is_valid_.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 56
@@ -15212,9 +15212,9 @@ if.else.i.i.i:                                    ; preds = %entry
   %10 = load i64, ptr %out_position_.i.i.i, align 8
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %10
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr4.i.i.i, i8 0, i64 %__args1.val, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_11BooleanTypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_11BooleanTypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_11BooleanTypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_11BooleanTypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %out_position_.sink1.i.i.i = phi ptr [ %out_position_.i.i.i, %if.else.i.i.i ], [ %out_position_.i.i.i.i, %if.then.i.i.i ]
   %11 = load i64, ptr %out_position_.sink1.i.i.i, align 8
   %add6.i.i.i = add nsw i64 %11, %__args1.val
@@ -15651,7 +15651,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %7 = load ptr, ptr %values_data_.i.i.i.i, align 8
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %__args.val
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i, ptr align 1 %add.ptr2.i.i.i.i, i64 %__args1.val, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_9UInt8TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_9UInt8TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %entry
   %out_is_valid_3.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 56
@@ -15669,9 +15669,9 @@ if.else.i.i.i:                                    ; preds = %entry
   %13 = load i64, ptr %out_position_5.i.i.i, align 8
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %13
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr9.i.i.i, i8 0, i64 %__args1.val, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_9UInt8TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_9UInt8TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_9UInt8TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_9UInt8TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %out_position_5.sink1.i.i.i = phi ptr [ %out_position_5.i.i.i, %if.else.i.i.i ], [ %out_position_.i.i.i, %if.then.i.i.i ]
   %14 = load i64, ptr %out_position_5.sink1.i.i.i, align 8
   %add11.i.i.i = add nsw i64 %14, %__args1.val
@@ -15725,7 +15725,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %2 = load ptr, ptr %values_data_.i.i.i.i, align 8
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %__args.val
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i, ptr align 1 %add.ptr2.i.i.i.i, i64 %__args1.val, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_9UInt8TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_9UInt8TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %entry
   %out_is_valid_.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 56
@@ -15743,9 +15743,9 @@ if.else.i.i.i:                                    ; preds = %entry
   %8 = load i64, ptr %out_position_.i.i.i, align 8
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %8
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr4.i.i.i, i8 0, i64 %__args1.val, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_9UInt8TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_9UInt8TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_9UInt8TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_9UInt8TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %out_position_.sink1.i.i.i = phi ptr [ %out_position_.i.i.i, %if.else.i.i.i ], [ %out_position_.i.i.i.i, %if.then.i.i.i ]
   %9 = load i64, ptr %out_position_.sink1.i.i.i, align 8
   %add6.i.i.i = add nsw i64 %9, %__args1.val
@@ -15859,7 +15859,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %add.ptr2.i.i.i.i = getelementptr inbounds i16, ptr %7, i64 %__args.val
   %mul.i.i.i.i = shl i64 %__args1.val, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr.i.i.i.i, ptr align 2 %add.ptr2.i.i.i.i, i64 %mul.i.i.i.i, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt16TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt16TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %entry
   %out_is_valid_3.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 56
@@ -15878,9 +15878,9 @@ if.else.i.i.i:                                    ; preds = %entry
   %add.ptr9.i.i.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i, i64 %13
   %mul.i.i.i = shl i64 %__args1.val, 1
   tail call void @llvm.memset.p0.i64(ptr align 2 %add.ptr9.i.i.i, i8 0, i64 %mul.i.i.i, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt16TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt16TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt16TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt16TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %out_position_5.sink1.i.i.i = phi ptr [ %out_position_5.i.i.i, %if.else.i.i.i ], [ %out_position_.i.i.i, %if.then.i.i.i ]
   %14 = load i64, ptr %out_position_5.sink1.i.i.i, align 8
   %add11.i.i.i = add nsw i64 %14, %__args1.val
@@ -15935,7 +15935,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %add.ptr2.i.i.i.i = getelementptr inbounds i16, ptr %2, i64 %__args.val
   %mul.i.i.i.i = shl i64 %__args1.val, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr.i.i.i.i, ptr align 2 %add.ptr2.i.i.i.i, i64 %mul.i.i.i.i, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt16TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt16TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %entry
   %out_is_valid_.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 56
@@ -15954,9 +15954,9 @@ if.else.i.i.i:                                    ; preds = %entry
   %add.ptr4.i.i.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i, i64 %8
   %mul.i.i.i = shl i64 %__args1.val, 1
   tail call void @llvm.memset.p0.i64(ptr align 2 %add.ptr4.i.i.i, i8 0, i64 %mul.i.i.i, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt16TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt16TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt16TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt16TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %out_position_.sink1.i.i.i = phi ptr [ %out_position_.i.i.i, %if.else.i.i.i ], [ %out_position_.i.i.i.i, %if.then.i.i.i ]
   %9 = load i64, ptr %out_position_.sink1.i.i.i, align 8
   %add6.i.i.i = add nsw i64 %9, %__args1.val
@@ -16070,7 +16070,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %add.ptr2.i.i.i.i = getelementptr inbounds i32, ptr %7, i64 %__args.val
   %mul.i.i.i.i = shl i64 %__args1.val, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i, ptr align 4 %add.ptr2.i.i.i.i, i64 %mul.i.i.i.i, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt32TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt32TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %entry
   %out_is_valid_3.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 56
@@ -16089,9 +16089,9 @@ if.else.i.i.i:                                    ; preds = %entry
   %add.ptr9.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i, i64 %13
   %mul.i.i.i = shl i64 %__args1.val, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %add.ptr9.i.i.i, i8 0, i64 %mul.i.i.i, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt32TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt32TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt32TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt32TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %out_position_5.sink1.i.i.i = phi ptr [ %out_position_5.i.i.i, %if.else.i.i.i ], [ %out_position_.i.i.i, %if.then.i.i.i ]
   %14 = load i64, ptr %out_position_5.sink1.i.i.i, align 8
   %add11.i.i.i = add nsw i64 %14, %__args1.val
@@ -16146,7 +16146,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %add.ptr2.i.i.i.i = getelementptr inbounds i32, ptr %2, i64 %__args.val
   %mul.i.i.i.i = shl i64 %__args1.val, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i, ptr align 4 %add.ptr2.i.i.i.i, i64 %mul.i.i.i.i, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt32TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt32TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %entry
   %out_is_valid_.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 56
@@ -16165,9 +16165,9 @@ if.else.i.i.i:                                    ; preds = %entry
   %add.ptr4.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i, i64 %8
   %mul.i.i.i = shl i64 %__args1.val, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %add.ptr4.i.i.i, i8 0, i64 %mul.i.i.i, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt32TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt32TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt32TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt32TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %out_position_.sink1.i.i.i = phi ptr [ %out_position_.i.i.i, %if.else.i.i.i ], [ %out_position_.i.i.i.i, %if.then.i.i.i ]
   %9 = load i64, ptr %out_position_.sink1.i.i.i, align 8
   %add6.i.i.i = add nsw i64 %9, %__args1.val
@@ -16281,7 +16281,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %add.ptr2.i.i.i.i = getelementptr inbounds i64, ptr %7, i64 %__args.val
   %mul.i.i.i.i = shl i64 %__args1.val, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i, ptr align 8 %add.ptr2.i.i.i.i, i64 %mul.i.i.i.i, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt64TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt64TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %entry
   %out_is_valid_3.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 56
@@ -16300,9 +16300,9 @@ if.else.i.i.i:                                    ; preds = %entry
   %add.ptr9.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i, i64 %13
   %mul.i.i.i = shl i64 %__args1.val, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr9.i.i.i, i8 0, i64 %mul.i.i.i, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt64TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt64TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt64TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt64TypeEE13ExecREEFilterEvEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %out_position_5.sink1.i.i.i = phi ptr [ %out_position_5.i.i.i, %if.else.i.i.i ], [ %out_position_.i.i.i, %if.then.i.i.i ]
   %14 = load i64, ptr %out_position_5.sink1.i.i.i, align 8
   %add11.i.i.i = add nsw i64 %14, %__args1.val
@@ -16357,7 +16357,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %add.ptr2.i.i.i.i = getelementptr inbounds i64, ptr %2, i64 %__args.val
   %mul.i.i.i.i = shl i64 %__args1.val, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i, ptr align 8 %add.ptr2.i.i.i.i, i64 %mul.i.i.i.i, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt64TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt64TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %entry
   %out_is_valid_.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 56
@@ -16376,9 +16376,9 @@ if.else.i.i.i:                                    ; preds = %entry
   %add.ptr4.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i, i64 %8
   %mul.i.i.i = shl i64 %__args1.val, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr4.i.i.i, i8 0, i64 %mul.i.i.i, i1 false)
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt64TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt64TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt64TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplINS0_10UInt64TypeEE13ExecREEFilterEvEUlllbE1_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %out_position_.sink1.i.i.i = phi ptr [ %out_position_.i.i.i, %if.else.i.i.i ], [ %out_position_.i.i.i.i, %if.then.i.i.i ]
   %9 = load i64, ptr %out_position_.sink1.i.i.i, align 8
   %add6.i.i.i = add nsw i64 %9, %__args1.val
@@ -17528,7 +17528,7 @@ entry:
   %1 = load ptr, ptr %__functor.val, align 8
   %2 = load ptr, ptr %1, align 8
   %isnull.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %isnull.i.i.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS0_10BinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit, label %delete.notnull.i.i.i.i.i
+  br i1 %isnull.i.i.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS0_10BinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %entry
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 48
@@ -17608,9 +17608,9 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %if.end8.sink.split.
   %msg.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i.i.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %2) #23
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS0_10BinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS0_10BinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS0_10BinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit: ; preds = %entry, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS0_10BinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit: ; preds = %entry, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i
   %14 = load ptr, ptr %ref.tmp.i.i.i, align 8
   store ptr %14, ptr %1, align 8
   %15 = load ptr, ptr %__functor.val, align 8
@@ -18704,7 +18704,7 @@ entry:
   %1 = load ptr, ptr %__functor.val, align 8
   %2 = load ptr, ptr %1, align 8
   %isnull.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %isnull.i.i.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS0_15LargeBinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit, label %delete.notnull.i.i.i.i.i
+  br i1 %isnull.i.i.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS0_15LargeBinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %entry
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 48
@@ -18784,9 +18784,9 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %if.end8.sink.split.
   %msg.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i.i.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %2) #23
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS0_15LargeBinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS0_15LargeBinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS0_15LargeBinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit: ; preds = %entry, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS0_15LargeBinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit: ; preds = %entry, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i
   %14 = load ptr, ptr %ref.tmp.i.i.i, align 8
   store ptr %14, ptr %1, align 8
   %15 = load ptr, ptr %__functor.val, align 8
@@ -19185,7 +19185,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS_10BinaryTypeEEENS
   %77 = load ptr, ptr %__functor.val, align 8
   %78 = load ptr, ptr %77, align 8
   %isnull.i.i.i.i.i = icmp eq ptr %78, null
-  br i1 %isnull.i.i.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS0_10BinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit, label %delete.notnull.i.i.i.i.i
+  br i1 %isnull.i.i.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS0_10BinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %_ZZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllbE_clEllb.exit.i.i.i
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %78, i64 48
@@ -19265,9 +19265,9 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %if.end8.sink.split.
   %msg.i.i.i.i.i.i = getelementptr inbounds i8, ptr %78, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i.i.i) #22
   call void @_ZdlPv(ptr noundef nonnull %78) #23
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS0_10BinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS0_10BinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS0_10BinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit: ; preds = %_ZZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllbE_clEllb.exit.i.i.i, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS0_10BinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit: ; preds = %_ZZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllbE_clEllb.exit.i.i.i, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i
   store ptr %storemerge.i.i.i.i, ptr %77, align 8
   %90 = load ptr, ptr %__functor.val, align 8
   %91 = load ptr, ptr %90, align 8
@@ -19535,7 +19535,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS_15LargeBinaryType
   %77 = load ptr, ptr %__functor.val, align 8
   %78 = load ptr, ptr %77, align 8
   %isnull.i.i.i.i.i = icmp eq ptr %78, null
-  br i1 %isnull.i.i.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS0_15LargeBinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit, label %delete.notnull.i.i.i.i.i
+  br i1 %isnull.i.i.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS0_15LargeBinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %_ZZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllbE_clEllb.exit.i.i.i
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %78, i64 48
@@ -19615,9 +19615,9 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %if.end8.sink.split.
   %msg.i.i.i.i.i.i = getelementptr inbounds i8, ptr %78, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i.i.i) #22
   call void @_ZdlPv(ptr noundef nonnull %78) #23
-  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS0_15LargeBinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit
+  br label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS0_15LargeBinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS0_15LargeBinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit: ; preds = %_ZZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllbE_clEllb.exit.i.i.i, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS0_15LargeBinaryTypeEEENS0_6StatusEPNS1_13KernelContextERKNS0_9ArraySpanESB_lNS1_13FilterOptions21NullSelectionBehaviorEPNS0_9ArrayDataEEUlllbE0_JllbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit: ; preds = %_ZZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataEENKUlllbE_clEllb.exit.i.i.i, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i
   store ptr %storemerge.i.i.i.i, ptr %77, align 8
   %90 = load ptr, ptr %__functor.val, align 8
   %91 = load ptr, ptr %90, align 8
@@ -31117,8 +31117,8 @@ attributes #25 = { noreturn }
 !56 = distinct !{!56, !57, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !57 = distinct !{!57, !"_ZN5arrow6Status2OKEv"}
 !58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataE: %agg.result"}
-!60 = distinct !{!60, !"_ZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataE"}
+!59 = distinct !{!59, !60, !"_ZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataE.argprom.argprom: %agg.result"}
+!60 = distinct !{!60, !"_ZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataE.argprom.argprom"}
 !61 = !{!62}
 !62 = distinct !{!62, !63, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result:thread"}
 !63 = distinct !{!63, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -31166,8 +31166,8 @@ attributes #25 = { noreturn }
 !105 = distinct !{!105, !106, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !106 = distinct !{!106, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !107 = !{!108}
-!108 = distinct !{!108, !109, !"_ZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataE: %agg.result"}
-!109 = distinct !{!109, !"_ZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataE"}
+!108 = distinct !{!108, !109, !"_ZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataE.argprom.argprom: %agg.result"}
+!109 = distinct !{!109, !"_ZN5arrow7compute8internal12_GLOBAL__N_123BinaryFilterNonNullImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataE.argprom.argprom"}
 !110 = !{!111}
 !111 = distinct !{!111, !112, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result:thread"}
 !112 = distinct !{!112, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -31218,8 +31218,8 @@ attributes #25 = { noreturn }
 !157 = distinct !{!157, !158, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !158 = distinct !{!158, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataE: %agg.result"}
-!161 = distinct !{!161, !"_ZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataE"}
+!160 = distinct !{!160, !161, !"_ZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataE.argprom.argprom: %agg.result"}
+!161 = distinct !{!161, !"_ZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS_10BinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataE.argprom.argprom"}
 !162 = !{!163}
 !163 = distinct !{!163, !164, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result:thread"}
 !164 = distinct !{!164, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -31323,8 +31323,8 @@ attributes #25 = { noreturn }
 !262 = distinct !{!262, !263, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !263 = distinct !{!263, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !264 = !{!265}
-!265 = distinct !{!265, !266, !"_ZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataE: %agg.result"}
-!266 = distinct !{!266, !"_ZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataE"}
+!265 = distinct !{!265, !266, !"_ZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataE.argprom.argprom: %agg.result"}
+!266 = distinct !{!266, !"_ZN5arrow7compute8internal12_GLOBAL__N_116BinaryFilterImplINS_15LargeBinaryTypeEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESA_lNS0_13FilterOptions21NullSelectionBehaviorEPNS_9ArrayDataE.argprom.argprom"}
 !267 = !{!268}
 !268 = distinct !{!268, !269, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result:thread"}
 !269 = distinct !{!269, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}

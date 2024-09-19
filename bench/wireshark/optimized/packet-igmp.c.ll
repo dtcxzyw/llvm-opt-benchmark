@@ -684,7 +684,7 @@ dissect_v3_max_resp.exit.i:                       ; preds = %30, %25
 
 .thread.i:                                        ; preds = %50
   %58 = add i32 %13, 11
-  br label %dissect_igmp_v3_query.exit
+  br label %dissect_igmp_v3_query.argprom.exit
 
 .lr.ph.i:                                         ; preds = %50
   %59 = load ptr, ptr %43, align 8
@@ -708,9 +708,9 @@ dissect_v3_max_resp.exit.i:                       ; preds = %30, %25
   %69 = load i32, ptr @hf_saddr, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %69, ptr noundef %0, i32 noundef %storemerge3.i, i32 noundef 4, i32 noundef 0) #4
   %71 = add i32 %storemerge3.i, 4
-  br i1 %.not35.i, label %dissect_igmp_v3_query.exit, label %63, !llvm.loop !4
+  br i1 %.not35.i, label %dissect_igmp_v3_query.argprom.exit, label %63, !llvm.loop !4
 
-dissect_igmp_v3_query.exit:                       ; preds = %63, %.thread.i
+dissect_igmp_v3_query.argprom.exit:               ; preds = %63, %.thread.i
   %storemerge.lcssa1.i = phi i32 [ %58, %.thread.i ], [ %71, %63 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
@@ -743,8 +743,8 @@ dissect_igmp_v3_query.exit:                       ; preds = %63, %.thread.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %87
 
-87:                                               ; preds = %76, %74, %dissect_igmp_v3_query.exit
-  %.0 = phi i32 [ %storemerge.lcssa1.i, %dissect_igmp_v3_query.exit ], [ %75, %74 ], [ %86, %76 ]
+87:                                               ; preds = %76, %74, %dissect_igmp_v3_query.argprom.exit
+  %.0 = phi i32 [ %storemerge.lcssa1.i, %dissect_igmp_v3_query.argprom.exit ], [ %75, %74 ], [ %86, %76 ]
   ret i32 %.0
 }
 

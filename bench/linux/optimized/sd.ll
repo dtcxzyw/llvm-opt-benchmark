@@ -4819,7 +4819,7 @@ define internal range(i32 -2147483648, 983041) i32 @sd_pr_register(ptr nocapture
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %11 = getelementptr i8, ptr %.val.val, i64 768
   %.val.val.val1 = load i32, ptr %11, align 8
-  %12 = tail call fastcc i32 @sd_pr_out_command(ptr %.val.val.val, i32 %.val.val.val1, i8 noundef zeroext %8, i64 noundef %1, i64 noundef %2, i32 noundef 0, i8 noundef zeroext 1)
+  %12 = tail call fastcc i32 @sd_pr_out_command.argprom.argprom.argprom(ptr %.val.val.val, i32 %.val.val.val1, i8 noundef zeroext %8, i64 noundef %1, i64 noundef %2, i32 noundef 0, i8 noundef zeroext 1)
   br label %13
 
 13:                                               ; preds = %6, %4
@@ -4841,7 +4841,7 @@ define internal range(i32 -2147483648, 983041) i32 @sd_pr_reserve(ptr nocapture 
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %10 = getelementptr i8, ptr %.val.val, i64 768
   %.val.val.val1 = load i32, ptr %10, align 8
-  %11 = tail call fastcc i32 @sd_pr_out_command(ptr %.val.val.val, i32 %.val.val.val1, i8 noundef zeroext 1, i64 noundef %1, i64 noundef 0, i32 noundef %7, i8 noundef zeroext 0)
+  %11 = tail call fastcc i32 @sd_pr_out_command.argprom.argprom.argprom(ptr %.val.val.val, i32 %.val.val.val1, i8 noundef zeroext 1, i64 noundef %1, i64 noundef 0, i32 noundef %7, i8 noundef zeroext 0)
   br label %12
 
 12:                                               ; preds = %6, %4
@@ -4859,7 +4859,7 @@ define internal range(i32 -2147483648, 983041) i32 @sd_pr_release(ptr nocapture 
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %7 = getelementptr i8, ptr %.val.val, i64 768
   %.val.val.val1 = load i32, ptr %7, align 8
-  %8 = tail call fastcc i32 @sd_pr_out_command(ptr %.val.val.val, i32 %.val.val.val1, i8 noundef zeroext 2, i64 noundef %1, i64 noundef 0, i32 noundef %4, i8 noundef zeroext 0)
+  %8 = tail call fastcc i32 @sd_pr_out_command.argprom.argprom.argprom(ptr %.val.val.val, i32 %.val.val.val1, i8 noundef zeroext 2, i64 noundef %1, i64 noundef 0, i32 noundef %4, i8 noundef zeroext 0)
   ret i32 %8
 }
 
@@ -4874,7 +4874,7 @@ define internal range(i32 -2147483648, 983041) i32 @sd_pr_preempt(ptr nocapture 
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %10 = getelementptr i8, ptr %.val.val, i64 768
   %.val.val.val1 = load i32, ptr %10, align 8
-  %11 = tail call fastcc i32 @sd_pr_out_command(ptr %.val.val.val, i32 %.val.val.val1, i8 noundef zeroext %6, i64 noundef %1, i64 noundef %2, i32 noundef %7, i8 noundef zeroext 0)
+  %11 = tail call fastcc i32 @sd_pr_out_command.argprom.argprom.argprom(ptr %.val.val.val, i32 %.val.val.val1, i8 noundef zeroext %6, i64 noundef %1, i64 noundef %2, i32 noundef %7, i8 noundef zeroext 0)
   ret i32 %11
 }
 
@@ -4887,7 +4887,7 @@ define internal range(i32 -2147483648, 983041) i32 @sd_pr_clear(ptr nocapture no
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %5 = getelementptr i8, ptr %.val.val, i64 768
   %.val.val.val1 = load i32, ptr %5, align 8
-  %6 = tail call fastcc i32 @sd_pr_out_command(ptr %.val.val.val, i32 %.val.val.val1, i8 noundef zeroext 3, i64 noundef %1, i64 noundef 0, i32 noundef 0, i8 noundef zeroext 0)
+  %6 = tail call fastcc i32 @sd_pr_out_command.argprom.argprom.argprom(ptr %.val.val.val, i32 %.val.val.val1, i8 noundef zeroext 3, i64 noundef %1, i64 noundef 0, i32 noundef 0, i8 noundef zeroext 0)
   ret i32 %6
 }
 
@@ -4910,7 +4910,7 @@ define internal range(i32 -2147483648, 983041) i32 @sd_pr_read_keys(ptr nocaptur
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %13 = getelementptr i8, ptr %.val.val, i64 768
   %.val.val.val2 = load i32, ptr %13, align 8
-  %14 = tail call fastcc i32 @sd_pr_in_command(ptr %.val.val.val, i32 %.val.val.val2, i8 noundef zeroext 0, ptr noundef nonnull %8, i32 noundef %6)
+  %14 = tail call fastcc i32 @sd_pr_in_command.argprom.argprom.argprom(ptr %.val.val.val, i32 %.val.val.val2, i8 noundef zeroext 0, ptr noundef nonnull %8, i32 noundef %6)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.loopexit
 
@@ -4967,7 +4967,7 @@ define internal range(i32 -2147483648, 983041) i32 @sd_pr_read_reservation(ptr n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %9 = getelementptr i8, ptr %7, i64 768
   %.val.val.val2 = load i32, ptr %9, align 8
-  %10 = call fastcc i32 @sd_pr_in_command(ptr %8, i32 %.val.val.val2, i8 noundef zeroext 1, ptr noundef nonnull %3, i32 noundef 24)
+  %10 = call fastcc i32 @sd_pr_in_command.argprom.argprom.argprom(ptr %8, i32 %.val.val.val2, i8 noundef zeroext 1, ptr noundef nonnull %3, i32 noundef 24)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %33
 
@@ -5011,7 +5011,7 @@ define internal range(i32 -2147483648, 983041) i32 @sd_pr_read_reservation(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 983041) i32 @sd_pr_out_command(ptr %.16.val.88.val.0.val, i32 %.16.val.88.val.768.val, i8 noundef zeroext range(i8 0, 7) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i8 noundef zeroext range(i8 0, 2) %4) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -2147483648, 983041) i32 @sd_pr_out_command.argprom.argprom.argprom(ptr %.16.val.88.val.0.val, i32 %.16.val.88.val.768.val, i8 noundef zeroext range(i8 0, 7) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i8 noundef zeroext range(i8 0, 2) %4) unnamed_addr #3 align 16 {
   %6 = alloca %struct.scsi_sense_hdr, align 8
   %7 = alloca %struct.scsi_exec_args, align 8
   %8 = alloca [16 x i8], align 16
@@ -5131,7 +5131,7 @@ declare i64 @llvm.bswap.i64(i64) #9
 declare dso_local i32 @block_pr_type_to_scsi(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 983041) i32 @sd_pr_in_command(ptr %.16.val.88.val.0.val, i32 %.16.val.88.val.768.val, i8 noundef zeroext range(i8 0, 2) %0, ptr noundef %1, i32 noundef range(i32 8, 1) %2) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -2147483648, 983041) i32 @sd_pr_in_command.argprom.argprom.argprom(ptr %.16.val.88.val.0.val, i32 %.16.val.88.val.768.val, i8 noundef zeroext range(i8 0, 2) %0, ptr noundef %1, i32 noundef range(i32 8, 1) %2) unnamed_addr #3 align 16 {
   %4 = alloca %struct.scsi_sense_hdr, align 8
   %5 = alloca [10 x i8], align 1
   %6 = alloca %struct.scsi_exec_args, align 8
@@ -6280,7 +6280,7 @@ define internal range(i32 -2147483648, 1) i32 @sd_suspend_system(ptr nocapture n
 10:                                               ; preds = %5, %1
   %11 = getelementptr i8, ptr %0, i64 120
   %.val = load ptr, ptr %11, align 8
-  %12 = tail call fastcc i32 @sd_suspend_common(ptr %.val, i1 noundef zeroext false)
+  %12 = tail call fastcc i32 @sd_suspend_common.argprom(ptr %.val, i1 noundef zeroext false)
   br label %13
 
 13:                                               ; preds = %10, %5
@@ -6368,7 +6368,7 @@ define internal range(i32 -19, 1) i32 @sd_resume_system(ptr noundef %0) #3 align
 define internal range(i32 -2147483648, 1) i32 @sd_suspend_runtime(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = getelementptr i8, ptr %0, i64 120
   %.val = load ptr, ptr %2, align 8
-  %3 = tail call fastcc i32 @sd_suspend_common(ptr %.val, i1 noundef zeroext true)
+  %3 = tail call fastcc i32 @sd_suspend_common.argprom(ptr %.val, i1 noundef zeroext true)
   ret i32 %3
 }
 
@@ -6448,7 +6448,7 @@ define internal range(i32 -19, 1) i32 @sd_resume_runtime(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @sd_suspend_common(ptr %.120.val, i1 noundef zeroext %0) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @sd_suspend_common.argprom(ptr %.120.val, i1 noundef zeroext %0) unnamed_addr #3 align 16 {
   %2 = icmp eq ptr %.120.val, null
   br i1 %2, label %51, label %3
 

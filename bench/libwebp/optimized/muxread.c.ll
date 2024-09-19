@@ -745,7 +745,7 @@ define range(i32 -1, 2) i32 @WebPMuxGetChunk(ptr noundef readonly %0, ptr nounde
   br i1 %.not22, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call fastcc i32 @MuxGet(ptr noundef %0, i32 noundef %8, ptr noundef %2)
+  %14 = tail call fastcc i32 @MuxGet.argelim(ptr noundef %0, i32 noundef %8, ptr noundef %2)
   br label %IsWPI.exit
 
 15:                                               ; preds = %12
@@ -769,7 +769,7 @@ IsWPI.exit:                                       ; preds = %7, %7, %7, %15, %3,
 declare i32 @ChunkGetIndexFromFourCC(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 10, 9) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @MuxGet.argelim(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 10, 9) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   switch i32 %1, label %30 [
     i32 0, label %4

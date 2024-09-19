@@ -884,9 +884,9 @@ define void @_ZN12ListedForces5setupERK22InteractionDefinitionsib(ptr noundef no
 _ZN15InteractionList5clearEv.exit.i:              ; preds = %35, %30, %26, %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 94
-  br i1 %exitcond.not.i, label %_ZL18selectInteractionsP22InteractionDefinitionsRKS_RKSt6bitsetILm4EE.exit, label %15, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_ZL18selectInteractionsP22InteractionDefinitionsRKS_RKSt6bitsetILm4EE.argprom.exit, label %15, !llvm.loop !14
 
-_ZL18selectInteractionsP22InteractionDefinitionsRKS_RKSt6bitsetILm4EE.exit: ; preds = %_ZN15InteractionList5clearEv.exit.i
+_ZL18selectInteractionsP22InteractionDefinitionsRKS_RKSt6bitsetILm4EE.argprom.exit: ; preds = %_ZN15InteractionList5clearEv.exit.i
   %36 = getelementptr inbounds i8, ptr %1, i64 2696
   %37 = load i32, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 2704
@@ -896,7 +896,7 @@ _ZL18selectInteractionsP22InteractionDefinitionsRKS_RKSt6bitsetILm4EE.exit: ; pr
   %.not = icmp eq i64 %40, 0
   br i1 %.not, label %48, label %41
 
-41:                                               ; preds = %_ZL18selectInteractionsP22InteractionDefinitionsRKS_RKSt6bitsetILm4EE.exit
+41:                                               ; preds = %_ZL18selectInteractionsP22InteractionDefinitionsRKS_RKSt6bitsetILm4EE.argprom.exit
   %42 = getelementptr inbounds i8, ptr %1, i64 16
   %43 = getelementptr inbounds i8, ptr %0, i64 24
   %44 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorI9t_iparamsSaIS0_EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %42)
@@ -905,7 +905,7 @@ _ZL18selectInteractionsP22InteractionDefinitionsRKS_RKSt6bitsetILm4EE.exit: ; pr
   %47 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorI9t_iparamsSaIS0_EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %45)
   br label %_ZNSt6vectorI9t_iparamsSaIS0_EE5clearEv.exit9
 
-48:                                               ; preds = %_ZL18selectInteractionsP22InteractionDefinitionsRKS_RKSt6bitsetILm4EE.exit
+48:                                               ; preds = %_ZL18selectInteractionsP22InteractionDefinitionsRKS_RKSt6bitsetILm4EE.argprom.exit
   %49 = getelementptr inbounds i8, ptr %0, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1691,7 +1691,7 @@ _ZNK12ListedForces14haveRestraintsERK8t_fcdata.exit: ; preds = %68
 
 .loopexit.i:                                      ; preds = %214, %198, %157
   %.not.i125 = icmp eq ptr %7, null
-  br i1 %.not.i125, label %_ZN12_GLOBAL__N_111calc_listedEP13gmx_wallcycleRK22InteractionDefinitionsP18bonded_threading_tPA3_KfPN3gmx12ForceOutputsEPK10t_forcerecPK5t_pbcP14gmx_enerdata_tP6t_nrnbNSA_8ArrayRefIS7_EESO_SO_NSN_IKbEENSN_IKtEEiP8t_fcdataPiRKNSA_12StepWorkloadE.exit, label %221
+  br i1 %.not.i125, label %_ZN12_GLOBAL__N_111calc_listedEP13gmx_wallcycleRK22InteractionDefinitionsP18bonded_threading_tPA3_KfPN3gmx12ForceOutputsEPK10t_forcerecPK5t_pbcP14gmx_enerdata_tP6t_nrnbNSA_8ArrayRefIS7_EESO_SO_NSN_IKbEENSN_IKtEEiP8t_fcdataPiRKNSA_12StepWorkloadE.argprom.exit, label %221
 
 221:                                              ; preds = %.loopexit.i
   %222 = getelementptr inbounds i8, ptr %7, i64 72
@@ -1700,16 +1700,16 @@ _ZNK12ListedForces14haveRestraintsERK8t_fcdata.exit: ; preds = %68
   %225 = load float, ptr %224, align 8
   %226 = getelementptr inbounds i8, ptr %12, i64 220
   store float %225, ptr %226, align 4
-  br label %_ZN12_GLOBAL__N_111calc_listedEP13gmx_wallcycleRK22InteractionDefinitionsP18bonded_threading_tPA3_KfPN3gmx12ForceOutputsEPK10t_forcerecPK5t_pbcP14gmx_enerdata_tP6t_nrnbNSA_8ArrayRefIS7_EESO_SO_NSN_IKbEENSN_IKtEEiP8t_fcdataPiRKNSA_12StepWorkloadE.exit
+  br label %_ZN12_GLOBAL__N_111calc_listedEP13gmx_wallcycleRK22InteractionDefinitionsP18bonded_threading_tPA3_KfPN3gmx12ForceOutputsEPK10t_forcerecPK5t_pbcP14gmx_enerdata_tP6t_nrnbNSA_8ArrayRefIS7_EESO_SO_NSN_IKbEENSN_IKtEEiP8t_fcdataPiRKNSA_12StepWorkloadE.argprom.exit
 
-_ZN12_GLOBAL__N_111calc_listedEP13gmx_wallcycleRK22InteractionDefinitionsP18bonded_threading_tPA3_KfPN3gmx12ForceOutputsEPK10t_forcerecPK5t_pbcP14gmx_enerdata_tP6t_nrnbNSA_8ArrayRefIS7_EESO_SO_NSN_IKbEENSN_IKtEEiP8t_fcdataPiRKNSA_12StepWorkloadE.exit: ; preds = %.loopexit.i, %221
+_ZN12_GLOBAL__N_111calc_listedEP13gmx_wallcycleRK22InteractionDefinitionsP18bonded_threading_tPA3_KfPN3gmx12ForceOutputsEPK10t_forcerecPK5t_pbcP14gmx_enerdata_tP6t_nrnbNSA_8ArrayRefIS7_EESO_SO_NSN_IKbEENSN_IKtEEiP8t_fcdataPiRKNSA_12StepWorkloadE.argprom.exit: ; preds = %.loopexit.i, %221
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %42)
   %227 = getelementptr inbounds i8, ptr %12, i64 616
   %228 = load i32, ptr %227, align 8
   %229 = icmp sgt i32 %228, 0
   br i1 %229, label %230, label %.loopexit
 
-230:                                              ; preds = %_ZN12_GLOBAL__N_111calc_listedEP13gmx_wallcycleRK22InteractionDefinitionsP18bonded_threading_tPA3_KfPN3gmx12ForceOutputsEPK10t_forcerecPK5t_pbcP14gmx_enerdata_tP6t_nrnbNSA_8ArrayRefIS7_EESO_SO_NSN_IKbEENSN_IKtEEiP8t_fcdataPiRKNSA_12StepWorkloadE.exit
+230:                                              ; preds = %_ZN12_GLOBAL__N_111calc_listedEP13gmx_wallcycleRK22InteractionDefinitionsP18bonded_threading_tPA3_KfPN3gmx12ForceOutputsEPK10t_forcerecPK5t_pbcP14gmx_enerdata_tP6t_nrnbNSA_8ArrayRefIS7_EESO_SO_NSN_IKbEENSN_IKtEEiP8t_fcdataPiRKNSA_12StepWorkloadE.argprom.exit
   %231 = getelementptr inbounds i8, ptr %21, i64 10
   %232 = load i8, ptr %231, align 1
   %233 = trunc i8 %232 to i1
@@ -1952,7 +1952,7 @@ _ZL25ftype_is_bonded_potentiali.exit.i:           ; preds = %312
   store ptr %253, ptr %259, align 8
   %.val.i = load i32, ptr %298, align 8
   %.val36.i = load ptr, ptr %307, align 8
-  %349 = call fastcc noundef float @_ZN12_GLOBAL__N_113calc_one_bondEiiRK22InteractionDefinitionsN3gmx8ArrayRefIKiEEiRK12WorkDivisionPA3_KfPA4_fPA3_fPK10t_forcerecPK5t_pbcP17gmx_grppairener_tP6t_nrnbNS4_ISA_EENS4_IfEESR_SR_NS4_IKbEENS4_IKtEEiP8t_fcdataRKNS3_12StepWorkloadEPi(i32 noundef 0, i32 noundef %313, ptr noundef nonnull align 8 dereferenceable(2736) %59, ptr %319, ptr %348, i32 noundef %341, i32 %.val.i, ptr %.val36.i, ptr noundef %60, ptr noundef %291, ptr noundef %293, ptr noundef %10, ptr noundef %..i, ptr noundef %297, ptr noundef %13, ptr noundef nonnull byval(%"class.gmx::ArrayRef.105") align 8 %24, ptr noundef nonnull byval(%"class.gmx::ArrayRef.261") align 8 %25, ptr %167, ptr %173, ptr %174, ptr %180, ptr %181, ptr %187, ptr %188, ptr %194, i32 noundef %19, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(20) %23, ptr noundef %20)
+  %349 = call fastcc noundef float @_ZN12_GLOBAL__N_113calc_one_bondEiiRK22InteractionDefinitionsN3gmx8ArrayRefIKiEEiRK12WorkDivisionPA3_KfPA4_fPA3_fPK10t_forcerecPK5t_pbcP17gmx_grppairener_tP6t_nrnbNS4_ISA_EENS4_IfEESR_SR_NS4_IKbEENS4_IKtEEiP8t_fcdataRKNS3_12StepWorkloadEPi.argprom(i32 noundef 0, i32 noundef %313, ptr noundef nonnull align 8 dereferenceable(2736) %59, ptr %319, ptr %348, i32 noundef %341, i32 %.val.i, ptr %.val36.i, ptr noundef %60, ptr noundef %291, ptr noundef %293, ptr noundef %10, ptr noundef %..i, ptr noundef %297, ptr noundef %13, ptr noundef nonnull byval(%"class.gmx::ArrayRef.105") align 8 %24, ptr noundef nonnull byval(%"class.gmx::ArrayRef.261") align 8 %25, ptr %167, ptr %173, ptr %174, ptr %180, ptr %181, ptr %187, ptr %188, ptr %194, i32 noundef %19, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(20) %23, ptr noundef %20)
   %350 = getelementptr inbounds float, ptr %51, i64 %indvars.iv.i128
   %351 = load float, ptr %350, align 4
   %352 = fadd float %349, %351
@@ -1962,9 +1962,9 @@ _ZL25ftype_is_bonded_potentiali.exit.i:           ; preds = %312
 _ZL25ftype_is_bonded_potentiali.exit.thread.i:    ; preds = %331, %_ZL25ftype_is_bonded_potentiali.exit.i, %312, %312, %312, %308
   %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i128, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i129, 94
-  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_118calc_listed_lambdaERK22InteractionDefinitionsP18bonded_threading_tPA3_KfPK10t_forcerecPK5t_pbcN3gmx8ArrayRefIfEENSF_INSE_11BasicVectorIfEEEEP17gmx_grppairener_tSG_SG_P6t_nrnbNSF_IS5_EESO_SO_NSF_IKbEENSF_IKtEEiP8t_fcdataPi.exit, label %308, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_118calc_listed_lambdaERK22InteractionDefinitionsP18bonded_threading_tPA3_KfPK10t_forcerecPK5t_pbcN3gmx8ArrayRefIfEENSF_INSE_11BasicVectorIfEEEEP17gmx_grppairener_tSG_SG_P6t_nrnbNSF_IS5_EESO_SO_NSF_IKbEENSF_IKtEEiP8t_fcdataPi.argprom.exit, label %308, !llvm.loop !20
 
-_ZN12_GLOBAL__N_118calc_listed_lambdaERK22InteractionDefinitionsP18bonded_threading_tPA3_KfPK10t_forcerecPK5t_pbcN3gmx8ArrayRefIfEENSF_INSE_11BasicVectorIfEEEEP17gmx_grppairener_tSG_SG_P6t_nrnbNSF_IS5_EESO_SO_NSF_IKbEENSF_IKtEEiP8t_fcdataPi.exit: ; preds = %_ZL25ftype_is_bonded_potentiali.exit.thread.i
+_ZN12_GLOBAL__N_118calc_listed_lambdaERK22InteractionDefinitionsP18bonded_threading_tPA3_KfPK10t_forcerecPK5t_pbcN3gmx8ArrayRefIfEENSF_INSE_11BasicVectorIfEEEEP17gmx_grppairener_tSG_SG_P6t_nrnbNSF_IS5_EESO_SO_NSF_IKbEENSF_IKtEEiP8t_fcdataPi.argprom.exit: ; preds = %_ZL25ftype_is_bonded_potentiali.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
@@ -1979,8 +1979,8 @@ _ZN12_GLOBAL__N_118calc_listed_lambdaERK22InteractionDefinitionsP18bonded_thread
   store double %359, ptr %357, align 8
   br label %360
 
-360:                                              ; preds = %360, %_ZN12_GLOBAL__N_118calc_listed_lambdaERK22InteractionDefinitionsP18bonded_threading_tPA3_KfPK10t_forcerecPK5t_pbcN3gmx8ArrayRefIfEENSF_INSE_11BasicVectorIfEEEEP17gmx_grppairener_tSG_SG_P6t_nrnbNSF_IS5_EESO_SO_NSF_IKbEENSF_IKtEEiP8t_fcdataPi.exit
-  %indvars.iv.i130 = phi i64 [ 0, %_ZN12_GLOBAL__N_118calc_listed_lambdaERK22InteractionDefinitionsP18bonded_threading_tPA3_KfPK10t_forcerecPK5t_pbcN3gmx8ArrayRefIfEENSF_INSE_11BasicVectorIfEEEEP17gmx_grppairener_tSG_SG_P6t_nrnbNSF_IS5_EESO_SO_NSF_IKbEENSF_IKtEEiP8t_fcdataPi.exit ], [ %indvars.iv.next.i131, %360 ]
+360:                                              ; preds = %360, %_ZN12_GLOBAL__N_118calc_listed_lambdaERK22InteractionDefinitionsP18bonded_threading_tPA3_KfPK10t_forcerecPK5t_pbcN3gmx8ArrayRefIfEENSF_INSE_11BasicVectorIfEEEEP17gmx_grppairener_tSG_SG_P6t_nrnbNSF_IS5_EESO_SO_NSF_IKbEENSF_IKtEEiP8t_fcdataPi.argprom.exit
+  %indvars.iv.i130 = phi i64 [ 0, %_ZN12_GLOBAL__N_118calc_listed_lambdaERK22InteractionDefinitionsP18bonded_threading_tPA3_KfPK10t_forcerecPK5t_pbcN3gmx8ArrayRefIfEENSF_INSE_11BasicVectorIfEEEEP17gmx_grppairener_tSG_SG_P6t_nrnbNSF_IS5_EESO_SO_NSF_IKbEENSF_IKtEEiP8t_fcdataPi.argprom.exit ], [ %indvars.iv.next.i131, %360 ]
   %361 = getelementptr inbounds [7 x float], ptr %45, i64 0, i64 %indvars.iv.i130
   %362 = load float, ptr %361, align 4
   %363 = fpext float %362 to double
@@ -2002,7 +2002,7 @@ _ZN18ForeignLambdaTerms10accumulateEidRKN3gmx16EnumerationArrayI34FreeEnergyPert
   %.not96.not = icmp slt i64 %indvars.iv183, %370
   br i1 %.not96.not, label %275, label %.loopexit, !llvm.loop !21
 
-.loopexit:                                        ; preds = %_ZN18ForeignLambdaTerms10accumulateEidRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypefLS2_7EEE.exit.preheader, %.preheader, %243, %22, %54, %230, %_ZN12_GLOBAL__N_111calc_listedEP13gmx_wallcycleRK22InteractionDefinitionsP18bonded_threading_tPA3_KfPN3gmx12ForceOutputsEPK10t_forcerecPK5t_pbcP14gmx_enerdata_tP6t_nrnbNSA_8ArrayRefIS7_EESO_SO_NSN_IKbEENSN_IKtEEiP8t_fcdataPiRKNSA_12StepWorkloadE.exit
+.loopexit:                                        ; preds = %_ZN18ForeignLambdaTerms10accumulateEidRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypefLS2_7EEE.exit.preheader, %.preheader, %243, %22, %54, %230, %_ZN12_GLOBAL__N_111calc_listedEP13gmx_wallcycleRK22InteractionDefinitionsP18bonded_threading_tPA3_KfPN3gmx12ForceOutputsEPK10t_forcerecPK5t_pbcP14gmx_enerdata_tP6t_nrnbNSA_8ArrayRefIS7_EESO_SO_NSN_IKbEENSN_IKtEEiP8t_fcdataPiRKNSA_12StepWorkloadE.argprom.exit
   ret void
 }
 
@@ -2361,7 +2361,7 @@ define internal void @_ZL16calcBondedForcesRK22InteractionDefinitionsP18bonded_t
   %.val = load i32, ptr %104, align 8
   %142 = getelementptr i8, ptr %103, i64 104
   %.val60 = load ptr, ptr %142, align 8
-  %143 = invoke fastcc noundef float @_ZN12_GLOBAL__N_113calc_one_bondEiiRK22InteractionDefinitionsN3gmx8ArrayRefIKiEEiRK12WorkDivisionPA3_KfPA4_fPA3_fPK10t_forcerecPK5t_pbcP17gmx_grppairener_tP6t_nrnbNS4_ISA_EENS4_IfEESR_SR_NS4_IKbEENS4_IKtEEiP8t_fcdataRKNS3_12StepWorkloadEPi(i32 noundef %.092, i32 noundef %95, ptr noundef nonnull align 8 dereferenceable(2736) %6, ptr %86, ptr %100, i32 noundef %102, i32 %.val, ptr %.val60, ptr noundef %105, ptr noundef %53, ptr noundef %.057, ptr noundef %106, ptr noundef %107, ptr noundef nonnull %.058, ptr noundef %108, ptr noundef nonnull byval(%"class.gmx::ArrayRef.105") align 8 %25, ptr noundef nonnull byval(%"class.gmx::ArrayRef.261") align 8 %26, ptr %115, ptr %120, ptr %121, ptr %126, ptr %127, ptr %132, ptr %133, ptr %138, i32 noundef %139, ptr noundef %140, ptr noundef nonnull align 1 dereferenceable(20) %18, ptr noundef %141)
+  %143 = invoke fastcc noundef float @_ZN12_GLOBAL__N_113calc_one_bondEiiRK22InteractionDefinitionsN3gmx8ArrayRefIKiEEiRK12WorkDivisionPA3_KfPA4_fPA3_fPK10t_forcerecPK5t_pbcP17gmx_grppairener_tP6t_nrnbNS4_ISA_EENS4_IfEESR_SR_NS4_IKbEENS4_IKtEEiP8t_fcdataRKNS3_12StepWorkloadEPi.argprom(i32 noundef %.092, i32 noundef %95, ptr noundef nonnull align 8 dereferenceable(2736) %6, ptr %86, ptr %100, i32 noundef %102, i32 %.val, ptr %.val60, ptr noundef %105, ptr noundef %53, ptr noundef %.057, ptr noundef %106, ptr noundef %107, ptr noundef nonnull %.058, ptr noundef %108, ptr noundef nonnull byval(%"class.gmx::ArrayRef.105") align 8 %25, ptr noundef nonnull byval(%"class.gmx::ArrayRef.261") align 8 %26, ptr %115, ptr %120, ptr %121, ptr %126, ptr %127, ptr %132, ptr %133, ptr %138, i32 noundef %139, ptr noundef %140, ptr noundef nonnull align 1 dereferenceable(20) %18, ptr noundef %141)
           to label %144 unwind label %.loopexit
 
 144:                                              ; preds = %96
@@ -2419,7 +2419,7 @@ declare noundef nonnull align 8 dereferenceable(128) ptr @_ZN3gmx17ThreadForceBu
 declare noundef nonnull align 4 dereferenceable(28) ptr @_ZN3gmx17ThreadForceBufferIA4_fE4dvdlEv(ptr noundef nonnull align 8 dereferenceable(284)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_113calc_one_bondEiiRK22InteractionDefinitionsN3gmx8ArrayRefIKiEEiRK12WorkDivisionPA3_KfPA4_fPA3_fPK10t_forcerecPK5t_pbcP17gmx_grppairener_tP6t_nrnbNS4_ISA_EENS4_IfEESR_SR_NS4_IKbEENS4_IKtEEiP8t_fcdataRKNS3_12StepWorkloadEPi(i32 noundef %0, i32 noundef range(i32 -2147483648, 94) %1, ptr noundef nonnull align 8 dereferenceable(2736) %2, ptr %3, ptr %4, i32 noundef %5, i32 %.0.val, ptr nocapture readonly %.8.val, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr nocapture noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.105") align 8 %13, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.261") align 8 %14, ptr %.0.val1, ptr %.8.val3, ptr %.0.val5, ptr %.8.val7, ptr %.0.val9, ptr %.8.val11, ptr %.0.val13, ptr %.8.val15, i32 noundef %15, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(20) %17, ptr noundef %18) unnamed_addr #0 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_113calc_one_bondEiiRK22InteractionDefinitionsN3gmx8ArrayRefIKiEEiRK12WorkDivisionPA3_KfPA4_fPA3_fPK10t_forcerecPK5t_pbcP17gmx_grppairener_tP6t_nrnbNS4_ISA_EENS4_IfEESR_SR_NS4_IKbEENS4_IKtEEiP8t_fcdataRKNS3_12StepWorkloadEPi.argprom(i32 noundef %0, i32 noundef range(i32 -2147483648, 94) %1, ptr noundef nonnull align 8 dereferenceable(2736) %2, ptr %3, ptr %4, i32 noundef %5, i32 %.0.val, ptr nocapture readonly %.8.val, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr nocapture noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.105") align 8 %13, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.261") align 8 %14, ptr %.0.val1, ptr %.8.val3, ptr %.0.val5, ptr %.8.val7, ptr %.0.val9, ptr %.8.val11, ptr %.0.val13, ptr %.8.val15, i32 noundef %15, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(20) %17, ptr noundef %18) unnamed_addr #0 {
   %20 = alloca %"class.gmx::ArrayRef.105", align 8
   %21 = alloca %"class.gmx::ArrayRef.105", align 8
   %22 = alloca %"class.gmx::ArrayRef.105", align 8
@@ -2449,18 +2449,18 @@ define internal fastcc noundef float @_ZN12_GLOBAL__N_113calc_one_bondEiiRK22Int
 
 ._crit_edge.i:                                    ; preds = %19
   %42 = select i1 %.pre.i, i32 2, i32 3
-  br label %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit
+  br label %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.argprom.exit
 
 43:                                               ; preds = %19
-  br i1 %.pre.i, label %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, label %44
+  br i1 %.pre.i, label %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.argprom.exit, label %44
 
 44:                                               ; preds = %43
   %.not.i = xor i1 %38, true
   %brmerge.i = or i1 %35, %.not.i
   %spec.select.i = zext i1 %brmerge.i to i32
-  br label %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit
+  br label %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.argprom.exit
 
-_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit: ; preds = %._crit_edge.i, %43, %44
+_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.argprom.exit: ; preds = %._crit_edge.i, %43, %44
   %.0.i = phi i32 [ %spec.select.i, %44 ], [ %42, %._crit_edge.i ], [ 2, %43 ]
   switch i32 %1, label %_ZL17IS_RESTRAINT_TYPEi.exit [
     i32 59, label %45
@@ -2475,11 +2475,11 @@ _ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit: ; pre
     i32 60, label %45
   ]
 
-45:                                               ; preds = %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit
+45:                                               ; preds = %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.argprom.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.argprom.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.argprom.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.argprom.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.argprom.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.argprom.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.argprom.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.argprom.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.argprom.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.argprom.exit
   br label %_ZL17IS_RESTRAINT_TYPEi.exit
 
-_ZL17IS_RESTRAINT_TYPEi.exit:                     ; preds = %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %45
-  %46 = phi i64 [ 5, %45 ], [ 4, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit ]
+_ZL17IS_RESTRAINT_TYPEi.exit:                     ; preds = %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.argprom.exit, %45
+  %46 = phi i64 [ 5, %45 ], [ 4, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.argprom.exit ]
   %47 = sext i32 %1 to i64
   %48 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %47, i32 2
   %49 = load i32, ptr %48, align 16

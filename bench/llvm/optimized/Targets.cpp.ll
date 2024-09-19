@@ -11026,7 +11026,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
 
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5clang10TargetInfo16CreateTargetInfoERNSF_17DiagnosticsEngineERKSt10shared_ptrINSF_13TargetOptionsEEE3$_0EEET_SQ_SQ_T0_.exit.thread.i.i.i.i": ; preds = %._crit_edge.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %"_ZN4llvm9remove_ifIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZN5clang10TargetInfo16CreateTargetInfoERNSB_17DiagnosticsEngineERKSt10shared_ptrINSB_13TargetOptionsEEE3$_0EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm9remove_ifIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZN5clang10TargetInfo16CreateTargetInfoERNSB_17DiagnosticsEngineERKSt10shared_ptrINSB_13TargetOptionsEEE3$_0EEDaOT_T0_.argprom.exit.i"
 
 472:                                              ; preds = %._crit_edge.i.i.i.i.i.i
   %473 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang10TargetInfo16CreateTargetInfoERNS2_17DiagnosticsEngineERKSt10shared_ptrINS2_13TargetOptionsEEE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISK_SaISK_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.025.0.lcssa.i.i.i.i.i.i)
@@ -11058,7 +11058,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   %.sroa.06.017.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, i64 32
   %.not18.i.i.i.i = icmp eq ptr %.sroa.06.017.i.i.i.i, %.val6.i
   %or.cond.i.i.i.i = select i1 %482, i1 true, i1 %.not18.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %"_ZN4llvm9remove_ifIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZN5clang10TargetInfo16CreateTargetInfoERNSB_17DiagnosticsEngineERKSt10shared_ptrINSB_13TargetOptionsEEE3$_0EEDaOT_T0_.exit.i", label %.lr.ph.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %"_ZN4llvm9remove_ifIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZN5clang10TargetInfo16CreateTargetInfoERNSB_17DiagnosticsEngineERKSt10shared_ptrINSB_13TargetOptionsEEE3$_0EEDaOT_T0_.argprom.exit.i", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5clang10TargetInfo16CreateTargetInfoERNSF_17DiagnosticsEngineERKSt10shared_ptrINSF_13TargetOptionsEEE3$_0EEET_SQ_SQ_T0_.exit.i.i.i.i", %487
   %.sroa.06.020.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %487 ], [ %.sroa.06.017.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5clang10TargetInfo16CreateTargetInfoERNSF_17DiagnosticsEngineERKSt10shared_ptrINSF_13TargetOptionsEEE3$_0EEET_SQ_SQ_T0_.exit.i.i.i.i" ]
@@ -11075,16 +11075,16 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   %.sroa.012.2.i.i.i.i = phi ptr [ %.sroa.012.119.i.i.i.i, %.lr.ph.i.i.i.i ], [ %486, %484 ]
   %.sroa.06.0.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.06.020.i.i.i.i, i64 32
   %.not.i.i.i.i117 = icmp eq ptr %.sroa.06.0.i.i.i.i, %.val6.i
-  br i1 %.not.i.i.i.i117, label %"_ZN4llvm9remove_ifIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZN5clang10TargetInfo16CreateTargetInfoERNSB_17DiagnosticsEngineERKSt10shared_ptrINSB_13TargetOptionsEEE3$_0EEDaOT_T0_.exit.i", label %.lr.ph.i.i.i.i, !llvm.loop !268
+  br i1 %.not.i.i.i.i117, label %"_ZN4llvm9remove_ifIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZN5clang10TargetInfo16CreateTargetInfoERNSB_17DiagnosticsEngineERKSt10shared_ptrINSB_13TargetOptionsEEE3$_0EEDaOT_T0_.argprom.exit.i", label %.lr.ph.i.i.i.i, !llvm.loop !268
 
-"_ZN4llvm9remove_ifIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZN5clang10TargetInfo16CreateTargetInfoERNSB_17DiagnosticsEngineERKSt10shared_ptrINSB_13TargetOptionsEEE3$_0EEDaOT_T0_.exit.i": ; preds = %487, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5clang10TargetInfo16CreateTargetInfoERNSF_17DiagnosticsEngineERKSt10shared_ptrINSF_13TargetOptionsEEE3$_0EEET_SQ_SQ_T0_.exit.i.i.i.i", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5clang10TargetInfo16CreateTargetInfoERNSF_17DiagnosticsEngineERKSt10shared_ptrINSF_13TargetOptionsEEE3$_0EEET_SQ_SQ_T0_.exit.thread.i.i.i.i"
+"_ZN4llvm9remove_ifIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZN5clang10TargetInfo16CreateTargetInfoERNSB_17DiagnosticsEngineERKSt10shared_ptrINSB_13TargetOptionsEEE3$_0EEDaOT_T0_.argprom.exit.i": ; preds = %487, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5clang10TargetInfo16CreateTargetInfoERNSF_17DiagnosticsEngineERKSt10shared_ptrINSF_13TargetOptionsEEE3$_0EEET_SQ_SQ_T0_.exit.i.i.i.i", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5clang10TargetInfo16CreateTargetInfoERNSF_17DiagnosticsEngineERKSt10shared_ptrINSF_13TargetOptionsEEE3$_0EEET_SQ_SQ_T0_.exit.thread.i.i.i.i"
   %.sroa.012.0.i.i.i.i = phi ptr [ %.val6.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5clang10TargetInfo16CreateTargetInfoERNSF_17DiagnosticsEngineERKSt10shared_ptrINSF_13TargetOptionsEEE3$_0EEET_SQ_SQ_T0_.exit.thread.i.i.i.i" ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5clang10TargetInfo16CreateTargetInfoERNSF_17DiagnosticsEngineERKSt10shared_ptrINSF_13TargetOptionsEEE3$_0EEET_SQ_SQ_T0_.exit.i.i.i.i" ], [ %.sroa.012.2.i.i.i.i, %487 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %488 = load ptr, ptr %449, align 8
   %.not.i.i.i118 = icmp eq ptr %.sroa.012.0.i.i.i.i, %488
   br i1 %.not.i.i.i118, label %"_ZN4llvm8erase_ifISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZN5clang10TargetInfo16CreateTargetInfoERNSA_17DiagnosticsEngineERKSt10shared_ptrINSA_13TargetOptionsEEE3$_0EEvRT_T0_.exit", label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i: ; preds = %"_ZN4llvm9remove_ifIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZN5clang10TargetInfo16CreateTargetInfoERNSB_17DiagnosticsEngineERKSt10shared_ptrINSB_13TargetOptionsEEE3$_0EEDaOT_T0_.exit.i"
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i: ; preds = %"_ZN4llvm9remove_ifIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZN5clang10TargetInfo16CreateTargetInfoERNSB_17DiagnosticsEngineERKSt10shared_ptrINSB_13TargetOptionsEEE3$_0EEDaOT_T0_.argprom.exit.i"
   %489 = load ptr, ptr %448, align 8
   %490 = ptrtoint ptr %489 to i64
   %491 = ptrtoint ptr %.sroa.012.0.i.i.i.i to i64
@@ -11103,7 +11103,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   store ptr %493, ptr %449, align 8
   br label %"_ZN4llvm8erase_ifISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZN5clang10TargetInfo16CreateTargetInfoERNSA_17DiagnosticsEngineERKSt10shared_ptrINSA_13TargetOptionsEEE3$_0EEvRT_T0_.exit"
 
-"_ZN4llvm8erase_ifISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZN5clang10TargetInfo16CreateTargetInfoERNSA_17DiagnosticsEngineERKSt10shared_ptrINSA_13TargetOptionsEEE3$_0EEvRT_T0_.exit": ; preds = %"_ZN4llvm9remove_ifIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZN5clang10TargetInfo16CreateTargetInfoERNSB_17DiagnosticsEngineERKSt10shared_ptrINSB_13TargetOptionsEEE3$_0EEDaOT_T0_.exit.i", %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
+"_ZN4llvm8erase_ifISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZN5clang10TargetInfo16CreateTargetInfoERNSA_17DiagnosticsEngineERKSt10shared_ptrINSA_13TargetOptionsEEE3$_0EEvRT_T0_.exit": ; preds = %"_ZN4llvm9remove_ifIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZN5clang10TargetInfo16CreateTargetInfoERNSB_17DiagnosticsEngineERKSt10shared_ptrINSB_13TargetOptionsEEE3$_0EEDaOT_T0_.argprom.exit.i", %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   %495 = load ptr, ptr %9, align 8
   %496 = load ptr, ptr %1, align 8
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 280
@@ -11386,11 +11386,11 @@ define dso_local noundef zeroext i1 @_ZNK5clang10TargetInfo20validateOpenCLTarge
   store ptr %10, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %2, ptr %13, align 8
-  call fastcc void @"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDEjEEEDaN4llvm9StringRefEDpT_"(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @.str.17, i64 29)
-  call fastcc void @"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDEjEEEDaN4llvm9StringRefEDpT_"(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @.str.18, i64 32)
-  call fastcc void @"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDEjEEEDaN4llvm9StringRefEDpT_"(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @.str.19, i64 36)
-  call fastcc void @"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDEjEEEDaN4llvm9StringRefEDpT_"(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @.str.20, i64 31)
-  call fastcc void @"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDEjEEEDaN4llvm9StringRefEDpT_"(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @.str.21, i64 35)
+  call fastcc void @"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDEjEEEDaN4llvm9StringRefEDpT_.argelim"(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @.str.17, i64 29)
+  call fastcc void @"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDEjEEEDaN4llvm9StringRefEDpT_.argelim"(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @.str.18, i64 32)
+  call fastcc void @"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDEjEEEDaN4llvm9StringRefEDpT_.argelim"(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @.str.19, i64 36)
+  call fastcc void @"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDEjEEEDaN4llvm9StringRefEDpT_.argelim"(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @.str.20, i64 31)
+  call fastcc void @"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDEjEEEDaN4llvm9StringRefEDpT_.argelim"(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @.str.21, i64 35)
   %14 = tail call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(841) %1) #18
   %.not.i.i.i = icmp ult i32 %14, 100
   br i1 %.not.i.i.i, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit", label %15
@@ -11852,7 +11852,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i:     ; preds = %79, %_ZNK5clang17Di
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDEjEEEDaN4llvm9StringRefEDpT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDEjEEEDaN4llvm9StringRefEDpT_.argelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::VersionTuple", align 8

@@ -607,7 +607,7 @@ for.body.i:                                       ; preds = %_ZNSt10shared_ptrIK
   store ptr %call3.val.val.i, ptr %ref.tmp.i, align 8, !alias.scope !7
   store ptr %call3.val.val1.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !7
   %cmp.not.i.i.i.i.i = icmp eq ptr %call3.val.val1.i, null
-  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN8facebook5velox4exec10SwitchExprC1ESt10shared_ptrIKNS0_4TypeEERKSt6vectorIS3_INS1_4ExprEESaIS9_EEbENK3$_0clERKS9_.exit.i", label %if.then.i.i.i.i.i45
+  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN8facebook5velox4exec10SwitchExprC1ESt10shared_ptrIKNS0_4TypeEERKSt6vectorIS3_INS1_4ExprEESaIS9_EEbENK3$_0clERKS9_.argprom.argprom.exit.i", label %if.then.i.i.i.i.i45
 
 if.then.i.i.i.i.i45:                              ; preds = %for.body.i
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.val.val1.i, i64 8
@@ -619,19 +619,19 @@ if.then.i.i.i.i.i.i.i46:                          ; preds = %if.then.i.i.i.i.i45
   %45 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !7
   %add.i.i.i.i.i.i.i47 = add nsw i32 %45, 1
   store i32 %add.i.i.i.i.i.i.i47, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !7
-  br label %"_ZZN8facebook5velox4exec10SwitchExprC1ESt10shared_ptrIKNS0_4TypeEERKSt6vectorIS3_INS1_4ExprEESaIS9_EEbENK3$_0clERKS9_.exit.i"
+  br label %"_ZZN8facebook5velox4exec10SwitchExprC1ESt10shared_ptrIKNS0_4TypeEERKSt6vectorIS3_INS1_4ExprEESaIS9_EEbENK3$_0clERKS9_.argprom.argprom.exit.i"
 
 if.else.i.i.i.i.i.i.i54:                          ; preds = %if.then.i.i.i.i.i45
   %46 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !7
-  br label %"_ZZN8facebook5velox4exec10SwitchExprC1ESt10shared_ptrIKNS0_4TypeEERKSt6vectorIS3_INS1_4ExprEESaIS9_EEbENK3$_0clERKS9_.exit.i"
+  br label %"_ZZN8facebook5velox4exec10SwitchExprC1ESt10shared_ptrIKNS0_4TypeEERKSt6vectorIS3_INS1_4ExprEESaIS9_EEbENK3$_0clERKS9_.argprom.argprom.exit.i"
 
-"_ZZN8facebook5velox4exec10SwitchExprC1ESt10shared_ptrIKNS0_4TypeEERKSt6vectorIS3_INS1_4ExprEESaIS9_EEbENK3$_0clERKS9_.exit.i": ; preds = %if.else.i.i.i.i.i.i.i54, %if.then.i.i.i.i.i.i.i46, %for.body.i
+"_ZZN8facebook5velox4exec10SwitchExprC1ESt10shared_ptrIKNS0_4TypeEERKSt6vectorIS3_INS1_4ExprEESaIS9_EEbENK3$_0clERKS9_.argprom.argprom.exit.i": ; preds = %if.else.i.i.i.i.i.i.i54, %if.then.i.i.i.i.i.i.i46, %for.body.i
   %47 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %48 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i.i.i48 = icmp eq ptr %47, %48
   br i1 %cmp.not.i.i.i.i48, label %if.else.i.i.i.i, label %if.then.i.i.i.i49
 
-if.then.i.i.i.i49:                                ; preds = %"_ZZN8facebook5velox4exec10SwitchExprC1ESt10shared_ptrIKNS0_4TypeEERKSt6vectorIS3_INS1_4ExprEESaIS9_EEbENK3$_0clERKS9_.exit.i"
+if.then.i.i.i.i49:                                ; preds = %"_ZZN8facebook5velox4exec10SwitchExprC1ESt10shared_ptrIKNS0_4TypeEERKSt6vectorIS3_INS1_4ExprEESaIS9_EEbENK3$_0clERKS9_.argprom.argprom.exit.i"
   %49 = load ptr, ptr %ref.tmp.i, align 8
   store ptr %49, ptr %47, align 8
   %_M_refcount.i.i.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %47, i64 8
@@ -645,7 +645,7 @@ if.then.i.i.i.i49:                                ; preds = %"_ZZN8facebook5velo
   store ptr %incdec.ptr.i.i.i.i51, ptr %_M_finish.i.i.i.i, align 8
   br label %invoke.cont5.i
 
-if.else.i.i.i.i:                                  ; preds = %"_ZZN8facebook5velox4exec10SwitchExprC1ESt10shared_ptrIKNS0_4TypeEERKSt6vectorIS3_INS1_4ExprEESaIS9_EEbENK3$_0clERKS9_.exit.i"
+if.else.i.i.i.i:                                  ; preds = %"_ZZN8facebook5velox4exec10SwitchExprC1ESt10shared_ptrIKNS0_4TypeEERKSt6vectorIS3_INS1_4ExprEESaIS9_EEbENK3$_0clERKS9_.argprom.argprom.exit.i"
   invoke void @_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %inputTypes, ptr %47, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
           to label %invoke.cont5.i unwind label %lpad.i53
 
@@ -7211,8 +7211,8 @@ attributes #23 = { noreturn nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZZN8facebook5velox4exec10SwitchExprC1ESt10shared_ptrIKNS0_4TypeEERKSt6vectorIS3_INS1_4ExprEESaIS9_EEbENK3$_0clERKS9_: %agg.result"}
-!9 = distinct !{!9, !"_ZZN8facebook5velox4exec10SwitchExprC1ESt10shared_ptrIKNS0_4TypeEERKSt6vectorIS3_INS1_4ExprEESaIS9_EEbENK3$_0clERKS9_"}
+!8 = distinct !{!8, !9, !"_ZZN8facebook5velox4exec10SwitchExprC1ESt10shared_ptrIKNS0_4TypeEERKSt6vectorIS3_INS1_4ExprEESaIS9_EEbENK3$_0clERKS9_.argprom.argprom: %agg.result"}
+!9 = distinct !{!9, !"_ZZN8facebook5velox4exec10SwitchExprC1ESt10shared_ptrIKNS0_4TypeEERKSt6vectorIS3_INS1_4ExprEESaIS9_EEbENK3$_0clERKS9_.argprom.argprom"}
 !10 = distinct !{!10, !5}
 !11 = !{!12}
 !12 = distinct !{!12, !13, !"_ZN8facebook5velox4exec10SwitchExpr11resolveTypeERKSt6vectorISt10shared_ptrIKNS0_4TypeEESaIS7_EE: %agg.result"}

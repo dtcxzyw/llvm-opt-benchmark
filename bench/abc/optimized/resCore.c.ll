@@ -819,21 +819,21 @@ Abc_Clock.exit:                                   ; preds = %2, %26
   %108 = load i32, ptr %51, align 4
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv281, %109
-  br i1 %110, label %Extra_ProgressBarUpdate.exit, label %111
+  br i1 %110, label %Extra_ProgressBarUpdate.argprom.exit, label %111
 
 111:                                              ; preds = %107, %106
   %112 = trunc nuw nsw i64 %indvars.iv281 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %51, i32 noundef %112, ptr noundef null) #12
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %107, %111
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %107, %111
   %113 = getelementptr i8, ptr %104, i64 20
   %.val195 = load i32, ptr %113, align 4
   %114 = and i32 %.val195, 15
   %.not244 = icmp eq i32 %114, 7
   br i1 %.not244, label %115, label %.critedge2
 
-115:                                              ; preds = %Extra_ProgressBarUpdate.exit
+115:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %116 = getelementptr i8, ptr %104, i64 28
   %.val196 = load i32, ptr %116, align 4
   %117 = icmp sgt i32 %.val196, 8
@@ -1469,7 +1469,7 @@ Abc_Clock.exit239:                                ; preds = %Res_UpdateNetwork.e
   %446 = icmp slt i64 %indvars.iv.next, %445
   br i1 %446, label %.lr.ph, label %.critedge2, !llvm.loop !8
 
-.critedge2:                                       ; preds = %.lr.ph, %442, %334, %100, %Abc_Clock.exit239, %Abc_Clock.exit218, %Abc_Clock.exit202, %115, %Extra_ProgressBarUpdate.exit, %Res_UpdateNetwork.exit, %269
+.critedge2:                                       ; preds = %.lr.ph, %442, %334, %100, %Abc_Clock.exit239, %Abc_Clock.exit218, %Abc_Clock.exit202, %115, %Extra_ProgressBarUpdate.argprom.exit, %Res_UpdateNetwork.exit, %269
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %447 = load ptr, ptr %48, align 8
   %448 = getelementptr i8, ptr %447, i64 4

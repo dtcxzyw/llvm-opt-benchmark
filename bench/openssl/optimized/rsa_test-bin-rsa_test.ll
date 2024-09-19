@@ -107,7 +107,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_rsa_pkcs1(i32 noundef %idx) #0 {
 entry:
-  %call = tail call fastcc i32 @test_rsa_simple(i32 noundef %idx, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null)
+  %call = tail call fastcc i32 @test_rsa_simple.argelim(i32 noundef %idx, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
@@ -120,7 +120,7 @@ entry:
   %clen = alloca i32, align 4
   store ptr null, ptr %key, align 8
   store i32 0, ptr %clen, align 4
-  %call = call fastcc i32 @test_rsa_simple(i32 noundef %idx, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %ctext_ex, ptr noundef nonnull %clen, ptr noundef nonnull %key)
+  %call = call fastcc i32 @test_rsa_simple.argelim(i32 noundef %idx, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %ctext_ex, ptr noundef nonnull %clen, ptr noundef nonnull %key)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %err, label %if.end
 
@@ -473,7 +473,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_rsa_simple(i32 noundef %idx, i32 noundef range(i32 1, 5) %en_pad_type, i32 noundef range(i32 1, 5) %de_pad_type, ptr noundef writeonly %ctext_ex, ptr noundef writeonly %clen, ptr noundef writeonly %retkey) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_rsa_simple.argelim(i32 noundef %idx, i32 noundef range(i32 1, 5) %en_pad_type, i32 noundef range(i32 1, 5) %de_pad_type, ptr noundef writeonly %ctext_ex, ptr noundef writeonly %clen, ptr noundef writeonly %retkey) unnamed_addr #0 {
 entry:
   %ptext = alloca [256 x i8], align 16
   %ctext = alloca [256 x i8], align 16

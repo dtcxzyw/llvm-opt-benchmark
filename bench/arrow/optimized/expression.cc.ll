@@ -14538,7 +14538,7 @@ if.end:                                           ; preds = %entry
   store ptr null, ptr %_M_refcount4.i.i.i, align 8
   store ptr %13, ptr %_M_refcount.i.i.i, align 8
   store ptr null, ptr %expr, align 8
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_13FoldConstantsENS0_10ExpressionEE3$_0ZNS0_13FoldConstantsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_13FoldConstantsENS0_10ExpressionEE3$_0ZNS0_13FoldConstantsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_.argprom.argelim"(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -14761,7 +14761,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_13FoldConstantsENS0_10ExpressionEE3$_0ZNS0_13FoldConstantsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef nonnull %expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_13FoldConstantsENS0_10ExpressionEE3$_0ZNS0_13FoldConstantsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_.argprom.argelim"(ptr noalias align 8 %agg.result, ptr noundef nonnull %expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow7compute10ExpressionD2Ev.exit91:
   %ref.tmp = alloca %"class.arrow::Result.131", align 8
   %modified_arguments = alloca %"class.std::vector", align 8
@@ -14844,7 +14844,7 @@ if.else.i.i.i.i.i.i101:                           ; preds = %if.then.i.i.i.i97
   br label %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
 
 _ZN5arrow7compute10ExpressionC2ERKS1_.exit:       ; preds = %for.body, %if.then.i.i.i.i.i.i99, %if.else.i.i.i.i.i.i101
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_13FoldConstantsENS0_10ExpressionEE3$_0ZNS0_13FoldConstantsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias nonnull align 8 %ref.tmp14, ptr noundef %agg.tmp15)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_13FoldConstantsENS0_10ExpressionEE3$_0ZNS0_13FoldConstantsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_.argprom.argelim"(ptr noalias nonnull align 8 %ref.tmp14, ptr noundef %agg.tmp15)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
@@ -15321,7 +15321,7 @@ _ZNSt6vectorIN5arrow7compute10ExpressionESaIS2_EE14_M_move_assignEOS4_St17integr
           to label %invoke.cont56 unwind label %lpad55
 
 invoke.cont56:                                    ; preds = %_ZNSt6vectorIN5arrow7compute10ExpressionESaIS2_EE14_M_move_assignEOS4_St17integral_constantIbLb1EE.exit
-  invoke fastcc void @"_ZZN5arrow7compute13FoldConstantsENS0_10ExpressionEENK3$_1clES1_z"(ptr sret(%"class.arrow::Result.131") align 8 %agg.result, ptr noundef %agg.tmp53)
+  invoke fastcc void @"_ZZN5arrow7compute13FoldConstantsENS0_10ExpressionEENK3$_1clES1_z.argelim"(ptr sret(%"class.arrow::Result.131") align 8 %agg.result, ptr noundef %agg.tmp53)
           to label %invoke.cont58 unwind label %lpad57
 
 invoke.cont58:                                    ; preds = %invoke.cont56
@@ -15433,7 +15433,7 @@ if.end63:                                         ; preds = %if.end12, %for.end
   store ptr null, ptr %_M_refcount4.i.i.i, align 8
   store ptr %100, ptr %_M_refcount.i.i.i242, align 8
   store ptr null, ptr %expr, align 8
-  invoke fastcc void @"_ZZN5arrow7compute13FoldConstantsENS0_10ExpressionEENK3$_1clES1_z"(ptr sret(%"class.arrow::Result.131") align 8 %agg.result, ptr noundef %agg.tmp64)
+  invoke fastcc void @"_ZZN5arrow7compute13FoldConstantsENS0_10ExpressionEENK3$_1clES1_z.argelim"(ptr sret(%"class.arrow::Result.131") align 8 %agg.result, ptr noundef %agg.tmp64)
           to label %invoke.cont66 unwind label %lpad65
 
 invoke.cont66:                                    ; preds = %if.end63
@@ -15950,7 +15950,7 @@ entry:
 for.body.i.i.i.i.i:                               ; preds = %entry, %if.end23.i.i.i.i.i
   %__trip_count.037.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %if.end23.i.i.i.i.i ], [ %shr.i.i.i.i.i, %entry ]
   %__first.sroa.0.036.i.i.i.i.i = phi ptr [ %incdec.ptr.i17.i.i.i.i.i, %if.end23.i.i.i.i.i ], [ %0, %entry ]
-  %call5.i.i.i.i.i2 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull readonly %ref.tmp1, ptr %__first.sroa.0.036.i.i.i.i.i)
+  %call5.i.i.i.i.i2 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_.argprom"(ptr nonnull readonly %ref.tmp1, ptr %__first.sroa.0.036.i.i.i.i.i)
           to label %call5.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i.i.i
@@ -15958,7 +15958,7 @@ call5.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %call5.i.i.i.i.i.noexc
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.036.i.i.i.i.i, i64 16
-  %call9.i.i.i.i.i3 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull readonly %ref.tmp1, ptr nonnull %incdec.ptr.i.i.i.i.i.i)
+  %call9.i.i.i.i.i3 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_.argprom"(ptr nonnull readonly %ref.tmp1, ptr nonnull %incdec.ptr.i.i.i.i.i.i)
           to label %call9.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call9.i.i.i.i.i.noexc:                            ; preds = %if.end.i.i.i.i.i
@@ -15966,7 +15966,7 @@ call9.i.i.i.i.i.noexc:                            ; preds = %if.end.i.i.i.i.i
 
 if.end11.i.i.i.i.i:                               ; preds = %call9.i.i.i.i.i.noexc
   %incdec.ptr.i15.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.036.i.i.i.i.i, i64 32
-  %call15.i.i.i.i.i4 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull readonly %ref.tmp1, ptr nonnull %incdec.ptr.i15.i.i.i.i.i)
+  %call15.i.i.i.i.i4 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_.argprom"(ptr nonnull readonly %ref.tmp1, ptr nonnull %incdec.ptr.i15.i.i.i.i.i)
           to label %call15.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call15.i.i.i.i.i.noexc:                           ; preds = %if.end11.i.i.i.i.i
@@ -15974,7 +15974,7 @@ call15.i.i.i.i.i.noexc:                           ; preds = %if.end11.i.i.i.i.i
 
 if.end17.i.i.i.i.i:                               ; preds = %call15.i.i.i.i.i.noexc
   %incdec.ptr.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.036.i.i.i.i.i, i64 48
-  %call21.i.i.i.i.i5 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull readonly %ref.tmp1, ptr nonnull %incdec.ptr.i16.i.i.i.i.i)
+  %call21.i.i.i.i.i5 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_.argprom"(ptr nonnull readonly %ref.tmp1, ptr nonnull %incdec.ptr.i16.i.i.i.i.i)
           to label %call21.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call21.i.i.i.i.i.noexc:                           ; preds = %if.end17.i.i.i.i.i
@@ -16002,7 +16002,7 @@ for.end.i.i.i.i.i:                                ; preds = %for.end.loopexit.i.
   ]
 
 sw.bb.i.i.i.i.i:                                  ; preds = %for.end.i.i.i.i.i
-  %call28.i.i.i.i.i6 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull readonly %ref.tmp1, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i)
+  %call28.i.i.i.i.i6 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_.argprom"(ptr nonnull readonly %ref.tmp1, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i)
           to label %call28.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call28.i.i.i.i.i.noexc:                           ; preds = %sw.bb.i.i.i.i.i
@@ -16014,7 +16014,7 @@ if.end30.i.i.i.i.i:                               ; preds = %call28.i.i.i.i.i.no
 
 sw.bb32.i.i.i.i.i:                                ; preds = %if.end30.i.i.i.i.i, %for.end.i.i.i.i.i
   %__first.sroa.0.1.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr.i22.i.i.i.i.i, %if.end30.i.i.i.i.i ]
-  %call35.i.i.i.i.i7 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull readonly %ref.tmp1, ptr %__first.sroa.0.1.i.i.i.i.i)
+  %call35.i.i.i.i.i7 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_.argprom"(ptr nonnull readonly %ref.tmp1, ptr %__first.sroa.0.1.i.i.i.i.i)
           to label %call35.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call35.i.i.i.i.i.noexc:                           ; preds = %sw.bb32.i.i.i.i.i
@@ -16026,7 +16026,7 @@ if.end37.i.i.i.i.i:                               ; preds = %call35.i.i.i.i.i.no
 
 sw.bb39.i.i.i.i.i:                                ; preds = %if.end37.i.i.i.i.i, %for.end.i.i.i.i.i
   %__first.sroa.0.2.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr.i23.i.i.i.i.i, %if.end37.i.i.i.i.i ]
-  %call42.i.i.i.i.i8 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull readonly %ref.tmp1, ptr %__first.sroa.0.2.i.i.i.i.i)
+  %call42.i.i.i.i.i8 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_.argprom"(ptr nonnull readonly %ref.tmp1, ptr %__first.sroa.0.2.i.i.i.i.i)
           to label %call42.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call42.i.i.i.i.i.noexc:                           ; preds = %sw.bb39.i.i.i.i.i
@@ -16045,7 +16045,7 @@ for.body.i.i.i:                                   ; preds = %"_ZSt9__find_ifIN9_
   %__first.sroa.0.019.i.i.i = phi ptr [ %__first.sroa.0.0.i.i.i, %for.inc.i.i.i ], [ %__first.sroa.0.015.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS2_8internal12FilterVectorIS4_ZNS3_12_GLOBAL__N_123ExtractKnownFieldValuesEPS8_PNS3_16KnownFieldValuesEE3$_0EES6_IT_SaISJ_EESL_OT0_EUlRKS4_E_EEESJ_SJ_SJ_SM_.exit.i.i.i" ]
   %retval.sroa.0.118.i.i.i = phi ptr [ %retval.sroa.0.2.i.i.i, %for.inc.i.i.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS2_8internal12FilterVectorIS4_ZNS3_12_GLOBAL__N_123ExtractKnownFieldValuesEPS8_PNS3_16KnownFieldValuesEE3$_0EES6_IT_SaISJ_EESL_OT0_EUlRKS4_E_EEESJ_SJ_SJ_SM_.exit.i.i.i" ]
   %retval.sroa.0.0.in.sroa.speculated.i.i.pn17.i.i.i = phi ptr [ %__first.sroa.0.019.i.i.i, %for.inc.i.i.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS2_8internal12FilterVectorIS4_ZNS3_12_GLOBAL__N_123ExtractKnownFieldValuesEPS8_PNS3_16KnownFieldValuesEE3$_0EES6_IT_SaISJ_EESL_OT0_EUlRKS4_E_EEESJ_SJ_SJ_SM_.exit.i.i.i" ]
-  %call16.i.i.i9 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nonnull readonly %ref.tmp1, ptr nonnull %__first.sroa.0.019.i.i.i)
+  %call16.i.i.i9 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_.argprom"(ptr nonnull readonly %ref.tmp1, ptr nonnull %__first.sroa.0.019.i.i.i)
           to label %call16.i.i.i.noexc unwind label %lpad.loopexit
 
 call16.i.i.i.noexc:                               ; preds = %for.body.i.i.i
@@ -16728,7 +16728,7 @@ if.end:                                           ; preds = %entry
   store ptr %13, ptr %_M_refcount.i.i.i, align 8
   store ptr null, ptr %expr, align 8
   store ptr %known_values, ptr %ref.tmp1, align 8
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_28ReplaceFieldsWithKnownValuesERKNS0_16KnownFieldValuesENS0_10ExpressionEE3$_0ZNS0_28ReplaceFieldsWithKnownValuesES4_S5_E3$_1EENS_6ResultIS5_EES5_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_28ReplaceFieldsWithKnownValuesERKNS0_16KnownFieldValuesENS0_10ExpressionEE3$_0ZNS0_28ReplaceFieldsWithKnownValuesES4_S5_E3$_1EENS_6ResultIS5_EES5_RKT_RKT0_.argprom"(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -16815,7 +16815,7 @@ return:                                           ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_28ReplaceFieldsWithKnownValuesERKNS0_16KnownFieldValuesENS0_10ExpressionEE3$_0ZNS0_28ReplaceFieldsWithKnownValuesES4_S5_E3$_1EENS_6ResultIS5_EES5_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull %expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %pre) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_28ReplaceFieldsWithKnownValuesERKNS0_16KnownFieldValuesENS0_10ExpressionEE3$_0ZNS0_28ReplaceFieldsWithKnownValuesES4_S5_E3$_1EENS_6ResultIS5_EES5_RKT_RKT0_.argprom"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull %expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %pre) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i.i272.i = alloca %class.anon.362, align 1
   %ref.tmp.i.i.i.i.i.i.i.i.i268.i = alloca %class.anon.362, align 1
@@ -18350,7 +18350,7 @@ if.else.i.i.i.i.i.i103:                           ; preds = %if.then.i.i.i.i98
   br label %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
 
 _ZN5arrow7compute10ExpressionC2ERKS1_.exit:       ; preds = %for.body, %if.then.i.i.i.i.i.i101, %if.else.i.i.i.i.i.i103
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_28ReplaceFieldsWithKnownValuesERKNS0_16KnownFieldValuesENS0_10ExpressionEE3$_0ZNS0_28ReplaceFieldsWithKnownValuesES4_S5_E3$_1EENS_6ResultIS5_EES5_RKT_RKT0_"(ptr noalias nonnull align 8 %ref.tmp13, ptr noundef %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(8) %pre)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_28ReplaceFieldsWithKnownValuesERKNS0_16KnownFieldValuesENS0_10ExpressionEE3$_0ZNS0_28ReplaceFieldsWithKnownValuesES4_S5_E3$_1EENS_6ResultIS5_EES5_RKT_RKT0_.argprom"(ptr noalias nonnull align 8 %ref.tmp13, ptr noundef %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(8) %pre)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
@@ -19203,7 +19203,7 @@ if.end4:                                          ; preds = %if.end
   store ptr %AlreadyCanonicalized, ptr %ref.tmp6, align 8
   %28 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   store ptr %exec_context, ptr %28, align 8
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEE3$_1ZNS0_12CanonicalizeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEE3$_1ZNS0_12CanonicalizeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_.argprom"(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %if.end4
@@ -19299,7 +19299,7 @@ eh.resume:                                        ; preds = %lpad8, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEE3$_1ZNS0_12CanonicalizeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull %expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %pre) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEE3$_1ZNS0_12CanonicalizeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_.argprom"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull %expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %pre) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.131", align 8
   %agg.tmp = alloca %"class.arrow::compute::Expression", align 8
@@ -19561,7 +19561,7 @@ if.else.i.i.i.i.i.i64:                            ; preds = %if.then.i.i.i.i60
   br label %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
 
 _ZN5arrow7compute10ExpressionC2ERKS1_.exit:       ; preds = %for.body, %if.then.i.i.i.i.i.i62, %if.else.i.i.i.i.i.i64
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEE3$_1ZNS0_12CanonicalizeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias nonnull align 8 %ref.tmp13, ptr noundef %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(16) %pre)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEE3$_1ZNS0_12CanonicalizeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_.argprom"(ptr noalias nonnull align 8 %ref.tmp13, ptr noundef %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(16) %pre)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
@@ -20846,7 +20846,7 @@ if.then63:                                        ; preds = %if.end21.i49.i, %ca
   store ptr %84, ptr %_M_refcount.i.i.i262, align 8
   store ptr null, ptr %expr, align 8
   store ptr %inequality, ptr %ref.tmp67, align 8
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_21SimplifyWithGuaranteeENS0_10ExpressionERKS2_E3$_1ZNS0_21SimplifyWithGuaranteeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %ref.tmp64, ptr noundef %agg.tmp65, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_21SimplifyWithGuaranteeENS0_10ExpressionERKS2_E3$_1ZNS0_21SimplifyWithGuaranteeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_.argprom"(ptr noalias align 8 %ref.tmp64, ptr noundef %agg.tmp65, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67)
           to label %invoke.cont69 unwind label %lpad68
 
 invoke.cont69:                                    ; preds = %if.then63
@@ -21270,7 +21270,7 @@ if.end.i457:                                      ; preds = %_ZN5arrow7compute11
   store ptr %139, ptr %_M_refcount.i.i.i.i, align 8, !noalias !345
   store ptr null, ptr %agg.tmp122, align 8, !noalias !345
   store ptr %retval.0.i.i, ptr %ref.tmp1.i, align 8, !noalias !345
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS3_4CallEE3$_0ZNS2_24SimplifyIsValidGuaranteeES3_S6_E3$_1EENS_6ResultIS3_EES3_RKT_RKT0_"(ptr noalias align 8 %ref.tmp121, ptr noundef %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1.i)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS3_4CallEE3$_0ZNS2_24SimplifyIsValidGuaranteeES3_S6_E3$_1EENS_6ResultIS3_EES3_RKT_RKT0_.argprom"(ptr noalias align 8 %ref.tmp121, ptr noundef %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end.i457
@@ -22356,7 +22356,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_21SimplifyWithGuaranteeENS0_10ExpressionERKS2_E3$_1ZNS0_21SimplifyWithGuaranteeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %post_call) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_21SimplifyWithGuaranteeENS0_10ExpressionERKS2_E3$_1ZNS0_21SimplifyWithGuaranteeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_.argprom"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %post_call) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow7compute10ExpressionD2Ev.exit91:
   %ref.tmp = alloca %"class.arrow::Result.131", align 8
   %modified_arguments = alloca %"class.std::vector", align 8
@@ -22439,7 +22439,7 @@ if.else.i.i.i.i.i.i101:                           ; preds = %if.then.i.i.i.i97
   br label %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
 
 _ZN5arrow7compute10ExpressionC2ERKS1_.exit:       ; preds = %for.body, %if.then.i.i.i.i.i.i99, %if.else.i.i.i.i.i.i101
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_21SimplifyWithGuaranteeENS0_10ExpressionERKS2_E3$_1ZNS0_21SimplifyWithGuaranteeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %ref.tmp14, ptr noundef %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(8) %post_call)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_21SimplifyWithGuaranteeENS0_10ExpressionERKS2_E3$_1ZNS0_21SimplifyWithGuaranteeES2_S4_E3$_2EENS_6ResultIS2_EES2_RKT_RKT0_.argprom"(ptr noalias align 8 %ref.tmp14, ptr noundef %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(8) %post_call)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
@@ -23497,7 +23497,7 @@ if.end:                                           ; preds = %entry
   store ptr null, ptr %_M_refcount4.i.i.i, align 8
   store ptr %13, ptr %_M_refcount.i.i.i, align 8
   store ptr null, ptr %src, align 8
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_15RemoveNamedRefsENS0_10ExpressionEE3$_0ZNS0_15RemoveNamedRefsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_15RemoveNamedRefsENS0_10ExpressionEE3$_0ZNS0_15RemoveNamedRefsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_.argprom"(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -23584,7 +23584,7 @@ return:                                           ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_15RemoveNamedRefsENS0_10ExpressionEE3$_0ZNS0_15RemoveNamedRefsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull %expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_15RemoveNamedRefsENS0_10ExpressionEE3$_0ZNS0_15RemoveNamedRefsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_.argprom"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull %expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp8.i = alloca %"struct.arrow::compute::Expression::Parameter", align 8
   %agg.tmp10.i = alloca %"class.arrow::FieldPath", align 8
@@ -24076,7 +24076,7 @@ if.else.i.i.i.i.i.i112:                           ; preds = %if.then.i.i.i.i108
   br label %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
 
 _ZN5arrow7compute10ExpressionC2ERKS1_.exit:       ; preds = %for.body, %if.then.i.i.i.i.i.i110, %if.else.i.i.i.i.i.i112
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_15RemoveNamedRefsENS0_10ExpressionEE3$_0ZNS0_15RemoveNamedRefsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_"(ptr noalias nonnull align 8 %ref.tmp14, ptr noundef %agg.tmp15)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_15RemoveNamedRefsENS0_10ExpressionEE3$_0ZNS0_15RemoveNamedRefsES2_E3$_1EENS_6ResultIS2_EES2_RKT_RKT0_.argprom"(ptr noalias nonnull align 8 %ref.tmp14, ptr noundef %agg.tmp15)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
@@ -28659,7 +28659,7 @@ if.end26:                                         ; preds = %if.end
   br i1 %cmp.i61, label %if.then28, label %if.end78
 
 if.then28:                                        ; preds = %if.end26
-  %call29 = call fastcc noundef zeroext i1 @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch12ParseIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi(ptr noundef nonnull align 8 dereferenceable(32) %call10, ptr noundef %size)
+  %call29 = call fastcc noundef zeroext i1 @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch12ParseIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi.argprom(ptr noundef nonnull align 8 dereferenceable(32) %call10, ptr noundef %size)
   br i1 %call29, label %if.end32, label %if.then30
 
 if.then30:                                        ; preds = %if.then28
@@ -41161,7 +41161,7 @@ if.end109:                                        ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_"(ptr nocapture readonly %this.0.val, ptr nocapture readonly %__it.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12FilterVectorINS2_7compute10ExpressionEZNS5_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS6_SaIS6_EEPNS5_16KnownFieldValuesEE3$_0EES8_IT_SaISF_EESH_OT0_EUlRKS6_E_EclINS_17__normal_iteratorIPS6_SA_EEEEbSF_.argprom"(ptr nocapture readonly %this.0.val, ptr nocapture readonly %__it.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca %class.anon.362, align 1
   %ref.tmp.i.i.i.i.i.i.i.i.i65.i.i.i = alloca %class.anon.362, align 1
@@ -41193,7 +41193,7 @@ _ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt
 if.then.i.i.i:                                    ; preds = %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i, %entry
   %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %known_value.i.i, i64 64
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8, !alias.scope !533
-  br label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.exit.i.i
+  br label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.argprom.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i
   %call.i.i.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %call.val, ptr noundef nonnull @.str.27) #27, !noalias !533
@@ -41216,7 +41216,7 @@ _ZSt6get_ifIN5arrow7compute10Expression9ParameterEJNS0_5DatumES3_NS2_4CallEEENSt
 if.then7.i.i.i:                                   ; preds = %_ZSt6get_ifIN5arrow7compute10Expression9ParameterEJNS0_5DatumES3_NS2_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i, %if.then3.i.i.i
   %_M_engaged.i.i.i.i.i9.i.i.i = getelementptr inbounds i8, ptr %known_value.i.i, i64 64
   store i8 0, ptr %_M_engaged.i.i.i.i.i9.i.i.i, align 8, !alias.scope !533
-  br label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.exit.i.i
+  br label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.argprom.exit.i.i
 
 if.end9.i.i.i:                                    ; preds = %_ZSt6get_ifIN5arrow7compute10Expression9ParameterEJNS0_5DatumES3_NS2_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -41233,7 +41233,7 @@ _ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt
 if.then14.i.i.i:                                  ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i, %if.end9.i.i.i
   %_M_engaged.i.i.i.i.i15.i.i.i = getelementptr inbounds i8, ptr %known_value.i.i, i64 64
   store i8 0, ptr %_M_engaged.i.i.i.i.i15.i.i.i, align 8, !alias.scope !533
-  br label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.exit.i.i
+  br label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.argprom.exit.i.i
 
 if.end16.i.i.i:                                   ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !536)
@@ -41356,7 +41356,7 @@ _ZN5arrow5DatumD2Ev.exit.i.i.i.i:                 ; preds = %_ZNSt8optionalISt4p
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !533
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !533
   invoke void @_ZNSt8__detail9__variant16_Variant_storageILb0EJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS2_8FieldRefESaISB_EEEE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(33) %ref.tmp.i.i.i)
-          to label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
+          to label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.argprom.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %_ZN5arrow5DatumD2Ev.exit.i.i.i.i
   %23 = landingpad { ptr, i32 }
@@ -41386,7 +41386,7 @@ _ZSt6get_ifIN5arrow7compute10Expression9ParameterEJNS0_5DatumES3_NS2_4CallEEENSt
 if.then26.i.i.i:                                  ; preds = %_ZSt6get_ifIN5arrow7compute10Expression9ParameterEJNS0_5DatumES3_NS2_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i22.i.i.i, %if.then20.i.i.i
   %_M_engaged.i.i.i.i.i28.i.i.i = getelementptr inbounds i8, ptr %known_value.i.i, i64 64
   store i8 0, ptr %_M_engaged.i.i.i.i.i28.i.i.i, align 8, !alias.scope !533
-  br label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.exit.i.i
+  br label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.argprom.exit.i.i
 
 if.end28.i.i.i:                                   ; preds = %_ZSt6get_ifIN5arrow7compute10Expression9ParameterEJNS0_5DatumES3_NS2_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i22.i.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i.i.i.i), !noalias !533
@@ -41539,7 +41539,7 @@ _ZN5arrow5DatumD2Ev.exit.i.i.i:                   ; preds = %_ZNSt4pairIN5arrow8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i65.i.i.i), !noalias !533
   %50 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i, align 8, !noalias !533
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %50, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.exit.i.i, label %if.then.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.argprom.exit.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN5arrow5DatumD2Ev.exit.i.i.i
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 8
@@ -41575,7 +41575,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %52, %if.then.i.i.i.i.i.i.i.i ], [ %55, %if.else.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.exit.i.i
+  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.argprom.exit.i.i
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %50, align 8
@@ -41600,14 +41600,14 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i32 [ %58, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %59, %if.else.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.exit.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.argprom.exit.i.i
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %50, align 8
   %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %60 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(16) %50) #27
-  br label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.exit.i.i
+  br label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.argprom.exit.i.i
 
 lpad32.i.i.i:                                     ; preds = %if.end28.i.i.i
   %61 = landingpad { ptr, i32 }
@@ -41619,9 +41619,9 @@ lpad32.i.i.i:                                     ; preds = %if.end28.i.i.i
 if.end34.i.i.i:                                   ; preds = %if.end17.i.i.i
   %_M_engaged.i.i.i.i.i68.i.i.i = getelementptr inbounds i8, ptr %known_value.i.i, i64 64
   store i8 0, ptr %_M_engaged.i.i.i.i.i68.i.i.i, align 8, !alias.scope !533
-  br label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.exit.i.i
+  br label %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.argprom.exit.i.i
 
-_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.exit.i.i: ; preds = %if.end34.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN5arrow5DatumD2Ev.exit.i.i.i, %if.then26.i.i.i, %_ZN5arrow5DatumD2Ev.exit.i.i.i.i, %if.then14.i.i.i, %if.then7.i.i.i, %if.then.i.i.i
+_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.argprom.exit.i.i: ; preds = %if.end34.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN5arrow5DatumD2Ev.exit.i.i.i, %if.then26.i.i.i, %_ZN5arrow5DatumD2Ev.exit.i.i.i.i, %if.then14.i.i.i, %if.then7.i.i.i, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp29.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp30.i.i.i)
@@ -41631,7 +41631,7 @@ _ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.exit.i
   %tobool.i.i.i.i = trunc i8 %62 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i, label %cleanup.i.i
 
-if.then.i.i:                                      ; preds = %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.exit.i.i
+if.then.i.i:                                      ; preds = %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.argprom.exit.i.i
   %63 = load ptr, ptr %this.0.val, align 8
   %call.i.i12.i.i = invoke { ptr, i8 } @_ZNSt10_HashtableIN5arrow8FieldRefESt4pairIKS1_NS0_5DatumEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJS2_IS1_S4_EEEES2_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %63, ptr noundef nonnull align 8 dereferenceable(64) %known_value.i.i)
           to label %if.then.cleanup_crit_edge.i.i unwind label %lpad.i.i
@@ -41646,10 +41646,10 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   call void @_ZNSt8optionalISt4pairIN5arrow8FieldRefENS1_5DatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %known_value.i.i) #27
   br label %common.resume.i.i
 
-cleanup.i.i:                                      ; preds = %if.then.cleanup_crit_edge.i.i, %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.exit.i.i
-  %65 = phi i8 [ %.pre.i.i, %if.then.cleanup_crit_edge.i.i ], [ %62, %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.exit.i.i ]
+cleanup.i.i:                                      ; preds = %if.then.cleanup_crit_edge.i.i, %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.argprom.exit.i.i
+  %65 = phi i8 [ %.pre.i.i, %if.then.cleanup_crit_edge.i.i ], [ %62, %_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.argprom.exit.i.i ]
   %tobool.i.i.i.i.i.i = trunc i8 %65 to i1
-  br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i3.i.i, label %"_ZZN5arrow8internal12FilterVectorINS_7compute10ExpressionEZNS2_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS3_SaIS3_EEPNS2_16KnownFieldValuesEE3$_0EES5_IT_SaISC_EESE_OT0_ENKUlRKS3_E_clESI_.exit"
+  br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i3.i.i, label %"_ZZN5arrow8internal12FilterVectorINS_7compute10ExpressionEZNS2_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS3_SaIS3_EEPNS2_16KnownFieldValuesEE3$_0EES5_IT_SaISC_EESE_OT0_ENKUlRKS3_E_clESI_.argprom.exit"
 
 if.then.i.i.i.i3.i.i:                             ; preds = %cleanup.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i, align 8
@@ -41670,7 +41670,7 @@ _ZN5arrow5DatumD2Ev.exit.i.i.i.i.i.i.i.i:         ; preds = %if.then.i.i.i.i3.i.
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   invoke void @_ZNSt8__detail9__variant16_Variant_storageILb0EJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS2_8FieldRefESaISB_EEEE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(33) %known_value.i.i)
-          to label %"_ZZN5arrow8internal12FilterVectorINS_7compute10ExpressionEZNS2_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS3_SaIS3_EEPNS2_16KnownFieldValuesEE3$_0EES5_IT_SaISC_EESE_OT0_ENKUlRKS3_E_clESI_.exit" unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i4.i.i
+          to label %"_ZZN5arrow8internal12FilterVectorINS_7compute10ExpressionEZNS2_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS3_SaIS3_EEPNS2_16KnownFieldValuesEE3$_0EES5_IT_SaISC_EESE_OT0_ENKUlRKS3_E_clESI_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i4.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i4.i.i:          ; preds = %_ZN5arrow5DatumD2Ev.exit.i.i.i.i.i.i.i.i
   %68 = landingpad { ptr, i32 }
@@ -41679,7 +41679,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i4.i.i:          ; preds = %_ZN5arrow5DatumD2Ev
   call void @__clang_call_terminate(ptr %69) #28
   unreachable
 
-"_ZZN5arrow8internal12FilterVectorINS_7compute10ExpressionEZNS2_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS3_SaIS3_EEPNS2_16KnownFieldValuesEE3$_0EES5_IT_SaISC_EESE_OT0_ENKUlRKS3_E_clESI_.exit": ; preds = %cleanup.i.i, %_ZN5arrow5DatumD2Ev.exit.i.i.i.i.i.i.i.i
+"_ZZN5arrow8internal12FilterVectorINS_7compute10ExpressionEZNS2_12_GLOBAL__N_123ExtractKnownFieldValuesEPSt6vectorIS3_SaIS3_EEPNS2_16KnownFieldValuesEE3$_0EES5_IT_SaISC_EESE_OT0_ENKUlRKS3_E_clESI_.argprom.exit": ; preds = %cleanup.i.i, %_ZN5arrow5DatumD2Ev.exit.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %known_value.i.i)
   ret i1 %tobool.i.i.i.i
 }
@@ -43312,7 +43312,7 @@ lpad4:                                            ; preds = %cond.false
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS3_4CallEE3$_0ZNS2_24SimplifyIsValidGuaranteeES3_S6_E3$_1EENS_6ResultIS3_EES3_RKT_RKT0_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %post_call) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS3_4CallEE3$_0ZNS2_24SimplifyIsValidGuaranteeES3_S6_E3$_1EENS_6ResultIS3_EES3_RKT_RKT0_.argprom"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %expr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %post_call) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow7compute10ExpressionD2Ev.exit91:
   %ref.tmp = alloca %"class.arrow::Result.131", align 8
   %modified_arguments = alloca %"class.std::vector", align 8
@@ -43395,7 +43395,7 @@ if.else.i.i.i.i.i.i101:                           ; preds = %if.then.i.i.i.i97
   br label %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
 
 _ZN5arrow7compute10ExpressionC2ERKS1_.exit:       ; preds = %for.body, %if.then.i.i.i.i.i.i99, %if.else.i.i.i.i.i.i101
-  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS3_4CallEE3$_0ZNS2_24SimplifyIsValidGuaranteeES3_S6_E3$_1EENS_6ResultIS3_EES3_RKT_RKT0_"(ptr noalias align 8 %ref.tmp14, ptr noundef %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(8) %post_call)
+  invoke fastcc void @"_ZN5arrow7compute16ModifyExpressionIZNS0_12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS3_4CallEE3$_0ZNS2_24SimplifyIsValidGuaranteeES3_S6_E3$_1EENS_6ResultIS3_EES3_RKT_RKT0_.argprom"(ptr noalias align 8 %ref.tmp14, ptr noundef %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(8) %post_call)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %_ZN5arrow7compute10ExpressionC2ERKS1_.exit
@@ -47130,7 +47130,7 @@ entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp4 = alloca %"class.arrow::Status", align 8
   %ref.tmp6 = alloca %"class.std::shared_ptr.191", align 8
-  %call = call fastcc noundef zeroext i1 @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch12ParseIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi(ptr noundef nonnull align 8 dereferenceable(32) %i, ptr noundef %column_index)
+  %call = call fastcc noundef zeroext i1 @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch12ParseIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi.argprom(ptr noundef nonnull align 8 dereferenceable(32) %i, ptr noundef %column_index)
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -47479,7 +47479,7 @@ _ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit:      ; preds = %invoke.cont3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch12ParseIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZZN5arrow7compute11DeserializeESt10shared_ptrINS_6BufferEEEN15FromRecordBatch12ParseIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi.argprom(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.arrow::internal::StringConverter", align 1
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #27
@@ -59683,7 +59683,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5arrow7compute13FoldConstantsENS0_10ExpressionEENK3$_1clES1_z"(ptr noalias sret(%"class.arrow::Result.131") align 8 %agg.result, ptr nocapture noundef nonnull %expr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow7compute13FoldConstantsENS0_10ExpressionEENK3$_1clES1_z.argelim"(ptr noalias sret(%"class.arrow::Result.131") align 8 %agg.result, ptr nocapture noundef nonnull %expr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i.i47 = alloca %class.anon.362, align 1
   %ref.tmp.i.i.i.i.i.i.i.i.i = alloca %class.anon.362, align 1
@@ -59735,51 +59735,51 @@ for.body.i.i.i.i:                                 ; preds = %if.end22.i.i.i.i, %
   %__first.sroa.0.0102.i.i.i.i = phi ptr [ %incdec.ptr.i32.i.i.i.i, %if.end22.i.i.i.i ], [ %2, %for.body.preheader.i.i.i.i ]
   %call.val.i.i.i.i.i = load ptr, ptr %__first.sroa.0.0102.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq ptr %call.val.i.i.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i"
+  br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i": ; preds = %for.body.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit.i.i.i.i": ; preds = %for.body.i.i.i.i
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i.i.i.i.i, i64 144
   %5 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.not.i.i.i.i = icmp eq i8 %5, 0
   br i1 %cmp.i.i.i.i.i.not.i.i.i.i, label %if.end.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit"
 
-if.end.i.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i"
+if.end.i.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit.i.i.i.i"
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0102.i.i.i.i, i64 16
   %call.val.i9.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i10.i.i.i.i = icmp eq ptr %call.val.i9.i.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i10.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit497", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit15.i.i.i.i"
+  br i1 %cmp.i.not.i.i.i.i10.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit497", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit15.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit15.i.i.i.i": ; preds = %if.end.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit15.i.i.i.i": ; preds = %if.end.i.i.i.i
   %_M_index.i.i.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i9.i.i.i.i, i64 144
   %6 = load i8, ptr %_M_index.i.i.i.i.i.i12.i.i.i.i, align 8
   %cmp.i.i.i.i.i13.not.i.i.i.i = icmp eq i8 %6, 0
   br i1 %cmp.i.i.i.i.i13.not.i.i.i.i, label %if.end10.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit"
 
-if.end10.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit15.i.i.i.i"
+if.end10.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit15.i.i.i.i"
   %incdec.ptr.i16.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0102.i.i.i.i, i64 32
   %call.val.i17.i.i.i.i = load ptr, ptr %incdec.ptr.i16.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i18.i.i.i.i = icmp eq ptr %call.val.i17.i.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i18.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit499", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.i.i.i.i"
+  br i1 %cmp.i.not.i.i.i.i18.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit499", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit23.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.i.i.i.i": ; preds = %if.end10.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit23.i.i.i.i": ; preds = %if.end10.i.i.i.i
   %_M_index.i.i.i.i.i.i20.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i17.i.i.i.i, i64 144
   %7 = load i8, ptr %_M_index.i.i.i.i.i.i20.i.i.i.i, align 8
   %cmp.i.i.i.i.i21.not.i.i.i.i = icmp eq i8 %7, 0
   br i1 %cmp.i.i.i.i.i21.not.i.i.i.i, label %if.end16.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit493"
 
-if.end16.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.i.i.i.i"
+if.end16.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit23.i.i.i.i"
   %incdec.ptr.i24.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0102.i.i.i.i, i64 48
   %call.val.i25.i.i.i.i = load ptr, ptr %incdec.ptr.i24.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i26.i.i.i.i = icmp eq ptr %call.val.i25.i.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i26.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit501", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit31.i.i.i.i"
+  br i1 %cmp.i.not.i.i.i.i26.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit501", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit31.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit31.i.i.i.i": ; preds = %if.end16.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit31.i.i.i.i": ; preds = %if.end16.i.i.i.i
   %_M_index.i.i.i.i.i.i28.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i25.i.i.i.i, i64 144
   %8 = load i8, ptr %_M_index.i.i.i.i.i.i28.i.i.i.i, align 8
   %cmp.i.i.i.i.i29.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %cmp.i.i.i.i.i29.not.i.i.i.i, label %if.end22.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit495"
 
-if.end22.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit31.i.i.i.i"
+if.end22.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit31.i.i.i.i"
   %incdec.ptr.i32.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0102.i.i.i.i, i64 64
   %dec.i.i.i.i = add nsw i64 %__trip_count.0103.i.i.i.i, -1
   %cmp.i.i.i.i40 = icmp sgt i64 %__trip_count.0103.i.i.i.i, 1
@@ -59803,15 +59803,15 @@ for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.
 sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
   %call.val.i37.i.i.i.i = load ptr, ptr %__first.sroa.0.0.lcssa.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i38.i.i.i.i = icmp eq ptr %call.val.i37.i.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i38.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit43.i.i.i.i"
+  br i1 %cmp.i.not.i.i.i.i38.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit43.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit43.i.i.i.i": ; preds = %sw.bb.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit43.i.i.i.i": ; preds = %sw.bb.i.i.i.i
   %_M_index.i.i.i.i.i.i40.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i37.i.i.i.i, i64 144
   %9 = load i8, ptr %_M_index.i.i.i.i.i.i40.i.i.i.i, align 8
   %cmp.i.i.i.i.i41.not.i.i.i.i = icmp eq i8 %9, 0
   br i1 %cmp.i.i.i.i.i41.not.i.i.i.i, label %if.end29.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit"
 
-if.end29.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit43.i.i.i.i"
+if.end29.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit43.i.i.i.i"
   %incdec.ptr.i44.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 16
   br label %sw.bb31.i.i.i.i
 
@@ -59819,15 +59819,15 @@ sw.bb31.i.i.i.i:                                  ; preds = %if.end29.i.i.i.i, %
   %__first.sroa.0.1.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i44.i.i.i.i, %if.end29.i.i.i.i ]
   %call.val.i45.i.i.i.i = load ptr, ptr %__first.sroa.0.1.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i46.i.i.i.i = icmp eq ptr %call.val.i45.i.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i46.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit51.i.i.i.i"
+  br i1 %cmp.i.not.i.i.i.i46.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit51.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit51.i.i.i.i": ; preds = %sw.bb31.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit51.i.i.i.i": ; preds = %sw.bb31.i.i.i.i
   %_M_index.i.i.i.i.i.i48.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i45.i.i.i.i, i64 144
   %10 = load i8, ptr %_M_index.i.i.i.i.i.i48.i.i.i.i, align 8
   %cmp.i.i.i.i.i49.not.i.i.i.i = icmp eq i8 %10, 0
   br i1 %cmp.i.i.i.i.i49.not.i.i.i.i, label %if.end36.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit"
 
-if.end36.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit51.i.i.i.i"
+if.end36.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit51.i.i.i.i"
   %incdec.ptr.i52.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 16
   br label %sw.bb38.i.i.i.i
 
@@ -59835,24 +59835,24 @@ sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %
   %__first.sroa.0.2.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i52.i.i.i.i, %if.end36.i.i.i.i ]
   %call.val.i53.i.i.i.i = load ptr, ptr %__first.sroa.0.2.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i54.i.i.i.i = icmp eq ptr %call.val.i53.i.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i54.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit59.i.i.i.i"
+  br i1 %cmp.i.not.i.i.i.i54.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit59.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit59.i.i.i.i": ; preds = %sw.bb38.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit59.i.i.i.i": ; preds = %sw.bb38.i.i.i.i
   %_M_index.i.i.i.i.i.i56.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i53.i.i.i.i, i64 144
   %11 = load i8, ptr %_M_index.i.i.i.i.i.i56.i.i.i.i, align 8
   %cmp.i.i.i.i.i57.not.i.i.i.i = icmp eq i8 %11, 0
   %spec.select.i.i.i.i39 = select i1 %cmp.i.i.i.i.i57.not.i.i.i.i, ptr %3, ptr %__first.sroa.0.2.i.i.i.i
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit15.i.i.i.i"
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit15.i.i.i.i"
   %incdec.ptr.i.i.i.i.i.le513 = getelementptr inbounds i8, ptr %__first.sroa.0.0102.i.i.i.i, i64 16
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit493": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.i.i.i.i"
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit493": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit23.i.i.i.i"
   %incdec.ptr.i16.i.i.i.i.le510 = getelementptr inbounds i8, ptr %__first.sroa.0.0102.i.i.i.i, i64 32
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit495": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit31.i.i.i.i"
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit495": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit31.i.i.i.i"
   %incdec.ptr.i24.i.i.i.i.le507 = getelementptr inbounds i8, ptr %__first.sroa.0.0102.i.i.i.i, i64 48
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit"
 
@@ -59868,8 +59868,8 @@ sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %
   %incdec.ptr.i24.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0102.i.i.i.i, i64 48
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit": ; preds = %for.body.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit493", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit495", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit497", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit499", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit501", %sw.bb.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit43.i.i.i.i", %sw.bb31.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit51.i.i.i.i", %sw.bb38.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit59.i.i.i.i"
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit43.i.i.i.i" ], [ %__first.sroa.0.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit51.i.i.i.i" ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %__first.sroa.0.2.i.i.i.i, %sw.bb38.i.i.i.i ], [ %spec.select.i.i.i.i39, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit59.i.i.i.i" ], [ %incdec.ptr.i.i.i.i.i.le513, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit" ], [ %incdec.ptr.i16.i.i.i.i.le510, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit493" ], [ %incdec.ptr.i24.i.i.i.i.le507, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit495" ], [ %incdec.ptr.i.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit497" ], [ %incdec.ptr.i16.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit499" ], [ %incdec.ptr.i24.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit501" ], [ %__first.sroa.0.0102.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i" ], [ %__first.sroa.0.0102.i.i.i.i, %for.body.i.i.i.i ]
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit": ; preds = %for.body.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit.i.i.i.i", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit493", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit495", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit497", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit499", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit501", %sw.bb.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit43.i.i.i.i", %sw.bb31.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit51.i.i.i.i", %sw.bb38.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit59.i.i.i.i"
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit43.i.i.i.i" ], [ %__first.sroa.0.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit51.i.i.i.i" ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %__first.sroa.0.2.i.i.i.i, %sw.bb38.i.i.i.i ], [ %spec.select.i.i.i.i39, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit59.i.i.i.i" ], [ %incdec.ptr.i.i.i.i.i.le513, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit" ], [ %incdec.ptr.i16.i.i.i.i.le510, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit493" ], [ %incdec.ptr.i24.i.i.i.i.le507, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit495" ], [ %incdec.ptr.i.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit497" ], [ %incdec.ptr.i16.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit499" ], [ %incdec.ptr.i24.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5arrow7compute10ExpressionESt6vectorIS4_SaIS4_EEEEZZNS3_13FoldConstantsES4_ENK3$_1clES4_zEUlRS5_E_EbT_SE_T0_.exit.loopexit.split.loop.exit501" ], [ %__first.sroa.0.0102.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN5arrow7compute13FoldConstantsENS3_10ExpressionEENK3$_1clES4_zEUlRKS4_E_EclINS_17__normal_iteratorIPS6_St6vectorIS4_SaIS4_EEEEEEbT_.argprom.exit.i.i.i.i" ], [ %__first.sroa.0.0102.i.i.i.i, %for.body.i.i.i.i ]
   %cmp.i.i = icmp eq ptr %3, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i
   br i1 %cmp.i.i, label %if.then, label %if.end25
 
@@ -60034,9 +60034,9 @@ if.end25:                                         ; preds = %"_ZSt6all_ofIN9__gn
   %30 = getelementptr i8, ptr %call2.val, i64 40
   %call2.val.val = load i32, ptr %30, align 8
   %cmp.i = icmp eq i32 %call2.val.val, 0
-  br i1 %cmp.i, label %_ZN5arrow7compute12_GLOBAL__N_115GetNullHandlingERKNS0_10Expression4CallE.exit, label %if.end68
+  br i1 %cmp.i, label %_ZN5arrow7compute12_GLOBAL__N_115GetNullHandlingERKNS0_10Expression4CallE.argprom.argprom.exit, label %if.end68
 
-_ZN5arrow7compute12_GLOBAL__N_115GetNullHandlingERKNS0_10Expression4CallE.exit: ; preds = %if.end25
+_ZN5arrow7compute12_GLOBAL__N_115GetNullHandlingERKNS0_10Expression4CallE.argprom.argprom.exit: ; preds = %if.end25
   %31 = getelementptr i8, ptr %spec.select.i.i.i.i, i64 96
   %call2.val36 = load ptr, ptr %31, align 8
   %null_handling.i = getelementptr inbounds i8, ptr %call2.val36, i64 84
@@ -60044,7 +60044,7 @@ _ZN5arrow7compute12_GLOBAL__N_115GetNullHandlingERKNS0_10Expression4CallE.exit: 
   %cmp.i51 = icmp eq i32 %32, 0
   br i1 %cmp.i51, label %if.then32, label %if.end68
 
-if.then32:                                        ; preds = %_ZN5arrow7compute12_GLOBAL__N_115GetNullHandlingERKNS0_10Expression4CallE.exit
+if.then32:                                        ; preds = %_ZN5arrow7compute12_GLOBAL__N_115GetNullHandlingERKNS0_10Expression4CallE.argprom.argprom.exit
   %type = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 120
   %33 = load ptr, ptr %type, align 8
   %tobool34.not = icmp eq ptr %33, null
@@ -60468,7 +60468,7 @@ for.inc:                                          ; preds = %if.then.i68, %_ZSt6
   %cmp.i64.not = icmp eq ptr %incdec.ptr.i, %3
   br i1 %cmp.i64.not, label %if.end68, label %for.body
 
-if.end68:                                         ; preds = %for.inc, %for.cond.preheader, %if.end25, %_ZN5arrow7compute12_GLOBAL__N_115GetNullHandlingERKNS0_10Expression4CallE.exit
+if.end68:                                         ; preds = %for.inc, %for.cond.preheader, %if.end25, %_ZN5arrow7compute12_GLOBAL__N_115GetNullHandlingERKNS0_10Expression4CallE.argprom.argprom.exit
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i.i.i, ptr noundef nonnull @.str.8) #27
   %cmp.i153 = icmp eq i32 %call.i, 0
   br i1 %cmp.i153, label %if.then70, label %if.end105
@@ -62220,8 +62220,8 @@ land.lhs.true:                                    ; preds = %_ZN5arrow7compute10
   %cmp.i.i.i.i = icmp eq ptr %37, %38
   br i1 %cmp.i.i.i.i, label %invoke.cont19, label %for.cond.i.i.i
 
-for.cond.i.i.i:                                   ; preds = %land.lhs.true, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit.i.i.i"
-  %__first.sroa.0.0.i.i.i = phi ptr [ %retval.sroa.0.1.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit.i.i.i" ], [ %37, %land.lhs.true ]
+for.cond.i.i.i:                                   ; preds = %land.lhs.true, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit.i.i.i"
+  %__first.sroa.0.0.i.i.i = phi ptr [ %retval.sroa.0.1.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit.i.i.i" ], [ %37, %land.lhs.true ]
   %retval.sroa.0.1.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.i.i.i, i64 16
   %cmp.i1.not.i.i.i = icmp eq ptr %retval.sroa.0.1.i.i.i, %38
   br i1 %cmp.i1.not.i.i.i, label %if.then21, label %for.body.i.i.i
@@ -62229,13 +62229,13 @@ for.cond.i.i.i:                                   ; preds = %land.lhs.true, %"_Z
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %39 = load ptr, ptr %retval.sroa.0.1.i.i.i, align 8
   %cmp.i.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %39, null
-  br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i.i.i
 
 _ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i
   %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 144
   %40 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %40, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i.i.i"
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i.i.i
   %call2.i.i.i.i.i.i.i36 = invoke noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %39)
@@ -62247,31 +62247,31 @@ call2.i.i.i.i.i.i.i.noexc:                        ; preds = %if.then.i.i.i.i.i.i
 
 call3.i.i.i.i.i.i.i.noexc:                        ; preds = %call2.i.i.i.i.i.i.i.noexc
   %cmp.i.i.i.i.i.i.i35 = icmp eq i64 %call2.i.i.i.i.i.i.i36, %call3.i.i.i.i.i.i.i37
-  br i1 %cmp.i.i.i.i.i.i.i35, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i.i.i", label %if.end.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i35, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i.i.i", label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %call3.i.i.i.i.i.i.i.noexc
   %.pr.pre.i.i.i.i.i.i = load ptr, ptr %retval.sroa.0.1.i.i.i, align 8
   %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.pre.i.i.i.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i.i.i
 
 if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i
   %_M_index.i.i.i.i.i.phi.trans.insert.i.i.i.i.i = getelementptr inbounds i8, ptr %.pr.pre.i.i.i.i.i.i, i64 144
   %.pre.i.i.i.i.i = load i8, ptr %_M_index.i.i.i.i.i.phi.trans.insert.i.i.i.i.i, align 8
   %41 = icmp eq i8 %.pre.i.i.i.i.i, 0
   %42 = select i1 %41, i32 1, i32 2
-  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i.i.i"
+  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i.i.i"
 
-"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i.i.i, %if.end.i.i.i.i.i.i, %call3.i.i.i.i.i.i.i.noexc, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i
+"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i.i.i, %if.end.i.i.i.i.i.i, %call3.i.i.i.i.i.i.i.noexc, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i
   %retval.0.i.i.i.i.i.i = phi i32 [ 0, %call3.i.i.i.i.i.i.i.noexc ], [ 2, %if.end.i.i.i.i.i.i ], [ 2, %for.body.i.i.i ], [ %42, %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i.i.i ]
   %43 = load ptr, ptr %__first.sroa.0.0.i.i.i, align 8
   %cmp.i.not.i.i.i.i1.i.i.i.i.i = icmp eq ptr %43, null
-  br i1 %cmp.i.not.i.i.i.i1.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit.i.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i1.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit.i.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i.i.i
 
-_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i.i.i"
+_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i.i.i"
   %_M_index.i.i.i.i.i.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 144
   %44 = load i8, ptr %_M_index.i.i.i.i.i.i3.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i4.i.i.i.i.i = icmp eq i8 %44, 0
-  br i1 %cmp.i.i.i.i.i4.i.i.i.i.i, label %if.then.i.i10.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit.i.i.i"
+  br i1 %cmp.i.i.i.i.i4.i.i.i.i.i, label %if.then.i.i10.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit.i.i.i"
 
 if.then.i.i10.i.i.i.i.i:                          ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i.i.i
   %call2.i.i11.i.i.i.i.i38 = invoke noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %43)
@@ -62283,27 +62283,27 @@ call2.i.i11.i.i.i.i.i.noexc:                      ; preds = %if.then.i.i10.i.i.i
 
 call3.i.i12.i.i.i.i.i.noexc:                      ; preds = %call2.i.i11.i.i.i.i.i.noexc
   %cmp.i.i13.i.i.i.i.i = icmp eq i64 %call2.i.i11.i.i.i.i.i38, %call3.i.i12.i.i.i.i.i39
-  br i1 %cmp.i.i13.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit.i.i.i", label %if.end.i14.i.i.i.i.i
+  br i1 %cmp.i.i13.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit.i.i.i", label %if.end.i14.i.i.i.i.i
 
 if.end.i14.i.i.i.i.i:                             ; preds = %call3.i.i12.i.i.i.i.i.noexc
   %.pr.pre.i15.i.i.i.i.i = load ptr, ptr %__first.sroa.0.0.i.i.i, align 8
   %cmp.i.not.i.i.i16.i.i.i.i.i = icmp eq ptr %.pr.pre.i15.i.i.i.i.i, null
-  br i1 %cmp.i.not.i.i.i16.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit.i.i.i", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i16.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit.i.i.i", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i.i.i
 
 if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i.i.i: ; preds = %if.end.i14.i.i.i.i.i
   %_M_index.i.i.i.i.i7.phi.trans.insert.i.i.i.i.i = getelementptr inbounds i8, ptr %.pr.pre.i15.i.i.i.i.i, i64 144
   %.pre1.i.i.i.i.i = load i8, ptr %_M_index.i.i.i.i.i7.phi.trans.insert.i.i.i.i.i, align 8
   %45 = icmp eq i8 %.pre1.i.i.i.i.i, 0
   %46 = select i1 %45, i32 1, i32 2
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit.i.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit.i.i.i": ; preds = %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i.i.i, %if.end.i14.i.i.i.i.i, %call3.i.i12.i.i.i.i.i.noexc, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i.i.i, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i.i.i"
-  %retval.0.i9.i.i.i.i.i = phi i32 [ 0, %call3.i.i12.i.i.i.i.i.noexc ], [ 2, %if.end.i14.i.i.i.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i.i.i" ], [ %46, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit.i.i.i": ; preds = %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i.i.i, %if.end.i14.i.i.i.i.i, %call3.i.i12.i.i.i.i.i.noexc, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i.i.i, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i.i.i"
+  %retval.0.i9.i.i.i.i.i = phi i32 [ 0, %call3.i.i12.i.i.i.i.i.noexc ], [ 2, %if.end.i14.i.i.i.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i.i.i" ], [ %46, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i.i.i ]
   %cmp.i.i.i.i.i33 = icmp ult i32 %retval.0.i.i.i.i.i.i, %retval.0.i9.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i33, label %invoke.cont19, label %for.cond.i.i.i, !llvm.loop !955
 
-invoke.cont19:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit.i.i.i", %land.lhs.true
-  %retval.sroa.0.0.i.i.i = phi ptr [ %37, %land.lhs.true ], [ %retval.sroa.0.1.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit.i.i.i" ]
+invoke.cont19:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit.i.i.i", %land.lhs.true
+  %retval.sroa.0.0.i.i.i = phi ptr [ %37, %land.lhs.true ], [ %retval.sroa.0.1.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit.i.i.i" ]
   %cmp.i.i34 = icmp eq ptr %retval.sroa.0.0.i.i.i, %38
   br i1 %cmp.i.i34, label %if.then21, label %if.end25
 
@@ -65599,68 +65599,68 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %__first.coerce.pn62 = phi ptr [ %__first.coerce, %for.body.lr.ph ], [ %__i.sroa.0.063, %for.inc ]
   %0 = load ptr, ptr %__i.sroa.0.063, align 8
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
 
 _ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i: ; preds = %for.body
   %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i8 %1, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
 
 if.then.i.i.i.i:                                  ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
   %call2.i.i.i.i = tail call noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %call3.i.i.i.i = tail call noundef i64 @_ZNK5arrow5Datum6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %cmp.i.i.i.i = icmp eq i64 %call2.i.i.i.i, %call3.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %if.end.i.i.i
+  br i1 %cmp.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i.i
   %.pr.pre.i.i.i = load ptr, ptr %__i.sroa.0.063, align 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %.pr.pre.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i
+  br i1 %cmp.i.not.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i
 
 if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i: ; preds = %if.end.i.i.i
   %_M_index.i.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pr.pre.i.i.i, i64 144
   %.pre.i.i = load i8, ptr %_M_index.i.i.i.i.i.phi.trans.insert.i.i, align 8
   %2 = icmp eq i8 %.pre.i.i, 0
   %3 = select i1 %2, i32 1, i32 2
-  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
 
-"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i, %if.end.i.i.i, %if.then.i.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i, %for.body
+"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i, %if.end.i.i.i, %if.then.i.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i, %for.body
   %retval.0.i.i.i = phi i32 [ 0, %if.then.i.i.i.i ], [ 2, %if.end.i.i.i ], [ 2, %for.body ], [ %3, %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i ]
   %4 = load ptr, ptr %__first.coerce, align 8
   %cmp.i.not.i.i.i.i1.i.i = icmp eq ptr %4, null
-  br i1 %cmp.i.not.i.i.i.i1.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
+  br i1 %cmp.i.not.i.i.i.i1.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
 
-_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
   %_M_index.i.i.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %4, i64 144
   %5 = load i8, ptr %_M_index.i.i.i.i.i.i3.i.i, align 8
   %cmp.i.i.i.i.i4.i.i = icmp eq i8 %5, 0
-  br i1 %cmp.i.i.i.i.i4.i.i, label %if.then.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit"
+  br i1 %cmp.i.i.i.i.i4.i.i, label %if.then.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit"
 
 if.then.i.i10.i.i:                                ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
   %call2.i.i11.i.i = tail call noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
   %call3.i.i12.i.i = tail call noundef i64 @_ZNK5arrow5Datum6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
   %cmp.i.i13.i.i = icmp eq i64 %call2.i.i11.i.i, %call3.i.i12.i.i
-  br i1 %cmp.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit", label %if.end.i14.i.i
+  br i1 %cmp.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit", label %if.end.i14.i.i
 
 if.end.i14.i.i:                                   ; preds = %if.then.i.i10.i.i
   %.pr.pre.i15.i.i = load ptr, ptr %__first.coerce, align 8
   %cmp.i.not.i.i.i16.i.i = icmp eq ptr %.pr.pre.i15.i.i, null
-  br i1 %cmp.i.not.i.i.i16.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
+  br i1 %cmp.i.not.i.i.i16.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
 
 if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i: ; preds = %if.end.i14.i.i
   %_M_index.i.i.i.i.i7.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pr.pre.i15.i.i, i64 144
   %.pre1.i.i = load i8, ptr %_M_index.i.i.i.i.i7.phi.trans.insert.i.i, align 8
   %6 = icmp eq i8 %.pre1.i.i, 0
   %7 = select i1 %6, i32 1, i32 2
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
-  %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i" ], [ %7, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
+  %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i" ], [ %7, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
   %cmp.i.i = icmp ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
   br i1 %cmp.i.i, label %if.then9, label %if.else
 
-if.then9:                                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit"
+if.then9:                                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit"
   %8 = load ptr, ptr %__i.sroa.0.063, align 8
   %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn62, i64 24
   %9 = load ptr, ptr %_M_refcount4.i.i.i, align 8
@@ -65841,7 +65841,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %23) #27
   br label %for.inc
 
-if.else:                                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit"
+if.else:                                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__val.i)
   %34 = load ptr, ptr %__i.sroa.0.063, align 8
   store ptr %34, ptr %__val.i, align 8
@@ -65857,13 +65857,13 @@ while.cond.i:                                     ; preds = %_ZN5arrow7compute10
   %__last.sroa.0.0.i = phi ptr [ %__i.sroa.0.063, %if.else ], [ %__next.sroa.0.0.i, %_ZN5arrow7compute10ExpressionaSEOS1_.exit.i ]
   %__next.sroa.0.0.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i, i64 -16
   %cmp.i.not.i.i.i.i.i.i.i = icmp eq ptr %36, null
-  br i1 %cmp.i.not.i.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i
 
 _ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i: ; preds = %while.cond.i
   %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 144
   %37 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i10 = icmp eq i8 %37, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i10, label %if.then.i.i.i.i.i50, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i.i10, label %if.then.i.i.i.i.i50, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i"
 
 if.then.i.i.i.i.i50:                              ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i
   %call2.i.i.i.i1.i = invoke noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %36)
@@ -65875,21 +65875,21 @@ call2.i.i.i.i.noexc.i:                            ; preds = %if.then.i.i.i.i.i50
 
 call3.i.i.i.i.noexc.i:                            ; preds = %call2.i.i.i.i.noexc.i
   %cmp.i.i.i.i.i51 = icmp eq i64 %call2.i.i.i.i1.i, %call3.i.i.i.i2.i
-  br i1 %cmp.i.i.i.i.i51, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i
+  br i1 %cmp.i.i.i.i.i51, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i
 
 if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i: ; preds = %call3.i.i.i.i.noexc.i
   %.pre.i.i.i = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   %38 = icmp eq i8 %.pre.i.i.i, 0
   %39 = select i1 %38, i32 1, i32 2
-  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i"
+  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i"
 
-"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i, %call3.i.i.i.i.noexc.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i, %while.cond.i
+"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i, %call3.i.i.i.i.noexc.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i, %while.cond.i
   %retval.0.i.i.i.i = phi i32 [ 0, %call3.i.i.i.i.noexc.i ], [ 2, %while.cond.i ], [ %39, %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i ]
   %40 = load ptr, ptr %__next.sroa.0.0.i, align 8
   %cmp.i.not.i.i.i.i1.i.i.i = icmp eq ptr %40, null
   br i1 %cmp.i.not.i.i.i.i1.i.i.i, label %invoke.cont.i, label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i
 
-_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i"
+_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i"
   %_M_index.i.i.i.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %40, i64 144
   %41 = load i8, ptr %_M_index.i.i.i.i.i.i3.i.i.i, align 8
   %cmp.i.i.i.i.i4.i.i.i = icmp eq i8 %41, 0
@@ -65919,8 +65919,8 @@ if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_
   %43 = select i1 %42, i32 1, i32 2
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i, %if.end.i14.i.i.i, %call3.i.i12.i.i.noexc.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i"
-  %retval.0.i9.i.i.i = phi i32 [ 0, %call3.i.i12.i.i.noexc.i ], [ 2, %if.end.i14.i.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i" ], [ %43, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i ]
+invoke.cont.i:                                    ; preds = %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i, %if.end.i14.i.i.i, %call3.i.i12.i.i.noexc.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i"
+  %retval.0.i9.i.i.i = phi i32 [ 0, %call3.i.i12.i.i.noexc.i ], [ 2, %if.end.i14.i.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i" ], [ %43, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i ]
   %cmp.i.i.i = icmp ult i32 %retval.0.i.i.i.i, %retval.0.i9.i.i.i
   br i1 %cmp.i.i.i, label %while.body.i, label %while.end.i
 
@@ -66198,68 +66198,68 @@ if.end:                                           ; preds = %entry, %if.end49
 if.then5:                                         ; preds = %if.end
   %0 = load ptr, ptr %__middle.coerce.tr41, align 8
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
 
 _ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i: ; preds = %if.then5
   %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i8 %1, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
 
 if.then.i.i.i.i:                                  ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
   %call2.i.i.i.i = tail call noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %call3.i.i.i.i = tail call noundef i64 @_ZNK5arrow5Datum6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %cmp.i.i.i.i = icmp eq i64 %call2.i.i.i.i, %call3.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %if.end.i.i.i
+  br i1 %cmp.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i.i
   %.pr.pre.i.i.i = load ptr, ptr %__middle.coerce.tr41, align 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %.pr.pre.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i
+  br i1 %cmp.i.not.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i
 
 if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i: ; preds = %if.end.i.i.i
   %_M_index.i.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pr.pre.i.i.i, i64 144
   %.pre.i.i = load i8, ptr %_M_index.i.i.i.i.i.phi.trans.insert.i.i, align 8
   %2 = icmp eq i8 %.pre.i.i, 0
   %3 = select i1 %2, i32 1, i32 2
-  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
 
-"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i, %if.end.i.i.i, %if.then.i.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i, %if.then5
+"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i, %if.end.i.i.i, %if.then.i.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i, %if.then5
   %retval.0.i.i.i = phi i32 [ 0, %if.then.i.i.i.i ], [ 2, %if.end.i.i.i ], [ 2, %if.then5 ], [ %3, %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i ]
   %4 = load ptr, ptr %__first.coerce.tr40, align 8
   %cmp.i.not.i.i.i.i1.i.i = icmp eq ptr %4, null
-  br i1 %cmp.i.not.i.i.i.i1.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
+  br i1 %cmp.i.not.i.i.i.i1.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
 
-_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
   %_M_index.i.i.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %4, i64 144
   %5 = load i8, ptr %_M_index.i.i.i.i.i.i3.i.i, align 8
   %cmp.i.i.i.i.i4.i.i = icmp eq i8 %5, 0
-  br i1 %cmp.i.i.i.i.i4.i.i, label %if.then.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit"
+  br i1 %cmp.i.i.i.i.i4.i.i, label %if.then.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit"
 
 if.then.i.i10.i.i:                                ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
   %call2.i.i11.i.i = tail call noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
   %call3.i.i12.i.i = tail call noundef i64 @_ZNK5arrow5Datum6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
   %cmp.i.i13.i.i = icmp eq i64 %call2.i.i11.i.i, %call3.i.i12.i.i
-  br i1 %cmp.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit", label %if.end.i14.i.i
+  br i1 %cmp.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit", label %if.end.i14.i.i
 
 if.end.i14.i.i:                                   ; preds = %if.then.i.i10.i.i
   %.pr.pre.i15.i.i = load ptr, ptr %__first.coerce.tr40, align 8
   %cmp.i.not.i.i.i16.i.i = icmp eq ptr %.pr.pre.i15.i.i, null
-  br i1 %cmp.i.not.i.i.i16.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
+  br i1 %cmp.i.not.i.i.i16.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
 
 if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i: ; preds = %if.end.i14.i.i
   %_M_index.i.i.i.i.i7.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pr.pre.i15.i.i, i64 144
   %.pre1.i.i = load i8, ptr %_M_index.i.i.i.i.i7.phi.trans.insert.i.i, align 8
   %6 = icmp eq i8 %.pre1.i.i, 0
   %7 = select i1 %6, i32 1, i32 2
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
-  %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i" ], [ %7, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
+  %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i" ], [ %7, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
   %cmp.i.i = icmp ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
   br i1 %cmp.i.i, label %if.then9, label %return
 
-if.then9:                                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit"
+if.then9:                                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit"
   tail call void @_ZSt4swapIN5arrow7compute10ExpressionEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.tr40, ptr noundef nonnull align 8 dereferenceable(16) %__middle.coerce.tr41) #27
   br label %return
 
@@ -66301,7 +66301,7 @@ if.end49:                                         ; preds = %if.else, %if.then17
   %or.cond = or i1 %cmp, %cmp3
   br i1 %or.cond, label %return, label %if.end
 
-return:                                           ; preds = %if.end49, %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit", %if.then9
+return:                                           ; preds = %if.end49, %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit", %if.then9
   ret void
 }
 
@@ -66315,71 +66315,71 @@ entry:
   %cmp7 = icmp sgt i64 %sub.ptr.div.i.i.i, 0
   br i1 %cmp7, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.exit"
-  %__len.09 = phi i64 [ %__len.1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.exit" ], [ %sub.ptr.div.i.i.i, %entry ]
-  %__first.sroa.0.08 = phi ptr [ %__first.sroa.0.1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.exit" ], [ %__first.coerce, %entry ]
+while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.argprom.exit"
+  %__len.09 = phi i64 [ %__len.1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.argprom.exit" ], [ %sub.ptr.div.i.i.i, %entry ]
+  %__first.sroa.0.08 = phi ptr [ %__first.sroa.0.1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.argprom.exit" ], [ %__first.coerce, %entry ]
   %shr = lshr i64 %__len.09, 1
   %add.ptr.i.i.i = getelementptr inbounds %"class.arrow::compute::Expression", ptr %__first.sroa.0.08, i64 %shr
   %0 = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
 
 _ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i: ; preds = %while.body
   %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i8 %1, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
 
 if.then.i.i.i.i:                                  ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
   %call2.i.i.i.i = tail call noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %call3.i.i.i.i = tail call noundef i64 @_ZNK5arrow5Datum6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %cmp.i.i.i.i = icmp eq i64 %call2.i.i.i.i, %call3.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %if.end.i.i.i
+  br i1 %cmp.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i.i
   %.pr.pre.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %.pr.pre.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i
+  br i1 %cmp.i.not.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i
 
 if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i: ; preds = %if.end.i.i.i
   %_M_index.i.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pr.pre.i.i.i, i64 144
   %.pre.i.i = load i8, ptr %_M_index.i.i.i.i.i.phi.trans.insert.i.i, align 8
   %2 = icmp eq i8 %.pre.i.i, 0
   %3 = select i1 %2, i32 1, i32 2
-  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
 
-"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i, %if.end.i.i.i, %if.then.i.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i, %while.body
+"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i, %if.end.i.i.i, %if.then.i.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i, %while.body
   %retval.0.i.i.i = phi i32 [ 0, %if.then.i.i.i.i ], [ 2, %if.end.i.i.i ], [ 2, %while.body ], [ %3, %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i ]
   %4 = load ptr, ptr %__val, align 8
   %cmp.i.not.i.i.i.i1.i.i = icmp eq ptr %4, null
-  br i1 %cmp.i.not.i.i.i.i1.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.exit", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
+  br i1 %cmp.i.not.i.i.i.i1.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.argprom.exit", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
 
-_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
   %_M_index.i.i.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %4, i64 144
   %5 = load i8, ptr %_M_index.i.i.i.i.i.i3.i.i, align 8
   %cmp.i.i.i.i.i4.i.i = icmp eq i8 %5, 0
-  br i1 %cmp.i.i.i.i.i4.i.i, label %if.then.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.exit"
+  br i1 %cmp.i.i.i.i.i4.i.i, label %if.then.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.argprom.exit"
 
 if.then.i.i10.i.i:                                ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
   %call2.i.i11.i.i = tail call noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
   %call3.i.i12.i.i = tail call noundef i64 @_ZNK5arrow5Datum6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
   %cmp.i.i13.i.i = icmp eq i64 %call2.i.i11.i.i, %call3.i.i12.i.i
-  br i1 %cmp.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.exit", label %if.end.i14.i.i
+  br i1 %cmp.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.argprom.exit", label %if.end.i14.i.i
 
 if.end.i14.i.i:                                   ; preds = %if.then.i.i10.i.i
   %.pr.pre.i15.i.i = load ptr, ptr %__val, align 8
   %cmp.i.not.i.i.i16.i.i = icmp eq ptr %.pr.pre.i15.i.i, null
-  br i1 %cmp.i.not.i.i.i16.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.exit", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
+  br i1 %cmp.i.not.i.i.i16.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.argprom.exit", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
 
 if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i: ; preds = %if.end.i14.i.i
   %_M_index.i.i.i.i.i7.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pr.pre.i15.i.i, i64 144
   %.pre1.i.i = load i8, ptr %_M_index.i.i.i.i.i7.phi.trans.insert.i.i, align 8
   %6 = icmp eq i8 %.pre1.i.i, 0
   %7 = select i1 %6, i32 1, i32 2
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.exit"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
-  %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i" ], [ %7, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.argprom.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
+  %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i" ], [ %7, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
   %cmp.i.i5 = icmp ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
   %8 = xor i64 %shr, -1
@@ -66389,8 +66389,8 @@ if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_
   %cmp = icmp sgt i64 %__len.1, 0
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !982
 
-while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.exit", %entry
-  %__first.sroa.0.0.lcssa = phi ptr [ %__first.coerce, %entry ], [ %__first.sroa.0.1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.exit" ]
+while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.argprom.exit", %entry
+  %__first.sroa.0.0.lcssa = phi ptr [ %__first.coerce, %entry ], [ %__first.sroa.0.1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEKS4_EEbT_RT0_.argprom.exit" ]
   ret ptr %__first.sroa.0.0.lcssa
 }
 
@@ -66404,71 +66404,71 @@ entry:
   %cmp7 = icmp sgt i64 %sub.ptr.div.i.i.i, 0
   br i1 %cmp7, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit"
-  %__len.09 = phi i64 [ %__len.1, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit" ], [ %sub.ptr.div.i.i.i, %entry ]
-  %__first.sroa.0.08 = phi ptr [ %__first.sroa.0.1, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit" ], [ %__first.coerce, %entry ]
+while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.argprom.exit"
+  %__len.09 = phi i64 [ %__len.1, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.argprom.exit" ], [ %sub.ptr.div.i.i.i, %entry ]
+  %__first.sroa.0.08 = phi ptr [ %__first.sroa.0.1, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.argprom.exit" ], [ %__first.coerce, %entry ]
   %shr = lshr i64 %__len.09, 1
   %add.ptr.i.i.i = getelementptr inbounds %"class.arrow::compute::Expression", ptr %__first.sroa.0.08, i64 %shr
   %0 = load ptr, ptr %__val, align 8
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
 
 _ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i: ; preds = %while.body
   %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i8 %1, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
 
 if.then.i.i.i.i:                                  ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
   %call2.i.i.i.i = tail call noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %call3.i.i.i.i = tail call noundef i64 @_ZNK5arrow5Datum6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %cmp.i.i.i.i = icmp eq i64 %call2.i.i.i.i, %call3.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %if.end.i.i.i
+  br i1 %cmp.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i.i
   %.pr.pre.i.i.i = load ptr, ptr %__val, align 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %.pr.pre.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i
+  br i1 %cmp.i.not.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i
 
 if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i: ; preds = %if.end.i.i.i
   %_M_index.i.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pr.pre.i.i.i, i64 144
   %.pre.i.i = load i8, ptr %_M_index.i.i.i.i.i.phi.trans.insert.i.i, align 8
   %2 = icmp eq i8 %.pre.i.i, 0
   %3 = select i1 %2, i32 1, i32 2
-  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
 
-"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i, %if.end.i.i.i, %if.then.i.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i, %while.body
+"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i, %if.end.i.i.i, %if.then.i.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i, %while.body
   %retval.0.i.i.i = phi i32 [ 0, %if.then.i.i.i.i ], [ 2, %if.end.i.i.i ], [ 2, %while.body ], [ %3, %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i ]
   %4 = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.not.i.i.i.i1.i.i = icmp eq ptr %4, null
-  br i1 %cmp.i.not.i.i.i.i1.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
+  br i1 %cmp.i.not.i.i.i.i1.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.argprom.exit", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
 
-_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
   %_M_index.i.i.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %4, i64 144
   %5 = load i8, ptr %_M_index.i.i.i.i.i.i3.i.i, align 8
   %cmp.i.i.i.i.i4.i.i = icmp eq i8 %5, 0
-  br i1 %cmp.i.i.i.i.i4.i.i, label %if.then.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit"
+  br i1 %cmp.i.i.i.i.i4.i.i, label %if.then.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.argprom.exit"
 
 if.then.i.i10.i.i:                                ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
   %call2.i.i11.i.i = tail call noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
   %call3.i.i12.i.i = tail call noundef i64 @_ZNK5arrow5Datum6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
   %cmp.i.i13.i.i = icmp eq i64 %call2.i.i11.i.i, %call3.i.i12.i.i
-  br i1 %cmp.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit", label %if.end.i14.i.i
+  br i1 %cmp.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.argprom.exit", label %if.end.i14.i.i
 
 if.end.i14.i.i:                                   ; preds = %if.then.i.i10.i.i
   %.pr.pre.i15.i.i = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.not.i.i.i16.i.i = icmp eq ptr %.pr.pre.i15.i.i, null
-  br i1 %cmp.i.not.i.i.i16.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
+  br i1 %cmp.i.not.i.i.i16.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.argprom.exit", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
 
 if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i: ; preds = %if.end.i14.i.i
   %_M_index.i.i.i.i.i7.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pr.pre.i15.i.i, i64 144
   %.pre1.i.i = load i8, ptr %_M_index.i.i.i.i.i7.phi.trans.insert.i.i, align 8
   %6 = icmp eq i8 %.pre1.i.i, 0
   %7 = select i1 %6, i32 1, i32 2
-  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit"
+  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
-  %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i" ], [ %7, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.argprom.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
+  %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i" ], [ %7, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
   %cmp.i.i5 = icmp ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
   %8 = xor i64 %shr, -1
@@ -66478,8 +66478,8 @@ if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_
   %cmp = icmp sgt i64 %__len.1, 0
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !983
 
-while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit", %entry
-  %__first.sroa.0.0.lcssa = phi ptr [ %__first.coerce, %entry ], [ %__first.sroa.0.1, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit" ]
+while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.argprom.exit", %entry
+  %__first.sroa.0.0.lcssa = phi ptr [ %__first.coerce, %entry ], [ %__first.sroa.0.1, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIKS4_NS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.argprom.exit" ]
   ret ptr %__first.sroa.0.0.lcssa
 }
 
@@ -67108,69 +67108,69 @@ land.rhs.i:                                       ; preds = %_ZN5arrow7compute10
 while.body.i:                                     ; preds = %land.rhs.i
   %13 = load ptr, ptr %__first2.sroa.0.050.i, align 8
   %cmp.i.not.i.i.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %cmp.i.not.i.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i
 
 _ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i: ; preds = %while.body.i
   %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 144
   %14 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %14, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i"
 
 if.then.i.i.i.i.i:                                ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i
   %call2.i.i.i.i.i = tail call noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
   %call3.i.i.i.i.i = tail call noundef i64 @_ZNK5arrow5Datum6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
   %cmp.i.i.i.i.i32 = icmp eq i64 %call2.i.i.i.i.i, %call3.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i32, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i", label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i.i32, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i", label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
   %.pr.pre.i.i.i.i = load ptr, ptr %__first2.sroa.0.050.i, align 8
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %.pr.pre.i.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i
 
 if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i: ; preds = %if.end.i.i.i.i
   %_M_index.i.i.i.i.i.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pr.pre.i.i.i.i, i64 144
   %.pre.i.i.i = load i8, ptr %_M_index.i.i.i.i.i.phi.trans.insert.i.i.i, align 8
   %15 = icmp eq i8 %.pre.i.i.i, 0
   %16 = select i1 %15, i32 1, i32 2
-  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i"
+  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i"
 
-"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i, %while.body.i
+"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i, %while.body.i
   %retval.0.i.i.i.i = phi i32 [ 0, %if.then.i.i.i.i.i ], [ 2, %if.end.i.i.i.i ], [ 2, %while.body.i ], [ %16, %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i ]
   %17 = load ptr, ptr %__first1.addr.052.i, align 8
   %cmp.i.not.i.i.i.i1.i.i.i = icmp eq ptr %17, null
-  br i1 %cmp.i.not.i.i.i.i1.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.exit.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i
+  br i1 %cmp.i.not.i.i.i.i1.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.argprom.exit.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i
 
-_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i"
+_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i"
   %_M_index.i.i.i.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %17, i64 144
   %18 = load i8, ptr %_M_index.i.i.i.i.i.i3.i.i.i, align 8
   %cmp.i.i.i.i.i4.i.i.i = icmp eq i8 %18, 0
-  br i1 %cmp.i.i.i.i.i4.i.i.i, label %if.then.i.i10.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.exit.i"
+  br i1 %cmp.i.i.i.i.i4.i.i.i, label %if.then.i.i10.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.argprom.exit.i"
 
 if.then.i.i10.i.i.i:                              ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i
   %call2.i.i11.i.i.i = tail call noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
   %call3.i.i12.i.i.i = tail call noundef i64 @_ZNK5arrow5Datum6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
   %cmp.i.i13.i.i.i = icmp eq i64 %call2.i.i11.i.i.i, %call3.i.i12.i.i.i
-  br i1 %cmp.i.i13.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.exit.i", label %if.end.i14.i.i.i
+  br i1 %cmp.i.i13.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.argprom.exit.i", label %if.end.i14.i.i.i
 
 if.end.i14.i.i.i:                                 ; preds = %if.then.i.i10.i.i.i
   %.pr.pre.i15.i.i.i = load ptr, ptr %__first1.addr.052.i, align 8
   %cmp.i.not.i.i.i16.i.i.i = icmp eq ptr %.pr.pre.i15.i.i.i, null
-  br i1 %cmp.i.not.i.i.i16.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.exit.i", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i
+  br i1 %cmp.i.not.i.i.i16.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.argprom.exit.i", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i
 
 if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i: ; preds = %if.end.i14.i.i.i
   %_M_index.i.i.i.i.i7.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pr.pre.i15.i.i.i, i64 144
   %.pre1.i.i.i = load i8, ptr %_M_index.i.i.i.i.i7.phi.trans.insert.i.i.i, align 8
   %19 = icmp eq i8 %.pre1.i.i.i, 0
   %20 = select i1 %19, i32 1, i32 2
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.exit.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.exit.i": ; preds = %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i, %if.end.i14.i.i.i, %if.then.i.i10.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i"
-  %retval.0.i9.i.i.i = phi i32 [ 0, %if.then.i.i10.i.i.i ], [ 2, %if.end.i14.i.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i" ], [ %20, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.argprom.exit.i": ; preds = %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i, %if.end.i14.i.i.i, %if.then.i.i10.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i"
+  %retval.0.i9.i.i.i = phi i32 [ 0, %if.then.i.i10.i.i.i ], [ 2, %if.end.i14.i.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i" ], [ %20, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i ]
   %cmp.i.i.i = icmp ult i32 %retval.0.i.i.i.i, %retval.0.i9.i.i.i
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.051.i, i64 8
   br i1 %cmp.i.i.i, label %if.then.i, label %if.else.i
 
-if.then.i:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.exit.i"
+if.then.i:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.argprom.exit.i"
   %21 = load ptr, ptr %__first2.sroa.0.050.i, align 8
   %_M_refcount4.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.050.i, i64 8
   %22 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8
@@ -67253,7 +67253,7 @@ _ZN5arrow7compute10ExpressionaSEOS1_.exit.i:      ; preds = %if.end8.sink.split.
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.050.i, i64 16
   br label %if.end.i
 
-if.else.i:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.exit.i"
+if.else.i:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESC_EEbT_T0_.argprom.exit.i"
   %34 = load ptr, ptr %__first1.addr.052.i, align 8
   %_M_refcount4.i.i.i.i8.i = getelementptr inbounds i8, ptr %__first1.addr.052.i, i64 8
   %35 = load ptr, ptr %_M_refcount4.i.i.i.i8.i, align 8
@@ -67671,70 +67671,70 @@ while.body.i86:                                   ; preds = %while.body.i86.oute
   %__last2.addr.0.i = phi ptr [ %incdec.ptr34.i, %if.end33.i ], [ %__last2.addr.0.i.ph, %while.body.i86.outer ]
   %86 = load ptr, ptr %__last2.addr.0.i, align 8
   %cmp.i.not.i.i.i.i.i.i.i87 = icmp eq ptr %86, null
-  br i1 %cmp.i.not.i.i.i.i.i.i.i87, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i91", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i88
+  br i1 %cmp.i.not.i.i.i.i.i.i.i87, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i91", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i88
 
 _ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i88: ; preds = %while.body.i86
   %_M_index.i.i.i.i.i.i.i.i.i89 = getelementptr inbounds i8, ptr %86, i64 144
   %87 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i89, align 8
   %cmp.i.i.i.i.i.i.i.i90 = icmp eq i8 %87, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i90, label %if.then.i.i.i.i.i142, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i91"
+  br i1 %cmp.i.i.i.i.i.i.i.i90, label %if.then.i.i.i.i.i142, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i91"
 
 if.then.i.i.i.i.i142:                             ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i88
   %call2.i.i.i.i.i143 = tail call noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %86)
   %call3.i.i.i.i.i144 = tail call noundef i64 @_ZNK5arrow5Datum6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %86)
   %cmp.i.i.i.i.i145 = icmp eq i64 %call2.i.i.i.i.i143, %call3.i.i.i.i.i144
-  br i1 %cmp.i.i.i.i.i145, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i91", label %if.end.i.i.i.i146
+  br i1 %cmp.i.i.i.i.i145, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i91", label %if.end.i.i.i.i146
 
 if.end.i.i.i.i146:                                ; preds = %if.then.i.i.i.i.i142
   %.pr.pre.i.i.i.i147 = load ptr, ptr %__last2.addr.0.i, align 8
   %cmp.i.not.i.i.i.i.i.i148 = icmp eq ptr %.pr.pre.i.i.i.i147, null
-  br i1 %cmp.i.not.i.i.i.i.i.i148, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i91", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i149
+  br i1 %cmp.i.not.i.i.i.i.i.i148, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i91", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i149
 
 if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i149: ; preds = %if.end.i.i.i.i146
   %_M_index.i.i.i.i.i.phi.trans.insert.i.i.i150 = getelementptr inbounds i8, ptr %.pr.pre.i.i.i.i147, i64 144
   %.pre.i.i.i151 = load i8, ptr %_M_index.i.i.i.i.i.phi.trans.insert.i.i.i150, align 8
   %88 = icmp eq i8 %.pre.i.i.i151, 0
   %89 = select i1 %88, i32 1, i32 2
-  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i91"
+  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i91"
 
-"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i91": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i149, %if.end.i.i.i.i146, %if.then.i.i.i.i.i142, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i88, %while.body.i86
+"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i91": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i149, %if.end.i.i.i.i146, %if.then.i.i.i.i.i142, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i88, %while.body.i86
   %retval.0.i.i.i.i92 = phi i32 [ 0, %if.then.i.i.i.i.i142 ], [ 2, %if.end.i.i.i.i146 ], [ 2, %while.body.i86 ], [ %89, %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i.i149 ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i.i88 ]
   %90 = load ptr, ptr %__last1.sroa.0.0.i.ph, align 8
   %cmp.i.not.i.i.i.i1.i.i.i93 = icmp eq ptr %90, null
-  br i1 %cmp.i.not.i.i.i.i1.i.i.i93, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.exit.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i94
+  br i1 %cmp.i.not.i.i.i.i1.i.i.i93, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.argprom.exit.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i94
 
-_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i94: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i91"
+_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i94: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i91"
   %_M_index.i.i.i.i.i.i3.i.i.i95 = getelementptr inbounds i8, ptr %90, i64 144
   %91 = load i8, ptr %_M_index.i.i.i.i.i.i3.i.i.i95, align 8
   %cmp.i.i.i.i.i4.i.i.i96 = icmp eq i8 %91, 0
-  br i1 %cmp.i.i.i.i.i4.i.i.i96, label %if.then.i.i10.i.i.i132, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.exit.i"
+  br i1 %cmp.i.i.i.i.i4.i.i.i96, label %if.then.i.i10.i.i.i132, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.argprom.exit.i"
 
 if.then.i.i10.i.i.i132:                           ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i94
   %call2.i.i11.i.i.i133 = tail call noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %90)
   %call3.i.i12.i.i.i134 = tail call noundef i64 @_ZNK5arrow5Datum6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %90)
   %cmp.i.i13.i.i.i135 = icmp eq i64 %call2.i.i11.i.i.i133, %call3.i.i12.i.i.i134
-  br i1 %cmp.i.i13.i.i.i135, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.exit.i", label %if.end.i14.i.i.i136
+  br i1 %cmp.i.i13.i.i.i135, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.argprom.exit.i", label %if.end.i14.i.i.i136
 
 if.end.i14.i.i.i136:                              ; preds = %if.then.i.i10.i.i.i132
   %.pr.pre.i15.i.i.i137 = load ptr, ptr %__last1.sroa.0.0.i.ph, align 8
   %cmp.i.not.i.i.i16.i.i.i138 = icmp eq ptr %.pr.pre.i15.i.i.i137, null
-  br i1 %cmp.i.not.i.i.i16.i.i.i138, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.exit.i", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i139
+  br i1 %cmp.i.not.i.i.i16.i.i.i138, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.argprom.exit.i", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i139
 
 if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i139: ; preds = %if.end.i14.i.i.i136
   %_M_index.i.i.i.i.i7.phi.trans.insert.i.i.i140 = getelementptr inbounds i8, ptr %.pr.pre.i15.i.i.i137, i64 144
   %.pre1.i.i.i141 = load i8, ptr %_M_index.i.i.i.i.i7.phi.trans.insert.i.i.i140, align 8
   %92 = icmp eq i8 %.pre1.i.i.i141, 0
   %93 = select i1 %92, i32 1, i32 2
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.exit.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.exit.i": ; preds = %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i139, %if.end.i14.i.i.i136, %if.then.i.i10.i.i.i132, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i94, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i91"
-  %retval.0.i9.i.i.i97 = phi i32 [ 0, %if.then.i.i10.i.i.i132 ], [ 2, %if.end.i14.i.i.i136 ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i.i91" ], [ %93, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i139 ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i94 ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.argprom.exit.i": ; preds = %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i139, %if.end.i14.i.i.i136, %if.then.i.i10.i.i.i132, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i94, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i91"
+  %retval.0.i9.i.i.i97 = phi i32 [ 0, %if.then.i.i10.i.i.i132 ], [ 2, %if.end.i14.i.i.i136 ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i.i91" ], [ %93, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i.i139 ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i.i94 ]
   %cmp.i.i.i98 = icmp ult i32 %retval.0.i.i.i.i92, %retval.0.i9.i.i.i97
   %incdec.ptr.i11.i = getelementptr inbounds i8, ptr %__result.sroa.0.0.i, i64 -16
   %_M_refcount3.i.i.i.i.i99 = getelementptr inbounds i8, ptr %__result.sroa.0.0.i, i64 -8
   br i1 %cmp.i.i.i98, label %if.then12.i, label %if.else27.i
 
-if.then12.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.exit.i"
+if.then12.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.argprom.exit.i"
   %94 = load ptr, ptr %__last1.sroa.0.0.i.ph, align 8
   %_M_refcount4.i.i.i.i.i100 = getelementptr inbounds i8, ptr %__last1.sroa.0.0.i.ph.pn, i64 -8
   %95 = load ptr, ptr %_M_refcount4.i.i.i.i.i100, align 8
@@ -67916,7 +67916,7 @@ _ZN5arrow7compute10ExpressionaSEOS1_.exit.i.i.i.i.i42.i: ; preds = %if.end8.sink
   %cmp.i.i.i.i.i44.i = icmp sgt i64 %__n.07.i.i.i.i.i24.i, 1
   br i1 %cmp.i.i.i.i.i44.i, label %for.body.i.i.i.i.i23.i, label %if.end89, !llvm.loop !532
 
-if.else27.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.exit.i"
+if.else27.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_NS_17__normal_iteratorISB_St6vectorIS4_SaIS4_EEEEEEbT_T0_.argprom.exit.i"
   %120 = load ptr, ptr %__last2.addr.0.i, align 8
   %_M_refcount4.i.i.i.i67.i = getelementptr inbounds i8, ptr %__last2.addr.0.i, i64 8
   %121 = load ptr, ptr %_M_refcount4.i.i.i.i67.i, align 8
@@ -68058,69 +68058,69 @@ while.body:                                       ; preds = %entry, %if.end
   %__first2.sroa.0.094 = phi ptr [ %__first2.sroa.0.1, %if.end ], [ %__first2.coerce, %entry ]
   %0 = load ptr, ptr %__first2.sroa.0.094, align 8
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
 
 _ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i: ; preds = %while.body
   %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i8 %1, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
 
 if.then.i.i.i.i:                                  ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
   %call2.i.i.i.i = tail call noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %call3.i.i.i.i = tail call noundef i64 @_ZNK5arrow5Datum6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %cmp.i.i.i.i = icmp eq i64 %call2.i.i.i.i, %call3.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %if.end.i.i.i
+  br i1 %cmp.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i.i
   %.pr.pre.i.i.i = load ptr, ptr %__first2.sroa.0.094, align 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %.pr.pre.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i
+  br i1 %cmp.i.not.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i
 
 if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i: ; preds = %if.end.i.i.i
   %_M_index.i.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pr.pre.i.i.i, i64 144
   %.pre.i.i = load i8, ptr %_M_index.i.i.i.i.i.phi.trans.insert.i.i, align 8
   %2 = icmp eq i8 %.pre.i.i, 0
   %3 = select i1 %2, i32 1, i32 2
-  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
 
-"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i, %if.end.i.i.i, %if.then.i.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i, %while.body
+"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i, %if.end.i.i.i, %if.then.i.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i, %while.body
   %retval.0.i.i.i = phi i32 [ 0, %if.then.i.i.i.i ], [ 2, %if.end.i.i.i ], [ 2, %while.body ], [ %3, %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i ]
   %4 = load ptr, ptr %__first1.sroa.0.095, align 8
   %cmp.i.not.i.i.i.i1.i.i = icmp eq ptr %4, null
-  br i1 %cmp.i.not.i.i.i.i1.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
+  br i1 %cmp.i.not.i.i.i.i1.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
 
-_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
   %_M_index.i.i.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %4, i64 144
   %5 = load i8, ptr %_M_index.i.i.i.i.i.i3.i.i, align 8
   %cmp.i.i.i.i.i4.i.i = icmp eq i8 %5, 0
-  br i1 %cmp.i.i.i.i.i4.i.i, label %if.then.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit"
+  br i1 %cmp.i.i.i.i.i4.i.i, label %if.then.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit"
 
 if.then.i.i10.i.i:                                ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
   %call2.i.i11.i.i = tail call noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
   %call3.i.i12.i.i = tail call noundef i64 @_ZNK5arrow5Datum6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
   %cmp.i.i13.i.i = icmp eq i64 %call2.i.i11.i.i, %call3.i.i12.i.i
-  br i1 %cmp.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit", label %if.end.i14.i.i
+  br i1 %cmp.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit", label %if.end.i14.i.i
 
 if.end.i14.i.i:                                   ; preds = %if.then.i.i10.i.i
   %.pr.pre.i15.i.i = load ptr, ptr %__first1.sroa.0.095, align 8
   %cmp.i.not.i.i.i16.i.i = icmp eq ptr %.pr.pre.i15.i.i, null
-  br i1 %cmp.i.not.i.i.i16.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
+  br i1 %cmp.i.not.i.i.i16.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
 
 if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i: ; preds = %if.end.i14.i.i
   %_M_index.i.i.i.i.i7.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pr.pre.i15.i.i, i64 144
   %.pre1.i.i = load i8, ptr %_M_index.i.i.i.i.i7.phi.trans.insert.i.i, align 8
   %6 = icmp eq i8 %.pre1.i.i, 0
   %7 = select i1 %6, i32 1, i32 2
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
-  %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i" ], [ %7, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
+  %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i" ], [ %7, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
   %cmp.i.i = icmp ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.096, i64 8
   br i1 %cmp.i.i, label %if.then, label %if.else
 
-if.then:                                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit"
+if.then:                                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit"
   %8 = load ptr, ptr %__first2.sroa.0.094, align 8
   %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.094, i64 8
   %9 = load ptr, ptr %_M_refcount4.i.i.i.i, align 8
@@ -68203,7 +68203,7 @@ _ZN5arrow7compute10ExpressionaSEOS1_.exit:        ; preds = %if.then, %_ZN9__gnu
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first2.sroa.0.094, i64 16
   br label %if.end
 
-if.else:                                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.exit"
+if.else:                                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESG_EEbT_T0_.argprom.exit"
   %21 = load ptr, ptr %__first1.sroa.0.095, align 8
   %_M_refcount4.i.i.i.i5 = getelementptr inbounds i8, ptr %__first1.sroa.0.095, i64 8
   %22 = load ptr, ptr %_M_refcount4.i.i.i.i5, align 8
@@ -68514,69 +68514,69 @@ while.body:                                       ; preds = %entry, %if.end
   %__result.sroa.0.0100 = phi ptr [ %incdec.ptr.i, %if.end ], [ %__result.coerce, %entry ]
   %1 = load ptr, ptr %__first2.addr.0101, align 8
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
 
 _ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i: ; preds = %while.body
   %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 144
   %2 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i8 %2, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
 
 if.then.i.i.i.i:                                  ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i
   %call2.i.i.i.i = tail call noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
   %call3.i.i.i.i = tail call noundef i64 @_ZNK5arrow5Datum6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
   %cmp.i.i.i.i = icmp eq i64 %call2.i.i.i.i, %call3.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %if.end.i.i.i
+  br i1 %cmp.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i.i
   %.pr.pre.i.i.i = load ptr, ptr %__first2.addr.0101, align 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %.pr.pre.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i
+  br i1 %cmp.i.not.i.i.i.i.i, label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", label %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i
 
 if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i: ; preds = %if.end.i.i.i
   %_M_index.i.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pr.pre.i.i.i, i64 144
   %.pre.i.i = load i8, ptr %_M_index.i.i.i.i.i.phi.trans.insert.i.i, align 8
   %3 = icmp eq i8 %.pre.i.i, 0
   %4 = select i1 %3, i32 1, i32 2
-  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+  br label %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
 
-"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i, %if.end.i.i.i, %if.then.i.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i, %while.body
+"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i": ; preds = %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i, %if.end.i.i.i, %if.then.i.i.i.i, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i, %while.body
   %retval.0.i.i.i = phi i32 [ 0, %if.then.i.i.i.i ], [ 2, %if.end.i.i.i ], [ 2, %while.body ], [ %4, %if.end.i._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i.i.i ]
   %5 = load ptr, ptr %__first1.addr.0102, align 8
   %cmp.i.not.i.i.i.i1.i.i = icmp eq ptr %5, null
-  br i1 %cmp.i.not.i.i.i.i1.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.exit", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
+  br i1 %cmp.i.not.i.i.i.i1.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.argprom.exit", label %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
 
-_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i"
+_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i: ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i"
   %_M_index.i.i.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %5, i64 144
   %6 = load i8, ptr %_M_index.i.i.i.i.i.i3.i.i, align 8
   %cmp.i.i.i.i.i4.i.i = icmp eq i8 %6, 0
-  br i1 %cmp.i.i.i.i.i4.i.i, label %if.then.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.exit"
+  br i1 %cmp.i.i.i.i.i4.i.i, label %if.then.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.argprom.exit"
 
 if.then.i.i10.i.i:                                ; preds = %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i
   %call2.i.i11.i.i = tail call noundef i64 @_ZNK5arrow5Datum10null_countEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
   %call3.i.i12.i.i = tail call noundef i64 @_ZNK5arrow5Datum6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
   %cmp.i.i13.i.i = icmp eq i64 %call2.i.i11.i.i, %call3.i.i12.i.i
-  br i1 %cmp.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.exit", label %if.end.i14.i.i
+  br i1 %cmp.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.argprom.exit", label %if.end.i14.i.i
 
 if.end.i14.i.i:                                   ; preds = %if.then.i.i10.i.i
   %.pr.pre.i15.i.i = load ptr, ptr %__first1.addr.0102, align 8
   %cmp.i.not.i.i.i16.i.i = icmp eq ptr %.pr.pre.i15.i.i, null
-  br i1 %cmp.i.not.i.i.i16.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.exit", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
+  br i1 %cmp.i.not.i.i.i16.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.argprom.exit", label %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
 
 if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i: ; preds = %if.end.i14.i.i
   %_M_index.i.i.i.i.i7.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pr.pre.i15.i.i, i64 144
   %.pre1.i.i = load i8, ptr %_M_index.i.i.i.i.i7.phi.trans.insert.i.i, align 8
   %7 = icmp eq i8 %.pre1.i.i, 0
   %8 = select i1 %7, i32 1, i32 2
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
-  %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.exit.i.i" ], [ %8, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.argprom.exit": ; preds = %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i", %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i, %if.then.i.i10.i.i, %if.end.i14.i.i, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i
+  %retval.0.i9.i.i = phi i32 [ 0, %if.then.i.i10.i.i ], [ 2, %if.end.i14.i.i ], [ 2, %"_ZZZN5arrow7compute12CanonicalizeENS0_10ExpressionEPNS0_11ExecContextEENK3$_1clES1_ENK3$_08PriorityERKS1_.argprom.exit.i.i" ], [ %8, %if.end.i14._ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i5_crit_edge.i.i ], [ 2, %_ZSt6get_ifIN5arrow5DatumEJS1_NS0_7compute10Expression9ParameterENS3_4CallEEENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i.i.i2.i.i ]
   %cmp.i.i = icmp ult i32 %retval.0.i.i.i, %retval.0.i9.i.i
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.0100, i64 8
   br i1 %cmp.i.i, label %if.then, label %if.else
 
-if.then:                                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.exit"
+if.then:                                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.argprom.exit"
   %9 = load ptr, ptr %__first2.addr.0101, align 8
   %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.0101, i64 8
   %10 = load ptr, ptr %_M_refcount4.i.i.i.i, align 8
@@ -68659,7 +68659,7 @@ _ZN5arrow7compute10ExpressionaSEOS1_.exit:        ; preds = %if.then, %_ZN9__gnu
   %incdec.ptr = getelementptr inbounds i8, ptr %__first2.addr.0101, i64 16
   br label %if.end
 
-if.else:                                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.exit"
+if.else:                                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN5arrow7compute12CanonicalizeENS3_10ExpressionEPNS3_11ExecContextEENK3$_1clES4_E3$_0EclIPS4_SB_EEbT_T0_.argprom.exit"
   %22 = load ptr, ptr %__first1.addr.0102, align 8
   %_M_refcount4.i.i.i.i11 = getelementptr inbounds i8, ptr %__first1.addr.0102, i64 8
   %23 = load ptr, ptr %_M_refcount4.i.i.i.i11, align 8
@@ -69880,7 +69880,7 @@ if.else.invoke.i:                                 ; preds = %if.end79.i, %if.the
   %31 = phi i1 [ %tobool94.not.i, %_ZN5arrow7compute10Comparison10GetFlippedENS1_4typeE.exit.i ], [ true, %if.then73.i ], [ false, %if.end79.i ]
   %.in.i = getelementptr inbounds i8, ptr %0, i64 24
   %32 = load i8, ptr %.in.i, align 8, !noalias !996
-  invoke fastcc void @_ZNK5arrow7compute12_GLOBAL__N_110Inequality13simplified_toERKNS0_10ExpressionEb(ptr noalias align 8 %agg.result, i8 %32, ptr noundef nonnull align 8 dereferenceable(16) %call41.i4, i1 noundef zeroext %31)
+  invoke fastcc void @_ZNK5arrow7compute12_GLOBAL__N_110Inequality13simplified_toERKNS0_10ExpressionEb.argprom(ptr noalias align 8 %agg.result, i8 %32, ptr noundef nonnull align 8 dereferenceable(16) %call41.i4, i1 noundef zeroext %31)
           to label %cleanup.i unwind label %lpad55.i
 
 cleanup.i:                                        ; preds = %if.else.invoke.i, %if.then90.i, %if.end85.i, %if.then60.i
@@ -70660,7 +70660,7 @@ eh.resume:                                        ; preds = %arraydestroy.body6,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK5arrow7compute12_GLOBAL__N_110Inequality13simplified_toERKNS0_10ExpressionEb(ptr noalias nonnull align 8 %agg.result, i8 %this.24.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bound_target, i1 noundef zeroext %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK5arrow7compute12_GLOBAL__N_110Inequality13simplified_toERKNS0_10ExpressionEb.argprom(ptr noalias nonnull align 8 %agg.result, i8 %this.24.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bound_target, i1 noundef zeroext %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value.addr = alloca i8, align 1
   %ref.tmp = alloca %"class.arrow::compute::Expression", align 8
@@ -72340,11 +72340,11 @@ attributes #32 = { nounwind allocsize(0) }
 !327 = distinct !{!327, !328, !"_ZN5arrow7compute12_GLOBAL__N_110Inequality10ExtractOneERKNS0_10ExpressionE: %agg.result"}
 !328 = distinct !{!328, !"_ZN5arrow7compute12_GLOBAL__N_110Inequality10ExtractOneERKNS0_10ExpressionE"}
 !329 = !{!330, !327}
-!330 = distinct !{!330, !331, !"_ZN5arrow7compute12_GLOBAL__N_110Inequality24ExtractOneFromComparisonERKNS0_10ExpressionE: %agg.result"}
-!331 = distinct !{!331, !"_ZN5arrow7compute12_GLOBAL__N_110Inequality24ExtractOneFromComparisonERKNS0_10ExpressionE"}
+!330 = distinct !{!330, !331, !"_ZN5arrow7compute12_GLOBAL__N_110Inequality24ExtractOneFromComparisonERKNS0_10ExpressionE.argprom: %agg.result"}
+!331 = distinct !{!331, !"_ZN5arrow7compute12_GLOBAL__N_110Inequality24ExtractOneFromComparisonERKNS0_10ExpressionE.argprom"}
 !332 = !{!333, !327}
-!333 = distinct !{!333, !334, !"_ZN5arrow7compute12_GLOBAL__N_110Inequality24ExtractOneFromComparisonERKNS0_10ExpressionE: %agg.result"}
-!334 = distinct !{!334, !"_ZN5arrow7compute12_GLOBAL__N_110Inequality24ExtractOneFromComparisonERKNS0_10ExpressionE"}
+!333 = distinct !{!333, !334, !"_ZN5arrow7compute12_GLOBAL__N_110Inequality24ExtractOneFromComparisonERKNS0_10ExpressionE.argprom: %agg.result"}
+!334 = distinct !{!334, !"_ZN5arrow7compute12_GLOBAL__N_110Inequality24ExtractOneFromComparisonERKNS0_10ExpressionE.argprom"}
 !335 = !{!336}
 !336 = distinct !{!336, !337, !"_ZNO5arrow6ResultINS_7compute10ExpressionEE11ValueUnsafeEv: %agg.result"}
 !337 = distinct !{!337, !"_ZNO5arrow6ResultINS_7compute10ExpressionEE11ValueUnsafeEv"}
@@ -72387,8 +72387,8 @@ attributes #32 = { nounwind allocsize(0) }
 !374 = !{!372, !369}
 !375 = distinct !{!375, !15}
 !376 = !{!377}
-!377 = distinct !{!377, !378, !"_ZZN5arrow7compute15RemoveNamedRefsENS0_10ExpressionEENK3$_0clES1_: %agg.result"}
-!378 = distinct !{!378, !"_ZZN5arrow7compute15RemoveNamedRefsENS0_10ExpressionEENK3$_0clES1_"}
+!377 = distinct !{!377, !378, !"_ZZN5arrow7compute15RemoveNamedRefsENS0_10ExpressionEENK3$_0clES1_.argprom: %agg.result"}
+!378 = distinct !{!378, !"_ZZN5arrow7compute15RemoveNamedRefsENS0_10ExpressionEENK3$_0clES1_.argprom"}
 !379 = distinct !{!379, !15}
 !380 = !{!381, !383}
 !381 = distinct !{!381, !382, !"_ZN5arrow6ResultINS_7compute10ExpressionEE15MoveValueUnsafeEv: %agg.result"}
@@ -72544,8 +72544,8 @@ attributes #32 = { nounwind allocsize(0) }
 !531 = distinct !{!531, !15}
 !532 = distinct !{!532, !15}
 !533 = !{!534}
-!534 = distinct !{!534, !535, !"_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE: %agg.result"}
-!535 = distinct !{!535, !"_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE"}
+!534 = distinct !{!534, !535, !"_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.argprom: %agg.result"}
+!535 = distinct !{!535, !"_ZN5arrow7compute12_GLOBAL__N_120ExtractOneFieldValueERKNS0_10ExpressionE.argprom"}
 !536 = !{!537}
 !537 = distinct !{!537, !538, !"_ZSt9make_pairIRKN5arrow8FieldRefERKNS0_5DatumEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS8_INS9_IT0_E4typeEE6__typeEEOSA_OSF_: %agg.result"}
 !538 = distinct !{!538, !"_ZSt9make_pairIRKN5arrow8FieldRefERKNS0_5DatumEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS8_INS9_IT0_E4typeEE6__typeEEOSA_OSF_"}
@@ -72948,11 +72948,11 @@ attributes #32 = { nounwind allocsize(0) }
 !935 = distinct !{!935, !"_ZNSt23enable_shared_from_thisIN5arrow8DataTypeEE16shared_from_thisEv"}
 !936 = !{!934, !931, !928}
 !937 = !{!938}
-!938 = distinct !{!938, !939, !"_ZN5arrow7compute12_GLOBAL__N_128ArgumentsAndFlippedArgumentsERKNS0_10Expression4CallE: %agg.result"}
-!939 = distinct !{!939, !"_ZN5arrow7compute12_GLOBAL__N_128ArgumentsAndFlippedArgumentsERKNS0_10Expression4CallE"}
+!938 = distinct !{!938, !939, !"_ZN5arrow7compute12_GLOBAL__N_128ArgumentsAndFlippedArgumentsERKNS0_10Expression4CallE.argprom: %agg.result"}
+!939 = distinct !{!939, !"_ZN5arrow7compute12_GLOBAL__N_128ArgumentsAndFlippedArgumentsERKNS0_10Expression4CallE.argprom"}
 !940 = !{!941}
-!941 = distinct !{!941, !942, !"_ZN5arrow7compute12_GLOBAL__N_128ArgumentsAndFlippedArgumentsERKNS0_10Expression4CallE: %agg.result"}
-!942 = distinct !{!942, !"_ZN5arrow7compute12_GLOBAL__N_128ArgumentsAndFlippedArgumentsERKNS0_10Expression4CallE"}
+!941 = distinct !{!941, !942, !"_ZN5arrow7compute12_GLOBAL__N_128ArgumentsAndFlippedArgumentsERKNS0_10Expression4CallE.argprom: %agg.result"}
+!942 = distinct !{!942, !"_ZN5arrow7compute12_GLOBAL__N_128ArgumentsAndFlippedArgumentsERKNS0_10Expression4CallE.argprom"}
 !943 = !{!944}
 !944 = distinct !{!944, !945, !"_ZN5arrow4util13StringBuilderIJRA46_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESA_DpOT_: %agg.result"}
 !945 = distinct !{!945, !"_ZN5arrow4util13StringBuilderIJRA46_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESA_DpOT_"}

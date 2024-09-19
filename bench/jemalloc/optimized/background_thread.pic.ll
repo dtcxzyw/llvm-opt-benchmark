@@ -230,40 +230,40 @@ if.end21:                                         ; preds = %if.then
   %13 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
   %inc.i.i44 = add i8 %13, 1
   store i8 %inc.i.i44, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
-  br i1 %cmp.i.i.i, label %if.then.i.i45, label %pre_reentrancy.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i45, label %pre_reentrancy.argprom.exit
 
 if.then.i.i45:                                    ; preds = %if.end21
   tail call void @tsd_slow_update(ptr noundef nonnull %tsd) #11
-  br label %pre_reentrancy.exit
+  br label %pre_reentrancy.argprom.exit
 
-pre_reentrancy.exit:                              ; preds = %if.end21, %if.then.i.i45
+pre_reentrancy.argprom.exit:                      ; preds = %if.end21, %if.then.i.i45
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %set.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %oldset.i)
   %call.i = call i32 @sigfillset(ptr noundef nonnull %set.i) #11
   %call1.i46 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %set.i, ptr noundef nonnull %oldset.i) #11
   %cmp.not.i = icmp eq i32 %call1.i46, 0
-  br i1 %cmp.not.i, label %if.end.i47, label %background_thread_create_signals_masked.exit
+  br i1 %cmp.not.i, label %if.end.i47, label %background_thread_create_signals_masked.argprom.exit
 
-if.end.i47:                                       ; preds = %pre_reentrancy.exit
+if.end.i47:                                       ; preds = %pre_reentrancy.argprom.exit
   %14 = inttoptr i64 %rem to ptr
   %15 = load ptr, ptr @pthread_create_fptr, align 8, !noalias !4
   %call.i.i48 = call i32 %15(ptr noundef nonnull %arrayidx, ptr noundef null, ptr noundef nonnull @background_thread_entry, ptr noundef %14) #11
   %call3.i = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %oldset.i, ptr noundef null) #11
   %cmp4.not.i = icmp eq i32 %call3.i, 0
-  br i1 %cmp4.not.i, label %background_thread_create_signals_masked.exit, label %if.then5.i
+  br i1 %cmp4.not.i, label %background_thread_create_signals_masked.argprom.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i47
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.3, i32 noundef %call.i.i48, i32 noundef %call3.i) #11
   %16 = load i8, ptr @opt_abort, align 1
   %tobool.i49 = trunc i8 %16 to i1
-  br i1 %tobool.i49, label %if.then6.i, label %background_thread_create_signals_masked.exit
+  br i1 %tobool.i49, label %if.then6.i, label %background_thread_create_signals_masked.argprom.exit
 
 if.then6.i:                                       ; preds = %if.then5.i
   call void @abort() #12
   unreachable
 
-background_thread_create_signals_masked.exit:     ; preds = %pre_reentrancy.exit, %if.end.i47, %if.then5.i
-  %retval.0.i = phi i32 [ %call1.i46, %pre_reentrancy.exit ], [ %call.i.i48, %if.then5.i ], [ %call.i.i48, %if.end.i47 ]
+background_thread_create_signals_masked.argprom.exit: ; preds = %pre_reentrancy.argprom.exit, %if.end.i47, %if.then5.i
+  %retval.0.i = phi i32 [ %call1.i46, %pre_reentrancy.argprom.exit ], [ %call.i.i48, %if.then5.i ], [ %call.i.i48, %if.end.i47 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %set.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %oldset.i)
   %17 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
@@ -272,11 +272,11 @@ background_thread_create_signals_masked.exit:     ; preds = %pre_reentrancy.exit
   %cmp.i.i = icmp eq i8 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i51, label %post_reentrancy.exit
 
-if.then.i.i51:                                    ; preds = %background_thread_create_signals_masked.exit
+if.then.i.i51:                                    ; preds = %background_thread_create_signals_masked.argprom.exit
   call void @tsd_slow_update(ptr noundef nonnull %tsd) #11
   br label %post_reentrancy.exit
 
-post_reentrancy.exit:                             ; preds = %background_thread_create_signals_masked.exit, %if.then.i.i51
+post_reentrancy.exit:                             ; preds = %background_thread_create_signals_masked.argprom.exit, %if.then.i.i51
   %cmp23.not = icmp eq i32 %retval.0.i, 0
   br i1 %cmp23.not, label %return, label %if.then25
 
@@ -519,26 +519,26 @@ entry:
   %1 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
   %inc.i.i = add i8 %1, 1
   store i8 %inc.i.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %pre_reentrancy.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i, label %pre_reentrancy.argprom.exit
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @tsd_slow_update(ptr noundef nonnull %tsd) #11
-  br label %pre_reentrancy.exit
+  br label %pre_reentrancy.argprom.exit
 
-pre_reentrancy.exit:                              ; preds = %entry, %if.then.i.i
+pre_reentrancy.argprom.exit:                      ; preds = %entry, %if.then.i.i
   %lock.i.i = getelementptr inbounds i8, ptr %info, i64 128
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #11
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
-if.then.i:                                        ; preds = %pre_reentrancy.exit
+if.then.i:                                        ; preds = %pre_reentrancy.argprom.exit
   %mtx = getelementptr inbounds i8, ptr %info, i64 56
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx) #11
   %locked.i = getelementptr inbounds i8, ptr %info, i64 120
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i, %pre_reentrancy.exit
+if.end.i:                                         ; preds = %if.then.i, %pre_reentrancy.argprom.exit
   %n_lock_ops.i.i = getelementptr inbounds i8, ptr %info, i64 112
   %2 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i14 = add i64 %2, 1
@@ -1440,36 +1440,36 @@ if.end20.i.us:                                    ; preds = %malloc_mutex_lock.e
   %10 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
   %inc.i.i22.i.us = add i8 %10, 1
   store i8 %inc.i.i22.i.us, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
-  br i1 %cmp.i.i.i.i.us, label %if.then.i.i23.i.us, label %pre_reentrancy.exit.i.us
+  br i1 %cmp.i.i.i.i.us, label %if.then.i.i23.i.us, label %pre_reentrancy.argprom.exit.i.us
 
 if.then.i.i23.i.us:                               ; preds = %if.end20.i.us
   call void @tsd_slow_update(ptr noundef nonnull %tsd) #11
-  br label %pre_reentrancy.exit.i.us
+  br label %pre_reentrancy.argprom.exit.i.us
 
-pre_reentrancy.exit.i.us:                         ; preds = %if.then.i.i23.i.us, %if.end20.i.us
+pre_reentrancy.argprom.exit.i.us:                 ; preds = %if.then.i.i23.i.us, %if.end20.i.us
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %set.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %oldset.i.i)
   %call.i.i.us = call i32 @sigfillset(ptr noundef nonnull %set.i.i) #11
   %call1.i24.i.us = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %set.i.i, ptr noundef nonnull %oldset.i.i) #11
   %cmp.not.i.i.us = icmp eq i32 %call1.i24.i.us, 0
-  br i1 %cmp.not.i.i.us, label %if.end.i25.i.us, label %background_thread_create_signals_masked.exit.i.us
+  br i1 %cmp.not.i.i.us, label %if.end.i25.i.us, label %background_thread_create_signals_masked.argprom.exit.i.us
 
-if.end.i25.i.us:                                  ; preds = %pre_reentrancy.exit.i.us
+if.end.i25.i.us:                                  ; preds = %pre_reentrancy.argprom.exit.i.us
   %11 = inttoptr i64 %indvars.iv to ptr
   %12 = load ptr, ptr @pthread_create_fptr, align 8, !noalias !21
   %call.i.i26.i.us = call i32 %12(ptr noundef nonnull %arrayidx13.i.us, ptr noundef null, ptr noundef nonnull @background_thread_entry, ptr noundef nonnull %11) #11
   %call3.i.i.us = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %oldset.i.i, ptr noundef null) #11
   %cmp4.not.i.i.us = icmp eq i32 %call3.i.i.us, 0
-  br i1 %cmp4.not.i.i.us, label %background_thread_create_signals_masked.exit.i.us, label %if.then5.i.i.us
+  br i1 %cmp4.not.i.i.us, label %background_thread_create_signals_masked.argprom.exit.i.us, label %if.then5.i.i.us
 
 if.then5.i.i.us:                                  ; preds = %if.end.i25.i.us
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.3, i32 noundef %call.i.i26.i.us, i32 noundef %call3.i.i.us) #11
   %13 = load i8, ptr @opt_abort, align 1
   %tobool.i.i.us = trunc i8 %13 to i1
-  br i1 %tobool.i.i.us, label %if.then6.i.i, label %background_thread_create_signals_masked.exit.i.us
+  br i1 %tobool.i.i.us, label %if.then6.i.i, label %background_thread_create_signals_masked.argprom.exit.i.us
 
-background_thread_create_signals_masked.exit.i.us: ; preds = %if.then5.i.i.us, %if.end.i25.i.us, %pre_reentrancy.exit.i.us
-  %retval.0.i.i.us = phi i32 [ %call1.i24.i.us, %pre_reentrancy.exit.i.us ], [ %call.i.i26.i.us, %if.then5.i.i.us ], [ %call.i.i26.i.us, %if.end.i25.i.us ]
+background_thread_create_signals_masked.argprom.exit.i.us: ; preds = %if.then5.i.i.us, %if.end.i25.i.us, %pre_reentrancy.argprom.exit.i.us
+  %retval.0.i.i.us = phi i32 [ %call1.i24.i.us, %pre_reentrancy.argprom.exit.i.us ], [ %call.i.i26.i.us, %if.then5.i.i.us ], [ %call.i.i26.i.us, %if.end.i25.i.us ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %set.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %oldset.i.i)
   %14 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
@@ -1478,11 +1478,11 @@ background_thread_create_signals_masked.exit.i.us: ; preds = %if.then5.i.i.us, %
   %cmp.i.i.i.us = icmp eq i8 %dec.i.i.i.us, 0
   br i1 %cmp.i.i.i.us, label %if.then.i.i28.i.us, label %post_reentrancy.exit.i.us
 
-if.then.i.i28.i.us:                               ; preds = %background_thread_create_signals_masked.exit.i.us
+if.then.i.i28.i.us:                               ; preds = %background_thread_create_signals_masked.argprom.exit.i.us
   call void @tsd_slow_update(ptr noundef nonnull %tsd) #11
   br label %post_reentrancy.exit.i.us
 
-post_reentrancy.exit.i.us:                        ; preds = %if.then.i.i28.i.us, %background_thread_create_signals_masked.exit.i.us
+post_reentrancy.exit.i.us:                        ; preds = %if.then.i.i28.i.us, %background_thread_create_signals_masked.argprom.exit.i.us
   %cmp23.i.us = icmp eq i32 %retval.0.i.i.us, 0
   br i1 %cmp23.i.us, label %if.then25.i.us, label %if.else.i.us
 
@@ -1929,15 +1929,15 @@ if.end.i:                                         ; preds = %do.end3.i, %if.then
   call void @nstime_init2(ptr noundef nonnull %after_sleep.i, i64 noundef %12, i64 noundef %mul21.i) #11
   %call22.i = call i32 @nstime_compare(ptr noundef nonnull %after_sleep.i, ptr noundef nonnull %before_sleep.i) #11
   %cmp23.i = icmp sgt i32 %call22.i, 0
-  br i1 %cmp23.i, label %if.then24.i, label %background_thread_sleep.exit
+  br i1 %cmp23.i, label %if.then24.i, label %background_thread_sleep.argprom.exit
 
 if.then24.i:                                      ; preds = %if.end.i
   call void @nstime_subtract(ptr noundef nonnull %after_sleep.i, ptr noundef nonnull %before_sleep.i) #11
   %tot_sleep_time.i = getelementptr inbounds i8, ptr %info, i64 200
   call void @nstime_add(ptr noundef nonnull %tot_sleep_time.i, ptr noundef nonnull %after_sleep.i) #11
-  br label %background_thread_sleep.exit
+  br label %background_thread_sleep.argprom.exit
 
-background_thread_sleep.exit:                     ; preds = %if.end.i, %if.then24.i
+background_thread_sleep.argprom.exit:             ; preds = %if.end.i, %if.then24.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %before_sleep.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %next_wakeup.i)

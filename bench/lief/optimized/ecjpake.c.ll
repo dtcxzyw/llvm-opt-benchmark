@@ -1031,12 +1031,12 @@ mbedtls_ecjpake_read_round_one.exit.thread:       ; preds = %42, %55
   br label %.critedge24
 
 .critedge24:                                      ; preds = %91, %92
-  %94 = call fastcc i32 @ecjpake_test_load(ptr noundef %3, ptr noundef nonnull @ecjpake_test_x1, ptr noundef nonnull @ecjpake_test_x2)
+  %94 = call fastcc i32 @ecjpake_test_load.argelim(ptr noundef %3, ptr noundef nonnull @ecjpake_test_x1, ptr noundef nonnull @ecjpake_test_x2)
   %.not16 = icmp eq i32 %94, 0
   br i1 %.not16, label %95, label %.critedge26
 
 95:                                               ; preds = %.critedge24
-  %96 = call fastcc i32 @ecjpake_test_load(ptr noundef %4, ptr noundef nonnull @ecjpake_test_x3, ptr noundef nonnull @ecjpake_test_x4)
+  %96 = call fastcc i32 @ecjpake_test_load.argelim(ptr noundef %4, ptr noundef nonnull @ecjpake_test_x3, ptr noundef nonnull @ecjpake_test_x4)
   %.not17 = icmp eq i32 %96, 0
   br i1 %.not17, label %97, label %.critedge26
 
@@ -1169,7 +1169,7 @@ define internal noundef i32 @ecjpake_lgc(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecjpake_test_load(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @ecjpake_test_load.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 624
   %5 = tail call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %4, ptr noundef %1, i64 noundef 32) #14
   %.not = icmp eq i32 %5, 0

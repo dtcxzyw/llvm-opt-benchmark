@@ -674,12 +674,12 @@ declare zeroext i1 @tuplesort_getdatum(ptr noundef, i1 noundef zeroext, i1 nound
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @percentile_cont_float8_final(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i64 @percentile_cont_final_common(ptr noundef %0, ptr noundef nonnull @float8_lerp)
+  %2 = tail call fastcc i64 @percentile_cont_final_common.argelim(ptr noundef %0, ptr noundef nonnull @float8_lerp)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @percentile_cont_final_common(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i64 @percentile_cont_final_common.argelim(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
@@ -855,7 +855,7 @@ define internal noundef i64 @float8_lerp(i64 noundef %0, i64 noundef %1, double 
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @percentile_cont_interval_final(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i64 @percentile_cont_final_common(ptr noundef %0, ptr noundef nonnull @interval_lerp)
+  %2 = tail call fastcc i64 @percentile_cont_final_common.argelim(ptr noundef %0, ptr noundef nonnull @interval_lerp)
   ret i64 %2
 }
 
@@ -1210,12 +1210,12 @@ declare ptr @construct_md_array(ptr noundef, ptr noundef, i32 noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @percentile_cont_float8_multi_final(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i64 @percentile_cont_multi_final_common(ptr noundef %0, i32 noundef 701, i16 noundef signext 8, i1 noundef zeroext true, ptr noundef nonnull @float8_lerp)
+  %2 = tail call fastcc i64 @percentile_cont_multi_final_common.argelim(ptr noundef %0, i32 noundef 701, i16 noundef signext 8, i1 noundef zeroext true, ptr noundef nonnull @float8_lerp)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture noundef %0, i32 noundef range(i32 701, 1187) %1, i16 noundef signext range(i16 8, 17) %2, i1 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i64 @percentile_cont_multi_final_common.argelim(ptr nocapture noundef %0, i32 noundef range(i32 701, 1187) %1, i16 noundef signext range(i16 8, 17) %2, i1 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1467,7 +1467,7 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @percentile_cont_interval_multi_final(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i64 @percentile_cont_multi_final_common(ptr noundef %0, i32 noundef 1186, i16 noundef signext 16, i1 noundef zeroext false, ptr noundef nonnull @interval_lerp)
+  %2 = tail call fastcc i64 @percentile_cont_multi_final_common.argelim(ptr noundef %0, i32 noundef 1186, i16 noundef signext 16, i1 noundef zeroext false, ptr noundef nonnull @interval_lerp)
   ret i64 %2
 }
 

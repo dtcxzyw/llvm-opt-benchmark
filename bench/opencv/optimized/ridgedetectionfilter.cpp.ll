@@ -1101,5 +1101,5 @@ attributes #13 = { builtin nounwind }
 !7 = !{!8, !10}
 !8 = distinct !{!8, !9, !"_ZSt11make_sharedIN2cv8ximgproc24RidgeDetectionFilterImplEJRKiS4_S4_S4_S4_RKdS6_S4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
 !9 = distinct !{!9, !"_ZSt11make_sharedIN2cv8ximgproc24RidgeDetectionFilterImplEJRKiS4_S4_S4_S4_RKdS6_S4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
-!10 = distinct !{!10, !11, !"_ZN2cvL7makePtrINS_8ximgproc24RidgeDetectionFilterImplEJiiiiiddiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!11 = distinct !{!11, !"_ZN2cvL7makePtrINS_8ximgproc24RidgeDetectionFilterImplEJiiiiiddiEEENS_3PtrIT_EEDpRKT0_"}
+!10 = distinct !{!10, !11, !"_ZN2cvL7makePtrINS_8ximgproc24RidgeDetectionFilterImplEJiiiiiddiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!11 = distinct !{!11, !"_ZN2cvL7makePtrINS_8ximgproc24RidgeDetectionFilterImplEJiiiiiddiEEENS_3PtrIT_EEDpRKT0_.argprom"}

@@ -10306,7 +10306,7 @@ entry:
 
 do.end:                                           ; preds = %entry
   %sub = sub i64 %offset, %buflen
-  call fastcc void @nfaExecLimEx384_Rev_Stream(ptr noundef nonnull %add.ptr, ptr noundef %buf, i64 noundef %buflen, ptr noundef %ctx, i64 noundef %sub)
+  call fastcc void @nfaExecLimEx384_Rev_Stream.retelim(ptr noundef nonnull %add.ptr, ptr noundef %buf, i64 noundef %buflen, ptr noundef %ctx, i64 noundef %sub)
   br label %if.end
 
 if.end:                                           ; preds = %do.end, %entry
@@ -10316,7 +10316,7 @@ if.end:                                           ; preds = %do.end, %entry
 
 do.end6:                                          ; preds = %if.end
   %sub7 = sub i64 %offset.addr.0, %hlen
-  call fastcc void @nfaExecLimEx384_Rev_Stream(ptr noundef nonnull %add.ptr, ptr noundef %hbuf, i64 noundef %hlen, ptr noundef %ctx, i64 noundef %sub7)
+  call fastcc void @nfaExecLimEx384_Rev_Stream.retelim(ptr noundef nonnull %add.ptr, ptr noundef %hbuf, i64 noundef %hlen, ptr noundef %ctx, i64 noundef %sub7)
   br label %if.end9
 
 if.end9:                                          ; preds = %do.end6, %if.end
@@ -10577,7 +10577,7 @@ if.end20:                                         ; preds = %moProcessAcceptsNoS
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nfaExecLimEx384_Rev_Stream(ptr noundef %limex, ptr nocapture noundef readonly %input, i64 noundef range(i64 1, 0) %length, ptr nocapture noundef nonnull %ctx, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc void @nfaExecLimEx384_Rev_Stream.retelim(ptr noundef %limex, ptr nocapture noundef readonly %input, i64 noundef range(i64 1, 0) %length, ptr nocapture noundef nonnull %ctx, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %chunks.i.i = alloca [6 x i64], align 16
   %mask_chunks.i.i = alloca [6 x i64], align 16

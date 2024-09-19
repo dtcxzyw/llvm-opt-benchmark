@@ -179,7 +179,7 @@ opal_obj_new.exit.thread289:                      ; preds = %.lr.ph.i.i, %13
 
 22:                                               ; preds = %opal_obj_new.exit.thread289
   %23 = getelementptr inbounds i8, ptr %0, i64 592
-  tail call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 0, ptr noundef nonnull %23)
+  tail call fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef 0, ptr noundef nonnull %23)
   %24 = getelementptr inbounds i8, ptr %0, i64 1032
   store ptr null, ptr %24, align 8
   %25 = load i32, ptr %23, align 8
@@ -205,7 +205,7 @@ select.unfold:                                    ; preds = %22
 
 30:                                               ; preds = %27, %.thread, %select.unfold
   %31 = getelementptr inbounds i8, ptr %0, i64 612
-  tail call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 1, ptr noundef nonnull %31)
+  tail call fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef 1, ptr noundef nonnull %31)
   %32 = getelementptr inbounds i8, ptr %0, i64 1040
   store ptr null, ptr %32, align 8
   %33 = load i32, ptr %31, align 4
@@ -231,7 +231,7 @@ select.unfold291:                                 ; preds = %30
 
 38:                                               ; preds = %35, %.thread292, %select.unfold291
   %39 = getelementptr inbounds i8, ptr %0, i64 632
-  tail call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 2, ptr noundef nonnull %39)
+  tail call fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef 2, ptr noundef nonnull %39)
   %40 = getelementptr inbounds i8, ptr %0, i64 1048
   store ptr null, ptr %40, align 8
   %41 = load i32, ptr %39, align 8
@@ -257,7 +257,7 @@ select.unfold294:                                 ; preds = %38
 
 46:                                               ; preds = %43, %.thread295, %select.unfold294
   %47 = getelementptr inbounds i8, ptr %0, i64 652
-  tail call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 3, ptr noundef nonnull %47)
+  tail call fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef 3, ptr noundef nonnull %47)
   %48 = getelementptr inbounds i8, ptr %0, i64 1056
   store ptr null, ptr %48, align 8
   %49 = load i32, ptr %47, align 4
@@ -283,7 +283,7 @@ select.unfold297:                                 ; preds = %46
 
 54:                                               ; preds = %51, %.thread298, %select.unfold297
   %55 = getelementptr inbounds i8, ptr %0, i64 672
-  tail call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 4, ptr noundef nonnull %55)
+  tail call fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef 4, ptr noundef nonnull %55)
   %56 = getelementptr inbounds i8, ptr %0, i64 1064
   store ptr null, ptr %56, align 8
   %57 = load i32, ptr %55, align 8
@@ -309,7 +309,7 @@ select.unfold300:                                 ; preds = %54
 
 62:                                               ; preds = %59, %.thread301, %select.unfold300
   %63 = getelementptr inbounds i8, ptr %0, i64 692
-  tail call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 5, ptr noundef nonnull %63)
+  tail call fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef 5, ptr noundef nonnull %63)
   %64 = getelementptr inbounds i8, ptr %0, i64 1072
   store ptr null, ptr %64, align 8
   %65 = load i32, ptr %63, align 4
@@ -384,7 +384,7 @@ select.unfold308:                                 ; preds = %75
 
 select.unfold308.thread:                          ; preds = %.thread374, %81, %.thread309, %select.unfold308
   %87 = getelementptr inbounds i8, ptr %0, i64 732
-  call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 7, ptr noundef nonnull %87)
+  call fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef 7, ptr noundef nonnull %87)
   %88 = getelementptr inbounds i8, ptr %0, i64 1088
   store ptr null, ptr %88, align 8
   %89 = load i32, ptr %87, align 4
@@ -410,7 +410,7 @@ select.unfold311:                                 ; preds = %select.unfold308.th
 
 94:                                               ; preds = %91, %.thread312, %select.unfold311
   %95 = getelementptr inbounds i8, ptr %0, i64 752
-  call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 8, ptr noundef nonnull %95)
+  call fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef 8, ptr noundef nonnull %95)
   %96 = getelementptr inbounds i8, ptr %0, i64 1096
   store ptr null, ptr %96, align 8
   %97 = load i32, ptr %95, align 8
@@ -436,7 +436,7 @@ select.unfold314:                                 ; preds = %94
 
 102:                                              ; preds = %99, %.thread315, %select.unfold314
   %103 = getelementptr inbounds i8, ptr %0, i64 772
-  call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 9, ptr noundef nonnull %103)
+  call fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef 9, ptr noundef nonnull %103)
   %104 = getelementptr inbounds i8, ptr %0, i64 1104
   store ptr null, ptr %104, align 8
   %105 = load i32, ptr %103, align 4
@@ -462,7 +462,7 @@ select.unfold317:                                 ; preds = %102
 
 110:                                              ; preds = %107, %.thread318, %select.unfold317
   %111 = getelementptr inbounds i8, ptr %0, i64 792
-  call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 10, ptr noundef nonnull %111)
+  call fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef 10, ptr noundef nonnull %111)
   %112 = getelementptr inbounds i8, ptr %0, i64 1112
   store ptr null, ptr %112, align 8
   %113 = load i32, ptr %111, align 8
@@ -488,7 +488,7 @@ select.unfold320:                                 ; preds = %110
 
 118:                                              ; preds = %115, %.thread321, %select.unfold320
   %119 = getelementptr inbounds i8, ptr %0, i64 812
-  call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 11, ptr noundef nonnull %119)
+  call fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef 11, ptr noundef nonnull %119)
   %120 = getelementptr inbounds i8, ptr %0, i64 1120
   store ptr null, ptr %120, align 8
   %121 = load i32, ptr %119, align 4
@@ -514,7 +514,7 @@ select.unfold323:                                 ; preds = %118
 
 126:                                              ; preds = %123, %.thread324, %select.unfold323
   %127 = getelementptr inbounds i8, ptr %0, i64 832
-  call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 12, ptr noundef nonnull %127)
+  call fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef 12, ptr noundef nonnull %127)
   %128 = getelementptr inbounds i8, ptr %0, i64 1128
   store ptr null, ptr %128, align 8
   %129 = load i32, ptr %127, align 8
@@ -540,7 +540,7 @@ select.unfold326:                                 ; preds = %126
 
 134:                                              ; preds = %131, %.thread327, %select.unfold326
   %135 = getelementptr inbounds i8, ptr %0, i64 852
-  call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 13, ptr noundef nonnull %135)
+  call fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef 13, ptr noundef nonnull %135)
   %136 = getelementptr inbounds i8, ptr %0, i64 1136
   store ptr null, ptr %136, align 8
   %137 = load i32, ptr %135, align 4
@@ -566,7 +566,7 @@ select.unfold329:                                 ; preds = %134
 
 142:                                              ; preds = %139, %.thread330, %select.unfold329
   %143 = getelementptr inbounds i8, ptr %0, i64 872
-  call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 14, ptr noundef nonnull %143)
+  call fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef 14, ptr noundef nonnull %143)
   %144 = getelementptr inbounds i8, ptr %0, i64 1144
   store ptr null, ptr %144, align 8
   %145 = load i32, ptr %143, align 8
@@ -592,7 +592,7 @@ select.unfold332:                                 ; preds = %142
 
 150:                                              ; preds = %147, %.thread333, %select.unfold332
   %151 = getelementptr inbounds i8, ptr %0, i64 892
-  call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 15, ptr noundef nonnull %151)
+  call fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef 15, ptr noundef nonnull %151)
   %152 = getelementptr inbounds i8, ptr %0, i64 1152
   store ptr null, ptr %152, align 8
   %153 = load i32, ptr %151, align 4
@@ -618,7 +618,7 @@ select.unfold335:                                 ; preds = %150
 
 158:                                              ; preds = %155, %.thread336, %select.unfold335
   %159 = getelementptr inbounds i8, ptr %0, i64 912
-  call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 16, ptr noundef nonnull %159)
+  call fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef 16, ptr noundef nonnull %159)
   %160 = getelementptr inbounds i8, ptr %0, i64 1160
   store ptr null, ptr %160, align 8
   %161 = load i32, ptr %159, align 8
@@ -698,7 +698,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #1 {
+define internal fastcc void @ompi_coll_tuned_forced_getvalues.retelim(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = zext i32 %0 to i64

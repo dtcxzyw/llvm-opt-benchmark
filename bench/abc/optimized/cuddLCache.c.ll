@@ -680,7 +680,7 @@ define range(i32 0, 2) i32 @cuddHashTableInsert(ptr nocapture noundef %0, ptr no
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
-  tail call fastcc void @cuddHashTableResize(ptr noundef nonnull %0)
+  tail call fastcc void @cuddHashTableResize.retelim(ptr noundef nonnull %0)
   br label %11
 
 11:                                               ; preds = %10, %4
@@ -780,7 +780,7 @@ ddLCHash.exit:                                    ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cuddHashTableResize(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @cuddHashTableResize.retelim(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1318,7 +1318,7 @@ define range(i32 0, 2) i32 @cuddHashTableInsert1(ptr nocapture noundef %0, ptr n
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
-  tail call fastcc void @cuddHashTableResize(ptr noundef nonnull %0)
+  tail call fastcc void @cuddHashTableResize.retelim(ptr noundef nonnull %0)
   br label %11
 
 11:                                               ; preds = %10, %4
@@ -1461,7 +1461,7 @@ define range(i32 0, 2) i32 @cuddHashTableInsert2(ptr nocapture noundef %0, ptr n
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %5
-  tail call fastcc void @cuddHashTableResize(ptr noundef nonnull %0)
+  tail call fastcc void @cuddHashTableResize.retelim(ptr noundef nonnull %0)
   br label %12
 
 12:                                               ; preds = %11, %5
@@ -1636,7 +1636,7 @@ define range(i32 0, 2) i32 @cuddHashTableInsert3(ptr nocapture noundef %0, ptr n
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @cuddHashTableResize(ptr noundef nonnull %0)
+  tail call fastcc void @cuddHashTableResize.retelim(ptr noundef nonnull %0)
   br label %13
 
 13:                                               ; preds = %12, %6

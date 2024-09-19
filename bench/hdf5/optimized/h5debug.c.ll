@@ -126,9 +126,9 @@ target triple = "x86_64-pc-linux-gnu"
 @H5FA_CLS_CHUNK = external constant [1 x %struct.H5FA_class_t], align 16
 @H5FA_CLS_FILT_CHUNK = external constant [1 x %struct.H5FA_class_t], align 16
 @.str.96 = private unnamed_addr constant [30 x i8] c"Unknown fixed array class %u\0A\00", align 1
-@switch.table.get_H5B2_class = private unnamed_addr constant [13 x ptr] [ptr @H5B2_TEST, ptr @H5HF_HUGE_BT2_INDIR, ptr @H5HF_HUGE_BT2_FILT_INDIR, ptr @H5HF_HUGE_BT2_DIR, ptr @H5HF_HUGE_BT2_FILT_DIR, ptr @H5G_BT2_NAME, ptr @H5G_BT2_CORDER, ptr @H5SM_INDEX, ptr @H5A_BT2_NAME, ptr @H5A_BT2_CORDER, ptr @H5D_BT2, ptr @H5D_BT2_FILT, ptr @H5B2_TEST2], align 8
-@switch.table.get_H5EA_class = private unnamed_addr constant [3 x ptr] [ptr @H5EA_CLS_CHUNK, ptr @H5EA_CLS_FILT_CHUNK, ptr @H5EA_CLS_TEST], align 8
-@switch.table.get_H5FA_class = private unnamed_addr constant [3 x ptr] [ptr @H5FA_CLS_CHUNK, ptr @H5FA_CLS_FILT_CHUNK, ptr @H5FA_CLS_TEST], align 8
+@switch.table.get_H5B2_class.argprom = private unnamed_addr constant [13 x ptr] [ptr @H5B2_TEST, ptr @H5HF_HUGE_BT2_INDIR, ptr @H5HF_HUGE_BT2_FILT_INDIR, ptr @H5HF_HUGE_BT2_DIR, ptr @H5HF_HUGE_BT2_FILT_DIR, ptr @H5G_BT2_NAME, ptr @H5G_BT2_CORDER, ptr @H5SM_INDEX, ptr @H5A_BT2_NAME, ptr @H5A_BT2_CORDER, ptr @H5D_BT2, ptr @H5D_BT2_FILT, ptr @H5B2_TEST2], align 8
+@switch.table.get_H5EA_class.argprom = private unnamed_addr constant [3 x ptr] [ptr @H5EA_CLS_CHUNK, ptr @H5EA_CLS_FILT_CHUNK, ptr @H5EA_CLS_TEST], align 8
+@switch.table.get_H5FA_class.argprom = private unnamed_addr constant [3 x ptr] [ptr @H5FA_CLS_CHUNK, ptr @H5FA_CLS_FILT_CHUNK, ptr @H5FA_CLS_TEST], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
@@ -475,7 +475,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
 182:                                              ; preds = %181
   %183 = getelementptr inbounds i8, ptr %4, i64 5
   %.val = load i8, ptr %183, align 1
-  %184 = call fastcc ptr @get_H5B2_class(i8 %.val)
+  %184 = call fastcc ptr @get_H5B2_class.argprom(i8 %.val)
   %185 = icmp eq ptr %184, @H5D_BT2
   %186 = icmp eq ptr %184, @H5D_BT2_FILT
   %or.cond10 = or i1 %185, %186
@@ -507,7 +507,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
 199:                                              ; preds = %198
   %200 = getelementptr inbounds i8, ptr %4, i64 5
   %.val334 = load i8, ptr %200, align 1
-  %201 = call fastcc ptr @get_H5B2_class(i8 %.val334)
+  %201 = call fastcc ptr @get_H5B2_class.argprom(i8 %.val334)
   %202 = icmp eq ptr %201, @H5D_BT2
   %203 = icmp eq ptr %201, @H5D_BT2_FILT
   %or.cond15 = or i1 %202, %203
@@ -588,7 +588,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
 247:                                              ; preds = %246
   %248 = getelementptr inbounds i8, ptr %4, i64 5
   %.val335 = load i8, ptr %248, align 1
-  %249 = call fastcc ptr @get_H5B2_class(i8 %.val335)
+  %249 = call fastcc ptr @get_H5B2_class.argprom(i8 %.val335)
   %250 = icmp eq ptr %249, @H5D_BT2
   %251 = icmp eq ptr %249, @H5D_BT2_FILT
   %or.cond38 = or i1 %250, %251
@@ -798,7 +798,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
 363:                                              ; preds = %362
   %364 = getelementptr inbounds i8, ptr %4, i64 5
   %.val336 = load i8, ptr %364, align 1
-  %365 = call fastcc ptr @get_H5EA_class(i8 %.val336)
+  %365 = call fastcc ptr @get_H5EA_class.argprom(i8 %.val336)
   %366 = load i64, ptr %3, align 16
   %367 = icmp eq i64 %366, 0
   %or.cond77 = select i1 %.0243, i1 true, i1 %367
@@ -826,7 +826,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
 379:                                              ; preds = %378
   %380 = getelementptr inbounds i8, ptr %4, i64 5
   %.val337 = load i8, ptr %380, align 1
-  %381 = call fastcc ptr @get_H5EA_class(i8 %.val337)
+  %381 = call fastcc ptr @get_H5EA_class.argprom(i8 %.val337)
   %382 = load i64, ptr %3, align 16
   %383 = icmp eq i64 %382, 0
   %or.cond80 = select i1 %.0243, i1 true, i1 %383
@@ -858,7 +858,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
 398:                                              ; preds = %397
   %399 = getelementptr inbounds i8, ptr %4, i64 5
   %.val338 = load i8, ptr %399, align 1
-  %400 = call fastcc ptr @get_H5EA_class(i8 %.val338)
+  %400 = call fastcc ptr @get_H5EA_class.argprom(i8 %.val338)
   %401 = load i64, ptr %3, align 16
   %402 = icmp eq i64 %401, 0
   %or.cond86 = select i1 %.0243, i1 true, i1 %402
@@ -895,7 +895,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
 421:                                              ; preds = %420
   %422 = getelementptr inbounds i8, ptr %4, i64 5
   %.val339 = load i8, ptr %422, align 1
-  %423 = call fastcc ptr @get_H5EA_class(i8 %.val339)
+  %423 = call fastcc ptr @get_H5EA_class.argprom(i8 %.val339)
   %424 = load i64, ptr %3, align 16
   %425 = icmp eq i64 %424, 0
   %or.cond95 = select i1 %.0243, i1 true, i1 %425
@@ -931,7 +931,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
 443:                                              ; preds = %442
   %444 = getelementptr inbounds i8, ptr %4, i64 5
   %.val340 = load i8, ptr %444, align 1
-  %445 = call fastcc ptr @get_H5FA_class(i8 %.val340)
+  %445 = call fastcc ptr @get_H5FA_class.argprom(i8 %.val340)
   %446 = load i64, ptr %3, align 16
   %447 = icmp eq i64 %446, 0
   %or.cond104 = select i1 %.0243, i1 true, i1 %447
@@ -959,7 +959,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
 459:                                              ; preds = %458
   %460 = getelementptr inbounds i8, ptr %4, i64 5
   %.val341 = load i8, ptr %460, align 1
-  %461 = call fastcc ptr @get_H5FA_class(i8 %.val341)
+  %461 = call fastcc ptr @get_H5FA_class.argprom(i8 %.val341)
   %462 = load i64, ptr %3, align 16
   %463 = icmp eq i64 %462, 0
   %or.cond107 = select i1 %.0243, i1 true, i1 %463
@@ -1143,7 +1143,7 @@ declare i32 @H5G_node_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, 
 declare i32 @H5D_btree_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @get_H5B2_class(i8 %.5.val) unnamed_addr #6 {
+define internal fastcc noundef ptr @get_H5B2_class.argprom(i8 %.5.val) unnamed_addr #6 {
   %1 = icmp ult i8 %.5.val, 13
   br i1 %1, label %switch.lookup, label %2
 
@@ -1155,7 +1155,7 @@ define internal fastcc noundef ptr @get_H5B2_class(i8 %.5.val) unnamed_addr #6 {
 
 switch.lookup:                                    ; preds = %0
   %6 = zext nneg i8 %.5.val to i64
-  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table.get_H5B2_class, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table.get_H5B2_class.argprom, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 
@@ -1185,7 +1185,7 @@ declare i32 @H5SM_table_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef
 declare i32 @H5SM_list_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @get_H5EA_class(i8 %.5.val) unnamed_addr #6 {
+define internal fastcc noundef ptr @get_H5EA_class.argprom(i8 %.5.val) unnamed_addr #6 {
   %1 = icmp ult i8 %.5.val, 3
   br i1 %1, label %switch.lookup, label %2
 
@@ -1197,7 +1197,7 @@ define internal fastcc noundef ptr @get_H5EA_class(i8 %.5.val) unnamed_addr #6 {
 
 switch.lookup:                                    ; preds = %0
   %6 = zext nneg i8 %.5.val to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.get_H5EA_class, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.get_H5EA_class.argprom, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 
@@ -1215,7 +1215,7 @@ declare i32 @H5EA__sblock_debug(ptr noundef, i64 noundef, ptr noundef, i32 nound
 declare i32 @H5EA__dblock_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @get_H5FA_class(i8 %.5.val) unnamed_addr #6 {
+define internal fastcc noundef ptr @get_H5FA_class.argprom(i8 %.5.val) unnamed_addr #6 {
   %1 = icmp ult i8 %.5.val, 3
   br i1 %1, label %switch.lookup, label %2
 
@@ -1227,7 +1227,7 @@ define internal fastcc noundef ptr @get_H5FA_class(i8 %.5.val) unnamed_addr #6 {
 
 switch.lookup:                                    ; preds = %0
   %6 = zext nneg i8 %.5.val to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.get_H5FA_class, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.get_H5FA_class.argprom, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 

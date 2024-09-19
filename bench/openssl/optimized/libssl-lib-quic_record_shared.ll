@@ -225,7 +225,7 @@ if.end49:                                         ; preds = %if.then43, %if.end4
   br i1 %tobool59.not, label %err, label %if.end61
 
 if.end61:                                         ; preds = %if.end49
-  %call62 = call fastcc i32 @el_setup_keyslot(ptr noundef %els, i32 noundef %enc_level, i64 noundef %cond, ptr noundef %secret, i64 noundef %secret_len)
+  %call62 = call fastcc i32 @el_setup_keyslot.argelim(ptr noundef %els, i32 noundef %enc_level, i64 noundef %cond, ptr noundef %secret, i64 noundef %secret_len)
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %err, label %if.end65
 
@@ -245,7 +245,7 @@ if.end79:                                         ; preds = %if.then68
 
 if.then81:                                        ; preds = %if.end79
   %lnot.ext = xor i64 %conv, 1
-  %call85 = call fastcc i32 @el_setup_keyslot(ptr noundef %els, i32 noundef 3, i64 noundef %lnot.ext, ptr noundef nonnull %ku_key, i64 noundef %secret_len)
+  %call85 = call fastcc i32 @el_setup_keyslot.argelim(ptr noundef %els, i32 noundef 3, i64 noundef %lnot.ext, ptr noundef nonnull %ku_key, i64 noundef %secret_len)
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %err, label %if.end88
 
@@ -501,7 +501,7 @@ declare i32 @ossl_qrl_get_suite_cipher_tag_len(i32 noundef) local_unnamed_addr #
 declare i32 @tls13_hkdf_expand_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @el_setup_keyslot(ptr noundef %els, i32 noundef %enc_level, i64 noundef range(i64 0, 2) %keyslot, ptr noundef %secret, i64 noundef %secret_len) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @el_setup_keyslot.argelim(ptr noundef %els, i32 noundef %enc_level, i64 noundef range(i64 0, 2) %keyslot, ptr noundef %secret, i64 noundef %secret_len) unnamed_addr #1 {
 entry:
   %key = alloca [64 x i8], align 16
   %cmp.i = icmp ult i32 %enc_level, 4
@@ -745,7 +745,7 @@ if.end7.i:                                        ; preds = %if.then2.i, %if.end
   br label %el_teardown_keyslot.exit
 
 el_teardown_keyslot.exit:                         ; preds = %if.end21, %sw.bb9.i.i, %if.end7.i
-  %call24 = call fastcc i32 @el_setup_keyslot(ptr noundef nonnull %els, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ku, i64 noundef %conv16)
+  %call24 = call fastcc i32 @el_setup_keyslot.argelim(ptr noundef nonnull %els, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ku, i64 noundef %conv16)
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %return, label %if.end27
 
@@ -900,7 +900,7 @@ if.end18:                                         ; preds = %if.end12
   %not = and i64 %3, 1
   %and = xor i64 %not, 1
   %ku = getelementptr inbounds i8, ptr %arrayidx.i, i64 138
-  %call21 = tail call fastcc i32 @el_setup_keyslot(ptr noundef nonnull %els, i32 noundef 3, i64 noundef %and, ptr noundef nonnull %ku, i64 noundef %conv20)
+  %call21 = tail call fastcc i32 @el_setup_keyslot.argelim(ptr noundef nonnull %els, i32 noundef 3, i64 noundef %and, ptr noundef nonnull %ku, i64 noundef %conv20)
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %return, label %if.end24
 

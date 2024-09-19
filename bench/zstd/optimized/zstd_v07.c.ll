@@ -2053,7 +2053,7 @@ if.end:                                           ; preds = %BITv07_initDStream.
   %conv = and i32 %dtd.sroa.1.0.extract.shift, 255
   %add.ptr1 = getelementptr inbounds i8, ptr %DTable, i64 4
   %add.ptr = getelementptr inbounds i8, ptr %dst, i64 %dstSize
-  call fastcc void @HUFv07_decodeStreamX2(ptr noundef %dst, ptr noundef %bitD, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr1, i32 noundef %conv)
+  call fastcc void @HUFv07_decodeStreamX2.retelim(ptr noundef %dst, ptr noundef %bitD, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr1, i32 noundef %conv)
   %ptr.i5 = getelementptr inbounds i8, ptr %bitD, i64 16
   %19 = load ptr, ptr %ptr.i5, align 8
   %20 = load ptr, ptr %start.i, align 8
@@ -3020,10 +3020,10 @@ for.end:                                          ; preds = %for.cond.for.end_cr
   br i1 %or.cond96, label %return, label %if.end157
 
 if.end157:                                        ; preds = %for.end
-  call fastcc void @HUFv07_decodeStreamX2(ptr noundef %op1.0.lcssa, ptr noundef %bitD1, ptr noundef %add.ptr15, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
-  call fastcc void @HUFv07_decodeStreamX2(ptr noundef %op2.0.lcssa, ptr noundef %bitD2, ptr noundef %add.ptr16, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
-  call fastcc void @HUFv07_decodeStreamX2(ptr noundef %op3.0.lcssa, ptr noundef %bitD3, ptr noundef %add.ptr17, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
-  call fastcc void @HUFv07_decodeStreamX2(ptr noundef %op4.0.lcssa, ptr noundef %bitD4, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
+  call fastcc void @HUFv07_decodeStreamX2.retelim(ptr noundef %op1.0.lcssa, ptr noundef %bitD1, ptr noundef %add.ptr15, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
+  call fastcc void @HUFv07_decodeStreamX2.retelim(ptr noundef %op2.0.lcssa, ptr noundef %bitD2, ptr noundef %add.ptr16, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
+  call fastcc void @HUFv07_decodeStreamX2.retelim(ptr noundef %op3.0.lcssa, ptr noundef %bitD3, ptr noundef %add.ptr17, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
+  call fastcc void @HUFv07_decodeStreamX2.retelim(ptr noundef %op4.0.lcssa, ptr noundef %bitD4, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
   %ptr.i550 = getelementptr inbounds i8, ptr %bitD1, i64 16
   %96 = load ptr, ptr %ptr.i550, align 8
   %97 = load ptr, ptr %start.i, align 8
@@ -3593,7 +3593,7 @@ if.end:                                           ; preds = %BITv07_initDStream.
   %DTable.val = load i32, ptr %DTable, align 4
   %dtd.sroa.1.0.extract.shift = lshr i32 %DTable.val, 16
   %conv = and i32 %dtd.sroa.1.0.extract.shift, 255
-  call fastcc void @HUFv07_decodeStreamX4(ptr noundef %dst, ptr noundef %bitD, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr2, i32 noundef %conv)
+  call fastcc void @HUFv07_decodeStreamX4.retelim(ptr noundef %dst, ptr noundef %bitD, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr2, i32 noundef %conv)
   %ptr.i5 = getelementptr inbounds i8, ptr %bitD, i64 16
   %19 = load ptr, ptr %ptr.i5, align 8
   %20 = load ptr, ptr %start.i, align 8
@@ -4608,10 +4608,10 @@ for.end:                                          ; preds = %for.cond.for.end_cr
   br i1 %or.cond111, label %return, label %if.end173
 
 if.end173:                                        ; preds = %for.end
-  call fastcc void @HUFv07_decodeStreamX4(ptr noundef %op1.0.lcssa, ptr noundef %bitD1, ptr noundef %add.ptr15, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
-  call fastcc void @HUFv07_decodeStreamX4(ptr noundef %op2.0.lcssa, ptr noundef %bitD2, ptr noundef %add.ptr16, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
-  call fastcc void @HUFv07_decodeStreamX4(ptr noundef %op3.0.lcssa, ptr noundef %bitD3, ptr noundef %add.ptr17, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
-  call fastcc void @HUFv07_decodeStreamX4(ptr noundef %op4.0.lcssa, ptr noundef %bitD4, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
+  call fastcc void @HUFv07_decodeStreamX4.retelim(ptr noundef %op1.0.lcssa, ptr noundef %bitD1, ptr noundef %add.ptr15, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
+  call fastcc void @HUFv07_decodeStreamX4.retelim(ptr noundef %op2.0.lcssa, ptr noundef %bitD2, ptr noundef %add.ptr16, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
+  call fastcc void @HUFv07_decodeStreamX4.retelim(ptr noundef %op3.0.lcssa, ptr noundef %bitD3, ptr noundef %add.ptr17, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
+  call fastcc void @HUFv07_decodeStreamX4.retelim(ptr noundef %op4.0.lcssa, ptr noundef %bitD4, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr1, i32 noundef %conv19)
   %ptr.i595 = getelementptr inbounds i8, ptr %bitD1, i64 16
   %112 = load ptr, ptr %ptr.i595, align 8
   %113 = load ptr, ptr %start.i, align 8
@@ -9240,7 +9240,7 @@ return:                                           ; preds = %if.then15, %entry, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @HUFv07_decodeStreamX2(ptr noundef %p, ptr nocapture noundef nonnull %bitDPtr, ptr noundef %pEnd, ptr nocapture noundef readonly %dt, i32 noundef range(i32 0, 256) %dtLog) unnamed_addr #11 {
+define internal fastcc void @HUFv07_decodeStreamX2.retelim(ptr noundef %p, ptr nocapture noundef nonnull %bitDPtr, ptr noundef %pEnd, ptr nocapture noundef readonly %dt, i32 noundef range(i32 0, 256) %dtLog) unnamed_addr #11 {
 entry:
   %bitsConsumed.i = getelementptr inbounds i8, ptr %bitDPtr, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %pEnd, i64 -4
@@ -9483,7 +9483,7 @@ while.end33:                                      ; preds = %while.body30, %BITv
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @HUFv07_decodeStreamX4(ptr noundef %p, ptr nocapture noundef nonnull %bitDPtr, ptr noundef readnone %pEnd, ptr nocapture noundef readonly %dt, i32 noundef range(i32 0, 256) %dtLog) unnamed_addr #11 {
+define internal fastcc void @HUFv07_decodeStreamX4.retelim(ptr noundef %p, ptr nocapture noundef nonnull %bitDPtr, ptr noundef readnone %pEnd, ptr nocapture noundef readonly %dt, i32 noundef range(i32 0, 256) %dtLog) unnamed_addr #11 {
 entry:
   %bitsConsumed.i = getelementptr inbounds i8, ptr %bitDPtr, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %pEnd, i64 -7

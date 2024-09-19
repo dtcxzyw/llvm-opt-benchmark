@@ -79,15 +79,15 @@ cond.end:                                         ; preds = %if.then2, %cond.tru
   %reconnect5.i = getelementptr inbounds i8, ptr %call1.i, i64 70076
   store i32 %cond, ptr %reconnect5.i, align 4
   %tobool.not.i = icmp eq i32 %cond, 0
-  br i1 %tobool.not.i, label %net_stream_client_init.exit, label %if.then.i
+  br i1 %tobool.not.i, label %net_stream_client_init.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.end
   %call6.i = tail call ptr @qapi_clone(ptr noundef %3, ptr noundef nonnull @visit_type_SocketAddress) #6
   %addr7.i = getelementptr inbounds i8, ptr %call1.i, i64 70088
   store ptr %call6.i, ptr %addr7.i, align 8
-  br label %net_stream_client_init.exit
+  br label %net_stream_client_init.argprom.exit
 
-net_stream_client_init.exit:                      ; preds = %cond.end, %if.then.i
+net_stream_client_init.argprom.exit:              ; preds = %cond.end, %if.then.i
   tail call void @qio_channel_socket_connect_async(ptr noundef %call.i, ptr noundef %3, ptr noundef nonnull @net_stream_client_connected, ptr noundef nonnull %call1.i, ptr noundef null, ptr noundef null) #6
   br label %return
 
@@ -111,8 +111,8 @@ if.end8:                                          ; preds = %if.end4
   tail call void @qio_channel_socket_listen_async(ptr noundef %call.i12, ptr noundef %7, i32 noundef 0, ptr noundef nonnull @net_stream_server_listening, ptr noundef %call1.i13, ptr noundef null, ptr noundef null) #6
   br label %return
 
-return:                                           ; preds = %if.end8, %if.then7, %net_stream_client_init.exit
-  %retval.0 = phi i32 [ -1, %if.then7 ], [ 0, %if.end8 ], [ 0, %net_stream_client_init.exit ]
+return:                                           ; preds = %if.end8, %if.then7, %net_stream_client_init.argprom.exit
+  %retval.0 = phi i32 [ -1, %if.then7 ], [ 0, %if.end8 ], [ 0, %net_stream_client_init.argprom.exit ]
   ret i32 %retval.0
 }
 

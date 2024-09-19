@@ -5124,12 +5124,12 @@ _ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i.i.i: ; preds = %_ZN5QLi
 _ZN5QListI11QModelIndexED2Ev.exit.i.i.i:          ; preds = %118, %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i.i.i, %_ZN5QListI7QStringED2Ev.exit.i.i.i
   %120 = load ptr, ptr %6, align 8
   %.not.i.i.i25.i.i.i = icmp eq ptr %120, null
-  br i1 %.not.i.i.i25.i.i.i, label %"_ZN9QtPrivate7FunctorIZN14InterfaceFrame15showContextMenuE6QPointE3$_0Li0EE4callINS_4ListIJEEEvEEvRS3_PvPS9_.exit", label %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i26.i.i.i
+  br i1 %.not.i.i.i25.i.i.i, label %"_ZN9QtPrivate7FunctorIZN14InterfaceFrame15showContextMenuE6QPointE3$_0Li0EE4callINS_4ListIJEEEvEEvRS3_PvPS9_.argprom.exit", label %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i26.i.i.i
 
 _ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i26.i.i.i: ; preds = %_ZN5QListI11QModelIndexED2Ev.exit.i.i.i
   %121 = atomicrmw sub ptr %120, i32 1 seq_cst, align 4
   %.not.i.i27.i.i.i = icmp eq i32 %121, 1
-  br i1 %.not.i.i27.i.i.i, label %122, label %"_ZN9QtPrivate7FunctorIZN14InterfaceFrame15showContextMenuE6QPointE3$_0Li0EE4callINS_4ListIJEEEvEEvRS3_PvPS9_.exit"
+  br i1 %.not.i.i27.i.i.i, label %122, label %"_ZN9QtPrivate7FunctorIZN14InterfaceFrame15showContextMenuE6QPointE3$_0Li0EE4callINS_4ListIJEEEvEEvRS3_PvPS9_.argprom.exit"
 
 122:                                              ; preds = %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i26.i.i.i
   %123 = load ptr, ptr %49, align 8
@@ -5163,7 +5163,7 @@ _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i35.i.i.i: ; preds = %128, %_ZN17QArr
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i37.i.i.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i35.i.i.i, %122
   %131 = load ptr, ptr %6, align 8
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %131, i64 noundef 24, i64 noundef 8) #20
-  br label %"_ZN9QtPrivate7FunctorIZN14InterfaceFrame15showContextMenuE6QPointE3$_0Li0EE4callINS_4ListIJEEEvEEvRS3_PvPS9_.exit"
+  br label %"_ZN9QtPrivate7FunctorIZN14InterfaceFrame15showContextMenuE6QPointE3$_0Li0EE4callINS_4ListIJEEEvEEvRS3_PvPS9_.argprom.exit"
 
 132:                                              ; preds = %_ZN5QListI7QStringEC2ERKS1_.exit.i.i.i
   %133 = landingpad { ptr, i32 }
@@ -5192,7 +5192,7 @@ _ZN5QListI11QModelIndexED2Ev.exit42.i.i.i:        ; preds = %136, %_ZN17QArrayDa
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #20
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
-"_ZN9QtPrivate7FunctorIZN14InterfaceFrame15showContextMenuE6QPointE3$_0Li0EE4callINS_4ListIJEEEvEEvRS3_PvPS9_.exit": ; preds = %_ZN5QListI11QModelIndexED2Ev.exit.i.i.i, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i26.i.i.i, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i37.i.i.i
+"_ZN9QtPrivate7FunctorIZN14InterfaceFrame15showContextMenuE6QPointE3$_0Li0EE4callINS_4ListIJEEEvEEvRS3_PvPS9_.argprom.exit": ; preds = %_ZN5QListI11QModelIndexED2Ev.exit.i.i.i, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i26.i.i.i, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i37.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
@@ -5204,7 +5204,7 @@ _ZN5QListI11QModelIndexED2Ev.exit42.i.i.i:        ; preds = %136, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %138
 
-138:                                              ; preds = %15, %17, %"_ZN9QtPrivate7FunctorIZN14InterfaceFrame15showContextMenuE6QPointE3$_0Li0EE4callINS_4ListIJEEEvEEvRS3_PvPS9_.exit", %5
+138:                                              ; preds = %15, %17, %"_ZN9QtPrivate7FunctorIZN14InterfaceFrame15showContextMenuE6QPointE3$_0Li0EE4callINS_4ListIJEEEvEEvRS3_PvPS9_.argprom.exit", %5
   ret void
 }
 

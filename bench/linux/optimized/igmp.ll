@@ -2308,7 +2308,7 @@ define internal void @igmp_gq_timer_expire(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -104
   %3 = getelementptr i8, ptr %0, i64 -7
   store i8 0, ptr %3, align 1
-  tail call fastcc void @igmpv3_send_report(ptr noundef %2, ptr noundef null)
+  tail call fastcc void @igmpv3_send_report.argelim(ptr noundef %2, ptr noundef null)
   %4 = getelementptr i8, ptr %0, i64 -96
   %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 -1, ptr elementtype(i32) %4) #14, !srcloc !8
   %6 = icmp eq i32 %5, 1
@@ -4582,7 +4582,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ip_mc_msfget(ptr nocapture nound
   %99 = getelementptr inbounds i8, ptr %64, i64 24
   %100 = shl i64 %77, 32
   %101 = ashr exact i64 %100, 32
-  %102 = call fastcc i32 @copy_to_sockptr_offset(ptr %2, i8 %3, ptr noundef %99, i64 noundef %101)
+  %102 = call fastcc i32 @copy_to_sockptr_offset.argelim(ptr %2, i8 %3, ptr noundef %99, i64 noundef %101)
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %104, label %.thread10
 
@@ -4596,7 +4596,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ip_mc_msfget(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @copy_to_sockptr_offset(ptr %0, i8 %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3) unnamed_addr #3 align 16 {
+define internal fastcc i32 @copy_to_sockptr_offset.argelim(ptr %0, i8 %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3) unnamed_addr #3 align 16 {
   %5 = and i8 %1, 1
   %6 = icmp eq i8 %5, 0
   %7 = getelementptr i8, ptr %0, i64 16
@@ -5410,7 +5410,7 @@ define internal void @igmp_timer_expire(ptr noundef %0) #0 align 16 {
   br label %94
 
 93:                                               ; preds = %88, %84
-  tail call fastcc void @igmpv3_send_report(ptr noundef %3, ptr noundef %2)
+  tail call fastcc void @igmpv3_send_report.argelim(ptr noundef %3, ptr noundef %2)
   br label %94
 
 94:                                               ; preds = %93, %92, %79
@@ -5487,7 +5487,7 @@ define internal fastcc void @igmp_send_report(ptr noundef %0, ptr noundef %1, i3
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call fastcc void @igmpv3_send_report(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @igmpv3_send_report.argelim(ptr noundef %0, ptr noundef %1)
   br label %126
 
 17:                                               ; preds = %12
@@ -5670,7 +5670,7 @@ declare dso_local i64 @__msecs_to_jiffies(i32 noundef) local_unnamed_addr #2
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @igmpv3_send_report(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @igmpv3_send_report.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 272
   %5 = load ptr, ptr %4, align 8

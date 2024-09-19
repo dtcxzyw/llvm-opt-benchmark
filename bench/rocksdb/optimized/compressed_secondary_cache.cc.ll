@@ -5559,16 +5559,16 @@ declare void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 derefe
 define internal void @"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbEN3$_08__invokeEPvPNS_15MemoryAllocatorE"(ptr noundef %obj, ptr nocapture readnone %0) #2 align 2 {
 entry:
   %cmp.not1.i = icmp eq ptr %obj, null
-  br i1 %cmp.not1.i, label %"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbENK3$_0clEPvPNS_15MemoryAllocatorE.exit", label %while.body.i
+  br i1 %cmp.not1.i, label %"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbENK3$_0clEPvPNS_15MemoryAllocatorE.argprom.exit", label %while.body.i
 
 while.body.i:                                     ; preds = %entry, %while.body.i
   %chunks_head.02.i = phi ptr [ %1, %while.body.i ], [ %obj, %entry ]
   %1 = load ptr, ptr %chunks_head.02.i, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %chunks_head.02.i) #22
   %cmp.not.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i, label %"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbENK3$_0clEPvPNS_15MemoryAllocatorE.exit", label %while.body.i, !llvm.loop !72
+  br i1 %cmp.not.i, label %"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbENK3$_0clEPvPNS_15MemoryAllocatorE.argprom.exit", label %while.body.i, !llvm.loop !72
 
-"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbENK3$_0clEPvPNS_15MemoryAllocatorE.exit": ; preds = %while.body.i, %entry
+"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbENK3$_0clEPvPNS_15MemoryAllocatorE.argprom.exit": ; preds = %while.body.i, %entry
   ret void
 }
 
@@ -5576,7 +5576,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
 define internal void @"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbEN3$_18__invokeEPvPNS_15MemoryAllocatorE"(ptr noundef %obj, ptr nocapture readnone %0) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %isnull.i = icmp eq ptr %obj, null
-  br i1 %isnull.i, label %"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbENK3$_1clEPvPNS_15MemoryAllocatorE.exit", label %delete.notnull.i
+  br i1 %isnull.i, label %"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbENK3$_1clEPvPNS_15MemoryAllocatorE.argprom.exit", label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %obj, i64 8
@@ -5609,9 +5609,9 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
 
 _ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit.i: ; preds = %delete.notnull.i.i.i, %if.then.i.i.i, %delete.notnull.i
   tail call void @_ZdlPv(ptr noundef nonnull %obj) #22
-  br label %"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbENK3$_1clEPvPNS_15MemoryAllocatorE.exit"
+  br label %"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbENK3$_1clEPvPNS_15MemoryAllocatorE.argprom.exit"
 
-"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbENK3$_1clEPvPNS_15MemoryAllocatorE.exit": ; preds = %entry, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit.i
+"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbENK3$_1clEPvPNS_15MemoryAllocatorE.argprom.exit": ; preds = %entry, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit.i
   ret void
 }
 

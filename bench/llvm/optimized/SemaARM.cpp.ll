@@ -7047,7 +7047,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clangL24checkArmStreamingBuiltinE
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %17 = load ptr, ptr %16, align 8
   call void @_ZNK5clang10ASTContext21getFunctionFeatureMapERN4llvm9StringMapIbNS1_15MallocAllocatorEEEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %17, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %2) #18
-  call fastcc void @"_ZZN5clangL24checkArmStreamingBuiltinERNS_4SemaEPNS_8CallExprEPKNS_12FunctionDeclENS_7SemaARM16ArmStreamingTypeEjENK3$_0clERN4llvm9StringMapIbNSA_15MallocAllocatorEEENSA_9StringRefE"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr nonnull @.str.20, i64 3)
+  call fastcc void @"_ZZN5clangL24checkArmStreamingBuiltinERNS_4SemaEPNS_8CallExprEPKNS_12FunctionDeclENS_7SemaARM16ArmStreamingTypeEjENK3$_0clERN4llvm9StringMapIbNSA_15MallocAllocatorEEENSA_9StringRefE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr nonnull @.str.20, i64 3)
   %18 = icmp eq i32 %12, 1
   br i1 %18, label %19, label %26
 
@@ -7067,7 +7067,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clangL24checkArmStreamingBuiltinE
   store i32 16, ptr %27, align 4
   %28 = load ptr, ptr %16, align 8
   call void @_ZNK5clang10ASTContext21getFunctionFeatureMapERN4llvm9StringMapIbNS1_15MallocAllocatorEEEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %28, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %2) #18
-  call fastcc void @"_ZZN5clangL24checkArmStreamingBuiltinERNS_4SemaEPNS_8CallExprEPKNS_12FunctionDeclENS_7SemaARM16ArmStreamingTypeEjENK3$_0clERN4llvm9StringMapIbNSA_15MallocAllocatorEEENSA_9StringRefE"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr nonnull @.str.21, i64 3)
+  call fastcc void @"_ZZN5clangL24checkArmStreamingBuiltinERNS_4SemaEPNS_8CallExprEPKNS_12FunctionDeclENS_7SemaARM16ArmStreamingTypeEjENK3$_0clERN4llvm9StringMapIbNSA_15MallocAllocatorEEENSA_9StringRefE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr nonnull @.str.21, i64 3)
   %29 = load ptr, ptr %16, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 17312
   %31 = load ptr, ptr %30, align 8
@@ -19052,7 +19052,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit:       ; preds = %6, %_ZNK4llvm9Strin
   %.sroa.034.0 = phi ptr [ %1, %6 ], [ %8, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i ], [ %1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
   %.sroa.5.0 = phi i64 [ %2, %6 ], [ %9, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i ], [ %2, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
   %10 = icmp sgt i64 %4, 0
-  br i1 %10, label %.lr.ph.i.i.i, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN5clang12_GLOBAL__N_112IntrinToNameEEERjZNS2_L17BuiltinAliasValidEjNS_9StringRefES5_PKcE3$_0EEDaOT_OT0_T1_.exit"
+  br i1 %10, label %.lr.ph.i.i.i, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN5clang12_GLOBAL__N_112IntrinToNameEEERjZNS2_L17BuiltinAliasValidEjNS_9StringRefES5_PKcE3$_0EEDaOT_OT0_T1_.argprom.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit, %.lr.ph.i.i.i
   %.04.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %3, %_ZN4llvm9StringRef13consume_frontES0_.exit ]
@@ -19067,15 +19067,15 @@ _ZN4llvm9StringRef13consume_frontES0_.exit:       ; preds = %6, %_ZNK4llvm9Strin
   %.112.i.i.i = select i1 %13, i64 %16, i64 %11
   %.1.i.i.i = select i1 %13, ptr %14, ptr %.04.i.i.i
   %17 = icmp sgt i64 %.112.i.i.i, 0
-  br i1 %17, label %.lr.ph.i.i.i, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN5clang12_GLOBAL__N_112IntrinToNameEEERjZNS2_L17BuiltinAliasValidEjNS_9StringRefES5_PKcE3$_0EEDaOT_OT0_T1_.exit", !llvm.loop !2244
+  br i1 %17, label %.lr.ph.i.i.i, label %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN5clang12_GLOBAL__N_112IntrinToNameEEERjZNS2_L17BuiltinAliasValidEjNS_9StringRefES5_PKcE3$_0EEDaOT_OT0_T1_.argprom.exit", !llvm.loop !2244
 
-"_ZN4llvm11lower_boundIRNS_8ArrayRefIN5clang12_GLOBAL__N_112IntrinToNameEEERjZNS2_L17BuiltinAliasValidEjNS_9StringRefES5_PKcE3$_0EEDaOT_OT0_T1_.exit": ; preds = %.lr.ph.i.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit
+"_ZN4llvm11lower_boundIRNS_8ArrayRefIN5clang12_GLOBAL__N_112IntrinToNameEEERjZNS2_L17BuiltinAliasValidEjNS_9StringRefES5_PKcE3$_0EEDaOT_OT0_T1_.argprom.exit": ; preds = %.lr.ph.i.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %3, %_ZN4llvm9StringRef13consume_frontES0_.exit ], [ %.1.i.i.i, %.lr.ph.i.i.i ]
   %18 = getelementptr inbounds %"struct.clang::(anonymous namespace)::IntrinToName", ptr %3, i64 %4
   %19 = icmp eq ptr %.0.lcssa.i.i.i, %18
   br i1 %19, label %_ZN4llvmeqENS_9StringRefES0_.exit26, label %20
 
-20:                                               ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN5clang12_GLOBAL__N_112IntrinToNameEEERjZNS2_L17BuiltinAliasValidEjNS_9StringRefES5_PKcE3$_0EEDaOT_OT0_T1_.exit"
+20:                                               ; preds = %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN5clang12_GLOBAL__N_112IntrinToNameEEERjZNS2_L17BuiltinAliasValidEjNS_9StringRefES5_PKcE3$_0EEDaOT_OT0_T1_.argprom.exit"
   %21 = load i32, ptr %.0.lcssa.i.i.i, align 4
   %.not = icmp eq i32 %21, %0
   br i1 %.not, label %22, label %_ZN4llvmeqENS_9StringRefES0_.exit26
@@ -19135,8 +19135,8 @@ _ZN4llvm9StringRefC2EPKc.exit22:                  ; preds = %36, %39
   %45 = icmp eq i32 %bcmp.i25, 0
   br label %_ZN4llvmeqENS_9StringRefES0_.exit26
 
-_ZN4llvmeqENS_9StringRefES0_.exit26:              ; preds = %30, %44, %42, %_ZN4llvm9StringRefC2EPKc.exit22, %_ZN4llvmeqENS_9StringRefES0_.exit.thread38, %_ZN4llvmeqENS_9StringRefES0_.exit, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN5clang12_GLOBAL__N_112IntrinToNameEEERjZNS2_L17BuiltinAliasValidEjNS_9StringRefES5_PKcE3$_0EEDaOT_OT0_T1_.exit", %20
-  %.0 = phi i1 [ false, %20 ], [ false, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN5clang12_GLOBAL__N_112IntrinToNameEEERjZNS2_L17BuiltinAliasValidEjNS_9StringRefES5_PKcE3$_0EEDaOT_OT0_T1_.exit" ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread38 ], [ %45, %44 ], [ false, %_ZN4llvm9StringRefC2EPKc.exit22 ], [ true, %42 ], [ true, %30 ]
+_ZN4llvmeqENS_9StringRefES0_.exit26:              ; preds = %30, %44, %42, %_ZN4llvm9StringRefC2EPKc.exit22, %_ZN4llvmeqENS_9StringRefES0_.exit.thread38, %_ZN4llvmeqENS_9StringRefES0_.exit, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN5clang12_GLOBAL__N_112IntrinToNameEEERjZNS2_L17BuiltinAliasValidEjNS_9StringRefES5_PKcE3$_0EEDaOT_OT0_T1_.argprom.exit", %20
+  %.0 = phi i1 [ false, %20 ], [ false, %"_ZN4llvm11lower_boundIRNS_8ArrayRefIN5clang12_GLOBAL__N_112IntrinToNameEEERjZNS2_L17BuiltinAliasValidEjNS_9StringRefES5_PKcE3$_0EEDaOT_OT0_T1_.argprom.exit" ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread38 ], [ %45, %44 ], [ false, %_ZN4llvm9StringRefC2EPKc.exit22 ], [ true, %42 ], [ true, %30 ]
   ret i1 %.0
 }
 
@@ -20703,16 +20703,16 @@ define internal noundef zeroext i1 @"_ZZN5clang7SemaARM17ParseSVEImmChecksEPNS_8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef zeroext i1 @"_ZZN5clang7SemaARM17ParseSVEImmChecksEPNS_8CallExprERN4llvm11SmallVectorISt5tupleIJiiiEELj3EEEEN3$_28__invokeEl"(i64 noundef %0) #5 align 2 {
   switch i64 %0, label %2 [
-    i64 180, label %"_ZZN5clang7SemaARM17ParseSVEImmChecksEPNS_8CallExprERN4llvm11SmallVectorISt5tupleIJiiiEELj3EEEENK3$_2clEl.exit"
-    i64 90, label %"_ZZN5clang7SemaARM17ParseSVEImmChecksEPNS_8CallExprERN4llvm11SmallVectorISt5tupleIJiiiEELj3EEEENK3$_2clEl.exit"
-    i64 0, label %"_ZZN5clang7SemaARM17ParseSVEImmChecksEPNS_8CallExprERN4llvm11SmallVectorISt5tupleIJiiiEELj3EEEENK3$_2clEl.exit"
-    i64 270, label %"_ZZN5clang7SemaARM17ParseSVEImmChecksEPNS_8CallExprERN4llvm11SmallVectorISt5tupleIJiiiEELj3EEEENK3$_2clEl.exit"
+    i64 180, label %"_ZZN5clang7SemaARM17ParseSVEImmChecksEPNS_8CallExprERN4llvm11SmallVectorISt5tupleIJiiiEELj3EEEENK3$_2clEl.argprom.exit"
+    i64 90, label %"_ZZN5clang7SemaARM17ParseSVEImmChecksEPNS_8CallExprERN4llvm11SmallVectorISt5tupleIJiiiEELj3EEEENK3$_2clEl.argprom.exit"
+    i64 0, label %"_ZZN5clang7SemaARM17ParseSVEImmChecksEPNS_8CallExprERN4llvm11SmallVectorISt5tupleIJiiiEELj3EEEENK3$_2clEl.argprom.exit"
+    i64 270, label %"_ZZN5clang7SemaARM17ParseSVEImmChecksEPNS_8CallExprERN4llvm11SmallVectorISt5tupleIJiiiEELj3EEEENK3$_2clEl.argprom.exit"
   ]
 
 2:                                                ; preds = %1
-  br label %"_ZZN5clang7SemaARM17ParseSVEImmChecksEPNS_8CallExprERN4llvm11SmallVectorISt5tupleIJiiiEELj3EEEENK3$_2clEl.exit"
+  br label %"_ZZN5clang7SemaARM17ParseSVEImmChecksEPNS_8CallExprERN4llvm11SmallVectorISt5tupleIJiiiEELj3EEEENK3$_2clEl.argprom.exit"
 
-"_ZZN5clang7SemaARM17ParseSVEImmChecksEPNS_8CallExprERN4llvm11SmallVectorISt5tupleIJiiiEELj3EEEENK3$_2clEl.exit": ; preds = %1, %1, %1, %1, %2
+"_ZZN5clang7SemaARM17ParseSVEImmChecksEPNS_8CallExprERN4llvm11SmallVectorISt5tupleIJiiiEELj3EEEENK3$_2clEl.argprom.exit": ; preds = %1, %1, %1, %1, %2
   %3 = phi i1 [ true, %1 ], [ false, %2 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
   ret i1 %3
 }
@@ -20720,7 +20720,7 @@ define internal noundef zeroext i1 @"_ZZN5clang7SemaARM17ParseSVEImmChecksEPNS_8
 declare void @_ZNK5clang10ASTContext21getFunctionFeatureMapERN4llvm9StringMapIbNS1_15MallocAllocatorEEEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clangL24checkArmStreamingBuiltinERNS_4SemaEPNS_8CallExprEPKNS_12FunctionDeclENS_7SemaARM16ArmStreamingTypeEjENK3$_0clERN4llvm9StringMapIbNSA_15MallocAllocatorEEENSA_9StringRefE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clangL24checkArmStreamingBuiltinERNS_4SemaEPNS_8CallExprEPKNS_12FunctionDeclENS_7SemaARM16ArmStreamingTypeEjENK3$_0clERN4llvm9StringMapIbNSA_15MallocAllocatorEEENSA_9StringRefE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 align 2 {
   %.fr10 = freeze i64 %2
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -7195,7 +7195,7 @@ define internal noundef double @"_ZNSt17_Function_handlerIFdvEZN10open_spiel10al
   %5 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %2)
   %6 = add i64 %5, %4
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %"_ZSt10__invoke_rIdRZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS0_5StateEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i.i
+  br i1 %7, label %"_ZSt10__invoke_rIdRZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS0_5StateEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit", label %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i.i
 
 _ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i.i: ; preds = %.split.i.i.i.i.i.i
   %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %6, i1 true)
@@ -7211,9 +7211,9 @@ _ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveT
 
 _ZN10open_spiel10algorithms9ISMCTSBot12RandomNumberEv.exit.split.loop.exit1.i.i.i: ; preds = %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i.i
   %16 = fadd double %14, 0.000000e+00
-  br label %"_ZSt10__invoke_rIdRZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS0_5StateEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
+  br label %"_ZSt10__invoke_rIdRZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS0_5StateEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
 
-"_ZSt10__invoke_rIdRZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS0_5StateEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %.split.i.i.i.i.i.i, %_ZN10open_spiel10algorithms9ISMCTSBot12RandomNumberEv.exit.split.loop.exit1.i.i.i
+"_ZSt10__invoke_rIdRZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS0_5StateEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %.split.i.i.i.i.i.i, %_ZN10open_spiel10algorithms9ISMCTSBot12RandomNumberEv.exit.split.loop.exit1.i.i.i
   %.0.i.i.i.i.i3.i.i.i.i = phi double [ %16, %_ZN10open_spiel10algorithms9ISMCTSBot12RandomNumberEv.exit.split.loop.exit1.i.i.i ], [ 0.000000e+00, %.split.i.i.i.i.i.i ]
   ret double %.0.i.i.i.i.i3.i.i.i.i
 }
@@ -7255,7 +7255,7 @@ define internal noundef double @"_ZNSt17_Function_handlerIFdvEZN10open_spiel10al
   %5 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %2)
   %6 = add i64 %5, %4
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %"_ZSt10__invoke_rIdRZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS0_5StateEE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i.i
+  br i1 %7, label %"_ZSt10__invoke_rIdRZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS0_5StateEE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit", label %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i.i
 
 _ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i.i: ; preds = %.split.i.i.i.i.i.i
   %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %6, i1 true)
@@ -7271,9 +7271,9 @@ _ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveT
 
 _ZN10open_spiel10algorithms9ISMCTSBot12RandomNumberEv.exit.split.loop.exit1.i.i.i: ; preds = %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i.i
   %16 = fadd double %14, 0.000000e+00
-  br label %"_ZSt10__invoke_rIdRZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS0_5StateEE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
+  br label %"_ZSt10__invoke_rIdRZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS0_5StateEE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
 
-"_ZSt10__invoke_rIdRZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS0_5StateEE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %.split.i.i.i.i.i.i, %_ZN10open_spiel10algorithms9ISMCTSBot12RandomNumberEv.exit.split.loop.exit1.i.i.i
+"_ZSt10__invoke_rIdRZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS0_5StateEE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %.split.i.i.i.i.i.i, %_ZN10open_spiel10algorithms9ISMCTSBot12RandomNumberEv.exit.split.loop.exit1.i.i.i
   %.0.i.i.i.i.i3.i.i.i.i = phi double [ %16, %_ZN10open_spiel10algorithms9ISMCTSBot12RandomNumberEv.exit.split.loop.exit1.i.i.i ], [ 0.000000e+00, %.split.i.i.i.i.i.i ]
   ret double %.0.i.i.i.i.i3.i.i.i.i
 }

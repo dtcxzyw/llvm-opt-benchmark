@@ -2332,14 +2332,14 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   br label %_ZN5folly6detail14ScopeGuardImplINS_8FunctionIFvvEEELb1EED2Ev.exit
 
 _ZN5folly6detail14ScopeGuardImplINS_8FunctionIFvvEEELb1EED2Ev.exit: ; preds = %if.end.i, %if.end.i.i.i
-  br i1 %call34, label %if.then.i35, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen2hq13HQStreamCodec17onHeadersCompleteENS2_14HTTPHeaderSizeEbE3$_0Lb1EED2Ev.exit"
+  br i1 %call34, label %if.then.i35, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen2hq13HQStreamCodec17onHeadersCompleteENS2_14HTTPHeaderSizeEbE3$_0Lb1EED2Ev.argprom.exit"
 
 if.then.i35:                                      ; preds = %_ZN5folly6detail14ScopeGuardImplINS_8FunctionIFvvEEELb1EED2Ev.exit
   %vtable.i.i.i = load ptr, ptr %this, align 16
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 88
   %55 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %55(ptr noundef nonnull align 16 dereferenceable(160) %this, i1 noundef zeroext false)
-          to label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen2hq13HQStreamCodec17onHeadersCompleteENS2_14HTTPHeaderSizeEbE3$_0Lb1EED2Ev.exit" unwind label %lpad.i.i.i36
+          to label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen2hq13HQStreamCodec17onHeadersCompleteENS2_14HTTPHeaderSizeEbE3$_0Lb1EED2Ev.argprom.exit" unwind label %lpad.i.i.i36
 
 lpad.i.i.i36:                                     ; preds = %if.then.i35
   %56 = landingpad { ptr, i32 }
@@ -2349,7 +2349,7 @@ lpad.i.i.i36:                                     ; preds = %if.then.i35
   call void @_ZN5folly6detail18ScopeGuardImplBase9terminateEv()
   unreachable
 
-"_ZN5folly6detail14ScopeGuardImplIZN8proxygen2hq13HQStreamCodec17onHeadersCompleteENS2_14HTTPHeaderSizeEbE3$_0Lb1EED2Ev.exit": ; preds = %_ZN5folly6detail14ScopeGuardImplINS_8FunctionIFvvEEELb1EED2Ev.exit, %if.then.i35
+"_ZN5folly6detail14ScopeGuardImplIZN8proxygen2hq13HQStreamCodec17onHeadersCompleteENS2_14HTTPHeaderSizeEbE3$_0Lb1EED2Ev.argprom.exit": ; preds = %_ZN5folly6detail14ScopeGuardImplINS_8FunctionIFvvEEELb1EED2Ev.exit, %if.then.i35
   ret void
 
 ehcleanup152:                                     ; preds = %lpad147, %lpad137, %lpad118, %lpad91
@@ -2364,7 +2364,7 @@ ehcleanup153:                                     ; preds = %ehcleanup152, %lpad
 
 ehcleanup155:                                     ; preds = %ehcleanup153, %lpad11
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup153 ], [ %5, %lpad11 ]
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen2hq13HQStreamCodec17onHeadersCompleteENS2_14HTTPHeaderSizeEbE3$_0Lb1EED2Ev"(i8 0, ptr nonnull %this) #22
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen2hq13HQStreamCodec17onHeadersCompleteENS2_14HTTPHeaderSizeEbE3$_0Lb1EED2Ev.argprom"(i8 0, ptr nonnull %this) #22
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -2459,7 +2459,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %if.end, %if.end.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen2hq13HQStreamCodec17onHeadersCompleteENS2_14HTTPHeaderSizeEbE3$_0Lb1EED2Ev"(i8 %this.0.val, ptr %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen2hq13HQStreamCodec17onHeadersCompleteENS2_14HTTPHeaderSizeEbE3$_0Lb1EED2Ev.argprom"(i8 %this.0.val, ptr %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool = trunc i8 %this.0.val to i1
   br i1 %tobool, label %if.end, label %if.then
@@ -2868,7 +2868,7 @@ invoke.cont9:                                     ; preds = %if.end
   %headers_.i = getelementptr inbounds i8, ptr %msg, i64 480
   %16 = getelementptr i8, ptr %14, i64 12
   %call6.val = load i32, ptr %16, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_131logIfFieldSectionExceedsPeerMaxERKN8proxygen14HTTPHeaderSizeEjRKNS0_11HTTPHeadersE(i32 %call6.val, i32 noundef %conv11, ptr noundef nonnull align 8 dereferenceable(32) %headers_.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_131logIfFieldSectionExceedsPeerMaxERKN8proxygen14HTTPHeaderSizeEjRKNS0_11HTTPHeadersE.argprom(i32 %call6.val, i32 noundef %conv11, ptr noundef nonnull align 8 dereferenceable(32) %headers_.i)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont9
@@ -3050,7 +3050,7 @@ _ZN5folly8OptionalIN8proxygen11HTTPHeadersEED2Ev.exit5: ; preds = %lpad26, %if.t
 declare void @_ZN8proxygen10QPACKCodec10encodeHTTPERN5folly10IOBufQueueERKNS_11HTTPMessageEbmjRKNS1_8OptionalINS_11HTTPHeadersEEE(ptr sret(%"class.std::unique_ptr.11") align 8, ptr noundef nonnull align 8 dereferenceable(1024), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(616), i1 noundef zeroext, i64 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_131logIfFieldSectionExceedsPeerMaxERKN8proxygen14HTTPHeaderSizeEjRKNS0_11HTTPHeadersE(i32 %encodedSize.4.val, i32 noundef %maxHeaderListSize, ptr noundef nonnull align 8 dereferenceable(32) %fields) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_131logIfFieldSectionExceedsPeerMaxERKN8proxygen14HTTPHeaderSizeEjRKNS0_11HTTPHeadersE.argprom(i32 %encodedSize.4.val, i32 noundef %maxHeaderListSize, ptr noundef nonnull align 8 dereferenceable(32) %fields) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca ptr, align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3349,7 +3349,7 @@ invoke.cont24:                                    ; preds = %invoke.cont18
   %conv26 = trunc i64 %call25 to i32
   %14 = getelementptr i8, ptr %12, i64 12
   %call21.val = load i32, ptr %14, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_131logIfFieldSectionExceedsPeerMaxERKN8proxygen14HTTPHeaderSizeEjRKNS0_11HTTPHeadersE(i32 %call21.val, i32 noundef %conv26, ptr noundef nonnull align 8 dereferenceable(32) %trailers)
+  invoke fastcc void @_ZN12_GLOBAL__N_131logIfFieldSectionExceedsPeerMaxERKN8proxygen14HTTPHeaderSizeEjRKNS0_11HTTPHeadersE.argprom(i32 %call21.val, i32 noundef %conv26, ptr noundef nonnull align 8 dereferenceable(32) %trailers)
           to label %invoke.cont27 unwind label %lpad17
 
 invoke.cont27:                                    ; preds = %invoke.cont24

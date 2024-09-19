@@ -975,9 +975,9 @@ define void @Bmc_CexCarePropagateBwdOne(ptr nocapture noundef readonly %0, ptr n
 91:                                               ; preds = %89
   %92 = and i64 %87, 2684354559
   %narrow.i.not.i = icmp eq i64 %92, 2684354559
-  br i1 %narrow.i.not.i, label %Gia_ObjIsPi.exit, label %Gia_ObjIsPi.exit.thread
+  br i1 %narrow.i.not.i, label %Gia_ObjIsPi.argprom.exit, label %Gia_ObjIsPi.argprom.exit.thread
 
-Gia_ObjIsPi.exit:                                 ; preds = %91
+Gia_ObjIsPi.argprom.exit:                         ; preds = %91
   %93 = lshr i64 %87, 32
   %94 = trunc nuw i64 %93 to i32
   %95 = and i32 %94, 536870911
@@ -987,14 +987,14 @@ Gia_ObjIsPi.exit:                                 ; preds = %91
   %.val3.val.i = load i32, ptr %96, align 4
   %97 = sub nsw i32 %.val3.val.i, %.val.i
   %.not102 = icmp slt i32 %95, %97
-  br i1 %.not102, label %.sink.split, label %Gia_ObjIsPi.exit.thread
+  br i1 %.not102, label %.sink.split, label %Gia_ObjIsPi.argprom.exit.thread
 
-Gia_ObjIsPi.exit.thread:                          ; preds = %91, %Gia_ObjIsPi.exit
+Gia_ObjIsPi.argprom.exit.thread:                  ; preds = %91, %Gia_ObjIsPi.argprom.exit
   %98 = and i64 %90, 2684354559
   %narrow.i.not.i93 = icmp eq i64 %98, 2684354559
-  br i1 %narrow.i.not.i93, label %Gia_ObjIsPi.exit97, label %Gia_ObjIsPi.exit97.thread
+  br i1 %narrow.i.not.i93, label %Gia_ObjIsPi.argprom.exit97, label %Gia_ObjIsPi.argprom.exit97.thread
 
-Gia_ObjIsPi.exit97:                               ; preds = %Gia_ObjIsPi.exit.thread
+Gia_ObjIsPi.argprom.exit97:                       ; preds = %Gia_ObjIsPi.argprom.exit.thread
   %99 = lshr i64 %90, 32
   %100 = trunc nuw i64 %99 to i32
   %101 = and i32 %100, 536870911
@@ -1004,9 +1004,9 @@ Gia_ObjIsPi.exit97:                               ; preds = %Gia_ObjIsPi.exit.th
   %.val3.val.i96 = load i32, ptr %102, align 4
   %103 = sub nsw i32 %.val3.val.i96, %.val.i94
   %.not103 = icmp slt i32 %101, %103
-  br i1 %.not103, label %.sink.split, label %Gia_ObjIsPi.exit97.thread
+  br i1 %.not103, label %.sink.split, label %Gia_ObjIsPi.argprom.exit97.thread
 
-Gia_ObjIsPi.exit97.thread:                        ; preds = %Gia_ObjIsPi.exit.thread, %Gia_ObjIsPi.exit97
+Gia_ObjIsPi.argprom.exit97.thread:                ; preds = %Gia_ObjIsPi.argprom.exit.thread, %Gia_ObjIsPi.argprom.exit97
   %104 = ashr i32 %66, 1
   %105 = ashr i32 %70, 1
   %106 = icmp sgt i32 %104, %105
@@ -1014,9 +1014,9 @@ Gia_ObjIsPi.exit97.thread:                        ; preds = %Gia_ObjIsPi.exit.th
   %.138 = select i1 %106, ptr %60, ptr %64
   br label %.sink.split
 
-.sink.split:                                      ; preds = %Gia_ObjIsPi.exit97.thread, %Gia_ObjIsPi.exit97, %Gia_ObjIsPi.exit, %86, %79, %84
-  %.sink137 = phi i64 [ %85, %84 ], [ %82, %79 ], [ %87, %86 ], [ %87, %Gia_ObjIsPi.exit ], [ %90, %Gia_ObjIsPi.exit97 ], [ %., %Gia_ObjIsPi.exit97.thread ]
-  %.sink136 = phi ptr [ %64, %84 ], [ %64, %79 ], [ %60, %86 ], [ %60, %Gia_ObjIsPi.exit ], [ %64, %Gia_ObjIsPi.exit97 ], [ %.138, %Gia_ObjIsPi.exit97.thread ]
+.sink.split:                                      ; preds = %Gia_ObjIsPi.argprom.exit97.thread, %Gia_ObjIsPi.argprom.exit97, %Gia_ObjIsPi.argprom.exit, %86, %79, %84
+  %.sink137 = phi i64 [ %85, %84 ], [ %82, %79 ], [ %87, %86 ], [ %87, %Gia_ObjIsPi.argprom.exit ], [ %90, %Gia_ObjIsPi.argprom.exit97 ], [ %., %Gia_ObjIsPi.argprom.exit97.thread ]
+  %.sink136 = phi ptr [ %64, %84 ], [ %64, %79 ], [ %60, %86 ], [ %60, %Gia_ObjIsPi.argprom.exit ], [ %64, %Gia_ObjIsPi.argprom.exit97 ], [ %.138, %Gia_ObjIsPi.argprom.exit97.thread ]
   %107 = or i64 %.sink137, -9223372036854775808
   store i64 %107, ptr %.sink136, align 4
   br label %108

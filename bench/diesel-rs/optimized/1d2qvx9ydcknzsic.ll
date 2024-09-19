@@ -304,18 +304,18 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %14 = getelementptr inbounds i8, ptr %12, i64 16
   %15 = load ptr, ptr %14, align 8, !alias.scope !99, !noalias !106, !noundef !9
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.exit.i.i, label %17
+  br i1 %16, label %_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.argprom.exit.i.i, label %17
 
 17:                                               ; preds = %.noexc.i
   %18 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_140_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Text$GT$$GT$$u20$for$u20$$RF$$RF$str$GT$13as_expression17hdcf3739a90090ceaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
-          to label %_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.exit.i.i unwind label %27, !noalias !96
+          to label %_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.argprom.exit.i.i unwind label %27, !noalias !96
 
-_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.exit.i.i: ; preds = %17, %.noexc.i
+_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.argprom.exit.i.i: ; preds = %17, %.noexc.i
   %.04.i.i.i.i = phi ptr [ null, %.noexc.i ], [ %18, %17 ]
   %19 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN180_$LT$diesel..insertable..private..InsertableOptionHelper$LT$T$C$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$GT$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17h5bdcfaf9df8887c0E.llvm.14419527431308106341"(ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(16) %13)
           to label %.noexc21.i unwind label %27, !noalias !96
 
-.noexc21.i:                                       ; preds = %_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.exit.i.i
+.noexc21.i:                                       ; preds = %_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.argprom.exit.i.i
   %20 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN180_$LT$diesel..insertable..private..InsertableOptionHelper$LT$T$C$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$GT$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17h5e7c09cf37fd7bb8E.llvm.14419527431308106341"(ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %.04.i.i.i.i)
           to label %21 unwind label %27, !noalias !96
 
@@ -329,7 +329,7 @@ _ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.exit.i.i: ; preds = %17
   %26 = icmp eq i64 %25, %10
   br i1 %26, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h322382769ba6a3a4E.llvm.8559575631518112565.exit", label %11
 
-27:                                               ; preds = %.noexc21.i, %_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.exit.i.i, %17, %11
+27:                                               ; preds = %.noexc21.i, %_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.argprom.exit.i.i, %17, %11
   %28 = landingpad { ptr, i32 }
           cleanup
   %29 = icmp ne ptr %.sroa.0.0.copyload, null
@@ -1147,18 +1147,18 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %19 = getelementptr inbounds i8, ptr %17, i64 16
   %20 = load ptr, ptr %19, align 8, !alias.scope !266, !noalias !261, !noundef !9
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.exit.i, label %22
+  br i1 %21, label %_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.argprom.exit.i, label %22
 
 22:                                               ; preds = %.noexc
   %23 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_140_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Text$GT$$GT$$u20$for$u20$$RF$$RF$str$GT$13as_expression17hdcf3739a90090ceaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19)
-          to label %_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.exit.i unwind label %34
+          to label %_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.argprom.exit.i unwind label %34
 
-_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.exit.i: ; preds = %22, %.noexc
+_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.argprom.exit.i: ; preds = %22, %.noexc
   %.04.i.i.i = phi ptr [ null, %.noexc ], [ %23, %22 ]
   %24 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN180_$LT$diesel..insertable..private..InsertableOptionHelper$LT$T$C$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$GT$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17h5bdcfaf9df8887c0E.llvm.14419527431308106341"(ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(16) %18)
           to label %.noexc21 unwind label %34
 
-.noexc21:                                         ; preds = %_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.exit.i
+.noexc21:                                         ; preds = %_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.argprom.exit.i
   %25 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN180_$LT$diesel..insertable..private..InsertableOptionHelper$LT$T$C$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$GT$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17h5e7c09cf37fd7bb8E.llvm.14419527431308106341"(ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %.04.i.i.i)
           to label %26 unwind label %34
 
@@ -1183,7 +1183,7 @@ _ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.exit.i: ; preds = %22, 
 33:                                               ; preds = %14, %32
   ret void
 
-34:                                               ; preds = %16, %22, %_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.exit.i, %.noexc21
+34:                                               ; preds = %16, %22, %_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.argprom.exit.i, %.noexc21
   %35 = landingpad { ptr, i32 }
           cleanup
   %.val18 = load ptr, ptr %2, align 8, !nonnull !9, !align !209, !noundef !9
@@ -1669,8 +1669,8 @@ attributes #18 = { noreturn }
 !26 = distinct !{!26, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc3a886c552c9ec57E"}
 !27 = distinct !{!27, !26, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc3a886c552c9ec57E: argument 1"}
 !28 = !{!29, !25, !5, !8}
-!29 = distinct !{!29, !30, !"_ZN4core3ops8function5FnMut8call_mut17hf3accb6b3f6c2473E: argument 0"}
-!30 = distinct !{!30, !"_ZN4core3ops8function5FnMut8call_mut17hf3accb6b3f6c2473E"}
+!29 = distinct !{!29, !30, !"_ZN4core3ops8function5FnMut8call_mut17hf3accb6b3f6c2473E.argprom: argument 0"}
+!30 = distinct !{!30, !"_ZN4core3ops8function5FnMut8call_mut17hf3accb6b3f6c2473E.argprom"}
 !31 = !{!32, !34, !25, !27, !5, !8}
 !32 = distinct !{!32, !33, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17he56fb1be171eee38E: argument 0"}
 !33 = distinct !{!33, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17he56fb1be171eee38E"}
@@ -1695,8 +1695,8 @@ attributes #18 = { noreturn }
 !52 = !{!53, !55, !50}
 !53 = distinct !{!53, !54, !"_ZN95_$LT$$RF$core..option..Option$LT$T$GT$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17h4783e41db259fd90E: argument 0"}
 !54 = distinct !{!54, !"_ZN95_$LT$$RF$core..option..Option$LT$T$GT$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17h4783e41db259fd90E"}
-!55 = distinct !{!55, !56, !"_ZN4core3ops8function5FnMut8call_mut17hc52fb2b044319140E: argument 0"}
-!56 = distinct !{!56, !"_ZN4core3ops8function5FnMut8call_mut17hc52fb2b044319140E"}
+!55 = distinct !{!55, !56, !"_ZN4core3ops8function5FnMut8call_mut17hc52fb2b044319140E.argprom: argument 0"}
+!56 = distinct !{!56, !"_ZN4core3ops8function5FnMut8call_mut17hc52fb2b044319140E.argprom"}
 !57 = !{!58, !59}
 !58 = distinct !{!58, !51, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4fc22d3e3dea9982E: argument 0"}
 !59 = distinct !{!59, !60, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h87d1a864fb1cc079E.llvm.8559575631518112565: argument 0"}
@@ -1716,8 +1716,8 @@ attributes #18 = { noreturn }
 !73 = distinct !{!73, !"_ZN6diesel10type_impls6tuples87_$LT$impl$u20$diesel..insertable..Insertable$LT$Tab$GT$$u20$for$u20$$LP$T0$C$T1$RP$$GT$6values17hd76467c3b58176f0E.llvm.16966924864337738917"}
 !74 = distinct !{!74, !75, !"_ZN6diesel10type_impls6tuples91_$LT$impl$u20$diesel..insertable..Insertable$LT$Tab$GT$$u20$for$u20$$RF$$LP$T0$C$T1$RP$$GT$6values17hac8848f58bfaa60fE: argument 0"}
 !75 = distinct !{!75, !"_ZN6diesel10type_impls6tuples91_$LT$impl$u20$diesel..insertable..Insertable$LT$Tab$GT$$u20$for$u20$$RF$$LP$T0$C$T1$RP$$GT$6values17hac8848f58bfaa60fE"}
-!76 = distinct !{!76, !77, !"_ZN4core3ops8function5FnMut8call_mut17hf1646e155e811063E: argument 0"}
-!77 = distinct !{!77, !"_ZN4core3ops8function5FnMut8call_mut17hf1646e155e811063E"}
+!76 = distinct !{!76, !77, !"_ZN4core3ops8function5FnMut8call_mut17hf1646e155e811063E.argprom: argument 0"}
+!77 = distinct !{!77, !"_ZN4core3ops8function5FnMut8call_mut17hf1646e155e811063E.argprom"}
 !78 = distinct !{!78, !79, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha09a82f142fa39ceE: argument 1"}
 !79 = distinct !{!79, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha09a82f142fa39ceE"}
 !80 = !{!81, !82, !83}
@@ -1742,8 +1742,8 @@ attributes #18 = { noreturn }
 !99 = !{!100, !102, !104}
 !100 = distinct !{!100, !101, !"_ZN23all_about_inserts_mysql1_151_$LT$impl$u20$diesel..insertable..Insertable$LT$all_about_inserts_mysql..schema..users..table$GT$$u20$for$u20$$RF$all_about_inserts_mysql..UserForm$GT$6values17h03a710f188181c16E: argument 0"}
 !101 = distinct !{!101, !"_ZN23all_about_inserts_mysql1_151_$LT$impl$u20$diesel..insertable..Insertable$LT$all_about_inserts_mysql..schema..users..table$GT$$u20$for$u20$$RF$all_about_inserts_mysql..UserForm$GT$6values17h03a710f188181c16E"}
-!102 = distinct !{!102, !103, !"_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE: argument 0"}
-!103 = distinct !{!103, !"_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE"}
+!102 = distinct !{!102, !103, !"_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.argprom: argument 0"}
+!103 = distinct !{!103, !"_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.argprom"}
 !104 = distinct !{!104, !105, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1836ce619e927098E: argument 1"}
 !105 = distinct !{!105, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1836ce619e927098E"}
 !106 = !{!107, !97}
@@ -1799,11 +1799,11 @@ attributes #18 = { noreturn }
 !156 = !{!148}
 !157 = !{!148, !145, !140, !146, !142, !135}
 !158 = !{!159, !135}
-!159 = distinct !{!159, !160, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8be1e9523a320f1E: argument 0"}
-!160 = distinct !{!160, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8be1e9523a320f1E"}
+!159 = distinct !{!159, !160, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8be1e9523a320f1E.argprom: argument 0"}
+!160 = distinct !{!160, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8be1e9523a320f1E.argprom"}
 !161 = !{!162, !135}
-!162 = distinct !{!162, !163, !"_ZN4core3ops8function5FnMut8call_mut17hf3accb6b3f6c2473E: argument 0"}
-!163 = distinct !{!163, !"_ZN4core3ops8function5FnMut8call_mut17hf3accb6b3f6c2473E"}
+!162 = distinct !{!162, !163, !"_ZN4core3ops8function5FnMut8call_mut17hf3accb6b3f6c2473E.argprom: argument 0"}
+!163 = distinct !{!163, !"_ZN4core3ops8function5FnMut8call_mut17hf3accb6b3f6c2473E.argprom"}
 !164 = !{i64 0, i64 -9223372036854775797}
 !165 = !{i64 0, i64 5}
 !166 = !{!167}
@@ -1879,11 +1879,11 @@ attributes #18 = { noreturn }
 !236 = !{!228}
 !237 = !{!228, !225, !220, !226, !222}
 !238 = !{!239}
-!239 = distinct !{!239, !240, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8be1e9523a320f1E: argument 0"}
-!240 = distinct !{!240, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8be1e9523a320f1E"}
+!239 = distinct !{!239, !240, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8be1e9523a320f1E.argprom: argument 0"}
+!240 = distinct !{!240, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8be1e9523a320f1E.argprom"}
 !241 = !{!242}
-!242 = distinct !{!242, !243, !"_ZN4core3ops8function5FnMut8call_mut17hf3accb6b3f6c2473E: argument 0"}
-!243 = distinct !{!243, !"_ZN4core3ops8function5FnMut8call_mut17hf3accb6b3f6c2473E"}
+!242 = distinct !{!242, !243, !"_ZN4core3ops8function5FnMut8call_mut17hf3accb6b3f6c2473E.argprom: argument 0"}
+!243 = distinct !{!243, !"_ZN4core3ops8function5FnMut8call_mut17hf3accb6b3f6c2473E.argprom"}
 !244 = !{!245}
 !245 = distinct !{!245, !246, !"_ZN112_$LT$diesel..expression..bound..Bound$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17he867a10078ac732cE: argument 0"}
 !246 = distinct !{!246, !"_ZN112_$LT$diesel..expression..bound..Bound$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17he867a10078ac732cE"}
@@ -1909,8 +1909,8 @@ attributes #18 = { noreturn }
 !266 = !{!267, !269, !265}
 !267 = distinct !{!267, !268, !"_ZN23all_about_inserts_mysql1_151_$LT$impl$u20$diesel..insertable..Insertable$LT$all_about_inserts_mysql..schema..users..table$GT$$u20$for$u20$$RF$all_about_inserts_mysql..UserForm$GT$6values17h03a710f188181c16E: argument 0"}
 !268 = distinct !{!268, !"_ZN23all_about_inserts_mysql1_151_$LT$impl$u20$diesel..insertable..Insertable$LT$all_about_inserts_mysql..schema..users..table$GT$$u20$for$u20$$RF$all_about_inserts_mysql..UserForm$GT$6values17h03a710f188181c16E"}
-!269 = distinct !{!269, !270, !"_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE: argument 0"}
-!270 = distinct !{!270, !"_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE"}
+!269 = distinct !{!269, !270, !"_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.argprom: argument 0"}
+!270 = distinct !{!270, !"_ZN4core3ops8function5FnMut8call_mut17h33c0f68d4fcbec0bE.argprom"}
 !271 = !{!272}
 !272 = distinct !{!272, !273, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c9456e36f27ac43E: argument 0"}
 !273 = distinct !{!273, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c9456e36f27ac43E"}
@@ -1937,8 +1937,8 @@ attributes #18 = { noreturn }
 !294 = distinct !{!294, !"_ZN6diesel10type_impls6tuples87_$LT$impl$u20$diesel..insertable..Insertable$LT$Tab$GT$$u20$for$u20$$LP$T0$C$T1$RP$$GT$6values17hd76467c3b58176f0E.llvm.16966924864337738917"}
 !295 = distinct !{!295, !296, !"_ZN6diesel10type_impls6tuples91_$LT$impl$u20$diesel..insertable..Insertable$LT$Tab$GT$$u20$for$u20$$RF$$LP$T0$C$T1$RP$$GT$6values17hac8848f58bfaa60fE: argument 0"}
 !296 = distinct !{!296, !"_ZN6diesel10type_impls6tuples91_$LT$impl$u20$diesel..insertable..Insertable$LT$Tab$GT$$u20$for$u20$$RF$$LP$T0$C$T1$RP$$GT$6values17hac8848f58bfaa60fE"}
-!297 = distinct !{!297, !298, !"_ZN4core3ops8function5FnMut8call_mut17hf1646e155e811063E: argument 0"}
-!298 = distinct !{!298, !"_ZN4core3ops8function5FnMut8call_mut17hf1646e155e811063E"}
+!297 = distinct !{!297, !298, !"_ZN4core3ops8function5FnMut8call_mut17hf1646e155e811063E.argprom: argument 0"}
+!298 = distinct !{!298, !"_ZN4core3ops8function5FnMut8call_mut17hf1646e155e811063E.argprom"}
 !299 = !{!300, !286}
 !300 = distinct !{!300, !294, !"_ZN6diesel10type_impls6tuples87_$LT$impl$u20$diesel..insertable..Insertable$LT$Tab$GT$$u20$for$u20$$LP$T0$C$T1$RP$$GT$6values17hd76467c3b58176f0E.llvm.16966924864337738917: argument 0"}
 !301 = !{!302}
@@ -1971,8 +1971,8 @@ attributes #18 = { noreturn }
 !328 = !{!329, !331, !325}
 !329 = distinct !{!329, !330, !"_ZN95_$LT$$RF$core..option..Option$LT$T$GT$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17h4783e41db259fd90E: argument 0"}
 !330 = distinct !{!330, !"_ZN95_$LT$$RF$core..option..Option$LT$T$GT$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17h4783e41db259fd90E"}
-!331 = distinct !{!331, !332, !"_ZN4core3ops8function5FnMut8call_mut17hc52fb2b044319140E: argument 0"}
-!332 = distinct !{!332, !"_ZN4core3ops8function5FnMut8call_mut17hc52fb2b044319140E"}
+!331 = distinct !{!331, !332, !"_ZN4core3ops8function5FnMut8call_mut17hc52fb2b044319140E.argprom: argument 0"}
+!332 = distinct !{!332, !"_ZN4core3ops8function5FnMut8call_mut17hc52fb2b044319140E.argprom"}
 !333 = !{!318}
 !334 = !{!316}
 !335 = !{!316, !323, !318, !324, !320, !325}
@@ -2028,8 +2028,8 @@ attributes #18 = { noreturn }
 !385 = distinct !{!385, !384, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc3a886c552c9ec57E: argument 1"}
 !386 = !{!383}
 !387 = !{!388, !383}
-!388 = distinct !{!388, !389, !"_ZN4core3ops8function5FnMut8call_mut17hf3accb6b3f6c2473E: argument 0"}
-!389 = distinct !{!389, !"_ZN4core3ops8function5FnMut8call_mut17hf3accb6b3f6c2473E"}
+!388 = distinct !{!388, !389, !"_ZN4core3ops8function5FnMut8call_mut17hf3accb6b3f6c2473E.argprom: argument 0"}
+!389 = distinct !{!389, !"_ZN4core3ops8function5FnMut8call_mut17hf3accb6b3f6c2473E.argprom"}
 !390 = !{!391}
 !391 = distinct !{!391, !392, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h220d894529368ff6E: argument 0"}
 !392 = distinct !{!392, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h220d894529368ff6E"}

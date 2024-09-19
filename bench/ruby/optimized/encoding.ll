@@ -432,35 +432,35 @@ define dso_local i32 @rb_enc_find_index(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %enc_registered.exit.thread, label %3
+  br i1 %.not.i, label %enc_registered.argprom.exit.thread, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %4, null
-  br i1 %.not6.i, label %enc_registered.exit.thread, label %5
+  br i1 %.not6.i, label %enc_registered.argprom.exit.thread, label %5
 
 5:                                                ; preds = %3
   %6 = ptrtoint ptr %0 to i64
   %7 = call i32 @rb_st_lookup(ptr noundef nonnull %4, i64 noundef %6, ptr noundef nonnull %2) #20
   %.not7.i = icmp eq i32 %7, 0
-  br i1 %.not7.i, label %enc_registered.exit.thread, label %enc_registered.exit
+  br i1 %.not7.i, label %enc_registered.argprom.exit.thread, label %enc_registered.argprom.exit
 
-enc_registered.exit.thread:                       ; preds = %1, %3, %5
+enc_registered.argprom.exit.thread:               ; preds = %1, %3, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %11
 
-enc_registered.exit:                              ; preds = %5
+enc_registered.argprom.exit:                      ; preds = %5
   %8 = load i64, ptr %2, align 8
   %9 = trunc i64 %8 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %13
 
-11:                                               ; preds = %enc_registered.exit.thread, %enc_registered.exit
+11:                                               ; preds = %enc_registered.argprom.exit.thread, %enc_registered.argprom.exit
   %12 = call fastcc i32 @load_encoding(ptr noundef %0)
   br label %27
 
-13:                                               ; preds = %enc_registered.exit
+13:                                               ; preds = %enc_registered.argprom.exit
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %15 = and i32 %9, 16777215
   %.not18 = icmp sgt i32 %14, %15
@@ -760,15 +760,15 @@ define dso_local ptr @rb_enc_from_index(i32 noundef %0) local_unnamed_addr #4 {
   %4 = and i32 %0, 16777215
   %5 = icmp sle i32 %3, %4
   %6 = select i1 %2, i1 true, i1 %5
-  br i1 %6, label %enc_from_index.exit, label %7
+  br i1 %6, label %enc_from_index.argprom.exit, label %7
 
 7:                                                ; preds = %1
   %8 = zext nneg i32 %4 to i64
   %9 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %8, i32 1
   %10 = load ptr, ptr %9, align 8
-  br label %enc_from_index.exit
+  br label %enc_from_index.argprom.exit
 
-enc_from_index.exit:                              ; preds = %1, %7
+enc_from_index.argprom.exit:                      ; preds = %1, %7
   %.05.i = phi ptr [ %10, %7 ], [ null, %1 ]
   ret ptr %.05.i
 }
@@ -779,53 +779,53 @@ define dso_local i32 @rb_enc_register(ptr noundef %0, ptr noundef %1) local_unna
   %4 = alloca i32, align 4
   %5 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %6, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %6, label %rb_vm_lock_enter.argprom.exit
 
 6:                                                ; preds = %2
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #20
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %2, %6
+rb_vm_lock_enter.argprom.exit:                    ; preds = %2, %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %enc_registered.exit.thread, label %7
+  br i1 %.not.i, label %enc_registered.argprom.exit.thread, label %7
 
-7:                                                ; preds = %rb_vm_lock_enter.exit
+7:                                                ; preds = %rb_vm_lock_enter.argprom.exit
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %8, null
-  br i1 %.not6.i, label %enc_registered.exit.thread, label %9
+  br i1 %.not6.i, label %enc_registered.argprom.exit.thread, label %9
 
 9:                                                ; preds = %7
   %10 = ptrtoint ptr %0 to i64
   %11 = call i32 @rb_st_lookup(ptr noundef nonnull %8, i64 noundef %10, ptr noundef nonnull %3) #20
   %.not7.i = icmp eq i32 %11, 0
-  br i1 %.not7.i, label %enc_registered.exit.thread, label %enc_registered.exit
+  br i1 %.not7.i, label %enc_registered.argprom.exit.thread, label %enc_registered.argprom.exit
 
-enc_registered.exit.thread:                       ; preds = %rb_vm_lock_enter.exit, %7, %9
+enc_registered.argprom.exit.thread:               ; preds = %rb_vm_lock_enter.argprom.exit, %7, %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %40
 
-enc_registered.exit:                              ; preds = %9
+enc_registered.argprom.exit:                      ; preds = %9
   %12 = load i64, ptr %3, align 8
   %13 = trunc i64 %12 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %14 = icmp sgt i32 %13, -1
   br i1 %14, label %15, label %40
 
-15:                                               ; preds = %enc_registered.exit
+15:                                               ; preds = %enc_registered.argprom.exit
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %17 = and i32 %13, 16777215
   %.not29 = icmp sgt i32 %16, %17
-  br i1 %.not29, label %18, label %enc_from_index.exit
+  br i1 %.not29, label %18, label %enc_from_index.argprom.exit
 
 18:                                               ; preds = %15
   %19 = and i64 %12, 16777215
   %20 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %19, i32 1
   %21 = load ptr, ptr %20, align 8
-  br label %enc_from_index.exit
+  br label %enc_from_index.argprom.exit
 
-enc_from_index.exit:                              ; preds = %15, %18
+enc_from_index.argprom.exit:                      ; preds = %15, %18
   %.05.i = phi ptr [ %21, %18 ], [ null, %15 ]
   %22 = getelementptr i8, ptr %.05.i, i64 8
   %.val25 = load ptr, ptr %22, align 8
@@ -833,22 +833,22 @@ enc_from_index.exit:                              ; preds = %15, %18
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %30, label %24
 
-24:                                               ; preds = %enc_from_index.exit
+24:                                               ; preds = %enc_from_index.argprom.exit
   %25 = add i32 %16, 1
   %26 = icmp sgt i32 %25, 256
-  br i1 %26, label %27, label %enc_register.exit
+  br i1 %26, label %27, label %enc_register.argprom.exit
 
 27:                                               ; preds = %24
   %28 = load i64, ptr @rb_eEncodingError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %28, ptr noundef nonnull @.str.42, i32 noundef 256) #23
   unreachable
 
-enc_register.exit:                                ; preds = %24
+enc_register.argprom.exit:                        ; preds = %24
   store i32 %25, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
-  %29 = call fastcc noundef i32 @enc_register_at(i32 noundef %16, ptr noundef nonnull %0, ptr noundef %1)
+  %29 = call fastcc noundef i32 @enc_register_at.argprom(i32 noundef %16, ptr noundef nonnull %0, ptr noundef %1)
   br label %56
 
-30:                                               ; preds = %enc_from_index.exit
+30:                                               ; preds = %enc_from_index.argprom.exit
   %31 = getelementptr i8, ptr %.05.i, i64 16
   %.val = load i32, ptr %31, align 8
   %.not23 = icmp eq i32 %.val, 0
@@ -862,7 +862,7 @@ enc_register.exit:                                ; preds = %24
   br i1 %.not24, label %36, label %38
 
 36:                                               ; preds = %32, %30
-  %37 = call fastcc i32 @enc_register_at(i32 noundef %13, ptr noundef nonnull %0, ptr noundef %1)
+  %37 = call fastcc i32 @enc_register_at.argprom(i32 noundef %13, ptr noundef nonnull %0, ptr noundef %1)
   br label %56
 
 38:                                               ; preds = %32
@@ -870,20 +870,20 @@ enc_register.exit:                                ; preds = %24
   call void (i64, ptr, ...) @rb_raise(i64 noundef %39, ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #23
   unreachable
 
-40:                                               ; preds = %enc_registered.exit.thread, %enc_registered.exit
+40:                                               ; preds = %enc_registered.argprom.exit.thread, %enc_registered.argprom.exit
   %41 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %42 = add i32 %41, 1
   %43 = icmp sgt i32 %42, 256
-  br i1 %43, label %44, label %enc_register.exit26
+  br i1 %43, label %44, label %enc_register.argprom.exit26
 
 44:                                               ; preds = %40
   %45 = load i64, ptr @rb_eEncodingError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %45, ptr noundef nonnull @.str.42, i32 noundef 256) #23
   unreachable
 
-enc_register.exit26:                              ; preds = %40
+enc_register.argprom.exit26:                      ; preds = %40
   store i32 %42, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
-  %46 = call fastcc noundef i32 @enc_register_at(i32 noundef %41, ptr noundef %0, ptr noundef %1)
+  %46 = call fastcc noundef i32 @enc_register_at.argprom(i32 noundef %41, ptr noundef %0, ptr noundef %1)
   %47 = icmp slt i32 %46, 0
   %48 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %49 = and i32 %46, 16777215
@@ -891,28 +891,28 @@ enc_register.exit26:                              ; preds = %40
   %51 = select i1 %47, i1 true, i1 %50
   br i1 %51, label %rb_enc_from_index.exit, label %52
 
-52:                                               ; preds = %enc_register.exit26
+52:                                               ; preds = %enc_register.argprom.exit26
   %53 = zext nneg i32 %49 to i64
   %54 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %53, i32 1
   %55 = load ptr, ptr %54, align 8
   br label %rb_enc_from_index.exit
 
-rb_enc_from_index.exit:                           ; preds = %enc_register.exit26, %52
-  %.05.i.i = phi ptr [ %55, %52 ], [ null, %enc_register.exit26 ]
+rb_enc_from_index.exit:                           ; preds = %enc_register.argprom.exit26, %52
+  %.05.i.i = phi ptr [ %55, %52 ], [ null, %enc_register.argprom.exit26 ]
   call fastcc void @set_encoding_const(ptr noundef %0, ptr noundef %.05.i.i)
   br label %56
 
-56:                                               ; preds = %enc_register.exit, %36, %rb_enc_from_index.exit
-  %.0 = phi i32 [ %29, %enc_register.exit ], [ %13, %36 ], [ %46, %rb_enc_from_index.exit ]
+56:                                               ; preds = %enc_register.argprom.exit, %36, %rb_enc_from_index.exit
+  %.0 = phi i32 [ %29, %enc_register.argprom.exit ], [ %13, %36 ], [ %46, %rb_enc_from_index.exit ]
   %57 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i27 = icmp eq ptr %57, null
-  br i1 %.not.i.i27, label %58, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i27, label %58, label %rb_vm_lock_leave.argprom.exit
 
 58:                                               ; preds = %56
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #20
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %56, %58
+rb_vm_lock_leave.argprom.exit:                    ; preds = %56, %58
   ret i32 %.0
 }
 
@@ -920,7 +920,7 @@ rb_vm_lock_leave.exit:                            ; preds = %56, %58
 declare i32 @rb_st_locale_insensitive_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @enc_register_at(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @enc_register_at.argprom(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = sext i32 %0 to i64
   %5 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %4
   %.not = icmp eq ptr %1, null
@@ -1261,58 +1261,58 @@ define dso_local void @rb_encdb_declare(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i, label %5, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %5, label %rb_vm_lock_enter.argprom.exit
 
 5:                                                ; preds = %1
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #20
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %1, %5
+rb_vm_lock_enter.argprom.exit:                    ; preds = %1, %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %enc_registered.exit.thread, label %6
+  br i1 %.not.i, label %enc_registered.argprom.exit.thread, label %6
 
-6:                                                ; preds = %rb_vm_lock_enter.exit
+6:                                                ; preds = %rb_vm_lock_enter.argprom.exit
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %7, null
-  br i1 %.not6.i, label %enc_registered.exit.thread, label %8
+  br i1 %.not6.i, label %enc_registered.argprom.exit.thread, label %8
 
 8:                                                ; preds = %6
   %9 = ptrtoint ptr %0 to i64
   %10 = call i32 @rb_st_lookup(ptr noundef nonnull %7, i64 noundef %9, ptr noundef nonnull %2) #20
   %.not7.i = icmp eq i32 %10, 0
-  br i1 %.not7.i, label %enc_registered.exit.thread, label %enc_registered.exit
+  br i1 %.not7.i, label %enc_registered.argprom.exit.thread, label %enc_registered.argprom.exit
 
-enc_registered.exit.thread:                       ; preds = %rb_vm_lock_enter.exit, %6, %8
+enc_registered.argprom.exit.thread:               ; preds = %rb_vm_lock_enter.argprom.exit, %6, %8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %14
 
-enc_registered.exit:                              ; preds = %8
+enc_registered.argprom.exit:                      ; preds = %8
   %11 = load i64, ptr %2, align 8
   %12 = trunc i64 %11 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %21
 
-14:                                               ; preds = %enc_registered.exit.thread, %enc_registered.exit
+14:                                               ; preds = %enc_registered.argprom.exit.thread, %enc_registered.argprom.exit
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %16 = add i32 %15, 1
   %17 = icmp sgt i32 %16, 256
-  br i1 %17, label %18, label %enc_register.exit
+  br i1 %17, label %18, label %enc_register.argprom.exit
 
 18:                                               ; preds = %14
   %19 = load i64, ptr @rb_eEncodingError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %19, ptr noundef nonnull @.str.42, i32 noundef 256) #23
   unreachable
 
-enc_register.exit:                                ; preds = %14
+enc_register.argprom.exit:                        ; preds = %14
   store i32 %16, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
-  %20 = call fastcc noundef i32 @enc_register_at(i32 noundef %15, ptr noundef %0, ptr noundef null)
+  %20 = call fastcc noundef i32 @enc_register_at.argprom(i32 noundef %15, ptr noundef %0, ptr noundef null)
   br label %21
 
-21:                                               ; preds = %enc_register.exit, %enc_registered.exit
-  %.0 = phi i32 [ %20, %enc_register.exit ], [ %12, %enc_registered.exit ]
+21:                                               ; preds = %enc_register.argprom.exit, %enc_registered.argprom.exit
+  %.0 = phi i32 [ %20, %enc_register.argprom.exit ], [ %12, %enc_registered.argprom.exit ]
   %22 = icmp slt i32 %.0, 0
   %23 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %24 = and i32 %.0, 16777215
@@ -1331,13 +1331,13 @@ rb_enc_from_index.exit:                           ; preds = %21, %27
   call fastcc void @set_encoding_const(ptr noundef %0, ptr noundef %.05.i.i)
   %31 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7 = icmp eq ptr %31, null
-  br i1 %.not.i.i7, label %32, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i7, label %32, label %rb_vm_lock_leave.argprom.exit
 
 32:                                               ; preds = %rb_enc_from_index.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #20
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %rb_enc_from_index.exit, %32
+rb_vm_lock_leave.argprom.exit:                    ; preds = %rb_enc_from_index.exit, %32
   ret void
 }
 
@@ -1348,37 +1348,37 @@ define dso_local void @rb_enc_set_base(ptr noundef %0, ptr noundef %1) local_unn
   %5 = alloca i32, align 4
   %6 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i, label %7, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %7, label %rb_vm_lock_enter.argprom.exit
 
 7:                                                ; preds = %2
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #20
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %2, %7
+rb_vm_lock_enter.argprom.exit:                    ; preds = %2, %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %enc_registered.exit, label %8
+  br i1 %.not.i, label %enc_registered.argprom.exit, label %8
 
-8:                                                ; preds = %rb_vm_lock_enter.exit
+8:                                                ; preds = %rb_vm_lock_enter.argprom.exit
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %9, null
-  br i1 %.not6.i, label %enc_registered.exit, label %10
+  br i1 %.not6.i, label %enc_registered.argprom.exit, label %10
 
 10:                                               ; preds = %8
   %11 = ptrtoint ptr %0 to i64
   %12 = call i32 @rb_st_lookup(ptr noundef nonnull %9, i64 noundef %11, ptr noundef nonnull %4) #20
   %.not7.i = icmp eq i32 %12, 0
-  br i1 %.not7.i, label %enc_registered.exit, label %13
+  br i1 %.not7.i, label %enc_registered.argprom.exit, label %13
 
 13:                                               ; preds = %10
   %14 = load i64, ptr %4, align 8
   %sext = shl i64 %14, 32
   %15 = ashr exact i64 %sext, 32
-  br label %enc_registered.exit
+  br label %enc_registered.argprom.exit
 
-enc_registered.exit:                              ; preds = %rb_vm_lock_enter.exit, %8, %10, %13
-  %.0.i = phi i64 [ %15, %13 ], [ -1, %rb_vm_lock_enter.exit ], [ -1, %8 ], [ -1, %10 ]
+enc_registered.argprom.exit:                      ; preds = %rb_vm_lock_enter.argprom.exit, %8, %10, %13
+  %.0.i = phi i64 [ %15, %13 ], [ -1, %rb_vm_lock_enter.argprom.exit ], [ -1, %8 ], [ -1, %10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 0, ptr %3, align 8
@@ -1410,25 +1410,25 @@ enc_registered.exit:                              ; preds = %rb_vm_lock_enter.ex
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 16777216
   %.not.i11 = icmp eq i32 %34, 0
-  br i1 %.not.i11, label %set_base_encoding.exit, label %35
+  br i1 %.not.i11, label %set_base_encoding.argprom.exit, label %35
 
-35:                                               ; preds = %enc_registered.exit
+35:                                               ; preds = %enc_registered.argprom.exit
   %36 = getelementptr inbounds i8, ptr %30, i64 128
   %37 = load i32, ptr %36, align 8
   %38 = or i32 %37, 16777216
   store i32 %38, ptr %36, align 8
-  br label %set_base_encoding.exit
+  br label %set_base_encoding.argprom.exit
 
-set_base_encoding.exit:                           ; preds = %enc_registered.exit, %35
+set_base_encoding.argprom.exit:                   ; preds = %enc_registered.argprom.exit, %35
   %39 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i12 = icmp eq ptr %39, null
-  br i1 %.not.i.i12, label %40, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i12, label %40, label %rb_vm_lock_leave.argprom.exit
 
-40:                                               ; preds = %set_base_encoding.exit
+40:                                               ; preds = %set_base_encoding.argprom.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #20
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %set_base_encoding.exit, %40
+rb_vm_lock_leave.argprom.exit:                    ; preds = %set_base_encoding.argprom.exit, %40
   ret void
 }
 
@@ -1451,82 +1451,82 @@ define dso_local range(i32 0, -2147483648) i32 @rb_encdb_replicate(ptr noundef %
   %5 = alloca i32, align 4
   %6 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i, label %7, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %7, label %rb_vm_lock_enter.argprom.exit
 
 7:                                                ; preds = %2
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #20
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %2, %7
+rb_vm_lock_enter.argprom.exit:                    ; preds = %2, %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %enc_registered.exit, label %8
+  br i1 %.not.i, label %enc_registered.argprom.exit, label %8
 
-8:                                                ; preds = %rb_vm_lock_enter.exit
+8:                                                ; preds = %rb_vm_lock_enter.argprom.exit
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %9, null
-  br i1 %.not6.i, label %enc_registered.exit, label %10
+  br i1 %.not6.i, label %enc_registered.argprom.exit, label %10
 
 10:                                               ; preds = %8
   %11 = ptrtoint ptr %1 to i64
   %12 = call i32 @rb_st_lookup(ptr noundef nonnull %9, i64 noundef %11, ptr noundef nonnull %4) #20
   %.not7.i = icmp eq i32 %12, 0
-  br i1 %.not7.i, label %enc_registered.exit, label %13
+  br i1 %.not7.i, label %enc_registered.argprom.exit, label %13
 
 13:                                               ; preds = %10
   %14 = load i64, ptr %4, align 8
   %15 = trunc i64 %14 to i32
-  br label %enc_registered.exit
+  br label %enc_registered.argprom.exit
 
-enc_registered.exit:                              ; preds = %rb_vm_lock_enter.exit, %8, %10, %13
-  %.0.i = phi i32 [ %15, %13 ], [ -1, %rb_vm_lock_enter.exit ], [ -1, %8 ], [ -1, %10 ]
+enc_registered.argprom.exit:                      ; preds = %rb_vm_lock_enter.argprom.exit, %8, %10, %13
+  %.0.i = phi i32 [ %15, %13 ], [ -1, %rb_vm_lock_enter.argprom.exit ], [ -1, %8 ], [ -1, %10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %.not.i12 = icmp eq ptr %0, null
-  br i1 %.not.i12, label %enc_registered.exit16, label %16
+  br i1 %.not.i12, label %enc_registered.argprom.exit16, label %16
 
-16:                                               ; preds = %enc_registered.exit
+16:                                               ; preds = %enc_registered.argprom.exit
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i13 = icmp eq ptr %17, null
-  br i1 %.not6.i13, label %enc_registered.exit16, label %18
+  br i1 %.not6.i13, label %enc_registered.argprom.exit16, label %18
 
 18:                                               ; preds = %16
   %19 = ptrtoint ptr %0 to i64
   %20 = call i32 @rb_st_lookup(ptr noundef nonnull %17, i64 noundef %19, ptr noundef nonnull %3) #20
   %.not7.i14 = icmp eq i32 %20, 0
-  br i1 %.not7.i14, label %enc_registered.exit16, label %21
+  br i1 %.not7.i14, label %enc_registered.argprom.exit16, label %21
 
 21:                                               ; preds = %18
   %22 = load i64, ptr %3, align 8
   %23 = trunc i64 %22 to i32
-  br label %enc_registered.exit16
+  br label %enc_registered.argprom.exit16
 
-enc_registered.exit16:                            ; preds = %enc_registered.exit, %16, %18, %21
-  %.0.i15 = phi i32 [ %23, %21 ], [ -1, %enc_registered.exit ], [ -1, %16 ], [ -1, %18 ]
+enc_registered.argprom.exit16:                    ; preds = %enc_registered.argprom.exit, %16, %18, %21
+  %.0.i15 = phi i32 [ %23, %21 ], [ -1, %enc_registered.argprom.exit ], [ -1, %16 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %24 = icmp slt i32 %.0.i, 0
   br i1 %24, label %25, label %32
 
-25:                                               ; preds = %enc_registered.exit16
+25:                                               ; preds = %enc_registered.argprom.exit16
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %27 = add i32 %26, 1
   %28 = icmp sgt i32 %27, 256
-  br i1 %28, label %29, label %enc_register.exit
+  br i1 %28, label %29, label %enc_register.argprom.exit
 
 29:                                               ; preds = %25
   %30 = load i64, ptr @rb_eEncodingError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.42, i32 noundef 256) #23
   unreachable
 
-enc_register.exit:                                ; preds = %25
+enc_register.argprom.exit:                        ; preds = %25
   store i32 %27, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
-  %31 = call fastcc noundef i32 @enc_register_at(i32 noundef %26, ptr noundef %1, ptr noundef null)
+  %31 = call fastcc noundef i32 @enc_register_at.argprom(i32 noundef %26, ptr noundef %1, ptr noundef null)
   br label %32
 
-32:                                               ; preds = %enc_register.exit, %enc_registered.exit16
-  %.0 = phi i32 [ %31, %enc_register.exit ], [ %.0.i, %enc_registered.exit16 ]
+32:                                               ; preds = %enc_register.argprom.exit, %enc_registered.argprom.exit16
+  %.0 = phi i32 [ %31, %enc_register.argprom.exit ], [ %.0.i, %enc_registered.argprom.exit16 ]
   %33 = icmp slt i32 %.0, 0
   %34 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %35 = and i32 %.0, 16777215
@@ -1542,21 +1542,21 @@ enc_register.exit:                                ; preds = %25
 
 rb_enc_from_index.exit:                           ; preds = %32, %38
   %.05.i.i = phi ptr [ %41, %38 ], [ null, %32 ]
-  %42 = call fastcc i32 @enc_replicate_with_index(ptr noundef %0, ptr noundef %.05.i.i, i32 noundef %.0.i15)
+  %42 = call fastcc i32 @enc_replicate_with_index.argprom(ptr noundef %0, ptr noundef %.05.i.i, i32 noundef %.0.i15)
   %43 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i17 = icmp eq ptr %43, null
-  br i1 %.not.i.i17, label %44, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i17, label %44, label %rb_vm_lock_leave.argprom.exit
 
 44:                                               ; preds = %rb_enc_from_index.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #20
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %rb_enc_from_index.exit, %44
+rb_vm_lock_leave.argprom.exit:                    ; preds = %rb_enc_from_index.exit, %44
   ret i32 %42
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, -2147483648) i32 @enc_replicate_with_index(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147483648) i32 @enc_replicate_with_index.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = icmp slt i32 %2, 0
   br i1 %4, label %5, label %12
 
@@ -1564,24 +1564,24 @@ define internal fastcc range(i32 0, -2147483648) i32 @enc_replicate_with_index(p
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %7 = add i32 %6, 1
   %8 = icmp sgt i32 %7, 256
-  br i1 %8, label %9, label %enc_register.exit
+  br i1 %8, label %9, label %enc_register.argprom.exit
 
 9:                                                ; preds = %5
   %10 = load i64, ptr @rb_eEncodingError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %10, ptr noundef nonnull @.str.42, i32 noundef 256) #23
   unreachable
 
-enc_register.exit:                                ; preds = %5
+enc_register.argprom.exit:                        ; preds = %5
   store i32 %7, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
-  %11 = tail call fastcc noundef i32 @enc_register_at(i32 noundef %6, ptr noundef %0, ptr noundef %1)
+  %11 = tail call fastcc noundef i32 @enc_register_at.argprom(i32 noundef %6, ptr noundef %0, ptr noundef %1)
   br label %14
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc i32 @enc_register_at(i32 noundef %2, ptr noundef %0, ptr noundef %1)
+  %13 = tail call fastcc i32 @enc_register_at.argprom(i32 noundef %2, ptr noundef %0, ptr noundef %1)
   br label %14
 
-14:                                               ; preds = %12, %enc_register.exit
-  %.0 = phi i32 [ %11, %enc_register.exit ], [ %13, %12 ]
+14:                                               ; preds = %12, %enc_register.argprom.exit
+  %.0 = phi i32 [ %11, %enc_register.argprom.exit ], [ %13, %12 ]
   %15 = icmp sgt i32 %.0, -1
   br i1 %15, label %16, label %35
 
@@ -1596,29 +1596,29 @@ enc_register.exit:                                ; preds = %5
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 16777216
   %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %set_base_encoding.exit, label %25
+  br i1 %.not.i, label %set_base_encoding.argprom.exit, label %25
 
 25:                                               ; preds = %16
   %26 = getelementptr inbounds i8, ptr %20, i64 128
   %27 = load i32, ptr %26, align 8
   %28 = or i32 %27, 16777216
   store i32 %28, ptr %26, align 8
-  br label %set_base_encoding.exit
+  br label %set_base_encoding.argprom.exit
 
-set_base_encoding.exit:                           ; preds = %16, %25
+set_base_encoding.argprom.exit:                   ; preds = %16, %25
   %29 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %30 = and i32 %.0, 16777215
   %.not = icmp sgt i32 %29, %30
   br i1 %.not, label %31, label %rb_enc_from_index.exit
 
-31:                                               ; preds = %set_base_encoding.exit
+31:                                               ; preds = %set_base_encoding.argprom.exit
   %32 = zext nneg i32 %30 to i64
   %33 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %32, i32 1
   %34 = load ptr, ptr %33, align 8
   br label %rb_enc_from_index.exit
 
-rb_enc_from_index.exit:                           ; preds = %set_base_encoding.exit, %31
-  %.05.i.i = phi ptr [ %34, %31 ], [ null, %set_base_encoding.exit ]
+rb_enc_from_index.exit:                           ; preds = %set_base_encoding.argprom.exit, %31
+  %.05.i.i = phi ptr [ %34, %31 ], [ null, %set_base_encoding.argprom.exit ]
   tail call fastcc void @set_encoding_const(ptr noundef %0, ptr noundef %.05.i.i)
   ret i32 %.0
 
@@ -1634,20 +1634,20 @@ define dso_local range(i32 0, -2147483648) i32 @rb_define_dummy_encoding(ptr nou
   %3 = alloca i32, align 4
   %4 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i, label %5, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %5, label %rb_vm_lock_enter.argprom.exit
 
 5:                                                ; preds = %1
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #20
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %1, %5
+rb_vm_lock_enter.argprom.exit:                    ; preds = %1, %5
   %6 = load ptr, ptr @global_enc_ascii, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i.i, label %17, label %7
 
-7:                                                ; preds = %rb_vm_lock_enter.exit
+7:                                                ; preds = %rb_vm_lock_enter.argprom.exit
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i.i.i = icmp eq ptr %8, null
   br i1 %.not6.i.i.i, label %.thread2.i.i, label %9
@@ -1656,16 +1656,16 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %5
   %10 = ptrtoint ptr %0 to i64
   %11 = call i32 @rb_st_lookup(ptr noundef nonnull %8, i64 noundef %10, ptr noundef nonnull %2) #20
   %.not7.i.i.i = icmp eq i32 %11, 0
-  br i1 %.not7.i.i.i, label %.thread2.i.i, label %enc_registered.exit.i.i
+  br i1 %.not7.i.i.i, label %.thread2.i.i, label %enc_registered.argprom.exit.i.i
 
-enc_registered.exit.i.i:                          ; preds = %9
+enc_registered.argprom.exit.i.i:                  ; preds = %9
   %12 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %13 = and i64 %12, 2147483648
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %.thread.i.i
 
-15:                                               ; preds = %enc_registered.exit.i.i
+15:                                               ; preds = %enc_registered.argprom.exit.i.i
   %16 = load i64, ptr @rb_eArgError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %16, ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #23
   unreachable
@@ -1674,43 +1674,43 @@ enc_registered.exit.i.i:                          ; preds = %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %.thread.i.i
 
-17:                                               ; preds = %rb_vm_lock_enter.exit
+17:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %20
 
-.thread.i.i:                                      ; preds = %.thread2.i.i, %enc_registered.exit.i.i
+.thread.i.i:                                      ; preds = %.thread2.i.i, %enc_registered.argprom.exit.i.i
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %19 = icmp ult i64 %18, 64
-  br i1 %19, label %enc_check_addable.exit.i, label %20
+  br i1 %19, label %enc_check_addable.argprom.exit.i, label %20
 
 20:                                               ; preds = %.thread.i.i, %17
   %21 = load i64, ptr @rb_eArgError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %21, ptr noundef nonnull @.str.44, ptr noundef %0) #23
   unreachable
 
-enc_check_addable.exit.i:                         ; preds = %.thread.i.i
+enc_check_addable.argprom.exit.i:                 ; preds = %.thread.i.i
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %23 = add i32 %22, 1
   %24 = icmp sgt i32 %23, 256
-  br i1 %24, label %25, label %enc_register.exit.i
+  br i1 %24, label %25, label %enc_register.argprom.exit.i
 
-25:                                               ; preds = %enc_check_addable.exit.i
+25:                                               ; preds = %enc_check_addable.argprom.exit.i
   %26 = load i64, ptr @rb_eEncodingError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %26, ptr noundef nonnull @.str.42, i32 noundef 256) #23
   unreachable
 
-enc_register.exit.i:                              ; preds = %enc_check_addable.exit.i
+enc_register.argprom.exit.i:                      ; preds = %enc_check_addable.argprom.exit.i
   store i32 %23, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
-  %27 = call fastcc noundef i32 @enc_register_at(i32 noundef %22, ptr noundef nonnull %0, ptr noundef %6)
+  %27 = call fastcc noundef i32 @enc_register_at.argprom(i32 noundef %22, ptr noundef nonnull %0, ptr noundef %6)
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %31
 
-29:                                               ; preds = %enc_register.exit.i
+29:                                               ; preds = %enc_register.argprom.exit.i
   %30 = load i64, ptr @rb_eArgError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.44, ptr noundef nonnull %0) #23
   unreachable
 
-31:                                               ; preds = %enc_register.exit.i
+31:                                               ; preds = %enc_register.argprom.exit.i
   %32 = zext nneg i32 %27 to i64
   %33 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %32
   %34 = getelementptr inbounds i8, ptr %33, i64 8
@@ -1721,29 +1721,29 @@ enc_register.exit.i:                              ; preds = %enc_check_addable.e
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 16777216
   %.not.i.i5 = icmp eq i32 %39, 0
-  br i1 %.not.i.i5, label %set_base_encoding.exit.i, label %40
+  br i1 %.not.i.i5, label %set_base_encoding.argprom.exit.i, label %40
 
 40:                                               ; preds = %31
   %41 = getelementptr inbounds i8, ptr %35, i64 128
   %42 = load i32, ptr %41, align 8
   %43 = or i32 %42, 16777216
   store i32 %43, ptr %41, align 8
-  br label %set_base_encoding.exit.i
+  br label %set_base_encoding.argprom.exit.i
 
-set_base_encoding.exit.i:                         ; preds = %40, %31
+set_base_encoding.argprom.exit.i:                 ; preds = %40, %31
   %44 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %45 = and i32 %27, 16777215
   %.not.i = icmp sgt i32 %44, %45
-  br i1 %.not.i, label %46, label %enc_replicate.exit
+  br i1 %.not.i, label %46, label %enc_replicate.argprom.exit
 
-46:                                               ; preds = %set_base_encoding.exit.i
+46:                                               ; preds = %set_base_encoding.argprom.exit.i
   %47 = zext nneg i32 %45 to i64
   %48 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %47, i32 1
   %49 = load ptr, ptr %48, align 8
-  br label %enc_replicate.exit
+  br label %enc_replicate.argprom.exit
 
-enc_replicate.exit:                               ; preds = %set_base_encoding.exit.i, %46
-  %.05.i.i.i = phi ptr [ %49, %46 ], [ null, %set_base_encoding.exit.i ]
+enc_replicate.argprom.exit:                       ; preds = %set_base_encoding.argprom.exit.i, %46
+  %.05.i.i.i = phi ptr [ %49, %46 ], [ null, %set_base_encoding.argprom.exit.i ]
   call fastcc void @set_encoding_const(ptr noundef nonnull %0, ptr noundef %.05.i.i.i)
   %50 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %32, i32 1
   %51 = load ptr, ptr %50, align 8
@@ -1753,13 +1753,13 @@ enc_replicate.exit:                               ; preds = %set_base_encoding.e
   store i32 %54, ptr %52, align 8
   %55 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i6 = icmp eq ptr %55, null
-  br i1 %.not.i.i6, label %56, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i6, label %56, label %rb_vm_lock_leave.argprom.exit
 
-56:                                               ; preds = %enc_replicate.exit
+56:                                               ; preds = %enc_replicate.argprom.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #20
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %enc_replicate.exit, %56
+rb_vm_lock_leave.argprom.exit:                    ; preds = %enc_replicate.argprom.exit, %56
   ret i32 %27
 }
 
@@ -1775,39 +1775,39 @@ define dso_local range(i32 0, -2147483648) i32 @rb_encdb_dummy(ptr noundef %0) l
   %3 = alloca i32, align 4
   %4 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i, label %5, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %5, label %rb_vm_lock_enter.argprom.exit
 
 5:                                                ; preds = %1
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #20
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %1, %5
+rb_vm_lock_enter.argprom.exit:                    ; preds = %1, %5
   %6 = load ptr, ptr @global_enc_ascii, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %enc_registered.exit, label %7
+  br i1 %.not.i, label %enc_registered.argprom.exit, label %7
 
-7:                                                ; preds = %rb_vm_lock_enter.exit
+7:                                                ; preds = %rb_vm_lock_enter.argprom.exit
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %8, null
-  br i1 %.not6.i, label %enc_registered.exit, label %9
+  br i1 %.not6.i, label %enc_registered.argprom.exit, label %9
 
 9:                                                ; preds = %7
   %10 = ptrtoint ptr %0 to i64
   %11 = call i32 @rb_st_lookup(ptr noundef nonnull %8, i64 noundef %10, ptr noundef nonnull %2) #20
   %.not7.i = icmp eq i32 %11, 0
-  br i1 %.not7.i, label %enc_registered.exit, label %12
+  br i1 %.not7.i, label %enc_registered.argprom.exit, label %12
 
 12:                                               ; preds = %9
   %13 = load i64, ptr %2, align 8
   %14 = trunc i64 %13 to i32
-  br label %enc_registered.exit
+  br label %enc_registered.argprom.exit
 
-enc_registered.exit:                              ; preds = %rb_vm_lock_enter.exit, %7, %9, %12
-  %.0.i = phi i32 [ %14, %12 ], [ -1, %rb_vm_lock_enter.exit ], [ -1, %7 ], [ -1, %9 ]
+enc_registered.argprom.exit:                      ; preds = %rb_vm_lock_enter.argprom.exit, %7, %9, %12
+  %.0.i = phi i32 [ %14, %12 ], [ -1, %rb_vm_lock_enter.argprom.exit ], [ -1, %7 ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %15 = call fastcc i32 @enc_replicate_with_index(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %.0.i)
+  %15 = call fastcc i32 @enc_replicate_with_index.argprom(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %.0.i)
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %16, i32 1
   %18 = load ptr, ptr %17, align 8
@@ -1817,13 +1817,13 @@ enc_registered.exit:                              ; preds = %rb_vm_lock_enter.ex
   store i32 %21, ptr %19, align 8
   %22 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7 = icmp eq ptr %22, null
-  br i1 %.not.i.i7, label %23, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i7, label %23, label %rb_vm_lock_leave.argprom.exit
 
-23:                                               ; preds = %enc_registered.exit
+23:                                               ; preds = %enc_registered.argprom.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #20
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %enc_registered.exit, %23
+rb_vm_lock_leave.argprom.exit:                    ; preds = %enc_registered.argprom.exit, %23
   ret i32 %15
 }
 
@@ -1841,19 +1841,19 @@ define dso_local i32 @rb_enc_alias(ptr noundef %0, ptr noundef %1) local_unnamed
   %4 = alloca i32, align 4
   %5 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %6, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %6, label %rb_vm_lock_enter.argprom.exit
 
 6:                                                ; preds = %2
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #20
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %2, %6
+rb_vm_lock_enter.argprom.exit:                    ; preds = %2, %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %.not.i.i7 = icmp eq ptr %0, null
   br i1 %.not.i.i7, label %17, label %7
 
-7:                                                ; preds = %rb_vm_lock_enter.exit
+7:                                                ; preds = %rb_vm_lock_enter.argprom.exit
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i.i = icmp eq ptr %8, null
   br i1 %.not6.i.i, label %.thread2.i, label %9
@@ -1862,16 +1862,16 @@ rb_vm_lock_enter.exit:                            ; preds = %2, %6
   %10 = ptrtoint ptr %0 to i64
   %11 = call i32 @rb_st_lookup(ptr noundef nonnull %8, i64 noundef %10, ptr noundef nonnull %3) #20
   %.not7.i.i = icmp eq i32 %11, 0
-  br i1 %.not7.i.i, label %.thread2.i, label %enc_registered.exit.i
+  br i1 %.not7.i.i, label %.thread2.i, label %enc_registered.argprom.exit.i
 
-enc_registered.exit.i:                            ; preds = %9
+enc_registered.argprom.exit.i:                    ; preds = %9
   %12 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %13 = and i64 %12, 2147483648
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %.thread.i
 
-15:                                               ; preds = %enc_registered.exit.i
+15:                                               ; preds = %enc_registered.argprom.exit.i
   %16 = load i64, ptr @rb_eArgError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %16, ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #23
   unreachable
@@ -1880,29 +1880,29 @@ enc_registered.exit.i:                            ; preds = %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %.thread.i
 
-17:                                               ; preds = %rb_vm_lock_enter.exit
+17:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %20
 
-.thread.i:                                        ; preds = %.thread2.i, %enc_registered.exit.i
+.thread.i:                                        ; preds = %.thread2.i, %enc_registered.argprom.exit.i
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %19 = icmp ult i64 %18, 64
-  br i1 %19, label %enc_check_addable.exit, label %20
+  br i1 %19, label %enc_check_addable.argprom.exit, label %20
 
 20:                                               ; preds = %.thread.i, %17
   %21 = load i64, ptr @rb_eArgError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %21, ptr noundef nonnull @.str.44, ptr noundef %0) #23
   unreachable
 
-enc_check_addable.exit:                           ; preds = %.thread.i
+enc_check_addable.argprom.exit:                   ; preds = %.thread.i
   %22 = call i32 @rb_enc_find_index(ptr noundef %1)
   %23 = icmp slt i32 %22, 0
-  br i1 %23, label %enc_alias.exit, label %24
+  br i1 %23, label %enc_alias.argprom.exit, label %24
 
-24:                                               ; preds = %enc_check_addable.exit
+24:                                               ; preds = %enc_check_addable.argprom.exit
   %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %26 = icmp ult i64 %25, 64
-  br i1 %26, label %27, label %enc_alias.exit
+  br i1 %26, label %27, label %enc_alias.argprom.exit
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
@@ -1910,36 +1910,36 @@ enc_check_addable.exit:                           ; preds = %.thread.i
   %30 = zext nneg i32 %22 to i64
   %31 = call i32 @rb_st_insert2(ptr noundef %28, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @enc_dup_name) #20
   %.not10.i = icmp eq i32 %31, 0
-  br i1 %.not10.i, label %32, label %enc_alias.exit
+  br i1 %.not10.i, label %32, label %enc_alias.argprom.exit
 
 32:                                               ; preds = %27
   %33 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %34 = and i32 %22, 16777215
   %.not = icmp sgt i32 %33, %34
-  br i1 %.not, label %35, label %enc_from_index.exit.i
+  br i1 %.not, label %35, label %enc_from_index.argprom.exit.i
 
 35:                                               ; preds = %32
   %36 = zext nneg i32 %34 to i64
   %37 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %36, i32 1
   %38 = load ptr, ptr %37, align 8
-  br label %enc_from_index.exit.i
+  br label %enc_from_index.argprom.exit.i
 
-enc_from_index.exit.i:                            ; preds = %35, %32
+enc_from_index.argprom.exit.i:                    ; preds = %35, %32
   %.05.i.i = phi ptr [ %38, %35 ], [ null, %32 ]
   call fastcc void @set_encoding_const(ptr noundef nonnull %0, ptr noundef %.05.i.i)
-  br label %enc_alias.exit
+  br label %enc_alias.argprom.exit
 
-enc_alias.exit:                                   ; preds = %enc_from_index.exit.i, %27, %24, %enc_check_addable.exit
-  %.0 = phi i32 [ -1, %enc_check_addable.exit ], [ -1, %24 ], [ %22, %enc_from_index.exit.i ], [ %22, %27 ]
+enc_alias.argprom.exit:                           ; preds = %enc_from_index.argprom.exit.i, %27, %24, %enc_check_addable.argprom.exit
+  %.0 = phi i32 [ -1, %enc_check_addable.argprom.exit ], [ -1, %24 ], [ %22, %enc_from_index.argprom.exit.i ], [ %22, %27 ]
   %39 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i8 = icmp eq ptr %39, null
-  br i1 %.not.i.i8, label %40, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i8, label %40, label %rb_vm_lock_leave.argprom.exit
 
-40:                                               ; preds = %enc_alias.exit
+40:                                               ; preds = %enc_alias.argprom.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #20
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %enc_alias.exit, %40
+rb_vm_lock_leave.argprom.exit:                    ; preds = %enc_alias.argprom.exit, %40
   ret i32 %.0
 }
 
@@ -1949,65 +1949,65 @@ define dso_local i32 @rb_encdb_alias(ptr noundef %0, ptr noundef %1) local_unnam
   %4 = alloca i32, align 4
   %5 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %6, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %6, label %rb_vm_lock_enter.argprom.exit
 
 6:                                                ; preds = %2
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #20
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %2, %6
+rb_vm_lock_enter.argprom.exit:                    ; preds = %2, %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %enc_registered.exit.thread, label %7
+  br i1 %.not.i, label %enc_registered.argprom.exit.thread, label %7
 
-7:                                                ; preds = %rb_vm_lock_enter.exit
+7:                                                ; preds = %rb_vm_lock_enter.argprom.exit
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %8, null
-  br i1 %.not6.i, label %enc_registered.exit.thread, label %9
+  br i1 %.not6.i, label %enc_registered.argprom.exit.thread, label %9
 
 9:                                                ; preds = %7
   %10 = ptrtoint ptr %1 to i64
   %11 = call i32 @rb_st_lookup(ptr noundef nonnull %8, i64 noundef %10, ptr noundef nonnull %3) #20
   %.not7.i = icmp eq i32 %11, 0
-  br i1 %.not7.i, label %enc_registered.exit.thread, label %enc_registered.exit
+  br i1 %.not7.i, label %enc_registered.argprom.exit.thread, label %enc_registered.argprom.exit
 
-enc_registered.exit.thread:                       ; preds = %rb_vm_lock_enter.exit, %7, %9
+enc_registered.argprom.exit.thread:               ; preds = %rb_vm_lock_enter.argprom.exit, %7, %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %15
 
-enc_registered.exit:                              ; preds = %9
+enc_registered.argprom.exit:                      ; preds = %9
   %12 = load i64, ptr %3, align 8
   %13 = trunc i64 %12 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %22
 
-15:                                               ; preds = %enc_registered.exit.thread, %enc_registered.exit
+15:                                               ; preds = %enc_registered.argprom.exit.thread, %enc_registered.argprom.exit
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %17 = add i32 %16, 1
   %18 = icmp sgt i32 %17, 256
-  br i1 %18, label %19, label %enc_register.exit
+  br i1 %18, label %19, label %enc_register.argprom.exit
 
 19:                                               ; preds = %15
   %20 = load i64, ptr @rb_eEncodingError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef nonnull @.str.42, i32 noundef 256) #23
   unreachable
 
-enc_register.exit:                                ; preds = %15
+enc_register.argprom.exit:                        ; preds = %15
   store i32 %17, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
-  %21 = call fastcc noundef i32 @enc_register_at(i32 noundef %16, ptr noundef %1, ptr noundef null)
+  %21 = call fastcc noundef i32 @enc_register_at.argprom(i32 noundef %16, ptr noundef %1, ptr noundef null)
   br label %22
 
-22:                                               ; preds = %enc_register.exit, %enc_registered.exit
-  %.0 = phi i32 [ %21, %enc_register.exit ], [ %13, %enc_registered.exit ]
+22:                                               ; preds = %enc_register.argprom.exit, %enc_registered.argprom.exit
+  %.0 = phi i32 [ %21, %enc_register.argprom.exit ], [ %13, %enc_registered.argprom.exit ]
   %.not.i9 = icmp eq ptr %0, null
-  br i1 %.not.i9, label %enc_alias.exit, label %23
+  br i1 %.not.i9, label %enc_alias.argprom.exit, label %23
 
 23:                                               ; preds = %22
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %25 = icmp ult i64 %24, 64
-  br i1 %25, label %26, label %enc_alias.exit
+  br i1 %25, label %26, label %enc_alias.argprom.exit
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
@@ -2015,7 +2015,7 @@ enc_register.exit:                                ; preds = %15
   %29 = sext i32 %.0 to i64
   %30 = call i32 @rb_st_insert2(ptr noundef %27, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @enc_dup_name) #20
   %.not10.i = icmp eq i32 %30, 0
-  br i1 %.not10.i, label %31, label %enc_alias.exit
+  br i1 %.not10.i, label %31, label %enc_alias.argprom.exit
 
 31:                                               ; preds = %26
   %32 = icmp slt i32 %.0, 0
@@ -2023,30 +2023,30 @@ enc_register.exit:                                ; preds = %15
   %34 = and i32 %.0, 16777215
   %35 = icmp sle i32 %33, %34
   %36 = select i1 %32, i1 true, i1 %35
-  br i1 %36, label %enc_from_index.exit.i, label %37
+  br i1 %36, label %enc_from_index.argprom.exit.i, label %37
 
 37:                                               ; preds = %31
   %38 = zext nneg i32 %34 to i64
   %39 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %38, i32 1
   %40 = load ptr, ptr %39, align 8
-  br label %enc_from_index.exit.i
+  br label %enc_from_index.argprom.exit.i
 
-enc_from_index.exit.i:                            ; preds = %37, %31
+enc_from_index.argprom.exit.i:                    ; preds = %37, %31
   %.05.i.i = phi ptr [ %40, %37 ], [ null, %31 ]
   call fastcc void @set_encoding_const(ptr noundef nonnull %0, ptr noundef %.05.i.i)
-  br label %enc_alias.exit
+  br label %enc_alias.argprom.exit
 
-enc_alias.exit:                                   ; preds = %22, %23, %26, %enc_from_index.exit.i
-  %.0.i10 = phi i32 [ -1, %23 ], [ -1, %22 ], [ %.0, %enc_from_index.exit.i ], [ %.0, %26 ]
+enc_alias.argprom.exit:                           ; preds = %22, %23, %26, %enc_from_index.argprom.exit.i
+  %.0.i10 = phi i32 [ -1, %23 ], [ -1, %22 ], [ %.0, %enc_from_index.argprom.exit.i ], [ %.0, %26 ]
   %41 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i11 = icmp eq ptr %41, null
-  br i1 %.not.i.i11, label %42, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i11, label %42, label %rb_vm_lock_leave.argprom.exit
 
-42:                                               ; preds = %enc_alias.exit
+42:                                               ; preds = %enc_alias.argprom.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #20
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %enc_alias.exit, %42
+rb_vm_lock_leave.argprom.exit:                    ; preds = %enc_alias.argprom.exit, %42
   ret i32 %.0.i10
 }
 
@@ -2119,13 +2119,13 @@ define hidden i32 @rb_enc_autoload(ptr nocapture noundef %0) local_unnamed_addr 
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %4, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %4, label %rb_vm_lock_enter.argprom.exit
 
 4:                                                ; preds = %1
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #20
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %1, %4
+rb_vm_lock_enter.argprom.exit:                    ; preds = %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 128
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 16777215
@@ -2135,7 +2135,7 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %4
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %enc_autoload_body.exit, label %.preheader
 
-.preheader:                                       ; preds = %rb_vm_lock_enter.exit
+.preheader:                                       ; preds = %rb_vm_lock_enter.argprom.exit
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %.not22.i6 = icmp sgt i32 %11, 0
   br i1 %.not22.i6, label %.lr.ph.preheader, label %enc_autoload_body.exit
@@ -2177,32 +2177,32 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %4
   %20 = phi i32 [ %.pre, %._crit_edge ], [ %6, %.critedge.i ]
   %21 = getelementptr i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %21, align 8
-  %22 = call fastcc i32 @enc_register_at(i32 noundef %.pre-phi, ptr noundef %.val25.i, ptr noundef nonnull %10)
+  %22 = call fastcc i32 @enc_register_at.argprom(i32 noundef %.pre-phi, ptr noundef %.val25.i, ptr noundef nonnull %10)
   store i32 %20, ptr %5, align 8
   br label %enc_autoload_body.exit
 
-enc_autoload_body.exit:                           ; preds = %12, %.preheader, %rb_vm_lock_enter.exit, %16, %19
-  %.020.i = phi i32 [ %.pre-phi, %19 ], [ -1, %16 ], [ -2, %rb_vm_lock_enter.exit ], [ -1, %.preheader ], [ -1, %12 ]
+enc_autoload_body.exit:                           ; preds = %12, %.preheader, %rb_vm_lock_enter.argprom.exit, %16, %19
+  %.020.i = phi i32 [ %.pre-phi, %19 ], [ -1, %16 ], [ -2, %rb_vm_lock_enter.argprom.exit ], [ -1, %.preheader ], [ -1, %12 ]
   %23 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i5 = icmp eq ptr %23, null
-  br i1 %.not.i.i5, label %24, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i5, label %24, label %rb_vm_lock_leave.argprom.exit
 
 24:                                               ; preds = %enc_autoload_body.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #20
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %enc_autoload_body.exit, %24
+rb_vm_lock_leave.argprom.exit:                    ; preds = %enc_autoload_body.exit, %24
   %25 = icmp eq i32 %.020.i, -2
   br i1 %25, label %26, label %29
 
-26:                                               ; preds = %rb_vm_lock_leave.exit
+26:                                               ; preds = %rb_vm_lock_leave.argprom.exit
   %27 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %27, align 8
   %28 = call fastcc i32 @load_encoding(ptr noundef %.val)
   br label %29
 
-29:                                               ; preds = %26, %rb_vm_lock_leave.exit
-  %.0 = phi i32 [ %28, %26 ], [ %.020.i, %rb_vm_lock_leave.exit ]
+29:                                               ; preds = %26, %rb_vm_lock_leave.argprom.exit
+  %.0 = phi i32 [ %28, %26 ], [ %.020.i, %rb_vm_lock_leave.argprom.exit ]
   ret i32 %.0
 }
 
@@ -2281,45 +2281,45 @@ RSTRING_END.exit:                                 ; preds = %RSTRING_PTR.exit.th
   tail call void @rb_set_errinfo(i64 noundef %34) #20
   %37 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i27 = icmp eq ptr %37, null
-  br i1 %.not.i.i27, label %38, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i27, label %38, label %rb_vm_lock_enter.argprom.exit
 
 38:                                               ; preds = %._crit_edge
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #20
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %._crit_edge, %38
+rb_vm_lock_enter.argprom.exit:                    ; preds = %._crit_edge, %38
   %or.cond = icmp ugt i32 %35, 1
   br i1 %or.cond, label %53, label %39
 
-39:                                               ; preds = %rb_vm_lock_enter.exit
+39:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %enc_registered.exit.thread, label %40
+  br i1 %.not.i, label %enc_registered.argprom.exit.thread, label %40
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %41, null
-  br i1 %.not6.i, label %enc_registered.exit.thread, label %42
+  br i1 %.not6.i, label %enc_registered.argprom.exit.thread, label %42
 
 42:                                               ; preds = %40
   %43 = ptrtoint ptr %0 to i64
   %44 = call i32 @rb_st_lookup(ptr noundef nonnull %41, i64 noundef %43, ptr noundef nonnull %2) #20
   %.not7.i = icmp eq i32 %44, 0
-  br i1 %.not7.i, label %enc_registered.exit.thread, label %enc_registered.exit
+  br i1 %.not7.i, label %enc_registered.argprom.exit.thread, label %enc_registered.argprom.exit
 
-enc_registered.exit.thread:                       ; preds = %39, %40, %42
+enc_registered.argprom.exit.thread:               ; preds = %39, %40, %42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %53
 
-enc_registered.exit:                              ; preds = %42
+enc_registered.argprom.exit:                      ; preds = %42
   %45 = load i64, ptr %2, align 8
   %46 = trunc i64 %45 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %53, label %48
 
-48:                                               ; preds = %enc_registered.exit
+48:                                               ; preds = %enc_registered.argprom.exit
   %49 = and i64 %45, 2147483647
   %50 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %49, i32 1
   %51 = load ptr, ptr %50, align 8
@@ -2329,17 +2329,17 @@ enc_registered.exit:                              ; preds = %42
   %spec.select = select i1 %.not, i32 -1, i32 %46
   br label %53
 
-53:                                               ; preds = %enc_registered.exit.thread, %48, %enc_registered.exit, %rb_vm_lock_enter.exit
-  %.0 = phi i32 [ -1, %rb_vm_lock_enter.exit ], [ -1, %enc_registered.exit ], [ %spec.select, %48 ], [ -1, %enc_registered.exit.thread ]
+53:                                               ; preds = %enc_registered.argprom.exit.thread, %48, %enc_registered.argprom.exit, %rb_vm_lock_enter.argprom.exit
+  %.0 = phi i32 [ -1, %rb_vm_lock_enter.argprom.exit ], [ -1, %enc_registered.argprom.exit ], [ %spec.select, %48 ], [ -1, %enc_registered.argprom.exit.thread ]
   %54 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i28 = icmp eq ptr %54, null
-  br i1 %.not.i.i28, label %55, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i28, label %55, label %rb_vm_lock_leave.argprom.exit
 
 55:                                               ; preds = %53
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #20
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %53, %55
+rb_vm_lock_leave.argprom.exit:                    ; preds = %53, %55
   ret i32 %.0
 }
 
@@ -3574,46 +3574,46 @@ define dso_local i32 @rb_locale_encindex() local_unnamed_addr #0 {
   store i64 0, ptr %1, align 8
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %5, null
-  br i1 %.not6.i, label %enc_registered.exit.thread, label %6
+  br i1 %.not6.i, label %enc_registered.argprom.exit.thread, label %6
 
 6:                                                ; preds = %0
   %7 = call i32 @rb_st_lookup(ptr noundef nonnull %5, i64 noundef ptrtoint (ptr @.str.13 to i64), ptr noundef nonnull %1) #20
   %.not7.i = icmp eq i32 %7, 0
-  br i1 %.not7.i, label %enc_registered.exit.thread, label %enc_registered.exit
+  br i1 %.not7.i, label %enc_registered.argprom.exit.thread, label %enc_registered.argprom.exit
 
-enc_registered.exit.thread:                       ; preds = %0, %6
+enc_registered.argprom.exit.thread:               ; preds = %0, %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   br label %10
 
-enc_registered.exit:                              ; preds = %6
+enc_registered.argprom.exit:                      ; preds = %6
   %8 = load i64, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   %9 = and i64 %8, 2147483648
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %rb_vm_lock_leave.exit, label %10
+  br i1 %.not, label %rb_vm_lock_leave.argprom.exit, label %10
 
-10:                                               ; preds = %enc_registered.exit.thread, %enc_registered.exit
+10:                                               ; preds = %enc_registered.argprom.exit.thread, %enc_registered.argprom.exit
   %11 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i, label %12, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %12, label %rb_vm_lock_enter.argprom.exit
 
 12:                                               ; preds = %10
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #20
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %10, %12
+rb_vm_lock_enter.argprom.exit:                    ; preds = %10, %12
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
   %14 = sext i32 %spec.store.select to i64
   %15 = call i32 @rb_st_insert2(ptr noundef %13, i64 noundef ptrtoint (ptr @.str.13 to i64), i64 noundef %14, ptr noundef nonnull @enc_dup_name) #20
   %16 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i3 = icmp eq ptr %16, null
-  br i1 %.not.i.i3, label %17, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i3, label %17, label %rb_vm_lock_leave.argprom.exit
 
-17:                                               ; preds = %rb_vm_lock_enter.exit
+17:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #20
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %17, %rb_vm_lock_enter.exit, %enc_registered.exit
+rb_vm_lock_leave.argprom.exit:                    ; preds = %17, %rb_vm_lock_enter.argprom.exit, %enc_registered.argprom.exit
   ret i32 %spec.store.select
 }
 
@@ -3647,19 +3647,19 @@ define dso_local range(i32 0, -2147483648) i32 @rb_filesystem_encindex() local_u
   store i64 0, ptr %1, align 8
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
   %.not6.i = icmp eq ptr %2, null
-  br i1 %.not6.i, label %enc_registered.exit, label %3
+  br i1 %.not6.i, label %enc_registered.argprom.exit, label %3
 
 3:                                                ; preds = %0
   %4 = call i32 @rb_st_lookup(ptr noundef nonnull %2, i64 noundef ptrtoint (ptr @.str.14 to i64), ptr noundef nonnull %1) #20
   %.not7.i = icmp eq i32 %4, 0
-  br i1 %.not7.i, label %enc_registered.exit, label %5
+  br i1 %.not7.i, label %enc_registered.argprom.exit, label %5
 
 5:                                                ; preds = %3
   %6 = load i64, ptr %1, align 8
   %7 = trunc i64 %6 to i32
-  br label %enc_registered.exit
+  br label %enc_registered.argprom.exit
 
-enc_registered.exit:                              ; preds = %0, %3, %5
+enc_registered.argprom.exit:                      ; preds = %0, %3, %5
   %.0.i = phi i32 [ %7, %5 ], [ -1, %0 ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   %spec.store.select = call i32 @llvm.smax.i32(i32 %.0.i, i32 0)
@@ -3836,27 +3836,27 @@ define dso_local void @rb_enc_set_default_external(i64 noundef %0) local_unnamed
   unreachable
 
 5:                                                ; preds = %1
-  tail call fastcc void @enc_set_default_encoding(ptr noundef nonnull @default_external, i64 noundef %0, ptr noundef nonnull @.str.16)
+  tail call fastcc void @enc_set_default_encoding.retelim(ptr noundef nonnull @default_external, i64 noundef %0, ptr noundef nonnull @.str.16)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @enc_set_default_encoding(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @enc_set_default_encoding.retelim(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i, label %7, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %7, label %rb_vm_lock_enter.argprom.exit
 
 7:                                                ; preds = %3
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #20
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %3, %7
+rb_vm_lock_enter.argprom.exit:                    ; preds = %3, %7
   %8 = icmp eq i64 %1, 4
   br i1 %8, label %9, label %21
 
-9:                                                ; preds = %rb_vm_lock_enter.exit
+9:                                                ; preds = %rb_vm_lock_enter.argprom.exit
   store i32 -1, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %10, align 8
@@ -3879,7 +3879,7 @@ rb_vm_lock_enter.exit:                            ; preds = %3, %7
   %20 = call i32 @rb_st_insert(ptr noundef %19, i64 noundef %12, i64 noundef 2147483647) #20
   br label %33
 
-21:                                               ; preds = %rb_vm_lock_enter.exit
+21:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %22 = call ptr @rb_to_encoding(i64 noundef %1)
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %rb_enc_to_index.exit, label %23
@@ -3915,13 +3915,13 @@ rb_enc_to_index.exit:                             ; preds = %21, %23
 40:                                               ; preds = %35, %33
   %41 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i18 = icmp eq ptr %41, null
-  br i1 %.not.i.i18, label %42, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i18, label %42, label %rb_vm_lock_leave.argprom.exit
 
 42:                                               ; preds = %40
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #20
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %40, %42
+rb_vm_lock_leave.argprom.exit:                    ; preds = %40, %42
   ret void
 }
 
@@ -4012,7 +4012,7 @@ rb_enc_from_encoding.exit:                        ; preds = %rb_default_internal
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_enc_set_default_internal(i64 noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @enc_set_default_encoding(ptr noundef nonnull @default_internal, i64 noundef %0, ptr noundef nonnull @.str.17)
+  tail call fastcc void @enc_set_default_encoding.retelim(ptr noundef nonnull @default_internal, i64 noundef %0, ptr noundef nonnull @.str.17)
   ret void
 }
 
@@ -4761,7 +4761,7 @@ define internal noundef i64 @set_default_external(i64 %0, i64 noundef returned %
   unreachable
 
 rb_enc_set_default_external.exit:                 ; preds = %2
-  tail call fastcc void @enc_set_default_encoding(ptr noundef nonnull @default_external, i64 noundef %1, ptr noundef nonnull @.str.16)
+  tail call fastcc void @enc_set_default_encoding.retelim(ptr noundef nonnull @default_external, i64 noundef %1, ptr noundef nonnull @.str.16)
   ret i64 %1
 }
 
@@ -4822,7 +4822,7 @@ rb_enc_default_internal.exit:                     ; preds = %rb_default_internal
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @set_default_internal(i64 %0, i64 noundef returned %1) #0 {
   tail call void (ptr, ...) @rb_warning(ptr noundef nonnull @.str.58) #20
-  tail call fastcc void @enc_set_default_encoding(ptr noundef nonnull @default_internal, i64 noundef %1, ptr noundef nonnull @.str.17)
+  tail call fastcc void @enc_set_default_encoding.retelim(ptr noundef nonnull @default_internal, i64 noundef %1, ptr noundef nonnull @.str.17)
   ret i64 %1
 }
 
@@ -4846,35 +4846,35 @@ define internal i64 @enc_m_loader(i64 %0, i64 noundef %1) #0 {
 define hidden void @Init_encodings() local_unnamed_addr #0 {
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %2, label %rb_enc_init.exit
+  br i1 %.not.i, label %2, label %rb_enc_init.argprom.exit
 
 2:                                                ; preds = %0
   %3 = tail call ptr @rb_st_init_strcasetable_with_size(i64 noundef 256) #20
   store ptr %3, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6152), align 8
-  br label %rb_enc_init.exit
+  br label %rb_enc_init.argprom.exit
 
-rb_enc_init.exit:                                 ; preds = %0, %2
+rb_enc_init.argprom.exit:                         ; preds = %0, %2
   %OnigEncodingASCII.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @OnigEncodingASCII, i64 8), align 8
-  %4 = tail call fastcc i32 @enc_register_at(i32 noundef 0, ptr noundef %OnigEncodingASCII.val.i, ptr noundef nonnull @OnigEncodingASCII)
+  %4 = tail call fastcc i32 @enc_register_at.argprom(i32 noundef 0, ptr noundef %OnigEncodingASCII.val.i, ptr noundef nonnull @OnigEncodingASCII)
   %OnigEncodingUTF_8.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @OnigEncodingUTF_8, i64 8), align 8
-  %5 = tail call fastcc i32 @enc_register_at(i32 noundef 1, ptr noundef %OnigEncodingUTF_8.val.i, ptr noundef nonnull @OnigEncodingUTF_8)
+  %5 = tail call fastcc i32 @enc_register_at.argprom(i32 noundef 1, ptr noundef %OnigEncodingUTF_8.val.i, ptr noundef nonnull @OnigEncodingUTF_8)
   %OnigEncodingUS_ASCII.val.i = load ptr, ptr getelementptr inbounds (i8, ptr @OnigEncodingUS_ASCII, i64 8), align 8
-  %6 = tail call fastcc i32 @enc_register_at(i32 noundef 2, ptr noundef %OnigEncodingUS_ASCII.val.i, ptr noundef nonnull @OnigEncodingUS_ASCII)
+  %6 = tail call fastcc i32 @enc_register_at.argprom(i32 noundef 2, ptr noundef %OnigEncodingUS_ASCII.val.i, ptr noundef nonnull @OnigEncodingUS_ASCII)
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 8), align 8
   store ptr %7, ptr @global_enc_ascii, align 8
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 32), align 8
   store ptr %8, ptr @global_enc_utf_8, align 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 56), align 8
   store ptr %9, ptr @global_enc_us_ascii, align 8
-  %10 = tail call fastcc i32 @enc_register_at(i32 noundef 3, ptr noundef nonnull @.str.59, ptr noundef null)
-  %11 = tail call fastcc i32 @enc_register_at(i32 noundef 4, ptr noundef nonnull @.str.60, ptr noundef null)
-  %12 = tail call fastcc i32 @enc_register_at(i32 noundef 5, ptr noundef nonnull @.str.61, ptr noundef null)
-  %13 = tail call fastcc i32 @enc_register_at(i32 noundef 6, ptr noundef nonnull @.str.62, ptr noundef null)
-  %14 = tail call fastcc i32 @enc_register_at(i32 noundef 7, ptr noundef nonnull @.str.63, ptr noundef null)
-  %15 = tail call fastcc i32 @enc_register_at(i32 noundef 8, ptr noundef nonnull @.str.64, ptr noundef null)
-  %16 = tail call fastcc i32 @enc_register_at(i32 noundef 9, ptr noundef nonnull @.str.65, ptr noundef null)
-  %17 = tail call fastcc i32 @enc_register_at(i32 noundef 10, ptr noundef nonnull @.str.66, ptr noundef null)
-  %18 = tail call fastcc i32 @enc_register_at(i32 noundef 11, ptr noundef nonnull @.str.67, ptr noundef null)
+  %10 = tail call fastcc i32 @enc_register_at.argprom(i32 noundef 3, ptr noundef nonnull @.str.59, ptr noundef null)
+  %11 = tail call fastcc i32 @enc_register_at.argprom(i32 noundef 4, ptr noundef nonnull @.str.60, ptr noundef null)
+  %12 = tail call fastcc i32 @enc_register_at.argprom(i32 noundef 5, ptr noundef nonnull @.str.61, ptr noundef null)
+  %13 = tail call fastcc i32 @enc_register_at.argprom(i32 noundef 6, ptr noundef nonnull @.str.62, ptr noundef null)
+  %14 = tail call fastcc i32 @enc_register_at.argprom(i32 noundef 7, ptr noundef nonnull @.str.63, ptr noundef null)
+  %15 = tail call fastcc i32 @enc_register_at.argprom(i32 noundef 8, ptr noundef nonnull @.str.64, ptr noundef null)
+  %16 = tail call fastcc i32 @enc_register_at.argprom(i32 noundef 9, ptr noundef nonnull @.str.65, ptr noundef null)
+  %17 = tail call fastcc i32 @enc_register_at.argprom(i32 noundef 10, ptr noundef nonnull @.str.66, ptr noundef null)
+  %18 = tail call fastcc i32 @enc_register_at.argprom(i32 noundef 11, ptr noundef nonnull @.str.67, ptr noundef null)
   store i32 12, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   ret void
 }

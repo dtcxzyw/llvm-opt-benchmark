@@ -1413,7 +1413,7 @@ do.body.i91:                                      ; preds = %if.then.i
   %add.i92 = zext i8 %34 to i32
   %call.i = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %writer, i32 noundef %add.i92) #15
   %cmp9.i = icmp slt i32 %call.i, 0
-  br i1 %cmp9.i, label %return, label %iso2022processg2.exit
+  br i1 %cmp9.i, label %return, label %iso2022processg2.argprom.exit
 
 if.then19.i:                                      ; preds = %do.end78
   %arrayidx20.i = getelementptr i8, ptr %1, i64 2
@@ -1426,7 +1426,7 @@ if.then19.i:                                      ; preds = %do.end78
 do.body25.i:                                      ; preds = %if.then19.i
   %call29.i = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %writer, i32 noundef %xor.i) #15
   %cmp30.i = icmp slt i32 %call29.i, 0
-  br i1 %cmp30.i, label %return, label %iso2022processg2.exit
+  br i1 %cmp30.i, label %return, label %iso2022processg2.argprom.exit
 
 if.else35.i:                                      ; preds = %if.then19.i
   %cmp39.i = icmp ult i8 %36, -64
@@ -1443,7 +1443,7 @@ land.lhs.true.i:                                  ; preds = %if.else35.i
 do.body45.i:                                      ; preds = %land.lhs.true.i
   %call49.i = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %writer, i32 noundef %xor.i) #15
   %cmp50.i = icmp slt i32 %call49.i, 0
-  br i1 %cmp50.i, label %return, label %iso2022processg2.exit
+  br i1 %cmp50.i, label %return, label %iso2022processg2.argprom.exit
 
 if.else55.i:                                      ; preds = %land.lhs.true.i, %if.else35.i
   %xor58.i = zext i8 %36 to i64
@@ -1468,7 +1468,7 @@ do.body82.i:                                      ; preds = %lor.lhs.false.i, %l
   %add86.i = add nuw nsw i32 %xor.i, 720
   %call87.i = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %writer, i32 noundef %add86.i) #15
   %cmp88.i = icmp slt i32 %call87.i, 0
-  br i1 %cmp88.i, label %return, label %iso2022processg2.exit
+  br i1 %cmp88.i, label %return, label %iso2022processg2.argprom.exit
 
 if.else93.i:                                      ; preds = %lor.lhs.false.i, %if.else55.i
   switch i8 %35, label %return [
@@ -1480,17 +1480,17 @@ if.else93.i:                                      ; preds = %lor.lhs.false.i, %i
 do.body100.i:                                     ; preds = %if.else93.i
   %call101.i = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %writer, i32 noundef 8216) #15
   %cmp102.i = icmp slt i32 %call101.i, 0
-  br i1 %cmp102.i, label %return, label %iso2022processg2.exit
+  br i1 %cmp102.i, label %return, label %iso2022processg2.argprom.exit
 
 do.body114.i:                                     ; preds = %if.else93.i
   %call115.i = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %writer, i32 noundef 8217) #15
   %cmp116.i = icmp slt i32 %call115.i, 0
-  br i1 %cmp116.i, label %return, label %iso2022processg2.exit
+  br i1 %cmp116.i, label %return, label %iso2022processg2.argprom.exit
 
 do.body128.i:                                     ; preds = %if.else93.i
   %call129.i = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %writer, i32 noundef 8213) #15
   %cmp130.i = icmp slt i32 %call129.i, 0
-  br i1 %cmp130.i, label %return, label %iso2022processg2.exit
+  br i1 %cmp130.i, label %return, label %iso2022processg2.argprom.exit
 
 if.then148.i:                                     ; preds = %do.end78
   %arrayidx149.i = getelementptr i8, ptr %1, i64 2
@@ -1502,9 +1502,9 @@ do.body155.i:                                     ; preds = %if.then148.i
   %conv150.i = zext nneg i8 %37 to i32
   %call158.i = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %writer, i32 noundef %conv150.i) #15
   %cmp159.i = icmp slt i32 %call158.i, 0
-  br i1 %cmp159.i, label %return, label %iso2022processg2.exit
+  br i1 %cmp159.i, label %return, label %iso2022processg2.argprom.exit
 
-iso2022processg2.exit:                            ; preds = %do.body.i91, %do.body25.i, %do.body45.i, %do.body82.i, %do.body100.i, %do.body114.i, %do.body128.i, %do.body155.i
+iso2022processg2.argprom.exit:                    ; preds = %do.body.i91, %do.body25.i, %do.body45.i, %do.body82.i, %do.body100.i, %do.body114.i, %do.body128.i, %do.body155.i
   %38 = load ptr, ptr %inbuf, align 8
   %add.ptr.i87 = getelementptr i8, ptr %38, i64 3
   store ptr %add.ptr.i87, ptr %inbuf, align 8
@@ -1754,9 +1754,9 @@ do.body288:                                       ; preds = %do.body231, %do.bod
   %sub294 = sub nsw i64 %inleft.addr.0134, %conv293
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %iso2022processg2.exit, %iso2022processesc.exit.thread118, %iso2022processesc.exit, %do.body92, %do.body288, %do.body193, %do.body155, %do.body129, %do.body111
-  %inleft.addr.1 = phi i64 [ %sub195, %do.body193 ], [ %sub294, %do.body288 ], [ %sub157, %do.body155 ], [ %sub138, %do.body129 ], [ %sub120, %do.body111 ], [ %sub169.i, %iso2022processg2.exit ], [ %sub100, %do.body92 ], [ %inleft.addr.0134, %iso2022processesc.exit ], [ %sub.i, %iso2022processesc.exit.thread118 ]
-  %dsgcache.1 = phi ptr [ %dsgcache.0.ph139, %do.body193 ], [ %dsgcache.2, %do.body288 ], [ %dsgcache.0.ph139, %do.body155 ], [ %dsgcache.0.ph139, %do.body129 ], [ %dsgcache.0.ph139, %do.body111 ], [ %dsgcache.0.ph139, %iso2022processg2.exit ], [ %dsgcache.0.ph139, %do.body92 ], [ %dsgcache.0.ph139, %iso2022processesc.exit ], [ %dsgcache.0.ph139, %iso2022processesc.exit.thread118 ]
+sw.epilog:                                        ; preds = %iso2022processg2.argprom.exit, %iso2022processesc.exit.thread118, %iso2022processesc.exit, %do.body92, %do.body288, %do.body193, %do.body155, %do.body129, %do.body111
+  %inleft.addr.1 = phi i64 [ %sub195, %do.body193 ], [ %sub294, %do.body288 ], [ %sub157, %do.body155 ], [ %sub138, %do.body129 ], [ %sub120, %do.body111 ], [ %sub169.i, %iso2022processg2.argprom.exit ], [ %sub100, %do.body92 ], [ %inleft.addr.0134, %iso2022processesc.exit ], [ %sub.i, %iso2022processesc.exit.thread118 ]
+  %dsgcache.1 = phi ptr [ %dsgcache.0.ph139, %do.body193 ], [ %dsgcache.2, %do.body288 ], [ %dsgcache.0.ph139, %do.body155 ], [ %dsgcache.0.ph139, %do.body129 ], [ %dsgcache.0.ph139, %do.body111 ], [ %dsgcache.0.ph139, %iso2022processg2.argprom.exit ], [ %dsgcache.0.ph139, %do.body92 ], [ %dsgcache.0.ph139, %iso2022processesc.exit ], [ %dsgcache.0.ph139, %iso2022processesc.exit.thread118 ]
   %cmp133 = icmp sgt i64 %inleft.addr.1, 0
   br i1 %cmp133, label %while.body.lr.ph, label %return, !llvm.loop !11
 

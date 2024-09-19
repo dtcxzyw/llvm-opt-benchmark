@@ -1055,14 +1055,14 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %42 = getelementptr i8, ptr %31, i64 16
   %.val61 = load ptr, ptr %42, align 8
   %.not.i68 = icmp eq ptr %.val61, null
-  br i1 %.not.i68, label %Ivy_ObjFaninId0.exit, label %Ivy_ObjFaninId0.exit.thread
+  br i1 %.not.i68, label %Ivy_ObjFaninId0.argprom.exit, label %Ivy_ObjFaninId0.argprom.exit.thread
 
-Ivy_ObjFaninId0.exit:                             ; preds = %.lr.ph
+Ivy_ObjFaninId0.argprom.exit:                     ; preds = %.lr.ph
   %43 = load i32, ptr %.val55, align 4
   %44 = icmp slt i32 %43, %41
-  br i1 %44, label %Ivy_ObjFaninId0.exit71, label %54
+  br i1 %44, label %Ivy_ObjFaninId0.argprom.exit71, label %54
 
-Ivy_ObjFaninId0.exit.thread:                      ; preds = %.lr.ph
+Ivy_ObjFaninId0.argprom.exit.thread:              ; preds = %.lr.ph
   %45 = ptrtoint ptr %.val61 to i64
   %46 = and i64 %45, -2
   %47 = inttoptr i64 %46 to ptr
@@ -1071,27 +1071,27 @@ Ivy_ObjFaninId0.exit.thread:                      ; preds = %.lr.ph
   %49 = getelementptr inbounds i32, ptr %.val55, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = icmp slt i32 %50, %41
-  br i1 %51, label %Ivy_ObjFaninId0.exit71, label %54
+  br i1 %51, label %Ivy_ObjFaninId0.argprom.exit71, label %54
 
-Ivy_ObjFaninId0.exit71:                           ; preds = %Ivy_ObjFaninId0.exit.thread, %Ivy_ObjFaninId0.exit
-  %52 = phi i64 [ 0, %Ivy_ObjFaninId0.exit ], [ %48, %Ivy_ObjFaninId0.exit.thread ]
+Ivy_ObjFaninId0.argprom.exit71:                   ; preds = %Ivy_ObjFaninId0.argprom.exit.thread, %Ivy_ObjFaninId0.argprom.exit
+  %52 = phi i64 [ 0, %Ivy_ObjFaninId0.argprom.exit ], [ %48, %Ivy_ObjFaninId0.argprom.exit.thread ]
   %53 = getelementptr inbounds i32, ptr %.val55, i64 %52
   store i32 %41, ptr %53, align 4
   br label %54
 
-54:                                               ; preds = %Ivy_ObjFaninId0.exit.thread, %Ivy_ObjFaninId0.exit71, %Ivy_ObjFaninId0.exit
+54:                                               ; preds = %Ivy_ObjFaninId0.argprom.exit.thread, %Ivy_ObjFaninId0.argprom.exit71, %Ivy_ObjFaninId0.argprom.exit
   %55 = getelementptr i8, ptr %31, i64 24
   %.val66 = load ptr, ptr %55, align 8
   %.not.i72 = icmp eq ptr %.val66, null
-  br i1 %.not.i72, label %Ivy_ObjFaninId1.exit, label %Ivy_ObjFaninId1.exit.thread
+  br i1 %.not.i72, label %Ivy_ObjFaninId1.argprom.exit, label %Ivy_ObjFaninId1.argprom.exit.thread
 
-Ivy_ObjFaninId1.exit:                             ; preds = %54
+Ivy_ObjFaninId1.argprom.exit:                     ; preds = %54
   %.val53 = load ptr, ptr %19, align 8
   %56 = load i32, ptr %.val53, align 4
   %57 = icmp slt i32 %56, %41
-  br i1 %57, label %Ivy_ObjFaninId1.exit76, label %67
+  br i1 %57, label %Ivy_ObjFaninId1.argprom.exit76, label %67
 
-Ivy_ObjFaninId1.exit.thread:                      ; preds = %54
+Ivy_ObjFaninId1.argprom.exit.thread:              ; preds = %54
   %58 = ptrtoint ptr %.val66 to i64
   %59 = and i64 %58, -2
   %60 = inttoptr i64 %59 to ptr
@@ -1101,17 +1101,17 @@ Ivy_ObjFaninId1.exit.thread:                      ; preds = %54
   %62 = getelementptr inbounds i32, ptr %.val5380, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = icmp slt i32 %63, %41
-  br i1 %64, label %Ivy_ObjFaninId1.exit76, label %67
+  br i1 %64, label %Ivy_ObjFaninId1.argprom.exit76, label %67
 
-Ivy_ObjFaninId1.exit76:                           ; preds = %Ivy_ObjFaninId1.exit.thread, %Ivy_ObjFaninId1.exit
-  %.val538185 = phi ptr [ %.val53, %Ivy_ObjFaninId1.exit ], [ %.val5380, %Ivy_ObjFaninId1.exit.thread ]
-  %65 = phi i64 [ 0, %Ivy_ObjFaninId1.exit ], [ %61, %Ivy_ObjFaninId1.exit.thread ]
+Ivy_ObjFaninId1.argprom.exit76:                   ; preds = %Ivy_ObjFaninId1.argprom.exit.thread, %Ivy_ObjFaninId1.argprom.exit
+  %.val538185 = phi ptr [ %.val53, %Ivy_ObjFaninId1.argprom.exit ], [ %.val5380, %Ivy_ObjFaninId1.argprom.exit.thread ]
+  %65 = phi i64 [ 0, %Ivy_ObjFaninId1.argprom.exit ], [ %61, %Ivy_ObjFaninId1.argprom.exit.thread ]
   %66 = getelementptr inbounds i32, ptr %.val538185, i64 %65
   store i32 %41, ptr %66, align 4
   br label %67
 
-67:                                               ; preds = %Ivy_ObjFaninId1.exit.thread, %Ivy_ObjFaninId1.exit, %Ivy_ObjFaninId1.exit76
-  %.val55104 = phi ptr [ %.val5380, %Ivy_ObjFaninId1.exit.thread ], [ %.val53, %Ivy_ObjFaninId1.exit ], [ %.val538185, %Ivy_ObjFaninId1.exit76 ]
+67:                                               ; preds = %Ivy_ObjFaninId1.argprom.exit.thread, %Ivy_ObjFaninId1.argprom.exit, %Ivy_ObjFaninId1.argprom.exit76
+  %.val55104 = phi ptr [ %.val5380, %Ivy_ObjFaninId1.argprom.exit.thread ], [ %.val53, %Ivy_ObjFaninId1.argprom.exit ], [ %.val538185, %Ivy_ObjFaninId1.argprom.exit76 ]
   %68 = icmp ugt i64 %indvars.iv, 1
   br i1 %68, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !17
 

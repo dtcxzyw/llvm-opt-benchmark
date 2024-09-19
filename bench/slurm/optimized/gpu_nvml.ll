@@ -507,20 +507,20 @@ _nvml_get_handle.exit.i:                          ; preds = %90
   %.val.i = load ptr, ptr %36, align 8
   %96 = call i32 @nvmlDeviceGetPciInfo_v3(ptr noundef %.val.i, ptr noundef nonnull %35) #12
   %.not.i62.i = icmp eq i32 %96, 0
-  br i1 %.not.i62.i, label %_nvml_get_device_pci_info.exit.i, label %97
+  br i1 %.not.i62.i, label %_nvml_get_device_pci_info.argprom.exit.i, label %97
 
 97:                                               ; preds = %95
   %98 = call ptr @nvmlErrorString(i32 noundef %96) #12
   %99 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.52, ptr noundef %98) #12
-  br label %_nvml_get_device_pci_info.exit.i
+  br label %_nvml_get_device_pci_info.argprom.exit.i
 
-_nvml_get_device_pci_info.exit.i:                 ; preds = %97, %95
+_nvml_get_device_pci_info.argprom.exit.i:         ; preds = %97, %95
   %100 = call ptr @slurm_xstrdup(ptr noundef nonnull %89) #12
   %101 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv.i
   store ptr %100, ptr %101, align 8
   br label %102
 
-102:                                              ; preds = %_nvml_get_device_pci_info.exit.i, %_nvml_get_handle.exit.i
+102:                                              ; preds = %_nvml_get_device_pci_info.argprom.exit.i, %_nvml_get_handle.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %103 = load i32, ptr %31, align 4
   %104 = zext i32 %103 to i64
@@ -620,83 +620,83 @@ _nvml_get_device_pci_info.exit.i:                 ; preds = %97, %95
 
 156:                                              ; preds = %149
   %.val51.i = load ptr, ptr %37, align 8
-  %157 = call fastcc zeroext i1 @_nvml_is_device_mig(ptr %.val51.i)
+  %157 = call fastcc zeroext i1 @_nvml_is_device_mig.argprom(ptr %.val51.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %35, i8 0, i64 68, i1 false)
   %.val52.i = load ptr, ptr %37, align 8
   %158 = call i32 @nvmlDeviceGetName(ptr noundef %.val52.i, ptr noundef nonnull %44, i32 noundef 64) #12
   %.not.i65.i = icmp eq i32 %158, 0
-  br i1 %.not.i65.i, label %_nvml_get_device_name.exit.i, label %159
+  br i1 %.not.i65.i, label %_nvml_get_device_name.argprom.exit.i, label %159
 
 159:                                              ; preds = %156
   %160 = call ptr @nvmlErrorString(i32 noundef %158) #12
   %161 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.56, ptr noundef %160) #12
-  br label %_nvml_get_device_name.exit.i
+  br label %_nvml_get_device_name.argprom.exit.i
 
-_nvml_get_device_name.exit.i:                     ; preds = %159, %156
+_nvml_get_device_name.argprom.exit.i:             ; preds = %159, %156
   call void @gpu_common_underscorify_tolower(ptr noundef nonnull %44) #12
   %.val53.i = load ptr, ptr %37, align 8
   %162 = call i32 @nvmlDeviceGetUUID(ptr noundef %.val53.i, ptr noundef nonnull %38, i32 noundef 80) #12
   %.not.i66.i = icmp eq i32 %162, 0
-  br i1 %.not.i66.i, label %_nvml_get_device_uuid.exit.i, label %163
+  br i1 %.not.i66.i, label %_nvml_get_device_uuid.argprom.exit.i, label %163
 
-163:                                              ; preds = %_nvml_get_device_name.exit.i
+163:                                              ; preds = %_nvml_get_device_name.argprom.exit.i
   %164 = call ptr @nvmlErrorString(i32 noundef %162) #12
   %165 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.57, ptr noundef %164) #12
-  br label %_nvml_get_device_uuid.exit.i
+  br label %_nvml_get_device_uuid.argprom.exit.i
 
-_nvml_get_device_uuid.exit.i:                     ; preds = %163, %_nvml_get_device_name.exit.i
+_nvml_get_device_uuid.argprom.exit.i:             ; preds = %163, %_nvml_get_device_name.argprom.exit.i
   %.val50.i = load ptr, ptr %37, align 8
   %166 = call i32 @nvmlDeviceGetPciInfo_v3(ptr noundef %.val50.i, ptr noundef nonnull %35) #12
   %.not.i67.i = icmp eq i32 %166, 0
-  br i1 %.not.i67.i, label %_nvml_get_device_pci_info.exit68.i, label %167
+  br i1 %.not.i67.i, label %_nvml_get_device_pci_info.argprom.exit68.i, label %167
 
-167:                                              ; preds = %_nvml_get_device_uuid.exit.i
+167:                                              ; preds = %_nvml_get_device_uuid.argprom.exit.i
   %168 = call ptr @nvmlErrorString(i32 noundef %166) #12
   %169 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.52, ptr noundef %168) #12
-  br label %_nvml_get_device_pci_info.exit68.i
+  br label %_nvml_get_device_pci_info.argprom.exit68.i
 
-_nvml_get_device_pci_info.exit68.i:               ; preds = %167, %_nvml_get_device_uuid.exit.i
+_nvml_get_device_pci_info.argprom.exit68.i:       ; preds = %167, %_nvml_get_device_uuid.argprom.exit.i
   %.val54.i = load ptr, ptr %37, align 8
   %170 = call i32 @nvmlDeviceGetMinorNumber(ptr noundef %.val54.i, ptr noundef nonnull %39) #12
   %.not.i69.i = icmp eq i32 %170, 0
-  br i1 %.not.i69.i, label %_nvml_get_device_minor_number.exit.i, label %_nvml_get_device_minor_number.exit.thread.i
+  br i1 %.not.i69.i, label %_nvml_get_device_minor_number.argprom.exit.i, label %_nvml_get_device_minor_number.argprom.exit.thread.i
 
-_nvml_get_device_minor_number.exit.thread.i:      ; preds = %_nvml_get_device_pci_info.exit68.i
+_nvml_get_device_minor_number.argprom.exit.thread.i: ; preds = %_nvml_get_device_pci_info.argprom.exit68.i
   %171 = call ptr @nvmlErrorString(i32 noundef %170) #12
   %172 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.58, ptr noundef %171) #12
   store i32 -2, ptr %39, align 4
   br label %541
 
-_nvml_get_device_minor_number.exit.i:             ; preds = %_nvml_get_device_pci_info.exit68.i
+_nvml_get_device_minor_number.argprom.exit.i:     ; preds = %_nvml_get_device_pci_info.argprom.exit68.i
   %.pr.i = load i32, ptr %39, align 4
   %173 = icmp eq i32 %.pr.i, -2
   br i1 %173, label %541, label %174
 
-174:                                              ; preds = %_nvml_get_device_minor_number.exit.i
+174:                                              ; preds = %_nvml_get_device_minor_number.argprom.exit.i
   %.val55.i = load ptr, ptr %37, align 8
   %175 = call i32 @nvmlDeviceGetCpuAffinity(ptr noundef %.val55.i, i32 noundef 512, ptr noundef nonnull %40) #12
   %.not.i70.i = icmp eq i32 %175, 0
-  br i1 %.not.i70.i, label %_nvml_get_device_affinity.exit.i, label %176
+  br i1 %.not.i70.i, label %_nvml_get_device_affinity.argprom.exit.i, label %176
 
 176:                                              ; preds = %174
   %177 = call ptr @nvmlErrorString(i32 noundef %175) #12
   %178 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.59, ptr noundef %177) #12
-  br label %_nvml_get_device_affinity.exit.i
+  br label %_nvml_get_device_affinity.argprom.exit.i
 
-_nvml_get_device_affinity.exit.i:                 ; preds = %176, %174
+_nvml_get_device_affinity.argprom.exit.i:         ; preds = %176, %174
   %179 = call ptr @slurm_bit_alloc(i64 noundef 32768) #12
   store ptr %179, ptr %129, align 8
-  call fastcc void @_set_cpu_set_bitstr(ptr noundef %179, ptr noundef %40)
+  call fastcc void @_set_cpu_set_bitstr.argelim(ptr noundef %179, ptr noundef %40)
   %180 = load ptr, ptr %30, align 8
   %.not43.i = icmp eq ptr %180, null
   br i1 %.not43.i, label %183, label %181
 
-181:                                              ; preds = %_nvml_get_device_affinity.exit.i
+181:                                              ; preds = %_nvml_get_device_affinity.argprom.exit.i
   %182 = load ptr, ptr %129, align 8
   call void @slurm_bit_and(ptr noundef %182, ptr noundef nonnull %180) #12
   br label %183
 
-183:                                              ; preds = %181, %_nvml_get_device_affinity.exit.i
+183:                                              ; preds = %181, %_nvml_get_device_affinity.argprom.exit.i
   %184 = load ptr, ptr %129, align 8
   %185 = call ptr @slurm_bit_fmt_full(ptr noundef %184) #12
   store ptr %185, ptr %41, align 8
@@ -789,14 +789,14 @@ _nvml_get_device_affinity.exit.i:                 ; preds = %176, %174
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %25, i8 0, i64 68, i1 false)
   %222 = call i32 @nvmlDeviceGetNvLinkRemotePciInfo_v2(ptr noundef %.val.i.i, i32 noundef %.035.i.i, ptr noundef nonnull %25) #12
   %.not.i.i.i = icmp eq i32 %222, 0
-  br i1 %.not.i.i.i, label %_nvml_get_nvlink_remote_pcie.exit.i.i, label %223
+  br i1 %.not.i.i.i, label %_nvml_get_nvlink_remote_pcie.argprom.exit.i.i, label %223
 
 223:                                              ; preds = %221
   %224 = call ptr @nvmlErrorString(i32 noundef %222) #12
   %225 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.67, i32 noundef %.035.i.i, ptr noundef %224) #12
-  br label %_nvml_get_nvlink_remote_pcie.exit.i.i
+  br label %_nvml_get_nvlink_remote_pcie.argprom.exit.i.i
 
-_nvml_get_nvlink_remote_pcie.exit.i.i:            ; preds = %223, %221
+_nvml_get_nvlink_remote_pcie.argprom.exit.i.i:    ; preds = %223, %221
   %.sink.i.i.i = phi ptr [ @.str.7, %223 ], [ %136, %221 ]
   %226 = call ptr @slurm_xstrdup(ptr noundef nonnull %.sink.i.i.i) #12
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %25)
@@ -806,8 +806,8 @@ _nvml_get_nvlink_remote_pcie.exit.i.i:            ; preds = %223, %221
   %or.cond16.i.i.i = and i1 %199, %or.cond.not18.i.i.i
   br i1 %or.cond16.i.i.i, label %.lr.ph.i.i.i, label %_get_index_from_str_arr.exit.thread.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_nvml_get_nvlink_remote_pcie.exit.i.i, %232
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %232 ], [ 0, %_nvml_get_nvlink_remote_pcie.exit.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %_nvml_get_nvlink_remote_pcie.argprom.exit.i.i, %232
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %232 ], [ 0, %_nvml_get_nvlink_remote_pcie.argprom.exit.i.i ]
   %228 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv.i.i.i
   %229 = load ptr, ptr %228, align 8
   %230 = call i32 @slurm_xstrcmp(ptr noundef nonnull %226, ptr noundef %229) #12
@@ -833,7 +833,7 @@ _get_index_from_str_arr.exit.i.i:                 ; preds = %.lr.ph.i.i.i
   store i32 %238, ptr %236, align 4
   br label %_get_index_from_str_arr.exit.thread.i.i
 
-_get_index_from_str_arr.exit.thread.i.i:          ; preds = %232, %234, %_get_index_from_str_arr.exit.i.i, %_nvml_get_nvlink_remote_pcie.exit.i.i
+_get_index_from_str_arr.exit.thread.i.i:          ; preds = %232, %234, %_get_index_from_str_arr.exit.i.i, %_nvml_get_nvlink_remote_pcie.argprom.exit.i.i
   call void @slurm_xfree(ptr noundef nonnull %29) #12
   br label %241
 
@@ -1012,59 +1012,59 @@ _nvml_get_nvlink_info.exit.i:                     ; preds = %246, %._crit_edge.i
   %.val56.i = load ptr, ptr %37, align 8
   %310 = call i32 @nvmlDeviceGetMaxMigDeviceCount(ptr noundef %.val56.i, ptr noundef nonnull %46) #12
   %.not.i72.i = icmp eq i32 %310, 0
-  br i1 %.not.i72.i, label %313, label %_nvml_get_max_mig_device_count.exit.thread.i
+  br i1 %.not.i72.i, label %313, label %_nvml_get_max_mig_device_count.argprom.exit.thread.i
 
-_nvml_get_max_mig_device_count.exit.thread.i:     ; preds = %309
+_nvml_get_max_mig_device_count.argprom.exit.thread.i: ; preds = %309
   %311 = call ptr @nvmlErrorString(i32 noundef %310) #12
   %312 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.68, ptr noundef %311) #12
   store i32 0, ptr %46, align 4
-  br label %_nvml_get_mig_handle.exit.thread.i
+  br label %_nvml_get_mig_handle.argprom.exit.thread.i
 
 313:                                              ; preds = %309
   %314 = load i32, ptr %46, align 4
   %315 = icmp eq i32 %314, 0
-  br i1 %315, label %_nvml_get_max_mig_device_count.exit.i, label %.lr.ph98.i.preheader
+  br i1 %315, label %_nvml_get_max_mig_device_count.argprom.exit.i, label %.lr.ph98.i.preheader
 
-_nvml_get_max_mig_device_count.exit.i:            ; preds = %313
+_nvml_get_max_mig_device_count.argprom.exit.i:    ; preds = %313
   %316 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.69) #12
   %.pre.i = load i32, ptr %46, align 4
   %317 = icmp eq i32 %.pre.i, 0
-  br i1 %317, label %_nvml_get_mig_handle.exit.thread.i, label %.lr.ph98.i.preheader
+  br i1 %317, label %_nvml_get_mig_handle.argprom.exit.thread.i, label %.lr.ph98.i.preheader
 
-.lr.ph98.i.preheader:                             ; preds = %_nvml_get_max_mig_device_count.exit.i, %313
+.lr.ph98.i.preheader:                             ; preds = %_nvml_get_max_mig_device_count.argprom.exit.i, %313
   br label %.lr.ph98.i
 
-.lr.ph98.i:                                       ; preds = %.lr.ph98.i.preheader, %_nvml_get_mig_handle.exit.i
-  %.03797.i = phi i32 [ %322, %_nvml_get_mig_handle.exit.i ], [ 0, %.lr.ph98.i.preheader ]
+.lr.ph98.i:                                       ; preds = %.lr.ph98.i.preheader, %_nvml_get_mig_handle.argprom.exit.i
+  %.03797.i = phi i32 [ %322, %_nvml_get_mig_handle.argprom.exit.i ], [ 0, %.lr.ph98.i.preheader ]
   %.val57.i = load ptr, ptr %37, align 8
   %318 = call i32 @nvmlDeviceGetMigDeviceHandleByIndex(ptr noundef %.val57.i, i32 noundef %.03797.i, ptr noundef nonnull %48) #12
   switch i32 %318, label %319 [
-    i32 6, label %_nvml_get_mig_handle.exit.thread.i
-    i32 0, label %_nvml_get_mig_handle.exit.i
+    i32 6, label %_nvml_get_mig_handle.argprom.exit.thread.i
+    i32 0, label %_nvml_get_mig_handle.argprom.exit.i
   ]
 
 319:                                              ; preds = %.lr.ph98.i
   %320 = call ptr @nvmlErrorString(i32 noundef %318) #12
   %321 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.70, i32 noundef %.03797.i, ptr noundef %320) #12
-  br label %_nvml_get_mig_handle.exit.thread.i
+  br label %_nvml_get_mig_handle.argprom.exit.thread.i
 
-_nvml_get_mig_handle.exit.i:                      ; preds = %.lr.ph98.i
+_nvml_get_mig_handle.argprom.exit.i:              ; preds = %.lr.ph98.i
   %322 = add nuw i32 %.03797.i, 1
   %323 = load i32, ptr %46, align 4
   %324 = icmp ult i32 %322, %323
-  br i1 %324, label %.lr.ph98.i, label %_nvml_get_mig_handle.exit.thread.i, !llvm.loop !12
+  br i1 %324, label %.lr.ph98.i, label %_nvml_get_mig_handle.argprom.exit.thread.i, !llvm.loop !12
 
-_nvml_get_mig_handle.exit.thread.i:               ; preds = %_nvml_get_mig_handle.exit.i, %.lr.ph98.i, %319, %_nvml_get_max_mig_device_count.exit.i, %_nvml_get_max_mig_device_count.exit.thread.i
-  %.03988.i = phi i32 [ %.03797.i, %319 ], [ 0, %_nvml_get_max_mig_device_count.exit.i ], [ 0, %_nvml_get_max_mig_device_count.exit.thread.i ], [ %.03797.i, %.lr.ph98.i ], [ %322, %_nvml_get_mig_handle.exit.i ]
+_nvml_get_mig_handle.argprom.exit.thread.i:       ; preds = %_nvml_get_mig_handle.argprom.exit.i, %.lr.ph98.i, %319, %_nvml_get_max_mig_device_count.argprom.exit.i, %_nvml_get_max_mig_device_count.argprom.exit.thread.i
+  %.03988.i = phi i32 [ %.03797.i, %319 ], [ 0, %_nvml_get_max_mig_device_count.argprom.exit.i ], [ 0, %_nvml_get_max_mig_device_count.argprom.exit.thread.i ], [ %.03797.i, %.lr.ph98.i ], [ %322, %_nvml_get_mig_handle.argprom.exit.i ]
   %325 = call i32 @slurm_get_log_level() #12
   %326 = icmp sgt i32 %325, 5
   br i1 %326, label %327, label %328
 
-327:                                              ; preds = %_nvml_get_mig_handle.exit.thread.i
+327:                                              ; preds = %_nvml_get_mig_handle.argprom.exit.thread.i
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.47, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_system_gpu_list_nvml, i32 noundef %.03988.i) #12
   br label %328
 
-328:                                              ; preds = %327, %_nvml_get_mig_handle.exit.thread.i
+328:                                              ; preds = %327, %_nvml_get_mig_handle.argprom.exit.thread.i
   %329 = icmp eq i32 %.03988.i, 0
   br i1 %329, label %330, label %.preheader.i
 
@@ -1094,7 +1094,7 @@ _nvml_get_mig_handle.exit.thread.i:               ; preds = %_nvml_get_mig_handl
   %336 = call i32 @nvmlDeviceGetMigDeviceHandleByIndex(ptr noundef %.val58.i, i32 noundef %.0101.i, ptr noundef nonnull %19) #12
   switch i32 %336, label %337 [
     i32 6, label %470
-    i32 0, label %_nvml_get_mig_handle.exit.i.i
+    i32 0, label %_nvml_get_mig_handle.argprom.exit.i.i
   ]
 
 337:                                              ; preds = %.preheader.i
@@ -1102,47 +1102,47 @@ _nvml_get_mig_handle.exit.thread.i:               ; preds = %_nvml_get_mig_handl
   %339 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.70, i32 noundef %.0101.i, ptr noundef %338) #12
   br label %470
 
-_nvml_get_mig_handle.exit.i.i:                    ; preds = %.preheader.i
+_nvml_get_mig_handle.argprom.exit.i.i:            ; preds = %.preheader.i
   %.val26.i.i = load ptr, ptr %19, align 8
   %340 = call i32 @nvmlDeviceGetUUID(ptr noundef %.val26.i.i, ptr noundef nonnull %20, i32 noundef 96) #12
   %.not.i.i73.i = icmp eq i32 %340, 0
-  br i1 %.not.i.i73.i, label %_nvml_get_device_uuid.exit.i.i, label %341
+  br i1 %.not.i.i73.i, label %_nvml_get_device_uuid.argprom.exit.i.i, label %341
 
-341:                                              ; preds = %_nvml_get_mig_handle.exit.i.i
+341:                                              ; preds = %_nvml_get_mig_handle.argprom.exit.i.i
   %342 = call ptr @nvmlErrorString(i32 noundef %340) #12
   %343 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.57, ptr noundef %342) #12
-  br label %_nvml_get_device_uuid.exit.i.i
+  br label %_nvml_get_device_uuid.argprom.exit.i.i
 
-_nvml_get_device_uuid.exit.i.i:                   ; preds = %341, %_nvml_get_mig_handle.exit.i.i
+_nvml_get_device_uuid.argprom.exit.i.i:           ; preds = %341, %_nvml_get_mig_handle.argprom.exit.i.i
   %.val28.i.i = load ptr, ptr %19, align 8
   %344 = call i32 @nvmlDeviceGetGpuInstanceId(ptr noundef %.val28.i.i, ptr noundef nonnull %22) #12
   %.not.i30.i.i = icmp eq i32 %344, 0
-  br i1 %.not.i30.i.i, label %_nvml_get_gpu_instance_id.exit.i.i, label %345
+  br i1 %.not.i30.i.i, label %_nvml_get_gpu_instance_id.argprom.exit.i.i, label %345
 
-345:                                              ; preds = %_nvml_get_device_uuid.exit.i.i
+345:                                              ; preds = %_nvml_get_device_uuid.argprom.exit.i.i
   %346 = call ptr @nvmlErrorString(i32 noundef %344) #12
   %347 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.88, ptr noundef %346) #12
   store i32 0, ptr %22, align 4
-  br label %_nvml_get_gpu_instance_id.exit.i.i
+  br label %_nvml_get_gpu_instance_id.argprom.exit.i.i
 
-_nvml_get_gpu_instance_id.exit.i.i:               ; preds = %345, %_nvml_get_device_uuid.exit.i.i
+_nvml_get_gpu_instance_id.argprom.exit.i.i:       ; preds = %345, %_nvml_get_device_uuid.argprom.exit.i.i
   %.val29.i.i = load ptr, ptr %19, align 8
   %348 = call i32 @nvmlDeviceGetComputeInstanceId(ptr noundef %.val29.i.i, ptr noundef nonnull %23) #12
   %.not.i31.i.i = icmp eq i32 %348, 0
-  br i1 %.not.i31.i.i, label %_nvml_get_gpu_instance_id.exit._nvml_get_compute_instance_id.exit_crit_edge.i.i, label %349
+  br i1 %.not.i31.i.i, label %_nvml_get_gpu_instance_id.argprom.exit._nvml_get_compute_instance_id.argprom.exit_crit_edge.i.i, label %349
 
-_nvml_get_gpu_instance_id.exit._nvml_get_compute_instance_id.exit_crit_edge.i.i: ; preds = %_nvml_get_gpu_instance_id.exit.i.i
+_nvml_get_gpu_instance_id.argprom.exit._nvml_get_compute_instance_id.argprom.exit_crit_edge.i.i: ; preds = %_nvml_get_gpu_instance_id.argprom.exit.i.i
   %.pre.i.i = load i32, ptr %23, align 4
-  br label %_nvml_get_compute_instance_id.exit.i.i
+  br label %_nvml_get_compute_instance_id.argprom.exit.i.i
 
-349:                                              ; preds = %_nvml_get_gpu_instance_id.exit.i.i
+349:                                              ; preds = %_nvml_get_gpu_instance_id.argprom.exit.i.i
   %350 = call ptr @nvmlErrorString(i32 noundef %348) #12
   %351 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.88, ptr noundef %350) #12
   store i32 0, ptr %23, align 4
-  br label %_nvml_get_compute_instance_id.exit.i.i
+  br label %_nvml_get_compute_instance_id.argprom.exit.i.i
 
-_nvml_get_compute_instance_id.exit.i.i:           ; preds = %349, %_nvml_get_gpu_instance_id.exit._nvml_get_compute_instance_id.exit_crit_edge.i.i
-  %352 = phi i32 [ %.pre.i.i, %_nvml_get_gpu_instance_id.exit._nvml_get_compute_instance_id.exit_crit_edge.i.i ], [ 0, %349 ]
+_nvml_get_compute_instance_id.argprom.exit.i.i:   ; preds = %349, %_nvml_get_gpu_instance_id.argprom.exit._nvml_get_compute_instance_id.argprom.exit_crit_edge.i.i
+  %352 = phi i32 [ %.pre.i.i, %_nvml_get_gpu_instance_id.argprom.exit._nvml_get_compute_instance_id.argprom.exit_crit_edge.i.i ], [ 0, %349 ]
   %353 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %16)
@@ -1152,7 +1152,7 @@ _nvml_get_compute_instance_id.exit.i.i:           ; preds = %349, %_nvml_get_gpu
   %.not.i32.i.i = icmp eq ptr %354, null
   br i1 %.not.i32.i.i, label %_nvml_get_mig_minor_numbers.exit.thread.i.i, label %356
 
-_nvml_get_mig_minor_numbers.exit.thread.i.i:      ; preds = %_nvml_get_compute_instance_id.exit.i.i
+_nvml_get_mig_minor_numbers.exit.thread.i.i:      ; preds = %_nvml_get_compute_instance_id.argprom.exit.i.i
   %355 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.89) #12
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %16)
@@ -1160,7 +1160,7 @@ _nvml_get_mig_minor_numbers.exit.thread.i.i:      ; preds = %_nvml_get_compute_i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   br label %470
 
-356:                                              ; preds = %_nvml_get_compute_instance_id.exit.i.i
+356:                                              ; preds = %_nvml_get_compute_instance_id.argprom.exit.i.i
   %357 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 128, ptr noundef nonnull @.str.92, i32 noundef %335, i32 noundef %353) #12
   %358 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %16, i64 noundef 128, ptr noundef nonnull @.str.93, i32 noundef %335, i32 noundef %353, i32 noundef %352) #12
   br label %359
@@ -1251,20 +1251,20 @@ _nvml_get_mig_minor_numbers.exit.i.i:             ; preds = %364, %362
   %.val.i74.i = load ptr, ptr %19, align 8
   %385 = call i32 @nvmlDeviceGetName(ptr noundef %.val.i74.i, ptr noundef nonnull %21, i32 noundef 64) #12
   %.not.i33.i.i = icmp eq i32 %385, 0
-  br i1 %.not.i33.i.i, label %_nvml_get_device_name.exit.i.i, label %386
+  br i1 %.not.i33.i.i, label %_nvml_get_device_name.argprom.exit.i.i, label %386
 
 386:                                              ; preds = %383
   %387 = call ptr @nvmlErrorString(i32 noundef %385) #12
   %388 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.56, ptr noundef %387) #12
-  br label %_nvml_get_device_name.exit.i.i
+  br label %_nvml_get_device_name.argprom.exit.i.i
 
-_nvml_get_device_name.exit.i.i:                   ; preds = %386, %383
+_nvml_get_device_name.argprom.exit.i.i:           ; preds = %386, %383
   call void @gpu_common_underscorify_tolower(ptr noundef nonnull %21) #12
   %389 = load i8, ptr %21, align 16
   %.not22.i.i = icmp eq i8 %389, 0
   br i1 %.not22.i.i, label %394, label %390
 
-390:                                              ; preds = %_nvml_get_device_name.exit.i.i
+390:                                              ; preds = %_nvml_get_device_name.argprom.exit.i.i
   %391 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) @.str.71) #14
   %.not23.i.i = icmp eq ptr %391, null
   br i1 %.not23.i.i, label %394, label %392
@@ -1274,7 +1274,7 @@ _nvml_get_device_name.exit.i.i:                   ; preds = %386, %383
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %141, ptr noundef nonnull @.str.72, ptr noundef nonnull %393) #12
   br label %409
 
-394:                                              ; preds = %390, %_nvml_get_device_name.exit.i.i
+394:                                              ; preds = %390, %_nvml_get_device_name.argprom.exit.i.i
   %395 = load ptr, ptr %19, align 8
   %396 = call i32 @nvmlDeviceGetAttributes_v2(ptr noundef %395, ptr noundef nonnull %24) #12
   %.not24.i.i = icmp eq i32 %396, 0
@@ -1674,7 +1674,7 @@ _nvml_print_freqs.exit.i:                         ; preds = %_nvml_print_gfx_fre
   call void @slurm_xfree(ptr noundef nonnull %43) #12
   br label %541
 
-541:                                              ; preds = %540, %192, %_nvml_get_device_minor_number.exit.i, %_nvml_get_device_minor_number.exit.thread.i, %152
+541:                                              ; preds = %540, %192, %_nvml_get_device_minor_number.argprom.exit.i, %_nvml_get_device_minor_number.argprom.exit.thread.i, %152
   %542 = add nuw i32 %.2103.i, 1
   %543 = load i32, ptr %31, align 4
   %544 = icmp ult i32 %542, %543
@@ -2611,7 +2611,7 @@ define ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
   %putchar = tail call i32 @putchar(i32 10)
   %63 = tail call ptr @slurm_bit_alloc(i64 noundef 32768) #12
   store ptr %63, ptr %3, align 8
-  call fastcc void @_set_cpu_set_bitstr(ptr noundef %63, ptr noundef %2)
+  call fastcc void @_set_cpu_set_bitstr.argelim(ptr noundef %63, ptr noundef %2)
   %64 = tail call ptr @slurm_bit_fmt_full(ptr noundef %63) #12
   %.not43 = icmp eq ptr %63, null
   br i1 %.not43, label %66, label %65
@@ -2636,7 +2636,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare ptr @slurm_bit_alloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_cpu_set_bitstr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_set_cpu_set_bitstr.argelim(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = tail call i64 @slurm_bit_size(ptr noundef %0) #12
   %4 = and i64 %3, 4294967295
   %.not = icmp eq i64 %4, 32768
@@ -3085,7 +3085,7 @@ _get_gpumem.exit:                                 ; preds = %132, %_get_nvml_pro
   br label %_get_gpuutil.exit
 
 161:                                              ; preds = %148
-  %162 = call fastcc zeroext i1 @_nvml_is_device_mig(ptr %134)
+  %162 = call fastcc zeroext i1 @_nvml_is_device_mig.argprom(ptr %134)
   br i1 %162, label %163, label %167
 
 163:                                              ; preds = %161
@@ -3205,23 +3205,23 @@ declare void @slurm_bit_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @add_gres_to_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_nvml_is_device_mig(ptr %.0.val) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_nvml_is_device_mig.argprom(ptr %.0.val) unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   store i32 0, ptr %1, align 4
   store i32 0, ptr %2, align 4
   %3 = call i32 @nvmlDeviceGetMigMode(ptr noundef %.0.val, ptr noundef nonnull %1, ptr noundef nonnull %2) #12
   switch i32 %3, label %4 [
-    i32 3, label %_nvml_get_device_mig_mode.exit
-    i32 0, label %_nvml_get_device_mig_mode.exit
+    i32 3, label %_nvml_get_device_mig_mode.argprom.exit
+    i32 0, label %_nvml_get_device_mig_mode.argprom.exit
   ]
 
 4:                                                ; preds = %0
   %5 = call ptr @nvmlErrorString(i32 noundef %3) #12
   %6 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.55, ptr noundef %5) #12
-  br label %_nvml_get_device_mig_mode.exit
+  br label %_nvml_get_device_mig_mode.argprom.exit
 
-_nvml_get_device_mig_mode.exit:                   ; preds = %0, %0, %4
+_nvml_get_device_mig_mode.argprom.exit:           ; preds = %0, %0, %4
   %7 = load i32, ptr %1, align 4
   %8 = icmp eq i32 %7, 0
   %9 = load i32, ptr %2, align 4
@@ -3229,12 +3229,12 @@ _nvml_get_device_mig_mode.exit:                   ; preds = %0, %0, %4
   %or.cond = select i1 %8, i1 %10, i1 false
   br i1 %or.cond, label %11, label %14
 
-11:                                               ; preds = %_nvml_get_device_mig_mode.exit
+11:                                               ; preds = %_nvml_get_device_mig_mode.argprom.exit
   %12 = call i32 @slurm_get_log_level() #12
   %13 = icmp sgt i32 %12, 2
   br i1 %13, label %.sink.split, label %20
 
-14:                                               ; preds = %_nvml_get_device_mig_mode.exit
+14:                                               ; preds = %_nvml_get_device_mig_mode.argprom.exit
   %15 = icmp eq i32 %7, 1
   %16 = icmp eq i32 %9, 0
   %or.cond3 = select i1 %15, i1 %16, i1 false

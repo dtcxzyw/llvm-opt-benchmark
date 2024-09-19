@@ -6105,9 +6105,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit53.thread: ; preds = %_ZNK4llvm9StringR
 34:                                               ; preds = %32
   %35 = getelementptr inbounds i8, ptr %.02830.us.us.i, i64 1
   %36 = icmp ult ptr %35, %29
-  br i1 %36, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit22.us.us.i", label %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit
+  br i1 %36, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit22.us.us.i", label %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit
 
-"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit22.us.us.i": ; preds = %34
+"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit22.us.us.i": ; preds = %34
   %37 = load i8, ptr %35, align 1
   %38 = icmp eq i8 %37, 34
   br i1 %38, label %54, label %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit
@@ -6115,32 +6115,32 @@ _ZNK4llvm9StringRef11starts_withES0_.exit53.thread: ; preds = %_ZNK4llvm9StringR
 39:                                               ; preds = %.lr.ph.split.us.split.us.i
   %40 = getelementptr inbounds i8, ptr %.02830.us.us.i, i64 1
   %41 = icmp ult ptr %40, %29
-  br i1 %41, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.us.us.i", label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.thread.us.us.i"
+  br i1 %41, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.us.us.i", label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.thread.us.us.i"
 
-"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.us.us.i": ; preds = %39
+"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.us.us.i": ; preds = %39
   %42 = load i8, ptr %40, align 1
   %43 = icmp eq i8 %42, 125
-  br i1 %43, label %54, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.thread.us.us.i"
+  br i1 %43, label %54, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.thread.us.us.i"
 
-"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.thread.us.us.i": ; preds = %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.us.us.i", %39
+"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.thread.us.us.i": ; preds = %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.us.us.i", %39
   %44 = icmp sgt i32 %.031.us.us.i, 0
   br i1 %44, label %45, label %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit.thread
 
-45:                                               ; preds = %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.thread.us.us.i"
+45:                                               ; preds = %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.thread.us.us.i"
   %46 = add nsw i32 %.031.us.us.i, -1
   br label %54
 
 47:                                               ; preds = %.lr.ph.split.us.split.us.i
   %48 = getelementptr inbounds i8, ptr %.02830.us.us.i, i64 1
   %49 = icmp ult ptr %48, %29
-  br i1 %49, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.us.us.i", label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.thread.us.us.i"
+  br i1 %49, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.us.us.i", label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.thread.us.us.i"
 
-"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.us.us.i": ; preds = %47
+"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.us.us.i": ; preds = %47
   %50 = load i8, ptr %48, align 1
   %51 = icmp eq i8 %50, 123
-  br i1 %51, label %54, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.thread.us.us.i"
+  br i1 %51, label %54, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.thread.us.us.i"
 
-"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.thread.us.us.i": ; preds = %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.us.us.i", %47
+"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.thread.us.us.i": ; preds = %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.us.us.i", %47
   %52 = add nsw i32 %.031.us.us.i, 1
   br label %54
 
@@ -6148,9 +6148,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit53.thread: ; preds = %_ZNK4llvm9StringR
   %spec.select.us.us.i = getelementptr inbounds i8, ptr %.02830.us.us.i, i64 %spec.select.idx.i
   br label %54
 
-54:                                               ; preds = %53, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.thread.us.us.i", %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.us.us.i", %45, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.us.us.i", %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit22.us.us.i", %32, %.lr.ph.split.us.split.us.i
-  %.129.us.us.i = phi ptr [ %.02830.us.us.i, %.lr.ph.split.us.split.us.i ], [ %.02830.us.us.i, %32 ], [ %.02830.us.us.i, %45 ], [ %.02830.us.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.thread.us.us.i" ], [ %48, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.us.us.i" ], [ %40, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.us.us.i" ], [ %35, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit22.us.us.i" ], [ %spec.select.us.us.i, %53 ]
-  %.1.us.us.i = phi i32 [ %.031.us.us.i, %.lr.ph.split.us.split.us.i ], [ %.031.us.us.i, %32 ], [ %46, %45 ], [ %52, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.thread.us.us.i" ], [ %.031.us.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.us.us.i" ], [ %.031.us.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.us.us.i" ], [ %.031.us.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit22.us.us.i" ], [ %.031.us.us.i, %53 ]
+54:                                               ; preds = %53, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.thread.us.us.i", %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.us.us.i", %45, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.us.us.i", %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit22.us.us.i", %32, %.lr.ph.split.us.split.us.i
+  %.129.us.us.i = phi ptr [ %.02830.us.us.i, %.lr.ph.split.us.split.us.i ], [ %.02830.us.us.i, %32 ], [ %.02830.us.us.i, %45 ], [ %.02830.us.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.thread.us.us.i" ], [ %48, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.us.us.i" ], [ %40, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.us.us.i" ], [ %35, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit22.us.us.i" ], [ %spec.select.us.us.i, %53 ]
+  %.1.us.us.i = phi i32 [ %.031.us.us.i, %.lr.ph.split.us.split.us.i ], [ %.031.us.us.i, %32 ], [ %46, %45 ], [ %52, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.thread.us.us.i" ], [ %.031.us.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.us.us.i" ], [ %.031.us.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.us.us.i" ], [ %.031.us.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit22.us.us.i" ], [ %.031.us.us.i, %53 ]
   %55 = getelementptr inbounds i8, ptr %.129.us.us.i, i64 1
   %56 = icmp ult ptr %55, %29
   br i1 %56, label %.lr.ph.split.us.split.us.i, label %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit.thread, !llvm.loop !54
@@ -6173,32 +6173,32 @@ _ZNK4llvm9StringRef11starts_withES0_.exit53.thread: ; preds = %_ZNK4llvm9StringR
 60:                                               ; preds = %.lr.ph.split.us.split.i
   %61 = getelementptr inbounds i8, ptr %.02830.us.i, i64 1
   %62 = icmp ult ptr %61, %29
-  br i1 %62, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.us.i", label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.thread.us.i"
+  br i1 %62, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.us.i", label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.thread.us.i"
 
-"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.us.i": ; preds = %60
+"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.us.i": ; preds = %60
   %63 = load i8, ptr %61, align 1
   %64 = icmp eq i8 %63, 125
-  br i1 %64, label %75, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.thread.us.i"
+  br i1 %64, label %75, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.thread.us.i"
 
-"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.thread.us.i": ; preds = %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.us.i", %60
+"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.thread.us.i": ; preds = %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.us.i", %60
   %65 = icmp sgt i32 %.031.us.i, 0
   br i1 %65, label %66, label %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit.thread
 
-66:                                               ; preds = %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.thread.us.i"
+66:                                               ; preds = %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.thread.us.i"
   %67 = add nsw i32 %.031.us.i, -1
   br label %75
 
 68:                                               ; preds = %.lr.ph.split.us.split.i
   %69 = getelementptr inbounds i8, ptr %.02830.us.i, i64 1
   %70 = icmp ult ptr %69, %29
-  br i1 %70, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.us.i", label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.thread.us.i"
+  br i1 %70, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.us.i", label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.thread.us.i"
 
-"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.us.i": ; preds = %68
+"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.us.i": ; preds = %68
   %71 = load i8, ptr %69, align 1
   %72 = icmp eq i8 %71, 123
-  br i1 %72, label %75, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.thread.us.i"
+  br i1 %72, label %75, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.thread.us.i"
 
-"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.thread.us.i": ; preds = %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.us.i", %68
+"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.thread.us.i": ; preds = %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.us.i", %68
   %73 = add nsw i32 %.031.us.i, 1
   br label %75
 
@@ -6206,9 +6206,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit53.thread: ; preds = %_ZNK4llvm9StringR
   %spec.select.us.i = getelementptr inbounds i8, ptr %.02830.us.i, i64 %spec.select.idx.i
   br label %75
 
-75:                                               ; preds = %74, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.thread.us.i", %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.us.i", %66, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.us.i", %58, %.lr.ph.split.us.split.i
-  %.129.us.i = phi ptr [ %.02830.us.i, %.lr.ph.split.us.split.i ], [ %.02830.us.i, %58 ], [ %.02830.us.i, %66 ], [ %.02830.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.thread.us.i" ], [ %69, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.us.i" ], [ %61, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.us.i" ], [ %spec.select.us.i, %74 ]
-  %.1.us.i = phi i32 [ %.031.us.i, %.lr.ph.split.us.split.i ], [ %.031.us.i, %58 ], [ %67, %66 ], [ %73, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.thread.us.i" ], [ %.031.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit.us.i" ], [ %.031.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.us.i" ], [ %.031.us.i, %74 ]
+75:                                               ; preds = %74, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.thread.us.i", %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.us.i", %66, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.us.i", %58, %.lr.ph.split.us.split.i
+  %.129.us.i = phi ptr [ %.02830.us.i, %.lr.ph.split.us.split.i ], [ %.02830.us.i, %58 ], [ %.02830.us.i, %66 ], [ %.02830.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.thread.us.i" ], [ %69, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.us.i" ], [ %61, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.us.i" ], [ %spec.select.us.i, %74 ]
+  %.1.us.i = phi i32 [ %.031.us.i, %.lr.ph.split.us.split.i ], [ %.031.us.i, %58 ], [ %67, %66 ], [ %73, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.thread.us.i" ], [ %.031.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit.us.i" ], [ %.031.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.us.i" ], [ %.031.us.i, %74 ]
   %76 = getelementptr inbounds i8, ptr %.129.us.i, i64 1
   %77 = icmp ult ptr %76, %29
   br i1 %77, label %.lr.ph.split.us.split.i, label %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit.thread, !llvm.loop !54
@@ -6227,9 +6227,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit53.thread: ; preds = %_ZNK4llvm9StringR
 79:                                               ; preds = %.lr.ph.split.split.us.i
   %80 = getelementptr inbounds i8, ptr %.02830.us43.i, i64 1
   %81 = icmp ult ptr %80, %29
-  br i1 %81, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit22.us44.i", label %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit
+  br i1 %81, label %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit22.us44.i", label %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit
 
-"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit22.us44.i": ; preds = %79
+"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit22.us44.i": ; preds = %79
   %82 = load i8, ptr %80, align 1
   %83 = icmp eq i8 %82, 34
   br i1 %83, label %85, label %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit
@@ -6238,8 +6238,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit53.thread: ; preds = %_ZNK4llvm9StringR
   %spec.select.us45.i = getelementptr inbounds i8, ptr %.02830.us43.i, i64 %spec.select.idx.i
   br label %85
 
-85:                                               ; preds = %84, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit22.us44.i", %.lr.ph.split.split.us.i
-  %.129.us46.i = phi ptr [ %80, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit22.us44.i" ], [ %spec.select.us45.i, %84 ], [ %.02830.us43.i, %.lr.ph.split.split.us.i ]
+85:                                               ; preds = %84, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit22.us44.i", %.lr.ph.split.split.us.i
+  %.129.us46.i = phi ptr [ %80, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit22.us44.i" ], [ %spec.select.us45.i, %84 ], [ %.02830.us43.i, %.lr.ph.split.split.us.i ]
   %86 = getelementptr inbounds i8, ptr %.129.us46.i, i64 1
   %87 = icmp ult ptr %86, %29
   br i1 %87, label %.lr.ph.split.split.us.i, label %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit.thread, !llvm.loop !54
@@ -6262,8 +6262,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit53.thread: ; preds = %_ZNK4llvm9StringR
   %92 = icmp ult ptr %91, %29
   br i1 %92, label %.lr.ph.split.split.i, label %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit.thread, !llvm.loop !54
 
-_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit: ; preds = %.lr.ph.split.split.i, %79, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit22.us44.i", %58, %34, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit22.us.us.i"
-  %.012.i = phi ptr [ %.02830.us.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit22.us.us.i" ], [ %.02830.us.us.i, %34 ], [ %.02830.us.i, %58 ], [ %.02830.us43.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit22.us44.i" ], [ %.02830.us43.i, %79 ], [ %.02830.i, %.lr.ph.split.split.i ]
+_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit: ; preds = %.lr.ph.split.split.i, %79, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit22.us44.i", %58, %34, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit22.us.us.i"
+  %.012.i = phi ptr [ %.02830.us.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit22.us.us.i" ], [ %.02830.us.us.i, %34 ], [ %.02830.us.i, %58 ], [ %.02830.us43.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit22.us44.i" ], [ %.02830.us43.i, %79 ], [ %.02830.i, %.lr.ph.split.split.i ]
   %.not = icmp ult ptr %.012.i, %29
   br i1 %.not, label %93, label %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit.thread
 
@@ -6348,7 +6348,7 @@ _ZNK4llvm9StringRef5rfindEcm.exit.thread:         ; preds = %113, %_ZNK4llvm9Str
   tail call void @_ZN5clang6format16FormatTokenLexer10resetLexerEj(ptr noundef nonnull align 8 dereferenceable(3648) %0, i32 noundef %.sroa.1.0.extract.trunc.i)
   br label %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit.thread
 
-_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit.thread: ; preds = %90, %85, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.thread.us.i", %75, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit21.thread.us.us.i", %54, %_ZNK4llvm9StringRef11starts_withES0_.exit47.thread78, %_ZNK4llvm9StringRef11starts_withES0_.exit53.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit53, %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit, %1, %_ZNK4llvm9StringRef5rfindEcm.exit.thread
+_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit.thread: ; preds = %90, %85, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.thread.us.i", %75, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.argprom.argprom.exit21.thread.us.us.i", %54, %_ZNK4llvm9StringRef11starts_withES0_.exit47.thread78, %_ZNK4llvm9StringRef11starts_withES0_.exit53.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit53, %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit, %1, %_ZNK4llvm9StringRef5rfindEcm.exit.thread
   ret void
 }
 
@@ -8118,15 +8118,15 @@ define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer17tryMerg
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 3088
   br label %10
 
-10:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit74.thread.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
-  %.0120.i.i.i.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i.i.i.i ], [ %99, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit74.thread.i.i.i.i.i.i" ]
-  %.029119.i.i.i.i.i.i = phi ptr [ %1, %.lr.ph.i.i.i.i.i.i ], [ %98, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit74.thread.i.i.i.i.i.i" ]
+10:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit74.thread.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
+  %.0120.i.i.i.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i.i.i.i ], [ %99, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit74.thread.i.i.i.i.i.i" ]
+  %.029119.i.i.i.i.i.i = phi ptr [ %1, %.lr.ph.i.i.i.i.i.i ], [ %98, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit74.thread.i.i.i.i.i.i" ]
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.029119.i.i.i.i.i.i, align 8
   %11 = getelementptr i8, ptr %.029119.i.i.i.i.i.i, i64 8
   %.029.val31.i.i.i.i.i.i = load i64, ptr %11, align 8
   %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
   %13 = icmp ult i64 %12, %.029.val31.i.i.i.i.i.i
-  br i1 %13, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit.thread.i.i.i.i.i.i", label %14
+  br i1 %13, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit.thread.i.i.i.i.i.i", label %14
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %9, align 8
@@ -8135,13 +8135,13 @@ define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer17tryMerg
   %18 = sub i64 0, %.029.val31.i.i.i.i.i.i
   %19 = getelementptr inbounds ptr, ptr %17, i64 %18
   %.not13.i.i.i.i.i.i.i.i.i = icmp eq i64 %.029.val31.i.i.i.i.i.i, 0
-  br i1 %.not13.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
+  br i1 %.not13.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 20:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %21 = add i32 %.012.i.i.i.i.i.i.i.i.i, 1
   %22 = zext i32 %21 to i64
   %23 = icmp ugt i64 %.029.val31.i.i.i.i.i.i, %22
-  br i1 %23, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit.i.i.i.i.i.i", !llvm.loop !63
+  br i1 %23, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit.i.i.i.i.i.i", !llvm.loop !63
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %14, %20
   %24 = phi i64 [ %22, %20 ], [ 0, %14 ]
@@ -8153,35 +8153,35 @@ define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer17tryMerg
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i16, ptr %29, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i16 %30, %28
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %20, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %20, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit.i.i.i.i.i.i": ; preds = %20, %14
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %20, %14
   %31 = tail call noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer14tryMergeTokensEmNS0_9TokenTypeE(ptr noundef nonnull align 8 dereferenceable(3648) %0, i64 noundef %.029.val31.i.i.i.i.i.i, i8 noundef zeroext %3)
-  br i1 %31, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit.thread.i.i.i.i.i.i"
+  br i1 %31, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit.i.i.i.i.i.i", %10
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit.i.i.i.i.i.i", %10
   %32 = getelementptr inbounds i8, ptr %.029119.i.i.i.i.i.i, i64 16
   %.val34.i.i.i.i.i.i = load ptr, ptr %32, align 8
   %33 = getelementptr i8, ptr %.029119.i.i.i.i.i.i, i64 24
   %.val35.i.i.i.i.i.i = load i64, ptr %33, align 8
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
   %35 = icmp ult i64 %34, %.val35.i.i.i.i.i.i
-  br i1 %35, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit60.thread.i.i.i.i.i.i", label %36
+  br i1 %35, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit60.thread.i.i.i.i.i.i", label %36
 
-36:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit.thread.i.i.i.i.i.i"
+36:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit.thread.i.i.i.i.i.i"
   %37 = load ptr, ptr %9, align 8
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
   %39 = getelementptr inbounds ptr, ptr %37, i64 %38
   %40 = sub i64 0, %.val35.i.i.i.i.i.i
   %41 = getelementptr inbounds ptr, ptr %39, i64 %40
   %.not13.i.i.i54.i.i.i.i.i.i = icmp eq i64 %.val35.i.i.i.i.i.i, 0
-  br i1 %.not13.i.i.i54.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i55.i.i.i.i.i.i
+  br i1 %.not13.i.i.i54.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i55.i.i.i.i.i.i
 
 42:                                               ; preds = %.lr.ph.i.i.i55.i.i.i.i.i.i
   %43 = add i32 %.012.i.i.i56.i.i.i.i.i.i, 1
   %44 = zext i32 %43 to i64
   %45 = icmp ugt i64 %.val35.i.i.i.i.i.i, %44
-  br i1 %45, label %.lr.ph.i.i.i55.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit60.i.i.i.i.i.i", !llvm.loop !63
+  br i1 %45, label %.lr.ph.i.i.i55.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit60.i.i.i.i.i.i", !llvm.loop !63
 
 .lr.ph.i.i.i55.i.i.i.i.i.i:                       ; preds = %36, %42
   %46 = phi i64 [ %44, %42 ], [ 0, %36 ]
@@ -8193,35 +8193,35 @@ define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer17tryMerg
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %52 = load i16, ptr %51, align 8
   %.not.i.i.i57.i.i.i.i.i.i = icmp eq i16 %52, %50
-  br i1 %.not.i.i.i57.i.i.i.i.i.i, label %42, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit60.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i57.i.i.i.i.i.i, label %42, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit60.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit60.i.i.i.i.i.i": ; preds = %42, %36
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit60.i.i.i.i.i.i": ; preds = %42, %36
   %53 = tail call noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer14tryMergeTokensEmNS0_9TokenTypeE(ptr noundef nonnull align 8 dereferenceable(3648) %0, i64 noundef %.val35.i.i.i.i.i.i, i8 noundef zeroext %3)
-  br i1 %53, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit60.thread.i.i.i.i.i.i"
+  br i1 %53, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit60.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit60.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i55.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit60.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit60.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i55.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit60.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit.thread.i.i.i.i.i.i"
   %54 = getelementptr inbounds i8, ptr %.029119.i.i.i.i.i.i, i64 32
   %.val38.i.i.i.i.i.i = load ptr, ptr %54, align 8
   %55 = getelementptr i8, ptr %.029119.i.i.i.i.i.i, i64 40
   %.val39.i.i.i.i.i.i = load i64, ptr %55, align 8
   %56 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
   %57 = icmp ult i64 %56, %.val39.i.i.i.i.i.i
-  br i1 %57, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit67.thread.i.i.i.i.i.i", label %58
+  br i1 %57, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit67.thread.i.i.i.i.i.i", label %58
 
-58:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit60.thread.i.i.i.i.i.i"
+58:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit60.thread.i.i.i.i.i.i"
   %59 = load ptr, ptr %9, align 8
   %60 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
   %61 = getelementptr inbounds ptr, ptr %59, i64 %60
   %62 = sub i64 0, %.val39.i.i.i.i.i.i
   %63 = getelementptr inbounds ptr, ptr %61, i64 %62
   %.not13.i.i.i61.i.i.i.i.i.i = icmp eq i64 %.val39.i.i.i.i.i.i, 0
-  br i1 %.not13.i.i.i61.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit67.i.i.i.i.i.i", label %.lr.ph.i.i.i62.i.i.i.i.i.i
+  br i1 %.not13.i.i.i61.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit67.i.i.i.i.i.i", label %.lr.ph.i.i.i62.i.i.i.i.i.i
 
 64:                                               ; preds = %.lr.ph.i.i.i62.i.i.i.i.i.i
   %65 = add i32 %.012.i.i.i63.i.i.i.i.i.i, 1
   %66 = zext i32 %65 to i64
   %67 = icmp ugt i64 %.val39.i.i.i.i.i.i, %66
-  br i1 %67, label %.lr.ph.i.i.i62.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit67.i.i.i.i.i.i", !llvm.loop !63
+  br i1 %67, label %.lr.ph.i.i.i62.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit67.i.i.i.i.i.i", !llvm.loop !63
 
 .lr.ph.i.i.i62.i.i.i.i.i.i:                       ; preds = %58, %64
   %68 = phi i64 [ %66, %64 ], [ 0, %58 ]
@@ -8233,35 +8233,35 @@ define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer17tryMerg
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %74 = load i16, ptr %73, align 8
   %.not.i.i.i64.i.i.i.i.i.i = icmp eq i16 %74, %72
-  br i1 %.not.i.i.i64.i.i.i.i.i.i, label %64, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit67.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i64.i.i.i.i.i.i, label %64, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit67.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit67.i.i.i.i.i.i": ; preds = %64, %58
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit67.i.i.i.i.i.i": ; preds = %64, %58
   %75 = tail call noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer14tryMergeTokensEmNS0_9TokenTypeE(ptr noundef nonnull align 8 dereferenceable(3648) %0, i64 noundef %.val39.i.i.i.i.i.i, i8 noundef zeroext %3)
-  br i1 %75, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit14", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit67.thread.i.i.i.i.i.i"
+  br i1 %75, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit14", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit67.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit67.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i62.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit67.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit60.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit67.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i62.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit67.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit60.thread.i.i.i.i.i.i"
   %76 = getelementptr inbounds i8, ptr %.029119.i.i.i.i.i.i, i64 48
   %.val42.i.i.i.i.i.i = load ptr, ptr %76, align 8
   %77 = getelementptr i8, ptr %.029119.i.i.i.i.i.i, i64 56
   %.val43.i.i.i.i.i.i = load i64, ptr %77, align 8
   %78 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
   %79 = icmp ult i64 %78, %.val43.i.i.i.i.i.i
-  br i1 %79, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit74.thread.i.i.i.i.i.i", label %80
+  br i1 %79, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit74.thread.i.i.i.i.i.i", label %80
 
-80:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit67.thread.i.i.i.i.i.i"
+80:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit67.thread.i.i.i.i.i.i"
   %81 = load ptr, ptr %9, align 8
   %82 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
   %83 = getelementptr inbounds ptr, ptr %81, i64 %82
   %84 = sub i64 0, %.val43.i.i.i.i.i.i
   %85 = getelementptr inbounds ptr, ptr %83, i64 %84
   %.not13.i.i.i68.i.i.i.i.i.i = icmp eq i64 %.val43.i.i.i.i.i.i, 0
-  br i1 %.not13.i.i.i68.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i69.i.i.i.i.i.i
+  br i1 %.not13.i.i.i68.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i69.i.i.i.i.i.i
 
 86:                                               ; preds = %.lr.ph.i.i.i69.i.i.i.i.i.i
   %87 = add i32 %.012.i.i.i70.i.i.i.i.i.i, 1
   %88 = zext i32 %87 to i64
   %89 = icmp ugt i64 %.val43.i.i.i.i.i.i, %88
-  br i1 %89, label %.lr.ph.i.i.i69.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit74.i.i.i.i.i.i", !llvm.loop !63
+  br i1 %89, label %.lr.ph.i.i.i69.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit74.i.i.i.i.i.i", !llvm.loop !63
 
 .lr.ph.i.i.i69.i.i.i.i.i.i:                       ; preds = %80, %86
   %90 = phi i64 [ %88, %86 ], [ 0, %80 ]
@@ -8273,19 +8273,19 @@ define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer17tryMerg
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %96 = load i16, ptr %95, align 8
   %.not.i.i.i71.i.i.i.i.i.i = icmp eq i16 %96, %94
-  br i1 %.not.i.i.i71.i.i.i.i.i.i, label %86, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit74.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i71.i.i.i.i.i.i, label %86, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit74.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit74.i.i.i.i.i.i": ; preds = %86, %80
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit74.i.i.i.i.i.i": ; preds = %86, %80
   %97 = tail call noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer14tryMergeTokensEmNS0_9TokenTypeE(ptr noundef nonnull align 8 dereferenceable(3648) %0, i64 noundef %.val43.i.i.i.i.i.i, i8 noundef zeroext %3)
-  br i1 %97, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit16", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit74.thread.i.i.i.i.i.i"
+  br i1 %97, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit16", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit74.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit74.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i69.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit74.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit67.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit74.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i69.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit74.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit67.thread.i.i.i.i.i.i"
   %98 = getelementptr inbounds i8, ptr %.029119.i.i.i.i.i.i, i64 64
   %99 = add nsw i64 %.0120.i.i.i.i.i.i, -1
   %100 = icmp sgt i64 %.0120.i.i.i.i.i.i, 1
   br i1 %100, label %10, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !65
 
-._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit74.thread.i.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit74.thread.i.i.i.i.i.i"
   %.pre.i.i.i.i.i.i = ptrtoint ptr %98 to i64
   %.pre125.i.i.i.i.i.i = sub i64 %6, %.pre.i.i.i.i.i.i
   %101 = ashr exact i64 %.pre125.i.i.i.i.i.i, 4
@@ -8294,7 +8294,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer17tryMerg
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %4
   %.pre-phi126.i.i.i.i.i.i = phi i64 [ %101, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %2, %4 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %98, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %1, %4 ]
-  switch i64 %.pre-phi126.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit95.thread.i.i.i.i.i.i" [
+  switch i64 %.pre-phi126.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit95.thread.i.i.i.i.i.i" [
     i64 3, label %102
     i64 2, label %126
     i64 1, label %150
@@ -8307,7 +8307,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer17tryMerg
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 3088
   %105 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %104) #19
   %106 = icmp ult i64 %105, %.029.val47.i.i.i.i.i.i
-  br i1 %106, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit81.thread.i.i.i.i.i.i", label %107
+  br i1 %106, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit81.thread.i.i.i.i.i.i", label %107
 
 107:                                              ; preds = %102
   %108 = load ptr, ptr %104, align 8
@@ -8316,13 +8316,13 @@ define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer17tryMerg
   %111 = sub i64 0, %.029.val47.i.i.i.i.i.i
   %112 = getelementptr inbounds ptr, ptr %110, i64 %111
   %.not13.i.i.i75.i.i.i.i.i.i = icmp eq i64 %.029.val47.i.i.i.i.i.i, 0
-  br i1 %.not13.i.i.i75.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit81.i.i.i.i.i.i", label %.lr.ph.i.i.i76.i.i.i.i.i.i
+  br i1 %.not13.i.i.i75.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit81.i.i.i.i.i.i", label %.lr.ph.i.i.i76.i.i.i.i.i.i
 
 113:                                              ; preds = %.lr.ph.i.i.i76.i.i.i.i.i.i
   %114 = add i32 %.012.i.i.i77.i.i.i.i.i.i, 1
   %115 = zext i32 %114 to i64
   %116 = icmp ugt i64 %.029.val47.i.i.i.i.i.i, %115
-  br i1 %116, label %.lr.ph.i.i.i76.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit81.i.i.i.i.i.i", !llvm.loop !63
+  br i1 %116, label %.lr.ph.i.i.i76.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit81.i.i.i.i.i.i", !llvm.loop !63
 
 .lr.ph.i.i.i76.i.i.i.i.i.i:                       ; preds = %107, %113
   %117 = phi i64 [ %115, %113 ], [ 0, %107 ]
@@ -8334,25 +8334,25 @@ define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer17tryMerg
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %123 = load i16, ptr %122, align 8
   %.not.i.i.i78.i.i.i.i.i.i = icmp eq i16 %123, %121
-  br i1 %.not.i.i.i78.i.i.i.i.i.i, label %113, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit81.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i78.i.i.i.i.i.i, label %113, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit81.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit81.i.i.i.i.i.i": ; preds = %113, %107
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit81.i.i.i.i.i.i": ; preds = %113, %107
   %124 = tail call noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer14tryMergeTokensEmNS0_9TokenTypeE(ptr noundef nonnull align 8 dereferenceable(3648) %0, i64 noundef %.029.val47.i.i.i.i.i.i, i8 noundef zeroext %3)
-  br i1 %124, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit81.thread.i.i.i.i.i.i"
+  br i1 %124, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit81.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit81.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i76.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit81.i.i.i.i.i.i", %102
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit81.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i76.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit81.i.i.i.i.i.i", %102
   %125 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 16
   br label %126
 
-126:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit81.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %125, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit81.thread.i.i.i.i.i.i" ]
+126:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit81.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %125, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit81.thread.i.i.i.i.i.i" ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8
   %127 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 8
   %.1.val50.i.i.i.i.i.i = load i64, ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 3088
   %129 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %128) #19
   %130 = icmp ult i64 %129, %.1.val50.i.i.i.i.i.i
-  br i1 %130, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit88.thread.i.i.i.i.i.i", label %131
+  br i1 %130, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit88.thread.i.i.i.i.i.i", label %131
 
 131:                                              ; preds = %126
   %132 = load ptr, ptr %128, align 8
@@ -8361,13 +8361,13 @@ define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer17tryMerg
   %135 = sub i64 0, %.1.val50.i.i.i.i.i.i
   %136 = getelementptr inbounds ptr, ptr %134, i64 %135
   %.not13.i.i.i82.i.i.i.i.i.i = icmp eq i64 %.1.val50.i.i.i.i.i.i, 0
-  br i1 %.not13.i.i.i82.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i83.i.i.i.i.i.i
+  br i1 %.not13.i.i.i82.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i83.i.i.i.i.i.i
 
 137:                                              ; preds = %.lr.ph.i.i.i83.i.i.i.i.i.i
   %138 = add i32 %.012.i.i.i84.i.i.i.i.i.i, 1
   %139 = zext i32 %138 to i64
   %140 = icmp ugt i64 %.1.val50.i.i.i.i.i.i, %139
-  br i1 %140, label %.lr.ph.i.i.i83.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit88.i.i.i.i.i.i", !llvm.loop !63
+  br i1 %140, label %.lr.ph.i.i.i83.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit88.i.i.i.i.i.i", !llvm.loop !63
 
 .lr.ph.i.i.i83.i.i.i.i.i.i:                       ; preds = %131, %137
   %141 = phi i64 [ %139, %137 ], [ 0, %131 ]
@@ -8379,25 +8379,25 @@ define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer17tryMerg
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %147 = load i16, ptr %146, align 8
   %.not.i.i.i85.i.i.i.i.i.i = icmp eq i16 %147, %145
-  br i1 %.not.i.i.i85.i.i.i.i.i.i, label %137, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit88.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i85.i.i.i.i.i.i, label %137, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit88.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit88.i.i.i.i.i.i": ; preds = %137, %131
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit88.i.i.i.i.i.i": ; preds = %137, %131
   %148 = tail call noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer14tryMergeTokensEmNS0_9TokenTypeE(ptr noundef nonnull align 8 dereferenceable(3648) %0, i64 noundef %.1.val50.i.i.i.i.i.i, i8 noundef zeroext %3)
-  br i1 %148, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit88.thread.i.i.i.i.i.i"
+  br i1 %148, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit88.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit88.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i83.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit88.i.i.i.i.i.i", %126
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit88.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i83.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit88.i.i.i.i.i.i", %126
   %149 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 16
   br label %150
 
-150:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit88.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %149, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit88.thread.i.i.i.i.i.i" ]
+150:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit88.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %149, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit88.thread.i.i.i.i.i.i" ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8
   %151 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 8
   %.2.val53.i.i.i.i.i.i = load i64, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 3088
   %153 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %152) #19
   %154 = icmp ult i64 %153, %.2.val53.i.i.i.i.i.i
-  br i1 %154, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit95.thread.i.i.i.i.i.i", label %155
+  br i1 %154, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit95.thread.i.i.i.i.i.i", label %155
 
 155:                                              ; preds = %150
   %156 = load ptr, ptr %152, align 8
@@ -8406,13 +8406,13 @@ define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer17tryMerg
   %159 = sub i64 0, %.2.val53.i.i.i.i.i.i
   %160 = getelementptr inbounds ptr, ptr %158, i64 %159
   %.not13.i.i.i89.i.i.i.i.i.i = icmp eq i64 %.2.val53.i.i.i.i.i.i, 0
-  br i1 %.not13.i.i.i89.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit95.i.i.i.i.i.i", label %.lr.ph.i.i.i90.i.i.i.i.i.i
+  br i1 %.not13.i.i.i89.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit95.i.i.i.i.i.i", label %.lr.ph.i.i.i90.i.i.i.i.i.i
 
 161:                                              ; preds = %.lr.ph.i.i.i90.i.i.i.i.i.i
   %162 = add i32 %.012.i.i.i91.i.i.i.i.i.i, 1
   %163 = zext i32 %162 to i64
   %164 = icmp ugt i64 %.2.val53.i.i.i.i.i.i, %163
-  br i1 %164, label %.lr.ph.i.i.i90.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit95.i.i.i.i.i.i", !llvm.loop !63
+  br i1 %164, label %.lr.ph.i.i.i90.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit95.i.i.i.i.i.i", !llvm.loop !63
 
 .lr.ph.i.i.i90.i.i.i.i.i.i:                       ; preds = %155, %161
   %165 = phi i64 [ %163, %161 ], [ 0, %155 ]
@@ -8424,29 +8424,29 @@ define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer17tryMerg
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %171 = load i16, ptr %170, align 8
   %.not.i.i.i92.i.i.i.i.i.i = icmp eq i16 %171, %169
-  br i1 %.not.i.i.i92.i.i.i.i.i.i, label %161, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit95.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i92.i.i.i.i.i.i, label %161, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit95.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit95.i.i.i.i.i.i": ; preds = %161, %155
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit95.i.i.i.i.i.i": ; preds = %161, %155
   %172 = tail call noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer14tryMergeTokensEmNS0_9TokenTypeE(ptr noundef nonnull align 8 dereferenceable(3648) %0, i64 noundef %.2.val53.i.i.i.i.i.i, i8 noundef zeroext %3)
-  br i1 %172, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit95.thread.i.i.i.i.i.i"
+  br i1 %172, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit95.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit95.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i90.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit95.i.i.i.i.i.i", %150, %._crit_edge.i.i.i.i.i.i
-  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit95.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i90.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit95.i.i.i.i.i.i", %150, %._crit_edge.i.i.i.i.i.i
+  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit60.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit60.i.i.i.i.i.i"
   %173 = getelementptr inbounds i8, ptr %.029119.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit14": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit67.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit14": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit67.i.i.i.i.i.i"
   %174 = getelementptr inbounds i8, ptr %.029119.i.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit16": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit74.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit16": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit74.i.i.i.i.i.i"
   %175 = getelementptr inbounds i8, ptr %.029119.i.i.i.i.i.i, i64 48
-  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit14", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit16", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit81.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit88.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit95.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit95.thread.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %5, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit95.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit81.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit88.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit95.i.i.i.i.i.i" ], [ %173, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %174, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit14" ], [ %175, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit16" ], [ %.029119.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.exit.i.i.i.i.i.i" ]
+"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit14", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit16", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit81.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit88.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit95.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit95.thread.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %5, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit95.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit81.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit88.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit95.i.i.i.i.i.i" ], [ %173, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %174, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit14" ], [ %175, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS1_IN5clang3tok9TokenKindEEEEEZNS2_6format16FormatTokenLexer17tryMergeTokensAnyES6_NS8_9TokenTypeEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit16" ], [ %.029119.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS6_INS2_3tok9TokenKindEEEEENS3_9TokenTypeEE3$_0EclIPKS9_EEbT_.argprom.exit.i.i.i.i.i.i" ]
   %176 = icmp ne ptr %5, %.028.i.i.i.i.i.i
   ret i1 %176
 }

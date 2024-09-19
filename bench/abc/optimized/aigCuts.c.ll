@@ -1349,7 +1349,7 @@ Aig_ObjPrepareCuts.exit:                          ; preds = %._crit_edge.i, %42,
   %119 = getelementptr inbounds i8, ptr %.0153.i, i64 23
   %120 = load i8, ptr %119, align 1
   %121 = icmp eq i8 %120, 0
-  br i1 %121, label %Aig_CutFindFree.exit, label %122
+  br i1 %121, label %Aig_CutFindFree.argprom.exit, label %122
 
 122:                                              ; preds = %.lr.ph.i54
   %123 = icmp eq ptr %.0144.i, null
@@ -1380,9 +1380,9 @@ Aig_ObjPrepareCuts.exit:                          ; preds = %._crit_edge.i, %42,
   %137 = getelementptr inbounds i8, ptr %.1.i, i64 23
   store i8 0, ptr %137, align 1
   %.pre = load i8, ptr %85, align 1
-  br label %Aig_CutFindFree.exit
+  br label %Aig_CutFindFree.argprom.exit
 
-Aig_CutFindFree.exit:                             ; preds = %.lr.ph.i54, %._crit_edge.i55
+Aig_CutFindFree.argprom.exit:                     ; preds = %.lr.ph.i54, %._crit_edge.i55
   %138 = phi i8 [ %.pre, %._crit_edge.i55 ], [ %86, %.lr.ph.i54 ]
   %.016.i = phi ptr [ %.1.i, %._crit_edge.i55 ], [ %.0153.i, %.lr.ph.i54 ]
   %139 = load i8, ptr %74, align 1
@@ -1390,7 +1390,7 @@ Aig_CutFindFree.exit:                             ; preds = %.lr.ph.i54, %._crit
   %141 = load i32, ptr %70, align 4
   br i1 %140, label %142, label %223
 
-142:                                              ; preds = %Aig_CutFindFree.exit
+142:                                              ; preds = %Aig_CutFindFree.argprom.exit
   %143 = sext i8 %138 to i32
   %144 = icmp eq i32 %141, %143
   br i1 %144, label %.preheader104.i93, label %.critedge.preheader.i72
@@ -1563,7 +1563,7 @@ Aig_CutFindFree.exit:                             ; preds = %.lr.ph.i54, %._crit
   %222 = icmp slt i32 %.1.lcssa.i76, %221
   br i1 %222, label %Aig_CutMerge.exit.thread, label %Aig_CutMergeOrdered.exit115
 
-223:                                              ; preds = %Aig_CutFindFree.exit
+223:                                              ; preds = %Aig_CutFindFree.argprom.exit
   %224 = sext i8 %139 to i32
   %225 = icmp eq i32 %141, %224
   br i1 %225, label %229, label %.critedge.preheader.i
@@ -1949,9 +1949,9 @@ Aig_CutFilter.exit:                               ; preds = %366
   %391 = getelementptr i8, ptr %.val.i61, i64 8
   %.val.i.i = load ptr, ptr %391, align 8
   %wide.trip.count.i = zext nneg i32 %387 to i64
-  br label %Aig_ManObj.exit.i
+  br label %Aig_ManObj.argprom.exit.i
 
-Aig_ManObj.exit.i:                                ; preds = %397, %.lr.ph.split.i
+Aig_ManObj.argprom.exit.i:                        ; preds = %397, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.i ], [ %indvars.iv.next.i, %397 ]
   %.013.i = phi i32 [ 0, %.lr.ph.split.i ], [ %402, %397 ]
   %392 = getelementptr inbounds [0 x i32], ptr %384, i64 0, i64 %indvars.iv.i
@@ -1962,7 +1962,7 @@ Aig_ManObj.exit.i:                                ; preds = %397, %.lr.ph.split.
   %.not.i62 = icmp eq ptr %396, null
   br i1 %.not.i62, label %.critedge.loopexit.i, label %397
 
-397:                                              ; preds = %Aig_ManObj.exit.i
+397:                                              ; preds = %Aig_ManObj.argprom.exit.i
   %398 = getelementptr inbounds i8, ptr %396, i64 24
   %399 = load i64, ptr %398, align 8
   %400 = trunc i64 %399 to i32
@@ -1970,10 +1970,10 @@ Aig_ManObj.exit.i:                                ; preds = %397, %.lr.ph.split.
   %402 = add nuw nsw i32 %401, %.013.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i63, label %.critedge.loopexit.i, label %Aig_ManObj.exit.i, !llvm.loop !25
+  br i1 %exitcond.not.i63, label %.critedge.loopexit.i, label %Aig_ManObj.argprom.exit.i, !llvm.loop !25
 
-.critedge.loopexit.i:                             ; preds = %397, %Aig_ManObj.exit.i
-  %.0.lcssa.ph.i = phi i32 [ %.013.i, %Aig_ManObj.exit.i ], [ %402, %397 ]
+.critedge.loopexit.i:                             ; preds = %397, %Aig_ManObj.argprom.exit.i
+  %.0.lcssa.ph.i = phi i32 [ %.013.i, %Aig_ManObj.argprom.exit.i ], [ %402, %397 ]
   %403 = mul nuw nsw i32 %.0.lcssa.ph.i, 1000
   br label %Aig_CutFindCost.exit
 

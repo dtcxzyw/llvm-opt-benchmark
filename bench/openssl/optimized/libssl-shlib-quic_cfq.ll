@@ -72,7 +72,7 @@ entry:
 if.end:                                           ; preds = %entry
   %cfq.val = load ptr, ptr %cfq, align 8
   %cmp.not1.i = icmp eq ptr %cfq.val, null
-  br i1 %cmp.not1.i, label %free_list_items.exit, label %for.body.i
+  br i1 %cmp.not1.i, label %free_list_items.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end, %clear_item.exit.i
   %p.02.i = phi ptr [ %0, %clear_item.exit.i ], [ %cfq.val, %if.end ]
@@ -100,16 +100,16 @@ clear_item.exit.i:                                ; preds = %if.then.i.i, %for.b
   store i32 -1, ptr %state.i.i, align 4
   tail call void @CRYPTO_free(ptr noundef nonnull %p.02.i, ptr noundef nonnull @.str, i32 noundef 199) #6
   %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %free_list_items.exit, label %for.body.i, !llvm.loop !4
+  br i1 %cmp.not.i, label %free_list_items.argprom.exit, label %for.body.i, !llvm.loop !4
 
-free_list_items.exit:                             ; preds = %clear_item.exit.i, %if.end
+free_list_items.argprom.exit:                     ; preds = %clear_item.exit.i, %if.end
   %tx_list = getelementptr inbounds i8, ptr %cfq, i64 16
   %tx_list.val = load ptr, ptr %tx_list, align 8
   %cmp.not1.i5 = icmp eq ptr %tx_list.val, null
-  br i1 %cmp.not1.i5, label %free_list_items.exit18, label %for.body.i6
+  br i1 %cmp.not1.i5, label %free_list_items.argprom.exit18, label %for.body.i6
 
-for.body.i6:                                      ; preds = %free_list_items.exit, %clear_item.exit.i15
-  %p.02.i7 = phi ptr [ %5, %clear_item.exit.i15 ], [ %tx_list.val, %free_list_items.exit ]
+for.body.i6:                                      ; preds = %free_list_items.argprom.exit, %clear_item.exit.i15
+  %p.02.i7 = phi ptr [ %5, %clear_item.exit.i15 ], [ %tx_list.val, %free_list_items.argprom.exit ]
   %next.i8 = getelementptr inbounds i8, ptr %p.02.i7, i64 24
   %5 = load ptr, ptr %next.i8, align 8
   %free_cb.i.i9 = getelementptr inbounds i8, ptr %p.02.i7, i64 40
@@ -134,16 +134,16 @@ clear_item.exit.i15:                              ; preds = %if.then.i.i11, %for
   store i32 -1, ptr %state.i.i16, align 4
   tail call void @CRYPTO_free(ptr noundef nonnull %p.02.i7, ptr noundef nonnull @.str, i32 noundef 199) #6
   %cmp.not.i17 = icmp eq ptr %5, null
-  br i1 %cmp.not.i17, label %free_list_items.exit18, label %for.body.i6, !llvm.loop !4
+  br i1 %cmp.not.i17, label %free_list_items.argprom.exit18, label %for.body.i6, !llvm.loop !4
 
-free_list_items.exit18:                           ; preds = %clear_item.exit.i15, %free_list_items.exit
+free_list_items.argprom.exit18:                   ; preds = %clear_item.exit.i15, %free_list_items.argprom.exit
   %free_list = getelementptr inbounds i8, ptr %cfq, i64 32
   %free_list.val = load ptr, ptr %free_list, align 8
   %cmp.not1.i19 = icmp eq ptr %free_list.val, null
-  br i1 %cmp.not1.i19, label %free_list_items.exit32, label %for.body.i20
+  br i1 %cmp.not1.i19, label %free_list_items.argprom.exit32, label %for.body.i20
 
-for.body.i20:                                     ; preds = %free_list_items.exit18, %clear_item.exit.i29
-  %p.02.i21 = phi ptr [ %10, %clear_item.exit.i29 ], [ %free_list.val, %free_list_items.exit18 ]
+for.body.i20:                                     ; preds = %free_list_items.argprom.exit18, %clear_item.exit.i29
+  %p.02.i21 = phi ptr [ %10, %clear_item.exit.i29 ], [ %free_list.val, %free_list_items.argprom.exit18 ]
   %next.i22 = getelementptr inbounds i8, ptr %p.02.i21, i64 24
   %10 = load ptr, ptr %next.i22, align 8
   %free_cb.i.i23 = getelementptr inbounds i8, ptr %p.02.i21, i64 40
@@ -168,13 +168,13 @@ clear_item.exit.i29:                              ; preds = %if.then.i.i25, %for
   store i32 -1, ptr %state.i.i30, align 4
   tail call void @CRYPTO_free(ptr noundef nonnull %p.02.i21, ptr noundef nonnull @.str, i32 noundef 199) #6
   %cmp.not.i31 = icmp eq ptr %10, null
-  br i1 %cmp.not.i31, label %free_list_items.exit32, label %for.body.i20, !llvm.loop !4
+  br i1 %cmp.not.i31, label %free_list_items.argprom.exit32, label %for.body.i20, !llvm.loop !4
 
-free_list_items.exit32:                           ; preds = %clear_item.exit.i29, %free_list_items.exit18
+free_list_items.argprom.exit32:                   ; preds = %clear_item.exit.i29, %free_list_items.argprom.exit18
   tail call void @CRYPTO_free(ptr noundef nonnull %cfq, ptr noundef nonnull @.str, i32 noundef 211) #6
   br label %return
 
-return:                                           ; preds = %entry, %free_list_items.exit32
+return:                                           ; preds = %entry, %free_list_items.argprom.exit32
   ret void
 }
 
@@ -751,7 +751,7 @@ if.then.i94:                                      ; preds = %list_remove.exit42
   store ptr %item, ptr %tail.i95, align 8
   store ptr %item, ptr %cfq, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prev.i27, i8 0, i64 16, i1 false)
-  br label %list_insert_sorted.exit97
+  br label %list_insert_sorted.argprom.exit97
 
 land.rhs.i47:                                     ; preds = %for.inc.i81, %for.cond.preheader.i44
   %pprev.05.i48 = phi ptr [ null, %for.cond.preheader.i44 ], [ %p.04.i49, %for.inc.i81 ]
@@ -796,11 +796,11 @@ if.then.i.i89:                                    ; preds = %if.then7.i84
 if.end.i.i91:                                     ; preds = %if.then.i.i89, %if.then7.i84
   %33 = load ptr, ptr %cfq, align 8
   %cmp5.i.i92 = icmp eq ptr %33, null
-  br i1 %cmp5.i.i92, label %if.then6.i.i93, label %list_insert_sorted.exit97
+  br i1 %cmp5.i.i92, label %if.then6.i.i93, label %list_insert_sorted.argprom.exit97
 
 if.then6.i.i93:                                   ; preds = %if.end.i.i91
   store ptr %item, ptr %cfq, align 8
-  br label %list_insert_sorted.exit97
+  br label %list_insert_sorted.argprom.exit97
 
 if.else.i57:                                      ; preds = %if.end6.i.i54, %if.else.i.i52
   %cmp8.i58 = icmp eq ptr %pprev.05.i48, null
@@ -823,11 +823,11 @@ if.end.i22.i77:                                   ; preds = %if.then.i21.i75, %i
   %tail.i23.i78 = getelementptr inbounds i8, ptr %cfq, i64 8
   %35 = load ptr, ptr %tail.i23.i78, align 8
   %cmp5.i24.i79 = icmp eq ptr %35, null
-  br i1 %cmp5.i24.i79, label %if.then6.i25.i80, label %list_insert_sorted.exit97
+  br i1 %cmp5.i24.i79, label %if.then6.i25.i80, label %list_insert_sorted.argprom.exit97
 
 if.then6.i25.i80:                                 ; preds = %if.end.i22.i77
   store ptr %item, ptr %tail.i23.i78, align 8
-  br label %list_insert_sorted.exit97
+  br label %list_insert_sorted.argprom.exit97
 
 if.else10.i59:                                    ; preds = %if.else.i57
   store ptr %pprev.05.i48, ptr %prev.i27, align 8
@@ -847,17 +847,17 @@ if.end.i31.i66:                                   ; preds = %if.then.i29.i64, %i
   %tail.i32.i67 = getelementptr inbounds i8, ptr %cfq, i64 8
   %37 = load ptr, ptr %tail.i32.i67, align 8
   %cmp6.i.i68 = icmp eq ptr %37, %pprev.05.i48
-  br i1 %cmp6.i.i68, label %if.then7.i.i70, label %list_insert_sorted.exit97
+  br i1 %cmp6.i.i68, label %if.then7.i.i70, label %list_insert_sorted.argprom.exit97
 
 if.then7.i.i70:                                   ; preds = %if.end.i31.i66
   store ptr %item, ptr %tail.i32.i67, align 8
-  br label %list_insert_sorted.exit97
+  br label %list_insert_sorted.argprom.exit97
 
-list_insert_sorted.exit97:                        ; preds = %if.then.i94, %if.end.i.i91, %if.then6.i.i93, %if.end.i22.i77, %if.then6.i25.i80, %if.end.i31.i66, %if.then7.i.i70
+list_insert_sorted.argprom.exit97:                ; preds = %if.then.i94, %if.end.i.i91, %if.then6.i.i93, %if.end.i22.i77, %if.then6.i25.i80, %if.end.i31.i66, %if.then7.i.i70
   store i32 0, ptr %state, align 4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then7.i.i, %if.end.i31.i, %if.then6.i25.i, %if.end.i22.i, %if.then6.i.i, %if.end.i.i, %if.then.i20, %if.end, %sw.bb, %land.lhs.true, %list_insert_sorted.exit97, %if.then
+sw.epilog:                                        ; preds = %if.then7.i.i, %if.end.i31.i, %if.then6.i25.i, %if.end.i22.i, %if.then6.i.i, %if.end.i.i, %if.then.i20, %if.end, %sw.bb, %land.lhs.true, %list_insert_sorted.argprom.exit97, %if.then
   ret void
 }
 

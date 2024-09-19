@@ -228,7 +228,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @mi_segment_free(ptr noundef nonnull %1, ptr noundef %tld) #12
+  tail call fastcc void @mi_segment_free.argelim(ptr noundef nonnull %1, ptr noundef %tld) #12
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -341,7 +341,7 @@ if.end:                                           ; preds = %_mi_page_start.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_segment_free(ptr noundef %segment, ptr nocapture noundef %tld) unnamed_addr #4 {
+define internal fastcc void @mi_segment_free.argelim(ptr noundef %segment, ptr nocapture noundef %tld) unnamed_addr #4 {
 entry:
   %slice_entries.i = getelementptr inbounds i8, ptr %segment, i64 248
   %0 = load i64, ptr %slice_entries.i, align 8
@@ -1108,7 +1108,7 @@ while.end:                                        ; preds = %if.end24, %if.end24
   br i1 %cmp25, label %if.then27, label %return
 
 if.then27:                                        ; preds = %while.end
-  tail call fastcc void @mi_segment_free(ptr noundef nonnull %segment, ptr noundef %tld) #12
+  tail call fastcc void @mi_segment_free.argelim(ptr noundef nonnull %segment, ptr noundef %tld) #12
   br label %return
 
 return:                                           ; preds = %while.end, %if.then27
@@ -1513,7 +1513,7 @@ if.then11:                                        ; preds = %_mi_commit_mask_nex
   %mul = shl i64 %add.i, 16
   %add.ptr = getelementptr inbounds i8, ptr %segment, i64 %mul
   %mul12 = shl i64 %inc12.i, 16
-  tail call fastcc void @mi_segment_purge(ptr noundef %segment, ptr noundef %add.ptr, i64 noundef %mul12, ptr noundef %stats) #12
+  tail call fastcc void @mi_segment_purge.argelim(ptr noundef %segment, ptr noundef %add.ptr, i64 noundef %mul12, ptr noundef %stats) #12
   %add = add i64 %inc12.i, %add.i
   %cmp29.i = icmp ult i64 %add, 512
   br i1 %cmp29.i, label %while.body.preheader.i, label %while.end, !llvm.loop !24
@@ -1648,7 +1648,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp5, label %if.then7, label %if.else9
 
 if.then7:                                         ; preds = %if.else
-  %call8 = tail call fastcc ptr @mi_segments_page_alloc(ptr noundef %heap, i64 noundef %block_size, i64 noundef %block_size, ptr noundef %tld, ptr noundef %os_tld) #12
+  %call8 = tail call fastcc ptr @mi_segments_page_alloc.argelim(ptr noundef %heap, i64 noundef %block_size, i64 noundef %block_size, ptr noundef %tld, ptr noundef %os_tld) #12
   br label %if.end25
 
 if.else9:                                         ; preds = %if.else
@@ -1656,7 +1656,7 @@ if.else9:                                         ; preds = %if.else
   br i1 %cmp10, label %if.then12, label %if.else14
 
 if.then12:                                        ; preds = %if.else9
-  %call13 = tail call fastcc ptr @mi_segments_page_alloc(ptr noundef %heap, i64 noundef 524288, i64 noundef %block_size, ptr noundef %tld, ptr noundef %os_tld) #12
+  %call13 = tail call fastcc ptr @mi_segments_page_alloc.argelim(ptr noundef %heap, i64 noundef 524288, i64 noundef %block_size, ptr noundef %tld, ptr noundef %os_tld) #12
   br label %if.end25
 
 if.else14:                                        ; preds = %if.else9
@@ -1664,7 +1664,7 @@ if.else14:                                        ; preds = %if.else9
   br i1 %cmp15, label %if.then17, label %if.else19
 
 if.then17:                                        ; preds = %if.else14
-  %call18 = tail call fastcc ptr @mi_segments_page_alloc(ptr noundef %heap, i64 noundef %block_size, i64 noundef %block_size, ptr noundef %tld, ptr noundef %os_tld) #12
+  %call18 = tail call fastcc ptr @mi_segments_page_alloc.argelim(ptr noundef %heap, i64 noundef %block_size, i64 noundef %block_size, ptr noundef %tld, ptr noundef %os_tld) #12
   br label %if.end25
 
 if.else19:                                        ; preds = %if.else14
@@ -1762,7 +1762,7 @@ if.end25:                                         ; preds = %if.then7, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segments_page_alloc(ptr noundef %heap, i64 noundef range(i64 0, 16777217) %required, i64 noundef range(i64 0, 16777217) %block_size, ptr noundef %tld, ptr noundef %os_tld) unnamed_addr #4 {
+define internal fastcc ptr @mi_segments_page_alloc.argelim(ptr noundef %heap, i64 noundef range(i64 0, 16777217) %required, i64 noundef range(i64 0, 16777217) %block_size, ptr noundef %tld, ptr noundef %os_tld) unnamed_addr #4 {
 entry:
   %reclaimed.i = alloca i8, align 1
   %cmp = icmp ugt i64 %required, 524288
@@ -1973,7 +1973,7 @@ if.end15.i:                                       ; preds = %mi_segment_slice_sp
   %conv18.pre-phi.i = phi i64 [ %spec.store.select52.i, %mi_segment_slice_split.exit.i ], [ %conv11.i, %mi_span_queue_delete.exit.i ]
   %17 = getelementptr i8, ptr %tld, i64 896
   %tld.val.i = load ptr, ptr %17, align 8
-  %call19.i = tail call fastcc ptr @mi_segment_span_allocate(ptr noundef %4, i64 noundef %sub.ptr.div.i.i.i, i64 noundef %conv18.pre-phi.i, ptr %tld.val.i) #12
+  %call19.i = tail call fastcc ptr @mi_segment_span_allocate.argprom(ptr noundef %4, i64 noundef %sub.ptr.div.i.i.i, i64 noundef %conv18.pre-phi.i, ptr %tld.val.i) #12
   %cmp20.i = icmp eq ptr %call19.i, null
   br i1 %cmp20.i, label %if.then22.i, label %if.end
 
@@ -2272,7 +2272,7 @@ mi_segment_reclaim_or_alloc.exit:                 ; preds = %if.else.i
   br i1 %cmp4, label %return, label %if.else
 
 if.else:                                          ; preds = %mi_segment_reclaim_or_alloc.exit.thread29, %mi_segment_reclaim_or_alloc.exit
-  %call6 = call fastcc ptr @mi_segments_page_alloc(ptr noundef %heap, i64 noundef %required, i64 noundef %block_size, ptr noundef %tld, ptr noundef %os_tld) #12
+  %call6 = call fastcc ptr @mi_segments_page_alloc.argelim(ptr noundef %heap, i64 noundef %required, i64 noundef %block_size, ptr noundef %tld, ptr noundef %os_tld) #12
   br label %return
 
 if.end:                                           ; preds = %if.end15.i
@@ -2619,7 +2619,7 @@ if.end.i:                                         ; preds = %if.then14
   br i1 %cmp.i20, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call fastcc void @mi_segment_purge(ptr noundef nonnull %segment, ptr noundef %add.ptr.i, i64 noundef %mul16, ptr noundef %5) #12
+  tail call fastcc void @mi_segment_purge.argelim(ptr noundef nonnull %segment, ptr noundef %add.ptr.i, i64 noundef %mul16, ptr noundef %5) #12
   br label %mi_segment_schedule_purge.exit
 
 if.else.i:                                        ; preds = %if.end.i
@@ -2753,7 +2753,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
 declare i64 @mi_option_get(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_segment_purge(ptr noundef %segment, ptr noundef %p, i64 noundef %size, ptr noundef %stats) unnamed_addr #4 {
+define internal fastcc void @mi_segment_purge.argelim(ptr noundef %segment, ptr noundef %p, i64 noundef %size, ptr noundef %stats) unnamed_addr #4 {
 entry:
   %start = alloca ptr, align 8
   %full_size = alloca i64, align 8
@@ -3287,7 +3287,7 @@ if.end18:                                         ; preds = %if.then16, %if.end
   %mul.i34 = shl i64 %call13.val, 16
   call void @_mi_stat_increase(ptr noundef nonnull %page_committed, i64 noundef %mul.i34) #13
   %tld.val = load ptr, ptr %stats.i.i, align 8
-  %call27 = call fastcc ptr @mi_segment_span_allocate(ptr noundef nonnull %call7.i, i64 noundef 0, i64 noundef %info_slices.0, ptr %tld.val) #12
+  %call27 = call fastcc ptr @mi_segment_span_allocate.argprom(ptr noundef nonnull %call7.i, i64 noundef 0, i64 noundef %info_slices.0, ptr %tld.val) #12
   %cmp28 = icmp eq ptr %call27, null
   br i1 %cmp28, label %return, label %if.end30
 
@@ -3382,7 +3382,7 @@ mi_segment_span_free.exit:                        ; preds = %if.end13.i, %if.the
 if.else:                                          ; preds = %if.end30
   %sub36 = sub nsw i64 %segment_slices.0, %info_slices.0
   %tld.val28 = load ptr, ptr %stats.i.i, align 8
-  %call38 = call fastcc ptr @mi_segment_span_allocate(ptr noundef nonnull %call7.i, i64 noundef %info_slices.0, i64 noundef %sub36, ptr %tld.val28) #12
+  %call38 = call fastcc ptr @mi_segment_span_allocate.argprom(ptr noundef nonnull %call7.i, i64 noundef %info_slices.0, i64 noundef %sub36, ptr %tld.val28) #12
   store ptr %call38, ptr %huge_page, align 8
   br label %return
 
@@ -3394,7 +3394,7 @@ return:                                           ; preds = %mi_segment_os_alloc
 declare i64 @_mi_current_thread_count() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_span_allocate(ptr noundef %segment, i64 noundef %slice_index, i64 noundef %slice_count, ptr %tld.896.val) unnamed_addr #4 {
+define internal fastcc ptr @mi_segment_span_allocate.argprom(ptr noundef %segment, i64 noundef %slice_index, i64 noundef %slice_count, ptr %tld.896.val) unnamed_addr #4 {
 entry:
   %start.i.i = alloca ptr, align 8
   %full_size.i.i = alloca i64, align 8

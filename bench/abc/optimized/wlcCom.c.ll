@@ -3520,13 +3520,13 @@ define void @Wlc_End(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 504
   %.val = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %Wlc_AbcFreeNtk.exit, label %3
+  br i1 %.not.i, label %Wlc_AbcFreeNtk.argprom.exit, label %3
 
 3:                                                ; preds = %1
   tail call void @Wlc_NtkFree(ptr noundef nonnull %.val) #16
-  br label %Wlc_AbcFreeNtk.exit
+  br label %Wlc_AbcFreeNtk.argprom.exit
 
-Wlc_AbcFreeNtk.exit:                              ; preds = %1, %3
+Wlc_AbcFreeNtk.argprom.exit:                      ; preds = %1, %3
   ret void
 }
 

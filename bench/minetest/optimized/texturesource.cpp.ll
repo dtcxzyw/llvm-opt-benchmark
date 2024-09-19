@@ -14001,7 +14001,7 @@ if.then1360:                                      ; preds = %invoke.cont1357
   %705 = load ptr, ptr %baseimg, align 8, !tbaa !28
   %Size.i4896 = getelementptr inbounds i8, ptr %call1358, i64 12
   %706 = load i64, ptr %Size.i4896, align 4
-  invoke fastcc void @_ZL10apply_maskPN3irr5video6IImageES2_NS_4core8vector2dIiEES5_NS4_IjEE(ptr noundef nonnull %call1358, ptr noundef %705, i64 %706)
+  invoke fastcc void @_ZL10apply_maskPN3irr5video6IImageES2_NS_4core8vector2dIiEES5_NS4_IjEE.argelim(ptr noundef nonnull %call1358, ptr noundef %705, i64 %706)
           to label %invoke.cont1369 unwind label %lpad1356
 
 invoke.cont1369:                                  ; preds = %if.then1360
@@ -14452,11 +14452,11 @@ invoke.cont1447:                                  ; preds = %if.end1445
   br i1 %call1448, label %if.then1449, label %if.else1459
 
 if.then1449:                                      ; preds = %invoke.cont1447
-  invoke fastcc void @_ZL20apply_multiplicationPN3irr5video6IImageENS_4core8vector2dIjEES5_NS0_6SColorE(ptr noundef nonnull %768, i64 %769, i32 %agg.tmp1456.sroa.0.0.copyload)
+  invoke fastcc void @_ZL20apply_multiplicationPN3irr5video6IImageENS_4core8vector2dIjEES5_NS0_6SColorE.argelim(ptr noundef nonnull %768, i64 %769, i32 %agg.tmp1456.sroa.0.0.copyload)
           to label %cleanup1470 unwind label %lpad1440
 
 if.else1459:                                      ; preds = %invoke.cont1447
-  invoke fastcc void @_ZL12apply_screenPN3irr5video6IImageENS_4core8vector2dIjEES5_NS0_6SColorE(ptr noundef nonnull %768, i64 %769, i32 %agg.tmp1456.sroa.0.0.copyload)
+  invoke fastcc void @_ZL12apply_screenPN3irr5video6IImageENS_4core8vector2dIjEES5_NS0_6SColorE.argelim(ptr noundef nonnull %768, i64 %769, i32 %agg.tmp1456.sroa.0.0.copyload)
           to label %cleanup1470 unwind label %lpad1440
 
 cleanup1470:                                      ; preds = %if.else1459, %if.then1449
@@ -14851,7 +14851,7 @@ if.end1557:                                       ; preds = %if.else1552, %if.th
   %Size.i5108 = getelementptr inbounds i8, ptr %820, i64 12
   %821 = load i64, ptr %Size.i5108, align 4
   %agg.tmp1564.sroa.0.0.copyload = load i32, ptr %color1537, align 4, !tbaa !37
-  invoke fastcc void @_ZL14apply_colorizePN3irr5video6IImageENS_4core8vector2dIjEES5_NS0_6SColorEib(ptr noundef nonnull %820, i64 %821, i32 %agg.tmp1564.sroa.0.0.copyload, i32 noundef %ratio.0, i1 noundef zeroext %keep_alpha.0)
+  invoke fastcc void @_ZL14apply_colorizePN3irr5video6IImageENS_4core8vector2dIjEES5_NS0_6SColorEib.argelim(ptr noundef nonnull %820, i64 %821, i32 %agg.tmp1564.sroa.0.0.copyload, i32 noundef %ratio.0, i1 noundef zeroext %keep_alpha.0)
           to label %cleanup1568 unwind label %lpad1540
 
 cleanup1568:                                      ; preds = %if.end1557
@@ -17604,7 +17604,7 @@ cleanup.done2531:                                 ; preds = %_ZNSt7__cxx1112basi
   %1200 = load ptr, ptr %baseimg, align 8, !tbaa !28
   %Size.i5764 = getelementptr inbounds i8, ptr %1200, i64 12
   %1201 = load i64, ptr %Size.i5764, align 4
-  invoke fastcc void @_ZL20apply_hue_saturationPN3irr5video6IImageENS_4core8vector2dIjEES5_iiib(ptr noundef nonnull %1200, i64 %1201, i32 noundef %i.1.i5712, i32 noundef %cond24286420, i32 noundef %cond24936422, i1 noundef zeroext %call2373)
+  invoke fastcc void @_ZL20apply_hue_saturationPN3irr5video6IImageENS_4core8vector2dIjEES5_iiib.argelim(ptr noundef nonnull %1200, i64 %1201, i32 noundef %i.1.i5712, i32 noundef %cond24286420, i32 noundef %cond24936422, i1 noundef zeroext %call2373)
           to label %invoke.cont2543 unwind label %lpad2471
 
 invoke.cont2543:                                  ; preds = %cleanup.done2531
@@ -17949,7 +17949,7 @@ invoke.cont2609:                                  ; preds = %invoke.cont2606
   %1249 = load ptr, ptr %baseimg, align 8, !tbaa !28
   %Size.i5846 = getelementptr inbounds i8, ptr %1248, i64 12
   %1250 = load i64, ptr %Size.i5846, align 4
-  invoke fastcc void @_ZL13apply_overlayPN3irr5video6IImageES2_NS_4core8vector2dIiEES5_NS4_IjEEb(ptr noundef nonnull %1248, ptr noundef %1249, i64 %1250, i1 noundef zeroext %call2610)
+  invoke fastcc void @_ZL13apply_overlayPN3irr5video6IImageES2_NS_4core8vector2dIiEES5_NS4_IjEEb.argelim(ptr noundef nonnull %1248, ptr noundef %1249, i64 %1250, i1 noundef zeroext %call2610)
           to label %invoke.cont2621 unwind label %lpad2608
 
 invoke.cont2621:                                  ; preds = %invoke.cont2609
@@ -18395,7 +18395,7 @@ cleanup.done2748:                                 ; preds = %_ZNSt7__cxx1112basi
   %1314 = load ptr, ptr %baseimg, align 8, !tbaa !28
   %Size.i5972 = getelementptr inbounds i8, ptr %1314, i64 12
   %1315 = load i64, ptr %Size.i5972, align 4
-  invoke fastcc void @_ZL25apply_brightness_contrastPN3irr5video6IImageENS_4core8vector2dIjEES5_ii(ptr noundef nonnull %1314, i64 %1315, i32 noundef %cond27106424, i32 noundef %i.1.i5939)
+  invoke fastcc void @_ZL25apply_brightness_contrastPN3irr5video6IImageENS_4core8vector2dIjEES5_ii.argelim(ptr noundef nonnull %1314, i64 %1315, i32 noundef %cond27106424, i32 noundef %i.1.i5939)
           to label %invoke.cont2759 unwind label %lpad2688
 
 invoke.cont2759:                                  ; preds = %cleanup.done2748
@@ -21270,7 +21270,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10apply_maskPN3irr5video6IImageES2_NS_4core8vector2dIiEES5_NS4_IjEE(ptr noundef nonnull %mask, ptr noundef %dst, i64 %size.coerce) unnamed_addr #3 {
+define internal fastcc void @_ZL10apply_maskPN3irr5video6IImageES2_NS_4core8vector2dIiEES5_NS4_IjEE.argelim(ptr noundef nonnull %mask, ptr noundef %dst, i64 %size.coerce) unnamed_addr #3 {
 entry:
   %dst_c = alloca %"class.irr::video::SColor", align 4
   %size.sroa.0.0.extract.trunc = trunc i64 %size.coerce to i32
@@ -21317,7 +21317,7 @@ for.cond.cleanup:                                 ; preds = %for.cond1.for.cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20apply_multiplicationPN3irr5video6IImageENS_4core8vector2dIjEES5_NS0_6SColorE(ptr noundef %dst, i64 %size.coerce, i32 %color.coerce) unnamed_addr #3 {
+define internal fastcc void @_ZL20apply_multiplicationPN3irr5video6IImageENS_4core8vector2dIjEES5_NS0_6SColorE.argelim(ptr noundef %dst, i64 %size.coerce, i32 %color.coerce) unnamed_addr #3 {
 entry:
   %dst_c = alloca %"class.irr::video::SColor", align 4
   %size.sroa.2.0.extract.shift = lshr i64 %size.coerce, 32
@@ -21391,7 +21391,7 @@ for.cond.cleanup:                                 ; preds = %for.cond3.for.cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12apply_screenPN3irr5video6IImageENS_4core8vector2dIjEES5_NS0_6SColorE(ptr noundef %dst, i64 %size.coerce, i32 %color.coerce) unnamed_addr #3 {
+define internal fastcc void @_ZL12apply_screenPN3irr5video6IImageENS_4core8vector2dIjEES5_NS0_6SColorE.argelim(ptr noundef %dst, i64 %size.coerce, i32 %color.coerce) unnamed_addr #3 {
 entry:
   %dst_c = alloca %"class.irr::video::SColor", align 4
   %size.sroa.2.0.extract.shift = lshr i64 %size.coerce, 32
@@ -21470,7 +21470,7 @@ for.cond.cleanup:                                 ; preds = %for.cond3.for.cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14apply_colorizePN3irr5video6IImageENS_4core8vector2dIjEES5_NS0_6SColorEib(ptr noundef %dst, i64 %size.coerce, i32 %color.coerce, i32 noundef range(i32 -1, 256) %ratio, i1 noundef zeroext %keep_alpha) unnamed_addr #3 {
+define internal fastcc void @_ZL14apply_colorizePN3irr5video6IImageENS_4core8vector2dIjEES5_NS0_6SColorEib.argelim(ptr noundef %dst, i64 %size.coerce, i32 %color.coerce, i32 noundef range(i32 -1, 256) %ratio, i1 noundef zeroext %keep_alpha) unnamed_addr #3 {
 entry:
   %color = alloca %"class.irr::video::SColor", align 4
   %dst_c = alloca %"class.irr::video::SColor", align 4
@@ -21734,7 +21734,7 @@ cond.end:                                         ; preds = %land.lhs.true
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20apply_hue_saturationPN3irr5video6IImageENS_4core8vector2dIjEES5_iiib(ptr noundef %dst, i64 %size.coerce, i32 noundef range(i32 -180, 361) %hue, i32 noundef range(i32 -100, 1001) %saturation, i32 noundef range(i32 -100, 101) %lightness, i1 noundef zeroext %colorize) unnamed_addr #3 {
+define internal fastcc void @_ZL20apply_hue_saturationPN3irr5video6IImageENS_4core8vector2dIjEES5_iiib.argelim(ptr noundef %dst, i64 %size.coerce, i32 noundef range(i32 -180, 361) %hue, i32 noundef range(i32 -100, 1001) %saturation, i32 noundef range(i32 -100, 101) %lightness, i1 noundef zeroext %colorize) unnamed_addr #3 {
 entry:
   %ref.tmp73 = alloca %"class.irr::video::SColor", align 4
   %size.sroa.0.0.extract.trunc = trunc i64 %size.coerce to i32
@@ -22057,7 +22057,7 @@ for.cond.cleanup:                                 ; preds = %for.cond14.for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13apply_overlayPN3irr5video6IImageES2_NS_4core8vector2dIiEES5_NS4_IjEEb(ptr noundef %blend, ptr noundef %dst, i64 %size.coerce, i1 noundef zeroext %hardlight) unnamed_addr #3 {
+define internal fastcc void @_ZL13apply_overlayPN3irr5video6IImageES2_NS_4core8vector2dIiEES5_NS4_IjEEb.argelim(ptr noundef %blend, ptr noundef %dst, i64 %size.coerce, i1 noundef zeroext %hardlight) unnamed_addr #3 {
 entry:
   %base_c = alloca %"class.irr::video::SColor", align 4
   %size.sroa.0.0.extract.trunc = trunc i64 %size.coerce to i32
@@ -22193,7 +22193,7 @@ for.cond.cleanup:                                 ; preds = %for.cond15.for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL25apply_brightness_contrastPN3irr5video6IImageENS_4core8vector2dIjEES5_ii(ptr noundef %dst, i64 %size.coerce, i32 noundef range(i32 -127, 128) %brightness, i32 noundef range(i32 -127, 128) %contrast) unnamed_addr #3 {
+define internal fastcc void @_ZL25apply_brightness_contrastPN3irr5video6IImageENS_4core8vector2dIjEES5_ii.argelim(ptr noundef %dst, i64 %size.coerce, i32 noundef range(i32 -127, 128) %brightness, i32 noundef range(i32 -127, 128) %contrast) unnamed_addr #3 {
 entry:
   %dst_c = alloca %"class.irr::video::SColor", align 4
   %size.sroa.0.0.extract.trunc = trunc i64 %size.coerce to i32

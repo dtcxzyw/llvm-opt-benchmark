@@ -224,7 +224,7 @@ validate_zone.exit.thread:                        ; preds = %17, %1, %15, %valid
   %70 = call fastcc i32 @score_timezone(ptr noundef nonnull %64, ptr noundef %7)
   %71 = load i32, ptr %7, align 8
   %72 = icmp eq i32 %70, %71
-  br i1 %72, label %check_system_link_file.exit.i, label %..loopexit_crit_edge.i.i
+  br i1 %72, label %check_system_link_file.argprom.exit.i, label %..loopexit_crit_edge.i.i
 
 ..loopexit_crit_edge.i.i:                         ; preds = %69
   %.pre.i.i = load i8, ptr %64, align 1
@@ -235,7 +235,7 @@ validate_zone.exit.thread:                        ; preds = %17, %1, %15, %valid
   %.not.i.i = icmp eq i8 %73, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !7
 
-check_system_link_file.exit.i:                    ; preds = %69
+check_system_link_file.argprom.exit.i:            ; preds = %69
   %74 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @identify_system_timezone.resultbuf, ptr noundef nonnull dereferenceable(1) %64) #13
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2)
   br label %139
@@ -248,7 +248,7 @@ check_system_link_file.exit.i:                    ; preds = %69
   %76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #14
   %77 = getelementptr i8, ptr %9, i64 %76
   %78 = getelementptr i8, ptr %77, i64 1
-  call fastcc void @scan_available_timezones(ptr noundef %9, ptr noundef %78, ptr noundef %7, ptr noundef %8)
+  call fastcc void @scan_available_timezones.argprom(ptr noundef %9, ptr noundef %78, ptr noundef %7, ptr noundef %8)
   %79 = load i32, ptr %8, align 4
   %80 = icmp sgt i32 %79, 0
   br i1 %80, label %81, label %82
@@ -383,7 +383,7 @@ identify_system_timezone.exit:                    ; preds = %81, %validate_zone.
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12)
   br label %validate_zone.exit11.thread
 
-139:                                              ; preds = %135, %check_system_link_file.exit.i, %81, %.thread40.i, %125, %129
+139:                                              ; preds = %135, %check_system_link_file.argprom.exit.i, %81, %.thread40.i, %125, %129
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 41608, ptr nonnull %7)
@@ -477,7 +477,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #7
 declare ptr @localtime(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scan_available_timezones(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #4 {
+define internal fastcc void @scan_available_timezones.argprom(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #4 {
   %5 = alloca %struct.stat, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %7 = tail call ptr @pgfnames(ptr noundef nonnull %0) #13
@@ -518,7 +518,7 @@ define internal fastcc void @scan_available_timezones(ptr noundef nonnull %0, pt
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @scan_available_timezones(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @scan_available_timezones.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %.sink.split
 
 25:                                               ; preds = %20

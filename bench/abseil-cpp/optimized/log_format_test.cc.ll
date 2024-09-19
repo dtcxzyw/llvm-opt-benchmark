@@ -2816,7 +2816,7 @@ nrvo.skipdtor:                                    ; preds = %if.else.i.i.i.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_120CharPtrLogFormatTestENS0_11TemplateSelINS2_30CharPtrLogFormatTest_Null_TestEEENS0_5TypesIcJKcaKahKhEEEE8RegisterEPS8_RKNS0_12CodeLocationESD_SD_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISN_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_120CharPtrLogFormatTestENS0_11TemplateSelINS2_30CharPtrLogFormatTest_Null_TestEEENS0_5TypesIcJKcaKahKhEEEE8RegisterEPS8_RKNS0_12CodeLocationESD_SD_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISN_EE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %__guard.i.i = alloca %struct._Guard, align 8
@@ -4195,7 +4195,7 @@ invoke.cont38.i.i.i.i.i:                          ; preds = %invoke.cont12.i53.i
 invoke.cont40.i.i.i.i.i:                          ; preds = %invoke.cont38.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130CharPtrLogFormatTest_Null_TestIKhEEEE, i64 16), ptr %call41.i.i.i.i.i, align 8
   %call45.i.i.i.i.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15.i62.i.i.i.i, ptr noundef %call21.i.i.i.i.i, ptr noundef %call25.i.i.i.i.i, ptr noundef null, ptr noundef nonnull %agg.tmp26.i.i.i.i.i, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN12_GLOBAL__N_120CharPtrLogFormatTestIKhEEE6dummy_E, ptr noundef null, ptr noundef null, ptr noundef nonnull %call41.i.i.i.i.i)
-          to label %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_120CharPtrLogFormatTestENS0_11TemplateSelINS2_30CharPtrLogFormatTest_Null_TestEEENS0_5TypesIKcJaKahKhEEEE8RegisterEPS8_RKNS0_12CodeLocationESD_SD_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISN_EE.exit unwind label %lpad29.i.i.i.i.i
+          to label %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_120CharPtrLogFormatTestENS0_11TemplateSelINS2_30CharPtrLogFormatTest_Null_TestEEENS0_5TypesIKcJaKahKhEEEE8RegisterEPS8_RKNS0_12CodeLocationESD_SD_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISN_EE.argprom.exit unwind label %lpad29.i.i.i.i.i
 
 lpad.i60.i.i.i.i:                                 ; preds = %call.i.noexc.i.i.i.i.i, %invoke.cont44.i.i.i.i
   %58 = landingpad { ptr, i32 }
@@ -4678,7 +4678,7 @@ ehcleanup53.i:                                    ; preds = %ehcleanup52.i, %lpa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i) #27
   br label %common.resume
 
-_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_120CharPtrLogFormatTestENS0_11TemplateSelINS2_30CharPtrLogFormatTest_Null_TestEEENS0_5TypesIKcJaKahKhEEEE8RegisterEPS8_RKNS0_12CodeLocationESD_SD_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISN_EE.exit: ; preds = %invoke.cont40.i.i.i.i.i
+_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_120CharPtrLogFormatTestENS0_11TemplateSelINS2_30CharPtrLogFormatTest_Null_TestEEENS0_5TypesIKcJaKahKhEEEE8RegisterEPS8_RKNS0_12CodeLocationESD_SD_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISN_EE.argprom.exit: ; preds = %invoke.cont40.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp26.i.i.i.i.i) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i.i.i.i.i) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i.i.i.i.i) #27
@@ -4838,7 +4838,7 @@ ehcleanup53:                                      ; preds = %ehcleanup52, %lpad6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_120CharPtrLogFormatTestENS0_11TemplateSelINS2_33CharPtrLogFormatTest_NonNull_TestEEENS0_5TypesIcJKcaKahKhEEEE8RegisterEPS8_RKNS0_12CodeLocationESD_SD_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISN_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_120CharPtrLogFormatTestENS0_11TemplateSelINS2_33CharPtrLogFormatTest_NonNull_TestEEENS0_5TypesIcJKcaKahKhEEEE8RegisterEPS8_RKNS0_12CodeLocationESD_SD_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISN_EE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %__guard.i.i = alloca %struct._Guard, align 8
@@ -6217,7 +6217,7 @@ invoke.cont37.i.i.i.i.i:                          ; preds = %invoke.cont12.i53.i
 invoke.cont39.i.i.i.i.i:                          ; preds = %invoke.cont37.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133CharPtrLogFormatTest_NonNull_TestIKhEEEE, i64 16), ptr %call40.i.i.i.i.i, align 8
   %call44.i.i.i.i.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15.i62.i.i.i.i, ptr noundef %call21.i.i.i.i.i, ptr noundef %call25.i.i.i.i.i, ptr noundef null, ptr noundef nonnull %agg.tmp26.i.i.i.i.i, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN12_GLOBAL__N_120CharPtrLogFormatTestIKhEEE6dummy_E, ptr noundef null, ptr noundef null, ptr noundef nonnull %call40.i.i.i.i.i)
-          to label %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_120CharPtrLogFormatTestENS0_11TemplateSelINS2_33CharPtrLogFormatTest_NonNull_TestEEENS0_5TypesIKcJaKahKhEEEE8RegisterEPS8_RKNS0_12CodeLocationESD_SD_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISN_EE.exit unwind label %lpad31.i.i.i.i.i
+          to label %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_120CharPtrLogFormatTestENS0_11TemplateSelINS2_33CharPtrLogFormatTest_NonNull_TestEEENS0_5TypesIKcJaKahKhEEEE8RegisterEPS8_RKNS0_12CodeLocationESD_SD_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISN_EE.argprom.exit unwind label %lpad31.i.i.i.i.i
 
 lpad.i60.i.i.i.i:                                 ; preds = %call.i.noexc.i.i.i.i.i, %invoke.cont43.i.i.i.i
   %58 = landingpad { ptr, i32 }
@@ -6700,7 +6700,7 @@ ehcleanup52.i:                                    ; preds = %ehcleanup51.i, %lpa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i) #27
   br label %common.resume
 
-_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_120CharPtrLogFormatTestENS0_11TemplateSelINS2_33CharPtrLogFormatTest_NonNull_TestEEENS0_5TypesIKcJaKahKhEEEE8RegisterEPS8_RKNS0_12CodeLocationESD_SD_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISN_EE.exit: ; preds = %invoke.cont39.i.i.i.i.i
+_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_120CharPtrLogFormatTestENS0_11TemplateSelINS2_33CharPtrLogFormatTest_NonNull_TestEEENS0_5TypesIKcJaKahKhEEEE8RegisterEPS8_RKNS0_12CodeLocationESD_SD_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISN_EE.argprom.exit: ; preds = %invoke.cont39.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp26.i.i.i.i.i) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i.i.i.i.i) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i.i.i.i.i) #27
@@ -7571,7 +7571,7 @@ _ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit132: ; p
           to label %invoke.cont64 unwind label %lpad
 
 invoke.cont64:                                    ; preds = %_ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit132
-  invoke fastcc void @"_ZZN12_GLOBAL__N_128LogFormatTest_NoMessage_Test8TestBodyEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN12_GLOBAL__N_128LogFormatTest_NoMessage_Test8TestBodyEvENK3$_0clEv.argprom"()
           to label %invoke.cont65 unwind label %lpad
 
 invoke.cont65:                                    ; preds = %invoke.cont64
@@ -8044,7 +8044,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare void @_ZN4absl13ScopedMockLog18StartCapturingLogsEv(ptr noundef nonnull align 8 dereferenceable(240)) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_128LogFormatTest_NoMessage_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_128LogFormatTest_NoMessage_Test8TestBodyEvENK3$_0clEv.argprom"() unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessage", align 8
   call void @_ZN4absl12log_internal10LogMessageC1EPKciNS1_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.3, i32 noundef 74) #32
@@ -93681,7 +93681,7 @@ ehcleanup48:                                      ; preds = %ehcleanup47, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVcJPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESN_SN_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISX_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVcJPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESN_SN_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISX_EE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %__guard.i.i = alloca %struct._Guard, align 8
@@ -95061,7 +95061,7 @@ invoke.cont38.i.i.i.i.i:                          ; preds = %invoke.cont12.i53.i
 invoke.cont40.i.i.i.i.i:                          ; preds = %invoke.cont38.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134VolatilePtrLogFormatTest_Null_TestIPVKhEEEE, i64 16), ptr %call41.i.i.i.i.i, align 8
   %call45.i.i.i.i.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15.i62.i.i.i.i, ptr noundef %call21.i.i.i.i.i, ptr noundef %call25.i.i.i.i.i, ptr noundef null, ptr noundef nonnull %agg.tmp26.i.i.i.i.i, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN12_GLOBAL__N_124VolatilePtrLogFormatTestIPVKhEEE6dummy_E, ptr noundef null, ptr noundef null, ptr noundef nonnull %call41.i.i.i.i.i)
-          to label %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVKcJPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESL_SL_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISV_EE.exit unwind label %lpad29.i.i.i.i.i
+          to label %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVKcJPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESL_SL_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISV_EE.argprom.exit unwind label %lpad29.i.i.i.i.i
 
 lpad.i60.i.i.i.i:                                 ; preds = %call.i.noexc.i.i.i.i.i, %invoke.cont44.i.i.i.i
   %58 = landingpad { ptr, i32 }
@@ -95544,7 +95544,7 @@ ehcleanup53.i:                                    ; preds = %ehcleanup52.i, %lpa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i) #27
   br label %common.resume
 
-_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVKcJPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESL_SL_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISV_EE.exit: ; preds = %invoke.cont40.i.i.i.i.i
+_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVKcJPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESL_SL_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISV_EE.argprom.exit: ; preds = %invoke.cont40.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp26.i.i.i.i.i) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i.i.i.i.i) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i.i.i.i.i) #27
@@ -101342,7 +101342,7 @@ ehcleanup48:                                      ; preds = %ehcleanup47, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVcJPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESN_SN_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISX_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVcJPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESN_SN_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISX_EE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %__guard.i.i = alloca %struct._Guard, align 8
@@ -102722,7 +102722,7 @@ invoke.cont37.i.i.i.i.i:                          ; preds = %invoke.cont12.i53.i
 invoke.cont39.i.i.i.i.i:                          ; preds = %invoke.cont37.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_137VolatilePtrLogFormatTest_NonNull_TestIPVKhEEEE, i64 16), ptr %call40.i.i.i.i.i, align 8
   %call44.i.i.i.i.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15.i62.i.i.i.i, ptr noundef %call21.i.i.i.i.i, ptr noundef %call25.i.i.i.i.i, ptr noundef null, ptr noundef nonnull %agg.tmp26.i.i.i.i.i, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN12_GLOBAL__N_124VolatilePtrLogFormatTestIPVKhEEE6dummy_E, ptr noundef null, ptr noundef null, ptr noundef nonnull %call40.i.i.i.i.i)
-          to label %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVKcJPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESL_SL_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISV_EE.exit unwind label %lpad31.i.i.i.i.i
+          to label %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVKcJPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESL_SL_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISV_EE.argprom.exit unwind label %lpad31.i.i.i.i.i
 
 lpad.i60.i.i.i.i:                                 ; preds = %call.i.noexc.i.i.i.i.i, %invoke.cont43.i.i.i.i
   %58 = landingpad { ptr, i32 }
@@ -103205,7 +103205,7 @@ ehcleanup52.i:                                    ; preds = %ehcleanup51.i, %lpa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i) #27
   br label %common.resume
 
-_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVKcJPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESL_SL_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISV_EE.exit: ; preds = %invoke.cont39.i.i.i.i.i
+_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVKcJPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESL_SL_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISV_EE.argprom.exit: ; preds = %invoke.cont39.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp26.i.i.i.i.i) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i.i.i.i.i) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i.i.i.i.i) #27
@@ -138036,7 +138036,7 @@ invoke.cont38.i.i.i7565:                          ; preds = %invoke.cont12.i53.i
 invoke.cont40.i.i.i7567:                          ; preds = %invoke.cont38.i.i.i7565
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134VolatilePtrLogFormatTest_Null_TestIPVKvEEEE, i64 16), ptr %call41.i.i.i7566, align 8
   %call45.i.i.i7568 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15.i62.i.i7495, ptr noundef %call21.i.i.i7518, ptr noundef %call25.i.i.i7523, ptr noundef null, ptr noundef nonnull %agg.tmp26.i.i.i7323, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN12_GLOBAL__N_124VolatilePtrLogFormatTestIPVKvEEE6dummy_E, ptr noundef null, ptr noundef null, ptr noundef nonnull %call41.i.i.i7566)
-          to label %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVKvJPVcPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESP_SP_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE.exit.i.i unwind label %lpad29.i.i.i7531
+          to label %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVKvJPVcPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESP_SP_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE.argprom.exit.i.i unwind label %lpad29.i.i.i7531
 
 lpad.i60.i.i7464:                                 ; preds = %call.i.noexc.i.i.i7465, %invoke.cont44.i.i7462
   %1365 = landingpad { ptr, i32 }
@@ -138139,7 +138139,7 @@ common.resume.i.i7359:                            ; preds = %ehcleanup53.i.i7370
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.sink.i.i7360) #27
   br label %ehcleanup.i7354
 
-_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVKvJPVcPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESP_SP_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE.exit.i.i: ; preds = %invoke.cont40.i.i.i7567
+_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVKvJPVcPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESP_SP_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE.argprom.exit.i.i: ; preds = %invoke.cont40.i.i.i7567
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp26.i.i.i7323) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i.i.i7322) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i.i.i7320) #27
@@ -138150,7 +138150,7 @@ _ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogForma
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i7317) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i7318) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i7319) #27
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVcJPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESN_SN_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISX_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i7336, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i7339)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVcJPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESN_SN_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISX_EE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i7336, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i7339)
           to label %invoke.cont9.i7569 unwind label %lpad8.i
 
 lpad.i8.i7358:                                    ; preds = %call.i.noexc.i.i7362, %invoke.cont7.i7356
@@ -138248,7 +138248,7 @@ ehcleanup53.i.i7370:                              ; preds = %ehcleanup52.i.i7375
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i7330) #27
   br label %common.resume.i.i7359
 
-invoke.cont9.i7569:                               ; preds = %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVKvJPVcPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESP_SP_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE.exit.i.i
+invoke.cont9.i7569:                               ; preds = %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVKvJPVcPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESP_SP_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE.argprom.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i59.i.i7314)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i7315)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i.i7316)
@@ -138305,7 +138305,7 @@ lpad3.i7348:                                      ; preds = %invoke.cont.i7347
           cleanup
   br label %ehcleanup10.i7349
 
-lpad8.i:                                          ; preds = %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVKvJPVcPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESP_SP_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE.exit.i.i
+lpad8.i:                                          ; preds = %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_34VolatilePtrLogFormatTest_Null_TestEEENS0_5TypesIPVKvJPVcPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESP_SP_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE.argprom.exit.i.i
   %1390 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i7354
@@ -138802,7 +138802,7 @@ invoke.cont37.i.i.i7838:                          ; preds = %invoke.cont12.i53.i
 invoke.cont39.i.i.i7840:                          ; preds = %invoke.cont37.i.i.i7838
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_137VolatilePtrLogFormatTest_NonNull_TestIPVKvEEEE, i64 16), ptr %call40.i.i.i7839, align 8
   %call44.i.i.i7841 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15.i62.i.i7768, ptr noundef %call21.i.i.i7791, ptr noundef %call25.i.i.i7796, ptr noundef null, ptr noundef nonnull %agg.tmp26.i.i.i7593, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN12_GLOBAL__N_124VolatilePtrLogFormatTestIPVKvEEE6dummy_E, ptr noundef null, ptr noundef null, ptr noundef nonnull %call40.i.i.i7839)
-          to label %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVKvJPVcPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESP_SP_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE.exit.i.i unwind label %lpad31.i.i.i7804
+          to label %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVKvJPVcPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESP_SP_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE.argprom.exit.i.i unwind label %lpad31.i.i.i7804
 
 lpad.i60.i.i7737:                                 ; preds = %call.i.noexc.i.i.i7738, %invoke.cont43.i.i7735
   %1413 = landingpad { ptr, i32 }
@@ -138905,7 +138905,7 @@ common.resume.i.i7629:                            ; preds = %ehcleanup52.i.i7643
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.sink.i.i7630) #27
   br label %ehcleanup.i7624
 
-_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVKvJPVcPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESP_SP_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE.exit.i.i: ; preds = %invoke.cont39.i.i.i7840
+_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVKvJPVcPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESP_SP_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE.argprom.exit.i.i: ; preds = %invoke.cont39.i.i.i7840
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp26.i.i.i7593) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i.i.i7592) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i.i.i7590) #27
@@ -138916,7 +138916,7 @@ _ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogForma
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i7587) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i7588) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i7589) #27
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVcJPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESN_SN_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISX_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i7606, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i7609)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVcJPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESN_SN_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISX_EE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i7606, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp5.i7609)
           to label %invoke.cont9.i7843 unwind label %lpad8.i7842
 
 lpad.i8.i7628:                                    ; preds = %call.i.noexc.i.i7632, %invoke.cont7.i7626
@@ -139014,7 +139014,7 @@ ehcleanup52.i.i7643:                              ; preds = %ehcleanup51.i.i7648
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i7600) #27
   br label %common.resume.i.i7629
 
-invoke.cont9.i7843:                               ; preds = %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVKvJPVcPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESP_SP_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE.exit.i.i
+invoke.cont9.i7843:                               ; preds = %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVKvJPVcPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESP_SP_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE.argprom.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i59.i.i7584)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i7585)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i.i7586)
@@ -139071,7 +139071,7 @@ lpad3.i7618:                                      ; preds = %invoke.cont.i7617
           cleanup
   br label %ehcleanup10.i7619
 
-lpad8.i7842:                                      ; preds = %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVKvJPVcPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESP_SP_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE.exit.i.i
+lpad8.i7842:                                      ; preds = %_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_124VolatilePtrLogFormatTestENS0_11TemplateSelINS2_37VolatilePtrLogFormatTest_NonNull_TestEEENS0_5TypesIPVKvJPVcPVKcPVaPVKaPVhPVKhEEEE8RegisterEPKcRKNS0_12CodeLocationESP_SP_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE.argprom.exit.i.i
   %1438 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i7624
@@ -139134,7 +139134,7 @@ lpad.i6.i7872:                                    ; preds = %invoke.cont4.i7870
   br label %ehcleanup.i7873
 
 invoke.cont7.i7875:                               ; preds = %invoke.cont4.i7870
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_120CharPtrLogFormatTestENS0_11TemplateSelINS2_30CharPtrLogFormatTest_Null_TestEEENS0_5TypesIcJKcaKahKhEEEE8RegisterEPS8_RKNS0_12CodeLocationESD_SD_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISN_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i7855, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i7858)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_120CharPtrLogFormatTestENS0_11TemplateSelINS2_30CharPtrLogFormatTest_Null_TestEEENS0_5TypesIcJKcaKahKhEEEE8RegisterEPS8_RKNS0_12CodeLocationESD_SD_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISN_EE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i7855, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i7858)
           to label %invoke.cont9.i7877 unwind label %lpad8.i7876
 
 invoke.cont9.i7877:                               ; preds = %invoke.cont7.i7875
@@ -139237,7 +139237,7 @@ lpad.i6.i7906:                                    ; preds = %invoke.cont4.i7904
   br label %ehcleanup.i7907
 
 invoke.cont7.i7909:                               ; preds = %invoke.cont4.i7904
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_120CharPtrLogFormatTestENS0_11TemplateSelINS2_33CharPtrLogFormatTest_NonNull_TestEEENS0_5TypesIcJKcaKahKhEEEE8RegisterEPS8_RKNS0_12CodeLocationESD_SD_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISN_EE(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i7889, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i7892)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_120CharPtrLogFormatTestENS0_11TemplateSelINS2_33CharPtrLogFormatTest_NonNull_TestEEENS0_5TypesIcJKcaKahKhEEEE8RegisterEPS8_RKNS0_12CodeLocationESD_SD_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISN_EE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i7889, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5.i7892)
           to label %invoke.cont9.i7911 unwind label %lpad8.i7910
 
 invoke.cont9.i7911:                               ; preds = %invoke.cont7.i7909

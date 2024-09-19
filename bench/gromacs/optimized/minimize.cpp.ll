@@ -763,7 +763,7 @@ _ZL14print_em_startP8_IO_FILEPK9t_commrecP23gmx_walltime_accountingP13gmx_wallcy
 207:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i, %149, %142
   %208 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit
+  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit
 
 209:                                              ; preds = %181, %177
   %.pre537 = phi ptr [ %.pre537.pre, %181 ], [ %169, %177 ]
@@ -926,11 +926,11 @@ _ZL14print_em_startP8_IO_FILEPK9t_commrecP23gmx_walltime_accountingP13gmx_wallcy
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit452, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp453, %.loopexit.split-lp.loopexit.split-lp ]
   %.val292 = load ptr, ptr %263, align 8
   %.not.i.i.i.i = icmp eq ptr %.val292, null
-  br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit, label %293
+  br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit, label %293
 
 293:                                              ; preds = %.loopexit.split-lp
   call void @_ZdlPv(ptr noundef nonnull %.val292) #32
-  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit
+  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit
 
 294:                                              ; preds = %288
   %.pre539 = load ptr, ptr %48, align 8
@@ -1119,7 +1119,7 @@ _ZL14print_em_startP8_IO_FILEPK9t_commrecP23gmx_walltime_accountingP13gmx_wallcy
   %404 = phi ptr [ %.pre542, %._crit_edge541 ], [ %398, %._crit_edge ]
   %405 = load ptr, ptr %27, align 8
   %406 = getelementptr inbounds i8, ptr %405, i64 720
-  invoke fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi(ptr noundef %404, ptr noundef nonnull %406, ptr noundef nonnull %33, ptr %356, ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi.argelim(ptr noundef %404, ptr noundef nonnull %406, ptr noundef nonnull %33, ptr %356, ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
           to label %407 unwind label %.loopexit.split-lp.loopexit
 
 407:                                              ; preds = %403
@@ -2458,13 +2458,13 @@ _Z11do_per_stepll.exit325:                        ; preds = %_Z11do_per_stepll.e
 1109:                                             ; preds = %1107
   %.val293 = load ptr, ptr %263, align 8
   %.not.i.i.i.i326 = icmp eq ptr %.val293, null
-  br i1 %.not.i.i.i.i326, label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit327, label %1110
+  br i1 %.not.i.i.i.i326, label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit327, label %1110
 
 1110:                                             ; preds = %1109
   call void @_ZdlPv(ptr noundef nonnull %.val293) #32
-  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit327
+  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit327
 
-_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit327:   ; preds = %1109, %1110
+_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit327: ; preds = %1109, %1110
   call void @_ZN3gmx12EnergyOutputD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %15) #20
   call void @_ZN3gmx18ObservablesReducerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #20
   call void @_ZN3gmx12ForceBuffersD1Ev(ptr noundef nonnull align 8 dereferenceable(137) %85) #20
@@ -2477,13 +2477,13 @@ _ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit327:   ; preds = %1109, %1110
   call void @_ZN7t_stateD2Ev(ptr noundef nonnull align 8 dereferenceable(832) %10) #20
   ret void
 
-_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit:      ; preds = %293, %.loopexit.split-lp, %207
+_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit: ; preds = %293, %.loopexit.split-lp, %207
   %.pn = phi { ptr, i32 } [ %208, %207 ], [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi, %293 ]
   call void @_ZN3gmx12EnergyOutputD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %15) #20
   br label %1111
 
-1111:                                             ; preds = %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit, %205
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit ], [ %206, %205 ]
+1111:                                             ; preds = %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit, %205
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit ], [ %206, %205 ]
   call void @_ZN3gmx18ObservablesReducerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #20
   br label %1112
 
@@ -3757,7 +3757,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_ZNSt6vect
   %504 = getelementptr inbounds i8, ptr %1, i64 980
   %505 = getelementptr inbounds i8, ptr %1, i64 984
   %506 = getelementptr inbounds i8, ptr %1, i64 988
-  call fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi(ptr noundef %499, ptr noundef nonnull readonly %500, ptr noundef readonly %502, ptr %503, ptr noundef nonnull %504, ptr noundef nonnull %505, ptr noundef nonnull %506)
+  call fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi.argelim(ptr noundef %499, ptr noundef nonnull readonly %500, ptr noundef readonly %502, ptr %503, ptr noundef nonnull %504, ptr noundef nonnull %505, ptr noundef nonnull %506)
   br label %507
 
 507:                                              ; preds = %494, %498
@@ -3784,7 +3784,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #13
 declare void @_Z8gmx_sumdmPdPK9t_commrec(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #14 {
+define internal fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #14 {
   %8 = getelementptr inbounds i8, ptr %2, i64 640
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 520
@@ -7182,7 +7182,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %331, %334
 338:                                              ; preds = %369
   %339 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit637
+  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit637
 
 340:                                              ; preds = %_ZNSt14_Bit_referenceaSEb.exit
   %indvars.iv.next957 = add nuw nsw i64 %indvars.iv956, 1
@@ -8625,17 +8625,17 @@ _Z11do_per_stepll.exit615:                        ; preds = %_Z11do_per_stepll.e
 1070:                                             ; preds = %1068
   %.val516 = load ptr, ptr %425, align 8
   %.not.i.i.i.i616 = icmp eq ptr %.val516, null
-  br i1 %.not.i.i.i.i616, label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit, label %1071
+  br i1 %.not.i.i.i.i616, label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit, label %1071
 
 1071:                                             ; preds = %1070
   call void @_ZdlPv(ptr noundef nonnull %.val516) #32
-  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit
+  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit
 
-_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit:      ; preds = %1070, %1071
+_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit: ; preds = %1070, %1071
   %.not.i.i.i617 = icmp eq ptr %.sroa.0679.0, null
   br i1 %.not.i.i.i617, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %1072
 
-1072:                                             ; preds = %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit
+1072:                                             ; preds = %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit
   %1073 = ptrtoint ptr %.sroa.26.0 to i64
   %1074 = ptrtoint ptr %.sroa.0679.0 to i64
   %1075 = sub i64 %1073, %1074
@@ -8645,7 +8645,7 @@ _ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit:      ; preds = %1070, %1071
   call void @_ZdlPv(ptr noundef %1078) #32
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
-_ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit, %1072
+_ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit, %1072
   call void @_ZN3gmx12ForceBuffersD1Ev(ptr noundef nonnull align 8 dereferenceable(137) %235) #20
   call void @_ZN7t_stateD2Ev(ptr noundef nonnull align 8 dereferenceable(832) %15) #20
   call void @_ZN3gmx12ForceBuffersD1Ev(ptr noundef nonnull align 8 dereferenceable(137) %231) #20
@@ -8746,18 +8746,18 @@ _ZNSt6vectorIfSaIfEED2Ev.exit635:                 ; preds = %_ZNSt6vectorIfSaIfE
   %.pn = phi { ptr, i32 } [ %450, %449 ], [ %lpad.phi, %590 ]
   %.val515 = load ptr, ptr %425, align 8
   %.not.i.i.i.i636 = icmp eq ptr %.val515, null
-  br i1 %.not.i.i.i.i636, label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit637, label %1095
+  br i1 %.not.i.i.i.i636, label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit637, label %1095
 
 1095:                                             ; preds = %1094
   call void @_ZdlPv(ptr noundef nonnull %.val515) #32
-  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit637
+  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit637
 
-_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit637:   ; preds = %1095, %1094, %338
+_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit637: ; preds = %1095, %1094, %338
   %.pn486 = phi { ptr, i32 } [ %339, %338 ], [ %.pn, %1094 ], [ %.pn, %1095 ]
   %.not.i.i.i638 = icmp eq ptr %.sroa.0679.0, null
   br i1 %.not.i.i.i638, label %.body, label %1096
 
-1096:                                             ; preds = %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit637
+1096:                                             ; preds = %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit637
   %1097 = ptrtoint ptr %.sroa.26.0 to i64
   %1098 = ptrtoint ptr %.sroa.0679.0 to i64
   %1099 = sub i64 %1097, %1098
@@ -8767,8 +8767,8 @@ _ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit637:   ; preds = %1095, %1094, %338
   call void @_ZdlPv(ptr noundef %1102) #32
   br label %.body
 
-.body:                                            ; preds = %1096, %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit637, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, %317
-  %.pn486.pn = phi { ptr, i32 } [ %318, %317 ], [ %286, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit ], [ %.pn486, %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit637 ], [ %.pn486, %1096 ]
+.body:                                            ; preds = %1096, %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit637, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, %317
+  %.pn486.pn = phi { ptr, i32 } [ %318, %317 ], [ %286, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit ], [ %.pn486, %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit637 ], [ %.pn486, %1096 ]
   call void @_ZN3gmx12ForceBuffersD1Ev(ptr noundef nonnull align 8 dereferenceable(137) %235) #20
   call void @_ZN7t_stateD2Ev(ptr noundef nonnull align 8 dereferenceable(832) %15) #20
   br label %1103
@@ -9240,7 +9240,7 @@ _ZL14print_em_startP8_IO_FILEPK9t_commrecP23gmx_walltime_accountingP13gmx_wallcy
 155:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i, %103, %96
   %156 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit
+  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit
 
 157:                                              ; preds = %137, %133
   %.pre167 = phi ptr [ %.pre167.pre, %137 ], [ %123, %133 ]
@@ -9386,11 +9386,11 @@ _ZL14print_em_startP8_IO_FILEPK9t_commrecP23gmx_walltime_accountingP13gmx_wallcy
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val106 = load ptr, ptr %211, align 8
   %.not.i.i.i.i = icmp eq ptr %.val106, null
-  br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit, label %236
+  br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit, label %236
 
 236:                                              ; preds = %235
   call void @_ZdlPv(ptr noundef nonnull %.val106) #32
-  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit
+  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit
 
 237:                                              ; preds = %224
   br i1 %234, label %.critedge103, label %238
@@ -9863,13 +9863,13 @@ _ZL22em_dd_partition_systemP8_IO_FILERKN3gmx8MDLoggerEiPK9t_commrecRK10gmx_mtop_
 508:                                              ; preds = %506
   %.val105 = load ptr, ptr %211, align 8
   %.not.i.i.i.i121 = icmp eq ptr %.val105, null
-  br i1 %.not.i.i.i.i121, label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit122, label %509
+  br i1 %.not.i.i.i.i121, label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit122, label %509
 
 509:                                              ; preds = %508
   call void @_ZdlPv(ptr noundef nonnull %.val105) #32
-  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit122
+  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit122
 
-_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit122:   ; preds = %508, %509
+_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit122: ; preds = %508, %509
   call void @_ZN3gmx12EnergyOutputD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %10) #20
   call void @_ZN3gmx18ObservablesReducerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
   call void @_ZN3gmx12ForceBuffersD1Ev(ptr noundef nonnull align 8 dereferenceable(137) %37) #20
@@ -9878,13 +9878,13 @@ _ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit122:   ; preds = %508, %509
   call void @_ZN7t_stateD2Ev(ptr noundef nonnull align 8 dereferenceable(832) %7) #20
   ret void
 
-_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit:      ; preds = %236, %235, %155
+_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit: ; preds = %236, %235, %155
   %.pn = phi { ptr, i32 } [ %156, %155 ], [ %lpad.phi, %235 ], [ %lpad.phi, %236 ]
   call void @_ZN3gmx12EnergyOutputD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %10) #20
   br label %510
 
-510:                                              ; preds = %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit, %153
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit ], [ %154, %153 ]
+510:                                              ; preds = %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit, %153
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit ], [ %154, %153 ]
   call void @_ZN3gmx18ObservablesReducerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
   br label %511
 
@@ -10117,12 +10117,12 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %.sroa.0194.0 = phi ptr [ null, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %133, %.lr.ph.i.i.i.i.i.i.preheader ]
   %134 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.21, i32 noundef 3230, i64 noundef %129, i64 noundef 12)
-          to label %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit unwind label %146
+          to label %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit unwind label %146
 
-_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EEC2EmRKS2_RKS3_.exit
+_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit: ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EEC2EmRKS2_RKS3_.exit
   br i1 %36, label %135, label %148
 
-135:                                              ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit
+135:                                              ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit
   %136 = load ptr, ptr @stderr, align 8
   %137 = call i64 @fwrite(ptr nonnull @.str.113, i64 277, i64 1, ptr %136) #33
   br label %148
@@ -10148,12 +10148,12 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %_ZNSt6vectorIN3gmx1
           cleanup
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit172
 
-146:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i, %228, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit, %219, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EEC2EmRKS2_RKS3_.exit, %215
+146:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i, %228, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit, %219, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EEC2EmRKS2_RKS3_.exit, %215
   %147 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit170
+  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit170
 
-148:                                              ; preds = %135, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit
+148:                                              ; preds = %135, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit
   %149 = load ptr, ptr %67, align 8
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 68
@@ -10202,7 +10202,7 @@ _ZN3gmx14LogEntryWriter10appendTextEPKc.exit145:  ; preds = %162
   %169 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #20
-  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit170
+  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit170
 
 170:                                              ; preds = %155
   %171 = load ptr, ptr %123, align 8
@@ -10244,7 +10244,7 @@ _ZN3gmx14LogEntryWriter10appendTextEPKc.exit145:  ; preds = %162
   %195 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
-  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit170
+  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit170
 
 196:                                              ; preds = %170
   br i1 %179, label %205, label %197
@@ -10268,7 +10268,7 @@ _ZN3gmx14LogEntryWriter10appendTextEPKc.exit151:  ; preds = %197
   %204 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #20
-  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit170
+  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit170
 
 .sink.split:                                      ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit151, %190, %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit145
   %.sink = phi ptr [ %12, %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit145 ], [ %13, %190 ], [ %14, %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit151 ]
@@ -10296,14 +10296,14 @@ _ZN3gmx14LogEntryWriter10appendTextEPKc.exit151:  ; preds = %197
 
 218:                                              ; preds = %215
   store i8 1, ptr %217, align 8
-  br label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit
+  br label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit
 
 219:                                              ; preds = %205
   %220 = mul i64 %212, %212
   %221 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.21, i32 noundef 3280, i64 noundef %220, i64 noundef 4)
-          to label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit unwind label %146
+          to label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit unwind label %146
 
-_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit:          ; preds = %219, %218
+_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit:  ; preds = %219, %218
   %.0209 = phi ptr [ null, %218 ], [ %221, %219 ]
   %.0107 = phi ptr [ %217, %218 ], [ null, %219 ]
   %222 = load ptr, ptr %25, align 8
@@ -10314,7 +10314,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit:          ; preds = %219, %218
   invoke void @_Z30walltime_accounting_start_timeP23gmx_walltime_accounting(ptr noundef %225)
           to label %.noexc155 unwind label %146
 
-.noexc155:                                        ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit
+.noexc155:                                        ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit
   %227 = icmp eq ptr %226, null
   br i1 %227, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i, label %228
 
@@ -10456,7 +10456,7 @@ _ZL14print_em_startP8_IO_FILEPK9t_commrecP23gmx_walltime_accountingP13gmx_wallcy
   %314 = getelementptr inbounds i8, ptr %313, i64 720
   %315 = getelementptr inbounds i8, ptr %9, i64 912
   %316 = load ptr, ptr %315, align 8
-  invoke fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi(ptr noundef %312, ptr noundef nonnull readonly %314, ptr noundef readonly %39, ptr %316, ptr noundef nonnull %64, ptr noundef nonnull %65, ptr noundef nonnull %66)
+  invoke fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi.argelim(ptr noundef %312, ptr noundef nonnull readonly %314, ptr noundef readonly %39, ptr %316, ptr noundef nonnull %64, ptr noundef nonnull %65, ptr noundef nonnull %66)
           to label %317 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 317:                                              ; preds = %309
@@ -11039,21 +11039,21 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %619, %622
 631:                                              ; preds = %629
   %.val140 = load ptr, ptr %308, align 8
   %.not.i.i.i.i166 = icmp eq ptr %.val140, null
-  br i1 %.not.i.i.i.i166, label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit, label %632
+  br i1 %.not.i.i.i.i166, label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit, label %632
 
 632:                                              ; preds = %631
   call void @_ZdlPv(ptr noundef nonnull %.val140) #32
-  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit
+  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit
 
-_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit:      ; preds = %631, %632
+_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit: ; preds = %631, %632
   %.not.i.i.i167 = icmp eq ptr %.sroa.0194.0, null
   br i1 %.not.i.i.i167, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit, label %633
 
-633:                                              ; preds = %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit
+633:                                              ; preds = %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0194.0) #32
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit, %633
+_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit, %633
   %634 = load ptr, ptr %11, align 8
   %.not.i.i.i168 = icmp eq ptr %634, null
   br i1 %.not.i.i.i168, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %635
@@ -11072,23 +11072,23 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN3gmx1
   %.pn = phi { ptr, i32 } [ %624, %623 ], [ %347, %346 ], [ %331, %330 ], [ %lpad.loopexit.us.us, %.loopexit.split.us.split.us ], [ %lpad.loopexit212, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit215, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit217, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp218, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.val = load ptr, ptr %308, align 8
   %.not.i.i.i.i169 = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i.i169, label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit170, label %636
+  br i1 %.not.i.i.i.i169, label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit170, label %636
 
 636:                                              ; preds = %.loopexit.split-lp
   call void @_ZdlPv(ptr noundef nonnull %.val) #32
-  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit170
+  br label %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit170
 
-_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit170:   ; preds = %636, %.loopexit.split-lp, %203, %194, %168, %146
+_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit170: ; preds = %636, %.loopexit.split-lp, %203, %194, %168, %146
   %.pn.pn = phi { ptr, i32 } [ %147, %146 ], [ %169, %168 ], [ %195, %194 ], [ %204, %203 ], [ %.pn, %.loopexit.split-lp ], [ %.pn, %636 ]
   %.not.i.i.i171 = icmp eq ptr %.sroa.0194.0, null
   br i1 %.not.i.i.i171, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit172, label %637
 
-637:                                              ; preds = %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit170
+637:                                              ; preds = %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit170
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0194.0) #32
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit172
 
-_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit172: ; preds = %637, %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit170, %144
-  %.pn.pn.pn = phi { ptr, i32 } [ %145, %144 ], [ %.pn.pn, %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.exit170 ], [ %.pn.pn, %637 ]
+_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit172: ; preds = %637, %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit170, %144
+  %.pn.pn.pn = phi { ptr, i32 } [ %145, %144 ], [ %.pn.pn, %_ZN12_GLOBAL__N_115EnergyEvaluatorD2Ev.argprom.exit170 ], [ %.pn.pn, %637 ]
   %638 = load ptr, ptr %11, align 8
   %.not.i.i.i173 = icmp eq ptr %638, null
   br i1 %.not.i.i.i173, label %_ZNSt6vectorIiSaIiEED2Ev.exit174, label %639

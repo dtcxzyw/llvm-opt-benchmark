@@ -7666,14 +7666,14 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %170 = getelementptr inbounds i8, ptr %1, i64 8
   %171 = load i32, ptr %170, align 8
   %172 = icmp sgt i32 %171, 0
-  br i1 %172, label %.lr.ph.i, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %172, label %.lr.ph.i, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.i:                                         ; preds = %158
   %173 = getelementptr inbounds i8, ptr %7, i64 16
   %174 = getelementptr inbounds i8, ptr %1, i64 16
   %175 = getelementptr inbounds i8, ptr %1, i64 72
   %176 = icmp sgt i32 %164, 0
-  br i1 %176, label %.lr.ph.split.us.i, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %176, label %.lr.ph.split.us.i, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
   %177 = icmp sgt i32 %169, 1
@@ -7734,7 +7734,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %202 = load i32, ptr %170, align 8
   %203 = sext i32 %202 to i64
   %204 = icmp slt i64 %indvars.iv.next31.i, %203
-  br i1 %204, label %.lr.ph9.us.us.i, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !230
+  br i1 %204, label %.lr.ph9.us.us.i, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !230
 
 .lr.ph9.us.i:                                     ; preds = %.lr.ph.split.us.i, %._crit_edge10.split.us13.i
   %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %._crit_edge10.split.us13.i ], [ 0, %.lr.ph.split.us.i ]
@@ -7769,7 +7769,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %223 = load i32, ptr %170, align 8
   %224 = sext i32 %223 to i64
   %225 = icmp slt i64 %indvars.iv.next19.i, %224
-  br i1 %225, label %.lr.ph9.us.i, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !230
+  br i1 %225, label %.lr.ph9.us.i, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !230
 
 226:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit67
   %227 = getelementptr inbounds i8, ptr %1, i64 12
@@ -7786,14 +7786,14 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %238 = getelementptr inbounds i8, ptr %1, i64 8
   %239 = load i32, ptr %238, align 8
   %240 = icmp sgt i32 %239, 0
-  br i1 %240, label %.lr.ph.i68, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %240, label %.lr.ph.i68, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.i68:                                       ; preds = %226
   %241 = getelementptr inbounds i8, ptr %7, i64 16
   %242 = getelementptr inbounds i8, ptr %1, i64 16
   %243 = getelementptr inbounds i8, ptr %1, i64 72
   %244 = icmp sgt i32 %232, 0
-  br i1 %244, label %.lr.ph.split.us.i69, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %244, label %.lr.ph.split.us.i69, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.split.us.i69:                              ; preds = %.lr.ph.i68
   %245 = icmp sgt i32 %237, 1
@@ -7854,7 +7854,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %270 = load i32, ptr %238, align 8
   %271 = sext i32 %270 to i64
   %272 = icmp slt i64 %indvars.iv.next31.i93, %271
-  br i1 %272, label %.lr.ph9.us.us.i80, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !233
+  br i1 %272, label %.lr.ph9.us.us.i80, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !233
 
 .lr.ph9.us.i71:                                   ; preds = %.lr.ph.split.us.i69, %._crit_edge10.split.us13.i76
   %indvars.iv18.i72 = phi i64 [ %indvars.iv.next19.i77, %._crit_edge10.split.us13.i76 ], [ 0, %.lr.ph.split.us.i69 ]
@@ -7889,7 +7889,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %291 = load i32, ptr %238, align 8
   %292 = sext i32 %291 to i64
   %293 = icmp slt i64 %indvars.iv.next19.i77, %292
-  br i1 %293, label %.lr.ph9.us.i71, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !233
+  br i1 %293, label %.lr.ph9.us.i71, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !233
 
 294:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit67
   %295 = getelementptr inbounds i8, ptr %1, i64 12
@@ -7906,14 +7906,14 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %306 = getelementptr inbounds i8, ptr %1, i64 8
   %307 = load i32, ptr %306, align 8
   %308 = icmp sgt i32 %307, 0
-  br i1 %308, label %.lr.ph.i94, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %308, label %.lr.ph.i94, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.i94:                                       ; preds = %294
   %309 = getelementptr inbounds i8, ptr %7, i64 16
   %310 = getelementptr inbounds i8, ptr %1, i64 16
   %311 = getelementptr inbounds i8, ptr %1, i64 72
   %312 = icmp sgt i32 %300, 0
-  br i1 %312, label %.lr.ph.split.us.i95, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %312, label %.lr.ph.split.us.i95, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.split.us.i95:                              ; preds = %.lr.ph.i94
   %313 = icmp sgt i32 %305, 1
@@ -7974,7 +7974,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %338 = load i32, ptr %306, align 8
   %339 = sext i32 %338 to i64
   %340 = icmp slt i64 %indvars.iv.next31.i119, %339
-  br i1 %340, label %.lr.ph9.us.us.i106, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !236
+  br i1 %340, label %.lr.ph9.us.us.i106, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !236
 
 .lr.ph9.us.i97:                                   ; preds = %.lr.ph.split.us.i95, %._crit_edge10.split.us13.i102
   %indvars.iv18.i98 = phi i64 [ %indvars.iv.next19.i103, %._crit_edge10.split.us13.i102 ], [ 0, %.lr.ph.split.us.i95 ]
@@ -8009,7 +8009,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %359 = load i32, ptr %306, align 8
   %360 = sext i32 %359 to i64
   %361 = icmp slt i64 %indvars.iv.next19.i103, %360
-  br i1 %361, label %.lr.ph9.us.i97, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !236
+  br i1 %361, label %.lr.ph9.us.i97, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !236
 
 362:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit67
   %363 = getelementptr inbounds i8, ptr %1, i64 12
@@ -8026,14 +8026,14 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %374 = getelementptr inbounds i8, ptr %1, i64 8
   %375 = load i32, ptr %374, align 8
   %376 = icmp sgt i32 %375, 0
-  br i1 %376, label %.lr.ph.i120, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %376, label %.lr.ph.i120, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.i120:                                      ; preds = %362
   %377 = getelementptr inbounds i8, ptr %7, i64 16
   %378 = getelementptr inbounds i8, ptr %1, i64 16
   %379 = getelementptr inbounds i8, ptr %1, i64 72
   %380 = icmp sgt i32 %368, 0
-  br i1 %380, label %.lr.ph.split.us.i121, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %380, label %.lr.ph.split.us.i121, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.split.us.i121:                             ; preds = %.lr.ph.i120
   %381 = icmp sgt i32 %373, 1
@@ -8094,7 +8094,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %406 = load i32, ptr %374, align 8
   %407 = sext i32 %406 to i64
   %408 = icmp slt i64 %indvars.iv.next31.i145, %407
-  br i1 %408, label %.lr.ph9.us.us.i132, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !239
+  br i1 %408, label %.lr.ph9.us.us.i132, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !239
 
 .lr.ph9.us.i123:                                  ; preds = %.lr.ph.split.us.i121, %._crit_edge10.split.us13.i128
   %indvars.iv18.i124 = phi i64 [ %indvars.iv.next19.i129, %._crit_edge10.split.us13.i128 ], [ 0, %.lr.ph.split.us.i121 ]
@@ -8129,7 +8129,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %427 = load i32, ptr %374, align 8
   %428 = sext i32 %427 to i64
   %429 = icmp slt i64 %indvars.iv.next19.i129, %428
-  br i1 %429, label %.lr.ph9.us.i123, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !239
+  br i1 %429, label %.lr.ph9.us.i123, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !239
 
 430:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit67
   %431 = getelementptr inbounds i8, ptr %1, i64 12
@@ -8146,14 +8146,14 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %442 = getelementptr inbounds i8, ptr %1, i64 8
   %443 = load i32, ptr %442, align 8
   %444 = icmp sgt i32 %443, 0
-  br i1 %444, label %.lr.ph.i146, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %444, label %.lr.ph.i146, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.i146:                                      ; preds = %430
   %445 = getelementptr inbounds i8, ptr %7, i64 16
   %446 = getelementptr inbounds i8, ptr %1, i64 16
   %447 = getelementptr inbounds i8, ptr %1, i64 72
   %448 = icmp sgt i32 %436, 0
-  br i1 %448, label %.lr.ph.split.us.i147, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %448, label %.lr.ph.split.us.i147, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.split.us.i147:                             ; preds = %.lr.ph.i146
   %449 = icmp sgt i32 %441, 1
@@ -8214,7 +8214,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %474 = load i32, ptr %442, align 8
   %475 = sext i32 %474 to i64
   %476 = icmp slt i64 %indvars.iv.next32.i, %475
-  br i1 %476, label %.lr.ph9.us.us.i156, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !242
+  br i1 %476, label %.lr.ph9.us.us.i156, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !242
 
 .lr.ph9.us.i148:                                  ; preds = %.lr.ph.split.us.i147, %._crit_edge10.split.us13.i153
   %indvars.iv18.i149 = phi i64 [ %indvars.iv.next19.i154, %._crit_edge10.split.us13.i153 ], [ 0, %.lr.ph.split.us.i147 ]
@@ -8249,7 +8249,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %495 = load i32, ptr %442, align 8
   %496 = sext i32 %495 to i64
   %497 = icmp slt i64 %indvars.iv.next19.i154, %496
-  br i1 %497, label %.lr.ph9.us.i148, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !242
+  br i1 %497, label %.lr.ph9.us.i148, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !242
 
 498:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit67
   %499 = getelementptr inbounds i8, ptr %1, i64 12
@@ -8266,14 +8266,14 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %510 = getelementptr inbounds i8, ptr %1, i64 8
   %511 = load i32, ptr %510, align 8
   %512 = icmp sgt i32 %511, 0
-  br i1 %512, label %.lr.ph.i164, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %512, label %.lr.ph.i164, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.i164:                                      ; preds = %498
   %513 = getelementptr inbounds i8, ptr %7, i64 16
   %514 = getelementptr inbounds i8, ptr %1, i64 16
   %515 = getelementptr inbounds i8, ptr %1, i64 72
   %516 = icmp sgt i32 %504, 0
-  br i1 %516, label %.lr.ph.split.us.i165, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %516, label %.lr.ph.split.us.i165, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.split.us.i165:                             ; preds = %.lr.ph.i164
   %517 = icmp sgt i32 %509, 1
@@ -8335,7 +8335,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %543 = load i32, ptr %510, align 8
   %544 = sext i32 %543 to i64
   %545 = icmp slt i64 %indvars.iv.next30.i, %544
-  br i1 %545, label %.lr.ph7.us.us.i, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !245
+  br i1 %545, label %.lr.ph7.us.us.i, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !245
 
 .lr.ph7.us.i:                                     ; preds = %.lr.ph.split.us.i165, %._crit_edge8.split.us11.i
   %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %._crit_edge8.split.us11.i ], [ 0, %.lr.ph.split.us.i165 ]
@@ -8370,7 +8370,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %564 = load i32, ptr %510, align 8
   %565 = sext i32 %564 to i64
   %566 = icmp slt i64 %indvars.iv.next17.i, %565
-  br i1 %566, label %.lr.ph7.us.i, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !245
+  br i1 %566, label %.lr.ph7.us.i, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !245
 
 567:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit67
   %568 = getelementptr inbounds i8, ptr %1, i64 12
@@ -8387,14 +8387,14 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %579 = getelementptr inbounds i8, ptr %1, i64 8
   %580 = load i32, ptr %579, align 8
   %581 = icmp sgt i32 %580, 0
-  br i1 %581, label %.lr.ph.i172, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %581, label %.lr.ph.i172, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.i172:                                      ; preds = %567
   %582 = getelementptr inbounds i8, ptr %7, i64 16
   %583 = getelementptr inbounds i8, ptr %1, i64 16
   %584 = getelementptr inbounds i8, ptr %1, i64 72
   %585 = icmp sgt i32 %573, 0
-  br i1 %585, label %.lr.ph.split.us.i173, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %585, label %.lr.ph.split.us.i173, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.split.us.i173:                             ; preds = %.lr.ph.i172
   %586 = icmp sgt i32 %578, 1
@@ -8456,7 +8456,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %612 = load i32, ptr %579, align 8
   %613 = sext i32 %612 to i64
   %614 = icmp slt i64 %indvars.iv.next30.i197, %613
-  br i1 %614, label %.lr.ph7.us.us.i184, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !248
+  br i1 %614, label %.lr.ph7.us.us.i184, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !248
 
 .lr.ph7.us.i175:                                  ; preds = %.lr.ph.split.us.i173, %._crit_edge8.split.us11.i180
   %indvars.iv16.i176 = phi i64 [ %indvars.iv.next17.i181, %._crit_edge8.split.us11.i180 ], [ 0, %.lr.ph.split.us.i173 ]
@@ -8491,7 +8491,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %633 = load i32, ptr %579, align 8
   %634 = sext i32 %633 to i64
   %635 = icmp slt i64 %indvars.iv.next17.i181, %634
-  br i1 %635, label %.lr.ph7.us.i175, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !248
+  br i1 %635, label %.lr.ph7.us.i175, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !248
 
 636:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit67
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #29
@@ -8521,15 +8521,15 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #29
   br label %644
 
-_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit: ; preds = %.lr.ph.i172, %567, %.lr.ph.i164, %498, %.lr.ph.i146, %430, %.lr.ph.i120, %362, %.lr.ph.i94, %294, %.lr.ph.i68, %226, %.lr.ph.i, %158
+_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit: ; preds = %.lr.ph.i172, %567, %.lr.ph.i164, %498, %.lr.ph.i146, %430, %.lr.ph.i120, %362, %.lr.ph.i94, %294, %.lr.ph.i68, %226, %.lr.ph.i, %158
   %.not.i.i.i = icmp eq ptr %.sroa.0.5, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread
 
-_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread: ; preds = %._crit_edge8.split.us11.i180, %._crit_edge8.split.us.us.us.i196, %._crit_edge8.split.us11.i, %._crit_edge8.split.us.us.us.i, %._crit_edge10.split.us13.i153, %._crit_edge10.split.us.us.us.i163, %._crit_edge10.split.us13.i128, %._crit_edge10.split.us.us.us.i144, %._crit_edge10.split.us13.i102, %._crit_edge10.split.us.us.us.i118, %._crit_edge10.split.us13.i76, %._crit_edge10.split.us.us.us.i92, %._crit_edge10.split.us13.i, %._crit_edge10.split.us.us.us.i, %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread: ; preds = %._crit_edge8.split.us11.i180, %._crit_edge8.split.us.us.us.i196, %._crit_edge8.split.us11.i, %._crit_edge8.split.us.us.us.i, %._crit_edge10.split.us13.i153, %._crit_edge10.split.us.us.us.i163, %._crit_edge10.split.us13.i128, %._crit_edge10.split.us.us.us.i144, %._crit_edge10.split.us13.i102, %._crit_edge10.split.us.us.us.i118, %._crit_edge10.split.us13.i76, %._crit_edge10.split.us.us.us.i92, %._crit_edge10.split.us13.i, %._crit_edge10.split.us.us.us.i, %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.5) #32
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit, %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit, %_ZN6cvtestL6erode_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
   ret void
@@ -9585,14 +9585,14 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %170 = getelementptr inbounds i8, ptr %1, i64 8
   %171 = load i32, ptr %170, align 8
   %172 = icmp sgt i32 %171, 0
-  br i1 %172, label %.lr.ph.i, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %172, label %.lr.ph.i, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.i:                                         ; preds = %158
   %173 = getelementptr inbounds i8, ptr %7, i64 16
   %174 = getelementptr inbounds i8, ptr %1, i64 16
   %175 = getelementptr inbounds i8, ptr %1, i64 72
   %176 = icmp sgt i32 %164, 0
-  br i1 %176, label %.lr.ph.split.us.i, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %176, label %.lr.ph.split.us.i, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
   %177 = icmp sgt i32 %169, 1
@@ -9653,7 +9653,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %202 = load i32, ptr %170, align 8
   %203 = sext i32 %202 to i64
   %204 = icmp slt i64 %indvars.iv.next31.i, %203
-  br i1 %204, label %.lr.ph9.us.us.i, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !273
+  br i1 %204, label %.lr.ph9.us.us.i, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !273
 
 .lr.ph9.us.i:                                     ; preds = %.lr.ph.split.us.i, %._crit_edge10.split.us13.i
   %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %._crit_edge10.split.us13.i ], [ 0, %.lr.ph.split.us.i ]
@@ -9688,7 +9688,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %223 = load i32, ptr %170, align 8
   %224 = sext i32 %223 to i64
   %225 = icmp slt i64 %indvars.iv.next19.i, %224
-  br i1 %225, label %.lr.ph9.us.i, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !273
+  br i1 %225, label %.lr.ph9.us.i, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !273
 
 226:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit67
   %227 = getelementptr inbounds i8, ptr %1, i64 12
@@ -9705,14 +9705,14 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %238 = getelementptr inbounds i8, ptr %1, i64 8
   %239 = load i32, ptr %238, align 8
   %240 = icmp sgt i32 %239, 0
-  br i1 %240, label %.lr.ph.i68, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %240, label %.lr.ph.i68, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.i68:                                       ; preds = %226
   %241 = getelementptr inbounds i8, ptr %7, i64 16
   %242 = getelementptr inbounds i8, ptr %1, i64 16
   %243 = getelementptr inbounds i8, ptr %1, i64 72
   %244 = icmp sgt i32 %232, 0
-  br i1 %244, label %.lr.ph.split.us.i69, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %244, label %.lr.ph.split.us.i69, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.split.us.i69:                              ; preds = %.lr.ph.i68
   %245 = icmp sgt i32 %237, 1
@@ -9773,7 +9773,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %270 = load i32, ptr %238, align 8
   %271 = sext i32 %270 to i64
   %272 = icmp slt i64 %indvars.iv.next31.i93, %271
-  br i1 %272, label %.lr.ph9.us.us.i80, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !276
+  br i1 %272, label %.lr.ph9.us.us.i80, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !276
 
 .lr.ph9.us.i71:                                   ; preds = %.lr.ph.split.us.i69, %._crit_edge10.split.us13.i76
   %indvars.iv18.i72 = phi i64 [ %indvars.iv.next19.i77, %._crit_edge10.split.us13.i76 ], [ 0, %.lr.ph.split.us.i69 ]
@@ -9808,7 +9808,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %291 = load i32, ptr %238, align 8
   %292 = sext i32 %291 to i64
   %293 = icmp slt i64 %indvars.iv.next19.i77, %292
-  br i1 %293, label %.lr.ph9.us.i71, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !276
+  br i1 %293, label %.lr.ph9.us.i71, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !276
 
 294:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit67
   %295 = getelementptr inbounds i8, ptr %1, i64 12
@@ -9825,14 +9825,14 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %306 = getelementptr inbounds i8, ptr %1, i64 8
   %307 = load i32, ptr %306, align 8
   %308 = icmp sgt i32 %307, 0
-  br i1 %308, label %.lr.ph.i94, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %308, label %.lr.ph.i94, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.i94:                                       ; preds = %294
   %309 = getelementptr inbounds i8, ptr %7, i64 16
   %310 = getelementptr inbounds i8, ptr %1, i64 16
   %311 = getelementptr inbounds i8, ptr %1, i64 72
   %312 = icmp sgt i32 %300, 0
-  br i1 %312, label %.lr.ph.split.us.i95, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %312, label %.lr.ph.split.us.i95, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.split.us.i95:                              ; preds = %.lr.ph.i94
   %313 = icmp sgt i32 %305, 1
@@ -9893,7 +9893,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %338 = load i32, ptr %306, align 8
   %339 = sext i32 %338 to i64
   %340 = icmp slt i64 %indvars.iv.next31.i119, %339
-  br i1 %340, label %.lr.ph9.us.us.i106, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !279
+  br i1 %340, label %.lr.ph9.us.us.i106, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !279
 
 .lr.ph9.us.i97:                                   ; preds = %.lr.ph.split.us.i95, %._crit_edge10.split.us13.i102
   %indvars.iv18.i98 = phi i64 [ %indvars.iv.next19.i103, %._crit_edge10.split.us13.i102 ], [ 0, %.lr.ph.split.us.i95 ]
@@ -9928,7 +9928,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %359 = load i32, ptr %306, align 8
   %360 = sext i32 %359 to i64
   %361 = icmp slt i64 %indvars.iv.next19.i103, %360
-  br i1 %361, label %.lr.ph9.us.i97, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !279
+  br i1 %361, label %.lr.ph9.us.i97, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !279
 
 362:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit67
   %363 = getelementptr inbounds i8, ptr %1, i64 12
@@ -9945,14 +9945,14 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %374 = getelementptr inbounds i8, ptr %1, i64 8
   %375 = load i32, ptr %374, align 8
   %376 = icmp sgt i32 %375, 0
-  br i1 %376, label %.lr.ph.i120, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %376, label %.lr.ph.i120, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.i120:                                      ; preds = %362
   %377 = getelementptr inbounds i8, ptr %7, i64 16
   %378 = getelementptr inbounds i8, ptr %1, i64 16
   %379 = getelementptr inbounds i8, ptr %1, i64 72
   %380 = icmp sgt i32 %368, 0
-  br i1 %380, label %.lr.ph.split.us.i121, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %380, label %.lr.ph.split.us.i121, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.split.us.i121:                             ; preds = %.lr.ph.i120
   %381 = icmp sgt i32 %373, 1
@@ -10013,7 +10013,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %406 = load i32, ptr %374, align 8
   %407 = sext i32 %406 to i64
   %408 = icmp slt i64 %indvars.iv.next31.i145, %407
-  br i1 %408, label %.lr.ph9.us.us.i132, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !282
+  br i1 %408, label %.lr.ph9.us.us.i132, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !282
 
 .lr.ph9.us.i123:                                  ; preds = %.lr.ph.split.us.i121, %._crit_edge10.split.us13.i128
   %indvars.iv18.i124 = phi i64 [ %indvars.iv.next19.i129, %._crit_edge10.split.us13.i128 ], [ 0, %.lr.ph.split.us.i121 ]
@@ -10048,7 +10048,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %427 = load i32, ptr %374, align 8
   %428 = sext i32 %427 to i64
   %429 = icmp slt i64 %indvars.iv.next19.i129, %428
-  br i1 %429, label %.lr.ph9.us.i123, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !282
+  br i1 %429, label %.lr.ph9.us.i123, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !282
 
 430:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit67
   %431 = getelementptr inbounds i8, ptr %1, i64 12
@@ -10065,14 +10065,14 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %442 = getelementptr inbounds i8, ptr %1, i64 8
   %443 = load i32, ptr %442, align 8
   %444 = icmp sgt i32 %443, 0
-  br i1 %444, label %.lr.ph.i146, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %444, label %.lr.ph.i146, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.i146:                                      ; preds = %430
   %445 = getelementptr inbounds i8, ptr %7, i64 16
   %446 = getelementptr inbounds i8, ptr %1, i64 16
   %447 = getelementptr inbounds i8, ptr %1, i64 72
   %448 = icmp sgt i32 %436, 0
-  br i1 %448, label %.lr.ph.split.us.i147, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %448, label %.lr.ph.split.us.i147, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.split.us.i147:                             ; preds = %.lr.ph.i146
   %449 = icmp sgt i32 %441, 1
@@ -10133,7 +10133,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %474 = load i32, ptr %442, align 8
   %475 = sext i32 %474 to i64
   %476 = icmp slt i64 %indvars.iv.next32.i, %475
-  br i1 %476, label %.lr.ph9.us.us.i156, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !285
+  br i1 %476, label %.lr.ph9.us.us.i156, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !285
 
 .lr.ph9.us.i148:                                  ; preds = %.lr.ph.split.us.i147, %._crit_edge10.split.us13.i153
   %indvars.iv18.i149 = phi i64 [ %indvars.iv.next19.i154, %._crit_edge10.split.us13.i153 ], [ 0, %.lr.ph.split.us.i147 ]
@@ -10168,7 +10168,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %495 = load i32, ptr %442, align 8
   %496 = sext i32 %495 to i64
   %497 = icmp slt i64 %indvars.iv.next19.i154, %496
-  br i1 %497, label %.lr.ph9.us.i148, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !285
+  br i1 %497, label %.lr.ph9.us.i148, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !285
 
 498:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit67
   %499 = getelementptr inbounds i8, ptr %1, i64 12
@@ -10185,14 +10185,14 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %510 = getelementptr inbounds i8, ptr %1, i64 8
   %511 = load i32, ptr %510, align 8
   %512 = icmp sgt i32 %511, 0
-  br i1 %512, label %.lr.ph.i164, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %512, label %.lr.ph.i164, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.i164:                                      ; preds = %498
   %513 = getelementptr inbounds i8, ptr %7, i64 16
   %514 = getelementptr inbounds i8, ptr %1, i64 16
   %515 = getelementptr inbounds i8, ptr %1, i64 72
   %516 = icmp sgt i32 %504, 0
-  br i1 %516, label %.lr.ph.split.us.i165, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %516, label %.lr.ph.split.us.i165, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.split.us.i165:                             ; preds = %.lr.ph.i164
   %517 = icmp sgt i32 %509, 1
@@ -10254,7 +10254,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %543 = load i32, ptr %510, align 8
   %544 = sext i32 %543 to i64
   %545 = icmp slt i64 %indvars.iv.next30.i, %544
-  br i1 %545, label %.lr.ph7.us.us.i, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !288
+  br i1 %545, label %.lr.ph7.us.us.i, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !288
 
 .lr.ph7.us.i:                                     ; preds = %.lr.ph.split.us.i165, %._crit_edge8.split.us11.i
   %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %._crit_edge8.split.us11.i ], [ 0, %.lr.ph.split.us.i165 ]
@@ -10289,7 +10289,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %564 = load i32, ptr %510, align 8
   %565 = sext i32 %564 to i64
   %566 = icmp slt i64 %indvars.iv.next17.i, %565
-  br i1 %566, label %.lr.ph7.us.i, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !288
+  br i1 %566, label %.lr.ph7.us.i, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !288
 
 567:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit67
   %568 = getelementptr inbounds i8, ptr %1, i64 12
@@ -10306,14 +10306,14 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %579 = getelementptr inbounds i8, ptr %1, i64 8
   %580 = load i32, ptr %579, align 8
   %581 = icmp sgt i32 %580, 0
-  br i1 %581, label %.lr.ph.i172, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %581, label %.lr.ph.i172, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.i172:                                      ; preds = %567
   %582 = getelementptr inbounds i8, ptr %7, i64 16
   %583 = getelementptr inbounds i8, ptr %1, i64 16
   %584 = getelementptr inbounds i8, ptr %1, i64 72
   %585 = icmp sgt i32 %573, 0
-  br i1 %585, label %.lr.ph.split.us.i173, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+  br i1 %585, label %.lr.ph.split.us.i173, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
 
 .lr.ph.split.us.i173:                             ; preds = %.lr.ph.i172
   %586 = icmp sgt i32 %578, 1
@@ -10375,7 +10375,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %612 = load i32, ptr %579, align 8
   %613 = sext i32 %612 to i64
   %614 = icmp slt i64 %indvars.iv.next30.i197, %613
-  br i1 %614, label %.lr.ph7.us.us.i184, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !291
+  br i1 %614, label %.lr.ph7.us.us.i184, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !291
 
 .lr.ph7.us.i175:                                  ; preds = %.lr.ph.split.us.i173, %._crit_edge8.split.us11.i180
   %indvars.iv16.i176 = phi i64 [ %indvars.iv.next17.i181, %._crit_edge8.split.us11.i180 ], [ 0, %.lr.ph.split.us.i173 ]
@@ -10410,7 +10410,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   %633 = load i32, ptr %579, align 8
   %634 = sext i32 %633 to i64
   %635 = icmp slt i64 %indvars.iv.next17.i181, %634
-  br i1 %635, label %.lr.ph7.us.i175, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread, !llvm.loop !291
+  br i1 %635, label %.lr.ph7.us.i175, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread, !llvm.loop !291
 
 636:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit67
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #29
@@ -10440,15 +10440,15 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit67:         ; preds = %150, %155, %_ZNSt6v
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #29
   br label %644
 
-_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit: ; preds = %.lr.ph.i172, %567, %.lr.ph.i164, %498, %.lr.ph.i146, %430, %.lr.ph.i120, %362, %.lr.ph.i94, %294, %.lr.ph.i68, %226, %.lr.ph.i, %158
+_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit: ; preds = %.lr.ph.i172, %567, %.lr.ph.i164, %498, %.lr.ph.i146, %430, %.lr.ph.i120, %362, %.lr.ph.i94, %294, %.lr.ph.i68, %226, %.lr.ph.i, %158
   %.not.i.i.i = icmp eq ptr %.sroa.0.5, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread
 
-_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread: ; preds = %._crit_edge8.split.us11.i180, %._crit_edge8.split.us.us.us.i196, %._crit_edge8.split.us11.i, %._crit_edge8.split.us.us.us.i, %._crit_edge10.split.us13.i153, %._crit_edge10.split.us.us.us.i163, %._crit_edge10.split.us13.i128, %._crit_edge10.split.us.us.us.i144, %._crit_edge10.split.us13.i102, %._crit_edge10.split.us.us.us.i118, %._crit_edge10.split.us13.i76, %._crit_edge10.split.us.us.us.i92, %._crit_edge10.split.us13.i, %._crit_edge10.split.us.us.us.i, %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit
+_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread: ; preds = %._crit_edge8.split.us11.i180, %._crit_edge8.split.us.us.us.i196, %._crit_edge8.split.us11.i, %._crit_edge8.split.us.us.us.i, %._crit_edge10.split.us13.i153, %._crit_edge10.split.us.us.us.i163, %._crit_edge10.split.us13.i128, %._crit_edge10.split.us.us.us.i144, %._crit_edge10.split.us13.i102, %._crit_edge10.split.us.us.us.i118, %._crit_edge10.split.us13.i76, %._crit_edge10.split.us.us.us.i92, %._crit_edge10.split.us13.i, %._crit_edge10.split.us.us.us.i, %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.5) #32
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit, %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.exit.thread
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit, %_ZN6cvtestL7dilate_IhEEvRKN2cv3MatERS2_RKSt6vectorIiSaIiEE.argprom.exit.thread
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
   ret void

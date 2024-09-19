@@ -1541,8 +1541,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF2PElsERSoRKNS0_19
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   br label %15
 
-15:                                               ; preds = %"_ZZN4LIEF2PElsERSoRKNS0_19ResourceVarFileInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.i", %.lr.ph.i
-  %.sroa.01.05.i = phi ptr [ %11, %.lr.ph.i ], [ %61, %"_ZZN4LIEF2PElsERSoRKNS0_19ResourceVarFileInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.i" ]
+15:                                               ; preds = %"_ZZN4LIEF2PElsERSoRKNS0_19ResourceVarFileInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.argprom.exit.i", %.lr.ph.i
+  %.sroa.01.05.i = phi ptr [ %11, %.lr.ph.i ], [ %61, %"_ZZN4LIEF2PElsERSoRKNS0_19ResourceVarFileInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.argprom.exit.i" ]
   %16 = load i32, ptr %.sroa.01.05.i, align 4, !noalias !4
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %3), !noalias !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !4
@@ -1585,7 +1585,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF2PElsERSoRKNS0_19
 
 35:                                               ; preds = %33
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(128) %3)
-          to label %"_ZZN4LIEF2PElsERSoRKNS0_19ResourceVarFileInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.i" unwind label %53, !noalias !4
+          to label %"_ZZN4LIEF2PElsERSoRKNS0_19ResourceVarFileInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.argprom.exit.i" unwind label %53, !noalias !4
 
 36:                                               ; preds = %33
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %8)
@@ -1631,7 +1631,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i.i) #24, !noalias !4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24, !noalias !4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24, !noalias !4
-  br label %"_ZZN4LIEF2PElsERSoRKNS0_19ResourceVarFileInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.i"
+  br label %"_ZZN4LIEF2PElsERSoRKNS0_19ResourceVarFileInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.argprom.exit.i"
 
 53:                                               ; preds = %36, %35, %31, %29, %27, %25, %23, %.noexc
   %54 = landingpad { ptr, i32 }
@@ -1659,7 +1659,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #24, !noalias !4
   br label %.body
 
-"_ZZN4LIEF2PElsERSoRKNS0_19ResourceVarFileInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.i": ; preds = %52, %35
+"_ZZN4LIEF2PElsERSoRKNS0_19ResourceVarFileInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.argprom.exit.i": ; preds = %52, %35
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #24, !noalias !4
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %3), !noalias !4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !4
@@ -1670,7 +1670,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.not.i = icmp eq ptr %61, %13
   br i1 %.not.i, label %.loopexit, label %15, !llvm.loop !13
 
-.loopexit:                                        ; preds = %"_ZZN4LIEF2PElsERSoRKNS0_19ResourceVarFileInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.i", %2
+.loopexit:                                        ; preds = %"_ZZN4LIEF2PElsERSoRKNS0_19ResourceVarFileInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.argprom.exit.i", %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
@@ -35057,8 +35057,8 @@ attributes #29 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6, !"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN4LIEF2PElsERSoRKNSF_19ResourceVarFileInfoEE3$_0ET0_T_SM_SL_T1_: argument 0"}
 !6 = distinct !{!6, !"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN4LIEF2PElsERSoRKNSF_19ResourceVarFileInfoEE3$_0ET0_T_SM_SL_T1_"}
 !7 = !{!8, !5}
-!8 = distinct !{!8, !9, !"_ZZN4LIEF2PElsERSoRKNS0_19ResourceVarFileInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj: argument 0"}
-!9 = distinct !{!9, !"_ZZN4LIEF2PElsERSoRKNS0_19ResourceVarFileInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj"}
+!8 = distinct !{!8, !9, !"_ZZN4LIEF2PElsERSoRKNS0_19ResourceVarFileInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.argprom: argument 0"}
+!9 = distinct !{!9, !"_ZZN4LIEF2PElsERSoRKNS0_19ResourceVarFileInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.argprom"}
 !10 = !{!11, !8, !5}
 !11 = distinct !{!11, !12, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: argument 0"}
 !12 = distinct !{!12, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}

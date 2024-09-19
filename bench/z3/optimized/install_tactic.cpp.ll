@@ -3998,7 +3998,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store ptr null, ptr %ref.tmp.i, align 8
   %call.i = invoke noundef ptr @_Z13mk_aig_tacticRK10params_ref(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
-          to label %"_ZZ15install_tacticsR14tactic_managerENK4$_43clER11ast_managerRK10params_ref.exit" unwind label %lpad.i
+          to label %"_ZZ15install_tacticsR14tactic_managerENK4$_43clER11ast_managerRK10params_ref.argprom.exit" unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
@@ -4006,7 +4006,7 @@ lpad.i:                                           ; preds = %entry
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #21
   resume { ptr, i32 } %0
 
-"_ZZ15install_tacticsR14tactic_managerENK4$_43clER11ast_managerRK10params_ref.exit": ; preds = %entry
+"_ZZ15install_tacticsR14tactic_managerENK4$_43clER11ast_managerRK10params_ref.argprom.exit": ; preds = %entry
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   ret ptr %call.i
@@ -12994,7 +12994,7 @@ entry:
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 64
   %0 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args1)
-          to label %"_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE3$_1JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit" unwind label %lpad4.i.i.i.i
+          to label %"_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE3$_1JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit" unwind label %lpad4.i.i.i.i
 
 lpad4.i.i.i.i:                                    ; preds = %entry
   %1 = landingpad { ptr, i32 }
@@ -13003,7 +13003,7 @@ lpad4.i.i.i.i:                                    ; preds = %entry
   tail call void @_ZN20bit_blaster_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_rewriter.i.i.i.i) #21
   resume { ptr, i32 } %1
 
-"_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE3$_1JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %entry
+"_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE3$_1JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %entry
   ret ptr %call.i.i.i
 }
 
@@ -13053,7 +13053,7 @@ entry:
   tail call void @_ZN12rewriter_tplI15elim_bounds_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %m_rewriter.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(976) %__args, i1 noundef zeroext %cmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_cfg.i.i.i.i.i)
   store ptr getelementptr inbounds (i8, ptr @_ZTV14elim_bounds_rw, i64 16), ptr %m_rewriter.i.i.i.i, align 8
   invoke void @_ZN15elim_bounds_cfgC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24) %m_cfg.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(976) %__args)
-          to label %"_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE3$_2JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit" unwind label %lpad.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE3$_2JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit" unwind label %lpad.i.i.i.i.i
 
 lpad.i.i.i.i.i:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
@@ -13061,7 +13061,7 @@ lpad.i.i.i.i.i:                                   ; preds = %entry
   tail call void @_ZN12rewriter_tplI15elim_bounds_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %m_rewriter.i.i.i.i) #21
   resume { ptr, i32 } %1
 
-"_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE3$_2JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %entry
+"_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE3$_2JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %entry
   ret ptr %call.i.i.i
 }
 
@@ -13516,7 +13516,7 @@ entry:
   %cmp.i.i.i.i.i.i = icmp ne i32 %0, 0
   %m_cfg.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 584
   invoke void @_ZN12rewriter_tplI17elim_term_ite_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %m_rewriter.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(976) %__args, i1 noundef zeroext %cmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %m_cfg.i.i.i.i.i)
-          to label %"_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE3$_3JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit" unwind label %lpad3.i.i.i.i
+          to label %"_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE3$_3JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit" unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %entry
   %1 = landingpad { ptr, i32 }
@@ -13524,7 +13524,7 @@ lpad3.i.i.i.i:                                    ; preds = %entry
   tail call void @_ZN13defined_namesD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_df.i.i.i.i) #21
   resume { ptr, i32 } %1
 
-"_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE3$_3JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %entry
+"_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE3$_3JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTV16elim_term_ite_rw, i64 16), ptr %m_rewriter.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV17elim_term_ite_cfg, i64 16), ptr %m_cfg.i.i.i.i.i, align 8
   %m2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 592
@@ -16110,7 +16110,7 @@ invoke.cont5.i.i.i.i:                             ; preds = %entry
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 64
   %0 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args1)
-          to label %"_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE4$_10JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit" unwind label %lpad6.i.i.i.i
+          to label %"_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE4$_10JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit" unwind label %lpad6.i.i.i.i
 
 lpad4.i.i.i.i:                                    ; preds = %entry
   %1 = landingpad { ptr, i32 }
@@ -16129,7 +16129,7 @@ ehcleanup.i.i.i.i:                                ; preds = %lpad6.i.i.i.i, %lpa
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_params.i.i.i.i) #21
   resume { ptr, i32 } %.pn.i.i.i.i
 
-"_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE4$_10JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %invoke.cont5.i.i.i.i
+"_ZSt10__invoke_rIP25dependent_expr_simplifierRZ15install_tacticsR14tactic_managerE4$_10JR11ast_managerRK10params_refR20dependent_expr_stateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %invoke.cont5.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
   ret ptr %call.i.i.i
 }

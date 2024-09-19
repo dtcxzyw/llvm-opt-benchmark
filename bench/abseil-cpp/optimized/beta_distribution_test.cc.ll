@@ -1224,7 +1224,7 @@ declare noundef ptr @_ZN7testing8UnitTest11GetInstanceEv() local_unnamed_addr #0
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_120BetaDistributionTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %code_location) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_120BetaDistributionTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %code_location) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.std::allocator", align 1
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -1470,7 +1470,7 @@ if.end25:                                         ; preds = %_ZNSt6vectorIPN7tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE25AddTestSuiteInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJddEEEEvEPFSA_RKNS_13TestParamInfoISF_EEEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(32) %instantiation_name, ptr noundef %func, ptr noundef %name_func, i32 noundef range(i32 443, 451) %line) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE25AddTestSuiteInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJddEEEEvEPFSA_RKNS_13TestParamInfoISF_EEEPKci.argprom.retelim(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(32) %instantiation_name, ptr noundef %func, ptr noundef %name_func, i32 noundef range(i32 443, 451) %line) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.testing::internal::ParameterizedTestSuiteInfo<(anonymous namespace)::BetaDistributionTest>::InstantiationInfo", align 8
   %instantiations_ = getelementptr inbounds i8, ptr %this, i64 104
@@ -1505,7 +1505,7 @@ if.else.i.i:                                      ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %this.val10.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775744
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.18) #35
@@ -1514,7 +1514,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 .noexc:                                           ; preds = %if.then.i.i.i.i
   unreachable
 
-_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
+_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 6
   %cmp.i.i.i.i.i = icmp eq ptr %0, %this.val10.i.i.i
   %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i
@@ -1523,24 +1523,24 @@ _ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120Be
   %3 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 144115188075855871)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 144115188075855871, i64 %3
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.argprom.exit.i.i.i, label %cond.true.i.i.i.i
 
-cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
+cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 6
   %call5.i.i.i.i.i.i1 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #36
-          to label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit.i.i.i unwind label %lpad
+          to label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.argprom.exit.i.i.i unwind label %lpad
 
-_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i1, %cond.true.i.i.i.i ]
+_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.argprom.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+  %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ], [ %call5.i.i.i.i.i.i1, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.testing::internal::ParameterizedTestSuiteInfo<(anonymous namespace)::BetaDistributionTest>::InstantiationInfo", ptr %cond.i12.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #33
   %generator.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %generator.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %generator.i, i64 28, i1 false)
-  br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit23.i.i.i, label %for.body.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.argprom.exit23.i.i.i, label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
-  %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit.i.i.i ]
-  %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %this.val10.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit.i.i.i ]
+for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.argprom.exit.i.i.i, %for.body.i.i.i.i.i.i
+  %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.argprom.exit.i.i.i ]
+  %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %this.val10.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.argprom.exit.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i) #33
   %generator.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i, i64 32
   %generator3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 32
@@ -1549,19 +1549,19 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 64
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i, i64 64
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit23.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.argprom.exit23.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !11
 
-_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit23.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit.i.i.i
-  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.argprom.exit23.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.argprom.exit.i.i.i
+  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.argprom.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 64
   %tobool.not.i.i.i.i = icmp eq ptr %this.val10.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i, label %if.then.i24.i.i.i
 
-if.then.i24.i.i.i:                                ; preds = %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit23.i.i.i
+if.then.i24.i.i.i:                                ; preds = %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.argprom.exit23.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %this.val10.i.i.i) #34
   br label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %if.then.i24.i.i.i, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit23.i.i.i
+_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %if.then.i24.i.i.i, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.argprom.exit23.i.i.i
   store ptr %cond.i12.i.i.i, ptr %instantiations_, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr19.i.i.i = getelementptr inbounds %"struct.testing::internal::ParameterizedTestSuiteInfo<(anonymous namespace)::BetaDistributionTest>::InstantiationInfo", ptr %cond.i12.i.i.i, i64 %cond.i.i.i.i
@@ -1772,10 +1772,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev(ptr %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.argprom(ptr %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
@@ -1811,7 +1811,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.i.0.i.i.i = phi i32 [ %1, %if.then.i.i.i.i ], [ %4, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.i.0.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
@@ -1836,16 +1836,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then7.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #33
-  br label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
-_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
+_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
   ret void
 }
 
@@ -9264,7 +9264,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
   %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %dist, i64 16
   br label %for.body.i
 
-for.body.ithread-pre-split:                       ; preds = %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_0clEv.exit.i"
+for.body.ithread-pre-split:                       ; preds = %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_0clEv.argprom.exit.i"
   %.pr = load i32, ptr %method_33.i, align 4
   br label %for.body.i
 
@@ -9281,11 +9281,11 @@ for.body.i:                                       ; preds = %for.body.ithread-pr
 
 sw.bb.i.i.i.i:                                    ; preds = %for.body.i
   %call.i.i.i.i33 = invoke noundef float @_ZN4absl17beta_distributionIfE15AlgorithmJoehnkINS_15random_internal13sequence_urbgEEEfRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(41) %dist, ptr noundef nonnull align 8 dereferenceable(32) %urbg, ptr noundef nonnull align 4 dereferenceable(37) %dist)
-          to label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_0clEv.exit.i" unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_0clEv.argprom.exit.i" unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 sw.bb3.i.i.i.i:                                   ; preds = %for.body.i, %for.body.i
   %call4.i.i.i.i34 = invoke noundef float @_ZN4absl17beta_distributionIfE14AlgorithmChengINS_15random_internal13sequence_urbgEEEfRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(41) %dist, ptr noundef nonnull align 8 dereferenceable(32) %urbg, ptr noundef nonnull align 4 dereferenceable(37) %dist)
-          to label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_0clEv.exit.i" unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_0clEv.argprom.exit.i" unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %for.body.i
   %4 = load float, ptr %dist, align 4
@@ -9309,13 +9309,13 @@ if.then.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i
   %10 = and i64 %9, 16
   %cmp3.i.i.i.i.i = icmp ne i64 %10, 0
   %conv4.i.i.i.i.i = uitofp i1 %cmp3.i.i.i.i.i to float
-  br label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_0clEv.exit.i"
+  br label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_0clEv.argprom.exit.i"
 
 if.end.i.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i.i.i, %for.body.i
   %11 = load float, ptr %x_.i.i.i.i.i, align 4
-  br label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_0clEv.exit.i"
+  br label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_0clEv.argprom.exit.i"
 
-"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_0clEv.exit.i": ; preds = %sw.bb3.i.i.i.i, %sw.bb.i.i.i.i, %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
+"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_0clEv.argprom.exit.i": ; preds = %sw.bb3.i.i.i.i, %sw.bb.i.i.i.i, %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.0.i.i.i.i = phi float [ %conv4.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %11, %if.end.i.i.i.i.i ], [ %call.i.i.i.i33, %sw.bb.i.i.i.i ], [ %call4.i.i.i.i34, %sw.bb3.i.i.i.i ]
   %12 = call { float, i32 } @llvm.frexp.f32.i32(float %retval.0.i.i.i.i)
   %13 = extractvalue { float, i32 } %12, 1
@@ -9332,7 +9332,7 @@ if.end.i.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
   %cmp.i.not.i = icmp eq i64 %__first.sroa.0.04.i.add, 160
   br i1 %cmp.i.not.i, label %invoke.cont14, label %for.body.ithread-pre-split, !llvm.loop !112
 
-invoke.cont14:                                    ; preds = %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_0clEv.exit.i"
+invoke.cont14:                                    ; preds = %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_0clEv.argprom.exit.i"
   store i32 44, ptr %ref.tmp15, align 4
   %16 = load i64, ptr %urbg, align 8
   store i64 %16, ptr %ref.tmp16, align 8
@@ -9632,8 +9632,8 @@ for.body.lr.ph.i67:                               ; preds = %invoke.cont77
   %x_.i.i.i.i.i72 = getelementptr inbounds i8, ptr %dist76, i64 32
   br label %for.body.i73
 
-for.body.i73:                                     ; preds = %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_1clEv.exit.i", %for.body.lr.ph.i67
-  %__first.sroa.0.04.i74 = phi ptr [ %41, %for.body.lr.ph.i67 ], [ %incdec.ptr.i.i82, %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_1clEv.exit.i" ]
+for.body.i73:                                     ; preds = %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_1clEv.argprom.exit.i", %for.body.lr.ph.i67
+  %__first.sroa.0.04.i74 = phi ptr [ %41, %for.body.lr.ph.i67 ], [ %incdec.ptr.i.i82, %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_1clEv.argprom.exit.i" ]
   %43 = load i32, ptr %method_31.i, align 8
   switch i32 %43, label %if.end.i.i.i.i.i77 [
     i32 0, label %sw.bb.i.i.i.i95
@@ -9644,11 +9644,11 @@ for.body.i73:                                     ; preds = %"_ZZN12_GLOBAL__N_1
 
 sw.bb.i.i.i.i95:                                  ; preds = %for.body.i73
   %call.i.i.i.i97 = invoke noundef double @_ZN4absl17beta_distributionIdE15AlgorithmJoehnkINS_15random_internal13sequence_urbgEEEdRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(73) %dist76, ptr noundef nonnull align 8 dereferenceable(32) %urbg, ptr noundef nonnull align 8 dereferenceable(69) %dist76)
-          to label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_1clEv.exit.i" unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_1clEv.argprom.exit.i" unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit
 
 sw.bb3.i.i.i.i94:                                 ; preds = %for.body.i73, %for.body.i73
   %call4.i.i.i.i99 = invoke noundef double @_ZN4absl17beta_distributionIdE14AlgorithmChengINS_15random_internal13sequence_urbgEEEdRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(73) %dist76, ptr noundef nonnull align 8 dereferenceable(32) %urbg, ptr noundef nonnull align 8 dereferenceable(69) %dist76)
-          to label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_1clEv.exit.i" unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_1clEv.argprom.exit.i" unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit
 
 land.lhs.true.i.i.i.i.i75:                        ; preds = %for.body.i73
   %44 = load double, ptr %dist76, align 8
@@ -9672,13 +9672,13 @@ if.then.i.i.i.i.i84:                              ; preds = %land.lhs.true.i.i.i
   %50 = and i64 %49, 16
   %cmp3.i.i.i.i.i92 = icmp ne i64 %50, 0
   %conv4.i.i.i.i.i93 = uitofp i1 %cmp3.i.i.i.i.i92 to double
-  br label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_1clEv.exit.i"
+  br label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_1clEv.argprom.exit.i"
 
 if.end.i.i.i.i.i77:                               ; preds = %land.lhs.true.i.i.i.i.i75, %for.body.i73
   %51 = load double, ptr %x_.i.i.i.i.i72, align 8
-  br label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_1clEv.exit.i"
+  br label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_1clEv.argprom.exit.i"
 
-"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_1clEv.exit.i": ; preds = %sw.bb3.i.i.i.i94, %sw.bb.i.i.i.i95, %if.end.i.i.i.i.i77, %if.then.i.i.i.i.i84
+"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_1clEv.argprom.exit.i": ; preds = %sw.bb3.i.i.i.i94, %sw.bb.i.i.i.i95, %if.end.i.i.i.i.i77, %if.then.i.i.i.i.i84
   %retval.0.i.i.i.i78 = phi double [ %conv4.i.i.i.i.i93, %if.then.i.i.i.i.i84 ], [ %51, %if.end.i.i.i.i.i77 ], [ %call.i.i.i.i97, %sw.bb.i.i.i.i95 ], [ %call4.i.i.i.i99, %sw.bb3.i.i.i.i94 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %exp.i.i.i)
   store i32 0, ptr %exp.i.i.i, align 4
@@ -9696,7 +9696,7 @@ if.end.i.i.i.i.i77:                               ; preds = %land.lhs.true.i.i.i
   %cmp.i.not.i83 = icmp eq ptr %incdec.ptr.i.i82, %42
   br i1 %cmp.i.not.i83, label %invoke.cont89, label %for.body.i73, !llvm.loop !113
 
-invoke.cont89:                                    ; preds = %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_1clEv.exit.i"
+invoke.cont89:                                    ; preds = %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_1clEv.argprom.exit.i"
   %.pre = load i64, ptr %urbg, align 8
   store i32 44, ptr %ref.tmp91, align 4
   store i64 %.pre, ptr %ref.tmp92, align 8
@@ -9975,8 +9975,8 @@ invoke.cont170.thread:                            ; preds = %invoke.cont158
   store i64 0, ptr %ref.tmp173, align 8
   br label %if.end.i.i212
 
-for.body.i180:                                    ; preds = %invoke.cont158, %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_2clEv.exit.i"
-  %__first.sroa.0.04.i181 = phi ptr [ %incdec.ptr.i.i192, %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_2clEv.exit.i" ], [ %77, %invoke.cont158 ]
+for.body.i180:                                    ; preds = %invoke.cont158, %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_2clEv.argprom.exit.i"
+  %__first.sroa.0.04.i181 = phi ptr [ %incdec.ptr.i.i192, %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_2clEv.argprom.exit.i" ], [ %77, %invoke.cont158 ]
   %79 = load i32, ptr %method_81.i, align 8
   switch i32 %79, label %if.end.i.i.i.i.i184 [
     i32 0, label %sw.bb.i.i.i.i205
@@ -9987,11 +9987,11 @@ for.body.i180:                                    ; preds = %invoke.cont158, %"_
 
 sw.bb.i.i.i.i205:                                 ; preds = %for.body.i180
   %call.i.i.i.i207 = invoke noundef double @_ZN4absl17beta_distributionIdE15AlgorithmJoehnkINS_15random_internal13sequence_urbgEEEdRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(73) %dist157, ptr noundef nonnull align 8 dereferenceable(32) %urbg, ptr noundef nonnull align 8 dereferenceable(69) %dist157)
-          to label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_2clEv.exit.i" unwind label %lpad3.loopexit.split-lp.loopexit
+          to label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_2clEv.argprom.exit.i" unwind label %lpad3.loopexit.split-lp.loopexit
 
 sw.bb3.i.i.i.i204:                                ; preds = %for.body.i180, %for.body.i180
   %call4.i.i.i.i209 = invoke noundef double @_ZN4absl17beta_distributionIdE14AlgorithmChengINS_15random_internal13sequence_urbgEEEdRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(73) %dist157, ptr noundef nonnull align 8 dereferenceable(32) %urbg, ptr noundef nonnull align 8 dereferenceable(69) %dist157)
-          to label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_2clEv.exit.i" unwind label %lpad3.loopexit.split-lp.loopexit
+          to label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_2clEv.argprom.exit.i" unwind label %lpad3.loopexit.split-lp.loopexit
 
 land.lhs.true.i.i.i.i.i182:                       ; preds = %for.body.i180
   %80 = load double, ptr %dist157, align 8
@@ -10015,13 +10015,13 @@ if.then.i.i.i.i.i194:                             ; preds = %land.lhs.true.i.i.i
   %86 = and i64 %85, 16
   %cmp3.i.i.i.i.i202 = icmp ne i64 %86, 0
   %conv4.i.i.i.i.i203 = uitofp i1 %cmp3.i.i.i.i.i202 to double
-  br label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_2clEv.exit.i"
+  br label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_2clEv.argprom.exit.i"
 
 if.end.i.i.i.i.i184:                              ; preds = %land.lhs.true.i.i.i.i.i182, %for.body.i180
   %87 = load double, ptr %x_68.i, align 8
-  br label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_2clEv.exit.i"
+  br label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_2clEv.argprom.exit.i"
 
-"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_2clEv.exit.i": ; preds = %sw.bb3.i.i.i.i204, %sw.bb.i.i.i.i205, %if.end.i.i.i.i.i184, %if.then.i.i.i.i.i194
+"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_2clEv.argprom.exit.i": ; preds = %sw.bb3.i.i.i.i204, %sw.bb.i.i.i.i205, %if.end.i.i.i.i.i184, %if.then.i.i.i.i.i194
   %retval.0.i.i.i.i185 = phi double [ %conv4.i.i.i.i.i203, %if.then.i.i.i.i.i194 ], [ %87, %if.end.i.i.i.i.i184 ], [ %call.i.i.i.i207, %sw.bb.i.i.i.i205 ], [ %call4.i.i.i.i209, %sw.bb3.i.i.i.i204 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %exp.i.i.i172)
   store i32 0, ptr %exp.i.i.i172, align 4
@@ -10039,7 +10039,7 @@ if.end.i.i.i.i.i184:                              ; preds = %land.lhs.true.i.i.i
   %cmp.i.not.i193 = icmp eq ptr %incdec.ptr.i.i192, %78
   br i1 %cmp.i.not.i193, label %invoke.cont170, label %for.body.i180, !llvm.loop !114
 
-invoke.cont170:                                   ; preds = %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_2clEv.exit.i"
+invoke.cont170:                                   ; preds = %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_2clEv.argprom.exit.i"
   %.pre434 = load i64, ptr %urbg, align 8
   store i32 62, ptr %ref.tmp172, align 4
   store i64 %.pre434, ptr %ref.tmp173, align 8
@@ -10318,8 +10318,8 @@ invoke.cont251.thread:                            ; preds = %invoke.cont239
   store i64 0, ptr %ref.tmp254, align 8
   br label %if.end.i.i322
 
-for.body.i290:                                    ; preds = %invoke.cont239, %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_3clEv.exit.i"
-  %__first.sroa.0.04.i291 = phi ptr [ %incdec.ptr.i.i302, %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_3clEv.exit.i" ], [ %113, %invoke.cont239 ]
+for.body.i290:                                    ; preds = %invoke.cont239, %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_3clEv.argprom.exit.i"
+  %__first.sroa.0.04.i291 = phi ptr [ %incdec.ptr.i.i302, %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_3clEv.argprom.exit.i" ], [ %113, %invoke.cont239 ]
   %115 = load i32, ptr %method_81.i405, align 8
   switch i32 %115, label %if.end.i.i.i.i.i294 [
     i32 0, label %sw.bb.i.i.i.i315
@@ -10330,11 +10330,11 @@ for.body.i290:                                    ; preds = %invoke.cont239, %"_
 
 sw.bb.i.i.i.i315:                                 ; preds = %for.body.i290
   %call.i.i.i.i317 = invoke noundef double @_ZN4absl17beta_distributionIdE15AlgorithmJoehnkINS_15random_internal13sequence_urbgEEEdRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(73) %dist238, ptr noundef nonnull align 8 dereferenceable(32) %urbg, ptr noundef nonnull align 8 dereferenceable(69) %dist238)
-          to label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_3clEv.exit.i" unwind label %lpad3.loopexit
+          to label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_3clEv.argprom.exit.i" unwind label %lpad3.loopexit
 
 sw.bb3.i.i.i.i314:                                ; preds = %for.body.i290, %for.body.i290
   %call4.i.i.i.i319 = invoke noundef double @_ZN4absl17beta_distributionIdE14AlgorithmChengINS_15random_internal13sequence_urbgEEEdRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(73) %dist238, ptr noundef nonnull align 8 dereferenceable(32) %urbg, ptr noundef nonnull align 8 dereferenceable(69) %dist238)
-          to label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_3clEv.exit.i" unwind label %lpad3.loopexit
+          to label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_3clEv.argprom.exit.i" unwind label %lpad3.loopexit
 
 land.lhs.true.i.i.i.i.i292:                       ; preds = %for.body.i290
   %116 = load double, ptr %dist238, align 8
@@ -10358,13 +10358,13 @@ if.then.i.i.i.i.i304:                             ; preds = %land.lhs.true.i.i.i
   %122 = and i64 %121, 16
   %cmp3.i.i.i.i.i312 = icmp ne i64 %122, 0
   %conv4.i.i.i.i.i313 = uitofp i1 %cmp3.i.i.i.i.i312 to double
-  br label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_3clEv.exit.i"
+  br label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_3clEv.argprom.exit.i"
 
 if.end.i.i.i.i.i294:                              ; preds = %land.lhs.true.i.i.i.i.i292, %for.body.i290
   %123 = load double, ptr %x_68.i401, align 8
-  br label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_3clEv.exit.i"
+  br label %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_3clEv.argprom.exit.i"
 
-"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_3clEv.exit.i": ; preds = %sw.bb3.i.i.i.i314, %sw.bb.i.i.i.i315, %if.end.i.i.i.i.i294, %if.then.i.i.i.i.i304
+"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_3clEv.argprom.exit.i": ; preds = %sw.bb3.i.i.i.i314, %sw.bb.i.i.i.i315, %if.end.i.i.i.i.i294, %if.then.i.i.i.i.i304
   %retval.0.i.i.i.i295 = phi double [ %conv4.i.i.i.i.i313, %if.then.i.i.i.i.i304 ], [ %123, %if.end.i.i.i.i.i294 ], [ %call.i.i.i.i317, %sw.bb.i.i.i.i315 ], [ %call4.i.i.i.i319, %sw.bb3.i.i.i.i314 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %exp.i.i.i282)
   store i32 0, ptr %exp.i.i.i282, align 4
@@ -10382,7 +10382,7 @@ if.end.i.i.i.i.i294:                              ; preds = %land.lhs.true.i.i.i
   %cmp.i.not.i303 = icmp eq ptr %incdec.ptr.i.i302, %114
   br i1 %cmp.i.not.i303, label %invoke.cont251, label %for.body.i290, !llvm.loop !115
 
-invoke.cont251:                                   ; preds = %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_3clEv.exit.i"
+invoke.cont251:                                   ; preds = %"_ZZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test8TestBodyEvENK3$_3clEv.argprom.exit.i"
   %.pre435 = load i64, ptr %urbg, align 8
   store i32 54, ptr %ref.tmp253, align 4
   store i64 %.pre435, ptr %ref.tmp254, align 8
@@ -33610,12 +33610,12 @@ _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120Bet
   %cmp.not3.i.i.i.i2 = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i2, label %invoke.cont.i9, label %for.body.i.i.i.i3
 
-for.body.i.i.i.i3:                                ; preds = %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EED2Ev.exit, %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEEvPT_.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i4 = phi ptr [ %incdec.ptr.i.i.i.i5, %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEEvPT_.exit.i.i.i.i ], [ %2, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EED2Ev.exit ]
+for.body.i.i.i.i3:                                ; preds = %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EED2Ev.exit, %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i
+  %__first.addr.04.i.i.i.i4 = phi ptr [ %incdec.ptr.i.i.i.i5, %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i ], [ %2, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoESaIS6_EED2Ev.exit ]
   %4 = getelementptr i8, ptr %__first.addr.04.i.i.i.i4, i64 8
   %__first.addr.0.val.i.i.i.i = load ptr, ptr %4, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %__first.addr.0.val.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i3
   %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.val.i.i.i.i, i64 8
@@ -33651,7 +33651,7 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i32 [ %6, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %9, %if.else.i.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEEvPT_.exit.i.i.i.i
+  br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i
 
 if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.0.val.i.i.i.i, align 8
@@ -33676,21 +33676,21 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %12, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %13, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEEvPT_.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.0.val.i.i.i.i, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.0.val.i.i.i.i) #33
-  br label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEEvPT_.exit.i.i.i.i
+  br label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEEvPT_.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i3
+_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i3
   %incdec.ptr.i.i.i.i5 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i4, i64 16
   %cmp.not.i.i.i.i6 = icmp eq ptr %incdec.ptr.i.i.i.i5, %3
   br i1 %cmp.not.i.i.i.i6, label %invoke.contthread-pre-split.i7, label %for.body.i.i.i.i3, !llvm.loop !1036
 
-invoke.contthread-pre-split.i7:                   ; preds = %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEEvPT_.exit.i.i.i.i
+invoke.contthread-pre-split.i7:                   ; preds = %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i
   %this.val.pr.i8 = load ptr, ptr %tests_, align 8
   br label %invoke.cont.i9
 
@@ -33774,9 +33774,9 @@ for.body.lr.ph:                                   ; preds = %entry
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %generator, i64 8
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.exit
-  %generated_instantiations.0535 = phi i1 [ false, %for.body.lr.ph ], [ %generated_instantiations.1.lcssa, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.exit ]
-  %test_it.sroa.0.0534 = phi ptr [ %tests_.val, %for.body.lr.ph ], [ %incdec.ptr.i168, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.exit ]
+for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.argprom.exit
+  %generated_instantiations.0535 = phi i1 [ false, %for.body.lr.ph ], [ %generated_instantiations.1.lcssa, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.argprom.exit ]
+  %test_it.sroa.0.0534 = phi ptr [ %tests_.val, %for.body.lr.ph ], [ %incdec.ptr.i168, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.argprom.exit ]
   %3 = load ptr, ptr %test_it.sroa.0.0534, align 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %test_it.sroa.0.0534, i64 8
   %4 = load ptr, ptr %_M_refcount3.i.i, align 8
@@ -34975,7 +34975,7 @@ if.end8.sink.split.i.i.i.i.i150:                  ; preds = %_ZN9__gnu_cxx27__ex
 
 for.end162:                                       ; preds = %_ZN7testing8internal14ParamGeneratorISt5tupleIJddEEED2Ev.exit, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEC2ERKS7_.exit
   %generated_instantiations.1.lcssa = phi i1 [ %generated_instantiations.0535, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEEC2ERKS7_.exit ], [ %generated_instantiations.2, %_ZN7testing8internal14ParamGeneratorISt5tupleIJddEEED2Ev.exit ]
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.exit, label %if.then.i.i.i161
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.argprom.exit, label %if.then.i.i.i161
 
 if.then.i.i.i161:                                 ; preds = %for.end162
   %_M_use_count.i.i.i.i162 = getelementptr inbounds i8, ptr %4, i64 8
@@ -35011,7 +35011,7 @@ if.else.i.i.i.i.i166:                             ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i166, %if.then.i.i.i.i.i164
   %retval.i.0.i.i.i.i = phi i32 [ %110, %if.then.i.i.i.i.i164 ], [ %113, %if.else.i.i.i.i.i166 ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %4, align 8
@@ -35036,16 +35036,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %116, %if.then.i.i.i.i.i.i.i ], [ %117, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i167
   %vtable2.i.i.i.i.i.i = load ptr, ptr %4, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %118 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %118(ptr noundef nonnull align 8 dereferenceable(16) %4) #33
-  br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.exit: ; preds = %for.end162, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.argprom.exit: ; preds = %for.end162, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %incdec.ptr.i168 = getelementptr inbounds i8, ptr %test_it.sroa.0.0534, i64 16
   %tests_.val19 = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i168, %tests_.val19
@@ -35123,7 +35123,7 @@ if.end8.sink.split.i.i.i.i190:                    ; preds = %_ZN9__gnu_cxx27__ex
   call void %128(ptr noundef nonnull align 8 dereferenceable(16) %4) #33
   br label %eh.resume
 
-for.end166:                                       ; preds = %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.exit
+for.end166:                                       ; preds = %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.argprom.exit
   br i1 %generated_instantiations.1.lcssa, label %if.end177, label %if.then167
 
 if.then167:                                       ; preds = %entry, %for.end166
@@ -36848,7 +36848,7 @@ invoke.cont.i.i263:                               ; preds = %.noexc.i.i262
 invoke.cont4.i.i:                                 ; preds = %invoke.cont.i.i263
   %line.i.i.i265 = getelementptr inbounds i8, ptr %agg.tmp.i.i256, i64 32
   store i32 410, ptr %line.i.i.i265, align 8
-  %call7.i.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_120BetaDistributionTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i, ptr noundef %agg.tmp.i.i256)
+  %call7.i.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_120BetaDistributionTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i, ptr noundef %agg.tmp.i.i256)
           to label %invoke.cont6.i.i unwind label %lpad5.i.i
 
 invoke.cont6.i.i:                                 ; preds = %invoke.cont4.i.i
@@ -37053,7 +37053,7 @@ if.else.i.i.i.i.i:                                ; preds = %invoke.cont4.i.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %this.val10.i.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 9223372036854775792
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.18) #35
@@ -37062,7 +37062,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i
 .noexc.i.i.i278:                                  ; preds = %if.then.i.i.i.i.i.i.i
   unreachable
 
-_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i
+_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 4
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %112, %this.val10.i.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i.i.i.i
@@ -37076,12 +37076,12 @@ _ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_
   %call5.i.i.i.i.i.i7.i.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i.i) #36
           to label %call5.i.i.i.i.i.i.noexc.i.i.i unwind label %lpad5.i.i.i
 
-call5.i.i.i.i.i.i.noexc.i.i.i:                    ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
+call5.i.i.i.i.i.i.noexc.i.i.i:                    ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i7.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i
   store ptr %call.i20.i.i, ptr %add.ptr.i.i.i.i.i.i, align 8
   %_M_refcount.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   store ptr %call.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i, align 8
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit23.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.argprom.exit23.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %call5.i.i.i.i.i.i.noexc.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
   %__cur.03.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %call5.i.i.i.i.i.i7.i.i.i, %call5.i.i.i.i.i.i.noexc.i.i.i ]
@@ -37099,19 +37099,19 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %call5.i.i.i.i.i.i.n
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %112
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit23.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !1077
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.argprom.exit23.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !1077
 
-_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit23.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc.i.i.i
+_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.argprom.exit23.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i7.i.i.i, %call5.i.i.i.i.i.i.noexc.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %this.val10.i.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i, label %if.then.i24.i.i.i.i.i.i
 
-if.then.i24.i.i.i.i.i.i:                          ; preds = %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit23.i.i.i.i.i.i
+if.then.i24.i.i.i.i.i.i:                          ; preds = %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.argprom.exit23.i.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %this.val10.i.i.i.i.i.i) #34
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i
 
-_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i24.i.i.i.i.i.i, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit23.i.i.i.i.i.i
+_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i24.i.i.i.i.i.i, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.argprom.exit23.i.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i7.i.i.i, ptr %tests_.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
   %add.ptr19.i.i.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr.19", ptr %call5.i.i.i.i.i.i7.i.i.i, i64 %cond.i.i.i.i.i.i.i
@@ -37123,10 +37123,10 @@ ehcleanup7.thread.i.i.i:                          ; preds = %call.i.noexc19.i.i
           cleanup
   br label %cleanup.action.i.i.i
 
-lpad5.i.i.i:                                      ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
+lpad5.i.i.i:                                      ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEESaIS8_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %119 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev(ptr nonnull %call.i.i.i.i.i.i.i) #33
+  call fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEED2Ev.argprom(ptr nonnull %call.i.i.i.i.i.i.i) #33
   br label %ehcleanup7.thread7.i.i.i
 
 ehcleanup7.thread7.i.i.i:                         ; preds = %lpad5.i.i.i, %lpad3.i.i.i.i.i.i.i
@@ -37246,7 +37246,7 @@ invoke.cont.i285:                                 ; preds = %.noexc.i283
 invoke.cont4.i288:                                ; preds = %invoke.cont.i285
   %line.i.i289 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
   store i32 443, ptr %line.i.i289, align 8
-  %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_120BetaDistributionTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i, ptr noundef %agg.tmp.i)
+  %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_120BetaDistributionTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i, ptr noundef %agg.tmp.i)
           to label %invoke.cont6.i unwind label %lpad5.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont4.i288
@@ -37269,7 +37269,7 @@ lpad.i9.i:                                        ; preds = %.noexc12.i
   br label %ehcleanup.i291
 
 invoke.cont11.i:                                  ; preds = %.noexc12.i
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE25AddTestSuiteInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJddEEEEvEPFSA_RKNS_13TestParamInfoISF_EEEPKci(ptr noundef nonnull align 8 dereferenceable(128) %call7.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i, ptr noundef nonnull @_ZN12_GLOBAL__N_173gtest_TestSampleStatisticsCombinationsBetaDistributionTest_EvalGenerator_Ev, ptr noundef nonnull @_ZN12_GLOBAL__N_176gtest_TestSampleStatisticsCombinationsBetaDistributionTest_EvalGenerateName_B5cxx11ERKN7testing13TestParamInfoISt5tupleIJddEEEE, i32 noundef 443)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE25AddTestSuiteInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJddEEEEvEPFSA_RKNS_13TestParamInfoISF_EEEPKci.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(128) %call7.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i, ptr noundef nonnull @_ZN12_GLOBAL__N_173gtest_TestSampleStatisticsCombinationsBetaDistributionTest_EvalGenerator_Ev, ptr noundef nonnull @_ZN12_GLOBAL__N_176gtest_TestSampleStatisticsCombinationsBetaDistributionTest_EvalGenerateName_B5cxx11ERKN7testing13TestParamInfoISt5tupleIJddEEEE, i32 noundef 443)
           to label %__cxx_global_var_init.8.exit unwind label %lpad12.i
 
 lpad.i281:                                        ; preds = %call.i.noexc.i282, %__cxx_global_var_init.7.exit
@@ -37356,7 +37356,7 @@ invoke.cont.i307:                                 ; preds = %.noexc.i305
 invoke.cont4.i311:                                ; preds = %invoke.cont.i307
   %line.i.i312 = getelementptr inbounds i8, ptr %agg.tmp.i293, i64 32
   store i32 450, ptr %line.i.i312, align 8
-  %call7.i313 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_120BetaDistributionTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i299, ptr noundef %agg.tmp.i293)
+  %call7.i313 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_120BetaDistributionTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i299, ptr noundef %agg.tmp.i293)
           to label %invoke.cont6.i317 unwind label %lpad5.i314
 
 invoke.cont6.i317:                                ; preds = %invoke.cont4.i311
@@ -37379,7 +37379,7 @@ lpad.i9.i324:                                     ; preds = %.noexc12.i323
   br label %ehcleanup.i320
 
 invoke.cont11.i325:                               ; preds = %.noexc12.i323
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE25AddTestSuiteInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJddEEEEvEPFSA_RKNS_13TestParamInfoISF_EEEPKci(ptr noundef nonnull align 8 dereferenceable(128) %call7.i313, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i296, ptr noundef nonnull @_ZN12_GLOBAL__N_175gtest_TestSampleStatistics_SelectedPairsBetaDistributionTest_EvalGenerator_Ev, ptr noundef nonnull @_ZN12_GLOBAL__N_178gtest_TestSampleStatistics_SelectedPairsBetaDistributionTest_EvalGenerateName_B5cxx11ERKN7testing13TestParamInfoISt5tupleIJddEEEE, i32 noundef 450)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE25AddTestSuiteInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJddEEEEvEPFSA_RKNS_13TestParamInfoISF_EEEPKci.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(128) %call7.i313, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i296, ptr noundef nonnull @_ZN12_GLOBAL__N_175gtest_TestSampleStatistics_SelectedPairsBetaDistributionTest_EvalGenerator_Ev, ptr noundef nonnull @_ZN12_GLOBAL__N_178gtest_TestSampleStatistics_SelectedPairsBetaDistributionTest_EvalGenerateName_B5cxx11ERKN7testing13TestParamInfoISt5tupleIJddEEEE, i32 noundef 450)
           to label %__cxx_global_var_init.11.exit unwind label %lpad12.i326
 
 lpad.i301:                                        ; preds = %call.i.noexc.i304, %__cxx_global_var_init.8.exit
@@ -37664,9 +37664,9 @@ attributes #40 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!8, !10}
-!8 = distinct !{!8, !9, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoES6_SaIS6_EEvPT_PT0_RT1_: %__dest"}
-!9 = distinct !{!9, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoES6_SaIS6_EEvPT_PT0_RT1_"}
-!10 = distinct !{!10, !9, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoES6_SaIS6_EEvPT_PT0_RT1_: %__orig"}
+!8 = distinct !{!8, !9, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoES6_SaIS6_EEvPT_PT0_RT1_.argprom: %__dest"}
+!9 = distinct !{!9, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoES6_SaIS6_EEvPT_PT0_RT1_.argprom"}
+!10 = distinct !{!10, !9, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE17InstantiationInfoES6_SaIS6_EEvPT_PT0_RT1_.argprom: %__orig"}
 !11 = distinct !{!11, !6}
 !12 = !{!13, !15}
 !13 = distinct !{!13, !14, !"_ZNK7testing8internal10ValueArrayIJSt4pairIdiES2_IidES2_IiiES5_S2_IddES6_EE10MakeVectorISt5tupleIJddEEJLm0ELm1ELm2ELm3ELm4ELm5EEEESt6vectorIT_SaISC_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
@@ -38729,8 +38729,8 @@ attributes #40 = { nounwind willreturn memory(read) }
 !1070 = distinct !{!1070, !1071, !"_ZN7testing8internal19StripTrailingSpacesENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: %agg.result"}
 !1071 = distinct !{!1071, !"_ZN7testing8internal19StripTrailingSpacesENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
 !1072 = !{!1073}
-!1073 = distinct !{!1073, !1074, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEES8_SaIS8_EEvPT_PT0_RT1_: %__dest"}
-!1074 = distinct !{!1074, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEES8_SaIS8_EEvPT_PT0_RT1_"}
+!1073 = distinct !{!1073, !1074, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEES8_SaIS8_EEvPT_PT0_RT1_.argprom: %__dest"}
+!1074 = distinct !{!1074, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEES8_SaIS8_EEvPT_PT0_RT1_.argprom"}
 !1075 = !{!1076}
-!1076 = distinct !{!1076, !1074, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEES8_SaIS8_EEvPT_PT0_RT1_: %__orig"}
+!1076 = distinct !{!1076, !1074, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEE8TestInfoEES8_SaIS8_EEvPT_PT0_RT1_.argprom: %__orig"}
 !1077 = distinct !{!1077, !6}

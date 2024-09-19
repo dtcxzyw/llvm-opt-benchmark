@@ -36903,19 +36903,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_IsValidPathComponentINS_25Sdf_Express
 
 75:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_IsValidPathComponentINS_25Sdf_ExpressionChildPolicyEEclERKNS_7TfTokenE.exit.i
   store i64 0, ptr %25, align 8, !alias.scope !242
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom.exit
 
 76:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_IsValidPathComponentINS_25Sdf_ExpressionChildPolicyEEclERKNS_7TfTokenE.exit.i
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath16AppendExpressionEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %25, ptr noundef nonnull align 4 dereferenceable(8) %1)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.exit unwind label %106
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom.exit unwind label %106
 
-_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.exit: ; preds = %75, %76
+_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom.exit: ; preds = %75, %76
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
   %77 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfSpec9IsDormantEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %.noexc64 unwind label %108
 
-.noexc64:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.exit
+.noexc64:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom.exit
   br i1 %77, label %78, label %84
 
 78:                                               ; preds = %.noexc64
@@ -36997,7 +36997,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %85, %90, %102
           cleanup
   br label %801
 
-108:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE13_FetchPointerEv.exit.thread.i, %78, %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.exit, %84
+108:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE13_FetchPointerEv.exit.thread.i, %78, %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom.exit, %84
   %109 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -38925,22 +38925,22 @@ _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_IsValidPathComponentINS_25Sdf_Express
   %129 = and i8 %126, 1
   %130 = icmp eq i8 %129, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !257
-  br i1 %130, label %131, label %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.exit.thread
+  br i1 %130, label %131, label %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom.exit.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_IsValidPathComponentINS_25Sdf_ExpressionChildPolicyEEclERKNS_7TfTokenE.exit.i
+_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_IsValidPathComponentINS_25Sdf_ExpressionChildPolicyEEclERKNS_7TfTokenE.exit.i
   store i64 0, ptr %17, align 8, !alias.scope !257
   br label %132
 
 131:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_IsValidPathComponentINS_25Sdf_ExpressionChildPolicyEEclERKNS_7TfTokenE.exit.i
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath16AppendExpressionEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %17, ptr noundef nonnull align 4 dereferenceable(8) %1)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.exit unwind label %66
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom.exit unwind label %66
 
-_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.exit: ; preds = %131
+_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom.exit: ; preds = %131
   %.pr = load i32, ptr %17, align 8
   %.not.i86 = icmp eq i32 %.pr, 0
   br i1 %.not.i86, label %132, label %135
 
-132:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.exit
+132:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom.exit
   %.not66 = icmp eq ptr %5, null
   br i1 %.not66, label %307, label %.invoke130
 
@@ -38949,7 +38949,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChi
           cleanup
   br label %.body94
 
-135:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.exit
+135:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   %136 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfSpec9IsDormantEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -110637,11 +110637,11 @@ attributes #20 = { nounwind willreturn memory(read) }
 !200 = distinct !{!200, !201, !"_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_TokenChildPolicyINS_9SdfHandleINS_7SdfSpecEEEE13GetFieldValueERKNS_7SdfPathE: argument 0"}
 !201 = distinct !{!201, !"_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_TokenChildPolicyINS_9SdfHandleINS_7SdfSpecEEEE13GetFieldValueERKNS_7SdfPathE"}
 !202 = !{!203}
-!203 = distinct !{!203, !204, !"_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE: argument 0"}
-!204 = distinct !{!204, !"_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE"}
+!203 = distinct !{!203, !204, !"_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom: argument 0"}
+!204 = distinct !{!204, !"_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom"}
 !205 = !{!206}
-!206 = distinct !{!206, !207, !"_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE: argument 0"}
-!207 = distinct !{!207, !"_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE"}
+!206 = distinct !{!206, !207, !"_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom: argument 0"}
+!207 = distinct !{!207, !"_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom"}
 !208 = !{!209}
 !209 = distinct !{!209, !210, !"_ZN32pxrInternal_v0_24__pxrReserved__25Sdf_ExpressionChildPolicy16GetChildrenTokenERKNS_7SdfPathE: argument 0"}
 !210 = distinct !{!210, !"_ZN32pxrInternal_v0_24__pxrReserved__25Sdf_ExpressionChildPolicy16GetChildrenTokenERKNS_7SdfPathE"}
@@ -110677,8 +110677,8 @@ attributes #20 = { nounwind willreturn memory(read) }
 !240 = distinct !{!240, !241, !"_ZN32pxrInternal_v0_24__pxrReserved__25Sdf_ExpressionChildPolicy16GetChildrenTokenERKNS_7SdfPathE: argument 0"}
 !241 = distinct !{!241, !"_ZN32pxrInternal_v0_24__pxrReserved__25Sdf_ExpressionChildPolicy16GetChildrenTokenERKNS_7SdfPathE"}
 !242 = !{!243}
-!243 = distinct !{!243, !244, !"_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE: argument 0"}
-!244 = distinct !{!244, !"_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE"}
+!243 = distinct !{!243, !244, !"_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom: argument 0"}
+!244 = distinct !{!244, !"_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom"}
 !245 = !{!246}
 !246 = distinct !{!246, !247, !"_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer10GetFieldAsISt6vectorINS_7TfTokenESaIS3_EEEET_RKNS_7SdfPathERKS3_RKS6_: argument 0"}
 !247 = distinct !{!247, !"_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer10GetFieldAsISt6vectorINS_7TfTokenESaIS3_EEEET_RKNS_7SdfPathERKS3_RKS6_"}
@@ -110692,8 +110692,8 @@ attributes #20 = { nounwind willreturn memory(read) }
 !255 = distinct !{!255, !256, !"_ZN32pxrInternal_v0_24__pxrReserved__25Sdf_ExpressionChildPolicy16GetChildrenTokenERKNS_7SdfPathE: argument 0"}
 !256 = distinct !{!256, !"_ZN32pxrInternal_v0_24__pxrReserved__25Sdf_ExpressionChildPolicy16GetChildrenTokenERKNS_7SdfPathE"}
 !257 = !{!258}
-!258 = distinct !{!258, !259, !"_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE: argument 0"}
-!259 = distinct !{!259, !"_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE"}
+!258 = distinct !{!258, !259, !"_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom: argument 0"}
+!259 = distinct !{!259, !"_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_25Sdf_ExpressionChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE.argprom"}
 !260 = !{!261}
 !261 = distinct !{!261, !262, !"_ZN32pxrInternal_v0_24__pxrReserved__25Sdf_ExpressionChildPolicy16GetChildrenTokenERKNS_7SdfPathE: argument 0"}
 !262 = distinct !{!262, !"_ZN32pxrInternal_v0_24__pxrReserved__25Sdf_ExpressionChildPolicy16GetChildrenTokenERKNS_7SdfPathE"}

@@ -867,14 +867,14 @@ set_foreign_rel_properties.exit:                  ; preds = %13, %64, %90, %92, 
   %.val = load ptr, ptr %104, align 8
   %105 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %105, align 8
-  tail call fastcc void @build_joinrel_tlist(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr %.val.val, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %103)
+  tail call fastcc void @build_joinrel_tlist.argprom.argprom(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr %.val.val, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %103)
   %106 = load i32, ptr %101, align 8
   %107 = icmp ne i32 %106, 0
   %108 = getelementptr i8, ptr %3, i64 32
   %.val154 = load ptr, ptr %108, align 8
   %109 = getelementptr i8, ptr %.val154, i64 8
   %.val154.val = load ptr, ptr %109, align 8
-  tail call fastcc void @build_joinrel_tlist(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr %.val154.val, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %107)
+  tail call fastcc void @build_joinrel_tlist.argprom.argprom(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr %.val154.val, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %107)
   tail call void @add_placeholders_to_joinrel(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) #7
   %110 = load ptr, ptr %34, align 8
   %111 = load ptr, ptr %17, align 8
@@ -931,13 +931,13 @@ subbuild_joinrel_joinlist.exit.i:                 ; preds = %130, %.lr.ph.i.i, %
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 4
   %.not.i7.i = icmp eq ptr %135, null
-  br i1 %.not.i7.i, label %build_joinrel_joinlist.exit, label %.lr.ph.i8.i
+  br i1 %.not.i7.i, label %build_joinrel_joinlist.argprom.exit, label %.lr.ph.i8.i
 
 .lr.ph.i8.i:                                      ; preds = %subbuild_joinrel_joinlist.exit.i
   %137 = getelementptr inbounds i8, ptr %135, i64 16
   %138 = load i32, ptr %136, align 4
   %139 = icmp sgt i32 %138, 0
-  br i1 %139, label %.lr.ph23.i10.i, label %build_joinrel_joinlist.exit
+  br i1 %139, label %.lr.ph23.i10.i, label %build_joinrel_joinlist.argprom.exit
 
 .lr.ph23.i10.i:                                   ; preds = %.lr.ph.i8.i, %149
   %indvars.iv.i11.i = phi i64 [ %indvars.iv.next.i14.i, %149 ], [ 0, %.lr.ph.i8.i ]
@@ -961,9 +961,9 @@ subbuild_joinrel_joinlist.exit.i:                 ; preds = %130, %.lr.ph.i.i, %
   %150 = load i32, ptr %136, align 4
   %151 = sext i32 %150 to i64
   %152 = icmp slt i64 %indvars.iv.next.i14.i, %151
-  br i1 %152, label %.lr.ph23.i10.i, label %build_joinrel_joinlist.exit
+  br i1 %152, label %.lr.ph23.i10.i, label %build_joinrel_joinlist.argprom.exit
 
-build_joinrel_joinlist.exit:                      ; preds = %149, %subbuild_joinrel_joinlist.exit.i, %.lr.ph.i8.i
+build_joinrel_joinlist.argprom.exit:              ; preds = %149, %subbuild_joinrel_joinlist.exit.i, %.lr.ph.i8.i
   %.0.lcssa.i9.i = phi ptr [ %.0.lcssa.i.i, %subbuild_joinrel_joinlist.exit.i ], [ %.0.lcssa.i.i, %.lr.ph.i8.i ], [ %.1.i13.i, %149 ]
   store ptr %.0.lcssa.i9.i, ptr %54, align 8
   %153 = tail call zeroext i1 @has_relevant_eclass_joinclause(ptr noundef %0, ptr noundef nonnull %14) #7
@@ -976,7 +976,7 @@ build_joinrel_joinlist.exit:                      ; preds = %149, %subbuild_join
   %157 = trunc i8 %156 to i1
   br i1 %157, label %158, label %170
 
-158:                                              ; preds = %build_joinrel_joinlist.exit
+158:                                              ; preds = %build_joinrel_joinlist.argprom.exit
   %159 = getelementptr inbounds i8, ptr %2, i64 26
   %160 = load i8, ptr %159, align 2
   %161 = trunc i8 %160 to i1
@@ -997,7 +997,7 @@ build_joinrel_joinlist.exit:                      ; preds = %149, %subbuild_join
   store i8 1, ptr %25, align 2
   br label %170
 
-170:                                              ; preds = %169, %164, %162, %158, %build_joinrel_joinlist.exit
+170:                                              ; preds = %169, %164, %162, %158, %build_joinrel_joinlist.argprom.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   %171 = getelementptr inbounds i8, ptr %0, i64 112
   %172 = load ptr, ptr %171, align 8
@@ -1051,14 +1051,14 @@ define internal fastcc ptr @build_joinrel_restrictlist(ptr noundef %0, ptr nocap
   %.val = load ptr, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %.val, i64 4
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %subbuild_joinrel_restrictlist.exit, label %.lr.ph.i
+  br i1 %.not.i, label %subbuild_joinrel_restrictlist.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5
   %13 = getelementptr inbounds i8, ptr %.val, i64 16
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i32, ptr %12, align 4
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph10.i, label %subbuild_joinrel_restrictlist.exit
+  br i1 %16, label %.lr.ph10.i, label %subbuild_joinrel_restrictlist.argprom.exit
 
 .lr.ph10.i:                                       ; preds = %.lr.ph.i, %41
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %.lr.ph.i ]
@@ -1105,22 +1105,22 @@ define internal fastcc ptr @build_joinrel_restrictlist(ptr noundef %0, ptr nocap
   %42 = load i32, ptr %12, align 4
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next.i, %43
-  br i1 %44, label %.lr.ph10.i, label %subbuild_joinrel_restrictlist.exit
+  br i1 %44, label %.lr.ph10.i, label %subbuild_joinrel_restrictlist.argprom.exit
 
-subbuild_joinrel_restrictlist.exit:               ; preds = %41, %5, %.lr.ph.i
+subbuild_joinrel_restrictlist.argprom.exit:       ; preds = %41, %5, %.lr.ph.i
   %.0.lcssa.i = phi ptr [ null, %5 ], [ null, %.lr.ph.i ], [ %.1.i, %41 ]
   %45 = getelementptr i8, ptr %3, i64 328
   %.val18 = load ptr, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %.val18, i64 4
   %.not.i19 = icmp eq ptr %.val18, null
-  br i1 %.not.i19, label %subbuild_joinrel_restrictlist.exit27, label %.lr.ph.i20
+  br i1 %.not.i19, label %subbuild_joinrel_restrictlist.argprom.exit27, label %.lr.ph.i20
 
-.lr.ph.i20:                                       ; preds = %subbuild_joinrel_restrictlist.exit
+.lr.ph.i20:                                       ; preds = %subbuild_joinrel_restrictlist.argprom.exit
   %47 = getelementptr inbounds i8, ptr %.val18, i64 16
   %48 = getelementptr inbounds i8, ptr %1, i64 8
   %49 = load i32, ptr %46, align 4
   %50 = icmp sgt i32 %49, 0
-  br i1 %50, label %.lr.ph10.i22, label %subbuild_joinrel_restrictlist.exit27
+  br i1 %50, label %.lr.ph10.i22, label %subbuild_joinrel_restrictlist.argprom.exit27
 
 .lr.ph10.i22:                                     ; preds = %.lr.ph.i20, %75
   %indvars.iv.i23 = phi i64 [ %indvars.iv.next.i26, %75 ], [ 0, %.lr.ph.i20 ]
@@ -1167,10 +1167,10 @@ subbuild_joinrel_restrictlist.exit:               ; preds = %41, %5, %.lr.ph.i
   %76 = load i32, ptr %46, align 4
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next.i26, %77
-  br i1 %78, label %.lr.ph10.i22, label %subbuild_joinrel_restrictlist.exit27
+  br i1 %78, label %.lr.ph10.i22, label %subbuild_joinrel_restrictlist.argprom.exit27
 
-subbuild_joinrel_restrictlist.exit27:             ; preds = %75, %subbuild_joinrel_restrictlist.exit, %.lr.ph.i20
-  %.0.lcssa.i21 = phi ptr [ %.0.lcssa.i, %subbuild_joinrel_restrictlist.exit ], [ %.0.lcssa.i, %.lr.ph.i20 ], [ %.1.i25, %75 ]
+subbuild_joinrel_restrictlist.argprom.exit27:     ; preds = %75, %subbuild_joinrel_restrictlist.argprom.exit, %.lr.ph.i20
+  %.0.lcssa.i21 = phi ptr [ %.0.lcssa.i, %subbuild_joinrel_restrictlist.argprom.exit ], [ %.0.lcssa.i, %.lr.ph.i20 ], [ %.1.i25, %75 ]
   %79 = getelementptr inbounds i8, ptr %1, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %6, align 8
@@ -1195,7 +1195,7 @@ define dso_local ptr @min_join_parameterization(ptr nocapture noundef readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_joinrel_tlist(ptr noundef %0, ptr nocapture noundef readonly %1, ptr readonly %.32.val.8.val, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @build_joinrel_tlist.argprom.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr readonly %.32.val.8.val, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 32

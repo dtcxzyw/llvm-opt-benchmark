@@ -933,7 +933,7 @@ find_entry.exit:                                  ; preds = %.thread.i, %.loopex
   br label %51
 
 45:                                               ; preds = %.backedge
-  %46 = call fastcc i64 @find_table_bin_ptr_and_reserve(ptr noundef nonnull %0, i64 %9, i64 noundef %1, ptr noundef %4)
+  %46 = call fastcc i64 @find_table_bin_ptr_and_reserve.argprom(ptr noundef nonnull %0, i64 %9, i64 noundef %1, ptr noundef %4)
   %47 = icmp eq i64 %46, -2
   br i1 %47, label %.backedge.backedge, label %48
 
@@ -1108,7 +1108,7 @@ rebuild_table.exit:                               ; preds = %21, %rb_parser_st_i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 2, 0) i64 @find_table_bin_ptr_and_reserve(ptr nocapture noundef %0, i64 %.0.val, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #6 {
+define internal fastcc range(i64 2, 0) i64 @find_table_bin_ptr_and_reserve.argprom(ptr nocapture noundef %0, i64 %.0.val, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #6 {
   %4 = getelementptr i8, ptr %0, i64 1
   %.val = load i8, ptr %4, align 1
   %5 = zext nneg i8 %.val to i64
@@ -1541,7 +1541,7 @@ find_entry.exit:                                  ; preds = %.thread.i, %.loopex
   br label %52
 
 46:                                               ; preds = %.backedge
-  %47 = call fastcc i64 @find_table_bin_ptr_and_reserve(ptr noundef nonnull %0, i64 %10, i64 noundef %1, ptr noundef %5)
+  %47 = call fastcc i64 @find_table_bin_ptr_and_reserve.argprom(ptr noundef nonnull %0, i64 %10, i64 noundef %1, ptr noundef %5)
   %48 = icmp eq i64 %47, -2
   br i1 %48, label %.backedge.backedge, label %49
 

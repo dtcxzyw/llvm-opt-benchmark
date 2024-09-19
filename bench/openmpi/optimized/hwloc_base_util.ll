@@ -418,7 +418,7 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
 
 165:                                              ; preds = %155
   %166 = load ptr, ptr @opal_hwloc_topology, align 8
-  %167 = call fastcc i32 @opal_hwloc_base_topology_set_flags(ptr noundef %166, i64 noundef 2)
+  %167 = call fastcc i32 @opal_hwloc_base_topology_set_flags.argelim(ptr noundef %166, i64 noundef 2)
   %.not78 = icmp eq i32 %167, 0
   %168 = load ptr, ptr @opal_hwloc_topology, align 8
   br i1 %.not78, label %171, label %169
@@ -485,7 +485,7 @@ opal_hwloc_base_topology_set_flags.exit.thread:   ; preds = %184, %188, %opal_hw
 
 192:                                              ; preds = %188
   %193 = load ptr, ptr @opal_hwloc_topology, align 8
-  call fastcc void @opal_hwloc_base_filter_cpus(ptr noundef %193)
+  call fastcc void @opal_hwloc_base_filter_cpus.argelim(ptr noundef %193)
   br label %194
 
 194:                                              ; preds = %192, %176, %109
@@ -656,7 +656,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 declare void @hwloc_topology_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @opal_hwloc_base_topology_set_flags(ptr noundef %0, i64 noundef range(i64 0, 3) %1) unnamed_addr #0 {
+define internal fastcc i32 @opal_hwloc_base_topology_set_flags.argelim(ptr noundef %0, i64 noundef range(i64 0, 3) %1) unnamed_addr #0 {
   %3 = tail call i32 @hwloc_topology_set_io_types_filter(ptr noundef %0, i32 noundef 3) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %6
@@ -673,7 +673,7 @@ define internal fastcc i32 @opal_hwloc_base_topology_set_flags(ptr noundef %0, i
 declare i32 @hwloc_topology_load(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @opal_hwloc_base_filter_cpus(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @opal_hwloc_base_filter_cpus.argelim(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #10
   %3 = getelementptr inbounds i8, ptr %2, i64 232
   %4 = load ptr, ptr %3, align 8
@@ -860,7 +860,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %27, %2
 
 .loopexit:                                        ; preds = %57, %40, %opal_obj_new.exit, %38
   %.1 = phi ptr [ %23, %38 ], [ %23, %opal_obj_new.exit ], [ %20, %40 ], [ %20, %57 ]
-  %59 = call fastcc ptr @df_search(ptr noundef %0, ptr noundef %14, i32 noundef %1, i32 noundef 0, i8 noundef zeroext %3, ptr noundef nonnull %5)
+  %59 = call fastcc ptr @df_search.argelim(ptr noundef %0, ptr noundef %14, i32 noundef %1, i32 noundef 0, i8 noundef zeroext %3, ptr noundef nonnull %5)
   %60 = load i64, ptr getelementptr inbounds (i8, ptr @opal_hwloc_summary_t_class, i64 56), align 8
   %61 = call noalias ptr @malloc(i64 noundef %60) #11
   %62 = load i32, ptr @opal_class_init_epoch, align 4
@@ -927,7 +927,7 @@ hwloc_get_nbobjs_by_type.exit.thread48:           ; preds = %9, %hwloc_get_nbobj
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @df_search(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc ptr @df_search.argelim(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %0, i32 noundef %2) #9
   %switch = icmp ugt i32 %7, -3
   br i1 %switch, label %hwloc_get_next_obj_by_depth.exit.thread, label %8
@@ -1199,7 +1199,7 @@ define ptr @opal_hwloc_base_get_obj_by_type(ptr noundef %0, i32 noundef %1, i32 
 
 13:                                               ; preds = %7
   %14 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #10
-  %15 = tail call fastcc ptr @df_search(ptr noundef %0, ptr noundef %14, i32 noundef %1, i32 noundef %3, i8 noundef zeroext %4, ptr noundef null)
+  %15 = tail call fastcc ptr @df_search.argelim(ptr noundef %0, ptr noundef %14, i32 noundef %1, i32 noundef %3, i8 noundef zeroext %4, ptr noundef null)
   br label %hwloc_get_obj_by_type.exit
 
 hwloc_get_obj_by_type.exit:                       ; preds = %11, %9, %5, %13

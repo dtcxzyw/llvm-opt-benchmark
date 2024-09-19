@@ -251,7 +251,7 @@ define hidden noundef i32 @cmsIT8SetTable(ptr nocapture noundef %0, i32 noundef 
   br label %12
 
 11:                                               ; preds = %4
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef %1)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef %1)
   br label %14
 
 12:                                               ; preds = %6, %2
@@ -265,7 +265,7 @@ define hidden noundef i32 @cmsIT8SetTable(ptr nocapture noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @SynError(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @SynError.retelim(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [1 x %struct.__va_list_tag], align 16
@@ -374,10 +374,10 @@ AllocChunk.exit:                                  ; preds = %.thread, %31
   store i32 0, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %2, i64 271424
   store i32 1, ptr %40, align 8
-  %41 = tail call fastcc ptr @StringAlloc(ptr noundef %2)
+  %41 = tail call fastcc ptr @StringAlloc.argelim(ptr noundef %2)
   %42 = getelementptr inbounds i8, ptr %2, i64 271384
   store ptr %41, ptr %42, align 8
-  %43 = tail call fastcc ptr @StringAlloc(ptr noundef %2)
+  %43 = tail call fastcc ptr @StringAlloc.argelim(ptr noundef %2)
   %44 = getelementptr inbounds i8, ptr %2, i64 271392
   store ptr %43, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %2, i64 271608
@@ -388,7 +388,7 @@ AllocChunk.exit:                                  ; preds = %.thread, %31
   br i1 %.not.i.i43, label %49, label %48
 
 48:                                               ; preds = %AllocChunk.exit
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %2, ptr noundef nonnull @.str.81, i32 noundef %46)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %2, ptr noundef nonnull @.str.81, i32 noundef %46)
   br label %cmsIT8SetSheetType.exit
 
 49:                                               ; preds = %AllocChunk.exit
@@ -430,7 +430,7 @@ cmsIT8SetSheetType.exit:                          ; preds = %48, %49
 declare ptr @_cmsMallocZero(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @StringAlloc(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @StringAlloc.argelim(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 271344
   %3 = getelementptr inbounds i8, ptr %0, i64 271352
   %4 = load i32, ptr %3, align 8
@@ -579,7 +579,7 @@ define hidden noundef i32 @cmsIT8SetSheetType(ptr noundef %0, ptr nocapture noun
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -606,7 +606,7 @@ define hidden nonnull ptr @cmsIT8GetSheetType(ptr noundef %0) local_unnamed_addr
   br i1 %.not.i, label %7, label %5
 
 5:                                                ; preds = %1
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %3)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %3)
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -642,7 +642,7 @@ define hidden range(i32 0, 2) i32 @cmsIT8SetComment(ptr nocapture noundef %0, pt
   br i1 %.not.i, label %11, label %9
 
 9:                                                ; preds = %5
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %7)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %7)
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -740,7 +740,7 @@ IsAvailableOnList.exit:                           ; preds = %23, %.split.us.i
   br i1 %33, label %34, label %86
 
 34:                                               ; preds = %31, %IsAvailableOnList.exit
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef %0, ptr noundef nonnull @.str.82, ptr noundef nonnull %2)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef %0, ptr noundef nonnull @.str.82, ptr noundef nonnull %2)
   br label %93
 
 .loopexit:                                        ; preds = %17, %26, %.lr.ph.split.i.us, %6
@@ -814,7 +814,7 @@ AllocChunk.exit:                                  ; preds = %59
   br i1 %68, label %71, label %69
 
 AllocChunk.exit.thread:                           ; preds = %59
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.83)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.83)
   br label %93
 
 69:                                               ; preds = %AllocChunk.exit
@@ -902,7 +902,7 @@ define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyStr(ptr nocapture noundef %0
   br i1 %.not.i, label %12, label %10
 
 10:                                               ; preds = %6
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %8)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %8)
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -937,7 +937,7 @@ define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyDbl(ptr nocapture noundef %0
   br i1 %.not.i, label %12, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %8)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %8)
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -970,7 +970,7 @@ define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyHex(ptr nocapture noundef %0
   br i1 %.not.i, label %11, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %7)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %7)
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -998,7 +998,7 @@ define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyUncooked(ptr nocapture nound
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -1026,7 +1026,7 @@ define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyMulti(ptr nocapture noundef 
   br i1 %.not.i, label %10, label %8
 
 8:                                                ; preds = %4
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %6)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %6)
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -1054,7 +1054,7 @@ define hidden ptr @cmsIT8GetProperty(ptr nocapture noundef %0, ptr noundef %1) l
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -1117,7 +1117,7 @@ define hidden double @cmsIT8GetPropertyDbl(ptr nocapture noundef %0, ptr noundef
   br i1 %.not.i.i, label %8, label %6
 
 6:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit.i
 
@@ -1369,7 +1369,7 @@ define hidden ptr @cmsIT8GetPropertyMulti(ptr nocapture noundef %0, ptr noundef 
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -1455,7 +1455,7 @@ define hidden range(i32 0, 2) i32 @cmsIT8SetDataFormat(ptr nocapture noundef %0,
   br i1 %.not.i.i, label %9, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit.i
 
@@ -1484,7 +1484,7 @@ GetTable.exit.i:                                  ; preds = %9, %7
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.84)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.84)
   br label %SetDataFormat.exit
 
 22:                                               ; preds = %17
@@ -1544,7 +1544,7 @@ cmsIT8SetTable.exit:                              ; preds = %cmsIT8SetTable.exit
   br i1 %.not.i15, label %13, label %12
 
 12:                                               ; preds = %11
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %10)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %10)
   br label %GetTable.exit
 
 13:                                               ; preds = %11
@@ -1610,7 +1610,7 @@ define internal fastcc void @WriteHeader(ptr nocapture noundef %0, ptr nocapture
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -2017,7 +2017,7 @@ satob.exit:                                       ; preds = %.lr.ph.i, %.thread.
   br label %177
 
 176:                                              ; preds = %160
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.94, i32 noundef %162)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.94, i32 noundef %162)
   br label %.loopexit75
 
 177:                                              ; preds = %163, %164, %satoi.exit, %satob.exit, %173, %WriteStr.exit66
@@ -2077,7 +2077,7 @@ define internal fastcc void @WriteDataFormat(ptr nocapture noundef nonnull %0, p
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %1, ptr noundef nonnull @.str.81, i32 noundef %4)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %1, ptr noundef nonnull @.str.81, i32 noundef %4)
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   br label %GetTable.exit
 
@@ -2186,7 +2186,7 @@ WriteStr.exit22:                                  ; preds = %38, %40, %41, %48, 
   br i1 %.not.i.i, label %58, label %56
 
 56:                                               ; preds = %WriteStr.exit22
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %1, ptr noundef nonnull @.str.81, i32 noundef %54)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %1, ptr noundef nonnull @.str.81, i32 noundef %54)
   %57 = getelementptr inbounds i8, ptr %1, i64 16
   br label %GetTable.exit.i
 
@@ -2402,7 +2402,7 @@ define internal fastcc void @WriteData(ptr nocapture noundef nonnull %0, ptr noc
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %1, ptr noundef nonnull @.str.81, i32 noundef %4)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %1, ptr noundef nonnull @.str.81, i32 noundef %4)
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   br label %GetTable.exit
 
@@ -2469,7 +2469,7 @@ WriteStr.exit:                                    ; preds = %19, %21, %22, %29, 
   br i1 %.not.i.i, label %39, label %37
 
 37:                                               ; preds = %WriteStr.exit
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %1, ptr noundef nonnull @.str.81, i32 noundef %35)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %1, ptr noundef nonnull @.str.81, i32 noundef %35)
   %38 = getelementptr inbounds i8, ptr %1, i64 16
   br label %GetTable.exit.i
 
@@ -3382,7 +3382,7 @@ SkipEOLN.exit:                                    ; preds = %.lr.ph.i, %89
   br i1 %.not.i.i42, label %113, label %112
 
 112:                                              ; preds = %109
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %110)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %110)
   br label %GetTable.exit.i
 
 113:                                              ; preds = %109
@@ -3398,7 +3398,7 @@ GetTable.exit.i:                                  ; preds = %113, %112
   br i1 %.not.i.i.i, label %Check.exit.i.i, label %Check.exit.thread.i.i
 
 Check.exit.thread.i.i:                            ; preds = %GetTable.exit.i
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.136)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.136)
   %.pre.pre.i43 = load i32, ptr %90, align 8
   br label %CheckEOLN.exit.i.preheader
 
@@ -3424,7 +3424,7 @@ CheckEOLN.exit.i:                                 ; preds = %CheckEOLN.exit.i.pr
   ]
 
 118:                                              ; preds = %CheckEOLN.exit.i
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.134)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.134)
   br label %DataFormatSection.exit.thread
 
 119:                                              ; preds = %CheckEOLN.exit.i
@@ -3437,7 +3437,7 @@ CheckEOLN.exit.i:                                 ; preds = %CheckEOLN.exit.i.pr
   br i1 %.not.i.i33.i, label %125, label %124
 
 124:                                              ; preds = %119
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %122)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %122)
   br label %GetTable.exit.i.i
 
 125:                                              ; preds = %119
@@ -3465,7 +3465,7 @@ GetTable.exit.i.i:                                ; preds = %125, %124
   br i1 %136, label %137, label %138
 
 137:                                              ; preds = %132
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.84)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.84)
   br label %DataFormatSection.exit.thread
 
 138:                                              ; preds = %132
@@ -3532,7 +3532,7 @@ SkipEOLN.exit39.i:                                ; preds = %.lr.ph.i38.i, %Skip
   br i1 %.not29.i, label %DataFormatSection.exit, label %163
 
 163:                                              ; preds = %SkipEOLN.exit39.i
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.135, i32 noundef %162, i32 noundef %156)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.135, i32 noundef %162, i32 noundef %156)
   br label %DataFormatSection.exit
 
 164:                                              ; preds = %107
@@ -3543,7 +3543,7 @@ SkipEOLN.exit39.i:                                ; preds = %.lr.ph.i38.i, %Skip
   br i1 %.not.i.i46, label %168, label %167
 
 167:                                              ; preds = %164
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %165)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %165)
   br label %GetTable.exit.i47
 
 168:                                              ; preds = %164
@@ -3559,7 +3559,7 @@ GetTable.exit.i47:                                ; preds = %168, %167
   br i1 %.not.i.i.i49, label %Check.exit.i.i58, label %Check.exit.thread.i.i50
 
 Check.exit.thread.i.i50:                          ; preds = %GetTable.exit.i47
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.136)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.136)
   br label %CheckEOLN.exit.i51
 
 Check.exit.i.i58:                                 ; preds = %GetTable.exit.i47, %Check.exit.i.i58
@@ -3681,7 +3681,7 @@ SkipEOLN.exit60.i.thread:                         ; preds = %179
 213:                                              ; preds = %SkipEOLN.exit60.i.thread, %SkipEOLN.exit60.i
   %214 = phi i32 [ %212, %SkipEOLN.exit60.i.thread ], [ %209, %SkipEOLN.exit60.i ]
   %215 = phi i32 [ %210, %SkipEOLN.exit60.i.thread ], [ %207, %SkipEOLN.exit60.i ]
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.138, i32 noundef %214, i32 noundef %215)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.138, i32 noundef %214, i32 noundef %215)
   br label %DataSection.exit.thread
 
 DataSection.exit.thread:                          ; preds = %175, %184, %188, %192, %194, %213
@@ -3788,7 +3788,7 @@ DataSection.exit.thread:                          ; preds = %175, %184, %188, %1
   br i1 %.not.i.i61, label %264, label %263
 
 263:                                              ; preds = %258
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %261)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %261)
   br label %cmsIT8SetSheetType.exit
 
 264:                                              ; preds = %258
@@ -3811,7 +3811,7 @@ cmsIT8SetSheetType.exit:                          ; preds = %263, %264
   br i1 %.not.i.i64, label %273, label %272
 
 272:                                              ; preds = %269
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %270)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %270)
   br label %cmsIT8SetSheetType.exit67
 
 273:                                              ; preds = %269
@@ -3832,7 +3832,7 @@ cmsIT8SetSheetType.exit67:                        ; preds = %272, %273
   br i1 %.not.i.i68.not, label %279, label %280
 
 279:                                              ; preds = %276
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef -1)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef -1)
   br label %cmsIT8SetSheetType.exit71
 
 280:                                              ; preds = %276
@@ -3952,7 +3952,7 @@ IsAvailableOnList.exit.i:                         ; preds = %305, %.loopexit88.i
   br i1 %.not.i.i78, label %322, label %321
 
 321:                                              ; preds = %318
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %319)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %319)
   br label %GetTable.exit.i79
 
 322:                                              ; preds = %318
@@ -3975,7 +3975,7 @@ GetTable.exit.i79:                                ; preds = %322, %321
   br i1 %.not70.i, label %.preheader.i81, label %332
 
 332:                                              ; preds = %330
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.141, ptr noundef nonnull %4, ptr noundef nonnull %3)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.141, ptr noundef nonnull %4, ptr noundef nonnull %3)
   br label %HeaderSection.exit.thread
 
 .preheader.i81:                                   ; preds = %330, %GetTable.exit81.i
@@ -3996,7 +3996,7 @@ GetTable.exit.i79:                                ; preds = %322, %321
   br i1 %338, label %339, label %340
 
 339:                                              ; preds = %336
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.142, ptr noundef nonnull %3)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.142, ptr noundef nonnull %3)
   br label %HeaderSection.exit.thread
 
 340:                                              ; preds = %336
@@ -4046,7 +4046,7 @@ GetTable.exit.i79:                                ; preds = %322, %321
   br i1 %361, label %362, label %363
 
 362:                                              ; preds = %359, %._crit_edge.i
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.142, ptr noundef nonnull %3)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.142, ptr noundef nonnull %3)
   br label %HeaderSection.exit.thread
 
 363:                                              ; preds = %359
@@ -4056,7 +4056,7 @@ GetTable.exit.i79:                                ; preds = %322, %321
   br i1 %.not.i79.i, label %367, label %366
 
 366:                                              ; preds = %363
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %364)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %364)
   br label %GetTable.exit81.i
 
 367:                                              ; preds = %363
@@ -4072,7 +4072,7 @@ GetTable.exit81.i:                                ; preds = %367, %366
   br i1 %.not71.i, label %thread-pre-split.i, label %.preheader.i81, !llvm.loop !40
 
 372:                                              ; preds = %287
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.143)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.143)
   br label %HeaderSection.exit.thread
 
 thread-pre-split.i:                               ; preds = %GetTable.exit81.i, %GetTable.exit.i79, %295, %291
@@ -4158,7 +4158,7 @@ define internal fastcc void @CookPointers(ptr nocapture noundef %0) unnamed_addr
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %22
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.144)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.144)
   br label %152
 
 26:                                               ; preds = %22
@@ -4205,7 +4205,7 @@ define internal fastcc void @CookPointers(ptr nocapture noundef %0) unnamed_addr
   br i1 %.not.i.i, label %48, label %47
 
 47:                                               ; preds = %.lr.ph70
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %45)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %45)
   br label %GetTable.exit.i
 
 48:                                               ; preds = %.lr.ph70
@@ -4290,7 +4290,7 @@ IsAvailableOnList.exit:                           ; preds = %71
   br i1 %.not.i.i54, label %85, label %84
 
 84:                                               ; preds = %IsAvailableOnList.exit
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %82)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %82)
   br label %GetTable.exit.i55
 
 85:                                               ; preds = %IsAvailableOnList.exit
@@ -4322,7 +4322,7 @@ GetTable.exit.i55:                                ; preds = %85, %84
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %.thread.i
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.147, i32 noundef %.04468, i32 noundef %94)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.147, i32 noundef %.04468, i32 noundef %94)
   br label %SetData.exit
 
 97:                                               ; preds = %.thread.i
@@ -4333,7 +4333,7 @@ GetTable.exit.i55:                                ; preds = %85, %84
   br i1 %101, label %102, label %103
 
 102:                                              ; preds = %97
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.148, i32 noundef %44, i32 noundef %99)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.148, i32 noundef %44, i32 noundef %99)
   br label %SetData.exit
 
 103:                                              ; preds = %97
@@ -4738,7 +4738,7 @@ define hidden i32 @cmsIT8EnumDataFormat(ptr nocapture noundef %0, ptr noundef wr
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -4774,7 +4774,7 @@ define hidden i32 @cmsIT8EnumProperties(ptr nocapture noundef %0, ptr nocapture 
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -4894,7 +4894,7 @@ define hidden i32 @cmsIT8EnumPropertyMulti(ptr nocapture noundef %0, ptr noundef
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -5057,7 +5057,7 @@ define hidden i32 @cmsIT8FindDataFormat(ptr nocapture noundef %0, ptr noundef %1
   br i1 %.not.i.i, label %8, label %6
 
 6:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit.i
 
@@ -5086,7 +5086,7 @@ GetTable.exit.i:                                  ; preds = %8, %6
   br i1 %.not.i.i.i, label %20, label %19
 
 19:                                               ; preds = %16
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %17)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %17)
   br label %GetTable.exit.i.i
 
 20:                                               ; preds = %16
@@ -5137,7 +5137,7 @@ define hidden ptr @cmsIT8GetDataRowCol(ptr nocapture noundef %0, i32 noundef %1,
   br i1 %.not.i.i, label %9, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit.i
 
@@ -5192,7 +5192,7 @@ define hidden double @cmsIT8GetDataRowColDbl(ptr nocapture noundef %0, i32 nound
   br i1 %.not.i.i.i, label %9, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit.i.i
 
@@ -5258,7 +5258,7 @@ define internal fastcc range(i32 0, 2) i32 @SetData(ptr nocapture noundef %0, i3
   br i1 %.not.i, label %10, label %8
 
 8:                                                ; preds = %4
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %6)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %6)
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -5294,7 +5294,7 @@ GetTable.exit:                                    ; preds = %8, %10
   br i1 %or.cond, label %23, label %24
 
 23:                                               ; preds = %.thread
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.147, i32 noundef %1, i32 noundef %20)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.147, i32 noundef %1, i32 noundef %20)
   br label %38
 
 24:                                               ; preds = %.thread
@@ -5306,7 +5306,7 @@ GetTable.exit:                                    ; preds = %8, %10
   br i1 %or.cond3, label %29, label %30
 
 29:                                               ; preds = %24
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.148, i32 noundef %2, i32 noundef %26)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.148, i32 noundef %2, i32 noundef %26)
   br label %38
 
 30:                                               ; preds = %24
@@ -5343,7 +5343,7 @@ define hidden ptr @cmsIT8GetData(ptr nocapture noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i.i, label %9, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit.i
 
@@ -5372,7 +5372,7 @@ GetTable.exit.i:                                  ; preds = %9, %7
   br i1 %.not.i.i.i, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %18)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %18)
   br label %GetTable.exit.i.i
 
 21:                                               ; preds = %17
@@ -5418,7 +5418,7 @@ LocateSample.exit:                                ; preds = %28
   br i1 %.not.i.i12, label %41, label %40
 
 40:                                               ; preds = %37
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %38)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %38)
   br label %44
 
 41:                                               ; preds = %37
@@ -5465,7 +5465,7 @@ define internal fastcc i32 @LocatePatch(ptr nocapture noundef %0, ptr noundef %1
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -5496,7 +5496,7 @@ GetTable.exit:                                    ; preds = %6, %8
   br i1 %.not.i.i, label %22, label %21
 
 21:                                               ; preds = %17
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %19)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %19)
   br label %GetTable.exit.i
 
 22:                                               ; preds = %17
@@ -5564,7 +5564,7 @@ define hidden range(i32 0, 2) i32 @cmsIT8SetData(ptr nocapture noundef %0, ptr n
   br i1 %.not.i, label %10, label %8
 
 8:                                                ; preds = %4
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %6)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %6)
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %.pre = load i32, ptr %5, align 4
   %.pre58 = load i32, ptr %0, align 8
@@ -5584,7 +5584,7 @@ GetTable.exit:                                    ; preds = %8, %10
   br i1 %.not.i.i, label %18, label %16
 
 16:                                               ; preds = %GetTable.exit
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %15)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %15)
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit.i
 
@@ -5613,7 +5613,7 @@ GetTable.exit.i:                                  ; preds = %18, %16
   br i1 %.not.i.i.i, label %30, label %29
 
 29:                                               ; preds = %26
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %27)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %27)
   br label %GetTable.exit.i.i
 
 30:                                               ; preds = %26
@@ -5679,7 +5679,7 @@ LocateSample.exit:                                ; preds = %37
   br i1 %.not.i.i30, label %59, label %58
 
 58:                                               ; preds = %55
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %56)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %56)
   br label %GetTable.exit.i31
 
 59:                                               ; preds = %55
@@ -5757,7 +5757,7 @@ GetData.exit.us.i:                                ; preds = %82
   br i1 %.not.i.i.i35, label %94, label %93
 
 93:                                               ; preds = %.lr.ph.split.i
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %91)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %91)
   br label %GetTable.exit.i.i36
 
 94:                                               ; preds = %.lr.ph.split.i
@@ -5805,7 +5805,7 @@ LocateEmptyPatch.exit:                            ; preds = %GetData.exit.us.i, 
   br i1 %116, label %LocateEmptyPatch.exit.thread44, label %LocateEmptyPatch.exit.thread
 
 LocateEmptyPatch.exit.thread44:                   ; preds = %112, %89, %GetTable.exit.i31, %LocateEmptyPatch.exit
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef %1)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef %1)
   br label %LocateSample.exit.thread
 
 LocateEmptyPatch.exit.thread:                     ; preds = %GetData.exit.i, %GetTable.exit.i.i36, %103, %GetTable.exit.i.us.i, %.lr.ph.split.us.i, %LocateEmptyPatch.exit
@@ -5839,7 +5839,7 @@ define internal fastcc range(i32 0, 2) i32 @AllocateDataFormat(ptr nocapture nou
   br i1 %.not.i, label %7, label %5
 
 5:                                                ; preds = %1
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %3)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %3)
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -5863,7 +5863,7 @@ GetTable.exit:                                    ; preds = %5, %7
   br i1 %.not.i.i, label %18, label %16
 
 16:                                               ; preds = %13
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %14)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %14)
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit.i
 
@@ -5913,7 +5913,7 @@ satoi.exit:                                       ; preds = %cmsIT8GetProperty.e
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %satoi.exit.thread, %satoi.exit
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.149)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.149)
   br label %72
 
 38:                                               ; preds = %satoi.exit
@@ -5978,7 +5978,7 @@ thread-pre-split.i:                               ; preds = %38
 
 AllocChunk.exit.thread:                           ; preds = %65
   store ptr null, ptr %11, align 8
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.150)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.150)
   br label %72
 
 AllocChunk.exit:                                  ; preds = %65
@@ -6004,7 +6004,7 @@ define internal fastcc range(i32 0, 2) i32 @AllocateDataSet(ptr nocapture nounde
   br i1 %.not.i, label %7, label %5
 
 5:                                                ; preds = %1
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %3)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %3)
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit
 
@@ -6028,7 +6028,7 @@ GetTable.exit:                                    ; preds = %5, %7
   br i1 %.not.i.i, label %18, label %16
 
 16:                                               ; preds = %13
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %14)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %14)
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit.i
 
@@ -6079,7 +6079,7 @@ satoi.exit:                                       ; preds = %28, %GetTable.exit.
   br i1 %.not.i.i23, label %40, label %38
 
 38:                                               ; preds = %satoi.exit
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %36)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %36)
   %39 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit.i24
 
@@ -6131,7 +6131,7 @@ satoi.exit37:                                     ; preds = %50, %GetTable.exit.
   br i1 %or.cond20, label %60, label %61
 
 60:                                               ; preds = %satoi.exit37
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.151)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.151)
   br label %96
 
 61:                                               ; preds = %satoi.exit37
@@ -6197,7 +6197,7 @@ thread-pre-split.i:                               ; preds = %61
 
 AllocChunk.exit.thread:                           ; preds = %89
   store ptr null, ptr %11, align 8
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.152)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.152)
   br label %96
 
 AllocChunk.exit:                                  ; preds = %89
@@ -6234,7 +6234,7 @@ define hidden ptr @cmsIT8GetPatchName(ptr nocapture noundef %0, i32 noundef %1, 
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %.pre = load i32, ptr %4, align 4
   %.pre19 = load i32, ptr %0, align 8
@@ -6256,7 +6256,7 @@ GetTable.exit:                                    ; preds = %7, %9
   br i1 %.not.i.i, label %19, label %17
 
 17:                                               ; preds = %GetTable.exit
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %14)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %14)
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit.i
 
@@ -6386,7 +6386,7 @@ define hidden i32 @cmsIT8SetTableByLabel(ptr nocapture noundef %0, ptr noundef %
   br label %32
 
 31:                                               ; preds = %24
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef %22)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef %22)
   br label %cmsIT8SetTable.exit
 
 32:                                               ; preds = %26, %.thread
@@ -6411,7 +6411,7 @@ define hidden range(i32 0, 2) i32 @cmsIT8SetIndexColumn(ptr nocapture noundef %0
   br i1 %.not.i.i, label %8, label %6
 
 6:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %4)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   br label %GetTable.exit.i
 
@@ -6440,7 +6440,7 @@ GetTable.exit.i:                                  ; preds = %8, %6
   br i1 %.not.i.i.i, label %20, label %19
 
 19:                                               ; preds = %16
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %17)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %17)
   br label %GetTable.exit.i.i
 
 20:                                               ; preds = %16
@@ -6984,7 +6984,7 @@ ReadNumbers.exit.i:                               ; preds = %Check.exit.i.i104.i
 
 .loopexit.sink.split.i:                           ; preds = %198, %ReadNumbers.exit127.i, %87, %74, %71, %68, %55, %41, %39, %123, %177, %78, %59, %46, %114, %168
   %.str.157.sink.i = phi ptr [ @.str.158, %168 ], [ @.str.158, %114 ], [ @.str.158, %46 ], [ @.str.158, %59 ], [ @.str.158, %78 ], [ @.str.136, %177 ], [ @.str.136, %123 ], [ @.str.157, %198 ], [ @.str.156, %39 ], [ @.str.156, %ReadNumbers.exit127.i ], [ @.str.136, %87 ], [ @.str.155, %74 ], [ @.str.154, %71 ], [ @.str.136, %68 ], [ @.str.136, %55 ], [ @.str.153, %41 ]
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %10, ptr noundef nonnull %.str.157.sink.i)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %10, ptr noundef nonnull %.str.157.sink.i)
   br label %ParseCube.exit.thread
 
 ParseCube.exit.thread:                            ; preds = %151, %96, %.preheader175.i, %.loopexit.sink.split.i
@@ -7948,7 +7948,7 @@ NextCh.exit191:                                   ; preds = %.NextCh.exit191_cri
   br i1 %309, label %310, label %311
 
 310:                                              ; preds = %.lr.ph
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.106)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.106)
   store i32 7, ptr %10, align 8
   br label %.loopexit
 
@@ -8103,7 +8103,7 @@ NextCh.exit199:                                   ; preds = %.NextCh.exit199_cri
   br i1 %392, label %393, label %394
 
 393:                                              ; preds = %.critedge
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.107)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.107)
   store i32 7, ptr %10, align 8
   br label %.loopexit
 
@@ -8792,7 +8792,7 @@ NextCh.exit241.backedge:                          ; preds = %721, %733, %741, %7
   br label %750
 
 749:                                              ; preds = %switch.early.test
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.109, i32 noundef %12)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.109, i32 noundef %12)
   store i32 7, ptr %10, align 8
   br label %.loopexit
 
@@ -8812,7 +8812,7 @@ NextCh.exit.backedge:                             ; preds = %750, %20, %32, %40,
   br i1 %754, label %755, label %756
 
 755:                                              ; preds = %752
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.110)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.110)
   store i32 7, ptr %10, align 8
   br label %.loopexit
 
@@ -8823,7 +8823,7 @@ NextCh.exit.backedge:                             ; preds = %750, %20, %32, %40,
   br i1 %.not.i246, label %Check.exit, label %758
 
 758:                                              ; preds = %756
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.111)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.111)
   store i32 7, ptr %10, align 8
   br label %.loopexit
 
@@ -8899,7 +8899,7 @@ AllocChunk.exit.thread:                           ; preds = %790
   %795 = sext i32 %794 to i64
   %796 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %795
   store ptr null, ptr %796, align 8
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.112)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.112)
   store i32 7, ptr %10, align 8
   br label %.loopexit
 
@@ -8977,7 +8977,7 @@ isabsolutepath.exit.i:                            ; preds = %814
   br label %BuildAbsolutePath.exit
 
 836:                                              ; preds = %821, %825
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.113)
   store i32 7, ptr %10, align 8
   br label %.loopexit
 
@@ -8989,7 +8989,7 @@ BuildAbsolutePath.exit:                           ; preds = %831, %819
   br i1 %839, label %840, label %841
 
 840:                                              ; preds = %BuildAbsolutePath.exit
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.114, ptr noundef nonnull %.0)
+  call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.114, ptr noundef nonnull %.0)
   store i32 7, ptr %10, align 8
   br label %.loopexit
 
@@ -9993,7 +9993,7 @@ switch.early.test._crit_edge:                     ; preds = %NextCh.exit28, %swi
   br label %NextCh.exit32
 
 151:                                              ; preds = %NextCh.exit
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.132)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.132)
   br label %NextCh.exit32
 
 NextCh.exit32:                                    ; preds = %149, %145, %144, %136, %124, %151
@@ -10060,7 +10060,7 @@ define internal fastcc range(i32 0, 2) i32 @GetVal(ptr nocapture noundef nonnull
   br label %36
 
 35:                                               ; preds = %4
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef %3)
+  tail call void (ptr, ptr, ...) @SynError.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef %3)
   br label %38
 
 36:                                               ; preds = %27, %21, %16, %8, %7

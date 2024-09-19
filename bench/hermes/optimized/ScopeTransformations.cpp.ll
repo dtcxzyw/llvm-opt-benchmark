@@ -160,7 +160,7 @@ for.end22:                                        ; preds = %_ZN4llvh23SmallVect
   %conv.i.i56 = zext i32 %25 to i64
   %add.ptr.i.i57 = getelementptr inbounds ptr, ptr %24, i64 %conv.i.i56
   %cmp.not1.i = icmp eq i32 %25, 0
-  br i1 %cmp.not1.i, label %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.exit", label %for.body.i
+  br i1 %cmp.not1.i, label %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.argprom.exit", label %for.body.i
 
 for.body.i:                                       ; preds = %for.end22, %for.body.i
   %creator.03.i = phi ptr [ %spec.select.i, %for.body.i ], [ null, %for.end22 ]
@@ -175,9 +175,9 @@ for.body.i:                                       ; preds = %for.end22, %for.bod
   %spec.select.i = select i1 %tobool.not.i, ptr %creator.03.i, ptr %spec.select.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.02.i, i64 8
   %cmp.not.i58 = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i57
-  br i1 %cmp.not.i58, label %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.exit", label %for.body.i
+  br i1 %cmp.not.i58, label %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.argprom.exit", label %for.body.i
 
-"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.exit": ; preds = %for.body.i, %for.end22
+"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.argprom.exit": ; preds = %for.body.i, %for.end22
   %creator.0.lcssa.i = phi ptr [ null, %for.end22 ], [ %spec.select.i, %for.body.i ]
   %call.i59 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6hermes5Value8getUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %child) #9
   %30 = load ptr, ptr %call.i59, align 8
@@ -188,9 +188,9 @@ for.body.i:                                       ; preds = %for.end22, %for.bod
   %cmp.not1.i63 = icmp eq i32 %31, 0
   br i1 %cmp.not1.i63, label %if.end, label %for.body.i64
 
-for.body.i64:                                     ; preds = %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.exit", %for.body.i64
-  %creator.03.i65 = phi ptr [ %spec.select.i70, %for.body.i64 ], [ null, %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.exit" ]
-  %__begin2.02.i66 = phi ptr [ %incdec.ptr.i71, %for.body.i64 ], [ %30, %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.exit" ]
+for.body.i64:                                     ; preds = %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.argprom.exit", %for.body.i64
+  %creator.03.i65 = phi ptr [ %spec.select.i70, %for.body.i64 ], [ null, %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.argprom.exit" ]
+  %__begin2.02.i66 = phi ptr [ %incdec.ptr.i71, %for.body.i64 ], [ %30, %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.argprom.exit" ]
   %32 = load ptr, ptr %__begin2.02.i66, align 8
   %add.ptr.i.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %32, i64 16
   %33 = load i8, ptr %add.ptr.i.i.i.i.i.i.i67, align 8
@@ -201,22 +201,22 @@ for.body.i64:                                     ; preds = %"_ZZN6hermes11Scope
   %spec.select.i70 = select i1 %tobool.not.i69, ptr %creator.03.i65, ptr %spec.select.i.i68
   %incdec.ptr.i71 = getelementptr inbounds i8, ptr %__begin2.02.i66, i64 8
   %cmp.not.i72 = icmp eq ptr %incdec.ptr.i71, %add.ptr.i.i62
-  br i1 %cmp.not.i72, label %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.exit74", label %for.body.i64
+  br i1 %cmp.not.i72, label %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.argprom.exit74", label %for.body.i64
 
-"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.exit74": ; preds = %for.body.i64
+"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.argprom.exit74": ; preds = %for.body.i64
   %tobool = icmp ne ptr %creator.0.lcssa.i, null
   %tobool25 = icmp ne ptr %spec.select.i70, null
   %or.cond = and i1 %tobool, %tobool25
   br i1 %or.cond, label %if.then, label %if.end
 
-if.then:                                          ; preds = %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.exit74"
+if.then:                                          ; preds = %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.argprom.exit74"
   %add.ptr = getelementptr inbounds i8, ptr %spec.select.i70, i64 16
   %add.ptr26 = getelementptr inbounds i8, ptr %creator.0.lcssa.i, i64 16
   tail call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull %add.ptr26) #9
   tail call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %spec.select.i70) #9
   br label %if.end
 
-if.end:                                           ; preds = %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.exit", %if.then, %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.exit74"
+if.end:                                           ; preds = %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.argprom.exit", %if.then, %"_ZZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_ENK3$_0clES4_.argprom.exit74"
   tail call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %child, ptr noundef nonnull %parent) #9
   %mergedMap_ = getelementptr inbounds i8, ptr %this, i64 32
   %36 = load ptr, ptr %mergedMap_, align 8
@@ -297,7 +297,7 @@ entry:
   %conv.i.i = zext i32 %scopeDesc.val24 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %scopeDesc.val, i64 %conv.i.i
   %cmp.not5.not.i = icmp eq i32 %scopeDesc.val24, 0
-  br i1 %cmp.not5.not.i, label %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit, label %for.body.i
+  br i1 %cmp.not5.not.i, label %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %__begin1.06.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %scopeDesc.val, %entry ]
@@ -328,7 +328,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   %Parent.i5.i.i = getelementptr inbounds i8, ptr %10, i64 72
   %11 = load ptr, ptr %Parent.i5.i.i, align 8
   %cmp6.not.i.i = icmp eq ptr %11, %F
-  br i1 %cmp6.not.i.i, label %for.inc.i.i, label %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit
+  br i1 %cmp6.not.i.i, label %for.inc.i.i, label %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.argprom.exit
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.07.i.i, i64 8
@@ -338,9 +338,9 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
 for.inc.i:                                        ; preds = %for.inc.i.i, %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.06.i, i64 8
   %cmp.not.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.not.i, label %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit, label %for.body.i
+  br i1 %cmp.not.not.i, label %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.argprom.exit, label %for.body.i
 
-_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit: ; preds = %for.inc.i, %if.then.i.i, %entry
+_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.argprom.exit: ; preds = %for.inc.i, %if.then.i.i, %entry
   %cmp.not4.i = phi i8 [ 0, %entry ], [ 1, %if.then.i.i ], [ 0, %for.inc.i ]
   %innerScopes_.i = getelementptr inbounds i8, ptr %scopeDesc, i64 48
   %Size.i = getelementptr inbounds i8, ptr %scopeDesc, i64 56
@@ -349,7 +349,7 @@ _ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit: ; pred
   %tobool.not.i.i.i = icmp eq i32 %12, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %for.body.preheader
 
-for.body.preheader:                               ; preds = %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit
+for.body.preheader:                               ; preds = %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.argprom.exit
   %sub.i.i.i.i.i = add nuw nsw i64 %conv.i, 63
   %13 = lshr i64 %sub.i.i.i.i.i, 3
   %mul.i.i.i.i.i.i = and i64 %13, 1073741816
@@ -484,8 +484,8 @@ if.then.i.i.i:                                    ; preds = %if.end15.sink.split
   tail call void @_ZdlPv(ptr noundef %call5.i.i.i.i.i.i) #11
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
-_ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit, %if.then.i.i.i
-  %scopeDescHasEscapingVar.0.lcssa8390115 = phi i8 [ %scopeDescHasEscapingVar.1, %if.then.i.i.i ], [ %cmp.not4.i, %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit ]
+_ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.argprom.exit, %if.then.i.i.i
+  %scopeDescHasEscapingVar.0.lcssa8390115 = phi i8 [ %scopeDescHasEscapingVar.1, %if.then.i.i.i ], [ %cmp.not4.i, %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.argprom.exit ]
   %28 = and i8 %scopeDescHasEscapingVar.0.lcssa8390115, 1
   %cond = zext nneg i8 %28 to i32
   ret i32 %cond

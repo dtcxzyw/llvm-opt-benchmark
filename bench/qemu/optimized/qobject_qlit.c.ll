@@ -28,17 +28,17 @@ lor.lhs.false:                                    ; preds = %entry
   %rhs.val = load i32, ptr %rhs, align 8
   %1 = add i32 %rhs.val, -1
   %or.cond.i = icmp ult i32 %1, 6
-  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %lor.lhs.false
   tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #4
   unreachable
 
-qobject_type.exit:                                ; preds = %lor.lhs.false
+qobject_type.argprom.exit:                        ; preds = %lor.lhs.false
   %cmp.not = icmp eq i32 %0, %rhs.val
   br i1 %cmp.not, label %if.end, label %return
 
-if.end:                                           ; preds = %qobject_type.exit
+if.end:                                           ; preds = %qobject_type.argprom.exit
   switch i32 %0, label %default.unreachable [
     i32 6, label %qobject_check_type.exit
     i32 2, label %qobject_check_type.exit18
@@ -147,8 +147,8 @@ land.end.i:                                       ; preds = %land.end.i.loopexit
 default.unreachable:                              ; preds = %if.end
   unreachable
 
-return:                                           ; preds = %for.body.i41, %for.body.i, %land.end.i, %for.end.i, %if.end, %entry, %qobject_type.exit, %qobject_check_type.exit24, %qobject_check_type.exit18, %qobject_check_type.exit
-  %retval.0 = phi i1 [ %cmp19, %qobject_check_type.exit24 ], [ %cmp12, %qobject_check_type.exit18 ], [ %cmp6, %qobject_check_type.exit ], [ false, %qobject_type.exit ], [ false, %entry ], [ true, %if.end ], [ %cmp.not.i, %for.end.i ], [ %cmp.i48, %land.end.i ], [ false, %for.body.i ], [ false, %for.body.i41 ]
+return:                                           ; preds = %for.body.i41, %for.body.i, %land.end.i, %for.end.i, %if.end, %entry, %qobject_type.argprom.exit, %qobject_check_type.exit24, %qobject_check_type.exit18, %qobject_check_type.exit
+  %retval.0 = phi i1 [ %cmp19, %qobject_check_type.exit24 ], [ %cmp12, %qobject_check_type.exit18 ], [ %cmp6, %qobject_check_type.exit ], [ false, %qobject_type.argprom.exit ], [ false, %entry ], [ true, %if.end ], [ %cmp.not.i, %for.end.i ], [ %cmp.i48, %land.end.i ], [ false, %for.body.i ], [ false, %for.body.i41 ]
   ret i1 %retval.0
 }
 

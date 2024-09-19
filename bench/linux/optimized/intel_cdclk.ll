@@ -2148,7 +2148,7 @@ define dso_local i32 @intel_modeset_calc_cdclk(ptr noundef %0) local_unnamed_add
 229:                                              ; preds = %216, %212, %207, %199
   %230 = and i16 %204, 2
   %231 = icmp eq i16 %230, 0
-  br i1 %231, label %intel_cdclk_can_crawl.exit.thread, label %232
+  br i1 %231, label %intel_cdclk_can_crawl.argprom.argprom.exit.thread, label %232
 
 232:                                              ; preds = %229
   %233 = load i32, ptr %31, align 4
@@ -2168,17 +2168,17 @@ define dso_local i32 @intel_modeset_calc_cdclk(ptr noundef %0) local_unnamed_add
   %247 = select i1 %243, i1 %246, i1 false
   %248 = icmp eq i32 %236, %242
   %249 = select i1 %247, i1 %248, i1 false
-  br i1 %249, label %intel_cdclk_can_crawl.exit, label %intel_cdclk_can_crawl.exit.thread
+  br i1 %249, label %intel_cdclk_can_crawl.argprom.argprom.exit, label %intel_cdclk_can_crawl.argprom.argprom.exit.thread
 
-intel_cdclk_can_crawl.exit:                       ; preds = %232
+intel_cdclk_can_crawl.argprom.argprom.exit:       ; preds = %232
   %250 = getelementptr inbounds i8, ptr %13, i64 52
   %251 = load i32, ptr %250, align 4
   %252 = getelementptr inbounds i8, ptr %5, i64 52
   %253 = load i32, ptr %252, align 4
   %254 = icmp eq i32 %251, %253
-  br i1 %254, label %255, label %intel_cdclk_can_crawl.exit.thread
+  br i1 %254, label %255, label %intel_cdclk_can_crawl.argprom.argprom.exit.thread
 
-255:                                              ; preds = %intel_cdclk_can_crawl.exit
+255:                                              ; preds = %intel_cdclk_can_crawl.argprom.argprom.exit
   %256 = icmp eq ptr %3, null
   br i1 %256, label %260, label %257
 
@@ -2192,11 +2192,11 @@ intel_cdclk_can_crawl.exit:                       ; preds = %232
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %261, i32 noundef 2, ptr noundef nonnull @.str.6) #15
   br label %296
 
-intel_cdclk_can_crawl.exit.thread:                ; preds = %232, %229, %intel_cdclk_can_crawl.exit
+intel_cdclk_can_crawl.argprom.argprom.exit.thread: ; preds = %232, %229, %intel_cdclk_can_crawl.argprom.argprom.exit
   %262 = icmp eq i32 %152, -1
   br i1 %262, label %272, label %263
 
-263:                                              ; preds = %intel_cdclk_can_crawl.exit.thread
+263:                                              ; preds = %intel_cdclk_can_crawl.argprom.argprom.exit.thread
   %264 = getelementptr inbounds i8, ptr %5, i64 88
   store i32 %152, ptr %264, align 8
   %265 = icmp eq ptr %3, null
@@ -2213,7 +2213,7 @@ intel_cdclk_can_crawl.exit.thread:                ; preds = %232, %229, %intel_c
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %270, i32 noundef 2, ptr noundef nonnull @.str.7, i32 noundef %271) #15
   br label %296
 
-272:                                              ; preds = %intel_cdclk_can_crawl.exit.thread
+272:                                              ; preds = %intel_cdclk_can_crawl.argprom.argprom.exit.thread
   %273 = load i32, ptr %31, align 4
   %274 = load i32, ptr %32, align 4
   %275 = icmp eq i32 %273, %274
@@ -3509,14 +3509,14 @@ define internal void @bxt_set_cdclk(ptr noundef %0, ptr nocapture noundef readon
   br label %118
 
 118:                                              ; preds = %116, %103
-  tail call fastcc void @_bxt_set_cdclk(ptr noundef %0, i32 %70, i32 %64, i32 noundef %2)
+  tail call fastcc void @_bxt_set_cdclk.argprom(ptr noundef %0, i32 %70, i32 %64, i32 noundef %2)
   br label %119
 
 119:                                              ; preds = %118, %48, %41, %34, %.thread
   %.val12 = load i32, ptr %1, align 4
   %120 = getelementptr i8, ptr %1, i64 4
   %.val13 = load i32, ptr %120, align 4
-  tail call fastcc void @_bxt_set_cdclk(ptr noundef %0, i32 %.val12, i32 %.val13, i32 noundef %2)
+  tail call fastcc void @_bxt_set_cdclk.argprom(ptr noundef %0, i32 %.val12, i32 %.val13, i32 noundef %2)
   %121 = load i16, ptr %5, align 8
   %122 = add i16 %121, -11
   %123 = icmp ult i16 %122, 3
@@ -3706,7 +3706,7 @@ declare dso_local i32 @snb_pcode_write_timeout(ptr noundef, i32 noundef, i32 nou
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @_bxt_set_cdclk(ptr noundef %0, i32 %.0.val, i32 %.4.val, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @_bxt_set_cdclk.argprom(ptr noundef %0, i32 %.0.val, i32 %.4.val, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca [3 x i32], align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 2624
   %5 = load ptr, ptr %4, align 8

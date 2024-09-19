@@ -226,7 +226,7 @@ p_isnotalnum.exit:                                ; preds = %p_isalnum.exit, %14
 p_isalpha.exit.thread:                            ; preds = %25
   %26 = trunc i8 %23 to i1
   tail call void @llvm.assume(i1 %26)
-  br label %p_isnotalpha.exit
+  br label %p_isnotalpha.argprom.exit
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
@@ -247,7 +247,7 @@ p_isalpha.exit:                                   ; preds = %p_isnotalnum.exit, 
   %38 = trunc i8 %37 to i1
   tail call void @llvm.assume(i1 %38)
   %.not.i.i4 = icmp eq ptr %36, null
-  br i1 %.not.i.i4, label %39, label %p_isnotalpha.exit
+  br i1 %.not.i.i4, label %39, label %p_isnotalpha.argprom.exit
 
 39:                                               ; preds = %p_isalpha.exit
   %40 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
@@ -260,22 +260,22 @@ p_isalpha.exit:                                   ; preds = %p_isnotalnum.exit, 
   %47 = tail call i32 @iswalpha(i32 noundef %46) #16
   %.pre46 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre49.pre = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  br label %p_isnotalpha.exit
+  br label %p_isnotalpha.argprom.exit
 
-p_isnotalpha.exit:                                ; preds = %p_isalpha.exit.thread, %p_isalpha.exit, %39
+p_isnotalpha.argprom.exit:                        ; preds = %p_isalpha.exit.thread, %p_isalpha.exit, %39
   %.pre49 = phi ptr [ %36, %p_isalpha.exit ], [ %.pre49.pre, %39 ], [ %.pre45, %p_isalpha.exit.thread ]
   %48 = phi i8 [ %37, %p_isalpha.exit ], [ %.pre46, %39 ], [ %23, %p_isalpha.exit.thread ]
   %49 = trunc i8 %48 to i1
   br i1 %49, label %50, label %p_isdigit.exit
 
-50:                                               ; preds = %p_isnotalpha.exit
+50:                                               ; preds = %p_isnotalpha.argprom.exit
   %.not.i8 = icmp eq ptr %.pre49, null
   br i1 %.not.i8, label %52, label %p_isdigit.exit.thread
 
 p_isdigit.exit.thread:                            ; preds = %50
   %51 = trunc i8 %48 to i1
   tail call void @llvm.assume(i1 %51)
-  br label %p_isnotdigit.exit.thread
+  br label %p_isnotdigit.argprom.exit.thread
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
@@ -290,22 +290,22 @@ p_isdigit.exit.thread:                            ; preds = %50
   %.pre48 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
   br label %p_isdigit.exit
 
-p_isdigit.exit:                                   ; preds = %p_isnotalpha.exit, %52
-  %61 = phi ptr [ %.pre49, %p_isnotalpha.exit ], [ %.pre48, %52 ]
-  %62 = phi i8 [ %48, %p_isnotalpha.exit ], [ %.pre47, %52 ]
+p_isdigit.exit:                                   ; preds = %p_isnotalpha.argprom.exit, %52
+  %61 = phi ptr [ %.pre49, %p_isnotalpha.argprom.exit ], [ %.pre48, %52 ]
+  %62 = phi i8 [ %48, %p_isnotalpha.argprom.exit ], [ %.pre47, %52 ]
   %63 = trunc i8 %62 to i1
   tail call void @llvm.assume(i1 %63)
   %.not.i.i9 = icmp eq ptr %61, null
-  br i1 %.not.i.i9, label %p_isnotdigit.exit, label %p_isnotdigit.exit.thread
+  br i1 %.not.i.i9, label %p_isnotdigit.argprom.exit, label %p_isnotdigit.argprom.exit.thread
 
-p_isnotdigit.exit.thread:                         ; preds = %p_isdigit.exit, %p_isdigit.exit.thread
+p_isnotdigit.argprom.exit.thread:                 ; preds = %p_isdigit.exit, %p_isdigit.exit.thread
   %.ph = phi ptr [ %.pre49, %p_isdigit.exit.thread ], [ %61, %p_isdigit.exit ]
   %.ph83 = phi i8 [ %48, %p_isdigit.exit.thread ], [ %62, %p_isdigit.exit ]
   %64 = trunc i8 %.ph83 to i1
   tail call void @llvm.assume(i1 %64)
-  br label %p_islower.exit.thread
+  br label %p_islower.argprom.exit.thread
 
-p_isnotdigit.exit:                                ; preds = %p_isdigit.exit
+p_isnotdigit.argprom.exit:                        ; preds = %p_isdigit.exit
   %65 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
   %66 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 4
@@ -319,16 +319,16 @@ p_isnotdigit.exit:                                ; preds = %p_isdigit.exit
   %73 = trunc i8 %.pre50 to i1
   tail call void @llvm.assume(i1 %73)
   %.not.i12 = icmp eq ptr %.pre51, null
-  br i1 %.not.i12, label %p_islower.exit, label %p_islower.exit.thread
+  br i1 %.not.i12, label %p_islower.argprom.exit, label %p_islower.argprom.exit.thread
 
-p_islower.exit.thread:                            ; preds = %p_isnotdigit.exit, %p_isnotdigit.exit.thread
-  %.ph85 = phi ptr [ %.ph, %p_isnotdigit.exit.thread ], [ %.pre51, %p_isnotdigit.exit ]
-  %.ph86 = phi i8 [ %.ph83, %p_isnotdigit.exit.thread ], [ %.pre50, %p_isnotdigit.exit ]
+p_islower.argprom.exit.thread:                    ; preds = %p_isnotdigit.argprom.exit, %p_isnotdigit.argprom.exit.thread
+  %.ph85 = phi ptr [ %.ph, %p_isnotdigit.argprom.exit.thread ], [ %.pre51, %p_isnotdigit.argprom.exit ]
+  %.ph86 = phi i8 [ %.ph83, %p_isnotdigit.argprom.exit.thread ], [ %.pre50, %p_isnotdigit.argprom.exit ]
   %74 = trunc i8 %.ph86 to i1
   tail call void @llvm.assume(i1 %74)
-  br label %p_isnotlower.exit.thread
+  br label %p_isnotlower.argprom.exit.thread
 
-p_islower.exit:                                   ; preds = %p_isnotdigit.exit
+p_islower.argprom.exit:                           ; preds = %p_isnotdigit.argprom.exit
   %75 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
   %76 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 4
@@ -342,16 +342,16 @@ p_islower.exit:                                   ; preds = %p_isnotdigit.exit
   %83 = trunc i8 %.pre52 to i1
   tail call void @llvm.assume(i1 %83)
   %.not.i.i14 = icmp eq ptr %.pre53, null
-  br i1 %.not.i.i14, label %p_isnotlower.exit, label %p_isnotlower.exit.thread
+  br i1 %.not.i.i14, label %p_isnotlower.argprom.exit, label %p_isnotlower.argprom.exit.thread
 
-p_isnotlower.exit.thread:                         ; preds = %p_islower.exit, %p_islower.exit.thread
-  %.ph88 = phi ptr [ %.ph85, %p_islower.exit.thread ], [ %.pre53, %p_islower.exit ]
-  %.ph89 = phi i8 [ %.ph86, %p_islower.exit.thread ], [ %.pre52, %p_islower.exit ]
+p_isnotlower.argprom.exit.thread:                 ; preds = %p_islower.argprom.exit, %p_islower.argprom.exit.thread
+  %.ph88 = phi ptr [ %.ph85, %p_islower.argprom.exit.thread ], [ %.pre53, %p_islower.argprom.exit ]
+  %.ph89 = phi i8 [ %.ph86, %p_islower.argprom.exit.thread ], [ %.pre52, %p_islower.argprom.exit ]
   %84 = trunc i8 %.ph89 to i1
   tail call void @llvm.assume(i1 %84)
-  br label %p_isprint.exit.thread
+  br label %p_isprint.argprom.exit.thread
 
-p_isnotlower.exit:                                ; preds = %p_islower.exit
+p_isnotlower.argprom.exit:                        ; preds = %p_islower.argprom.exit
   %85 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
   %86 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 4
@@ -365,16 +365,16 @@ p_isnotlower.exit:                                ; preds = %p_islower.exit
   %93 = trunc i8 %.pre54 to i1
   tail call void @llvm.assume(i1 %93)
   %.not.i17 = icmp eq ptr %.pre55, null
-  br i1 %.not.i17, label %p_isprint.exit, label %p_isprint.exit.thread
+  br i1 %.not.i17, label %p_isprint.argprom.exit, label %p_isprint.argprom.exit.thread
 
-p_isprint.exit.thread:                            ; preds = %p_isnotlower.exit, %p_isnotlower.exit.thread
-  %.ph91 = phi ptr [ %.ph88, %p_isnotlower.exit.thread ], [ %.pre55, %p_isnotlower.exit ]
-  %.ph92 = phi i8 [ %.ph89, %p_isnotlower.exit.thread ], [ %.pre54, %p_isnotlower.exit ]
+p_isprint.argprom.exit.thread:                    ; preds = %p_isnotlower.argprom.exit, %p_isnotlower.argprom.exit.thread
+  %.ph91 = phi ptr [ %.ph88, %p_isnotlower.argprom.exit.thread ], [ %.pre55, %p_isnotlower.argprom.exit ]
+  %.ph92 = phi i8 [ %.ph89, %p_isnotlower.argprom.exit.thread ], [ %.pre54, %p_isnotlower.argprom.exit ]
   %94 = trunc i8 %.ph92 to i1
   tail call void @llvm.assume(i1 %94)
-  br label %p_isnotprint.exit.thread
+  br label %p_isnotprint.argprom.exit.thread
 
-p_isprint.exit:                                   ; preds = %p_isnotlower.exit
+p_isprint.argprom.exit:                           ; preds = %p_isnotlower.argprom.exit
   %95 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
   %96 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 4
@@ -388,16 +388,16 @@ p_isprint.exit:                                   ; preds = %p_isnotlower.exit
   %103 = trunc i8 %.pre56 to i1
   tail call void @llvm.assume(i1 %103)
   %.not.i.i19 = icmp eq ptr %.pre57, null
-  br i1 %.not.i.i19, label %p_isnotprint.exit, label %p_isnotprint.exit.thread
+  br i1 %.not.i.i19, label %p_isnotprint.argprom.exit, label %p_isnotprint.argprom.exit.thread
 
-p_isnotprint.exit.thread:                         ; preds = %p_isprint.exit, %p_isprint.exit.thread
-  %.ph94 = phi ptr [ %.ph91, %p_isprint.exit.thread ], [ %.pre57, %p_isprint.exit ]
-  %.ph95 = phi i8 [ %.ph92, %p_isprint.exit.thread ], [ %.pre56, %p_isprint.exit ]
+p_isnotprint.argprom.exit.thread:                 ; preds = %p_isprint.argprom.exit, %p_isprint.argprom.exit.thread
+  %.ph94 = phi ptr [ %.ph91, %p_isprint.argprom.exit.thread ], [ %.pre57, %p_isprint.argprom.exit ]
+  %.ph95 = phi i8 [ %.ph92, %p_isprint.argprom.exit.thread ], [ %.pre56, %p_isprint.argprom.exit ]
   %104 = trunc i8 %.ph95 to i1
   tail call void @llvm.assume(i1 %104)
-  br label %p_ispunct.exit.thread
+  br label %p_ispunct.argprom.exit.thread
 
-p_isnotprint.exit:                                ; preds = %p_isprint.exit
+p_isnotprint.argprom.exit:                        ; preds = %p_isprint.argprom.exit
   %105 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
   %106 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 4
@@ -411,16 +411,16 @@ p_isnotprint.exit:                                ; preds = %p_isprint.exit
   %113 = trunc i8 %.pre58 to i1
   tail call void @llvm.assume(i1 %113)
   %.not.i22 = icmp eq ptr %.pre59, null
-  br i1 %.not.i22, label %p_ispunct.exit, label %p_ispunct.exit.thread
+  br i1 %.not.i22, label %p_ispunct.argprom.exit, label %p_ispunct.argprom.exit.thread
 
-p_ispunct.exit.thread:                            ; preds = %p_isnotprint.exit, %p_isnotprint.exit.thread
-  %.ph97 = phi ptr [ %.ph94, %p_isnotprint.exit.thread ], [ %.pre59, %p_isnotprint.exit ]
-  %.ph98 = phi i8 [ %.ph95, %p_isnotprint.exit.thread ], [ %.pre58, %p_isnotprint.exit ]
+p_ispunct.argprom.exit.thread:                    ; preds = %p_isnotprint.argprom.exit, %p_isnotprint.argprom.exit.thread
+  %.ph97 = phi ptr [ %.ph94, %p_isnotprint.argprom.exit.thread ], [ %.pre59, %p_isnotprint.argprom.exit ]
+  %.ph98 = phi i8 [ %.ph95, %p_isnotprint.argprom.exit.thread ], [ %.pre58, %p_isnotprint.argprom.exit ]
   %114 = trunc i8 %.ph98 to i1
   tail call void @llvm.assume(i1 %114)
-  br label %p_isnotpunct.exit
+  br label %p_isnotpunct.argprom.exit
 
-p_ispunct.exit:                                   ; preds = %p_isnotprint.exit
+p_ispunct.argprom.exit:                           ; preds = %p_isnotprint.argprom.exit
   %115 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
   %116 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 4
@@ -434,9 +434,9 @@ p_ispunct.exit:                                   ; preds = %p_isnotprint.exit
   %123 = trunc i8 %.pre60 to i1
   tail call void @llvm.assume(i1 %123)
   %.not.i.i24 = icmp eq ptr %.pre61, null
-  br i1 %.not.i.i24, label %124, label %p_isnotpunct.exit
+  br i1 %.not.i.i24, label %124, label %p_isnotpunct.argprom.exit
 
-124:                                              ; preds = %p_ispunct.exit
+124:                                              ; preds = %p_ispunct.argprom.exit
   %125 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
   %126 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 4
@@ -447,22 +447,22 @@ p_ispunct.exit:                                   ; preds = %p_isnotprint.exit
   %132 = tail call i32 @iswpunct(i32 noundef %131) #16
   %.pre62 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre65.pre = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  br label %p_isnotpunct.exit
+  br label %p_isnotpunct.argprom.exit
 
-p_isnotpunct.exit:                                ; preds = %p_ispunct.exit.thread, %p_ispunct.exit, %124
-  %.pre65 = phi ptr [ %.pre61, %p_ispunct.exit ], [ %.pre65.pre, %124 ], [ %.ph97, %p_ispunct.exit.thread ]
-  %133 = phi i8 [ %.pre60, %p_ispunct.exit ], [ %.pre62, %124 ], [ %.ph98, %p_ispunct.exit.thread ]
+p_isnotpunct.argprom.exit:                        ; preds = %p_ispunct.argprom.exit.thread, %p_ispunct.argprom.exit, %124
+  %.pre65 = phi ptr [ %.pre61, %p_ispunct.argprom.exit ], [ %.pre65.pre, %124 ], [ %.ph97, %p_ispunct.argprom.exit.thread ]
+  %133 = phi i8 [ %.pre60, %p_ispunct.argprom.exit ], [ %.pre62, %124 ], [ %.ph98, %p_ispunct.argprom.exit.thread ]
   %134 = trunc i8 %133 to i1
   br i1 %134, label %135, label %p_isspace.exit
 
-135:                                              ; preds = %p_isnotpunct.exit
+135:                                              ; preds = %p_isnotpunct.argprom.exit
   %.not.i28 = icmp eq ptr %.pre65, null
   br i1 %.not.i28, label %137, label %p_isspace.exit.thread
 
 p_isspace.exit.thread:                            ; preds = %135
   %136 = trunc i8 %133 to i1
   tail call void @llvm.assume(i1 %136)
-  br label %p_isnotspace.exit.thread
+  br label %p_isnotspace.argprom.exit.thread
 
 137:                                              ; preds = %135
   %138 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
@@ -477,22 +477,22 @@ p_isspace.exit.thread:                            ; preds = %135
   %.pre64 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
   br label %p_isspace.exit
 
-p_isspace.exit:                                   ; preds = %p_isnotpunct.exit, %137
-  %146 = phi ptr [ %.pre65, %p_isnotpunct.exit ], [ %.pre64, %137 ]
-  %147 = phi i8 [ %133, %p_isnotpunct.exit ], [ %.pre63, %137 ]
+p_isspace.exit:                                   ; preds = %p_isnotpunct.argprom.exit, %137
+  %146 = phi ptr [ %.pre65, %p_isnotpunct.argprom.exit ], [ %.pre64, %137 ]
+  %147 = phi i8 [ %133, %p_isnotpunct.argprom.exit ], [ %.pre63, %137 ]
   %148 = trunc i8 %147 to i1
   tail call void @llvm.assume(i1 %148)
   %.not.i.i29 = icmp eq ptr %146, null
-  br i1 %.not.i.i29, label %p_isnotspace.exit, label %p_isnotspace.exit.thread
+  br i1 %.not.i.i29, label %p_isnotspace.argprom.exit, label %p_isnotspace.argprom.exit.thread
 
-p_isnotspace.exit.thread:                         ; preds = %p_isspace.exit, %p_isspace.exit.thread
+p_isnotspace.argprom.exit.thread:                 ; preds = %p_isspace.exit, %p_isspace.exit.thread
   %.ph101 = phi ptr [ %.pre65, %p_isspace.exit.thread ], [ %146, %p_isspace.exit ]
   %.ph102 = phi i8 [ %133, %p_isspace.exit.thread ], [ %147, %p_isspace.exit ]
   %149 = trunc i8 %.ph102 to i1
   tail call void @llvm.assume(i1 %149)
-  br label %p_isupper.exit.thread
+  br label %p_isupper.argprom.exit.thread
 
-p_isnotspace.exit:                                ; preds = %p_isspace.exit
+p_isnotspace.argprom.exit:                        ; preds = %p_isspace.exit
   %150 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
   %151 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 4
@@ -506,16 +506,16 @@ p_isnotspace.exit:                                ; preds = %p_isspace.exit
   %158 = trunc i8 %.pre66 to i1
   tail call void @llvm.assume(i1 %158)
   %.not.i32 = icmp eq ptr %.pre67, null
-  br i1 %.not.i32, label %p_isupper.exit, label %p_isupper.exit.thread
+  br i1 %.not.i32, label %p_isupper.argprom.exit, label %p_isupper.argprom.exit.thread
 
-p_isupper.exit.thread:                            ; preds = %p_isnotspace.exit, %p_isnotspace.exit.thread
-  %.ph104 = phi ptr [ %.ph101, %p_isnotspace.exit.thread ], [ %.pre67, %p_isnotspace.exit ]
-  %.ph105 = phi i8 [ %.ph102, %p_isnotspace.exit.thread ], [ %.pre66, %p_isnotspace.exit ]
+p_isupper.argprom.exit.thread:                    ; preds = %p_isnotspace.argprom.exit, %p_isnotspace.argprom.exit.thread
+  %.ph104 = phi ptr [ %.ph101, %p_isnotspace.argprom.exit.thread ], [ %.pre67, %p_isnotspace.argprom.exit ]
+  %.ph105 = phi i8 [ %.ph102, %p_isnotspace.argprom.exit.thread ], [ %.pre66, %p_isnotspace.argprom.exit ]
   %159 = trunc i8 %.ph105 to i1
   tail call void @llvm.assume(i1 %159)
-  br label %p_isnotupper.exit
+  br label %p_isnotupper.argprom.exit
 
-p_isupper.exit:                                   ; preds = %p_isnotspace.exit
+p_isupper.argprom.exit:                           ; preds = %p_isnotspace.argprom.exit
   %160 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
   %161 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 4
@@ -529,9 +529,9 @@ p_isupper.exit:                                   ; preds = %p_isnotspace.exit
   %168 = trunc i8 %.pre68 to i1
   tail call void @llvm.assume(i1 %168)
   %.not.i.i34 = icmp eq ptr %.pre69, null
-  br i1 %.not.i.i34, label %169, label %p_isnotupper.exit
+  br i1 %.not.i.i34, label %169, label %p_isnotupper.argprom.exit
 
-169:                                              ; preds = %p_isupper.exit
+169:                                              ; preds = %p_isupper.argprom.exit
   %170 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
   %171 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 4
@@ -542,22 +542,22 @@ p_isupper.exit:                                   ; preds = %p_isnotspace.exit
   %177 = tail call i32 @iswupper(i32 noundef %176) #16
   %.pre70 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre73.pre = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  br label %p_isnotupper.exit
+  br label %p_isnotupper.argprom.exit
 
-p_isnotupper.exit:                                ; preds = %p_isupper.exit.thread, %p_isupper.exit, %169
-  %.pre73 = phi ptr [ %.pre69, %p_isupper.exit ], [ %.pre73.pre, %169 ], [ %.ph104, %p_isupper.exit.thread ]
-  %178 = phi i8 [ %.pre68, %p_isupper.exit ], [ %.pre70, %169 ], [ %.ph105, %p_isupper.exit.thread ]
+p_isnotupper.argprom.exit:                        ; preds = %p_isupper.argprom.exit.thread, %p_isupper.argprom.exit, %169
+  %.pre73 = phi ptr [ %.pre69, %p_isupper.argprom.exit ], [ %.pre73.pre, %169 ], [ %.ph104, %p_isupper.argprom.exit.thread ]
+  %178 = phi i8 [ %.pre68, %p_isupper.argprom.exit ], [ %.pre70, %169 ], [ %.ph105, %p_isupper.argprom.exit.thread ]
   %179 = trunc i8 %178 to i1
   br i1 %179, label %180, label %p_isxdigit.exit
 
-180:                                              ; preds = %p_isnotupper.exit
+180:                                              ; preds = %p_isnotupper.argprom.exit
   %.not.i38 = icmp eq ptr %.pre73, null
   br i1 %.not.i38, label %182, label %p_isxdigit.exit.thread
 
 p_isxdigit.exit.thread:                           ; preds = %180
   %181 = trunc i8 %178 to i1
   tail call void @llvm.assume(i1 %181)
-  br label %p_isnotxdigit.exit
+  br label %p_isnotxdigit.argprom.exit
 
 182:                                              ; preds = %180
   %183 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
@@ -572,13 +572,13 @@ p_isxdigit.exit.thread:                           ; preds = %180
   %.pre72 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
   br label %p_isxdigit.exit
 
-p_isxdigit.exit:                                  ; preds = %p_isnotupper.exit, %182
-  %191 = phi ptr [ %.pre73, %p_isnotupper.exit ], [ %.pre72, %182 ]
-  %192 = phi i8 [ %178, %p_isnotupper.exit ], [ %.pre71, %182 ]
+p_isxdigit.exit:                                  ; preds = %p_isnotupper.argprom.exit, %182
+  %191 = phi ptr [ %.pre73, %p_isnotupper.argprom.exit ], [ %.pre72, %182 ]
+  %192 = phi i8 [ %178, %p_isnotupper.argprom.exit ], [ %.pre71, %182 ]
   %193 = trunc i8 %192 to i1
   tail call void @llvm.assume(i1 %193)
   %.not.i.i39 = icmp eq ptr %191, null
-  br i1 %.not.i.i39, label %194, label %p_isnotxdigit.exit
+  br i1 %.not.i.i39, label %194, label %p_isnotxdigit.argprom.exit
 
 194:                                              ; preds = %p_isxdigit.exit
   %195 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
@@ -589,9 +589,9 @@ p_isxdigit.exit:                                  ; preds = %p_isnotupper.exit, 
   %200 = getelementptr i32, ptr %195, i64 %199
   %201 = load i32, ptr %200, align 4
   %202 = tail call i32 @iswxdigit(i32 noundef %201) #16
-  br label %p_isnotxdigit.exit
+  br label %p_isnotxdigit.argprom.exit
 
-p_isnotxdigit.exit:                               ; preds = %p_isxdigit.exit.thread, %p_isxdigit.exit, %194
+p_isnotxdigit.argprom.exit:                       ; preds = %p_isxdigit.exit.thread, %p_isxdigit.exit, %194
   %203 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
   %204 = getelementptr inbounds i8, ptr %203, i64 8
   %205 = load i32, ptr %204, align 8

@@ -9497,14 +9497,14 @@ _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14def
   %task_queues_async_initialized_.i.i = getelementptr inbounds i8, ptr %3, i64 2544
   %10 = load i8, ptr %task_queues_async_initialized_.i.i, align 8
   %tobool.i.i = trunc i8 %10 to i1
-  br i1 %tobool.i.i, label %if.then.i.i, label %"_ZZN4node6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEPv.exit"
+  br i1 %tobool.i.i, label %if.then.i.i, label %"_ZZN4node6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEPv.argprom.exit"
 
 if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i.i
   %task_queues_async_.i.i = getelementptr inbounds i8, ptr %3, i64 736
   %call.i.i = call i32 @uv_async_send(ptr noundef nonnull %task_queues_async_.i.i) #22
-  br label %"_ZZN4node6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEPv.exit"
+  br label %"_ZZN4node6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEPv.argprom.exit"
 
-"_ZZN4node6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEPv.exit": ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i.i, %if.then.i.i
+"_ZZN4node6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEPv.argprom.exit": ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i.i, %if.then.i.i
   call void @uv_mutex_unlock(ptr noundef nonnull %native_immediates_threadsafe_mutex_.i.i) #22
   call void @uv_mutex_unlock(ptr noundef nonnull %mutex_.i) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg.addr.i)
@@ -13139,14 +13139,14 @@ _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14def
   %task_queues_async_initialized_.i.i = getelementptr inbounds i8, ptr %3, i64 2544
   %12 = load i8, ptr %task_queues_async_initialized_.i.i, align 8
   %tobool.i.i = trunc i8 %12 to i1
-  br i1 %tobool.i.i, label %if.then.i.i, label %"_ZZN4node6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS2_5ValueEEEEN3$_0clEPNS_11EnvironmentE.exit"
+  br i1 %tobool.i.i, label %if.then.i.i, label %"_ZZN4node6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS2_5ValueEEEEN3$_0clEPNS_11EnvironmentE.argprom.exit"
 
 if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i.i
   %task_queues_async_.i.i = getelementptr inbounds i8, ptr %3, i64 736
   %call.i.i = tail call i32 @uv_async_send(ptr noundef nonnull %task_queues_async_.i.i) #22
-  br label %"_ZZN4node6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS2_5ValueEEEEN3$_0clEPNS_11EnvironmentE.exit"
+  br label %"_ZZN4node6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS2_5ValueEEEEN3$_0clEPNS_11EnvironmentE.argprom.exit"
 
-"_ZZN4node6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS2_5ValueEEEEN3$_0clEPNS_11EnvironmentE.exit": ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i.i, %if.then.i.i
+"_ZZN4node6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS2_5ValueEEEEN3$_0clEPNS_11EnvironmentE.argprom.exit": ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i.i, %if.then.i.i
   tail call void @uv_mutex_unlock(ptr noundef nonnull %native_immediates_threadsafe_mutex_.i.i) #22
   ret void
 }
@@ -13494,10 +13494,10 @@ attributes #28 = { nounwind allocsize(1) }
 !43 = distinct !{!43, !44, !"_ZSt11make_uniqueIN4node17BaseObjectPtrImplINS0_6worker23WorkerHeapSnapshotTakerELb0EEEJS4_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !44 = distinct !{!44, !"_ZSt11make_uniqueIN4node17BaseObjectPtrImplINS0_6worker23WorkerHeapSnapshotTakerELb0EEEJS4_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !45 = !{!46, !48}
-!46 = distinct !{!46, !47, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS8_5ValueEEEE3$_0EEJSE_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!47 = distinct !{!47, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS8_5ValueEEEE3$_0EEJSE_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!48 = distinct !{!48, !49, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS7_5ValueEEEE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISF_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
-!49 = distinct !{!49, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS7_5ValueEEEE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISF_EEOT_NS_13CallbackFlags5FlagsE"}
+!46 = distinct !{!46, !47, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS8_5ValueEEEE3$_0EEJSE_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!47 = distinct !{!47, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS8_5ValueEEEE3$_0EEJSE_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!48 = distinct !{!48, !49, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS7_5ValueEEEE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISF_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
+!49 = distinct !{!49, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS7_5ValueEEEE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISF_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
 !50 = !{!51}
 !51 = distinct !{!51, !52, !"_ZN4node14MakeBaseObjectINS_6worker23WorkerHeapSnapshotTakerEJRPNS_11EnvironmentERN2v85LocalINS6_6ObjectEEEEEENS_17BaseObjectPtrImplIT_Lb0EEEDpOT0_: %agg.result"}
 !52 = distinct !{!52, !"_ZN4node14MakeBaseObjectINS_6worker23WorkerHeapSnapshotTakerEJRPNS_11EnvironmentERN2v85LocalINS6_6ObjectEEEEEENS_17BaseObjectPtrImplIT_Lb0EEEDpOT0_"}
@@ -13509,10 +13509,10 @@ attributes #28 = { nounwind allocsize(1) }
 !58 = distinct !{!58, !59, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
 !59 = distinct !{!59, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
 !60 = !{!61, !63}
-!61 = distinct !{!61, !62, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZZNS0_6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS8_5ValueEEEENK3$_0clEPvEUlS3_E_EEJSG_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!62 = distinct !{!62, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZZNS0_6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS8_5ValueEEEENK3$_0clEPvEUlS3_E_EEJSG_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!63 = distinct !{!63, !64, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZZNS_6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS7_5ValueEEEENK3$_0clEPvEUlS2_E_EESt10unique_ptrINS3_8CallbackESt14default_deleteISH_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
-!64 = distinct !{!64, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZZNS_6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS7_5ValueEEEENK3$_0clEPvEUlS2_E_EESt10unique_ptrINS3_8CallbackESt14default_deleteISH_EEOT_NS_13CallbackFlags5FlagsE"}
+!61 = distinct !{!61, !62, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZZNS0_6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS8_5ValueEEEENK3$_0clEPvEUlS3_E_EEJSG_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!62 = distinct !{!62, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZZNS0_6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS8_5ValueEEEENK3$_0clEPvEUlS3_E_EEJSG_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!63 = distinct !{!63, !64, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZZNS_6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS7_5ValueEEEENK3$_0clEPvEUlS2_E_EESt10unique_ptrINS3_8CallbackESt14default_deleteISH_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
+!64 = distinct !{!64, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZZNS_6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS7_5ValueEEEENK3$_0clEPvEUlS2_E_EESt10unique_ptrINS3_8CallbackESt14default_deleteISH_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
 !65 = distinct !{!65, !6}
 !66 = distinct !{!66, !6}
 !67 = distinct !{!67, !6}
@@ -13653,13 +13653,13 @@ attributes #28 = { nounwind allocsize(1) }
 !202 = distinct !{!202, !6}
 !203 = distinct !{!203, !6}
 !204 = !{!205, !207}
-!205 = distinct !{!205, !206, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4node6worker6Worker3NewERKN2v820FunctionCallbackInfoINS9_5ValueEEEE3$_0JPKcEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!206 = distinct !{!206, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4node6worker6Worker3NewERKN2v820FunctionCallbackInfoINS9_5ValueEEEE3$_0JPKcEET_St14__invoke_otherOT0_DpOT1_"}
-!207 = distinct !{!207, !208, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4node6worker6Worker3NewERKN2v820FunctionCallbackInfoINS9_5ValueEEEE3$_0JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_: %agg.result"}
-!208 = distinct !{!208, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4node6worker6Worker3NewERKN2v820FunctionCallbackInfoINS9_5ValueEEEE3$_0JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_"}
+!205 = distinct !{!205, !206, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4node6worker6Worker3NewERKN2v820FunctionCallbackInfoINS9_5ValueEEEE3$_0JPKcEET_St14__invoke_otherOT0_DpOT1_.argprom.argprom: %agg.result"}
+!206 = distinct !{!206, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4node6worker6Worker3NewERKN2v820FunctionCallbackInfoINS9_5ValueEEEE3$_0JPKcEET_St14__invoke_otherOT0_DpOT1_.argprom.argprom"}
+!207 = distinct !{!207, !208, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4node6worker6Worker3NewERKN2v820FunctionCallbackInfoINS9_5ValueEEEE3$_0JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.argprom: %agg.result"}
+!208 = distinct !{!208, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4node6worker6Worker3NewERKN2v820FunctionCallbackInfoINS9_5ValueEEEE3$_0JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.argprom"}
 !209 = !{!210, !205, !207}
-!210 = distinct !{!210, !211, !"_ZZN4node6worker6Worker3NewERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clB5cxx11EPKc: %agg.result"}
-!211 = distinct !{!211, !"_ZZN4node6worker6Worker3NewERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clB5cxx11EPKc"}
+!210 = distinct !{!210, !211, !"_ZZN4node6worker6Worker3NewERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clB5cxx11EPKc.argprom.argprom: %agg.result"}
+!211 = distinct !{!211, !"_ZZN4node6worker6Worker3NewERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clB5cxx11EPKc.argprom.argprom"}
 !212 = distinct !{!212, !6}
 !213 = !{!214}
 !214 = distinct !{!214, !215, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: %agg.result"}
@@ -13821,7 +13821,7 @@ attributes #28 = { nounwind allocsize(1) }
 !370 = distinct !{!370, !371, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_OS8_: %agg.result"}
 !371 = distinct !{!371, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_OS8_"}
 !372 = !{!373, !375}
-!373 = distinct !{!373, !374, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZZNS0_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS8_5ValueEEEEN3$_0clES3_EUlS3_E_EEJSF_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!374 = distinct !{!374, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZZNS0_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS8_5ValueEEEEN3$_0clES3_EUlS3_E_EEJSF_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!375 = distinct !{!375, !376, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZZNS_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS7_5ValueEEEEN3$_0clES2_EUlS2_E_EESt10unique_ptrINS3_8CallbackESt14default_deleteISG_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
-!376 = distinct !{!376, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZZNS_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS7_5ValueEEEEN3$_0clES2_EUlS2_E_EESt10unique_ptrINS3_8CallbackESt14default_deleteISG_EEOT_NS_13CallbackFlags5FlagsE"}
+!373 = distinct !{!373, !374, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZZNS0_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS8_5ValueEEEEN3$_0clES3_EUlS3_E_EEJSF_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!374 = distinct !{!374, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZZNS0_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS8_5ValueEEEEN3$_0clES3_EUlS3_E_EEJSF_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!375 = distinct !{!375, !376, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZZNS_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS7_5ValueEEEEN3$_0clES2_EUlS2_E_EESt10unique_ptrINS3_8CallbackESt14default_deleteISG_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
+!376 = distinct !{!376, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZZNS_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS7_5ValueEEEEN3$_0clES2_EUlS2_E_EESt10unique_ptrINS3_8CallbackESt14default_deleteISG_EEOT_NS_13CallbackFlags5FlagsE.argprom"}

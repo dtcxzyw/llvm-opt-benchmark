@@ -2735,18 +2735,18 @@ switch.lookup:                                    ; preds = %.critedge
   %trunc = trunc i16 %110 to i8
   %switch.tableidx74 = add i8 %trunc, 1
   %111 = icmp ult i8 %switch.tableidx74, 3
-  br i1 %111, label %switch.lookup73, label %"_ZN4absl7debian29c_find_ifIKSt5arrayIN10open_spiel12chess_common6OffsetELm3EEZNS3_5chess12MoveToActionERKNS8_4MoveEiE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESE_OT0_.exit"
+  br i1 %111, label %switch.lookup73, label %"_ZN4absl7debian29c_find_ifIKSt5arrayIN10open_spiel12chess_common6OffsetELm3EEZNS3_5chess12MoveToActionERKNS8_4MoveEiE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESE_OT0_.argprom.exit"
 
-"_ZN4absl7debian29c_find_ifIKSt5arrayIN10open_spiel12chess_common6OffsetELm3EEZNS3_5chess12MoveToActionERKNS8_4MoveEiE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESE_OT0_.exit": ; preds = %switch.lookup
+"_ZN4absl7debian29c_find_ifIKSt5arrayIN10open_spiel12chess_common6OffsetELm3EEZNS3_5chess12MoveToActionERKNS8_4MoveEiE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESE_OT0_.argprom.exit": ; preds = %switch.lookup
   store i32 272, ptr %15, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA130_KcRA2_S2_iRA13_S2_RA46_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 1 dereferenceable(130) @.str.12, ptr noundef nonnull align 1 dereferenceable(2) @.str.13, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 1 dereferenceable(13) @.str.14, ptr noundef nonnull align 1 dereferenceable(46) @.str.29, ptr noundef nonnull align 1 dereferenceable(2) @.str.16)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %14) #30
           to label %112 unwind label %113
 
-112:                                              ; preds = %"_ZN4absl7debian29c_find_ifIKSt5arrayIN10open_spiel12chess_common6OffsetELm3EEZNS3_5chess12MoveToActionERKNS8_4MoveEiE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESE_OT0_.exit"
+112:                                              ; preds = %"_ZN4absl7debian29c_find_ifIKSt5arrayIN10open_spiel12chess_common6OffsetELm3EEZNS3_5chess12MoveToActionERKNS8_4MoveEiE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESE_OT0_.argprom.exit"
   unreachable
 
-113:                                              ; preds = %"_ZN4absl7debian29c_find_ifIKSt5arrayIN10open_spiel12chess_common6OffsetELm3EEZNS3_5chess12MoveToActionERKNS8_4MoveEiE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESE_OT0_.exit"
+113:                                              ; preds = %"_ZN4absl7debian29c_find_ifIKSt5arrayIN10open_spiel12chess_common6OffsetELm3EEZNS3_5chess12MoveToActionERKNS8_4MoveEiE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESE_OT0_.argprom.exit"
   %114 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #29
@@ -14154,7 +14154,7 @@ _ZN4absl7debian28optionalISt6vectorIlSaIlEEEptEv.exit.i.i.i: ; preds = %2
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %15, ptr %9, align 8
-  br label %"_ZSt10__invoke_rIbRZNK10open_spiel5chess10ChessState25MaybeGenerateLegalActionsEvE3$_0JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
+  br label %"_ZSt10__invoke_rIbRZNK10open_spiel5chess10ChessState25MaybeGenerateLegalActionsEvE3$_0JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
 
 16:                                               ; preds = %_ZN4absl7debian28optionalISt6vectorIlSaIlEEEptEv.exit.i.i.i
   %17 = load ptr, ptr %7, align 8
@@ -14209,9 +14209,9 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
   store ptr %36, ptr %9, align 8
   %38 = getelementptr inbounds i64, ptr %31, i64 %27
   store ptr %38, ptr %11, align 8
-  br label %"_ZSt10__invoke_rIbRZNK10open_spiel5chess10ChessState25MaybeGenerateLegalActionsEvE3$_0JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
+  br label %"_ZSt10__invoke_rIbRZNK10open_spiel5chess10ChessState25MaybeGenerateLegalActionsEvE3$_0JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZNK10open_spiel5chess10ChessState25MaybeGenerateLegalActionsEvE3$_0JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %13, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIbRZNK10open_spiel5chess10ChessState25MaybeGenerateLegalActionsEvE3$_0JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %13, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i.i
   ret i1 true
 }
 

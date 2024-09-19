@@ -1871,11 +1871,11 @@ _ZNSt8functionIFfllEED2Ev.exit:                   ; preds = %180, %182
   %217 = getelementptr float, ptr %216, i64 %.sroa.speculated.i
   %218 = load float, ptr %217, align 4
   %219 = icmp slt i64 %.084210, %192
-  br i1 %219, label %._ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i_crit_edge, label %220
+  br i1 %219, label %._ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i_crit_edge, label %220
 
-._ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i_crit_edge: ; preds = %211
+._ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i_crit_edge: ; preds = %211
   %.pre239 = add nuw nsw i64 %.084210, 1
-  br label %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i
+  br label %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i
 
 220:                                              ; preds = %211
   %.val7.i = load ptr, ptr %36, align 8
@@ -1899,20 +1899,20 @@ _ZNSt8functionIFfllEED2Ev.exit:                   ; preds = %180, %182
   %237 = fmul double %229, -2.000000e+00
   %238 = call double @llvm.fmuladd.f64(double %237, double %226, double %236)
   %239 = fptrunc double %238 to float
-  br label %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i
+  br label %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i
 
-_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i: ; preds = %._ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i_crit_edge, %220
-  %.pre238.pre-phi = phi i64 [ %.pre239, %._ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i_crit_edge ], [ %221, %220 ]
-  %.0.i12.i = phi float [ 0.000000e+00, %._ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i_crit_edge ], [ %239, %220 ]
+_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i: ; preds = %._ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i_crit_edge, %220
+  %.pre238.pre-phi = phi i64 [ %.pre239, %._ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i_crit_edge ], [ %221, %220 ]
+  %.0.i12.i = phi float [ 0.000000e+00, %._ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i_crit_edge ], [ %239, %220 ]
   %240 = fadd float %218, %.0.i12.i
   br label %"_ZZN5faiss8kmeans1dEPKfmmPfENK3$_0clEll.exit"
 
-"_ZZN5faiss8kmeans1dEPKfmmPfENK3$_0clEll.exit":   ; preds = %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i, %194
-  %.pre-phi = phi i64 [ %.pre238.pre-phi, %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i ], [ %195, %194 ]
-  %.val104 = phi i64 [ %.val11.i, %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i ], [ %.val104.pre, %194 ]
-  %.val103 = phi ptr [ %.val10.i, %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i ], [ %.val103.pre, %194 ]
-  %241 = phi i64 [ %213, %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i ], [ %.pre235, %194 ]
-  %.0.i = phi float [ %240, %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i ], [ %210, %194 ]
+"_ZZN5faiss8kmeans1dEPKfmmPfENK3$_0clEll.exit":   ; preds = %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i, %194
+  %.pre-phi = phi i64 [ %.pre238.pre-phi, %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i ], [ %195, %194 ]
+  %.val104 = phi i64 [ %.val11.i, %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i ], [ %.val104.pre, %194 ]
+  %.val103 = phi ptr [ %.val10.i, %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i ], [ %.val103.pre, %194 ]
+  %241 = phi i64 [ %213, %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i ], [ %.pre235, %194 ]
+  %.0.i = phi float [ %240, %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i ], [ %210, %194 ]
   %242 = mul nsw i64 %.val104, %241
   %243 = getelementptr float, ptr %.val103, i64 %242
   %244 = getelementptr float, ptr %243, i64 %.084210
@@ -2072,31 +2072,31 @@ _ZSt10accumulateIPffET0_T_S2_S1_.exit:            ; preds = %.lr.ph.i138, %.lr.p
 _ZNSt6vectorIlSaIlEED2Ev.exit141:                 ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, %.loopexit253
   %306 = phi double [ %305, %.loopexit253 ], [ 0x7FF8000000000000, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.not.i.i.i.i142 = icmp eq ptr %.sroa.0186.0, null
-  br i1 %.not.i.i.i.i142, label %_ZN5faiss12_GLOBAL__N_16MatrixIlED2Ev.exit, label %307
+  br i1 %.not.i.i.i.i142, label %_ZN5faiss12_GLOBAL__N_16MatrixIlED2Ev.argprom.exit, label %307
 
 307:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit141
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0186.0) #20
-  br label %_ZN5faiss12_GLOBAL__N_16MatrixIlED2Ev.exit
+  br label %_ZN5faiss12_GLOBAL__N_16MatrixIlED2Ev.argprom.exit
 
-_ZN5faiss12_GLOBAL__N_16MatrixIlED2Ev.exit:       ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit141, %307
+_ZN5faiss12_GLOBAL__N_16MatrixIlED2Ev.argprom.exit: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit141, %307
   %.val113 = load ptr, ptr %7, align 8
   %.not.i.i.i.i144 = icmp eq ptr %.val113, null
-  br i1 %.not.i.i.i.i144, label %_ZN5faiss12_GLOBAL__N_16MatrixIfED2Ev.exit, label %308
+  br i1 %.not.i.i.i.i144, label %_ZN5faiss12_GLOBAL__N_16MatrixIfED2Ev.argprom.exit, label %308
 
-308:                                              ; preds = %_ZN5faiss12_GLOBAL__N_16MatrixIlED2Ev.exit
+308:                                              ; preds = %_ZN5faiss12_GLOBAL__N_16MatrixIlED2Ev.argprom.exit
   call void @_ZdlPv(ptr noundef nonnull %.val113) #20
-  br label %_ZN5faiss12_GLOBAL__N_16MatrixIfED2Ev.exit
+  br label %_ZN5faiss12_GLOBAL__N_16MatrixIfED2Ev.argprom.exit
 
-_ZN5faiss12_GLOBAL__N_16MatrixIfED2Ev.exit:       ; preds = %_ZN5faiss12_GLOBAL__N_16MatrixIlED2Ev.exit, %308
+_ZN5faiss12_GLOBAL__N_16MatrixIfED2Ev.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_16MatrixIlED2Ev.argprom.exit, %308
   %309 = load ptr, ptr %36, align 8
   %.not.i.i.i.i146 = icmp eq ptr %309, null
   br i1 %.not.i.i.i.i146, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i147, label %310
 
-310:                                              ; preds = %_ZN5faiss12_GLOBAL__N_16MatrixIfED2Ev.exit
+310:                                              ; preds = %_ZN5faiss12_GLOBAL__N_16MatrixIfED2Ev.argprom.exit
   call void @_ZdlPv(ptr noundef nonnull %309) #20
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i147
 
-_ZNSt6vectorIdSaIdEED2Ev.exit.i147:               ; preds = %310, %_ZN5faiss12_GLOBAL__N_16MatrixIfED2Ev.exit
+_ZNSt6vectorIdSaIdEED2Ev.exit.i147:               ; preds = %310, %_ZN5faiss12_GLOBAL__N_16MatrixIfED2Ev.argprom.exit
   %311 = load ptr, ptr %6, align 8
   %.not.i.i.i1.i = icmp eq ptr %311, null
   br i1 %.not.i.i.i1.i, label %_ZN5faiss12_GLOBAL__N_114CostCalculatorD2Ev.exit, label %312
@@ -2723,7 +2723,7 @@ define internal noundef float @"_ZNSt17_Function_handlerIFfllEZN5faiss8kmeans1dE
 
 5:                                                ; preds = %3
   %6 = icmp slt i64 %.val3, 0
-  br i1 %6, label %"_ZSt10__invoke_rIfRZN5faiss8kmeans1dEPKfmmPfE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %7
+  br i1 %6, label %"_ZSt10__invoke_rIfRZN5faiss8kmeans1dEPKfmmPfE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit", label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -2747,7 +2747,7 @@ define internal noundef float @"_ZNSt17_Function_handlerIFfllEZN5faiss8kmeans1dE
   %24 = fmul double %17, -2.000000e+00
   %25 = tail call double @llvm.fmuladd.f64(double %24, double %15, double %23)
   %26 = fptrunc double %25 to float
-  br label %"_ZSt10__invoke_rIfRZN5faiss8kmeans1dEPKfmmPfE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
+  br label %"_ZSt10__invoke_rIfRZN5faiss8kmeans1dEPKfmmPfE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
 
 27:                                               ; preds = %3
   %28 = add nsw i64 %.val4, -1
@@ -2765,7 +2765,7 @@ define internal noundef float @"_ZNSt17_Function_handlerIFfllEZN5faiss8kmeans1dE
   %37 = getelementptr float, ptr %36, i64 %.sroa.speculated.i.i.i
   %38 = load float, ptr %37, align 4
   %39 = icmp slt i64 %.val3, %.val4
-  br i1 %39, label %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i.i.i, label %40
+  br i1 %39, label %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i.i.i, label %40
 
 40:                                               ; preds = %27
   %41 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -2792,21 +2792,21 @@ define internal noundef float @"_ZNSt17_Function_handlerIFfllEZN5faiss8kmeans1dE
   %60 = fmul double %52, -2.000000e+00
   %61 = tail call double @llvm.fmuladd.f64(double %60, double %49, double %59)
   %62 = fptrunc double %61 to float
-  br label %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i.i.i
+  br label %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i.i.i
 
-_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i.i.i: ; preds = %40, %27
+_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i.i.i: ; preds = %40, %27
   %.0.i12.i.i.i = phi float [ %62, %40 ], [ 0.000000e+00, %27 ]
   %63 = fadd float %38, %.0.i12.i.i.i
-  br label %"_ZSt10__invoke_rIfRZN5faiss8kmeans1dEPKfmmPfE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
+  br label %"_ZSt10__invoke_rIfRZN5faiss8kmeans1dEPKfmmPfE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
 
-"_ZSt10__invoke_rIfRZN5faiss8kmeans1dEPKfmmPfE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %5, %7, %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i.i.i
-  %.0.i.i.i = phi float [ %63, %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i.i.i ], [ %26, %7 ], [ 0.000000e+00, %5 ]
+"_ZSt10__invoke_rIfRZN5faiss8kmeans1dEPKfmmPfE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %5, %7, %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i.i.i
+  %.0.i.i.i = phi float [ %63, %_ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.argprom.exit13.i.i.i ], [ %26, %7 ], [ 0.000000e+00, %5 ]
   ret float %.0.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFfllEZN5faiss8kmeans1dEPKfmmPfE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5faiss8kmeans1dEPKfmmPfE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5faiss8kmeans1dEPKfmmPfE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -2815,30 +2815,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFfllEZN5faiss8kmea
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN5faiss8kmeans1dEPKfmmPfE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5faiss8kmeans1dEPKfmmPfE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5faiss8kmeans1dEPKfmmPfE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5faiss8kmeans1dEPKfmmPfE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5faiss8kmeans1dEPKfmmPfE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5faiss8kmeans1dEPKfmmPfE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5faiss8kmeans1dEPKfmmPfE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN5faiss8kmeans1dEPKfmmPfE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN5faiss8kmeans1dEPKfmmPfE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #20
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5faiss8kmeans1dEPKfmmPfE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5faiss8kmeans1dEPKfmmPfE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5faiss8kmeans1dEPKfmmPfE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5faiss8kmeans1dEPKfmmPfE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

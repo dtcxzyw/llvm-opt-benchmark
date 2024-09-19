@@ -1108,7 +1108,7 @@ define internal void @dissect_osd_format_osd(ptr noundef %0, ptr noundef %1, ptr
   %32 = load i32, ptr @hf_scsi_osd_formatted_capacity, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef %31, i32 noundef 8, i32 noundef 0) #4
   %34 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %7)
   %35 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %35, ptr noundef %2)
   %36 = add i32 %3, 150
@@ -1133,7 +1133,7 @@ define internal void @dissect_osd_format_osd(ptr noundef %0, ptr noundef %1, ptr
   br i1 %or.cond3, label %53, label %52
 
 52:                                               ; preds = %50
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
   br label %53
 
 53:                                               ; preds = %.thread, %52, %50
@@ -1228,7 +1228,7 @@ define internal void @dissect_osd_create(ptr noundef %0, ptr noundef %1, ptr nou
   %38 = load i32, ptr @hf_scsi_osd_number_of_user_objects, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef 0) #4
   %40 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %7)
   %41 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %41, ptr noundef %2)
   %42 = add i32 %3, 150
@@ -1253,7 +1253,7 @@ define internal void @dissect_osd_create(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %or.cond3, label %59, label %58
 
 58:                                               ; preds = %56
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
   br label %59
 
 59:                                               ; preds = %.thread, %58, %56
@@ -1422,7 +1422,7 @@ dissect_osd_allocation_length.exit239:            ; preds = %59
   %82 = load i32, ptr %hf_scsi_osd_list_identifier.sink, align 4
   %83 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef %.sink264, i32 noundef 0) #4
   %.1 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef nonnull %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef nonnull %7)
   %84 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %84, ptr noundef %2)
   %85 = add i32 %80, %84
@@ -1448,7 +1448,7 @@ dissect_osd_allocation_length.exit239:            ; preds = %59
   br i1 %or.cond3, label %103, label %102
 
 102:                                              ; preds = %100
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %9)
   br label %103
 
 103:                                              ; preds = %.thread, %102, %100
@@ -1725,7 +1725,7 @@ define internal void @dissect_osd_read(ptr noundef %0, ptr noundef %1, ptr nound
   %41 = load i32, ptr @hf_scsi_osd_starting_byte_address, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef %40, i32 noundef 8, i32 noundef 0) #4
   %43 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %7)
   %44 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %44, ptr noundef %2)
   %45 = add i32 %3, 150
@@ -1750,7 +1750,7 @@ define internal void @dissect_osd_read(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %or.cond3, label %62, label %61
 
 61:                                               ; preds = %59
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
   br label %62
 
 62:                                               ; preds = %.thread, %61, %59
@@ -1848,7 +1848,7 @@ define internal void @dissect_osd_write(ptr noundef %0, ptr noundef %1, ptr noun
   %41 = load i32, ptr @hf_scsi_osd_starting_byte_address, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef %40, i32 noundef 8, i32 noundef 0) #4
   %43 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %7)
   %44 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %44, ptr noundef %2)
   %45 = add i32 %3, 150
@@ -1873,7 +1873,7 @@ define internal void @dissect_osd_write(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond3, label %62, label %61
 
 61:                                               ; preds = %59
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
   br label %62
 
 62:                                               ; preds = %.thread, %61, %59
@@ -1968,7 +1968,7 @@ define internal void @dissect_osd_append(ptr noundef %0, ptr noundef %1, ptr nou
   %38 = load i32, ptr @hf_scsi_osd_length, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %37, i32 noundef 8, i32 noundef 0) #4
   %40 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %7)
   %41 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %41, ptr noundef %2)
   %42 = add i32 %3, 150
@@ -1993,7 +1993,7 @@ define internal void @dissect_osd_append(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %or.cond3, label %59, label %58
 
 58:                                               ; preds = %56
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
   br label %59
 
 59:                                               ; preds = %.thread, %58, %56
@@ -2086,7 +2086,7 @@ define internal void @dissect_osd_flush(ptr noundef %0, ptr noundef %1, ptr noun
   %37 = load i32, ptr @hf_scsi_osd_user_object_id, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %36, i32 noundef 8, i32 noundef 0) #4
   %39 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %7)
   %40 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %40, ptr noundef %2)
   %41 = add i32 %3, 150
@@ -2111,7 +2111,7 @@ define internal void @dissect_osd_flush(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond3, label %58, label %57
 
 57:                                               ; preds = %55
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
   br label %58
 
 58:                                               ; preds = %.thread, %57, %55
@@ -2203,7 +2203,7 @@ define internal void @dissect_osd_remove(ptr noundef %0, ptr noundef %1, ptr nou
   %35 = load i32, ptr @hf_scsi_osd_user_object_id, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 8, i32 noundef 0) #4
   %37 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %7)
   %38 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %38, ptr noundef %2)
   %39 = add i32 %3, 150
@@ -2228,7 +2228,7 @@ define internal void @dissect_osd_remove(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %or.cond3, label %56, label %55
 
 55:                                               ; preds = %53
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
   br label %56
 
 56:                                               ; preds = %.thread, %55, %53
@@ -2389,7 +2389,7 @@ dissect_osd_getsetattrib.exit82:                  ; preds = %58, %61, %64
 .thread:                                          ; preds = %dissect_osd_getsetattrib.exit82, %54, %56
   %77 = phi i32 [ 80, %dissect_osd_getsetattrib.exit82 ], [ 104, %54 ], [ 104, %56 ]
   %78 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %78, ptr noundef %2, ptr noundef nonnull %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %78, ptr noundef %2, ptr noundef nonnull %7)
   %79 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %79, ptr noundef %2)
   %80 = add i32 %77, %79
@@ -2415,7 +2415,7 @@ dissect_osd_getsetattrib.exit82:                  ; preds = %58, %61, %64
 
 96:                                               ; preds = %94
   tail call fastcc void @dissect_osd2_cdb_continuation(ptr noundef %1, ptr noundef %0, i32 noundef %3, ptr noundef %2, ptr noundef nonnull %7)
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %9)
   br label %97
 
 97:                                               ; preds = %.thread, %96, %94
@@ -2558,7 +2558,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %25, %28, %31
 .thread:                                          ; preds = %.critedge, %57, %59
   %67 = phi i32 [ 80, %.critedge ], [ 104, %57 ], [ 104, %59 ]
   %68 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %68, ptr noundef %2, ptr noundef nonnull %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %68, ptr noundef %2, ptr noundef nonnull %7)
   %69 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %69, ptr noundef %2)
   %70 = add i32 %67, %69
@@ -2584,7 +2584,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %25, %28, %31
 
 86:                                               ; preds = %84
   tail call fastcc void @dissect_osd2_cdb_continuation(ptr noundef %1, ptr noundef %0, i32 noundef %3, ptr noundef %2, ptr noundef nonnull %7)
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %9)
   br label %87
 
 87:                                               ; preds = %.thread, %86, %84
@@ -2711,7 +2711,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %21, %24, %27
 .thread:                                          ; preds = %dissect_osd_getsetattrib.exit, %54, %56
   %58 = phi i32 [ 80, %dissect_osd_getsetattrib.exit ], [ 104, %54 ], [ 104, %56 ]
   %59 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef nonnull %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef nonnull %7)
   %60 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %60, ptr noundef %2)
   %61 = add i32 %58, %60
@@ -2736,7 +2736,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %21, %24, %27
   br i1 %or.cond3, label %78, label %77
 
 77:                                               ; preds = %75
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %9)
   br label %78
 
 78:                                               ; preds = %.thread, %77, %75
@@ -2863,7 +2863,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %21, %24, %27
 .thread:                                          ; preds = %dissect_osd_getsetattrib.exit, %54, %56
   %58 = phi i32 [ 80, %dissect_osd_getsetattrib.exit ], [ 104, %54 ], [ 104, %56 ]
   %59 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef nonnull %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef nonnull %7)
   %60 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %60, ptr noundef %2)
   %61 = add i32 %58, %60
@@ -2888,7 +2888,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %21, %24, %27
   br i1 %or.cond3, label %78, label %77
 
 77:                                               ; preds = %75
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %9)
   br label %78
 
 78:                                               ; preds = %.thread, %77, %75
@@ -2983,7 +2983,7 @@ define internal void @dissect_osd_create_and_write(ptr noundef %0, ptr noundef %
   %41 = load i32, ptr @hf_scsi_osd_starting_byte_address, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef %40, i32 noundef 8, i32 noundef 0) #4
   %43 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %7)
   %44 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %44, ptr noundef %2)
   %45 = add i32 %3, 150
@@ -3008,7 +3008,7 @@ define internal void @dissect_osd_create_and_write(ptr noundef %0, ptr noundef %
   br i1 %or.cond3, label %62, label %61
 
 61:                                               ; preds = %59
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
   br label %62
 
 62:                                               ; preds = %.thread, %61, %59
@@ -3102,7 +3102,7 @@ define internal void @dissect_osd_create_collection(ptr noundef %0, ptr noundef 
   %37 = load i32, ptr @hf_scsi_osd_requested_collection_object_id, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %36, i32 noundef 8, i32 noundef 0) #4
   %39 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %7)
   %40 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %40, ptr noundef %2)
   %41 = add i32 %3, 150
@@ -3127,7 +3127,7 @@ define internal void @dissect_osd_create_collection(ptr noundef %0, ptr noundef 
   br i1 %or.cond3, label %58, label %57
 
 57:                                               ; preds = %55
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
   br label %58
 
 58:                                               ; preds = %.thread, %57, %55
@@ -3259,7 +3259,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %21, %24, %27
 .thread:                                          ; preds = %dissect_osd_getsetattrib.exit, %56, %58
   %60 = phi i32 [ 80, %dissect_osd_getsetattrib.exit ], [ 104, %56 ], [ 104, %58 ]
   %61 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef nonnull %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef nonnull %7)
   %62 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %62, ptr noundef %2)
   %63 = add i32 %60, %62
@@ -3285,7 +3285,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %21, %24, %27
 
 79:                                               ; preds = %77
   tail call fastcc void @dissect_osd2_cdb_continuation(ptr noundef %1, ptr noundef %0, i32 noundef %3, ptr noundef %2, ptr noundef nonnull %7)
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %9)
   br label %80
 
 80:                                               ; preds = %.thread, %79, %77
@@ -3381,7 +3381,7 @@ define internal void @dissect_osd_set_key(ptr noundef %0, ptr noundef %1, ptr no
   %43 = load i32, ptr @hf_scsi_osd_seed, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef %42, i32 noundef 20, i32 noundef 0) #4
   %45 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %7)
   %46 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %46, ptr noundef %2)
   %47 = add i32 %3, 150
@@ -3406,7 +3406,7 @@ define internal void @dissect_osd_set_key(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %or.cond3, label %64, label %63
 
 63:                                               ; preds = %61
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
   br label %64
 
 64:                                               ; preds = %.thread, %63, %61
@@ -3501,7 +3501,7 @@ define internal void @dissect_osd_flush_collection(ptr noundef %0, ptr noundef %
   %39 = load i32, ptr @hf_scsi_osd_collection_object_id, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 8, i32 noundef 0) #4
   %41 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %7)
   %42 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %42, ptr noundef %2)
   %43 = add i32 %3, 150
@@ -3526,7 +3526,7 @@ define internal void @dissect_osd_flush_collection(ptr noundef %0, ptr noundef %
   br i1 %or.cond3, label %60, label %59
 
 59:                                               ; preds = %57
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
   br label %60
 
 60:                                               ; preds = %.thread, %59, %57
@@ -3616,7 +3616,7 @@ define internal void @dissect_osd_flush_partition(ptr noundef %0, ptr noundef %1
   %34 = load i32, ptr @hf_scsi_osd_partition_id, align 4
   %35 = tail call fastcc ptr @dissect_osd_partition_id(ptr noundef %1, ptr noundef %0, i32 noundef %33, ptr noundef %2, i32 noundef %34, ptr noundef %9, i32 noundef 0, i32 noundef 0)
   %36 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %7)
   %37 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %37, ptr noundef %2)
   %38 = add i32 %3, 150
@@ -3641,7 +3641,7 @@ define internal void @dissect_osd_flush_partition(ptr noundef %0, ptr noundef %1
   br i1 %or.cond3, label %55, label %54
 
 54:                                               ; preds = %52
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
   br label %55
 
 55:                                               ; preds = %.thread, %54, %52
@@ -3728,7 +3728,7 @@ define internal void @dissect_osd_flush_osd(ptr noundef %0, ptr noundef %1, ptr 
   %31 = load i32, ptr @hf_scsi_osd_timestamps_control, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 1, i32 noundef 0) #4
   %33 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %7)
   %34 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %34, ptr noundef %2)
   %35 = add i32 %3, 150
@@ -3753,7 +3753,7 @@ define internal void @dissect_osd_flush_osd(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond3, label %52, label %51
 
 51:                                               ; preds = %49
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
   br label %52
 
 52:                                               ; preds = %.thread, %51, %49
@@ -3880,7 +3880,7 @@ define internal void @dissect_osd2_create_user_tracking_collection(ptr noundef %
 
 .thread:                                          ; preds = %58, %56
   %60 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %60, ptr noundef %2, ptr noundef nonnull %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %60, ptr noundef %2, ptr noundef nonnull %7)
   %61 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %61, ptr noundef %2)
   %62 = add i32 %3, 174
@@ -3906,7 +3906,7 @@ define internal void @dissect_osd2_create_user_tracking_collection(ptr noundef %
 
 78:                                               ; preds = %76
   tail call fastcc void @dissect_osd2_cdb_continuation(ptr noundef %1, ptr noundef %0, i32 noundef %3, ptr noundef %2, ptr noundef nonnull %7)
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %9)
   br label %79
 
 79:                                               ; preds = %.thread, %78, %76
@@ -4040,7 +4040,7 @@ define internal void @dissect_osd2_query(ptr noundef %0, ptr noundef %1, ptr nou
 
 .thread:                                          ; preds = %67, %65
   %69 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef nonnull %7)
+  tail call fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %1, ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef nonnull %7)
   %70 = add i32 %3, 70
   tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %70, ptr noundef %2)
   %71 = add i32 %3, 174
@@ -4067,7 +4067,7 @@ define internal void @dissect_osd2_query(ptr noundef %0, ptr noundef %1, ptr nou
 
 88:                                               ; preds = %86
   tail call fastcc void @dissect_osd2_cdb_continuation(ptr noundef %1, ptr noundef %0, i32 noundef %3, ptr noundef %2, ptr noundef nonnull %7)
-  tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %9)
+  tail call fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %9)
   br label %89
 
 89:                                               ; preds = %.thread, %88, %86
@@ -4192,7 +4192,7 @@ define internal fastcc void @dissect_osd_option(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_osd_attribute_parameters(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #2 {
+define internal fastcc void @dissect_osd_attribute_parameters.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #2 {
   %6 = load i32, ptr @ett_osd_attribute_parameters, align 4
   %7 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %1, i32 noundef %2, i32 noundef 28, i32 noundef %6, ptr noundef null, ptr noundef nonnull @.str.275) #4
   %.not = icmp eq ptr %4, null
@@ -4643,7 +4643,7 @@ dissect_osd_permissions.exit:                     ; preds = %91, %95
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_osd_attribute_data_out(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #2 {
+define internal fastcc void @dissect_osd_attribute_data_out.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %37, label %6
 

@@ -1683,13 +1683,13 @@ if.then26:                                        ; preds = %if.end18
   %6 = load i16, ptr @_TRACE_COLO_COMPARE_DROP_PACKET_DSTATE, align 2
   %tobool4.i.i = icmp ne i16 %6, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
-  br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_colo_compare_drop_packet.exit
+  br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_colo_compare_drop_packet.argprom.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.then26
   %7 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i = and i32 %7, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.i.not.i.i, label %trace_colo_compare_drop_packet.exit, label %if.then.i.i
+  br i1 %cmp.i.not.i.i, label %trace_colo_compare_drop_packet.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %8 = load i8, ptr @message_with_timestamp, align 1
@@ -1703,18 +1703,18 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %4, ptr noundef nonnull @.str.24) #16
-  br label %trace_colo_compare_drop_packet.exit
+  br label %trace_colo_compare_drop_packet.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef %4, ptr noundef nonnull @.str.24) #16
-  br label %trace_colo_compare_drop_packet.exit
+  br label %trace_colo_compare_drop_packet.argprom.exit
 
-trace_colo_compare_drop_packet.exit:              ; preds = %if.then26, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
+trace_colo_compare_drop_packet.argprom.exit:      ; preds = %if.then26, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   call void @packet_destroy(ptr noundef %call9, ptr noundef null) #16
   br label %if.end27
 
-if.end27:                                         ; preds = %trace_colo_compare_drop_packet.exit, %if.end18
+if.end27:                                         ; preds = %trace_colo_compare_drop_packet.argprom.exit, %if.end18
   store ptr %call13, ptr %con, align 8
   br label %return
 

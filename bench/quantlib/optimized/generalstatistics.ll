@@ -574,7 +574,7 @@ do.end:                                           ; preds = %entry
   %this.val = load ptr, ptr %this, align 8, !tbaa !3
   %this.val7 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not6.i.i = icmp eq ptr %this.val, %this.val7
-  br i1 %cmp.i.not6.i.i, label %"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8varianceEvE3$_0EESt4pairIdmERKT_.exit", label %for.body.i.i
+  br i1 %cmp.i.not6.i.i, label %"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8varianceEvE3$_0EESt4pairIdmERKT_.argprom.exit", label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %do.end, %for.body.i.i
   %den.010.i.i = phi double [ %add.i.i, %for.body.i.i ], [ 0.000000e+00, %do.end ]
@@ -593,9 +593,9 @@ for.body.i.i:                                     ; preds = %do.end, %for.body.i
 
 for.end.i.i:                                      ; preds = %for.body.i.i
   %26 = fdiv double %25, %add.i.i
-  br label %"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8varianceEvE3$_0EESt4pairIdmERKT_.exit"
+  br label %"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8varianceEvE3$_0EESt4pairIdmERKT_.argprom.exit"
 
-"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8varianceEvE3$_0EESt4pairIdmERKT_.exit": ; preds = %do.end, %for.end.i.i
+"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8varianceEvE3$_0EESt4pairIdmERKT_.argprom.exit": ; preds = %do.end, %for.end.i.i
   %27 = phi double [ %26, %for.end.i.i ], [ 0x47EFFFFFE0000000, %do.end ]
   %conv = uitofp i64 %sub.ptr.div.i.i to double
   %mul = fmul double %27, %conv
@@ -787,7 +787,7 @@ do.end:                                           ; preds = %entry
   %this.val = load ptr, ptr %this, align 8, !tbaa !3
   %this.val11 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not6.i.i = icmp eq ptr %this.val, %this.val11
-  br i1 %cmp.i.not6.i.i, label %"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8skewnessEvE3$_0EESt4pairIdmERKT_.exit", label %for.body.i.i
+  br i1 %cmp.i.not6.i.i, label %"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8skewnessEvE3$_0EESt4pairIdmERKT_.argprom.exit", label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %do.end, %for.body.i.i
   %den.010.i.i = phi double [ %add.i.i, %for.body.i.i ], [ 0.000000e+00, %do.end ]
@@ -807,9 +807,9 @@ for.body.i.i:                                     ; preds = %do.end, %for.body.i
 
 for.end.i.i:                                      ; preds = %for.body.i.i
   %26 = fdiv double %25, %add.i.i
-  br label %"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8skewnessEvE3$_0EESt4pairIdmERKT_.exit"
+  br label %"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8skewnessEvE3$_0EESt4pairIdmERKT_.argprom.exit"
 
-"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8skewnessEvE3$_0EESt4pairIdmERKT_.exit": ; preds = %do.end, %for.end.i.i
+"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8skewnessEvE3$_0EESt4pairIdmERKT_.argprom.exit": ; preds = %do.end, %for.end.i.i
   %27 = phi double [ %26, %for.end.i.i ], [ 0x47EFFFFFE0000000, %do.end ]
   %call.i = tail call noundef double @_ZNK8QuantLib17GeneralStatistics8varianceEv(ptr noundef nonnull align 8 dereferenceable(25) %this)
   %call2.i = tail call noundef double @sqrt(double noundef %call.i) #18, !tbaa !31
@@ -1009,7 +1009,7 @@ do.end:                                           ; preds = %entry
   %this.val = load ptr, ptr %this, align 8, !tbaa !3
   %this.val16 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not6.i.i = icmp eq ptr %this.val, %this.val16
-  br i1 %cmp.i.not6.i.i, label %"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8kurtosisEvE3$_0EESt4pairIdmERKT_.exit", label %for.body.i.i
+  br i1 %cmp.i.not6.i.i, label %"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8kurtosisEvE3$_0EESt4pairIdmERKT_.argprom.exit", label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %do.end, %for.body.i.i
   %den.010.i.i = phi double [ %add.i.i, %for.body.i.i ], [ 0.000000e+00, %do.end ]
@@ -1029,9 +1029,9 @@ for.body.i.i:                                     ; preds = %do.end, %for.body.i
 
 for.end.i.i:                                      ; preds = %for.body.i.i
   %26 = fdiv double %25, %add.i.i
-  br label %"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8kurtosisEvE3$_0EESt4pairIdmERKT_.exit"
+  br label %"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8kurtosisEvE3$_0EESt4pairIdmERKT_.argprom.exit"
 
-"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8kurtosisEvE3$_0EESt4pairIdmERKT_.exit": ; preds = %do.end, %for.end.i.i
+"_ZNK8QuantLib17GeneralStatistics16expectationValueIZNKS0_8kurtosisEvE3$_0EESt4pairIdmERKT_.argprom.exit": ; preds = %do.end, %for.end.i.i
   %27 = phi double [ %26, %for.end.i.i ], [ 0x47EFFFFFE0000000, %do.end ]
   %call30 = tail call noundef double @_ZNK8QuantLib17GeneralStatistics8varianceEv(ptr noundef nonnull align 8 dereferenceable(25) %this)
   %conv = uitofp i64 %sub.ptr.div.i.i to double

@@ -7138,7 +7138,7 @@ define dso_local noundef i32 @_ZN2cm8uv_writeEP11uv_stream_sPK8uv_buf_tjSt8weak_
 17:                                               ; preds = %13
   %.val.i.i = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.exit.i, label %18
+  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.argprom.exit.i, label %18
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %.val.i.i, i64 12
@@ -7159,20 +7159,20 @@ define dso_local noundef i32 @_ZN2cm8uv_writeEP11uv_stream_sPK8uv_buf_tjSt8weak_
 26:                                               ; preds = %24, %21
   %.0.i.i.i.i.i.i.i = phi i32 [ %22, %21 ], [ %25, %24 ]
   %27 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %27, label %28, label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.exit.i
+  br i1 %27, label %28, label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.argprom.exit.i
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr %.val.i.i, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #17
-  br label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.exit.i
+  br label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.argprom.exit.i
 
-_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.exit.i: ; preds = %28, %26, %17
+_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.argprom.exit.i: ; preds = %28, %26, %17
   tail call void @_ZdlPv(ptr noundef nonnull %6) #22
   br label %_ZNSt10unique_ptrIN2cm12_GLOBAL__N_19write_reqESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN2cm12_GLOBAL__N_19write_reqESt14default_deleteIS2_EED2Ev.exit: ; preds = %13, %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN2cm12_GLOBAL__N_19write_reqESt14default_deleteIS2_EED2Ev.exit: ; preds = %13, %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.argprom.exit.i
   ret i32 %12
 }
 
@@ -7349,7 +7349,7 @@ _ZNSt10shared_ptrISt8functionIFviEEED2Ev.exit:    ; preds = %.thread9, %47, %60,
   %67 = getelementptr i8, ptr %65, i64 200
   %.val.i.i = load ptr, ptr %67, align 8
   %.not.i.i.i.i.i.i6 = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i6, label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.exit.i, label %68
+  br i1 %.not.i.i.i.i.i.i6, label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.argprom.exit.i, label %68
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds i8, ptr %.val.i.i, i64 12
@@ -7370,20 +7370,20 @@ _ZNSt10shared_ptrISt8functionIFviEEED2Ev.exit:    ; preds = %.thread9, %47, %60,
 76:                                               ; preds = %74, %71
   %.0.i.i.i.i.i.i.i = phi i32 [ %72, %71 ], [ %75, %74 ]
   %77 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %77, label %78, label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.exit.i
+  br i1 %77, label %78, label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.argprom.exit.i
 
 78:                                               ; preds = %76
   %79 = load ptr, ptr %.val.i.i, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8
   call void %81(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #17
-  br label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.exit.i
+  br label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.argprom.exit.i
 
-_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.exit.i: ; preds = %78, %76, %66
+_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.argprom.exit.i: ; preds = %78, %76, %66
   call void @_ZdlPv(ptr noundef nonnull %65) #22
   br label %_ZNSt10unique_ptrIN2cm12_GLOBAL__N_19write_reqESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN2cm12_GLOBAL__N_19write_reqESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10shared_ptrISt8functionIFviEEED2Ev.exit, %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN2cm12_GLOBAL__N_19write_reqESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10shared_ptrISt8functionIFviEEED2Ev.exit, %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.argprom.exit.i
   ret void
 }
 
@@ -7397,7 +7397,7 @@ define internal fastcc void @_ZNSt10unique_ptrIN2cm12_GLOBAL__N_19write_reqESt14
   %4 = getelementptr i8, ptr %2, i64 200
   %.val.i = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.exit, label %5
+  br i1 %.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.argprom.exit, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %.val.i, i64 12
@@ -7418,20 +7418,20 @@ define internal fastcc void @_ZNSt10unique_ptrIN2cm12_GLOBAL__N_19write_reqESt14
 13:                                               ; preds = %11, %8
   %.0.i.i.i.i.i.i = phi i32 [ %9, %8 ], [ %12, %11 ]
   %14 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %14, label %15, label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.exit
+  br i1 %14, label %15, label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.argprom.exit
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr %.val.i, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(16) %.val.i) #17
-  br label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.exit
+  br label %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.argprom.exit
 
-_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.exit: ; preds = %3, %13, %15
+_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.argprom.exit: ; preds = %3, %13, %15
   tail call void @_ZdlPv(ptr noundef nonnull %2) #22
   br label %19
 
-19:                                               ; preds = %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.exit, %1
+19:                                               ; preds = %_ZNKSt14default_deleteIN2cm12_GLOBAL__N_19write_reqEEclEPS2_.argprom.exit, %1
   store ptr null, ptr %0, align 8
   ret void
 }

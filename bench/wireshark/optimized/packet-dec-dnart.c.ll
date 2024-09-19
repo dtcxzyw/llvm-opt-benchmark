@@ -1209,7 +1209,7 @@ dnet_ntoa.exit215.thread:                         ; preds = %dnet_ntoa.exit.thre
   %530 = add nuw nsw i32 %.0176, 20
   %531 = load i32, ptr @hf_dec_rt_protocol_type, align 4
   %532 = tail call ptr @proto_tree_add_uint(ptr noundef %174, i32 noundef %531, ptr noundef %0, i32 noundef %530, i32 noundef 1, i32 noundef 0) #3
-  br label %do_initialization_msg.exit.thread225
+  br label %do_initialization_msg.argprom.exit.thread225
 
 533:                                              ; preds = %454
   %534 = load i32, ptr @hf_dec_rt_short_msg, align 4
@@ -1230,12 +1230,12 @@ dnet_ntoa.exit215.thread:                         ; preds = %dnet_ntoa.exit.thre
   %549 = load i32, ptr @hf_dec_rt_visited_nodes, align 4
   %550 = zext i8 %548 to i32
   %551 = tail call ptr @proto_tree_add_uint(ptr noundef %174, i32 noundef %549, ptr noundef %0, i32 noundef %547, i32 noundef 1, i32 noundef %550) #3
-  br label %do_initialization_msg.exit.thread225
+  br label %do_initialization_msg.argprom.exit.thread225
 
 default.unreachable:                              ; preds = %183
   unreachable
 
-do_initialization_msg.exit.thread225:             ; preds = %533, %dnet_ntoa.exit215.thread
+do_initialization_msg.argprom.exit.thread225:     ; preds = %533, %dnet_ntoa.exit215.thread
   %.sink = phi i32 [ 6, %533 ], [ 21, %dnet_ntoa.exit215.thread ]
   %552 = add nuw nsw i32 %.sink, %.0176
   %553 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %552) #3
@@ -1245,7 +1245,7 @@ do_initialization_msg.exit.thread225:             ; preds = %533, %dnet_ntoa.exi
   %557 = icmp eq i8 %553, 8
   br i1 %557, label %832, label %558
 
-558:                                              ; preds = %do_initialization_msg.exit.thread225
+558:                                              ; preds = %do_initialization_msg.argprom.exit.thread225
   %559 = load i32, ptr @ett_dec_rt_nsp_msg, align 4
   %560 = tail call ptr @proto_item_add_subtree(ptr noundef %556, i32 noundef %559) #3
   %561 = add nuw nsw i32 %552, 1
@@ -1672,8 +1672,8 @@ handle_nsp_msg.exit:                              ; preds = %.loopexit.i, %do_ro
   %831 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   br label %832
 
-832:                                              ; preds = %do_initialization_msg.exit.thread225, %handle_nsp_msg.exit, %566
-  %.0 = phi i32 [ %831, %handle_nsp_msg.exit ], [ %564, %566 ], [ %552, %do_initialization_msg.exit.thread225 ]
+832:                                              ; preds = %do_initialization_msg.argprom.exit.thread225, %handle_nsp_msg.exit, %566
+  %.0 = phi i32 [ %831, %handle_nsp_msg.exit ], [ %564, %566 ], [ %552, %do_initialization_msg.argprom.exit.thread225 ]
   ret i32 %.0
 }
 

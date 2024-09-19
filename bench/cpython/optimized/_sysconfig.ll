@@ -892,30 +892,30 @@ define internal ptr @_sysconfig_config_vars(ptr nocapture readnone %module, ptr 
 entry:
   %call.i = tail call ptr @PyDict_New() #2
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %_sysconfig_config_vars_impl.exit, label %if.end.i
+  br i1 %cmp.i, label %_sysconfig_config_vars_impl.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call2.i = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816)) #2
   %cmp3.i = icmp slt i32 %call2.i, 0
-  br i1 %cmp3.i, label %if.then4.i, label %_sysconfig_config_vars_impl.exit
+  br i1 %cmp3.i, label %if.then4.i, label %_sysconfig_config_vars_impl.argprom.exit
 
 if.then4.i:                                       ; preds = %if.end.i
   %0 = load i64, ptr %call.i, align 8
   %1 = and i64 %0, 2147483648
   %cmp.i7.not.i = icmp eq i64 %1, 0
-  br i1 %cmp.i7.not.i, label %if.end.i.i, label %_sysconfig_config_vars_impl.exit
+  br i1 %cmp.i7.not.i, label %if.end.i.i, label %_sysconfig_config_vars_impl.argprom.exit
 
 if.end.i.i:                                       ; preds = %if.then4.i
   %dec.i.i = add i64 %0, -1
   store i64 %dec.i.i, ptr %call.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %_sysconfig_config_vars_impl.exit
+  br i1 %cmp.i.i, label %if.then1.i.i, label %_sysconfig_config_vars_impl.argprom.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #2
-  br label %_sysconfig_config_vars_impl.exit
+  br label %_sysconfig_config_vars_impl.argprom.exit
 
-_sysconfig_config_vars_impl.exit:                 ; preds = %entry, %if.end.i, %if.then4.i, %if.end.i.i, %if.then1.i.i
+_sysconfig_config_vars_impl.argprom.exit:         ; preds = %entry, %if.end.i, %if.then4.i, %if.end.i.i, %if.then1.i.i
   %retval.0.i = phi ptr [ null, %entry ], [ null, %if.then4.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i ], [ %call.i, %if.end.i ]
   ret ptr %retval.0.i
 }

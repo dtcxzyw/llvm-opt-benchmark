@@ -3549,9 +3549,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15X86RegisterInfo18isArgumentRegis
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %22, i64 %30
   br label %31
 
-31:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit88.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
-  %.0182.i.i.i.i.i.i = phi i64 [ %25, %.lr.ph.i.i.i.i.i.i ], [ %147, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit88.i.i.i.i.i.i" ]
-  %.029181.i.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i.i ], [ %146, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit88.i.i.i.i.i.i" ]
+31:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
+  %.0182.i.i.i.i.i.i = phi i64 [ %25, %.lr.ph.i.i.i.i.i.i ], [ %147, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i" ]
+  %.029181.i.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i.i ], [ %146, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i" ]
   %.029.val.i.i.i.i.i.i = load i32, ptr %.029181.i.i.i.i.i.i, align 4
   %32 = icmp eq i32 %2, %.029.val.i.i.i.i.i.i
   br i1 %32, label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_0EEbOT_T0_.exit", label %33
@@ -3595,7 +3595,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i.i.i.
   %54 = getelementptr inbounds i16, ptr %34, i64 %53
   %55 = load i16, ptr %54, align 2, !noalias !38
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %55, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i:   ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i.i.i.i.i.i.i
   %56 = zext i16 %55 to i32
@@ -3615,15 +3615,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %
   %63 = zext i16 %62 to i32
   %64 = add i32 %58, %63
   %.not.i.i.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %62, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i.i.i.i.i.i.i
   %65 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i, i64 4
   %.val33.i.i.i.i.i.i = load i32, ptr %65, align 4
   %66 = icmp eq i32 %2, %.val33.i.i.i.i.i.i
   br i1 %66, label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_0EEbOT_T0_.exit.loopexit771.split.loop.exit", label %67
 
-67:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit.i.i.i.i.i.i"
+67:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i"
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i48.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i48.i.i.i.i.i.i: ; preds = %67
@@ -3654,7 +3654,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.
   %81 = getelementptr inbounds i16, ptr %34, i64 %80
   %82 = load i16, ptr %81, align 2, !noalias !55
   %.not.i.i.i.i.i.i.i.i.i54.i.i.i.i.i.i = icmp eq i16 %82, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i54.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i55.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i54.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i55.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i55.i.i.i.i.i.i: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.i.i.i.i.i
   %83 = zext i16 %82 to i32
@@ -3674,15 +3674,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i58.i.i.i.i.i.i: ; preds =
   %90 = zext i16 %89 to i32
   %91 = add i32 %85, %90
   %.not.i.i.i.i.i.i.i8.i.i.i.i59.i.i.i.i.i.i = icmp eq i16 %89, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i59.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i56.i.i.i.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i59.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i56.i.i.i.i.i.i, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit60.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i58.i.i.i.i.i.i, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i58.i.i.i.i.i.i, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.i.i.i.i.i
   %92 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i, i64 8
   %.val36.i.i.i.i.i.i = load i32, ptr %92, align 4
   %93 = icmp eq i32 %2, %.val36.i.i.i.i.i.i
   br i1 %93, label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_0EEbOT_T0_.exit.loopexit771.split.loop.exit867", label %94
 
-94:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit60.i.i.i.i.i.i"
+94:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i"
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i62.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i62.i.i.i.i.i.i: ; preds = %94
@@ -3713,7 +3713,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.
   %108 = getelementptr inbounds i16, ptr %34, i64 %107
   %109 = load i16, ptr %108, align 2, !noalias !72
   %.not.i.i.i.i.i.i.i.i.i68.i.i.i.i.i.i = icmp eq i16 %109, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i68.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i69.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i68.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i69.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i69.i.i.i.i.i.i: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.i.i.i.i.i
   %110 = zext i16 %109 to i32
@@ -3733,15 +3733,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i72.i.i.i.i.i.i: ; preds =
   %117 = zext i16 %116 to i32
   %118 = add i32 %112, %117
   %.not.i.i.i.i.i.i.i8.i.i.i.i73.i.i.i.i.i.i = icmp eq i16 %116, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i73.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i70.i.i.i.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i73.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i70.i.i.i.i.i.i, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit74.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i72.i.i.i.i.i.i, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i72.i.i.i.i.i.i, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.i.i.i.i.i
   %119 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i, i64 12
   %.val39.i.i.i.i.i.i = load i32, ptr %119, align 4
   %120 = icmp eq i32 %2, %.val39.i.i.i.i.i.i
   br i1 %120, label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_0EEbOT_T0_.exit.loopexit771.split.loop.exit869", label %121
 
-121:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit74.i.i.i.i.i.i"
+121:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i"
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i76.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i76.i.i.i.i.i.i: ; preds = %121
@@ -3772,7 +3772,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.
   %135 = getelementptr inbounds i16, ptr %34, i64 %134
   %136 = load i16, ptr %135, align 2, !noalias !89
   %.not.i.i.i.i.i.i.i.i.i82.i.i.i.i.i.i = icmp eq i16 %136, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i82.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i83.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i82.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i83.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i83.i.i.i.i.i.i: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i
   %137 = zext i16 %136 to i32
@@ -3792,15 +3792,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i86.i.i.i.i.i.i: ; preds =
   %144 = zext i16 %143 to i32
   %145 = add i32 %139, %144
   %.not.i.i.i.i.i.i.i8.i.i.i.i87.i.i.i.i.i.i = icmp eq i16 %143, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i87.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i84.i.i.i.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i87.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i84.i.i.i.i.i.i, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit88.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i86.i.i.i.i.i.i, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i86.i.i.i.i.i.i, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i
   %146 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i, i64 16
   %147 = add nsw i64 %.0182.i.i.i.i.i.i, -1
   %148 = icmp sgt i64 %.0182.i.i.i.i.i.i, 1
   br i1 %148, label %31, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !99
 
-._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit88.i.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i"
   %149 = and i64 %23, 3
   br label %._crit_edge.i.i.i.i.i.i
 
@@ -3860,7 +3860,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i95.i.
   %176 = getelementptr inbounds i16, ptr %155, i64 %175
   %177 = load i16, ptr %176, align 2, !noalias !110
   %.not.i.i.i.i.i.i.i.i.i96.i.i.i.i.i.i = icmp eq i16 %177, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i96.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit102.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i97.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i96.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i97.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i97.i.i.i.i.i.i: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i95.i.i.i.i.i.i
   %178 = zext i16 %177 to i32
@@ -3880,14 +3880,14 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i100.i.i.i.i.i.i: ; preds 
   %185 = zext i16 %184 to i32
   %186 = add i32 %180, %185
   %.not.i.i.i.i.i.i.i8.i.i.i.i101.i.i.i.i.i.i = icmp eq i16 %184, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i101.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit102.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i98.i.i.i.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i101.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i98.i.i.i.i.i.i, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit102.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i100.i.i.i.i.i.i, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i95.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i100.i.i.i.i.i.i, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i95.i.i.i.i.i.i
   %187 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 4
   br label %._crit_edge._crit_edge.i.i.i.i.i.i
 
-._crit_edge._crit_edge.i.i.i.i.i.i:               ; preds = %._crit_edge.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit102.i.i.i.i.i.i"
-  %.1.i.i.i.i.i.i = phi ptr [ %187, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit102.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
+._crit_edge._crit_edge.i.i.i.i.i.i:               ; preds = %._crit_edge.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i"
+  %.1.i.i.i.i.i.i = phi ptr [ %187, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i, align 4
   %188 = icmp eq i32 %2, %.1.val.i.i.i.i.i.i
   br i1 %188, label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_0EEbOT_T0_.exit", label %189
@@ -3934,7 +3934,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i109.i
   %213 = getelementptr inbounds i16, ptr %192, i64 %212
   %214 = load i16, ptr %213, align 2, !noalias !130
   %.not.i.i.i.i.i.i.i.i.i110.i.i.i.i.i.i = icmp eq i16 %214, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i110.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit116.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i111.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i110.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i111.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i111.i.i.i.i.i.i: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i109.i.i.i.i.i.i
   %215 = zext i16 %214 to i32
@@ -3954,14 +3954,14 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i114.i.i.i.i.i.i: ; preds 
   %222 = zext i16 %221 to i32
   %223 = add i32 %217, %222
   %.not.i.i.i.i.i.i.i8.i.i.i.i115.i.i.i.i.i.i = icmp eq i16 %221, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i115.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit116.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i112.i.i.i.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i115.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i112.i.i.i.i.i.i, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit116.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i114.i.i.i.i.i.i, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i109.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i114.i.i.i.i.i.i, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i109.i.i.i.i.i.i
   %224 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 4
   br label %._crit_edge._crit_edge204.i.i.i.i.i.i
 
-._crit_edge._crit_edge204.i.i.i.i.i.i:            ; preds = %._crit_edge.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit116.i.i.i.i.i.i"
-  %.2.i.i.i.i.i.i = phi ptr [ %224, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit116.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
+._crit_edge._crit_edge204.i.i.i.i.i.i:            ; preds = %._crit_edge.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i"
+  %.2.i.i.i.i.i.i = phi ptr [ %224, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i, align 4
   %225 = icmp eq i32 %2, %.2.val.i.i.i.i.i.i
   br i1 %225, label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_0EEbOT_T0_.exit", label %226
@@ -4054,15 +4054,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i128.i.i.i.i.i.i: ; preds 
   %266 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i, i64 4
   br label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_0EEbOT_T0_.exit.loopexit771.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_0EEbOT_T0_.exit.loopexit771.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i"
   %267 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i, i64 4
   br label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_0EEbOT_T0_.exit.loopexit771.split.loop.exit867": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit60.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_0EEbOT_T0_.exit.loopexit771.split.loop.exit867": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i"
   %268 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_0EEbOT_T0_.exit.loopexit771.split.loop.exit869": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.exit74.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_0EEbOT_T0_.exit.loopexit771.split.loop.exit869": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_0EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i"
   %269 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i, i64 12
   br label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_0EEbOT_T0_.exit"
 
@@ -4117,7 +4117,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %279, %275
   %298 = lshr i16 %297, 4
   %299 = and i16 %298, 1023
   %300 = icmp eq i16 %299, 78
-  br i1 %300, label %301, label %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_1clES4_S4_.exit"
+  br i1 %300, label %301, label %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_1clES4_S4_.argprom.exit"
 
 301:                                              ; preds = %294
   %302 = icmp eq i32 %2, 51
@@ -4164,7 +4164,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i: ; preds
   %326 = getelementptr inbounds i16, ptr %306, i64 %325
   %327 = load i16, ptr %326, align 2, !noalias !170
   %.not.i.i.i.i.i.i.i = icmp eq i16 %327, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_1clES4_S4_.exit", label %.lr.ph.i.i.i.i.preheader.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_1clES4_S4_.argprom.exit", label %.lr.ph.i.i.i.i.preheader.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i
   %328 = zext i16 %327 to i32
@@ -4184,9 +4184,9 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %335 = zext i16 %334 to i32
   %336 = add i32 %330, %335
   %.not.i.i.i.i.i.i.i8.i.i = icmp eq i16 %334, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i, label %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_1clES4_S4_.exit", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i, label %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_1clES4_S4_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !37
 
-"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_1clES4_S4_.exit": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i, %294
+"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_1clES4_S4_.argprom.exit": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i, %294
   store i32 56, ptr %7, align 4
   %337 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 54, ptr %337, align 4
@@ -4206,7 +4206,7 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %346 = icmp sgt i64 %345, 0
   br i1 %346, label %.lr.ph.i.i.i.i.i.i91, label %._crit_edge.i.i.i.i.i.i33
 
-.lr.ph.i.i.i.i.i.i91:                             ; preds = %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_1clES4_S4_.exit"
+.lr.ph.i.i.i.i.i.i91:                             ; preds = %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_1clES4_S4_.argprom.exit"
   %347 = getelementptr inbounds i8, ptr %13, i64 704
   %348 = getelementptr inbounds i8, ptr %13, i64 752
   %349 = zext i32 %2 to i64
@@ -4214,9 +4214,9 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %scevgep.i.i.i.i.i.i94 = getelementptr i8, ptr %342, i64 %350
   br label %351
 
-351:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit88.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i91
-  %.0182.i.i.i.i.i.i95 = phi i64 [ %345, %.lr.ph.i.i.i.i.i.i91 ], [ %467, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit88.i.i.i.i.i.i" ]
-  %.029181.i.i.i.i.i.i96 = phi ptr [ %342, %.lr.ph.i.i.i.i.i.i91 ], [ %466, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit88.i.i.i.i.i.i" ]
+351:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i91
+  %.0182.i.i.i.i.i.i95 = phi i64 [ %345, %.lr.ph.i.i.i.i.i.i91 ], [ %467, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i" ]
+  %.029181.i.i.i.i.i.i96 = phi ptr [ %342, %.lr.ph.i.i.i.i.i.i91 ], [ %466, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i" ]
   %.029.val.i.i.i.i.i.i97 = load i32, ptr %.029181.i.i.i.i.i.i96, align 4
   %352 = icmp eq i32 %2, %.029.val.i.i.i.i.i.i97
   br i1 %352, label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit", label %353
@@ -4260,7 +4260,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i.i.i.
   %374 = getelementptr inbounds i16, ptr %354, i64 %373
   %375 = load i16, ptr %374, align 2, !noalias !187
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i105 = icmp eq i16 %375, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i105, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i106
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i105, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i106
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i106: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i.i.i.i.i.i.i104
   %376 = zext i16 %375 to i32
@@ -4280,15 +4280,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i109: ; preds 
   %383 = zext i16 %382 to i32
   %384 = add i32 %378, %383
   %.not.i.i.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i110 = icmp eq i16 %382, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i110, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i107, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i110, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i107, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i109, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i.i.i.i.i.i.i104
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i109, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i.i.i.i.i.i.i104
   %385 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i96, i64 4
   %.val33.i.i.i.i.i.i111 = load i32, ptr %385, align 4
   %386 = icmp eq i32 %2, %.val33.i.i.i.i.i.i111
   br i1 %386, label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit.loopexit755.split.loop.exit", label %387
 
-387:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit.i.i.i.i.i.i"
+387:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i"
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i98, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.i.i.i.i.i117, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i48.i.i.i.i.i.i112
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i48.i.i.i.i.i.i112: ; preds = %387
@@ -4319,7 +4319,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.
   %401 = getelementptr inbounds i16, ptr %354, i64 %400
   %402 = load i16, ptr %401, align 2, !noalias !204
   %.not.i.i.i.i.i.i.i.i.i54.i.i.i.i.i.i118 = icmp eq i16 %402, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i54.i.i.i.i.i.i118, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i55.i.i.i.i.i.i119
+  br i1 %.not.i.i.i.i.i.i.i.i.i54.i.i.i.i.i.i118, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i55.i.i.i.i.i.i119
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i55.i.i.i.i.i.i119: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.i.i.i.i.i117
   %403 = zext i16 %402 to i32
@@ -4339,15 +4339,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i58.i.i.i.i.i.i122: ; pred
   %410 = zext i16 %409 to i32
   %411 = add i32 %405, %410
   %.not.i.i.i.i.i.i.i8.i.i.i.i59.i.i.i.i.i.i123 = icmp eq i16 %409, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i59.i.i.i.i.i.i123, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i56.i.i.i.i.i.i120, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i59.i.i.i.i.i.i123, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i56.i.i.i.i.i.i120, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit60.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i58.i.i.i.i.i.i122, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.i.i.i.i.i117
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i58.i.i.i.i.i.i122, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.i.i.i.i.i117
   %412 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i96, i64 8
   %.val36.i.i.i.i.i.i124 = load i32, ptr %412, align 4
   %413 = icmp eq i32 %2, %.val36.i.i.i.i.i.i124
   br i1 %413, label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit.loopexit755.split.loop.exit881", label %414
 
-414:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit60.i.i.i.i.i.i"
+414:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i"
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i98, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.i.i.i.i.i130, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i62.i.i.i.i.i.i125
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i62.i.i.i.i.i.i125: ; preds = %414
@@ -4378,7 +4378,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.
   %428 = getelementptr inbounds i16, ptr %354, i64 %427
   %429 = load i16, ptr %428, align 2, !noalias !221
   %.not.i.i.i.i.i.i.i.i.i68.i.i.i.i.i.i131 = icmp eq i16 %429, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i68.i.i.i.i.i.i131, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i69.i.i.i.i.i.i132
+  br i1 %.not.i.i.i.i.i.i.i.i.i68.i.i.i.i.i.i131, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i69.i.i.i.i.i.i132
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i69.i.i.i.i.i.i132: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.i.i.i.i.i130
   %430 = zext i16 %429 to i32
@@ -4398,15 +4398,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i72.i.i.i.i.i.i135: ; pred
   %437 = zext i16 %436 to i32
   %438 = add i32 %432, %437
   %.not.i.i.i.i.i.i.i8.i.i.i.i73.i.i.i.i.i.i136 = icmp eq i16 %436, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i73.i.i.i.i.i.i136, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i70.i.i.i.i.i.i133, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i73.i.i.i.i.i.i136, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i70.i.i.i.i.i.i133, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit74.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i72.i.i.i.i.i.i135, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.i.i.i.i.i130
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i72.i.i.i.i.i.i135, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.i.i.i.i.i130
   %439 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i96, i64 12
   %.val39.i.i.i.i.i.i137 = load i32, ptr %439, align 4
   %440 = icmp eq i32 %2, %.val39.i.i.i.i.i.i137
   br i1 %440, label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit.loopexit755.split.loop.exit883", label %441
 
-441:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit74.i.i.i.i.i.i"
+441:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i"
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i98, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i143, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i76.i.i.i.i.i.i138
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i76.i.i.i.i.i.i138: ; preds = %441
@@ -4437,7 +4437,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.
   %455 = getelementptr inbounds i16, ptr %354, i64 %454
   %456 = load i16, ptr %455, align 2, !noalias !238
   %.not.i.i.i.i.i.i.i.i.i82.i.i.i.i.i.i144 = icmp eq i16 %456, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i82.i.i.i.i.i.i144, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i83.i.i.i.i.i.i145
+  br i1 %.not.i.i.i.i.i.i.i.i.i82.i.i.i.i.i.i144, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i83.i.i.i.i.i.i145
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i83.i.i.i.i.i.i145: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i143
   %457 = zext i16 %456 to i32
@@ -4457,21 +4457,21 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i86.i.i.i.i.i.i148: ; pred
   %464 = zext i16 %463 to i32
   %465 = add i32 %459, %464
   %.not.i.i.i.i.i.i.i8.i.i.i.i87.i.i.i.i.i.i149 = icmp eq i16 %463, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i87.i.i.i.i.i.i149, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i84.i.i.i.i.i.i146, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i87.i.i.i.i.i.i149, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i84.i.i.i.i.i.i146, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit88.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i86.i.i.i.i.i.i148, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i143
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i86.i.i.i.i.i.i148, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i143
   %466 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i96, i64 16
   %467 = add nsw i64 %.0182.i.i.i.i.i.i95, -1
   %468 = icmp sgt i64 %.0182.i.i.i.i.i.i95, 1
   br i1 %468, label %351, label %._crit_edge.loopexit.i.i.i.i.i.i150, !llvm.loop !248
 
-._crit_edge.loopexit.i.i.i.i.i.i150:              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit88.i.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i.i150:              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i"
   %469 = and i64 %343, 3
   br label %._crit_edge.i.i.i.i.i.i33
 
-._crit_edge.i.i.i.i.i.i33:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i150, %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_1clES4_S4_.exit"
-  %.pre-phi207.i.i.i.i.i.i34 = phi i64 [ %469, %._crit_edge.loopexit.i.i.i.i.i.i150 ], [ %343, %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_1clES4_S4_.exit" ]
-  %.029.lcssa.i.i.i.i.i.i35 = phi ptr [ %scevgep.i.i.i.i.i.i94, %._crit_edge.loopexit.i.i.i.i.i.i150 ], [ %342, %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_1clES4_S4_.exit" ]
+._crit_edge.i.i.i.i.i.i33:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i150, %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_1clES4_S4_.argprom.exit"
+  %.pre-phi207.i.i.i.i.i.i34 = phi i64 [ %469, %._crit_edge.loopexit.i.i.i.i.i.i150 ], [ %343, %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_1clES4_S4_.argprom.exit" ]
+  %.029.lcssa.i.i.i.i.i.i35 = phi ptr [ %scevgep.i.i.i.i.i.i94, %._crit_edge.loopexit.i.i.i.i.i.i150 ], [ %342, %"_ZZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_1clES4_S4_.argprom.exit" ]
   switch i64 %.pre-phi207.i.i.i.i.i.i34, label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit" [
     i64 3, label %470
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i.i56
@@ -4525,7 +4525,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i95.i.
   %496 = getelementptr inbounds i16, ptr %475, i64 %495
   %497 = load i16, ptr %496, align 2, !noalias !259
   %.not.i.i.i.i.i.i.i.i.i96.i.i.i.i.i.i85 = icmp eq i16 %497, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i96.i.i.i.i.i.i85, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit102.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i97.i.i.i.i.i.i86
+  br i1 %.not.i.i.i.i.i.i.i.i.i96.i.i.i.i.i.i85, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i97.i.i.i.i.i.i86
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i97.i.i.i.i.i.i86: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i95.i.i.i.i.i.i84
   %498 = zext i16 %497 to i32
@@ -4545,14 +4545,14 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i100.i.i.i.i.i.i89: ; pred
   %505 = zext i16 %504 to i32
   %506 = add i32 %500, %505
   %.not.i.i.i.i.i.i.i8.i.i.i.i101.i.i.i.i.i.i90 = icmp eq i16 %504, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i101.i.i.i.i.i.i90, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit102.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i98.i.i.i.i.i.i87, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i101.i.i.i.i.i.i90, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i98.i.i.i.i.i.i87, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit102.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i100.i.i.i.i.i.i89, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i95.i.i.i.i.i.i84
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i100.i.i.i.i.i.i89, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i95.i.i.i.i.i.i84
   %507 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i35, i64 4
   br label %._crit_edge._crit_edge.i.i.i.i.i.i56
 
-._crit_edge._crit_edge.i.i.i.i.i.i56:             ; preds = %._crit_edge.i.i.i.i.i.i33, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit102.i.i.i.i.i.i"
-  %.1.i.i.i.i.i.i59 = phi ptr [ %507, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit102.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i35, %._crit_edge.i.i.i.i.i.i33 ]
+._crit_edge._crit_edge.i.i.i.i.i.i56:             ; preds = %._crit_edge.i.i.i.i.i.i33, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i"
+  %.1.i.i.i.i.i.i59 = phi ptr [ %507, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i35, %._crit_edge.i.i.i.i.i.i33 ]
   %.1.val.i.i.i.i.i.i60 = load i32, ptr %.1.i.i.i.i.i.i59, align 4
   %508 = icmp eq i32 %2, %.1.val.i.i.i.i.i.i60
   br i1 %508, label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit", label %509
@@ -4599,7 +4599,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i109.i
   %533 = getelementptr inbounds i16, ptr %512, i64 %532
   %534 = load i16, ptr %533, align 2, !noalias !279
   %.not.i.i.i.i.i.i.i.i.i110.i.i.i.i.i.i69 = icmp eq i16 %534, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i110.i.i.i.i.i.i69, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit116.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i111.i.i.i.i.i.i70
+  br i1 %.not.i.i.i.i.i.i.i.i.i110.i.i.i.i.i.i69, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i111.i.i.i.i.i.i70
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i111.i.i.i.i.i.i70: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i109.i.i.i.i.i.i68
   %535 = zext i16 %534 to i32
@@ -4619,14 +4619,14 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i114.i.i.i.i.i.i73: ; pred
   %542 = zext i16 %541 to i32
   %543 = add i32 %537, %542
   %.not.i.i.i.i.i.i.i8.i.i.i.i115.i.i.i.i.i.i74 = icmp eq i16 %541, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i115.i.i.i.i.i.i74, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit116.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i112.i.i.i.i.i.i71, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i115.i.i.i.i.i.i74, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i112.i.i.i.i.i.i71, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit116.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i114.i.i.i.i.i.i73, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i109.i.i.i.i.i.i68
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i114.i.i.i.i.i.i73, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i109.i.i.i.i.i.i68
   %544 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i59, i64 4
   br label %._crit_edge._crit_edge204.i.i.i.i.i.i36
 
-._crit_edge._crit_edge204.i.i.i.i.i.i36:          ; preds = %._crit_edge.i.i.i.i.i.i33, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit116.i.i.i.i.i.i"
-  %.2.i.i.i.i.i.i39 = phi ptr [ %544, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit116.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i35, %._crit_edge.i.i.i.i.i.i33 ]
+._crit_edge._crit_edge204.i.i.i.i.i.i36:          ; preds = %._crit_edge.i.i.i.i.i.i33, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i"
+  %.2.i.i.i.i.i.i39 = phi ptr [ %544, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i35, %._crit_edge.i.i.i.i.i.i33 ]
   %.2.val.i.i.i.i.i.i40 = load i32, ptr %.2.i.i.i.i.i.i39, align 4
   %545 = icmp eq i32 %2, %.2.val.i.i.i.i.i.i40
   br i1 %545, label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit", label %546
@@ -4719,15 +4719,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i128.i.i.i.i.i.i53: ; pred
   %586 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i96, i64 4
   br label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit.loopexit755.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit.loopexit755.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i"
   %587 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i96, i64 4
   br label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit.loopexit755.split.loop.exit881": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit60.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit.loopexit755.split.loop.exit881": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i"
   %588 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i96, i64 8
   br label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit.loopexit755.split.loop.exit883": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.exit74.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit.loopexit755.split.loop.exit883": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_2EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i"
   %589 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i96, i64 12
   br label %"_ZN4llvm6any_ofINS_11SmallVectorINS_10MCRegisterELj12EEEZNKS_15X86RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionES2_E3$_2EEbOT_T0_.exit"
 
@@ -4774,9 +4774,9 @@ _ZN4llvm11SmallVectorINS_10MCRegisterELj12EED2Ev.exit151: ; preds = %"_ZN4llvm6a
   %scevgep.i.i.i.i.i.i214 = getelementptr i8, ptr %599, i64 %607
   br label %608
 
-608:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit88.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i211
-  %.0182.i.i.i.i.i.i215 = phi i64 [ %602, %.lr.ph.i.i.i.i.i.i211 ], [ %724, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit88.i.i.i.i.i.i" ]
-  %.029181.i.i.i.i.i.i216 = phi ptr [ %599, %.lr.ph.i.i.i.i.i.i211 ], [ %723, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit88.i.i.i.i.i.i" ]
+608:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i211
+  %.0182.i.i.i.i.i.i215 = phi i64 [ %602, %.lr.ph.i.i.i.i.i.i211 ], [ %724, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i" ]
+  %.029181.i.i.i.i.i.i216 = phi ptr [ %599, %.lr.ph.i.i.i.i.i.i211 ], [ %723, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i" ]
   %.029.val.i.i.i.i.i.i217 = load i32, ptr %.029181.i.i.i.i.i.i216, align 4
   %609 = icmp eq i32 %2, %.029.val.i.i.i.i.i.i217
   br i1 %609, label %.loopexit434, label %610
@@ -4820,7 +4820,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i.i.i.
   %631 = getelementptr inbounds i16, ptr %611, i64 %630
   %632 = load i16, ptr %631, align 2, !noalias !316
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i225 = icmp eq i16 %632, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i225, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i226
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i225, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i226
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i226: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i.i.i.i.i.i.i224
   %633 = zext i16 %632 to i32
@@ -4840,15 +4840,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i229: ; preds 
   %640 = zext i16 %639 to i32
   %641 = add i32 %635, %640
   %.not.i.i.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i230 = icmp eq i16 %639, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i230, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i227, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i230, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i227, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i229, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i.i.i.i.i.i.i224
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i229, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i.i.i.i.i.i.i224
   %642 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i216, i64 4
   %.val33.i.i.i.i.i.i231 = load i32, ptr %642, align 4
   %643 = icmp eq i32 %2, %.val33.i.i.i.i.i.i231
   br i1 %643, label %.loopexit434.loopexit740.split.loop.exit897, label %644
 
-644:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit.i.i.i.i.i.i"
+644:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i"
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i218, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.i.i.i.i.i237, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i48.i.i.i.i.i.i232
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i48.i.i.i.i.i.i232: ; preds = %644
@@ -4879,7 +4879,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.
   %658 = getelementptr inbounds i16, ptr %611, i64 %657
   %659 = load i16, ptr %658, align 2, !noalias !333
   %.not.i.i.i.i.i.i.i.i.i54.i.i.i.i.i.i238 = icmp eq i16 %659, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i54.i.i.i.i.i.i238, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i55.i.i.i.i.i.i239
+  br i1 %.not.i.i.i.i.i.i.i.i.i54.i.i.i.i.i.i238, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i55.i.i.i.i.i.i239
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i55.i.i.i.i.i.i239: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.i.i.i.i.i237
   %660 = zext i16 %659 to i32
@@ -4899,15 +4899,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i58.i.i.i.i.i.i242: ; pred
   %667 = zext i16 %666 to i32
   %668 = add i32 %662, %667
   %.not.i.i.i.i.i.i.i8.i.i.i.i59.i.i.i.i.i.i243 = icmp eq i16 %666, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i59.i.i.i.i.i.i243, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i56.i.i.i.i.i.i240, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i59.i.i.i.i.i.i243, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i56.i.i.i.i.i.i240, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit60.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i58.i.i.i.i.i.i242, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.i.i.i.i.i237
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i58.i.i.i.i.i.i242, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.i.i.i.i.i237
   %669 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i216, i64 8
   %.val36.i.i.i.i.i.i244 = load i32, ptr %669, align 4
   %670 = icmp eq i32 %2, %.val36.i.i.i.i.i.i244
   br i1 %670, label %.loopexit434.loopexit740.split.loop.exit895, label %671
 
-671:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit60.i.i.i.i.i.i"
+671:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i"
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i218, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.i.i.i.i.i250, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i62.i.i.i.i.i.i245
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i62.i.i.i.i.i.i245: ; preds = %671
@@ -4938,7 +4938,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.
   %685 = getelementptr inbounds i16, ptr %611, i64 %684
   %686 = load i16, ptr %685, align 2, !noalias !350
   %.not.i.i.i.i.i.i.i.i.i68.i.i.i.i.i.i251 = icmp eq i16 %686, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i68.i.i.i.i.i.i251, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i69.i.i.i.i.i.i252
+  br i1 %.not.i.i.i.i.i.i.i.i.i68.i.i.i.i.i.i251, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i69.i.i.i.i.i.i252
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i69.i.i.i.i.i.i252: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.i.i.i.i.i250
   %687 = zext i16 %686 to i32
@@ -4958,15 +4958,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i72.i.i.i.i.i.i255: ; pred
   %694 = zext i16 %693 to i32
   %695 = add i32 %689, %694
   %.not.i.i.i.i.i.i.i8.i.i.i.i73.i.i.i.i.i.i256 = icmp eq i16 %693, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i73.i.i.i.i.i.i256, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i70.i.i.i.i.i.i253, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i73.i.i.i.i.i.i256, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i70.i.i.i.i.i.i253, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit74.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i72.i.i.i.i.i.i255, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.i.i.i.i.i250
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i72.i.i.i.i.i.i255, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.i.i.i.i.i250
   %696 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i216, i64 12
   %.val39.i.i.i.i.i.i257 = load i32, ptr %696, align 4
   %697 = icmp eq i32 %2, %.val39.i.i.i.i.i.i257
   br i1 %697, label %.loopexit434.loopexit740.split.loop.exit, label %698
 
-698:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit74.i.i.i.i.i.i"
+698:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i"
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i218, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i263, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i76.i.i.i.i.i.i258
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i76.i.i.i.i.i.i258: ; preds = %698
@@ -4997,7 +4997,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.
   %712 = getelementptr inbounds i16, ptr %611, i64 %711
   %713 = load i16, ptr %712, align 2, !noalias !367
   %.not.i.i.i.i.i.i.i.i.i82.i.i.i.i.i.i264 = icmp eq i16 %713, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i82.i.i.i.i.i.i264, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i83.i.i.i.i.i.i265
+  br i1 %.not.i.i.i.i.i.i.i.i.i82.i.i.i.i.i.i264, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i83.i.i.i.i.i.i265
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i83.i.i.i.i.i.i265: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i263
   %714 = zext i16 %713 to i32
@@ -5017,15 +5017,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i86.i.i.i.i.i.i268: ; pred
   %721 = zext i16 %720 to i32
   %722 = add i32 %716, %721
   %.not.i.i.i.i.i.i.i8.i.i.i.i87.i.i.i.i.i.i269 = icmp eq i16 %720, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i87.i.i.i.i.i.i269, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i84.i.i.i.i.i.i266, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i87.i.i.i.i.i.i269, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i84.i.i.i.i.i.i266, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit88.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i86.i.i.i.i.i.i268, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i263
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i86.i.i.i.i.i.i268, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i263
   %723 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i216, i64 16
   %724 = add nsw i64 %.0182.i.i.i.i.i.i215, -1
   %725 = icmp sgt i64 %.0182.i.i.i.i.i.i215, 1
   br i1 %725, label %608, label %._crit_edge.loopexit.i.i.i.i.i.i270, !llvm.loop !377
 
-._crit_edge.loopexit.i.i.i.i.i.i270:              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit88.i.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i.i270:              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i"
   %726 = and i64 %600, 3
   br label %._crit_edge.i.i.i.i.i.i153
 
@@ -5085,7 +5085,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i95.i.
   %753 = getelementptr inbounds i16, ptr %732, i64 %752
   %754 = load i16, ptr %753, align 2, !noalias !388
   %.not.i.i.i.i.i.i.i.i.i96.i.i.i.i.i.i205 = icmp eq i16 %754, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i96.i.i.i.i.i.i205, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit102.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i97.i.i.i.i.i.i206
+  br i1 %.not.i.i.i.i.i.i.i.i.i96.i.i.i.i.i.i205, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i97.i.i.i.i.i.i206
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i97.i.i.i.i.i.i206: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i95.i.i.i.i.i.i204
   %755 = zext i16 %754 to i32
@@ -5105,14 +5105,14 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i100.i.i.i.i.i.i209: ; pre
   %762 = zext i16 %761 to i32
   %763 = add i32 %757, %762
   %.not.i.i.i.i.i.i.i8.i.i.i.i101.i.i.i.i.i.i210 = icmp eq i16 %761, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i101.i.i.i.i.i.i210, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit102.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i98.i.i.i.i.i.i207, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i101.i.i.i.i.i.i210, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i98.i.i.i.i.i.i207, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit102.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i100.i.i.i.i.i.i209, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i95.i.i.i.i.i.i204
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i100.i.i.i.i.i.i209, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i95.i.i.i.i.i.i204
   %764 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i155, i64 4
   br label %._crit_edge._crit_edge.i.i.i.i.i.i176
 
-._crit_edge._crit_edge.i.i.i.i.i.i176:            ; preds = %._crit_edge.i.i.i.i.i.i153, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit102.i.i.i.i.i.i"
-  %.1.i.i.i.i.i.i179 = phi ptr [ %764, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit102.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i155, %._crit_edge.i.i.i.i.i.i153 ]
+._crit_edge._crit_edge.i.i.i.i.i.i176:            ; preds = %._crit_edge.i.i.i.i.i.i153, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i"
+  %.1.i.i.i.i.i.i179 = phi ptr [ %764, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i155, %._crit_edge.i.i.i.i.i.i153 ]
   %.1.val.i.i.i.i.i.i180 = load i32, ptr %.1.i.i.i.i.i.i179, align 4
   %765 = icmp eq i32 %2, %.1.val.i.i.i.i.i.i180
   br i1 %765, label %.loopexit434, label %766
@@ -5159,7 +5159,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i109.i
   %790 = getelementptr inbounds i16, ptr %769, i64 %789
   %791 = load i16, ptr %790, align 2, !noalias !408
   %.not.i.i.i.i.i.i.i.i.i110.i.i.i.i.i.i189 = icmp eq i16 %791, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i110.i.i.i.i.i.i189, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit116.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i111.i.i.i.i.i.i190
+  br i1 %.not.i.i.i.i.i.i.i.i.i110.i.i.i.i.i.i189, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i111.i.i.i.i.i.i190
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i111.i.i.i.i.i.i190: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i109.i.i.i.i.i.i188
   %792 = zext i16 %791 to i32
@@ -5179,14 +5179,14 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i114.i.i.i.i.i.i193: ; pre
   %799 = zext i16 %798 to i32
   %800 = add i32 %794, %799
   %.not.i.i.i.i.i.i.i8.i.i.i.i115.i.i.i.i.i.i194 = icmp eq i16 %798, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i115.i.i.i.i.i.i194, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit116.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i112.i.i.i.i.i.i191, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i115.i.i.i.i.i.i194, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i112.i.i.i.i.i.i191, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit116.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i114.i.i.i.i.i.i193, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i109.i.i.i.i.i.i188
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i114.i.i.i.i.i.i193, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i109.i.i.i.i.i.i188
   %801 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i179, i64 4
   br label %._crit_edge._crit_edge204.i.i.i.i.i.i156
 
-._crit_edge._crit_edge204.i.i.i.i.i.i156:         ; preds = %._crit_edge.i.i.i.i.i.i153, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit116.i.i.i.i.i.i"
-  %.2.i.i.i.i.i.i159 = phi ptr [ %801, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit116.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i155, %._crit_edge.i.i.i.i.i.i153 ]
+._crit_edge._crit_edge204.i.i.i.i.i.i156:         ; preds = %._crit_edge.i.i.i.i.i.i153, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i"
+  %.2.i.i.i.i.i.i159 = phi ptr [ %801, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i155, %._crit_edge.i.i.i.i.i.i153 ]
   %.2.val.i.i.i.i.i.i160 = load i32, ptr %.2.i.i.i.i.i.i159, align 4
   %802 = icmp eq i32 %2, %.2.val.i.i.i.i.i.i160
   br i1 %802, label %.loopexit434, label %803
@@ -5279,15 +5279,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i128.i.i.i.i.i.i173: ; pre
   %843 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i216, i64 4
   br label %.loopexit434
 
-.loopexit434.loopexit740.split.loop.exit:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit74.i.i.i.i.i.i"
+.loopexit434.loopexit740.split.loop.exit:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i"
   %844 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i216, i64 12
   br label %.loopexit434
 
-.loopexit434.loopexit740.split.loop.exit895:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit60.i.i.i.i.i.i"
+.loopexit434.loopexit740.split.loop.exit895:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i"
   %845 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i216, i64 8
   br label %.loopexit434
 
-.loopexit434.loopexit740.split.loop.exit897:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.exit.i.i.i.i.i.i"
+.loopexit434.loopexit740.split.loop.exit897:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_3EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i"
   %846 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i216, i64 4
   br label %.loopexit434
 
@@ -5334,9 +5334,9 @@ _ZN4llvm11SmallVectorINS_10MCRegisterELj12EED2Ev.exit271.thread: ; preds = %594,
   %scevgep.i.i.i.i.i.i334 = getelementptr i8, ptr %857, i64 %865
   br label %866
 
-866:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit88.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i331
-  %.0182.i.i.i.i.i.i335 = phi i64 [ %860, %.lr.ph.i.i.i.i.i.i331 ], [ %982, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit88.i.i.i.i.i.i" ]
-  %.029181.i.i.i.i.i.i336 = phi ptr [ %857, %.lr.ph.i.i.i.i.i.i331 ], [ %981, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit88.i.i.i.i.i.i" ]
+866:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i331
+  %.0182.i.i.i.i.i.i335 = phi i64 [ %860, %.lr.ph.i.i.i.i.i.i331 ], [ %982, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i" ]
+  %.029181.i.i.i.i.i.i336 = phi ptr [ %857, %.lr.ph.i.i.i.i.i.i331 ], [ %981, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i" ]
   %.029.val.i.i.i.i.i.i337 = load i32, ptr %.029181.i.i.i.i.i.i336, align 4
   %867 = icmp eq i32 %2, %.029.val.i.i.i.i.i.i337
   br i1 %867, label %.loopexit, label %868
@@ -5380,7 +5380,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i.i.i.
   %889 = getelementptr inbounds i16, ptr %869, i64 %888
   %890 = load i16, ptr %889, align 2, !noalias !445
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i345 = icmp eq i16 %890, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i345, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i346
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i345, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i346
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i346: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i.i.i.i.i.i.i344
   %891 = zext i16 %890 to i32
@@ -5400,15 +5400,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i349: ; preds 
   %898 = zext i16 %897 to i32
   %899 = add i32 %893, %898
   %.not.i.i.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i350 = icmp eq i16 %897, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i350, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i347, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i350, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i347, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i349, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i.i.i.i.i.i.i344
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i349, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i.i.i.i.i.i.i344
   %900 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i336, i64 4
   %.val33.i.i.i.i.i.i351 = load i32, ptr %900, align 4
   %901 = icmp eq i32 %2, %.val33.i.i.i.i.i.i351
   br i1 %901, label %.loopexit.loopexit725.split.loop.exit911, label %902
 
-902:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit.i.i.i.i.i.i"
+902:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i"
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i338, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.i.i.i.i.i357, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i48.i.i.i.i.i.i352
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i48.i.i.i.i.i.i352: ; preds = %902
@@ -5439,7 +5439,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.
   %916 = getelementptr inbounds i16, ptr %869, i64 %915
   %917 = load i16, ptr %916, align 2, !noalias !462
   %.not.i.i.i.i.i.i.i.i.i54.i.i.i.i.i.i358 = icmp eq i16 %917, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i54.i.i.i.i.i.i358, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i55.i.i.i.i.i.i359
+  br i1 %.not.i.i.i.i.i.i.i.i.i54.i.i.i.i.i.i358, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i55.i.i.i.i.i.i359
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i55.i.i.i.i.i.i359: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.i.i.i.i.i357
   %918 = zext i16 %917 to i32
@@ -5459,15 +5459,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i58.i.i.i.i.i.i362: ; pred
   %925 = zext i16 %924 to i32
   %926 = add i32 %920, %925
   %.not.i.i.i.i.i.i.i8.i.i.i.i59.i.i.i.i.i.i363 = icmp eq i16 %924, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i59.i.i.i.i.i.i363, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i56.i.i.i.i.i.i360, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i59.i.i.i.i.i.i363, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i56.i.i.i.i.i.i360, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit60.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i58.i.i.i.i.i.i362, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.i.i.i.i.i357
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i58.i.i.i.i.i.i362, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i53.i.i.i.i.i.i357
   %927 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i336, i64 8
   %.val36.i.i.i.i.i.i364 = load i32, ptr %927, align 4
   %928 = icmp eq i32 %2, %.val36.i.i.i.i.i.i364
   br i1 %928, label %.loopexit.loopexit725.split.loop.exit909, label %929
 
-929:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit60.i.i.i.i.i.i"
+929:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i"
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i338, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.i.i.i.i.i370, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i62.i.i.i.i.i.i365
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i62.i.i.i.i.i.i365: ; preds = %929
@@ -5498,7 +5498,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.
   %943 = getelementptr inbounds i16, ptr %869, i64 %942
   %944 = load i16, ptr %943, align 2, !noalias !479
   %.not.i.i.i.i.i.i.i.i.i68.i.i.i.i.i.i371 = icmp eq i16 %944, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i68.i.i.i.i.i.i371, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i69.i.i.i.i.i.i372
+  br i1 %.not.i.i.i.i.i.i.i.i.i68.i.i.i.i.i.i371, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i69.i.i.i.i.i.i372
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i69.i.i.i.i.i.i372: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.i.i.i.i.i370
   %945 = zext i16 %944 to i32
@@ -5518,15 +5518,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i72.i.i.i.i.i.i375: ; pred
   %952 = zext i16 %951 to i32
   %953 = add i32 %947, %952
   %.not.i.i.i.i.i.i.i8.i.i.i.i73.i.i.i.i.i.i376 = icmp eq i16 %951, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i73.i.i.i.i.i.i376, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i70.i.i.i.i.i.i373, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i73.i.i.i.i.i.i376, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i70.i.i.i.i.i.i373, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit74.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i72.i.i.i.i.i.i375, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.i.i.i.i.i370
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i72.i.i.i.i.i.i375, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i67.i.i.i.i.i.i370
   %954 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i336, i64 12
   %.val39.i.i.i.i.i.i377 = load i32, ptr %954, align 4
   %955 = icmp eq i32 %2, %.val39.i.i.i.i.i.i377
   br i1 %955, label %.loopexit.loopexit725.split.loop.exit, label %956
 
-956:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit74.i.i.i.i.i.i"
+956:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i"
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i338, label %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i383, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i76.i.i.i.i.i.i378
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i76.i.i.i.i.i.i378: ; preds = %956
@@ -5557,7 +5557,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.
   %970 = getelementptr inbounds i16, ptr %869, i64 %969
   %971 = load i16, ptr %970, align 2, !noalias !496
   %.not.i.i.i.i.i.i.i.i.i82.i.i.i.i.i.i384 = icmp eq i16 %971, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i82.i.i.i.i.i.i384, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i83.i.i.i.i.i.i385
+  br i1 %.not.i.i.i.i.i.i.i.i.i82.i.i.i.i.i.i384, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i83.i.i.i.i.i.i385
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i83.i.i.i.i.i.i385: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i383
   %972 = zext i16 %971 to i32
@@ -5577,15 +5577,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i86.i.i.i.i.i.i388: ; pred
   %979 = zext i16 %978 to i32
   %980 = add i32 %974, %979
   %.not.i.i.i.i.i.i.i8.i.i.i.i87.i.i.i.i.i.i389 = icmp eq i16 %978, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i87.i.i.i.i.i.i389, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i84.i.i.i.i.i.i386, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i87.i.i.i.i.i.i389, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i84.i.i.i.i.i.i386, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit88.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i86.i.i.i.i.i.i388, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i383
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i86.i.i.i.i.i.i388, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i383
   %981 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i336, i64 16
   %982 = add nsw i64 %.0182.i.i.i.i.i.i335, -1
   %983 = icmp sgt i64 %.0182.i.i.i.i.i.i335, 1
   br i1 %983, label %866, label %._crit_edge.loopexit.i.i.i.i.i.i390, !llvm.loop !506
 
-._crit_edge.loopexit.i.i.i.i.i.i390:              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit88.i.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i.i390:              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit88.i.i.i.i.i.i"
   %984 = and i64 %858, 3
   br label %._crit_edge.i.i.i.i.i.i273
 
@@ -5645,7 +5645,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i95.i.
   %1011 = getelementptr inbounds i16, ptr %990, i64 %1010
   %1012 = load i16, ptr %1011, align 2, !noalias !517
   %.not.i.i.i.i.i.i.i.i.i96.i.i.i.i.i.i325 = icmp eq i16 %1012, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i96.i.i.i.i.i.i325, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit102.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i97.i.i.i.i.i.i326
+  br i1 %.not.i.i.i.i.i.i.i.i.i96.i.i.i.i.i.i325, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i97.i.i.i.i.i.i326
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i97.i.i.i.i.i.i326: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i95.i.i.i.i.i.i324
   %1013 = zext i16 %1012 to i32
@@ -5665,14 +5665,14 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i100.i.i.i.i.i.i329: ; pre
   %1020 = zext i16 %1019 to i32
   %1021 = add i32 %1015, %1020
   %.not.i.i.i.i.i.i.i8.i.i.i.i101.i.i.i.i.i.i330 = icmp eq i16 %1019, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i101.i.i.i.i.i.i330, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit102.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i98.i.i.i.i.i.i327, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i101.i.i.i.i.i.i330, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i98.i.i.i.i.i.i327, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit102.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i100.i.i.i.i.i.i329, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i95.i.i.i.i.i.i324
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i100.i.i.i.i.i.i329, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i95.i.i.i.i.i.i324
   %1022 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i275, i64 4
   br label %._crit_edge._crit_edge.i.i.i.i.i.i296
 
-._crit_edge._crit_edge.i.i.i.i.i.i296:            ; preds = %._crit_edge.i.i.i.i.i.i273, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit102.i.i.i.i.i.i"
-  %.1.i.i.i.i.i.i299 = phi ptr [ %1022, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit102.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i275, %._crit_edge.i.i.i.i.i.i273 ]
+._crit_edge._crit_edge.i.i.i.i.i.i296:            ; preds = %._crit_edge.i.i.i.i.i.i273, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i"
+  %.1.i.i.i.i.i.i299 = phi ptr [ %1022, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit102.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i275, %._crit_edge.i.i.i.i.i.i273 ]
   %.1.val.i.i.i.i.i.i300 = load i32, ptr %.1.i.i.i.i.i.i299, align 4
   %1023 = icmp eq i32 %2, %.1.val.i.i.i.i.i.i300
   br i1 %1023, label %.loopexit, label %1024
@@ -5719,7 +5719,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i109.i
   %1048 = getelementptr inbounds i16, ptr %1027, i64 %1047
   %1049 = load i16, ptr %1048, align 2, !noalias !537
   %.not.i.i.i.i.i.i.i.i.i110.i.i.i.i.i.i309 = icmp eq i16 %1049, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i110.i.i.i.i.i.i309, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit116.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i111.i.i.i.i.i.i310
+  br i1 %.not.i.i.i.i.i.i.i.i.i110.i.i.i.i.i.i309, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i111.i.i.i.i.i.i310
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i.i111.i.i.i.i.i.i310: ; preds = %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i109.i.i.i.i.i.i308
   %1050 = zext i16 %1049 to i32
@@ -5739,14 +5739,14 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i114.i.i.i.i.i.i313: ; pre
   %1057 = zext i16 %1056 to i32
   %1058 = add i32 %1052, %1057
   %.not.i.i.i.i.i.i.i8.i.i.i.i115.i.i.i.i.i.i314 = icmp eq i16 %1056, 0
-  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i115.i.i.i.i.i.i314, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit116.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i112.i.i.i.i.i.i311, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i8.i.i.i.i115.i.i.i.i.i.i314, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i112.i.i.i.i.i.i311, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit116.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i114.i.i.i.i.i.i313, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i109.i.i.i.i.i.i308
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i114.i.i.i.i.i.i313, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i109.i.i.i.i.i.i308
   %1059 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i299, i64 4
   br label %._crit_edge._crit_edge204.i.i.i.i.i.i276
 
-._crit_edge._crit_edge204.i.i.i.i.i.i276:         ; preds = %._crit_edge.i.i.i.i.i.i273, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit116.i.i.i.i.i.i"
-  %.2.i.i.i.i.i.i279 = phi ptr [ %1059, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit116.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i275, %._crit_edge.i.i.i.i.i.i273 ]
+._crit_edge._crit_edge204.i.i.i.i.i.i276:         ; preds = %._crit_edge.i.i.i.i.i.i273, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i"
+  %.2.i.i.i.i.i.i279 = phi ptr [ %1059, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit116.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i275, %._crit_edge.i.i.i.i.i.i273 ]
   %.2.val.i.i.i.i.i.i280 = load i32, ptr %.2.i.i.i.i.i.i279, align 4
   %1060 = icmp eq i32 %2, %.2.val.i.i.i.i.i.i280
   br i1 %1060, label %.loopexit, label %1061
@@ -5839,15 +5839,15 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i128.i.i.i.i.i.i293: ; pre
   %1101 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i336, i64 4
   br label %.loopexit
 
-.loopexit.loopexit725.split.loop.exit:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit74.i.i.i.i.i.i"
+.loopexit.loopexit725.split.loop.exit:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit74.i.i.i.i.i.i"
   %1102 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i336, i64 12
   br label %.loopexit
 
-.loopexit.loopexit725.split.loop.exit909:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit60.i.i.i.i.i.i"
+.loopexit.loopexit725.split.loop.exit909:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit60.i.i.i.i.i.i"
   %1103 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i336, i64 8
   br label %.loopexit
 
-.loopexit.loopexit725.split.loop.exit911:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit.i.i.i.i.i.i"
+.loopexit.loopexit725.split.loop.exit911:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.argprom.argprom.exit.i.i.i.i.i.i"
   %1104 = getelementptr inbounds i8, ptr %.029181.i.i.i.i.i.i336, i64 4
   br label %.loopexit
 
@@ -7356,7 +7356,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15X86RegisterInfo21getRegAllocatio
 86:                                               ; preds = %78
   %87 = getelementptr i8, ptr %80, i64 36
   %.val = load i32, ptr %87, align 4
-  call fastcc void @"_ZZNK4llvm15X86RegisterInfo21getRegAllocationHintsENS_8RegisterENS_8ArrayRefItEERNS_15SmallVectorImplItEERKNS_15MachineFunctionEPKNS_10VirtRegMapEPKNS_13LiveRegMatrixEENK3$_0clERKNS_14MachineOperandE"(ptr noundef nonnull align 8 dereferenceable(32) %14, i32 %.val)
+  call fastcc void @"_ZZNK4llvm15X86RegisterInfo21getRegAllocationHintsENS_8RegisterENS_8ArrayRefItEERNS_15SmallVectorImplItEERKNS_15MachineFunctionEPKNS_10VirtRegMapEPKNS_13LiveRegMatrixEENK3$_0clERKNS_14MachineOperandE.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %14, i32 %.val)
   %88 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
@@ -7392,7 +7392,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15X86RegisterInfo21getRegAllocatio
 .sink.split:                                      ; preds = %96, %106, %93
   %.sink = phi ptr [ %95, %93 ], [ %107, %106 ], [ %97, %96 ]
   %.val75 = load i32, ptr %.sink, align 4
-  call fastcc void @"_ZZNK4llvm15X86RegisterInfo21getRegAllocationHintsENS_8RegisterENS_8ArrayRefItEERNS_15SmallVectorImplItEERKNS_15MachineFunctionEPKNS_10VirtRegMapEPKNS_13LiveRegMatrixEENK3$_0clERKNS_14MachineOperandE"(ptr noundef nonnull align 8 dereferenceable(32) %14, i32 %.val75)
+  call fastcc void @"_ZZNK4llvm15X86RegisterInfo21getRegAllocationHintsENS_8RegisterENS_8ArrayRefItEERNS_15SmallVectorImplItEERKNS_15MachineFunctionEPKNS_10VirtRegMapEPKNS_13LiveRegMatrixEENK3$_0clERKNS_14MachineOperandE.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %14, i32 %.val75)
   br label %.preheader
 
 .preheader:                                       ; preds = %.sink.split, %86, %98, %.lr.ph
@@ -7871,7 +7871,7 @@ declare noundef zeroext i1 @_ZNK4llvm18TargetRegisterInfo21getRegAllocationHints
 declare noundef i32 @_ZN4llvm3X8615getNonNDVariantEj(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm15X86RegisterInfo21getRegAllocationHintsENS_8RegisterENS_8ArrayRefItEERNS_15SmallVectorImplItEERKNS_15MachineFunctionEPKNS_10VirtRegMapEPKNS_13LiveRegMatrixEENK3$_0clERKNS_14MachineOperandE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 %.4.val) unnamed_addr #2 align 2 {
+define internal fastcc void @"_ZZNK4llvm15X86RegisterInfo21getRegAllocationHintsENS_8RegisterENS_8ArrayRefItEERNS_15SmallVectorImplItEERKNS_15MachineFunctionEPKNS_10VirtRegMapEPKNS_13LiveRegMatrixEENK3$_0clERKNS_14MachineOperandE.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 %.4.val) unnamed_addr #2 align 2 {
   %2 = alloca %"struct.std::pair.520", align 8
   %3 = alloca i32, align 4
   %4 = add i32 %.4.val, -1

@@ -432,7 +432,7 @@ _ZN4ncnn6CpuSet6enableEi.exit.i.i:                ; preds = %69, %.lr.ph.i17.i
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %._crit_edge.i6.i
   %.not.i.i.i.i.i.i = icmp eq i32 %66, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.exit.i, label %.noexc47.i.i
+  br i1 %.not.i.i.i.i.i.i, label %_ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.argprom.exit.i, label %.noexc47.i.i
 
 .noexc47.i.i:                                     ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %77 = shl nuw nsw i64 %wide.trip.count.i.i, 2
@@ -671,26 +671,26 @@ _ZN4ncnn6CpuSet6enableEi.exit53.i.i:              ; preds = %_ZN4ncnn6CpuSet6ena
 
 .loopexit.thread.i.i:                             ; preds = %_ZN4ncnn6CpuSet6enableEi.exit53.i.i, %.loopexit.i12.i, %.preheader.i10.i
   call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %77) #23
-  br label %_ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.exit.i
+  br label %_ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.argprom.exit.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i13.i:              ; preds = %.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit10.i.i
   %lpad.phi.i14.i = phi { ptr, i32 } [ %lpad.loopexit.i15.i, %.loopexit10.i.i ], [ %lpad.loopexit11.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp12.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ]
   call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %77) #23
   br label %common.resume.i
 
-_ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.exit.i: ; preds = %.loopexit.thread.i.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
-  call fastcc void @_ZL13get_elf_hwcapj(i32 noundef 16)
-  call fastcc void @_ZL13get_elf_hwcapj(i32 noundef 26)
+_ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.argprom.exit.i: ; preds = %.loopexit.thread.i.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
+  call fastcc void @_ZL13get_elf_hwcapj.retelim(i32 noundef 16)
+  call fastcc void @_ZL13get_elf_hwcapj.retelim(i32 noundef 26)
   %152 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 0) #27, !srcloc !15
   %153 = extractvalue { i32, i32, i32, i32 } %152, 0
   %154 = icmp slt i32 %153, 1
   br i1 %154, label %_ZL23get_cpu_support_x86_avxv.exit.thread.i, label %_ZL9x86_cpuidiPj.exit6.i.i
 
-_ZL23get_cpu_support_x86_avxv.exit.thread.i:      ; preds = %_ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.exit.i
+_ZL23get_cpu_support_x86_avxv.exit.thread.i:      ; preds = %_ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.argprom.exit.i
   store i32 0, ptr @_ZL21g_cpu_support_x86_avx, align 4
   br label %_ZL23get_cpu_support_x86_fmav.exit.i
 
-_ZL9x86_cpuidiPj.exit6.i.i:                       ; preds = %_ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.exit.i
+_ZL9x86_cpuidiPj.exit6.i.i:                       ; preds = %_ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.argprom.exit.i
   %155 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #27
   %156 = extractvalue { i32, i32, i32, i32 } %155, 2
   %157 = and i32 %156, 469762048
@@ -1512,7 +1512,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn19set_flush_denormalsEi(i32 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL13get_elf_hwcapj(i32 noundef range(i32 16, 27) %0) unnamed_addr #9 {
+define internal fastcc void @_ZL13get_elf_hwcapj.retelim(i32 noundef range(i32 16, 27) %0) unnamed_addr #9 {
   %2 = alloca %struct.anon, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.7)

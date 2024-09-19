@@ -915,7 +915,7 @@ define void @_ZN2cv6imreadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   store i64 0, ptr %7, align 8
   store i32 33619968, ptr %5, align 8
   store ptr %0, ptr %6, align 8
-  invoke fastcc void @_ZN2cvL7imread_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  invoke fastcc void @_ZN2cvL7imread_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKNS_12_OutputArrayE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %8 unwind label %15
 
 8:                                                ; preds = %3
@@ -952,7 +952,7 @@ declare void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE
 declare void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7imread_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7imread_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKNS_12_OutputArrayE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::Ptr.13", align 8
   %5 = alloca %"struct.cv::Ptr.13", align 8
   %6 = alloca i32, align 4
@@ -1807,7 +1807,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %269, %272
   %.val123 = load i16, ptr %379, align 8
   %380 = getelementptr inbounds i8, ptr %19, i64 82
   %.val124 = load i16, ptr %380, align 2
-  invoke fastcc void @_ZN2cvL20ApplyExifOrientationENS_11ExifEntry_tERKNS_12_OutputArrayE(i16 %.val123, i16 %.val124, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke fastcc void @_ZN2cvL20ApplyExifOrientationENS_11ExifEntry_tERKNS_12_OutputArrayE.argprom(i16 %.val123, i16 %.val124, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %381 unwind label %385
 
 381:                                              ; preds = %378
@@ -1956,7 +1956,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
 define void @_ZN2cv6imreadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv6imreadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12_OutputArrayEiE25__cv_trace_location_fn654)
-  invoke fastcc void @_ZN2cvL7imread_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZN2cvL7imread_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKNS_12_OutputArrayE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %5 unwind label %12
 
 5:                                                ; preds = %3
@@ -2750,7 +2750,7 @@ _ZN2cvL8calcTypeEii.exit:                         ; preds = %228, %227
   store ptr %13, ptr %208, align 8
   %.val = load i16, ptr %210, align 8
   %.val112 = load i16, ptr %211, align 2
-  invoke fastcc void @_ZN2cvL20ApplyExifOrientationENS_11ExifEntry_tERKNS_12_OutputArrayE(i16 %.val, i16 %.val112, ptr noundef nonnull align 8 dereferenceable(24) %19)
+  invoke fastcc void @_ZN2cvL20ApplyExifOrientationENS_11ExifEntry_tERKNS_12_OutputArrayE.argprom(i16 %.val, i16 %.val112, ptr noundef nonnull align 8 dereferenceable(24) %19)
           to label %319 unwind label %322
 
 319:                                              ; preds = %318
@@ -5499,7 +5499,7 @@ _ZN2cvL8calcTypeEii.exit:                         ; preds = %310, %320, %323
   %.val = load i16, ptr %465, align 8
   %466 = getelementptr inbounds i8, ptr %34, i64 82
   %.val165 = load i16, ptr %466, align 2
-  invoke fastcc void @_ZN2cvL20ApplyExifOrientationENS_11ExifEntry_tERKNS_12_OutputArrayE(i16 %.val, i16 %.val165, ptr noundef nonnull align 8 dereferenceable(24) %35)
+  invoke fastcc void @_ZN2cvL20ApplyExifOrientationENS_11ExifEntry_tERKNS_12_OutputArrayE.argprom(i16 %.val, i16 %.val165, ptr noundef nonnull align 8 dereferenceable(24) %35)
           to label %467 unwind label %471
 
 467:                                              ; preds = %462
@@ -6743,7 +6743,7 @@ _ZN2cvL8calcTypeEii.exit:                         ; preds = %315, %314
   store ptr %27, ptr %235, align 8
   %.val = load i16, ptr %237, align 8
   %.val170 = load i16, ptr %238, align 2
-  invoke fastcc void @_ZN2cvL20ApplyExifOrientationENS_11ExifEntry_tERKNS_12_OutputArrayE(i16 %.val, i16 %.val170, ptr noundef nonnull align 8 dereferenceable(24) %33)
+  invoke fastcc void @_ZN2cvL20ApplyExifOrientationENS_11ExifEntry_tERKNS_12_OutputArrayE.argprom(i16 %.val, i16 %.val170, ptr noundef nonnull align 8 dereferenceable(24) %33)
           to label %411 unwind label %414
 
 411:                                              ; preds = %410
@@ -9586,7 +9586,7 @@ _ZN2cvL8calcTypeEii.exit:                         ; preds = %2, %28, %31
   %.val = load i16, ptr %120, align 8
   %121 = getelementptr inbounds i8, ptr %9, i64 82
   %.val40 = load i16, ptr %121, align 2
-  invoke fastcc void @_ZN2cvL20ApplyExifOrientationENS_11ExifEntry_tERKNS_12_OutputArrayE(i16 %.val, i16 %.val40, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN2cvL20ApplyExifOrientationENS_11ExifEntry_tERKNS_12_OutputArrayE.argprom(i16 %.val, i16 %.val40, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %122 unwind label %126
 
 122:                                              ; preds = %117
@@ -9827,7 +9827,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL20ApplyExifOrientationENS_11ExifEntry_tERKNS_12_OutputArrayE(i16 %.80.val, i16 %.82.val, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 {
+define internal fastcc void @_ZN2cvL20ApplyExifOrientationENS_11ExifEntry_tERKNS_12_OutputArrayE.argprom(i16 %.80.val, i16 %.82.val, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 {
   %.not = icmp eq i16 %.80.val, -1
   br i1 %.not, label %_ZN2cvL13ExifTransformEiRKNS_12_OutputArrayE.exit, label %2
 
@@ -21877,23 +21877,23 @@ attributes #33 = { nounwind willreturn memory(read) }
 !102 = !{!103, !105}
 !103 = distinct !{!103, !104, !"_ZSt11make_sharedIN2cv10PxMEncoderEJRKNS0_7PxMModeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
 !104 = distinct !{!104, !"_ZSt11make_sharedIN2cv10PxMEncoderEJRKNS0_7PxMModeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
-!105 = distinct !{!105, !106, !"_ZN2cvL7makePtrINS_10PxMEncoderEJNS_7PxMModeEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!106 = distinct !{!106, !"_ZN2cvL7makePtrINS_10PxMEncoderEJNS_7PxMModeEEEENS_3PtrIT_EEDpRKT0_"}
+!105 = distinct !{!105, !106, !"_ZN2cvL7makePtrINS_10PxMEncoderEJNS_7PxMModeEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!106 = distinct !{!106, !"_ZN2cvL7makePtrINS_10PxMEncoderEJNS_7PxMModeEEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !107 = !{!108, !110}
 !108 = distinct !{!108, !109, !"_ZSt11make_sharedIN2cv10PxMEncoderEJRKNS0_7PxMModeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
 !109 = distinct !{!109, !"_ZSt11make_sharedIN2cv10PxMEncoderEJRKNS0_7PxMModeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
-!110 = distinct !{!110, !111, !"_ZN2cvL7makePtrINS_10PxMEncoderEJNS_7PxMModeEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!111 = distinct !{!111, !"_ZN2cvL7makePtrINS_10PxMEncoderEJNS_7PxMModeEEEENS_3PtrIT_EEDpRKT0_"}
+!110 = distinct !{!110, !111, !"_ZN2cvL7makePtrINS_10PxMEncoderEJNS_7PxMModeEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!111 = distinct !{!111, !"_ZN2cvL7makePtrINS_10PxMEncoderEJNS_7PxMModeEEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !112 = !{!113, !115}
 !113 = distinct !{!113, !114, !"_ZSt11make_sharedIN2cv10PxMEncoderEJRKNS0_7PxMModeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
 !114 = distinct !{!114, !"_ZSt11make_sharedIN2cv10PxMEncoderEJRKNS0_7PxMModeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
-!115 = distinct !{!115, !116, !"_ZN2cvL7makePtrINS_10PxMEncoderEJNS_7PxMModeEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!116 = distinct !{!116, !"_ZN2cvL7makePtrINS_10PxMEncoderEJNS_7PxMModeEEEENS_3PtrIT_EEDpRKT0_"}
+!115 = distinct !{!115, !116, !"_ZN2cvL7makePtrINS_10PxMEncoderEJNS_7PxMModeEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!116 = distinct !{!116, !"_ZN2cvL7makePtrINS_10PxMEncoderEJNS_7PxMModeEEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !117 = !{!118, !120}
 !118 = distinct !{!118, !119, !"_ZSt11make_sharedIN2cv10PxMEncoderEJRKNS0_7PxMModeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
 !119 = distinct !{!119, !"_ZSt11make_sharedIN2cv10PxMEncoderEJRKNS0_7PxMModeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
-!120 = distinct !{!120, !121, !"_ZN2cvL7makePtrINS_10PxMEncoderEJNS_7PxMModeEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!121 = distinct !{!121, !"_ZN2cvL7makePtrINS_10PxMEncoderEJNS_7PxMModeEEEENS_3PtrIT_EEDpRKT0_"}
+!120 = distinct !{!120, !121, !"_ZN2cvL7makePtrINS_10PxMEncoderEJNS_7PxMModeEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!121 = distinct !{!121, !"_ZN2cvL7makePtrINS_10PxMEncoderEJNS_7PxMModeEEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !122 = !{!123, !125}
 !123 = distinct !{!123, !124, !"_ZSt11make_sharedIN2cv10PAMDecoderEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_: argument 0"}
 !124 = distinct !{!124, !"_ZSt11make_sharedIN2cv10PAMDecoderEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_"}

@@ -66,17 +66,17 @@ define dso_local void @lzma_index_end(ptr noundef %0, ptr noundef %1) local_unna
 3:                                                ; preds = %2
   %.val = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %index_tree_end.exit, label %4
+  br i1 %.not.i, label %index_tree_end.argprom.exit, label %4
 
 4:                                                ; preds = %3
   tail call fastcc void @index_tree_node_end(ptr noundef %.val, ptr noundef %1, ptr noundef nonnull @index_stream_end)
-  br label %index_tree_end.exit
+  br label %index_tree_end.argprom.exit
 
-index_tree_end.exit:                              ; preds = %3, %4
+index_tree_end.argprom.exit:                      ; preds = %3, %4
   tail call void @lzma_free(ptr noundef nonnull %0, ptr noundef %1) #16
   br label %5
 
-5:                                                ; preds = %index_tree_end.exit, %2
+5:                                                ; preds = %index_tree_end.argprom.exit, %2
   ret void
 }
 
@@ -85,13 +85,13 @@ define internal void @index_stream_end(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %.val = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %index_tree_end.exit, label %4
+  br i1 %.not.i, label %index_tree_end.argprom.exit, label %4
 
 4:                                                ; preds = %2
   tail call fastcc void @index_tree_node_end(ptr noundef %.val, ptr noundef %1, ptr noundef nonnull @lzma_free)
-  br label %index_tree_end.exit
+  br label %index_tree_end.argprom.exit
 
-index_tree_end.exit:                              ; preds = %2, %4
+index_tree_end.argprom.exit:                      ; preds = %2, %4
   tail call void @lzma_free(ptr noundef nonnull %0, ptr noundef %1) #16
   ret void
 }

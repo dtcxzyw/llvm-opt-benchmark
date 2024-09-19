@@ -1691,7 +1691,7 @@ split_mail.exit.i:                                ; preds = %sw.bb8.i.i, %sw.bb6
 
 if.then17.i:                                      ; preds = %split_mail.exit.i
   %state.val.i41 = load ptr, ptr %state, align 8
-  call fastcc void @am_destroy(ptr %state.val.i41)
+  call fastcc void @am_destroy.argprom(ptr %state.val.i41)
   %call18.i = call fastcc ptr @_(ptr noundef nonnull @.str.128)
   call void (ptr, ...) @die(ptr noundef %call18.i) #20
   unreachable
@@ -1892,7 +1892,7 @@ sw.bb570:                                         ; preds = %if.end568, %if.end5
 if.then.i172:                                     ; preds = %sw.bb570
   %call.i173 = call fastcc ptr @_(ptr noundef nonnull @.str.199)
   %state.val6.i174 = load ptr, ptr %state, align 8
-  %call1.i175 = call fastcc ptr @am_path(ptr %state.val6.i174, ptr noundef nonnull @.str.124)
+  %call1.i175 = call fastcc ptr @am_path.argprom(ptr %state.val6.i174, ptr noundef nonnull @.str.124)
   call void (ptr, ...) @die(ptr noundef %call.i173, ptr noundef %call1.i175) #20
   unreachable
 
@@ -1913,7 +1913,7 @@ if.end.i160:                                      ; preds = %sw.bb570
 if.then6.i168:                                    ; preds = %if.end.i160
   %call7.i169 = call fastcc ptr @_(ptr noundef nonnull @.str.199)
   %state.val.i170 = load ptr, ptr %state, align 8
-  %call8.i171 = call fastcc ptr @am_path(ptr %state.val.i170, ptr noundef nonnull @.str.123)
+  %call8.i171 = call fastcc ptr @am_path.argprom(ptr %state.val.i170, ptr noundef nonnull @.str.123)
   call void (ptr, ...) @die(ptr noundef %call7.i169, ptr noundef %call8.i171) #20
   unreachable
 
@@ -2147,7 +2147,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i91
 if.then6.i.i:                                     ; preds = %if.then3.i.i
   %call7.i.i115 = call fastcc ptr @_(ptr noundef nonnull @.str.112)
   %state.val.i.i116 = load ptr, ptr %state, align 8
-  %call8.i.i = call fastcc ptr @am_path(ptr %state.val.i.i116, ptr noundef nonnull @.str.137)
+  %call8.i.i = call fastcc ptr @am_path.argprom(ptr %state.val.i.i116, ptr noundef nonnull @.str.137)
   call void (ptr, ...) @die(ptr noundef %call7.i.i115, ptr noundef %call8.i.i) #20
   unreachable
 
@@ -2897,7 +2897,7 @@ if.else:                                          ; preds = %read_commit_msg.exi
 if.then26:                                        ; preds = %if.else
   %call27 = call fastcc ptr @_(ptr noundef nonnull @.str.112)
   %state.val = load ptr, ptr %state, align 8
-  %call28 = call fastcc ptr @am_path(ptr %state.val, ptr noundef nonnull @.str.111)
+  %call28 = call fastcc ptr @am_path.argprom(ptr %state.val, ptr noundef nonnull @.str.111)
   call void (ptr, ...) @die(ptr noundef %call27, ptr noundef %call28) #20
   unreachable
 
@@ -3084,7 +3084,7 @@ if.else103:                                       ; preds = %if.end98
 if.then109:                                       ; preds = %if.else103
   %call110 = call fastcc ptr @_(ptr noundef nonnull @.str.112)
   %state.val43 = load ptr, ptr %state, align 8
-  %call111 = call fastcc ptr @am_path(ptr %state.val43, ptr noundef nonnull @.str.26)
+  %call111 = call fastcc ptr @am_path.argprom(ptr %state.val43, ptr noundef nonnull @.str.26)
   call void (ptr, ...) @die(ptr noundef %call110, ptr noundef %call111) #20
   unreachable
 
@@ -3100,7 +3100,7 @@ if.end113:                                        ; preds = %if.else103, %if.the
 if.then120:                                       ; preds = %if.end113
   %call121 = call fastcc ptr @_(ptr noundef nonnull @.str.112)
   %state.val44 = load ptr, ptr %state, align 8
-  %call122 = call fastcc ptr @am_path(ptr %state.val44, ptr noundef nonnull @.str.119)
+  %call122 = call fastcc ptr @am_path.argprom(ptr %state.val44, ptr noundef nonnull @.str.119)
   call void (ptr, ...) @die(ptr noundef %call121, ptr noundef %call122) #20
   unreachable
 
@@ -3154,7 +3154,7 @@ declare i32 @isatty(i32 noundef) local_unnamed_addr #6
 declare i32 @file_exists(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @am_destroy(ptr %state.0.val) unnamed_addr #0 {
+define internal fastcc void @am_destroy.argprom(ptr %state.0.val) unnamed_addr #0 {
 entry:
   %sb = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.show_patch.sb, i64 24, i1 false)
@@ -3226,7 +3226,7 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %state.val57 = load ptr, ptr %state, align 8
-  call fastcc void @write_state_bool(ptr %state.val57, ptr noundef nonnull @.str.184, i32 noundef 1)
+  call fastcc void @write_state_bool.argprom(ptr %state.val57, ptr noundef nonnull @.str.184, i32 noundef 1)
   %call6 = call fastcc ptr @_(ptr noundef nonnull @.str.186)
   %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %2 = load ptr, ptr %buf, align 8
@@ -4048,7 +4048,7 @@ if.then6.i:                                       ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i.i104)
   %call7.i = call fastcc ptr @_(ptr noundef nonnull @.str.229)
   %state.val.i111 = load ptr, ptr %state, align 8
-  %call8.i = call fastcc ptr @am_path(ptr %state.val.i111, ptr noundef nonnull @.str.124)
+  %call8.i = call fastcc ptr @am_path.argprom(ptr %state.val.i111, ptr noundef nonnull @.str.124)
   call void (ptr, ...) @die(ptr noundef %call7.i, ptr noundef %call8.i) #20
   unreachable
 
@@ -4567,7 +4567,7 @@ declare void @strvec_init(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @lstat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @am_path(ptr %state.0.val, ptr noundef %path) unnamed_addr #0 {
+define internal fastcc ptr @am_path.argprom(ptr %state.0.val, ptr noundef %path) unnamed_addr #0 {
 entry:
   %call = tail call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.82, ptr noundef %state.0.val, ptr noundef %path) #21
   ret ptr %call
@@ -4616,7 +4616,7 @@ if.end3:                                          ; preds = %strbuf_setlen.exit
 if.end8:                                          ; preds = %if.end3
   %call9 = tail call fastcc ptr @_(ptr noundef nonnull @.str.120)
   %state.val = load ptr, ptr %state, align 8
-  %call10 = tail call fastcc ptr @am_path(ptr %state.val, ptr noundef %file)
+  %call10 = tail call fastcc ptr @am_path.argprom(ptr %state.val, ptr noundef %file)
   tail call void (ptr, ...) @die_errno(ptr noundef %call9, ptr noundef %call10) #20
   unreachable
 
@@ -4676,7 +4676,7 @@ declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_un
 declare i32 @delete_ref(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_state_bool(ptr %state.0.val, ptr noundef %name, i32 noundef %value) unnamed_addr #0 {
+define internal fastcc void @write_state_bool.argprom(ptr %state.0.val, ptr noundef %name, i32 noundef %value) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %value, 0
   %cond = select i1 %tobool.not, ptr @.str.118, ptr @.str.114
@@ -5389,7 +5389,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call fastcc ptr @_(ptr noundef nonnull @.str.199)
   %state.val6 = load ptr, ptr %state, align 8
-  %call1 = tail call fastcc ptr @am_path(ptr %state.val6, ptr noundef nonnull @.str.124)
+  %call1 = tail call fastcc ptr @am_path.argprom(ptr %state.val6, ptr noundef nonnull @.str.124)
   tail call void (ptr, ...) @die(ptr noundef %call, ptr noundef %call1) #20
   unreachable
 
@@ -5414,7 +5414,7 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false
 if.then6:                                         ; preds = %lor.lhs.false4, %lor.lhs.false, %if.end
   %call7 = tail call fastcc ptr @_(ptr noundef nonnull @.str.199)
   %state.val = load ptr, ptr %state, align 8
-  %call8 = tail call fastcc ptr @am_path(ptr %state.val, ptr noundef nonnull @.str.123)
+  %call8 = tail call fastcc ptr @am_path.argprom(ptr %state.val, ptr noundef nonnull @.str.123)
   tail call void (ptr, ...) @die(ptr noundef %call7, ptr noundef %call8) #20
   unreachable
 

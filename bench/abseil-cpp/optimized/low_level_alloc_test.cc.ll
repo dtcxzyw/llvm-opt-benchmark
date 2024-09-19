@@ -52,7 +52,7 @@ entry:
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 noundef zeroext %use_new_arena, i1 noundef zeroext %call_malloc_hook) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi.argelim(i1 noundef zeroext %use_new_arena, i1 noundef zeroext %call_malloc_hook) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %resize_helper.i = alloca %"class.absl::container_internal::HashSetResizeHelper", align 8
   %agg.tmp.i = alloca %"class.std::allocator.14", align 1
@@ -977,9 +977,9 @@ define internal void @_GLOBAL__sub_I_low_level_alloc_test.cc() #17 section ".tex
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
-  tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 noundef zeroext false, i1 noundef zeroext false)
-  tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 noundef zeroext true, i1 noundef zeroext false)
-  tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 noundef zeroext true, i1 noundef zeroext true)
+  tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi.argelim(i1 noundef zeroext false, i1 noundef zeroext false)
+  tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi.argelim(i1 noundef zeroext true, i1 noundef zeroext false)
+  tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi.argelim(i1 noundef zeroext true, i1 noundef zeroext true)
   ret void
 }
 

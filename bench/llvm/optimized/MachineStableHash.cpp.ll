@@ -705,7 +705,7 @@ _ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorImSaImE
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %359 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i115, i64 %.sroa.2.0.copyload.i
   %.not5.i.i = icmp eq i64 %.sroa.2.0.copyload.i, 0
-  br i1 %.not5.i.i, label %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.exit", label %.lr.ph.i.i
+  br i1 %.not5.i.i, label %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.argprom.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %357, %_ZNSt20back_insert_iteratorISt6vectorImSaImEEEaSEOm.exit.i.i
   %.sroa.0133.0 = phi ptr [ %.sroa.0133.1, %_ZNSt20back_insert_iteratorISt6vectorImSaImEEEaSEOm.exit.i.i ], [ null, %357 ]
@@ -778,19 +778,19 @@ _ZNSt20back_insert_iteratorISt6vectorImSaImEEEaSEOm.exit.i.i: ; preds = %_ZNSt6v
   %.sroa.5.1 = getelementptr inbounds i8, ptr %.pn, i64 8
   %385 = getelementptr inbounds i8, ptr %.06.i.i, i64 4
   %.not.i.i117 = icmp eq ptr %385, %359
-  br i1 %.not.i.i117, label %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.exit.loopexit", label %.lr.ph.i.i, !llvm.loop !28
+  br i1 %.not.i.i117, label %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.argprom.exit.loopexit", label %.lr.ph.i.i, !llvm.loop !28
 
-"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.exit.loopexit": ; preds = %_ZNSt20back_insert_iteratorISt6vectorImSaImEEEaSEOm.exit.i.i
+"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.argprom.exit.loopexit": ; preds = %_ZNSt20back_insert_iteratorISt6vectorImSaImEEEaSEOm.exit.i.i
   %.pre = load i32, ptr %0, align 8
   %386 = ptrtoint ptr %.sroa.5.1 to i64
   %387 = ptrtoint ptr %.sroa.10.1 to i64
-  br label %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.exit"
+  br label %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.argprom.exit"
 
-"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.exit": ; preds = %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.exit.loopexit", %357
-  %388 = phi i32 [ %27, %357 ], [ %.pre, %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.exit.loopexit" ]
-  %.sroa.0133.2 = phi ptr [ null, %357 ], [ %.sroa.0133.1, %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.exit.loopexit" ]
-  %.sroa.5.2 = phi i64 [ 0, %357 ], [ %386, %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.exit.loopexit" ]
-  %.sroa.10.2 = phi i64 [ 0, %357 ], [ %387, %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.exit.loopexit" ]
+"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.argprom.exit": ; preds = %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.argprom.exit.loopexit", %357
+  %388 = phi i32 [ %27, %357 ], [ %.pre, %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.argprom.exit.loopexit" ]
+  %.sroa.0133.2 = phi ptr [ null, %357 ], [ %.sroa.0133.1, %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.argprom.exit.loopexit" ]
+  %.sroa.5.2 = phi i64 [ 0, %357 ], [ %386, %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.argprom.exit.loopexit" ]
+  %.sroa.10.2 = phi i64 [ 0, %357 ], [ %387, %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.argprom.exit.loopexit" ]
   %389 = and i32 %388, 255
   %390 = zext nneg i32 %389 to i64
   %391 = icmp eq i32 %389, 0
@@ -812,7 +812,7 @@ _ZNSt20back_insert_iteratorISt6vectorImSaImEEEaSEOm.exit.i.i: ; preds = %_ZNSt6v
   %.not.i.i.i118 = icmp eq ptr %.sroa.0133.2, null
   br i1 %.not.i.i.i118, label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit, label %402
 
-402:                                              ; preds = %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.exit"
+402:                                              ; preds = %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.argprom.exit"
   %403 = sub i64 %.sroa.10.2, %396
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0133.2, i64 noundef %403) #15
   br label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit
@@ -982,8 +982,8 @@ _ZN4llvm16stable_hash_nameENS_9StringRefE.exit130: ; preds = %424, %426
 491:                                              ; preds = %1
   unreachable
 
-_ZN4llvm11SmallVectorImLj6EED2Ev.exit:            ; preds = %402, %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.exit", %347, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit, %209, %162, %1, %1, %1, %1, %161, %158, %_ZN4llvm5APIntC2ERKS0_.exit, %91, %._crit_edge, %480, %467, %454, %441, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit130, %348, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit112, %249, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit102, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit, %104, %92
-  %.0 = phi i64 [ %490, %480 ], [ %479, %467 ], [ %466, %454 ], [ %453, %441 ], [ %440, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit130 ], [ %356, %348 ], [ %302, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit112 ], [ %261, %249 ], [ %248, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit102 ], [ %208, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit ], [ %115, %104 ], [ %103, %92 ], [ %87, %._crit_edge ], [ %87, %91 ], [ %155, %_ZN4llvm5APIntC2ERKS0_.exit ], [ %155, %158 ], [ %155, %161 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %162 ], [ 0, %209 ], [ %346, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit ], [ %346, %347 ], [ %401, %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.exit" ], [ %401, %402 ]
+_ZN4llvm11SmallVectorImLj6EED2Ev.exit:            ; preds = %402, %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.argprom.exit", %347, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit, %209, %162, %1, %1, %1, %1, %161, %158, %_ZN4llvm5APIntC2ERKS0_.exit, %91, %._crit_edge, %480, %467, %454, %441, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit130, %348, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit112, %249, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit102, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit, %104, %92
+  %.0 = phi i64 [ %490, %480 ], [ %479, %467 ], [ %466, %454 ], [ %453, %441 ], [ %440, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit130 ], [ %356, %348 ], [ %302, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit112 ], [ %261, %249 ], [ %248, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit102 ], [ %208, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit ], [ %115, %104 ], [ %103, %92 ], [ %87, %._crit_edge ], [ %87, %91 ], [ %155, %_ZN4llvm5APIntC2ERKS0_.exit ], [ %155, %158 ], [ %155, %161 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %162 ], [ 0, %209 ], [ %346, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit ], [ %346, %347 ], [ %401, %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.argprom.exit" ], [ %401, %402 ]
   ret i64 %.0
 }
 

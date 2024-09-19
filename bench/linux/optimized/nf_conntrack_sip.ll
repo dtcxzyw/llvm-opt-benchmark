@@ -4830,7 +4830,7 @@ ct_sip_header_search.exit12:                      ; preds = %170
 192:                                              ; preds = %188
   %193 = load i32, ptr @sip_direct_signalling, align 4
   %.val = load ptr, ptr %17, align 8
-  %194 = call fastcc ptr @nfct_help(ptr %.val)
+  %194 = call fastcc ptr @nfct_help.argprom(ptr %.val)
   %195 = load volatile ptr, ptr %194, align 8
   %196 = icmp eq ptr %195, null
   br i1 %196, label %229, label %197
@@ -5418,7 +5418,7 @@ ct_sip_header_search.exit16:                      ; preds = %176
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @nfct_help(ptr %.176.val) unnamed_addr #11 align 16 {
+define internal fastcc ptr @nfct_help.argprom(ptr %.176.val) unnamed_addr #11 align 16 {
   %1 = icmp eq ptr %.176.val, null
   br i1 %1, label %14, label %2
 

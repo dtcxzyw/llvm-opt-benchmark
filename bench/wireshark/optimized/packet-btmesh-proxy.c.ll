@@ -514,7 +514,7 @@ default.unreachable175:                           ; preds = %.loopexit
   store i8 3, ptr %167, align 1
   %168 = call ptr @btmesh_network_find_key_and_decrypt(ptr noundef nonnull %.1164167, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef %166) #5
   %.not.i = icmp eq ptr %168, null
-  br i1 %.not.i, label %dissect_btmesh_proxy_configuration_msg.exit, label %169
+  br i1 %.not.i, label %dissect_btmesh_proxy_configuration_msg.argprom.exit, label %169
 
 169:                                              ; preds = %160
   %170 = load i32, ptr @ett_btmesh_proxy_network_pdu, align 4
@@ -695,13 +695,13 @@ default.unreachable175:                           ; preds = %.loopexit
   %274 = sub i32 %219, %273
   %275 = add i32 %.0117.i, 7
   %.not125.i = icmp eq i32 %274, %275
-  br i1 %.not125.i, label %dissect_btmesh_proxy_configuration_msg.exit, label %276
+  br i1 %.not125.i, label %dissect_btmesh_proxy_configuration_msg.argprom.exit, label %276
 
 276:                                              ; preds = %.loopexit.i
   %277 = call ptr @proto_tree_add_expert(ptr noundef %221, ptr noundef %1, ptr noundef nonnull @ei_btmesh_proxy_unknown_payload, ptr noundef %202, i32 noundef %.0117.i, i32 noundef -1) #5
-  br label %dissect_btmesh_proxy_configuration_msg.exit
+  br label %dissect_btmesh_proxy_configuration_msg.argprom.exit
 
-dissect_btmesh_proxy_configuration_msg.exit:      ; preds = %160, %.loopexit.i, %276
+dissect_btmesh_proxy_configuration_msg.argprom.exit: ; preds = %160, %.loopexit.i, %276
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -735,7 +735,7 @@ dissect_btmesh_proxy_configuration_msg.exit:      ; preds = %160, %.loopexit.i, 
   %288 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %287, ptr noundef nonnull %.1164167, i32 noundef 0, i32 noundef %45, i32 noundef 0) #5
   br label %.thread158
 
-.thread158:                                       ; preds = %70, %93, %.thread152, %136, %139, %280, %283, %154, %157, %146, %149, %286, %dissect_btmesh_proxy_configuration_msg.exit
+.thread158:                                       ; preds = %70, %93, %.thread152, %136, %139, %280, %283, %154, %157, %146, %149, %286, %dissect_btmesh_proxy_configuration_msg.argprom.exit
   %289 = call i32 @tvb_reported_length(ptr noundef %0) #5
   ret i32 %289
 }

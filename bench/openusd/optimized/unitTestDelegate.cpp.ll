@@ -8579,7 +8579,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_18HdUnitTest
   %44 = and i64 %43, -8
   %45 = inttoptr i64 %44 to ptr
   %46 = icmp eq ptr %45, %40
-  br i1 %46, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit", label %47
+  br i1 %46, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit", label %47
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 80
@@ -8588,7 +8588,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_18HdUnitTest
   %50 = and i64 %49, -8
   %51 = inttoptr i64 %50 to ptr
   %52 = icmp eq ptr %51, %40
-  br i1 %52, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit", label %53
+  br i1 %52, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit.loopexit.split.loop.exit", label %53
 
 53:                                               ; preds = %47
   %54 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 160
@@ -8597,7 +8597,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_18HdUnitTest
   %56 = and i64 %55, -8
   %57 = inttoptr i64 %56 to ptr
   %58 = icmp eq ptr %57, %40
-  br i1 %58, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit32", label %59
+  br i1 %58, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit.loopexit.split.loop.exit32", label %59
 
 59:                                               ; preds = %53
   %60 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 240
@@ -8606,7 +8606,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_18HdUnitTest
   %62 = and i64 %61, -8
   %63 = inttoptr i64 %62 to ptr
   %64 = icmp eq ptr %63, %40
-  br i1 %64, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit34", label %65
+  br i1 %64, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit.loopexit.split.loop.exit34", label %65
 
 65:                                               ; preds = %59
   %66 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 320
@@ -8650,7 +8650,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_18HdUnitTest
   %75 = and i64 %74, -8
   %76 = inttoptr i64 %75 to ptr
   %77 = icmp eq ptr %73, %76
-  br i1 %77, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit", label %78
+  br i1 %77, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit", label %78
 
 78:                                               ; preds = %70
   %79 = getelementptr inbounds i8, ptr %.sroa.038.0.lcssa.i.i.i, i64 80
@@ -8664,7 +8664,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_18HdUnitTest
   %82 = and i64 %81, -8
   %83 = inttoptr i64 %82 to ptr
   %84 = icmp eq ptr %.pre-phi73.i.i.i, %83
-  br i1 %84, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit", label %85
+  br i1 %84, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit", label %85
 
 85:                                               ; preds = %80
   %86 = getelementptr inbounds i8, ptr %.sroa.038.1.i.i.i, i64 80
@@ -8679,26 +8679,26 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_18HdUnitTest
   %90 = inttoptr i64 %89 to ptr
   %91 = icmp eq ptr %.pre-phi79.i.i.i, %90
   %spec.select.i.i.i = select i1 %91, ptr %.sroa.038.2.i.i.i, ptr %31
-  br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit"
+  br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit": ; preds = %47
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %47
   %92 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 80
-  br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit"
+  br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit32": ; preds = %53
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit.loopexit.split.loop.exit32": ; preds = %53
   %93 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 160
-  br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit"
+  br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit34": ; preds = %59
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit.loopexit.split.loop.exit34": ; preds = %59
   %94 = getelementptr inbounds i8, ptr %.sroa.038.057.i.i.i, i64 240
-  br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit"
+  br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit": ; preds = %42, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit32", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit34", %70, %80, %87
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %70 ], [ %.sroa.038.1.i.i.i, %80 ], [ %spec.select.i.i.i, %87 ], [ %92, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit" ], [ %93, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit32" ], [ %94, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit34" ], [ %.sroa.038.057.i.i.i, %42 ]
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit": ; preds = %42, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit.loopexit.split.loop.exit32", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit.loopexit.split.loop.exit34", %70, %80, %87
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %70 ], [ %.sroa.038.1.i.i.i, %80 ], [ %spec.select.i.i.i, %87 ], [ %92, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %93, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit.loopexit.split.loop.exit32" ], [ %94, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit.loopexit.split.loop.exit34" ], [ %.sroa.038.057.i.i.i, %42 ]
   %95 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %31
   br i1 %95, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_18HdUnitTestDelegate8_PrimvarESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE4findERSA_.exit.thread, label %96
 
-96:                                               ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit"
+96:                                               ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit"
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_18HdUnitTestDelegate8_PrimvarESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE4findERSA_.exit.thread, label %97
 
@@ -8707,8 +8707,8 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_18HdUnitTest
   store i64 %98, ptr %3, align 8
   br label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_18HdUnitTestDelegate8_PrimvarESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE4findERSA_.exit.thread
 
-_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_18HdUnitTestDelegate8_PrimvarESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE4findERSA_.exit.thread: ; preds = %._crit_edge.i.i.i, %4, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St6vectorINS0_18HdUnitTestDelegate8_PrimvarESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i, %26, %96, %97, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit"
-  %.0 = phi i1 [ false, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.exit" ], [ true, %97 ], [ true, %96 ], [ false, %26 ], [ false, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i ], [ false, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St6vectorINS0_18HdUnitTestDelegate8_PrimvarESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ false, %4 ], [ false, %._crit_edge.i.i.i ]
+_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_18HdUnitTestDelegate8_PrimvarESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE4findERSA_.exit.thread: ; preds = %._crit_edge.i.i.i, %4, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St6vectorINS0_18HdUnitTestDelegate8_PrimvarESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i, %26, %96, %97, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit"
+  %.0 = phi i1 [ false, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESt6vectorIS4_SaIS4_EEEEZNS3_12_FindPrimvarERKNS2_7SdfPathERKNS2_7TfTokenEPS9_E3$_0ET_SI_SI_T0_.argprom.exit" ], [ true, %97 ], [ true, %96 ], [ false, %26 ], [ false, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i ], [ false, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St6vectorINS0_18HdUnitTestDelegate8_PrimvarESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ false, %4 ], [ false, %._crit_edge.i.i.i ]
   ret i1 %.0
 }
 
@@ -20944,7 +20944,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate7AddGridER
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE.argprom(i32 noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %11)
           to label %15 unwind label %122
 
 15:                                               ; preds = %8
@@ -21291,7 +21291,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EED2Ev.exit48: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE.argprom(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = or i32 %1, %0
   %or.cond = icmp eq i32 %6, 0
   %.not20 = icmp slt i32 %1, 0
@@ -21818,7 +21818,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate22AddGridW
           to label %21 unwind label %.thread64
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %2, i32 noundef %3, ptr noundef %11, ptr noundef %12, ptr noundef %13)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE.argprom(i32 noundef %2, i32 noundef %3, ptr noundef %11, ptr noundef %12, ptr noundef %13)
           to label %22 unwind label %146
 
 22:                                               ; preds = %21
@@ -22249,7 +22249,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate20AddGridW
           to label %21 unwind label %.thread82
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE.argprom(i32 noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %11)
           to label %22 unwind label %51
 
 22:                                               ; preds = %21
@@ -22786,7 +22786,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate22AddGridW
           to label %21 unwind label %.thread82
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE.argprom(i32 noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %11)
           to label %22 unwind label %51
 
 22:                                               ; preds = %21
@@ -23322,7 +23322,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate27AddGridW
           to label %21 unwind label %.thread82
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE(i32 noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L11_CreateGridEiiPSt6vectorINS_7GfVec3fESaIS1_EEPS0_IiSaIiEES7_RKNS_10GfMatrix4fE.argprom(i32 noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %11)
           to label %22 unwind label %51
 
 22:                                               ; preds = %21

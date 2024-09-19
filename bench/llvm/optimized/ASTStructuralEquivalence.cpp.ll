@@ -1295,9 +1295,9 @@ _ZN4llvm5APIntD2Ev.exit417:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %315 = and i16 %288, 128
   %316 = icmp ne i16 %315, 0
   %317 = xor i1 %314, %316
-  br i1 %317, label %.thread755, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_12FunctionType7ExtInfoES3_.exit
+  br i1 %317, label %.thread755, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_12FunctionType7ExtInfoES3_.argprom.exit
 
-_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_12FunctionType7ExtInfoES3_.exit: ; preds = %312
+_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_12FunctionType7ExtInfoES3_.argprom.exit: ; preds = %312
   %318 = and i16 %283, 2048
   %319 = icmp ne i16 %318, 0
   %320 = and i16 %288, 2048
@@ -1895,11 +1895,11 @@ _ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3std
   %681 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_4StmtES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %679, ptr noundef %680)
   br i1 %681, label %.loopexit, label %.thread755
 
-.loopexit:                                        ; preds = %632, %613, %.preheader765, %.preheader763, %497, %678, %671, %657, %653, %649, %593, %581, %585, %577, %567, %549, %539, %535, %514, %508, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit, %466, %456, %452, %436, %438, %418, %414, %410, %404, %398, %386, %376, %372, %356, %342, %338, %332, %322, %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_12FunctionType7ExtInfoES3_.exit, %228, %215, %198, %185, %170, %160, %152, %144, %136, %134, %108, %100, %82, %78, %74, %70, %65, %64
+.loopexit:                                        ; preds = %632, %613, %.preheader765, %.preheader763, %497, %678, %671, %657, %653, %649, %593, %581, %585, %577, %567, %549, %539, %535, %514, %508, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit, %466, %456, %452, %436, %438, %418, %414, %410, %404, %398, %386, %376, %372, %356, %342, %338, %332, %322, %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_12FunctionType7ExtInfoES3_.argprom.exit, %228, %215, %198, %185, %170, %160, %152, %144, %136, %134, %108, %100, %82, %78, %74, %70, %65, %64
   br label %.thread755
 
-.thread755:                                       ; preds = %633, %614, %246, %312, %306, %297, %291, %278, %3, %461, %59, %60, %497, %674, %678, %661, %671, %657, %653, %649, %624, %620, %603, %597, %593, %585, %577, %567, %561, %555, %549, %543, %539, %535, %529, %524, %514, %510, %508, %503, %499, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit, %484, %478, %472, %466, %456, %452, %448, %438, %437, %428, %424, %418, %414, %410, %404, %392, %398, %386, %380, %376, %372, %356, %350, %346, %342, %338, %332, %328, %322, %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_12FunctionType7ExtInfoES3_.exit, %.thread756, %260, %257, %._crit_edge, %233, %219, %223, %228, %203, %209, %215, %198, %193, %189, %185, %179, %174, %170, %164, %160, %154, %152, %146, %144, %138, %136, %134, %_ZN4llvm5APIntD2Ev.exit417, %108, %104, %100, %94, %86, %82, %78, %74, %70, %65, %62, %_ZNK5clang8QualType13getQualifiersEv.exit383, %.loopexit
-  %.0 = phi i1 [ true, %.loopexit ], [ false, %_ZNK5clang8QualType13getQualifiersEv.exit383 ], [ false, %62 ], [ false, %65 ], [ false, %70 ], [ false, %74 ], [ false, %78 ], [ false, %82 ], [ false, %86 ], [ false, %94 ], [ false, %100 ], [ false, %104 ], [ false, %108 ], [ false, %_ZN4llvm5APIntD2Ev.exit417 ], [ false, %134 ], [ false, %136 ], [ false, %138 ], [ false, %144 ], [ false, %146 ], [ false, %152 ], [ false, %154 ], [ false, %160 ], [ false, %164 ], [ false, %170 ], [ false, %174 ], [ false, %179 ], [ false, %185 ], [ false, %189 ], [ false, %193 ], [ false, %198 ], [ false, %215 ], [ false, %209 ], [ false, %203 ], [ false, %228 ], [ false, %223 ], [ false, %219 ], [ false, %233 ], [ false, %._crit_edge ], [ false, %257 ], [ false, %260 ], [ false, %.thread756 ], [ false, %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_12FunctionType7ExtInfoES3_.exit ], [ false, %322 ], [ false, %328 ], [ false, %332 ], [ false, %338 ], [ false, %342 ], [ false, %346 ], [ false, %350 ], [ false, %356 ], [ false, %372 ], [ false, %376 ], [ false, %380 ], [ false, %386 ], [ false, %398 ], [ false, %392 ], [ false, %404 ], [ false, %410 ], [ false, %414 ], [ false, %418 ], [ false, %424 ], [ false, %428 ], [ false, %437 ], [ false, %438 ], [ false, %448 ], [ false, %452 ], [ false, %456 ], [ false, %466 ], [ false, %472 ], [ false, %478 ], [ false, %484 ], [ false, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit ], [ false, %499 ], [ false, %503 ], [ false, %508 ], [ false, %510 ], [ false, %514 ], [ false, %524 ], [ false, %529 ], [ false, %535 ], [ false, %539 ], [ false, %543 ], [ false, %549 ], [ false, %555 ], [ false, %561 ], [ false, %567 ], [ false, %577 ], [ false, %585 ], [ false, %593 ], [ false, %597 ], [ false, %603 ], [ false, %620 ], [ false, %624 ], [ false, %649 ], [ false, %653 ], [ false, %657 ], [ false, %671 ], [ false, %661 ], [ false, %678 ], [ false, %674 ], [ false, %497 ], [ false, %60 ], [ false, %59 ], [ %.not.i.i374.mux, %3 ], [ false, %461 ], [ false, %278 ], [ false, %291 ], [ false, %297 ], [ false, %306 ], [ false, %312 ], [ false, %246 ], [ false, %614 ], [ false, %633 ]
+.thread755:                                       ; preds = %633, %614, %246, %312, %306, %297, %291, %278, %3, %461, %59, %60, %497, %674, %678, %661, %671, %657, %653, %649, %624, %620, %603, %597, %593, %585, %577, %567, %561, %555, %549, %543, %539, %535, %529, %524, %514, %510, %508, %503, %499, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit, %484, %478, %472, %466, %456, %452, %448, %438, %437, %428, %424, %418, %414, %410, %404, %392, %398, %386, %380, %376, %372, %356, %350, %346, %342, %338, %332, %328, %322, %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_12FunctionType7ExtInfoES3_.argprom.exit, %.thread756, %260, %257, %._crit_edge, %233, %219, %223, %228, %203, %209, %215, %198, %193, %189, %185, %179, %174, %170, %164, %160, %154, %152, %146, %144, %138, %136, %134, %_ZN4llvm5APIntD2Ev.exit417, %108, %104, %100, %94, %86, %82, %78, %74, %70, %65, %62, %_ZNK5clang8QualType13getQualifiersEv.exit383, %.loopexit
+  %.0 = phi i1 [ true, %.loopexit ], [ false, %_ZNK5clang8QualType13getQualifiersEv.exit383 ], [ false, %62 ], [ false, %65 ], [ false, %70 ], [ false, %74 ], [ false, %78 ], [ false, %82 ], [ false, %86 ], [ false, %94 ], [ false, %100 ], [ false, %104 ], [ false, %108 ], [ false, %_ZN4llvm5APIntD2Ev.exit417 ], [ false, %134 ], [ false, %136 ], [ false, %138 ], [ false, %144 ], [ false, %146 ], [ false, %152 ], [ false, %154 ], [ false, %160 ], [ false, %164 ], [ false, %170 ], [ false, %174 ], [ false, %179 ], [ false, %185 ], [ false, %189 ], [ false, %193 ], [ false, %198 ], [ false, %215 ], [ false, %209 ], [ false, %203 ], [ false, %228 ], [ false, %223 ], [ false, %219 ], [ false, %233 ], [ false, %._crit_edge ], [ false, %257 ], [ false, %260 ], [ false, %.thread756 ], [ false, %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_12FunctionType7ExtInfoES3_.argprom.exit ], [ false, %322 ], [ false, %328 ], [ false, %332 ], [ false, %338 ], [ false, %342 ], [ false, %346 ], [ false, %350 ], [ false, %356 ], [ false, %372 ], [ false, %376 ], [ false, %380 ], [ false, %386 ], [ false, %398 ], [ false, %392 ], [ false, %404 ], [ false, %410 ], [ false, %414 ], [ false, %418 ], [ false, %424 ], [ false, %428 ], [ false, %437 ], [ false, %438 ], [ false, %448 ], [ false, %452 ], [ false, %456 ], [ false, %466 ], [ false, %472 ], [ false, %478 ], [ false, %484 ], [ false, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit ], [ false, %499 ], [ false, %503 ], [ false, %508 ], [ false, %510 ], [ false, %514 ], [ false, %524 ], [ false, %529 ], [ false, %535 ], [ false, %539 ], [ false, %543 ], [ false, %549 ], [ false, %555 ], [ false, %561 ], [ false, %567 ], [ false, %577 ], [ false, %585 ], [ false, %593 ], [ false, %597 ], [ false, %603 ], [ false, %620 ], [ false, %624 ], [ false, %649 ], [ false, %653 ], [ false, %657 ], [ false, %671 ], [ false, %661 ], [ false, %678 ], [ false, %674 ], [ false, %497 ], [ false, %60 ], [ false, %59 ], [ %.not.i.i374.mux, %3 ], [ false, %461 ], [ false, %278 ], [ false, %291 ], [ false, %297 ], [ false, %306 ], [ false, %312 ], [ false, %246 ], [ false, %614 ], [ false, %633 ]
   ret i1 %.0
 }
 
@@ -2964,7 +2964,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AtomicExprES4_.exit: ; 
   %.val.i = load ptr, ptr %429, align 8
   %430 = getelementptr i8, ptr %.tr108118, i64 8
   %.val489.i = load ptr, ptr %430, align 8
-  %431 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8GotoStmtES4_(ptr %.val.i, ptr %.val489.i)
+  %431 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8GotoStmtES4_.argprom(ptr %.val.i, ptr %.val489.i)
   br i1 %431, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 432:                                              ; preds = %136
@@ -3564,7 +3564,7 @@ define dso_local noundef zeroext i1 @_ZN5clang28StructuralEquivalenceContext28Ch
 175:                                              ; preds = %10
   %176 = getelementptr i8, ptr %1, i64 40
   %.val = load i64, ptr %176, align 8
-  %177 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10FriendDeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.val, ptr noundef nonnull %2)
+  %177 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10FriendDeclES3_.argprom(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.val, ptr noundef nonnull %2)
   br label %184
 
 178:                                              ; preds = %10
@@ -5208,7 +5208,7 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %46 = inttoptr i64 %45 to ptr
   %.not1.i.i = icmp eq i64 %45, 0
   %.not.i.i = or i1 %44, %.not1.i.i
-  br i1 %.not.i.i, label %47, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i"
+  br i1 %.not.i.i, label %47, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit.i"
 
 47:                                               ; preds = %3
   %48 = getelementptr i8, ptr %1, i64 120
@@ -5218,7 +5218,7 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %50 = and i64 %.val243, -8
   %.not92.i.i = icmp eq i64 %50, 0
   %.not9.i.i = or i1 %.not.i.i.i, %.not92.i.i
-  br i1 %.not9.i.i, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i", label %51
+  br i1 %.not9.i.i, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit.i", label %51
 
 51:                                               ; preds = %47
   %52 = inttoptr i64 %50 to ptr
@@ -5229,9 +5229,9 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %57 = and i64 %54, -8
   %58 = inttoptr i64 %57 to ptr
   %.0.i.i10.i.i = select i1 %56, ptr %58, ptr null
-  br label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i"
+  br label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit.i"
 
-"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i": ; preds = %51, %47, %3
+"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit.i": ; preds = %51, %47, %3
   %.0.i.i = phi ptr [ %.0.i.i10.i.i, %51 ], [ %46, %3 ], [ null, %47 ]
   %59 = and i64 %.val244, 7
   %60 = icmp ne i64 %59, 0
@@ -5239,15 +5239,15 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %62 = inttoptr i64 %61 to ptr
   %.not1.i5.i = icmp eq i64 %61, 0
   %.not.i6.i = or i1 %60, %.not1.i5.i
-  br i1 %.not.i6.i, label %63, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.i"
+  br i1 %.not.i6.i, label %63, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.i"
 
-63:                                               ; preds = %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i"
+63:                                               ; preds = %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit.i"
   %64 = and i64 %.val245, 4
   %.not.i.i8.i = icmp ne i64 %64, 0
   %65 = and i64 %.val245, -8
   %.not92.i9.i = icmp eq i64 %65, 0
   %.not9.i10.i = or i1 %.not.i.i8.i, %.not92.i9.i
-  br i1 %.not9.i10.i, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.thread.i", label %66
+  br i1 %.not9.i10.i, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.thread.i", label %66
 
 66:                                               ; preds = %63
   %67 = inttoptr i64 %65 to ptr
@@ -5258,21 +5258,21 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %72 = and i64 %69, -8
   %73 = inttoptr i64 %72 to ptr
   %.0.i.i10.i11.i = select i1 %71, ptr %73, ptr null
-  br label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.i"
+  br label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.i"
 
-"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.i": ; preds = %66, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i"
-  %.0.i7.i = phi ptr [ %.0.i.i10.i11.i, %66 ], [ %62, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i" ]
+"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.i": ; preds = %66, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit.i"
+  %.0.i7.i = phi ptr [ %.0.i.i10.i11.i, %66 ], [ %62, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit.i" ]
   %74 = icmp ne ptr %.0.i.i, null
   %75 = icmp ne ptr %.0.i7.i, null
   %or.cond.i.i = and i1 %74, %75
-  br i1 %or.cond.i.i, label %77, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.thread.i"
+  br i1 %or.cond.i.i, label %77, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.thread.i"
 
-"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.thread.i": ; preds = %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.i", %63
-  %.0.i77.i = phi ptr [ %.0.i7.i, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.i" ], [ null, %63 ]
+"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.thread.i": ; preds = %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.i", %63
+  %.0.i77.i = phi ptr [ %.0.i7.i, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.i" ], [ null, %63 ]
   %76 = icmp eq ptr %.0.i.i, %.0.i77.i
-  br i1 %76, label %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit.thread, label %_ZN5clang17DiagnosticBuilderD2Ev.exit263
+  br i1 %76, label %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit.thread, label %_ZN5clang17DiagnosticBuilderD2Ev.exit263
 
-77:                                               ; preds = %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.i"
+77:                                               ; preds = %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.i"
   %78 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 16
@@ -5288,14 +5288,14 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
 
 88:                                               ; preds = %77
   %89 = icmp eq i64 %82, 0
-  br i1 %89, label %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit.thread, label %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit
+  br i1 %89, label %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit.thread, label %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit
 
-_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit: ; preds = %88
+_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit: ; preds = %88
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %80, ptr nonnull %85, i64 %82)
   %90 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %90, label %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit.thread, label %_ZN5clang17DiagnosticBuilderD2Ev.exit263
+  br i1 %90, label %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit.thread, label %_ZN5clang17DiagnosticBuilderD2Ev.exit263
 
-_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit.thread: ; preds = %88, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.thread.i", %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit
+_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit.thread: ; preds = %88, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.thread.i", %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit
   %91 = getelementptr inbounds i8, ptr %1, i64 72
   %92 = load i16, ptr %91, align 8
   %.mask.i = and i16 %92, -8192
@@ -5307,7 +5307,7 @@ _ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit.thread: ; preds = %8
   %97 = xor i1 %93, %96
   br i1 %97, label %98, label %193
 
-98:                                               ; preds = %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit.thread
+98:                                               ; preds = %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit.thread
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 134
   %100 = load i8, ptr %99, align 2
   %101 = trunc i8 %100 to i1
@@ -5482,7 +5482,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i258:    ; preds = %_ZNK5clang17Diagnos
   tail call void @_ZdlPvm(ptr noundef nonnull %155, i64 noundef 928) #19
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit263
 
-193:                                              ; preds = %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit.thread
+193:                                              ; preds = %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit.thread
   %194 = icmp ne i64 %.val, 0
   %195 = icmp ne i64 %.val244, 0
   %or.cond525 = select i1 %194, i1 true, i1 %195
@@ -5567,7 +5567,7 @@ _ZNK5clang11DeclContext18isFunctionOrMethodEv.exit.thread.i: ; preds = %_ZNK5cla
   %220 = load i16, ptr %219, align 8
   %221 = and i16 %220, 127
   %222 = icmp eq i16 %221, 0
-  br i1 %222, label %_ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_.exit, label %223
+  br i1 %222, label %_ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_.argprom.exit, label %223
 
 223:                                              ; preds = %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit.thread.i, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit._crit_edge.i
   %.pre-phi.i = phi i16 [ %.pre8.i, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit._crit_edge.i ], [ %221, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit.thread.i ]
@@ -5584,11 +5584,11 @@ _ZNK5clang11DeclContext18isFunctionOrMethodEv.exit39.i: ; preds = %223
   %spec.select.i38.i = icmp ult i16 %225, 6
   %226 = icmp eq i16 %217, 0
   %or.cond.i = and i1 %226, %spec.select.i38.i
-  br i1 %or.cond.i, label %_ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_.exit, label %227
+  br i1 %or.cond.i, label %_ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_.argprom.exit, label %227
 
 _ZNK5clang11DeclContext18isFunctionOrMethodEv.exit39.thread.i: ; preds = %223, %223, %223, %223
   %.old.i = icmp eq i16 %217, 0
-  br i1 %.old.i, label %_ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_.exit, label %227
+  br i1 %.old.i, label %_ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_.argprom.exit, label %227
 
 227:                                              ; preds = %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit39.thread.i, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit39.i
   %.not.i267 = icmp eq i16 %217, %.pre-phi.i
@@ -5596,7 +5596,7 @@ _ZNK5clang11DeclContext18isFunctionOrMethodEv.exit39.thread.i: ; preds = %223, %
 
 228:                                              ; preds = %227
   %229 = icmp eq i16 %217, 0
-  br i1 %229, label %_ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_.exit, label %230
+  br i1 %229, label %_ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_.argprom.exit, label %230
 
 230:                                              ; preds = %228
   %231 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext17isInlineNamespaceEv(ptr noundef nonnull align 8 dereferenceable(32) %.026.i) #17
@@ -5718,7 +5718,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i:        ; preds = %296, %289
 305:                                              ; preds = %_ZN5clang11DeclContext9getParentEv.exit.i
   br label %_ZN5clang4Decl14getDeclContextEv.exit35.i.sink.split, !llvm.loop !58
 
-_ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_.exit: ; preds = %228, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit39.thread.i, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit39.i, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit.thread.i
+_ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_.argprom.exit: ; preds = %228, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit39.thread.i, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit39.i, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit.thread.i
   %306 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %307 = load i32, ptr %306, align 4
   %308 = and i32 %307, 127
@@ -5736,7 +5736,7 @@ _ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContext
   %or.cond = and i1 %316, %317
   br i1 %or.cond, label %318, label %338
 
-318:                                              ; preds = %_ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_.exit
+318:                                              ; preds = %_ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_.argprom.exit
   %319 = tail call noundef ptr @_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(181) %spec.select.i.i272) #17
   %320 = tail call noundef ptr @_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(181) %spec.select.i.i273) #17
   %321 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %319, ptr noundef %320)
@@ -5776,7 +5776,7 @@ _ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContext
   %337 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextERKNS_16TemplateArgumentES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(24) %333, ptr noundef nonnull align 8 dereferenceable(24) %336)
   br i1 %337, label %330, label %_ZN5clang17DiagnosticBuilderD2Ev.exit263
 
-338:                                              ; preds = %_ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_.exit
+338:                                              ; preds = %_ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_.argprom.exit
   %or.cond3 = or i1 %316, %317
   br i1 %or.cond3, label %_ZN5clang17DiagnosticBuilderD2Ev.exit263, label %.loopexit
 
@@ -6949,8 +6949,8 @@ _ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit460: ; preds = %_ZN
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %39) #17
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit263
 
-_ZN5clang17DiagnosticBuilderD2Ev.exit263:         ; preds = %261, %259, %280, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.i, %230, %227, %.lr.ph, %824, %186, %192, %198, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread._ZNK5clang13CXXRecordDecl8isLambdaEv.exit278_crit_edge, %77, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit._ZNK5clang13CXXRecordDecl8isLambdaEv.exit278_crit_edge, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i258, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.thread.i", %._crit_edge584, %851, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit460, %778, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit428, %722, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit397, %682, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit380, %638, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit362, %606, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit350, %563, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit332, %498, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit319, %423, %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit298, %406, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit278, %355, %359, %347, %351, %.loopexit, %338, %322, %318, %98, %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit
-  %.0 = phi i1 [ false, %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit ], [ false, %98 ], [ false, %318 ], [ false, %322 ], [ false, %338 ], [ true, %.loopexit ], [ true, %351 ], [ true, %347 ], [ true, %359 ], [ true, %355 ], [ false, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit278 ], [ false, %406 ], [ false, %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit298 ], [ false, %423 ], [ false, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit319 ], [ false, %498 ], [ false, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit332 ], [ false, %563 ], [ false, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit350 ], [ false, %606 ], [ false, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit362 ], [ false, %638 ], [ false, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit380 ], [ false, %682 ], [ false, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit397 ], [ false, %722 ], [ false, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit428 ], [ false, %778 ], [ false, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit460 ], [ false, %851 ], [ true, %._crit_edge584 ], [ false, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.thread.i" ], [ false, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i258 ], [ false, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit._ZNK5clang13CXXRecordDecl8isLambdaEv.exit278_crit_edge ], [ false, %77 ], [ false, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread._ZNK5clang13CXXRecordDecl8isLambdaEv.exit278_crit_edge ], [ false, %198 ], [ false, %192 ], [ false, %186 ], [ false, %824 ], [ false, %.lr.ph ], [ false, %227 ], [ false, %230 ], [ false, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.i ], [ false, %280 ], [ false, %259 ], [ false, %261 ]
+_ZN5clang17DiagnosticBuilderD2Ev.exit263:         ; preds = %261, %259, %280, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.i, %230, %227, %.lr.ph, %824, %186, %192, %198, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread._ZNK5clang13CXXRecordDecl8isLambdaEv.exit278_crit_edge, %77, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit._ZNK5clang13CXXRecordDecl8isLambdaEv.exit278_crit_edge, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i258, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.thread.i", %._crit_edge584, %851, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit460, %778, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit428, %722, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit397, %682, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit380, %638, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit362, %606, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit350, %563, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit332, %498, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit319, %423, %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit298, %406, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit278, %355, %359, %347, %351, %.loopexit, %338, %322, %318, %98, %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit
+  %.0 = phi i1 [ false, %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit ], [ false, %98 ], [ false, %318 ], [ false, %322 ], [ false, %338 ], [ true, %.loopexit ], [ true, %351 ], [ true, %347 ], [ true, %359 ], [ true, %355 ], [ false, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit278 ], [ false, %406 ], [ false, %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit298 ], [ false, %423 ], [ false, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit319 ], [ false, %498 ], [ false, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit332 ], [ false, %563 ], [ false, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit350 ], [ false, %606 ], [ false, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit362 ], [ false, %638 ], [ false, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit380 ], [ false, %682 ], [ false, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit397 ], [ false, %722 ], [ false, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit428 ], [ false, %778 ], [ false, %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit460 ], [ false, %851 ], [ true, %._crit_edge584 ], [ false, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.thread.i" ], [ false, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i258 ], [ false, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit._ZNK5clang13CXXRecordDecl8isLambdaEv.exit278_crit_edge ], [ false, %77 ], [ false, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread._ZNK5clang13CXXRecordDecl8isLambdaEv.exit278_crit_edge ], [ false, %198 ], [ false, %192 ], [ false, %186 ], [ false, %824 ], [ false, %.lr.ph ], [ false, %227 ], [ false, %230 ], [ false, %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.i ], [ false, %280 ], [ false, %259 ], [ false, %261 ]
   ret i1 %.0
 }
 
@@ -6993,7 +6993,7 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %35 = inttoptr i64 %34 to ptr
   %.not1.i.i = icmp eq i64 %34, 0
   %.not.i.i = or i1 %33, %.not1.i.i
-  br i1 %.not.i.i, label %36, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i"
+  br i1 %.not.i.i, label %36, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit.i"
 
 36:                                               ; preds = %3
   %37 = getelementptr i8, ptr %1, i64 120
@@ -7003,7 +7003,7 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %39 = and i64 %.val49, -8
   %.not92.i.i = icmp eq i64 %39, 0
   %.not9.i.i = or i1 %.not.i.i.i, %.not92.i.i
-  br i1 %.not9.i.i, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i", label %40
+  br i1 %.not9.i.i, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit.i", label %40
 
 40:                                               ; preds = %36
   %41 = inttoptr i64 %39 to ptr
@@ -7014,9 +7014,9 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %46 = and i64 %43, -8
   %47 = inttoptr i64 %46 to ptr
   %.0.i.i10.i.i = select i1 %45, ptr %47, ptr null
-  br label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i"
+  br label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit.i"
 
-"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i": ; preds = %40, %36, %3
+"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit.i": ; preds = %40, %36, %3
   %.0.i.i = phi ptr [ %.0.i.i10.i.i, %40 ], [ %35, %3 ], [ null, %36 ]
   %48 = and i64 %.val50, 7
   %49 = icmp ne i64 %48, 0
@@ -7024,15 +7024,15 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %51 = inttoptr i64 %50 to ptr
   %.not1.i5.i = icmp eq i64 %50, 0
   %.not.i6.i = or i1 %49, %.not1.i5.i
-  br i1 %.not.i6.i, label %52, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.i"
+  br i1 %.not.i6.i, label %52, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.i"
 
-52:                                               ; preds = %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i"
+52:                                               ; preds = %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit.i"
   %53 = and i64 %.val51, 4
   %.not.i.i8.i = icmp ne i64 %53, 0
   %54 = and i64 %.val51, -8
   %.not92.i9.i = icmp eq i64 %54, 0
   %.not9.i10.i = or i1 %.not.i.i8.i, %.not92.i9.i
-  br i1 %.not9.i10.i, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.thread.i", label %55
+  br i1 %.not9.i10.i, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.thread.i", label %55
 
 55:                                               ; preds = %52
   %56 = inttoptr i64 %54 to ptr
@@ -7043,21 +7043,21 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %61 = and i64 %58, -8
   %62 = inttoptr i64 %61 to ptr
   %.0.i.i10.i11.i = select i1 %60, ptr %62, ptr null
-  br label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.i"
+  br label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.i"
 
-"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.i": ; preds = %55, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i"
-  %.0.i7.i = phi ptr [ %.0.i.i10.i11.i, %55 ], [ %51, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i" ]
+"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.i": ; preds = %55, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit.i"
+  %.0.i7.i = phi ptr [ %.0.i.i10.i11.i, %55 ], [ %51, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit.i" ]
   %63 = icmp ne ptr %.0.i.i, null
   %64 = icmp ne ptr %.0.i7.i, null
   %or.cond.i.i = and i1 %63, %64
-  br i1 %or.cond.i.i, label %66, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.thread.i"
+  br i1 %or.cond.i.i, label %66, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.thread.i"
 
-"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.thread.i": ; preds = %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.i", %52
-  %.0.i77.i = phi ptr [ %.0.i7.i, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.i" ], [ null, %52 ]
+"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.thread.i": ; preds = %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.i", %52
+  %.0.i77.i = phi ptr [ %.0.i7.i, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.i" ], [ null, %52 ]
   %65 = icmp eq ptr %.0.i.i, %.0.i77.i
-  br i1 %65, label %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit.thread, label %_ZN5clang17DiagnosticBuilderD2Ev.exit87
+  br i1 %65, label %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit.thread, label %_ZN5clang17DiagnosticBuilderD2Ev.exit87
 
-66:                                               ; preds = %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.i"
+66:                                               ; preds = %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.i"
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 16
@@ -7073,14 +7073,14 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
 
 77:                                               ; preds = %66
   %78 = icmp eq i64 %71, 0
-  br i1 %78, label %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit.thread, label %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit
+  br i1 %78, label %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit.thread, label %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit
 
-_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit: ; preds = %77
+_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit: ; preds = %77
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %69, ptr nonnull %74, i64 %71)
   %79 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %79, label %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit.thread, label %_ZN5clang17DiagnosticBuilderD2Ev.exit87
+  br i1 %79, label %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit.thread, label %_ZN5clang17DiagnosticBuilderD2Ev.exit87
 
-_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit.thread: ; preds = %77, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.thread.i", %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit
+_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit.thread: ; preds = %77, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.thread.i", %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit
   %80 = tail call noundef ptr @_ZNK5clang7TagDecl13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(128) %1) #17
   %81 = tail call noundef ptr @_ZNK5clang7TagDecl13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(128) %2) #17
   %82 = icmp ne ptr %80, null
@@ -7088,7 +7088,7 @@ _ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit.thread: ; preds = %7
   %or.cond = and i1 %82, %83
   br i1 %or.cond, label %84, label %_ZN5clang17DiagnosticBuilderD2Ev.exit87
 
-84:                                               ; preds = %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit.thread
+84:                                               ; preds = %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit.thread
   %85 = tail call noundef ptr @_ZNK5clang7TagDecl13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(128) %81) #17
   %.not.i = icmp eq ptr %85, null
   %spec.store.select.i = select i1 %.not.i, ptr %81, ptr %85
@@ -8370,8 +8370,8 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i202:    ; preds = %708, %_ZN5clang17Di
   call void @_ZdlPvm(ptr noundef nonnull %715, i64 noundef 928) #19
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit87
 
-_ZN5clang17DiagnosticBuilderD2Ev.exit87:          ; preds = %_ZN4llvm6APSIntD2Ev.exit156, %723, %729, %276, %282, %66, %716, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i202, %269, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i82, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.thread.i", %._crit_edge, %577, %136, %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit.thread, %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit
-  %.0 = phi i1 [ false, %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit ], [ true, %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.exit.thread ], [ false, %136 ], [ false, %577 ], [ true, %._crit_edge ], [ false, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.thread.i" ], [ false, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i82 ], [ false, %269 ], [ false, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i202 ], [ false, %716 ], [ false, %66 ], [ false, %282 ], [ false, %276 ], [ false, %729 ], [ false, %723 ], [ false, %_ZN4llvm6APSIntD2Ev.exit156 ]
+_ZN5clang17DiagnosticBuilderD2Ev.exit87:          ; preds = %_ZN4llvm6APSIntD2Ev.exit156, %723, %729, %276, %282, %66, %716, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i202, %269, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i82, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.thread.i", %._crit_edge, %577, %136, %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit.thread, %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit
+  %.0 = phi i1 [ false, %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit ], [ true, %_ZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_.argprom.exit.thread ], [ false, %136 ], [ false, %577 ], [ true, %._crit_edge ], [ false, %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.argprom.exit12.thread.i" ], [ false, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i82 ], [ false, %269 ], [ false, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i202 ], [ false, %716 ], [ false, %66 ], [ false, %282 ], [ false, %276 ], [ false, %729 ], [ false, %723 ], [ false, %_ZN4llvm6APSIntD2Ev.exit156 ]
   ret i1 %.0
 }
 
@@ -8871,7 +8871,7 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10FriendDeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.40.val, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10FriendDeclES3_.argprom(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.40.val, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = and i64 %.40.val, 4
   %.not.i.i.i.i.i = icmp eq i64 %3, 0
   %4 = and i64 %.40.val, -8
@@ -10784,7 +10784,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i4.i = load i64, ptr %6, align 8
   %7 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %4, i64 %.sroa.0.0.copyload.i.i, i64 %.sroa.0.0.copyload.i4.i)
-  br i1 %7, label %8, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang28SubstNonTypeTemplateParmExprES4_.exit
+  br i1 %7, label %8, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang28SubstNonTypeTemplateParmExprES4_.argprom.exit
 
 8:                                                ; preds = %3
   %.val = load ptr, ptr %0, align 8
@@ -10797,7 +10797,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
   %13 = and i64 %.0.copyload.i.i.i.i8.i, -8
   %14 = inttoptr i64 %13 to ptr
   %15 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %.val, ptr noundef %11, ptr noundef %14)
-  br i1 %15, label %16, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang28SubstNonTypeTemplateParmExprES4_.exit
+  br i1 %15, label %16, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang28SubstNonTypeTemplateParmExprES4_.argprom.exit
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -10807,7 +10807,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
   %21 = xor i32 %20, %18
   %22 = and i32 %21, 32767
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.i, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang28SubstNonTypeTemplateParmExprES4_.exit
+  br i1 %.not.i, label %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.i, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang28SubstNonTypeTemplateParmExprES4_.argprom.exit
 
 _ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.i: ; preds = %16
   %23 = lshr i32 %18, 15
@@ -10821,9 +10821,9 @@ _ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3std
   %29 = icmp ne i32 %26, %24
   %spec.select.i = select i1 %28, i1 %29, i1 %27
   %not..i = xor i1 %spec.select.i, true
-  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang28SubstNonTypeTemplateParmExprES4_.exit
+  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang28SubstNonTypeTemplateParmExprES4_.argprom.exit
 
-_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang28SubstNonTypeTemplateParmExprES4_.exit: ; preds = %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.i, %16, %8, %3
+_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang28SubstNonTypeTemplateParmExprES4_.argprom.exit: ; preds = %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.i, %16, %8, %3
   %.0 = phi i1 [ false, %3 ], [ false, %8 ], [ false, %16 ], [ %not..i, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.i ]
   ret i1 %.0
 }
@@ -10836,7 +10836,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i4.i = load i64, ptr %6, align 8
   %7 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %4, i64 %.sroa.0.0.copyload.i.i, i64 %.sroa.0.0.copyload.i4.i)
-  br i1 %7, label %8, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang13StringLiteralES4_.exit
+  br i1 %7, label %8, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang13StringLiteralES4_.argprom.exit
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %1, i64 20
@@ -10863,18 +10863,18 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
   %30 = load i32, ptr %29, align 4
   %31 = mul i32 %28, %30
   %.not.i.i = icmp eq i32 %19, %31
-  br i1 %.not.i.i, label %32, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang13StringLiteralES4_.exit
+  br i1 %.not.i.i, label %32, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang13StringLiteralES4_.argprom.exit
 
 32:                                               ; preds = %8
   %33 = icmp eq i32 %19, 0
-  br i1 %33, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang13StringLiteralES4_.exit, label %34
+  br i1 %33, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang13StringLiteralES4_.argprom.exit, label %34
 
 34:                                               ; preds = %32
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %13, ptr nonnull readonly %25, i64 %20)
   %35 = icmp eq i32 %bcmp.i.i, 0
-  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang13StringLiteralES4_.exit
+  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang13StringLiteralES4_.argprom.exit
 
-_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang13StringLiteralES4_.exit: ; preds = %34, %32, %8, %3
+_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang13StringLiteralES4_.argprom.exit: ; preds = %34, %32, %8, %3
   %.0 = phi i1 [ false, %3 ], [ %35, %34 ], [ false, %8 ], [ true, %32 ]
   ret i1 %.0
 }
@@ -11628,7 +11628,7 @@ _ZNK5clang10MemberExpr12getFoundDeclEv.exit.i:    ; preds = %15, %11
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
-  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang10MemberExprES4_.exit
+  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang10MemberExprES4_.argprom.exit
 
 26:                                               ; preds = %_ZNK5clang10MemberExpr12getFoundDeclEv.exit.i
   %27 = getelementptr inbounds i8, ptr %2, i64 48
@@ -11637,9 +11637,9 @@ _ZNK5clang10MemberExpr12getFoundDeclEv.exit.i:    ; preds = %15, %11
   %29 = zext nneg i32 %.lobit.i.i.i.i.i4.i to i64
   %30 = getelementptr inbounds %"class.clang::NestedNameSpecifierLoc", ptr %27, i64 %29
   %.sroa.0.0.copyload.i5.i = load i64, ptr %30, align 8
-  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang10MemberExprES4_.exit
+  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang10MemberExprES4_.argprom.exit
 
-_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang10MemberExprES4_.exit: ; preds = %22, %26
+_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang10MemberExprES4_.argprom.exit: ; preds = %22, %26
   %.sroa.0.0.i6.i = phi i64 [ %.sroa.0.0.copyload.i5.i, %26 ], [ %25, %22 ]
   %31 = and i64 %.sroa.0.0.i.i, -8
   %32 = inttoptr i64 %31 to ptr
@@ -11648,8 +11648,8 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang10MemberExprES4_.exit
   %35 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %.val, ptr noundef %32, ptr noundef %34)
   br label %36
 
-36:                                               ; preds = %3, %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang10MemberExprES4_.exit
-  %.0 = phi i1 [ %35, %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang10MemberExprES4_.exit ], [ false, %3 ]
+36:                                               ; preds = %3, %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang10MemberExprES4_.argprom.exit
+  %.0 = phi i1 [ %35, %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang10MemberExprES4_.argprom.exit ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -11879,24 +11879,24 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %58, %54
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %66, %63, %_ZNK4llvm5APInteqERKS0_.exit.i
   %67 = phi i32 [ %52, %_ZNK4llvm5APInteqERKS0_.exit.i ], [ %52, %63 ], [ %.pre.i, %66 ]
   %68 = icmp ugt i32 %67, 64
-  br i1 %68, label %69, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang14IntegerLiteralES4_.exit
+  br i1 %68, label %69, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang14IntegerLiteralES4_.argprom.exit
 
 69:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit.i
   %70 = load ptr, ptr %4, align 8
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang14IntegerLiteralES4_.exit, label %72
+  br i1 %71, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang14IntegerLiteralES4_.argprom.exit, label %72
 
 72:                                               ; preds = %69
   call void @_ZdaPv(ptr noundef nonnull %70) #19
-  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang14IntegerLiteralES4_.exit
+  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang14IntegerLiteralES4_.argprom.exit
 
-_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang14IntegerLiteralES4_.exit: ; preds = %_ZN4llvm5APIntD2Ev.exit.i, %69, %72
+_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang14IntegerLiteralES4_.argprom.exit: ; preds = %_ZN4llvm5APIntD2Ev.exit.i, %69, %72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %73
 
-73:                                               ; preds = %3, %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang14IntegerLiteralES4_.exit
-  %.0 = phi i1 [ %.0.i.i, %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang14IntegerLiteralES4_.exit ], [ false, %3 ]
+73:                                               ; preds = %3, %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang14IntegerLiteralES4_.argprom.exit
+  %.0 = phi i1 [ %.0.i.i, %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang14IntegerLiteralES4_.argprom.exit ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -12190,7 +12190,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
   %12 = load i24, ptr %2, align 8
   %13 = xor i24 %12, %11
   %14 = icmp slt i24 %13, 0
-  br i1 %14, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang15FloatingLiteralES4_.exit, label %15
+  br i1 %14, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang15FloatingLiteralES4_.argprom.exit, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %1, i64 16
@@ -12243,20 +12243,20 @@ _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %39, %38
 
 41:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit.i
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #17
-  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang15FloatingLiteralES4_.exit
+  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang15FloatingLiteralES4_.argprom.exit
 
 42:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit.i
   call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #17
-  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang15FloatingLiteralES4_.exit
+  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang15FloatingLiteralES4_.argprom.exit
 
-_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang15FloatingLiteralES4_.exit: ; preds = %10, %41, %42
+_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang15FloatingLiteralES4_.argprom.exit: ; preds = %10, %41, %42
   %43 = phi i1 [ %36, %41 ], [ %36, %42 ], [ false, %10 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %44
 
-44:                                               ; preds = %3, %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang15FloatingLiteralES4_.exit
-  %.0 = phi i1 [ %43, %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang15FloatingLiteralES4_.exit ], [ false, %3 ]
+44:                                               ; preds = %3, %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang15FloatingLiteralES4_.argprom.exit
+  %.0 = phi i1 [ %43, %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang15FloatingLiteralES4_.argprom.exit ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -12433,7 +12433,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i4.i = load i64, ptr %6, align 8
   %7 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %4, i64 %.sroa.0.0.copyload.i.i, i64 %.sroa.0.0.copyload.i4.i)
-  br i1 %7, label %8, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang11DeclRefExprES4_.exit
+  br i1 %7, label %8, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang11DeclRefExprES4_.argprom.exit
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %1, i64 16
@@ -12443,14 +12443,14 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
   %11 = icmp ne ptr %.val6, null
   %12 = icmp ne ptr %.val7, null
   %or.cond.i = and i1 %11, %12
-  br i1 %or.cond.i, label %13, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang11DeclRefExprES4_.exit
+  br i1 %or.cond.i, label %13, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang11DeclRefExprES4_.argprom.exit
 
 13:                                               ; preds = %8
   %.val = load ptr, ptr %0, align 8
   %14 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %.val, ptr noundef nonnull %.val6, ptr noundef nonnull %.val7)
-  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang11DeclRefExprES4_.exit
+  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang11DeclRefExprES4_.argprom.exit
 
-_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang11DeclRefExprES4_.exit: ; preds = %13, %8, %3
+_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang11DeclRefExprES4_.argprom.exit: ; preds = %13, %8, %3
   %.0 = phi i1 [ false, %3 ], [ %14, %13 ], [ false, %8 ]
   ret i1 %.0
 }
@@ -12587,7 +12587,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i4.i = load i64, ptr %6, align 8
   %7 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %4, i64 %.sroa.0.0.copyload.i.i, i64 %.sroa.0.0.copyload.i4.i)
-  br i1 %7, label %8, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang16CharacterLiteralES4_.exit
+  br i1 %7, label %8, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang16CharacterLiteralES4_.argprom.exit
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -12595,7 +12595,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang16CharacterLiteralES4_.exit
+  br i1 %13, label %14, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang16CharacterLiteralES4_.argprom.exit
 
 14:                                               ; preds = %8
   %15 = load i24, ptr %1, align 8
@@ -12603,9 +12603,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
   %17 = xor i24 %16, %15
   %18 = and i24 %17, 1835008
   %19 = icmp eq i24 %18, 0
-  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang16CharacterLiteralES4_.exit
+  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang16CharacterLiteralES4_.argprom.exit
 
-_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang16CharacterLiteralES4_.exit: ; preds = %14, %8, %3
+_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang16CharacterLiteralES4_.argprom.exit: ; preds = %14, %8, %3
   %.0 = phi i1 [ false, %3 ], [ false, %8 ], [ %19, %14 ]
   ret i1 %.0
 }
@@ -14070,7 +14070,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang27AbstractConditionalOper
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8GotoStmtES4_(ptr readonly %.8.val, ptr readonly %.8.val1) unnamed_addr #9 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8GotoStmtES4_.argprom(ptr readonly %.8.val, ptr readonly %.8.val1) unnamed_addr #9 align 2 {
   %1 = icmp ne ptr %.8.val, null
   %2 = icmp ne ptr %.8.val1, null
   %or.cond.i = and i1 %1, %2
@@ -14078,7 +14078,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 
 3:                                                ; preds = %0
   %4 = icmp eq ptr %.8.val, %.8.val1
-  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8GotoStmtES4_.exit
+  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8GotoStmtES4_.argprom.exit
 
 5:                                                ; preds = %0
   %6 = getelementptr inbounds nuw i8, ptr %.8.val, i64 40
@@ -14102,7 +14102,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 
 20:                                               ; preds = %5
   %21 = icmp eq ptr %.0.i.i.i, %.0.i.i14.i
-  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8GotoStmtES4_.exit
+  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8GotoStmtES4_.argprom.exit
 
 22:                                               ; preds = %5
   %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -14116,18 +14116,18 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
   %31 = load i64, ptr %29, align 8
   %32 = and i64 %31, 4294967295
   %.not.i.i.i = icmp eq i64 %27, %32
-  br i1 %.not.i.i.i, label %33, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8GotoStmtES4_.exit
+  br i1 %.not.i.i.i, label %33, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8GotoStmtES4_.argprom.exit
 
 33:                                               ; preds = %22
   %34 = icmp eq i64 %27, 0
-  br i1 %34, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8GotoStmtES4_.exit, label %35
+  br i1 %34, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8GotoStmtES4_.argprom.exit, label %35
 
 35:                                               ; preds = %33
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %25, ptr nonnull %30, i64 %27)
   %36 = icmp eq i32 %bcmp.i.i.i, 0
-  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8GotoStmtES4_.exit
+  br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8GotoStmtES4_.argprom.exit
 
-_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8GotoStmtES4_.exit: ; preds = %3, %20, %22, %33, %35
+_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8GotoStmtES4_.argprom.exit: ; preds = %3, %20, %22, %33, %35
   %.0.i = phi i1 [ %4, %3 ], [ %21, %20 ], [ %36, %35 ], [ false, %22 ], [ true, %33 ]
   ret i1 %.0.i
 }

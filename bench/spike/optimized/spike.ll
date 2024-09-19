@@ -3149,7 +3149,7 @@ _ZL9make_memsRKSt6vectorI9mem_cfg_tSaIS0_EE.exit: ; preds = %_ZNSt6vectorISt4pai
   %1073 = getelementptr inbounds i8, ptr %.sroa.0444.0594, i64 8
   %1074 = load ptr, ptr %14, align 8
   %1075 = load ptr, ptr %1073, align 8
-  invoke fastcc void @_ZL15read_file_bytesPKcmP14abstract_mem_tmm(ptr noundef %1074, ptr noundef %1075, i64 noundef %.041, i64 noundef %1052)
+  invoke fastcc void @_ZL15read_file_bytesPKcmP14abstract_mem_tmm.argelim(ptr noundef %1074, ptr noundef %1075, i64 noundef %.041, i64 noundef %1052)
           to label %.loopexit550 unwind label %.loopexit.split-lp546.loopexit.split-lp
 
 1076:                                             ; preds = %1070
@@ -3249,7 +3249,7 @@ _ZL9make_memsRKSt6vectorI9mem_cfg_tSaIS0_EE.exit: ; preds = %_ZNSt6vectorISt4pai
   %1120 = load ptr, ptr %1107, align 8
   %1121 = load i64, ptr %.sroa.0438.0595, align 8
   %1122 = sub i64 %1117, %1121
-  invoke fastcc void @_ZL15read_file_bytesPKcmP14abstract_mem_tmm(ptr noundef %1119, ptr noundef %1120, i64 noundef %1122, i64 noundef %1095)
+  invoke fastcc void @_ZL15read_file_bytesPKcmP14abstract_mem_tmm.argelim(ptr noundef %1119, ptr noundef %1120, i64 noundef %1122, i64 noundef %1095)
           to label %.loopexit544 unwind label %.loopexit.split-lp546.loopexit.split-lp
 
 1123:                                             ; preds = %1104
@@ -4557,7 +4557,7 @@ define internal fastcc void @_ZL4helpi(i32 noundef range(i32 0, 2) %0) unnamed_a
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL15read_file_bytesPKcmP14abstract_mem_tmm(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef range(i64 1, 0) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15read_file_bytesPKcmP14abstract_mem_tmm.argelim(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef range(i64 1, 0) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator.97", align 1
   %6 = alloca %"class.std::basic_ifstream", align 8
   %7 = alloca %"class.std::vector.348", align 8
@@ -5327,13 +5327,13 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_5E9_M_invokeERKS
 _ZL10atoul_safePKc.exit.i.i.i.i:                  ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not.i.i.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i.i.i, label %8, label %"_ZSt10__invoke_rIvRZ4mainE3$_5JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
+  br i1 %.not.i.i.i.i, label %8, label %"_ZSt10__invoke_rIvRZ4mainE3$_5JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
 
 8:                                                ; preds = %_ZL10atoul_safePKc.exit.i.i.i.i
   tail call fastcc void @_ZL4helpi(i32 noundef 1)
   unreachable
 
-"_ZSt10__invoke_rIvRZ4mainE3$_5JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %_ZL10atoul_safePKc.exit.i.i.i.i
+"_ZSt10__invoke_rIvRZ4mainE3$_5JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %_ZL10atoul_safePKc.exit.i.i.i.i
   %9 = load ptr, ptr %0, align 8
   store i64 %4, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
@@ -5914,7 +5914,7 @@ _ZNSt6vectorI9mem_cfg_tSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__norm
   %211 = getelementptr inbounds %class.mem_cfg_t, ptr %205, i64 %201
   br label %_ZNSt6vectorI9mem_cfg_tSaIS0_EE9push_backERKS0_.exit37.i.i.i.i.i
 
-.loopexit.i.i.i.i.i:                              ; preds = %_ZL33check_if_merge_covers_64bit_spaceRK9mem_cfg_tS1_.exit.thread.i.i.i.i.i, %202
+.loopexit.i.i.i.i.i:                              ; preds = %_ZL33check_if_merge_covers_64bit_spaceRK9mem_cfg_tS1_.argprom.exit.thread.i.i.i.i.i, %202
   %lpad.loopexit.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %213
@@ -5941,7 +5941,7 @@ _ZNSt6vectorI9mem_cfg_tSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__norm
   %.sroa.speculated.i41.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %185, i64 %187)
   %218 = icmp eq i64 %.sroa.speculated.i41.i.i.i.i.i, -1
   %or.cond.i.i.i.i.i = and i1 %217, %218
-  br i1 %or.cond.i.i.i.i.i, label %_ZNSt6vectorI9mem_cfg_tSaIS0_EE5clearEv.exit.i.i.i.i.i, label %_ZL33check_if_merge_covers_64bit_spaceRK9mem_cfg_tS1_.exit.thread.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i, label %_ZNSt6vectorI9mem_cfg_tSaIS0_EE5clearEv.exit.i.i.i.i.i, label %_ZL33check_if_merge_covers_64bit_spaceRK9mem_cfg_tS1_.argprom.exit.thread.i.i.i.i.i
 
 _ZNSt6vectorI9mem_cfg_tSaIS0_EE5clearEv.exit.i.i.i.i.i: ; preds = %216
   invoke void @_ZN9mem_cfg_tC1Emm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef 0, i64 noundef -4096)
@@ -6047,14 +6047,14 @@ _ZNSt6vectorI9mem_cfg_tSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal
   %250 = getelementptr inbounds %class.mem_cfg_t, ptr %244, i64 %240
   br label %.loopexit.i.i.i.i
 
-_ZL33check_if_merge_covers_64bit_spaceRK9mem_cfg_tS1_.exit.thread.i.i.i.i.i: ; preds = %216
+_ZL33check_if_merge_covers_64bit_spaceRK9mem_cfg_tS1_.argprom.exit.thread.i.i.i.i.i: ; preds = %216
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !30
   %reass.sub = sub i64 %.sroa.speculated.i41.i.i.i.i.i, %.sroa.speculated8.i40.i.i.i.i.i
   %251 = add i64 %reass.sub, 1
   invoke void @_ZN9mem_cfg_tC1Emm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %.sroa.speculated8.i40.i.i.i.i.i, i64 noundef %251)
           to label %252 unwind label %.loopexit.i.i.i.i.i, !noalias !30
 
-252:                                              ; preds = %_ZL33check_if_merge_covers_64bit_spaceRK9mem_cfg_tS1_.exit.thread.i.i.i.i.i
+252:                                              ; preds = %_ZL33check_if_merge_covers_64bit_spaceRK9mem_cfg_tS1_.argprom.exit.thread.i.i.i.i.i
   %.fca.0.load.i.i.i.i.i.i = load i64, ptr %5, align 8, !noalias !30
   %.fca.1.load.i.i.i.i.i.i = load i64, ptr %.fca.1.gep.i.i.i.i.i.i, align 8, !noalias !30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !30
@@ -6133,13 +6133,13 @@ _ZL16parse_mem_layoutPKc.exit.i.i.i:              ; preds = %260, %_ZNSt6vectorI
   store ptr %.sroa.10.4.i.i.i, ptr %266, align 8
   store ptr %.sroa.20.5.i.i.i, ptr %267, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %265, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_6JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %268
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_6JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %268
 
 268:                                              ; preds = %_ZL16parse_mem_layoutPKc.exit.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %265) #36
-  br label %"_ZSt10__invoke_rIvRZ4mainE3$_6JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE3$_6JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZ4mainE3$_6JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %_ZL16parse_mem_layoutPKc.exit.i.i.i, %268
+"_ZSt10__invoke_rIvRZ4mainE3$_6JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %_ZL16parse_mem_layoutPKc.exit.i.i.i, %268
   ret void
 }
 
@@ -6704,13 +6704,13 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_8E9_M_invokeERKS
   %6 = load ptr, ptr %3, align 8
   %7 = load i8, ptr %6, align 1
   %.not.i.i.i.i = icmp eq i8 %7, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_8JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %8
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_8JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %8
 
 8:                                                ; preds = %2
   tail call fastcc void @_ZL4helpi(i32 noundef 1)
   unreachable
 
-"_ZSt10__invoke_rIvRZ4mainE3$_8JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %2
+"_ZSt10__invoke_rIvRZ4mainE3$_8JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %9 = trunc i64 %5 to i16
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6751,13 +6751,13 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_9E9_M_invokeERKS
   %5 = getelementptr inbounds i8, ptr %4, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %"_ZSt10__invoke_rIvRZ4mainE3$_9JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %8
+  br i1 %7, label %"_ZSt10__invoke_rIvRZ4mainE3$_9JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %8
 
 8:                                                ; preds = %2
   store i8 1, ptr %5, align 8
-  br label %"_ZSt10__invoke_rIvRZ4mainE3$_9JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE3$_9JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZ4mainE3$_9JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %2, %8
+"_ZSt10__invoke_rIvRZ4mainE3$_9JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %2, %8
   %9 = getelementptr inbounds i8, ptr %4, i64 96
   store i64 %3, ptr %9, align 8
   ret void
@@ -7030,13 +7030,13 @@ _ZL13parse_hartidsPKc.exit.i.i.i:                 ; preds = %_ZNKSt7__cxx1112bas
   store ptr %.sroa.6.0.i.i.i, ptr %86, align 8
   store ptr %.sroa.9.0.i.i.i, ptr %87, align 8
   %.not.i.i.i.i.i2.i.i.i = icmp eq ptr %85, null
-  br i1 %.not.i.i.i.i.i2.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_10JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %88
+  br i1 %.not.i.i.i.i.i2.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_10JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %88
 
 88:                                               ; preds = %_ZL13parse_hartidsPKc.exit.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %85) #36
-  br label %"_ZSt10__invoke_rIvRZ4mainE4$_10JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE4$_10JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZ4mainE4$_10JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %_ZL13parse_hartidsPKc.exit.i.i.i, %88
+"_ZSt10__invoke_rIvRZ4mainE4$_10JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %_ZL13parse_hartidsPKc.exit.i.i.i, %88
   %89 = load ptr, ptr %0, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 136
   store i8 1, ptr %90, align 8
@@ -7585,14 +7585,14 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_11E9_M_invokeERK
   %7 = load ptr, ptr %.val, align 8
   store ptr %3, ptr %.val, align 8
   %.not.i.i.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_11JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %_ZNKSt14default_deleteI12icache_sim_tEclEPS0_.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_11JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %_ZNKSt14default_deleteI12icache_sim_tEclEPS0_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteI12icache_sim_tEclEPS0_.exit.i.i.i.i.i: ; preds = %5
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #37
-  br label %"_ZSt10__invoke_rIvRZ4mainE4$_11JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE4$_11JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
 
 11:                                               ; preds = %2
   %12 = landingpad { ptr, i32 }
@@ -7600,7 +7600,7 @@ _ZNKSt14default_deleteI12icache_sim_tEclEPS0_.exit.i.i.i.i.i: ; preds = %5
   tail call void @_ZdlPv(ptr noundef nonnull %3) #36
   resume { ptr, i32 } %12
 
-"_ZSt10__invoke_rIvRZ4mainE4$_11JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %5, %_ZNKSt14default_deleteI12icache_sim_tEclEPS0_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIvRZ4mainE4$_11JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %5, %_ZNKSt14default_deleteI12icache_sim_tEclEPS0_.exit.i.i.i.i.i
   ret void
 }
 
@@ -7746,14 +7746,14 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_12E9_M_invokeERK
   %7 = load ptr, ptr %.val, align 8
   store ptr %3, ptr %.val, align 8
   %.not.i.i.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_12JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %_ZNKSt14default_deleteI12dcache_sim_tEclEPS0_.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_12JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %_ZNKSt14default_deleteI12dcache_sim_tEclEPS0_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteI12dcache_sim_tEclEPS0_.exit.i.i.i.i.i: ; preds = %5
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #37
-  br label %"_ZSt10__invoke_rIvRZ4mainE4$_12JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE4$_12JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
 
 11:                                               ; preds = %2
   %12 = landingpad { ptr, i32 }
@@ -7761,7 +7761,7 @@ _ZNKSt14default_deleteI12dcache_sim_tEclEPS0_.exit.i.i.i.i.i: ; preds = %5
   tail call void @_ZdlPv(ptr noundef nonnull %3) #36
   resume { ptr, i32 } %12
 
-"_ZSt10__invoke_rIvRZ4mainE4$_12JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %5, %_ZNKSt14default_deleteI12dcache_sim_tEclEPS0_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIvRZ4mainE4$_12JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %5, %_ZNKSt14default_deleteI12dcache_sim_tEclEPS0_.exit.i.i.i.i.i
   ret void
 }
 
@@ -7859,16 +7859,16 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_13E9_M_invokeERK
   %4 = load ptr, ptr %.val, align 8
   store ptr %3, ptr %.val, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_13JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %_ZNKSt14default_deleteI11cache_sim_tEclEPS0_.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_13JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %_ZNKSt14default_deleteI11cache_sim_tEclEPS0_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteI11cache_sim_tEclEPS0_.exit.i.i.i.i.i: ; preds = %2
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(153) %4) #37
-  br label %"_ZSt10__invoke_rIvRZ4mainE4$_13JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE4$_13JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZ4mainE4$_13JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %2, %_ZNKSt14default_deleteI11cache_sim_tEclEPS0_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIvRZ4mainE4$_13JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %2, %_ZNKSt14default_deleteI11cache_sim_tEclEPS0_.exit.i.i.i.i.i
   ret void
 }
 
@@ -8038,13 +8038,13 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_18E9_M_invokeERK
   %5 = load ptr, ptr %3, align 8
   %6 = load i8, ptr %5, align 1
   %.not.i.i.i.i = icmp eq i8 %6, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_18JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %7
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_18JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %7
 
 7:                                                ; preds = %2
   tail call fastcc void @_ZL4helpi(i32 noundef 1)
   unreachable
 
-"_ZSt10__invoke_rIvRZ4mainE4$_18JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %2
+"_ZSt10__invoke_rIvRZ4mainE4$_18JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 56
@@ -8086,13 +8086,13 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_19E9_M_invokeERK
   %5 = load ptr, ptr %3, align 8
   %6 = load i8, ptr %5, align 1
   %.not.i.i.i.i = icmp eq i8 %6, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_19JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %7
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_19JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %7
 
 7:                                                ; preds = %2
   tail call fastcc void @_ZL4helpi(i32 noundef 1)
   unreachable
 
-"_ZSt10__invoke_rIvRZ4mainE4$_19JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %2
+"_ZSt10__invoke_rIvRZ4mainE4$_19JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 64
@@ -8712,11 +8712,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %180 = load i64, ptr %179, align 8
   %181 = icmp ult i64 %180, 16
   call void @llvm.assume(i1 %181)
-  br label %"_ZSt10__invoke_rIvRZ4mainE4$_22JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE4$_22JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44.i.i.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit43.i.i.i
   call void @_ZdlPv(ptr noundef %176) #36
-  br label %"_ZSt10__invoke_rIvRZ4mainE4$_22JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE4$_22JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
 
 182:                                              ; preds = %112
   %183 = landingpad { ptr, i32 }
@@ -8747,7 +8747,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44
 188:                                              ; preds = %101, %61, %51
   unreachable
 
-"_ZSt10__invoke_rIvRZ4mainE4$_22JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44.i.i.i
+"_ZSt10__invoke_rIvRZ4mainE4$_22JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
@@ -10228,7 +10228,7 @@ _ZNSt6vectorISt8functionIFP11extension_tvEESaIS4_EE9push_backEOS4_.exit.thread.i
   %17 = load ptr, ptr %4, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 32
   store ptr %18, ptr %4, align 8
-  br label %"_ZSt10__invoke_rIvRZ4mainE4$_23JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
+  br label %"_ZSt10__invoke_rIvRZ4mainE4$_23JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
 
 19:                                               ; preds = %2
   invoke void @_ZNSt6vectorISt8functionIFP11extension_tvEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %.val, ptr %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -10238,11 +10238,11 @@ _ZNSt6vectorISt8functionIFP11extension_tvEESaIS4_EE9push_backEOS4_.exit.i.i.i: ;
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   %.not.i.i3.i.i.i = icmp eq ptr %.pre.i.i.i, null
-  br i1 %.not.i.i3.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_23JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %20
+  br i1 %.not.i.i3.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_23JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %20
 
 20:                                               ; preds = %_ZNSt6vectorISt8functionIFP11extension_tvEESaIS4_EE9push_backEOS4_.exit.i.i.i
   %21 = invoke noundef zeroext i1 %.pre.i.i.i(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %"_ZSt10__invoke_rIvRZ4mainE4$_23JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit" unwind label %22
+          to label %"_ZSt10__invoke_rIvRZ4mainE4$_23JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit" unwind label %22
 
 22:                                               ; preds = %20
   %23 = landingpad { ptr, i32 }
@@ -10273,7 +10273,7 @@ _ZNSt6vectorISt8functionIFP11extension_tvEESaIS4_EE9push_backEOS4_.exit.i.i.i: ;
 _ZNSt8functionIFP11extension_tvEED2Ev.exit5.i.i.i: ; preds = %29, %25
   resume { ptr, i32 } %26
 
-"_ZSt10__invoke_rIvRZ4mainE4$_23JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %_ZNSt6vectorISt8functionIFP11extension_tvEESaIS4_EE9push_backEOS4_.exit.thread.i.i.i, %_ZNSt6vectorISt8functionIFP11extension_tvEESaIS4_EE9push_backEOS4_.exit.i.i.i, %20
+"_ZSt10__invoke_rIvRZ4mainE4$_23JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %_ZNSt6vectorISt8functionIFP11extension_tvEESaIS4_EE9push_backEOS4_.exit.thread.i.i.i, %_ZNSt6vectorISt8functionIFP11extension_tvEESaIS4_EE9push_backEOS4_.exit.i.i.i, %20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }
@@ -10681,13 +10681,13 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_31E9_M_invokeERK
   %5 = load ptr, ptr %3, align 8
   %6 = load i8, ptr %5, align 1
   %.not.i.i.i.i = icmp eq i8 %6, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_31JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %7
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_31JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %7
 
 7:                                                ; preds = %2
   tail call fastcc void @_ZL4helpi(i32 noundef 1)
   unreachable
 
-"_ZSt10__invoke_rIvRZ4mainE4$_31JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %2
+"_ZSt10__invoke_rIvRZ4mainE4$_31JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 144
@@ -10725,7 +10725,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_32E9_M_invokeERK
   %.val = load ptr, ptr %1, align 8
   %3 = tail call ptr @dlopen(ptr noundef %.val, i32 noundef 258) #37
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %"_ZSt10__invoke_rIvRZ4mainE4$_32JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
+  br i1 %4, label %5, label %"_ZSt10__invoke_rIvRZ4mainE4$_32JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @stderr, align 8
@@ -10734,7 +10734,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_32E9_M_invokeERK
   tail call void @exit(i32 noundef -1) #38
   unreachable
 
-"_ZSt10__invoke_rIvRZ4mainE4$_32JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %2
+"_ZSt10__invoke_rIvRZ4mainE4$_32JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %2
   ret void
 }
 
@@ -10772,13 +10772,13 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_33E9_M_invokeERK
   %5 = load ptr, ptr %3, align 8
   %6 = load i8, ptr %5, align 1
   %.not.i.i.i.i = icmp eq i8 %6, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_33JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %7
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_33JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %7
 
 7:                                                ; preds = %2
   tail call fastcc void @_ZL4helpi(i32 noundef 1)
   unreachable
 
-"_ZSt10__invoke_rIvRZ4mainE4$_33JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %2
+"_ZSt10__invoke_rIvRZ4mainE4$_33JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %8 = trunc i64 %4 to i32
   %9 = load ptr, ptr %0, align 8
@@ -10853,13 +10853,13 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_35E9_M_invokeERK
   %5 = load ptr, ptr %3, align 8
   %6 = load i8, ptr %5, align 1
   %.not.i.i.i.i = icmp eq i8 %6, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_35JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %7
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_35JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %7
 
 7:                                                ; preds = %2
   tail call fastcc void @_ZL4helpi(i32 noundef 1)
   unreachable
 
-"_ZSt10__invoke_rIvRZ4mainE4$_35JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %2
+"_ZSt10__invoke_rIvRZ4mainE4$_35JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %8 = trunc i64 %4 to i32
   %9 = load ptr, ptr %0, align 8
@@ -10935,13 +10935,13 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_37E9_M_invokeERK
   %5 = load ptr, ptr %3, align 8
   %6 = load i8, ptr %5, align 1
   %.not.i.i.i.i = icmp eq i8 %6, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_37JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %7
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_37JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %7
 
 7:                                                ; preds = %2
   tail call fastcc void @_ZL4helpi(i32 noundef 1)
   unreachable
 
-"_ZSt10__invoke_rIvRZ4mainE4$_37JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %2
+"_ZSt10__invoke_rIvRZ4mainE4$_37JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %8 = trunc i64 %4 to i32
   %9 = load ptr, ptr %0, align 8
@@ -10983,13 +10983,13 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_38E9_M_invokeERK
   %5 = load ptr, ptr %3, align 8
   %6 = load i8, ptr %5, align 1
   %.not.i.i.i.i = icmp eq i8 %6, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_38JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %7
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_38JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %7
 
 7:                                                ; preds = %2
   tail call fastcc void @_ZL4helpi(i32 noundef 1)
   unreachable
 
-"_ZSt10__invoke_rIvRZ4mainE4$_38JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %2
+"_ZSt10__invoke_rIvRZ4mainE4$_38JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %8 = trunc i64 %4 to i32
   %9 = load ptr, ptr %0, align 8
@@ -11227,7 +11227,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_45E9_M_invokeERK
   %4 = load ptr, ptr %0, align 8
   store ptr %3, ptr %4, align 8
   %5 = icmp eq ptr %3, null
-  br i1 %5, label %6, label %"_ZSt10__invoke_rIvRZ4mainE4$_45JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
+  br i1 %5, label %6, label %"_ZSt10__invoke_rIvRZ4mainE4$_45JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @stderr, align 8
@@ -11235,7 +11235,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_45E9_M_invokeERK
   tail call void @exit(i32 noundef -1) #38
   unreachable
 
-"_ZSt10__invoke_rIvRZ4mainE4$_45JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %2
+"_ZSt10__invoke_rIvRZ4mainE4$_45JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %2
   ret void
 }
 
@@ -11280,7 +11280,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_46E9_M_invokeERK
   %8 = tail call range(i64 1, 14) i64 @llvm.ctpop.i64(i64 %6)
   %.not.i.i.i = icmp ult i64 %8, 2
   %or.cond2.i.i.i = select i1 %or.cond.i.i.i, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond2.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_46JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %9
+  br i1 %or.cond2.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_46JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %9
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr @stderr, align 8
@@ -11288,7 +11288,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_46E9_M_invokeERK
   tail call void @exit(i32 noundef -1) #38
   unreachable
 
-"_ZSt10__invoke_rIvRZ4mainE4$_46JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %2
+"_ZSt10__invoke_rIvRZ4mainE4$_46JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %2
   ret void
 }
 

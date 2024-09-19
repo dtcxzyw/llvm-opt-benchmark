@@ -2127,7 +2127,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge, %Vec_Int
   %39 = load i32, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %.val97, i64 224
   %41 = add nsw i32 %.val98, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %40, i32 noundef %41)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %40, i32 noundef %41)
   %42 = getelementptr i8, ptr %.val97, i64 232
   %.val.i.i.i = load ptr, ptr %42, align 8
   %43 = sext i32 %.val98 to i64
@@ -3282,7 +3282,7 @@ declare i32 @Abc_NodeMffcLabelAig(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

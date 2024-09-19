@@ -615,11 +615,11 @@ _ZNK4llvm8MCSymbol7getNameEv.exit229:             ; preds = %203, %209
   %.val = load i32, ptr %262, align 4
   %263 = and i32 %.val, 33554432
   %.not14.i = icmp eq i32 %263, 0
-  br i1 %.not14.i, label %264, label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.exit
+  br i1 %.not14.i, label %264, label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.argprom.exit
 
 264:                                              ; preds = %255
   %.not.i232 = icmp eq i32 %.1272.ph286290, 3
-  br i1 %.not.i232, label %265, label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.exit
+  br i1 %.not.i232, label %265, label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.argprom.exit
 
 265:                                              ; preds = %264
   %266 = load ptr, ptr %259, align 8
@@ -631,7 +631,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit229:             ; preds = %203, %209
   %269 = load i64, ptr %268, align 8
   %270 = and i64 %269, 28800
   %or.cond.not.i.i.i.i.i = icmp eq i64 %270, 8192
-  br i1 %or.cond.not.i.i.i.i.i, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i.i, label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.exit
+  br i1 %or.cond.not.i.i.i.i.i, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i.i, label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.argprom.exit
 
 _ZNK4llvm8MCSymbol9isDefinedEv.exit.i.i:          ; preds = %267
   %271 = or i64 %269, 8
@@ -641,13 +641,13 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.i.i:          ; preds = %267
   %274 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %273) #15
   store ptr %274, ptr %259, align 8
   %.not.i.i = icmp eq ptr %274, null
-  br i1 %.not.i.i, label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.exit, label %_ZNK4llvm8MCSymbol11isInSectionEv.exit.i
+  br i1 %.not.i.i, label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.argprom.exit, label %_ZNK4llvm8MCSymbol11isInSectionEv.exit.i
 
 _ZNK4llvm8MCSymbol11isInSectionEv.exit.i:         ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i.i, %265
   %275 = phi ptr [ %274, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i.i ], [ %266, %265 ]
   %276 = load ptr, ptr @_ZN4llvm8MCSymbol22AbsolutePseudoFragmentE, align 8
   %.not15.i = icmp eq ptr %275, %276
-  br i1 %.not15.i, label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.exit, label %_ZNK4llvm8MCSymbol10getSectionEv.exit.i
+  br i1 %.not15.i, label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.argprom.exit, label %_ZNK4llvm8MCSymbol10getSectionEv.exit.i
 
 _ZNK4llvm8MCSymbol10getSectionEv.exit.i:          ; preds = %_ZNK4llvm8MCSymbol11isInSectionEv.exit.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %275, i64 8
@@ -656,7 +656,7 @@ _ZNK4llvm8MCSymbol10getSectionEv.exit.i:          ; preds = %_ZNK4llvm8MCSymbol1
   %.pre17.i = load i32, ptr %.phi.trans.insert16.i, align 4
   %277 = and i32 %.pre17.i, 255
   %278 = icmp eq i32 %277, 2
-  br i1 %278, label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.exit, label %279
+  br i1 %278, label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.argprom.exit, label %279
 
 279:                                              ; preds = %_ZNK4llvm8MCSymbol10getSectionEv.exit.i
   %280 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 148
@@ -688,17 +688,17 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit19.i:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
   %bcmp.i18.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %.sroa.0.0.copyload.i.i233, ptr noundef nonnull dereferenceable(10) @.str.17, i64 10)
   %287 = icmp eq i32 %bcmp.i18.i, 0
-  br i1 %287, label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i
+  br i1 %287, label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.argprom.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit28.i:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
   %bcmp.i27.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %.sroa.0.0.copyload.i.i233, ptr noundef nonnull dereferenceable(16) @.str.18, i64 16)
   %288 = icmp eq i32 %bcmp.i27.i, 0
-  br i1 %288, label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i
+  br i1 %288, label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.argprom.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread6.i:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit28.i, %_ZN4llvmeqENS_9StringRefES0_.exit19.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit.i, %279
-  br label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.exit
+  br label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.argprom.exit
 
-_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.exit: ; preds = %255, %264, %267, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i.i, %_ZNK4llvm8MCSymbol11isInSectionEv.exit.i, %_ZNK4llvm8MCSymbol10getSectionEv.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit19.i, %_ZN4llvmeqENS_9StringRefES0_.exit28.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i
+_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.argprom.exit: ; preds = %255, %264, %267, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i.i, %_ZNK4llvm8MCSymbol11isInSectionEv.exit.i, %_ZNK4llvm8MCSymbol10getSectionEv.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit19.i, %_ZN4llvmeqENS_9StringRefES0_.exit28.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i
   %.0.i231 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i ], [ true, %255 ], [ false, %264 ], [ true, %_ZNK4llvm8MCSymbol11isInSectionEv.exit.i ], [ false, %_ZNK4llvm8MCSymbol10getSectionEv.exit.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit28.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit19.i ], [ true, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i.i ], [ true, %267 ]
   %289 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %290 = load i64, ptr %289, align 8
@@ -709,7 +709,7 @@ _ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.exit: ; pred
   %or.cond297 = select i1 %.not, i1 true, i1 %brmerge.not
   br i1 %or.cond297, label %316, label %292
 
-292:                                              ; preds = %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.exit
+292:                                              ; preds = %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.argprom.exit
   %293 = tail call noundef zeroext i1 @_ZNK4llvm8MCSymbol11isInSectionEv(ptr noundef nonnull align 8 dereferenceable(32) %259)
   br i1 %293, label %310, label %294
 
@@ -761,7 +761,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit240:             ; preds = %294, %299
   store i64 %315, ptr %289, align 8
   br label %316
 
-316:                                              ; preds = %310, %313, %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.exit
+316:                                              ; preds = %310, %313, %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.argprom.exit
   %317 = tail call noundef ptr @_ZNK4llvm16MachObjectWriter7getAtomERKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(2032) %1, ptr noundef nonnull align 8 dereferenceable(32) %259) #15
   %318 = load ptr, ptr %259, align 8
   %.not.i.i.i.i = icmp eq ptr %318, null
@@ -1814,8 +1814,8 @@ attributes #17 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN12_GLOBAL__N_123AArch64MachObjectWriterEJRjS2_RbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!6 = distinct !{!6, !"_ZSt11make_uniqueIN12_GLOBAL__N_123AArch64MachObjectWriterEJRjS2_RbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN12_GLOBAL__N_123AArch64MachObjectWriterEJRjS2_RbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
+!6 = distinct !{!6, !"_ZSt11make_uniqueIN12_GLOBAL__N_123AArch64MachObjectWriterEJRjS2_RbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !9 = distinct !{!9, !"_ZN4llvmplEPKcRKNS_9StringRefE"}

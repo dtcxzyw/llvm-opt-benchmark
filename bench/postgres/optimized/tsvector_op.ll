@@ -2719,7 +2719,7 @@ tsCompareString.exit.thread.thread:               ; preds = %86, %78, %tsCompare
   br i1 %.not308, label %197, label %185
 
 185:                                              ; preds = %tsCompareString.exit.thread.thread
-  %186 = tail call fastcc i32 @add_pos(ptr noundef nonnull %9, i32 %180, ptr noundef nonnull %50, ptr noundef nonnull %.1343, i32 noundef %.0263.lcssa)
+  %186 = tail call fastcc i32 @add_pos.argprom(ptr noundef nonnull %9, i32 %180, ptr noundef nonnull %50, ptr noundef nonnull %.1343, i32 noundef %.0263.lcssa)
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %188, label %191
 
@@ -2834,14 +2834,14 @@ tsCompareString.exit.thread.thread328:            ; preds = %85, %tsCompareStrin
   br i1 %.not307, label %284, label %268
 
 268:                                              ; preds = %263
-  %269 = tail call fastcc i32 @add_pos(ptr noundef nonnull %9, i32 %266, ptr noundef nonnull %50, ptr noundef nonnull %.1343, i32 noundef %.0263.lcssa)
+  %269 = tail call fastcc i32 @add_pos.argprom(ptr noundef nonnull %9, i32 %266, ptr noundef nonnull %50, ptr noundef nonnull %.1343, i32 noundef %.0263.lcssa)
   %270 = shl nsw i32 %269, 1
   %271 = add i32 %270, %265
   br label %284
 
 272:                                              ; preds = %227
   %.0259.val320 = load i32, ptr %.0259341, align 4
-  %273 = tail call fastcc i32 @add_pos(ptr noundef nonnull %9, i32 %.0259.val320, ptr noundef nonnull %50, ptr noundef nonnull %.1343, i32 noundef %.0263.lcssa)
+  %273 = tail call fastcc i32 @add_pos.argprom(ptr noundef nonnull %9, i32 %.0259.val320, ptr noundef nonnull %50, ptr noundef nonnull %.1343, i32 noundef %.0263.lcssa)
   %274 = icmp eq i32 %273, 0
   br i1 %274, label %275, label %278
 
@@ -3028,7 +3028,7 @@ tsCompareString.exit.thread.thread328:            ; preds = %85, %tsCompareStrin
   br i1 %.not296, label %404, label %392
 
 392:                                              ; preds = %.lr.ph366
-  %393 = tail call fastcc i32 @add_pos(ptr noundef nonnull %9, i32 %387, ptr noundef nonnull %50, ptr noundef nonnull %.4365, i32 noundef %.0263.lcssa)
+  %393 = tail call fastcc i32 @add_pos.argprom(ptr noundef nonnull %9, i32 %387, ptr noundef nonnull %50, ptr noundef nonnull %.4365, i32 noundef %.0263.lcssa)
   %394 = icmp eq i32 %393, 0
   br i1 %394, label %395, label %398
 
@@ -3174,7 +3174,7 @@ define dso_local i32 @tsCompareString(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -65535, 65536) i32 @add_pos(ptr nocapture noundef readonly %0, i32 %.0.val, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 0, 16384) %3) unnamed_addr #8 {
+define internal fastcc range(i32 -65535, 65536) i32 @add_pos.argprom(ptr nocapture noundef readonly %0, i32 %.0.val, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 0, 16384) %3) unnamed_addr #8 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
@@ -3894,7 +3894,7 @@ tsCompareString.exit.thread.us:                   ; preds = %tsCompareString.exi
 tsCompareString.exit.thread126:                   ; preds = %46, %tsCompareString.exit.us
   %.us-phi = phi ptr [ %24, %tsCompareString.exit.us ], [ %33, %46 ]
   %.us-phi147 = phi i32 [ %25, %tsCompareString.exit.us ], [ %34, %46 ]
-  %50 = tail call fastcc i32 @checkclass_str(ptr noundef nonnull %0, i32 %.us-phi147, ptr noundef nonnull %1, ptr noundef %2)
+  %50 = tail call fastcc i32 @checkclass_str.argprom(ptr noundef nonnull %0, i32 %.us-phi147, ptr noundef nonnull %1, ptr noundef %2)
   br label %.loopexit
 
 tsCompareString.exit.thread:                      ; preds = %.lr.ph.split, %38, %47
@@ -3991,7 +3991,7 @@ tsCompareString.exit.thread:                      ; preds = %.lr.ph.split, %38, 
   br i1 %or.cond135, label %.critedge, label %tsCompareString.exit122.thread129
 
 tsCompareString.exit122.thread129:                ; preds = %96, %79
-  %100 = tail call fastcc i32 @checkclass_str(ptr noundef nonnull %0, i32 %87, ptr noundef nonnull %1, ptr noundef %2)
+  %100 = tail call fastcc i32 @checkclass_str.argprom(ptr noundef nonnull %0, i32 %87, ptr noundef nonnull %1, ptr noundef %2)
   %.not118 = icmp eq i32 %100, 0
   br i1 %.not118, label %136, label %101
 
@@ -4784,12 +4784,12 @@ define dso_local i64 @ts_stat2(ptr noundef %0) local_unnamed_addr #0 {
 define dso_local i64 @tsvector_update_trigger_byid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  %3 = tail call fastcc i64 @tsvector_update_trigger(ptr %.val, i1 noundef zeroext false)
+  %3 = tail call fastcc i64 @tsvector_update_trigger.argprom(ptr %.val, i1 noundef zeroext false)
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @tsvector_update_trigger(ptr readonly %.8.val, i1 noundef zeroext %0) unnamed_addr #0 {
+define internal fastcc i64 @tsvector_update_trigger.argprom(ptr readonly %.8.val, i1 noundef zeroext %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.ParsedText, align 8
   %4 = alloca i64, align 8
@@ -5150,7 +5150,7 @@ list_length.exit.thread:                          ; preds = %107, %list_length.e
 define dso_local i64 @tsvector_update_trigger_bycolumn(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  %3 = tail call fastcc i64 @tsvector_update_trigger(ptr %.val, i1 noundef zeroext true)
+  %3 = tail call fastcc i64 @tsvector_update_trigger.argprom(ptr %.val, i1 noundef zeroext true)
   ret i64 %3
 }
 
@@ -5834,7 +5834,7 @@ declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @checkclass_str(ptr nocapture noundef readonly %0, i32 %.0.val, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @checkclass_str.argprom(ptr nocapture noundef readonly %0, i32 %.0.val, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = and i32 %.0.val, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %79, label %5
@@ -6038,10 +6038,10 @@ define internal fastcc void @insertStatEntry(ptr noundef %0, ptr nocapture nound
   %26 = getelementptr i8, ptr %19, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
-  br label %check_weight.exit
+  br label %check_weight.argprom.exit
 
 29:                                               ; preds = %4
-  br i1 %.not64, label %check_weight.exit.thread, label %30
+  br i1 %.not64, label %check_weight.argprom.exit.thread, label %30
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds i8, ptr %2, i64 4
@@ -6058,7 +6058,7 @@ define internal fastcc void @insertStatEntry(ptr noundef %0, ptr nocapture nound
   %41 = getelementptr i8, ptr %34, i64 %40
   %42 = load i16, ptr %41, align 2
   %.not171.i = icmp eq i16 %42, 0
-  br i1 %.not171.i, label %check_weight.exit.thread, label %.lr.ph.i
+  br i1 %.not171.i, label %check_weight.argprom.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30
   %43 = zext i16 %42 to i32
@@ -6079,15 +6079,15 @@ define internal fastcc void @insertStatEntry(ptr noundef %0, ptr nocapture nound
   %51 = and i32 %50, 1
   %spec.select.i = add i32 %51, %.0143.i
   %.not17.i = icmp eq i32 %46, 0
-  br i1 %.not17.i, label %check_weight.exit, label %45, !llvm.loop !45
+  br i1 %.not17.i, label %check_weight.argprom.exit, label %45, !llvm.loop !45
 
-check_weight.exit:                                ; preds = %45, %15
+check_weight.argprom.exit:                        ; preds = %45, %15
   %.058 = phi i32 [ %28, %15 ], [ %spec.select.i, %45 ]
   %52 = icmp eq i32 %.058, 0
-  br i1 %52, label %check_weight.exit.thread, label %.preheader
+  br i1 %52, label %check_weight.argprom.exit.thread, label %.preheader
 
-.preheader:                                       ; preds = %14, %check_weight.exit
-  %.058163 = phi i32 [ %.058, %check_weight.exit ], [ 1, %14 ]
+.preheader:                                       ; preds = %14, %check_weight.argprom.exit
+  %.058163 = phi i32 [ %.058, %check_weight.argprom.exit ], [ 1, %14 ]
   %.not6574 = icmp eq ptr %9, null
   br i1 %.not6574, label %tsCompareString.exit.thread72, label %.lr.ph
 
@@ -6225,7 +6225,7 @@ tsCompareString.exit.thread72:                    ; preds = %tsCompareString.exi
 
 124:                                              ; preds = %101
   store ptr %106, ptr %8, align 8
-  br label %check_weight.exit.thread
+  br label %check_weight.argprom.exit.thread
 
 125:                                              ; preds = %101
   %126 = icmp slt i32 %.1, 0
@@ -6234,12 +6234,12 @@ tsCompareString.exit.thread72:                    ; preds = %tsCompareString.exi
 127:                                              ; preds = %125
   %128 = getelementptr inbounds i8, ptr %.059.lcssa, i64 8
   store ptr %106, ptr %128, align 8
-  br label %check_weight.exit.thread
+  br label %check_weight.argprom.exit.thread
 
 129:                                              ; preds = %125
   %130 = getelementptr inbounds i8, ptr %.059.lcssa, i64 16
   store ptr %106, ptr %130, align 8
-  br label %check_weight.exit.thread
+  br label %check_weight.argprom.exit.thread
 
 131:                                              ; preds = %100
   %132 = load i32, ptr %.060.lcssa, align 8
@@ -6249,9 +6249,9 @@ tsCompareString.exit.thread72:                    ; preds = %tsCompareString.exi
   %135 = load i32, ptr %134, align 4
   %136 = add i32 %135, %.058163
   store i32 %136, ptr %134, align 4
-  br label %check_weight.exit.thread
+  br label %check_weight.argprom.exit.thread
 
-check_weight.exit.thread:                         ; preds = %30, %29, %124, %129, %127, %check_weight.exit, %131
+check_weight.argprom.exit.thread:                 ; preds = %30, %29, %124, %129, %127, %check_weight.argprom.exit, %131
   ret void
 }
 

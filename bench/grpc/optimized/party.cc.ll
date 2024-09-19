@@ -582,7 +582,7 @@ entry:
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(168) %this)
-  br i1 %call.i, label %if.then.i, label %"_ZZN9grpc_core5Party9RunLockedEvENK3$_0clEv.exit"
+  br i1 %call.i, label %if.then.i, label %"_ZZN9grpc_core5Party9RunLockedEvENK3$_0clEv.argprom.exit"
 
 if.then.i:                                        ; preds = %entry
   %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
@@ -620,7 +620,7 @@ invoke.cont.i:                                    ; preds = %_ZN9grpc_core8Activ
 _ZN9grpc_core8Activity14ScopedActivityD2Ev.exit.i: ; preds = %8, %invoke.cont.i
   %9 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
   store ptr %activity.sroa.0.0.i, ptr %9, align 8
-  br label %"_ZZN9grpc_core5Party9RunLockedEvENK3$_0clEv.exit"
+  br label %"_ZZN9grpc_core5Party9RunLockedEvENK3$_0clEv.argprom.exit"
 
 lpad.i:                                           ; preds = %_ZN9grpc_core8Activity14ScopedActivityC2EPS0_.exit.i
   %10 = landingpad { ptr, i32 }
@@ -636,7 +636,7 @@ _ZN9grpc_core8Activity14ScopedActivityD2Ev.exit3.i: ; preds = %11, %lpad.i
   store ptr %activity.sroa.0.0.i, ptr %12, align 8
   resume { ptr, i32 } %10
 
-"_ZZN9grpc_core5Party9RunLockedEvENK3$_0clEv.exit": ; preds = %entry, %_ZN9grpc_core8Activity14ScopedActivityD2Ev.exit.i
+"_ZZN9grpc_core5Party9RunLockedEvENK3$_0clEv.argprom.exit": ; preds = %entry, %_ZN9grpc_core8Activity14ScopedActivityD2Ev.exit.i
   ret void
 }
 
@@ -2168,7 +2168,7 @@ _ZN9grpc_core7ExecCtxD2Ev.exit.i.i.i.i.i:         ; preds = %53, %if.end.i.i.i.i
 invoke.cont.i39.i.i.i.i.i:                        ; preds = %57, %_ZN9grpc_core7ExecCtxD2Ev.exit.i.i.i.i.i
   %58 = load ptr, ptr %1, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %58, %app_exec_ctx.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i, label %while.cond.preheader.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core5Party11WakeupAsyncEtE3$_0JEvEEvOT0_DpOT1_.exit"
+  br i1 %cmp.i.i.i.i.i.i, label %while.cond.preheader.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core5Party11WakeupAsyncEtE3$_0JEvEEvOT0_DpOT1_.argprom.exit"
 
 while.cond.preheader.i.i.i.i.i.i:                 ; preds = %invoke.cont.i39.i.i.i.i.i
   %head_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %app_exec_ctx.i.i.i.i.i, i64 8
@@ -2210,16 +2210,16 @@ _ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i.i.i.i.
   %64 = load i64, ptr %app_exec_ctx.i.i.i.i.i, align 8
   %and.i41.i.i.i.i.i = and i64 %64, 1
   %tobool.not.i42.i.i.i.i.i = icmp eq i64 %and.i41.i.i.i.i.i, 0
-  br i1 %tobool.not.i42.i.i.i.i.i, label %if.then9.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core5Party11WakeupAsyncEtE3$_0JEvEEvOT0_DpOT1_.exit"
+  br i1 %tobool.not.i42.i.i.i.i.i, label %if.then9.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core5Party11WakeupAsyncEtE3$_0JEvEEvOT0_DpOT1_.argprom.exit"
 
 if.then9.i.i.i.i.i.i:                             ; preds = %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i.i.i.i.i
   %65 = load atomic i8, ptr @_ZN9grpc_core4Fork16support_enabled_E monotonic, align 1
   %tobool.i.i.i.i43.i.i.i.i.i = trunc i8 %65 to i1
-  br i1 %tobool.i.i.i.i43.i.i.i.i.i, label %if.then.i.i44.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core5Party11WakeupAsyncEtE3$_0JEvEEvOT0_DpOT1_.exit"
+  br i1 %tobool.i.i.i.i43.i.i.i.i.i, label %if.then.i.i44.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core5Party11WakeupAsyncEtE3$_0JEvEEvOT0_DpOT1_.argprom.exit"
 
 if.then.i.i44.i.i.i.i.i:                          ; preds = %if.then9.i.i.i.i.i.i
   invoke void @_ZN9grpc_core4Fork17DoDecExecCtxCountEv()
-          to label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core5Party11WakeupAsyncEtE3$_0JEvEEvOT0_DpOT1_.exit" unwind label %terminate.lpad.loopexit.split-lp.i.i.i.i.i.i
+          to label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core5Party11WakeupAsyncEtE3$_0JEvEEvOT0_DpOT1_.argprom.exit" unwind label %terminate.lpad.loopexit.split-lp.i.i.i.i.i.i
 
 terminate.lpad.loopexit.i.i.i.i.i.i:              ; preds = %if.end.i40.i.i.i.i.i
   %lpad.loopexit.i.i.i.i.i.i = landingpad { ptr, i32 }
@@ -2257,7 +2257,7 @@ ehcleanup.i.i.i.i.i:                              ; preds = %lpad2.body.i.i.i.i.
   call void @_ZN9grpc_core26ApplicationCallbackExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %app_exec_ctx.i.i.i.i.i) #27
   resume { ptr, i32 } %.pn.i.i.i.i.i
 
-"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core5Party11WakeupAsyncEtE3$_0JEvEEvOT0_DpOT1_.exit": ; preds = %invoke.cont.i39.i.i.i.i.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i.i.i.i.i, %if.then9.i.i.i.i.i.i, %if.then.i.i44.i.i.i.i.i
+"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core5Party11WakeupAsyncEtE3$_0JEvEEvOT0_DpOT1_.argprom.exit": ; preds = %invoke.cont.i39.i.i.i.i.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i.i.i.i.i, %if.then9.i.i.i.i.i.i, %if.then.i.i44.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %app_exec_ctx.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %exec_ctx.i.i.i.i.i)
   ret void

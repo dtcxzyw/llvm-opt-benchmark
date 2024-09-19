@@ -128,13 +128,13 @@ define ptr @aginternalmapprint(ptr nocapture noundef readonly %0, i32 noundef %1
   %9 = getelementptr inbounds [3 x ptr], ptr %7, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %find_isym.exit.thread, label %find_isym.exit
+  br i1 %.not.i, label %find_isym.argprom.exit.thread, label %find_isym.argprom.exit
 
-find_isym.exit.thread:                            ; preds = %3
+find_isym.argprom.exit.thread:                    ; preds = %3
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   br label %17
 
-find_isym.exit:                                   ; preds = %3
+find_isym.argprom.exit:                           ; preds = %3
   %11 = getelementptr inbounds i8, ptr %4, i64 32
   store i64 %2, ptr %11, align 8
   %12 = load ptr, ptr %10, align 8
@@ -143,13 +143,13 @@ find_isym.exit:                                   ; preds = %3
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %17, label %14
 
-14:                                               ; preds = %find_isym.exit
+14:                                               ; preds = %find_isym.argprom.exit
   %15 = getelementptr inbounds i8, ptr %13, i64 40
   %16 = load ptr, ptr %15, align 8
   br label %17
 
-17:                                               ; preds = %find_isym.exit.thread, %find_isym.exit, %14
-  %.0 = phi ptr [ %16, %14 ], [ null, %find_isym.exit ], [ null, %find_isym.exit.thread ]
+17:                                               ; preds = %find_isym.argprom.exit.thread, %find_isym.argprom.exit, %14
+  %.0 = phi ptr [ %16, %14 ], [ null, %find_isym.argprom.exit ], [ null, %find_isym.argprom.exit.thread ]
   ret ptr %.0
 }
 
@@ -166,13 +166,13 @@ define range(i32 0, 2) i32 @aginternalmapdelete(ptr noundef %0, i32 noundef %1, 
   %9 = getelementptr inbounds [3 x ptr], ptr %7, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %find_isym.exit.thread, label %find_isym.exit
+  br i1 %.not.i, label %find_isym.argprom.exit.thread, label %find_isym.argprom.exit
 
-find_isym.exit.thread:                            ; preds = %3
+find_isym.argprom.exit.thread:                    ; preds = %3
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   br label %30
 
-find_isym.exit:                                   ; preds = %3
+find_isym.argprom.exit:                           ; preds = %3
   %11 = getelementptr inbounds i8, ptr %4, i64 32
   store i64 %2, ptr %11, align 8
   %12 = load ptr, ptr %10, align 8
@@ -181,7 +181,7 @@ find_isym.exit:                                   ; preds = %3
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %30, label %14
 
-14:                                               ; preds = %find_isym.exit
+14:                                               ; preds = %find_isym.argprom.exit
   %15 = load ptr, ptr %6, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 64
   %17 = getelementptr inbounds [3 x ptr], ptr %16, i64 0, i64 %8
@@ -200,8 +200,8 @@ find_isym.exit:                                   ; preds = %3
   call void @agfree(ptr noundef nonnull %0, ptr noundef nonnull %13) #5
   br label %30
 
-30:                                               ; preds = %find_isym.exit.thread, %find_isym.exit, %14
-  %.0 = phi i32 [ 1, %14 ], [ 0, %find_isym.exit ], [ 0, %find_isym.exit.thread ]
+30:                                               ; preds = %find_isym.argprom.exit.thread, %find_isym.argprom.exit, %14
+  %.0 = phi i32 [ 1, %14 ], [ 0, %find_isym.argprom.exit ], [ 0, %find_isym.argprom.exit.thread ]
   ret i32 %.0
 }
 
@@ -252,13 +252,13 @@ define void @aginternalmapclearlocalnames(ptr noundef %0) local_unnamed_addr #0 
   %24 = getelementptr inbounds [3 x ptr], ptr %23, i64 0, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %find_isym.exit.thread.i, label %find_isym.exit.i
+  br i1 %.not.i.i, label %find_isym.argprom.exit.thread.i, label %find_isym.argprom.exit.i
 
-find_isym.exit.thread.i:                          ; preds = %20
+find_isym.argprom.exit.thread.i:                  ; preds = %20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   br label %aginternalmapdelete.exit
 
-find_isym.exit.i:                                 ; preds = %20
+find_isym.argprom.exit.i:                         ; preds = %20
   store i64 %22, ptr %6, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr %26(ptr noundef nonnull %25, ptr noundef nonnull %2, i32 noundef 4) #5
@@ -266,7 +266,7 @@ find_isym.exit.i:                                 ; preds = %20
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %aginternalmapdelete.exit, label %28
 
-28:                                               ; preds = %find_isym.exit.i
+28:                                               ; preds = %find_isym.argprom.exit.i
   %29 = load ptr, ptr %3, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 64
   %31 = getelementptr inbounds [3 x ptr], ptr %30, i64 0, i64 %indvars.iv
@@ -285,7 +285,7 @@ find_isym.exit.i:                                 ; preds = %20
   call void @agfree(ptr noundef nonnull %0, ptr noundef nonnull %27) #5
   br label %aginternalmapdelete.exit
 
-aginternalmapdelete.exit:                         ; preds = %28, %find_isym.exit.i, %find_isym.exit.thread.i, %.lr.ph
+aginternalmapdelete.exit:                         ; preds = %28, %find_isym.argprom.exit.i, %find_isym.argprom.exit.thread.i, %.lr.ph
   %.not22 = icmp eq ptr %15, null
   br i1 %.not22, label %.loopexit, label %.lr.ph
 

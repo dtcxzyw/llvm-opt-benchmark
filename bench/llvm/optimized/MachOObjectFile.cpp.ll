@@ -6151,7 +6151,7 @@ _ZN4llvm5ErrorD2Ev.exit471:                       ; preds = %_ZN4llvm23SmallVect
   %.val = load ptr, ptr %476, align 8
   %.val236 = load i32, ptr %834, align 4
   %2104 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias writable align 8 %527, ptr %.val, i32 %.val236, i32 noundef %2104, ptr noundef %481, ptr noundef nonnull @.str.38)
+  call fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_.argprom(ptr dead_on_unwind noalias writable align 8 %527, ptr %.val, i32 %.val236, i32 noundef %2104, ptr noundef %481, ptr noundef nonnull @.str.38)
   %2105 = load ptr, ptr %527, align 8
   store ptr %2105, ptr %4, align 8
   store ptr null, ptr %527, align 8
@@ -6162,7 +6162,7 @@ _ZN4llvm5ErrorD2Ev.exit472:                       ; preds = %_ZN4llvm23SmallVect
   %.val237 = load ptr, ptr %476, align 8
   %.val238 = load i32, ptr %834, align 4
   %2106 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias writable align 8 %528, ptr %.val237, i32 %.val238, i32 noundef %2106, ptr noundef %481, ptr noundef nonnull @.str.39)
+  call fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_.argprom(ptr dead_on_unwind noalias writable align 8 %528, ptr %.val237, i32 %.val238, i32 noundef %2106, ptr noundef %481, ptr noundef nonnull @.str.39)
   %2107 = load ptr, ptr %528, align 8
   store ptr %2107, ptr %4, align 8
   store ptr null, ptr %528, align 8
@@ -6173,7 +6173,7 @@ _ZN4llvm5ErrorD2Ev.exit473:                       ; preds = %_ZN4llvm23SmallVect
   %.val239 = load ptr, ptr %476, align 8
   %.val240 = load i32, ptr %834, align 4
   %2108 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias writable align 8 %529, ptr %.val239, i32 %.val240, i32 noundef %2108, ptr noundef %481, ptr noundef nonnull @.str.40)
+  call fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_.argprom(ptr dead_on_unwind noalias writable align 8 %529, ptr %.val239, i32 %.val240, i32 noundef %2108, ptr noundef %481, ptr noundef nonnull @.str.40)
   %2109 = load ptr, ptr %529, align 8
   store ptr %2109, ptr %4, align 8
   store ptr null, ptr %529, align 8
@@ -6184,7 +6184,7 @@ _ZN4llvm5ErrorD2Ev.exit474:                       ; preds = %_ZN4llvm23SmallVect
   %.val241 = load ptr, ptr %476, align 8
   %.val242 = load i32, ptr %834, align 4
   %2110 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias writable align 8 %530, ptr %.val241, i32 %.val242, i32 noundef %2110, ptr noundef %481, ptr noundef nonnull @.str.41)
+  call fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_.argprom(ptr dead_on_unwind noalias writable align 8 %530, ptr %.val241, i32 %.val242, i32 noundef %2110, ptr noundef %481, ptr noundef nonnull @.str.41)
   %2111 = load ptr, ptr %530, align 8
   store ptr %2111, ptr %4, align 8
   store ptr null, ptr %530, align 8
@@ -7049,11 +7049,11 @@ _ZN4llvm5ErrorD2Ev.exit529:                       ; preds = %2394
 
 _ZN4llvm5ErrorD2Ev.exit530:                       ; preds = %2394
   %2405 = load ptr, ptr %476, align 8
-  %2406 = call fastcc i32 @_ZL9getStructIN4llvm5MachO21sub_framework_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %2405)
+  %2406 = call fastcc i32 @_ZL9getStructIN4llvm5MachO21sub_framework_commandEET_RKNS0_6object15MachOObjectFileEPKc.retelim(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %2405)
   %.val245 = load ptr, ptr %476, align 8
   %.val246 = load i32, ptr %834, align 4
   %2407 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_(ptr dead_on_unwind noalias writable align 8 %571, ptr %.val245, i32 %.val246, i32 noundef %2407, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef %2406, ptr noundef nonnull @.str.53)
+  call fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %571, ptr %.val245, i32 %.val246, i32 noundef %2407, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef %2406, ptr noundef nonnull @.str.53)
   %2408 = load ptr, ptr %571, align 8
   store ptr %2408, ptr %4, align 8
   store ptr null, ptr %571, align 8
@@ -7090,11 +7090,11 @@ _ZN4llvm5ErrorD2Ev.exit533:                       ; preds = %2409
 
 _ZN4llvm5ErrorD2Ev.exit534:                       ; preds = %2409
   %2420 = load ptr, ptr %476, align 8
-  %2421 = call fastcc i32 @_ZL9getStructIN4llvm5MachO20sub_umbrella_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %2420)
+  %2421 = call fastcc i32 @_ZL9getStructIN4llvm5MachO20sub_umbrella_commandEET_RKNS0_6object15MachOObjectFileEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %2420)
   %.val247 = load ptr, ptr %476, align 8
   %.val248 = load i32, ptr %834, align 4
   %2422 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_(ptr dead_on_unwind noalias writable align 8 %578, ptr %.val247, i32 %.val248, i32 noundef %2422, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef %2421, ptr noundef nonnull @.str.57)
+  call fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %578, ptr %.val247, i32 %.val248, i32 noundef %2422, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef %2421, ptr noundef nonnull @.str.57)
   %2423 = load ptr, ptr %578, align 8
   store ptr %2423, ptr %4, align 8
   store ptr null, ptr %578, align 8
@@ -7131,11 +7131,11 @@ _ZN4llvm5ErrorD2Ev.exit537:                       ; preds = %2424
 
 _ZN4llvm5ErrorD2Ev.exit538:                       ; preds = %2424
   %2435 = load ptr, ptr %476, align 8
-  %2436 = call fastcc i32 @_ZL9getStructIN4llvm5MachO19sub_library_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %2435)
+  %2436 = call fastcc i32 @_ZL9getStructIN4llvm5MachO19sub_library_commandEET_RKNS0_6object15MachOObjectFileEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %2435)
   %.val249 = load ptr, ptr %476, align 8
   %.val250 = load i32, ptr %834, align 4
   %2437 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_(ptr dead_on_unwind noalias writable align 8 %585, ptr %.val249, i32 %.val250, i32 noundef %2437, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i32 noundef %2436, ptr noundef nonnull @.str.61)
+  call fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %585, ptr %.val249, i32 %.val250, i32 noundef %2437, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i32 noundef %2436, ptr noundef nonnull @.str.61)
   %2438 = load ptr, ptr %585, align 8
   store ptr %2438, ptr %4, align 8
   store ptr null, ptr %585, align 8
@@ -7172,11 +7172,11 @@ _ZN4llvm5ErrorD2Ev.exit541:                       ; preds = %2439
 
 _ZN4llvm5ErrorD2Ev.exit542:                       ; preds = %2439
   %2450 = load ptr, ptr %476, align 8
-  %2451 = call fastcc i32 @_ZL9getStructIN4llvm5MachO18sub_client_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %2450)
+  %2451 = call fastcc i32 @_ZL9getStructIN4llvm5MachO18sub_client_commandEET_RKNS0_6object15MachOObjectFileEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %2450)
   %.val251 = load ptr, ptr %476, align 8
   %.val252 = load i32, ptr %834, align 4
   %2452 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_(ptr dead_on_unwind noalias writable align 8 %592, ptr %.val251, i32 %.val252, i32 noundef %2452, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, i32 noundef %2451, ptr noundef nonnull @.str.65)
+  call fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %592, ptr %.val251, i32 %.val252, i32 noundef %2452, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, i32 noundef %2451, ptr noundef nonnull @.str.65)
   %2453 = load ptr, ptr %592, align 8
   store ptr %2453, ptr %4, align 8
   store ptr null, ptr %592, align 8
@@ -10383,7 +10383,7 @@ _ZN4llvm8ExpectedINS_5MachO16dylinker_commandEED2Ev.exit: ; preds = %_ZL14malfor
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, i32 %.12.val, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, i32 %.12.val, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -11194,7 +11194,7 @@ _ZN4llvm8ExpectedINS_5MachO21linker_option_commandEED2Ev.exit: ; preds = %_ZL14m
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZL9getStructIN4llvm5MachO21sub_framework_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @_ZL9getStructIN4llvm5MachO21sub_framework_commandEET_RKNS0_6object15MachOObjectFileEPKc.retelim(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #29
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = icmp ult ptr %1, %4
@@ -11237,7 +11237,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread: ; preds = %13, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture readonly %.0.val, i32 %.12.val, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_.argprom.argelim(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture readonly %.0.val, i32 %.12.val, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
@@ -11999,7 +11999,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %.preheader
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZL9getStructIN4llvm5MachO20sub_umbrella_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @_ZL9getStructIN4llvm5MachO20sub_umbrella_commandEET_RKNS0_6object15MachOObjectFileEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #29
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = icmp ult ptr %1, %4
@@ -12042,7 +12042,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread: ; preds = %13, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZL9getStructIN4llvm5MachO19sub_library_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @_ZL9getStructIN4llvm5MachO19sub_library_commandEET_RKNS0_6object15MachOObjectFileEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #29
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = icmp ult ptr %1, %4
@@ -12085,7 +12085,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread: ; preds = %13, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZL9getStructIN4llvm5MachO18sub_client_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @_ZL9getStructIN4llvm5MachO18sub_client_commandEET_RKNS0_6object15MachOObjectFileEPKc.argelim(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #29
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = icmp ult ptr %1, %4
@@ -19131,7 +19131,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZNK4llvm6object15MachOObjectFile
 6:                                                ; preds = %2
   %7 = lshr i32 %.val3.i, 24
   %8 = and i32 %7, 15
-  br label %_ZL22getPlainRelocationTypeRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit
+  br label %_ZL22getPlainRelocationTypeRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -19149,13 +19149,13 @@ define dso_local noundef range(i32 0, 16) i32 @_ZNK4llvm6object15MachOObjectFile
 
 _ZNK4llvm6object6Binary14isLittleEndianEv.exit.i: ; preds = %9, %9, %9, %9, %9, %9
   %12 = and i32 %.val4, 15
-  br label %_ZL22getPlainRelocationTypeRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit
+  br label %_ZL22getPlainRelocationTypeRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit
 
 13:                                               ; preds = %9
   %14 = lshr i32 %.val4, 28
-  br label %_ZL22getPlainRelocationTypeRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit
+  br label %_ZL22getPlainRelocationTypeRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit
 
-_ZL22getPlainRelocationTypeRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit: ; preds = %13, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i, %6
+_ZL22getPlainRelocationTypeRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit: ; preds = %13, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i, %6
   %.0 = phi i32 [ %8, %6 ], [ %14, %13 ], [ %12, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i ]
   ret i32 %.0
 }
@@ -19305,21 +19305,21 @@ define dso_local noundef zeroext range(i8 0, 4) i8 @_ZNK4llvm6object15MachOObjec
   %.val4.i = load i32, ptr %10, align 8
   %switch.tableidx = add i32 %.val4.i, -11
   %11 = icmp ult i32 %switch.tableidx, 10
-  br i1 %11, label %switch.lookup, label %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit.i
+  br i1 %11, label %switch.lookup, label %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit.i
 
 switch.lookup:                                    ; preds = %9
   %12 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK4llvm6object15MachOObjectFile22getAnyRelocationLengthERKNS_5MachO19any_relocation_infoE, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit.i
+  br label %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit.i
 
-_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit.i: ; preds = %9, %switch.lookup
+_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit.i: ; preds = %9, %switch.lookup
   %.sink.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 25, %9 ]
   %13 = lshr i32 %.sroa.2.0.extract.trunc, %.sink.i.i
   br label %_ZNK4llvm6object15MachOObjectFile22getAnyRelocationLengthERKNS_5MachO19any_relocation_infoE.exit
 
-_ZNK4llvm6object15MachOObjectFile22getAnyRelocationLengthERKNS_5MachO19any_relocation_infoE.exit: ; preds = %7, %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit.i
-  %.0.in.i = phi i32 [ %8, %7 ], [ %13, %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit.i ]
+_ZNK4llvm6object15MachOObjectFile22getAnyRelocationLengthERKNS_5MachO19any_relocation_infoE.exit: ; preds = %7, %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit.i
+  %.0.in.i = phi i32 [ %8, %7 ], [ %13, %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit.i ]
   %14 = trunc i32 %.0.in.i to i8
   %15 = and i8 %14, 3
   ret i8 %15
@@ -19346,21 +19346,21 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK4llvm6object15MachOObjectFile2
   %.val5 = load i32, ptr %10, align 4
   %switch.tableidx = add i32 %.val4, -11
   %11 = icmp ult i32 %switch.tableidx, 10
-  br i1 %11, label %switch.lookup, label %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit
+  br i1 %11, label %switch.lookup, label %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit
 
 switch.lookup:                                    ; preds = %8
   %12 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK4llvm6object15MachOObjectFile22getAnyRelocationLengthERKNS_5MachO19any_relocation_infoE, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit
+  br label %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit
 
-_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit: ; preds = %8, %switch.lookup
+_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit: ; preds = %8, %switch.lookup
   %.sink.i = phi i32 [ %switch.load, %switch.lookup ], [ 25, %8 ]
   %13 = lshr i32 %.val5, %.sink.i
   br label %14
 
-14:                                               ; preds = %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit, %6
-  %.0.in = phi i32 [ %7, %6 ], [ %13, %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit ]
+14:                                               ; preds = %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit, %6
+  %.0.in = phi i32 [ %7, %6 ], [ %13, %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit ]
   %.0 = and i32 %.0.in, 3
   ret i32 %.0
 }
@@ -24712,7 +24712,7 @@ _ZN4llvm5ErrorD2Ev.exit63:                        ; preds = %124, %124, %124, %1
 138:                                              ; preds = %137
   %.val = load i32, ptr %126, align 8
   %.0.val = load i32, ptr %.099, align 1
-  switch i32 %.val, label %_ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit [
+  switch i32 %.val, label %_ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit [
     i32 14, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i
     i32 16, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i
     i32 18, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i
@@ -24723,9 +24723,9 @@ _ZN4llvm5ErrorD2Ev.exit63:                        ; preds = %124, %124, %124, %1
 
 _ZNK4llvm6object6Binary14isLittleEndianEv.exit.i: ; preds = %138, %138, %138, %138, %138, %138
   %139 = call noundef i32 @llvm.bswap.i32(i32 %.0.val)
-  br label %_ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit
+  br label %_ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit
 
-_ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit: ; preds = %138, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i
+_ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit: ; preds = %138, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i
   %.sroa.0.0.i = phi i32 [ %.0.val, %138 ], [ %139, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i ]
   %140 = trunc i32 %.sroa.0.0.i to i8
   %141 = and i32 %.sroa.0.0.i, 255
@@ -24749,13 +24749,13 @@ _ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit: ;
   store i64 %.0.val37, ptr %4, align 8
   %switch.tableidx117 = add i32 %.val36, -11
   %148 = icmp ult i32 %switch.tableidx117, 10
-  br i1 %148, label %switch.hole_check, label %_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit
+  br i1 %148, label %switch.hole_check, label %_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit
 
 switch.hole_check:                                ; preds = %147
   %switch.maskindex = trunc nuw i32 %switch.tableidx117 to i16
   %switch.shifted = lshr i16 683, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup118, label %_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit
+  br i1 %switch.lobit, label %switch.lookup118, label %_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit
 
 switch.lookup118:                                 ; preds = %switch.hole_check, %switch.lookup118
   %.0.idx1.i = phi i64 [ %.0.add.i, %switch.lookup118 ], [ 0, %switch.hole_check ]
@@ -24769,9 +24769,9 @@ switch.lookup118:                                 ; preds = %switch.hole_check, 
 
 _ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread.loopexit.i: ; preds = %switch.lookup118
   %.pre.i = load i64, ptr %4, align 8
-  br label %_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit
+  br label %_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit
 
-_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit: ; preds = %switch.hole_check, %147, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread.loopexit.i
+_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit: ; preds = %switch.hole_check, %147, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread.loopexit.i
   %151 = phi i64 [ %.pre.i, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread.loopexit.i ], [ %.0.val37, %147 ], [ %.0.val37, %switch.hole_check ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.sroa.086.0.extract.trunc = trunc i64 %151 to i32
@@ -24797,13 +24797,13 @@ _ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit: ;
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 1 dereferenceable(16) %.099, i64 16, i1 false)
   %switch.tableidx120 = add i32 %.val38, -11
   %161 = icmp ult i32 %switch.tableidx120, 10
-  br i1 %161, label %switch.hole_check121, label %_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit
+  br i1 %161, label %switch.hole_check121, label %_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit
 
 switch.hole_check121:                             ; preds = %160
   %switch.maskindex123 = trunc nuw i32 %switch.tableidx120 to i16
   %switch.shifted124 = lshr i16 683, %switch.maskindex123
   %switch.lobit125 = trunc i16 %switch.shifted124 to i1
-  br i1 %switch.lobit125, label %switch.lookup122, label %_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit
+  br i1 %switch.lobit125, label %switch.lookup122, label %_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit
 
 switch.lookup122:                                 ; preds = %switch.hole_check121, %switch.lookup122
   %.0.idx1.i68 = phi i64 [ %.0.add.i70, %switch.lookup122 ], [ 0, %switch.hole_check121 ]
@@ -24813,9 +24813,9 @@ switch.lookup122:                                 ; preds = %switch.hole_check12
   store i64 %163, ptr %.0.ptr.i69, align 8
   %.0.add.i70 = add nuw nsw i64 %.0.idx1.i68, 8
   %.not.i71 = icmp eq i64 %.0.add.i70, 16
-  br i1 %.not.i71, label %_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit, label %switch.lookup122
+  br i1 %.not.i71, label %_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit, label %switch.lookup122
 
-_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit: ; preds = %switch.lookup122, %switch.hole_check121, %160
+_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit: ; preds = %switch.lookup122, %switch.hole_check121, %160
   %.fca.0.load.i = load i64, ptr %3, align 8
   %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -24834,11 +24834,11 @@ _ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit: ;
   store i8 %171, ptr %20, align 1
   br label %172
 
-172:                                              ; preds = %_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit, %_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit, %_ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit
-  %.sink = phi i64 [ %159, %_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit ], [ %.fca.1.load.i, %_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit ], [ 0, %_ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit ]
-  %173 = phi i8 [ %157, %_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit ], [ %171, %_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit ], [ %145, %_ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit ]
-  %174 = phi i32 [ %.0.i66, %_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit ], [ %.0.i73, %_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit ], [ %.0.i, %_ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit ]
-  %175 = phi i32 [ %158, %_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit ], [ %169, %_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit ], [ %146, %_ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit ]
+172:                                              ; preds = %_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit, %_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit, %_ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit
+  %.sink = phi i64 [ %159, %_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit ], [ %.fca.1.load.i, %_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit ], [ 0, %_ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit ]
+  %173 = phi i8 [ %157, %_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit ], [ %171, %_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit ], [ %145, %_ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit ]
+  %174 = phi i32 [ %.0.i66, %_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit ], [ %.0.i73, %_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit ], [ %.0.i, %_ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit ]
+  %175 = phi i32 [ %158, %_ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit ], [ %169, %_ZL8getArrayImLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit ], [ %146, %_ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.argprom.exit ]
   store i64 %.sink, ptr %22, align 8
   %176 = zext nneg i32 %175 to i64
   %177 = getelementptr inbounds i8, ptr %102, i64 %176
@@ -25416,7 +25416,7 @@ _ZN4llvm5ErrorD2Ev.exit79:                        ; preds = %181
   store i8 1, ptr %142, align 1
   store ptr @.str.301, ptr %19, align 8
   store i8 3, ptr %141, align 8
-  call fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE"(ptr dead_on_unwind noalias writable align 8 %18, ptr nonnull %16, ptr nonnull %17, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %19)
+  call fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE.argprom"(ptr dead_on_unwind noalias writable align 8 %18, ptr nonnull %16, ptr nonnull %17, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %19)
   %185 = or i8 %150, 1
   store i8 %185, ptr %136, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !3406)
@@ -25550,7 +25550,7 @@ _ZN4llvm5ErrorD2Ev.exit88:                        ; preds = %219
   store i8 1, ptr %140, align 1
   store i32 %223, ptr %24, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %22, ptr noundef nonnull align 8 dereferenceable(34) %23, ptr noundef nonnull align 8 dereferenceable(34) %24)
-  call fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE"(ptr dead_on_unwind noalias writable align 8 %21, ptr nonnull %16, ptr nonnull %17, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %22)
+  call fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE.argprom"(ptr dead_on_unwind noalias writable align 8 %21, ptr nonnull %16, ptr nonnull %17, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %22)
   %224 = or i8 %150, 1
   store i8 %224, ptr %136, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !3439)
@@ -25572,7 +25572,7 @@ _ZN4llvm5ErrorD2Ev.exit90:                        ; preds = %226
   store i8 1, ptr %135, align 1
   store ptr @.str.303, ptr %26, align 8
   store i8 3, ptr %134, align 8
-  call fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE"(ptr dead_on_unwind noalias writable align 8 %25, ptr nonnull %16, ptr nonnull %17, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %26)
+  call fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE.argprom"(ptr dead_on_unwind noalias writable align 8 %25, ptr nonnull %16, ptr nonnull %17, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %26)
   %233 = or i8 %150, 1
   store i8 %233, ptr %136, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !3442)
@@ -25939,7 +25939,7 @@ define dso_local void @_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWith
   %31 = getelementptr inbounds i16, ptr %28, i64 %29
   %32 = load i16, ptr %31, align 2
   %.not.i = icmp eq i16 %32, -1
-  br i1 %.not.i, label %33, label %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit"
+  br i1 %.not.i, label %33, label %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.argprom.exit"
 
 33:                                               ; preds = %.lr.ph.i
   %34 = add i32 %30, 1
@@ -25954,7 +25954,7 @@ define dso_local void @_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWith
   %42 = icmp ugt i64 %41, %35
   br i1 %42, label %.lr.ph.i, label %.loopexit, !llvm.loop !3471
 
-"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit": ; preds = %.lr.ph.i
+"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.argprom.exit": ; preds = %.lr.ph.i
   %43 = getelementptr inbounds %"struct.llvm::object::ChainedFixupsSegment", ptr %6, i64 %16
   %44 = zext i32 %30 to i64
   %45 = getelementptr inbounds i16, ptr %28, i64 %44
@@ -25983,7 +25983,7 @@ define dso_local void @_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWith
   %59 = icmp ugt i64 %10, %58
   br i1 %59, label %14, label %.loopexit2, !llvm.loop !3472
 
-.loopexit2:                                       ; preds = %.loopexit, %1, %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit"
+.loopexit2:                                       ; preds = %.loopexit, %1, %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.argprom.exit"
   ret void
 }
 
@@ -26036,7 +26036,7 @@ define dso_local void @_ZN4llvm6object22MachOChainedFixupEntry11moveToFirstEv(pt
   %27 = getelementptr inbounds i16, ptr %24, i64 %25
   %28 = load i16, ptr %27, align 2
   %.not.i.i = icmp eq i16 %28, -1
-  br i1 %.not.i.i, label %29, label %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i"
+  br i1 %.not.i.i, label %29, label %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.argprom.exit.i"
 
 29:                                               ; preds = %.lr.ph.i.i
   %30 = add i32 %26, 1
@@ -26051,7 +26051,7 @@ define dso_local void @_ZN4llvm6object22MachOChainedFixupEntry11moveToFirstEv(pt
   %38 = icmp ugt i64 %37, %31
   br i1 %38, label %.lr.ph.i.i, label %.loopexit.i, !llvm.loop !3471
 
-"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i": ; preds = %.lr.ph.i.i
+"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.argprom.exit.i": ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds %"struct.llvm::object::ChainedFixupsSegment", ptr %7, i64 %18
   %40 = zext i32 %26 to i64
   %41 = getelementptr inbounds i16, ptr %24, i64 %40
@@ -26080,7 +26080,7 @@ define dso_local void @_ZN4llvm6object22MachOChainedFixupEntry11moveToFirstEv(pt
   %55 = icmp ugt i64 %17, %54
   br i1 %55, label %.lr.ph.i, label %_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEv.exit, !llvm.loop !3472
 
-_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEv.exit: ; preds = %.loopexit.i, %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i"
+_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEv.exit: ; preds = %.loopexit.i, %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.argprom.exit.i"
   tail call void @_ZN4llvm6object22MachOChainedFixupEntry8moveNextEv(ptr noundef nonnull align 8 dereferenceable(176) %0)
   br label %56
 
@@ -26454,7 +26454,7 @@ _ZN4llvm5ErrorD2Ev.exit214:                       ; preds = %113
   %197 = getelementptr inbounds i16, ptr %194, i64 %195
   %198 = load i16, ptr %197, align 2
   %.not.i.i = icmp eq i16 %198, -1
-  br i1 %.not.i.i, label %199, label %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i"
+  br i1 %.not.i.i, label %199, label %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.argprom.exit.i"
 
 199:                                              ; preds = %.lr.ph.i.i
   %200 = add i32 %196, 1
@@ -26469,7 +26469,7 @@ _ZN4llvm5ErrorD2Ev.exit214:                       ; preds = %113
   %208 = icmp ugt i64 %207, %201
   br i1 %208, label %.lr.ph.i.i, label %.loopexit.i, !llvm.loop !3471
 
-"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i": ; preds = %.lr.ph.i.i
+"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.argprom.exit.i": ; preds = %.lr.ph.i.i
   %209 = getelementptr inbounds %"struct.llvm::object::ChainedFixupsSegment", ptr %24, i64 %182
   %210 = zext i32 %196 to i64
   %211 = getelementptr inbounds i16, ptr %194, i64 %210
@@ -26493,7 +26493,7 @@ _ZN4llvm5ErrorD2Ev.exit214:                       ; preds = %113
   %221 = icmp ugt i64 %28, %220
   br i1 %221, label %.lr.ph.i, label %_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEv.exit, !llvm.loop !3472
 
-_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEv.exit: ; preds = %.loopexit.i, %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i", %178, %175, %_ZN4llvm5ErrorD2Ev.exit214, %_ZN4llvm5ErrorD2Ev.exit125, %_ZN4llvm5ErrorD2Ev.exit, %30
+_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEv.exit: ; preds = %.loopexit.i, %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.argprom.exit.i", %178, %175, %_ZN4llvm5ErrorD2Ev.exit214, %_ZN4llvm5ErrorD2Ev.exit125, %_ZN4llvm5ErrorD2Ev.exit, %30
   ret void
 }
 
@@ -32385,7 +32385,7 @@ _ZNSt10unique_ptrIN4llvm6object17BindRebaseSegInfoESt14default_deleteIS2_EED2Ev.
   %44 = getelementptr inbounds i16, ptr %41, i64 %42
   %45 = load i16, ptr %44, align 2
   %.not.i.i.i = icmp eq i16 %45, -1
-  br i1 %.not.i.i.i, label %46, label %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i.i"
+  br i1 %.not.i.i.i, label %46, label %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.argprom.exit.i.i"
 
 46:                                               ; preds = %.lr.ph.i.i.i
   %47 = add i32 %43, 1
@@ -32400,7 +32400,7 @@ _ZNSt10unique_ptrIN4llvm6object17BindRebaseSegInfoESt14default_deleteIS2_EED2Ev.
   %55 = icmp ugt i64 %54, %48
   br i1 %55, label %.lr.ph.i.i.i, label %.loopexit.i.i, !llvm.loop !3471
 
-"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i.i": ; preds = %.lr.ph.i.i.i
+"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.argprom.exit.i.i": ; preds = %.lr.ph.i.i.i
   %56 = getelementptr inbounds %"struct.llvm::object::ChainedFixupsSegment", ptr %24, i64 %35
   %57 = zext i32 %43 to i64
   %58 = getelementptr inbounds i16, ptr %41, i64 %57
@@ -32429,7 +32429,7 @@ _ZNSt10unique_ptrIN4llvm6object17BindRebaseSegInfoESt14default_deleteIS2_EED2Ev.
   %72 = icmp ugt i64 %34, %71
   br i1 %72, label %.lr.ph.i.i, label %_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEv.exit.i, !llvm.loop !3472
 
-_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEv.exit.i: ; preds = %.loopexit.i.i, %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i.i"
+_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEv.exit.i: ; preds = %.loopexit.i.i, %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.argprom.exit.i.i"
   call void @_ZN4llvm6object22MachOChainedFixupEntry8moveNextEv(ptr noundef nonnull align 8 dereferenceable(176) %4)
   br label %_ZN4llvm6object22MachOChainedFixupEntry11moveToFirstEv.exit
 
@@ -32858,21 +32858,21 @@ define dso_local noundef range(i32 0, 2) i32 @_ZNK4llvm6object15MachOObjectFile2
   %.val5 = load i32, ptr %10, align 4
   %switch.tableidx = add i32 %.val4, -11
   %11 = icmp ult i32 %switch.tableidx, 10
-  br i1 %11, label %switch.lookup, label %_ZL23getPlainRelocationPCRelRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit
+  br i1 %11, label %switch.lookup, label %_ZL23getPlainRelocationPCRelRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit
 
 switch.lookup:                                    ; preds = %8
   %12 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK4llvm6object15MachOObjectFile21getAnyRelocationPCRelERKNS_5MachO19any_relocation_infoE, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL23getPlainRelocationPCRelRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit
+  br label %_ZL23getPlainRelocationPCRelRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit
 
-_ZL23getPlainRelocationPCRelRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit: ; preds = %8, %switch.lookup
+_ZL23getPlainRelocationPCRelRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit: ; preds = %8, %switch.lookup
   %.sink.i = phi i32 [ %switch.load, %switch.lookup ], [ 16777216, %8 ]
   %13 = and i32 %.sink.i, %.val5
   br label %14
 
-14:                                               ; preds = %_ZL23getPlainRelocationPCRelRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit, %6
-  %.0.in.in = phi i32 [ %7, %6 ], [ %13, %_ZL23getPlainRelocationPCRelRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit ]
+14:                                               ; preds = %_ZL23getPlainRelocationPCRelRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit, %6
+  %.0.in.in = phi i32 [ %7, %6 ], [ %13, %_ZL23getPlainRelocationPCRelRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.argprom.exit ]
   %.0.in = icmp ne i32 %.0.in.in, 0
   %.0 = zext i1 %.0.in to i32
   ret i32 %.0
@@ -35328,7 +35328,7 @@ _ZN4llvm8ExpectedISt8optionalINS_5MachO21linkedit_data_commandEEED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr nocapture readonly %.8.val, ptr noundef byval(%"class.llvm::Twine") align 8 %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr nocapture readonly %.8.val, ptr noundef byval(%"class.llvm::Twine") align 8 %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -41004,8 +41004,8 @@ attributes #32 = { nounwind willreturn memory(none) }
 !438 = distinct !{!438, !439, !"_ZN4llvm8ExpectedINS_5MachO16dysymtab_commandEE9takeErrorEv: argument 0"}
 !439 = distinct !{!439, !"_ZN4llvm8ExpectedINS_5MachO16dysymtab_commandEE9takeErrorEv"}
 !440 = !{!441}
-!441 = distinct !{!441, !442, !"_ZL23parseSegmentLoadCommandIN4llvm5MachO18segment_command_64ENS1_10section_64EENS0_5ErrorERKNS0_6object15MachOObjectFileERKNS6_15LoadCommandInfoERNS0_15SmallVectorImplIPKcEERbjSE_mRNSt7__cxx114listI12MachOElementSaISK_EEE: argument 0"}
-!442 = distinct !{!442, !"_ZL23parseSegmentLoadCommandIN4llvm5MachO18segment_command_64ENS1_10section_64EENS0_5ErrorERKNS0_6object15MachOObjectFileERKNS6_15LoadCommandInfoERNS0_15SmallVectorImplIPKcEERbjSE_mRNSt7__cxx114listI12MachOElementSaISK_EEE"}
+!441 = distinct !{!441, !442, !"_ZL23parseSegmentLoadCommandIN4llvm5MachO18segment_command_64ENS1_10section_64EENS0_5ErrorERKNS0_6object15MachOObjectFileERKNS6_15LoadCommandInfoERNS0_15SmallVectorImplIPKcEERbjSE_mRNSt7__cxx114listI12MachOElementSaISK_EEE.argprom: argument 0"}
+!442 = distinct !{!442, !"_ZL23parseSegmentLoadCommandIN4llvm5MachO18segment_command_64ENS1_10section_64EENS0_5ErrorERKNS0_6object15MachOObjectFileERKNS6_15LoadCommandInfoERNS0_15SmallVectorImplIPKcEERbjSE_mRNSt7__cxx114listI12MachOElementSaISK_EEE.argprom"}
 !443 = !{!444, !446}
 !444 = distinct !{!444, !445, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !445 = distinct !{!445, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -41119,8 +41119,8 @@ attributes #32 = { nounwind willreturn memory(none) }
 !553 = distinct !{!553, !"_ZN4llvm8ExpectedINS_5MachO18segment_command_64EE9takeErrorEv"}
 !554 = !{!552, !441}
 !555 = !{!556}
-!556 = distinct !{!556, !557, !"_ZL23parseSegmentLoadCommandIN4llvm5MachO15segment_commandENS1_7sectionEENS0_5ErrorERKNS0_6object15MachOObjectFileERKNS6_15LoadCommandInfoERNS0_15SmallVectorImplIPKcEERbjSE_mRNSt7__cxx114listI12MachOElementSaISK_EEE: argument 0"}
-!557 = distinct !{!557, !"_ZL23parseSegmentLoadCommandIN4llvm5MachO15segment_commandENS1_7sectionEENS0_5ErrorERKNS0_6object15MachOObjectFileERKNS6_15LoadCommandInfoERNS0_15SmallVectorImplIPKcEERbjSE_mRNSt7__cxx114listI12MachOElementSaISK_EEE"}
+!556 = distinct !{!556, !557, !"_ZL23parseSegmentLoadCommandIN4llvm5MachO15segment_commandENS1_7sectionEENS0_5ErrorERKNS0_6object15MachOObjectFileERKNS6_15LoadCommandInfoERNS0_15SmallVectorImplIPKcEERbjSE_mRNSt7__cxx114listI12MachOElementSaISK_EEE.argprom: argument 0"}
+!557 = distinct !{!557, !"_ZL23parseSegmentLoadCommandIN4llvm5MachO15segment_commandENS1_7sectionEENS0_5ErrorERKNS0_6object15MachOObjectFileERKNS6_15LoadCommandInfoERNS0_15SmallVectorImplIPKcEERbjSE_mRNSt7__cxx114listI12MachOElementSaISK_EEE.argprom"}
 !558 = !{!559, !561}
 !559 = distinct !{!559, !560, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !560 = distinct !{!560, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -41277,8 +41277,8 @@ attributes #32 = { nounwind willreturn memory(none) }
 !711 = distinct !{!711, !712, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
 !712 = distinct !{!712, !"_ZN4llvmplERKNS_5TwineES2_"}
 !713 = !{!714}
-!714 = distinct !{!714, !715, !"_ZL16checkNoteCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjRNSt7__cxx114listI12MachOElementSaIS9_EEE: argument 0"}
-!715 = distinct !{!715, !"_ZL16checkNoteCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjRNSt7__cxx114listI12MachOElementSaIS9_EEE"}
+!714 = distinct !{!714, !715, !"_ZL16checkNoteCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjRNSt7__cxx114listI12MachOElementSaIS9_EEE.argprom: argument 0"}
+!715 = distinct !{!715, !"_ZL16checkNoteCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjRNSt7__cxx114listI12MachOElementSaIS9_EEE.argprom"}
 !716 = !{!717, !719}
 !717 = distinct !{!717, !718, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !718 = distinct !{!718, !"_ZNK4llvm5Twine6concatERKS0_"}

@@ -1826,7 +1826,7 @@ add_sdnv64_to_tree.exit.i195.i:                   ; preds = %745, %738
   %751 = icmp ne i32 %750, 0
   %752 = icmp ne ptr %.val.i, null
   %or.cond.i196.i = select i1 %751, i1 %752, i1 false
-  br i1 %or.cond.i196.i, label %753, label %dissect_report_ack_segment.exit.i
+  br i1 %or.cond.i196.i, label %753, label %dissect_report_ack_segment.argprom.exit.i
 
 753:                                              ; preds = %add_sdnv64_to_tree.exit.i195.i
   %754 = load i32, ptr @ett_frame_ref, align 4
@@ -1845,9 +1845,9 @@ add_sdnv64_to_tree.exit.i195.i:                   ; preds = %745, %738
   %765 = load i32, ptr @hf_ltp_rpt_ack_ref, align 4
   %766 = load i32, ptr @hf_ltp_rpt_ack_time, align 4
   call fastcc void @ltp_ref_use(ptr noundef %763, i64 noundef %764, ptr noundef %1, ptr noundef %755, i32 noundef %765, i32 noundef %766)
-  br label %dissect_report_ack_segment.exit.i
+  br label %dissect_report_ack_segment.argprom.exit.i
 
-dissect_report_ack_segment.exit.i:                ; preds = %753, %add_sdnv64_to_tree.exit.i195.i
+dissect_report_ack_segment.argprom.exit.i:        ; preds = %753, %add_sdnv64_to_tree.exit.i195.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -1876,9 +1876,9 @@ dissect_report_ack_segment.exit.i:                ; preds = %753, %add_sdnv64_to
   %780 = call ptr @proto_tree_add_string(ptr noundef %67, i32 noundef %779, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.167) #8
   br label %781
 
-781:                                              ; preds = %778, %770, %768, %dissect_report_ack_segment.exit.i, %dissect_report_segment.exit.i, %dissect_data_segment.exit.i
-  %.0203.i = phi i32 [ %.1.i, %dissect_data_segment.exit.i ], [ 0, %770 ], [ 0, %778 ], [ 0, %dissect_report_ack_segment.exit.i ], [ 0, %dissect_report_segment.exit.i ], [ 0, %768 ]
-  %.0166.i = phi i32 [ %.0.i.i, %dissect_data_segment.exit.i ], [ 1, %770 ], [ 0, %778 ], [ %747, %dissect_report_ack_segment.exit.i ], [ %.0164.lcssa.i.i, %dissect_report_segment.exit.i ], [ 0, %768 ]
+781:                                              ; preds = %778, %770, %768, %dissect_report_ack_segment.argprom.exit.i, %dissect_report_segment.exit.i, %dissect_data_segment.exit.i
+  %.0203.i = phi i32 [ %.1.i, %dissect_data_segment.exit.i ], [ 0, %770 ], [ 0, %778 ], [ 0, %dissect_report_ack_segment.argprom.exit.i ], [ 0, %dissect_report_segment.exit.i ], [ 0, %768 ]
+  %.0166.i = phi i32 [ %.0.i.i, %dissect_data_segment.exit.i ], [ 1, %770 ], [ 0, %778 ], [ %747, %dissect_report_ack_segment.argprom.exit.i ], [ %.0164.lcssa.i.i, %dissect_report_segment.exit.i ], [ 0, %768 ]
   %782 = add i32 %.0166.i, %.0165.i
   %783 = icmp sgt i32 %173, 0
   br i1 %783, label %784, label %dissect_ltp_segment.exit
@@ -1930,7 +1930,7 @@ dissect_trailer_extn.exit.i:                      ; preds = %add_sdnv64_to_tree.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %dissect_ltp_segment.exit
 
-dissect_ltp_segment.exit.thread.sink.split:       ; preds = %dissect_report_ack_segment.exit.i, %dissect_report_segment.exit.i, %dissect_data_segment.exit.i, %dissect_report_segment.exit.thread.i, %dissect_data_segment.exit.thread.i
+dissect_ltp_segment.exit.thread.sink.split:       ; preds = %dissect_report_ack_segment.argprom.exit.i, %dissect_report_segment.exit.i, %dissect_data_segment.exit.i, %dissect_report_segment.exit.thread.i, %dissect_data_segment.exit.thread.i
   %808 = load ptr, ptr %45, align 8
   call void @col_set_str(ptr noundef %808, i32 noundef 25, ptr noundef nonnull @.str.166) #8
   br label %dissect_ltp_segment.exit.thread

@@ -1669,7 +1669,7 @@ _ZL28isUsedOutsideOfDefiningBlockPKN4llvm11InstructionE.exit: ; preds = %652, %6
 825:                                              ; preds = %_ZL28isUsedOutsideOfDefiningBlockPKN4llvm11InstructionE.exit
   %.val = load ptr, ptr %635, align 8
   %.not711.i = icmp eq ptr %.val, null
-  br i1 %.not711.i, label %_ZL26getPreferredExtendForValuePKN4llvm11InstructionE.exit, label %.lr.ph.i
+  br i1 %.not711.i, label %_ZL26getPreferredExtendForValuePKN4llvm11InstructionE.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %825, %_ZN4llvm8dyn_castINS_8CallBaseENS_4UserEEEDcPT0_.exit.thread.i
   %.02314.i = phi i32 [ %.2.i, %_ZN4llvm8dyn_castINS_8CallBaseENS_4UserEEEDcPT0_.exit.thread.i ], [ 0, %825 ]
@@ -1832,9 +1832,9 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_4UserEEEDcPT0_.exit.thread.i: ; preds = %898, 
   %915 = getelementptr inbounds nuw i8, ptr %.sroa.01.012.i, i64 8
   %916 = load ptr, ptr %915, align 8
   %.not7.i = icmp eq ptr %916, null
-  br i1 %.not7.i, label %_ZL26getPreferredExtendForValuePKN4llvm11InstructionE.exit, label %.lr.ph.i
+  br i1 %.not7.i, label %_ZL26getPreferredExtendForValuePKN4llvm11InstructionE.argprom.exit, label %.lr.ph.i
 
-_ZL26getPreferredExtendForValuePKN4llvm11InstructionE.exit: ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_4UserEEEDcPT0_.exit.thread.i, %825
+_ZL26getPreferredExtendForValuePKN4llvm11InstructionE.argprom.exit: ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_4UserEEEDcPT0_.exit.thread.i, %825
   %.024.lcssa.i = phi i32 [ 0, %825 ], [ %.226.i, %_ZN4llvm8dyn_castINS_8CallBaseENS_4UserEEEDcPT0_.exit.thread.i ]
   %.023.lcssa.i = phi i32 [ 0, %825 ], [ %.2.i, %_ZN4llvm8dyn_castINS_8CallBaseENS_4UserEEEDcPT0_.exit.thread.i ]
   %917 = icmp ugt i32 %.023.lcssa.i, %.024.lcssa.i
@@ -1844,7 +1844,7 @@ _ZL26getPreferredExtendForValuePKN4llvm11InstructionE.exit: ; preds = %_ZN4llvm8
   %920 = icmp eq i32 %919, 0
   br i1 %920, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_3ISD8NodeTypeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, label %921
 
-921:                                              ; preds = %_ZL26getPreferredExtendForValuePKN4llvm11InstructionE.exit
+921:                                              ; preds = %_ZL26getPreferredExtendForValuePKN4llvm11InstructionE.argprom.exit
   %922 = ptrtoint ptr %182 to i64
   %923 = trunc i64 %922 to i32
   %924 = lshr i32 %923, 4
@@ -1886,8 +1886,8 @@ _ZL26getPreferredExtendForValuePKN4llvm11InstructionE.exit: ; preds = %_ZN4llvm8
   %945 = icmp eq ptr %182, %944
   br i1 %945, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_3ISD8NodeTypeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixEOS4_.exit, label %.lr.ph.i.i.i.i311, !llvm.loop !21
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_3ISD8NodeTypeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i: ; preds = %935, %_ZL26getPreferredExtendForValuePKN4llvm11InstructionE.exit
-  %.sink.i.i.i.i320 = phi ptr [ %936, %935 ], [ null, %_ZL26getPreferredExtendForValuePKN4llvm11InstructionE.exit ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_3ISD8NodeTypeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i: ; preds = %935, %_ZL26getPreferredExtendForValuePKN4llvm11InstructionE.argprom.exit
+  %.sink.i.i.i.i320 = phi ptr [ %936, %935 ], [ null, %_ZL26getPreferredExtendForValuePKN4llvm11InstructionE.argprom.exit ]
   %946 = load i32, ptr %172, align 8
   %947 = shl i32 %946, 2
   %948 = add i32 %947, 4

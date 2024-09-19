@@ -2615,25 +2615,25 @@ if.end21.i.i.i:                                   ; preds = %if.then18.i.i.i, %i
   %tobool22.i.i.i = icmp ne ptr %proxy.1.i.i.i, null
   %tobool24.i.i.i = icmp ne ptr %data, null
   %or.cond.i.i.i = and i1 %tobool24.i.i.i, %tobool22.i.i.i
-  br i1 %or.cond.i.i.i, label %land.lhs.true25.i.i.i, label %detect_proxy.exit.i.i
+  br i1 %or.cond.i.i.i, label %land.lhs.true25.i.i.i, label %detect_proxy.argprom.argprom.exit.i.i
 
 land.lhs.true25.i.i.i:                            ; preds = %if.end21.i.i.i
   %bf.load.i.i.i = load i64, ptr %opt_no_body, align 2
   %141 = and i64 %bf.load.i.i.i, 536870912
   %tobool26.not.i.i.i = icmp eq i64 %141, 0
-  br i1 %tobool26.not.i.i.i, label %detect_proxy.exit.i.i, label %if.then27.i.i.i
+  br i1 %tobool26.not.i.i.i, label %detect_proxy.argprom.argprom.exit.i.i, label %if.then27.i.i.i
 
 if.then27.i.i.i:                                  ; preds = %land.lhs.true25.i.i.i
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.28, ptr noundef nonnull %envp.1.i.i.i, ptr noundef nonnull %proxy.1.i.i.i) #11
-  br label %detect_proxy.exit.i.i
+  br label %detect_proxy.argprom.argprom.exit.i.i
 
-detect_proxy.exit.i.i:                            ; preds = %if.then27.i.i.i, %land.lhs.true25.i.i.i, %if.end21.i.i.i
+detect_proxy.argprom.argprom.exit.i.i:            ; preds = %if.then27.i.i.i, %land.lhs.true25.i.i.i, %if.end21.i.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %proxy_env.i.i.i)
   br label %if.end68.i213.i
 
-if.end68.i213.i:                                  ; preds = %detect_proxy.exit.i.i, %if.else.i211.i, %do.body58.i.i
-  %socksproxy.2.i.i = phi ptr [ null, %do.body58.i.i ], [ %socksproxy.1.i.i, %if.else.i211.i ], [ null, %detect_proxy.exit.i.i ]
-  %proxy.2.i.i = phi ptr [ null, %do.body58.i.i ], [ %proxy.1.i.i, %if.else.i211.i ], [ %proxy.1.i.i.i, %detect_proxy.exit.i.i ]
+if.end68.i213.i:                                  ; preds = %detect_proxy.argprom.argprom.exit.i.i, %if.else.i211.i, %do.body58.i.i
+  %socksproxy.2.i.i = phi ptr [ null, %do.body58.i.i ], [ %socksproxy.1.i.i, %if.else.i211.i ], [ null, %detect_proxy.argprom.argprom.exit.i.i ]
+  %proxy.2.i.i = phi ptr [ null, %do.body58.i.i ], [ %proxy.1.i.i, %if.else.i211.i ], [ %proxy.1.i.i.i, %detect_proxy.argprom.argprom.exit.i.i ]
   %142 = load i8, ptr %spacesep.i.i, align 1
   %tobool69.i.i = trunc i8 %142 to i1
   %tobool72.i.i = icmp ne ptr %data, null

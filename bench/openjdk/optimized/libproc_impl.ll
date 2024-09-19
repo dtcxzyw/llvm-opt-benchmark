@@ -179,7 +179,7 @@ define void @Prelease(ptr noundef %0) local_unnamed_addr #10 {
   %4 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %4, align 8
   %.not1.i = icmp eq ptr %.val, null
-  br i1 %.not1.i, label %destroy_lib_info.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %destroy_lib_info.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %10
   %.02.i = phi ptr [ %6, %10 ], [ %.val, %1 ]
@@ -200,23 +200,23 @@ define void @Prelease(ptr noundef %0) local_unnamed_addr #10 {
   tail call void @free(ptr noundef %12) #22
   tail call void @free(ptr noundef nonnull %.02.i) #22
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %destroy_lib_info.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %destroy_lib_info.argprom.exit, label %.lr.ph.i, !llvm.loop !6
 
-destroy_lib_info.exit:                            ; preds = %10, %1
+destroy_lib_info.argprom.exit:                    ; preds = %10, %1
   %13 = getelementptr i8, ptr %0, i64 40
   %.val5 = load ptr, ptr %13, align 8
   %.not1.i6 = icmp eq ptr %.val5, null
-  br i1 %.not1.i6, label %destroy_thread_info.exit, label %.lr.ph.i7
+  br i1 %.not1.i6, label %destroy_thread_info.argprom.exit, label %.lr.ph.i7
 
-.lr.ph.i7:                                        ; preds = %destroy_lib_info.exit, %.lr.ph.i7
-  %.02.i8 = phi ptr [ %15, %.lr.ph.i7 ], [ %.val5, %destroy_lib_info.exit ]
+.lr.ph.i7:                                        ; preds = %destroy_lib_info.argprom.exit, %.lr.ph.i7
+  %.02.i8 = phi ptr [ %15, %.lr.ph.i7 ], [ %.val5, %destroy_lib_info.argprom.exit ]
   %14 = getelementptr inbounds i8, ptr %.02.i8, i64 224
   %15 = load ptr, ptr %14, align 8
   tail call void @free(ptr noundef nonnull %.02.i8) #22
   %.not.i9 = icmp eq ptr %15, null
-  br i1 %.not.i9, label %destroy_thread_info.exit, label %.lr.ph.i7, !llvm.loop !8
+  br i1 %.not.i9, label %destroy_thread_info.argprom.exit, label %.lr.ph.i7, !llvm.loop !8
 
-destroy_thread_info.exit:                         ; preds = %.lr.ph.i7, %destroy_lib_info.exit
+destroy_thread_info.argprom.exit:                 ; preds = %.lr.ph.i7, %destroy_lib_info.argprom.exit
   tail call void @free(ptr noundef %0) #22
   ret void
 }

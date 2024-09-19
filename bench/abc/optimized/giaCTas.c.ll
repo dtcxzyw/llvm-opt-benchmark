@@ -1133,7 +1133,7 @@ define i32 @Tas_ManSolve_rec(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call fastcc void @Tas_ManCreateCls(ptr noundef %0, i32 noundef %3)
+  tail call fastcc void @Tas_ManCreateCls.retelim(ptr noundef %0, i32 noundef %3)
   br label %Tas_ManCheckLimits.exit.thread
 
 5:                                                ; preds = %2
@@ -1484,8 +1484,8 @@ Tas_ManFindActive.exit.thread:                    ; preds = %90, %54, %108, %94,
   br i1 %.not73, label %184, label %Tas_ManCheckLimits.exit.thread
 
 184:                                              ; preds = %179
-  %185 = tail call fastcc i32 @Tas_ManResolve(ptr noundef nonnull %0, i32 noundef %165, i32 noundef %178)
-  tail call fastcc void @Tas_ManCreateCls(ptr noundef nonnull %0, i32 noundef %185)
+  %185 = tail call fastcc i32 @Tas_ManResolve.argelim(ptr noundef nonnull %0, i32 noundef %165, i32 noundef %178)
+  tail call fastcc void @Tas_ManCreateCls.retelim(ptr noundef nonnull %0, i32 noundef %185)
   %186 = load i32, ptr %16, align 8
   %187 = add nsw i32 %186, 1
   store i32 %187, ptr %16, align 8
@@ -1497,7 +1497,7 @@ Tas_ManCheckLimits.exit.thread:                   ; preds = %8, %179, %175, %166
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Tas_ManCreateCls(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #8 {
+define internal fastcc void @Tas_ManCreateCls.retelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
@@ -2177,7 +2177,7 @@ define internal fastcc void @Tas_ManCancelUntil(ptr nocapture noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Tas_ManResolve(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #8 {
+define internal fastcc i32 @Tas_ManResolve.argelim(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = getelementptr inbounds i8, ptr %0, i64 116
   %6 = load i32, ptr %5, align 4
@@ -4987,9 +4987,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %73 = getelementptr inbounds i32, ptr %.val73.val, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %Tas_VarHasReasonCls.exit, label %138
+  br i1 %75, label %Tas_VarHasReasonCls.argprom.argprom.exit, label %138
 
-Tas_VarHasReasonCls.exit:                         ; preds = %70
+Tas_VarHasReasonCls.argprom.argprom.exit:         ; preds = %70
   %76 = add i32 %60, 2
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i32, ptr %.val73.val, i64 %77
@@ -4997,7 +4997,7 @@ Tas_VarHasReasonCls.exit:                         ; preds = %70
   %.not110 = icmp eq i32 %79, 0
   br i1 %.not110, label %116, label %80
 
-80:                                               ; preds = %Tas_VarHasReasonCls.exit
+80:                                               ; preds = %Tas_VarHasReasonCls.argprom.argprom.exit
   %.val80 = load ptr, ptr %14, align 8
   %81 = sext i32 %79 to i64
   %82 = getelementptr inbounds i32, ptr %.val80, i64 %81
@@ -5064,7 +5064,7 @@ Tas_QuePush.exit:                                 ; preds = %._crit_edge.i, %106
   %115 = icmp slt i64 %indvars.iv.next, %114
   br i1 %115, label %.lr.ph, label %.loopexit, !llvm.loop !35
 
-116:                                              ; preds = %Tas_VarHasReasonCls.exit
+116:                                              ; preds = %Tas_VarHasReasonCls.argprom.argprom.exit
   %117 = load ptr, ptr %12, align 8
   %118 = load i32, ptr %3, align 8
   %119 = sext i32 %118 to i64

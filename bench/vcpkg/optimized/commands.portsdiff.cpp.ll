@@ -1144,15 +1144,15 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit110: ; preds = %137
   %.val.val.i = load ptr, ptr %.val.i, align 8, !noalias !21
   %169 = getelementptr inbounds i8, ptr %.val.val.i, i64 40
   invoke void @_ZN5vcpkg11VersionSpecC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VersionE(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(32) %.val.val.i, ptr noundef nonnull align 8 dereferenceable(36) %169)
-          to label %"_ZZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS0_10StringViewEENK3$_1clERKNS0_28SourceControlFileAndLocationE.exit.i" unwind label %.loopexit.i
+          to label %"_ZZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS0_10StringViewEENK3$_1clERKNS0_28SourceControlFileAndLocationE.argprom.argprom.exit.i" unwind label %.loopexit.i
 
-"_ZZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS0_10StringViewEENK3$_1clERKNS0_28SourceControlFileAndLocationE.exit.i": ; preds = %168
+"_ZZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS0_10StringViewEENK3$_1clERKNS0_28SourceControlFileAndLocationE.argprom.argprom.exit.i": ; preds = %168
   %170 = load ptr, ptr %164, align 8, !alias.scope !18
   %171 = load ptr, ptr %165, align 8, !alias.scope !18
   %.not.i.i = icmp eq ptr %170, %171
   br i1 %.not.i.i, label %178, label %172
 
-172:                                              ; preds = %"_ZZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS0_10StringViewEENK3$_1clERKNS0_28SourceControlFileAndLocationE.exit.i"
+172:                                              ; preds = %"_ZZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS0_10StringViewEENK3$_1clERKNS0_28SourceControlFileAndLocationE.argprom.argprom.exit.i"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   %173 = getelementptr inbounds i8, ptr %170, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %173, ptr noundef nonnull align 8 dereferenceable(32) %166) #20
@@ -1164,7 +1164,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit110: ; preds = %137
   store ptr %177, ptr %164, align 8, !alias.scope !18
   br label %_ZNSt6vectorIN5vcpkg11VersionSpecESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.i
 
-178:                                              ; preds = %"_ZZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS0_10StringViewEENK3$_1clERKNS0_28SourceControlFileAndLocationE.exit.i"
+178:                                              ; preds = %"_ZZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS0_10StringViewEENK3$_1clERKNS0_28SourceControlFileAndLocationE.argprom.argprom.exit.i"
   invoke void @_ZNSt6vectorIN5vcpkg11VersionSpecESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %170, ptr noundef nonnull align 8 dereferenceable(72) %5)
           to label %_ZNSt6vectorIN5vcpkg11VersionSpecESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.i unwind label %180
 
@@ -1203,7 +1203,7 @@ _ZNSt6vectorIN5vcpkg11VersionSpecESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.i
   %183 = getelementptr i8, ptr %0, i64 8
   %.val92 = load ptr, ptr %183, align 8
   %.not.i.i.i = icmp eq ptr %.val, %.val92
-  br i1 %.not.i.i.i, label %"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.exit", label %184
+  br i1 %.not.i.i.i, label %"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.argprom.exit", label %184
 
 184:                                              ; preds = %.loopexit
   %185 = ptrtoint ptr %.val92 to i64
@@ -1221,18 +1221,18 @@ _ZNSt6vectorIN5vcpkg11VersionSpecESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.i
   %194 = getelementptr inbounds i8, ptr %.val, i64 1152
   call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_T0_"(ptr %.val, ptr nonnull %194)
   %.not6.i.i.i.i.i = icmp eq ptr %194, %.val92
-  br i1 %.not6.i.i.i.i.i, label %"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.exit", label %.lr.ph.i.i.i.i.i
+  br i1 %.not6.i.i.i.i.i, label %"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %193, %.lr.ph.i.i.i.i.i
   %.sroa.0.07.i.i.i.i.i = phi ptr [ %195, %.lr.ph.i.i.i.i.i ], [ %194, %193 ]
   call fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_T0_"(ptr %.sroa.0.07.i.i.i.i.i)
   %195 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i = icmp eq ptr %195, %.val92
-  br i1 %.not.i.i.i.i.i, label %"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.exit", label %.lr.ph.i.i.i.i.i, !llvm.loop !24
+  br i1 %.not.i.i.i.i.i, label %"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i, !llvm.loop !24
 
 196:                                              ; preds = %184
   call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_T0_"(ptr %.val, ptr %.val92)
-  br label %"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.exit"
+  br label %"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.argprom.exit"
 
 197:                                              ; preds = %4
   %198 = landingpad { ptr, i32 }
@@ -1329,14 +1329,14 @@ _ZNSt6vectorIN5vcpkg11VersionSpecESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.i
           cleanup
   br label %.body
 
-"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %196, %193, %.loopexit
+"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i, %196, %193, %.loopexit
   %232 = load ptr, ptr %33, align 8
   %233 = load ptr, ptr %154, align 8
   %.not4.i.i.i.i = icmp eq ptr %232, %233
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg28SourceControlFileAndLocationES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.exit", %_ZSt8_DestroyIN5vcpkg28SourceControlFileAndLocationEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %237, %_ZSt8_DestroyIN5vcpkg28SourceControlFileAndLocationEEvPT_.exit.i.i.i.i ], [ %232, %"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.exit" ]
+.lr.ph.i.i.i.i:                                   ; preds = %"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.argprom.exit", %_ZSt8_DestroyIN5vcpkg28SourceControlFileAndLocationEEvPT_.exit.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %237, %_ZSt8_DestroyIN5vcpkg28SourceControlFileAndLocationEEvPT_.exit.i.i.i.i ], [ %232, %"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.argprom.exit" ]
   %234 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %234) #20
   %235 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
@@ -1360,8 +1360,8 @@ _ZSt8_DestroyIPN5vcpkg28SourceControlFileAndLocationES1_EvT_S3_RSaIT0_E.exitthre
   %.pr.i = load ptr, ptr %33, align 8
   br label %_ZSt8_DestroyIPN5vcpkg28SourceControlFileAndLocationES1_EvT_S3_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN5vcpkg28SourceControlFileAndLocationES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg28SourceControlFileAndLocationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.exit"
-  %238 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg28SourceControlFileAndLocationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %232, %"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.exit" ]
+_ZSt8_DestroyIPN5vcpkg28SourceControlFileAndLocationES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg28SourceControlFileAndLocationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.argprom.exit"
+  %238 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg28SourceControlFileAndLocationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %232, %"_ZN5vcpkg4Util4sortISt6vectorINS_11VersionSpecESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_2EEvRT_T0_.argprom.exit" ]
   %.not.i.i.i117 = icmp eq ptr %238, null
   br i1 %.not.i.i.i117, label %_ZNSt6vectorIN5vcpkg28SourceControlFileAndLocationESaIS1_EED2Ev.exit, label %239
 
@@ -5737,9 +5737,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %55 = add nsw i64 %.010.i.i.i, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
-  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_RT0_.exit.i.i", label %49
+  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_RT0_.argprom.exit.i.i", label %49
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_RT0_.exit.i.i": ; preds = %49
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_RT0_.argprom.exit.i.i": ; preds = %49
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14)
   %56 = getelementptr inbounds i8, ptr %4, i64 32
@@ -5748,8 +5748,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %59 = getelementptr inbounds i8, ptr %5, i64 64
   br label %.lr.ph.i9.i
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_RT0_.exit.i.i", %.lr.ph.i9.i
-  %.sroa.0.03.i.i = phi ptr [ %60, %.lr.ph.i9.i ], [ %storemerge47, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_RT0_.exit.i.i" ]
+.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_RT0_.argprom.exit.i.i", %.lr.ph.i9.i
+  %.sroa.0.03.i.i = phi ptr [ %60, %.lr.ph.i9.i ], [ %storemerge47, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_RT0_.argprom.exit.i.i" ]
   %60 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -72
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
@@ -5786,7 +5786,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %75 = getelementptr inbounds %"struct.vcpkg::VersionSpec", ptr %0, i64 %74
   %76 = getelementptr inbounds i8, ptr %storemerge47, i64 -72
   %77 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %75)
-          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i.i" unwind label %78
+          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit.i.i" unwind label %78
 
 78:                                               ; preds = %72
   %79 = landingpad { ptr, i32 }
@@ -5795,13 +5795,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @__clang_call_terminate(ptr %80) #19
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i.i": ; preds = %72
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit.i.i": ; preds = %72
   %81 = icmp slt i32 %77, 0
   br i1 %81, label %82, label %122
 
-82:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i.i"
+82:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit.i.i"
   %83 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %76)
-          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit26.i.i" unwind label %84
+          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit26.i.i" unwind label %84
 
 84:                                               ; preds = %82
   %85 = landingpad { ptr, i32 }
@@ -5810,11 +5810,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @__clang_call_terminate(ptr %86) #19
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit26.i.i": ; preds = %82
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit26.i.i": ; preds = %82
   %87 = icmp slt i32 %83, 0
   br i1 %87, label %88, label %98
 
-88:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit26.i.i"
+88:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit26.i.i"
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %20) #20
@@ -5835,9 +5835,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-98:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit26.i.i"
+98:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit26.i.i"
   %99 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %76)
-          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit27.i.i" unwind label %100
+          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit27.i.i" unwind label %100
 
 100:                                              ; preds = %98
   %101 = landingpad { ptr, i32 }
@@ -5846,11 +5846,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @__clang_call_terminate(ptr %102) #19
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit27.i.i": ; preds = %98
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit27.i.i": ; preds = %98
   %103 = icmp slt i32 %99, 0
   br i1 %103, label %104, label %114
 
-104:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit27.i.i"
+104:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit27.i.i"
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %20) #20
@@ -5871,7 +5871,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-114:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit27.i.i"
+114:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit27.i.i"
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %20) #20
@@ -5890,9 +5890,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-122:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i.i"
+122:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit.i.i"
   %123 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %76)
-          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit28.i.i" unwind label %124
+          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit28.i.i" unwind label %124
 
 124:                                              ; preds = %122
   %125 = landingpad { ptr, i32 }
@@ -5901,11 +5901,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @__clang_call_terminate(ptr %126) #19
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit28.i.i": ; preds = %122
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit28.i.i": ; preds = %122
   %127 = icmp slt i32 %123, 0
   br i1 %127, label %128, label %136
 
-128:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit28.i.i"
+128:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit28.i.i"
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %20) #20
@@ -5924,9 +5924,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-136:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit28.i.i"
+136:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit28.i.i"
   %137 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %76)
-          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit29.i.i" unwind label %138
+          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit29.i.i" unwind label %138
 
 138:                                              ; preds = %136
   %139 = landingpad { ptr, i32 }
@@ -5935,11 +5935,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @__clang_call_terminate(ptr %140) #19
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit29.i.i": ; preds = %136
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit29.i.i": ; preds = %136
   %141 = icmp slt i32 %137, 0
   br i1 %141, label %142, label %152
 
-142:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit29.i.i"
+142:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit29.i.i"
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %20) #20
@@ -5960,7 +5960,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-152:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit29.i.i"
+152:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit29.i.i"
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %20) #20
@@ -5992,7 +5992,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 162:                                              ; preds = %168, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_SI_SI_T0_.exit.i"
   %.sroa.011.1.i.i = phi ptr [ %.sroa.011.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_SI_SI_SI_T0_.exit.i" ], [ %169, %168 ]
   %163 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.011.1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i13.i" unwind label %164
+          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit.i13.i" unwind label %164
 
 164:                                              ; preds = %162
   %165 = landingpad { ptr, i32 }
@@ -6001,19 +6001,19 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @__clang_call_terminate(ptr %166) #19
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i13.i": ; preds = %162
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit.i13.i": ; preds = %162
   %167 = icmp slt i32 %163, 0
   br i1 %167, label %168, label %.preheader.i.i
 
-168:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i13.i"
+168:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit.i13.i"
   %169 = getelementptr inbounds i8, ptr %.sroa.011.1.i.i, i64 72
   br label %162, !llvm.loop !121
 
-.preheader.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i13.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit8.i.i"
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit8.i.i" ], [ %.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.i13.i" ]
+.preheader.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit.i13.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit8.i.i"
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit8.i.i" ], [ %.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit.i13.i" ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -72
   %170 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.1.i.i)
-          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit8.i.i" unwind label %171
+          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit8.i.i" unwind label %171
 
 171:                                              ; preds = %.preheader.i.i
   %172 = landingpad { ptr, i32 }
@@ -6022,11 +6022,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @__clang_call_terminate(ptr %173) #19
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit8.i.i": ; preds = %.preheader.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit8.i.i": ; preds = %.preheader.i.i
   %174 = icmp slt i32 %170, 0
   br i1 %174, label %.preheader.i.i, label %175, !llvm.loop !122
 
-175:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit8.i.i"
+175:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit8.i.i"
   %176 = icmp ult ptr %.sroa.011.1.i.i, %.sroa.0.1.i.i
   br i1 %176, label %177, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEET_SI_SI_T0_.exit"
 
@@ -6073,15 +6073,15 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %4, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit"
-  %.035 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit" ], [ %1, %4 ]
+.lr.ph:                                           ; preds = %4, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit"
+  %.035 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit" ], [ %1, %4 ]
   %9 = shl i64 %.035, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.vcpkg::VersionSpec", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
   %13 = getelementptr inbounds %"struct.vcpkg::VersionSpec", ptr %0, i64 %12
   %14 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit" unwind label %15
+          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit" unwind label %15
 
 15:                                               ; preds = %.lr.ph
   %16 = landingpad { ptr, i32 }
@@ -6090,7 +6090,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   tail call void @__clang_call_terminate(ptr %17) #19
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit": ; preds = %.lr.ph
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit": ; preds = %.lr.ph
   %18 = icmp slt i32 %14, 0
   %spec.select = select i1 %18, i64 %12, i64 %10
   %19 = getelementptr inbounds %"struct.vcpkg::VersionSpec", ptr %0, i64 %spec.select
@@ -6106,8 +6106,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %28 = icmp slt i64 %spec.select, %7
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !125
 
-._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit", %4
-  %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit" ]
+._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit", %4
+  %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit" ]
   %29 = and i64 %2, 1
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %31, label %47
@@ -6152,7 +6152,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.0911.i = sdiv i64 %.0911.in.i, 2
   %54 = getelementptr inbounds %"struct.vcpkg::VersionSpec", ptr %0, i64 %.0911.i
   %55 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.exit.i" unwind label %56
+          to label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.argprom.exit.i" unwind label %56
 
 56:                                               ; preds = %.lr.ph.i
   %57 = landingpad { ptr, i32 }
@@ -6161,11 +6161,11 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   call void @__clang_call_terminate(ptr %58) #19
   unreachable
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.exit.i": ; preds = %.lr.ph.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.argprom.exit.i": ; preds = %.lr.ph.i
   %59 = icmp slt i32 %55, 0
   br i1 %59, label %60, label %.loopexit
 
-60:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.exit.i"
+60:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.argprom.exit.i"
   %61 = getelementptr inbounds %"struct.vcpkg::VersionSpec", ptr %0, i64 %.010.i
   %62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %54) #20
   %63 = getelementptr inbounds i8, ptr %61, i64 32
@@ -6178,8 +6178,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %69 = icmp sgt i64 %.0911.i, %1
   br i1 %69, label %.lr.ph.i, label %.loopexit, !llvm.loop !126
 
-.loopexit:                                        ; preds = %60, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.exit.i", %47
-  %.0.lcssa.i = phi i64 [ %.1, %47 ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.exit.i" ], [ %.0911.i, %60 ]
+.loopexit:                                        ; preds = %60, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.argprom.exit.i", %47
+  %.0.lcssa.i = phi i64 [ %.1, %47 ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESC_EEbT_RT0_.argprom.exit.i" ], [ %.0911.i, %60 ]
   %70 = getelementptr inbounds %"struct.vcpkg::VersionSpec", ptr %0, i64 %.0.lcssa.i
   %71 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   %72 = getelementptr inbounds i8, ptr %70, i64 32
@@ -6218,7 +6218,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %.sroa.0.020 = phi ptr [ %.sroa.0.017, %.lr.ph ], [ %.sroa.0.0, %40 ]
   %.pn19 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.020, %40 ]
   %11 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.020, ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit" unwind label %12
+          to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit" unwind label %12
 
 12:                                               ; preds = %10
   %13 = landingpad { ptr, i32 }
@@ -6227,11 +6227,11 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   call void @__clang_call_terminate(ptr %14) #19
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit": ; preds = %10
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit": ; preds = %10
   %15 = icmp slt i32 %11, 0
   br i1 %15, label %16, label %39
 
-16:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit"
+16:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.020) #20
   %17 = getelementptr inbounds i8, ptr %.pn19, i64 104
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %17) #20
@@ -6275,7 +6275,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   br label %40
 
-39:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit"
+39:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS_17__normal_iteratorIPNS3_11VersionSpecESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom.exit"
   call fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_T0_"(ptr %.sroa.0.020)
   br label %40
 
@@ -6305,7 +6305,7 @@ define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__nor
   %.sroa.03.0 = phi ptr [ %0, %1 ], [ %.sroa.0.0, %15 ]
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.03.0, i64 -72
   %9 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0)
-          to label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS3_11VersionSpecENS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbRT_T0_.exit" unwind label %10
+          to label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS3_11VersionSpecENS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbRT_T0_.argprom.exit" unwind label %10
 
 10:                                               ; preds = %8
   %11 = landingpad { ptr, i32 }
@@ -6314,12 +6314,12 @@ define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__nor
   call void @__clang_call_terminate(ptr %12) #19
   unreachable
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS3_11VersionSpecENS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbRT_T0_.exit": ; preds = %8
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS3_11VersionSpecENS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbRT_T0_.argprom.exit": ; preds = %8
   %13 = icmp slt i32 %9, 0
   %14 = getelementptr inbounds i8, ptr %.sroa.03.0, i64 32
   br i1 %13, label %15, label %22
 
-15:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS3_11VersionSpecENS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbRT_T0_.exit"
+15:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS3_11VersionSpecENS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbRT_T0_.argprom.exit"
   %16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0) #20
   %17 = getelementptr inbounds i8, ptr %.sroa.03.0, i64 -40
   %18 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %17) #20
@@ -6329,7 +6329,7 @@ define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__nor
   store i32 %20, ptr %21, align 8
   br label %8, !llvm.loop !129
 
-22:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS3_11VersionSpecENS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbRT_T0_.exit"
+22:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS3_10StringViewEE3$_2EclINS3_11VersionSpecENS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbRT_T0_.argprom.exit"
   %23 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0, ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   %24 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   %25 = load i32, ptr %5, align 8
@@ -8132,8 +8132,8 @@ attributes #24 = { builtin allocsize(0) }
 !16 = distinct !{!16, !17, !"_ZN3fmt3v106formatIJRKN5vcpkg10StringViewEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSE_: argument 0"}
 !17 = distinct !{!17, !"_ZN3fmt3v106formatIJRKN5vcpkg10StringViewEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSE_"}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN5vcpkg4Util4fmapIRKSt6vectorINS_28SourceControlFileAndLocationESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_: argument 0"}
-!20 = distinct !{!20, !"_ZN5vcpkg4Util4fmapIRKSt6vectorINS_28SourceControlFileAndLocationESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_"}
+!19 = distinct !{!19, !20, !"_ZN5vcpkg4Util4fmapIRKSt6vectorINS_28SourceControlFileAndLocationESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.argprom: argument 0"}
+!20 = distinct !{!20, !"_ZN5vcpkg4Util4fmapIRKSt6vectorINS_28SourceControlFileAndLocationESaIS3_EEZN12_GLOBAL__N_122read_ports_from_commitERKNS_10VcpkgPathsENS_10StringViewEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.argprom"}
 !21 = !{!22}
 !22 = distinct !{!22, !23, !"_ZNK5vcpkg17SourceControlFile15to_version_specEv: argument 0"}
 !23 = distinct !{!23, !"_ZNK5vcpkg17SourceControlFile15to_version_specEv"}

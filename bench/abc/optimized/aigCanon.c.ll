@@ -104,7 +104,7 @@ define ptr @Aig_RManTableLookup(ptr nocapture noundef readonly %0, ptr nocapture
   %10 = shl nuw i32 1, %9
   %11 = select i1 %8, i32 1, i32 %10
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph.preheader.i, label %Aig_RManTableHash.exit
+  br i1 %12, label %.lr.ph.preheader.i, label %Aig_RManTableHash.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %3
   %wide.trip.count.i = zext nneg i32 %11 to i64
@@ -122,9 +122,9 @@ define ptr @Aig_RManTableLookup(ptr nocapture noundef readonly %0, ptr nocapture
   %19 = xor i32 %18, %.02.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Aig_RManTableHash.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %Aig_RManTableHash.argprom.exit, label %.lr.ph.i, !llvm.loop !7
 
-Aig_RManTableHash.exit:                           ; preds = %.lr.ph.i, %3
+Aig_RManTableHash.argprom.exit:                   ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ %19, %.lr.ph.i ]
   %20 = urem i32 %.0.lcssa.i, %7
   %21 = sext i32 %20 to i64
@@ -133,7 +133,7 @@ Aig_RManTableHash.exit:                           ; preds = %.lr.ph.i, %3
   %.not23 = icmp eq ptr %.022, null
   br i1 %.not23, label %Kit_TruthIsEqual.exit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %Aig_RManTableHash.exit
+.lr.ph:                                           ; preds = %Aig_RManTableHash.argprom.exit
   %23 = zext i32 %11 to i64
   br label %24
 
@@ -163,8 +163,8 @@ Kit_TruthIsEqual.exit:                            ; preds = %28
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %Kit_TruthIsEqual.exit.thread, label %24, !llvm.loop !9
 
-Kit_TruthIsEqual.exit.thread:                     ; preds = %Kit_TruthIsEqual.exit, %select.unfold.i, %Aig_RManTableHash.exit
-  %.01321 = phi ptr [ %22, %Aig_RManTableHash.exit ], [ %.01324, %select.unfold.i ], [ %.025, %Kit_TruthIsEqual.exit ]
+Kit_TruthIsEqual.exit.thread:                     ; preds = %Kit_TruthIsEqual.exit, %select.unfold.i, %Aig_RManTableHash.argprom.exit
+  %.01321 = phi ptr [ %22, %Aig_RManTableHash.argprom.exit ], [ %.01324, %select.unfold.i ], [ %.025, %Kit_TruthIsEqual.exit ]
   ret ptr %.01321
 }
 
@@ -256,9 +256,9 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %11
   %38 = xor i32 %37, %.02.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Aig_RManTableHash.exit.i, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %Aig_RManTableHash.argprom.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 
-Aig_RManTableHash.exit.i:                         ; preds = %.lr.ph.i.i
+Aig_RManTableHash.argprom.exit.i:                 ; preds = %.lr.ph.i.i
   %39 = urem i32 %38, %27
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds ptr, ptr %26, i64 %40
@@ -266,9 +266,9 @@ Aig_RManTableHash.exit.i:                         ; preds = %.lr.ph.i.i
   %.not23.i = icmp eq ptr %.022.i, null
   br i1 %.not23.i, label %Aig_RManTableLookup.exit, label %.lr.ph.i33
 
-.lr.ph.i33:                                       ; preds = %Aig_RManTableHash.exit.i, %Kit_TruthIsEqual.exit.i
-  %.025.i = phi ptr [ %.0.i34, %Kit_TruthIsEqual.exit.i ], [ %.022.i, %Aig_RManTableHash.exit.i ]
-  %.01324.i = phi ptr [ %.025.i, %Kit_TruthIsEqual.exit.i ], [ %41, %Aig_RManTableHash.exit.i ]
+.lr.ph.i33:                                       ; preds = %Aig_RManTableHash.argprom.exit.i, %Kit_TruthIsEqual.exit.i
+  %.025.i = phi ptr [ %.0.i34, %Kit_TruthIsEqual.exit.i ], [ %.022.i, %Aig_RManTableHash.argprom.exit.i ]
+  %.01324.i = phi ptr [ %.025.i, %Kit_TruthIsEqual.exit.i ], [ %41, %Aig_RManTableHash.argprom.exit.i ]
   %42 = getelementptr inbounds i8, ptr %.025.i, i64 16
   br label %select.unfold.i.i
 
@@ -291,8 +291,8 @@ Kit_TruthIsEqual.exit.i:                          ; preds = %44
   %.not.i35 = icmp eq ptr %.0.i34, null
   br i1 %.not.i35, label %Aig_RManTableLookup.exit, label %.lr.ph.i33, !llvm.loop !9
 
-Aig_RManTableLookup.exit:                         ; preds = %Kit_TruthIsEqual.exit.i, %select.unfold.i.i, %Aig_RManTableHash.exit.i
-  %.01321.i = phi ptr [ %41, %Aig_RManTableHash.exit.i ], [ %.01324.i, %select.unfold.i.i ], [ %.025.i, %Kit_TruthIsEqual.exit.i ]
+Aig_RManTableLookup.exit:                         ; preds = %Kit_TruthIsEqual.exit.i, %select.unfold.i.i, %Aig_RManTableHash.argprom.exit.i
+  %.01321.i = phi ptr [ %41, %Aig_RManTableHash.argprom.exit.i ], [ %.01324.i, %select.unfold.i.i ], [ %.025.i, %Kit_TruthIsEqual.exit.i ]
   store ptr %.02743.sink, ptr %.01321.i, align 8
   store ptr null, ptr %.02743.sink, align 8
   %.not32 = icmp eq ptr %21, null
@@ -329,7 +329,7 @@ define range(i32 0, 2) i32 @Aig_RManTableFindOrAdd(ptr nocapture noundef %0, ptr
   %10 = shl nuw i32 1, %9
   %11 = select i1 %8, i32 1, i32 %10
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph.preheader.i.i, label %Aig_RManTableHash.exit.i
+  br i1 %12, label %.lr.ph.preheader.i.i, label %Aig_RManTableHash.argprom.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %3
   %wide.trip.count.i.i = zext nneg i32 %11 to i64
@@ -347,9 +347,9 @@ define range(i32 0, 2) i32 @Aig_RManTableFindOrAdd(ptr nocapture noundef %0, ptr
   %19 = xor i32 %18, %.02.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Aig_RManTableHash.exit.i, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %Aig_RManTableHash.argprom.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 
-Aig_RManTableHash.exit.i:                         ; preds = %.lr.ph.i.i, %3
+Aig_RManTableHash.argprom.exit.i:                 ; preds = %.lr.ph.i.i, %3
   %.0.lcssa.i.i = phi i32 [ 0, %3 ], [ %19, %.lr.ph.i.i ]
   %20 = urem i32 %.0.lcssa.i.i, %7
   %21 = sext i32 %20 to i64
@@ -358,7 +358,7 @@ Aig_RManTableHash.exit.i:                         ; preds = %.lr.ph.i.i, %3
   %.not23.i = icmp eq ptr %.022.i, null
   br i1 %.not23.i, label %Aig_RManTableLookup.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %Aig_RManTableHash.exit.i
+.lr.ph.i:                                         ; preds = %Aig_RManTableHash.argprom.exit.i
   %23 = zext i32 %11 to i64
   br label %24
 
@@ -397,8 +397,8 @@ Aig_RManTableLookup.exit:                         ; preds = %select.unfold.i.i
   store i32 %39, ptr %34, align 4
   br label %60
 
-Aig_RManTableLookup.exit.thread:                  ; preds = %Kit_TruthIsEqual.exit.i, %Aig_RManTableHash.exit.i
-  %.01321.i25 = phi ptr [ %22, %Aig_RManTableHash.exit.i ], [ %.pr, %Kit_TruthIsEqual.exit.i ]
+Aig_RManTableLookup.exit.thread:                  ; preds = %Kit_TruthIsEqual.exit.i, %Aig_RManTableHash.argprom.exit.i
+  %.01321.i25 = phi ptr [ %22, %Aig_RManTableHash.argprom.exit.i ], [ %.pr, %Kit_TruthIsEqual.exit.i ]
   %40 = shl i32 %11, 2
   %41 = add i32 %40, 16
   %42 = getelementptr inbounds i8, ptr %0, i64 32

@@ -38,19 +38,19 @@ entry:
   %ref.tmp3 = alloca %"class.logging::LogMessage", align 8
   %0 = load atomic volatile i64, ptr @_ZN12_GLOBAL__N_112g_urandom_fdE acquire, align 8
   %tobool.not.i = icmp ult i64 %0, 2
-  br i1 %tobool.not.i, label %land.lhs.true.i, label %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.exit
+  br i1 %tobool.not.i, label %land.lhs.true.i, label %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.argprom.exit
 
 land.lhs.true.i:                                  ; preds = %entry
   %call3.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN12_GLOBAL__N_112g_urandom_fdE)
-  br i1 %call3.i, label %if.then.i, label %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.exit
+  br i1 %call3.i, label %if.then.i, label %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.argprom.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %call.i.i.i.i = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.4, i32 noundef 0)
   store i32 %call.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 8), align 8
   tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 8) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_112g_urandom_fdE, ptr noundef null)
-  br label %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.exit
+  br label %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.argprom.exit
 
-_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.exit: ; preds = %entry, %land.lhs.true.i, %if.then.i
+_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.argprom.exit: ; preds = %entry, %land.lhs.true.i, %if.then.i
   %1 = load atomic volatile i64, ptr @_ZN12_GLOBAL__N_112g_urandom_fdE monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   %call.val = load i32, ptr %2, align 4
@@ -62,8 +62,8 @@ while.cond.i:                                     ; preds = %do.end.i
   %cmp.i = icmp ult i64 %add.i, %output_length
   br i1 %cmp.i, label %do.body.preheader.i, label %_ZN4baseL10ReadFromFDEiPcm.exit, !llvm.loop !5
 
-do.body.preheader.i:                              ; preds = %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.exit, %while.cond.i
-  %total_read.015.i = phi i64 [ %add.i, %while.cond.i ], [ 0, %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.exit ]
+do.body.preheader.i:                              ; preds = %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.argprom.exit, %while.cond.i
+  %total_read.015.i = phi i64 [ %add.i, %while.cond.i ], [ 0, %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.argprom.exit ]
   %add.ptr.i = getelementptr inbounds i8, ptr %output, i64 %total_read.015.i
   %sub.i = sub i64 %output_length, %total_read.015.i
   br label %do.body.i
@@ -83,8 +83,8 @@ do.end.i:                                         ; preds = %do.body.i
   %cmp4.i = icmp slt i64 %call.i, 1
   br i1 %cmp4.i, label %_ZN4baseL10ReadFromFDEiPcm.exit, label %while.cond.i
 
-_ZN4baseL10ReadFromFDEiPcm.exit:                  ; preds = %while.cond.i, %do.end.i, %land.rhs.i, %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.exit
-  %total_read.013.i = phi i64 [ 0, %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.exit ], [ %total_read.015.i, %land.rhs.i ], [ %total_read.015.i, %do.end.i ], [ %add.i, %while.cond.i ]
+_ZN4baseL10ReadFromFDEiPcm.exit:                  ; preds = %while.cond.i, %do.end.i, %land.rhs.i, %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.argprom.exit
+  %total_read.013.i = phi i64 [ 0, %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.argprom.exit ], [ %total_read.015.i, %land.rhs.i ], [ %total_read.015.i, %do.end.i ], [ %add.i, %while.cond.i ]
   %cmp5.i = icmp eq i64 %total_read.013.i, %output_length
   br i1 %cmp5.i, label %cleanup.done, label %cond.false
 
@@ -109,19 +109,19 @@ define dso_local noundef i32 @_ZN4base12GetUrandomFDEv() local_unnamed_addr #0 p
 entry:
   %0 = load atomic volatile i64, ptr @_ZN12_GLOBAL__N_112g_urandom_fdE acquire, align 8
   %tobool.not.i = icmp ult i64 %0, 2
-  br i1 %tobool.not.i, label %land.lhs.true.i, label %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.exit
+  br i1 %tobool.not.i, label %land.lhs.true.i, label %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.argprom.exit
 
 land.lhs.true.i:                                  ; preds = %entry
   %call3.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN12_GLOBAL__N_112g_urandom_fdE)
-  br i1 %call3.i, label %if.then.i, label %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.exit
+  br i1 %call3.i, label %if.then.i, label %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.argprom.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %call.i.i.i.i = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.4, i32 noundef 0)
   store i32 %call.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 8), align 8
   tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112g_urandom_fdE, i64 8) to i64), ptr noundef nonnull @_ZN12_GLOBAL__N_112g_urandom_fdE, ptr noundef null)
-  br label %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.exit
+  br label %_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.argprom.exit
 
-_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.exit: ; preds = %entry, %land.lhs.true.i, %if.then.i
+_ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstanceTraitsIS2_EEE7PointerEv.argprom.exit: ; preds = %entry, %land.lhs.true.i, %if.then.i
   %1 = load atomic volatile i64, ptr @_ZN12_GLOBAL__N_112g_urandom_fdE monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   %call.val = load i32, ptr %2, align 4

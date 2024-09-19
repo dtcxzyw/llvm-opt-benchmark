@@ -271,7 +271,7 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
   %indvars.iv249 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next250, %113 ]
   %91 = getelementptr ptr, ptr %59, i64 %indvars.iv249
   %92 = load ptr, ptr %91, align 8
-  %93 = call fastcc zeroext i1 @parseAclItem(ptr noundef %92, ptr noundef %3, ptr noundef %1, ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef null)
+  %93 = call fastcc zeroext i1 @parseAclItem.argprom.argelim(ptr noundef %92, ptr noundef %3, ptr noundef %1, ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef null)
   br i1 %93, label %94, label %._crit_edge203
 
 94:                                               ; preds = %90
@@ -347,7 +347,7 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
   %indvars.iv254 = phi i64 [ 0, %.lr.ph209 ], [ %indvars.iv.next255, %194 ]
   %121 = getelementptr ptr, ptr %36, i64 %indvars.iv254
   %122 = load ptr, ptr %121, align 8
-  %123 = call fastcc zeroext i1 @parseAclItem(ptr noundef %122, ptr noundef %3, ptr noundef %1, ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84)
+  %123 = call fastcc zeroext i1 @parseAclItem.argprom.argelim(ptr noundef %122, ptr noundef %3, ptr noundef %1, ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84)
   br i1 %123, label %124, label %._crit_edge210
 
 124:                                              ; preds = %120
@@ -573,7 +573,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare ptr @createPQExpBuffer() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @parseAclItem(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @parseAclItem.argprom.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = tail call ptr @pg_strdup(ptr noundef %0) #7
   tail call void @resetPQExpBuffer(ptr noundef %3) #7
   br label %.loopexit.i

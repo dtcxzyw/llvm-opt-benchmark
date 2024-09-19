@@ -1012,7 +1012,7 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   %.val = load i64, ptr %9, align 8
   %49 = getelementptr i8, ptr %9, i64 16
   %.val166 = load i64, ptr %49, align 8
-  tail call fastcc void @GlyphSlot_Embolden(ptr noundef %45, i64 %.val, i64 %.val166)
+  tail call fastcc void @GlyphSlot_Embolden.argprom(ptr noundef %45, i64 %.val, i64 %.val166)
   br label %50
 
 50:                                               ; preds = %48, %42
@@ -1706,7 +1706,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphOutlineBoundsNative(ptr nou
   %.val.i = load i64, ptr %8, align 8
   %28 = getelementptr i8, ptr %8, i64 16
   %.val25.i = load i64, ptr %28, align 8
-  tail call fastcc void @GlyphSlot_Embolden(ptr noundef %24, i64 %.val.i, i64 %.val25.i)
+  tail call fastcc void @GlyphSlot_Embolden.argprom(ptr noundef %24, i64 %.val.i, i64 %.val25.i)
   br label %29
 
 29:                                               ; preds = %27, %21
@@ -1821,7 +1821,7 @@ define internal fastcc noundef ptr @getFTOutline(ptr noundef %0, ptr noundef %1,
   %.val = load i64, ptr %2, align 8
   %26 = getelementptr i8, ptr %2, i64 16
   %.val25 = load i64, ptr %26, align 8
-  tail call fastcc void @GlyphSlot_Embolden(ptr noundef %22, i64 %.val, i64 %.val25)
+  tail call fastcc void @GlyphSlot_Embolden.argprom(ptr noundef %22, i64 %.val, i64 %.val25)
   br label %27
 
 27:                                               ; preds = %25, %19
@@ -2166,7 +2166,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphPointNative(ptr noundef %0,
   %.val.i = load i64, ptr %8, align 8
   %28 = getelementptr i8, ptr %8, i64 16
   %.val25.i = load i64, ptr %28, align 8
-  tail call fastcc void @GlyphSlot_Embolden(ptr noundef %24, i64 %.val.i, i64 %.val25.i)
+  tail call fastcc void @GlyphSlot_Embolden.argprom(ptr noundef %24, i64 %.val.i, i64 %.val25.i)
   br label %29
 
 29:                                               ; preds = %27, %21
@@ -2240,7 +2240,7 @@ declare void @FT_Matrix_Multiply(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @FT_Load_Glyph(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @GlyphSlot_Embolden(ptr noundef %0, i64 %.0.val, i64 %.16.val) unnamed_addr #0 {
+define internal fastcc void @GlyphSlot_Embolden.argprom(ptr noundef %0, i64 %.0.val, i64 %.16.val) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %61, label %2
 

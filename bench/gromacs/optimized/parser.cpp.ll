@@ -892,7 +892,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
 396:                                              ; preds = %393
   %397 = getelementptr inbounds i8, ptr %0, i64 424
   %398 = load ptr, ptr %397, align 8
-  call fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv(ptr noundef %398, i32 noundef %.2749)
+  call fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.argprom(ptr noundef %398, i32 noundef %.2749)
   br label %399
 
 399:                                              ; preds = %393, %396
@@ -6606,7 +6606,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   br i1 %2602, label %.thread1418, label %2627
 
 2603:                                             ; preds = %2599
-  call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef nonnull @.str.12, i32 noundef %2588, ptr noundef nonnull %6)
+  call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv.argprom(ptr noundef nonnull @.str.12, i32 noundef %2588, ptr noundef nonnull %6)
   br label %2627
 
 .critedge:                                        ; preds = %513
@@ -6705,7 +6705,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %2659 = load i8, ptr %2658, align 1
   %2660 = zext i8 %2659 to i32
   %2661 = load ptr, ptr %2634, align 8
-  call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef nonnull @.str.13, i32 noundef %2660, ptr noundef %2661)
+  call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv.argprom(ptr noundef nonnull @.str.13, i32 noundef %2660, ptr noundef %2661)
   %2662 = load ptr, ptr %2634, align 8
   %2663 = getelementptr inbounds i8, ptr %2662, i64 -8
   store ptr %2663, ptr %2634, align 8
@@ -6764,7 +6764,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %2693 = getelementptr inbounds [154 x i8], ptr @_ZL6yystos, i64 0, i64 %2692
   %2694 = load i8, ptr %2693, align 1
   %2695 = zext i8 %2694 to i32
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILEiPK7YYSTYPEPKN3gmx17SelectionLocationEPv(ptr noundef %2691, i32 noundef %2695)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILEiPK7YYSTYPEPKN3gmx17SelectionLocationEPv.argprom(ptr noundef %2691, i32 noundef %2695)
   %2696 = load ptr, ptr @stderr, align 8
   %fputc1201 = call i32 @fputc(i32 10, ptr %2696)
   br label %2697
@@ -6802,7 +6802,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %.876114131425 = phi i32 [ %.876114131426, %.thread1418 ], [ %.8761, %2699 ]
   %.175114151423 = phi i32 [ %.175114151424, %.thread1418 ], [ %.1751, %2699 ]
   %2706 = phi i32 [ %2704, %.thread1418 ], [ 2, %2699 ]
-  call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef nonnull @.str.15, i32 noundef %2706, ptr noundef nonnull %6)
+  call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv.argprom(ptr noundef nonnull @.str.15, i32 noundef %2706, ptr noundef nonnull %6)
   br label %2707
 
 2707:                                             ; preds = %2705, %.loopexit
@@ -6852,7 +6852,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %2730 = getelementptr inbounds [154 x i8], ptr @_ZL6yystos, i64 0, i64 %2729
   %2731 = load i8, ptr %2730, align 1
   %2732 = zext i8 %2731 to i32
-  call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef nonnull @.str.16, i32 noundef %2732, ptr noundef %2726)
+  call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv.argprom(ptr noundef nonnull @.str.16, i32 noundef %2732, ptr noundef %2726)
   %2733 = load ptr, ptr %2708, align 8
   %2734 = getelementptr inbounds i8, ptr %2733, i64 -8
   store ptr %2734, ptr %2708, align 8
@@ -6906,7 +6906,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILEiPK7YYSTYPEPKN3gmx17SelectionLocationEPv(ptr nocapture noundef %0, i32 noundef range(i32 -2, 256) %1) unnamed_addr #7 {
+define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILEiPK7YYSTYPEPKN3gmx17SelectionLocationEPv.argprom(ptr nocapture noundef %0, i32 noundef range(i32 -2, 256) %1) unnamed_addr #7 {
   %3 = icmp slt i32 %1, 49
   %.str.18..str.19 = select i1 %3, ptr @.str.18, ptr @.str.19
   %4 = sext i32 %1 to i64
@@ -6921,7 +6921,7 @@ define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILEiPK7YYSTYPEPKN3gmx17S
 declare void @_Z35_gmx_sel_lexer_set_current_locationPvRKN3gmx17SelectionLocationE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #8
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 32769) %1) unnamed_addr #9 {
+define internal fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.argprom(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 32769) %1) unnamed_addr #9 {
   %3 = zext nneg i32 %1 to i64
   %4 = getelementptr inbounds [91 x i16], ptr @_ZL7yyrline, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -8195,7 +8195,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit31: ; preds = %153, %156
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef %0, i32 noundef range(i32 -2, 256) %1, ptr nocapture noundef readonly %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv.argprom(ptr noundef %0, i32 noundef range(i32 -2, 256) %1, ptr nocapture noundef readonly %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr @_gmx_sel_yydebug, align 4
   %.not52 = icmp eq i32 %4, 0
   br i1 %.not52, label %16, label %5

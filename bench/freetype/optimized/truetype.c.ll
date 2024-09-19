@@ -77,8 +77,8 @@ target triple = "x86_64-pc-linux-gnu"
 @tt_check_trickyness_sfnt_ids.sfnt_id = internal unnamed_addr constant [31 x [3 x %struct.tt_sfnt_id_rec_]] [[3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 96268376, i64 740 }, %struct.tt_sfnt_id_rec_ { i64 673397745, i64 34756 }, %struct.tt_sfnt_id_rec_ { i64 2739184106, i64 481 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 96268376, i64 740 }, %struct.tt_sfnt_id_rec_ { i64 673397745, i64 34756 }, %struct.tt_sfnt_id_rec_ { i64 2739184107, i64 481 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 314829746, i64 848 }, %struct.tt_sfnt_id_rec_ { i64 3061902948, i64 34727 }, %struct.tt_sfnt_id_rec_ { i64 3465778531, i64 1880 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 300280532, i64 848 }, %struct.tt_sfnt_id_rec_ { i64 3461961449, i64 48261 }, %struct.tt_sfnt_id_rec_ { i64 2188571670, i64 69 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 307751750, i64 848 }, %struct.tt_sfnt_id_rec_ { i64 4137275744, i64 29023 }, %struct.tt_sfnt_id_rec_ { i64 3525506408, i64 956 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 308472654, i64 848 }, %struct.tt_sfnt_id_rec_ { i64 3899284836, i64 31040 }, %struct.tt_sfnt_id_rec_ { i64 2018572073, i64 1535 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 304999178, i64 848 }, %struct.tt_sfnt_id_rec_ { i64 1024864906, i64 34203 }, %struct.tt_sfnt_id_rec_ { i64 2839528251, i64 715 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 308276006, i64 848 }, %struct.tt_sfnt_id_rec_ { i64 2779564418, i64 32481 }, %struct.tt_sfnt_id_rec_ { i64 2425983382, i64 1055 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 300280532, i64 848 }, %struct.tt_sfnt_id_rec_ { i64 1513146939, i64 36963 }, %struct.tt_sfnt_id_rec_ { i64 329524738, i64 126 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 300280532, i64 848 }, %struct.tt_sfnt_id_rec_ { i64 2800192513, i64 35224 }, %struct.tt_sfnt_id_rec_ { i64 329524738, i64 126 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 300280532, i64 864 }, %struct.tt_sfnt_id_rec_ { i64 2645721778, i64 49262 }, %struct.tt_sfnt_id_rec_ { i64 1407637450, i64 130 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 306440984, i64 848 }, %struct.tt_sfnt_id_rec_ { i64 3121253424, i64 29869 }, %struct.tt_sfnt_id_rec_ { i64 4091032585, i64 891 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 131921222, i64 776 }, %struct.tt_sfnt_id_rec_ { i64 1090419856, i64 36394 }, %struct.tt_sfnt_id_rec_ { i64 1619096757, i64 122 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 3951628856, i64 776 }, %struct.tt_sfnt_id_rec_ { i64 3538214100, i64 26479 }, %struct.tt_sfnt_id_rec_ { i64 2393240211, i64 952 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 4294705148, i64 8 }, %struct.tt_sfnt_id_rec_ { i64 2627619000, i64 48802 }, %struct.tt_sfnt_id_rec_ { i64 1879179538, i64 8 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 4294705148, i64 8 }, %struct.tt_sfnt_id_rec_ { i64 173671555, i64 97337 }, %struct.tt_sfnt_id_rec_ { i64 1879179538, i64 8 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ zeroinitializer, %struct.tt_sfnt_id_rec_ { i64 1086924117, i64 229 }, %struct.tt_sfnt_id_rec_ { i64 2744867043, i64 4476 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ zeroinitializer, %struct.tt_sfnt_id_rec_ { i64 868488786, i64 229 }, %struct.tt_sfnt_id_rec_ { i64 651609386, i64 3946 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ zeroinitializer, %struct.tt_sfnt_id_rec_ { i64 1840342301, i64 413 }, %struct.tt_sfnt_id_rec_ { i64 1819167491, i64 9362 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ zeroinitializer, %struct.tt_sfnt_id_rec_ { i64 1086924117, i64 229 }, %struct.tt_sfnt_id_rec_ { i64 3729914576, i64 4476 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ zeroinitializer, %struct.tt_sfnt_id_rec_ { i64 2246342244, i64 229 }, %struct.tt_sfnt_id_rec_ { i64 2798004273, i64 7338 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ zeroinitializer, %struct.tt_sfnt_id_rec_ { i64 763960573, i64 413 }, %struct.tt_sfnt_id_rec_ { i64 2690663987, i64 7656 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ zeroinitializer, %struct.tt_sfnt_id_rec_ { i64 1084913484, i64 459 }, %struct.tt_sfnt_id_rec_ { i64 2606541462, i64 8090 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ zeroinitializer, %struct.tt_sfnt_id_rec_ { i64 222161355, i64 321 }, %struct.tt_sfnt_id_rec_ { i64 3557980006, i64 8832 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ zeroinitializer, %struct.tt_sfnt_id_rec_ { i64 1248405144, i64 496 }, %struct.tt_sfnt_id_rec_ { i64 873284422, i64 8138 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ zeroinitializer, %struct.tt_sfnt_id_rec_ { i64 3442787844, i64 358 }, %struct.tt_sfnt_id_rec_ { i64 1827868742, i64 8880 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ zeroinitializer, %struct.tt_sfnt_id_rec_ { i64 1571246869, i64 413 }, %struct.tt_sfnt_id_rec_ { i64 1081367135, i64 8928 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ zeroinitializer, %struct.tt_sfnt_id_rec_ { i64 4032166984, i64 450 }, %struct.tt_sfnt_id_rec_ { i64 956358355, i64 7704 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 1507331, i64 96 }, %struct.tt_sfnt_id_rec_ { i64 3686019182, i64 22698 }, %struct.tt_sfnt_id_rec_ { i64 3594733610, i64 53 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 308931416, i64 848 }, %struct.tt_sfnt_id_rec_ { i64 1557501306, i64 27214 }, %struct.tt_sfnt_id_rec_ { i64 4149752378, i64 896 }], [3 x %struct.tt_sfnt_id_rec_] [%struct.tt_sfnt_id_rec_ { i64 305130251, i64 848 }, %struct.tt_sfnt_id_rec_ { i64 2131792282, i64 28841 }, %struct.tt_sfnt_id_rec_ { i64 2094524343, i64 604 }]], align 16
 @.str.15 = private unnamed_addr constant [8 x i8] c".notdef\00", align 1
 @switch.table.TT_RunIns = private unnamed_addr constant [8 x ptr] [ptr @Round_To_Half_Grid, ptr @Round_To_Grid, ptr @Round_To_Double_Grid, ptr @Round_Down_To_Grid, ptr @Round_Up_To_Grid, ptr @Round_None, ptr @Round_Super, ptr @Round_Super_45], align 8
-@switch.table.Ins_SROUND = private unnamed_addr constant [4 x i64] [i64 8192, i64 16384, i64 32768, i64 16384], align 8
-@switch.table.Ins_S45ROUND = private unnamed_addr constant [4 x i64] [i64 5792, i64 11585, i64 23170, i64 11585], align 8
+@switch.table.Ins_SROUND.argprom = private unnamed_addr constant [4 x i64] [i64 8192, i64 16384, i64 32768, i64 16384], align 8
+@switch.table.Ins_S45ROUND.argprom = private unnamed_addr constant [4 x i64] [i64 5792, i64 11585, i64 23170, i64 11585], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @tt_driver_init(ptr nocapture noundef writeonly %0) #0 {
@@ -528,9 +528,9 @@ define internal i32 @tt_glyph_load(ptr noundef %0, ptr noundef %1, i32 noundef %
   %72 = getelementptr inbounds i8, ptr %0, i64 152
   %73 = call i32 %71(ptr noundef nonnull %48, i64 noundef %50, i32 noundef %2, i32 noundef %.2, ptr noundef %69, ptr noundef nonnull %72, ptr noundef nonnull %7) #22
   %.not.i.i = icmp eq i32 %73, 0
-  br i1 %.not.i.i, label %132, label %load_sbit_image.exit.i
+  br i1 %.not.i.i, label %132, label %load_sbit_image.argprom.exit.i
 
-load_sbit_image.exit.i:                           ; preds = %61
+load_sbit_image.argprom.exit.i:                   ; preds = %61
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %74 = and i32 %73, 255
   %75 = icmp eq i32 %74, 157
@@ -541,7 +541,7 @@ load_sbit_image.exit.i:                           ; preds = %61
   %.not155.i = icmp eq i64 %79, 0
   br i1 %75, label %80, label %131
 
-80:                                               ; preds = %load_sbit_image.exit.i
+80:                                               ; preds = %load_sbit_image.argprom.exit.i
   br i1 %.not155.i, label %81, label %._crit_edge.i
 
 81:                                               ; preds = %80
@@ -620,7 +620,7 @@ load_sbit_image.exit.i:                           ; preds = %61
   store i32 0, ptr %130, align 4
   br label %TT_Load_Glyph.exit
 
-131:                                              ; preds = %load_sbit_image.exit.i
+131:                                              ; preds = %load_sbit_image.argprom.exit.i
   br i1 %.not155.i, label %TT_Load_Glyph.exit, label %._crit_edge.i
 
 132:                                              ; preds = %61
@@ -1125,7 +1125,7 @@ TT_New_Context.exit.i.i.i.i:                      ; preds = %394, %388, %383, %t
   %434 = getelementptr inbounds i8, ptr %333, i64 476
   %435 = load i16, ptr %434, align 4
   %436 = add i16 %435, 4
-  %437 = call fastcc i32 @tt_glyphzone_new(ptr noundef %335, i16 noundef zeroext %436, ptr noundef %367)
+  %437 = call fastcc i32 @tt_glyphzone_new.argelim(ptr noundef %335, i16 noundef zeroext %436, ptr noundef %367)
   store i32 %437, ptr %6, align 4
   %.not75.i.i.i.i = icmp eq i32 %437, 0
   br i1 %.not75.i.i.i.i, label %438, label %448
@@ -2453,7 +2453,7 @@ Compute_Round.exit:                               ; preds = %Compute_Funcs.exit,
     i8 30, label %575
     i8 31, label %576
     i8 32, label %586
-    i8 33, label %Ins_SPVTL.exit.thread538.thread
+    i8 33, label %Ins_SPVTL.argprom.exit.thread538.thread
     i8 34, label %589
     i8 35, label %590
     i8 36, label %594
@@ -2509,7 +2509,7 @@ Compute_Round.exit:                               ; preds = %Compute_Funcs.exit,
     i8 86, label %1371
     i8 87, label %1378
     i8 88, label %1385
-    i8 89, label %Ins_SPVTL.exit.thread538.thread
+    i8 89, label %Ins_SPVTL.argprom.exit.thread538.thread
     i8 90, label %1386
     i8 91, label %1394
     i8 92, label %1402
@@ -2546,8 +2546,8 @@ Compute_Round.exit:                               ; preds = %Compute_Funcs.exit,
     i8 123, label %1519
     i8 124, label %1520
     i8 125, label %1521
-    i8 126, label %Ins_SPVTL.exit.thread538.thread
-    i8 127, label %Ins_SPVTL.exit.thread538.thread
+    i8 126, label %Ins_SPVTL.argprom.exit.thread538.thread
+    i8 127, label %Ins_SPVTL.argprom.exit.thread538.thread
     i8 -128, label %1522
     i8 -127, label %1523
     i8 -126, label %1524
@@ -2694,7 +2694,7 @@ Compute_Round.exit:                               ; preds = %Compute_Funcs.exit,
 
 Ins_SxyTCA.exit:                                  ; preds = %352, %355
   store i64 0, ptr %53, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 356:                                              ; preds = %297, %297
   %.val = load i64, ptr %299, align 8
@@ -2714,7 +2714,7 @@ Ins_SxyTCA.exit:                                  ; preds = %352, %355
 363:                                              ; preds = %360, %356
   %364 = load i8, ptr %153, align 1
   %.not32.i.i = icmp eq i8 %364, 0
-  br i1 %.not32.i.i, label %Ins_SPVTL.exit, label %.loopexit.sink.split
+  br i1 %.not32.i.i, label %Ins_SPVTL.argprom.exit, label %.loopexit.sink.split
 
 365:                                              ; preds = %360
   %366 = load ptr, ptr %172, align 8
@@ -2837,7 +2837,7 @@ Ins_SxyTCA.exit:                                  ; preds = %352, %355
 
 Compute_Funcs.exit.i:                             ; preds = %427, %424
   store i64 0, ptr %53, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 428:                                              ; preds = %297, %297
   %.val364 = load i64, ptr %299, align 8
@@ -2857,7 +2857,7 @@ Compute_Funcs.exit.i:                             ; preds = %427, %424
 435:                                              ; preds = %432, %428
   %436 = load i8, ptr %153, align 1
   %.not32.i.i406 = icmp eq i8 %436, 0
-  br i1 %.not32.i.i406, label %Ins_SPVTL.exit, label %.loopexit.sink.split
+  br i1 %.not32.i.i406, label %Ins_SPVTL.argprom.exit, label %.loopexit.sink.split
 
 437:                                              ; preds = %432
   %438 = load ptr, ptr %172, align 8
@@ -3004,21 +3004,21 @@ Compute_Funcs.exit.i:                             ; preds = %427, %424
 
 Compute_Funcs.exit.i415:                          ; preds = %510, %507
   store i64 0, ptr %53, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 511:                                              ; preds = %297
   %.val366 = load i64, ptr %299, align 8
   %512 = getelementptr i8, ptr %299, i64 8
   %.val367 = load i64, ptr %512, align 8
-  call fastcc void @Ins_SPVFS(ptr noundef nonnull %0, i64 %.val366, i64 %.val367)
-  br label %Ins_SPVTL.exit
+  call fastcc void @Ins_SPVFS.argprom(ptr noundef nonnull %0, i64 %.val366, i64 %.val367)
+  br label %Ins_SPVTL.argprom.exit
 
 513:                                              ; preds = %297
   %.val368 = load i64, ptr %299, align 8
   %514 = getelementptr i8, ptr %299, i64 8
   %.val369 = load i64, ptr %514, align 8
-  call fastcc void @Ins_SFVFS(ptr noundef nonnull %0, i64 %.val368, i64 %.val369)
-  br label %Ins_SPVTL.exit
+  call fastcc void @Ins_SFVFS.argprom(ptr noundef nonnull %0, i64 %.val368, i64 %.val369)
+  br label %Ins_SPVTL.argprom.exit
 
 515:                                              ; preds = %297
   %516 = load i16, ptr %174, align 2
@@ -3028,7 +3028,7 @@ Compute_Funcs.exit.i415:                          ; preds = %510, %507
   %519 = sext i16 %518 to i64
   %520 = getelementptr inbounds i8, ptr %299, i64 8
   store i64 %519, ptr %520, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 521:                                              ; preds = %297
   %522 = load i16, ptr %67, align 2
@@ -3038,33 +3038,33 @@ Compute_Funcs.exit.i415:                          ; preds = %510, %507
   %525 = sext i16 %524 to i64
   %526 = getelementptr inbounds i8, ptr %299, i64 8
   store i64 %525, ptr %526, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 527:                                              ; preds = %297
   call fastcc void @Ins_SFVTPV(ptr noundef nonnull %0)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 528:                                              ; preds = %297
   call fastcc void @Ins_ISECT(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 529:                                              ; preds = %297
   %.val370 = load i64, ptr %299, align 8
   %530 = trunc i64 %.val370 to i16
   store i16 %530, ptr %199, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 531:                                              ; preds = %297
   %.val371 = load i64, ptr %299, align 8
   %532 = trunc i64 %.val371 to i16
   store i16 %532, ptr %200, align 2
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 533:                                              ; preds = %297
   %.val372 = load i64, ptr %299, align 8
   %534 = trunc i64 %.val372 to i16
   store i16 %534, ptr %202, align 4
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 535:                                              ; preds = %297
   %536 = load i64, ptr %299, align 8
@@ -3080,7 +3080,7 @@ Compute_Funcs.exit.i415:                          ; preds = %510, %507
 539:                                              ; preds = %535
   %540 = load i8, ptr %153, align 1
   %.not.i = icmp eq i8 %540, 0
-  br i1 %.not.i, label %Ins_SPVTL.exit, label %.loopexit.sink.split
+  br i1 %.not.i, label %Ins_SPVTL.argprom.exit, label %.loopexit.sink.split
 
 541:                                              ; preds = %538, %535
   %.sink10.i = phi i64 [ 264, %538 ], [ 328, %535 ]
@@ -3089,7 +3089,7 @@ Compute_Funcs.exit.i415:                          ; preds = %510, %507
   %543 = load i64, ptr %299, align 8
   %544 = trunc i64 %543 to i16
   store i16 %544, ptr %188, align 4
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 545:                                              ; preds = %297
   %546 = load i64, ptr %299, align 8
@@ -3105,7 +3105,7 @@ Compute_Funcs.exit.i415:                          ; preds = %510, %507
 549:                                              ; preds = %545
   %550 = load i8, ptr %153, align 1
   %.not.i424 = icmp eq i8 %550, 0
-  br i1 %.not.i424, label %Ins_SPVTL.exit, label %.loopexit.sink.split
+  br i1 %.not.i424, label %Ins_SPVTL.argprom.exit, label %.loopexit.sink.split
 
 551:                                              ; preds = %548, %545
   %.sink10.i423 = phi i64 [ 264, %548 ], [ 328, %545 ]
@@ -3114,7 +3114,7 @@ Compute_Funcs.exit.i415:                          ; preds = %510, %507
   %553 = load i64, ptr %299, align 8
   %554 = trunc i64 %553 to i16
   store i16 %554, ptr %189, align 2
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 555:                                              ; preds = %297
   %556 = load i64, ptr %299, align 8
@@ -3130,7 +3130,7 @@ Compute_Funcs.exit.i415:                          ; preds = %510, %507
 559:                                              ; preds = %555
   %560 = load i8, ptr %153, align 1
   %.not.i426 = icmp eq i8 %560, 0
-  br i1 %.not.i426, label %Ins_SPVTL.exit, label %.loopexit.sink.split
+  br i1 %.not.i426, label %Ins_SPVTL.argprom.exit, label %.loopexit.sink.split
 
 561:                                              ; preds = %558, %555
   %.sink10.i425 = phi i64 [ 264, %558 ], [ 328, %555 ]
@@ -3139,11 +3139,11 @@ Compute_Funcs.exit.i415:                          ; preds = %510, %507
   %563 = load i64, ptr %299, align 8
   %564 = trunc i64 %563 to i16
   store i16 %564, ptr %203, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 565:                                              ; preds = %297
   call fastcc void @Ins_SZPS(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 566:                                              ; preds = %297
   %.val373 = load i64, ptr %299, align 8
@@ -3153,40 +3153,40 @@ Compute_Funcs.exit.i415:                          ; preds = %510, %507
 568:                                              ; preds = %566
   %spec.select.i = call i64 @llvm.umin.i64(i64 %.val373, i64 65535)
   store i64 %spec.select.i, ptr %211, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 569:                                              ; preds = %297
   store i32 1, ptr %138, align 8
   store ptr @Round_To_Grid, ptr %180, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 570:                                              ; preds = %297
   store i32 0, ptr %138, align 8
   store ptr @Round_To_Half_Grid, ptr %180, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 571:                                              ; preds = %297
   %.val374 = load i64, ptr %299, align 8
   store i64 %.val374, ptr %225, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 572:                                              ; preds = %297
   call fastcc void @Ins_ELSE(ptr noundef nonnull %0)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 573:                                              ; preds = %297
   call fastcc void @Ins_JMPR(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 574:                                              ; preds = %297
   %.val375 = load i64, ptr %299, align 8
   store i64 %.val375, ptr %198, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 575:                                              ; preds = %297
   %.val376 = load i64, ptr %299, align 8
   store i64 %.val376, ptr %224, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 576:                                              ; preds = %297
   %.val377 = load i64, ptr %299, align 8
@@ -3202,17 +3202,17 @@ Compute_Funcs.exit.i415:                          ; preds = %510, %507
   %584 = shl i64 %583, 16
   %585 = ashr i64 %584, 32
   store i64 %585, ptr %223, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 586:                                              ; preds = %297
   %587 = load i64, ptr %299, align 8
   %588 = getelementptr inbounds i8, ptr %299, i64 8
   store i64 %587, ptr %588, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 589:                                              ; preds = %297
   store i64 0, ptr %155, align 8
-  br label %Ins_SPVTL.exit.thread538
+  br label %Ins_SPVTL.argprom.exit.thread538
 
 590:                                              ; preds = %297
   %591 = load i64, ptr %299, align 8
@@ -3220,12 +3220,12 @@ Compute_Funcs.exit.i415:                          ; preds = %510, %507
   %593 = load i64, ptr %592, align 8
   store i64 %593, ptr %299, align 8
   store i64 %591, ptr %592, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 594:                                              ; preds = %297
   %.val378 = load i64, ptr %151, align 8
   store i64 %.val378, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 595:                                              ; preds = %297
   %596 = load i64, ptr %299, align 8
@@ -3252,45 +3252,45 @@ Compute_Funcs.exit.i415:                          ; preds = %510, %507
 Ins_CINDEX.exit:                                  ; preds = %599, %601, %602
   %storemerge.i = phi i64 [ %605, %602 ], [ 0, %601 ], [ 0, %599 ]
   store i64 %storemerge.i, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 606:                                              ; preds = %297
   %.val379 = load i64, ptr %299, align 8
-  call fastcc void @Ins_MINDEX(ptr noundef nonnull %0, i64 %.val379)
-  br label %Ins_SPVTL.exit
+  call fastcc void @Ins_MINDEX.argprom(ptr noundef nonnull %0, i64 %.val379)
+  br label %Ins_SPVTL.argprom.exit
 
 607:                                              ; preds = %297
   %.val380 = load i64, ptr %299, align 8
   %608 = getelementptr i8, ptr %299, i64 8
   %.val381 = load i64, ptr %608, align 8
-  call fastcc void @Ins_ALIGNPTS(ptr noundef nonnull %0, i64 %.val380, i64 %.val381)
-  br label %Ins_SPVTL.exit
+  call fastcc void @Ins_ALIGNPTS.argprom(ptr noundef nonnull %0, i64 %.val380, i64 %.val381)
+  br label %Ins_SPVTL.argprom.exit
 
 609:                                              ; preds = %297
   call fastcc void @Ins_UNKNOWN(ptr noundef nonnull %0)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 610:                                              ; preds = %297
   %.val382 = load i64, ptr %299, align 8
-  call fastcc void @Ins_UTP(ptr noundef nonnull %0, i64 %.val382)
-  br label %Ins_SPVTL.exit
+  call fastcc void @Ins_UTP.argprom(ptr noundef nonnull %0, i64 %.val382)
+  br label %Ins_SPVTL.argprom.exit
 
 611:                                              ; preds = %297
   call fastcc void @Ins_LOOPCALL(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 612:                                              ; preds = %297
   %.val383 = load i64, ptr %299, align 8
-  call fastcc void @Ins_CALL(ptr noundef nonnull %0, i64 %.val383)
-  br label %Ins_SPVTL.exit
+  call fastcc void @Ins_CALL.argprom(ptr noundef nonnull %0, i64 %.val383)
+  br label %Ins_SPVTL.argprom.exit
 
 613:                                              ; preds = %297
   call fastcc void @Ins_FDEF(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 614:                                              ; preds = %297
   call fastcc void @Ins_ENDF(ptr noundef nonnull %0)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 615:                                              ; preds = %297, %297
   %.val384 = load i64, ptr %299, align 8
@@ -3305,7 +3305,7 @@ Ins_CINDEX.exit:                                  ; preds = %599, %601, %602
 621:                                              ; preds = %615
   %622 = load i8, ptr %153, align 1
   %.not25.i = icmp eq i8 %622, 0
-  br i1 %.not25.i, label %Ins_SPVTL.exit, label %.loopexit.sink.split
+  br i1 %.not25.i, label %Ins_SPVTL.argprom.exit, label %.loopexit.sink.split
 
 623:                                              ; preds = %615
   %624 = and i8 %276, 1
@@ -3332,7 +3332,7 @@ Ins_CINDEX.exit:                                  ; preds = %599, %601, %602
   call void %638(ptr noundef nonnull %0, ptr noundef nonnull %197, i16 noundef zeroext %616, i64 noundef %.0.i) #22
   store i16 %616, ptr %199, align 8
   store i16 %616, ptr %200, align 2
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 639:                                              ; preds = %297, %297
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
@@ -3661,7 +3661,7 @@ iup_worker_interpolate_.exit.i:                   ; preds = %761, %.lr.ph123.i.i
 
 Ins_IUP.exit:                                     ; preds = %.critedge77.i, %650, %656
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 789:                                              ; preds = %297, %297
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
@@ -3830,7 +3830,7 @@ Ins_SHP.exit:                                     ; preds = %796, %813, %.loopex
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 866:                                              ; preds = %297, %297
   %.val385 = load i64, ptr %299, align 8
@@ -3857,16 +3857,16 @@ Ins_SHP.exit:                                     ; preds = %796, %813, %.loopex
 876:                                              ; preds = %872
   %877 = load i8, ptr %153, align 1
   %.not31.i = icmp eq i8 %877, 0
-  br i1 %.not31.i, label %Ins_SHC.exit, label %878
+  br i1 %.not31.i, label %Ins_SHC.argprom.exit, label %878
 
 878:                                              ; preds = %876
   store i32 134, ptr %158, align 8
-  br label %Ins_SHC.exit
+  br label %Ins_SHC.argprom.exit
 
 879:                                              ; preds = %872
   %880 = call fastcc zeroext i8 @Compute_Point_Displacement(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %11, ptr noundef %8, ptr noundef %9)
   %.not28.i = icmp eq i8 %880, 0
-  br i1 %.not28.i, label %881, label %Ins_SHC.exit
+  br i1 %.not28.i, label %881, label %Ins_SHC.argprom.exit
 
 881:                                              ; preds = %879
   %882 = icmp eq i32 %875, 0
@@ -3906,7 +3906,7 @@ Ins_SHP.exit:                                     ; preds = %796, %813, %.loopex
 905:                                              ; preds = %897, %895
   %.024.i = phi i16 [ %896, %895 ], [ %904, %897 ]
   %906 = icmp ult i16 %.025.i, %.024.i
-  br i1 %906, label %.lr.ph.i444, label %Ins_SHC.exit
+  br i1 %906, label %.lr.ph.i444, label %Ins_SHC.argprom.exit
 
 .lr.ph.i444:                                      ; preds = %905
   %907 = load ptr, ptr %209, align 8
@@ -4008,14 +4008,14 @@ Ins_SHP.exit:                                     ; preds = %796, %813, %.loopex
 Move_Zp2_Point.exit.i447:                         ; preds = %955, %935, %913
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Ins_SHC.exit, label %913, !llvm.loop !18
+  br i1 %exitcond.not.i, label %Ins_SHC.argprom.exit, label %913, !llvm.loop !18
 
-Ins_SHC.exit:                                     ; preds = %Move_Zp2_Point.exit.i447, %876, %878, %879, %905
+Ins_SHC.argprom.exit:                             ; preds = %Move_Zp2_Point.exit.i447, %876, %878, %879, %905
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 960:                                              ; preds = %297, %297
   %.val386 = load i64, ptr %299, align 8
@@ -4030,20 +4030,20 @@ Ins_SHC.exit:                                     ; preds = %Move_Zp2_Point.exit
 962:                                              ; preds = %960
   %963 = load i8, ptr %153, align 1
   %.not24.i453 = icmp eq i8 %963, 0
-  br i1 %.not24.i453, label %Ins_SHZ.exit, label %964
+  br i1 %.not24.i453, label %Ins_SHZ.argprom.exit, label %964
 
 964:                                              ; preds = %962
   store i32 134, ptr %158, align 8
-  br label %Ins_SHZ.exit
+  br label %Ins_SHZ.argprom.exit
 
 965:                                              ; preds = %960
   %966 = call fastcc zeroext i8 @Compute_Point_Displacement(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %7, ptr noundef %4, ptr noundef %5)
   %.not20.i455 = icmp eq i8 %966, 0
-  br i1 %.not20.i455, label %967, label %Ins_SHZ.exit
+  br i1 %.not20.i455, label %967, label %Ins_SHZ.argprom.exit
 
 967:                                              ; preds = %965
   %968 = load i16, ptr %203, align 8
-  switch i16 %968, label %Ins_SHZ.exit [
+  switch i16 %968, label %Ins_SHZ.argprom.exit [
     i16 0, label %969
     i16 1, label %971
   ]
@@ -4055,7 +4055,7 @@ Ins_SHC.exit:                                     ; preds = %Move_Zp2_Point.exit
 971:                                              ; preds = %967
   %972 = load i16, ptr %204, align 2
   %.not21.i = icmp eq i16 %972, 0
-  br i1 %.not21.i, label %Ins_SHZ.exit, label %973
+  br i1 %.not21.i, label %Ins_SHZ.argprom.exit, label %973
 
 973:                                              ; preds = %971
   %974 = zext i16 %972 to i64
@@ -4070,7 +4070,7 @@ Ins_SHC.exit:                                     ; preds = %Move_Zp2_Point.exit
 981:                                              ; preds = %973, %969
   %.016.i = phi i16 [ %970, %969 ], [ %980, %973 ]
   %.not2.i = icmp eq i16 %.016.i, 0
-  br i1 %.not2.i, label %Ins_SHZ.exit, label %.lr.ph.i456
+  br i1 %.not2.i, label %Ins_SHZ.argprom.exit, label %.lr.ph.i456
 
 .lr.ph.i456:                                      ; preds = %981
   %982 = load ptr, ptr %206, align 8
@@ -4155,22 +4155,22 @@ Ins_SHC.exit:                                     ; preds = %Move_Zp2_Point.exit
 Move_Zp2_Point.exit.i462:                         ; preds = %1019, %1017, %1004, %987
   %indvars.iv.next.i463 = add nuw nsw i64 %indvars.iv.i458, 1
   %exitcond.not.i464 = icmp eq i64 %indvars.iv.next.i463, %wide.trip.count.i457
-  br i1 %exitcond.not.i464, label %Ins_SHZ.exit, label %987, !llvm.loop !19
+  br i1 %exitcond.not.i464, label %Ins_SHZ.argprom.exit, label %987, !llvm.loop !19
 
-Ins_SHZ.exit:                                     ; preds = %Move_Zp2_Point.exit.i462, %962, %964, %965, %967, %971, %981
+Ins_SHZ.argprom.exit:                             ; preds = %Move_Zp2_Point.exit.i462, %962, %964, %965, %967, %971, %981
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1024:                                             ; preds = %297
   call fastcc void @Ins_SHPIX(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1025:                                             ; preds = %297
   call fastcc void @Ins_IP(ptr noundef nonnull %0)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1026:                                             ; preds = %297, %297
   %1027 = load i64, ptr %299, align 8
@@ -4191,7 +4191,7 @@ Ins_SHZ.exit:                                     ; preds = %Move_Zp2_Point.exit
 1036:                                             ; preds = %1033, %1026
   %1037 = load i8, ptr %153, align 1
   %.not45.i = icmp eq i8 %1037, 0
-  br i1 %.not45.i, label %Ins_SPVTL.exit, label %.loopexit.sink.split
+  br i1 %.not45.i, label %Ins_SPVTL.argprom.exit, label %.loopexit.sink.split
 
 1038:                                             ; preds = %1033
   %1039 = load i16, ptr %189, align 2
@@ -4251,20 +4251,20 @@ Ins_SHZ.exit:                                     ; preds = %Move_Zp2_Point.exit
   %1077 = load i8, ptr %148, align 8
   %1078 = and i8 %1077, 1
   %.not44.i = icmp eq i8 %1078, 0
-  br i1 %.not44.i, label %Ins_SPVTL.exit, label %1079
+  br i1 %.not44.i, label %Ins_SPVTL.argprom.exit, label %1079
 
 1079:                                             ; preds = %1055
   store i16 %1028, ptr %199, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1080:                                             ; preds = %297
   call fastcc void @Ins_ALIGNRP(ptr noundef nonnull %0)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1081:                                             ; preds = %297
   store i32 2, ptr %138, align 8
   store ptr @Round_To_Double_Grid, ptr %180, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1082:                                             ; preds = %297, %297
   %.val387 = load i64, ptr %299, align 8
@@ -4286,11 +4286,11 @@ Ins_SHZ.exit:                                     ; preds = %Move_Zp2_Point.exit
 1091:                                             ; preds = %1089, %1082
   %1092 = load i8, ptr %153, align 1
   %.not57.i = icmp eq i8 %1092, 0
-  br i1 %.not57.i, label %Ins_MIAP.exit, label %1093
+  br i1 %.not57.i, label %Ins_MIAP.argprom.exit, label %1093
 
 1093:                                             ; preds = %1091
   store i32 134, ptr %158, align 8
-  br label %Ins_MIAP.exit
+  br label %Ins_MIAP.argprom.exit
 
 1094:                                             ; preds = %1089
   %1095 = load ptr, ptr %61, align 8
@@ -4365,24 +4365,24 @@ Ins_SHZ.exit:                                     ; preds = %Move_Zp2_Point.exit
   %1143 = load ptr, ptr %125, align 8
   %1144 = sub i64 %.051.i, %1133
   call void %1143(ptr noundef nonnull %0, ptr noundef nonnull %197, i16 noundef zeroext %1084, i64 noundef %1144) #22
-  br label %Ins_MIAP.exit
+  br label %Ins_MIAP.argprom.exit
 
-Ins_MIAP.exit:                                    ; preds = %1091, %1093, %1142
+Ins_MIAP.argprom.exit:                            ; preds = %1091, %1093, %1142
   store i16 %1084, ptr %199, align 8
   store i16 %1084, ptr %200, align 2
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1145:                                             ; preds = %297
   call fastcc void @Ins_NPUSHB(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1146:                                             ; preds = %297
   call fastcc void @Ins_NPUSHW(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1147:                                             ; preds = %297
   call fastcc void @Ins_WS(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1148:                                             ; preds = %297
   %1149 = load i64, ptr %299, align 8
@@ -4398,14 +4398,14 @@ Ins_MIAP.exit:                                    ; preds = %1091, %1093, %1142
 
 1154:                                             ; preds = %1152
   store i64 0, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1155:                                             ; preds = %1148
   %1156 = load ptr, ptr %196, align 8
   %1157 = getelementptr inbounds i64, ptr %1156, i64 %1149
   %1158 = load i64, ptr %1157, align 8
   store i64 %1158, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1159:                                             ; preds = %297
   %1160 = load i64, ptr %299, align 8
@@ -4416,14 +4416,14 @@ Ins_MIAP.exit:                                    ; preds = %1091, %1093, %1142
 1162:                                             ; preds = %1159
   %1163 = load i8, ptr %153, align 1
   %.not8.i481 = icmp eq i8 %1163, 0
-  br i1 %.not8.i481, label %Ins_SPVTL.exit, label %.loopexit.sink.split
+  br i1 %.not8.i481, label %Ins_SPVTL.argprom.exit, label %.loopexit.sink.split
 
 1164:                                             ; preds = %1159
   %1165 = load ptr, ptr %62, align 8
   %1166 = getelementptr inbounds i8, ptr %299, i64 8
   %1167 = load i64, ptr %1166, align 8
   call void %1165(ptr noundef nonnull %0, i64 noundef %1160, i64 noundef %1167) #22
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1168:                                             ; preds = %297
   %1169 = load i64, ptr %299, align 8
@@ -4438,13 +4438,13 @@ Ins_MIAP.exit:                                    ; preds = %1091, %1093, %1142
 
 1173:                                             ; preds = %1171
   store i64 0, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1174:                                             ; preds = %1168
   %1175 = load ptr, ptr %61, align 8
   %1176 = call i64 %1175(ptr noundef nonnull %0, i64 noundef %1169) #22
   store i64 %1176, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1177:                                             ; preds = %297, %297
   %1178 = load i64, ptr %299, align 8
@@ -4490,11 +4490,11 @@ Ins_MIAP.exit:                                    ; preds = %1091, %1093, %1142
 Ins_GC.exit:                                      ; preds = %1181, %1183, %1186, %1194
   %.0.i485 = phi i64 [ %1193, %1186 ], [ %1201, %1194 ], [ 0, %1183 ], [ 0, %1181 ]
   store i64 %.0.i485, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1202:                                             ; preds = %297
   call fastcc void @Ins_SCFS(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1203:                                             ; preds = %297, %297
   %1204 = load i64, ptr %299, align 8
@@ -4649,13 +4649,13 @@ Ins_GC.exit:                                      ; preds = %1181, %1183, %1186,
 Ins_MD.exit:                                      ; preds = %1216, %1218, %1221, %1244, %1271, %1291
   %.0.i488 = phi i64 [ %1237, %1221 ], [ %1260, %1244 ], [ %1290, %1271 ], [ %1317, %1291 ], [ 0, %1218 ], [ 0, %1216 ]
   store i64 %.0.i488, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1318:                                             ; preds = %297
   %1319 = load ptr, ptr %60, align 8
   %1320 = call i64 %1319(ptr noundef nonnull %0) #22
   store i64 %1320, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1321:                                             ; preds = %297
   %1322 = load ptr, ptr %0, align 8
@@ -4678,15 +4678,15 @@ Ins_MD.exit:                                      ; preds = %1216, %1218, %1221,
 Ins_MPS.exit:                                     ; preds = %1328, %1331
   %storemerge.i491 = phi i64 [ %1332, %1331 ], [ %1330, %1328 ]
   store i64 %storemerge.i491, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1333:                                             ; preds = %297
   store i8 1, ptr %184, align 4
-  br label %Ins_SPVTL.exit.thread538
+  br label %Ins_SPVTL.argprom.exit.thread538
 
 1334:                                             ; preds = %297
   store i8 0, ptr %184, align 4
-  br label %Ins_SPVTL.exit.thread538
+  br label %Ins_SPVTL.argprom.exit.thread538
 
 1335:                                             ; preds = %297
   %1336 = load i64, ptr %299, align 8
@@ -4695,7 +4695,7 @@ Ins_MPS.exit:                                     ; preds = %1328, %1331
   %1339 = icmp slt i64 %1336, %1338
   %1340 = zext i1 %1339 to i64
   store i64 %1340, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1341:                                             ; preds = %297
   %1342 = load i64, ptr %299, align 8
@@ -4704,7 +4704,7 @@ Ins_MPS.exit:                                     ; preds = %1328, %1331
   %1345 = icmp sle i64 %1342, %1344
   %1346 = zext i1 %1345 to i64
   store i64 %1346, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1347:                                             ; preds = %297
   %1348 = load i64, ptr %299, align 8
@@ -4713,7 +4713,7 @@ Ins_MPS.exit:                                     ; preds = %1328, %1331
   %1351 = icmp sgt i64 %1348, %1350
   %1352 = zext i1 %1351 to i64
   store i64 %1352, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1353:                                             ; preds = %297
   %1354 = load i64, ptr %299, align 8
@@ -4722,7 +4722,7 @@ Ins_MPS.exit:                                     ; preds = %1328, %1331
   %1357 = icmp sge i64 %1354, %1356
   %1358 = zext i1 %1357 to i64
   store i64 %1358, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1359:                                             ; preds = %297
   %1360 = load i64, ptr %299, align 8
@@ -4731,7 +4731,7 @@ Ins_MPS.exit:                                     ; preds = %1328, %1331
   %1363 = icmp eq i64 %1360, %1362
   %1364 = zext i1 %1363 to i64
   store i64 %1364, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1365:                                             ; preds = %297
   %1366 = load i64, ptr %299, align 8
@@ -4740,7 +4740,7 @@ Ins_MPS.exit:                                     ; preds = %1328, %1331
   %1369 = icmp ne i64 %1366, %1368
   %1370 = zext i1 %1369 to i64
   store i64 %1370, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1371:                                             ; preds = %297
   %1372 = load ptr, ptr %180, align 8
@@ -4750,7 +4750,7 @@ Ins_MPS.exit:                                     ; preds = %1328, %1331
   %1376 = icmp eq i64 %1375, 64
   %1377 = zext i1 %1376 to i64
   store i64 %1377, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1378:                                             ; preds = %297
   %1379 = load ptr, ptr %180, align 8
@@ -4760,12 +4760,12 @@ Ins_MPS.exit:                                     ; preds = %1328, %1331
   %1383 = icmp eq i64 %1382, 0
   %1384 = zext i1 %1383 to i64
   store i64 %1384, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1385:                                             ; preds = %297
   %.val389 = load i64, ptr %299, align 8
-  call fastcc void @Ins_IF(ptr noundef nonnull %0, i64 %.val389)
-  br label %Ins_SPVTL.exit
+  call fastcc void @Ins_IF.argprom(ptr noundef nonnull %0, i64 %.val389)
+  br label %Ins_SPVTL.argprom.exit
 
 1386:                                             ; preds = %297
   %1387 = load i64, ptr %299, align 8
@@ -4782,7 +4782,7 @@ Ins_MPS.exit:                                     ; preds = %1328, %1331
 Ins_AND.exit:                                     ; preds = %1386, %1388
   %1393 = phi i64 [ 0, %1386 ], [ %1392, %1388 ]
   store i64 %1393, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1394:                                             ; preds = %297
   %1395 = load i64, ptr %299, align 8
@@ -4799,24 +4799,24 @@ Ins_AND.exit:                                     ; preds = %1386, %1388
 Ins_OR.exit:                                      ; preds = %1394, %1396
   %1401 = phi i64 [ 1, %1394 ], [ %1400, %1396 ]
   store i64 %1401, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1402:                                             ; preds = %297
   %1403 = load i64, ptr %299, align 8
   %.not.i494 = icmp eq i64 %1403, 0
   %1404 = zext i1 %.not.i494 to i64
   store i64 %1404, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1405:                                             ; preds = %297
   call fastcc void @Ins_DELTAP(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1406:                                             ; preds = %297
   %.val390 = load i64, ptr %299, align 8
   %1407 = trunc i64 %.val390 to i16
   store i16 %1407, ptr %181, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1408:                                             ; preds = %297
   %.val391 = load i64, ptr %299, align 8
@@ -4826,7 +4826,7 @@ Ins_OR.exit:                                      ; preds = %1394, %1396
 1410:                                             ; preds = %1408
   %1411 = trunc nuw nsw i64 %.val391 to i16
   store i16 %1411, ptr %182, align 2
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1412:                                             ; preds = %297
   %1413 = load i64, ptr %299, align 8
@@ -4834,7 +4834,7 @@ Ins_OR.exit:                                      ; preds = %1394, %1396
   %1415 = load i64, ptr %1414, align 8
   %1416 = add i64 %1415, %1413
   store i64 %1416, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1417:                                             ; preds = %297
   %1418 = load i64, ptr %299, align 8
@@ -4842,7 +4842,7 @@ Ins_OR.exit:                                      ; preds = %1394, %1396
   %1420 = load i64, ptr %1419, align 8
   %1421 = sub i64 %1418, %1420
   store i64 %1421, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1422:                                             ; preds = %297
   %1423 = getelementptr inbounds i8, ptr %299, i64 8
@@ -4854,7 +4854,7 @@ Ins_OR.exit:                                      ; preds = %1394, %1396
   %1427 = load i64, ptr %299, align 8
   %1428 = call i64 @FT_MulDiv_No_Round(i64 noundef %1427, i64 noundef 64, i64 noundef %1424) #22
   store i64 %1428, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1429:                                             ; preds = %297
   %1430 = load i64, ptr %299, align 8
@@ -4862,36 +4862,36 @@ Ins_OR.exit:                                      ; preds = %1394, %1396
   %1432 = load i64, ptr %1431, align 8
   %1433 = call i64 @FT_MulDiv(i64 noundef %1430, i64 noundef %1432, i64 noundef 64) #22
   store i64 %1433, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1434:                                             ; preds = %297
   %1435 = load i64, ptr %299, align 8
   %1436 = icmp slt i64 %1435, 0
-  br i1 %1436, label %1437, label %Ins_SPVTL.exit
+  br i1 %1436, label %1437, label %Ins_SPVTL.argprom.exit
 
 1437:                                             ; preds = %1434
   %1438 = sub i64 0, %1435
   store i64 %1438, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1439:                                             ; preds = %297
   %1440 = load i64, ptr %299, align 8
   %1441 = sub i64 0, %1440
   store i64 %1441, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1442:                                             ; preds = %297
   %1443 = load i64, ptr %299, align 8
   %1444 = and i64 %1443, -64
   store i64 %1444, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1445:                                             ; preds = %297
   %1446 = load i64, ptr %299, align 8
   %1447 = add i64 %1446, 63
   %1448 = and i64 %1447, -64
   store i64 %1448, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1449:                                             ; preds = %297, %297, %297, %297
   %1450 = load ptr, ptr %180, align 8
@@ -4900,7 +4900,7 @@ Ins_OR.exit:                                      ; preds = %1394, %1396
   %1453 = zext nneg i8 %1452 to i32
   %1454 = call i64 %1450(ptr noundef nonnull %0, i64 noundef %1451, i32 noundef %1453) #22
   store i64 %1454, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1455:                                             ; preds = %297, %297, %297, %297
   %1456 = load i64, ptr %299, align 8
@@ -4924,15 +4924,15 @@ Ins_OR.exit:                                      ; preds = %1394, %1396
 Ins_NROUND.exit:                                  ; preds = %1462, %1464
   %.0.i.i495 = phi i64 [ %spec.store.select.i.i, %1462 ], [ %spec.store.select1.i.i, %1464 ]
   store i64 %.0.i.i495, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1466:                                             ; preds = %297
   call fastcc void @Ins_WCVTF(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1467:                                             ; preds = %297, %297
   call fastcc void @Ins_DELTAP(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1468:                                             ; preds = %297, %297, %297
   %1469 = load ptr, ptr %60, align 8
@@ -5025,68 +5025,68 @@ Ins_NROUND.exit:                                  ; preds = %1462, %1464
 .loopexit.i499:                                   ; preds = %1511, %1477, %1468
   %1513 = load i64, ptr %152, align 8
   store i64 %1513, ptr %155, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1514:                                             ; preds = %297
   %.val392 = load i64, ptr %299, align 8
-  call fastcc void @Ins_SROUND(ptr noundef nonnull %0, i64 %.val392)
-  br label %Ins_SPVTL.exit
+  call fastcc void @Ins_SROUND.argprom(ptr noundef nonnull %0, i64 %.val392)
+  br label %Ins_SPVTL.argprom.exit
 
 1515:                                             ; preds = %297
   %.val393 = load i64, ptr %299, align 8
-  call fastcc void @Ins_S45ROUND(ptr noundef nonnull %0, i64 %.val393)
-  br label %Ins_SPVTL.exit
+  call fastcc void @Ins_S45ROUND.argprom(ptr noundef nonnull %0, i64 %.val393)
+  br label %Ins_SPVTL.argprom.exit
 
 1516:                                             ; preds = %297
   call fastcc void @Ins_JROT(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1517:                                             ; preds = %297
   call fastcc void @Ins_JROF(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1518:                                             ; preds = %297
   store i32 5, ptr %138, align 8
   store ptr @Round_None, ptr %180, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1519:                                             ; preds = %297
   call fastcc void @Ins_UNKNOWN(ptr noundef nonnull %0)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1520:                                             ; preds = %297
   store i32 4, ptr %138, align 8
   store ptr @Round_Up_To_Grid, ptr %180, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1521:                                             ; preds = %297
   store i32 3, ptr %138, align 8
   store ptr @Round_Down_To_Grid, ptr %180, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1522:                                             ; preds = %297
   call fastcc void @Ins_FLIPPT(ptr noundef nonnull %0)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1523:                                             ; preds = %297
   call fastcc void @Ins_FLIPRGON(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1524:                                             ; preds = %297
   call fastcc void @Ins_FLIPRGOFF(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1525:                                             ; preds = %297, %297
   %1526 = load ptr, ptr %159, align 8
   %.not.i502 = icmp eq ptr %1526, null
-  br i1 %.not.i502, label %Ins_SPVTL.exit.thread536.sink.split, label %1527
+  br i1 %.not.i502, label %Ins_SPVTL.argprom.exit.thread536.sink.split, label %1527
 
 1527:                                             ; preds = %1525
   %1528 = load i32, ptr %160, align 8
   %1529 = zext i32 %1528 to i64
   %1530 = getelementptr inbounds %struct.TT_DefRecord_, ptr %1526, i64 %1529
   %.not35.i = icmp eq i32 %1528, 0
-  br i1 %.not35.i, label %Ins_SPVTL.exit.thread536.sink.split, label %.lr.ph.i503
+  br i1 %.not35.i, label %Ins_SPVTL.argprom.exit.thread536.sink.split, label %.lr.ph.i503
 
 .lr.ph.i503:                                      ; preds = %1527, %1569
   %.032.i = phi ptr [ %1570, %1569 ], [ %1526, %1527 ]
@@ -5166,16 +5166,16 @@ Ins_NROUND.exit:                                  ; preds = %1462, %1464
 
 Ins_Goto_CodeRange.exit.i:                        ; preds = %1568, %1567, %1562, %1556
   store i8 0, ptr %157, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1569:                                             ; preds = %1535, %.lr.ph.i503
   %1570 = getelementptr inbounds i8, ptr %.032.i, i64 32
   %1571 = icmp ult ptr %1570, %1530
-  br i1 %1571, label %.lr.ph.i503, label %Ins_SPVTL.exit.thread536.sink.split, !llvm.loop !21
+  br i1 %1571, label %.lr.ph.i503, label %Ins_SPVTL.argprom.exit.thread536.sink.split, !llvm.loop !21
 
 1572:                                             ; preds = %297
   call fastcc void @Ins_SCANCTRL(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1573:                                             ; preds = %297, %297
   %1574 = load i64, ptr %299, align 8
@@ -5199,7 +5199,7 @@ Ins_Goto_CodeRange.exit.i:                        ; preds = %1568, %1567, %1562,
 1586:                                             ; preds = %1579, %1573
   %1587 = load i8, ptr %153, align 1
   %.not55.i510 = icmp eq i8 %1587, 0
-  br i1 %.not55.i510, label %Ins_SPVTL.exit, label %.loopexit.sink.split
+  br i1 %.not55.i510, label %Ins_SPVTL.argprom.exit, label %.loopexit.sink.split
 
 1588:                                             ; preds = %1579
   %1589 = load ptr, ptr %168, align 8
@@ -5383,15 +5383,15 @@ Normalize.exit58.i:                               ; preds = %1632, %Normalize.ex
 
 Compute_Funcs.exit.i516:                          ; preds = %1684, %1681
   store i64 0, ptr %53, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1685:                                             ; preds = %297
   call fastcc void @Ins_GETINFO(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1686:                                             ; preds = %297
   call fastcc void @Ins_IDEF(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1687:                                             ; preds = %297
   %1688 = getelementptr inbounds i8, ptr %299, i64 16
@@ -5402,59 +5402,59 @@ Compute_Funcs.exit.i516:                          ; preds = %1684, %1681
   store i64 %1692, ptr %1688, align 8
   store i64 %1689, ptr %1690, align 8
   store i64 %1691, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1693:                                             ; preds = %297
   %1694 = getelementptr inbounds i8, ptr %299, i64 8
   %1695 = load i64, ptr %1694, align 8
   %1696 = load i64, ptr %299, align 8
   %1697 = icmp sgt i64 %1695, %1696
-  br i1 %1697, label %1698, label %Ins_SPVTL.exit
+  br i1 %1697, label %1698, label %Ins_SPVTL.argprom.exit
 
 1698:                                             ; preds = %1693
   store i64 %1695, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1699:                                             ; preds = %297
   %1700 = getelementptr inbounds i8, ptr %299, i64 8
   %1701 = load i64, ptr %1700, align 8
   %1702 = load i64, ptr %299, align 8
   %1703 = icmp slt i64 %1701, %1702
-  br i1 %1703, label %1704, label %Ins_SPVTL.exit
+  br i1 %1703, label %1704, label %Ins_SPVTL.argprom.exit
 
 1704:                                             ; preds = %1699
   store i64 %1701, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1705:                                             ; preds = %297
   %.val394 = load i64, ptr %299, align 8
   %1706 = icmp sgt i64 %.val394, -1
-  br i1 %1706, label %1707, label %Ins_SPVTL.exit
+  br i1 %1706, label %1707, label %Ins_SPVTL.argprom.exit
 
 1707:                                             ; preds = %1705
   %1708 = trunc i64 %.val394 to i32
   %1709 = and i32 %1708, 65535
   store i32 %1709, ptr %165, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1710:                                             ; preds = %297
   %.val395 = load i64, ptr %299, align 8
   %1711 = getelementptr i8, ptr %299, i64 8
   %.val396 = load i64, ptr %1711, align 8
-  call fastcc void @Ins_INSTCTRL(ptr noundef nonnull %0, i64 %.val395, i64 %.val396)
-  br label %Ins_SPVTL.exit
+  call fastcc void @Ins_INSTCTRL.argprom(ptr noundef nonnull %0, i64 %.val395, i64 %.val396)
+  br label %Ins_SPVTL.argprom.exit
 
 1712:                                             ; preds = %297, %297
   %1713 = load ptr, ptr %159, align 8
   %.not.i521 = icmp eq ptr %1713, null
-  br i1 %.not.i521, label %Ins_SPVTL.exit.thread536.sink.split, label %1714
+  br i1 %.not.i521, label %Ins_SPVTL.argprom.exit.thread536.sink.split, label %1714
 
 1714:                                             ; preds = %1712
   %1715 = load i32, ptr %160, align 8
   %1716 = zext i32 %1715 to i64
   %1717 = getelementptr inbounds %struct.TT_DefRecord_, ptr %1713, i64 %1716
   %.not35.i522 = icmp eq i32 %1715, 0
-  br i1 %.not35.i522, label %Ins_SPVTL.exit.thread536.sink.split, label %.lr.ph.i523
+  br i1 %.not35.i522, label %Ins_SPVTL.argprom.exit.thread536.sink.split, label %.lr.ph.i523
 
 .lr.ph.i523:                                      ; preds = %1714, %1756
   %.032.i524 = phi ptr [ %1757, %1756 ], [ %1713, %1714 ]
@@ -5534,12 +5534,12 @@ Compute_Funcs.exit.i516:                          ; preds = %1684, %1681
 
 Ins_Goto_CodeRange.exit.i530:                     ; preds = %1755, %1754, %1749, %1743
   store i8 0, ptr %157, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1756:                                             ; preds = %1722, %.lr.ph.i523
   %1757 = getelementptr inbounds i8, ptr %.032.i524, i64 32
   %1758 = icmp ult ptr %1757, %1717
-  br i1 %1758, label %.lr.ph.i523, label %Ins_SPVTL.exit.thread536.sink.split, !llvm.loop !21
+  br i1 %1758, label %.lr.ph.i523, label %Ins_SPVTL.argprom.exit.thread536.sink.split, !llvm.loop !21
 
 1759:                                             ; preds = %297
   %1760 = load ptr, ptr %0, align 8
@@ -5550,11 +5550,11 @@ Ins_Goto_CodeRange.exit.i530:                     ; preds = %1755, %1754, %1749,
 
 1763:                                             ; preds = %1759
   call fastcc void @Ins_GETVARIATION(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1764:                                             ; preds = %1759
   call fastcc void @Ins_UNKNOWN(ptr noundef nonnull %0)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1765:                                             ; preds = %297
   %1766 = load ptr, ptr %0, align 8
@@ -5565,11 +5565,11 @@ Ins_Goto_CodeRange.exit.i530:                     ; preds = %1755, %1754, %1749,
 
 1769:                                             ; preds = %1765
   store i64 17, ptr %299, align 8
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1770:                                             ; preds = %1765
   call fastcc void @Ins_UNKNOWN(ptr noundef nonnull %0)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1771:                                             ; preds = %297
   %1772 = icmp ugt i8 %276, -33
@@ -5579,8 +5579,8 @@ Ins_Goto_CodeRange.exit.i530:                     ; preds = %1755, %1754, %1749,
   %.val397 = load i64, ptr %299, align 8
   %1774 = getelementptr i8, ptr %299, i64 8
   %.val398 = load i64, ptr %1774, align 8
-  call fastcc void @Ins_MIRP(ptr noundef nonnull %0, i64 %.val397, i64 %.val398)
-  br label %Ins_SPVTL.exit
+  call fastcc void @Ins_MIRP.argprom(ptr noundef nonnull %0, i64 %.val397, i64 %.val398)
+  br label %Ins_SPVTL.argprom.exit
 
 1775:                                             ; preds = %1771
   %1776 = icmp ugt i8 %276, -65
@@ -5588,8 +5588,8 @@ Ins_Goto_CodeRange.exit.i530:                     ; preds = %1755, %1754, %1749,
 
 1777:                                             ; preds = %1775
   %.val399 = load i64, ptr %299, align 8
-  call fastcc void @Ins_MDRP(ptr noundef nonnull %0, i64 %.val399)
-  br label %Ins_SPVTL.exit
+  call fastcc void @Ins_MDRP.argprom(ptr noundef nonnull %0, i64 %.val399)
+  br label %Ins_SPVTL.argprom.exit
 
 1778:                                             ; preds = %1775
   %1779 = icmp ugt i8 %276, -73
@@ -5597,7 +5597,7 @@ Ins_Goto_CodeRange.exit.i530:                     ; preds = %1755, %1754, %1749,
 
 1780:                                             ; preds = %1778
   call fastcc void @Ins_PUSHW(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1781:                                             ; preds = %1778
   %1782 = icmp ugt i8 %276, -81
@@ -5605,29 +5605,29 @@ Ins_Goto_CodeRange.exit.i530:                     ; preds = %1755, %1754, %1749,
 
 1783:                                             ; preds = %1781
   call fastcc void @Ins_PUSHB(ptr noundef nonnull %0, ptr noundef %299)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
 1784:                                             ; preds = %1781
   call fastcc void @Ins_UNKNOWN(ptr noundef nonnull %0)
-  br label %Ins_SPVTL.exit
+  br label %Ins_SPVTL.argprom.exit
 
-Ins_SPVTL.exit:                                   ; preds = %Ins_Goto_CodeRange.exit.i530, %1707, %1705, %1704, %1699, %1698, %1693, %Compute_Funcs.exit.i516, %1586, %Ins_Goto_CodeRange.exit.i, %.loopexit.i499, %1437, %1434, %1426, %1410, %1174, %1173, %1164, %1162, %1155, %1154, %1079, %1055, %1036, %637, %621, %568, %561, %559, %551, %549, %541, %539, %Compute_Funcs.exit.i415, %435, %Compute_Funcs.exit.i, %363, %1773, %1780, %1784, %1783, %1777, %1769, %1770, %1763, %1764, %1710, %1687, %1686, %1685, %1572, %1524, %1523, %1522, %1521, %1520, %1519, %1518, %1517, %1516, %1515, %1514, %1467, %1466, %Ins_NROUND.exit, %1449, %1445, %1442, %1439, %1429, %1417, %1412, %1406, %1405, %1402, %Ins_OR.exit, %Ins_AND.exit, %1385, %1378, %1371, %1365, %1359, %1353, %1347, %1341, %1335, %Ins_MPS.exit, %1318, %Ins_MD.exit, %1202, %Ins_GC.exit, %1147, %1146, %1145, %Ins_MIAP.exit, %1081, %1080, %1025, %1024, %Ins_SHZ.exit, %Ins_SHC.exit, %Ins_SHP.exit, %Ins_IUP.exit, %614, %613, %612, %611, %610, %609, %607, %606, %Ins_CINDEX.exit, %594, %590, %586, %576, %575, %574, %573, %572, %571, %570, %569, %565, %533, %531, %529, %528, %527, %521, %515, %513, %511, %Ins_SxyTCA.exit
+Ins_SPVTL.argprom.exit:                           ; preds = %Ins_Goto_CodeRange.exit.i530, %1707, %1705, %1704, %1699, %1698, %1693, %Compute_Funcs.exit.i516, %1586, %Ins_Goto_CodeRange.exit.i, %.loopexit.i499, %1437, %1434, %1426, %1410, %1174, %1173, %1164, %1162, %1155, %1154, %1079, %1055, %1036, %637, %621, %568, %561, %559, %551, %549, %541, %539, %Compute_Funcs.exit.i415, %435, %Compute_Funcs.exit.i, %363, %1773, %1780, %1784, %1783, %1777, %1769, %1770, %1763, %1764, %1710, %1687, %1686, %1685, %1572, %1524, %1523, %1522, %1521, %1520, %1519, %1518, %1517, %1516, %1515, %1514, %1467, %1466, %Ins_NROUND.exit, %1449, %1445, %1442, %1439, %1429, %1417, %1412, %1406, %1405, %1402, %Ins_OR.exit, %Ins_AND.exit, %1385, %1378, %1371, %1365, %1359, %1353, %1347, %1341, %1335, %Ins_MPS.exit, %1318, %Ins_MD.exit, %1202, %Ins_GC.exit, %1147, %1146, %1145, %Ins_MIAP.argprom.exit, %1081, %1080, %1025, %1024, %Ins_SHZ.argprom.exit, %Ins_SHC.argprom.exit, %Ins_SHP.exit, %Ins_IUP.exit, %614, %613, %612, %611, %610, %609, %607, %606, %Ins_CINDEX.exit, %594, %590, %586, %576, %575, %574, %573, %572, %571, %570, %569, %565, %533, %531, %529, %528, %527, %521, %515, %513, %511, %Ins_SxyTCA.exit
   %.pr.pr = load i32, ptr %158, align 8
   switch i32 %.pr.pr, label %.loopexit [
-    i32 0, label %Ins_SPVTL.exit.thread538
-    i32 128, label %Ins_SPVTL.exit.thread536
+    i32 0, label %Ins_SPVTL.argprom.exit.thread538
+    i32 128, label %Ins_SPVTL.argprom.exit.thread536
   ]
 
-Ins_SPVTL.exit.thread536.sink.split:              ; preds = %1756, %1569, %1712, %1714, %1525, %1527
+Ins_SPVTL.argprom.exit.thread536.sink.split:      ; preds = %1756, %1569, %1712, %1714, %1525, %1527
   store i32 128, ptr %158, align 8
-  br label %Ins_SPVTL.exit.thread536
+  br label %Ins_SPVTL.argprom.exit.thread536
 
-Ins_SPVTL.exit.thread536:                         ; preds = %Ins_SPVTL.exit.thread536.sink.split, %Ins_SPVTL.exit
+Ins_SPVTL.argprom.exit.thread536:                 ; preds = %Ins_SPVTL.argprom.exit.thread536.sink.split, %Ins_SPVTL.argprom.exit
   %1785 = load ptr, ptr %159, align 8
   %.not357 = icmp eq ptr %1785, null
   br i1 %.not357, label %.loopexit.sink.split, label %1786
 
-1786:                                             ; preds = %Ins_SPVTL.exit.thread536
+1786:                                             ; preds = %Ins_SPVTL.argprom.exit.thread536
   %1787 = load i32, ptr %160, align 8
   %1788 = zext i32 %1787 to i64
   %1789 = getelementptr inbounds %struct.TT_DefRecord_, ptr %1785, i64 %1788
@@ -5702,19 +5702,19 @@ Ins_Goto_CodeRange.exit:                          ; preds = %1820
   %1826 = icmp ult ptr %1825, %1789
   br i1 %1826, label %.lr.ph580, label %.loopexit.sink.split, !llvm.loop !22
 
-Ins_SPVTL.exit.thread538.thread:                  ; preds = %297, %297, %297, %297
+Ins_SPVTL.argprom.exit.thread538.thread:          ; preds = %297, %297, %297, %297
   %1827 = load i64, ptr %155, align 8
   store i64 %1827, ptr %151, align 8
   br label %1829
 
-Ins_SPVTL.exit.thread538:                         ; preds = %589, %1333, %1334, %Ins_SPVTL.exit
+Ins_SPVTL.argprom.exit.thread538:                 ; preds = %589, %1333, %1334, %Ins_SPVTL.argprom.exit
   %.pr = load i8, ptr %157, align 8
   %1828 = load i64, ptr %155, align 8
   store i64 %1828, ptr %151, align 8
   %.not356 = icmp eq i8 %.pr, 0
   br i1 %.not356, label %1834, label %1829
 
-1829:                                             ; preds = %Ins_SPVTL.exit.thread538.thread, %Ins_SPVTL.exit.thread538
+1829:                                             ; preds = %Ins_SPVTL.argprom.exit.thread538.thread, %Ins_SPVTL.argprom.exit.thread538
   %1830 = load i32, ptr %149, align 4
   %1831 = sext i32 %1830 to i64
   %1832 = load i64, ptr %147, align 8
@@ -5722,7 +5722,7 @@ Ins_SPVTL.exit.thread538:                         ; preds = %589, %1333, %1334, 
   store i64 %1833, ptr %147, align 8
   br label %1834
 
-1834:                                             ; preds = %1829, %Ins_SPVTL.exit.thread538
+1834:                                             ; preds = %1829, %Ins_SPVTL.argprom.exit.thread538
   %1835 = add i64 %.0332, 1
   %1836 = icmp ugt i64 %1835, 1000000
   br i1 %1836, label %.loopexit.sink.split, label %1837
@@ -5744,13 +5744,13 @@ Ins_SPVTL.exit.thread538:                         ; preds = %589, %1333, %1334, 
   %.not362 = icmp eq i8 %1844, 0
   br i1 %.not362, label %230, label %.loopexit, !llvm.loop !23
 
-.loopexit.sink.split:                             ; preds = %241, %249, %1834, %1786, %Ins_SPVTL.exit.thread536, %1820, %1815, %1801, %1798, %1725, %1586, %1538, %1422, %1408, %297, %1171, %1162, %1152, %1036, %621, %566, %559, %549, %539, %435, %363, %293, %262, %1487, %1824, %1840
-  %.sink618 = phi i32 [ 131, %1840 ], [ 128, %1824 ], [ 134, %1487 ], [ 129, %262 ], [ 130, %293 ], [ 134, %363 ], [ 134, %435 ], [ 134, %539 ], [ 134, %549 ], [ 134, %559 ], [ 132, %566 ], [ 134, %621 ], [ 134, %1036 ], [ 134, %1152 ], [ 134, %1162 ], [ 134, %1171 ], [ 135, %297 ], [ 132, %1408 ], [ 133, %1422 ], [ 130, %1538 ], [ 134, %1586 ], [ 130, %1725 ], [ 134, %1798 ], [ 132, %1801 ], [ 138, %1815 ], [ 131, %1820 ], [ 128, %Ins_SPVTL.exit.thread536 ], [ 128, %1786 ], [ 139, %1834 ], [ 131, %249 ], [ 131, %241 ]
+.loopexit.sink.split:                             ; preds = %241, %249, %1834, %1786, %Ins_SPVTL.argprom.exit.thread536, %1820, %1815, %1801, %1798, %1725, %1586, %1538, %1422, %1408, %297, %1171, %1162, %1152, %1036, %621, %566, %559, %549, %539, %435, %363, %293, %262, %1487, %1824, %1840
+  %.sink618 = phi i32 [ 131, %1840 ], [ 128, %1824 ], [ 134, %1487 ], [ 129, %262 ], [ 130, %293 ], [ 134, %363 ], [ 134, %435 ], [ 134, %539 ], [ 134, %549 ], [ 134, %559 ], [ 132, %566 ], [ 134, %621 ], [ 134, %1036 ], [ 134, %1152 ], [ 134, %1162 ], [ 134, %1171 ], [ 135, %297 ], [ 132, %1408 ], [ 133, %1422 ], [ 130, %1538 ], [ 134, %1586 ], [ 130, %1725 ], [ 134, %1798 ], [ 132, %1801 ], [ 138, %1815 ], [ 131, %1820 ], [ 128, %Ins_SPVTL.argprom.exit.thread536 ], [ 128, %1786 ], [ 139, %1834 ], [ 131, %249 ], [ 131, %241 ]
   store i32 %.sink618, ptr %158, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %1843, %Ins_SPVTL.exit, %.loopexit.sink.split, %1840
-  %.0 = phi i32 [ 0, %1840 ], [ %.sink618, %.loopexit.sink.split ], [ 0, %1843 ], [ %.pr.pr, %Ins_SPVTL.exit ]
+.loopexit:                                        ; preds = %1843, %Ins_SPVTL.argprom.exit, %.loopexit.sink.split, %1840
+  %.0 = phi i32 [ 0, %1840 ], [ %.sink618, %.loopexit.sink.split ], [ 0, %1843 ], [ %.pr.pr, %Ins_SPVTL.argprom.exit ]
   ret i32 %.0
 }
 
@@ -6290,7 +6290,7 @@ Modify_CVT_Check.exit:                            ; preds = %3, %8, %13, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ins_SPVFS(ptr nocapture noundef %0, i64 %.0.val, i64 %.8.val) unnamed_addr #2 {
+define internal fastcc void @Ins_SPVFS.argprom(ptr nocapture noundef %0, i64 %.0.val, i64 %.8.val) unnamed_addr #2 {
   %2 = alloca %struct.FT_Vector_, align 8
   %sext = shl i64 %.8.val, 48
   %3 = ashr exact i64 %sext, 48
@@ -6425,7 +6425,7 @@ Compute_Funcs.exit:                               ; preds = %63, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ins_SFVFS(ptr nocapture noundef %0, i64 %.0.val, i64 %.8.val) unnamed_addr #2 {
+define internal fastcc void @Ins_SFVFS.argprom(ptr nocapture noundef %0, i64 %.0.val, i64 %.8.val) unnamed_addr #2 {
   %2 = alloca %struct.FT_Vector_, align 8
   %sext = shl i64 %.8.val, 48
   %3 = ashr exact i64 %sext, 48
@@ -7069,7 +7069,7 @@ define internal fastcc void @Ins_JMPR(ptr nocapture noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Ins_MINDEX(ptr nocapture noundef %0, i64 %.0.val) unnamed_addr #9 {
+define internal fastcc void @Ins_MINDEX.argprom(ptr nocapture noundef %0, i64 %.0.val) unnamed_addr #9 {
   %2 = icmp slt i64 %.0.val, 1
   br i1 %2, label %7, label %3
 
@@ -7112,7 +7112,7 @@ define internal fastcc void @Ins_MINDEX(ptr nocapture noundef %0, i64 %.0.val) u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ins_ALIGNPTS(ptr noundef %0, i64 %.0.val, i64 %.8.val) unnamed_addr #2 {
+define internal fastcc void @Ins_ALIGNPTS.argprom(ptr noundef %0, i64 %.0.val, i64 %.8.val) unnamed_addr #2 {
   %2 = trunc i64 %.0.val to i16
   %3 = trunc i64 %.8.val to i16
   %4 = trunc i64 %.0.val to i32
@@ -7310,7 +7310,7 @@ Ins_Goto_CodeRange.exit:                          ; preds = %44, %52, %58, %60
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Ins_UTP(ptr nocapture noundef %0, i64 %.0.val) unnamed_addr #9 {
+define internal fastcc void @Ins_UTP.argprom(ptr nocapture noundef %0, i64 %.0.val) unnamed_addr #9 {
   %2 = trunc i64 %.0.val to i32
   %3 = and i32 %2, 65535
   %4 = getelementptr inbounds i8, ptr %0, i64 84
@@ -7520,7 +7520,7 @@ Ins_Goto_CodeRange.exit:                          ; preds = %63, %71, %77, %79
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Ins_CALL(ptr nocapture noundef %0, i64 %.0.val) unnamed_addr #10 {
+define internal fastcc void @Ins_CALL.argprom(ptr nocapture noundef %0, i64 %.0.val) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 760
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, 1
@@ -9095,7 +9095,7 @@ define internal fastcc void @Ins_SCFS(ptr noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Ins_IF(ptr nocapture noundef %0, i64 %.0.val) unnamed_addr #7 {
+define internal fastcc void @Ins_IF.argprom(ptr nocapture noundef %0, i64 %.0.val) unnamed_addr #7 {
   %.not = icmp eq i64 %.0.val, 0
   br i1 %.not, label %.preheader, label %.loopexit
 
@@ -9416,12 +9416,12 @@ define internal fastcc void @Ins_WCVTF(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @Ins_SROUND(ptr nocapture noundef writeonly %0, i64 %.0.val) unnamed_addr #0 {
+define internal fastcc void @Ins_SROUND.argprom(ptr nocapture noundef writeonly %0, i64 %.0.val) unnamed_addr #0 {
 switch.lookup:
   %1 = trunc i64 %.0.val to i32
   %2 = lshr i64 %.0.val, 6
   %3 = and i64 %2, 3
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.Ins_SROUND, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.Ins_SROUND.argprom, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = lshr i32 %1, 4
   %5 = and i32 %4, 3
@@ -9484,12 +9484,12 @@ SetSuperRound.exit:                               ; preds = %17, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @Ins_S45ROUND(ptr nocapture noundef writeonly %0, i64 %.0.val) unnamed_addr #0 {
+define internal fastcc void @Ins_S45ROUND.argprom(ptr nocapture noundef writeonly %0, i64 %.0.val) unnamed_addr #0 {
 switch.lookup:
   %1 = trunc i64 %.0.val to i32
   %2 = lshr i64 %.0.val, 6
   %3 = and i64 %2, 3
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.Ins_S45ROUND, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.Ins_S45ROUND.argprom, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = lshr i32 %1, 4
   %5 = and i32 %4, 3
@@ -10409,7 +10409,7 @@ SkipCode.exit:                                    ; preds = %62, %78, %86
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Ins_INSTCTRL(ptr nocapture noundef %0, i64 %.0.val, i64 %.8.val) unnamed_addr #8 {
+define internal fastcc void @Ins_INSTCTRL.argprom(ptr nocapture noundef %0, i64 %.0.val, i64 %.8.val) unnamed_addr #8 {
   %2 = add i64 %.8.val, -4
   %or.cond = icmp ult i64 %2, -3
   br i1 %or.cond, label %3, label %8
@@ -10560,7 +10560,7 @@ define internal fastcc void @Ins_GETVARIATION(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ins_MIRP(ptr noundef %0, i64 %.0.val, i64 %.8.val) unnamed_addr #2 {
+define internal fastcc void @Ins_MIRP.argprom(ptr noundef %0, i64 %.0.val, i64 %.8.val) unnamed_addr #2 {
   %2 = trunc i64 %.0.val to i16
   %3 = add i64 %.8.val, 1
   %4 = trunc i64 %.0.val to i32
@@ -10835,7 +10835,7 @@ Round_None.exit:                                  ; preds = %158, %156, %143
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ins_MDRP(ptr noundef %0, i64 %.0.val) unnamed_addr #2 {
+define internal fastcc void @Ins_MDRP.argprom(ptr noundef %0, i64 %.0.val) unnamed_addr #2 {
   %2 = trunc i64 %.0.val to i16
   %3 = trunc i64 %.0.val to i32
   %4 = and i32 %3, 65535
@@ -13981,7 +13981,7 @@ ft_var_load_gvar.exit:                            ; preds = %ft_var_load_gvar.ex
 
 237:                                              ; preds = %234, %.loopexit
   %.not124 = icmp eq i8 %3, 0
-  br i1 %.not124, label %ft_var_to_design.exit, label %238
+  br i1 %.not124, label %ft_var_to_design.argprom.exit, label %238
 
 238:                                              ; preds = %237
   br i1 %.not111.not, label %239, label %241
@@ -14101,7 +14101,7 @@ ft_var_load_gvar.exit:                            ; preds = %ft_var_load_gvar.ex
   br i1 %exitcond50.not.i, label %.loopexit7.i, label %.preheader.i136, !llvm.loop !84
 
 .loopexit7.i:                                     ; preds = %.loopexit.i137, %259, %._crit_edge.i133
-  br i1 %.not30.i, label %ft_var_to_design.exit, label %.lr.ph28.preheader.i
+  br i1 %.not30.i, label %ft_var_to_design.argprom.exit, label %.lr.ph28.preheader.i
 
 .lr.ph28.preheader.i:                             ; preds = %.loopexit7.i
   %291 = getelementptr inbounds i8, ptr %.val, i64 24
@@ -14167,16 +14167,16 @@ ft_var_load_gvar.exit:                            ; preds = %ft_var_load_gvar.ex
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %330 = getelementptr inbounds i8, ptr %.07625.i, i64 48
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count54.i
-  br i1 %exitcond55.not.i, label %ft_var_to_design.exit, label %.lr.ph28.i, !llvm.loop !85
+  br i1 %exitcond55.not.i, label %ft_var_to_design.argprom.exit, label %.lr.ph28.i, !llvm.loop !85
 
-ft_var_to_design.exit:                            ; preds = %329, %.loopexit7.i, %237
+ft_var_to_design.argprom.exit:                    ; preds = %329, %.loopexit7.i, %237
   store i8 1, ptr %11, align 1
   %331 = getelementptr inbounds i8, ptr %0, i64 1152
   %332 = load ptr, ptr %331, align 8
   %.not126 = icmp eq ptr %332, null
   br i1 %.not126, label %342, label %333
 
-333:                                              ; preds = %ft_var_to_design.exit
+333:                                              ; preds = %ft_var_to_design.argprom.exit
   switch i32 %.096, label %342 [
     i32 2, label %334
     i32 1, label %338
@@ -14201,7 +14201,7 @@ ft_var_to_design.exit:                            ; preds = %329, %.loopexit7.i,
   store i32 %.sink, ptr %8, align 4
   br label %342
 
-342:                                              ; preds = %.sink.split, %ft_var_load_gvar.exit, %ft_var_to_design.exit, %333, %187, %179, %14
+342:                                              ; preds = %.sink.split, %ft_var_load_gvar.exit, %ft_var_to_design.argprom.exit, %333, %187, %179, %14
   %343 = load i32, ptr %8, align 4
   br label %344
 
@@ -18620,7 +18620,7 @@ TT_Save_Context.exit:                             ; preds = %84, %._crit_edge
 declare hidden void @FT_GlyphLoader_Rewind(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tt_glyphzone_new(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef nonnull %2) unnamed_addr #2 {
+define internal fastcc i32 @tt_glyphzone_new.argelim(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef nonnull %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 56, i1 false)

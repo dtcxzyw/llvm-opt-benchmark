@@ -219,22 +219,22 @@ define hidden i32 @mbedtls_pk_write_pubkey_der(ptr noundef %0, ptr noundef %1, i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %43 = call i32 @mbedtls_oid_get_oid_by_ec_grp(i32 noundef %.val, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %44, label %pk_write_ec_param.exit
+  br i1 %.not.i, label %44, label %pk_write_ec_param.argprom.exit
 
 44:                                               ; preds = %36
   %45 = load ptr, ptr %4, align 8
   %46 = load i64, ptr %5, align 8
   %47 = call i32 @mbedtls_asn1_write_oid(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %45, i64 noundef %46) #5
-  br label %pk_write_ec_param.exit
+  br label %pk_write_ec_param.argprom.exit
 
-pk_write_ec_param.exit:                           ; preds = %36, %44
+pk_write_ec_param.argprom.exit:                   ; preds = %36, %44
   %.0.i59 = phi i32 [ %43, %36 ], [ %47, %44 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %48 = icmp slt i32 %.0.i59, 0
   br i1 %48, label %70, label %49
 
-49:                                               ; preds = %pk_write_ec_param.exit
+49:                                               ; preds = %pk_write_ec_param.argprom.exit
   %50 = zext nneg i32 %.0.i59 to i64
   br label %51
 
@@ -269,8 +269,8 @@ pk_write_ec_param.exit:                           ; preds = %36, %44
   %69 = add i32 %68, %64
   br label %70
 
-70:                                               ; preds = %63, %58, %53, %51, %pk_write_ec_param.exit, %26, %21, %15, %11, %3, %66
-  %.0 = phi i32 [ %69, %66 ], [ -108, %3 ], [ %13, %11 ], [ -108, %15 ], [ %24, %21 ], [ %27, %26 ], [ %.0.i59, %pk_write_ec_param.exit ], [ %52, %51 ], [ %56, %53 ], [ %61, %58 ], [ %64, %63 ]
+70:                                               ; preds = %63, %58, %53, %51, %pk_write_ec_param.argprom.exit, %26, %21, %15, %11, %3, %66
+  %.0 = phi i32 [ %69, %66 ], [ -108, %3 ], [ %13, %11 ], [ -108, %15 ], [ %24, %21 ], [ %27, %26 ], [ %.0.i59, %pk_write_ec_param.argprom.exit ], [ %52, %51 ], [ %56, %53 ], [ %61, %58 ], [ %64, %63 ]
   ret i32 %.0
 }
 
@@ -279,7 +279,7 @@ declare i32 @mbedtls_asn1_write_len(ptr noundef, ptr noundef, i64 noundef) local
 declare i32 @mbedtls_asn1_write_tag(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pk_write_ec_param(ptr noundef nonnull %0, ptr noundef %1, i32 %.0.val) unnamed_addr #0 {
+define internal fastcc i32 @pk_write_ec_param.argprom(ptr noundef nonnull %0, ptr noundef %1, i32 %.0.val) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = call i32 @mbedtls_oid_get_oid_by_ec_grp(i32 noundef %.0.val, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
@@ -563,7 +563,7 @@ pk_write_ec_pubkey.exit:                          ; preds = %91, %109
   %140 = zext nneg i32 %134 to i64
   %141 = zext nneg i32 %137 to i64
   %.val = load i32, ptr %.0.i182, align 8
-  %142 = call fastcc i32 @pk_write_ec_param(ptr noundef %8, ptr noundef %1, i32 %.val)
+  %142 = call fastcc i32 @pk_write_ec_param.argprom(ptr noundef %8, ptr noundef %1, i32 %.val)
   %143 = icmp slt i32 %142, 0
   br i1 %143, label %177, label %144
 

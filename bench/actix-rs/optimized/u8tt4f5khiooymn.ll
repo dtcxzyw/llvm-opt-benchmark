@@ -8032,9 +8032,9 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..
   %narrow = select i1 %7, i8 %6, i8 4
   switch i8 %narrow, label %8 [
     i8 0, label %14
-    i8 1, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.exit"
-    i8 2, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.exit"
-    i8 3, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.exit"
+    i8 1, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.argprom.exit"
+    i8 2, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.argprom.exit"
+    i8 3, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.argprom.exit"
     i8 4, label %21
   ]
 
@@ -8057,13 +8057,13 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5ad080ef8b5853c3E.exit": ; preds = %8, %12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !918
-  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.exit"
+  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.argprom.exit"
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %15, align 8, !noundef !5
   %16 = icmp eq ptr %.val, null
-  br i1 %16, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.exit", label %17
+  br i1 %16, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.argprom.exit", label %17
 
 17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !923
@@ -8079,19 +8079,19 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5ad080ef8b5853c3E.exit.i": ; preds = %19, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !923
-  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.exit"
+  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.argprom.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.exit": ; preds = %28, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5ad080ef8b5853c3E.exit.i.i", %21, %21, %21, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5ad080ef8b5853c3E.exit.i", %14, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5ad080ef8b5853c3E.exit", %1, %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.argprom.exit": ; preds = %28, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5ad080ef8b5853c3E.exit.i.i", %21, %21, %21, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5ad080ef8b5853c3E.exit.i", %14, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5ad080ef8b5853c3E.exit", %1, %1, %1
   ret void
 
 21:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !933)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !936)
   switch i8 %5, label %22 [
-    i8 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.exit"
+    i8 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.argprom.exit"
     i8 1, label %28
-    i8 2, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.exit"
-    i8 3, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.exit"
+    i8 2, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.argprom.exit"
+    i8 3, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.argprom.exit"
   ]
 
 22:                                               ; preds = %21
@@ -8113,7 +8113,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5ad080ef8b5853c3E.exit.i.i": ; preds = %26, %22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !948
-  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.exit"
+  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.argprom.exit"
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8128,7 +8128,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..
   %36 = getelementptr inbounds i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !alias.scope !958, !noundef !5
   tail call void %32(ptr noalias noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %35, i64 noundef %37)
-  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.exit"
+  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h52a5fbe0b83d47b3E.argprom.exit"
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -9833,17 +9833,17 @@ define void @"_ZN91_$LT$actix_http..h1..client..ClientCodec$u20$as$u20$tokio_uti
   %.val = load i8, ptr %15, align 2, !noundef !5
   %16 = and i8 %.val, 1
   %.not.i = icmp eq i8 %16, 0
-  br i1 %.not.i, label %17, label %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit.thread
+  br i1 %.not.i, label %17, label %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.argprom.exit.thread
 
 17:                                               ; preds = %14
   %18 = and i8 %.val, 2
   %.not7.i = icmp eq i8 %18, 0
-  br i1 %.not7.i, label %19, label %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit
+  br i1 %.not7.i, label %19, label %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.argprom.exit
 
 19:                                               ; preds = %17
   %20 = and i8 %.val, 4
   %.not8.i = icmp eq i8 %20, 0
-  br i1 %.not8.i, label %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit.thread40, label %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit.thread
+  br i1 %.not8.i, label %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.argprom.exit.thread40, label %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.argprom.exit.thread
 
 21:                                               ; preds = %45
   %22 = landingpad { ptr, i32 }
@@ -9851,7 +9851,7 @@ define void @"_ZN91_$LT$actix_http..h1..client..ClientCodec$u20$as$u20$tokio_uti
   invoke void @"_ZN4core3ptr62drop_in_place$LT$actix_http..responses..head..ResponseHead$GT$17he9b7178532709f68E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %4) #37
           to label %49 unwind label %47
 
-_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit.thread40: ; preds = %19, %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit.thread
+_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.argprom.exit.thread40: ; preds = %19, %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.argprom.exit.thread
   %23 = getelementptr inbounds i8, ptr %1, i64 58
   %24 = load i8, ptr %23, align 2, !noundef !5
   %25 = and i8 %24, 1
@@ -9859,25 +9859,25 @@ _ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit.
   %26 = getelementptr inbounds i8, ptr %1, i64 32
   br i1 %.not35, label %30, label %31
 
-_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit: ; preds = %17
+_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.argprom.exit: ; preds = %17
   %27 = getelementptr inbounds i8, ptr %1, i64 56
   %28 = load i8, ptr %27, align 8, !range !1210, !noundef !5
-  br label %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit.thread
+  br label %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.argprom.exit.thread
 
-_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit.thread: ; preds = %19, %14, %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit
-  %.033 = phi i8 [ %28, %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit ], [ 2, %19 ], [ 0, %14 ]
+_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.argprom.exit.thread: ; preds = %19, %14, %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.argprom.exit
+  %.033 = phi i8 [ %28, %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.argprom.exit ], [ 2, %19 ], [ 0, %14 ]
   %29 = getelementptr inbounds i8, ptr %1, i64 56
   store i8 %.033, ptr %29, align 8
-  br label %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit.thread40
+  br label %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.argprom.exit.thread40
 
-30:                                               ; preds = %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit.thread40
+30:                                               ; preds = %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.argprom.exit.thread40
   switch i64 %8, label %10 [
     i64 0, label %32
     i64 1, label %33
     i64 2, label %34
   ]
 
-31:                                               ; preds = %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit.thread40
+31:                                               ; preds = %_ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.argprom.exit.thread40
   store i8 3, ptr %26, align 8
   br label %36
 
@@ -10735,15 +10735,15 @@ _ZN10actix_http7helpers20write_content_length17ha28d31f607e1e434E.exit: ; preds 
   %54 = getelementptr inbounds i8, ptr %1, i64 8
   %55 = load i64, ptr %54, align 8, !noundef !5
   %56 = icmp eq i64 %53, %55
-  br i1 %56, label %57, label %_ZN10actix_http2h17encoder11MessageType13write_headers17hbd792b7d3e51e5e8E.exit
+  br i1 %56, label %57, label %_ZN10actix_http2h17encoder11MessageType13write_headers17hbd792b7d3e51e5e8E.argprom.exit
 
 57:                                               ; preds = %51
   call void @_ZN5bytes9bytes_mut8BytesMut13reserve_inner17h32ec46cc31f523baE(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 64)
   %.pre.i = load i64, ptr %54, align 8
   %.pre = load i64, ptr %52, align 8
-  br label %_ZN10actix_http2h17encoder11MessageType13write_headers17hbd792b7d3e51e5e8E.exit
+  br label %_ZN10actix_http2h17encoder11MessageType13write_headers17hbd792b7d3e51e5e8E.argprom.exit
 
-_ZN10actix_http2h17encoder11MessageType13write_headers17hbd792b7d3e51e5e8E.exit: ; preds = %57, %51
+_ZN10actix_http2h17encoder11MessageType13write_headers17hbd792b7d3e51e5e8E.argprom.exit: ; preds = %57, %51
   %58 = phi i64 [ %.pre, %57 ], [ %53, %51 ]
   %59 = phi i64 [ %.pre.i, %57 ], [ %55, %51 ]
   %60 = load ptr, ptr %1, align 8, !alias.scope !1328, !nonnull !5, !noundef !5
@@ -10822,14 +10822,14 @@ _ZN10actix_http2h17encoder11MessageType13write_headers17hbd792b7d3e51e5e8E.exit:
   call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9da39b0a0d4e092dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 @anon.8a12d939c1772332335ccf3bc40882f3.212, i64 noundef 24)
   br label %51
 
-92:                                               ; preds = %_ZN10actix_http2h17encoder11MessageType13write_headers17hbd792b7d3e51e5e8E.exit
+92:                                               ; preds = %_ZN10actix_http2h17encoder11MessageType13write_headers17hbd792b7d3e51e5e8E.argprom.exit
   %93 = add i64 %83, %81
   store i64 %93, ptr %54, align 8
   %94 = load i8, ptr %15, align 1, !range !4, !noundef !5
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %117, label %97
 
-96:                                               ; preds = %_ZN10actix_http2h17encoder11MessageType13write_headers17hbd792b7d3e51e5e8E.exit
+96:                                               ; preds = %_ZN10actix_http2h17encoder11MessageType13write_headers17hbd792b7d3e51e5e8E.argprom.exit
   call void @_ZN5bytes13panic_advance17hbcbf46f7b21e6291E(i64 noundef %81, i64 noundef %84) #35
   unreachable
 
@@ -11128,7 +11128,7 @@ define void @"_ZN81_$LT$actix_http..h1..payload..Payload$u20$as$u20$futures_core
   %32 = icmp ult i64 %30, 32768
   %33 = zext i1 %32 to i8
   store i8 %33, ptr %31, align 1, !alias.scope !1395, !noalias !1392
-  br i1 %32, label %37, label %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i
+  br i1 %32, label %37, label %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.argprom.exit.i
 
 34:                                               ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h4291bc21f0d2a3c7E.exit.i", %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h4291bc21f0d2a3c7E.exit.thread.i"
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !1397
@@ -11143,9 +11143,9 @@ define void @"_ZN81_$LT$actix_http..h1..payload..Payload$u20$as$u20$futures_core
   %38 = getelementptr inbounds i8, ptr %7, i64 136
   %39 = load i8, ptr %38, align 8, !range !4, !alias.scope !1395, !noalias !1392, !noundef !5
   %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i, label %48
+  br i1 %40, label %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.argprom.exit.i, label %48
 
-_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.exit.i.i", %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i.i", %37, %25
+_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.argprom.exit.i: ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.argprom.exit.i.i", %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.i.i", %37, %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1410)
   %41 = getelementptr inbounds i8, ptr %7, i64 120
   %42 = load ptr, ptr %41, align 8, !alias.scope !1413, !noalias !1392, !align !871, !noundef !5
@@ -11155,7 +11155,7 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   %.not.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i, label %.thread.i, label %45
 
-45:                                               ; preds = %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i
+45:                                               ; preds = %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.argprom.exit.i
   %46 = getelementptr inbounds i8, ptr %42, i64 8
   %47 = load ptr, ptr %46, align 8, !noalias !1414, !nonnull !5, !noundef !5
   invoke void %47(ptr noundef %44)
@@ -11167,13 +11167,13 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   %50 = load ptr, ptr %49, align 8, !alias.scope !1418, !noalias !1392, !noundef !5
   %51 = icmp eq ptr %50, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1419)
-  br i1 %51, label %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i.i", label %52
+  br i1 %51, label %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread_crit_edge.i.i", label %52
 
-"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i.i": ; preds = %48
+"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread_crit_edge.i.i": ; preds = %48
   %.pre.i.i = load ptr, ptr %.val, align 8, !noalias !1422
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.val, i64 8
   %.pre3.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !noalias !1422
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i.i"
+  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i.i"
 
 52:                                               ; preds = %48
   %53 = icmp ne ptr %.val, null
@@ -11184,7 +11184,7 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   %56 = load ptr, ptr %55, align 8, !noalias !1422, !noundef !5
   %57 = icmp eq ptr %56, %.val4.i.i.i
   %.pre2.i.i = load ptr, ptr %.val, align 8, !noalias !1422
-  br i1 %57, label %58, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i.i"
+  br i1 %57, label %58, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i.i"
 
 58:                                               ; preds = %52
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1424)
@@ -11192,7 +11192,7 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   %59 = load ptr, ptr %.pre2.i.i, align 8, !alias.scope !1424, !noalias !1429, !nonnull !5, !noundef !5
   %60 = load ptr, ptr %50, align 8, !alias.scope !1427, !noalias !1430, !nonnull !5, !noundef !5
   %61 = icmp eq ptr %59, %60
-  br i1 %61, label %62, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i.i"
+  br i1 %61, label %62, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i.i"
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds i8, ptr %.pre2.i.i, i64 8
@@ -11200,7 +11200,7 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   %65 = getelementptr inbounds i8, ptr %50, i64 8
   %66 = load ptr, ptr %65, align 8, !alias.scope !1427, !noalias !1430, !nonnull !5, !noundef !5
   %67 = icmp eq ptr %64, %66
-  br i1 %67, label %68, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i.i"
+  br i1 %67, label %68, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i.i"
 
 68:                                               ; preds = %62
   %69 = getelementptr inbounds i8, ptr %.pre2.i.i, i64 16
@@ -11208,29 +11208,29 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   %71 = getelementptr inbounds i8, ptr %50, i64 16
   %72 = load ptr, ptr %71, align 8, !alias.scope !1427, !noalias !1430, !nonnull !5, !noundef !5
   %73 = icmp eq ptr %70, %72
-  br i1 %73, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i.i", label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i.i"
+  br i1 %73, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.i.i", label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i.i"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i.i": ; preds = %68
+"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.i.i": ; preds = %68
   %74 = getelementptr inbounds i8, ptr %.pre2.i.i, i64 24
   %75 = load ptr, ptr %74, align 8, !alias.scope !1424, !noalias !1429, !nonnull !5, !noundef !5
   %76 = getelementptr inbounds i8, ptr %50, i64 24
   %77 = load ptr, ptr %76, align 8, !alias.scope !1427, !noalias !1430, !nonnull !5, !noundef !5
   %.not.i31.i = icmp eq ptr %75, %77
-  br i1 %.not.i31.i, label %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i.i"
+  br i1 %.not.i31.i, label %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.argprom.exit.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i.i"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i.i", %68, %62, %58, %52, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i.i"
-  %78 = phi ptr [ %.pre3.i.i, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i.i" ], [ %56, %58 ], [ %56, %62 ], [ %56, %68 ], [ %56, %52 ], [ %56, %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i.i" ]
-  %79 = phi ptr [ %.pre.i.i, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i.i" ], [ %.pre2.i.i, %58 ], [ %.pre2.i.i, %62 ], [ %.pre2.i.i, %68 ], [ %.pre2.i.i, %52 ], [ %.pre2.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i.i" ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.i.i", %68, %62, %58, %52, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread_crit_edge.i.i"
+  %78 = phi ptr [ %.pre3.i.i, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread_crit_edge.i.i" ], [ %56, %58 ], [ %56, %62 ], [ %56, %68 ], [ %56, %52 ], [ %56, %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.i.i" ]
+  %79 = phi ptr [ %.pre.i.i, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread_crit_edge.i.i" ], [ %.pre2.i.i, %58 ], [ %.pre2.i.i, %62 ], [ %.pre2.i.i, %68 ], [ %.pre2.i.i, %52 ], [ %.pre2.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.i.i" ]
   %80 = load ptr, ptr %79, align 8, !noalias !1422, !nonnull !5, !noundef !5
   %81 = invoke { ptr, ptr } %80(ptr noundef %78)
           to label %.noexc32.i unwind label %92, !noalias !1397
 
-.noexc32.i:                                       ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i.i"
+.noexc32.i:                                       ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i.i"
   %82 = extractvalue { ptr, ptr } %81, 0
   %83 = extractvalue { ptr, ptr } %81, 1
   %84 = icmp ne ptr %82, null
   tail call void @llvm.assume(i1 %84)
-  br i1 %51, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.exit.i.i", label %85
+  br i1 %51, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.argprom.exit.i.i", label %85
 
 85:                                               ; preds = %.noexc32.i
   %86 = getelementptr inbounds i8, ptr %7, i64 112
@@ -11238,7 +11238,7 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   %87 = getelementptr inbounds i8, ptr %50, i64 24
   %88 = load ptr, ptr %87, align 8, !noalias !1422, !nonnull !5, !noundef !5
   invoke void %88(ptr noundef %.val8.i.i)
-          to label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.exit.i.i" unwind label %89, !noalias !1422
+          to label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.argprom.exit.i.i" unwind label %89, !noalias !1422
 
 89:                                               ; preds = %85
   %90 = landingpad { ptr, i32 }
@@ -11247,13 +11247,13 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   store ptr %83, ptr %86, align 8, !alias.scope !1418, !noalias !1392
   br label %.body.i
 
-"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.exit.i.i": ; preds = %85, %.noexc32.i
+"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.argprom.exit.i.i": ; preds = %85, %.noexc32.i
   store ptr %82, ptr %49, align 8, !alias.scope !1418, !noalias !1392
   %91 = getelementptr inbounds i8, ptr %7, i64 112
   store ptr %83, ptr %91, align 8, !alias.scope !1418, !noalias !1392
-  br label %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i
+  br label %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.argprom.exit.i
 
-92:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i.i", %45
+92:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i.i", %45
   %93 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -11271,7 +11271,7 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   invoke void %96(ptr noalias noundef nonnull align 8 dereferenceable(8) %97, ptr noundef %99, i64 noundef %27)
           to label %193 unwind label %102, !noalias !1397
 
-.thread.i:                                        ; preds = %45, %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i
+.thread.i:                                        ; preds = %45, %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.argprom.exit.i
   %.sroa.4.8..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.4.i, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.sroa.4.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !1397
   store i8 11, ptr %0, align 8, !alias.scope !1392, !noalias !1395
@@ -11308,7 +11308,7 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   %108 = trunc nuw i8 %107 to i1
   br i1 %108, label %.thread19.i, label %111
 
-109:                                              ; preds = %165, %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit48.i
+109:                                              ; preds = %165, %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.argprom.exit48.i
   store i8 13, ptr %0, align 8, !alias.scope !1392, !noalias !1395
   %.pre.i = load i8, ptr %4, align 8, !range !1409, !noalias !1397
   %110 = icmp eq i8 %.pre.i, 11
@@ -11322,13 +11322,13 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   %114 = load ptr, ptr %113, align 8, !alias.scope !1442, !noalias !1392, !noundef !5
   %115 = icmp eq ptr %114, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1443)
-  br i1 %115, label %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i41.i", label %116
+  br i1 %115, label %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread_crit_edge.i41.i", label %116
 
-"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i41.i": ; preds = %111
+"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread_crit_edge.i41.i": ; preds = %111
   %.pre.i42.i = load ptr, ptr %.val, align 8, !noalias !1446
   %.phi.trans.insert.i43.i = getelementptr inbounds i8, ptr %.val, i64 8
   %.pre3.i44.i = load ptr, ptr %.phi.trans.insert.i43.i, align 8, !noalias !1446
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i36.i"
+  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i36.i"
 
 116:                                              ; preds = %111
   %117 = icmp ne ptr %.val, null
@@ -11339,7 +11339,7 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   %120 = load ptr, ptr %119, align 8, !noalias !1446, !noundef !5
   %121 = icmp eq ptr %120, %.val4.i.i34.i
   %.pre2.i35.i = load ptr, ptr %.val, align 8, !noalias !1446
-  br i1 %121, label %122, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i36.i"
+  br i1 %121, label %122, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i36.i"
 
 122:                                              ; preds = %116
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1448)
@@ -11347,7 +11347,7 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   %123 = load ptr, ptr %.pre2.i35.i, align 8, !alias.scope !1448, !noalias !1453, !nonnull !5, !noundef !5
   %124 = load ptr, ptr %114, align 8, !alias.scope !1451, !noalias !1454, !nonnull !5, !noundef !5
   %125 = icmp eq ptr %123, %124
-  br i1 %125, label %126, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i36.i"
+  br i1 %125, label %126, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i36.i"
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %.pre2.i35.i, i64 8
@@ -11355,7 +11355,7 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   %129 = getelementptr inbounds i8, ptr %114, i64 8
   %130 = load ptr, ptr %129, align 8, !alias.scope !1451, !noalias !1454, !nonnull !5, !noundef !5
   %131 = icmp eq ptr %128, %130
-  br i1 %131, label %132, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i36.i"
+  br i1 %131, label %132, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i36.i"
 
 132:                                              ; preds = %126
   %133 = getelementptr inbounds i8, ptr %.pre2.i35.i, i64 16
@@ -11363,29 +11363,29 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   %135 = getelementptr inbounds i8, ptr %114, i64 16
   %136 = load ptr, ptr %135, align 8, !alias.scope !1451, !noalias !1454, !nonnull !5, !noundef !5
   %137 = icmp eq ptr %134, %136
-  br i1 %137, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i39.i", label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i36.i"
+  br i1 %137, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.i39.i", label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i36.i"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i39.i": ; preds = %132
+"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.i39.i": ; preds = %132
   %138 = getelementptr inbounds i8, ptr %.pre2.i35.i, i64 24
   %139 = load ptr, ptr %138, align 8, !alias.scope !1448, !noalias !1453, !nonnull !5, !noundef !5
   %140 = getelementptr inbounds i8, ptr %114, i64 24
   %141 = load ptr, ptr %140, align 8, !alias.scope !1451, !noalias !1454, !nonnull !5, !noundef !5
   %.not.i40.i = icmp eq ptr %139, %141
-  br i1 %.not.i40.i, label %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit48.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i36.i"
+  br i1 %.not.i40.i, label %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.argprom.exit48.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i36.i"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i36.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i39.i", %132, %126, %122, %116, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i41.i"
-  %142 = phi ptr [ %.pre3.i44.i, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i41.i" ], [ %120, %122 ], [ %120, %126 ], [ %120, %132 ], [ %120, %116 ], [ %120, %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i39.i" ]
-  %143 = phi ptr [ %.pre.i42.i, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i41.i" ], [ %.pre2.i35.i, %122 ], [ %.pre2.i35.i, %126 ], [ %.pre2.i35.i, %132 ], [ %.pre2.i35.i, %116 ], [ %.pre2.i35.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i39.i" ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i36.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.i39.i", %132, %126, %122, %116, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread_crit_edge.i41.i"
+  %142 = phi ptr [ %.pre3.i44.i, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread_crit_edge.i41.i" ], [ %120, %122 ], [ %120, %126 ], [ %120, %132 ], [ %120, %116 ], [ %120, %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.i39.i" ]
+  %143 = phi ptr [ %.pre.i42.i, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread_crit_edge.i41.i" ], [ %.pre2.i35.i, %122 ], [ %.pre2.i35.i, %126 ], [ %.pre2.i35.i, %132 ], [ %.pre2.i35.i, %116 ], [ %.pre2.i35.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.i39.i" ]
   %144 = load ptr, ptr %143, align 8, !noalias !1446, !nonnull !5, !noundef !5
   %145 = invoke { ptr, ptr } %144(ptr noundef %142)
           to label %.noexc45.i unwind label %156, !noalias !1397
 
-.noexc45.i:                                       ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i36.i"
+.noexc45.i:                                       ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i36.i"
   %146 = extractvalue { ptr, ptr } %145, 0
   %147 = extractvalue { ptr, ptr } %145, 1
   %148 = icmp ne ptr %146, null
   tail call void @llvm.assume(i1 %148)
-  br i1 %115, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.exit.i38.i", label %149
+  br i1 %115, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.argprom.exit.i38.i", label %149
 
 149:                                              ; preds = %.noexc45.i
   %150 = getelementptr inbounds i8, ptr %7, i64 112
@@ -11393,7 +11393,7 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   %151 = getelementptr inbounds i8, ptr %114, i64 24
   %152 = load ptr, ptr %151, align 8, !noalias !1446, !nonnull !5, !noundef !5
   invoke void %152(ptr noundef %.val8.i37.i)
-          to label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.exit.i38.i" unwind label %153, !noalias !1446
+          to label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.argprom.exit.i38.i" unwind label %153, !noalias !1446
 
 153:                                              ; preds = %149
   %154 = landingpad { ptr, i32 }
@@ -11402,17 +11402,17 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   store ptr %147, ptr %150, align 8, !alias.scope !1442, !noalias !1392
   br label %.body46.i
 
-"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.exit.i38.i": ; preds = %149, %.noexc45.i
+"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.argprom.exit.i38.i": ; preds = %149, %.noexc45.i
   store ptr %146, ptr %113, align 8, !alias.scope !1442, !noalias !1392
   %155 = getelementptr inbounds i8, ptr %7, i64 112
   store ptr %147, ptr %155, align 8, !alias.scope !1442, !noalias !1392
-  br label %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit48.i
+  br label %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.argprom.exit48.i
 
 .thread19.i:                                      ; preds = %105
   store i8 12, ptr %0, align 8, !alias.scope !1392, !noalias !1395
   br label %100
 
-156:                                              ; preds = %165, %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i36.i"
+156:                                              ; preds = %165, %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.thread.i36.i"
   %157 = landingpad { ptr, i32 }
           cleanup
   br label %.body46.i
@@ -11427,7 +11427,7 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..PayloadError$GT$17h5f5f3cc247e56da0E"(ptr noalias noundef align 8 dereferenceable(40) %4)
           to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h374780ec0ac323bfE.exit.i" unwind label %102, !noalias !1397
 
-_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit48.i: ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.exit.i38.i", %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i39.i"
+_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.argprom.exit48.i: ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.argprom.exit.i38.i", %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom.exit.i39.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1458)
   %161 = getelementptr inbounds i8, ptr %7, i64 120
   %162 = load ptr, ptr %161, align 8, !alias.scope !1461, !noalias !1392, !align !871, !noundef !5
@@ -11437,7 +11437,7 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit48.i: ; preds 
   %.not.i50.i = icmp eq ptr %162, null
   br i1 %.not.i50.i, label %109, label %165
 
-165:                                              ; preds = %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit48.i
+165:                                              ; preds = %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.argprom.exit48.i
   %166 = getelementptr inbounds i8, ptr %162, i64 8
   %167 = load ptr, ptr %166, align 8, !noalias !1462, !nonnull !5, !noundef !5
   invoke void %167(ptr noundef %164)
@@ -11553,7 +11553,7 @@ define void @_ZN10actix_http2h17payload5Inner11register_io17h0aa62ec7f6ef06a4E(p
   %5 = icmp eq ptr %4, null
   %.val8 = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1493)
-  br i1 %5, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.exit.thread", label %6
+  br i1 %5, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.argprom.exit.thread", label %6
 
 6:                                                ; preds = %2
   %7 = icmp ne ptr %.val8, null
@@ -11588,9 +11588,9 @@ define void @_ZN10actix_http2h17payload5Inner11register_io17h0aa62ec7f6ef06a4E(p
   %25 = getelementptr inbounds i8, ptr %4, i64 16
   %26 = load ptr, ptr %25, align 8, !alias.scope !1499, !noalias !1502, !nonnull !5, !noundef !5
   %27 = icmp eq ptr %24, %26
-  br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.exit", label %37
+  br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.argprom.exit", label %37
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.exit": ; preds = %22
+"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.argprom.exit": ; preds = %22
   %28 = getelementptr inbounds i8, ptr %.pre10, i64 24
   %29 = load ptr, ptr %28, align 8, !alias.scope !1496, !noalias !1501, !nonnull !5, !noundef !5
   %30 = getelementptr inbounds i8, ptr %4, i64 24
@@ -11598,7 +11598,7 @@ define void @_ZN10actix_http2h17payload5Inner11register_io17h0aa62ec7f6ef06a4E(p
   %.not = icmp eq ptr %29, %31
   br i1 %.not, label %46, label %37
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.exit.thread": ; preds = %2
+"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.argprom.exit.thread": ; preds = %2
   %.pre = load ptr, ptr %.val8, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.val8, i64 8
   %.pre11 = load ptr, ptr %.phi.trans.insert, align 8
@@ -11608,9 +11608,9 @@ define void @_ZN10actix_http2h17payload5Inner11register_io17h0aa62ec7f6ef06a4E(p
   %35 = extractvalue { ptr, ptr } %33, 1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.exit"
+  br label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.argprom.exit"
 
-37:                                               ; preds = %12, %16, %22, %6, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.exit"
+37:                                               ; preds = %12, %16, %22, %6, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.argprom.exit"
   %38 = load ptr, ptr %.pre10, align 8, !nonnull !5, !noundef !5
   %39 = tail call { ptr, ptr } %38(ptr noundef %10)
   %40 = extractvalue { ptr, ptr } %39, 0
@@ -11622,9 +11622,9 @@ define void @_ZN10actix_http2h17payload5Inner11register_io17h0aa62ec7f6ef06a4E(p
   %44 = getelementptr inbounds i8, ptr %4, i64 24
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
   invoke void %45(ptr noundef %.val7)
-          to label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.exit" unwind label %47
+          to label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.argprom.exit" unwind label %47
 
-46:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.exit", %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.exit"
+46:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.argprom.exit", %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.argprom.exit"
   ret void
 
 47:                                               ; preds = %37
@@ -11634,9 +11634,9 @@ define void @_ZN10actix_http2h17payload5Inner11register_io17h0aa62ec7f6ef06a4E(p
   store ptr %41, ptr %43, align 8
   resume { ptr, i32 } %48
 
-"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.exit.thread", %37
-  %49 = phi ptr [ %35, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.exit.thread" ], [ %41, %37 ]
-  %50 = phi ptr [ %34, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.exit.thread" ], [ %40, %37 ]
+"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.argprom.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.argprom.exit.thread", %37
+  %49 = phi ptr [ %35, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.argprom.exit.thread" ], [ %41, %37 ]
+  %50 = phi ptr [ %34, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.argprom.exit.thread" ], [ %40, %37 ]
   store ptr %50, ptr %3, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %49, ptr %51, align 8
@@ -14331,8 +14331,8 @@ attributes #38 = { cold noreturn nounwind }
 !1333 = distinct !{!1333, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17hbd1da2aa134bb91dE"}
 !1334 = !{!1335, !1336}
 !1335 = distinct !{!1335, !1333, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17hbd1da2aa134bb91dE: argument 0"}
-!1336 = distinct !{!1336, !1337, !"_ZN10actix_http2h17encoder11MessageType13write_headers17hbd792b7d3e51e5e8E: argument 0"}
-!1337 = distinct !{!1337, !"_ZN10actix_http2h17encoder11MessageType13write_headers17hbd792b7d3e51e5e8E"}
+!1336 = distinct !{!1336, !1337, !"_ZN10actix_http2h17encoder11MessageType13write_headers17hbd792b7d3e51e5e8E.argprom: argument 0"}
+!1337 = distinct !{!1337, !"_ZN10actix_http2h17encoder11MessageType13write_headers17hbd792b7d3e51e5e8E.argprom"}
 !1338 = !{!1339, !1341, !1335, !1332, !1336}
 !1339 = distinct !{!1339, !1340, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h8494eca0ceb20a67E.llvm.222537792231950641: argument 0"}
 !1340 = distinct !{!1340, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h8494eca0ceb20a67E.llvm.222537792231950641"}
@@ -14388,10 +14388,10 @@ attributes #38 = { cold noreturn nounwind }
 !1390 = distinct !{!1390, !1391, !"_ZN5alloc2rc11Rc$LT$T$GT$3new17h919c6c6fb86d5465E: argument 0"}
 !1391 = distinct !{!1391, !"_ZN5alloc2rc11Rc$LT$T$GT$3new17h919c6c6fb86d5465E"}
 !1392 = !{!1393}
-!1393 = distinct !{!1393, !1394, !"_ZN10actix_http2h17payload5Inner9poll_next17hfabb825eb62a8badE: argument 0"}
-!1394 = distinct !{!1394, !"_ZN10actix_http2h17payload5Inner9poll_next17hfabb825eb62a8badE"}
+!1393 = distinct !{!1393, !1394, !"_ZN10actix_http2h17payload5Inner9poll_next17hfabb825eb62a8badE.argprom: argument 0"}
+!1394 = distinct !{!1394, !"_ZN10actix_http2h17payload5Inner9poll_next17hfabb825eb62a8badE.argprom"}
 !1395 = !{!1396}
-!1396 = distinct !{!1396, !1394, !"_ZN10actix_http2h17payload5Inner9poll_next17hfabb825eb62a8badE: argument 1"}
+!1396 = distinct !{!1396, !1394, !"_ZN10actix_http2h17payload5Inner9poll_next17hfabb825eb62a8badE.argprom: argument 1"}
 !1397 = !{!1393, !1396}
 !1398 = !{!1399}
 !1399 = distinct !{!1399, !1400, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h4291bc21f0d2a3c7E: argument 0"}
@@ -14411,12 +14411,12 @@ attributes #38 = { cold noreturn nounwind }
 !1413 = !{!1411, !1396}
 !1414 = !{!1411, !1393, !1396}
 !1415 = !{!1416}
-!1416 = distinct !{!1416, !1417, !"_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE: argument 0"}
-!1417 = distinct !{!1417, !"_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE"}
+!1416 = distinct !{!1416, !1417, !"_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.argprom: argument 0"}
+!1417 = distinct !{!1417, !"_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.argprom"}
 !1418 = !{!1416, !1396}
 !1419 = !{!1420}
-!1420 = distinct !{!1420, !1421, !"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E: argument 0"}
-!1421 = distinct !{!1421, !"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E"}
+!1420 = distinct !{!1420, !1421, !"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom: argument 0"}
+!1421 = distinct !{!1421, !"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom"}
 !1422 = !{!1416, !1393, !1396}
 !1423 = !{!1420, !1416, !1396}
 !1424 = !{!1425}
@@ -14435,12 +14435,12 @@ attributes #38 = { cold noreturn nounwind }
 !1437 = !{!1435, !1432}
 !1438 = !{!1435, !1432, !1393, !1396}
 !1439 = !{!1440}
-!1440 = distinct !{!1440, !1441, !"_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE: argument 0"}
-!1441 = distinct !{!1441, !"_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE"}
+!1440 = distinct !{!1440, !1441, !"_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.argprom: argument 0"}
+!1441 = distinct !{!1441, !"_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.argprom"}
 !1442 = !{!1440, !1396}
 !1443 = !{!1444}
-!1444 = distinct !{!1444, !1445, !"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E: argument 0"}
-!1445 = distinct !{!1445, !"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E"}
+!1444 = distinct !{!1444, !1445, !"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom: argument 0"}
+!1445 = distinct !{!1445, !"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.argprom"}
 !1446 = !{!1440, !1393, !1396}
 !1447 = !{!1444, !1440, !1396}
 !1448 = !{!1449}
@@ -14489,8 +14489,8 @@ attributes #38 = { cold noreturn nounwind }
 !1491 = distinct !{!1491, !1492, !"_ZN4core3ptr77drop_in_place$LT$core..cell..RefMut$LT$actix_http..h1..payload..Inner$GT$$GT$17h61d8ff2439fa6e0dE: argument 0"}
 !1492 = distinct !{!1492, !"_ZN4core3ptr77drop_in_place$LT$core..cell..RefMut$LT$actix_http..h1..payload..Inner$GT$$GT$17h61d8ff2439fa6e0dE"}
 !1493 = !{!1494}
-!1494 = distinct !{!1494, !1495, !"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E: argument 0"}
-!1495 = distinct !{!1495, !"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E"}
+!1494 = distinct !{!1494, !1495, !"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.argprom: argument 0"}
+!1495 = distinct !{!1495, !"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.argprom"}
 !1496 = !{!1497}
 !1497 = distinct !{!1497, !1498, !"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4852183904e1c365E: argument 0"}
 !1498 = distinct !{!1498, !"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4852183904e1c365E"}

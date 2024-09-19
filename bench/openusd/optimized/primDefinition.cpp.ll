@@ -825,7 +825,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE7reserveEm.exit
 
 .lr.ph47:                                         ; preds = %84, %85
   %.sroa.025.046 = phi ptr [ %86, %85 ], [ %82, %84 ]
-  invoke fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition27_MapSchematicsPropertyPathsERKNS_7VtArrayINS_7TfTokenEEEENK3$_0clERS2_"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.025.046)
+  invoke fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition27_MapSchematicsPropertyPathsERKNS_7VtArrayINS_7TfTokenEEEENK3$_0clERS2_.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.025.046)
           to label %85 unwind label %.loopexit30
 
 85:                                               ; preds = %.lr.ph47
@@ -999,7 +999,7 @@ _ZSt4findIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_ET_S4_S4_RKT0_.exit: 
   br i1 %166, label %167, label %168
 
 167:                                              ; preds = %165
-  invoke fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition27_MapSchematicsPropertyPathsERKNS_7VtArrayINS_7TfTokenEEEENK3$_0clERS2_"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.021.044)
+  invoke fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition27_MapSchematicsPropertyPathsERKNS_7VtArrayINS_7TfTokenEEEENK3$_0clERS2_.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.021.044)
           to label %168 unwind label %.loopexit.split-lp.loopexit
 
 168:                                              ; preds = %167, %165
@@ -2869,7 +2869,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition27_MapSchematicsPropertyPathsERKNS_7VtArrayINS_7TfTokenEEEENK3$_0clERS2_"(ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition27_MapSchematicsPropertyPathsERKNS_7VtArrayINS_7TfTokenEEEENK3$_0clERS2_.argprom"(ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::UsdPrimDefinition::_LayerAndPath", align 8
   %3 = load ptr, ptr %.0.val, align 8
   store ptr %3, ptr %2, align 8

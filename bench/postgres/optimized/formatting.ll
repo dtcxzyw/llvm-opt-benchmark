@@ -5019,7 +5019,7 @@ define dso_local i64 @numeric_to_number(ptr nocapture noundef %0) local_unnamed_
 
 67:                                               ; preds = %60, %63, %51
   %68 = phi i32 [ %58, %51 ], [ %62, %60 ], [ %66, %63 ]
-  call fastcc void @NUM_processor(ptr noundef %39, ptr noundef %2, ptr noundef nonnull %49, ptr noundef %43, i32 noundef %68, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
+  call fastcc void @NUM_processor.argelim(ptr noundef %39, ptr noundef %2, ptr noundef nonnull %49, ptr noundef %43, i32 noundef %68, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
   %69 = getelementptr inbounds i8, ptr %2, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = load i32, ptr %2, align 4
@@ -5296,7 +5296,7 @@ NUM_cache_fetch.exit:                             ; preds = %NUM_cache_search.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @NUM_processor(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 46) %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @NUM_processor.argelim(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 46) %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
@@ -6981,7 +6981,7 @@ define dso_local i64 @numeric_to_char(ptr nocapture noundef readonly %0) local_u
   %.1 = phi i32 [ 0, %47 ], [ 0, %70 ], [ 0, %84 ], [ %.061, %133 ], [ %.061, %137 ], [ %.061, %135 ], [ 0, %82 ]
   %.060 = phi i32 [ 0, %47 ], [ 0, %70 ], [ 0, %84 ], [ %134, %133 ], [ 0, %137 ], [ 0, %135 ], [ 0, %82 ]
   %148 = getelementptr inbounds i8, ptr %42, i64 4
-  call fastcc void @NUM_processor(ptr noundef %43, ptr noundef %2, ptr noundef nonnull %148, ptr noundef %.165, i32 noundef 0, i32 noundef %.060, i32 noundef %.1, i1 noundef zeroext true)
+  call fastcc void @NUM_processor.argelim(ptr noundef %43, ptr noundef %2, ptr noundef nonnull %148, ptr noundef %.165, i32 noundef 0, i32 noundef %.060, i32 noundef %.1, i1 noundef zeroext true)
   %149 = load i8, ptr %3, align 1
   %150 = trunc i8 %149 to i1
   br i1 %150, label %151, label %152
@@ -7283,7 +7283,7 @@ define dso_local i64 @int4_to_char(ptr nocapture noundef readonly %0) local_unna
   %.1 = phi i32 [ 0, %46 ], [ %.053, %96 ], [ %.053, %100 ], [ %.053, %98 ], [ 0, %57 ], [ 0, %50 ]
   %.052 = phi i32 [ 0, %46 ], [ %97, %96 ], [ 0, %100 ], [ 0, %98 ], [ 0, %57 ], [ 0, %50 ]
   %111 = getelementptr inbounds i8, ptr %41, i64 4
-  call fastcc void @NUM_processor(ptr noundef %42, ptr noundef %2, ptr noundef nonnull %111, ptr noundef %.155, i32 noundef 0, i32 noundef %.052, i32 noundef %.1, i1 noundef zeroext true)
+  call fastcc void @NUM_processor.argelim(ptr noundef %42, ptr noundef %2, ptr noundef nonnull %111, ptr noundef %.155, i32 noundef 0, i32 noundef %.052, i32 noundef %.1, i1 noundef zeroext true)
   %112 = load i8, ptr %3, align 1
   %113 = trunc i8 %112 to i1
   br i1 %113, label %114, label %115
@@ -7493,7 +7493,7 @@ define dso_local i64 @int8_to_char(ptr nocapture noundef readonly %0) local_unna
   %.1 = phi i32 [ 0, %45 ], [ 0, %57 ], [ %.057, %99 ], [ %.057, %103 ], [ %.057, %101 ], [ 0, %51 ]
   %.056 = phi i32 [ 0, %45 ], [ 0, %57 ], [ %100, %99 ], [ 0, %103 ], [ 0, %101 ], [ 0, %51 ]
   %114 = getelementptr inbounds i8, ptr %40, i64 4
-  call fastcc void @NUM_processor(ptr noundef %41, ptr noundef %2, ptr noundef nonnull %114, ptr noundef %.160, i32 noundef 0, i32 noundef %.056, i32 noundef %.1, i1 noundef zeroext true)
+  call fastcc void @NUM_processor.argelim(ptr noundef %41, ptr noundef %2, ptr noundef nonnull %114, ptr noundef %.160, i32 noundef 0, i32 noundef %.056, i32 noundef %.1, i1 noundef zeroext true)
   %115 = load i8, ptr %3, align 1
   %116 = trunc i8 %115 to i1
   br i1 %116, label %117, label %118
@@ -7740,7 +7740,7 @@ define dso_local i64 @float4_to_char(ptr nocapture noundef readonly %0) local_un
   %.1 = phi i32 [ 0, %47 ], [ 0, %55 ], [ 0, %76 ], [ 0, %69 ], [ %.059, %117 ], [ %.059, %121 ], [ %.059, %119 ]
   %.056 = phi i32 [ 0, %47 ], [ 0, %55 ], [ 0, %76 ], [ 0, %69 ], [ %118, %117 ], [ 0, %121 ], [ 0, %119 ]
   %132 = getelementptr inbounds i8, ptr %42, i64 4
-  call fastcc void @NUM_processor(ptr noundef %43, ptr noundef %2, ptr noundef nonnull %132, ptr noundef %.161, i32 noundef 0, i32 noundef %.056, i32 noundef %.1, i1 noundef zeroext true)
+  call fastcc void @NUM_processor.argelim(ptr noundef %43, ptr noundef %2, ptr noundef nonnull %132, ptr noundef %.161, i32 noundef 0, i32 noundef %.056, i32 noundef %.1, i1 noundef zeroext true)
   %133 = load i8, ptr %3, align 1
   %134 = trunc i8 %133 to i1
   br i1 %134, label %135, label %136
@@ -7980,7 +7980,7 @@ define dso_local i64 @float8_to_char(ptr nocapture noundef readonly %0) local_un
   %.1 = phi i32 [ 0, %45 ], [ 0, %53 ], [ 0, %73 ], [ 0, %67 ], [ %.059, %112 ], [ %.059, %116 ], [ %.059, %114 ]
   %.056 = phi i32 [ 0, %45 ], [ 0, %53 ], [ 0, %73 ], [ 0, %67 ], [ %113, %112 ], [ 0, %116 ], [ 0, %114 ]
   %127 = getelementptr inbounds i8, ptr %40, i64 4
-  call fastcc void @NUM_processor(ptr noundef %41, ptr noundef %2, ptr noundef nonnull %127, ptr noundef %.161, i32 noundef 0, i32 noundef %.056, i32 noundef %.1, i1 noundef zeroext true)
+  call fastcc void @NUM_processor.argelim(ptr noundef %41, ptr noundef %2, ptr noundef nonnull %127, ptr noundef %.161, i32 noundef 0, i32 noundef %.056, i32 noundef %.1, i1 noundef zeroext true)
   %128 = load i8, ptr %3, align 1
   %129 = trunc i8 %128 to i1
   br i1 %129, label %130, label %131
@@ -8684,7 +8684,7 @@ suff_search.exit133.thread:                       ; preds = %245, %234, %suff_se
   %.7 = phi ptr [ %.193140, %280 ], [ %spec.select122, %299 ]
   %304 = tail call i32 @pg_mblen(ptr noundef nonnull %.7) #18
   %.pre = load i8, ptr %.7, align 1
-  br i1 %.not105, label %is_separator_char.exit.thread, label %305
+  br i1 %.not105, label %is_separator_char.argprom.exit.thread, label %305
 
 305:                                              ; preds = %303
   %306 = add i8 %.pre, -33
@@ -8696,9 +8696,9 @@ suff_search.exit133.thread:                       ; preds = %245, %234, %suff_se
   %310 = add nsw i8 %.pre, -58
   %spec.select.i = icmp ult i8 %310, -10
   %or.cond151 = select i1 %or.cond2.i.not152, i1 %spec.select.i, i1 false
-  br i1 %or.cond151, label %317, label %is_separator_char.exit.thread
+  br i1 %or.cond151, label %317, label %is_separator_char.argprom.exit.thread
 
-is_separator_char.exit.thread:                    ; preds = %305, %303
+is_separator_char.argprom.exit.thread:            ; preds = %305, %303
   %311 = tail call ptr @__ctype_b_loc() #19
   %312 = load ptr, ptr %311, align 8
   %313 = zext i8 %.pre to i64
@@ -8709,8 +8709,8 @@ is_separator_char.exit.thread:                    ; preds = %305, %303
   %.281 = select i1 %.not113, i8 3, i8 5
   br label %317
 
-317:                                              ; preds = %is_separator_char.exit.thread, %305
-  %.sink = phi i8 [ 4, %305 ], [ %.281, %is_separator_char.exit.thread ]
+317:                                              ; preds = %is_separator_char.argprom.exit.thread, %305
+  %.sink = phi i8 [ 4, %305 ], [ %.281, %is_separator_char.argprom.exit.thread ]
   store i8 %.sink, ptr %.091200, align 8
   %318 = getelementptr inbounds i8, ptr %.091200, i64 1
   %319 = sext i32 %304 to i64

@@ -1282,13 +1282,13 @@ define dso_local i32 @intel_hdmi_compute_config(ptr noundef %0, ptr noundef %1, 
   %42 = getelementptr inbounds i8, ptr %1, i64 877
   store i8 %41, ptr %42, align 1
   %.val = load ptr, ptr %2, align 8
-  %43 = tail call fastcc i32 @intel_hdmi_compute_output_format(ptr noundef %0, ptr noundef %1, ptr %.val, i1 noundef zeroext true)
+  %43 = tail call fastcc i32 @intel_hdmi_compute_output_format.argprom(ptr noundef %0, ptr noundef %1, ptr %.val, i1 noundef zeroext true)
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.thread, label %45
 
 45:                                               ; preds = %40
   %.val11 = load ptr, ptr %2, align 8
-  %46 = tail call fastcc i32 @intel_hdmi_compute_output_format(ptr noundef %0, ptr noundef %1, ptr %.val11, i1 noundef zeroext false)
+  %46 = tail call fastcc i32 @intel_hdmi_compute_output_format.argprom(ptr noundef %0, ptr noundef %1, ptr %.val11, i1 noundef zeroext false)
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %.thread, label %48
 
@@ -1867,7 +1867,7 @@ intel_hdmi_compute_hdmi_infoframe.exit:           ; preds = %375, %357
 
 .thread21:                                        ; preds = %138, %204, %273, %333, %330, %359
   %.val12 = load ptr, ptr %0, align 8
-  %383 = tail call fastcc zeroext i1 @intel_hdmi_compute_drm_infoframe(ptr %.val12, ptr noundef %1, ptr noundef %2)
+  %383 = tail call fastcc zeroext i1 @intel_hdmi_compute_drm_infoframe.argprom(ptr %.val12, ptr noundef %1, ptr noundef %2)
   br i1 %383, label %391, label %384
 
 384:                                              ; preds = %.thread21
@@ -1893,7 +1893,7 @@ intel_hdmi_compute_hdmi_infoframe.exit:           ; preds = %375, %357
 declare dso_local zeroext i1 @intel_audio_compute_config(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_output_format(ptr noundef %0, ptr noundef %1, ptr %.0.val, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_output_format.argprom(ptr noundef %0, ptr noundef %1, ptr %.0.val, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 608
   %5 = getelementptr inbounds i8, ptr %.0.val, i64 200
   %6 = load ptr, ptr %.0.val, align 8
@@ -1977,7 +1977,7 @@ define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_output_format(p
 declare dso_local i32 @intel_panel_fitting(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @intel_hdmi_compute_drm_infoframe(ptr readonly %.0.val, ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef zeroext i1 @intel_hdmi_compute_drm_infoframe.argprom(ptr readonly %.0.val, ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4340
   %4 = getelementptr inbounds i8, ptr %0, i64 4528
   %5 = getelementptr inbounds i8, ptr %.0.val, i64 2632

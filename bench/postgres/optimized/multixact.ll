@@ -162,13 +162,13 @@ define dso_local i32 @MultiXactIdCreateFromMembers(i32 noundef %0, ptr noundef %
   store ptr %23, ptr %20, align 8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @MXactCache, i64 8), align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %dlist_push_head.exit.i.i.i
+  br i1 %25, label %26, label %dlist_push_head.argprom.exit.i.i.i
 
 26:                                               ; preds = %18
   store ptr @MXactCache, ptr @MXactCache, align 8
-  br label %dlist_push_head.exit.i.i.i
+  br label %dlist_push_head.argprom.exit.i.i.i
 
-dlist_push_head.exit.i.i.i:                       ; preds = %26, %18
+dlist_push_head.argprom.exit.i.i.i:               ; preds = %26, %18
   %27 = phi ptr [ @MXactCache, %26 ], [ %24, %18 ]
   store ptr %27, ptr %19, align 8
   store ptr @MXactCache, ptr %.sroa.0.019.i, align 8
@@ -182,7 +182,7 @@ select.unfold.i:                                  ; preds = %12, %9
   %.not15.i = icmp eq ptr %29, @MXactCache
   br i1 %.not15.i, label %.preheader, label %9, !llvm.loop !5
 
-mXactCacheGetBySet.exit:                          ; preds = %15, %dlist_push_head.exit.i.i.i
+mXactCacheGetBySet.exit:                          ; preds = %15, %dlist_push_head.argprom.exit.i.i.i
   %30 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %.preheader, label %242
@@ -747,13 +747,13 @@ define dso_local i32 @GetMultiXactIdMembers(i32 noundef %0, ptr nocapture nounde
   store ptr %24, ptr %21, align 8
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @MXactCache, i64 8), align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %dlist_push_head.exit.i.i.i
+  br i1 %26, label %27, label %dlist_push_head.argprom.exit.i.i.i
 
 27:                                               ; preds = %19
   store ptr @MXactCache, ptr @MXactCache, align 8
-  br label %dlist_push_head.exit.i.i.i
+  br label %dlist_push_head.argprom.exit.i.i.i
 
-dlist_push_head.exit.i.i.i:                       ; preds = %27, %19
+dlist_push_head.argprom.exit.i.i.i:               ; preds = %27, %19
   %28 = phi ptr [ @MXactCache, %27 ], [ %25, %19 ]
   store ptr %28, ptr %20, align 8
   store ptr @MXactCache, ptr %.sroa.0.020.i, align 8
@@ -767,7 +767,7 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
   %.not17.i = icmp eq ptr %30, @MXactCache
   br i1 %.not17.i, label %mXactCacheGetById.exit.thread, label %.lr.ph.i, !llvm.loop !11
 
-mXactCacheGetById.exit:                           ; preds = %10, %dlist_push_head.exit.i.i.i
+mXactCacheGetById.exit:                           ; preds = %10, %dlist_push_head.argprom.exit.i.i.i
   store ptr %15, ptr %1, align 8
   %31 = load i32, ptr %11, align 4
   %32 = icmp sgt i32 %31, -1
@@ -1516,14 +1516,14 @@ define internal fastcc void @mXactCachePut(i32 noundef %0, i32 noundef %1, ptr n
   %17 = getelementptr inbounds i8, ptr %14, i64 8
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @MXactCache, i64 8), align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %dclist_push_head.exit
+  br i1 %19, label %20, label %dclist_push_head.argprom.exit
 
 20:                                               ; preds = %9
   store ptr @MXactCache, ptr @MXactCache, align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @MXactCache, i64 16), align 8
-  br label %dclist_push_head.exit
+  br label %dclist_push_head.argprom.exit
 
-dclist_push_head.exit:                            ; preds = %9, %20
+dclist_push_head.argprom.exit:                    ; preds = %9, %20
   %21 = phi ptr [ @MXactCache, %20 ], [ %18, %9 ]
   %22 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %21, ptr %22, align 8
@@ -1536,7 +1536,7 @@ dclist_push_head.exit:                            ; preds = %9, %20
   %25 = icmp ugt i32 %24, 256
   br i1 %25, label %26, label %36
 
-26:                                               ; preds = %dclist_push_head.exit
+26:                                               ; preds = %dclist_push_head.argprom.exit
   %27 = load ptr, ptr @MXactCache, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
@@ -1552,7 +1552,7 @@ dclist_push_head.exit:                            ; preds = %9, %20
   tail call void @pfree(ptr noundef %35) #13
   br label %36
 
-36:                                               ; preds = %26, %dclist_push_head.exit
+36:                                               ; preds = %26, %dclist_push_head.argprom.exit
   ret void
 }
 

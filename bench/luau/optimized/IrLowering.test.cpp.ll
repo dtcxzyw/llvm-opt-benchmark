@@ -12648,7 +12648,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 define internal noundef zeroext i8 @"_ZZL18getCodegenAssemblyB5cxx11PKcbiEN3$_08__invokeEPvS0_m"(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8
   %.not3.i = icmp eq ptr %4, null
-  br i1 %.not3.i, label %"_ZZL18getCodegenAssemblyB5cxx11PKcbiENK3$_0clEPvS0_m.exit", label %.lr.ph.i
+  br i1 %.not3.i, label %"_ZZL18getCodegenAssemblyB5cxx11PKcbiENK3$_0clEPvS0_m.argprom.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %5 = icmp eq i64 %2, 0
@@ -12660,14 +12660,14 @@ define internal noundef zeroext i8 @"_ZZL18getCodegenAssemblyB5cxx11PKcbiEN3$_08
   %.094.us.i = phi i8 [ %9, %8 ], [ 0, %.lr.ph.i ]
   %char0.i = load i8, ptr %6, align 1
   %7 = icmp eq i8 %char0.i, 0
-  br i1 %7, label %"_ZZL18getCodegenAssemblyB5cxx11PKcbiENK3$_0clEPvS0_m.exit", label %8
+  br i1 %7, label %"_ZZL18getCodegenAssemblyB5cxx11PKcbiENK3$_0clEPvS0_m.argprom.exit", label %8
 
 8:                                                ; preds = %.lr.ph.split.us.i
   %9 = add i8 %.094.us.i, 1
   %10 = getelementptr inbounds i8, ptr %.085.us.i, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.us.i = icmp eq ptr %11, null
-  br i1 %.not.us.i, label %"_ZZL18getCodegenAssemblyB5cxx11PKcbiENK3$_0clEPvS0_m.exit", label %.lr.ph.split.us.i, !llvm.loop !74
+  br i1 %.not.us.i, label %"_ZZL18getCodegenAssemblyB5cxx11PKcbiENK3$_0clEPvS0_m.argprom.exit", label %.lr.ph.split.us.i, !llvm.loop !74
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %16
   %12 = phi ptr [ %19, %16 ], [ %4, %.lr.ph.i ]
@@ -12680,16 +12680,16 @@ define internal noundef zeroext i8 @"_ZZL18getCodegenAssemblyB5cxx11PKcbiEN3$_08
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph.split.i
   %bcmp.i.i = tail call i32 @bcmp(ptr readonly %1, ptr nonnull %12, i64 %2)
   %15 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %15, label %"_ZZL18getCodegenAssemblyB5cxx11PKcbiENK3$_0clEPvS0_m.exit", label %16
+  br i1 %15, label %"_ZZL18getCodegenAssemblyB5cxx11PKcbiENK3$_0clEPvS0_m.argprom.exit", label %16
 
 16:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.split.i
   %17 = add i8 %.094.i, 1
   %18 = getelementptr inbounds i8, ptr %.085.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %"_ZZL18getCodegenAssemblyB5cxx11PKcbiENK3$_0clEPvS0_m.exit", label %.lr.ph.split.i, !llvm.loop !74
+  br i1 %.not.i, label %"_ZZL18getCodegenAssemblyB5cxx11PKcbiENK3$_0clEPvS0_m.argprom.exit", label %.lr.ph.split.i, !llvm.loop !74
 
-"_ZZL18getCodegenAssemblyB5cxx11PKcbiENK3$_0clEPvS0_m.exit": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %16, %.lr.ph.split.us.i, %8, %3
+"_ZZL18getCodegenAssemblyB5cxx11PKcbiENK3$_0clEPvS0_m.argprom.exit": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %16, %.lr.ph.split.us.i, %8, %3
   %.0.i = phi i8 [ -1, %3 ], [ -1, %8 ], [ %.094.us.i, %.lr.ph.split.us.i ], [ -1, %16 ], [ %.094.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   ret i8 %.0.i
 }

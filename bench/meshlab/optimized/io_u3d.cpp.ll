@@ -1477,17 +1477,17 @@ _ZN7QStringD2Ev.exit112:                          ; preds = %_ZN7QStringD2Ev.exi
   %181 = load atomic i32, ptr %180 monotonic, align 4, !noalias !15
   %182 = add i32 %181, -1
   %or.cond.not.i.i.i = icmp ult i32 %182, -2
-  br i1 %or.cond.not.i.i.i, label %183, label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit
+  br i1 %or.cond.not.i.i.i, label %183, label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit
 
 183:                                              ; preds = %173
   %184 = atomicrmw add ptr %180, i32 1 seq_cst, align 4, !noalias !15
-  br label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit
+  br label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit
 
 185:                                              ; preds = %166
   store ptr @_ZN10QArrayData11shared_nullE, ptr %32, align 8, !alias.scope !15
-  br label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit
+  br label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit
 
-_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit: ; preds = %185, %183, %173
+_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit: ; preds = %185, %183, %173
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %186 = load ptr, ptr %31, align 8, !noalias !18
   store ptr %186, ptr %30, align 8, !alias.scope !18
@@ -1496,11 +1496,11 @@ _ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exi
   %or.cond.not.i.i.i113 = icmp ult i32 %188, -2
   br i1 %or.cond.not.i.i.i113, label %189, label %_ZN7QStringC2ERKS_.exit.i
 
-189:                                              ; preds = %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit
+189:                                              ; preds = %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit
   %190 = atomicrmw add ptr %186, i32 1 seq_cst, align 4, !noalias !18
   br label %_ZN7QStringC2ERKS_.exit.i
 
-_ZN7QStringC2ERKS_.exit.i:                        ; preds = %189, %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit
+_ZN7QStringC2ERKS_.exit.i:                        ; preds = %189, %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit
   %191 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %32)
           to label %_ZplRK7QStringS1_.exit unwind label %192
 
@@ -11527,21 +11527,21 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %108 = load atomic i32, ptr %107 monotonic, align 4, !noalias !250
   %109 = add i32 %108, -1
   %or.cond.not.i.i.i = icmp ult i32 %109, -2
-  br i1 %or.cond.not.i.i.i, label %110, label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit
+  br i1 %or.cond.not.i.i.i, label %110, label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit
 
 110:                                              ; preds = %100
   %111 = atomicrmw add ptr %107, i32 1 seq_cst, align 4, !noalias !250
-  br label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit
+  br label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit
 
 112:                                              ; preds = %93
   store ptr @_ZN10QArrayData11shared_nullE, ptr %27, align 8, !alias.scope !250
-  br label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit
+  br label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit
 
-_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit: ; preds = %112, %110, %100
+_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit: ; preds = %112, %110, %100
   invoke void @_ZNK7QString11toStdStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %26, ptr noundef nonnull align 8 dereferenceable(8) %27)
           to label %113 unwind label %531
 
-113:                                              ; preds = %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit
+113:                                              ; preds = %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit
   %114 = load ptr, ptr %27, align 8
   %115 = load atomic i32, ptr %114 monotonic, align 4
   switch i32 %115, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
@@ -12560,7 +12560,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           cleanup
   br label %716
 
-531:                                              ; preds = %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit
+531:                                              ; preds = %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit
   %532 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #25
@@ -17954,21 +17954,21 @@ _ZN7QStringC2EPKc.exit:                           ; preds = %.lr.ph, %27
   %47 = load atomic i32, ptr %46 monotonic, align 4, !noalias !418
   %48 = add i32 %47, -1
   %or.cond.not.i.i.i.i = icmp ult i32 %48, -2
-  br i1 %or.cond.not.i.i.i.i, label %49, label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit.i
+  br i1 %or.cond.not.i.i.i.i, label %49, label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit.i
 
 49:                                               ; preds = %39
   %50 = atomicrmw add ptr %46, i32 1 seq_cst, align 4, !noalias !418
-  br label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit.i
+  br label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit.i
 
 51:                                               ; preds = %32
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8, !alias.scope !415, !noalias !412
-  br label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit.i
+  br label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit.i
 
-_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit.i: ; preds = %51, %49, %39
+_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit.i: ; preds = %51, %49, %39
   %52 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.6, i32 noundef 1)
           to label %53 unwind label %146, !noalias !412
 
-53:                                               ; preds = %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit.i
+53:                                               ; preds = %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit.i
   store ptr %52, ptr %7, align 8, !noalias !412
   invoke void @_ZNK7QString5splitERKS_6QFlagsIN2Qt18SplitBehaviorFlagsEENS3_15CaseSensitivityE(ptr dead_on_unwind nonnull writable sret(%class.QStringList) align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 0, i32 noundef 1)
           to label %54 unwind label %148, !noalias !412
@@ -18263,7 +18263,7 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i20.i: ; preds = %_ZN
           cleanup
   br label %151
 
-146:                                              ; preds = %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit.i
+146:                                              ; preds = %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit.i
   %147 = landingpad { ptr, i32 }
           cleanup
   br label %150
@@ -18961,18 +18961,18 @@ define internal fastcc void @_ZN3vcg3tri2io18QtUtilityFunctionsL16fileNameFromPa
   %19 = load atomic i32, ptr %18 monotonic, align 4, !noalias !427
   %20 = add i32 %19, -1
   %or.cond.not.i.i.i = icmp ult i32 %20, -2
-  br i1 %or.cond.not.i.i.i, label %21, label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit
+  br i1 %or.cond.not.i.i.i, label %21, label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit
 
 21:                                               ; preds = %11
   %22 = atomicrmw add ptr %18, i32 1 seq_cst, align 4, !noalias !427
   %.pre = load ptr, ptr %3, align 8
-  br label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit
+  br label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit
 
 23:                                               ; preds = %4
   store ptr @_ZN10QArrayData11shared_nullE, ptr %0, align 8, !alias.scope !427
-  br label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit
+  br label %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit
 
-_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit: ; preds = %23, %21, %11
+_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit: ; preds = %23, %21, %11
   %24 = phi ptr [ %.val, %23 ], [ %.pre, %21 ], [ %.val, %11 ]
   %25 = load atomic i32, ptr %24 monotonic, align 4
   switch i32 %25, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i [
@@ -18980,7 +18980,7 @@ _ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exi
     i32 -1, label %_ZN11QStringListD2Ev.exit
   ]
 
-_ZN9QtPrivate8RefCount5derefEv.exit.i.i:          ; preds = %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit
+_ZN9QtPrivate8RefCount5derefEv.exit.i.i:          ; preds = %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit
   %26 = atomicrmw sub ptr %24, i32 1 seq_cst, align 4
   %.not.i.i = icmp eq i32 %26, 1
   br i1 %.not.i.i, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i, label %_ZN11QStringListD2Ev.exit
@@ -18989,8 +18989,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
   %.pre.i.i = load ptr, ptr %3, align 8
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
 
-_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i, %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit
-  %27 = phi ptr [ %.pre.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i ], [ %24, %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit ]
+_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i, %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit
+  %27 = phi ptr [ %.pre.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i ], [ %24, %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit ]
   %28 = getelementptr inbounds i8, ptr %27, i64 16
   %29 = getelementptr inbounds i8, ptr %27, i64 8
   %30 = load i32, ptr %29, align 8
@@ -19045,7 +19045,7 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QSt
   tail call void @__clang_call_terminate(ptr %44) #26
   unreachable
 
-_ZN11QStringListD2Ev.exit:                        ; preds = %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i
+_ZN11QStringListD2Ev.exit:                        ; preds = %_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i
   ret void
 
 45:                                               ; preds = %2
@@ -23095,8 +23095,8 @@ attributes #29 = { noreturn }
 !13 = distinct !{!13, !14, !"_ZN5QFile10encodeNameERK7QString: argument 0"}
 !14 = distinct !{!14, !"_ZN5QFile10encodeNameERK7QString"}
 !15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList: argument 0"}
-!17 = distinct !{!17, !"_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList"}
+!16 = distinct !{!16, !17, !"_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom: argument 0"}
+!17 = distinct !{!17, !"_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom"}
 !18 = !{!19}
 !19 = distinct !{!19, !20, !"_ZplRK7QStringS1_: argument 0"}
 !20 = distinct !{!20, !"_ZplRK7QStringS1_"}
@@ -23330,8 +23330,8 @@ attributes #29 = { noreturn }
 !248 = distinct !{!248, !249, !"_ZNKR7QString11toLocal8BitEv: argument 0"}
 !249 = distinct !{!249, !"_ZNKR7QString11toLocal8BitEv"}
 !250 = !{!251}
-!251 = distinct !{!251, !252, !"_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList: argument 0"}
-!252 = distinct !{!252, !"_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList"}
+!251 = distinct !{!251, !252, !"_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom: argument 0"}
+!252 = distinct !{!252, !"_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom"}
 !253 = !{!254}
 !254 = distinct !{!254, !255, !"_ZN7QString13fromStdStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
 !255 = distinct !{!255, !"_ZN7QString13fromStdStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
@@ -23495,8 +23495,8 @@ attributes #29 = { noreturn }
 !413 = distinct !{!413, !414, !"_ZN3vcg3tri2io18QtUtilityFunctionsL13fileExtensionERK7QString: argument 0"}
 !414 = distinct !{!414, !"_ZN3vcg3tri2io18QtUtilityFunctionsL13fileExtensionERK7QString"}
 !415 = !{!416}
-!416 = distinct !{!416, !417, !"_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList: argument 0"}
-!417 = distinct !{!417, !"_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList"}
+!416 = distinct !{!416, !417, !"_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom: argument 0"}
+!417 = distinct !{!417, !"_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom"}
 !418 = !{!416, !413}
 !419 = !{!420}
 !420 = distinct !{!420, !421, !"_ZplRK7QStringS1_: argument 0"}
@@ -23507,8 +23507,8 @@ attributes #29 = { noreturn }
 !425 = distinct !{!425, !6}
 !426 = distinct !{!426, !6}
 !427 = !{!428}
-!428 = distinct !{!428, !429, !"_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList: argument 0"}
-!429 = distinct !{!429, !"_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList"}
+!428 = distinct !{!428, !429, !"_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom: argument 0"}
+!429 = distinct !{!429, !"_ZN3vcg3tri2io18QtUtilityFunctionsL23fileNameFromTrimmedPathERK11QStringList.argprom"}
 !430 = !{!431}
 !431 = distinct !{!431, !432, !"_ZNKR7QString11toLocal8BitEv: argument 0"}
 !432 = distinct !{!432, !"_ZNKR7QString11toLocal8BitEv"}

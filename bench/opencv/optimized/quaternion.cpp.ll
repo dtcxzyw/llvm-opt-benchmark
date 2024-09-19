@@ -6391,8 +6391,8 @@ define internal void @"_ZZN2cv3Mat12forEach_implINS_3VecIdLi4EEEZNS_8ximgproc8qu
   %22 = icmp sgt i32 %13, 0
   br i1 %22, label %.lr.ph69.split.us, label %.loopexit
 
-.lr.ph69.split.us:                                ; preds = %.lr.ph69, %"_ZZN2cv3Mat12forEach_implINS_3VecIdLi4EEEZNS_8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.exit.loopexit.us"
-  %.03367.us = phi i32 [ %59, %"_ZZN2cv3Mat12forEach_implINS_3VecIdLi4EEEZNS_8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.exit.loopexit.us" ], [ %16, %.lr.ph69 ]
+.lr.ph69.split.us:                                ; preds = %.lr.ph69, %"_ZZN2cv3Mat12forEach_implINS_3VecIdLi4EEEZNS_8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.argprom.exit.loopexit.us"
+  %.03367.us = phi i32 [ %59, %"_ZZN2cv3Mat12forEach_implINS_3VecIdLi4EEEZNS_8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.argprom.exit.loopexit.us" ], [ %16, %.lr.ph69 ]
   %.val.us = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i32 %.03367.us, ptr %3, align 4
@@ -6429,8 +6429,8 @@ _ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i.us:  ; preds = %30, %.lr.ph69.split
   %38 = getelementptr inbounds %"class.cv::Vec", ptr %.0.lcssa.i.i.i.us, i64 %21
   br label %.lr.ph.i.us
 
-.lr.ph.i.us:                                      ; preds = %_ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i.us, %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.exit.i.us"
-  %.01.i.us = phi ptr [ %55, %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.exit.i.us" ], [ %.0.lcssa.i.i.i.us, %_ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i.us ]
+.lr.ph.i.us:                                      ; preds = %_ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i.us, %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.argprom.exit.i.us"
+  %.01.i.us = phi ptr [ %55, %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.argprom.exit.i.us" ], [ %.0.lcssa.i.i.i.us, %_ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i.us ]
   %39 = load double, ptr %.01.i.us, align 8
   %40 = getelementptr inbounds i8, ptr %.01.i.us, i64 8
   %41 = load double, ptr %40, align 8
@@ -6454,17 +6454,17 @@ _ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i.us:  ; preds = %30, %.lr.ph69.split
   store double %54, ptr %52, align 8
   %indvars.iv.next.i.i7.i.us = add nuw nsw i64 %indvars.iv.i.i6.i.us, 1
   %exitcond.not.i.i8.i.us = icmp eq i64 %indvars.iv.next.i.i7.i.us, 4
-  br i1 %exitcond.not.i.i8.i.us, label %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.exit.i.us", label %51, !llvm.loop !37
+  br i1 %exitcond.not.i.i8.i.us, label %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.argprom.exit.i.us", label %51, !llvm.loop !37
 
-"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.exit.i.us": ; preds = %51
+"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.argprom.exit.i.us": ; preds = %51
   %55 = getelementptr inbounds i8, ptr %.01.i.us, i64 32
   %56 = load i32, ptr %20, align 4
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %20, align 4
   %58 = icmp ult ptr %55, %38
-  br i1 %58, label %.lr.ph.i.us, label %"_ZZN2cv3Mat12forEach_implINS_3VecIdLi4EEEZNS_8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.exit.loopexit.us", !llvm.loop !38
+  br i1 %58, label %.lr.ph.i.us, label %"_ZZN2cv3Mat12forEach_implINS_3VecIdLi4EEEZNS_8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.argprom.exit.loopexit.us", !llvm.loop !38
 
-"_ZZN2cv3Mat12forEach_implINS_3VecIdLi4EEEZNS_8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.exit.loopexit.us": ; preds = %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.exit.i.us"
+"_ZZN2cv3Mat12forEach_implINS_3VecIdLi4EEEZNS_8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.argprom.exit.loopexit.us": ; preds = %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.argprom.exit.i.us"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %59 = add nsw i32 %.03367.us, 1
   %60 = load i32, ptr %17, align 4
@@ -6564,8 +6564,8 @@ _ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i36:   ; preds = %100, %._crit_edge
   %.0.lcssa.i.i.i37 = phi ptr [ %.pre89, %._crit_edge ], [ %107, %100 ]
   br i1 %78, label %.lr.ph.i38, label %.loopexit60
 
-.lr.ph.i38:                                       ; preds = %_ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i36, %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.exit.i40"
-  %.014.i = phi ptr [ %124, %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.exit.i40" ], [ %.0.lcssa.i.i.i37, %_ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i36 ]
+.lr.ph.i38:                                       ; preds = %_ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i36, %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.argprom.exit.i40"
+  %.014.i = phi ptr [ %124, %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.argprom.exit.i40" ], [ %.0.lcssa.i.i.i37, %_ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i36 ]
   %108 = load double, ptr %.014.i, align 8
   %109 = getelementptr inbounds i8, ptr %.014.i, i64 8
   %110 = load double, ptr %109, align 8
@@ -6589,9 +6589,9 @@ _ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i36:   ; preds = %100, %._crit_edge
   store double %123, ptr %121, align 8
   %indvars.iv.next.i.i12.i = add nuw nsw i64 %indvars.iv.i.i11.i, 1
   %exitcond.not.i.i13.i = icmp eq i64 %indvars.iv.next.i.i12.i, 4
-  br i1 %exitcond.not.i.i13.i, label %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.exit.i40", label %120, !llvm.loop !37
+  br i1 %exitcond.not.i.i13.i, label %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.argprom.exit.i40", label %120, !llvm.loop !37
 
-"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.exit.i40": ; preds = %120
+"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.argprom.exit.i40": ; preds = %120
   %124 = getelementptr inbounds i8, ptr %.014.i, i64 32
   %125 = load i32, ptr %77, align 4
   %126 = add nsw i32 %125, 1
@@ -6599,7 +6599,7 @@ _ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i36:   ; preds = %100, %._crit_edge
   %127 = icmp slt i32 %126, %13
   br i1 %127, label %.lr.ph.i38, label %.loopexit60.loopexit, !llvm.loop !41
 
-.loopexit60.loopexit:                             ; preds = %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.exit.i40"
+.loopexit60.loopexit:                             ; preds = %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.argprom.exit.i40"
   %.pre90 = load i32, ptr %73, align 4
   br label %.loopexit60
 
@@ -6614,7 +6614,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit48:                  ; preds = %.loopexit60, %62
   tail call void @_ZdlPv(ptr noundef nonnull %65) #19
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZZN2cv3Mat12forEach_implINS_3VecIdLi4EEEZNS_8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.exit.loopexit.us", %.lr.ph69, %15, %_ZNSt6vectorIiSaIiEED2Ev.exit48
+.loopexit:                                        ; preds = %"_ZZN2cv3Mat12forEach_implINS_3VecIdLi4EEEZNS_8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.argprom.exit.loopexit.us", %.lr.ph69, %15, %_ZNSt6vectorIiSaIiEED2Ev.exit48
   ret void
 }
 

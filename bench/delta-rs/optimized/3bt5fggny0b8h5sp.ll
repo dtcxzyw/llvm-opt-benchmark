@@ -1356,7 +1356,7 @@ _ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit: ; preds = %165, %172,
   call void @llvm.experimental.noalias.scope.decl(metadata !287)
   %184 = load i64, ptr %56, align 8, !range !70, !alias.scope !290, !noalias !292, !noundef !5
   %185 = icmp eq i64 %184, 2
-  br i1 %185, label %189, label %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h056b565740848074E.exit170"
+  br i1 %185, label %189, label %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h056b565740848074E.argprom.exit170"
 
 186:                                              ; preds = %144
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %59), !noalias !255
@@ -1398,7 +1398,7 @@ _ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit: ; preds = %165, %172,
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h7e1f5fb30fcf3c66E.llvm.14011817705576975213"(ptr noalias noundef nonnull align 8 dereferenceable(8) %194)
           to label %195 unwind label %187
 
-"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h056b565740848074E.exit170": ; preds = %.noexc
+"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h056b565740848074E.argprom.exit170": ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %56), !noalias !283
   br label %199
 
@@ -1409,7 +1409,7 @@ _ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit: ; preds = %165, %172,
   %198 = trunc nuw i8 %197 to i1
   br i1 %198, label %_ZN3std4path7PathBuf4push17h61c7ec98beb2db6dE.exit, label %199
 
-199:                                              ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h056b565740848074E.exit170", %195
+199:                                              ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h056b565740848074E.argprom.exit170", %195
   %200 = getelementptr inbounds i8, ptr %4, i64 19
   %201 = load i8, ptr %200, align 1, !range !305, !noundef !5
   %202 = trunc nuw i8 %201 to i1
@@ -3553,9 +3553,9 @@ attributes #16 = { noreturn }
 !307 = distinct !{!307, !308, !"_ZN8fs_extra3dir16_get_dir_content17hf3e19637290f8c2fE: argument 0"}
 !308 = distinct !{!308, !"_ZN8fs_extra3dir16_get_dir_content17hf3e19637290f8c2fE"}
 !309 = distinct !{!309, !308, !"_ZN8fs_extra3dir16_get_dir_content17hf3e19637290f8c2fE: argument 1"}
-!310 = distinct !{!310, !311, !"_ZN8fs_extra3dir16get_dir_content217h0d1156ee7c5aa15bE: argument 0"}
-!311 = distinct !{!311, !"_ZN8fs_extra3dir16get_dir_content217h0d1156ee7c5aa15bE"}
-!312 = distinct !{!312, !311, !"_ZN8fs_extra3dir16get_dir_content217h0d1156ee7c5aa15bE: argument 1"}
+!310 = distinct !{!310, !311, !"_ZN8fs_extra3dir16get_dir_content217h0d1156ee7c5aa15bE.argprom: argument 0"}
+!311 = distinct !{!311, !"_ZN8fs_extra3dir16get_dir_content217h0d1156ee7c5aa15bE.argprom"}
+!312 = distinct !{!312, !311, !"_ZN8fs_extra3dir16get_dir_content217h0d1156ee7c5aa15bE.argprom: argument 1"}
 !313 = !{!307, !310}
 !314 = !{!315, !317, !307, !309, !310, !312}
 !315 = distinct !{!315, !316, !"_ZN3std2fs8metadata17h86ee351d27882cc1E: argument 0"}

@@ -1187,7 +1187,7 @@ define void @_ZN3nix7getHomeB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  invoke fastcc void @"_ZZN3nix7getHomeB5cxx11EvENK3$_0clB5cxx11Ev"()
+  invoke fastcc void @"_ZZN3nix7getHomeB5cxx11EvENK3$_0clB5cxx11Ev.argprom"()
           to label %7 unwind label %10
 
 7:                                                ; preds = %6
@@ -1207,7 +1207,7 @@ define void @_ZN3nix7getHomeB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3nix7getHomeB5cxx11EvENK3$_0clB5cxx11Ev"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3nix7getHomeB5cxx11EvENK3$_0clB5cxx11Ev.argprom"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::optional", align 8
   %2 = alloca %"class.std::optional", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1684,7 +1684,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %.not.i, label %26, label %23
 
 23:                                               ; preds = %21
-  invoke fastcc void @"_ZZN3nix7getHomeB5cxx11EvENK3$_0clB5cxx11Ev"()
+  invoke fastcc void @"_ZZN3nix7getHomeB5cxx11EvENK3$_0clB5cxx11Ev.argprom"()
           to label %24 unwind label %27, !noalias !8
 
 24:                                               ; preds = %23
@@ -1938,7 +1938,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %.not.i, label %26, label %23
 
 23:                                               ; preds = %21
-  invoke fastcc void @"_ZZN3nix7getHomeB5cxx11EvENK3$_0clB5cxx11Ev"()
+  invoke fastcc void @"_ZZN3nix7getHomeB5cxx11EvENK3$_0clB5cxx11Ev.argprom"()
           to label %24 unwind label %27, !noalias !11
 
 24:                                               ; preds = %23
@@ -2441,7 +2441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %.not.i, label %26, label %23
 
 23:                                               ; preds = %21
-  invoke fastcc void @"_ZZN3nix7getHomeB5cxx11EvENK3$_0clB5cxx11Ev"()
+  invoke fastcc void @"_ZZN3nix7getHomeB5cxx11EvENK3$_0clB5cxx11Ev.argprom"()
           to label %24 unwind label %27, !noalias !19
 
 24:                                               ; preds = %23
@@ -2605,7 +2605,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %.not.i, label %26, label %23
 
 23:                                               ; preds = %21
-  invoke fastcc void @"_ZZN3nix7getHomeB5cxx11EvENK3$_0clB5cxx11Ev"()
+  invoke fastcc void @"_ZZN3nix7getHomeB5cxx11EvENK3$_0clB5cxx11Ev.argprom"()
           to label %24 unwind label %27, !noalias !22
 
 24:                                               ; preds = %23
@@ -2833,7 +2833,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br i1 %.not.i, label %22, label %17
 
 17:                                               ; preds = %15
-  invoke fastcc void @"_ZZN3nix7getHomeB5cxx11EvENK3$_0clB5cxx11Ev"()
+  invoke fastcc void @"_ZZN3nix7getHomeB5cxx11EvENK3$_0clB5cxx11Ev.argprom"()
           to label %18 unwind label %20, !noalias !26
 
 18:                                               ; preds = %17

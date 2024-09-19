@@ -733,14 +733,14 @@ define internal fastcc void @spgWalk(ptr noundef %0, ptr noundef %1, i1 noundef 
   %43 = getelementptr inbounds i8, ptr %.val, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %spgGetNextQueueItem.exit.thread, label %spgGetNextQueueItem.exit
+  br i1 %45, label %spgGetNextQueueItem.argprom.exit.thread, label %spgGetNextQueueItem.argprom.exit
 
-spgGetNextQueueItem.exit:                         ; preds = %42
+spgGetNextQueueItem.argprom.exit:                 ; preds = %42
   %46 = call ptr @pairingheap_remove_first(ptr noundef nonnull %.val) #8
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %spgGetNextQueueItem.exit.thread, label %.preheader87
+  br i1 %47, label %spgGetNextQueueItem.argprom.exit.thread, label %.preheader87
 
-.preheader87:                                     ; preds = %spgGetNextQueueItem.exit
+.preheader87:                                     ; preds = %spgGetNextQueueItem.argprom.exit
   %48 = getelementptr inbounds i8, ptr %46, i64 59
   %49 = getelementptr inbounds i8, ptr %46, i64 52
   %50 = getelementptr i8, ptr %46, i64 54
@@ -1249,18 +1249,18 @@ spgFreeSearchItem.exit:                           ; preds = %294, %297
   %300 = trunc i8 %299 to i1
   %301 = xor i1 %300, true
   %302 = select i1 %2, i1 true, i1 %301
-  br i1 %302, label %42, label %spgGetNextQueueItem.exit.thread, !llvm.loop !18
+  br i1 %302, label %42, label %spgGetNextQueueItem.argprom.exit.thread, !llvm.loop !18
 
-spgGetNextQueueItem.exit.thread:                  ; preds = %spgFreeSearchItem.exit, %spgGetNextQueueItem.exit, %42
-  %.0.lcssa.ph = phi i32 [ %.2, %spgFreeSearchItem.exit ], [ %.0123, %spgGetNextQueueItem.exit ], [ %.0123, %42 ]
+spgGetNextQueueItem.argprom.exit.thread:          ; preds = %spgFreeSearchItem.exit, %spgGetNextQueueItem.argprom.exit, %42
+  %.0.lcssa.ph = phi i32 [ %.2, %spgFreeSearchItem.exit ], [ %.0123, %spgGetNextQueueItem.argprom.exit ], [ %.0123, %42 ]
   %.not74 = icmp eq i32 %.0.lcssa.ph, 0
   br i1 %.not74, label %304, label %303
 
-303:                                              ; preds = %spgGetNextQueueItem.exit.thread
+303:                                              ; preds = %spgGetNextQueueItem.argprom.exit.thread
   call void @UnlockReleaseBuffer(i32 noundef %.0.lcssa.ph) #8
   br label %304
 
-304:                                              ; preds = %303, %spgGetNextQueueItem.exit.thread
+304:                                              ; preds = %303, %spgGetNextQueueItem.argprom.exit.thread
   ret void
 }
 

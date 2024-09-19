@@ -394,7 +394,7 @@ bcwrite_bytecode.exit:                            ; preds = %for.inc.i, %lor.lhs
   %43 = getelementptr i8, ptr %pt, i64 32
   %pt.val76 = load i32, ptr %sizekgc21, align 8
   %cmp1.not.i = icmp eq i32 %pt.val76, 0
-  br i1 %cmp1.not.i, label %bcwrite_kgc.exit, label %for.body.lr.ph.i80
+  br i1 %cmp1.not.i, label %bcwrite_kgc.argprom.exit, label %for.body.lr.ph.i80
 
 for.body.lr.ph.i80:                               ; preds = %bcwrite_bytecode.exit
   %pt.val = load i64, ptr %43, align 8
@@ -858,9 +858,9 @@ for.inc.i84:                                      ; preds = %bcwrite_ktabk.exit.
   %inc.i85 = add nuw i32 %i.03.i, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %kr.02.i, i64 8
   %exitcond.not.i86 = icmp eq i32 %inc.i85, %pt.val76
-  br i1 %exitcond.not.i86, label %bcwrite_kgc.exit, label %for.body.i83, !llvm.loop !10
+  br i1 %exitcond.not.i86, label %bcwrite_kgc.argprom.exit, label %for.body.i83, !llvm.loop !10
 
-bcwrite_kgc.exit:                                 ; preds = %for.inc.i84, %bcwrite_bytecode.exit
+bcwrite_kgc.argprom.exit:                         ; preds = %for.inc.i84, %bcwrite_bytecode.exit
   %103 = phi ptr [ %add.ptr.i94, %bcwrite_bytecode.exit ], [ %102, %for.inc.i84 ]
   %pt.val77 = load i64, ptr %43, align 8
   %pt.val78 = load i32, ptr %sizekn, align 4
@@ -874,14 +874,14 @@ bcwrite_kgc.exit:                                 ; preds = %for.inc.i84, %bcwri
   %cmp.i.i97 = icmp ugt i32 %mul.i91, %conv.i.i96
   br i1 %cmp.i.i97, label %if.then.i.i110, label %lj_buf_more.exit.i98
 
-if.then.i.i110:                                   ; preds = %bcwrite_kgc.exit
+if.then.i.i110:                                   ; preds = %bcwrite_kgc.argprom.exit
   %call.i.i111 = tail call ptr @lj_buf_more2(ptr noundef nonnull %ctx, i32 noundef %mul.i91) #7
   br label %lj_buf_more.exit.i98
 
-lj_buf_more.exit.i98:                             ; preds = %if.then.i.i110, %bcwrite_kgc.exit
-  %retval.i.0.i99 = phi ptr [ %call.i.i111, %if.then.i.i110 ], [ %103, %bcwrite_kgc.exit ]
+lj_buf_more.exit.i98:                             ; preds = %if.then.i.i110, %bcwrite_kgc.argprom.exit
+  %retval.i.0.i99 = phi ptr [ %call.i.i111, %if.then.i.i110 ], [ %103, %bcwrite_kgc.argprom.exit ]
   %cmp1.not.i100 = icmp eq i32 %pt.val78, 0
-  br i1 %cmp1.not.i100, label %bcwrite_knum.exit, label %for.body.i101
+  br i1 %cmp1.not.i100, label %bcwrite_knum.argprom.exit, label %for.body.i101
 
 for.body.i101:                                    ; preds = %lj_buf_more.exit.i98, %for.inc.i106
   %i.04.i = phi i32 [ %inc.i107, %for.inc.i106 ], [ 0, %lj_buf_more.exit.i98 ]
@@ -956,15 +956,15 @@ for.inc.i106:                                     ; preds = %if.end39.i, %if.the
   %inc.i107 = add nuw i32 %i.04.i, 1
   %incdec.ptr.i108 = getelementptr inbounds i8, ptr %o.02.i, i64 8
   %exitcond.not.i109 = icmp eq i32 %inc.i107, %pt.val78
-  br i1 %exitcond.not.i109, label %bcwrite_knum.exit, label %for.body.i101, !llvm.loop !11
+  br i1 %exitcond.not.i109, label %bcwrite_knum.argprom.exit, label %for.body.i101, !llvm.loop !11
 
-bcwrite_knum.exit:                                ; preds = %for.inc.i106, %lj_buf_more.exit.i98
+bcwrite_knum.argprom.exit:                        ; preds = %for.inc.i106, %lj_buf_more.exit.i98
   %p.0.lcssa.i = phi ptr [ %retval.i.0.i99, %lj_buf_more.exit.i98 ], [ %p.1.i, %for.inc.i106 ]
   store ptr %p.0.lcssa.i, ptr %ctx, align 8
   %tobool51.not = icmp eq i32 %sizedbg.0, 0
   br i1 %tobool51.not, label %if.end60, label %if.then52
 
-if.then52:                                        ; preds = %bcwrite_knum.exit
+if.then52:                                        ; preds = %bcwrite_knum.argprom.exit
   %121 = load ptr, ptr %e.i, align 8
   %sub.ptr.lhs.cast.i99 = ptrtoint ptr %121 to i64
   %sub.ptr.rhs.cast.i100 = ptrtoint ptr %p.0.lcssa.i to i64
@@ -988,8 +988,8 @@ lj_buf_more.exit:                                 ; preds = %if.then52, %if.then
   store ptr %add.ptr.i, ptr %ctx, align 8
   br label %if.end60
 
-if.end60:                                         ; preds = %lj_buf_more.exit, %bcwrite_knum.exit
-  %124 = phi ptr [ %add.ptr.i, %lj_buf_more.exit ], [ %p.0.lcssa.i, %bcwrite_knum.exit ]
+if.end60:                                         ; preds = %lj_buf_more.exit, %bcwrite_knum.argprom.exit
+  %124 = phi ptr [ %add.ptr.i, %lj_buf_more.exit ], [ %p.0.lcssa.i, %bcwrite_knum.argprom.exit ]
   %status = getelementptr inbounds i8, ptr %ctx, i64 60
   %125 = load i32, ptr %status, align 4
   %cmp61 = icmp eq i32 %125, 0

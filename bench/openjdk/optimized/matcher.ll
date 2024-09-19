@@ -8323,7 +8323,7 @@ _ZN7Matcher9is_sharedEP4Node.exit:                ; preds = %61, %77
   %91 = getelementptr inbounds i8, ptr %90, i64 64
   %92 = load ptr, ptr %91, align 8
   %93 = tail call noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(20) %89) #15
-  br i1 %93, label %_ZL14match_into_regPK4NodePS_S2_ib.exit.thread71, label %94
+  br i1 %93, label %_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit.thread71, label %94
 
 94:                                               ; preds = %_ZN7Matcher9is_sharedEP4Node.exit
   %95 = getelementptr inbounds i8, ptr %64, i64 8
@@ -8352,7 +8352,7 @@ _ZN7Matcher9is_sharedEP4Node.exit:                ; preds = %61, %77
   %or.cond32.i = or i1 %.not.i, %or.cond.not7.i
   %.not31.i = icmp eq ptr %.05779, %109
   %or.cond33.i = or i1 %or.cond32.i, %.not31.i
-  br i1 %or.cond33.i, label %_ZL14match_into_regPK4NodePS_S2_ib.exit, label %.preheader.i
+  br i1 %or.cond33.i, label %_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %108, %122
   %.015.i = phi i32 [ %123, %122 ], [ 0, %108 ]
@@ -8361,7 +8361,7 @@ _ZN7Matcher9is_sharedEP4Node.exit:                ; preds = %61, %77
   %113 = load i32, ptr %112, align 4
   %114 = and i32 %113, 63
   %115 = icmp eq i32 %114, 32
-  br i1 %115, label %_ZL14match_into_regPK4NodePS_S2_ib.exit.thread, label %116
+  br i1 %115, label %_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit.thread, label %116
 
 116:                                              ; preds = %.preheader.i
   %117 = getelementptr inbounds i8, ptr %.02614.i, i64 8
@@ -8370,14 +8370,14 @@ _ZN7Matcher9is_sharedEP4Node.exit:                ; preds = %61, %77
   %120 = icmp eq ptr %119, %97
   %121 = icmp eq ptr %119, %109
   %or.cond34.i = or i1 %120, %121
-  br i1 %or.cond34.i, label %_ZL14match_into_regPK4NodePS_S2_ib.exit, label %122
+  br i1 %or.cond34.i, label %_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit, label %122
 
 122:                                              ; preds = %116
   %123 = add nuw nsw i32 %.015.i, 1
   %exitcond.not.i = icmp eq i32 %123, 6
-  br i1 %exitcond.not.i, label %_ZL14match_into_regPK4NodePS_S2_ib.exit.thread, label %.preheader.i, !llvm.loop !46
+  br i1 %exitcond.not.i, label %_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit.thread, label %.preheader.i, !llvm.loop !46
 
-_ZL14match_into_regPK4NodePS_S2_ib.exit:          ; preds = %116, %108
+_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit:  ; preds = %116, %108
   %124 = and i32 %99, 1023
   %125 = icmp ne i32 %124, 772
   %126 = load i32, ptr @LogMinObjAlignmentInBytes, align 4
@@ -8387,14 +8387,14 @@ _ZL14match_into_regPK4NodePS_S2_ib.exit:          ; preds = %116, %108
   %129 = icmp ne i32 %128, 1284
   %or.cond4.not.i = and i1 %129, %or.cond2.not11.i
   %spec.select.i = and i1 %.0.i.i, %or.cond4.not.i
-  br i1 %spec.select.i, label %_ZL14match_into_regPK4NodePS_S2_ib.exit.thread, label %_ZL14match_into_regPK4NodePS_S2_ib.exit.thread71
+  br i1 %spec.select.i, label %_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit.thread, label %_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit.thread71
 
-_ZL14match_into_regPK4NodePS_S2_ib.exit.thread71: ; preds = %_ZN7Matcher9is_sharedEP4Node.exit, %_ZL14match_into_regPK4NodePS_S2_ib.exit
+_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit.thread71: ; preds = %_ZN7Matcher9is_sharedEP4Node.exit, %_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit
   %130 = load ptr, ptr %4, align 8
   %.not66 = icmp eq ptr %130, inttoptr (i64 1 to ptr)
   br i1 %.not66, label %142, label %131
 
-131:                                              ; preds = %_ZL14match_into_regPK4NodePS_S2_ib.exit.thread71
+131:                                              ; preds = %_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit.thread71
   %132 = getelementptr inbounds i8, ptr %64, i64 44
   %133 = load i32, ptr %132, align 4
   %134 = and i32 %133, 63
@@ -8408,12 +8408,12 @@ _ZL14match_into_regPK4NodePS_S2_ib.exit.thread71: ; preds = %_ZN7Matcher9is_shar
   %140 = load ptr, ptr %139, align 8
   %141 = icmp ne ptr %140, %130
   %or.cond = select i1 %141, i1 true, i1 %22
-  br i1 %or.cond, label %_ZL14match_into_regPK4NodePS_S2_ib.exit.thread, label %148
+  br i1 %or.cond, label %_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit.thread, label %148
 
-142:                                              ; preds = %131, %_ZL14match_into_regPK4NodePS_S2_ib.exit.thread71
-  br i1 %22, label %_ZL14match_into_regPK4NodePS_S2_ib.exit.thread, label %148
+142:                                              ; preds = %131, %_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit.thread71
+  br i1 %22, label %_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit.thread, label %148
 
-_ZL14match_into_regPK4NodePS_S2_ib.exit.thread:   ; preds = %.preheader.i, %122, %142, %136, %_ZL14match_into_regPK4NodePS_S2_ib.exit
+_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit.thread: ; preds = %.preheader.i, %122, %142, %136, %_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit
   %143 = load ptr, ptr %64, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 112
   %145 = load ptr, ptr %144, align 8
@@ -8454,9 +8454,9 @@ _ZL14match_into_regPK4NodePS_S2_ib.exit.thread:   ; preds = %.preheader.i, %122,
   %169 = select i1 %165, i1 true, i1 %168
   br i1 %169, label %.loopexit, label %170
 
-170:                                              ; preds = %_ZL14match_into_regPK4NodePS_S2_ib.exit.thread, %158, %55
-  %.159 = phi i32 [ %68, %_ZL14match_into_regPK4NodePS_S2_ib.exit.thread ], [ %68, %158 ], [ %.05878, %55 ]
-  %.1 = phi ptr [ %.05779, %_ZL14match_into_regPK4NodePS_S2_ib.exit.thread ], [ %159, %158 ], [ %.05779, %55 ]
+170:                                              ; preds = %_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit.thread, %158, %55
+  %.159 = phi i32 [ %68, %_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit.thread ], [ %68, %158 ], [ %.05878, %55 ]
+  %.1 = phi ptr [ %.05779, %_ZL14match_into_regPK4NodePS_S2_ib.argprom.exit.thread ], [ %159, %158 ], [ %.05779, %55 ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
   br i1 %exitcond89.not, label %._crit_edge, label %55, !llvm.loop !47

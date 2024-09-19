@@ -1404,7 +1404,7 @@ addresses_equal.exit.i:                           ; preds = %203, %195, %virtual
 
 .preheader.i:                                     ; preds = %261
   %.not46617.i = icmp eq i16 %.0372.i, 0
-  br i1 %.not46617.i, label %dissect_dvb_s2_bb.exit, label %.lr.ph20.i
+  br i1 %.not46617.i, label %dissect_dvb_s2_bb.argprom.exit, label %.lr.ph20.i
 
 .lr.ph20.i:                                       ; preds = %.preheader.i
   %263 = icmp eq i8 %154, 1
@@ -1442,7 +1442,7 @@ addresses_equal.exit.i:                           ; preds = %203, %195, %virtual
   %288 = call i32 @crc32_mpeg2_tvb_offset(ptr noundef %92, i32 noundef 10, i32 noundef %287) #9
   %289 = call ptr @proto_tree_add_checksum(ptr noundef %99, ptr noundef %92, i32 noundef %.019.i, i32 noundef %285, i32 noundef %286, ptr noundef nonnull @ei_dvb_s2_bb_crc, ptr noundef nonnull %1, i32 noundef %288, i32 noundef 0, i32 noundef 1) #9
   %290 = add i32 %.019.i, 4
-  br label %dissect_dvb_s2_bb.exit
+  br label %dissect_dvb_s2_bb.argprom.exit
 
 291:                                              ; preds = %282
   %292 = zext i16 %.137318.i to i32
@@ -1933,21 +1933,21 @@ dissect_dvb_s2_gse.exit.i:                        ; preds = %502, %501, %303
   %512 = sub nuw i16 %.137318.i, %.0199.i.i
   %513 = icmp ult i16 %512, 2
   %or.cond44.i = select i1 %or.cond4.not46.i, i1 true, i1 %513
-  br i1 %or.cond44.i, label %dissect_dvb_s2_bb.exit, label %282, !llvm.loop !6
+  br i1 %or.cond44.i, label %dissect_dvb_s2_bb.argprom.exit, label %282, !llvm.loop !6
 
 514:                                              ; preds = %261
   %515 = load i32, ptr @hf_dvb_s2_bb_df, align 4
   %516 = and i32 %.0372.in.i, 65535
   %517 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %515, ptr noundef %92, i32 noundef 10, i32 noundef %516, i32 noundef 0) #9
   %518 = add nuw nsw i32 %516, 10
-  br label %dissect_dvb_s2_bb.exit
+  br label %dissect_dvb_s2_bb.argprom.exit
 
 519:                                              ; preds = %219
   %520 = load i32, ptr @hf_dvb_s2_bb_packetized, align 4
   %521 = and i32 %.0372.in.i, 65535
   %522 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %520, ptr noundef %92, i32 noundef 10, i32 noundef %521, i32 noundef 0) #9
   %523 = add nuw nsw i32 %521, 10
-  br label %dissect_dvb_s2_bb.exit
+  br label %dissect_dvb_s2_bb.argprom.exit
 
 524:                                              ; preds = %219
   %.not437.i = icmp eq i8 %154, 71
@@ -2331,20 +2331,20 @@ compute_crc8.exit477.i:                           ; preds = %.lr.ph.i472.i, %659
 
 690:                                              ; preds = %688, %._crit_edge.i
   %.not459.i = icmp eq i32 %.2368.lcssa.i, 0
-  br i1 %.not459.i, label %dissect_dvb_s2_bb.exit, label %691
+  br i1 %.not459.i, label %dissect_dvb_s2_bb.argprom.exit, label %691
 
 691:                                              ; preds = %690
   call void @tvb_composite_finalize(ptr noundef %.2386.lcssa.i) #9
   call void @add_new_data_source(ptr noundef %1, ptr noundef %.2386.lcssa.i, ptr noundef nonnull @.str.668) #9
   %692 = load ptr, ptr @mp2t_handle, align 8
   %693 = call i32 @call_dissector(ptr noundef %692, ptr noundef %.2386.lcssa.i, ptr noundef %1, ptr noundef %2) #9
-  br label %dissect_dvb_s2_bb.exit
+  br label %dissect_dvb_s2_bb.argprom.exit
 
 694:                                              ; preds = %572
   %695 = load i32, ptr @hf_dvb_s2_bb_transport, align 4
   %696 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %695, ptr noundef %92, i32 noundef 10, i32 noundef %529, i32 noundef 0) #9
   %697 = add nuw nsw i32 %529, 10
-  br label %dissect_dvb_s2_bb.exit
+  br label %dissect_dvb_s2_bb.argprom.exit
 
 default.unreachable:                              ; preds = %219
   unreachable
@@ -2355,9 +2355,9 @@ default.unreachable:                              ; preds = %219
   %701 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %699, ptr noundef %92, i32 noundef 10, i32 noundef %700, i32 noundef 0) #9
   %702 = add nuw nsw i32 %700, 10
   %703 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %97, ptr noundef nonnull @ei_dvb_s2_bb_reserved) #9
-  br label %dissect_dvb_s2_bb.exit
+  br label %dissect_dvb_s2_bb.argprom.exit
 
-dissect_dvb_s2_bb.exit:                           ; preds = %dissect_dvb_s2_gse.exit.i, %.preheader.i, %284, %514, %519, %690, %691, %694, %698
+dissect_dvb_s2_bb.argprom.exit:                   ; preds = %dissect_dvb_s2_gse.exit.i, %.preheader.i, %284, %514, %519, %690, %691, %694, %698
   %.2.i = phi i32 [ %702, %698 ], [ %.4.lcssa.i, %691 ], [ %.4.lcssa.i, %690 ], [ %697, %694 ], [ %523, %519 ], [ %518, %514 ], [ 10, %.preheader.i ], [ %290, %284 ], [ %509, %dissect_dvb_s2_gse.exit.i ]
   %704 = add i32 %.2.i, %.0
   ret i32 %704

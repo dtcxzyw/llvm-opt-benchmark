@@ -1118,7 +1118,7 @@ _ZNK3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsE
   %ref.tmp3.sroa.5.0.i.i.i.i95.i = phi ptr [ null, %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEED2Ev.exit.i ], [ %storemerge10.i.i.i.i.i91.i, %while.cond.i.i.i.i.i88.i ], [ %storemerge10.i.i.i.i.i91.i, %while.body.i.i.i.i.i108.i ]
   %cmp.i.i.i.i.i.i.i28.i.i.i.i = icmp eq ptr %ref.tmp3.sroa.0.1.i.i.i.i93.i, %m_header.i.i.i.i.i.i.i.i.i
   %.pre.i107.i = and i64 %6, 4294967295
-  br i1 %cmp.i.i.i.i.i.i.i28.i.i.i.i, label %"_ZN3ue214remove_edge_ifINS_8NGHolderEZNS_L20removeEdgesFromIndexERS1_RSt6vectorIySaIyEEjE3$_0EENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeET0_RS9_.exit.i.i", label %while.body.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i28.i.i.i.i, label %"_ZN3ue214remove_edge_ifINS_8NGHolderEZNS_L20removeEdgesFromIndexERS1_RSt6vectorIySaIyEEjE3$_0EENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeET0_RS9_.argprom.exit.i.i", label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZNK3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE10edges_implEv.exit.i.i.i.i, %if.end.i.i.i.i
   %it.sroa.16.031.i.i.i.i = phi ptr [ %it.sroa.16.2.i.i.i.i, %if.end.i.i.i.i ], [ %ref.tmp3.sroa.8.0.i.i.i.i94.i, %_ZNK3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE10edges_implEv.exit.i.i.i.i ]
@@ -1206,9 +1206,9 @@ _ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE
 
 if.end.i.i.i.i:                                   ; preds = %_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE16remove_edge_implENS_12graph_detail15edge_descriptorIS4_EE.exit.i.i.i.i, %_ZN5boost9iterators6detail20iterator_facade_baseIN3ue29ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEE13edge_iteratorENS3_12graph_detail15edge_descriptorIS8_EENS0_21forward_traversal_tagESC_lLb0ELb0EEppEv.exit.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %it.sroa.0.1.i.i.i.i, %m_header.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN3ue214remove_edge_ifINS_8NGHolderEZNS_L20removeEdgesFromIndexERS1_RSt6vectorIySaIyEEjE3$_0EENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeET0_RS9_.exit.i.i", label %while.body.i.i.i.i, !llvm.loop !67
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN3ue214remove_edge_ifINS_8NGHolderEZNS_L20removeEdgesFromIndexERS1_RSt6vectorIySaIyEEjE3$_0EENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeET0_RS9_.argprom.exit.i.i", label %while.body.i.i.i.i, !llvm.loop !67
 
-"_ZN3ue214remove_edge_ifINS_8NGHolderEZNS_L20removeEdgesFromIndexERS1_RSt6vectorIySaIyEEjE3$_0EENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeET0_RS9_.exit.i.i": ; preds = %if.end.i.i.i.i, %_ZNK3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE10edges_implEv.exit.i.i.i.i
+"_ZN3ue214remove_edge_ifINS_8NGHolderEZNS_L20removeEdgesFromIndexERS1_RSt6vectorIySaIyEEjE3$_0EENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeET0_RS9_.argprom.exit.i.i": ; preds = %if.end.i.i.i.i, %_ZNK3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE10edges_implEv.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i98.i = ptrtoint ptr %capacityMap.sroa.14.5.i to i64
   %sub.ptr.rhs.cast.i.i.i99.i = ptrtoint ptr %capacityMap.sroa.0.7.i to i64
   %sub.ptr.sub.i.i.i100.i = sub i64 %sub.ptr.lhs.cast.i.i.i98.i, %sub.ptr.rhs.cast.i.i.i99.i
@@ -1216,7 +1216,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZN3ue29ue2_graphIN
   %cmp.i.i102.i = icmp ult i64 %sub.ptr.div.i.i.i101.i, %.pre.i107.i
   br i1 %cmp.i.i102.i, label %if.then.i.i105.i, label %_ZNSt6vectorIySaIyEE6resizeEm.exit.i.i
 
-if.then.i.i105.i:                                 ; preds = %"_ZN3ue214remove_edge_ifINS_8NGHolderEZNS_L20removeEdgesFromIndexERS1_RSt6vectorIySaIyEEjE3$_0EENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeET0_RS9_.exit.i.i"
+if.then.i.i105.i:                                 ; preds = %"_ZN3ue214remove_edge_ifINS_8NGHolderEZNS_L20removeEdgesFromIndexERS1_RSt6vectorIySaIyEEjE3$_0EENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeET0_RS9_.argprom.exit.i.i"
   %sub.i.i106.i = sub nuw nsw i64 %.pre.i107.i, %sub.ptr.div.i.i.i101.i
   %sub.ptr.lhs.cast.i203.i = ptrtoint ptr %capacityMap.sroa.27.5.i to i64
   %sub.ptr.sub.i204.i = sub i64 %sub.ptr.lhs.cast.i203.i, %sub.ptr.lhs.cast.i.i.i98.i
@@ -1287,8 +1287,8 @@ if.then.i32.i231.i:                               ; preds = %_ZNSt6vectorIySaIyE
   call void @_ZdlPv(ptr noundef nonnull %capacityMap.sroa.0.7.i) #22
   br label %_ZNSt6vectorIySaIyEE6resizeEm.exit.i.i
 
-_ZNSt6vectorIySaIyEE6resizeEm.exit.i.i:           ; preds = %if.then.i32.i231.i, %_ZNSt6vectorIySaIyEE11_S_relocateEPyS2_S2_RS0_.exit.i229.i, %if.end.i.i.i.i.i.i213.i, %if.then.i.i.i.i210.i, %"_ZN3ue214remove_edge_ifINS_8NGHolderEZNS_L20removeEdgesFromIndexERS1_RSt6vectorIySaIyEEjE3$_0EENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeET0_RS9_.exit.i.i"
-  %capacityMap.sroa.0.9.i = phi ptr [ %capacityMap.sroa.0.7.i, %if.end.i.i.i.i.i.i213.i ], [ %capacityMap.sroa.0.7.i, %if.then.i.i.i.i210.i ], [ %call5.i.i.i.i239.i, %if.then.i32.i231.i ], [ %call5.i.i.i.i239.i, %_ZNSt6vectorIySaIyEE11_S_relocateEPyS2_S2_RS0_.exit.i229.i ], [ %capacityMap.sroa.0.7.i, %"_ZN3ue214remove_edge_ifINS_8NGHolderEZNS_L20removeEdgesFromIndexERS1_RSt6vectorIySaIyEEjE3$_0EENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeET0_RS9_.exit.i.i" ]
+_ZNSt6vectorIySaIyEE6resizeEm.exit.i.i:           ; preds = %if.then.i32.i231.i, %_ZNSt6vectorIySaIyEE11_S_relocateEPyS2_S2_RS0_.exit.i229.i, %if.end.i.i.i.i.i.i213.i, %if.then.i.i.i.i210.i, %"_ZN3ue214remove_edge_ifINS_8NGHolderEZNS_L20removeEdgesFromIndexERS1_RSt6vectorIySaIyEEjE3$_0EENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeET0_RS9_.argprom.exit.i.i"
+  %capacityMap.sroa.0.9.i = phi ptr [ %capacityMap.sroa.0.7.i, %if.end.i.i.i.i.i.i213.i ], [ %capacityMap.sroa.0.7.i, %if.then.i.i.i.i210.i ], [ %call5.i.i.i.i239.i, %if.then.i32.i231.i ], [ %call5.i.i.i.i239.i, %_ZNSt6vectorIySaIyEE11_S_relocateEPyS2_S2_RS0_.exit.i229.i ], [ %capacityMap.sroa.0.7.i, %"_ZN3ue214remove_edge_ifINS_8NGHolderEZNS_L20removeEdgesFromIndexERS1_RSt6vectorIySaIyEEjE3$_0EENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeET0_RS9_.argprom.exit.i.i" ]
   %next_edge_index.i.i.i.i = getelementptr inbounds i8, ptr %h, i64 40
   store i64 0, ptr %next_edge_index.i.i.i.i, align 8
   %103 = load ptr, ptr %m_header.i.i.i.i.i.i.i.i.i, align 8, !noalias !68

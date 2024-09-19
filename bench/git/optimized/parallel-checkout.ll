@@ -98,7 +98,7 @@ lor.lhs.false.i:                                  ; preds = %if.then
 
 if.then4:                                         ; preds = %lor.lhs.false.i, %if.then
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  %call5 = tail call fastcc ptr @_()
+  %call5 = tail call fastcc ptr @_.argprom()
   tail call void (ptr, ...) @die(ptr noundef %call5, ptr noundef nonnull @.str, ptr noundef nonnull %call) #18
   unreachable
 
@@ -154,7 +154,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #2
 declare void @die(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_() unnamed_addr #1 {
+define internal fastcc ptr @_.argprom() unnamed_addr #1 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not = icmp eq i32 %0, 0

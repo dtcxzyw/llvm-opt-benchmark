@@ -7039,7 +7039,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i.i.i.i: ; preds =
   %edges_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
   store ptr %retval.0.i.i.i.i.i, ptr %edges_.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i.i, ptr %7, align 8
-  br label %"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree10CreateSlowEPNS1_7CordRepEE3$_0JS4_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.exit"
+  br label %"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree10CreateSlowEPNS1_7CordRepEE3$_0JS4_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.argprom.exit"
 
 if.else.i.i.i.i:                                  ; preds = %_ZN4absl13cord_internal12_GLOBAL__N_113MakeSubstringEPNS0_7CordRepEmm.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %ops.i.i.i.i.i)
@@ -7135,9 +7135,9 @@ _ZN4absl13cord_internal12CordRepBtree10AddCordRepILNS1_8EdgeTypeE1EEEPS1_S4_PNS0
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %ops.i.i.i.i.i)
   %25 = load ptr, ptr %ptr.coerce, align 8
   store ptr %call5.i.i.i.i.i, ptr %25, align 8
-  br label %"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree10CreateSlowEPNS1_7CordRepEE3$_0JS4_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.exit"
+  br label %"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree10CreateSlowEPNS1_7CordRepEE3$_0JS4_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.argprom.exit"
 
-"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree10CreateSlowEPNS1_7CordRepEE3$_0JS4_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.exit": ; preds = %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i.i.i.i, %_ZN4absl13cord_internal12CordRepBtree10AddCordRepILNS1_8EdgeTypeE1EEEPS1_S4_PNS0_7CordRepE.exit.i.i.i.i
+"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree10CreateSlowEPNS1_7CordRepEE3$_0JS4_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.argprom.exit": ; preds = %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i.i.i.i, %_ZN4absl13cord_internal12CordRepBtree10AddCordRepILNS1_8EdgeTypeE1EEEPS1_S4_PNS0_7CordRepE.exit.i.i.i.i
   ret void
 }
 
@@ -7248,7 +7248,7 @@ while.end.thread.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i.i.
   %cond38.i.i.i.i.i.i = zext i1 %cmp.i1237.i.i.i.i.i.i to i32
   %add39.i.i.i.i.i.i = add nuw nsw i32 %cond38.i.i.i.i.i.i, %conv.i.i.i.i.i.i
   store i32 %add39.i.i.i.i.i.i, ptr %ops.i.i.i.i.i, align 8
-  br label %"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree10AppendSlowEPS2_PNS1_7CordRepEE3$_0JS5_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.exit"
+  br label %"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree10AppendSlowEPS2_PNS1_7CordRepEE3$_0JS5_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom.exit"
 
 while.end.loopexit.i.i.i.i.i.i:                   ; preds = %land.rhs.i.i.i.i.i.i
   %15 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i.i to i32
@@ -7264,7 +7264,7 @@ while.end.i.i.i.i.i.i:                            ; preds = %while.end.loopexit.
   %add.i.i3.i.i.i.i = add nuw nsw i32 %current_depth.0.lcssa.i.i.i.i.i.i, %cond.i.i.i.i.i.i
   store i32 %add.i.i3.i.i.i.i, ptr %ops.i.i.i.i.i, align 8
   %cmp726.i.i.i.i.i.i = icmp slt i32 %current_depth.0.lcssa.i.i.i.i.i.i, %conv.i.i.i.i.i.i
-  br i1 %cmp726.i.i.i.i.i.i, label %while.body8.lr.ph.i.i.i.i.i.i, label %"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree10AppendSlowEPS2_PNS1_7CordRepEE3$_0JS5_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.exit"
+  br i1 %cmp726.i.i.i.i.i.i, label %while.body8.lr.ph.i.i.i.i.i.i, label %"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree10AppendSlowEPS2_PNS1_7CordRepEE3$_0JS5_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom.exit"
 
 while.body8.lr.ph.i.i.i.i.i.i:                    ; preds = %while.end.i.i.i.i.i.i
   %stack9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ops.i.i.i.i.i, i64 8
@@ -7286,9 +7286,9 @@ while.body8.i.i.i.i.i.i:                          ; preds = %while.body8.i.i.i.i
   %arrayidx.i19.i.i.i.i.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i18.i.i.i.i.i.i, i64 0, i64 %sub.i.i17.i.i.i.i.i.i
   %19 = load ptr, ptr %arrayidx.i19.i.i.i.i.i.i, align 8
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next32.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree10AppendSlowEPS2_PNS1_7CordRepEE3$_0JS5_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.exit", label %while.body8.i.i.i.i.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i.i.i.i, label %"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree10AppendSlowEPS2_PNS1_7CordRepEE3$_0JS5_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom.exit", label %while.body8.i.i.i.i.i.i, !llvm.loop !14
 
-"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree10AppendSlowEPS2_PNS1_7CordRepEE3$_0JS5_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.exit": ; preds = %while.body8.i.i.i.i.i.i, %while.end.thread.i.i.i.i.i.i, %while.end.i.i.i.i.i.i
+"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree10AppendSlowEPS2_PNS1_7CordRepEE3$_0JS5_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom.exit": ; preds = %while.body8.i.i.i.i.i.i, %while.end.thread.i.i.i.i.i.i, %while.end.i.i.i.i.i.i
   %ops.val.i.i.i.i.i = phi i32 [ %add.i.i3.i.i.i.i, %while.end.i.i.i.i.i.i ], [ %add39.i.i.i.i.i.i, %while.end.thread.i.i.i.i.i.i ], [ %add.i.i3.i.i.i.i, %while.body8.i.i.i.i.i.i ]
   %tree.addr.1.lcssa.i.i.i.i.i.i = phi ptr [ %tree.addr.0.lcssa.i.i.i.i.i.i, %while.end.i.i.i.i.i.i ], [ %13, %while.end.thread.i.i.i.i.i.i ], [ %19, %while.body8.i.i.i.i.i.i ]
   %cmp.i.i4.i.i.i.i = icmp sgt i32 %ops.val.i.i.i.i.i, %conv.i.i.i.i.i.i
@@ -7408,7 +7408,7 @@ while.end.thread.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i.i.
   %cond38.i.i.i.i.i.i = zext i1 %cmp.i1237.i.i.i.i.i.i to i32
   %add39.i.i.i.i.i.i = add nuw nsw i32 %cond38.i.i.i.i.i.i, %conv.i.i.i.i.i.i
   store i32 %add39.i.i.i.i.i.i, ptr %ops.i.i.i.i.i, align 8
-  br label %"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree11PrependSlowEPS2_PNS1_7CordRepEE3$_0JS5_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.exit"
+  br label %"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree11PrependSlowEPS2_PNS1_7CordRepEE3$_0JS5_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom.exit"
 
 while.end.loopexit.i.i.i.i.i.i:                   ; preds = %land.rhs.i.i.i.i.i.i
   %15 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i.i to i32
@@ -7424,7 +7424,7 @@ while.end.i.i.i.i.i.i:                            ; preds = %while.end.loopexit.
   %add.i.i3.i.i.i.i = add nuw nsw i32 %current_depth.0.lcssa.i.i.i.i.i.i, %cond.i.i.i.i.i.i
   store i32 %add.i.i3.i.i.i.i, ptr %ops.i.i.i.i.i, align 8
   %cmp726.i.i.i.i.i.i = icmp slt i32 %current_depth.0.lcssa.i.i.i.i.i.i, %conv.i.i.i.i.i.i
-  br i1 %cmp726.i.i.i.i.i.i, label %while.body8.lr.ph.i.i.i.i.i.i, label %"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree11PrependSlowEPS2_PNS1_7CordRepEE3$_0JS5_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.exit"
+  br i1 %cmp726.i.i.i.i.i.i, label %while.body8.lr.ph.i.i.i.i.i.i, label %"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree11PrependSlowEPS2_PNS1_7CordRepEE3$_0JS5_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom.exit"
 
 while.body8.lr.ph.i.i.i.i.i.i:                    ; preds = %while.end.i.i.i.i.i.i
   %stack9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ops.i.i.i.i.i, i64 8
@@ -7445,9 +7445,9 @@ while.body8.i.i.i.i.i.i:                          ; preds = %while.body8.i.i.i.i
   %arrayidx.i19.i.i.i.i.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i18.i.i.i.i.i.i, i64 0, i64 %conv.i.i14.i.i.i.i.i.i
   %19 = load ptr, ptr %arrayidx.i19.i.i.i.i.i.i, align 8
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next32.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree11PrependSlowEPS2_PNS1_7CordRepEE3$_0JS5_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.exit", label %while.body8.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i.i.i, label %"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree11PrependSlowEPS2_PNS1_7CordRepEE3$_0JS5_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom.exit", label %while.body8.i.i.i.i.i.i, !llvm.loop !7
 
-"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree11PrependSlowEPS2_PNS1_7CordRepEE3$_0JS5_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.exit": ; preds = %while.body8.i.i.i.i.i.i, %while.end.thread.i.i.i.i.i.i, %while.end.i.i.i.i.i.i
+"_ZSt6invokeIRKZN4absl13cord_internal12CordRepBtree11PrependSlowEPS2_PNS1_7CordRepEE3$_0JS5_mmEENSt13invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom.exit": ; preds = %while.body8.i.i.i.i.i.i, %while.end.thread.i.i.i.i.i.i, %while.end.i.i.i.i.i.i
   %ops.val.i.i.i.i.i = phi i32 [ %add.i.i3.i.i.i.i, %while.end.i.i.i.i.i.i ], [ %add39.i.i.i.i.i.i, %while.end.thread.i.i.i.i.i.i ], [ %add.i.i3.i.i.i.i, %while.body8.i.i.i.i.i.i ]
   %tree.addr.1.lcssa.i.i.i.i.i.i = phi ptr [ %tree.addr.0.lcssa.i.i.i.i.i.i, %while.end.i.i.i.i.i.i ], [ %13, %while.end.thread.i.i.i.i.i.i ], [ %19, %while.body8.i.i.i.i.i.i ]
   %cmp.i.i4.i.i.i.i = icmp sgt i32 %ops.val.i.i.i.i.i, %conv.i.i.i.i.i.i

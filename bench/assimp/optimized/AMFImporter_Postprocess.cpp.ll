@@ -1528,7 +1528,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %10 = load ptr, ptr %TexMap8, align 8
   %cmp2.i = icmp eq ptr %10, null
   %brmerge11.i = or i1 %cmp.i9, %cmp2.i
-  br i1 %brmerge11.i, label %"_ZZN6Assimp11AMFImporter39PostprocessHelper_SplitFacesByTextureIDERNSt7__cxx114listINS0_12SComplexFaceESaIS3_EEERNS2_IS5_SaIS5_EEEENK3$_0clEPK9AMFTexMapSD_.exit", label %if.end8.i
+  br i1 %brmerge11.i, label %"_ZZN6Assimp11AMFImporter39PostprocessHelper_SplitFacesByTextureIDERNSt7__cxx114listINS0_12SComplexFaceESaIS3_EEERNS2_IS5_SaIS5_EEEENK3$_0clEPK9AMFTexMapSD_.argprom.exit", label %if.end8.i
 
 if.end8.i:                                        ; preds = %for.body
   %TextureID_R9.i = getelementptr inbounds i8, ptr %10, i64 120
@@ -1607,11 +1607,11 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit4
   %.not17.i = icmp eq i32 %bcmp.i.i46.fr.i, 0
   br i1 %.not17.i, label %if.then10, label %if.else
 
-"_ZZN6Assimp11AMFImporter39PostprocessHelper_SplitFacesByTextureIDERNSt7__cxx114listINS0_12SComplexFaceESaIS3_EEERNS2_IS5_SaIS5_EEEENK3$_0clEPK9AMFTexMapSD_.exit": ; preds = %for.body
+"_ZZN6Assimp11AMFImporter39PostprocessHelper_SplitFacesByTextureIDERNSt7__cxx114listINS0_12SComplexFaceESaIS3_EEERNS2_IS5_SaIS5_EEEENK3$_0clEPK9AMFTexMapSD_.argprom.exit": ; preds = %for.body
   %.mux.mux.i = and i1 %cmp.i9, %cmp2.i
   br i1 %.mux.mux.i, label %if.then10, label %if.else
 
-if.then10:                                        ; preds = %land.rhs.i.i40.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit47.i, %"_ZZN6Assimp11AMFImporter39PostprocessHelper_SplitFacesByTextureIDERNSt7__cxx114listINS0_12SComplexFaceESaIS3_EEERNS2_IS5_SaIS5_EEEENK3$_0clEPK9AMFTexMapSD_.exit"
+if.then10:                                        ; preds = %land.rhs.i.i40.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit47.i, %"_ZZN6Assimp11AMFImporter39PostprocessHelper_SplitFacesByTextureIDERNSt7__cxx114listINS0_12SComplexFaceESaIS3_EEERNS2_IS5_SaIS5_EEEENK3$_0clEPK9AMFTexMapSD_.argprom.exit"
   %11 = load ptr, ptr %it.sroa.0.048, align 8
   %call5.i.i.i.i.i.i14 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26
           to label %call5.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -1701,7 +1701,7 @@ delete.notnull.i.i:                               ; preds = %lpad.body
 _ZN6Assimp11AMFImporter12SComplexFaceD2Ev.exit:   ; preds = %lpad.body, %delete.notnull.i.i
   resume { ptr, i32 } %eh.lpad-body
 
-if.else:                                          ; preds = %if.end19.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit47.i, %if.end15.i, %if.end11.i, %if.end8.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit35.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit23.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i, %"_ZZN6Assimp11AMFImporter39PostprocessHelper_SplitFacesByTextureIDERNSt7__cxx114listINS0_12SComplexFaceESaIS3_EEERNS2_IS5_SaIS5_EEEENK3$_0clEPK9AMFTexMapSD_.exit"
+if.else:                                          ; preds = %if.end19.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit47.i, %if.end15.i, %if.end11.i, %if.end8.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit35.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit23.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i, %"_ZZN6Assimp11AMFImporter39PostprocessHelper_SplitFacesByTextureIDERNSt7__cxx114listINS0_12SComplexFaceESaIS3_EEERNS2_IS5_SaIS5_EEEENK3$_0clEPK9AMFTexMapSD_.argprom.exit"
   %19 = load ptr, ptr %it.sroa.0.048, align 8
   br label %if.end18
 
@@ -2457,7 +2457,7 @@ invoke.cont105:                                   ; preds = %_ZNSt12_Vector_base
   %24 = load i32, ptr %23, align 4
   %conv29.i = zext i32 %24 to i64
   %cmp.i25.not2134.i = icmp eq ptr %22, %_M_storage.i.i108
-  br i1 %cmp.i25.not2134.i, label %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit", label %for.body37.us.i
+  br i1 %cmp.i25.not2134.i, label %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.argprom.exit", label %for.body37.us.i
 
 for.body37.us.i:                                  ; preds = %invoke.cont105, %for.cond35.loopexit.us.i
   %__begin5.sroa.0.023.us.i = phi ptr [ %__begin5.sroa.0.0.us.i, %for.cond35.loopexit.us.i ], [ %22, %invoke.cont105 ]
@@ -2472,7 +2472,7 @@ for.cond35.loopexit.us.i:                         ; preds = %for.body45.us.us.i,
   %rv.5.lcssa.us.i = phi i64 [ %rv.422.us.i, %for.body37.us.i ], [ %rv.5.mux.us.us.i, %for.body45.us.us.i ]
   %__begin5.sroa.0.0.us.i = load ptr, ptr %__begin5.sroa.0.023.us.i, align 8
   %cmp.i25.not.us.i = icmp eq ptr %__begin5.sroa.0.0.us.i, %_M_storage.i.i108
-  br i1 %cmp.i25.not.us.i, label %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit", label %for.body37.us.i
+  br i1 %cmp.i25.not.us.i, label %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.argprom.exit", label %for.body37.us.i
 
 for.body45.lr.ph.us.i:                            ; preds = %for.body37.us.i
   %mIndices47.us.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.023.us.i, i64 24
@@ -2490,7 +2490,7 @@ for.body45.us.us.i:                               ; preds = %for.body45.us.us.i,
   %exitcond30.not.i = icmp eq i64 %inc73.us.us.i, %conv43.us.i
   br i1 %exitcond30.not.i, label %for.cond35.loopexit.us.i, label %for.body45.us.us.i, !llvm.loop !21
 
-"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit": ; preds = %for.cond35.loopexit.us.i, %invoke.cont105
+"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.argprom.exit": ; preds = %for.cond35.loopexit.us.i, %invoke.cont105
   %retval.0.i = phi i64 [ %conv29.i, %invoke.cont105 ], [ %rv.5.lcssa.us.i, %for.cond35.loopexit.us.i ]
   %28 = load ptr, ptr %_M_finish.i.i.i, align 8
   %29 = load ptr, ptr %pVertexCoordinateArray, align 8
@@ -2501,14 +2501,14 @@ for.body45.us.us.i:                               ; preds = %for.body45.us.us.i,
   %cmp.not.i.i = icmp ult i64 %retval.0.i, %sub.ptr.div.i.i.i
   br i1 %cmp.not.i.i, label %invoke.cont108, label %if.then.i.i139
 
-if.then.i.i139:                                   ; preds = %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit"
+if.then.i.i139:                                   ; preds = %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.argprom.exit"
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.16, i64 noundef %retval.0.i, i64 noundef %sub.ptr.div.i.i.i) #25
           to label %.noexc140 unwind label %lpad102.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc140:                                        ; preds = %if.then.i.i139
   unreachable
 
-invoke.cont108:                                   ; preds = %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit"
+invoke.cont108:                                   ; preds = %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.argprom.exit"
   %add.ptr.i.i = getelementptr inbounds %class.aiVector3t, ptr %29, i64 %retval.0.i
   %cmp.not.i = icmp eq ptr %vert_arr.sroa.0.13870, %vert_arr.sroa.42.11866
   br i1 %cmp.not.i, label %cond.true.i.i.i, label %if.then.i141
@@ -2716,7 +2716,7 @@ for.cond35.loopexit.i:                            ; preds = %for.body45.i, %for.
   %rv.5.lcssa.i = phi i64 [ %rv.422.i, %for.body37.i ], [ %rv.6.i, %for.body45.i ]
   %__begin5.sroa.0.0.i170 = load ptr, ptr %__begin5.sroa.0.023.i, align 8
   %cmp.i25.not.i = icmp eq ptr %__begin5.sroa.0.0.i170, %_M_storage.i.i108
-  br i1 %cmp.i25.not.i, label %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit195", label %for.body37.i
+  br i1 %cmp.i25.not.i, label %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.argprom.exit195", label %for.body37.i
 
 for.body37.i:                                     ; preds = %for.body8.i, %for.cond35.loopexit.i
   %__begin5.sroa.0.023.i = phi ptr [ %__begin5.sroa.0.0.i170, %for.cond35.loopexit.i ], [ %__begin6.sroa.0.014.i1275, %for.body8.i ]
@@ -2747,11 +2747,11 @@ for.body45.i:                                     ; preds = %for.body45.i, %for.
   %exitcond29.not.i = icmp eq i64 %inc73.i, %conv43.i
   br i1 %exitcond29.not.i, label %for.cond35.loopexit.i, label %for.body45.i, !llvm.loop !21
 
-"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit195": ; preds = %for.cond35.loopexit.i
+"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.argprom.exit195": ; preds = %for.cond35.loopexit.i
   %cmp120 = icmp eq i64 %rv.5.lcssa.i, %vert_idx_to.01270
   br i1 %cmp120, label %do.end, label %if.end122
 
-if.end122:                                        ; preds = %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit195"
+if.end122:                                        ; preds = %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.argprom.exit195"
   %43 = load ptr, ptr %_M_finish.i.i.i, align 8
   %44 = load ptr, ptr %pVertexCoordinateArray, align 8
   %sub.ptr.lhs.cast.i.i.i197 = ptrtoint ptr %43 to i64
@@ -2978,14 +2978,14 @@ do.cond:                                          ; preds = %do.cond.loopexit, %
   %cmp.i.not15.i = icmp eq ptr %__begin6.sroa.0.014.i, %_M_storage.i.i108
   br i1 %cmp.i.not15.i, label %do.end, label %for.body.i161.preheader, !llvm.loop !33
 
-do.end:                                           ; preds = %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit195", %do.cond, %for.cond.loopexit.i167, %if.end117
-  %vert_arr.sroa.42.2964 = phi ptr [ %vert_arr.sroa.42.12, %if.end117 ], [ %vert_arr.sroa.42.21266, %for.cond.loopexit.i167 ], [ %vert_arr.sroa.42.21266, %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit195" ], [ %vert_arr.sroa.42.13, %do.cond ]
-  %col_arr.sroa.0.4958 = phi ptr [ %col_arr.sroa.0.14, %if.end117 ], [ %col_arr.sroa.0.41267, %for.cond.loopexit.i167 ], [ %col_arr.sroa.0.41267, %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit195" ], [ %col_arr.sroa.0.15, %do.cond ]
-  %col_arr.sroa.34.2952 = phi ptr [ %col_arr.sroa.34.12, %if.end117 ], [ %col_arr.sroa.34.21269, %for.cond.loopexit.i167 ], [ %col_arr.sroa.34.21269, %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit195" ], [ %col_arr.sroa.34.13, %do.cond ]
-  %vert_arr.sroa.0.4946 = phi ptr [ %vert_arr.sroa.0.14, %if.end117 ], [ %vert_arr.sroa.0.41272, %for.cond.loopexit.i167 ], [ %vert_arr.sroa.0.41272, %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit195" ], [ %vert_arr.sroa.0.15, %do.cond ]
-  %col_arr.sroa.15.2940 = phi ptr [ %col_arr.sroa.15.21262, %if.end117 ], [ %col_arr.sroa.15.21273, %for.cond.loopexit.i167 ], [ %col_arr.sroa.15.21273, %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit195" ], [ %col_arr.sroa.15.2, %do.cond ]
-  %vert_arr.sroa.19.2934 = phi ptr [ %vert_arr.sroa.19.21263, %if.end117 ], [ %vert_arr.sroa.19.21274, %for.cond.loopexit.i167 ], [ %vert_arr.sroa.19.21274, %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit195" ], [ %vert_arr.sroa.19.2, %do.cond ]
-  %__begin6.sroa.0.014.i928 = phi ptr [ %__begin6.sroa.0.014.i1264, %if.end117 ], [ %__begin6.sroa.0.014.i1275, %for.cond.loopexit.i167 ], [ %__begin6.sroa.0.014.i1275, %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit195" ], [ %__begin6.sroa.0.014.i, %do.cond ]
+do.end:                                           ; preds = %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.argprom.exit195", %do.cond, %for.cond.loopexit.i167, %if.end117
+  %vert_arr.sroa.42.2964 = phi ptr [ %vert_arr.sroa.42.12, %if.end117 ], [ %vert_arr.sroa.42.21266, %for.cond.loopexit.i167 ], [ %vert_arr.sroa.42.21266, %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.argprom.exit195" ], [ %vert_arr.sroa.42.13, %do.cond ]
+  %col_arr.sroa.0.4958 = phi ptr [ %col_arr.sroa.0.14, %if.end117 ], [ %col_arr.sroa.0.41267, %for.cond.loopexit.i167 ], [ %col_arr.sroa.0.41267, %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.argprom.exit195" ], [ %col_arr.sroa.0.15, %do.cond ]
+  %col_arr.sroa.34.2952 = phi ptr [ %col_arr.sroa.34.12, %if.end117 ], [ %col_arr.sroa.34.21269, %for.cond.loopexit.i167 ], [ %col_arr.sroa.34.21269, %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.argprom.exit195" ], [ %col_arr.sroa.34.13, %do.cond ]
+  %vert_arr.sroa.0.4946 = phi ptr [ %vert_arr.sroa.0.14, %if.end117 ], [ %vert_arr.sroa.0.41272, %for.cond.loopexit.i167 ], [ %vert_arr.sroa.0.41272, %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.argprom.exit195" ], [ %vert_arr.sroa.0.15, %do.cond ]
+  %col_arr.sroa.15.2940 = phi ptr [ %col_arr.sroa.15.21262, %if.end117 ], [ %col_arr.sroa.15.21273, %for.cond.loopexit.i167 ], [ %col_arr.sroa.15.21273, %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.argprom.exit195" ], [ %col_arr.sroa.15.2, %do.cond ]
+  %vert_arr.sroa.19.2934 = phi ptr [ %vert_arr.sroa.19.21263, %if.end117 ], [ %vert_arr.sroa.19.21274, %for.cond.loopexit.i167 ], [ %vert_arr.sroa.19.21274, %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.argprom.exit195" ], [ %vert_arr.sroa.19.2, %do.cond ]
+  %__begin6.sroa.0.014.i928 = phi ptr [ %__begin6.sroa.0.014.i1264, %if.end117 ], [ %__begin6.sroa.0.014.i1275, %for.cond.loopexit.i167 ], [ %__begin6.sroa.0.014.i1275, %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.argprom.exit195" ], [ %__begin6.sroa.0.014.i, %do.cond ]
   %cmp.i314.not1306 = icmp eq ptr %__begin6.sroa.0.014.i928, %_M_storage.i.i108
   br i1 %cmp.i314.not1306, label %for.end180, label %for.body140
 

@@ -405,13 +405,13 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %71, %_ZNSt6vectorIi
 
 .noexc97:                                         ; preds = %.noexc96
   %153 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %152, ptr noundef nonnull @.str.10)
-          to label %_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.exit unwind label %.thread165
+          to label %_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.argprom.exit unwind label %.thread165
 
-_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.exit:          ; preds = %.noexc97
+_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.argprom.exit:  ; preds = %.noexc97
   %154 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %153, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %155 unwind label %.thread165
 
-155:                                              ; preds = %_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.exit
+155:                                              ; preds = %_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.argprom.exit
   invoke void @_ZN2cv3Mat5zerosENS_5Size_IiEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %17, i64 %.sroa.4.8.insert.insert, i32 noundef 0)
           to label %156 unwind label %.thread165
 
@@ -588,7 +588,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %217, %.thread
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
   br label %235
 
-.thread165:                                       ; preds = %_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.exit, %155, %119, %.noexc94, %.noexc95, %.noexc96, %.noexc97
+.thread165:                                       ; preds = %_ZN2cvlsIiEERSoS1_RKNS_5Size_IT_EE.argprom.exit, %155, %119, %.noexc94, %.noexc95, %.noexc96, %.noexc97
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread159

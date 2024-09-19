@@ -340,7 +340,7 @@ entry:
   %config.sroa.3.0.arg.sroa_idx = getelementptr inbounds i8, ptr %arg, i64 16
   %config.sroa.3.0.copyload = load i32, ptr %config.sroa.3.0.arg.sroa_idx, align 8
   tail call void @rcu_register_thread() #12
-  %call = tail call fastcc i32 @dirtyrate_set_state(i32 noundef 0, i32 noundef 1)
+  %call = tail call fastcc i32 @dirtyrate_set_state.argprom(i32 noundef 0, i32 noundef 1)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -444,7 +444,7 @@ dirtyrate_manual_reset_protect.exit.i.i:          ; preds = %while.end21.i.i.i.i
   %div.i.i.i.i = sdiv i64 %call.i.i.i.i, 1000000
   %sub.i.i.i = sub nsw i64 %div.i.i.i.i, %div.i.i.i
   %cmp.not.i.i.i = icmp slt i64 %sub.i.i.i, %config.sroa.2.0.copyload
-  br i1 %cmp.not.i.i.i, label %if.else.i3.i.i, label %calculate_dirtyrate_dirty_bitmap.exit.i
+  br i1 %cmp.not.i.i.i, label %if.else.i3.i.i, label %calculate_dirtyrate_dirty_bitmap.argprom.exit.i
 
 if.else.i3.i.i:                                   ; preds = %dirtyrate_manual_reset_protect.exit.i.i
   %add.i.i.i = add i64 %div.i.i.i, %config.sroa.2.0.copyload
@@ -454,9 +454,9 @@ if.else.i3.i.i:                                   ; preds = %dirtyrate_manual_re
   %call.i8.i.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #12
   %div.i9.i.i.i = sdiv i64 %call.i8.i.i.i, 1000000
   %sub4.i.i.i = sub nsw i64 %div.i9.i.i.i, %div.i.i.i
-  br label %calculate_dirtyrate_dirty_bitmap.exit.i
+  br label %calculate_dirtyrate_dirty_bitmap.argprom.exit.i
 
-calculate_dirtyrate_dirty_bitmap.exit.i:          ; preds = %if.else.i3.i.i, %dirtyrate_manual_reset_protect.exit.i.i
+calculate_dirtyrate_dirty_bitmap.argprom.exit.i:  ; preds = %if.else.i3.i.i, %dirtyrate_manual_reset_protect.exit.i.i
   %msec.addr.0.i.i.i = phi i64 [ %sub4.i.i.i, %if.else.i3.i.i ], [ %sub.i.i.i, %dirtyrate_manual_reset_protect.exit.i.i ]
   store i64 %msec.addr.0.i.i.i, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 16), align 8
   tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 109) #12
@@ -483,7 +483,7 @@ if.then3.i:                                       ; preds = %if.end
   store i64 %call1.i.i, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 16), align 8
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 32), align 8
   %cmp1.i.i = icmp sgt i32 %11, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %calculate_dirtyrate_dirty_ring.exit.i
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %calculate_dirtyrate_dirty_ring.argprom.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.then3.i
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 40), align 8
@@ -498,9 +498,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %add.i.i = add i64 %13, %dirtyrate_sum.02.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %calculate_dirtyrate_dirty_ring.exit.i, label %for.body.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %calculate_dirtyrate_dirty_ring.argprom.exit.i, label %for.body.i.i, !llvm.loop !18
 
-calculate_dirtyrate_dirty_ring.exit.i:            ; preds = %for.body.i.i, %if.then3.i
+calculate_dirtyrate_dirty_ring.argprom.exit.i:    ; preds = %for.body.i.i, %if.then3.i
   %dirtyrate_sum.0.lcssa.i.i = phi i64 [ 0, %if.then3.i ], [ %add.i.i, %for.body.i.i ]
   store i64 %dirtyrate_sum.0.lcssa.i.i, ptr @DirtyStat, align 8
   br label %if.end5.i
@@ -1019,7 +1019,7 @@ for.end.i63.i.i:                                  ; preds = %for.body.i64.i.i, %
   tail call void @g_free(ptr noundef nonnull %call10.i.i.i) #12
   br label %if.end5.i
 
-if.end5.i:                                        ; preds = %for.end.i63.i.i, %rcu_read_unlock.exit61.i.i, %calculate_dirtyrate_dirty_ring.exit.i, %calculate_dirtyrate_dirty_bitmap.exit.i
+if.end5.i:                                        ; preds = %for.end.i63.i.i, %rcu_read_unlock.exit61.i.i, %calculate_dirtyrate_dirty_ring.argprom.exit.i, %calculate_dirtyrate_dirty_bitmap.argprom.exit.i
   %72 = load i64, ptr @DirtyStat, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %73 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1055,7 +1055,7 @@ if.else.i.i23.i:                                  ; preds = %if.then.i.i.i
 
 calculate_dirtyrate.exit:                         ; preds = %if.end5.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i23.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %call1 = tail call fastcc i32 @dirtyrate_set_state(i32 noundef 1, i32 noundef 2)
+  %call1 = tail call fastcc i32 @dirtyrate_set_state.argprom(i32 noundef 1, i32 noundef 2)
   %cmp2 = icmp eq i32 %call1, -1
   br i1 %cmp2, label %if.then3, label %if.end4
 
@@ -1074,7 +1074,7 @@ return:                                           ; preds = %if.end4, %if.then
 declare void @rcu_register_thread() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @dirtyrate_set_state(i32 noundef %old_state, i32 noundef range(i32 0, 3) %new_state) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dirtyrate_set_state.argprom(i32 noundef %old_state, i32 noundef range(i32 0, 3) %new_state) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @DirtyRateStatus_lookup, i32 noundef %new_state) #12
@@ -1208,7 +1208,7 @@ if.then25:                                        ; preds = %land.lhs.true23, %l
 
 if.end27:                                         ; preds = %land.lhs.true20, %if.end18, %land.lhs.true23
   %4 = load i32, ptr @CalculatingState, align 4
-  %call28 = tail call fastcc i32 @dirtyrate_set_state(i32 noundef %4, i32 noundef 0)
+  %call28 = tail call fastcc i32 @dirtyrate_set_state.argprom(i32 noundef %4, i32 noundef 0)
   %cmp29 = icmp eq i32 %call28, -1
   br i1 %cmp29, label %if.then30, label %if.end31
 
@@ -1222,7 +1222,7 @@ if.end31:                                         ; preds = %if.end27
   store i32 %spec.select, ptr getelementptr inbounds (i8, ptr @qmp_calc_dirty_rate.config, i64 16), align 8
   %5 = load i32, ptr @dirtyrate_mode, align 4
   %cmp.i = icmp eq i32 %5, 1
-  br i1 %cmp.i, label %if.then.i, label %cleanup_dirtyrate_stat.exit
+  br i1 %cmp.i, label %if.then.i, label %cleanup_dirtyrate_stat.argprom.exit
 
 if.then.i:                                        ; preds = %if.end31
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 40), align 8
@@ -1231,9 +1231,9 @@ if.then.i:                                        ; preds = %if.end31
   %qmp_calc_dirty_rate.config.sroa.5.0.copyload.pr = load i32, ptr getelementptr inbounds (i8, ptr @qmp_calc_dirty_rate.config, i64 16), align 8
   %qmp_calc_dirty_rate.config.sroa.0.0.copyload.pre = load i64, ptr @qmp_calc_dirty_rate.config, align 8
   %qmp_calc_dirty_rate.config.sroa.4.0.copyload.pre = load i64, ptr getelementptr inbounds (i8, ptr @qmp_calc_dirty_rate.config, i64 8), align 8
-  br label %cleanup_dirtyrate_stat.exit
+  br label %cleanup_dirtyrate_stat.argprom.exit
 
-cleanup_dirtyrate_stat.exit:                      ; preds = %if.end31, %if.then.i
+cleanup_dirtyrate_stat.argprom.exit:              ; preds = %if.end31, %if.then.i
   %qmp_calc_dirty_rate.config.sroa.4.0.copyload = phi i64 [ %value.addr.1.lcssa.i, %if.end31 ], [ %qmp_calc_dirty_rate.config.sroa.4.0.copyload.pre, %if.then.i ]
   %qmp_calc_dirty_rate.config.sroa.0.0.copyload = phi i64 [ %sample_pages.addr.0, %if.end31 ], [ %qmp_calc_dirty_rate.config.sroa.0.0.copyload.pre, %if.then.i ]
   %qmp_calc_dirty_rate.config.sroa.5.0.copyload = phi i32 [ %spec.select, %if.end31 ], [ %qmp_calc_dirty_rate.config.sroa.5.0.copyload.pr, %if.then.i ]
@@ -1249,16 +1249,16 @@ cleanup_dirtyrate_stat.exit:                      ; preds = %if.end31, %if.then.
     i32 1, label %sw.bb1.i
   ]
 
-sw.bb.i:                                          ; preds = %cleanup_dirtyrate_stat.exit
+sw.bb.i:                                          ; preds = %cleanup_dirtyrate_stat.argprom.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @DirtyStat, i64 32), i8 0, i64 24, i1 false)
   br label %init_dirtyrate_stat.exit
 
-sw.bb1.i:                                         ; preds = %cleanup_dirtyrate_stat.exit
+sw.bb1.i:                                         ; preds = %cleanup_dirtyrate_stat.argprom.exit
   store i32 -1, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 32), align 8
   store ptr null, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 40), align 8
   br label %init_dirtyrate_stat.exit
 
-init_dirtyrate_stat.exit:                         ; preds = %cleanup_dirtyrate_stat.exit, %sw.bb.i, %sw.bb1.i
+init_dirtyrate_stat.exit:                         ; preds = %cleanup_dirtyrate_stat.argprom.exit, %sw.bb.i, %sw.bb1.i
   call void @qemu_thread_create(ptr noundef nonnull %thread, ptr noundef nonnull @.str.8, ptr noundef nonnull @get_dirtyrate_thread, ptr noundef nonnull @qmp_calc_dirty_rate.config, i32 noundef 1) #12
   br label %return
 

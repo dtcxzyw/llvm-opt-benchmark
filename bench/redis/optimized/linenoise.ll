@@ -1256,7 +1256,7 @@ entry:
   %quit.sroa.0 = alloca i32, align 4
   %c = alloca i8, align 1
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %call1 = tail call fastcc i32 @enableRawMode()
+  %call1 = tail call fastcc i32 @enableRawMode.argelim()
   %cmp = icmp eq i32 %call1, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -1320,7 +1320,7 @@ return:                                           ; preds = %if.then.i, %land.lh
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @enableRawMode() unnamed_addr #9 {
+define internal fastcc range(i32 -1, 1) i32 @enableRawMode.argelim() unnamed_addr #9 {
 entry:
   %raw = alloca %struct.termios, align 4
   %call = tail call i32 @isatty(i32 noundef 0) #23
@@ -1520,7 +1520,7 @@ while.end:                                        ; preds = %while.body, %land.r
   br label %return
 
 if.else22:                                        ; preds = %for.cond.i, %if.else
-  %call1.i = tail call fastcc i32 @enableRawMode()
+  %call1.i = tail call fastcc i32 @enableRawMode.argelim()
   %cmp2.i = icmp eq i32 %call1.i, -1
   br i1 %cmp2.i, label %return, label %if.end4.i
 

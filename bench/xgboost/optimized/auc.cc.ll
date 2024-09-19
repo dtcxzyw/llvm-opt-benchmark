@@ -1783,14 +1783,14 @@ _ZNK7xgboost6common15OptionalWeightsixEm.exit.i:  ; preds = %_ZNSt10unique_ptrIN
   %142 = fdiv double %141, %129
   %143 = call double @llvm.fmuladd.f64(double %142, double %140, double %135)
   %.pre.pre.i = load ptr, ptr %10, align 8, !noalias !17
-  br label %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.exit.i"
+  br label %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.argprom.exit.i"
 
 .thread.i.i.i:                                    ; preds = %125, %121
   %.03238.i.i.i = phi double [ %129, %125 ], [ 1.000000e+00, %121 ]
   %144 = fsub double %123, %122
-  br label %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.exit.i"
+  br label %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.argprom.exit.i"
 
-"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.exit.i": ; preds = %.thread.i.i.i, %134
+"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.argprom.exit.i": ; preds = %.thread.i.i.i, %134
   %.pre.i = phi ptr [ %.pre.pre.i, %134 ], [ %.pre127.i, %.thread.i.i.i ]
   %.03237.i.i.i = phi double [ %129, %134 ], [ %.03238.i.i.i, %.thread.i.i.i ]
   %.pn.i.i.i = phi double [ %143, %134 ], [ %144, %.thread.i.i.i ]
@@ -1800,13 +1800,13 @@ _ZNK7xgboost6common15OptionalWeightsixEm.exit.i:  ; preds = %_ZNSt10unique_ptrIN
   %.pre123.i = load i64, ptr %.phi.trans.insert.i, align 8, !noalias !17
   br label %146
 
-146:                                              ; preds = %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.exit.i", %.lr.ph.i
-  %.pre128.i = phi ptr [ %.pre.i, %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.exit.i" ], [ %.pre127.i, %.lr.ph.i ]
-  %147 = phi ptr [ %.pre.i, %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.exit.i" ], [ %111, %.lr.ph.i ]
-  %148 = phi i64 [ %.pre123.i, %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.exit.i" ], [ %113, %.lr.ph.i ]
-  %.191.i = phi double [ %145, %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.exit.i" ], [ %.090109.i, %.lr.ph.i ]
-  %.143.i = phi double [ %.0111.i, %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.exit.i" ], [ %.042112.i, %.lr.ph.i ]
-  %.141.i = phi double [ %.088110.i, %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.exit.i" ], [ %.040113.i, %.lr.ph.i ]
+146:                                              ; preds = %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.argprom.exit.i", %.lr.ph.i
+  %.pre128.i = phi ptr [ %.pre.i, %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.argprom.exit.i" ], [ %.pre127.i, %.lr.ph.i ]
+  %147 = phi ptr [ %.pre.i, %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.argprom.exit.i" ], [ %111, %.lr.ph.i ]
+  %148 = phi i64 [ %.pre123.i, %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.argprom.exit.i" ], [ %113, %.lr.ph.i ]
+  %.191.i = phi double [ %145, %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.argprom.exit.i" ], [ %.090109.i, %.lr.ph.i ]
+  %.143.i = phi double [ %.0111.i, %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.argprom.exit.i" ], [ %.042112.i, %.lr.ph.i ]
+  %.141.i = phi double [ %.088110.i, %"_ZZN7xgboost6metric11BinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEENS_6linalg10TensorViewIS6_Li1EEENS4_15OptionalWeightsEENK3$_0clEdddd.argprom.exit.i" ], [ %.040113.i, %.lr.ph.i ]
   %149 = mul i64 %148, %.sroa.021.0.copyload
   %150 = getelementptr inbounds float, ptr %.sroa.5.32.copyload, i64 %149
   %151 = load float, ptr %150, align 4, !noalias !17

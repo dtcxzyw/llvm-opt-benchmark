@@ -536,7 +536,7 @@ define hidden void @_Z9luaS_freeP9lua_StateP7TStringP8lua_Page(ptr noundef %0, p
   %11 = getelementptr inbounds ptr, ptr %.val.val, i64 %10
   %12 = load ptr, ptr %11, align 8
   %.not5.not.i = icmp eq ptr %12, null
-  br i1 %.not5.not.i, label %_ZL9unlinkstrP9lua_StateP7TString.exit.thread, label %.lr.ph.i.preheader
+  br i1 %.not5.not.i, label %_ZL9unlinkstrP9lua_StateP7TString.argprom.argprom.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %3
   %13 = icmp eq ptr %12, %1
@@ -551,7 +551,7 @@ define hidden void @_Z9luaS_freeP9lua_StateP7TStringP8lua_Page(ptr noundef %0, p
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.not.i = icmp eq ptr %17, null
-  br i1 %.not.not.i, label %_ZL9unlinkstrP9lua_StateP7TString.exit.thread, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.not.i, label %_ZL9unlinkstrP9lua_StateP7TString.argprom.argprom.exit.thread, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph.i._crit_edge.loopexit:                     ; preds = %.lr.ph.i
   %18 = getelementptr inbounds i8, ptr %15, i64 8
@@ -568,9 +568,9 @@ define hidden void @_Z9luaS_freeP9lua_StateP7TStringP8lua_Page(ptr noundef %0, p
   %23 = load i32, ptr %22, align 8
   %24 = add i32 %23, -1
   store i32 %24, ptr %22, align 8
-  br label %_ZL9unlinkstrP9lua_StateP7TString.exit.thread
+  br label %_ZL9unlinkstrP9lua_StateP7TString.argprom.argprom.exit.thread
 
-_ZL9unlinkstrP9lua_StateP7TString.exit.thread:    ; preds = %.lr.ph, %3, %.lr.ph.i._crit_edge
+_ZL9unlinkstrP9lua_StateP7TString.argprom.argprom.exit.thread: ; preds = %.lr.ph, %3, %.lr.ph.i._crit_edge
   %25 = getelementptr inbounds i8, ptr %1, i64 20
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64

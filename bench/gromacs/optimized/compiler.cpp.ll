@@ -3834,7 +3834,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit274: ; preds = %1387
           to label %1445 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1445:                                             ; preds = %1444, %.lr.ph572
-  invoke fastcc void @_ZL23set_evaluation_functionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPFvP18gmx_sel_evaluate_tS4_P15gmx_ana_index_tE(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  invoke fastcc void @_ZL23set_evaluation_functionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPFvP18gmx_sel_evaluate_tS4_P15gmx_ana_index_tE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %1446 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1446:                                             ; preds = %1445
@@ -4618,7 +4618,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit354: ; preds = %1731
   %1793 = load ptr, ptr %1792, align 8
   %1794 = getelementptr inbounds i8, ptr %1793, i64 48
   store i32 0, ptr %1794, align 8
-  invoke fastcc void @_ZL23set_evaluation_functionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPFvP18gmx_sel_evaluate_tS4_P15gmx_ana_index_tE(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  invoke fastcc void @_ZL23set_evaluation_functionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPFvP18gmx_sel_evaluate_tS4_P15gmx_ana_index_tE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %1795 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1795:                                             ; preds = %1790
@@ -6838,7 +6838,7 @@ define internal fastcc void @_ZL28remove_unused_subexpressionsSt10shared_ptrIN3g
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %7, align 8
-  call fastcc void @_ZL21reverse_selelem_chainRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias writable align 8 %3, ptr nonnull %4, ptr %.val3)
+  call fastcc void @_ZL21reverse_selelem_chainRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.argprom(ptr dead_on_unwind noalias writable align 8 %3, ptr nonnull %4, ptr %.val3)
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -7611,7 +7611,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69: ; preds = %_ZNSt10sh
   %.sroa.395.0.lcssa = phi ptr [ %147, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15 ], [ %.sroa.395.1, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69 ]
   %.val = load ptr, ptr %1, align 8
   %.val1 = load ptr, ptr %7, align 8
-  tail call fastcc void @_ZL21reverse_selelem_chainRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val, ptr %.val1)
+  tail call fastcc void @_ZL21reverse_selelem_chainRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val, ptr %.val1)
   %.not.i.i.i70 = icmp eq ptr %.sroa.7.0.lcssa, null
   br i1 %.not.i.i.i70, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit76, label %359
 
@@ -12049,9 +12049,9 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit40.._crit_edge85_cri
 
 150:                                              ; preds = %137
   %151 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.21, i32 noundef 1043, i64 noundef 1, i64 noundef 4)
-          to label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit unwind label %157
+          to label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit unwind label %157
 
-_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit:          ; preds = %150
+_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit:  ; preds = %150
   %152 = getelementptr inbounds i8, ptr %134, i64 16
   %153 = load ptr, ptr %152, align 8
   %154 = load i32, ptr %153, align 4
@@ -12059,14 +12059,14 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit:          ; preds = %150
   store float %155, ptr %151, align 4
   %156 = load ptr, ptr %152, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.21, i32 noundef 1045, ptr noundef %156)
-          to label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit unwind label %157
+          to label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit unwind label %157
 
-_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit:           ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit
+_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit:   ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit
   store ptr %151, ptr %152, align 8
   store i32 2, ptr %135, align 8
   br label %170
 
-157:                                              ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit, %150
+157:                                              ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.argprom.exit, %150
   %158 = landingpad { ptr, i32 }
           cleanup
   br label %257
@@ -12121,7 +12121,7 @@ _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit:           ; preds = %_ZL13gmx_snew_implI
   call void @__cxa_free_exception(ptr %160) #19
   br label %257
 
-170:                                              ; preds = %.lr.ph84, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit
+170:                                              ; preds = %.lr.ph84, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit
   %171 = getelementptr inbounds i8, ptr %134, i64 112
   %172 = load ptr, ptr %171, align 8
   store ptr %172, ptr %3, align 8
@@ -16876,7 +16876,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit: ; preds = %._crit_edge
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL23set_evaluation_functionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPFvP18gmx_sel_evaluate_tS4_P15gmx_ana_index_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL23set_evaluation_functionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPFvP18gmx_sel_evaluate_tS4_P15gmx_ana_index_tE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::shared_ptr", align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
@@ -16925,7 +16925,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.._crit_edge_crit_ed
 
 .lr.ph:                                           ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit
   %22 = phi ptr [ %74, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %21, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ]
-  invoke fastcc void @_ZL23set_evaluation_functionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPFvP18gmx_sel_evaluate_tS4_P15gmx_ana_index_tE(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  invoke fastcc void @_ZL23set_evaluation_functionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPFvP18gmx_sel_evaluate_tS4_P15gmx_ana_index_tE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %23 unwind label %75
 
 23:                                               ; preds = %.lr.ph
@@ -17687,13 +17687,13 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i: ; preds = %_ZNSt
 
 253:                                              ; preds = %.lr.ph86.i
   %254 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.21, i32 noundef 1821, i64 noundef 2, i64 noundef 1)
-          to label %_ZL13gmx_snew_implIcEvPKcS1_iRPT_m.exit.i unwind label %.loopexit81.i
+          to label %_ZL13gmx_snew_implIcEvPKcS1_iRPT_m.argprom.exit.i unwind label %.loopexit81.i
 
-_ZL13gmx_snew_implIcEvPKcS1_iRPT_m.exit.i:        ; preds = %253
+_ZL13gmx_snew_implIcEvPKcS1_iRPT_m.argprom.exit.i: ; preds = %253
   store ptr %254, ptr %250, align 8
   br label %255
 
-255:                                              ; preds = %_ZL13gmx_snew_implIcEvPKcS1_iRPT_m.exit.i, %.lr.ph86.i
+255:                                              ; preds = %_ZL13gmx_snew_implIcEvPKcS1_iRPT_m.argprom.exit.i, %.lr.ph86.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph86.i, !llvm.loop !57
@@ -19994,27 +19994,27 @@ _ZL28evaluate_boolean_minmax_grpsRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP
   %.val = phi ptr [ %.val.pre, %1411 ], [ %1397, %1403 ], [ %1397, %1392 ]
   %1416 = load i32, ptr %.val, align 8
   %.not.i281 = icmp eq i32 %1416, 6
-  br i1 %.not.i281, label %1417, label %_ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.exit
+  br i1 %.not.i281, label %1417, label %_ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.argprom.exit
 
 1417:                                             ; preds = %1415
   %1418 = getelementptr inbounds i8, ptr %.val, i64 48
   %1419 = load ptr, ptr %1418, align 8
   %.not8.i = icmp eq ptr %1419, null
-  br i1 %.not8.i, label %_ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.exit, label %1420
+  br i1 %.not8.i, label %_ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.argprom.exit, label %1420
 
 1420:                                             ; preds = %1417
   %1421 = getelementptr inbounds i8, ptr %1419, i64 40
   %1422 = load i32, ptr %1421, align 8
   %1423 = and i32 %1422, 48
   %.not9.i = icmp eq i32 %1423, 0
-  br i1 %.not9.i, label %_ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.exit, label %1424
+  br i1 %.not9.i, label %_ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.argprom.exit, label %1424
 
 1424:                                             ; preds = %1420
   %1425 = getelementptr inbounds i8, ptr %.val, i64 8
   %1426 = load i32, ptr %1425, align 8
   %.off.i = add i32 %1426, -1
   %switch.i282 = icmp ult i32 %.off.i, 3
-  br i1 %switch.i282, label %1427, label %_ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.exit
+  br i1 %switch.i282, label %1427, label %_ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.argprom.exit
 
 1427:                                             ; preds = %1424
   %1428 = getelementptr inbounds i8, ptr %1419, i64 8
@@ -20022,9 +20022,9 @@ _ZL28evaluate_boolean_minmax_grpsRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP
   %1430 = load ptr, ptr %1429, align 8
   tail call void @_Z22_gmx_selvalue_setstoreP18gmx_ana_selvalue_tPv(ptr noundef nonnull %1428, ptr noundef %1430)
   %.pre305 = load ptr, ptr %1, align 8
-  br label %_ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.exit
+  br label %_ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.argprom.exit
 
-_ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.exit: ; preds = %1415, %1417, %1420, %1424, %1427
+_ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.argprom.exit: ; preds = %1415, %1417, %1420, %1424, %1427
   %1431 = phi ptr [ %.val, %1415 ], [ %.val, %1417 ], [ %.val, %1420 ], [ %.val, %1424 ], [ %.pre305, %1427 ]
   %1432 = getelementptr inbounds i8, ptr %1431, i64 40
   %1433 = load i32, ptr %1432, align 8
@@ -20032,7 +20032,7 @@ _ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.exit: ; preds
   %.not209 = icmp eq i32 %1434, 0
   br i1 %.not209, label %1435, label %1442
 
-1435:                                             ; preds = %_ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.exit
+1435:                                             ; preds = %_ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.argprom.exit
   %1436 = getelementptr inbounds i8, ptr %1431, i64 88
   %1437 = load ptr, ptr %1436, align 8
   %1438 = getelementptr inbounds i8, ptr %1437, i64 12
@@ -20045,7 +20045,7 @@ _ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.exit: ; preds
   tail call fastcc void @_ZL11make_staticRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZL13process_constP18gmx_sel_evaluate_tRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP15gmx_ana_index_t.exit
 
-1442:                                             ; preds = %_ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.exit
+1442:                                             ; preds = %_ZL15store_param_valRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.argprom.exit
   br i1 %55, label %1443, label %.critedge231
 
 1443:                                             ; preds = %1442
@@ -21584,7 +21584,7 @@ declare void @_Z27_gmx_selelem_set_kwpos_typePN3gmx20SelectionTreeElementEPKc(pt
 declare void @_Z28_gmx_selelem_set_kwpos_flagsPN3gmx20SelectionTreeElementEi(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21reverse_selelem_chainRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %.0.val, ptr %.8.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21reverse_selelem_chainRKSt10shared_ptrIN3gmx20SelectionTreeElementEE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %.0.val, ptr %.8.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %.not.i.i.i = icmp eq ptr %.8.val, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, label %2

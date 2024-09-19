@@ -202,14 +202,14 @@ _ZN12_GLOBAL__N_110ExtraFlagsC2ERKN4llvm8CallBaseE.exit: ; preds = %_ZNK4llvm8Ca
   %83 = getelementptr inbounds i8, ptr %23, i64 16
   br label %84
 
-84:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit
-  %.0222453 = phi i32 [ 0, %.lr.ph ], [ %.1223508, %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit ]
-  %.0224452 = phi i32 [ 0, %.lr.ph ], [ %.1225507, %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit ]
-  %.sroa.0430.0451 = phi i32 [ %74, %.lr.ph ], [ %.sroa.0430.2, %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit ]
-  %.sroa.0427.0450 = phi ptr [ %75, %.lr.ph ], [ %266, %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit ]
+84:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.argprom.exit
+  %.0222453 = phi i32 [ 0, %.lr.ph ], [ %.1223508, %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.argprom.exit ]
+  %.0224452 = phi i32 [ 0, %.lr.ph ], [ %.1225507, %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.argprom.exit ]
+  %.sroa.0430.0451 = phi i32 [ %74, %.lr.ph ], [ %.sroa.0430.2, %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.argprom.exit ]
+  %.sroa.0427.0450 = phi ptr [ %75, %.lr.ph ], [ %266, %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.argprom.exit ]
   call void @_ZN4llvm14TargetLowering14AsmOperandInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(130) %26, ptr noundef nonnull align 8 dereferenceable(130) %.sroa.0427.0450)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull %79, i64 noundef 1) #13
-  %85 = call fastcc noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIN12_GLOBAL__N_119GISelAsmOperandInfoEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS2_Lb0EEEEEPKS2_PT_RS7_m(ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(160) %26)
+  %85 = call fastcc noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIN12_GLOBAL__N_119GISelAsmOperandInfoEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS2_Lb0EEEEEPKS2_PT_RS7_m.argelim(ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(160) %26)
   %.val.i.i = load ptr, ptr %24, align 8
   %86 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #13
   %87 = getelementptr inbounds %"class.(anonymous namespace)::GISelAsmOperandInfo", ptr %.val.i.i, i64 %86
@@ -543,7 +543,7 @@ _ZL22computeConstraintToUsePKN4llvm14TargetLoweringERNS0_14AsmOperandInfoE.exit:
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23)
   %262 = getelementptr i8, ptr %130, i64 -48
   %.val251 = load i32, ptr %262, align 8
-  switch i32 %.val251, label %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit [
+  switch i32 %.val251, label %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.argprom.exit [
     i32 2, label %263
     i32 5, label %263
   ]
@@ -551,22 +551,22 @@ _ZL22computeConstraintToUsePKN4llvm14TargetLoweringERNS0_14AsmOperandInfoE.exit:
 263:                                              ; preds = %_ZL22computeConstraintToUsePKN4llvm14TargetLoweringERNS0_14AsmOperandInfoE.exit, %_ZL22computeConstraintToUsePKN4llvm14TargetLoweringERNS0_14AsmOperandInfoE.exit
   %.val250 = load i32, ptr %131, align 8
   %264 = icmp ult i32 %.val250, 3
-  br i1 %264, label %switch.lookup, label %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit
+  br i1 %264, label %switch.lookup, label %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.argprom.exit
 
 switch.lookup:                                    ; preds = %263
   %switch.idx.mult = shl nuw nsw i32 %.val250, 3
   %switch.offset = add nuw nsw i32 %switch.idx.mult, 8
   %265 = or i32 %switch.offset, %.sroa.0430.0451
-  br label %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit
+  br label %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.argprom.exit
 
-_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit: ; preds = %263, %_ZL22computeConstraintToUsePKN4llvm14TargetLoweringERNS0_14AsmOperandInfoE.exit, %switch.lookup
+_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.argprom.exit: ; preds = %263, %_ZL22computeConstraintToUsePKN4llvm14TargetLoweringERNS0_14AsmOperandInfoE.exit, %switch.lookup
   %.sroa.0430.2 = phi i32 [ %.sroa.0430.0451, %_ZL22computeConstraintToUsePKN4llvm14TargetLoweringERNS0_14AsmOperandInfoE.exit ], [ %.sroa.0430.0451, %263 ], [ %265, %switch.lookup ]
   %266 = getelementptr inbounds i8, ptr %.sroa.0427.0450, i64 136
   %.not442 = icmp eq ptr %266, %77
   br i1 %.not442, label %._crit_edge, label %84
 
-._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit, %_ZN12_GLOBAL__N_110ExtraFlagsC2ERKN4llvm8CallBaseE.exit
-  %.sroa.0430.0.lcssa = phi i32 [ %74, %_ZN12_GLOBAL__N_110ExtraFlagsC2ERKN4llvm8CallBaseE.exit ], [ %.sroa.0430.2, %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit ]
+._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.argprom.exit, %_ZN12_GLOBAL__N_110ExtraFlagsC2ERKN4llvm8CallBaseE.exit
+  %.sroa.0430.0.lcssa = phi i32 [ %74, %_ZN12_GLOBAL__N_110ExtraFlagsC2ERKN4llvm8CallBaseE.exit ], [ %.sroa.0430.2, %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.argprom.exit ]
   %267 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef 1) #13
   %268 = extractvalue { ptr, ptr } %267, 0
   %269 = extractvalue { ptr, ptr } %267, 1
@@ -673,7 +673,7 @@ _ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.e
   %341 = getelementptr inbounds nuw i8, ptr %.0228470, i64 112
   %342 = load i32, ptr %341, align 8
   %343 = icmp eq i32 %342, 2
-  br i1 %343, label %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.exit, label %344
+  br i1 %343, label %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.argprom.exit, label %344
 
 344:                                              ; preds = %329
   %345 = getelementptr inbounds nuw i8, ptr %330, i64 80
@@ -688,11 +688,11 @@ _ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.e
   %353 = extractvalue { i32, ptr } %352, 0
   %354 = extractvalue { i32, ptr } %352, 1
   %.not.i261 = icmp eq ptr %354, null
-  br i1 %.not.i261, label %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.exit, label %355
+  br i1 %.not.i261, label %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.argprom.exit, label %355
 
 355:                                              ; preds = %344
   %356 = call noundef zeroext i1 @_ZNK4llvm14TargetLowering14AsmOperandInfo25isMatchingInputConstraintEv(ptr noundef nonnull align 8 dereferenceable(130) %.0228470) #13
-  br i1 %356, label %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.exit, label %357
+  br i1 %356, label %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.argprom.exit, label %357
 
 357:                                              ; preds = %355
   %358 = getelementptr inbounds nuw i8, ptr %.0228470, i64 128
@@ -731,11 +731,11 @@ _ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.e
 
 .loopexit18.i:                                    ; preds = %.preheader.i
   %.not2619.i = icmp eq i32 %.029.i, 0
-  br i1 %.not2619.i, label %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.exit, label %.lr.ph.i262
+  br i1 %.not2619.i, label %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.argprom.exit, label %.lr.ph.i262
 
 .loopexit18.thread.i:                             ; preds = %360
   %.not261924.i = icmp eq i32 %366, 0
-  br i1 %.not261924.i, label %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.exit, label %.lr.ph.thread.i
+  br i1 %.not261924.i, label %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.argprom.exit, label %.lr.ph.thread.i
 
 .lr.ph.thread.i:                                  ; preds = %.loopexit18.thread.i, %.thread.i
   %.03135.i = phi i32 [ %366, %.loopexit18.thread.i ], [ 1, %.thread.i ]
@@ -772,7 +772,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit.us.i: ; 
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %372, i64 noundef %385) #13
   %386 = add i32 %.121.us.i, -1
   %.not26.us.i = icmp eq i32 %386, 0
-  br i1 %.not26.us.i, label %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.exit, label %.lr.ph.split.us.i, !llvm.loop !13
+  br i1 %.not26.us.i, label %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.argprom.exit, label %.lr.ph.split.us.i, !llvm.loop !13
 
 .lr.ph.split.i:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit.i, %.lr.ph.i262
   %.121.i = phi i32 [ %398, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit.i ], [ %.029.i, %.lr.ph.i262 ]
@@ -800,9 +800,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit.i: ; pre
   %398 = add i32 %.121.i, -1
   %399 = getelementptr inbounds i8, ptr %.220.i, i64 2
   %.not26.i = icmp eq i32 %398, 0
-  br i1 %.not26.i, label %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.exit, label %.lr.ph.split.i, !llvm.loop !13
+  br i1 %.not26.i, label %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.argprom.exit, label %.lr.ph.split.i, !llvm.loop !13
 
-_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit.us.i, %329, %344, %355, %.loopexit18.i, %.loopexit18.thread.i
+_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.argprom.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit.us.i, %329, %344, %355, %.loopexit18.i, %.loopexit18.thread.i
   %400 = load i32, ptr %.0228470, align 8
   switch i32 %400, label %_ZNSt6vectorIN4llvm14MachineOperandESaIS1_EED2Ev.exit [
     i32 1, label %401
@@ -811,7 +811,7 @@ _ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GL
     i32 2, label %622
   ]
 
-401:                                              ; preds = %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.exit
+401:                                              ; preds = %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.argprom.exit
   %402 = load i32, ptr %341, align 8
   %403 = icmp eq i32 %402, 2
   br i1 %403, label %404, label %423
@@ -932,7 +932,7 @@ _ZNKSt8functionIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEEclES6_.exit: ; p
   br i1 %.not246, label %._crit_edge468, label %.lr.ph467
 
 ._crit_edge468:                                   ; preds = %.lr.ph467, %453
-  %466 = call fastcc noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIN12_GLOBAL__N_119GISelAsmOperandInfoEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS2_Lb0EEEEEPKS2_PT_RS7_m(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(160) %.0228470)
+  %466 = call fastcc noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIN12_GLOBAL__N_119GISelAsmOperandInfoEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS2_Lb0EEEEEPKS2_PT_RS7_m.argelim(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(160) %.0228470)
   %.val.i.i264 = load ptr, ptr %27, align 8
   %467 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #13
   %468 = getelementptr inbounds %"class.(anonymous namespace)::GISelAsmOperandInfo", ptr %.val.i.i264, i64 %467
@@ -954,7 +954,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119GISelAsmOperandInfoELb0EE9pus
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %27, i64 noundef %476) #13
   br label %_ZNSt6vectorIN4llvm14MachineOperandESaIS1_EED2Ev.exit
 
-477:                                              ; preds = %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.exit, %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.exit
+477:                                              ; preds = %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.argprom.exit, %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.argprom.exit
   %478 = call noundef zeroext i1 @_ZNK4llvm14TargetLowering14AsmOperandInfo25isMatchingInputConstraintEv(ptr noundef nonnull align 8 dereferenceable(130) %.0228470) #13
   br i1 %478, label %479, label %523
 
@@ -1250,7 +1250,7 @@ _ZNKSt8functionIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEEclES6_.exit273: 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %_ZNSt6vectorIN4llvm14MachineOperandESaIS1_EED2Ev.exit
 
-622:                                              ; preds = %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.exit
+622:                                              ; preds = %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.argprom.exit
   %623 = getelementptr inbounds nuw i8, ptr %.0228470, i64 136
   %624 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %623) #13
   %625 = and i64 %624, 4294967295
@@ -1290,7 +1290,7 @@ _ZNKSt8functionIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEEclES6_.exit273: 
   %.not245 = icmp eq ptr %636, %632
   br i1 %.not245, label %_ZNSt6vectorIN4llvm14MachineOperandESaIS1_EED2Ev.exit, label %.lr.ph457
 
-_ZNSt6vectorIN4llvm14MachineOperandESaIS1_EED2Ev.exit: ; preds = %.lr.ph457, %626, %550, %_ZNK4llvm19MachineInstrBuilder3addENS_8ArrayRefINS_14MachineOperandEEE.exit, %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.exit, %516, %_ZNKSt8functionIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEEclES6_.exit271, %620, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119GISelAsmOperandInfoELb0EE9push_backERKS2_.exit, %_ZNKSt8functionIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEEclES6_.exit, %622
+_ZNSt6vectorIN4llvm14MachineOperandESaIS1_EED2Ev.exit: ; preds = %.lr.ph457, %626, %550, %_ZNK4llvm19MachineInstrBuilder3addENS_8ArrayRefINS_14MachineOperandEEE.exit, %_ZL20getRegistersForValueRN4llvm15MachineFunctionERNS_16MachineIRBuilderERN12_GLOBAL__N_119GISelAsmOperandInfoES6_.argprom.exit, %516, %_ZNKSt8functionIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEEclES6_.exit271, %620, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119GISelAsmOperandInfoELb0EE9push_backERKS2_.exit, %_ZNKSt8functionIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEEclES6_.exit, %622
   %637 = getelementptr inbounds i8, ptr %.0228470, i64 160
   %.not = icmp eq ptr %637, %284
   br i1 %.not, label %._crit_edge473, label %323
@@ -3264,7 +3264,7 @@ declare { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8
 declare noundef ptr @_ZNK4llvm11Instruction15getMetadataImplENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(72), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIN12_GLOBAL__N_119GISelAsmOperandInfoEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS2_Lb0EEEEEPKS2_PT_RS7_m(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #1 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm25SmallVectorTemplateCommonIN12_GLOBAL__N_119GISelAsmOperandInfoEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS2_Lb0EEEEEPKS2_PT_RS7_m.argelim(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #1 align 2 {
   %3 = alloca i64, align 8
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   %5 = add i64 %4, 1

@@ -1486,13 +1486,13 @@ _Z9opt_givenP7OPTARGSPKc.exit69.thread:           ; preds = %184, %_Z9opt_givenP
   %229 = getelementptr inbounds i8, ptr %225, i64 24
   store ptr %228, ptr %229, align 8
   %230 = icmp eq ptr %228, null
-  br i1 %230, label %231, label %_ZL11ffio_createPKPKcmm.exit
+  br i1 %230, label %231, label %_ZL11ffio_createPKPKcmm.argprom.exit
 
 231:                                              ; preds = %227
   call void @free(ptr noundef nonnull %225) #25
   br label %240
 
-_ZL11ffio_createPKPKcmm.exit:                     ; preds = %227
+_ZL11ffio_createPKPKcmm.argprom.exit:             ; preds = %227
   %232 = call noalias dereferenceable_or_null(1000) ptr @calloc(i64 noundef 1, i64 noundef 1000) #27
   %233 = getelementptr inbounds i8, ptr %225, i64 32
   store ptr %232, ptr %233, align 8
@@ -1508,7 +1508,7 @@ _ZL11ffio_createPKPKcmm.exit:                     ; preds = %227
   %238 = icmp sgt i32 %217, 0
   br i1 %238, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %_ZL11ffio_createPKPKcmm.exit
+.lr.ph:                                           ; preds = %_ZL11ffio_createPKPKcmm.argprom.exit
   %239 = getelementptr inbounds i8, ptr %35, i64 40
   br label %250
 
@@ -1741,7 +1741,7 @@ _ZL6at_tagP4ffio.exit.i.i:                        ; preds = %329
   br label %.loopexit.i
 
 349:                                              ; preds = %_ZL6at_tagP4ffio.exit.i.i
-  call fastcc void @_ZL11append_argsP4ffio(ptr noundef nonnull %286)
+  call fastcc void @_ZL11append_argsP4ffio.retelim(ptr noundef nonnull %286)
   %350 = load ptr, ptr %287, align 8
   %351 = call noundef ptr @_Z9pj_shrinkPc(ptr noundef %350)
   %352 = load ptr, ptr %287, align 8
@@ -1789,7 +1789,7 @@ _ZL6at_tagP4ffio.exit.i.i:                        ; preds = %329
   %378 = add i64 %377, 1
   store i64 %378, ptr %293, align 8
   store i64 %378, ptr %300, align 8
-  call fastcc void @_ZL11append_argsP4ffio(ptr noundef nonnull %286)
+  call fastcc void @_ZL11append_argsP4ffio.retelim(ptr noundef nonnull %286)
   %379 = load ptr, ptr %287, align 8
   %380 = call noundef ptr @_Z9pj_shrinkPc(ptr noundef %379)
   %381 = load ptr, ptr %287, align 8
@@ -1974,7 +1974,7 @@ _ZL6at_tagP4ffio.exit57.i.i:                      ; preds = %455
   br i1 %463, label %.loopexit.i, label %.critedge79.preheader.i.i
 
 .critedge79.preheader.i.i:                        ; preds = %_ZL6at_tagP4ffio.exit57.i.i
-  call fastcc void @_ZL11append_argsP4ffio(ptr noundef nonnull %286)
+  call fastcc void @_ZL11append_argsP4ffio.retelim(ptr noundef nonnull %286)
   %464 = load ptr, ptr %290, align 8
   store i8 0, ptr %464, align 1
   %465 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30120), align 8
@@ -2052,7 +2052,7 @@ _ZL6at_tagP4ffio.exit.loopexit.i.i.i:             ; preds = %493
   br i1 %.not.i.i, label %.critedge79.backedge.i.i, label %_ZL16at_end_delimiterP4ffio.exit.thread.i.i
 
 .critedge79.backedge.i.i:                         ; preds = %491, %_ZL6at_tagP4ffio.exit.loopexit.i.i.i, %.loopexit.i.i.i
-  call fastcc void @_ZL11append_argsP4ffio(ptr noundef nonnull %286)
+  call fastcc void @_ZL11append_argsP4ffio.retelim(ptr noundef nonnull %286)
   %499 = load ptr, ptr %290, align 8
   store i8 0, ptr %499, align 1
   %500 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30120), align 8
@@ -2095,14 +2095,14 @@ _ZL7get_inpP4ffio.exit.i:                         ; preds = %_ZL16at_end_delimit
 
 521:                                              ; preds = %512
   %522 = icmp sgt i32 %513, 0
-  br i1 %522, label %523, label %_ZL25finish_previous_operationPKc.exit.i.i.i
+  br i1 %522, label %523, label %_ZL25finish_previous_operationPKc.argprom.exit.i.i.i
 
 523:                                              ; preds = %521
   %524 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
   %525 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %526 = sub i32 0, %525
   %.not.i.i.i14.i = icmp eq i32 %524, %526
-  br i1 %.not.i.i.i14.i, label %_ZL25finish_previous_operationPKc.exit.i.i.i, label %527
+  br i1 %.not.i.i.i14.i, label %_ZL25finish_previous_operationPKc.argprom.exit.i.i.i, label %527
 
 527:                                              ; preds = %523
   %528 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
@@ -2110,9 +2110,9 @@ _ZL7get_inpP4ffio.exit.i:                         ; preds = %_ZL16at_end_delimit
   %.not3.i.i.i.i = icmp eq i32 %525, 0
   %.str.59..str.60.i.i.i.i = select i1 %.not3.i.i.i.i, ptr @.str.60, ptr @.str.59
   %530 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %528, ptr noundef nonnull @.str.68, ptr noundef nonnull @_ZL5delim, i32 noundef %524, i32 noundef %529, i32 noundef %525, ptr noundef nonnull %.str.59..str.60.i.i.i.i) #25
-  br label %_ZL25finish_previous_operationPKc.exit.i.i.i
+  br label %_ZL25finish_previous_operationPKc.argprom.exit.i.i.i
 
-_ZL25finish_previous_operationPKc.exit.i.i.i:     ; preds = %527, %523, %521
+_ZL25finish_previous_operationPKc.argprom.exit.i.i.i: ; preds = %527, %523, %521
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %32)
   store i32 3026478, ptr %31, align 4
@@ -2126,7 +2126,7 @@ _ZL25finish_previous_operationPKc.exit.i.i.i:     ; preds = %527, %523, %521
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %32)
   br label %535
 
-535:                                              ; preds = %_ZL25finish_previous_operationPKc.exit.i.i.i, %512
+535:                                              ; preds = %_ZL25finish_previous_operationPKc.argprom.exit.i.i.i, %512
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30136), align 8
@@ -2161,7 +2161,7 @@ _ZL25finish_previous_operationPKc.exit.i.i.i:     ; preds = %527, %523, %521
   br label %_ZL9directionPKc.exit.i.i.i
 
 _ZL9directionPKc.exit.i.i.i:                      ; preds = %543, %541
-  %544 = call fastcc noundef double @_ZL13strtod_scaledPKcd(ptr noundef nonnull @.str.66)
+  %544 = call fastcc noundef double @_ZL13strtod_scaledPKcd.argelim(ptr noundef nonnull @.str.66)
   %545 = fcmp oeq double %544, 0x7FF0000000000000
   %storemerge.i2.i.i.i = select i1 %545, double 5.000000e-04, double %544
   store double %storemerge.i2.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30192), align 8
@@ -2216,7 +2216,7 @@ _ZL9operationPKc.exit.i.i:                        ; preds = %555, %_ZL6ignorePKc
   br i1 %or.cond.i.i.i, label %_ZL8dispatchPKcS0_.exit.i.backedge, label %568
 
 568:                                              ; preds = %566
-  call fastcc void @_ZL20crs_to_crs_operationv()
+  call fastcc void @_ZL20crs_to_crs_operationv.retelim()
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 569:                                              ; preds = %563
@@ -2235,7 +2235,7 @@ _ZL9operationPKc.exit.i.i:                        ; preds = %555, %_ZL6ignorePKc
   br i1 %or.cond.i37.i.i, label %_ZL8dispatchPKcS0_.exit.i.backedge, label %574
 
 574:                                              ; preds = %572
-  call fastcc void @_ZL20crs_to_crs_operationv()
+  call fastcc void @_ZL20crs_to_crs_operationv.retelim()
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 575:                                              ; preds = %569
@@ -2634,7 +2634,7 @@ _ZL20err_const_from_errnoi.exit.i.i:              ; preds = %732, %739
   %spec.select.i103.i.i = select i1 %or.cond.i102.i.i, ptr %765, ptr @.str.111
   %766 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i103.i.i) #26, !noalias !26
   %.not2.i.i24.i = icmp eq i64 %766, 0
-  br i1 %.not2.i.i24.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i27.i, label %.lr.ph.i104.i.i
+  br i1 %.not2.i.i24.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i27.i, label %.lr.ph.i104.i.i
 
 .lr.ph.i104.i.i:                                  ; preds = %758, %774
   %.01.i.i25.i = phi i64 [ %775, %774 ], [ 0, %758 ]
@@ -2655,13 +2655,13 @@ _ZL20err_const_from_errnoi.exit.i.i:              ; preds = %732, %739
 774:                                              ; preds = %770, %.lr.ph.i104.i.i
   %775 = add nuw i64 %.01.i.i25.i, 1
   %exitcond.not.i106.i.i = icmp eq i64 %775, %766
-  br i1 %exitcond.not.i106.i.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i27.i, label %.lr.ph.i104.i.i, !llvm.loop !29
+  br i1 %exitcond.not.i106.i.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i27.i, label %.lr.ph.i104.i.i, !llvm.loop !29
 
 776:                                              ; preds = %753
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL1T, i64 30016), i64 32, i1 false)
-  br label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i27.i
+  br label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i27.i
 
-_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i27.i: ; preds = %774, %776, %758
+_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i27.i: ; preds = %774, %776, %758
   %777 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30184), align 8, !noalias !30
   %778 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8, !noalias !30
   %779 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8, !noalias !30
@@ -2670,15 +2670,15 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i27.i: ; preds = %774, %7
     i64 3, label %781
   ]
 
-780:                                              ; preds = %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i27.i
+780:                                              ; preds = %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i27.i
   call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %19, ptr noundef %778, i32 noundef %779, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %13)
   br label %_ZL18expect_trans_n_dimRK8PJ_COORD.exit.i.i
 
-781:                                              ; preds = %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i27.i
+781:                                              ; preds = %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i27.i
   call void @_Z18pj_approx_3D_transP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %19, ptr noundef %778, i32 noundef %779, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %13)
   br label %_ZL18expect_trans_n_dimRK8PJ_COORD.exit.i.i
 
-782:                                              ; preds = %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i27.i
+782:                                              ; preds = %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i27.i
   call void @_Z18pj_approx_2D_transP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %19, ptr noundef %778, i32 noundef %779, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %13)
   br label %_ZL18expect_trans_n_dimRK8PJ_COORD.exit.i.i
 
@@ -2781,11 +2781,11 @@ _ZL20err_const_from_errnoi.exit111.i.i:           ; preds = %803, %810
   br label %_ZL6expectPKc.exit.i
 
 838:                                              ; preds = %827
-  call fastcc void @_ZL6bannerPKc(ptr noundef nonnull @_ZL1T)
+  call fastcc void @_ZL6bannerPKc.retelim(ptr noundef nonnull @_ZL1T)
   %839 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30168), align 8
   %840 = trunc i64 %839 to i32
   %841 = call noundef i32 (i32, ptr, ...) @_ZL6errmsgiPKcz(i32 noundef 3, ptr noundef nonnull @.str.76, ptr noundef nonnull @_ZL5delim, i32 noundef %840)
-  call fastcc void @_ZL23another_failing_failurev()
+  call fastcc void @_ZL23another_failing_failurev.retelim()
   br label %_ZL6expectPKc.exit.i
 
 842:                                              ; preds = %752
@@ -2918,7 +2918,7 @@ _ZL20err_const_from_errnoi.exit111.i.i:           ; preds = %803, %810
   %spec.select.i119.i.i = select i1 %or.cond.i118.i.i, ptr %925, ptr @.str.111
   %926 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i119.i.i) #26, !noalias !33
   %.not2.i120.i.i = icmp eq i64 %926, 0
-  br i1 %.not2.i120.i.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i, label %.lr.ph.i121.i.i
+  br i1 %.not2.i120.i.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit126.i.i, label %.lr.ph.i121.i.i
 
 .lr.ph.i121.i.i:                                  ; preds = %918, %934
   %.01.i122.i.i = phi i64 [ %935, %934 ], [ 0, %918 ]
@@ -2939,9 +2939,9 @@ _ZL20err_const_from_errnoi.exit111.i.i:           ; preds = %803, %810
 934:                                              ; preds = %930, %.lr.ph.i121.i.i
   %935 = add nuw i64 %.01.i122.i.i, 1
   %exitcond.not.i125.i.i = icmp eq i64 %935, %926
-  br i1 %exitcond.not.i125.i.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i, label %.lr.ph.i121.i.i, !llvm.loop !29
+  br i1 %exitcond.not.i125.i.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit126.i.i, label %.lr.ph.i121.i.i, !llvm.loop !29
 
-_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i: ; preds = %934, %918
+_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit126.i.i: ; preds = %934, %918
   %.sroa.0165.0.copyload166.i.i = load double, ptr %8, align 8
   %.sroa.3167.0.copyload168.i.i = load double, ptr %.sroa.3167.0..sroa_idx.i.i, align 8
   %.sroa.4169.0.copyload170.i.i = load double, ptr %.sroa.4169.0..sroa_idx.i.i, align 8
@@ -2956,11 +2956,11 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i: ; preds = %934, %
   %.sroa.5171.0.copyload.i.i = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30104), align 8
   br label %937
 
-937:                                              ; preds = %936, %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i
-  %.sroa.0165.0.i.i = phi double [ %.sroa.0165.0.copyload.i.i, %936 ], [ %.sroa.0165.0.copyload166.i.i, %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i ]
-  %.sroa.3167.0.i.i = phi double [ %.sroa.3167.0.copyload.i.i, %936 ], [ %.sroa.3167.0.copyload168.i.i, %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i ]
-  %.sroa.4169.0.i.i = phi double [ %.sroa.4169.0.copyload.i.i, %936 ], [ %.sroa.4169.0.copyload170.i.i, %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i ]
-  %.sroa.5171.0.i.i = phi double [ %.sroa.5171.0.copyload.i.i, %936 ], [ %.sroa.5171.0.copyload172.i.i, %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i ]
+937:                                              ; preds = %936, %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit126.i.i
+  %.sroa.0165.0.i.i = phi double [ %.sroa.0165.0.copyload.i.i, %936 ], [ %.sroa.0165.0.copyload166.i.i, %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit126.i.i ]
+  %.sroa.3167.0.i.i = phi double [ %.sroa.3167.0.copyload.i.i, %936 ], [ %.sroa.3167.0.copyload168.i.i, %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit126.i.i ]
+  %.sroa.4169.0.i.i = phi double [ %.sroa.4169.0.copyload.i.i, %936 ], [ %.sroa.4169.0.copyload170.i.i, %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit126.i.i ]
+  %.sroa.5171.0.i.i = phi double [ %.sroa.5171.0.copyload.i.i, %936 ], [ %.sroa.5171.0.copyload172.i.i, %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit126.i.i ]
   %938 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %939 = icmp sgt i32 %938, 3
   br i1 %939, label %940, label %943
@@ -2992,7 +2992,7 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i: ; preds = %934, %
   %spec.select.i128.i.i = select i1 %or.cond.i127.i.i, ptr %954, ptr @.str.111
   %955 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i128.i.i) #26, !noalias !36
   %.not2.i129.i.i = icmp eq i64 %955, 0
-  br i1 %.not2.i129.i.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit135.i.i, label %.lr.ph.i130.i.i
+  br i1 %.not2.i129.i.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit135.i.i, label %.lr.ph.i130.i.i
 
 .lr.ph.i130.i.i:                                  ; preds = %947, %963
   %.01.i131.i.i = phi i64 [ %964, %963 ], [ 0, %947 ]
@@ -3013,9 +3013,9 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i: ; preds = %934, %
 963:                                              ; preds = %959, %.lr.ph.i130.i.i
   %964 = add nuw i64 %.01.i131.i.i, 1
   %exitcond.not.i134.i.i = icmp eq i64 %964, %955
-  br i1 %exitcond.not.i134.i.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit135.i.i, label %.lr.ph.i130.i.i, !llvm.loop !29
+  br i1 %exitcond.not.i134.i.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit135.i.i, label %.lr.ph.i130.i.i, !llvm.loop !29
 
-_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit135.i.i: ; preds = %963, %947
+_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit135.i.i: ; preds = %963, %947
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0163.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %966
@@ -3024,7 +3024,7 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit135.i.i: ; preds = %963, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0163.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL1T, i64 30016), i64 32, i1 false)
   br label %966
 
-966:                                              ; preds = %965, %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit135.i.i
+966:                                              ; preds = %965, %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit135.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0163.i.i, i64 32, i1 false)
   %967 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %968 = icmp sgt i32 %967, 3
@@ -3094,7 +3094,7 @@ _ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i:   ; preds = %982, %981, %980
   %spec.select.i138.i.i = select i1 %or.cond.i137.i.i, ptr %996, ptr @.str.111
   %997 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i138.i.i) #26, !noalias !42
   %.not2.i139.i.i = icmp eq i64 %997, 0
-  br i1 %.not2.i139.i.i, label %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i, label %.lr.ph.i140.i.i
+  br i1 %.not2.i139.i.i, label %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i.i, label %.lr.ph.i140.i.i
 
 .lr.ph.i140.i.i:                                  ; preds = %989, %1005
   %.01.i141.i.i = phi i64 [ %1006, %1005 ], [ 0, %989 ]
@@ -3115,28 +3115,28 @@ _ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i:   ; preds = %982, %981, %980
 1005:                                             ; preds = %1001, %.lr.ph.i140.i.i
   %1006 = add nuw i64 %.01.i141.i.i, 1
   %exitcond.not.i144.i.i = icmp eq i64 %1006, %997
-  br i1 %exitcond.not.i144.i.i, label %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.loopexit.i.i, label %.lr.ph.i140.i.i, !llvm.loop !45
+  br i1 %exitcond.not.i144.i.i, label %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.loopexit.i.i, label %.lr.ph.i140.i.i, !llvm.loop !45
 
-_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.loopexit.i.i: ; preds = %1005
+_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.loopexit.i.i: ; preds = %1005
   %.sroa.0153.0.copyload154.pre.i.i = load double, ptr %6, align 8
   %.sroa.3155.0.copyload156.pre.i.i = load double, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %.sroa.4157.0.copyload158.pre.i.i = load double, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   %.sroa.5.0.copyload161.pre.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8
-  br label %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i
+  br label %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i.i
 
-_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.loopexit.i.i, %989
-  %.sroa.5.0.copyload161.i.i = phi double [ %.sroa.5.0.copyload161.pre.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.loopexit.i.i ], [ %.sroa.12.0.i.i, %989 ]
-  %.sroa.4157.0.copyload158.i.i = phi double [ %.sroa.4157.0.copyload158.pre.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.loopexit.i.i ], [ %.sroa.10.0.i.i, %989 ]
-  %.sroa.3155.0.copyload156.i.i = phi double [ %.sroa.3155.0.copyload156.pre.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.loopexit.i.i ], [ %.sroa.9.0.copyload33.i.i, %989 ]
-  %.sroa.0153.0.copyload154.i.i = phi double [ %.sroa.0153.0.copyload154.pre.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.loopexit.i.i ], [ %.sroa.024.0.copyload27.i.i, %989 ]
+_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i.i: ; preds = %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.loopexit.i.i, %989
+  %.sroa.5.0.copyload161.i.i = phi double [ %.sroa.5.0.copyload161.pre.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.loopexit.i.i ], [ %.sroa.12.0.i.i, %989 ]
+  %.sroa.4157.0.copyload158.i.i = phi double [ %.sroa.4157.0.copyload158.pre.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.loopexit.i.i ], [ %.sroa.10.0.i.i, %989 ]
+  %.sroa.3155.0.copyload156.i.i = phi double [ %.sroa.3155.0.copyload156.pre.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.loopexit.i.i ], [ %.sroa.9.0.copyload33.i.i, %989 ]
+  %.sroa.0153.0.copyload154.i.i = phi double [ %.sroa.0153.0.copyload154.pre.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.loopexit.i.i ], [ %.sroa.024.0.copyload27.i.i, %989 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %1007
 
-1007:                                             ; preds = %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i, %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i
-  %.sroa.5.0.i.i = phi double [ %.sroa.5.0.copyload161.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i ], [ %.sroa.12.0.i.i, %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i ]
-  %.sroa.4157.0.i.i = phi double [ %.sroa.4157.0.copyload158.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i ], [ %.sroa.10.0.i.i, %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i ]
-  %.sroa.3155.0.i.i = phi double [ %.sroa.3155.0.copyload156.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i ], [ %.sroa.9.0.copyload33.i.i, %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i ]
-  %.sroa.0153.0.i.i = phi double [ %.sroa.0153.0.copyload154.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i ], [ %.sroa.024.0.copyload27.i.i, %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i ]
+1007:                                             ; preds = %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i.i, %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i
+  %.sroa.5.0.i.i = phi double [ %.sroa.5.0.copyload161.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i.i ], [ %.sroa.12.0.i.i, %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i ]
+  %.sroa.4157.0.i.i = phi double [ %.sroa.4157.0.copyload158.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i.i ], [ %.sroa.10.0.i.i, %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i ]
+  %.sroa.3155.0.i.i = phi double [ %.sroa.3155.0.copyload156.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i.i ], [ %.sroa.9.0.copyload33.i.i, %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i ]
+  %.sroa.0153.0.i.i = phi double [ %.sroa.0153.0.copyload154.i.i, %_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i.i ], [ %.sroa.024.0.copyload27.i.i, %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i ]
   store double %.sroa.0153.0.i.i, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30048), align 8
   store double %.sroa.3155.0.i.i, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30056), align 8
   store double %.sroa.4157.0.i.i, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30064), align 8
@@ -3390,7 +3390,7 @@ _ZL6expectPKc.exit.i:                             ; preds = %1091, %1084, %1028,
 
 1141:                                             ; preds = %1139, %1122
   %.019.i.i = phi i32 [ %1140, %1139 ], [ 100, %1122 ]
-  %1142 = call fastcc noundef double @_ZL13strtod_scaledPKcd(ptr noundef %1124)
+  %1142 = call fastcc noundef double @_ZL13strtod_scaledPKcd.argelim(ptr noundef %1124)
   %1143 = fcmp oeq double %1142, 0x7FF0000000000000
   %1144 = load double, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30192), align 8
   %1145 = select i1 %1143, double %1144, double %1142
@@ -3414,7 +3414,7 @@ _ZL6expectPKc.exit.i:                             ; preds = %1091, %1084, %1028,
   %spec.select.i.i.i = select i1 %or.cond.i.i16.i, ptr %1156, ptr @.str.111
   %1157 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i.i.i) #26, !noalias !46
   %.not2.i.i17.i = icmp eq i64 %1157, 0
-  br i1 %.not2.i.i17.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i, label %.lr.ph.i.i18.i
+  br i1 %.not2.i.i17.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i.i, label %.lr.ph.i.i18.i
 
 .lr.ph.i.i18.i:                                   ; preds = %1149, %1165
   %.01.i.i.i = phi i64 [ %1166, %1165 ], [ 0, %1149 ]
@@ -3435,13 +3435,13 @@ _ZL6expectPKc.exit.i:                             ; preds = %1091, %1084, %1028,
 1165:                                             ; preds = %1161, %.lr.ph.i.i18.i
   %1166 = add nuw i64 %.01.i.i.i, 1
   %exitcond.not.i.i20.i = icmp eq i64 %1166, %1157
-  br i1 %exitcond.not.i.i20.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i, label %.lr.ph.i.i18.i, !llvm.loop !29
+  br i1 %exitcond.not.i.i20.i, label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i.i, label %.lr.ph.i.i18.i, !llvm.loop !29
 
 1167:                                             ; preds = %1141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL1T, i64 30016), i64 32, i1 false)
-  br label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i
+  br label %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i.i
 
-_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %1165, %1167, %1149
+_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i.i: ; preds = %1165, %1167, %1149
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false)
   %1168 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30008), align 8
   %1169 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30112), align 8
@@ -3449,13 +3449,13 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %1165, %11
   %1171 = fcmp uno double %1170, 0.000000e+00
   br i1 %1171, label %1172, label %1175
 
-1172:                                             ; preds = %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i
+1172:                                             ; preds = %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i.i
   %1173 = fcmp ord double %1145, 0.000000e+00
   %1174 = fcmp ugt double %1170, %1145
   %or.cond27.i.i = and i1 %1173, %1174
   br i1 %or.cond27.i.i, label %1185, label %1176
 
-1175:                                             ; preds = %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i
+1175:                                             ; preds = %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom.exit.i.i
   %.old.i.i = fcmp ugt double %1170, %1145
   br i1 %.old.i.i, label %1185, label %1176
 
@@ -3553,7 +3553,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1218, %1176, %1129,
   br i1 %1229, label %1230, label %1231
 
 1230:                                             ; preds = %1227
-  call fastcc void @_ZL6bannerPKc(ptr noundef %507)
+  call fastcc void @_ZL6bannerPKc.retelim(ptr noundef %507)
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1231:                                             ; preds = %1227
@@ -3562,7 +3562,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1218, %1176, %1129,
   br i1 %1233, label %1234, label %1235
 
 1234:                                             ; preds = %1231
-  call fastcc void @_ZL7verbosePKc(ptr noundef %507)
+  call fastcc void @_ZL7verbosePKc.retelim(ptr noundef %507)
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1235:                                             ; preds = %1231
@@ -3603,7 +3603,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1218, %1176, %1129,
   br i1 %1247, label %1248, label %1251
 
 1248:                                             ; preds = %1245
-  %1249 = call fastcc noundef double @_ZL13strtod_scaledPKcd(ptr noundef %507)
+  %1249 = call fastcc noundef double @_ZL13strtod_scaledPKcd.argelim(ptr noundef %507)
   %1250 = fcmp oeq double %1249, 0x7FF0000000000000
   %storemerge.i39.i.i = select i1 %1250, double 5.000000e-04, double %1249
   store double %storemerge.i39.i.i, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30192), align 8
@@ -3615,7 +3615,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1218, %1176, %1129,
   br i1 %1253, label %1254, label %1255
 
 1254:                                             ; preds = %1251
-  call fastcc void @_ZL6ignorePKc(ptr noundef %507)
+  call fastcc void @_ZL6ignorePKc.retelim(ptr noundef %507)
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1255:                                             ; preds = %1251
@@ -3624,7 +3624,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1218, %1176, %1129,
   br i1 %1257, label %1258, label %1259
 
 1258:                                             ; preds = %1255
-  call fastcc void @_ZL12require_gridPKc(ptr noundef %507)
+  call fastcc void @_ZL12require_gridPKc.retelim(ptr noundef %507)
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1259:                                             ; preds = %1255
@@ -3741,8 +3741,8 @@ _ZL12process_filePKc.exit:                        ; preds = %274, %1277, %1304, 
   %1318 = icmp sgt i32 %.pr86, 1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZL11ffio_createPKPKcmm.exit, %._crit_edge.loopexit, %.preheader
-  %.lcssa145 = phi i1 [ false, %.preheader ], [ %1318, %._crit_edge.loopexit ], [ false, %_ZL11ffio_createPKPKcmm.exit ]
+._crit_edge:                                      ; preds = %_ZL11ffio_createPKPKcmm.argprom.exit, %._crit_edge.loopexit, %.preheader
+  %.lcssa145 = phi i1 [ false, %.preheader ], [ %1318, %._crit_edge.loopexit ], [ false, %_ZL11ffio_createPKPKcmm.argprom.exit ]
   %1319 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %1320 = icmp sgt i32 %1319, 0
   br i1 %1320, label %1321, label %1349
@@ -3808,7 +3808,7 @@ _ZL12process_filePKc.exit:                        ; preds = %274, %1277, %1304, 
 1359:                                             ; preds = %1357, %1354
   call void @free(ptr noundef nonnull %35) #25
   %1360 = load ptr, ptr @F, align 8
-  call fastcc void @_ZL12ffio_destroyP4ffio(ptr noundef %1360)
+  call fastcc void @_ZL12ffio_destroyP4ffio.retelim(ptr noundef %1360)
   %1361 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30156), align 4
   br label %_ZL14list_err_codesv.exit
 
@@ -3829,7 +3829,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare noundef ptr @_Z14pj_get_releasev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress norecurse nounwind willreturn uwtable
-define internal fastcc void @_ZL12ffio_destroyP4ffio(ptr nocapture noundef %0) unnamed_addr #14 {
+define internal fastcc void @_ZL12ffio_destroyP4ffio.retelim(ptr nocapture noundef %0) unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #25
@@ -3862,7 +3862,7 @@ define internal noundef range(i32 -4, 4) i32 @_ZL6errmsgiPKcz(i32 noundef return
 }
 
 ; Function Attrs: mustprogress norecurse nounwind uwtable
-define internal fastcc void @_ZL11append_argsP4ffio(ptr nocapture noundef %0) unnamed_addr #16 {
+define internal fastcc void @_ZL11append_argsP4ffio.retelim(ptr nocapture noundef %0) unnamed_addr #16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #26
@@ -4070,7 +4070,7 @@ _ZL8nextlineP4ffio.exit13:                        ; preds = %23, %15, %13, %52, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define internal fastcc void @_ZL6bannerPKc(ptr noundef %0) unnamed_addr #15 {
+define internal fastcc void @_ZL6bannerPKc.retelim(ptr noundef %0) unnamed_addr #15 {
   %2 = alloca [4 x i8], align 4
   %3 = alloca [1 x i8], align 1
   store i32 3026478, ptr %2, align 4
@@ -4084,7 +4084,7 @@ define internal fastcc void @_ZL6bannerPKc(ptr noundef %0) unnamed_addr #15 {
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL7verbosePKc(ptr noundef %0) unnamed_addr #10 {
+define internal fastcc void @_ZL7verbosePKc.retelim(ptr noundef %0) unnamed_addr #10 {
   %2 = tail call noundef double @_Z9proj_atofPKc(ptr noundef %0)
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30116), align 4
   %4 = icmp slt i32 %3, 0
@@ -4104,7 +4104,7 @@ define internal fastcc void @_ZL7verbosePKc(ptr noundef %0) unnamed_addr #10 {
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL6ignorePKc(ptr noundef %0) unnamed_addr #10 {
+define internal fastcc void @_ZL6ignorePKc.retelim(ptr noundef %0) unnamed_addr #10 {
 .preheader19.i:
   br label %1
 
@@ -4124,7 +4124,7 @@ _ZL6columnPKci.exit:                              ; preds = %1
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL12require_gridPKc(ptr noundef %0) unnamed_addr #10 {
+define internal fastcc void @_ZL12require_gridPKc.retelim(ptr noundef %0) unnamed_addr #10 {
 .preheader19.i:
   %1 = alloca %struct.PJ_GRID_INFO, align 8
   br label %2
@@ -4171,7 +4171,7 @@ declare void @proj_context_use_proj4_init_rules(ptr noundef, i32 noundef) local_
 declare ptr @proj_create(ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL20crs_to_crs_operationv() unnamed_addr #10 {
+define internal fastcc void @_ZL20crs_to_crs_operationv.retelim() unnamed_addr #10 {
   %1 = alloca [4 x i8], align 4
   %2 = alloca [1 x i8], align 1
   %3 = alloca [80 x i8], align 16
@@ -4188,14 +4188,14 @@ define internal fastcc void @_ZL20crs_to_crs_operationv() unnamed_addr #10 {
 
 11:                                               ; preds = %0
   %12 = icmp sgt i32 %4, 0
-  br i1 %12, label %13, label %_ZL25finish_previous_operationPKc.exit
+  br i1 %12, label %13, label %_ZL25finish_previous_operationPKc.argprom.exit
 
 13:                                               ; preds = %11
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %16 = sub i32 0, %15
   %.not.i = icmp eq i32 %14, %16
-  br i1 %.not.i, label %_ZL25finish_previous_operationPKc.exit, label %17
+  br i1 %.not.i, label %_ZL25finish_previous_operationPKc.argprom.exit, label %17
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30224), align 8
@@ -4203,9 +4203,9 @@ define internal fastcc void @_ZL20crs_to_crs_operationv() unnamed_addr #10 {
   %.not3.i = icmp eq i32 %15, 0
   %.str.59..str.60.i = select i1 %.not3.i, ptr @.str.60, ptr @.str.59
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.68, ptr noundef nonnull @_ZL5delim, i32 noundef %14, i32 noundef %19, i32 noundef %15, ptr noundef nonnull %.str.59..str.60.i) #25
-  br label %_ZL25finish_previous_operationPKc.exit
+  br label %_ZL25finish_previous_operationPKc.argprom.exit
 
-_ZL25finish_previous_operationPKc.exit:           ; preds = %11, %13, %17
+_ZL25finish_previous_operationPKc.argprom.exit:   ; preds = %11, %13, %17
   %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 80, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL1T, i64 20002), ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL1T, i64 10001)) #25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -4220,7 +4220,7 @@ _ZL25finish_previous_operationPKc.exit:           ; preds = %11, %13, %17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   br label %26
 
-26:                                               ; preds = %_ZL25finish_previous_operationPKc.exit, %0
+26:                                               ; preds = %_ZL25finish_previous_operationPKc.argprom.exit, %0
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30128), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30136), align 8
@@ -4255,7 +4255,7 @@ _ZL25finish_previous_operationPKc.exit:           ; preds = %11, %13, %17
   br label %_ZL9directionPKc.exit
 
 _ZL9directionPKc.exit:                            ; preds = %32, %34
-  %35 = call fastcc noundef double @_ZL13strtod_scaledPKcd(ptr noundef nonnull @.str.66)
+  %35 = call fastcc noundef double @_ZL13strtod_scaledPKcd.argelim(ptr noundef nonnull @.str.66)
   %36 = fcmp oeq double %35, 0x7FF0000000000000
   %storemerge.i2 = select i1 %36, double 5.000000e-04, double %35
   store double %storemerge.i2, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30192), align 8
@@ -4482,7 +4482,7 @@ declare i32 @proj_errno(ptr noundef) local_unnamed_addr #13
 declare ptr @proj_errno_string(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL23another_failing_failurev() unnamed_addr #10 {
+define internal fastcc void @_ZL23another_failing_failurev.retelim() unnamed_addr #10 {
   %1 = load i32, ptr @fail_fails, align 4
   %2 = add nsw i32 %1, 1
   store i32 %2, ptr @fail_fails, align 4
@@ -4523,7 +4523,7 @@ declare void @_Z18pj_approx_2D_transP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_o
 declare double @proj_todeg(double noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef double @_ZL13strtod_scaledPKcd(ptr noundef %0) unnamed_addr #10 {
+define internal fastcc noundef double @_ZL13strtod_scaledPKcd.argelim(ptr noundef %0) unnamed_addr #10 {
   %2 = alloca ptr, align 8
   %3 = call noundef double @_Z11proj_strtodPKcPPc(ptr noundef %0, ptr noundef nonnull %2)
   %4 = load ptr, ptr %2, align 8
@@ -4795,28 +4795,28 @@ attributes #31 = { nounwind allocsize(1) }
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
 !26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD: argument 0"}
-!28 = distinct !{!28, !"_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD"}
+!27 = distinct !{!27, !28, !"_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom: argument 0"}
+!28 = distinct !{!28, !"_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom"}
 !29 = distinct !{!29, !6}
 !30 = !{!31}
 !31 = distinct !{!31, !32, !"_ZL18expect_trans_n_dimRK8PJ_COORD: argument 0"}
 !32 = distinct !{!32, !"_ZL18expect_trans_n_dimRK8PJ_COORD"}
 !33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD: argument 0"}
-!35 = distinct !{!35, !"_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD"}
+!34 = distinct !{!34, !35, !"_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom: argument 0"}
+!35 = distinct !{!35, !"_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom"}
 !36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD: argument 0"}
-!38 = distinct !{!38, !"_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD"}
+!37 = distinct !{!37, !38, !"_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom: argument 0"}
+!38 = distinct !{!38, !"_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom"}
 !39 = !{!40}
 !40 = distinct !{!40, !41, !"_ZL18expect_trans_n_dimRK8PJ_COORD: argument 0"}
 !41 = distinct !{!41, !"_ZL18expect_trans_n_dimRK8PJ_COORD"}
 !42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD: argument 0"}
-!44 = distinct !{!44, !"_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD"}
+!43 = distinct !{!43, !44, !"_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom: argument 0"}
+!44 = distinct !{!44, !"_ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom"}
 !45 = distinct !{!45, !6}
 !46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD: argument 0"}
-!48 = distinct !{!48, !"_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD"}
+!47 = distinct !{!47, !48, !"_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom: argument 0"}
+!48 = distinct !{!48, !"_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.argprom"}
 !49 = distinct !{!49, !6}
 !50 = distinct !{!50, !6}
 !51 = distinct !{!51, !6}

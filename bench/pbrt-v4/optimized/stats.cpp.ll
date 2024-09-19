@@ -6615,7 +6615,7 @@ invoke.cont37:                                    ; preds = %if.end31
 
 invoke.cont38:                                    ; preds = %invoke.cont37
   %14 = load i64, ptr %second28, align 8
-  invoke fastcc void @"_ZZN4pbrt16StatsAccumulator5PrintEP8_IO_FILEENK3$_0clB5cxx11Em"(ptr noalias align 8 %ref.tmp41, i64 noundef %14)
+  invoke fastcc void @"_ZZN4pbrt16StatsAccumulator5PrintEP8_IO_FILEENK3$_0clB5cxx11Em.argprom"(ptr noalias align 8 %ref.tmp41, i64 noundef %14)
           to label %invoke.cont43 unwind label %lpad36
 
 invoke.cont43:                                    ; preds = %invoke.cont38
@@ -6716,7 +6716,7 @@ invoke.cont63:                                    ; preds = %.noexc70
           to label %invoke.cont65 unwind label %lpad64
 
 invoke.cont65:                                    ; preds = %invoke.cont63
-  invoke fastcc void @"_ZZN4pbrt16StatsAccumulator5PrintEP8_IO_FILEENK3$_0clB5cxx11Em"(ptr noalias align 8 %ref.tmp68, i64 noundef %sub)
+  invoke fastcc void @"_ZZN4pbrt16StatsAccumulator5PrintEP8_IO_FILEENK3$_0clB5cxx11Em.argprom"(ptr noalias align 8 %ref.tmp68, i64 noundef %sub)
           to label %invoke.cont69 unwind label %lpad64
 
 invoke.cont69:                                    ; preds = %invoke.cont65
@@ -7598,7 +7598,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt16StatsAccumulator5PrintEP8_IO_FILEENK3$_0clB5cxx11Em"(ptr noalias nonnull align 8 %agg.result, i64 noundef %bytes) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt16StatsAccumulator5PrintEP8_IO_FILEENK3$_0clB5cxx11Em.argprom"(ptr noalias nonnull align 8 %agg.result, i64 noundef %bytes) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %kb = alloca float, align 4
   %mib = alloca float, align 4

@@ -3353,8 +3353,8 @@ define hidden void @_ZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP1
   %38 = getelementptr inbounds i8, ptr %0, i64 1824
   br label %39
 
-39:                                               ; preds = %"_ZZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionENK3$_0clES1_.exit.i", %31
-  %.0.i = phi ptr [ %1, %31 ], [ %.0.i.i, %"_ZZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionENK3$_0clES1_.exit.i" ]
+39:                                               ; preds = %"_ZZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i", %31
+  %.0.i = phi ptr [ %1, %31 ], [ %.0.i.i, %"_ZZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i" ]
   %40 = getelementptr inbounds i8, ptr %.0.i, i64 48
   %41 = load i32, ptr %40, align 8
   %42 = add i32 %41, 1
@@ -3391,7 +3391,7 @@ _ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i: ; pr
   %.0.val.i = load i32, ptr %40, align 8
   %62 = load i32, ptr %35, align 4
   %.not.i.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i.i, label %"_ZZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionENK3$_0clES1_.exit.i", label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %"_ZZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i, %_ZN8G1CMTask22clear_mark_stats_cacheEj.exit.i.i.i
   %63 = phi i32 [ %79, %_ZN8G1CMTask22clear_mark_stats_cacheEj.exit.i.i.i ], [ %62, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i ]
@@ -3423,9 +3423,9 @@ _ZN8G1CMTask22clear_mark_stats_cacheEj.exit.i.i.i: ; preds = %77, %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %80 = zext i32 %79 to i64
   %81 = icmp ult i64 %indvars.iv.next.i.i.i, %80
-  br i1 %81, label %.lr.ph.i.i.i, label %"_ZZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionENK3$_0clES1_.exit.i", !llvm.loop !25
+  br i1 %81, label %.lr.ph.i.i.i, label %"_ZZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i", !llvm.loop !25
 
-"_ZZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionENK3$_0clES1_.exit.i": ; preds = %_ZN8G1CMTask22clear_mark_stats_cacheEj.exit.i.i.i, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i
+"_ZZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i": ; preds = %_ZN8G1CMTask22clear_mark_stats_cacheEj.exit.i.i.i, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i
   %82 = load ptr, ptr %37, align 8
   %83 = zext i32 %.0.val.i to i64
   %84 = getelementptr inbounds ptr, ptr %82, i64 %83
@@ -3436,7 +3436,7 @@ _ZN8G1CMTask22clear_mark_stats_cacheEj.exit.i.i.i: ; preds = %77, %.lr.ph.i.i.i
   %.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i, label %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionE3$_0EEvS3_RKT_.exit", label %39, !llvm.loop !26
 
-"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionE3$_0EEvS3_RKT_.exit": ; preds = %"_ZZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionENK3$_0clES1_.exit.i", %2
+"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionE3$_0EEvS3_RKT_.exit": ; preds = %"_ZZN16G1ConcurrentMark34humongous_object_eagerly_reclaimedEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i", %2
   ret void
 }
 

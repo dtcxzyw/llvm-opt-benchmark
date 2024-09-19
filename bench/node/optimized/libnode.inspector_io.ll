@@ -981,7 +981,7 @@ if.else31.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   %add37.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i, %9
   %add38.i.i.i.i.i = add i64 %add37.i.i.i.i.i, 2
   %cmp.i.i.i.i.i.i.i.i = icmp ugt i64 %add38.i.i.i.i.i, 1152921504606846975
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_allocate_mapEm.exit.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.else31.i.i.i.i.i
   %cmp2.i.i.i.i.i.i.i.i = icmp ugt i64 %add38.i.i.i.i.i, 2305843009213693951
@@ -995,7 +995,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   tail call void @_ZSt17__throw_bad_allocv() #20
   unreachable
 
-_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_allocate_mapEm.exit.i.i.i.i.i: ; preds = %if.else31.i.i.i.i.i
+_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i.i: ; preds = %if.else31.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i = shl nuw nsw i64 %add38.i.i.i.i.i, 3
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i) #17
   %sub40.i.i.i.i.i = sub nsw i64 %add37.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i
@@ -1005,13 +1005,13 @@ _ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_
   %tobool.not.i.i.i.i.i27.i.i.i.i.i = icmp eq ptr %add.ptr55.i.i.i.i.i, %6
   br i1 %tobool.not.i.i.i.i.i27.i.i.i.i.i, label %_ZSt4copyIPPN4node9inspector12_GLOBAL__N_115RequestToServerES5_ET0_T_S7_S6_.exit30.i.i.i.i.i, label %if.then.i.i.i.i.i28.i.i.i.i.i
 
-if.then.i.i.i.i.i28.i.i.i.i.i:                    ; preds = %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_allocate_mapEm.exit.i.i.i.i.i
+if.then.i.i.i.i.i28.i.i.i.i.i:                    ; preds = %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i24.i.i.i.i.i = ptrtoint ptr %add.ptr55.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i26.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i24.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr42.i.i.i.i.i, ptr align 8 %6, i64 %sub.ptr.sub.i.i.i.i.i26.i.i.i.i.i, i1 false)
   br label %_ZSt4copyIPPN4node9inspector12_GLOBAL__N_115RequestToServerES5_ET0_T_S7_S6_.exit30.i.i.i.i.i
 
-_ZSt4copyIPPN4node9inspector12_GLOBAL__N_115RequestToServerES5_ET0_T_S7_S6_.exit30.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i28.i.i.i.i.i, %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_allocate_mapEm.exit.i.i.i.i.i
+_ZSt4copyIPPN4node9inspector12_GLOBAL__N_115RequestToServerES5_ET0_T_S7_S6_.exit30.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i28.i.i.i.i.i, %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef %10) #19
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %messages_.i, align 8
   store i64 %add38.i.i.i.i.i, ptr %_M_map_size.i.i.i.i, align 8
@@ -1157,14 +1157,14 @@ do.end5:                                          ; preds = %entry
   %lock_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 24
   %call.i.i.i.i.i.i.i.i.i.i.i = call noundef i32 @uv_mutex_init(ptr noundef nonnull %lock_.i.i.i.i.i.i.i.i.i) #18, !noalias !8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt11make_sharedIN4node9inspector12RequestQueueEJPNS1_12_GLOBAL__N_116RequestQueueDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit.i, label %do.body5.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt11make_sharedIN4node9inspector12RequestQueueEJPNS1_12_GLOBAL__N_116RequestQueueDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom.exit.i, label %do.body5.i.i.i.i.i.i.i.i.i.i
 
 do.body5.i.i.i.i.i.i.i.i.i.i:                     ; preds = %do.end5
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #18, !noalias !8
   call void @abort() #20, !noalias !8
   unreachable
 
-_ZSt11make_sharedIN4node9inspector12RequestQueueEJPNS1_12_GLOBAL__N_116RequestQueueDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit.i: ; preds = %do.end5
+_ZSt11make_sharedIN4node9inspector12RequestQueueEJPNS1_12_GLOBAL__N_116RequestQueueDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom.exit.i: ; preds = %do.end5
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call6, i64 8
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !8
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %call6, align 8, !alias.scope !8
@@ -1200,12 +1200,12 @@ _ZSt11make_sharedIN4node9inspector12RequestQueueEJPNS1_12_GLOBAL__N_116RequestQu
   %cmp.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit.i, label %do.body5.i.i
 
-do.body5.i.i:                                     ; preds = %_ZSt11make_sharedIN4node9inspector12RequestQueueEJPNS1_12_GLOBAL__N_116RequestQueueDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit.i
+do.body5.i.i:                                     ; preds = %_ZSt11make_sharedIN4node9inspector12RequestQueueEJPNS1_12_GLOBAL__N_116RequestQueueDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom.exit.i
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #18
   call void @abort() #20
   unreachable
 
-_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit.i: ; preds = %_ZSt11make_sharedIN4node9inspector12RequestQueueEJPNS1_12_GLOBAL__N_116RequestQueueDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit.i
+_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit.i: ; preds = %_ZSt11make_sharedIN4node9inspector12RequestQueueEJPNS1_12_GLOBAL__N_116RequestQueueDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom.exit.i
   %incoming_message_cond_.i = getelementptr inbounds i8, ptr %call6, i64 272
   %call.i.i2.i = call noundef i32 @uv_cond_init(ptr noundef nonnull %incoming_message_cond_.i) #18
   %cmp.not.i3.i = icmp eq i32 %call.i.i2.i, 0
@@ -1496,7 +1496,7 @@ if.else.i.i.i.i.i49:                              ; preds = %if.end.i.i.i.i28
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i32: ; preds = %if.else.i.i.i.i.i49, %if.then.i.i.i.i.i30
   %retval.i.0.i.i.i.i33 = phi i32 [ %25, %if.then.i.i.i.i.i30 ], [ %28, %if.else.i.i.i.i.i49 ]
   %cmp6.i.i.i.i34 = icmp eq i32 %retval.i.0.i.i.i.i33, 1
-  br i1 %cmp6.i.i.i.i34, label %if.then7.i.i.i.i35, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit
+  br i1 %cmp6.i.i.i.i34, label %if.then7.i.i.i.i35, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit
 
 if.then7.i.i.i.i35:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i32
   %vtable.i.i.i.i.i.i36 = load ptr, ptr %call5.i.i.i.i.i.i.i3, align 8
@@ -1520,16 +1520,16 @@ if.else.i.i.i.i.i.i.i48:                          ; preds = %if.then7.i.i.i.i35
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i42: ; preds = %if.else.i.i.i.i.i.i.i48, %if.then.i.i.i.i.i.i.i40
   %retval.i.0.i.i.i.i.i.i43 = phi i32 [ %31, %if.then.i.i.i.i.i.i.i40 ], [ %32, %if.else.i.i.i.i.i.i.i48 ]
   %cmp.i.i.i.i.i.i44 = icmp eq i32 %retval.i.0.i.i.i.i.i.i43, 1
-  br i1 %cmp.i.i.i.i.i.i44, label %if.end8.sink.split.i.i.i.i45, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i44, label %if.end8.sink.split.i.i.i.i45, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i45:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i42, %if.then.i.i.i.i50
   %vtable2.i.i.i.i.i.i46 = load ptr, ptr %call5.i.i.i.i.i.i.i3, align 8
   %vfn3.i.i.i.i.i.i47 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i46, i64 24
   %33 = load ptr, ptr %vfn3.i.i.i.i.i.i47, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i3) #18
-  br label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i32, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i42, %if.end8.sink.split.i.i.i.i45
+_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i32, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i42, %if.end8.sink.split.i.i.i.i45
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host) #18
   %host_port_ = getelementptr inbounds i8, ptr %this, i64 32
   %_M_refcount3.i.i.i55 = getelementptr inbounds i8, ptr %this, i64 40
@@ -1537,7 +1537,7 @@ _ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit: ;
   %cmp.not.i.i.i.i56 = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i.i56, label %_ZN4node15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEE6ScopedC2ERKSt10shared_ptrIS5_E.exit, label %if.then.i.i.i.i57
 
-if.then.i.i.i.i57:                                ; preds = %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit
+if.then.i.i.i.i57:                                ; preds = %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit
   %_M_use_count.i.i.i.i.i58 = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i59 = icmp eq i8 %35, 0
@@ -1553,7 +1553,7 @@ if.else.i.i.i.i.i.i62:                            ; preds = %if.then.i.i.i.i57
   %37 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i58, i32 1 acq_rel, align 4
   br label %_ZN4node15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEE6ScopedC2ERKSt10shared_ptrIS5_E.exit
 
-_ZN4node15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEE6ScopedC2ERKSt10shared_ptrIS5_E.exit: ; preds = %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit, %if.then.i.i.i.i.i.i60, %if.else.i.i.i.i.i.i62
+_ZN4node15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEE6ScopedC2ERKSt10shared_ptrIS5_E.exit: ; preds = %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit, %if.then.i.i.i.i.i.i60, %if.else.i.i.i.i.i.i62
   %38 = load ptr, ptr %host_port_, align 8
   call void @uv_mutex_lock(ptr noundef nonnull %38) #18
   %39 = load ptr, ptr %host_port_, align 8
@@ -1654,7 +1654,7 @@ _ZNSt10unique_ptrIN4node9inspector20SocketServerDelegateESt14default_deleteIS2_E
   %call16.val = load ptr, ptr %call6, align 8
   %call16.val2 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i77 = icmp eq ptr %call16.val2, null
-  br i1 %cmp.not.i.i.i.i77, label %_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.exit, label %if.then.i.i.i.i78
+  br i1 %cmp.not.i.i.i.i77, label %_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.argprom.exit, label %if.then.i.i.i.i78
 
 if.then.i.i.i.i78:                                ; preds = %_ZNSt10unique_ptrIN4node9inspector20SocketServerDelegateESt14default_deleteIS2_EED2Ev.exit
   %_M_use_count.i.i.i.i.i79 = getelementptr inbounds i8, ptr %call16.val2, i64 8
@@ -1666,13 +1666,13 @@ if.then.i.i.i.i.i.i81:                            ; preds = %if.then.i.i.i.i78
   %55 = load i32, ptr %_M_use_count.i.i.i.i.i79, align 4, !noalias !20
   %add.i.i.i.i.i.i82 = add nsw i32 %55, 1
   store i32 %add.i.i.i.i.i.i82, ptr %_M_use_count.i.i.i.i.i79, align 4, !noalias !20
-  br label %_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.exit
+  br label %_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.argprom.exit
 
 if.else.i.i.i.i.i.i83:                            ; preds = %if.then.i.i.i.i78
   %56 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i79, i32 1 acq_rel, align 4, !noalias !20
-  br label %_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.exit
+  br label %_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.argprom.exit
 
-_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.exit: ; preds = %_ZNSt10unique_ptrIN4node9inspector20SocketServerDelegateESt14default_deleteIS2_EED2Ev.exit, %if.then.i.i.i.i.i.i81, %if.else.i.i.i.i.i.i83
+_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.argprom.exit: ; preds = %_ZNSt10unique_ptrIN4node9inspector20SocketServerDelegateESt14default_deleteIS2_EED2Ev.exit, %if.then.i.i.i.i.i.i81, %if.else.i.i.i.i.i.i83
   %request_queue_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call16.val, ptr %request_queue_, align 8
   %_M_refcount3.i.i.i84 = getelementptr inbounds i8, ptr %this, i64 24
@@ -1681,7 +1681,7 @@ _ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.exit: ; preds = %_ZN
   %cmp.not.i.i.i.i85 = icmp eq ptr %57, null
   br i1 %cmp.not.i.i.i.i85, label %if.then.i.i.i148, label %if.then.i.i.i.i86
 
-if.then.i.i.i.i86:                                ; preds = %_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.exit
+if.then.i.i.i.i86:                                ; preds = %_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.argprom.exit
   %_M_use_count.i.i.i.i.i87 = getelementptr inbounds i8, ptr %57, i64 8
   %58 = load atomic i64, ptr %_M_use_count.i.i.i.i.i87 acquire, align 8
   %cmp.i.i.i.i.i88 = icmp eq i64 %58, 4294967297
@@ -1749,7 +1749,7 @@ if.end8.sink.split.i.i.i.i.i106:                  ; preds = %_ZN9__gnu_cxx27__ex
   call void %67(ptr noundef nonnull align 8 dereferenceable(16) %57) #18
   br label %if.then.i.i.i148
 
-if.then.i.i.i148:                                 ; preds = %_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i93, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i103, %if.end8.sink.split.i.i.i.i.i106
+if.then.i.i.i148:                                 ; preds = %_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.argprom.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i93, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i103, %if.end8.sink.split.i.i.i.i.i106
   %68 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i150 = icmp eq i64 %68, 4294967297
   %69 = trunc i64 %68 to i32
@@ -1818,12 +1818,12 @@ _ZNSt12__shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataELN9__gnu_cx
   %thread_start_lock_ = getelementptr inbounds i8, ptr %this, i64 64
   call void @uv_mutex_lock(ptr noundef nonnull %thread_start_lock_) #18
   %call18 = call noundef zeroext i1 @_ZN4node9inspector21InspectorSocketServer5StartEv(ptr noundef nonnull align 8 dereferenceable(148) %server) #18
-  br i1 %call18, label %if.then19, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit258
+  br i1 %call18, label %if.then19, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit258
 
 if.then19:                                        ; preds = %_ZNSt12__shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
   %78 = load ptr, ptr %_M_refcount3.i.i.i55, align 8
   %cmp.not.i.i.i.i179 = icmp eq ptr %78, null
-  br i1 %cmp.not.i.i.i.i179, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit258.critedge, label %if.then.i.i.i.i180
+  br i1 %cmp.not.i.i.i.i179, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit258.critedge, label %if.then.i.i.i.i180
 
 if.then.i.i.i.i180:                               ; preds = %if.then19
   %_M_use_count.i.i.i.i.i181 = getelementptr inbounds i8, ptr %78, i64 8
@@ -1882,7 +1882,7 @@ if.else.i.i.i.i.i.i219:                           ; preds = %if.end.i.i.i.i.i198
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i202: ; preds = %if.else.i.i.i.i.i.i219, %if.then.i.i.i.i.i.i200
   %retval.i.0.i.i.i.i.i203 = phi i32 [ %85, %if.then.i.i.i.i.i.i200 ], [ %88, %if.else.i.i.i.i.i.i219 ]
   %cmp6.i.i.i.i.i204 = icmp eq i32 %retval.i.0.i.i.i.i.i203, 1
-  br i1 %cmp6.i.i.i.i.i204, label %if.then7.i.i.i.i.i205, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit258
+  br i1 %cmp6.i.i.i.i.i204, label %if.then7.i.i.i.i.i205, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit258
 
 if.then7.i.i.i.i.i205:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i202
   %vtable.i.i.i.i.i.i.i206 = load ptr, ptr %78, align 8
@@ -1907,16 +1907,16 @@ if.else.i.i.i.i.i.i.i.i218:                       ; preds = %if.then7.i.i.i.i.i2
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i212: ; preds = %if.else.i.i.i.i.i.i.i.i218, %if.then.i.i.i.i.i.i.i.i210
   %retval.i.0.i.i.i.i.i.i.i213 = phi i32 [ %91, %if.then.i.i.i.i.i.i.i.i210 ], [ %92, %if.else.i.i.i.i.i.i.i.i218 ]
   %cmp.i.i.i.i.i.i.i214 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i213, 1
-  br i1 %cmp.i.i.i.i.i.i.i214, label %if.end8.sink.split.i.i.i.i.i215, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit258
+  br i1 %cmp.i.i.i.i.i.i.i214, label %if.end8.sink.split.i.i.i.i.i215, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit258
 
 if.end8.sink.split.i.i.i.i.i215:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i212, %if.then.i.i.i.i.i220
   %vtable2.i.i.i.i.i.i.i216 = load ptr, ptr %78, align 8
   %vfn3.i.i.i.i.i.i.i217 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i216, i64 24
   %93 = load ptr, ptr %vfn3.i.i.i.i.i.i.i217, align 8
   call void %93(ptr noundef nonnull align 8 dereferenceable(16) %78) #18
-  br label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit258
+  br label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit258
 
-_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit258.critedge: ; preds = %if.then19
+_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit258.critedge: ; preds = %if.then19
   %94 = load ptr, ptr %host_port_, align 8
   call void @uv_mutex_lock(ptr noundef nonnull %94) #18
   %95 = load ptr, ptr %host_port_, align 8
@@ -1925,9 +1925,9 @@ _ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit258
   %port_.i191.c = getelementptr inbounds i8, ptr %95, i64 72
   store i16 %conv24.c, ptr %port_.i191.c, align 8
   call void @uv_mutex_unlock(ptr noundef %94) #18
-  br label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit258
+  br label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit258
 
-_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit258: ; preds = %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit258.critedge, %if.end8.sink.split.i.i.i.i.i215, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i212, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i202, %_ZNSt12__shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
+_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit258: ; preds = %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit258.critedge, %if.end8.sink.split.i.i.i.i.i215, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i212, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i202, %_ZNSt12__shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
   %thread_start_condition_ = getelementptr inbounds i8, ptr %this, i64 104
   call void @uv_cond_broadcast(ptr noundef nonnull %thread_start_condition_) #18
   call void @uv_mutex_unlock(ptr noundef nonnull %thread_start_lock_) #18
@@ -2185,7 +2185,7 @@ entry:
   %1 = getelementptr i8, ptr %request_queue_.val, i64 8
   %call4.val1 = load ptr, ptr %1, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %call4.val1, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call4.val1, i64 8
@@ -2204,7 +2204,7 @@ if.then.i.i.i.i4.thread:                          ; preds = %if.then.i.i.i.i
   store ptr %call4.val1, ptr %_M_refcount.i.i.i21621, align 8
   br label %if.then.i.i.i.i.i.i7
 
-_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.exit: ; preds = %entry
+_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.argprom.exit: ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector17IoSessionDelegateE, i64 16), ptr %call2, align 8
   %request_queue_.i = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %call4.val, ptr %request_queue_.i, align 8
@@ -2235,8 +2235,8 @@ if.else.i.i.i.i.i.i9:                             ; preds = %if.then.i.i.i.i4
   %8 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZN4node9inspector17IoSessionDelegateC2ESt10shared_ptrINS0_12RequestQueueEEi.exit
 
-_ZN4node9inspector17IoSessionDelegateC2ESt10shared_ptrINS0_12RequestQueueEEi.exit: ; preds = %_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.exit, %if.then.i.i.i.i.i.i7, %if.else.i.i.i.i.i.i9
-  %9 = phi i32 [ %session_id, %_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.exit ], [ %6, %if.then.i.i.i.i.i.i7 ], [ %.pre, %if.else.i.i.i.i.i.i9 ]
+_ZN4node9inspector17IoSessionDelegateC2ESt10shared_ptrINS0_12RequestQueueEEi.exit: ; preds = %_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.argprom.exit, %if.then.i.i.i.i.i.i7, %if.else.i.i.i.i.i.i9
+  %9 = phi i32 [ %session_id, %_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.argprom.exit ], [ %6, %if.then.i.i.i.i.i.i7 ], [ %.pre, %if.else.i.i.i.i.i.i9 ]
   %id_.i = getelementptr inbounds i8, ptr %call2, i64 24
   store i32 %9, ptr %id_.i, align 8
   store ptr %call2, ptr %agg.tmp, align 8
@@ -2681,7 +2681,7 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit: ; preds = %_ZNS
   %18 = getelementptr inbounds i8, ptr %this, i64 16
   %request_queue_.val = load ptr, ptr %18, align 8
   %cmp.not.i.i.i2 = icmp eq ptr %request_queue_.val, null
-  br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit, label %if.then.i.i.i3
+  br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit
   %_M_use_count.i.i.i.i4 = getelementptr inbounds i8, ptr %request_queue_.val, i64 8
@@ -2717,7 +2717,7 @@ if.else.i.i.i.i.i27:                              ; preds = %if.end.i.i.i.i6
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10: ; preds = %if.else.i.i.i.i.i27, %if.then.i.i.i.i.i8
   %retval.i.0.i.i.i.i11 = phi i32 [ %20, %if.then.i.i.i.i.i8 ], [ %23, %if.else.i.i.i.i.i27 ]
   %cmp6.i.i.i.i12 = icmp eq i32 %retval.i.0.i.i.i.i11, 1
-  br i1 %cmp6.i.i.i.i12, label %if.then7.i.i.i.i13, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit
+  br i1 %cmp6.i.i.i.i12, label %if.then7.i.i.i.i13, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit
 
 if.then7.i.i.i.i13:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10
   %vtable.i.i.i.i.i.i14 = load ptr, ptr %request_queue_.val, align 8
@@ -2742,16 +2742,16 @@ if.else.i.i.i.i.i.i.i26:                          ; preds = %if.then7.i.i.i.i13
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20: ; preds = %if.else.i.i.i.i.i.i.i26, %if.then.i.i.i.i.i.i.i18
   %retval.i.0.i.i.i.i.i.i21 = phi i32 [ %26, %if.then.i.i.i.i.i.i.i18 ], [ %27, %if.else.i.i.i.i.i.i.i26 ]
   %cmp.i.i.i.i.i.i22 = icmp eq i32 %retval.i.0.i.i.i.i.i.i21, 1
-  br i1 %cmp.i.i.i.i.i.i22, label %if.end8.sink.split.i.i.i.i23, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i22, label %if.end8.sink.split.i.i.i.i23, label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i23:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20, %if.then.i.i.i.i28
   %vtable2.i.i.i.i.i.i24 = load ptr, ptr %request_queue_.val, align 8
   %vfn3.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i24, i64 24
   %28 = load ptr, ptr %vfn3.i.i.i.i.i.i25, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %request_queue_.val) #18
-  br label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20, %if.end8.sink.split.i.i.i.i23
+_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEED2Ev.argprom.exit: ; preds = %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20, %if.end8.sink.split.i.i.i.i23
   ret void
 }
 
@@ -2908,7 +2908,7 @@ entry:
   %server_.i.i = getelementptr inbounds i8, ptr %1, i64 144
   %2 = load ptr, ptr %server_.i.i, align 8
   %cmp.i.i = icmp eq ptr %2, null
-  br i1 %cmp.i.i, label %_ZZN4node9inspector12_GLOBAL__N_116RequestQueueDataC1EP9uv_loop_sENKUlP10uv_async_sE_clES6_.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %_ZZN4node9inspector12_GLOBAL__N_116RequestQueueDataC1EP9uv_loop_sENKUlP10uv_async_sE_clES6_.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
@@ -2974,7 +2974,7 @@ if.end.i.i:                                       ; preds = %entry
 
 for.cond.cleanup.i.i:                             ; preds = %_ZNSt15_Deque_iteratorIN4node9inspector12_GLOBAL__N_115RequestToServerERS3_PS3_EppEv.exit.i.i, %if.end.i.i
   call fastcc void @_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp.i.i) #18
-  br label %_ZZN4node9inspector12_GLOBAL__N_116RequestQueueDataC1EP9uv_loop_sENKUlP10uv_async_sE_clES6_.exit
+  br label %_ZZN4node9inspector12_GLOBAL__N_116RequestQueueDataC1EP9uv_loop_sENKUlP10uv_async_sE_clES6_.argprom.exit
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %_ZNSt15_Deque_iteratorIN4node9inspector12_GLOBAL__N_115RequestToServerERS3_PS3_EppEv.exit.i.i
   %__begin3.sroa.11.013.i.i = phi ptr [ %__begin3.sroa.11.1.i.i, %_ZNSt15_Deque_iteratorIN4node9inspector12_GLOBAL__N_115RequestToServerERS3_PS3_EppEv.exit.i.i ], [ %6, %if.end.i.i ]
@@ -3032,7 +3032,7 @@ _ZNSt15_Deque_iteratorIN4node9inspector12_GLOBAL__N_115RequestToServerERS3_PS3_E
   %cmp.i.i.not.i.i = icmp eq ptr %__begin3.sroa.0.1.i.i, %7
   br i1 %cmp.i.i.not.i.i, label %for.cond.cleanup.i.i, label %for.body.i.i
 
-_ZZN4node9inspector12_GLOBAL__N_116RequestQueueDataC1EP9uv_loop_sENKUlP10uv_async_sE_clES6_.exit: ; preds = %entry, %for.cond.cleanup.i.i
+_ZZN4node9inspector12_GLOBAL__N_116RequestQueueDataC1EP9uv_loop_sENKUlP10uv_async_sE_clES6_.argprom.exit: ; preds = %entry, %for.cond.cleanup.i.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp.i.i)
   ret void
 }
@@ -3056,8 +3056,8 @@ entry:
   %cmp3.i.i = icmp ult ptr %__node.02.i.i, %5
   br i1 %cmp3.i.i, label %for.body.i.i, label %for.end.i.i
 
-for.body.i.i:                                     ; preds = %entry, %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.exit.i.i
-  %__node.04.i.i = phi ptr [ %__node.0.i.i, %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.exit.i.i ], [ %__node.02.i.i, %entry ]
+for.body.i.i:                                     ; preds = %entry, %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.argprom.exit.i.i
+  %__node.04.i.i = phi ptr [ %__node.0.i.i, %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.argprom.exit.i.i ], [ %__node.02.i.i, %entry ]
   %6 = load ptr, ptr %__node.04.i.i, align 8
   %invariant.gep.i.i = getelementptr inbounds i8, ptr %6, i64 8
   br label %for.body.i.i.i.i.i
@@ -3080,20 +3080,20 @@ _ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i.i
   store ptr null, ptr %gep.i.i, align 8
   %__first.addr.04.i.i.i.add.i.i = add nuw nsw i64 %__first.addr.04.i.i.i.idx.i.i, 16
   %cmp.not.i.i.i.i.i = icmp eq i64 %__first.addr.04.i.i.i.add.i.i, 512
-  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !42
+  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.argprom.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !42
 
-_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i.i.i
+_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.argprom.exit.i.i: ; preds = %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i.i.i
   %__node.0.i.i = getelementptr inbounds i8, ptr %__node.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %__node.0.i.i, %5
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !43
 
-for.end.i.i:                                      ; preds = %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.exit.i.i, %entry
+for.end.i.i:                                      ; preds = %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.argprom.exit.i.i, %entry
   %cmp7.not.i.i = icmp eq ptr %2, %5
   br i1 %cmp7.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i.i
   %cmp.not3.i.i.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.not3.i.i.i.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.exit14.i.i, label %for.body.i.i.i4.i.i
+  br i1 %cmp.not3.i.i.i.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.argprom.exit14.i.i, label %for.body.i.i.i4.i.i
 
 for.body.i.i.i4.i.i:                              ; preds = %if.then.i.i, %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i11.i.i
   %__first.addr.04.i.i.i5.i.i = phi ptr [ %incdec.ptr.i.i.i12.i.i, %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i11.i.i ], [ %0, %if.then.i.i ]
@@ -3113,14 +3113,14 @@ _ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i11
   store ptr null, ptr %message_.i.i.i.i.i6.i.i, align 8
   %incdec.ptr.i.i.i12.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i5.i.i, i64 16
   %cmp.not.i.i.i13.i.i = icmp eq ptr %incdec.ptr.i.i.i12.i.i, %1
-  br i1 %cmp.not.i.i.i13.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.exit14.i.i, label %for.body.i.i.i4.i.i, !llvm.loop !42
+  br i1 %cmp.not.i.i.i13.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.argprom.exit14.i.i, label %for.body.i.i.i4.i.i, !llvm.loop !42
 
-_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.exit14.i.i: ; preds = %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i11.i.i, %if.then.i.i
+_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.argprom.exit14.i.i: ; preds = %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i11.i.i, %if.then.i.i
   %cmp.not3.i.i.i15.i.i = icmp eq ptr %4, %3
-  br i1 %cmp.not3.i.i.i15.i.i, label %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit, label %for.body.i.i.i16.i.i
+  br i1 %cmp.not3.i.i.i15.i.i, label %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.argprom.exit, label %for.body.i.i.i16.i.i
 
-for.body.i.i.i16.i.i:                             ; preds = %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.exit14.i.i, %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i23.i.i
-  %__first.addr.04.i.i.i17.i.i = phi ptr [ %incdec.ptr.i.i.i24.i.i, %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i23.i.i ], [ %4, %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.exit14.i.i ]
+for.body.i.i.i16.i.i:                             ; preds = %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.argprom.exit14.i.i, %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i23.i.i
+  %__first.addr.04.i.i.i17.i.i = phi ptr [ %incdec.ptr.i.i.i24.i.i, %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i23.i.i ], [ %4, %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.argprom.exit14.i.i ]
   %message_.i.i.i.i.i18.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i17.i.i, i64 8
   %11 = load ptr, ptr %message_.i.i.i.i.i18.i.i, align 8
   %cmp.not.i.i.i.i.i.i19.i.i = icmp eq ptr %11, null
@@ -3137,11 +3137,11 @@ _ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i23
   store ptr null, ptr %message_.i.i.i.i.i18.i.i, align 8
   %incdec.ptr.i.i.i24.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i17.i.i, i64 16
   %cmp.not.i.i.i25.i.i = icmp eq ptr %incdec.ptr.i.i.i24.i.i, %3
-  br i1 %cmp.not.i.i.i25.i.i, label %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit, label %for.body.i.i.i16.i.i, !llvm.loop !42
+  br i1 %cmp.not.i.i.i25.i.i, label %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.argprom.exit, label %for.body.i.i.i16.i.i, !llvm.loop !42
 
 if.else.i.i:                                      ; preds = %for.end.i.i
   %cmp.not3.i.i.i27.i.i = icmp eq ptr %0, %3
-  br i1 %cmp.not3.i.i.i27.i.i, label %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit, label %for.body.i.i.i28.i.i
+  br i1 %cmp.not3.i.i.i27.i.i, label %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.argprom.exit, label %for.body.i.i.i28.i.i
 
 for.body.i.i.i28.i.i:                             ; preds = %if.else.i.i, %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i35.i.i
   %__first.addr.04.i.i.i29.i.i = phi ptr [ %incdec.ptr.i.i.i36.i.i, %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i35.i.i ], [ %0, %if.else.i.i ]
@@ -3161,19 +3161,19 @@ _ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i35
   store ptr null, ptr %message_.i.i.i.i.i30.i.i, align 8
   %incdec.ptr.i.i.i36.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i29.i.i, i64 16
   %cmp.not.i.i.i37.i.i = icmp eq ptr %incdec.ptr.i.i.i36.i.i, %3
-  br i1 %cmp.not.i.i.i37.i.i, label %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit, label %for.body.i.i.i28.i.i, !llvm.loop !42
+  br i1 %cmp.not.i.i.i37.i.i, label %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.argprom.exit, label %for.body.i.i.i28.i.i, !llvm.loop !42
 
-_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit: ; preds = %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i23.i.i, %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i35.i.i, %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.exit14.i.i, %if.else.i.i
+_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.argprom.exit: ; preds = %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i23.i.i, %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i35.i.i, %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.argprom.exit14.i.i, %if.else.i.i
   %15 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %15, null
   br i1 %tobool.not.i, label %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EED2Ev.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit
+if.then.i:                                        ; preds = %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.argprom.exit
   %16 = load ptr, ptr %_M_node5.i.i, align 8
   %17 = load ptr, ptr %_M_node5.i.i6, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %17, i64 8
   %cmp1.i.i = icmp ult ptr %16, %add.ptr.i
-  br i1 %cmp1.i.i, label %for.body.i.i9, label %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
+  br i1 %cmp1.i.i, label %for.body.i.i9, label %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE16_M_destroy_nodesEPPS3_S7_.argprom.exit.i
 
 for.body.i.i9:                                    ; preds = %if.then.i, %for.body.i.i9
   %__n.02.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i9 ], [ %16, %if.then.i ]
@@ -3181,18 +3181,18 @@ for.body.i.i9:                                    ; preds = %if.then.i, %for.bod
   tail call void @_ZdlPv(ptr noundef %18) #19
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.02.i.i, i64 8
   %cmp.i.i10 = icmp ult ptr %__n.02.i.i, %17
-  br i1 %cmp.i.i10, label %for.body.i.i9, label %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i, !llvm.loop !44
+  br i1 %cmp.i.i10, label %for.body.i.i9, label %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE16_M_destroy_nodesEPPS3_S7_.argprom.exit.loopexit.i, !llvm.loop !44
 
-_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i: ; preds = %for.body.i.i9
+_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE16_M_destroy_nodesEPPS3_S7_.argprom.exit.loopexit.i: ; preds = %for.body.i.i9
   %.pre.i = load ptr, ptr %this, align 8
-  br label %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
+  br label %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE16_M_destroy_nodesEPPS3_S7_.argprom.exit.i
 
-_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i: ; preds = %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i, %if.then.i
-  %19 = phi ptr [ %.pre.i, %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i ], [ %15, %if.then.i ]
+_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE16_M_destroy_nodesEPPS3_S7_.argprom.exit.i: ; preds = %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE16_M_destroy_nodesEPPS3_S7_.argprom.exit.loopexit.i, %if.then.i
+  %19 = phi ptr [ %.pre.i, %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE16_M_destroy_nodesEPPS3_S7_.argprom.exit.loopexit.i ], [ %15, %if.then.i ]
   tail call void @_ZdlPv(ptr noundef %19) #19
   br label %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EED2Ev.exit
 
-_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EED2Ev.exit: ; preds = %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit, %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
+_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EED2Ev.exit: ; preds = %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.argprom.exit, %_ZNSt11_Deque_baseIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE16_M_destroy_nodesEPPS3_S7_.argprom.exit.i
   ret void
 }
 
@@ -3413,7 +3413,7 @@ entry:
   %sub.i.i.i = add i64 %0, -16
   %1 = inttoptr i64 %sub.i.i.i to ptr
   %isnull.i = icmp eq i64 %sub.i.i.i, 0
-  br i1 %isnull.i, label %"_ZZN4node9inspector12_GLOBAL__N_116RequestQueueData12CloseAndFreeEPS2_ENK3$_0clEP11uv_handle_s.exit", label %delete.notnull.i
+  br i1 %isnull.i, label %"_ZZN4node9inspector12_GLOBAL__N_116RequestQueueData12CloseAndFreeEPS2_ENK3$_0clEP11uv_handle_s.argprom.exit", label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   %incoming_message_cond_.i.i = getelementptr inbounds i8, ptr %1, i64 272
@@ -3497,9 +3497,9 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZN4node9inspector12_GLOBAL__N_116RequestQueueDataD2Ev.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %delete.notnull.i
   tail call void @_ZdlPv(ptr noundef nonnull %1) #19
-  br label %"_ZZN4node9inspector12_GLOBAL__N_116RequestQueueData12CloseAndFreeEPS2_ENK3$_0clEP11uv_handle_s.exit"
+  br label %"_ZZN4node9inspector12_GLOBAL__N_116RequestQueueData12CloseAndFreeEPS2_ENK3$_0clEP11uv_handle_s.argprom.exit"
 
-"_ZZN4node9inspector12_GLOBAL__N_116RequestQueueData12CloseAndFreeEPS2_ENK3$_0clEP11uv_handle_s.exit": ; preds = %entry, %_ZN4node9inspector12_GLOBAL__N_116RequestQueueDataD2Ev.exit.i
+"_ZZN4node9inspector12_GLOBAL__N_116RequestQueueData12CloseAndFreeEPS2_ENK3$_0clEP11uv_handle_s.argprom.exit": ; preds = %entry, %_ZN4node9inspector12_GLOBAL__N_116RequestQueueDataD2Ev.exit.i
   ret void
 }
 
@@ -3545,7 +3545,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt19_Sp_counted_deleterIPN4node9inspector12_GLOBAL__N_116RequestQueueDataEPFvS4_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
-_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN4node9inspector12_GLOBAL__N_116RequestQueueDataEPFvS5_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN4node9inspector12_GLOBAL__N_116RequestQueueDataEPFvS5_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
@@ -4035,8 +4035,8 @@ attributes #21 = { cold }
 !6 = distinct !{!6, !7, !"_ZN4node9inspector12_GLOBAL__N_110GenerateIDB5cxx11Ev: %agg.result"}
 !7 = distinct !{!7, !"_ZN4node9inspector12_GLOBAL__N_110GenerateIDB5cxx11Ev"}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZSt11make_sharedIN4node9inspector12RequestQueueEJPNS1_12_GLOBAL__N_116RequestQueueDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_: %agg.result"}
-!10 = distinct !{!10, !"_ZSt11make_sharedIN4node9inspector12RequestQueueEJPNS1_12_GLOBAL__N_116RequestQueueDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_"}
+!9 = distinct !{!9, !10, !"_ZSt11make_sharedIN4node9inspector12RequestQueueEJPNS1_12_GLOBAL__N_116RequestQueueDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom: %agg.result"}
+!10 = distinct !{!10, !"_ZSt11make_sharedIN4node9inspector12RequestQueueEJPNS1_12_GLOBAL__N_116RequestQueueDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom"}
 !11 = !{!12, !9}
 !12 = distinct !{!12, !13, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9inspector12RequestQueueESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_: %agg.result"}
 !13 = distinct !{!13, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9inspector12RequestQueueESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_"}
@@ -4047,11 +4047,11 @@ attributes #21 = { cold }
 !18 = distinct !{!18, !19, !"_ZN4node9inspector12_GLOBAL__N_110ScriptPathEP9uv_loop_sRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: %agg.result"}
 !19 = distinct !{!19, !"_ZN4node9inspector12_GLOBAL__N_110ScriptPathEP9uv_loop_sRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
 !20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv: %agg.result"}
-!22 = distinct !{!22, !"_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv"}
+!21 = distinct !{!21, !22, !"_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.argprom: %agg.result"}
+!22 = distinct !{!22, !"_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.argprom"}
 !23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv: %agg.result"}
-!25 = distinct !{!25, !"_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv"}
+!24 = distinct !{!24, !25, !"_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.argprom: %agg.result"}
+!25 = distinct !{!25, !"_ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.argprom"}
 !26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
 !28 = distinct !{!28, !27}

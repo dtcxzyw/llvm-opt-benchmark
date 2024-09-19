@@ -4254,7 +4254,7 @@ define dso_local void @_ZN5clang6interp24cleanupAfterFunctionCallERNS0_11InterpS
   %.val = load i16, ptr %43, align 1
   %44 = getelementptr i8, ptr %42, i64 8
   %.val47 = load i64, ptr %44, align 8
-  tail call fastcc void @_ZN5clang6interpL6popArgERNS0_11InterpStateEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, i16 %.val, i64 %.val47)
+  tail call fastcc void @_ZN5clang6interpL6popArgERNS0_11InterpStateEPKNS_4ExprE.argprom(ptr noundef nonnull align 8 dereferenceable(280) %0, i16 %.val, i64 %.val47)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not71 = icmp eq i64 %indvars.iv, 0
   br i1 %.not71, label %.loopexit60, label %.lr.ph, !llvm.loop !4
@@ -4352,7 +4352,7 @@ define dso_local void @_ZN5clang6interp24cleanupAfterFunctionCallERNS0_11InterpS
   %.val48 = load i16, ptr %96, align 1
   %97 = getelementptr i8, ptr %95, i64 8
   %.val49 = load i64, ptr %97, align 8
-  tail call fastcc void @_ZN5clang6interpL6popArgERNS0_11InterpStateEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, i16 %.val48, i64 %.val49)
+  tail call fastcc void @_ZN5clang6interpL6popArgERNS0_11InterpStateEPKNS_4ExprE.argprom(ptr noundef nonnull align 8 dereferenceable(280) %0, i16 %.val48, i64 %.val49)
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %.not46 = icmp eq i64 %indvars.iv.next68, %89
   br i1 %.not46, label %.loopexit, label %.lr.ph65, !llvm.loop !6
@@ -4371,7 +4371,7 @@ declare noundef zeroext i1 @_ZNK5clang6interp8Function20isUnevaluatedBuiltinEv(p
 declare noundef ptr @_ZNK5clang6interp11InterpFrame7getExprENS0_7CodePtrE(ptr noundef nonnull align 8 dereferenceable(216), ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL6popArgERNS0_11InterpStateEPKNS_4ExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, i16 %.1.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL6popArgERNS0_11InterpStateEPKNS_4ExprE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, i16 %.1.val, i64 %.8.val) unnamed_addr #0 {
   %2 = and i16 %.1.val, 3
   %.not.i = icmp eq i16 %2, 0
   br i1 %.not.i, label %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, label %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.thread
@@ -7441,7 +7441,7 @@ _ZNK5clang6interp10Descriptor11asValueDeclEv.exit: ; preds = %20
   ]
 
 27:                                               ; preds = %_ZNK5clang6interp10Descriptor11asValueDeclEv.exit, %_ZNK5clang6interp10Descriptor11asValueDeclEv.exit, %_ZNK5clang6interp10Descriptor11asValueDeclEv.exit
-  tail call fastcc void @_ZL19diagnoseUnknownDeclRN5clang6interp11InterpStateENS0_7CodePtrEPKNS_9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr noundef nonnull %21)
+  tail call fastcc void @_ZL19diagnoseUnknownDeclRN5clang6interp11InterpStateENS0_7CodePtrEPKNS_9ValueDeclE.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr noundef nonnull %21)
   br label %_ZNK5clang6interp7Pointer7isDummyEv.exit.thread
 
 28:                                               ; preds = %_ZNK5clang6interp10Descriptor11asValueDeclEv.exit
@@ -8284,7 +8284,7 @@ _ZNK5clang6interp7Pointer11getDeclDescEv.exit.i29: ; preds = %_ZNK5clang6interp7
   br i1 %32, label %_ZNK5clang6interp10Descriptor11asValueDeclEv.exit.i, label %_ZN5clang6interp10CheckDummyERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerENS_11AccessKindsE.exit
 
 _ZNK5clang6interp10Descriptor11asValueDeclEv.exit.i: ; preds = %26
-  tail call fastcc void @_ZL19diagnoseUnknownDeclRN5clang6interp11InterpStateENS0_7CodePtrEPKNS_9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr noundef nonnull %27)
+  tail call fastcc void @_ZL19diagnoseUnknownDeclRN5clang6interp11InterpStateENS0_7CodePtrEPKNS_9ValueDeclE.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr noundef nonnull %27)
   br label %_ZN5clang6interp10CheckDummyERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerENS_11AccessKindsE.exit
 
 .thread:                                          ; preds = %5, %_ZNK5clang6interp7Pointer7isDummyEv.exit.i, %14, %16
@@ -8416,15 +8416,15 @@ _ZNK5clang6interp7Pointer8isStaticEv.exit.i:      ; preds = %_ZNK5clang6interp7P
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 324
   %52 = load i32, ptr %51, align 4
   %.not.i.not.i = icmp eq i32 %52, -1
-  br i1 %.not.i.not.i, label %_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit, label %53
+  br i1 %.not.i.not.i, label %_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.argprom.exit, label %53
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 320
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, %.sroa.01.0.extract.trunc.i
-  br i1 %56, label %61, label %_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit
+  br i1 %56, label %61, label %_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.argprom.exit
 
-_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit: ; preds = %48, %53
+_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.argprom.exit: ; preds = %48, %53
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 @_ZNK5clang6interp11InterpFrame11getLocationENS0_7CodePtrE(ptr noundef nonnull align 8 dereferenceable(216) %58, ptr %1) #18
@@ -8435,8 +8435,8 @@ _ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit: 
   %62 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckConstERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(52) %2)
   br label %63
 
-63:                                               ; preds = %_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit, %_ZN5clang6interp10CheckDummyERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerENS_11AccessKindsE.exit.thread, %61, %38, %36, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %36 ], [ false, %38 ], [ false, %_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit ], [ %62, %61 ], [ false, %_ZN5clang6interp10CheckDummyERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerENS_11AccessKindsE.exit.thread ]
+63:                                               ; preds = %_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.argprom.exit, %_ZN5clang6interp10CheckDummyERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerENS_11AccessKindsE.exit.thread, %61, %38, %36, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %36 ], [ false, %38 ], [ false, %_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.argprom.exit ], [ %62, %61 ], [ false, %_ZN5clang6interp10CheckDummyERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerENS_11AccessKindsE.exit.thread ]
   ret i1 %.0
 }
 
@@ -9630,12 +9630,12 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define dso_local noundef zeroext i1 @_ZN5clang6interp12CheckDeclRefERNS0_11InterpStateENS0_7CodePtrEPKNS_11DeclRefExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
-  tail call fastcc void @_ZL19diagnoseUnknownDeclRN5clang6interp11InterpStateENS0_7CodePtrEPKNS_9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr noundef %5)
+  tail call fastcc void @_ZL19diagnoseUnknownDeclRN5clang6interp11InterpStateENS0_7CodePtrEPKNS_9ValueDeclE.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr noundef %5)
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19diagnoseUnknownDeclRN5clang6interp11InterpStateENS0_7CodePtrEPKNS_9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL19diagnoseUnknownDeclRN5clang6interp11InterpStateENS0_7CodePtrEPKNS_9ValueDeclE.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.clang::interp::SourceInfo", align 8
@@ -19266,7 +19266,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp9InterpretERNS0_11InterpSta
   %.sroa.0645.0.copyload = load ptr, ptr %36, align 8
   %2933 = getelementptr inbounds nuw i8, ptr %2932, i64 16
   %2934 = load ptr, ptr %2933, align 8
-  call fastcc void @_ZL19diagnoseUnknownDeclRN5clang6interp11InterpStateENS0_7CodePtrEPKNS_9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.0645.0.copyload, ptr noundef %2934)
+  call fastcc void @_ZL19diagnoseUnknownDeclRN5clang6interp11InterpStateENS0_7CodePtrEPKNS_9ValueDeclE.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.0645.0.copyload, ptr noundef %2934)
   br label %.loopexit, !llvm.loop !33
 
 2935:                                             ; preds = %83
@@ -19297,7 +19297,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp9InterpretERNS0_11InterpSta
   %2946 = getelementptr inbounds i8, ptr %84, i64 16
   store ptr %2946, ptr %35, align 8
   %.val4476 = load ptr, ptr %48, align 8
-  call fastcc void @_ZL2JfRN5clang6interp11InterpStateERNS0_7CodePtrEi(ptr %.val4476, ptr noundef nonnull align 8 dereferenceable(8) %35, i32 noundef %.0.copyload.i.i.i.i.i.i4994)
+  call fastcc void @_ZL2JfRN5clang6interp11InterpStateERNS0_7CodePtrEi.argprom.retelim(ptr %.val4476, ptr noundef nonnull align 8 dereferenceable(8) %35, i32 noundef %.0.copyload.i.i.i.i.i.i4994)
   br label %.backedge
 
 2947:                                             ; preds = %83
@@ -19315,7 +19315,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp9InterpretERNS0_11InterpSta
   %2952 = getelementptr inbounds i8, ptr %84, i64 16
   store ptr %2952, ptr %35, align 8
   %.val4477 = load ptr, ptr %48, align 8
-  call fastcc void @_ZL2JtRN5clang6interp11InterpStateERNS0_7CodePtrEi(ptr %.val4477, ptr noundef nonnull align 8 dereferenceable(8) %35, i32 noundef %.0.copyload.i.i.i.i.i.i4996)
+  call fastcc void @_ZL2JtRN5clang6interp11InterpStateERNS0_7CodePtrEi.argprom.retelim(ptr %.val4477, ptr noundef nonnull align 8 dereferenceable(8) %35, i32 noundef %.0.copyload.i.i.i.i.i.i4996)
   br label %.backedge
 
 2953:                                             ; preds = %83
@@ -20024,7 +20024,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp9InterpretERNS0_11InterpSta
   %3282 = trunc i8 %.0.copyload.i.i.i.i.i.i5011 to i1
   %3283 = getelementptr inbounds i8, ptr %84, i64 16
   store ptr %3283, ptr %35, align 8
-  call fastcc void @_ZN5clang6interpL10PtrPtrCastERNS0_11InterpStateENS0_7CodePtrEb(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr nonnull %85, i1 noundef zeroext %3282)
+  call fastcc void @_ZN5clang6interpL10PtrPtrCastERNS0_11InterpStateENS0_7CodePtrEb.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr nonnull %85, i1 noundef zeroext %3282)
   br label %.backedge
 
 3284:                                             ; preds = %83
@@ -20342,7 +20342,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp9InterpretERNS0_11InterpSta
   br i1 %brmerge4473, label %.loopexit, label %.backedge
 
 3441:                                             ; preds = %83
-  call fastcc void @_ZL8RetValueRN5clang6interp11InterpStateERNS0_7CodePtrERNS_7APValueE()
+  call fastcc void @_ZL8RetValueRN5clang6interp11InterpStateERNS0_7CodePtrERNS_7APValueE.argprom.retelim()
   unreachable
 
 3442:                                             ; preds = %83
@@ -22123,7 +22123,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp9InterpretERNS0_11InterpSta
   %4253 = getelementptr inbounds i8, ptr %84, i64 16
   store ptr %4253, ptr %35, align 8
   %.val4478 = load ptr, ptr %48, align 8
-  call fastcc void @_ZN5clang6interpL9ZeroIntAPERNS0_11InterpStateENS0_7CodePtrEj(ptr %.val4478, i32 noundef %.0.copyload.i.i.i.i.i.i5103)
+  call fastcc void @_ZN5clang6interpL9ZeroIntAPERNS0_11InterpStateENS0_7CodePtrEj.argprom.retelim(ptr %.val4478, i32 noundef %.0.copyload.i.i.i.i.i.i5103)
   br label %.backedge
 
 4254:                                             ; preds = %83
@@ -22132,7 +22132,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp9InterpretERNS0_11InterpSta
   %4255 = getelementptr inbounds i8, ptr %84, i64 16
   store ptr %4255, ptr %35, align 8
   %.val4479 = load ptr, ptr %48, align 8
-  call fastcc void @_ZN5clang6interpL10ZeroIntAPSERNS0_11InterpStateENS0_7CodePtrEj(ptr %.val4479, i32 noundef %.0.copyload.i.i.i.i.i.i5104)
+  call fastcc void @_ZN5clang6interpL10ZeroIntAPSERNS0_11InterpStateENS0_7CodePtrEj.argprom.retelim(ptr %.val4479, i32 noundef %.0.copyload.i.i.i.i.i.i5104)
   br label %.backedge
 
 4256:                                             ; preds = %83
@@ -96642,7 +96642,7 @@ _ZNK5clang6interp13MemberPointer6isZeroEv.exit:   ; preds = %19, %23, %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL2JfRN5clang6interp11InterpStateERNS0_7CodePtrEi(ptr nonnull %.176.val, ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL2JfRN5clang6interp11InterpStateERNS0_7CodePtrEi.argprom.retelim(ptr nonnull %.176.val, ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %.176.val, i64 noundef 8) #18
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -96661,7 +96661,7 @@ define internal fastcc void @_ZL2JfRN5clang6interp11InterpStateERNS0_7CodePtrEi(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL2JtRN5clang6interp11InterpStateERNS0_7CodePtrEi(ptr nonnull %.176.val, ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL2JtRN5clang6interp11InterpStateERNS0_7CodePtrEi.argprom.retelim(ptr nonnull %.176.val, ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %.176.val, i64 noundef 8) #18
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -109289,7 +109289,7 @@ _ZN5clang6interp8FloatingD2Ev.exit:               ; preds = %14, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL10PtrPtrCastERNS0_11InterpStateENS0_7CodePtrEb(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL10PtrPtrCastERNS0_11InterpStateENS0_7CodePtrEb.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.clang::interp::SourceInfo", align 8
@@ -111826,7 +111826,7 @@ _ZN5clang6interp8FloatingD2Ev.exit:               ; preds = %46, %47
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZL8RetValueRN5clang6interp11InterpStateERNS0_7CodePtrERNS_7APValueE() unnamed_addr #5 {
+define internal fastcc void @_ZL8RetValueRN5clang6interp11InterpStateERNS0_7CodePtrERNS_7APValueE.argprom.retelim() unnamed_addr #5 {
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.1, i1 noundef zeroext true) #23
   unreachable
 }
@@ -142385,7 +142385,7 @@ _ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %2, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL9ZeroIntAPERNS0_11InterpStateENS0_7CodePtrEj(ptr %.176.val, i32 noundef %0) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL9ZeroIntAPERNS0_11InterpStateENS0_7CodePtrEj.argprom.retelim(ptr %.176.val, i32 noundef %0) unnamed_addr #0 {
 _ZN5clang6interp10IntegralAPILb0EED2Ev.exit:
   %1 = alloca %"class.clang::interp::IntegralAP", align 8
   call void @_ZN5clang6interp10IntegralAPILb0EE4zeroEi(ptr dead_on_unwind nonnull writable sret(%"class.clang::interp::IntegralAP") align 8 %1, i32 noundef %0)
@@ -142400,7 +142400,7 @@ _ZN5clang6interp10IntegralAPILb0EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL10ZeroIntAPSERNS0_11InterpStateENS0_7CodePtrEj(ptr %.176.val, i32 noundef %0) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL10ZeroIntAPSERNS0_11InterpStateENS0_7CodePtrEj.argprom.retelim(ptr %.176.val, i32 noundef %0) unnamed_addr #0 {
 _ZN5clang6interp10IntegralAPILb1EED2Ev.exit:
   %1 = alloca %"class.clang::interp::IntegralAP.522", align 8
   call void @_ZN5clang6interp10IntegralAPILb1EE4zeroEi(ptr dead_on_unwind nonnull writable sret(%"class.clang::interp::IntegralAP.522") align 8 %1, i32 noundef %0)

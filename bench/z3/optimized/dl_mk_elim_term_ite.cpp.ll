@@ -1016,7 +1016,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i.i
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.then2.i.i.i.i._ZN7obj_refI4expr11ast_managerED2Ev.exit_crit_edge, %if.then.i.i.i.i56, %invoke.cont24
   %body.val = phi ptr [ %body.val.pre, %if.then2.i.i.i.i._ZN7obj_refI4expr11ast_managerED2Ev.exit_crit_edge ], [ %call3.i54, %if.then.i.i.i.i56 ], [ %call3.i54, %invoke.cont24 ]
   %body.val41 = load ptr, ptr %m_manager.i50, align 8
-  %call27 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112has_term_iteER7obj_refI4expr11ast_managerE(ptr %body.val, ptr %body.val41)
+  %call27 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112has_term_iteER7obj_refI4expr11ast_managerE.argprom(ptr %body.val, ptr %body.val41)
           to label %invoke.cont26 unwind label %lpad23.loopexit.split-lp
 
 invoke.cont26:                                    ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit
@@ -1101,7 +1101,7 @@ invoke.cont32:                                    ; preds = %invoke.cont30
 invoke.cont33:                                    ; preds = %invoke.cont32
   %body.val42 = load ptr, ptr %body, align 8
   %body.val43 = load ptr, ptr %m_manager.i50, align 8
-  %call35 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112has_term_iteER7obj_refI4expr11ast_managerE(ptr %body.val42, ptr %body.val43)
+  %call35 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112has_term_iteER7obj_refI4expr11ast_managerE.argprom(ptr %body.val42, ptr %body.val43)
           to label %invoke.cont34 unwind label %lpad23.loopexit.split-lp
 
 invoke.cont34:                                    ; preds = %invoke.cont33
@@ -1829,7 +1829,7 @@ terminate.lpad.i308:                              ; preds = %if.then2.i.i.i307
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit309:      ; preds = %invoke.cont189, %if.then.i.i.i302, %if.then2.i.i.i307
-  %call193 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112has_term_iteER7obj_refI4expr11ast_managerE(ptr %call.i291, ptr %25)
+  %call193 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112has_term_iteER7obj_refI4expr11ast_managerE.argprom(ptr %call.i291, ptr %25)
           to label %invoke.cont192 unwind label %lpad111.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont192:                                   ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit309
@@ -3127,7 +3127,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112has_term_iteER7obj_refI4expr11ast_managerE(ptr %e.0.val, ptr %e.8.val) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112has_term_iteER7obj_refI4expr11ast_managerE.argprom(ptr %e.0.val, ptr %e.8.val) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %stack.i.i.i = alloca %class.sbuffer, align 8
   %visited.i.i = alloca %class.ast_fast_mark, align 8

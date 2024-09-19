@@ -6857,7 +6857,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noundef ptr %67(ptr noundef nonnull %0) #13
   %.not.i = icmp eq ptr %68, null
-  br i1 %.not.i, label %69, label %_ZL9throw_newP7JNIEnv_PKc.exit50.i
+  br i1 %.not.i, label %69, label %_ZL9throw_newP7JNIEnv_PKc.argprom.exit50.i
 
 69:                                               ; preds = %62
   %.not48.i = icmp eq ptr %2, null
@@ -6901,13 +6901,13 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   tail call void %97(ptr noundef nonnull %0) #13
   %98 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %98, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.123) #13
-  br label %_ZL9throw_newP7JNIEnv_PKc.exit50.i
+  br label %_ZL9throw_newP7JNIEnv_PKc.argprom.exit50.i
 
 99:                                               ; preds = %85
   %100 = getelementptr inbounds i8, ptr %94, i64 112
   %101 = load ptr, ptr %100, align 8
   %102 = tail call noundef i32 %101(ptr noundef nonnull %0, ptr noundef %89, ptr noundef null) #13
-  br label %_ZL9throw_newP7JNIEnv_PKc.exit50.i
+  br label %_ZL9throw_newP7JNIEnv_PKc.argprom.exit50.i
 
 103:                                              ; preds = %80, %70
   %.1.i = phi ptr [ %83, %80 ], [ %9, %70 ]
@@ -6944,19 +6944,19 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %113 = icmp ne ptr %.043.i, null
   %114 = icmp ne ptr %.043.i, %9
   %or.cond.i = and i1 %113, %114
-  br i1 %or.cond.i, label %115, label %_ZL9throw_newP7JNIEnv_PKc.exit50.i
+  br i1 %or.cond.i, label %115, label %_ZL9throw_newP7JNIEnv_PKc.argprom.exit50.i
 
 115:                                              ; preds = %.loopexit.i
   call void @_Z8FreeHeapPv(ptr noundef nonnull %.043.i) #13
-  br label %_ZL9throw_newP7JNIEnv_PKc.exit50.i
+  br label %_ZL9throw_newP7JNIEnv_PKc.argprom.exit50.i
 
-_ZL9throw_newP7JNIEnv_PKc.exit50.i:               ; preds = %115, %.loopexit.i, %99, %95, %62
+_ZL9throw_newP7JNIEnv_PKc.argprom.exit50.i:       ; preds = %115, %.loopexit.i, %99, %95, %62
   %.044.i = phi ptr [ null, %62 ], [ %112, %115 ], [ %112, %.loopexit.i ], [ null, %95 ], [ null, %99 ]
   call void @_Z8FreeHeapPv(ptr noundef nonnull %42) #13
   br label %_ZL23Unsafe_DefineClass_implP7JNIEnv_P8_jstringP11_jbyteArrayiiP8_jobjectS6_.exit
 
-_ZL23Unsafe_DefineClass_implP7JNIEnv_P8_jstringP11_jbyteArrayiiP8_jobjectS6_.exit: ; preds = %54, %58, %_ZL9throw_newP7JNIEnv_PKc.exit50.i
-  %.042.i = phi ptr [ %.044.i, %_ZL9throw_newP7JNIEnv_PKc.exit50.i ], [ null, %54 ], [ null, %58 ]
+_ZL23Unsafe_DefineClass_implP7JNIEnv_P8_jstringP11_jbyteArrayiiP8_jobjectS6_.exit: ; preds = %54, %58, %_ZL9throw_newP7JNIEnv_PKc.argprom.exit50.i
+  %.042.i = phi ptr [ %.044.i, %_ZL9throw_newP7JNIEnv_PKc.argprom.exit50.i ], [ null, %54 ], [ null, %58 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9)
   %116 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %117 = trunc i8 %116 to i1

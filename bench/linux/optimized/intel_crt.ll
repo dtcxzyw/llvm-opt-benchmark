@@ -1756,7 +1756,7 @@ define internal i32 @intel_crt_detect(ptr noundef %0, ptr noundef %1, i1 noundef
   %248 = getelementptr inbounds i8, ptr %247, i64 1648
   %249 = load i32, ptr %248, align 8
   %.val = load ptr, ptr %6, align 8
-  %250 = tail call fastcc i32 @intel_crt_load_detect(ptr %.val, i32 noundef %249)
+  %250 = tail call fastcc i32 @intel_crt_load_detect.argprom(ptr %.val, i32 noundef %249)
   br label %255
 
 251:                                              ; preds = %239
@@ -1966,7 +1966,7 @@ intel_crt_get_edid.exit.thread:                   ; preds = %9, %intel_crt_get_e
 declare dso_local ptr @intel_load_detect_get_pipe(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect.argprom(ptr %.0.val, i32 noundef %0) unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %.0.val, null
   br i1 %2, label %6, label %3
 

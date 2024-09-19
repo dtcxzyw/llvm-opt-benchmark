@@ -122,7 +122,7 @@ define void @CTEST_LOG(ptr nocapture noundef readonly %0, ...) local_unnamed_add
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @msg_start() unnamed_addr #0 {
+define internal fastcc void @msg_start.argprom() unnamed_addr #0 {
   %1 = load i32, ptr @color_output, align 4, !tbaa !3
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %4, label %3
@@ -188,7 +188,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define void @CTEST_ERR(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #3 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #14
-  tail call fastcc void @msg_start()
+  tail call fastcc void @msg_start.argprom()
   call void @llvm.va_start.p0(ptr nonnull %2)
   call fastcc void @vprint_errormsg(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.va_end.p0(ptr nonnull %2)

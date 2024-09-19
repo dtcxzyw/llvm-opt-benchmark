@@ -1699,7 +1699,7 @@ _ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7
   %.val7 = phi ptr [ %.val7.pre, %.._crit_edge_crit_edge ], [ %36, %_ZNSt6vectorISt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEESaIS7_EE9push_backEOS7_.exit ]
   %.val = load ptr, ptr %1, align 8
   %37 = icmp eq ptr %.val, %.val7
-  br i1 %37, label %"_ZN4llvm11stable_sortIRSt6vectorISt4pairINS_9hash_codeEPKNS_10sampleprof15FunctionSamplesEESaIS8_EEZNS4_16sortFuncProfilesERKNS4_16SampleProfileMapESB_E3$_0EEvOT_T0_.exit", label %38
+  br i1 %37, label %"_ZN4llvm11stable_sortIRSt6vectorISt4pairINS_9hash_codeEPKNS_10sampleprof15FunctionSamplesEESaIS8_EEZNS4_16sortFuncProfilesERKNS4_16SampleProfileMapESB_E3$_0EEvOT_T0_.argprom.exit", label %38
 
 38:                                               ; preds = %._crit_edge
   %39 = ptrtoint ptr %.val7 to i64
@@ -1769,9 +1769,9 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_cod
   %.sroa.1.021.i.i.i = phi i64 [ %44, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEES9_EC2ESE_l.exit.thread23.sink.split.i.i.i ], [ 0, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEES9_EC2ESE_l.exit.thread.i.i.i ]
   %.sroa.5.019.i.i.i = phi ptr [ %45, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEES9_EC2ESE_l.exit.thread23.sink.split.i.i.i ], [ null, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEES9_EC2ESE_l.exit.thread.i.i.i ]
   tail call void @_ZdlPvm(ptr noundef %.sroa.5.019.i.i.i, i64 noundef %.sroa.1.021.i.i.i) #22
-  br label %"_ZN4llvm11stable_sortIRSt6vectorISt4pairINS_9hash_codeEPKNS_10sampleprof15FunctionSamplesEESaIS8_EEZNS4_16sortFuncProfilesERKNS4_16SampleProfileMapESB_E3$_0EEvOT_T0_.exit"
+  br label %"_ZN4llvm11stable_sortIRSt6vectorISt4pairINS_9hash_codeEPKNS_10sampleprof15FunctionSamplesEESaIS8_EEZNS4_16sortFuncProfilesERKNS4_16SampleProfileMapESB_E3$_0EEvOT_T0_.argprom.exit"
 
-"_ZN4llvm11stable_sortIRSt6vectorISt4pairINS_9hash_codeEPKNS_10sampleprof15FunctionSamplesEESaIS8_EEZNS4_16sortFuncProfilesERKNS4_16SampleProfileMapESB_E3$_0EEvOT_T0_.exit": ; preds = %._crit_edge, %55
+"_ZN4llvm11stable_sortIRSt6vectorISt4pairINS_9hash_codeEPKNS_10sampleprof15FunctionSamplesEESaIS8_EEZNS4_16sortFuncProfilesERKNS4_16SampleProfileMapESB_E3$_0EEvOT_T0_.argprom.exit": ; preds = %._crit_edge, %55
   ret void
 }
 
@@ -14711,7 +14711,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %10 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %9, %11
-  br i1 %12, label %13, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit"
+  br i1 %12, label %13, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit"
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
@@ -14720,12 +14720,12 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %.sroa.2.0.copyload.pre = load ptr, ptr %7, align 8
   br i1 %16, label %18, label %._crit_edge
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit": ; preds = %6
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit": ; preds = %6
   %17 = icmp ugt i64 %9, %11
   br i1 %17, label %18, label %._crit_edge
 
-18:                                               ; preds = %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit"
-  %.sroa.2.0.copyload = phi ptr [ %.sroa.2.0.copyload.pre, %13 ], [ %.val.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit" ]
+18:                                               ; preds = %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit"
+  %.sroa.2.0.copyload = phi ptr [ %.sroa.2.0.copyload.pre, %13 ], [ %.val.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit" ]
   %.sroa.0.0.copyload = load i64, ptr %.sroa.09.053, align 8
   %19 = ptrtoint ptr %.sroa.09.053 to i64
   %20 = sub i64 %19, %5
@@ -14758,8 +14758,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKN
   store ptr %.sroa.2.0.copyload, ptr %4, align 8
   br label %111
 
-._crit_edge:                                      ; preds = %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit"
-  %.sroa.2.0.copyload.i = phi ptr [ %.val.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit" ], [ %.sroa.2.0.copyload.pre, %13 ]
+._crit_edge:                                      ; preds = %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit"
+  %.sroa.2.0.copyload.i = phi ptr [ %.val.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit" ], [ %.sroa.2.0.copyload.pre, %13 ]
   %.sroa.03.0.copyload.i = load i64, ptr %.sroa.09.053, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 56
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 16
@@ -14778,7 +14778,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKN
   %41 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 56
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %40, %42
-  br i1 %43, label %44, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclISD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i"
+  br i1 %43, label %44, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclISD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.argprom.exit.i"
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 16
@@ -14913,18 +14913,18 @@ _ZNK4llvm10sampleprof13SampleContextltERKS1_.exit: ; preds = %_ZN4llvm10samplepr
   %106 = icmp slt i32 %86, 0
   br i1 %106, label %._crit_edge.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEENS0_5__ops14_Val_comp_iterIZNS5_16sortFuncProfilesERKNS5_16SampleProfileMapERSD_E3$_0EEEvT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclISD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i": ; preds = %38
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclISD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.argprom.exit.i": ; preds = %38
   %107 = icmp ugt i64 %40, %42
   br i1 %107, label %._crit_edge.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEENS0_5__ops14_Val_comp_iterIZNS5_16sortFuncProfilesERKNS5_16SampleProfileMapERSD_E3$_0EEEvT_T0_.exit"
 
-._crit_edge.i:                                    ; preds = %84, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i, %66, %100, %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit, %49, %._crit_edge.i8, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i, %102, %88, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclISD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i"
+._crit_edge.i:                                    ; preds = %84, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i, %66, %100, %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit, %49, %._crit_edge.i8, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i, %102, %88, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclISD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.argprom.exit.i"
   %108 = load i64, ptr %.sroa.0.0.i, align 8
   store i64 %108, ptr %.sroa.04.0.i, align 8
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i, i64 8
   store ptr %.val2.i.i, ptr %109, align 8
   br label %38, !llvm.loop !142
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEENS0_5__ops14_Val_comp_iterIZNS5_16sortFuncProfilesERKNS5_16SampleProfileMapERSD_E3$_0EEEvT_T0_.exit": ; preds = %67, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i, %88, %102, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i, %._crit_edge.i8, %49, %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclISD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", %85
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEENS0_5__ops14_Val_comp_iterIZNS5_16sortFuncProfilesERKNS5_16SampleProfileMapERSD_E3$_0EEEvT_T0_.exit": ; preds = %67, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i, %88, %102, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i, %._crit_edge.i8, %49, %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclISD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.argprom.exit.i", %85
   store i64 %.sroa.03.0.copyload.i, ptr %.sroa.04.0.i, align 8
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i, i64 8
   store ptr %.sroa.2.0.copyload.i, ptr %110, align 8
@@ -14969,7 +14969,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal
   %17 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 56
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %16, %18
-  br i1 %19, label %20, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit"
+  br i1 %19, label %20, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit"
 
 20:                                               ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
@@ -14977,11 +14977,11 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal
   %23 = tail call noundef zeroext i1 @_ZNK4llvm10sampleprof13SampleContextltERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %22)
   br i1 %23, label %25, label %.loopexit
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit": ; preds = %12
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit": ; preds = %12
   %24 = icmp ugt i64 %16, %18
   br i1 %24, label %25, label %.loopexit
 
-25:                                               ; preds = %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit"
+25:                                               ; preds = %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit"
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %.tr79, align 8
   %26 = load i64, ptr %.tr7280, align 8
   store i64 %26, ptr %.tr79, align 8
@@ -15022,7 +15022,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sa
   %43 = getelementptr inbounds nuw i8, ptr %.val.i50, i64 56
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %42, %44
-  br i1 %45, label %46, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i"
+  br i1 %45, label %46, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.argprom.exit.i"
 
 46:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i
   %47 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
@@ -15030,19 +15030,19 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sa
   %49 = tail call noundef zeroext i1 @_ZNK4llvm10sampleprof13SampleContextltERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(40) %48)
   br i1 %49, label %51, label %55
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.argprom.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i
   %50 = icmp ugt i64 %42, %44
   br i1 %50, label %51, label %55
 
-51:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i", %46
+51:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.argprom.exit.i", %46
   %52 = getelementptr inbounds i8, ptr %39, i64 16
   %53 = xor i64 %38, -1
   %54 = add nsw i64 %.013.i, %53
   br label %55
 
-55:                                               ; preds = %51, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i", %46
-  %.sroa.011.1.i = phi ptr [ %52, %51 ], [ %.sroa.011.012.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i" ], [ %.sroa.011.012.i, %46 ]
-  %.1.i = phi i64 [ %54, %51 ], [ %38, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i" ], [ %38, %46 ]
+55:                                               ; preds = %51, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.argprom.exit.i", %46
+  %.sroa.011.1.i = phi ptr [ %52, %51 ], [ %.sroa.011.012.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.argprom.exit.i" ], [ %.sroa.011.012.i, %46 ]
+  %.1.i = phi i64 [ %54, %51 ], [ %38, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.argprom.exit.i" ], [ %38, %46 ]
   %56 = icmp sgt i64 %.1.i, 0
   br i1 %56, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEES9_NS0_5__ops14_Iter_comp_valIZNS5_16sortFuncProfilesERKNS5_16SampleProfileMapERSD_E3$_0EEET_SN_SN_RKT0_T1_.exit.loopexit", !llvm.loop !144
 
@@ -15083,7 +15083,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sa
   %71 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 56
   %72 = load i64, ptr %71, align 8
   %73 = icmp eq i64 %70, %72
-  br i1 %73, label %74, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i"
+  br i1 %73, label %74, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.argprom.exit.i"
 
 74:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i57
   %75 = getelementptr inbounds nuw i8, ptr %.val.i62, i64 16
@@ -15091,19 +15091,19 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sa
   %77 = tail call noundef zeroext i1 @_ZNK4llvm10sampleprof13SampleContextltERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %75, ptr noundef nonnull align 8 dereferenceable(40) %76)
   br i1 %77, label %83, label %79
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i57
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.argprom.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i57
   %78 = icmp ugt i64 %70, %72
   br i1 %78, label %83, label %79
 
-79:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", %74
+79:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.argprom.exit.i", %74
   %80 = getelementptr inbounds i8, ptr %67, i64 16
   %81 = xor i64 %66, -1
   %82 = add nsw i64 %.013.i58, %81
   br label %83
 
-83:                                               ; preds = %79, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", %74
-  %.sroa.011.1.i63 = phi ptr [ %.sroa.011.012.i59, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i" ], [ %80, %79 ], [ %.sroa.011.012.i59, %74 ]
-  %.1.i64 = phi i64 [ %66, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i" ], [ %82, %79 ], [ %66, %74 ]
+83:                                               ; preds = %79, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.argprom.exit.i", %74
+  %.sroa.011.1.i63 = phi ptr [ %.sroa.011.012.i59, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.argprom.exit.i" ], [ %80, %79 ], [ %.sroa.011.012.i59, %74 ]
+  %.1.i64 = phi i64 [ %66, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.argprom.exit.i" ], [ %82, %79 ], [ %66, %74 ]
   %84 = icmp sgt i64 %.1.i64, 0
   br i1 %84, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i57, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEES9_NS0_5__ops14_Val_comp_iterIZNS5_16sortFuncProfilesERKNS5_16SampleProfileMapERSD_E3$_0EEET_SN_SN_RKT0_T1_.exit.loopexit", !llvm.loop !145
 
@@ -15132,7 +15132,7 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
   %or.cond = or i1 %90, %91
   br i1 %or.cond, label %.loopexit, label %9
 
-.loopexit:                                        ; preds = %tailrecurse, %5, %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit", %25
+.loopexit:                                        ; preds = %tailrecurse, %5, %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit", %25
   ret void
 }
 
@@ -15474,7 +15474,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   %24 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 56
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %23, %25
-  br i1 %26, label %27, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit.i.i"
+  br i1 %26, label %27, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit.i.i"
 
 27:                                               ; preds = %.lr.ph.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 16
@@ -15614,11 +15614,11 @@ _ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.i: ; preds = %_ZN4llvm10sample
   %94 = icmp slt i32 %74, 0
   br i1 %94, label %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread60.i, label %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread62.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit.i.i": ; preds = %.lr.ph.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit.i.i": ; preds = %.lr.ph.i.i
   %95 = icmp ugt i64 %23, %25
   br i1 %95, label %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread60.i, label %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread62.i
 
-_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread60.i: ; preds = %72, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit.i.i", %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.i, %._crit_edge.i.i, %90, %88, %76, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i.i, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i.i, %54, %34
+_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread60.i: ; preds = %72, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit.i.i", %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.i, %._crit_edge.i.i, %90, %88, %76, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i.i, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i.i, %54, %34
   %96 = load i64, ptr %.sroa.015.024.i.i, align 8
   store i64 %96, ptr %.026.i.i, align 8
   %97 = load ptr, ptr %20, align 8
@@ -15627,7 +15627,7 @@ _ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread60.i: ; preds = %72, %"_
   %99 = getelementptr inbounds i8, ptr %.sroa.015.024.i.i, i64 16
   br label %104
 
-_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread62.i: ; preds = %73, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit.i.i", %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.i, %._crit_edge.i.i, %90, %76, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i.i, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i.i, %55, %34
+_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread62.i: ; preds = %73, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit.i.i", %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.i, %._crit_edge.i.i, %90, %76, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i.i, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i.i, %55, %34
   %100 = load i64, ptr %.sroa.019.025.i.i, align 8
   store i64 %100, ptr %.026.i.i, align 8
   %101 = load ptr, ptr %21, align 8
@@ -15725,7 +15725,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampl
   %143 = getelementptr inbounds nuw i8, ptr %.val1.i.i37.i, i64 56
   %144 = load i64, ptr %143, align 8
   %145 = icmp eq i64 %142, %144
-  br i1 %145, label %146, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit.i38.i"
+  br i1 %145, label %146, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit.i38.i"
 
 146:                                              ; preds = %.lr.ph.i32.i
   %147 = getelementptr inbounds nuw i8, ptr %.val.i.i36.i, i64 16
@@ -15865,11 +15865,11 @@ _ZNK4llvm10sampleprof13SampleContextltERKS1_.exit: ; preds = %_ZN4llvm10samplepr
   %213 = icmp slt i32 %193, 0
   br i1 %213, label %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread97, label %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread99
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit.i38.i": ; preds = %.lr.ph.i32.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit.i38.i": ; preds = %.lr.ph.i32.i
   %214 = icmp ugt i64 %142, %144
   br i1 %214, label %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread97, label %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread99
 
-_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread97: ; preds = %191, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i66, %173, %207, %195, %209, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i, %._crit_edge.i61, %153, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit.i38.i", %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit
+_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread97: ; preds = %191, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i66, %173, %207, %195, %209, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i, %._crit_edge.i61, %153, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit.i38.i", %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit
   %215 = load i64, ptr %.sroa.015.024.i35.i, align 8
   store i64 %215, ptr %.026.i33.i, align 8
   %216 = load ptr, ptr %139, align 8
@@ -15878,7 +15878,7 @@ _ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread97: ; preds = %191, %_ZN
   %218 = getelementptr inbounds i8, ptr %.sroa.015.024.i35.i, i64 16
   br label %223
 
-_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread99: ; preds = %192, %174, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i66, %195, %209, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i, %._crit_edge.i61, %153, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.exit.i38.i", %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit
+_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread99: ; preds = %192, %174, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i66, %195, %209, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i, %._crit_edge.i61, %153, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESM_EEbT_T0_.argprom.exit.i38.i", %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit
   %219 = load i64, ptr %.sroa.019.025.i34.i, align 8
   store i64 %219, ptr %.026.i33.i, align 8
   %220 = load ptr, ptr %140, align 8
@@ -15972,7 +15972,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampl
   %259 = getelementptr inbounds nuw i8, ptr %.0.val.i.i, i64 56
   %260 = load i64, ptr %259, align 8
   %261 = icmp eq i64 %258, %260
-  br i1 %261, label %262, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_SK_EEbT_T0_.exit.i.i"
+  br i1 %261, label %262, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_SK_EEbT_T0_.argprom.exit.i.i"
 
 262:                                              ; preds = %.lr.ph.i.i23
   %263 = getelementptr inbounds nuw i8, ptr %.016.val.i.i, i64 16
@@ -16112,11 +16112,11 @@ _ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.i45: ; preds = %_ZN4llvm10samp
   %329 = icmp slt i32 %309, 0
   br i1 %329, label %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread58.i, label %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread60.i24
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_SK_EEbT_T0_.exit.i.i": ; preds = %.lr.ph.i.i23
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_SK_EEbT_T0_.argprom.exit.i.i": ; preds = %.lr.ph.i.i23
   %330 = icmp ugt i64 %258, %260
   br i1 %330, label %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread58.i, label %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread60.i24
 
-_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread58.i: ; preds = %307, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_SK_EEbT_T0_.exit.i.i", %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.i45, %._crit_edge.i52.i, %325, %323, %311, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i.i55, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i.i56, %289, %269
+_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread58.i: ; preds = %307, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_SK_EEbT_T0_.argprom.exit.i.i", %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.i45, %._crit_edge.i52.i, %325, %323, %311, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i.i55, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i.i56, %289, %269
   %331 = load i64, ptr %.01629.i.i, align 8
   store i64 %331, ptr %.sroa.0.027.i.i, align 8
   %332 = load ptr, ptr %255, align 8
@@ -16125,7 +16125,7 @@ _ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread58.i: ; preds = %307, %"
   %334 = getelementptr inbounds i8, ptr %.01629.i.i, i64 16
   br label %339
 
-_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread60.i24: ; preds = %308, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_SK_EEbT_T0_.exit.i.i", %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.i45, %._crit_edge.i52.i, %325, %311, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i.i55, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i.i56, %290, %269
+_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread60.i24: ; preds = %308, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_SK_EEbT_T0_.argprom.exit.i.i", %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.i45, %._crit_edge.i52.i, %325, %311, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i.i55, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i.i56, %290, %269
   %335 = load i64, ptr %.030.i.i, align 8
   store i64 %335, ptr %.sroa.0.027.i.i, align 8
   %336 = load ptr, ptr %256, align 8
@@ -16233,7 +16233,7 @@ _ZSt4moveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu
   %387 = getelementptr inbounds nuw i8, ptr %.0.val.i46.i, i64 56
   %388 = load i64, ptr %387, align 8
   %389 = icmp eq i64 %386, %388
-  br i1 %389, label %390, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_SK_EEbT_T0_.exit.i47.i"
+  br i1 %389, label %390, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_SK_EEbT_T0_.argprom.exit.i47.i"
 
 390:                                              ; preds = %.lr.ph.i41.i
   %391 = getelementptr inbounds nuw i8, ptr %.016.val.i45.i, i64 16
@@ -16373,11 +16373,11 @@ _ZNK4llvm10sampleprof13SampleContextltERKS1_.exit94: ; preds = %_ZN4llvm10sample
   %457 = icmp slt i32 %437, 0
   br i1 %457, label %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit94.thread102, label %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit94.thread104
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_SK_EEbT_T0_.exit.i47.i": ; preds = %.lr.ph.i41.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_SK_EEbT_T0_.argprom.exit.i47.i": ; preds = %.lr.ph.i41.i
   %458 = icmp ugt i64 %386, %388
   br i1 %458, label %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit94.thread102, label %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit94.thread104
 
-_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit94.thread102: ; preds = %435, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i93, %417, %451, %439, %453, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i91, %._crit_edge.i85, %397, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_SK_EEbT_T0_.exit.i47.i", %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit94
+_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit94.thread102: ; preds = %435, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i93, %417, %451, %439, %453, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i91, %._crit_edge.i85, %397, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_SK_EEbT_T0_.argprom.exit.i47.i", %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit94
   %459 = load i64, ptr %.01629.i43.i, align 8
   store i64 %459, ptr %.sroa.0.027.i44.i, align 8
   %460 = load ptr, ptr %383, align 8
@@ -16386,7 +16386,7 @@ _ZNK4llvm10sampleprof13SampleContextltERKS1_.exit94.thread102: ; preds = %435, %
   %462 = getelementptr inbounds i8, ptr %.01629.i43.i, i64 16
   br label %467
 
-_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit94.thread104: ; preds = %436, %418, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i93, %439, %453, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i91, %._crit_edge.i85, %397, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_SK_EEbT_T0_.exit.i47.i", %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit94
+_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit94.thread104: ; preds = %436, %418, %_ZN4llvm10sampleprof10FunctionId13compareMemoryEPKcS3_m.exit.thread12.i.i.i93, %439, %453, %_ZN4llvm10sampleprofltERKNS0_10FunctionIdES3_.exit.i91, %._crit_edge.i85, %397, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_SK_EEbT_T0_.argprom.exit.i47.i", %_ZNK4llvm10sampleprof13SampleContextltERKS1_.exit94
   %463 = load i64, ptr %.030.i42.i, align 8
   store i64 %463, ptr %.sroa.0.027.i44.i, align 8
   %464 = load ptr, ptr %384, align 8
@@ -16524,7 +16524,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %27 = getelementptr inbounds nuw i8, ptr %.0.val.i, i64 56
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %26, %28
-  br i1 %29, label %30, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESL_EEbT_T0_.exit.i"
+  br i1 %29, label %30, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESL_EEbT_T0_.argprom.exit.i"
 
 30:                                               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
@@ -16532,11 +16532,11 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %33 = tail call noundef zeroext i1 @_ZNK4llvm10sampleprof13SampleContextltERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %32)
   br i1 %33, label %35, label %40
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESL_EEbT_T0_.exit.i": ; preds = %22
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESL_EEbT_T0_.argprom.exit.i": ; preds = %22
   %34 = icmp ugt i64 %26, %28
   br i1 %34, label %35, label %40
 
-35:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESL_EEbT_T0_.exit.i", %30
+35:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESL_EEbT_T0_.argprom.exit.i", %30
   %36 = load i64, ptr %.sroa.016.024.i, align 8
   store i64 %36, ptr %.sroa.0.025.i, align 8
   %37 = load ptr, ptr %24, align 8
@@ -16545,7 +16545,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %39 = getelementptr inbounds i8, ptr %.sroa.016.024.i, i64 16
   br label %45
 
-40:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESL_EEbT_T0_.exit.i", %30
+40:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EESL_EEbT_T0_.argprom.exit.i", %30
   %41 = load i64, ptr %.027.i, align 8
   store i64 %41, ptr %.sroa.0.025.i, align 8
   %42 = load ptr, ptr %23, align 8
@@ -16673,7 +16673,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampl
   %98 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 56
   %99 = load i64, ptr %98, align 8
   %100 = icmp eq i64 %97, %99
-  br i1 %100, label %101, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_NS_17__normal_iteratorISK_SF_EEEEbT_T0_.exit.i"
+  br i1 %100, label %101, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_NS_17__normal_iteratorISK_SF_EEEEbT_T0_.argprom.exit.i"
 
 101:                                              ; preds = %94
   %102 = getelementptr inbounds nuw i8, ptr %.0.val.i88, i64 16
@@ -16681,11 +16681,11 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampl
   %104 = tail call noundef zeroext i1 @_ZNK4llvm10sampleprof13SampleContextltERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %102, ptr noundef nonnull align 8 dereferenceable(40) %103)
   br i1 %104, label %106, label %128
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_NS_17__normal_iteratorISK_SF_EEEEbT_T0_.exit.i": ; preds = %94
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_NS_17__normal_iteratorISK_SF_EEEEbT_T0_.argprom.exit.i": ; preds = %94
   %105 = icmp ugt i64 %97, %99
   br i1 %105, label %106, label %128
 
-106:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_NS_17__normal_iteratorISK_SF_EEEEbT_T0_.exit.i", %101
+106:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_NS_17__normal_iteratorISK_SF_EEEEbT_T0_.argprom.exit.i", %101
   %107 = getelementptr i8, ptr %.sroa.027.0.i.ph.pn, i64 -8
   %108 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -16
   %109 = load i64, ptr %.sroa.027.0.i.ph, align 8
@@ -16721,7 +16721,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampl
   %127 = icmp ugt i64 %.010.i.i.i.i.i20.i, 1
   br i1 %127, label %.lr.ph.i.i.i.i.i19.i, label %"_ZSt21__move_merge_adaptiveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEESE_NS9_5__ops15_Iter_comp_iterIZNS3_16sortFuncProfilesERKNS3_16SampleProfileMapERSD_E3$_0EEEvT_SN_T0_SO_T1_T2_.exit", !llvm.loop !140
 
-128:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_NS_17__normal_iteratorISK_SF_EEEEbT_T0_.exit.i", %101
+128:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_NS_17__normal_iteratorISK_SF_EEEEbT_T0_.argprom.exit.i", %101
   %129 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -16
   %130 = load i64, ptr %.0.i, align 8
   store i64 %130, ptr %129, align 8
@@ -16763,7 +16763,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sa
   %148 = getelementptr inbounds nuw i8, ptr %.val.i, i64 56
   %149 = load i64, ptr %148, align 8
   %150 = icmp eq i64 %147, %149
-  br i1 %150, label %151, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i"
+  br i1 %150, label %151, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.argprom.exit.i"
 
 151:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i
   %152 = getelementptr inbounds nuw i8, ptr %.val.i.i91, i64 16
@@ -16771,19 +16771,19 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sa
   %154 = tail call noundef zeroext i1 @_ZNK4llvm10sampleprof13SampleContextltERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %152, ptr noundef nonnull align 8 dereferenceable(40) %153)
   br i1 %154, label %156, label %160
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.argprom.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i
   %155 = icmp ugt i64 %147, %149
   br i1 %155, label %156, label %160
 
-156:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i", %151
+156:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.argprom.exit.i", %151
   %157 = getelementptr inbounds i8, ptr %144, i64 16
   %158 = xor i64 %143, -1
   %159 = add nsw i64 %.013.i, %158
   br label %160
 
-160:                                              ; preds = %156, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i", %151
-  %.sroa.011.1.i = phi ptr [ %157, %156 ], [ %.sroa.011.012.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i" ], [ %.sroa.011.012.i, %151 ]
-  %.1.i92 = phi i64 [ %159, %156 ], [ %143, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i" ], [ %143, %151 ]
+160:                                              ; preds = %156, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.argprom.exit.i", %151
+  %.sroa.011.1.i = phi ptr [ %157, %156 ], [ %.sroa.011.012.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.argprom.exit.i" ], [ %.sroa.011.012.i, %151 ]
+  %.1.i92 = phi i64 [ %159, %156 ], [ %143, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.argprom.exit.i" ], [ %143, %151 ]
   %161 = icmp sgt i64 %.1.i92, 0
   br i1 %161, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEES9_NS0_5__ops14_Iter_comp_valIZNS5_16sortFuncProfilesERKNS5_16SampleProfileMapERSD_E3$_0EEET_SN_SN_RKT0_T1_.exit.loopexit", !llvm.loop !144
 
@@ -16824,7 +16824,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sa
   %176 = getelementptr inbounds nuw i8, ptr %.val2.i.i105, i64 56
   %177 = load i64, ptr %176, align 8
   %178 = icmp eq i64 %175, %177
-  br i1 %178, label %179, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i"
+  br i1 %178, label %179, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.argprom.exit.i"
 
 179:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i99
   %180 = getelementptr inbounds nuw i8, ptr %.val.i104, i64 16
@@ -16832,19 +16832,19 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sa
   %182 = tail call noundef zeroext i1 @_ZNK4llvm10sampleprof13SampleContextltERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %180, ptr noundef nonnull align 8 dereferenceable(40) %181)
   br i1 %182, label %188, label %184
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i99
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.argprom.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i99
   %183 = icmp ugt i64 %175, %177
   br i1 %183, label %188, label %184
 
-184:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", %179
+184:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.argprom.exit.i", %179
   %185 = getelementptr inbounds i8, ptr %172, i64 16
   %186 = xor i64 %171, -1
   %187 = add nsw i64 %.013.i100, %186
   br label %188
 
-188:                                              ; preds = %184, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", %179
-  %.sroa.011.1.i106 = phi ptr [ %.sroa.011.012.i101, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i" ], [ %185, %184 ], [ %.sroa.011.012.i101, %179 ]
-  %.1.i107 = phi i64 [ %171, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i" ], [ %187, %184 ], [ %171, %179 ]
+188:                                              ; preds = %184, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.argprom.exit.i", %179
+  %.sroa.011.1.i106 = phi ptr [ %.sroa.011.012.i101, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.argprom.exit.i" ], [ %185, %184 ], [ %.sroa.011.012.i101, %179 ]
+  %.1.i107 = phi i64 [ %171, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.argprom.exit.i" ], [ %187, %184 ], [ %171, %179 ]
   %189 = icmp sgt i64 %.1.i107, 0
   br i1 %189, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i99, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEES9_NS0_5__ops14_Val_comp_iterIZNS5_16sortFuncProfilesERKNS5_16SampleProfileMapERSD_E3$_0EEET_SN_SN_RKT0_T1_.exit.loopexit", !llvm.loop !145
 

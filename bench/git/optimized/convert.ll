@@ -522,11 +522,11 @@ if.end:                                           ; preds = %if.then, %entry
   %4 = getelementptr i8, ptr %3, i64 72
   %add.ptr.val = load ptr, ptr %4, align 8
   %cmp.i = icmp eq ptr %add.ptr.val, @git_attr__true
-  br i1 %cmp.i, label %git_path_check_crlf.exit.thread, label %if.else.i
+  br i1 %cmp.i, label %git_path_check_crlf.argprom.exit.thread, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
   %cmp2.i = icmp eq ptr %add.ptr.val, @git_attr__false
-  br i1 %cmp2.i, label %git_path_check_crlf.exit.thread, label %if.else4.i
+  br i1 %cmp2.i, label %git_path_check_crlf.argprom.exit.thread, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.else.i
   %cmp5.i = icmp eq ptr %add.ptr.val, null
@@ -535,14 +535,14 @@ if.else4.i:                                       ; preds = %if.else.i
 if.else7.i:                                       ; preds = %if.else4.i
   %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.val, ptr noundef nonnull dereferenceable(6) @.str.28) #22
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %git_path_check_crlf.exit.thread, label %if.else9.i
+  br i1 %tobool.not.i, label %git_path_check_crlf.argprom.exit.thread, label %if.else9.i
 
 if.else9.i:                                       ; preds = %if.else7.i
   %call10.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.val, ptr noundef nonnull dereferenceable(5) @.str.29) #22
   %tobool11.not.i = icmp eq i32 %call10.i, 0
-  br i1 %tobool11.not.i, label %git_path_check_crlf.exit.thread, label %if.then3
+  br i1 %tobool11.not.i, label %git_path_check_crlf.argprom.exit.thread, label %if.then3
 
-git_path_check_crlf.exit.thread:                  ; preds = %if.end, %if.else.i, %if.else7.i, %if.else9.i
+git_path_check_crlf.argprom.exit.thread:          ; preds = %if.end, %if.else.i, %if.else7.i, %if.else9.i
   %retval.0.i.ph = phi i32 [ 5, %if.else9.i ], [ 3, %if.else7.i ], [ 1, %if.else.i ], [ 2, %if.end ]
   %crlf_action68 = getelementptr inbounds i8, ptr %ca, i64 12
   store i32 %retval.0.i.ph, ptr %crlf_action68, align 4
@@ -554,11 +554,11 @@ if.then3:                                         ; preds = %if.else9.i, %if.els
   %5 = getelementptr i8, ptr %3, i64 8
   %.val = load ptr, ptr %5, align 8
   %cmp.i35 = icmp eq ptr %.val, @git_attr__true
-  br i1 %cmp.i35, label %git_path_check_crlf.exit48, label %if.else.i36
+  br i1 %cmp.i35, label %git_path_check_crlf.argprom.exit48, label %if.else.i36
 
 if.else.i36:                                      ; preds = %if.then3
   %cmp2.i37 = icmp eq ptr %.val, @git_attr__false
-  br i1 %cmp2.i37, label %git_path_check_crlf.exit48, label %if.else4.i38
+  br i1 %cmp2.i37, label %git_path_check_crlf.argprom.exit48, label %if.else4.i38
 
 if.else4.i38:                                     ; preds = %if.else.i36
   %cmp5.i39 = icmp eq ptr %.val, null
@@ -567,24 +567,24 @@ if.else4.i38:                                     ; preds = %if.else.i36
 if.else7.i40:                                     ; preds = %if.else4.i38
   %call.i41 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(6) @.str.28) #22
   %tobool.not.i42 = icmp eq i32 %call.i41, 0
-  br i1 %tobool.not.i42, label %git_path_check_crlf.exit48, label %if.else9.i43
+  br i1 %tobool.not.i42, label %git_path_check_crlf.argprom.exit48, label %if.else9.i43
 
 if.else9.i43:                                     ; preds = %if.else7.i40
   %call10.i44 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(5) @.str.29) #22
   %tobool11.not.i45 = icmp eq i32 %call10.i44, 0
-  br i1 %tobool11.not.i45, label %git_path_check_crlf.exit48, label %if.end16.i46
+  br i1 %tobool11.not.i45, label %git_path_check_crlf.argprom.exit48, label %if.end16.i46
 
 if.end16.i46:                                     ; preds = %if.else9.i43, %if.else4.i38
-  br label %git_path_check_crlf.exit48
+  br label %git_path_check_crlf.argprom.exit48
 
-git_path_check_crlf.exit48:                       ; preds = %if.then3, %if.else.i36, %if.else7.i40, %if.else9.i43, %if.end16.i46
+git_path_check_crlf.argprom.exit48:               ; preds = %if.then3, %if.else.i36, %if.else7.i40, %if.else9.i43, %if.end16.i46
   %retval.0.i47 = phi i32 [ 0, %if.end16.i46 ], [ 2, %if.then3 ], [ 1, %if.else.i36 ], [ 3, %if.else7.i40 ], [ 5, %if.else9.i43 ]
   store i32 %retval.0.i47, ptr %crlf_action, align 4
   br label %if.end7
 
-if.end7:                                          ; preds = %git_path_check_crlf.exit.thread, %git_path_check_crlf.exit48
-  %6 = phi i32 [ %retval.0.i.ph, %git_path_check_crlf.exit.thread ], [ %retval.0.i47, %git_path_check_crlf.exit48 ]
-  %crlf_action70 = phi ptr [ %crlf_action68, %git_path_check_crlf.exit.thread ], [ %crlf_action, %git_path_check_crlf.exit48 ]
+if.end7:                                          ; preds = %git_path_check_crlf.argprom.exit.thread, %git_path_check_crlf.argprom.exit48
+  %6 = phi i32 [ %retval.0.i.ph, %git_path_check_crlf.argprom.exit.thread ], [ %retval.0.i47, %git_path_check_crlf.argprom.exit48 ]
+  %crlf_action70 = phi ptr [ %crlf_action68, %git_path_check_crlf.argprom.exit.thread ], [ %crlf_action, %git_path_check_crlf.argprom.exit48 ]
   %7 = getelementptr i8, ptr %3, i64 24
   %add.ptr8.val = load ptr, ptr %7, align 8
   %cmp.i49 = icmp eq ptr %add.ptr8.val, @git_attr__true
@@ -601,28 +601,28 @@ if.end7:                                          ; preds = %git_path_check_crlf
   %drv.01.i = load ptr, ptr @user_convert, align 8
   %tobool.not2.i = icmp eq ptr %drv.01.i, null
   %or.cond5.i = select i1 %or.cond1.i, i1 true, i1 %tobool.not2.i
-  br i1 %or.cond5.i, label %git_path_check_convert.exit, label %for.body.i
+  br i1 %or.cond5.i, label %git_path_check_convert.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end7, %for.inc.i
   %drv.03.i = phi ptr [ %drv.0.i, %for.inc.i ], [ %drv.01.i, %if.end7 ]
   %9 = load ptr, ptr %drv.03.i, align 8
   %call.i52 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr10.val, ptr noundef nonnull dereferenceable(1) %9) #22
   %tobool5.not.i = icmp eq i32 %call.i52, 0
-  br i1 %tobool5.not.i, label %git_path_check_convert.exit, label %for.inc.i
+  br i1 %tobool5.not.i, label %git_path_check_convert.argprom.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %next.i = getelementptr inbounds i8, ptr %drv.03.i, i64 8
   %drv.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i53 = icmp eq ptr %drv.0.i, null
-  br i1 %tobool.not.i53, label %git_path_check_convert.exit, label %for.body.i, !llvm.loop !9
+  br i1 %tobool.not.i53, label %git_path_check_convert.argprom.exit, label %for.body.i, !llvm.loop !9
 
-git_path_check_convert.exit:                      ; preds = %for.body.i, %for.inc.i, %if.end7
+git_path_check_convert.argprom.exit:              ; preds = %for.body.i, %for.inc.i, %if.end7
   %retval.0.i54 = phi ptr [ null, %if.end7 ], [ null, %for.inc.i ], [ %drv.03.i, %for.body.i ]
   store ptr %retval.0.i54, ptr %ca, align 8
   %cmp13.not = icmp eq i32 %6, 1
   br i1 %cmp13.not, label %if.end40, label %if.then14
 
-if.then14:                                        ; preds = %git_path_check_convert.exit
+if.then14:                                        ; preds = %git_path_check_convert.argprom.exit
   %10 = getelementptr i8, ptr %3, i64 56
   %add.ptr15.val = load ptr, ptr %10, align 8
   %cmp.i55 = icmp eq ptr %add.ptr15.val, null
@@ -643,14 +643,14 @@ if.else.tail.i:                                   ; preds = %sub_1.i
   %14 = getelementptr inbounds i8, ptr %add.ptr15.val, i64 2
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 0
-  br i1 %16, label %git_path_check_eol.exit, label %if.else3.i
+  br i1 %16, label %git_path_check_eol.argprom.exit, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.else.tail.i, %sub_1.i, %sub_0.i
   %call4.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr15.val, ptr noundef nonnull dereferenceable(5) @.str.5) #22
   %tobool5.not.i56 = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i56, label %if.else, label %if.end40
 
-git_path_check_eol.exit:                          ; preds = %if.else.tail.i
+git_path_check_eol.argprom.exit:                  ; preds = %if.else.tail.i
   %cmp18 = icmp eq i32 %6, 5
   %. = select i1 %cmp18, i32 6, i32 3
   br label %if.end40.sink.split
@@ -660,22 +660,22 @@ if.else:                                          ; preds = %if.else3.i
   %.122 = select i1 %cmp1872, i32 7, i32 4
   br label %if.end40.sink.split
 
-if.end40.sink.split:                              ; preds = %if.else, %git_path_check_eol.exit
-  %.sink = phi i32 [ %., %git_path_check_eol.exit ], [ %.122, %if.else ]
+if.end40.sink.split:                              ; preds = %if.else, %git_path_check_eol.argprom.exit
+  %.sink = phi i32 [ %., %git_path_check_eol.argprom.exit ], [ %.122, %if.else ]
   store i32 %.sink, ptr %crlf_action70, align 4
   br label %if.end40
 
-if.end40:                                         ; preds = %if.end40.sink.split, %if.then14, %if.else3.i, %git_path_check_convert.exit
-  %17 = phi i32 [ %6, %if.then14 ], [ %6, %if.else3.i ], [ 1, %git_path_check_convert.exit ], [ %.sink, %if.end40.sink.split ]
+if.end40:                                         ; preds = %if.end40.sink.split, %if.then14, %if.else3.i, %git_path_check_convert.argprom.exit
+  %17 = phi i32 [ %6, %if.then14 ], [ %6, %if.else3.i ], [ 1, %git_path_check_convert.argprom.exit ], [ %.sink, %if.end40.sink.split ]
   %18 = getelementptr i8, ptr %3, i64 88
   %add.ptr41.val = load ptr, ptr %18, align 8
   %cmp.i58 = icmp eq ptr %add.ptr41.val, null
-  br i1 %cmp.i58, label %git_path_check_encoding.exit, label %lor.lhs.false.i
+  br i1 %cmp.i58, label %git_path_check_encoding.argprom.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end40
   %char0.i = load i8, ptr %add.ptr41.val, align 1
   %tobool.not.i59 = icmp eq i8 %char0.i, 0
-  br i1 %tobool.not.i59, label %git_path_check_encoding.exit, label %if.end.i
+  br i1 %tobool.not.i59, label %git_path_check_encoding.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %cmp2.i60 = icmp eq ptr %add.ptr41.val, @git_attr__true
@@ -693,9 +693,9 @@ if.end7.i:                                        ; preds = %if.end.i
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   %..i = select i1 %tobool9.not.i, ptr %add.ptr41.val, ptr null
   %.pre107 = load i32, ptr %crlf_action70, align 4
-  br label %git_path_check_encoding.exit
+  br label %git_path_check_encoding.argprom.exit
 
-git_path_check_encoding.exit:                     ; preds = %if.end40, %lor.lhs.false.i, %if.end7.i
+git_path_check_encoding.argprom.exit:             ; preds = %if.end40, %lor.lhs.false.i, %if.end7.i
   %19 = phi i32 [ %17, %lor.lhs.false.i ], [ %17, %if.end40 ], [ %.pre107, %if.end7.i ]
   %retval.0.i63 = phi ptr [ null, %lor.lhs.false.i ], [ null, %if.end40 ], [ %..i, %if.end7.i ]
   %working_tree_encoding = getelementptr inbounds i8, ptr %ca, i64 24
@@ -706,7 +706,7 @@ git_path_check_encoding.exit:                     ; preds = %if.end40, %lor.lhs.
   %.pre108 = load i32, ptr @auto_crlf, align 4
   br i1 %cmp45, label %if.then46, label %if.end50
 
-if.then46:                                        ; preds = %git_path_check_encoding.exit
+if.then46:                                        ; preds = %git_path_check_encoding.argprom.exit
   switch i32 %.pre108, label %text_eol_is_crlf.exit [
     i32 1, label %if.end71.sink.split
     i32 -1, label %text_eol_is_crlf.exit.thread
@@ -721,7 +721,7 @@ text_eol_is_crlf.exit:                            ; preds = %if.then46
 text_eol_is_crlf.exit.thread:                     ; preds = %if.then46, %text_eol_is_crlf.exit
   br label %if.end71.sink.split
 
-if.end50:                                         ; preds = %git_path_check_encoding.exit
+if.end50:                                         ; preds = %git_path_check_encoding.argprom.exit
   %cmp52 = icmp eq i32 %19, 0
   %cmp54 = icmp eq i32 %.pre108, 0
   %or.cond2 = select i1 %cmp52, i1 %cmp54, i1 false

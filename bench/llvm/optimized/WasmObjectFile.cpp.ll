@@ -16209,7 +16209,7 @@ _ZNK4llvm6object14WasmObjectFile18isValidTableSymbolEj.exit: ; preds = %202
   br i1 %212, label %.thread216.thread.thread, label %_ZNK4llvm6object14WasmObjectFile18isValidTableSymbolEj.exit.thread
 
 _ZNK4llvm6object14WasmObjectFile18isValidTableSymbolEj.exit.thread: ; preds = %202, %_ZNK4llvm6object14WasmObjectFile18isValidTableSymbolEj.exit
-  tail call fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_"(ptr dead_on_unwind noalias writable align 8 %0, ptr %204, i32 %178, ptr nonnull @.str.73, i64 24)
+  tail call fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr %204, i32 %178, ptr nonnull @.str.73, i64 24)
   br label %443
 
 213:                                              ; preds = %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit124
@@ -16224,7 +16224,7 @@ _ZNK4llvm6object14WasmObjectFile18isValidTableSymbolEj.exit.thread: ; preds = %2
 
 220:                                              ; preds = %213
   %.val71.val = load ptr, ptr %88, align 8
-  tail call fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_"(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val71.val, i32 %178, ptr nonnull @.str.74, i64 29)
+  tail call fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val71.val, i32 %178, ptr nonnull @.str.74, i64 29)
   br label %443
 
 221:                                              ; preds = %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit124
@@ -16244,7 +16244,7 @@ _ZNK4llvm6object14WasmObjectFile19isValidGlobalSymbolEj.exit: ; preds = %221
   br i1 %switch, label %.thread216.thread.thread, label %_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit125.thread
 
 _ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit125.thread: ; preds = %_ZNK4llvm6object14WasmObjectFile19isValidGlobalSymbolEj.exit, %221
-  tail call fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_"(ptr dead_on_unwind noalias writable align 8 %0, ptr %223, i32 %178, ptr nonnull @.str.75, i64 25)
+  tail call fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr %223, i32 %178, ptr nonnull @.str.75, i64 25)
   br label %443
 
 231:                                              ; preds = %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit124
@@ -16264,7 +16264,7 @@ _ZNK4llvm6object14WasmObjectFile19isValidGlobalSymbolEj.exit126: ; preds = %231
   br i1 %241, label %.thread216.thread.thread, label %_ZNK4llvm6object14WasmObjectFile19isValidGlobalSymbolEj.exit126.thread
 
 _ZNK4llvm6object14WasmObjectFile19isValidGlobalSymbolEj.exit126.thread: ; preds = %231, %_ZNK4llvm6object14WasmObjectFile19isValidGlobalSymbolEj.exit126
-  tail call fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_"(ptr dead_on_unwind noalias writable align 8 %0, ptr %233, i32 %178, ptr nonnull @.str.75, i64 25)
+  tail call fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr %233, i32 %178, ptr nonnull @.str.75, i64 25)
   br label %443
 
 242:                                              ; preds = %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit124
@@ -16284,7 +16284,7 @@ _ZNK4llvm6object14WasmObjectFile16isValidTagSymbolEj.exit: ; preds = %242
   br i1 %252, label %.thread216.thread.thread, label %_ZNK4llvm6object14WasmObjectFile16isValidTagSymbolEj.exit.thread
 
 _ZNK4llvm6object14WasmObjectFile16isValidTagSymbolEj.exit.thread: ; preds = %242, %_ZNK4llvm6object14WasmObjectFile16isValidTagSymbolEj.exit
-  tail call fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_"(ptr dead_on_unwind noalias writable align 8 %0, ptr %244, i32 %178, ptr nonnull @.str.76, i64 22)
+  tail call fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr %244, i32 %178, ptr nonnull @.str.76, i64 22)
   br label %443
 
 253:                                              ; preds = %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit124, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit124, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit124, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit124, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit124, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit124
@@ -16471,7 +16471,7 @@ _ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit132: ; preds = %32
   br i1 %337, label %338, label %_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit132.thread
 
 _ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit132.thread: ; preds = %327, %_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit132
-  tail call fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_"(ptr dead_on_unwind noalias writable align 8 %0, ptr %329, i32 %178, ptr nonnull @.str.72, i64 27)
+  tail call fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr %329, i32 %178, ptr nonnull @.str.72, i64 27)
   br label %443
 
 338:                                              ; preds = %_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit132
@@ -16496,7 +16496,7 @@ _ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit133: ; preds = %34
   br i1 %351, label %.preheader230, label %_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit133.thread
 
 _ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit133.thread: ; preds = %341, %_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit133
-  tail call fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_"(ptr dead_on_unwind noalias writable align 8 %0, ptr %343, i32 %178, ptr nonnull @.str.72, i64 27)
+  tail call fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr %343, i32 %178, ptr nonnull @.str.72, i64 27)
   br label %443
 
 .preheader230:                                    ; preds = %_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit133, %362
@@ -16578,7 +16578,7 @@ _ZNK4llvm6object14WasmObjectFile20isValidSectionSymbolEj.exit: ; preds = %377
   br i1 %387, label %388, label %_ZNK4llvm6object14WasmObjectFile20isValidSectionSymbolEj.exit.thread
 
 _ZNK4llvm6object14WasmObjectFile20isValidSectionSymbolEj.exit.thread: ; preds = %377, %_ZNK4llvm6object14WasmObjectFile20isValidSectionSymbolEj.exit
-  tail call fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_"(ptr dead_on_unwind noalias writable align 8 %0, ptr %379, i32 %178, ptr nonnull @.str.78, i64 26)
+  tail call fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr %379, i32 %178, ptr nonnull @.str.78, i64 26)
   br label %443
 
 388:                                              ; preds = %_ZNK4llvm6object14WasmObjectFile20isValidSectionSymbolEj.exit
@@ -16785,7 +16785,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %._crit_edge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture readonly %.0.val.536.val, i32 %.8.val.4.val, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_.argprom.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture readonly %.0.val.536.val, i32 %.8.val.4.val, ptr %1, i64 %2) unnamed_addr #0 align 2 {
 _ZN4llvmplERKNS_5TwineES2_.exit:
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -23271,8 +23271,8 @@ attributes #29 = { nounwind willreturn memory(read) }
 !781 = distinct !{!781, !782, !"_ZSt11make_uniqueIN4llvm6object18GenericBinaryErrorEJRA32_KcNS1_12object_errorEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !782 = distinct !{!782, !"_ZSt11make_uniqueIN4llvm6object18GenericBinaryErrorEJRA32_KcNS1_12object_errorEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !783 = !{!784}
-!784 = distinct !{!784, !785, !"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_: argument 0"}
-!785 = distinct !{!785, !"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_"}
+!784 = distinct !{!784, !785, !"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_.argprom.argprom: argument 0"}
+!785 = distinct !{!785, !"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_.argprom.argprom"}
 !786 = !{!787}
 !787 = distinct !{!787, !788, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !788 = distinct !{!788, !"_ZN4llvmplERKNS_9StringRefEPKc"}
@@ -23289,8 +23289,8 @@ attributes #29 = { nounwind willreturn memory(read) }
 !799 = distinct !{!799, !"_ZSt11make_uniqueIN4llvm6object18GenericBinaryErrorEJNS0_5TwineENS1_12object_errorEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !800 = !{!795, !784}
 !801 = !{!802}
-!802 = distinct !{!802, !803, !"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_: argument 0"}
-!803 = distinct !{!803, !"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_"}
+!802 = distinct !{!802, !803, !"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_.argprom.argprom: argument 0"}
+!803 = distinct !{!803, !"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_.argprom.argprom"}
 !804 = !{!805}
 !805 = distinct !{!805, !806, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !806 = distinct !{!806, !"_ZN4llvmplERKNS_9StringRefEPKc"}
@@ -23307,8 +23307,8 @@ attributes #29 = { nounwind willreturn memory(read) }
 !817 = distinct !{!817, !"_ZSt11make_uniqueIN4llvm6object18GenericBinaryErrorEJNS0_5TwineENS1_12object_errorEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !818 = !{!813, !802}
 !819 = !{!820}
-!820 = distinct !{!820, !821, !"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_: argument 0"}
-!821 = distinct !{!821, !"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_"}
+!820 = distinct !{!820, !821, !"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_.argprom.argprom: argument 0"}
+!821 = distinct !{!821, !"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_.argprom.argprom"}
 !822 = !{!823}
 !823 = distinct !{!823, !824, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !824 = distinct !{!824, !"_ZN4llvmplERKNS_9StringRefEPKc"}

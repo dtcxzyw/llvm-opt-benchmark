@@ -346,9 +346,9 @@ define void @Gia_ManSifDupNode(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %17 = getelementptr i8, ptr %1, i64 616
   br label %18
 
-18:                                               ; preds = %.lr.ph, %Gia_ObjUpdateTravIdCurrentId.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjUpdateTravIdCurrentId.exit ]
-  %19 = phi ptr [ %12, %.lr.ph ], [ %34, %Gia_ObjUpdateTravIdCurrentId.exit ]
+18:                                               ; preds = %.lr.ph, %Gia_ObjUpdateTravIdCurrentId.argprom.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjUpdateTravIdCurrentId.argprom.exit ]
+  %19 = phi ptr [ %12, %.lr.ph ], [ %34, %Gia_ObjUpdateTravIdCurrentId.argprom.exit ]
   %20 = getelementptr inbounds i8, ptr %19, i64 4
   %21 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
@@ -364,13 +364,13 @@ define void @Gia_ManSifDupNode(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %27 = getelementptr inbounds i32, ptr %.val26, i64 %23
   %28 = load i32, ptr %27, align 4
   %.not.i = icmp eq i32 %28, %.val25
-  br i1 %.not.i, label %Gia_ObjUpdateTravIdCurrentId.exit, label %29
+  br i1 %.not.i, label %Gia_ObjUpdateTravIdCurrentId.argprom.exit, label %29
 
 29:                                               ; preds = %18
   store i32 %.val25, ptr %27, align 4
-  br label %Gia_ObjUpdateTravIdCurrentId.exit
+  br label %Gia_ObjUpdateTravIdCurrentId.argprom.exit
 
-Gia_ObjUpdateTravIdCurrentId.exit:                ; preds = %18, %29
+Gia_ObjUpdateTravIdCurrentId.argprom.exit:        ; preds = %18, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val23 = load ptr, ptr %7, align 8
   %30 = getelementptr i8, ptr %.val23, i64 8
@@ -384,7 +384,7 @@ Gia_ObjUpdateTravIdCurrentId.exit:                ; preds = %18, %29
   %37 = icmp slt i64 %indvars.iv.next, %36
   br i1 %37, label %18, label %.critedge, !llvm.loop !4
 
-.critedge:                                        ; preds = %Gia_ObjUpdateTravIdCurrentId.exit, %4
+.critedge:                                        ; preds = %Gia_ObjUpdateTravIdCurrentId.argprom.exit, %4
   %38 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %6
   tail call void @Gia_ManSifDupNode_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %38)
   %39 = getelementptr inbounds i8, ptr %38, i64 8
@@ -554,9 +554,9 @@ Abc_UtilStrsav.exit77:                            ; preds = %Abc_UtilStrsav.exit
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %.lr.ph.i, label %Gia_ManSifDupNode.exit
 
-.lr.ph.i:                                         ; preds = %68, %Gia_ObjUpdateTravIdCurrentId.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %Gia_ObjUpdateTravIdCurrentId.exit.i ], [ 0, %68 ]
-  %79 = phi ptr [ %94, %Gia_ObjUpdateTravIdCurrentId.exit.i ], [ %76, %68 ]
+.lr.ph.i:                                         ; preds = %68, %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i ], [ 0, %68 ]
+  %79 = phi ptr [ %94, %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i ], [ %76, %68 ]
   %80 = getelementptr inbounds i8, ptr %79, i64 4
   %81 = getelementptr inbounds i32, ptr %80, i64 %indvars.iv.i
   %82 = load i32, ptr %81, align 4
@@ -571,13 +571,13 @@ Abc_UtilStrsav.exit77:                            ; preds = %Abc_UtilStrsav.exit
   %87 = getelementptr inbounds i32, ptr %.val26.i, i64 %83
   %88 = load i32, ptr %87, align 4
   %.not.i.i78 = icmp eq i32 %88, %.val25.i
-  br i1 %.not.i.i78, label %Gia_ObjUpdateTravIdCurrentId.exit.i, label %89
+  br i1 %.not.i.i78, label %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i, label %89
 
 89:                                               ; preds = %.lr.ph.i
   store i32 %.val25.i, ptr %87, align 4
-  br label %Gia_ObjUpdateTravIdCurrentId.exit.i
+  br label %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i
 
-Gia_ObjUpdateTravIdCurrentId.exit.i:              ; preds = %89, %.lr.ph.i
+Gia_ObjUpdateTravIdCurrentId.argprom.exit.i:      ; preds = %89, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val23.i = load ptr, ptr %63, align 8
   %90 = getelementptr i8, ptr %.val23.i, i64 8
@@ -591,7 +591,7 @@ Gia_ObjUpdateTravIdCurrentId.exit.i:              ; preds = %89, %.lr.ph.i
   %97 = icmp slt i64 %indvars.iv.next.i, %96
   br i1 %97, label %.lr.ph.i, label %Gia_ManSifDupNode.exit, !llvm.loop !4
 
-Gia_ManSifDupNode.exit:                           ; preds = %Gia_ObjUpdateTravIdCurrentId.exit.i, %68
+Gia_ManSifDupNode.exit:                           ; preds = %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i, %68
   %98 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val.i, i64 %71
   tail call void @Gia_ManSifDupNode_rec(ptr noundef nonnull %14, ptr noundef nonnull %0, ptr noundef %98)
   %99 = getelementptr inbounds i8, ptr %98, i64 8
@@ -612,7 +612,7 @@ Gia_ManSifDupNode.exit:                           ; preds = %Gia_ObjUpdateTravId
   %106 = sext i32 %105 to i64
   %107 = getelementptr inbounds i32, ptr %21, i64 %106
   %108 = load i32, ptr %107, align 4
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %14, i32 noundef %108)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %14, i32 noundef %108)
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %.val58 = load i32, ptr %4, align 4
   %109 = sext i32 %.val58 to i64
@@ -838,7 +838,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -1084,9 +1084,9 @@ Abc_UtilStrsav.exit81:                            ; preds = %Abc_UtilStrsav.exit
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %.lr.ph.i, label %Gia_ManSifDupNode.exit
 
-.lr.ph.i:                                         ; preds = %49, %Gia_ObjUpdateTravIdCurrentId.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %Gia_ObjUpdateTravIdCurrentId.exit.i ], [ 0, %49 ]
-  %60 = phi ptr [ %75, %Gia_ObjUpdateTravIdCurrentId.exit.i ], [ %57, %49 ]
+.lr.ph.i:                                         ; preds = %49, %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i ], [ 0, %49 ]
+  %60 = phi ptr [ %75, %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i ], [ %57, %49 ]
   %61 = getelementptr inbounds i8, ptr %60, i64 4
   %62 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv.i
   %63 = load i32, ptr %62, align 4
@@ -1101,13 +1101,13 @@ Abc_UtilStrsav.exit81:                            ; preds = %Abc_UtilStrsav.exit
   %68 = getelementptr inbounds i32, ptr %.val26.i, i64 %64
   %69 = load i32, ptr %68, align 4
   %.not.i.i82 = icmp eq i32 %69, %.val25.i
-  br i1 %.not.i.i82, label %Gia_ObjUpdateTravIdCurrentId.exit.i, label %70
+  br i1 %.not.i.i82, label %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i, label %70
 
 70:                                               ; preds = %.lr.ph.i
   store i32 %.val25.i, ptr %68, align 4
-  br label %Gia_ObjUpdateTravIdCurrentId.exit.i
+  br label %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i
 
-Gia_ObjUpdateTravIdCurrentId.exit.i:              ; preds = %70, %.lr.ph.i
+Gia_ObjUpdateTravIdCurrentId.argprom.exit.i:      ; preds = %70, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val23.i = load ptr, ptr %42, align 8
   %71 = getelementptr i8, ptr %.val23.i, i64 8
@@ -1121,7 +1121,7 @@ Gia_ObjUpdateTravIdCurrentId.exit.i:              ; preds = %70, %.lr.ph.i
   %78 = icmp slt i64 %indvars.iv.next.i, %77
   br i1 %78, label %.lr.ph.i, label %Gia_ManSifDupNode.exit, !llvm.loop !4
 
-Gia_ManSifDupNode.exit:                           ; preds = %Gia_ObjUpdateTravIdCurrentId.exit.i, %49
+Gia_ManSifDupNode.exit:                           ; preds = %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i, %49
   %79 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val.i, i64 %52
   tail call void @Gia_ManSifDupNode_rec(ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef %79)
   %80 = getelementptr inbounds i8, ptr %79, i64 8
@@ -1183,7 +1183,7 @@ Gia_ManSifDupNode.exit:                           ; preds = %Gia_ObjUpdateTravId
 
 .critedge4:                                       ; preds = %85, %.critedge2, %.critedge2.preheader
   %.056.lcssa = phi i32 [ 1, %.critedge2.preheader ], [ %.157, %.critedge2 ], [ %.05696, %85 ]
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %3, i32 noundef %.056.lcssa)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %3, i32 noundef %.056.lcssa)
   %110 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %3) #22
   tail call void @Gia_ManStop(ptr noundef nonnull %3) #22
   %111 = tail call ptr @Abc_NtkSolveGiaMiter(ptr noundef %110) #22
@@ -2169,10 +2169,10 @@ Vec_IntPush.exit595:                              ; preds = %.Vec_IntGrow.exit10
   %433 = icmp sgt i32 %432, 0
   br i1 %433, label %.lr.ph771, label %.critedge18
 
-.lr.ph771:                                        ; preds = %421, %Gia_ObjUpdateTravIdCurrentId.exit
-  %.val472980 = phi ptr [ %.val472, %Gia_ObjUpdateTravIdCurrentId.exit ], [ %.val472978, %421 ]
-  %indvars.iv890 = phi i64 [ %indvars.iv.next891, %Gia_ObjUpdateTravIdCurrentId.exit ], [ 0, %421 ]
-  %434 = phi ptr [ %478, %Gia_ObjUpdateTravIdCurrentId.exit ], [ %431, %421 ]
+.lr.ph771:                                        ; preds = %421, %Gia_ObjUpdateTravIdCurrentId.argprom.exit
+  %.val472980 = phi ptr [ %.val472, %Gia_ObjUpdateTravIdCurrentId.argprom.exit ], [ %.val472978, %421 ]
+  %indvars.iv890 = phi i64 [ %indvars.iv.next891, %Gia_ObjUpdateTravIdCurrentId.argprom.exit ], [ 0, %421 ]
+  %434 = phi ptr [ %478, %Gia_ObjUpdateTravIdCurrentId.argprom.exit ], [ %431, %421 ]
   %435 = getelementptr inbounds i8, ptr %434, i64 4
   %436 = getelementptr inbounds i32, ptr %435, i64 %indvars.iv890
   %437 = load i32, ptr %436, align 4
@@ -2182,7 +2182,7 @@ Vec_IntPush.exit595:                              ; preds = %.Vec_IntGrow.exit10
   %439 = getelementptr inbounds i32, ptr %.val497, i64 %438
   %440 = load i32, ptr %439, align 4
   %.not.i596 = icmp eq i32 %440, %.val496
-  br i1 %.not.i596, label %Gia_ObjUpdateTravIdCurrentId.exit, label %441
+  br i1 %.not.i596, label %Gia_ObjUpdateTravIdCurrentId.argprom.exit, label %441
 
 441:                                              ; preds = %.lr.ph771
   store i32 %.val496, ptr %439, align 4
@@ -2254,9 +2254,9 @@ Vec_IntPush.exit603:                              ; preds = %.Vec_IntGrow.exit10
   %473 = getelementptr inbounds i32, ptr %469, i64 %472
   store i32 %437, ptr %473, align 4
   %.val472.pre = load ptr, ptr %413, align 8
-  br label %Gia_ObjUpdateTravIdCurrentId.exit
+  br label %Gia_ObjUpdateTravIdCurrentId.argprom.exit
 
-Gia_ObjUpdateTravIdCurrentId.exit:                ; preds = %.lr.ph771, %Vec_IntPush.exit603
+Gia_ObjUpdateTravIdCurrentId.argprom.exit:        ; preds = %.lr.ph771, %Vec_IntPush.exit603
   %.val472 = phi ptr [ %.val472980, %.lr.ph771 ], [ %.val472.pre, %Vec_IntPush.exit603 ]
   %indvars.iv.next891 = add nuw nsw i64 %indvars.iv890, 1
   %474 = getelementptr i8, ptr %.val472, i64 8
@@ -2270,7 +2270,7 @@ Gia_ObjUpdateTravIdCurrentId.exit:                ; preds = %.lr.ph771, %Vec_Int
   %481 = icmp slt i64 %indvars.iv.next891, %480
   br i1 %481, label %.lr.ph771, label %.critedge18.loopexit, !llvm.loop !24
 
-.critedge18.loopexit:                             ; preds = %Gia_ObjUpdateTravIdCurrentId.exit
+.critedge18.loopexit:                             ; preds = %Gia_ObjUpdateTravIdCurrentId.argprom.exit
   %.pre = load ptr, ptr %4, align 16
   br label %.critedge18
 
@@ -3078,9 +3078,9 @@ Vec_IntPush.exit627:                              ; preds = %.Vec_IntGrow.exit10
   %.val22.i = load ptr, ptr %730, align 8
   br label %852
 
-852:                                              ; preds = %Gia_ObjUpdateTravIdCurrentId.exit.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Gia_ObjUpdateTravIdCurrentId.exit.i ]
-  %853 = phi ptr [ %849, %.lr.ph.i ], [ %868, %Gia_ObjUpdateTravIdCurrentId.exit.i ]
+852:                                              ; preds = %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i ]
+  %853 = phi ptr [ %849, %.lr.ph.i ], [ %868, %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i ]
   %854 = getelementptr inbounds i8, ptr %853, i64 4
   %855 = getelementptr inbounds i32, ptr %854, i64 %indvars.iv.i
   %856 = load i32, ptr %855, align 4
@@ -3095,13 +3095,13 @@ Vec_IntPush.exit627:                              ; preds = %.Vec_IntGrow.exit10
   %861 = getelementptr inbounds i32, ptr %.val26.i, i64 %857
   %862 = load i32, ptr %861, align 4
   %.not.i.i629 = icmp eq i32 %862, %.val25.i
-  br i1 %.not.i.i629, label %Gia_ObjUpdateTravIdCurrentId.exit.i, label %863
+  br i1 %.not.i.i629, label %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i, label %863
 
 863:                                              ; preds = %852
   store i32 %.val25.i, ptr %861, align 4
-  br label %Gia_ObjUpdateTravIdCurrentId.exit.i
+  br label %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i
 
-Gia_ObjUpdateTravIdCurrentId.exit.i:              ; preds = %863, %852
+Gia_ObjUpdateTravIdCurrentId.argprom.exit.i:      ; preds = %863, %852
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val23.i = load ptr, ptr %826, align 8
   %864 = getelementptr i8, ptr %.val23.i, i64 8
@@ -3115,7 +3115,7 @@ Gia_ObjUpdateTravIdCurrentId.exit.i:              ; preds = %863, %852
   %871 = icmp slt i64 %indvars.iv.next.i, %870
   br i1 %871, label %852, label %Gia_ManSifDupNode.exit, !llvm.loop !4
 
-Gia_ManSifDupNode.exit:                           ; preds = %Gia_ObjUpdateTravIdCurrentId.exit.i, %841
+Gia_ManSifDupNode.exit:                           ; preds = %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i, %841
   %872 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val.i628, i64 %844
   tail call void @Gia_ManSifDupNode_rec(ptr noundef nonnull %713, ptr noundef nonnull %0, ptr noundef %872)
   %873 = getelementptr inbounds i8, ptr %872, i64 8
@@ -3260,9 +3260,9 @@ Vec_IntFree.exit:                                 ; preds = %.critedge46, %.crit
   %.val22.i644 = load ptr, ptr %730, align 8
   br label %940
 
-940:                                              ; preds = %Gia_ObjUpdateTravIdCurrentId.exit.i649, %.lr.ph.i642
-  %indvars.iv.i643 = phi i64 [ 0, %.lr.ph.i642 ], [ %indvars.iv.next.i650, %Gia_ObjUpdateTravIdCurrentId.exit.i649 ]
-  %941 = phi ptr [ %937, %.lr.ph.i642 ], [ %956, %Gia_ObjUpdateTravIdCurrentId.exit.i649 ]
+940:                                              ; preds = %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i649, %.lr.ph.i642
+  %indvars.iv.i643 = phi i64 [ 0, %.lr.ph.i642 ], [ %indvars.iv.next.i650, %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i649 ]
+  %941 = phi ptr [ %937, %.lr.ph.i642 ], [ %956, %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i649 ]
   %942 = getelementptr inbounds i8, ptr %941, i64 4
   %943 = getelementptr inbounds i32, ptr %942, i64 %indvars.iv.i643
   %944 = load i32, ptr %943, align 4
@@ -3277,13 +3277,13 @@ Vec_IntFree.exit:                                 ; preds = %.critedge46, %.crit
   %949 = getelementptr inbounds i32, ptr %.val26.i647, i64 %945
   %950 = load i32, ptr %949, align 4
   %.not.i.i648 = icmp eq i32 %950, %.val25.i646
-  br i1 %.not.i.i648, label %Gia_ObjUpdateTravIdCurrentId.exit.i649, label %951
+  br i1 %.not.i.i648, label %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i649, label %951
 
 951:                                              ; preds = %940
   store i32 %.val25.i646, ptr %949, align 4
-  br label %Gia_ObjUpdateTravIdCurrentId.exit.i649
+  br label %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i649
 
-Gia_ObjUpdateTravIdCurrentId.exit.i649:           ; preds = %951, %940
+Gia_ObjUpdateTravIdCurrentId.argprom.exit.i649:   ; preds = %951, %940
   %indvars.iv.next.i650 = add nuw nsw i64 %indvars.iv.i643, 1
   %.val23.i651 = load ptr, ptr %894, align 8
   %952 = getelementptr i8, ptr %.val23.i651, i64 8
@@ -3297,7 +3297,7 @@ Gia_ObjUpdateTravIdCurrentId.exit.i649:           ; preds = %951, %940
   %959 = icmp slt i64 %indvars.iv.next.i650, %958
   br i1 %959, label %940, label %Gia_ManSifDupNode.exit653, !llvm.loop !4
 
-Gia_ManSifDupNode.exit653:                        ; preds = %Gia_ObjUpdateTravIdCurrentId.exit.i649, %929
+Gia_ManSifDupNode.exit653:                        ; preds = %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i649, %929
   %960 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val.i638, i64 %932
   tail call void @Gia_ManSifDupNode_rec(ptr noundef nonnull %713, ptr noundef nonnull %0, ptr noundef %960)
   %961 = getelementptr inbounds i8, ptr %960, i64 8
@@ -3400,9 +3400,9 @@ Gia_ManSifDupNode.exit653:                        ; preds = %Gia_ObjUpdateTravId
   %.val22.i667 = load ptr, ptr %971, align 8
   br label %1013
 
-1013:                                             ; preds = %Gia_ObjUpdateTravIdCurrentId.exit.i672, %.lr.ph.i665
-  %indvars.iv.i666 = phi i64 [ 0, %.lr.ph.i665 ], [ %indvars.iv.next.i673, %Gia_ObjUpdateTravIdCurrentId.exit.i672 ]
-  %1014 = phi ptr [ %1010, %.lr.ph.i665 ], [ %1029, %Gia_ObjUpdateTravIdCurrentId.exit.i672 ]
+1013:                                             ; preds = %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i672, %.lr.ph.i665
+  %indvars.iv.i666 = phi i64 [ 0, %.lr.ph.i665 ], [ %indvars.iv.next.i673, %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i672 ]
+  %1014 = phi ptr [ %1010, %.lr.ph.i665 ], [ %1029, %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i672 ]
   %1015 = getelementptr inbounds i8, ptr %1014, i64 4
   %1016 = getelementptr inbounds i32, ptr %1015, i64 %indvars.iv.i666
   %1017 = load i32, ptr %1016, align 4
@@ -3417,13 +3417,13 @@ Gia_ManSifDupNode.exit653:                        ; preds = %Gia_ObjUpdateTravId
   %1022 = getelementptr inbounds i32, ptr %.val26.i670, i64 %1018
   %1023 = load i32, ptr %1022, align 4
   %.not.i.i671 = icmp eq i32 %1023, %.val25.i669
-  br i1 %.not.i.i671, label %Gia_ObjUpdateTravIdCurrentId.exit.i672, label %1024
+  br i1 %.not.i.i671, label %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i672, label %1024
 
 1024:                                             ; preds = %1013
   store i32 %.val25.i669, ptr %1022, align 4
-  br label %Gia_ObjUpdateTravIdCurrentId.exit.i672
+  br label %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i672
 
-Gia_ObjUpdateTravIdCurrentId.exit.i672:           ; preds = %1024, %1013
+Gia_ObjUpdateTravIdCurrentId.argprom.exit.i672:   ; preds = %1024, %1013
   %indvars.iv.next.i673 = add nuw nsw i64 %indvars.iv.i666, 1
   %.val23.i674 = load ptr, ptr %970, align 8
   %1025 = getelementptr i8, ptr %.val23.i674, i64 8
@@ -3437,7 +3437,7 @@ Gia_ObjUpdateTravIdCurrentId.exit.i672:           ; preds = %1024, %1013
   %1032 = icmp slt i64 %indvars.iv.next.i673, %1031
   br i1 %1032, label %1013, label %Gia_ManSifDupNode.exit676, !llvm.loop !4
 
-Gia_ManSifDupNode.exit676:                        ; preds = %Gia_ObjUpdateTravIdCurrentId.exit.i672, %1002
+Gia_ManSifDupNode.exit676:                        ; preds = %Gia_ObjUpdateTravIdCurrentId.argprom.exit.i672, %1002
   %1033 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val.i661, i64 %1005
   tail call void @Gia_ManSifDupNode_rec(ptr noundef nonnull %713, ptr noundef nonnull %0, ptr noundef %1033)
   %1034 = getelementptr inbounds i8, ptr %1033, i64 8
@@ -3476,7 +3476,7 @@ Gia_ManSifDupNode.exit676:                        ; preds = %Gia_ObjUpdateTravId
   %1050 = lshr i32 %1044, 29
   %.lobit = and i32 %1050, 1
   %1051 = xor i32 %.lobit, %1049
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %713, i32 noundef %1051)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %713, i32 noundef %1051)
   %indvars.iv.next951 = add nuw nsw i64 %indvars.iv950, 1
   %.val529 = load i32, ptr %346, align 8
   %.val530 = load ptr, ptr %527, align 8
@@ -3550,7 +3550,7 @@ Gia_ManSifDupNode.exit676:                        ; preds = %Gia_ObjUpdateTravId
   %1091 = lshr i32 %1085, 29
   %.lobit711 = and i32 %1091, 1
   %1092 = xor i32 %.lobit711, %1090
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %713, i32 noundef %1092)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %713, i32 noundef %1092)
   %indvars.iv.next954 = add nuw nsw i64 %indvars.iv953, 1
   %.val393 = load i32, ptr %1057, align 4
   %1093 = sext i32 %.val393 to i64
@@ -3585,7 +3585,7 @@ Gia_ManSifDupNode.exit676:                        ; preds = %Gia_ObjUpdateTravId
   %1106 = icmp sgt i32 %1105, 0
   %1107 = zext i1 %1106 to i32
   %1108 = xor i32 %1103, %1107
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %713, i32 noundef %1108)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %713, i32 noundef %1108)
   %indvars.iv.next957 = add nuw nsw i64 %indvars.iv956, 1
   %.val392 = load i32, ptr %1061, align 4
   %1109 = sext i32 %.val392 to i64
@@ -3606,7 +3606,7 @@ Gia_ManSifDupNode.exit676:                        ; preds = %Gia_ObjUpdateTravId
   %1118 = icmp sgt i32 %1117, 0
   %1119 = zext i1 %1118 to i32
   %1120 = xor i32 %1115, %1119
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %713, i32 noundef %1120)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %713, i32 noundef %1120)
   %indvars.iv.next960 = add nuw nsw i64 %indvars.iv959, 1
   %.val391 = load i32, ptr %821, align 4
   %1121 = sext i32 %.val391 to i64
@@ -4896,15 +4896,15 @@ Gia_ManSifCutMerge.exit:                          ; preds = %158, %178, %185, %1
   %211 = getelementptr i8, ptr %0, i64 208
   %.val78 = load ptr, ptr %211, align 8
   %.not.i = icmp eq ptr %.val78, null
-  br i1 %.not.i, label %Gia_ManSifCutChoice.exit, label %Gia_ObjSibl.exit
+  br i1 %.not.i, label %Gia_ManSifCutChoice.argprom.exit, label %Gia_ObjSibl.argprom.exit
 
-Gia_ObjSibl.exit:                                 ; preds = %._crit_edge
+Gia_ObjSibl.argprom.exit:                         ; preds = %._crit_edge
   %212 = getelementptr inbounds i32, ptr %.val78, i64 %9
   %213 = load i32, ptr %212, align 4
   %.not68 = icmp eq i32 %213, 0
-  br i1 %.not68, label %Gia_ManSifCutChoice.exit, label %Gia_ObjSibl.exit142
+  br i1 %.not68, label %Gia_ManSifCutChoice.argprom.exit, label %Gia_ObjSibl.argprom.exit142
 
-Gia_ObjSibl.exit142:                              ; preds = %Gia_ObjSibl.exit
+Gia_ObjSibl.argprom.exit142:                      ; preds = %Gia_ObjSibl.argprom.exit
   %.val80 = load ptr, ptr %21, align 8
   %.val81 = load ptr, ptr %30, align 8
   %214 = getelementptr inbounds i32, ptr %.val80, i64 %22
@@ -4915,9 +4915,9 @@ Gia_ObjSibl.exit142:                              ; preds = %Gia_ObjSibl.exit
   %219 = getelementptr inbounds i32, ptr %.val81, i64 %218
   %220 = load i32, ptr %219, align 4
   %221 = icmp slt i32 %.065.lcssa, %220
-  br i1 %221, label %Gia_ManSifCutChoice.exit, label %222
+  br i1 %221, label %Gia_ManSifCutChoice.argprom.exit, label %222
 
-222:                                              ; preds = %Gia_ObjSibl.exit142
+222:                                              ; preds = %Gia_ObjSibl.argprom.exit142
   %223 = icmp eq i32 %.065.lcssa, %220
   %.pre.i = load i32, ptr %217, align 4
   br i1 %223, label %224, label %226
@@ -4925,11 +4925,11 @@ Gia_ObjSibl.exit142:                              ; preds = %Gia_ObjSibl.exit
 224:                                              ; preds = %222
   %225 = load i32, ptr %214, align 4
   %.not.i144 = icmp sgt i32 %225, %.pre.i
-  br i1 %.not.i144, label %226, label %Gia_ManSifCutChoice.exit
+  br i1 %.not.i144, label %226, label %Gia_ManSifCutChoice.argprom.exit
 
 226:                                              ; preds = %224, %222
   %.not263.i = icmp slt i32 %.pre.i, 0
-  br i1 %.not263.i, label %Gia_ManSifCutChoice.exit, label %.lr.ph.i143
+  br i1 %.not263.i, label %Gia_ManSifCutChoice.argprom.exit, label %.lr.ph.i143
 
 .lr.ph.i143:                                      ; preds = %226, %.lr.ph.i143
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i143 ], [ 0, %226 ]
@@ -4941,21 +4941,21 @@ Gia_ObjSibl.exit142:                              ; preds = %Gia_ObjSibl.exit
   %230 = load i32, ptr %217, align 4
   %231 = sext i32 %230 to i64
   %.not26.not.i = icmp slt i64 %indvars.iv.i, %231
-  br i1 %.not26.not.i, label %.lr.ph.i143, label %Gia_ManSifCutChoice.exit, !llvm.loop !62
+  br i1 %.not26.not.i, label %.lr.ph.i143, label %Gia_ManSifCutChoice.argprom.exit, !llvm.loop !62
 
-Gia_ManSifCutChoice.exit:                         ; preds = %.lr.ph.i143, %._crit_edge, %226, %224, %Gia_ObjSibl.exit142, %Gia_ObjSibl.exit
-  %.1 = phi i32 [ %.065.lcssa, %Gia_ObjSibl.exit ], [ %.065.lcssa, %224 ], [ %.065.lcssa, %Gia_ObjSibl.exit142 ], [ %220, %226 ], [ %.065.lcssa, %._crit_edge ], [ %220, %.lr.ph.i143 ]
+Gia_ManSifCutChoice.argprom.exit:                 ; preds = %.lr.ph.i143, %._crit_edge, %226, %224, %Gia_ObjSibl.argprom.exit142, %Gia_ObjSibl.argprom.exit
+  %.1 = phi i32 [ %.065.lcssa, %Gia_ObjSibl.argprom.exit ], [ %.065.lcssa, %224 ], [ %.065.lcssa, %Gia_ObjSibl.argprom.exit142 ], [ %220, %226 ], [ %.065.lcssa, %._crit_edge ], [ %220, %.lr.ph.i143 ]
   %.val82 = load ptr, ptr %30, align 8
   %232 = getelementptr inbounds i32, ptr %.val82, i64 %9
   %233 = load i32, ptr %232, align 4
   %234 = icmp slt i32 %233, %.1
-  br i1 %234, label %235, label %Vec_IntUpdateEntry.exit
+  br i1 %234, label %235, label %Vec_IntUpdateEntry.argprom.exit
 
-235:                                              ; preds = %Gia_ManSifCutChoice.exit
+235:                                              ; preds = %Gia_ManSifCutChoice.argprom.exit
   store i32 %.1, ptr %232, align 4
-  br label %Vec_IntUpdateEntry.exit
+  br label %Vec_IntUpdateEntry.argprom.exit
 
-Vec_IntUpdateEntry.exit:                          ; preds = %Gia_ManSifCutChoice.exit, %235
+Vec_IntUpdateEntry.argprom.exit:                  ; preds = %Gia_ManSifCutChoice.argprom.exit, %235
   %236 = icmp sgt i32 %.1, %32
   %237 = zext i1 %236 to i32
   ret i32 %237

@@ -1895,27 +1895,27 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val = load ptr, ptr %0, align 8
   %cmp.not.i.i = icmp eq ptr %callback_.val, null
-  br i1 %cmp.not.i.i, label %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val) #12
-  br label %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.exit"
+  br label %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.argprom.exit"
 
-"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.exit":  ; preds = %entry, %if.then.i.i
+"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.argprom.exit": ; preds = %entry, %if.then.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %1, null
   br i1 %cmp.not.i.i1, label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit, label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.exit"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.argprom.exit"
   %vtable.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #12
   br label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit
 
-_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
+_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.argprom.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
   store ptr null, ptr %next_.i, align 8
   ret void
 }
@@ -1926,27 +1926,27 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val.i = load ptr, ptr %0, align 8
   %cmp.not.i.i.i = icmp eq ptr %callback_.val.i, null
-  br i1 %cmp.not.i.i.i, label %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.exit.i", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.argprom.exit.i", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val.i) #12
-  br label %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.exit.i"
+  br label %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.argprom.exit.i"
 
-"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.exit.i": ; preds = %if.then.i.i.i, %entry
+"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.argprom.exit.i": ; preds = %if.then.i.i.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i1.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i1.i, label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10StreamPipe6UnpipeEbE3$_0ED2Ev.exit", label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.exit.i"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.argprom.exit.i"
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #12
   br label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10StreamPipe6UnpipeEbE3$_0ED2Ev.exit"
 
-"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10StreamPipe6UnpipeEbE3$_0ED2Ev.exit": ; preds = %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
+"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10StreamPipe6UnpipeEbE3$_0ED2Ev.exit": ; preds = %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.argprom.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
@@ -2004,7 +2004,7 @@ _ZNK4node10BaseObject6objectEv.exit.i:            ; preds = %_ZN4node17Persisten
   %13 = load ptr, ptr %onunpipe_string_.i.i.i, align 8
   %call33.i = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i, ptr %call2.i26.i, ptr %13) #12
   %cmp.i.i = icmp eq ptr %call33.i, null
-  br i1 %cmp.i.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.exit", label %if.end.i
+  br i1 %cmp.i.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.argprom.exit", label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNK4node10BaseObject6objectEv.exit.i
   %call40.i = call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %call33.i) #12
@@ -2013,7 +2013,7 @@ if.end.i:                                         ; preds = %_ZNK4node10BaseObje
 land.rhs.i:                                       ; preds = %if.end.i
   %call50.i = call ptr @_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_INS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(56) %callback_.val, ptr nonnull %call33.i, i32 noundef 0, ptr noundef null) #12
   %cmp.i403.i = icmp eq ptr %call50.i, null
-  br i1 %cmp.i403.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.exit", label %if.end57.i
+  br i1 %cmp.i403.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.argprom.exit", label %if.end57.i
 
 if.end57.i:                                       ; preds = %land.rhs.i, %if.end.i
   %14 = load ptr, ptr %isolate_.i.i, align 8
@@ -2030,7 +2030,7 @@ if.end57.i:                                       ; preds = %land.rhs.i, %if.end
   %20 = load ptr, ptr %source_string_.i.i.i, align 8
   %call89.i = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i, ptr %call2.i31.i, ptr %20) #12
   %cmp.i397.not.i = icmp eq ptr %call89.i, null
-  br i1 %cmp.i397.not.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.exit", label %lor.lhs.false.i
+  br i1 %cmp.i397.not.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.argprom.exit", label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end57.i
   %21 = load ptr, ptr %principal_realm_.i.i.i, align 8
@@ -2043,15 +2043,15 @@ lor.lhs.false.i:                                  ; preds = %if.end57.i
   %24 = load ptr, ptr %sink_string_.i.i.i, align 8
   %call117.i = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i, ptr %call2.i36.i, ptr %24) #12
   %cmp.i400.not.i = icmp eq ptr %call117.i, null
-  br i1 %cmp.i400.not.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.exit", label %lor.lhs.false123.i
+  br i1 %cmp.i400.not.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.argprom.exit", label %lor.lhs.false123.i
 
 lor.lhs.false123.i:                               ; preds = %lor.lhs.false.i
   %call125.i = call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %call89.i) #12
-  br i1 %call125.i, label %lor.rhs.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.exit"
+  br i1 %call125.i, label %lor.rhs.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.argprom.exit"
 
 lor.rhs.i:                                        ; preds = %lor.lhs.false123.i
   %call127.i = call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %call117.i) #12
-  br i1 %call127.i, label %if.end130.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.exit"
+  br i1 %call127.i, label %if.end130.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.argprom.exit"
 
 if.end130.i:                                      ; preds = %lor.rhs.i
   %25 = load ptr, ptr %principal_realm_.i.i.i, align 8
@@ -2064,7 +2064,7 @@ if.end130.i:                                      ; preds = %lor.rhs.i
   %28 = load ptr, ptr %source_string_.i.i43.i, align 8
   %call157.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i, ptr %call2.i41.i, ptr %28, ptr %16) #12
   %tobool.i318.i = trunc i16 %call157.i to i1
-  br i1 %tobool.i318.i, label %lor.lhs.false159.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.exit"
+  br i1 %tobool.i318.i, label %lor.lhs.false159.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.argprom.exit"
 
 lor.lhs.false159.i:                               ; preds = %if.end130.i
   %29 = load ptr, ptr %principal_realm_.i.i.i, align 8
@@ -2077,7 +2077,7 @@ lor.lhs.false159.i:                               ; preds = %if.end130.i
   %32 = load ptr, ptr %sink_string_.i.i49.i, align 8
   %call186.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i, ptr %call2.i47.i, ptr %32, ptr %16) #12
   %tobool.i314.i = trunc i16 %call186.i to i1
-  br i1 %tobool.i314.i, label %lor.lhs.false188.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.exit"
+  br i1 %tobool.i314.i, label %lor.lhs.false188.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.argprom.exit"
 
 lor.lhs.false188.i:                               ; preds = %lor.lhs.false159.i
   %33 = load ptr, ptr %principal_realm_.i.i.i, align 8
@@ -2090,7 +2090,7 @@ lor.lhs.false188.i:                               ; preds = %lor.lhs.false159.i
   %36 = load ptr, ptr %pipe_target_string_.i.i.i, align 8
   %call220.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call89.i, ptr %call2.i53.i, ptr %36, ptr %16) #12
   %tobool.i310.i = trunc i16 %call220.i to i1
-  br i1 %tobool.i310.i, label %lor.rhs222.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.exit"
+  br i1 %tobool.i310.i, label %lor.rhs222.i, label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.argprom.exit"
 
 lor.rhs222.i:                                     ; preds = %lor.lhs.false188.i
   %37 = load ptr, ptr %principal_realm_.i.i.i, align 8
@@ -2102,9 +2102,9 @@ lor.rhs222.i:                                     ; preds = %lor.lhs.false188.i
   %pipe_source_string_.i.i.i = getelementptr inbounds i8, ptr %39, i64 1840
   %40 = load ptr, ptr %pipe_source_string_.i.i.i, align 8
   %call254.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call117.i, ptr %call2.i58.i, ptr %40, ptr %16) #12
-  br label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.exit"
+  br label %"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.argprom.exit"
 
-"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.exit": ; preds = %_ZNK4node10BaseObject6objectEv.exit.i, %land.rhs.i, %if.end57.i, %lor.lhs.false.i, %lor.lhs.false123.i, %lor.rhs.i, %if.end130.i, %lor.lhs.false159.i, %lor.lhs.false188.i, %lor.rhs222.i
+"_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.argprom.exit": ; preds = %_ZNK4node10BaseObject6objectEv.exit.i, %land.rhs.i, %if.end57.i, %lor.lhs.false.i, %lor.lhs.false123.i, %lor.rhs.i, %if.end130.i, %lor.lhs.false159.i, %lor.lhs.false188.i, %lor.rhs222.i
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i.i) #12
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
@@ -2186,7 +2186,7 @@ attributes #15 = { builtin nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6, !8}
-!6 = distinct !{!6, !7, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_10StreamPipe6UnpipeEbE3$_0EEJS7_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!7 = distinct !{!7, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_10StreamPipe6UnpipeEbE3$_0EEJS7_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!8 = distinct !{!8, !9, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_10StreamPipe6UnpipeEbE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS8_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
-!9 = distinct !{!9, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_10StreamPipe6UnpipeEbE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS8_EEOT_NS_13CallbackFlags5FlagsE"}
+!6 = distinct !{!6, !7, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_10StreamPipe6UnpipeEbE3$_0EEJS7_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!7 = distinct !{!7, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_10StreamPipe6UnpipeEbE3$_0EEJS7_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!8 = distinct !{!8, !9, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_10StreamPipe6UnpipeEbE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS8_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
+!9 = distinct !{!9, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_10StreamPipe6UnpipeEbE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS8_EEOT_NS_13CallbackFlags5FlagsE.argprom"}

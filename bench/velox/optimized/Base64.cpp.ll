@@ -555,7 +555,7 @@ call.i.i.noexc:                                   ; preds = %invoke.cont
 if.end.i4:                                        ; preds = %call.i.i.noexc
   %data.val33.i = load ptr, ptr %data, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %data.val33.i, null
-  br i1 %tobool.not.i.i.i.i.i, label %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i, label %if.then.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i4
   %data_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %data.val33.i, i64 16
@@ -563,20 +563,20 @@ if.then.i.i.i.i.i:                                ; preds = %if.end.i4
   %length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %data.val33.i, i64 32
   %1 = load i64, ptr %length_.i.i.i.i.i.i, align 8, !noalias !9
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %1
-  br label %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i
+  br label %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom.exit.i
 
-_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i: ; preds = %if.then.i.i.i.i.i, %if.end.i4
+_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom.exit.i: ; preds = %if.then.i.i.i.i.i, %if.end.i4
   %it.sroa.54.1.i = phi ptr [ null, %if.end.i4 ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %it.sroa.100.1.i = phi ptr [ null, %if.end.i4 ], [ %0, %if.then.i.i.i.i.i ]
   %cmp1739.i = icmp ugt i64 %call.i.i6, 2
   br i1 %cmp1739.i, label %for.body.i, label %if.then29.i
 
-for.body.i:                                       ; preds = %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i
-  %len.0747.i = phi i64 [ %sub.i5, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %call.i.i6, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %wp.0746.i = phi ptr [ %incdec.ptr27.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %call3, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.0.0745.i = phi ptr [ %it.sroa.0.3.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %data.val33.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.100.0741.i = phi ptr [ %it.sroa.100.4.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %it.sroa.100.1.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.54.0740.i = phi ptr [ %it.sroa.54.4.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %it.sroa.54.1.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
+for.body.i:                                       ; preds = %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom.exit.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i
+  %len.0747.i = phi i64 [ %sub.i5, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %call.i.i6, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom.exit.i ]
+  %wp.0746.i = phi ptr [ %incdec.ptr27.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %call3, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom.exit.i ]
+  %it.sroa.0.0745.i = phi ptr [ %it.sroa.0.3.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %data.val33.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom.exit.i ]
+  %it.sroa.100.0741.i = phi ptr [ %it.sroa.100.4.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %it.sroa.100.1.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom.exit.i ]
+  %it.sroa.54.0740.i = phi ptr [ %it.sroa.54.4.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i ], [ %it.sroa.54.1.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom.exit.i ]
   %2 = ptrtoint ptr %it.sroa.100.0741.i to i64
   %add.i.i.i = add i64 %2, 1
   %3 = ptrtoint ptr %it.sroa.54.0740.i to i64
@@ -953,12 +953,12 @@ for.end.i:                                        ; preds = %_ZN8facebook5velox8
   %cmp28.not.i = icmp eq i64 %sub.i5, 0
   br i1 %cmp28.not.i, label %nrvo.skipdtor, label %if.then29.i
 
-if.then29.i:                                      ; preds = %for.end.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i
-  %len.0.lcssa796.i = phi i64 [ %sub.i5, %for.end.i ], [ %call.i.i6, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %wp.0.lcssa795.i = phi ptr [ %incdec.ptr27.i, %for.end.i ], [ %call3, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.0.0.lcssa794.i = phi ptr [ %it.sroa.0.3.i, %for.end.i ], [ %data.val33.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.100.0.lcssa793.i = phi ptr [ %it.sroa.100.4.i, %for.end.i ], [ %it.sroa.100.1.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
-  %it.sroa.54.0.lcssa792.i = phi ptr [ %it.sroa.54.4.i, %for.end.i ], [ %it.sroa.54.1.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i ]
+if.then29.i:                                      ; preds = %for.end.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom.exit.i
+  %len.0.lcssa796.i = phi i64 [ %sub.i5, %for.end.i ], [ %call.i.i6, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom.exit.i ]
+  %wp.0.lcssa795.i = phi ptr [ %incdec.ptr27.i, %for.end.i ], [ %call3, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom.exit.i ]
+  %it.sroa.0.0.lcssa794.i = phi ptr [ %it.sroa.0.3.i, %for.end.i ], [ %data.val33.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom.exit.i ]
+  %it.sroa.100.0.lcssa793.i = phi ptr [ %it.sroa.100.4.i, %for.end.i ], [ %it.sroa.100.1.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom.exit.i ]
+  %it.sroa.54.0.lcssa792.i = phi ptr [ %it.sroa.54.4.i, %for.end.i ], [ %it.sroa.54.1.i, %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom.exit.i ]
   %38 = ptrtoint ptr %it.sroa.100.0.lcssa793.i to i64
   %add.i.i68.i = add i64 %38, 1
   %39 = ptrtoint ptr %it.sroa.54.0.lcssa792.i to i64
@@ -1995,8 +1995,8 @@ attributes #13 = { builtin nounwind }
 !7 = distinct !{!7, !8, !"_ZN8facebook5velox8encoding6Base646encodeB5cxx11EN5folly5RangeIPKcEE: %agg.result"}
 !8 = distinct !{!8, !"_ZN8facebook5velox8encoding6Base646encodeB5cxx11EN5folly5RangeIPKcEE"}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv: %agg.result"}
-!11 = distinct !{!11, !"_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv"}
+!10 = distinct !{!10, !11, !"_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom: %agg.result"}
+!11 = distinct !{!11, !"_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.argprom"}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}

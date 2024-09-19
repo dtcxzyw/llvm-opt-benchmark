@@ -382,7 +382,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  invoke fastcc void @_ZN14arrow_vendored4dateL11create_tzdbEv()
+  invoke fastcc void @_ZN14arrow_vendored4dateL11create_tzdbEv.argprom()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -404,7 +404,7 @@ lpad:                                             ; preds = %init
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN14arrow_vendored4dateL11create_tzdbEv() unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN14arrow_vendored4dateL11create_tzdbEv.argprom() unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i156.i = alloca %struct._Guard, align 8
   %__guard.i.i = alloca %struct._Guard, align 8
@@ -502,7 +502,7 @@ init.check.i.i:                                   ; preds = %invoke.cont2.i
   br i1 %tobool.not.i.i, label %invoke.cont4.i, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev()
+  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev.argprom()
           to label %invoke.cont.i.i unwind label %lpad.i.i, !noalias !7
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
@@ -764,7 +764,7 @@ init.check.i45.i:                                 ; preds = %if.else.i
   br i1 %tobool.not.i46.i, label %invoke.cont97.i, label %init.i47.i
 
 init.i47.i:                                       ; preds = %init.check.i45.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev()
+  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev.argprom()
           to label %invoke.cont.i49.i unwind label %lpad.i48.i, !noalias !7
 
 invoke.cont.i49.i:                                ; preds = %init.i47.i
@@ -945,7 +945,7 @@ init.check.i.i.i:                                 ; preds = %invoke.cont124.i
   br i1 %tobool.not.i.i.i, label %_ZN14arrow_vendored4dateL10get_tz_dirB5cxx11Ev.exit.i.i, label %init.i.i.i
 
 init.i.i.i:                                       ; preds = %init.check.i.i.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev()
+  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev.argprom()
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i, !noalias !16
 
 invoke.cont.i.i.i:                                ; preds = %init.i.i.i
@@ -1468,7 +1468,7 @@ init.check.i44.i.i:                               ; preds = %invoke.cont84.i.i
   br i1 %tobool.not.i45.i.i, label %invoke.cont87.i.i, label %init.i46.i.i
 
 init.i46.i.i:                                     ; preds = %init.check.i44.i.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev()
+  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev.argprom()
           to label %invoke.cont.i48.i.i unwind label %lpad.i47.i.i, !noalias !16
 
 invoke.cont.i48.i.i:                              ; preds = %init.i46.i.i
@@ -1781,7 +1781,7 @@ init.check.i112.i.i:                              ; preds = %invoke.cont173.i.i
   br i1 %tobool.not.i113.i.i, label %invoke.cont176.i.i, label %init.i114.i.i
 
 init.i114.i.i:                                    ; preds = %init.check.i112.i.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev()
+  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev.argprom()
           to label %invoke.cont.i116.i.i unwind label %lpad.i115.i.i, !noalias !16
 
 invoke.cont.i116.i.i:                             ; preds = %init.i114.i.i
@@ -1898,7 +1898,7 @@ init.check.i134.i.i:                              ; preds = %invoke.cont205.i.i
   br i1 %tobool.not.i135.i.i, label %invoke.cont208.i.i, label %init.i136.i.i
 
 init.i136.i.i:                                    ; preds = %init.check.i134.i.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev()
+  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev.argprom()
           to label %invoke.cont.i138.i.i unwind label %lpad.i137.i.i, !noalias !16
 
 invoke.cont.i138.i.i:                             ; preds = %init.i136.i.i
@@ -2262,7 +2262,7 @@ init.check.i.i115.i:                              ; preds = %_ZNSt6vectorIN14arr
   br i1 %tobool.not.i.i116.i, label %_ZN14arrow_vendored4dateL10get_tz_dirB5cxx11Ev.exit.i90.i, label %init.i.i117.i
 
 init.i.i117.i:                                    ; preds = %init.check.i.i115.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev()
+  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev.argprom()
           to label %invoke.cont.i.i119.i unwind label %lpad.i.i118.i, !noalias !40
 
 invoke.cont.i.i119.i:                             ; preds = %init.i.i117.i
@@ -2392,7 +2392,7 @@ init.check.i15.i.i:                               ; preds = %invoke.cont15.i.i
   br i1 %tobool.not.i16.i.i, label %invoke.cont18.i.i, label %init.i17.i.i
 
 init.i17.i.i:                                     ; preds = %init.check.i15.i.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev()
+  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev.argprom()
           to label %invoke.cont.i19.i.i unwind label %lpad.i18.i.i, !noalias !40
 
 invoke.cont.i19.i.i:                              ; preds = %init.i17.i.i
@@ -2751,7 +2751,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN14arrow_vendored4dateL10get_tz_dirB5cxx11Ev.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev()
+  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev.argprom()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -3012,7 +3012,7 @@ init.check.i44:                                   ; preds = %if.then36
   br i1 %tobool.not.i45, label %invoke.cont37, label %init.i46
 
 init.i46:                                         ; preds = %init.check.i44
-  invoke fastcc void @_ZN14arrow_vendored4dateL11create_tzdbEv()
+  invoke fastcc void @_ZN14arrow_vendored4dateL11create_tzdbEv.argprom()
           to label %invoke.cont.i48 unwind label %lpad.i47
 
 invoke.cont.i48:                                  ; preds = %init.i46
@@ -3504,7 +3504,7 @@ init.check.i:                                     ; preds = %invoke.cont3
   br i1 %tobool.not.i, label %invoke.cont5, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL11create_tzdbEv()
+  invoke fastcc void @_ZN14arrow_vendored4dateL11create_tzdbEv.argprom()
           to label %invoke.cont.i24 unwind label %lpad.i23
 
 invoke.cont.i24:                                  ; preds = %init.i
@@ -4127,7 +4127,7 @@ init.check.i:                                     ; preds = %invoke.cont3
   br i1 %tobool.not.i, label %invoke.cont5, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL11create_tzdbEv()
+  invoke fastcc void @_ZN14arrow_vendored4dateL11create_tzdbEv.argprom()
           to label %invoke.cont.i24 unwind label %lpad.i23
 
 invoke.cont.i24:                                  ; preds = %init.i
@@ -4706,7 +4706,7 @@ _ZNK14arrow_vendored4date9time_zone4initEv.exit:  ; preds = %invoke.cont.i.i
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
   %cmp2.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i, 0
-  br i1 %cmp2.i.i, label %while.body.i.i, label %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date6detail10transitionESt6vectorIS5_SaIS5_EEEENSt6chrono10time_pointINSC_3_V212system_clockENSC_8durationIlSt5ratioILl1ELl1EEEEEEZNKS3_9time_zone13get_info_implESK_E3$_0ET_SN_SN_RKT0_T1_.exit"
+  br i1 %cmp2.i.i, label %while.body.i.i, label %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date6detail10transitionESt6vectorIS5_SaIS5_EEEENSt6chrono10time_pointINSC_3_V212system_clockENSC_8durationIlSt5ratioILl1ELl1EEEEEEZNKS3_9time_zone13get_info_implESK_E3$_0ET_SN_SN_RKT0_T1_.argprom.exit"
 
 while.body.i.i:                                   ; preds = %_ZNK14arrow_vendored4date9time_zone4initEv.exit, %while.body.i.i
   %__len.04.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i.i, %_ZNK14arrow_vendored4date9time_zone4initEv.exit ]
@@ -4721,9 +4721,9 @@ while.body.i.i:                                   ; preds = %_ZNK14arrow_vendore
   %__first.sroa.0.1.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__first.sroa.0.03.i.i, ptr %incdec.ptr.i.i.i
   %__len.1.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %shr.i.i, i64 %sub9.i.i
   %cmp.i.i = icmp sgt i64 %__len.1.i.i, 0
-  br i1 %cmp.i.i, label %while.body.i.i, label %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date6detail10transitionESt6vectorIS5_SaIS5_EEEENSt6chrono10time_pointINSC_3_V212system_clockENSC_8durationIlSt5ratioILl1ELl1EEEEEEZNKS3_9time_zone13get_info_implESK_E3$_0ET_SN_SN_RKT0_T1_.exit", !llvm.loop !70
+  br i1 %cmp.i.i, label %while.body.i.i, label %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date6detail10transitionESt6vectorIS5_SaIS5_EEEENSt6chrono10time_pointINSC_3_V212system_clockENSC_8durationIlSt5ratioILl1ELl1EEEEEEZNKS3_9time_zone13get_info_implESK_E3$_0ET_SN_SN_RKT0_T1_.argprom.exit", !llvm.loop !70
 
-"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date6detail10transitionESt6vectorIS5_SaIS5_EEEENSt6chrono10time_pointINSC_3_V212system_clockENSC_8durationIlSt5ratioILl1ELl1EEEEEEZNKS3_9time_zone13get_info_implESK_E3$_0ET_SN_SN_RKT0_T1_.exit": ; preds = %while.body.i.i, %_ZNK14arrow_vendored4date9time_zone4initEv.exit
+"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date6detail10transitionESt6vectorIS5_SaIS5_EEEENSt6chrono10time_pointINSC_3_V212system_clockENSC_8durationIlSt5ratioILl1ELl1EEEEEEZNKS3_9time_zone13get_info_implESK_E3$_0ET_SN_SN_RKT0_T1_.argprom.exit": ; preds = %while.body.i.i, %_ZNK14arrow_vendored4date9time_zone4initEv.exit
   %__first.sroa.0.0.lcssa.i.i = phi ptr [ %4, %_ZNK14arrow_vendored4date9time_zone4initEv.exit ], [ %__first.sroa.0.1.i.i, %while.body.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !71)
   %abbrev.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
@@ -4733,7 +4733,7 @@ while.body.i.i:                                   ; preds = %_ZNK14arrow_vendore
   %cmp.i.not.i = icmp eq ptr %__first.sroa.0.0.lcssa.i.i, %7
   br i1 %cmp.i.not.i, label %invoke.cont49.i, label %if.then.i
 
-if.then.i:                                        ; preds = %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date6detail10transitionESt6vectorIS5_SaIS5_EEEENSt6chrono10time_pointINSC_3_V212system_clockENSC_8durationIlSt5ratioILl1ELl1EEEEEEZNKS3_9time_zone13get_info_implESK_E3$_0ET_SN_SN_RKT0_T1_.exit"
+if.then.i:                                        ; preds = %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date6detail10transitionESt6vectorIS5_SaIS5_EEEENSt6chrono10time_pointINSC_3_V212system_clockENSC_8durationIlSt5ratioILl1ELl1EEEEEEZNKS3_9time_zone13get_info_implESK_E3$_0ET_SN_SN_RKT0_T1_.argprom.exit"
   %arrayidx.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i, i64 -16
   %8 = load i64, ptr %arrayidx.i.i, align 8, !noalias !71
   store i64 %8, ptr %agg.result, align 8, !alias.scope !71
@@ -4747,7 +4747,7 @@ lpad.i:                                           ; preds = %cond.end74.invoke.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %abbrev.i.i) #26
   br label %common.resume
 
-invoke.cont49.i:                                  ; preds = %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date6detail10transitionESt6vectorIS5_SaIS5_EEEENSt6chrono10time_pointINSC_3_V212system_clockENSC_8durationIlSt5ratioILl1ELl1EEEEEEZNKS3_9time_zone13get_info_implESK_E3$_0ET_SN_SN_RKT0_T1_.exit"
+invoke.cont49.i:                                  ; preds = %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date6detail10transitionESt6vectorIS5_SaIS5_EEEENSt6chrono10time_pointINSC_3_V212system_clockENSC_8durationIlSt5ratioILl1ELl1EEEEEEZNKS3_9time_zone13get_info_implESK_E3$_0ET_SN_SN_RKT0_T1_.argprom.exit"
   store i64 -1096193779200, ptr %agg.result, align 8, !alias.scope !71
   %add.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i, i64 16
   %11 = load ptr, ptr %_M_finish.i, align 8, !noalias !71
@@ -5511,7 +5511,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN14arrow_vendored4date13get_tzdb_listEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL11create_tzdbEv()
+  invoke fastcc void @_ZN14arrow_vendored4dateL11create_tzdbEv.argprom()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -5555,9 +5555,9 @@ while.body.lr.ph.i.i:                             ; preds = %entry
   %sub.ptr.div.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i, 88
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS3_9time_zoneESt6vectorISD_SaISD_EEEEKS8_EEbT_RT0_.exit.i.i", %while.body.lr.ph.i.i
-  %__len.08.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS3_9time_zoneESt6vectorISD_SaISD_EEEEKS8_EEbT_RT0_.exit.i.i" ]
-  %__first.sroa.0.07.i.i = phi ptr [ %1, %while.body.lr.ph.i.i ], [ %__first.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS3_9time_zoneESt6vectorISD_SaISD_EEEEKS8_EEbT_RT0_.exit.i.i" ]
+while.body.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS3_9time_zoneESt6vectorISD_SaISD_EEEEKS8_EEbT_RT0_.argprom.exit.i.i", %while.body.lr.ph.i.i
+  %__len.08.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS3_9time_zoneESt6vectorISD_SaISD_EEEEKS8_EEbT_RT0_.argprom.exit.i.i" ]
+  %__first.sroa.0.07.i.i = phi ptr [ %1, %while.body.lr.ph.i.i ], [ %__first.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS3_9time_zoneESt6vectorISD_SaISD_EEEEKS8_EEbT_RT0_.argprom.exit.i.i" ]
   %shr.i.i = lshr i64 %__len.08.i.i, 1
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.arrow_vendored::date::time_zone", ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
   %call2.i.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i) #26
@@ -5570,16 +5570,16 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %while.body.i.
   %4 = extractvalue { i64, ptr } %call2.i.i.i.i, 1
   %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %4, ptr noundef %tz_name.coerce1, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #26
   %cmp.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS3_9time_zoneESt6vectorISD_SaISD_EEEEKS8_EEbT_RT0_.exit.i.i"
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS3_9time_zoneESt6vectorISD_SaISD_EEEEKS8_EEbT_RT0_.argprom.exit.i.i"
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %while.body.i.i
   %sub.i.i.i.i.i.i.i = sub i64 %3, %tz_name.coerce0
   %spec.select3.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.i.i, i64 2147483647)
   %retval.0.i3.i.i.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i.i.i to i32
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS3_9time_zoneESt6vectorISD_SaISD_EEEEKS8_EEbT_RT0_.exit.i.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS3_9time_zoneESt6vectorISD_SaISD_EEEEKS8_EEbT_RT0_.argprom.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS3_9time_zoneESt6vectorISD_SaISD_EEEEKS8_EEbT_RT0_.exit.i.i": ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS3_9time_zoneESt6vectorISD_SaISD_EEEEKS8_EEbT_RT0_.argprom.exit.i.i": ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
   %__ret.0.i.i.i.i.i.i = phi i32 [ %retval.0.i3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp slt i32 %__ret.0.i.i.i.i.i.i, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 88
@@ -5590,7 +5590,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %cmp.i.i = icmp sgt i64 %__len.1.i.i, 0
   br i1 %cmp.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date9time_zoneESt6vectorIS4_SaIS4_EEEESt17basic_string_viewIcSt11char_traitsIcEEZNKS3_4tzdb11locate_zoneESE_E3$_0ET_SH_SH_RKT0_T1_.exit.loopexit", !llvm.loop !94
 
-"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date9time_zoneESt6vectorIS4_SaIS4_EEEESt17basic_string_viewIcSt11char_traitsIcEEZNKS3_4tzdb11locate_zoneESE_E3$_0ET_SH_SH_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS3_9time_zoneESt6vectorISD_SaISD_EEEEKS8_EEbT_RT0_.exit.i.i"
+"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date9time_zoneESt6vectorIS4_SaIS4_EEEESt17basic_string_viewIcSt11char_traitsIcEEZNKS3_4tzdb11locate_zoneESE_E3$_0ET_SH_SH_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS3_9time_zoneESt6vectorISD_SaISD_EEEEKS8_EEbT_RT0_.argprom.exit.i.i"
   %.pre = load ptr, ptr %_M_finish.i, align 8
   br label %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date9time_zoneESt6vectorIS4_SaIS4_EEEESt17basic_string_viewIcSt11char_traitsIcEEZNKS3_4tzdb11locate_zoneESE_E3$_0ET_SH_SH_RKT0_T1_.exit"
 
@@ -5716,7 +5716,7 @@ init.check.i.i:                                   ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN14arrow_vendored4date8get_tzdbEv.exit, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL11create_tzdbEv()
+  invoke fastcc void @_ZN14arrow_vendored4dateL11create_tzdbEv.argprom()
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
@@ -5822,7 +5822,7 @@ init.check:                                       ; preds = %if.then
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  %call5 = invoke fastcc noundef zeroext i1 @_ZN14arrow_vendored4dateL14sniff_realpathEPKc()
+  %call5 = invoke fastcc noundef zeroext i1 @_ZN14arrow_vendored4dateL14sniff_realpathEPKc.argprom()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -5954,7 +5954,7 @@ init.check.i:                                     ; preds = %invoke.cont50
   br i1 %tobool.not.i, label %invoke.cont60, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev()
+  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev.argprom()
           to label %invoke.cont.i unwind label %lpad.i20
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -6017,7 +6017,7 @@ init.check.i24:                                   ; preds = %if.then64
   br i1 %tobool.not.i25, label %invoke.cont65, label %init.i26
 
 init.i26:                                         ; preds = %init.check.i24
-  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev()
+  invoke fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev.argprom()
           to label %invoke.cont.i28 unwind label %lpad.i27
 
 invoke.cont.i28:                                  ; preds = %init.i26
@@ -6249,7 +6249,7 @@ unreachable:                                      ; preds = %invoke.cont57
 declare noundef i32 @lstat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN14arrow_vendored4dateL14sniff_realpathEPKc() unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN14arrow_vendored4dateL14sniff_realpathEPKc.argprom() unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %rp = alloca [4097 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4097) %rp, i8 0, i64 4097, i1 false)
@@ -6467,7 +6467,7 @@ init.check.i.i:                                   ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN14arrow_vendored4date8get_tzdbEv.exit, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL11create_tzdbEv()
+  invoke fastcc void @_ZN14arrow_vendored4dateL11create_tzdbEv.argprom()
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
@@ -9278,7 +9278,7 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev() unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN14arrow_vendored4dateL15discover_tz_dirB5cxx11Ev.argprom() unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %sb = alloca %struct.stat, align 8
   %ref.tmp = alloca %"class.std::allocator", align 1

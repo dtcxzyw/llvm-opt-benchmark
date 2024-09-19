@@ -3174,14 +3174,14 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE26VertexBorderFromFaceBorderERS2_.exit204: ; pr
   %419 = getelementptr inbounds i8, ptr %29, i64 16
   br label %420
 
-420:                                              ; preds = %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit.i", %.lr.ph33.i
-  %421 = phi ptr [ null, %.lr.ph33.i ], [ %452, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit.i" ]
-  %.sroa.022.032.i = phi ptr [ %409, %.lr.ph33.i ], [ %453, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit.i" ]
+420:                                              ; preds = %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit.i", %.lr.ph33.i
+  %421 = phi ptr [ null, %.lr.ph33.i ], [ %452, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit.i" ]
+  %.sroa.022.032.i = phi ptr [ %409, %.lr.ph33.i ], [ %453, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit.i" ]
   %422 = getelementptr inbounds i8, ptr %.sroa.022.032.i, i64 20
   %423 = load i32, ptr %422, align 4
   %424 = and i32 %423, 32
   %.not.i.i = icmp eq i32 %424, 0
-  br i1 %.not.i.i, label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit.i", label %425
+  br i1 %.not.i.i, label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit.i", label %425
 
 425:                                              ; preds = %420
   %426 = load ptr, ptr %419, align 8
@@ -3193,7 +3193,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE26VertexBorderFromFaceBorderERS2_.exit204: ; pr
   %428 = load ptr, ptr %418, align 8
   %429 = getelementptr inbounds i8, ptr %428, i64 8
   store ptr %429, ptr %418, align 8
-  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit.i"
+  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit.i"
 
 430:                                              ; preds = %425
   %431 = load ptr, ptr %29, align 8
@@ -3251,23 +3251,23 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal
   store ptr %449, ptr %418, align 8
   %451 = getelementptr inbounds ptr, ptr %444, i64 %440
   store ptr %451, ptr %419, align 8
-  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit.i"
+  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit.i"
 
-"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit.i": ; preds = %_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, %427, %420
+"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit.i": ; preds = %_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, %427, %420
   %452 = phi ptr [ %449, %_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i ], [ %429, %427 ], [ %421, %420 ]
   %453 = getelementptr inbounds i8, ptr %.sroa.022.032.i, i64 48
   %454 = load ptr, ptr %362, align 8
   %.not26.i = icmp eq ptr %453, %454
   br i1 %.not26.i, label %"_ZN3vcg3tri13ForEachVertexI6CMeshOZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE3$_0EEvRT_T0_.exit", label %420, !llvm.loop !33
 
-455:                                              ; preds = %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit16.i", %.lr.ph.i205
-  %456 = phi ptr [ null, %.lr.ph.i205 ], [ %487, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit16.i" ]
-  %.sroa.017.030.i = phi ptr [ %409, %.lr.ph.i205 ], [ %488, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit16.i" ]
+455:                                              ; preds = %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit16.i", %.lr.ph.i205
+  %456 = phi ptr [ null, %.lr.ph.i205 ], [ %487, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit16.i" ]
+  %.sroa.017.030.i = phi ptr [ %409, %.lr.ph.i205 ], [ %488, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit16.i" ]
   %457 = getelementptr inbounds i8, ptr %.sroa.017.030.i, i64 20
   %458 = load i32, ptr %457, align 4
   %459 = and i32 %458, 33
   %or.cond.not.i = icmp eq i32 %459, 32
-  br i1 %or.cond.not.i, label %460, label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit16.i"
+  br i1 %or.cond.not.i, label %460, label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit16.i"
 
 460:                                              ; preds = %455
   %461 = load ptr, ptr %417, align 8
@@ -3279,7 +3279,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal
   %463 = load ptr, ptr %416, align 8
   %464 = getelementptr inbounds i8, ptr %463, i64 8
   store ptr %464, ptr %416, align 8
-  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit16.i"
+  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit16.i"
 
 465:                                              ; preds = %460
   %466 = load ptr, ptr %29, align 8
@@ -3330,17 +3330,17 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal
   store ptr %484, ptr %416, align 8
   %486 = getelementptr inbounds ptr, ptr %479, i64 %475
   store ptr %486, ptr %417, align 8
-  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit16.i"
+  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit16.i"
 
-"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit16.i": ; preds = %_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i15.i, %462, %455
+"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit16.i": ; preds = %_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i15.i, %462, %455
   %487 = phi ptr [ %484, %_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i15.i ], [ %464, %462 ], [ %456, %455 ]
   %488 = getelementptr inbounds i8, ptr %.sroa.017.030.i, i64 48
   %489 = load ptr, ptr %362, align 8
   %.not.i206 = icmp eq ptr %488, %489
   br i1 %.not.i206, label %"_ZN3vcg3tri13ForEachVertexI6CMeshOZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE3$_0EEvRT_T0_.exit", label %455, !llvm.loop !34
 
-"_ZN3vcg3tri13ForEachVertexI6CMeshOZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE3$_0EEvRT_T0_.exit": ; preds = %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit16.i", %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit.i", %.preheader.i208, %.preheader27.i
-  %490 = phi ptr [ null, %.preheader.i208 ], [ null, %.preheader27.i ], [ %452, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit.i" ], [ %487, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.exit16.i" ]
+"_ZN3vcg3tri13ForEachVertexI6CMeshOZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE3$_0EEvRT_T0_.exit": ; preds = %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit16.i", %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit.i", %.preheader.i208, %.preheader27.i
+  %490 = phi ptr [ null, %.preheader.i208 ], [ null, %.preheader27.i ], [ %452, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit.i" ], [ %487, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_0clER8CVertexO.argprom.exit16.i" ]
   %491 = load ptr, ptr %29, align 8
   %.not98 = icmp eq ptr %490, %491
   br i1 %.not98, label %585, label %492
@@ -3399,60 +3399,60 @@ _ZN7QStringD2Ev.exit219:                          ; preds = %496, %_ZN9QtPrivate
 .preheader.i225:                                  ; preds = %502
   br i1 %.not2025.i, label %_ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit231, label %.lr.ph27.i
 
-.lr.ph27.i:                                       ; preds = %.preheader.i225, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit.i"
-  %.2 = phi i32 [ %.3, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit.i" ], [ 0, %.preheader.i225 ]
-  %512 = phi ptr [ %518, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit.i" ], [ %504, %.preheader.i225 ]
-  %.sroa.015.026.i = phi ptr [ %519, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit.i" ], [ %505, %.preheader.i225 ]
+.lr.ph27.i:                                       ; preds = %.preheader.i225, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit.i"
+  %.2 = phi i32 [ %.3, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit.i" ], [ 0, %.preheader.i225 ]
+  %512 = phi ptr [ %518, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit.i" ], [ %504, %.preheader.i225 ]
+  %.sroa.015.026.i = phi ptr [ %519, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit.i" ], [ %505, %.preheader.i225 ]
   %513 = getelementptr inbounds i8, ptr %.sroa.015.026.i, i64 36
   %514 = load float, ptr %513, align 4
   %515 = fcmp oeq float %514, 0x47EFFFFFE0000000
-  br i1 %515, label %516, label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit.i"
+  br i1 %515, label %516, label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit.i"
 
 516:                                              ; preds = %.lr.ph27.i
   %517 = add nsw i32 %.2, 1
   store float 0.000000e+00, ptr %513, align 4
   %.pre29.i = load ptr, ptr %362, align 8
-  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit.i"
+  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit.i"
 
-"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit.i": ; preds = %516, %.lr.ph27.i
+"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit.i": ; preds = %516, %.lr.ph27.i
   %.3 = phi i32 [ %517, %516 ], [ %.2, %.lr.ph27.i ]
   %518 = phi ptr [ %.pre29.i, %516 ], [ %512, %.lr.ph27.i ]
   %519 = getelementptr inbounds i8, ptr %.sroa.015.026.i, i64 48
   %.not20.i226 = icmp eq ptr %519, %518
   br i1 %.not20.i226, label %"_ZN3vcg3tri13ForEachVertexI6CMeshOZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE3$_1EEvRT_T0_.exit", label %.lr.ph27.i, !llvm.loop !35
 
-.lr.ph.i220:                                      ; preds = %.preheader21.i, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit9.i"
-  %.0441 = phi i32 [ %.1442, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit9.i" ], [ 0, %.preheader21.i ]
-  %520 = phi ptr [ %530, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit9.i" ], [ %504, %.preheader21.i ]
-  %.sroa.010.024.i = phi ptr [ %531, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit9.i" ], [ %505, %.preheader21.i ]
+.lr.ph.i220:                                      ; preds = %.preheader21.i, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit9.i"
+  %.0441 = phi i32 [ %.1442, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit9.i" ], [ 0, %.preheader21.i ]
+  %520 = phi ptr [ %530, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit9.i" ], [ %504, %.preheader21.i ]
+  %.sroa.010.024.i = phi ptr [ %531, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit9.i" ], [ %505, %.preheader21.i ]
   %521 = getelementptr inbounds i8, ptr %.sroa.010.024.i, i64 20
   %522 = load i32, ptr %521, align 4
   %523 = and i32 %522, 1
   %.not19.i221 = icmp eq i32 %523, 0
-  br i1 %.not19.i221, label %524, label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit9.i"
+  br i1 %.not19.i221, label %524, label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit9.i"
 
 524:                                              ; preds = %.lr.ph.i220
   %525 = getelementptr inbounds i8, ptr %.sroa.010.024.i, i64 36
   %526 = load float, ptr %525, align 4
   %527 = fcmp oeq float %526, 0x47EFFFFFE0000000
-  br i1 %527, label %528, label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit9.i"
+  br i1 %527, label %528, label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit9.i"
 
 528:                                              ; preds = %524
   %529 = add nsw i32 %.0441, 1
   store float 0.000000e+00, ptr %525, align 4
   %.pre.i224 = load ptr, ptr %362, align 8
-  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit9.i"
+  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit9.i"
 
-"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit9.i": ; preds = %528, %524, %.lr.ph.i220
+"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit9.i": ; preds = %528, %524, %.lr.ph.i220
   %.1442 = phi i32 [ %529, %528 ], [ %.0441, %524 ], [ %.0441, %.lr.ph.i220 ]
   %530 = phi ptr [ %.pre.i224, %528 ], [ %520, %524 ], [ %520, %.lr.ph.i220 ]
   %531 = getelementptr inbounds i8, ptr %.sroa.010.024.i, i64 48
   %.not.i222 = icmp eq ptr %531, %530
   br i1 %.not.i222, label %"_ZN3vcg3tri13ForEachVertexI6CMeshOZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE3$_1EEvRT_T0_.exit", label %.lr.ph.i220, !llvm.loop !36
 
-"_ZN3vcg3tri13ForEachVertexI6CMeshOZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE3$_1EEvRT_T0_.exit": ; preds = %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit9.i", %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit.i"
-  %532 = phi ptr [ %518, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit.i" ], [ %530, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit9.i" ]
-  %.4 = phi i32 [ %.3, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit.i" ], [ %.1442, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.exit9.i" ]
+"_ZN3vcg3tri13ForEachVertexI6CMeshOZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE3$_1EEvRT_T0_.exit": ; preds = %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit9.i", %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit.i"
+  %532 = phi ptr [ %518, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit.i" ], [ %530, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit9.i" ]
+  %.4 = phi i32 [ %.3, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit.i" ], [ %.1442, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_1clER8CVertexO.argprom.argprom.exit9.i" ]
   %533 = icmp sgt i32 %.4, 0
   br i1 %533, label %534, label %_ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit231
 
@@ -3675,16 +3675,16 @@ _ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityRampERS2_ffNS_8ColorMapE.exit
 .preheader.i286:                                  ; preds = %594
   br i1 %.not2631.i271, label %"_ZN3vcg3tri13ForEachVertexI6CMeshOZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE3$_2EEvRT_T0_.exit", label %.lr.ph33.i287
 
-.lr.ph33.i287:                                    ; preds = %.preheader.i286, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit.i"
-  %.sroa.21.2 = phi ptr [ %.sroa.21.3, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit.i" ], [ null, %.preheader.i286 ]
-  %.sroa.10.2 = phi ptr [ %.sroa.10.3, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit.i" ], [ null, %.preheader.i286 ]
-  %.sroa.0380.4 = phi ptr [ %.sroa.0380.5, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit.i" ], [ null, %.preheader.i286 ]
-  %.sroa.022.032.i288 = phi ptr [ %635, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit.i" ], [ %600, %.preheader.i286 ]
+.lr.ph33.i287:                                    ; preds = %.preheader.i286, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit.i"
+  %.sroa.21.2 = phi ptr [ %.sroa.21.3, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit.i" ], [ null, %.preheader.i286 ]
+  %.sroa.10.2 = phi ptr [ %.sroa.10.3, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit.i" ], [ null, %.preheader.i286 ]
+  %.sroa.0380.4 = phi ptr [ %.sroa.0380.5, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit.i" ], [ null, %.preheader.i286 ]
+  %.sroa.022.032.i288 = phi ptr [ %635, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit.i" ], [ %600, %.preheader.i286 ]
   %607 = getelementptr inbounds i8, ptr %.sroa.022.032.i288, i64 20
   %608 = load i32, ptr %607, align 4
   %609 = and i32 %608, 32
   %.not.i.i289 = icmp eq i32 %609, 0
-  br i1 %.not.i.i289, label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit.i", label %610
+  br i1 %.not.i.i289, label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit.i", label %610
 
 610:                                              ; preds = %.lr.ph33.i287
   %.not.i.i.i.i290 = icmp eq ptr %.sroa.10.2, %.sroa.21.2
@@ -3693,7 +3693,7 @@ _ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityRampERS2_ffNS_8ColorMapE.exit
 611:                                              ; preds = %610
   store ptr %.sroa.022.032.i288, ptr %.sroa.10.2, align 8
   %612 = getelementptr inbounds i8, ptr %.sroa.10.2, i64 8
-  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit.i"
+  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit.i"
 
 613:                                              ; preds = %610
   %614 = ptrtoint ptr %.sroa.21.2 to i64
@@ -3747,9 +3747,9 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i296:
 
 _ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i298: ; preds = %633, %_ZNSt6vectorIP8CVertexOSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i296
   %634 = getelementptr inbounds ptr, ptr %627, i64 %623
-  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit.i"
+  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit.i"
 
-"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit.i": ; preds = %_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i298, %611, %.lr.ph33.i287
+"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit.i": ; preds = %_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i298, %611, %.lr.ph33.i287
   %.sroa.21.3 = phi ptr [ %.sroa.21.2, %.lr.ph33.i287 ], [ %634, %_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i298 ], [ %.sroa.21.2, %611 ]
   %.sroa.10.3 = phi ptr [ %.sroa.10.2, %.lr.ph33.i287 ], [ %632, %_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i298 ], [ %612, %611 ]
   %.sroa.0380.5 = phi ptr [ %.sroa.0380.4, %.lr.ph33.i287 ], [ %627, %_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i298 ], [ %.sroa.0380.4, %611 ]
@@ -3758,16 +3758,16 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal
   %.not26.i291 = icmp eq ptr %635, %636
   br i1 %.not26.i291, label %"_ZN3vcg3tri13ForEachVertexI6CMeshOZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE3$_2EEvRT_T0_.exit", label %.lr.ph33.i287, !llvm.loop !37
 
-.lr.ph.i273:                                      ; preds = %.preheader27.i272, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit16.i"
-  %.sroa.21.0 = phi ptr [ %.sroa.21.1, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit16.i" ], [ null, %.preheader27.i272 ]
-  %.sroa.10.0 = phi ptr [ %.sroa.10.1, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit16.i" ], [ null, %.preheader27.i272 ]
-  %.sroa.0380.2 = phi ptr [ %.sroa.0380.3, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit16.i" ], [ null, %.preheader27.i272 ]
-  %.sroa.017.030.i274 = phi ptr [ %665, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit16.i" ], [ %600, %.preheader27.i272 ]
+.lr.ph.i273:                                      ; preds = %.preheader27.i272, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit16.i"
+  %.sroa.21.0 = phi ptr [ %.sroa.21.1, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit16.i" ], [ null, %.preheader27.i272 ]
+  %.sroa.10.0 = phi ptr [ %.sroa.10.1, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit16.i" ], [ null, %.preheader27.i272 ]
+  %.sroa.0380.2 = phi ptr [ %.sroa.0380.3, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit16.i" ], [ null, %.preheader27.i272 ]
+  %.sroa.017.030.i274 = phi ptr [ %665, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit16.i" ], [ %600, %.preheader27.i272 ]
   %637 = getelementptr inbounds i8, ptr %.sroa.017.030.i274, i64 20
   %638 = load i32, ptr %637, align 4
   %639 = and i32 %638, 33
   %or.cond.not.i275 = icmp eq i32 %639, 32
-  br i1 %or.cond.not.i275, label %640, label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit16.i"
+  br i1 %or.cond.not.i275, label %640, label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit16.i"
 
 640:                                              ; preds = %.lr.ph.i273
   %.not.i.i.i8.i278 = icmp eq ptr %.sroa.10.0, %.sroa.21.0
@@ -3776,7 +3776,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal
 641:                                              ; preds = %640
   store ptr %.sroa.017.030.i274, ptr %.sroa.10.0, align 8
   %642 = getelementptr inbounds i8, ptr %.sroa.10.0, i64 8
-  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit16.i"
+  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit16.i"
 
 643:                                              ; preds = %640
   %644 = ptrtoint ptr %.sroa.21.0 to i64
@@ -3830,9 +3830,9 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i13.i28
 
 _ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i15.i285: ; preds = %663, %_ZNSt6vectorIP8CVertexOSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i13.i283
   %664 = getelementptr inbounds ptr, ptr %657, i64 %653
-  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit16.i"
+  br label %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit16.i"
 
-"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit16.i": ; preds = %_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i15.i285, %641, %.lr.ph.i273
+"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit16.i": ; preds = %_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i15.i285, %641, %.lr.ph.i273
   %.sroa.21.1 = phi ptr [ %664, %_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i15.i285 ], [ %.sroa.21.0, %641 ], [ %.sroa.21.0, %.lr.ph.i273 ]
   %.sroa.10.1 = phi ptr [ %662, %_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i15.i285 ], [ %642, %641 ], [ %.sroa.10.0, %.lr.ph.i273 ]
   %.sroa.0380.3 = phi ptr [ %657, %_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i15.i285 ], [ %.sroa.0380.2, %641 ], [ %.sroa.0380.2, %.lr.ph.i273 ]
@@ -3841,9 +3841,9 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal
   %.not.i276 = icmp eq ptr %665, %666
   br i1 %.not.i276, label %"_ZN3vcg3tri13ForEachVertexI6CMeshOZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE3$_2EEvRT_T0_.exit", label %.lr.ph.i273, !llvm.loop !38
 
-"_ZN3vcg3tri13ForEachVertexI6CMeshOZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE3$_2EEvRT_T0_.exit": ; preds = %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit16.i", %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit.i", %.preheader.i286, %.preheader27.i272
-  %.sroa.10.4 = phi ptr [ null, %.preheader.i286 ], [ null, %.preheader27.i272 ], [ %.sroa.10.3, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit.i" ], [ %.sroa.10.1, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit16.i" ]
-  %.sroa.0380.6 = phi ptr [ null, %.preheader.i286 ], [ null, %.preheader27.i272 ], [ %.sroa.0380.5, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit.i" ], [ %.sroa.0380.3, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.exit16.i" ]
+"_ZN3vcg3tri13ForEachVertexI6CMeshOZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE3$_2EEvRT_T0_.exit": ; preds = %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit16.i", %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit.i", %.preheader.i286, %.preheader27.i272
+  %.sroa.10.4 = phi ptr [ null, %.preheader.i286 ], [ null, %.preheader27.i272 ], [ %.sroa.10.3, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit.i" ], [ %.sroa.10.1, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit16.i" ]
+  %.sroa.0380.6 = phi ptr [ null, %.preheader.i286 ], [ null, %.preheader27.i272 ], [ %.sroa.0380.5, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit.i" ], [ %.sroa.0380.3, %"_ZZN14FilterGeodesic11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEENK3$_2clER8CVertexO.argprom.exit16.i" ]
   %667 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.28, i32 noundef 1)
           to label %668 unwind label %.loopexit.split-lp482.loopexit.split-lp
 
@@ -21173,16 +21173,16 @@ define linkonce_odr void @_ZN5Eigen8internal23minimum_degree_orderingIdiEEvRNS_1
   %26 = ptrtoint ptr %12 to i64
   %27 = and i64 %26, 3
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %27, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %28, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i, label %28, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
 
 28:                                               ; preds = %25
   %29 = lshr exact i64 %26, 2
   %30 = sub nsw i64 0, %29
   %31 = and i64 %30, 3
   %32 = tail call i64 @llvm.smin.i64(i64 %31, i64 %23)
-  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
+  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
 
-_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i: ; preds = %28, %25
+_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i: ; preds = %28, %25
   %.0.i.i.i.i.i.i.i.i = phi i64 [ %32, %28 ], [ %23, %25 ]
   %33 = sub nsw i64 %23, %.0.i.i.i.i.i.i.i.i
   %34 = sdiv i64 %33, 8
@@ -21195,7 +21195,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %.not.i.i.i.i = icmp ult i64 %.off.i.i.i.i, 7
   br i1 %.not.i.i.i.i, label %82, label %40
 
-40:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
+40:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
   %41 = getelementptr i32, ptr %12, i64 %.0.i.i.i.i.i.i.i.i
   %42 = load <2 x i64>, ptr %41, align 1
   %43 = icmp sgt i64 %33, 7
@@ -21280,7 +21280,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %81 = icmp slt i64 %80, %23
   br i1 %81, label %.lr.ph89.i.i.i.i, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit, !llvm.loop !368
 
-82:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
+82:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
   %83 = load i32, ptr %12, align 4
   %84 = icmp sgt i64 %23, 1
   br i1 %84, label %.lr.ph94.i.i.i.i, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit
@@ -27785,16 +27785,16 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEaSERKS3_.exit: ; pred
   %53 = ptrtoint ptr %37 to i64
   %54 = and i64 %53, 3
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %54, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %55, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i, label %55, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
 
 55:                                               ; preds = %52
   %56 = lshr exact i64 %53, 2
   %57 = sub nsw i64 0, %56
   %58 = and i64 %57, 3
   %59 = tail call i64 @llvm.smin.i64(i64 %58, i64 %50)
-  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
+  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
 
-_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i: ; preds = %55, %52
+_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i: ; preds = %55, %52
   %.0.i.i.i.i.i.i.i.i = phi i64 [ %59, %55 ], [ %50, %52 ]
   %60 = sub nsw i64 %50, %.0.i.i.i.i.i.i.i.i
   %61 = sdiv i64 %60, 8
@@ -27807,7 +27807,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %.not.i.i.i.i = icmp ult i64 %.off.i.i.i.i, 7
   br i1 %.not.i.i.i.i, label %109, label %67
 
-67:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
+67:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
   %68 = getelementptr i32, ptr %37, i64 %.0.i.i.i.i.i.i.i.i
   %69 = load <2 x i64>, ptr %68, align 1
   %70 = icmp sgt i64 %60, 7
@@ -27892,7 +27892,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %108 = icmp slt i64 %107, %50
   br i1 %108, label %.lr.ph89.i.i.i.i, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit, !llvm.loop !368
 
-109:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
+109:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
   %110 = load i32, ptr %37, align 4
   %111 = icmp sgt i64 %50, 1
   br i1 %111, label %.lr.ph94.i.i.i.i, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit
@@ -28098,16 +28098,16 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEaSINS_7ProductINS_15D
   %222 = ptrtoint ptr %206 to i64
   %223 = and i64 %222, 3
   %.not.i.i.i.i.i.i.i.i20 = icmp eq i64 %223, 0
-  br i1 %.not.i.i.i.i.i.i.i.i20, label %224, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i21
+  br i1 %.not.i.i.i.i.i.i.i.i20, label %224, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i21
 
 224:                                              ; preds = %221
   %225 = lshr exact i64 %222, 2
   %226 = sub nsw i64 0, %225
   %227 = and i64 %226, 3
   %228 = tail call i64 @llvm.smin.i64(i64 %227, i64 %219)
-  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i21
+  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i21
 
-_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i21: ; preds = %224, %221
+_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i21: ; preds = %224, %221
   %.0.i.i.i.i.i.i.i.i22 = phi i64 [ %228, %224 ], [ %219, %221 ]
   %229 = sub nsw i64 %219, %.0.i.i.i.i.i.i.i.i22
   %230 = sdiv i64 %229, 8
@@ -28120,7 +28120,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %.not.i.i.i.i24 = icmp ult i64 %.off.i.i.i.i23, 7
   br i1 %.not.i.i.i.i24, label %278, label %236
 
-236:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i21
+236:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i21
   %237 = getelementptr i32, ptr %206, i64 %.0.i.i.i.i.i.i.i.i22
   %238 = load <2 x i64>, ptr %237, align 1
   %239 = icmp sgt i64 %229, 7
@@ -28205,7 +28205,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %277 = icmp slt i64 %276, %219
   br i1 %277, label %.lr.ph89.i.i.i.i33, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit56, !llvm.loop !368
 
-278:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i21
+278:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i21
   %279 = load i32, ptr %206, align 4
   %280 = icmp sgt i64 %219, 1
   br i1 %280, label %.lr.ph94.i.i.i.i52, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit56

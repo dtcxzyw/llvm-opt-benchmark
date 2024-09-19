@@ -67,7 +67,7 @@ define dso_local noundef i32 @psched_register_events_fn(ptr noundef %0, i64 noun
 
 12:                                               ; preds = %11, %6
   %.not22.i = icmp eq ptr %8, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %13
+  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %13
 
 13:                                               ; preds = %12
   %14 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %8, ptr noundef null) #11
@@ -82,7 +82,7 @@ define dso_local noundef i32 @psched_register_events_fn(ptr noundef %0, i64 noun
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_pmix_server_op_caddy_t_class, i64 40), align 8
   %20 = load ptr, ptr %19, align 8
   %.not6.i.i = icmp eq ptr %20, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %13, %.lr.ph.i.i
   %21 = phi ptr [ %23, %.lr.ph.i.i ], [ %20, %13 ]
@@ -91,9 +91,9 @@ define dso_local noundef i32 @psched_register_events_fn(ptr noundef %0, i64 noun
   %22 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !5
 
-pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %12, %13
+pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %12, %13
   %24 = getelementptr inbounds i8, ptr %8, i64 256
   store ptr %0, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %8, i64 264
@@ -115,7 +115,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %12, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pmix_obj_new_tma(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @pmix_obj_new_tma.argprom(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = tail call noalias noundef ptr @malloc(i64 noundef %3) #10
@@ -253,7 +253,7 @@ define dso_local noundef i32 @psched_deregister_events_fn(ptr noundef %0, i64 no
 
 10:                                               ; preds = %9, %4
   %.not22.i = icmp eq ptr %6, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %11
+  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %11
 
 11:                                               ; preds = %10
   %12 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %6, ptr noundef null) #11
@@ -268,7 +268,7 @@ define dso_local noundef i32 @psched_deregister_events_fn(ptr noundef %0, i64 no
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_pmix_server_op_caddy_t_class, i64 40), align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i.i = icmp eq ptr %18, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %11, %.lr.ph.i.i
   %19 = phi ptr [ %21, %.lr.ph.i.i ], [ %18, %11 ]
@@ -277,9 +277,9 @@ define dso_local noundef i32 @psched_deregister_events_fn(ptr noundef %0, i64 no
   %20 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !5
 
-pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %10, %11
+pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %10, %11
   %22 = getelementptr inbounds i8, ptr %6, i64 256
   store ptr %0, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %6, i64 264
@@ -591,7 +591,7 @@ define dso_local range(i32 1, 0) i32 @psched_notify_event(i32 noundef %0, ptr no
   br label %.loopexit
 
 105:                                              ; preds = %99, %97
-  %106 = call fastcc ptr @pmix_obj_new_tma(ptr noundef nonnull @prte_grpcomm_signature_t_class)
+  %106 = call fastcc ptr @pmix_obj_new_tma.argprom(ptr noundef nonnull @prte_grpcomm_signature_t_class)
   %107 = icmp eq ptr %106, null
   br i1 %107, label %108, label %109
 

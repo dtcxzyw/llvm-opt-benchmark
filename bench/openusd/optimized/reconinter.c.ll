@@ -422,7 +422,7 @@ define hidden ptr @av1_get_compound_type_mask(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @av1_build_compound_diffwtd_mask_d16_c(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly %8, i32 noundef %9) local_unnamed_addr #7 {
-  switch i8 %1, label %diffwtd_mask_d16.exit [
+  switch i8 %1, label %diffwtd_mask_d16.argprom.exit [
     i8 0, label %11
     i8 1, label %41
   ]
@@ -436,13 +436,13 @@ define hidden void @av1_build_compound_diffwtd_mask_d16_c(ptr nocapture noundef 
   %14 = add i32 %.val, %.val18
   %15 = sub i32 %.neg27, %14
   %16 = icmp sgt i32 %6, 0
-  br i1 %16, label %.preheader.lr.ph.i, label %diffwtd_mask_d16.exit
+  br i1 %16, label %.preheader.lr.ph.i, label %diffwtd_mask_d16.argprom.exit
 
 .preheader.lr.ph.i:                               ; preds = %11
   %17 = icmp sgt i32 %7, 0
   %18 = shl nuw i32 1, %15
   %19 = ashr i32 %18, 1
-  br i1 %17, label %.preheader.lr.ph.split.us.i, label %diffwtd_mask_d16.exit
+  br i1 %17, label %.preheader.lr.ph.split.us.i, label %diffwtd_mask_d16.argprom.exit
 
 .preheader.lr.ph.split.us.i:                      ; preds = %.preheader.lr.ph.i
   %20 = sext i32 %3 to i64
@@ -488,7 +488,7 @@ define hidden void @av1_build_compound_diffwtd_mask_d16_c(ptr nocapture noundef 
 ._crit_edge.split.us.us.us.i:                     ; preds = %26
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next21.i, %wide.trip.count23.i
-  br i1 %exitcond24.not.i, label %diffwtd_mask_d16.exit, label %.preheader.us.us.i, !llvm.loop !6
+  br i1 %exitcond24.not.i, label %diffwtd_mask_d16.argprom.exit, label %.preheader.us.us.i, !llvm.loop !6
 
 41:                                               ; preds = %10
   %42 = getelementptr i8, ptr %8, i64 20
@@ -499,13 +499,13 @@ define hidden void @av1_build_compound_diffwtd_mask_d16_c(ptr nocapture noundef 
   %44 = add i32 %.val19, %.val20
   %45 = sub i32 %.neg, %44
   %46 = icmp sgt i32 %6, 0
-  br i1 %46, label %.preheader.lr.ph.i22, label %diffwtd_mask_d16.exit
+  br i1 %46, label %.preheader.lr.ph.i22, label %diffwtd_mask_d16.argprom.exit
 
 .preheader.lr.ph.i22:                             ; preds = %41
   %47 = icmp sgt i32 %7, 0
   %48 = shl nuw i32 1, %45
   %49 = ashr i32 %48, 1
-  br i1 %47, label %.preheader.lr.ph.split.us.i23, label %diffwtd_mask_d16.exit
+  br i1 %47, label %.preheader.lr.ph.split.us.i23, label %diffwtd_mask_d16.argprom.exit
 
 .preheader.lr.ph.split.us.i23:                    ; preds = %.preheader.lr.ph.i22
   %50 = sext i32 %3 to i64
@@ -551,9 +551,9 @@ define hidden void @av1_build_compound_diffwtd_mask_d16_c(ptr nocapture noundef 
 ._crit_edge.split.us5.i:                          ; preds = %56
   %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
   %exitcond14.not.i = icmp eq i64 %indvars.iv.next11.i, %wide.trip.count23.i24
-  br i1 %exitcond14.not.i, label %diffwtd_mask_d16.exit, label %.preheader.us.i, !llvm.loop !6
+  br i1 %exitcond14.not.i, label %diffwtd_mask_d16.argprom.exit, label %.preheader.us.i, !llvm.loop !6
 
-diffwtd_mask_d16.exit:                            ; preds = %._crit_edge.split.us5.i, %._crit_edge.split.us.us.us.i, %.preheader.lr.ph.i22, %41, %.preheader.lr.ph.i, %11, %10
+diffwtd_mask_d16.argprom.exit:                    ; preds = %._crit_edge.split.us5.i, %._crit_edge.split.us.us.us.i, %.preheader.lr.ph.i22, %41, %.preheader.lr.ph.i, %11, %10
   ret void
 }
 

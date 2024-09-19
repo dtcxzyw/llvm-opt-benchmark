@@ -462,9 +462,9 @@ define void @Fra_ManFinalizeComb(ptr nocapture noundef readonly %0) local_unname
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   br label %9
 
-9:                                                ; preds = %.lr.ph, %Fra_ObjChild0Fra.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Fra_ObjChild0Fra.exit ]
-  %10 = phi ptr [ %5, %.lr.ph ], [ %36, %Fra_ObjChild0Fra.exit ]
+9:                                                ; preds = %.lr.ph, %Fra_ObjChild0Fra.argprom.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Fra_ObjChild0Fra.argprom.exit ]
+  %10 = phi ptr [ %5, %.lr.ph ], [ %36, %Fra_ObjChild0Fra.argprom.exit ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val7 = load ptr, ptr %11, align 8
   %12 = getelementptr inbounds ptr, ptr %.val7, i64 %indvars.iv
@@ -475,7 +475,7 @@ define void @Fra_ManFinalizeComb(ptr nocapture noundef readonly %0) local_unname
   %16 = ptrtoint ptr %.val8 to i64
   %17 = and i64 %16, -2
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %Fra_ObjChild0Fra.exit, label %18
+  br i1 %.not.i, label %Fra_ObjChild0Fra.argprom.exit, label %18
 
 18:                                               ; preds = %9
   %19 = inttoptr i64 %17 to ptr
@@ -495,9 +495,9 @@ define void @Fra_ManFinalizeComb(ptr nocapture noundef readonly %0) local_unname
   %29 = ptrtoint ptr %27 to i64
   %30 = xor i64 %28, %29
   %31 = inttoptr i64 %30 to ptr
-  br label %Fra_ObjChild0Fra.exit
+  br label %Fra_ObjChild0Fra.argprom.exit
 
-Fra_ObjChild0Fra.exit:                            ; preds = %9, %18
+Fra_ObjChild0Fra.argprom.exit:                    ; preds = %9, %18
   %32 = phi ptr [ %31, %18 ], [ null, %9 ]
   %33 = tail call ptr @Aig_ObjCreateCo(ptr noundef %14, ptr noundef %32) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -510,7 +510,7 @@ Fra_ObjChild0Fra.exit:                            ; preds = %9, %18
   %39 = icmp slt i64 %indvars.iv.next, %38
   br i1 %39, label %9, label %.critedge, !llvm.loop !9
 
-.critedge:                                        ; preds = %Fra_ObjChild0Fra.exit, %1
+.critedge:                                        ; preds = %Fra_ObjChild0Fra.argprom.exit, %1
   %40 = getelementptr inbounds i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   tail call void @Aig_ManCleanMarkB(ptr noundef %41) #13

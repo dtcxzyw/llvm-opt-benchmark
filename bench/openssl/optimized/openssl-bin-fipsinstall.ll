@@ -562,7 +562,7 @@ if.then210:                                       ; preds = %if.end208
   br label %cleanup
 
 if.else213:                                       ; preds = %if.end200
-  %call215 = call fastcc ptr @generate_config_and_load(ptr noundef %prov_name.0, ptr noundef %section_name.0, ptr noundef %module_mac, i64 noundef %15)
+  %call215 = call fastcc ptr @generate_config_and_load.argprom(ptr noundef %prov_name.0, ptr noundef %section_name.0, ptr noundef %module_mac, i64 noundef %15)
   %cmp216 = icmp eq ptr %call215, null
   br i1 %cmp216, label %if.then243, label %if.end218
 
@@ -596,7 +596,7 @@ if.then228:                                       ; preds = %cond.end
 if.end230:                                        ; preds = %cond.end
   %19 = load i64, ptr %module_mac_len, align 8
   %20 = load i64, ptr %install_mac_len, align 8
-  %call233 = call fastcc i32 @write_config_fips_section(ptr noundef %cond226, ptr noundef %section_name.0, ptr noundef %module_mac, i64 noundef %19, ptr noundef nonnull %install_mac, i64 noundef %20)
+  %call233 = call fastcc i32 @write_config_fips_section.argprom(ptr noundef %cond226, ptr noundef %section_name.0, ptr noundef %module_mac, i64 noundef %19, ptr noundef nonnull %install_mac, i64 noundef %20)
   %tobool234.not = icmp eq i32 %call233, 0
   br i1 %tobool234.not, label %if.then243, label %if.end236
 
@@ -992,7 +992,7 @@ end:                                              ; preds = %if.end22, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @generate_config_and_load(ptr noundef %prov_name, ptr noundef %section, ptr noundef nonnull %module_mac, i64 noundef %module_mac_len) unnamed_addr #0 {
+define internal fastcc ptr @generate_config_and_load.argprom(ptr noundef %prov_name, ptr noundef %section, ptr noundef nonnull %module_mac, i64 noundef %module_mac_len) unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_mem() #5
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #5
@@ -1025,7 +1025,7 @@ write_config_header.exit:                         ; preds = %land.lhs.true6.i
   br i1 %tobool10.i.not, label %end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %write_config_header.exit
-  %call3 = tail call fastcc i32 @write_config_fips_section(ptr noundef %call1, ptr noundef %section, ptr noundef %module_mac, i64 noundef %module_mac_len, ptr noundef null, i64 noundef 0)
+  %call3 = tail call fastcc i32 @write_config_fips_section.argprom(ptr noundef %call1, ptr noundef %section, ptr noundef %module_mac, i64 noundef %module_mac_len, ptr noundef null, i64 noundef 0)
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %end, label %if.end6
 
@@ -1144,7 +1144,7 @@ end:                                              ; preds = %if.end, %if.then30,
 declare ptr @dup_bio_out(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @write_config_fips_section(ptr noundef nonnull %out, ptr noundef %section, ptr noundef nonnull %module_mac, i64 noundef %module_mac_len, ptr noundef %install_mac, i64 noundef %install_mac_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @write_config_fips_section.argprom(ptr noundef nonnull %out, ptr noundef %section, ptr noundef nonnull %module_mac, i64 noundef %module_mac_len, ptr noundef %install_mac, i64 noundef %install_mac_len) unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.100, ptr noundef %section) #5
   %cmp = icmp slt i32 %call, 1

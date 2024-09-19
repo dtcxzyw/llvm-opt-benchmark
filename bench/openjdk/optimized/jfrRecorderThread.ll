@@ -98,18 +98,18 @@ _ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit: ; preds = %15, %_ZN10Hand
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(1800) %33) #4
   call void @_ZN14JfrJavaSupport25throw_out_of_memory_errorEPKcP10JavaThread(ptr noundef nonnull @.str, ptr noundef nonnull %2) #4
-  br label %_ZL12start_thread14instanceHandlePFvP10JavaThreadS1_ES1_.exit
+  br label %_ZL12start_thread14instanceHandlePFvP10JavaThreadS1_ES1_.argprom.exit
 
 41:                                               ; preds = %_ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit
   call void @_ZN10JavaThread21start_internal_daemonEPS_S0_6Handle14ThreadPriority(ptr noundef nonnull %2, ptr noundef nonnull %33, ptr %storemerge.i.i, i32 noundef 5) #4
-  br label %_ZL12start_thread14instanceHandlePFvP10JavaThreadS1_ES1_.exit
+  br label %_ZL12start_thread14instanceHandlePFvP10JavaThreadS1_ES1_.argprom.exit
 
-_ZL12start_thread14instanceHandlePFvP10JavaThreadS1_ES1_.exit: ; preds = %37, %41
+_ZL12start_thread14instanceHandlePFvP10JavaThreadS1_ES1_.argprom.exit: ; preds = %37, %41
   %42 = load ptr, ptr %9, align 8
   %.not12 = icmp eq ptr %42, null
   br i1 %.not12, label %52, label %43
 
-43:                                               ; preds = %_ZL12start_thread14instanceHandlePFvP10JavaThreadS1_ES1_.exit
+43:                                               ; preds = %_ZL12start_thread14instanceHandlePFvP10JavaThreadS1_ES1_.argprom.exit
   store i8 14, ptr %6, align 8
   call void @_ZN16JfrJavaArgumentsC1EP9JavaValue(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef nonnull %6) #4
   %44 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 288), align 8
@@ -135,8 +135,8 @@ _ZNK14instanceHandleclEv.exit:                    ; preds = %43, %49
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #4
   br label %52
 
-52:                                               ; preds = %_ZL12start_thread14instanceHandlePFvP10JavaThreadS1_ES1_.exit, %11, %3, %_ZNK14instanceHandleclEv.exit
-  %.0 = phi i1 [ false, %_ZNK14instanceHandleclEv.exit ], [ false, %3 ], [ false, %11 ], [ true, %_ZL12start_thread14instanceHandlePFvP10JavaThreadS1_ES1_.exit ]
+52:                                               ; preds = %_ZL12start_thread14instanceHandlePFvP10JavaThreadS1_ES1_.argprom.exit, %11, %3, %_ZNK14instanceHandleclEv.exit
+  %.0 = phi i1 [ false, %_ZNK14instanceHandleclEv.exit ], [ false, %3 ], [ false, %11 ], [ true, %_ZL12start_thread14instanceHandlePFvP10JavaThreadS1_ES1_.argprom.exit ]
   ret i1 %.0
 }
 

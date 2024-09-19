@@ -1475,12 +1475,12 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 
 76:                                               ; preds = %62
   %.val300 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter18VisitSourceLocExprEPN5clang13SourceLocExprE(ptr %.val300, ptr noundef %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter18VisitSourceLocExprEPN5clang13SourceLocExprE.argprom(ptr %.val300, ptr noundef %1)
   br label %347
 
 77:                                               ; preds = %62
   %.val301 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter19VisitSizeOfPackExprEPN5clang14SizeOfPackExprE(ptr %.val301, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter19VisitSizeOfPackExprEPN5clang14SizeOfPackExprE.argprom(ptr %.val301, ptr noundef nonnull %1)
   br label %347
 
 78:                                               ; preds = %62
@@ -1508,7 +1508,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 85:                                               ; preds = %62
   %.val302 = load ptr, ptr %0, align 8
   %.val303 = load i32, ptr %1, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter19VisitPredefinedExprEPN5clang14PredefinedExprE(ptr %.val302, i32 %.val303)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter19VisitPredefinedExprEPN5clang14PredefinedExprE.argprom(ptr %.val302, i32 %.val303)
   br label %347
 
 86:                                               ; preds = %62
@@ -1521,7 +1521,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 
 88:                                               ; preds = %62
   %.val304 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter21VisitPackIndexingExprEPN5clang16PackIndexingExprE(ptr %.val304, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter21VisitPackIndexingExprEPN5clang16PackIndexingExprE.argprom(ptr %.val304, ptr noundef nonnull %1)
   br label %347
 
 89:                                               ; preds = %62
@@ -1560,7 +1560,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 
 99:                                               ; preds = %62
   %.val305 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter21VisitObjCProtocolExprEPN5clang16ObjCProtocolExprE(ptr %.val305, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter21VisitObjCProtocolExprEPN5clang16ObjCProtocolExprE.argprom(ptr %.val305, ptr noundef nonnull %1)
   br label %347
 
 100:                                              ; preds = %62
@@ -1601,12 +1601,12 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
   %.val306 = load ptr, ptr %0, align 8
   %111 = getelementptr i8, ptr %1, i64 16
   %.val307 = load i8, ptr %111, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter24VisitObjCBoolLiteralExprEPN5clang19ObjCBoolLiteralExprE(ptr %.val306, i8 %.val307)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter24VisitObjCBoolLiteralExprEPN5clang19ObjCBoolLiteralExprE.argprom(ptr %.val306, i8 %.val307)
   br label %347
 
 112:                                              ; preds = %62
   %.val308 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter30VisitObjCAvailabilityCheckExprEPN5clang25ObjCAvailabilityCheckExprE(ptr %.val308)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter30VisitObjCAvailabilityCheckExprEPN5clang25ObjCAvailabilityCheckExprE.argprom(ptr %.val308)
   br label %347
 
 113:                                              ; preds = %62
@@ -1623,7 +1623,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 
 116:                                              ; preds = %62
   %.val309 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter15VisitNoInitExprEPN5clang10NoInitExprE(ptr %.val309)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter15VisitNoInitExprEPN5clang10NoInitExprE.argprom(ptr %.val309)
   br label %347
 
 117:                                              ; preds = %62
@@ -1695,7 +1695,7 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %119, %125
 
 142:                                              ; preds = %62
   %.val310 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter16VisitGNUNullExprEPN5clang11GNUNullExprE(ptr %.val310)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter16VisitGNUNullExprEPN5clang11GNUNullExprE.argprom(ptr %.val310)
   br label %347
 
 143:                                              ; preds = %62
@@ -1872,7 +1872,7 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %119, %125
 
 193:                                              ; preds = %62
   %.val316 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter16VisitCXXThisExprEPN5clang11CXXThisExprE(ptr %.val316)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter16VisitCXXThisExprEPN5clang11CXXThisExprE.argprom(ptr %.val316)
   br label %347
 
 194:                                              ; preds = %62
@@ -1899,7 +1899,7 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %119, %125
 
 201:                                              ; preds = %62
   %.val317 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter26VisitCXXNullPtrLiteralExprEPN5clang21CXXNullPtrLiteralExprE(ptr %.val317)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter26VisitCXXNullPtrLiteralExprEPN5clang21CXXNullPtrLiteralExprE.argprom(ptr %.val317)
   br label %347
 
 202:                                              ; preds = %62
@@ -1912,7 +1912,7 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %119, %125
 
 204:                                              ; preds = %62
   %.val318 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter29VisitCXXInheritedCtorInitExprEPN5clang24CXXInheritedCtorInitExprE(ptr %.val318)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter29VisitCXXInheritedCtorInitExprEPN5clang24CXXInheritedCtorInitExprE.argprom(ptr %.val318)
   br label %347
 
 205:                                              ; preds = %62
@@ -1938,7 +1938,7 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %119, %125
 210:                                              ; preds = %62
   %.val319 = load ptr, ptr %0, align 8
   %.val320 = load i32, ptr %1, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter23VisitCXXBoolLiteralExprEPN5clang18CXXBoolLiteralExprE(ptr %.val319, i32 %.val320)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter23VisitCXXBoolLiteralExprEPN5clang18CXXBoolLiteralExprE.argprom(ptr %.val319, i32 %.val320)
   br label %347
 
 211:                                              ; preds = %62
@@ -1985,12 +1985,12 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %119, %125
 
 223:                                              ; preds = %62
   %.val321 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter23VisitArrayInitIndexExprEPN5clang18ArrayInitIndexExprE(ptr %.val321)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter23VisitArrayInitIndexExprEPN5clang18ArrayInitIndexExprE.argprom(ptr %.val321)
   br label %347
 
 224:                                              ; preds = %62
   %.val322 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter18VisitAddrLabelExprEPN5clang13AddrLabelExprE(ptr %.val322, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter18VisitAddrLabelExprEPN5clang13AddrLabelExprE.argprom(ptr %.val322, ptr noundef nonnull %1)
   br label %347
 
 225:                                              ; preds = %62
@@ -2022,7 +2022,7 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %119, %125
   br label %347
 
 232:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter17VisitSEHLeaveStmtEPN5clang12SEHLeaveStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter17VisitSEHLeaveStmtEPN5clang12SEHLeaveStmtE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0)
   br label %347
 
 233:                                              ; preds = %62
@@ -2066,7 +2066,7 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %119, %125
   br label %347
 
 243:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter20VisitObjCAtCatchStmtEPN5clang15ObjCAtCatchStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter20VisitObjCAtCatchStmtEPN5clang15ObjCAtCatchStmtE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0)
   br label %347
 
 244:                                              ; preds = %62
@@ -2380,7 +2380,7 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %119, %125
   br label %347
 
 326:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter13VisitNullStmtEPN5clang8NullStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter13VisitNullStmtEPN5clang8NullStmtE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0)
   br label %347
 
 327:                                              ; preds = %62
@@ -2392,7 +2392,7 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %119, %125
   br label %347
 
 329:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter6IndentEi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 0)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter6IndentEi.retelim(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 0)
   tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter14PrintRawIfStmtEPN5clang6IfStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1)
   br label %347
 
@@ -2423,7 +2423,7 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %119, %125
   br label %347
 
 338:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter17VisitContinueStmtEPN5clang12ContinueStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter17VisitContinueStmtEPN5clang12ContinueStmtE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0)
   br label %347
 
 339:                                              ; preds = %62
@@ -2447,7 +2447,7 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %119, %125
   br label %347
 
 344:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter14VisitBreakStmtEPN5clang9BreakStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0)
+  tail call fastcc void @_ZN12_GLOBAL__N_111StmtPrinter14VisitBreakStmtEPN5clang9BreakStmtE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0)
   br label %347
 
 345:                                              ; preds = %62
@@ -3415,7 +3415,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %22, %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter18VisitSourceLocExprEPN5clang13SourceLocExprE(ptr %.0.val, ptr noundef nonnull %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter18VisitSourceLocExprEPN5clang13SourceLocExprE.argprom(ptr %.0.val, ptr noundef nonnull %0) unnamed_addr #0 align 2 {
   %2 = tail call { ptr, i64 } @_ZNK5clang13SourceLocExpr13getBuiltinStrEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   %3 = extractvalue { ptr, i64 } %2, 0
   %4 = extractvalue { ptr, i64 } %2, 1
@@ -3474,7 +3474,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %26, %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter19VisitSizeOfPackExprEPN5clang14SizeOfPackExprE(ptr %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter19VisitSizeOfPackExprEPN5clang14SizeOfPackExprE.argprom(ptr %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
@@ -4477,7 +4477,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %70, %72
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter19VisitPredefinedExprEPN5clang14PredefinedExprE(ptr %.0.val, i32 %.0.val1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter19VisitPredefinedExprEPN5clang14PredefinedExprE.argprom(ptr %.0.val, i32 %.0.val1) unnamed_addr #0 align 2 {
   %1 = lshr i32 %.0.val1, 18
   %2 = and i32 %1, 15
   %3 = tail call { ptr, i64 } @_ZN5clang14PredefinedExpr16getIdentKindNameENS_19PredefinedIdentKindE(i32 noundef %2) #19
@@ -4745,7 +4745,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %47, %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter21VisitPackIndexingExprEPN5clang16PackIndexingExprE(ptr nonnull %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter21VisitPackIndexingExprEPN5clang16PackIndexingExprE.argprom(ptr nonnull %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %.0.val, ptr noundef %3) #19
@@ -5626,7 +5626,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %25, %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter21VisitObjCProtocolExprEPN5clang16ObjCProtocolExprE(ptr %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter21VisitObjCProtocolExprEPN5clang16ObjCProtocolExprE.argprom(ptr %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
@@ -6807,7 +6807,7 @@ _ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit: ; preds = %18, %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter24VisitObjCBoolLiteralExprEPN5clang19ObjCBoolLiteralExprE(ptr %.0.val, i8 %.16.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter24VisitObjCBoolLiteralExprEPN5clang19ObjCBoolLiteralExprE.argprom(ptr %.0.val, i8 %.16.val) unnamed_addr #0 align 2 {
   %1 = trunc i8 %.16.val to i1
   %2 = select i1 %1, ptr @.str.65, ptr @.str.66
   %3 = select i1 %1, i64 10, i64 9
@@ -6837,7 +6837,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter30VisitObjCAvailabilityCheckExprEPN5clang25ObjCAvailabilityCheckExprE(ptr %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter30VisitObjCAvailabilityCheckExprEPN5clang25ObjCAvailabilityCheckExprE.argprom(ptr %.0.val) unnamed_addr #0 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
@@ -7604,7 +7604,7 @@ _ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit20: ; preds = %105, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter15VisitNoInitExprEPN5clang10NoInitExprE(ptr %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter15VisitNoInitExprEPN5clang10NoInitExprE.argprom(ptr %.0.val) unnamed_addr #0 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
@@ -10393,7 +10393,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %159, %161
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter16VisitGNUNullExprEPN5clang11GNUNullExprE(ptr %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter16VisitGNUNullExprEPN5clang11GNUNullExprE.argprom(ptr %.0.val) unnamed_addr #0 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
@@ -15452,7 +15452,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %37, %48, %50, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter16VisitCXXThisExprEPN5clang11CXXThisExprE(ptr %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter16VisitCXXThisExprEPN5clang11CXXThisExprE.argprom(ptr %.0.val) unnamed_addr #0 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
@@ -16001,21 +16001,21 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %9, %11
 
 54:                                               ; preds = %47
   %55 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull @.str.9, i64 noundef 2) #19
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPNS2_20CXXParenListInitExprEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPNS2_20CXXParenListInitExprEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit"
 
 56:                                               ; preds = %47
   store i16 8236, ptr %49, align 1
   %57 = load ptr, ptr %45, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 2
   store ptr %58, ptr %45, align 8
-  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPNS2_20CXXParenListInitExprEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit"
+  br label %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPNS2_20CXXParenListInitExprEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit"
 
-"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPNS2_20CXXParenListInitExprEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit": ; preds = %54, %56
+"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPNS2_20CXXParenListInitExprEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit": ; preds = %54, %56
   %59 = load ptr, ptr %.0.i.i523, align 8
   %.not.i.i6 = icmp eq ptr %59, null
   br i1 %.not.i.i6, label %69, label %60
 
-60:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPNS2_20CXXParenListInitExprEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit"
+60:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPNS2_20CXXParenListInitExprEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit"
   %61 = load ptr, ptr %46, align 8
   %.not.i2.i7 = icmp eq ptr %61, null
   br i1 %.not.i2.i7, label %68, label %62
@@ -16032,7 +16032,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %9, %11
   tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %59)
   br label %"_ZZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPN5clang20CXXParenListInitExprEENK3$_0clEPNS1_4ExprE.exit"
 
-69:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPNS2_20CXXParenListInitExprEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit"
+69:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPNS2_20CXXParenListInitExprEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit"
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8
@@ -16085,7 +16085,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %90, %92
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter26VisitCXXNullPtrLiteralExprEPN5clang21CXXNullPtrLiteralExprE(ptr %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter26VisitCXXNullPtrLiteralExprEPN5clang21CXXNullPtrLiteralExprE.argprom(ptr %.0.val) unnamed_addr #0 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
@@ -16825,7 +16825,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit73:               ; preds = %313, %319, %329, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter29VisitCXXInheritedCtorInitExprEPN5clang24CXXInheritedCtorInitExprE(ptr %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter29VisitCXXInheritedCtorInitExprEPN5clang24CXXInheritedCtorInitExprE.argprom(ptr %.0.val) unnamed_addr #0 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
@@ -17820,7 +17820,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit21:               ; preds = %106, %104, %100, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter23VisitCXXBoolLiteralExprEPN5clang18CXXBoolLiteralExprE(ptr %.0.val, i32 %.0.val1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter23VisitCXXBoolLiteralExprEPN5clang18CXXBoolLiteralExprE.argprom(ptr %.0.val, i32 %.0.val1) unnamed_addr #0 align 2 {
   %1 = and i32 %.0.val1, 262144
   %.not = icmp eq i32 %1, 0
   %2 = select i1 %.not, ptr @.str.133, ptr @.str.132
@@ -19636,7 +19636,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %47, %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter23VisitArrayInitIndexExprEPN5clang18ArrayInitIndexExprE(ptr %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter23VisitArrayInitIndexExprEPN5clang18ArrayInitIndexExprE.argprom(ptr %.0.val) unnamed_addr #0 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
@@ -19660,7 +19660,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %6, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter18VisitAddrLabelExprEPN5clang13AddrLabelExprE(ptr %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter18VisitAddrLabelExprEPN5clang13AddrLabelExprE.argprom(ptr %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
@@ -20805,16 +20805,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %54, %56
 
 67:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit14
   %68 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.val.i, ptr noundef nonnull @.str.234, i64 noundef 21) #19
-  br label %_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.exit
+  br label %_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.argprom.exit
 
 69:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %62, ptr noundef nonnull align 1 dereferenceable(21) @.str.234, i64 21, i1 false)
   %70 = load ptr, ptr %61, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 21
   store ptr %71, ptr %61, align 8
-  br label %_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.exit
+  br label %_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.argprom.exit
 
-_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.exit: ; preds = %67, %69
+_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.argprom.exit: ; preds = %67, %69
   %72 = load ptr, ptr %0, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8
@@ -20823,11 +20823,11 @@ _ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.exit: ; preds = %67, %69
   %77 = icmp eq ptr %74, %76
   br i1 %77, label %78, label %80
 
-78:                                               ; preds = %_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.exit
+78:                                               ; preds = %_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.argprom.exit
   %79 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %72, ptr noundef nonnull @.str.2, i64 noundef 1) #19
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit10
 
-80:                                               ; preds = %_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.exit
+80:                                               ; preds = %_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.argprom.exit
   store i8 41, ptr %76, align 1
   %81 = load ptr, ptr %75, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 1
@@ -20881,7 +20881,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17:               ; preds = %90, %92
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter17VisitSEHLeaveStmtEPN5clang12SEHLeaveStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter17VisitSEHLeaveStmtEPN5clang12SEHLeaveStmtE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -21106,16 +21106,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %30, %32
 
 43:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit5
   %44 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.val.i, ptr noundef nonnull @.str.234, i64 noundef 21) #19
-  br label %_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.exit
+  br label %_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.argprom.exit
 
 45:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %38, ptr noundef nonnull align 1 dereferenceable(21) @.str.234, i64 21, i1 false)
   %46 = load ptr, ptr %37, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 21
   store ptr %47, ptr %37, align 8
-  br label %_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.exit
+  br label %_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.argprom.exit
 
-_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.exit: ; preds = %43, %45
+_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.argprom.exit: ; preds = %43, %45
   %48 = load ptr, ptr %0, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
@@ -21124,11 +21124,11 @@ _ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.exit: ; preds = %43, %45
   %53 = icmp eq ptr %50, %52
   br i1 %53, label %54, label %56
 
-54:                                               ; preds = %_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.exit
+54:                                               ; preds = %_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.argprom.exit
   %55 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef nonnull @.str.2, i64 noundef 1) #19
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-56:                                               ; preds = %_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.exit
+56:                                               ; preds = %_ZN12_GLOBAL__N_111StmtPrinter9VisitExprEPN5clang4ExprE.argprom.exit
   store i8 41, ptr %52, align 1
   %57 = load ptr, ptr %51, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 1
@@ -22560,7 +22560,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %68, %70
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter20VisitObjCAtCatchStmtEPN5clang15ObjCAtCatchStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter20VisitObjCAtCatchStmtEPN5clang15ObjCAtCatchStmtE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -27579,7 +27579,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %30, %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter13VisitNullStmtEPN5clang8NullStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter13VisitNullStmtEPN5clang8NullStmtE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -28799,7 +28799,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %47, %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter17VisitContinueStmtEPN5clang12ContinueStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter17VisitContinueStmtEPN5clang12ContinueStmtE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -29365,7 +29365,7 @@ _ZN12_GLOBAL__N_111StmtPrinter6IndentEi.exit:     ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter14VisitBreakStmtEPN5clang9BreakStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter14VisitBreakStmtEPN5clang9BreakStmtE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -30537,7 +30537,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit188:              ; preds = %469, %471
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter6IndentEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef range(i32 -1, 1) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter6IndentEi.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef range(i32 -1, 1) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, %1

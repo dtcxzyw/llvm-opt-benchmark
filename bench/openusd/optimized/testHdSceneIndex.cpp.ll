@@ -11737,7 +11737,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit530: ;
   %1295 = inttoptr i64 %1294 to ptr
   store ptr %1295, ptr %1293, align 8
   store i32 0, ptr %57, align 8
-  %1296 = invoke fastcc noundef zeroext i1 @_ZL18_CompareSceneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS7_16HdSceneIndexBaseEEERKNS7_7SdfPathERKNS7_19HdDataSourceLocatorERKNS7_7VtValueE(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr nonnull %1266, ptr noundef nonnull align 4 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull align 8 dereferenceable(16) %57)
+  %1296 = invoke fastcc noundef zeroext i1 @_ZL18_CompareSceneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS7_16HdSceneIndexBaseEEERKNS7_7SdfPathERKNS7_19HdDataSourceLocatorERKNS7_7VtValueE.argprom(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr nonnull %1266, ptr noundef nonnull align 4 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull align 8 dereferenceable(16) %57)
           to label %1297 unwind label %1587
 
 1297:                                             ; preds = %1292
@@ -12704,7 +12704,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit582: ;
   %1623 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %1295, ptr %1623, align 8
   store i32 0, ptr %66, align 8
-  %1624 = invoke fastcc noundef zeroext i1 @_ZL18_CompareSceneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS7_16HdSceneIndexBaseEEERKNS7_7SdfPathERKNS7_19HdDataSourceLocatorERKNS7_7VtValueE(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr %1603, ptr noundef nonnull align 4 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(56) %64, ptr noundef nonnull align 8 dereferenceable(16) %66)
+  %1624 = invoke fastcc noundef zeroext i1 @_ZL18_CompareSceneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS7_16HdSceneIndexBaseEEERKNS7_7SdfPathERKNS7_19HdDataSourceLocatorERKNS7_7VtValueE.argprom(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr %1603, ptr noundef nonnull align 4 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(56) %64, ptr noundef nonnull align 8 dereferenceable(16) %66)
           to label %1625 unwind label %1719
 
 1625:                                             ; preds = %1622
@@ -13045,7 +13045,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit623: ;
   %1755 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %1295, ptr %1755, align 8
   store i32 1, ptr %75, align 8
-  %1756 = invoke fastcc noundef zeroext i1 @_ZL18_CompareSceneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS7_16HdSceneIndexBaseEEERKNS7_7SdfPathERKNS7_19HdDataSourceLocatorERKNS7_7VtValueE(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr %1735, ptr noundef nonnull align 4 dereferenceable(8) %70, ptr noundef nonnull align 8 dereferenceable(56) %73, ptr noundef nonnull align 8 dereferenceable(16) %75)
+  %1756 = invoke fastcc noundef zeroext i1 @_ZL18_CompareSceneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS7_16HdSceneIndexBaseEEERKNS7_7SdfPathERKNS7_19HdDataSourceLocatorERKNS7_7VtValueE.argprom(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr %1735, ptr noundef nonnull align 4 dereferenceable(8) %70, ptr noundef nonnull align 8 dereferenceable(56) %73, ptr noundef nonnull align 8 dereferenceable(16) %75)
           to label %1757 unwind label %1851
 
 1757:                                             ; preds = %1754
@@ -13386,7 +13386,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit664: ;
   %1887 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %1295, ptr %1887, align 8
   store i32 1, ptr %84, align 8
-  %1888 = invoke fastcc noundef zeroext i1 @_ZL18_CompareSceneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS7_16HdSceneIndexBaseEEERKNS7_7SdfPathERKNS7_19HdDataSourceLocatorERKNS7_7VtValueE(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr %1867, ptr noundef nonnull align 4 dereferenceable(8) %79, ptr noundef nonnull align 8 dereferenceable(56) %82, ptr noundef nonnull align 8 dereferenceable(16) %84)
+  %1888 = invoke fastcc noundef zeroext i1 @_ZL18_CompareSceneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS7_16HdSceneIndexBaseEEERKNS7_7SdfPathERKNS7_19HdDataSourceLocatorERKNS7_7VtValueE.argprom(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr %1867, ptr noundef nonnull align 4 dereferenceable(8) %79, ptr noundef nonnull align 8 dereferenceable(56) %82, ptr noundef nonnull align 8 dereferenceable(16) %84)
           to label %1889 unwind label %1983
 
 1889:                                             ; preds = %1886
@@ -13727,7 +13727,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit705: ;
   %2019 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store ptr %1295, ptr %2019, align 8
   store i32 1, ptr %93, align 8
-  %2020 = invoke fastcc noundef zeroext i1 @_ZL18_CompareSceneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS7_16HdSceneIndexBaseEEERKNS7_7SdfPathERKNS7_19HdDataSourceLocatorERKNS7_7VtValueE(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr %1999, ptr noundef nonnull align 4 dereferenceable(8) %88, ptr noundef nonnull align 8 dereferenceable(56) %91, ptr noundef nonnull align 8 dereferenceable(16) %93)
+  %2020 = invoke fastcc noundef zeroext i1 @_ZL18_CompareSceneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS7_16HdSceneIndexBaseEEERKNS7_7SdfPathERKNS7_19HdDataSourceLocatorERKNS7_7VtValueE.argprom(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr %1999, ptr noundef nonnull align 4 dereferenceable(8) %88, ptr noundef nonnull align 8 dereferenceable(56) %91, ptr noundef nonnull align 8 dereferenceable(16) %93)
           to label %2021 unwind label %2115
 
 2021:                                             ; preds = %2018
@@ -14271,7 +14271,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex13AddInp
 declare noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath16AbsoluteRootPathEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL18_CompareSceneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS7_16HdSceneIndexBaseEEERKNS7_7SdfPathERKNS7_19HdDataSourceLocatorERKNS7_7VtValueE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.0.val, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL18_CompareSceneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS7_16HdSceneIndexBaseEEERKNS7_7SdfPathERKNS7_19HdDataSourceLocatorERKNS7_7VtValueE.argprom(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.0.val, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.std::shared_ptr.18", align 8
   %7 = alloca %"class.std::shared_ptr.15", align 8
@@ -16512,22 +16512,22 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit3
   %768 = cmpxchg weak ptr %762, i32 %763, i32 %767 monotonic monotonic, align 4
   %769 = extractvalue { i32, i1 } %768, 1
   %770 = extractvalue { i32, i1 } %768, 0
-  br i1 %769, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.exit, label %771
+  br i1 %769, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.argprom.exit, label %771
 
 771:                                              ; preds = %766, %765
   %.062.i.i.i368 = phi i32 [ %770, %766 ], [ -1, %765 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter18_AddRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %688, i32 noundef %.062.i.i.i368)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.exit unwind label %1275
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.argprom.exit unwind label %1275
 
 772:                                              ; preds = %761
   %773 = atomicrmw add ptr %762, i32 1 monotonic, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.argprom.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.exit: ; preds = %772, %766, %771
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.argprom.exit: ; preds = %772, %766, %771
   %774 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath16AbsoluteRootPathEv()
           to label %775 unwind label %1277
 
-775:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.exit
+775:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.argprom.exit
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex13AddInputSceneERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(168) %758, ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 4 dereferenceable(8) %774)
           to label %776 unwind label %1277
 
@@ -16623,23 +16623,23 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit3
   %814 = cmpxchg weak ptr %808, i32 %809, i32 %813 monotonic monotonic, align 4
   %815 = extractvalue { i32, i1 } %814, 1
   %816 = extractvalue { i32, i1 } %814, 0
-  br i1 %815, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.exit383, label %817
+  br i1 %815, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.argprom.exit383, label %817
 
 817:                                              ; preds = %812, %811
   %.062.i.i.i381 = phi i32 [ %816, %812 ], [ -1, %811 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter18_AddRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %730, i32 noundef %.062.i.i.i381)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.exit383 unwind label %1275
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.argprom.exit383 unwind label %1275
 
 818:                                              ; preds = %807
   %819 = atomicrmw add ptr %808, i32 1 monotonic, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.exit383
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.argprom.exit383
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.exit383: ; preds = %818, %812, %817
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.argprom.exit383: ; preds = %818, %812, %817
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #22
   %820 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %39)
           to label %.noexc384 unwind label %1279
 
-.noexc384:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.exit383
+.noexc384:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.argprom.exit383
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %820, ptr noundef nonnull align 1 dereferenceable(1) %40)
           to label %.noexc385 unwind label %1279
 
@@ -17849,13 +17849,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469: ; preds = %_ZN32pxrIn
           cleanup
   br label %1509
 
-1277:                                             ; preds = %775, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.exit
+1277:                                             ; preds = %775, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.argprom.exit
   %1278 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #22
   br label %1509
 
-1279:                                             ; preds = %.noexc384, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.exit383
+1279:                                             ; preds = %.noexc384, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLOBAL__N_123_RepopulatingSceneIndexEEERKNS0_IT_EE.argprom.exit383
   %1280 = landingpad { ptr, i32 }
           cleanup
   br label %.body386
@@ -18282,7 +18282,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.ex
 
 1427:                                             ; preds = %1422
   %1428 = icmp eq i32 %1419, -1
-  br i1 %1428, label %1433, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit
+  br i1 %1428, label %1433, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom.exit
 
 1429:                                             ; preds = %1422, %1421
   %.067.i.i.i497 = phi i32 [ %1426, %1422 ], [ -2, %1421 ]
@@ -18290,19 +18290,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.ex
           to label %.noexc.i498 unwind label %1437
 
 .noexc.i498:                                      ; preds = %1429
-  br i1 %1430, label %1433, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit
+  br i1 %1430, label %1433, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i495: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit
   %1431 = atomicrmw sub ptr %808, i32 1 release, align 4
   %1432 = icmp eq i32 %1431, 1
-  br i1 %1432, label %1433, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit
+  br i1 %1432, label %1433, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom.exit
 
 1433:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i495, %.noexc.i498, %1427
   %1434 = load ptr, ptr %730, align 8
   %1435 = getelementptr inbounds i8, ptr %1434, i64 8
   %1436 = load ptr, ptr %1435, align 8
   call void %1436(ptr noundef nonnull align 8 dereferenceable(12) %730) #22
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom.exit
 
 1437:                                             ; preds = %1429
   %1438 = landingpad { ptr, i32 }
@@ -18311,12 +18311,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   call void @__clang_call_terminate(ptr %1439) #24
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit: ; preds = %1433, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i495, %.noexc.i498, %1427
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom.exit: ; preds = %1433, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i495, %.noexc.i498, %1427
   %1440 = load atomic i32, ptr %762 monotonic, align 4
   %1441 = icmp slt i32 %1440, 0
   br i1 %1441, label %1442, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i500
 
-1442:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit
+1442:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom.exit
   %.not68.i.i.i501 = icmp eq i32 %1440, -2
   br i1 %.not68.i.i.i501, label %1450, label %1443
 
@@ -18329,7 +18329,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSce
 
 1448:                                             ; preds = %1443
   %1449 = icmp eq i32 %1440, -1
-  br i1 %1449, label %1454, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit504
+  br i1 %1449, label %1454, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom.exit504
 
 1450:                                             ; preds = %1443, %1442
   %.067.i.i.i502 = phi i32 [ %1447, %1443 ], [ -2, %1442 ]
@@ -18337,19 +18337,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSce
           to label %.noexc.i503 unwind label %1458
 
 .noexc.i503:                                      ; preds = %1450
-  br i1 %1451, label %1454, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit504
+  br i1 %1451, label %1454, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom.exit504
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i500: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i500: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom.exit
   %1452 = atomicrmw sub ptr %762, i32 1 release, align 4
   %1453 = icmp eq i32 %1452, 1
-  br i1 %1453, label %1454, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit504
+  br i1 %1453, label %1454, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom.exit504
 
 1454:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i500, %.noexc.i503, %1448
   %1455 = load ptr, ptr %688, align 8
   %1456 = getelementptr inbounds i8, ptr %1455, i64 8
   %1457 = load ptr, ptr %1456, align 8
   call void %1457(ptr noundef nonnull align 8 dereferenceable(12) %688) #22
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit504
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom.exit504
 
 1458:                                             ; preds = %1450
   %1459 = landingpad { ptr, i32 }
@@ -18358,12 +18358,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   call void @__clang_call_terminate(ptr %1460) #24
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit504: ; preds = %1448, %.noexc.i503, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i500, %1454
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom.exit504: ; preds = %1448, %.noexc.i503, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i500, %1454
   %1461 = load ptr, ptr %20, align 8
   %.not.i.i.i505 = icmp eq ptr %1461, null
   br i1 %.not.i.i.i505, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit, label %1462
 
-1462:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit504
+1462:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom.exit504
   %1463 = getelementptr inbounds nuw i8, ptr %1461, i64 8
   %1464 = load atomic i32, ptr %1463 monotonic, align 4
   %1465 = icmp slt i32 %1464, 0
@@ -18411,7 +18411,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   call void @__clang_call_terminate(ptr %1484) #24
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit504, %1472, %.noexc.i509, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i506, %1478
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom.exit504, %1472, %.noexc.i509, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i506, %1478
   %1485 = load ptr, ptr %3, align 8
   %.not.i.i.i510 = icmp eq ptr %1485, null
   br i1 %.not.i.i.i510, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit515, label %1486
@@ -18479,12 +18479,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.e
 
 .body362:                                         ; preds = %1273, %759, %1509
   %.pn202.pn.pn = phi { ptr, i32 } [ %.pn202.pn, %1509 ], [ %1274, %1273 ], [ %760, %759 ]
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev(ptr nonnull %730) #22
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom(ptr nonnull %730) #22
   br label %1510
 
 1510:                                             ; preds = %.body362, %.body352, %1269
   %.pn202.pn.pn.pn = phi { ptr, i32 } [ %.pn202.pn.pn, %.body362 ], [ %eh.lpad-body353, %.body352 ], [ %1270, %1269 ]
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev(ptr nonnull %688) #22
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom(ptr nonnull %688) #22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader583, %.body285.thread, %.body285, %1510, %.body343, %1216
@@ -19939,9 +19939,9 @@ _ZNSt6vectorIN27RecordingSceneIndexObserver5EventESaIS1_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev(ptr %.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.argprom(ptr %.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %.0.val, null
-  br i1 %.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit, label %1
+  br i1 %.not.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.argprom.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
@@ -19962,7 +19962,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_
 
 11:                                               ; preds = %6
   %12 = icmp eq i32 %3, -1
-  br i1 %12, label %17, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+  br i1 %12, label %17, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.argprom.exit
 
 13:                                               ; preds = %6, %5
   %.067.i.i = phi i32 [ %10, %6 ], [ -2, %5 ]
@@ -19970,21 +19970,21 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %13
-  br i1 %14, label %17, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+  br i1 %14, label %17, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.argprom.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %1
   %15 = atomicrmw sub ptr %2, i32 1 release, align 4
   %16 = icmp eq i32 %15, 1
-  br i1 %16, label %17, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+  br i1 %16, label %17, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.argprom.exit
 
 17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %11
   %18 = load ptr, ptr %.0.val, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(12) %.0.val) #22
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.argprom.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %17, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %11, %0
+_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.argprom.exit: ; preds = %17, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %11, %0
   ret void
 
 21:                                               ; preds = %13

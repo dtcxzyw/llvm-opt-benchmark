@@ -725,13 +725,13 @@ define internal i32 @dissect_blf(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store volatile i32 %71, ptr %5, align 4
   %72 = load i32, ptr @hf_blf_file_header_start_date, align 4
   %.0..0..0..0.43 = load volatile i32, ptr %5, align 4
-  call fastcc void @dissect_blf_header_date(ptr noundef %20, i32 noundef %72, ptr noundef %0, i32 noundef %.0..0..0..0.43)
+  call fastcc void @dissect_blf_header_date.argelim(ptr noundef %20, i32 noundef %72, ptr noundef %0, i32 noundef %.0..0..0..0.43)
   %.0..0..0..0.44 = load volatile i32, ptr %5, align 4
   %73 = add i32 %.0..0..0..0.44, 16
   store volatile i32 %73, ptr %5, align 4
   %74 = load i32, ptr @hf_blf_file_header_end_date, align 4
   %.0..0..0..0.45 = load volatile i32, ptr %5, align 4
-  call fastcc void @dissect_blf_header_date(ptr noundef %20, i32 noundef %74, ptr noundef %0, i32 noundef %.0..0..0..0.45)
+  call fastcc void @dissect_blf_header_date.argelim(ptr noundef %20, i32 noundef %74, ptr noundef %0, i32 noundef %.0..0..0..0.45)
   %.0..0..0..0.46 = load volatile i32, ptr %5, align 4
   %75 = add i32 %.0..0..0..0.46, 16
   store volatile i32 %75, ptr %5, align 4
@@ -1048,7 +1048,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_blf_header_date(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_blf_header_date.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %2, i32 noundef %3, i32 noundef -2147483648) #3
   %6 = add i32 %3, 2
   %7 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %2, i32 noundef %6, i32 noundef -2147483648) #3

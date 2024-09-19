@@ -4107,9 +4107,9 @@ while.cond.i:                                     ; preds = %while.cond.i, %entr
   %1 = load i8, ptr %n.0.i, align 1
   %cmp.i = icmp eq i8 %1, 48
   %incdec.ptr.i = getelementptr inbounds i8, ptr %n.0.i, i64 1
-  br i1 %cmp.i, label %while.cond.i, label %index_serial_hash.exit, !llvm.loop !23
+  br i1 %cmp.i, label %while.cond.i, label %index_serial_hash.argprom.exit, !llvm.loop !23
 
-index_serial_hash.exit:                           ; preds = %while.cond.i
+index_serial_hash.argprom.exit:                   ; preds = %while.cond.i
   %call.i = tail call i64 @OPENSSL_LH_strhash(ptr noundef nonnull %n.0.i) #28
   ret i64 %call.i
 }
@@ -4138,9 +4138,9 @@ for.cond3.i:                                      ; preds = %for.cond3.i, %for.e
   %3 = load i8, ptr %bb.0.i, align 1
   %cmp5.i = icmp eq i8 %3, 48
   %incdec.ptr9.i = getelementptr inbounds i8, ptr %bb.0.i, i64 1
-  br i1 %cmp5.i, label %for.cond3.i, label %index_serial_cmp.exit, !llvm.loop !25
+  br i1 %cmp5.i, label %for.cond3.i, label %index_serial_cmp.argprom.exit, !llvm.loop !25
 
-index_serial_cmp.exit:                            ; preds = %for.cond3.i
+index_serial_cmp.argprom.exit:                    ; preds = %for.cond3.i
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %aa.0.i, ptr noundef nonnull dereferenceable(1) %bb.0.i) #30
   ret i32 %call.i
 }

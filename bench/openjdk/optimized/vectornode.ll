@@ -11953,7 +11953,7 @@ _ZN15MacroLogicVNodeC2EP4NodeS1_S1_S1_S1_PK8TypeVect.exit: ; preds = %30, %29, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10VectorNode24degenerate_vector_rotateEP4NodeS1_bi9BasicTypeP8PhaseGVN(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
-"_ZZN10VectorNode24degenerate_vector_rotateEP4NodeS1_bi9BasicTypeP8PhaseGVNENK3$_0clEv.exit":
+"_ZZN10VectorNode24degenerate_vector_rotateEP4NodeS1_bi9BasicTypeP8PhaseGVNENK3$_0clEv.argprom.exit":
   %6 = zext i8 %4 to i64
   %7 = getelementptr inbounds [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -11980,7 +11980,7 @@ define hidden noundef ptr @_ZN10VectorNode24degenerate_vector_rotateEP4NodeS1_bi
   %.not = or i1 %.not139, %23
   br i1 %.not, label %35, label %24
 
-24:                                               ; preds = %"_ZZN10VectorNode24degenerate_vector_rotateEP4NodeS1_bi9BasicTypeP8PhaseGVNENK3$_0clEv.exit"
+24:                                               ; preds = %"_ZZN10VectorNode24degenerate_vector_rotateEP4NodeS1_bi9BasicTypeP8PhaseGVNENK3$_0clEv.argprom.exit"
   %25 = getelementptr inbounds i8, ptr %20, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %20, i64 28
@@ -11995,7 +11995,7 @@ define hidden noundef ptr @_ZN10VectorNode24degenerate_vector_rotateEP4NodeS1_bi
   %34 = tail call noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400) %5, i32 noundef %33) #8
   br label %210
 
-35:                                               ; preds = %24, %"_ZZN10VectorNode24degenerate_vector_rotateEP4NodeS1_bi9BasicTypeP8PhaseGVNENK3$_0clEv.exit"
+35:                                               ; preds = %24, %"_ZZN10VectorNode24degenerate_vector_rotateEP4NodeS1_bi9BasicTypeP8PhaseGVNENK3$_0clEv.argprom.exit"
   %36 = load ptr, ptr %1, align 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(52) %1) #8

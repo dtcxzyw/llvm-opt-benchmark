@@ -10371,16 +10371,16 @@ define internal noundef range(i64 0, 4294967296) i64 @"_ZNSt17_Function_handlerI
   %3 = load ptr, ptr %.val, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(80) %.val, i64 noundef ptrtoint (ptr @_ZZN10LogicMTask11rttiClassIdEvE15aStaticVariable to i64))
-  br i1 %5, label %"_ZSt10__invoke_rImRZL20debugMTaskGraphStatsR7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JPK13V3GraphVertexEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %6
+  br i1 %5, label %"_ZSt10__invoke_rImRZL20debugMTaskGraphStatsR7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JPK13V3GraphVertexEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.89, i32 noundef 263, i1 noundef zeroext true)
   %8 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.110)
   tail call void @_ZNK13V3GraphVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %.val, ptr noundef nonnull align 8 dereferenceable(112) %9)
-  br label %"_ZSt10__invoke_rImRZL20debugMTaskGraphStatsR7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JPK13V3GraphVertexEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
+  br label %"_ZSt10__invoke_rImRZL20debugMTaskGraphStatsR7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JPK13V3GraphVertexEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit"
 
-"_ZSt10__invoke_rImRZL20debugMTaskGraphStatsR7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JPK13V3GraphVertexEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %2, %6
+"_ZSt10__invoke_rImRZL20debugMTaskGraphStatsR7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JPK13V3GraphVertexEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit": ; preds = %2, %6
   %10 = getelementptr inbounds i8, ptr %.val, i64 96
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
@@ -17231,7 +17231,7 @@ define linkonce_odr dso_local void @_ZN14MergeCandidate7rescoreEv(ptr noundef no
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, %17
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %_ZL12siblingScorePK9SiblingMC.exit, label %22
+  br i1 %21, label %_ZL12siblingScorePK9SiblingMC.argprom.exit, label %22
 
 22:                                               ; preds = %5
   %23 = uitofp i32 %20 to double
@@ -17241,9 +17241,9 @@ define linkonce_odr dso_local void @_ZN14MergeCandidate7rescoreEv(ptr noundef no
   %27 = fdiv double %26, 2.000000e+01
   %28 = tail call double @exp(double noundef %27) #28
   %29 = fptoui double %28 to i32
-  br label %_ZL12siblingScorePK9SiblingMC.exit
+  br label %_ZL12siblingScorePK9SiblingMC.argprom.exit
 
-_ZL12siblingScorePK9SiblingMC.exit:               ; preds = %5, %22
+_ZL12siblingScorePK9SiblingMC.argprom.exit:       ; preds = %5, %22
   %.0.i.i = phi i32 [ %29, %22 ], [ 0, %5 ]
   %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %13, i32 %15)
   %.sroa.speculated6.i = tail call i32 @llvm.umax.i32(i32 %9, i32 %11)
@@ -17406,8 +17406,8 @@ _ZL9edgeScorePK9MTaskEdge.exit:                   ; preds = %_ZNK10LogicMTask19c
   %96 = add i32 %95, %.0.i29.i
   br label %97
 
-97:                                               ; preds = %_ZL9edgeScorePK9MTaskEdge.exit, %_ZL12siblingScorePK9SiblingMC.exit
-  %.sink = phi i32 [ %96, %_ZL9edgeScorePK9MTaskEdge.exit ], [ %31, %_ZL12siblingScorePK9SiblingMC.exit ]
+97:                                               ; preds = %_ZL9edgeScorePK9MTaskEdge.exit, %_ZL12siblingScorePK9SiblingMC.argprom.exit
+  %.sink = phi i32 [ %96, %_ZL9edgeScorePK9MTaskEdge.exit ], [ %31, %_ZL12siblingScorePK9SiblingMC.argprom.exit ]
   %98 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %.sink, ptr %98, align 8
   ret void

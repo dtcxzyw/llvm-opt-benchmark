@@ -1441,7 +1441,7 @@ invoke.cont.i.i.i.i:                              ; preds = %invoke.cont.i9.i.i.
   %_join_counter.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %_join_counter.i.i.i.i.i, i8 0, i64 48, i1 false), !noalias !11
   %call.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i7.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
-          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_16make_reduce_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESH_iZ6reducevE3$_0NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_OT3_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.exit.i.i.i" unwind label %lpad6.i.i.i.i.i, !noalias !11
+          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_16make_reduce_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESH_iZ6reducevE3$_0NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_OT3_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.argprom.exit.i.i.i" unwind label %lpad6.i.i.i.i.i, !noalias !11
 
 lpad6.i.i.i.i.i:                                  ; preds = %.noexc69.i.i.i.i
   %32 = landingpad { ptr, i32 }
@@ -1489,7 +1489,7 @@ ehcleanup.i.i.i.i:                                ; preds = %lpad80.body.i.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78.i.i.i.i) #29, !noalias !11
   br label %ehcleanup
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_16make_reduce_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESH_iZ6reducevE3$_0NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_OT3_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.exit.i.i.i": ; preds = %.noexc69.i.i.i.i
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_16make_reduce_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESH_iZ6reducevE3$_0NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_OT3_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.argprom.exit.i.i.i": ; preds = %.noexc69.i.i.i.i
   %_handle.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 176
   %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 200
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 192
@@ -1519,14 +1519,14 @@ ehcleanup.i.i.i.i:                                ; preds = %lpad80.body.i.i.i.i
   %cmp.not.i.i.i.i.i = icmp eq ptr %37, %38
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i2.i.i.i, label %if.then.i.i1.i.i.i
 
-if.then.i.i1.i.i.i:                               ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_16make_reduce_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESH_iZ6reducevE3$_0NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_OT3_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.exit.i.i.i"
+if.then.i.i1.i.i.i:                               ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_16make_reduce_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESH_iZ6reducevE3$_0NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_OT3_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.argprom.exit.i.i.i"
   store ptr %retval.0.i.i.i.i.i, ptr %37, align 8, !noalias !11
   %39 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !noalias !11
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 8
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8, !noalias !11
   br label %invoke.cont58
 
-if.else.i.i2.i.i.i:                               ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_16make_reduce_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESH_iZ6reducevE3$_0NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_OT3_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.exit.i.i.i"
+if.else.i.i2.i.i.i:                               ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_16make_reduce_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESH_iZ6reducevE3$_0NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_OT3_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.argprom.exit.i.i.i"
   %40 = load ptr, ptr %taskflow.val, align 8, !noalias !11
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %37 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %40 to i64
@@ -3120,7 +3120,7 @@ invoke.cont.i.i.i.i:                              ; preds = %invoke.cont.i9.i.i.
   %_join_counter.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %_join_counter.i.i.i.i.i, i8 0, i64 48, i1 false), !noalias !30
   %call.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i7.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
-          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_26make_transform_reduce_taskIN9__gnu_cxx17__normal_iteratorIP4DataSt6vectorISD_SaISD_EEEESI_iZ16transform_reducevE3$_0Z16transform_reducevE3$_1NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_T3_OT4_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.exit.i.i.i" unwind label %lpad6.i.i.i.i.i, !noalias !30
+          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_26make_transform_reduce_taskIN9__gnu_cxx17__normal_iteratorIP4DataSt6vectorISD_SaISD_EEEESI_iZ16transform_reducevE3$_0Z16transform_reducevE3$_1NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_T3_OT4_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.argprom.exit.i.i.i" unwind label %lpad6.i.i.i.i.i, !noalias !30
 
 lpad6.i.i.i.i.i:                                  ; preds = %.noexc69.i.i.i.i
   %31 = landingpad { ptr, i32 }
@@ -3168,7 +3168,7 @@ ehcleanup.i.i.i.i:                                ; preds = %lpad80.body.i.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78.i.i.i.i) #29, !noalias !30
   br label %ehcleanup82
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_26make_transform_reduce_taskIN9__gnu_cxx17__normal_iteratorIP4DataSt6vectorISD_SaISD_EEEESI_iZ16transform_reducevE3$_0Z16transform_reducevE3$_1NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_T3_OT4_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.exit.i.i.i": ; preds = %.noexc69.i.i.i.i
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_26make_transform_reduce_taskIN9__gnu_cxx17__normal_iteratorIP4DataSt6vectorISD_SaISD_EEEESI_iZ16transform_reducevE3$_0Z16transform_reducevE3$_1NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_T3_OT4_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.argprom.exit.i.i.i": ; preds = %.noexc69.i.i.i.i
   %_handle.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 176
   %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 200
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 192
@@ -3198,14 +3198,14 @@ ehcleanup.i.i.i.i:                                ; preds = %lpad80.body.i.i.i.i
   %cmp.not.i.i.i.i.i10 = icmp eq ptr %36, %37
   br i1 %cmp.not.i.i.i.i.i10, label %if.else.i.i2.i.i.i, label %if.then.i.i1.i.i.i
 
-if.then.i.i1.i.i.i:                               ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_26make_transform_reduce_taskIN9__gnu_cxx17__normal_iteratorIP4DataSt6vectorISD_SaISD_EEEESI_iZ16transform_reducevE3$_0Z16transform_reducevE3$_1NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_T3_OT4_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.exit.i.i.i"
+if.then.i.i1.i.i.i:                               ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_26make_transform_reduce_taskIN9__gnu_cxx17__normal_iteratorIP4DataSt6vectorISD_SaISD_EEEESI_iZ16transform_reducevE3$_0Z16transform_reducevE3$_1NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_T3_OT4_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.argprom.exit.i.i.i"
   store ptr %retval.0.i.i.i.i.i, ptr %36, align 8, !noalias !30
   %38 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !noalias !30
   %incdec.ptr.i.i.i.i.i11 = getelementptr inbounds i8, ptr %38, i64 8
   store ptr %incdec.ptr.i.i.i.i.i11, ptr %_M_finish.i.i.i.i.i, align 8, !noalias !30
   br label %invoke.cont54
 
-if.else.i.i2.i.i.i:                               ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_26make_transform_reduce_taskIN9__gnu_cxx17__normal_iteratorIP4DataSt6vectorISD_SaISD_EEEESI_iZ16transform_reducevE3$_0Z16transform_reducevE3$_1NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_T3_OT4_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.exit.i.i.i"
+if.else.i.i2.i.i.i:                               ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZNS_26make_transform_reduce_taskIN9__gnu_cxx17__normal_iteratorIP4DataSt6vectorISD_SaISD_EEEESI_iZ16transform_reducevE3$_0Z16transform_reducevE3$_1NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_T3_OT4_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.argprom.exit.i.i.i"
   %39 = load ptr, ptr %tf.val, align 8, !noalias !30
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %39 to i64
@@ -24709,10 +24709,10 @@ attributes #39 = { cold }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = !{!12, !14}
-!12 = distinct !{!12, !13, !"_ZN2tf11FlowBuilder7emplaceIZNS_16make_reduce_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_iZ6reducevE3$_0NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_OT3_EUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vISC_EEvE4typeELPv0EEENS_4TaskEOSC_: %agg.result"}
-!13 = distinct !{!13, !"_ZN2tf11FlowBuilder7emplaceIZNS_16make_reduce_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_iZ6reducevE3$_0NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_OT3_EUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vISC_EEvE4typeELPv0EEENS_4TaskEOSC_"}
-!14 = distinct !{!14, !15, !"_ZN2tf11FlowBuilder6reduceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES8_iZ6reducevE3$_0NS_17GuidedPartitionerEEENS_4TaskET_T0_RT1_T2_OT3_: %agg.result"}
-!15 = distinct !{!15, !"_ZN2tf11FlowBuilder6reduceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES8_iZ6reducevE3$_0NS_17GuidedPartitionerEEENS_4TaskET_T0_RT1_T2_OT3_"}
+!12 = distinct !{!12, !13, !"_ZN2tf11FlowBuilder7emplaceIZNS_16make_reduce_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_iZ6reducevE3$_0NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_OT3_EUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vISC_EEvE4typeELPv0EEENS_4TaskEOSC_.argprom: %agg.result"}
+!13 = distinct !{!13, !"_ZN2tf11FlowBuilder7emplaceIZNS_16make_reduce_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_iZ6reducevE3$_0NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_OT3_EUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vISC_EEvE4typeELPv0EEENS_4TaskEOSC_.argprom"}
+!14 = distinct !{!14, !15, !"_ZN2tf11FlowBuilder6reduceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES8_iZ6reducevE3$_0NS_17GuidedPartitionerEEENS_4TaskET_T0_RT1_T2_OT3_.argprom: %agg.result"}
+!15 = distinct !{!15, !"_ZN2tf11FlowBuilder6reduceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES8_iZ6reducevE3$_0NS_17GuidedPartitionerEEENS_4TaskET_T0_RT1_T2_OT3_.argprom"}
 !16 = distinct !{!16, !6}
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZN2tf8Executor3runERNS_8TaskflowE: %agg.result"}
@@ -24728,10 +24728,10 @@ attributes #39 = { cold }
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
 !30 = !{!31, !33}
-!31 = distinct !{!31, !32, !"_ZN2tf11FlowBuilder7emplaceIZNS_26make_transform_reduce_taskIN9__gnu_cxx17__normal_iteratorIP4DataSt6vectorIS5_SaIS5_EEEESA_iZ16transform_reducevE3$_0Z16transform_reducevE3$_1NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_T3_OT4_EUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vISE_EEvE4typeELPv0EEENS_4TaskEOSE_: %agg.result"}
-!32 = distinct !{!32, !"_ZN2tf11FlowBuilder7emplaceIZNS_26make_transform_reduce_taskIN9__gnu_cxx17__normal_iteratorIP4DataSt6vectorIS5_SaIS5_EEEESA_iZ16transform_reducevE3$_0Z16transform_reducevE3$_1NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_T3_OT4_EUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vISE_EEvE4typeELPv0EEENS_4TaskEOSE_"}
-!33 = distinct !{!33, !34, !"_ZN2tf11FlowBuilder16transform_reduceIN9__gnu_cxx17__normal_iteratorIP4DataSt6vectorIS4_SaIS4_EEEES9_iZ16transform_reducevE3$_0Z16transform_reducevE3$_1NS_17GuidedPartitionerETnPNSt9enable_ifIX16is_partitioner_vINSt5decayIT4_E4typeEEEvE4typeELPv0EEENS_4TaskET_T0_RT1_T2_T3_OSF_: %agg.result"}
-!34 = distinct !{!34, !"_ZN2tf11FlowBuilder16transform_reduceIN9__gnu_cxx17__normal_iteratorIP4DataSt6vectorIS4_SaIS4_EEEES9_iZ16transform_reducevE3$_0Z16transform_reducevE3$_1NS_17GuidedPartitionerETnPNSt9enable_ifIX16is_partitioner_vINSt5decayIT4_E4typeEEEvE4typeELPv0EEENS_4TaskET_T0_RT1_T2_T3_OSF_"}
+!31 = distinct !{!31, !32, !"_ZN2tf11FlowBuilder7emplaceIZNS_26make_transform_reduce_taskIN9__gnu_cxx17__normal_iteratorIP4DataSt6vectorIS5_SaIS5_EEEESA_iZ16transform_reducevE3$_0Z16transform_reducevE3$_1NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_T3_OT4_EUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vISE_EEvE4typeELPv0EEENS_4TaskEOSE_.argprom: %agg.result"}
+!32 = distinct !{!32, !"_ZN2tf11FlowBuilder7emplaceIZNS_26make_transform_reduce_taskIN9__gnu_cxx17__normal_iteratorIP4DataSt6vectorIS5_SaIS5_EEEESA_iZ16transform_reducevE3$_0Z16transform_reducevE3$_1NS_17GuidedPartitionerEEEDaT_T0_RT1_T2_T3_OT4_EUlRNS_7RuntimeEE_TnPNSt9enable_ifIX16is_static_task_vISE_EEvE4typeELPv0EEENS_4TaskEOSE_.argprom"}
+!33 = distinct !{!33, !34, !"_ZN2tf11FlowBuilder16transform_reduceIN9__gnu_cxx17__normal_iteratorIP4DataSt6vectorIS4_SaIS4_EEEES9_iZ16transform_reducevE3$_0Z16transform_reducevE3$_1NS_17GuidedPartitionerETnPNSt9enable_ifIX16is_partitioner_vINSt5decayIT4_E4typeEEEvE4typeELPv0EEENS_4TaskET_T0_RT1_T2_T3_OSF_.argprom: %agg.result"}
+!34 = distinct !{!34, !"_ZN2tf11FlowBuilder16transform_reduceIN9__gnu_cxx17__normal_iteratorIP4DataSt6vectorIS4_SaIS4_EEEES9_iZ16transform_reducevE3$_0Z16transform_reducevE3$_1NS_17GuidedPartitionerETnPNSt9enable_ifIX16is_partitioner_vINSt5decayIT4_E4typeEEEvE4typeELPv0EEENS_4TaskET_T0_RT1_T2_T3_OSF_.argprom"}
 !35 = distinct !{!35, !6}
 !36 = !{!37}
 !37 = distinct !{!37, !38, !"_ZN2tf8Executor3runERNS_8TaskflowE: %agg.result"}

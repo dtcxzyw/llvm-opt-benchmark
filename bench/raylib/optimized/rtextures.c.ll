@@ -438,7 +438,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
 define internal fastcc ptr @stbi__load_and_postprocess_8bit(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 {
   %6 = alloca [2048 x i8], align 16
   %7 = alloca %struct.stbi__result_info, align 4
-  %8 = call fastcc ptr @stbi__load_main(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %7)
+  %8 = call fastcc ptr @stbi__load_main.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %7)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %59, label %10
 
@@ -646,7 +646,7 @@ stbi__start_file.exit:                            ; preds = %26, %28
 define internal fastcc ptr @stbi__load_and_postprocess_16bit(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 {
   %6 = alloca [2048 x i8], align 16
   %7 = alloca %struct.stbi__result_info, align 4
-  %8 = call fastcc ptr @stbi__load_main(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %7)
+  %8 = call fastcc ptr @stbi__load_main.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %7)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %61, label %10
 
@@ -1055,7 +1055,7 @@ define hidden noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noundef
   br label %24
 
 24:                                               ; preds = %23, %22
-  %25 = call fastcc ptr @stbi__gif_load_next(ptr noundef %11, ptr noundef %10, ptr noundef %6, ptr noundef null)
+  %25 = call fastcc ptr @stbi__gif_load_next.argelim(ptr noundef %11, ptr noundef %10, ptr noundef %6, ptr noundef null)
   %26 = icmp eq ptr %25, %11
   %.not8384118.i = icmp eq ptr %25, null
   %.not83119.i = or i1 %26, %.not8384118.i
@@ -1239,7 +1239,7 @@ stbi__load_gif_main_outofmem.exit100.i:           ; preds = %89, %81
   br label %104
 
 104:                                              ; preds = %100, %90
-  %105 = call fastcc ptr @stbi__gif_load_next(ptr noundef %11, ptr noundef %10, ptr noundef %6, ptr noundef %.169.i)
+  %105 = call fastcc ptr @stbi__gif_load_next.argelim(ptr noundef %11, ptr noundef %10, ptr noundef %6, ptr noundef %.169.i)
   %106 = icmp eq ptr %105, %11
   %.not8384.i = icmp eq ptr %105, null
   %.not83.i = or i1 %106, %.not8384.i
@@ -8814,7 +8814,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr nocapture no
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us332, %.preheader279.lr.ph, %.preheader282.lr.ph, %.preheader283, %.preheader280
   %335 = load i32, ptr %21, align 4
   %336 = icmp sgt i32 %335, 0
-  br i1 %336, label %.lr.ph.i.preheader, label %stbiw__jpg_writeBits.exit
+  br i1 %336, label %.lr.ph.i.preheader, label %stbiw__jpg_writeBits.argprom.exit
 
 .lr.ph.i.preheader:                               ; preds = %.loopexit
   %337 = sub nsw i32 17, %335
@@ -8852,9 +8852,9 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr nocapture no
   %348 = shl i32 %.02.i, 8
   %349 = add nsw i32 %.0181.i, -8
   %350 = icmp sgt i32 %.0181.i, 15
-  br i1 %350, label %.lr.ph.i, label %stbiw__jpg_writeBits.exit
+  br i1 %350, label %.lr.ph.i, label %stbiw__jpg_writeBits.argprom.exit
 
-stbiw__jpg_writeBits.exit:                        ; preds = %347, %.loopexit
+stbiw__jpg_writeBits.argprom.exit:                ; preds = %347, %.loopexit
   %.val273 = load ptr, ptr %0, align 8
   %.val274 = load ptr, ptr %126, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
@@ -8869,8 +8869,8 @@ stbiw__jpg_writeBits.exit:                        ; preds = %347, %.loopexit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   br label %351
 
-351:                                              ; preds = %6, %stbiw__jpg_writeBits.exit
-  %.0 = phi i32 [ 1, %stbiw__jpg_writeBits.exit ], [ 0, %6 ]
+351:                                              ; preds = %6, %stbiw__jpg_writeBits.argprom.exit
+  %.0 = phi i32 [ 1, %stbiw__jpg_writeBits.argprom.exit ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -9995,7 +9995,7 @@ stbir__free_internal_mem.exit:                    ; preds = %10, %15
   %25 = load ptr, ptr %2, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 112
   %27 = load i32, ptr %26, align 8
-  tail call fastcc void @stbir__perform_resize(ptr noundef %25, i32 noundef 0, i32 noundef %27)
+  tail call fastcc void @stbir__perform_resize.retelim(ptr noundef %25, i32 noundef 0, i32 noundef %27)
   %28 = getelementptr inbounds i8, ptr %0, i64 124
   %29 = load i32, ptr %28, align 4
   %.not21 = icmp eq i32 %29, 0
@@ -10296,7 +10296,7 @@ define internal fastcc void @stbir__update_info_from_resize(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stbir__perform_resize(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc void @stbir__perform_resize.retelim(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2) unnamed_addr #4 {
   %4 = alloca [8 x ptr], align 16
   %.sroa.0.i8 = alloca i32, align 4
   %.sroa.4.i9 = alloca i32, align 4
@@ -11517,7 +11517,7 @@ define hidden range(i32 0, 2) i32 @stbir_resize_extended_split(ptr nocapture nou
 26:                                               ; preds = %22
   tail call fastcc void @stbir__update_info_from_resize(ptr noundef nonnull %12, ptr noundef nonnull %0)
   %27 = load ptr, ptr %11, align 8
-  tail call fastcc void @stbir__perform_resize(ptr noundef %27, i32 noundef %1, i32 noundef %2)
+  tail call fastcc void @stbir__perform_resize.retelim(ptr noundef %27, i32 noundef %1, i32 noundef %2)
   br label %28
 
 28:                                               ; preds = %17, %22, %10, %14, %26, %8
@@ -25535,7 +25535,7 @@ declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_ad
 declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @stbi__load_main(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #4 {
+define internal fastcc ptr @stbi__load_main.argelim(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #4 {
   %7 = alloca %struct.stbi__gif, align 8
   %8 = alloca %struct.stbi__png, align 8
   store i32 8, ptr %5, align 4
@@ -26111,7 +26111,7 @@ stbi__png_load.exit:                              ; preds = %58, %67, %stbi__con
 239:                                              ; preds = %234
   call void @llvm.lifetime.start.p0(i64 34928, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34928) %7, i8 0, i64 34928, i1 false)
-  %240 = call fastcc ptr @stbi__gif_load_next(ptr noundef %0, ptr noundef %7, ptr noundef %3, ptr noundef null)
+  %240 = call fastcc ptr @stbi__gif_load_next.argelim(ptr noundef %0, ptr noundef %7, ptr noundef %3, ptr noundef null)
   %241 = icmp eq ptr %240, %0
   %.not1.i = icmp eq ptr %240, null
   %.not.i = or i1 %241, %.not1.i
@@ -26125,23 +26125,23 @@ stbi__png_load.exit:                              ; preds = %58, %67, %stbi__con
   store i32 %245, ptr %2, align 4
   %246 = and i32 %4, -5
   %or.cond.not.i = icmp eq i32 %246, 0
-  br i1 %or.cond.not.i, label %stbi__gif_load.exit, label %247
+  br i1 %or.cond.not.i, label %stbi__gif_load.argprom.exit, label %247
 
 247:                                              ; preds = %242
   %248 = call fastcc ptr @stbi__convert_format(ptr noundef nonnull %240, i32 noundef 4, i32 noundef %4, i32 noundef %243, i32 noundef %245)
-  br label %stbi__gif_load.exit
+  br label %stbi__gif_load.argprom.exit
 
 249:                                              ; preds = %239
   %250 = getelementptr inbounds i8, ptr %7, i64 8
   %251 = load ptr, ptr %250, align 8
   %.not15.i = icmp eq ptr %251, null
-  br i1 %.not15.i, label %stbi__gif_load.exit, label %252
+  br i1 %.not15.i, label %stbi__gif_load.argprom.exit, label %252
 
 252:                                              ; preds = %249
   call void @free(ptr noundef nonnull %251) #50
-  br label %stbi__gif_load.exit
+  br label %stbi__gif_load.argprom.exit
 
-stbi__gif_load.exit:                              ; preds = %242, %247, %249, %252
+stbi__gif_load.argprom.exit:                      ; preds = %242, %247, %249, %252
   %.0.i = phi ptr [ %248, %247 ], [ %240, %242 ], [ null, %252 ], [ null, %249 ]
   %253 = getelementptr inbounds i8, ptr %7, i64 24
   %254 = load ptr, ptr %253, align 8
@@ -26156,8 +26156,8 @@ stbi__gif_load.exit:                              ; preds = %242, %247, %249, %2
   store ptr @.str.72, ptr @stbi__g_failure_reason, align 8
   br label %258
 
-258:                                              ; preds = %257, %stbi__gif_load.exit, %stbi__png_load.exit
-  %.0 = phi ptr [ %.043.i.i, %stbi__png_load.exit ], [ %.0.i, %stbi__gif_load.exit ], [ null, %257 ]
+258:                                              ; preds = %257, %stbi__gif_load.argprom.exit, %stbi__png_load.exit
+  %.0 = phi ptr [ %.043.i.i, %stbi__png_load.exit ], [ %.0.i, %stbi__gif_load.argprom.exit ], [ null, %257 ]
   ret ptr %.0
 }
 
@@ -27816,11 +27816,11 @@ stbi__getn.exit.thread:                           ; preds = %517, %stbi__getn.ex
   br i1 %570, label %573, label %574
 
 573:                                              ; preds = %568
-  call fastcc void @stbi__compute_transparency16(i32 %.val.val, i32 %.val.val269, ptr %.val268, ptr noundef %6, i32 noundef %571)
+  call fastcc void @stbi__compute_transparency16.argprom.argprom.argelim(i32 %.val.val, i32 %.val.val269, ptr %.val268, ptr noundef %6, i32 noundef %571)
   br label %575
 
 574:                                              ; preds = %568
-  call fastcc void @stbi__compute_transparency(i32 %.val.val, i32 %.val.val269, ptr %.val268, ptr noundef %5, i32 noundef %571)
+  call fastcc void @stbi__compute_transparency.argprom.argprom.argelim(i32 %.val.val, i32 %.val.val269, ptr %.val268, ptr noundef %5, i32 noundef %571)
   br label %575
 
 575:                                              ; preds = %574, %573, %567
@@ -27837,7 +27837,7 @@ stbi__getn.exit.thread:                           ; preds = %517, %stbi__getn.ex
 581:                                              ; preds = %578
   %.val273 = load ptr, ptr %0, align 8
   %.val274 = load ptr, ptr %11, align 8
-  call fastcc void @stbi__de_iphone(ptr %.val273, ptr %.val274)
+  call fastcc void @stbi__de_iphone.argprom(ptr %.val273, ptr %.val274)
   br label %582
 
 582:                                              ; preds = %581, %578, %575
@@ -27849,7 +27849,7 @@ stbi__getn.exit.thread:                           ; preds = %517, %stbi__getn.ex
   %585 = icmp ugt i32 %2, 2
   %spec.select = select i1 %585, i32 %2, i32 %584
   store i32 %spec.select, ptr %562, align 4
-  %586 = call fastcc i32 @stbi__expand_png_palette(ptr noundef %0, ptr noundef %4, i32 noundef %spec.select)
+  %586 = call fastcc i32 @stbi__expand_png_palette.argelim(ptr noundef %0, ptr noundef %4, i32 noundef %spec.select)
   %.not241 = icmp eq i32 %586, 0
   br i1 %.not241, label %.loopexit, label %591
 
@@ -27866,7 +27866,7 @@ stbi__getn.exit.thread:                           ; preds = %517, %stbi__getn.ex
   %592 = load ptr, ptr %9, align 8
   call void @free(ptr noundef %592) #50
   store ptr null, ptr %9, align 8
-  call fastcc void @stbi__get32be(ptr noundef nonnull %8)
+  call fastcc void @stbi__get32be.argelim(ptr noundef nonnull %8)
   br label %.loopexit
 
 593:                                              ; preds = %61
@@ -28365,7 +28365,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stbi__get32be(ptr noundef %0) unnamed_addr #4 {
+define internal fastcc void @stbi__get32be.argelim(ptr noundef %0) unnamed_addr #4 {
   %2 = tail call fastcc i32 @stbi__get16be(ptr noundef %0)
   %3 = tail call fastcc i32 @stbi__get16be(ptr noundef %0)
   ret void
@@ -28685,7 +28685,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbi__compute_transparency16(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #38 {
+define internal fastcc void @stbi__compute_transparency16.argprom.argprom.argelim(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #38 {
   %3 = mul i32 %.0.val.4.val, %.0.val.0.val
   %4 = icmp eq i32 %1, 2
   %.not8 = icmp eq i32 %3, 0
@@ -28754,7 +28754,7 @@ define internal fastcc void @stbi__compute_transparency16(i32 %.0.val.0.val, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbi__compute_transparency(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #38 {
+define internal fastcc void @stbi__compute_transparency.argprom.argprom.argelim(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #38 {
   %3 = mul i32 %.0.val.4.val, %.0.val.0.val
   %4 = icmp eq i32 %1, 2
   %.not8 = icmp eq i32 %3, 0
@@ -28823,7 +28823,7 @@ define internal fastcc void @stbi__compute_transparency(i32 %.0.val.0.val, i32 %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbi__de_iphone(ptr nocapture readonly %.0.val, ptr nocapture %.24.val) unnamed_addr #13 {
+define internal fastcc void @stbi__de_iphone.argprom(ptr nocapture readonly %.0.val, ptr nocapture %.24.val) unnamed_addr #13 {
   %1 = load i32, ptr %.0.val, align 8
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 4
   %3 = load i32, ptr %2, align 4
@@ -28933,7 +28933,7 @@ define internal fastcc void @stbi__de_iphone(ptr nocapture readonly %.0.val, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stbi__expand_png_palette(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @stbi__expand_png_palette.argelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #4 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 4
@@ -30248,7 +30248,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @stbi__gif_load_next(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #4 {
+define internal fastcc ptr @stbi__gif_load_next.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #4 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not175 = icmp eq ptr %6, null
@@ -33045,7 +33045,7 @@ stbiw__write_flush.exit.us.i:                     ; preds = %._crit_edge.us.i, %
   %35 = add nsw i64 %indvars.iv.i, %27
   %36 = mul nsw i64 %35, %23
   %37 = getelementptr inbounds i8, ptr %7, i64 %36
-  call fastcc void @stbiw__write_pixel(ptr noundef %0, i32 noundef %5, i32 noundef %8, i32 noundef %6, ptr noundef readonly %37)
+  call fastcc void @stbiw__write_pixel.argelim(ptr noundef %0, i32 noundef %5, i32 noundef %8, i32 noundef %6, ptr noundef readonly %37)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %26
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %34
@@ -33224,7 +33224,7 @@ define internal fastcc void @stbiw__writefv(ptr nocapture noundef nonnull readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stbiw__write_pixel(ptr noundef nonnull %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef readonly %4) unnamed_addr #4 {
+define internal fastcc void @stbiw__write_pixel.argelim(ptr noundef nonnull %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef readonly %4) unnamed_addr #4 {
   %6 = alloca [3 x i8], align 1
   switch i32 %1, label %109 [
     i32 2, label %7
@@ -33687,7 +33687,7 @@ define internal fastcc i32 @stbiw__jpg_processDU(ptr nocapture noundef nonnull r
   %166 = shl i32 %164, %165
   %167 = or i32 %166, %160
   %168 = icmp sgt i32 %163, 7
-  br i1 %168, label %.lr.ph.i, label %stbiw__jpg_writeBits.exit
+  br i1 %168, label %.lr.ph.i, label %stbiw__jpg_writeBits.argprom.exit
 
 .lr.ph.i:                                         ; preds = %158
   %169 = getelementptr i8, ptr %0, i64 8
@@ -33721,7 +33721,7 @@ define internal fastcc i32 @stbiw__jpg_processDU(ptr nocapture noundef nonnull r
   %177 = shl i32 %.02.i, 8
   %178 = add nsw i32 %.0181.i, -8
   %179 = icmp sgt i32 %.0181.i, 15
-  br i1 %179, label %170, label %stbiw__jpg_writeBits.exit
+  br i1 %179, label %170, label %stbiw__jpg_writeBits.argprom.exit
 
 180:                                              ; preds = %155
   %181 = sub nsw i32 %156, %6
@@ -33750,7 +33750,7 @@ define internal fastcc i32 @stbiw__jpg_processDU(ptr nocapture noundef nonnull r
   %198 = shl i32 %196, %197
   %199 = or i32 %198, %192
   %200 = icmp sgt i32 %195, 7
-  br i1 %200, label %.lr.ph.i151, label %stbiw__jpg_writeBits.exit158
+  br i1 %200, label %.lr.ph.i151, label %stbiw__jpg_writeBits.argprom.exit158
 
 .lr.ph.i151:                                      ; preds = %180
   %201 = getelementptr i8, ptr %0, i64 8
@@ -33784,9 +33784,9 @@ define internal fastcc i32 @stbiw__jpg_processDU(ptr nocapture noundef nonnull r
   %209 = shl i32 %.02.i152, 8
   %210 = add nsw i32 %.0181.i153, -8
   %211 = icmp sgt i32 %.0181.i153, 15
-  br i1 %211, label %202, label %stbiw__jpg_writeBits.exit158
+  br i1 %211, label %202, label %stbiw__jpg_writeBits.argprom.exit158
 
-stbiw__jpg_writeBits.exit158:                     ; preds = %208, %180
+stbiw__jpg_writeBits.argprom.exit158:             ; preds = %208, %180
   %.018.lcssa.i149 = phi i32 [ %195, %180 ], [ %210, %208 ]
   %.0.lcssa.i150 = phi i32 [ %199, %180 ], [ %209, %208 ]
   store i32 %.0.lcssa.i150, ptr %1, align 4
@@ -33799,9 +33799,9 @@ stbiw__jpg_writeBits.exit158:                     ; preds = %208, %180
   %217 = shl i32 %215, %216
   %218 = or i32 %212, %217
   %219 = icmp sgt i32 %213, 7
-  br i1 %219, label %.lr.ph.i161, label %stbiw__jpg_writeBits.exit
+  br i1 %219, label %.lr.ph.i161, label %stbiw__jpg_writeBits.argprom.exit
 
-.lr.ph.i161:                                      ; preds = %stbiw__jpg_writeBits.exit158
+.lr.ph.i161:                                      ; preds = %stbiw__jpg_writeBits.argprom.exit158
   %220 = getelementptr i8, ptr %0, i64 8
   br label %221
 
@@ -33833,17 +33833,17 @@ stbiw__jpg_writeBits.exit158:                     ; preds = %208, %180
   %228 = shl i32 %.02.i162, 8
   %229 = add nsw i32 %.0181.i163, -8
   %230 = icmp sgt i32 %.0181.i163, 15
-  br i1 %230, label %221, label %stbiw__jpg_writeBits.exit
+  br i1 %230, label %221, label %stbiw__jpg_writeBits.argprom.exit
 
-stbiw__jpg_writeBits.exit:                        ; preds = %227, %176, %stbiw__jpg_writeBits.exit158, %158
-  %storemerge232 = phi i32 [ %167, %158 ], [ %218, %stbiw__jpg_writeBits.exit158 ], [ %177, %176 ], [ %228, %227 ]
-  %231 = phi i32 [ %163, %158 ], [ %213, %stbiw__jpg_writeBits.exit158 ], [ %178, %176 ], [ %229, %227 ]
+stbiw__jpg_writeBits.argprom.exit:                ; preds = %227, %176, %stbiw__jpg_writeBits.argprom.exit158, %158
+  %storemerge232 = phi i32 [ %167, %158 ], [ %218, %stbiw__jpg_writeBits.argprom.exit158 ], [ %177, %176 ], [ %228, %227 ]
+  %231 = phi i32 [ %163, %158 ], [ %213, %stbiw__jpg_writeBits.argprom.exit158 ], [ %178, %176 ], [ %229, %227 ]
   store i32 %storemerge232, ptr %1, align 4
   store i32 %231, ptr %2, align 4
   br label %232
 
-232:                                              ; preds = %stbiw__jpg_writeBits.exit, %237
-  %.0126260 = phi i32 [ 63, %stbiw__jpg_writeBits.exit ], [ %238, %237 ]
+232:                                              ; preds = %stbiw__jpg_writeBits.argprom.exit, %237
+  %.0126260 = phi i32 [ 63, %stbiw__jpg_writeBits.argprom.exit ], [ %238, %237 ]
   %233 = zext nneg i32 %.0126260 to i64
   %234 = getelementptr inbounds [64 x i32], ptr %25, i64 0, i64 %233
   %235 = load i32, ptr %234, align 4
@@ -33911,9 +33911,9 @@ stbiw__jpg_writeBits.exit:                        ; preds = %227, %176, %stbiw__
   %263 = icmp sgt i32 %.0181.i173, 15
   br i1 %263, label %254, label %.sink.split
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %stbiw__jpg_writeBits.exit212
-  %264 = phi i32 [ %231, %.preheader.lr.ph ], [ %.018.lcssa.i203, %stbiw__jpg_writeBits.exit212 ]
-  %.0122264 = phi i32 [ 1, %.preheader.lr.ph ], [ %342, %stbiw__jpg_writeBits.exit212 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %stbiw__jpg_writeBits.argprom.exit212
+  %264 = phi i32 [ %231, %.preheader.lr.ph ], [ %.018.lcssa.i203, %stbiw__jpg_writeBits.argprom.exit212 ]
+  %.0122264 = phi i32 [ 1, %.preheader.lr.ph ], [ %342, %stbiw__jpg_writeBits.argprom.exit212 ]
   %265 = sext i32 %.0122264 to i64
   br label %266
 
@@ -33940,16 +33940,16 @@ stbiw__jpg_writeBits.exit:                        ; preds = %227, %176, %stbiw__
   %umax = call i32 @llvm.umax.i32(i32 %276, i32 1)
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %stbiw__jpg_writeBits.exit188
-  %277 = phi i32 [ %.018.lcssa.i179, %stbiw__jpg_writeBits.exit188 ], [ %264, %.lr.ph.preheader ]
-  %.0262 = phi i32 [ %293, %stbiw__jpg_writeBits.exit188 ], [ 1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %stbiw__jpg_writeBits.argprom.exit188
+  %277 = phi i32 [ %.018.lcssa.i179, %stbiw__jpg_writeBits.argprom.exit188 ], [ %264, %.lr.ph.preheader ]
+  %.0262 = phi i32 [ %293, %stbiw__jpg_writeBits.argprom.exit188 ], [ 1, %.lr.ph.preheader ]
   %278 = load i32, ptr %1, align 4
   %279 = add nsw i32 %277, %240
   %280 = sub nsw i32 24, %279
   %281 = shl i32 %241, %280
   %282 = or i32 %281, %278
   %283 = icmp sgt i32 %279, 7
-  br i1 %283, label %.lr.ph.i181, label %stbiw__jpg_writeBits.exit188
+  br i1 %283, label %.lr.ph.i181, label %stbiw__jpg_writeBits.argprom.exit188
 
 .lr.ph.i181:                                      ; preds = %.lr.ph, %289
   %.02.i182 = phi i32 [ %290, %289 ], [ %282, %.lr.ph ]
@@ -33979,9 +33979,9 @@ stbiw__jpg_writeBits.exit:                        ; preds = %227, %176, %stbiw__
   %290 = shl i32 %.02.i182, 8
   %291 = add nsw i32 %.0181.i183, -8
   %292 = icmp sgt i32 %.0181.i183, 15
-  br i1 %292, label %.lr.ph.i181, label %stbiw__jpg_writeBits.exit188
+  br i1 %292, label %.lr.ph.i181, label %stbiw__jpg_writeBits.argprom.exit188
 
-stbiw__jpg_writeBits.exit188:                     ; preds = %289, %.lr.ph
+stbiw__jpg_writeBits.argprom.exit188:             ; preds = %289, %.lr.ph
   %.018.lcssa.i179 = phi i32 [ %279, %.lr.ph ], [ %291, %289 ]
   %.0.lcssa.i180 = phi i32 [ %282, %.lr.ph ], [ %290, %289 ]
   store i32 %.0.lcssa.i180, ptr %1, align 4
@@ -33990,7 +33990,7 @@ stbiw__jpg_writeBits.exit188:                     ; preds = %289, %.lr.ph
   %exitcond305.not = icmp eq i32 %.0262, %umax
   br i1 %exitcond305.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %stbiw__jpg_writeBits.exit188
+._crit_edge:                                      ; preds = %stbiw__jpg_writeBits.argprom.exit188
   %294 = and i32 %274, 15
   br label %295
 
@@ -34021,7 +34021,7 @@ stbiw__jpg_writeBits.exit188:                     ; preds = %289, %.lr.ph
   %313 = shl i32 %311, %312
   %314 = or i32 %313, %308
   %315 = icmp sgt i32 %310, 7
-  br i1 %315, label %.lr.ph.i195, label %stbiw__jpg_writeBits.exit202
+  br i1 %315, label %.lr.ph.i195, label %stbiw__jpg_writeBits.argprom.exit202
 
 .lr.ph.i195:                                      ; preds = %295, %321
   %.02.i196 = phi i32 [ %322, %321 ], [ %314, %295 ]
@@ -34051,9 +34051,9 @@ stbiw__jpg_writeBits.exit188:                     ; preds = %289, %.lr.ph
   %322 = shl i32 %.02.i196, 8
   %323 = add nsw i32 %.0181.i197, -8
   %324 = icmp sgt i32 %.0181.i197, 15
-  br i1 %324, label %.lr.ph.i195, label %stbiw__jpg_writeBits.exit202
+  br i1 %324, label %.lr.ph.i195, label %stbiw__jpg_writeBits.argprom.exit202
 
-stbiw__jpg_writeBits.exit202:                     ; preds = %321, %295
+stbiw__jpg_writeBits.argprom.exit202:             ; preds = %321, %295
   %.018.lcssa.i193 = phi i32 [ %310, %295 ], [ %323, %321 ]
   %.0.lcssa.i194 = phi i32 [ %314, %295 ], [ %322, %321 ]
   store i32 %.0.lcssa.i194, ptr %1, align 4
@@ -34066,11 +34066,11 @@ stbiw__jpg_writeBits.exit202:                     ; preds = %321, %295
   %330 = shl i32 %328, %329
   %331 = or i32 %325, %330
   %332 = icmp sgt i32 %326, 7
-  br i1 %332, label %.lr.ph.i205, label %stbiw__jpg_writeBits.exit212
+  br i1 %332, label %.lr.ph.i205, label %stbiw__jpg_writeBits.argprom.exit212
 
-.lr.ph.i205:                                      ; preds = %stbiw__jpg_writeBits.exit202, %338
-  %.02.i206 = phi i32 [ %339, %338 ], [ %331, %stbiw__jpg_writeBits.exit202 ]
-  %.0181.i207 = phi i32 [ %340, %338 ], [ %326, %stbiw__jpg_writeBits.exit202 ]
+.lr.ph.i205:                                      ; preds = %stbiw__jpg_writeBits.argprom.exit202, %338
+  %.02.i206 = phi i32 [ %339, %338 ], [ %331, %stbiw__jpg_writeBits.argprom.exit202 ]
+  %.0181.i207 = phi i32 [ %340, %338 ], [ %326, %stbiw__jpg_writeBits.argprom.exit202 ]
   %333 = lshr i32 %.02.i206, 16
   %334 = trunc i32 %333 to i8
   %.val20.i208 = load ptr, ptr %0, align 8
@@ -34096,18 +34096,18 @@ stbiw__jpg_writeBits.exit202:                     ; preds = %321, %295
   %339 = shl i32 %.02.i206, 8
   %340 = add nsw i32 %.0181.i207, -8
   %341 = icmp sgt i32 %.0181.i207, 15
-  br i1 %341, label %.lr.ph.i205, label %stbiw__jpg_writeBits.exit212
+  br i1 %341, label %.lr.ph.i205, label %stbiw__jpg_writeBits.argprom.exit212
 
-stbiw__jpg_writeBits.exit212:                     ; preds = %338, %stbiw__jpg_writeBits.exit202
-  %.018.lcssa.i203 = phi i32 [ %326, %stbiw__jpg_writeBits.exit202 ], [ %340, %338 ]
-  %.0.lcssa.i204 = phi i32 [ %331, %stbiw__jpg_writeBits.exit202 ], [ %339, %338 ]
+stbiw__jpg_writeBits.argprom.exit212:             ; preds = %338, %stbiw__jpg_writeBits.argprom.exit202
+  %.018.lcssa.i203 = phi i32 [ %326, %stbiw__jpg_writeBits.argprom.exit202 ], [ %340, %338 ]
+  %.0.lcssa.i204 = phi i32 [ %331, %stbiw__jpg_writeBits.argprom.exit202 ], [ %339, %338 ]
   store i32 %.0.lcssa.i204, ptr %1, align 4
   store i32 %.018.lcssa.i203, ptr %2, align 4
   %342 = add nsw i32 %273, 1
   %.not.not = icmp sgt i32 %.0126260, %273
   br i1 %.not.not, label %.preheader, label %._crit_edge265
 
-._crit_edge265:                                   ; preds = %stbiw__jpg_writeBits.exit212
+._crit_edge265:                                   ; preds = %stbiw__jpg_writeBits.argprom.exit212
   %.not132 = icmp eq i32 %.0126260, 63
   br i1 %.not132, label %363, label %._crit_edge265.thread
 
@@ -34509,7 +34509,7 @@ stbir__get_filter_pixel_width.exit:               ; preds = %48, %52
   %73 = fdiv float 1.000000e+00, %.val70
   %74 = tail call float %.val6671(float noundef %73, ptr noundef %7) #50
   %75 = fmul float %74, 2.000000e+00
-  br label %stbir__get_coefficient_width.exit
+  br label %stbir__get_coefficient_width.argprom.exit
 
 76:                                               ; preds = %69
   store i32 2, ptr %66, align 8
@@ -34519,7 +34519,7 @@ stbir__get_filter_pixel_width.exit:               ; preds = %48, %52
   %78 = tail call float %.val6676(float noundef %.val75, ptr noundef %7) #50
   %79 = fmul float %78, 2.000000e+00
   %80 = fdiv float %79, %.val75
-  br label %stbir__get_coefficient_width.exit
+  br label %stbir__get_coefficient_width.argprom.exit
 
 81:                                               ; preds = %69
   %.val66 = load ptr, ptr %38, align 8
@@ -34527,9 +34527,9 @@ stbir__get_filter_pixel_width.exit:               ; preds = %48, %52
   %.val = load float, ptr %82, align 8
   %83 = tail call float %.val66(float noundef %.val, ptr noundef %7) #50
   %84 = fmul float %83, 2.000000e+00
-  br label %stbir__get_coefficient_width.exit
+  br label %stbir__get_coefficient_width.argprom.exit
 
-stbir__get_coefficient_width.exit:                ; preds = %71, %76, %81
+stbir__get_coefficient_width.argprom.exit:        ; preds = %71, %76, %81
   %.sink10.i = phi float [ %84, %81 ], [ %80, %76 ], [ %75, %71 ]
   %85 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %.sink10.i, i64 0
   %86 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %85)
@@ -34547,7 +34547,7 @@ stbir__get_coefficient_width.exit:                ; preds = %71, %76, %81
   %96 = icmp eq i32 %4, 2
   br i1 %96, label %97, label %102
 
-97:                                               ; preds = %stbir__get_coefficient_width.exit
+97:                                               ; preds = %stbir__get_coefficient_width.argprom.exit
   %98 = load i32, ptr %5, align 4
   %99 = shl nsw i32 %98, 1
   %100 = icmp sgt i32 %.pre.pre, %99
@@ -34557,8 +34557,8 @@ stbir__get_coefficient_width.exit:                ; preds = %71, %76, %81
   store i32 %99, ptr %65, align 8
   br label %102
 
-102:                                              ; preds = %97, %101, %stbir__get_coefficient_width.exit
-  %103 = phi i32 [ %.pre.pre, %97 ], [ %99, %101 ], [ %.pre.pre, %stbir__get_coefficient_width.exit ]
+102:                                              ; preds = %97, %101, %stbir__get_coefficient_width.argprom.exit
+  %103 = phi i32 [ %.pre.pre, %97 ], [ %99, %101 ], [ %.pre.pre, %stbir__get_coefficient_width.argprom.exit ]
   %104 = sdiv i32 %103, 2
   %105 = getelementptr inbounds i8, ptr %0, i64 100
   store i32 %104, ptr %105, align 4
@@ -35034,7 +35034,7 @@ stbir__get_max_split.exit:                        ; preds = %.lr.ph.i, %10
 82:                                               ; preds = %62
   %83 = icmp slt i32 %12, %73
   %84 = select i1 %83, i64 6, i64 7
-  br label %stbir__should_do_vertical_first.exit
+  br label %stbir__should_do_vertical_first.argprom.exit
 
 85:                                               ; preds = %62
   %86 = fcmp ugt float %77, 1.000000e+00
@@ -35043,22 +35043,22 @@ stbir__get_max_split.exit:                        ; preds = %.lr.ph.i, %10
 87:                                               ; preds = %85
   %.not.i = icmp ne i32 %79, 0
   %88 = zext i1 %.not.i to i64
-  br label %stbir__should_do_vertical_first.exit
+  br label %stbir__should_do_vertical_first.argprom.exit
 
 89:                                               ; preds = %85
   %90 = fcmp ugt float %77, 2.000000e+00
-  br i1 %90, label %91, label %stbir__should_do_vertical_first.exit
+  br i1 %90, label %91, label %stbir__should_do_vertical_first.argprom.exit
 
 91:                                               ; preds = %89
   %92 = fcmp ugt float %77, 3.000000e+00
-  br i1 %92, label %93, label %stbir__should_do_vertical_first.exit
+  br i1 %92, label %93, label %stbir__should_do_vertical_first.argprom.exit
 
 93:                                               ; preds = %91
   %94 = fcmp ugt float %77, 4.000000e+00
   %..i = select i1 %94, i64 6, i64 5
-  br label %stbir__should_do_vertical_first.exit
+  br label %stbir__should_do_vertical_first.argprom.exit
 
-stbir__should_do_vertical_first.exit:             ; preds = %82, %87, %89, %91, %93
+stbir__should_do_vertical_first.argprom.exit:     ; preds = %82, %87, %89, %91, %93
   %.0.i = phi i64 [ %84, %82 ], [ %88, %87 ], [ 2, %89 ], [ 3, %91 ], [ %..i, %93 ]
   %95 = getelementptr inbounds [4 x float], ptr %67, i64 %.0.i
   %96 = load float, ptr %95, align 16
@@ -35155,9 +35155,9 @@ stbir__should_do_vertical_first.exit:             ; preds = %82, %87, %89, %91, 
   %.mux487 = select i1 %55, ptr %141, ptr %140
   br label %170
 
-170:                                              ; preds = %.thread379, %stbir__should_do_vertical_first.exit
-  %.0320 = phi i32 [ 0, %stbir__should_do_vertical_first.exit ], [ %718, %.thread379 ]
-  %.0311 = phi ptr [ null, %stbir__should_do_vertical_first.exit ], [ %720, %.thread379 ]
+170:                                              ; preds = %.thread379, %stbir__should_do_vertical_first.argprom.exit
+  %.0320 = phi i32 [ 0, %stbir__should_do_vertical_first.argprom.exit ], [ %718, %.thread379 ]
+  %.0311 = phi ptr [ null, %stbir__should_do_vertical_first.argprom.exit ], [ %720, %.thread379 ]
   %171 = ptrtoint ptr %.0311 to i64
   %172 = add i64 %171, 15
   %173 = and i64 %172, -16

@@ -3645,7 +3645,7 @@ if.then.i.i65:                                    ; preds = %if.else
   %call3.val6 = load ptr, ptr %30, align 8
   %allocRegion_.i.i.i68 = getelementptr inbounds i8, ptr %call3.val, i64 86016
   %cmp.i.i.not3.i = icmp eq ptr %allocRegion_.i.i.i68, %call3.val6
-  br i1 %cmp.i.i.not3.i, label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit", label %for.body.i71
+  br i1 %cmp.i.i.not3.i, label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit", label %for.body.i71
 
 for.body.i71:                                     ; preds = %"_ZZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEEN3$_0C2ERKS9_.exit", %for.inc.i78
   %__begin2.sroa.0.04.i = phi ptr [ %add.ptr.i.i.i82, %for.inc.i78 ], [ %allocRegion_.i.i.i68, %"_ZZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEEN3$_0C2ERKS9_.exit" ]
@@ -3695,22 +3695,22 @@ for.inc.i78:                                      ; preds = %_ZNKSt8functionIFvP
   %idx.ext.i.i.i81 = zext nneg i32 %bf.clear.i.i.i.i.i80 to i64
   %add.ptr.i.i.i82 = getelementptr inbounds i8, ptr %__begin2.sroa.0.04.i, i64 %idx.ext.i.i.i81
   %cmp.i.i.not.i83 = icmp eq ptr %add.ptr.i.i.i82, %call3.val6
-  br i1 %cmp.i.i.not.i83, label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit.loopexit", label %for.body.i71
+  br i1 %cmp.i.i.not.i83, label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit.loopexit", label %for.body.i71
 
-"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit.loopexit": ; preds = %for.inc.i78
+"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit.loopexit": ; preds = %for.inc.i78
   %.pre188 = load ptr, ptr %_M_manager.i.i.i67, align 8
-  br label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit"
+  br label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit"
 
-"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit": ; preds = %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit.loopexit", %"_ZZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEEN3$_0C2ERKS9_.exit"
-  %36 = phi ptr [ %.pre188, %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit.loopexit" ], [ %29, %"_ZZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEEN3$_0C2ERKS9_.exit" ]
+"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit": ; preds = %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit.loopexit", %"_ZZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEEN3$_0C2ERKS9_.exit"
+  %36 = phi ptr [ %.pre188, %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit.loopexit" ], [ %29, %"_ZZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEEN3$_0C2ERKS9_.exit" ]
   %tobool.not.i.i.i85 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i85, label %for.inc, label %if.then.i.i.i86
 
-if.then.i.i.i86:                                  ; preds = %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit"
+if.then.i.i.i86:                                  ; preds = %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit"
   %call.i.i.i = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, i32 noundef 3) #34
   br label %for.inc
 
-for.inc:                                          ; preds = %if.then.i.i.i86, %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit", %if.then.i.i62, %_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsISt8functionIFvPNS0_6GCCellEEEEEvT_.exit59
+for.inc:                                          ; preds = %if.then.i.i.i86, %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit", %if.then.i.i62, %_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsISt8functionIFvPNS0_6GCCellEEEEEvT_.exit59
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0184, i64 32
   %cmp.i = icmp eq ptr %incdec.ptr.i, %__begin2.sroa.8.0185
   br i1 %cmp.i, label %if.then.i87, label %_ZNSt15_Deque_iteratorIN6hermes2vm7HadesGC11HeapSegmentERS3_PS3_EppEv.exit
@@ -3842,7 +3842,7 @@ if.then.i.i129:                                   ; preds = %if.else16
   %call19.val7 = load ptr, ptr %53, align 8
   %allocRegion_.i.i.i136 = getelementptr inbounds i8, ptr %call19.val, i64 86016
   %cmp.i.i.not3.i137 = icmp eq ptr %allocRegion_.i.i.i136, %call19.val7
-  br i1 %cmp.i.i.not3.i137, label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit169", label %for.body.lr.ph.i138
+  br i1 %cmp.i.i.not3.i137, label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit169", label %for.body.lr.ph.i138
 
 for.body.lr.ph.i138:                              ; preds = %"_ZZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEEN3$_0C2ERKS9_.exit134"
   %_M_manager.i.i.i.i139 = getelementptr inbounds i8, ptr %agg.tmp20, i64 16
@@ -3897,22 +3897,22 @@ for.inc.i162:                                     ; preds = %_ZNKSt8functionIFvP
   %idx.ext.i.i.i165 = zext nneg i32 %bf.clear.i.i.i.i.i164 to i64
   %add.ptr.i.i.i166 = getelementptr inbounds i8, ptr %__begin2.sroa.0.04.i142, i64 %idx.ext.i.i.i165
   %cmp.i.i.not.i167 = icmp eq ptr %add.ptr.i.i.i166, %call19.val7
-  br i1 %cmp.i.i.not.i167, label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit169.loopexit", label %for.body.i141
+  br i1 %cmp.i.i.not.i167, label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit169.loopexit", label %for.body.i141
 
-"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit169.loopexit": ; preds = %for.inc.i162
+"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit169.loopexit": ; preds = %for.inc.i162
   %.pre189 = load ptr, ptr %_M_manager.i.i.i.i139, align 8
-  br label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit169"
+  br label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit169"
 
-"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit169": ; preds = %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit169.loopexit", %"_ZZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEEN3$_0C2ERKS9_.exit134"
-  %59 = phi ptr [ %.pre189, %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit169.loopexit" ], [ %52, %"_ZZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEEN3$_0C2ERKS9_.exit134" ]
+"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit169": ; preds = %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit169.loopexit", %"_ZZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEEN3$_0C2ERKS9_.exit134"
+  %59 = phi ptr [ %.pre189, %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit169.loopexit" ], [ %52, %"_ZZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEEN3$_0C2ERKS9_.exit134" ]
   %tobool.not.i.i.i171 = icmp eq ptr %59, null
   br i1 %tobool.not.i.i.i171, label %if.end22, label %if.then.i.i.i172
 
-if.then.i.i.i172:                                 ; preds = %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit169"
+if.then.i.i.i172:                                 ; preds = %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit169"
   %call.i.i.i173 = call noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20, i32 noundef 3) #34
   br label %if.end22
 
-if.end22:                                         ; preds = %if.then.i.i.i172, %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.exit169", %if.then.i.i124, %_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsISt8functionIFvPNS0_6GCCellEEEEEvT_.exit121, %for.end
+if.end22:                                         ; preds = %if.then.i.i.i172, %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEE3$_0EEvT_.argprom.exit169", %if.then.i.i124, %_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsISt8functionIFvPNS0_6GCCellEEEEEvT_.exit121, %for.end
   %_M_manager.i.i.i175 = getelementptr inbounds i8, ptr %skipGarbageCallback, i64 16
   %60 = load ptr, ptr %_M_manager.i.i.i175, align 8
   %tobool.not.i.i.i176 = icmp eq ptr %60, null
@@ -4529,7 +4529,7 @@ if.then35:                                        ; preds = %if.end
   %call25.val8 = load ptr, ptr %level_.i.i, align 8
   %allocRegion_.i.i37 = getelementptr inbounds i8, ptr %call25.val, i64 86016
   %cmp1.i = icmp ult ptr %allocRegion_.i.i37, %call25.val8
-  br i1 %cmp1.i, label %while.body.lr.ph.i, label %"_ZN6hermes2vm7HadesGC11HeapSegment16forCompactedObjsIZNS1_18youngGenCollectionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_1EEvT_RNS0_11PointerBaseE.exit"
+  br i1 %cmp1.i, label %while.body.lr.ph.i, label %"_ZN6hermes2vm7HadesGC11HeapSegment16forCompactedObjsIZNS1_18youngGenCollectionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_1EEvT_RNS0_11PointerBaseE.argprom.exit"
 
 while.body.lr.ph.i:                               ; preds = %if.then35
   %39 = load ptr, ptr %pointerBase_.i36, align 8
@@ -4567,12 +4567,12 @@ if.end.i:                                         ; preds = %if.then.i.i40, %if.
   %idx.ext.pn.i = zext nneg i32 %idx.ext.pn.in.i to i64
   %cell.1.i = getelementptr inbounds i8, ptr %cell.02.i, i64 %idx.ext.pn.i
   %cmp.i39 = icmp ult ptr %cell.1.i, %call25.val8
-  br i1 %cmp.i39, label %while.body.i, label %"_ZN6hermes2vm7HadesGC11HeapSegment16forCompactedObjsIZNS1_18youngGenCollectionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_1EEvT_RNS0_11PointerBaseE.exit", !llvm.loop !48
+  br i1 %cmp.i39, label %while.body.i, label %"_ZN6hermes2vm7HadesGC11HeapSegment16forCompactedObjsIZNS1_18youngGenCollectionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_1EEvT_RNS0_11PointerBaseE.argprom.exit", !llvm.loop !48
 
-"_ZN6hermes2vm7HadesGC11HeapSegment16forCompactedObjsIZNS1_18youngGenCollectionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_1EEvT_RNS0_11PointerBaseE.exit": ; preds = %if.end.i, %if.then35
+"_ZN6hermes2vm7HadesGC11HeapSegment16forCompactedObjsIZNS1_18youngGenCollectionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_1EEvT_RNS0_11PointerBaseE.argprom.exit": ; preds = %if.end.i, %if.then35
   br i1 %cmp.i, label %if.then39, label %if.end47
 
-if.then39:                                        ; preds = %"_ZN6hermes2vm7HadesGC11HeapSegment16forCompactedObjsIZNS1_18youngGenCollectionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_1EEvT_RNS0_11PointerBaseE.exit"
+if.then39:                                        ; preds = %"_ZN6hermes2vm7HadesGC11HeapSegment16forCompactedObjsIZNS1_18youngGenCollectionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_1EEvT_RNS0_11PointerBaseE.argprom.exit"
   %42 = load ptr, ptr %segment, align 8
   %call42.val = load ptr, ptr %42, align 8
   %43 = getelementptr i8, ptr %42, i64 16
@@ -4619,7 +4619,7 @@ if.end.i54:                                       ; preds = %if.then.i.i64, %if.
   %cmp.i60 = icmp ult ptr %cell.1.i59, %call42.val9
   br i1 %cmp.i60, label %while.body.i45, label %if.end47, !llvm.loop !48
 
-if.end47:                                         ; preds = %if.end.i54, %if.then39, %"_ZN6hermes2vm7HadesGC11HeapSegment16forCompactedObjsIZNS1_18youngGenCollectionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_1EEvT_RNS0_11PointerBaseE.exit", %if.end
+if.end47:                                         ; preds = %if.end.i54, %if.then39, %"_ZN6hermes2vm7HadesGC11HeapSegment16forCompactedObjsIZNS1_18youngGenCollectionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_1EEvT_RNS0_11PointerBaseE.argprom.exit", %if.end
   %youngGenFinalizables_.i = getelementptr inbounds i8, ptr %this, i64 840
   %47 = load ptr, ptr %youngGenFinalizables_.i, align 8
   %_M_finish.i.i67 = getelementptr inbounds i8, ptr %this, i64 848
@@ -7847,11 +7847,11 @@ do.body.i:                                        ; preds = %do.cond.i, %entry
   %cmp147.not.i = icmp eq ptr %1, %0
   br i1 %cmp147.not.i, label %for.end29.i, label %for.body.i
 
-for.body.i:                                       ; preds = %do.body.i, %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.exit.i"
-  %2 = phi ptr [ %221, %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.exit.i" ], [ %0, %do.body.i ]
-  %conv151.i = phi i64 [ %conv.i, %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.exit.i" ], [ 0, %do.body.i ]
-  %newReachableValueFound.0150.i = phi i1 [ %spec.select.i, %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.exit.i" ], [ false, %do.body.i ]
-  %i.0148.i = phi i32 [ %inc.i, %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.exit.i" ], [ 0, %do.body.i ]
+for.body.i:                                       ; preds = %do.body.i, %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.argprom.exit.i"
+  %2 = phi ptr [ %221, %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.argprom.exit.i" ], [ %0, %do.body.i ]
+  %conv151.i = phi i64 [ %conv.i, %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.argprom.exit.i" ], [ 0, %do.body.i ]
+  %newReachableValueFound.0150.i = phi i1 [ %spec.select.i, %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.argprom.exit.i" ], [ false, %do.body.i ]
+  %i.0148.i = phi i32 [ %inc.i, %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.argprom.exit.i" ], [ 0, %do.body.i ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %2, i64 %conv151.i
   %3 = load ptr, ptr %add.ptr.i.i, align 8
   %4 = load ptr, ptr %scannedWeakMaps.i, align 8
@@ -9515,7 +9515,7 @@ for.inc.i.i.i.i:                                  ; preds = %if.then13.i.i.i.i, 
   %retval.sroa.0.0.i.i.i.i = phi ptr [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes2vm6detail10WeakRefKeyESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS3_6GCBase28markFromReachableWeakMapKeysINS3_7HadesGC12MarkAcceptorEPFbPKNS3_6GCCellEEZNSG_22completeWeakMapMarkingERSH_E3$_0EEbRSG_PNS3_13JSWeakMapImplILNS3_8CellKindE51EEERT_PN4llvh8DenseMapIST_SA_NSW_12DenseMapInfoIST_EENSW_6detail12DenseMapPairIST_SA_EEEET0_T1_EUlS6_E_EEESU_SU_SU_S15_.exit.i.i.i.i" ], [ %72, %for.end.i.i.i.i.i.i ], [ %72, %if.end.i.i97.i ], [ %retval.sroa.0.2.i.i.i.i, %for.inc.i.i.i.i ]
   %218 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.not.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i, %218
-  br i1 %cmp.i.not.i.i.i.i, label %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.exit.i", label %if.then.i.i.i60.i.i
+  br i1 %cmp.i.not.i.i.i.i, label %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.argprom.exit.i", label %if.then.i.i.i60.i.i
 
 if.then.i.i.i60.i.i:                              ; preds = %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes2vm6detail10WeakRefKeyESt6vectorIS6_SaIS6_EEEEZNS3_6GCBase28markFromReachableWeakMapKeysINS3_7HadesGC12MarkAcceptorEPFbPKNS3_6GCCellEEZNSE_22completeWeakMapMarkingERSF_E3$_0EEbRSE_PNS3_13JSWeakMapImplILNS3_8CellKindE51EEERT_PN4llvh8DenseMapISR_SA_NSU_12DenseMapInfoISR_EENSU_6detail12DenseMapPairISR_SA_EEEET0_T1_EUlS6_E_ESS_SS_SS_S13_.exit.i.i"
   %219 = load ptr, ptr %keyList.0.i.i, align 8
@@ -9524,9 +9524,9 @@ if.then.i.i.i60.i.i:                              ; preds = %"_ZSt9remove_ifIN9_
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %add.ptr.i.i57.i.i = getelementptr inbounds i8, ptr %219, i64 %sub.ptr.sub.i.i.i.i
   store ptr %add.ptr.i.i57.i.i, ptr %_M_finish.i.i.i, align 8
-  br label %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.exit.i"
+  br label %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.argprom.exit.i"
 
-"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.exit.i": ; preds = %if.then.i.i.i60.i.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes2vm6detail10WeakRefKeyESt6vectorIS6_SaIS6_EEEEZNS3_6GCBase28markFromReachableWeakMapKeysINS3_7HadesGC12MarkAcceptorEPFbPKNS3_6GCCellEEZNSE_22completeWeakMapMarkingERSF_E3$_0EEbRSE_PNS3_13JSWeakMapImplILNS3_8CellKindE51EEERT_PN4llvh8DenseMapISR_SA_NSU_12DenseMapInfoISR_EENSU_6detail12DenseMapPairISR_SA_EEEET0_T1_EUlS6_E_ESS_SS_SS_S13_.exit.i.i"
+"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.argprom.exit.i": ; preds = %if.then.i.i.i60.i.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes2vm6detail10WeakRefKeyESt6vectorIS6_SaIS6_EEEEZNS3_6GCBase28markFromReachableWeakMapKeysINS3_7HadesGC12MarkAcceptorEPFbPKNS3_6GCCellEEZNSE_22completeWeakMapMarkingERSF_E3$_0EEbRSE_PNS3_13JSWeakMapImplILNS3_8CellKindE51EEERT_PN4llvh8DenseMapISR_SA_NSU_12DenseMapInfoISR_EENSU_6detail12DenseMapPairISR_SA_EEEET0_T1_EUlS6_E_ESS_SS_SS_S13_.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %weakMap.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp3.i.i)
   %spec.select.i = select i1 %newlyMarkedValue.i.14.i, i1 true, i1 %newReachableValueFound.1.i
@@ -9541,7 +9541,7 @@ if.then.i.i.i60.i.i:                              ; preds = %"_ZSt9remove_ifIN9_
   %cmp.i = icmp ugt i64 %sub.ptr.div.i.i, %conv.i
   br i1 %cmp.i, label %for.body.i, label %do.cond.i, !llvm.loop !132
 
-do.cond.i:                                        ; preds = %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.exit.i"
+do.cond.i:                                        ; preds = %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.argprom.exit.i"
   br i1 %spec.select.i, label %do.body.i, label %for.cond22.preheader.i, !llvm.loop !133
 
 for.cond22.preheader.i:                           ; preds = %do.cond.i
@@ -9620,7 +9620,7 @@ for.end29.i:                                      ; preds = %do.body.i, %_ZN6her
   %231 = load i32, ptr %NumBuckets.i.i.i.i.i.i21.i, align 8
   %cmp.i.i54.i = icmp eq i32 %231, 0
   %.pre1.i.i = load ptr, ptr %unreachableKeys.i, align 8
-  br i1 %cmp.i.i54.i, label %"_ZN6hermes2vm6GCBase22completeWeakMapMarkingINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0ZNS3_22completeWeakMapMarkingESA_E3$_1ZNS3_22completeWeakMapMarkingESA_E3$_2EEjRS3_RT_RSt6vectorIPNS0_13JSWeakMapImplILNS0_8CellKindE51EEESaISL_EET0_T1_T2_T3_.exit", label %for.body.preheader.i.i.i
+  br i1 %cmp.i.i54.i, label %"_ZN6hermes2vm6GCBase22completeWeakMapMarkingINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0ZNS3_22completeWeakMapMarkingESA_E3$_1ZNS3_22completeWeakMapMarkingESA_E3$_2EEjRS3_RT_RSt6vectorIPNS0_13JSWeakMapImplILNS0_8CellKindE51EEESaISL_EET0_T1_T2_T3_.argprom.exit", label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %for.end29.i
   %idx.ext.i.i.i55.i = zext i32 %231 to i64
@@ -9653,9 +9653,9 @@ if.end13.i.i.i:                                   ; preds = %if.then.i.i.i.i.i.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm13JSWeakMapImplILNS3_8CellKindE51EEESt6vectorIPNS3_6detail10WeakRefKeyESaISB_EENS_12DenseMapInfoIS7_EENS_6detail12DenseMapPairIS7_SD_EEEES7_SD_SF_SI_E10destroyAllEv.exit.loopexit.i.i: ; preds = %if.end13.i.i.i
   %.pre.i.i = load ptr, ptr %unreachableKeys.i, align 8
-  br label %"_ZN6hermes2vm6GCBase22completeWeakMapMarkingINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0ZNS3_22completeWeakMapMarkingESA_E3$_1ZNS3_22completeWeakMapMarkingESA_E3$_2EEjRS3_RT_RSt6vectorIPNS0_13JSWeakMapImplILNS0_8CellKindE51EEESaISL_EET0_T1_T2_T3_.exit"
+  br label %"_ZN6hermes2vm6GCBase22completeWeakMapMarkingINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0ZNS3_22completeWeakMapMarkingESA_E3$_1ZNS3_22completeWeakMapMarkingESA_E3$_2EEjRS3_RT_RSt6vectorIPNS0_13JSWeakMapImplILNS0_8CellKindE51EEESaISL_EET0_T1_T2_T3_.argprom.exit"
 
-"_ZN6hermes2vm6GCBase22completeWeakMapMarkingINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0ZNS3_22completeWeakMapMarkingESA_E3$_1ZNS3_22completeWeakMapMarkingESA_E3$_2EEjRS3_RT_RSt6vectorIPNS0_13JSWeakMapImplILNS0_8CellKindE51EEESaISL_EET0_T1_T2_T3_.exit": ; preds = %for.end29.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm13JSWeakMapImplILNS3_8CellKindE51EEESt6vectorIPNS3_6detail10WeakRefKeyESaISB_EENS_12DenseMapInfoIS7_EENS_6detail12DenseMapPairIS7_SD_EEEES7_SD_SF_SI_E10destroyAllEv.exit.loopexit.i.i
+"_ZN6hermes2vm6GCBase22completeWeakMapMarkingINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0ZNS3_22completeWeakMapMarkingESA_E3$_1ZNS3_22completeWeakMapMarkingESA_E3$_2EEjRS3_RT_RSt6vectorIPNS0_13JSWeakMapImplILNS0_8CellKindE51EEESaISL_EET0_T1_T2_T3_.argprom.exit": ; preds = %for.end29.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm13JSWeakMapImplILNS3_8CellKindE51EEESt6vectorIPNS3_6detail10WeakRefKeyESaISB_EENS_12DenseMapInfoIS7_EENS_6detail12DenseMapPairIS7_SD_EEEES7_SD_SF_SI_E10destroyAllEv.exit.loopexit.i.i
   %234 = phi ptr [ %.pre.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm13JSWeakMapImplILNS3_8CellKindE51EEESt6vectorIPNS3_6detail10WeakRefKeyESaISB_EENS_12DenseMapInfoIS7_EENS_6detail12DenseMapPairIS7_SD_EEEES7_SD_SF_SI_E10destroyAllEv.exit.loopexit.i.i ], [ %.pre1.i.i, %for.end29.i ]
   call void @_ZdlPv(ptr noundef %234) #34
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %unreachableKeys.i)
@@ -9666,11 +9666,11 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm13JSWeakMapImplILNS3_8CellKindE5
   %tobool.not.i.i6 = icmp eq ptr %236, %235
   br i1 %tobool.not.i.i6, label %_ZNSt6vectorIPN6hermes2vm13JSWeakMapImplILNS1_8CellKindE51EEESaIS5_EE5clearEv.exit, label %if.then.i.i7
 
-if.then.i.i7:                                     ; preds = %"_ZN6hermes2vm6GCBase22completeWeakMapMarkingINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0ZNS3_22completeWeakMapMarkingESA_E3$_1ZNS3_22completeWeakMapMarkingESA_E3$_2EEjRS3_RT_RSt6vectorIPNS0_13JSWeakMapImplILNS0_8CellKindE51EEESaISL_EET0_T1_T2_T3_.exit"
+if.then.i.i7:                                     ; preds = %"_ZN6hermes2vm6GCBase22completeWeakMapMarkingINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0ZNS3_22completeWeakMapMarkingESA_E3$_1ZNS3_22completeWeakMapMarkingESA_E3$_2EEjRS3_RT_RSt6vectorIPNS0_13JSWeakMapImplILNS0_8CellKindE51EEESaISL_EET0_T1_T2_T3_.argprom.exit"
   store ptr %235, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIPN6hermes2vm13JSWeakMapImplILNS1_8CellKindE51EEESaIS5_EE5clearEv.exit
 
-_ZNSt6vectorIPN6hermes2vm13JSWeakMapImplILNS1_8CellKindE51EEESaIS5_EE5clearEv.exit: ; preds = %"_ZN6hermes2vm6GCBase22completeWeakMapMarkingINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0ZNS3_22completeWeakMapMarkingESA_E3$_1ZNS3_22completeWeakMapMarkingESA_E3$_2EEjRS3_RT_RSt6vectorIPNS0_13JSWeakMapImplILNS0_8CellKindE51EEESaISL_EET0_T1_T2_T3_.exit", %if.then.i.i7
+_ZNSt6vectorIPN6hermes2vm13JSWeakMapImplILNS1_8CellKindE51EEESaIS5_EE5clearEv.exit: ; preds = %"_ZN6hermes2vm6GCBase22completeWeakMapMarkingINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0ZNS3_22completeWeakMapMarkingESA_E3$_1ZNS3_22completeWeakMapMarkingESA_E3$_2EEjRS3_RT_RSt6vectorIPNS0_13JSWeakMapImplILNS0_8CellKindE51EEESaISL_EET0_T1_T2_T3_.argprom.exit", %if.then.i.i7
   ret void
 }
 
@@ -9888,7 +9888,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %call17.val3 = load ptr, ptr %18, align 8
   %allocRegion_.i.i.i = getelementptr inbounds i8, ptr %call17.val, i64 86016
   %cmp.i.i.not3.i = icmp eq ptr %allocRegion_.i.i.i, %call17.val3
-  br i1 %cmp.i.i.not3.i, label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_11finalizeAllEvE3$_0EEvT_.exit", label %for.body.i21
+  br i1 %cmp.i.i.not3.i, label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_11finalizeAllEvE3$_0EEvT_.argprom.exit", label %for.body.i21
 
 for.body.i21:                                     ; preds = %for.body, %for.inc.i29
   %__begin2.sroa.0.04.i = phi ptr [ %add.ptr.i.i.i, %for.inc.i29 ], [ %allocRegion_.i.i.i, %for.body ]
@@ -9918,23 +9918,23 @@ for.inc.i29:                                      ; preds = %if.then.i.i.i28, %i
   %idx.ext.i.i.i = zext nneg i32 %bf.clear.i.i.i.i.i to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.04.i, i64 %idx.ext.i.i.i
   %cmp.i.i.not.i = icmp eq ptr %add.ptr.i.i.i, %call17.val3
-  br i1 %cmp.i.i.not.i, label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_11finalizeAllEvE3$_0EEvT_.exit", label %for.body.i21
+  br i1 %cmp.i.i.not.i, label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_11finalizeAllEvE3$_0EEvT_.argprom.exit", label %for.body.i21
 
-"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_11finalizeAllEvE3$_0EEvT_.exit": ; preds = %for.inc.i29, %for.body
+"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_11finalizeAllEvE3$_0EEvT_.argprom.exit": ; preds = %for.inc.i29, %for.body
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.038, i64 32
   %cmp.i31 = icmp eq ptr %incdec.ptr.i, %__begin2.sroa.8.039
   br i1 %cmp.i31, label %if.then.i33, label %_ZNSt15_Deque_iteratorIN6hermes2vm7HadesGC11HeapSegmentERS3_PS3_EppEv.exit
 
-if.then.i33:                                      ; preds = %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_11finalizeAllEvE3$_0EEvT_.exit"
+if.then.i33:                                      ; preds = %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_11finalizeAllEvE3$_0EEvT_.argprom.exit"
   %add.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.11.040, i64 8
   %21 = load ptr, ptr %add.ptr.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %21, i64 512
   br label %_ZNSt15_Deque_iteratorIN6hermes2vm7HadesGC11HeapSegmentERS3_PS3_EppEv.exit
 
-_ZNSt15_Deque_iteratorIN6hermes2vm7HadesGC11HeapSegmentERS3_PS3_EppEv.exit: ; preds = %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_11finalizeAllEvE3$_0EEvT_.exit", %if.then.i33
-  %__begin2.sroa.0.1 = phi ptr [ %21, %if.then.i33 ], [ %incdec.ptr.i, %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_11finalizeAllEvE3$_0EEvT_.exit" ]
-  %__begin2.sroa.8.1 = phi ptr [ %add.ptr.i.i, %if.then.i33 ], [ %__begin2.sroa.8.039, %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_11finalizeAllEvE3$_0EEvT_.exit" ]
-  %__begin2.sroa.11.1 = phi ptr [ %add.ptr.i, %if.then.i33 ], [ %__begin2.sroa.11.040, %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_11finalizeAllEvE3$_0EEvT_.exit" ]
+_ZNSt15_Deque_iteratorIN6hermes2vm7HadesGC11HeapSegmentERS3_PS3_EppEv.exit: ; preds = %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_11finalizeAllEvE3$_0EEvT_.argprom.exit", %if.then.i33
+  %__begin2.sroa.0.1 = phi ptr [ %21, %if.then.i33 ], [ %incdec.ptr.i, %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_11finalizeAllEvE3$_0EEvT_.argprom.exit" ]
+  %__begin2.sroa.8.1 = phi ptr [ %add.ptr.i.i, %if.then.i33 ], [ %__begin2.sroa.8.039, %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_11finalizeAllEvE3$_0EEvT_.argprom.exit" ]
+  %__begin2.sroa.11.1 = phi ptr [ %add.ptr.i, %if.then.i33 ], [ %__begin2.sroa.11.040, %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_11finalizeAllEvE3$_0EEvT_.argprom.exit" ]
   %cmp.i.i.not = icmp eq ptr %__begin2.sroa.0.1, %15
   br i1 %cmp.i.i.not, label %for.end, label %for.body
 
@@ -11876,7 +11876,7 @@ if.end4:                                          ; preds = %if.end
   %youngGen_.val1 = load ptr, ptr %3, align 8
   %allocRegion_.i.i.i = getelementptr inbounds i8, ptr %youngGen_.val, i64 86016
   %cmp.i.i.not3.i = icmp eq ptr %allocRegion_.i.i.i, %youngGen_.val1
-  br i1 %cmp.i.i.not3.i, label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_23promoteYoungGenToOldGenEvE3$_0EEvT_.exit", label %for.body.lr.ph.i
+  br i1 %cmp.i.i.not3.i, label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_23promoteYoungGenToOldGenEvE3$_0EEvT_.argprom.exit", label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end4
   %4 = getelementptr inbounds i8, ptr %boundary.i.i.i, i64 8
@@ -11907,27 +11907,27 @@ if.then.i:                                        ; preds = %for.body.i
   store i64 %add.i.i.i.i, ptr %boundary.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i.i, ptr %4, align 8
   %cmp.i.i4.i = icmp ult ptr %add.ptr.i.i.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp.i.i4.i, label %if.then.i.i.i, label %"_ZZN6hermes2vm7HadesGC23promoteYoungGenToOldGenEvENK3$_0clEPNS0_6GCCellE.exit.i"
+  br i1 %cmp.i.i4.i, label %if.then.i.i.i, label %"_ZZN6hermes2vm7HadesGC23promoteYoungGenToOldGenEvENK3$_0clEPNS0_6GCCellE.argprom.exit.i"
 
 if.then.i.i.i:                                    ; preds = %if.then.i
   call void @_ZN6hermes2vm9CardTable16updateBoundariesEPNS1_8BoundaryEPKcS5_(ptr noundef nonnull align 1 dereferenceable(16384) %6, ptr noundef nonnull %boundary.i.i.i, ptr noundef nonnull %__begin2.sroa.0.04.i, ptr noundef nonnull %add.ptr.i.i.i) #34
   %bf.load.i.i.i.i.pre.pre.i = load i32, ptr %__begin2.sroa.0.04.i, align 4
-  br label %"_ZZN6hermes2vm7HadesGC23promoteYoungGenToOldGenEvENK3$_0clEPNS0_6GCCellE.exit.i"
+  br label %"_ZZN6hermes2vm7HadesGC23promoteYoungGenToOldGenEvENK3$_0clEPNS0_6GCCellE.argprom.exit.i"
 
-"_ZZN6hermes2vm7HadesGC23promoteYoungGenToOldGenEvENK3$_0clEPNS0_6GCCellE.exit.i": ; preds = %if.then.i.i.i, %if.then.i
+"_ZZN6hermes2vm7HadesGC23promoteYoungGenToOldGenEvENK3$_0clEPNS0_6GCCellE.argprom.exit.i": ; preds = %if.then.i.i.i, %if.then.i
   %bf.load.i.i.i.i.pre.i = phi i32 [ %bf.load.i.i.i.i.i.i.i.i.i.i, %if.then.i ], [ %bf.load.i.i.i.i.pre.pre.i, %if.then.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %boundary.i.i.i)
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %"_ZZN6hermes2vm7HadesGC23promoteYoungGenToOldGenEvENK3$_0clEPNS0_6GCCellE.exit.i", %for.body.i
-  %bf.load.i.i.i.i.i = phi i32 [ %bf.load.i.i.i.i.i.i.i.i.i.i, %for.body.i ], [ %bf.load.i.i.i.i.pre.i, %"_ZZN6hermes2vm7HadesGC23promoteYoungGenToOldGenEvENK3$_0clEPNS0_6GCCellE.exit.i" ]
+for.inc.i:                                        ; preds = %"_ZZN6hermes2vm7HadesGC23promoteYoungGenToOldGenEvENK3$_0clEPNS0_6GCCellE.argprom.exit.i", %for.body.i
+  %bf.load.i.i.i.i.i = phi i32 [ %bf.load.i.i.i.i.i.i.i.i.i.i, %for.body.i ], [ %bf.load.i.i.i.i.pre.i, %"_ZZN6hermes2vm7HadesGC23promoteYoungGenToOldGenEvENK3$_0clEPNS0_6GCCellE.argprom.exit.i" ]
   %bf.clear.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i, 16777215
   %idx.ext.i.i.i = zext nneg i32 %bf.clear.i.i.i.i.i to i64
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.04.i, i64 %idx.ext.i.i.i
   %cmp.i.i.not.i = icmp eq ptr %add.ptr.i.i5.i, %youngGen_.val1
-  br i1 %cmp.i.i.not.i, label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_23promoteYoungGenToOldGenEvE3$_0EEvT_.exit", label %for.body.i
+  br i1 %cmp.i.i.not.i, label %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_23promoteYoungGenToOldGenEvE3$_0EEvT_.argprom.exit", label %for.body.i
 
-"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_23promoteYoungGenToOldGenEvE3$_0EEvT_.exit": ; preds = %for.inc.i, %if.end4
+"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_23promoteYoungGenToOldGenEvE3$_0EEvT_.argprom.exit": ; preds = %for.inc.i, %if.end4
   %oldGen_ = getelementptr inbounds i8, ptr %this, i64 872
   call void @_ZN6hermes2vm14AlignedStorageC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(16) %newYoungGen) #34
   %level_.i.i = getelementptr inbounds i8, ptr %agg.tmp6, i64 16
@@ -11940,8 +11940,8 @@ for.inc.i:                                        ; preds = %"_ZZN6hermes2vm7Had
   %bf.load.i4.pre = load i8, ptr %HasError.i, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_23promoteYoungGenToOldGenEvE3$_0EEvT_.exit", %if.then2
-  %bf.load.i4 = phi i8 [ %bf.load.i4.pre, %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_23promoteYoungGenToOldGenEvE3$_0EEvT_.exit" ], [ %bf.load.i, %if.then2 ]
+cleanup:                                          ; preds = %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_23promoteYoungGenToOldGenEvE3$_0EEvT_.argprom.exit", %if.then2
+  %bf.load.i4 = phi i8 [ %bf.load.i4.pre, %"_ZN6hermes2vm7HadesGC11HeapSegment10forAllObjsIZNS1_23promoteYoungGenToOldGenEvE3$_0EEvT_.argprom.exit" ], [ %bf.load.i, %if.then2 ]
   %bf.cast.i5 = trunc i8 %bf.load.i4 to i1
   br i1 %bf.cast.i5, label %return, label %if.then.i6
 
@@ -17711,14 +17711,14 @@ entry:
   %mallocSize_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %mallocSize_.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN6hermes2vm7HadesGC25getHeapInfoWithMallocSizeERNS1_6GCBase8HeapInfoEE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %cond.true.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN6hermes2vm7HadesGC25getHeapInfoWithMallocSizeERNS1_6GCBase8HeapInfoEE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %cond.true.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %entry
   %call.i.i.i.i = tail call noundef i64 %1(ptr noundef nonnull %__args.val) #34
   %2 = trunc i64 %call.i.i.i.i to i32
-  br label %"_ZSt10__invoke_rIvRZN6hermes2vm7HadesGC25getHeapInfoWithMallocSizeERNS1_6GCBase8HeapInfoEE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
+  br label %"_ZSt10__invoke_rIvRZN6hermes2vm7HadesGC25getHeapInfoWithMallocSizeERNS1_6GCBase8HeapInfoEE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN6hermes2vm7HadesGC25getHeapInfoWithMallocSizeERNS1_6GCBase8HeapInfoEE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %entry, %cond.true.i.i.i.i
+"_ZSt10__invoke_rIvRZN6hermes2vm7HadesGC25getHeapInfoWithMallocSizeERNS1_6GCBase8HeapInfoEE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %entry, %cond.true.i.i.i.i
   %cond.i.i.i.i = phi i32 [ %2, %cond.true.i.i.i.i ], [ 0, %entry ]
   %3 = load ptr, ptr %__functor, align 8
   %mallocSizeEstimate.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
@@ -18552,11 +18552,11 @@ _ZNSt3_V222condition_variable_any4waitISt11unique_lockISt15recursive_mutexEEEvRT
   call void @_ZN6hermes2vm7HadesGC18incrementalCollectEb(ptr noundef nonnull align 8 dereferenceable(8152) %call.val, i1 noundef zeroext true)
   %19 = load i8, ptr %concurrentPhase_.i.i.i, align 8
   switch i8 %19, label %while.cond.i.i.i [
-    i8 0, label %"_ZSt10__invoke_rIvRZN6hermes2vm7HadesGC21collectOGInBackgroundEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
-    i8 2, label %"_ZSt10__invoke_rIvRZN6hermes2vm7HadesGC21collectOGInBackgroundEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
+    i8 0, label %"_ZSt10__invoke_rIvRZN6hermes2vm7HadesGC21collectOGInBackgroundEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+    i8 2, label %"_ZSt10__invoke_rIvRZN6hermes2vm7HadesGC21collectOGInBackgroundEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
   ]
 
-"_ZSt10__invoke_rIvRZN6hermes2vm7HadesGC21collectOGInBackgroundEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %"_ZNSt3_V222condition_variable_any4waitISt11unique_lockISt15recursive_mutexEZZN6hermes2vm7HadesGC21collectOGInBackgroundEvENK3$_0clEvEUlvE_EEvRT_T0_.exit.i.i.i", %"_ZNSt3_V222condition_variable_any4waitISt11unique_lockISt15recursive_mutexEZZN6hermes2vm7HadesGC21collectOGInBackgroundEvENK3$_0clEvEUlvE_EEvRT_T0_.exit.i.i.i"
+"_ZSt10__invoke_rIvRZN6hermes2vm7HadesGC21collectOGInBackgroundEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %"_ZNSt3_V222condition_variable_any4waitISt11unique_lockISt15recursive_mutexEZZN6hermes2vm7HadesGC21collectOGInBackgroundEvENK3$_0clEvEUlvE_EEvRT_T0_.exit.i.i.i", %"_ZNSt3_V222condition_variable_any4waitISt11unique_lockISt15recursive_mutexEZZN6hermes2vm7HadesGC21collectOGInBackgroundEvENK3$_0clEvEUlvE_EEvRT_T0_.exit.i.i.i"
   %call1.i.i.i.i.i2.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %gcMutex_.i.i.i) #34
   ret void
 }

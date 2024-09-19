@@ -48,7 +48,7 @@ define ptr @PMPI_Errhandler_f2c(i32 noundef %0) #0 {
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errhandler_f_to_c_table, i64 88), align 8
   %.not = icmp slt i32 %0, %13
   %or.cond = select i1 %12, i1 %.not, i1 false
-  br i1 %or.cond, label %14, label %opal_pointer_array_get_item.exit
+  br i1 %or.cond, label %14, label %opal_pointer_array_get_item.argprom.exit
 
 14:                                               ; preds = %11
   %15 = load i8, ptr @opal_uses_threads, align 1
@@ -67,19 +67,19 @@ define ptr @PMPI_Errhandler_f2c(i32 noundef %0) #0 {
   %23 = getelementptr inbounds ptr, ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = trunc i8 %20 to i1
-  br i1 %25, label %26, label %opal_pointer_array_get_item.exit
+  br i1 %25, label %26, label %opal_pointer_array_get_item.argprom.exit
 
 26:                                               ; preds = %19
   %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errhandler_f_to_c_table, i64 32)) #3
-  br label %opal_pointer_array_get_item.exit
+  br label %opal_pointer_array_get_item.argprom.exit
 
 switch.lookup:                                    ; preds = %1
   %28 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.PMPI_Errhandler_f2c, i64 0, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %opal_pointer_array_get_item.exit
+  br label %opal_pointer_array_get_item.argprom.exit
 
-opal_pointer_array_get_item.exit:                 ; preds = %switch.lookup, %26, %19, %11
+opal_pointer_array_get_item.argprom.exit:         ; preds = %switch.lookup, %26, %19, %11
   %.0 = phi ptr [ null, %11 ], [ %24, %19 ], [ %24, %26 ], [ %switch.load, %switch.lookup ]
   ret ptr %.0
 }

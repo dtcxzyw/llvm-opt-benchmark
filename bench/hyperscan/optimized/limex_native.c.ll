@@ -6071,7 +6071,7 @@ entry:
 
 do.end:                                           ; preds = %entry
   %sub = sub i64 %offset, %buflen
-  call fastcc void @nfaExecLimEx32_Rev_Stream(ptr noundef nonnull %add.ptr, ptr noundef %buf, i64 noundef %buflen, ptr noundef %ctx, i64 noundef %sub)
+  call fastcc void @nfaExecLimEx32_Rev_Stream.retelim(ptr noundef nonnull %add.ptr, ptr noundef %buf, i64 noundef %buflen, ptr noundef %ctx, i64 noundef %sub)
   br label %if.end
 
 if.end:                                           ; preds = %do.end, %entry
@@ -6081,7 +6081,7 @@ if.end:                                           ; preds = %do.end, %entry
 
 do.end6:                                          ; preds = %if.end
   %sub7 = sub i64 %offset.addr.0, %hlen
-  call fastcc void @nfaExecLimEx32_Rev_Stream(ptr noundef nonnull %add.ptr, ptr noundef %hbuf, i64 noundef %hlen, ptr noundef %ctx, i64 noundef %sub7)
+  call fastcc void @nfaExecLimEx32_Rev_Stream.retelim(ptr noundef nonnull %add.ptr, ptr noundef %hbuf, i64 noundef %hlen, ptr noundef %ctx, i64 noundef %sub7)
   br label %if.end9
 
 if.end9:                                          ; preds = %do.end6, %if.end
@@ -6252,7 +6252,7 @@ if.end19:                                         ; preds = %while.cond.i.backed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nfaExecLimEx32_Rev_Stream(ptr noundef %limex, ptr nocapture noundef readonly %input, i64 noundef range(i64 1, 0) %length, ptr nocapture noundef nonnull %ctx, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc void @nfaExecLimEx32_Rev_Stream.retelim(ptr noundef %limex, ptr nocapture noundef readonly %input, i64 noundef range(i64 1, 0) %length, ptr nocapture noundef nonnull %ctx, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %limex, i64 640
   %exceptionMask1 = getelementptr inbounds i8, ptr %limex, i64 368

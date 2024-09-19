@@ -555,7 +555,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn18LayerNormLayerImpl8finalizeERKNS_11
   %9 = sext i32 %.val to i64
   %.idx = shl nsw i64 %9, 2
   %.not = icmp eq i32 %.val, 0
-  br i1 %.not, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit, label %10
+  br i1 %.not, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit, label %10
 
 10:                                               ; preds = %5
   %11 = icmp slt i32 %.val, 0
@@ -576,14 +576,14 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %13, ptr align 4 %.val5, i64 %.idx, i1 false)
   %14 = getelementptr inbounds i8, ptr %13, i64 %.idx
   %15 = ptrtoint ptr %14 to i64
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %12, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %5, %.noexc11
+_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %5, %.noexc11
   %.sroa.0.0 = phi ptr [ %13, %.noexc11 ], [ null, %5 ]
   %.sroa.7.0 = phi i64 [ %15, %.noexc11 ], [ 0, %5 ]
   %17 = getelementptr inbounds i8, ptr %0, i64 104
@@ -598,14 +598,14 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %5, %.noexc11
   %or.cond.i = and i1 %.not.i, %24
   br i1 %or.cond.i, label %26, label %25
 
-25:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+25:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
   invoke void @_ZN2cv6detail17check_failed_autoEiRKNS0_12CheckContextE(i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn14dnn4_v20240521L14normalize_axisEiiE15__cv_check__243) #23
           to label %.noexc unwind label %39
 
 .noexc:                                           ; preds = %25
   unreachable
 
-26:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+26:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
   %27 = icmp slt i32 %18, 0
   %28 = select i1 %27, i32 %22, i32 0
   %29 = add nsw i32 %28, %18
@@ -991,7 +991,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i50: ; preds = %48
 _ZNSt6vectorIiSaIiEEC2ERKS1_.exit54:              ; preds = %40, %.noexc53
   %51 = phi ptr [ %50, %.noexc53 ], [ null, %40 ]
   %52 = getelementptr inbounds i8, ptr %51, i64 %47
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
 
 53:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
   %54 = getelementptr i8, ptr %16, i64 4
@@ -1001,7 +1001,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit54:              ; preds = %40, %.noexc53
   %56 = sext i32 %.val to i64
   %.idx = shl nsw i64 %56, 2
   %.not = icmp eq i32 %.val, 0
-  br i1 %.not, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit, label %57
+  br i1 %.not, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit, label %57
 
 57:                                               ; preds = %53
   %58 = icmp slt i32 %.val, 0
@@ -1021,14 +1021,14 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %57
 .noexc80:                                         ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %60, ptr align 4 %.val46, i64 %.idx, i1 false)
   %61 = getelementptr inbounds i8, ptr %60, i64 %.idx
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %59, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %62 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %53, %.noexc80, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit54
+_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %53, %.noexc80, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit54
   %.sroa.0116.0 = phi ptr [ %51, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit54 ], [ %60, %.noexc80 ], [ null, %53 ]
   %.sroa.16.0 = phi ptr [ %52, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit54 ], [ %61, %.noexc80 ], [ null, %53 ]
   %63 = ptrtoint ptr %.sroa.16.0 to i64
@@ -1048,7 +1048,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %53, %.noexc80, %_Z
   %76 = icmp eq i32 %75, %74
   br i1 %76, label %.preheader148, label %.invoke
 
-.preheader148:                                    ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+.preheader148:                                    ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
   %77 = icmp sgt i32 %74, 0
   br i1 %77, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1082,10 +1082,10 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %53, %.noexc80, %_Z
   %89 = icmp eq i32 %86, %88
   br i1 %89, label %83, label %.invoke
 
-.invoke:                                          ; preds = %.lr.ph, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
-  %90 = phi i32 [ %75, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit ], [ %86, %.lr.ph ]
-  %91 = phi i32 [ %74, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit ], [ %88, %.lr.ph ]
-  %92 = phi ptr [ @_ZZNK2cv3dnn18LayerNormLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__77, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit ], [ @_ZZNK2cv3dnn18LayerNormLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__79, %.lr.ph ]
+.invoke:                                          ; preds = %.lr.ph, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+  %90 = phi i32 [ %75, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit ], [ %86, %.lr.ph ]
+  %91 = phi i32 [ %74, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit ], [ %88, %.lr.ph ]
+  %92 = phi ptr [ @_ZZNK2cv3dnn18LayerNormLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__77, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit ], [ @_ZZNK2cv3dnn18LayerNormLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__79, %.lr.ph ]
   invoke void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %90, i32 noundef %91, ptr noundef nonnull align 8 dereferenceable(48) %92) #23
           to label %.cont unwind label %81
 
@@ -1132,7 +1132,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i56: ; preds = %103
 _ZNSt6vectorIiSaIiEEC2ERKS1_.exit61:              ; preds = %95, %.noexc60
   %106 = phi ptr [ %105, %.noexc60 ], [ null, %95 ]
   %107 = getelementptr inbounds i8, ptr %106, i64 %102
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit66
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit66
 
 108:                                              ; preds = %94
   %109 = getelementptr i8, ptr %15, i64 -92
@@ -1142,7 +1142,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit61:              ; preds = %95, %.noexc60
   %111 = sext i32 %.val47 to i64
   %.idx144 = shl nsw i64 %111, 2
   %.not145 = icmp eq i32 %.val47, 0
-  br i1 %.not145, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit66, label %112
+  br i1 %.not145, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit66, label %112
 
 112:                                              ; preds = %108
   %113 = icmp slt i32 %.val47, 0
@@ -1162,14 +1162,14 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i96: ; preds = %112
 .noexc102:                                        ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i96
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %115, ptr align 4 %.val48, i64 %.idx144, i1 false)
   %116 = getelementptr inbounds i8, ptr %115, i64 %.idx144
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit66
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit66
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i63:              ; preds = %114, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i96
   %117 = landingpad { ptr, i32 }
           cleanup
   br label %.body64
 
-_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit66: ; preds = %108, %.noexc102, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit61
+_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit66: ; preds = %108, %.noexc102, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit61
   %.sroa.0.0 = phi ptr [ %106, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit61 ], [ %115, %.noexc102 ], [ null, %108 ]
   %.sroa.12.0 = phi ptr [ %107, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit61 ], [ %116, %.noexc102 ], [ null, %108 ]
   %118 = ptrtoint ptr %.sroa.12.0 to i64
@@ -1179,7 +1179,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit66: ; preds = %108, %.noexc102,
   %122 = icmp eq i64 %66, %121
   br i1 %122, label %.preheader, label %123
 
-.preheader:                                       ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit66
+.preheader:                                       ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit66
   %.not156 = icmp eq ptr %.sroa.16.0, %.sroa.0116.0
   br i1 %.not156, label %._crit_edge155, label %.lr.ph154.preheader
 
@@ -1187,7 +1187,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit66: ; preds = %108, %.noexc102,
   %umax = tail call i64 @llvm.umax.i64(i64 %66, i64 1)
   br label %.lr.ph154
 
-123:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit66
+123:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit66
   invoke void @_ZN2cv6detail17check_failed_autoEmmRKNS0_12CheckContextE(i64 noundef %66, i64 noundef %121, ptr noundef nonnull align 8 dereferenceable(48) @_ZZNK2cv3dnn18LayerNormLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__83) #23
           to label %124 unwind label %125
 

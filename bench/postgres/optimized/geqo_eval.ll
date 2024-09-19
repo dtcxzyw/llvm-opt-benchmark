@@ -80,7 +80,7 @@ define dso_local ptr @gimme_tree(ptr noundef %0, ptr nocapture noundef readonly 
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store i32 1, ptr %16, align 8
-  %17 = tail call fastcc ptr @merge_clump(ptr noundef %0, ptr noundef %.02952, ptr noundef nonnull %15, i1 noundef zeroext false)
+  %17 = tail call fastcc ptr @merge_clump.argelim(ptr noundef %0, ptr noundef %.02952, ptr noundef nonnull %15, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -105,7 +105,7 @@ list_length.exit:                                 ; preds = %._crit_edge
   %23 = load ptr, ptr %21, align 8
   %24 = getelementptr %union.ListCell, ptr %23, i64 %indvars.iv60
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call fastcc ptr @merge_clump(ptr noundef %0, ptr noundef %.03153, ptr noundef %25, i1 noundef zeroext true)
+  %26 = tail call fastcc ptr @merge_clump.argelim(ptr noundef %0, ptr noundef %.03153, ptr noundef %25, i1 noundef zeroext true)
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %27 = load i32, ptr %18, align 4
   %28 = sext i32 %27 to i64
@@ -146,7 +146,7 @@ declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @merge_clump(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @merge_clump.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %.not146 = icmp eq ptr %1, null
   br i1 %.not146, label %.thread57, label %.lr.ph.lr.ph
 

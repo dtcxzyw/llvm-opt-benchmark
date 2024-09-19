@@ -641,7 +641,7 @@ define internal i32 @dissect_cql_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not628, label %83, label %95
 
 83:                                               ; preds = %69
-  br i1 %34, label %cql_enrich_transaction_with_response.exit, label %84
+  br i1 %34, label %cql_enrich_transaction_with_response.argprom.exit, label %84
 
 84:                                               ; preds = %83
   %.0599.val = load ptr, ptr %.0599, align 8
@@ -649,19 +649,19 @@ define internal i32 @dissect_cql_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr nou
   %86 = inttoptr i64 %85 to ptr
   %87 = call ptr @wmem_map_lookup(ptr noundef %.0599.val, ptr noundef %86) #7
   %.not.i = icmp eq ptr %87, null
-  br i1 %.not.i, label %cql_enrich_transaction_with_response.exit.thread, label %88
+  br i1 %.not.i, label %cql_enrich_transaction_with_response.argprom.exit.thread, label %88
 
 88:                                               ; preds = %84
   %89 = call ptr @wmem_list_tail(ptr noundef nonnull %87) #7
   %.not13.i = icmp eq ptr %89, null
-  br i1 %.not13.i, label %cql_enrich_transaction_with_response.exit.thread, label %90
+  br i1 %.not13.i, label %cql_enrich_transaction_with_response.argprom.exit.thread, label %90
 
 90:                                               ; preds = %88
   %91 = call ptr @wmem_list_frame_data(ptr noundef nonnull %89) #7
   %.not14.i = icmp eq ptr %91, null
-  br i1 %.not14.i, label %cql_enrich_transaction_with_response.exit.thread, label %cql_enrich_transaction_with_response.exit.thread656.thread
+  br i1 %.not14.i, label %cql_enrich_transaction_with_response.argprom.exit.thread, label %cql_enrich_transaction_with_response.argprom.exit.thread656.thread
 
-cql_enrich_transaction_with_response.exit.thread656.thread: ; preds = %90
+cql_enrich_transaction_with_response.argprom.exit.thread656.thread: ; preds = %90
   %92 = load ptr, ptr %77, align 8
   %93 = load i32, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %91, i64 4
@@ -674,12 +674,12 @@ cql_enrich_transaction_with_response.exit.thread656.thread: ; preds = %90
   %97 = inttoptr i64 %96 to ptr
   %98 = call ptr @wmem_map_lookup(ptr noundef %.0599.val643, ptr noundef %97) #7
   %.not.i644 = icmp eq ptr %98, null
-  br i1 %.not.i644, label %cql_enrich_transaction_with_response.exit.thread, label %99
+  br i1 %.not.i644, label %cql_enrich_transaction_with_response.argprom.exit.thread, label %99
 
 99:                                               ; preds = %95
   %100 = call ptr @wmem_list_head(ptr noundef nonnull %98) #7
   %.not17.i = icmp eq ptr %100, null
-  br i1 %.not17.i, label %cql_enrich_transaction_with_response.exit.thread, label %.preheader.i
+  br i1 %.not17.i, label %cql_enrich_transaction_with_response.argprom.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %99, %110
   %.012.i = phi ptr [ %111, %110 ], [ %100, %99 ]
@@ -688,35 +688,35 @@ cql_enrich_transaction_with_response.exit.thread656.thread: ; preds = %90
   %103 = load ptr, ptr %77, align 8
   %104 = load i32, ptr %103, align 8
   %105 = icmp eq i32 %102, %104
-  br i1 %105, label %cql_enrich_transaction_with_response.exit.thread656, label %106
+  br i1 %105, label %cql_enrich_transaction_with_response.argprom.exit.thread656, label %106
 
 106:                                              ; preds = %.preheader.i
   %107 = getelementptr inbounds i8, ptr %101, i64 4
   %108 = load i32, ptr %107, align 4
   %109 = icmp eq i32 %108, %104
-  br i1 %109, label %cql_enrich_transaction_with_response.exit.thread656, label %110
+  br i1 %109, label %cql_enrich_transaction_with_response.argprom.exit.thread656, label %110
 
 110:                                              ; preds = %106
   %111 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.012.i) #7
   %.not18.i = icmp eq ptr %111, null
-  br i1 %.not18.i, label %cql_enrich_transaction_with_response.exit.thread, label %.preheader.i, !llvm.loop !4
+  br i1 %.not18.i, label %cql_enrich_transaction_with_response.argprom.exit.thread, label %.preheader.i, !llvm.loop !4
 
-cql_enrich_transaction_with_response.exit:        ; preds = %83
+cql_enrich_transaction_with_response.argprom.exit: ; preds = %83
   %112 = call fastcc ptr @cql_transaction_add_request(ptr noundef nonnull %.0599, ptr noundef nonnull %1, i32 noundef %82, i32 noundef 0)
   %.not629 = icmp eq ptr %112, null
-  br i1 %.not629, label %cql_enrich_transaction_with_response.exit.thread, label %.thread
+  br i1 %.not629, label %cql_enrich_transaction_with_response.argprom.exit.thread, label %.thread
 
-cql_enrich_transaction_with_response.exit.thread: ; preds = %110, %99, %95, %90, %88, %84, %cql_enrich_transaction_with_response.exit
+cql_enrich_transaction_with_response.argprom.exit.thread: ; preds = %110, %99, %95, %90, %88, %84, %cql_enrich_transaction_with_response.argprom.exit
   %113 = load i32, ptr %9, align 4
   %114 = call fastcc ptr @cql_transaction_add_request(ptr noundef nonnull %.0599, ptr noundef nonnull %1, i32 noundef %113, i32 noundef 1)
-  br label %cql_enrich_transaction_with_response.exit.thread656
+  br label %cql_enrich_transaction_with_response.argprom.exit.thread656
 
-cql_enrich_transaction_with_response.exit.thread656: ; preds = %106, %.preheader.i, %cql_enrich_transaction_with_response.exit.thread
-  %.1598 = phi ptr [ %114, %cql_enrich_transaction_with_response.exit.thread ], [ %101, %.preheader.i ], [ %101, %106 ]
+cql_enrich_transaction_with_response.argprom.exit.thread656: ; preds = %106, %.preheader.i, %cql_enrich_transaction_with_response.argprom.exit.thread
+  %.1598 = phi ptr [ %114, %cql_enrich_transaction_with_response.argprom.exit.thread ], [ %101, %.preheader.i ], [ %101, %106 ]
   br i1 %34, label %.thread, label %proto_item_set_generated.exit
 
-.thread:                                          ; preds = %cql_enrich_transaction_with_response.exit, %cql_enrich_transaction_with_response.exit.thread656
-  %.1598661 = phi ptr [ %.1598, %cql_enrich_transaction_with_response.exit.thread656 ], [ %112, %cql_enrich_transaction_with_response.exit ]
+.thread:                                          ; preds = %cql_enrich_transaction_with_response.argprom.exit, %cql_enrich_transaction_with_response.argprom.exit.thread656
+  %.1598661 = phi ptr [ %.1598, %cql_enrich_transaction_with_response.argprom.exit.thread656 ], [ %112, %cql_enrich_transaction_with_response.argprom.exit ]
   %115 = getelementptr inbounds i8, ptr %.1598661, i64 4
   %116 = load i32, ptr %115, align 4
   %.not630 = icmp eq i32 %116, 0
@@ -735,8 +735,8 @@ cql_enrich_transaction_with_response.exit.thread656: ; preds = %106, %.preheader
   %.not5.i = icmp eq ptr %122, null
   br i1 %.not5.i, label %proto_item_set_generated.exit652, label %proto_item_set_generated.exit652.sink.split
 
-proto_item_set_generated.exit:                    ; preds = %cql_enrich_transaction_with_response.exit.thread656.thread, %cql_enrich_transaction_with_response.exit.thread656
-  %.1598660 = phi ptr [ %.1598, %cql_enrich_transaction_with_response.exit.thread656 ], [ %91, %cql_enrich_transaction_with_response.exit.thread656.thread ]
+proto_item_set_generated.exit:                    ; preds = %cql_enrich_transaction_with_response.argprom.exit.thread656.thread, %cql_enrich_transaction_with_response.argprom.exit.thread656
+  %.1598660 = phi ptr [ %.1598, %cql_enrich_transaction_with_response.argprom.exit.thread656 ], [ %91, %cql_enrich_transaction_with_response.argprom.exit.thread656.thread ]
   %123 = load i32, ptr %.1598660, align 8
   %.not632 = icmp eq i32 %123, 0
   br i1 %.not632, label %proto_item_set_generated.exit652, label %124
@@ -954,7 +954,7 @@ proto_item_set_generated.exit652:                 ; preds = %proto_item_set_gene
   %243 = call ptr @proto_tree_add_item(ptr noundef %238, i32 noundef %241, ptr noundef %.2, i32 noundef 4, i32 noundef %242, i32 noundef 2) #7
   %244 = load i32, ptr %8, align 4
   %245 = add i32 %244, 4
-  call fastcc void @dissect_cql_query_parameters(ptr noundef %238, ptr noundef %.2, i32 noundef %245, i32 noundef 0)
+  call fastcc void @dissect_cql_query_parameters.retelim(ptr noundef %238, ptr noundef %.2, i32 noundef %245, i32 noundef 0)
   br label %.loopexit
 
 246:                                              ; preds = %197
@@ -979,7 +979,7 @@ proto_item_set_generated.exit652:                 ; preds = %proto_item_set_gene
   %263 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %261, ptr noundef %.2, i32 noundef 2, i32 noundef %262, i32 noundef 0) #7
   %264 = load i32, ptr %15, align 4
   %265 = add i32 %264, 2
-  call fastcc void @dissect_cql_query_parameters(ptr noundef %258, ptr noundef %.2, i32 noundef %265, i32 noundef 1)
+  call fastcc void @dissect_cql_query_parameters.retelim(ptr noundef %258, ptr noundef %.2, i32 noundef %265, i32 noundef 1)
   br label %.loopexit
 
 266:                                              ; preds = %197
@@ -1713,7 +1713,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cql_query_parameters(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_cql_query_parameters.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

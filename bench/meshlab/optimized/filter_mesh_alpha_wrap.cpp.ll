@@ -145575,13 +145575,13 @@ _ZN4CGAL30has_smaller_relative_precisionILb0EEEbRKNS_11Interval_ntIXT_EEEd.exit.
   %42 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEENS3_11To_intervalISD_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSJ_ENUlvE_8__invokeEv, ptr %42, align 8
   %43 = invoke noundef i32 @pthread_once(ptr noundef nonnull %40, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i.i unwind label %46
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i.i.i unwind label %46
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i.i:      ; preds = %39
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i.i.i: ; preds = %39
   %.not.i.i.i.i.i.i = icmp eq i32 %43, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEE5exactEv.exit.i.i.i, label %44
 
-44:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i.i
+44:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %43) #43
           to label %45 unwind label %46
 
@@ -145595,7 +145595,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i.i:      ; preds = %39
   store ptr null, ptr %42, align 8
   br label %.body
 
-_ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEE5exactEv.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i.i
+_ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEE5exactEv.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i.i.i
   store ptr null, ptr %41, align 8
   store ptr null, ptr %42, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -145665,13 +145665,13 @@ _ZN4CGAL30has_smaller_relative_precisionILb0EEEbRKNS_11Interval_ntIXT_EEEd.exit.
   %85 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEENS3_11To_intervalISD_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSJ_ENUlvE_8__invokeEv, ptr %85, align 8
   %86 = invoke noundef i32 @pthread_once(ptr noundef nonnull %83, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i.i10 unwind label %89
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i.i.i10 unwind label %89
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i.i10:    ; preds = %82
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i.i.i10: ; preds = %82
   %.not.i.i.i.i.i.i11 = icmp eq i32 %86, 0
   br i1 %.not.i.i.i.i.i.i11, label %_ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEE5exactEv.exit.i.i.i12, label %87
 
-87:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i.i10
+87:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i.i.i10
   invoke void @_ZSt20__throw_system_errori(i32 noundef %86) #43
           to label %88 unwind label %89
 
@@ -145685,7 +145685,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i.i10:    ; preds = %82
   store ptr null, ptr %85, align 8
   br label %.body15
 
-_ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEE5exactEv.exit.i.i.i12: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i.i10
+_ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEE5exactEv.exit.i.i.i12: ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i.i.i10
   store ptr null, ptr %84, align 8
   store ptr null, ptr %85, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -145755,13 +145755,13 @@ _ZN4CGAL30has_smaller_relative_precisionILb0EEEbRKNS_11Interval_ntIXT_EEEd.exit.
   %128 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEENS3_11To_intervalISD_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSJ_ENUlvE_8__invokeEv, ptr %128, align 8
   %129 = invoke noundef i32 @pthread_once(ptr noundef nonnull %126, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i.i19 unwind label %.body24
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i.i.i19 unwind label %.body24
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i.i19:    ; preds = %125
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i.i.i19: ; preds = %125
   %.not.i.i.i.i.i.i20 = icmp eq i32 %129, 0
   br i1 %.not.i.i.i.i.i.i20, label %_ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEE5exactEv.exit.i.i.i21, label %130
 
-130:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i.i19
+130:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i.i.i19
   invoke void @_ZSt20__throw_system_errori(i32 noundef %129) #43
           to label %131 unwind label %.body24
 
@@ -145776,7 +145776,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i.i19:    ; preds = %125
   call void @_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %15) #23
   br label %.body15
 
-_ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEE5exactEv.exit.i.i.i21: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i.i19
+_ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEE5exactEv.exit.i.i.i21: ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i.i.i19
   store ptr null, ptr %127, align 8
   store ptr null, ptr %128, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -146075,13 +146075,13 @@ _ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_I
   %50 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %50, align 8
   %51 = invoke noundef i32 @pthread_once(ptr noundef nonnull %48, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i unwind label %54
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i unwind label %54
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %42
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i:  ; preds = %42
   %.not.i.i.i.i20 = icmp eq i32 %51, 0
   br i1 %.not.i.i.i.i20, label %56, label %52
 
-52:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+52:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %51) #43
           to label %53 unwind label %54
 
@@ -146095,7 +146095,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %42
   store ptr null, ptr %50, align 8
   br label %.body
 
-56:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+56:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   store ptr null, ptr %49, align 8
   store ptr null, ptr %50, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
@@ -146112,13 +146112,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %42
   store ptr %13, ptr %49, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %50, align 8
   %61 = invoke noundef i32 @pthread_once(ptr noundef nonnull %60, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i21 unwind label %64
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i21 unwind label %64
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i21:        ; preds = %56
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i21: ; preds = %56
   %.not.i.i.i.i22 = icmp eq i32 %61, 0
   br i1 %.not.i.i.i.i22, label %66, label %62
 
-62:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i21
+62:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i21
   invoke void @_ZSt20__throw_system_errori(i32 noundef %61) #43
           to label %63 unwind label %64
 
@@ -146132,7 +146132,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i21:        ; preds = %56
   store ptr null, ptr %50, align 8
   br label %.body
 
-66:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i21
+66:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i21
   store ptr null, ptr %49, align 8
   store ptr null, ptr %50, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -146149,13 +146149,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i21:        ; preds = %56
   store ptr %11, ptr %49, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %50, align 8
   %71 = invoke noundef i32 @pthread_once(ptr noundef nonnull %70, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i27 unwind label %74
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i27 unwind label %74
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i27:        ; preds = %66
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i27: ; preds = %66
   %.not.i.i.i.i28 = icmp eq i32 %71, 0
   br i1 %.not.i.i.i.i28, label %76, label %72
 
-72:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i27
+72:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i27
   invoke void @_ZSt20__throw_system_errori(i32 noundef %71) #43
           to label %73 unwind label %74
 
@@ -146169,7 +146169,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i27:        ; preds = %66
   store ptr null, ptr %50, align 8
   br label %.body
 
-76:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i27
+76:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i27
   store ptr null, ptr %49, align 8
   store ptr null, ptr %50, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
@@ -151314,13 +151314,13 @@ _ZN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8
   %52 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %52, align 8
   %53 = invoke noundef i32 @pthread_once(ptr noundef nonnull %50, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i unwind label %56
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i unwind label %56
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i:  ; preds = %44
   %.not.i.i.i.i = icmp eq i32 %53, 0
   br i1 %.not.i.i.i.i, label %58, label %54
 
-54:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+54:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %53) #43
           to label %55 unwind label %56
 
@@ -151334,7 +151334,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   store ptr null, ptr %52, align 8
   br label %.body
 
-58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   store ptr null, ptr %51, align 8
   store ptr null, ptr %52, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -151604,13 +151604,13 @@ define linkonce_odr void @_ZNK4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14
   %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %10, align 8
   %11 = invoke noundef i32 @pthread_once(ptr noundef nonnull %8, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i unwind label %14
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i unwind label %14
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i:  ; preds = %1
   %.not.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i.i.i, label %16, label %12
 
-12:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+12:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %11) #43
           to label %13 unwind label %14
 
@@ -151624,7 +151624,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   store ptr null, ptr %10, align 8
   br label %.body
 
-16:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+16:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   store ptr null, ptr %9, align 8
   store ptr null, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -152007,13 +152007,13 @@ _ZN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8
   %52 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %52, align 8
   %53 = invoke noundef i32 @pthread_once(ptr noundef nonnull %50, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i unwind label %56
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i unwind label %56
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i:  ; preds = %44
   %.not.i.i.i.i = icmp eq i32 %53, 0
   br i1 %.not.i.i.i.i, label %58, label %54
 
-54:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+54:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %53) #43
           to label %55 unwind label %56
 
@@ -152027,7 +152027,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   store ptr null, ptr %52, align 8
   br label %.body
 
-58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   store ptr null, ptr %51, align 8
   store ptr null, ptr %52, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -152253,13 +152253,13 @@ define linkonce_odr void @_ZNK4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14
   %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %10, align 8
   %11 = invoke noundef i32 @pthread_once(ptr noundef nonnull %8, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i unwind label %14
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i unwind label %14
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i:  ; preds = %1
   %.not.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i.i.i, label %16, label %12
 
-12:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+12:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %11) #43
           to label %13 unwind label %14
 
@@ -152273,7 +152273,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   store ptr null, ptr %10, align 8
   br label %.body
 
-16:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+16:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   store ptr null, ptr %9, align 8
   store ptr null, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -152486,13 +152486,13 @@ _ZN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8
   %52 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %52, align 8
   %53 = invoke noundef i32 @pthread_once(ptr noundef nonnull %50, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i unwind label %56
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i unwind label %56
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i:  ; preds = %44
   %.not.i.i.i.i = icmp eq i32 %53, 0
   br i1 %.not.i.i.i.i, label %58, label %54
 
-54:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+54:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %53) #43
           to label %55 unwind label %56
 
@@ -152506,7 +152506,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   store ptr null, ptr %52, align 8
   br label %.body
 
-58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   store ptr null, ptr %51, align 8
   store ptr null, ptr %52, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -152732,13 +152732,13 @@ define linkonce_odr void @_ZNK4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14
   %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %10, align 8
   %11 = invoke noundef i32 @pthread_once(ptr noundef nonnull %8, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i unwind label %14
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i unwind label %14
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i:  ; preds = %1
   %.not.i.i.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i.i.i, label %16, label %12
 
-12:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+12:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %11) #43
           to label %13 unwind label %14
 
@@ -152752,7 +152752,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   store ptr null, ptr %10, align 8
   br label %.body
 
-16:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+16:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   store ptr null, ptr %9, align 8
   store ptr null, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -154122,13 +154122,13 @@ define linkonce_odr void @_ZNK4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesia
   %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %17, align 8
   %18 = invoke noundef i32 @pthread_once(ptr noundef nonnull %15, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i unwind label %21
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i unwind label %21
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i:  ; preds = %1
   %.not.i.i.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i.i.i, label %23, label %19
 
-19:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+19:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %18) #43
           to label %20 unwind label %21
 
@@ -154142,7 +154142,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   store ptr null, ptr %17, align 8
   br label %.body
 
-23:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+23:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   store ptr null, ptr %16, align 8
   store ptr null, ptr %17, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -154160,13 +154160,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   store ptr %7, ptr %16, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %17, align 8
   %29 = invoke noundef i32 @pthread_once(ptr noundef nonnull %28, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i4 unwind label %32
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i4 unwind label %32
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i4:         ; preds = %23
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i4: ; preds = %23
   %.not.i.i.i.i5 = icmp eq i32 %29, 0
   br i1 %.not.i.i.i.i5, label %34, label %30
 
-30:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i4
+30:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i4
   invoke void @_ZSt20__throw_system_errori(i32 noundef %29) #43
           to label %31 unwind label %32
 
@@ -154180,7 +154180,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i4:         ; preds = %23
   store ptr null, ptr %17, align 8
   br label %.body
 
-34:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i4
+34:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i4
   store ptr null, ptr %16, align 8
   store ptr null, ptr %17, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -154197,13 +154197,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i4:         ; preds = %23
   store ptr %5, ptr %16, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %17, align 8
   %39 = invoke noundef i32 @pthread_once(ptr noundef nonnull %38, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i10 unwind label %42
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i10 unwind label %42
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i10:        ; preds = %34
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i10: ; preds = %34
   %.not.i.i.i.i11 = icmp eq i32 %39, 0
   br i1 %.not.i.i.i.i11, label %44, label %40
 
-40:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i10
+40:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i10
   invoke void @_ZSt20__throw_system_errori(i32 noundef %39) #43
           to label %41 unwind label %42
 
@@ -154217,7 +154217,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i10:        ; preds = %34
   store ptr null, ptr %17, align 8
   br label %.body
 
-44:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i10
+44:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i10
   store ptr null, ptr %16, align 8
   store ptr null, ptr %17, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -156991,13 +156991,13 @@ _ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_I
   %82 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEENS3_11To_intervalISD_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSJ_ENUlvE_8__invokeEv, ptr %82, align 8
   %83 = invoke noundef i32 @pthread_once(ptr noundef nonnull %80, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i unwind label %86
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i unwind label %86
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %74
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i:  ; preds = %74
   %.not.i.i.i.i21 = icmp eq i32 %83, 0
   br i1 %.not.i.i.i.i21, label %88, label %84
 
-84:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+84:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %83) #43
           to label %85 unwind label %86
 
@@ -157011,7 +157011,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %74
   store ptr null, ptr %82, align 8
   br label %.body
 
-88:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+88:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   store ptr null, ptr %81, align 8
   store ptr null, ptr %82, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
@@ -157028,13 +157028,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %74
   store ptr %12, ptr %81, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEENS3_11To_intervalISD_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSJ_ENUlvE_8__invokeEv, ptr %82, align 8
   %93 = invoke noundef i32 @pthread_once(ptr noundef nonnull %92, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22 unwind label %96
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i22 unwind label %96
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22:        ; preds = %88
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i22: ; preds = %88
   %.not.i.i.i.i23 = icmp eq i32 %93, 0
   br i1 %.not.i.i.i.i23, label %98, label %94
 
-94:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22
+94:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i22
   invoke void @_ZSt20__throw_system_errori(i32 noundef %93) #43
           to label %95 unwind label %96
 
@@ -157048,7 +157048,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22:        ; preds = %88
   store ptr null, ptr %82, align 8
   br label %.body
 
-98:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22
+98:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i22
   store ptr null, ptr %81, align 8
   store ptr null, ptr %82, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
@@ -157065,13 +157065,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i22:        ; preds = %88
   store ptr %10, ptr %81, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEENS3_11To_intervalISD_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSJ_ENUlvE_8__invokeEv, ptr %82, align 8
   %103 = invoke noundef i32 @pthread_once(ptr noundef nonnull %102, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28 unwind label %106
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i28 unwind label %106
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28:        ; preds = %98
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i28: ; preds = %98
   %.not.i.i.i.i29 = icmp eq i32 %103, 0
   br i1 %.not.i.i.i.i29, label %108, label %104
 
-104:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28
+104:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i28
   invoke void @_ZSt20__throw_system_errori(i32 noundef %103) #43
           to label %105 unwind label %106
 
@@ -157085,7 +157085,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28:        ; preds = %98
   store ptr null, ptr %82, align 8
   br label %.body
 
-108:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28
+108:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i28
   store ptr null, ptr %81, align 8
   store ptr null, ptr %82, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -157685,13 +157685,13 @@ define linkonce_odr void @_ZNK4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesia
   %19 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEENS3_11To_intervalISD_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSJ_ENUlvE_8__invokeEv, ptr %19, align 8
   %20 = invoke noundef i32 @pthread_once(ptr noundef nonnull %17, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i unwind label %23
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i unwind label %23
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i:  ; preds = %1
   %.not.i.i.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i.i.i, label %25, label %21
 
-21:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+21:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %20) #43
           to label %22 unwind label %23
 
@@ -157705,7 +157705,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   store ptr null, ptr %19, align 8
   br label %.body
 
-25:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+25:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   store ptr null, ptr %18, align 8
   store ptr null, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -157723,13 +157723,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   store ptr %8, ptr %18, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEENS3_11To_intervalISD_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSJ_ENUlvE_8__invokeEv, ptr %19, align 8
   %31 = invoke noundef i32 @pthread_once(ptr noundef nonnull %30, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i5 unwind label %34
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i5 unwind label %34
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i5:         ; preds = %25
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i5: ; preds = %25
   %.not.i.i.i.i6 = icmp eq i32 %31, 0
   br i1 %.not.i.i.i.i6, label %36, label %32
 
-32:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i5
+32:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i5
   invoke void @_ZSt20__throw_system_errori(i32 noundef %31) #43
           to label %33 unwind label %34
 
@@ -157743,7 +157743,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i5:         ; preds = %25
   store ptr null, ptr %19, align 8
   br label %.body
 
-36:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i5
+36:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i5
   store ptr null, ptr %18, align 8
   store ptr null, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -157760,13 +157760,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i5:         ; preds = %25
   store ptr %6, ptr %18, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEENS3_11To_intervalISD_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSJ_ENUlvE_8__invokeEv, ptr %19, align 8
   %41 = invoke noundef i32 @pthread_once(ptr noundef nonnull %40, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i11 unwind label %44
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i11 unwind label %44
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i11:        ; preds = %36
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i11: ; preds = %36
   %.not.i.i.i.i12 = icmp eq i32 %41, 0
   br i1 %.not.i.i.i.i12, label %46, label %42
 
-42:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i11
+42:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i11
   invoke void @_ZSt20__throw_system_errori(i32 noundef %41) #43
           to label %43 unwind label %44
 
@@ -157780,7 +157780,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i11:        ; preds = %36
   store ptr null, ptr %19, align 8
   br label %.body
 
-46:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i11
+46:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i11
   store ptr null, ptr %18, align 8
   store ptr null, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -158652,13 +158652,13 @@ _ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_I
   %53 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %53, align 8
   %54 = invoke noundef i32 @pthread_once(ptr noundef nonnull %51, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i unwind label %57
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i unwind label %57
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %45
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i:  ; preds = %45
   %.not.i.i.i.i22 = icmp eq i32 %54, 0
   br i1 %.not.i.i.i.i22, label %59, label %55
 
-55:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+55:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %54) #43
           to label %56 unwind label %57
 
@@ -158672,7 +158672,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %45
   store ptr null, ptr %53, align 8
   br label %.body
 
-59:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+59:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   store ptr null, ptr %52, align 8
   store ptr null, ptr %53, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
@@ -158689,13 +158689,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %45
   store ptr %16, ptr %52, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %53, align 8
   %64 = invoke noundef i32 @pthread_once(ptr noundef nonnull %63, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23 unwind label %67
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i23 unwind label %67
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23:        ; preds = %59
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i23: ; preds = %59
   %.not.i.i.i.i24 = icmp eq i32 %64, 0
   br i1 %.not.i.i.i.i24, label %69, label %65
 
-65:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23
+65:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i23
   invoke void @_ZSt20__throw_system_errori(i32 noundef %64) #43
           to label %66 unwind label %67
 
@@ -158709,7 +158709,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23:        ; preds = %59
   store ptr null, ptr %53, align 8
   br label %.body
 
-69:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23
+69:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i23
   store ptr null, ptr %52, align 8
   store ptr null, ptr %53, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
@@ -158726,13 +158726,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23:        ; preds = %59
   store ptr %14, ptr %52, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %53, align 8
   %74 = invoke noundef i32 @pthread_once(ptr noundef nonnull %73, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i29 unwind label %77
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i29 unwind label %77
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i29:        ; preds = %69
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i29: ; preds = %69
   %.not.i.i.i.i30 = icmp eq i32 %74, 0
   br i1 %.not.i.i.i.i30, label %79, label %75
 
-75:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i29
+75:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i29
   invoke void @_ZSt20__throw_system_errori(i32 noundef %74) #43
           to label %76 unwind label %77
 
@@ -158746,7 +158746,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i29:        ; preds = %69
   store ptr null, ptr %53, align 8
   br label %.body
 
-79:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i29
+79:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i29
   store ptr null, ptr %52, align 8
   store ptr null, ptr %53, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
@@ -158763,13 +158763,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i29:        ; preds = %69
   store ptr %12, ptr %52, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %53, align 8
   %84 = invoke noundef i32 @pthread_once(ptr noundef nonnull %83, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i35 unwind label %87
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i35 unwind label %87
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i35:        ; preds = %79
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i35: ; preds = %79
   %.not.i.i.i.i36 = icmp eq i32 %84, 0
   br i1 %.not.i.i.i.i36, label %89, label %85
 
-85:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i35
+85:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i35
   invoke void @_ZSt20__throw_system_errori(i32 noundef %84) #43
           to label %86 unwind label %87
 
@@ -158783,7 +158783,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i35:        ; preds = %79
   store ptr null, ptr %53, align 8
   br label %.body
 
-89:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i35
+89:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i35
   store ptr null, ptr %52, align 8
   store ptr null, ptr %53, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
@@ -159355,13 +159355,13 @@ define linkonce_odr void @_ZNK4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesia
   %19 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %19, align 8
   %20 = invoke noundef i32 @pthread_once(ptr noundef nonnull %17, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i unwind label %23
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i unwind label %23
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i:  ; preds = %1
   %.not.i.i.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i.i.i, label %25, label %21
 
-21:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+21:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %20) #43
           to label %22 unwind label %23
 
@@ -159375,7 +159375,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   store ptr null, ptr %19, align 8
   br label %.body
 
-25:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+25:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i
   store ptr null, ptr %18, align 8
   store ptr null, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
@@ -159393,13 +159393,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   store ptr %9, ptr %18, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %19, align 8
   %31 = invoke noundef i32 @pthread_once(ptr noundef nonnull %30, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i4 unwind label %34
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i4 unwind label %34
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i4:         ; preds = %25
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i4: ; preds = %25
   %.not.i.i.i.i5 = icmp eq i32 %31, 0
   br i1 %.not.i.i.i.i5, label %36, label %32
 
-32:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i4
+32:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i4
   invoke void @_ZSt20__throw_system_errori(i32 noundef %31) #43
           to label %33 unwind label %34
 
@@ -159413,7 +159413,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i4:         ; preds = %25
   store ptr null, ptr %19, align 8
   br label %.body
 
-36:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i4
+36:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i4
   store ptr null, ptr %18, align 8
   store ptr null, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -159431,13 +159431,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i4:         ; preds = %25
   store ptr %7, ptr %18, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %19, align 8
   %42 = invoke noundef i32 @pthread_once(ptr noundef nonnull %41, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i10 unwind label %45
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i10 unwind label %45
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i10:        ; preds = %36
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i10: ; preds = %36
   %.not.i.i.i.i11 = icmp eq i32 %42, 0
   br i1 %.not.i.i.i.i11, label %47, label %43
 
-43:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i10
+43:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i10
   invoke void @_ZSt20__throw_system_errori(i32 noundef %42) #43
           to label %44 unwind label %45
 
@@ -159451,7 +159451,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i10:        ; preds = %36
   store ptr null, ptr %19, align 8
   br label %.body
 
-47:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i10
+47:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i10
   store ptr null, ptr %18, align 8
   store ptr null, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -159468,13 +159468,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i10:        ; preds = %36
   store ptr %5, ptr %18, align 8
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_7Point_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends12gmp_rationalELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISI_S9_NS3_12NT_converterISH_S8_EEEELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSR_ENUlvE_8__invokeEv, ptr %19, align 8
   %52 = invoke noundef i32 @pthread_once(ptr noundef nonnull %51, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i16 unwind label %55
+          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i16 unwind label %55
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i16:        ; preds = %47
+_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i16: ; preds = %47
   %.not.i.i.i.i17 = icmp eq i32 %52, 0
   br i1 %.not.i.i.i.i17, label %57, label %53
 
-53:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i16
+53:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i16
   invoke void @_ZSt20__throw_system_errori(i32 noundef %52) #43
           to label %54 unwind label %55
 
@@ -159488,7 +159488,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i16:        ; preds = %47
   store ptr null, ptr %19, align 8
   br label %.body
 
-57:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i16
+57:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i.i.i16
   store ptr null, ptr %18, align 8
   store ptr null, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)

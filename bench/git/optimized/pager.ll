@@ -542,20 +542,20 @@ do.body.i:                                        ; preds = %do.cond.i, %entry
   %prefix.addr.0.ptr.i = getelementptr inbounds i8, ptr @.str.16, i64 %prefix.addr.0.idx.i
   %0 = load i8, ptr %prefix.addr.0.ptr.i, align 1
   %exitcond.i = icmp eq i64 %prefix.addr.0.idx.i, 6
-  br i1 %exitcond.i, label %skip_prefix.exit, label %do.cond.i
+  br i1 %exitcond.i, label %skip_prefix.argprom.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
   %1 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
   %cmp.i = icmp eq i8 %1, %0
-  br i1 %cmp.i, label %do.body.i, label %skip_prefix.exit, !llvm.loop !8
+  br i1 %cmp.i, label %do.body.i, label %skip_prefix.argprom.exit, !llvm.loop !8
 
-skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
+skip_prefix.argprom.exit:                         ; preds = %do.body.i, %do.cond.i
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %land.lhs.true, label %if.end8
 
-land.lhs.true:                                    ; preds = %skip_prefix.exit
+land.lhs.true:                                    ; preds = %skip_prefix.argprom.exit
   %2 = load ptr, ptr %vdata, align 8
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(1) %2) #13
   %tobool.not = icmp eq i32 %call2, 0
@@ -578,7 +578,7 @@ if.else:                                          ; preds = %if.then
   store ptr %call6, ptr %value7, align 8
   br label %if.end8
 
-if.end8:                                          ; preds = %if.then4, %if.else, %land.lhs.true, %skip_prefix.exit
+if.end8:                                          ; preds = %if.then4, %if.else, %land.lhs.true, %skip_prefix.argprom.exit
   ret i32 0
 }
 

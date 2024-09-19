@@ -249,7 +249,7 @@ av1_set_ref_frame.exit:                           ; preds = %29
   %80 = and i32 %78, %25
   %81 = icmp ugt i8 %..i, 16
   %indvars.iv.i.sroa.gep555.i = getelementptr inbounds i8, ptr %11, i64 1
-  br i1 %81, label %has_top_right.exit.i, label %82
+  br i1 %81, label %has_top_right.argprom.exit.i, label %82
 
 82:                                               ; preds = %61
   %83 = zext nneg i8 %..i to i32
@@ -322,9 +322,9 @@ av1_set_ref_frame.exit:                           ; preds = %29
 116:                                              ; preds = %113, %106
   %.3.shrunk.i.i = phi i1 [ %.2.shrunk.i.i, %106 ], [ %spec.select42.i.i, %113 ]
   %117 = xor i1 %.3.shrunk.i.i, true
-  br label %has_top_right.exit.i
+  br label %has_top_right.argprom.exit.i
 
-has_top_right.exit.i:                             ; preds = %116, %61
+has_top_right.argprom.exit.i:                     ; preds = %116, %61
   %.031.i.i = phi i1 [ %117, %116 ], [ true, %61 ]
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 7840
   %119 = icmp ult i8 %71, 2
@@ -340,7 +340,7 @@ has_top_right.exit.i:                             ; preds = %116, %61
   %127 = icmp sgt i8 %3, 7
   br i1 %127, label %128, label %av1_set_ref_frame.exit.i
 
-128:                                              ; preds = %has_top_right.exit.i
+128:                                              ; preds = %has_top_right.argprom.exit.i
   %129 = zext nneg i8 %3 to i64
   %130 = add nuw nsw i64 %129, 4294967288
   %131 = and i64 %130, 4294967295
@@ -350,9 +350,9 @@ has_top_right.exit.i:                             ; preds = %116, %61
   %135 = load i8, ptr %134, align 1
   br label %av1_set_ref_frame.exit.i
 
-av1_set_ref_frame.exit.i:                         ; preds = %128, %has_top_right.exit.i
-  %.sink7.i.i = phi i8 [ %133, %128 ], [ %3, %has_top_right.exit.i ]
-  %.sink.i.i = phi i8 [ %135, %128 ], [ -1, %has_top_right.exit.i ]
+av1_set_ref_frame.exit.i:                         ; preds = %128, %has_top_right.argprom.exit.i
+  %.sink7.i.i = phi i8 [ %133, %128 ], [ %3, %has_top_right.argprom.exit.i ]
+  %.sink.i.i = phi i8 [ %135, %128 ], [ -1, %has_top_right.argprom.exit.i ]
   store i8 %.sink7.i.i, ptr %11, align 1
   store i8 %.sink.i.i, ptr %indvars.iv.i.sroa.gep555.i, align 1
   %136 = getelementptr inbounds i16, ptr %9, i64 %62
@@ -448,15 +448,15 @@ av1_set_ref_frame.exit.i:                         ; preds = %128, %has_top_right
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 7844
   %189 = load i32, ptr %188, align 4
   %.not.i.not.i.i = icmp sgt i32 %23, %189
-  br i1 %.not.i.not.i.i, label %scan_blk_mbmi.exit.i, label %is_inside.exit.i.i
+  br i1 %.not.i.not.i.i, label %scan_blk_mbmi.exit.i, label %is_inside.argprom.exit.i.i
 
-is_inside.exit.i.i:                               ; preds = %187
+is_inside.argprom.exit.i.i:                       ; preds = %187
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 7852
   %191 = load i32, ptr %190, align 4
   %.not.i493.i = icmp slt i32 %183, %191
   br i1 %.not.i493.i, label %192, label %scan_blk_mbmi.exit.i
 
-192:                                              ; preds = %is_inside.exit.i.i
+192:                                              ; preds = %is_inside.argprom.exit.i.i
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 7864
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -469,7 +469,7 @@ is_inside.exit.i.i:                               ; preds = %187
   call fastcc void @add_ref_mv_candidate(ptr noundef %200, ptr noundef readonly %11, ptr noundef nonnull %63, ptr noundef %15, ptr noundef %16, ptr noundef %64, ptr noundef %65, ptr noundef readonly %22, ptr noundef nonnull readonly %201, i16 noundef zeroext 4)
   br label %scan_blk_mbmi.exit.i
 
-scan_blk_mbmi.exit.i:                             ; preds = %192, %is_inside.exit.i.i, %187, %182, %178, %177
+scan_blk_mbmi.exit.i:                             ; preds = %192, %is_inside.argprom.exit.i.i, %187, %182, %178, %177
   %202 = load i8, ptr %15, align 1
   %203 = icmp ne i8 %202, 0
   %204 = zext i1 %203 to i32
@@ -616,15 +616,15 @@ scan_blk_mbmi.exit.i:                             ; preds = %192, %is_inside.exi
   %267 = getelementptr inbounds nuw i8, ptr %1, i64 7844
   %268 = load i32, ptr %267, align 4
   %.not.i.not.i496.i = icmp sgt i32 %23, %268
-  br i1 %.not.i.not.i496.i, label %scan_blk_mbmi.exit499.i, label %is_inside.exit.i497.i
+  br i1 %.not.i.not.i496.i, label %scan_blk_mbmi.exit499.i, label %is_inside.argprom.exit.i497.i
 
-is_inside.exit.i497.i:                            ; preds = %266
+is_inside.argprom.exit.i497.i:                    ; preds = %266
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 7852
   %270 = load i32, ptr %269, align 4
   %.not.i498.not.i = icmp sgt i32 %25, %270
   br i1 %.not.i498.not.i, label %scan_blk_mbmi.exit499.i, label %271
 
-271:                                              ; preds = %is_inside.exit.i497.i
+271:                                              ; preds = %is_inside.argprom.exit.i497.i
   %272 = getelementptr inbounds nuw i8, ptr %1, i64 7864
   %273 = load ptr, ptr %272, align 8
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -637,7 +637,7 @@ is_inside.exit.i497.i:                            ; preds = %266
   call fastcc void @add_ref_mv_candidate(ptr noundef %279, ptr noundef readonly %11, ptr noundef nonnull %63, ptr noundef %15, ptr noundef %18, ptr noundef %64, ptr noundef %65, ptr noundef readonly %22, ptr noundef nonnull readonly %280, i16 noundef zeroext 4)
   br label %scan_blk_mbmi.exit499.i
 
-scan_blk_mbmi.exit499.i:                          ; preds = %271, %is_inside.exit.i497.i, %266, %263, %.loopexit586.i
+scan_blk_mbmi.exit499.i:                          ; preds = %271, %is_inside.argprom.exit.i497.i, %266, %263, %.loopexit586.i
   %invariant.op.i = select i1 %122, i32 2, i32 1
   %invariant.op605.i = select i1 %126, i32 2, i32 1
   br label %281
@@ -2941,7 +2941,7 @@ define hidden zeroext i8 @av1_findSamples(ptr nocapture noundef readonly %0, ptr
   store i32 %114, ptr %115, align 4
   %116 = add i8 %.1147259, 1
   %117 = icmp ugt i8 %116, 7
-  br i1 %117, label %has_top_right.exit.thread, label %._crit_edge
+  br i1 %117, label %has_top_right.argprom.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %92
   %118 = getelementptr inbounds i8, ptr %.1140260, i64 8
@@ -3042,7 +3042,7 @@ define hidden zeroext i8 @av1_findSamples(ptr nocapture noundef readonly %0, ptr
   %176 = getelementptr inbounds i8, ptr %.0139, i64 8
   %177 = add i8 %.0146, 1
   %178 = icmp ugt i8 %177, 7
-  br i1 %178, label %has_top_right.exit.thread, label %.loopexit
+  br i1 %178, label %has_top_right.argprom.exit.thread, label %.loopexit
 
 .lr.ph269:                                        ; preds = %.preheader, %226
   %179 = phi i32 [ %227, %226 ], [ %139, %.preheader ]
@@ -3104,7 +3104,7 @@ define hidden zeroext i8 @av1_findSamples(ptr nocapture noundef readonly %0, ptr
   store i32 %220, ptr %221, align 4
   %222 = add i8 %.4150266, 1
   %223 = icmp ugt i8 %222, 7
-  br i1 %223, label %has_top_right.exit.thread, label %._crit_edge277
+  br i1 %223, label %has_top_right.argprom.exit.thread, label %._crit_edge277
 
 ._crit_edge277:                                   ; preds = %198
   %224 = getelementptr inbounds i8, ptr %.4143267, i64 8
@@ -3187,13 +3187,13 @@ define hidden zeroext i8 @av1_findSamples(ptr nocapture noundef readonly %0, ptr
   %273 = getelementptr inbounds i8, ptr %.3142, i64 8
   %274 = add i8 %.3149, 1
   %275 = icmp ugt i8 %274, 7
-  br i1 %275, label %has_top_right.exit.thread, label %.thread
+  br i1 %275, label %has_top_right.argprom.exit.thread, label %.thread
 
 .thread:                                          ; preds = %.loopexit249, %235, %244, %248, %.loopexit
   %.6152 = phi i8 [ %274, %248 ], [ %.3149, %244 ], [ %.3149, %235 ], [ %.3149, %.loopexit ], [ %.0146, %.loopexit249 ]
   %.6145 = phi ptr [ %273, %248 ], [ %.3142, %244 ], [ %.3142, %235 ], [ %.3142, %.loopexit ], [ %.0139, %.loopexit249 ]
   %.6 = phi ptr [ %272, %248 ], [ %.3, %244 ], [ %.3, %235 ], [ %.3, %.loopexit ], [ %.0138, %.loopexit249 ]
-  br i1 %.0157.shrunk, label %276, label %has_top_right.exit.thread
+  br i1 %.0157.shrunk, label %276, label %has_top_right.argprom.exit.thread
 
 276:                                              ; preds = %.thread
   %277 = getelementptr inbounds nuw i8, ptr %1, i64 8308
@@ -3212,7 +3212,7 @@ define hidden zeroext i8 @av1_findSamples(ptr nocapture noundef readonly %0, ptr
   %288 = and i32 %287, %18
   %289 = and i32 %287, %20
   %290 = icmp ugt i8 %.175, 16
-  br i1 %290, label %has_top_right.exit.thread, label %291
+  br i1 %290, label %has_top_right.argprom.exit.thread, label %291
 
 291:                                              ; preds = %276
   %292 = zext nneg i8 %.175 to i32
@@ -3271,7 +3271,7 @@ define hidden zeroext i8 @av1_findSamples(ptr nocapture noundef readonly %0, ptr
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 1
   %319 = load i8, ptr %318, align 1
   %320 = icmp eq i8 %319, 6
-  br i1 %320, label %321, label %has_top_right.exit
+  br i1 %320, label %321, label %has_top_right.argprom.exit
 
 321:                                              ; preds = %315
   %322 = icmp ne i8 %278, %280
@@ -3279,38 +3279,38 @@ define hidden zeroext i8 @av1_findSamples(ptr nocapture noundef readonly %0, ptr
   %.not38.i = icmp eq i32 %323, 0
   %or.cond41.i = select i1 %322, i1 true, i1 %.not38.i
   %spec.select42.i = select i1 %or.cond41.i, i1 %.2.shrunk.i, i1 false
-  br i1 %spec.select42.i, label %324, label %has_top_right.exit.thread
+  br i1 %spec.select42.i, label %324, label %has_top_right.argprom.exit.thread
 
-has_top_right.exit:                               ; preds = %315
-  br i1 %.2.shrunk.i, label %324, label %has_top_right.exit.thread
+has_top_right.argprom.exit:                       ; preds = %315
+  br i1 %.2.shrunk.i, label %324, label %has_top_right.argprom.exit.thread
 
-324:                                              ; preds = %321, %has_top_right.exit
+324:                                              ; preds = %321, %has_top_right.argprom.exit
   %325 = zext i8 %278 to i32
   %326 = getelementptr inbounds nuw i8, ptr %1, i64 7840
   %327 = load i32, ptr %326, align 4
   %.not244 = icmp sgt i32 %18, %327
-  br i1 %.not244, label %328, label %has_top_right.exit.thread
+  br i1 %.not244, label %328, label %has_top_right.argprom.exit.thread
 
 328:                                              ; preds = %324
   %329 = add nsw i32 %20, %325
   %330 = getelementptr inbounds nuw i8, ptr %1, i64 7848
   %331 = load i32, ptr %330, align 4
   %332 = icmp slt i32 %329, %331
-  br i1 %332, label %has_top_right.exit.thread, label %333
+  br i1 %332, label %has_top_right.argprom.exit.thread, label %333
 
 333:                                              ; preds = %328
   %334 = getelementptr inbounds nuw i8, ptr %1, i64 7844
   %335 = load i32, ptr %334, align 4
   %.not.i195.not = icmp sgt i32 %18, %335
-  br i1 %.not.i195.not, label %has_top_right.exit.thread, label %is_inside.exit
+  br i1 %.not.i195.not, label %has_top_right.argprom.exit.thread, label %is_inside.argprom.exit
 
-is_inside.exit:                                   ; preds = %333
+is_inside.argprom.exit:                           ; preds = %333
   %336 = getelementptr inbounds nuw i8, ptr %1, i64 7852
   %337 = load i32, ptr %336, align 4
   %.not245 = icmp slt i32 %329, %337
-  br i1 %.not245, label %338, label %has_top_right.exit.thread
+  br i1 %.not245, label %338, label %has_top_right.argprom.exit.thread
 
-338:                                              ; preds = %is_inside.exit
+338:                                              ; preds = %is_inside.argprom.exit
   %339 = sub nsw i32 %325, %17
   %340 = sext i32 %339 to i64
   %341 = getelementptr inbounds ptr, ptr %316, i64 %340
@@ -3318,13 +3318,13 @@ is_inside.exit:                                   ; preds = %333
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 16
   %344 = load i8, ptr %343, align 8
   %345 = icmp eq i8 %344, %9
-  br i1 %345, label %346, label %has_top_right.exit.thread
+  br i1 %345, label %346, label %has_top_right.argprom.exit.thread
 
 346:                                              ; preds = %338
   %347 = getelementptr inbounds i8, ptr %342, i64 17
   %348 = load i8, ptr %347, align 1
   %349 = icmp eq i8 %348, -1
-  br i1 %349, label %350, label %has_top_right.exit.thread
+  br i1 %349, label %350, label %has_top_right.argprom.exit.thread
 
 350:                                              ; preds = %346
   %351 = load i8, ptr %342, align 8
@@ -3360,10 +3360,10 @@ is_inside.exit:                                   ; preds = %333
   store i32 %374, ptr %375, align 4
   %376 = add i8 %.6152, 1
   %spec.select176 = tail call i8 @llvm.umin.i8(i8 %376, i8 8)
-  br label %has_top_right.exit.thread
+  br label %has_top_right.argprom.exit.thread
 
-has_top_right.exit.thread:                        ; preds = %92, %198, %321, %324, %328, %333, %276, %350, %.thread, %has_top_right.exit, %338, %346, %is_inside.exit, %248, %152
-  %.0 = phi i8 [ 8, %152 ], [ 8, %248 ], [ %.6152, %346 ], [ %.6152, %338 ], [ %.6152, %is_inside.exit ], [ %.6152, %has_top_right.exit ], [ %.6152, %.thread ], [ %spec.select176, %350 ], [ %.6152, %276 ], [ %.6152, %333 ], [ %.6152, %328 ], [ %.6152, %324 ], [ %.6152, %321 ], [ 8, %198 ], [ 8, %92 ]
+has_top_right.argprom.exit.thread:                ; preds = %92, %198, %321, %324, %328, %333, %276, %350, %.thread, %has_top_right.argprom.exit, %338, %346, %is_inside.argprom.exit, %248, %152
+  %.0 = phi i8 [ 8, %152 ], [ 8, %248 ], [ %.6152, %346 ], [ %.6152, %338 ], [ %.6152, %is_inside.argprom.exit ], [ %.6152, %has_top_right.argprom.exit ], [ %.6152, %.thread ], [ %spec.select176, %350 ], [ %.6152, %276 ], [ %.6152, %333 ], [ %.6152, %328 ], [ %.6152, %324 ], [ %.6152, %321 ], [ 8, %198 ], [ 8, %92 ]
   ret i8 %.0
 }
 
@@ -4212,7 +4212,7 @@ define internal fastcc range(i32 0, 2) i32 @add_tpl_ref_mv(ptr nocapture noundef
   %15 = add i32 %14, %5
   %16 = load i32, ptr %13, align 4
   %17 = icmp slt i32 %15, %16
-  br i1 %17, label %is_inside.exit.thread, label %18
+  br i1 %17, label %is_inside.argprom.exit.thread, label %18
 
 18:                                               ; preds = %12
   %19 = and i32 %3, 1
@@ -4222,21 +4222,21 @@ define internal fastcc range(i32 0, 2) i32 @add_tpl_ref_mv(ptr nocapture noundef
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 7848
   %24 = load i32, ptr %23, align 4
   %25 = icmp slt i32 %22, %24
-  br i1 %25, label %is_inside.exit.thread, label %26
+  br i1 %25, label %is_inside.argprom.exit.thread, label %26
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 7844
   %28 = load i32, ptr %27, align 4
   %.not.i = icmp slt i32 %15, %28
-  br i1 %.not.i, label %is_inside.exit, label %is_inside.exit.thread
+  br i1 %.not.i, label %is_inside.argprom.exit, label %is_inside.argprom.exit.thread
 
-is_inside.exit:                                   ; preds = %26
+is_inside.argprom.exit:                           ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 7852
   %30 = load i32, ptr %29, align 4
   %.not = icmp slt i32 %22, %30
-  br i1 %.not, label %31, label %is_inside.exit.thread
+  br i1 %.not, label %31, label %is_inside.argprom.exit.thread
 
-31:                                               ; preds = %is_inside.exit
+31:                                               ; preds = %is_inside.argprom.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 27832
   %33 = load ptr, ptr %32, align 8
   %34 = ashr i32 %15, 1
@@ -4251,7 +4251,7 @@ is_inside.exit:                                   ; preds = %26
   %43 = getelementptr inbounds %struct.TPL_MV_REF, ptr %40, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, -2147450880
-  br i1 %45, label %is_inside.exit.thread, label %46
+  br i1 %45, label %is_inside.argprom.exit.thread, label %46
 
 46:                                               ; preds = %31
   %47 = icmp sgt i8 %4, 7
@@ -4518,7 +4518,7 @@ lower_mv_precision.exit:                          ; preds = %141, %143, %.sink.s
   %197 = icmp eq i32 %.093183, %196
   %198 = icmp ult i8 %195, 8
   %or.cond96 = and i1 %198, %197
-  br i1 %or.cond96, label %199, label %is_inside.exit.thread
+  br i1 %or.cond96, label %199, label %is_inside.argprom.exit.thread
 
 199:                                              ; preds = %.loopexit
   %.sroa.12.0.insert.ext156 = zext i16 %.sroa.12.0 to i32
@@ -4528,7 +4528,7 @@ lower_mv_precision.exit:                          ; preds = %141, %143, %.sink.s
   %200 = zext nneg i32 %.093183 to i64
   %201 = getelementptr inbounds %struct.candidate_mv, ptr %9, i64 %200
   store i32 %.sroa.0138.0.insert.insert146, ptr %201, align 4
-  br label %is_inside.exit.thread.sink.split
+  br label %is_inside.argprom.exit.thread.sink.split
 
 get_ref_frame_map_idx.exit.i103:                  ; preds = %lower_mv_precision.exit
   %202 = add i8 %.sink.i, -1
@@ -4778,7 +4778,7 @@ lower_mv_precision.exit123:                       ; preds = %264, %266, %.sink.s
   %338 = icmp eq i32 %.1185, %337
   %339 = icmp ult i8 %336, 8
   %or.cond97 = and i1 %339, %338
-  br i1 %or.cond97, label %340, label %is_inside.exit.thread
+  br i1 %or.cond97, label %340, label %is_inside.argprom.exit.thread
 
 340:                                              ; preds = %.loopexit181
   %.sroa.12.0.insert.ext166 = zext i16 %.sroa.12.0 to i32
@@ -4794,19 +4794,19 @@ lower_mv_precision.exit123:                       ; preds = %264, %266, %.sink.s
   %.sroa.0.0.insert.insert130 = or disjoint i32 %.sroa.9.0.insert.shift133, %.sroa.0.0.insert.ext128
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 4
   store i32 %.sroa.0.0.insert.insert130, ptr %343, align 4
-  br label %is_inside.exit.thread.sink.split
+  br label %is_inside.argprom.exit.thread.sink.split
 
-is_inside.exit.thread.sink.split:                 ; preds = %340, %199
+is_inside.argprom.exit.thread.sink.split:         ; preds = %340, %199
   %.sink205 = phi i64 [ %200, %199 ], [ %341, %340 ]
   %344 = getelementptr inbounds i16, ptr %10, i64 %.sink205
   store i16 2, ptr %344, align 2
   %345 = load i8, ptr %8, align 1
   %346 = add i8 %345, 1
   store i8 %346, ptr %8, align 1
-  br label %is_inside.exit.thread
+  br label %is_inside.argprom.exit.thread
 
-is_inside.exit.thread:                            ; preds = %is_inside.exit.thread.sink.split, %12, %18, %26, %.loopexit, %.loopexit181, %31, %is_inside.exit
-  %.0 = phi i32 [ 0, %is_inside.exit ], [ 0, %31 ], [ 1, %.loopexit181 ], [ 1, %.loopexit ], [ 0, %26 ], [ 0, %18 ], [ 0, %12 ], [ 1, %is_inside.exit.thread.sink.split ]
+is_inside.argprom.exit.thread:                    ; preds = %is_inside.argprom.exit.thread.sink.split, %12, %18, %26, %.loopexit, %.loopexit181, %31, %is_inside.argprom.exit
+  %.0 = phi i32 [ 0, %is_inside.argprom.exit ], [ 0, %31 ], [ 1, %.loopexit181 ], [ 1, %.loopexit ], [ 0, %26 ], [ 0, %18 ], [ 0, %12 ], [ 1, %is_inside.argprom.exit.thread.sink.split ]
   ret i32 %.0
 }
 

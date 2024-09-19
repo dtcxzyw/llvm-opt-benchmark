@@ -619,17 +619,17 @@ if.end.i98:                                       ; preds = %if.then.i, %if.end1
   %enable_pha.i = getelementptr inbounds i8, ptr %extra, i64 64
   %25 = load i32, ptr %enable_pha.i, align 8
   %tobool.not.i99 = icmp eq i32 %25, 0
-  br i1 %tobool.not.i99, label %configure_handshake_ssl.exit, label %if.then6.i
+  br i1 %tobool.not.i99, label %configure_handshake_ssl.argprom.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i98
   call void @SSL_set_post_handshake_auth(ptr noundef %23, i32 noundef 1) #10
-  br label %configure_handshake_ssl.exit
+  br label %configure_handshake_ssl.argprom.exit
 
-configure_handshake_ssl.exit:                     ; preds = %if.end.i98, %if.then6.i
+configure_handshake_ssl.argprom.exit:             ; preds = %if.end.i98, %if.then6.i
   %cmp16.not = icmp eq ptr %session_in, null
   br i1 %cmp16.not, label %if.end32, label %if.then17
 
-if.then17:                                        ; preds = %configure_handshake_ssl.exit
+if.then17:                                        ; preds = %configure_handshake_ssl.argprom.exit
   %call18 = call ptr @SSL_SESSION_get_id(ptr noundef %serv_sess_in, ptr noundef nonnull %sess_id_len) #10
   %26 = load i32, ptr %sess_id_len, align 4
   %cmp19.not = icmp eq i32 %26, 0
@@ -655,7 +655,7 @@ if.end31:                                         ; preds = %lor.lhs.false
   store i32 0, ptr %sess_id_len, align 4
   br label %if.end32
 
-if.end32:                                         ; preds = %if.end31, %configure_handshake_ssl.exit
+if.end32:                                         ; preds = %if.end31, %configure_handshake_ssl.argprom.exit
   store i32 3, ptr %call.i, align 8
   %use_sctp = getelementptr inbounds i8, ptr %test_ctx, i64 528
   %27 = load i32, ptr %use_sctp, align 8

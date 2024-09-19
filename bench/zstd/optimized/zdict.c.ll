@@ -353,9 +353,9 @@ do.body57:                                        ; preds = %if.then52
   %call59 = call i32 @fflush(ptr noundef %6)
   br label %_cleanup
 
-for.body67:                                       ; preds = %for.body67.lr.ph, %ZDICT_countEStats.exit
-  %indvars.iv185 = phi i64 [ 0, %for.body67.lr.ph ], [ %indvars.iv.next186, %ZDICT_countEStats.exit ]
-  %pos.0162 = phi i64 [ 0, %for.body67.lr.ph ], [ %add77, %ZDICT_countEStats.exit ]
+for.body67:                                       ; preds = %for.body67.lr.ph, %ZDICT_countEStats.argprom.exit
+  %indvars.iv185 = phi i64 [ 0, %for.body67.lr.ph ], [ %indvars.iv.next186, %ZDICT_countEStats.argprom.exit ]
+  %pos.0162 = phi i64 [ 0, %for.body67.lr.ph ], [ %add77, %ZDICT_countEStats.argprom.exit ]
   %arrayidx74 = getelementptr inbounds i64, ptr %fileSizes, i64 %indvars.iv185
   %7 = load i64, ptr %arrayidx74, align 8
   %srcSize.addr.0.i = call i64 @llvm.umin.i64(i64 %7, i64 %spec.select.i)
@@ -364,14 +364,14 @@ for.body67:                                       ; preds = %for.body67.lr.ph, %
   br i1 %cmp.i.i, label %if.end16.i, label %do.body.i
 
 do.body.i:                                        ; preds = %for.body67
-  br i1 %cmp8.not.i, label %ZDICT_countEStats.exit, label %do.body11.i
+  br i1 %cmp8.not.i, label %ZDICT_countEStats.argprom.exit, label %do.body11.i
 
 do.body11.i:                                      ; preds = %do.body.i
   %8 = load ptr, ptr @stderr, align 8
   %9 = call i64 @fwrite(ptr nonnull @.str.16, i64 48, i64 1, ptr %8) #19
   %10 = load ptr, ptr @stderr, align 8
   %call13.i = call i32 @fflush(ptr noundef %10)
-  br label %ZDICT_countEStats.exit
+  br label %ZDICT_countEStats.argprom.exit
 
 if.end16.i:                                       ; preds = %for.body67
   %add.ptr = getelementptr inbounds i8, ptr %srcBuffer, i64 %pos.0162
@@ -380,7 +380,7 @@ if.end16.i:                                       ; preds = %for.body67
   br i1 %cmp.i31.i, label %if.end33.i, label %do.body22.i
 
 do.body22.i:                                      ; preds = %if.end16.i
-  br i1 %cmp23.i, label %do.body26.i, label %ZDICT_countEStats.exit
+  br i1 %cmp23.i, label %do.body26.i, label %ZDICT_countEStats.argprom.exit
 
 do.body26.i:                                      ; preds = %do.body22.i
   %11 = load ptr, ptr @stderr, align 8
@@ -388,11 +388,11 @@ do.body26.i:                                      ; preds = %do.body22.i
   %call28.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.17, i32 noundef %conv27.i) #19
   %12 = load ptr, ptr @stderr, align 8
   %call29.i = call i32 @fflush(ptr noundef %12)
-  br label %ZDICT_countEStats.exit
+  br label %ZDICT_countEStats.argprom.exit
 
 if.end33.i:                                       ; preds = %if.end16.i
   %tobool34.not.i = icmp eq i64 %call18.i, 0
-  br i1 %tobool34.not.i, label %ZDICT_countEStats.exit, label %if.then35.i
+  br i1 %tobool34.not.i, label %ZDICT_countEStats.argprom.exit, label %if.then35.i
 
 if.then35.i:                                      ; preds = %if.end33.i
   %call37.i = call ptr @ZSTD_getSeqStore(ptr noundef %call43) #16
@@ -429,7 +429,7 @@ for.end.i:                                        ; preds = %for.body.i127, %if.
   %ofCode.i = getelementptr inbounds i8, ptr %call37.i, i64 48
   %20 = load ptr, ptr %ofCode.i, align 8
   %cmp433.not.i = icmp eq i32 %conv40.i, 0
-  br i1 %cmp433.not.i, label %ZDICT_countEStats.exit, label %for.body45.preheader.i
+  br i1 %cmp433.not.i, label %ZDICT_countEStats.argprom.exit, label %for.body45.preheader.i
 
 for.body45.preheader.i:                           ; preds = %for.end.i
   %wide.trip.count.i121 = and i64 %sub.ptr.div.i, 4294967295
@@ -486,7 +486,7 @@ for.body73.i:                                     ; preds = %for.body73.i, %for.
 
 for.end81.i:                                      ; preds = %for.body73.i
   %cmp82.not.i = icmp eq i32 %conv40.i, 1
-  br i1 %cmp82.not.i, label %ZDICT_countEStats.exit, label %if.then84.i
+  br i1 %cmp82.not.i, label %ZDICT_countEStats.argprom.exit, label %if.then84.i
 
 if.then84.i:                                      ; preds = %for.end81.i
   %29 = load ptr, ptr %call37.i, align 8
@@ -509,16 +509,16 @@ if.then84.i:                                      ; preds = %for.end81.i
   %33 = load i32, ptr %arrayidx101.i, align 4
   %add102.i = add i32 %33, 1
   store i32 %add102.i, ptr %arrayidx101.i, align 4
-  br label %ZDICT_countEStats.exit
+  br label %ZDICT_countEStats.argprom.exit
 
-ZDICT_countEStats.exit:                           ; preds = %do.body.i, %do.body11.i, %do.body22.i, %do.body26.i, %if.end33.i, %for.end.i, %for.end81.i, %if.then84.i
+ZDICT_countEStats.argprom.exit:                   ; preds = %do.body.i, %do.body11.i, %do.body22.i, %do.body26.i, %if.end33.i, %for.end.i, %for.end81.i, %if.then84.i
   %34 = load i64, ptr %arrayidx74, align 8
   %add77 = add i64 %34, %pos.0162
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
   br i1 %exitcond189.not, label %for.end80, label %for.body67, !llvm.loop !14
 
-for.end80:                                        ; preds = %ZDICT_countEStats.exit, %for.cond64.preheader
+for.end80:                                        ; preds = %ZDICT_countEStats.argprom.exit, %for.cond64.preheader
   %cmp81 = icmp ugt i32 %notificationLevel, 3
   br i1 %cmp81, label %do.body88, label %if.end113
 

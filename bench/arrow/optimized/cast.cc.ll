@@ -1025,7 +1025,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont, %_ZN5arrow6Status11DeleteStateEv.exit.i
   %20 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %20, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
@@ -1061,7 +1061,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %22, %if.then.i.i.i.i.i ], [ %25, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %20, align 8
@@ -1086,23 +1086,23 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i5
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %28, %if.then.i.i.i.i.i.i.i5 ], [ %29, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %20, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %30 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(16) %20) #23
-  br label %_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit
+_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev.argprom.exit: ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit
   %31 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_116kCastOptionsTypeE, align 8
   call void @_ZN5arrow7compute16FunctionRegistry22AddFunctionOptionsTypeEPKNS0_19FunctionOptionsTypeEb(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.tmp.ensured2, ptr noundef nonnull align 8 dereferenceable(8) %registry, ptr noundef %31, i1 noundef zeroext false)
   %32 = load ptr, ptr %agg.tmp.ensured2, align 8
   %cmp.not.i36 = icmp eq ptr %32, null
   br i1 %cmp.not.i36, label %_ZN5arrow6StatusD2Ev.exit71, label %delete.notnull.i.i37
 
-delete.notnull.i.i37:                             ; preds = %_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev.exit
+delete.notnull.i.i37:                             ; preds = %_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev.argprom.exit
   %_M_refcount.i.i.i.i.i38 = getelementptr inbounds i8, ptr %32, i64 48
   %33 = load ptr, ptr %_M_refcount.i.i.i.i.i38, align 8
   %cmp.not.i.i.i.i.i.i39 = icmp eq ptr %33, null
@@ -1182,14 +1182,14 @@ _ZN5arrow6Status11DeleteStateEv.exit.i50:         ; preds = %if.end8.sink.split.
   call void @_ZdlPv(ptr noundef nonnull %32) #25
   br label %_ZN5arrow6StatusD2Ev.exit71
 
-_ZN5arrow6StatusD2Ev.exit71:                      ; preds = %_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev.exit, %_ZN5arrow6Status11DeleteStateEv.exit.i50
+_ZN5arrow6StatusD2Ev.exit71:                      ; preds = %_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev.argprom.exit, %_ZN5arrow6Status11DeleteStateEv.exit.i50
   ret void
 
 lpad:                                             ; preds = %_ZSt11make_sharedIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit
   %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN5arrow7compute8FunctionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #23
-  call fastcc void @_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev(ptr null) #23
+  call fastcc void @_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev.argprom(ptr null) #23
   br label %common.resume
 }
 
@@ -1368,10 +1368,10 @@ _ZNSt12__shared_ptrIN5arrow7compute8FunctionELN9__gnu_cxx12_Lock_policyE2EED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev(ptr %this.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionEED2Ev.argprom(ptr %this.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
@@ -1407,7 +1407,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.i.0.i.i.i = phi i32 [ %1, %if.then.i.i.i.i ], [ %4, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.i.0.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
@@ -1432,16 +1432,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then7.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #23
-  br label %_ZNSt12__shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br label %_ZNSt12__shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
-_ZNSt12__shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
+_ZNSt12__shared_ptrIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
   ret void
 }
 
@@ -5851,7 +5851,7 @@ entry:
   %ref.tmp.val = load ptr, ptr %ref.tmp, align 8
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp.val2 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE(ptr %ref.tmp.val, ptr %ref.tmp.val2)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE.argprom(ptr %ref.tmp.val, ptr %ref.tmp.val2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -5958,7 +5958,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EED2Ev
   %ref.tmp1.val = load ptr, ptr %ref.tmp1, align 8
   %15 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   %ref.tmp1.val3 = load ptr, ptr %15, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE(ptr %ref.tmp1.val, ptr %ref.tmp1.val3)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE.argprom(ptr %ref.tmp1.val, ptr %ref.tmp1.val3)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EED2Ev.exit
@@ -6065,7 +6065,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EED2Ev
   %ref.tmp4.val = load ptr, ptr %ref.tmp4, align 8
   %30 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %ref.tmp4.val4 = load ptr, ptr %30, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE(ptr %ref.tmp4.val, ptr %ref.tmp4.val4)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE.argprom(ptr %ref.tmp4.val, ptr %ref.tmp4.val4)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EED2Ev.exit52
@@ -6172,7 +6172,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EED2Ev
   %ref.tmp7.val = load ptr, ptr %ref.tmp7, align 8
   %45 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %ref.tmp7.val5 = load ptr, ptr %45, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE(ptr %ref.tmp7.val, ptr %ref.tmp7.val5)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE.argprom(ptr %ref.tmp7.val, ptr %ref.tmp7.val5)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EED2Ev.exit96
@@ -6279,7 +6279,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EED2Ev
   %ref.tmp10.val = load ptr, ptr %ref.tmp10, align 8
   %60 = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   %ref.tmp10.val6 = load ptr, ptr %60, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE(ptr %ref.tmp10.val, ptr %ref.tmp10.val6)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE.argprom(ptr %ref.tmp10.val, ptr %ref.tmp10.val6)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EED2Ev.exit140
@@ -6386,7 +6386,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EED2Ev
   %ref.tmp13.val = load ptr, ptr %ref.tmp13, align 8
   %75 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %ref.tmp13.val7 = load ptr, ptr %75, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE(ptr %ref.tmp13.val, ptr %ref.tmp13.val7)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE.argprom(ptr %ref.tmp13.val, ptr %ref.tmp13.val7)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EED2Ev.exit184
@@ -6493,7 +6493,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EED2Ev
   %ref.tmp16.val = load ptr, ptr %ref.tmp16, align 8
   %90 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
   %ref.tmp16.val8 = load ptr, ptr %90, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE(ptr %ref.tmp16.val, ptr %ref.tmp16.val8)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE.argprom(ptr %ref.tmp16.val, ptr %ref.tmp16.val8)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EED2Ev.exit228
@@ -6661,7 +6661,7 @@ entry:
 declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE(ptr readonly %funcs.0.val, ptr readnone %funcs.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116AddCastFunctionsERKSt6vectorISt10shared_ptrINS1_12CastFunctionEESaIS6_EE.argprom(ptr readonly %funcs.0.val, ptr readnone %funcs.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__node5.i.i = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::shared_ptr<arrow::compute::internal::CastFunction>>, std::allocator<std::pair<const int, std::shared_ptr<arrow::compute::internal::CastFunction>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %cmp.i.not4 = icmp eq ptr %funcs.0.val, %funcs.8.val
@@ -9575,7 +9575,7 @@ invoke.cont.i:                                    ; preds = %if.end8.sink.split.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !71
   %42 = load ptr, ptr %41, align 8, !noalias !71
   %cmp.not.i.i.i.i = icmp eq ptr %42, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 8
@@ -9611,7 +9611,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %44, %if.then.i.i.i.i.i.i ], [ %47, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %42, align 8
@@ -9636,14 +9636,14 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i4.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %50, %if.then.i.i.i.i.i.i.i4.i ], [ %51, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i6.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i6.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE.exit
+  br i1 %cmp.i.i.i.i.i.i6.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i7.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %42, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %52 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %52(ptr noundef nonnull align 8 dereferenceable(16) %42) #23
-  br label %_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE.exit
+  br label %_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE.argprom.exit
 
 lpad.i:                                           ; preds = %if.then.i.i
   %53 = landingpad { ptr, i32 }
@@ -9659,13 +9659,13 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
   call void @_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #23, !noalias !71
   br label %common.resume
 
-_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE.exit: ; preds = %invoke.cont.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE.argprom.exit: ; preds = %invoke.cont.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %54 = load ptr, ptr %result, align 8
   %cmp.i.i = icmp eq ptr %54, null
   br i1 %cmp.i.i, label %if.end16, label %if.then4
 
-if.then4:                                         ; preds = %_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE.exit
+if.then4:                                         ; preds = %_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE.argprom.exit
   %retval.sroa.0.0.copyload.i = load i64, ptr %prop, align 8
   %retval.sroa.2.0.name_.sroa_idx.i = getelementptr inbounds i8, ptr %prop, i64 8
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.name_.sroa_idx.i, align 8
@@ -9775,7 +9775,7 @@ lpad:                                             ; preds = %if.end16, %invoke.c
           cleanup
   br label %ehcleanup
 
-if.end16:                                         ; preds = %_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE.exit
+if.end16:                                         ; preds = %_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE.argprom.exit
   %field_names_ = getelementptr inbounds i8, ptr %this, i64 16
   %70 = load ptr, ptr %field_names_, align 8
   %retval.sroa.0.0.copyload.i59 = load i64, ptr %prop, align 8
@@ -12383,9 +12383,9 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   call void @llvm.experimental.noalias.scope.decl(metadata !133)
   store ptr null, ptr %result, align 8, !alias.scope !133
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %holder.val.val8, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread, label %if.then.i.i.i.i.i.i.i49
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom.exit.thread, label %if.then.i.i.i.i.i.i.i49
 
-_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread: ; preds = %if.end23
+_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom.exit.thread: ; preds = %if.end23
   %storage_.i.i.i177 = getelementptr inbounds i8, ptr %result, i64 8
   store ptr %holder.val.val, ptr %storage_.i.i.i177, align 8, !alias.scope !133
   %owned_type2.i.i.i.i.i178 = getelementptr inbounds i8, ptr %result, i64 16
@@ -12401,9 +12401,9 @@ if.then.i.i.i.i.i.i.i49:                          ; preds = %if.end23
   %storage_.i.i.i = getelementptr inbounds i8, ptr %result, i64 8
   %owned_type2.i.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 16
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 24
-  br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit, label %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread184
+  br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom.exit, label %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom.exit.thread184
 
-_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread184: ; preds = %if.then.i.i.i.i.i.i.i49
+_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom.exit.thread184: ; preds = %if.then.i.i.i.i.i.i.i49
   %35 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4, !noalias !133
   %add.i.i.i.i.i.i.i.i.i = add nsw i32 %35, 1
   store i32 %add.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4, !noalias !133
@@ -12412,7 +12412,7 @@ _ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIX
   store ptr %holder.val.val8, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !alias.scope !133
   br label %if.end42
 
-_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit: ; preds = %if.then.i.i.i.i.i.i.i49
+_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom.exit: ; preds = %if.then.i.i.i.i.i.i.i49
   %36 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !133
   %.pr.pre = load ptr, ptr %result, align 8
   %37 = icmp eq ptr %.pr.pre, null
@@ -12421,7 +12421,7 @@ _ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIX
   store ptr %holder.val.val8, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !alias.scope !133
   br i1 %37, label %if.end42, label %if.then29
 
-if.then29:                                        ; preds = %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit
+if.then29:                                        ; preds = %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom.exit
   %retval.sroa.0.0.copyload.i51 = load i64, ptr %prop, align 8
   %retval.sroa.2.0.copyload.i53 = load ptr, ptr %retval.sroa.2.0.name_.sroa_idx.i, align 8
   store i64 %retval.sroa.0.0.copyload.i51, ptr %ref.tmp33, align 8
@@ -12532,9 +12532,9 @@ lpad26:                                           ; preds = %invoke.cont37, %if.
   call void @_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %holder) #23
   br label %ehcleanup49
 
-if.end42:                                         ; preds = %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread184, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit
-  %_M_refcount.i.i.i.i.i.i.i182 = phi ptr [ %_M_refcount.i.i.i.i.i.i.i179, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread ], [ %_M_refcount.i.i.i.i.i.i.i, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit ], [ %_M_refcount.i.i.i.i.i.i.i, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread184 ]
-  %owned_type2.i.i.i.i.i181 = phi ptr [ %owned_type2.i.i.i.i.i178, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread ], [ %owned_type2.i.i.i.i.i, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit ], [ %owned_type2.i.i.i.i.i, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread184 ]
+if.end42:                                         ; preds = %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom.exit.thread184, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom.exit.thread, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom.exit
+  %_M_refcount.i.i.i.i.i.i.i182 = phi ptr [ %_M_refcount.i.i.i.i.i.i.i179, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom.exit.thread ], [ %_M_refcount.i.i.i.i.i.i.i, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom.exit ], [ %_M_refcount.i.i.i.i.i.i.i, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom.exit.thread184 ]
+  %owned_type2.i.i.i.i.i181 = phi ptr [ %owned_type2.i.i.i.i.i178, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom.exit.thread ], [ %owned_type2.i.i.i.i.i, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom.exit ], [ %owned_type2.i.i.i.i.i, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom.exit.thread184 ]
   %53 = load ptr, ptr %this, align 8
   store ptr null, ptr %_M_refcount.i.i.i.i.i.i.i182, align 8, !noalias !136
   store ptr null, ptr %owned_type2.i.i.i.i.i181, align 8, !noalias !136
@@ -14368,7 +14368,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow7compute8internal12_GLOBAL__N_116CastMetaFunctionESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
@@ -14623,14 +14623,14 @@ lor.lhs.false.i:                                  ; preds = %entry
   %to_type.i = getelementptr inbounds i8, ptr %options, i64 16
   %0 = load ptr, ptr %to_type.i, align 8, !noalias !158
   %cmp.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.i, label %if.then.i, label %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.exit.thread
+  br i1 %cmp.i.i, label %if.then.i, label %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.argprom.exit.thread
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
   call void @_ZN5arrow6Status8FromArgsIJRA64_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp.i, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(64) @.str.37), !noalias !158
   call void @_ZN5arrow6ResultIPKNS_7compute11CastOptionsEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #23
   %1 = load ptr, ptr %ref.tmp.i, align 8, !noalias !158
   %cmp.not.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i, label %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.exit, label %delete.notnull.i.i.i
+  br i1 %cmp.not.i.i, label %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.argprom.exit, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
@@ -14710,27 +14710,27 @@ _ZN5arrow6Status11DeleteStateEv.exit.i.i:         ; preds = %if.end8.sink.split.
   %msg.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i) #23
   call void @_ZdlPv(ptr noundef nonnull %1) #25
-  br label %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.exit
+  br label %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.argprom.exit
 
-_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.exit.thread: ; preds = %lor.lhs.false.i
+_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.argprom.exit.thread: ; preds = %lor.lhs.false.i
   store ptr null, ptr %ref.tmp, align 8, !alias.scope !158
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %options, ptr %storage_.i.i.i, align 8, !alias.scope !158
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   br label %invoke.cont6
 
-_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.exit: ; preds = %if.then.i, %_ZN5arrow6Status11DeleteStateEv.exit.i.i
+_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.argprom.exit: ; preds = %if.then.i, %_ZN5arrow6Status11DeleteStateEv.exit.i.i
   %.pr = load ptr, ptr %ref.tmp, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %cmp.i.i25 = icmp eq ptr %.pr, null
-  br i1 %cmp.i.i25, label %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.exit.invoke.cont6_crit_edge, label %if.then
+  br i1 %cmp.i.i25, label %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.argprom.exit.invoke.cont6_crit_edge, label %if.then
 
-_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.exit.invoke.cont6_crit_edge: ; preds = %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.exit
+_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.argprom.exit.invoke.cont6_crit_edge: ; preds = %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.argprom.exit
   %storage_.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %.pre = load ptr, ptr %storage_.i.i.phi.trans.insert, align 8
   br label %invoke.cont6
 
-if.then:                                          ; preds = %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.exit
+if.then:                                          ; preds = %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.argprom.exit
   call void @_ZN5arrow6ResultINS_5DatumEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #23
   br label %cleanup127
 
@@ -14739,8 +14739,8 @@ lpad:                                             ; preds = %if.end97, %invoke.c
           cleanup
   br label %ehcleanup128
 
-invoke.cont6:                                     ; preds = %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.exit.invoke.cont6_crit_edge, %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.exit.thread
-  %14 = phi ptr [ %.pre, %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.exit.invoke.cont6_crit_edge ], [ %options, %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.exit.thread ]
+invoke.cont6:                                     ; preds = %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.argprom.exit.invoke.cont6_crit_edge, %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.argprom.exit.thread
+  %14 = phi ptr [ %.pre, %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.argprom.exit.invoke.cont6_crit_edge ], [ %options, %_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.argprom.exit.thread ]
   %15 = load ptr, ptr %args, align 8
   %call10 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Datum4typeEv(ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %invoke.cont9 unwind label %lpad
@@ -17596,8 +17596,8 @@ attributes #27 = { noreturn nounwind }
 !69 = distinct !{!69, !70, !"_ZNK5arrow10TypeHolder12GetSharedPtrEv: %agg.result"}
 !70 = distinct !{!70, !"_ZNK5arrow10TypeHolder12GetSharedPtrEv"}
 !71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE: %agg.result"}
-!73 = distinct !{!73, !"_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE"}
+!72 = distinct !{!72, !73, !"_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE.argprom: %agg.result"}
+!73 = distinct !{!73, !"_ZN5arrow7compute8internalL15GenericToScalarERKNS_10TypeHolderE.argprom"}
 !74 = !{!75}
 !75 = distinct !{!75, !76, !"_ZNK5arrow10TypeHolder12GetSharedPtrEv: %agg.result"}
 !76 = distinct !{!76, !"_ZNK5arrow10TypeHolder12GetSharedPtrEv"}
@@ -17611,8 +17611,8 @@ attributes #27 = { noreturn nounwind }
 !84 = !{!81, !78, !75}
 !85 = distinct !{!85, !5}
 !86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE: %agg.result"}
-!88 = distinct !{!88, !"_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE"}
+!87 = distinct !{!87, !88, !"_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.argprom: %agg.result"}
+!88 = distinct !{!88, !"_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.argprom"}
 !89 = !{!87, !72}
 !90 = !{!91}
 !91 = distinct !{!91, !92, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
@@ -17658,8 +17658,8 @@ attributes #27 = { noreturn nounwind }
 !131 = distinct !{!131, !132, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
 !132 = distinct !{!132, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv"}
 !133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE: %agg.result"}
-!135 = distinct !{!135, !"_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE"}
+!134 = distinct !{!134, !135, !"_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom: %agg.result"}
+!135 = distinct !{!135, !"_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.argprom"}
 !136 = !{!137}
 !137 = distinct !{!137, !138, !"_ZN5arrow6ResultINS_10TypeHolderEE15MoveValueUnsafeEv: %agg.result"}
 !138 = distinct !{!138, !"_ZN5arrow6ResultINS_10TypeHolderEE15MoveValueUnsafeEv"}
@@ -17667,8 +17667,8 @@ attributes #27 = { noreturn nounwind }
 !140 = distinct !{!140, !141, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
 !141 = distinct !{!141, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv"}
 !142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE: %agg.result"}
-!144 = distinct !{!144, !"_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE"}
+!143 = distinct !{!143, !144, !"_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom: %agg.result"}
+!144 = distinct !{!144, !"_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom"}
 !145 = !{!146, !143}
 !146 = distinct !{!146, !147, !"_ZN5arrow6Status7InvalidIJRA15_KcRKNS_4Type4typeERA10_S2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_DpOT_: %agg.result"}
 !147 = distinct !{!147, !"_ZN5arrow6Status7InvalidIJRA15_KcRKNS_4Type4typeERA10_S2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES0_DpOT_"}
@@ -17683,8 +17683,8 @@ attributes #27 = { noreturn nounwind }
 !156 = distinct !{!156, !157, !"_ZN5arrow4util13StringBuilderIJRA16_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: %agg.result"}
 !157 = distinct !{!157, !"_ZN5arrow4util13StringBuilderIJRA16_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
 !158 = !{!159}
-!159 = distinct !{!159, !160, !"_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE: %agg.result"}
-!160 = distinct !{!160, !"_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE"}
+!159 = distinct !{!159, !160, !"_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.argprom: %agg.result"}
+!160 = distinct !{!160, !"_ZNK5arrow7compute8internal12_GLOBAL__N_116CastMetaFunction15ValidateOptionsEPKNS0_15FunctionOptionsE.argprom"}
 !161 = !{!162}
 !162 = distinct !{!162, !163, !"_ZNO5arrow6ResultISt10shared_ptrINS_9ArrayDataEEE11ValueUnsafeEv: %agg.result"}
 !163 = distinct !{!163, !"_ZNO5arrow6ResultISt10shared_ptrINS_9ArrayDataEEE11ValueUnsafeEv"}

@@ -6867,7 +6867,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110BlifDumper4dumpEv(ptr noundef no
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %198, %204
   store i32 %203, ptr %8, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias writable align 8 %7, i32 %203)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %7, i32 %203)
           to label %210 unwind label %260
 
 210:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit
@@ -7850,9 +7850,9 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit: ; preds = %_ZNSt4pairIN5Yosy
 611:                                              ; preds = %609, %605, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit
   %612 = load i32, ptr @_ZZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEvE2id, align 4, !noalias !66
   %.not.i.i.i = icmp eq i32 %612, 0
-  br i1 %.not.i.i.i, label %_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.exit.thread, label %_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.exit
+  br i1 %.not.i.i.i, label %_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.argprom.exit.thread, label %_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.argprom.exit
 
-_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.exit.thread: ; preds = %611
+_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.argprom.exit.thread: ; preds = %611
   %613 = load i32, ptr %602, align 4
   %614 = icmp eq i32 %613, 0
   br i1 %614, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringES2_ED2Ev.exit, label %636
@@ -7863,7 +7863,7 @@ _ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.exit.thread: ; preds = %611
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEvE2id) #24, !noalias !66
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit1177
 
-_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.exit: ; preds = %611
+_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.argprom.exit: ; preds = %611
   %617 = sext i32 %612 to i64
   %618 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !66
   %619 = getelementptr inbounds i32, ptr %618, i64 %617
@@ -7876,7 +7876,7 @@ _ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.exit: ; preds = %611
   %625 = trunc i8 %624 to i1
   br i1 %625, label %626, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit630
 
-626:                                              ; preds = %_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.exit
+626:                                              ; preds = %_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.argprom.exit
   %627 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %628 = getelementptr inbounds i32, ptr %627, i64 %617
   %629 = load i32, ptr %628, align 4
@@ -7896,10 +7896,10 @@ _ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.exit: ; preds = %611
   call void @__clang_call_terminate(ptr %635) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit630:             ; preds = %_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.exit, %626, %632
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit630:             ; preds = %_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.argprom.exit, %626, %632
   br i1 %623, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringES2_ED2Ev.exit, label %636
 
-636:                                              ; preds = %_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit630
+636:                                              ; preds = %_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit630
   %637 = load ptr, ptr %427, align 8
   %638 = getelementptr inbounds i8, ptr %637, i64 128
   %639 = load ptr, ptr %638, align 8
@@ -9733,7 +9733,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit797.thread:      ; preds = %_ZN5Yosys5RTLIL8IdS
   br i1 %1405, label %.thread1538, label %1406
 
 1406:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit797.thread
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE7_clEv(ptr dead_on_unwind noalias writable align 4 %66)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE7_clEv.argprom(ptr dead_on_unwind noalias writable align 4 %66)
           to label %1407 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1407:                                             ; preds = %1406
@@ -9905,7 +9905,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit833: ; preds = %1449, %1446
   br i1 %1470, label %.thread1540, label %1471
 
 1471:                                             ; preds = %.thread1538
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE8_clEv(ptr dead_on_unwind noalias writable align 4 %71)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE8_clEv.argprom(ptr dead_on_unwind noalias writable align 4 %71)
           to label %1472 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1472:                                             ; preds = %1471
@@ -10077,7 +10077,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit851: ; preds = %1514, %1511
   br i1 %1535, label %.thread1542, label %1536
 
 1536:                                             ; preds = %.thread1540
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE9_clEv(ptr dead_on_unwind noalias writable align 4 %76)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE9_clEv.argprom(ptr dead_on_unwind noalias writable align 4 %76)
           to label %1537 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1537:                                             ; preds = %1536
@@ -10293,7 +10293,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit875: ; preds = %1593, %1590
   br i1 %1617, label %.thread1544, label %1618
 
 1618:                                             ; preds = %.thread1542
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE10_clEv(ptr dead_on_unwind noalias writable align 4 %82)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE10_clEv.argprom(ptr dead_on_unwind noalias writable align 4 %82)
           to label %1619 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1619:                                             ; preds = %1618
@@ -10509,7 +10509,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit899: ; preds = %1675, %1672
   br i1 %1699, label %.thread1546, label %1700
 
 1700:                                             ; preds = %.thread1544
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE11_clEv(ptr dead_on_unwind noalias writable align 4 %88)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE11_clEv.argprom(ptr dead_on_unwind noalias writable align 4 %88)
           to label %1701 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1701:                                             ; preds = %1700
@@ -10769,7 +10769,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit929: ; preds = %1771, %1768
   br i1 %1798, label %.thread1548, label %1799
 
 1799:                                             ; preds = %.thread1546
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE12_clEv(ptr dead_on_unwind noalias writable align 4 %95)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE12_clEv.argprom(ptr dead_on_unwind noalias writable align 4 %95)
           to label %1800 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1800:                                             ; preds = %1799
@@ -11029,7 +11029,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit959: ; preds = %1870, %1867
   br i1 %1897, label %.thread1550, label %1898
 
 1898:                                             ; preds = %.thread1548
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE13_clEv(ptr dead_on_unwind noalias writable align 4 %102)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE13_clEv.argprom(ptr dead_on_unwind noalias writable align 4 %102)
           to label %1899 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1899:                                             ; preds = %1898
@@ -11245,7 +11245,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit983: ; preds = %1955, %1952
   br i1 %1979, label %.thread1552, label %1980
 
 1980:                                             ; preds = %.thread1550
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE14_clEv(ptr dead_on_unwind noalias writable align 4 %108)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE14_clEv.argprom(ptr dead_on_unwind noalias writable align 4 %108)
           to label %1981 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 1981:                                             ; preds = %1980
@@ -11461,7 +11461,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1007: ; preds = %2037, %2034
   br i1 %2061, label %.thread1554, label %2062
 
 2062:                                             ; preds = %.thread1552
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE15_clEv(ptr dead_on_unwind noalias writable align 4 %114)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE15_clEv.argprom(ptr dead_on_unwind noalias writable align 4 %114)
           to label %2063 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2063:                                             ; preds = %2062
@@ -11633,7 +11633,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1025: ; preds = %2105, %2102
   br i1 %2126, label %.thread1556, label %2127
 
 2127:                                             ; preds = %.thread1554
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE16_clEv(ptr dead_on_unwind noalias writable align 4 %119)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE16_clEv.argprom(ptr dead_on_unwind noalias writable align 4 %119)
           to label %2128 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2128:                                             ; preds = %2127
@@ -11849,7 +11849,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1049: ; preds = %2184, %2181
   br i1 %2208, label %.thread1558, label %2209
 
 2209:                                             ; preds = %.thread1556
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE17_clEv(ptr dead_on_unwind noalias writable align 4 %125)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE17_clEv.argprom(ptr dead_on_unwind noalias writable align 4 %125)
           to label %2210 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2210:                                             ; preds = %2209
@@ -12065,7 +12065,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1073: ; preds = %2266, %2263
   br i1 %2290, label %.thread1560, label %2291
 
 2291:                                             ; preds = %.thread1558
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE18_clEv(ptr dead_on_unwind noalias writable align 4 %131)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE18_clEv.argprom(ptr dead_on_unwind noalias writable align 4 %131)
           to label %2292 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2292:                                             ; preds = %2291
@@ -12281,7 +12281,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1097: ; preds = %2348, %2345
   br i1 %2372, label %.thread1562, label %2373
 
 2373:                                             ; preds = %.thread1560
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE19_clEv(ptr dead_on_unwind noalias writable align 4 %137)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE19_clEv.argprom(ptr dead_on_unwind noalias writable align 4 %137)
           to label %2374 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2374:                                             ; preds = %2373
@@ -12497,7 +12497,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1121: ; preds = %2430, %2427
   br i1 %2454, label %.thread1564, label %2455
 
 2455:                                             ; preds = %.thread1562
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE20_clEv(ptr dead_on_unwind noalias writable align 4 %143)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE20_clEv.argprom(ptr dead_on_unwind noalias writable align 4 %143)
           to label %2456 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2456:                                             ; preds = %2455
@@ -12781,7 +12781,7 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread:      ; preds = %2529, %._crit_edge1
   br i1 %2555, label %.thread1566, label %2556
 
 2556:                                             ; preds = %.thread1564
-  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE21_clEv(ptr dead_on_unwind noalias writable align 4 %152)
+  invoke fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE21_clEv.argprom(ptr dead_on_unwind noalias writable align 4 %152)
           to label %2557 unwind label %.loopexit.split-lp1602.loopexit.split-lp.loopexit
 
 2557:                                             ; preds = %2556
@@ -13160,7 +13160,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1146: ; preds = %2628, %2625
 
 2690:                                             ; preds = %2684, %2682
   store i32 %2683, ptr %165, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias writable align 8 %164, i32 %2683)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %164, i32 %2683)
           to label %2691 unwind label %2734
 
 2691:                                             ; preds = %2690
@@ -13225,7 +13225,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1146: ; preds = %2628, %2625
 
 2722:                                             ; preds = %2716, %2713
   store i32 %2715, ptr %168, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias writable align 8 %167, i32 %2715)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %167, i32 %2715)
           to label %2723 unwind label %2743
 
 2723:                                             ; preds = %2722
@@ -13381,7 +13381,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1146: ; preds = %2628, %2625
 
 2778:                                             ; preds = %2772, %.lr.ph2005
   store i32 %2771, ptr %172, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias writable align 8 %171, i32 %2771)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %171, i32 %2771)
           to label %2779 unwind label %2791
 
 2779:                                             ; preds = %2778
@@ -13469,7 +13469,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1146: ; preds = %2628, %2625
 
 2811:                                             ; preds = %2805, %2802
   store i32 %2804, ptr %176, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias writable align 8 %175, i32 %2804)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %175, i32 %2804)
           to label %2812 unwind label %2837
 
 2812:                                             ; preds = %2811
@@ -13598,7 +13598,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit1146: ; preds = %2628, %2625
 
 2866:                                             ; preds = %2860, %2856
   store i32 %2859, ptr %181, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias writable align 8 %180, i32 %2859)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %180, i32 %2859)
           to label %2867 unwind label %2874
 
 2867:                                             ; preds = %2866
@@ -13706,7 +13706,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %2676, %._crit_edg
 
 2911:                                             ; preds = %2905, %2901
   store i32 %2904, ptr %184, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias writable align 8 %183, i32 %2904)
+  invoke fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %183, i32 %2904)
           to label %2912 unwind label %2931
 
 2912:                                             ; preds = %2911
@@ -13781,7 +13781,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1172:            ; preds = %2927, %2920, %2916,
   %2942 = trunc i8 %2941 to i1
   br i1 %2942, label %.invoke2493, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringES2_ED2Ev.exit
 
-_ZNSt4pairIN5Yosys5RTLIL8IdStringES2_ED2Ev.exit:  ; preds = %.invoke2493, %734, %727, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.exit.thread, %2888, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1172, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit630
+_ZNSt4pairIN5Yosys5RTLIL8IdStringES2_ED2Ev.exit:  ; preds = %.invoke2493, %734, %727, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.argprom.exit.thread, %2888, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1172, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit630
   %indvars.iv.next2370 = add nsw i64 %indvars.iv2369, -1
   %2943 = icmp eq i64 %indvars.iv2369, 0
   br i1 %2943, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.loopexit, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit
@@ -72603,8 +72603,8 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  tail call fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias writable align 8 %0, i32 %.0.val)
+define internal fastcc void @_ZN12_GLOBAL__N_110BlifDumper3strB5cxx11EN5Yosys5RTLIL8IdStringE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  tail call fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %0, i32 %.0.val)
   %2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -72890,7 +72890,7 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit:             ; preds = %4
 72:                                               ; preds = %4
   %73 = getelementptr inbounds i8, ptr %13, i64 72
   %.val = load i32, ptr %73, align 4, !noalias !570
-  call fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias writable align 8 %0, i32 %.val)
+  call fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %0, i32 %.val)
   %74 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
   %.not30 = icmp eq i64 %74, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
@@ -73220,7 +73220,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit18:              ; preds = %_ZNK5Yosys5RTLIL10A
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE7_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE7_clEv.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE7_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73266,7 +73266,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE8_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE8_clEv.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE8_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73312,7 +73312,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE9_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE9_clEv.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE9_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73358,7 +73358,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE10_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE10_clEv.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE10_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73404,7 +73404,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE11_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE11_clEv.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE11_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73450,7 +73450,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE12_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE12_clEv.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE12_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73496,7 +73496,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE13_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE13_clEv.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE13_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73542,7 +73542,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE14_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE14_clEv.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE14_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73588,7 +73588,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE15_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE15_clEv.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE15_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73726,7 +73726,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit:  ; preds = %4, %_ZNK5Yosys7hash
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE16_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE16_clEv.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE16_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73772,7 +73772,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE17_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE17_clEv.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE17_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73818,7 +73818,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE18_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE18_clEv.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE18_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73864,7 +73864,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE19_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE19_clEv.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE19_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73910,7 +73910,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE20_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE20_clEv.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE20_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -73966,7 +73966,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE21_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE21_clEv.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE21_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !44
@@ -74313,7 +74313,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiPN5Yosys5RTLIL4WireEESt10_Select1stIS6_ESt4lessIiESaIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -75365,30 +75365,30 @@ attributes #29 = { nounwind willreturn memory(read) }
 !64 = distinct !{!64, !65, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv: argument 0"}
 !65 = distinct !{!65, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv: argument 0"}
-!68 = distinct !{!68, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv"}
+!67 = distinct !{!67, !68, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.argprom: argument 0"}
+!68 = distinct !{!68, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE_clEv.argprom"}
 !69 = distinct !{!69, !16}
 !70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE0_clEv: argument 0"}
-!72 = distinct !{!72, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE0_clEv"}
+!71 = distinct !{!71, !72, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE0_clEv.argprom: argument 0"}
+!72 = distinct !{!72, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE0_clEv.argprom"}
 !73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE1_clEv: argument 0"}
-!75 = distinct !{!75, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE1_clEv"}
+!74 = distinct !{!74, !75, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE1_clEv.argprom: argument 0"}
+!75 = distinct !{!75, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE1_clEv.argprom"}
 !76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE2_clEv: argument 0"}
-!78 = distinct !{!78, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE2_clEv"}
+!77 = distinct !{!77, !78, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE2_clEv.argprom: argument 0"}
+!78 = distinct !{!78, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE2_clEv.argprom"}
 !79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE3_clEv: argument 0"}
-!81 = distinct !{!81, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE3_clEv"}
+!80 = distinct !{!80, !81, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE3_clEv.argprom: argument 0"}
+!81 = distinct !{!81, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE3_clEv.argprom"}
 !82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE4_clEv: argument 0"}
-!84 = distinct !{!84, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE4_clEv"}
+!83 = distinct !{!83, !84, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE4_clEv.argprom: argument 0"}
+!84 = distinct !{!84, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE4_clEv.argprom"}
 !85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE5_clEv: argument 0"}
-!87 = distinct !{!87, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE5_clEv"}
+!86 = distinct !{!86, !87, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE5_clEv.argprom: argument 0"}
+!87 = distinct !{!87, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE5_clEv.argprom"}
 !88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE6_clEv: argument 0"}
-!90 = distinct !{!90, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE6_clEv"}
+!89 = distinct !{!89, !90, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE6_clEv.argprom: argument 0"}
+!90 = distinct !{!90, !"_ZZN12_GLOBAL__N_110BlifDumper4dumpEvENKUlvE6_clEv.argprom"}
 !91 = distinct !{!91, !16}
 !92 = distinct !{!92, !16}
 !93 = distinct !{!93, !16}

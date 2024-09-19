@@ -529,12 +529,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i10.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt11logic_errorEEvPFvPKcE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt11logic_errorEEvPFvPKcE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt11logic_errorEEvPFvPKcE.exit
+  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt11logic_errorEEvPFvPKcE.argprom.exit
 
 ehcleanup25.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit9.i, %lpad11.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %_ZN7testing7MessageD2Ev.exit9.i ], [ %8, %lpad11.i ]
@@ -557,7 +557,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup26.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_115ExpectThrowCharISt11logic_errorEEvPFvPKcE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_115ExpectThrowCharISt11logic_errorEEvPFvPKcE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i)
@@ -792,12 +792,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i10.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt16invalid_argumentEEvPFvPKcE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt16invalid_argumentEEvPFvPKcE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt16invalid_argumentEEvPFvPKcE.exit
+  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt16invalid_argumentEEvPFvPKcE.argprom.exit
 
 ehcleanup24.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit9.i, %lpad13.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %_ZN7testing7MessageD2Ev.exit9.i ], [ %11, %lpad13.i ]
@@ -820,7 +820,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup25.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_115ExpectThrowCharISt16invalid_argumentEEvPFvPKcE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_115ExpectThrowCharISt16invalid_argumentEEvPFvPKcE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i)
@@ -998,12 +998,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i10.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt12domain_errorEEvPFvPKcE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt12domain_errorEEvPFvPKcE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt12domain_errorEEvPFvPKcE.exit
+  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt12domain_errorEEvPFvPKcE.argprom.exit
 
 ehcleanup24.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit9.i, %lpad13.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %_ZN7testing7MessageD2Ev.exit9.i ], [ %11, %lpad13.i ]
@@ -1026,7 +1026,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup25.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_115ExpectThrowCharISt12domain_errorEEvPFvPKcE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_115ExpectThrowCharISt12domain_errorEEvPFvPKcE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i)
@@ -1204,12 +1204,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i10.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt12length_errorEEvPFvPKcE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt12length_errorEEvPFvPKcE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt12length_errorEEvPFvPKcE.exit
+  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt12length_errorEEvPFvPKcE.argprom.exit
 
 ehcleanup24.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit9.i, %lpad13.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %_ZN7testing7MessageD2Ev.exit9.i ], [ %11, %lpad13.i ]
@@ -1232,7 +1232,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup25.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_115ExpectThrowCharISt12length_errorEEvPFvPKcE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_115ExpectThrowCharISt12length_errorEEvPFvPKcE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i)
@@ -1410,12 +1410,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i10.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt12out_of_rangeEEvPFvPKcE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt12out_of_rangeEEvPFvPKcE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt12out_of_rangeEEvPFvPKcE.exit
+  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt12out_of_rangeEEvPFvPKcE.argprom.exit
 
 ehcleanup24.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit9.i, %lpad13.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %_ZN7testing7MessageD2Ev.exit9.i ], [ %11, %lpad13.i ]
@@ -1438,7 +1438,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup25.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_115ExpectThrowCharISt12out_of_rangeEEvPFvPKcE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_115ExpectThrowCharISt12out_of_rangeEEvPFvPKcE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i)
@@ -1616,12 +1616,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i10.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt13runtime_errorEEvPFvPKcE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt13runtime_errorEEvPFvPKcE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt13runtime_errorEEvPFvPKcE.exit
+  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt13runtime_errorEEvPFvPKcE.argprom.exit
 
 ehcleanup24.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit9.i, %lpad13.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %_ZN7testing7MessageD2Ev.exit9.i ], [ %11, %lpad13.i ]
@@ -1644,7 +1644,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup25.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_115ExpectThrowCharISt13runtime_errorEEvPFvPKcE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_115ExpectThrowCharISt13runtime_errorEEvPFvPKcE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i)
@@ -1822,12 +1822,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i10.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt11range_errorEEvPFvPKcE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt11range_errorEEvPFvPKcE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt11range_errorEEvPFvPKcE.exit
+  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt11range_errorEEvPFvPKcE.argprom.exit
 
 ehcleanup24.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit9.i, %lpad13.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %_ZN7testing7MessageD2Ev.exit9.i ], [ %11, %lpad13.i ]
@@ -1850,7 +1850,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup25.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_115ExpectThrowCharISt11range_errorEEvPFvPKcE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_115ExpectThrowCharISt11range_errorEEvPFvPKcE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i)
@@ -2028,12 +2028,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i10.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt14overflow_errorEEvPFvPKcE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt14overflow_errorEEvPFvPKcE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt14overflow_errorEEvPFvPKcE.exit
+  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt14overflow_errorEEvPFvPKcE.argprom.exit
 
 ehcleanup24.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit9.i, %lpad13.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %_ZN7testing7MessageD2Ev.exit9.i ], [ %11, %lpad13.i ]
@@ -2056,7 +2056,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup25.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_115ExpectThrowCharISt14overflow_errorEEvPFvPKcE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_115ExpectThrowCharISt14overflow_errorEEvPFvPKcE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i)
@@ -2234,12 +2234,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i10.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt15underflow_errorEEvPFvPKcE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i10.i, label %_ZN12_GLOBAL__N_115ExpectThrowCharISt15underflow_errorEEvPFvPKcE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt15underflow_errorEEvPFvPKcE.exit
+  br label %_ZN12_GLOBAL__N_115ExpectThrowCharISt15underflow_errorEEvPFvPKcE.argprom.exit
 
 ehcleanup24.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit9.i, %lpad13.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %_ZN7testing7MessageD2Ev.exit9.i ], [ %11, %lpad13.i ]
@@ -2262,7 +2262,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup25.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_115ExpectThrowCharISt15underflow_errorEEvPFvPKcE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_115ExpectThrowCharISt15underflow_errorEEvPFvPKcE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i)
@@ -2477,12 +2477,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i13.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt11logic_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt11logic_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt11logic_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit
+  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt11logic_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit
 
 ehcleanup31.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit12.i, %lpad20.i
   %.pn3.pn.i = phi { ptr, i32 } [ %.pn3.i, %_ZN7testing7MessageD2Ev.exit12.i ], [ %11, %lpad20.i ]
@@ -2505,7 +2505,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup32.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_117ExpectThrowStringISt11logic_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_117ExpectThrowStringISt11logic_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -2722,12 +2722,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i13.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt16invalid_argumentEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt16invalid_argumentEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt16invalid_argumentEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit
+  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt16invalid_argumentEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit
 
 ehcleanup31.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit12.i, %lpad20.i
   %.pn3.pn.i = phi { ptr, i32 } [ %.pn3.i, %_ZN7testing7MessageD2Ev.exit12.i ], [ %11, %lpad20.i ]
@@ -2750,7 +2750,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup32.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_117ExpectThrowStringISt16invalid_argumentEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_117ExpectThrowStringISt16invalid_argumentEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -2967,12 +2967,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i13.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt12domain_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt12domain_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt12domain_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit
+  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt12domain_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit
 
 ehcleanup31.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit12.i, %lpad20.i
   %.pn3.pn.i = phi { ptr, i32 } [ %.pn3.i, %_ZN7testing7MessageD2Ev.exit12.i ], [ %11, %lpad20.i ]
@@ -2995,7 +2995,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup32.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_117ExpectThrowStringISt12domain_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_117ExpectThrowStringISt12domain_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -3212,12 +3212,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i13.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt12length_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt12length_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt12length_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit
+  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt12length_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit
 
 ehcleanup31.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit12.i, %lpad20.i
   %.pn3.pn.i = phi { ptr, i32 } [ %.pn3.i, %_ZN7testing7MessageD2Ev.exit12.i ], [ %11, %lpad20.i ]
@@ -3240,7 +3240,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup32.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_117ExpectThrowStringISt12length_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_117ExpectThrowStringISt12length_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -3457,12 +3457,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i13.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt12out_of_rangeEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt12out_of_rangeEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt12out_of_rangeEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit
+  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt12out_of_rangeEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit
 
 ehcleanup31.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit12.i, %lpad20.i
   %.pn3.pn.i = phi { ptr, i32 } [ %.pn3.i, %_ZN7testing7MessageD2Ev.exit12.i ], [ %11, %lpad20.i ]
@@ -3485,7 +3485,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup32.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_117ExpectThrowStringISt12out_of_rangeEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_117ExpectThrowStringISt12out_of_rangeEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -3702,12 +3702,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i13.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt13runtime_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt13runtime_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt13runtime_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit
+  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt13runtime_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit
 
 ehcleanup31.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit12.i, %lpad20.i
   %.pn3.pn.i = phi { ptr, i32 } [ %.pn3.i, %_ZN7testing7MessageD2Ev.exit12.i ], [ %11, %lpad20.i ]
@@ -3730,7 +3730,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup32.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_117ExpectThrowStringISt13runtime_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_117ExpectThrowStringISt13runtime_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -3947,12 +3947,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i13.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt11range_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt11range_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt11range_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit
+  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt11range_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit
 
 ehcleanup31.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit12.i, %lpad20.i
   %.pn3.pn.i = phi { ptr, i32 } [ %.pn3.i, %_ZN7testing7MessageD2Ev.exit12.i ], [ %11, %lpad20.i ]
@@ -3975,7 +3975,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup32.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_117ExpectThrowStringISt11range_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_117ExpectThrowStringISt11range_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -4192,12 +4192,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i13.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt14overflow_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt14overflow_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt14overflow_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit
+  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt14overflow_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit
 
 ehcleanup31.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit12.i, %lpad20.i
   %.pn3.pn.i = phi { ptr, i32 } [ %.pn3.i, %_ZN7testing7MessageD2Ev.exit12.i ], [ %11, %lpad20.i ]
@@ -4220,7 +4220,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup32.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_117ExpectThrowStringISt14overflow_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_117ExpectThrowStringISt14overflow_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -4437,12 +4437,12 @@ if.end.i:                                         ; preds = %_ZN7testing7Message
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar.i, i64 8
   %16 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i13.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt15underflow_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i13.i, label %_ZN12_GLOBAL__N_117ExpectThrowStringISt15underflow_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZdlPv(ptr noundef nonnull %16) #15
-  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt15underflow_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit
+  br label %_ZN12_GLOBAL__N_117ExpectThrowStringISt15underflow_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit
 
 ehcleanup31.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit12.i, %lpad20.i
   %.pn3.pn.i = phi { ptr, i32 } [ %.pn3.i, %_ZN7testing7MessageD2Ev.exit12.i ], [ %11, %lpad20.i ]
@@ -4465,7 +4465,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup32.i
   call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
-_ZN12_GLOBAL__N_117ExpectThrowStringISt15underflow_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_117ExpectThrowStringISt15underflow_errorEEvPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.argprom.exit: ; preds = %if.end.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -4616,12 +4616,12 @@ lpad.i:                                           ; preds = %entry
   %1 = extractvalue { ptr, i32 } %0, 1
   %2 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #14
   %matches.i = icmp eq i32 %1, %2
-  br i1 %matches.i, label %_ZN12_GLOBAL__N_117ExpectThrowNoWhatISt9bad_allocEEvPFvvE.exit, label %eh.resume.i
+  br i1 %matches.i, label %_ZN12_GLOBAL__N_117ExpectThrowNoWhatISt9bad_allocEEvPFvvE.argprom.exit, label %eh.resume.i
 
 eh.resume.i:                                      ; preds = %lpad.i
   resume { ptr, i32 } %0
 
-_ZN12_GLOBAL__N_117ExpectThrowNoWhatISt9bad_allocEEvPFvvE.exit: ; preds = %lpad.i
+_ZN12_GLOBAL__N_117ExpectThrowNoWhatISt9bad_allocEEvPFvvE.argprom.exit: ; preds = %lpad.i
   %3 = extractvalue { ptr, i32 } %0, 0
   %4 = tail call ptr @__cxa_begin_catch(ptr %3) #14
   tail call void @__cxa_end_catch()

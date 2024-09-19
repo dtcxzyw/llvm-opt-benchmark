@@ -1259,19 +1259,19 @@ cond.end.i.i:                                     ; preds = %cond.true.i.i, %_xi
   %cond.i.i = phi ptr [ %9, %cond.true.i.i ], [ null, %_xidregistry_lock.exit.i.i ]
   %10 = load i32, ptr %spec.select.i.i.i, align 8
   %tobool.not.i6.i.i = icmp eq i32 %10, 0
-  br i1 %tobool.not.i6.i.i, label %_lookup_getdata.exit, label %if.then.i7.i.i
+  br i1 %tobool.not.i6.i.i, label %_lookup_getdata.argprom.exit, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %cond.end.i.i
   %mutex.i8.i.i = getelementptr inbounds i8, ptr %spec.select.i.i.i, i64 8
   %11 = cmpxchg ptr %mutex.i8.i.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %12 = extractvalue { i8, i1 } %11, 1
-  br i1 %12, label %_lookup_getdata.exit, label %if.then.i.i9.i.i
+  br i1 %12, label %_lookup_getdata.argprom.exit, label %if.then.i.i9.i.i
 
 if.then.i.i9.i.i:                                 ; preds = %if.then.i7.i.i
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex.i8.i.i) #13
-  br label %_lookup_getdata.exit
+  br label %_lookup_getdata.argprom.exit
 
-_lookup_getdata.exit:                             ; preds = %cond.end.i.i, %if.then.i7.i.i, %if.then.i.i9.i.i
+_lookup_getdata.argprom.exit:                     ; preds = %cond.end.i.i, %if.then.i7.i.i, %if.then.i.i9.i.i
   ret ptr %cond.i.i
 }
 
@@ -1322,34 +1322,34 @@ cond.end.i.i:                                     ; preds = %cond.true.i.i, %_xi
   %cond.i.i = phi i1 [ %10, %cond.true.i.i ], [ true, %_xidregistry_lock.exit.i.i ]
   %11 = load i32, ptr %spec.select.i.i.i, align 8
   %tobool.not.i6.i.i = icmp eq i32 %11, 0
-  br i1 %tobool.not.i6.i.i, label %_lookup_getdata.exit, label %if.then.i7.i.i
+  br i1 %tobool.not.i6.i.i, label %_lookup_getdata.argprom.exit, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %cond.end.i.i
   %mutex.i8.i.i = getelementptr inbounds i8, ptr %spec.select.i.i.i, i64 8
   %12 = cmpxchg ptr %mutex.i8.i.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %13 = extractvalue { i8, i1 } %12, 1
-  br i1 %13, label %_lookup_getdata.exit, label %if.then.i.i9.i.i
+  br i1 %13, label %_lookup_getdata.argprom.exit, label %if.then.i.i9.i.i
 
 if.then.i.i9.i.i:                                 ; preds = %if.then.i7.i.i
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex.i8.i.i) #13
-  br label %_lookup_getdata.exit
+  br label %_lookup_getdata.argprom.exit
 
-_lookup_getdata.exit:                             ; preds = %cond.end.i.i, %if.then.i7.i.i, %if.then.i.i9.i.i
+_lookup_getdata.argprom.exit:                     ; preds = %cond.end.i.i, %if.then.i7.i.i, %if.then.i.i9.i.i
   br i1 %cond.i.i, label %if.then, label %return
 
-if.then:                                          ; preds = %_lookup_getdata.exit
+if.then:                                          ; preds = %_lookup_getdata.argprom.exit
   %call2 = tail call ptr @PyErr_Occurred() #13
   %tobool.not = icmp eq ptr %call2, null
-  br i1 %tobool.not, label %_set_xid_lookup_failure.exit, label %return
+  br i1 %tobool.not, label %_set_xid_lookup_failure.argprom.exit, label %return
 
-_set_xid_lookup_failure.exit:                     ; preds = %if.then
+_set_xid_lookup_failure.argprom.exit:             ; preds = %if.then
   %14 = getelementptr i8, ptr %2, i64 4224
   %call.val = load ptr, ptr %14, align 8
   %call4.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %call.val, ptr noundef nonnull @.str.7, ptr noundef nonnull %obj) #13
   br label %return
 
-return:                                           ; preds = %_lookup_getdata.exit, %if.then, %_set_xid_lookup_failure.exit
-  %retval.0 = phi i32 [ -1, %_set_xid_lookup_failure.exit ], [ -1, %if.then ], [ 0, %_lookup_getdata.exit ]
+return:                                           ; preds = %_lookup_getdata.argprom.exit, %if.then, %_set_xid_lookup_failure.argprom.exit
+  %retval.0 = phi i32 [ -1, %_set_xid_lookup_failure.argprom.exit ], [ -1, %if.then ], [ 0, %_lookup_getdata.argprom.exit ]
   ret i32 %retval.0
 }
 
@@ -1413,23 +1413,23 @@ cond.end.i.i:                                     ; preds = %cond.true.i.i, %_xi
   %cond.i.i = phi ptr [ %8, %cond.true.i.i ], [ null, %_xidregistry_lock.exit.i.i ]
   %9 = load i32, ptr %spec.select.i.i.i, align 8
   %tobool.not.i6.i.i = icmp eq i32 %9, 0
-  br i1 %tobool.not.i6.i.i, label %_lookup_getdata.exit, label %if.then.i7.i.i
+  br i1 %tobool.not.i6.i.i, label %_lookup_getdata.argprom.exit, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %cond.end.i.i
   %mutex.i8.i.i = getelementptr inbounds i8, ptr %spec.select.i.i.i, i64 8
   %10 = cmpxchg ptr %mutex.i8.i.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %11 = extractvalue { i8, i1 } %10, 1
-  br i1 %11, label %_lookup_getdata.exit, label %if.then.i.i9.i.i
+  br i1 %11, label %_lookup_getdata.argprom.exit, label %if.then.i.i9.i.i
 
 if.then.i.i9.i.i:                                 ; preds = %if.then.i7.i.i
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex.i8.i.i) #13
-  br label %_lookup_getdata.exit
+  br label %_lookup_getdata.argprom.exit
 
-_lookup_getdata.exit:                             ; preds = %cond.end.i.i, %if.then.i7.i.i, %if.then.i.i9.i.i
+_lookup_getdata.argprom.exit:                     ; preds = %cond.end.i.i, %if.then.i7.i.i, %if.then.i.i9.i.i
   %cmp = icmp eq ptr %cond.i.i, null
   br i1 %cmp, label %if.then, label %if.end7
 
-if.then:                                          ; preds = %_lookup_getdata.exit
+if.then:                                          ; preds = %_lookup_getdata.argprom.exit
   %12 = load i64, ptr %obj, align 8
   %13 = and i64 %12, 2147483648
   %cmp.i32.not = icmp eq i64 %13, 0
@@ -1448,15 +1448,15 @@ if.then1.i28:                                     ; preds = %if.end.i25
 Py_DECREF.exit30:                                 ; preds = %if.then, %if.then1.i28, %if.end.i25
   %call5 = tail call ptr @PyErr_Occurred() #13
   %tobool.not = icmp eq ptr %call5, null
-  br i1 %tobool.not, label %_set_xid_lookup_failure.exit, label %return
+  br i1 %tobool.not, label %_set_xid_lookup_failure.argprom.exit, label %return
 
-_set_xid_lookup_failure.exit:                     ; preds = %Py_DECREF.exit30
+_set_xid_lookup_failure.argprom.exit:             ; preds = %Py_DECREF.exit30
   %14 = getelementptr i8, ptr %0, i64 4224
   %.val = load ptr, ptr %14, align 8
   %call4.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %.val, ptr noundef nonnull @.str.7, ptr noundef nonnull %obj) #13
   br label %return
 
-if.end7:                                          ; preds = %_lookup_getdata.exit
+if.end7:                                          ; preds = %_lookup_getdata.argprom.exit
   %call8 = tail call i32 %cond.i.i(ptr noundef nonnull %call, ptr noundef nonnull %obj, ptr noundef nonnull %data) #13
   %15 = load i64, ptr %obj, align 8
   %16 = and i64 %15, 2147483648
@@ -1497,8 +1497,8 @@ if.then15:                                        ; preds = %if.end.i23, %if.end
   %call.i = tail call fastcc range(i32 -1, 1) i32 @_xidata_release(ptr noundef nonnull %data, i32 noundef 0)
   br label %return
 
-return:                                           ; preds = %if.end.i23, %Py_DECREF.exit, %Py_DECREF.exit30, %_set_xid_lookup_failure.exit, %if.then15
-  %retval.0 = phi i32 [ -1, %if.then15 ], [ -1, %_set_xid_lookup_failure.exit ], [ -1, %Py_DECREF.exit30 ], [ -1, %Py_DECREF.exit ], [ 0, %if.end.i23 ]
+return:                                           ; preds = %if.end.i23, %Py_DECREF.exit, %Py_DECREF.exit30, %_set_xid_lookup_failure.argprom.exit, %if.then15
+  %retval.0 = phi i32 [ -1, %if.then15 ], [ -1, %_set_xid_lookup_failure.argprom.exit ], [ -1, %Py_DECREF.exit30 ], [ -1, %Py_DECREF.exit ], [ 0, %if.end.i23 ]
   ret i32 %retval.0
 }
 
@@ -4533,24 +4533,24 @@ _copy_string_obj_raw.exit54.i.i:                  ; preds = %if.end5.i49.i.i, %i
   %18 = load i64, ptr %call19.i.i, align 8
   %19 = and i64 %18, 2147483648
   %cmp.i54.not.i.i = icmp eq i64 %19, 0
-  br i1 %cmp.i54.not.i.i, label %if.end.i.i.i, label %_excinfo_init_type.exit.i
+  br i1 %cmp.i54.not.i.i, label %if.end.i.i.i, label %_excinfo_init_type.argprom.exit.i
 
 if.end.i.i.i:                                     ; preds = %_copy_string_obj_raw.exit54.i.i
   %dec.i.i.i = add i64 %18, -1
   store i64 %dec.i.i.i, ptr %call19.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %_excinfo_init_type.exit.i
+  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %_excinfo_init_type.argprom.exit.i
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call19.i.i) #13
-  br label %_excinfo_init_type.exit.i
+  br label %_excinfo_init_type.argprom.exit.i
 
-_excinfo_init_type.exit.i:                        ; preds = %if.then1.i.i.i, %if.end.i.i.i, %_copy_string_obj_raw.exit54.i.i
+_excinfo_init_type.argprom.exit.i:                ; preds = %if.then1.i.i.i, %if.end.i.i.i, %_copy_string_obj_raw.exit54.i.i
   %20 = load ptr, ptr %name.i.i, align 8
   %cmp25.i.i = icmp eq ptr %20, null
   br i1 %cmp25.i.i, label %error.i, label %if.end3.i
 
-if.end3.i:                                        ; preds = %_excinfo_init_type.exit.i
+if.end3.i:                                        ; preds = %_excinfo_init_type.argprom.exit.i
   %call4.i = call ptr @PyObject_Str(ptr noundef nonnull %excobj) #13
   %cmp5.i = icmp eq ptr %call4.i, null
   br i1 %cmp5.i, label %error.i, label %if.end7.i
@@ -4887,8 +4887,8 @@ if.then19.i:                                      ; preds = %Py_DECREF.exit.i
   call void @PyErr_Clear() #13
   br label %if.else12
 
-error.i:                                          ; preds = %Py_DECREF.exit30.i, %if.end3.i, %_excinfo_init_type.exit.i, %if.end18.i.i, %Py_DECREF.exit36.i.i, %if.end9.i.i, %Py_DECREF.exit45.i.i, %if.end.i
-  %failure.0.i = phi ptr [ @.str.30, %_excinfo_init_type.exit.i ], [ @.str.31, %if.end3.i ], [ @.str.32, %Py_DECREF.exit30.i ], [ @.str.30, %if.end.i ], [ @.str.30, %Py_DECREF.exit45.i.i ], [ @.str.30, %if.end9.i.i ], [ @.str.30, %Py_DECREF.exit36.i.i ], [ @.str.30, %if.end18.i.i ]
+error.i:                                          ; preds = %Py_DECREF.exit30.i, %if.end3.i, %_excinfo_init_type.argprom.exit.i, %if.end18.i.i, %Py_DECREF.exit36.i.i, %if.end9.i.i, %Py_DECREF.exit45.i.i, %if.end.i
+  %failure.0.i = phi ptr [ @.str.30, %_excinfo_init_type.argprom.exit.i ], [ @.str.31, %if.end3.i ], [ @.str.32, %Py_DECREF.exit30.i ], [ @.str.30, %if.end.i ], [ @.str.30, %Py_DECREF.exit45.i.i ], [ @.str.30, %if.end9.i.i ], [ @.str.30, %Py_DECREF.exit36.i.i ], [ @.str.30, %if.end18.i.i ]
   %name.i.i58.i = getelementptr inbounds i8, ptr %error, i64 24
   %51 = load ptr, ptr %name.i.i58.i, align 8
   %cmp1.not.i.i59.i = icmp eq ptr %51, null
@@ -5446,14 +5446,14 @@ if.end21:                                         ; preds = %for.body
   %dec.i.i = add i32 %3, -1
   store i32 %dec.i.i, ptr %c_recursion_remaining.i.i, align 4
   %cmp.i.i = icmp sgt i32 %3, 0
-  br i1 %cmp.i.i, label %if.then23, label %_Py_EnterRecursiveCallTstate.exit
+  br i1 %cmp.i.i, label %if.then23, label %_Py_EnterRecursiveCallTstate.argprom.exit
 
-_Py_EnterRecursiveCallTstate.exit:                ; preds = %if.end21
+_Py_EnterRecursiveCallTstate.argprom.exit:        ; preds = %if.end21
   %call1.i21 = tail call i32 @_Py_CheckRecursiveCall(ptr noundef nonnull %tstate, ptr noundef nonnull @.str.47) #13
   %tobool2.i.not = icmp eq i32 %call1.i21, 0
   br i1 %tobool2.i.not, label %if.then23, label %if.then27
 
-if.then23:                                        ; preds = %if.end21, %_Py_EnterRecursiveCallTstate.exit
+if.then23:                                        ; preds = %if.end21, %_Py_EnterRecursiveCallTstate.argprom.exit
   %call24 = tail call i32 @_PyObject_GetCrossInterpreterData(ptr noundef %2, ptr noundef nonnull %call.i)
   %4 = load i32, ptr %c_recursion_remaining.i.i, align 4
   %inc.i = add i32 %4, 1
@@ -5461,7 +5461,7 @@ if.then23:                                        ; preds = %if.end21, %_Py_Ente
   %5 = icmp slt i32 %call24, 0
   br i1 %5, label %if.then27, label %if.end28
 
-if.then27:                                        ; preds = %_Py_EnterRecursiveCallTstate.exit, %if.then23
+if.then27:                                        ; preds = %_Py_EnterRecursiveCallTstate.argprom.exit, %if.then23
   tail call void @PyMem_RawFree(ptr noundef nonnull %call.i) #13
   br label %error
 

@@ -4378,7 +4378,7 @@ entry:
   %and.i.i.i = and i64 %or.i.i.i, %sub.i.i.i.i
   %conv.i.i = trunc i64 %and.i.i.i to i32
   switch i32 %0, label %while.body.lr.ph.i [
-    i32 0, label %"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.exit"
+    i32 0, label %"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.argprom.exit"
     i32 1, label %sw.bb1.i
     i32 2, label %sw.bb35.i
     i32 3, label %sw.bb77.i
@@ -4428,7 +4428,7 @@ sw.bb1.i:                                         ; preds = %entry
   %sub32.i = sub i32 %xor22.i, %12
   %shr33.i = lshr i32 %xor30.i, 15
   %xor34.i = xor i32 %sub32.i, %shr33.i
-  br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.exit"
+  br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.argprom.exit"
 
 sw.bb35.i:                                        ; preds = %entry
   %cmp.not.i.i363.not.i = icmp eq i32 %3, 0
@@ -4477,7 +4477,7 @@ sw.bb35.i:                                        ; preds = %entry
   %sub74.i = sub i32 %xor64.i, %24
   %shr75.i = lshr i32 %xor72.i, 15
   %xor76.i = xor i32 %sub74.i, %shr75.i
-  br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.exit"
+  br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.argprom.exit"
 
 sw.bb77.i:                                        ; preds = %entry
   %cmp.not.i.i375.not.i = icmp eq i32 %3, 0
@@ -4567,50 +4567,50 @@ sw.bb77.i:                                        ; preds = %entry
   %sub154.i = sub i32 %xor144.i, %46
   %shr155.i = lshr i32 %xor152.i, 15
   %xor156.i = xor i32 %sub154.i, %shr155.i
-  br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.exit"
+  br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.argprom.exit"
 
-while.body.i:                                     ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i", %while.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %4, %while.body.lr.ph.i ], [ %50, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i" ]
-  %c.056.i = phi i32 [ 11, %while.body.lr.ph.i ], [ %xor200.i, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i" ]
-  %b.055.i = phi i32 [ -1640531527, %while.body.lr.ph.i ], [ %xor196.i, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i" ]
-  %a.054.i = phi i32 [ -1640531527, %while.body.lr.ph.i ], [ %xor192.i, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i" ]
+while.body.i:                                     ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit417.i", %while.body.lr.ph.i
+  %indvars.iv.i = phi i64 [ %4, %while.body.lr.ph.i ], [ %50, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit417.i" ]
+  %c.056.i = phi i32 [ 11, %while.body.lr.ph.i ], [ %xor200.i, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit417.i" ]
+  %b.055.i = phi i32 [ -1640531527, %while.body.lr.ph.i ], [ %xor196.i, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit417.i" ]
+  %a.054.i = phi i32 [ -1640531527, %while.body.lr.ph.i ], [ %xor192.i, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit417.i" ]
   %47 = trunc nuw i64 %indvars.iv.i to i32
   %dec.i = add i32 %47, -1
   %cmp.not.i.i396.i = icmp ult i32 %dec.i, %3
-  br i1 %cmp.not.i.i396.i, label %cond.false.i.i398.i, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit401.i"
+  br i1 %cmp.not.i.i396.i, label %cond.false.i.i398.i, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit401.i"
 
 cond.false.i.i398.i:                              ; preds = %while.body.i
   %idxprom.i.i.i = zext i32 %dec.i to i64
   %arrayidx.i.i400.i = getelementptr inbounds [5 x i32], ptr %m_elems.i.i399.i, i64 0, i64 %idxprom.i.i.i
   %48 = load i32, ptr %arrayidx.i.i400.i, align 4
-  br label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit401.i"
+  br label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit401.i"
 
-"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit401.i": ; preds = %cond.false.i.i398.i, %while.body.i
+"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit401.i": ; preds = %cond.false.i.i398.i, %while.body.i
   %cond.i.i397.i = phi i32 [ %48, %cond.false.i.i398.i ], [ -1, %while.body.i ]
   %dec159.i = add i32 %47, -2
   %cmp.not.i.i403.i = icmp ult i32 %dec159.i, %3
-  br i1 %cmp.not.i.i403.i, label %cond.false.i.i405.i, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit409.i"
+  br i1 %cmp.not.i.i403.i, label %cond.false.i.i405.i, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit409.i"
 
-cond.false.i.i405.i:                              ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit401.i"
+cond.false.i.i405.i:                              ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit401.i"
   %idxprom.i.i407.i = zext i32 %dec159.i to i64
   %arrayidx.i.i408.i = getelementptr inbounds [5 x i32], ptr %m_elems.i.i399.i, i64 0, i64 %idxprom.i.i407.i
   %49 = load i32, ptr %arrayidx.i.i408.i, align 4
-  br label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit409.i"
+  br label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit409.i"
 
-"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit409.i": ; preds = %cond.false.i.i405.i, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit401.i"
-  %cond.i.i404.i = phi i32 [ %49, %cond.false.i.i405.i ], [ -1, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit401.i" ]
+"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit409.i": ; preds = %cond.false.i.i405.i, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit401.i"
+  %cond.i.i404.i = phi i32 [ %49, %cond.false.i.i405.i ], [ -1, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit401.i" ]
   %add161.i = add i32 %cond.i.i404.i, %b.055.i
   %50 = add nsw i64 %indvars.iv.i, -3
   %cmp.not.i.i411.wide.i = icmp ult i64 %50, %sh_prom.i.i.i.i
-  br i1 %cmp.not.i.i411.wide.i, label %cond.false.i.i413.i, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i"
+  br i1 %cmp.not.i.i411.wide.i, label %cond.false.i.i413.i, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit417.i"
 
-cond.false.i.i413.i:                              ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit409.i"
+cond.false.i.i413.i:                              ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit409.i"
   %arrayidx.i.i416.i = getelementptr inbounds [5 x i32], ptr %m_elems.i.i399.i, i64 0, i64 %50
   %51 = load i32, ptr %arrayidx.i.i416.i, align 4
-  br label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i"
+  br label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit417.i"
 
-"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i": ; preds = %cond.false.i.i413.i, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit409.i"
-  %cond.i.i412.i = phi i32 [ %51, %cond.false.i.i413.i ], [ -1, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit409.i" ]
+"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit417.i": ; preds = %cond.false.i.i413.i, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit409.i"
+  %cond.i.i412.i = phi i32 [ %51, %cond.false.i.i413.i ], [ -1, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit409.i" ]
   %add164.i = add i32 %cond.i.i412.i, %c.056.i
   %.neg34 = add i32 %cond.i.i397.i, %a.054.i
   %52 = add i32 %add161.i, %add164.i
@@ -4652,7 +4652,7 @@ cond.false.i.i413.i:                              ; preds = %"_ZZNK3sat3cut4hash
   %cmp.wide.i = icmp ugt i64 %50, 2
   br i1 %cmp.wide.i, label %while.body.i, label %while.end.i, !llvm.loop !16
 
-while.end.i:                                      ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i"
+while.end.i:                                      ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.argprom.exit417.i"
   %61 = trunc nuw i64 %50 to i32
   switch i32 %61, label %sw.epilog.i [
     i32 2, label %sw.bb202.i
@@ -4715,9 +4715,9 @@ sw.epilog.i:                                      ; preds = %sw.bb205.i, %while.
   %sub241.i = sub i32 %xor231.i, %72
   %shr242.i = lshr i32 %xor239.i, 15
   %xor243.i = xor i32 %sub241.i, %shr242.i
-  br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.exit"
+  br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.argprom.exit"
 
-"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.exit": ; preds = %entry, %sw.bb1.i, %sw.bb35.i, %sw.bb77.i, %sw.epilog.i
+"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.argprom.exit": ; preds = %entry, %sw.bb1.i, %sw.bb35.i, %sw.bb77.i, %sw.epilog.i
   %retval.0.i = phi i32 [ %xor243.i, %sw.epilog.i ], [ %xor156.i, %sw.bb77.i ], [ %xor76.i, %sw.bb35.i ], [ %xor34.i, %sw.bb1.i ], [ 11, %entry ]
   ret i32 %retval.0.i
 }
@@ -4730,7 +4730,7 @@ entry:
   %m_size = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size, align 4
   switch i32 %0, label %while.body.lr.ph.i [
-    i32 0, label %"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.exit"
+    i32 0, label %"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.argprom.exit"
     i32 1, label %sw.bb1.i
     i32 2, label %sw.bb35.i
     i32 3, label %sw.bb77.i
@@ -4784,7 +4784,7 @@ sw.bb1.i:                                         ; preds = %entry
   %sub32.i = sub i32 %xor22.i, %11
   %shr33.i = lshr i32 %xor30.i, 15
   %xor34.i = xor i32 %sub32.i, %shr33.i
-  br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.exit"
+  br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.argprom.exit"
 
 sw.bb35.i:                                        ; preds = %entry
   %m_size.i.i362.i = getelementptr inbounds i8, ptr %agg.tmp, i64 4
@@ -4835,7 +4835,7 @@ sw.bb35.i:                                        ; preds = %entry
   %sub74.i = sub i32 %xor64.i, %24
   %shr75.i = lshr i32 %xor72.i, 15
   %xor76.i = xor i32 %sub74.i, %shr75.i
-  br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.exit"
+  br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.argprom.exit"
 
 sw.bb77.i:                                        ; preds = %entry
   %m_size.i.i374.i = getelementptr inbounds i8, ptr %agg.tmp, i64 4
@@ -4927,50 +4927,50 @@ sw.bb77.i:                                        ; preds = %entry
   %sub154.i = sub i32 %xor144.i, %47
   %shr155.i = lshr i32 %xor152.i, 15
   %xor156.i = xor i32 %sub154.i, %shr155.i
-  br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.exit"
+  br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.argprom.exit"
 
-while.body.i:                                     ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i", %while.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %2, %while.body.lr.ph.i ], [ %51, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i" ]
-  %c.055.i = phi i32 [ 11, %while.body.lr.ph.i ], [ %xor200.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i" ]
-  %b.054.i = phi i32 [ -1640531527, %while.body.lr.ph.i ], [ %xor196.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i" ]
-  %a.053.i = phi i32 [ -1640531527, %while.body.lr.ph.i ], [ %xor192.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i" ]
+while.body.i:                                     ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit417.i", %while.body.lr.ph.i
+  %indvars.iv.i = phi i64 [ %2, %while.body.lr.ph.i ], [ %51, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit417.i" ]
+  %c.055.i = phi i32 [ 11, %while.body.lr.ph.i ], [ %xor200.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit417.i" ]
+  %b.054.i = phi i32 [ -1640531527, %while.body.lr.ph.i ], [ %xor196.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit417.i" ]
+  %a.053.i = phi i32 [ -1640531527, %while.body.lr.ph.i ], [ %xor192.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit417.i" ]
   %48 = trunc nuw i64 %indvars.iv.i to i32
   %dec.i = add i32 %48, -1
   %cmp.not.i.i396.i = icmp ult i32 %dec.i, %1
-  br i1 %cmp.not.i.i396.i, label %cond.false.i.i398.i, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit401.i"
+  br i1 %cmp.not.i.i396.i, label %cond.false.i.i398.i, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit401.i"
 
 cond.false.i.i398.i:                              ; preds = %while.body.i
   %idxprom.i.i.i = zext i32 %dec.i to i64
   %arrayidx.i.i400.i = getelementptr inbounds [5 x i32], ptr %m_elems.i.i399.i, i64 0, i64 %idxprom.i.i.i
   %49 = load i32, ptr %arrayidx.i.i400.i, align 4
-  br label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit401.i"
+  br label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit401.i"
 
-"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit401.i": ; preds = %cond.false.i.i398.i, %while.body.i
+"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit401.i": ; preds = %cond.false.i.i398.i, %while.body.i
   %cond.i.i397.i = phi i32 [ %49, %cond.false.i.i398.i ], [ -1, %while.body.i ]
   %dec159.i = add i32 %48, -2
   %cmp.not.i.i403.i = icmp ult i32 %dec159.i, %1
-  br i1 %cmp.not.i.i403.i, label %cond.false.i.i405.i, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit409.i"
+  br i1 %cmp.not.i.i403.i, label %cond.false.i.i405.i, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit409.i"
 
-cond.false.i.i405.i:                              ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit401.i"
+cond.false.i.i405.i:                              ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit401.i"
   %idxprom.i.i407.i = zext i32 %dec159.i to i64
   %arrayidx.i.i408.i = getelementptr inbounds [5 x i32], ptr %m_elems.i.i399.i, i64 0, i64 %idxprom.i.i407.i
   %50 = load i32, ptr %arrayidx.i.i408.i, align 4
-  br label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit409.i"
+  br label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit409.i"
 
-"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit409.i": ; preds = %cond.false.i.i405.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit401.i"
-  %cond.i.i404.i = phi i32 [ %50, %cond.false.i.i405.i ], [ -1, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit401.i" ]
+"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit409.i": ; preds = %cond.false.i.i405.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit401.i"
+  %cond.i.i404.i = phi i32 [ %50, %cond.false.i.i405.i ], [ -1, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit401.i" ]
   %add161.i = add i32 %cond.i.i404.i, %b.054.i
   %51 = add nsw i64 %indvars.iv.i, -3
   %cmp.not.i.i411.wide.i = icmp ult i64 %51, %3
-  br i1 %cmp.not.i.i411.wide.i, label %cond.false.i.i413.i, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i"
+  br i1 %cmp.not.i.i411.wide.i, label %cond.false.i.i413.i, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit417.i"
 
-cond.false.i.i413.i:                              ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit409.i"
+cond.false.i.i413.i:                              ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit409.i"
   %arrayidx.i.i416.i = getelementptr inbounds [5 x i32], ptr %m_elems.i.i399.i, i64 0, i64 %51
   %52 = load i32, ptr %arrayidx.i.i416.i, align 4
-  br label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i"
+  br label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit417.i"
 
-"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i": ; preds = %cond.false.i.i413.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit409.i"
-  %cond.i.i412.i = phi i32 [ %52, %cond.false.i.i413.i ], [ -1, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit409.i" ]
+"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit417.i": ; preds = %cond.false.i.i413.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit409.i"
+  %cond.i.i412.i = phi i32 [ %52, %cond.false.i.i413.i ], [ -1, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit409.i" ]
   %add164.i = add i32 %cond.i.i412.i, %c.055.i
   %.neg33 = add i32 %cond.i.i397.i, %a.053.i
   %53 = add i32 %add161.i, %add164.i
@@ -5012,7 +5012,7 @@ cond.false.i.i413.i:                              ; preds = %"_ZZNK3sat3cut8dom_
   %cmp.wide.i = icmp ugt i64 %51, 2
   br i1 %cmp.wide.i, label %while.body.i, label %while.end.i, !llvm.loop !17
 
-while.end.i:                                      ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i"
+while.end.i:                                      ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.argprom.exit417.i"
   %62 = trunc nuw i64 %51 to i32
   switch i32 %62, label %sw.epilog.i [
     i32 2, label %sw.bb202.i
@@ -5075,9 +5075,9 @@ sw.epilog.i:                                      ; preds = %sw.bb205.i, %while.
   %sub241.i = sub i32 %xor231.i, %73
   %shr242.i = lshr i32 %xor239.i, 15
   %xor243.i = xor i32 %sub241.i, %shr242.i
-  br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.exit"
+  br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.argprom.exit"
 
-"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.exit": ; preds = %entry, %sw.bb1.i, %sw.bb35.i, %sw.bb77.i, %sw.epilog.i
+"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.argprom.exit": ; preds = %entry, %sw.bb1.i, %sw.bb35.i, %sw.bb77.i, %sw.epilog.i
   %retval.0.i = phi i32 [ %xor243.i, %sw.epilog.i ], [ %xor156.i, %sw.bb77.i ], [ %xor76.i, %sw.bb35.i ], [ %xor34.i, %sw.bb1.i ], [ 11, %entry ]
   ret i32 %retval.0.i
 }

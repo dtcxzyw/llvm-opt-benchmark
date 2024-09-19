@@ -401,7 +401,7 @@ define noundef i32 @cli_mbox(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 .loopexit2.i.i:                                   ; preds = %28, %21
   %39 = load ptr, ptr @subtype, align 8
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %initialiseTables.exit.i
+  br i1 %40, label %41, label %initialiseTables.argprom.exit.i
 
 41:                                               ; preds = %.loopexit2.i.i
   %42 = call ptr @tableCreate() #19
@@ -418,7 +418,7 @@ define noundef i32 @cli_mbox(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %47 = getelementptr inbounds i8, ptr %.14.i.i, i64 16
   %48 = load ptr, ptr %47, align 8
   %.not27.i.i = icmp eq ptr %48, null
-  br i1 %.not27.i.i, label %initialiseTables.exit.i, label %.preheader.i.i
+  br i1 %.not27.i.i, label %initialiseTables.argprom.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %41, %46
   %49 = phi ptr [ %48, %46 ], [ @.str.15, %41 ]
@@ -447,7 +447,7 @@ define noundef i32 @cli_mbox(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %59 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @tables_mutex) #19
   br label %cli_parse_mbox.exit
 
-initialiseTables.exit.i:                          ; preds = %46, %.loopexit2.i.i
+initialiseTables.argprom.exit.i:                  ; preds = %46, %.loopexit2.i.i
   %60 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @tables_mutex) #19
   store ptr %0, ptr %8, align 8
   %61 = load ptr, ptr @rfc821, align 8
@@ -468,7 +468,7 @@ initialiseTables.exit.i:                          ; preds = %46, %.loopexit2.i.i
   %70 = icmp eq i32 %bcmp.i, 0
   br i1 %70, label %71, label %116
 
-71:                                               ; preds = %initialiseTables.exit.i
+71:                                               ; preds = %initialiseTables.argprom.exit.i
   %72 = call ptr @messageCreate() #19
   %73 = icmp eq ptr %72, null
   br i1 %73, label %cli_parse_mbox.exit, label %74
@@ -594,7 +594,7 @@ initialiseTables.exit.i:                          ; preds = %46, %.loopexit2.i.i
   call void @messageDestroy(ptr noundef nonnull %.1115.i) #19
   br label %490
 
-116:                                              ; preds = %initialiseTables.exit.i
+116:                                              ; preds = %initialiseTables.argprom.exit.i
   %lhsv.i = load i32, ptr %7, align 16
   %.not85.i = icmp eq i32 %lhsv.i, 541663312
   %117 = trunc i32 %lhsv.i to i8
@@ -2266,7 +2266,7 @@ getEncTypeStr.exit:                               ; preds = %63, %.lr.ph777, %ge
   br i1 %24, label %94, label %509
 
 94:                                               ; preds = %.thread, %93
-  call fastcc void @checkURLs(ptr noundef %0, ptr noundef %2, ptr noundef %6)
+  call fastcc void @checkURLs.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %6)
   %95 = load i32, ptr %6, align 4
   %96 = icmp eq i32 %95, 3
   %spec.select = zext i1 %96 to i8
@@ -3055,7 +3055,7 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit738
 393:                                              ; preds = %.thread711
   %394 = getelementptr inbounds ptr, ptr %.2526, i64 %.pre916
   %395 = load ptr, ptr %394, align 8
-  tail call fastcc void @parseRootMHTML(ptr noundef %2, ptr noundef %395, ptr noundef %389)
+  tail call fastcc void @parseRootMHTML.argelim(ptr noundef %2, ptr noundef %395, ptr noundef %389)
   br label %.thread711._crit_edge
 
 .thread711._crit_edge:                            ; preds = %.thread711, %393
@@ -4806,7 +4806,7 @@ declare ptr @messageGetFilename(ptr noundef) local_unnamed_addr #1
 declare ptr @textAddMessage(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @checkURLs(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @checkURLs.argelim(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.tag_arguments_tag, align 8
   %6 = load i32, ptr %2, align 4
@@ -5509,7 +5509,7 @@ getEncTypeStr.exit:                               ; preds = %68, %.lr.ph189, %ge
   br i1 %29, label %129, label %130
 
 129:                                              ; preds = %126
-  tail call fastcc void @checkURLs(ptr noundef %13, ptr noundef %4, ptr noundef %3)
+  tail call fastcc void @checkURLs.argelim(ptr noundef %13, ptr noundef %4, ptr noundef %3)
   br label %130
 
 130:                                              ; preds = %129, %126
@@ -5743,7 +5743,7 @@ define internal fastcc i32 @getTextPart(ptr nocapture noundef readonly %0, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parseRootMHTML(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @parseRootMHTML.argelim(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.msxml_ctx, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8

@@ -1327,14 +1327,14 @@ define noundef i64 @_ZNK5faiss7Repeats5countEv(ptr nocapture noundef nonnull rea
   %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %13
 
-13:                                               ; preds = %.lr.ph, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit ]
-  %.0812 = phi i32 [ %10, %.lr.ph ], [ %24, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit ]
-  %.0911 = phi i64 [ 1, %.lr.ph ], [ %23, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit ]
+13:                                               ; preds = %.lr.ph, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit ]
+  %.0812 = phi i32 [ %10, %.lr.ph ], [ %24, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit ]
+  %.0911 = phi i64 [ 1, %.lr.ph ], [ %23, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit ]
   %14 = getelementptr inbounds %"struct.faiss::Repeat", ptr %5, i64 %indvars.iv, i32 1
   %15 = load i32, ptr %14, align 4
   %16 = icmp sgt i32 %15, %.0812
-  br i1 %16, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit, label %17
+  br i1 %16, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit, label %17
 
 17:                                               ; preds = %13
   %18 = mul nsw i32 %11, %.0812
@@ -1342,9 +1342,9 @@ define noundef i64 @_ZNK5faiss7Repeats5countEv(ptr nocapture noundef nonnull rea
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i64, ptr %12, i64 %20
   %22 = load i64, ptr %21, align 8
-  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit
+  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit
 
-_ZNK5faiss12_GLOBAL__N_14CombclEii.exit:          ; preds = %13, %17
+_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit:  ; preds = %13, %17
   %.0.i = phi i64 [ %22, %17 ], [ 0, %13 ]
   %23 = mul i64 %.0.i, %.0911
   %24 = sub nsw i32 %.0812, %15
@@ -1352,8 +1352,8 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit:          ; preds = %13, %17
   %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit, %1
-  %.09.lcssa = phi i64 [ 1, %1 ], [ %23, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit ]
+._crit_edge:                                      ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit, %1
+  %.09.lcssa = phi i64 [ 1, %1 ], [ %23, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit ]
   ret i64 %.09.lcssa
 }
 
@@ -1369,19 +1369,19 @@ define noundef i64 @_ZNK5faiss7Repeats6encodeEPKf(ptr nocapture noundef nonnull 
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %.val40 = load ptr, ptr %7, align 8
   %.not10.i = icmp eq ptr %.val, %.val40
-  br i1 %.not10.i, label %_ZN5faiss12_GLOBAL__N_117repeats_encode_64ERKSt6vectorINS_6RepeatESaIS2_EEiPKf.exit, label %.lr.ph.i
+  br i1 %.not10.i, label %_ZN5faiss12_GLOBAL__N_117repeats_encode_64ERKSt6vectorINS_6RepeatESaIS2_EEiPKf.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
   %9 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_14combE, align 8
   br label %10
 
-10:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i, %.lr.ph.i
-  %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i ]
-  %.02414.i = phi i32 [ %3, %.lr.ph.i ], [ %46, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i ]
-  %.03113.i = phi i64 [ 1, %.lr.ph.i ], [ %45, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i ]
-  %.03212.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i ]
-  %.sroa.01.011.i = phi ptr [ %.val, %.lr.ph.i ], [ %47, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i ]
+10:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit35.i, %.lr.ph.i
+  %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit35.i ]
+  %.02414.i = phi i32 [ %3, %.lr.ph.i ], [ %46, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit35.i ]
+  %.03113.i = phi i64 [ 1, %.lr.ph.i ], [ %45, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit35.i ]
+  %.03212.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit35.i ]
+  %.sroa.01.011.i = phi ptr [ %.val, %.lr.ph.i ], [ %47, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit35.i ]
   %11 = xor i64 %.015.i, -1
   %12 = load float, ptr %.sroa.01.011.i, align 4
   %13 = getelementptr inbounds i8, ptr %.sroa.01.011.i, i64 4
@@ -1405,7 +1405,7 @@ define noundef i64 @_ZNK5faiss7Repeats6encodeEPKf(ptr nocapture noundef nonnull 
 22:                                               ; preds = %14
   %23 = add nsw i32 %.028.i, 1
   %.not7.i = icmp slt i32 %.028.i, %.030.i
-  br i1 %.not7.i, label %24, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i
+  br i1 %.not7.i, label %24, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i
 
 24:                                               ; preds = %22
   %25 = mul nsw i32 %.030.i, %8
@@ -1413,9 +1413,9 @@ define noundef i64 @_ZNK5faiss7Repeats6encodeEPKf(ptr nocapture noundef nonnull 
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i64, ptr %9, i64 %27
   %29 = load i64, ptr %28, align 8
-  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i
+  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i
 
-_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i:        ; preds = %24, %22
+_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i: ; preds = %24, %22
   %.0.i.i = phi i64 [ %29, %24 ], [ 0, %22 ]
   %30 = add i64 %.0.i.i, %.026.i
   %31 = or i64 %16, %.1.i
@@ -1423,16 +1423,16 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i:        ; preds = %24, %22
   %33 = icmp eq i32 %23, %32
   br i1 %33, label %36, label %34
 
-34:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i, %14
-  %.129.i = phi i32 [ %23, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i ], [ %.028.i, %14 ]
-  %.127.i = phi i64 [ %30, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i ], [ %.026.i, %14 ]
-  %.2.i = phi i64 [ %31, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i ], [ %.1.i, %14 ]
+34:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i, %14
+  %.129.i = phi i32 [ %23, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i ], [ %.028.i, %14 ]
+  %.127.i = phi i64 [ %30, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i ], [ %.026.i, %14 ]
+  %.2.i = phi i64 [ %31, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i ], [ %.1.i, %14 ]
   %35 = add nuw nsw i32 %.030.i, 1
   br label %14, !llvm.loop !19
 
-36:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i
+36:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i
   %.not19.i = icmp slt i32 %.028.i, %.02414.i
-  br i1 %.not19.i, label %37, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i
+  br i1 %.not19.i, label %37, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit35.i
 
 37:                                               ; preds = %36
   %38 = mul nsw i32 %.02414.i, %8
@@ -1440,9 +1440,9 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i:        ; preds = %24, %22
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i64, ptr %9, i64 %40
   %42 = load i64, ptr %41, align 8
-  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i
+  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit35.i
 
-_ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i:      ; preds = %37, %36
+_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit35.i: ; preds = %37, %36
   %.0.i34.i = phi i64 [ %42, %37 ], [ 0, %36 ]
   %43 = mul i64 %30, %.03113.i
   %44 = add i64 %43, %.03212.i
@@ -1450,7 +1450,7 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i:      ; preds = %37, %36
   %46 = sub nsw i32 %.02414.i, %23
   %47 = getelementptr inbounds i8, ptr %.sroa.01.011.i, i64 8
   %.not.i = icmp eq ptr %47, %.val40
-  br i1 %.not.i, label %_ZN5faiss12_GLOBAL__N_117repeats_encode_64ERKSt6vectorINS_6RepeatESaIS2_EEiPKf.exit, label %10, !llvm.loop !20
+  br i1 %.not.i, label %_ZN5faiss12_GLOBAL__N_117repeats_encode_64ERKSt6vectorINS_6RepeatESaIS2_EEiPKf.argprom.exit, label %10, !llvm.loop !20
 
 48:                                               ; preds = %2
   %narrow = add nuw i32 %3, 63
@@ -1472,11 +1472,11 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i:      ; preds = %37, %36
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit48.us
-  %.03188.us = phi i64 [ %97, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit48.us ], [ 1, %.preheader.us.preheader ]
-  %.03287.us = phi i64 [ %96, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit48.us ], [ 0, %.preheader.us.preheader ]
-  %.03386.us = phi i32 [ %98, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit48.us ], [ %3, %.preheader.us.preheader ]
-  %.sroa.058.085.us = phi ptr [ %99, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit48.us ], [ %54, %.preheader.us.preheader ]
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit48.us
+  %.03188.us = phi i64 [ %97, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit48.us ], [ 1, %.preheader.us.preheader ]
+  %.03287.us = phi i64 [ %96, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit48.us ], [ 0, %.preheader.us.preheader ]
+  %.03386.us = phi i32 [ %98, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit48.us ], [ %3, %.preheader.us.preheader ]
+  %.sroa.058.085.us = phi ptr [ %99, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit48.us ], [ %54, %.preheader.us.preheader ]
   %59 = getelementptr inbounds i8, ptr %.sroa.058.085.us, i64 4
   br label %60
 
@@ -1505,7 +1505,7 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i:      ; preds = %37, %36
 72:                                               ; preds = %67
   %73 = add nsw i32 %.02680.us, 1
   %.not74.us = icmp slt i32 %.02680.us, %.02978.us
-  br i1 %.not74.us, label %74, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us
+  br i1 %.not74.us, label %74, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.us
 
 74:                                               ; preds = %72
   %75 = mul nsw i32 %57, %.02978.us
@@ -1513,20 +1513,20 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i:      ; preds = %37, %36
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i64, ptr %58, i64 %77
   %79 = load i64, ptr %78, align 8
-  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us
+  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.us
 
-_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us:       ; preds = %74, %72
+_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.us: ; preds = %74, %72
   %.0.i.us = phi i64 [ %79, %74 ], [ 0, %72 ]
   %80 = add i64 %.0.i.us, %.02581.us
   %81 = or i64 %65, %64
   store i64 %81, ptr %62, align 8
   %82 = load i32, ptr %59, align 4
   %83 = icmp eq i32 %73, %82
-  br i1 %83, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us, label %84
+  br i1 %83, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit._crit_edge.us, label %84
 
-84:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us, %67
-  %.127.us = phi i32 [ %73, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us ], [ %.02680.us, %67 ]
-  %.2.us = phi i64 [ %80, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us ], [ %.02581.us, %67 ]
+84:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.us, %67
+  %.127.us = phi i32 [ %73, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.us ], [ %.02680.us, %67 ]
+  %.2.us = phi i64 [ %80, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.us ], [ %.02581.us, %67 ]
   %85 = add nsw i32 %.02978.us, 1
   br label %86
 
@@ -1536,28 +1536,28 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us:       ; preds = %74, %72
   %.3.us = phi i64 [ %.2.us, %84 ], [ %.02581.us, %60 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us_crit_edge, label %60, !llvm.loop !21
+  br i1 %exitcond.not, label %._ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit._crit_edge.us_crit_edge, label %60, !llvm.loop !21
 
-._ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us_crit_edge: ; preds = %86
+._ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit._crit_edge.us_crit_edge: ; preds = %86
   %.pre = load i32, ptr %59, align 4
-  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us
+  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit._crit_edge.us
 
-_ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us: ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us, %._ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us_crit_edge
-  %87 = phi i32 [ %.pre, %._ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us_crit_edge ], [ %73, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us ]
-  %.1.us = phi i64 [ %.3.us, %._ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us_crit_edge ], [ %80, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us ]
+_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit._crit_edge.us: ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.us, %._ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit._crit_edge.us_crit_edge
+  %87 = phi i32 [ %.pre, %._ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit._crit_edge.us_crit_edge ], [ %73, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.us ]
+  %.1.us = phi i64 [ %.3.us, %._ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit._crit_edge.us_crit_edge ], [ %80, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.us ]
   %88 = icmp sgt i32 %87, %.03386.us
-  br i1 %88, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit48.us, label %89
+  br i1 %88, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit48.us, label %89
 
-89:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us
+89:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit._crit_edge.us
   %90 = mul nsw i32 %57, %.03386.us
   %91 = add nsw i32 %90, %87
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i64, ptr %58, i64 %92
   %94 = load i64, ptr %93, align 8
-  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit48.us
+  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit48.us
 
-_ZNK5faiss12_GLOBAL__N_14CombclEii.exit48.us:     ; preds = %89, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us
-  %.0.i47.us = phi i64 [ %94, %89 ], [ 0, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us ]
+_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit48.us: ; preds = %89, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit._crit_edge.us
+  %.0.i47.us = phi i64 [ %94, %89 ], [ 0, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit._crit_edge.us ]
   %95 = mul i64 %.1.us, %.03188.us
   %96 = add i64 %95, %.03287.us
   %97 = mul i64 %.0.i47.us, %.03188.us
@@ -1566,13 +1566,13 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit48.us:     ; preds = %89, %_ZNK5faiss12_G
   %.not.us = icmp eq ptr %99, %56
   br i1 %.not.us, label %_ZNSt6vectorIbSaIbEED2Ev.exit53, label %.preheader.us, !llvm.loop !22
 
-_ZNSt6vectorIbSaIbEED2Ev.exit53:                  ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit48.us, %48
-  %.032.lcssa = phi i64 [ 0, %48 ], [ %96, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit48.us ]
+_ZNSt6vectorIbSaIbEED2Ev.exit53:                  ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit48.us, %48
+  %.032.lcssa = phi i64 [ 0, %48 ], [ %96, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit48.us ]
   tail call void @_ZdlPv(ptr noundef nonnull %52) #24
-  br label %_ZN5faiss12_GLOBAL__N_117repeats_encode_64ERKSt6vectorINS_6RepeatESaIS2_EEiPKf.exit
+  br label %_ZN5faiss12_GLOBAL__N_117repeats_encode_64ERKSt6vectorINS_6RepeatESaIS2_EEiPKf.argprom.exit
 
-_ZN5faiss12_GLOBAL__N_117repeats_encode_64ERKSt6vectorINS_6RepeatESaIS2_EEiPKf.exit: ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i, %5, %_ZNSt6vectorIbSaIbEED2Ev.exit53
-  %.0 = phi i64 [ %.032.lcssa, %_ZNSt6vectorIbSaIbEED2Ev.exit53 ], [ 0, %5 ], [ %44, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i ]
+_ZN5faiss12_GLOBAL__N_117repeats_encode_64ERKSt6vectorINS_6RepeatESaIS2_EEiPKf.argprom.exit: ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit35.i, %5, %_ZNSt6vectorIbSaIbEED2Ev.exit53
+  %.0 = phi i64 [ %.032.lcssa, %_ZNSt6vectorIbSaIbEED2Ev.exit53 ], [ 0, %5 ], [ %44, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit35.i ]
   ret i64 %.0
 }
 
@@ -1609,9 +1609,9 @@ define void @_ZNK5faiss7Repeats6decodeEmPf(ptr nocapture noundef nonnull readonl
   %13 = getelementptr inbounds i8, ptr %.sroa.048.063.i, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, %.03364.i
-  br i1 %15, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i.i
+  br i1 %15, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.lr.ph.i.i
 
-_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i.i: ; preds = %12
+_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.lr.ph.i.i: ; preds = %12
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
   %17 = mul nsw i32 %16, %.03364.i
   %18 = add nsw i32 %17, %14
@@ -1626,22 +1626,22 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i.i: ; preds = %12
   %27 = sext i32 %14 to i64
   %invariant.gep.i.i = getelementptr i64, ptr %20, i64 %27
   %28 = add i32 %14, -1
-  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i.i
+  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i.i
 
-_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i.i:      ; preds = %32, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ %25, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %32 ]
+_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i.i: ; preds = %32, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ %25, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %32 ]
   %29 = mul nsw i64 %indvars.iv.i.i, %26
   %gep.i.i = getelementptr i64, ptr %invariant.gep.i.i, i64 %29
   %30 = load i64, ptr %gep.i.i, align 8
   %31 = icmp ugt i64 %30, %23
   br i1 %31, label %32, label %33
 
-32:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i.i
+32:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %.not.i.i = icmp sgt i64 %indvars.iv.i.i, %27
-  br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i.i, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i, !llvm.loop !23
+  br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i.i, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i, !llvm.loop !23
 
-33:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i.i
+33:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i.i
   %34 = trunc nsw i64 %indvars.iv.i.i to i32
   %35 = mul nsw i32 %16, %34
   %36 = add nsw i32 %35, %14
@@ -1694,9 +1694,9 @@ _ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i: ; preds = %32, %33, %12
 60:                                               ; preds = %53
   %61 = sub nsw i32 %58, %57
   %62 = icmp sgt i32 %61, %.027.i.ph
-  br i1 %62, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit46.i, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i36.i
+  br i1 %62, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit46.i, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.lr.ph.i36.i
 
-_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i36.i: ; preds = %60
+_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.lr.ph.i36.i: ; preds = %60
   %63 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
   %64 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_14combE, align 8
   %65 = sext i32 %.027.i.ph to i64
@@ -1704,22 +1704,22 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i36.i: ; preds = %60
   %67 = sext i32 %61 to i64
   %invariant.gep.i37.i = getelementptr i64, ptr %64, i64 %67
   %68 = add i32 %61, -1
-  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i38.i
+  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i38.i
 
-_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i38.i:    ; preds = %72, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i36.i
-  %indvars.iv.i39.i = phi i64 [ %65, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i36.i ], [ %indvars.iv.next.i43.i, %72 ]
+_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i38.i: ; preds = %72, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.lr.ph.i36.i
+  %indvars.iv.i39.i = phi i64 [ %65, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.lr.ph.i36.i ], [ %indvars.iv.next.i43.i, %72 ]
   %69 = mul nsw i64 %indvars.iv.i39.i, %66
   %gep.i40.i = getelementptr i64, ptr %invariant.gep.i37.i, i64 %69
   %70 = load i64, ptr %gep.i40.i, align 8
   %71 = icmp ugt i64 %70, %.056.i.ph
   br i1 %71, label %72, label %73
 
-72:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i38.i
+72:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i38.i
   %indvars.iv.next.i43.i = add nsw i64 %indvars.iv.i39.i, -1
   %.not.i44.i = icmp sgt i64 %indvars.iv.i39.i, %67
-  br i1 %.not.i44.i, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i38.i, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit46.i, !llvm.loop !23
+  br i1 %.not.i44.i, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i38.i, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit46.i, !llvm.loop !23
 
-73:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i38.i
+73:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i38.i
   %74 = trunc nsw i64 %indvars.iv.i39.i to i32
   %75 = mul nsw i32 %63, %74
   %76 = add nsw i32 %75, %61
@@ -1763,9 +1763,9 @@ _ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit46.i: ; preds = %72, %73, %60
   %95 = getelementptr inbounds i8, ptr %.sroa.070.0105, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = icmp sgt i32 %96, %.031106
-  br i1 %97, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i
+  br i1 %97, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.lr.ph.i
 
-_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i:  ; preds = %.lr.ph109
+_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.lr.ph.i: ; preds = %.lr.ph109
   %98 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
   %99 = mul nsw i32 %98, %.031106
   %100 = add nsw i32 %99, %96
@@ -1780,22 +1780,22 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i:  ; preds = %.lr.ph109
   %109 = sext i32 %96 to i64
   %invariant.gep.i = getelementptr i64, ptr %102, i64 %109
   %110 = add i32 %96, -1
-  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i
+  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i
 
-_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i:        ; preds = %114, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i
-  %indvars.iv.i = phi i64 [ %107, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i ], [ %indvars.iv.next.i, %114 ]
+_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i: ; preds = %114, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.lr.ph.i
+  %indvars.iv.i = phi i64 [ %107, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.lr.ph.i ], [ %indvars.iv.next.i, %114 ]
   %111 = mul nsw i64 %indvars.iv.i, %108
   %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %111
   %112 = load i64, ptr %gep.i, align 8
   %113 = icmp ugt i64 %112, %105
   br i1 %113, label %114, label %115
 
-114:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i
+114:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i41 = icmp sgt i64 %indvars.iv.i, %109
-  br i1 %.not.i41, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit, !llvm.loop !23
+  br i1 %.not.i41, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit, !llvm.loop !23
 
-115:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i
+115:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i
   %116 = trunc nsw i64 %indvars.iv.i to i32
   %117 = mul nsw i32 %98, %116
   %118 = add nsw i32 %117, %96
@@ -1855,9 +1855,9 @@ _ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit: ; preds = %114, %.lr.ph109, %1
 145:                                              ; preds = %138
   %146 = sub nsw i32 %143, %142
   %147 = icmp sgt i32 %146, %.025101
-  br i1 %147, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit59, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i49
+  br i1 %147, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit59, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.lr.ph.i49
 
-_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i49: ; preds = %145
+_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.lr.ph.i49: ; preds = %145
   %148 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 24), align 8
   %149 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_14combE, align 8
   %150 = sext i32 %.025101 to i64
@@ -1865,22 +1865,22 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i49: ; preds = %145
   %152 = sext i32 %146 to i64
   %invariant.gep.i50 = getelementptr i64, ptr %149, i64 %152
   %153 = add i32 %146, -1
-  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i51
+  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i51
 
-_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i51:      ; preds = %157, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i49
-  %indvars.iv.i52 = phi i64 [ %150, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.lr.ph.i49 ], [ %indvars.iv.next.i56, %157 ]
+_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i51: ; preds = %157, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.lr.ph.i49
+  %indvars.iv.i52 = phi i64 [ %150, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.lr.ph.i49 ], [ %indvars.iv.next.i56, %157 ]
   %154 = mul nsw i64 %indvars.iv.i52, %151
   %gep.i53 = getelementptr i64, ptr %invariant.gep.i50, i64 %154
   %155 = load i64, ptr %gep.i53, align 8
   %156 = icmp ugt i64 %155, %.08698
   br i1 %156, label %157, label %158
 
-157:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i51
+157:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i51
   %indvars.iv.next.i56 = add nsw i64 %indvars.iv.i52, -1
   %.not.i57 = icmp sgt i64 %indvars.iv.i52, %152
-  br i1 %.not.i57, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i51, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit59, !llvm.loop !23
+  br i1 %.not.i57, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i51, label %_ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit59, !llvm.loop !23
 
-158:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i51
+158:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i51
   %159 = trunc nsw i64 %indvars.iv.i52 to i32
   %160 = mul nsw i32 %148, %159
   %161 = add nsw i32 %160, %146
@@ -2305,7 +2305,7 @@ define void @_ZN5faiss14ZnSphereSearchC2Eii(ptr nocapture noundef nonnull align 
   %10 = tail call double @llvm.ceil.f64(double %9)
   %11 = fadd double %10, 1.000000e+00
   %12 = fptosi double %11 to i32
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias writable align 8 %4, float noundef %7, i32 noundef %12, i32 noundef %1)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif.argelim(ptr dead_on_unwind noalias writable align 8 %4, float noundef %7, i32 noundef %12, i32 noundef %1)
           to label %13 unwind label %33
 
 13:                                               ; preds = %3
@@ -2359,7 +2359,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit9:                   ; preds = %33, %36
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, float noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif.argelim(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, float noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.11", align 8
   %6 = fcmp olt float %1, 0.000000e+00
   br i1 %6, label %7, label %8
@@ -2423,7 +2423,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_
   %29 = uitofp nneg i32 %.13679.us to float
   %30 = fmul float %29, %29
   %31 = fsub float %1, %30
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias writable align 8 %5, float noundef %31, i32 noundef %.13679.us, i32 noundef %23)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif.argelim(ptr dead_on_unwind noalias writable align 8 %5, float noundef %31, i32 noundef %.13679.us, i32 noundef %23)
           to label %.preheader54.us unwind label %.split81.us
 
 ._crit_edge69.split.us.us:                        ; preds = %._crit_edge.us.us, %.preheader54.us
@@ -2625,7 +2625,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit.us.us:    ; preds = %_ZNSt6vectorIfSaIfE
   %106 = uitofp nneg i32 %.13679 to float
   %107 = fmul float %106, %106
   %108 = fsub float %1, %107
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias writable align 8 %5, float noundef %108, i32 noundef %.13679, i32 noundef %23)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif.argelim(ptr dead_on_unwind noalias writable align 8 %5, float noundef %108, i32 noundef %.13679, i32 noundef %23)
           to label %.preheader54 unwind label %.split81
 
 .preheader54:                                     ; preds = %.lr.ph.split
@@ -3760,7 +3760,7 @@ define void @_ZN5faiss13ZnSphereCodecC2Eii(ptr noundef nonnull align 8 dereferen
   %13 = tail call double @llvm.ceil.f64(double %12)
   %14 = fadd double %13, 1.000000e+00
   %15 = fptosi double %14 to i32
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias writable align 8 %4, float noundef %10, i32 noundef %15, i32 noundef %1)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif.argelim(ptr dead_on_unwind noalias writable align 8 %4, float noundef %10, i32 noundef %15, i32 noundef %1)
           to label %16 unwind label %26
 
 16:                                               ; preds = %3
@@ -3982,14 +3982,14 @@ _ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EE9push_backERKS2_.exit: 
   %umax.i = call i64 @llvm.umax.i64(i64 %115, i64 1)
   br label %119
 
-119:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i ]
-  %.0812.i = phi i32 [ %116, %.lr.ph.i ], [ %130, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i ]
-  %.0911.i = phi i64 [ 1, %.lr.ph.i ], [ %129, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i ]
+119:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i ]
+  %.0812.i = phi i32 [ %116, %.lr.ph.i ], [ %130, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i ]
+  %.0911.i = phi i64 [ 1, %.lr.ph.i ], [ %129, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i ]
   %120 = getelementptr inbounds %"struct.faiss::Repeat", ptr %111, i64 %indvars.iv.i, i32 1
   %121 = load i32, ptr %120, align 4
   %122 = icmp sgt i32 %121, %.0812.i
-  br i1 %122, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i, label %123
+  br i1 %122, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i, label %123
 
 123:                                              ; preds = %119
   %124 = mul nsw i32 %.0812.i, %117
@@ -3997,9 +3997,9 @@ _ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EE9push_backERKS2_.exit: 
   %126 = sext i32 %125 to i64
   %127 = getelementptr inbounds i64, ptr %118, i64 %126
   %128 = load i64, ptr %127, align 8
-  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i
+  br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i
 
-_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i:        ; preds = %123, %119
+_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i: ; preds = %123, %119
   %.0.i.i = phi i64 [ %128, %123 ], [ 0, %119 ]
   %129 = mul i64 %.0.i.i, %.0911.i
   %130 = sub nsw i32 %.0812.i, %121
@@ -4007,8 +4007,8 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i:        ; preds = %123, %119
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
   br i1 %exitcond.not.i, label %_ZNK5faiss7Repeats5countEv.exit, label %119, !llvm.loop !18
 
-_ZNK5faiss7Repeats5countEv.exit:                  ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i, %_ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EE9push_backERKS2_.exit
-  %.09.lcssa.i = phi i64 [ 1, %_ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EE9push_backERKS2_.exit ], [ %129, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i ]
+_ZNK5faiss7Repeats5countEv.exit:                  ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i, %_ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EE9push_backERKS2_.exit
+  %.09.lcssa.i = phi i64 [ 1, %_ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EE9push_backERKS2_.exit ], [ %129, %_ZNK5faiss12_GLOBAL__N_14CombclEii.argprom.exit.i ]
   %131 = load i32, ptr %51, align 8
   %132 = zext nneg i32 %131 to i64
   %133 = shl i64 %.09.lcssa.i, %132

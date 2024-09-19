@@ -261,9 +261,9 @@ entry:
   %.val7 = load ptr, ptr %1, align 8
   %call.i8 = tail call ptr @cache_alloc(ptr noundef %.val7) #15
   %cmp.i9 = icmp eq ptr %call.i8, null
-  br i1 %cmp.i9, label %cqi_new.exit, label %while.end
+  br i1 %cmp.i9, label %cqi_new.argprom.exit, label %while.end
 
-cqi_new.exit:                                     ; preds = %entry, %cqi_new.exit
+cqi_new.argprom.exit:                             ; preds = %entry, %cqi_new.argprom.exit
   %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @stats_lock) #15
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 24), align 8
   %inc.i = add i64 %2, 1
@@ -274,10 +274,10 @@ cqi_new.exit:                                     ; preds = %entry, %cqi_new.exi
   %.val = load ptr, ptr %4, align 8
   %call.i = tail call ptr @cache_alloc(ptr noundef %.val) #15
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %cqi_new.exit, label %while.end, !llvm.loop !8
+  br i1 %cmp.i, label %cqi_new.argprom.exit, label %while.end, !llvm.loop !8
 
-while.end:                                        ; preds = %cqi_new.exit, %entry
-  %call.i.lcssa = phi ptr [ %call.i8, %entry ], [ %call.i, %cqi_new.exit ]
+while.end:                                        ; preds = %cqi_new.argprom.exit, %entry
+  %call.i.lcssa = phi ptr [ %call.i8, %entry ], [ %call.i, %cqi_new.argprom.exit ]
   %mode1 = getelementptr inbounds i8, ptr %call.i.lcssa, i64 20
   store i32 %mode, ptr %mode1, align 4
   store i32 %sfd, ptr %call.i.lcssa, align 8
@@ -1820,15 +1820,15 @@ setup_thread.exit:                                ; preds = %if.end37.i, %if.the
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
   br i1 %exitcond59.not, label %for.body66.preheader, label %for.body49, !llvm.loop !20
 
-for.body66:                                       ; preds = %for.body66.preheader, %create_worker.exit
-  %indvars.iv60 = phi i64 [ 0, %for.body66.preheader ], [ %indvars.iv.next61, %create_worker.exit ]
+for.body66:                                       ; preds = %for.body66.preheader, %create_worker.argprom.exit
+  %indvars.iv60 = phi i64 [ 0, %for.body66.preheader ], [ %indvars.iv.next61, %create_worker.argprom.exit ]
   %34 = load ptr, ptr @threads, align 8
   %arrayidx68 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %34, i64 %indvars.iv60
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %attr.i)
   %call.i36 = call i32 @pthread_attr_init(ptr noundef nonnull %attr.i) #15
   %call1.i37 = call i32 @pthread_create(ptr noundef %arrayidx68, ptr noundef nonnull %attr.i, ptr noundef nonnull @worker_libevent, ptr noundef %arrayidx68) #15
   %cmp.not.i = icmp eq i32 %call1.i37, 0
-  br i1 %cmp.not.i, label %create_worker.exit, label %if.then.i38
+  br i1 %cmp.not.i, label %create_worker.argprom.exit, label %if.then.i38
 
 if.then.i38:                                      ; preds = %for.body66
   %35 = load ptr, ptr @stderr, align 8
@@ -1837,7 +1837,7 @@ if.then.i38:                                      ; preds = %for.body66
   call void @exit(i32 noundef 1) #17
   unreachable
 
-create_worker.exit:                               ; preds = %for.body66
+create_worker.argprom.exit:                       ; preds = %for.body66
   %36 = load i64, ptr %arrayidx68, align 8
   %call.i.i41 = call i32 @pthread_setname_np(i64 noundef %36, ptr noundef nonnull @.str.35) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %attr.i)
@@ -1845,7 +1845,7 @@ create_worker.exit:                               ; preds = %for.body66
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
   br i1 %exitcond64.not, label %for.end71, label %for.body66, !llvm.loop !21
 
-for.end71:                                        ; preds = %create_worker.exit, %for.cond46.preheader
+for.end71:                                        ; preds = %create_worker.argprom.exit, %for.cond46.preheader
   %call72 = call i32 @pthread_mutex_lock(ptr noundef nonnull @init_lock) #15
   %37 = load i32, ptr @init_count, align 4
   %cmp1.i = icmp slt i32 %37, %nthreads

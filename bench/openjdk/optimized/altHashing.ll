@@ -111,14 +111,14 @@ _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %7, %0
   %12 = lshr i64 %11, 8
   %13 = and i64 %12, 2147483647
   %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %14, label %_ZL11object_hashP5Klass.exit
+  br i1 %.not.i, label %14, label %_ZL11object_hashP5Klass.argprom.exit
 
 14:                                               ; preds = %_ZNK5Klass11java_mirrorEv.exit.i
   %15 = tail call noundef i32 @_ZN2os6randomEv() #7
   %16 = zext i32 %15 to i64
-  br label %_ZL11object_hashP5Klass.exit
+  br label %_ZL11object_hashP5Klass.argprom.exit
 
-_ZL11object_hashP5Klass.exit:                     ; preds = %_ZNK5Klass11java_mirrorEv.exit.i, %14
+_ZL11object_hashP5Klass.argprom.exit:             ; preds = %_ZNK5Klass11java_mirrorEv.exit.i, %14
   %17 = phi i64 [ %16, %14 ], [ %13, %_ZNK5Klass11java_mirrorEv.exit.i ]
   %18 = trunc nuw i64 %17 to i32
   store i32 %18, ptr %1, align 16
@@ -128,25 +128,25 @@ _ZL11object_hashP5Klass.exit:                     ; preds = %_ZNK5Klass11java_mi
   %21 = icmp eq ptr %.val4, null
   br i1 %21, label %_ZNK5Klass11java_mirrorEv.exit.i5, label %22
 
-22:                                               ; preds = %_ZL11object_hashP5Klass.exit
+22:                                               ; preds = %_ZL11object_hashP5Klass.argprom.exit
   %23 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %24 = tail call noundef ptr %23(ptr noundef nonnull %.val4) #7
   br label %_ZNK5Klass11java_mirrorEv.exit.i5
 
-_ZNK5Klass11java_mirrorEv.exit.i5:                ; preds = %22, %_ZL11object_hashP5Klass.exit
-  %25 = phi ptr [ %24, %22 ], [ null, %_ZL11object_hashP5Klass.exit ]
+_ZNK5Klass11java_mirrorEv.exit.i5:                ; preds = %22, %_ZL11object_hashP5Klass.argprom.exit
+  %25 = phi ptr [ %24, %22 ], [ null, %_ZL11object_hashP5Klass.argprom.exit ]
   %26 = load volatile i64, ptr %25, align 8
   %27 = lshr i64 %26, 8
   %28 = and i64 %27, 2147483647
   %.not.i6 = icmp eq i64 %28, 0
-  br i1 %.not.i6, label %29, label %_ZL11object_hashP5Klass.exit7
+  br i1 %.not.i6, label %29, label %_ZL11object_hashP5Klass.argprom.exit7
 
 29:                                               ; preds = %_ZNK5Klass11java_mirrorEv.exit.i5
   %30 = tail call noundef i32 @_ZN2os6randomEv() #7
   %31 = zext i32 %30 to i64
-  br label %_ZL11object_hashP5Klass.exit7
+  br label %_ZL11object_hashP5Klass.argprom.exit7
 
-_ZL11object_hashP5Klass.exit7:                    ; preds = %_ZNK5Klass11java_mirrorEv.exit.i5, %29
+_ZL11object_hashP5Klass.argprom.exit7:            ; preds = %_ZNK5Klass11java_mirrorEv.exit.i5, %29
   %32 = phi i64 [ %31, %29 ], [ %28, %_ZNK5Klass11java_mirrorEv.exit.i5 ]
   %33 = getelementptr inbounds i8, ptr %1, i64 4
   %34 = trunc nuw i64 %32 to i32

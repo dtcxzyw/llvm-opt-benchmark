@@ -330,7 +330,7 @@ namelist_find.exit.thread:                        ; preds = %10, %3
   br i1 %.not, label %JS_FreeValue.exit, label %54
 
 54:                                               ; preds = %48
-  call fastcc void @get_c_name(ptr noundef %6, ptr noundef %1)
+  call fastcc void @get_c_name.argelim(ptr noundef %6, ptr noundef %1)
   %55 = load i32, ptr @cname_list.1, align 8
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %.lr.ph.i44, label %namelist_find.exit50.thread
@@ -448,7 +448,7 @@ declare { i64, i64 } @JS_Eval(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare void @js_free(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_c_name(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @get_c_name.argelim(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 {
   %3 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #18
   %.not = icmp eq ptr %3, null
   %4 = getelementptr i8, ptr %3, i64 1
@@ -881,7 +881,7 @@ split:                                            ; preds = %78, %._crit_edge248
   br label %91
 
 90:                                               ; preds = %85
-  call fastcc void @get_c_name(ptr noundef %15, ptr noundef nonnull %14)
+  call fastcc void @get_c_name.argelim(ptr noundef %15, ptr noundef nonnull %14)
   br label %91
 
 91:                                               ; preds = %90, %88
@@ -1105,7 +1105,7 @@ namelist_add.exit143:                             ; preds = %111, %114
   br label %188
 
 187:                                              ; preds = %185
-  call fastcc void @get_c_name(ptr noundef %10, ptr noundef %166)
+  call fastcc void @get_c_name.argelim(ptr noundef %10, ptr noundef %166)
   br label %188
 
 188:                                              ; preds = %187, %186

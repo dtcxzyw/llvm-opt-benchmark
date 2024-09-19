@@ -2062,15 +2062,15 @@ define hidden noundef i32 @zm_shutdown_basic(i32 noundef %0, i32 noundef %1) #0 
 6:                                                ; preds = %4, %2
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1272), align 8
   %.not9.i = icmp eq ptr %7, null
-  br i1 %.not9.i, label %basic_globals_dtor.exit, label %8
+  br i1 %.not9.i, label %basic_globals_dtor.argprom.exit, label %8
 
 8:                                                ; preds = %6
   tail call void @zend_hash_destroy(ptr noundef nonnull %7) #18
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1272), align 8
   tail call void @free(ptr noundef %9) #18
-  br label %basic_globals_dtor.exit
+  br label %basic_globals_dtor.argprom.exit
 
-basic_globals_dtor.exit:                          ; preds = %6, %8
+basic_globals_dtor.argprom.exit:                  ; preds = %6, %8
   tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @basic_globals, i64 1056)) #18
   tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @basic_globals, i64 1280)) #18
   %10 = tail call i32 @php_unregister_url_stream_wrapper(ptr noundef nonnull @.str.3) #18
@@ -5948,15 +5948,15 @@ define hidden void @zif_register_shutdown_function(ptr nocapture noundef readonl
   %21 = getelementptr inbounds i8, ptr %4, i64 88
   %22 = load ptr, ptr %21, align 8
   %.not8.i = icmp eq ptr %22, null
-  br i1 %.not8.i, label %fci_addref.exit, label %23
+  br i1 %.not8.i, label %fci_addref.argprom.exit, label %23
 
 23:                                               ; preds = %20
   %24 = load i32, ptr %22, align 4
   %25 = add i32 %24, 1
   store i32 %25, ptr %22, align 4
-  br label %fci_addref.exit
+  br label %fci_addref.argprom.exit
 
-fci_addref.exit:                                  ; preds = %20, %23
+fci_addref.argprom.exit:                          ; preds = %20, %23
   %26 = load i32, ptr %6, align 4
   %27 = load ptr, ptr %5, align 8
   call void @zend_fcall_info_argp(ptr noundef nonnull %4, i32 noundef %26, ptr noundef %27) #18
@@ -5965,15 +5965,15 @@ fci_addref.exit:                                  ; preds = %20, %23
   %.not.i2 = icmp eq ptr %28, null
   br i1 %.not.i2, label %29, label %31
 
-29:                                               ; preds = %fci_addref.exit
+29:                                               ; preds = %fci_addref.argprom.exit
   %30 = call noalias ptr @_emalloc_56() #18
   store ptr %30, ptr @basic_globals, align 8
   call void @_zend_hash_init(ptr noundef %30, i32 noundef 0, ptr noundef nonnull @user_shutdown_function_dtor, i1 noundef zeroext false) #18
   %.pre.i = load ptr, ptr @basic_globals, align 8
   br label %31
 
-31:                                               ; preds = %29, %fci_addref.exit
-  %32 = phi ptr [ %.pre.i, %29 ], [ %28, %fci_addref.exit ]
+31:                                               ; preds = %29, %fci_addref.argprom.exit
+  %32 = phi ptr [ %.pre.i, %29 ], [ %28, %fci_addref.argprom.exit ]
   store ptr null, ptr %3, align 8
   %33 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 13, ptr %33, align 8
@@ -8395,15 +8395,15 @@ define hidden void @zif_register_tick_function(ptr nocapture noundef readonly %0
   %22 = getelementptr inbounds i8, ptr %3, i64 88
   %23 = load ptr, ptr %22, align 8
   %.not8.i = icmp eq ptr %23, null
-  br i1 %.not8.i, label %fci_addref.exit, label %24
+  br i1 %.not8.i, label %fci_addref.argprom.exit, label %24
 
 24:                                               ; preds = %21
   %25 = load i32, ptr %23, align 4
   %26 = add i32 %25, 1
   store i32 %26, ptr %23, align 4
-  br label %fci_addref.exit
+  br label %fci_addref.argprom.exit
 
-fci_addref.exit:                                  ; preds = %21, %24
+fci_addref.argprom.exit:                          ; preds = %21, %24
   %27 = load i32, ptr %5, align 4
   %28 = load ptr, ptr %4, align 8
   call void @zend_fcall_info_argp(ptr noundef nonnull %3, i32 noundef %27, ptr noundef %28) #18
@@ -8411,7 +8411,7 @@ fci_addref.exit:                                  ; preds = %21, %24
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %30, label %32
 
-30:                                               ; preds = %fci_addref.exit
+30:                                               ; preds = %fci_addref.argprom.exit
   %31 = call noalias ptr @_emalloc_56() #18
   store ptr %31, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 464), align 8
   call void @zend_llist_init(ptr noundef %31, i64 noundef 112, ptr noundef nonnull @user_tick_function_dtor, i8 noundef zeroext 0) #18
@@ -8419,8 +8419,8 @@ fci_addref.exit:                                  ; preds = %21, %24
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 464), align 8
   br label %32
 
-32:                                               ; preds = %30, %fci_addref.exit
-  %33 = phi ptr [ %.pre, %30 ], [ %29, %fci_addref.exit ]
+32:                                               ; preds = %30, %fci_addref.argprom.exit
+  %33 = phi ptr [ %.pre, %30 ], [ %29, %fci_addref.argprom.exit ]
   call void @zend_llist_add_element(ptr noundef %33, ptr noundef nonnull %3) #18
   %34 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 3, ptr %34, align 8

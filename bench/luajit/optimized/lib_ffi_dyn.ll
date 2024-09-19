@@ -1747,7 +1747,7 @@ declare hidden void @lj_clib_unload(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_ffi_callback_free(ptr noundef %L) #0 {
 entry:
-  tail call fastcc void @ffi_callback_set(ptr noundef %L, ptr noundef null)
+  tail call fastcc void @ffi_callback_set.retelim(ptr noundef %L, ptr noundef null)
   ret i32 0
 }
 
@@ -1755,12 +1755,12 @@ entry:
 define internal noundef i32 @lj_cf_ffi_callback_set(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checkfunc(ptr noundef %L, i32 noundef 2) #9
-  tail call fastcc void @ffi_callback_set(ptr noundef %L, ptr noundef %call)
+  tail call fastcc void @ffi_callback_set.retelim(ptr noundef %L, ptr noundef %call)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ffi_callback_set(ptr noundef %L, ptr noundef %fn) unnamed_addr #0 {
+define internal fastcc void @ffi_callback_set.retelim(ptr noundef %L, ptr noundef %fn) unnamed_addr #0 {
 entry:
   %base.i = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i, align 8

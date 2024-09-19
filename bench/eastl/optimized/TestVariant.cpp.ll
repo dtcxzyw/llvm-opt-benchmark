@@ -4737,18 +4737,18 @@ _ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.
   store i8 0, ptr %cond.i.i.i.i.i, align 1
   %7 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %tobool.i.i.i2.i.i = icmp slt i8 %7, 0
-  br i1 %tobool.i.i.i2.i.i, label %if.then.i.i.i.i, label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit"
+  br i1 %tobool.i.i.i2.i.i, label %if.then.i.i.i.i, label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.argprom.exit"
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i
   %8 = load ptr, ptr %agg.tmp.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit", label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.argprom.exit", label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   tail call void @_ZdaPv(ptr noundef nonnull %8) #17
-  br label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit"
+  br label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.argprom.exit"
 
-"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit": ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
+"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.argprom.exit": ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   ret void
 }
@@ -4946,18 +4946,18 @@ _ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.
   store i8 0, ptr %cond.i.i.i.i.i, align 1
   %7 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %tobool.i.i.i2.i.i = icmp slt i8 %7, 0
-  br i1 %tobool.i.i.i2.i.i, label %if.then.i.i.i.i, label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit"
+  br i1 %tobool.i.i.i2.i.i, label %if.then.i.i.i.i, label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.argprom.exit"
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i
   %8 = load ptr, ptr %agg.tmp.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit", label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.argprom.exit", label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   tail call void @_ZdaPv(ptr noundef nonnull %8) #17
-  br label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit"
+  br label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.argprom.exit"
 
-"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit": ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
+"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.argprom.exit": ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   ret void
 }
@@ -5278,18 +5278,18 @@ _ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.
   store i1 true, ptr @_ZZ18TestVariantVisitorvE8bVisited_5, align 1
   %7 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %tobool.i.i.i2.i.i = icmp slt i8 %7, 0
-  br i1 %tobool.i.i.i2.i.i, label %if.then.i.i.i.i, label %_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit
+  br i1 %tobool.i.i.i2.i.i, label %if.then.i.i.i.i, label %_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.argprom.exit
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i
   %8 = load ptr, ptr %agg.tmp.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i.i.i.i, label %_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.argprom.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   tail call void @_ZdaPv(ptr noundef nonnull %8) #17
-  br label %_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit
+  br label %_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.argprom.exit
 
-_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit: ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
+_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.argprom.exit: ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   ret ptr %visitor
 }
@@ -6951,8 +6951,8 @@ attributes #19 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN5eastl15make_overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEENS_10overloadedIJDpNS_12remove_cvrefIT_E4typeEEEEDpOS7_: %agg.result"}
-!12 = distinct !{!12, !"_ZN5eastl15make_overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEENS_10overloadedIJDpNS_12remove_cvrefIT_E4typeEEEEDpOS7_"}
+!11 = distinct !{!11, !12, !"_ZN5eastl15make_overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEENS_10overloadedIJDpNS_12remove_cvrefIT_E4typeEEEEDpOS7_.argprom: %agg.result"}
+!12 = distinct !{!12, !"_ZN5eastl15make_overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEENS_10overloadedIJDpNS_12remove_cvrefIT_E4typeEEEEDpOS7_.argprom"}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}

@@ -6334,7 +6334,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3MVT15SimpleValueTypeELb1EE9push_backES2_.e
   %905 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %894, i64 %904
   %906 = load ptr, ptr %905, align 8
   %907 = icmp eq ptr %906, %886
-  br i1 %907, label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit51, label %.lr.ph.i.i.i.i44
+  br i1 %907, label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit51, label %.lr.ph.i.i.i.i44
 
 .lr.ph.i.i.i.i44:                                 ; preds = %898, %910
   %908 = phi ptr [ %915, %910 ], [ %906, %898 ]
@@ -6351,14 +6351,14 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3MVT15SimpleValueTypeELb1EE9push_backES2_.e
   %914 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %894, i64 %913
   %915 = load ptr, ptr %914, align 8
   %916 = icmp eq ptr %915, %886
-  br i1 %916, label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit51, label %.lr.ph.i.i.i.i44, !llvm.loop !9
+  br i1 %916, label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit51, label %.lr.ph.i.i.i.i44, !llvm.loop !9
 
 .loopexit.i.i.i50:                                ; preds = %.lr.ph.i.i.i.i44, %893
   %917 = zext i32 %896 to i64
   %918 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %894, i64 %917
-  br label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit51
+  br label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit51
 
-_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit51: ; preds = %910, %898, %.loopexit.i.i.i50
+_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit51: ; preds = %910, %898, %.loopexit.i.i.i50
   %.0.i.pn.i.i.i49 = phi ptr [ %918, %.loopexit.i.i.i50 ], [ %905, %898 ], [ %914, %910 ]
   %919 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i49, i64 8
   %920 = load ptr, ptr %919, align 8
@@ -6373,7 +6373,7 @@ _ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.
   %.pre220 = load ptr, ptr %491, align 8
   br i1 %brmerge.i, label %970, label %927
 
-927:                                              ; preds = %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit51
+927:                                              ; preds = %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit51
   %.val151.i = load i64, ptr %110, align 8
   %928 = and i64 %.val151.i, -8
   %929 = inttoptr i64 %928 to ptr
@@ -6406,7 +6406,7 @@ _ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.
   %948 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %937, i64 %947
   %949 = load ptr, ptr %948, align 8
   %950 = icmp eq ptr %949, %929
-  br i1 %950, label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit, label %.lr.ph.i.i.i.i36
+  br i1 %950, label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit, label %.lr.ph.i.i.i.i36
 
 .lr.ph.i.i.i.i36:                                 ; preds = %941, %953
   %951 = phi ptr [ %958, %953 ], [ %949, %941 ]
@@ -6423,14 +6423,14 @@ _ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.
   %957 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %937, i64 %956
   %958 = load ptr, ptr %957, align 8
   %959 = icmp eq ptr %958, %929
-  br i1 %959, label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit, label %.lr.ph.i.i.i.i36, !llvm.loop !9
+  br i1 %959, label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit, label %.lr.ph.i.i.i.i36, !llvm.loop !9
 
 .loopexit.i.i.i42:                                ; preds = %.lr.ph.i.i.i.i36, %936
   %960 = zext i32 %939 to i64
   %961 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %937, i64 %960
-  br label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit
+  br label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit
 
-_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit: ; preds = %953, %941, %.loopexit.i.i.i42
+_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit: ; preds = %953, %941, %.loopexit.i.i.i42
   %.0.i.pn.i.i.i41 = phi ptr [ %961, %.loopexit.i.i.i42 ], [ %948, %941 ], [ %957, %953 ]
   %962 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i41, i64 8
   %963 = load ptr, ptr %962, align 8
@@ -6443,9 +6443,9 @@ _ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.
   %.pre219 = load ptr, ptr %491, align 8
   br label %970
 
-970:                                              ; preds = %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit, %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit51, %.critedge144.i
-  %971 = phi ptr [ %.pre221, %.critedge144.i ], [ %.pre220, %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit51 ], [ %.pre219, %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit ]
-  %.0116.i = phi i1 [ false, %.critedge144.i ], [ %926, %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit51 ], [ %969, %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit ]
+970:                                              ; preds = %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit, %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit51, %.critedge144.i
+  %971 = phi ptr [ %.pre221, %.critedge144.i ], [ %.pre220, %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit51 ], [ %.pre219, %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit ]
+  %.0116.i = phi i1 [ false, %.critedge144.i ], [ %926, %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit51 ], [ %969, %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit ]
   %972 = load ptr, ptr %0, align 8
   %973 = getelementptr inbounds nuw i8, ptr %972, i64 16
   %974 = load ptr, ptr %973, align 8
@@ -7049,7 +7049,7 @@ define internal fastcc noundef i32 @_ZL26numNodesThatMayLoadOrStoreRKN4llvm15Tre
   %30 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %19, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, %11
-  br i1 %32, label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit, label %.lr.ph.i.i.i.i
+  br i1 %32, label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %23, %35
   %33 = phi ptr [ %40, %35 ], [ %31, %23 ]
@@ -7066,14 +7066,14 @@ define internal fastcc noundef i32 @_ZL26numNodesThatMayLoadOrStoreRKN4llvm15Tre
   %39 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %19, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %11
-  br i1 %41, label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !9
+  br i1 %41, label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %18
   %42 = zext i32 %21 to i64
   %43 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %19, i64 %42
-  br label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit
+  br label %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit
 
-_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit: ; preds = %35, %23, %.loopexit.i.i.i
+_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit: ; preds = %35, %23, %.loopexit.i.i.i
   %.0.i.pn.i.i.i = phi ptr [ %43, %.loopexit.i.i.i ], [ %30, %23 ], [ %39, %35 ]
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i, i64 8
   %45 = load ptr, ptr %44, align 8
@@ -7093,7 +7093,7 @@ _ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.
   %.not20 = icmp eq i64 %56, 0
   br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit
+.lr.ph.preheader:                                 ; preds = %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit
   %57 = lshr exact i64 %55, 3
   %58 = and i64 %57, 4294967295
   br label %.lr.ph
@@ -7110,8 +7110,8 @@ _ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.
   %.not = icmp eq i64 %indvars.iv.next, %58
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !100
 
-.loopexit:                                        ; preds = %.lr.ph, %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ %spec.select, %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.exit ], [ %63, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit, %5, %2
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ %spec.select, %_ZL22mayInstNodeLoadOrStoreRKN4llvm15TreePatternNodeERKNS_18CodeGenDAGPatternsE.argprom.exit ], [ %63, %.lr.ph ]
   ret i32 %.0
 }
 

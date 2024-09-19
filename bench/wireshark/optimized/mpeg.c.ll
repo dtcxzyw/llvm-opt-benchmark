@@ -107,7 +107,7 @@ define internal range(i32 0, 2) i32 @mpeg_read(ptr nocapture noundef readonly %0
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %10, align 8
-  %11 = tail call fastcc i32 @mpeg_read_packet(ptr %.val, ptr noundef %9, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef %4)
+  %11 = tail call fastcc i32 @mpeg_read_packet.argprom(ptr %.val, ptr noundef %9, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef %4)
   ret i32 %11
 }
 
@@ -123,7 +123,7 @@ define internal range(i32 0, 2) i32 @mpeg_seek_read(ptr nocapture noundef readon
   %12 = load ptr, ptr %7, align 8
   %13 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %13, align 8
-  %14 = tail call fastcc i32 @mpeg_read_packet(ptr %.val, ptr noundef %12, ptr noundef %2, ptr noundef %3, i32 noundef 1, ptr noundef %4, ptr noundef %5)
+  %14 = tail call fastcc i32 @mpeg_read_packet.argprom(ptr %.val, ptr noundef %12, ptr noundef %2, ptr noundef %3, i32 noundef 1, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %19
 
@@ -159,7 +159,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @mpeg_read_packet(ptr nocapture %.96.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @mpeg_read_packet.argprom(ptr nocapture %.96.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
@@ -180,12 +180,12 @@ define internal fastcc range(i32 0, 2) i32 @mpeg_read_packet(ptr nocapture %.96.
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   %19 = call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %13, i32 noundef 4, ptr noundef %4, ptr noundef %5) #7
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %mpeg_read_audio_packet.exit, label %20
+  br i1 %.not.i, label %mpeg_read_audio_packet.argprom.exit, label %20
 
 20:                                               ; preds = %18
   %21 = call i64 @file_seek(ptr noundef %0, i64 noundef -4, i32 noundef 1, ptr noundef %4) #7
   %22 = icmp eq i64 %21, -1
-  br i1 %22, label %mpeg_read_audio_packet.exit, label %23
+  br i1 %22, label %mpeg_read_audio_packet.argprom.exit, label %23
 
 23:                                               ; preds = %20
   %24 = load i32, ptr %13, align 4
@@ -225,7 +225,7 @@ define internal fastcc range(i32 0, 2) i32 @mpeg_read_packet(ptr nocapture %.96.
   %44 = call i32 @mpa_padding(ptr noundef nonnull %14) #7
   %45 = add i32 %43, %44
   %.not25.i = icmp eq i32 %3, 0
-  br i1 %.not25.i, label %46, label %mpeg_read_audio_packet.exit
+  br i1 %.not25.i, label %46, label %mpeg_read_audio_packet.argprom.exit
 
 46:                                               ; preds = %37
   %47 = call i32 @mpa_frequency(ptr noundef nonnull %14) #7
@@ -237,7 +237,7 @@ define internal fastcc range(i32 0, 2) i32 @mpeg_read_packet(ptr nocapture %.96.
   %53 = add i32 %52, %50
   store i32 %53, ptr %51, align 8
   %54 = icmp sgt i32 %53, 999999999
-  br i1 %54, label %55, label %mpeg_read_audio_packet.exit
+  br i1 %54, label %55, label %mpeg_read_audio_packet.argprom.exit
 
 55:                                               ; preds = %46
   %56 = load i64, ptr %.96.val, align 8
@@ -245,7 +245,7 @@ define internal fastcc range(i32 0, 2) i32 @mpeg_read_packet(ptr nocapture %.96.
   store i64 %57, ptr %.96.val, align 8
   %58 = add nsw i32 %53, -1000000000
   store i32 %58, ptr %51, align 8
-  br label %mpeg_read_audio_packet.exit
+  br label %mpeg_read_audio_packet.argprom.exit
 
 59:                                               ; preds = %35, %33, %30, %27, %23
   %60 = load i32, ptr %13, align 4
@@ -256,17 +256,17 @@ define internal fastcc range(i32 0, 2) i32 @mpeg_read_packet(ptr nocapture %.96.
 63:                                               ; preds = %59
   %64 = call i64 @file_seek(ptr noundef %0, i64 noundef 6, i32 noundef 1, ptr noundef %4) #7
   %65 = icmp eq i64 %64, -1
-  br i1 %65, label %mpeg_read_audio_packet.exit, label %66
+  br i1 %65, label %mpeg_read_audio_packet.argprom.exit, label %66
 
 66:                                               ; preds = %63
   %67 = call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %13, i32 noundef 4, ptr noundef %4, ptr noundef %5) #7
   %.not24.i = icmp eq i32 %67, 0
-  br i1 %.not24.i, label %mpeg_read_audio_packet.exit, label %68
+  br i1 %.not24.i, label %mpeg_read_audio_packet.argprom.exit, label %68
 
 68:                                               ; preds = %66
   %69 = call i64 @file_seek(ptr noundef %0, i64 noundef -10, i32 noundef 1, ptr noundef %4) #7
   %70 = icmp eq i64 %69, -1
-  br i1 %70, label %mpeg_read_audio_packet.exit, label %71
+  br i1 %70, label %mpeg_read_audio_packet.argprom.exit, label %71
 
 71:                                               ; preds = %68
   %72 = load i32, ptr %13, align 4
@@ -274,7 +274,7 @@ define internal fastcc range(i32 0, 2) i32 @mpeg_read_packet(ptr nocapture %.96.
   store i32 %73, ptr %13, align 4
   %74 = call i32 @decode_synchsafe_int(i32 noundef %73) #7
   %75 = add i32 %74, 10
-  br label %mpeg_read_audio_packet.exit
+  br label %mpeg_read_audio_packet.argprom.exit
 
 76:                                               ; preds = %59
   %77 = call i64 @file_tell(ptr noundef %0) #7
@@ -314,9 +314,9 @@ mpeg_resync.exit.i:                               ; preds = %87, %84, %.thread.i
   %89 = call i64 @file_seek(ptr noundef %0, i64 noundef %77, i32 noundef 0, ptr noundef %4) #7
   %90 = icmp eq i64 %89, -1
   %..015.i.i = select i1 %90, i32 0, i32 %.015.lcssa.i.i
-  br label %mpeg_read_audio_packet.exit
+  br label %mpeg_read_audio_packet.argprom.exit
 
-mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %37, %46, %55, %63, %66, %68, %71, %mpeg_resync.exit.i
+mpeg_read_audio_packet.argprom.exit:              ; preds = %18, %20, %37, %46, %55, %63, %66, %68, %71, %mpeg_resync.exit.i
   %.021.i = phi i32 [ 0, %18 ], [ 0, %20 ], [ 0, %63 ], [ 0, %66 ], [ 0, %68 ], [ %45, %37 ], [ %45, %55 ], [ %45, %46 ], [ %75, %71 ], [ %..015.i.i, %mpeg_resync.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
@@ -334,12 +334,12 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %37, %46, 
 92:                                               ; preds = %106, %91
   %93 = call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 4, ptr noundef %4, ptr noundef %5) #7
   %.not.i33 = icmp eq i32 %93, 0
-  br i1 %.not.i33, label %mpeg_read_pes_packet.exit, label %94
+  br i1 %.not.i33, label %mpeg_read_pes_packet.argprom.exit, label %94
 
 94:                                               ; preds = %92
   %95 = call i64 @file_seek(ptr noundef %0, i64 noundef -4, i32 noundef 1, ptr noundef %4) #7
   %96 = icmp eq i64 %95, -1
-  br i1 %96, label %mpeg_read_pes_packet.exit, label %97
+  br i1 %96, label %mpeg_read_pes_packet.argprom.exit, label %97
 
 97:                                               ; preds = %94
   %98 = load i32, ptr %7, align 4
@@ -358,29 +358,29 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %37, %46, 
 102:                                              ; preds = %101
   %103 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef 1, ptr noundef %4, ptr noundef %5) #7
   %.not60.i = icmp eq i32 %103, 0
-  br i1 %.not60.i, label %mpeg_read_pes_packet.exit, label %.loopexit1.i
+  br i1 %.not60.i, label %mpeg_read_pes_packet.argprom.exit, label %.loopexit1.i
 
 104:                                              ; preds = %101
   store i32 -13, ptr %4, align 4
   %105 = call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull @.str.5) #7
   store ptr %105, ptr %5, align 8
-  br label %mpeg_read_pes_packet.exit
+  br label %mpeg_read_pes_packet.argprom.exit
 
 106:                                              ; preds = %101
   %107 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef 2, ptr noundef %4, ptr noundef %5) #7
   %.not59.i = icmp eq i32 %107, 0
-  br i1 %.not59.i, label %mpeg_read_pes_packet.exit, label %92
+  br i1 %.not59.i, label %mpeg_read_pes_packet.argprom.exit, label %92
 
 .loopexit1.i:                                     ; preds = %97, %102
   %108 = call i64 @file_tell(ptr noundef %0) #7
   %109 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef 3, ptr noundef %4, ptr noundef %5) #7
   %.not61.i = icmp eq i32 %109, 0
-  br i1 %.not61.i, label %mpeg_read_pes_packet.exit, label %110
+  br i1 %.not61.i, label %mpeg_read_pes_packet.argprom.exit, label %110
 
 110:                                              ; preds = %.loopexit1.i
   %111 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 1, ptr noundef %4, ptr noundef %5) #7
   %.not62.i = icmp eq i32 %111, 0
-  br i1 %.not62.i, label %mpeg_read_pes_packet.exit, label %112
+  br i1 %.not62.i, label %mpeg_read_pes_packet.argprom.exit, label %112
 
 112:                                              ; preds = %110
   %113 = load i8, ptr %8, align 1
@@ -392,12 +392,12 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %37, %46, 
 114:                                              ; preds = %112
   %115 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 4, ptr noundef %4, ptr noundef %5) #7
   %.not64.i = icmp eq i32 %115, 0
-  br i1 %.not64.i, label %mpeg_read_pes_packet.exit, label %116
+  br i1 %.not64.i, label %mpeg_read_pes_packet.argprom.exit, label %116
 
 116:                                              ; preds = %114
   %117 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %10, i32 noundef 4, ptr noundef %4, ptr noundef %5) #7
   %.not65.i = icmp eq i32 %117, 0
-  br i1 %.not65.i, label %mpeg_read_pes_packet.exit, label %118
+  br i1 %.not65.i, label %mpeg_read_pes_packet.argprom.exit, label %118
 
 118:                                              ; preds = %116
   %119 = load i32, ptr %9, align 4
@@ -414,12 +414,12 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %37, %46, 
 126:                                              ; preds = %118
   %127 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef 1, ptr noundef %4, ptr noundef %5) #7
   %.not73.i = icmp eq i32 %127, 0
-  br i1 %.not73.i, label %mpeg_read_pes_packet.exit, label %128
+  br i1 %.not73.i, label %mpeg_read_pes_packet.argprom.exit, label %128
 
 128:                                              ; preds = %126
   %129 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 1, ptr noundef %4, ptr noundef %5) #7
   %.not74.i = icmp eq i32 %129, 0
-  br i1 %.not74.i, label %mpeg_read_pes_packet.exit, label %130
+  br i1 %.not74.i, label %mpeg_read_pes_packet.argprom.exit, label %130
 
 130:                                              ; preds = %128
   %131 = load i8, ptr %11, align 1
@@ -459,7 +459,7 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %37, %46, 
 156:                                              ; preds = %112
   %157 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 2, ptr noundef %4, ptr noundef %5) #7
   %.not63.i = icmp eq i32 %157, 0
-  br i1 %.not63.i, label %mpeg_read_pes_packet.exit, label %158
+  br i1 %.not63.i, label %mpeg_read_pes_packet.argprom.exit, label %158
 
 158:                                              ; preds = %156
   %159 = load i16, ptr %12, align 2
@@ -474,9 +474,9 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %37, %46, 
   %163 = call i64 @file_seek(ptr noundef %0, i64 noundef %108, i32 noundef 0, ptr noundef %4) #7
   %164 = icmp eq i64 %163, -1
   %..055.i = select i1 %164, i32 0, i32 %.055.i
-  br label %mpeg_read_pes_packet.exit
+  br label %mpeg_read_pes_packet.argprom.exit
 
-mpeg_read_pes_packet.exit:                        ; preds = %92, %94, %106, %102, %104, %.loopexit1.i, %110, %114, %116, %126, %128, %156, %162
+mpeg_read_pes_packet.argprom.exit:                ; preds = %92, %94, %106, %102, %104, %.loopexit1.i, %110, %114, %116, %126, %128, %156, %162
   %.0.i = phi i32 [ 0, %104 ], [ 0, %102 ], [ 0, %.loopexit1.i ], [ 0, %110 ], [ 0, %114 ], [ 0, %116 ], [ 0, %126 ], [ 0, %128 ], [ 0, %156 ], [ %..055.i, %162 ], [ 0, %106 ], [ 0, %94 ], [ 0, %92 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
@@ -486,8 +486,8 @@ mpeg_read_pes_packet.exit:                        ; preds = %92, %94, %106, %102
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
   br label %165
 
-165:                                              ; preds = %mpeg_read_pes_packet.exit, %mpeg_read_audio_packet.exit
-  %.0 = phi i32 [ %.021.i, %mpeg_read_audio_packet.exit ], [ %.0.i, %mpeg_read_pes_packet.exit ]
+165:                                              ; preds = %mpeg_read_pes_packet.argprom.exit, %mpeg_read_audio_packet.argprom.exit
+  %.0 = phi i32 [ %.021.i, %mpeg_read_audio_packet.argprom.exit ], [ %.0.i, %mpeg_read_pes_packet.argprom.exit ]
   %166 = icmp eq i32 %.0, 0
   br i1 %166, label %178, label %167
 

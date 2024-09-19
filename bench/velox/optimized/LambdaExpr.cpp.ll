@@ -1833,7 +1833,7 @@ if.else.i.i.i.i.i321:                             ; preds = %if.end.i.i.i.i300
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i304: ; preds = %if.else.i.i.i.i.i321, %if.then.i.i.i.i.i302
   %retval.i.0.i.i.i.i305 = phi i32 [ %135, %if.then.i.i.i.i.i302 ], [ %138, %if.else.i.i.i.i.i321 ]
   %cmp6.i.i.i.i306 = icmp eq i32 %retval.i.0.i.i.i.i305, 1
-  br i1 %cmp6.i.i.i.i306, label %if.then7.i.i.i.i307, label %_ZNSt10shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEED2Ev.exit
+  br i1 %cmp6.i.i.i.i306, label %if.then7.i.i.i.i307, label %_ZNSt10shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEED2Ev.argprom.exit
 
 if.then7.i.i.i.i307:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i304
   %vtable.i.i.i.i.i.i308 = load ptr, ptr %call5.i.i.i5.i.i.i.i64, align 8
@@ -1857,21 +1857,21 @@ if.else.i.i.i.i.i.i.i320:                         ; preds = %if.then7.i.i.i.i307
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i314: ; preds = %if.else.i.i.i.i.i.i.i320, %if.then.i.i.i.i.i.i.i312
   %retval.i.0.i.i.i.i.i.i315 = phi i32 [ %141, %if.then.i.i.i.i.i.i.i312 ], [ %142, %if.else.i.i.i.i.i.i.i320 ]
   %cmp.i.i.i.i.i.i316 = icmp eq i32 %retval.i.0.i.i.i.i.i.i315, 1
-  br i1 %cmp.i.i.i.i.i.i316, label %if.end8.sink.split.i.i.i.i317, label %_ZNSt10shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i316, label %if.end8.sink.split.i.i.i.i317, label %_ZNSt10shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i317:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i314, %if.then.i.i.i.i322
   %vtable2.i.i.i.i.i.i318 = load ptr, ptr %call5.i.i.i5.i.i.i.i64, align 8
   %vfn3.i.i.i.i.i.i319 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i318, i64 24
   %143 = load ptr, ptr %vfn3.i.i.i.i.i.i319, align 8
   call void %143(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i5.i.i.i.i64) #32
-  br label %_ZNSt10shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEED2Ev.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i304, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i314, %if.end8.sink.split.i.i.i.i317
+_ZNSt10shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEED2Ev.argprom.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i304, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i314, %if.end8.sink.split.i.i.i.i317
   %144 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i327 = icmp eq ptr %144, null
   br i1 %cmp.not.i.i.i327, label %_ZNSt10shared_ptrIN8facebook5velox9RowVectorEED2Ev.exit, label %if.then.i.i.i328
 
-if.then.i.i.i328:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEED2Ev.exit
+if.then.i.i.i328:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEED2Ev.argprom.exit
   %_M_use_count.i.i.i.i329 = getelementptr inbounds i8, ptr %144, i64 8
   %145 = load atomic i64, ptr %_M_use_count.i.i.i.i329 acquire, align 8
   %cmp.i.i.i.i330 = icmp eq i64 %145, 4294967297
@@ -1939,7 +1939,7 @@ if.end8.sink.split.i.i.i.i348:                    ; preds = %_ZN9__gnu_cxx27__ex
   call void %154(ptr noundef nonnull align 8 dereferenceable(16) %144) #32
   br label %_ZNSt10shared_ptrIN8facebook5velox9RowVectorEED2Ev.exit
 
-_ZNSt10shared_ptrIN8facebook5velox9RowVectorEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i335, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i345, %if.end8.sink.split.i.i.i.i348
+_ZNSt10shared_ptrIN8facebook5velox9RowVectorEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEED2Ev.argprom.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i335, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i345, %if.end8.sink.split.i.i.i.i348
   %155 = load ptr, ptr %values, align 8
   %156 = load ptr, ptr %_M_finish.i.i7.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %155, %156
@@ -2050,7 +2050,7 @@ lpad65:                                           ; preds = %_ZNSt10shared_ptrIN
 ehcleanup:                                        ; preds = %lpad48, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox14FunctionVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %lpad65
   %.pn = phi { ptr, i32 } [ %169, %lpad65 ], [ %92, %lpad48 ], [ %76, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox14FunctionVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
   call void @_ZNSt10shared_ptrIN8facebook5velox14FunctionVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %functions) #32
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEED2Ev(ptr nonnull %call5.i.i.i5.i.i.i.i64) #32
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEED2Ev.argprom(ptr nonnull %call5.i.i.i5.i.i.i.i64) #32
   br label %ehcleanup68
 
 ehcleanup68:                                      ; preds = %ehcleanup, %lpad42
@@ -3316,10 +3316,10 @@ _ZNSt12__shared_ptrIN8facebook5velox8CallableELN9__gnu_cxx12_Lock_policyE2EED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEED2Ev(ptr %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEED2Ev.argprom(ptr %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
@@ -3355,7 +3355,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.i.0.i.i.i = phi i32 [ %1, %if.then.i.i.i.i ], [ %4, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.i.0.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
@@ -3380,16 +3380,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then7.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #32
-  br label %_ZNSt12__shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br label %_ZNSt12__shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
-_ZNSt12__shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
+_ZNSt12__shared_ptrIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
   ret void
 }
 
@@ -6875,7 +6875,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
@@ -12853,8 +12853,8 @@ attributes #34 = { cold noreturn nounwind }
 !12 = distinct !{!12, !13, !"_ZSt11make_sharedIN8facebook5velox9RowVectorEJPNS1_6memory10MemoryPoolERSt10shared_ptrIKNS1_7RowTypeEEN5boost13intrusive_ptrINS1_6BufferEEEiRSt6vectorIS6_INS1_10BaseVectorEESaISH_EEiEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESM_E4typeEEDpOT0_: %agg.result"}
 !13 = distinct !{!13, !"_ZSt11make_sharedIN8facebook5velox9RowVectorEJPNS1_6memory10MemoryPoolERSt10shared_ptrIKNS1_7RowTypeEEN5boost13intrusive_ptrINS1_6BufferEEEiRSt6vectorIS6_INS1_10BaseVectorEESaISH_EEiEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESM_E4typeEEDpOT0_"}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZSt11make_sharedIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEJRSt10shared_ptrIKNS1_7RowTypeEERS5_INS1_9RowVectorEERS5_INS2_4ExprEEEES5_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_: %agg.result"}
-!16 = distinct !{!16, !"_ZSt11make_sharedIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEJRSt10shared_ptrIKNS1_7RowTypeEERS5_INS1_9RowVectorEERS5_INS2_4ExprEEEES5_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_"}
+!15 = distinct !{!15, !16, !"_ZSt11make_sharedIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEJRSt10shared_ptrIKNS1_7RowTypeEERS5_INS1_9RowVectorEERS5_INS2_4ExprEEEES5_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_.argprom: %agg.result"}
+!16 = distinct !{!16, !"_ZSt11make_sharedIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableEJRSt10shared_ptrIKNS1_7RowTypeEERS5_INS1_9RowVectorEERS5_INS2_4ExprEEEES5_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_.argprom"}
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZSt11make_sharedIN8facebook5velox14FunctionVectorEJPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_: %agg.result"}
 !19 = distinct !{!19, !"_ZSt11make_sharedIN8facebook5velox14FunctionVectorEJPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_"}
@@ -12914,11 +12914,11 @@ attributes #34 = { cold noreturn nounwind }
 !73 = distinct !{!73, !5}
 !74 = distinct !{!74, !5}
 !75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable15createLambdaCtxEPNS1_7EvalCtxERSt10shared_ptrINS0_9RowVectorEEPKNS0_17SelectivityVectorE: %agg.result"}
-!77 = distinct !{!77, !"_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable15createLambdaCtxEPNS1_7EvalCtxERSt10shared_ptrINS0_9RowVectorEEPKNS0_17SelectivityVectorE"}
+!76 = distinct !{!76, !77, !"_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable15createLambdaCtxEPNS1_7EvalCtxERSt10shared_ptrINS0_9RowVectorEEPKNS0_17SelectivityVectorE.argprom: %agg.result"}
+!77 = distinct !{!77, !"_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable15createLambdaCtxEPNS1_7EvalCtxERSt10shared_ptrINS0_9RowVectorEEPKNS0_17SelectivityVectorE.argprom"}
 !78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable15createLambdaCtxEPNS1_7EvalCtxERSt10shared_ptrINS0_9RowVectorEEPKNS0_17SelectivityVectorE: %agg.result"}
-!80 = distinct !{!80, !"_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable15createLambdaCtxEPNS1_7EvalCtxERSt10shared_ptrINS0_9RowVectorEEPKNS0_17SelectivityVectorE"}
+!79 = distinct !{!79, !80, !"_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable15createLambdaCtxEPNS1_7EvalCtxERSt10shared_ptrINS0_9RowVectorEEPKNS0_17SelectivityVectorE.argprom: %agg.result"}
+!80 = distinct !{!80, !"_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable15createLambdaCtxEPNS1_7EvalCtxERSt10shared_ptrINS0_9RowVectorEEPKNS0_17SelectivityVectorE.argprom"}
 !81 = distinct !{!81, !5}
 !82 = !{!83}
 !83 = distinct !{!83, !84, !"_ZSt11make_sharedIN8facebook5velox9RowVectorEJPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEEN5boost13intrusive_ptrINS1_6BufferEEERiSt6vectorIS6_INS1_10BaseVectorEESaISJ_EEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESN_E4typeEEDpOT0_: %agg.result"}

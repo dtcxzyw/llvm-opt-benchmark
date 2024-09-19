@@ -2533,9 +2533,9 @@ entry:
   %cmp.i4.i = icmp eq i32 %1, 0
   br i1 %cmp.i4.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit", label %while.body.i
 
-while.body.i:                                     ; preds = %entry, %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i"
-  %2 = phi i32 [ %21, %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i" ], [ %1, %entry ]
-  %chunk.05.i = phi ptr [ %3, %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i" ], [ %atomic-temp.i.0.i.i, %entry ]
+while.body.i:                                     ; preds = %entry, %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.argprom.exit.i"
+  %2 = phi i32 [ %21, %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.argprom.exit.i" ], [ %1, %entry ]
+  %chunk.05.i = phi ptr [ %3, %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.argprom.exit.i" ], [ %atomic-temp.i.0.i.i, %entry ]
   %3 = load ptr, ptr %chunk.05.i, align 8
   %conv.i.i.i = zext i32 %2 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
@@ -2544,7 +2544,7 @@ while.body.i:                                     ; preds = %entry, %"_ZZN6googl
   %size.i.i.i.i.i = getelementptr inbounds i8, ptr %chunk.05.i, i64 12
   %5 = load atomic i32, ptr %size.i.i.i.i.i monotonic, align 4
   %cmp.i.i.not4.i.i = icmp eq i32 %5, 0
-  br i1 %cmp.i.i.not4.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", label %for.body.preheader.i.i
+  br i1 %cmp.i.i.not4.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.argprom.exit.i", label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %while.body.i
   %.sroa.speculated.i.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %5, i32 %2)
@@ -2646,15 +2646,15 @@ while.end.i.i.i:                                  ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i: ; preds = %while.end.i.i.i, %for.body.i.i
   %cmp.i.i.not.i.i = icmp eq i64 %it.sroa.0.0.add.i.i, 0
-  br i1 %cmp.i.i.not.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", label %for.body.i.i, !llvm.loop !19
+  br i1 %cmp.i.i.not.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.argprom.exit.i", label %for.body.i.i, !llvm.loop !19
 
-"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i": ; preds = %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i, %while.body.i
+"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.argprom.exit.i": ; preds = %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i, %while.body.i
   %capacity.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %21 = load i32, ptr %capacity.i.i.i, align 8
   %cmp.i.i = icmp eq i32 %21, 0
   br i1 %cmp.i.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit", label %while.body.i, !llvm.loop !20
 
-"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit": ; preds = %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", %entry
+"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit": ; preds = %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.argprom.exit.i", %entry
   %head_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %22 = load atomic i64, ptr %head_.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i1 = inttoptr i64 %22 to ptr

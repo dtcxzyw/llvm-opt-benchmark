@@ -3022,7 +3022,7 @@ define linkonce_odr hidden void @_ZN2cv4impl13PluginCapture6createEPK38OpenCV_Vi
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %72, align 8, !noalias !36
   %75 = getelementptr inbounds i8, ptr %72, i64 16
   invoke void @_ZN2cv4impl13PluginCaptureC2EPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_t(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull %1, ptr noundef nonnull %60)
-          to label %_ZN2cvL7makePtrINS_4impl13PluginCaptureEJPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !36
+          to label %_ZN2cvL7makePtrINS_4impl13PluginCaptureEJPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !36
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i: ; preds = %.noexc
   %76 = landingpad { ptr, i32 }
@@ -3030,13 +3030,13 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl13PluginCaptureES
   call void @_ZdlPv(ptr noundef nonnull %72) #22, !noalias !36
   br label %.body
 
-_ZN2cvL7makePtrINS_4impl13PluginCaptureEJPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %.noexc
+_ZN2cvL7makePtrINS_4impl13PluginCaptureEJPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %.noexc
   store ptr %75, ptr %0, align 8, !alias.scope !33
   %77 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %72, ptr %77, align 8, !alias.scope !33
   br label %78
 
-78:                                               ; preds = %_ZN2cvL7makePtrINS_4impl13PluginCaptureEJPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.exit, %58
+78:                                               ; preds = %_ZN2cvL7makePtrINS_4impl13PluginCaptureEJPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit, %58
   %79 = load ptr, ptr %11, align 8
   %.not.i.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %80
@@ -3473,7 +3473,7 @@ define linkonce_odr hidden void @_ZN2cv4impl6legacy13PluginCapture6createEPK36Op
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %53, align 8, !noalias !48
   %56 = getelementptr inbounds i8, ptr %53, i64 16
   invoke void @_ZN2cv4impl6legacy13PluginCaptureC2EPK36OpenCV_VideoIO_Plugin_API_preview_v1P17CvPluginCapture_t(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull %1, ptr noundef nonnull %43)
-          to label %_ZN2cvL7makePtrINS_4impl6legacy13PluginCaptureEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !48
+          to label %_ZN2cvL7makePtrINS_4impl6legacy13PluginCaptureEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !48
 
 common.resume:                                    ; preds = %19, %33, %51, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %57, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy13PluginCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i ], [ %.pn15, %51 ], [ %.pn12, %33 ], [ %.pn, %19 ]
@@ -3485,7 +3485,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy13PluginCa
   call void @_ZdlPv(ptr noundef nonnull %53) #22, !noalias !48
   br label %common.resume
 
-_ZN2cvL7makePtrINS_4impl6legacy13PluginCaptureEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %52
+_ZN2cvL7makePtrINS_4impl6legacy13PluginCaptureEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %52
   store ptr %56, ptr %0, align 8, !alias.scope !45
   %58 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %53, ptr %58, align 8, !alias.scope !45
@@ -3495,7 +3495,7 @@ _ZN2cvL7makePtrINS_4impl6legacy13PluginCaptureEJPK36OpenCV_VideoIO_Plugin_API_pr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %60
 
-60:                                               ; preds = %59, %_ZN2cvL7makePtrINS_4impl6legacy13PluginCaptureEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.exit
+60:                                               ; preds = %59, %_ZN2cvL7makePtrINS_4impl6legacy13PluginCaptureEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit
   ret void
 }
 
@@ -4098,7 +4098,7 @@ define linkonce_odr hidden void @_ZN2cv4impl12PluginWriter6createEPK37OpenCV_Vid
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %88, align 8, !noalias !54
   %91 = getelementptr inbounds i8, ptr %88, i64 16
   invoke void @_ZN2cv4impl12PluginWriterC2EPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_t(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr noundef nonnull %1, ptr noundef nonnull %76)
-          to label %_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !54
+          to label %_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !54
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i: ; preds = %.noexc
   %92 = landingpad { ptr, i32 }
@@ -4106,13 +4106,13 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESa
   call void @_ZdlPv(ptr noundef nonnull %88) #22, !noalias !54
   br label %.body
 
-_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %.noexc
+_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %.noexc
   store ptr %91, ptr %0, align 8, !alias.scope !51
   %93 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %88, ptr %93, align 8, !alias.scope !51
   br label %94
 
-94:                                               ; preds = %_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.exit, %74
+94:                                               ; preds = %_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit, %74
   %95 = load ptr, ptr %15, align 8
   %.not.i.i.i = icmp eq ptr %95, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %96
@@ -4549,7 +4549,7 @@ _ZNK2cv15VideoParameters3getIiEET_iS2_.exit.thread: ; preds = %._crit_edge.i.i.i
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %262, align 8, !noalias !62
   %265 = getelementptr inbounds i8, ptr %262, i64 16
   invoke void @_ZN2cv4impl12PluginWriterC2EPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_t(ptr noundef nonnull align 8 dereferenceable(24) %265, ptr noundef nonnull %1, ptr noundef nonnull %252)
-          to label %_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.exit95 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i94, !noalias !62
+          to label %_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit95 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i94, !noalias !62
 
 common.resume:                                    ; preds = %31, %42, %52, %217, %241, %260, %.body, %98, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i94
   %common.resume.op = phi { ptr, i32 } [ %266, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i94 ], [ %.pn69, %52 ], [ %.pn62, %217 ], [ %.pn59, %241 ], [ %.pn56, %260 ], [ %.pn49, %42 ], [ %.pn, %31 ], [ %.pn67, %.body ], [ %.pn67, %98 ]
@@ -4561,7 +4561,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl12PluginWriterESa
   call void @_ZdlPv(ptr noundef nonnull %262) #22, !noalias !62
   br label %common.resume
 
-_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.exit95: ; preds = %261
+_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit95: ; preds = %261
   store ptr %265, ptr %0, align 8, !alias.scope !59
   %267 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %262, ptr %267, align 8, !alias.scope !59
@@ -4571,7 +4571,7 @@ _ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %269
 
-269:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %268, %_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.exit95, %242, %218
+269:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %268, %_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit95, %242, %218
   ret void
 }
 
@@ -4778,7 +4778,7 @@ define linkonce_odr hidden void @_ZN2cv4impl6legacy12PluginWriter6createEPK36Ope
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %90, align 8, !noalias !68
   %93 = getelementptr inbounds i8, ptr %90, i64 16
   invoke void @_ZN2cv4impl6legacy12PluginWriterC2EPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_t(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull %1, ptr noundef nonnull %78)
-          to label %_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !68
+          to label %_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !68
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i: ; preds = %.noexc
   %94 = landingpad { ptr, i32 }
@@ -4786,13 +4786,13 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWr
   call void @_ZdlPv(ptr noundef nonnull %90) #22, !noalias !68
   br label %.body
 
-_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %.noexc
+_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %.noexc
   store ptr %93, ptr %0, align 8, !alias.scope !65
   %95 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %90, ptr %95, align 8, !alias.scope !65
   br label %96
 
-96:                                               ; preds = %_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.exit, %76
+96:                                               ; preds = %_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit, %76
   %97 = load ptr, ptr %15, align 8
   %.not.i.i.i = icmp eq ptr %97, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %98
@@ -5232,7 +5232,7 @@ _ZNK2cv15VideoParameters3getIiEET_iS2_.exit.thread: ; preds = %._crit_edge.i.i.i
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %260, align 8, !noalias !74
   %263 = getelementptr inbounds i8, ptr %260, i64 16
   invoke void @_ZN2cv4impl6legacy12PluginWriterC2EPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_t(ptr noundef nonnull align 8 dereferenceable(24) %263, ptr noundef nonnull %1, ptr noundef nonnull %250)
-          to label %_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.exit89 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i88, !noalias !74
+          to label %_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit89 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i88, !noalias !74
 
 common.resume:                                    ; preds = %33, %50, %60, %114, %124, %240, %258, %.body, %100, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i88
   %common.resume.op = phi { ptr, i32 } [ %264, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i88 ], [ %.pn63, %60 ], [ %.pn56, %50 ], [ %.pn53, %124 ], [ %.pn51, %240 ], [ %.pn48, %258 ], [ %.pn44, %114 ], [ %.pn, %33 ], [ %.pn61, %.body ], [ %.pn61, %100 ]
@@ -5244,7 +5244,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl6legacy12PluginWr
   call void @_ZdlPv(ptr noundef nonnull %260) #22, !noalias !74
   br label %common.resume
 
-_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.exit89: ; preds = %259
+_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit89: ; preds = %259
   store ptr %263, ptr %0, align 8, !alias.scope !71
   %265 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %260, ptr %265, align 8, !alias.scope !71
@@ -5254,7 +5254,7 @@ _ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_pre
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %267
 
-267:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %266, %_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.exit89, %241
+267:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %266, %_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom.exit89, %241
   ret void
 }
 
@@ -10718,54 +10718,54 @@ attributes #25 = { noreturn }
 !31 = distinct !{!31, !32, !"_ZSt11make_sharedIN2cv4impl13PluginBackendEJRKNS0_3PtrINS0_6plugin4impl10DynamicLibEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_: argument 0"}
 !32 = distinct !{!32, !"_ZSt11make_sharedIN2cv4impl13PluginBackendEJRKNS0_3PtrINS0_6plugin4impl10DynamicLibEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"}
 !33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN2cvL7makePtrINS_4impl13PluginCaptureEJPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!35 = distinct !{!35, !"_ZN2cvL7makePtrINS_4impl13PluginCaptureEJPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_"}
+!34 = distinct !{!34, !35, !"_ZN2cvL7makePtrINS_4impl13PluginCaptureEJPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!35 = distinct !{!35, !"_ZN2cvL7makePtrINS_4impl13PluginCaptureEJPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !36 = !{!37, !34}
 !37 = distinct !{!37, !38, !"_ZSt11make_sharedIN2cv4impl13PluginCaptureEJRKPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1RKP17CvPluginCapture_tEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_: argument 0"}
 !38 = distinct !{!38, !"_ZSt11make_sharedIN2cv4impl13PluginCaptureEJRKPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1RKP17CvPluginCapture_tEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_"}
 !39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN2cvL7makePtrINS_4impl13PluginCaptureEJPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!41 = distinct !{!41, !"_ZN2cvL7makePtrINS_4impl13PluginCaptureEJPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_"}
+!40 = distinct !{!40, !41, !"_ZN2cvL7makePtrINS_4impl13PluginCaptureEJPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!41 = distinct !{!41, !"_ZN2cvL7makePtrINS_4impl13PluginCaptureEJPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !42 = !{!43, !40}
 !43 = distinct !{!43, !44, !"_ZSt11make_sharedIN2cv4impl13PluginCaptureEJRKPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1RKP17CvPluginCapture_tEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_: argument 0"}
 !44 = distinct !{!44, !"_ZSt11make_sharedIN2cv4impl13PluginCaptureEJRKPK38OpenCV_VideoIO_Capture_Plugin_API_v1_1RKP17CvPluginCapture_tEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_"}
 !45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZN2cvL7makePtrINS_4impl6legacy13PluginCaptureEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!47 = distinct !{!47, !"_ZN2cvL7makePtrINS_4impl6legacy13PluginCaptureEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_"}
+!46 = distinct !{!46, !47, !"_ZN2cvL7makePtrINS_4impl6legacy13PluginCaptureEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!47 = distinct !{!47, !"_ZN2cvL7makePtrINS_4impl6legacy13PluginCaptureEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P17CvPluginCapture_tEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !48 = !{!49, !46}
 !49 = distinct !{!49, !50, !"_ZSt11make_sharedIN2cv4impl6legacy13PluginCaptureEJRKPK36OpenCV_VideoIO_Plugin_API_preview_v1RKP17CvPluginCapture_tEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESF_E4typeEEDpOT0_: argument 0"}
 !50 = distinct !{!50, !"_ZSt11make_sharedIN2cv4impl6legacy13PluginCaptureEJRKPK36OpenCV_VideoIO_Plugin_API_preview_v1RKP17CvPluginCapture_tEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESF_E4typeEEDpOT0_"}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!53 = distinct !{!53, !"_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_"}
+!52 = distinct !{!52, !53, !"_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!53 = distinct !{!53, !"_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !54 = !{!55, !52}
 !55 = distinct !{!55, !56, !"_ZSt11make_sharedIN2cv4impl12PluginWriterEJRKPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1RKP16CvPluginWriter_tEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_: argument 0"}
 !56 = distinct !{!56, !"_ZSt11make_sharedIN2cv4impl12PluginWriterEJRKPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1RKP16CvPluginWriter_tEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_"}
 !57 = distinct !{!57, !8}
 !58 = distinct !{!58, !8}
 !59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!61 = distinct !{!61, !"_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_"}
+!60 = distinct !{!60, !61, !"_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!61 = distinct !{!61, !"_ZN2cvL7makePtrINS_4impl12PluginWriterEJPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !62 = !{!63, !60}
 !63 = distinct !{!63, !64, !"_ZSt11make_sharedIN2cv4impl12PluginWriterEJRKPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1RKP16CvPluginWriter_tEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_: argument 0"}
 !64 = distinct !{!64, !"_ZSt11make_sharedIN2cv4impl12PluginWriterEJRKPK37OpenCV_VideoIO_Writer_Plugin_API_v1_1RKP16CvPluginWriter_tEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_"}
 !65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!67 = distinct !{!67, !"_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_"}
+!66 = distinct !{!66, !67, !"_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!67 = distinct !{!67, !"_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !68 = !{!69, !66}
 !69 = distinct !{!69, !70, !"_ZSt11make_sharedIN2cv4impl6legacy12PluginWriterEJRKPK36OpenCV_VideoIO_Plugin_API_preview_v1RKP16CvPluginWriter_tEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESF_E4typeEEDpOT0_: argument 0"}
 !70 = distinct !{!70, !"_ZSt11make_sharedIN2cv4impl6legacy12PluginWriterEJRKPK36OpenCV_VideoIO_Plugin_API_preview_v1RKP16CvPluginWriter_tEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESF_E4typeEEDpOT0_"}
 !71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!73 = distinct !{!73, !"_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_"}
+!72 = distinct !{!72, !73, !"_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!73 = distinct !{!73, !"_ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_preview_v1P16CvPluginWriter_tEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !74 = !{!75, !72}
 !75 = distinct !{!75, !76, !"_ZSt11make_sharedIN2cv4impl6legacy12PluginWriterEJRKPK36OpenCV_VideoIO_Plugin_API_preview_v1RKP16CvPluginWriter_tEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESF_E4typeEEDpOT0_: argument 0"}
 !76 = distinct !{!76, !"_ZSt11make_sharedIN2cv4impl6legacy12PluginWriterEJRKPK36OpenCV_VideoIO_Plugin_API_preview_v1RKP16CvPluginWriter_tEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESF_E4typeEEDpOT0_"}
 !77 = !{!78, !80}
 !78 = distinct !{!78, !79, !"_ZSt11make_sharedIN2cv4impl20PluginBackendFactoryEJRKNS0_16VideoCaptureAPIsERKPKcEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_: argument 0"}
 !79 = distinct !{!79, !"_ZSt11make_sharedIN2cv4impl20PluginBackendFactoryEJRKNS0_16VideoCaptureAPIsERKPKcEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"}
-!80 = distinct !{!80, !81, !"_ZN2cvL7makePtrINS_4impl20PluginBackendFactoryEJNS_16VideoCaptureAPIsEPKcEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!81 = distinct !{!81, !"_ZN2cvL7makePtrINS_4impl20PluginBackendFactoryEJNS_16VideoCaptureAPIsEPKcEEENS_3PtrIT_EEDpRKT0_"}
+!80 = distinct !{!80, !81, !"_ZN2cvL7makePtrINS_4impl20PluginBackendFactoryEJNS_16VideoCaptureAPIsEPKcEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!81 = distinct !{!81, !"_ZN2cvL7makePtrINS_4impl20PluginBackendFactoryEJNS_16VideoCaptureAPIsEPKcEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !82 = !{!83}
 !83 = distinct !{!83, !84, !"_ZNK2cv4impl20PluginBackendFactory23getCapturePluginVersionB5cxx11ERiS2_: argument 0"}
 !84 = distinct !{!84, !"_ZNK2cv4impl20PluginBackendFactory23getCapturePluginVersionB5cxx11ERiS2_"}

@@ -1923,7 +1923,7 @@ if.end.i15.i:                                     ; preds = %_mi_page_free_colle
   br i1 %cmp3.i16.i, label %if.then5.i.i, label %if.end6.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i15.i
-  tail call fastcc void @mi_page_extend_free(ptr noundef %page.027.i.i) #13
+  tail call fastcc void @mi_page_extend_free.argprom(ptr noundef %page.027.i.i) #13
   br label %return.sink.split.i
 
 if.end6.i.i:                                      ; preds = %if.end.i15.i
@@ -2215,7 +2215,7 @@ cond.end:                                         ; preds = %lor.lhs.false, %mi_
   %bf.clear4.i = and i8 %bf.load3.i, -2
   %bf.set.i = or disjoint i8 %bf.clear4.i, %bf.clear.i
   store i8 %bf.set.i, ptr %free_is_zero.i, align 1
-  call fastcc void @mi_page_extend_free(ptr noundef %call) #13
+  call fastcc void @mi_page_extend_free.argprom(ptr noundef %call) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %page_size.i)
   br i1 %cmp2, label %return, label %if.then7
 
@@ -2255,7 +2255,7 @@ return:                                           ; preds = %cond.end, %if.then7
 declare ptr @_mi_segment_page_alloc(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_page_extend_free(ptr noundef nonnull %page) unnamed_addr #1 {
+define internal fastcc void @mi_page_extend_free.argprom(ptr noundef nonnull %page) unnamed_addr #1 {
 entry:
   %page_size = alloca i64, align 8
   %free = getelementptr inbounds i8, ptr %page, i64 16
@@ -2311,7 +2311,7 @@ cond.end21:                                       ; preds = %if.end5, %cond.fals
   %mul.i18.i = mul i64 %sub.i, %cond
   %add.ptr.i19.i = getelementptr inbounds i8, ptr %call.i.i, i64 %mul.i18.i
   %cmp.not1.i = icmp sgt i64 %mul.i.i, %mul.i18.i
-  br i1 %cmp.not1.i, label %mi_page_free_list_extend.exit, label %while.body.i
+  br i1 %cmp.not1.i, label %mi_page_free_list_extend.argprom.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %cond.end21, %while.body.i
   %block.02.i = phi ptr [ %add.ptr.i, %while.body.i ], [ %add.ptr.i.i, %cond.end21 ]
@@ -2319,9 +2319,9 @@ while.body.i:                                     ; preds = %cond.end21, %while.
   %11 = ptrtoint ptr %add.ptr.i to i64
   store i64 %11, ptr %block.02.i, align 8
   %cmp.not.i = icmp ugt ptr %add.ptr.i, %add.ptr.i19.i
-  br i1 %cmp.not.i, label %mi_page_free_list_extend.exit, label %while.body.i, !llvm.loop !19
+  br i1 %cmp.not.i, label %mi_page_free_list_extend.argprom.exit, label %while.body.i, !llvm.loop !19
 
-mi_page_free_list_extend.exit:                    ; preds = %while.body.i, %cond.end21
+mi_page_free_list_extend.argprom.exit:            ; preds = %while.body.i, %cond.end21
   %12 = load ptr, ptr %free, align 8
   %13 = ptrtoint ptr %12 to i64
   store i64 %13, ptr %add.ptr.i19.i, align 8
@@ -2332,7 +2332,7 @@ mi_page_free_list_extend.exit:                    ; preds = %while.body.i, %cond
   store i16 %add, ptr %capacity, align 2
   br label %return
 
-return:                                           ; preds = %if.end, %entry, %mi_page_free_list_extend.exit
+return:                                           ; preds = %if.end, %entry, %mi_page_free_list_extend.argprom.exit
   ret void
 }
 

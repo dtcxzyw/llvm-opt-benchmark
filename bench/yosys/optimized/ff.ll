@@ -1936,7 +1936,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit205:             ; preds = %_ZN5Yosys5RTLIL8IdS
 783:                                              ; preds = %781, %777, %774
   %784 = load i32, ptr @"_ZZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_18clEvE2id", align 4, !noalias !64
   %.not.i.i.i210 = icmp eq i32 %784, 0
-  br i1 %.not.i.i.i210, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_18clEv.exit", label %785
+  br i1 %.not.i.i.i210, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_18clEv.argprom.exit", label %785
 
 785:                                              ; preds = %783
   %786 = sext i32 %784 to i64
@@ -1945,7 +1945,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit205:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %789 = load i32, ptr %788, align 4, !noalias !64
   %790 = add nsw i32 %789, 1
   store i32 %790, ptr %788, align 4, !noalias !64
-  br label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_18clEv.exit"
+  br label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_18clEv.argprom.exit"
 
 .body212:                                         ; preds = %779
   %791 = landingpad { ptr, i32 }
@@ -1954,7 +1954,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit205:             ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %23) #22
   br label %.body106
 
-"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_18clEv.exit": ; preds = %785, %783
+"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_18clEv.argprom.exit": ; preds = %785, %783
   %792 = load i32, ptr %755, align 4
   %793 = load i32, ptr %23, align 4
   %794 = icmp eq i32 %792, %793
@@ -1966,7 +1966,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit205:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %or.cond.i.i214 = and i1 %798, %797
   br i1 %or.cond.i.i214, label %799, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit215
 
-799:                                              ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_18clEv.exit"
+799:                                              ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_18clEv.argprom.exit"
   %800 = sext i32 %784 to i64
   %801 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %802 = getelementptr inbounds i32, ptr %801, i64 %800
@@ -1987,7 +1987,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit205:             ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__clang_call_terminate(ptr %809) #19
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit215:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_18clEv.exit", %799, %806
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit215:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_18clEv.argprom.exit", %799, %806
   %810 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %811 = trunc i8 %810 to i1
   %812 = icmp ne i32 %793, 0
@@ -2063,9 +2063,9 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit220:          ; preds = %.noexc218
 845:                                              ; preds = %843, %839, %_ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit220
   %846 = load i32, ptr @"_ZZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEvE2id", align 4, !noalias !67
   %.not.i.i.i221 = icmp eq i32 %846, 0
-  br i1 %.not.i.i.i221, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.exit.thread", label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.exit"
+  br i1 %.not.i.i.i221, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.argprom.exit.thread", label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.argprom.exit"
 
-"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.exit.thread": ; preds = %845
+"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.argprom.exit.thread": ; preds = %845
   %847 = getelementptr inbounds i8, ptr %836, i64 76
   %848 = load i32, ptr %847, align 4
   %849 = icmp eq i32 %848, 0
@@ -2077,7 +2077,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit220:          ; preds = %.noexc218
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEvE2id") #22, !noalias !67
   br label %.body106
 
-"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.exit": ; preds = %845
+"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.argprom.exit": ; preds = %845
   %852 = sext i32 %846 to i64
   %853 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !67
   %854 = getelementptr inbounds i32, ptr %853, i64 %852
@@ -2091,7 +2091,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit220:          ; preds = %.noexc218
   %861 = trunc i8 %860 to i1
   br i1 %861, label %862, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit226
 
-862:                                              ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.exit"
+862:                                              ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.argprom.exit"
   %863 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %864 = getelementptr inbounds i32, ptr %863, i64 %852
   %865 = load i32, ptr %864, align 4
@@ -2111,10 +2111,10 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit220:          ; preds = %.noexc218
   call void @__clang_call_terminate(ptr %871) #19
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit226:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.exit", %862, %868
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit226:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.argprom.exit", %862, %868
   br i1 %859, label %872, label %_ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit257
 
-872:                                              ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit226
+872:                                              ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit226
   %873 = getelementptr inbounds i8, ptr %0, i64 681
   store i8 1, ptr %873, align 1
   br label %_ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit257
@@ -2223,9 +2223,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit226:             ; preds = %"_ZZN5Yosys6FfDataC
 886:                                              ; preds = %884, %880, %876
   %887 = load i32, ptr @"_ZZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEvE2id", align 4, !noalias !70
   %.not.i.i.i227 = icmp eq i32 %887, 0
-  br i1 %.not.i.i.i227, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.exit.thread", label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.exit"
+  br i1 %.not.i.i.i227, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.argprom.exit.thread", label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.argprom.exit"
 
-"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.exit.thread": ; preds = %886
+"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.argprom.exit.thread": ; preds = %886
   %888 = getelementptr inbounds i8, ptr %877, i64 76
   %889 = load i32, ptr %888, align 4
   %890 = icmp eq i32 %889, 0
@@ -2237,7 +2237,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit226:             ; preds = %"_ZZN5Yosys6FfDataC
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEvE2id") #22, !noalias !70
   br label %.body106
 
-"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.exit": ; preds = %886
+"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.argprom.exit": ; preds = %886
   %893 = sext i32 %887 to i64
   %894 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !70
   %895 = getelementptr inbounds i32, ptr %894, i64 %893
@@ -2251,7 +2251,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit226:             ; preds = %"_ZZN5Yosys6FfDataC
   %902 = trunc i8 %901 to i1
   br i1 %902, label %903, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit232
 
-903:                                              ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.exit"
+903:                                              ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.argprom.exit"
   %904 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %905 = getelementptr inbounds i32, ptr %904, i64 %893
   %906 = load i32, ptr %905, align 4
@@ -2271,10 +2271,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit226:             ; preds = %"_ZZN5Yosys6FfDataC
   call void @__clang_call_terminate(ptr %912) #19
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit232:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.exit", %903, %909
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit232:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.argprom.exit", %903, %909
   br i1 %900, label %_ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit257, label %913
 
-913:                                              ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit232
+913:                                              ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit232
   %914 = load ptr, ptr %80, align 8
   %915 = getelementptr inbounds i8, ptr %914, i64 76
   call void @llvm.experimental.noalias.scope.decl(metadata !73)
@@ -2383,7 +2383,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit232:             ; preds = %"_ZZN5Yosys6FfDataC
 962:                                              ; preds = %960, %956, %953
   %963 = load i32, ptr @"_ZZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_23clEvE2id", align 4, !noalias !79
   %.not.i.i.i241 = icmp eq i32 %963, 0
-  br i1 %.not.i.i.i241, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_23clEv.exit", label %964
+  br i1 %.not.i.i.i241, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_23clEv.argprom.exit", label %964
 
 964:                                              ; preds = %962
   %965 = sext i32 %963 to i64
@@ -2392,7 +2392,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit232:             ; preds = %"_ZZN5Yosys6FfDataC
   %968 = load i32, ptr %967, align 4, !noalias !79
   %969 = add nsw i32 %968, 1
   store i32 %969, ptr %967, align 4, !noalias !79
-  br label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_23clEv.exit"
+  br label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_23clEv.argprom.exit"
 
 .body243:                                         ; preds = %958
   %970 = landingpad { ptr, i32 }
@@ -2401,7 +2401,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit232:             ; preds = %"_ZZN5Yosys6FfDataC
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %25) #22
   br label %.body239
 
-"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_23clEv.exit": ; preds = %964, %962
+"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_23clEv.argprom.exit": ; preds = %964, %962
   %971 = load i32, ptr %915, align 4
   %972 = load i32, ptr %24, align 4
   %973 = icmp eq i32 %971, %972
@@ -2416,7 +2416,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit232:             ; preds = %"_ZZN5Yosys6FfDataC
   %or.cond.i.i246 = and i1 %979, %978
   br i1 %or.cond.i.i246, label %980, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit247
 
-980:                                              ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_23clEv.exit"
+980:                                              ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_23clEv.argprom.exit"
   %981 = sext i32 %963 to i64
   %982 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %983 = getelementptr inbounds i32, ptr %982, i64 %981
@@ -2437,7 +2437,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit232:             ; preds = %"_ZZN5Yosys6FfDataC
   call void @__clang_call_terminate(ptr %990) #19
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit247:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_23clEv.exit", %980, %987
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit247:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_23clEv.argprom.exit", %980, %987
   %991 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %992 = trunc i8 %991 to i1
   %993 = icmp ne i32 %974, 0
@@ -2601,7 +2601,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit260:          ; preds = %.noexc258
   %1073 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %1071, ptr noundef nonnull align 8 dereferenceable(24) %1072)
           to label %_ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit257 unwind label %874
 
-_ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit257:          ; preds = %.noexc261.invoke, %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.exit.thread", %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit232, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit226, %872
+_ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit257:          ; preds = %.noexc261.invoke, %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.argprom.exit.thread", %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit232, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit226, %872
   %1074 = load ptr, ptr %80, align 8
   %1075 = getelementptr inbounds i8, ptr %1074, i64 76
   call void @llvm.experimental.noalias.scope.decl(metadata !82)
@@ -2836,7 +2836,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit257:          ; preds = %.noexc261.invoke, %
 1179:                                             ; preds = %1177, %1173, %1170
   %1180 = load i32, ptr @"_ZZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_29clEvE2id", align 4, !noalias !97
   %.not.i.i.i284 = icmp eq i32 %1180, 0
-  br i1 %.not.i.i.i284, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_29clEv.exit", label %1181
+  br i1 %.not.i.i.i284, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_29clEv.argprom.exit", label %1181
 
 1181:                                             ; preds = %1179
   %1182 = sext i32 %1180 to i64
@@ -2845,7 +2845,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit257:          ; preds = %.noexc261.invoke, %
   %1185 = load i32, ptr %1184, align 4, !noalias !97
   %1186 = add nsw i32 %1185, 1
   store i32 %1186, ptr %1184, align 4, !noalias !97
-  br label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_29clEv.exit"
+  br label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_29clEv.argprom.exit"
 
 .body286:                                         ; preds = %1175
   %1187 = landingpad { ptr, i32 }
@@ -2854,7 +2854,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit257:          ; preds = %.noexc261.invoke, %
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %30) #22
   br label %.body282
 
-"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_29clEv.exit": ; preds = %1181, %1179
+"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_29clEv.argprom.exit": ; preds = %1181, %1179
   %1188 = load i32, ptr %1075, align 4
   %1189 = load i32, ptr %26, align 4
   %1190 = icmp eq i32 %1188, %1189
@@ -2878,7 +2878,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit257:          ; preds = %.noexc261.invoke, %
   %or.cond.i.i289 = and i1 %1203, %1202
   br i1 %or.cond.i.i289, label %1204, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit290
 
-1204:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_29clEv.exit"
+1204:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_29clEv.argprom.exit"
   %1205 = sext i32 %1180 to i64
   %1206 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1207 = getelementptr inbounds i32, ptr %1206, i64 %1205
@@ -2899,7 +2899,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit257:          ; preds = %.noexc261.invoke, %
   call void @__clang_call_terminate(ptr %1214) #19
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit290:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_29clEv.exit", %1204, %1211
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit290:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_29clEv.argprom.exit", %1204, %1211
   %1215 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1216 = trunc i8 %1215 to i1
   %1217 = icmp ne i32 %1197, 0
@@ -3249,7 +3249,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit303:          ; preds = %.noexc301
 1372:                                             ; preds = %1370, %1366, %1363
   %1373 = load i32, ptr @"_ZZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_33clEvE2id", align 4, !noalias !109
   %.not.i.i.i316 = icmp eq i32 %1373, 0
-  br i1 %.not.i.i.i316, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_33clEv.exit", label %1374
+  br i1 %.not.i.i.i316, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_33clEv.argprom.exit", label %1374
 
 1374:                                             ; preds = %1372
   %1375 = sext i32 %1373 to i64
@@ -3258,7 +3258,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit303:          ; preds = %.noexc301
   %1378 = load i32, ptr %1377, align 4, !noalias !109
   %1379 = add nsw i32 %1378, 1
   store i32 %1379, ptr %1377, align 4, !noalias !109
-  br label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_33clEv.exit"
+  br label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_33clEv.argprom.exit"
 
 .body318:                                         ; preds = %1368
   %1380 = landingpad { ptr, i32 }
@@ -3267,7 +3267,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit303:          ; preds = %.noexc301
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %33) #22
   br label %.body314
 
-"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_33clEv.exit": ; preds = %1374, %1372
+"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_33clEv.argprom.exit": ; preds = %1374, %1372
   %1381 = load i32, ptr %1306, align 4
   %1382 = load i32, ptr %31, align 4
   %1383 = icmp eq i32 %1381, %1382
@@ -3285,7 +3285,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit303:          ; preds = %.noexc301
   %or.cond.i.i321 = and i1 %1392, %1391
   br i1 %or.cond.i.i321, label %1393, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit322
 
-1393:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_33clEv.exit"
+1393:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_33clEv.argprom.exit"
   %1394 = sext i32 %1373 to i64
   %1395 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1396 = getelementptr inbounds i32, ptr %1395, i64 %1394
@@ -3306,7 +3306,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit303:          ; preds = %.noexc301
   call void @__clang_call_terminate(ptr %1403) #19
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit322:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_33clEv.exit", %1393, %1400
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit322:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_33clEv.argprom.exit", %1393, %1400
   %1404 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1405 = trunc i8 %1404 to i1
   %1406 = icmp ne i32 %1386, 0
@@ -3537,7 +3537,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit334:          ; preds = %.noexc332
 1512:                                             ; preds = %1510, %1506, %1503
   %1513 = load i32, ptr @"_ZZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_35clEvE2id", align 4, !noalias !115
   %.not.i.i.i339 = icmp eq i32 %1513, 0
-  br i1 %.not.i.i.i339, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_35clEv.exit", label %1514
+  br i1 %.not.i.i.i339, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_35clEv.argprom.exit", label %1514
 
 1514:                                             ; preds = %1512
   %1515 = sext i32 %1513 to i64
@@ -3546,7 +3546,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit334:          ; preds = %.noexc332
   %1518 = load i32, ptr %1517, align 4, !noalias !115
   %1519 = add nsw i32 %1518, 1
   store i32 %1519, ptr %1517, align 4, !noalias !115
-  br label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_35clEv.exit"
+  br label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_35clEv.argprom.exit"
 
 .body341:                                         ; preds = %1508
   %1520 = landingpad { ptr, i32 }
@@ -3555,7 +3555,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit334:          ; preds = %.noexc332
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %34) #22
   br label %.body106
 
-"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_35clEv.exit": ; preds = %1514, %1512
+"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_35clEv.argprom.exit": ; preds = %1514, %1512
   %1521 = load i32, ptr %1484, align 4
   %1522 = load i32, ptr %34, align 4
   %1523 = icmp eq i32 %1521, %1522
@@ -3567,7 +3567,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit334:          ; preds = %.noexc332
   %or.cond.i.i344 = and i1 %1527, %1526
   br i1 %or.cond.i.i344, label %1528, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit345
 
-1528:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_35clEv.exit"
+1528:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_35clEv.argprom.exit"
   %1529 = sext i32 %1513 to i64
   %1530 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1531 = getelementptr inbounds i32, ptr %1530, i64 %1529
@@ -3588,7 +3588,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit334:          ; preds = %.noexc332
   call void @__clang_call_terminate(ptr %1538) #19
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit345:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_35clEv.exit", %1528, %1535
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit345:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_35clEv.argprom.exit", %1528, %1535
   %1539 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1540 = trunc i8 %1539 to i1
   %1541 = icmp ne i32 %1522, 0
@@ -3780,7 +3780,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit353:          ; preds = %.noexc351, %_ZN5Yos
 1630:                                             ; preds = %1628, %1624, %1621
   %1631 = load i32, ptr @"_ZZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_38clEvE2id", align 4, !noalias !124
   %.not.i.i.i362 = icmp eq i32 %1631, 0
-  br i1 %.not.i.i.i362, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_38clEv.exit", label %1632
+  br i1 %.not.i.i.i362, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_38clEv.argprom.exit", label %1632
 
 1632:                                             ; preds = %1630
   %1633 = sext i32 %1631 to i64
@@ -3789,7 +3789,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit353:          ; preds = %.noexc351, %_ZN5Yos
   %1636 = load i32, ptr %1635, align 4, !noalias !124
   %1637 = add nsw i32 %1636, 1
   store i32 %1637, ptr %1635, align 4, !noalias !124
-  br label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_38clEv.exit"
+  br label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_38clEv.argprom.exit"
 
 .body364:                                         ; preds = %1626
   %1638 = landingpad { ptr, i32 }
@@ -3798,7 +3798,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit353:          ; preds = %.noexc351, %_ZN5Yos
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %36) #22
   br label %.body360
 
-"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_38clEv.exit": ; preds = %1632, %1630
+"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_38clEv.argprom.exit": ; preds = %1632, %1630
   %1639 = load i32, ptr %1583, align 4
   %1640 = load i32, ptr %35, align 4
   %1641 = icmp eq i32 %1639, %1640
@@ -3813,7 +3813,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit353:          ; preds = %.noexc351, %_ZN5Yos
   %or.cond.i.i368 = and i1 %1647, %1646
   br i1 %or.cond.i.i368, label %1648, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit369
 
-1648:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_38clEv.exit"
+1648:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_38clEv.argprom.exit"
   %1649 = sext i32 %1631 to i64
   %1650 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1651 = getelementptr inbounds i32, ptr %1650, i64 %1649
@@ -3834,7 +3834,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit353:          ; preds = %.noexc351, %_ZN5Yos
   call void @__clang_call_terminate(ptr %1658) #19
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit369:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_38clEv.exit", %1648, %1655
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit369:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_38clEv.argprom.exit", %1648, %1655
   %1659 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1660 = trunc i8 %1659 to i1
   %1661 = icmp ne i32 %1642, 0
@@ -4052,7 +4052,7 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit378:            ; preds = %1708, %_ZN5Yosys5RT
 1760:                                             ; preds = %1758, %1754, %1751
   %1761 = load i32, ptr @"_ZZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_41clEvE2id", align 4, !noalias !133
   %.not.i.i.i387 = icmp eq i32 %1761, 0
-  br i1 %.not.i.i.i387, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_41clEv.exit", label %1762
+  br i1 %.not.i.i.i387, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_41clEv.argprom.exit", label %1762
 
 1762:                                             ; preds = %1760
   %1763 = sext i32 %1761 to i64
@@ -4061,7 +4061,7 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit378:            ; preds = %1708, %_ZN5Yosys5RT
   %1766 = load i32, ptr %1765, align 4, !noalias !133
   %1767 = add nsw i32 %1766, 1
   store i32 %1767, ptr %1765, align 4, !noalias !133
-  br label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_41clEv.exit"
+  br label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_41clEv.argprom.exit"
 
 .body389:                                         ; preds = %1756
   %1768 = landingpad { ptr, i32 }
@@ -4070,7 +4070,7 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit378:            ; preds = %1708, %_ZN5Yosys5RT
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %38) #22
   br label %.body385
 
-"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_41clEv.exit": ; preds = %1762, %1760
+"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_41clEv.argprom.exit": ; preds = %1762, %1760
   %1769 = load i32, ptr %1713, align 4
   %1770 = load i32, ptr %37, align 4
   %1771 = icmp eq i32 %1769, %1770
@@ -4085,7 +4085,7 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit378:            ; preds = %1708, %_ZN5Yosys5RT
   %or.cond.i.i393 = and i1 %1777, %1776
   br i1 %or.cond.i.i393, label %1778, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit394
 
-1778:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_41clEv.exit"
+1778:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_41clEv.argprom.exit"
   %1779 = sext i32 %1761 to i64
   %1780 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1781 = getelementptr inbounds i32, ptr %1780, i64 %1779
@@ -4106,7 +4106,7 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit378:            ; preds = %1708, %_ZN5Yosys5RT
   call void @__clang_call_terminate(ptr %1788) #19
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit394:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_41clEv.exit", %1778, %1785
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit394:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_41clEv.argprom.exit", %1778, %1785
   %1789 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1790 = trunc i8 %1789 to i1
   %1791 = icmp ne i32 %1772, 0
@@ -4235,7 +4235,7 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit403:            ; preds = %1838
 1852:                                             ; preds = %1850, %1846, %_ZN5Yosys5RTLIL5ConstaSERKS1_.exit403
   %1853 = load i32, ptr @"_ZZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_42clEvE2id", align 4, !noalias !136
   %.not.i.i.i404 = icmp eq i32 %1853, 0
-  br i1 %.not.i.i.i404, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_42clEv.exit", label %1854
+  br i1 %.not.i.i.i404, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_42clEv.argprom.exit", label %1854
 
 1854:                                             ; preds = %1852
   %1855 = sext i32 %1853 to i64
@@ -4244,7 +4244,7 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit403:            ; preds = %1838
   %1858 = load i32, ptr %1857, align 4, !noalias !136
   %1859 = add nsw i32 %1858, 1
   store i32 %1859, ptr %1857, align 4, !noalias !136
-  br label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_42clEv.exit"
+  br label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_42clEv.argprom.exit"
 
 1860:                                             ; preds = %1848
   %1861 = landingpad { ptr, i32 }
@@ -4252,7 +4252,7 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit403:            ; preds = %1838
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_42clEvE2id") #22, !noalias !136
   br label %.body106
 
-"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_42clEv.exit": ; preds = %1854, %1852
+"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_42clEv.argprom.exit": ; preds = %1854, %1852
   %1862 = getelementptr inbounds i8, ptr %1843, i64 76
   %1863 = load i32, ptr %1862, align 4
   %1864 = icmp eq i32 %1863, %1853
@@ -4265,7 +4265,7 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit403:            ; preds = %1838
   %or.cond.i.i408 = and i1 %1869, %1868
   br i1 %or.cond.i.i408, label %1870, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit409
 
-1870:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_42clEv.exit"
+1870:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_42clEv.argprom.exit"
   %1871 = sext i32 %1853 to i64
   %1872 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1873 = getelementptr inbounds i32, ptr %1872, i64 %1871
@@ -4314,9 +4314,9 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit403:            ; preds = %1838
 1890:                                             ; preds = %1888, %1884, %1881
   %1891 = load i32, ptr @"_ZZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEvE2id", align 4, !noalias !139
   %.not.i.i.i410 = icmp eq i32 %1891, 0
-  br i1 %.not.i.i.i410, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.exit.thread", label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.exit"
+  br i1 %.not.i.i.i410, label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.argprom.exit.thread", label %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.argprom.exit"
 
-"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.exit.thread": ; preds = %1890
+"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.argprom.exit.thread": ; preds = %1890
   %1892 = getelementptr inbounds i8, ptr %753, i64 76
   %1893 = load i32, ptr %1892, align 4
   %1894 = icmp eq i32 %1893, 0
@@ -4328,7 +4328,7 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit403:            ; preds = %1838
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEvE2id") #22, !noalias !139
   br label %.body106
 
-"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.exit": ; preds = %1890
+"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.argprom.exit": ; preds = %1890
   %1897 = sext i32 %1891 to i64
   %1898 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !139
   %1899 = getelementptr inbounds i32, ptr %1898, i64 %1897
@@ -4342,7 +4342,7 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit403:            ; preds = %1838
   %1906 = trunc i8 %1905 to i1
   br i1 %1906, label %1907, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit415
 
-1907:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.exit"
+1907:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.argprom.exit"
   %1908 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1909 = getelementptr inbounds i32, ptr %1908, i64 %1897
   %1910 = load i32, ptr %1909, align 4
@@ -4362,10 +4362,10 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit403:            ; preds = %1838
   call void @__clang_call_terminate(ptr %1916) #19
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit415:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.exit", %1907, %1913
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit415:             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.argprom.exit", %1907, %1913
   br i1 %1904, label %1917, label %1927
 
-1917:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit415
+1917:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit415
   %1918 = getelementptr inbounds i8, ptr %0, i64 680
   store i8 1, ptr %1918, align 8
   %1919 = getelementptr inbounds i8, ptr %0, i64 673
@@ -4382,7 +4382,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit415:             ; preds = %"_ZZN5Yosys6FfDataC
   %1926 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %1924, ptr noundef nonnull align 8 dereferenceable(24) %1925)
           to label %.noexc437.invoke unwind label %874
 
-1927:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit415
+1927:                                             ; preds = %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit415
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %39, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, i64 noundef 5)
           to label %1928 unwind label %874
 
@@ -5779,7 +5779,7 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit471:            ; preds = %2594
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #22
   br label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit409
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit409:             ; preds = %.invoke, %.noexc437.invoke, %2599, %_ZN5Yosys5RTLIL5ConstaSERKS1_.exit471, %2383, %_ZN5Yosys5RTLIL5ConstaSERKS1_.exit453, %2100, %_ZN5Yosys5RTLIL5ConstaSERKS1_.exit441, %1877, %1870, %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_42clEv.exit", %2518, %.critedge26, %2608, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit398
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit409:             ; preds = %.invoke, %.noexc437.invoke, %2599, %_ZN5Yosys5RTLIL5ConstaSERKS1_.exit471, %2383, %_ZN5Yosys5RTLIL5ConstaSERKS1_.exit453, %2100, %_ZN5Yosys5RTLIL5ConstaSERKS1_.exit441, %1877, %1870, %"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_42clEv.argprom.exit", %2518, %.critedge26, %2608, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit398
   %2653 = getelementptr inbounds i8, ptr %0, i64 675
   %2654 = load i8, ptr %2653, align 1
   %2655 = trunc i8 %2654 to i1
@@ -31345,138 +31345,138 @@ attributes #23 = { builtin allocsize(0) }
 !7 = distinct !{!7, !8, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev: argument 0"}
 !8 = distinct !{!8, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev"}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_0clEv: argument 0"}
-!11 = distinct !{!11, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_0clEv"}
+!10 = distinct !{!10, !11, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_0clEv.argprom: argument 0"}
+!11 = distinct !{!11, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_0clEv.argprom"}
 !12 = !{!"branch_weights", i32 1, i32 1048575}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_1clEv: argument 0"}
-!15 = distinct !{!15, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_1clEv"}
+!14 = distinct !{!14, !15, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_1clEv.argprom: argument 0"}
+!15 = distinct !{!15, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_1clEv.argprom"}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_2clEv: argument 0"}
-!18 = distinct !{!18, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_2clEv"}
+!17 = distinct !{!17, !18, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_2clEv.argprom: argument 0"}
+!18 = distinct !{!18, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_2clEv.argprom"}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_3clEv: argument 0"}
-!21 = distinct !{!21, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_3clEv"}
+!20 = distinct !{!20, !21, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_3clEv.argprom: argument 0"}
+!21 = distinct !{!21, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_3clEv.argprom"}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_4clEv: argument 0"}
-!24 = distinct !{!24, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_4clEv"}
+!23 = distinct !{!23, !24, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_4clEv.argprom: argument 0"}
+!24 = distinct !{!24, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_4clEv.argprom"}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_5clEv: argument 0"}
-!27 = distinct !{!27, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_5clEv"}
+!26 = distinct !{!26, !27, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_5clEv.argprom: argument 0"}
+!27 = distinct !{!27, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_5clEv.argprom"}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_6clEv: argument 0"}
-!30 = distinct !{!30, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_6clEv"}
+!29 = distinct !{!29, !30, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_6clEv.argprom: argument 0"}
+!30 = distinct !{!30, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_6clEv.argprom"}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_7clEv: argument 0"}
-!33 = distinct !{!33, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_7clEv"}
+!32 = distinct !{!32, !33, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_7clEv.argprom: argument 0"}
+!33 = distinct !{!33, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_7clEv.argprom"}
 !34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_8clEv: argument 0"}
-!36 = distinct !{!36, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_8clEv"}
+!35 = distinct !{!35, !36, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_8clEv.argprom: argument 0"}
+!36 = distinct !{!36, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_8clEv.argprom"}
 !37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_9clEv: argument 0"}
-!39 = distinct !{!39, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_9clEv"}
+!38 = distinct !{!38, !39, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_9clEv.argprom: argument 0"}
+!39 = distinct !{!39, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK3$_9clEv.argprom"}
 !40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_10clEv: argument 0"}
-!42 = distinct !{!42, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_10clEv"}
+!41 = distinct !{!41, !42, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_10clEv.argprom: argument 0"}
+!42 = distinct !{!42, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_10clEv.argprom"}
 !43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_11clEv: argument 0"}
-!45 = distinct !{!45, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_11clEv"}
+!44 = distinct !{!44, !45, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_11clEv.argprom: argument 0"}
+!45 = distinct !{!45, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_11clEv.argprom"}
 !46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_12clEv: argument 0"}
-!48 = distinct !{!48, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_12clEv"}
+!47 = distinct !{!47, !48, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_12clEv.argprom: argument 0"}
+!48 = distinct !{!48, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_12clEv.argprom"}
 !49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_13clEv: argument 0"}
-!51 = distinct !{!51, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_13clEv"}
+!50 = distinct !{!50, !51, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_13clEv.argprom: argument 0"}
+!51 = distinct !{!51, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_13clEv.argprom"}
 !52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_14clEv: argument 0"}
-!54 = distinct !{!54, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_14clEv"}
+!53 = distinct !{!53, !54, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_14clEv.argprom: argument 0"}
+!54 = distinct !{!54, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_14clEv.argprom"}
 !55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_15clEv: argument 0"}
-!57 = distinct !{!57, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_15clEv"}
+!56 = distinct !{!56, !57, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_15clEv.argprom: argument 0"}
+!57 = distinct !{!57, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_15clEv.argprom"}
 !58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_16clEv: argument 0"}
-!60 = distinct !{!60, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_16clEv"}
+!59 = distinct !{!59, !60, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_16clEv.argprom: argument 0"}
+!60 = distinct !{!60, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_16clEv.argprom"}
 !61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_17clEv: argument 0"}
-!63 = distinct !{!63, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_17clEv"}
+!62 = distinct !{!62, !63, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_17clEv.argprom: argument 0"}
+!63 = distinct !{!63, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_17clEv.argprom"}
 !64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_18clEv: argument 0"}
-!66 = distinct !{!66, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_18clEv"}
+!65 = distinct !{!65, !66, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_18clEv.argprom: argument 0"}
+!66 = distinct !{!66, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_18clEv.argprom"}
 !67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv: argument 0"}
-!69 = distinct !{!69, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv"}
+!68 = distinct !{!68, !69, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.argprom: argument 0"}
+!69 = distinct !{!69, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_19clEv.argprom"}
 !70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv: argument 0"}
-!72 = distinct !{!72, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv"}
+!71 = distinct !{!71, !72, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.argprom: argument 0"}
+!72 = distinct !{!72, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_20clEv.argprom"}
 !73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_21clEv: argument 0"}
-!75 = distinct !{!75, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_21clEv"}
+!74 = distinct !{!74, !75, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_21clEv.argprom: argument 0"}
+!75 = distinct !{!75, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_21clEv.argprom"}
 !76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_22clEv: argument 0"}
-!78 = distinct !{!78, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_22clEv"}
+!77 = distinct !{!77, !78, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_22clEv.argprom: argument 0"}
+!78 = distinct !{!78, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_22clEv.argprom"}
 !79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_23clEv: argument 0"}
-!81 = distinct !{!81, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_23clEv"}
+!80 = distinct !{!80, !81, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_23clEv.argprom: argument 0"}
+!81 = distinct !{!81, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_23clEv.argprom"}
 !82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_24clEv: argument 0"}
-!84 = distinct !{!84, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_24clEv"}
+!83 = distinct !{!83, !84, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_24clEv.argprom: argument 0"}
+!84 = distinct !{!84, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_24clEv.argprom"}
 !85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_25clEv: argument 0"}
-!87 = distinct !{!87, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_25clEv"}
+!86 = distinct !{!86, !87, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_25clEv.argprom: argument 0"}
+!87 = distinct !{!87, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_25clEv.argprom"}
 !88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_26clEv: argument 0"}
-!90 = distinct !{!90, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_26clEv"}
+!89 = distinct !{!89, !90, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_26clEv.argprom: argument 0"}
+!90 = distinct !{!90, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_26clEv.argprom"}
 !91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_27clEv: argument 0"}
-!93 = distinct !{!93, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_27clEv"}
+!92 = distinct !{!92, !93, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_27clEv.argprom: argument 0"}
+!93 = distinct !{!93, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_27clEv.argprom"}
 !94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_28clEv: argument 0"}
-!96 = distinct !{!96, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_28clEv"}
+!95 = distinct !{!95, !96, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_28clEv.argprom: argument 0"}
+!96 = distinct !{!96, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_28clEv.argprom"}
 !97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_29clEv: argument 0"}
-!99 = distinct !{!99, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_29clEv"}
+!98 = distinct !{!98, !99, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_29clEv.argprom: argument 0"}
+!99 = distinct !{!99, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_29clEv.argprom"}
 !100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_30clEv: argument 0"}
-!102 = distinct !{!102, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_30clEv"}
+!101 = distinct !{!101, !102, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_30clEv.argprom: argument 0"}
+!102 = distinct !{!102, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_30clEv.argprom"}
 !103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_31clEv: argument 0"}
-!105 = distinct !{!105, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_31clEv"}
+!104 = distinct !{!104, !105, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_31clEv.argprom: argument 0"}
+!105 = distinct !{!105, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_31clEv.argprom"}
 !106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_32clEv: argument 0"}
-!108 = distinct !{!108, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_32clEv"}
+!107 = distinct !{!107, !108, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_32clEv.argprom: argument 0"}
+!108 = distinct !{!108, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_32clEv.argprom"}
 !109 = !{!110}
-!110 = distinct !{!110, !111, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_33clEv: argument 0"}
-!111 = distinct !{!111, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_33clEv"}
+!110 = distinct !{!110, !111, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_33clEv.argprom: argument 0"}
+!111 = distinct !{!111, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_33clEv.argprom"}
 !112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_34clEv: argument 0"}
-!114 = distinct !{!114, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_34clEv"}
+!113 = distinct !{!113, !114, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_34clEv.argprom: argument 0"}
+!114 = distinct !{!114, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_34clEv.argprom"}
 !115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_35clEv: argument 0"}
-!117 = distinct !{!117, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_35clEv"}
+!116 = distinct !{!116, !117, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_35clEv.argprom: argument 0"}
+!117 = distinct !{!117, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_35clEv.argprom"}
 !118 = !{!119}
-!119 = distinct !{!119, !120, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_36clEv: argument 0"}
-!120 = distinct !{!120, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_36clEv"}
+!119 = distinct !{!119, !120, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_36clEv.argprom: argument 0"}
+!120 = distinct !{!120, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_36clEv.argprom"}
 !121 = !{!122}
-!122 = distinct !{!122, !123, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_37clEv: argument 0"}
-!123 = distinct !{!123, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_37clEv"}
+!122 = distinct !{!122, !123, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_37clEv.argprom: argument 0"}
+!123 = distinct !{!123, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_37clEv.argprom"}
 !124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_38clEv: argument 0"}
-!126 = distinct !{!126, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_38clEv"}
+!125 = distinct !{!125, !126, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_38clEv.argprom: argument 0"}
+!126 = distinct !{!126, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_38clEv.argprom"}
 !127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_39clEv: argument 0"}
-!129 = distinct !{!129, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_39clEv"}
+!128 = distinct !{!128, !129, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_39clEv.argprom: argument 0"}
+!129 = distinct !{!129, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_39clEv.argprom"}
 !130 = !{!131}
-!131 = distinct !{!131, !132, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_40clEv: argument 0"}
-!132 = distinct !{!132, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_40clEv"}
+!131 = distinct !{!131, !132, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_40clEv.argprom: argument 0"}
+!132 = distinct !{!132, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_40clEv.argprom"}
 !133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_41clEv: argument 0"}
-!135 = distinct !{!135, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_41clEv"}
+!134 = distinct !{!134, !135, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_41clEv.argprom: argument 0"}
+!135 = distinct !{!135, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_41clEv.argprom"}
 !136 = !{!137}
-!137 = distinct !{!137, !138, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_42clEv: argument 0"}
-!138 = distinct !{!138, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_42clEv"}
+!137 = distinct !{!137, !138, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_42clEv.argprom: argument 0"}
+!138 = distinct !{!138, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_42clEv.argprom"}
 !139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv: argument 0"}
-!141 = distinct !{!141, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv"}
+!140 = distinct !{!140, !141, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.argprom: argument 0"}
+!141 = distinct !{!141, !"_ZZN5Yosys6FfDataC1EPNS_10FfInitValsEPNS_5RTLIL4CellEENK4$_43clEv.argprom"}
 !142 = distinct !{!142, !143}
 !143 = !{!"llvm.loop.mustprogress"}
 !144 = distinct !{!144, !143}

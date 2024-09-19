@@ -915,11 +915,11 @@ ParseChunk.exit.i:                                ; preds = %.split.loop.exit48.
   br i1 %358, label %359, label %361
 
 359:                                              ; preds = %357
-  %360 = call fastcc i32 @ParseLossyHeader(i64 %175, ptr %196, ptr noundef %8)
+  %360 = call fastcc i32 @ParseLossyHeader.argprom(i64 %175, ptr %196, ptr noundef %8)
   br label %363
 
 361:                                              ; preds = %357
-  %362 = call fastcc i32 @ParseLosslessHeader(i64 %175, ptr %196, ptr noundef %8)
+  %362 = call fastcc i32 @ParseLosslessHeader.argprom(i64 %175, ptr %196, ptr noundef %8)
   br label %363
 
 363:                                              ; preds = %361, %359
@@ -1203,7 +1203,7 @@ ProcessImageChunk.exit.i.i:                       ; preds = %365, %363, %323, %3
 497:                                              ; preds = %494
   %498 = load i32, ptr %53, align 8
   %.not34.i.i.i.i = icmp eq i32 %498, 0
-  br i1 %.not34.i.i.i.i, label %ParseAlphaHeader.exit.thread.i.i.i, label %ParseAlphaHeader.exit.thread.sink.split.i.i.i
+  br i1 %.not34.i.i.i.i, label %ParseAlphaHeader.argprom.exit.thread.i.i.i, label %ParseAlphaHeader.argprom.exit.thread.sink.split.i.i.i
 
 499:                                              ; preds = %494
   %puts.i.i.i.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
@@ -1226,7 +1226,7 @@ ProcessImageChunk.exit.i.i:                       ; preds = %365, %363, %323, %3
 514:                                              ; preds = %499
   %515 = load i32, ptr %53, align 8
   %.not33.i.i.i.i = icmp eq i32 %515, 0
-  br i1 %.not33.i.i.i.i, label %ParseAlphaHeader.exit.thread.i.i.i, label %ParseAlphaHeader.exit.thread.sink.split.i.i.i
+  br i1 %.not33.i.i.i.i, label %ParseAlphaHeader.argprom.exit.thread.i.i.i, label %ParseAlphaHeader.argprom.exit.thread.sink.split.i.i.i
 
 516:                                              ; preds = %499
   %517 = icmp ugt i32 %506, 1
@@ -1235,7 +1235,7 @@ ProcessImageChunk.exit.i.i:                       ; preds = %365, %363, %323, %3
 518:                                              ; preds = %516
   %519 = load i32, ptr %53, align 8
   %.not32.i.i.i.i = icmp eq i32 %519, 0
-  br i1 %.not32.i.i.i.i, label %ParseAlphaHeader.exit.thread.i.i.i, label %ParseAlphaHeader.exit.thread.sink.split.i.i.i
+  br i1 %.not32.i.i.i.i, label %ParseAlphaHeader.argprom.exit.thread.i.i.i, label %ParseAlphaHeader.argprom.exit.thread.sink.split.i.i.i
 
 520:                                              ; preds = %516
   %.not.i.i.i.i = icmp ult i8 %500, 64
@@ -1259,7 +1259,7 @@ ProcessImageChunk.exit.i.i:                       ; preds = %365, %363, %323, %3
 
 529:                                              ; preds = %526, %520
   %530 = icmp eq i32 %502, 1
-  br i1 %530, label %531, label %ParseAlphaHeader.exit.i.i.i
+  br i1 %530, label %531, label %ParseAlphaHeader.argprom.exit.i.i.i
 
 531:                                              ; preds = %529
   %532 = add nsw i64 %175, -9
@@ -1267,21 +1267,21 @@ ProcessImageChunk.exit.i.i:                       ; preds = %365, %363, %323, %3
   store i64 0, ptr %3, align 8
   %534 = call fastcc i32 @ParseLosslessTransform(ptr noundef %8, ptr noundef nonnull readonly %533, i64 noundef %532, ptr noundef %3)
   %.not31.i.i.i.i = icmp eq i32 %534, 0
-  br i1 %.not31.i.i.i.i, label %ParseAlphaHeader.exit.i.i.i, label %ParseAlphaHeader.exit.thread.i.i.i
+  br i1 %.not31.i.i.i.i, label %ParseAlphaHeader.argprom.exit.i.i.i, label %ParseAlphaHeader.argprom.exit.thread.i.i.i
 
-ParseAlphaHeader.exit.thread.sink.split.i.i.i:    ; preds = %518, %514, %497
+ParseAlphaHeader.argprom.exit.thread.sink.split.i.i.i: ; preds = %518, %514, %497
   %.str.110.sink.i.i.i = phi ptr [ @.str.110, %497 ], [ @.str.115, %514 ], [ @.str.116, %518 ]
   %.0.i.ph.ph.i.i.i = phi i32 [ 1, %497 ], [ 4, %514 ], [ 4, %518 ]
   %535 = load ptr, ptr @stderr, align 8
   %536 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %535, ptr noundef nonnull @.str.16, ptr noundef nonnull %.str.110.sink.i.i.i) #13
-  br label %ParseAlphaHeader.exit.thread.i.i.i
+  br label %ParseAlphaHeader.argprom.exit.thread.i.i.i
 
-ParseAlphaHeader.exit.thread.i.i.i:               ; preds = %ParseAlphaHeader.exit.thread.sink.split.i.i.i, %531, %518, %514, %497
-  %.0.i.ph.i.i.i = phi i32 [ 1, %531 ], [ 4, %518 ], [ 4, %514 ], [ 1, %497 ], [ %.0.i.ph.ph.i.i.i, %ParseAlphaHeader.exit.thread.sink.split.i.i.i ]
+ParseAlphaHeader.argprom.exit.thread.i.i.i:       ; preds = %ParseAlphaHeader.argprom.exit.thread.sink.split.i.i.i, %531, %518, %514, %497
+  %.0.i.ph.i.i.i = phi i32 [ 1, %531 ], [ 4, %518 ], [ 4, %514 ], [ 1, %497 ], [ %.0.i.ph.ph.i.i.i, %ParseAlphaHeader.argprom.exit.thread.sink.split.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %ProcessVP8XChunk.exit.i.i
 
-ParseAlphaHeader.exit.i.i.i:                      ; preds = %531, %529
+ParseAlphaHeader.argprom.exit.i.i.i:              ; preds = %531, %529
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %ProcessVP8XChunk.exit.i.i
 
@@ -1536,9 +1536,9 @@ ParseAlphaHeader.exit.i.i.i:                      ; preds = %531, %529
   store i32 %675, ptr %673, align 4
   br label %ProcessVP8XChunk.exit.i.i
 
-ProcessVP8XChunk.exit.i.i:                        ; preds = %671, %668, %665, %663, %656, %654, %572, %556, %550, %547, %545, %541, %539, %ParseAlphaHeader.exit.i.i.i, %ParseAlphaHeader.exit.thread.i.i.i, %492, %488, %486, %481, %479, %474, %472, %467, %465, %459, %457, %452, %450, %441, %.thread48.i.i.i, %378, %376, %372, %370, %ProcessImageChunk.exit.i.i, %232, %.thread.i.i
-  %.sroa.0.270.i = phi i64 [ %.sroa.0.271.i, %232 ], [ %.sroa.0.271.i, %671 ], [ %.sroa.0.271.i, %ProcessImageChunk.exit.i.i ], [ %209, %.thread.i.i ], [ %.sroa.0.271.i, %370 ], [ %.sroa.0.271.i, %372 ], [ %.sroa.0.271.i, %376 ], [ %.sroa.0.271.i, %378 ], [ %.sroa.0.271.i, %441 ], [ %.sroa.0.271.i, %.thread48.i.i.i ], [ %.sroa.0.271.i, %450 ], [ %.sroa.0.271.i, %452 ], [ %.sroa.0.271.i, %457 ], [ %.sroa.0.271.i, %459 ], [ %.sroa.0.271.i, %465 ], [ %.sroa.0.271.i, %467 ], [ %.sroa.0.271.i, %472 ], [ %.sroa.0.271.i, %474 ], [ %.sroa.0.271.i, %479 ], [ %.sroa.0.271.i, %481 ], [ %.sroa.0.271.i, %486 ], [ %.sroa.0.271.i, %488 ], [ %.sroa.0.271.i, %ParseAlphaHeader.exit.thread.i.i.i ], [ %.sroa.0.271.i, %ParseAlphaHeader.exit.i.i.i ], [ %.sroa.0.271.i, %492 ], [ %.sroa.0.271.i, %539 ], [ %.sroa.0.271.i, %541 ], [ %.sroa.0.271.i, %545 ], [ %.sroa.0.271.i, %547 ], [ %.sroa.0.271.i, %572 ], [ %.sroa.0.271.i, %556 ], [ %.sroa.0.271.i, %550 ], [ %.sroa.0.271.i, %668 ], [ %.sroa.0.271.i, %654 ], [ %.sroa.0.271.i, %656 ], [ %.sroa.0.271.i, %663 ], [ %.sroa.0.271.i, %665 ]
-  %.039.i.i = phi i32 [ 0, %232 ], [ 0, %671 ], [ %.0.i.i.i, %ProcessImageChunk.exit.i.i ], [ 0, %.thread.i.i ], [ 2, %370 ], [ 2, %372 ], [ 2, %376 ], [ 2, %378 ], [ 0, %441 ], [ 0, %.thread48.i.i.i ], [ 2, %450 ], [ 2, %452 ], [ 2, %457 ], [ 2, %459 ], [ 2, %465 ], [ 2, %467 ], [ 2, %472 ], [ 2, %474 ], [ 2, %479 ], [ 2, %481 ], [ 2, %486 ], [ 2, %488 ], [ %.0.i.ph.i.i.i, %ParseAlphaHeader.exit.thread.i.i.i ], [ 0, %ParseAlphaHeader.exit.i.i.i ], [ 0, %492 ], [ 2, %539 ], [ 2, %541 ], [ 2, %545 ], [ 2, %547 ], [ 0, %572 ], [ 0, %556 ], [ 0, %550 ], [ 0, %668 ], [ 2, %654 ], [ 2, %656 ], [ 2, %663 ], [ 2, %665 ]
+ProcessVP8XChunk.exit.i.i:                        ; preds = %671, %668, %665, %663, %656, %654, %572, %556, %550, %547, %545, %541, %539, %ParseAlphaHeader.argprom.exit.i.i.i, %ParseAlphaHeader.argprom.exit.thread.i.i.i, %492, %488, %486, %481, %479, %474, %472, %467, %465, %459, %457, %452, %450, %441, %.thread48.i.i.i, %378, %376, %372, %370, %ProcessImageChunk.exit.i.i, %232, %.thread.i.i
+  %.sroa.0.270.i = phi i64 [ %.sroa.0.271.i, %232 ], [ %.sroa.0.271.i, %671 ], [ %.sroa.0.271.i, %ProcessImageChunk.exit.i.i ], [ %209, %.thread.i.i ], [ %.sroa.0.271.i, %370 ], [ %.sroa.0.271.i, %372 ], [ %.sroa.0.271.i, %376 ], [ %.sroa.0.271.i, %378 ], [ %.sroa.0.271.i, %441 ], [ %.sroa.0.271.i, %.thread48.i.i.i ], [ %.sroa.0.271.i, %450 ], [ %.sroa.0.271.i, %452 ], [ %.sroa.0.271.i, %457 ], [ %.sroa.0.271.i, %459 ], [ %.sroa.0.271.i, %465 ], [ %.sroa.0.271.i, %467 ], [ %.sroa.0.271.i, %472 ], [ %.sroa.0.271.i, %474 ], [ %.sroa.0.271.i, %479 ], [ %.sroa.0.271.i, %481 ], [ %.sroa.0.271.i, %486 ], [ %.sroa.0.271.i, %488 ], [ %.sroa.0.271.i, %ParseAlphaHeader.argprom.exit.thread.i.i.i ], [ %.sroa.0.271.i, %ParseAlphaHeader.argprom.exit.i.i.i ], [ %.sroa.0.271.i, %492 ], [ %.sroa.0.271.i, %539 ], [ %.sroa.0.271.i, %541 ], [ %.sroa.0.271.i, %545 ], [ %.sroa.0.271.i, %547 ], [ %.sroa.0.271.i, %572 ], [ %.sroa.0.271.i, %556 ], [ %.sroa.0.271.i, %550 ], [ %.sroa.0.271.i, %668 ], [ %.sroa.0.271.i, %654 ], [ %.sroa.0.271.i, %656 ], [ %.sroa.0.271.i, %663 ], [ %.sroa.0.271.i, %665 ]
+  %.039.i.i = phi i32 [ 0, %232 ], [ 0, %671 ], [ %.0.i.i.i, %ProcessImageChunk.exit.i.i ], [ 0, %.thread.i.i ], [ 2, %370 ], [ 2, %372 ], [ 2, %376 ], [ 2, %378 ], [ 0, %441 ], [ 0, %.thread48.i.i.i ], [ 2, %450 ], [ 2, %452 ], [ 2, %457 ], [ 2, %459 ], [ 2, %465 ], [ 2, %467 ], [ 2, %472 ], [ 2, %474 ], [ 2, %479 ], [ 2, %481 ], [ 2, %486 ], [ 2, %488 ], [ %.0.i.ph.i.i.i, %ParseAlphaHeader.argprom.exit.thread.i.i.i ], [ 0, %ParseAlphaHeader.argprom.exit.i.i.i ], [ 0, %492 ], [ 2, %539 ], [ 2, %541 ], [ 2, %545 ], [ 2, %547 ], [ 0, %572 ], [ 0, %556 ], [ 0, %550 ], [ 0, %668 ], [ 2, %654 ], [ 2, %656 ], [ 2, %663 ], [ 2, %665 ]
   %676 = load i32, ptr %62, align 8
   %.not73.i.i = icmp eq i32 %676, 0
   br i1 %.not73.i.i, label %ProcessChunk.exit.i, label %677
@@ -1790,24 +1790,24 @@ Validate.exit.i:                                  ; preds = %ProcessChunk.exit.i
   %770 = phi i32 [ 1, %712 ], [ 1, %725 ], [ 1, %737 ], [ 1, %741 ], [ 1, %745 ], [ 1, %748 ], [ 1, %751 ], [ 1, %754 ], [ 1, %756 ], [ 1, %762 ], [ 1, %766 ], [ 0, %714 ], [ 0, %759 ], [ 1, %.sink.split.i.i ], [ 1, %157 ], [ 1, %155 ], [ 1, %134 ], [ 1, %132 ], [ 1, %127 ], [ 1, %125 ], [ 1, %113 ], [ 1, %111 ], [ 1, %105 ], [ 1, %103 ], [ 1, %201 ], [ 1, %199 ], [ 1, %188 ], [ 1, %186 ], [ 1, %179 ], [ 1, %177 ], [ 1, %166 ], [ 1, %164 ], [ 1, %ProcessChunk.exit.thread.i ], [ 0, %.critedge69.i.i ], [ 1, %ProcessChunk.exit.i ]
   %771 = load i32, ptr %52, align 4
   %.not23.i = icmp eq i32 %771, 0
-  br i1 %.not23.i, label %772, label %AnalyzeWebP.exit
+  br i1 %.not23.i, label %772, label %AnalyzeWebP.argprom.exit
 
 772:                                              ; preds = %Validate.exit.i
   %puts.i68 = call i32 @puts(ptr nonnull dereferenceable(1) %str.2.str.1.i)
   %773 = load i32, ptr %56, align 8
   %774 = icmp sgt i32 %773, 0
-  br i1 %774, label %775, label %AnalyzeWebP.exit
+  br i1 %774, label %775, label %AnalyzeWebP.argprom.exit
 
 775:                                              ; preds = %772
   %776 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %773)
-  br label %AnalyzeWebP.exit
+  br label %AnalyzeWebP.argprom.exit
 
-AnalyzeWebP.exit:                                 ; preds = %Validate.exit.i, %772, %775
+AnalyzeWebP.argprom.exit:                         ; preds = %Validate.exit.i, %772, %775
   call void @WebPFree(ptr noundef %96) #12
   br label %777
 
-777:                                              ; preds = %AnalyzeWebP.exit, %92
-  %.1 = phi i32 [ 1, %92 ], [ %770, %AnalyzeWebP.exit ]
+777:                                              ; preds = %AnalyzeWebP.argprom.exit, %92
+  %.1 = phi i32 [ 1, %92 ], [ %770, %AnalyzeWebP.argprom.exit ]
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %778 = trunc nuw i64 %indvars.iv.next152 to i32
   %779 = icmp sgt i32 %0, %778
@@ -1841,7 +1841,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @ParseLossyHeader(i64 %.8.val, ptr nocapture readonly %.16.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #6 {
+define internal fastcc range(i32 0, 5) i32 @ParseLossyHeader.argprom(i64 %.8.val, ptr nocapture readonly %.16.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #6 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -2336,7 +2336,7 @@ GetBits.exit222:                                  ; preds = %230
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @ParseLosslessHeader(i64 %.8.val, ptr nocapture readonly %.16.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #6 {
+define internal fastcc range(i32 0, 5) i32 @ParseLosslessHeader.argprom(i64 %.8.val, ptr nocapture readonly %.16.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #6 {
   %2 = alloca i64, align 8
   %3 = add i64 %.8.val, -8
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)

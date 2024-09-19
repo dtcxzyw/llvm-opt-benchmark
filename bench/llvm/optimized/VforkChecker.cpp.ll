@@ -762,14 +762,14 @@ define internal void @_ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_112
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit7.i: ; preds = %8, %3
   %9 = tail call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_117VforkResultRegionEE8GDMIndexEvE5Index) #16
   %.not.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12.i, label %_ZN12_GLOBAL__N_112VforkChecker14isChildProcessEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE.exit.i
+  br i1 %.not.i.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12.i, label %_ZN12_GLOBAL__N_112VforkChecker14isChildProcessEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE.argprom.exit.i
 
-_ZN12_GLOBAL__N_112VforkChecker14isChildProcessEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit7.i
+_ZN12_GLOBAL__N_112VforkChecker14isChildProcessEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE.argprom.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit7.i
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12.i, label %11
 
-11:                                               ; preds = %_ZN12_GLOBAL__N_112VforkChecker14isChildProcessEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE.exit.i
+11:                                               ; preds = %_ZN12_GLOBAL__N_112VforkChecker14isChildProcessEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE.argprom.exit.i
   %12 = load ptr, ptr %1, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
@@ -950,7 +950,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   tail call fastcc void @_ZNK12_GLOBAL__N_112VforkChecker9reportBugEPKcRN5clang4ento14CheckerContextES2_(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef null)
   br label %_ZNK12_GLOBAL__N_112VforkChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12.i: ; preds = %_ZN12_GLOBAL__N_112VforkChecker14isChildProcessEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit7.i
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12.i: ; preds = %_ZN12_GLOBAL__N_112VforkChecker14isChildProcessEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE.argprom.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit7.i
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %7) #16
   br label %_ZNK12_GLOBAL__N_112VforkChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
@@ -2031,13 +2031,13 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit7.i: ; pr
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit7.i
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %13) #16
-  br label %_ZNK12_GLOBAL__N_112VforkChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit
+  br label %_ZNK12_GLOBAL__N_112VforkChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit7.i
   %16 = load ptr, ptr %15, align 8
   %.not4.i = icmp eq ptr %16, null
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %13) #16
-  br i1 %.not4.i, label %_ZNK12_GLOBAL__N_112VforkChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit, label %17
+  br i1 %.not4.i, label %_ZNK12_GLOBAL__N_112VforkChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit, label %17
 
 17:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
   %18 = tail call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_117VforkResultRegionEE8GDMIndexEvE5Index) #16
@@ -2054,13 +2054,13 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_117VforkResultRegionEEENS0_17Pro
   %.not.i = icmp eq ptr %22, null
   %23 = icmp eq ptr %22, %21
   %or.cond.i = or i1 %.not.i, %23
-  br i1 %or.cond.i, label %_ZNK12_GLOBAL__N_112VforkChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit, label %24
+  br i1 %or.cond.i, label %_ZNK12_GLOBAL__N_112VforkChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit, label %24
 
 24:                                               ; preds = %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_117VforkResultRegionEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i
   call fastcc void @_ZNK12_GLOBAL__N_112VforkChecker9reportBugEPKcRN5clang4ento14CheckerContextES2_(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull @.str.15, ptr noundef nonnull align 8 dereferenceable(81) %6, ptr noundef null)
-  br label %_ZNK12_GLOBAL__N_112VforkChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit
+  br label %_ZNK12_GLOBAL__N_112VforkChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit
 
-_ZNK12_GLOBAL__N_112VforkChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_117VforkResultRegionEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i, %24
+_ZNK12_GLOBAL__N_112VforkChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_117VforkResultRegionEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i, %24
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %13) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   ret void
@@ -2091,19 +2091,19 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit4.i: ; pr
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit4.i
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %7) #16
-  br label %_ZNK12_GLOBAL__N_112VforkChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit
+  br label %_ZNK12_GLOBAL__N_112VforkChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.argprom.exit
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit4.i
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %7) #16
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_112VforkChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit, label %11
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_112VforkChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.argprom.exit, label %11
 
 11:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
   tail call fastcc void @_ZNK12_GLOBAL__N_112VforkChecker9reportBugEPKcRN5clang4ento14CheckerContextES2_(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull @.str.16, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull @.str.17)
-  br label %_ZNK12_GLOBAL__N_112VforkChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit
+  br label %_ZNK12_GLOBAL__N_112VforkChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.argprom.exit
 
-_ZNK12_GLOBAL__N_112VforkChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %11
+_ZNK12_GLOBAL__N_112VforkChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.argprom.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %11
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %7) #16
   ret void
 }
@@ -2194,5 +2194,5 @@ attributes #18 = { builtin nounwind }
 !30 = distinct !{!30, !31, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_117VforkResultRegionEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !31 = distinct !{!31, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_117VforkResultRegionEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !32 = !{!33, !30}
-!33 = distinct !{!33, !34, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_117VforkResultRegionEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
-!34 = distinct !{!34, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_117VforkResultRegionEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
+!33 = distinct !{!33, !34, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_117VforkResultRegionEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
+!34 = distinct !{!34, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_117VforkResultRegionEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}

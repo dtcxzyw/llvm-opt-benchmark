@@ -163,7 +163,7 @@ define ptr @gres_sock_list_create(ptr noundef %0, ptr noundef %1, ptr noundef %2
 83:                                               ; preds = %82
   %84 = call i64 @slurm_bit_ffs(ptr noundef nonnull %4) #5
   %85 = icmp eq i64 %84, -1
-  br i1 %85, label %_build_sock_gres_basic.exit.thread, label %86
+  br i1 %85, label %_build_sock_gres_basic.argprom.exit.thread, label %86
 
 86:                                               ; preds = %83, %82
   %87 = getelementptr inbounds i8, ptr %66, i64 64
@@ -186,7 +186,7 @@ define ptr @gres_sock_list_create(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %95 = getelementptr inbounds i8, ptr %93, i64 32
   %96 = load i64, ptr %95, align 8
   %97 = icmp eq i64 %96, 0
-  br i1 %97, label %_build_sock_gres_by_topo.exit, label %98
+  br i1 %97, label %_build_sock_gres_by_topo.argprom.exit, label %98
 
 98:                                               ; preds = %92
   br i1 %3, label %104, label %99
@@ -960,20 +960,20 @@ _can_use_gres_exc_topo.exit.thread.i:             ; preds = %.loopexit24.us.i, %
 
 ._crit_edge84.i:                                  ; preds = %406, %.loopexit.i, %.preheader13.i, %378
   call void @slurm_xfree(ptr noundef nonnull %18) #5
-  br label %_build_sock_gres_by_topo.exit
+  br label %_build_sock_gres_by_topo.argprom.exit
 
 434:                                              ; preds = %.critedge404.i
-  br i1 %376, label %_build_sock_gres_by_topo.exit, label %.thread188.i
+  br i1 %376, label %_build_sock_gres_by_topo.argprom.exit, label %.thread188.i
 
 .thread188.i:                                     ; preds = %434, %.thread11.i, %104
   call void @slurm_gres_sock_delete(ptr noundef %105) #5
-  br label %_build_sock_gres_by_topo.exit
+  br label %_build_sock_gres_by_topo.argprom.exit
 
-_build_sock_gres_by_topo.exit:                    ; preds = %92, %._crit_edge84.i, %434, %.thread188.i
+_build_sock_gres_by_topo.argprom.exit:            ; preds = %92, %._crit_edge84.i, %434, %.thread188.i
   %.0306.i = phi ptr [ null, %92 ], [ %105, %434 ], [ null, %.thread188.i ], [ %105, %._crit_edge84.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  br label %_build_sock_gres_basic.exit
+  br label %_build_sock_gres_basic.argprom.exit
 
 435:                                              ; preds = %89, %86
   %436 = getelementptr inbounds i8, ptr %66, i64 128
@@ -1234,23 +1234,23 @@ _handle_gres_exc_by_type.exit.i:                  ; preds = %546, %543, %536, %5
 
 ._crit_edge.i127:                                 ; preds = %559, %502, %473
   %.0.lcssa.i = phi i1 [ %.1.us.us.i, %473 ], [ %.1.us.i135, %502 ], [ %.1.i, %559 ]
-  br i1 %.0.lcssa.i, label %_build_sock_gres_by_type.exit, label %.critedge10.i
+  br i1 %.0.lcssa.i, label %_build_sock_gres_by_type.argprom.exit, label %.critedge10.i
 
 .critedge10.i:                                    ; preds = %._crit_edge.i127, %438
   call void @slurm_xfree(ptr noundef nonnull %16) #5
   %.pre18.i = load ptr, ptr %16, align 8
-  br label %_build_sock_gres_by_type.exit
+  br label %_build_sock_gres_by_type.argprom.exit
 
-_build_sock_gres_by_type.exit:                    ; preds = %._crit_edge.i127, %.critedge10.i
+_build_sock_gres_by_type.argprom.exit:            ; preds = %._crit_edge.i127, %.critedge10.i
   %563 = phi ptr [ %.pre18.i, %.critedge10.i ], [ %445, %._crit_edge.i127 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  br label %_build_sock_gres_basic.exit
+  br label %_build_sock_gres_basic.argprom.exit
 
 564:                                              ; preds = %435
   %565 = getelementptr inbounds i8, ptr %64, i64 8
   %566 = load ptr, ptr %565, align 8
   %.not.i137 = icmp eq ptr %566, null
-  br i1 %.not.i137, label %567, label %_build_sock_gres_basic.exit.thread
+  br i1 %.not.i137, label %567, label %_build_sock_gres_basic.argprom.exit.thread
 
 567:                                              ; preds = %564
   br i1 %3, label %._crit_edge, label %568
@@ -1266,7 +1266,7 @@ _build_sock_gres_by_type.exit:                    ; preds = %._crit_edge.i127, %
   %571 = getelementptr inbounds i8, ptr %66, i64 32
   %572 = load i64, ptr %571, align 8
   %.not31.i = icmp ult i64 %570, %572
-  br i1 %.not31.i, label %573, label %_build_sock_gres_basic.exit.thread
+  br i1 %.not31.i, label %573, label %_build_sock_gres_basic.argprom.exit.thread
 
 573:                                              ; preds = %._crit_edge, %568
   %574 = phi i64 [ %.pre173, %._crit_edge ], [ %572, %568 ]
@@ -1293,7 +1293,7 @@ _build_sock_gres_by_type.exit:                    ; preds = %._crit_edge.i127, %
 
 585:                                              ; preds = %581, %573
   %storemerge.i142 = phi i64 [ %584, %581 ], [ %574, %573 ]
-  br i1 %.not104, label %_handle_gres_exc_basic.exit.i, label %586
+  br i1 %.not104, label %_handle_gres_exc_basic.argprom.exit.i, label %586
 
 586:                                              ; preds = %585
   %587 = load ptr, ptr %44, align 8
@@ -1303,7 +1303,7 @@ _build_sock_gres_by_type.exit:                    ; preds = %._crit_edge.i127, %
 588:                                              ; preds = %586
   %589 = load ptr, ptr %45, align 8
   %.not22.i.i = icmp eq ptr %589, null
-  br i1 %.not22.i.i, label %_handle_gres_exc_basic.exit.i, label %595
+  br i1 %.not22.i.i, label %_handle_gres_exc_basic.argprom.exit.i, label %595
 
 590:                                              ; preds = %586
   %591 = getelementptr inbounds i8, ptr %587, i64 136
@@ -1325,23 +1325,23 @@ _build_sock_gres_by_type.exit:                    ; preds = %._crit_edge.i127, %
   %601 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %602 = and i64 %601, 1
   %.not25.i.i146 = icmp eq i64 %602, 0
-  br i1 %.not25.i.i146, label %_handle_gres_exc_basic.exit.i, label %603
+  br i1 %.not25.i.i146, label %_handle_gres_exc_basic.argprom.exit.i, label %603
 
 603:                                              ; preds = %600
   %604 = call i32 @slurm_get_log_level() #5
   %605 = icmp sgt i32 %604, 3
-  br i1 %605, label %606, label %_handle_gres_exc_basic.exit.i
+  br i1 %605, label %606, label %_handle_gres_exc_basic.argprom.exit.i
 
 606:                                              ; preds = %603
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.5, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_gres_exc_basic, i32 noundef %13, i64 noundef %.sink.i.i145) #5
-  br label %_handle_gres_exc_basic.exit.i
+  br label %_handle_gres_exc_basic.argprom.exit.i
 
-_handle_gres_exc_basic.exit.i:                    ; preds = %606, %603, %600, %588, %585
+_handle_gres_exc_basic.argprom.exit.i:            ; preds = %606, %603, %600, %588, %585
   %.0.i = phi i64 [ %storemerge.i142, %585 ], [ %storemerge.i142, %588 ], [ %.sink.i.i145, %600 ], [ %.sink.i.i145, %606 ], [ %.sink.i.i145, %603 ]
   %607 = icmp ult i64 %.0.i, %.2.i141
-  br i1 %607, label %_build_sock_gres_basic.exit.thread, label %_build_sock_gres_basic.exit.thread157
+  br i1 %607, label %_build_sock_gres_basic.argprom.exit.thread, label %_build_sock_gres_basic.argprom.exit.thread157
 
-_build_sock_gres_basic.exit.thread157:            ; preds = %_handle_gres_exc_basic.exit.i
+_build_sock_gres_basic.argprom.exit.thread157:    ; preds = %_handle_gres_exc_basic.argprom.exit.i
   %608 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 88, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 577, ptr noundef nonnull @__func__._build_sock_gres_basic) #5
   %609 = getelementptr inbounds i8, ptr %608, i64 16
   %610 = load i64, ptr %609, align 8
@@ -1353,18 +1353,18 @@ _build_sock_gres_basic.exit.thread157:            ; preds = %_handle_gres_exc_ba
   store i64 %614, ptr %612, align 8
   br label %615
 
-_build_sock_gres_basic.exit:                      ; preds = %_build_sock_gres_by_topo.exit, %_build_sock_gres_by_type.exit
-  %.088 = phi ptr [ %.0306.i, %_build_sock_gres_by_topo.exit ], [ %563, %_build_sock_gres_by_type.exit ]
+_build_sock_gres_basic.argprom.exit:              ; preds = %_build_sock_gres_by_topo.argprom.exit, %_build_sock_gres_by_type.argprom.exit
+  %.088 = phi ptr [ %.0306.i, %_build_sock_gres_by_topo.argprom.exit ], [ %563, %_build_sock_gres_by_type.argprom.exit ]
   %.not116 = icmp eq ptr %.088, null
-  br i1 %.not116, label %_build_sock_gres_basic.exit.thread, label %615
+  br i1 %.not116, label %_build_sock_gres_basic.argprom.exit.thread, label %615
 
-_build_sock_gres_basic.exit.thread:               ; preds = %_handle_gres_exc_basic.exit.i, %568, %564, %83, %_build_sock_gres_basic.exit
+_build_sock_gres_basic.argprom.exit.thread:       ; preds = %_handle_gres_exc_basic.argprom.exit.i, %568, %564, %83, %_build_sock_gres_basic.argprom.exit
   call void @slurm_bit_clear_all(ptr noundef %4) #5
   %.not117 = icmp eq ptr %36, null
   br i1 %.not117, label %.loopexit, label %.loopexit.sink.split
 
-615:                                              ; preds = %_build_sock_gres_basic.exit.thread157, %_build_sock_gres_basic.exit
-  %.088160 = phi ptr [ %608, %_build_sock_gres_basic.exit.thread157 ], [ %.088, %_build_sock_gres_basic.exit ]
+615:                                              ; preds = %_build_sock_gres_basic.argprom.exit.thread157, %_build_sock_gres_basic.argprom.exit
+  %.088160 = phi ptr [ %608, %_build_sock_gres_basic.argprom.exit.thread157 ], [ %.088, %_build_sock_gres_basic.argprom.exit ]
   %616 = getelementptr inbounds i8, ptr %.088160, i64 80
   store i8 %20, ptr %616, align 8
   %617 = getelementptr inbounds i8, ptr %.088160, i64 32
@@ -1376,12 +1376,12 @@ _build_sock_gres_basic.exit.thread:               ; preds = %_handle_gres_exc_ba
   %.not107 = icmp eq ptr %619, null
   br i1 %.not107, label %.loopexit, label %56, !llvm.loop !23
 
-.loopexit.sink.split:                             ; preds = %_build_sock_gres_basic.exit.thread, %61
+.loopexit.sink.split:                             ; preds = %_build_sock_gres_basic.argprom.exit.thread, %61
   call void @slurm_list_destroy(ptr noundef nonnull %36) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %615, %.loopexit.sink.split, %35, %_build_sock_gres_basic.exit.thread, %61
-  %.092 = phi ptr [ null, %61 ], [ null, %_build_sock_gres_basic.exit.thread ], [ %36, %35 ], [ null, %.loopexit.sink.split ], [ %36, %615 ]
+.loopexit:                                        ; preds = %615, %.loopexit.sink.split, %35, %_build_sock_gres_basic.argprom.exit.thread, %61
+  %.092 = phi ptr [ null, %61 ], [ null, %_build_sock_gres_basic.argprom.exit.thread ], [ %36, %35 ], [ null, %.loopexit.sink.split ], [ %36, %615 ]
   call void @slurm_list_iterator_destroy(ptr noundef %37) #5
   %620 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %621 = and i64 %620, 64

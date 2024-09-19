@@ -47,7 +47,7 @@ define i64 @RectArea(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
 
 16:                                               ; preds = %13
   %17 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str) #10
-  tail call fastcc void @graphviz_exit() #11
+  tail call fastcc void @graphviz_exit.argelim() #11
   unreachable
 
 18:                                               ; preds = %13
@@ -62,7 +62,7 @@ define i64 @RectArea(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #4 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #4 {
   tail call void @exit(i32 noundef 1) #12
   unreachable
 }

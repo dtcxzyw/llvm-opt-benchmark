@@ -1856,7 +1856,7 @@ define hidden noundef ptr @_Z32_hb_ot_name_language_for_ms_codej(i32 noundef %0)
 
 12:                                               ; preds = %.lr.ph.i.i.i
   %.not23.i.i.i = icmp eq i32 %0, %8
-  br i1 %.not23.i.i.i, label %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i, label %13
+  br i1 %.not23.i.i.i, label %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.argprom.exit.i, label %13
 
 13:                                               ; preds = %12
   %14 = add nuw nsw i32 %3, 1
@@ -1868,14 +1868,14 @@ define hidden noundef ptr @_Z32_hb_ot_name_language_for_ms_codej(i32 noundef %0)
   %.not.not.i.i.i = icmp sgt i32 %.1.i.i.i, %.121.i.i.i
   br i1 %.not.not.i.i.i, label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit, label %.lr.ph.i.i.i, !llvm.loop !33
 
-_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i: ; preds = %12
+_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.argprom.exit.i: ; preds = %12
   %16 = getelementptr inbounds i8, ptr @_ZL19_hb_ms_language_map, i64 %5
   %17 = getelementptr inbounds i8, ptr %16, i64 2
   %18 = load i8, ptr %17, align 2
   %.not.i.i = icmp eq i8 %18, 0
   br i1 %.not.i.i, label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit, label %19
 
-19:                                               ; preds = %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i
+19:                                               ; preds = %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.argprom.exit.i
   %20 = tail call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef readonly %17)
   %.not11.i.i = icmp eq ptr %20, null
   br i1 %.not11.i.i, label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit, label %21
@@ -1885,8 +1885,8 @@ _ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i: ; preds
   %23 = load ptr, ptr %22, align 8
   br label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit
 
-_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit: ; preds = %15, %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i, %19, %21
-  %.0.i = phi ptr [ null, %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i ], [ %23, %21 ], [ null, %19 ], [ null, %15 ]
+_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit: ; preds = %15, %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.argprom.exit.i, %19, %21
+  %.0.i = phi ptr [ null, %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.argprom.exit.i ], [ %23, %21 ], [ null, %19 ], [ null, %15 ]
   ret ptr %.0.i
 }
 
@@ -1913,7 +1913,7 @@ define hidden noundef ptr @_Z33_hb_ot_name_language_for_mac_codej(i32 noundef %0
 
 12:                                               ; preds = %.lr.ph.i.i.i
   %.not23.i.i.i = icmp eq i32 %0, %8
-  br i1 %.not23.i.i.i, label %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i, label %13
+  br i1 %.not23.i.i.i, label %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.argprom.exit.i, label %13
 
 13:                                               ; preds = %12
   %14 = add nuw nsw i32 %3, 1
@@ -1925,14 +1925,14 @@ define hidden noundef ptr @_Z33_hb_ot_name_language_for_mac_codej(i32 noundef %0
   %.not.not.i.i.i = icmp sgt i32 %.1.i.i.i, %.121.i.i.i
   br i1 %.not.not.i.i.i, label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit, label %.lr.ph.i.i.i, !llvm.loop !33
 
-_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i: ; preds = %12
+_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.argprom.exit.i: ; preds = %12
   %16 = getelementptr inbounds i8, ptr @_ZL20_hb_mac_language_map, i64 %5
   %17 = getelementptr inbounds i8, ptr %16, i64 2
   %18 = load i8, ptr %17, align 2
   %.not.i.i = icmp eq i8 %18, 0
   br i1 %.not.i.i, label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit, label %19
 
-19:                                               ; preds = %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i
+19:                                               ; preds = %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.argprom.exit.i
   %20 = tail call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef readonly %17)
   %.not11.i.i = icmp eq ptr %20, null
   br i1 %.not11.i.i, label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit, label %21
@@ -1942,8 +1942,8 @@ _ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i: ; preds
   %23 = load ptr, ptr %22, align 8
   br label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit
 
-_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit: ; preds = %15, %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i, %19, %21
-  %.0.i = phi ptr [ null, %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i ], [ %23, %21 ], [ null, %19 ], [ null, %15 ]
+_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit: ; preds = %15, %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.argprom.exit.i, %19, %21
+  %.0.i = phi ptr [ null, %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.argprom.exit.i ], [ %23, %21 ], [ null, %19 ], [ null, %15 ]
   ret ptr %.0.i
 }
 

@@ -8920,7 +8920,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
 492:                                              ; preds = %485
   %493 = getelementptr i8, ptr %472, i64 144
   %.val = load i32, ptr %493, align 8
-  call fastcc void @copy_bigjoiner_crtc_state_nomodeset(ptr noundef %1, i32 %.val)
+  call fastcc void @copy_bigjoiner_crtc_state_nomodeset.argprom(ptr noundef %1, i32 %.val)
   br label %.thread209
 
 494:                                              ; preds = %485, %484
@@ -10318,7 +10318,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %1392 = getelementptr inbounds i8, ptr %1340, i64 728
   store i32 %1391, ptr %1392, align 8
   %.val174 = load i32, ptr %1319, align 8
-  call fastcc void @copy_bigjoiner_crtc_state_nomodeset(ptr noundef %1, i32 %.val174)
+  call fastcc void @copy_bigjoiner_crtc_state_nomodeset.argprom(ptr noundef %1, i32 %.val174)
   %1393 = getelementptr inbounds i8, ptr %1362, i64 10
   %1394 = load i8, ptr %1393, align 2
   %1395 = getelementptr inbounds i8, ptr %1340, i64 10
@@ -17048,7 +17048,7 @@ declare dso_local i32 @intel_link_bw_atomic_check(ptr noundef, ptr noundef) loca
 declare dso_local i32 @intel_fdi_add_affected_crtcs(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @copy_bigjoiner_crtc_state_nomodeset(ptr nocapture noundef readonly %0, i32 %.144.val) unnamed_addr #0 align 16 {
+define internal fastcc void @copy_bigjoiner_crtc_state_nomodeset.argprom(ptr nocapture noundef readonly %0, i32 %.144.val) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = zext i32 %.144.val to i64
@@ -18592,7 +18592,7 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
 
 362:                                              ; preds = %353, %358
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @intel_get_transcoder_timings(ptr %.val, ptr noundef %1)
+  tail call fastcc void @intel_get_transcoder_timings.argprom(ptr %.val, ptr noundef %1)
   %.phi.trans.insert22 = getelementptr inbounds i8, ptr %7, i64 2632
   %.pre23 = load i16, ptr %.phi.trans.insert22, align 8
   %363 = icmp ugt i16 %.pre23, 10
@@ -20649,7 +20649,7 @@ declare dso_local zeroext i1 @intel_display_power_get_in_set_if_enabled(ptr noun
 declare dso_local void @intel_dsc_get_config(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_get_transcoder_timings(ptr %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_get_transcoder_timings.argprom(ptr %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 864
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %.0.val, i64 2624
@@ -22974,7 +22974,7 @@ define internal noundef zeroext i1 @ilk_get_pipe_config(ptr nocapture noundef re
   store i32 1, ptr %63, align 4
   tail call void @ilk_pch_get_config(ptr noundef %1) #25
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @intel_get_transcoder_timings(ptr %.val, ptr noundef %1)
+  tail call fastcc void @intel_get_transcoder_timings.argprom(ptr %.val, ptr noundef %1)
   %64 = load ptr, ptr %0, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 2624
   %66 = load ptr, ptr %65, align 8
@@ -23810,7 +23810,7 @@ define internal noundef zeroext i1 @i9xx_get_pipe_config(ptr noundef %0, ptr nou
 
 97:                                               ; preds = %92, %88
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @intel_get_transcoder_timings(ptr %.val, ptr noundef %1)
+  tail call fastcc void @intel_get_transcoder_timings.argprom(ptr %.val, ptr noundef %1)
   %98 = load ptr, ptr %0, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 2624
   %100 = load ptr, ptr %99, align 8

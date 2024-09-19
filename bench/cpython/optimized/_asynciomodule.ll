@@ -1875,9 +1875,9 @@ skip_optional_pos:                                ; preds = %if.end
 
 if.then.i:                                        ; preds = %skip_optional_pos.thread, %skip_optional_pos
   %module.val28 = phi ptr [ %module.val25, %skip_optional_pos.thread ], [ %module.val, %skip_optional_pos ]
-  %call1.i = call fastcc ptr @_asyncio_get_running_loop_impl(ptr %module.val28)
+  %call1.i = call fastcc ptr @_asyncio_get_running_loop_impl.argprom(ptr %module.val28)
   %cmp2.i = icmp eq ptr %call1.i, null
-  br i1 %cmp2.i, label %_asyncio_current_task_impl.exit, label %if.end4.i
+  br i1 %cmp2.i, label %_asyncio_current_task_impl.argprom.exit, label %if.end4.i
 
 if.else.i:                                        ; preds = %skip_optional_pos
   %5 = load i32, ptr %3, align 8
@@ -1914,15 +1914,15 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
   %cmp6.i = icmp eq i32 %call5.i, 0
   %9 = load ptr, ptr %ret.i, align 8
   %spec.select.i = select i1 %cmp6.i, ptr @_Py_NoneStruct, ptr %9
-  br label %_asyncio_current_task_impl.exit
+  br label %_asyncio_current_task_impl.argprom.exit
 
-_asyncio_current_task_impl.exit:                  ; preds = %if.then.i, %Py_DECREF.exit.i
+_asyncio_current_task_impl.argprom.exit:          ; preds = %if.then.i, %Py_DECREF.exit.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %spec.select.i, %Py_DECREF.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ret.i)
   br label %exit
 
-exit:                                             ; preds = %cond.end9, %_asyncio_current_task_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %_asyncio_current_task_impl.exit ], [ null, %cond.end9 ]
+exit:                                             ; preds = %cond.end9, %_asyncio_current_task_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %_asyncio_current_task_impl.argprom.exit ], [ null, %cond.end9 ]
   ret ptr %return_value.0
 }
 
@@ -1940,7 +1940,7 @@ define internal ptr @_asyncio_get_running_loop(ptr nocapture noundef readonly %m
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
-  %call = tail call fastcc ptr @_asyncio_get_running_loop_impl(ptr %module.val)
+  %call = tail call fastcc ptr @_asyncio_get_running_loop_impl.argprom(ptr %module.val)
   ret ptr %call
 }
 
@@ -1965,7 +1965,7 @@ land.lhs.true.i.i:                                ; preds = %entry
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %entry
   %call4.i.i = tail call ptr @_PyThreadState_GetDict(ptr noundef %call.i.i.i) #6
   %cmp5.i.i = icmp eq ptr %call4.i.i, null
-  br i1 %cmp5.i.i, label %_asyncio__get_running_loop_impl.exit, label %if.end.i.i
+  br i1 %cmp5.i.i, label %_asyncio__get_running_loop_impl.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i
   %call7.i.i = tail call ptr @PyDict_GetItemWithError(ptr noundef nonnull %call4.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27032)) #6
@@ -1981,26 +1981,26 @@ if.end13.i.i:                                     ; preds = %if.end.i.i
 if.end16.i.i:                                     ; preds = %if.end13.i.i, %land.lhs.true.i.i
   %rl.0.i.i = phi ptr [ %call7.i.i, %if.end13.i.i ], [ %2, %land.lhs.true.i.i ]
   %cmp17.i.i = icmp eq ptr %rl.0.i.i, @_Py_NoneStruct
-  br i1 %cmp17.i.i, label %_asyncio__get_running_loop_impl.exit, label %if.end19.i.i
+  br i1 %cmp17.i.i, label %_asyncio__get_running_loop_impl.argprom.exit, label %if.end19.i.i
 
 if.end19.i.i:                                     ; preds = %if.end16.i.i
   %3 = load i32, ptr %rl.0.i.i, align 8
   %add.i.i.i.i = add i32 %3, 1
   %cmp.i.i.i.i = icmp eq i32 %add.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %_asyncio__get_running_loop_impl.exit, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %_asyncio__get_running_loop_impl.argprom.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end19.i.i
   store i32 %add.i.i.i.i, ptr %rl.0.i.i, align 8
-  br label %_asyncio__get_running_loop_impl.exit
+  br label %_asyncio__get_running_loop_impl.argprom.exit
 
 get_running_loop.exit.i:                          ; preds = %if.end.i.i
   %call10.i.i = tail call ptr @PyErr_Occurred() #6
   %call10.i.fr.i = freeze ptr %call10.i.i
   %4 = icmp eq ptr %call10.i.fr.i, null
   %5 = select i1 %4, ptr @_Py_NoneStruct, ptr null
-  br label %_asyncio__get_running_loop_impl.exit
+  br label %_asyncio__get_running_loop_impl.argprom.exit
 
-_asyncio__get_running_loop_impl.exit:             ; preds = %if.else.i.i, %if.end16.i.i, %if.end19.i.i, %if.end.i.i.i.i, %get_running_loop.exit.i
+_asyncio__get_running_loop_impl.argprom.exit:     ; preds = %if.else.i.i, %if.end16.i.i, %if.end19.i.i, %if.end.i.i.i.i, %get_running_loop.exit.i
   %call10.i.fr.sink.i = phi ptr [ %5, %get_running_loop.exit.i ], [ @_Py_NoneStruct, %if.else.i.i ], [ @_Py_NoneStruct, %if.end16.i.i ], [ %rl.0.i.i, %if.end.i.i.i.i ], [ %rl.0.i.i, %if.end19.i.i ]
   ret ptr %call10.i.fr.sink.i
 }
@@ -2339,7 +2339,7 @@ exit:                                             ; preds = %cond.end, %if.end
 declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_asyncio_get_running_loop_impl(ptr %module.32.val) unnamed_addr #0 {
+define internal fastcc ptr @_asyncio_get_running_loop_impl.argprom(ptr %module.32.val) unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @_PyThreadState_GetCurrent() #6
   %call1.i = tail call i64 @PyThreadState_GetID(ptr noundef %call.i.i) #6
@@ -2508,7 +2508,7 @@ declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, pt
 declare i32 @PyDict_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @register_task(ptr %state.56.val, ptr noundef %task) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @register_task.argprom(ptr %state.56.val, ptr noundef %task) unnamed_addr #0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i)
@@ -3645,9 +3645,9 @@ if.else59:                                        ; preds = %if.then46
   %25 = getelementptr i8, ptr %task, i64 16
   %fut.val.i = load ptr, ptr %25, align 8
   %cmp.i.not.i.i = icmp eq ptr %fut.val.i, null
-  br i1 %cmp.i.not.i.i, label %future_ensure_alive.exit.i, label %if.end.i76
+  br i1 %cmp.i.not.i.i, label %future_ensure_alive.argprom.exit.i, label %if.end.i76
 
-future_ensure_alive.exit.i:                       ; preds = %if.else59
+future_ensure_alive.argprom.exit.i:               ; preds = %if.else59
   %26 = load ptr, ptr @PyExc_RuntimeError, align 8
   call void @PyErr_SetString(ptr noundef %26, ptr noundef nonnull @.str.29) #6
   br label %if.end61
@@ -3682,8 +3682,8 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i83, %if
   %._Py_NoneStruct.i = select i1 %cmp6.i, ptr null, ptr @_Py_NoneStruct
   br label %if.end61
 
-if.end61:                                         ; preds = %_Py_NewRef.exit.i, %if.then1.i79, %future_ensure_alive.exit.i, %Py_XDECREF.exit.i, %if.then53
-  %tmp.0 = phi ptr [ @_Py_FalseStruct, %if.then53 ], [ %._Py_TrueStruct.i, %Py_XDECREF.exit.i ], [ null, %if.then1.i79 ], [ null, %future_ensure_alive.exit.i ], [ %._Py_NoneStruct.i, %_Py_NewRef.exit.i ]
+if.end61:                                         ; preds = %_Py_NewRef.exit.i, %if.then1.i79, %future_ensure_alive.argprom.exit.i, %Py_XDECREF.exit.i, %if.then53
+  %tmp.0 = phi ptr [ @_Py_FalseStruct, %if.then53 ], [ %._Py_TrueStruct.i, %Py_XDECREF.exit.i ], [ null, %if.then1.i79 ], [ null, %future_ensure_alive.argprom.exit.i ], [ %._Py_NoneStruct.i, %_Py_NewRef.exit.i ]
   %30 = load ptr, ptr %result, align 8
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, 2147483648
@@ -6278,9 +6278,9 @@ entry:
   %1 = getelementptr i8, ptr %fut, i64 16
   %fut.val = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %fut.val, null
-  br i1 %cmp.i.not.i, label %future_ensure_alive.exit, label %do.end
+  br i1 %cmp.i.not.i, label %future_ensure_alive.argprom.exit, label %do.end
 
-future_ensure_alive.exit:                         ; preds = %entry
+future_ensure_alive.argprom.exit:                 ; preds = %entry
   %2 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.29) #6
   br label %return
@@ -6293,8 +6293,8 @@ do.end:                                           ; preds = %entry
   %call2 = tail call ptr @PyObject_CallOneArg(ptr noundef %4, ptr noundef nonnull %fut) #6
   br label %return
 
-return:                                           ; preds = %future_ensure_alive.exit, %do.end
-  %retval.0 = phi ptr [ %call2, %do.end ], [ null, %future_ensure_alive.exit ]
+return:                                           ; preds = %future_ensure_alive.argprom.exit, %do.end
+  %retval.0 = phi ptr [ %call2, %do.end ], [ null, %future_ensure_alive.argprom.exit ]
   ret ptr %retval.0
 }
 
@@ -6678,9 +6678,9 @@ entry:
   %2 = getelementptr i8, ptr %fut, i64 16
   %fut.val = load ptr, ptr %2, align 8
   %cmp.i.not.i = icmp eq ptr %fut.val, null
-  br i1 %cmp.i.not.i, label %future_ensure_alive.exit, label %do.end
+  br i1 %cmp.i.not.i, label %future_ensure_alive.argprom.exit, label %do.end
 
-future_ensure_alive.exit:                         ; preds = %entry
+future_ensure_alive.argprom.exit:                 ; preds = %entry
   %3 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.29) #6
   br label %return
@@ -6726,8 +6726,8 @@ _Py_NewRef.exit:                                  ; preds = %if.end10, %if.end.i
   tail call void @PyObject_GC_Track(ptr noundef nonnull %it.0) #6
   br label %return
 
-return:                                           ; preds = %future_ensure_alive.exit, %if.else, %_Py_NewRef.exit
-  %retval.0 = phi ptr [ %it.0, %_Py_NewRef.exit ], [ null, %future_ensure_alive.exit ], [ null, %if.else ]
+return:                                           ; preds = %future_ensure_alive.argprom.exit, %if.else, %_Py_NewRef.exit
+  %retval.0 = phi ptr [ %it.0, %_Py_NewRef.exit ], [ null, %future_ensure_alive.argprom.exit ], [ null, %if.else ]
   ret ptr %retval.0
 }
 
@@ -7095,9 +7095,9 @@ if.end:                                           ; preds = %entry, %cond.end
   %4 = getelementptr i8, ptr %self, i64 16
   %self.val.i = load ptr, ptr %4, align 8
   %cmp.i.not.i.i = icmp eq ptr %self.val.i, null
-  br i1 %cmp.i.not.i.i, label %future_ensure_alive.exit.i, label %if.end.i.i
+  br i1 %cmp.i.not.i.i, label %future_ensure_alive.argprom.exit.i, label %if.end.i.i
 
-future_ensure_alive.exit.i:                       ; preds = %if.end
+future_ensure_alive.argprom.exit.i:               ; preds = %if.end
   %5 = load ptr, ptr @PyExc_RuntimeError, align 8
   call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.29) #6
   br label %exit
@@ -7133,8 +7133,8 @@ _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if
   %._Py_NoneStruct.i.i = select i1 %cmp6.i.i, ptr null, ptr @_Py_NoneStruct
   br label %exit
 
-exit:                                             ; preds = %_Py_NewRef.exit.i.i, %if.then1.i.i, %future_ensure_alive.exit.i, %cond.end
-  %return_value.0 = phi ptr [ null, %cond.end ], [ null, %future_ensure_alive.exit.i ], [ null, %if.then1.i.i ], [ %._Py_NoneStruct.i.i, %_Py_NewRef.exit.i.i ]
+exit:                                             ; preds = %_Py_NewRef.exit.i.i, %if.then1.i.i, %future_ensure_alive.argprom.exit.i, %cond.end
+  %return_value.0 = phi ptr [ null, %cond.end ], [ null, %future_ensure_alive.argprom.exit.i ], [ null, %if.then1.i.i ], [ %._Py_NoneStruct.i.i, %_Py_NewRef.exit.i.i ]
   ret ptr %return_value.0
 }
 
@@ -7159,9 +7159,9 @@ if.end:                                           ; preds = %entry, %cond.end
   %1 = getelementptr i8, ptr %self, i64 16
   %self.val.i = load ptr, ptr %1, align 8
   %cmp.i.not.i.i = icmp eq ptr %self.val.i, null
-  br i1 %cmp.i.not.i.i, label %future_ensure_alive.exit.i, label %do.end.i
+  br i1 %cmp.i.not.i.i, label %future_ensure_alive.argprom.exit.i, label %do.end.i
 
-future_ensure_alive.exit.i:                       ; preds = %if.end
+future_ensure_alive.argprom.exit.i:               ; preds = %if.end
   %2 = load ptr, ptr @PyExc_RuntimeError, align 8
   call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.29) #6
   br label %exit
@@ -7175,8 +7175,8 @@ do.end.i:                                         ; preds = %if.end
   %call2.i = call fastcc ptr @future_set_exception(ptr noundef readonly %cls.val.val, ptr noundef nonnull %self, ptr noundef %5)
   br label %exit
 
-exit:                                             ; preds = %do.end.i, %future_ensure_alive.exit.i, %cond.end
-  %return_value.0 = phi ptr [ null, %cond.end ], [ %call2.i, %do.end.i ], [ null, %future_ensure_alive.exit.i ]
+exit:                                             ; preds = %do.end.i, %future_ensure_alive.argprom.exit.i, %cond.end
+  %return_value.0 = phi ptr [ null, %cond.end ], [ %call2.i, %do.end.i ], [ null, %future_ensure_alive.argprom.exit.i ]
   ret ptr %return_value.0
 }
 
@@ -7287,9 +7287,9 @@ if.end:                                           ; preds = %entry, %cond.end
   %2 = getelementptr i8, ptr %self, i64 16
   %self.val.i = load ptr, ptr %2, align 8
   %cmp.i.not.i.i = icmp eq ptr %self.val.i, null
-  br i1 %cmp.i.not.i.i, label %future_ensure_alive.exit.i, label %do.end.i
+  br i1 %cmp.i.not.i.i, label %future_ensure_alive.argprom.exit.i, label %do.end.i
 
-future_ensure_alive.exit.i:                       ; preds = %if.end
+future_ensure_alive.argprom.exit.i:               ; preds = %if.end
   %3 = load ptr, ptr @PyExc_RuntimeError, align 8
   call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.29) #6
   br label %exit
@@ -7630,8 +7630,8 @@ if.then1.i.i:                                     ; preds = %if.end.i126.i
   call void @_Py_Dealloc(ptr noundef nonnull %call68.i) #6
   br label %exit
 
-exit:                                             ; preds = %if.then1.i.i, %if.end.i126.i, %fail.i, %Py_DECREF.exit137.i, %Py_DECREF.exit146.i, %if.end67.i, %if.end65.i, %do.end63.i, %if.then45.i, %do.end41.i, %if.then27.i, %if.then2.i, %future_ensure_alive.exit.i, %cond.end
-  %return_value.0 = phi ptr [ null, %cond.end ], [ %call28.i, %if.then27.i ], [ %call42.i, %do.end41.i ], [ %call64.i, %do.end63.i ], [ %call66.i, %if.end65.i ], [ %call107.i, %Py_DECREF.exit146.i ], [ %call124.i, %Py_DECREF.exit137.i ], [ null, %future_ensure_alive.exit.i ], [ null, %if.then2.i ], [ null, %if.then45.i ], [ null, %if.end67.i ], [ null, %fail.i ], [ null, %if.then1.i.i ], [ null, %if.end.i126.i ]
+exit:                                             ; preds = %if.then1.i.i, %if.end.i126.i, %fail.i, %Py_DECREF.exit137.i, %Py_DECREF.exit146.i, %if.end67.i, %if.end65.i, %do.end63.i, %if.then45.i, %do.end41.i, %if.then27.i, %if.then2.i, %future_ensure_alive.argprom.exit.i, %cond.end
+  %return_value.0 = phi ptr [ null, %cond.end ], [ %call28.i, %if.then27.i ], [ %call42.i, %do.end41.i ], [ %call64.i, %do.end63.i ], [ %call66.i, %if.end65.i ], [ %call107.i, %Py_DECREF.exit146.i ], [ %call124.i, %Py_DECREF.exit137.i ], [ null, %future_ensure_alive.argprom.exit.i ], [ null, %if.then2.i ], [ null, %if.then45.i ], [ null, %if.end67.i ], [ null, %fail.i ], [ null, %if.then1.i.i ], [ null, %if.end.i126.i ]
   ret ptr %return_value.0
 }
 
@@ -7679,9 +7679,9 @@ skip_optional_pos:                                ; preds = %if.end, %if.end14
   %5 = getelementptr i8, ptr %self, i64 16
   %self.val.i = load ptr, ptr %5, align 8
   %cmp.i.not.i.i = icmp eq ptr %self.val.i, null
-  br i1 %cmp.i.not.i.i, label %future_ensure_alive.exit.i, label %do.end.i
+  br i1 %cmp.i.not.i.i, label %future_ensure_alive.argprom.exit.i, label %do.end.i
 
-future_ensure_alive.exit.i:                       ; preds = %skip_optional_pos
+future_ensure_alive.argprom.exit.i:               ; preds = %skip_optional_pos
   %6 = load ptr, ptr @PyExc_RuntimeError, align 8
   call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.29) #6
   br label %exit
@@ -7740,8 +7740,8 @@ Py_XDECREF.exit.i.i:                              ; preds = %if.then1.i.i.i.i, %
   %._Py_TrueStruct.i.i = select i1 %cmp2.i.i, ptr null, ptr @_Py_TrueStruct
   br label %exit
 
-exit:                                             ; preds = %Py_XDECREF.exit.i.i, %do.end.i, %future_ensure_alive.exit.i, %cond.end9
-  %return_value.0 = phi ptr [ null, %cond.end9 ], [ null, %future_ensure_alive.exit.i ], [ @_Py_FalseStruct, %do.end.i ], [ %._Py_TrueStruct.i.i, %Py_XDECREF.exit.i.i ]
+exit:                                             ; preds = %Py_XDECREF.exit.i.i, %do.end.i, %future_ensure_alive.argprom.exit.i, %cond.end9
+  %return_value.0 = phi ptr [ null, %cond.end9 ], [ null, %future_ensure_alive.argprom.exit.i ], [ @_Py_FalseStruct, %do.end.i ], [ %._Py_TrueStruct.i.i, %Py_XDECREF.exit.i.i ]
   ret ptr %return_value.0
 }
 
@@ -7802,9 +7802,9 @@ if.end:                                           ; preds = %entry
   %1 = getelementptr i8, ptr %self, i64 16
   %self.val.i = load ptr, ptr %1, align 8
   %cmp.i.not.i.i = icmp eq ptr %self.val.i, null
-  br i1 %cmp.i.not.i.i, label %future_ensure_alive.exit.i, label %do.end.i
+  br i1 %cmp.i.not.i.i, label %future_ensure_alive.argprom.exit.i, label %do.end.i
 
-future_ensure_alive.exit.i:                       ; preds = %if.end
+future_ensure_alive.argprom.exit.i:               ; preds = %if.end
   %2 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.29) #6
   br label %return
@@ -7819,8 +7819,8 @@ if.end.i.i.i:                                     ; preds = %do.end.i
   store i32 %add.i.i.i, ptr %self.val.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i.i.i, %do.end.i, %future_ensure_alive.exit.i, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %future_ensure_alive.exit.i ], [ %self.val.i, %do.end.i ], [ %self.val.i, %if.end.i.i.i ]
+return:                                           ; preds = %if.end.i.i.i, %do.end.i, %future_ensure_alive.argprom.exit.i, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %future_ensure_alive.argprom.exit.i ], [ %self.val.i, %do.end.i ], [ %self.val.i, %if.end.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -7883,9 +7883,9 @@ entry:
   %1 = getelementptr i8, ptr %fut, i64 16
   %fut.val = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %fut.val, null
-  br i1 %cmp.i.not.i, label %future_ensure_alive.exit, label %do.end
+  br i1 %cmp.i.not.i, label %future_ensure_alive.argprom.exit, label %do.end
 
-future_ensure_alive.exit:                         ; preds = %entry
+future_ensure_alive.argprom.exit:                 ; preds = %entry
   %2 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.29) #6
   br label %return
@@ -7902,8 +7902,8 @@ switch.lookup:                                    ; preds = %do.end
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
-return:                                           ; preds = %switch.lookup, %do.end, %future_ensure_alive.exit
-  %retval.0 = phi ptr [ null, %future_ensure_alive.exit ], [ null, %do.end ], [ %switch.load, %switch.lookup ]
+return:                                           ; preds = %switch.lookup, %do.end, %future_ensure_alive.argprom.exit
+  %retval.0 = phi ptr [ null, %future_ensure_alive.argprom.exit ], [ null, %do.end ], [ %switch.load, %switch.lookup ]
   ret ptr %retval.0
 }
 
@@ -7936,9 +7936,9 @@ entry:
   %0 = getelementptr i8, ptr %fut, i64 16
   %fut.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %fut.val, null
-  br i1 %cmp.i.not.i, label %future_ensure_alive.exit, label %if.end
+  br i1 %cmp.i.not.i, label %future_ensure_alive.argprom.exit, label %if.end
 
-future_ensure_alive.exit:                         ; preds = %entry
+future_ensure_alive.argprom.exit:                 ; preds = %entry
   %1 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.29) #6
   br label %return
@@ -7968,8 +7968,8 @@ if.end6:                                          ; preds = %if.end2
   store i8 %bf.set, ptr %fut_blocking, align 4
   br label %return
 
-return:                                           ; preds = %future_ensure_alive.exit, %if.end2, %if.end6, %if.then1
-  %retval.0 = phi i32 [ -1, %if.then1 ], [ 0, %if.end6 ], [ -1, %future_ensure_alive.exit ], [ -1, %if.end2 ]
+return:                                           ; preds = %future_ensure_alive.argprom.exit, %if.end2, %if.end6, %if.then1
+  %retval.0 = phi i32 [ -1, %if.then1 ], [ 0, %if.end6 ], [ -1, %future_ensure_alive.argprom.exit ], [ -1, %if.end2 ]
   ret i32 %retval.0
 }
 
@@ -8005,9 +8005,9 @@ entry:
   %1 = getelementptr i8, ptr %fut, i64 16
   %fut.val = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %fut.val, null
-  br i1 %cmp.i.not.i, label %future_ensure_alive.exit, label %do.end
+  br i1 %cmp.i.not.i, label %future_ensure_alive.argprom.exit, label %do.end
 
-future_ensure_alive.exit:                         ; preds = %entry
+future_ensure_alive.argprom.exit:                 ; preds = %entry
   %2 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.29) #6
   br label %return
@@ -8142,8 +8142,8 @@ Py_INCREF.exit:                                   ; preds = %for.body, %if.end.i
   %cmp31 = icmp slt i64 %add33, %.val
   br i1 %cmp31, label %for.body, label %return, !llvm.loop !9
 
-return:                                           ; preds = %Py_INCREF.exit, %for.cond.preheader, %if.end.i.i, %if.end5, %future_ensure_alive.exit, %Py_INCREF.exit42, %if.end.i52, %if.then1.i, %if.then21, %if.end14, %if.then2
-  %retval.0 = phi ptr [ null, %future_ensure_alive.exit ], [ @_Py_NoneStruct, %if.then2 ], [ null, %if.end14 ], [ null, %if.then21 ], [ null, %if.then1.i ], [ null, %if.end.i52 ], [ %call15, %Py_INCREF.exit42 ], [ %4, %if.end5 ], [ %4, %if.end.i.i ], [ %call15, %for.cond.preheader ], [ %call15, %Py_INCREF.exit ]
+return:                                           ; preds = %Py_INCREF.exit, %for.cond.preheader, %if.end.i.i, %if.end5, %future_ensure_alive.argprom.exit, %Py_INCREF.exit42, %if.end.i52, %if.then1.i, %if.then21, %if.end14, %if.then2
+  %retval.0 = phi ptr [ null, %future_ensure_alive.argprom.exit ], [ @_Py_NoneStruct, %if.then2 ], [ null, %if.end14 ], [ null, %if.then21 ], [ null, %if.then1.i ], [ null, %if.end.i52 ], [ %call15, %Py_INCREF.exit42 ], [ %4, %if.end5 ], [ %4, %if.end.i.i ], [ %call15, %for.cond.preheader ], [ %call15, %Py_INCREF.exit ]
   ret ptr %retval.0
 }
 
@@ -8156,9 +8156,9 @@ entry:
   %1 = getelementptr i8, ptr %fut, i64 16
   %fut.val = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %fut.val, null
-  br i1 %cmp.i.not.i, label %future_ensure_alive.exit, label %do.end
+  br i1 %cmp.i.not.i, label %future_ensure_alive.argprom.exit, label %do.end
 
-future_ensure_alive.exit:                         ; preds = %entry
+future_ensure_alive.argprom.exit:                 ; preds = %entry
   %2 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.29) #6
   br label %return
@@ -8179,8 +8179,8 @@ if.end.i.i:                                       ; preds = %if.end3
   store i32 %add.i.i, ptr %3, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %if.end3, %future_ensure_alive.exit, %do.end
-  %retval.0 = phi ptr [ null, %future_ensure_alive.exit ], [ @_Py_NoneStruct, %do.end ], [ %3, %if.end3 ], [ %3, %if.end.i.i ]
+return:                                           ; preds = %if.end.i.i, %if.end3, %future_ensure_alive.argprom.exit, %do.end
+  %retval.0 = phi ptr [ null, %future_ensure_alive.argprom.exit ], [ @_Py_NoneStruct, %do.end ], [ %3, %if.end3 ], [ %3, %if.end.i.i ]
   ret ptr %retval.0
 }
 
@@ -8193,9 +8193,9 @@ entry:
   %1 = getelementptr i8, ptr %fut, i64 16
   %fut.val = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %fut.val, null
-  br i1 %cmp.i.not.i, label %future_ensure_alive.exit, label %do.end
+  br i1 %cmp.i.not.i, label %future_ensure_alive.argprom.exit, label %do.end
 
-future_ensure_alive.exit:                         ; preds = %entry
+future_ensure_alive.argprom.exit:                 ; preds = %entry
   %2 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.29) #6
   br label %return
@@ -8216,8 +8216,8 @@ if.end.i.i:                                       ; preds = %if.end3
   store i32 %add.i.i, ptr %3, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %if.end3, %future_ensure_alive.exit, %do.end
-  %retval.0 = phi ptr [ null, %future_ensure_alive.exit ], [ @_Py_NoneStruct, %do.end ], [ %3, %if.end3 ], [ %3, %if.end.i.i ]
+return:                                           ; preds = %if.end.i.i, %if.end3, %future_ensure_alive.argprom.exit, %do.end
+  %retval.0 = phi ptr [ null, %future_ensure_alive.argprom.exit ], [ @_Py_NoneStruct, %do.end ], [ %3, %if.end3 ], [ %3, %if.end.i.i ]
   ret ptr %retval.0
 }
 
@@ -8230,9 +8230,9 @@ entry:
   %1 = getelementptr i8, ptr %fut, i64 16
   %fut.val = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %fut.val, null
-  br i1 %cmp.i.not.i, label %future_ensure_alive.exit, label %do.end
+  br i1 %cmp.i.not.i, label %future_ensure_alive.argprom.exit, label %do.end
 
-future_ensure_alive.exit:                         ; preds = %entry
+future_ensure_alive.argprom.exit:                 ; preds = %entry
   %2 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.29) #6
   br label %return
@@ -8245,8 +8245,8 @@ do.end:                                           ; preds = %entry
   %_Py_FalseStruct._Py_TrueStruct = select i1 %tobool2.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   br label %return
 
-return:                                           ; preds = %future_ensure_alive.exit, %do.end
-  %retval.0 = phi ptr [ null, %future_ensure_alive.exit ], [ %_Py_FalseStruct._Py_TrueStruct, %do.end ]
+return:                                           ; preds = %future_ensure_alive.argprom.exit, %do.end
+  %retval.0 = phi ptr [ null, %future_ensure_alive.argprom.exit ], [ %_Py_FalseStruct._Py_TrueStruct, %do.end ]
   ret ptr %retval.0
 }
 
@@ -9443,7 +9443,7 @@ if.end68.i:                                       ; preds = %Py_DECREF.exit.i, %
 if.end72.i:                                       ; preds = %if.end68.i
   %41 = getelementptr i8, ptr %call1.val.i.i, i64 56
   %call1.val.i = load ptr, ptr %41, align 8
-  %call73.i = call fastcc i32 @register_task(ptr %call1.val.i, ptr noundef nonnull %self)
+  %call73.i = call fastcc i32 @register_task.argprom(ptr %call1.val.i, ptr noundef nonnull %self)
   br label %exit
 
 exit:                                             ; preds = %if.end72.i, %if.end68.i, %if.then62.i, %if.then55.i, %Py_XDECREF.exit69.i, %Py_XDECREF.exit.i, %if.then6.i, %is_coroutine.exit.i, %if.then7.i.i.i, %if.then3.i.i, %skip_optional_kwonly, %if.end46, %cond.end15
@@ -10056,13 +10056,13 @@ entry:
   %1 = load i32, ptr %self.val, align 8
   %add.i.i.i = add i32 %1, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_asyncio_Task_get_coro_impl.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_asyncio_Task_get_coro_impl.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   store i32 %add.i.i.i, ptr %self.val, align 8
-  br label %_asyncio_Task_get_coro_impl.exit
+  br label %_asyncio_Task_get_coro_impl.argprom.exit
 
-_asyncio_Task_get_coro_impl.exit:                 ; preds = %entry, %if.end.i.i.i
+_asyncio_Task_get_coro_impl.argprom.exit:         ; preds = %entry, %if.end.i.i.i
   ret ptr %self.val
 }
 
@@ -10074,13 +10074,13 @@ entry:
   %1 = load i32, ptr %self.val, align 8
   %add.i.i.i = add i32 %1, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_asyncio_Task_get_context_impl.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_asyncio_Task_get_context_impl.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   store i32 %add.i.i.i, ptr %self.val, align 8
-  br label %_asyncio_Task_get_context_impl.exit
+  br label %_asyncio_Task_get_context_impl.argprom.exit
 
-_asyncio_Task_get_context_impl.exit:              ; preds = %entry, %if.end.i.i.i
+_asyncio_Task_get_context_impl.argprom.exit:      ; preds = %entry, %if.end.i.i.i
   ret ptr %self.val
 }
 

@@ -2816,15 +2816,15 @@ VP8LPutBits.exit.i:                               ; preds = %48, %43
   %55 = add nsw i32 %49, 14
   store i32 %55, ptr %45, align 8
   %56 = icmp sgt i32 %49, 17
-  br i1 %56, label %57, label %WriteImageSize.exit
+  br i1 %56, label %57, label %WriteImageSize.argprom.exit
 
 57:                                               ; preds = %VP8LPutBits.exit.i
   call void @VP8LPutBitsFlushBits(ptr noundef nonnull %5) #8
   %.pre.i6.i = load i32, ptr %45, align 8
   %.pre.i = load i64, ptr %5, align 8
-  br label %WriteImageSize.exit
+  br label %WriteImageSize.argprom.exit
 
-WriteImageSize.exit:                              ; preds = %VP8LPutBits.exit.i, %57
+WriteImageSize.argprom.exit:                      ; preds = %VP8LPutBits.exit.i, %57
   %58 = phi i64 [ %.pre.i, %57 ], [ %54, %VP8LPutBits.exit.i ]
   %59 = phi i32 [ %.pre.i6.i, %57 ], [ %55, %VP8LPutBits.exit.i ]
   %60 = add nsw i32 %.val62, -1
@@ -2840,11 +2840,11 @@ WriteImageSize.exit:                              ; preds = %VP8LPutBits.exit.i,
   %.not.i.not = icmp eq i32 %67, 0
   br i1 %.not.i.not, label %70, label %68
 
-68:                                               ; preds = %WriteImageSize.exit
+68:                                               ; preds = %WriteImageSize.argprom.exit
   %69 = call i32 @WebPEncodingSetError(ptr noundef nonnull %1, i32 noundef 1) #8
   br label %118
 
-70:                                               ; preds = %WriteImageSize.exit
+70:                                               ; preds = %WriteImageSize.argprom.exit
   %71 = call i32 @WebPPictureHasTransparency(ptr noundef nonnull %1) #8
   %72 = load i32, ptr %45, align 8
   %73 = icmp sgt i32 %72, 31
@@ -4316,8 +4316,8 @@ define internal fastcc i32 @StoreImageToBitMask(ptr noundef %0, i32 noundef %1, 
     i8 1, label %62
   ]
 
-.preheader:                                       ; preds = %33, %WriteHuffmanCode.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %WriteHuffmanCode.exit ], [ 0, %33 ]
+.preheader:                                       ; preds = %33, %WriteHuffmanCode.argprom.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %WriteHuffmanCode.argprom.exit ], [ 0, %33 ]
   %35 = getelementptr inbounds [4 x i8], ptr @StoreImageToBitMask.order, i64 0, i64 %indvars.iv
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
@@ -4337,7 +4337,7 @@ define internal fastcc i32 @StoreImageToBitMask(ptr noundef %0, i32 noundef %1, 
   %48 = getelementptr inbounds i16, ptr %.val86, i64 %44
   %49 = load i16, ptr %48, align 2
   %.not.i = icmp eq i8 %46, 0
-  br i1 %.not.i, label %WriteHuffmanCode.exit, label %50
+  br i1 %.not.i, label %WriteHuffmanCode.argprom.exit, label %50
 
 50:                                               ; preds = %.preheader
   %51 = load i32, ptr %18, align 8
@@ -4359,12 +4359,12 @@ define internal fastcc i32 @StoreImageToBitMask(ptr noundef %0, i32 noundef %1, 
   store i64 %60, ptr %0, align 8
   %61 = add nsw i32 %55, %47
   store i32 %61, ptr %18, align 8
-  br label %WriteHuffmanCode.exit
+  br label %WriteHuffmanCode.argprom.exit
 
-WriteHuffmanCode.exit:                            ; preds = %.preheader, %54
+WriteHuffmanCode.argprom.exit:                    ; preds = %.preheader, %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %WriteHuffmanCode.exit98, label %.preheader, !llvm.loop !52
+  br i1 %exitcond.not, label %WriteHuffmanCode.argprom.exit98, label %.preheader, !llvm.loop !52
 
 62:                                               ; preds = %33
   %.val91 = load i32, ptr %34, align 4
@@ -4380,7 +4380,7 @@ WriteHuffmanCode.exit:                            ; preds = %.preheader, %54
   %70 = getelementptr inbounds i16, ptr %.172.val87, i64 %66
   %71 = load i16, ptr %70, align 2
   %.not.i96 = icmp eq i8 %68, 0
-  br i1 %.not.i96, label %WriteHuffmanCode.exit98, label %72
+  br i1 %.not.i96, label %WriteHuffmanCode.argprom.exit98, label %72
 
 72:                                               ; preds = %62
   %73 = load i32, ptr %18, align 8
@@ -4401,7 +4401,7 @@ WriteHuffmanCode.exit:                            ; preds = %.preheader, %54
   %82 = or i64 %80, %81
   store i64 %82, ptr %0, align 8
   %83 = add nsw i32 %77, %69
-  br label %WriteHuffmanCode.exit98.sink.split
+  br label %WriteHuffmanCode.argprom.exit98.sink.split
 
 84:                                               ; preds = %33
   %.val92 = load i32, ptr %34, align 4
@@ -4458,7 +4458,7 @@ VP8LPrefixEncode.exit:                            ; preds = %88, %96
   %119 = or i32 %118, %117
   %120 = add nsw i32 %.0115, %114
   %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %122, label %WriteHuffmanCodeWithExtraBits.exit
+  br i1 %121, label %122, label %WriteHuffmanCodeWithExtraBits.argprom.exit
 
 122:                                              ; preds = %VP8LPrefixEncode.exit
   %123 = load i32, ptr %18, align 8
@@ -4480,13 +4480,13 @@ VP8LPrefixEncode.exit:                            ; preds = %88, %96
   store i64 %132, ptr %0, align 8
   %133 = add nsw i32 %127, %120
   store i32 %133, ptr %18, align 8
-  br label %WriteHuffmanCodeWithExtraBits.exit
+  br label %WriteHuffmanCodeWithExtraBits.argprom.exit
 
-WriteHuffmanCodeWithExtraBits.exit:               ; preds = %VP8LPrefixEncode.exit, %126
+WriteHuffmanCodeWithExtraBits.argprom.exit:       ; preds = %VP8LPrefixEncode.exit, %126
   %134 = icmp slt i32 %.val92, 512
   br i1 %134, label %135, label %143
 
-135:                                              ; preds = %WriteHuffmanCodeWithExtraBits.exit
+135:                                              ; preds = %WriteHuffmanCodeWithExtraBits.argprom.exit
   %136 = sext i32 %.val92 to i64
   %137 = getelementptr inbounds [512 x %struct.VP8LPrefixCode], ptr @kPrefixEncodeCode, i64 0, i64 %136
   %.sroa.0.0.copyload.i101 = load i8, ptr %137, align 2
@@ -4499,7 +4499,7 @@ WriteHuffmanCodeWithExtraBits.exit:               ; preds = %VP8LPrefixEncode.ex
   %142 = zext i8 %141 to i32
   br label %VP8LPrefixEncode.exit104
 
-143:                                              ; preds = %WriteHuffmanCodeWithExtraBits.exit
+143:                                              ; preds = %WriteHuffmanCodeWithExtraBits.argprom.exit
   %144 = add nsw i32 %.val92, -1
   %145 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %144, i1 true)
   %146 = sub nuw nsw i32 30, %145
@@ -4528,7 +4528,7 @@ VP8LPrefixEncode.exit104:                         ; preds = %135, %143
   %160 = getelementptr inbounds i16, ptr %.val89, i64 %156
   %161 = load i16, ptr %160, align 2
   %.not.i105 = icmp eq i8 %158, 0
-  br i1 %.not.i105, label %WriteHuffmanCode.exit107, label %162
+  br i1 %.not.i105, label %WriteHuffmanCode.argprom.exit107, label %162
 
 162:                                              ; preds = %VP8LPrefixEncode.exit104
   %163 = load i32, ptr %18, align 8
@@ -4550,13 +4550,13 @@ VP8LPrefixEncode.exit104:                         ; preds = %135, %143
   store i64 %172, ptr %0, align 8
   %173 = add nsw i32 %167, %159
   store i32 %173, ptr %18, align 8
-  br label %WriteHuffmanCode.exit107
+  br label %WriteHuffmanCode.argprom.exit107
 
-WriteHuffmanCode.exit107:                         ; preds = %VP8LPrefixEncode.exit104, %166
+WriteHuffmanCode.argprom.exit107:                 ; preds = %VP8LPrefixEncode.exit104, %166
   %174 = icmp sgt i32 %.1116, 0
-  br i1 %174, label %175, label %WriteHuffmanCode.exit98
+  br i1 %174, label %175, label %WriteHuffmanCode.argprom.exit98
 
-175:                                              ; preds = %WriteHuffmanCode.exit107
+175:                                              ; preds = %WriteHuffmanCode.argprom.exit107
   %176 = load i32, ptr %18, align 8
   %177 = icmp sgt i32 %176, 31
   br i1 %177, label %178, label %179
@@ -4575,14 +4575,14 @@ WriteHuffmanCode.exit107:                         ; preds = %VP8LPrefixEncode.ex
   %185 = or i64 %183, %184
   store i64 %185, ptr %0, align 8
   %186 = add nsw i32 %180, %.1116
-  br label %WriteHuffmanCode.exit98.sink.split
+  br label %WriteHuffmanCode.argprom.exit98.sink.split
 
-WriteHuffmanCode.exit98.sink.split:               ; preds = %76, %179
+WriteHuffmanCode.argprom.exit98.sink.split:       ; preds = %76, %179
   %.sink = phi i32 [ %186, %179 ], [ %83, %76 ]
   store i32 %.sink, ptr %18, align 8
-  br label %WriteHuffmanCode.exit98
+  br label %WriteHuffmanCode.argprom.exit98
 
-WriteHuffmanCode.exit98:                          ; preds = %WriteHuffmanCode.exit, %WriteHuffmanCode.exit98.sink.split, %WriteHuffmanCode.exit107, %62
+WriteHuffmanCode.argprom.exit98:                  ; preds = %WriteHuffmanCode.argprom.exit, %WriteHuffmanCode.argprom.exit98.sink.split, %WriteHuffmanCode.argprom.exit107, %62
   %187 = getelementptr i8, ptr %.val134, i64 2
   %.val95 = load i16, ptr %187, align 2
   %188 = zext i16 %.val95 to i32
@@ -4590,17 +4590,17 @@ WriteHuffmanCode.exit98:                          ; preds = %WriteHuffmanCode.ex
   %.not82123 = icmp slt i32 %189, %1
   br i1 %.not82123, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %WriteHuffmanCode.exit98, %.lr.ph
-  %.1125 = phi i32 [ %190, %.lr.ph ], [ %189, %WriteHuffmanCode.exit98 ]
-  %.165124 = phi i32 [ %191, %.lr.ph ], [ %.064132, %WriteHuffmanCode.exit98 ]
+.lr.ph:                                           ; preds = %WriteHuffmanCode.argprom.exit98, %.lr.ph
+  %.1125 = phi i32 [ %190, %.lr.ph ], [ %189, %WriteHuffmanCode.argprom.exit98 ]
+  %.165124 = phi i32 [ %191, %.lr.ph ], [ %.064132, %WriteHuffmanCode.argprom.exit98 ]
   %190 = sub nsw i32 %.1125, %1
   %191 = add nsw i32 %.165124, 1
   %.not82 = icmp slt i32 %190, %1
   br i1 %.not82, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
-._crit_edge:                                      ; preds = %.lr.ph, %WriteHuffmanCode.exit98
-  %.165.lcssa = phi i32 [ %.064132, %WriteHuffmanCode.exit98 ], [ %191, %.lr.ph ]
-  %.1.lcssa = phi i32 [ %189, %WriteHuffmanCode.exit98 ], [ %190, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %WriteHuffmanCode.argprom.exit98
+  %.165.lcssa = phi i32 [ %.064132, %WriteHuffmanCode.argprom.exit98 ], [ %191, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %189, %WriteHuffmanCode.argprom.exit98 ], [ %190, %.lr.ph ]
   %192 = load ptr, ptr %8, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 8
   store ptr %193, ptr %8, align 8

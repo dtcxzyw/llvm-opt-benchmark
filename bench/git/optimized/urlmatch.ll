@@ -180,7 +180,7 @@ if.then41:                                        ; preds = %if.then38
   %sub.ptr.lhs.cast = ptrtoint ptr %call33 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %url.addr.0.lcssa to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call42 = call fastcc i32 @append_normalized_escapes(ptr noundef %norm, ptr noundef nonnull %url.addr.0.lcssa, i64 noundef %sub.ptr.sub)
+  %call42 = call fastcc i32 @append_normalized_escapes.argprom(ptr noundef %norm, ptr noundef nonnull %url.addr.0.lcssa, i64 noundef %sub.ptr.sub)
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.then44, label %if.end51
 
@@ -628,7 +628,7 @@ if.end267:                                        ; preds = %if.end259, %if.then
   %url.addr.5 = getelementptr inbounds i8, ptr %url.addr.3, i64 %url.addr.5.idx
   %64 = load i64, ptr %len268, align 8
   %call279323 = call i64 @strcspn(ptr noundef nonnull %url.addr.5, ptr noundef nonnull @.str.2) #13
-  %call284325 = call fastcc i32 @append_normalized_escapes(ptr noundef %norm, ptr noundef nonnull %url.addr.5, i64 noundef %call279323)
+  %call284325 = call fastcc i32 @append_normalized_escapes.argprom(ptr noundef %norm, ptr noundef nonnull %url.addr.5, i64 noundef %call279323)
   %tobool285.not326 = icmp eq i32 %call284325, 0
   br i1 %tobool285.not326, label %if.then286, label %if.end293.lr.ph
 
@@ -857,7 +857,7 @@ if.end363:                                        ; preds = %strbuf_addch.exit28
   %90 = load i64, ptr %len268, align 8
   %call279 = call i64 @strcspn(ptr noundef nonnull %incdec.ptr359, ptr noundef nonnull @.str.2) #13
   %add.ptr280 = getelementptr inbounds i8, ptr %incdec.ptr359, i64 %call279
-  %call284 = call fastcc i32 @append_normalized_escapes(ptr noundef %norm, ptr noundef nonnull %incdec.ptr359, i64 noundef %call279)
+  %call284 = call fastcc i32 @append_normalized_escapes.argprom(ptr noundef %norm, ptr noundef nonnull %incdec.ptr359, i64 noundef %call279)
   %tobool285.not = icmp eq i32 %call284, 0
   br i1 %tobool285.not, label %if.then286, label %if.end293
 
@@ -868,7 +868,7 @@ for.end:                                          ; preds = %if.end349
   br i1 %tobool366.not, label %if.end378, label %if.then367
 
 if.then367:                                       ; preds = %for.end
-  %call368 = call fastcc i32 @append_normalized_escapes(ptr noundef %norm, ptr noundef nonnull %add.ptr280329, i64 noundef %sub353)
+  %call368 = call fastcc i32 @append_normalized_escapes.argprom(ptr noundef %norm, ptr noundef nonnull %add.ptr280329, i64 noundef %sub353)
   %tobool369.not = icmp eq i32 %call368, 0
   br i1 %tobool369.not, label %if.then370, label %if.end378
 
@@ -1423,7 +1423,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @append_normalized_escapes(ptr noundef nonnull %buf, ptr nocapture noundef readonly %from, i64 noundef %from_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @append_normalized_escapes.argprom(ptr noundef nonnull %buf, ptr nocapture noundef readonly %from, i64 noundef %from_len) unnamed_addr #0 {
 entry:
   %tobool.not1 = icmp eq i64 %from_len, 0
   br i1 %tobool.not1, label %return, label %while.body.lr.ph

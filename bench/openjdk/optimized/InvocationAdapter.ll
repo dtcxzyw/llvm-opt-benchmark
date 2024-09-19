@@ -279,7 +279,7 @@ define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr no
   %61 = load ptr, ptr %4, align 8
   %62 = getelementptr i8, ptr %61, i64 8
   %.val = load ptr, ptr %62, align 8
-  call fastcc void @appendBootClassPath(ptr %.val, ptr noundef %12, ptr noundef %59)
+  call fastcc void @appendBootClassPath.argprom(ptr %.val, ptr noundef %12, ptr noundef %59)
   br label %63
 
 63:                                               ; preds = %58, %60
@@ -435,7 +435,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare void @convertUtf8ToModifiedUtf8(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @appendBootClassPath(ptr %.8.val, ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @appendBootClassPath.argprom(ptr %.8.val, ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca [4096 x i8], align 16
   %5 = load i8, ptr %1, align 1
@@ -899,7 +899,7 @@ define i32 @Agent_OnAttach(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %43 = call i32 %42(ptr noundef nonnull %.val82, ptr noundef %17) #15
   switch i32 %43, label %47 [
     i32 112, label %50
-    i32 0, label %appendClassPath.exit
+    i32 0, label %appendClassPath.argprom.exit
     i32 106, label %44
   ]
 
@@ -929,7 +929,7 @@ define i32 @Agent_OnAttach(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   call void @freeAttributes(ptr noundef nonnull %21) #15
   br label %109
 
-appendClassPath.exit:                             ; preds = %37
+appendClassPath.argprom.exit:                     ; preds = %37
   %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #16
   %57 = trunc i64 %56 to i32
   %58 = call i32 @modifiedUtf8LengthOfUtf8(ptr noundef nonnull %29, i32 noundef %57) #15
@@ -938,7 +938,7 @@ appendClassPath.exit:                             ; preds = %37
   %or.cond3 = select i1 %59, i1 true, i1 %60
   br i1 %or.cond3, label %61, label %67
 
-61:                                               ; preds = %appendClassPath.exit
+61:                                               ; preds = %appendClassPath.argprom.exit
   %62 = load ptr, ptr @stderr, align 8
   %63 = call i64 @fwrite(ptr nonnull @.str.23, i64 29, i64 1, ptr %62) #17
   call void @free(ptr noundef %17) #15
@@ -954,7 +954,7 @@ appendClassPath.exit:                             ; preds = %37
   call void @freeAttributes(ptr noundef nonnull %21) #15
   br label %109
 
-67:                                               ; preds = %appendClassPath.exit
+67:                                               ; preds = %appendClassPath.argprom.exit
   %68 = icmp eq i32 %58, %57
   br i1 %68, label %73, label %69
 
@@ -998,7 +998,7 @@ appendClassPath.exit:                             ; preds = %37
   %82 = load ptr, ptr %4, align 8
   %83 = getelementptr i8, ptr %82, i64 8
   %.val = load ptr, ptr %83, align 8
-  call fastcc void @appendBootClassPath(ptr %.val, ptr noundef %17, ptr noundef %80)
+  call fastcc void @appendBootClassPath.argprom(ptr %.val, ptr noundef %17, ptr noundef %80)
   br label %84
 
 84:                                               ; preds = %81, %79
@@ -1167,7 +1167,7 @@ define hidden range(i32 -1, 1) i32 @loadAgent(ptr noundef %0, ptr noundef %1) lo
   %49 = load ptr, ptr %4, align 8
   %50 = getelementptr i8, ptr %49, i64 8
   %.val = load ptr, ptr %50, align 8
-  call fastcc void @appendBootClassPath(ptr %.val, ptr noundef nonnull %14, ptr noundef %47)
+  call fastcc void @appendBootClassPath.argprom(ptr %.val, ptr noundef nonnull %14, ptr noundef %47)
   br label %51
 
 51:                                               ; preds = %48, %46
@@ -1244,7 +1244,7 @@ define hidden void @eventHandlerVMInit(ptr noundef %0, ptr noundef %1, ptr nocap
   %16 = tail call i32 %15(ptr noundef nonnull %.val, ptr noundef %11) #15
   switch i32 %16, label %20 [
     i32 112, label %23
-    i32 0, label %appendClassPath.exit
+    i32 0, label %appendClassPath.argprom.exit
     i32 106, label %17
   ]
 
@@ -1265,9 +1265,9 @@ define hidden void @eventHandlerVMInit(ptr noundef %0, ptr noundef %1, ptr nocap
   %27 = load ptr, ptr %10, align 8
   tail call void @free(ptr noundef %27) #15
   tail call void @abortJVM(ptr noundef %1, ptr noundef nonnull @.str.34) #15
-  br label %appendClassPath.exit
+  br label %appendClassPath.argprom.exit
 
-appendClassPath.exit:                             ; preds = %7, %23
+appendClassPath.argprom.exit:                     ; preds = %7, %23
   %28 = tail call ptr @preserveThrowable(ptr noundef %1) #15
   %29 = load ptr, ptr %8, align 8
   %30 = tail call zeroext i8 @processJavaStart(ptr noundef %29, ptr noundef %1) #15
@@ -1275,11 +1275,11 @@ appendClassPath.exit:                             ; preds = %7, %23
   %.not15 = icmp eq i8 %30, 0
   br i1 %.not15, label %31, label %32
 
-31:                                               ; preds = %appendClassPath.exit
+31:                                               ; preds = %appendClassPath.argprom.exit
   tail call void @abortJVM(ptr noundef %1, ptr noundef nonnull @.str.35) #15
   br label %32
 
-32:                                               ; preds = %31, %appendClassPath.exit
+32:                                               ; preds = %31, %appendClassPath.argprom.exit
   ret void
 }
 

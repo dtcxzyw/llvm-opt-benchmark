@@ -1639,7 +1639,7 @@ if.then6:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  tail call fastcc void @ch_discard_el(ptr noundef nonnull %ch, i32 noundef 1)
+  tail call fastcc void @ch_discard_el.retelim(ptr noundef nonnull %ch, i32 noundef 1)
   %bf.load9 = load i64, ptr %handshake_confirmed, align 8
   %bf.set = or i64 %bf.load9, 512
   store i64 %bf.set, ptr %handshake_confirmed, align 8
@@ -1745,7 +1745,7 @@ return:                                           ; preds = %entry, %ch_save_err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ch_discard_el(ptr nocapture noundef %ch, i32 noundef range(i32 0, 2) %enc_level) unnamed_addr #0 {
+define internal fastcc void @ch_discard_el.retelim(ptr nocapture noundef %ch, i32 noundef range(i32 0, 2) %enc_level) unnamed_addr #0 {
 entry:
   %el_discarded = getelementptr inbounds i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %el_discarded, align 8
@@ -4035,7 +4035,7 @@ if.then38:                                        ; preds = %if.end28
   br i1 %tobool.not.i, label %if.end7.i, label %ossl_quic_channel_on_handshake_confirmed.exit
 
 if.end7.i:                                        ; preds = %if.then38
-  tail call fastcc void @ch_discard_el(ptr noundef nonnull %arg, i32 noundef 1)
+  tail call fastcc void @ch_discard_el.retelim(ptr noundef nonnull %arg, i32 noundef 1)
   %bf.load9.i = load i64, ptr %handshake_complete, align 8
   %bf.set.i = or i64 %bf.load9.i, 512
   store i64 %bf.set.i, ptr %handshake_complete, align 8
@@ -4877,7 +4877,7 @@ sw.bb172.i.i:                                     ; preds = %if.end113.i.i, %if.
   br i1 %or.cond85.i.i, label %if.then185.i.i, label %if.end187.i.i
 
 if.then185.i.i:                                   ; preds = %sw.bb172.i.i
-  call fastcc void @ch_discard_el(ptr noundef nonnull %arg, i32 noundef 0)
+  call fastcc void @ch_discard_el.retelim(ptr noundef nonnull %arg, i32 noundef 0)
   %bf.load188.pre.i.i = load i64, ptr %state.i, align 8
   %.pre93.pre94.pre.i.i = load ptr, ptr %qrx_pkt.i, align 8
   br label %if.end187.i.i
@@ -5508,7 +5508,7 @@ if.end30.i:                                       ; preds = %ch_update_idle.exit
   br i1 %or.cond.i111, label %if.then38.i, label %if.end40.i
 
 if.then38.i:                                      ; preds = %if.end30.i
-  call fastcc void @ch_discard_el(ptr noundef nonnull %arg, i32 noundef 0)
+  call fastcc void @ch_discard_el.retelim(ptr noundef nonnull %arg, i32 noundef 0)
   %bf.load42.pre.i = load i64, ptr %state.i, align 8
   br label %if.end40.i
 

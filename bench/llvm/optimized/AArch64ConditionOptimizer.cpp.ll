@@ -755,8 +755,8 @@ _ZNSt6vectorISt4pairIPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEESt8optio
   br i1 %238, label %239, label %248
 
 239:                                              ; preds = %235
-  call fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjustCmpEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeE(ptr dead_on_unwind noalias writable align 4 %12, ptr noundef %199, i32 noundef %211)
-  call fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjustCmpEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeE(ptr dead_on_unwind noalias writable align 4 %13, ptr noundef %202, i32 noundef %219)
+  call fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjustCmpEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeE.argprom(ptr dead_on_unwind noalias writable align 4 %12, ptr noundef %199, i32 noundef %211)
+  call fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjustCmpEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeE.argprom(ptr dead_on_unwind noalias writable align 4 %13, ptr noundef %202, i32 noundef %219)
   %240 = load i32, ptr %97, align 4
   %241 = load i32, ptr %98, align 4
   %242 = icmp eq i32 %240, %241
@@ -1290,7 +1290,7 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef no
 declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjustCmpEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjustCmpEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %5 = load i16, ptr %4, align 4
   %6 = icmp eq i16 %5, 1447
@@ -2231,8 +2231,8 @@ attributes #19 = { builtin nounwind }
 !38 = distinct !{!38, !39, !"_ZN4llvm14MachineOperand9CreateImmEl: argument 0"}
 !39 = distinct !{!39, !"_ZN4llvm14MachineOperand9CreateImmEl"}
 !40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjustCmpEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeE: argument 0"}
-!42 = distinct !{!42, !"_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjustCmpEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeE"}
+!41 = distinct !{!41, !42, !"_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjustCmpEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeE.argprom: argument 0"}
+!42 = distinct !{!42, !"_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9adjustCmpEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeE.argprom"}
 !43 = distinct !{!43, !8}
 !44 = !{!45, !47}
 !45 = distinct !{!45, !46, !"_ZN4llvm15SmallPtrSetImplIPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEEE6insertES4_: argument 0"}

@@ -103,7 +103,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN19Abstract_VM_Version9_featuresE = external local_unnamed_addr global i64, align 8
 @UseCompressedClassPointers = external local_unnamed_addr global i8, align 1
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler = private unnamed_addr constant [3 x i32] [i32 16, i32 32, i32 64], align 4
+@switch.table._ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler.argelim = private unnamed_addr constant [3 x i32] [i32 16, i32 32, i32 64], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13StubGenerator24generate_arraycopy_stubsEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
@@ -3915,7 +3915,7 @@ define hidden noundef ptr @_ZN13StubGenerator25generate_unsafe_setmemoryEPKcPh(p
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %47, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %8, i1 noundef zeroext true) #8
   call void @_ZN22UnsafeMemoryAccessMarkC1EP17StubCodeGeneratorbbPh(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %0, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null) #8
   %48 = load ptr, ptr %14, align 8
-  call fastcc void @_ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef %48)
+  call fastcc void @_ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler.argelim(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef %48)
   call void @_ZN22UnsafeMemoryAccessMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #8
   %49 = load ptr, ptr %14, align 8
   call void @_ZN9Assembler6jmpb_0ER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef nonnull @.str.27, i32 noundef 2638) #8
@@ -3923,7 +3923,7 @@ define hidden noundef ptr @_ZN13StubGenerator25generate_unsafe_setmemoryEPKcPh(p
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(33) %6) #8
   call void @_ZN22UnsafeMemoryAccessMarkC1EP17StubCodeGeneratorbbPh(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %0, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null) #8
   %51 = load ptr, ptr %14, align 8
-  call fastcc void @_ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef %51)
+  call fastcc void @_ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler.argelim(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef %51)
   call void @_ZN22UnsafeMemoryAccessMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #8
   %52 = load ptr, ptr %14, align 8
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(33) %5) #8
@@ -3935,7 +3935,7 @@ define hidden noundef ptr @_ZN13StubGenerator25generate_unsafe_setmemoryEPKcPh(p
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(33) %7) #8
   call void @_ZN22UnsafeMemoryAccessMarkC1EP17StubCodeGeneratorbbPh(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %0, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null) #8
   %56 = load ptr, ptr %14, align 8
-  call fastcc void @_ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef %56)
+  call fastcc void @_ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler.argelim(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef %56)
   call void @_ZN22UnsafeMemoryAccessMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #8
   %57 = load ptr, ptr %14, align 8
   call void @_ZN9Assembler6jmpb_0ER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef nonnull @.str.27, i32 noundef 2669) #8
@@ -10191,7 +10191,7 @@ declare void @_ZN9Assembler5imulqE8RegisterS0_(ptr noundef nonnull align 8 deref
 declare void @_ZN9Assembler3orqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler(i32 noundef range(i32 0, 3) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler.argelim(i32 noundef range(i32 0, 3) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %2) unnamed_addr #0 {
 switch.lookup:
   %3 = alloca %class.Label, align 8
   %4 = alloca %class.Label, align 8
@@ -10224,7 +10224,7 @@ switch.lookup:
   %20 = getelementptr inbounds i8, ptr %5, i64 32
   store i8 0, ptr %20, align 8
   %21 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler.argelim, i64 0, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %switch.offset = add nuw nsw i32 %0, 1
   tail call void @_ZN9Assembler4shrqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 6, i32 noundef %switch.offset) #8

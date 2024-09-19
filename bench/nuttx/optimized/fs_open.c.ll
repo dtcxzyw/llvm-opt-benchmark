@@ -87,11 +87,11 @@ define internal fastcc i32 @file_vopen(ptr noundef %0, ptr noundef %1, i32 nound
   %47 = getelementptr i8, ptr %39, i64 32
   %.val55 = load ptr, ptr %47, align 8
   %48 = icmp eq i16 %44, 0
-  br i1 %48, label %inode_checkflags.exit, label %49
+  br i1 %48, label %inode_checkflags.argprom.exit, label %49
 
 49:                                               ; preds = %._crit_edge
   %50 = icmp eq ptr %.val55, null
-  br i1 %50, label %inode_checkflags.exit.thread, label %51
+  br i1 %50, label %inode_checkflags.argprom.exit.thread, label %51
 
 51:                                               ; preds = %49
   %52 = and i32 %2, 1
@@ -108,26 +108,26 @@ define internal fastcc i32 @file_vopen(ptr noundef %0, ptr noundef %1, i32 nound
   %57 = getelementptr inbounds i8, ptr %.val55, i64 40
   %58 = load ptr, ptr %57, align 8
   %.not11.i = icmp eq ptr %58, null
-  br i1 %.not11.i, label %inode_checkflags.exit.thread, label %59
+  br i1 %.not11.i, label %inode_checkflags.argprom.exit.thread, label %59
 
 59:                                               ; preds = %56, %53, %51
   %60 = and i32 %2, 2
   %.not12.i = icmp eq i32 %60, 0
-  br i1 %.not12.i, label %inode_checkflags.exit, label %61
+  br i1 %.not12.i, label %inode_checkflags.argprom.exit, label %61
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds i8, ptr %.val55, i64 24
   %63 = load ptr, ptr %62, align 8
   %.not13.i = icmp eq ptr %63, null
-  br i1 %.not13.i, label %64, label %inode_checkflags.exit
+  br i1 %.not13.i, label %64, label %inode_checkflags.argprom.exit
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds i8, ptr %.val55, i64 40
   %66 = load ptr, ptr %65, align 8
   %.not14.i = icmp eq ptr %66, null
-  br i1 %.not14.i, label %inode_checkflags.exit.thread, label %inode_checkflags.exit
+  br i1 %.not14.i, label %inode_checkflags.argprom.exit.thread, label %inode_checkflags.argprom.exit
 
-inode_checkflags.exit:                            ; preds = %59, %61, %64, %._crit_edge
+inode_checkflags.argprom.exit:                    ; preds = %59, %61, %64, %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i32 %2, ptr %0, align 8
   %67 = getelementptr inbounds i8, ptr %0, i64 8
@@ -136,15 +136,15 @@ inode_checkflags.exit:                            ; preds = %59, %61, %64, %._cr
   %.not50 = icmp eq i32 %68, 0
   br i1 %.not50, label %72, label %69
 
-69:                                               ; preds = %inode_checkflags.exit
+69:                                               ; preds = %inode_checkflags.argprom.exit
   %70 = load ptr, ptr %30, align 8
   %71 = call i32 @dir_allocate(ptr noundef nonnull %0, ptr noundef %70) #6
   br label %86
 
-72:                                               ; preds = %inode_checkflags.exit
+72:                                               ; preds = %inode_checkflags.argprom.exit
   %73 = load i16, ptr %46, align 2
   %74 = and i16 %73, 15
-  switch i16 %74, label %inode_checkflags.exit.thread [
+  switch i16 %74, label %inode_checkflags.argprom.exit.thread [
     i16 3, label %75
     i16 1, label %81
     i16 10, label %81
@@ -184,22 +184,22 @@ inode_checkflags.exit:                            ; preds = %59, %61, %64, %._cr
 .thread:                                          ; preds = %88, %86
   %.2 = phi i32 [ %90, %88 ], [ %.1, %86 ]
   %91 = icmp slt i32 %.2, 0
-  br i1 %91, label %inode_checkflags.exit.thread, label %.thread.thread
+  br i1 %91, label %inode_checkflags.argprom.exit.thread, label %.thread.thread
 
 .thread.thread:                                   ; preds = %75, %81, %.thread
   %92 = load ptr, ptr %31, align 8
   %.not53 = icmp eq ptr %92, null
   br i1 %.not53, label %96, label %.sink.split
 
-inode_checkflags.exit.thread:                     ; preds = %72, %56, %64, %49, %.thread
+inode_checkflags.argprom.exit.thread:             ; preds = %72, %56, %64, %49, %.thread
   %.0 = phi i32 [ %.2, %.thread ], [ -13, %56 ], [ -13, %64 ], [ -6, %49 ], [ -6, %72 ]
   %93 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %93, align 8
   call void @inode_release(ptr noundef nonnull %39) #6
   br label %94
 
-94:                                               ; preds = %26, %inode_checkflags.exit.thread
-  %.3 = phi i32 [ %36, %26 ], [ %.0, %inode_checkflags.exit.thread ]
+94:                                               ; preds = %26, %inode_checkflags.argprom.exit.thread
+  %.3 = phi i32 [ %36, %26 ], [ %.0, %inode_checkflags.argprom.exit.thread ]
   %95 = load ptr, ptr %31, align 8
   %.not54 = icmp eq ptr %95, null
   br i1 %.not54, label %96, label %.sink.split

@@ -1908,7 +1908,7 @@ entry:
   %arrayidx = getelementptr [8 x %struct.QCryptoBlockLUKSKeySlot], ptr %key_slots, i64 0, i64 %slot_idx
   %1 = load i32, ptr %arrayidx, align 4
   %cmp2.not = icmp eq i32 %1, 11301363
-  br i1 %cmp2.not, label %if.end4, label %glib_autoptr_cleanup_QCryptoCipher.exit
+  br i1 %cmp2.not, label %if.end4, label %glib_autoptr_cleanup_QCryptoCipher.argprom.exit
 
 if.end4:                                          ; preds = %entry
   %master_key_len = getelementptr inbounds i8, ptr %0, i64 108
@@ -1932,7 +1932,7 @@ if.end4:                                          ; preds = %entry
   %conv14 = zext i32 %7 to i64
   %call15 = tail call i32 @qcrypto_pbkdf2(i32 noundef %5, ptr noundef %password, i64 noundef %call10, ptr noundef nonnull %salt, i64 noundef 32, i64 noundef %conv11, ptr noundef %call9, i64 noundef %conv14, ptr noundef %errp) #16
   %cmp16 = icmp slt i32 %call15, 0
-  br i1 %cmp16, label %glib_autoptr_cleanup_QCryptoCipher.exit, label %if.end19
+  br i1 %cmp16, label %glib_autoptr_cleanup_QCryptoCipher.argprom.exit, label %if.end19
 
 if.end19:                                         ; preds = %if.end4
   %key_offset_sector = getelementptr inbounds i8, ptr %arrayidx, i64 40
@@ -1941,7 +1941,7 @@ if.end19:                                         ; preds = %if.end4
   %mul21 = shl nuw nsw i64 %conv20, 9
   %call22 = tail call i32 %readfunc(ptr noundef nonnull %block, i64 noundef %mul21, ptr noundef %call, i64 noundef %conv, ptr noundef %opaque, ptr noundef %errp) #16
   %cmp23 = icmp slt i32 %call22, 0
-  br i1 %cmp23, label %glib_autoptr_cleanup_QCryptoCipher.exit, label %if.end26
+  br i1 %cmp23, label %glib_autoptr_cleanup_QCryptoCipher.argprom.exit, label %if.end26
 
 if.end26:                                         ; preds = %if.end19
   %cipher_alg = getelementptr inbounds i8, ptr %0, i64 592
@@ -1952,7 +1952,7 @@ if.end26:                                         ; preds = %if.end19
   %conv29 = zext i32 %11 to i64
   %call30 = tail call ptr @qcrypto_cipher_new(i32 noundef %9, i32 noundef %10, ptr noundef %call9, i64 noundef %conv29, ptr noundef %errp) #16
   %tobool.not = icmp eq ptr %call30, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_QCryptoCipher.exit, label %if.end32
+  br i1 %tobool.not, label %glib_autoptr_cleanup_QCryptoCipher.argprom.exit, label %if.end32
 
 if.end32:                                         ; preds = %if.end26
   %12 = load i32, ptr %cipher_alg, align 8
@@ -1973,7 +1973,7 @@ if.end32:                                         ; preds = %if.end26
 if.end42:                                         ; preds = %if.end32
   %call43 = tail call i32 @qcrypto_block_cipher_decrypt_helper(ptr noundef nonnull %call30, i64 noundef %call35, ptr noundef nonnull %call39, i32 noundef 512, i64 noundef 0, ptr noundef %call, i64 noundef %conv, ptr noundef %errp) #16
   %cmp44 = icmp slt i32 %call43, 0
-  br i1 %cmp44, label %glib_autoptr_cleanup_QCryptoIVGen.exit.thread, label %if.end47
+  br i1 %cmp44, label %glib_autoptr_cleanup_QCryptoIVGen.argprom.exit.thread, label %if.end47
 
 if.end47:                                         ; preds = %if.end42
   %18 = load i32, ptr %hash_alg, align 4
@@ -1982,7 +1982,7 @@ if.end47:                                         ; preds = %if.end42
   %20 = load i32, ptr %stripes, align 4
   %call53 = tail call i32 @qcrypto_afsplit_decode(i32 noundef %18, i64 noundef %conv51, i32 noundef %20, ptr noundef %call, ptr noundef %masterkey, ptr noundef %errp) #16
   %cmp54 = icmp slt i32 %call53, 0
-  br i1 %cmp54, label %glib_autoptr_cleanup_QCryptoIVGen.exit.thread, label %if.end57
+  br i1 %cmp54, label %glib_autoptr_cleanup_QCryptoIVGen.argprom.exit.thread, label %if.end57
 
 if.end57:                                         ; preds = %if.end47
   %21 = load i32, ptr %hash_alg, align 4
@@ -1994,26 +1994,26 @@ if.end57:                                         ; preds = %if.end47
   %conv65 = zext i32 %23 to i64
   %call67 = call i32 @qcrypto_pbkdf2(i32 noundef %21, ptr noundef %masterkey, i64 noundef %conv61, ptr noundef nonnull %master_key_salt, i64 noundef 32, i64 noundef %conv65, ptr noundef nonnull %keydigest, i64 noundef 20, ptr noundef %errp) #16
   %cmp68 = icmp slt i32 %call67, 0
-  br i1 %cmp68, label %glib_autoptr_cleanup_QCryptoIVGen.exit.thread, label %if.end71
+  br i1 %cmp68, label %glib_autoptr_cleanup_QCryptoIVGen.argprom.exit.thread, label %if.end71
 
 if.end71:                                         ; preds = %if.end57
   %master_key_digest = getelementptr inbounds i8, ptr %0, i64 112
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %keydigest, ptr noundef nonnull dereferenceable(20) %master_key_digest, i64 20)
   %cmp76 = icmp eq i32 %bcmp, 0
   %. = zext i1 %cmp76 to i32
-  br label %glib_autoptr_cleanup_QCryptoIVGen.exit.thread
+  br label %glib_autoptr_cleanup_QCryptoIVGen.argprom.exit.thread
 
-glib_autoptr_cleanup_QCryptoIVGen.exit.thread:    ; preds = %if.end71, %if.end57, %if.end47, %if.end42
+glib_autoptr_cleanup_QCryptoIVGen.argprom.exit.thread: ; preds = %if.end71, %if.end57, %if.end47, %if.end42
   %retval.0 = phi i32 [ -1, %if.end42 ], [ -1, %if.end47 ], [ -1, %if.end57 ], [ %., %if.end71 ]
   call void @qcrypto_ivgen_free(ptr noundef nonnull %call39) #16
   br label %if.then.i.i39
 
-if.then.i.i39:                                    ; preds = %if.end32, %glib_autoptr_cleanup_QCryptoIVGen.exit.thread
-  %retval.05258 = phi i32 [ %retval.0, %glib_autoptr_cleanup_QCryptoIVGen.exit.thread ], [ -1, %if.end32 ]
+if.then.i.i39:                                    ; preds = %if.end32, %glib_autoptr_cleanup_QCryptoIVGen.argprom.exit.thread
+  %retval.05258 = phi i32 [ %retval.0, %glib_autoptr_cleanup_QCryptoIVGen.argprom.exit.thread ], [ -1, %if.end32 ]
   call void @qcrypto_cipher_free(ptr noundef nonnull %call30) #16
-  br label %glib_autoptr_cleanup_QCryptoCipher.exit
+  br label %glib_autoptr_cleanup_QCryptoCipher.argprom.exit
 
-glib_autoptr_cleanup_QCryptoCipher.exit:          ; preds = %if.end4, %if.end19, %if.end26, %entry, %if.then.i.i39
+glib_autoptr_cleanup_QCryptoCipher.argprom.exit:  ; preds = %if.end4, %if.end19, %if.end26, %entry, %if.then.i.i39
   %splitkey.04964 = phi ptr [ %call, %if.then.i.i39 ], [ %call, %if.end4 ], [ %call, %if.end19 ], [ %call, %if.end26 ], [ null, %entry ]
   %possiblekey.05062 = phi ptr [ %call9, %if.then.i.i39 ], [ %call9, %if.end4 ], [ %call9, %if.end19 ], [ %call9, %if.end26 ], [ null, %entry ]
   %retval.05259 = phi i32 [ %retval.05258, %if.then.i.i39 ], [ -1, %if.end4 ], [ -1, %if.end19 ], [ -1, %if.end26 ], [ 0, %entry ]
@@ -2079,7 +2079,7 @@ if.end:                                           ; preds = %entry
   %salt = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %call = tail call i32 @qcrypto_random_bytes(ptr noundef nonnull %salt, i64 noundef 32, ptr noundef %errp) #16
   %cmp3 = icmp slt i32 %call, 0
-  br i1 %cmp3, label %glib_autoptr_cleanup_QCryptoCipher.exit, label %if.end6
+  br i1 %cmp3, label %glib_autoptr_cleanup_QCryptoCipher.argprom.exit, label %if.end6
 
 if.end6:                                          ; preds = %if.end
   %hash_alg = getelementptr inbounds i8, ptr %0, i64 612
@@ -2094,7 +2094,7 @@ if.end6:                                          ; preds = %if.end
 
 if.then14:                                        ; preds = %if.end6
   call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %5) #16
-  br label %glib_autoptr_cleanup_QCryptoCipher.exit
+  br label %glib_autoptr_cleanup_QCryptoCipher.argprom.exit
 
 if.end15:                                         ; preds = %if.end6
   %mul57 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %iter_time, i64 %call13)
@@ -2103,7 +2103,7 @@ if.end15:                                         ; preds = %if.end6
 
 if.then18:                                        ; preds = %if.end15
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 736, ptr noundef nonnull @__func__.qcrypto_block_luks_store_key, i32 noundef 34, ptr noundef nonnull @.str.38, i64 noundef %call13) #16
-  br label %glib_autoptr_cleanup_QCryptoCipher.exit
+  br label %glib_autoptr_cleanup_QCryptoCipher.argprom.exit
 
 if.end19:                                         ; preds = %if.end15
   %mul20 = mul i64 %call13, %iter_time
@@ -2113,7 +2113,7 @@ if.end19:                                         ; preds = %if.end15
 
 if.then24:                                        ; preds = %if.end19
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 746, ptr noundef nonnull @__func__.qcrypto_block_luks_store_key, i32 noundef 34, ptr noundef nonnull @.str.39, i64 noundef %div21, i32 noundef -1) #16
-  br label %glib_autoptr_cleanup_QCryptoCipher.exit
+  br label %glib_autoptr_cleanup_QCryptoCipher.argprom.exit
 
 if.end25:                                         ; preds = %if.end19
   %cond = call i64 @llvm.umax.i64(i64 %div21, i64 1000)
@@ -2212,24 +2212,24 @@ if.then96:                                        ; preds = %if.end94
 
 if.end97:                                         ; preds = %if.then96, %if.end94
   %tobool.not.i.i = icmp eq ptr %ivgen.0, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_QCryptoIVGen.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_QCryptoIVGen.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end97
   call void @qcrypto_ivgen_free(ptr noundef nonnull %ivgen.0) #16
-  br label %glib_autoptr_cleanup_QCryptoIVGen.exit
+  br label %glib_autoptr_cleanup_QCryptoIVGen.argprom.exit
 
-glib_autoptr_cleanup_QCryptoIVGen.exit:           ; preds = %if.end97, %if.then.i.i
+glib_autoptr_cleanup_QCryptoIVGen.argprom.exit:   ; preds = %if.end97, %if.then.i.i
   %tobool.not.i.i58 = icmp eq ptr %cipher.0, null
-  br i1 %tobool.not.i.i58, label %glib_autoptr_cleanup_QCryptoCipher.exit, label %if.then.i.i59
+  br i1 %tobool.not.i.i58, label %glib_autoptr_cleanup_QCryptoCipher.argprom.exit, label %if.then.i.i59
 
-if.then.i.i59:                                    ; preds = %glib_autoptr_cleanup_QCryptoIVGen.exit
+if.then.i.i59:                                    ; preds = %glib_autoptr_cleanup_QCryptoIVGen.argprom.exit
   call void @qcrypto_cipher_free(ptr noundef nonnull %cipher.0) #16
-  br label %glib_autoptr_cleanup_QCryptoCipher.exit
+  br label %glib_autoptr_cleanup_QCryptoCipher.argprom.exit
 
-glib_autoptr_cleanup_QCryptoCipher.exit:          ; preds = %if.end, %if.then18, %if.then24, %if.then14, %glib_autoptr_cleanup_QCryptoIVGen.exit, %if.then.i.i59
-  %splitkey.0708592103 = phi ptr [ %splitkey.0, %glib_autoptr_cleanup_QCryptoIVGen.exit ], [ %splitkey.0, %if.then.i.i59 ], [ null, %if.then14 ], [ null, %if.then24 ], [ null, %if.then18 ], [ null, %if.end ]
-  %slotkey.0718493102 = phi ptr [ %call32, %glib_autoptr_cleanup_QCryptoIVGen.exit ], [ %call32, %if.then.i.i59 ], [ null, %if.then14 ], [ null, %if.then24 ], [ null, %if.then18 ], [ null, %if.end ]
-  %ret.0748195101 = phi i32 [ %ret.0, %glib_autoptr_cleanup_QCryptoIVGen.exit ], [ %ret.0, %if.then.i.i59 ], [ -1, %if.then14 ], [ -1, %if.then24 ], [ -1, %if.then18 ], [ -1, %if.end ]
+glib_autoptr_cleanup_QCryptoCipher.argprom.exit:  ; preds = %if.end, %if.then18, %if.then24, %if.then14, %glib_autoptr_cleanup_QCryptoIVGen.argprom.exit, %if.then.i.i59
+  %splitkey.0708592103 = phi ptr [ %splitkey.0, %glib_autoptr_cleanup_QCryptoIVGen.argprom.exit ], [ %splitkey.0, %if.then.i.i59 ], [ null, %if.then14 ], [ null, %if.then24 ], [ null, %if.then18 ], [ null, %if.end ]
+  %slotkey.0718493102 = phi ptr [ %call32, %glib_autoptr_cleanup_QCryptoIVGen.argprom.exit ], [ %call32, %if.then.i.i59 ], [ null, %if.then14 ], [ null, %if.then24 ], [ null, %if.then18 ], [ null, %if.end ]
+  %ret.0748195101 = phi i32 [ %ret.0, %glib_autoptr_cleanup_QCryptoIVGen.argprom.exit ], [ %ret.0, %if.then.i.i59 ], [ -1, %if.then14 ], [ -1, %if.then24 ], [ -1, %if.then18 ], [ -1, %if.end ]
   call void @g_free(ptr noundef %slotkey.0718493102) #16
   call void @g_free(ptr noundef %splitkey.0708592103) #16
   ret i32 %ret.0748195101

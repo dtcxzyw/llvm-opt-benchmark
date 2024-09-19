@@ -6126,7 +6126,7 @@ define internal i64 @cpuset_write_resmask(ptr noundef %0, ptr noundef %1, i64 no
 213:                                              ; preds = %210
   %.val = load i64, ptr %52, align 8
   %.val28 = load i64, ptr %46, align 8
-  call fastcc void @remote_partition_check(i64 %.val, i64 %.val28, ptr noundef %45, ptr noundef nonnull %6)
+  call fastcc void @remote_partition_check.argprom(i64 %.val, i64 %.val28, ptr noundef %45, ptr noundef nonnull %6)
   br label %214
 
 214:                                              ; preds = %213, %210, %208, %206, %203
@@ -7179,7 +7179,7 @@ define internal fastcc void @remote_cpus_update(ptr noundef %0, ptr nocapture no
   store i64 %51, ptr @subpartitions_cpus, align 8
   %52 = load i32, ptr getelementptr inbounds (i8, ptr @top_cpuset, i64 304), align 8
   %53 = icmp ne i32 %52, %6
-  br i1 %53, label %54, label %partition_xcpus_add.exit
+  br i1 %53, label %54, label %partition_xcpus_add.argprom.exit
 
 54:                                               ; preds = %48
   %55 = icmp eq i32 %6, 2
@@ -7190,9 +7190,9 @@ define internal fastcc void @remote_cpus_update(ptr noundef %0, ptr nocapture no
   %60 = or i64 %57, %56
   %61 = select i1 %55, i64 %60, i64 %59
   store i64 %61, ptr @isolated_cpus, align 8
-  br label %partition_xcpus_add.exit
+  br label %partition_xcpus_add.argprom.exit
 
-partition_xcpus_add.exit:                         ; preds = %48, %54
+partition_xcpus_add.argprom.exit:                 ; preds = %48, %54
   %62 = load i64, ptr getelementptr inbounds (i8, ptr @top_cpuset, i64 224), align 8
   %63 = load i64, ptr %2, align 8
   %64 = xor i64 %63, -1
@@ -7205,8 +7205,8 @@ partition_xcpus_add.exit:                         ; preds = %48, %54
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @callback_lock) #19
   br label %68
 
-68:                                               ; preds = %67, %partition_xcpus_add.exit
-  %69 = phi i32 [ %66, %partition_xcpus_add.exit ], [ 0, %67 ]
+68:                                               ; preds = %67, %partition_xcpus_add.argprom.exit
+  %69 = phi i32 [ %66, %partition_xcpus_add.argprom.exit ], [ 0, %67 ]
   br i1 %32, label %93, label %70
 
 70:                                               ; preds = %68
@@ -7310,7 +7310,7 @@ update_tasks_cpumask.exit:                        ; preds = %112, %100
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @remote_partition_check(i64 %.240.val, i64 %.0.val, ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @remote_partition_check.argprom(i64 %.240.val, i64 %.0.val, ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = xor i64 %.0.val, -1
   %4 = and i64 %.240.val, %3
   store i64 %4, ptr %0, align 8

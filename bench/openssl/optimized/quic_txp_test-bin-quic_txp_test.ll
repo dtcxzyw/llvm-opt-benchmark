@@ -845,19 +845,19 @@ lor.lhs.false118.i:                               ; preds = %land.lhs.true114.i,
   %token_len119.i = getelementptr inbounds i8, ptr %43, i64 64
   %56 = load i64, ptr %token_len119.i, align 8
   %cmp120.i = icmp eq i64 %56, 0
-  br i1 %cmp120.i, label %land.lhs.true122.i, label %cmp_pkt_hdr.exit
+  br i1 %cmp120.i, label %land.lhs.true122.i, label %cmp_pkt_hdr.argprom.exit
 
 land.lhs.true122.i:                               ; preds = %lor.lhs.false118.i
   %token123.i = getelementptr inbounds i8, ptr %43, i64 56
   %57 = load ptr, ptr %token123.i, align 8
   %call124.i = call i32 @test_ptr_null(ptr noundef nonnull @.str.71, i32 noundef 45, ptr noundef nonnull @.str.99, ptr noundef %57) #8
   %tobool125.not.i = icmp eq i32 %call124.i, 0
-  br i1 %tobool125.not.i, label %if.then126.i, label %cmp_pkt_hdr.exit
+  br i1 %tobool125.not.i, label %if.then126.i, label %cmp_pkt_hdr.argprom.exit
 
 if.then126.i:                                     ; preds = %land.lhs.true122.i, %land.lhs.true114.i
-  br label %cmp_pkt_hdr.exit
+  br label %cmp_pkt_hdr.argprom.exit
 
-cmp_pkt_hdr.exit:                                 ; preds = %lor.lhs.false118.i, %land.lhs.true122.i, %if.then126.i
+cmp_pkt_hdr.argprom.exit:                         ; preds = %lor.lhs.false118.i, %land.lhs.true122.i, %if.then126.i
   %ok.2.i = phi i32 [ %ok.13.i, %land.lhs.true122.i ], [ 0, %if.then126.i ], [ %ok.13.i, %lor.lhs.false118.i ]
   %call94 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1343, ptr noundef nonnull @.str.15, i32 noundef %ok.2.i) #8
   %tobool95.not = icmp eq i32 %call94, 0
@@ -1317,12 +1317,12 @@ sw.default461:                                    ; preds = %for.cond
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 1586, ptr noundef nonnull @.str.49) #8
   br label %if.end466.thread86
 
-for.inc:                                          ; preds = %for.cond, %if.end9, %if.end46, %if.end58, %if.then111, %if.end351, %if.end363, %if.end455, %sw.bb458, %land.lhs.true20, %sw.bb13, %lor.lhs.false, %sw.bb70, %sw.bb77, %cmp_pkt_hdr.exit, %sw.bb98, %sw.bb219, %sw.bb209, %sw.bb199, %sw.bb189, %sw.bb179, %sw.bb165, %sw.bb152, %sw.bb142, %sw.bb133, %sw.bb124, %sw.bb115, %skip_padding.exit69, %if.end250, %sw.bb265, %if.end287, %lor.lhs.false316, %if.end384, %if.end412, %sw.bb426
+for.inc:                                          ; preds = %for.cond, %if.end9, %if.end46, %if.end58, %if.then111, %if.end351, %if.end363, %if.end455, %sw.bb458, %land.lhs.true20, %sw.bb13, %lor.lhs.false, %sw.bb70, %sw.bb77, %cmp_pkt_hdr.argprom.exit, %sw.bb98, %sw.bb219, %sw.bb209, %sw.bb199, %sw.bb189, %sw.bb179, %sw.bb165, %sw.bb152, %sw.bb142, %sw.bb133, %sw.bb124, %sw.bb115, %skip_padding.exit69, %if.end250, %sw.bb265, %if.end287, %lor.lhs.false316, %if.end384, %if.end412, %sw.bb426
   %incdec.ptr = getelementptr inbounds i8, ptr %op.0, i64 48
   %inc = add i64 %opn.1, 1
   br label %for.cond, !llvm.loop !7
 
-if.end466.thread86:                               ; preds = %land.lhs.true, %land.lhs.true20, %sw.bb26, %PACKET_buf_init.exit, %sw.bb47, %sw.bb60, %lor.lhs.false, %sw.bb70, %sw.bb77, %cmp_pkt_hdr.exit, %sw.bb98, %sw.bb115, %sw.bb124, %sw.bb133, %sw.bb142, %sw.bb152, %sw.bb165, %sw.bb179, %sw.bb189, %sw.bb199, %sw.bb209, %sw.bb219, %skip_padding.exit69, %sw.bb236, %if.end250, %sw.bb265, %sw.bb276, %if.end287, %sw.bb293, %sw.bb326, %if.end336, %if.end346, %sw.bb354, %sw.bb365, %if.end374, %if.end384, %sw.bb393, %if.end402, %if.end412, %sw.bb426, %sw.bb437, %if.end446, %sw.default, %if.then321, %sw.default461
+if.end466.thread86:                               ; preds = %land.lhs.true, %land.lhs.true20, %sw.bb26, %PACKET_buf_init.exit, %sw.bb47, %sw.bb60, %lor.lhs.false, %sw.bb70, %sw.bb77, %cmp_pkt_hdr.argprom.exit, %sw.bb98, %sw.bb115, %sw.bb124, %sw.bb133, %sw.bb142, %sw.bb152, %sw.bb165, %sw.bb179, %sw.bb189, %sw.bb199, %sw.bb209, %sw.bb219, %skip_padding.exit69, %sw.bb236, %if.end250, %sw.bb265, %sw.bb276, %if.end287, %sw.bb293, %sw.bb326, %if.end336, %if.end346, %sw.bb354, %sw.bb365, %if.end374, %if.end384, %sw.bb393, %if.end402, %if.end412, %sw.bb426, %sw.bb437, %if.end446, %sw.default, %if.then321, %sw.default461
   %add89 = add nsw i32 %script_idx, 1
   %add46590 = add i64 %opn.1, 1
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 1594, ptr noundef nonnull @.str.50, i32 noundef %add89, i64 noundef %add46590) #8

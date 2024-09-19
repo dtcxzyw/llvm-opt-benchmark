@@ -2128,7 +2128,7 @@ if.end27:                                         ; preds = %cond.end
   br i1 %tobool35.not, label %okay, label %if.then36
 
 if.then36:                                        ; preds = %if.end27
-  tail call fastcc void @advance_last_with_data(ptr noundef nonnull %buf)
+  tail call fastcc void @advance_last_with_data.retelim(ptr noundef nonnull %buf)
   br label %okay
 
 if.end40:                                         ; preds = %if.end6, %land.lhs.true, %land.lhs.true10
@@ -2274,7 +2274,7 @@ do.end124:                                        ; preds = %if.then119, %do.bod
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @advance_last_with_data(ptr nocapture noundef %buf) unnamed_addr #3 {
+define internal fastcc void @advance_last_with_data.retelim(ptr nocapture noundef %buf) unnamed_addr #3 {
 entry:
   %last_with_datap = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load ptr, ptr %last_with_datap, align 8
@@ -2534,21 +2534,21 @@ entry:
   %0 = getelementptr i8, ptr %src, i64 8
   %src.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %src.val, null
-  br i1 %tobool.not.i, label %if.then5, label %HAS_PINNED_R.exit
+  br i1 %tobool.not.i, label %if.then5, label %HAS_PINNED_R.argprom.exit
 
-HAS_PINNED_R.exit:                                ; preds = %entry
+HAS_PINNED_R.argprom.exit:                        ; preds = %entry
   %flags.i = getelementptr inbounds i8, ptr %src.val, i64 32
   %1 = load i32, ptr %flags.i, align 8
   %2 = and i32 %1, 16
   %tobool4.not = icmp eq i32 %2, 0
   br i1 %tobool4.not, label %if.then5, label %if.end6
 
-if.then5:                                         ; preds = %entry, %HAS_PINNED_R.exit
+if.then5:                                         ; preds = %entry, %HAS_PINNED_R.argprom.exit
   store ptr null, ptr %last, align 8
   store ptr null, ptr %first, align 8
   br label %return
 
-if.end6:                                          ; preds = %HAS_PINNED_R.exit
+if.end6:                                          ; preds = %HAS_PINNED_R.argprom.exit
   %last_with_datap = getelementptr inbounds i8, ptr %src, i64 16
   %3 = load ptr, ptr %last_with_datap, align 8
   %4 = load ptr, ptr %3, align 8
@@ -3145,16 +3145,16 @@ land.lhs.true:                                    ; preds = %if.end8
   %4 = getelementptr i8, ptr %buf, i64 8
   %buf.val = load ptr, ptr %4, align 8
   %tobool.not.i = icmp eq ptr %buf.val, null
-  br i1 %tobool.not.i, label %if.then12, label %HAS_PINNED_R.exit
+  br i1 %tobool.not.i, label %if.then12, label %HAS_PINNED_R.argprom.exit
 
-HAS_PINNED_R.exit:                                ; preds = %land.lhs.true
+HAS_PINNED_R.argprom.exit:                        ; preds = %land.lhs.true
   %flags.i = getelementptr inbounds i8, ptr %buf.val, i64 32
   %5 = load i32, ptr %flags.i, align 8
   %6 = and i32 %5, 16
   %tobool11.not = icmp eq i32 %6, 0
   br i1 %tobool11.not, label %if.then12, label %if.else
 
-if.then12:                                        ; preds = %land.lhs.true, %HAS_PINNED_R.exit
+if.then12:                                        ; preds = %land.lhs.true, %HAS_PINNED_R.argprom.exit
   %7 = load ptr, ptr %buf, align 8
   %cmp13.not57 = icmp eq ptr %7, null
   br i1 %cmp13.not57, label %for.end, label %for.body
@@ -3173,7 +3173,7 @@ for.end:                                          ; preds = %for.body, %if.then1
   store i64 0, ptr %total_len, align 8
   br label %if.end55
 
-if.else:                                          ; preds = %HAS_PINNED_R.exit, %if.end8
+if.else:                                          ; preds = %HAS_PINNED_R.argprom.exit, %if.end8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %len, i64 %2)
   %sub = sub i64 %2, %spec.select
   store i64 %sub, ptr %total_len, align 8
@@ -4465,7 +4465,7 @@ if.end5.i:                                        ; preds = %if.end38
 if.end46.thread:                                  ; preds = %if.end5.i
   %sub.i50 = add i64 %sub.ptr.sub.i39, -1
   %sub12.i51 = add nsw i64 %add.i41, -1
-  br label %evbuffer_getchr.exit
+  br label %evbuffer_getchr.argprom.exit
 
 if.else.i:                                        ; preds = %if.end5.i
   %sub14.i = add nsw i64 %add.i41, -1
@@ -4520,28 +4520,28 @@ return.sink.split.i.i:                            ; preds = %do.body56.i.i
 evbuffer_ptr_subtract.exit:                       ; preds = %do.body56.i.i, %return.sink.split.i.i
   %cmp.i = icmp eq ptr %it2.sroa.9.0, null
   %or.cond172 = or i1 %cmp.i, %result.0.i.i
-  br i1 %or.cond172, label %sw.epilog, label %evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge
+  br i1 %or.cond172, label %sw.epilog, label %evbuffer_ptr_subtract.exit.evbuffer_getchr.argprom.exit_crit_edge
 
-evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge: ; preds = %evbuffer_ptr_subtract.exit
+evbuffer_ptr_subtract.exit.evbuffer_getchr.argprom.exit_crit_edge: ; preds = %evbuffer_ptr_subtract.exit
   %buffer.i.phi.trans.insert = getelementptr inbounds i8, ptr %it2.sroa.9.0, i64 40
   %.pre = load ptr, ptr %buffer.i.phi.trans.insert, align 8
   %misalign.i59.phi.trans.insert = getelementptr inbounds i8, ptr %it2.sroa.9.0, i64 16
   %.pre240 = load i64, ptr %misalign.i59.phi.trans.insert, align 8
-  br label %evbuffer_getchr.exit
+  br label %evbuffer_getchr.argprom.exit
 
-evbuffer_getchr.exit:                             ; preds = %evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge, %if.end46.thread
-  %31 = phi i64 [ %22, %if.end46.thread ], [ %.pre240, %evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge ]
-  %32 = phi ptr [ %21, %if.end46.thread ], [ %.pre, %evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge ]
-  %it2.sroa.9.1149160 = phi ptr [ %it2.sroa.9.0.copyload122, %if.end46.thread ], [ %it2.sroa.9.0, %evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge ]
-  %it2.sroa.16.1150158 = phi i64 [ %sub.i50, %if.end46.thread ], [ %it2.sroa.16.0, %evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge ]
-  %it2.sroa.0.1151156 = phi i64 [ %sub12.i51, %if.end46.thread ], [ %it2.sroa.0.0, %evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge ]
+evbuffer_getchr.argprom.exit:                     ; preds = %evbuffer_ptr_subtract.exit.evbuffer_getchr.argprom.exit_crit_edge, %if.end46.thread
+  %31 = phi i64 [ %22, %if.end46.thread ], [ %.pre240, %evbuffer_ptr_subtract.exit.evbuffer_getchr.argprom.exit_crit_edge ]
+  %32 = phi ptr [ %21, %if.end46.thread ], [ %.pre, %evbuffer_ptr_subtract.exit.evbuffer_getchr.argprom.exit_crit_edge ]
+  %it2.sroa.9.1149160 = phi ptr [ %it2.sroa.9.0.copyload122, %if.end46.thread ], [ %it2.sroa.9.0, %evbuffer_ptr_subtract.exit.evbuffer_getchr.argprom.exit_crit_edge ]
+  %it2.sroa.16.1150158 = phi i64 [ %sub.i50, %if.end46.thread ], [ %it2.sroa.16.0, %evbuffer_ptr_subtract.exit.evbuffer_getchr.argprom.exit_crit_edge ]
+  %it2.sroa.0.1151156 = phi i64 [ %sub12.i51, %if.end46.thread ], [ %it2.sroa.0.0, %evbuffer_ptr_subtract.exit.evbuffer_getchr.argprom.exit_crit_edge ]
   %33 = getelementptr i8, ptr %32, i64 %31
   %arrayidx.i60 = getelementptr i8, ptr %33, i64 %it2.sroa.16.1150158
   %34 = load i8, ptr %arrayidx.i60, align 1
   %cmp48 = icmp eq i8 %34, 13
   br i1 %cmp48, label %if.then49, label %sw.epilog
 
-if.then49:                                        ; preds = %evbuffer_getchr.exit
+if.then49:                                        ; preds = %evbuffer_getchr.argprom.exit
   store i64 %it2.sroa.0.1151156, ptr %agg.result, align 8
   store ptr %it2.sroa.9.1149160, ptr %internal_.i26, align 8
   store i64 %it2.sroa.16.1150158, ptr %pos_in_chain.i27, align 8
@@ -4643,8 +4643,8 @@ evbuffer_strchr.exit117:                          ; preds = %while.body.i95
   %cmp58 = icmp slt i64 %add.i111, 0
   br i1 %cmp58, label %do.body62, label %sw.epilog
 
-sw.epilog:                                        ; preds = %for.end.i, %while.cond4.i, %evbuffer_strchr.exit117, %evbuffer_strchr.exit89, %sw.bb28, %evbuffer_getchr.exit, %if.then49, %evbuffer_ptr_subtract.exit, %if.end38
-  %extra_drain.0 = phi i64 [ 1, %if.end38 ], [ 1, %evbuffer_ptr_subtract.exit ], [ 2, %if.then49 ], [ 1, %evbuffer_getchr.exit ], [ 2, %sw.bb28 ], [ 1, %evbuffer_strchr.exit89 ], [ 1, %evbuffer_strchr.exit117 ], [ %count.15.i, %while.cond4.i ], [ %count.1.lcssa.i, %for.end.i ]
+sw.epilog:                                        ; preds = %for.end.i, %while.cond4.i, %evbuffer_strchr.exit117, %evbuffer_strchr.exit89, %sw.bb28, %evbuffer_getchr.argprom.exit, %if.then49, %evbuffer_ptr_subtract.exit, %if.end38
+  %extra_drain.0 = phi i64 [ 1, %if.end38 ], [ 1, %evbuffer_ptr_subtract.exit ], [ 2, %if.then49 ], [ 1, %evbuffer_getchr.argprom.exit ], [ 2, %sw.bb28 ], [ 1, %evbuffer_strchr.exit89 ], [ 1, %evbuffer_strchr.exit117 ], [ %count.15.i, %while.cond4.i ], [ %count.1.lcssa.i, %for.end.i ]
   br label %do.body62
 
 do.body62:                                        ; preds = %if.end.i113, %if.end.i85, %if.end.i43, %if.end.i, %sw.bb56, %sw.bb51, %sw.bb33, %sw.bb, %if.end22, %evbuffer_strchr.exit117, %evbuffer_strchr.exit89, %evbuffer_strchr.exit, %sw.bb28, %evbuffer_find_eol_char.exit, %sw.epilog
@@ -5332,15 +5332,15 @@ land.lhs.true4.i:                                 ; preds = %if.then15
   %call5.i = tail call ptr @__errno_location() #18
   %9 = load i32, ptr %call5.i, align 4
   switch i32 %9, label %if.end10.i [
-    i32 4, label %evbuffer_write_sendfile.exit
-    i32 11, label %evbuffer_write_sendfile.exit
+    i32 4, label %evbuffer_write_sendfile.argprom.exit
+    i32 11, label %evbuffer_write_sendfile.argprom.exit
   ]
 
 if.end10.i:                                       ; preds = %land.lhs.true4.i, %if.then15
   %conv.i = trunc i64 %call.i to i32
-  br label %evbuffer_write_sendfile.exit
+  br label %evbuffer_write_sendfile.argprom.exit
 
-evbuffer_write_sendfile.exit:                     ; preds = %land.lhs.true4.i, %land.lhs.true4.i, %if.end10.i
+evbuffer_write_sendfile.argprom.exit:             ; preds = %land.lhs.true4.i, %land.lhs.true4.i, %if.end10.i
   %retval.0.i = phi i32 [ %conv.i, %if.end10.i ], [ 0, %land.lhs.true4.i ], [ 0, %land.lhs.true4.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset.i)
   br label %if.end19
@@ -5409,8 +5409,8 @@ evbuffer_write_iovec.exit:                        ; preds = %if.else.thread, %wh
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %iov.i)
   br label %if.end19
 
-if.end19:                                         ; preds = %evbuffer_write_sendfile.exit, %evbuffer_write_iovec.exit
-  %n.0 = phi i32 [ %retval.0.i, %evbuffer_write_sendfile.exit ], [ %retval.0.i23, %evbuffer_write_iovec.exit ]
+if.end19:                                         ; preds = %evbuffer_write_sendfile.argprom.exit, %evbuffer_write_iovec.exit
+  %n.0 = phi i32 [ %retval.0.i, %evbuffer_write_sendfile.argprom.exit ], [ %retval.0.i23, %evbuffer_write_iovec.exit ]
   %cmp20 = icmp sgt i32 %n.0, 0
   br i1 %cmp20, label %if.then21, label %do.body25
 

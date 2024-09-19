@@ -274,7 +274,7 @@ define noundef i32 @_Z11gmx_densityiPPc(i32 noundef %0, ptr noundef %1) local_un
           cleanup
   br label %.body
 
-.loopexit.split-lp67.loopexit.split-lp:           ; preds = %.noexc33, %._crit_edge40.i, %.noexc31, %378, %234, %.noexc25, %._crit_edge.i, %176, %160, %153, %149, %_ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.exit, %_ZL13gmx_snew_implIPcEvPKcS2_iRPT_m.exit, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %62, %128, %138, %124, %122, %120, %113, %106, %101, %97, %79, %72, %2
+.loopexit.split-lp67.loopexit.split-lp:           ; preds = %.noexc33, %._crit_edge40.i, %.noexc31, %378, %234, %.noexc25, %._crit_edge.i, %176, %160, %153, %149, %_ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.argprom.exit, %_ZL13gmx_snew_implIPcEvPKcS2_iRPT_m.argprom.exit, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %62, %128, %138, %124, %122, %120, %113, %106, %101, %97, %79, %72, %2
   %lpad.loopexit.split-lp74 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -342,26 +342,26 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %82, %85
   %86 = load i32, ptr @_ZZ11gmx_densityiPPcE5ngrps, align 4
   %87 = sext i32 %86 to i64
   %88 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, i32 noundef 698, i64 noundef %87, i64 noundef 8)
-          to label %_ZL13gmx_snew_implIPcEvPKcS2_iRPT_m.exit unwind label %.loopexit.split-lp67.loopexit.split-lp
+          to label %_ZL13gmx_snew_implIPcEvPKcS2_iRPT_m.argprom.exit unwind label %.loopexit.split-lp67.loopexit.split-lp
 
-_ZL13gmx_snew_implIPcEvPKcS2_iRPT_m.exit:         ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
+_ZL13gmx_snew_implIPcEvPKcS2_iRPT_m.argprom.exit: ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
   %89 = load i32, ptr @_ZZ11gmx_densityiPPcE5ngrps, align 4
   %90 = sext i32 %89 to i64
   %91 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.73, i32 noundef 699, i64 noundef %90, i64 noundef 8)
-          to label %_ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.exit unwind label %.loopexit.split-lp67.loopexit.split-lp
+          to label %_ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.argprom.exit unwind label %.loopexit.split-lp67.loopexit.split-lp
 
-_ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.exit:         ; preds = %_ZL13gmx_snew_implIPcEvPKcS2_iRPT_m.exit
+_ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.argprom.exit: ; preds = %_ZL13gmx_snew_implIPcEvPKcS2_iRPT_m.argprom.exit
   %92 = load i32, ptr @_ZZ11gmx_densityiPPcE5ngrps, align 4
   %93 = sext i32 %92 to i64
   %94 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.73, i32 noundef 700, i64 noundef %93, i64 noundef 4)
-          to label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit unwind label %.loopexit.split-lp67.loopexit.split-lp
+          to label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit unwind label %.loopexit.split-lp67.loopexit.split-lp
 
-_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.exit
+_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit:  ; preds = %_ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.argprom.exit
   %95 = load i8, ptr @_ZZ11gmx_densityiPPcE7bCenter, align 1
   %96 = trunc i8 %95 to i1
   br i1 %96, label %97, label %105
 
-97:                                               ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit
+97:                                               ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit
   %98 = load ptr, ptr @stderr, align 8
   %99 = call i64 @fwrite(ptr nonnull @.str.76, i64 286, i64 1, ptr %98) #23
   %100 = invoke noundef ptr @_Z11ftp2fn_nulliiPK8t_filenm(i32 noundef 22, i32 noundef 5, ptr noundef nonnull %32)
@@ -378,7 +378,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implI
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %33) #25
   br label %.body
 
-105:                                              ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit
+105:                                              ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit
   store i32 0, ptr %28, align 4
   store ptr null, ptr %31, align 8
   br label %106
@@ -428,7 +428,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implI
   %135 = load ptr, ptr %31, align 8
   %136 = load i32, ptr %28, align 4
   %137 = load ptr, ptr %22, align 8
-  invoke fastcc void @_ZL21calc_electron_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfP10t_electronibS1_iPK16gmx_output_env_t(ptr noundef %127, ptr noundef %91, ptr noundef %94, ptr noundef %25, ptr noundef %81, i32 noundef %129, i32 noundef %130, i32 noundef %131, ptr noundef %26, ptr noundef %132, i32 noundef %123, i1 noundef zeroext %134, ptr noundef %135, i32 noundef %136, ptr noundef %137)
+  invoke fastcc void @_ZL21calc_electron_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfP10t_electronibS1_iPK16gmx_output_env_t.argprom(ptr noundef %127, ptr noundef %91, ptr noundef %94, ptr noundef %25, ptr noundef %81, i32 noundef %129, i32 noundef %130, i32 noundef %131, ptr noundef %26, ptr noundef %132, i32 noundef %123, i1 noundef zeroext %134, ptr noundef %135, i32 noundef %136, ptr noundef %137)
           to label %396 unwind label %.loopexit.split-lp67.loopexit.split-lp
 
 138:                                              ; preds = %116
@@ -1019,9 +1019,9 @@ _ZL13center_coordsP7t_atomsPKiiPA3_fS4_.exit.i:   ; preds = %.lr.ph44.i.i, %.noe
 
 .noexc33:                                         ; preds = %._crit_edge40.i
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.73, i32 noundef 485, ptr noundef %189)
-          to label %_ZL12calc_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfbS1_iPK16gmx_output_env_tPS0_.exit unwind label %.loopexit.split-lp67.loopexit.split-lp
+          to label %_ZL12calc_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfbS1_iPK16gmx_output_env_tPS0_.argprom.exit unwind label %.loopexit.split-lp67.loopexit.split-lp
 
-_ZL12calc_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfbS1_iPK16gmx_output_env_tPS0_.exit: ; preds = %.noexc33
+_ZL12calc_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfbS1_iPK16gmx_output_env_tPS0_.argprom.exit: ; preds = %.noexc33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %14)
@@ -1032,7 +1032,7 @@ _ZL12calc_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfbS1_iPK16gmx_output_en
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19)
   br label %396
 
-396:                                              ; preds = %_ZL12calc_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfbS1_iPK16gmx_output_env_tPS0_.exit, %128
+396:                                              ; preds = %_ZL12calc_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfbS1_iPK16gmx_output_env_tPS0_.argprom.exit, %128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %397 = load i32, ptr @_ZZ11gmx_densityiPPcE5ngrps, align 4
   %398 = getelementptr inbounds i8, ptr %35, i64 8
@@ -1750,7 +1750,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %15, %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL21calc_electron_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfP10t_electronibS1_iPK16gmx_output_env_t(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3, ptr noundef %4, i32 noundef %5, i32 noundef range(i32 -2147483648, 2147483560) %6, i32 noundef %7, ptr nocapture noundef nonnull writeonly %8, ptr noundef %9, i32 noundef %10, i1 noundef zeroext %11, ptr nocapture noundef readonly %12, i32 noundef %13, ptr noundef %14) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21calc_electron_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfP10t_electronibS1_iPK16gmx_output_env_t.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3, ptr noundef %4, i32 noundef %5, i32 noundef range(i32 -2147483648, 2147483560) %6, i32 noundef %7, ptr nocapture noundef nonnull writeonly %8, ptr noundef %9, i32 noundef %10, i1 noundef zeroext %11, ptr nocapture noundef readonly %12, i32 noundef %13, ptr noundef %14) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
   %18 = alloca %"class.std::filesystem::__cxx11::path", align 8

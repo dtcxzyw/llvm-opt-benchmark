@@ -456,14 +456,14 @@ define internal i32 @dissect_ident(ptr noundef %0, ptr nocapture noundef readonl
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_samples_im1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = load i32, ptr @h_protocol_samples_im1, align 4
-  %6 = tail call fastcc i32 @dissect_samples_im(i32 noundef 1, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5)
+  %6 = tail call fastcc i32 @dissect_samples_im.argprom(i32 noundef 1, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_samples_im2r0(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = load i32, ptr @h_protocol_samples_im2r0, align 4
-  %6 = tail call fastcc i32 @dissect_samples_im(i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5)
+  %6 = tail call fastcc i32 @dissect_samples_im.argprom(i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5)
   ret i32 %6
 }
 
@@ -551,7 +551,7 @@ declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_samples_im(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_samples_im.argprom(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca [240 x i8], align 16
   %8 = alloca [240 x i8], align 16

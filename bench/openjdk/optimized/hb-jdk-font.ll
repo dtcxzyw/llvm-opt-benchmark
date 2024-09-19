@@ -140,7 +140,7 @@ define hidden ptr @hb_jdk_font_create(ptr noundef %0, ptr noundef %1, ptr nocapt
   %4 = tail call ptr @hb_font_create(ptr noundef %0)
   %5 = load ptr, ptr @_ZZL22_hb_jdk_get_font_funcsvE10jdk_ffuncs, align 8
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %6, label %_ZL19_hb_jdk_font_createP9hb_face_tP18JDKFontInfo_StructPFvPvE.exit
+  br i1 %.not.i.i, label %6, label %_ZL19_hb_jdk_font_createP9hb_face_tP18JDKFontInfo_StructPFvPvE.argprom.exit
 
 6:                                                ; preds = %3
   %7 = tail call ptr @hb_font_funcs_create()
@@ -158,9 +158,9 @@ define hidden ptr @hb_jdk_font_create(ptr noundef %0, ptr noundef %1, ptr nocapt
   tail call void @hb_font_funcs_set_glyph_from_name_func(ptr noundef %7, ptr noundef nonnull @_ZL26hb_jdk_get_glyph_from_nameP9hb_font_tPvPKciPjS1_, ptr noundef null, ptr noundef null)
   tail call void @hb_font_funcs_make_immutable(ptr noundef %7)
   store ptr %7, ptr @_ZZL22_hb_jdk_get_font_funcsvE10jdk_ffuncs, align 8
-  br label %_ZL19_hb_jdk_font_createP9hb_face_tP18JDKFontInfo_StructPFvPvE.exit
+  br label %_ZL19_hb_jdk_font_createP9hb_face_tP18JDKFontInfo_StructPFvPvE.argprom.exit
 
-_ZL19_hb_jdk_font_createP9hb_face_tP18JDKFontInfo_StructPFvPvE.exit: ; preds = %3, %6
+_ZL19_hb_jdk_font_createP9hb_face_tP18JDKFontInfo_StructPFvPvE.argprom.exit: ; preds = %3, %6
   %8 = phi ptr [ %7, %6 ], [ %5, %3 ]
   tail call void @hb_font_set_funcs(ptr noundef %4, ptr noundef %8, ptr noundef %1, ptr noundef nonnull @_ZL11_do_nothingv)
   %9 = getelementptr inbounds i8, ptr %1, i64 40

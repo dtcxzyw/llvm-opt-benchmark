@@ -547,16 +547,16 @@ define void @Gia_ManHashStart(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %34 = or disjoint i32 %33, %32
   %.val20 = load ptr, ptr %6, align 8
   %.not.i21 = icmp eq ptr %.val20, null
-  br i1 %.not.i21, label %Gia_ObjFaninLit2.exit, label %35
+  br i1 %.not.i21, label %Gia_ObjFaninLit2.argprom.exit, label %35
 
 35:                                               ; preds = %17
   %36 = getelementptr inbounds i32, ptr %.val20, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4
   %.not5.i = icmp eq i32 %37, 0
   %spec.select.i = select i1 %.not5.i, i32 -1, i32 %37
-  br label %Gia_ObjFaninLit2.exit
+  br label %Gia_ObjFaninLit2.argprom.exit
 
-Gia_ObjFaninLit2.exit:                            ; preds = %17, %35
+Gia_ObjFaninLit2.argprom.exit:                    ; preds = %17, %35
   %38 = phi i32 [ -1, %17 ], [ %spec.select.i, %35 ]
   %.val.i = load i32, ptr %7, align 4
   %39 = mul nsw i32 %38, 2011
@@ -578,7 +578,7 @@ Gia_ObjFaninLit2.exit:                            ; preds = %17, %35
   %.not26.i = icmp eq i32 %53, 0
   br i1 %.not26.i, label %Gia_ManHashFind.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %Gia_ObjFaninLit2.exit
+.lr.ph.i:                                         ; preds = %Gia_ObjFaninLit2.argprom.exit
   br i1 %.not.i21, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %76
@@ -662,8 +662,8 @@ Gia_ObjFaninLit2p.exit.i:                         ; preds = %90
   %.not.i22 = icmp eq i32 %107, 0
   br i1 %.not.i22, label %Gia_ManHashFind.exit, label %.lr.ph.i.split, !llvm.loop !4
 
-Gia_ManHashFind.exit:                             ; preds = %105, %Gia_ObjFaninLit2p.exit.i, %76, %65, %Gia_ObjFaninLit2.exit
-  %.0.lcssa.i = phi ptr [ %52, %Gia_ObjFaninLit2.exit ], [ %.027.i.us, %65 ], [ %77, %76 ], [ %106, %105 ], [ %.027.i, %Gia_ObjFaninLit2p.exit.i ]
+Gia_ManHashFind.exit:                             ; preds = %105, %Gia_ObjFaninLit2p.exit.i, %76, %65, %Gia_ObjFaninLit2.argprom.exit
+  %.0.lcssa.i = phi ptr [ %52, %Gia_ObjFaninLit2.argprom.exit ], [ %.027.i.us, %65 ], [ %77, %76 ], [ %106, %105 ], [ %.027.i, %Gia_ObjFaninLit2p.exit.i ]
   store i32 %20, ptr %.0.lcssa.i, align 4
   %.pre = load i32, ptr %3, align 8
   br label %108

@@ -200,40 +200,40 @@ list_length.exit105:                              ; preds = %54
   br i1 %.1145, label %97, label %100
 
 97:                                               ; preds = %96
-  br i1 %.not.i.i, label %get_rightop.exit.i, label %98
+  br i1 %.not.i.i, label %get_rightop.argprom.exit.i, label %98
 
 98:                                               ; preds = %97
   %99 = getelementptr i8, ptr %.val.i, i64 16
   %.val.i.i = load ptr, ptr %99, align 8
-  br label %get_rightop.exit.i.sink.split
+  br label %get_rightop.argprom.exit.i.sink.split
 
 100:                                              ; preds = %96
-  br i1 %.not.i.i, label %get_rightop.exit.i, label %list_length.exit.i.i
+  br i1 %.not.i.i, label %get_rightop.argprom.exit.i, label %list_length.exit.i.i
 
 list_length.exit.i.i:                             ; preds = %100
   %101 = getelementptr inbounds i8, ptr %.val.i, i64 4
   %102 = load i32, ptr %101, align 4
   %103 = icmp sgt i32 %102, 1
-  br i1 %103, label %104, label %get_rightop.exit.i
+  br i1 %103, label %104, label %get_rightop.argprom.exit.i
 
 104:                                              ; preds = %list_length.exit.i.i
   %105 = getelementptr i8, ptr %.val.i, i64 16
   %.val.i46.i = load ptr, ptr %105, align 8
   %106 = getelementptr i8, ptr %.val.i46.i, i64 8
-  br label %get_rightop.exit.i.sink.split
+  br label %get_rightop.argprom.exit.i.sink.split
 
-get_rightop.exit.i.sink.split:                    ; preds = %104, %98
+get_rightop.argprom.exit.i.sink.split:            ; preds = %104, %98
   %.val.i.i.sink = phi ptr [ %.val.i.i, %98 ], [ %106, %104 ]
   %107 = load ptr, ptr %.val.i.i.sink, align 8
-  br label %get_rightop.exit.i
+  br label %get_rightop.argprom.exit.i
 
-get_rightop.exit.i:                               ; preds = %get_rightop.exit.i.sink.split, %97, %list_length.exit.i.i, %100
-  %.041.i = phi ptr [ null, %list_length.exit.i.i ], [ null, %100 ], [ null, %97 ], [ %107, %get_rightop.exit.i.sink.split ]
+get_rightop.argprom.exit.i:                       ; preds = %get_rightop.argprom.exit.i.sink.split, %97, %list_length.exit.i.i, %100
+  %.041.i = phi ptr [ null, %list_length.exit.i.i ], [ null, %100 ], [ null, %97 ], [ %107, %get_rightop.argprom.exit.i.sink.split ]
   %.0.in.i = xor i1 %.1145, true
   br label %108
 
-108:                                              ; preds = %109, %get_rightop.exit.i
-  %.042.in.i = phi ptr [ %8, %get_rightop.exit.i ], [ %.042.i, %109 ]
+108:                                              ; preds = %109, %get_rightop.argprom.exit.i
+  %.042.in.i = phi ptr [ %8, %get_rightop.argprom.exit.i ], [ %.042.i, %109 ]
   %.042.i = load ptr, ptr %.042.in.i, align 8
   %.not.i106 = icmp eq ptr %.042.i, null
   br i1 %.not.i106, label %136, label %109
@@ -314,39 +314,39 @@ get_rightop.exit.i:                               ; preds = %get_rightop.exit.i.
   br i1 %.1145, label %143, label %146
 
 143:                                              ; preds = %142
-  br i1 %.not.i.i108, label %get_rightop.exit.i110, label %144
+  br i1 %.not.i.i108, label %get_rightop.argprom.exit.i110, label %144
 
 144:                                              ; preds = %143
   %145 = getelementptr i8, ptr %.val.i107, i64 16
   %.val.i.i121 = load ptr, ptr %145, align 8
-  br label %get_rightop.exit.i110.sink.split
+  br label %get_rightop.argprom.exit.i110.sink.split
 
 146:                                              ; preds = %142
-  br i1 %.not.i.i108, label %get_rightop.exit.i110, label %list_length.exit.i.i109
+  br i1 %.not.i.i108, label %get_rightop.argprom.exit.i110, label %list_length.exit.i.i109
 
 list_length.exit.i.i109:                          ; preds = %146
   %147 = getelementptr inbounds i8, ptr %.val.i107, i64 4
   %148 = load i32, ptr %147, align 4
   %149 = icmp sgt i32 %148, 1
-  br i1 %149, label %150, label %get_rightop.exit.i110
+  br i1 %149, label %150, label %get_rightop.argprom.exit.i110
 
 150:                                              ; preds = %list_length.exit.i.i109
   %151 = getelementptr i8, ptr %.val.i107, i64 16
   %.val.i46.i120 = load ptr, ptr %151, align 8
   %152 = getelementptr i8, ptr %.val.i46.i120, i64 8
-  br label %get_rightop.exit.i110.sink.split
+  br label %get_rightop.argprom.exit.i110.sink.split
 
-get_rightop.exit.i110.sink.split:                 ; preds = %150, %144
+get_rightop.argprom.exit.i110.sink.split:         ; preds = %150, %144
   %.val.i.i121.sink = phi ptr [ %.val.i.i121, %144 ], [ %152, %150 ]
   %153 = load ptr, ptr %.val.i.i121.sink, align 8
-  br label %get_rightop.exit.i110
+  br label %get_rightop.argprom.exit.i110
 
-get_rightop.exit.i110:                            ; preds = %get_rightop.exit.i110.sink.split, %143, %list_length.exit.i.i109, %146
-  %.041.i111 = phi ptr [ null, %list_length.exit.i.i109 ], [ null, %146 ], [ null, %143 ], [ %153, %get_rightop.exit.i110.sink.split ]
+get_rightop.argprom.exit.i110:                    ; preds = %get_rightop.argprom.exit.i110.sink.split, %143, %list_length.exit.i.i109, %146
+  %.041.i111 = phi ptr [ null, %list_length.exit.i.i109 ], [ null, %146 ], [ null, %143 ], [ %153, %get_rightop.argprom.exit.i110.sink.split ]
   br label %154
 
-154:                                              ; preds = %155, %get_rightop.exit.i110
-  %.042.in.i113 = phi ptr [ %8, %get_rightop.exit.i110 ], [ %.042.i114, %155 ]
+154:                                              ; preds = %155, %get_rightop.argprom.exit.i110
+  %.042.in.i113 = phi ptr [ %8, %get_rightop.argprom.exit.i110 ], [ %.042.i114, %155 ]
   %.042.i114 = load ptr, ptr %.042.in.i113, align 8
   %.not.i115 = icmp eq ptr %.042.i114, null
   br i1 %.not.i115, label %182, label %155

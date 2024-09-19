@@ -11829,7 +11829,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZN2cv4GMatD2Ev.exit85.i.i.i:                     ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i84.i.i.i, %328, %315, %_ZN2cv4GMatD2Ev.exit78.i.i.i
   %333 = load ptr, ptr %39, align 8, !noalias !96
   %.not.i.i.i.i86.i.i.i = icmp eq ptr %333, null
-  br i1 %.not.i.i.i.i86.i.i.i, label %"_ZSt10__invoke_rIN2cv12GComputationERZ4mainE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_.exit", label %334
+  br i1 %.not.i.i.i.i86.i.i.i, label %"_ZSt10__invoke_rIN2cv12GComputationERZ4mainE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_.argprom.exit", label %334
 
 334:                                              ; preds = %_ZN2cv4GMatD2Ev.exit85.i.i.i
   %335 = getelementptr inbounds i8, ptr %333, i64 8
@@ -11865,7 +11865,7 @@ _ZN2cv4GMatD2Ev.exit85.i.i.i:                     ; preds = %_ZNSt16_Sp_counted_
 350:                                              ; preds = %348, %346
   %.0.i.i.i.i.i88.i.i.i = phi i32 [ %338, %346 ], [ %349, %348 ]
   %351 = icmp eq i32 %.0.i.i.i.i.i88.i.i.i, 1
-  br i1 %351, label %352, label %"_ZSt10__invoke_rIN2cv12GComputationERZ4mainE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_.exit"
+  br i1 %351, label %352, label %"_ZSt10__invoke_rIN2cv12GComputationERZ4mainE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_.argprom.exit"
 
 352:                                              ; preds = %350
   %353 = load ptr, ptr %333, align 8
@@ -11890,14 +11890,14 @@ _ZN2cv4GMatD2Ev.exit85.i.i.i:                     ; preds = %_ZNSt16_Sp_counted_
 363:                                              ; preds = %361, %358
   %.0.i.i.i.i.i.i.i90.i.i.i = phi i32 [ %359, %358 ], [ %362, %361 ]
   %364 = icmp eq i32 %.0.i.i.i.i.i.i.i90.i.i.i, 1
-  br i1 %364, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i91.i.i.i, label %"_ZSt10__invoke_rIN2cv12GComputationERZ4mainE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_.exit"
+  br i1 %364, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i91.i.i.i, label %"_ZSt10__invoke_rIN2cv12GComputationERZ4mainE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_.argprom.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i91.i.i.i: ; preds = %363, %339
   %365 = load ptr, ptr %333, align 8
   %366 = getelementptr inbounds i8, ptr %365, i64 24
   %367 = load ptr, ptr %366, align 8
   call void %367(ptr noundef nonnull align 8 dereferenceable(16) %333) #25
-  br label %"_ZSt10__invoke_rIN2cv12GComputationERZ4mainE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_.exit"
+  br label %"_ZSt10__invoke_rIN2cv12GComputationERZ4mainE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_.argprom.exit"
 
 368:                                              ; preds = %2
   %369 = landingpad { ptr, i32 }
@@ -11994,7 +11994,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @_ZN2cv4GMatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #25
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIN2cv12GComputationERZ4mainE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_.exit": ; preds = %_ZN2cv4GMatD2Ev.exit85.i.i.i, %350, %363, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i91.i.i.i
+"_ZSt10__invoke_rIN2cv12GComputationERZ4mainE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %_ZN2cv4GMatD2Ev.exit85.i.i.i, %350, %363, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i91.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !91
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !91
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !91
@@ -28243,13 +28243,13 @@ attributes #30 = { nounwind willreturn memory(read) }
 !89 = distinct !{!89, !6}
 !90 = distinct !{!90, !6}
 !91 = !{!92, !94}
-!92 = distinct !{!92, !93, !"_ZSt13__invoke_implIN2cv12GComputationERZ4mainE3$_0JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!93 = distinct !{!93, !"_ZSt13__invoke_implIN2cv12GComputationERZ4mainE3$_0JEET_St14__invoke_otherOT0_DpOT1_"}
-!94 = distinct !{!94, !95, !"_ZSt10__invoke_rIN2cv12GComputationERZ4mainE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_: argument 0"}
-!95 = distinct !{!95, !"_ZSt10__invoke_rIN2cv12GComputationERZ4mainE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_"}
+!92 = distinct !{!92, !93, !"_ZSt13__invoke_implIN2cv12GComputationERZ4mainE3$_0JEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!93 = distinct !{!93, !"_ZSt13__invoke_implIN2cv12GComputationERZ4mainE3$_0JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!94 = distinct !{!94, !95, !"_ZSt10__invoke_rIN2cv12GComputationERZ4mainE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_.argprom: argument 0"}
+!95 = distinct !{!95, !"_ZSt10__invoke_rIN2cv12GComputationERZ4mainE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_.argprom"}
 !96 = !{!97, !92, !94}
-!97 = distinct !{!97, !98, !"_ZZ4mainENK3$_0clEv: argument 0"}
-!98 = distinct !{!98, !"_ZZ4mainENK3$_0clEv"}
+!97 = distinct !{!97, !98, !"_ZZ4mainENK3$_0clEv.argprom: argument 0"}
+!98 = distinct !{!98, !"_ZZ4mainENK3$_0clEv.argprom"}
 !99 = !{!100, !97, !92, !94}
 !100 = distinct !{!100, !101, !"_ZN2cv4gapi5inferIN6custom17VehicleAttributesEJRNS_4GMatEEEENT_7ResultLENS_6GArrayINS_5Rect_IiEEEEDpOT0_: argument 0"}
 !101 = distinct !{!101, !"_ZN2cv4gapi5inferIN6custom17VehicleAttributesEJRNS_4GMatEEEENT_7ResultLENS_6GArrayINS_5Rect_IiEEEEDpOT0_"}

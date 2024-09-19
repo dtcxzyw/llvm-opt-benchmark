@@ -394,13 +394,13 @@ cond.end.thread:                                  ; preds = %for.cond.i.i.i.i30,
   %second19 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i29, i64 16
   %21 = load i64, ptr %second19, align 8
   %cmp.i4583 = icmp eq i64 %10, 0
-  br i1 %cmp.i4583, label %sw.bb21, label %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.exit
+  br i1 %cmp.i4583, label %sw.bb21, label %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.argprom.exit
 
-_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.exit: ; preds = %cond.end.thread
+_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.argprom.exit: ; preds = %cond.end.thread
   %cmp7.not.i.not = icmp eq i64 %10, %21
   br i1 %cmp7.not.i.not, label %sw.bb, label %sw.bb28
 
-sw.bb:                                            ; preds = %cond.end, %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.exit
+sw.bb:                                            ; preds = %cond.end, %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.argprom.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %new_key, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 16, i1 false)
   br label %sw.epilog
 
@@ -427,7 +427,7 @@ sw.bb25:                                          ; preds = %cond.end
   store i8 1, ptr %new_batch_diff_from_orig_batch_27, align 1
   br label %sw.epilog
 
-sw.bb28:                                          ; preds = %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.exit
+sw.bb28:                                          ; preds = %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.argprom.exit
   store ptr @.str, ptr %ref.tmp29, align 8
   %size_.i47 = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
   store i64 83, ptr %size_.i47, align 8
@@ -1462,9 +1462,9 @@ cond.end.thread.i36:                              ; preds = %for.cond.i.i.i.i32.
   %.in98.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i33, i64 16
   %52 = load i64, ptr %.in98.i, align 8, !noalias !16
   %cmp.i4799.i = icmp eq i64 %52, 0
-  br i1 %cmp.i4799.i, label %if.then32.i, label %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.exit.i
+  br i1 %cmp.i4799.i, label %if.then32.i, label %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.argprom.exit.i
 
-_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.exit.i: ; preds = %cond.end.thread.i36
+_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.argprom.exit.i: ; preds = %cond.end.thread.i36
   %second30.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i31.i, i64 16
   %53 = load i64, ptr %second30.i, align 8, !noalias !16
   %cmp7.not.i.not.i37 = icmp eq i64 %52, %53
@@ -1473,7 +1473,7 @@ _ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.exit.i: ; preds = %
 if.then32.i:                                      ; preds = %cond.end.thread.i36
   br i1 %cmp33.i, label %for.inc.i30, label %if.then34.i
 
-if.then32.thread.i:                               ; preds = %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.exit.i
+if.then32.thread.i:                               ; preds = %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.argprom.exit.i
   br i1 %cmp33.i, label %if.then42.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %cond.end.i34, %if.then32.i, %if.then32.thread.i
@@ -1496,8 +1496,8 @@ if.then42.invoke.i:                               ; preds = %if.then42.i, %if.th
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %status, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp35.sink.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp37.sink124.i, i8 noundef zeroext 0)
           to label %cleanup.i unwind label %lpad1.i
 
-for.inc.i30:                                      ; preds = %lor.lhs.false.i.i.i.i.i25, %if.end3.i.i.i.i.i22, %for.cond.i.i.i, %cond.end.i34, %if.then32.i, %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.exit.i, %if.end15.i.i.i
-  %need_recovery.2 = phi i1 [ %need_recovery.1.mux, %cond.end.i34 ], [ %need_recovery.1, %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.exit.i ], [ %need_recovery.1, %if.end15.i.i.i ], [ true, %if.then32.i ], [ %need_recovery.1, %for.cond.i.i.i ], [ %need_recovery.1, %if.end3.i.i.i.i.i22 ], [ %need_recovery.1, %lor.lhs.false.i.i.i.i.i25 ]
+for.inc.i30:                                      ; preds = %lor.lhs.false.i.i.i.i.i25, %if.end3.i.i.i.i.i22, %for.cond.i.i.i, %cond.end.i34, %if.then32.i, %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.argprom.exit.i, %if.end15.i.i.i
+  %need_recovery.2 = phi i1 [ %need_recovery.1.mux, %cond.end.i34 ], [ %need_recovery.1, %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.argprom.exit.i ], [ %need_recovery.1, %if.end15.i.i.i ], [ true, %if.then32.i ], [ %need_recovery.1, %for.cond.i.i.i ], [ %need_recovery.1, %if.end3.i.i.i.i.i22 ], [ %need_recovery.1, %lor.lhs.false.i.i.i.i.i25 ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.087.i, i64 4
   %cmp.i9.not.i = icmp eq ptr %incdec.ptr.i.i, %31
   br i1 %cmp.i9.not.i, label %for.end.i, label %for.body.i13

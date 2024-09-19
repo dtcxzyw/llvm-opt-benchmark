@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.ef442a2b55f7186bdeeec1f57aaf30bb.10 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.ef442a2b55f7186bdeeec1f57aaf30bb.7, [16 x i8] c"\17\00\00\00\00\00\00\00!\01\00\006\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef range(i8 0, 41) i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 41) i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom(ptr %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = ptrtoint ptr %.0.val to i64
@@ -726,7 +726,7 @@ _ZN7uu_head12read_n_bytes17h9c3988130e973429E.exit: ; preds = %26, %32, %36, %42
 
 62:                                               ; preds = %57
   %63 = load ptr, ptr %54, align 8, !nonnull !5, !noundef !5
-  %64 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr nonnull %63)
+  %64 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom(ptr nonnull %63)
   %65 = icmp eq i8 %64, 35
   br i1 %65, label %150, label %153
 
@@ -1082,7 +1082,7 @@ define hidden noundef ptr @_ZN7uu_head21read_but_last_n_bytes17h9da0d1357b1e4985
 
 28:                                               ; preds = %23
   %29 = load ptr, ptr %20, align 8, !nonnull !5, !noundef !5
-  %30 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr nonnull %29)
+  %30 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom(ptr nonnull %29)
   %31 = icmp eq i8 %30, 35
   br i1 %31, label %116, label %119
 

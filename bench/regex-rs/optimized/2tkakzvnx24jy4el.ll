@@ -344,16 +344,16 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$13spec_for_each17h9bc333581fbb8989E.llvm.14277958325137290771"(i64 noundef %0, i32 noundef %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.not = icmp eq i64 %0, 0
-  br i1 %.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hbb3f1f2effa74a09E.exit, label %.preheader
+  br i1 %.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hbb3f1f2effa74a09E.argprom.exit, label %.preheader
 
 .preheader:                                       ; preds = %3, %.preheader
   %.0.i.in = phi i64 [ %.0.i, %.preheader ], [ %0, %3 ]
   %.0.i = add i64 %.0.i.in, -1
   tail call fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef align 8 dereferenceable(24) %2, i32 noundef %1)
   %4 = icmp eq i64 %.0.i, 0
-  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hbb3f1f2effa74a09E.exit, label %.preheader
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hbb3f1f2effa74a09E.argprom.exit, label %.preheader
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17hbb3f1f2effa74a09E.exit: ; preds = %.preheader, %3
+_ZN4core4iter6traits8iterator8Iterator8try_fold17hbb3f1f2effa74a09E.argprom.exit: ; preds = %.preheader, %3
   ret void
 }
 

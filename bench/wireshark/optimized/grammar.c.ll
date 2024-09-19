@@ -73,7 +73,7 @@ define hidden void @DfilterFinalize(ptr noundef %0) local_unnamed_addr #1 {
   %7 = getelementptr inbounds i8, ptr %5, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call fastcc void @yy_destructor(i8 noundef zeroext %8, ptr noundef nonnull %9)
+  tail call fastcc void @yy_destructor.argprom(i8 noundef zeroext %8, ptr noundef nonnull %9)
   %10 = load ptr, ptr %0, align 8
   %11 = icmp ugt ptr %10, %2
   br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !4
@@ -100,7 +100,7 @@ define hidden void @DfilterFree(ptr noundef %0, ptr nocapture noundef readonly %
   %10 = getelementptr inbounds i8, ptr %8, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = getelementptr inbounds i8, ptr %8, i64 8
-  tail call fastcc void @yy_destructor(i8 noundef zeroext %11, ptr noundef nonnull %12)
+  tail call fastcc void @yy_destructor.argprom(i8 noundef zeroext %11, ptr noundef nonnull %12)
   %13 = load ptr, ptr %0, align 8
   %14 = icmp ugt ptr %13, %5
   br i1 %14, label %.lr.ph.i, label %DfilterFinalize.exit, !llvm.loop !4
@@ -131,8 +131,8 @@ define hidden void @Dfilter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   %16 = getelementptr inbounds i8, ptr %0, i64 1624
   br label %17
 
-17:                                               ; preds = %yy_reduce.exit, %4
-  %.0 = phi i8 [ %13, %4 ], [ %571, %yy_reduce.exit ]
+17:                                               ; preds = %yy_reduce.argprom.exit, %4
+  %.0 = phi i8 [ %13, %4 ], [ %571, %yy_reduce.argprom.exit ]
   %18 = icmp ugt i8 %.0, 60
   br i1 %18, label %yy_find_shift_action.exit, label %.sink.split.i
 
@@ -176,7 +176,7 @@ yy_find_shift_action.exit:                        ; preds = %17, %.sink.split.i
   %37 = load ptr, ptr %10, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 16
   store ptr null, ptr %38, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 39:                                               ; preds = %34
   %40 = load ptr, ptr %10, align 8
@@ -191,7 +191,7 @@ yy_find_shift_action.exit:                        ; preds = %17, %.sink.split.i
   %45 = getelementptr inbounds i8, ptr %43, i64 1
   %46 = load i8, ptr %45, align 1
   %47 = getelementptr inbounds i8, ptr %43, i64 8
-  call fastcc void @yy_destructor(i8 noundef zeroext %46, ptr noundef nonnull %47)
+  call fastcc void @yy_destructor.argprom(i8 noundef zeroext %46, ptr noundef nonnull %47)
   %48 = load ptr, ptr %0, align 8
   %49 = icmp ugt ptr %48, %41
   br i1 %49, label %.lr.ph.i, label %yyStackOverflow.exit, !llvm.loop !6
@@ -207,7 +207,7 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %51 = load ptr, ptr %10, align 8
   %52 = load ptr, ptr %0, align 8
-  switch i8 %.0.i, label %yy_reduce.exit [
+  switch i8 %.0.i, label %yy_reduce.argprom.exit [
     i8 -73, label %53
     i8 -27, label %344
     i8 -6, label %547
@@ -263,7 +263,7 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %39
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %51, i64 16
   store ptr %55, ptr %56, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 57:                                               ; preds = %50
   %58 = getelementptr i8, ptr %52, i64 -8
@@ -277,7 +277,7 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %39
   %65 = load ptr, ptr %62, align 8
   call void @stnode_merge_location(ptr noundef %59, ptr noundef %64, ptr noundef %65) #5
   store ptr %59, ptr %60, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 66:                                               ; preds = %50
   %67 = getelementptr i8, ptr %52, i64 -8
@@ -291,7 +291,7 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %39
   %74 = load ptr, ptr %71, align 8
   call void @stnode_merge_location(ptr noundef %68, ptr noundef %73, ptr noundef %74) #5
   store ptr %68, ptr %69, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 75:                                               ; preds = %50
   %76 = load i64, ptr @loc_empty, align 8
@@ -321,7 +321,7 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %39
   %96 = load ptr, ptr %82, align 8
   call void @stnode_merge_location(ptr noundef %94, ptr noundef %95, ptr noundef %96) #5
   store ptr %94, ptr %79, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 97:                                               ; preds = %50
   %98 = getelementptr i8, ptr %52, i64 -8
@@ -333,7 +333,7 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %39
   %103 = load ptr, ptr %100, align 8
   call void @stnode_merge_location(ptr noundef %99, ptr noundef %102, ptr noundef %103) #5
   store ptr %99, ptr %98, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 104:                                              ; preds = %50, %50
   %105 = getelementptr i8, ptr %52, i64 -8
@@ -348,7 +348,7 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %39
   %112 = load ptr, ptr %109, align 8
   call void @stnode_free(ptr noundef %112) #5
   store ptr %106, ptr %107, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 113:                                              ; preds = %50
   %114 = getelementptr i8, ptr %52, i64 -56
@@ -395,7 +395,7 @@ resolve_unparsed.exit53:                          ; preds = %113, %127
   %138 = load ptr, ptr %137, align 8
   call void @stnode_free(ptr noundef %138) #5
   store ptr %115, ptr %114, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 139:                                              ; preds = %50
   %140 = getelementptr i8, ptr %52, i64 -24
@@ -455,7 +455,7 @@ resolve_unparsed.exit51:                          ; preds = %139, %153
   %171 = load ptr, ptr %170, align 8
   call void @stnode_free(ptr noundef %171) #5
   store ptr %141, ptr %140, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 172:                                              ; preds = %50
   %173 = getelementptr inbounds i8, ptr %52, i64 8
@@ -492,7 +492,7 @@ resolve_unparsed.exit49:                          ; preds = %172, %186
   %190 = load ptr, ptr %187, align 8
   call void @stnode_free(ptr noundef %190) #5
   store ptr %174, ptr %187, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 191:                                              ; preds = %50
   %192 = getelementptr i8, ptr %52, i64 -8
@@ -548,7 +548,7 @@ resolve_unparsed.exit47:                          ; preds = %191, %205
   %223 = load ptr, ptr %222, align 8
   call void @stnode_free(ptr noundef %223) #5
   store ptr %212, ptr %215, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 224:                                              ; preds = %50
   %225 = getelementptr inbounds i8, ptr %52, i64 8
@@ -598,7 +598,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %252 = load ptr, ptr %248, align 8
   call void @stnode_free(ptr noundef %252) #5
   store ptr %245, ptr %248, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 253:                                              ; preds = %50
   %254 = getelementptr inbounds i8, ptr %52, i64 8
@@ -609,7 +609,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %258 = load ptr, ptr %256, align 8
   call void @stnode_free(ptr noundef %258) #5
   store ptr %255, ptr %256, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 259:                                              ; preds = %50
   %260 = getelementptr i8, ptr %52, i64 -8
@@ -621,7 +621,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %265 = load ptr, ptr %262, align 8
   call void @stnode_merge_location(ptr noundef %261, ptr noundef %264, ptr noundef %265) #5
   store ptr %261, ptr %260, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 266:                                              ; preds = %50
   %267 = getelementptr i8, ptr %52, i64 -8
@@ -635,7 +635,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %274 = load ptr, ptr %271, align 8
   call void @stnode_merge_location(ptr noundef %268, ptr noundef %273, ptr noundef %274) #5
   store ptr %268, ptr %269, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 275:                                              ; preds = %50
   %276 = getelementptr i8, ptr %52, i64 -8
@@ -649,7 +649,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %283 = load ptr, ptr %280, align 8
   call void @stnode_merge_location(ptr noundef %277, ptr noundef %282, ptr noundef %283) #5
   store ptr %277, ptr %278, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 284:                                              ; preds = %50
   %285 = getelementptr i8, ptr %52, i64 -8
@@ -663,7 +663,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %292 = load ptr, ptr %289, align 8
   call void @stnode_merge_location(ptr noundef %286, ptr noundef %291, ptr noundef %292) #5
   store ptr %286, ptr %287, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 293:                                              ; preds = %50
   %294 = getelementptr i8, ptr %52, i64 -8
@@ -677,7 +677,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %301 = load ptr, ptr %298, align 8
   call void @stnode_merge_location(ptr noundef %295, ptr noundef %300, ptr noundef %301) #5
   store ptr %295, ptr %296, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 302:                                              ; preds = %50
   %303 = getelementptr i8, ptr %52, i64 -8
@@ -691,7 +691,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %310 = load ptr, ptr %307, align 8
   call void @stnode_merge_location(ptr noundef %304, ptr noundef %309, ptr noundef %310) #5
   store ptr %304, ptr %305, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 311:                                              ; preds = %50
   %312 = getelementptr i8, ptr %52, i64 -8
@@ -705,63 +705,63 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %319 = load ptr, ptr %316, align 8
   call void @stnode_merge_location(ptr noundef %313, ptr noundef %318, ptr noundef %319) #5
   store ptr %313, ptr %314, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 320:                                              ; preds = %50
   %321 = getelementptr inbounds i8, ptr %52, i64 8
   %322 = load ptr, ptr %321, align 8
   call void @sttype_oper_set_op(ptr noundef %322, i32 noundef 4) #5
   store ptr %322, ptr %321, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 323:                                              ; preds = %50
   %324 = getelementptr inbounds i8, ptr %52, i64 8
   %325 = load ptr, ptr %324, align 8
   call void @sttype_oper_set_op(ptr noundef %325, i32 noundef 5) #5
   store ptr %325, ptr %324, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 326:                                              ; preds = %50
   %327 = getelementptr inbounds i8, ptr %52, i64 8
   %328 = load ptr, ptr %327, align 8
   call void @sttype_oper_set_op(ptr noundef %328, i32 noundef 6) #5
   store ptr %328, ptr %327, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 329:                                              ; preds = %50
   %330 = getelementptr inbounds i8, ptr %52, i64 8
   %331 = load ptr, ptr %330, align 8
   call void @sttype_oper_set_op(ptr noundef %331, i32 noundef 7) #5
   store ptr %331, ptr %330, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 332:                                              ; preds = %50
   %333 = getelementptr inbounds i8, ptr %52, i64 8
   %334 = load ptr, ptr %333, align 8
   call void @sttype_oper_set_op(ptr noundef %334, i32 noundef 8) #5
   store ptr %334, ptr %333, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 335:                                              ; preds = %50
   %336 = getelementptr inbounds i8, ptr %52, i64 8
   %337 = load ptr, ptr %336, align 8
   call void @sttype_oper_set_op(ptr noundef %337, i32 noundef 9) #5
   store ptr %337, ptr %336, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 338:                                              ; preds = %50
   %339 = getelementptr inbounds i8, ptr %52, i64 8
   %340 = load ptr, ptr %339, align 8
   call void @sttype_oper_set_op(ptr noundef %340, i32 noundef 10) #5
   store ptr %340, ptr %339, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 341:                                              ; preds = %50
   %342 = getelementptr inbounds i8, ptr %52, i64 8
   %343 = load ptr, ptr %342, align 8
   call void @sttype_oper_set_op(ptr noundef %343, i32 noundef 11) #5
   store ptr %343, ptr %342, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 344:                                              ; preds = %50
   %345 = getelementptr i8, ptr %52, i64 -8
@@ -775,7 +775,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %352 = load ptr, ptr %349, align 8
   call void @stnode_merge_location(ptr noundef %346, ptr noundef %351, ptr noundef %352) #5
   store ptr %346, ptr %347, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 353:                                              ; preds = %50
   %354 = getelementptr inbounds i8, ptr %52, i64 8
@@ -812,7 +812,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %371 = load ptr, ptr %354, align 8
   call void @stnode_merge_location(ptr noundef %368, ptr noundef %370, ptr noundef %371) #5
   store ptr %368, ptr %365, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 372:                                              ; preds = %50
   %373 = getelementptr i8, ptr %52, i64 -8
@@ -826,7 +826,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %380 = load ptr, ptr %377, align 8
   call void @stnode_merge_location(ptr noundef %374, ptr noundef %379, ptr noundef %380) #5
   store ptr %374, ptr %375, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 381:                                              ; preds = %50
   %382 = getelementptr i8, ptr %52, i64 -8
@@ -840,7 +840,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %389 = load ptr, ptr %386, align 8
   call void @stnode_merge_location(ptr noundef %383, ptr noundef %388, ptr noundef %389) #5
   store ptr %383, ptr %384, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 390:                                              ; preds = %50
   %391 = getelementptr i8, ptr %52, i64 -8
@@ -854,7 +854,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %398 = load ptr, ptr %395, align 8
   call void @stnode_merge_location(ptr noundef %392, ptr noundef %397, ptr noundef %398) #5
   store ptr %392, ptr %393, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 399:                                              ; preds = %50
   %400 = getelementptr i8, ptr %52, i64 -8
@@ -871,7 +871,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %409 = load ptr, ptr %408, align 8
   call void @stnode_free(ptr noundef %409) #5
   store ptr %401, ptr %402, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 410:                                              ; preds = %50
   %411 = getelementptr inbounds i8, ptr %52, i64 8
@@ -884,7 +884,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %416 = load ptr, ptr %413, align 8
   call void @stnode_free(ptr noundef %416) #5
   store ptr %412, ptr %413, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 417:                                              ; preds = %50
   %418 = getelementptr inbounds i8, ptr %52, i64 8
@@ -897,7 +897,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %423 = load ptr, ptr %420, align 8
   call void @stnode_free(ptr noundef %423) #5
   store ptr %419, ptr %420, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 424:                                              ; preds = %50
   %425 = getelementptr inbounds i8, ptr %52, i64 8
@@ -905,7 +905,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %427 = call ptr @g_slist_append(ptr noundef null, ptr noundef %426) #5
   %428 = call ptr @g_slist_append(ptr noundef %427, ptr noundef null) #5
   store ptr %428, ptr %425, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 429:                                              ; preds = %50
   %430 = getelementptr i8, ptr %52, i64 -24
@@ -918,14 +918,14 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %437 = load ptr, ptr %436, align 8
   call void @stnode_free(ptr noundef %437) #5
   store ptr %435, ptr %430, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 438:                                              ; preds = %50
   %439 = getelementptr inbounds i8, ptr %52, i64 8
   %440 = load ptr, ptr %439, align 8
   %441 = call ptr @g_slist_concat(ptr noundef null, ptr noundef %440) #5
   store ptr %441, ptr %439, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 442:                                              ; preds = %50
   %443 = getelementptr i8, ptr %52, i64 -24
@@ -937,7 +937,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %449 = load ptr, ptr %448, align 8
   call void @stnode_free(ptr noundef %449) #5
   store ptr %447, ptr %443, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 450:                                              ; preds = %50
   %451 = getelementptr i8, ptr %52, i64 -8
@@ -955,7 +955,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %461 = load ptr, ptr %458, align 8
   call void @stnode_free(ptr noundef %461) #5
   store ptr %455, ptr %456, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 462:                                              ; preds = %50
   %463 = load i64, ptr @loc_empty, align 8
@@ -975,7 +975,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %474 = load ptr, ptr %473, align 8
   call void @stnode_free(ptr noundef %474) #5
   store ptr %465, ptr %466, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 475:                                              ; preds = %50
   store ptr null, ptr %7, align 8
@@ -1003,7 +1003,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %490 = load ptr, ptr %476, align 8
   call void @stnode_free(ptr noundef %490) #5
   store ptr %489, ptr %476, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 491:                                              ; preds = %50
   store ptr null, ptr %8, align 8
@@ -1036,7 +1036,7 @@ resolve_unparsed.exit:                            ; preds = %224, %238
   %510 = load ptr, ptr %509, align 8
   call void @stnode_free(ptr noundef %510) #5
   store ptr %507, ptr %505, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 511:                                              ; preds = %50
   %512 = getelementptr i8, ptr %52, i64 -40
@@ -1068,7 +1068,7 @@ new_function.exit44:                              ; preds = %511, %516
   %527 = load ptr, ptr %526, align 8
   call void @stnode_free(ptr noundef %527) #5
   store ptr %513, ptr %512, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 528:                                              ; preds = %50
   %529 = getelementptr i8, ptr %52, i64 -24
@@ -1097,14 +1097,14 @@ new_function.exit:                                ; preds = %528, %533
   %542 = load ptr, ptr %541, align 8
   call void @stnode_free(ptr noundef %542) #5
   store ptr %530, ptr %529, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 543:                                              ; preds = %50
   %544 = getelementptr inbounds i8, ptr %52, i64 8
   %545 = load ptr, ptr %544, align 8
   %546 = call ptr @g_slist_append(ptr noundef null, ptr noundef %545) #5
   store ptr %546, ptr %544, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
 547:                                              ; preds = %50
   %548 = getelementptr i8, ptr %52, i64 -24
@@ -1116,9 +1116,9 @@ new_function.exit:                                ; preds = %528, %533
   %554 = load ptr, ptr %553, align 8
   call void @stnode_free(ptr noundef %554) #5
   store ptr %552, ptr %548, align 8
-  br label %yy_reduce.exit
+  br label %yy_reduce.argprom.exit
 
-yy_reduce.exit:                                   ; preds = %50, %53, %.thread, %57, %66, %75, %97, %104, %resolve_unparsed.exit53, %166, %resolve_unparsed.exit49, %resolve_unparsed.exit47, %resolve_unparsed.exit, %253, %259, %266, %275, %284, %293, %302, %311, %320, %323, %326, %329, %332, %335, %338, %341, %344, %._crit_edge.i, %372, %381, %390, %399, %410, %417, %424, %429, %438, %442, %450, %462, %488, %504, %new_function.exit44, %new_function.exit, %543, %547
+yy_reduce.argprom.exit:                           ; preds = %50, %53, %.thread, %57, %66, %75, %97, %104, %resolve_unparsed.exit53, %166, %resolve_unparsed.exit49, %resolve_unparsed.exit47, %resolve_unparsed.exit, %253, %259, %266, %275, %284, %293, %302, %311, %320, %323, %326, %329, %332, %335, %338, %341, %344, %._crit_edge.i, %372, %381, %390, %399, %410, %417, %424, %429, %438, %442, %450, %462, %488, %504, %new_function.exit44, %new_function.exit, %543, %547
   %555 = phi ptr [ %52, %50 ], [ %52, %53 ], [ %35, %.thread ], [ %52, %57 ], [ %52, %66 ], [ %52, %75 ], [ %52, %97 ], [ %52, %104 ], [ %52, %resolve_unparsed.exit53 ], [ %52, %166 ], [ %52, %resolve_unparsed.exit49 ], [ %52, %resolve_unparsed.exit47 ], [ %52, %resolve_unparsed.exit ], [ %52, %253 ], [ %52, %259 ], [ %52, %266 ], [ %52, %275 ], [ %52, %284 ], [ %52, %293 ], [ %52, %302 ], [ %52, %311 ], [ %52, %320 ], [ %52, %323 ], [ %52, %326 ], [ %52, %329 ], [ %52, %332 ], [ %52, %335 ], [ %52, %338 ], [ %52, %341 ], [ %52, %344 ], [ %52, %._crit_edge.i ], [ %52, %372 ], [ %52, %381 ], [ %52, %390 ], [ %52, %399 ], [ %52, %410 ], [ %52, %417 ], [ %52, %424 ], [ %52, %429 ], [ %52, %438 ], [ %52, %442 ], [ %52, %450 ], [ %52, %462 ], [ %52, %488 ], [ %52, %504 ], [ %52, %new_function.exit44 ], [ %52, %new_function.exit ], [ %52, %543 ], [ %52, %547 ]
   %556 = zext nneg i32 %32 to i64
   %557 = getelementptr [68 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %556
@@ -1173,7 +1173,7 @@ yy_reduce.exit:                                   ; preds = %50, %53, %.thread, 
   %587 = getelementptr inbounds i8, ptr %585, i64 1
   %588 = load i8, ptr %587, align 1
   %589 = getelementptr inbounds i8, ptr %585, i64 8
-  call fastcc void @yy_destructor(i8 noundef zeroext %588, ptr noundef nonnull %589)
+  call fastcc void @yy_destructor.argprom(i8 noundef zeroext %588, ptr noundef nonnull %589)
   %590 = load ptr, ptr %0, align 8
   %591 = icmp ugt ptr %590, %583
   br i1 %591, label %.lr.ph.i.i, label %yyStackOverflow.exit.i, !llvm.loop !6
@@ -1241,7 +1241,7 @@ yy_shift.exit:                                    ; preds = %yyStackOverflow.exi
 
 yy_syntax_error.exit:                             ; preds = %615, %612, %606
   store i32 3, ptr %607, align 8
-  call fastcc void @yy_destructor(i8 noundef zeroext %14, ptr noundef nonnull %9)
+  call fastcc void @yy_destructor.argprom(i8 noundef zeroext %14, ptr noundef nonnull %9)
   br i1 %11, label %620, label %632
 
 620:                                              ; preds = %yy_syntax_error.exit
@@ -1258,7 +1258,7 @@ yy_syntax_error.exit:                             ; preds = %615, %612, %606
   %627 = getelementptr inbounds i8, ptr %625, i64 1
   %628 = load i8, ptr %627, align 1
   %629 = getelementptr inbounds i8, ptr %625, i64 8
-  call fastcc void @yy_destructor(i8 noundef zeroext %628, ptr noundef nonnull %629)
+  call fastcc void @yy_destructor.argprom(i8 noundef zeroext %628, ptr noundef nonnull %629)
   %630 = load ptr, ptr %0, align 8
   %631 = icmp ugt ptr %630, %622
   br i1 %631, label %.lr.ph.i41, label %yy_parse_failed.exit, !llvm.loop !8
@@ -1273,7 +1273,7 @@ yy_parse_failed.exit:                             ; preds = %.lr.ph.i41, %620
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @yy_destructor(i8 noundef zeroext %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @yy_destructor.argprom(i8 noundef zeroext %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
   switch i8 %0, label %13 [
     i8 1, label %3
     i8 2, label %3

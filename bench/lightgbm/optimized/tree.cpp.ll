@@ -7474,20 +7474,20 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvP
 
 _ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i
   %.not.i.i.i52.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not.i.i.i52.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_0JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %212
+  br i1 %.not.i.i.i52.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_0JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %212
 
 212:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_0JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_0JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_0JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %212
+"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_0JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %212
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -7496,30 +7496,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS_7DatasetEiPdE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -7957,20 +7957,20 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvP
 
 _ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i
   %.not.i.i.i52.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not.i.i.i52.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_1JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %214
+  br i1 %.not.i.i.i52.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_1JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %214
 
 214:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_1JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_1JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_1JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %214
+"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_1JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %214
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -7979,30 +7979,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS_7DatasetEiPdE3$_1", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -8348,20 +8348,20 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvP
 
 _ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i
   %.not.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_2JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %190
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_2JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %190
 
 190:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_2JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_2JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_2JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %190
+"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_2JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %190
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -8370,30 +8370,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS_7DatasetEiPdE3$_2", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -8742,20 +8742,20 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvP
 
 _ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i
   %.not.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_3JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %192
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_3JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %192
 
 192:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_3JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_3JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_3JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %192
+"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_3JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %192
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -8764,30 +8764,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS_7DatasetEiPdE3$_3", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -9112,20 +9112,20 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvP
 
 _ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i
   %.not.i.i.i31.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not.i.i.i31.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_4JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %173
+  br i1 %.not.i.i.i31.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_4JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %173
 
 173:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_4JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_4JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_4JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %173
+"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_4JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %173
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -9134,30 +9134,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS_7DatasetEiPdE3$_4", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -9484,20 +9484,20 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvP
 
 _ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i
   %.not.i.i.i31.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not.i.i.i31.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_5JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %174
+  br i1 %.not.i.i.i31.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_5JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %174
 
 174:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_5JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_5JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_5JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %174
+"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_5JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %174
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -9506,30 +9506,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS_7DatasetEiPdE3$_5", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -9812,20 +9812,20 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvP
 
 _ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i
   %.not.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_6JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %151
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_6JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %151
 
 151:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_6JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_6JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_6JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %151
+"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_6JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %151
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -9834,30 +9834,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS_7DatasetEiPdE3$_6", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -10142,20 +10142,20 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvP
 
 _ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i
   %.not.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_7JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %152
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_7JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %152
 
 152:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_7JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_7JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_7JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %152
+"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEiPdE3$_7JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %152
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -10164,30 +10164,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS_7DatasetEiPdE3$_7", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -10664,20 +10664,20 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvP
 
 _ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i
   %.not.i.i.i52.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not.i.i.i52.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_0JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit", label %223
+  br i1 %.not.i.i.i52.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_0JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit", label %223
 
 223:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_0JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_0JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_0JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %223
+"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_0JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -10686,30 +10686,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS_7DatasetEPKiiPdE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val6, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -11116,20 +11116,20 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvP
 
 _ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i
   %.not.i.i.i52.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not.i.i.i52.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_1JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit", label %226
+  br i1 %.not.i.i.i52.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_1JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit", label %226
 
 226:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_1JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_1JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_1JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %226
+"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_1JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %226
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -11138,30 +11138,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS_7DatasetEPKiiPdE3$_1", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val6, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -11523,20 +11523,20 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvP
 
 _ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i
   %.not.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_2JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit", label %201
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_2JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit", label %201
 
 201:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_2JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_2JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_2JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %201
+"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_2JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %201
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -11545,30 +11545,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS_7DatasetEPKiiPdE3$_2", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val6, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -11933,20 +11933,20 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvP
 
 _ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i
   %.not.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_3JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit", label %204
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_3JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit", label %204
 
 204:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_3JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_3JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_3JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %204
+"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_3JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %204
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -11955,30 +11955,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS_7DatasetEPKiiPdE3$_3", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val6, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -12315,20 +12315,20 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvP
 
 _ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i
   %.not.i.i.i31.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not.i.i.i31.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_4JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit", label %185
+  br i1 %.not.i.i.i31.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_4JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit", label %185
 
 185:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_4JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_4JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_4JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %185
+"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_4JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %185
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -12337,30 +12337,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS_7DatasetEPKiiPdE3$_4", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -12699,20 +12699,20 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvP
 
 _ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i
   %.not.i.i.i31.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not.i.i.i31.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_5JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit", label %187
+  br i1 %.not.i.i.i31.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_5JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit", label %187
 
 187:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_5JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_5JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_5JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %187
+"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_5JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %187
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -12721,30 +12721,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS_7DatasetEPKiiPdE3$_5", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -13039,20 +13039,20 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvP
 
 _ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i
   %.not.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_6JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit", label %163
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_6JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit", label %163
 
 163:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_6JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_6JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_6JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %163
+"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_6JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %163
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -13061,30 +13061,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS_7DatasetEPKiiPdE3$_6", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -13381,20 +13381,20 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvP
 
 _ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, %._crit_edge.i.i.i
   %.not.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_7JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit", label %165
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_7JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit", label %165
 
 165:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i) #36
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_7JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_7JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_7JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %165
+"_ZSt10__invoke_rIvRZNK8LightGBM4Tree20AddPredictionToScoreEPKNS0_7DatasetEPKiiPdE3$_7JiiiEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESC_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM11BinIteratorESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %165
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -13403,30 +13403,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS_7DatasetEPKiiPdE3$_7", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -55108,7 +55108,7 @@ define internal fastcc void @_ZN8LightGBM7CommonCL13StringToArrayIdEESt6vectorIT
 
 8:                                                ; preds = %3
   %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
-  call fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %9)
+  call fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc.argelim(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %9)
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %4, align 8
@@ -55975,7 +55975,7 @@ define internal fastcc void @_ZN8LightGBM6CommonL13StringToArrayIdEESt6vectorIT_
 
 8:                                                ; preds = %3
   %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
-  call fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %9)
+  call fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc.argelim(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %9)
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %5, align 8
@@ -56903,7 +56903,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc.argelim(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.33", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -60335,11 +60335,11 @@ attributes #42 = { nounwind willreturn memory(none) }
 !306 = distinct !{!306, !6}
 !307 = distinct !{!307, !6}
 !308 = !{!309}
-!309 = distinct !{!309, !310, !"_ZN8LightGBM7CommonCL4JoinIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaIS9_EEPKc: argument 0"}
-!310 = distinct !{!310, !"_ZN8LightGBM7CommonCL4JoinIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaIS9_EEPKc"}
+!309 = distinct !{!309, !310, !"_ZN8LightGBM7CommonCL4JoinIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaIS9_EEPKc.argprom: argument 0"}
+!310 = distinct !{!310, !"_ZN8LightGBM7CommonCL4JoinIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaIS9_EEPKc.argprom"}
 !311 = !{!312, !309}
-!312 = distinct !{!312, !313, !"_ZN8LightGBM6CommonL4JoinIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaIS9_EEPKcb: argument 0"}
-!313 = distinct !{!313, !"_ZN8LightGBM6CommonL4JoinIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaIS9_EEPKcb"}
+!312 = distinct !{!312, !313, !"_ZN8LightGBM6CommonL4JoinIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaIS9_EEPKcb.argprom: argument 0"}
+!313 = distinct !{!313, !"_ZN8LightGBM6CommonL4JoinIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaIS9_EEPKcb.argprom"}
 !314 = distinct !{!314, !6}
 !315 = distinct !{!315, !6}
 !316 = distinct !{!316, !6}

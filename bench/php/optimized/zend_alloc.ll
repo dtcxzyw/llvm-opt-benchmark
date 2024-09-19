@@ -88,7 +88,7 @@ define range(i64 0, -4095) i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not261, label %15, label %14
 
 14:                                               ; preds = %9
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 15:                                               ; preds = %9
@@ -160,7 +160,7 @@ define range(i64 0, -4095) i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not258, label %51, label %50
 
 50:                                               ; preds = %.lr.ph286
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 51:                                               ; preds = %.lr.ph286
@@ -231,9 +231,9 @@ define range(i64 0, -4095) i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0
   %90 = getelementptr i8, ptr %0, i64 8
   br label %91
 
-91:                                               ; preds = %zend_mm_chunk_free.exit, %80
-  %.0232 = phi ptr [ %82, %80 ], [ %186, %zend_mm_chunk_free.exit ]
-  %.0222 = phi i64 [ 0, %80 ], [ %.1.lcssa, %zend_mm_chunk_free.exit ]
+91:                                               ; preds = %zend_mm_chunk_free.argprom.exit, %80
+  %.0232 = phi ptr [ %82, %80 ], [ %186, %zend_mm_chunk_free.argprom.exit ]
+  %.0222 = phi i64 [ 0, %80 ], [ %.1.lcssa, %zend_mm_chunk_free.argprom.exit ]
   %92 = getelementptr inbounds i8, ptr %.0232, i64 28
   %93 = load i32, ptr %92, align 4
   %94 = icmp ugt i32 %93, 1
@@ -394,7 +394,7 @@ define range(i64 0, -4095) i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0
   %184 = icmp eq i32 %183, 511
   %185 = getelementptr inbounds i8, ptr %.0232, i64 8
   %186 = load ptr, ptr %185, align 8
-  br i1 %184, label %187, label %zend_mm_chunk_free.exit
+  br i1 %184, label %187, label %zend_mm_chunk_free.argprom.exit
 
 187:                                              ; preds = %._crit_edge300
   %188 = getelementptr inbounds i8, ptr %.0232, i64 16
@@ -431,7 +431,7 @@ define range(i64 0, -4095) i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0
   %209 = load ptr, ptr %88, align 8
   store ptr %209, ptr %185, align 8
   store ptr %.0232, ptr %88, align 8
-  br label %zend_mm_chunk_free.exit
+  br label %zend_mm_chunk_free.argprom.exit
 
 210:                                              ; preds = %204
   %211 = load i64, ptr %87, align 8
@@ -480,12 +480,12 @@ define range(i64 0, -4095) i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0
   %228 = getelementptr inbounds i8, ptr %.val, i64 8
   %229 = load ptr, ptr %228, align 8
   tail call void %229(ptr noundef nonnull %.val, ptr noundef nonnull %.0232, i64 noundef 2097152) #39
-  br label %zend_mm_chunk_free.exit
+  br label %zend_mm_chunk_free.argprom.exit
 
 230:                                              ; preds = %.thread275
   %231 = tail call i32 @munmap(ptr noundef nonnull %.0232, i64 noundef 2097152) #39
   %.not.i.i = icmp eq i32 %231, 0
-  br i1 %.not.i.i, label %zend_mm_chunk_free.exit, label %232
+  br i1 %.not.i.i, label %zend_mm_chunk_free.argprom.exit, label %232
 
 232:                                              ; preds = %230
   %233 = load ptr, ptr @stderr, align 8
@@ -493,7 +493,7 @@ define range(i64 0, -4095) i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0
   %235 = load i32, ptr %234, align 4
   %236 = tail call ptr @strerror(i32 noundef %235) #39
   %237 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef nonnull @.str.4, i32 noundef %235, ptr noundef %236) #41
-  br label %zend_mm_chunk_free.exit
+  br label %zend_mm_chunk_free.argprom.exit
 
 238:                                              ; preds = %220
   %239 = getelementptr inbounds i8, ptr %221, i64 8
@@ -508,12 +508,12 @@ define range(i64 0, -4095) i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0
   %243 = getelementptr inbounds i8, ptr %.val264, i64 8
   %244 = load ptr, ptr %243, align 8
   tail call void %244(ptr noundef nonnull %.val264, ptr noundef %241, i64 noundef 2097152) #39
-  br label %zend_mm_chunk_free.exit267
+  br label %zend_mm_chunk_free.argprom.exit267
 
 245:                                              ; preds = %238
   %246 = tail call i32 @munmap(ptr noundef %241, i64 noundef 2097152) #39
   %.not.i.i266 = icmp eq i32 %246, 0
-  br i1 %.not.i.i266, label %zend_mm_chunk_free.exit267, label %247
+  br i1 %.not.i.i266, label %zend_mm_chunk_free.argprom.exit267, label %247
 
 247:                                              ; preds = %245
   %248 = load ptr, ptr @stderr, align 8
@@ -521,18 +521,18 @@ define range(i64 0, -4095) i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0
   %250 = load i32, ptr %249, align 4
   %251 = tail call ptr @strerror(i32 noundef %250) #39
   %252 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %248, ptr noundef nonnull @.str.4, i32 noundef %250, ptr noundef %251) #41
-  br label %zend_mm_chunk_free.exit267
+  br label %zend_mm_chunk_free.argprom.exit267
 
-zend_mm_chunk_free.exit267:                       ; preds = %242, %245, %247
+zend_mm_chunk_free.argprom.exit267:               ; preds = %242, %245, %247
   store ptr %.0232, ptr %88, align 8
-  br label %zend_mm_chunk_free.exit
+  br label %zend_mm_chunk_free.argprom.exit
 
-zend_mm_chunk_free.exit:                          ; preds = %._crit_edge300, %232, %230, %227, %207, %zend_mm_chunk_free.exit267
+zend_mm_chunk_free.argprom.exit:                  ; preds = %._crit_edge300, %232, %230, %227, %207, %zend_mm_chunk_free.argprom.exit267
   %253 = load ptr, ptr %81, align 8
   %.not250 = icmp eq ptr %186, %253
   br i1 %.not250, label %254, label %91
 
-254:                                              ; preds = %zend_mm_chunk_free.exit
+254:                                              ; preds = %zend_mm_chunk_free.argprom.exit
   %255 = shl i64 %.1.lcssa, 12
   br label %256
 
@@ -542,7 +542,7 @@ zend_mm_chunk_free.exit:                          ; preds = %._crit_edge300, %23
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @zend_mm_panic() unnamed_addr #1 {
+define internal fastcc void @zend_mm_panic.argprom() unnamed_addr #1 {
   %1 = load ptr, ptr @stderr, align 8
   %2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str) #41
   tail call void @abort() #42
@@ -644,13 +644,13 @@ tracked_free_all.exit:                            ; preds = %36, %10, %9
   br label %46
 
 46:                                               ; preds = %44, %5
-  br i1 %1, label %47, label %zend_mm_chunk_free.exit99
+  br i1 %1, label %47, label %zend_mm_chunk_free.argprom.exit99
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds i8, ptr %0, i64 368
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull %0) #39
-  br label %zend_mm_chunk_free.exit99
+  br label %zend_mm_chunk_free.argprom.exit99
 
 50:                                               ; preds = %3
   %51 = getelementptr inbounds i8, ptr %0, i64 304
@@ -663,8 +663,8 @@ tracked_free_all.exit:                            ; preds = %36, %10, %9
   %53 = getelementptr i8, ptr %0, i64 8
   br label %54
 
-54:                                               ; preds = %.lr.ph, %zend_mm_chunk_free.exit
-  %.082104 = phi ptr [ %52, %.lr.ph ], [ %56, %zend_mm_chunk_free.exit ]
+54:                                               ; preds = %.lr.ph, %zend_mm_chunk_free.argprom.exit
+  %.082104 = phi ptr [ %52, %.lr.ph ], [ %56, %zend_mm_chunk_free.argprom.exit ]
   %55 = getelementptr inbounds i8, ptr %.082104, i64 16
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %.082104, align 8
@@ -678,12 +678,12 @@ tracked_free_all.exit:                            ; preds = %36, %10, %9
   %61 = getelementptr inbounds i8, ptr %.val, i64 8
   %62 = load ptr, ptr %61, align 8
   tail call void %62(ptr noundef nonnull %.val, ptr noundef %57, i64 noundef %59) #39
-  br label %zend_mm_chunk_free.exit
+  br label %zend_mm_chunk_free.argprom.exit
 
 63:                                               ; preds = %54
   %64 = tail call i32 @munmap(ptr noundef %57, i64 noundef %59) #39
   %.not.i.i = icmp eq i32 %64, 0
-  br i1 %.not.i.i, label %zend_mm_chunk_free.exit, label %65
+  br i1 %.not.i.i, label %zend_mm_chunk_free.argprom.exit, label %65
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr @stderr, align 8
@@ -691,13 +691,13 @@ tracked_free_all.exit:                            ; preds = %36, %10, %9
   %68 = load i32, ptr %67, align 4
   %69 = tail call ptr @strerror(i32 noundef %68) #39
   %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.4, i32 noundef %68, ptr noundef %69) #41
-  br label %zend_mm_chunk_free.exit
+  br label %zend_mm_chunk_free.argprom.exit
 
-zend_mm_chunk_free.exit:                          ; preds = %60, %63, %65
+zend_mm_chunk_free.argprom.exit:                  ; preds = %60, %63, %65
   %.not85 = icmp eq ptr %56, null
   br i1 %.not85, label %._crit_edge, label %54
 
-._crit_edge:                                      ; preds = %zend_mm_chunk_free.exit, %50
+._crit_edge:                                      ; preds = %zend_mm_chunk_free.argprom.exit, %50
   %71 = getelementptr inbounds i8, ptr %0, i64 312
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 8
@@ -743,8 +743,8 @@ zend_mm_chunk_free.exit:                          ; preds = %60, %63, %65
   %90 = getelementptr i8, ptr %0, i64 8
   br label %91
 
-91:                                               ; preds = %.lr.ph119, %zend_mm_chunk_free.exit96
-  %92 = phi ptr [ %89, %.lr.ph119 ], [ %106, %zend_mm_chunk_free.exit96 ]
+91:                                               ; preds = %.lr.ph119, %zend_mm_chunk_free.argprom.exit96
+  %92 = phi ptr [ %89, %.lr.ph119 ], [ %106, %zend_mm_chunk_free.argprom.exit96 ]
   %93 = getelementptr inbounds i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
   store ptr %94, ptr %88, align 8
@@ -756,12 +756,12 @@ zend_mm_chunk_free.exit:                          ; preds = %60, %63, %65
   %96 = getelementptr inbounds i8, ptr %.val90, i64 8
   %97 = load ptr, ptr %96, align 8
   tail call void %97(ptr noundef nonnull %.val90, ptr noundef nonnull %92, i64 noundef 2097152) #39
-  br label %zend_mm_chunk_free.exit96
+  br label %zend_mm_chunk_free.argprom.exit96
 
 98:                                               ; preds = %91
   %99 = tail call i32 @munmap(ptr noundef nonnull %92, i64 noundef 2097152) #39
   %.not.i.i95 = icmp eq i32 %99, 0
-  br i1 %.not.i.i95, label %zend_mm_chunk_free.exit96, label %100
+  br i1 %.not.i.i95, label %zend_mm_chunk_free.argprom.exit96, label %100
 
 100:                                              ; preds = %98
   %101 = load ptr, ptr @stderr, align 8
@@ -769,14 +769,14 @@ zend_mm_chunk_free.exit:                          ; preds = %60, %63, %65
   %103 = load i32, ptr %102, align 4
   %104 = tail call ptr @strerror(i32 noundef %103) #39
   %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.4, i32 noundef %103, ptr noundef %104) #41
-  br label %zend_mm_chunk_free.exit96
+  br label %zend_mm_chunk_free.argprom.exit96
 
-zend_mm_chunk_free.exit96:                        ; preds = %95, %98, %100
+zend_mm_chunk_free.argprom.exit96:                ; preds = %95, %98, %100
   %106 = load ptr, ptr %88, align 8
   %.not89 = icmp eq ptr %106, null
   br i1 %.not89, label %._crit_edge120.loopexit, label %91
 
-._crit_edge120.loopexit:                          ; preds = %zend_mm_chunk_free.exit96
+._crit_edge120.loopexit:                          ; preds = %zend_mm_chunk_free.argprom.exit96
   %.pre121 = load ptr, ptr %71, align 8
   br label %._crit_edge120
 
@@ -791,12 +791,12 @@ zend_mm_chunk_free.exit96:                        ; preds = %95, %98, %100
   %110 = getelementptr inbounds i8, ptr %.val91, i64 8
   %111 = load ptr, ptr %110, align 8
   tail call void %111(ptr noundef nonnull %.val91, ptr noundef %107, i64 noundef 2097152) #39
-  br label %zend_mm_chunk_free.exit99
+  br label %zend_mm_chunk_free.argprom.exit99
 
 112:                                              ; preds = %._crit_edge120
   %113 = tail call i32 @munmap(ptr noundef %107, i64 noundef 2097152) #39
   %.not.i.i98 = icmp eq i32 %113, 0
-  br i1 %.not.i.i98, label %zend_mm_chunk_free.exit99, label %114
+  br i1 %.not.i.i98, label %zend_mm_chunk_free.argprom.exit99, label %114
 
 114:                                              ; preds = %112
   %115 = load ptr, ptr @stderr, align 8
@@ -804,7 +804,7 @@ zend_mm_chunk_free.exit96:                        ; preds = %95, %98, %100
   %117 = load i32, ptr %116, align 4
   %118 = tail call ptr @strerror(i32 noundef %117) #39
   %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.4, i32 noundef %117, ptr noundef %118) #41
-  br label %zend_mm_chunk_free.exit99
+  br label %zend_mm_chunk_free.argprom.exit99
 
 120:                                              ; preds = %._crit_edge109
   %121 = getelementptr inbounds i8, ptr %0, i64 344
@@ -827,7 +827,7 @@ zend_mm_chunk_free.exit96:                        ; preds = %95, %98, %100
   %134 = getelementptr i8, ptr %0, i64 8
   br label %135
 
-135:                                              ; preds = %.lr.ph111, %zend_mm_chunk_free.exit102
+135:                                              ; preds = %.lr.ph111, %zend_mm_chunk_free.argprom.exit102
   %136 = load ptr, ptr %128, align 8
   %.not87 = icmp eq ptr %136, null
   br i1 %.not87, label %._crit_edge117, label %137
@@ -844,12 +844,12 @@ zend_mm_chunk_free.exit96:                        ; preds = %95, %98, %100
   %141 = getelementptr inbounds i8, ptr %.val92, i64 8
   %142 = load ptr, ptr %141, align 8
   tail call void %142(ptr noundef nonnull %.val92, ptr noundef nonnull %136, i64 noundef 2097152) #39
-  br label %zend_mm_chunk_free.exit102
+  br label %zend_mm_chunk_free.argprom.exit102
 
 143:                                              ; preds = %137
   %144 = tail call i32 @munmap(ptr noundef nonnull %136, i64 noundef 2097152) #39
   %.not.i.i101 = icmp eq i32 %144, 0
-  br i1 %.not.i.i101, label %zend_mm_chunk_free.exit102, label %145
+  br i1 %.not.i.i101, label %zend_mm_chunk_free.argprom.exit102, label %145
 
 145:                                              ; preds = %143
   %146 = load ptr, ptr @stderr, align 8
@@ -857,9 +857,9 @@ zend_mm_chunk_free.exit96:                        ; preds = %95, %98, %100
   %148 = load i32, ptr %147, align 4
   %149 = tail call ptr @strerror(i32 noundef %148) #39
   %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %146, ptr noundef nonnull @.str.4, i32 noundef %148, ptr noundef %149) #41
-  br label %zend_mm_chunk_free.exit102
+  br label %zend_mm_chunk_free.argprom.exit102
 
-zend_mm_chunk_free.exit102:                       ; preds = %140, %143, %145
+zend_mm_chunk_free.argprom.exit102:               ; preds = %140, %143, %145
   %151 = load i32, ptr %129, align 8
   %152 = add nsw i32 %151, -1
   store i32 %152, ptr %129, align 8
@@ -869,7 +869,7 @@ zend_mm_chunk_free.exit102:                       ; preds = %140, %143, %145
   %156 = fcmp ogt double %154, %155
   br i1 %156, label %135, label %.critedge
 
-.critedge:                                        ; preds = %zend_mm_chunk_free.exit102, %120
+.critedge:                                        ; preds = %zend_mm_chunk_free.argprom.exit102, %120
   %.pr = load ptr, ptr %128, align 8
   %.not88114 = icmp eq ptr %.pr, null
   br i1 %.not88114, label %._crit_edge117, label %.lr.ph116
@@ -920,9 +920,9 @@ zend_mm_chunk_free.exit102:                       ; preds = %140, %143, %145
   store i64 1, ptr %176, align 8
   %178 = getelementptr inbounds i8, ptr %159, i64 520
   store i32 1073741825, ptr %178, align 8
-  br label %zend_mm_chunk_free.exit99
+  br label %zend_mm_chunk_free.argprom.exit99
 
-zend_mm_chunk_free.exit99:                        ; preds = %114, %112, %109, %46, %47, %._crit_edge117
+zend_mm_chunk_free.argprom.exit99:                ; preds = %114, %112, %109, %46, %47, %._crit_edge117
   ret void
 }
 
@@ -1172,7 +1172,7 @@ define void @_zend_mm_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %8
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 18:                                               ; preds = %8
@@ -1202,7 +1202,7 @@ define void @_zend_mm_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not39, label %34, label %33
 
 33:                                               ; preds = %31
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 34:                                               ; preds = %31
@@ -1252,7 +1252,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br i1 %.not, label %23, label %22
 
 22:                                               ; preds = %13
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 23:                                               ; preds = %13
@@ -1481,7 +1481,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %141, %106, %104
   br i1 %.not358, label %150, label %149
 
 149:                                              ; preds = %147
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 150:                                              ; preds = %147
@@ -1823,7 +1823,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   br i1 %.not, label %24, label %23
 
 23:                                               ; preds = %14
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 24:                                               ; preds = %14
@@ -2054,7 +2054,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %143, %108, %106
   br i1 %.not358, label %153, label %152
 
 152:                                              ; preds = %150
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 153:                                              ; preds = %150
@@ -2414,7 +2414,7 @@ define i64 @_zend_mm_block_size(ptr noundef readonly %0, ptr noundef %1) local_u
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %24, %20
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 zend_mm_get_huge_block_size.exit.i:               ; preds = %.lr.ph.i.i
@@ -2434,7 +2434,7 @@ zend_mm_get_huge_block_size.exit.i:               ; preds = %.lr.ph.i.i
   br i1 %.not.i, label %37, label %36
 
 36:                                               ; preds = %28
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 37:                                               ; preds = %28
@@ -4924,18 +4924,18 @@ define internal fastcc nonnull ptr @zend_mm_alloc_huge(ptr noundef %0, i64 nound
   %37 = ptrtoint ptr %33 to i64
   %38 = icmp eq i64 %36, %37
   tail call void @llvm.assume(i1 %38)
-  br label %zend_mm_chunk_alloc.exit
+  br label %zend_mm_chunk_alloc.argprom.exit
 
 39:                                               ; preds = %29
-  %40 = tail call fastcc ptr @zend_mm_chunk_alloc_int(i64 noundef %7)
-  br label %zend_mm_chunk_alloc.exit
+  %40 = tail call fastcc ptr @zend_mm_chunk_alloc_int.argelim(i64 noundef %7)
+  br label %zend_mm_chunk_alloc.argprom.exit
 
-zend_mm_chunk_alloc.exit:                         ; preds = %31, %39
+zend_mm_chunk_alloc.argprom.exit:                 ; preds = %31, %39
   %.0.i = phi ptr [ %33, %31 ], [ %40, %39 ]
   %41 = icmp eq ptr %.0.i, null
   br i1 %41, label %42, label %57
 
-42:                                               ; preds = %zend_mm_chunk_alloc.exit
+42:                                               ; preds = %zend_mm_chunk_alloc.argprom.exit
   %43 = tail call i64 @zend_mm_gc(ptr noundef nonnull %0)
   %.not59 = icmp eq i64 %43, 0
   br i1 %.not59, label %55, label %44
@@ -4954,24 +4954,24 @@ zend_mm_chunk_alloc.exit:                         ; preds = %31, %39
   %51 = ptrtoint ptr %47 to i64
   %52 = icmp eq i64 %50, %51
   tail call void @llvm.assume(i1 %52)
-  br label %zend_mm_chunk_alloc.exit64
+  br label %zend_mm_chunk_alloc.argprom.exit64
 
 53:                                               ; preds = %44
-  %54 = tail call fastcc ptr @zend_mm_chunk_alloc_int(i64 noundef %7)
-  br label %zend_mm_chunk_alloc.exit64
+  %54 = tail call fastcc ptr @zend_mm_chunk_alloc_int.argelim(i64 noundef %7)
+  br label %zend_mm_chunk_alloc.argprom.exit64
 
-zend_mm_chunk_alloc.exit64:                       ; preds = %45, %53
+zend_mm_chunk_alloc.argprom.exit64:               ; preds = %45, %53
   %.0.i63 = phi ptr [ %47, %45 ], [ %54, %53 ]
   %.not60 = icmp eq ptr %.0.i63, null
   br i1 %.not60, label %55, label %57
 
-55:                                               ; preds = %zend_mm_chunk_alloc.exit64, %42
+55:                                               ; preds = %zend_mm_chunk_alloc.argprom.exit64, %42
   %56 = load i64, ptr %13, align 8
   tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i64 noundef %56, i64 noundef %1) #38
   unreachable
 
-57:                                               ; preds = %zend_mm_chunk_alloc.exit64, %zend_mm_chunk_alloc.exit
-  %.0 = phi ptr [ %.0.i63, %zend_mm_chunk_alloc.exit64 ], [ %.0.i, %zend_mm_chunk_alloc.exit ]
+57:                                               ; preds = %zend_mm_chunk_alloc.argprom.exit64, %zend_mm_chunk_alloc.argprom.exit
+  %.0 = phi ptr [ %.0.i63, %zend_mm_chunk_alloc.argprom.exit64 ], [ %.0.i, %zend_mm_chunk_alloc.argprom.exit ]
   %58 = getelementptr inbounds i8, ptr %0, i64 16
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, 24
@@ -5068,7 +5068,7 @@ define void @_efree_8(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5108,7 +5108,7 @@ define void @_efree_16(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5148,7 +5148,7 @@ define void @_efree_24(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5188,7 +5188,7 @@ define void @_efree_32(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5228,7 +5228,7 @@ define void @_efree_40(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5268,7 +5268,7 @@ define void @_efree_48(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5308,7 +5308,7 @@ define void @_efree_56(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5348,7 +5348,7 @@ define void @_efree_64(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5388,7 +5388,7 @@ define void @_efree_80(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5428,7 +5428,7 @@ define void @_efree_96(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5468,7 +5468,7 @@ define void @_efree_112(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5508,7 +5508,7 @@ define void @_efree_128(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5548,7 +5548,7 @@ define void @_efree_160(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5588,7 +5588,7 @@ define void @_efree_192(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5628,7 +5628,7 @@ define void @_efree_224(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5668,7 +5668,7 @@ define void @_efree_256(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5708,7 +5708,7 @@ define void @_efree_320(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5748,7 +5748,7 @@ define void @_efree_384(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5788,7 +5788,7 @@ define void @_efree_448(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5828,7 +5828,7 @@ define void @_efree_512(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5868,7 +5868,7 @@ define void @_efree_640(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5908,7 +5908,7 @@ define void @_efree_768(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5948,7 +5948,7 @@ define void @_efree_896(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5988,7 +5988,7 @@ define void @_efree_1024(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -6028,7 +6028,7 @@ define void @_efree_1280(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -6068,7 +6068,7 @@ define void @_efree_1536(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -6108,7 +6108,7 @@ define void @_efree_1792(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -6148,7 +6148,7 @@ define void @_efree_2048(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -6188,7 +6188,7 @@ define void @_efree_2560(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -6228,7 +6228,7 @@ define void @_efree_3072(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -6271,7 +6271,7 @@ define void @_efree_large(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
   br i1 %.not22, label %16, label %17
 
 16:                                               ; preds = %8
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 17:                                               ; preds = %8
@@ -6332,7 +6332,7 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef %1) u
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 6:                                                ; preds = %2
@@ -6384,7 +6384,7 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef %1) u
   br i1 %.not54.i, label %31, label %30
 
 30:                                               ; preds = %21
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 31:                                               ; preds = %21
@@ -6414,7 +6414,7 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef %1) u
   br i1 %.not56.i, label %47, label %46
 
 46:                                               ; preds = %44
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 47:                                               ; preds = %44
@@ -6436,7 +6436,7 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef %1) u
   br i1 %.not.i, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph23, %6
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 zend_mm_del_huge_block.exit:                      ; preds = %20, %32, %47
@@ -6449,12 +6449,12 @@ zend_mm_del_huge_block.exit:                      ; preds = %20, %32, %47
   %57 = getelementptr inbounds i8, ptr %.val, i64 8
   %58 = load ptr, ptr %57, align 8
   tail call void %58(ptr noundef nonnull %.val, ptr noundef %1, i64 noundef %16) #39
-  br label %zend_mm_chunk_free.exit
+  br label %zend_mm_chunk_free.argprom.exit
 
 59:                                               ; preds = %zend_mm_del_huge_block.exit
   %60 = tail call i32 @munmap(ptr noundef %1, i64 noundef %16) #39
   %.not.i.i = icmp eq i32 %60, 0
-  br i1 %.not.i.i, label %zend_mm_chunk_free.exit, label %61
+  br i1 %.not.i.i, label %zend_mm_chunk_free.argprom.exit, label %61
 
 61:                                               ; preds = %59
   %62 = load ptr, ptr @stderr, align 8
@@ -6462,9 +6462,9 @@ zend_mm_del_huge_block.exit:                      ; preds = %20, %32, %47
   %64 = load i32, ptr %63, align 4
   %65 = tail call ptr @strerror(i32 noundef %64) #39
   %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.4, i32 noundef %64, ptr noundef %65) #41
-  br label %zend_mm_chunk_free.exit
+  br label %zend_mm_chunk_free.argprom.exit
 
-zend_mm_chunk_free.exit:                          ; preds = %56, %59, %61
+zend_mm_chunk_free.argprom.exit:                  ; preds = %56, %59, %61
   %67 = getelementptr inbounds i8, ptr %0, i64 272
   %68 = load i64, ptr %67, align 8
   %69 = sub i64 %68, %16
@@ -6680,7 +6680,7 @@ define void @_efree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not38, label %23, label %22
 
 22:                                               ; preds = %13
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 23:                                               ; preds = %13
@@ -6710,7 +6710,7 @@ define void @_efree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not40, label %39, label %38
 
 38:                                               ; preds = %36
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 39:                                               ; preds = %36
@@ -6772,7 +6772,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   br i1 %.not360, label %29, label %28
 
 28:                                               ; preds = %19
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 29:                                               ; preds = %19
@@ -6940,7 +6940,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   br i1 %.not362, label %123, label %122
 
 122:                                              ; preds = %120
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 123:                                              ; preds = %120
@@ -7294,7 +7294,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   br i1 %.not360, label %30, label %29
 
 29:                                               ; preds = %20
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 30:                                               ; preds = %20
@@ -7464,7 +7464,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   br i1 %.not362, label %126, label %125
 
 125:                                              ; preds = %123
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 126:                                              ; preds = %123
@@ -7825,7 +7825,7 @@ define i64 @_zend_mem_block_size(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %24, %20
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 zend_mm_get_huge_block_size.exit.i.i:             ; preds = %.lr.ph.i.i.i
@@ -7845,7 +7845,7 @@ zend_mm_get_huge_block_size.exit.i.i:             ; preds = %.lr.ph.i.i.i
   br i1 %.not.i.i, label %37, label %36
 
 36:                                               ; preds = %28
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 37:                                               ; preds = %28
@@ -8119,7 +8119,7 @@ define range(i32 -1, 1) i32 @zend_set_memory_limit(i64 noundef %0) local_unnamed
   %13 = getelementptr i8, ptr %2, i64 8
   br label %14
 
-14:                                               ; preds = %.preheader, %zend_mm_chunk_free.exit
+14:                                               ; preds = %.preheader, %zend_mm_chunk_free.argprom.exit
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -8132,12 +8132,12 @@ define range(i32 -1, 1) i32 @zend_set_memory_limit(i64 noundef %0) local_unnamed
   %19 = getelementptr inbounds i8, ptr %.val, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull %.val, ptr noundef nonnull %15, i64 noundef 2097152) #39
-  br label %zend_mm_chunk_free.exit
+  br label %zend_mm_chunk_free.argprom.exit
 
 21:                                               ; preds = %14
   %22 = tail call i32 @munmap(ptr noundef nonnull %15, i64 noundef 2097152) #39
   %.not.i.i = icmp eq i32 %22, 0
-  br i1 %.not.i.i, label %zend_mm_chunk_free.exit, label %23
+  br i1 %.not.i.i, label %zend_mm_chunk_free.argprom.exit, label %23
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr @stderr, align 8
@@ -8145,9 +8145,9 @@ define range(i32 -1, 1) i32 @zend_set_memory_limit(i64 noundef %0) local_unnamed
   %26 = load i32, ptr %25, align 4
   %27 = tail call ptr @strerror(i32 noundef %26) #39
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.4, i32 noundef %26, ptr noundef %27) #41
-  br label %zend_mm_chunk_free.exit
+  br label %zend_mm_chunk_free.argprom.exit
 
-zend_mm_chunk_free.exit:                          ; preds = %18, %21, %23
+zend_mm_chunk_free.argprom.exit:                  ; preds = %18, %21, %23
   %29 = load i32, ptr %7, align 8
   %30 = add nsw i32 %29, -1
   store i32 %30, ptr %7, align 8
@@ -8162,8 +8162,8 @@ zend_mm_chunk_free.exit:                          ; preds = %18, %21, %23
   store i64 %0, ptr %35, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %zend_mm_chunk_free.exit, %6, %34
-  %.0 = phi i32 [ 0, %34 ], [ -1, %6 ], [ 0, %zend_mm_chunk_free.exit ]
+.loopexit:                                        ; preds = %zend_mm_chunk_free.argprom.exit, %6, %34
+  %.0 = phi i32 [ 0, %34 ], [ -1, %6 ], [ 0, %zend_mm_chunk_free.argprom.exit ]
   ret i32 %.0
 }
 
@@ -8252,7 +8252,7 @@ define void @start_memory_manager() local_unnamed_addr #0 {
   store ptr @__zend_malloc, ptr %12, align 8
   store ptr @__zend_free, ptr %13, align 8
   store ptr @__zend_realloc, ptr %14, align 8
-  br label %alloc_globals_ctor.exit
+  br label %alloc_globals_ctor.argprom.exit
 
 16:                                               ; preds = %9
   store ptr @tracked_malloc, ptr %12, align 8
@@ -8262,7 +8262,7 @@ define void @start_memory_manager() local_unnamed_addr #0 {
   %18 = getelementptr inbounds i8, ptr %calloc.i, i64 384
   store ptr %17, ptr %18, align 8
   tail call void @_zend_hash_init(ptr noundef %17, i32 noundef 1024, ptr noundef null, i1 noundef zeroext true) #39
-  br label %alloc_globals_ctor.exit
+  br label %alloc_globals_ctor.argprom.exit
 
 19:                                               ; preds = %2, %0
   %20 = tail call ptr @getenv(ptr noundef nonnull @.str.15) #39
@@ -8279,7 +8279,7 @@ define void @start_memory_manager() local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %23, %21, %19
-  %25 = tail call fastcc ptr @zend_mm_chunk_alloc_int(i64 noundef 2097152)
+  %25 = tail call fastcc ptr @zend_mm_chunk_alloc_int.argelim(i64 noundef 2097152)
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %30
 
@@ -8341,9 +8341,9 @@ define void @start_memory_manager() local_unnamed_addr #0 {
 zend_mm_init.exit.i:                              ; preds = %30, %27
   %.0.i.i = phi ptr [ null, %27 ], [ %31, %30 ]
   store ptr %.0.i.i, ptr @alloc_globals.0, align 8
-  br label %alloc_globals_ctor.exit
+  br label %alloc_globals_ctor.argprom.exit
 
-alloc_globals_ctor.exit:                          ; preds = %15, %16, %zend_mm_init.exit.i
+alloc_globals_ctor.argprom.exit:                  ; preds = %15, %16, %zend_mm_init.exit.i
   %54 = tail call i64 @sysconf(i32 noundef 30) #39
   store i64 %54, ptr @_real_page_size, align 8
   ret void
@@ -8434,7 +8434,7 @@ define ptr @zend_mm_get_storage(ptr nocapture noundef readonly %0) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define ptr @zend_mm_startup() local_unnamed_addr #0 {
-  %1 = tail call fastcc ptr @zend_mm_chunk_alloc_int(i64 noundef 2097152)
+  %1 = tail call fastcc ptr @zend_mm_chunk_alloc_int.argelim(i64 noundef 2097152)
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %6
 
@@ -8684,14 +8684,14 @@ define internal fastcc ptr @zend_mm_realloc_huge(ptr noundef %0, ptr noundef non
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %8, %4
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 zend_mm_get_huge_block_size.exit:                 ; preds = %.lr.ph.i
   %10 = getelementptr inbounds i8, ptr %.09.i, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp ugt i64 %2, 2093056
-  br i1 %12, label %13, label %zend_mm_chunk_truncate.exit.thread108
+  br i1 %12, label %13, label %zend_mm_chunk_truncate.argprom.exit.thread108
 
 13:                                               ; preds = %zend_mm_get_huge_block_size.exit
   %14 = load i64, ptr @_real_page_size, align 8
@@ -8733,14 +8733,14 @@ zend_mm_get_huge_block_size.exit:                 ; preds = %.lr.ph.i
   %31 = getelementptr inbounds i8, ptr %.val, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not13.i = icmp eq ptr %32, null
-  br i1 %.not13.i, label %zend_mm_chunk_truncate.exit.thread108, label %zend_mm_chunk_truncate.exit
+  br i1 %.not13.i, label %zend_mm_chunk_truncate.argprom.exit.thread108, label %zend_mm_chunk_truncate.argprom.exit
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds i8, ptr %1, i64 %18
   %35 = sub i64 %11, %18
   %36 = tail call i32 @munmap(ptr noundef nonnull %34, i64 noundef %35) #39
   %.not.i.i = icmp eq i32 %36, 0
-  br i1 %.not.i.i, label %zend_mm_chunk_truncate.exit.thread, label %37
+  br i1 %.not.i.i, label %zend_mm_chunk_truncate.argprom.exit.thread, label %37
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr @stderr, align 8
@@ -8748,18 +8748,18 @@ zend_mm_get_huge_block_size.exit:                 ; preds = %.lr.ph.i
   %40 = load i32, ptr %39, align 4
   %41 = tail call ptr @strerror(i32 noundef %40) #39
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.4, i32 noundef %40, ptr noundef %41) #41
-  br label %zend_mm_chunk_truncate.exit.thread
+  br label %zend_mm_chunk_truncate.argprom.exit.thread
 
-zend_mm_chunk_truncate.exit:                      ; preds = %30
+zend_mm_chunk_truncate.argprom.exit:              ; preds = %30
   %43 = tail call zeroext i1 %32(ptr noundef nonnull %.val, ptr noundef nonnull %1, i64 noundef %11, i64 noundef %18) #39
-  br i1 %43, label %zend_mm_chunk_truncate.exit.zend_mm_chunk_truncate.exit.thread_crit_edge, label %zend_mm_chunk_truncate.exit.thread108
+  br i1 %43, label %zend_mm_chunk_truncate.argprom.exit.zend_mm_chunk_truncate.argprom.exit.thread_crit_edge, label %zend_mm_chunk_truncate.argprom.exit.thread108
 
-zend_mm_chunk_truncate.exit.zend_mm_chunk_truncate.exit.thread_crit_edge: ; preds = %zend_mm_chunk_truncate.exit
+zend_mm_chunk_truncate.argprom.exit.zend_mm_chunk_truncate.argprom.exit.thread_crit_edge: ; preds = %zend_mm_chunk_truncate.argprom.exit
   %.pre = sub i64 %11, %18
-  br label %zend_mm_chunk_truncate.exit.thread
+  br label %zend_mm_chunk_truncate.argprom.exit.thread
 
-zend_mm_chunk_truncate.exit.thread:               ; preds = %zend_mm_chunk_truncate.exit.zend_mm_chunk_truncate.exit.thread_crit_edge, %37, %33
-  %.pre-phi = phi i64 [ %.pre, %zend_mm_chunk_truncate.exit.zend_mm_chunk_truncate.exit.thread_crit_edge ], [ %35, %37 ], [ %35, %33 ]
+zend_mm_chunk_truncate.argprom.exit.thread:       ; preds = %zend_mm_chunk_truncate.argprom.exit.zend_mm_chunk_truncate.argprom.exit.thread_crit_edge, %37, %33
+  %.pre-phi = phi i64 [ %.pre, %zend_mm_chunk_truncate.argprom.exit.zend_mm_chunk_truncate.argprom.exit.thread_crit_edge ], [ %35, %37 ], [ %35, %33 ]
   %44 = getelementptr inbounds i8, ptr %0, i64 272
   %45 = load i64, ptr %44, align 8
   %46 = sub i64 %45, %.pre-phi
@@ -8772,8 +8772,8 @@ zend_mm_chunk_truncate.exit.thread:               ; preds = %zend_mm_chunk_trunc
   %.not8.i91 = icmp eq ptr %.07.i90, null
   br i1 %.not8.i91, label %zend_mm_change_huge_block_size.exit, label %.lr.ph.i92
 
-.lr.ph.i92:                                       ; preds = %zend_mm_chunk_truncate.exit.thread, %54
-  %.09.i93 = phi ptr [ %.0.i94, %54 ], [ %.07.i90, %zend_mm_chunk_truncate.exit.thread ]
+.lr.ph.i92:                                       ; preds = %zend_mm_chunk_truncate.argprom.exit.thread, %54
+  %.09.i93 = phi ptr [ %.0.i94, %54 ], [ %.07.i90, %zend_mm_chunk_truncate.argprom.exit.thread ]
   %50 = load ptr, ptr %.09.i93, align 8
   %51 = icmp eq ptr %50, %1
   br i1 %51, label %52, label %54
@@ -8826,24 +8826,24 @@ zend_mm_chunk_truncate.exit.thread:               ; preds = %zend_mm_chunk_trunc
   %77 = getelementptr i8, ptr %0, i64 8
   %.val81 = load ptr, ptr %77, align 8
   %.not.i97 = icmp eq ptr %.val81, null
-  br i1 %.not.i97, label %zend_mm_chunk_extend.exit, label %78
+  br i1 %.not.i97, label %zend_mm_chunk_extend.argprom.exit, label %78
 
 78:                                               ; preds = %76
   %79 = getelementptr inbounds i8, ptr %.val81, i64 24
   %80 = load ptr, ptr %79, align 8
   %.not16.i = icmp eq ptr %80, null
-  br i1 %.not16.i, label %zend_mm_chunk_truncate.exit.thread108, label %81
+  br i1 %.not16.i, label %zend_mm_chunk_truncate.argprom.exit.thread108, label %81
 
 81:                                               ; preds = %78
   %82 = tail call zeroext i1 %80(ptr noundef nonnull %.val81, ptr noundef nonnull %1, i64 noundef %11, i64 noundef %18) #39
-  br i1 %82, label %84, label %zend_mm_chunk_truncate.exit.thread108
+  br i1 %82, label %84, label %zend_mm_chunk_truncate.argprom.exit.thread108
 
-zend_mm_chunk_extend.exit:                        ; preds = %76
+zend_mm_chunk_extend.argprom.exit:                ; preds = %76
   %83 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef nonnull %1, i64 noundef %11, i64 noundef %18, i32 noundef 0) #39
   %.not132 = icmp eq ptr %83, inttoptr (i64 -1 to ptr)
-  br i1 %.not132, label %zend_mm_chunk_truncate.exit.thread108, label %84
+  br i1 %.not132, label %zend_mm_chunk_truncate.argprom.exit.thread108, label %84
 
-84:                                               ; preds = %81, %zend_mm_chunk_extend.exit
+84:                                               ; preds = %81, %zend_mm_chunk_extend.argprom.exit
   %85 = load i64, ptr %60, align 8
   %86 = add i64 %85, %57
   store i64 %86, ptr %60, align 8
@@ -8880,13 +8880,13 @@ zend_mm_chunk_extend.exit:                        ; preds = %76
   %.not.i104 = icmp eq ptr %.0.i103, null
   br i1 %.not.i104, label %zend_mm_change_huge_block_size.exit, label %.lr.ph.i101
 
-zend_mm_chunk_truncate.exit.thread108:            ; preds = %81, %78, %30, %zend_mm_chunk_extend.exit, %zend_mm_chunk_truncate.exit, %zend_mm_get_huge_block_size.exit
+zend_mm_chunk_truncate.argprom.exit.thread108:    ; preds = %81, %78, %30, %zend_mm_chunk_extend.argprom.exit, %zend_mm_chunk_truncate.argprom.exit, %zend_mm_get_huge_block_size.exit
   %101 = tail call i64 @llvm.umin.i64(i64 %11, i64 %3)
   %102 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %101)
   br label %zend_mm_change_huge_block_size.exit
 
-zend_mm_change_huge_block_size.exit:              ; preds = %99, %54, %24, %97, %84, %52, %zend_mm_chunk_truncate.exit.thread, %22, %zend_mm_chunk_truncate.exit.thread108
-  %.0 = phi ptr [ %102, %zend_mm_chunk_truncate.exit.thread108 ], [ %1, %22 ], [ %1, %zend_mm_chunk_truncate.exit.thread ], [ %1, %52 ], [ %1, %84 ], [ %1, %97 ], [ %1, %24 ], [ %1, %54 ], [ %1, %99 ]
+zend_mm_change_huge_block_size.exit:              ; preds = %99, %54, %24, %97, %84, %52, %zend_mm_chunk_truncate.argprom.exit.thread, %22, %zend_mm_chunk_truncate.argprom.exit.thread108
+  %.0 = phi ptr [ %102, %zend_mm_chunk_truncate.argprom.exit.thread108 ], [ %1, %22 ], [ %1, %zend_mm_chunk_truncate.argprom.exit.thread ], [ %1, %52 ], [ %1, %84 ], [ %1, %97 ], [ %1, %24 ], [ %1, %54 ], [ %1, %99 ]
   ret ptr %.0
 }
 
@@ -9065,7 +9065,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %76, %36, %34, %89, 
   br i1 %.not104, label %106, label %105
 
 105:                                              ; preds = %96
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 106:                                              ; preds = %96
@@ -9095,7 +9095,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %76, %36, %34, %89, 
   br i1 %.not106, label %122, label %121
 
 121:                                              ; preds = %119
-  tail call fastcc void @zend_mm_panic() #38
+  tail call fastcc void @zend_mm_panic.argprom() #38
   unreachable
 
 122:                                              ; preds = %119
@@ -9418,18 +9418,18 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
   %96 = ptrtoint ptr %92 to i64
   %97 = icmp eq i64 %95, %96
   tail call void @llvm.assume(i1 %97)
-  br label %zend_mm_chunk_alloc.exit
+  br label %zend_mm_chunk_alloc.argprom.exit
 
 98:                                               ; preds = %.loopexit
-  %99 = tail call fastcc ptr @zend_mm_chunk_alloc_int(i64 noundef 2097152)
-  br label %zend_mm_chunk_alloc.exit
+  %99 = tail call fastcc ptr @zend_mm_chunk_alloc_int.argelim(i64 noundef 2097152)
+  br label %zend_mm_chunk_alloc.argprom.exit
 
-zend_mm_chunk_alloc.exit:                         ; preds = %90, %98
+zend_mm_chunk_alloc.argprom.exit:                 ; preds = %90, %98
   %.0.i = phi ptr [ %92, %90 ], [ %99, %98 ]
   %100 = icmp eq ptr %.0.i, null
   br i1 %100, label %101, label %118
 
-101:                                              ; preds = %zend_mm_chunk_alloc.exit
+101:                                              ; preds = %zend_mm_chunk_alloc.argprom.exit
   %102 = tail call i64 @zend_mm_gc(ptr noundef nonnull %0)
   %.not203 = icmp eq i64 %102, 0
   br i1 %.not203, label %114, label %103
@@ -9448,26 +9448,26 @@ zend_mm_chunk_alloc.exit:                         ; preds = %90, %98
   %110 = ptrtoint ptr %106 to i64
   %111 = icmp eq i64 %109, %110
   tail call void @llvm.assume(i1 %111)
-  br label %zend_mm_chunk_alloc.exit213
+  br label %zend_mm_chunk_alloc.argprom.exit213
 
 112:                                              ; preds = %103
-  %113 = tail call fastcc ptr @zend_mm_chunk_alloc_int(i64 noundef 2097152)
-  br label %zend_mm_chunk_alloc.exit213
+  %113 = tail call fastcc ptr @zend_mm_chunk_alloc_int.argelim(i64 noundef 2097152)
+  br label %zend_mm_chunk_alloc.argprom.exit213
 
-zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
+zend_mm_chunk_alloc.argprom.exit213:              ; preds = %104, %112
   %.0.i212 = phi ptr [ %106, %104 ], [ %113, %112 ]
   %.not204 = icmp eq ptr %.0.i212, null
   br i1 %.not204, label %114, label %118
 
-114:                                              ; preds = %zend_mm_chunk_alloc.exit213, %101
+114:                                              ; preds = %zend_mm_chunk_alloc.argprom.exit213, %101
   %115 = load i64, ptr %65, align 8
   %116 = shl i32 %1, 12
   %117 = zext i32 %116 to i64
   tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i64 noundef %115, i64 noundef %117) #38
   unreachable
 
-118:                                              ; preds = %zend_mm_chunk_alloc.exit, %zend_mm_chunk_alloc.exit213
-  %.3 = phi ptr [ %.0.i212, %zend_mm_chunk_alloc.exit213 ], [ %.0.i, %zend_mm_chunk_alloc.exit ]
+118:                                              ; preds = %zend_mm_chunk_alloc.argprom.exit, %zend_mm_chunk_alloc.argprom.exit213
+  %.3 = phi ptr [ %.0.i212, %zend_mm_chunk_alloc.argprom.exit213 ], [ %.0.i, %zend_mm_chunk_alloc.argprom.exit ]
   %119 = load i64, ptr %65, align 8
   %120 = add i64 %119, 2097152
   %121 = getelementptr inbounds i8, ptr %0, i64 280
@@ -9659,7 +9659,7 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #29
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @zend_mm_chunk_alloc_int(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @zend_mm_chunk_alloc_int.argelim(i64 noundef %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @zend_mm_mmap(i64 noundef %0)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %50, label %4
@@ -9912,7 +9912,7 @@ define internal fastcc void @zend_mm_free_pages(ptr nocapture noundef %0, ptr no
   %.not97 = icmp ne ptr %1, %72
   %73 = icmp eq i32 %7, 511
   %or.cond = select i1 %.not97, i1 %73, i1 false
-  br i1 %or.cond, label %74, label %zend_mm_chunk_free.exit
+  br i1 %or.cond, label %74, label %zend_mm_chunk_free.argprom.exit
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds i8, ptr %1, i64 16
@@ -9957,7 +9957,7 @@ define internal fastcc void @zend_mm_free_pages(ptr nocapture noundef %0, ptr no
   %104 = load ptr, ptr %103, align 8
   store ptr %104, ptr %77, align 8
   store ptr %1, ptr %103, align 8
-  br label %zend_mm_chunk_free.exit
+  br label %zend_mm_chunk_free.argprom.exit
 
 105:                                              ; preds = %97
   %106 = getelementptr inbounds i8, ptr %0, i64 272
@@ -10010,12 +10010,12 @@ define internal fastcc void @zend_mm_free_pages(ptr nocapture noundef %0, ptr no
   %130 = getelementptr inbounds i8, ptr %.val101, i64 8
   %131 = load ptr, ptr %130, align 8
   tail call void %131(ptr noundef nonnull %.val101, ptr noundef nonnull %1, i64 noundef 2097152) #39
-  br label %zend_mm_chunk_free.exit
+  br label %zend_mm_chunk_free.argprom.exit
 
 132:                                              ; preds = %.thread112
   %133 = tail call i32 @munmap(ptr noundef nonnull %1, i64 noundef 2097152) #39
   %.not.i.i = icmp eq i32 %133, 0
-  br i1 %.not.i.i, label %zend_mm_chunk_free.exit, label %134
+  br i1 %.not.i.i, label %zend_mm_chunk_free.argprom.exit, label %134
 
 134:                                              ; preds = %132
   %135 = load ptr, ptr @stderr, align 8
@@ -10023,7 +10023,7 @@ define internal fastcc void @zend_mm_free_pages(ptr nocapture noundef %0, ptr no
   %137 = load i32, ptr %136, align 4
   %138 = tail call ptr @strerror(i32 noundef %137) #39
   %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str.4, i32 noundef %137, ptr noundef %138) #41
-  br label %zend_mm_chunk_free.exit
+  br label %zend_mm_chunk_free.argprom.exit
 
 140:                                              ; preds = %120
   %141 = getelementptr inbounds i8, ptr %121, i64 8
@@ -10039,12 +10039,12 @@ define internal fastcc void @zend_mm_free_pages(ptr nocapture noundef %0, ptr no
   %146 = getelementptr inbounds i8, ptr %.val, i64 8
   %147 = load ptr, ptr %146, align 8
   tail call void %147(ptr noundef nonnull %.val, ptr noundef %143, i64 noundef 2097152) #39
-  br label %zend_mm_chunk_free.exit104
+  br label %zend_mm_chunk_free.argprom.exit104
 
 148:                                              ; preds = %140
   %149 = tail call i32 @munmap(ptr noundef %143, i64 noundef 2097152) #39
   %.not.i.i103 = icmp eq i32 %149, 0
-  br i1 %.not.i.i103, label %zend_mm_chunk_free.exit104, label %150
+  br i1 %.not.i.i103, label %zend_mm_chunk_free.argprom.exit104, label %150
 
 150:                                              ; preds = %148
   %151 = load ptr, ptr @stderr, align 8
@@ -10052,13 +10052,13 @@ define internal fastcc void @zend_mm_free_pages(ptr nocapture noundef %0, ptr no
   %153 = load i32, ptr %152, align 4
   %154 = tail call ptr @strerror(i32 noundef %153) #39
   %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef nonnull @.str.4, i32 noundef %153, ptr noundef %154) #41
-  br label %zend_mm_chunk_free.exit104
+  br label %zend_mm_chunk_free.argprom.exit104
 
-zend_mm_chunk_free.exit104:                       ; preds = %145, %148, %150
+zend_mm_chunk_free.argprom.exit104:               ; preds = %145, %148, %150
   store ptr %1, ptr %122, align 8
-  br label %zend_mm_chunk_free.exit
+  br label %zend_mm_chunk_free.argprom.exit
 
-zend_mm_chunk_free.exit:                          ; preds = %134, %132, %129, %101, %zend_mm_chunk_free.exit104, %70
+zend_mm_chunk_free.argprom.exit:                  ; preds = %134, %132, %129, %101, %zend_mm_chunk_free.argprom.exit104, %70
   ret void
 }
 

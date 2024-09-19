@@ -431,7 +431,7 @@ if.then.i:                                        ; preds = %if.then25
   %9 = add nsw i8 %6, -41
   %10 = icmp ult i8 %9, 2
   %lor.ext.i = zext i1 %10 to i32
-  br label %cmd_valid_while_locked.exit
+  br label %cmd_valid_while_locked.argprom.exit
 
 if.end.i:                                         ; preds = %if.then25
   switch i8 %6, label %if.end12.i [
@@ -447,14 +447,14 @@ if.end12.i:                                       ; preds = %if.end.i
   %13 = lshr i64 3373301674016768, %idxprom.i
   %14 = trunc i64 %13 to i32
   %15 = and i32 %14, 1
-  br i1 %cmp13.not.i, label %cmd_valid_while_locked.exit, label %if.end44
+  br i1 %cmp13.not.i, label %cmd_valid_while_locked.argprom.exit, label %if.end44
 
-cmd_valid_while_locked.exit:                      ; preds = %if.end12.i, %if.then.i
+cmd_valid_while_locked.argprom.exit:              ; preds = %if.end12.i, %if.then.i
   %retval.0.i = phi i32 [ %lor.ext.i, %if.then.i ], [ %15, %if.end12.i ]
   %tobool28.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool28.not, label %if.then29, label %if.end44
 
-if.then29:                                        ; preds = %cmd_valid_while_locked.exit
+if.then29:                                        ; preds = %cmd_valid_while_locked.argprom.exit
   %or31 = or i32 %7, 4194304
   store i32 %or31, ptr %card_status22, align 4
   store i8 0, ptr %8, align 1
@@ -467,7 +467,7 @@ if.then40:                                        ; preds = %if.then29
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5) #18
   br label %sd_response_name.exit
 
-if.end44:                                         ; preds = %if.end.i, %if.end.i, %if.end12.i, %cmd_valid_while_locked.exit, %if.end21
+if.end44:                                         ; preds = %if.end.i, %if.end.i, %if.end12.i, %cmd_valid_while_locked.argprom.exit, %if.end21
   %state = getelementptr inbounds i8, ptr %sd, i64 300
   %17 = load i32, ptr %state, align 4
   %switch.tableidx = add i32 %17, 1

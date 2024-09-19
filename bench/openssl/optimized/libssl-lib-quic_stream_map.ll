@@ -392,28 +392,28 @@ land.lhs.true.i:                                  ; preds = %if.end26
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %19 = and i64 %bf.load27, 65280
   %cmp.i9.not.i = icmp eq i64 %19, 0
-  br i1 %cmp.i9.not.i, label %qsm_ready_for_gc.exit.thread88, label %lor.lhs.false11.i
+  br i1 %cmp.i9.not.i, label %qsm_ready_for_gc.argprom.exit.thread88, label %lor.lhs.false11.i
 
 lor.lhs.false11.i:                                ; preds = %land.rhs.i
   %20 = trunc i64 %bf.load27 to i32
   %21 = lshr i32 %20, 8
   %bf.cast15.i = and i32 %21, 255
   %cmp.i52 = icmp eq i32 %bf.cast15.i, 4
-  br i1 %cmp.i52, label %qsm_ready_for_gc.exit.thread88, label %qsm_ready_for_gc.exit
+  br i1 %cmp.i52, label %qsm_ready_for_gc.argprom.exit.thread88, label %qsm_ready_for_gc.argprom.exit
 
-qsm_ready_for_gc.exit.thread88:                   ; preds = %lor.lhs.false11.i, %land.rhs.i
+qsm_ready_for_gc.argprom.exit.thread88:           ; preds = %lor.lhs.false11.i, %land.rhs.i
   %bf.set92 = or disjoint i64 %bf.load27, 274877906944
   store i64 %bf.set92, ptr %0, align 8
   br label %if.then43
 
-qsm_ready_for_gc.exit:                            ; preds = %lor.lhs.false11.i
+qsm_ready_for_gc.argprom.exit:                    ; preds = %lor.lhs.false11.i
   %cmp21.i.not = icmp eq i32 %bf.cast15.i, 6
   %bf.shl = select i1 %cmp21.i.not, i64 274877906944, i64 0
   %bf.set = or disjoint i64 %bf.shl, %bf.load27
   store i64 %bf.set, ptr %0, align 8
   br i1 %cmp21.i.not, label %if.then43, label %if.end45
 
-if.then43:                                        ; preds = %qsm_ready_for_gc.exit.thread88, %qsm_ready_for_gc.exit
+if.then43:                                        ; preds = %qsm_ready_for_gc.argprom.exit.thread88, %qsm_ready_for_gc.argprom.exit
   %ready_for_gc_list = getelementptr inbounds i8, ptr %qsm, i64 40
   %ready_for_gc_node = getelementptr inbounds i8, ptr %s, i64 32
   %22 = load ptr, ptr %ready_for_gc_list, align 8
@@ -426,8 +426,8 @@ if.then43:                                        ; preds = %qsm_ready_for_gc.ex
   %bf.load.i72.pre102.pre = load i64, ptr %0, align 8
   br label %if.end45
 
-if.end45:                                         ; preds = %land.lhs.true.i, %qsm_ready_for_gc.exit, %if.then43, %if.end26
-  %bf.load.i72.pre102 = phi i64 [ %bf.set, %qsm_ready_for_gc.exit ], [ %bf.load.i72.pre102.pre, %if.then43 ], [ %bf.load27, %if.end26 ], [ %bf.load27, %land.lhs.true.i ]
+if.end45:                                         ; preds = %land.lhs.true.i, %qsm_ready_for_gc.argprom.exit, %if.then43, %if.end26
+  %bf.load.i72.pre102 = phi i64 [ %bf.set, %qsm_ready_for_gc.argprom.exit ], [ %bf.load.i72.pre102.pre, %if.then43 ], [ %bf.load27, %if.end26 ], [ %bf.load27, %land.lhs.true.i ]
   %23 = and i64 %bf.load.i72.pre102, 274877906944
   %tobool53.not = icmp eq i64 %23, 0
   %or.cond108 = select i1 %allowed_by_stream_limit.0, i1 %tobool53.not, i1 false
@@ -569,22 +569,22 @@ if.then1.i79:                                     ; preds = %if.end.i74
   %41 = getelementptr i8, ptr %s, i64 8
   %s.val.i = load ptr, ptr %41, align 8
   %cmp.i.i81 = icmp eq ptr %s.val.i, %active_list.i80
-  br i1 %cmp.i.i81, label %if.then.i.i, label %list_next.exit.i
+  br i1 %cmp.i.i81, label %if.then.i.i, label %list_next.argprom.exit.i
 
 if.then.i.i:                                      ; preds = %if.then1.i79
   %next1.i.i = getelementptr inbounds i8, ptr %s.val.i, i64 8
   %42 = load ptr, ptr %next1.i.i, align 8
-  br label %list_next.exit.i
+  br label %list_next.argprom.exit.i
 
-list_next.exit.i:                                 ; preds = %if.then.i.i, %if.then1.i79
+list_next.argprom.exit.i:                         ; preds = %if.then.i.i, %if.then1.i79
   %n.addr.0.i.i = phi ptr [ %42, %if.then.i.i ], [ %s.val.i, %if.then1.i79 ]
   %cmp2.i.i = icmp eq ptr %n.addr.0.i.i, %active_list.i80
   %retval.0.i.i = select i1 %cmp2.i.i, ptr null, ptr %n.addr.0.i.i
   store ptr %retval.0.i.i, ptr %rr_cur.i75, align 8
   br label %if.end3.i77
 
-if.end3.i77:                                      ; preds = %list_next.exit.i, %if.end.i74
-  %43 = phi ptr [ %retval.0.i.i, %list_next.exit.i ], [ %40, %if.end.i74 ]
+if.end3.i77:                                      ; preds = %list_next.argprom.exit.i, %if.end.i74
+  %43 = phi ptr [ %retval.0.i.i, %list_next.argprom.exit.i ], [ %40, %if.end.i74 ]
   %cmp5.i = icmp eq ptr %43, %s
   br i1 %cmp5.i, label %if.then6.i, label %if.end8.i
 
@@ -1021,14 +1021,14 @@ entry:
   %0 = getelementptr i8, ptr %qsm, i64 32
   %accept_list.val = load ptr, ptr %0, align 8
   %cmp.i = icmp eq ptr %accept_list.val, %accept_list
-  br i1 %cmp.i, label %if.then.i, label %list_next.exit
+  br i1 %cmp.i, label %if.then.i, label %list_next.argprom.exit
 
 if.then.i:                                        ; preds = %entry
   %next1.i = getelementptr inbounds i8, ptr %accept_list.val, i64 8
   %1 = load ptr, ptr %next1.i, align 8
-  br label %list_next.exit
+  br label %list_next.argprom.exit
 
-list_next.exit:                                   ; preds = %entry, %if.then.i
+list_next.argprom.exit:                           ; preds = %entry, %if.then.i
   %n.addr.0.i = phi ptr [ %1, %if.then.i ], [ %accept_list.val, %entry ]
   %cmp2.i = icmp eq ptr %n.addr.0.i, %accept_list
   %add.ptr.i = getelementptr inbounds i8, ptr %n.addr.0.i, i64 -16
@@ -1192,21 +1192,21 @@ if.then:                                          ; preds = %land.lhs.true3
   %4 = getelementptr i8, ptr %3, i64 8
   %.val = load ptr, ptr %4, align 8
   %cmp.i = icmp eq ptr %.val, %active_list
-  br i1 %cmp.i, label %if.then.i, label %list_next.exit
+  br i1 %cmp.i, label %if.then.i, label %list_next.argprom.exit
 
 if.then.i:                                        ; preds = %if.then
   %next1.i = getelementptr inbounds i8, ptr %.val, i64 8
   %5 = load ptr, ptr %next1.i, align 8
-  br label %list_next.exit
+  br label %list_next.argprom.exit
 
-list_next.exit:                                   ; preds = %if.then, %if.then.i
+list_next.argprom.exit:                           ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi ptr [ %5, %if.then.i ], [ %.val, %if.then ]
   %cmp2.i = icmp eq ptr %n.addr.0.i, %active_list
   %retval.0.i = select i1 %cmp2.i, ptr null, ptr %n.addr.0.i
   store ptr %retval.0.i, ptr %rr_cur, align 8
   br label %if.end
 
-if.end:                                           ; preds = %list_next.exit, %land.lhs.true3, %entry
+if.end:                                           ; preds = %list_next.argprom.exit, %land.lhs.true3, %entry
   ret void
 }
 
@@ -1224,14 +1224,14 @@ if.end:                                           ; preds = %entry
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   %cmp.i = icmp eq ptr %.val, %active_list
-  br i1 %cmp.i, label %if.then.i, label %list_next.exit
+  br i1 %cmp.i, label %if.then.i, label %list_next.argprom.exit
 
 if.then.i:                                        ; preds = %if.end
   %next1.i = getelementptr inbounds i8, ptr %.val, i64 8
   %3 = load ptr, ptr %next1.i, align 8
-  br label %list_next.exit
+  br label %list_next.argprom.exit
 
-list_next.exit:                                   ; preds = %if.end, %if.then.i
+list_next.argprom.exit:                           ; preds = %if.end, %if.then.i
   %n.addr.0.i = phi ptr [ %3, %if.then.i ], [ %.val, %if.end ]
   %cmp2.i = icmp eq ptr %n.addr.0.i, %active_list
   %retval.0.i = select i1 %cmp2.i, ptr null, ptr %n.addr.0.i
@@ -1242,7 +1242,7 @@ list_next.exit:                                   ; preds = %if.end, %if.then.i
   store ptr %spec.store.select, ptr %stream, align 8
   br label %if.end7
 
-if.end7:                                          ; preds = %list_next.exit, %entry
+if.end7:                                          ; preds = %list_next.argprom.exit, %entry
   ret void
 }
 

@@ -9132,14 +9132,14 @@ _ZN2v811ReturnValueINS_5ValueEE3SetIS1_EEvNS_5LocalIT_EE.exit.i: ; preds = %if.t
 cleanup.i:                                        ; preds = %_ZN2v811ReturnValueINS_5ValueEE3SetIS1_EEvNS_5LocalIT_EE.exit.i, %if.then7.i, %if.end.i, %if.then.i
   %29 = load ptr, ptr %out.i, align 8
   %cmp.not.i.i = icmp eq ptr %29, null
-  br i1 %cmp.not.i.i, label %"_ZZN4node6crypto10CipherBase6UpdateERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEPS1_S7_PKcm.exit", label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i.i
+  br i1 %cmp.not.i.i, label %"_ZZN4node6crypto10CipherBase6UpdateERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEPS1_S7_PKcm.argprom.exit", label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i.i: ; preds = %cleanup.i
   call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #19
   call void @_ZdlPv(ptr noundef nonnull %29) #19
-  br label %"_ZZN4node6crypto10CipherBase6UpdateERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEPS1_S7_PKcm.exit"
+  br label %"_ZZN4node6crypto10CipherBase6UpdateERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEPS1_S7_PKcm.argprom.exit"
 
-"_ZZN4node6crypto10CipherBase6UpdateERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEPS1_S7_PKcm.exit": ; preds = %cleanup.i, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i.i
+"_ZZN4node6crypto10CipherBase6UpdateERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEPS1_S7_PKcm.argprom.exit": ; preds = %cleanup.i, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   ret void

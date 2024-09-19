@@ -908,7 +908,7 @@ define hidden void @"_ZN10serde_json4read15IoRead$LT$R$GT$15parse_str_bytes17h4d
   %61 = load ptr, ptr %60, align 8, !noalias !209, !nonnull !12, !align !214, !noundef !12
   %62 = getelementptr inbounds i8, ptr %20, i64 16
   %63 = load i64, ptr %62, align 8, !noalias !209, !noundef !12
-  br label %_ZN4core3ops8function6FnOnce9call_once17h92f655f354202aabE.exit
+  br label %_ZN4core3ops8function6FnOnce9call_once17h92f655f354202aabE.argprom.exit
 
 64:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !215
@@ -916,9 +916,9 @@ define hidden void @"_ZN10serde_json4read15IoRead$LT$R$GT$15parse_str_bytes17h4d
   %65 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17hc18634e8934a4fd6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %.val10, i64 noundef %.val11), !noalias !220
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !215
   %66 = ptrtoint ptr %65 to i64
-  br label %_ZN4core3ops8function6FnOnce9call_once17h92f655f354202aabE.exit
+  br label %_ZN4core3ops8function6FnOnce9call_once17h92f655f354202aabE.argprom.exit
 
-_ZN4core3ops8function6FnOnce9call_once17h92f655f354202aabE.exit: ; preds = %59, %64
+_ZN4core3ops8function6FnOnce9call_once17h92f655f354202aabE.argprom.exit: ; preds = %59, %64
   %.sink1.i.i = phi i64 [ %66, %64 ], [ %63, %59 ]
   %.sink.i.i = phi ptr [ null, %64 ], [ %61, %59 ]
   %67 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1539,7 +1539,7 @@ tailrecurse.i:                                    ; preds = %270
   store ptr null, ptr %0, align 8, !alias.scope !380, !noalias !385
   br label %335
 
-335:                                              ; preds = %._crit_edge, %_ZN4core3ops8function6FnOnce9call_once17h92f655f354202aabE.exit, %317, %330
+335:                                              ; preds = %._crit_edge, %_ZN4core3ops8function6FnOnce9call_once17h92f655f354202aabE.argprom.exit, %317, %330
   ret void
 }
 
@@ -4492,30 +4492,30 @@ attributes #37 = { nounwind }
 !192 = distinct !{!192, !193, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h8cc67ef07c3ff5bfE.llvm.10840908634243202882: argument 0"}
 !193 = distinct !{!193, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h8cc67ef07c3ff5bfE.llvm.10840908634243202882"}
 !194 = !{!195, !197, !189, !186}
-!195 = distinct !{!195, !196, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E: argument 0"}
-!196 = distinct !{!196, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E"}
-!197 = distinct !{!197, !196, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E: argument 1"}
+!195 = distinct !{!195, !196, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E.argprom: argument 0"}
+!196 = distinct !{!196, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E.argprom"}
+!197 = distinct !{!197, !196, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E.argprom: argument 1"}
 !198 = !{!195, !189, !186}
 !199 = !{!195, !197, !189}
 !200 = !{!201}
 !201 = distinct !{!201, !202, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h05121100e64a4ca2E: argument 0"}
 !202 = distinct !{!202, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h05121100e64a4ca2E"}
 !203 = !{!204}
-!204 = distinct !{!204, !205, !"_ZN4core3ops8function6FnOnce9call_once17h92f655f354202aabE: argument 0"}
-!205 = distinct !{!205, !"_ZN4core3ops8function6FnOnce9call_once17h92f655f354202aabE"}
+!204 = distinct !{!204, !205, !"_ZN4core3ops8function6FnOnce9call_once17h92f655f354202aabE.argprom: argument 0"}
+!205 = distinct !{!205, !"_ZN4core3ops8function6FnOnce9call_once17h92f655f354202aabE.argprom"}
 !206 = !{!207}
-!207 = distinct !{!207, !208, !"_ZN10serde_json4read6as_str17h5c6288226b2bee4bE: argument 0"}
-!208 = distinct !{!208, !"_ZN10serde_json4read6as_str17h5c6288226b2bee4bE"}
+!207 = distinct !{!207, !208, !"_ZN10serde_json4read6as_str17h5c6288226b2bee4bE.argprom: argument 0"}
+!208 = distinct !{!208, !"_ZN10serde_json4read6as_str17h5c6288226b2bee4bE.argprom"}
 !209 = !{!207, !210, !204, !211}
-!210 = distinct !{!210, !208, !"_ZN10serde_json4read6as_str17h5c6288226b2bee4bE: argument 1"}
-!211 = distinct !{!211, !205, !"_ZN4core3ops8function6FnOnce9call_once17h92f655f354202aabE: argument 1"}
+!210 = distinct !{!210, !208, !"_ZN10serde_json4read6as_str17h5c6288226b2bee4bE.argprom: argument 1"}
+!211 = distinct !{!211, !205, !"_ZN4core3ops8function6FnOnce9call_once17h92f655f354202aabE.argprom: argument 1"}
 !212 = !{!207, !204}
 !213 = !{i64 0, i64 2}
 !214 = !{i64 1}
 !215 = !{!216, !218, !207, !210, !204, !211}
-!216 = distinct !{!216, !217, !"_ZN10serde_json4read5error17h82aed55bd599261aE: argument 0"}
-!217 = distinct !{!217, !"_ZN10serde_json4read5error17h82aed55bd599261aE"}
-!218 = distinct !{!218, !217, !"_ZN10serde_json4read5error17h82aed55bd599261aE: argument 1"}
+!216 = distinct !{!216, !217, !"_ZN10serde_json4read5error17h82aed55bd599261aE.argprom: argument 0"}
+!217 = distinct !{!217, !"_ZN10serde_json4read5error17h82aed55bd599261aE.argprom"}
+!218 = distinct !{!218, !217, !"_ZN10serde_json4read5error17h82aed55bd599261aE.argprom: argument 1"}
 !219 = !{!216, !207, !210, !204, !211}
 !220 = !{!216, !218, !207, !204}
 !221 = !{!210, !211}
@@ -4571,9 +4571,9 @@ attributes #37 = { nounwind }
 !271 = distinct !{!271, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h8cc67ef07c3ff5bfE.llvm.10840908634243202882"}
 !272 = !{!267, !226}
 !273 = !{!274, !276, !267, !264, !223, !226}
-!274 = distinct !{!274, !275, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E: argument 0"}
-!275 = distinct !{!275, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E"}
-!276 = distinct !{!276, !275, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E: argument 1"}
+!274 = distinct !{!274, !275, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E.argprom: argument 0"}
+!275 = distinct !{!275, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E.argprom"}
+!276 = distinct !{!276, !275, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E.argprom: argument 1"}
 !277 = !{!274, !267, !264, !223, !226}
 !278 = !{!274, !276, !267}
 !279 = !{!280}
@@ -4605,9 +4605,9 @@ attributes #37 = { nounwind }
 !305 = distinct !{!305, !306, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h8cc67ef07c3ff5bfE.llvm.10840908634243202882: argument 0"}
 !306 = distinct !{!306, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h8cc67ef07c3ff5bfE.llvm.10840908634243202882"}
 !307 = !{!308, !310, !302, !299}
-!308 = distinct !{!308, !309, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E: argument 0"}
-!309 = distinct !{!309, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E"}
-!310 = distinct !{!310, !309, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E: argument 1"}
+!308 = distinct !{!308, !309, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E.argprom: argument 0"}
+!309 = distinct !{!309, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E.argprom"}
+!310 = distinct !{!310, !309, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E.argprom: argument 1"}
 !311 = !{!308, !302, !299}
 !312 = !{!308, !310, !302}
 !313 = !{!314}
@@ -4678,10 +4678,10 @@ attributes #37 = { nounwind }
 !378 = distinct !{!378, !379, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h8cc67ef07c3ff5bfE.llvm.10840908634243202882: argument 0"}
 !379 = distinct !{!379, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h8cc67ef07c3ff5bfE.llvm.10840908634243202882"}
 !380 = !{!381}
-!381 = distinct !{!381, !382, !"_ZN10serde_json4read5error17h82aed55bd599261aE: argument 0"}
-!382 = distinct !{!382, !"_ZN10serde_json4read5error17h82aed55bd599261aE"}
+!381 = distinct !{!381, !382, !"_ZN10serde_json4read5error17h82aed55bd599261aE.argprom: argument 0"}
+!382 = distinct !{!382, !"_ZN10serde_json4read5error17h82aed55bd599261aE.argprom"}
 !383 = !{!381, !384}
-!384 = distinct !{!384, !382, !"_ZN10serde_json4read5error17h82aed55bd599261aE: argument 1"}
+!384 = distinct !{!384, !382, !"_ZN10serde_json4read5error17h82aed55bd599261aE.argprom: argument 1"}
 !385 = !{!384}
 !386 = !{!387}
 !387 = distinct !{!387, !388, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h8cc67ef07c3ff5bfE.llvm.10840908634243202882: argument 0"}
@@ -5109,9 +5109,9 @@ attributes #37 = { nounwind }
 !809 = distinct !{!809, !810, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h8cc67ef07c3ff5bfE.llvm.10840908634243202882: argument 0"}
 !810 = distinct !{!810, !"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$8position17h8cc67ef07c3ff5bfE.llvm.10840908634243202882"}
 !811 = !{!812, !814}
-!812 = distinct !{!812, !813, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E: argument 0"}
-!813 = distinct !{!813, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E"}
-!814 = distinct !{!814, !813, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E: argument 1"}
+!812 = distinct !{!812, !813, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E.argprom: argument 0"}
+!813 = distinct !{!813, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E.argprom"}
+!814 = distinct !{!814, !813, !"_ZN10serde_json4read5error17hbe8261184e0e7fc6E.argprom: argument 1"}
 !815 = !{!812}
 !816 = !{!817}
 !817 = distinct !{!817, !818, !"_ZN101_$LT$serde_json..iter..LineColIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h99fecf5ba0ce9639E: argument 1"}

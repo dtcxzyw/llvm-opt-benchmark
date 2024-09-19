@@ -2777,7 +2777,7 @@ Vec_IntPushUnique.exit:                           ; preds = %211, %Vec_IntPush.e
   br i1 %280, label %.lr.ph410, label %.critedge11
 
 281:                                              ; preds = %.lr.ph415
-  tail call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %135, i32 noundef %271)
+  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %135, i32 noundef %271)
   %.val289.pre = load ptr, ptr %140, align 8
   br label %.critedge11
 
@@ -3178,7 +3178,7 @@ declare ptr @Gia_ManDup(ptr noundef) local_unnamed_addr #4
 declare void @Gia_ManHashStart(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushUnique(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @Vec_IntPushUnique.retelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0

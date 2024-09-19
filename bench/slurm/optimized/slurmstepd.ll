@@ -181,7 +181,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 31:                                               ; preds = %27
   %32 = getelementptr i8, ptr %1, i64 16
   %.val.i = load ptr, ptr %32, align 8
-  %33 = tail call fastcc i32 @_handle_spank_mode(ptr %.val.i)
+  %33 = tail call fastcc i32 @_handle_spank_mode.argprom.argelim(ptr %.val.i)
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %36
 
@@ -210,7 +210,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) @__const._init_from_slurmd.step_id, i64 12, i1 false)
-  %43 = tail call fastcc ptr @_read_slurmd_conf_lite()
+  %43 = tail call fastcc ptr @_read_slurmd_conf_lite.argelim()
   store ptr %43, ptr @conf, align 8
   %.not.i29 = icmp eq ptr %43, null
   br i1 %.not.i29, label %44, label %45
@@ -2052,7 +2052,7 @@ switch.early.test.i:                              ; preds = %682
   %691 = getelementptr inbounds i8, ptr %690, i64 4256
   %692 = load ptr, ptr %691, align 8
   %.not374.i = icmp eq ptr %692, null
-  br i1 %.not374.i, label %693, label %_init_from_slurmd.exit
+  br i1 %.not374.i, label %693, label %_init_from_slurmd.argprom.exit
 
 693:                                              ; preds = %689
   %694 = getelementptr inbounds i8, ptr %690, i64 4360
@@ -2077,13 +2077,13 @@ switch.early.test.i:                              ; preds = %682
   %705 = phi ptr [ %.pre1306.i, %703 ], [ %699, %693 ]
   %706 = getelementptr inbounds i8, ptr %705, i64 4256
   call void @_xstrcat(ptr noundef nonnull %706, ptr noundef nonnull @.str.64) #13
-  br label %_init_from_slurmd.exit
+  br label %_init_from_slurmd.argprom.exit
 
 707:                                              ; preds = %606, %.split805.us.i, %603, %.split798.us.i, %600, %.split809.us.i, %541, %.split750.i, %538, %.split743.us.i, %535, %.split754.i, %524, %.split695.us.i, %521, %.split688.us.i, %518, %.split699.us.i, %475, %.split641.us.i, %472, %.split634.us.i, %469, %.split645.us.i, %432, %.split586.us.i, %429, %.split579.us.i, %426, %.split590.us.i, %377, %.split531.us.i, %374, %.split524.us.i, %371, %.split535.us.i, %309, %.split477.i, %306, %.split470.us.i, %303, %.split481.i, %269, %.split422.i, %266, %.split415.us.i, %263, %.split426.i, %229, %.split368.i, %226, %.split361.us.i, %223, %.split372.i, %189, %.split314.i, %186, %.split307.us.i, %183, %.split318.i, %149, %.split260.i, %146, %.split253.us.i, %143, %.split264.i, %109, %.split206.i, %106, %.split199.us.i, %103, %.split210.i, %86, %.split154.us.i, %83, %.split.us.i, %80, %.split157.us.i
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.65) #14
   unreachable
 
-_init_from_slurmd.exit:                           ; preds = %689, %704
+_init_from_slurmd.argprom.exit:                   ; preds = %689, %704
   %708 = load i16, ptr %8, align 2
   store i16 %708, ptr %617, align 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -2097,7 +2097,7 @@ _init_from_slurmd.exit:                           ; preds = %689, %704
     i16 6001, label %717
   ]
 
-710:                                              ; preds = %_init_from_slurmd.exit
+710:                                              ; preds = %_init_from_slurmd.argprom.exit
   %711 = call i32 @get_log_level() #13
   %712 = icmp sgt i32 %711, 5
   br i1 %712, label %713, label %714
@@ -2111,7 +2111,7 @@ _init_from_slurmd.exit:                           ; preds = %689, %704
   %716 = call ptr @mgr_launch_batch_job_setup(ptr noundef %715, ptr noundef %485) #13
   br label %726
 
-717:                                              ; preds = %_init_from_slurmd.exit
+717:                                              ; preds = %_init_from_slurmd.argprom.exit
   %718 = call i32 @get_log_level() #13
   %719 = icmp sgt i32 %718, 5
   br i1 %719, label %720, label %721
@@ -2126,7 +2126,7 @@ _init_from_slurmd.exit:                           ; preds = %689, %704
   %724 = call ptr @mgr_launch_tasks_setup(ptr noundef %722, ptr noundef %485, i16 noundef zeroext %723) #13
   br label %726
 
-725:                                              ; preds = %_init_from_slurmd.exit
+725:                                              ; preds = %_init_from_slurmd.argprom.exit
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.70) #14
   unreachable
 
@@ -2282,7 +2282,7 @@ _init_from_slurmd.exit:                           ; preds = %689, %704
 
 .split:                                           ; preds = %735, %741, %806, %747, %727
   call void @llvm.lifetime.end.p0(i64 4120, ptr nonnull %3)
-  call fastcc void @_send_fail_to_slurmd(i32 noundef -1)
+  call fastcc void @_send_fail_to_slurmd.argelim(i32 noundef -1)
   %809 = call i32 @stepd_cleanup(ptr nonnull poison, ptr noundef null, ptr poison, i32 noundef -1, i1 noundef zeroext true)
   br label %837
 
@@ -2295,7 +2295,7 @@ _init_from_slurmd.exit:                           ; preds = %689, %704
   br i1 %812, label %.split24, label %814
 
 .split24:                                         ; preds = %810
-  call fastcc void @_send_fail_to_slurmd(i32 noundef -1)
+  call fastcc void @_send_fail_to_slurmd.argelim(i32 noundef -1)
   %813 = call i32 @stepd_cleanup(ptr nonnull poison, ptr noundef nonnull %.038.i, ptr poison, i32 noundef -1, i1 noundef zeroext true)
   br label %837
 
@@ -2366,7 +2366,7 @@ declare void @init_setproctitle(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @log_init(ptr noundef, ptr noundef byval(%struct.log_options_t) align 8, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_send_fail_to_slurmd(i32 noundef range(i32 1, 0) %0) unnamed_addr #0 {
+define internal fastcc void @_send_fail_to_slurmd.argelim(i32 noundef range(i32 1, 0) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   br label %.lr.ph.split.us
@@ -2457,7 +2457,7 @@ define dso_local void @close_slurmd_conn(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %8
-  tail call fastcc void @_send_fail_to_slurmd(i32 noundef %0)
+  tail call fastcc void @_send_fail_to_slurmd.argelim(i32 noundef %0)
   br label %35
 
 10:                                               ; preds = %8
@@ -2876,7 +2876,7 @@ declare i32 @set_oom_adj(i32 noundef) local_unnamed_addr #2
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_handle_spank_mode(ptr %.16.val) unnamed_addr #0 {
+define internal fastcc i32 @_handle_spank_mode.argprom.argelim(ptr %.16.val) unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca %struct.log_options_t, align 8
@@ -2888,7 +2888,7 @@ define internal fastcc i32 @_handle_spank_mode(ptr %.16.val) unnamed_addr #0 {
   %5 = load ptr, ptr %2, align 8
   %6 = call i32 @log_init(ptr noundef %5, ptr noundef nonnull byval(%struct.log_options_t) align 8 %3, i32 noundef 24, ptr noundef null) #13
   call void @slurm_xfree(ptr noundef nonnull %2) #13
-  %7 = call fastcc ptr @_read_slurmd_conf_lite()
+  %7 = call fastcc ptr @_read_slurmd_conf_lite.argelim()
   store ptr %7, ptr @conf, align 8
   %8 = call i32 @close(i32 noundef 0) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
@@ -3020,7 +3020,7 @@ declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #0 {
+define internal fastcc ptr @_read_slurmd_conf_lite.argelim() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8

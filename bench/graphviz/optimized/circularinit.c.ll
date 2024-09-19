@@ -141,7 +141,7 @@ define void @circoLayout(ptr noundef %0) local_unnamed_addr #0 {
 24:                                               ; preds = %18
   %25 = load ptr, ptr @stderr, align 8
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.1, i64 noundef 64) #12
-  tail call fastcc void @graphviz_exit() #13
+  tail call fastcc void @graphviz_exit.argelim() #13
   unreachable
 
 makeDerivedNode.exit.i:                           ; preds = %18
@@ -325,7 +325,7 @@ makeDerivedNode.exit.i:                           ; preds = %18
 122:                                              ; preds = %.lr.ph118.i
   %123 = load ptr, ptr @stderr, align 8
   %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.1, i64 noundef 4) #12
-  call fastcc void @graphviz_exit() #13
+  call fastcc void @graphviz_exit.argelim() #13
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %.lr.ph118.i
@@ -613,7 +613,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, i64 noundef %0, i64 noundef %1) #12
-  tail call fastcc void @graphviz_exit() #13
+  tail call fastcc void @graphviz_exit.argelim() #13
   unreachable
 
 8:                                                ; preds = %4
@@ -625,7 +625,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul nsw i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.1, i64 noundef %13) #12
-  tail call fastcc void @graphviz_exit() #13
+  tail call fastcc void @graphviz_exit.argelim() #13
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -639,7 +639,7 @@ declare void @neato_init_node(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #5 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #5 {
   tail call void @exit(i32 noundef 1) #14
   unreachable
 }

@@ -1036,7 +1036,7 @@ define internal range(i32 -1, 1) i32 @php_userstreamop_stat(ptr nocapture nounde
   br i1 %or.cond, label %20, label %21
 
 20:                                               ; preds = %2
-  call fastcc void @statbuf_from_array(ptr noundef %4, ptr noundef %1)
+  call fastcc void @statbuf_from_array.retelim(ptr noundef %4, ptr noundef %1)
   br label %30
 
 21:                                               ; preds = %2
@@ -1878,7 +1878,7 @@ define internal range(i32 -1, 1) i32 @user_wrapper_stat_url(ptr nocapture nounde
   br i1 %or.cond, label %41, label %42
 
 41:                                               ; preds = %15
-  call fastcc void @statbuf_from_array(ptr noundef %7, ptr noundef %3)
+  call fastcc void @statbuf_from_array.retelim(ptr noundef %7, ptr noundef %3)
   br label %50
 
 42:                                               ; preds = %15
@@ -2720,7 +2720,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #8
 declare i32 @zend_call_method_if_exists(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @statbuf_from_array(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @statbuf_from_array.retelim(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %1, i8 0, i64 144, i1 false)
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @zend_hash_str_find(ptr noundef %3, ptr noundef nonnull @.str.41, i64 noundef 3) #11

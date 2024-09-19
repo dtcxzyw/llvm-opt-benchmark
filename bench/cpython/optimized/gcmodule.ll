@@ -1192,7 +1192,7 @@ if.end8:                                          ; preds = %land.lhs.true.i, %g
 
 if.then10:                                        ; preds = %if.end8
   %tstate.val = load ptr, ptr %interp, align 8
-  tail call fastcc void @invoke_gc_callback(ptr %tstate.val, ptr noundef nonnull @.str.47, i32 noundef %generation.addr.0, i64 noundef 0, i64 noundef 0)
+  tail call fastcc void @invoke_gc_callback.argprom(ptr %tstate.val, ptr noundef nonnull @.str.47, i32 noundef %generation.addr.0, i64 noundef 0, i64 noundef 0)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.end8
@@ -1598,21 +1598,21 @@ for.body.i153:                                    ; preds = %if.end82, %for.inc2
   %55 = getelementptr i8, ptr %gc.063.i, i64 24
   %call1.val33.i = load ptr, ptr %55, align 8
   %cmp.i.not.i.i = icmp eq ptr %call1.val33.i, @_PyWeakref_RefType
-  br i1 %cmp.i.not.i.i, label %if.then.i156, label %PyObject_TypeCheck.exit.i
+  br i1 %cmp.i.not.i.i, label %if.then.i156, label %PyObject_TypeCheck.argprom.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %for.body.i153
+PyObject_TypeCheck.argprom.exit.i:                ; preds = %for.body.i153
   %call2.i.i = call i32 @PyType_IsSubtype(ptr noundef %call1.val33.i, ptr noundef nonnull @_PyWeakref_RefType) #14
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %lor.lhs.false.i, label %if.then.i156
 
-lor.lhs.false.i:                                  ; preds = %PyObject_TypeCheck.exit.i
+lor.lhs.false.i:                                  ; preds = %PyObject_TypeCheck.argprom.exit.i
   %call1.val31.i = load ptr, ptr %55, align 8
   %cmp.i34.not.i = icmp eq ptr %call1.val31.i, @_PyWeakref_ProxyType
   %cmp.i35.not.i = icmp eq ptr %call1.val31.i, @_PyWeakref_CallableProxyType
   %or.cond.i = or i1 %cmp.i34.not.i, %cmp.i35.not.i
   br i1 %or.cond.i, label %if.then.i156, label %if.end.i157
 
-if.then.i156:                                     ; preds = %lor.lhs.false.i, %PyObject_TypeCheck.exit.i, %for.body.i153
+if.then.i156:                                     ; preds = %lor.lhs.false.i, %PyObject_TypeCheck.argprom.exit.i, %for.body.i153
   call void @_PyWeakref_ClearRef(ptr noundef %add.ptr.i.i154) #14
   %call1.val.pre.i = load ptr, ptr %55, align 8
   br label %if.end.i157
@@ -1791,7 +1791,7 @@ handle_weakrefs.exit:                             ; preds = %handle_weakrefs.exi
   %86 = ptrtoint ptr %unreachable to i64
   %87 = load i64, ptr %unreachable, align 8
   %cmp.i13.not2.i = icmp eq i64 %87, %86
-  br i1 %cmp.i13.not2.i, label %finalize_garbage.exit.thread, label %while.body.i171
+  br i1 %cmp.i13.not2.i, label %finalize_garbage.argprom.exit.thread, label %while.body.i171
 
 while.body.i171:                                  ; preds = %handle_weakrefs.exit, %if.end.i181
   %88 = phi i64 [ %102, %if.end.i181 ], [ %87, %handle_weakrefs.exit ]
@@ -1868,13 +1868,13 @@ if.end.i181:                                      ; preds = %if.then1.i.i193, %i
 while.end.i:                                      ; preds = %if.end.i181
   %.pre.i182 = load i64, ptr %seen.i, align 8
   %cmp.i.not.i.i183 = icmp eq i64 %.pre.i182, %85
-  br i1 %cmp.i.not.i.i183, label %finalize_garbage.exit.thread, label %finalize_garbage.exit
+  br i1 %cmp.i.not.i.i183, label %finalize_garbage.argprom.exit.thread, label %finalize_garbage.argprom.exit
 
-finalize_garbage.exit.thread:                     ; preds = %handle_weakrefs.exit, %while.end.i
+finalize_garbage.argprom.exit.thread:             ; preds = %handle_weakrefs.exit, %while.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %seen.i)
   br label %gc_list_clear_collecting.exit.i
 
-finalize_garbage.exit:                            ; preds = %while.end.i
+finalize_garbage.argprom.exit:                    ; preds = %while.end.i
   %103 = getelementptr inbounds i8, ptr %unreachable, i64 8
   %to.val.i.i = load i64, ptr %103, align 8
   %and.i.i17.i = and i64 %to.val.i.i, -4
@@ -1900,8 +1900,8 @@ finalize_garbage.exit:                            ; preds = %while.end.i
   %cmp.not6.i.i = icmp eq ptr %unreachable, %109
   br i1 %cmp.not6.i.i, label %gc_list_clear_collecting.exit.i, label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %finalize_garbage.exit, %for.body.i.i
-  %gc.07.i.i = phi ptr [ %gc.0.i.i197, %for.body.i.i ], [ %109, %finalize_garbage.exit ]
+for.body.i.i:                                     ; preds = %finalize_garbage.argprom.exit, %for.body.i.i
+  %gc.07.i.i = phi ptr [ %gc.0.i.i197, %for.body.i.i ], [ %109, %finalize_garbage.argprom.exit ]
   %_gc_prev.i.i.i194 = getelementptr inbounds i8, ptr %gc.07.i.i, i64 8
   %110 = load i64, ptr %_gc_prev.i.i.i194, align 8
   %and.i.i.i195 = and i64 %110, -3
@@ -1911,7 +1911,7 @@ for.body.i.i:                                     ; preds = %finalize_garbage.ex
   %cmp.not.i.i198 = icmp eq ptr %unreachable, %gc.0.i.i197
   br i1 %cmp.not.i.i198, label %gc_list_clear_collecting.exit.i, label %for.body.i.i, !llvm.loop !21
 
-gc_list_clear_collecting.exit.i:                  ; preds = %for.body.i.i, %finalize_garbage.exit.thread, %finalize_garbage.exit
+gc_list_clear_collecting.exit.i:                  ; preds = %for.body.i.i, %finalize_garbage.argprom.exit.thread, %finalize_garbage.argprom.exit
   call fastcc void @deduce_unreachable(ptr noundef nonnull %unreachable, ptr noundef %final_unreachable)
   %unreachable.val.i.i = load i64, ptr %final_unreachable, align 8
   %gc.04.i.i = inttoptr i64 %unreachable.val.i.i to ptr
@@ -2026,22 +2026,22 @@ Py_INCREF.exit.i240:                              ; preds = %if.end.i23.i, %if.t
   %call9.i = call i32 %130(ptr noundef nonnull %add.ptr.i.i220) #14
   %tstate.val.i = load ptr, ptr %123, align 8
   %cmp.i20.i = icmp eq ptr %tstate.val.i, null
-  br i1 %cmp.i20.i, label %if.end14.i, label %_PyErr_Occurred.exit.i
+  br i1 %cmp.i20.i, label %if.end14.i, label %_PyErr_Occurred.argprom.exit.i
 
-_PyErr_Occurred.exit.i:                           ; preds = %Py_INCREF.exit.i240
+_PyErr_Occurred.argprom.exit.i:                   ; preds = %Py_INCREF.exit.i240
   %132 = getelementptr i8, ptr %tstate.val.i, i64 8
   %.val.i.i = load ptr, ptr %132, align 8
   %tobool11.not.i = icmp eq ptr %.val.i.i, null
   br i1 %tobool11.not.i, label %if.end14.i, label %if.then12.i
 
-if.then12.i:                                      ; preds = %_PyErr_Occurred.exit.i
+if.then12.i:                                      ; preds = %_PyErr_Occurred.argprom.exit.i
   %call2.val.i241 = load ptr, ptr %129, align 8
   %tp_name.i242 = getelementptr inbounds i8, ptr %call2.val.i241, i64 24
   %133 = load ptr, ptr %tp_name.i242, align 8
   call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.58, ptr noundef %133) #14
   br label %if.end14.i
 
-if.end14.i:                                       ; preds = %if.then12.i, %_PyErr_Occurred.exit.i, %Py_INCREF.exit.i240
+if.end14.i:                                       ; preds = %if.then12.i, %_PyErr_Occurred.argprom.exit.i, %Py_INCREF.exit.i240
   %134 = load i64, ptr %add.ptr.i.i220, align 8
   %135 = and i64 %134, 2147483648
   %cmp.i26.not.i = icmp eq i64 %135, 0
@@ -2230,15 +2230,15 @@ if.end120:                                        ; preds = %if.then118, %handle
   %162 = getelementptr i8, ptr %tstate, i64 104
   %tstate.val84 = load ptr, ptr %162, align 8
   %cmp.i284 = icmp eq ptr %tstate.val84, null
-  br i1 %cmp.i284, label %if.end129, label %_PyErr_Occurred.exit
+  br i1 %cmp.i284, label %if.end129, label %_PyErr_Occurred.argprom.exit
 
-_PyErr_Occurred.exit:                             ; preds = %if.end120
+_PyErr_Occurred.argprom.exit:                     ; preds = %if.end120
   %163 = getelementptr i8, ptr %tstate.val84, i64 8
   %.val.i = load ptr, ptr %163, align 8
   %tobool122.not = icmp eq ptr %.val.i, null
   br i1 %tobool122.not, label %if.end129, label %if.then123
 
-if.then123:                                       ; preds = %_PyErr_Occurred.exit
+if.then123:                                       ; preds = %_PyErr_Occurred.argprom.exit
   br i1 %cmp9.not, label %if.then126, label %if.else127
 
 if.then126:                                       ; preds = %if.then123
@@ -2249,7 +2249,7 @@ if.else127:                                       ; preds = %if.then123
   call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.51) #14
   br label %if.end129
 
-if.end129:                                        ; preds = %if.end120, %if.then126, %if.else127, %_PyErr_Occurred.exit
+if.end129:                                        ; preds = %if.end120, %if.then126, %if.else127, %_PyErr_Occurred.argprom.exit
   %generation_stats = getelementptr inbounds i8, ptr %0, i64 1128
   %arrayidx131 = getelementptr [3 x %struct.gc_generation_stats], ptr %generation_stats, i64 0, i64 %idxprom44.pre-phi
   %164 = load i64, ptr %arrayidx131, align 8
@@ -2267,7 +2267,7 @@ if.end129:                                        ; preds = %if.end120, %if.then
 
 if.then142:                                       ; preds = %if.end129
   %tstate.val83 = load ptr, ptr %interp, align 8
-  call fastcc void @invoke_gc_callback(ptr %tstate.val83, ptr noundef nonnull @.str.52, i32 noundef %generation.addr.0, i64 noundef %add90, i64 noundef %n.0.lcssa)
+  call fastcc void @invoke_gc_callback.argprom(ptr %tstate.val83, ptr noundef nonnull @.str.52, i32 noundef %generation.addr.0, i64 noundef %add90, i64 noundef %n.0.lcssa)
   br label %if.end143
 
 if.end143:                                        ; preds = %if.then142, %if.end129
@@ -2631,15 +2631,15 @@ land.lhs.true15:                                  ; preds = %land.lhs.true12
   %7 = getelementptr i8, ptr %1, i64 104
   %call1.val = load ptr, ptr %7, align 8
   %cmp.i = icmp eq ptr %call1.val, null
-  br i1 %cmp.i, label %if.then, label %_PyErr_Occurred.exit
+  br i1 %cmp.i, label %if.then, label %_PyErr_Occurred.argprom.exit
 
-_PyErr_Occurred.exit:                             ; preds = %land.lhs.true15
+_PyErr_Occurred.argprom.exit:                     ; preds = %land.lhs.true15
   %8 = getelementptr i8, ptr %call1.val, i64 8
   %.val.i = load ptr, ptr %8, align 8
   %tobool17.not = icmp eq ptr %.val.i, null
   br i1 %tobool17.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %land.lhs.true15, %_PyErr_Occurred.exit
+if.then:                                          ; preds = %land.lhs.true15, %_PyErr_Occurred.argprom.exit
   %9 = load ptr, ptr %interp, align 8
   %10 = load atomic i64, ptr %9 seq_cst, align 8
   %and.i.i = and i64 %10, 16
@@ -2660,7 +2660,7 @@ _Py_atomic_compare_exchange_uintptr.exit.i.i:     ; preds = %do.body.preheader.i
   %16 = extractvalue { i64, i1 } %15, 1
   br i1 %16, label %if.end, label %_Py_atomic_compare_exchange_uintptr.exit.i.i
 
-if.end:                                           ; preds = %_Py_atomic_compare_exchange_uintptr.exit.i.i, %do.body.preheader.i.i, %if.then, %_PyErr_Occurred.exit, %land.lhs.true12, %land.lhs.true, %entry
+if.end:                                           ; preds = %_Py_atomic_compare_exchange_uintptr.exit.i.i, %do.body.preheader.i.i, %if.then, %_PyErr_Occurred.argprom.exit, %land.lhs.true12, %land.lhs.true, %entry
   ret void
 }
 
@@ -2732,15 +2732,15 @@ land.lhs.true15.i.i:                              ; preds = %land.lhs.true12.i.i
   %12 = getelementptr i8, ptr %6, i64 104
   %call1.val.i.i = load ptr, ptr %12, align 8
   %cmp.i.i.i = icmp eq ptr %call1.val.i.i, null
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %_PyErr_Occurred.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i, label %_PyErr_Occurred.argprom.exit.i.i
 
-_PyErr_Occurred.exit.i.i:                         ; preds = %land.lhs.true15.i.i
+_PyErr_Occurred.argprom.exit.i.i:                 ; preds = %land.lhs.true15.i.i
   %13 = getelementptr i8, ptr %call1.val.i.i, i64 8
   %.val.i.i.i = load ptr, ptr %13, align 8
   %tobool17.not.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %tobool17.not.i.i, label %if.then.i.i, label %gc_alloc.exit
 
-if.then.i.i:                                      ; preds = %_PyErr_Occurred.exit.i.i, %land.lhs.true15.i.i
+if.then.i.i:                                      ; preds = %_PyErr_Occurred.argprom.exit.i.i, %land.lhs.true15.i.i
   %14 = load ptr, ptr %interp.i.i, align 8
   %15 = load atomic i64, ptr %14 seq_cst, align 8
   %and.i.i.i.i = and i64 %15, 16
@@ -2765,8 +2765,8 @@ return.sink.split.i:                              ; preds = %if.end.i, %entry
   %call5.i = tail call ptr @_PyErr_NoMemory(ptr noundef %5) #14
   br label %gc_alloc.exit
 
-gc_alloc.exit:                                    ; preds = %_Py_atomic_compare_exchange_uintptr.exit.i.i.i.i, %if.end6.i, %land.lhs.true.i.i, %land.lhs.true12.i.i, %_PyErr_Occurred.exit.i.i, %if.then.i.i, %do.body.preheader.i.i.i.i, %return.sink.split.i
-  %retval.0.i = phi ptr [ %add.ptr.i, %if.end6.i ], [ %add.ptr.i, %land.lhs.true.i.i ], [ %add.ptr.i, %land.lhs.true12.i.i ], [ %add.ptr.i, %_PyErr_Occurred.exit.i.i ], [ %add.ptr.i, %if.then.i.i ], [ %add.ptr.i, %do.body.preheader.i.i.i.i ], [ %call5.i, %return.sink.split.i ], [ %add.ptr.i, %_Py_atomic_compare_exchange_uintptr.exit.i.i.i.i ]
+gc_alloc.exit:                                    ; preds = %_Py_atomic_compare_exchange_uintptr.exit.i.i.i.i, %if.end6.i, %land.lhs.true.i.i, %land.lhs.true12.i.i, %_PyErr_Occurred.argprom.exit.i.i, %if.then.i.i, %do.body.preheader.i.i.i.i, %return.sink.split.i
+  %retval.0.i = phi ptr [ %add.ptr.i, %if.end6.i ], [ %add.ptr.i, %land.lhs.true.i.i ], [ %add.ptr.i, %land.lhs.true12.i.i ], [ %add.ptr.i, %_PyErr_Occurred.argprom.exit.i.i ], [ %add.ptr.i, %if.then.i.i ], [ %add.ptr.i, %do.body.preheader.i.i.i.i ], [ %call5.i, %return.sink.split.i ], [ %add.ptr.i, %_Py_atomic_compare_exchange_uintptr.exit.i.i.i.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -2871,15 +2871,15 @@ land.lhs.true15.i.i:                              ; preds = %land.lhs.true12.i.i
   %13 = getelementptr i8, ptr %7, i64 104
   %call1.val.i.i = load ptr, ptr %13, align 8
   %cmp.i.i.i = icmp eq ptr %call1.val.i.i, null
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %_PyErr_Occurred.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i, label %_PyErr_Occurred.argprom.exit.i.i
 
-_PyErr_Occurred.exit.i.i:                         ; preds = %land.lhs.true15.i.i
+_PyErr_Occurred.argprom.exit.i.i:                 ; preds = %land.lhs.true15.i.i
   %14 = getelementptr i8, ptr %call1.val.i.i, i64 8
   %.val.i.i.i = load ptr, ptr %14, align 8
   %tobool17.not.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %tobool17.not.i.i, label %if.then.i.i, label %gc_alloc.exit
 
-if.then.i.i:                                      ; preds = %_PyErr_Occurred.exit.i.i, %land.lhs.true15.i.i
+if.then.i.i:                                      ; preds = %_PyErr_Occurred.argprom.exit.i.i, %land.lhs.true15.i.i
   %15 = load ptr, ptr %interp.i.i, align 8
   %16 = load atomic i64, ptr %15 seq_cst, align 8
   %and.i.i.i.i = and i64 %16, 16
@@ -2904,8 +2904,8 @@ return.sink.split.i:                              ; preds = %if.end.i, %if.end
   %call5.i = tail call ptr @_PyErr_NoMemory(ptr noundef %6) #14
   br label %gc_alloc.exit
 
-gc_alloc.exit:                                    ; preds = %_Py_atomic_compare_exchange_uintptr.exit.i.i.i.i, %if.end6.i, %land.lhs.true.i.i, %land.lhs.true12.i.i, %_PyErr_Occurred.exit.i.i, %if.then.i.i, %do.body.preheader.i.i.i.i, %return.sink.split.i
-  %retval.0.i = phi ptr [ %add.ptr.i, %if.end6.i ], [ %add.ptr.i, %land.lhs.true.i.i ], [ %add.ptr.i, %land.lhs.true12.i.i ], [ %add.ptr.i, %_PyErr_Occurred.exit.i.i ], [ %add.ptr.i, %if.then.i.i ], [ %add.ptr.i, %do.body.preheader.i.i.i.i ], [ %call5.i, %return.sink.split.i ], [ %add.ptr.i, %_Py_atomic_compare_exchange_uintptr.exit.i.i.i.i ]
+gc_alloc.exit:                                    ; preds = %_Py_atomic_compare_exchange_uintptr.exit.i.i.i.i, %if.end6.i, %land.lhs.true.i.i, %land.lhs.true12.i.i, %_PyErr_Occurred.argprom.exit.i.i, %if.then.i.i, %do.body.preheader.i.i.i.i, %return.sink.split.i
+  %retval.0.i = phi ptr [ %add.ptr.i, %if.end6.i ], [ %add.ptr.i, %land.lhs.true.i.i ], [ %add.ptr.i, %land.lhs.true12.i.i ], [ %add.ptr.i, %_PyErr_Occurred.argprom.exit.i.i ], [ %add.ptr.i, %if.then.i.i ], [ %add.ptr.i, %do.body.preheader.i.i.i.i ], [ %call5.i, %return.sink.split.i ], [ %add.ptr.i, %_Py_atomic_compare_exchange_uintptr.exit.i.i.i.i ]
   %cmp3 = icmp eq ptr %retval.0.i, null
   br i1 %cmp3, label %return, label %if.end5
 
@@ -3002,15 +3002,15 @@ land.lhs.true15.i.i:                              ; preds = %land.lhs.true12.i.i
   %12 = getelementptr i8, ptr %6, i64 104
   %call1.val.i.i = load ptr, ptr %12, align 8
   %cmp.i.i.i = icmp eq ptr %call1.val.i.i, null
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %_PyErr_Occurred.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i, label %_PyErr_Occurred.argprom.exit.i.i
 
-_PyErr_Occurred.exit.i.i:                         ; preds = %land.lhs.true15.i.i
+_PyErr_Occurred.argprom.exit.i.i:                 ; preds = %land.lhs.true15.i.i
   %13 = getelementptr i8, ptr %call1.val.i.i, i64 8
   %.val.i.i.i = load ptr, ptr %13, align 8
   %tobool17.not.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %tobool17.not.i.i, label %if.then.i.i, label %gc_alloc.exit
 
-if.then.i.i:                                      ; preds = %_PyErr_Occurred.exit.i.i, %land.lhs.true15.i.i
+if.then.i.i:                                      ; preds = %_PyErr_Occurred.argprom.exit.i.i, %land.lhs.true15.i.i
   %14 = load ptr, ptr %interp.i.i, align 8
   %15 = load atomic i64, ptr %14 seq_cst, align 8
   %and.i.i.i.i = and i64 %15, 16
@@ -3035,8 +3035,8 @@ return.sink.split.i:                              ; preds = %if.end.i, %entry
   %call5.i = tail call ptr @_PyErr_NoMemory(ptr noundef %5) #14
   br label %gc_alloc.exit
 
-gc_alloc.exit:                                    ; preds = %_Py_atomic_compare_exchange_uintptr.exit.i.i.i.i, %if.end6.i, %land.lhs.true.i.i, %land.lhs.true12.i.i, %_PyErr_Occurred.exit.i.i, %if.then.i.i, %do.body.preheader.i.i.i.i, %return.sink.split.i
-  %retval.0.i = phi ptr [ %add.ptr.i, %if.end6.i ], [ %add.ptr.i, %land.lhs.true.i.i ], [ %add.ptr.i, %land.lhs.true12.i.i ], [ %add.ptr.i, %_PyErr_Occurred.exit.i.i ], [ %add.ptr.i, %if.then.i.i ], [ %add.ptr.i, %do.body.preheader.i.i.i.i ], [ %call5.i, %return.sink.split.i ], [ %add.ptr.i, %_Py_atomic_compare_exchange_uintptr.exit.i.i.i.i ]
+gc_alloc.exit:                                    ; preds = %_Py_atomic_compare_exchange_uintptr.exit.i.i.i.i, %if.end6.i, %land.lhs.true.i.i, %land.lhs.true12.i.i, %_PyErr_Occurred.argprom.exit.i.i, %if.then.i.i, %do.body.preheader.i.i.i.i, %return.sink.split.i
+  %retval.0.i = phi ptr [ %add.ptr.i, %if.end6.i ], [ %add.ptr.i, %land.lhs.true.i.i ], [ %add.ptr.i, %land.lhs.true12.i.i ], [ %add.ptr.i, %_PyErr_Occurred.argprom.exit.i.i ], [ %add.ptr.i, %if.then.i.i ], [ %add.ptr.i, %do.body.preheader.i.i.i.i ], [ %call5.i, %return.sink.split.i ], [ %add.ptr.i, %_Py_atomic_compare_exchange_uintptr.exit.i.i.i.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -3512,7 +3512,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
 skip_optional_pos.thread28:                       ; preds = %if.end
   %2 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %3 = load ptr, ptr %2, align 8
-  br label %gc_collect_impl.exit
+  br label %gc_collect_impl.argprom.exit
 
 if.end14:                                         ; preds = %if.end
   %4 = load ptr, ptr %cond1025, align 8
@@ -3528,34 +3528,34 @@ land.lhs.true17:                                  ; preds = %if.end14
 skip_optional_pos.thread:                         ; preds = %land.lhs.true17
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8
-  br label %gc_collect_impl.exit.thread
+  br label %gc_collect_impl.argprom.exit.thread
 
 skip_optional_pos:                                ; preds = %if.end14
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %8 = load ptr, ptr %7, align 8
   %or.cond.i = icmp ugt i32 %call15, 2
-  br i1 %or.cond.i, label %gc_collect_impl.exit.thread, label %gc_collect_impl.exit
+  br i1 %or.cond.i, label %gc_collect_impl.argprom.exit.thread, label %gc_collect_impl.argprom.exit
 
-gc_collect_impl.exit.thread:                      ; preds = %skip_optional_pos, %skip_optional_pos.thread
+gc_collect_impl.argprom.exit.thread:              ; preds = %skip_optional_pos, %skip_optional_pos.thread
   %9 = phi ptr [ %6, %skip_optional_pos.thread ], [ %8, %skip_optional_pos ]
   %10 = load ptr, ptr @PyExc_ValueError, align 8
   call void @_PyErr_SetString(ptr noundef %9, ptr noundef %10, ptr noundef nonnull @.str.28) #14
   br label %land.lhs.true24
 
-gc_collect_impl.exit:                             ; preds = %skip_optional_pos, %skip_optional_pos.thread28
+gc_collect_impl.argprom.exit:                     ; preds = %skip_optional_pos, %skip_optional_pos.thread28
   %11 = phi ptr [ %3, %skip_optional_pos.thread28 ], [ %8, %skip_optional_pos ]
   %generation.031 = phi i32 [ 2, %skip_optional_pos.thread28 ], [ %call15, %skip_optional_pos ]
   %call2.i = call fastcc i64 @gc_collect_main(ptr noundef %11, i32 noundef %generation.031, i32 noundef 2)
   %cmp23 = icmp eq i64 %call2.i, -1
   br i1 %cmp23, label %land.lhs.true24, label %if.end28
 
-land.lhs.true24:                                  ; preds = %gc_collect_impl.exit.thread, %gc_collect_impl.exit
+land.lhs.true24:                                  ; preds = %gc_collect_impl.argprom.exit.thread, %gc_collect_impl.argprom.exit
   %call25 = call ptr @PyErr_Occurred() #14
   %tobool26.not = icmp eq ptr %call25, null
   br i1 %tobool26.not, label %if.end28, label %exit
 
-if.end28:                                         ; preds = %land.lhs.true24, %gc_collect_impl.exit
-  %retval.0.i34 = phi i64 [ -1, %land.lhs.true24 ], [ %call2.i, %gc_collect_impl.exit ]
+if.end28:                                         ; preds = %land.lhs.true24, %gc_collect_impl.argprom.exit
+  %retval.0.i34 = phi i64 [ -1, %land.lhs.true24 ], [ %call2.i, %gc_collect_impl.argprom.exit ]
   %call29 = call ptr @PyLong_FromSsize_t(i64 noundef %retval.0.i34) #14
   br label %exit
 
@@ -3738,7 +3738,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %stats.i, ptr noundef nonnull align 8 dereferenceable(72) %generation_stats.i, i64 72, i1 false)
   %call3.i = tail call ptr @PyList_New(i64 noundef 0) #14
   %cmp4.i = icmp eq ptr %call3.i, null
-  br i1 %cmp4.i, label %gc_get_stats_impl.exit, label %for.body7.i
+  br i1 %cmp4.i, label %gc_get_stats_impl.argprom.exit, label %for.body7.i
 
 for.body7.i:                                      ; preds = %entry, %for.inc17.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc17.i ], [ 0, %entry ]
@@ -3789,25 +3789,25 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 for.inc17.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %if.end16.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %gc_get_stats_impl.exit, label %for.body7.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %gc_get_stats_impl.argprom.exit, label %for.body7.i, !llvm.loop !30
 
 if.then.i.i:                                      ; preds = %for.body7.i, %if.then1.i26.i, %if.end.i23.i, %if.then15.i
   %8 = load i64, ptr %call3.i, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %9, 0
-  br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %gc_get_stats_impl.exit
+  br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %gc_get_stats_impl.argprom.exit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   %dec.i.i.i = add i64 %8, -1
   store i64 %dec.i.i.i, ptr %call3.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %gc_get_stats_impl.exit
+  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %gc_get_stats_impl.argprom.exit
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call3.i) #14
-  br label %gc_get_stats_impl.exit
+  br label %gc_get_stats_impl.argprom.exit
 
-gc_get_stats_impl.exit:                           ; preds = %for.inc17.i, %entry, %if.then.i.i, %if.end.i.i.i, %if.then1.i.i.i
+gc_get_stats_impl.argprom.exit:                   ; preds = %for.inc17.i, %entry, %if.then.i.i, %if.end.i.i.i, %if.then1.i.i.i
   %retval.0.i = phi ptr [ null, %entry ], [ null, %if.then.i.i ], [ null, %if.end.i.i.i ], [ null, %if.then1.i.i.i ], [ %call3.i, %for.inc17.i ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %stats.i)
   ret ptr %retval.0.i
@@ -4124,9 +4124,9 @@ gc_list_merge.exit.i:                             ; preds = %if.then.i.i, %for.b
   store i32 0, ptr %count.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %gc_freeze_impl.exit, label %for.body.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %gc_freeze_impl.argprom.exit, label %for.body.i, !llvm.loop !34
 
-gc_freeze_impl.exit:                              ; preds = %gc_list_merge.exit.i
+gc_freeze_impl.argprom.exit:                      ; preds = %gc_list_merge.exit.i
   ret ptr @_Py_NoneStruct
 }
 
@@ -4141,7 +4141,7 @@ entry:
   %3 = load i64, ptr %permanent_generation.i, align 8
   %4 = ptrtoint ptr %permanent_generation.i to i64
   %cmp.i.not.i.i = icmp eq i64 %3, %4
-  br i1 %cmp.i.not.i.i, label %gc_unfreeze_impl.exit, label %if.then.i.i
+  br i1 %cmp.i.not.i.i, label %gc_unfreeze_impl.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %arrayidx.i = getelementptr i8, ptr %2, i64 1072
@@ -4166,9 +4166,9 @@ if.then.i.i:                                      ; preds = %entry
   %and.i13.i.i = and i64 %12, 3
   %or.i14.i.i = or disjoint i64 %and.i13.i.i, %and.i10.i.i
   store i64 %or.i14.i.i, ptr %5, align 8
-  br label %gc_unfreeze_impl.exit
+  br label %gc_unfreeze_impl.argprom.exit
 
-gc_unfreeze_impl.exit:                            ; preds = %entry, %if.then.i.i
+gc_unfreeze_impl.argprom.exit:                    ; preds = %entry, %if.then.i.i
   %_gc_prev.i15.i.i = getelementptr inbounds i8, ptr %2, i64 1112
   store i64 %4, ptr %_gc_prev.i15.i.i, align 8
   store i64 %4, ptr %permanent_generation.i, align 8
@@ -4192,18 +4192,18 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %entr
   %gc.0.i.i = inttoptr i64 %gc.0.in.i.i to ptr
   %cmp.not.i.i = icmp eq ptr %permanent_generation.i, %gc.0.i.i
   %inc.i.i = add i64 %n.0.i.i, 1
-  br i1 %cmp.not.i.i, label %gc_get_freeze_count_impl.exit, label %for.cond.i.i, !llvm.loop !8
+  br i1 %cmp.not.i.i, label %gc_get_freeze_count_impl.argprom.exit, label %for.cond.i.i, !llvm.loop !8
 
-gc_get_freeze_count_impl.exit:                    ; preds = %for.cond.i.i
+gc_get_freeze_count_impl.argprom.exit:            ; preds = %for.cond.i.i
   %cmp = icmp eq i64 %n.0.i.i, -1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
-land.lhs.true:                                    ; preds = %gc_get_freeze_count_impl.exit
+land.lhs.true:                                    ; preds = %gc_get_freeze_count_impl.argprom.exit
   %call1 = tail call ptr @PyErr_Occurred() #14
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.end, label %exit
 
-if.end:                                           ; preds = %land.lhs.true, %gc_get_freeze_count_impl.exit
+if.end:                                           ; preds = %land.lhs.true, %gc_get_freeze_count_impl.argprom.exit
   %call2 = tail call ptr @PyLong_FromSsize_t(i64 noundef %n.0.i.i) #14
   br label %exit
 
@@ -4333,7 +4333,7 @@ declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) loca
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @invoke_gc_callback(ptr nocapture readonly %tstate.16.val, ptr noundef %phase, i32 noundef range(i32 0, -2147483648) %generation, i64 noundef %collected, i64 noundef %uncollectable) unnamed_addr #1 {
+define internal fastcc void @invoke_gc_callback.argprom(ptr nocapture readonly %tstate.16.val, ptr noundef %phase, i32 noundef range(i32 0, -2147483648) %generation, i64 noundef %collected, i64 noundef %uncollectable) unnamed_addr #1 {
 entry:
   %stack = alloca [2 x ptr], align 16
   %callbacks = getelementptr inbounds i8, ptr %tstate.16.val, i64 1216

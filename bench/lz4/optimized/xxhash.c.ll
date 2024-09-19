@@ -76,7 +76,7 @@ XXH32_endian_align.exit60:                        ; preds = %if.else.i18, %do.en
   %conv.i20 = trunc i64 %len to i32
   %add30.i21 = add i32 %h32.i10.0, %conv.i20
   %and.i22 = and i64 %len, 15
-  %call31.i23 = tail call fastcc i32 @XXH32_finalize(i32 noundef %add30.i21, ptr noundef %p.i8.1, i64 noundef %and.i22)
+  %call31.i23 = tail call fastcc i32 @XXH32_finalize.argelim(i32 noundef %add30.i21, ptr noundef %p.i8.1, i64 noundef %and.i22)
   ret i32 %call31.i23
 }
 
@@ -335,7 +335,7 @@ XXH32_digest_endian.exit40:                       ; preds = %if.else.i8, %if.the
   %memsize.i13 = getelementptr inbounds i8, ptr %state_in, i64 40
   %7 = load i32, ptr %memsize.i13, align 4
   %conv.i14 = zext i32 %7 to i64
-  %call.i15 = tail call fastcc i32 @XXH32_finalize(i32 noundef %add18.i11, ptr noundef nonnull %mem32.i12, i64 noundef %conv.i14)
+  %call.i15 = tail call fastcc i32 @XXH32_finalize.argelim(i32 noundef %add18.i11, ptr noundef nonnull %mem32.i12, i64 noundef %conv.i14)
   ret i32 %call.i15
 }
 
@@ -444,7 +444,7 @@ XXH64_endian_align.exit62:                        ; preds = %if.else.i18, %do.en
   %h64.i10.0 = phi i64 [ %add.i151, %do.end.i42 ], [ %add33.i19, %if.else.i18 ]
   %p.i8.1 = phi ptr [ %add.ptr15.i40, %do.end.i42 ], [ %input, %if.else.i18 ]
   %add34.i20 = add i64 %h64.i10.0, %len
-  %call35.i21 = tail call fastcc i64 @XXH64_finalize(i64 noundef %add34.i20, ptr noundef %p.i8.1, i64 noundef %len)
+  %call35.i21 = tail call fastcc i64 @XXH64_finalize.argelim(i64 noundef %add34.i20, ptr noundef %p.i8.1, i64 noundef %len)
   ret i64 %call35.i21
 }
 
@@ -709,7 +709,7 @@ XXH64_digest_endian.exit41:                       ; preds = %if.else.i11, %if.th
   %h64.i5.0 = phi i64 [ %add.i61, %if.then.i17 ], [ %add20.i13, %if.else.i11 ]
   %add22.i14 = add i64 %h64.i5.0, %0
   %mem64.i15 = getelementptr inbounds i8, ptr %state_in, i64 40
-  %call24.i16 = tail call fastcc i64 @XXH64_finalize(i64 noundef %add22.i14, ptr noundef nonnull %mem64.i15, i64 noundef %0)
+  %call24.i16 = tail call fastcc i64 @XXH64_finalize.argelim(i64 noundef %add22.i14, ptr noundef nonnull %mem64.i15, i64 noundef %0)
   ret i64 %call24.i16
 }
 
@@ -730,7 +730,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @XXH32_finalize(i32 noundef %h32, ptr nocapture noundef readonly %ptr, i64 noundef range(i64 0, 4294967296) %len) unnamed_addr #9 {
+define internal fastcc i32 @XXH32_finalize.argelim(i32 noundef %h32, ptr nocapture noundef readonly %ptr, i64 noundef range(i64 0, 4294967296) %len) unnamed_addr #9 {
 entry:
   %and = and i64 %len, 15
   switch i64 %and, label %default.unreachable184 [
@@ -952,7 +952,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i64 @XXH64_finalize(i64 noundef %h64, ptr noundef readonly %ptr, i64 noundef %len) unnamed_addr #9 {
+define internal fastcc i64 @XXH64_finalize.argelim(i64 noundef %h64, ptr noundef readonly %ptr, i64 noundef %len) unnamed_addr #9 {
 entry:
   %and = and i64 %len, 31
   switch i64 %and, label %default.unreachable494 [

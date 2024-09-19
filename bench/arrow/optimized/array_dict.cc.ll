@@ -3904,7 +3904,7 @@ entry:
   %1 = load ptr, ptr %dictionary, align 8
   %data_.i = getelementptr inbounds i8, ptr %1, i64 8
   %call.val = load ptr, ptr %0, align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120TransposeDictIndicesERKSt10shared_ptrINS_9ArrayDataEERKS1_INS_8DataTypeEES9_S5_PKiPNS_10MemoryPoolE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %data_, ptr %call.val, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(16) %data_.i, ptr noundef %transpose_map, ptr noundef %pool)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120TransposeDictIndicesERKSt10shared_ptrINS_9ArrayDataEERKS1_INS_8DataTypeEES9_S5_PKiPNS_10MemoryPoolE.argprom(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %data_, ptr %call.val, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(16) %data_.i, ptr noundef %transpose_map, ptr noundef %pool)
   %2 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %invoke.cont11, label %if.then
@@ -4024,7 +4024,7 @@ cleanup:                                          ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_120TransposeDictIndicesERKSt10shared_ptrINS_9ArrayDataEERKS1_INS_8DataTypeEES9_S5_PKiPNS_10MemoryPoolE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data, ptr nocapture readonly %in_type.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %out_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dictionary, ptr noundef %transpose_map, ptr noundef %pool) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_120TransposeDictIndicesERKSt10shared_ptrINS_9ArrayDataEERKS1_INS_8DataTypeEES9_S5_PKiPNS_10MemoryPoolE.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data, ptr nocapture readonly %in_type.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %out_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dictionary, ptr noundef %transpose_map, ptr noundef %pool) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %out_data = alloca %"class.std::shared_ptr", align 8
@@ -6114,7 +6114,7 @@ if.end.i:                                         ; preds = %entry
   %15 = load ptr, ptr %index_type_.i.i, align 8, !noalias !59
   %16 = getelementptr i8, ptr %15, i64 40
   %call12.val.i = load i32, ptr %16, align 8, !noalias !59
-  invoke fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_126CompactTransposeMapVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %ref.tmp10.i, i32 %call12.val.i, ptr noundef %visitor.i)
+  invoke fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_126CompactTransposeMapVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom(ptr noalias align 8 %ref.tmp10.i, i32 %call12.val.i, ptr noundef %visitor.i)
           to label %_ZN5arrow6StatusD2Ev.exit38.i unwind label %lpad.i, !noalias !59
 
 _ZN5arrow6StatusD2Ev.exit38.i:                    ; preds = %if.end.i
@@ -6830,7 +6830,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow12_GLOBAL_
   %18 = load ptr, ptr %value_type, align 8
   %19 = getelementptr i8, ptr %18, i64 40
   %call.val = load i32, ptr %19, align 8
-  invoke fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_111MakeUnifierEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %ref.tmp, i32 %call.val, ptr noundef %maker)
+  invoke fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_111MakeUnifierEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom(ptr noalias align 8 %ref.tmp, i32 %call.val, ptr noundef %maker)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad1
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit
@@ -7113,7 +7113,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_111MakeUnifierEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %agg.result, i32 %type.40.val, ptr noundef nonnull %visitor) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_111MakeUnifierEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom(ptr noalias nonnull align 8 %agg.result, i32 %type.40.val, ptr noundef nonnull %visitor) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i2043 = alloca %"class.std::shared_ptr.9", align 8
   %agg.tmp.i1975 = alloca %"class.std::shared_ptr.9", align 8
@@ -7327,7 +7327,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i: ; preds =
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i, %invoke.cont.i
   %13 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !77
   %cmp.not.i.i.i2.i = icmp eq ptr %13, null
-  br i1 %cmp.not.i.i.i2.i, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i
+  br i1 %cmp.not.i.i.i2.i, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i
   %_M_use_count.i.i.i.i4.i = getelementptr inbounds i8, ptr %13, i64 8
@@ -7363,7 +7363,7 @@ if.else.i.i.i.i.i7.i:                             ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i7.i, %if.then.i.i.i.i.i5.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %15, %if.then.i.i.i.i.i5.i ], [ %18, %if.else.i.i.i.i.i7.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %13, align 8, !noalias !77
@@ -7388,16 +7388,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %21, %if.then.i.i.i.i.i.i.i.i ], [ %22, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i8.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %13, align 8, !noalias !77
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %23 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8, !noalias !77
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %13) #22, !noalias !77
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !81
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   br label %return
@@ -7513,7 +7513,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i125: ; pred
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i128: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i125, %invoke.cont.i122
   %36 = load ptr, ptr %_M_refcount.i.i.i101, align 8, !noalias !84
   %cmp.not.i.i.i2.i129 = icmp eq ptr %36, null
-  br i1 %cmp.not.i.i.i2.i129, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i130
+  br i1 %cmp.not.i.i.i2.i129, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i130
 
 if.then.i.i.i3.i130:                              ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i128
   %_M_use_count.i.i.i.i4.i131 = getelementptr inbounds i8, ptr %36, i64 8
@@ -7549,7 +7549,7 @@ if.else.i.i.i.i.i7.i154:                          ; preds = %if.end.i.i.i.i.i133
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i137: ; preds = %if.else.i.i.i.i.i7.i154, %if.then.i.i.i.i.i5.i135
   %retval.i.0.i.i.i.i.i138 = phi i32 [ %38, %if.then.i.i.i.i.i5.i135 ], [ %41, %if.else.i.i.i.i.i7.i154 ]
   %cmp6.i.i.i.i.i139 = icmp eq i32 %retval.i.0.i.i.i.i.i138, 1
-  br i1 %cmp6.i.i.i.i.i139, label %if.then7.i.i.i.i.i140, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i139, label %if.then7.i.i.i.i.i140, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i140:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i137
   %vtable.i.i.i.i.i.i.i141 = load ptr, ptr %36, align 8, !noalias !84
@@ -7574,16 +7574,16 @@ if.else.i.i.i.i.i.i.i.i153:                       ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i147: ; preds = %if.else.i.i.i.i.i.i.i.i153, %if.then.i.i.i.i.i.i.i.i145
   %retval.i.0.i.i.i.i.i.i.i148 = phi i32 [ %44, %if.then.i.i.i.i.i.i.i.i145 ], [ %45, %if.else.i.i.i.i.i.i.i.i153 ]
   %cmp.i.i.i.i.i.i.i149 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i148, 1
-  br i1 %cmp.i.i.i.i.i.i.i149, label %if.end8.sink.split.i.i.i.i.i150, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i149, label %if.end8.sink.split.i.i.i.i.i150, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i150:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i147, %if.then.i.i.i.i8.i155
   %vtable2.i.i.i.i.i.i.i151 = load ptr, ptr %36, align 8, !noalias !84
   %vfn3.i.i.i.i.i.i.i152 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i151, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i.i152, align 8, !noalias !84
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #22, !noalias !84
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i128, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i137, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i147, %if.end8.sink.split.i.i.i.i.i150
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i128, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i137, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i147, %if.end8.sink.split.i.i.i.i.i150
   store ptr null, ptr %agg.result, align 8, !alias.scope !87
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i98)
   br label %return
@@ -7699,7 +7699,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i199: ; pred
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i202: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i199, %invoke.cont.i193
   %59 = load ptr, ptr %_M_refcount.i.i.i170, align 8, !noalias !90
   %cmp.not.i.i.i2.i203 = icmp eq ptr %59, null
-  br i1 %cmp.not.i.i.i2.i203, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i204
+  br i1 %cmp.not.i.i.i2.i203, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i204
 
 if.then.i.i.i3.i204:                              ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i202
   %_M_use_count.i.i.i.i4.i205 = getelementptr inbounds i8, ptr %59, i64 8
@@ -7735,7 +7735,7 @@ if.else.i.i.i.i.i7.i228:                          ; preds = %if.end.i.i.i.i.i207
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i211: ; preds = %if.else.i.i.i.i.i7.i228, %if.then.i.i.i.i.i5.i209
   %retval.i.0.i.i.i.i.i212 = phi i32 [ %61, %if.then.i.i.i.i.i5.i209 ], [ %64, %if.else.i.i.i.i.i7.i228 ]
   %cmp6.i.i.i.i.i213 = icmp eq i32 %retval.i.0.i.i.i.i.i212, 1
-  br i1 %cmp6.i.i.i.i.i213, label %if.then7.i.i.i.i.i214, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i213, label %if.then7.i.i.i.i.i214, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i214:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i211
   %vtable.i.i.i.i.i.i.i215 = load ptr, ptr %59, align 8, !noalias !90
@@ -7760,16 +7760,16 @@ if.else.i.i.i.i.i.i.i.i227:                       ; preds = %if.then7.i.i.i.i.i2
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i221: ; preds = %if.else.i.i.i.i.i.i.i.i227, %if.then.i.i.i.i.i.i.i.i219
   %retval.i.0.i.i.i.i.i.i.i222 = phi i32 [ %67, %if.then.i.i.i.i.i.i.i.i219 ], [ %68, %if.else.i.i.i.i.i.i.i.i227 ]
   %cmp.i.i.i.i.i.i.i223 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i222, 1
-  br i1 %cmp.i.i.i.i.i.i.i223, label %if.end8.sink.split.i.i.i.i.i224, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i223, label %if.end8.sink.split.i.i.i.i.i224, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i224:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i221, %if.then.i.i.i.i8.i229
   %vtable2.i.i.i.i.i.i.i225 = load ptr, ptr %59, align 8, !noalias !90
   %vfn3.i.i.i.i.i.i.i226 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i225, i64 24
   %69 = load ptr, ptr %vfn3.i.i.i.i.i.i.i226, align 8, !noalias !90
   tail call void %69(ptr noundef nonnull align 8 dereferenceable(16) %59) #22, !noalias !90
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i202, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i211, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i221, %if.end8.sink.split.i.i.i.i.i224
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i202, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i211, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i221, %if.end8.sink.split.i.i.i.i.i224
   store ptr null, ptr %agg.result, align 8, !alias.scope !93
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i167)
   br label %return
@@ -7878,7 +7878,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i267: ; pred
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i270: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i267, %invoke.cont.i264
   %82 = load ptr, ptr %_M_refcount.i.i.i244, align 8, !noalias !96
   %cmp.not.i.i.i2.i271 = icmp eq ptr %82, null
-  br i1 %cmp.not.i.i.i2.i271, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i272
+  br i1 %cmp.not.i.i.i2.i271, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i272
 
 if.then.i.i.i3.i272:                              ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i270
   %_M_use_count.i.i.i.i4.i273 = getelementptr inbounds i8, ptr %82, i64 8
@@ -7914,7 +7914,7 @@ if.else.i.i.i.i.i7.i296:                          ; preds = %if.end.i.i.i.i.i275
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i279: ; preds = %if.else.i.i.i.i.i7.i296, %if.then.i.i.i.i.i5.i277
   %retval.i.0.i.i.i.i.i280 = phi i32 [ %84, %if.then.i.i.i.i.i5.i277 ], [ %87, %if.else.i.i.i.i.i7.i296 ]
   %cmp6.i.i.i.i.i281 = icmp eq i32 %retval.i.0.i.i.i.i.i280, 1
-  br i1 %cmp6.i.i.i.i.i281, label %if.then7.i.i.i.i.i282, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i281, label %if.then7.i.i.i.i.i282, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i282:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i279
   %vtable.i.i.i.i.i.i.i283 = load ptr, ptr %82, align 8, !noalias !96
@@ -7939,16 +7939,16 @@ if.else.i.i.i.i.i.i.i.i295:                       ; preds = %if.then7.i.i.i.i.i2
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i289: ; preds = %if.else.i.i.i.i.i.i.i.i295, %if.then.i.i.i.i.i.i.i.i287
   %retval.i.0.i.i.i.i.i.i.i290 = phi i32 [ %90, %if.then.i.i.i.i.i.i.i.i287 ], [ %91, %if.else.i.i.i.i.i.i.i.i295 ]
   %cmp.i.i.i.i.i.i.i291 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i290, 1
-  br i1 %cmp.i.i.i.i.i.i.i291, label %if.end8.sink.split.i.i.i.i.i292, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i291, label %if.end8.sink.split.i.i.i.i.i292, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i292:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i289, %if.then.i.i.i.i8.i297
   %vtable2.i.i.i.i.i.i.i293 = load ptr, ptr %82, align 8, !noalias !96
   %vfn3.i.i.i.i.i.i.i294 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i293, i64 24
   %92 = load ptr, ptr %vfn3.i.i.i.i.i.i.i294, align 8, !noalias !96
   tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %82) #22, !noalias !96
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i270, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i279, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i289, %if.end8.sink.split.i.i.i.i.i292
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i270, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i279, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i289, %if.end8.sink.split.i.i.i.i.i292
   store ptr null, ptr %agg.result, align 8, !alias.scope !99
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i241)
   br label %return
@@ -8057,7 +8057,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i337: ; pred
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i340: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i337, %invoke.cont.i333
   %105 = load ptr, ptr %_M_refcount.i.i.i312, align 8, !noalias !102
   %cmp.not.i.i.i2.i341 = icmp eq ptr %105, null
-  br i1 %cmp.not.i.i.i2.i341, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i342
+  br i1 %cmp.not.i.i.i2.i341, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i342
 
 if.then.i.i.i3.i342:                              ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i340
   %_M_use_count.i.i.i.i4.i343 = getelementptr inbounds i8, ptr %105, i64 8
@@ -8093,7 +8093,7 @@ if.else.i.i.i.i.i7.i366:                          ; preds = %if.end.i.i.i.i.i345
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i349: ; preds = %if.else.i.i.i.i.i7.i366, %if.then.i.i.i.i.i5.i347
   %retval.i.0.i.i.i.i.i350 = phi i32 [ %107, %if.then.i.i.i.i.i5.i347 ], [ %110, %if.else.i.i.i.i.i7.i366 ]
   %cmp6.i.i.i.i.i351 = icmp eq i32 %retval.i.0.i.i.i.i.i350, 1
-  br i1 %cmp6.i.i.i.i.i351, label %if.then7.i.i.i.i.i352, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i351, label %if.then7.i.i.i.i.i352, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i352:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i349
   %vtable.i.i.i.i.i.i.i353 = load ptr, ptr %105, align 8, !noalias !102
@@ -8118,16 +8118,16 @@ if.else.i.i.i.i.i.i.i.i365:                       ; preds = %if.then7.i.i.i.i.i3
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i359: ; preds = %if.else.i.i.i.i.i.i.i.i365, %if.then.i.i.i.i.i.i.i.i357
   %retval.i.0.i.i.i.i.i.i.i360 = phi i32 [ %113, %if.then.i.i.i.i.i.i.i.i357 ], [ %114, %if.else.i.i.i.i.i.i.i.i365 ]
   %cmp.i.i.i.i.i.i.i361 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i360, 1
-  br i1 %cmp.i.i.i.i.i.i.i361, label %if.end8.sink.split.i.i.i.i.i362, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i361, label %if.end8.sink.split.i.i.i.i.i362, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i362:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i359, %if.then.i.i.i.i8.i367
   %vtable2.i.i.i.i.i.i.i363 = load ptr, ptr %105, align 8, !noalias !102
   %vfn3.i.i.i.i.i.i.i364 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i363, i64 24
   %115 = load ptr, ptr %vfn3.i.i.i.i.i.i.i364, align 8, !noalias !102
   tail call void %115(ptr noundef nonnull align 8 dereferenceable(16) %105) #22, !noalias !102
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i340, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i349, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i359, %if.end8.sink.split.i.i.i.i.i362
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i340, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i349, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i359, %if.end8.sink.split.i.i.i.i.i362
   store ptr null, ptr %agg.result, align 8, !alias.scope !105
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i309)
   br label %return
@@ -8236,7 +8236,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i407: ; pred
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i410: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i407, %invoke.cont.i403
   %128 = load ptr, ptr %_M_refcount.i.i.i382, align 8, !noalias !108
   %cmp.not.i.i.i2.i411 = icmp eq ptr %128, null
-  br i1 %cmp.not.i.i.i2.i411, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i412
+  br i1 %cmp.not.i.i.i2.i411, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i412
 
 if.then.i.i.i3.i412:                              ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i410
   %_M_use_count.i.i.i.i4.i413 = getelementptr inbounds i8, ptr %128, i64 8
@@ -8272,7 +8272,7 @@ if.else.i.i.i.i.i7.i436:                          ; preds = %if.end.i.i.i.i.i415
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i419: ; preds = %if.else.i.i.i.i.i7.i436, %if.then.i.i.i.i.i5.i417
   %retval.i.0.i.i.i.i.i420 = phi i32 [ %130, %if.then.i.i.i.i.i5.i417 ], [ %133, %if.else.i.i.i.i.i7.i436 ]
   %cmp6.i.i.i.i.i421 = icmp eq i32 %retval.i.0.i.i.i.i.i420, 1
-  br i1 %cmp6.i.i.i.i.i421, label %if.then7.i.i.i.i.i422, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i421, label %if.then7.i.i.i.i.i422, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i422:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i419
   %vtable.i.i.i.i.i.i.i423 = load ptr, ptr %128, align 8, !noalias !108
@@ -8297,16 +8297,16 @@ if.else.i.i.i.i.i.i.i.i435:                       ; preds = %if.then7.i.i.i.i.i4
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i429: ; preds = %if.else.i.i.i.i.i.i.i.i435, %if.then.i.i.i.i.i.i.i.i427
   %retval.i.0.i.i.i.i.i.i.i430 = phi i32 [ %136, %if.then.i.i.i.i.i.i.i.i427 ], [ %137, %if.else.i.i.i.i.i.i.i.i435 ]
   %cmp.i.i.i.i.i.i.i431 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i430, 1
-  br i1 %cmp.i.i.i.i.i.i.i431, label %if.end8.sink.split.i.i.i.i.i432, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i431, label %if.end8.sink.split.i.i.i.i.i432, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i432:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i429, %if.then.i.i.i.i8.i437
   %vtable2.i.i.i.i.i.i.i433 = load ptr, ptr %128, align 8, !noalias !108
   %vfn3.i.i.i.i.i.i.i434 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i433, i64 24
   %138 = load ptr, ptr %vfn3.i.i.i.i.i.i.i434, align 8, !noalias !108
   tail call void %138(ptr noundef nonnull align 8 dereferenceable(16) %128) #22, !noalias !108
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i410, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i419, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i429, %if.end8.sink.split.i.i.i.i.i432
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i410, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i419, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i429, %if.end8.sink.split.i.i.i.i.i432
   store ptr null, ptr %agg.result, align 8, !alias.scope !111
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i379)
   br label %return
@@ -8415,7 +8415,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i477: ; pred
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i480: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i477, %invoke.cont.i473
   %151 = load ptr, ptr %_M_refcount.i.i.i452, align 8, !noalias !114
   %cmp.not.i.i.i2.i481 = icmp eq ptr %151, null
-  br i1 %cmp.not.i.i.i2.i481, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i482
+  br i1 %cmp.not.i.i.i2.i481, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i482
 
 if.then.i.i.i3.i482:                              ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i480
   %_M_use_count.i.i.i.i4.i483 = getelementptr inbounds i8, ptr %151, i64 8
@@ -8451,7 +8451,7 @@ if.else.i.i.i.i.i7.i506:                          ; preds = %if.end.i.i.i.i.i485
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i489: ; preds = %if.else.i.i.i.i.i7.i506, %if.then.i.i.i.i.i5.i487
   %retval.i.0.i.i.i.i.i490 = phi i32 [ %153, %if.then.i.i.i.i.i5.i487 ], [ %156, %if.else.i.i.i.i.i7.i506 ]
   %cmp6.i.i.i.i.i491 = icmp eq i32 %retval.i.0.i.i.i.i.i490, 1
-  br i1 %cmp6.i.i.i.i.i491, label %if.then7.i.i.i.i.i492, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i491, label %if.then7.i.i.i.i.i492, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i492:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i489
   %vtable.i.i.i.i.i.i.i493 = load ptr, ptr %151, align 8, !noalias !114
@@ -8476,16 +8476,16 @@ if.else.i.i.i.i.i.i.i.i505:                       ; preds = %if.then7.i.i.i.i.i4
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i499: ; preds = %if.else.i.i.i.i.i.i.i.i505, %if.then.i.i.i.i.i.i.i.i497
   %retval.i.0.i.i.i.i.i.i.i500 = phi i32 [ %159, %if.then.i.i.i.i.i.i.i.i497 ], [ %160, %if.else.i.i.i.i.i.i.i.i505 ]
   %cmp.i.i.i.i.i.i.i501 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i500, 1
-  br i1 %cmp.i.i.i.i.i.i.i501, label %if.end8.sink.split.i.i.i.i.i502, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i501, label %if.end8.sink.split.i.i.i.i.i502, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i502:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i499, %if.then.i.i.i.i8.i507
   %vtable2.i.i.i.i.i.i.i503 = load ptr, ptr %151, align 8, !noalias !114
   %vfn3.i.i.i.i.i.i.i504 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i503, i64 24
   %161 = load ptr, ptr %vfn3.i.i.i.i.i.i.i504, align 8, !noalias !114
   tail call void %161(ptr noundef nonnull align 8 dereferenceable(16) %151) #22, !noalias !114
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i480, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i489, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i499, %if.end8.sink.split.i.i.i.i.i502
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i480, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i489, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i499, %if.end8.sink.split.i.i.i.i.i502
   store ptr null, ptr %agg.result, align 8, !alias.scope !117
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i449)
   br label %return
@@ -8594,7 +8594,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i547: ; pred
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i550: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i547, %invoke.cont.i543
   %174 = load ptr, ptr %_M_refcount.i.i.i522, align 8, !noalias !120
   %cmp.not.i.i.i2.i551 = icmp eq ptr %174, null
-  br i1 %cmp.not.i.i.i2.i551, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i552
+  br i1 %cmp.not.i.i.i2.i551, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i552
 
 if.then.i.i.i3.i552:                              ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i550
   %_M_use_count.i.i.i.i4.i553 = getelementptr inbounds i8, ptr %174, i64 8
@@ -8630,7 +8630,7 @@ if.else.i.i.i.i.i7.i576:                          ; preds = %if.end.i.i.i.i.i555
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i559: ; preds = %if.else.i.i.i.i.i7.i576, %if.then.i.i.i.i.i5.i557
   %retval.i.0.i.i.i.i.i560 = phi i32 [ %176, %if.then.i.i.i.i.i5.i557 ], [ %179, %if.else.i.i.i.i.i7.i576 ]
   %cmp6.i.i.i.i.i561 = icmp eq i32 %retval.i.0.i.i.i.i.i560, 1
-  br i1 %cmp6.i.i.i.i.i561, label %if.then7.i.i.i.i.i562, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i561, label %if.then7.i.i.i.i.i562, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i562:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i559
   %vtable.i.i.i.i.i.i.i563 = load ptr, ptr %174, align 8, !noalias !120
@@ -8655,16 +8655,16 @@ if.else.i.i.i.i.i.i.i.i575:                       ; preds = %if.then7.i.i.i.i.i5
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i569: ; preds = %if.else.i.i.i.i.i.i.i.i575, %if.then.i.i.i.i.i.i.i.i567
   %retval.i.0.i.i.i.i.i.i.i570 = phi i32 [ %182, %if.then.i.i.i.i.i.i.i.i567 ], [ %183, %if.else.i.i.i.i.i.i.i.i575 ]
   %cmp.i.i.i.i.i.i.i571 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i570, 1
-  br i1 %cmp.i.i.i.i.i.i.i571, label %if.end8.sink.split.i.i.i.i.i572, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i571, label %if.end8.sink.split.i.i.i.i.i572, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i572:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i569, %if.then.i.i.i.i8.i577
   %vtable2.i.i.i.i.i.i.i573 = load ptr, ptr %174, align 8, !noalias !120
   %vfn3.i.i.i.i.i.i.i574 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i573, i64 24
   %184 = load ptr, ptr %vfn3.i.i.i.i.i.i.i574, align 8, !noalias !120
   tail call void %184(ptr noundef nonnull align 8 dereferenceable(16) %174) #22, !noalias !120
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i550, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i559, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i569, %if.end8.sink.split.i.i.i.i.i572
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i550, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i559, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i569, %if.end8.sink.split.i.i.i.i.i572
   store ptr null, ptr %agg.result, align 8, !alias.scope !123
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i519)
   br label %return
@@ -8773,7 +8773,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i617: ; pred
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i620: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i617, %invoke.cont.i613
   %197 = load ptr, ptr %_M_refcount.i.i.i592, align 8, !noalias !126
   %cmp.not.i.i.i2.i621 = icmp eq ptr %197, null
-  br i1 %cmp.not.i.i.i2.i621, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i622
+  br i1 %cmp.not.i.i.i2.i621, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i622
 
 if.then.i.i.i3.i622:                              ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i620
   %_M_use_count.i.i.i.i4.i623 = getelementptr inbounds i8, ptr %197, i64 8
@@ -8809,7 +8809,7 @@ if.else.i.i.i.i.i7.i646:                          ; preds = %if.end.i.i.i.i.i625
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i629: ; preds = %if.else.i.i.i.i.i7.i646, %if.then.i.i.i.i.i5.i627
   %retval.i.0.i.i.i.i.i630 = phi i32 [ %199, %if.then.i.i.i.i.i5.i627 ], [ %202, %if.else.i.i.i.i.i7.i646 ]
   %cmp6.i.i.i.i.i631 = icmp eq i32 %retval.i.0.i.i.i.i.i630, 1
-  br i1 %cmp6.i.i.i.i.i631, label %if.then7.i.i.i.i.i632, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i631, label %if.then7.i.i.i.i.i632, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i632:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i629
   %vtable.i.i.i.i.i.i.i633 = load ptr, ptr %197, align 8, !noalias !126
@@ -8834,16 +8834,16 @@ if.else.i.i.i.i.i.i.i.i645:                       ; preds = %if.then7.i.i.i.i.i6
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i639: ; preds = %if.else.i.i.i.i.i.i.i.i645, %if.then.i.i.i.i.i.i.i.i637
   %retval.i.0.i.i.i.i.i.i.i640 = phi i32 [ %205, %if.then.i.i.i.i.i.i.i.i637 ], [ %206, %if.else.i.i.i.i.i.i.i.i645 ]
   %cmp.i.i.i.i.i.i.i641 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i640, 1
-  br i1 %cmp.i.i.i.i.i.i.i641, label %if.end8.sink.split.i.i.i.i.i642, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i641, label %if.end8.sink.split.i.i.i.i.i642, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i642:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i639, %if.then.i.i.i.i8.i647
   %vtable2.i.i.i.i.i.i.i643 = load ptr, ptr %197, align 8, !noalias !126
   %vfn3.i.i.i.i.i.i.i644 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i643, i64 24
   %207 = load ptr, ptr %vfn3.i.i.i.i.i.i.i644, align 8, !noalias !126
   tail call void %207(ptr noundef nonnull align 8 dereferenceable(16) %197) #22, !noalias !126
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i620, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i629, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i639, %if.end8.sink.split.i.i.i.i.i642
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i620, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i629, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i639, %if.end8.sink.split.i.i.i.i.i642
   store ptr null, ptr %agg.result, align 8, !alias.scope !129
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i589)
   br label %return
@@ -8952,7 +8952,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i687: ; pred
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i690: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i687, %invoke.cont.i683
   %220 = load ptr, ptr %_M_refcount.i.i.i662, align 8, !noalias !132
   %cmp.not.i.i.i2.i691 = icmp eq ptr %220, null
-  br i1 %cmp.not.i.i.i2.i691, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i692
+  br i1 %cmp.not.i.i.i2.i691, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i692
 
 if.then.i.i.i3.i692:                              ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i690
   %_M_use_count.i.i.i.i4.i693 = getelementptr inbounds i8, ptr %220, i64 8
@@ -8988,7 +8988,7 @@ if.else.i.i.i.i.i7.i716:                          ; preds = %if.end.i.i.i.i.i695
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i699: ; preds = %if.else.i.i.i.i.i7.i716, %if.then.i.i.i.i.i5.i697
   %retval.i.0.i.i.i.i.i700 = phi i32 [ %222, %if.then.i.i.i.i.i5.i697 ], [ %225, %if.else.i.i.i.i.i7.i716 ]
   %cmp6.i.i.i.i.i701 = icmp eq i32 %retval.i.0.i.i.i.i.i700, 1
-  br i1 %cmp6.i.i.i.i.i701, label %if.then7.i.i.i.i.i702, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i701, label %if.then7.i.i.i.i.i702, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i702:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i699
   %vtable.i.i.i.i.i.i.i703 = load ptr, ptr %220, align 8, !noalias !132
@@ -9013,16 +9013,16 @@ if.else.i.i.i.i.i.i.i.i715:                       ; preds = %if.then7.i.i.i.i.i7
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i709: ; preds = %if.else.i.i.i.i.i.i.i.i715, %if.then.i.i.i.i.i.i.i.i707
   %retval.i.0.i.i.i.i.i.i.i710 = phi i32 [ %228, %if.then.i.i.i.i.i.i.i.i707 ], [ %229, %if.else.i.i.i.i.i.i.i.i715 ]
   %cmp.i.i.i.i.i.i.i711 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i710, 1
-  br i1 %cmp.i.i.i.i.i.i.i711, label %if.end8.sink.split.i.i.i.i.i712, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i711, label %if.end8.sink.split.i.i.i.i.i712, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i712:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i709, %if.then.i.i.i.i8.i717
   %vtable2.i.i.i.i.i.i.i713 = load ptr, ptr %220, align 8, !noalias !132
   %vfn3.i.i.i.i.i.i.i714 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i713, i64 24
   %230 = load ptr, ptr %vfn3.i.i.i.i.i.i.i714, align 8, !noalias !132
   tail call void %230(ptr noundef nonnull align 8 dereferenceable(16) %220) #22, !noalias !132
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i690, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i699, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i709, %if.end8.sink.split.i.i.i.i.i712
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i690, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i699, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i709, %if.end8.sink.split.i.i.i.i.i712
   store ptr null, ptr %agg.result, align 8, !alias.scope !135
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i659)
   br label %return
@@ -9131,7 +9131,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i757: ; pred
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i760: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i757, %invoke.cont.i753
   %243 = load ptr, ptr %_M_refcount.i.i.i732, align 8, !noalias !138
   %cmp.not.i.i.i2.i761 = icmp eq ptr %243, null
-  br i1 %cmp.not.i.i.i2.i761, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i762
+  br i1 %cmp.not.i.i.i2.i761, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i762
 
 if.then.i.i.i3.i762:                              ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i760
   %_M_use_count.i.i.i.i4.i763 = getelementptr inbounds i8, ptr %243, i64 8
@@ -9167,7 +9167,7 @@ if.else.i.i.i.i.i7.i786:                          ; preds = %if.end.i.i.i.i.i765
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i769: ; preds = %if.else.i.i.i.i.i7.i786, %if.then.i.i.i.i.i5.i767
   %retval.i.0.i.i.i.i.i770 = phi i32 [ %245, %if.then.i.i.i.i.i5.i767 ], [ %248, %if.else.i.i.i.i.i7.i786 ]
   %cmp6.i.i.i.i.i771 = icmp eq i32 %retval.i.0.i.i.i.i.i770, 1
-  br i1 %cmp6.i.i.i.i.i771, label %if.then7.i.i.i.i.i772, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i771, label %if.then7.i.i.i.i.i772, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i772:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i769
   %vtable.i.i.i.i.i.i.i773 = load ptr, ptr %243, align 8, !noalias !138
@@ -9192,16 +9192,16 @@ if.else.i.i.i.i.i.i.i.i785:                       ; preds = %if.then7.i.i.i.i.i7
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i779: ; preds = %if.else.i.i.i.i.i.i.i.i785, %if.then.i.i.i.i.i.i.i.i777
   %retval.i.0.i.i.i.i.i.i.i780 = phi i32 [ %251, %if.then.i.i.i.i.i.i.i.i777 ], [ %252, %if.else.i.i.i.i.i.i.i.i785 ]
   %cmp.i.i.i.i.i.i.i781 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i780, 1
-  br i1 %cmp.i.i.i.i.i.i.i781, label %if.end8.sink.split.i.i.i.i.i782, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i781, label %if.end8.sink.split.i.i.i.i.i782, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i782:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i779, %if.then.i.i.i.i8.i787
   %vtable2.i.i.i.i.i.i.i783 = load ptr, ptr %243, align 8, !noalias !138
   %vfn3.i.i.i.i.i.i.i784 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i783, i64 24
   %253 = load ptr, ptr %vfn3.i.i.i.i.i.i.i784, align 8, !noalias !138
   tail call void %253(ptr noundef nonnull align 8 dereferenceable(16) %243) #22, !noalias !138
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i760, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i769, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i779, %if.end8.sink.split.i.i.i.i.i782
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i760, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i769, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i779, %if.end8.sink.split.i.i.i.i.i782
   store ptr null, ptr %agg.result, align 8, !alias.scope !141
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i729)
   br label %return
@@ -9310,7 +9310,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i827: ; pred
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i830: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i827, %invoke.cont.i823
   %266 = load ptr, ptr %_M_refcount.i.i.i802, align 8, !noalias !144
   %cmp.not.i.i.i2.i831 = icmp eq ptr %266, null
-  br i1 %cmp.not.i.i.i2.i831, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i832
+  br i1 %cmp.not.i.i.i2.i831, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i832
 
 if.then.i.i.i3.i832:                              ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i830
   %_M_use_count.i.i.i.i4.i833 = getelementptr inbounds i8, ptr %266, i64 8
@@ -9346,7 +9346,7 @@ if.else.i.i.i.i.i7.i856:                          ; preds = %if.end.i.i.i.i.i835
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i839: ; preds = %if.else.i.i.i.i.i7.i856, %if.then.i.i.i.i.i5.i837
   %retval.i.0.i.i.i.i.i840 = phi i32 [ %268, %if.then.i.i.i.i.i5.i837 ], [ %271, %if.else.i.i.i.i.i7.i856 ]
   %cmp6.i.i.i.i.i841 = icmp eq i32 %retval.i.0.i.i.i.i.i840, 1
-  br i1 %cmp6.i.i.i.i.i841, label %if.then7.i.i.i.i.i842, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i841, label %if.then7.i.i.i.i.i842, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i842:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i839
   %vtable.i.i.i.i.i.i.i843 = load ptr, ptr %266, align 8, !noalias !144
@@ -9371,16 +9371,16 @@ if.else.i.i.i.i.i.i.i.i855:                       ; preds = %if.then7.i.i.i.i.i8
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i849: ; preds = %if.else.i.i.i.i.i.i.i.i855, %if.then.i.i.i.i.i.i.i.i847
   %retval.i.0.i.i.i.i.i.i.i850 = phi i32 [ %274, %if.then.i.i.i.i.i.i.i.i847 ], [ %275, %if.else.i.i.i.i.i.i.i.i855 ]
   %cmp.i.i.i.i.i.i.i851 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i850, 1
-  br i1 %cmp.i.i.i.i.i.i.i851, label %if.end8.sink.split.i.i.i.i.i852, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i851, label %if.end8.sink.split.i.i.i.i.i852, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i852:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i849, %if.then.i.i.i.i8.i857
   %vtable2.i.i.i.i.i.i.i853 = load ptr, ptr %266, align 8, !noalias !144
   %vfn3.i.i.i.i.i.i.i854 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i853, i64 24
   %276 = load ptr, ptr %vfn3.i.i.i.i.i.i.i854, align 8, !noalias !144
   tail call void %276(ptr noundef nonnull align 8 dereferenceable(16) %266) #22, !noalias !144
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i830, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i839, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i849, %if.end8.sink.split.i.i.i.i.i852
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i830, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i839, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i849, %if.end8.sink.split.i.i.i.i.i852
   store ptr null, ptr %agg.result, align 8, !alias.scope !147
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i799)
   br label %return
@@ -9485,7 +9485,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i895: ; pred
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i898: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i895, %invoke.cont.i892
   %289 = load ptr, ptr %_M_refcount.i.i.i872, align 8, !noalias !150
   %cmp.not.i.i.i2.i899 = icmp eq ptr %289, null
-  br i1 %cmp.not.i.i.i2.i899, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i900
+  br i1 %cmp.not.i.i.i2.i899, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i900
 
 if.then.i.i.i3.i900:                              ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i898
   %_M_use_count.i.i.i.i4.i901 = getelementptr inbounds i8, ptr %289, i64 8
@@ -9521,7 +9521,7 @@ if.else.i.i.i.i.i7.i924:                          ; preds = %if.end.i.i.i.i.i903
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i907: ; preds = %if.else.i.i.i.i.i7.i924, %if.then.i.i.i.i.i5.i905
   %retval.i.0.i.i.i.i.i908 = phi i32 [ %291, %if.then.i.i.i.i.i5.i905 ], [ %294, %if.else.i.i.i.i.i7.i924 ]
   %cmp6.i.i.i.i.i909 = icmp eq i32 %retval.i.0.i.i.i.i.i908, 1
-  br i1 %cmp6.i.i.i.i.i909, label %if.then7.i.i.i.i.i910, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i909, label %if.then7.i.i.i.i.i910, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i910:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i907
   %vtable.i.i.i.i.i.i.i911 = load ptr, ptr %289, align 8, !noalias !150
@@ -9546,16 +9546,16 @@ if.else.i.i.i.i.i.i.i.i923:                       ; preds = %if.then7.i.i.i.i.i9
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i917: ; preds = %if.else.i.i.i.i.i.i.i.i923, %if.then.i.i.i.i.i.i.i.i915
   %retval.i.0.i.i.i.i.i.i.i918 = phi i32 [ %297, %if.then.i.i.i.i.i.i.i.i915 ], [ %298, %if.else.i.i.i.i.i.i.i.i923 ]
   %cmp.i.i.i.i.i.i.i919 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i918, 1
-  br i1 %cmp.i.i.i.i.i.i.i919, label %if.end8.sink.split.i.i.i.i.i920, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i919, label %if.end8.sink.split.i.i.i.i.i920, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i920:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i917, %if.then.i.i.i.i8.i925
   %vtable2.i.i.i.i.i.i.i921 = load ptr, ptr %289, align 8, !noalias !150
   %vfn3.i.i.i.i.i.i.i922 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i921, i64 24
   %299 = load ptr, ptr %vfn3.i.i.i.i.i.i.i922, align 8, !noalias !150
   tail call void %299(ptr noundef nonnull align 8 dereferenceable(16) %289) #22, !noalias !150
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i898, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i907, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i917, %if.end8.sink.split.i.i.i.i.i920
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i898, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i907, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i917, %if.end8.sink.split.i.i.i.i.i920
   store ptr null, ptr %agg.result, align 8, !alias.scope !153
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i869)
   br label %return
@@ -9660,7 +9660,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i963: ; pred
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i966: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i963, %invoke.cont.i960
   %312 = load ptr, ptr %_M_refcount.i.i.i940, align 8, !noalias !156
   %cmp.not.i.i.i2.i967 = icmp eq ptr %312, null
-  br i1 %cmp.not.i.i.i2.i967, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i968
+  br i1 %cmp.not.i.i.i2.i967, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i968
 
 if.then.i.i.i3.i968:                              ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i966
   %_M_use_count.i.i.i.i4.i969 = getelementptr inbounds i8, ptr %312, i64 8
@@ -9696,7 +9696,7 @@ if.else.i.i.i.i.i7.i992:                          ; preds = %if.end.i.i.i.i.i971
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i975: ; preds = %if.else.i.i.i.i.i7.i992, %if.then.i.i.i.i.i5.i973
   %retval.i.0.i.i.i.i.i976 = phi i32 [ %314, %if.then.i.i.i.i.i5.i973 ], [ %317, %if.else.i.i.i.i.i7.i992 ]
   %cmp6.i.i.i.i.i977 = icmp eq i32 %retval.i.0.i.i.i.i.i976, 1
-  br i1 %cmp6.i.i.i.i.i977, label %if.then7.i.i.i.i.i978, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i977, label %if.then7.i.i.i.i.i978, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i978:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i975
   %vtable.i.i.i.i.i.i.i979 = load ptr, ptr %312, align 8, !noalias !156
@@ -9721,16 +9721,16 @@ if.else.i.i.i.i.i.i.i.i991:                       ; preds = %if.then7.i.i.i.i.i9
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i985: ; preds = %if.else.i.i.i.i.i.i.i.i991, %if.then.i.i.i.i.i.i.i.i983
   %retval.i.0.i.i.i.i.i.i.i986 = phi i32 [ %320, %if.then.i.i.i.i.i.i.i.i983 ], [ %321, %if.else.i.i.i.i.i.i.i.i991 ]
   %cmp.i.i.i.i.i.i.i987 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i986, 1
-  br i1 %cmp.i.i.i.i.i.i.i987, label %if.end8.sink.split.i.i.i.i.i988, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i987, label %if.end8.sink.split.i.i.i.i.i988, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i988:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i985, %if.then.i.i.i.i8.i993
   %vtable2.i.i.i.i.i.i.i989 = load ptr, ptr %312, align 8, !noalias !156
   %vfn3.i.i.i.i.i.i.i990 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i989, i64 24
   %322 = load ptr, ptr %vfn3.i.i.i.i.i.i.i990, align 8, !noalias !156
   tail call void %322(ptr noundef nonnull align 8 dereferenceable(16) %312) #22, !noalias !156
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i966, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i975, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i985, %if.end8.sink.split.i.i.i.i.i988
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i966, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i975, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i985, %if.end8.sink.split.i.i.i.i.i988
   store ptr null, ptr %agg.result, align 8, !alias.scope !159
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i937)
   br label %return
@@ -9835,7 +9835,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1031: ; pre
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1034: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1031, %invoke.cont.i1028
   %335 = load ptr, ptr %_M_refcount.i.i.i1008, align 8, !noalias !162
   %cmp.not.i.i.i2.i1035 = icmp eq ptr %335, null
-  br i1 %cmp.not.i.i.i2.i1035, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i1036
+  br i1 %cmp.not.i.i.i2.i1035, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i1036
 
 if.then.i.i.i3.i1036:                             ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1034
   %_M_use_count.i.i.i.i4.i1037 = getelementptr inbounds i8, ptr %335, i64 8
@@ -9871,7 +9871,7 @@ if.else.i.i.i.i.i7.i1060:                         ; preds = %if.end.i.i.i.i.i103
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1043: ; preds = %if.else.i.i.i.i.i7.i1060, %if.then.i.i.i.i.i5.i1041
   %retval.i.0.i.i.i.i.i1044 = phi i32 [ %337, %if.then.i.i.i.i.i5.i1041 ], [ %340, %if.else.i.i.i.i.i7.i1060 ]
   %cmp6.i.i.i.i.i1045 = icmp eq i32 %retval.i.0.i.i.i.i.i1044, 1
-  br i1 %cmp6.i.i.i.i.i1045, label %if.then7.i.i.i.i.i1046, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i1045, label %if.then7.i.i.i.i.i1046, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i1046:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1043
   %vtable.i.i.i.i.i.i.i1047 = load ptr, ptr %335, align 8, !noalias !162
@@ -9896,16 +9896,16 @@ if.else.i.i.i.i.i.i.i.i1059:                      ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1053: ; preds = %if.else.i.i.i.i.i.i.i.i1059, %if.then.i.i.i.i.i.i.i.i1051
   %retval.i.0.i.i.i.i.i.i.i1054 = phi i32 [ %343, %if.then.i.i.i.i.i.i.i.i1051 ], [ %344, %if.else.i.i.i.i.i.i.i.i1059 ]
   %cmp.i.i.i.i.i.i.i1055 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i1054, 1
-  br i1 %cmp.i.i.i.i.i.i.i1055, label %if.end8.sink.split.i.i.i.i.i1056, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i1055, label %if.end8.sink.split.i.i.i.i.i1056, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i1056:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1053, %if.then.i.i.i.i8.i1061
   %vtable2.i.i.i.i.i.i.i1057 = load ptr, ptr %335, align 8, !noalias !162
   %vfn3.i.i.i.i.i.i.i1058 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i1057, i64 24
   %345 = load ptr, ptr %vfn3.i.i.i.i.i.i.i1058, align 8, !noalias !162
   tail call void %345(ptr noundef nonnull align 8 dereferenceable(16) %335) #22, !noalias !162
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1034, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1043, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1053, %if.end8.sink.split.i.i.i.i.i1056
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1034, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1043, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1053, %if.end8.sink.split.i.i.i.i.i1056
   store ptr null, ptr %agg.result, align 8, !alias.scope !165
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i1005)
   br label %return
@@ -10010,7 +10010,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1099: ; pre
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1102: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1099, %invoke.cont.i1096
   %358 = load ptr, ptr %_M_refcount.i.i.i1076, align 8, !noalias !168
   %cmp.not.i.i.i2.i1103 = icmp eq ptr %358, null
-  br i1 %cmp.not.i.i.i2.i1103, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i1104
+  br i1 %cmp.not.i.i.i2.i1103, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i1104
 
 if.then.i.i.i3.i1104:                             ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1102
   %_M_use_count.i.i.i.i4.i1105 = getelementptr inbounds i8, ptr %358, i64 8
@@ -10046,7 +10046,7 @@ if.else.i.i.i.i.i7.i1128:                         ; preds = %if.end.i.i.i.i.i110
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1111: ; preds = %if.else.i.i.i.i.i7.i1128, %if.then.i.i.i.i.i5.i1109
   %retval.i.0.i.i.i.i.i1112 = phi i32 [ %360, %if.then.i.i.i.i.i5.i1109 ], [ %363, %if.else.i.i.i.i.i7.i1128 ]
   %cmp6.i.i.i.i.i1113 = icmp eq i32 %retval.i.0.i.i.i.i.i1112, 1
-  br i1 %cmp6.i.i.i.i.i1113, label %if.then7.i.i.i.i.i1114, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i1113, label %if.then7.i.i.i.i.i1114, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i1114:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1111
   %vtable.i.i.i.i.i.i.i1115 = load ptr, ptr %358, align 8, !noalias !168
@@ -10071,16 +10071,16 @@ if.else.i.i.i.i.i.i.i.i1127:                      ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1121: ; preds = %if.else.i.i.i.i.i.i.i.i1127, %if.then.i.i.i.i.i.i.i.i1119
   %retval.i.0.i.i.i.i.i.i.i1122 = phi i32 [ %366, %if.then.i.i.i.i.i.i.i.i1119 ], [ %367, %if.else.i.i.i.i.i.i.i.i1127 ]
   %cmp.i.i.i.i.i.i.i1123 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i1122, 1
-  br i1 %cmp.i.i.i.i.i.i.i1123, label %if.end8.sink.split.i.i.i.i.i1124, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i1123, label %if.end8.sink.split.i.i.i.i.i1124, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i1124:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1121, %if.then.i.i.i.i8.i1129
   %vtable2.i.i.i.i.i.i.i1125 = load ptr, ptr %358, align 8, !noalias !168
   %vfn3.i.i.i.i.i.i.i1126 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i1125, i64 24
   %368 = load ptr, ptr %vfn3.i.i.i.i.i.i.i1126, align 8, !noalias !168
   tail call void %368(ptr noundef nonnull align 8 dereferenceable(16) %358) #22, !noalias !168
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1102, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1111, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1121, %if.end8.sink.split.i.i.i.i.i1124
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1102, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1111, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1121, %if.end8.sink.split.i.i.i.i.i1124
   store ptr null, ptr %agg.result, align 8, !alias.scope !171
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i1073)
   br label %return
@@ -10185,7 +10185,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1167: ; pre
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1170: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1167, %invoke.cont.i1164
   %381 = load ptr, ptr %_M_refcount.i.i.i1144, align 8, !noalias !174
   %cmp.not.i.i.i2.i1171 = icmp eq ptr %381, null
-  br i1 %cmp.not.i.i.i2.i1171, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i1172
+  br i1 %cmp.not.i.i.i2.i1171, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i1172
 
 if.then.i.i.i3.i1172:                             ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1170
   %_M_use_count.i.i.i.i4.i1173 = getelementptr inbounds i8, ptr %381, i64 8
@@ -10221,7 +10221,7 @@ if.else.i.i.i.i.i7.i1196:                         ; preds = %if.end.i.i.i.i.i117
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1179: ; preds = %if.else.i.i.i.i.i7.i1196, %if.then.i.i.i.i.i5.i1177
   %retval.i.0.i.i.i.i.i1180 = phi i32 [ %383, %if.then.i.i.i.i.i5.i1177 ], [ %386, %if.else.i.i.i.i.i7.i1196 ]
   %cmp6.i.i.i.i.i1181 = icmp eq i32 %retval.i.0.i.i.i.i.i1180, 1
-  br i1 %cmp6.i.i.i.i.i1181, label %if.then7.i.i.i.i.i1182, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i1181, label %if.then7.i.i.i.i.i1182, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i1182:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1179
   %vtable.i.i.i.i.i.i.i1183 = load ptr, ptr %381, align 8, !noalias !174
@@ -10246,16 +10246,16 @@ if.else.i.i.i.i.i.i.i.i1195:                      ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1189: ; preds = %if.else.i.i.i.i.i.i.i.i1195, %if.then.i.i.i.i.i.i.i.i1187
   %retval.i.0.i.i.i.i.i.i.i1190 = phi i32 [ %389, %if.then.i.i.i.i.i.i.i.i1187 ], [ %390, %if.else.i.i.i.i.i.i.i.i1195 ]
   %cmp.i.i.i.i.i.i.i1191 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i1190, 1
-  br i1 %cmp.i.i.i.i.i.i.i1191, label %if.end8.sink.split.i.i.i.i.i1192, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i1191, label %if.end8.sink.split.i.i.i.i.i1192, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i1192:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1189, %if.then.i.i.i.i8.i1197
   %vtable2.i.i.i.i.i.i.i1193 = load ptr, ptr %381, align 8, !noalias !174
   %vfn3.i.i.i.i.i.i.i1194 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i1193, i64 24
   %391 = load ptr, ptr %vfn3.i.i.i.i.i.i.i1194, align 8, !noalias !174
   tail call void %391(ptr noundef nonnull align 8 dereferenceable(16) %381) #22, !noalias !174
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1170, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1179, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1189, %if.end8.sink.split.i.i.i.i.i1192
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1170, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1179, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1189, %if.end8.sink.split.i.i.i.i.i1192
   store ptr null, ptr %agg.result, align 8, !alias.scope !177
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i1141)
   br label %return
@@ -10360,7 +10360,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1235: ; pre
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1238: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1235, %invoke.cont.i1232
   %404 = load ptr, ptr %_M_refcount.i.i.i1212, align 8, !noalias !180
   %cmp.not.i.i.i2.i1239 = icmp eq ptr %404, null
-  br i1 %cmp.not.i.i.i2.i1239, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i1240
+  br i1 %cmp.not.i.i.i2.i1239, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i1240
 
 if.then.i.i.i3.i1240:                             ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1238
   %_M_use_count.i.i.i.i4.i1241 = getelementptr inbounds i8, ptr %404, i64 8
@@ -10396,7 +10396,7 @@ if.else.i.i.i.i.i7.i1264:                         ; preds = %if.end.i.i.i.i.i124
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1247: ; preds = %if.else.i.i.i.i.i7.i1264, %if.then.i.i.i.i.i5.i1245
   %retval.i.0.i.i.i.i.i1248 = phi i32 [ %406, %if.then.i.i.i.i.i5.i1245 ], [ %409, %if.else.i.i.i.i.i7.i1264 ]
   %cmp6.i.i.i.i.i1249 = icmp eq i32 %retval.i.0.i.i.i.i.i1248, 1
-  br i1 %cmp6.i.i.i.i.i1249, label %if.then7.i.i.i.i.i1250, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i1249, label %if.then7.i.i.i.i.i1250, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i1250:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1247
   %vtable.i.i.i.i.i.i.i1251 = load ptr, ptr %404, align 8, !noalias !180
@@ -10421,16 +10421,16 @@ if.else.i.i.i.i.i.i.i.i1263:                      ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1257: ; preds = %if.else.i.i.i.i.i.i.i.i1263, %if.then.i.i.i.i.i.i.i.i1255
   %retval.i.0.i.i.i.i.i.i.i1258 = phi i32 [ %412, %if.then.i.i.i.i.i.i.i.i1255 ], [ %413, %if.else.i.i.i.i.i.i.i.i1263 ]
   %cmp.i.i.i.i.i.i.i1259 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i1258, 1
-  br i1 %cmp.i.i.i.i.i.i.i1259, label %if.end8.sink.split.i.i.i.i.i1260, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i1259, label %if.end8.sink.split.i.i.i.i.i1260, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i1260:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1257, %if.then.i.i.i.i8.i1265
   %vtable2.i.i.i.i.i.i.i1261 = load ptr, ptr %404, align 8, !noalias !180
   %vfn3.i.i.i.i.i.i.i1262 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i1261, i64 24
   %414 = load ptr, ptr %vfn3.i.i.i.i.i.i.i1262, align 8, !noalias !180
   tail call void %414(ptr noundef nonnull align 8 dereferenceable(16) %404) #22, !noalias !180
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1238, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1247, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1257, %if.end8.sink.split.i.i.i.i.i1260
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1238, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1247, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1257, %if.end8.sink.split.i.i.i.i.i1260
   store ptr null, ptr %agg.result, align 8, !alias.scope !183
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i1209)
   br label %return
@@ -10535,7 +10535,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1303: ; pre
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1306: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1303, %invoke.cont.i1300
   %427 = load ptr, ptr %_M_refcount.i.i.i1280, align 8, !noalias !186
   %cmp.not.i.i.i2.i1307 = icmp eq ptr %427, null
-  br i1 %cmp.not.i.i.i2.i1307, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i1308
+  br i1 %cmp.not.i.i.i2.i1307, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i1308
 
 if.then.i.i.i3.i1308:                             ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1306
   %_M_use_count.i.i.i.i4.i1309 = getelementptr inbounds i8, ptr %427, i64 8
@@ -10571,7 +10571,7 @@ if.else.i.i.i.i.i7.i1332:                         ; preds = %if.end.i.i.i.i.i131
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1315: ; preds = %if.else.i.i.i.i.i7.i1332, %if.then.i.i.i.i.i5.i1313
   %retval.i.0.i.i.i.i.i1316 = phi i32 [ %429, %if.then.i.i.i.i.i5.i1313 ], [ %432, %if.else.i.i.i.i.i7.i1332 ]
   %cmp6.i.i.i.i.i1317 = icmp eq i32 %retval.i.0.i.i.i.i.i1316, 1
-  br i1 %cmp6.i.i.i.i.i1317, label %if.then7.i.i.i.i.i1318, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i1317, label %if.then7.i.i.i.i.i1318, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i1318:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1315
   %vtable.i.i.i.i.i.i.i1319 = load ptr, ptr %427, align 8, !noalias !186
@@ -10596,16 +10596,16 @@ if.else.i.i.i.i.i.i.i.i1331:                      ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1325: ; preds = %if.else.i.i.i.i.i.i.i.i1331, %if.then.i.i.i.i.i.i.i.i1323
   %retval.i.0.i.i.i.i.i.i.i1326 = phi i32 [ %435, %if.then.i.i.i.i.i.i.i.i1323 ], [ %436, %if.else.i.i.i.i.i.i.i.i1331 ]
   %cmp.i.i.i.i.i.i.i1327 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i1326, 1
-  br i1 %cmp.i.i.i.i.i.i.i1327, label %if.end8.sink.split.i.i.i.i.i1328, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i1327, label %if.end8.sink.split.i.i.i.i.i1328, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i1328:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1325, %if.then.i.i.i.i8.i1333
   %vtable2.i.i.i.i.i.i.i1329 = load ptr, ptr %427, align 8, !noalias !186
   %vfn3.i.i.i.i.i.i.i1330 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i1329, i64 24
   %437 = load ptr, ptr %vfn3.i.i.i.i.i.i.i1330, align 8, !noalias !186
   tail call void %437(ptr noundef nonnull align 8 dereferenceable(16) %427) #22, !noalias !186
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1306, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1315, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1325, %if.end8.sink.split.i.i.i.i.i1328
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1306, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1315, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1325, %if.end8.sink.split.i.i.i.i.i1328
   store ptr null, ptr %agg.result, align 8, !alias.scope !189
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i1277)
   br label %return
@@ -10714,7 +10714,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1373: ; pre
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1376: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1373, %invoke.cont.i1369
   %450 = load ptr, ptr %_M_refcount.i.i.i1348, align 8, !noalias !192
   %cmp.not.i.i.i2.i1377 = icmp eq ptr %450, null
-  br i1 %cmp.not.i.i.i2.i1377, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i1378
+  br i1 %cmp.not.i.i.i2.i1377, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i1378
 
 if.then.i.i.i3.i1378:                             ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1376
   %_M_use_count.i.i.i.i4.i1379 = getelementptr inbounds i8, ptr %450, i64 8
@@ -10750,7 +10750,7 @@ if.else.i.i.i.i.i7.i1402:                         ; preds = %if.end.i.i.i.i.i138
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1385: ; preds = %if.else.i.i.i.i.i7.i1402, %if.then.i.i.i.i.i5.i1383
   %retval.i.0.i.i.i.i.i1386 = phi i32 [ %452, %if.then.i.i.i.i.i5.i1383 ], [ %455, %if.else.i.i.i.i.i7.i1402 ]
   %cmp6.i.i.i.i.i1387 = icmp eq i32 %retval.i.0.i.i.i.i.i1386, 1
-  br i1 %cmp6.i.i.i.i.i1387, label %if.then7.i.i.i.i.i1388, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i1387, label %if.then7.i.i.i.i.i1388, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i1388:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1385
   %vtable.i.i.i.i.i.i.i1389 = load ptr, ptr %450, align 8, !noalias !192
@@ -10775,16 +10775,16 @@ if.else.i.i.i.i.i.i.i.i1401:                      ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1395: ; preds = %if.else.i.i.i.i.i.i.i.i1401, %if.then.i.i.i.i.i.i.i.i1393
   %retval.i.0.i.i.i.i.i.i.i1396 = phi i32 [ %458, %if.then.i.i.i.i.i.i.i.i1393 ], [ %459, %if.else.i.i.i.i.i.i.i.i1401 ]
   %cmp.i.i.i.i.i.i.i1397 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i1396, 1
-  br i1 %cmp.i.i.i.i.i.i.i1397, label %if.end8.sink.split.i.i.i.i.i1398, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i1397, label %if.end8.sink.split.i.i.i.i.i1398, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i1398:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1395, %if.then.i.i.i.i8.i1403
   %vtable2.i.i.i.i.i.i.i1399 = load ptr, ptr %450, align 8, !noalias !192
   %vfn3.i.i.i.i.i.i.i1400 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i1399, i64 24
   %460 = load ptr, ptr %vfn3.i.i.i.i.i.i.i1400, align 8, !noalias !192
   tail call void %460(ptr noundef nonnull align 8 dereferenceable(16) %450) #22, !noalias !192
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1376, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1385, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1395, %if.end8.sink.split.i.i.i.i.i1398
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1376, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1385, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1395, %if.end8.sink.split.i.i.i.i.i1398
   store ptr null, ptr %agg.result, align 8, !alias.scope !195
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i1345)
   br label %return
@@ -10893,7 +10893,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1443: ; pre
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1446: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1443, %invoke.cont.i1439
   %473 = load ptr, ptr %_M_refcount.i.i.i1418, align 8, !noalias !198
   %cmp.not.i.i.i2.i1447 = icmp eq ptr %473, null
-  br i1 %cmp.not.i.i.i2.i1447, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i1448
+  br i1 %cmp.not.i.i.i2.i1447, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i1448
 
 if.then.i.i.i3.i1448:                             ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1446
   %_M_use_count.i.i.i.i4.i1449 = getelementptr inbounds i8, ptr %473, i64 8
@@ -10929,7 +10929,7 @@ if.else.i.i.i.i.i7.i1472:                         ; preds = %if.end.i.i.i.i.i145
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1455: ; preds = %if.else.i.i.i.i.i7.i1472, %if.then.i.i.i.i.i5.i1453
   %retval.i.0.i.i.i.i.i1456 = phi i32 [ %475, %if.then.i.i.i.i.i5.i1453 ], [ %478, %if.else.i.i.i.i.i7.i1472 ]
   %cmp6.i.i.i.i.i1457 = icmp eq i32 %retval.i.0.i.i.i.i.i1456, 1
-  br i1 %cmp6.i.i.i.i.i1457, label %if.then7.i.i.i.i.i1458, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i1457, label %if.then7.i.i.i.i.i1458, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i1458:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1455
   %vtable.i.i.i.i.i.i.i1459 = load ptr, ptr %473, align 8, !noalias !198
@@ -10954,16 +10954,16 @@ if.else.i.i.i.i.i.i.i.i1471:                      ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1465: ; preds = %if.else.i.i.i.i.i.i.i.i1471, %if.then.i.i.i.i.i.i.i.i1463
   %retval.i.0.i.i.i.i.i.i.i1466 = phi i32 [ %481, %if.then.i.i.i.i.i.i.i.i1463 ], [ %482, %if.else.i.i.i.i.i.i.i.i1471 ]
   %cmp.i.i.i.i.i.i.i1467 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i1466, 1
-  br i1 %cmp.i.i.i.i.i.i.i1467, label %if.end8.sink.split.i.i.i.i.i1468, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i1467, label %if.end8.sink.split.i.i.i.i.i1468, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i1468:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1465, %if.then.i.i.i.i8.i1473
   %vtable2.i.i.i.i.i.i.i1469 = load ptr, ptr %473, align 8, !noalias !198
   %vfn3.i.i.i.i.i.i.i1470 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i1469, i64 24
   %483 = load ptr, ptr %vfn3.i.i.i.i.i.i.i1470, align 8, !noalias !198
   tail call void %483(ptr noundef nonnull align 8 dereferenceable(16) %473) #22, !noalias !198
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1446, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1455, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1465, %if.end8.sink.split.i.i.i.i.i1468
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1446, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1455, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1465, %if.end8.sink.split.i.i.i.i.i1468
   store ptr null, ptr %agg.result, align 8, !alias.scope !201
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i1415)
   br label %return
@@ -11072,7 +11072,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1513: ; pre
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1516: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1513, %invoke.cont.i1509
   %496 = load ptr, ptr %_M_refcount.i.i.i1488, align 8, !noalias !204
   %cmp.not.i.i.i2.i1517 = icmp eq ptr %496, null
-  br i1 %cmp.not.i.i.i2.i1517, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i1518
+  br i1 %cmp.not.i.i.i2.i1517, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i1518
 
 if.then.i.i.i3.i1518:                             ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1516
   %_M_use_count.i.i.i.i4.i1519 = getelementptr inbounds i8, ptr %496, i64 8
@@ -11108,7 +11108,7 @@ if.else.i.i.i.i.i7.i1542:                         ; preds = %if.end.i.i.i.i.i152
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1525: ; preds = %if.else.i.i.i.i.i7.i1542, %if.then.i.i.i.i.i5.i1523
   %retval.i.0.i.i.i.i.i1526 = phi i32 [ %498, %if.then.i.i.i.i.i5.i1523 ], [ %501, %if.else.i.i.i.i.i7.i1542 ]
   %cmp6.i.i.i.i.i1527 = icmp eq i32 %retval.i.0.i.i.i.i.i1526, 1
-  br i1 %cmp6.i.i.i.i.i1527, label %if.then7.i.i.i.i.i1528, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i1527, label %if.then7.i.i.i.i.i1528, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i1528:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1525
   %vtable.i.i.i.i.i.i.i1529 = load ptr, ptr %496, align 8, !noalias !204
@@ -11133,16 +11133,16 @@ if.else.i.i.i.i.i.i.i.i1541:                      ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1535: ; preds = %if.else.i.i.i.i.i.i.i.i1541, %if.then.i.i.i.i.i.i.i.i1533
   %retval.i.0.i.i.i.i.i.i.i1536 = phi i32 [ %504, %if.then.i.i.i.i.i.i.i.i1533 ], [ %505, %if.else.i.i.i.i.i.i.i.i1541 ]
   %cmp.i.i.i.i.i.i.i1537 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i1536, 1
-  br i1 %cmp.i.i.i.i.i.i.i1537, label %if.end8.sink.split.i.i.i.i.i1538, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i1537, label %if.end8.sink.split.i.i.i.i.i1538, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i1538:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1535, %if.then.i.i.i.i8.i1543
   %vtable2.i.i.i.i.i.i.i1539 = load ptr, ptr %496, align 8, !noalias !204
   %vfn3.i.i.i.i.i.i.i1540 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i1539, i64 24
   %506 = load ptr, ptr %vfn3.i.i.i.i.i.i.i1540, align 8, !noalias !204
   tail call void %506(ptr noundef nonnull align 8 dereferenceable(16) %496) #22, !noalias !204
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1516, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1525, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1535, %if.end8.sink.split.i.i.i.i.i1538
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1516, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1525, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1535, %if.end8.sink.split.i.i.i.i.i1538
   store ptr null, ptr %agg.result, align 8, !alias.scope !207
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i1485)
   br label %return
@@ -11251,7 +11251,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1583: ; pre
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1586: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1583, %invoke.cont.i1579
   %519 = load ptr, ptr %_M_refcount.i.i.i1558, align 8, !noalias !210
   %cmp.not.i.i.i2.i1587 = icmp eq ptr %519, null
-  br i1 %cmp.not.i.i.i2.i1587, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i1588
+  br i1 %cmp.not.i.i.i2.i1587, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i1588
 
 if.then.i.i.i3.i1588:                             ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1586
   %_M_use_count.i.i.i.i4.i1589 = getelementptr inbounds i8, ptr %519, i64 8
@@ -11287,7 +11287,7 @@ if.else.i.i.i.i.i7.i1612:                         ; preds = %if.end.i.i.i.i.i159
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1595: ; preds = %if.else.i.i.i.i.i7.i1612, %if.then.i.i.i.i.i5.i1593
   %retval.i.0.i.i.i.i.i1596 = phi i32 [ %521, %if.then.i.i.i.i.i5.i1593 ], [ %524, %if.else.i.i.i.i.i7.i1612 ]
   %cmp6.i.i.i.i.i1597 = icmp eq i32 %retval.i.0.i.i.i.i.i1596, 1
-  br i1 %cmp6.i.i.i.i.i1597, label %if.then7.i.i.i.i.i1598, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i1597, label %if.then7.i.i.i.i.i1598, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i1598:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1595
   %vtable.i.i.i.i.i.i.i1599 = load ptr, ptr %519, align 8, !noalias !210
@@ -11312,16 +11312,16 @@ if.else.i.i.i.i.i.i.i.i1611:                      ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1605: ; preds = %if.else.i.i.i.i.i.i.i.i1611, %if.then.i.i.i.i.i.i.i.i1603
   %retval.i.0.i.i.i.i.i.i.i1606 = phi i32 [ %527, %if.then.i.i.i.i.i.i.i.i1603 ], [ %528, %if.else.i.i.i.i.i.i.i.i1611 ]
   %cmp.i.i.i.i.i.i.i1607 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i1606, 1
-  br i1 %cmp.i.i.i.i.i.i.i1607, label %if.end8.sink.split.i.i.i.i.i1608, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i1607, label %if.end8.sink.split.i.i.i.i.i1608, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i1608:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1605, %if.then.i.i.i.i8.i1613
   %vtable2.i.i.i.i.i.i.i1609 = load ptr, ptr %519, align 8, !noalias !210
   %vfn3.i.i.i.i.i.i.i1610 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i1609, i64 24
   %529 = load ptr, ptr %vfn3.i.i.i.i.i.i.i1610, align 8, !noalias !210
   tail call void %529(ptr noundef nonnull align 8 dereferenceable(16) %519) #22, !noalias !210
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1586, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1595, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1605, %if.end8.sink.split.i.i.i.i.i1608
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1586, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1595, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1605, %if.end8.sink.split.i.i.i.i.i1608
   store ptr null, ptr %agg.result, align 8, !alias.scope !213
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i1555)
   br label %return
@@ -11430,7 +11430,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1653: ; pre
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1656: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1653, %invoke.cont.i1649
   %542 = load ptr, ptr %_M_refcount.i.i.i1628, align 8, !noalias !216
   %cmp.not.i.i.i2.i1657 = icmp eq ptr %542, null
-  br i1 %cmp.not.i.i.i2.i1657, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i1658
+  br i1 %cmp.not.i.i.i2.i1657, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i1658
 
 if.then.i.i.i3.i1658:                             ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1656
   %_M_use_count.i.i.i.i4.i1659 = getelementptr inbounds i8, ptr %542, i64 8
@@ -11466,7 +11466,7 @@ if.else.i.i.i.i.i7.i1682:                         ; preds = %if.end.i.i.i.i.i166
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1665: ; preds = %if.else.i.i.i.i.i7.i1682, %if.then.i.i.i.i.i5.i1663
   %retval.i.0.i.i.i.i.i1666 = phi i32 [ %544, %if.then.i.i.i.i.i5.i1663 ], [ %547, %if.else.i.i.i.i.i7.i1682 ]
   %cmp6.i.i.i.i.i1667 = icmp eq i32 %retval.i.0.i.i.i.i.i1666, 1
-  br i1 %cmp6.i.i.i.i.i1667, label %if.then7.i.i.i.i.i1668, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i1667, label %if.then7.i.i.i.i.i1668, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i1668:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1665
   %vtable.i.i.i.i.i.i.i1669 = load ptr, ptr %542, align 8, !noalias !216
@@ -11491,16 +11491,16 @@ if.else.i.i.i.i.i.i.i.i1681:                      ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1675: ; preds = %if.else.i.i.i.i.i.i.i.i1681, %if.then.i.i.i.i.i.i.i.i1673
   %retval.i.0.i.i.i.i.i.i.i1676 = phi i32 [ %550, %if.then.i.i.i.i.i.i.i.i1673 ], [ %551, %if.else.i.i.i.i.i.i.i.i1681 ]
   %cmp.i.i.i.i.i.i.i1677 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i1676, 1
-  br i1 %cmp.i.i.i.i.i.i.i1677, label %if.end8.sink.split.i.i.i.i.i1678, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i1677, label %if.end8.sink.split.i.i.i.i.i1678, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i1678:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1675, %if.then.i.i.i.i8.i1683
   %vtable2.i.i.i.i.i.i.i1679 = load ptr, ptr %542, align 8, !noalias !216
   %vfn3.i.i.i.i.i.i.i1680 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i1679, i64 24
   %552 = load ptr, ptr %vfn3.i.i.i.i.i.i.i1680, align 8, !noalias !216
   tail call void %552(ptr noundef nonnull align 8 dereferenceable(16) %542) #22, !noalias !216
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1656, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1665, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1675, %if.end8.sink.split.i.i.i.i.i1678
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1656, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1665, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1675, %if.end8.sink.split.i.i.i.i.i1678
   store ptr null, ptr %agg.result, align 8, !alias.scope !219
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i1625)
   br label %return
@@ -11609,7 +11609,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1723: ; pre
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1726: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1723, %invoke.cont.i1719
   %565 = load ptr, ptr %_M_refcount.i.i.i1698, align 8, !noalias !222
   %cmp.not.i.i.i2.i1727 = icmp eq ptr %565, null
-  br i1 %cmp.not.i.i.i2.i1727, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i1728
+  br i1 %cmp.not.i.i.i2.i1727, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i1728
 
 if.then.i.i.i3.i1728:                             ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1726
   %_M_use_count.i.i.i.i4.i1729 = getelementptr inbounds i8, ptr %565, i64 8
@@ -11645,7 +11645,7 @@ if.else.i.i.i.i.i7.i1752:                         ; preds = %if.end.i.i.i.i.i173
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1735: ; preds = %if.else.i.i.i.i.i7.i1752, %if.then.i.i.i.i.i5.i1733
   %retval.i.0.i.i.i.i.i1736 = phi i32 [ %567, %if.then.i.i.i.i.i5.i1733 ], [ %570, %if.else.i.i.i.i.i7.i1752 ]
   %cmp6.i.i.i.i.i1737 = icmp eq i32 %retval.i.0.i.i.i.i.i1736, 1
-  br i1 %cmp6.i.i.i.i.i1737, label %if.then7.i.i.i.i.i1738, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i1737, label %if.then7.i.i.i.i.i1738, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i1738:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1735
   %vtable.i.i.i.i.i.i.i1739 = load ptr, ptr %565, align 8, !noalias !222
@@ -11670,16 +11670,16 @@ if.else.i.i.i.i.i.i.i.i1751:                      ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1745: ; preds = %if.else.i.i.i.i.i.i.i.i1751, %if.then.i.i.i.i.i.i.i.i1743
   %retval.i.0.i.i.i.i.i.i.i1746 = phi i32 [ %573, %if.then.i.i.i.i.i.i.i.i1743 ], [ %574, %if.else.i.i.i.i.i.i.i.i1751 ]
   %cmp.i.i.i.i.i.i.i1747 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i1746, 1
-  br i1 %cmp.i.i.i.i.i.i.i1747, label %if.end8.sink.split.i.i.i.i.i1748, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i1747, label %if.end8.sink.split.i.i.i.i.i1748, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i1748:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1745, %if.then.i.i.i.i8.i1753
   %vtable2.i.i.i.i.i.i.i1749 = load ptr, ptr %565, align 8, !noalias !222
   %vfn3.i.i.i.i.i.i.i1750 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i1749, i64 24
   %575 = load ptr, ptr %vfn3.i.i.i.i.i.i.i1750, align 8, !noalias !222
   tail call void %575(ptr noundef nonnull align 8 dereferenceable(16) %565) #22, !noalias !222
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1726, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1735, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1745, %if.end8.sink.split.i.i.i.i.i1748
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1726, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1735, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1745, %if.end8.sink.split.i.i.i.i.i1748
   store ptr null, ptr %agg.result, align 8, !alias.scope !225
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i1695)
   br label %return
@@ -11788,7 +11788,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1793: ; pre
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1796: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1793, %invoke.cont.i1789
   %588 = load ptr, ptr %_M_refcount.i.i.i1768, align 8, !noalias !228
   %cmp.not.i.i.i2.i1797 = icmp eq ptr %588, null
-  br i1 %cmp.not.i.i.i2.i1797, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i1798
+  br i1 %cmp.not.i.i.i2.i1797, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i1798
 
 if.then.i.i.i3.i1798:                             ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1796
   %_M_use_count.i.i.i.i4.i1799 = getelementptr inbounds i8, ptr %588, i64 8
@@ -11824,7 +11824,7 @@ if.else.i.i.i.i.i7.i1822:                         ; preds = %if.end.i.i.i.i.i180
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1805: ; preds = %if.else.i.i.i.i.i7.i1822, %if.then.i.i.i.i.i5.i1803
   %retval.i.0.i.i.i.i.i1806 = phi i32 [ %590, %if.then.i.i.i.i.i5.i1803 ], [ %593, %if.else.i.i.i.i.i7.i1822 ]
   %cmp6.i.i.i.i.i1807 = icmp eq i32 %retval.i.0.i.i.i.i.i1806, 1
-  br i1 %cmp6.i.i.i.i.i1807, label %if.then7.i.i.i.i.i1808, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i1807, label %if.then7.i.i.i.i.i1808, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i1808:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1805
   %vtable.i.i.i.i.i.i.i1809 = load ptr, ptr %588, align 8, !noalias !228
@@ -11849,16 +11849,16 @@ if.else.i.i.i.i.i.i.i.i1821:                      ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1815: ; preds = %if.else.i.i.i.i.i.i.i.i1821, %if.then.i.i.i.i.i.i.i.i1813
   %retval.i.0.i.i.i.i.i.i.i1816 = phi i32 [ %596, %if.then.i.i.i.i.i.i.i.i1813 ], [ %597, %if.else.i.i.i.i.i.i.i.i1821 ]
   %cmp.i.i.i.i.i.i.i1817 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i1816, 1
-  br i1 %cmp.i.i.i.i.i.i.i1817, label %if.end8.sink.split.i.i.i.i.i1818, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i1817, label %if.end8.sink.split.i.i.i.i.i1818, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i1818:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1815, %if.then.i.i.i.i8.i1823
   %vtable2.i.i.i.i.i.i.i1819 = load ptr, ptr %588, align 8, !noalias !228
   %vfn3.i.i.i.i.i.i.i1820 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i1819, i64 24
   %598 = load ptr, ptr %vfn3.i.i.i.i.i.i.i1820, align 8, !noalias !228
   tail call void %598(ptr noundef nonnull align 8 dereferenceable(16) %588) #22, !noalias !228
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1796, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1805, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1815, %if.end8.sink.split.i.i.i.i.i1818
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1796, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1805, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1815, %if.end8.sink.split.i.i.i.i.i1818
   store ptr null, ptr %agg.result, align 8, !alias.scope !231
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i1765)
   br label %return
@@ -11967,7 +11967,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1863: ; pre
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1866: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1863, %invoke.cont.i1859
   %611 = load ptr, ptr %_M_refcount.i.i.i1838, align 8, !noalias !234
   %cmp.not.i.i.i2.i1867 = icmp eq ptr %611, null
-  br i1 %cmp.not.i.i.i2.i1867, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i1868
+  br i1 %cmp.not.i.i.i2.i1867, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i1868
 
 if.then.i.i.i3.i1868:                             ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1866
   %_M_use_count.i.i.i.i4.i1869 = getelementptr inbounds i8, ptr %611, i64 8
@@ -12003,7 +12003,7 @@ if.else.i.i.i.i.i7.i1892:                         ; preds = %if.end.i.i.i.i.i187
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1875: ; preds = %if.else.i.i.i.i.i7.i1892, %if.then.i.i.i.i.i5.i1873
   %retval.i.0.i.i.i.i.i1876 = phi i32 [ %613, %if.then.i.i.i.i.i5.i1873 ], [ %616, %if.else.i.i.i.i.i7.i1892 ]
   %cmp6.i.i.i.i.i1877 = icmp eq i32 %retval.i.0.i.i.i.i.i1876, 1
-  br i1 %cmp6.i.i.i.i.i1877, label %if.then7.i.i.i.i.i1878, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i1877, label %if.then7.i.i.i.i.i1878, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i1878:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1875
   %vtable.i.i.i.i.i.i.i1879 = load ptr, ptr %611, align 8, !noalias !234
@@ -12028,16 +12028,16 @@ if.else.i.i.i.i.i.i.i.i1891:                      ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1885: ; preds = %if.else.i.i.i.i.i.i.i.i1891, %if.then.i.i.i.i.i.i.i.i1883
   %retval.i.0.i.i.i.i.i.i.i1886 = phi i32 [ %619, %if.then.i.i.i.i.i.i.i.i1883 ], [ %620, %if.else.i.i.i.i.i.i.i.i1891 ]
   %cmp.i.i.i.i.i.i.i1887 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i1886, 1
-  br i1 %cmp.i.i.i.i.i.i.i1887, label %if.end8.sink.split.i.i.i.i.i1888, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i1887, label %if.end8.sink.split.i.i.i.i.i1888, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i1888:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1885, %if.then.i.i.i.i8.i1893
   %vtable2.i.i.i.i.i.i.i1889 = load ptr, ptr %611, align 8, !noalias !234
   %vfn3.i.i.i.i.i.i.i1890 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i1889, i64 24
   %621 = load ptr, ptr %vfn3.i.i.i.i.i.i.i1890, align 8, !noalias !234
   tail call void %621(ptr noundef nonnull align 8 dereferenceable(16) %611) #22, !noalias !234
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1866, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1875, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1885, %if.end8.sink.split.i.i.i.i.i1888
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1866, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1875, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1885, %if.end8.sink.split.i.i.i.i.i1888
   store ptr null, ptr %agg.result, align 8, !alias.scope !237
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i1835)
   br label %return
@@ -12146,7 +12146,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1933: ; pre
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1936: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i1933, %invoke.cont.i1929
   %634 = load ptr, ptr %_M_refcount.i.i.i1908, align 8, !noalias !240
   %cmp.not.i.i.i2.i1937 = icmp eq ptr %634, null
-  br i1 %cmp.not.i.i.i2.i1937, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i1938
+  br i1 %cmp.not.i.i.i2.i1937, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i1938
 
 if.then.i.i.i3.i1938:                             ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1936
   %_M_use_count.i.i.i.i4.i1939 = getelementptr inbounds i8, ptr %634, i64 8
@@ -12182,7 +12182,7 @@ if.else.i.i.i.i.i7.i1962:                         ; preds = %if.end.i.i.i.i.i194
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1945: ; preds = %if.else.i.i.i.i.i7.i1962, %if.then.i.i.i.i.i5.i1943
   %retval.i.0.i.i.i.i.i1946 = phi i32 [ %636, %if.then.i.i.i.i.i5.i1943 ], [ %639, %if.else.i.i.i.i.i7.i1962 ]
   %cmp6.i.i.i.i.i1947 = icmp eq i32 %retval.i.0.i.i.i.i.i1946, 1
-  br i1 %cmp6.i.i.i.i.i1947, label %if.then7.i.i.i.i.i1948, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i1947, label %if.then7.i.i.i.i.i1948, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i1948:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1945
   %vtable.i.i.i.i.i.i.i1949 = load ptr, ptr %634, align 8, !noalias !240
@@ -12207,16 +12207,16 @@ if.else.i.i.i.i.i.i.i.i1961:                      ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1955: ; preds = %if.else.i.i.i.i.i.i.i.i1961, %if.then.i.i.i.i.i.i.i.i1953
   %retval.i.0.i.i.i.i.i.i.i1956 = phi i32 [ %642, %if.then.i.i.i.i.i.i.i.i1953 ], [ %643, %if.else.i.i.i.i.i.i.i.i1961 ]
   %cmp.i.i.i.i.i.i.i1957 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i1956, 1
-  br i1 %cmp.i.i.i.i.i.i.i1957, label %if.end8.sink.split.i.i.i.i.i1958, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i1957, label %if.end8.sink.split.i.i.i.i.i1958, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i1958:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1955, %if.then.i.i.i.i8.i1963
   %vtable2.i.i.i.i.i.i.i1959 = load ptr, ptr %634, align 8, !noalias !240
   %vfn3.i.i.i.i.i.i.i1960 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i1959, i64 24
   %644 = load ptr, ptr %vfn3.i.i.i.i.i.i.i1960, align 8, !noalias !240
   tail call void %644(ptr noundef nonnull align 8 dereferenceable(16) %634) #22, !noalias !240
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1936, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1945, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1955, %if.end8.sink.split.i.i.i.i.i1958
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i1936, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1945, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1955, %if.end8.sink.split.i.i.i.i.i1958
   store ptr null, ptr %agg.result, align 8, !alias.scope !243
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i1905)
   br label %return
@@ -12321,7 +12321,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i2001: ; pre
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i2004: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i2001, %invoke.cont.i1998
   %657 = load ptr, ptr %_M_refcount.i.i.i1978, align 8, !noalias !246
   %cmp.not.i.i.i2.i2005 = icmp eq ptr %657, null
-  br i1 %cmp.not.i.i.i2.i2005, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i2006
+  br i1 %cmp.not.i.i.i2.i2005, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i2006
 
 if.then.i.i.i3.i2006:                             ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i2004
   %_M_use_count.i.i.i.i4.i2007 = getelementptr inbounds i8, ptr %657, i64 8
@@ -12357,7 +12357,7 @@ if.else.i.i.i.i.i7.i2030:                         ; preds = %if.end.i.i.i.i.i200
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i2013: ; preds = %if.else.i.i.i.i.i7.i2030, %if.then.i.i.i.i.i5.i2011
   %retval.i.0.i.i.i.i.i2014 = phi i32 [ %659, %if.then.i.i.i.i.i5.i2011 ], [ %662, %if.else.i.i.i.i.i7.i2030 ]
   %cmp6.i.i.i.i.i2015 = icmp eq i32 %retval.i.0.i.i.i.i.i2014, 1
-  br i1 %cmp6.i.i.i.i.i2015, label %if.then7.i.i.i.i.i2016, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i2015, label %if.then7.i.i.i.i.i2016, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i2016:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i2013
   %vtable.i.i.i.i.i.i.i2017 = load ptr, ptr %657, align 8, !noalias !246
@@ -12382,16 +12382,16 @@ if.else.i.i.i.i.i.i.i.i2029:                      ; preds = %if.then7.i.i.i.i.i2
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i2023: ; preds = %if.else.i.i.i.i.i.i.i.i2029, %if.then.i.i.i.i.i.i.i.i2021
   %retval.i.0.i.i.i.i.i.i.i2024 = phi i32 [ %665, %if.then.i.i.i.i.i.i.i.i2021 ], [ %666, %if.else.i.i.i.i.i.i.i.i2029 ]
   %cmp.i.i.i.i.i.i.i2025 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i2024, 1
-  br i1 %cmp.i.i.i.i.i.i.i2025, label %if.end8.sink.split.i.i.i.i.i2026, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i2025, label %if.end8.sink.split.i.i.i.i.i2026, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i2026:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i2023, %if.then.i.i.i.i8.i2031
   %vtable2.i.i.i.i.i.i.i2027 = load ptr, ptr %657, align 8, !noalias !246
   %vfn3.i.i.i.i.i.i.i2028 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i2027, i64 24
   %667 = load ptr, ptr %vfn3.i.i.i.i.i.i.i2028, align 8, !noalias !246
   tail call void %667(ptr noundef nonnull align 8 dereferenceable(16) %657) #22, !noalias !246
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i2004, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i2013, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i2023, %if.end8.sink.split.i.i.i.i.i2026
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i2004, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i2013, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i2023, %if.end8.sink.split.i.i.i.i.i2026
   store ptr null, ptr %agg.result, align 8, !alias.scope !249
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i1975)
   br label %return
@@ -12496,7 +12496,7 @@ _ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i2069: ; pre
 _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i2072: ; preds = %_ZNKSt14default_deleteIN5arrow17DictionaryUnifierEEclEPS1_.exit.i.i.i2069, %invoke.cont.i2066
   %680 = load ptr, ptr %_M_refcount.i.i.i2046, align 8, !noalias !252
   %cmp.not.i.i.i2.i2073 = icmp eq ptr %680, null
-  br i1 %cmp.not.i.i.i2.i2073, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, label %if.then.i.i.i3.i2074
+  br i1 %cmp.not.i.i.i2.i2073, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, label %if.then.i.i.i3.i2074
 
 if.then.i.i.i3.i2074:                             ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i2072
   %_M_use_count.i.i.i.i4.i2075 = getelementptr inbounds i8, ptr %680, i64 8
@@ -12532,7 +12532,7 @@ if.else.i.i.i.i.i7.i2098:                         ; preds = %if.end.i.i.i.i.i207
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i2081: ; preds = %if.else.i.i.i.i.i7.i2098, %if.then.i.i.i.i.i5.i2079
   %retval.i.0.i.i.i.i.i2082 = phi i32 [ %682, %if.then.i.i.i.i.i5.i2079 ], [ %685, %if.else.i.i.i.i.i7.i2098 ]
   %cmp6.i.i.i.i.i2083 = icmp eq i32 %retval.i.0.i.i.i.i.i2082, 1
-  br i1 %cmp6.i.i.i.i.i2083, label %if.then7.i.i.i.i.i2084, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp6.i.i.i.i.i2083, label %if.then7.i.i.i.i.i2084, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.then7.i.i.i.i.i2084:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i2081
   %vtable.i.i.i.i.i.i.i2085 = load ptr, ptr %680, align 8, !noalias !252
@@ -12557,16 +12557,16 @@ if.else.i.i.i.i.i.i.i.i2097:                      ; preds = %if.then7.i.i.i.i.i2
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i2091: ; preds = %if.else.i.i.i.i.i.i.i.i2097, %if.then.i.i.i.i.i.i.i.i2089
   %retval.i.0.i.i.i.i.i.i.i2092 = phi i32 [ %688, %if.then.i.i.i.i.i.i.i.i2089 ], [ %689, %if.else.i.i.i.i.i.i.i.i2097 ]
   %cmp.i.i.i.i.i.i.i2093 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i2092, 1
-  br i1 %cmp.i.i.i.i.i.i.i2093, label %if.end8.sink.split.i.i.i.i.i2094, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br i1 %cmp.i.i.i.i.i.i.i2093, label %if.end8.sink.split.i.i.i.i.i2094, label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i2094:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i2091, %if.then.i.i.i.i8.i2099
   %vtable2.i.i.i.i.i.i.i2095 = load ptr, ptr %680, align 8, !noalias !252
   %vfn3.i.i.i.i.i.i.i2096 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i2095, i64 24
   %690 = load ptr, ptr %vfn3.i.i.i.i.i.i.i2096, align 8, !noalias !252
   tail call void %690(ptr noundef nonnull align 8 dereferenceable(16) %680) #22, !noalias !252
-  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit
+  br label %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit
 
-_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i2072, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i2081, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i2091, %if.end8.sink.split.i.i.i.i.i2094
+_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EE5resetEPS1_.exit.i2072, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i2081, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i2091, %if.end8.sink.split.i.i.i.i.i2094
   store ptr null, ptr %agg.result, align 8, !alias.scope !255
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i2043)
   br label %return
@@ -12647,7 +12647,7 @@ sw.epilog:                                        ; preds = %entry
   tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.16)
   br label %return
 
-return:                                           ; preds = %sw.epilog, %sw.bb84, %sw.bb82, %sw.bb80, %sw.bb78, %sw.bb76, %sw.bb74, %sw.bb72, %sw.bb70, %sw.bb68, %sw.bb66, %sw.bb64, %sw.bb62, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.exit, %sw.bb
+return:                                           ; preds = %sw.epilog, %sw.bb84, %sw.bb82, %sw.bb80, %sw.bb78, %sw.bb76, %sw.bb74, %sw.bb72, %sw.bb70, %sw.bb68, %sw.bb66, %sw.bb64, %sw.bb62, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom.exit, %sw.bb
   ret void
 }
 
@@ -12953,7 +12953,7 @@ for.body.i:                                       ; preds = %for.body.preheader.
   %9 = getelementptr i8, ptr %call3.val.i, i64 16
   %call3.val.val1.i = load ptr, ptr %9, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %call3.val.val1.i, null
-  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolEENK3$_0clERKS1_INS_5ArrayEE.exit.i", label %if.then.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolEENK3$_0clERKS1_INS_5ArrayEE.argprom.argprom.exit.i", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.val.val1.i, i64 8
@@ -12965,13 +12965,13 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
   %11 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !261
   %add.i.i.i.i.i.i.i = add nsw i32 %11, 1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !261
-  br label %"_ZZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolEENK3$_0clERKS1_INS_5ArrayEE.exit.i"
+  br label %"_ZZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolEENK3$_0clERKS1_INS_5ArrayEE.argprom.argprom.exit.i"
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
   %12 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !261
-  br label %"_ZZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolEENK3$_0clERKS1_INS_5ArrayEE.exit.i"
+  br label %"_ZZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolEENK3$_0clERKS1_INS_5ArrayEE.argprom.argprom.exit.i"
 
-"_ZZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolEENK3$_0clERKS1_INS_5ArrayEE.exit.i": ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i
+"_ZZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolEENK3$_0clERKS1_INS_5ArrayEE.argprom.argprom.exit.i": ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i
   store ptr %call3.val.val.i, ptr %__result.sroa.0.017.i, align 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.017.i, i64 8
   %13 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
@@ -12979,7 +12979,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
   %cmp.not.i.i.i.i2.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i.i2.i, label %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit.i, label %if.then.i.i.i.i3.i
 
-if.then.i.i.i.i3.i:                               ; preds = %"_ZZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolEENK3$_0clERKS1_INS_5ArrayEE.exit.i"
+if.then.i.i.i.i3.i:                               ; preds = %"_ZZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolEENK3$_0clERKS1_INS_5ArrayEE.argprom.argprom.exit.i"
   %_M_use_count.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load atomic i64, ptr %_M_use_count.i.i.i.i.i4.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %14, 4294967297
@@ -13047,7 +13047,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %13) #22
   br label %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit.i
 
-_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %"_ZZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolEENK3$_0clERKS1_INS_5ArrayEE.exit.i"
+_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %"_ZZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolEENK3$_0clERKS1_INS_5ArrayEE.argprom.argprom.exit.i"
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.016.i, i64 16
   %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %__result.sroa.0.017.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
@@ -14027,7 +14027,7 @@ for.body.i:                                       ; preds = %_ZNSt10shared_ptrIN
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i64, i64 8
   %34 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !272
   %cmp.not.i.i.i.i.i = icmp eq ptr %34, null
-  br i1 %cmp.not.i.i.i.i.i, label %_ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EEENKUlRKS7_E_clESC_.exit.i, label %if.then.i.i.i.i.i65
+  br i1 %cmp.not.i.i.i.i.i, label %_ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EEENKUlRKS7_E_clESC_.argprom.argprom.exit.i, label %if.then.i.i.i.i.i65
 
 if.then.i.i.i.i.i65:                              ; preds = %for.body.i
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
@@ -14039,13 +14039,13 @@ if.then.i.i.i.i.i.i.i66:                          ; preds = %if.then.i.i.i.i.i65
   %36 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !272
   %add.i.i.i.i.i.i.i67 = add nsw i32 %36, 1
   store i32 %add.i.i.i.i.i.i.i67, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !272
-  br label %_ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EEENKUlRKS7_E_clESC_.exit.i
+  br label %_ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EEENKUlRKS7_E_clESC_.argprom.argprom.exit.i
 
 if.else.i.i.i.i.i.i.i76:                          ; preds = %if.then.i.i.i.i.i65
   %37 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !272
-  br label %_ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EEENKUlRKS7_E_clESC_.exit.i
+  br label %_ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EEENKUlRKS7_E_clESC_.argprom.argprom.exit.i
 
-_ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EEENKUlRKS7_E_clESC_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i76, %if.then.i.i.i.i.i.i.i66, %for.body.i
+_ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EEENKUlRKS7_E_clESC_.argprom.argprom.exit.i: ; preds = %if.else.i.i.i.i.i.i.i76, %if.then.i.i.i.i.i.i.i66, %for.body.i
   store ptr %33, ptr %__result.sroa.0.016.i, align 8
   %_M_refcount3.i.i.i1.i = getelementptr inbounds i8, ptr %__result.sroa.0.016.i, i64 8
   %38 = load ptr, ptr %_M_refcount3.i.i.i1.i, align 8
@@ -14053,7 +14053,7 @@ _ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPS
   %cmp.not.i.i.i.i2.i = icmp eq ptr %38, null
   br i1 %cmp.not.i.i.i.i2.i, label %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit.i, label %if.then.i.i.i.i3.i
 
-if.then.i.i.i.i3.i:                               ; preds = %_ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EEENKUlRKS7_E_clESC_.exit.i
+if.then.i.i.i.i3.i:                               ; preds = %_ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EEENKUlRKS7_E_clESC_.argprom.argprom.exit.i
   %_M_use_count.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load atomic i64, ptr %_M_use_count.i.i.i.i.i4.i acquire, align 8
   %cmp.i.i.i.i.i.i68 = icmp eq i64 %39, 4294967297
@@ -14121,7 +14121,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   call void %48(ptr noundef nonnull align 8 dereferenceable(16) %38) #22
   br label %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit.i
 
-_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i70, %_ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EEENKUlRKS7_E_clESC_.exit.i
+_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i70, %_ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EEENKUlRKS7_E_clESC_.argprom.argprom.exit.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.017.i, i64 16
   %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %__result.sroa.0.016.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %30
@@ -15315,7 +15315,7 @@ for.body192:                                      ; preds = %for.body192.lr.ph, 
   %cond.i = select i1 %tobool.i, ptr %229, ptr null
   %230 = load ptr, ptr %this, align 8
   %type.val = load ptr, ptr %type, align 8
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_120TransposeDictIndicesERKSt10shared_ptrINS_9ArrayDataEERKS1_INS_8DataTypeEES9_S5_PKiPNS_10MemoryPoolE(ptr noalias align 8 %ref.tmp193, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i572, ptr %type.val, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(16) %data_.i, ptr noundef %cond.i, ptr noundef %230)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_120TransposeDictIndicesERKSt10shared_ptrINS_9ArrayDataEERKS1_INS_8DataTypeEES9_S5_PKiPNS_10MemoryPoolE.argprom(ptr noalias align 8 %ref.tmp193, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i572, ptr %type.val, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(16) %data_.i, ptr noundef %cond.i, ptr noundef %230)
           to label %invoke.cont201 unwind label %lpad171.loopexit
 
 invoke.cont201:                                   ; preds = %for.body192
@@ -19746,7 +19746,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_126CompactTransposeMapVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %agg.result, i32 %type.40.val, ptr noundef nonnull %visitor) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_126CompactTransposeMapVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.argprom(ptr noalias nonnull align 8 %agg.result, i32 %type.40.val, ptr noundef nonnull %visitor) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i.i433.i.i2950 = alloca %class.anon.231, align 1
   %ref.tmp.i.i.i.i.i.i.i.i.i.i.i2951 = alloca %class.anon.231, align 1
@@ -20096,7 +20096,7 @@ if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i:   ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EEaSEDn.exit.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !326
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 if.else.i.i:                                      ; preds = %sw.bb4
   %cmp8.i.i = icmp eq i64 %2, 0
@@ -20447,7 +20447,7 @@ cleanup.i.i:                                      ; preds = %_ZNKSt14default_del
 
 cleanup50.i.i:                                    ; preds = %cleanup.i.i, %_ZN5arrow6StatusC2ERKS0_.exit.i.i
   call void @_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i) #22, !noalias !325
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 ehcleanup.i.i:                                    ; preds = %lpad32.body.i.i, %lpad15.i.i, %lpad4.i.i.i
   %.pn34.i.i = phi { ptr, i32 } [ %eh.lpad-body171.i.i, %lpad32.body.i.i ], [ %44, %lpad15.i.i ], [ %42, %lpad4.i.i.i ]
@@ -21337,7 +21337,7 @@ ehcleanup238.i.i:                                 ; preds = %ehcleanup236.i.i, %
 
 _ZNSt6vectorIbSaIbEED2Ev.exit.i.i:                ; preds = %cleanup237.i.i, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit276.i.i, %_ZN5arrow6Status10IndexErrorIJRA56_KcRaRA16_S2_RlRA20_S2_S8_EEES0_DpOT_.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i.i) #24
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit517.i.i:             ; preds = %ehcleanup238.i.i, %lpad.i277.i.i, %lpad.i.i.i.i, %lpad64.loopexit.split-lp.i.i, %lpad64.loopexit.i.i
   %.pn32.i.i = phi { ptr, i32 } [ %.pn29.pn.i.i, %ehcleanup238.i.i ], [ %94, %lpad.i.i.i.i ], [ %117, %lpad.i277.i.i ], [ %lpad.loopexit.i.i, %lpad64.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %lpad64.loopexit.split-lp.i.i ]
@@ -21348,7 +21348,7 @@ common.resume:                                    ; preds = %lpad.i.i3330, %ehcl
   %common.resume.op = phi { ptr, i32 } [ %.pn34.i.i, %ehcleanup.i.i ], [ %43, %lpad.i.i ], [ %.pn32.i.i, %_ZNSt6vectorIbSaIbEED2Ev.exit517.i.i ], [ %.pn34.i.i420, %ehcleanup.i.i419 ], [ %240, %lpad.i.i402 ], [ %.pn32.i.i132, %_ZNSt6vectorIbSaIbEED2Ev.exit517.i.i131 ], [ %.pn34.i.i965, %ehcleanup.i.i964 ], [ %438, %lpad.i.i946 ], [ %.pn32.i.i616, %_ZNSt6vectorIbSaIbEED2Ev.exit517.i.i615 ], [ %.pn34.i.i1527, %ehcleanup.i.i1526 ], [ %635, %lpad.i.i1508 ], [ %.pn32.i.i1169, %_ZNSt6vectorIbSaIbEED2Ev.exit517.i.i1168 ], [ %.pn35.i.i, %ehcleanup.i.i1830 ], [ %833, %lpad.i.i1824 ], [ %.pn33.i.i, %_ZNSt6vectorIbSaIbEED2Ev.exit518.i.i ], [ %.pn35.i.i2304, %ehcleanup.i.i2303 ], [ %1030, %lpad.i.i2285 ], [ %.pn33.i.i1955, %_ZNSt6vectorIbSaIbEED2Ev.exit518.i.i1954 ], [ %.pn35.i.i2803, %ehcleanup.i.i2802 ], [ %1227, %lpad.i.i2784 ], [ %.pn33.i.i2499, %_ZNSt6vectorIbSaIbEED2Ev.exit518.i.i2498 ], [ %.pn35.i.i3349, %ehcleanup.i.i3348 ], [ %1422, %lpad.i.i3330 ], [ %.pn33.i.i3007, %_ZNSt6vectorIbSaIbEED2Ev.exit518.i.i3006 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit: ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i, %cleanup50.i.i, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i
+_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i, %cleanup50.i.i, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dict_length.i.i), !noalias !319
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10.i.i), !noalias !319
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !319
@@ -21495,7 +21495,7 @@ if.end8.sink.split.i.i.i.i.i.i.i549:              ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i538: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i549, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i546, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i535, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EEaSEDn.exit.i.i524
   store ptr null, ptr %agg.result, align 8, !alias.scope !392
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 if.else.i.i102:                                   ; preds = %sw.bb6
   %cmp8.i.i103 = icmp eq i64 %199, 0
@@ -21846,7 +21846,7 @@ cleanup.i.i472:                                   ; preds = %_ZNKSt14default_del
 
 cleanup47.i.i:                                    ; preds = %cleanup.i.i472, %_ZN5arrow6StatusC2ERKS0_.exit.i.i436
   call void @_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i90) #22, !noalias !391
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 ehcleanup.i.i419:                                 ; preds = %lpad30.body.i.i, %lpad20.i.i, %lpad4.i.i.i424
   %.pn34.i.i420 = phi { ptr, i32 } [ %eh.lpad-body171.i.i456, %lpad30.body.i.i ], [ %241, %lpad20.i.i ], [ %239, %lpad4.i.i.i424 ]
@@ -22737,14 +22737,14 @@ ehcleanup228.i.i:                                 ; preds = %ehcleanup226.i.i, %
 
 _ZNSt6vectorIbSaIbEED2Ev.exit.i.i181:             ; preds = %cleanup227.i.i, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit276.i.i355, %_ZN5arrow6Status10IndexErrorIJRA56_KcRhRA16_S2_RlRA20_S2_S8_EEES0_DpOT_.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i.i118) #24
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit517.i.i131:          ; preds = %ehcleanup228.i.i, %lpad.i277.i.i130, %lpad.i.i.i.i328, %lpad61.loopexit.split-lp.i.i, %lpad61.loopexit.i.i
   %.pn32.i.i132 = phi { ptr, i32 } [ %.pn29.pn.i.i154, %ehcleanup228.i.i ], [ %292, %lpad.i.i.i.i328 ], [ %315, %lpad.i277.i.i130 ], [ %lpad.loopexit.i.i379, %lpad61.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i326, %lpad61.loopexit.split-lp.i.i ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i.i118) #24
   br label %common.resume
 
-_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit: ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i538, %cleanup47.i.i, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i181
+_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i538, %cleanup47.i.i, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i181
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dict_length.i.i89), !noalias !385
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10.i.i90), !noalias !385
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i91), !noalias !385
@@ -22891,7 +22891,7 @@ if.end8.sink.split.i.i.i.i.i.i.i1102:             ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i1091: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i1102, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i1099, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1088, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EEaSEDn.exit.i.i1077
   store ptr null, ptr %agg.result, align 8, !alias.scope !458
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 if.else.i.i583:                                   ; preds = %sw.bb8
   %cmp8.i.i584 = icmp eq i64 %397, 0
@@ -23242,7 +23242,7 @@ cleanup.i.i1023:                                  ; preds = %_ZNKSt14default_del
 
 cleanup47.i.i982:                                 ; preds = %cleanup.i.i1023, %_ZN5arrow6StatusC2ERKS0_.exit.i.i981
   call void @_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i562) #22, !noalias !457
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 ehcleanup.i.i964:                                 ; preds = %lpad30.body.i.i1006, %lpad20.i.i963, %lpad4.i.i.i969
   %.pn34.i.i965 = phi { ptr, i32 } [ %eh.lpad-body171.i.i1007, %lpad30.body.i.i1006 ], [ %439, %lpad20.i.i963 ], [ %437, %lpad4.i.i.i969 ]
@@ -24132,14 +24132,14 @@ ehcleanup228.i.i640:                              ; preds = %ehcleanup226.i.i653
 
 _ZNSt6vectorIbSaIbEED2Ev.exit.i.i673:             ; preds = %cleanup227.i.i672, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit276.i.i897, %_ZN5arrow6Status10IndexErrorIJRA56_KcRsRA16_S2_RlRA20_S2_S8_EEES0_DpOT_.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i.i600) #24
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit517.i.i615:          ; preds = %ehcleanup228.i.i640, %lpad.i277.i.i614, %lpad.i.i.i.i860, %lpad61.loopexit.split-lp.i.i857, %lpad61.loopexit.i.i921
   %.pn32.i.i616 = phi { ptr, i32 } [ %.pn29.pn.i.i641, %ehcleanup228.i.i640 ], [ %489, %lpad.i.i.i.i860 ], [ %512, %lpad.i277.i.i614 ], [ %lpad.loopexit.i.i922, %lpad61.loopexit.i.i921 ], [ %lpad.loopexit.split-lp.i.i858, %lpad61.loopexit.split-lp.i.i857 ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i.i600) #24
   br label %common.resume
 
-_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit: ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i1091, %cleanup47.i.i982, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i673
+_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i1091, %cleanup47.i.i982, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i673
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dict_length.i.i561), !noalias !451
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10.i.i562), !noalias !451
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i563), !noalias !451
@@ -24286,7 +24286,7 @@ if.end8.sink.split.i.i.i.i.i.i.i1665:             ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i1654: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i1665, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i1662, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1651, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EEaSEDn.exit.i.i1640
   store ptr null, ptr %agg.result, align 8, !alias.scope !524
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 if.else.i.i1136:                                  ; preds = %sw.bb10
   %cmp8.i.i1137 = icmp eq i64 %594, 0
@@ -24637,7 +24637,7 @@ cleanup.i.i1585:                                  ; preds = %_ZNKSt14default_del
 
 cleanup47.i.i1544:                                ; preds = %cleanup.i.i1585, %_ZN5arrow6StatusC2ERKS0_.exit.i.i1543
   call void @_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i1115) #22, !noalias !523
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 ehcleanup.i.i1526:                                ; preds = %lpad30.body.i.i1568, %lpad20.i.i1525, %lpad4.i.i.i1531
   %.pn34.i.i1527 = phi { ptr, i32 } [ %eh.lpad-body171.i.i1569, %lpad30.body.i.i1568 ], [ %636, %lpad20.i.i1525 ], [ %634, %lpad4.i.i.i1531 ]
@@ -25528,14 +25528,14 @@ ehcleanup228.i.i1193:                             ; preds = %ehcleanup226.i.i120
 
 _ZNSt6vectorIbSaIbEED2Ev.exit.i.i1226:            ; preds = %cleanup227.i.i1225, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit276.i.i1459, %_ZN5arrow6Status10IndexErrorIJRA56_KcRtRA16_S2_RlRA20_S2_S8_EEES0_DpOT_.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i.i1153) #24
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit517.i.i1168:         ; preds = %ehcleanup228.i.i1193, %lpad.i277.i.i1167, %lpad.i.i.i.i1421, %lpad61.loopexit.split-lp.i.i1418, %lpad61.loopexit.i.i1483
   %.pn32.i.i1169 = phi { ptr, i32 } [ %.pn29.pn.i.i1194, %ehcleanup228.i.i1193 ], [ %687, %lpad.i.i.i.i1421 ], [ %710, %lpad.i277.i.i1167 ], [ %lpad.loopexit.i.i1484, %lpad61.loopexit.i.i1483 ], [ %lpad.loopexit.split-lp.i.i1419, %lpad61.loopexit.split-lp.i.i1418 ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i.i1153) #24
   br label %common.resume
 
-_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit: ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i1654, %cleanup47.i.i1544, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i1226
+_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i1654, %cleanup47.i.i1544, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i1226
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dict_length.i.i1114), !noalias !517
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10.i.i1115), !noalias !517
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i1116), !noalias !517
@@ -25682,7 +25682,7 @@ if.end8.sink.split.i.i.i.i.i.i.i1888:             ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i1877: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i1888, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i1885, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1874, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EEaSEDn.exit.i.i1863
   store ptr null, ptr %agg.result, align 8, !alias.scope !590
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 if.else.i.i1689:                                  ; preds = %sw.bb12
   %cmp8.i.i1690 = icmp eq i64 %792, 0
@@ -26033,7 +26033,7 @@ cleanup.i.i1852:                                  ; preds = %_ZNKSt14default_del
 
 cleanup47.i.i1844:                                ; preds = %cleanup.i.i1852, %_ZN5arrow6StatusC2ERKS0_.exit.i.i1843
   call void @_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i1677) #22, !noalias !589
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 ehcleanup.i.i1830:                                ; preds = %lpad30.body.i.i1851, %lpad20.i.i1829, %lpad4.i.i.i1834
   %.pn35.i.i = phi { ptr, i32 } [ %eh.lpad-body172.i.i, %lpad30.body.i.i1851 ], [ %834, %lpad20.i.i1829 ], [ %832, %lpad4.i.i.i1834 ]
@@ -26923,14 +26923,14 @@ ehcleanup223.i.i:                                 ; preds = %ehcleanup221.i.i, %
 
 _ZNSt6vectorIbSaIbEED2Ev.exit.i.i1732:            ; preds = %cleanup222.i.i, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit277.i.i, %_ZN5arrow6Status10IndexErrorIJRA56_KcRiRA16_S2_RlRA20_S2_S8_EEES0_DpOT_.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i.i1705) #24
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit518.i.i:             ; preds = %ehcleanup223.i.i, %lpad.i278.i.i, %lpad.i.i.i.i1795, %lpad61.loopexit.split-lp.i.i1792, %lpad61.loopexit.i.i1807
   %.pn33.i.i = phi { ptr, i32 } [ %.pn30.pn.i.i, %ehcleanup223.i.i ], [ %884, %lpad.i.i.i.i1795 ], [ %907, %lpad.i278.i.i ], [ %lpad.loopexit.i.i1808, %lpad61.loopexit.i.i1807 ], [ %lpad.loopexit.split-lp.i.i1793, %lpad61.loopexit.split-lp.i.i1792 ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i.i1705) #24
   br label %common.resume
 
-_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit: ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i1877, %cleanup47.i.i1844, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i1732
+_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i1877, %cleanup47.i.i1844, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i1732
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dict_length.i.i1676), !noalias !583
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10.i.i1677), !noalias !583
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i1678), !noalias !583
@@ -27077,7 +27077,7 @@ if.end8.sink.split.i.i.i.i.i.i.i2441:             ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i2430: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i2441, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i2438, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i2427, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EEaSEDn.exit.i.i2416
   store ptr null, ptr %agg.result, align 8, !alias.scope !656
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 if.else.i.i1922:                                  ; preds = %sw.bb14
   %cmp8.i.i1923 = icmp eq i64 %989, 0
@@ -27428,7 +27428,7 @@ cleanup.i.i2362:                                  ; preds = %_ZNKSt14default_del
 
 cleanup47.i.i2321:                                ; preds = %cleanup.i.i2362, %_ZN5arrow6StatusC2ERKS0_.exit.i.i2320
   call void @_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i1901) #22, !noalias !655
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 ehcleanup.i.i2303:                                ; preds = %lpad30.body.i.i2345, %lpad20.i.i2302, %lpad4.i.i.i2308
   %.pn35.i.i2304 = phi { ptr, i32 } [ %eh.lpad-body172.i.i2346, %lpad30.body.i.i2345 ], [ %1031, %lpad20.i.i2302 ], [ %1029, %lpad4.i.i.i2308 ]
@@ -28316,14 +28316,14 @@ ehcleanup223.i.i1979:                             ; preds = %ehcleanup221.i.i199
 
 _ZNSt6vectorIbSaIbEED2Ev.exit.i.i2012:            ; preds = %cleanup222.i.i2011, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit277.i.i2236, %_ZN5arrow6Status10IndexErrorIJRA56_KcRjRA16_S2_RlRA20_S2_S8_EEES0_DpOT_.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i.i1939) #24
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit518.i.i1954:         ; preds = %ehcleanup223.i.i1979, %lpad.i278.i.i1953, %lpad.i.i.i.i2199, %lpad61.loopexit.split-lp.i.i2196, %lpad61.loopexit.i.i2260
   %.pn33.i.i1955 = phi { ptr, i32 } [ %.pn30.pn.i.i1980, %ehcleanup223.i.i1979 ], [ %1081, %lpad.i.i.i.i2199 ], [ %1104, %lpad.i278.i.i1953 ], [ %lpad.loopexit.i.i2261, %lpad61.loopexit.i.i2260 ], [ %lpad.loopexit.split-lp.i.i2197, %lpad61.loopexit.split-lp.i.i2196 ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i.i1939) #24
   br label %common.resume
 
-_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit: ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i2430, %cleanup47.i.i2321, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i2012
+_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i2430, %cleanup47.i.i2321, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i2012
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dict_length.i.i1900), !noalias !649
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10.i.i1901), !noalias !649
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i1902), !noalias !649
@@ -28470,7 +28470,7 @@ if.end8.sink.split.i.i.i.i.i.i.i2941:             ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i2930: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i2941, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i2938, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i2927, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EEaSEDn.exit.i.i2916
   store ptr null, ptr %agg.result, align 8, !alias.scope !722
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 if.else.i.i2468:                                  ; preds = %sw.bb16
   %cmp8.i.i2469 = icmp eq i64 %1186, 0
@@ -28821,7 +28821,7 @@ cleanup.i.i2861:                                  ; preds = %_ZNKSt14default_del
 
 cleanup47.i.i2820:                                ; preds = %cleanup.i.i2861, %_ZN5arrow6StatusC2ERKS0_.exit.i.i2819
   call void @_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i2454) #22, !noalias !721
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 ehcleanup.i.i2802:                                ; preds = %lpad30.body.i.i2844, %lpad20.i.i2801, %lpad4.i.i.i2807
   %.pn35.i.i2803 = phi { ptr, i32 } [ %eh.lpad-body172.i.i2845, %lpad30.body.i.i2844 ], [ %1228, %lpad20.i.i2801 ], [ %1226, %lpad4.i.i.i2807 ]
@@ -29705,14 +29705,14 @@ ehcleanup215.i.i2521:                             ; preds = %ehcleanup213.i.i, %
 
 _ZNSt6vectorIbSaIbEED2Ev.exit.i.i2550:            ; preds = %cleanup214.i.i2549, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit277.i.i2735, %_ZN5arrow6Status10IndexErrorIJRA56_KcRlRA16_S2_S5_RA20_S2_S5_EEES0_DpOT_.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i.i2485) #24
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit518.i.i2498:         ; preds = %ehcleanup215.i.i2521, %lpad.i278.i.i2497, %lpad.i.i.i.i2706, %lpad61.loopexit.split-lp.i.i2703, %lpad61.loopexit.i.i2759
   %.pn33.i.i2499 = phi { ptr, i32 } [ %.pn30.pn.i.i2522, %ehcleanup215.i.i2521 ], [ %1278, %lpad.i.i.i.i2706 ], [ %1300, %lpad.i278.i.i2497 ], [ %lpad.loopexit.i.i2760, %lpad61.loopexit.i.i2759 ], [ %lpad.loopexit.split-lp.i.i2704, %lpad61.loopexit.split-lp.i.i2703 ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i.i2485) #24
   br label %common.resume
 
-_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit: ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i2930, %cleanup47.i.i2820, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i2550
+_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i2930, %cleanup47.i.i2820, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i2550
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dict_length.i.i2453), !noalias !715
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10.i.i2454), !noalias !715
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i2455), !noalias !715
@@ -29859,7 +29859,7 @@ if.end8.sink.split.i.i.i.i.i.i.i3486:             ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i3475: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i3486, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i3483, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i3472, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EEaSEDn.exit.i.i3461
   store ptr null, ptr %agg.result, align 8, !alias.scope !788
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 if.else.i.i2975:                                  ; preds = %sw.bb18
   %cmp8.i.i2976 = icmp eq i64 %1381, 0
@@ -30210,7 +30210,7 @@ cleanup.i.i3407:                                  ; preds = %_ZNKSt14default_del
 
 cleanup47.i.i3366:                                ; preds = %cleanup.i.i3407, %_ZN5arrow6StatusC2ERKS0_.exit.i.i3365
   call void @_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10.i.i2954) #22, !noalias !787
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 ehcleanup.i.i3348:                                ; preds = %lpad30.body.i.i3390, %lpad20.i.i3347, %lpad4.i.i.i3353
   %.pn35.i.i3349 = phi { ptr, i32 } [ %eh.lpad-body172.i.i3391, %lpad30.body.i.i3390 ], [ %1423, %lpad20.i.i3347 ], [ %1421, %lpad4.i.i.i3353 ]
@@ -31096,14 +31096,14 @@ ehcleanup215.i.i3031:                             ; preds = %ehcleanup213.i.i304
 
 _ZNSt6vectorIbSaIbEED2Ev.exit.i.i3064:            ; preds = %cleanup214.i.i3063, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit277.i.i3281, %_ZN5arrow6Status10IndexErrorIJRA56_KcRmRA16_S2_RlRA20_S2_S8_EEES0_DpOT_.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i.i2992) #24
-  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit
+  br label %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit518.i.i3006:         ; preds = %ehcleanup215.i.i3031, %lpad.i278.i.i3005, %lpad.i.i.i.i3245, %lpad61.loopexit.split-lp.i.i3242, %lpad61.loopexit.i.i3305
   %.pn33.i.i3007 = phi { ptr, i32 } [ %.pn30.pn.i.i3032, %ehcleanup215.i.i3031 ], [ %1473, %lpad.i.i.i.i3245 ], [ %1496, %lpad.i278.i.i3005 ], [ %lpad.loopexit.i.i3306, %lpad61.loopexit.i.i3305 ], [ %lpad.loopexit.split-lp.i.i3243, %lpad61.loopexit.split-lp.i.i3242 ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i.i2992) #24
   br label %common.resume
 
-_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit: ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i3475, %cleanup47.i.i3366, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i3064
+_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i.i3475, %cleanup47.i.i3366, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i3064
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dict_length.i.i2953), !noalias !781
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10.i.i2954), !noalias !781
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i2955), !noalias !781
@@ -31260,7 +31260,7 @@ sw.epilog:                                        ; preds = %entry
   tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.16)
   br label %return
 
-return:                                           ; preds = %sw.epilog, %sw.bb84, %sw.bb82, %sw.bb80, %sw.bb78, %sw.bb76, %sw.bb74, %sw.bb72, %sw.bb70, %sw.bb68, %sw.bb66, %sw.bb64, %sw.bb62, %sw.bb60, %sw.bb58, %sw.bb56, %sw.bb54, %sw.bb52, %sw.bb50, %sw.bb48, %sw.bb46, %sw.bb44, %sw.bb42, %sw.bb40, %sw.bb38, %sw.bb36, %sw.bb34, %sw.bb32, %sw.bb30, %sw.bb28, %sw.bb26, %sw.bb24, %sw.bb22, %sw.bb20, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.exit, %sw.bb2, %sw.bb
+return:                                           ; preds = %sw.epilog, %sw.bb84, %sw.bb82, %sw.bb80, %sw.bb78, %sw.bb76, %sw.bb74, %sw.bb72, %sw.bb70, %sw.bb68, %sw.bb66, %sw.bb64, %sw.bb62, %sw.bb60, %sw.bb58, %sw.bb56, %sw.bb54, %sw.bb52, %sw.bb50, %sw.bb48, %sw.bb46, %sw.bb44, %sw.bb42, %sw.bb40, %sw.bb38, %sw.bb36, %sw.bb34, %sw.bb32, %sw.bb30, %sw.bb28, %sw.bb26, %sw.bb24, %sw.bb22, %sw.bb20, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit, %_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom.exit, %sw.bb2, %sw.bb
   ret void
 }
 
@@ -87224,7 +87224,7 @@ if.end43:                                         ; preds = %entry
 if.then3.i.i:                                     ; preds = %if.end43
   %mul.i.i.i = mul i64 %length, -7046029288634856825
   %cmp3.i.i.i = icmp ugt i64 %length, 32
-  br i1 %cmp3.i.i.i, label %if.then.i.i.i, label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i
+  br i1 %cmp3.i.i.i, label %if.then.i.i.i, label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.argprom.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then3.i.i
   %cmp4.i.i.i = icmp ugt i64 %length, 64
@@ -87324,9 +87324,9 @@ if.end23.i.i.i:                                   ; preds = %if.end.i.i.i, %if.t
   %xor1.i.i99.i.i.i = xor i128 %shr.i.i.i98.i.i.i, %mul.i.i.i97.i.i.i
   %xor.i.i100.i.i.i = trunc i128 %xor1.i.i99.i.i.i to i64
   %add32.i.i.i = add i64 %add27.i.i.i, %xor.i.i100.i.i.i
-  br label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i
+  br label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.argprom.exit.i.i
 
-_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i:      ; preds = %if.end23.i.i.i, %if.then3.i.i
+_ZL20XXH3_len_17to128_64bPKhmS0_mm.argprom.exit.i.i: ; preds = %if.end23.i.i.i, %if.then3.i.i
   %acc.0.i.i.i = phi i64 [ %add32.i.i.i, %if.end23.i.i.i ], [ %mul.i.i.i, %if.then3.i.i ]
   %input.val.i.i.i = load i64, ptr %data, align 1, !alias.scope !2810
   %14 = getelementptr i8, ptr %data, i64 8
@@ -87417,7 +87417,7 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %shr.i4.i.i33.i.i = lshr i64 %mul.i.i32.i.i, 32
   %xor.i5.i.i34.i.i = xor i64 %shr.i4.i.i33.i.i, %mul.i.i32.i.i
   %cmp203.not.i.i.i = icmp eq i32 %div25.i.i.i, 8
-  br i1 %cmp203.not.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i, label %for.body21.preheader.i.i.i
+  br i1 %cmp203.not.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.argprom.exit.i.i, label %for.body21.preheader.i.i.i
 
 for.body21.preheader.i.i.i:                       ; preds = %for.end.i.i.i
   %wide.trip.count.i.i.i = zext nneg i32 %div25.i.i.i to i64
@@ -87449,9 +87449,9 @@ for.body21.i.i.i:                                 ; preds = %for.body21.i.i.i, %
   %add30.i.i.i = add i64 %acc_end.04.i.i.i, %xor.i.i48.i.i.i
   %indvars.iv.next11.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i, 1
   %exitcond15.not.i.i.i = icmp eq i64 %indvars.iv.next11.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond15.not.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i, label %for.body21.i.i.i, !llvm.loop !2819
+  br i1 %exitcond15.not.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.argprom.exit.i.i, label %for.body21.i.i.i, !llvm.loop !2819
 
-_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i:     ; preds = %for.body21.i.i.i, %for.end.i.i.i
+_ZL21XXH3_len_129to240_64bPKhmS0_mm.argprom.exit.i.i: ; preds = %for.body21.i.i.i, %for.end.i.i.i
   %acc_end.0.lcssa.i.i.i = phi i64 [ %xor.i.i39.i.i.i, %for.end.i.i.i ], [ %add30.i.i.i, %for.body21.i.i.i ]
   %acc.1.lcssa.i.i.i = phi i64 [ %xor.i5.i.i34.i.i, %for.end.i.i.i ], [ %20, %for.body21.i.i.i ]
   %add34.i.i.i = add i64 %acc.1.lcssa.i.i.i, %acc_end.0.lcssa.i.i.i
@@ -87641,17 +87641,17 @@ for.body.i62.i.i.i.i:                             ; preds = %for.body.i62.i.i.i.
   store <2 x i64> %add.i.i67.i.i.i.i, ptr %arrayidx.i66.i.i.i.i, align 16, !alias.scope !2905, !noalias !2906
   %inc.i68.i.i.i.i = add nuw nsw i64 %i.010.i.i.i.i.i, 1
   %exitcond.not.i69.i.i.i.i = icmp eq i64 %inc.i68.i.i.i.i, 4
-  br i1 %exitcond.not.i69.i.i.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i.i, label %for.body.i62.i.i.i.i, !llvm.loop !2860
+  br i1 %exitcond.not.i69.i.i.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i.i, label %for.body.i62.i.i.i.i, !llvm.loop !2860
 
-_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i.i: ; preds = %for.body.i62.i.i.i.i
+_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i.i: ; preds = %for.body.i62.i.i.i.i
   %mul.i.i1.i = mul i64 %length, -7046029288634856825
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2907)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2910)
   br label %for.body.i4.i.i.i
 
-for.body.i4.i.i.i:                                ; preds = %for.body.i4.i.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i.i
-  %i.09.i.i.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i.i ], [ %inc.i7.i.i.i, %for.body.i4.i.i.i ]
-  %result64.08.i.i.i.i = phi i64 [ %mul.i.i1.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i.i ], [ %add.i.i.i.i, %for.body.i4.i.i.i ]
+for.body.i4.i.i.i:                                ; preds = %for.body.i4.i.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i.i
+  %i.09.i.i.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i.i ], [ %inc.i7.i.i.i, %for.body.i4.i.i.i ]
+  %result64.08.i.i.i.i = phi i64 [ %mul.i.i1.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i.i ], [ %add.i.i.i.i, %for.body.i4.i.i.i ]
   %add.ptr.idx.i.i.i.i = shl nuw nsw i64 %i.09.i.i.i.i, 4
   %add.ptr.i5.i.i.i = getelementptr inbounds i8, ptr %acc.i.i.i, i64 %add.ptr.idx.i.i.i.i
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 11), i64 %add.ptr.idx.i.i.i.i
@@ -87683,8 +87683,8 @@ _ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm.exit.i: ; preds = %for.body.i4.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %acc.i.i.i), !noalias !2830
   br label %return
 
-return:                                           ; preds = %_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm.exit.i, %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i, %if.then5, %if.end28, %if.end18, %if.end
-  %retval.0 = phi i64 [ %3, %if.end ], [ %xor27, %if.end18 ], [ %xor42, %if.end28 ], [ 1, %if.then5 ], [ %xor.i5.i.i.i.i, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i ], [ %xor.i5.i53.i.i.i, %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i ], [ %xor.i5.i.i.i.i.i, %_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm.exit.i ]
+return:                                           ; preds = %_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm.exit.i, %_ZL21XXH3_len_129to240_64bPKhmS0_mm.argprom.exit.i.i, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.argprom.exit.i.i, %if.then5, %if.end28, %if.end18, %if.end
+  %retval.0 = phi i64 [ %3, %if.end ], [ %xor27, %if.end18 ], [ %xor42, %if.end28 ], [ 1, %if.then5 ], [ %xor.i5.i.i.i.i, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.argprom.exit.i.i ], [ %xor.i5.i53.i.i.i, %_ZL21XXH3_len_129to240_64bPKhmS0_mm.argprom.exit.i.i ], [ %xor.i5.i.i.i.i.i, %_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm.exit.i ]
   ret i64 %retval.0
 }
 
@@ -155064,183 +155064,183 @@ attributes #27 = { nounwind memory(none) }
 !75 = distinct !{!75, !76, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !76 = distinct !{!76, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!79 = distinct !{!79, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!78 = distinct !{!78, !79, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!79 = distinct !{!79, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_11BooleanTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !80 = !{}
 !81 = !{!82, !78}
 !82 = distinct !{!82, !83, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !83 = distinct !{!83, !"_ZN5arrow6Status2OKEv"}
 !84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!86 = distinct !{!86, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!85 = distinct !{!85, !86, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!86 = distinct !{!86, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_8Int8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !87 = !{!88, !85}
 !88 = distinct !{!88, !89, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !89 = distinct !{!89, !"_ZN5arrow6Status2OKEv"}
 !90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!92 = distinct !{!92, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!91 = distinct !{!91, !92, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!92 = distinct !{!92, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9UInt8TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !93 = !{!94, !91}
 !94 = distinct !{!94, !95, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !95 = distinct !{!95, !"_ZN5arrow6Status2OKEv"}
 !96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!98 = distinct !{!98, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!97 = distinct !{!97, !98, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!98 = distinct !{!98, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !99 = !{!100, !97}
 !100 = distinct !{!100, !101, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !101 = distinct !{!101, !"_ZN5arrow6Status2OKEv"}
 !102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!104 = distinct !{!104, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!103 = distinct !{!103, !104, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!104 = distinct !{!104, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt16TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !105 = !{!106, !103}
 !106 = distinct !{!106, !107, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !107 = distinct !{!107, !"_ZN5arrow6Status2OKEv"}
 !108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!110 = distinct !{!110, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!109 = distinct !{!109, !110, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!110 = distinct !{!110, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !111 = !{!112, !109}
 !112 = distinct !{!112, !113, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !113 = distinct !{!113, !"_ZN5arrow6Status2OKEv"}
 !114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!116 = distinct !{!116, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!115 = distinct !{!115, !116, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!116 = distinct !{!116, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !117 = !{!118, !115}
 !118 = distinct !{!118, !119, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !119 = distinct !{!119, !"_ZN5arrow6Status2OKEv"}
 !120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!122 = distinct !{!122, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!121 = distinct !{!121, !122, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!122 = distinct !{!122, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9Int64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !123 = !{!124, !121}
 !124 = distinct !{!124, !125, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !125 = distinct !{!125, !"_ZN5arrow6Status2OKEv"}
 !126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!128 = distinct !{!128, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!127 = distinct !{!127, !128, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!128 = distinct !{!128, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10UInt64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !129 = !{!130, !127}
 !130 = distinct !{!130, !131, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !131 = distinct !{!131, !"_ZN5arrow6Status2OKEv"}
 !132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!134 = distinct !{!134, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!133 = distinct !{!133, !134, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!134 = distinct !{!134, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !135 = !{!136, !133}
 !136 = distinct !{!136, !137, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !137 = distinct !{!137, !"_ZN5arrow6Status2OKEv"}
 !138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!140 = distinct !{!140, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!139 = distinct !{!139, !140, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!140 = distinct !{!140, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_9FloatTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !141 = !{!142, !139}
 !142 = distinct !{!142, !143, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !143 = distinct !{!143, !"_ZN5arrow6Status2OKEv"}
 !144 = !{!145}
-!145 = distinct !{!145, !146, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!146 = distinct !{!146, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!145 = distinct !{!145, !146, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!146 = distinct !{!146, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10DoubleTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !147 = !{!148, !145}
 !148 = distinct !{!148, !149, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !149 = distinct !{!149, !"_ZN5arrow6Status2OKEv"}
 !150 = !{!151}
-!151 = distinct !{!151, !152, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!152 = distinct !{!152, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!151 = distinct !{!151, !152, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!152 = distinct !{!152, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10StringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !153 = !{!154, !151}
 !154 = distinct !{!154, !155, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !155 = distinct !{!155, !"_ZN5arrow6Status2OKEv"}
 !156 = !{!157}
-!157 = distinct !{!157, !158, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!158 = distinct !{!158, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!157 = distinct !{!157, !158, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!158 = distinct !{!158, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14StringViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !159 = !{!160, !157}
 !160 = distinct !{!160, !161, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !161 = distinct !{!161, !"_ZN5arrow6Status2OKEv"}
 !162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!164 = distinct !{!164, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!163 = distinct !{!163, !164, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!164 = distinct !{!164, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10BinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !165 = !{!166, !163}
 !166 = distinct !{!166, !167, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !167 = distinct !{!167, !"_ZN5arrow6Status2OKEv"}
 !168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!170 = distinct !{!170, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!169 = distinct !{!169, !170, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!170 = distinct !{!170, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !171 = !{!172, !169}
 !172 = distinct !{!172, !173, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !173 = distinct !{!173, !"_ZN5arrow6Status2OKEv"}
 !174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!176 = distinct !{!176, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!175 = distinct !{!175, !176, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!176 = distinct !{!176, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeStringTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !177 = !{!178, !175}
 !178 = distinct !{!178, !179, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !179 = distinct !{!179, !"_ZN5arrow6Status2OKEv"}
 !180 = !{!181}
-!181 = distinct !{!181, !182, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!182 = distinct !{!182, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!181 = distinct !{!181, !182, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!182 = distinct !{!182, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !183 = !{!184, !181}
 !184 = distinct !{!184, !185, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !185 = distinct !{!185, !"_ZN5arrow6Status2OKEv"}
 !186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!188 = distinct !{!188, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!187 = distinct !{!187, !188, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!188 = distinct !{!188, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !189 = !{!190, !187}
 !190 = distinct !{!190, !191, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !191 = distinct !{!191, !"_ZN5arrow6Status2OKEv"}
 !192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!194 = distinct !{!194, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!193 = distinct !{!193, !194, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!194 = distinct !{!194, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_12DurationTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !195 = !{!196, !193}
 !196 = distinct !{!196, !197, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !197 = distinct !{!197, !"_ZN5arrow6Status2OKEv"}
 !198 = !{!199}
-!199 = distinct !{!199, !200, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!200 = distinct !{!200, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!199 = distinct !{!199, !200, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!200 = distinct !{!200, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !201 = !{!202, !199}
 !202 = distinct !{!202, !203, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !203 = distinct !{!203, !"_ZN5arrow6Status2OKEv"}
 !204 = !{!205}
-!205 = distinct !{!205, !206, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!206 = distinct !{!206, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!205 = distinct !{!205, !206, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!206 = distinct !{!206, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Date64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !207 = !{!208, !205}
 !208 = distinct !{!208, !209, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !209 = distinct !{!209, !"_ZN5arrow6Status2OKEv"}
 !210 = !{!211}
-!211 = distinct !{!211, !212, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!212 = distinct !{!212, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!211 = distinct !{!211, !212, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!212 = distinct !{!212, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_13TimestampTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !213 = !{!214, !211}
 !214 = distinct !{!214, !215, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !215 = distinct !{!215, !"_ZN5arrow6Status2OKEv"}
 !216 = !{!217}
-!217 = distinct !{!217, !218, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!218 = distinct !{!218, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!217 = distinct !{!217, !218, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!218 = distinct !{!218, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time32TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !219 = !{!220, !217}
 !220 = distinct !{!220, !221, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !221 = distinct !{!221, !"_ZN5arrow6Status2OKEv"}
 !222 = !{!223}
-!223 = distinct !{!223, !224, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!224 = distinct !{!224, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!223 = distinct !{!223, !224, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!224 = distinct !{!224, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_10Time64TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !225 = !{!226, !223}
 !226 = distinct !{!226, !227, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !227 = distinct !{!227, !"_ZN5arrow6Status2OKEv"}
 !228 = !{!229}
-!229 = distinct !{!229, !230, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!230 = distinct !{!230, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!229 = distinct !{!229, !230, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!230 = distinct !{!230, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !231 = !{!232, !229}
 !232 = distinct !{!232, !233, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !233 = distinct !{!233, !"_ZN5arrow6Status2OKEv"}
 !234 = !{!235}
-!235 = distinct !{!235, !236, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!236 = distinct !{!236, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!235 = distinct !{!235, !236, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!236 = distinct !{!236, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !237 = !{!238, !235}
 !238 = distinct !{!238, !239, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !239 = distinct !{!239, !"_ZN5arrow6Status2OKEv"}
 !240 = !{!241}
-!241 = distinct !{!241, !242, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!242 = distinct !{!242, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!241 = distinct !{!241, !242, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!242 = distinct !{!242, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !243 = !{!244, !241}
 !244 = distinct !{!244, !245, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !245 = distinct !{!245, !"_ZN5arrow6Status2OKEv"}
 !246 = !{!247}
-!247 = distinct !{!247, !248, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!248 = distinct !{!248, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!247 = distinct !{!247, !248, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!248 = distinct !{!248, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal128TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !249 = !{!250, !247}
 !250 = distinct !{!250, !251, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !251 = distinct !{!251, !"_ZN5arrow6Status2OKEv"}
 !252 = !{!253}
-!253 = distinct !{!253, !254, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
-!254 = distinct !{!254, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_"}
+!253 = distinct !{!253, !254, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
+!254 = distinct !{!254, !"_ZN5arrow12_GLOBAL__N_111MakeUnifier5VisitINS_14Decimal256TypeEEENSt9enable_ifIXntsr3std7is_sameINS_8internal16DictionaryTraitsIT_vE13MemoTableTypeEvEE5valueENS_6StatusEE4typeERKS7_.argprom"}
 !255 = !{!256, !253}
 !256 = distinct !{!256, !257, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !257 = distinct !{!257, !"_ZN5arrow6Status2OKEv"}
@@ -155248,8 +155248,8 @@ attributes #27 = { nounwind memory(none) }
 !259 = distinct !{!259, !260, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
 !260 = distinct !{!260, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
 !261 = !{!262}
-!262 = distinct !{!262, !263, !"_ZZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolEENK3$_0clERKS1_INS_5ArrayEE: %agg.result"}
-!263 = distinct !{!263, !"_ZZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolEENK3$_0clERKS1_INS_5ArrayEE"}
+!262 = distinct !{!262, !263, !"_ZZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolEENK3$_0clERKS1_INS_5ArrayEE.argprom.argprom: %agg.result"}
+!263 = distinct !{!263, !"_ZZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolEENK3$_0clERKS1_INS_5ArrayEE.argprom.argprom"}
 !264 = distinct !{!264, !22}
 !265 = distinct !{!265, !22}
 !266 = !{!267}
@@ -155259,8 +155259,8 @@ attributes #27 = { nounwind memory(none) }
 !270 = distinct !{!270, !22}
 !271 = distinct !{!271, !22}
 !272 = !{!273}
-!273 = distinct !{!273, !274, !"_ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EEENKUlRKS7_E_clESC_: %agg.result"}
-!274 = distinct !{!274, !"_ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EEENKUlRKS7_E_clESC_"}
+!273 = distinct !{!273, !274, !"_ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EEENKUlRKS7_E_clESC_.argprom.argprom: %agg.result"}
+!274 = distinct !{!274, !"_ZZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EEENKUlRKS7_E_clESC_.argprom.argprom"}
 !275 = distinct !{!275, !22}
 !276 = distinct !{!276, !22}
 !277 = !{!278, !280}
@@ -155306,8 +155306,8 @@ attributes #27 = { nounwind memory(none) }
 !317 = distinct !{!317, !318, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
 !318 = distinct !{!318, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
 !319 = !{!320}
-!320 = distinct !{!320, !321, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
-!321 = distinct !{!321, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
+!320 = distinct !{!320, !321, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
+!321 = distinct !{!321, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
 !322 = !{!323}
 !323 = distinct !{!323, !324, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor23CompactTransposeMapImplINS_8Int8TypeEEENS_6StatusEv: %agg.result"}
 !324 = distinct !{!324, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor23CompactTransposeMapImplINS_8Int8TypeEEENS_6StatusEv"}
@@ -155372,8 +155372,8 @@ attributes #27 = { nounwind memory(none) }
 !383 = distinct !{!383, !384, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !384 = distinct !{!384, !"_ZN5arrow6Status2OKEv"}
 !385 = !{!386}
-!386 = distinct !{!386, !387, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
-!387 = distinct !{!387, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
+!386 = distinct !{!386, !387, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
+!387 = distinct !{!387, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
 !388 = !{!389}
 !389 = distinct !{!389, !390, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor23CompactTransposeMapImplINS_9UInt8TypeEEENS_6StatusEv: %agg.result"}
 !390 = distinct !{!390, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor23CompactTransposeMapImplINS_9UInt8TypeEEENS_6StatusEv"}
@@ -155438,8 +155438,8 @@ attributes #27 = { nounwind memory(none) }
 !449 = distinct !{!449, !450, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !450 = distinct !{!450, !"_ZN5arrow6Status2OKEv"}
 !451 = !{!452}
-!452 = distinct !{!452, !453, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
-!453 = distinct !{!453, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
+!452 = distinct !{!452, !453, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
+!453 = distinct !{!453, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
 !454 = !{!455}
 !455 = distinct !{!455, !456, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor23CompactTransposeMapImplINS_9Int16TypeEEENS_6StatusEv: %agg.result"}
 !456 = distinct !{!456, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor23CompactTransposeMapImplINS_9Int16TypeEEENS_6StatusEv"}
@@ -155504,8 +155504,8 @@ attributes #27 = { nounwind memory(none) }
 !515 = distinct !{!515, !516, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !516 = distinct !{!516, !"_ZN5arrow6Status2OKEv"}
 !517 = !{!518}
-!518 = distinct !{!518, !519, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
-!519 = distinct !{!519, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
+!518 = distinct !{!518, !519, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
+!519 = distinct !{!519, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
 !520 = !{!521}
 !521 = distinct !{!521, !522, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor23CompactTransposeMapImplINS_10UInt16TypeEEENS_6StatusEv: %agg.result"}
 !522 = distinct !{!522, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor23CompactTransposeMapImplINS_10UInt16TypeEEENS_6StatusEv"}
@@ -155570,8 +155570,8 @@ attributes #27 = { nounwind memory(none) }
 !581 = distinct !{!581, !582, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !582 = distinct !{!582, !"_ZN5arrow6Status2OKEv"}
 !583 = !{!584}
-!584 = distinct !{!584, !585, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
-!585 = distinct !{!585, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
+!584 = distinct !{!584, !585, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
+!585 = distinct !{!585, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
 !586 = !{!587}
 !587 = distinct !{!587, !588, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor23CompactTransposeMapImplINS_9Int32TypeEEENS_6StatusEv: %agg.result"}
 !588 = distinct !{!588, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor23CompactTransposeMapImplINS_9Int32TypeEEENS_6StatusEv"}
@@ -155636,8 +155636,8 @@ attributes #27 = { nounwind memory(none) }
 !647 = distinct !{!647, !648, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !648 = distinct !{!648, !"_ZN5arrow6Status2OKEv"}
 !649 = !{!650}
-!650 = distinct !{!650, !651, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
-!651 = distinct !{!651, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
+!650 = distinct !{!650, !651, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
+!651 = distinct !{!651, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
 !652 = !{!653}
 !653 = distinct !{!653, !654, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor23CompactTransposeMapImplINS_10UInt32TypeEEENS_6StatusEv: %agg.result"}
 !654 = distinct !{!654, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor23CompactTransposeMapImplINS_10UInt32TypeEEENS_6StatusEv"}
@@ -155702,8 +155702,8 @@ attributes #27 = { nounwind memory(none) }
 !713 = distinct !{!713, !714, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !714 = distinct !{!714, !"_ZN5arrow6Status2OKEv"}
 !715 = !{!716}
-!716 = distinct !{!716, !717, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
-!717 = distinct !{!717, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
+!716 = distinct !{!716, !717, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
+!717 = distinct !{!717, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
 !718 = !{!719}
 !719 = distinct !{!719, !720, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor23CompactTransposeMapImplINS_9Int64TypeEEENS_6StatusEv: %agg.result"}
 !720 = distinct !{!720, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor23CompactTransposeMapImplINS_9Int64TypeEEENS_6StatusEv"}
@@ -155768,8 +155768,8 @@ attributes #27 = { nounwind memory(none) }
 !779 = distinct !{!779, !780, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !780 = distinct !{!780, !"_ZN5arrow6Status2OKEv"}
 !781 = !{!782}
-!782 = distinct !{!782, !783, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
-!783 = distinct !{!783, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
+!782 = distinct !{!782, !783, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
+!783 = distinct !{!783, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
 !784 = !{!785}
 !785 = distinct !{!785, !786, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor23CompactTransposeMapImplINS_10UInt64TypeEEENS_6StatusEv: %agg.result"}
 !786 = distinct !{!786, !"_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitor23CompactTransposeMapImplINS_10UInt64TypeEEENS_6StatusEv"}
@@ -157794,14 +157794,14 @@ attributes #27 = { nounwind memory(none) }
 !2805 = distinct !{!2805, !"_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIfS1_E7PayloadEE12UpsizeBufferEm"}
 !2806 = !{!2804}
 !2807 = !{!2808}
-!2808 = distinct !{!2808, !2809, !"_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE: %input"}
-!2809 = distinct !{!2809, !"_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE"}
+!2808 = distinct !{!2808, !2809, !"_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE.argprom: %input"}
+!2809 = distinct !{!2809, !"_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE.argprom"}
 !2810 = !{!2811, !2808}
-!2811 = distinct !{!2811, !2812, !"_ZL20XXH3_len_17to128_64bPKhmS0_mm: %input"}
-!2812 = distinct !{!2812, !"_ZL20XXH3_len_17to128_64bPKhmS0_mm"}
+!2811 = distinct !{!2811, !2812, !"_ZL20XXH3_len_17to128_64bPKhmS0_mm.argprom: %input"}
+!2812 = distinct !{!2812, !"_ZL20XXH3_len_17to128_64bPKhmS0_mm.argprom"}
 !2813 = !{!2814}
-!2814 = distinct !{!2814, !2815, !"_ZL21XXH3_len_129to240_64bPKhmS0_mm: %input"}
-!2815 = distinct !{!2815, !"_ZL21XXH3_len_129to240_64bPKhmS0_mm"}
+!2814 = distinct !{!2814, !2815, !"_ZL21XXH3_len_129to240_64bPKhmS0_mm.argprom: %input"}
+!2815 = distinct !{!2815, !"_ZL21XXH3_len_129to240_64bPKhmS0_mm.argprom"}
 !2816 = !{!2814, !2808}
 !2817 = distinct !{!2817, !22}
 !2818 = !{i64 2154216052}
@@ -157812,19 +157812,19 @@ attributes #27 = { nounwind memory(none) }
 !2823 = !{!2824}
 !2824 = distinct !{!2824, !2822, !"_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm: %secret"}
 !2825 = !{!2826}
-!2826 = distinct !{!2826, !2827, !"_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E: %input"}
-!2827 = distinct !{!2827, !"_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E"}
+!2826 = distinct !{!2826, !2827, !"_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom: %input"}
+!2827 = distinct !{!2827, !"_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom"}
 !2828 = !{!2829}
-!2829 = distinct !{!2829, !2827, !"_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E: %secret"}
+!2829 = distinct !{!2829, !2827, !"_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom: %secret"}
 !2830 = !{!2821, !2824}
 !2831 = !{!2826, !2829, !2821, !2824}
 !2832 = !{!2833}
-!2833 = distinct !{!2833, !2834, !"_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE: %acc"}
-!2834 = distinct !{!2834, !"_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE"}
+!2833 = distinct !{!2833, !2834, !"_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom: %acc"}
+!2834 = distinct !{!2834, !"_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom"}
 !2835 = !{!2836}
-!2836 = distinct !{!2836, !2834, !"_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE: %input"}
+!2836 = distinct !{!2836, !2834, !"_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom: %input"}
 !2837 = !{!2838}
-!2838 = distinct !{!2838, !2834, !"_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE: %secret"}
+!2838 = distinct !{!2838, !2834, !"_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom: %secret"}
 !2839 = !{!2840}
 !2840 = distinct !{!2840, !2841, !"_ZL20XXH3_accumulate_sse2PmPKhS1_m: %acc"}
 !2841 = distinct !{!2841, !"_ZL20XXH3_accumulate_sse2PmPKhS1_m"}

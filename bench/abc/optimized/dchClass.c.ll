@@ -1419,23 +1419,23 @@ define void @Dch_ClassesCollectConst1Group(ptr nocapture noundef readonly %0, pt
   %wide.trip.count = sext i32 %12 to i64
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %Aig_ManObj.exit.thread
-  %indvars.iv = phi i64 [ %14, %.lr.ph.split.preheader ], [ %indvars.iv.next, %Aig_ManObj.exit.thread ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %Aig_ManObj.argprom.exit.thread
+  %indvars.iv = phi i64 [ %14, %.lr.ph.split.preheader ], [ %indvars.iv.next, %Aig_ManObj.argprom.exit.thread ]
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr i8, ptr %15, i64 32
   %.val16 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %.val16, null
-  br i1 %.not.i, label %Aig_ManObj.exit.thread, label %Aig_ManObj.exit
+  br i1 %.not.i, label %Aig_ManObj.argprom.exit.thread, label %Aig_ManObj.argprom.exit
 
-Aig_ManObj.exit:                                  ; preds = %.lr.ph.split
+Aig_ManObj.argprom.exit:                          ; preds = %.lr.ph.split
   %17 = getelementptr i8, ptr %.val16, i64 8
   %.val.i = load ptr, ptr %17, align 8
   %18 = getelementptr inbounds ptr, ptr %.val.i, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %Aig_ManObj.exit.thread, label %20
+  br i1 %.not, label %Aig_ManObj.argprom.exit.thread, label %20
 
-20:                                               ; preds = %Aig_ManObj.exit
+20:                                               ; preds = %Aig_ManObj.argprom.exit
   %21 = getelementptr i8, ptr %15, i64 256
   %.val.i17 = load ptr, ptr %21, align 8
   %.not.i.i = icmp eq ptr %.val.i17, null
@@ -1454,7 +1454,7 @@ Dch_ObjIsConst1Cand.exit:                         ; preds = %20, %22
   %29 = getelementptr i8, ptr %15, i64 48
   %.val3.i = load ptr, ptr %29, align 8
   %.not19 = icmp eq ptr %28, %.val3.i
-  br i1 %.not19, label %30, label %Aig_ManObj.exit.thread
+  br i1 %.not19, label %30, label %Aig_ManObj.argprom.exit.thread
 
 30:                                               ; preds = %Dch_ObjIsConst1Cand.exit
   %31 = load i32, ptr %5, align 4
@@ -1519,14 +1519,14 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %57 = sext i32 %55 to i64
   %58 = getelementptr inbounds ptr, ptr %54, i64 %57
   store ptr %19, ptr %58, align 8
-  br label %Aig_ManObj.exit.thread
+  br label %Aig_ManObj.argprom.exit.thread
 
-Aig_ManObj.exit.thread:                           ; preds = %.lr.ph.split, %Aig_ManObj.exit, %Dch_ObjIsConst1Cand.exit, %Vec_PtrPush.exit
+Aig_ManObj.argprom.exit.thread:                   ; preds = %.lr.ph.split, %Aig_ManObj.argprom.exit, %Dch_ObjIsConst1Cand.exit, %Vec_PtrPush.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %Aig_ManObj.exit.thread, %4
+._crit_edge:                                      ; preds = %Aig_ManObj.argprom.exit.thread, %4
   ret void
 }
 

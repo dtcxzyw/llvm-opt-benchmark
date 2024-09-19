@@ -2174,12 +2174,12 @@ thread-pre-split.i:                               ; preds = %140, %138
   br i1 %186, label %191, label %187
 
 187:                                              ; preds = %182, %179
-  %188 = call fastcc i32 @XLogFileRead(i64 noundef %159, i32 noundef %177, i32 noundef 1, i1 noundef zeroext true)
+  %188 = call fastcc i32 @XLogFileRead.argelim(i64 noundef %159, i32 noundef %177, i32 noundef 1, i1 noundef zeroext true)
   %.not53.us.us.i.i = icmp eq i32 %188, -1
   br i1 %.not53.us.us.i.i, label %189, label %.split.us.i.i
 
 189:                                              ; preds = %187
-  %190 = call fastcc i32 @XLogFileRead(i64 noundef %159, i32 noundef %177, i32 noundef 2, i1 noundef zeroext true)
+  %190 = call fastcc i32 @XLogFileRead.argelim(i64 noundef %159, i32 noundef %177, i32 noundef 2, i1 noundef zeroext true)
   %.not54.us.us.i.i = icmp eq i32 %190, -1
   br i1 %.not54.us.us.i.i, label %._crit_edge119.i.i, label %.split64.us.i.i
 
@@ -2228,7 +2228,7 @@ thread-pre-split.i:                               ; preds = %140, %138
   br i1 %210, label %213, label %211
 
 211:                                              ; preds = %206, %203
-  %212 = call fastcc i32 @XLogFileRead(i64 noundef %159, i32 noundef %201, i32 noundef 1, i1 noundef zeroext true)
+  %212 = call fastcc i32 @XLogFileRead.argelim(i64 noundef %159, i32 noundef %201, i32 noundef 1, i1 noundef zeroext true)
   %.not53.us.i.i = icmp eq i32 %212, -1
   br i1 %.not53.us.i.i, label %._crit_edge112.i.i, label %.split.us.i.i
 
@@ -2282,7 +2282,7 @@ thread-pre-split.i:                               ; preds = %140, %138
   br i1 %234, label %237, label %235
 
 235:                                              ; preds = %230, %227
-  %236 = call fastcc i32 @XLogFileRead(i64 noundef %159, i32 noundef %225, i32 noundef 2, i1 noundef zeroext true)
+  %236 = call fastcc i32 @XLogFileRead.argelim(i64 noundef %159, i32 noundef %225, i32 noundef 2, i1 noundef zeroext true)
   %.not54.us68.i.i = icmp eq i32 %236, -1
   br i1 %.not54.us68.i.i, label %._crit_edge.i.i, label %.split64.us.i.i
 
@@ -2499,7 +2499,7 @@ SetCurrentChunkStartTime.exit.i:                  ; preds = %317, %312
 332:                                              ; preds = %329, %327
   %333 = load i64, ptr @readSegNo, align 8
   %334 = load i32, ptr @receiveTLI, align 4
-  %335 = call fastcc i32 @XLogFileRead(i64 noundef %333, i32 noundef %334, i32 noundef 3, i1 noundef zeroext false)
+  %335 = call fastcc i32 @XLogFileRead.argelim(i64 noundef %333, i32 noundef %334, i32 noundef 3, i1 noundef zeroext false)
   store i32 %335, ptr @readFile, align 4
   br label %353
 
@@ -3652,33 +3652,33 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   %184 = icmp eq i8 %183, 0
   %185 = icmp eq i8 %181, 112
   %or.cond.i.i = select i1 %184, i1 %185, i1 false
-  br i1 %or.cond.i.i, label %getRecordTimestamp.exit.i, label %186
+  br i1 %or.cond.i.i, label %getRecordTimestamp.argprom.exit.i, label %186
 
 186:                                              ; preds = %178
   %187 = icmp eq i8 %183, 1
-  br i1 %187, label %188, label %getRecordTimestamp.exit.thread.i
+  br i1 %187, label %188, label %getRecordTimestamp.argprom.exit.thread.i
 
 188:                                              ; preds = %186
   %189 = lshr i8 %180, 4
   %190 = and i8 %189, 7
-  switch i8 %190, label %getRecordTimestamp.exit.thread.i [
-    i8 3, label %getRecordTimestamp.exit.i
-    i8 0, label %getRecordTimestamp.exit.i
-    i8 4, label %getRecordTimestamp.exit.i
-    i8 2, label %getRecordTimestamp.exit.i
+  switch i8 %190, label %getRecordTimestamp.argprom.exit.thread.i [
+    i8 3, label %getRecordTimestamp.argprom.exit.i
+    i8 0, label %getRecordTimestamp.argprom.exit.i
+    i8 4, label %getRecordTimestamp.argprom.exit.i
+    i8 2, label %getRecordTimestamp.argprom.exit.i
   ]
 
-getRecordTimestamp.exit.thread.i:                 ; preds = %188, %186
+getRecordTimestamp.argprom.exit.thread.i:         ; preds = %188, %186
   br i1 %.023.i, label %203, label %217
 
-getRecordTimestamp.exit.i:                        ; preds = %188, %188, %188, %188, %178
+getRecordTimestamp.argprom.exit.i:                ; preds = %188, %188, %188, %188, %178
   %191 = getelementptr inbounds i8, ptr %.val.i, i64 72
   %192 = load ptr, ptr %191, align 8
   %193 = load i64, ptr %192, align 8
   %194 = icmp eq i32 %170, 2
   br i1 %194, label %195, label %202
 
-195:                                              ; preds = %getRecordTimestamp.exit.i
+195:                                              ; preds = %getRecordTimestamp.argprom.exit.i
   %196 = load i8, ptr @recoveryTargetInclusive, align 1
   %197 = trunc i8 %196 to i1
   %198 = load i64, ptr @recoveryTargetTime, align 8
@@ -3692,11 +3692,11 @@ getRecordTimestamp.exit.i:                        ; preds = %188, %188, %188, %1
   %.not37.i = icmp slt i64 %193, %198
   br i1 %.not37.i, label %217, label %203
 
-202:                                              ; preds = %getRecordTimestamp.exit.i
+202:                                              ; preds = %getRecordTimestamp.argprom.exit.i
   br i1 %.023.i, label %203, label %217
 
-203:                                              ; preds = %202, %201, %199, %getRecordTimestamp.exit.thread.i
-  %.0303435.i = phi i64 [ %193, %199 ], [ %193, %202 ], [ %193, %201 ], [ 0, %getRecordTimestamp.exit.thread.i ]
+203:                                              ; preds = %202, %201, %199, %getRecordTimestamp.argprom.exit.thread.i
+  %.0303435.i = phi i64 [ %193, %199 ], [ %193, %202 ], [ %193, %201 ], [ 0, %getRecordTimestamp.argprom.exit.thread.i ]
   store i1 false, ptr @recoveryStopAfter, align 1
   store i32 %.025.i, ptr @recoveryStopXid, align 4
   store i64 %.0303435.i, ptr @recoveryStopTime, align 8
@@ -3732,7 +3732,7 @@ recoveryStopsBefore.exit.thread:                  ; preds = %130, %138, %140, %2
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %8)
   br label %621
 
-217:                                              ; preds = %202, %201, %199, %getRecordTimestamp.exit.thread.i, %150, %.thread.i, %117
+217:                                              ; preds = %202, %201, %199, %getRecordTimestamp.argprom.exit.thread.i, %150, %.thread.i, %117
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %8)
   %218 = load ptr, ptr @xlogreader, align 8
@@ -4325,9 +4325,9 @@ ApplyWalRecord.exit:                              ; preds = %498, %499
   %520 = load ptr, ptr @recoveryTargetName, align 8
   %521 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %519, ptr noundef nonnull dereferenceable(1) %520) #26
   %522 = icmp eq i32 %521, 0
-  br i1 %522, label %getRecordTimestamp.exit.i30, label %618
+  br i1 %522, label %getRecordTimestamp.argprom.exit.i30, label %618
 
-getRecordTimestamp.exit.i30:                      ; preds = %516
+getRecordTimestamp.argprom.exit.i30:              ; preds = %516
   store i1 true, ptr @recoveryStopAfter, align 1
   store i32 0, ptr @recoveryStopXid, align 4
   store i64 0, ptr @recoveryStopLSN, align 8
@@ -4337,7 +4337,7 @@ getRecordTimestamp.exit.i30:                      ; preds = %516
   %525 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
   br i1 %525, label %526, label %recoveryStopsAfter.exit.thread
 
-526:                                              ; preds = %getRecordTimestamp.exit.i30
+526:                                              ; preds = %getRecordTimestamp.argprom.exit.i30
   %527 = load i64, ptr @recoveryStopTime, align 8
   %528 = call ptr @timestamptz_to_str(i64 noundef %527) #23
   %529 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.138, ptr noundef nonnull @recoveryStopName, ptr noundef %528) #23
@@ -4395,7 +4395,7 @@ getRecordTimestamp.exit.i30:                      ; preds = %516
 551:                                              ; preds = %548, %548, %548, %548
   %552 = lshr i8 %508, 4
   %553 = and i8 %552, 7
-  switch i8 %553, label %getRecordTimestamp.exit60.i [
+  switch i8 %553, label %getRecordTimestamp.argprom.exit60.i [
     i8 3, label %554
     i8 0, label %554
     i8 4, label %554
@@ -4427,9 +4427,9 @@ SetLatestXTime.exit.i:                            ; preds = %561, %554
   %568 = getelementptr inbounds i8, ptr %567, i64 96
   store i8 0, ptr %568, align 8
   %.pre = load ptr, ptr %505, align 8
-  br label %getRecordTimestamp.exit60.i
+  br label %getRecordTimestamp.argprom.exit60.i
 
-getRecordTimestamp.exit60.i:                      ; preds = %SetLatestXTime.exit.i, %551
+getRecordTimestamp.argprom.exit60.i:              ; preds = %SetLatestXTime.exit.i, %551
   %569 = phi ptr [ %.pre, %SetLatestXTime.exit.i ], [ %506, %551 ]
   %.06268.i = phi i64 [ %557, %SetLatestXTime.exit.i ], [ 0, %551 ]
   switch i8 %549, label %582 [
@@ -4437,7 +4437,7 @@ getRecordTimestamp.exit60.i:                      ; preds = %SetLatestXTime.exit
     i8 64, label %576
   ]
 
-570:                                              ; preds = %getRecordTimestamp.exit60.i
+570:                                              ; preds = %getRecordTimestamp.argprom.exit60.i
   %571 = getelementptr inbounds i8, ptr %569, i64 72
   %572 = load ptr, ptr %571, align 8
   %573 = getelementptr inbounds i8, ptr %569, i64 56
@@ -4446,7 +4446,7 @@ getRecordTimestamp.exit60.i:                      ; preds = %SetLatestXTime.exit
   %575 = load i32, ptr %93, align 8
   br label %585
 
-576:                                              ; preds = %getRecordTimestamp.exit60.i
+576:                                              ; preds = %getRecordTimestamp.argprom.exit60.i
   %577 = getelementptr inbounds i8, ptr %569, i64 72
   %578 = load ptr, ptr %577, align 8
   %579 = getelementptr inbounds i8, ptr %569, i64 56
@@ -4455,7 +4455,7 @@ getRecordTimestamp.exit60.i:                      ; preds = %SetLatestXTime.exit
   %581 = load i32, ptr %92, align 8
   br label %585
 
-582:                                              ; preds = %getRecordTimestamp.exit60.i
+582:                                              ; preds = %getRecordTimestamp.argprom.exit60.i
   %583 = getelementptr inbounds i8, ptr %569, i64 44
   %584 = load i32, ptr %583, align 4
   br label %585
@@ -4538,7 +4538,7 @@ thread-pre-split.i:                               ; preds = %585, %548
   store i8 0, ptr @recoveryStopName, align 16
   br label %recoveryStopsAfter.exit.thread
 
-recoveryStopsAfter.exit.thread:                   ; preds = %617, %getRecordTimestamp.exit.i30, %526, %539, %541, %601, %603, %596, %594, %593
+recoveryStopsAfter.exit.thread:                   ; preds = %617, %getRecordTimestamp.argprom.exit.i30, %526, %539, %541, %601, %603, %596, %594, %593
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %2)
   br label %621
@@ -6335,7 +6335,7 @@ declare i64 @GetWalRcvFlushRecPtr(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @readTimeLineHistory(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileRead(i64 noundef %0, i32 noundef %1, i32 noundef range(i32 1, 4) %2, i1 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileRead.argelim(i64 noundef %0, i32 noundef %1, i32 noundef range(i32 1, 4) %2, i1 noundef zeroext %3) unnamed_addr #1 {
   %5 = alloca [64 x i8], align 16
   %6 = alloca [80 x i8], align 16
   %7 = alloca [1024 x i8], align 16

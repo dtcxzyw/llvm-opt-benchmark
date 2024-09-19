@@ -1690,11 +1690,11 @@ _ZTWN3nix14interruptCheckE.exit:                  ; preds = %35, %36
   store ptr %45, ptr %40, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZN3nix10ThreadPool6doWorkEbE3$_0E9_M_invokeERKSt9_Any_data", ptr %44, align 8
   %.not.i.i.i28 = icmp eq ptr %43, null
-  br i1 %.not.i.i.i28, label %"_ZNSt8functionIFbvEEaSIZN3nix10ThreadPool6doWorkEbE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NS6_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS8_E4typeEE4typeES1_EE5valueESt5decayIS8_EE4type4typeESt15__invoke_resultIRSJ_JEEEE5valueERS1_E4typeEOS8_.exit", label %46
+  br i1 %.not.i.i.i28, label %"_ZNSt8functionIFbvEEaSIZN3nix10ThreadPool6doWorkEbE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NS6_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS8_E4typeEE4typeES1_EE5valueESt5decayIS8_EE4type4typeESt15__invoke_resultIRSJ_JEEEE5valueERS1_E4typeEOS8_.argprom.exit", label %46
 
 46:                                               ; preds = %_ZTWN3nix14interruptCheckE.exit
   %47 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %"_ZNSt8functionIFbvEEaSIZN3nix10ThreadPool6doWorkEbE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NS6_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS8_E4typeEE4typeES1_EE5valueESt5decayIS8_EE4type4typeESt15__invoke_resultIRSJ_JEEEE5valueERS1_E4typeEOS8_.exit" unwind label %48
+          to label %"_ZNSt8functionIFbvEEaSIZN3nix10ThreadPool6doWorkEbE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NS6_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS8_E4typeEE4typeES1_EE5valueESt5decayIS8_EE4type4typeESt15__invoke_resultIRSJ_JEEEE5valueERS1_E4typeEOS8_.argprom.exit" unwind label %48
 
 48:                                               ; preds = %46
   %49 = landingpad { ptr, i32 }
@@ -1703,11 +1703,11 @@ _ZTWN3nix14interruptCheckE.exit:                  ; preds = %35, %36
   call void @__clang_call_terminate(ptr %50) #33
   unreachable
 
-"_ZNSt8functionIFbvEEaSIZN3nix10ThreadPool6doWorkEbE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NS6_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS8_E4typeEE4typeES1_EE5valueESt5decayIS8_EE4type4typeESt15__invoke_resultIRSJ_JEEEE5valueERS1_E4typeEOS8_.exit": ; preds = %_ZTWN3nix14interruptCheckE.exit, %46
+"_ZNSt8functionIFbvEEaSIZN3nix10ThreadPool6doWorkEbE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NS6_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS8_E4typeEE4typeES1_EE5valueESt5decayIS8_EE4type4typeESt15__invoke_resultIRSJ_JEEEE5valueERS1_E4typeEOS8_.argprom.exit": ; preds = %_ZTWN3nix14interruptCheckE.exit, %46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %51
 
-51:                                               ; preds = %"_ZNSt8functionIFbvEEaSIZN3nix10ThreadPool6doWorkEbE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NS6_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS8_E4typeEE4typeES1_EE5valueESt5decayIS8_EE4type4typeESt15__invoke_resultIRSJ_JEEEE5valueERS1_E4typeEOS8_.exit", %_ZN3nix17ReceiveInterruptsC2Ev.exit
+51:                                               ; preds = %"_ZNSt8functionIFbvEEaSIZN3nix10ThreadPool6doWorkEbE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NS6_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS8_E4typeEE4typeES1_EE5valueESt5decayIS8_EE4type4typeESt15__invoke_resultIRSJ_JEEEE5valueERS1_E4typeEOS8_.argprom.exit", %_ZN3nix17ReceiveInterruptsC2Ev.exit
   store ptr null, ptr %9, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 16
   %53 = getelementptr inbounds i8, ptr %11, i64 8

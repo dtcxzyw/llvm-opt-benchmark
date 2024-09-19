@@ -16500,7 +16500,7 @@ _ZL9GetVMFlagIbLi0EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18S
   store volatile i32 4, ptr %15, align 4
   %74 = getelementptr i8, ptr %7, i64 800
   %.val = load ptr, ptr %74, align 8
-  %75 = call fastcc noundef ptr @_ZL10booleanBoxP10JavaThreadP7JNIEnv_h(ptr %.val, ptr noundef nonnull %0, i8 noundef zeroext %.023)
+  %75 = call fastcc noundef ptr @_ZL10booleanBoxP10JavaThreadP7JNIEnv_h.argprom(ptr %.val, ptr noundef nonnull %0, i8 noundef zeroext %.023)
   %76 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %77 = trunc i8 %76 to i1
   store volatile i32 6, ptr %15, align 4
@@ -16586,7 +16586,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL10booleanBoxP10JavaThreadP7JNIEnv_h(ptr %.800.val, ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL10booleanBoxP10JavaThreadP7JNIEnv_h.argprom(ptr %.800.val, ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 176), align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6672), align 8
   %5 = getelementptr inbounds i8, ptr %.800.val, i64 24
@@ -16682,15 +16682,15 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit21.i: ; preds = %48, 
 53:                                               ; preds = %52, %50
   %54 = load ptr, ptr %7, align 8
   %.not8.i.i.i.i.i = icmp eq ptr %54, %8
-  br i1 %.not8.i.i.i.i.i, label %_ZL3boxIhEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.exit, label %55
+  br i1 %.not8.i.i.i.i.i, label %_ZL3boxIhEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.argprom.exit, label %55
 
 55:                                               ; preds = %53
   store ptr %6, ptr %5, align 8
   store ptr %8, ptr %7, align 8
   store ptr %10, ptr %9, align 8
-  br label %_ZL3boxIhEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.exit
+  br label %_ZL3boxIhEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.argprom.exit
 
-_ZL3boxIhEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.exit: ; preds = %53, %55
+_ZL3boxIhEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.argprom.exit: ; preds = %53, %55
   ret ptr %.0.i
 }
 
@@ -16930,7 +16930,7 @@ _ZL9GetVMFlagIiLi1EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18S
   store volatile i32 4, ptr %7, align 4
   %52 = getelementptr i8, ptr %1, i64 800
   %.val = load ptr, ptr %52, align 8
-  %53 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
+  %53 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l.argprom(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
   %54 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %55 = trunc i8 %54 to i1
   store volatile i32 6, ptr %7, align 4
@@ -17207,7 +17207,7 @@ _ZL9GetVMFlagIjLi2EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18S
   store volatile i32 4, ptr %7, align 4
   %52 = getelementptr i8, ptr %1, i64 800
   %.val = load ptr, ptr %52, align 8
-  %53 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
+  %53 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l.argprom(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
   %54 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %55 = trunc i8 %54 to i1
   store volatile i32 6, ptr %7, align 4
@@ -17483,7 +17483,7 @@ _ZL9GetVMFlagIlLi3EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18S
   store volatile i32 4, ptr %7, align 4
   %51 = getelementptr i8, ptr %1, i64 800
   %.val = load ptr, ptr %51, align 8
-  %52 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
+  %52 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l.argprom(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
   %53 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %54 = trunc i8 %53 to i1
   store volatile i32 6, ptr %7, align 4
@@ -17759,7 +17759,7 @@ _ZL9GetVMFlagImLi4EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18S
   store volatile i32 4, ptr %7, align 4
   %51 = getelementptr i8, ptr %1, i64 800
   %.val = load ptr, ptr %51, align 8
-  %52 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
+  %52 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l.argprom(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
   %53 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %54 = trunc i8 %53 to i1
   store volatile i32 6, ptr %7, align 4
@@ -18035,7 +18035,7 @@ _ZL9GetVMFlagImLi5EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18S
   store volatile i32 4, ptr %7, align 4
   %51 = getelementptr i8, ptr %1, i64 800
   %.val = load ptr, ptr %51, align 8
-  %52 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
+  %52 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l.argprom(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
   %53 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %54 = trunc i8 %53 to i1
   store volatile i32 6, ptr %7, align 4
@@ -18311,7 +18311,7 @@ _ZL9GetVMFlagImLi6EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18S
   store volatile i32 4, ptr %7, align 4
   %51 = getelementptr i8, ptr %1, i64 800
   %.val = load ptr, ptr %51, align 8
-  %52 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
+  %52 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l.argprom(ptr %.val, ptr noundef nonnull %0, i64 noundef %.09)
   %53 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %54 = trunc i8 %53 to i1
   store volatile i32 6, ptr %7, align 4
@@ -18529,7 +18529,7 @@ _ZL9GetVMFlagIdLi7EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN18S
   store volatile i32 4, ptr %15, align 4
   %73 = getelementptr i8, ptr %7, i64 800
   %.val = load ptr, ptr %73, align 8
-  %74 = call fastcc noundef ptr @_ZL9doubleBoxP10JavaThreadP7JNIEnv_d(ptr %.val, ptr noundef nonnull %0, double noundef %.023)
+  %74 = call fastcc noundef ptr @_ZL9doubleBoxP10JavaThreadP7JNIEnv_d.argprom(ptr %.val, ptr noundef nonnull %0, double noundef %.023)
   %75 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %76 = trunc i8 %75 to i1
   store volatile i32 6, ptr %15, align 4
@@ -18615,7 +18615,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL9doubleBoxP10JavaThreadP7JNIEnv_d(ptr %.800.val, ptr noundef %0, double noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL9doubleBoxP10JavaThreadP7JNIEnv_d.argprom(ptr %.800.val, ptr noundef %0, double noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 216), align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6728), align 8
   %5 = getelementptr inbounds i8, ptr %.800.val, i64 24
@@ -18710,15 +18710,15 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit22.i: ; preds = %47, 
 52:                                               ; preds = %51, %49
   %53 = load ptr, ptr %7, align 8
   %.not8.i.i.i.i.i = icmp eq ptr %53, %8
-  br i1 %.not8.i.i.i.i.i, label %_ZL3boxIdEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.exit, label %54
+  br i1 %.not8.i.i.i.i.i, label %_ZL3boxIdEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.argprom.exit, label %54
 
 54:                                               ; preds = %52
   store ptr %6, ptr %5, align 8
   store ptr %8, ptr %7, align 8
   store ptr %10, ptr %9, align 8
-  br label %_ZL3boxIdEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.exit
+  br label %_ZL3boxIdEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.argprom.exit
 
-_ZL3boxIdEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.exit: ; preds = %52, %54
+_ZL3boxIdEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.argprom.exit: ; preds = %52, %54
   ret ptr %.0.i
 }
 
@@ -22476,7 +22476,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit87: ; preds = %_ZN12C
   %157 = load ptr, ptr %156, align 8
   call void %157(ptr noundef nonnull %0, ptr noundef nonnull %129, i32 noundef 0, ptr noundef %148) #15
   %.val81 = load ptr, ptr %37, align 8
-  %158 = call fastcc noundef ptr @_ZL10integerBoxP10JavaThreadP7JNIEnv_i(ptr %.val81, ptr noundef nonnull %0, i32 noundef %109)
+  %158 = call fastcc noundef ptr @_ZL10integerBoxP10JavaThreadP7JNIEnv_i.argprom(ptr %.val81, ptr noundef nonnull %0, i32 noundef %109)
   %159 = load volatile i32, ptr %11, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %160 = add i32 %159, -57005
@@ -22533,7 +22533,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit89: ; preds = %164, %
   %187 = getelementptr inbounds i8, ptr %104, i64 204
   %188 = load i32, ptr %187, align 4
   %.val82 = load ptr, ptr %37, align 8
-  %189 = call fastcc noundef ptr @_ZL10integerBoxP10JavaThreadP7JNIEnv_i(ptr %.val82, ptr noundef nonnull %0, i32 noundef %188)
+  %189 = call fastcc noundef ptr @_ZL10integerBoxP10JavaThreadP7JNIEnv_i.argprom(ptr %.val82, ptr noundef nonnull %0, i32 noundef %188)
   %190 = load volatile i32, ptr %11, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %191 = add i32 %190, -57005
@@ -22564,7 +22564,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit90: ; preds = %177, %
   %205 = getelementptr inbounds i8, ptr %201, i64 %204
   %206 = ptrtoint ptr %205 to i64
   %.val = load ptr, ptr %37, align 8
-  %207 = call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %206)
+  %207 = call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l.argprom(ptr %.val, ptr noundef nonnull %0, i64 noundef %206)
   %208 = load volatile i32, ptr %11, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %209 = add i32 %208, -57005
@@ -22783,7 +22783,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit45: ; preds = %33, %4
   %53 = load i32, ptr %52, align 8
   %54 = getelementptr i8, ptr %0, i64 800
   %.val43 = load ptr, ptr %54, align 8
-  %55 = tail call fastcc noundef ptr @_ZL10integerBoxP10JavaThreadP7JNIEnv_i(ptr %.val43, ptr noundef nonnull %1, i32 noundef %53)
+  %55 = tail call fastcc noundef ptr @_ZL10integerBoxP10JavaThreadP7JNIEnv_i.argprom(ptr %.val43, ptr noundef nonnull %1, i32 noundef %53)
   %56 = load volatile i32, ptr %25, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %57 = add i32 %56, -57005
@@ -22808,7 +22808,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit46: ; preds = %48, %5
   %65 = getelementptr inbounds i8, ptr %2, i64 12
   %66 = load i32, ptr %65, align 4
   %.val44 = load ptr, ptr %54, align 8
-  %67 = tail call fastcc noundef ptr @_ZL10integerBoxP10JavaThreadP7JNIEnv_i(ptr %.val44, ptr noundef nonnull %1, i32 noundef %66)
+  %67 = tail call fastcc noundef ptr @_ZL10integerBoxP10JavaThreadP7JNIEnv_i.argprom(ptr %.val44, ptr noundef nonnull %1, i32 noundef %66)
   %68 = load volatile i32, ptr %25, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %69 = add i32 %68, -57005
@@ -22833,7 +22833,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit47: ; preds = %61, %7
   %77 = getelementptr inbounds i8, ptr %2, i64 16
   %78 = load i64, ptr %77, align 8
   %.val = load ptr, ptr %54, align 8
-  %79 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %1, i64 noundef %78)
+  %79 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l.argprom(ptr %.val, ptr noundef nonnull %1, i64 noundef %78)
   %80 = load volatile i32, ptr %25, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %81 = add i32 %80, -57005
@@ -22884,7 +22884,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %92, %94
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL10integerBoxP10JavaThreadP7JNIEnv_i(ptr %.800.val, ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL10integerBoxP10JavaThreadP7JNIEnv_i.argprom(ptr %.800.val, ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6704), align 8
   %5 = getelementptr inbounds i8, ptr %.800.val, i64 24
@@ -22979,20 +22979,20 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit21.i: ; preds = %47, 
 52:                                               ; preds = %51, %49
   %53 = load ptr, ptr %7, align 8
   %.not8.i.i.i.i.i = icmp eq ptr %53, %8
-  br i1 %.not8.i.i.i.i.i, label %_ZL3boxIiEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.exit, label %54
+  br i1 %.not8.i.i.i.i.i, label %_ZL3boxIiEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.argprom.exit, label %54
 
 54:                                               ; preds = %52
   store ptr %6, ptr %5, align 8
   store ptr %8, ptr %7, align 8
   store ptr %10, ptr %9, align 8
-  br label %_ZL3boxIiEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.exit
+  br label %_ZL3boxIiEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.argprom.exit
 
-_ZL3boxIiEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.exit: ; preds = %52, %54
+_ZL3boxIiEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.argprom.exit: ; preds = %52, %54
   ret ptr %.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.800.val, ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l.argprom(ptr %.800.val, ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6712), align 8
   %5 = getelementptr inbounds i8, ptr %.800.val, i64 24
@@ -23087,15 +23087,15 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit21.i: ; preds = %47, 
 52:                                               ; preds = %51, %49
   %53 = load ptr, ptr %7, align 8
   %.not8.i.i.i.i.i = icmp eq ptr %53, %8
-  br i1 %.not8.i.i.i.i.i, label %_ZL3boxIlEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.exit, label %54
+  br i1 %.not8.i.i.i.i.i, label %_ZL3boxIlEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.argprom.exit, label %54
 
 54:                                               ; preds = %52
   store ptr %6, ptr %5, align 8
   store ptr %8, ptr %7, align 8
   store ptr %10, ptr %9, align 8
-  br label %_ZL3boxIlEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.exit
+  br label %_ZL3boxIlEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.argprom.exit
 
-_ZL3boxIlEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.exit: ; preds = %52, %54
+_ZL3boxIlEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.argprom.exit: ; preds = %52, %54
   ret ptr %.0.i
 }
 
@@ -31121,7 +31121,7 @@ _ZL15GetMethodOptionIbEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit: ; pr
   %117 = and i8 %116, 1
   %118 = getelementptr i8, ptr %10, i64 800
   %.val = load ptr, ptr %118, align 8
-  %119 = call fastcc noundef ptr @_ZL10booleanBoxP10JavaThreadP7JNIEnv_h(ptr %.val, ptr noundef nonnull %0, i8 noundef zeroext %117)
+  %119 = call fastcc noundef ptr @_ZL10booleanBoxP10JavaThreadP7JNIEnv_h.argprom(ptr %.val, ptr noundef nonnull %0, i8 noundef zeroext %117)
   %120 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %121 = trunc i8 %120 to i1
   store volatile i32 6, ptr %18, align 4
@@ -31484,7 +31484,7 @@ _ZL15GetMethodOptionIlEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit: ; pr
   %116 = load i64, ptr %7, align 8
   %117 = getelementptr i8, ptr %10, i64 800
   %.val = load ptr, ptr %117, align 8
-  %118 = call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %116)
+  %118 = call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l.argprom(ptr %.val, ptr noundef nonnull %0, i64 noundef %116)
   %119 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %120 = trunc i8 %119 to i1
   store volatile i32 6, ptr %18, align 4
@@ -31847,7 +31847,7 @@ _ZL15GetMethodOptionImEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit: ; pr
   %116 = load i64, ptr %7, align 8
   %117 = getelementptr i8, ptr %10, i64 800
   %.val = load ptr, ptr %117, align 8
-  %118 = call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %0, i64 noundef %116)
+  %118 = call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l.argprom(ptr %.val, ptr noundef nonnull %0, i64 noundef %116)
   %119 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %120 = trunc i8 %119 to i1
   store volatile i32 6, ptr %18, align 4
@@ -32210,7 +32210,7 @@ _ZL15GetMethodOptionIdEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit: ; pr
   %116 = load double, ptr %7, align 8
   %117 = getelementptr i8, ptr %10, i64 800
   %.val = load ptr, ptr %117, align 8
-  %118 = call fastcc noundef ptr @_ZL9doubleBoxP10JavaThreadP7JNIEnv_d(ptr %.val, ptr noundef nonnull %0, double noundef %116)
+  %118 = call fastcc noundef ptr @_ZL9doubleBoxP10JavaThreadP7JNIEnv_d.argprom(ptr %.val, ptr noundef nonnull %0, double noundef %116)
   %119 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %120 = trunc i8 %119 to i1
   store volatile i32 6, ptr %18, align 4

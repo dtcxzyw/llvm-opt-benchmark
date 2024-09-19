@@ -3046,23 +3046,23 @@ define noundef ptr @wtap_dump_open(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 13:                                               ; preds = %9
   %14 = tail call ptr @gzwfile_open(ptr noundef %0) #22
-  br label %wtap_dump_file_open.exit
+  br label %wtap_dump_file_open.argprom.exit
 
 15:                                               ; preds = %9
   %16 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.148)
-  br label %wtap_dump_file_open.exit
+  br label %wtap_dump_file_open.argprom.exit
 
-wtap_dump_file_open.exit:                         ; preds = %13, %15
+wtap_dump_file_open.argprom.exit:                 ; preds = %13, %15
   %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ]
   %17 = icmp eq ptr %.0.i, null
   br i1 %17, label %18, label %20
 
-18:                                               ; preds = %wtap_dump_file_open.exit
+18:                                               ; preds = %wtap_dump_file_open.argprom.exit
   %19 = load i32, ptr %10, align 4
   store i32 %19, ptr %4, align 4
   br label %.sink.split
 
-20:                                               ; preds = %wtap_dump_file_open.exit
+20:                                               ; preds = %wtap_dump_file_open.argprom.exit
   store ptr %.0.i, ptr %7, align 8
   %21 = load i32, ptr %11, align 4
   %.not.i = icmp eq i32 %21, 0
@@ -3414,24 +3414,24 @@ wtap_default_file_extension.exit:                 ; preds = %12, %14, %18
 
 33:                                               ; preds = %29
   %34 = call ptr @gzwfile_fdopen(i32 noundef %26) #22
-  br label %wtap_dump_file_fdopen.exit
+  br label %wtap_dump_file_fdopen.argprom.exit
 
 35:                                               ; preds = %29
   %36 = call noalias ptr @fdopen(i32 noundef %26, ptr noundef nonnull @.str.148) #22
-  br label %wtap_dump_file_fdopen.exit
+  br label %wtap_dump_file_fdopen.argprom.exit
 
-wtap_dump_file_fdopen.exit:                       ; preds = %33, %35
+wtap_dump_file_fdopen.argprom.exit:               ; preds = %33, %35
   %.0.i35 = phi ptr [ %34, %33 ], [ %36, %35 ]
   %37 = icmp eq ptr %.0.i35, null
   br i1 %37, label %38, label %41
 
-38:                                               ; preds = %wtap_dump_file_fdopen.exit
+38:                                               ; preds = %wtap_dump_file_fdopen.argprom.exit
   %39 = load i32, ptr %30, align 4
   store i32 %39, ptr %6, align 4
   %40 = call i32 @close(i32 noundef %26) #22
   br label %.sink.split
 
-41:                                               ; preds = %wtap_dump_file_fdopen.exit
+41:                                               ; preds = %wtap_dump_file_fdopen.argprom.exit
   store ptr %.0.i35, ptr %10, align 8
   %42 = load i32, ptr %31, align 4
   %.not.i36 = icmp eq i32 %42, 0
@@ -3540,23 +3540,23 @@ define noundef ptr @wtap_dump_fdopen(i32 noundef %0, i32 noundef %1, i32 noundef
 
 13:                                               ; preds = %9
   %14 = tail call ptr @gzwfile_fdopen(i32 noundef %0) #22
-  br label %wtap_dump_file_fdopen.exit
+  br label %wtap_dump_file_fdopen.argprom.exit
 
 15:                                               ; preds = %9
   %16 = tail call noalias ptr @fdopen(i32 noundef %0, ptr noundef nonnull @.str.148) #22
-  br label %wtap_dump_file_fdopen.exit
+  br label %wtap_dump_file_fdopen.argprom.exit
 
-wtap_dump_file_fdopen.exit:                       ; preds = %13, %15
+wtap_dump_file_fdopen.argprom.exit:               ; preds = %13, %15
   %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ]
   %17 = icmp eq ptr %.0.i, null
   br i1 %17, label %18, label %20
 
-18:                                               ; preds = %wtap_dump_file_fdopen.exit
+18:                                               ; preds = %wtap_dump_file_fdopen.argprom.exit
   %19 = load i32, ptr %10, align 4
   store i32 %19, ptr %4, align 4
   br label %.sink.split
 
-20:                                               ; preds = %wtap_dump_file_fdopen.exit
+20:                                               ; preds = %wtap_dump_file_fdopen.argprom.exit
   store ptr %.0.i, ptr %7, align 8
   %21 = load i32, ptr %11, align 4
   %.not.i = icmp eq i32 %21, 0

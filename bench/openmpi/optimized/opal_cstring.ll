@@ -44,7 +44,7 @@ define noalias noundef ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1
 
 11:                                               ; preds = %10, %5
   %.not9.i = icmp eq ptr %7, null
-  br i1 %.not9.i, label %opal_obj_new.exit, label %12
+  br i1 %.not9.i, label %opal_obj_new.argprom.exit, label %12
 
 12:                                               ; preds = %11
   store ptr @opal_cstring_t_class, ptr %7, align 8
@@ -53,7 +53,7 @@ define noalias noundef ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i.i = icmp eq ptr %15, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %12, %.lr.ph.i.i
   %16 = phi ptr [ %18, %.lr.ph.i.i ], [ %15, %12 ]
@@ -62,14 +62,14 @@ define noalias noundef ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1
   %17 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 19:                                               ; preds = %2
   %20 = add i64 %1, 26
   %21 = tail call noundef range(i64 32, 0) i64 @llvm.umax.i64(i64 %20, i64 32)
   %22 = tail call noalias ptr @malloc(i64 noundef %21) #11
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %opal_obj_new.exit, label %24
+  br i1 %23, label %opal_obj_new.argprom.exit, label %24
 
 24:                                               ; preds = %19
   %25 = load i32, ptr @opal_class_init_epoch, align 4
@@ -105,9 +105,9 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %28
   %36 = getelementptr inbounds i8, ptr %22, i64 25
   %37 = add i64 %1, 1
   tail call void @opal_string_copy(ptr noundef nonnull %36, ptr noundef %0, i64 noundef %37) #12
-  br label %opal_obj_new.exit
+  br label %opal_obj_new.argprom.exit
 
-opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %12, %11, %19, %opal_obj_run_constructors.exit
+opal_obj_new.argprom.exit:                        ; preds = %.lr.ph.i.i, %12, %11, %19, %opal_obj_run_constructors.exit
   %.0 = phi ptr [ %22, %opal_obj_run_constructors.exit ], [ null, %19 ], [ null, %11 ], [ %7, %12 ], [ %7, %.lr.ph.i.i ]
   ret ptr %.0
 }
@@ -138,7 +138,7 @@ define noalias noundef ptr @opal_cstring_create(ptr noundef %0) local_unnamed_ad
 
 9:                                                ; preds = %8, %3
   %.not9.i = icmp eq ptr %5, null
-  br i1 %.not9.i, label %opal_obj_new.exit, label %10
+  br i1 %.not9.i, label %opal_obj_new.argprom.exit, label %10
 
 10:                                               ; preds = %9
   store ptr @opal_cstring_t_class, ptr %5, align 8
@@ -147,7 +147,7 @@ define noalias noundef ptr @opal_cstring_create(ptr noundef %0) local_unnamed_ad
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 40), align 8
   %13 = load ptr, ptr %12, align 8
   %.not6.i.i = icmp eq ptr %13, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %14 = phi ptr [ %16, %.lr.ph.i.i ], [ %13, %10 ]
@@ -156,14 +156,14 @@ define noalias noundef ptr @opal_cstring_create(ptr noundef %0) local_unnamed_ad
   %15 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 17:                                               ; preds = %1
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
   %19 = tail call noalias ptr @opal_cstring_create_l(ptr noundef nonnull %0, i64 noundef %18)
-  br label %opal_obj_new.exit
+  br label %opal_obj_new.argprom.exit
 
-opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %10, %9, %17
+opal_obj_new.argprom.exit:                        ; preds = %.lr.ph.i.i, %10, %9, %17
   %.0 = phi ptr [ %19, %17 ], [ null, %9 ], [ %5, %10 ], [ %5, %.lr.ph.i.i ]
   ret ptr %.0
 }

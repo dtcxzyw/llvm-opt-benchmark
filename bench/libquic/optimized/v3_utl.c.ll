@@ -2087,7 +2087,7 @@ define internal range(i32 0, 2) i32 @equal_nocase(ptr nocapture noundef readonly
 entry:
   %and.i = and i32 %flags, 32768
   %cmp.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.i, label %skip_prefix.exit, label %while.cond.preheader.i
+  br i1 %cmp.i, label %skip_prefix.argprom.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %entry
   %cmp11.i = icmp ugt i64 %pattern_len, %subject_len
@@ -2134,16 +2134,16 @@ while.end.i:                                      ; preds = %land.rhs.i, %land.r
   %cmp9.i = icmp eq i64 %pattern_len.0.lcssa.i, %subject_len
   %spec.select19 = select i1 %cmp9.i, ptr %pattern.0.lcssa.i, ptr %pattern
   %spec.select20 = select i1 %cmp9.i, i64 %subject_len, i64 %pattern_len
-  br label %skip_prefix.exit
+  br label %skip_prefix.argprom.exit
 
-skip_prefix.exit:                                 ; preds = %while.end.i, %entry
+skip_prefix.argprom.exit:                         ; preds = %while.end.i, %entry
   %pattern.addr.1 = phi ptr [ %pattern, %entry ], [ %spec.select19, %while.end.i ]
   %pattern_len.addr.1 = phi i64 [ %pattern_len, %entry ], [ %spec.select20, %while.end.i ]
   %cmp.not = icmp eq i64 %pattern_len.addr.1, %subject_len
   br i1 %cmp.not, label %while.cond.preheader, label %return
 
-while.cond.preheader:                             ; preds = %if.end8.i, %while.body.us.i, %skip_prefix.exit
-  %pattern.addr.142 = phi ptr [ %pattern.addr.1, %skip_prefix.exit ], [ %scevgep15.i, %while.body.us.i ], [ %scevgep15.i, %if.end8.i ]
+while.cond.preheader:                             ; preds = %if.end8.i, %while.body.us.i, %skip_prefix.argprom.exit
+  %pattern.addr.142 = phi ptr [ %pattern.addr.1, %skip_prefix.argprom.exit ], [ %scevgep15.i, %while.body.us.i ], [ %scevgep15.i, %if.end8.i ]
   %tobool.not27 = icmp eq i64 %subject_len, 0
   br i1 %tobool.not27, label %return, label %while.body
 
@@ -2179,8 +2179,8 @@ if.end39:                                         ; preds = %if.then9, %if.end4
   %tobool.not = icmp eq i64 %dec, 0
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !22
 
-return:                                           ; preds = %while.body, %if.then9, %if.end39, %while.cond.preheader, %skip_prefix.exit
-  %retval.0 = phi i32 [ 0, %skip_prefix.exit ], [ 1, %while.cond.preheader ], [ 0, %while.body ], [ 0, %if.then9 ], [ 1, %if.end39 ]
+return:                                           ; preds = %while.body, %if.then9, %if.end39, %while.cond.preheader, %skip_prefix.argprom.exit
+  %retval.0 = phi i32 [ 0, %skip_prefix.argprom.exit ], [ 1, %while.cond.preheader ], [ 0, %while.body ], [ 0, %if.then9 ], [ 1, %if.end39 ]
   ret i32 %retval.0
 }
 
@@ -2342,7 +2342,7 @@ for.end.loopexit.i:                               ; preds = %for.inc.i
 if.then5:                                         ; preds = %if.end47.i, %if.else112.i, %if.then117.i, %if.end.i, %lor.end.i, %lor.lhs.false.i, %for.end.loopexit.i, %if.then, %land.lhs.true
   %and.i.i = and i32 %flags, 32768
   %cmp.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.i, label %skip_prefix.exit.i, label %while.cond.preheader.i.i
+  br i1 %cmp.i.i, label %skip_prefix.argprom.exit.i, label %while.cond.preheader.i.i
 
 while.cond.preheader.i.i:                         ; preds = %if.then5
   %cmp11.i.i = icmp ugt i64 %pattern_len, %subject_len
@@ -2389,16 +2389,16 @@ while.end.i.i:                                    ; preds = %land.rhs.i.i, %land
   %cmp9.i.i = icmp eq i64 %pattern_len.0.lcssa.i.i, %subject_len
   %spec.select19.i = select i1 %cmp9.i.i, ptr %pattern.0.lcssa.i.i, ptr %pattern
   %spec.select20.i = select i1 %cmp9.i.i, i64 %subject_len, i64 %pattern_len
-  br label %skip_prefix.exit.i
+  br label %skip_prefix.argprom.exit.i
 
-skip_prefix.exit.i:                               ; preds = %while.end.i.i, %if.then5
+skip_prefix.argprom.exit.i:                       ; preds = %while.end.i.i, %if.then5
   %pattern.addr.1.i = phi ptr [ %pattern, %if.then5 ], [ %spec.select19.i, %while.end.i.i ]
   %pattern_len.addr.1.i = phi i64 [ %pattern_len, %if.then5 ], [ %spec.select20.i, %while.end.i.i ]
   %cmp.not.i = icmp eq i64 %pattern_len.addr.1.i, %subject_len
   br i1 %cmp.not.i, label %while.cond.preheader.i, label %return
 
-while.cond.preheader.i:                           ; preds = %if.end8.i.i, %while.body.us.i.i, %skip_prefix.exit.i
-  %pattern.addr.142.i = phi ptr [ %pattern.addr.1.i, %skip_prefix.exit.i ], [ %scevgep15.i.i, %while.body.us.i.i ], [ %scevgep15.i.i, %if.end8.i.i ]
+while.cond.preheader.i:                           ; preds = %if.end8.i.i, %while.body.us.i.i, %skip_prefix.argprom.exit.i
+  %pattern.addr.142.i = phi ptr [ %pattern.addr.1.i, %skip_prefix.argprom.exit.i ], [ %scevgep15.i.i, %while.body.us.i.i ], [ %scevgep15.i.i, %if.end8.i.i ]
   %tobool.not27.i = icmp eq i64 %subject_len, 0
   br i1 %tobool.not27.i, label %return, label %while.body.i
 
@@ -2445,16 +2445,16 @@ if.end7:                                          ; preds = %for.end.loopexit.i
   %sub = add i64 %24, %sub.ptr.lhs.cast9
   %add.i = add i64 %sub, %sub.ptr.sub
   %cmp.i20 = icmp ult i64 %subject_len, %add.i
-  br i1 %cmp.i20, label %return, label %skip_prefix.exit.i.i
+  br i1 %cmp.i20, label %return, label %skip_prefix.argprom.exit.i.i
 
-skip_prefix.exit.i.i:                             ; preds = %if.end7
+skip_prefix.argprom.exit.i.i:                     ; preds = %if.end7
   %tobool.not27.i.i = icmp eq i64 %sub.ptr.sub, 0
   br i1 %tobool.not27.i.i, label %if.end2.i, label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %skip_prefix.exit.i.i, %if.end39.i.i
-  %subject.addr.030.i.i = phi ptr [ %incdec.ptr40.i.i, %if.end39.i.i ], [ %subject, %skip_prefix.exit.i.i ]
-  %pattern_len.addr.029.i.i = phi i64 [ %dec.i.i24, %if.end39.i.i ], [ %sub.ptr.sub, %skip_prefix.exit.i.i ]
-  %pattern.addr.028.i.i = phi ptr [ %incdec.ptr.i.i23, %if.end39.i.i ], [ %pattern, %skip_prefix.exit.i.i ]
+while.body.i.i:                                   ; preds = %skip_prefix.argprom.exit.i.i, %if.end39.i.i
+  %subject.addr.030.i.i = phi ptr [ %incdec.ptr40.i.i, %if.end39.i.i ], [ %subject, %skip_prefix.argprom.exit.i.i ]
+  %pattern_len.addr.029.i.i = phi i64 [ %dec.i.i24, %if.end39.i.i ], [ %sub.ptr.sub, %skip_prefix.argprom.exit.i.i ]
+  %pattern.addr.028.i.i = phi ptr [ %incdec.ptr.i.i23, %if.end39.i.i ], [ %pattern, %skip_prefix.argprom.exit.i.i ]
   %25 = load i8, ptr %pattern.addr.028.i.i, align 1
   %26 = load i8, ptr %subject.addr.030.i.i, align 1
   %cmp1.i.i21 = icmp eq i8 %25, 0
@@ -2483,7 +2483,7 @@ if.end39.i.i:                                     ; preds = %if.then9.i.i, %if.e
   %tobool.not.i.i = icmp eq i64 %dec.i.i24, 0
   br i1 %tobool.not.i.i, label %if.end2.i, label %while.body.i.i, !llvm.loop !22
 
-if.end2.i:                                        ; preds = %if.end39.i.i, %skip_prefix.exit.i.i
+if.end2.i:                                        ; preds = %if.end39.i.i, %skip_prefix.argprom.exit.i.i
   %add.ptr.i = getelementptr inbounds i8, ptr %subject, i64 %sub.ptr.sub
   %sub.i25 = sub i64 %subject_len, %sub
   %add.ptr3.i = getelementptr inbounds i8, ptr %subject, i64 %sub.i25
@@ -2593,8 +2593,8 @@ for.inc.i30:                                      ; preds = %lor.lhs.false55.i, 
   %cmp39.not.i = icmp eq ptr %incdec.ptr.i31, %add.ptr3.i
   br i1 %cmp39.not.i, label %return, label %for.body.i26, !llvm.loop !25
 
-return:                                           ; preds = %if.then9.i.i, %while.body.i.i, %if.then9.i51.i, %while.body.i44.i, %for.inc.i30, %lor.lhs.false55.i, %if.end39.i, %if.then9.i, %while.body.i, %if.end38.i, %land.lhs.true33.i, %land.lhs.true24.i, %if.then11.i, %if.end7, %while.cond.preheader.i, %skip_prefix.exit.i
-  %retval.0 = phi i32 [ 0, %skip_prefix.exit.i ], [ 1, %while.cond.preheader.i ], [ 0, %if.end7 ], [ 0, %if.then11.i ], [ 0, %land.lhs.true24.i ], [ 1, %land.lhs.true33.i ], [ 1, %if.end38.i ], [ 1, %if.end39.i ], [ 0, %if.then9.i ], [ 0, %while.body.i ], [ 0, %lor.lhs.false55.i ], [ 1, %for.inc.i30 ], [ 0, %while.body.i44.i ], [ 0, %if.then9.i51.i ], [ 0, %while.body.i.i ], [ 0, %if.then9.i.i ]
+return:                                           ; preds = %if.then9.i.i, %while.body.i.i, %if.then9.i51.i, %while.body.i44.i, %for.inc.i30, %lor.lhs.false55.i, %if.end39.i, %if.then9.i, %while.body.i, %if.end38.i, %land.lhs.true33.i, %land.lhs.true24.i, %if.then11.i, %if.end7, %while.cond.preheader.i, %skip_prefix.argprom.exit.i
+  %retval.0 = phi i32 [ 0, %skip_prefix.argprom.exit.i ], [ 1, %while.cond.preheader.i ], [ 0, %if.end7 ], [ 0, %if.then11.i ], [ 0, %land.lhs.true24.i ], [ 1, %land.lhs.true33.i ], [ 1, %if.end38.i ], [ 1, %if.end39.i ], [ 0, %if.then9.i ], [ 0, %while.body.i ], [ 0, %lor.lhs.false55.i ], [ 1, %for.inc.i30 ], [ 0, %while.body.i44.i ], [ 0, %if.then9.i51.i ], [ 0, %while.body.i.i ], [ 0, %if.then9.i.i ]
   ret i32 %retval.0
 }
 
@@ -2603,7 +2603,7 @@ define internal range(i32 0, 2) i32 @equal_case(ptr nocapture noundef readonly %
 entry:
   %and.i = and i32 %flags, 32768
   %cmp.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.i, label %skip_prefix.exit, label %while.cond.preheader.i
+  br i1 %cmp.i, label %skip_prefix.argprom.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %entry
   %cmp11.i = icmp ugt i64 %pattern_len, %subject_len
@@ -2648,22 +2648,22 @@ while.end.i:                                      ; preds = %land.rhs.i, %land.r
   %pattern.0.lcssa.i = phi ptr [ %pattern, %while.cond.preheader.i ], [ %pattern.02.us.i, %land.rhs.us.i ], [ %pattern.02.i, %land.rhs.i ], [ %pattern.02.i, %land.rhs.i ]
   %pattern_len.0.lcssa.i = phi i64 [ %pattern_len, %while.cond.preheader.i ], [ %pattern_len.03.us.i, %land.rhs.us.i ], [ %pattern_len.03.i, %land.rhs.i ], [ %pattern_len.03.i, %land.rhs.i ]
   %cmp9.i = icmp eq i64 %pattern_len.0.lcssa.i, %subject_len
-  br i1 %cmp9.i, label %if.end, label %skip_prefix.exit
+  br i1 %cmp9.i, label %if.end, label %skip_prefix.argprom.exit
 
-skip_prefix.exit:                                 ; preds = %entry, %while.end.i
+skip_prefix.argprom.exit:                         ; preds = %entry, %while.end.i
   %cmp.not = icmp eq i64 %pattern_len, %subject_len
   br i1 %cmp.not, label %if.end, label %return
 
-if.end:                                           ; preds = %if.end8.i, %while.body.us.i, %while.end.i, %skip_prefix.exit
-  %pattern_len.addr.09 = phi i64 [ %pattern_len, %skip_prefix.exit ], [ %subject_len, %while.end.i ], [ %subject_len, %while.body.us.i ], [ %subject_len, %if.end8.i ]
-  %pattern.addr.08 = phi ptr [ %pattern, %skip_prefix.exit ], [ %pattern.0.lcssa.i, %while.end.i ], [ %scevgep15.i, %while.body.us.i ], [ %scevgep15.i, %if.end8.i ]
+if.end:                                           ; preds = %if.end8.i, %while.body.us.i, %while.end.i, %skip_prefix.argprom.exit
+  %pattern_len.addr.09 = phi i64 [ %pattern_len, %skip_prefix.argprom.exit ], [ %subject_len, %while.end.i ], [ %subject_len, %while.body.us.i ], [ %subject_len, %if.end8.i ]
+  %pattern.addr.08 = phi ptr [ %pattern, %skip_prefix.argprom.exit ], [ %pattern.0.lcssa.i, %while.end.i ], [ %scevgep15.i, %while.body.us.i ], [ %scevgep15.i, %if.end8.i ]
   %bcmp = tail call i32 @bcmp(ptr %pattern.addr.08, ptr %subject, i64 %pattern_len.addr.09)
   %tobool.not = icmp eq i32 %bcmp, 0
   %lnot.ext = zext i1 %tobool.not to i32
   br label %return
 
-return:                                           ; preds = %skip_prefix.exit, %if.end
-  %retval.0 = phi i32 [ %lnot.ext, %if.end ], [ 0, %skip_prefix.exit ]
+return:                                           ; preds = %skip_prefix.argprom.exit, %if.end
+  %retval.0 = phi i32 [ %lnot.ext, %if.end ], [ 0, %skip_prefix.argprom.exit ]
   ret i32 %retval.0
 }
 

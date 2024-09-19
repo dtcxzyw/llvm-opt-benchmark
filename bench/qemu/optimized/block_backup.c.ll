@@ -225,9 +225,9 @@ if.end54:                                         ; preds = %land.lhs.true50, %i
 if.end59:                                         ; preds = %if.end54, %if.end46
   %call60 = tail call i64 @bdrv_getlength(ptr noundef nonnull %bs) #5
   %cmp61 = icmp slt i64 %call60, 0
-  br i1 %cmp61, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end65
+  br i1 %cmp61, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end65
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end59
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end59
   tail call void @bdrv_graph_rdlock_main_loop() #5
   %3 = trunc i64 %call60 to i32
   %conv = sub i32 0, %3
@@ -239,9 +239,9 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end59
 if.end65:                                         ; preds = %if.end59
   %call66 = tail call i64 @bdrv_getlength(ptr noundef nonnull %target) #5
   %cmp67 = icmp slt i64 %call66, 0
-  br i1 %cmp67, label %glib_autoptr_cleanup_GraphLockableMainloop.exit86, label %if.end76
+  br i1 %cmp67, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit86, label %if.end76
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit86: ; preds = %if.end65
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit86: ; preds = %if.end65
   tail call void @bdrv_graph_rdlock_main_loop() #5
   %4 = trunc i64 %call66 to i32
   %conv73 = sub i32 0, %4
@@ -321,8 +321,8 @@ if.end98:                                         ; preds = %if.end94
   call void @bdrv_graph_wrunlock(ptr noundef nonnull %target) #5
   br label %return
 
-error:                                            ; preds = %if.end94, %if.end80, %glib_autoptr_cleanup_GraphLockableMainloop.exit, %glib_autoptr_cleanup_GraphLockableMainloop.exit86, %if.then92, %if.then79
-  %cbw.0 = phi ptr [ null, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ null, %glib_autoptr_cleanup_GraphLockableMainloop.exit86 ], [ null, %if.then79 ], [ %call81, %if.then92 ], [ %call81, %if.end94 ], [ null, %if.end80 ]
+error:                                            ; preds = %if.end94, %if.end80, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit86, %if.then92, %if.then79
+  %cbw.0 = phi ptr [ null, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit ], [ null, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit86 ], [ null, %if.then79 ], [ %call81, %if.then92 ], [ %call81, %if.end94 ], [ null, %if.end80 ]
   br i1 %tobool11, label %if.then116, label %if.end118
 
 if.then116:                                       ; preds = %error

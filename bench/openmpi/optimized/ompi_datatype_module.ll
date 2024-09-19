@@ -189,7 +189,7 @@ define i32 @ompi_datatype_init() local_unnamed_addr #0 {
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_pointer_array_t_class, i64 40), align 8
   %33 = load ptr, ptr %32, align 8
   %.not1.i = icmp eq ptr %33, null
-  br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %.lr.ph.i
   %34 = phi ptr [ %36, %.lr.ph.i ], [ %33, %31 ]
@@ -198,14 +198,14 @@ define i32 @ompi_datatype_init() local_unnamed_addr #0 {
   %35 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i, !llvm.loop !4
 
-opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %31
+opal_obj_run_constructors.argprom.exit:           ; preds = %.lr.ph.i, %31
   %37 = tail call i32 @opal_pointer_array_init(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 64, i32 noundef 2147483647, i32 noundef 32) #8
   %.not126 = icmp eq i32 %37, 0
   br i1 %.not126, label %38, label %1224
 
-38:                                               ; preds = %opal_obj_run_constructors.exit
+38:                                               ; preds = %opal_obj_run_constructors.argprom.exit
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 40), align 8
   %40 = call i32 @ompi_datatype_create_contiguous(i32 noundef 2, ptr noundef %39, ptr noundef nonnull %1) #8
   %41 = load ptr, ptr %1, align 8
@@ -2516,8 +2516,8 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   %1192 = icmp sgt i32 %1191, 0
   br i1 %1192, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %1190, %opal_pointer_array_get_item.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %opal_pointer_array_get_item.exit ], [ 0, %1190 ]
+.lr.ph:                                           ; preds = %1190, %opal_pointer_array_get_item.argprom.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %opal_pointer_array_get_item.argprom.exit ], [ 0, %1190 ]
   %1193 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_datatype_f_to_c_table, i64 88), align 8
   %1194 = sext i32 %1193 to i64
   %.not293 = icmp slt i64 %indvars.iv, %1194
@@ -2537,13 +2537,13 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   %1202 = getelementptr inbounds ptr, ptr %1201, i64 %indvars.iv
   %1203 = load ptr, ptr %1202, align 8
   %1204 = trunc i8 %1200 to i1
-  br i1 %1204, label %1205, label %opal_pointer_array_get_item.exit
+  br i1 %1204, label %1205, label %opal_pointer_array_get_item.argprom.exit
 
 1205:                                             ; preds = %1199
   %1206 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_datatype_f_to_c_table, i64 32)) #8
-  br label %opal_pointer_array_get_item.exit
+  br label %opal_pointer_array_get_item.argprom.exit
 
-opal_pointer_array_get_item.exit:                 ; preds = %1199, %1205
+opal_pointer_array_get_item.argprom.exit:         ; preds = %1199, %1205
   %1207 = getelementptr inbounds i8, ptr %1203, i64 56
   %1208 = load i64, ptr %1207, align 8
   %1209 = getelementptr inbounds i8, ptr %1203, i64 48
@@ -2564,7 +2564,7 @@ opal_pointer_array_get_item.exit:                 ; preds = %1199, %1205
   %1220 = icmp slt i64 %indvars.iv.next, %1219
   br i1 %1220, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %opal_pointer_array_get_item.exit, %1190
+._crit_edge:                                      ; preds = %opal_pointer_array_get_item.argprom.exit, %1190
   %1221 = call i32 @ompi_attr_get_ref() #8
   %.not209 = icmp eq i32 %1221, 0
   br i1 %.not209, label %1222, label %1224
@@ -2574,8 +2574,8 @@ opal_pointer_array_get_item.exit:                 ; preds = %1199, %1205
   call void @opal_finalize_append_cleanup(ptr noundef nonnull @ompi_datatype_finalize, ptr noundef nonnull @.str.30, ptr noundef null) #8
   br label %1224
 
-1224:                                             ; preds = %._crit_edge, %opal_obj_run_constructors.exit, %1222
-  %.0 = phi i32 [ 0, %1222 ], [ -1, %opal_obj_run_constructors.exit ], [ %1221, %._crit_edge ]
+1224:                                             ; preds = %._crit_edge, %opal_obj_run_constructors.argprom.exit, %1222
+  %.0 = phi i32 [ 0, %1222 ], [ -1, %opal_obj_run_constructors.argprom.exit ], [ %1221, %._crit_edge ]
   ret i32 %.0
 }
 

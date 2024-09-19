@@ -5701,7 +5701,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZNK9OopHandle7reso
 define hidden void @_ZN13InstanceKlass32clean_initialization_error_tableEv() local_unnamed_addr #0 align 2 {
   %1 = load ptr, ptr @_ZL27_initialization_error_table, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj107EPK13InstanceKlass9OopHandleES3_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSC_SC_EEE6unlinkIZNS1_32clean_initialization_error_tableEvE21InitErrorTableCleanerEEvPSA_.exit, label %2
+  br i1 %.not, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj107EPK13InstanceKlass9OopHandleES3_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSC_SC_EEE6unlinkIZNS1_32clean_initialization_error_tableEvE21InitErrorTableCleanerEEvPSA_.argprom.exit, label %2
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds i8, ptr %1, i64 856
@@ -5724,7 +5724,7 @@ define hidden void @_ZN13InstanceKlass32clean_initialization_error_tableEv() loc
   %12 = getelementptr i8, ptr %9, i64 152
   %.val.i = load ptr, ptr %12, align 8
   %13 = tail call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %.val.i) #26
-  br i1 %13, label %_ZZN13InstanceKlass32clean_initialization_error_tableEvEN21InitErrorTableCleaner8do_entryEPKS_9OopHandle.exit.i, label %14
+  br i1 %13, label %_ZZN13InstanceKlass32clean_initialization_error_tableEvEN21InitErrorTableCleaner8do_entryEPKS_9OopHandle.argprom.exit.i, label %14
 
 14:                                               ; preds = %.lr.ph.i
   %15 = tail call noundef ptr @_ZN8Universe9vm_globalEv() #26
@@ -5747,12 +5747,12 @@ define hidden void @_ZN13InstanceKlass32clean_initialization_error_tableEv() loc
   store i32 %22, ptr %3, align 8
   br label %24
 
-_ZZN13InstanceKlass32clean_initialization_error_tableEvEN21InitErrorTableCleaner8do_entryEPKS_9OopHandle.exit.i: ; preds = %.lr.ph.i
+_ZZN13InstanceKlass32clean_initialization_error_tableEvEN21InitErrorTableCleaner8do_entryEPKS_9OopHandle.argprom.exit.i: ; preds = %.lr.ph.i
   %23 = getelementptr inbounds i8, ptr %7, i64 24
   br label %24
 
-24:                                               ; preds = %_ZZN13InstanceKlass32clean_initialization_error_tableEvEN21InitErrorTableCleaner8do_entryEPKS_9OopHandle.exit.i, %18
-  %.1.i = phi ptr [ %.0144.i, %18 ], [ %23, %_ZZN13InstanceKlass32clean_initialization_error_tableEvEN21InitErrorTableCleaner8do_entryEPKS_9OopHandle.exit.i ]
+24:                                               ; preds = %_ZZN13InstanceKlass32clean_initialization_error_tableEvEN21InitErrorTableCleaner8do_entryEPKS_9OopHandle.argprom.exit.i, %18
+  %.1.i = phi ptr [ %.0144.i, %18 ], [ %23, %_ZZN13InstanceKlass32clean_initialization_error_tableEvEN21InitErrorTableCleaner8do_entryEPKS_9OopHandle.argprom.exit.i ]
   %25 = load ptr, ptr %.1.i, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !35
@@ -5760,9 +5760,9 @@ _ZZN13InstanceKlass32clean_initialization_error_tableEvEN21InitErrorTableCleaner
 ._crit_edge.i:                                    ; preds = %24, %4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 107
-  br i1 %exitcond.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj107EPK13InstanceKlass9OopHandleES3_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSC_SC_EEE6unlinkIZNS1_32clean_initialization_error_tableEvE21InitErrorTableCleanerEEvPSA_.exit, label %4, !llvm.loop !36
+  br i1 %exitcond.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj107EPK13InstanceKlass9OopHandleES3_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSC_SC_EEE6unlinkIZNS1_32clean_initialization_error_tableEvE21InitErrorTableCleanerEEvPSA_.argprom.exit, label %4, !llvm.loop !36
 
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj107EPK13InstanceKlass9OopHandleES3_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSC_SC_EEE6unlinkIZNS1_32clean_initialization_error_tableEvE21InitErrorTableCleanerEEvPSA_.exit: ; preds = %._crit_edge.i, %0
+_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj107EPK13InstanceKlass9OopHandleES3_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSC_SC_EEE6unlinkIZNS1_32clean_initialization_error_tableEvE21InitErrorTableCleanerEEvPSA_.argprom.exit: ; preds = %._crit_edge.i, %0
   ret void
 }
 
@@ -14469,16 +14469,16 @@ _ZN8Metadata25print_value_on_maybe_nullEP12outputStreamPKS_.exit135: ; preds = %
   %123 = getelementptr inbounds i8, ptr %0, i64 440
   %124 = load ptr, ptr %123, align 8
   %.not.i136 = icmp eq ptr %124, null
-  br i1 %.not.i136, label %_ZL19print_on_maybe_nullI5ArrayIiEEvP12outputStreamPKcPKT_.exit, label %125
+  br i1 %.not.i136, label %_ZL19print_on_maybe_nullI5ArrayIiEEvP12outputStreamPKcPKT_.argprom.exit, label %125
 
 125:                                              ; preds = %122
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.91, i64 noundef 29) #26
   %126 = ptrtoint ptr %124 to i64
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.228, i64 noundef %126) #26
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #26
-  br label %_ZL19print_on_maybe_nullI5ArrayIiEEvP12outputStreamPKcPKT_.exit
+  br label %_ZL19print_on_maybe_nullI5ArrayIiEEvP12outputStreamPKcPKT_.argprom.exit
 
-_ZL19print_on_maybe_nullI5ArrayIiEEvP12outputStreamPKcPKT_.exit: ; preds = %122, %125
+_ZL19print_on_maybe_nullI5ArrayIiEEvP12outputStreamPKcPKT_.argprom.exit: ; preds = %122, %125
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.92) #26
   %127 = getelementptr inbounds i8, ptr %0, i64 416
   %128 = load ptr, ptr %127, align 8
@@ -14501,7 +14501,7 @@ _ZL19print_on_maybe_nullI5ArrayIiEEvP12outputStreamPKcPKT_.exit: ; preds = %122,
   %137 = trunc i8 %136 to i1
   br i1 %137, label %138, label %144
 
-138:                                              ; preds = %_ZL19print_on_maybe_nullI5ArrayIiEEvP12outputStreamPKcPKT_.exit
+138:                                              ; preds = %_ZL19print_on_maybe_nullI5ArrayIiEEvP12outputStreamPKcPKT_.argprom.exit
   %139 = getelementptr inbounds i8, ptr %0, i64 184
   %140 = load i8, ptr %139, align 8
   %141 = zext i8 %140 to i32
@@ -14513,7 +14513,7 @@ _ZL19print_on_maybe_nullI5ArrayIiEEvP12outputStreamPKcPKT_.exit: ; preds = %122,
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #26
   br label %144
 
-144:                                              ; preds = %138, %_ZL19print_on_maybe_nullI5ArrayIiEEvP12outputStreamPKcPKT_.exit
+144:                                              ; preds = %138, %_ZL19print_on_maybe_nullI5ArrayIiEEvP12outputStreamPKcPKT_.argprom.exit
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.97) #26
   %145 = getelementptr inbounds i8, ptr %0, i64 224
   %146 = load ptr, ptr %145, align 8
@@ -14525,22 +14525,22 @@ _ZL19print_on_maybe_nullI5ArrayIiEEvP12outputStreamPKcPKT_.exit: ; preds = %122,
   %150 = getelementptr inbounds i8, ptr %0, i64 152
   %151 = load ptr, ptr %150, align 8
   %.not.i137 = icmp eq ptr %151, null
-  br i1 %.not.i137, label %_ZL19print_on_maybe_nullI15ClassLoaderDataEvP12outputStreamPKcPKT_.exit, label %152
+  br i1 %.not.i137, label %_ZL19print_on_maybe_nullI15ClassLoaderDataEvP12outputStreamPKcPKT_.argprom.exit, label %152
 
 152:                                              ; preds = %144
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.98, i64 noundef 23) #26
   call void @_ZNK15ClassLoaderData14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(160) %151, ptr noundef nonnull %1) #26
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #26
-  br label %_ZL19print_on_maybe_nullI15ClassLoaderDataEvP12outputStreamPKcPKT_.exit
+  br label %_ZL19print_on_maybe_nullI15ClassLoaderDataEvP12outputStreamPKcPKT_.argprom.exit
 
-_ZL19print_on_maybe_nullI15ClassLoaderDataEvP12outputStreamPKcPKT_.exit: ; preds = %144, %152
+_ZL19print_on_maybe_nullI15ClassLoaderDataEvP12outputStreamPKcPKT_.argprom.exit: ; preds = %144, %152
   %153 = load ptr, ptr %145, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 54
   %155 = load i16, ptr %154, align 2
   %156 = icmp eq i16 %155, 0
   br i1 %156, label %_ZL19print_on_maybe_nullI6SymbolEvP12outputStreamPKcPKT_.exit, label %_ZNK13InstanceKlass16source_file_nameEv.exit
 
-_ZNK13InstanceKlass16source_file_nameEv.exit:     ; preds = %_ZL19print_on_maybe_nullI15ClassLoaderDataEvP12outputStreamPKcPKT_.exit
+_ZNK13InstanceKlass16source_file_nameEv.exit:     ; preds = %_ZL19print_on_maybe_nullI15ClassLoaderDataEvP12outputStreamPKcPKT_.argprom.exit
   %157 = getelementptr inbounds i8, ptr %153, i64 72
   %158 = zext i16 %155 to i64
   %159 = getelementptr inbounds i64, ptr %157, i64 %158
@@ -14554,7 +14554,7 @@ _ZNK13InstanceKlass16source_file_nameEv.exit:     ; preds = %_ZL19print_on_maybe
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #26
   br label %_ZL19print_on_maybe_nullI6SymbolEvP12outputStreamPKcPKT_.exit
 
-_ZL19print_on_maybe_nullI6SymbolEvP12outputStreamPKcPKT_.exit: ; preds = %_ZL19print_on_maybe_nullI15ClassLoaderDataEvP12outputStreamPKcPKT_.exit, %_ZNK13InstanceKlass16source_file_nameEv.exit, %161
+_ZL19print_on_maybe_nullI6SymbolEvP12outputStreamPKcPKT_.exit: ; preds = %_ZL19print_on_maybe_nullI15ClassLoaderDataEvP12outputStreamPKcPKT_.argprom.exit, %_ZNK13InstanceKlass16source_file_nameEv.exit, %161
   %162 = getelementptr inbounds i8, ptr %0, i64 272
   %163 = load ptr, ptr %162, align 8
   %.not122 = icmp eq ptr %163, null
@@ -14701,16 +14701,16 @@ _ZL19print_on_maybe_nullI6SymbolEvP12outputStreamPKcPKT_.exit150: ; preds = %.cr
   %204 = getelementptr inbounds i8, ptr %0, i64 264
   %205 = load ptr, ptr %204, align 8
   %.not.i151 = icmp eq ptr %205, null
-  br i1 %.not.i151, label %_ZL19print_on_maybe_nullI5ArrayIP15RecordComponentEEvP12outputStreamPKcPKT_.exit, label %206
+  br i1 %.not.i151, label %_ZL19print_on_maybe_nullI5ArrayIP15RecordComponentEEvP12outputStreamPKcPKT_.argprom.exit, label %206
 
 206:                                              ; preds = %_ZL19print_on_maybe_nullI6SymbolEvP12outputStreamPKcPKT_.exit150
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.109, i64 noundef 26) #26
   %207 = ptrtoint ptr %205 to i64
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.228, i64 noundef %207) #26
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #26
-  br label %_ZL19print_on_maybe_nullI5ArrayIP15RecordComponentEEvP12outputStreamPKcPKT_.exit
+  br label %_ZL19print_on_maybe_nullI5ArrayIP15RecordComponentEEvP12outputStreamPKcPKT_.argprom.exit
 
-_ZL19print_on_maybe_nullI5ArrayIP15RecordComponentEEvP12outputStreamPKcPKT_.exit: ; preds = %_ZL19print_on_maybe_nullI6SymbolEvP12outputStreamPKcPKT_.exit150, %206
+_ZL19print_on_maybe_nullI5ArrayIP15RecordComponentEEvP12outputStreamPKcPKT_.argprom.exit: ; preds = %_ZL19print_on_maybe_nullI6SymbolEvP12outputStreamPKcPKT_.exit150, %206
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.110) #26
   %208 = getelementptr inbounds i8, ptr %0, i64 256
   %209 = load ptr, ptr %208, align 8
@@ -14722,7 +14722,7 @@ _ZL19print_on_maybe_nullI5ArrayIP15RecordComponentEEvP12outputStreamPKcPKT_.exit
   %213 = icmp eq ptr %212, null
   br i1 %213, label %_ZNK5Klass11java_mirrorEv.exit.thread, label %_ZNK5Klass11java_mirrorEv.exit
 
-_ZNK5Klass11java_mirrorEv.exit:                   ; preds = %_ZL19print_on_maybe_nullI5ArrayIP15RecordComponentEEvP12outputStreamPKcPKT_.exit
+_ZNK5Klass11java_mirrorEv.exit:                   ; preds = %_ZL19print_on_maybe_nullI5ArrayIP15RecordComponentEEvP12outputStreamPKcPKT_.argprom.exit
   %214 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %215 = call noundef ptr %214(ptr noundef nonnull %212) #26
   %.not124 = icmp eq ptr %215, null
@@ -14737,7 +14737,7 @@ _ZNK5Klass11java_mirrorEv.exit152:                ; preds = %_ZNK5Klass11java_mi
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #26
   br label %219
 
-_ZNK5Klass11java_mirrorEv.exit.thread:            ; preds = %_ZL19print_on_maybe_nullI5ArrayIP15RecordComponentEEvP12outputStreamPKcPKT_.exit, %_ZNK5Klass11java_mirrorEv.exit
+_ZNK5Klass11java_mirrorEv.exit.thread:            ; preds = %_ZL19print_on_maybe_nullI5ArrayIP15RecordComponentEEvP12outputStreamPKcPKT_.argprom.exit, %_ZNK5Klass11java_mirrorEv.exit
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.112) #26
   br label %219
 

@@ -5590,19 +5590,19 @@ define internal i32 @dm_pr_register(ptr nocapture noundef readonly %0, i64 nound
   %41 = phi i1 [ false, %21 ], [ true, %38 ], [ false, %32 ], [ false, %18 ], [ false, %4 ], [ false, %25 ]
   %42 = phi i32 [ -25, %21 ], [ 0, %38 ], [ -22, %32 ], [ -25, %18 ], [ -25, %4 ], [ -11, %25 ]
   %43 = icmp ult i32 %14, 2
-  br i1 %43, label %dm_call_pr.exit, label %44, !prof !16
+  br i1 %43, label %dm_call_pr.argprom.argprom.exit, label %44, !prof !16
 
 44:                                               ; preds = %40
   call void asm sideeffect "182: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 182b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 182) #23, !srcloc !17
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 285, i32 2307, i64 12) #23, !srcloc !18
   call void asm sideeffect "183: nop\0A\09.pushsection .discard.instr_end\0A\09.long 183b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 183) #23, !srcloc !19
-  br label %dm_call_pr.exit
+  br label %dm_call_pr.argprom.argprom.exit
 
-dm_call_pr.exit:                                  ; preds = %40, %44
+dm_call_pr.argprom.argprom.exit:                  ; preds = %40, %44
   call void @__srcu_read_unlock(ptr noundef %13, i32 noundef %14) #23
   br i1 %41, label %45, label %82
 
-45:                                               ; preds = %dm_call_pr.exit
+45:                                               ; preds = %dm_call_pr.argprom.argprom.exit
   %46 = load i32, ptr %10, align 8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %82, label %48
@@ -5660,20 +5660,20 @@ dm_call_pr.exit:                                  ; preds = %40, %44
 
 79:                                               ; preds = %77, %71, %64, %60, %57, %50
   %80 = icmp ult i32 %53, 2
-  br i1 %80, label %dm_call_pr.exit4, label %81, !prof !16
+  br i1 %80, label %dm_call_pr.argprom.argprom.exit4, label %81, !prof !16
 
 81:                                               ; preds = %79
   call void asm sideeffect "182: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 182b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 182) #23, !srcloc !17
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 285, i32 2307, i64 12) #23, !srcloc !18
   call void asm sideeffect "183: nop\0A\09.pushsection .discard.instr_end\0A\09.long 183b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 183) #23, !srcloc !19
-  br label %dm_call_pr.exit4
+  br label %dm_call_pr.argprom.argprom.exit4
 
-dm_call_pr.exit4:                                 ; preds = %79, %81
+dm_call_pr.argprom.argprom.exit4:                 ; preds = %79, %81
   call void @__srcu_read_unlock(ptr noundef %52, i32 noundef %53) #23
   br label %82
 
-82:                                               ; preds = %dm_call_pr.exit4, %48, %45, %dm_call_pr.exit
-  %83 = phi i32 [ %46, %dm_call_pr.exit4 ], [ %42, %dm_call_pr.exit ], [ 0, %45 ], [ %46, %48 ]
+82:                                               ; preds = %dm_call_pr.argprom.argprom.exit4, %48, %45, %dm_call_pr.argprom.argprom.exit
+  %83 = phi i32 [ %46, %dm_call_pr.argprom.argprom.exit4 ], [ %42, %dm_call_pr.argprom.argprom.exit ], [ 0, %45 ], [ %46, %48 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #23
   ret i32 %83
 }
@@ -5744,15 +5744,15 @@ define internal i32 @dm_pr_reserve(ptr nocapture noundef readonly %0, i64 nounde
   %43 = phi i1 [ false, %23 ], [ true, %40 ], [ false, %34 ], [ false, %20 ], [ false, %4 ], [ false, %27 ]
   %44 = phi i32 [ -25, %23 ], [ 0, %40 ], [ -22, %34 ], [ -25, %20 ], [ -25, %4 ], [ -11, %27 ]
   %45 = icmp ult i32 %16, 2
-  br i1 %45, label %dm_call_pr.exit, label %46, !prof !16
+  br i1 %45, label %dm_call_pr.argprom.argprom.exit, label %46, !prof !16
 
 46:                                               ; preds = %42
   call void asm sideeffect "182: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 182b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 182) #23, !srcloc !17
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 285, i32 2307, i64 12) #23, !srcloc !18
   call void asm sideeffect "183: nop\0A\09.pushsection .discard.instr_end\0A\09.long 183b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 183) #23, !srcloc !19
-  br label %dm_call_pr.exit
+  br label %dm_call_pr.argprom.argprom.exit
 
-dm_call_pr.exit:                                  ; preds = %42, %46
+dm_call_pr.argprom.argprom.exit:                  ; preds = %42, %46
   call void @__srcu_read_unlock(ptr noundef %15, i32 noundef %16) #23
   %47 = load i32, ptr %10, align 8
   %48 = select i1 %43, i32 %47, i32 %44
@@ -5822,15 +5822,15 @@ define internal i32 @dm_pr_release(ptr nocapture noundef readonly %0, i64 nounde
   %40 = phi i1 [ false, %20 ], [ true, %37 ], [ false, %31 ], [ false, %17 ], [ false, %3 ], [ false, %24 ]
   %41 = phi i32 [ -25, %20 ], [ 0, %37 ], [ -22, %31 ], [ -25, %17 ], [ -25, %3 ], [ -11, %24 ]
   %42 = icmp ult i32 %13, 2
-  br i1 %42, label %dm_call_pr.exit, label %43, !prof !16
+  br i1 %42, label %dm_call_pr.argprom.argprom.exit, label %43, !prof !16
 
 43:                                               ; preds = %39
   call void asm sideeffect "182: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 182b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 182) #23, !srcloc !17
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 285, i32 2307, i64 12) #23, !srcloc !18
   call void asm sideeffect "183: nop\0A\09.pushsection .discard.instr_end\0A\09.long 183b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 183) #23, !srcloc !19
-  br label %dm_call_pr.exit
+  br label %dm_call_pr.argprom.argprom.exit
 
-dm_call_pr.exit:                                  ; preds = %39, %43
+dm_call_pr.argprom.argprom.exit:                  ; preds = %39, %43
   call void @__srcu_read_unlock(ptr noundef %12, i32 noundef %13) #23
   %44 = load i32, ptr %7, align 8
   %45 = select i1 %40, i32 %44, i32 %41
@@ -5902,15 +5902,15 @@ define internal i32 @dm_pr_preempt(ptr nocapture noundef readonly %0, i64 nounde
   %43 = phi i1 [ false, %23 ], [ true, %40 ], [ false, %34 ], [ false, %20 ], [ false, %5 ], [ false, %27 ]
   %44 = phi i32 [ -25, %23 ], [ 0, %40 ], [ -22, %34 ], [ -25, %20 ], [ -25, %5 ], [ -11, %27 ]
   %45 = icmp ult i32 %16, 2
-  br i1 %45, label %dm_call_pr.exit, label %46, !prof !16
+  br i1 %45, label %dm_call_pr.argprom.argprom.exit, label %46, !prof !16
 
 46:                                               ; preds = %42
   call void asm sideeffect "182: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 182b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 182) #23, !srcloc !17
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 285, i32 2307, i64 12) #23, !srcloc !18
   call void asm sideeffect "183: nop\0A\09.pushsection .discard.instr_end\0A\09.long 183b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 183) #23, !srcloc !19
-  br label %dm_call_pr.exit
+  br label %dm_call_pr.argprom.argprom.exit
 
-dm_call_pr.exit:                                  ; preds = %42, %46
+dm_call_pr.argprom.argprom.exit:                  ; preds = %42, %46
   call void @__srcu_read_unlock(ptr noundef %15, i32 noundef %16) #23
   %47 = load i32, ptr %10, align 8
   %48 = select i1 %43, i32 %47, i32 %44
@@ -6027,15 +6027,15 @@ define internal i32 @dm_pr_read_keys(ptr nocapture noundef readonly %0, ptr noun
   %35 = phi i1 [ false, %15 ], [ true, %32 ], [ false, %26 ], [ false, %12 ], [ false, %2 ], [ false, %19 ]
   %36 = phi i32 [ -25, %15 ], [ 0, %32 ], [ -22, %26 ], [ -25, %12 ], [ -25, %2 ], [ -11, %19 ]
   %37 = icmp ult i32 %8, 2
-  br i1 %37, label %dm_call_pr.exit, label %38, !prof !16
+  br i1 %37, label %dm_call_pr.argprom.argprom.exit, label %38, !prof !16
 
 38:                                               ; preds = %34
   call void asm sideeffect "182: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 182b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 182) #23, !srcloc !17
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 285, i32 2307, i64 12) #23, !srcloc !18
   call void asm sideeffect "183: nop\0A\09.pushsection .discard.instr_end\0A\09.long 183b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 183) #23, !srcloc !19
-  br label %dm_call_pr.exit
+  br label %dm_call_pr.argprom.argprom.exit
 
-dm_call_pr.exit:                                  ; preds = %34, %38
+dm_call_pr.argprom.argprom.exit:                  ; preds = %34, %38
   call void @__srcu_read_unlock(ptr noundef %7, i32 noundef %8) #23
   %39 = getelementptr inbounds i8, ptr %3, i64 24
   %40 = load i32, ptr %39, align 8
@@ -6098,15 +6098,15 @@ define internal i32 @dm_pr_read_reservation(ptr nocapture noundef readonly %0, p
   %35 = phi i1 [ false, %15 ], [ true, %32 ], [ false, %26 ], [ false, %12 ], [ false, %2 ], [ false, %19 ]
   %36 = phi i32 [ -25, %15 ], [ 0, %32 ], [ -22, %26 ], [ -25, %12 ], [ -25, %2 ], [ -11, %19 ]
   %37 = icmp ult i32 %8, 2
-  br i1 %37, label %dm_call_pr.exit, label %38, !prof !16
+  br i1 %37, label %dm_call_pr.argprom.argprom.exit, label %38, !prof !16
 
 38:                                               ; preds = %34
   call void asm sideeffect "182: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 182b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 182) #23, !srcloc !17
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 285, i32 2307, i64 12) #23, !srcloc !18
   call void asm sideeffect "183: nop\0A\09.pushsection .discard.instr_end\0A\09.long 183b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 183) #23, !srcloc !19
-  br label %dm_call_pr.exit
+  br label %dm_call_pr.argprom.argprom.exit
 
-dm_call_pr.exit:                                  ; preds = %34, %38
+dm_call_pr.argprom.argprom.exit:                  ; preds = %34, %38
   call void @__srcu_read_unlock(ptr noundef %7, i32 noundef %8) #23
   %39 = getelementptr inbounds i8, ptr %3, i64 24
   %40 = load i32, ptr %39, align 8

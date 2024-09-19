@@ -121,25 +121,25 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
   %32 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %34 = trunc i8 %30 to i1
-  br i1 %34, label %35, label %opal_pointer_array_get_item.exit
+  br i1 %34, label %35, label %opal_pointer_array_get_item.argprom.exit
 
 35:                                               ; preds = %29
   %36 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_part_base_part, i64 32)) #9
   %.pre = load i8, ptr @opal_uses_threads, align 1
-  br label %opal_pointer_array_get_item.exit
+  br label %opal_pointer_array_get_item.argprom.exit
 
-opal_pointer_array_get_item.exit:                 ; preds = %29, %35
+opal_pointer_array_get_item.argprom.exit:         ; preds = %29, %35
   %37 = phi i8 [ %30, %29 ], [ %.pre, %35 ]
   %38 = icmp eq ptr %33, null
   br i1 %38, label %43, label %39
 
-39:                                               ; preds = %opal_pointer_array_get_item.exit
+39:                                               ; preds = %opal_pointer_array_get_item.argprom.exit
   %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #10
   %41 = call i32 @strncmp(ptr noundef nonnull %23, ptr noundef nonnull %33, i64 noundef %40) #10
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %.loopexit, label %43
 
-43:                                               ; preds = %39, %opal_pointer_array_get_item.exit
+43:                                               ; preds = %39, %opal_pointer_array_get_item.argprom.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load i32, ptr getelementptr inbounds (i8, ptr @mca_part_base_part, i64 88), align 8
   %45 = sext i32 %44 to i64
@@ -315,23 +315,23 @@ opal_obj_run_constructors.exit88:                 ; preds = %.lr.ph.i85, %91
   %121 = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv131
   %122 = load ptr, ptr %121, align 8
   %123 = trunc i8 %119 to i1
-  br i1 %123, label %124, label %opal_pointer_array_get_item.exit91
+  br i1 %123, label %124, label %opal_pointer_array_get_item.argprom.exit91
 
 124:                                              ; preds = %118
   %125 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_part_base_part, i64 32)) #9
   %.pre135 = load i8, ptr @opal_uses_threads, align 1
-  br label %opal_pointer_array_get_item.exit91
+  br label %opal_pointer_array_get_item.argprom.exit91
 
-opal_pointer_array_get_item.exit91:               ; preds = %118, %124
+opal_pointer_array_get_item.argprom.exit91:       ; preds = %118, %124
   %126 = phi i8 [ %119, %118 ], [ %.pre135, %124 ]
   %127 = icmp eq ptr %122, null
   br i1 %127, label %129, label %128
 
-128:                                              ; preds = %opal_pointer_array_get_item.exit91
+128:                                              ; preds = %opal_pointer_array_get_item.argprom.exit91
   call void (i32, ptr, ...) @ompi_rte_abort(i32 noundef 1, ptr noundef nonnull @.str.8, ptr noundef nonnull %122) #12
   unreachable
 
-129:                                              ; preds = %opal_pointer_array_get_item.exit91
+129:                                              ; preds = %opal_pointer_array_get_item.argprom.exit91
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %130 = load i32, ptr getelementptr inbounds (i8, ptr @mca_part_base_part, i64 88), align 8
   %131 = sext i32 %130 to i64

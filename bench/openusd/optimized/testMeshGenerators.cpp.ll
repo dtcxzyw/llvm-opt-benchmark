@@ -103,11 +103,11 @@ define dso_local noundef range(i32 0, 2) i32 @main() local_unnamed_addr #3 perso
           to label %6 unwind label %32
 
 6:                                                ; preds = %5
-  invoke fastcc void @_ZL30TestTopologyAndPointGenerationfRSt14basic_ofstreamIcSt11char_traitsIcEE(float noundef 3.600000e+02, ptr noundef nonnull align 8 dereferenceable(248) %2)
+  invoke fastcc void @_ZL30TestTopologyAndPointGenerationfRSt14basic_ofstreamIcSt11char_traitsIcEE.retelim(float noundef 3.600000e+02, ptr noundef nonnull align 8 dereferenceable(248) %2)
           to label %7 unwind label %34
 
 7:                                                ; preds = %6
-  invoke fastcc void @_ZL30TestTopologyAndPointGenerationfRSt14basic_ofstreamIcSt11char_traitsIcEE(float noundef 1.200000e+02, ptr noundef nonnull align 8 dereferenceable(248) %3)
+  invoke fastcc void @_ZL30TestTopologyAndPointGenerationfRSt14basic_ofstreamIcSt11char_traitsIcEE.retelim(float noundef 1.200000e+02, ptr noundef nonnull align 8 dereferenceable(248) %3)
           to label %8 unwind label %34
 
 8:                                                ; preds = %7
@@ -216,7 +216,7 @@ declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL30TestTopologyAndPointGenerationfRSt14basic_ofstreamIcSt11char_traitsIcEE(float noundef %0, ptr noundef nonnull align 8 dereferenceable(248) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL30TestTopologyAndPointGenerationfRSt14basic_ofstreamIcSt11char_traitsIcEE.retelim(float noundef %0, ptr noundef nonnull align 8 dereferenceable(248) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::GeomUtilMeshGeneratorBase::_PointWriter", align 8
   %5 = alloca ptr, align 8

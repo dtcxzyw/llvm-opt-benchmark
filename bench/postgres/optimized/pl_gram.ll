@@ -1699,7 +1699,7 @@ list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %622
 
 719:                                              ; preds = %108
   %720 = call i32 @plpgsql_yylex() #12
-  %721 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %720, i32 noundef 365, ptr noundef nonnull @.str.18)
+  %721 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %720, i32 noundef 365, ptr noundef nonnull @.str.18)
   br i1 %721, label %722, label %723
 
 722:                                              ; preds = %719
@@ -1707,7 +1707,7 @@ list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %622
   br label %1753
 
 723:                                              ; preds = %719
-  %724 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %720, i32 noundef 355, ptr noundef nonnull @.str.19)
+  %724 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %720, i32 noundef 355, ptr noundef nonnull @.str.19)
   br i1 %724, label %725, label %726
 
 725:                                              ; preds = %723
@@ -1715,7 +1715,7 @@ list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %622
   br label %1753
 
 726:                                              ; preds = %723
-  %727 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %720, i32 noundef 350, ptr noundef nonnull @.str.20)
+  %727 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %720, i32 noundef 350, ptr noundef nonnull @.str.20)
   br i1 %727, label %728, label %729
 
 728:                                              ; preds = %726
@@ -1723,7 +1723,7 @@ list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %622
   br label %1753
 
 729:                                              ; preds = %726
-  %730 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %720, i32 noundef 353, ptr noundef nonnull @.str.21)
+  %730 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %720, i32 noundef 353, ptr noundef nonnull @.str.21)
   br i1 %730, label %731, label %732
 
 731:                                              ; preds = %729
@@ -1731,7 +1731,7 @@ list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %622
   br label %1753
 
 732:                                              ; preds = %729
-  %733 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %720, i32 noundef 354, ptr noundef nonnull @.str.22)
+  %733 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %720, i32 noundef 354, ptr noundef nonnull @.str.22)
   br i1 %733, label %734, label %735
 
 734:                                              ; preds = %732
@@ -1739,7 +1739,7 @@ list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %622
   br label %1753
 
 735:                                              ; preds = %732
-  %736 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %720, i32 noundef 352, ptr noundef nonnull @.str.23)
+  %736 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %720, i32 noundef 352, ptr noundef nonnull @.str.23)
   br i1 %736, label %737, label %738
 
 737:                                              ; preds = %735
@@ -1747,7 +1747,7 @@ list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %622
   br label %1753
 
 738:                                              ; preds = %735
-  %739 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %720, i32 noundef 295, ptr noundef nonnull @.str.24)
+  %739 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %720, i32 noundef 295, ptr noundef nonnull @.str.24)
   br i1 %739, label %740, label %741
 
 740:                                              ; preds = %738
@@ -1755,7 +1755,7 @@ list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %622
   br label %1753
 
 741:                                              ; preds = %738
-  %742 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %720, i32 noundef 299, ptr noundef nonnull @.str.25)
+  %742 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %720, i32 noundef 299, ptr noundef nonnull @.str.25)
   br i1 %742, label %743, label %744
 
 743:                                              ; preds = %741
@@ -1763,7 +1763,7 @@ list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %622
   br label %1753
 
 744:                                              ; preds = %741
-  %745 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %720, i32 noundef 351, ptr noundef nonnull @.str.26)
+  %745 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %720, i32 noundef 351, ptr noundef nonnull @.str.26)
   br i1 %745, label %746, label %747
 
 746:                                              ; preds = %744
@@ -1771,7 +1771,7 @@ list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %622
   br label %1753
 
 747:                                              ; preds = %744
-  %748 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %720, i32 noundef 339, ptr noundef nonnull @.str.27)
+  %748 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %720, i32 noundef 339, ptr noundef nonnull @.str.27)
   br i1 %748, label %749, label %750
 
 749:                                              ; preds = %747
@@ -1779,7 +1779,7 @@ list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %622
   br label %1753
 
 750:                                              ; preds = %747
-  %751 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %720, i32 noundef 375, ptr noundef nonnull @.str.28)
+  %751 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %720, i32 noundef 375, ptr noundef nonnull @.str.28)
   br i1 %751, label %752, label %753
 
 752:                                              ; preds = %750
@@ -1787,7 +1787,7 @@ list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %622
   br label %1753
 
 753:                                              ; preds = %750
-  %754 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %720, i32 noundef 368, ptr noundef nonnull @.str.29)
+  %754 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %720, i32 noundef 368, ptr noundef nonnull @.str.29)
   br i1 %754, label %755, label %756
 
 755:                                              ; preds = %753
@@ -1795,7 +1795,7 @@ list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %622
   br label %1753
 
 756:                                              ; preds = %753
-  %757 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %720, i32 noundef 362, ptr noundef nonnull @.str.30)
+  %757 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %720, i32 noundef 362, ptr noundef nonnull @.str.30)
   br i1 %757, label %758, label %759
 
 758:                                              ; preds = %756
@@ -2254,7 +2254,7 @@ list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %622
   br label %1753
 
 1023:                                             ; preds = %925, %977, %973
-  %1024 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %926, i32 noundef 363, ptr noundef nonnull @.str.39)
+  %1024 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %926, i32 noundef 363, ptr noundef nonnull @.str.39)
   br i1 %1024, label %1025, label %.thread1056
 
 1025:                                             ; preds = %1023
@@ -2677,7 +2677,7 @@ NameOfDatum.exit:                                 ; preds = %1118, %1121
   unreachable
 
 1265:                                             ; preds = %1261
-  %1266 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %1262, i32 noundef 341, ptr noundef nonnull @.str.49)
+  %1266 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %1262, i32 noundef 341, ptr noundef nonnull @.str.49)
   br i1 %1266, label %1267, label %1270
 
 1267:                                             ; preds = %1265
@@ -2687,7 +2687,7 @@ NameOfDatum.exit:                                 ; preds = %1118, %1121
   br label %1753
 
 1270:                                             ; preds = %1265
-  %1271 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %1262, i32 noundef 358, ptr noundef nonnull @.str.50)
+  %1271 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %1262, i32 noundef 358, ptr noundef nonnull @.str.50)
   br i1 %1271, label %1272, label %1275
 
 1272:                                             ; preds = %1270
@@ -2736,27 +2736,27 @@ NameOfDatum.exit:                                 ; preds = %1118, %1121
   unreachable
 
 1295:                                             ; preds = %1278
-  %1296 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %1293, i32 noundef 316, ptr noundef nonnull @.str.51)
+  %1296 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %1293, i32 noundef 316, ptr noundef nonnull @.str.51)
   br i1 %1296, label %thread-pre-split.sink.split, label %1297
 
 1297:                                             ; preds = %1295
-  %1298 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %1293, i32 noundef 383, ptr noundef nonnull @.str.52)
+  %1298 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %1293, i32 noundef 383, ptr noundef nonnull @.str.52)
   br i1 %1298, label %thread-pre-split.sink.split, label %1299
 
 1299:                                             ; preds = %1297
-  %1300 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %1293, i32 noundef 344, ptr noundef nonnull @.str.53)
+  %1300 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %1293, i32 noundef 344, ptr noundef nonnull @.str.53)
   br i1 %1300, label %thread-pre-split.sink.split, label %1301
 
 1301:                                             ; preds = %1299
-  %1302 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %1293, i32 noundef 330, ptr noundef nonnull @.str.54)
+  %1302 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %1293, i32 noundef 330, ptr noundef nonnull @.str.54)
   br i1 %1302, label %thread-pre-split.sink.split, label %1303
 
 1303:                                             ; preds = %1301
-  %1304 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %1293, i32 noundef 335, ptr noundef nonnull @.str.55)
+  %1304 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %1293, i32 noundef 335, ptr noundef nonnull @.str.55)
   br i1 %1304, label %thread-pre-split.sink.split, label %1305
 
 1305:                                             ; preds = %1303
-  %1306 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %1293, i32 noundef 304, ptr noundef nonnull @.str.56)
+  %1306 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %1293, i32 noundef 304, ptr noundef nonnull @.str.56)
   br i1 %1306, label %thread-pre-split.sink.split, label %thread-pre-split
 
 thread-pre-split.sink.split:                      ; preds = %1305, %1303, %1301, %1299, %1297, %1295
@@ -2803,7 +2803,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   br i1 %1317, label %.lr.ph, label %thread-pre-split1059, !llvm.loop !6
 
 1318:                                             ; preds = %thread-pre-split
-  %1319 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %1308, i32 noundef 371, ptr noundef nonnull @.str.59)
+  %1319 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %1308, i32 noundef 371, ptr noundef nonnull @.str.59)
   br i1 %1319, label %1320, label %1331
 
 1320:                                             ; preds = %1318
@@ -3107,16 +3107,16 @@ thread-pre-split1059.thread:                      ; preds = %thread-pre-split, %
 
 1451:                                             ; preds = %1431
   %1452 = call i32 @plpgsql_yylex() #12
-  %1453 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %1452, i32 noundef 342, ptr noundef nonnull @.str.65)
+  %1453 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %1452, i32 noundef 342, ptr noundef nonnull @.str.65)
   br i1 %1453, label %1454, label %1457
 
 1454:                                             ; preds = %1451
   %1455 = call i32 @plpgsql_yylex() #12
-  %1456 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %1455, i32 noundef 369, ptr noundef nonnull @.str.66)
+  %1456 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %1455, i32 noundef 369, ptr noundef nonnull @.str.66)
   br i1 %1456, label %.sink.split, label %1462
 
 1457:                                             ; preds = %1451
-  %1458 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %1452, i32 noundef 369, ptr noundef nonnull @.str.66)
+  %1458 = call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %1452, i32 noundef 369, ptr noundef nonnull @.str.66)
   br i1 %1458, label %.sink.split, label %1462
 
 .sink.split:                                      ; preds = %1457, %1454
@@ -3955,7 +3955,7 @@ define internal fastcc ptr @read_datatype(i32 noundef %0) unnamed_addr #0 {
 
 27:                                               ; preds = %17, %24
   %28 = tail call ptr @plpgsql_parse_wordtype(ptr noundef %14) #12
-  br label %tok_is_keyword.exit77
+  br label %tok_is_keyword.argprom.exit77
 
 29:                                               ; preds = %24
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(8) @.str.87) #13
@@ -3964,7 +3964,7 @@ define internal fastcc ptr @read_datatype(i32 noundef %0) unnamed_addr #0 {
 
 32:                                               ; preds = %17, %29
   %33 = tail call ptr @plpgsql_parse_wordrowtype(ptr noundef %14) #12
-  br label %tok_is_keyword.exit77
+  br label %tok_is_keyword.argprom.exit77
 
 34:                                               ; preds = %10
   %35 = tail call zeroext i1 @plpgsql_token_is_unreserved_keyword(i32 noundef %.061) #12
@@ -4002,7 +4002,7 @@ define internal fastcc ptr @read_datatype(i32 noundef %0) unnamed_addr #0 {
 
 51:                                               ; preds = %41, %48
   %52 = tail call ptr @plpgsql_parse_wordtype(ptr noundef %38) #12
-  br label %tok_is_keyword.exit77
+  br label %tok_is_keyword.argprom.exit77
 
 53:                                               ; preds = %48
   %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(8) @.str.87) #13
@@ -4011,7 +4011,7 @@ define internal fastcc ptr @read_datatype(i32 noundef %0) unnamed_addr #0 {
 
 56:                                               ; preds = %41, %53
   %57 = tail call ptr @plpgsql_parse_wordrowtype(ptr noundef %38) #12
-  br label %tok_is_keyword.exit77
+  br label %tok_is_keyword.argprom.exit77
 
 58:                                               ; preds = %34
   %59 = icmp eq i32 %.061, 276
@@ -4048,7 +4048,7 @@ define internal fastcc ptr @read_datatype(i32 noundef %0) unnamed_addr #0 {
 
 74:                                               ; preds = %64, %71
   %75 = tail call ptr @plpgsql_parse_cwordtype(ptr noundef %61) #12
-  br label %tok_is_keyword.exit77
+  br label %tok_is_keyword.argprom.exit77
 
 76:                                               ; preds = %71
   %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull readonly dereferenceable(8) @.str.87) #13
@@ -4057,21 +4057,21 @@ define internal fastcc ptr @read_datatype(i32 noundef %0) unnamed_addr #0 {
 
 79:                                               ; preds = %64, %76
   %80 = tail call ptr @plpgsql_parse_cwordrowtype(ptr noundef %61) #12
-  br label %tok_is_keyword.exit77
+  br label %tok_is_keyword.argprom.exit77
 
-tok_is_keyword.exit77:                            ; preds = %51, %56, %79, %74, %32, %27
+tok_is_keyword.argprom.exit77:                    ; preds = %51, %56, %79, %74, %32, %27
   %.063 = phi ptr [ %28, %27 ], [ %33, %32 ], [ %52, %51 ], [ %57, %56 ], [ %75, %74 ], [ %80, %79 ]
   %.162 = phi i32 [ %18, %27 ], [ %18, %32 ], [ %42, %51 ], [ %42, %56 ], [ %65, %74 ], [ %65, %79 ]
   %.not = icmp eq ptr %.063, null
   br i1 %.not, label %.preheader.preheader, label %81
 
-.preheader.preheader:                             ; preds = %69, %46, %22, %66, %43, %19, %64, %41, %17, %76, %53, %29, %58, %60, %36, %13, %tok_is_keyword.exit77
-  %.5.ph = phi i32 [ %.162, %tok_is_keyword.exit77 ], [ %15, %13 ], [ %39, %36 ], [ %62, %60 ], [ %.061, %58 ], [ 277, %29 ], [ 277, %53 ], [ 277, %76 ], [ %18, %17 ], [ %42, %41 ], [ %65, %64 ], [ 277, %19 ], [ 277, %43 ], [ 277, %66 ], [ 277, %22 ], [ 277, %46 ], [ 277, %69 ]
+.preheader.preheader:                             ; preds = %69, %46, %22, %66, %43, %19, %64, %41, %17, %76, %53, %29, %58, %60, %36, %13, %tok_is_keyword.argprom.exit77
+  %.5.ph = phi i32 [ %.162, %tok_is_keyword.argprom.exit77 ], [ %15, %13 ], [ %39, %36 ], [ %62, %60 ], [ %.061, %58 ], [ 277, %29 ], [ 277, %53 ], [ 277, %76 ], [ %18, %17 ], [ %42, %41 ], [ %65, %64 ], [ 277, %19 ], [ 277, %43 ], [ 277, %66 ], [ 277, %22 ], [ 277, %46 ], [ 277, %69 ]
   br label %.preheader
 
-81:                                               ; preds = %tok_is_keyword.exit77
+81:                                               ; preds = %tok_is_keyword.argprom.exit77
   %82 = tail call i32 @plpgsql_yylex() #12
-  switch i32 %82, label %tok_is_keyword.exit92 [
+  switch i32 %82, label %tok_is_keyword.argprom.exit92 [
     i32 284, label %91
     i32 277, label %83
   ]
@@ -4093,19 +4093,19 @@ tok_is_keyword.exit77:                            ; preds = %51, %56, %79, %74, 
 
 91:                                               ; preds = %81, %88
   %92 = tail call i32 @plpgsql_yylex() #12
-  br label %tok_is_keyword.exit92
+  br label %tok_is_keyword.argprom.exit92
 
 ._crit_edge.thread:                               ; preds = %88, %86, %83
   tail call void @plpgsql_push_back_token(i32 noundef 277) #12
   br label %135
 
-tok_is_keyword.exit92:                            ; preds = %81, %91
+tok_is_keyword.argprom.exit92:                    ; preds = %81, %91
   %.0.i90108 = phi i1 [ true, %91 ], [ false, %81 ]
   %.2 = phi i32 [ %92, %91 ], [ %82, %81 ]
   %93 = icmp eq i32 %.2, 91
   br i1 %93, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %tok_is_keyword.exit92, %100
+.lr.ph:                                           ; preds = %tok_is_keyword.argprom.exit92, %100
   %94 = tail call i32 @plpgsql_yylex() #12
   %95 = icmp eq i32 %94, 266
   br i1 %95, label %96, label %98
@@ -4128,7 +4128,7 @@ tok_is_keyword.exit92:                            ; preds = %81, %91
   %102 = icmp eq i32 %101, 91
   br i1 %102, label %.lr.ph, label %.critedge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %tok_is_keyword.exit92
+._crit_edge:                                      ; preds = %tok_is_keyword.argprom.exit92
   tail call void @plpgsql_push_back_token(i32 noundef %.2) #12
   br i1 %.0.i90108, label %103, label %135
 
@@ -4528,7 +4528,7 @@ tailrecurse:                                      ; preds = %16, %2
 declare ptr @plpgsql_getdiag_kindname(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @tok_is_keyword(i32 noundef %0, i32 noundef range(i32 280, 384) %1, ptr nocapture noundef readonly %2) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @tok_is_keyword.argprom(i32 noundef %0, i32 noundef range(i32 280, 384) %1, ptr nocapture noundef readonly %2) unnamed_addr #6 {
   %4 = icmp eq i32 %0, %1
   br i1 %4, label %16, label %5
 
@@ -5531,7 +5531,7 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
 6:                                                ; preds = %2
   %7 = call ptr @palloc(i64 noundef 16) #12
   %8 = load i32, ptr %1, align 4
-  switch i32 %8, label %tok_is_keyword.exit37 [
+  switch i32 %8, label %tok_is_keyword.argprom.exit37 [
     i32 314, label %51
     i32 277, label %9
     i32 338, label %20
@@ -5547,12 +5547,12 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
 9:                                                ; preds = %6
   %10 = load i8, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 16), align 8
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %tok_is_keyword.exit37, label %12
+  br i1 %11, label %tok_is_keyword.argprom.exit37, label %12
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %tok_is_keyword.exit37, label %14
+  br i1 %.not.i, label %tok_is_keyword.argprom.exit37, label %14
 
 14:                                               ; preds = %12
   %15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(8) @.str.131) #13
@@ -5570,7 +5570,7 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
 21:                                               ; preds = %17
   %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i18 = icmp eq ptr %.pr, null
-  br i1 %.not.i18, label %tok_is_keyword.exit37, label %22
+  br i1 %.not.i18, label %tok_is_keyword.argprom.exit37, label %22
 
 22:                                               ; preds = %21
   %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr, ptr noundef nonnull readonly dereferenceable(7) @.str.133) #13
@@ -5591,7 +5591,7 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
 .thread77:                                        ; preds = %26
   %.pr96 = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i24 = icmp eq ptr %.pr96, null
-  br i1 %.not.i24, label %tok_is_keyword.exit37, label %30
+  br i1 %.not.i24, label %tok_is_keyword.argprom.exit37, label %30
 
 30:                                               ; preds = %.thread77
   %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr96, ptr noundef nonnull readonly dereferenceable(7) @.str.135) #13
@@ -5612,7 +5612,7 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
 38:                                               ; preds = %34
   %.pr86 = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i30 = icmp eq ptr %.pr86, null
-  br i1 %.not.i30, label %tok_is_keyword.exit37, label %39
+  br i1 %.not.i30, label %tok_is_keyword.argprom.exit37, label %39
 
 39:                                               ; preds = %38
   %40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr86, ptr noundef nonnull readonly dereferenceable(9) @.str.137) #13
@@ -5633,17 +5633,17 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
 .thread92:                                        ; preds = %43
   %.pr98.pr = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i36 = icmp eq ptr %.pr98.pr, null
-  br i1 %.not.i36, label %tok_is_keyword.exit37, label %47
+  br i1 %.not.i36, label %tok_is_keyword.argprom.exit37, label %47
 
 47:                                               ; preds = %.thread92
   %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr98.pr, ptr noundef nonnull readonly dereferenceable(7) @.str.139) #13
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %tok_is_keyword.exit37
+  br i1 %49, label %50, label %tok_is_keyword.argprom.exit37
 
 50:                                               ; preds = %6, %47
   br label %51
 
-tok_is_keyword.exit37:                            ; preds = %12, %21, %38, %.thread77, %9, %6, %47, %.thread92
+tok_is_keyword.argprom.exit37:                    ; preds = %12, %21, %38, %.thread77, %9, %6, %47, %.thread92
   call void @plpgsql_yyerror(ptr noundef nonnull @.str.140) #15
   unreachable
 
@@ -6179,9 +6179,9 @@ define internal fastcc noundef ptr @read_fetch_direction() unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %2, i64 49
   store i8 0, ptr %11, align 1
   %12 = tail call i32 @plpgsql_yylex() #12
-  switch i32 %12, label %tok_is_keyword.exit55 [
+  switch i32 %12, label %tok_is_keyword.argprom.exit55 [
     i32 0, label %13
-    i32 341, label %tok_is_keyword.exit.thread
+    i32 341, label %tok_is_keyword.argprom.exit.thread
     i32 277, label %14
     i32 357, label %25
     i32 320, label %30
@@ -6197,17 +6197,17 @@ define internal fastcc noundef ptr @read_fetch_direction() unnamed_addr #0 {
 14:                                               ; preds = %0
   %15 = load i8, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 16), align 8
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %tok_is_keyword.exit55, label %17
+  br i1 %16, label %tok_is_keyword.argprom.exit55, label %17
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %tok_is_keyword.exit55, label %19
+  br i1 %.not.i, label %tok_is_keyword.argprom.exit55, label %19
 
 19:                                               ; preds = %17
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(5) @.str.49) #13
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %tok_is_keyword.exit.thread, label %22
+  br i1 %21, label %tok_is_keyword.argprom.exit.thread, label %22
 
 22:                                               ; preds = %19
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(6) @.str.97) #13
@@ -6216,12 +6216,12 @@ define internal fastcc noundef ptr @read_fetch_direction() unnamed_addr #0 {
 
 25:                                               ; preds = %0, %22
   store i32 1, ptr %8, align 4
-  br label %tok_is_keyword.exit.thread
+  br label %tok_is_keyword.argprom.exit.thread
 
 26:                                               ; preds = %22
   %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i45 = icmp eq ptr %.pr, null
-  br i1 %.not.i45, label %tok_is_keyword.exit55, label %27
+  br i1 %.not.i45, label %tok_is_keyword.argprom.exit55, label %27
 
 27:                                               ; preds = %26
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr, ptr noundef nonnull readonly dereferenceable(6) @.str.98) #13
@@ -6230,7 +6230,7 @@ define internal fastcc noundef ptr @read_fetch_direction() unnamed_addr #0 {
 
 30:                                               ; preds = %0, %27
   store i32 2, ptr %8, align 4
-  br label %tok_is_keyword.exit.thread
+  br label %tok_is_keyword.argprom.exit.thread
 
 31:                                               ; preds = %27
   %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr, ptr noundef nonnull readonly dereferenceable(5) @.str.99) #13
@@ -6240,12 +6240,12 @@ define internal fastcc noundef ptr @read_fetch_direction() unnamed_addr #0 {
 34:                                               ; preds = %0, %31
   store i32 2, ptr %8, align 4
   store i64 -1, ptr %9, align 8
-  br label %tok_is_keyword.exit.thread
+  br label %tok_is_keyword.argprom.exit.thread
 
 .thread83:                                        ; preds = %31
   %.pr91 = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i51 = icmp eq ptr %.pr91, null
-  br i1 %.not.i51, label %tok_is_keyword.exit55, label %35
+  br i1 %.not.i51, label %tok_is_keyword.argprom.exit55, label %35
 
 35:                                               ; preds = %.thread83
   %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr91, ptr noundef nonnull readonly dereferenceable(9) @.str.100) #13
@@ -6257,45 +6257,45 @@ define internal fastcc noundef ptr @read_fetch_direction() unnamed_addr #0 {
   %39 = tail call fastcc ptr @read_sql_construct(i32 noundef 324, i32 noundef 329, i32 noundef 0, ptr noundef nonnull @.str.101, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null, ptr noundef null)
   store ptr %39, ptr %10, align 8
   store i8 0, ptr %1, align 1
-  br label %tok_is_keyword.exit.thread
+  br label %tok_is_keyword.argprom.exit.thread
 
 40:                                               ; preds = %35
   %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr91, ptr noundef nonnull readonly dereferenceable(9) @.str.102) #13
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %tok_is_keyword.exit55
+  br i1 %42, label %43, label %tok_is_keyword.argprom.exit55
 
 43:                                               ; preds = %0, %40
   store i32 3, ptr %8, align 4
   %44 = tail call fastcc ptr @read_sql_construct(i32 noundef 324, i32 noundef 329, i32 noundef 0, ptr noundef nonnull @.str.101, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null, ptr noundef null)
   store ptr %44, ptr %10, align 8
   store i8 0, ptr %1, align 1
-  br label %tok_is_keyword.exit.thread
+  br label %tok_is_keyword.argprom.exit.thread
 
-tok_is_keyword.exit55:                            ; preds = %26, %17, %.thread83, %14, %0, %40
-  %45 = tail call fastcc zeroext i1 @tok_is_keyword(i32 noundef %12, i32 noundef 282, ptr noundef nonnull @.str.103)
+tok_is_keyword.argprom.exit55:                    ; preds = %26, %17, %.thread83, %14, %0, %40
+  %45 = tail call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %12, i32 noundef 282, ptr noundef nonnull @.str.103)
   br i1 %45, label %46, label %47
 
-46:                                               ; preds = %tok_is_keyword.exit55
+46:                                               ; preds = %tok_is_keyword.argprom.exit55
   store i64 9223372036854775807, ptr %9, align 8
   store i8 1, ptr %11, align 1
-  br label %tok_is_keyword.exit.thread
+  br label %tok_is_keyword.argprom.exit.thread
 
-47:                                               ; preds = %tok_is_keyword.exit55
-  %48 = tail call fastcc zeroext i1 @tok_is_keyword(i32 noundef %12, i32 noundef 323, ptr noundef nonnull @.str.104)
+47:                                               ; preds = %tok_is_keyword.argprom.exit55
+  %48 = tail call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %12, i32 noundef 323, ptr noundef nonnull @.str.104)
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %47
   call fastcc void @complete_direction(ptr noundef nonnull %2, ptr noundef %1)
-  br label %tok_is_keyword.exit.thread
+  br label %tok_is_keyword.argprom.exit.thread
 
 50:                                               ; preds = %47
-  %51 = tail call fastcc zeroext i1 @tok_is_keyword(i32 noundef %12, i32 noundef 286, ptr noundef nonnull @.str.105)
+  %51 = tail call fastcc zeroext i1 @tok_is_keyword.argprom(i32 noundef %12, i32 noundef 286, ptr noundef nonnull @.str.105)
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %50
   store i32 1, ptr %8, align 4
   call fastcc void @complete_direction(ptr noundef nonnull %2, ptr noundef %1)
-  br label %tok_is_keyword.exit.thread
+  br label %tok_is_keyword.argprom.exit.thread
 
 53:                                               ; preds = %50
   switch i32 %12, label %56 [
@@ -6306,12 +6306,12 @@ tok_is_keyword.exit55:                            ; preds = %26, %17, %.thread83
 
 54:                                               ; preds = %53, %53
   store i8 0, ptr %1, align 1
-  br label %tok_is_keyword.exit.thread
+  br label %tok_is_keyword.argprom.exit.thread
 
 55:                                               ; preds = %53
   tail call void @plpgsql_push_back_token(i32 noundef 277) #12
   store i8 0, ptr %1, align 1
-  br label %tok_is_keyword.exit.thread
+  br label %tok_is_keyword.argprom.exit.thread
 
 56:                                               ; preds = %53
   tail call void @plpgsql_push_back_token(i32 noundef %12) #12
@@ -6319,14 +6319,14 @@ tok_is_keyword.exit55:                            ; preds = %26, %17, %.thread83
   store ptr %57, ptr %10, align 8
   store i8 1, ptr %11, align 1
   store i8 0, ptr %1, align 1
-  br label %tok_is_keyword.exit.thread
+  br label %tok_is_keyword.argprom.exit.thread
 
-tok_is_keyword.exit.thread:                       ; preds = %0, %19, %25, %34, %43, %49, %54, %56, %55, %52, %46, %38, %30
+tok_is_keyword.argprom.exit.thread:               ; preds = %0, %19, %25, %34, %43, %49, %54, %56, %55, %52, %46, %38, %30
   %58 = load i8, ptr %1, align 1
   %59 = trunc i8 %58 to i1
   br i1 %59, label %60, label %63
 
-60:                                               ; preds = %tok_is_keyword.exit.thread
+60:                                               ; preds = %tok_is_keyword.argprom.exit.thread
   %61 = tail call i32 @plpgsql_yylex() #12
   switch i32 %61, label %62 [
     i32 329, label %63
@@ -6337,7 +6337,7 @@ tok_is_keyword.exit.thread:                       ; preds = %0, %19, %25, %34, %
   tail call void @plpgsql_yyerror(ptr noundef nonnull @.str.106) #15
   unreachable
 
-63:                                               ; preds = %60, %60, %tok_is_keyword.exit.thread
+63:                                               ; preds = %60, %60, %tok_is_keyword.argprom.exit.thread
   ret ptr %2
 }
 

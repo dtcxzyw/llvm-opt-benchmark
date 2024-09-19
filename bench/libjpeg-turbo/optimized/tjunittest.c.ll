@@ -319,7 +319,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
 64:                                               ; preds = %59
   %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %63, i32 noundef %.03036.i)
   %66 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %67 = tail call fastcc i32 @doBmpTest(ptr noundef nonnull @.str.26, i32 noundef %.03036.i, i32 noundef %66, i32 noundef 0)
+  %67 = tail call fastcc i32 @doBmpTest.argelim(ptr noundef nonnull @.str.26, i32 noundef %.03036.i, i32 noundef %66, i32 noundef 0)
   %68 = icmp eq i32 %67, -1
   br i1 %68, label %bmpTest.exit, label %69
 
@@ -330,7 +330,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
 70:                                               ; preds = %69, %._crit_edge.i
   %.pre-phi.i = phi i32 [ %.pre39.i, %._crit_edge.i ], [ %66, %69 ]
   %71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef %63, i32 noundef %.03036.i)
-  %72 = tail call fastcc i32 @doBmpTest(ptr noundef nonnull @.str.29, i32 noundef %.03036.i, i32 noundef %.pre-phi.i, i32 noundef 1)
+  %72 = tail call fastcc i32 @doBmpTest.argelim(ptr noundef nonnull @.str.29, i32 noundef %.03036.i, i32 noundef %.pre-phi.i, i32 noundef 1)
   %73 = icmp eq i32 %72, -1
   br i1 %73, label %bmpTest.exit, label %74
 
@@ -342,7 +342,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
 
 77:                                               ; preds = %74
   %78 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %63, i32 noundef %.03036.i)
-  %79 = tail call fastcc i32 @doBmpTest(ptr noundef nonnull @.str.26, i32 noundef %.03036.i, i32 noundef %.pre-phi.i, i32 noundef 0)
+  %79 = tail call fastcc i32 @doBmpTest.argelim(ptr noundef nonnull @.str.26, i32 noundef %.03036.i, i32 noundef %.pre-phi.i, i32 noundef 0)
   %80 = icmp eq i32 %79, -1
   br i1 %80, label %bmpTest.exit, label %81
 
@@ -352,7 +352,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
 
 82:                                               ; preds = %81, %74
   %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, ptr noundef %63, i32 noundef %.03036.i)
-  %84 = tail call fastcc i32 @doBmpTest(ptr noundef nonnull @.str.29, i32 noundef %.03036.i, i32 noundef %.pre-phi.i, i32 noundef 1)
+  %84 = tail call fastcc i32 @doBmpTest.argelim(ptr noundef nonnull @.str.29, i32 noundef %.03036.i, i32 noundef %.pre-phi.i, i32 noundef 1)
   %85 = icmp eq i32 %84, -1
   br i1 %85, label %bmpTest.exit, label %86
 
@@ -1923,7 +1923,7 @@ compTest.exit:                                    ; preds = %106, %272, %278, %2
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
   %365 = load ptr, ptr %8, align 8
   %366 = load i64, ptr %9, align 8
-  call fastcc void @decompTest(ptr noundef %20, ptr noundef %365, i64 noundef %366, i32 noundef %0, i32 noundef %1, i32 noundef %88, i32 noundef %spec.store.select)
+  call fastcc void @decompTest.argprom(ptr noundef %20, ptr noundef %365, i64 noundef %366, i32 noundef %0, i32 noundef %1, i32 noundef %88, i32 noundef %spec.store.select)
   %367 = add i32 %88, -2
   %or.cond11 = icmp ult i32 %367, 4
   br i1 %or.cond11, label %368, label %372
@@ -1933,7 +1933,7 @@ compTest.exit:                                    ; preds = %106, %272, %278, %2
   %369 = load ptr, ptr %8, align 8
   %370 = load i64, ptr %9, align 8
   %371 = add nuw nsw i32 %88, 5
-  call fastcc void @decompTest(ptr noundef %20, ptr noundef %369, i64 noundef %370, i32 noundef %0, i32 noundef %1, i32 noundef %371, i32 noundef %spec.store.select)
+  call fastcc void @decompTest.argprom(ptr noundef %20, ptr noundef %369, i64 noundef %370, i32 noundef %0, i32 noundef %1, i32 noundef %371, i32 noundef %spec.store.select)
   br label %372
 
 372:                                              ; preds = %368, %compTest.exit
@@ -1963,7 +1963,7 @@ compTest.exit:                                    ; preds = %106, %272, %278, %2
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @doBmpTest(ptr noundef %0, i32 noundef range(i32 -2147483648, 9) %1, i32 noundef range(i32 -2147483648, 12) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @doBmpTest.argelim(ptr noundef %0, i32 noundef range(i32 -2147483648, 9) %1, i32 noundef range(i32 -2147483648, 12) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca [80 x i8], align 16
   %7 = alloca [65 x i8], align 16
@@ -2433,7 +2433,7 @@ initBitmap.exit:                                  ; preds = %169
 
 231:                                              ; preds = %226
   %232 = load i32, ptr %5, align 4
-  %233 = call fastcc i32 @cmpBitmap(ptr noundef %.1, i32 noundef %18, i32 noundef %232, i32 noundef %3, i32 noundef 0)
+  %233 = call fastcc i32 @cmpBitmap.argelim(ptr noundef %.1, i32 noundef %18, i32 noundef %232, i32 noundef %3, i32 noundef 0)
   %.not163 = icmp eq i32 %233, 0
   br i1 %.not163, label %234, label %236
 
@@ -2496,7 +2496,7 @@ initBitmap.exit:                                  ; preds = %169
   %263 = mul nsw i32 %262, 35
   %264 = add i32 %15, %263
   %265 = and i32 %264, %17
-  %266 = call fastcc i32 @cmpBitmap(ptr noundef %.3, i32 noundef %265, i32 noundef %259, i32 noundef %3, i32 noundef 1)
+  %266 = call fastcc i32 @cmpBitmap.argelim(ptr noundef %.3, i32 noundef %265, i32 noundef %259, i32 noundef %3, i32 noundef 1)
   %.not164 = icmp eq i32 %266, 0
   br i1 %.not164, label %267, label %269
 
@@ -2555,7 +2555,7 @@ initBitmap.exit:                                  ; preds = %169
   %294 = mul nsw i32 %293, 35
   %295 = add i32 %15, %294
   %296 = and i32 %295, %17
-  %297 = call fastcc i32 @cmpBitmap(ptr noundef %.4, i32 noundef %296, i32 noundef %290, i32 noundef %3, i32 noundef 1)
+  %297 = call fastcc i32 @cmpBitmap.argelim(ptr noundef %.4, i32 noundef %296, i32 noundef %290, i32 noundef %3, i32 noundef 1)
   %.not165 = icmp eq i32 %297, 0
   br i1 %.not165, label %298, label %300
 
@@ -2687,7 +2687,7 @@ declare ptr @tj3LoadImage12(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 declare ptr @tj3LoadImage16(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @cmpBitmap(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @cmpBitmap.argelim(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #7 {
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds [12 x i32], ptr @tjRedOffset, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
@@ -3130,14 +3130,14 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare i32 @tj3YUVPlaneHeight(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decompTest(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 35, 49) %3, i32 noundef range(i32 35, 49) %4, i32 noundef %5, i32 noundef range(i32 0, 7) %6) unnamed_addr #0 {
+define internal fastcc void @decompTest.argprom(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 35, 49) %3, i32 noundef range(i32 35, 49) %4, i32 noundef %5, i32 noundef range(i32 0, 7) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   store i32 0, ptr %8, align 4
   %.b = load i1, ptr @lossless, align 4
   br i1 %.b, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @_decompTest(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 4294967297)
+  tail call fastcc void @_decompTest.argprom(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 4294967297)
   br label %.loopexit
 
 10:                                               ; preds = %7
@@ -3165,7 +3165,7 @@ define internal fastcc void @decompTest(ptr noundef nonnull %0, ptr noundef %1, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread.us ], [ 0, %.thread.us.preheader ]
   %16 = getelementptr inbounds %struct.tjscalingfactor, ptr %11, i64 %indvars.iv
   %17 = load i64, ptr %16, align 4
-  call fastcc void @_decompTest(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 %17)
+  call fastcc void @_decompTest.argprom(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %8, align 4
   %19 = sext i32 %18 to i64
@@ -3194,7 +3194,7 @@ define internal fastcc void @decompTest(ptr noundef nonnull %0, ptr noundef %1, 
 
 29:                                               ; preds = %26
   %30 = load i64, ptr %23, align 4
-  call fastcc void @_decompTest(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 %30)
+  call fastcc void @_decompTest.argprom(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 %30)
   %.pre17 = load i32, ptr %8, align 4
   br label %.thread.us4
 
@@ -3224,7 +3224,7 @@ define internal fastcc void @decompTest(ptr noundef nonnull %0, ptr noundef %1, 
 
 41:                                               ; preds = %38, %38, %38
   %42 = load i64, ptr %35, align 4
-  call fastcc void @_decompTest(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 %42)
+  call fastcc void @_decompTest.argprom(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 %42)
   %.pre = load i32, ptr %8, align 4
   br label %.thread.us6
 
@@ -3737,7 +3737,7 @@ declare ptr @__errno_location() local_unnamed_addr #14
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_decompTest(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 35, 49) %3, i32 noundef range(i32 35, 49) %4, i32 noundef %5, i32 noundef range(i32 0, 7) %6, i64 %7) unnamed_addr #0 {
+define internal fastcc void @_decompTest.argprom(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 35, 49) %3, i32 noundef range(i32 35, 49) %4, i32 noundef %5, i32 noundef range(i32 0, 7) %6, i64 %7) unnamed_addr #0 {
   %.sroa.0.0.extract.trunc = trunc i64 %7 to i32
   %.sroa.10.0.extract.shift = lshr i64 %7, 32
   %.sroa.10.0.extract.trunc = trunc nuw i64 %.sroa.10.0.extract.shift to i32

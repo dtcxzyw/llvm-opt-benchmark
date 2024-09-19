@@ -1705,20 +1705,20 @@ for.cond.cleanup:                                 ; preds = %invoke.cont101, %in
   %cmp.i.not13.i.i = icmp eq ptr %65, %64
   br i1 %cmp.i.not13.i.i, label %invoke.cont116, label %if.then.i.i.i.i107
 
-if.then.i.i.i.i107:                               ; preds = %for.cond.cleanup, %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE17_M_insert_unique_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdESt23_Rb_tree_const_iteratorIdEOT_RT0_.exit.i.i
-  %this.val.i.i.i.i = phi i64 [ %this.val.i.i16.i.i, %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE17_M_insert_unique_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdESt23_Rb_tree_const_iteratorIdEOT_RT0_.exit.i.i ], [ 0, %for.cond.cleanup ]
-  %__first.sroa.0.014.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE17_M_insert_unique_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdESt23_Rb_tree_const_iteratorIdEOT_RT0_.exit.i.i ], [ %65, %for.cond.cleanup ]
+if.then.i.i.i.i107:                               ; preds = %for.cond.cleanup, %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE17_M_insert_unique_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdESt23_Rb_tree_const_iteratorIdEOT_RT0_.argprom.exit.i.i
+  %this.val.i.i.i.i = phi i64 [ %this.val.i.i16.i.i, %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE17_M_insert_unique_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdESt23_Rb_tree_const_iteratorIdEOT_RT0_.argprom.exit.i.i ], [ 0, %for.cond.cleanup ]
+  %__first.sroa.0.014.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE17_M_insert_unique_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdESt23_Rb_tree_const_iteratorIdEOT_RT0_.argprom.exit.i.i ], [ %65, %for.cond.cleanup ]
   %call5.val.i.i = load double, ptr %__first.sroa.0.014.i.i, align 8
   %__k.0.val.fr.i.i.i = freeze double %call5.val.i.i
   %cmp5.not.i.i.i.i = icmp eq i64 %this.val.i.i.i.i, 0
-  br i1 %cmp5.not.i.i.i.i, label %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIdERKd.exit.sink.split.i.i.i, label %land.lhs.true.i.i.i.i
+  br i1 %cmp5.not.i.i.i.i, label %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIdERKd.argprom.exit.sink.split.i.i.i, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.then.i.i.i.i107
   %67 = load ptr, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !18
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %67, i64 32
   %68 = load double, ptr %_M_storage.i.i.i.i.i.i.i, align 8, !tbaa !81
   %cmp.i.i.i.i.i.i = fcmp oeq double %68, %__k.0.val.fr.i.i.i
-  br i1 %cmp.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIdERKd.exit.sink.split.i.i.i, label %if.end.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIdERKd.argprom.exit.sink.split.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %land.lhs.true.i.i.i.i
   %sub.i.i.i.i.i.i = fsub double %68, %__k.0.val.fr.i.i.i
@@ -1730,7 +1730,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %land.lhs.true.i.i.i
 
 if.then3.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   %cmp5.i.i.i.i.i.i = fcmp olt double %69, 0x3A43880000000000
-  br label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i.i.i.i
+  br label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i.i.i.i
 
 if.end6.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
   %70 = call double @llvm.fabs.f64(double %68)
@@ -1740,20 +1740,20 @@ if.end6.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
   %mul9.i.i.i.i.i.i = fmul double %71, 0x3D19000000000000
   %cmp10.i.i.i.i.i.i = fcmp ole double %69, %mul9.i.i.i.i.i.i
   %72 = or i1 %cmp8.i.i.i.i.i.i, %cmp10.i.i.i.i.i.i
-  br label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i.i.i.i
+  br label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i.i.i.i
 
-_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i.i.i.i: ; preds = %if.end6.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i
+_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i.i.i.i: ; preds = %if.end6.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi i1 [ %cmp5.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i ], [ %72, %if.end6.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i108 = fcmp olt double %__k.0.val.fr.i.i.i, %68
   %73 = or i1 %cmp.i.i.i.i.i108, %retval.0.i.i.i.i.i.i
-  br i1 %73, label %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIdERKd.exit.sink.split.i.i.i, label %if.then.i.i.i109
+  br i1 %73, label %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIdERKd.argprom.exit.sink.split.i.i.i, label %if.then.i.i.i109
 
-_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIdERKd.exit.sink.split.i.i.i: ; preds = %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i.i.i.i, %land.lhs.true.i.i.i.i, %if.then.i.i.i.i107
+_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIdERKd.argprom.exit.sink.split.i.i.i: ; preds = %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i.i.i.i, %land.lhs.true.i.i.i.i, %if.then.i.i.i.i107
   %__x.019.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !18
   %cmp.not20.i.i.i = icmp eq ptr %__x.019.i.i.i, null
   br i1 %cmp.not20.i.i.i, label %if.then.i4.i.i, label %while.body.lr.ph.i.i.i
 
-while.body.lr.ph.i.i.i:                           ; preds = %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIdERKd.exit.sink.split.i.i.i
+while.body.lr.ph.i.i.i:                           ; preds = %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIdERKd.argprom.exit.sink.split.i.i.i
   %cmp1.i.i.i.i.i = fcmp oeq double %__k.0.val.fr.i.i.i, 0.000000e+00
   %74 = call double @llvm.fabs.f64(double %__k.0.val.fr.i.i.i)
   %mul7.i.i.i.i.i = fmul double %74, 0x3D19000000000000
@@ -1800,7 +1800,7 @@ if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i
 
 if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   %cmp5.i.i.i.i.i = fcmp olt double %80, 0x3A43880000000000
-  br label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i.i.i
+  br label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i.i.i
 
 if.end6.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   %cmp8.i.i.i.i.i = fcmp ole double %80, %mul7.i.i.i.i.i
@@ -1808,20 +1808,20 @@ if.end6.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   %mul9.i.i.i.i.i = fmul double %81, 0x3D19000000000000
   %cmp10.i.i.i.i.i = fcmp ole double %80, %mul9.i.i.i.i.i
   %82 = or i1 %cmp8.i.i.i.i.i, %cmp10.i.i.i.i.i
-  br label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i.i.i
+  br label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i.i.i
 
-_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i.i.i: ; preds = %if.end6.i.i.i.i.i, %if.then3.i.i.i.i.i
+_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i.i.i: ; preds = %if.end6.i.i.i.i.i, %if.then3.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi i1 [ %cmp5.i.i.i.i.i, %if.then3.i.i.i.i.i ], [ %82, %if.end6.i.i.i.i.i ]
   %cmp.i.i2.i.i = fcmp olt double %79, %__k.0.val.fr.i.i.i
   %83 = or i1 %cmp.i.i2.i.i, %retval.0.i.i.i.i.i
   br i1 %83, label %cond.false.i.i.i, label %cond.end.i.i.i
 
-cond.false.i.i.i:                                 ; preds = %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i.i.i, %while.body.i.i.i
+cond.false.i.i.i:                                 ; preds = %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i.i.i, %while.body.i.i.i
   br label %cond.end.i.i.i
 
-cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i.i.i
-  %.sink30.i.i.i = phi i64 [ 24, %cond.false.i.i.i ], [ 16, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i.i.i ]
-  %lnot.i14.i.i.i = phi i1 [ false, %cond.false.i.i.i ], [ true, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i.i.i ]
+cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i.i.i
+  %.sink30.i.i.i = phi i64 [ 24, %cond.false.i.i.i ], [ 16, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i.i.i ]
+  %lnot.i14.i.i.i = phi i1 [ false, %cond.false.i.i.i ], [ true, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i.i.i ]
   %84 = getelementptr i8, ptr %__x.021.i.i.i, i64 %.sink30.i.i.i
   %__x.0.i.i.i = load ptr, ptr %84, align 8, !tbaa !18
   %cmp.not.i.i.i110 = icmp eq ptr %__x.0.i.i.i, null
@@ -1832,8 +1832,8 @@ while.end.i.i.i:                                  ; preds = %cond.end.i.i.i, %co
   %__comp.0.lcssa.i.i.i = phi i1 [ %lnot.i14.us.i.i.i, %cond.end.us.i.i.i ], [ %lnot.i14.i.i.i, %cond.end.i.i.i ]
   br i1 %__comp.0.lcssa.i.i.i, label %if.then.i4.i.i, label %if.end12.i.i.i
 
-if.then.i4.i.i:                                   ; preds = %while.end.i.i.i, %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIdERKd.exit.sink.split.i.i.i
-  %__y.0.lcssa28.i.i.i = phi ptr [ %__y.0.lcssa.i.i.i, %while.end.i.i.i ], [ %66, %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIdERKd.exit.sink.split.i.i.i ]
+if.then.i4.i.i:                                   ; preds = %while.end.i.i.i, %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIdERKd.argprom.exit.sink.split.i.i.i
+  %__y.0.lcssa28.i.i.i = phi ptr [ %__y.0.lcssa.i.i.i, %while.end.i.i.i ], [ %66, %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIdERKd.argprom.exit.sink.split.i.i.i ]
   %this.val4.i.i.i = load ptr, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !25
   %cmp.i5.i.i.i = icmp eq ptr %__y.0.lcssa28.i.i.i, %this.val4.i.i.i
   br i1 %cmp.i5.i.i.i, label %if.then.i.i.i109, label %if.else.i.i.i
@@ -1848,7 +1848,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0.i.i.i, i64 32
   %85 = load double, ptr %_M_storage.i.i.i.i.i.i, align 8, !tbaa !81
   %cmp.i.i6.i.i.i = fcmp oeq double %85, %__k.0.val.fr.i.i.i
-  br i1 %cmp.i.i6.i.i.i, label %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE17_M_insert_unique_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdESt23_Rb_tree_const_iteratorIdEOT_RT0_.exit.i.i, label %if.end.i.i7.i.i.i
+  br i1 %cmp.i.i6.i.i.i, label %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE17_M_insert_unique_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdESt23_Rb_tree_const_iteratorIdEOT_RT0_.argprom.exit.i.i, label %if.end.i.i7.i.i.i
 
 if.end.i.i7.i.i.i:                                ; preds = %if.end12.i.i.i
   %sub.i.i8.i.i.i = fsub double %85, %__k.0.val.fr.i.i.i
@@ -1860,7 +1860,7 @@ if.end.i.i7.i.i.i:                                ; preds = %if.end12.i.i.i
 
 if.then3.i.i20.i.i.i:                             ; preds = %if.end.i.i7.i.i.i
   %cmp5.i.i21.i.i.i = fcmp olt double %86, 0x3A43880000000000
-  br label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit22.i.i.i
+  br label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit22.i.i.i
 
 if.end6.i.i12.i.i.i:                              ; preds = %if.end.i.i7.i.i.i
   %87 = call double @llvm.fabs.f64(double %85)
@@ -1870,24 +1870,24 @@ if.end6.i.i12.i.i.i:                              ; preds = %if.end.i.i7.i.i.i
   %mul9.i.i15.i.i.i = fmul double %88, 0x3D19000000000000
   %cmp10.i.i16.i.i.i = fcmp ole double %86, %mul9.i.i15.i.i.i
   %89 = or i1 %cmp8.i.i14.i.i.i, %cmp10.i.i16.i.i.i
-  br label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit22.i.i.i
+  br label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit22.i.i.i
 
-_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit22.i.i.i: ; preds = %if.end6.i.i12.i.i.i, %if.then3.i.i20.i.i.i
+_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit22.i.i.i: ; preds = %if.end6.i.i12.i.i.i, %if.then3.i.i20.i.i.i
   %retval.0.i.i17.i.i.i = phi i1 [ %cmp5.i.i21.i.i.i, %if.then3.i.i20.i.i.i ], [ %89, %if.end6.i.i12.i.i.i ]
   %cmp.i18.i.i.i = fcmp olt double %__k.0.val.fr.i.i.i, %85
   %90 = or i1 %cmp.i18.i.i.i, %retval.0.i.i17.i.i.i
-  br i1 %90, label %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE17_M_insert_unique_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdESt23_Rb_tree_const_iteratorIdEOT_RT0_.exit.i.i, label %if.then.i.i.i109
+  br i1 %90, label %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE17_M_insert_unique_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdESt23_Rb_tree_const_iteratorIdEOT_RT0_.argprom.exit.i.i, label %if.then.i.i.i109
 
-if.then.i.i.i109:                                 ; preds = %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit22.i.i.i, %if.then.i4.i.i, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i.i.i.i
-  %retval.sroa.12.2.i7.i.i.i = phi ptr [ %67, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i.i.i.i ], [ %__y.0.lcssa27.i.i.i, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit22.i.i.i ], [ %__y.0.lcssa28.i.i.i, %if.then.i4.i.i ]
+if.then.i.i.i109:                                 ; preds = %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit22.i.i.i, %if.then.i4.i.i, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i.i.i.i
+  %retval.sroa.12.2.i7.i.i.i = phi ptr [ %67, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i.i.i.i ], [ %__y.0.lcssa27.i.i.i, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit22.i.i.i ], [ %__y.0.lcssa28.i.i.i, %if.then.i4.i.i ]
   %cmp2.i.i.i.i = icmp eq ptr %retval.sroa.12.2.i7.i.i.i, %66
-  br i1 %cmp2.i.i.i.i, label %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE10_M_insert_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i, label %lor.rhs.i.i.i.i
+  br i1 %cmp2.i.i.i.i, label %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE10_M_insert_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdEPSt18_Rb_tree_node_baseSD_OT_RT0_.argprom.exit.i.i.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %if.then.i.i.i109
   %_M_storage.i.i.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.12.2.i7.i.i.i, i64 32
   %91 = load double, ptr %_M_storage.i.i.i.i5.i.i.i, align 8, !tbaa !81
   %cmp.i.i.i6.i.i.i = fcmp oeq double %__k.0.val.fr.i.i.i, %91
-  br i1 %cmp.i.i.i6.i.i.i, label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i17.i.i.i, label %if.end.i.i.i7.i.i.i
+  br i1 %cmp.i.i.i6.i.i.i, label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i17.i.i.i, label %if.end.i.i.i7.i.i.i
 
 if.end.i.i.i7.i.i.i:                              ; preds = %lor.rhs.i.i.i.i
   %sub.i.i.i8.i.i.i = fsub double %__k.0.val.fr.i.i.i, %91
@@ -1899,7 +1899,7 @@ if.end.i.i.i7.i.i.i:                              ; preds = %lor.rhs.i.i.i.i
 
 if.then3.i.i.i20.i.i.i:                           ; preds = %if.end.i.i.i7.i.i.i
   %cmp5.i.i.i21.i.i.i = fcmp olt double %92, 0x3A43880000000000
-  br label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i17.i.i.i
+  br label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i17.i.i.i
 
 if.end6.i.i.i12.i.i.i:                            ; preds = %if.end.i.i.i7.i.i.i
   %93 = call double @llvm.fabs.f64(double %__k.0.val.fr.i.i.i)
@@ -1909,36 +1909,36 @@ if.end6.i.i.i12.i.i.i:                            ; preds = %if.end.i.i.i7.i.i.i
   %mul9.i.i.i15.i.i.i = fmul double %94, 0x3D19000000000000
   %cmp10.i.i.i16.i.i.i = fcmp ole double %92, %mul9.i.i.i15.i.i.i
   %95 = or i1 %cmp8.i.i.i14.i.i.i, %cmp10.i.i.i16.i.i.i
-  br label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i17.i.i.i
+  br label %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i17.i.i.i
 
-_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i17.i.i.i: ; preds = %if.end6.i.i.i12.i.i.i, %if.then3.i.i.i20.i.i.i, %lor.rhs.i.i.i.i
+_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i17.i.i.i: ; preds = %if.end6.i.i.i12.i.i.i, %if.then3.i.i.i20.i.i.i, %lor.rhs.i.i.i.i
   %retval.0.i.i.i18.i.i.i = phi i1 [ true, %lor.rhs.i.i.i.i ], [ %cmp5.i.i.i21.i.i.i, %if.then3.i.i.i20.i.i.i ], [ %95, %if.end6.i.i.i12.i.i.i ]
   %cmp.i.i19.i.i.i = fcmp olt double %91, %__k.0.val.fr.i.i.i
   %96 = or i1 %cmp.i.i19.i.i.i, %retval.0.i.i.i18.i.i.i
   %lnot.i.i.i.i.i = xor i1 %96, true
-  br label %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE10_M_insert_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i
+  br label %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE10_M_insert_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdEPSt18_Rb_tree_node_baseSD_OT_RT0_.argprom.exit.i.i.i
 
-_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE10_M_insert_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i: ; preds = %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i17.i.i.i, %if.then.i.i.i109
-  %97 = phi i1 [ true, %if.then.i.i.i109 ], [ %lnot.i.i.i.i.i, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit.i17.i.i.i ]
+_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE10_M_insert_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdEPSt18_Rb_tree_node_baseSD_OT_RT0_.argprom.exit.i.i.i: ; preds = %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i17.i.i.i, %if.then.i.i.i109
+  %97 = phi i1 [ true, %if.then.i.i.i109 ], [ %lnot.i.i.i.i.i, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit.i17.i.i.i ]
   %call5.i.i.i.i.i.i.i.i2.i = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #33
           to label %call5.i.i.i.i.i.i.i.i.noexc.i unwind label %lpad.i
 
-call5.i.i.i.i.i.i.i.i.noexc.i:                    ; preds = %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE10_M_insert_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i
+call5.i.i.i.i.i.i.i.i.noexc.i:                    ; preds = %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE10_M_insert_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdEPSt18_Rb_tree_node_baseSD_OT_RT0_.argprom.exit.i.i.i
   %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i2.i, i64 32
   store double %__k.0.val.fr.i.i.i, ptr %_M_storage.i.i.i.i.i.i.i.i, align 8, !tbaa !81
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %97, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i2.i, ptr noundef nonnull %retval.sroa.12.2.i7.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %66) #30
   %98 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !27
   %inc.i.i.i.i = add i64 %98, 1
   store i64 %inc.i.i.i.i, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !27
-  br label %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE17_M_insert_unique_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdESt23_Rb_tree_const_iteratorIdEOT_RT0_.exit.i.i
+  br label %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE17_M_insert_unique_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdESt23_Rb_tree_const_iteratorIdEOT_RT0_.argprom.exit.i.i
 
-_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE17_M_insert_unique_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdESt23_Rb_tree_const_iteratorIdEOT_RT0_.exit.i.i: ; preds = %call5.i.i.i.i.i.i.i.i.noexc.i, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit22.i.i.i, %if.end12.i.i.i
-  %this.val.i.i16.i.i = phi i64 [ %this.val.i.i.i.i, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.exit22.i.i.i ], [ %this.val.i.i.i.i, %if.end12.i.i.i ], [ %inc.i.i.i.i, %call5.i.i.i.i.i.i.i.i.noexc.i ]
+_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE17_M_insert_unique_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdESt23_Rb_tree_const_iteratorIdEOT_RT0_.argprom.exit.i.i: ; preds = %call5.i.i.i.i.i.i.i.i.noexc.i, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit22.i.i.i, %if.end12.i.i.i
+  %this.val.i.i16.i.i = phi i64 [ %this.val.i.i.i.i, %_ZNK8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughclEdd.argprom.exit22.i.i.i ], [ %this.val.i.i.i.i, %if.end12.i.i.i ], [ %inc.i.i.i.i, %call5.i.i.i.i.i.i.i.i.noexc.i ]
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.014.i.i, i64 8
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %64
   br i1 %cmp.i.not.i.i, label %invoke.cont116.loopexit, label %if.then.i.i.i.i107, !llvm.loop !109
 
-lpad.i:                                           ; preds = %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE10_M_insert_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i
+lpad.i:                                           ; preds = %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE10_M_insert_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdEPSt18_Rb_tree_node_baseSD_OT_RT0_.argprom.exit.i.i.i
   %99 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup138
@@ -2177,7 +2177,7 @@ lpad100.loopexit.split-lp:                        ; preds = %if.then.i.i.i.i133
           cleanup
   br label %ehcleanup139
 
-invoke.cont116.loopexit:                          ; preds = %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE17_M_insert_unique_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdESt23_Rb_tree_const_iteratorIdEOT_RT0_.exit.i.i
+invoke.cont116.loopexit:                          ; preds = %_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE17_M_insert_unique_IRdNS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIdESt23_Rb_tree_const_iteratorIdEOT_RT0_.argprom.exit.i.i
   %orderedValues.val.pre = load ptr, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !25
   br label %invoke.cont116
 
@@ -2386,7 +2386,7 @@ terminate.lpad.i.i183:                            ; preds = %if.then.i.i.i.i187,
 _ZN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEaSEOS3_.exit, %if.then.i.i177, %.noexc.i.i184, %if.then.i.i.i.i187
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp127) #30
   %orderedValues.val58 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !24
-  call fastcc void @_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE8_M_eraseEPSt13_Rb_tree_nodeIdE(ptr noundef %orderedValues.val58)
+  call fastcc void @_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE8_M_eraseEPSt13_Rb_tree_nodeIdE.argprom(ptr noundef %orderedValues.val58)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %orderedValues) #30
   %154 = load ptr, ptr %storageValues, align 8, !tbaa !101
   %tobool.not.i.i.i190 = icmp eq ptr %154, null
@@ -2428,7 +2428,7 @@ ehcleanup136:                                     ; preds = %lpad128, %lpad.body
 ehcleanup138:                                     ; preds = %lpad125, %ehcleanup136, %lpad.i
   %.pn13.pn.pn = phi { ptr, i32 } [ %99, %lpad.i ], [ %.pn13, %ehcleanup136 ], [ %156, %lpad125 ]
   %this.val.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !24
-  call fastcc void @_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE8_M_eraseEPSt13_Rb_tree_nodeIdE(ptr noundef %this.val.i)
+  call fastcc void @_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE8_M_eraseEPSt13_Rb_tree_nodeIdE.argprom(ptr noundef %this.val.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %orderedValues) #30
   br label %ehcleanup139
 
@@ -9265,7 +9265,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #20
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE8_M_eraseEPSt13_Rb_tree_nodeIdE(ptr noundef %__x) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE8_M_eraseEPSt13_Rb_tree_nodeIdE.argprom(ptr noundef %__x) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not1 = icmp eq ptr %__x, null
   br i1 %cmp.not1, label %while.end, label %while.body
@@ -9274,7 +9274,7 @@ while.body:                                       ; preds = %entry, %while.body
   %__x.addr.02 = phi ptr [ %__x.addr.0.val, %while.body ], [ %__x, %entry ]
   %0 = getelementptr i8, ptr %__x.addr.02, i64 24
   %__x.addr.0.val4 = load ptr, ptr %0, align 8, !tbaa !212
-  tail call fastcc void @_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE8_M_eraseEPSt13_Rb_tree_nodeIdE(ptr noundef %__x.addr.0.val4)
+  tail call fastcc void @_ZNSt8_Rb_treeIddSt9_IdentityIdEN8QuantLib12_GLOBAL__N_121LessButNotCloseEnoughESaIdEE8_M_eraseEPSt13_Rb_tree_nodeIdE.argprom(ptr noundef %__x.addr.0.val4)
   %1 = getelementptr i8, ptr %__x.addr.02, i64 16
   %__x.addr.0.val = load ptr, ptr %1, align 8, !tbaa !213
   tail call void @_ZdlPvm(ptr noundef nonnull %__x.addr.02, i64 noundef 40) #32

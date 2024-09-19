@@ -1123,7 +1123,7 @@ define internal fastcc ptr @hwloc__pci_find_busid_parent(ptr noundef %0, ptr nou
   %32 = getelementptr inbounds i8, ptr %31, i64 224
   %33 = load i32, ptr %32, align 8
   %.not2.i.i.i = icmp eq i32 %33, 0
-  br i1 %.not2.i.i.i, label %hwloc_obj_get_info_by_name.exit.thread.i, label %.lr.ph.i.i.i
+  br i1 %.not2.i.i.i, label %hwloc_obj_get_info_by_name.argprom.exit.thread.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %30
   %34 = getelementptr inbounds i8, ptr %31, i64 216
@@ -1134,7 +1134,7 @@ define internal fastcc ptr @hwloc__pci_find_busid_parent(ptr noundef %0, ptr nou
 36:                                               ; preds = %37
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %hwloc_obj_get_info_by_name.exit.thread.i, label %37, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i, label %hwloc_obj_get_info_by_name.argprom.exit.thread.i, label %37, !llvm.loop !12
 
 37:                                               ; preds = %36, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %36 ]
@@ -1142,30 +1142,30 @@ define internal fastcc ptr @hwloc__pci_find_busid_parent(ptr noundef %0, ptr nou
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(13) @.str.126) #24
   %.not.i.i.i = icmp eq i32 %40, 0
-  br i1 %.not.i.i.i, label %hwloc_obj_get_info_by_name.exit.i, label %36
+  br i1 %.not.i.i.i, label %hwloc_obj_get_info_by_name.argprom.exit.i, label %36
 
-hwloc_obj_get_info_by_name.exit.i:                ; preds = %37
+hwloc_obj_get_info_by_name.argprom.exit.i:        ; preds = %37
   %41 = getelementptr inbounds i8, ptr %38, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %hwloc_obj_get_info_by_name.exit.thread.i, label %43
+  br i1 %.not.i, label %hwloc_obj_get_info_by_name.argprom.exit.thread.i, label %43
 
-43:                                               ; preds = %hwloc_obj_get_info_by_name.exit.i
+43:                                               ; preds = %hwloc_obj_get_info_by_name.argprom.exit.i
   %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(16) @.str.127) #24
   %.not57.i = icmp eq i32 %44, 0
-  br i1 %.not57.i, label %45, label %hwloc_obj_get_info_by_name.exit.thread.i
+  br i1 %.not57.i, label %45, label %hwloc_obj_get_info_by_name.argprom.exit.thread.i
 
 45:                                               ; preds = %43
   store i64 1, ptr %28, align 8
-  br label %hwloc_obj_get_info_by_name.exit.thread.i
+  br label %hwloc_obj_get_info_by_name.argprom.exit.thread.i
 
-hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %36, %45, %43, %hwloc_obj_get_info_by_name.exit.i, %30
-  %46 = phi i64 [ 0, %30 ], [ 1, %45 ], [ 0, %43 ], [ 0, %hwloc_obj_get_info_by_name.exit.i ], [ 0, %36 ]
+hwloc_obj_get_info_by_name.argprom.exit.thread.i: ; preds = %36, %45, %43, %hwloc_obj_get_info_by_name.argprom.exit.i, %30
+  %46 = phi i64 [ 0, %30 ], [ 1, %45 ], [ 0, %43 ], [ 0, %hwloc_obj_get_info_by_name.argprom.exit.i ], [ 0, %36 ]
   %47 = tail call ptr @getenv(ptr noundef nonnull @.str.129) #21
   %.not58.i = icmp eq ptr %47, null
   br i1 %.not58.i, label %52, label %48
 
-48:                                               ; preds = %hwloc_obj_get_info_by_name.exit.thread.i
+48:                                               ; preds = %hwloc_obj_get_info_by_name.argprom.exit.thread.i
   %49 = tail call i32 @atoi(ptr nocapture noundef nonnull %47) #24
   %.not59.i = icmp eq i32 %49, 0
   br i1 %.not59.i, label %52, label %50
@@ -1175,8 +1175,8 @@ hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %36, %45, %43, %hwlo
   store i64 %51, ptr %28, align 8
   br label %52
 
-52:                                               ; preds = %.critedge70, %50, %48, %hwloc_obj_get_info_by_name.exit.thread.i
-  %53 = phi i64 [ %46, %hwloc_obj_get_info_by_name.exit.thread.i ], [ %46, %48 ], [ %51, %50 ], [ %29, %.critedge70 ]
+52:                                               ; preds = %.critedge70, %50, %48, %hwloc_obj_get_info_by_name.argprom.exit.thread.i
+  %53 = phi i64 [ %46, %hwloc_obj_get_info_by_name.argprom.exit.thread.i ], [ %46, %48 ], [ %51, %50 ], [ %29, %.critedge70 ]
   %54 = and i64 %53, 4611686018427387904
   %.not60.i = icmp eq i64 %54, 0
   br i1 %.not60.i, label %59, label %55

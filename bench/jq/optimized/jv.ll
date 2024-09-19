@@ -417,7 +417,7 @@ define { i64, ptr } @jv_number_with_literal(ptr noundef %0) local_unnamed_addr #
   store i32 1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr null, ptr %10, align 8
-  %11 = tail call fastcc ptr @tsd_dec_ctx_get()
+  %11 = tail call fastcc ptr @tsd_dec_ctx_get.argprom()
   %12 = tail call ptr @decContextClearStatus(ptr noundef %11, i32 noundef 1) #25
   %13 = getelementptr inbounds i8, ptr %9, i64 24
   %14 = tail call ptr @decNumberFromString(ptr noundef nonnull %13, ptr noundef %0, ptr noundef %11) #25
@@ -615,7 +615,7 @@ define range(i32 -1, 2) i32 @jvp_number_cmp(i64 %0, ptr %1, i64 %2, ptr %3) loca
 18:                                               ; preds = %4
   %19 = getelementptr inbounds i8, ptr %1, i64 24
   %20 = getelementptr inbounds i8, ptr %3, i64 24
-  %21 = tail call fastcc ptr @tsd_dec_ctx_get()
+  %21 = tail call fastcc ptr @tsd_dec_ctx_get.argprom()
   %22 = call ptr @decNumberCompare(ptr noundef nonnull %13, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef %21) #25
   %23 = getelementptr inbounds i8, ptr %13, i64 10
   %24 = load i16, ptr %23, align 2
@@ -730,7 +730,7 @@ jv_number_value.exit54:                           ; preds = %._crit_edge.i51, %4
 declare ptr @decNumberCompare(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tsd_dec_ctx_get() unnamed_addr #2 {
+define internal fastcc ptr @tsd_dec_ctx_get.argprom() unnamed_addr #2 {
   %1 = tail call i32 @pthread_once(ptr noundef nonnull @dec_ctx_once, ptr noundef nonnull @jv_tsd_dec_ctx_init) #25
   %2 = load i32, ptr @dec_ctx_key, align 4
   %3 = tail call ptr @pthread_getspecific(i32 noundef %2) #25
@@ -1799,8 +1799,8 @@ jvp_object_length.exit:                           ; preds = %66, %63
 79:                                               ; preds = %73
   %80 = getelementptr inbounds i8, ptr %74, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = tail call fastcc ptr @jvp_object_find_bucket(i64 %2, ptr %3, ptr %81)
-  %83 = tail call fastcc ptr @jvp_object_find_slot(ptr %3, ptr %81, ptr noundef nonnull %82)
+  %82 = tail call fastcc ptr @jvp_object_find_bucket.argelim(i64 %2, ptr %3, ptr %81)
+  %83 = tail call fastcc ptr @jvp_object_find_slot.argelim(ptr %3, ptr %81, ptr noundef nonnull %82)
   %84 = icmp eq ptr %83, null
   %85 = getelementptr inbounds i8, ptr %83, i64 24
   br i1 %84, label %jvp_array_equal.exit, label %86
@@ -3312,8 +3312,8 @@ jvp_object_new.exit:                              ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define { i64, ptr } @jv_object_get(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #2 {
-  %5 = tail call fastcc ptr @jvp_object_find_bucket(i64 %0, ptr %1, ptr %3)
-  %6 = tail call fastcc ptr @jvp_object_find_slot(ptr %1, ptr %3, ptr noundef nonnull %5)
+  %5 = tail call fastcc ptr @jvp_object_find_bucket.argelim(i64 %0, ptr %1, ptr %3)
+  %6 = tail call fastcc ptr @jvp_object_find_slot.argelim(ptr %1, ptr %3, ptr noundef nonnull %5)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %jv_copy.exit, label %8
 
@@ -3344,8 +3344,8 @@ jv_copy.exit:                                     ; preds = %14, %8, %4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @jv_object_has(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #2 {
-  %5 = tail call fastcc ptr @jvp_object_find_bucket(i64 %0, ptr %1, ptr %3)
-  %6 = tail call fastcc ptr @jvp_object_find_slot(ptr %1, ptr %3, ptr noundef nonnull %5)
+  %5 = tail call fastcc ptr @jvp_object_find_bucket.argelim(i64 %0, ptr %1, ptr %3)
+  %6 = tail call fastcc ptr @jvp_object_find_slot.argelim(ptr %1, ptr %3, ptr noundef nonnull %5)
   %7 = icmp ne ptr %6, null
   %8 = zext i1 %7 to i32
   tail call void @jv_free(i64 %0, ptr %1)
@@ -3358,8 +3358,8 @@ define { i64, ptr } @jv_object_set(i64 %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %
   %7 = tail call fastcc { i64, ptr } @jvp_object_unshare(i64 %0, ptr %1)
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
-  %10 = tail call fastcc ptr @jvp_object_find_bucket(i64 %8, ptr %9, ptr %3)
-  %11 = tail call fastcc ptr @jvp_object_find_slot(ptr %9, ptr %3, ptr noundef nonnull %10)
+  %10 = tail call fastcc ptr @jvp_object_find_bucket.argelim(i64 %8, ptr %9, ptr %3)
+  %11 = tail call fastcc ptr @jvp_object_find_slot.argelim(ptr %9, ptr %3, ptr noundef nonnull %10)
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %16, label %12
 
@@ -3453,7 +3453,7 @@ jvp_object_new.exit.i.i:                          ; preds = %33
 51:                                               ; preds = %45
   %52 = getelementptr inbounds i8, ptr %46, i64 16
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call fastcc ptr @jvp_object_find_bucket(i64 %.sroa.0.0.insert.insert.i.i.i, ptr nonnull %29, ptr %53)
+  %54 = tail call fastcc ptr @jvp_object_find_bucket.argelim(i64 %.sroa.0.0.insert.insert.i.i.i, ptr nonnull %29, ptr %53)
   %55 = load i64, ptr %47, align 8
   %56 = load ptr, ptr %52, align 8
   %57 = tail call fastcc ptr @jvp_object_add_slot(i64 %.sroa.0.0.insert.insert.i.i.i, ptr nonnull %29, i64 %55, ptr %56, ptr noundef nonnull %54)
@@ -3470,7 +3470,7 @@ jvp_object_new.exit.i.i:                          ; preds = %33
 jvp_object_rehash.exit.i:                         ; preds = %60, %jvp_object_new.exit.thread.i.i
   %.sroa.0.0.insert.insert.i24.i.i = phi i64 [ %.sroa.0.0.insert.insert.i23.i.i, %jvp_object_new.exit.thread.i.i ], [ %.sroa.0.0.insert.insert.i.i.i, %60 ]
   tail call void @jv_mem_free(ptr noundef %9) #25
-  %61 = tail call fastcc ptr @jvp_object_find_bucket(i64 %.sroa.0.0.insert.insert.i24.i.i, ptr nonnull %29, ptr %3)
+  %61 = tail call fastcc ptr @jvp_object_find_bucket.argelim(i64 %.sroa.0.0.insert.insert.i24.i.i, ptr nonnull %29, ptr %3)
   %62 = tail call fastcc ptr @jvp_object_add_slot(i64 %.sroa.0.0.insert.insert.i24.i.i, ptr nonnull %29, i64 %2, ptr %3, ptr noundef nonnull %61)
   %63 = getelementptr inbounds i8, ptr %62, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
@@ -3497,7 +3497,7 @@ define { i64, ptr } @jv_object_delete(i64 %0, ptr %1, i64 %2, ptr %3) local_unna
   %5 = tail call fastcc { i64, ptr } @jvp_object_unshare(i64 %0, ptr %1)
   %6 = extractvalue { i64, ptr } %5, 0
   %7 = extractvalue { i64, ptr } %5, 1
-  %8 = tail call fastcc ptr @jvp_object_find_bucket(i64 %6, ptr %7, ptr %3)
+  %8 = tail call fastcc ptr @jvp_object_find_bucket.argelim(i64 %6, ptr %7, ptr %3)
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 1
@@ -4893,7 +4893,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @jvp_object_find_bucket(i64 %0, ptr readnone %1, ptr nocapture %2) unnamed_addr #17 {
+define internal fastcc nonnull ptr @jvp_object_find_bucket.argelim(i64 %0, ptr readnone %1, ptr nocapture %2) unnamed_addr #17 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 1
@@ -5009,7 +5009,7 @@ jvp_string_hash.exit:                             ; preds = %7, %49
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @jvp_object_find_slot(ptr readonly %0, ptr nocapture %1, ptr nocapture noundef readonly %2) unnamed_addr #18 {
+define internal fastcc ptr @jvp_object_find_slot.argelim(ptr readonly %0, ptr nocapture %1, ptr nocapture noundef readonly %2) unnamed_addr #18 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 1

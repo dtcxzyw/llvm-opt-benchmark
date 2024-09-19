@@ -2165,14 +2165,14 @@ entry:
   %self.val1 = load ptr, ptr %1, align 8
   %call2.i = tail call ptr @PyObject_GetAttr(ptr noundef %self.val, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31712)) #5
   %cmp.i = icmp eq ptr %call2.i, null
-  br i1 %cmp.i, label %method___reduce___impl.exit, label %if.end.i
+  br i1 %cmp.i, label %method___reduce___impl.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call3.i = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 46848)) #5
   %call4.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.6, ptr noundef %call3.i, ptr noundef %self.val1, ptr noundef nonnull %call2.i) #5
-  br label %method___reduce___impl.exit
+  br label %method___reduce___impl.argprom.exit
 
-method___reduce___impl.exit:                      ; preds = %entry, %if.end.i
+method___reduce___impl.argprom.exit:              ; preds = %entry, %if.end.i
   %retval.0.i = phi ptr [ %call4.i, %if.end.i ], [ null, %entry ]
   ret ptr %retval.0.i
 }

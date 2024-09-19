@@ -608,14 +608,14 @@ define dso_local void @_bt_preprocess_array_keys(ptr nocapture noundef readonly 
 96:                                               ; preds = %93, %93
   %97 = load ptr, ptr %7, align 8
   %.val = load ptr, ptr %13, align 8
-  %98 = call fastcc i64 @_bt_find_extreme_element(ptr %.val, ptr noundef nonnull %62, i16 noundef zeroext 5, ptr noundef %97, i32 noundef %.1)
+  %98 = call fastcc i64 @_bt_find_extreme_element.argprom(ptr %.val, ptr noundef nonnull %62, i16 noundef zeroext 5, ptr noundef %97, i32 noundef %.1)
   store i64 %98, ptr %66, align 8
   br label %184
 
 99:                                               ; preds = %93, %93
   %100 = load ptr, ptr %7, align 8
   %.val77 = load ptr, ptr %13, align 8
-  %101 = call fastcc i64 @_bt_find_extreme_element(ptr %.val77, ptr noundef nonnull %62, i16 noundef zeroext 1, ptr noundef %100, i32 noundef %.1)
+  %101 = call fastcc i64 @_bt_find_extreme_element.argprom(ptr %.val77, ptr noundef nonnull %62, i16 noundef zeroext 1, ptr noundef %100, i32 noundef %.1)
   store i64 %101, ptr %66, align 8
   br label %184
 
@@ -641,7 +641,7 @@ define dso_local void @_bt_preprocess_array_keys(ptr nocapture noundef readonly 
   %114 = trunc i16 %112 to i8
   %115 = and i8 %114, 1
   %116 = icmp slt i32 %.1, 2
-  br i1 %116, label %_bt_sort_array_elements.exit, label %117
+  br i1 %116, label %_bt_sort_array_elements.argprom.exit, label %117
 
 117:                                              ; preds = %108
   %118 = getelementptr inbounds i8, ptr %62, i64 8
@@ -730,15 +730,15 @@ define dso_local void @_bt_preprocess_array_keys(ptr nocapture noundef readonly 
   %.1.i.i = phi i64 [ %164, %165 ], [ %.0241.i.i, %163 ], [ %.02.i.i, %148 ]
   %170 = add nuw nsw i64 %.0241.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %170, %147
-  br i1 %exitcond.not.i.i, label %qunique_arg.exit.i, label %148, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %qunique_arg.argprom.exit.i, label %148, !llvm.loop !10
 
-qunique_arg.exit.i:                               ; preds = %169
+qunique_arg.argprom.exit.i:                       ; preds = %169
   %171 = trunc i64 %.1.i.i to i32
   %172 = add i32 %171, 1
-  br label %_bt_sort_array_elements.exit
+  br label %_bt_sort_array_elements.argprom.exit
 
-_bt_sort_array_elements.exit:                     ; preds = %108, %qunique_arg.exit.i
-  %.0.i = phi i32 [ %172, %qunique_arg.exit.i ], [ %.1, %108 ]
+_bt_sort_array_elements.argprom.exit:             ; preds = %108, %qunique_arg.argprom.exit.i
+  %.0.i = phi i32 [ %172, %qunique_arg.argprom.exit.i ], [ %.1, %108 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   store i32 %.0.i, ptr %6, align 4
   %173 = load ptr, ptr %57, align 8
@@ -757,8 +757,8 @@ _bt_sort_array_elements.exit:                     ; preds = %108, %qunique_arg.e
   %183 = add i32 %.293, 1
   br label %184
 
-184:                                              ; preds = %60, %_bt_sort_array_elements.exit, %99, %96
-  %.4 = phi i32 [ %.293, %99 ], [ %183, %_bt_sort_array_elements.exit ], [ %.293, %96 ], [ %.293, %60 ]
+184:                                              ; preds = %60, %_bt_sort_array_elements.argprom.exit, %99, %96
+  %.4 = phi i32 [ %.293, %99 ], [ %183, %_bt_sort_array_elements.argprom.exit ], [ %.293, %96 ], [ %.293, %60 ]
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
   br i1 %exitcond113.not, label %._crit_edge96, label %60, !llvm.loop !11
@@ -790,7 +790,7 @@ declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr no
 declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_bt_find_extreme_element(ptr nocapture readonly %.8.val, ptr nocapture noundef readonly %0, i16 noundef zeroext range(i16 1, 6) %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 1, 0) %3) unnamed_addr #0 {
+define internal fastcc i64 @_bt_find_extreme_element.argprom(ptr nocapture readonly %.8.val, ptr nocapture noundef readonly %0, i16 noundef zeroext range(i16 1, 6) %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 1, 0) %3) unnamed_addr #0 {
   %5 = alloca %struct.FmgrInfo, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
@@ -1538,7 +1538,7 @@ _bt_fix_scankey_strategy.exit157.thread:          ; preds = %152, %.loopexit.sin
 
 181:                                              ; preds = %177
   %.val = load ptr, ptr %8, align 8
-  %182 = call fastcc zeroext i1 @_bt_compare_scankey_args(ptr %.val, ptr noundef nonnull %174, ptr noundef nonnull %172, ptr noundef %174, ptr noundef %3)
+  %182 = call fastcc zeroext i1 @_bt_compare_scankey_args.argprom(ptr %.val, ptr noundef nonnull %174, ptr noundef nonnull %172, ptr noundef %174, ptr noundef %3)
   br i1 %182, label %183, label %.backedge
 
 183:                                              ; preds = %181
@@ -1574,7 +1574,7 @@ _bt_fix_scankey_strategy.exit157.thread:          ; preds = %152, %.loopexit.sin
 
 195:                                              ; preds = %190
   %.val132 = load ptr, ptr %8, align 8
-  %196 = call fastcc zeroext i1 @_bt_compare_scankey_args(ptr %.val132, ptr noundef nonnull %193, ptr noundef nonnull %191, ptr noundef %193, ptr noundef %3)
+  %196 = call fastcc zeroext i1 @_bt_compare_scankey_args.argprom(ptr %.val132, ptr noundef nonnull %193, ptr noundef nonnull %191, ptr noundef %193, ptr noundef %3)
   br i1 %196, label %197, label %202
 
 197:                                              ; preds = %195
@@ -1600,7 +1600,7 @@ _bt_fix_scankey_strategy.exit157.thread:          ; preds = %152, %.loopexit.sin
 
 207:                                              ; preds = %202
   %.val133 = load ptr, ptr %8, align 8
-  %208 = call fastcc zeroext i1 @_bt_compare_scankey_args(ptr %.val133, ptr noundef nonnull %205, ptr noundef nonnull %203, ptr noundef %205, ptr noundef %3)
+  %208 = call fastcc zeroext i1 @_bt_compare_scankey_args.argprom(ptr %.val133, ptr noundef nonnull %205, ptr noundef nonnull %203, ptr noundef %205, ptr noundef %3)
   br i1 %208, label %209, label %214
 
 209:                                              ; preds = %207
@@ -1782,7 +1782,7 @@ switch.lookup203:                                 ; preds = %267
 
 293:                                              ; preds = %287
   %.val134 = load ptr, ptr %8, align 8
-  %294 = call fastcc zeroext i1 @_bt_compare_scankey_args(ptr %.val134, ptr noundef nonnull %.0109, ptr noundef nonnull %.0109, ptr noundef %290, ptr noundef %3)
+  %294 = call fastcc zeroext i1 @_bt_compare_scankey_args.argprom(ptr %.val134, ptr noundef nonnull %.0109, ptr noundef nonnull %.0109, ptr noundef %290, ptr noundef %3)
   br i1 %294, label %295, label %302
 
 295:                                              ; preds = %293
@@ -1867,7 +1867,7 @@ _bt_mark_scankey_required.exit:                   ; preds = %96, %switch.lookup,
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_bt_compare_scankey_args(ptr nocapture readonly %.8.val, ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_bt_compare_scankey_args.argprom(ptr nocapture readonly %.8.val, ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 8
   %6 = load i32, ptr %2, align 8
   %7 = or i32 %6, %5
@@ -2937,11 +2937,11 @@ define dso_local ptr @_bt_truncate(ptr nocapture noundef readonly %0, ptr nounde
   %13 = sext i16 %12 to i32
   %14 = load i8, ptr %3, align 8
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %_bt_keep_natts.exit
+  br i1 %15, label %16, label %_bt_keep_natts.argprom.argprom.exit
 
 16:                                               ; preds = %4
   %.not1.i = icmp slt i16 %12, 1
-  br i1 %.not1.i, label %_bt_keep_natts.exit, label %.lr.ph.preheader.i
+  br i1 %.not1.i, label %_bt_keep_natts.argprom.argprom.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %16
   %17 = getelementptr inbounds i8, ptr %3, i64 24
@@ -2958,7 +2958,7 @@ define dso_local ptr @_bt_truncate(ptr nocapture noundef readonly %0, ptr nounde
   %23 = xor i8 %22, %21
   %24 = and i8 %23, 1
   %.not24.i = icmp eq i8 %24, 0
-  br i1 %.not24.i, label %25, label %_bt_keep_natts.exit
+  br i1 %.not24.i, label %25, label %_bt_keep_natts.argprom.argprom.exit
 
 25:                                               ; preds = %.lr.ph.i
   %26 = trunc i8 %21 to i1
@@ -2971,15 +2971,15 @@ define dso_local ptr @_bt_truncate(ptr nocapture noundef readonly %0, ptr nounde
   %31 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %28, i32 noundef %30, i64 noundef %19, i64 noundef %20) #14
   %32 = and i64 %31, 4294967295
   %.not25.i = icmp eq i64 %32, 0
-  br i1 %.not25.i, label %33, label %_bt_keep_natts.exit
+  br i1 %.not25.i, label %33, label %_bt_keep_natts.argprom.argprom.exit
 
 33:                                               ; preds = %27, %25
   %34 = add nuw nsw i32 %.0214.i, 1
   %35 = getelementptr i8, ptr %.0232.i, i64 72
   %exitcond.not.i = icmp eq i32 %.0214.i, %13
-  br i1 %exitcond.not.i, label %_bt_keep_natts.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %_bt_keep_natts.argprom.argprom.exit, label %.lr.ph.i, !llvm.loop !26
 
-_bt_keep_natts.exit:                              ; preds = %.lr.ph.i, %27, %33, %4, %16
+_bt_keep_natts.argprom.argprom.exit:              ; preds = %.lr.ph.i, %27, %33, %4, %16
   %.0.i = phi i32 [ %13, %4 ], [ 1, %16 ], [ %18, %33 ], [ %.0214.i, %.lr.ph.i ], [ %.0214.i, %27 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
@@ -2991,7 +2991,7 @@ _bt_keep_natts.exit:                              ; preds = %.lr.ph.i, %27, %33,
   %41 = icmp eq i16 %40, 0
   br i1 %41, label %BTreeTupleIsPosting.exit.thread, label %BTreeTupleIsPosting.exit
 
-BTreeTupleIsPosting.exit:                         ; preds = %_bt_keep_natts.exit
+BTreeTupleIsPosting.exit:                         ; preds = %_bt_keep_natts.argprom.argprom.exit
   %42 = getelementptr i8, ptr %37, i64 4
   %.val.i = load i16, ptr %42, align 2
   %43 = and i16 %.val.i, 8192
@@ -3009,8 +3009,8 @@ BTreeTupleIsPosting.exit:                         ; preds = %_bt_keep_natts.exit
   store i16 %49, ptr %38, align 2
   br label %BTreeTupleIsPosting.exit.thread
 
-BTreeTupleIsPosting.exit.thread:                  ; preds = %_bt_keep_natts.exit, %44, %BTreeTupleIsPosting.exit
-  %50 = phi i16 [ %39, %_bt_keep_natts.exit ], [ %49, %44 ], [ %39, %BTreeTupleIsPosting.exit ]
+BTreeTupleIsPosting.exit.thread:                  ; preds = %_bt_keep_natts.argprom.argprom.exit, %44, %BTreeTupleIsPosting.exit
+  %50 = phi i16 [ %39, %_bt_keep_natts.argprom.argprom.exit ], [ %49, %44 ], [ %39, %BTreeTupleIsPosting.exit ]
   %.not = icmp sgt i32 %.0.i, %13
   br i1 %.not, label %BTreeTupleIsPivot.exit.i, label %51
 

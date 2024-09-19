@@ -2895,7 +2895,7 @@ terminate.lpad.i229:                              ; preds = %if.then.i227
 ehcleanup149:                                     ; preds = %if.then.i227, %lpad140.body, %lpad138
   %ref.tmp133.sroa.6.0 = phi ptr [ %191, %lpad138 ], [ null, %lpad140.body ], [ null, %if.then.i227 ]
   %.pn19 = phi { ptr, i32 } [ %261, %lpad138 ], [ %.pn44.pn.pn.pn.pn.pn.pn.pn.i, %lpad140.body ], [ %eh.lpad-body198281, %if.then.i227 ]
-  call fastcc void @_ZN8QuantLib12_GLOBAL__N_114payoff_adapterD2Ev(ptr %ref.tmp133.sroa.6.0) #27
+  call fastcc void @_ZN8QuantLib12_GLOBAL__N_114payoff_adapterD2Ev.argprom(ptr %ref.tmp133.sroa.6.0) #27
   call void @_ZN5boost10shared_ptrIN8QuantLib6PayoffEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp132) #27
   br label %ehcleanup154
@@ -3424,7 +3424,7 @@ _ZN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEED2Ev.exit: ; preds = %entry, 
 declare void @_ZNK8QuantLib18YieldTermStructure8zeroRateERKNS_4DateERKNS_10DayCounterENS_11CompoundingENS_9FrequencyEb(ptr dead_on_unwind writable sret(%"class.QuantLib::InterestRate") align 8, ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_114payoff_adapterD2Ev(ptr %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_114payoff_adapterD2Ev.argprom(ptr %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrIN8QuantLib6PayoffEED2Ev.exit, label %if.then.i.i
@@ -4829,14 +4829,14 @@ entry:
   %__args.val = load double, ptr %__args, align 8, !tbaa !90
   %0 = load ptr, ptr %__functor.val, align 8, !tbaa !80
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i.i.i, label %cond.false.i.i.i.i, label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_114payoff_adapterEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit, !prof !46
+  br i1 %cmp.not.i.i.i.i, label %cond.false.i.i.i.i, label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_114payoff_adapterEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit, !prof !46
 
 cond.false.i.i.i.i:                               ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.11, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib6PayoffEEdeEv, ptr noundef nonnull @.str.12, i64 noundef 778)
   %.pre.i.i.i.i = load ptr, ptr %__functor.val, align 8, !tbaa !80
-  br label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_114payoff_adapterEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit
+  br label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_114payoff_adapterEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit
 
-_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_114payoff_adapterEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit: ; preds = %entry, %cond.false.i.i.i.i
+_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_114payoff_adapterEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit: ; preds = %entry, %cond.false.i.i.i.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i.i.i.i, %cond.false.i.i.i.i ]
   %vtable.i.i.i = load ptr, ptr %1, align 8, !tbaa !35
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 32
@@ -4874,14 +4874,14 @@ sw.bb4.i:                                         ; preds = %entry
   %pn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   store ptr %call5.val6.i, ptr %pn.i.i.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %call5.val6.i, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIN8QuantLib12_GLOBAL__N_114payoff_adapterEE15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit.i, label %if.then.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIN8QuantLib12_GLOBAL__N_114payoff_adapterEE15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.argprom.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %sw.bb4.i
   %use_count_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.val6.i, i64 8
   %1 = atomicrmw add ptr %use_count_.i.i.i.i.i.i.i, i32 1 monotonic, align 4
-  br label %_ZNSt14_Function_base13_Base_managerIN8QuantLib12_GLOBAL__N_114payoff_adapterEE15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit.i
+  br label %_ZNSt14_Function_base13_Base_managerIN8QuantLib12_GLOBAL__N_114payoff_adapterEE15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.argprom.exit.i
 
-_ZNSt14_Function_base13_Base_managerIN8QuantLib12_GLOBAL__N_114payoff_adapterEE15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit.i: ; preds = %if.then.i.i.i.i.i.i, %sw.bb4.i
+_ZNSt14_Function_base13_Base_managerIN8QuantLib12_GLOBAL__N_114payoff_adapterEE15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.argprom.exit.i: ; preds = %if.then.i.i.i.i.i.i, %sw.bb4.i
   store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !3
   br label %sw.epilog
 
@@ -4894,13 +4894,13 @@ delete.notnull.i.i:                               ; preds = %sw.bb6.i
   %2 = getelementptr i8, ptr %__dest.val.i, i64 8
   %.val.i.i = load ptr, ptr %2, align 8, !tbaa !37
   %cmp.not.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_114payoff_adapterD2Ev.exit.i.i, label %if.then.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_114payoff_adapterD2Ev.argprom.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
   %use_count_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
   %3 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i = icmp eq i32 %3, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i7.i, label %_ZN8QuantLib12_GLOBAL__N_114payoff_adapterD2Ev.exit.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i7.i, label %_ZN8QuantLib12_GLOBAL__N_114payoff_adapterD2Ev.argprom.exit.i.i
 
 if.then.i.i.i.i.i7.i:                             ; preds = %if.then.i.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %.val.i.i, align 8, !tbaa !35
@@ -4913,14 +4913,14 @@ if.then.i.i.i.i.i7.i:                             ; preds = %if.then.i.i.i.i.i
   %weak_count_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 12
   %5 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %5, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_114payoff_adapterD2Ev.exit.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_114payoff_adapterD2Ev.argprom.exit.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %.noexc.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %.val.i.i, align 8, !tbaa !35
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 24
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i)
-          to label %_ZN8QuantLib12_GLOBAL__N_114payoff_adapterD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
+          to label %_ZN8QuantLib12_GLOBAL__N_114payoff_adapterD2Ev.argprom.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i7.i
   %7 = landingpad { ptr, i32 }
@@ -4929,11 +4929,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   tail call void @__clang_call_terminate(ptr %8) #28
   unreachable
 
-_ZN8QuantLib12_GLOBAL__N_114payoff_adapterD2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i, %if.then.i.i.i.i.i, %delete.notnull.i.i
+_ZN8QuantLib12_GLOBAL__N_114payoff_adapterD2Ev.argprom.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i, %if.then.i.i.i.i.i, %delete.notnull.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %__dest.val.i, i64 noundef 16) #32
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %entry, %_ZN8QuantLib12_GLOBAL__N_114payoff_adapterD2Ev.exit.i.i, %sw.bb6.i, %_ZNSt14_Function_base13_Base_managerIN8QuantLib12_GLOBAL__N_114payoff_adapterEE15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit.i, %sw.bb1, %sw.bb
+sw.epilog:                                        ; preds = %entry, %_ZN8QuantLib12_GLOBAL__N_114payoff_adapterD2Ev.argprom.exit.i.i, %sw.bb6.i, %_ZNSt14_Function_base13_Base_managerIN8QuantLib12_GLOBAL__N_114payoff_adapterEE15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.argprom.exit.i, %sw.bb1, %sw.bb
   ret i1 false
 }
 

@@ -80,37 +80,37 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData9WriteJsonERN
 
 5:                                                ; preds = %2
   %6 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEDn(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr null)
-  br label %_ZSt5visitIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115JsValue_visitorEJRKSt7variantIJNS0_14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_.exit
+  br label %_ZSt5visitIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115JsValue_visitorEJRKSt7variantIJNS0_14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_.argprom.exit
 
 7:                                                ; preds = %2
   %8 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  br label %_ZSt5visitIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115JsValue_visitorEJRKSt7variantIJNS0_14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_.exit
+  br label %_ZSt5visitIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115JsValue_visitorEJRKSt7variantIJNS0_14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_.argprom.exit
 
 9:                                                ; preds = %2
   %.val16.i.i = load i8, ptr %0, align 8
   %10 = trunc i8 %.val16.i.i to i1
   %11 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEb(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %10)
-  br label %_ZSt5visitIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115JsValue_visitorEJRKSt7variantIJNS0_14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_.exit
+  br label %_ZSt5visitIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115JsValue_visitorEJRKSt7variantIJNS0_14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_.argprom.exit
 
 12:                                               ; preds = %2
   %.val18.i.i = load i64, ptr %0, align 8
   %13 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEl(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.val18.i.i)
-  br label %_ZSt5visitIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115JsValue_visitorEJRKSt7variantIJNS0_14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_.exit
+  br label %_ZSt5visitIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115JsValue_visitorEJRKSt7variantIJNS0_14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_.argprom.exit
 
 14:                                               ; preds = %2
   %.val20.i.i = load i64, ptr %0, align 8
   %15 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEm(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.val20.i.i)
-  br label %_ZSt5visitIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115JsValue_visitorEJRKSt7variantIJNS0_14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_.exit
+  br label %_ZSt5visitIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115JsValue_visitorEJRKSt7variantIJNS0_14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_.argprom.exit
 
 16:                                               ; preds = %2
   %.val22.i.i = load double, ptr %0, align 8
   %17 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEd(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %.val22.i.i)
-  br label %_ZSt5visitIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115JsValue_visitorEJRKSt7variantIJNS0_14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_.exit
+  br label %_ZSt5visitIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115JsValue_visitorEJRKSt7variantIJNS0_14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_.argprom.exit
 
 18:                                               ; preds = %2
   unreachable
 
-_ZSt5visitIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115JsValue_visitorEJRKSt7variantIJNS0_14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_.exit: ; preds = %5, %7, %9, %12, %14, %16
+_ZSt5visitIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115JsValue_visitorEJRKSt7variantIJNS0_14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_.argprom.exit: ; preds = %5, %7, %9, %12, %14, %16
   ret void
 }
 

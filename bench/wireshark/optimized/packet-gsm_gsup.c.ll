@@ -331,8 +331,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.237 = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
 @.str.238 = private unnamed_addr constant [34 x i8] c"epan/dissectors/packet-gsm_gsup.c\00", align 1
 @.str.239 = private unnamed_addr constant [2 x i8] c"0\00", align 1
-@switch.table.dissect_gsup_tlvs = private unnamed_addr constant [3 x i32] [i32 0, i32 1, i32 1], align 4
-@switch.table.dissect_gsup_tlvs.1 = private unnamed_addr constant [7 x i32] [i32 1, i32 1, i32 1, i32 1, i32 0, i32 0, i32 0], align 4
+@switch.table.dissect_gsup_tlvs.retelim = private unnamed_addr constant [3 x i32] [i32 0, i32 1, i32 1], align 4
+@switch.table.dissect_gsup_tlvs.retelim.1 = private unnamed_addr constant [7 x i32] [i32 1, i32 1, i32 1, i32 1, i32 0, i32 0, i32 0], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_gsup() local_unnamed_addr #0 {
@@ -380,7 +380,7 @@ define internal i32 @dissect_gsup(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %17 = load i32, ptr @hf_gsup_msg_type, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
   %19 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #4
-  tail call fastcc void @dissect_gsup_tlvs(ptr noundef %0, i32 noundef 1, i32 noundef %19, ptr noundef %1, ptr noundef %16, ptr noundef %14, i8 noundef zeroext %6)
+  tail call fastcc void @dissect_gsup_tlvs.retelim(ptr noundef %0, i32 noundef 1, i32 noundef %19, ptr noundef %1, ptr noundef %16, ptr noundef %14, i8 noundef zeroext %6)
   %20 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %20
 }
@@ -438,7 +438,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gsup_tlvs(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @dissect_gsup_tlvs.retelim(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
@@ -462,11 +462,11 @@ define internal fastcc void @dissect_gsup_tlvs(ptr noundef %0, i32 noundef %1, i
   %switch.shifted = lshr i8 119, %switch.tableidx4
   %switch.lobit = trunc i8 %switch.shifted to i1
   %24 = zext nneg i8 %switch.tableidx4 to i64
-  %switch.gep6 = getelementptr inbounds [7 x i32], ptr @switch.table.dissect_gsup_tlvs.1, i64 0, i64 %24
+  %switch.gep6 = getelementptr inbounds [7 x i32], ptr @switch.table.dissect_gsup_tlvs.retelim.1, i64 0, i64 %24
   %switch.tableidx = add i8 %6, -80
   %25 = icmp ult i8 %switch.tableidx, 3
   %26 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_gsup_tlvs, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_gsup_tlvs.retelim, i64 0, i64 %26
   br label %27
 
 27:                                               ; preds = %.lr.ph285, %dissect_sm_rp_da_ie.exit
@@ -547,7 +547,7 @@ define internal fastcc void @dissect_gsup_tlvs(ptr noundef %0, i32 noundef %1, i
   br i1 %.not, label %dissect_sm_rp_da_ie.exit, label %.lr.ph
 
 48:                                               ; preds = %38, %38
-  call fastcc void @dissect_gsup_tlvs(ptr noundef %0, i32 noundef %31, i32 noundef %33, ptr noundef %3, ptr noundef %43, ptr noundef %5, i8 noundef zeroext %6)
+  call fastcc void @dissect_gsup_tlvs.retelim(ptr noundef %0, i32 noundef %31, i32 noundef %33, ptr noundef %3, ptr noundef %43, ptr noundef %5, i8 noundef zeroext %6)
   br label %dissect_sm_rp_da_ie.exit
 
 49:                                               ; preds = %38

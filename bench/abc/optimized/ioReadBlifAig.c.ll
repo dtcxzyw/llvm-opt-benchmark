@@ -1079,7 +1079,7 @@ Io_BlifHashString.exit.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i, %
   %445 = getelementptr inbounds ptr, ptr %.val.i.i59.i, i64 %444
   %446 = load ptr, ptr %445, align 8
   %.not1.i.i.i.i = icmp eq ptr %446, null
-  br i1 %.not1.i.i.i.i, label %Io_BlifHashLookup.exit.thread.i.i.i, label %.lr.ph.i.preheader.i.i.i
+  br i1 %.not1.i.i.i.i, label %Io_BlifHashLookup.argprom.exit.thread.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %Io_BlifHashString.exit.i.i.i.i
   %447 = getelementptr inbounds i8, ptr %446, i64 8
@@ -1093,7 +1093,7 @@ Io_BlifHashString.exit.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i, %
   %451 = getelementptr inbounds i8, ptr %450, i64 24
   %452 = load ptr, ptr %451, align 8
   %.not.i.i.i.i = icmp eq ptr %452, null
-  br i1 %.not.i.i.i.i, label %Io_BlifHashLookup.exit.thread.i.i.i.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i, label %Io_BlifHashLookup.argprom.exit.thread.i.i.i.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !14
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i21.i.i
   %453 = getelementptr inbounds i8, ptr %452, i64 8
@@ -1102,12 +1102,12 @@ Io_BlifHashString.exit.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i, %
   %.not12.i.i.i.i = icmp eq i32 %455, 0
   br i1 %.not12.i.i.i.i, label %Io_BlifHashFindOrAdd.exit.i.i, label %.lr.ph.i21.i.i, !llvm.loop !14
 
-Io_BlifHashLookup.exit.thread.i.i.i.loopexit:     ; preds = %.lr.ph.i21.i.i
+Io_BlifHashLookup.argprom.exit.thread.i.i.i.loopexit: ; preds = %.lr.ph.i21.i.i
   %456 = getelementptr inbounds i8, ptr %450, i64 24
-  br label %Io_BlifHashLookup.exit.thread.i.i.i
+  br label %Io_BlifHashLookup.argprom.exit.thread.i.i.i
 
-Io_BlifHashLookup.exit.thread.i.i.i:              ; preds = %Io_BlifHashLookup.exit.thread.i.i.i.loopexit, %Io_BlifHashString.exit.i.i.i.i
-  %.0.lcssa.i12.i.i.i = phi ptr [ %445, %Io_BlifHashString.exit.i.i.i.i ], [ %456, %Io_BlifHashLookup.exit.thread.i.i.i.loopexit ]
+Io_BlifHashLookup.argprom.exit.thread.i.i.i:      ; preds = %Io_BlifHashLookup.argprom.exit.thread.i.i.i.loopexit, %Io_BlifHashString.exit.i.i.i.i
+  %.0.lcssa.i12.i.i.i = phi ptr [ %445, %Io_BlifHashString.exit.i.i.i.i ], [ %456, %Io_BlifHashLookup.argprom.exit.thread.i.i.i.loopexit ]
   %457 = load ptr, ptr %368, align 8
   %458 = load i32, ptr %405, align 4
   %459 = add nsw i32 %458, 1
@@ -1120,8 +1120,8 @@ Io_BlifHashLookup.exit.thread.i.i.i:              ; preds = %Io_BlifHashLookup.e
   %.pre.i.i.i = load ptr, ptr %.0.lcssa.i12.i.i.i, align 8
   br label %Io_BlifHashFindOrAdd.exit.i.i
 
-Io_BlifHashFindOrAdd.exit.i.i:                    ; preds = %.lr.ph.i.i.i.i, %Io_BlifHashLookup.exit.thread.i.i.i, %.lr.ph.i.preheader.i.i.i
-  %463 = phi ptr [ %.pre.i.i.i, %Io_BlifHashLookup.exit.thread.i.i.i ], [ %446, %.lr.ph.i.preheader.i.i.i ], [ %452, %.lr.ph.i.i.i.i ]
+Io_BlifHashFindOrAdd.exit.i.i:                    ; preds = %.lr.ph.i.i.i.i, %Io_BlifHashLookup.argprom.exit.thread.i.i.i, %.lr.ph.i.preheader.i.i.i
+  %463 = phi ptr [ %.pre.i.i.i, %Io_BlifHashLookup.argprom.exit.thread.i.i.i ], [ %446, %.lr.ph.i.preheader.i.i.i ], [ %452, %.lr.ph.i.i.i.i ]
   %464 = load i32, ptr %463, align 8
   %465 = and i32 %464, 1
   %.not.i61.i = icmp eq i32 %465, 0
@@ -1341,7 +1341,7 @@ Io_BlifHashString.exit.i.i.i85.i:                 ; preds = %.lr.ph.i.i.i.i81.i,
   %560 = getelementptr inbounds ptr, ptr %.val.i.i78.i, i64 %559
   %561 = load ptr, ptr %560, align 8
   %.not1.i.i.i87.i = icmp eq ptr %561, null
-  br i1 %.not1.i.i.i87.i, label %Io_BlifHashLookup.exit.thread.i.i111.i, label %.lr.ph.i.preheader.i.i88.i
+  br i1 %.not1.i.i.i87.i, label %Io_BlifHashLookup.argprom.exit.thread.i.i111.i, label %.lr.ph.i.preheader.i.i88.i
 
 .lr.ph.i.preheader.i.i88.i:                       ; preds = %Io_BlifHashString.exit.i.i.i85.i
   %562 = getelementptr inbounds i8, ptr %561, i64 8
@@ -1355,7 +1355,7 @@ Io_BlifHashString.exit.i.i.i85.i:                 ; preds = %.lr.ph.i.i.i.i81.i,
   %566 = getelementptr inbounds i8, ptr %565, i64 24
   %567 = load ptr, ptr %566, align 8
   %.not.i.i.i90.i = icmp eq ptr %567, null
-  br i1 %.not.i.i.i90.i, label %Io_BlifHashLookup.exit.thread.i.i111.i.loopexit, label %.lr.ph.i.i.i91.i, !llvm.loop !14
+  br i1 %.not.i.i.i90.i, label %Io_BlifHashLookup.argprom.exit.thread.i.i111.i.loopexit, label %.lr.ph.i.i.i91.i, !llvm.loop !14
 
 .lr.ph.i.i.i91.i:                                 ; preds = %.lr.ph.i18.i.i
   %568 = getelementptr inbounds i8, ptr %567, i64 8
@@ -1364,12 +1364,12 @@ Io_BlifHashString.exit.i.i.i85.i:                 ; preds = %.lr.ph.i.i.i.i81.i,
   %.not12.i.i.i92.i = icmp eq i32 %570, 0
   br i1 %.not12.i.i.i92.i, label %Io_BlifHashFindOrAdd.exit.i93.i, label %.lr.ph.i18.i.i, !llvm.loop !14
 
-Io_BlifHashLookup.exit.thread.i.i111.i.loopexit:  ; preds = %.lr.ph.i18.i.i
+Io_BlifHashLookup.argprom.exit.thread.i.i111.i.loopexit: ; preds = %.lr.ph.i18.i.i
   %571 = getelementptr inbounds i8, ptr %565, i64 24
-  br label %Io_BlifHashLookup.exit.thread.i.i111.i
+  br label %Io_BlifHashLookup.argprom.exit.thread.i.i111.i
 
-Io_BlifHashLookup.exit.thread.i.i111.i:           ; preds = %Io_BlifHashLookup.exit.thread.i.i111.i.loopexit, %Io_BlifHashString.exit.i.i.i85.i
-  %.0.lcssa.i12.i.i112.i = phi ptr [ %560, %Io_BlifHashString.exit.i.i.i85.i ], [ %571, %Io_BlifHashLookup.exit.thread.i.i111.i.loopexit ]
+Io_BlifHashLookup.argprom.exit.thread.i.i111.i:   ; preds = %Io_BlifHashLookup.argprom.exit.thread.i.i111.i.loopexit, %Io_BlifHashString.exit.i.i.i85.i
+  %.0.lcssa.i12.i.i112.i = phi ptr [ %560, %Io_BlifHashString.exit.i.i.i85.i ], [ %571, %Io_BlifHashLookup.argprom.exit.thread.i.i111.i.loopexit ]
   %572 = load ptr, ptr %368, align 8
   %573 = load i32, ptr %410, align 4
   %574 = add nsw i32 %573, 1
@@ -1382,8 +1382,8 @@ Io_BlifHashLookup.exit.thread.i.i111.i:           ; preds = %Io_BlifHashLookup.e
   %.pre.i.i113.i = load ptr, ptr %.0.lcssa.i12.i.i112.i, align 8
   br label %Io_BlifHashFindOrAdd.exit.i93.i
 
-Io_BlifHashFindOrAdd.exit.i93.i:                  ; preds = %.lr.ph.i.i.i91.i, %Io_BlifHashLookup.exit.thread.i.i111.i, %.lr.ph.i.preheader.i.i88.i
-  %578 = phi ptr [ %.pre.i.i113.i, %Io_BlifHashLookup.exit.thread.i.i111.i ], [ %561, %.lr.ph.i.preheader.i.i88.i ], [ %567, %.lr.ph.i.i.i91.i ]
+Io_BlifHashFindOrAdd.exit.i93.i:                  ; preds = %.lr.ph.i.i.i91.i, %Io_BlifHashLookup.argprom.exit.thread.i.i111.i, %.lr.ph.i.preheader.i.i88.i
+  %578 = phi ptr [ %.pre.i.i113.i, %Io_BlifHashLookup.argprom.exit.thread.i.i111.i ], [ %561, %.lr.ph.i.preheader.i.i88.i ], [ %567, %.lr.ph.i.i.i91.i ]
   %579 = load i32, ptr %578, align 8
   %580 = and i32 %579, 2
   %.not.i94.i = icmp eq i32 %580, 0
@@ -1694,7 +1694,7 @@ Io_BlifHashString.exit.i.i.i126.i:                ; preds = %.lr.ph.i.i.i.i122.i
   %709 = getelementptr inbounds ptr, ptr %.val.i65.i.i, i64 %708
   %710 = load ptr, ptr %709, align 8
   %.not1.i.i.i128.i = icmp eq ptr %710, null
-  br i1 %.not1.i.i.i128.i, label %Io_BlifHashLookup.exit.thread.i.i143.i, label %.lr.ph.i.preheader.i.i129.i
+  br i1 %.not1.i.i.i128.i, label %Io_BlifHashLookup.argprom.exit.thread.i.i143.i, label %.lr.ph.i.preheader.i.i129.i
 
 .lr.ph.i.preheader.i.i129.i:                      ; preds = %Io_BlifHashString.exit.i.i.i126.i
   %711 = getelementptr inbounds i8, ptr %710, i64 8
@@ -1708,7 +1708,7 @@ Io_BlifHashString.exit.i.i.i126.i:                ; preds = %.lr.ph.i.i.i.i122.i
   %715 = getelementptr inbounds i8, ptr %714, i64 24
   %716 = load ptr, ptr %715, align 8
   %.not.i.i.i131.i = icmp eq ptr %716, null
-  br i1 %.not.i.i.i131.i, label %Io_BlifHashLookup.exit.thread.i.i143.i.loopexit, label %.lr.ph.i.i.i132.i, !llvm.loop !14
+  br i1 %.not.i.i.i131.i, label %Io_BlifHashLookup.argprom.exit.thread.i.i143.i.loopexit, label %.lr.ph.i.i.i132.i, !llvm.loop !14
 
 .lr.ph.i.i.i132.i:                                ; preds = %.lr.ph.i67.i.i
   %717 = getelementptr inbounds i8, ptr %716, i64 8
@@ -1717,12 +1717,12 @@ Io_BlifHashString.exit.i.i.i126.i:                ; preds = %.lr.ph.i.i.i.i122.i
   %.not12.i.i.i133.i = icmp eq i32 %719, 0
   br i1 %.not12.i.i.i133.i, label %Io_BlifHashFindOrAdd.exit.i134.i, label %.lr.ph.i67.i.i, !llvm.loop !14
 
-Io_BlifHashLookup.exit.thread.i.i143.i.loopexit:  ; preds = %.lr.ph.i67.i.i
+Io_BlifHashLookup.argprom.exit.thread.i.i143.i.loopexit: ; preds = %.lr.ph.i67.i.i
   %720 = getelementptr inbounds i8, ptr %714, i64 24
-  br label %Io_BlifHashLookup.exit.thread.i.i143.i
+  br label %Io_BlifHashLookup.argprom.exit.thread.i.i143.i
 
-Io_BlifHashLookup.exit.thread.i.i143.i:           ; preds = %Io_BlifHashLookup.exit.thread.i.i143.i.loopexit, %Io_BlifHashString.exit.i.i.i126.i
-  %.0.lcssa.i12.i.i144.i = phi ptr [ %709, %Io_BlifHashString.exit.i.i.i126.i ], [ %720, %Io_BlifHashLookup.exit.thread.i.i143.i.loopexit ]
+Io_BlifHashLookup.argprom.exit.thread.i.i143.i:   ; preds = %Io_BlifHashLookup.argprom.exit.thread.i.i143.i.loopexit, %Io_BlifHashString.exit.i.i.i126.i
+  %.0.lcssa.i12.i.i144.i = phi ptr [ %709, %Io_BlifHashString.exit.i.i.i126.i ], [ %720, %Io_BlifHashLookup.argprom.exit.thread.i.i143.i.loopexit ]
   %721 = load ptr, ptr %368, align 8
   %722 = load i32, ptr %525, align 4
   %723 = add nsw i32 %722, 1
@@ -1735,8 +1735,8 @@ Io_BlifHashLookup.exit.thread.i.i143.i:           ; preds = %Io_BlifHashLookup.e
   %.pre.i.i145.i = load ptr, ptr %.0.lcssa.i12.i.i144.i, align 8
   br label %Io_BlifHashFindOrAdd.exit.i134.i
 
-Io_BlifHashFindOrAdd.exit.i134.i:                 ; preds = %.lr.ph.i.i.i132.i, %Io_BlifHashLookup.exit.thread.i.i143.i, %.lr.ph.i.preheader.i.i129.i
-  %727 = phi ptr [ %.pre.i.i145.i, %Io_BlifHashLookup.exit.thread.i.i143.i ], [ %710, %.lr.ph.i.preheader.i.i129.i ], [ %716, %.lr.ph.i.i.i132.i ]
+Io_BlifHashFindOrAdd.exit.i134.i:                 ; preds = %.lr.ph.i.i.i132.i, %Io_BlifHashLookup.argprom.exit.thread.i.i143.i, %.lr.ph.i.preheader.i.i129.i
+  %727 = phi ptr [ %.pre.i.i145.i, %Io_BlifHashLookup.argprom.exit.thread.i.i143.i ], [ %710, %.lr.ph.i.preheader.i.i129.i ], [ %716, %.lr.ph.i.i.i132.i ]
   %728 = load i32, ptr %727, align 8
   %729 = or i32 %728, 4
   store i32 %729, ptr %727, align 8
@@ -1848,7 +1848,7 @@ Io_BlifHashString.exit.i.i76.i.i:                 ; preds = %.lr.ph.i.i.i72.i.i,
   %785 = getelementptr inbounds ptr, ptr %.val.i69.i.i, i64 %784
   %786 = load ptr, ptr %785, align 8
   %.not1.i.i78.i.i = icmp eq ptr %786, null
-  br i1 %.not1.i.i78.i.i, label %Io_BlifHashLookup.exit.thread.i86.i.i, label %.lr.ph.i.preheader.i79.i.i
+  br i1 %.not1.i.i78.i.i, label %Io_BlifHashLookup.argprom.exit.thread.i86.i.i, label %.lr.ph.i.preheader.i79.i.i
 
 .lr.ph.i.preheader.i79.i.i:                       ; preds = %Io_BlifHashString.exit.i.i76.i.i
   %787 = getelementptr inbounds i8, ptr %786, i64 8
@@ -1862,7 +1862,7 @@ Io_BlifHashString.exit.i.i76.i.i:                 ; preds = %.lr.ph.i.i.i72.i.i,
   %791 = getelementptr inbounds i8, ptr %790, i64 24
   %792 = load ptr, ptr %791, align 8
   %.not.i.i82.i.i = icmp eq ptr %792, null
-  br i1 %.not.i.i82.i.i, label %Io_BlifHashLookup.exit.thread.i86.i.i.loopexit, label %.lr.ph.i.i83.i.i, !llvm.loop !14
+  br i1 %.not.i.i82.i.i, label %Io_BlifHashLookup.argprom.exit.thread.i86.i.i.loopexit, label %.lr.ph.i.i83.i.i, !llvm.loop !14
 
 .lr.ph.i.i83.i.i:                                 ; preds = %.lr.ph.i81.i.i
   %793 = getelementptr inbounds i8, ptr %792, i64 8
@@ -1871,12 +1871,12 @@ Io_BlifHashString.exit.i.i76.i.i:                 ; preds = %.lr.ph.i.i.i72.i.i,
   %.not12.i.i84.i.i = icmp eq i32 %795, 0
   br i1 %.not12.i.i84.i.i, label %Io_BlifHashFindOrAdd.exit89.i.i, label %.lr.ph.i81.i.i, !llvm.loop !14
 
-Io_BlifHashLookup.exit.thread.i86.i.i.loopexit:   ; preds = %.lr.ph.i81.i.i
+Io_BlifHashLookup.argprom.exit.thread.i86.i.i.loopexit: ; preds = %.lr.ph.i81.i.i
   %796 = getelementptr inbounds i8, ptr %790, i64 24
-  br label %Io_BlifHashLookup.exit.thread.i86.i.i
+  br label %Io_BlifHashLookup.argprom.exit.thread.i86.i.i
 
-Io_BlifHashLookup.exit.thread.i86.i.i:            ; preds = %Io_BlifHashLookup.exit.thread.i86.i.i.loopexit, %Io_BlifHashString.exit.i.i76.i.i
-  %.0.lcssa.i12.i87.i.i = phi ptr [ %785, %Io_BlifHashString.exit.i.i76.i.i ], [ %796, %Io_BlifHashLookup.exit.thread.i86.i.i.loopexit ]
+Io_BlifHashLookup.argprom.exit.thread.i86.i.i:    ; preds = %Io_BlifHashLookup.argprom.exit.thread.i86.i.i.loopexit, %Io_BlifHashString.exit.i.i76.i.i
+  %.0.lcssa.i12.i87.i.i = phi ptr [ %785, %Io_BlifHashString.exit.i.i76.i.i ], [ %796, %Io_BlifHashLookup.argprom.exit.thread.i86.i.i.loopexit ]
   %797 = load ptr, ptr %368, align 8
   %798 = load i32, ptr %525, align 4
   %799 = add nsw i32 %798, 1
@@ -1889,8 +1889,8 @@ Io_BlifHashLookup.exit.thread.i86.i.i:            ; preds = %Io_BlifHashLookup.e
   %.pre.i88.i.i = load ptr, ptr %.0.lcssa.i12.i87.i.i, align 8
   br label %Io_BlifHashFindOrAdd.exit89.i.i
 
-Io_BlifHashFindOrAdd.exit89.i.i:                  ; preds = %.lr.ph.i.i83.i.i, %Io_BlifHashLookup.exit.thread.i86.i.i, %.lr.ph.i.preheader.i79.i.i
-  %803 = phi ptr [ %.pre.i88.i.i, %Io_BlifHashLookup.exit.thread.i86.i.i ], [ %786, %.lr.ph.i.preheader.i79.i.i ], [ %792, %.lr.ph.i.i83.i.i ]
+Io_BlifHashFindOrAdd.exit89.i.i:                  ; preds = %.lr.ph.i.i83.i.i, %Io_BlifHashLookup.argprom.exit.thread.i86.i.i, %.lr.ph.i.preheader.i79.i.i
+  %803 = phi ptr [ %.pre.i88.i.i, %Io_BlifHashLookup.argprom.exit.thread.i86.i.i ], [ %786, %.lr.ph.i.preheader.i79.i.i ], [ %792, %.lr.ph.i.i83.i.i ]
   %804 = load i32, ptr %803, align 8
   %805 = and i32 %804, 1
   %.not.i138.i = icmp eq i32 %805, 0
@@ -2139,7 +2139,7 @@ Io_BlifHashString.exit.i.i.i169.i:                ; preds = %.lr.ph.i.i.i.i165.i
   %917 = getelementptr inbounds ptr, ptr %.val.i.i162.i, i64 %916
   %918 = load ptr, ptr %917, align 8
   %.not1.i.i.i171.i = icmp eq ptr %918, null
-  br i1 %.not1.i.i.i171.i, label %Io_BlifHashLookup.exit.thread.i.i189.i, label %.lr.ph.i.preheader.i.i172.i
+  br i1 %.not1.i.i.i171.i, label %Io_BlifHashLookup.argprom.exit.thread.i.i189.i, label %.lr.ph.i.preheader.i.i172.i
 
 .lr.ph.i.preheader.i.i172.i:                      ; preds = %Io_BlifHashString.exit.i.i.i169.i
   %919 = getelementptr inbounds i8, ptr %918, i64 8
@@ -2153,7 +2153,7 @@ Io_BlifHashString.exit.i.i.i169.i:                ; preds = %.lr.ph.i.i.i.i165.i
   %923 = getelementptr inbounds i8, ptr %922, i64 24
   %924 = load ptr, ptr %923, align 8
   %.not.i.i.i174.i = icmp eq ptr %924, null
-  br i1 %.not.i.i.i174.i, label %Io_BlifHashLookup.exit.thread.i.i189.i.loopexit, label %.lr.ph.i.i.i175.i, !llvm.loop !14
+  br i1 %.not.i.i.i174.i, label %Io_BlifHashLookup.argprom.exit.thread.i.i189.i.loopexit, label %.lr.ph.i.i.i175.i, !llvm.loop !14
 
 .lr.ph.i.i.i175.i:                                ; preds = %.lr.ph.i30.i.i
   %925 = getelementptr inbounds i8, ptr %924, i64 8
@@ -2162,12 +2162,12 @@ Io_BlifHashString.exit.i.i.i169.i:                ; preds = %.lr.ph.i.i.i.i165.i
   %.not12.i.i.i176.i = icmp eq i32 %927, 0
   br i1 %.not12.i.i.i176.i, label %Io_BlifHashFindOrAdd.exit.i177.i, label %.lr.ph.i30.i.i, !llvm.loop !14
 
-Io_BlifHashLookup.exit.thread.i.i189.i.loopexit:  ; preds = %.lr.ph.i30.i.i
+Io_BlifHashLookup.argprom.exit.thread.i.i189.i.loopexit: ; preds = %.lr.ph.i30.i.i
   %928 = getelementptr inbounds i8, ptr %922, i64 24
-  br label %Io_BlifHashLookup.exit.thread.i.i189.i
+  br label %Io_BlifHashLookup.argprom.exit.thread.i.i189.i
 
-Io_BlifHashLookup.exit.thread.i.i189.i:           ; preds = %Io_BlifHashLookup.exit.thread.i.i189.i.loopexit, %Io_BlifHashString.exit.i.i.i169.i
-  %.0.lcssa.i12.i.i190.i = phi ptr [ %917, %Io_BlifHashString.exit.i.i.i169.i ], [ %928, %Io_BlifHashLookup.exit.thread.i.i189.i.loopexit ]
+Io_BlifHashLookup.argprom.exit.thread.i.i189.i:   ; preds = %Io_BlifHashLookup.argprom.exit.thread.i.i189.i.loopexit, %Io_BlifHashString.exit.i.i.i169.i
+  %.0.lcssa.i12.i.i190.i = phi ptr [ %917, %Io_BlifHashString.exit.i.i.i169.i ], [ %928, %Io_BlifHashLookup.argprom.exit.thread.i.i189.i.loopexit ]
   %929 = load ptr, ptr %368, align 8
   %930 = load i32, ptr %641, align 4
   %931 = add nsw i32 %930, 1
@@ -2180,8 +2180,8 @@ Io_BlifHashLookup.exit.thread.i.i189.i:           ; preds = %Io_BlifHashLookup.e
   %.pre.i.i191.i = load ptr, ptr %.0.lcssa.i12.i.i190.i, align 8
   br label %Io_BlifHashFindOrAdd.exit.i177.i
 
-Io_BlifHashFindOrAdd.exit.i177.i:                 ; preds = %.lr.ph.i.i.i175.i, %Io_BlifHashLookup.exit.thread.i.i189.i, %.lr.ph.i.preheader.i.i172.i
-  %935 = phi ptr [ %.pre.i.i191.i, %Io_BlifHashLookup.exit.thread.i.i189.i ], [ %918, %.lr.ph.i.preheader.i.i172.i ], [ %924, %.lr.ph.i.i.i175.i ]
+Io_BlifHashFindOrAdd.exit.i177.i:                 ; preds = %.lr.ph.i.i.i175.i, %Io_BlifHashLookup.argprom.exit.thread.i.i189.i, %.lr.ph.i.preheader.i.i172.i
+  %935 = phi ptr [ %.pre.i.i191.i, %Io_BlifHashLookup.argprom.exit.thread.i.i189.i ], [ %918, %.lr.ph.i.preheader.i.i172.i ], [ %924, %.lr.ph.i.i.i175.i ]
   %936 = load i32, ptr %935, align 8
   %937 = and i32 %936, 1
   %.not.i178.i = icmp eq i32 %937, 0
@@ -3029,30 +3029,30 @@ Io_BlifHashString.exit.i:                         ; preds = %.lr.ph.i.i, %2
   %21 = getelementptr inbounds ptr, ptr %.val45, i64 %20
   %22 = load ptr, ptr %21, align 8
   %.not1.i = icmp eq ptr %22, null
-  br i1 %.not1.i, label %Io_BlifHashLookup.exit.thread, label %.lr.ph.i.preheader
+  br i1 %.not1.i, label %Io_BlifHashLookup.argprom.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %Io_BlifHashString.exit.i
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %1) #14
   %.not12.i104 = icmp eq i32 %25, 0
-  br i1 %.not12.i104, label %Io_BlifHashLookup.exit, label %.lr.ph
+  br i1 %.not12.i104, label %Io_BlifHashLookup.argprom.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %26 = phi ptr [ %28, %.lr.ph.i ], [ %22, %.lr.ph.i.preheader ]
   %27 = getelementptr inbounds i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %Io_BlifHashLookup.exit.thread, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %Io_BlifHashLookup.argprom.exit.thread, label %.lr.ph.i, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %1) #14
   %.not12.i = icmp eq i32 %31, 0
-  br i1 %.not12.i, label %Io_BlifHashLookup.exit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not12.i, label %Io_BlifHashLookup.argprom.exit, label %.lr.ph, !llvm.loop !14
 
-Io_BlifHashLookup.exit.thread:                    ; preds = %.lr.ph, %Io_BlifHashString.exit.i
+Io_BlifHashLookup.argprom.exit.thread:            ; preds = %.lr.ph, %Io_BlifHashString.exit.i
   %32 = getelementptr inbounds i8, ptr %0, i64 144
   %33 = getelementptr inbounds i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
@@ -3061,7 +3061,7 @@ Io_BlifHashLookup.exit.thread:                    ; preds = %.lr.ph, %Io_BlifHas
   %36 = icmp sgt i32 %.val.i, 0
   br i1 %36, label %.lr.ph.i48, label %Io_BlifGetLine.exit
 
-.lr.ph.i48:                                       ; preds = %Io_BlifHashLookup.exit.thread
+.lr.ph.i48:                                       ; preds = %Io_BlifHashLookup.argprom.exit.thread
   %37 = getelementptr i8, ptr %34, i64 8
   %.val9.i = load ptr, ptr %37, align 8
   %wide.trip.count.i = zext nneg i32 %.val.i to i64
@@ -3083,12 +3083,12 @@ Io_BlifHashLookup.exit.thread:                    ; preds = %.lr.ph, %Io_BlifHas
   %43 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %Io_BlifGetLine.exit
 
-Io_BlifGetLine.exit:                              ; preds = %42, %Io_BlifHashLookup.exit.thread, %.critedge.loopexit.split.loop.exit14.i
-  %.08.i = phi i32 [ -1, %Io_BlifHashLookup.exit.thread ], [ %43, %.critedge.loopexit.split.loop.exit14.i ], [ -1, %42 ]
+Io_BlifGetLine.exit:                              ; preds = %42, %Io_BlifHashLookup.argprom.exit.thread, %.critedge.loopexit.split.loop.exit14.i
+  %.08.i = phi i32 [ -1, %Io_BlifHashLookup.argprom.exit.thread ], [ %43, %.critedge.loopexit.split.loop.exit14.i ], [ -1, %42 ]
   %44 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %.08.i, ptr noundef nonnull %1) #12
   br label %290
 
-Io_BlifHashLookup.exit:                           ; preds = %.lr.ph.i, %.lr.ph.i.preheader
+Io_BlifHashLookup.argprom.exit:                   ; preds = %.lr.ph.i, %.lr.ph.i.preheader
   %45 = phi ptr [ %24, %.lr.ph.i.preheader ], [ %30, %.lr.ph.i ]
   %.pr = phi ptr [ %22, %.lr.ph.i.preheader ], [ %28, %.lr.ph.i ]
   %46 = load i32, ptr %.pr, align 8
@@ -3096,7 +3096,7 @@ Io_BlifHashLookup.exit:                           ; preds = %.lr.ph.i, %.lr.ph.i
   %.not = icmp eq i32 %47, 0
   br i1 %.not, label %62, label %48
 
-48:                                               ; preds = %Io_BlifHashLookup.exit
+48:                                               ; preds = %Io_BlifHashLookup.argprom.exit
   %49 = getelementptr inbounds i8, ptr %0, i64 144
   %50 = getelementptr inbounds i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8
@@ -3132,7 +3132,7 @@ Io_BlifGetLine.exit58:                            ; preds = %59, %48, %.critedge
   %61 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %.08.i50, ptr noundef nonnull %1) #12
   br label %290
 
-62:                                               ; preds = %Io_BlifHashLookup.exit
+62:                                               ; preds = %Io_BlifHashLookup.argprom.exit
   %63 = getelementptr inbounds i8, ptr %.pr, i64 16
   %64 = load ptr, ptr %63, align 8
   %.not43 = icmp eq ptr %64, null

@@ -790,7 +790,7 @@ declare dso_local void @schedule() local_unnamed_addr #4
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cpufreq_notify_transition(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @cpufreq_notify_transition.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
   store i64 0, ptr %3, align 8, !annotation !22
@@ -909,7 +909,7 @@ define dso_local void @cpufreq_freq_transition_end(ptr noundef %0, ptr noundef %
   br label %44
 
 9:                                                ; preds = %3
-  tail call fastcc void @cpufreq_notify_transition(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @cpufreq_notify_transition.argelim(ptr noundef %0, ptr noundef %1)
   %10 = icmp eq i32 %2, 0
   br i1 %10, label %39, label %11
 
@@ -966,7 +966,7 @@ define dso_local void @cpufreq_freq_transition_end(ptr noundef %0, ptr noundef %
   br label %38
 
 38:                                               ; preds = %36, %20
-  call fastcc void @cpufreq_notify_transition(ptr noundef %0, ptr noundef %1)
+  call fastcc void @cpufreq_notify_transition.argelim(ptr noundef %0, ptr noundef %1)
   br label %39
 
 39:                                               ; preds = %38, %9
@@ -3079,7 +3079,7 @@ define internal fastcc i32 @cpufreq_verify_current_freq(ptr noundef %0, i1 nound
   br label %44
 
 39:                                               ; preds = %32
-  call fastcc void @cpufreq_notify_transition(ptr noundef %0, ptr noundef nonnull %3)
+  call fastcc void @cpufreq_notify_transition.argelim(ptr noundef %0, ptr noundef nonnull %3)
   %40 = getelementptr inbounds i8, ptr %0, i64 528
   call void @_raw_spin_lock(ptr noundef %40) #21
   store i8 0, ptr %35, align 4

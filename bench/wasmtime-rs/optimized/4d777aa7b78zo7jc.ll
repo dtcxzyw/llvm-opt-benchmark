@@ -6997,7 +6997,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc i64 @_ZN5gimli5write4unit18write_section_refs17h54ec40286230b8a3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr readonly %.8.val, i64 %.16.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc i64 @_ZN5gimli5write4unit18write_section_refs17h54ec40286230b8a3E.argprom(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr readonly %.8.val, i64 %.16.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, ptr, {} }, ptr, i64, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !2037, !noalias !2040, !noundef !4
@@ -7286,8 +7286,8 @@ _ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit166: ; preds 
   store i64 %94, ptr %38, align 8, !alias.scope !2072, !noalias !2067
   br label %45
 
-95:                                               ; preds = %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit, %45
-  %.sroa.0.0215 = phi ptr [ %.val, %45 ], [ %100, %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit ]
+95:                                               ; preds = %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit, %45
+  %.sroa.0.0215 = phi ptr [ %.val, %45 ], [ %100, %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit ]
   %96 = icmp eq ptr %.sroa.0.0215, %48
   br i1 %96, label %97, label %99
 
@@ -7312,7 +7312,7 @@ _ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit166: ; preds 
     i8 7, label %192
     i8 8, label %198
     i8 9, label %204
-    i8 10, label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+    i8 10, label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
     i8 11, label %216
     i8 12, label %233
     i8 13, label %235
@@ -7393,7 +7393,7 @@ default.unreachable:                              ; preds = %99
   %118 = and i64 %117, 255
   %119 = icmp eq i64 %118, 18
   %spec.select.i = select i1 %119, i64 0, i64 %.sroa.4828.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 120:                                              ; preds = %99
   %121 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 24
@@ -7402,7 +7402,7 @@ default.unreachable:                              ; preds = %99
   %.sroa.4830.0.extract.shift.i = and i64 %123, -256
   %124 = and i64 %123, 255
   %125 = icmp eq i64 %124, 18
-  br i1 %125, label %422, label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br i1 %125, label %422, label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 126:                                              ; preds = %99
   %127 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 1
@@ -7425,7 +7425,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit.i: ; preds = %13
   %136 = load i64, ptr %58, align 8, !alias.scope !2105, !noalias !2114, !noundef !4
   %137 = add i64 %136, 1
   store i64 %137, ptr %58, align 8, !alias.scope !2105, !noalias !2114
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 138:                                              ; preds = %99
   %139 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 2
@@ -7453,7 +7453,7 @@ _ZN5gimli5write6writer6Writer9write_u1617h3444822ba0f53d49E.exit.i: ; preds = %1
   %152 = load i64, ptr %58, align 8, !alias.scope !2125, !noalias !2132, !noundef !4
   %153 = add i64 %152, 2
   store i64 %153, ptr %58, align 8, !alias.scope !2125, !noalias !2132
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 154:                                              ; preds = %99
   %155 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 4
@@ -7481,7 +7481,7 @@ _ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i: ; preds = %1
   %168 = load i64, ptr %58, align 8, !alias.scope !2143, !noalias !2150, !noundef !4
   %169 = add i64 %168, 4
   store i64 %169, ptr %58, align 8, !alias.scope !2143, !noalias !2150
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 170:                                              ; preds = %99
   %171 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 8
@@ -7509,7 +7509,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit.i: ; preds = %1
   %184 = load i64, ptr %58, align 8, !alias.scope !2161, !noalias !2168, !noundef !4
   %185 = add i64 %184, 8
   store i64 %185, ptr %58, align 8, !alias.scope !2161, !noalias !2168
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 186:                                              ; preds = %99
   %187 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 8
@@ -7519,7 +7519,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit.i: ; preds = %1
   %190 = and i64 %189, 255
   %191 = icmp eq i64 %190, 18
   %spec.select1030.i = select i1 %191, i64 0, i64 %.sroa.4842.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 192:                                              ; preds = %99
   %193 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 8
@@ -7529,7 +7529,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit.i: ; preds = %1
   %196 = and i64 %195, 255
   %197 = icmp eq i64 %196, 18
   %spec.select1032.i = select i1 %197, i64 0, i64 %.sroa.4844.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 198:                                              ; preds = %99
   %199 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 8
@@ -7538,7 +7538,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit.i: ; preds = %1
   %.sroa.4847.0.extract.shift.i = and i64 %201, -256
   %202 = and i64 %201, 255
   %203 = icmp eq i64 %202, 18
-  br i1 %203, label %435, label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br i1 %203, label %435, label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 204:                                              ; preds = %99
   %205 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 1
@@ -7561,7 +7561,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit1098.i: ; preds =
   %214 = load i64, ptr %58, align 8, !alias.scope !2175, !noalias !2184, !noundef !4
   %215 = add i64 %214, 1
   store i64 %215, ptr %58, align 8, !alias.scope !2175, !noalias !2184
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 216:                                              ; preds = %99
   %217 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 8
@@ -7592,7 +7592,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit1098.i: ; preds =
   %231 = and i64 %230, 255
   %232 = icmp eq i64 %231, 18
   %spec.select1066.i = select i1 %232, i64 0, i64 %.sroa.4853.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 233:                                              ; preds = %99
   %234 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 8
@@ -7608,7 +7608,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit1098.i: ; preds =
   %239 = and i64 %238, 255
   %240 = icmp eq i64 %239, 18
   %spec.select1070.i = select i1 %240, i64 0, i64 %.sroa.4859.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 241:                                              ; preds = %99
   %242 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 8
@@ -7657,7 +7657,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit1098.i: ; preds =
   %264 = and i64 %263, 255
   %265 = icmp eq i64 %264, 18
   %spec.select1076.i = select i1 %265, i64 0, i64 %.sroa.4865.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 266:                                              ; preds = %99
   %267 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 8
@@ -7700,7 +7700,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit1098.i: ; preds =
   %285 = and i64 %284, 255
   %286 = icmp eq i64 %285, 18
   %spec.select1078.i = select i1 %286, i64 0, i64 %.sroa.4867.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 287:                                              ; preds = %99
   %288 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 8
@@ -7734,7 +7734,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %305 = load i64, ptr %58, align 8, !alias.scope !2227, !noalias !2234, !noundef !4
   %306 = add i64 %305, 8
   store i64 %306, ptr %58, align 8, !alias.scope !2227, !noalias !2234
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 307:                                              ; preds = %99
   %308 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 8
@@ -7750,7 +7750,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %315 = and i64 %314, 255
   %316 = icmp eq i64 %315, 18
   %spec.select1084.i = select i1 %316, i64 0, i64 %.sroa.4875.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 317:                                              ; preds = %99
   %318 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 8
@@ -7783,7 +7783,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %336 = and i64 %335, 255
   %337 = icmp eq i64 %336, 18
   %spec.select1038.i = select i1 %337, i64 0, i64 %.sroa.4883.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 338:                                              ; preds = %99
   %339 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 1
@@ -7794,7 +7794,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %343 = and i64 %342, 255
   %344 = icmp eq i64 %343, 18
   %spec.select1040.i = select i1 %344, i64 0, i64 %.sroa.4885.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 345:                                              ; preds = %99
   %346 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 1
@@ -7805,7 +7805,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %350 = and i64 %349, 255
   %351 = icmp eq i64 %350, 18
   %spec.select1042.i = select i1 %351, i64 0, i64 %.sroa.4887.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 352:                                              ; preds = %99
   %353 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 1
@@ -7816,7 +7816,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %357 = and i64 %356, 255
   %358 = icmp eq i64 %357, 18
   %spec.select1044.i = select i1 %358, i64 0, i64 %.sroa.4889.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 359:                                              ; preds = %99
   %360 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 1
@@ -7827,7 +7827,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %364 = and i64 %363, 255
   %365 = icmp eq i64 %364, 18
   %spec.select1046.i = select i1 %365, i64 0, i64 %.sroa.4891.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 366:                                              ; preds = %99
   %367 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 1
@@ -7838,7 +7838,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %371 = and i64 %370, 255
   %372 = icmp eq i64 %371, 18
   %spec.select1048.i = select i1 %372, i64 0, i64 %.sroa.4893.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 373:                                              ; preds = %99
   %374 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 2
@@ -7849,7 +7849,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %378 = and i64 %377, 255
   %379 = icmp eq i64 %378, 18
   %spec.select1050.i = select i1 %379, i64 0, i64 %.sroa.4895.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 380:                                              ; preds = %99
   %381 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 8
@@ -7859,7 +7859,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %384 = and i64 %383, 255
   %385 = icmp eq i64 %384, 18
   %spec.select1052.i = select i1 %385, i64 0, i64 %.sroa.4897.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 386:                                              ; preds = %99
   %387 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 1
@@ -7870,7 +7870,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %391 = and i64 %390, 255
   %392 = icmp eq i64 %391, 18
   %spec.select1054.i = select i1 %392, i64 0, i64 %.sroa.4899.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 393:                                              ; preds = %99
   %394 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 1
@@ -7881,7 +7881,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %398 = and i64 %397, 255
   %399 = icmp eq i64 %398, 18
   %spec.select1056.i = select i1 %399, i64 0, i64 %.sroa.4901.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 400:                                              ; preds = %99
   %401 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 1
@@ -7892,7 +7892,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %405 = and i64 %404, 255
   %406 = icmp eq i64 %405, 18
   %spec.select1058.i = select i1 %406, i64 0, i64 %.sroa.4903.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 407:                                              ; preds = %99
   %408 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 1
@@ -7903,7 +7903,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %412 = and i64 %411, 255
   %413 = icmp eq i64 %412, 18
   %spec.select1060.i = select i1 %413, i64 0, i64 %.sroa.4905.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 414:                                              ; preds = %99
   %415 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 8
@@ -7917,7 +7917,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %420 = and i64 %419, 255
   %421 = icmp eq i64 %420, 18
   %spec.select1090.i = select i1 %421, i64 0, i64 %.sroa.4907.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 422:                                              ; preds = %120
   %423 = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 16
@@ -7941,7 +7941,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %433 = load i64, ptr %58, align 8, !alias.scope !2253, !noalias !2260, !noundef !4
   %434 = add i64 %433, %122
   store i64 %434, ptr %58, align 8, !alias.scope !2253, !noalias !2260
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 435:                                              ; preds = %198
   %436 = tail call i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %199, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 8 dereferenceable_or_null(24) %2, i32 %.sroa.0218.0.copyload.i, ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(32) %5), !noalias !2266
@@ -7949,7 +7949,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %437 = and i64 %436, 255
   %438 = icmp eq i64 %437, 18
   %spec.select1064.i = select i1 %438, i64 0, i64 %.sroa.4849.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 439:                                              ; preds = %233
   %.sroa.7260.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.0.0215, i64 24
@@ -7986,7 +7986,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %451 = and i64 %450, 255
   %452 = icmp eq i64 %451, 18
   %spec.select1068.i = select i1 %452, i64 0, i64 %.sroa.4857.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 453:                                              ; preds = %99
   br i1 %trunc981.i, label %454, label %.loopexit220
@@ -8029,7 +8029,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %470 = and i64 %469, 255
   %471 = icmp eq i64 %470, 18
   %spec.select1072.i = select i1 %471, i64 0, i64 %.sroa.4861.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 472:                                              ; preds = %241
   tail call void @llvm.assume(i1 %69)
@@ -8073,7 +8073,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %491 = and i64 %490, 255
   %492 = icmp eq i64 %491, 18
   %spec.select1074.i = select i1 %492, i64 0, i64 %.sroa.4863.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 493:                                              ; preds = %241
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %243, i64 noundef %.val163, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27c2fd168d1081b46fe784db217564e4.27) #25, !noalias !2104
@@ -8121,7 +8121,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %513 = and i64 %512, 255
   %514 = icmp eq i64 %513, 18
   %spec.select1080.i = select i1 %514, i64 0, i64 %.sroa.4869.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 515:                                              ; preds = %287
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %289, i64 noundef %.val161, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27c2fd168d1081b46fe784db217564e4.29) #25, !noalias !2104
@@ -8169,7 +8169,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %535 = and i64 %534, 255
   %536 = icmp eq i64 %535, 18
   %spec.select1082.i = select i1 %536, i64 0, i64 %.sroa.4873.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 537:                                              ; preds = %307
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %309, i64 noundef %.val159, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27c2fd168d1081b46fe784db217564e4.31) #25, !noalias !2104
@@ -8217,7 +8217,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i: ; preds 
   %557 = and i64 %556, 255
   %558 = icmp eq i64 %557, 18
   %spec.select1086.i = select i1 %558, i64 0, i64 %.sroa.4877.0.extract.shift.i
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
 559:                                              ; preds = %317
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %319, i64 noundef %.val157, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27c2fd168d1081b46fe784db217564e4.32) #25, !noalias !2104
@@ -8248,9 +8248,9 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit172: ; preds = %5
   %572 = load i64, ptr %58, align 8, !alias.scope !2351, !noalias !2348, !noundef !4
   %573 = add i64 %572, 1
   store i64 %573, ptr %58, align 8, !alias.scope !2351, !noalias !2348
-  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
+  br label %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
 
-_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit: ; preds = %99, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit.i", %120, %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit.i, %_ZN5gimli5write6writer6Writer9write_u1617h3444822ba0f53d49E.exit.i, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i, %_ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit.i, %186, %192, %198, %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit1098.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2790141ada5d19b1E.exit.i", %235, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit210", %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit204", %_ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i, %311, %331, %338, %345, %352, %359, %366, %373, %380, %386, %393, %400, %407, %414, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE.exit", %435, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h679219d6757c0fa7E.exit", %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit197", %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit191", %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit185", %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit179", %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit", %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit172
+_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit: ; preds = %99, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit.i", %120, %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit.i, %_ZN5gimli5write6writer6Writer9write_u1617h3444822ba0f53d49E.exit.i, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i, %_ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit.i, %186, %192, %198, %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit1098.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2790141ada5d19b1E.exit.i", %235, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit210", %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit204", %_ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i, %311, %331, %338, %345, %352, %359, %366, %373, %380, %386, %393, %400, %407, %414, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE.exit", %435, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h679219d6757c0fa7E.exit", %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit197", %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit191", %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit185", %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit179", %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit", %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit172
   %.sroa.43.sroa.0.0.i = phi i64 [ 0, %99 ], [ %.sroa.4830.0.extract.shift.i, %120 ], [ %.sroa.4847.0.extract.shift.i, %198 ], [ %spec.select.i, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit.i" ], [ 0, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE.exit" ], [ 0, %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit.i ], [ 0, %_ZN5gimli5write6writer6Writer9write_u1617h3444822ba0f53d49E.exit.i ], [ 0, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i ], [ 0, %_ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit.i ], [ %spec.select1030.i, %186 ], [ %spec.select1032.i, %192 ], [ %spec.select1064.i, %435 ], [ 0, %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit1098.i ], [ %spec.select1066.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2790141ada5d19b1E.exit.i" ], [ %spec.select1068.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h679219d6757c0fa7E.exit" ], [ %spec.select1070.i, %235 ], [ %spec.select1072.i, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit197" ], [ %spec.select1074.i, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit191" ], [ %spec.select1076.i, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit210" ], [ %spec.select1078.i, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit204" ], [ %spec.select1080.i, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit185" ], [ 0, %_ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i ], [ %spec.select1082.i, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit179" ], [ %spec.select1084.i, %311 ], [ %spec.select1086.i, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit" ], [ 0, %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit172 ], [ %spec.select1038.i, %331 ], [ %spec.select1040.i, %338 ], [ %spec.select1042.i, %345 ], [ %spec.select1044.i, %352 ], [ %spec.select1046.i, %359 ], [ %spec.select1048.i, %366 ], [ %spec.select1050.i, %373 ], [ %spec.select1052.i, %380 ], [ %spec.select1054.i, %386 ], [ %spec.select1056.i, %393 ], [ %spec.select1058.i, %400 ], [ %spec.select1060.i, %407 ], [ %spec.select1090.i, %414 ]
   %.sroa.01.0.i = phi i64 [ 18, %99 ], [ %123, %120 ], [ %201, %198 ], [ %117, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit.i" ], [ 18, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE.exit" ], [ 18, %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit.i ], [ 18, %_ZN5gimli5write6writer6Writer9write_u1617h3444822ba0f53d49E.exit.i ], [ 18, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i ], [ 18, %_ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit.i ], [ %189, %186 ], [ %195, %192 ], [ %436, %435 ], [ 18, %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit1098.i ], [ %230, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2790141ada5d19b1E.exit.i" ], [ %450, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h679219d6757c0fa7E.exit" ], [ %238, %235 ], [ %469, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit197" ], [ %490, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit191" ], [ %263, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit210" ], [ %284, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit204" ], [ %512, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit185" ], [ 18, %_ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1101.i ], [ %534, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit179" ], [ %314, %311 ], [ %556, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit" ], [ 18, %_ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit172 ], [ %335, %331 ], [ %342, %338 ], [ %349, %345 ], [ %356, %352 ], [ %363, %359 ], [ %370, %366 ], [ %377, %373 ], [ %383, %380 ], [ %390, %386 ], [ %397, %393 ], [ %404, %400 ], [ %411, %407 ], [ %419, %414 ]
   %574 = and i64 %.sroa.01.0.i, 255
@@ -8349,9 +8349,9 @@ _ZN5gimli5write6writer6Writer14write_udata_at17h90dbb21f6bb5a191E.exit: ; preds 
   %.sroa.4135.0.extract.shift.le = and i64 %619, -256
   br label %615
 
-.loopexit220:                                     ; preds = %233, %453, %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit
-  %.sroa.01.0.i260 = phi i64 [ %.sroa.01.0.i, %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit ], [ 8, %233 ], [ 2, %453 ]
-  %.sroa.43.sroa.0.0.i259 = phi i64 [ %.sroa.43.sroa.0.0.i, %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.exit ], [ 0, %233 ], [ 0, %453 ]
+.loopexit220:                                     ; preds = %233, %453, %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit
+  %.sroa.01.0.i260 = phi i64 [ %.sroa.01.0.i, %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit ], [ 8, %233 ], [ 2, %453 ]
+  %.sroa.43.sroa.0.0.i259 = phi i64 [ %.sroa.43.sroa.0.0.i, %_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom.exit ], [ 0, %233 ], [ 0, %453 ]
   %.sroa.01.0.insert.insert.i.le = or i64 %.sroa.01.0.i260, %.sroa.43.sroa.0.0.i259
   %.sroa.4137.0.extract.shift.le = and i64 %.sroa.43.sroa.0.0.i259, -256
   br label %615
@@ -8525,7 +8525,7 @@ define hidden void @_ZN5gimli5write4unit9UnitTable5write17h7770b91e17dd051eE(ptr
   %.val96 = phi ptr [ %.val96.pre, %._crit_edge.loopexit ], [ inttoptr (i64 8 to ptr), %5 ]
   %95 = getelementptr inbounds i8, ptr %2, i64 616
   %96 = getelementptr inbounds i8, ptr %2, i64 56
-  %97 = invoke fastcc i64 @_ZN5gimli5write4unit18write_section_refs17h54ec40286230b8a3E(ptr noalias noundef align 8 dereferenceable(24) %95, ptr noalias noundef align 8 dereferenceable(56) %96, ptr %.val96, i64 %.val97)
+  %97 = invoke fastcc i64 @_ZN5gimli5write4unit18write_section_refs17h54ec40286230b8a3E.argprom(ptr noalias noundef align 8 dereferenceable(24) %95, ptr noalias noundef align 8 dereferenceable(56) %96, ptr %.val96, i64 %.val97)
           to label %98 unwind label %.loopexit.split-lp
 
 98:                                               ; preds = %._crit_edge
@@ -8538,7 +8538,7 @@ define hidden void @_ZN5gimli5write4unit9UnitTable5write17h7770b91e17dd051eE(ptr
   %102 = getelementptr inbounds i8, ptr %2, i64 336
   %.val94 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.val95 = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %103 = invoke fastcc i64 @_ZN5gimli5write4unit18write_section_refs17h54ec40286230b8a3E(ptr noalias noundef align 8 dereferenceable(24) %101, ptr noalias noundef align 8 dereferenceable(56) %102, ptr %.val94, i64 %.val95)
+  %103 = invoke fastcc i64 @_ZN5gimli5write4unit18write_section_refs17h54ec40286230b8a3E.argprom(ptr noalias noundef align 8 dereferenceable(24) %101, ptr noalias noundef align 8 dereferenceable(56) %102, ptr %.val94, i64 %.val95)
           to label %106 unwind label %.loopexit.split-lp
 
 104:                                              ; preds = %98
@@ -8561,7 +8561,7 @@ define hidden void @_ZN5gimli5write4unit9UnitTable5write17h7770b91e17dd051eE(ptr
   %110 = getelementptr inbounds i8, ptr %2, i64 392
   %.val92 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.val93 = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %111 = invoke fastcc i64 @_ZN5gimli5write4unit18write_section_refs17h54ec40286230b8a3E(ptr noalias noundef align 8 dereferenceable(24) %109, ptr noalias noundef align 8 dereferenceable(56) %110, ptr %.val92, i64 %.val93)
+  %111 = invoke fastcc i64 @_ZN5gimli5write4unit18write_section_refs17h54ec40286230b8a3E.argprom(ptr noalias noundef align 8 dereferenceable(24) %109, ptr noalias noundef align 8 dereferenceable(56) %110, ptr %.val92, i64 %.val93)
           to label %114 unwind label %.loopexit.split-lp
 
 112:                                              ; preds = %106
@@ -9120,7 +9120,7 @@ default.unreachable:                              ; preds = %.lr.ph.i24.i, %.lr.
 "_ZN93_$LT$indexmap..set..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2e0f3687661b9a1E.exit.thread.i.i": ; preds = %306
   %.sroa.0240.0.copyload241 = load i64, ptr %13, align 8, !noalias !2543
   %.sroa.9242.0.copyload244 = load i64, ptr %72, align 8, !noalias !2543
-  br label %_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.exit.i
+  br label %_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.argprom.exit.i
 
 312:                                              ; preds = %"_ZN93_$LT$indexmap..set..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2e0f3687661b9a1E.exit.i.i"
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hf28e331ee24ad4dcE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %.sroa.54.0.copyload263)
@@ -9200,7 +9200,7 @@ default.unreachable:                              ; preds = %.lr.ph.i24.i, %.lr.
 
 "_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$gimli..common..RangeListsOffset$GT$$GT$17hb09509c889f88534E.exit.i.i": ; preds = %338, %335, %.noexc156
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !2552
-  br label %_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.exit.i
+  br label %_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.argprom.exit.i
 
 340:                                              ; preds = %.lr.ph.i.i
   %341 = getelementptr inbounds i8, ptr %.sroa.01.0131.i.i, i64 8
@@ -9568,7 +9568,7 @@ default.unreachable:                              ; preds = %.lr.ph.i24.i, %.lr.
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24, !noalias !2542
   unreachable
 
-_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.exit.i: ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$gimli..common..RangeListsOffset$GT$$GT$17hb09509c889f88534E.exit.i.i", %"_ZN93_$LT$indexmap..set..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2e0f3687661b9a1E.exit.thread.i.i"
+_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.argprom.exit.i: ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$gimli..common..RangeListsOffset$GT$$GT$17hb09509c889f88534E.exit.i.i", %"_ZN93_$LT$indexmap..set..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2e0f3687661b9a1E.exit.thread.i.i"
   %.sroa.0240.1 = phi i64 [ %.sroa.0240.0.copyload241, %"_ZN93_$LT$indexmap..set..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2e0f3687661b9a1E.exit.thread.i.i" ], [ -9223372036854775808, %"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$gimli..common..RangeListsOffset$GT$$GT$17hb09509c889f88534E.exit.i.i" ]
   %.sroa.54.5 = phi i64 [ %.sroa.54.0.copyload263, %"_ZN93_$LT$indexmap..set..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2e0f3687661b9a1E.exit.thread.i.i" ], [ %.sroa.54.0914, %"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$gimli..common..RangeListsOffset$GT$$GT$17hb09509c889f88534E.exit.i.i" ]
   %.sroa.9242.7 = phi i64 [ %.sroa.9242.0.copyload244, %"_ZN93_$LT$indexmap..set..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2e0f3687661b9a1E.exit.thread.i.i" ], [ %.sroa.9242.6, %"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$gimli..common..RangeListsOffset$GT$$GT$17hb09509c889f88534E.exit.i.i" ]
@@ -9784,7 +9784,7 @@ _ZN5gimli5write6writer6Writer23write_initial_length_at17hd6836251f460f023E.exit1
   %.sroa.0240.0.copyload = load i64, ptr %11, align 8, !noalias !2731
   %.sroa.9242.0.copyload = load i64, ptr %60, align 8, !noalias !2731
   %.sroa.54.0.copyload = load i64, ptr %61, align 8, !noalias !2731
-  br label %_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.exit.i
+  br label %_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.argprom.exit.i
 
 _ZN5gimli5write6writer6Writer23write_initial_length_at17hd6836251f460f023E.exit174.thread: ; preds = %708, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit390.i.i", %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit379.i.i", %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit368.i.i", %641, %636, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit.i38.i", %_ZN5gimli5write6writer6Writer23write_initial_length_at17hd6836251f460f023E.exit174, %.split.i166, %479
   %.sroa.9242.4 = phi i64 [ %.sroa.9242.4.insert.insert, %479 ], [ %phi.call.i168, %_ZN5gimli5write6writer6Writer23write_initial_length_at17hd6836251f460f023E.exit174 ], [ 3, %.split.i166 ], [ %707, %708 ], [ %703, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit390.i.i" ], [ %681, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit379.i.i" ], [ %663, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit368.i.i" ], [ %640, %641 ], [ %635, %636 ], [ %624, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit.i38.i" ]
@@ -9809,7 +9809,7 @@ _ZN5gimli5write6writer6Writer23write_initial_length_at17hd6836251f460f023E.exit1
 
 "_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$gimli..common..RangeListsOffset$GT$$GT$17hb09509c889f88534E.exit.i28.i": ; preds = %549, %546, %.noexc158
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !2732
-  br label %_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.exit.i
+  br label %_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.argprom.exit.i
 
 551:                                              ; preds = %"_ZN93_$LT$indexmap..set..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2e0f3687661b9a1E.exit.i23.i"
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hf28e331ee24ad4dcE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11, i64 noundef %527)
@@ -10215,7 +10215,7 @@ _ZN5gimli5write6writer6Writer23write_initial_length_at17hd6836251f460f023E.exit1
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24, !noalias !2624
   unreachable
 
-_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.exit.i: ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$gimli..common..RangeListsOffset$GT$$GT$17hb09509c889f88534E.exit.i28.i", %544
+_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.argprom.exit.i: ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$gimli..common..RangeListsOffset$GT$$GT$17hb09509c889f88534E.exit.i28.i", %544
   %.sroa.0240.0 = phi i64 [ -9223372036854775808, %"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$gimli..common..RangeListsOffset$GT$$GT$17hb09509c889f88534E.exit.i28.i" ], [ %.sroa.0240.0.copyload, %544 ]
   %.sroa.54.4 = phi i64 [ %.sroa.54.0914, %"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$gimli..common..RangeListsOffset$GT$$GT$17hb09509c889f88534E.exit.i28.i" ], [ %.sroa.54.0.copyload, %544 ]
   %.sroa.9242.5 = phi i64 [ %.sroa.9242.4, %"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$gimli..common..RangeListsOffset$GT$$GT$17hb09509c889f88534E.exit.i28.i" ], [ %.sroa.9242.0.copyload, %544 ]
@@ -10229,10 +10229,10 @@ _ZN5gimli5write5range14RangeListTable5write17h278bfe63affd895cE.exit.thread: ; p
   %.sroa.9242.2.insert.insert = or disjoint i64 %.sroa.9242.0.insert.insert266, 5
   br label %.loopexit498
 
-_ZN5gimli5write5range14RangeListTable5write17h278bfe63affd895cE.exit: ; preds = %_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.exit.i, %_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.exit.i
-  %.sroa.0240.2 = phi i64 [ %.sroa.0240.1, %_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.exit.i ], [ %.sroa.0240.0, %_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.exit.i ]
-  %.sroa.54.6 = phi i64 [ %.sroa.54.5, %_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.exit.i ], [ %.sroa.54.4, %_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.exit.i ]
-  %.sroa.9242.8 = phi i64 [ %.sroa.9242.7, %_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.exit.i ], [ %.sroa.9242.5, %_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.exit.i ]
+_ZN5gimli5write5range14RangeListTable5write17h278bfe63affd895cE.exit: ; preds = %_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.argprom.exit.i, %_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.argprom.exit.i
+  %.sroa.0240.2 = phi i64 [ %.sroa.0240.1, %_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.argprom.exit.i ], [ %.sroa.0240.0, %_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.argprom.exit.i ]
+  %.sroa.54.6 = phi i64 [ %.sroa.54.5, %_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.argprom.exit.i ], [ %.sroa.54.4, %_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.argprom.exit.i ]
+  %.sroa.9242.8 = phi i64 [ %.sroa.9242.7, %_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.argprom.exit.i ], [ %.sroa.9242.5, %_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.argprom.exit.i ]
   %713 = icmp eq i64 %.sroa.0240.2, -9223372036854775808
   br i1 %713, label %.loopexit498, label %_ZN5gimli5write5range14RangeListTable5write17h278bfe63affd895cE.exit._ZN5gimli5write5range14RangeListTable5write17h278bfe63affd895cE.exit.thread450_crit_edge
 
@@ -18049,8 +18049,8 @@ attributes #25 = { noreturn }
 !623 = distinct !{!623, !617, !"_ZN98_$LT$gimli..write..endian_vec..EndianVec$LT$Endian$GT$$u20$as$u20$gimli..write..writer..Writer$GT$5write17h02c2d6227bad87baE: argument 1"}
 !624 = distinct !{!624, !619, !"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE: argument 1"}
 !625 = !{!626}
-!626 = distinct !{!626, !627, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE: argument 0"}
-!627 = distinct !{!627, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE"}
+!626 = distinct !{!626, !627, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE.argprom: argument 0"}
+!627 = distinct !{!627, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE.argprom"}
 !628 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !629 = !{!307, !312, !313, !314, !310}
 !630 = !{!631, !633, !635, !637, !639}
@@ -18138,8 +18138,8 @@ attributes #25 = { noreturn }
 !712 = distinct !{!712, !706, !"_ZN98_$LT$gimli..write..endian_vec..EndianVec$LT$Endian$GT$$u20$as$u20$gimli..write..writer..Writer$GT$5write17h02c2d6227bad87baE: argument 1"}
 !713 = distinct !{!713, !708, !"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE: argument 1"}
 !714 = !{!715}
-!715 = distinct !{!715, !716, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE: argument 0"}
-!716 = distinct !{!716, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE"}
+!715 = distinct !{!715, !716, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE.argprom: argument 0"}
+!716 = distinct !{!716, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE.argprom"}
 !717 = !{!718, !720, !722, !724}
 !718 = distinct !{!718, !719, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h7e6e7409f5cd42ccE: argument 0"}
 !719 = distinct !{!719, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h7e6e7409f5cd42ccE"}
@@ -18306,8 +18306,8 @@ attributes #25 = { noreturn }
 !880 = distinct !{!880, !875, !"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE: argument 1"}
 !881 = !{!870, !872, !874, !876}
 !882 = !{!883}
-!883 = distinct !{!883, !884, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE: argument 0"}
-!884 = distinct !{!884, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE"}
+!883 = distinct !{!883, !884, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE.argprom: argument 0"}
+!884 = distinct !{!884, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE.argprom"}
 !885 = !{!307, !312, !313, !314}
 !886 = !{!887, !889, !891}
 !887 = distinct !{!887, !888, !"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$6endian17hf2a26d8a7c8e015dE: argument 0"}
@@ -18350,8 +18350,8 @@ attributes #25 = { noreturn }
 !924 = distinct !{!924, !921, !"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE: argument 1"}
 !925 = !{!916, !918, !920, !909, !911}
 !926 = !{!927}
-!927 = distinct !{!927, !928, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE: argument 0"}
-!928 = distinct !{!928, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE"}
+!927 = distinct !{!927, !928, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE.argprom: argument 0"}
+!928 = distinct !{!928, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE.argprom"}
 !929 = !{!930, !932, !934}
 !930 = distinct !{!930, !931, !"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$6endian17hf2a26d8a7c8e015dE: argument 0"}
 !931 = distinct !{!931, !"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$6endian17hf2a26d8a7c8e015dE"}
@@ -18417,8 +18417,8 @@ attributes #25 = { noreturn }
 !991 = distinct !{!991, !986, !"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE: argument 1"}
 !992 = !{!981, !983, !985, !987}
 !993 = !{!994}
-!994 = distinct !{!994, !995, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE: argument 0"}
-!995 = distinct !{!995, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE"}
+!994 = distinct !{!994, !995, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE.argprom: argument 0"}
+!995 = distinct !{!995, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE.argprom"}
 !996 = !{!997, !999, !1001, !1003}
 !997 = distinct !{!997, !998, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h7e6e7409f5cd42ccE: argument 0"}
 !998 = distinct !{!998, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h7e6e7409f5cd42ccE"}
@@ -18459,8 +18459,8 @@ attributes #25 = { noreturn }
 !1033 = distinct !{!1033, !1028, !"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE: argument 1"}
 !1034 = !{!1023, !1025, !1027, !1029}
 !1035 = !{!1036}
-!1036 = distinct !{!1036, !1037, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE: argument 0"}
-!1037 = distinct !{!1037, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE"}
+!1036 = distinct !{!1036, !1037, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE.argprom: argument 0"}
+!1037 = distinct !{!1037, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE.argprom"}
 !1038 = !{!1039, !1041, !1043, !1045}
 !1039 = distinct !{!1039, !1040, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h7e6e7409f5cd42ccE: argument 0"}
 !1040 = distinct !{!1040, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h7e6e7409f5cd42ccE"}
@@ -18558,8 +18558,8 @@ attributes #25 = { noreturn }
 !1132 = !{!1133}
 !1133 = distinct !{!1133, !1131, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h679219d6757c0fa7E: argument 1"}
 !1134 = !{!1135}
-!1135 = distinct !{!1135, !1136, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE: argument 0"}
-!1136 = distinct !{!1136, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE"}
+!1135 = distinct !{!1135, !1136, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE.argprom: argument 0"}
+!1136 = distinct !{!1136, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17hc18f345a333ef3dbE.argprom"}
 !1137 = !{!1138, !1140, !1142}
 !1138 = distinct !{!1138, !1139, !"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$6endian17hf2a26d8a7c8e015dE: argument 0"}
 !1139 = distinct !{!1139, !"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$6endian17hf2a26d8a7c8e015dE"}
@@ -18923,8 +18923,8 @@ attributes #25 = { noreturn }
 !1497 = distinct !{!1497, !1491, !"_ZN98_$LT$gimli..write..endian_vec..EndianVec$LT$Endian$GT$$u20$as$u20$gimli..write..writer..Writer$GT$5write17h02c2d6227bad87baE: argument 1"}
 !1498 = distinct !{!1498, !1493, !"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$5write17h3164552663168fb5E: argument 1"}
 !1499 = !{!1500}
-!1500 = distinct !{!1500, !1501, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E: argument 0"}
-!1501 = distinct !{!1501, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E"}
+!1500 = distinct !{!1500, !1501, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E.argprom: argument 0"}
+!1501 = distinct !{!1501, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E.argprom"}
 !1502 = !{!1190, !1195, !1196, !1197, !1193}
 !1503 = !{!1504, !1506, !1508, !1510, !1512}
 !1504 = distinct !{!1504, !1505, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h7e6e7409f5cd42ccE: argument 0"}
@@ -19011,8 +19011,8 @@ attributes #25 = { noreturn }
 !1585 = distinct !{!1585, !1579, !"_ZN98_$LT$gimli..write..endian_vec..EndianVec$LT$Endian$GT$$u20$as$u20$gimli..write..writer..Writer$GT$5write17h02c2d6227bad87baE: argument 1"}
 !1586 = distinct !{!1586, !1581, !"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$5write17h3164552663168fb5E: argument 1"}
 !1587 = !{!1588}
-!1588 = distinct !{!1588, !1589, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E: argument 0"}
-!1589 = distinct !{!1589, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E"}
+!1588 = distinct !{!1588, !1589, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E.argprom: argument 0"}
+!1589 = distinct !{!1589, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E.argprom"}
 !1590 = !{!1591, !1593, !1595, !1597}
 !1591 = distinct !{!1591, !1592, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h7e6e7409f5cd42ccE: argument 0"}
 !1592 = distinct !{!1592, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h7e6e7409f5cd42ccE"}
@@ -19179,8 +19179,8 @@ attributes #25 = { noreturn }
 !1753 = distinct !{!1753, !1748, !"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$5write17h3164552663168fb5E: argument 1"}
 !1754 = !{!1743, !1745, !1747, !1749}
 !1755 = !{!1756}
-!1756 = distinct !{!1756, !1757, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E: argument 0"}
-!1757 = distinct !{!1757, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E"}
+!1756 = distinct !{!1756, !1757, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E.argprom: argument 0"}
+!1757 = distinct !{!1757, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E.argprom"}
 !1758 = !{!1190, !1195, !1196, !1197}
 !1759 = !{!1760, !1762, !1764}
 !1760 = distinct !{!1760, !1761, !"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$6endian17h6d5460f670c6fc9dE: argument 0"}
@@ -19223,8 +19223,8 @@ attributes #25 = { noreturn }
 !1797 = distinct !{!1797, !1794, !"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$5write17h3164552663168fb5E: argument 1"}
 !1798 = !{!1789, !1791, !1793, !1782, !1784}
 !1799 = !{!1800}
-!1800 = distinct !{!1800, !1801, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E: argument 0"}
-!1801 = distinct !{!1801, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E"}
+!1800 = distinct !{!1800, !1801, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E.argprom: argument 0"}
+!1801 = distinct !{!1801, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E.argprom"}
 !1802 = !{!1803, !1805, !1807}
 !1803 = distinct !{!1803, !1804, !"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$6endian17h6d5460f670c6fc9dE: argument 0"}
 !1804 = distinct !{!1804, !"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$6endian17h6d5460f670c6fc9dE"}
@@ -19290,8 +19290,8 @@ attributes #25 = { noreturn }
 !1864 = distinct !{!1864, !1859, !"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$5write17h3164552663168fb5E: argument 1"}
 !1865 = !{!1854, !1856, !1858, !1860}
 !1866 = !{!1867}
-!1867 = distinct !{!1867, !1868, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E: argument 0"}
-!1868 = distinct !{!1868, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E"}
+!1867 = distinct !{!1867, !1868, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E.argprom: argument 0"}
+!1868 = distinct !{!1868, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E.argprom"}
 !1869 = !{!1870, !1872, !1874, !1876}
 !1870 = distinct !{!1870, !1871, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h7e6e7409f5cd42ccE: argument 0"}
 !1871 = distinct !{!1871, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h7e6e7409f5cd42ccE"}
@@ -19332,8 +19332,8 @@ attributes #25 = { noreturn }
 !1906 = distinct !{!1906, !1901, !"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$5write17h3164552663168fb5E: argument 1"}
 !1907 = !{!1896, !1898, !1900, !1902}
 !1908 = !{!1909}
-!1909 = distinct !{!1909, !1910, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E: argument 0"}
-!1910 = distinct !{!1910, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E"}
+!1909 = distinct !{!1909, !1910, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E.argprom: argument 0"}
+!1910 = distinct !{!1910, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E.argprom"}
 !1911 = !{!1912, !1914, !1916, !1918}
 !1912 = distinct !{!1912, !1913, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h7e6e7409f5cd42ccE: argument 0"}
 !1913 = distinct !{!1913, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h7e6e7409f5cd42ccE"}
@@ -19431,8 +19431,8 @@ attributes #25 = { noreturn }
 !2005 = !{!2006}
 !2006 = distinct !{!2006, !2004, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h679219d6757c0fa7E: argument 1"}
 !2007 = !{!2008}
-!2008 = distinct !{!2008, !2009, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E: argument 0"}
-!2009 = distinct !{!2009, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E"}
+!2008 = distinct !{!2008, !2009, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E.argprom: argument 0"}
+!2009 = distinct !{!2009, !"_ZN5gimli5write2op9Operation5write28_$u7b$$u7b$closure$u7d$$u7d$17h58b2eb697b6948a8E.argprom"}
 !2010 = !{!2011, !2013, !2015}
 !2011 = distinct !{!2011, !2012, !"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$6endian17h6d5460f670c6fc9dE: argument 0"}
 !2012 = distinct !{!2012, !"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$6endian17h6d5460f670c6fc9dE"}
@@ -19505,16 +19505,16 @@ attributes #25 = { noreturn }
 !2079 = distinct !{!2079, !2080, !"_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE: argument 0"}
 !2080 = distinct !{!2080, !"_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE"}
 !2081 = !{!2082}
-!2082 = distinct !{!2082, !2083, !"_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E: argument 0"}
-!2083 = distinct !{!2083, !"_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E"}
+!2082 = distinct !{!2082, !2083, !"_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom: argument 0"}
+!2083 = distinct !{!2083, !"_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom"}
 !2084 = !{!2085}
-!2085 = distinct !{!2085, !2083, !"_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E: argument 1"}
+!2085 = distinct !{!2085, !2083, !"_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom: argument 1"}
 !2086 = !{!2087}
-!2087 = distinct !{!2087, !2083, !"_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E: argument 3"}
+!2087 = distinct !{!2087, !2083, !"_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom: argument 3"}
 !2088 = !{!2085, !2089, !2087, !2090, !2091}
-!2089 = distinct !{!2089, !2083, !"_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E: argument 2"}
-!2090 = distinct !{!2090, !2083, !"_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E: argument 4"}
-!2091 = distinct !{!2091, !2083, !"_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E: argument 5"}
+!2089 = distinct !{!2089, !2083, !"_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom: argument 2"}
+!2090 = distinct !{!2090, !2083, !"_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom: argument 4"}
+!2091 = distinct !{!2091, !2083, !"_ZN5gimli5write4unit14AttributeValue5write17hd20fa5e40b1c0f68E.argprom: argument 5"}
 !2092 = !{!2093, !2095, !2085}
 !2093 = distinct !{!2093, !2094, !"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$3len17h4869bc9af7ad97bfE: argument 0"}
 !2094 = distinct !{!2094, !"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$3len17h4869bc9af7ad97bfE"}
@@ -19849,8 +19849,8 @@ attributes #25 = { noreturn }
 !2423 = distinct !{!2423, !"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h9752dcb2aabb0259E"}
 !2424 = distinct !{!2424, !2425, !"_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E: argument 0"}
 !2425 = distinct !{!2425, !"_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E"}
-!2426 = distinct !{!2426, !2427, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1bf548a856dd28f0E: argument 0"}
-!2427 = distinct !{!2427, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1bf548a856dd28f0E"}
+!2426 = distinct !{!2426, !2427, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1bf548a856dd28f0E.argprom: argument 0"}
+!2427 = distinct !{!2427, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1bf548a856dd28f0E.argprom"}
 !2428 = !{!2426}
 !2429 = !{!2430}
 !2430 = distinct !{!2430, !2431, !"_ZN5gimli5write4unit4Unit5write17h6690b6e50d9080f7E: argument 1"}
@@ -19961,10 +19961,10 @@ attributes #25 = { noreturn }
 !2535 = !{!2536, !2534, !2435}
 !2536 = distinct !{!2536, !2532, !"_ZN5gimli5write5range14RangeListTable5write17h278bfe63affd895cE: argument 0"}
 !2537 = !{!2538}
-!2538 = distinct !{!2538, !2539, !"_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE: argument 1"}
-!2539 = distinct !{!2539, !"_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE"}
+!2538 = distinct !{!2538, !2539, !"_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.argprom: argument 1"}
+!2539 = distinct !{!2539, !"_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.argprom"}
 !2540 = !{!2541, !2538, !2536, !2531, !2534, !2435}
-!2541 = distinct !{!2541, !2539, !"_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE: argument 0"}
+!2541 = distinct !{!2541, !2539, !"_ZN5gimli5write5range14RangeListTable12write_ranges17h4171dd225032d53cE.argprom: argument 0"}
 !2542 = !{!2541, !2536, !2531, !2435}
 !2543 = !{!2538, !2531, !2534, !2435}
 !2544 = !{!2545, !2538, !2534}
@@ -20043,10 +20043,10 @@ attributes #25 = { noreturn }
 !2617 = !{!2618, !2613, !2541, !2536, !2531, !2435}
 !2618 = distinct !{!2618, !2616, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h90f443bebbf95e01E.llvm.8882213390170994431: argument 1"}
 !2619 = !{!2620}
-!2620 = distinct !{!2620, !2621, !"_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E: argument 1"}
-!2621 = distinct !{!2621, !"_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E"}
+!2620 = distinct !{!2620, !2621, !"_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.argprom: argument 1"}
+!2621 = distinct !{!2621, !"_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.argprom"}
 !2622 = !{!2623, !2620, !2536, !2531, !2534, !2435}
-!2623 = distinct !{!2623, !2621, !"_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E: argument 0"}
+!2623 = distinct !{!2623, !2621, !"_ZN5gimli5write5range14RangeListTable14write_rnglists17h14f838f07c54aeb9E.argprom: argument 0"}
 !2624 = !{!2623, !2536, !2531, !2435}
 !2625 = !{!2620, !2534}
 !2626 = !{!2627, !2629, !2620, !2534}
@@ -20486,10 +20486,10 @@ attributes #25 = { noreturn }
 !3060 = distinct !{!3060, !3058, !"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E: argument 0"}
 !3061 = !{!3060, !3057}
 !3062 = !{!3063, !3065, !3066}
-!3063 = distinct !{!3063, !3064, !"_ZN18wasmtime_cranelift5debug2gc23build_attr_dependencies17h281b26e09b7d99c7E: argument 0"}
-!3064 = distinct !{!3064, !"_ZN18wasmtime_cranelift5debug2gc23build_attr_dependencies17h281b26e09b7d99c7E"}
-!3065 = distinct !{!3065, !3064, !"_ZN18wasmtime_cranelift5debug2gc23build_attr_dependencies17h281b26e09b7d99c7E: argument 1"}
-!3066 = distinct !{!3066, !3064, !"_ZN18wasmtime_cranelift5debug2gc23build_attr_dependencies17h281b26e09b7d99c7E: argument 2"}
+!3063 = distinct !{!3063, !3064, !"_ZN18wasmtime_cranelift5debug2gc23build_attr_dependencies17h281b26e09b7d99c7E.argprom: argument 0"}
+!3064 = distinct !{!3064, !"_ZN18wasmtime_cranelift5debug2gc23build_attr_dependencies17h281b26e09b7d99c7E.argprom"}
+!3065 = distinct !{!3065, !3064, !"_ZN18wasmtime_cranelift5debug2gc23build_attr_dependencies17h281b26e09b7d99c7E.argprom: argument 1"}
+!3066 = distinct !{!3066, !3064, !"_ZN18wasmtime_cranelift5debug2gc23build_attr_dependencies17h281b26e09b7d99c7E.argprom: argument 2"}
 !3067 = !{!3063, !3066}
 !3068 = !{!3063}
 !3069 = !{!3070}
@@ -21128,16 +21128,16 @@ attributes #25 = { noreturn }
 !3702 = distinct !{!3702, !"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h9752dcb2aabb0259E"}
 !3703 = distinct !{!3703, !3704, !"_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E: argument 0"}
 !3704 = distinct !{!3704, !"_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E"}
-!3705 = distinct !{!3705, !3706, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1bf548a856dd28f0E: argument 0"}
-!3706 = distinct !{!3706, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1bf548a856dd28f0E"}
+!3705 = distinct !{!3705, !3706, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1bf548a856dd28f0E.argprom: argument 0"}
+!3706 = distinct !{!3706, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1bf548a856dd28f0E.argprom"}
 !3707 = !{!3705}
 !3708 = !{!3709, !3711, !3713}
 !3709 = distinct !{!3709, !3710, !"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h9752dcb2aabb0259E: argument 0"}
 !3710 = distinct !{!3710, !"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17h9752dcb2aabb0259E"}
 !3711 = distinct !{!3711, !3712, !"_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E: argument 0"}
 !3712 = distinct !{!3712, !"_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E"}
-!3713 = distinct !{!3713, !3714, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1bf548a856dd28f0E: argument 0"}
-!3714 = distinct !{!3714, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1bf548a856dd28f0E"}
+!3713 = distinct !{!3713, !3714, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1bf548a856dd28f0E.argprom: argument 0"}
+!3714 = distinct !{!3714, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1bf548a856dd28f0E.argprom"}
 !3715 = !{!3713}
 !3716 = !{!3717}
 !3717 = distinct !{!3717, !3718, !"_ZN18wasmtime_cranelift5debug9transform4refs16DebugInfoRefsMap3new17he3e26345eb6782ceE: argument 0"}

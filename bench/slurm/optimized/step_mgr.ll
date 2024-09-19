@@ -1521,7 +1521,7 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
   store i64 %9, ptr %198, align 8
   %199 = call ptr @select_g_select_jobinfo_alloc() #13
   %200 = load ptr, ptr %8, align 8
-  %201 = call fastcc ptr @_pick_step_nodes(ptr noundef %.0384, ptr noundef nonnull %0, ptr noundef %200, i32 noundef %181, ptr noundef %199, ptr noundef %6)
+  %201 = call fastcc ptr @_pick_step_nodes.argelim(ptr noundef %.0384, ptr noundef nonnull %0, ptr noundef %200, i32 noundef %181, ptr noundef %199, ptr noundef %6)
   store ptr %201, ptr %5, align 8
   %202 = icmp eq ptr %201, null
   br i1 %202, label %203, label %210
@@ -2415,7 +2415,7 @@ define internal fastcc noundef i32 @_build_ext_launcher_step(ptr noundef writeon
   %28 = getelementptr inbounds i8, ptr %2, i64 248
   tail call void @slurm_xfree(ptr noundef nonnull %28) #13
   %29 = tail call ptr @select_g_select_jobinfo_alloc() #13
-  %30 = call fastcc ptr @_pick_step_nodes(ptr noundef %1, ptr noundef %2, ptr noundef null, i32 noundef 0, ptr noundef %29, ptr noundef %5)
+  %30 = call fastcc ptr @_pick_step_nodes.argelim(ptr noundef %1, ptr noundef %2, ptr noundef null, i32 noundef 0, ptr noundef %29, ptr noundef %5)
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %36
 
@@ -2892,7 +2892,7 @@ declare i32 @gres_step_state_validate(ptr noundef, ptr noundef, ptr noundef, ptr
 declare ptr @select_g_select_jobinfo_alloc() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_pick_step_nodes(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc ptr @_pick_step_nodes.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -4637,7 +4637,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
   %.2.i = call i32 @llvm.smin.i32(i32 %.1, i32 %.1.i)
   %839 = load ptr, ptr %9, align 8
   %840 = load ptr, ptr %14, align 8
-  %841 = call fastcc ptr @_pick_step_nodes_cpus(ptr noundef %839, i32 noundef %.2.i, i32 noundef %833, ptr noundef %840)
+  %841 = call fastcc ptr @_pick_step_nodes_cpus.argprom(ptr noundef %839, i32 noundef %.2.i, i32 noundef %833, ptr noundef %840)
   store ptr %841, ptr %12, align 8
   %.not493 = icmp eq ptr %841, null
   br i1 %.not493, label %851, label %842
@@ -4696,7 +4696,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
   %.2.i598 = call i32 @llvm.smin.i32(i32 %.2, i32 %.1.i597)
   %866 = load ptr, ptr %8, align 8
   %867 = load ptr, ptr %14, align 8
-  %868 = call fastcc ptr @_pick_step_nodes_cpus(ptr noundef %866, i32 noundef %.2.i598, i32 noundef %860, ptr noundef %867)
+  %868 = call fastcc ptr @_pick_step_nodes_cpus.argprom(ptr noundef %866, i32 noundef %.2.i598, i32 noundef %860, ptr noundef %867)
   store ptr %868, ptr %12, align 8
   %869 = icmp eq ptr %868, null
   br i1 %869, label %870, label %891
@@ -5616,19 +5616,19 @@ _is_mem_resv.exit:                                ; preds = %46, %47
   %125 = getelementptr inbounds i8, ptr %115, i64 154
   %126 = load i8, ptr %125, align 2
   %.not.i161 = icmp eq i8 %126, 1
-  br i1 %.not.i161, label %_use_one_thread_per_core.exit, label %127
+  br i1 %.not.i161, label %_use_one_thread_per_core.argprom.exit, label %127
 
 127:                                              ; preds = %124
   %128 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
   %129 = and i16 %128, 6
   %.not13.i = icmp eq i16 %129, 0
-  br i1 %.not13.i, label %_use_one_thread_per_core.exit, label %130
+  br i1 %.not13.i, label %_use_one_thread_per_core.argprom.exit, label %130
 
 130:                                              ; preds = %127
   %131 = getelementptr inbounds i8, ptr %.val, i64 216
   %132 = load ptr, ptr %131, align 8
   %.not14.i = icmp eq ptr %132, null
-  br i1 %.not14.i, label %_use_one_thread_per_core.exit, label %133
+  br i1 %.not14.i, label %_use_one_thread_per_core.argprom.exit, label %133
 
 133:                                              ; preds = %130
   %134 = getelementptr inbounds i8, ptr %132, i64 80
@@ -5637,7 +5637,7 @@ _is_mem_resv.exit:                                ; preds = %46, %47
   %136 = and i16 %135, 8192
   %.not16.i = icmp eq i16 %136, 0
   %or.cond.i = or i1 %.not15.i, %.not16.i
-  br i1 %or.cond.i, label %_use_one_thread_per_core.exit, label %137
+  br i1 %or.cond.i, label %_use_one_thread_per_core.argprom.exit, label %137
 
 137:                                              ; preds = %133, %106, %116
   %138 = getelementptr inbounds i8, ptr %91, i64 64
@@ -5650,18 +5650,18 @@ _is_mem_resv.exit:                                ; preds = %46, %47
   store i32 %2, ptr %20, align 16
   br label %172
 
-_use_one_thread_per_core.exit:                    ; preds = %133, %130, %127, %124
+_use_one_thread_per_core.argprom.exit:            ; preds = %133, %130, %127, %124
   %144 = load ptr, ptr %74, align 8
   %.not147 = icmp eq ptr %144, null
   br i1 %.not147, label %.thread172, label %145
 
-145:                                              ; preds = %_use_one_thread_per_core.exit
+145:                                              ; preds = %_use_one_thread_per_core.argprom.exit
   %146 = getelementptr inbounds i8, ptr %144, i64 248
   %147 = load ptr, ptr %146, align 8
   %.not148 = icmp eq i16 %.val160, -2
   br i1 %.not148, label %148, label %156
 
-.thread172:                                       ; preds = %_use_one_thread_per_core.exit
+.thread172:                                       ; preds = %_use_one_thread_per_core.argprom.exit
   %.not148174 = icmp eq i16 %.val160, -2
   br i1 %.not148174, label %.thread176, label %156
 
@@ -6564,7 +6564,7 @@ _is_mem_resv.exit319.thread371:                   ; preds = %_is_mem_resv.exit31
   %340 = getelementptr inbounds i8, ptr %.val, i64 440
   %341 = load ptr, ptr %340, align 8
   switch i16 %.val311, label %350 [
-    i16 1, label %_use_one_thread_per_core.exit.thread
+    i16 1, label %_use_one_thread_per_core.argprom.exit.thread
     i16 -2, label %342
   ]
 
@@ -6576,25 +6576,25 @@ _is_mem_resv.exit319.thread371:                   ; preds = %_is_mem_resv.exit31
   %347 = getelementptr inbounds i8, ptr %346, i64 8
   %348 = load i16, ptr %347, align 2
   %349 = icmp eq i16 %348, 1
-  br i1 %349, label %_use_one_thread_per_core.exit.thread, label %350
+  br i1 %349, label %_use_one_thread_per_core.argprom.exit.thread, label %350
 
 350:                                              ; preds = %342, %339
   %351 = getelementptr inbounds i8, ptr %341, i64 154
   %352 = load i8, ptr %351, align 2
   %.not.i320 = icmp eq i8 %352, 1
-  br i1 %.not.i320, label %_use_one_thread_per_core.exit, label %353
+  br i1 %.not.i320, label %_use_one_thread_per_core.argprom.exit, label %353
 
 353:                                              ; preds = %350
   %354 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
   %355 = and i16 %354, 6
   %.not13.i = icmp eq i16 %355, 0
-  br i1 %.not13.i, label %_use_one_thread_per_core.exit, label %356
+  br i1 %.not13.i, label %_use_one_thread_per_core.argprom.exit, label %356
 
 356:                                              ; preds = %353
   %357 = getelementptr inbounds i8, ptr %.val, i64 216
   %358 = load ptr, ptr %357, align 8
   %.not14.i = icmp eq ptr %358, null
-  br i1 %.not14.i, label %_use_one_thread_per_core.exit, label %359
+  br i1 %.not14.i, label %_use_one_thread_per_core.argprom.exit, label %359
 
 359:                                              ; preds = %356
   %360 = getelementptr inbounds i8, ptr %358, i64 80
@@ -6603,32 +6603,32 @@ _is_mem_resv.exit319.thread371:                   ; preds = %_is_mem_resv.exit31
   %362 = and i16 %361, 8192
   %.not16.i = icmp eq i16 %362, 0
   %or.cond.i321 = or i1 %.not15.i, %.not16.i
-  br i1 %or.cond.i321, label %_use_one_thread_per_core.exit, label %_use_one_thread_per_core.exit.thread
+  br i1 %or.cond.i321, label %_use_one_thread_per_core.argprom.exit, label %_use_one_thread_per_core.argprom.exit.thread
 
-_use_one_thread_per_core.exit:                    ; preds = %359, %356, %353, %350
+_use_one_thread_per_core.argprom.exit:            ; preds = %359, %356, %353, %350
   %363 = getelementptr inbounds i8, ptr %120, i64 104
   %364 = load i16, ptr %363, align 8
   %365 = getelementptr inbounds i8, ptr %120, i64 496
   %366 = load i16, ptr %365, align 8
   %367 = icmp eq i16 %364, %366
-  br i1 %367, label %_use_one_thread_per_core.exit.thread, label %368
+  br i1 %367, label %_use_one_thread_per_core.argprom.exit.thread, label %368
 
-368:                                              ; preds = %_use_one_thread_per_core.exit
+368:                                              ; preds = %_use_one_thread_per_core.argprom.exit
   %.not297 = icmp eq i16 %.val311, -2
-  br i1 %.not297, label %369, label %_use_one_thread_per_core.exit.thread
+  br i1 %.not297, label %369, label %_use_one_thread_per_core.argprom.exit.thread
 
 369:                                              ; preds = %368
   %370 = load i16, ptr %110, align 2
   %.not298 = icmp eq i16 %370, -2
-  br i1 %.not298, label %371, label %_use_one_thread_per_core.exit.thread
+  br i1 %.not298, label %371, label %_use_one_thread_per_core.argprom.exit.thread
 
 371:                                              ; preds = %369
   %372 = getelementptr inbounds i8, ptr %120, i64 488
   %373 = load i16, ptr %372, align 8
-  br label %_use_one_thread_per_core.exit.thread
+  br label %_use_one_thread_per_core.argprom.exit.thread
 
-_use_one_thread_per_core.exit.thread:             ; preds = %342, %339, %359, %369, %368, %371, %_use_one_thread_per_core.exit
-  %.0 = phi i16 [ 1, %_use_one_thread_per_core.exit ], [ %373, %371 ], [ %.val311, %368 ], [ %370, %369 ], [ 1, %359 ], [ %.val311, %339 ], [ 1, %342 ]
+_use_one_thread_per_core.argprom.exit.thread:     ; preds = %342, %339, %359, %369, %368, %371, %_use_one_thread_per_core.argprom.exit
+  %.0 = phi i16 [ 1, %_use_one_thread_per_core.argprom.exit ], [ %373, %371 ], [ %.val311, %368 ], [ %370, %369 ], [ 1, %359 ], [ %.val311, %339 ], [ 1, %342 ]
   %374 = load i32, ptr %11, align 4
   %375 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
@@ -6643,14 +6643,14 @@ _use_one_thread_per_core.exit.thread:             ; preds = %342, %339, %359, %3
   %.not.i322 = icmp eq ptr %377, null
   br i1 %.not.i322, label %378, label %382
 
-378:                                              ; preds = %_use_one_thread_per_core.exit.thread
+378:                                              ; preds = %_use_one_thread_per_core.argprom.exit.thread
   %379 = load ptr, ptr %18, align 8
   %380 = call i64 @bit_size(ptr noundef %379) #13
   %381 = call ptr @bit_alloc(i64 noundef %380) #13
   store ptr %381, ptr %41, align 8
   br label %382
 
-382:                                              ; preds = %378, %_use_one_thread_per_core.exit.thread
+382:                                              ; preds = %378, %_use_one_thread_per_core.argprom.exit.thread
   %383 = call i32 @get_job_resources_cnt(ptr noundef nonnull %18, i32 noundef %128, ptr noundef nonnull %3, ptr noundef nonnull %4) #13
   %.not99.i = icmp eq i32 %383, 0
   br i1 %.not99.i, label %385, label %384
@@ -11822,7 +11822,7 @@ define internal fastcc i32 @_opt_cpu_cnt(i32 noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_pick_step_nodes_cpus(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc ptr @_pick_step_nodes_cpus.argprom(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4

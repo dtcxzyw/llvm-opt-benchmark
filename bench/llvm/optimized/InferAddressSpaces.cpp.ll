@@ -1236,7 +1236,7 @@ _ZN4llvm14WeakTrackingVHD2Ev.exit.i:              ; preds = %362, %_ZNSt6vectorI
   br i1 %374, label %375, label %.backedge.i
 
 375:                                              ; preds = %366
-  call fastcc void @_ZL18getPointerOperandsRKN4llvm5ValueERKNS_10DataLayoutEPKNS_19TargetTransformInfoE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %326)
+  call fastcc void @_ZL18getPointerOperandsRKN4llvm5ValueERKNS_10DataLayoutEPKNS_19TargetTransformInfoE.argprom(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %326)
   %376 = load ptr, ptr %15, align 8, !noalias !10
   %377 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #19
   %378 = getelementptr inbounds ptr, ptr %376, i64 %377
@@ -1605,15 +1605,15 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit97.i.i: ; preds = %547, %_ZN4llvm12
   br i1 %556, label %563, label %565
 
 563:                                              ; preds = %562
-  %564 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_122InferAddressSpacesImpl26isSafeToCastConstAddrSpaceEPN4llvm8ConstantEj(i32 %.val74.i.pre.i, ptr noundef nonnull %470, i32 noundef %554)
-  br i1 %564, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i, label %565
+  %564 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_122InferAddressSpacesImpl26isSafeToCastConstAddrSpaceEPN4llvm8ConstantEj.argprom(i32 %.val74.i.pre.i, ptr noundef nonnull %470, i32 noundef %554)
+  br i1 %564, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit.i.i, label %565
 
 565:                                              ; preds = %563, %562
   br i1 %558, label %566, label %._crit_edge.i.i
 
 566:                                              ; preds = %565
-  %567 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_122InferAddressSpacesImpl26isSafeToCastConstAddrSpaceEPN4llvm8ConstantEj(i32 %.val74.i.pre.i, ptr noundef nonnull %472, i32 noundef %517)
-  br i1 %567, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i, label %._crit_edge.i.i
+  %567 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_122InferAddressSpacesImpl26isSafeToCastConstAddrSpaceEPN4llvm8ConstantEj.argprom(i32 %.val74.i.pre.i, ptr noundef nonnull %472, i32 noundef %517)
+  br i1 %567, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %566, %565
   %568 = icmp eq i32 %517, %.val74.i.pre.i
@@ -1623,31 +1623,31 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit97.i.i: ; preds = %547, %_ZN4llvm12
   %.val75.mux.i.i = select i1 %568, i32 %.val74.i.pre.i, i32 %554
   %brmerge154.i.i = select i1 %brmerge.i.i, i1 true, i1 %561
   %.val75.mux.mux.i.i = select i1 %brmerge.i.i, i32 %.val75.mux.i.i, i32 %517
-  br i1 %brmerge154.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i, label %570
+  br i1 %brmerge154.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit.i.i, label %570
 
 570:                                              ; preds = %._crit_edge.i.i
   %571 = icmp eq i32 %517, %554
   %..i.i.i = select i1 %571, i32 %517, i32 %.val74.i.pre.i
-  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i
+  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit.i.i
 
 572:                                              ; preds = %448
   %573 = load ptr, ptr %405, align 8
   %574 = call noundef i32 @_ZNK4llvm19TargetTransformInfo19getAssumedAddrSpaceEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(8) %573, ptr noundef nonnull %449) #19
   %.not.i.i9 = icmp eq i32 %574, -1
-  br i1 %.not.i.i9, label %575, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i
+  br i1 %.not.i.i9, label %575, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit.i.i
 
 575:                                              ; preds = %572
-  call fastcc void @_ZL18getPointerOperandsRKN4llvm5ValueERKNS_10DataLayoutEPKNS_19TargetTransformInfoE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %449)
+  call fastcc void @_ZL18getPointerOperandsRKN4llvm5ValueERKNS_10DataLayoutEPKNS_19TargetTransformInfoE.argprom(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %449)
   %576 = load ptr, ptr %4, align 8
   %577 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
   %578 = getelementptr inbounds ptr, ptr %576, i64 %577
   %.not72166.i.i = icmp eq i64 %577, 0
-  br i1 %.not72166.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit125.thread.i.i, label %.lr.ph.i.i13
+  br i1 %.not72166.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit125.thread.i.i, label %.lr.ph.i.i13
 
-579:                                              ; preds = %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit125.i.i
+579:                                              ; preds = %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit125.i.i
   %580 = getelementptr inbounds i8, ptr %.063167.i.i, i64 8
   %.not72.i.i = icmp eq ptr %580, %578
-  br i1 %.not72.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit125.thread.i.i, label %.lr.ph.i.i13
+  br i1 %.not72.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit125.thread.i.i, label %.lr.ph.i.i13
 
 .lr.ph.i.i13:                                     ; preds = %575, %579
   %.1168.i.i = phi i32 [ %.0.i124.i.i, %579 ], [ -1, %575 ]
@@ -1866,45 +1866,45 @@ _ZNK12_GLOBAL__N_122InferAddressSpacesImpl22getPredicatedAddrSpaceERKN4llvm5Valu
   %696 = icmp eq i32 %.1168.i.i, %.val76.i.i
   %697 = icmp eq i32 %.062.i.i, %.val76.i.i
   %or.cond.i122.i.i = or i1 %696, %697
-  br i1 %or.cond.i122.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit125.thread.i.i, label %698
+  br i1 %or.cond.i122.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit125.thread.i.i, label %698
 
 698:                                              ; preds = %695
   %699 = icmp eq i32 %.1168.i.i, -1
-  br i1 %699, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit125.i.i, label %700
+  br i1 %699, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit125.i.i, label %700
 
 700:                                              ; preds = %698
   %701 = icmp eq i32 %.062.i.i, -1
-  br i1 %701, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit125.i.i, label %702
+  br i1 %701, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit125.i.i, label %702
 
 702:                                              ; preds = %700
   %703 = icmp eq i32 %.1168.i.i, %.062.i.i
   %..i123.i.i = select i1 %703, i32 %.1168.i.i, i32 %.val76.i.i
-  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit125.i.i
+  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit125.i.i
 
-_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit125.i.i: ; preds = %702, %700, %698
+_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit125.i.i: ; preds = %702, %700, %698
   %.0.i124.i.i = phi i32 [ %..i123.i.i, %702 ], [ %.062.i.i, %698 ], [ %.1168.i.i, %700 ]
   %704 = icmp eq i32 %.0.i124.i.i, %.val76.i.i
-  br i1 %704, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit125.thread.i.i, label %579
+  br i1 %704, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit125.thread.i.i, label %579
 
-_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit125.thread.i.i: ; preds = %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit125.i.i, %695, %579, %575
-  %.2.i.i = phi i32 [ -1, %575 ], [ %.val76.i.i, %695 ], [ %.val76.i.i, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit125.i.i ], [ %.0.i124.i.i, %579 ]
+_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit125.thread.i.i: ; preds = %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit125.i.i, %695, %579, %575
+  %.2.i.i = phi i32 [ -1, %575 ], [ %.val76.i.i, %695 ], [ %.val76.i.i, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit125.i.i ], [ %.0.i124.i.i, %579 ]
   %705 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
   %706 = load ptr, ptr %4, align 8
   %707 = icmp eq ptr %706, %410
-  br i1 %707, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i, label %708
+  br i1 %707, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit.i.i, label %708
 
-708:                                              ; preds = %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit125.thread.i.i
+708:                                              ; preds = %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit125.thread.i.i
   call void @free(ptr noundef %706) #19
-  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i
+  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit.i.i
 
-_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i: ; preds = %708, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit125.thread.i.i, %572, %570, %._crit_edge.i.i, %566, %563
-  %.061.i.i = phi i32 [ %554, %563 ], [ %517, %566 ], [ %574, %572 ], [ %..i.i.i, %570 ], [ %.val75.mux.mux.i.i, %._crit_edge.i.i ], [ %.2.i.i, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit125.thread.i.i ], [ %.2.i.i, %708 ]
+_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit.i.i: ; preds = %708, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit125.thread.i.i, %572, %570, %._crit_edge.i.i, %566, %563
+  %.061.i.i = phi i32 [ %554, %563 ], [ %517, %566 ], [ %574, %572 ], [ %..i.i.i, %570 ], [ %.val75.mux.mux.i.i, %._crit_edge.i.i ], [ %.2.i.i, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit125.thread.i.i ], [ %.2.i.i, %708 ]
   %709 = load ptr, ptr %17, align 8
   %710 = load i32, ptr %406, align 8
   %711 = icmp eq i32 %710, 0
   br i1 %711, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.thread.i.i, label %712
 
-712:                                              ; preds = %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i
+712:                                              ; preds = %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit.i.i
   %713 = ptrtoint ptr %449 to i64
   %714 = trunc i64 %713 to i32
   %715 = lshr i32 %714, 4
@@ -1946,7 +1946,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6de
   %735 = icmp eq i32 %.0.i126.i.i, %.061.i.i
   br i1 %735, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl18updateAddressSpaceERKN4llvm5ValueERNS1_8DenseMapIPS3_jNS1_12DenseMapInfoIS6_vEENS1_6detail12DenseMapPairIS6_jEEEERNS5_ISt4pairIS6_S6_EjNS7_ISF_vEENSA_ISF_jEEEE.exit.i, label %737
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.thread.i.i: ; preds = %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.thread.i.i: ; preds = %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.argprom.exit.i.i
   %736 = icmp eq i32 %.061.i.i, 0
   br i1 %736, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl18updateAddressSpaceERKN4llvm5ValueERNS1_8DenseMapIPS3_jNS1_12DenseMapInfoIS6_vEENS1_6detail12DenseMapPairIS6_jEEEERNS5_ISt4pairIS6_S6_EjNS7_ISF_vEENSA_ISF_jEEEE.exit.i, label %.thread.i.i
 
@@ -3436,7 +3436,7 @@ _ZNK12_GLOBAL__N_122InferAddressSpacesImpl29cloneValueWithNewAddressSpaceEPN4llv
   br label %422
 
 _ZNK12_GLOBAL__N_122InferAddressSpacesImpl29cloneValueWithNewAddressSpaceEPN4llvm5ValueEjRKNS1_8ValueMapIPKS2_NS1_14WeakTrackingVHENS1_14ValueMapConfigIS6_NS1_3sys10SmartMutexILb0EEEEEEERKNS1_8DenseMapISt4pairIS6_S6_EjNS1_12DenseMapInfoISI_vEENS1_6detail12DenseMapPairISI_jEEEEPNS1_15SmallVectorImplIPKNS1_3UseEEE.exit: ; preds = %109
-  %421 = call fastcc noundef ptr @_ZL36cloneConstantExprWithNewAddressSpacePN4llvm12ConstantExprEjRKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEEPKNS_10DataLayoutEPKNS_19TargetTransformInfoE(ptr noundef nonnull %69, i32 noundef %.0.i298, ptr noundef nonnull readonly align 8 dereferenceable(57) %28)
+  %421 = call fastcc noundef ptr @_ZL36cloneConstantExprWithNewAddressSpacePN4llvm12ConstantExprEjRKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEEPKNS_10DataLayoutEPKNS_19TargetTransformInfoE.argprom(ptr noundef nonnull %69, i32 noundef %.0.i298, ptr noundef nonnull readonly align 8 dereferenceable(57) %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   %.not101 = icmp eq ptr %421, null
   br i1 %.not101, label %_ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit, label %422
@@ -5254,7 +5254,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.i: ; preds = %1135, 
   switch i32 %1271, label %1449 [
     i32 275, label %1272
     i32 222, label %1272
-    i32 292, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit.i
+    i32 292, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit.i
     i32 221, label %1315
     i32 224, label %1358
     i32 223, label %1358
@@ -5351,7 +5351,7 @@ _ZN4llvm8CallBase17setCalledFunctionEPNS_8FunctionE.exit.i.i: ; preds = %1312, %
   %1314 = getelementptr inbounds i8, ptr %963, i64 -16
   store ptr %1309, ptr %1314, align 8
   store ptr %1122, ptr %1309, align 8
-  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit.thread.i
+  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit.thread.i
 
 1315:                                             ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.i
   %1316 = getelementptr inbounds nuw i8, ptr %963, i64 8
@@ -5442,7 +5442,7 @@ _ZN4llvm8CallBase17setCalledFunctionEPNS_8FunctionE.exit64.i.i: ; preds = %1355,
   %1357 = getelementptr inbounds i8, ptr %963, i64 -16
   store ptr %1352, ptr %1357, align 8
   store ptr %1122, ptr %1352, align 8
-  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit.thread.i
+  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit.thread.i
 
 1358:                                             ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.i
   %1359 = getelementptr inbounds nuw i8, ptr %963, i64 4
@@ -5540,7 +5540,7 @@ _ZN4llvm8CallBase17setCalledFunctionEPNS_8FunctionE.exit74.i.i: ; preds = %1405,
   %1407 = getelementptr inbounds i8, ptr %963, i64 -16
   store ptr %1402, ptr %1407, align 8
   store ptr %1122, ptr %1402, align 8
-  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit.thread.i
+  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit.thread.i
 
 1408:                                             ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.i
   %1409 = load ptr, ptr %960, align 8
@@ -5628,42 +5628,42 @@ _ZN4llvm8CallBase17setCalledFunctionEPNS_8FunctionE.exit84.i.i: ; preds = %1446,
   %1448 = getelementptr inbounds i8, ptr %963, i64 -16
   store ptr %1443, ptr %1448, align 8
   store ptr %1122, ptr %1443, align 8
-  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit.thread.i
+  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit.thread.i
 
 1449:                                             ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.i
   %1450 = call noundef ptr @_ZNK4llvm19TargetTransformInfo32rewriteIntrinsicWithAddressSpaceEPNS_13IntrinsicInstEPNS_5ValueES4_(ptr noundef nonnull align 8 dereferenceable(8) %.val110.i, ptr noundef nonnull %963, ptr noundef nonnull %.0296, ptr noundef nonnull %647) #19
   %.not.i120.i = icmp eq ptr %1450, null
-  br i1 %.not.i120.i, label %._ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit_crit_edge.i, label %1451
+  br i1 %.not.i120.i, label %._ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit_crit_edge.i, label %1451
 
-._ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit_crit_edge.i: ; preds = %1449
+._ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit_crit_edge.i: ; preds = %1449
   %.pre.pre.i = load i8, ptr %963, align 8
-  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit.i
+  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit.i
 
 1451:                                             ; preds = %1449
   %.not52.i.i = icmp eq ptr %1450, %963
-  br i1 %.not52.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit.thread.i, label %1452
+  br i1 %.not52.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit.thread.i, label %1452
 
 1452:                                             ; preds = %1451
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %963, ptr noundef nonnull %1450) #19
-  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit.thread.i
+  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit.thread.i
 
-_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit.thread.i: ; preds = %1452, %1451, %_ZN4llvm8CallBase17setCalledFunctionEPNS_8FunctionE.exit84.i.i, %_ZN4llvm8CallBase17setCalledFunctionEPNS_8FunctionE.exit74.i.i, %_ZN4llvm8CallBase17setCalledFunctionEPNS_8FunctionE.exit64.i.i, %_ZN4llvm8CallBase17setCalledFunctionEPNS_8FunctionE.exit.i.i
+_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit.thread.i: ; preds = %1452, %1451, %_ZN4llvm8CallBase17setCalledFunctionEPNS_8FunctionE.exit84.i.i, %_ZN4llvm8CallBase17setCalledFunctionEPNS_8FunctionE.exit74.i.i, %_ZN4llvm8CallBase17setCalledFunctionEPNS_8FunctionE.exit64.i.i, %_ZN4llvm8CallBase17setCalledFunctionEPNS_8FunctionE.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl25performPointerReplacementEPN4llvm5ValueES3_RNS1_3UseERNS1_8ValueMapIPKS2_NS1_14WeakTrackingVHENS1_14ValueMapConfigIS8_NS1_3sys10SmartMutexILb0EEEEEEERNS1_15SmallVectorImplIPNS1_11InstructionEEE.exit
 
-_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit.i: ; preds = %._ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit_crit_edge.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.i
-  %.pre.i168 = phi i8 [ %.pre.pre.i, %._ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit_crit_edge.i ], [ 85, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.i ]
+_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit.i: ; preds = %._ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit_crit_edge.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.i
+  %.pre.i168 = phi i8 [ %.pre.pre.i, %._ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit_crit_edge.i ], [ 85, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread.i
 
-_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit.i, %1118
-  %1453 = phi i8 [ %1119, %1118 ], [ %.pre.i168, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit.i ]
+_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit.i, %1118
+  %1453 = phi i8 [ %1119, %1118 ], [ %.pre.i168, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit.i ]
   %.not178.i = icmp eq i8 %1453, 82
   br i1 %.not178.i, label %1454, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread.thread.i
 
@@ -5892,7 +5892,7 @@ _ZN4llvm7CmpInst10setOperandEjPNS_5ValueE.exit205: ; preds = %1552, %1555
 
 1561:                                             ; preds = %1558
   %.val.i = load i32, ptr %605, align 8
-  %1562 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_122InferAddressSpacesImpl26isSafeToCastConstAddrSpaceEPN4llvm8ConstantEj(i32 %.val.i, ptr noundef nonnull %1471, i32 noundef %1465)
+  %1562 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_122InferAddressSpacesImpl26isSafeToCastConstAddrSpaceEPN4llvm8ConstantEj.argprom(i32 %.val.i, ptr noundef nonnull %1471, i32 noundef %1465)
   br i1 %1562, label %1563, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread.thread.i
 
 1563:                                             ; preds = %1561
@@ -6096,7 +6096,7 @@ _ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11I
   %1657 = call noundef zeroext i1 @_ZN4llvm4User17replaceUsesOfWithEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(24) %963, ptr noundef nonnull %.0296, ptr noundef %1656) #19
   br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl25performPointerReplacementEPN4llvm5ValueES3_RNS1_3UseERNS1_8ValueMapIPKS2_NS1_14WeakTrackingVHENS1_14ValueMapConfigIS8_NS1_3sys10SmartMutexILb0EEEEEEERNS1_15SmallVectorImplIPNS1_11InstructionEEE.exit
 
-_ZNK12_GLOBAL__N_122InferAddressSpacesImpl25performPointerReplacementEPN4llvm5ValueES3_RNS1_3UseERNS1_8ValueMapIPKS2_NS1_14WeakTrackingVHENS1_14ValueMapConfigIS8_NS1_3sys10SmartMutexILb0EEEEEEERNS1_15SmallVectorImplIPNS1_11InstructionEEE.exit: ; preds = %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i191, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i188, %_ZN4llvm3Use3setEPNS_5ValueE.exit.i.i.i.i, %_ZN4llvm3Use3setEPNS_5ValueE.exit.i.i44.i.i, %_ZN4llvm3Use3setEPNS_5ValueE.exit.i.i54.i.i, %_ZN4llvm3Use3setEPNS_5ValueE.exit.i.i64.i.i, %_ZL25replaceIfSimplePointerUseRKN4llvm19TargetTransformInfoEPNS_4UserEjPNS_5ValueES6_.exit.i, %1112, %1115, %_ZL24handleMemIntrinsicPtrUsePN4llvm12MemIntrinsicEPNS_5ValueES3_.exit.i, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.exit.thread.i, %_ZN4llvm7CmpInst10setOperandEjPNS_5ValueE.exit205, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit185, %1637, %._crit_edge.i, %1654
+_ZNK12_GLOBAL__N_122InferAddressSpacesImpl25performPointerReplacementEPN4llvm5ValueES3_RNS1_3UseERNS1_8ValueMapIPKS2_NS1_14WeakTrackingVHENS1_14ValueMapConfigIS8_NS1_3sys10SmartMutexILb0EEEEEEERNS1_15SmallVectorImplIPNS1_11InstructionEEE.exit: ; preds = %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i191, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i188, %_ZN4llvm3Use3setEPNS_5ValueE.exit.i.i.i.i, %_ZN4llvm3Use3setEPNS_5ValueE.exit.i.i44.i.i, %_ZN4llvm3Use3setEPNS_5ValueE.exit.i.i54.i.i, %_ZN4llvm3Use3setEPNS_5ValueE.exit.i.i64.i.i, %_ZL25replaceIfSimplePointerUseRKN4llvm19TargetTransformInfoEPNS_4UserEjPNS_5ValueES6_.exit.i, %1112, %1115, %_ZL24handleMemIntrinsicPtrUsePN4llvm12MemIntrinsicEPNS_5ValueES3_.exit.i, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl24rewriteIntrinsicOperandsEPN4llvm13IntrinsicInstEPNS1_5ValueES5_.argprom.exit.thread.i, %_ZN4llvm7CmpInst10setOperandEjPNS_5ValueE.exit205, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit185, %1637, %._crit_edge.i, %1654
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   %.not315 = icmp eq ptr %.sroa.01.0.i, null
@@ -6379,7 +6379,7 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef no
 declare noundef i32 @_ZNK4llvm19TargetTransformInfo19getAssumedAddrSpaceEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18getPointerOperandsRKN4llvm5ValueERKNS_10DataLayoutEPKNS_19TargetTransformInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL18getPointerOperandsRKN4llvm5ValueERKNS_10DataLayoutEPKNS_19TargetTransformInfoE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [1 x ptr], align 8
   %4 = alloca [2 x ptr], align 8
   %5 = alloca [1 x ptr], align 8
@@ -8122,7 +8122,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6det
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_122InferAddressSpacesImpl26isSafeToCastConstAddrSpaceEPN4llvm8ConstantEj(i32 %.40.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #10 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_122InferAddressSpacesImpl26isSafeToCastConstAddrSpaceEPN4llvm8ConstantEj.argprom(i32 %.40.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %.40.val.fr = freeze i32 %.40.val
   %.not15 = icmp eq i32 %1, %.40.val.fr
   br i1 %.not15, label %tailrecurse.us, label %tailrecurse
@@ -10122,7 +10122,7 @@ declare void @_ZN4llvm11Instruction12insertBeforeEPS0_(ptr noundef nonnull align
 declare void @_ZN4llvm5Value8takeNameEPS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL36cloneConstantExprWithNewAddressSpacePN4llvm12ConstantExprEjRKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEEPKNS_10DataLayoutEPKNS_19TargetTransformInfoE(ptr noundef %0, i32 noundef range(i32 0, -1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL36cloneConstantExprWithNewAddressSpacePN4llvm12ConstantExprEjRKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEEPKNS_10DataLayoutEPKNS_19TargetTransformInfoE.argprom(ptr noundef %0, i32 noundef range(i32 0, -1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::WeakTrackingVH", align 8
   %5 = alloca %"class.llvm::SmallVector.260", align 8
   %6 = alloca %"class.llvm::WeakTrackingVH", align 8
@@ -10454,7 +10454,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit: ; pred
   br i1 %.not, label %173, label %184
 
 173:                                              ; preds = %171
-  %174 = call fastcc noundef ptr @_ZL36cloneConstantExprWithNewAddressSpacePN4llvm12ConstantExprEjRKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEEPKNS_10DataLayoutEPKNS_19TargetTransformInfoE(ptr noundef nonnull %124, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(57) %2)
+  %174 = call fastcc noundef ptr @_ZL36cloneConstantExprWithNewAddressSpacePN4llvm12ConstantExprEjRKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEEPKNS_10DataLayoutEPKNS_19TargetTransformInfoE.argprom(ptr noundef nonnull %124, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(57) %2)
   %.not53 = icmp eq ptr %174, null
   br i1 %.not53, label %184, label %175
 

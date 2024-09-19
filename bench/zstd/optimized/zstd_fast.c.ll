@@ -10061,7 +10061,7 @@ entry:
   %switch.tableidx = add i32 %0, -5
   %1 = icmp ult i32 %switch.tableidx, 3
   %spec.select = select i1 %1, i32 %0, i32 4
-  %call.i19 = tail call fastcc i64 @ZSTD_compressBlock_fast_extDict_generic(ptr noundef nonnull readonly %ms, ptr noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef %spec.select)
+  %call.i19 = tail call fastcc i64 @ZSTD_compressBlock_fast_extDict_generic.argelim(ptr noundef nonnull readonly %ms, ptr noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef %spec.select)
   ret i64 %call.i19
 }
 
@@ -10293,7 +10293,7 @@ return:                                           ; preds = %ZSTD_count.exit, %Z
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_compressBlock_fast_extDict_generic(ptr nocapture noundef readonly %ms, ptr noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef range(i32 4, 8) %mls) unnamed_addr #1 {
+define internal fastcc i64 @ZSTD_compressBlock_fast_extDict_generic.argelim(ptr nocapture noundef readonly %ms, ptr noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef range(i32 4, 8) %mls) unnamed_addr #1 {
 entry:
   %cParams1 = getelementptr inbounds i8, ptr %ms, i64 256
   %hashTable2 = getelementptr inbounds i8, ptr %ms, i64 112

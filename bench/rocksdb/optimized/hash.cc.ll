@@ -406,7 +406,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i
   %shr1.i.i.i = lshr i64 %mul.i.i198.i, 32
   %xor2.i.i.i = xor i64 %shr1.i.i.i, %mul.i.i198.i
   %cmp73.not.i.i = icmp eq i32 %div29.i.i, 8
-  br i1 %cmp73.not.i.i, label %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i, label %for.body8.preheader.i.i
+  br i1 %cmp73.not.i.i, label %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.argprom.exit.i, label %for.body8.preheader.i.i
 
 for.body8.preheader.i.i:                          ; preds = %for.end.i.i
   %wide.trip.count.i.i = zext nneg i32 %div29.i.i to i64
@@ -438,9 +438,9 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
   %add17.i.i = add i64 %acc.14.i.i, %xor.i38.i.i
   %indvars.iv.next9.i.i = add nuw nsw i64 %indvars.iv8.i.i, 1
   %exitcond12.not.i.i = icmp eq i64 %indvars.iv.next9.i.i, %wide.trip.count.i.i
-  br i1 %exitcond12.not.i.i, label %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i, label %for.body8.i.i, !llvm.loop !7
+  br i1 %exitcond12.not.i.i, label %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.argprom.exit.i, label %for.body8.i.i, !llvm.loop !7
 
-_ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i:      ; preds = %for.body8.i.i, %for.end.i.i
+_ZL22XXPH3_len_129to240_64bPKhmS0_mm.argprom.exit.i: ; preds = %for.body8.i.i, %for.end.i.i
   %acc.1.lcssa.i.i = phi i64 [ %xor2.i.i.i, %for.end.i.i ], [ %add17.i.i, %for.body8.i.i ]
   %add.ptr21.i201.i = getelementptr inbounds i8, ptr %data, i64 %n
   %add.ptr22.i.i = getelementptr inbounds i8, ptr %add.ptr21.i201.i, i64 -16
@@ -729,8 +729,8 @@ _ZL27XXPH3_hashLong_64b_withSeedPKhmm.exit.i:     ; preds = %_ZL28XXPH3_hashLong
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %secret.i.i)
   br label %_ZL29ROCKSDB_XXPH3_64bits_withSeedPKvmm.exit
 
-_ZL29ROCKSDB_XXPH3_64bits_withSeedPKvmm.exit:     ; preds = %if.then.i.i, %if.then2.i.i, %if.then5.i.i, %if.end7.i.i, %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i, %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i, %_ZL27XXPH3_hashLong_64b_withSeedPKhmm.exit.i
-  %retval.0.i = phi i64 [ %xor2.i192.i, %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i ], [ %xor2.i49.i.i, %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i ], [ %retval.0.i.i, %_ZL27XXPH3_hashLong_64b_withSeedPKhmm.exit.i ], [ %xor2.i.i, %if.then.i.i ], [ %xor2.i129.i, %if.then2.i.i ], [ %xor2.i134.i, %if.then5.i.i ], [ %xor.i139.i, %if.end7.i.i ]
+_ZL29ROCKSDB_XXPH3_64bits_withSeedPKvmm.exit:     ; preds = %if.then.i.i, %if.then2.i.i, %if.then5.i.i, %if.end7.i.i, %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i, %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.argprom.exit.i, %_ZL27XXPH3_hashLong_64b_withSeedPKhmm.exit.i
+  %retval.0.i = phi i64 [ %xor2.i192.i, %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i ], [ %xor2.i49.i.i, %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.argprom.exit.i ], [ %retval.0.i.i, %_ZL27XXPH3_hashLong_64b_withSeedPKhmm.exit.i ], [ %xor2.i.i, %if.then.i.i ], [ %xor2.i129.i, %if.then2.i.i ], [ %xor2.i134.i, %if.then5.i.i ], [ %xor.i139.i, %if.end7.i.i ]
   ret i64 %retval.0.i
 }
 
@@ -1011,7 +1011,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i
   %shr1.i.i.i = lshr i64 %mul.i.i195.i, 32
   %xor2.i.i.i = xor i64 %shr1.i.i.i, %mul.i.i195.i
   %cmp73.not.i.i = icmp eq i32 %div29.i.i, 8
-  br i1 %cmp73.not.i.i, label %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i, label %for.body8.preheader.i.i
+  br i1 %cmp73.not.i.i, label %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.argprom.exit.i, label %for.body8.preheader.i.i
 
 for.body8.preheader.i.i:                          ; preds = %for.end.i.i
   %wide.trip.count.i.i = zext nneg i32 %div29.i.i to i64
@@ -1041,9 +1041,9 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
   %add17.i.i = add i64 %acc.14.i.i, %xor.i38.i.i
   %indvars.iv.next9.i.i = add nuw nsw i64 %indvars.iv8.i.i, 1
   %exitcond12.not.i.i = icmp eq i64 %indvars.iv.next9.i.i, %wide.trip.count.i.i
-  br i1 %exitcond12.not.i.i, label %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i, label %for.body8.i.i, !llvm.loop !7
+  br i1 %exitcond12.not.i.i, label %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.argprom.exit.i, label %for.body8.i.i, !llvm.loop !7
 
-_ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i:      ; preds = %for.body8.i.i, %for.end.i.i
+_ZL22XXPH3_len_129to240_64bPKhmS0_mm.argprom.exit.i: ; preds = %for.body8.i.i, %for.end.i.i
   %acc.1.lcssa.i.i = phi i64 [ %xor2.i.i.i, %for.end.i.i ], [ %add17.i.i, %for.body8.i.i ]
   %add.ptr21.i198.i = getelementptr inbounds i8, ptr %data, i64 %n
   %add.ptr22.i.i = getelementptr inbounds i8, ptr %add.ptr21.i198.i, i64 -16
@@ -1070,8 +1070,8 @@ if.end8.i:                                        ; preds = %if.end4.i
   %call9.i = tail call fastcc noundef i64 @_ZL32XXPH3_hashLong_64b_defaultSecretPKhm(ptr noundef readonly %data, i64 noundef %n)
   br label %_ZL20ROCKSDB_XXPH3_64bitsPKvm.exit
 
-_ZL20ROCKSDB_XXPH3_64bitsPKvm.exit:               ; preds = %if.then.i.i, %if.then2.i.i, %if.end4.i.i, %if.then5.i.i, %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i, %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i, %if.end8.i
-  %retval.0.i = phi i64 [ %xor2.i190.i, %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i ], [ %xor2.i49.i.i, %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i ], [ %call9.i, %if.end8.i ], [ %xor2.i.i, %if.then.i.i ], [ %xor2.i127.i, %if.then2.i.i ], [ %xor2.i132.i, %if.then5.i.i ], [ 5999572062939766020, %if.end4.i.i ]
+_ZL20ROCKSDB_XXPH3_64bitsPKvm.exit:               ; preds = %if.then.i.i, %if.then2.i.i, %if.end4.i.i, %if.then5.i.i, %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i, %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.argprom.exit.i, %if.end8.i
+  %retval.0.i = phi i64 [ %xor2.i190.i, %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i ], [ %xor2.i49.i.i, %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.argprom.exit.i ], [ %call9.i, %if.end8.i ], [ %xor2.i.i, %if.then.i.i ], [ %xor2.i127.i, %if.then2.i.i ], [ %xor2.i132.i, %if.then5.i.i ], [ 5999572062939766020, %if.end4.i.i ]
   ret i64 %retval.0.i
 }
 

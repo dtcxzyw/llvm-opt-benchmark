@@ -195,7 +195,7 @@ define void @_ZN6google8protobuf8internal24InitProtobufDefaultsSlowEv() local_un
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZN6google8protobuf8internalL24InitProtobufDefaultsImplEv()
+  invoke fastcc void @_ZN6google8protobuf8internalL24InitProtobufDefaultsImplEv.retelim()
           to label %6 unwind label %8
 
 6:                                                ; preds = %5
@@ -216,7 +216,7 @@ define void @_ZN6google8protobuf8internal24InitProtobufDefaultsSlowEv() local_un
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8internalL24InitProtobufDefaultsImplEv() unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8internalL24InitProtobufDefaultsImplEv.retelim() unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6google8protobuf8internal26fixed_address_empty_stringE) #12
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal13DestroyStringEPKv, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringE)
   store atomic i8 1, ptr @_ZN6google8protobuf8internal28init_protobuf_defaults_stateE release, align 1
@@ -19861,7 +19861,7 @@ define void @_ZN6google8protobuf8internal26UnknownFieldSerializerLiteEPKhjjjPNS0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev.exit, label %23
 
 23:                                               ; preds = %21
-  invoke fastcc void @_ZN6google8protobuf8internalL24InitProtobufDefaultsImplEv()
+  invoke fastcc void @_ZN6google8protobuf8internalL24InitProtobufDefaultsImplEv.retelim()
           to label %24 unwind label %25
 
 24:                                               ; preds = %23
@@ -20082,7 +20082,7 @@ common.resume:                                    ; preds = %31, %19
   br i1 %.not.i.i, label %_ZN6google8protobuf8internal20InitProtobufDefaultsEv.exit, label %29
 
 29:                                               ; preds = %27
-  invoke fastcc void @_ZN6google8protobuf8internalL24InitProtobufDefaultsImplEv()
+  invoke fastcc void @_ZN6google8protobuf8internalL24InitProtobufDefaultsImplEv.retelim()
           to label %30 unwind label %31
 
 30:                                               ; preds = %29

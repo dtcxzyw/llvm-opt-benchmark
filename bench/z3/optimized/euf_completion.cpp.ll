@@ -633,7 +633,7 @@ if.then:                                          ; preds = %land.lhs.true.i
   %24 = getelementptr inbounds i8, ptr %call8, i64 %add.ptr.i.idx.i
   %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %24, i64 176
   %cmp.not2.i = icmp eq i32 %23, 0
-  br i1 %cmp.not2.i, label %"_ZZN3euf10completion10add_egraphEvENK3$_0clEPNS_5enodeE.exit", label %for.body.lr.ph.i
+  br i1 %cmp.not2.i, label %"_ZZN3euf10completion10add_egraphEvENK3$_0clEPNS_5enodeE.argprom.exit", label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then
   %m_args.i.ptr.i = getelementptr inbounds i8, ptr %call8, i64 176
@@ -745,9 +745,9 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i: ; preds = %_ZN6vectorIPN3
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.03.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr.i
-  br i1 %cmp.not.i, label %"_ZZN3euf10completion10add_egraphEvENK3$_0clEPNS_5enodeE.exit", label %for.body.i
+  br i1 %cmp.not.i, label %"_ZZN3euf10completion10add_egraphEvENK3$_0clEPNS_5enodeE.argprom.exit", label %for.body.i
 
-"_ZZN3euf10completion10add_egraphEvENK3$_0clEPNS_5enodeE.exit": ; preds = %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i, %if.then
+"_ZZN3euf10completion10add_egraphEvENK3$_0clEPNS_5enodeE.argprom.exit": ; preds = %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i, %if.then
   %m_num_args.i.i.i20 = getelementptr inbounds i8, ptr %call9, i64 152
   %35 = load i32, ptr %m_num_args.i.i.i20, align 8
   %idx.ext.i.i21 = zext i32 %35 to i64
@@ -757,7 +757,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i: ; preds = %_ZN6vectorIPN3
   %cmp.not2.i24 = icmp eq i32 %35, 0
   br i1 %cmp.not2.i24, label %for.inc, label %for.body.lr.ph.i25
 
-for.body.lr.ph.i25:                               ; preds = %"_ZZN3euf10completion10add_egraphEvENK3$_0clEPNS_5enodeE.exit"
+for.body.lr.ph.i25:                               ; preds = %"_ZZN3euf10completion10add_egraphEvENK3$_0clEPNS_5enodeE.argprom.exit"
   %m_args.i.ptr.i26 = getelementptr inbounds i8, ptr %call9, i64 176
   br label %for.body.i28
 
@@ -1134,7 +1134,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i108: ; preds = %_ZN6vectorI
   %cmp.not.i114 = icmp eq ptr %incdec.ptr.i113, %add.ptr.i.ptr.i96
   br i1 %cmp.not.i114, label %for.inc, label %for.body.i101
 
-for.inc:                                          ; preds = %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i80, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i35, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i108, %if.else15, %if.then12, %"_ZZN3euf10completion10add_egraphEvENK3$_0clEPNS_5enodeE.exit"
+for.inc:                                          ; preds = %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i80, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i35, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i108, %if.else15, %if.then12, %"_ZZN3euf10completion10add_egraphEvENK3$_0clEPNS_5enodeE.argprom.exit"
   %inc = add nuw i32 %i.0242, 1
   %exitcond.not = icmp eq i32 %inc, %call.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
@@ -3380,15 +3380,15 @@ invoke.cont:                                      ; preds = %if.then
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %cmp.i.i = icmp eq i32 %bf.clear.i.i.i, 0
-  br i1 %cmp.i.i, label %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit", label %if.end
+  br i1 %cmp.i.i, label %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit", label %if.end
 
-"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit": ; preds = %invoke.cont
+"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit": ; preds = %invoke.cont
   %m_num_args.i.i25 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load i32, ptr %m_num_args.i.i25, align 8
   %cmp.i26 = icmp eq i32 %8, 0
   br i1 %cmp.i26, label %if.then5, label %if.end
 
-if.then5:                                         ; preds = %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit"
+if.then5:                                         ; preds = %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit"
   %call7 = invoke noundef ptr @_ZN3euf10completion13get_canonicalEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_E(ptr noundef nonnull align 8 dereferenceable(701) %this, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %d)
           to label %invoke.cont6 unwind label %lpad2
 
@@ -3436,20 +3436,20 @@ lpad2:                                            ; preds = %if.then157.invoke, 
           cleanup
   br label %ehcleanup182
 
-if.end:                                           ; preds = %invoke.cont, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit"
+if.end:                                           ; preds = %invoke.cont, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit"
   %m_kind.i.i.i28 = getelementptr inbounds i8, ptr %7, i64 4
   %bf.load.i.i.i29 = load i32, ptr %m_kind.i.i.i28, align 4
   %bf.clear.i.i.i30 = and i32 %bf.load.i.i.i29, 65535
   %cmp.i.i31 = icmp eq i32 %bf.clear.i.i.i30, 0
-  br i1 %cmp.i.i31, label %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit35", label %if.end17
+  br i1 %cmp.i.i31, label %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit35", label %if.end17
 
-"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit35": ; preds = %if.end
+"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit35": ; preds = %if.end
   %m_num_args.i.i33 = getelementptr inbounds i8, ptr %7, i64 24
   %15 = load i32, ptr %m_num_args.i.i33, align 8
   %cmp.i34 = icmp eq i32 %15, 0
   br i1 %cmp.i34, label %if.then12, label %if.end17
 
-if.then12:                                        ; preds = %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit35"
+if.then12:                                        ; preds = %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit35"
   %call14 = invoke noundef ptr @_ZN3euf10completion13get_canonicalEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_E(ptr noundef nonnull align 8 dereferenceable(701) %this, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(16) %d)
           to label %invoke.cont13 unwind label %lpad2
 
@@ -3487,7 +3487,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49:    ; preds = %if.then2.i.i.i47, %
   store ptr %call14, ptr %y1, align 8
   br label %if.end17
 
-if.end17:                                         ; preds = %if.end, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49, %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit35"
+if.end17:                                         ; preds = %if.end, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49, %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit35"
   %cmp = icmp eq ptr %6, %7
   br i1 %cmp, label %if.then18, label %if.end24
 
@@ -3527,39 +3527,39 @@ if.end33:                                         ; preds = %land.lhs.true
   %bf.load.i.i.i52 = load i32, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i53 = and i32 %bf.load.i.i.i52, 65535
   %cmp.i.i54 = icmp eq i32 %bf.clear.i.i.i53, 0
-  br i1 %cmp.i.i54, label %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit58", label %if.end70
+  br i1 %cmp.i.i54, label %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit58", label %if.end70
 
 if.end33.thread:                                  ; preds = %if.end24
   %bf.load.i.i.i52287 = load i32, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i53288 = and i32 %bf.load.i.i.i52287, 65535
   %cmp.i.i54289 = icmp eq i32 %bf.clear.i.i.i53288, 0
-  br i1 %cmp.i.i54289, label %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit58.thread", label %if.end70
+  br i1 %cmp.i.i54289, label %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit58.thread", label %if.end70
 
-"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit58": ; preds = %if.end33
+"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit58": ; preds = %if.end33
   %m_num_args.i.i56 = getelementptr inbounds i8, ptr %6, i64 24
   %25 = load i32, ptr %m_num_args.i.i56, align 8
   %cmp.i57 = icmp eq i32 %25, 0
   br i1 %cmp.i57, label %land.lhs.true36, label %if.end70
 
-"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit58.thread": ; preds = %if.end33.thread
+"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit58.thread": ; preds = %if.end33.thread
   %m_num_args.i.i56295 = getelementptr inbounds i8, ptr %6, i64 24
   %26 = load i32, ptr %m_num_args.i.i56295, align 8
   %cmp.i57296 = icmp eq i32 %26, 0
   br i1 %cmp.i57296, label %land.lhs.true36, label %if.end70
 
-land.lhs.true36:                                  ; preds = %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit58.thread", %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit58"
+land.lhs.true36:                                  ; preds = %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit58.thread", %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit58"
   %bf.load.i.i.i60 = load i32, ptr %m_kind.i.i.i28, align 4
   %bf.clear.i.i.i61 = and i32 %bf.load.i.i.i60, 65535
   %cmp.i.i62 = icmp eq i32 %bf.clear.i.i.i61, 0
-  br i1 %cmp.i.i62, label %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit66", label %if.end56
+  br i1 %cmp.i.i62, label %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit66", label %if.end56
 
-"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit66": ; preds = %land.lhs.true36
+"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit66": ; preds = %land.lhs.true36
   %m_num_args.i.i64 = getelementptr inbounds i8, ptr %7, i64 24
   %27 = load i32, ptr %m_num_args.i.i64, align 8
   %cmp.i65 = icmp eq i32 %27, 0
   br i1 %cmp.i65, label %if.then39, label %if.end56
 
-if.then39:                                        ; preds = %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit66"
+if.then39:                                        ; preds = %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit66"
   %m_rewriter40 = getelementptr inbounds i8, ptr %this, i64 680
   invoke void @_ZN11th_rewriter5mk_eqEP4exprS1_(ptr nonnull sret(%class.obj_ref.73) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %m_rewriter40, ptr noundef nonnull %6, ptr noundef %23)
           to label %invoke.cont43 unwind label %lpad2
@@ -3685,7 +3685,7 @@ ehcleanup:                                        ; preds = %lpad52, %lpad44
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #18
   br label %ehcleanup182
 
-if.end56:                                         ; preds = %land.lhs.true36, %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit66"
+if.end56:                                         ; preds = %land.lhs.true36, %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit66"
   br i1 %cmp27, label %if.then63, label %if.end70
 
 if.then63:                                        ; preds = %if.end56
@@ -3693,8 +3693,8 @@ if.then63:                                        ; preds = %if.end56
   %47 = load ptr, ptr %y1, align 8
   br label %if.then157.invoke
 
-if.end70:                                         ; preds = %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit58", %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit58.thread", %if.end33.thread, %if.end33, %if.end56
-  %cmp.i.i54291 = phi i1 [ true, %if.end56 ], [ false, %if.end33 ], [ false, %if.end33.thread ], [ true, %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit58.thread" ], [ true, %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit58" ]
+if.end70:                                         ; preds = %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit58", %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit58.thread", %if.end33.thread, %if.end33, %if.end56
+  %cmp.i.i54291 = phi i1 [ true, %if.end56 ], [ false, %if.end33 ], [ false, %if.end33.thread ], [ true, %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit58.thread" ], [ true, %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit58" ]
   %48 = load ptr, ptr %y1, align 8
   %cmp73 = icmp eq ptr %7, %48
   br i1 %cmp73, label %land.lhs.true74, label %if.end84
@@ -3703,28 +3703,28 @@ land.lhs.true74:                                  ; preds = %if.end70
   %bf.load.i.i.i97 = load i32, ptr %m_kind.i.i.i28, align 4
   %bf.clear.i.i.i98 = and i32 %bf.load.i.i.i97, 65535
   %cmp.i.i99 = icmp eq i32 %bf.clear.i.i.i98, 0
-  br i1 %cmp.i.i99, label %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit103", label %if.end84
+  br i1 %cmp.i.i99, label %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit103", label %if.end84
 
-"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit103": ; preds = %land.lhs.true74
+"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit103": ; preds = %land.lhs.true74
   %m_num_args.i.i101 = getelementptr inbounds i8, ptr %7, i64 24
   %49 = load i32, ptr %m_num_args.i.i101, align 8
   %cmp.i102 = icmp eq i32 %49, 0
   br i1 %cmp.i102, label %if.then77, label %if.end84
 
-if.then77:                                        ; preds = %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit103"
+if.then77:                                        ; preds = %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit103"
   %m_rewriter78 = getelementptr inbounds i8, ptr %this, i64 680
   br label %if.then157.invoke
 
-if.end84:                                         ; preds = %land.lhs.true74, %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit103", %if.end70
-  br i1 %cmp.i.i54291, label %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit111", label %if.end109
+if.end84:                                         ; preds = %land.lhs.true74, %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit103", %if.end70
+  br i1 %cmp.i.i54291, label %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit111", label %if.end109
 
-"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit111": ; preds = %if.end84
+"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit111": ; preds = %if.end84
   %m_num_args.i.i109 = getelementptr inbounds i8, ptr %6, i64 24
   %50 = load i32, ptr %m_num_args.i.i109, align 8
   %cmp.i110 = icmp eq i32 %50, 0
   br i1 %cmp.i110, label %if.then87, label %if.end109
 
-if.then87:                                        ; preds = %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit111"
+if.then87:                                        ; preds = %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit111"
   %m_rewriter89 = getelementptr inbounds i8, ptr %this, i64 680
   invoke void @_ZN11th_rewriter5mk_eqEP4exprS1_(ptr nonnull sret(%class.obj_ref.73) align 8 %ref.tmp88, ptr noundef nonnull align 8 dereferenceable(16) %m_rewriter89, ptr noundef nonnull %6, ptr noundef %23)
           to label %invoke.cont92 unwind label %lpad2
@@ -3851,19 +3851,19 @@ ehcleanup108:                                     ; preds = %lpad103, %lpad93
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp88) #18
   br label %ehcleanup182
 
-if.end109:                                        ; preds = %if.end84, %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit111"
+if.end109:                                        ; preds = %if.end84, %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit111"
   %bf.load.i.i.i152 = load i32, ptr %m_kind.i.i.i28, align 4
   %bf.clear.i.i.i153 = and i32 %bf.load.i.i.i152, 65535
   %cmp.i.i154 = icmp eq i32 %bf.clear.i.i.i153, 0
-  br i1 %cmp.i.i154, label %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit158", label %invoke.cont135
+  br i1 %cmp.i.i154, label %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit158", label %invoke.cont135
 
-"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit158": ; preds = %if.end109
+"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit158": ; preds = %if.end109
   %m_num_args.i.i156 = getelementptr inbounds i8, ptr %7, i64 24
   %71 = load i32, ptr %m_num_args.i.i156, align 8
   %cmp.i157 = icmp eq i32 %71, 0
   br i1 %cmp.i157, label %if.then112, label %invoke.cont135
 
-if.then112:                                       ; preds = %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit158"
+if.then112:                                       ; preds = %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit158"
   %m_rewriter114 = getelementptr inbounds i8, ptr %this, i64 680
   invoke void @_ZN11th_rewriter5mk_eqEP4exprS1_(ptr nonnull sret(%class.obj_ref.73) align 8 %ref.tmp113, ptr noundef nonnull align 8 dereferenceable(16) %m_rewriter114, ptr noundef nonnull %7, ptr noundef %48)
           to label %invoke.cont117 unwind label %lpad2
@@ -3990,7 +3990,7 @@ ehcleanup133:                                     ; preds = %lpad128, %lpad118
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp113) #18
   br label %ehcleanup182
 
-invoke.cont135:                                   ; preds = %if.end109, %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.exit158"
+invoke.cont135:                                   ; preds = %if.end109, %"_ZZN3euf10completion12canonize_fmlEP4exprR7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES5_EENK3$_0clES2_.argprom.exit158"
   %cmp.i198 = icmp eq ptr %23, %48
   br i1 %cmp.i198, label %if.then137, label %if.else
 

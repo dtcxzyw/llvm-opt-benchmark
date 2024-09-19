@@ -514,22 +514,22 @@ entry:
   %InstList.i.i = getelementptr inbounds i8, ptr %F.val, i64 56
   %it.sroa.0.04.i = load ptr, ptr %Next.i.i.i.i.i.i, align 8
   %cmp.i.not5.i = icmp eq ptr %it.sroa.0.04.i, %InstList.i.i
-  br i1 %cmp.i.not5.i, label %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.exit, label %land.rhs.i
+  br i1 %cmp.i.not5.i, label %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.argprom.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry, %while.body.i
   %it.sroa.0.06.i = phi ptr [ %it.sroa.0.0.i, %while.body.i ], [ %it.sroa.0.04.i, %entry ]
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.06.i, i64 16
   %2 = load i8, ptr %add.ptr.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i8 %2, 8
-  br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i, label %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i, label %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.argprom.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.06.i, i64 8
   %it.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %it.sroa.0.0.i, %InstList.i.i
-  br i1 %cmp.i.not.i, label %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.exit, label %land.rhs.i, !llvm.loop !7
+  br i1 %cmp.i.not.i, label %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.argprom.exit, label %land.rhs.i, !llvm.loop !7
 
-_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.exit: ; preds = %land.rhs.i, %while.body.i, %entry
+_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.argprom.exit: ; preds = %land.rhs.i, %while.body.i, %entry
   %it.sroa.0.0.lcssa.i = phi ptr [ %it.sroa.0.04.i, %entry ], [ %it.sroa.0.06.i, %land.rhs.i ], [ %it.sroa.0.0.i, %while.body.i ]
   call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %it.sroa.0.0.lcssa.i) #13
   %Parameters.i = getelementptr inbounds i8, ptr %F, i64 96
@@ -541,9 +541,9 @@ _ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8Fu
   %cmp.not13 = icmp ne i32 %4, 0
   br i1 %cmp.not13, label %for.body, label %for.end
 
-for.body:                                         ; preds = %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.exit, %for.body
-  %index.015 = phi i32 [ %inc, %for.body ], [ 1, %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.exit ]
-  %__begin2.014 = phi ptr [ %incdec.ptr, %for.body ], [ %3, %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.exit ]
+for.body:                                         ; preds = %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.argprom.exit, %for.body
+  %index.015 = phi i32 [ %inc, %for.body ], [ 1, %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.argprom.exit ]
+  %__begin2.014 = phi ptr [ %incdec.ptr, %for.body ], [ %3, %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.argprom.exit ]
   %5 = load ptr, ptr %__begin2.014, align 8
   %conv = uitofp i32 %index.015 to double
   %call4 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv) #13
@@ -557,7 +557,7 @@ for.body:                                         ; preds = %_ZN6hermes3hbc12_GL
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
-for.end:                                          ; preds = %for.body, %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.exit
+for.end:                                          ; preds = %for.body, %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.argprom.exit
   %thisParameter.i = getelementptr inbounds i8, ptr %F, i64 224
   %7 = load ptr, ptr %thisParameter.i, align 8
   %tobool.not = icmp eq ptr %7, null
@@ -1016,22 +1016,22 @@ entry:
   %InstList.i.i = getelementptr inbounds i8, ptr %F.val, i64 56
   %it.sroa.0.04.i = load ptr, ptr %Next.i.i.i.i.i.i, align 8
   %cmp.i.not5.i = icmp eq ptr %it.sroa.0.04.i, %InstList.i.i
-  br i1 %cmp.i.not5.i, label %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.exit, label %land.rhs.i
+  br i1 %cmp.i.not5.i, label %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.argprom.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry, %while.body.i
   %it.sroa.0.06.i = phi ptr [ %it.sroa.0.0.i, %while.body.i ], [ %it.sroa.0.04.i, %entry ]
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.06.i, i64 16
   %2 = load i8, ptr %add.ptr.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i8 %2, 8
-  br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i, label %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i, label %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.argprom.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.06.i, i64 8
   %it.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %it.sroa.0.0.i, %InstList.i.i
-  br i1 %cmp.i.not.i, label %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.exit, label %land.rhs.i, !llvm.loop !7
+  br i1 %cmp.i.not.i, label %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.argprom.exit, label %land.rhs.i, !llvm.loop !7
 
-_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.exit: ; preds = %land.rhs.i, %while.body.i, %entry
+_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.argprom.exit: ; preds = %land.rhs.i, %while.body.i, %entry
   %it.sroa.0.0.lcssa.i = phi ptr [ %it.sroa.0.04.i, %entry ], [ %it.sroa.0.06.i, %land.rhs.i ], [ %it.sroa.0.0.i, %while.body.i ]
   call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %it.sroa.0.0.lcssa.i) #13
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %F, i64 16
@@ -1040,7 +1040,7 @@ _ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8Fu
   %4 = load ptr, ptr %1, align 8
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i, label %if.else.i
 
-if.then.i:                                        ; preds = %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.exit
+if.then.i:                                        ; preds = %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.argprom.exit
   %call3.i = call noundef ptr @_ZN6hermes10BasicBlock13getTerminatorEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #13
   %call.i.i.i.i = call noundef i32 @_ZNK6hermes14TerminatorInst16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(132) %call3.i) #13, !noalias !13
   %cmp.i.i.not39.i = icmp eq i32 %call.i.i.i.i, 0
@@ -1075,7 +1075,7 @@ for.inc18.i:                                      ; preds = %for.inc.i, %for.bod
   %cmp.i.i.not.i = icmp eq i32 %add.i.i.i, %call.i.i.i.i
   br i1 %cmp.i.i.not.i, label %return, label %for.body.i
 
-if.else.i:                                        ; preds = %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.exit
+if.else.i:                                        ; preds = %_ZN6hermes3hbc12_GLOBAL__N_127updateToEntryInsertionPointERNS_9IRBuilderEPNS_8FunctionE.argprom.exit
   %Next.i.i.i.i.i12.i = getelementptr inbounds i8, ptr %4, i64 64
   %InstList.i13.i = getelementptr inbounds i8, ptr %4, i64 56
   %__begin323.sroa.0.032.i = load ptr, ptr %Next.i.i.i.i.i12.i, align 8

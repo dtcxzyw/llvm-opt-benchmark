@@ -29846,7 +29846,7 @@ if.then.i.i340:                                   ; preds = %_ZN2dd3pddC2EjPNS_1
 
 invoke.cont60:                                    ; preds = %if.then.i.i340, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i, %invoke.cont56
   %call30.val = load ptr, ptr %1, align 8
-  invoke fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_"(ptr noalias align 8 %ref.tmp59, ptr nonnull %this, ptr %call30.val, ptr noundef %agg.tmp)
+  invoke fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_.argprom"(ptr noalias align 8 %ref.tmp59, ptr nonnull %this, ptr %call30.val, ptr noundef %agg.tmp)
           to label %invoke.cont62 unwind label %lpad61
 
 invoke.cont62:                                    ; preds = %invoke.cont60
@@ -29890,7 +29890,7 @@ if.then.i.i364:                                   ; preds = %_ZN2dd3pddC2EjPNS_1
 
 invoke.cont66:                                    ; preds = %if.then.i.i364, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i352, %invoke.cont62
   %call47.val = load ptr, ptr %2, align 8
-  invoke fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_"(ptr noalias align 8 %ref.tmp63, ptr nonnull %this, ptr %call47.val, ptr noundef %agg.tmp64)
+  invoke fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_.argprom"(ptr noalias align 8 %ref.tmp63, ptr nonnull %this, ptr %call47.val, ptr noundef %agg.tmp64)
           to label %invoke.cont68 unwind label %lpad67
 
 invoke.cont68:                                    ; preds = %invoke.cont66
@@ -30323,7 +30323,7 @@ if.else:                                          ; preds = %_ZNK6vectorIjLb0EjE
 
 invoke.cont100:                                   ; preds = %if.else
   %call30.val32 = load ptr, ptr %1, align 8
-  invoke fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_"(ptr noalias align 8 %ref.tmp98, ptr nonnull %this, ptr %call30.val32, ptr noundef %agg.tmp99)
+  invoke fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_.argprom"(ptr noalias align 8 %ref.tmp98, ptr nonnull %this, ptr %call30.val32, ptr noundef %agg.tmp99)
           to label %invoke.cont102 unwind label %lpad101
 
 invoke.cont102:                                   ; preds = %invoke.cont100
@@ -30332,7 +30332,7 @@ invoke.cont102:                                   ; preds = %invoke.cont100
 
 invoke.cont106:                                   ; preds = %invoke.cont102
   %call47.val34 = load ptr, ptr %2, align 8
-  invoke fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_"(ptr noalias align 8 %ref.tmp103, ptr nonnull %this, ptr %call47.val34, ptr noundef %agg.tmp104)
+  invoke fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_.argprom"(ptr noalias align 8 %ref.tmp103, ptr nonnull %this, ptr %call47.val34, ptr noundef %agg.tmp104)
           to label %invoke.cont108 unwind label %lpad107
 
 invoke.cont108:                                   ; preds = %invoke.cont106
@@ -30990,7 +30990,7 @@ _ZN6vectorIjLb0EjE6shrinkEj.exit89:               ; preds = %_ZN6vectorIjLb0EjE6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr readonly %vars.0.val, ptr noundef nonnull %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_.argprom"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr readonly %vars.0.val, ptr noundef nonnull %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.dd::pdd", align 8
   %ref.tmp = alloca %"class.dd::pdd", align 8
@@ -37155,7 +37155,7 @@ if.end.i16.i.i.i:                                 ; preds = %_ZNK6vectorIjLb0EjE
 _ZNK6vectorIjLb0EjE4sizeEv.exit19.i.i.i:          ; preds = %if.end.i16.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i
   %retval.0.i18.i.i.i = phi i32 [ %1, %if.end.i16.i.i.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i ]
   %cmp.i.i.i = icmp ugt i32 %retval.0.i.i.i.i, %retval.0.i18.i.i.i
-  br i1 %cmp.i.i.i, label %"_ZSt10__invoke_rIbRZN2dd11pdd_manager5lm_ltERKNS0_3pddES4_E3$_0JRK7svectorIjjESA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %"_ZSt10__invoke_rIbRZN2dd11pdd_manager5lm_ltERKNS0_3pddES4_E3$_0JRK7svectorIjjESA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit19.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit24.i.i.i, label %if.end.i21.i.i.i
@@ -37178,13 +37178,13 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit29.i.i.i:          ; preds = %if.end.i26.i.i.i, %
   %retval.0.i28.i.i.i = phi i32 [ %3, %if.end.i26.i.i.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit24.i.i.i ]
   %cmp5.i.i.i = icmp ult i32 %retval.0.i23.i.i.i, %retval.0.i28.i.i.i
   %brmerge.i.i.i = or i1 %cmp.i.i.i.i, %cmp5.i.i.i
-  br i1 %brmerge.i.i.i, label %"_ZSt10__invoke_rIbRZN2dd11pdd_manager5lm_ltERKNS0_3pddES4_E3$_0JRK7svectorIjjESA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %_ZNK6vectorIjLb0EjE4sizeEv.exit34.thread.lr.ph.i.i.i
+  br i1 %brmerge.i.i.i, label %"_ZSt10__invoke_rIbRZN2dd11pdd_manager5lm_ltERKNS0_3pddES4_E3$_0JRK7svectorIjjESA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit", label %_ZNK6vectorIjLb0EjE4sizeEv.exit34.thread.lr.ph.i.i.i
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit34.thread.lr.ph.i.i.i: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit29.i.i.i
   %arrayidx.i32.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 -4
   %4 = load i32, ptr %arrayidx.i32.i.i.i, align 4
   %cmp928.not.i.i.i = icmp eq i32 %4, 0
-  br i1 %cmp928.not.i.i.i, label %"_ZSt10__invoke_rIbRZN2dd11pdd_manager5lm_ltERKNS0_3pddES4_E3$_0JRK7svectorIjjESA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %land.rhs.preheader.i.i.i
+  br i1 %cmp928.not.i.i.i, label %"_ZSt10__invoke_rIbRZN2dd11pdd_manager5lm_ltERKNS0_3pddES4_E3$_0JRK7svectorIjjESA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit", label %land.rhs.preheader.i.i.i
 
 land.rhs.preheader.i.i.i:                         ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit34.thread.lr.ph.i.i.i
   %wide.trip.count.i.i.i = zext i32 %4 to i64
@@ -37202,12 +37202,12 @@ land.rhs.i.i.i:                                   ; preds = %for.inc.i.i.i, %lan
 for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIbRZN2dd11pdd_manager5lm_ltERKNS0_3pddES4_E3$_0JRK7svectorIjjESA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %land.rhs.i.i.i
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIbRZN2dd11pdd_manager5lm_ltERKNS0_3pddES4_E3$_0JRK7svectorIjjESA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit", label %land.rhs.i.i.i
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit42.i.i.i:          ; preds = %land.rhs.i.i.i
   %7 = trunc nuw i64 %indvars.iv.i.i.i to i32
   %cmp14.i.i.i = icmp ugt i32 %4, %7
-  br i1 %cmp14.i.i.i, label %land.rhs15.i.i.i, label %"_ZSt10__invoke_rIbRZN2dd11pdd_manager5lm_ltERKNS0_3pddES4_E3$_0JRK7svectorIjjESA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
+  br i1 %cmp14.i.i.i, label %land.rhs15.i.i.i, label %"_ZSt10__invoke_rIbRZN2dd11pdd_manager5lm_ltERKNS0_3pddES4_E3$_0JRK7svectorIjjESA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit"
 
 land.rhs15.i.i.i:                                 ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit42.i.i.i
   %m_var2level.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 136
@@ -37224,9 +37224,9 @@ land.rhs15.i.i.i:                                 ; preds = %_ZNK6vectorIjLb0EjE
   %arrayidx.i50.i.i.i = getelementptr inbounds i32, ptr %9, i64 %idxprom.i49.i.i.i
   %12 = load i32, ptr %arrayidx.i50.i.i.i, align 4
   %cmp21.i.i.i = icmp ugt i32 %10, %12
-  br label %"_ZSt10__invoke_rIbRZN2dd11pdd_manager5lm_ltERKNS0_3pddES4_E3$_0JRK7svectorIjjESA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
+  br label %"_ZSt10__invoke_rIbRZN2dd11pdd_manager5lm_ltERKNS0_3pddES4_E3$_0JRK7svectorIjjESA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN2dd11pdd_manager5lm_ltERKNS0_3pddES4_E3$_0JRK7svectorIjjESA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %for.inc.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit19.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit29.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit34.thread.lr.ph.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit42.i.i.i, %land.rhs15.i.i.i
+"_ZSt10__invoke_rIbRZN2dd11pdd_manager5lm_ltERKNS0_3pddES4_E3$_0JRK7svectorIjjESA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %for.inc.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit19.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit29.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit34.thread.lr.ph.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit42.i.i.i, %land.rhs15.i.i.i
   %retval.0.i.i.i = phi i1 [ true, %_ZNK6vectorIjLb0EjE4sizeEv.exit19.i.i.i ], [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit29.i.i.i ], [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit42.i.i.i ], [ %cmp21.i.i.i, %land.rhs15.i.i.i ], [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit34.thread.lr.ph.i.i.i ], [ false, %for.inc.i.i.i ]
   ret i1 %retval.0.i.i.i
 }

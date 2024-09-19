@@ -465,7 +465,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12Dens
   %200 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %201 = load ptr, ptr %200, align 8
   %.not46.i = icmp eq ptr %201, null
-  br i1 %.not46.i, label %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.thread.i, label %202
+  br i1 %.not46.i, label %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.argprom.exit.thread.i, label %202
 
 202:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit.i
   %.val.i = load i32, ptr %125, align 8
@@ -480,22 +480,22 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12Dens
   br i1 %spec.select.i.i.i.i, label %209, label %208
 
 208:                                              ; preds = %202
-  br i1 %spec.select.i.i8.i.i, label %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.thread.i, label %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.i
+  br i1 %spec.select.i.i8.i.i, label %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.argprom.exit.thread.i, label %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.argprom.exit.i
 
 209:                                              ; preds = %202
-  br i1 %spec.select.i.i8.i.i, label %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.i, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread.i
+  br i1 %spec.select.i.i8.i.i, label %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.argprom.exit.i, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread.i
 
-_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.i: ; preds = %209, %208
+_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.argprom.exit.i: ; preds = %209, %208
   %210 = and i32 %.val.i, 192
   %211 = icmp eq i32 %210, 128
-  br i1 %211, label %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.thread.i, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread.i
+  br i1 %211, label %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.argprom.exit.thread.i, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread.i
 
-_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.thread.i: ; preds = %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.i, %208, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit.i
+_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.argprom.exit.thread.i: ; preds = %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.argprom.exit.i, %208, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit.i
   store ptr %98, ptr %200, align 8
   br label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread.i
 
-_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread.i: ; preds = %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.thread.i, %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.i, %209, %_ZL28hasMetadataOtherThanDebugLocPKN4llvm14GlobalVariableE.exit.i, %154, %154, %154, %154, %154, %154, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.i, %124, %119, %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.i.i, %115, %113, %109, %107
-  %.2.i = phi i64 [ %108, %107 ], [ %.1150.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.i ], [ %.1150.i, %_ZL28hasMetadataOtherThanDebugLocPKN4llvm14GlobalVariableE.exit.i ], [ %.1150.i, %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.thread.i ], [ %.1150.i, %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.i ], [ %.1150.i, %124 ], [ %.1150.i, %119 ], [ %.1150.i, %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.i.i ], [ %.1150.i, %109 ], [ %.1150.i, %115 ], [ %.1150.i, %113 ], [ %.1150.i, %154 ], [ %.1150.i, %154 ], [ %.1150.i, %154 ], [ %.1150.i, %154 ], [ %.1150.i, %154 ], [ %.1150.i, %154 ], [ %.1150.i, %209 ]
+_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread.i: ; preds = %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.argprom.exit.thread.i, %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.argprom.exit.i, %209, %_ZL28hasMetadataOtherThanDebugLocPKN4llvm14GlobalVariableE.exit.i, %154, %154, %154, %154, %154, %154, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.i, %124, %119, %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.i.i, %115, %113, %109, %107
+  %.2.i = phi i64 [ %108, %107 ], [ %.1150.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.i ], [ %.1150.i, %_ZL28hasMetadataOtherThanDebugLocPKN4llvm14GlobalVariableE.exit.i ], [ %.1150.i, %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.argprom.exit.thread.i ], [ %.1150.i, %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.argprom.exit.i ], [ %.1150.i, %124 ], [ %.1150.i, %119 ], [ %.1150.i, %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.i.i ], [ %.1150.i, %109 ], [ %.1150.i, %115 ], [ %.1150.i, %113 ], [ %.1150.i, %154 ], [ %.1150.i, %154 ], [ %.1150.i, %154 ], [ %.1150.i, %154 ], [ %.1150.i, %154 ], [ %.1150.i, %154 ], [ %.1150.i, %209 ]
   %.not138.i = icmp eq ptr %97, %87
   br i1 %.not138.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
@@ -769,8 +769,8 @@ _ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11Gl
   %336 = add i64 %334, 4294967295
   br label %.lr.ph160.i
 
-.lr.ph160.i:                                      ; preds = %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.exit.i, %.lr.ph160.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph160.preheader.i ], [ %indvars.iv.next.i, %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.exit.i ]
+.lr.ph160.i:                                      ; preds = %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.argprom.exit.i, %.lr.ph160.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph160.preheader.i ], [ %indvars.iv.next.i, %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.argprom.exit.i ]
   %337 = load ptr, ptr %10, align 8
   %338 = getelementptr inbounds %"struct.std::pair.89", ptr %337, i64 %indvars.iv.i
   %339 = load ptr, ptr %338, align 8
@@ -832,13 +832,13 @@ _ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11Gl
   %368 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #8
   %369 = load ptr, ptr %5, align 8
   %370 = icmp eq ptr %369, %91
-  br i1 %370, label %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.exit.i, label %371
+  br i1 %370, label %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.argprom.exit.i, label %371
 
 371:                                              ; preds = %._crit_edge.i.i109.i
   call void @free(ptr noundef %369) #8
-  br label %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.exit.i
+  br label %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.argprom.exit.i
 
-_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.exit.i: ; preds = %371, %._crit_edge.i.i109.i
+_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.argprom.exit.i: ; preds = %371, %._crit_edge.i.i109.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %339, ptr noundef %341) #8
   call void @_ZN4llvm14GlobalVariable15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(81) %339) #8
@@ -846,7 +846,7 @@ _ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.exit.i: ; preds = %371, %._cr
   %.not.i = icmp eq i64 %indvars.iv.next.i, %335
   br i1 %.not.i, label %._crit_edge161.loopexit.i, label %.lr.ph160.i, !llvm.loop !16
 
-._crit_edge161.loopexit.i:                        ; preds = %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.exit.i
+._crit_edge161.loopexit.i:                        ; preds = %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.argprom.exit.i
   %372 = and i64 %336, 4294967295
   %373 = add i64 %.1.lcssa.i, 1
   %374 = add i64 %373, %372

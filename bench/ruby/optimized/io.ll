@@ -2946,13 +2946,13 @@ define internal fastcc i64 @rb_io_getline_0(i64 noundef %0, i64 noundef %1, i32 
   %16 = getelementptr i8, ptr %3, i64 96
   %.val = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %17, label %io_read_encoding.exit
+  br i1 %.not.i, label %17, label %io_read_encoding.argprom.exit
 
 17:                                               ; preds = %15
   %18 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_read_encoding.exit
+  br label %io_read_encoding.argprom.exit
 
-io_read_encoding.exit:                            ; preds = %15, %17
+io_read_encoding.argprom.exit:                    ; preds = %15, %17
   %.0.i = phi ptr [ %18, %17 ], [ %.val, %15 ]
   %19 = tail call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %.0.i) #24
   br label %.thread189
@@ -2980,20 +2980,20 @@ io_read_encoding.exit:                            ; preds = %15, %17
   %31 = getelementptr i8, ptr %3, i64 96
   %.val105 = load ptr, ptr %31, align 8
   %.not.i108 = icmp eq ptr %.val105, null
-  br i1 %.not.i108, label %32, label %io_read_encoding.exit110
+  br i1 %.not.i108, label %32, label %io_read_encoding.argprom.exit110
 
 32:                                               ; preds = %30
   %33 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_read_encoding.exit110
+  br label %io_read_encoding.argprom.exit110
 
-io_read_encoding.exit110:                         ; preds = %30, %32
+io_read_encoding.argprom.exit110:                 ; preds = %30, %32
   %.0.i109 = phi ptr [ %33, %32 ], [ %.val105, %30 ]
   %34 = getelementptr i8, ptr %.0.i109, i64 20
   %.val.i = load i32, ptr %34, align 4
   %.not.i111 = icmp eq i32 %.val.i, 1
   br i1 %.not.i111, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
-rb_enc_asciicompat.exit:                          ; preds = %io_read_encoding.exit110
+rb_enc_asciicompat.exit:                          ; preds = %io_read_encoding.argprom.exit110
   %35 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.0.i109) #29
   %.not3.i = icmp eq i32 %35, 0
   br i1 %.not3.i, label %36, label %rb_enc_asciicompat.exit.thread
@@ -3002,21 +3002,21 @@ rb_enc_asciicompat.exit:                          ; preds = %io_read_encoding.ex
   %37 = tail call fastcc i64 @rb_io_getline_fast(ptr noundef nonnull %3, ptr noundef nonnull %.0.i109, i32 noundef %2)
   br label %.thread189
 
-rb_enc_asciicompat.exit.thread:                   ; preds = %io_read_encoding.exit110, %rb_enc_asciicompat.exit, %26, %23, %20
+rb_enc_asciicompat.exit.thread:                   ; preds = %io_read_encoding.argprom.exit110, %rb_enc_asciicompat.exit, %26, %23, %20
   %38 = getelementptr i8, ptr %3, i64 96
   %.val106 = load ptr, ptr %38, align 8
   %.not.i113 = icmp eq ptr %.val106, null
-  br i1 %.not.i113, label %39, label %io_read_encoding.exit115
+  br i1 %.not.i113, label %39, label %io_read_encoding.argprom.exit115
 
 39:                                               ; preds = %rb_enc_asciicompat.exit.thread
   %40 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_read_encoding.exit115
+  br label %io_read_encoding.argprom.exit115
 
-io_read_encoding.exit115:                         ; preds = %rb_enc_asciicompat.exit.thread, %39
+io_read_encoding.argprom.exit115:                 ; preds = %rb_enc_asciicompat.exit.thread, %39
   %.0.i114 = phi ptr [ %40, %39 ], [ %.val106, %rb_enc_asciicompat.exit.thread ]
   br i1 %5, label %72, label %41
 
-41:                                               ; preds = %io_read_encoding.exit115
+41:                                               ; preds = %io_read_encoding.argprom.exit115
   %42 = inttoptr i64 %0 to ptr
   %43 = getelementptr inbounds i8, ptr %42, i64 16
   %44 = load i64, ptr %43, align 8
@@ -3024,7 +3024,7 @@ io_read_encoding.exit115:                         ; preds = %rb_enc_asciicompat.
   br i1 %45, label %46, label %59
 
 46:                                               ; preds = %41
-  tail call fastcc void @swallow(ptr noundef nonnull %3)
+  tail call fastcc void @swallow.argelim(ptr noundef nonnull %3)
   %47 = getelementptr i8, ptr %.0.i114, i64 20
   %.val.i116 = load i32, ptr %47, align 4
   %.not.i117 = icmp eq i32 %.val.i116, 1
@@ -3084,13 +3084,13 @@ RSTRING_PTR.exit124:                              ; preds = %63, %59, %rb_enc_as
   %71 = zext i1 %narrow to i32
   br label %72
 
-72:                                               ; preds = %RSTRING_PTR.exit124, %io_read_encoding.exit115
-  %.092 = phi i32 [ -1, %io_read_encoding.exit115 ], [ %67, %RSTRING_PTR.exit124 ]
-  %.090 = phi ptr [ null, %io_read_encoding.exit115 ], [ %.191, %RSTRING_PTR.exit124 ]
-  %.088 = phi i64 [ 0, %io_read_encoding.exit115 ], [ %.189, %RSTRING_PTR.exit124 ]
-  %.086 = phi i1 [ false, %io_read_encoding.exit115 ], [ %45, %RSTRING_PTR.exit124 ]
-  %.083 = phi i32 [ %2, %io_read_encoding.exit115 ], [ %71, %RSTRING_PTR.exit124 ]
-  %.081 = phi i64 [ 4, %io_read_encoding.exit115 ], [ %.1, %RSTRING_PTR.exit124 ]
+72:                                               ; preds = %RSTRING_PTR.exit124, %io_read_encoding.argprom.exit115
+  %.092 = phi i32 [ -1, %io_read_encoding.argprom.exit115 ], [ %67, %RSTRING_PTR.exit124 ]
+  %.090 = phi ptr [ null, %io_read_encoding.argprom.exit115 ], [ %.191, %RSTRING_PTR.exit124 ]
+  %.088 = phi i64 [ 0, %io_read_encoding.argprom.exit115 ], [ %.189, %RSTRING_PTR.exit124 ]
+  %.086 = phi i1 [ false, %io_read_encoding.argprom.exit115 ], [ %45, %RSTRING_PTR.exit124 ]
+  %.083 = phi i32 [ %2, %io_read_encoding.argprom.exit115 ], [ %71, %RSTRING_PTR.exit124 ]
+  %.081 = phi i64 [ 4, %io_read_encoding.argprom.exit115 ], [ %.1, %RSTRING_PTR.exit124 ]
   %73 = getelementptr inbounds i8, ptr %3, i64 104
   %74 = getelementptr inbounds i8, ptr %3, i64 20
   %75 = getelementptr inbounds i8, ptr %3, i64 148
@@ -3538,7 +3538,7 @@ RSTRING_END.exit147:                              ; preds = %.loopexit197.thread
   br i1 %.086, label %263, label %.thread
 
 263:                                              ; preds = %.loopexit
-  tail call fastcc void @swallow(ptr noundef nonnull %3)
+  tail call fastcc void @swallow.argelim(ptr noundef nonnull %3)
   br label %.thread
 
 .thread:                                          ; preds = %appendline.exit, %rb_io_check_closed.exit.i, %148, %150, %263, %.loopexit
@@ -3550,21 +3550,21 @@ RSTRING_END.exit147:                              ; preds = %.loopexit197.thread
 265:                                              ; preds = %.thread
   %.val107 = load ptr, ptr %38, align 8
   %.not.i.i148 = icmp eq ptr %.val107, null
-  br i1 %.not.i.i148, label %266, label %io_enc_str.exit
+  br i1 %.not.i.i148, label %266, label %io_enc_str.argprom.exit
 
 266:                                              ; preds = %265
   %267 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_enc_str.exit
+  br label %io_enc_str.argprom.exit
 
-io_enc_str.exit:                                  ; preds = %265, %266
+io_enc_str.argprom.exit:                          ; preds = %265, %266
   %.0.i.i = phi ptr [ %267, %266 ], [ %.val107, %265 ]
   %268 = tail call i64 @rb_enc_associate(i64 noundef %.9170187, ptr noundef %.0.i.i) #24
   %269 = icmp ne i32 %.194188, 0
   br label %270
 
-270:                                              ; preds = %io_enc_str.exit, %7
-  %.0160 = phi i64 [ %8, %7 ], [ %.9170187, %io_enc_str.exit ]
-  %.093 = phi i1 [ false, %7 ], [ %269, %io_enc_str.exit ]
+270:                                              ; preds = %io_enc_str.argprom.exit, %7
+  %.0160 = phi i64 [ %8, %7 ], [ %.9170187, %io_enc_str.argprom.exit ]
+  %.093 = phi i1 [ false, %7 ], [ %269, %io_enc_str.argprom.exit ]
   %271 = icmp eq i64 %.0160, 4
   %or.cond9 = or i1 %271, %.093
   br i1 %or.cond9, label %.thread189, label %272
@@ -3576,8 +3576,8 @@ io_enc_str.exit:                                  ; preds = %265, %266
   store i32 %275, ptr %273, align 4
   br label %.thread189
 
-.thread189:                                       ; preds = %.thread, %270, %272, %7, %36, %io_read_encoding.exit
-  %.0 = phi i64 [ %19, %io_read_encoding.exit ], [ %37, %36 ], [ 4, %7 ], [ %.0160, %272 ], [ %.0160, %270 ], [ 4, %.thread ]
+.thread189:                                       ; preds = %.thread, %270, %272, %7, %36, %io_read_encoding.argprom.exit
+  %.0 = phi i64 [ %19, %io_read_encoding.argprom.exit ], [ %37, %36 ], [ 4, %7 ], [ %.0160, %272 ], [ %.0160, %270 ], [ 4, %.thread ]
   ret i64 %.0
 }
 
@@ -4063,13 +4063,13 @@ rb_io_check_closed.exit:                          ; preds = %rb_io_check_initial
   %28 = getelementptr i8, ptr %16, i64 96
   %.val = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %29, label %io_read_encoding.exit
+  br i1 %.not.i, label %29, label %io_read_encoding.argprom.exit
 
 29:                                               ; preds = %25
   %30 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_read_encoding.exit
+  br label %io_read_encoding.argprom.exit
 
-io_read_encoding.exit:                            ; preds = %25, %29
+io_read_encoding.argprom.exit:                    ; preds = %25, %29
   %.0.i = phi ptr [ %30, %29 ], [ %.val, %25 ]
   %31 = tail call i64 @rb_enc_uint_chr(i32 noundef %27, ptr noundef %.0.i) #24
   store i64 %31, ptr %3, align 8
@@ -4095,13 +4095,13 @@ io_read_encoding.exit:                            ; preds = %25, %29
   %45 = getelementptr i8, ptr %16, i64 96
   %.val51 = load ptr, ptr %45, align 8
   %.not.i52 = icmp eq ptr %.val51, null
-  br i1 %.not.i52, label %46, label %io_read_encoding.exit54
+  br i1 %.not.i52, label %46, label %io_read_encoding.argprom.exit54
 
 46:                                               ; preds = %42
   %47 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_read_encoding.exit54
+  br label %io_read_encoding.argprom.exit54
 
-io_read_encoding.exit54:                          ; preds = %42, %46
+io_read_encoding.argprom.exit54:                  ; preds = %42, %46
   %.0.i53 = phi ptr [ %47, %46 ], [ %.val51, %42 ]
   %48 = tail call i64 @rb_enc_uint_chr(i32 noundef %44, ptr noundef %.0.i53) #24
   store i64 %48, ptr %3, align 8
@@ -4111,7 +4111,7 @@ io_read_encoding.exit54:                          ; preds = %42, %46
   %49 = call i64 @rb_string_value(ptr noundef nonnull %3) #24
   br label %50
 
-50:                                               ; preds = %io_read_encoding.exit54, %.critedge, %io_read_encoding.exit
+50:                                               ; preds = %io_read_encoding.argprom.exit54, %.critedge, %io_read_encoding.argprom.exit
   %51 = getelementptr inbounds i8, ptr %16, i64 104
   %52 = load ptr, ptr %51, align 8
   %.not = icmp eq ptr %52, null
@@ -4242,21 +4242,21 @@ define internal fastcc void @make_readconv(ptr nocapture noundef %0, i32 noundef
   %15 = getelementptr i8, ptr %0, i64 96
   %.val26 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %.val26, null
-  br i1 %.not.i, label %16, label %io_read_encoding.exit
+  br i1 %.not.i, label %16, label %io_read_encoding.argprom.exit
 
 16:                                               ; preds = %13
   %17 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_read_encoding.exit
+  br label %io_read_encoding.argprom.exit
 
-io_read_encoding.exit:                            ; preds = %13, %16
+io_read_encoding.argprom.exit:                    ; preds = %13, %16
   %.0.i = phi ptr [ %17, %16 ], [ %.val26, %13 ]
   %18 = getelementptr i8, ptr %.0.i, i64 8
   %.val25 = load ptr, ptr %18, align 8
   br label %19
 
-19:                                               ; preds = %5, %io_read_encoding.exit
-  %.021 = phi ptr [ %.val, %io_read_encoding.exit ], [ @.str.195, %5 ]
-  %.0 = phi ptr [ %.val25, %io_read_encoding.exit ], [ @.str.195, %5 ]
+19:                                               ; preds = %5, %io_read_encoding.argprom.exit
+  %.021 = phi ptr [ %.val, %io_read_encoding.argprom.exit ], [ @.str.195, %5 ]
+  %.0 = phi ptr [ %.val25, %io_read_encoding.argprom.exit ], [ @.str.195, %5 ]
   %20 = tail call ptr @rb_econv_open_opts(ptr noundef %.021, ptr noundef %.0, i32 noundef %8, i64 noundef %10) #24
   store ptr %20, ptr %3, align 8
   %.not24 = icmp eq ptr %20, null
@@ -4521,7 +4521,7 @@ rb_io_get_write_io.exit:                          ; preds = %1
   br i1 %.not20, label %26, label %25
 
 25:                                               ; preds = %23
-  call fastcc void @fptr_finalize_flush(ptr noundef nonnull %19, i32 noundef 0, ptr noundef nonnull %2)
+  call fastcc void @fptr_finalize_flush.argelim(ptr noundef nonnull %19, i32 noundef 0, ptr noundef nonnull %2)
   br label %26
 
 26:                                               ; preds = %25, %23
@@ -6609,7 +6609,7 @@ is_popen_fork.exit.thread24:                      ; preds = %RSTRING_PTR.exit.i,
 
 rb_io_oflags_modestr.exit:                        ; preds = %64
   %68 = load i32, ptr %9, align 4
-  %69 = call fastcc i64 @pipe_open(i64 noundef %.01226, i32 noundef %68, ptr noundef nonnull %10)
+  %69 = call fastcc i64 @pipe_open.argprom(i64 noundef %.01226, i32 noundef %68, ptr noundef nonnull %10)
   ret i64 %69
 }
 
@@ -6622,7 +6622,7 @@ declare i64 @rb_execarg_extract_options(i64 noundef, i64 noundef) local_unnamed_
 declare void @rb_execarg_setenv(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @pipe_open(i64 noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef i64 @pipe_open.argprom(i64 noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [80 x i8], align 16
   %6 = alloca i32, align 4
@@ -7356,7 +7356,7 @@ rb_str_end_with_asciichar.exit:                   ; preds = %45
 
 63:                                               ; preds = %.sink.split, %49, %rb_str_end_with_asciichar.exit
   %.0 = phi i32 [ 1, %rb_str_end_with_asciichar.exit ], [ 1, %49 ], [ %.0.ph, %.sink.split ]
-  call fastcc void @rb_io_writev(i64 noundef %2, i32 noundef %.0, ptr noundef %6)
+  call fastcc void @rb_io_writev.retelim(i64 noundef %2, i32 noundef %.0, ptr noundef %6)
   br label %64
 
 64:                                               ; preds = %.critedge, %63
@@ -7432,7 +7432,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.t
 declare i64 @rb_obj_as_string(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rb_io_writev(i64 noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @rb_io_writev.retelim(i64 noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = icmp ugt i32 %1, 1
   br i1 %5, label %6, label %51
@@ -7582,7 +7582,7 @@ rb_class_of.exit.i:                               ; preds = %12
   br label %rb_p_write.exit
 
 .critedge.i:                                      ; preds = %rb_class_of.exit.i, %12, %1
-  call fastcc void @rb_io_writev(i64 noundef %7, i32 noundef 2, ptr noundef %2)
+  call fastcc void @rb_io_writev.retelim(i64 noundef %7, i32 noundef 2, ptr noundef %2)
   br label %rb_p_write.exit
 
 rb_p_write.exit:                                  ; preds = %20, %.critedge.i
@@ -7624,7 +7624,7 @@ rb_class_of.exit:                                 ; preds = %10
   br label %20
 
 .critedge:                                        ; preds = %1, %rb_class_of.exit, %10
-  call fastcc void @rb_io_writev(i64 noundef %5, i32 noundef 2, ptr noundef %2)
+  call fastcc void @rb_io_writev.retelim(i64 noundef %5, i32 noundef 2, ptr noundef %2)
   br label %20
 
 20:                                               ; preds = %.critedge, %18
@@ -10425,25 +10425,25 @@ RSTRING_PTR.exit.i.i:                             ; preds = %19, %15
   %.sroa.2.0.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.i.i, %19 ], [ %18, %15 ]
   %20 = load i8, ptr %.sroa.2.0.i.i.i, align 1
   %21 = icmp eq i8 %20, 45
-  br i1 %21, label %pipe_open_s.exit, label %22
+  br i1 %21, label %pipe_open_s.argprom.exit, label %22
 
 22:                                               ; preds = %RSTRING_PTR.exit.i.i, %2
   %23 = call i64 @rb_execarg_new(i32 noundef 1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0) #24
-  br label %pipe_open_s.exit
+  br label %pipe_open_s.argprom.exit
 
-pipe_open_s.exit:                                 ; preds = %RSTRING_PTR.exit.i.i, %22
+pipe_open_s.argprom.exit:                         ; preds = %RSTRING_PTR.exit.i.i, %22
   %.0.i = phi i64 [ %23, %22 ], [ 4, %RSTRING_PTR.exit.i.i ]
-  %24 = call fastcc noundef i64 @pipe_open(i64 noundef %.0.i, i32 noundef 1, ptr noundef null)
+  %24 = call fastcc noundef i64 @pipe_open.argprom(i64 noundef %.0.i, i32 noundef 1, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store i64 %24, ptr %7, align 8
   %25 = icmp eq i64 %24, 4
   br i1 %25, label %26, label %28
 
-26:                                               ; preds = %pipe_open_s.exit
+26:                                               ; preds = %pipe_open_s.argprom.exit
   %27 = call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #24
   br label %85
 
-28:                                               ; preds = %pipe_open_s.exit
+28:                                               ; preds = %pipe_open_s.argprom.exit
   %29 = and i64 %24, 7
   %30 = icmp ne i64 %29, 0
   %31 = icmp eq i64 %24, 0
@@ -11043,7 +11043,7 @@ extract_getline_opts.exit:                        ; preds = %55, %62, %66
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %71 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %53, ptr %8, align 8
-  call fastcc void @check_getline_args(ptr noundef %71, i64 noundef %53)
+  call fastcc void @check_getline_args.argprom(ptr noundef %71, i64 noundef %53)
   %72 = ptrtoint ptr %8 to i64
   %73 = call i64 @rb_ensure(ptr noundef nonnull @io_s_foreach, i64 noundef %72, ptr noundef nonnull @rb_io_close, i64 noundef %53) #24
   br label %74
@@ -11174,7 +11174,7 @@ extract_getline_opts.exit:                        ; preds = %49, %56, %60
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %65 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %47, ptr %8, align 8
-  call fastcc void @check_getline_args(ptr noundef %65, i64 noundef %47)
+  call fastcc void @check_getline_args.argprom(ptr noundef %65, i64 noundef %47)
   %66 = ptrtoint ptr %8 to i64
   %67 = call i64 @rb_ensure(ptr noundef nonnull @io_s_readlines, i64 noundef %66, ptr noundef nonnull @rb_io_close, i64 noundef %47) #24
   br label %68
@@ -16032,7 +16032,7 @@ rb_num2int_inline.exit.i:                         ; preds = %28, %26
 interpret_seek_whence.exit:                       ; preds = %rb_num2int_inline.exit.i, %21, %18, %15, %12, %8, %3
   %.0 = phi i32 [ 0, %3 ], [ %30, %rb_num2int_inline.exit.i ], [ 0, %8 ], [ 1, %12 ], [ 2, %15 ], [ 3, %18 ], [ 4, %21 ]
   %31 = load i64, ptr %4, align 8
-  call fastcc void @rb_io_seek(i64 noundef %2, i64 noundef %31, i32 noundef %.0)
+  call fastcc void @rb_io_seek.argelim(i64 noundef %2, i64 noundef %31, i32 noundef %.0)
   ret i64 1
 }
 
@@ -18303,19 +18303,19 @@ rb_io_taint_check.exit:                           ; preds = %6
   br label %31
 
 27:                                               ; preds = %19
-  br i1 %.not.i, label %28, label %io_read_encoding.exit
+  br i1 %.not.i, label %28, label %io_read_encoding.argprom.exit
 
 28:                                               ; preds = %27
   %29 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_read_encoding.exit
+  br label %io_read_encoding.argprom.exit
 
-io_read_encoding.exit:                            ; preds = %27, %28
+io_read_encoding.argprom.exit:                    ; preds = %27, %28
   %.0.i = phi ptr [ %29, %28 ], [ %.val, %27 ]
   %30 = tail call i64 @rb_enc_from_encoding(ptr noundef %.0.i) #24
   br label %31
 
-31:                                               ; preds = %24, %io_read_encoding.exit, %25, %17
-  %.0 = phi i64 [ %18, %17 ], [ %26, %25 ], [ %30, %io_read_encoding.exit ], [ 4, %24 ]
+31:                                               ; preds = %24, %io_read_encoding.argprom.exit, %25, %17
+  %.0 = phi i64 [ %18, %17 ], [ %26, %25 ], [ %30, %io_read_encoding.argprom.exit ], [ 4, %24 ]
   ret i64 %.0
 }
 
@@ -18353,19 +18353,19 @@ rb_io_taint_check.exit:                           ; preds = %6
   %18 = getelementptr i8, ptr %14, i64 96
   %.val = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %19, label %io_read_encoding.exit
+  br i1 %.not.i, label %19, label %io_read_encoding.argprom.exit
 
 19:                                               ; preds = %17
   %20 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_read_encoding.exit
+  br label %io_read_encoding.argprom.exit
 
-io_read_encoding.exit:                            ; preds = %17, %19
+io_read_encoding.argprom.exit:                    ; preds = %17, %19
   %.0.i = phi ptr [ %20, %19 ], [ %.val, %17 ]
   %21 = tail call i64 @rb_enc_from_encoding(ptr noundef %.0.i) #24
   br label %22
 
-22:                                               ; preds = %rb_io_taint_check.exit, %io_read_encoding.exit
-  %.0 = phi i64 [ %21, %io_read_encoding.exit ], [ 4, %rb_io_taint_check.exit ]
+22:                                               ; preds = %rb_io_taint_check.exit, %io_read_encoding.argprom.exit
+  %.0 = phi i64 [ %21, %io_read_encoding.argprom.exit ], [ 4, %rb_io_taint_check.exit ]
   ret i64 %.0
 }
 
@@ -19694,7 +19694,7 @@ define internal i64 @argf_each_byte(i64 noundef %0) #0 {
   %9 = tail call i64 @rb_enumeratorize_with_size(i64 noundef %0, i64 noundef %8, i32 noundef 0, ptr noundef null, ptr noundef null) #24
   br label %.loopexit
 
-10:                                               ; preds = %.lr.ph, %argf_block_call.exit
+10:                                               ; preds = %.lr.ph, %argf_block_call.argprom.exit
   %.pr.i = load i64, ptr @argf_each_byte.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
@@ -19713,21 +19713,21 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %10
   %15 = tail call i32 @rb_keyword_given_p() #24
   %16 = tail call i64 @rb_block_call_kw(i64 noundef %14, i64 noundef %.lcssa.i, i32 noundef 0, ptr noundef null, ptr noundef nonnull @argf_block_call_i, i64 noundef %0, i32 noundef %15) #24
   %17 = icmp eq i64 %16, 36
-  br i1 %17, label %argf_block_call.exit, label %18
+  br i1 %17, label %argf_block_call.argprom.exit, label %18
 
 18:                                               ; preds = %rbimpl_intern_const.exit
   %19 = load ptr, ptr %5, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 81
   store i8 1, ptr %20, align 1
-  br label %argf_block_call.exit
+  br label %argf_block_call.argprom.exit
 
-argf_block_call.exit:                             ; preds = %rbimpl_intern_const.exit, %18
+argf_block_call.argprom.exit:                     ; preds = %rbimpl_intern_const.exit, %18
   %21 = tail call fastcc i32 @argf_next_argv(i64 noundef %0)
   %.not6 = icmp eq i32 %21, 0
   br i1 %.not6, label %.loopexit, label %10, !llvm.loop !123
 
-.loopexit:                                        ; preds = %argf_block_call.exit, %.preheader, %6
-  %.0 = phi i64 [ %9, %6 ], [ %0, %.preheader ], [ %0, %argf_block_call.exit ]
+.loopexit:                                        ; preds = %argf_block_call.argprom.exit, %.preheader, %6
+  %.0 = phi i64 [ %9, %6 ], [ %0, %.preheader ], [ %0, %argf_block_call.argprom.exit ]
   ret i64 %.0
 }
 
@@ -19753,7 +19753,7 @@ define internal i64 @argf_each_char(i64 noundef %0) #0 {
   %9 = tail call i64 @rb_enumeratorize_with_size(i64 noundef %0, i64 noundef %8, i32 noundef 0, ptr noundef null, ptr noundef null) #24
   br label %.loopexit
 
-10:                                               ; preds = %.lr.ph, %argf_block_call.exit
+10:                                               ; preds = %.lr.ph, %argf_block_call.argprom.exit
   %.pr.i = load i64, ptr @argf_each_char.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
@@ -19772,21 +19772,21 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %10
   %15 = tail call i32 @rb_keyword_given_p() #24
   %16 = tail call i64 @rb_block_call_kw(i64 noundef %14, i64 noundef %.lcssa.i, i32 noundef 0, ptr noundef null, ptr noundef nonnull @argf_block_call_i, i64 noundef %0, i32 noundef %15) #24
   %17 = icmp eq i64 %16, 36
-  br i1 %17, label %argf_block_call.exit, label %18
+  br i1 %17, label %argf_block_call.argprom.exit, label %18
 
 18:                                               ; preds = %rbimpl_intern_const.exit
   %19 = load ptr, ptr %5, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 81
   store i8 1, ptr %20, align 1
-  br label %argf_block_call.exit
+  br label %argf_block_call.argprom.exit
 
-argf_block_call.exit:                             ; preds = %rbimpl_intern_const.exit, %18
+argf_block_call.argprom.exit:                     ; preds = %rbimpl_intern_const.exit, %18
   %21 = tail call fastcc i32 @argf_next_argv(i64 noundef %0)
   %.not6 = icmp eq i32 %21, 0
   br i1 %.not6, label %.loopexit, label %10, !llvm.loop !124
 
-.loopexit:                                        ; preds = %argf_block_call.exit, %.preheader, %6
-  %.0 = phi i64 [ %9, %6 ], [ %0, %.preheader ], [ %0, %argf_block_call.exit ]
+.loopexit:                                        ; preds = %argf_block_call.argprom.exit, %.preheader, %6
+  %.0 = phi i64 [ %9, %6 ], [ %0, %.preheader ], [ %0, %argf_block_call.argprom.exit ]
   ret i64 %.0
 }
 
@@ -19812,7 +19812,7 @@ define internal i64 @argf_each_codepoint(i64 noundef %0) #0 {
   %9 = tail call i64 @rb_enumeratorize_with_size(i64 noundef %0, i64 noundef %8, i32 noundef 0, ptr noundef null, ptr noundef null) #24
   br label %.loopexit
 
-10:                                               ; preds = %.lr.ph, %argf_block_call.exit
+10:                                               ; preds = %.lr.ph, %argf_block_call.argprom.exit
   %.pr.i = load i64, ptr @argf_each_codepoint.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
@@ -19831,21 +19831,21 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %10
   %15 = tail call i32 @rb_keyword_given_p() #24
   %16 = tail call i64 @rb_block_call_kw(i64 noundef %14, i64 noundef %.lcssa.i, i32 noundef 0, ptr noundef null, ptr noundef nonnull @argf_block_call_i, i64 noundef %0, i32 noundef %15) #24
   %17 = icmp eq i64 %16, 36
-  br i1 %17, label %argf_block_call.exit, label %18
+  br i1 %17, label %argf_block_call.argprom.exit, label %18
 
 18:                                               ; preds = %rbimpl_intern_const.exit
   %19 = load ptr, ptr %5, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 81
   store i8 1, ptr %20, align 1
-  br label %argf_block_call.exit
+  br label %argf_block_call.argprom.exit
 
-argf_block_call.exit:                             ; preds = %rbimpl_intern_const.exit, %18
+argf_block_call.argprom.exit:                     ; preds = %rbimpl_intern_const.exit, %18
   %21 = tail call fastcc i32 @argf_next_argv(i64 noundef %0)
   %.not6 = icmp eq i32 %21, 0
   br i1 %.not6, label %.loopexit, label %10, !llvm.loop !125
 
-.loopexit:                                        ; preds = %argf_block_call.exit, %.preheader, %6
-  %.0 = phi i64 [ %9, %6 ], [ %0, %.preheader ], [ %0, %argf_block_call.exit ]
+.loopexit:                                        ; preds = %argf_block_call.argprom.exit, %.preheader, %6
+  %.0 = phi i64 [ %9, %6 ], [ %0, %.preheader ], [ %0, %argf_block_call.argprom.exit ]
   ret i64 %.0
 }
 
@@ -20778,7 +20778,7 @@ rb_num2int_inline.exit.i.i:                       ; preds = %53, %51
 rb_io_seek_m.exit:                                ; preds = %30, %33, %37, %40, %43, %46, %rb_num2int_inline.exit.i.i
   %.0.i = phi i32 [ 0, %30 ], [ %55, %rb_num2int_inline.exit.i.i ], [ 0, %33 ], [ 1, %37 ], [ 2, %40 ], [ 3, %43 ], [ 4, %46 ]
   %56 = load i64, ptr %4, align 8
-  call fastcc void @rb_io_seek(i64 noundef %14, i64 noundef %56, i32 noundef %.0.i)
+  call fastcc void @rb_io_seek.argelim(i64 noundef %14, i64 noundef %56, i32 noundef %.0.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %57
@@ -21440,19 +21440,19 @@ rb_io_taint_check.exit.i:                         ; preds = %16
   %28 = getelementptr i8, ptr %24, i64 96
   %.val.i = load ptr, ptr %28, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %29, label %io_read_encoding.exit.i
+  br i1 %.not.i.i, label %29, label %io_read_encoding.argprom.exit.i
 
 29:                                               ; preds = %27
   %30 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_read_encoding.exit.i
+  br label %io_read_encoding.argprom.exit.i
 
-io_read_encoding.exit.i:                          ; preds = %29, %27
+io_read_encoding.argprom.exit.i:                  ; preds = %29, %27
   %.0.i.i = phi ptr [ %30, %29 ], [ %.val.i, %27 ]
   %31 = tail call i64 @rb_enc_from_encoding(ptr noundef %.0.i.i) #24
   br label %argf_encoding.exit
 
-argf_encoding.exit:                               ; preds = %io_read_encoding.exit.i, %rb_io_taint_check.exit.i, %8
-  %.0.i = phi i64 [ %9, %8 ], [ %31, %io_read_encoding.exit.i ], [ 4, %rb_io_taint_check.exit.i ]
+argf_encoding.exit:                               ; preds = %io_read_encoding.argprom.exit.i, %rb_io_taint_check.exit.i, %8
+  %.0.i = phi i64 [ %9, %8 ], [ %31, %io_read_encoding.argprom.exit.i ], [ 4, %rb_io_taint_check.exit.i ]
   ret i64 %.0.i
 }
 
@@ -23544,7 +23544,7 @@ io_shift_cbuf.exit:                               ; preds = %.sink.split.i, %65,
 
 81:                                               ; preds = %79, %78
   %82 = phi i32 [ %.pre100, %79 ], [ %77, %78 ]
-  call fastcc void @io_shift_cbuf(ptr noundef nonnull %0, i32 noundef %82, ptr noundef nonnull %6)
+  call fastcc void @io_shift_cbuf.argelim(ptr noundef nonnull %0, i32 noundef %82, ptr noundef nonnull %6)
   br label %83
 
 83:                                               ; preds = %81, %76
@@ -23607,13 +23607,13 @@ io_shrink_read_string.exit:                       ; preds = %103, %96, %95
   %105 = phi i64 [ %.pre101, %103 ], [ %.pre102, %96 ], [ %.pre102, %95 ]
   %.val70 = load ptr, ptr %37, align 8
   %.not.i.i75 = icmp eq ptr %.val70, null
-  br i1 %.not.i.i75, label %106, label %io_enc_str.exit
+  br i1 %.not.i.i75, label %106, label %io_enc_str.argprom.exit
 
 106:                                              ; preds = %io_shrink_read_string.exit
   %107 = call ptr @rb_default_external_encoding() #24
-  br label %io_enc_str.exit
+  br label %io_enc_str.argprom.exit
 
-io_enc_str.exit:                                  ; preds = %io_shrink_read_string.exit, %106
+io_enc_str.argprom.exit:                          ; preds = %io_shrink_read_string.exit, %106
   %.0.i.i = phi ptr [ %107, %106 ], [ %.val70, %io_shrink_read_string.exit ]
   %108 = call i64 @rb_enc_associate(i64 noundef %105, ptr noundef %.0.i.i) #24
   br label %226
@@ -23622,13 +23622,13 @@ io_enc_str.exit:                                  ; preds = %io_shrink_read_stri
   %110 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %110, align 8
   %.not.i76 = icmp eq ptr %.val, null
-  br i1 %.not.i76, label %111, label %io_read_encoding.exit
+  br i1 %.not.i76, label %111, label %io_read_encoding.argprom.exit
 
 111:                                              ; preds = %109
   %112 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_read_encoding.exit
+  br label %io_read_encoding.argprom.exit
 
-io_read_encoding.exit:                            ; preds = %109, %111
+io_read_encoding.argprom.exit:                    ; preds = %109, %111
   %.0.i77 = phi ptr [ %112, %111 ], [ %.val, %109 ]
   store i32 0, ptr %7, align 4
   %113 = icmp eq i64 %1, 0
@@ -23636,12 +23636,12 @@ io_read_encoding.exit:                            ; preds = %109, %111
   %.not93 = icmp eq i64 %2, 4
   br i1 %.not93, label %114, label %116
 
-114:                                              ; preds = %io_read_encoding.exit
+114:                                              ; preds = %io_read_encoding.argprom.exit
   %115 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %spec.store.select) #24, !callees !101
   store i64 %115, ptr %6, align 8
   br label %io_setstrbuf.exit80
 
-116:                                              ; preds = %io_read_encoding.exit
+116:                                              ; preds = %io_read_encoding.argprom.exit
   %117 = call i64 @rb_string_value(ptr noundef nonnull %6) #24
   call void @rb_str_modify(i64 noundef %117) #24
   %118 = inttoptr i64 %117 to ptr
@@ -23851,13 +23851,13 @@ io_shrink_read_string.exit88:                     ; preds = %213, %206, %.loopex
   %215 = phi i64 [ %.pre103, %213 ], [ %.pre104, %206 ], [ %.pre104, %.loopexit ]
   %.val71 = load ptr, ptr %110, align 8
   %.not.i.i89 = icmp eq ptr %.val71, null
-  br i1 %.not.i.i89, label %216, label %io_enc_str.exit91
+  br i1 %.not.i.i89, label %216, label %io_enc_str.argprom.exit91
 
 216:                                              ; preds = %io_shrink_read_string.exit88
   %217 = call ptr @rb_default_external_encoding() #24
-  br label %io_enc_str.exit91
+  br label %io_enc_str.argprom.exit91
 
-io_enc_str.exit91:                                ; preds = %io_shrink_read_string.exit88, %216
+io_enc_str.argprom.exit91:                        ; preds = %io_shrink_read_string.exit88, %216
   %.0.i.i90 = phi ptr [ %217, %216 ], [ %.val71, %io_shrink_read_string.exit88 ]
   %218 = call i64 @rb_enc_associate(i64 noundef %215, ptr noundef %.0.i.i90) #24
   store i64 %215, ptr %6, align 8
@@ -23871,8 +23871,8 @@ io_enc_str.exit91:                                ; preds = %io_shrink_read_stri
   %225 = load i64, ptr %6, align 8
   br label %226
 
-226:                                              ; preds = %io_enc_str.exit91, %io_enc_str.exit
-  %.051 = phi i64 [ %105, %io_enc_str.exit ], [ %225, %io_enc_str.exit91 ]
+226:                                              ; preds = %io_enc_str.argprom.exit91, %io_enc_str.argprom.exit
+  %.051 = phi i64 [ %105, %io_enc_str.argprom.exit ], [ %225, %io_enc_str.argprom.exit91 ]
   ret i64 %.051
 }
 
@@ -24093,13 +24093,13 @@ rb_io_check_closed.exit:                          ; preds = %rb_io_check_initial
   %111 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %111, align 8
   %.not.i.i88 = icmp eq ptr %.val, null
-  br i1 %.not.i.i88, label %112, label %io_enc_str.exit
+  br i1 %.not.i.i88, label %112, label %io_enc_str.argprom.exit
 
 112:                                              ; preds = %110
   %113 = call ptr @rb_default_external_encoding() #24
-  br label %io_enc_str.exit
+  br label %io_enc_str.argprom.exit
 
-io_enc_str.exit:                                  ; preds = %110, %112
+io_enc_str.argprom.exit:                          ; preds = %110, %112
   %.0.i.i = phi ptr [ %113, %112 ], [ %.val, %110 ]
   %114 = call i64 @rb_enc_associate(i64 noundef %.291, ptr noundef %.0.i.i) #24
   %115 = load i32, ptr %4, align 4
@@ -24115,13 +24115,13 @@ io_enc_str.exit:                                  ; preds = %110, %112
   store i32 %123, ptr %121, align 4
   br label %124
 
-124:                                              ; preds = %108, %io_enc_str.exit
-  %.062 = phi i64 [ %.291, %io_enc_str.exit ], [ 4, %108 ]
+124:                                              ; preds = %108, %io_enc_str.argprom.exit
+  %.062 = phi i64 [ %.291, %io_enc_str.argprom.exit ], [ 4, %108 ]
   ret i64 %.062
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @swallow(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @swallow.argelim(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
@@ -24146,13 +24146,13 @@ define internal fastcc void @swallow(ptr noundef %0) unnamed_addr #0 {
   %14 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %15, label %io_read_encoding.exit
+  br i1 %.not.i, label %15, label %io_read_encoding.argprom.exit
 
 15:                                               ; preds = %13
   %16 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_read_encoding.exit
+  br label %io_read_encoding.argprom.exit
 
-io_read_encoding.exit:                            ; preds = %13, %15
+io_read_encoding.argprom.exit:                    ; preds = %13, %15
   %.0.i = phi ptr [ %16, %15 ], [ %.val, %13 ]
   %17 = getelementptr i8, ptr %.0.i, i64 20
   %.val74 = load i32, ptr %17, align 4
@@ -24163,18 +24163,18 @@ io_read_encoding.exit:                            ; preds = %13, %15
   %19 = getelementptr inbounds i8, ptr %0, i64 136
   %20 = getelementptr inbounds i8, ptr %0, i64 144
   %21 = getelementptr inbounds i8, ptr %0, i64 152
-  br i1 %.not68, label %io_read_encoding.exit.split.us, label %io_read_encoding.exit.split
+  br i1 %.not68, label %io_read_encoding.argprom.exit.split.us, label %io_read_encoding.argprom.exit.split
 
-io_read_encoding.exit.split.us:                   ; preds = %io_read_encoding.exit, %more_char.exit.us
+io_read_encoding.argprom.exit.split.us:           ; preds = %io_read_encoding.argprom.exit, %more_char.exit.us
   %22 = load i32, ptr %18, align 4
   %.not6986.us = icmp eq i32 %22, 0
   br i1 %.not6986.us, label %._crit_edge.split.us.us, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %io_read_encoding.exit.split.us
+.lr.ph.us.preheader:                              ; preds = %io_read_encoding.argprom.exit.split.us
   %.pre99 = load i32, ptr %20, align 8
   br label %.lr.ph.us
 
-._crit_edge.split.us.us:                          ; preds = %io_shift_cbuf.exit.us.us, %io_read_encoding.exit.split.us
+._crit_edge.split.us.us:                          ; preds = %io_shift_cbuf.exit.us.us, %io_read_encoding.argprom.exit.split.us
   %23 = tail call fastcc i64 @fill_cbuf(ptr noundef nonnull %0, i32 noundef 262144)
   %24 = and i64 %23, -17
   %or.cond.not.i.us = icmp eq i64 %24, 4
@@ -24182,7 +24182,7 @@ io_read_encoding.exit.split.us:                   ; preds = %io_read_encoding.ex
 
 more_char.exit.us:                                ; preds = %._crit_edge.split.us.us
   %.not70.us = icmp eq i64 %23, 4
-  br i1 %.not70.us, label %.loopexit, label %io_read_encoding.exit.split.us, !llvm.loop !150
+  br i1 %.not70.us, label %.loopexit, label %io_read_encoding.argprom.exit.split.us, !llvm.loop !150
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %io_shift_cbuf.exit.us.us
   %25 = phi i32 [ %48, %io_shift_cbuf.exit.us.us ], [ %.pre99, %.lr.ph.us.preheader ]
@@ -24241,12 +24241,12 @@ io_shift_cbuf.exit.us.us:                         ; preds = %.sink.split.i.us.us
   %.not69.us.us = icmp eq i32 %47, 0
   br i1 %.not69.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !152
 
-io_read_encoding.exit.split:                      ; preds = %io_read_encoding.exit, %more_char.exit
+io_read_encoding.argprom.exit.split:              ; preds = %io_read_encoding.argprom.exit, %more_char.exit
   %49 = load i32, ptr %18, align 4
   %.not6986 = icmp eq i32 %49, 0
   br i1 %.not6986, label %._crit_edge.split, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %io_read_encoding.exit.split
+.lr.ph.preheader:                                 ; preds = %io_read_encoding.argprom.exit.split
   %.pre = load i32, ptr %20, align 8
   br label %.lr.ph
 
@@ -24317,7 +24317,7 @@ io_shift_cbuf.exit:                               ; preds = %75, %.sink.split.i
   %.not69 = icmp eq i32 %84, 0
   br i1 %.not69, label %._crit_edge.split, label %.lr.ph, !llvm.loop !152
 
-._crit_edge.split:                                ; preds = %io_shift_cbuf.exit, %io_read_encoding.exit.split
+._crit_edge.split:                                ; preds = %io_shift_cbuf.exit, %io_read_encoding.argprom.exit.split
   %86 = call fastcc i64 @fill_cbuf(ptr noundef nonnull %0, i32 noundef 262144)
   %87 = and i64 %86, -17
   %or.cond.not.i = icmp eq i64 %87, 4
@@ -24330,7 +24330,7 @@ io_shift_cbuf.exit:                               ; preds = %75, %.sink.split.i
 
 more_char.exit:                                   ; preds = %._crit_edge.split
   %.not70 = icmp eq i64 %86, 4
-  br i1 %.not70, label %.loopexit, label %io_read_encoding.exit.split, !llvm.loop !150
+  br i1 %.not70, label %.loopexit, label %io_read_encoding.argprom.exit.split, !llvm.loop !150
 
 88:                                               ; preds = %.preheader78, %rb_io_check_closed.exit
   %.promoted = load i32, ptr %9, align 4
@@ -24422,7 +24422,7 @@ declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @rb_enc_precise_mbclen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_shift_cbuf(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @io_shift_cbuf.argelim(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %22, label %4
 
@@ -24904,7 +24904,7 @@ define internal fastcc void @rb_io_fptr_cleanup(ptr noundef %0, i32 noundef rang
   br label %24
 
 6:                                                ; preds = %2
-  tail call fastcc void @fptr_finalize_flush(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null)
+  tail call fastcc void @fptr_finalize_flush.argelim(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null)
   %7 = getelementptr inbounds i8, ptr %0, i64 68
   %8 = load ptr, ptr %7, align 1
   %.not.i.i = icmp eq ptr %8, null
@@ -24969,7 +24969,7 @@ fptr_finalize.exit:                               ; preds = %clear_readconv.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @fptr_finalize_flush(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @fptr_finalize_flush.argelim(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.finish_writeconv_arg, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -25848,19 +25848,19 @@ rb_io_taint_check.exit.i10:                       ; preds = %64
   %76 = getelementptr i8, ptr %72, i64 96
   %.val.i = load ptr, ptr %76, align 8
   %.not.i.i12 = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i12, label %77, label %io_read_encoding.exit.i
+  br i1 %.not.i.i12, label %77, label %io_read_encoding.argprom.exit.i
 
 77:                                               ; preds = %75
   %78 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_read_encoding.exit.i
+  br label %io_read_encoding.argprom.exit.i
 
-io_read_encoding.exit.i:                          ; preds = %77, %75
+io_read_encoding.argprom.exit.i:                  ; preds = %77, %75
   %.0.i.i = phi ptr [ %78, %77 ], [ %.val.i, %75 ]
   %79 = tail call i64 @rb_enc_from_encoding(ptr noundef %.0.i.i) #24
   br label %rb_io_internal_encoding.exit
 
-rb_io_internal_encoding.exit:                     ; preds = %rb_io_taint_check.exit.i10, %io_read_encoding.exit.i
-  %.0.i13 = phi i64 [ %79, %io_read_encoding.exit.i ], [ 4, %rb_io_taint_check.exit.i10 ]
+rb_io_internal_encoding.exit:                     ; preds = %rb_io_taint_check.exit.i10, %io_read_encoding.argprom.exit.i
+  %.0.i13 = phi i64 [ %79, %io_read_encoding.argprom.exit.i ], [ 4, %rb_io_taint_check.exit.i10 ]
   tail call fastcc void @io_encoding_set(ptr noundef nonnull %56, i64 noundef %66, i64 noundef %.0.i13, i64 noundef 4)
   br label %82
 
@@ -28652,7 +28652,7 @@ rb_io_open.exit:                                  ; preds = %50, %57
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @check_getline_args(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @check_getline_args.argprom(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   %4 = icmp eq i64 %3, 4
   br i1 %4, label %50, label %5
@@ -28706,18 +28706,18 @@ rb_io_check_closed.exit:                          ; preds = %rb_io_check_initial
   %27 = getelementptr i8, ptr %18, i64 96
   %.val18 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %.val18, null
-  br i1 %.not.i, label %28, label %io_read_encoding.exit
+  br i1 %.not.i, label %28, label %io_read_encoding.argprom.exit
 
 28:                                               ; preds = %rb_io_check_closed.exit
   %29 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_read_encoding.exit
+  br label %io_read_encoding.argprom.exit
 
-io_read_encoding.exit:                            ; preds = %rb_io_check_closed.exit, %28
+io_read_encoding.argprom.exit:                    ; preds = %rb_io_check_closed.exit, %28
   %.0.i = phi ptr [ %29, %28 ], [ %.val18, %rb_io_check_closed.exit ]
   %.not = icmp eq ptr %.0.i, %26
   br i1 %.not, label %50, label %30
 
-30:                                               ; preds = %io_read_encoding.exit
+30:                                               ; preds = %io_read_encoding.argprom.exit
   %31 = tail call i32 @rb_enc_str_coderange(i64 noundef %3) #24
   %32 = icmp eq i32 %31, 1048576
   br i1 %32, label %33, label %rb_enc_asciicompat.exit.thread
@@ -28760,7 +28760,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %38, %rb_enc_asciico
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %47, ptr noundef nonnull @.str.239, ptr noundef %.val17, ptr noundef %.val) #26
   unreachable
 
-50:                                               ; preds = %io_read_encoding.exit, %33, %rb_enc_asciicompat.exit, %43, %2
+50:                                               ; preds = %io_read_encoding.argprom.exit, %33, %rb_enc_asciicompat.exit, %43, %2
   ret void
 }
 
@@ -28905,15 +28905,15 @@ RSTRING_PTR.exit.i.i:                             ; preds = %45, %41
   %.sroa.2.0.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.i.i, %45 ], [ %44, %41 ]
   %46 = load i8, ptr %.sroa.2.0.i.i.i, align 1
   %47 = icmp eq i8 %46, 45
-  br i1 %47, label %pipe_open_s.exit, label %48
+  br i1 %47, label %pipe_open_s.argprom.exit, label %48
 
 48:                                               ; preds = %RSTRING_PTR.exit.i.i, %rb_io_oflags_modestr.exit
   %49 = call i64 @rb_execarg_new(i32 noundef 1, ptr noundef nonnull %7, i32 noundef 1, i32 noundef 0) #24
-  br label %pipe_open_s.exit
+  br label %pipe_open_s.argprom.exit
 
-pipe_open_s.exit:                                 ; preds = %RSTRING_PTR.exit.i.i, %48
+pipe_open_s.argprom.exit:                         ; preds = %RSTRING_PTR.exit.i.i, %48
   %.0.i13 = phi i64 [ %49, %48 ], [ 4, %RSTRING_PTR.exit.i.i ]
-  %50 = call fastcc noundef i64 @pipe_open(i64 noundef %.0.i13, i32 noundef %3, ptr noundef nonnull %4)
+  %50 = call fastcc noundef i64 @pipe_open.argprom(i64 noundef %.0.i13, i32 noundef %3, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %56
 
@@ -28925,8 +28925,8 @@ pipe_open_s.exit:                                 ; preds = %RSTRING_PTR.exit.i.
   %55 = call fastcc i64 @rb_file_open_generic(i64 noundef %52, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5)
   br label %56
 
-56:                                               ; preds = %51, %pipe_open_s.exit
-  %.0 = phi i64 [ %52, %51 ], [ %50, %pipe_open_s.exit ]
+56:                                               ; preds = %51, %pipe_open_s.argprom.exit
+  %.0 = phi i64 [ %52, %51 ], [ %50, %pipe_open_s.argprom.exit ]
   ret i64 %.0
 }
 
@@ -28989,7 +28989,7 @@ define internal noundef i64 @seek_before_access(i64 noundef %0) #0 {
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 16
   %9 = load i32, ptr %8, align 8
-  tail call fastcc void @rb_io_seek(i64 noundef %5, i64 noundef %7, i32 noundef %9)
+  tail call fastcc void @rb_io_seek.argelim(i64 noundef %5, i64 noundef %7, i32 noundef %9)
   ret i64 1
 }
 
@@ -29006,7 +29006,7 @@ define internal i64 @io_s_read(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rb_io_seek(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @rb_io_seek.argelim(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = and i64 %1, 1
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %7, label %5
@@ -31513,7 +31513,7 @@ extract_getline_opts.exit:                        ; preds = %extract_getline_arg
   store i8 %59, ptr %56, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %60 = getelementptr inbounds i8, ptr %2, i64 8
-  call fastcc void @check_getline_args(ptr noundef %60, i64 noundef %3)
+  call fastcc void @check_getline_args.argprom(ptr noundef %60, i64 noundef %3)
   ret void
 }
 
@@ -31535,13 +31535,13 @@ define internal fastcc i64 @io_getc(ptr noundef %0, ptr noundef %1) unnamed_addr
   %10 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %11, label %io_read_encoding.exit
+  br i1 %.not.i, label %11, label %io_read_encoding.argprom.exit
 
 11:                                               ; preds = %9
   %12 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_read_encoding.exit
+  br label %io_read_encoding.argprom.exit
 
-io_read_encoding.exit:                            ; preds = %9, %11
+io_read_encoding.argprom.exit:                    ; preds = %9, %11
   %.0.i = phi ptr [ %12, %11 ], [ %.val, %9 ]
   tail call fastcc void @make_readconv(ptr noundef nonnull %0, i32 noundef 0)
   %13 = getelementptr inbounds i8, ptr %0, i64 136
@@ -31550,7 +31550,7 @@ io_read_encoding.exit:                            ; preds = %9, %11
   %16 = getelementptr inbounds i8, ptr %0, i64 152
   br label %17
 
-17:                                               ; preds = %more_char.exit, %io_read_encoding.exit
+17:                                               ; preds = %more_char.exit, %io_read_encoding.argprom.exit
   %18 = load i32, ptr %14, align 4
   %.not93 = icmp eq i32 %18, 0
   br i1 %.not93, label %34, label %19
@@ -31779,13 +31779,13 @@ io_shift_cbuf.exit:                               ; preds = %123, %.sink.split.i
   %.083 = phi i64 [ %134, %RSTRING_PTR.exit ], [ 2097152, %rb_enc_asciicompat.exit ], [ 2097152, %io_shift_cbuf.exit108 ], [ 3145728, %94 ], [ 3145728, %.sink.split.i ], [ 2097152, %123 ]
   %.val97 = load ptr, ptr %10, align 8
   %.not.i.i112 = icmp eq ptr %.val97, null
-  br i1 %.not.i.i112, label %135, label %io_enc_str.exit
+  br i1 %.not.i.i112, label %135, label %io_enc_str.argprom.exit
 
 135:                                              ; preds = %io_shift_cbuf.exit
   %136 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_enc_str.exit
+  br label %io_enc_str.argprom.exit
 
-io_enc_str.exit:                                  ; preds = %io_shift_cbuf.exit, %135
+io_enc_str.argprom.exit:                          ; preds = %io_shift_cbuf.exit, %135
   %.0.i.i = phi ptr [ %136, %135 ], [ %.val97, %io_shift_cbuf.exit ]
   %137 = tail call i64 @rb_enc_associate(i64 noundef %.0141, ptr noundef %.0.i.i) #24
   %138 = inttoptr i64 %.0141 to ptr
@@ -31945,13 +31945,13 @@ RSTRING_PTR.exit125:                              ; preds = %204, %216
   %232 = getelementptr i8, ptr %0, i64 96
   %.val96 = load ptr, ptr %232, align 8
   %.not.i.i126 = icmp eq ptr %.val96, null
-  br i1 %.not.i.i126, label %233, label %io_enc_str.exit128
+  br i1 %.not.i.i126, label %233, label %io_enc_str.argprom.exit128
 
 233:                                              ; preds = %.loopexit
   %234 = tail call ptr @rb_default_external_encoding() #24
-  br label %io_enc_str.exit128
+  br label %io_enc_str.argprom.exit128
 
-io_enc_str.exit128:                               ; preds = %.loopexit, %233
+io_enc_str.argprom.exit128:                       ; preds = %.loopexit, %233
   %.0.i.i127 = phi ptr [ %234, %233 ], [ %.val96, %.loopexit ]
   %235 = tail call i64 @rb_enc_associate(i64 noundef %.1, ptr noundef %.0.i.i127) #24
   %236 = inttoptr i64 %.1 to ptr
@@ -31961,8 +31961,8 @@ io_enc_str.exit128:                               ; preds = %.loopexit, %233
   store i64 %239, ptr %236, align 8
   br label %clear_readconv.exit
 
-clear_readconv.exit:                              ; preds = %48, %46, %142, %io_enc_str.exit128, %io_enc_str.exit, %clear_readconv.exit101
-  %.0 = phi i64 [ %54, %clear_readconv.exit101 ], [ %.0141, %io_enc_str.exit ], [ %.1, %io_enc_str.exit128 ], [ 4, %142 ], [ 4, %46 ], [ 4, %48 ]
+clear_readconv.exit:                              ; preds = %48, %46, %142, %io_enc_str.argprom.exit128, %io_enc_str.argprom.exit, %clear_readconv.exit101
+  %.0 = phi i64 [ %54, %clear_readconv.exit101 ], [ %.0141, %io_enc_str.argprom.exit ], [ %.1, %io_enc_str.argprom.exit128 ], [ 4, %142 ], [ 4, %46 ], [ 4, %48 ]
   ret i64 %.0
 }
 

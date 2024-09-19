@@ -822,15 +822,15 @@ define internal fastcc ptr @_mdfd_getseg(ptr nocapture noundef %0, i32 noundef %
   %34 = load i32, ptr %.189.us.us.us, align 4
   %35 = tail call i64 @FileSize(i32 noundef %34) #14
   %36 = icmp slt i64 %35, 0
-  br i1 %36, label %.split91.us, label %_mdnblocks.exit.us.us.us
+  br i1 %36, label %.split91.us, label %_mdnblocks.argprom.exit.us.us.us
 
-_mdnblocks.exit.us.us.us:                         ; preds = %.lr.ph.split.us.split.us.split.us
+_mdnblocks.argprom.exit.us.us.us:                 ; preds = %.lr.ph.split.us.split.us.split.us
   %37 = lshr i64 %35, 13
   %38 = trunc i64 %37 to i32
   %39 = icmp ugt i32 %38, 131072
   br i1 %39, label %.split93.us, label %.split.us.us.us
 
-.split.us.us.us:                                  ; preds = %_mdnblocks.exit.us.us.us
+.split.us.us.us:                                  ; preds = %_mdnblocks.argprom.exit.us.us.us
   %40 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988.us.us.us, i32 noundef 0)
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.split99.us, label %42
@@ -846,15 +846,15 @@ _mdnblocks.exit.us.us.us:                         ; preds = %.lr.ph.split.us.spl
   %44 = load i32, ptr %.189.us.us, align 4
   %45 = tail call i64 @FileSize(i32 noundef %44) #14
   %46 = icmp slt i64 %45, 0
-  br i1 %46, label %.split91.us, label %_mdnblocks.exit.us.us
+  br i1 %46, label %.split91.us, label %_mdnblocks.argprom.exit.us.us
 
-_mdnblocks.exit.us.us:                            ; preds = %.lr.ph.split.us.split.us.split
+_mdnblocks.argprom.exit.us.us:                    ; preds = %.lr.ph.split.us.split.us.split
   %47 = lshr i64 %45, 13
   %48 = trunc i64 %47 to i32
   %49 = icmp ugt i32 %48, 131072
   br i1 %49, label %.split93.us, label %50
 
-50:                                               ; preds = %_mdnblocks.exit.us.us
+50:                                               ; preds = %_mdnblocks.argprom.exit.us.us
   %.not123 = icmp eq i32 %48, 131072
   br i1 %.not123, label %.split.us.us, label %.split95.us
 
@@ -877,15 +877,15 @@ _mdnblocks.exit.us.us:                            ; preds = %.lr.ph.split.us.spl
   %55 = load i32, ptr %.189.us.us107, align 4
   %56 = tail call i64 @FileSize(i32 noundef %55) #14
   %57 = icmp slt i64 %56, 0
-  br i1 %57, label %.split91.us, label %_mdnblocks.exit.us.us109
+  br i1 %57, label %.split91.us, label %_mdnblocks.argprom.exit.us.us109
 
-_mdnblocks.exit.us.us109:                         ; preds = %.lr.ph.split.us.split.split.us
+_mdnblocks.argprom.exit.us.us109:                 ; preds = %.lr.ph.split.us.split.split.us
   %58 = lshr i64 %56, 13
   %59 = trunc i64 %58 to i32
   %60 = icmp ugt i32 %59, 131072
   br i1 %60, label %.split93.us, label %61
 
-61:                                               ; preds = %_mdnblocks.exit.us.us109
+61:                                               ; preds = %_mdnblocks.argprom.exit.us.us109
   %62 = load i8, ptr @InRecovery, align 1
   %63 = trunc i8 %62 to i1
   br i1 %63, label %64, label %.split.us.us111
@@ -919,15 +919,15 @@ _mdnblocks.exit.us.us109:                         ; preds = %.lr.ph.split.us.spl
   %73 = load i32, ptr %.189.us, align 4
   %74 = tail call i64 @FileSize(i32 noundef %73) #14
   %75 = icmp slt i64 %74, 0
-  br i1 %75, label %.split91.us, label %_mdnblocks.exit.us
+  br i1 %75, label %.split91.us, label %_mdnblocks.argprom.exit.us
 
-_mdnblocks.exit.us:                               ; preds = %.lr.ph.split.us.split.split
+_mdnblocks.argprom.exit.us:                       ; preds = %.lr.ph.split.us.split.split
   %76 = lshr i64 %74, 13
   %77 = trunc i64 %76 to i32
   %78 = icmp ugt i32 %77, 131072
   br i1 %78, label %.split93.us, label %79
 
-79:                                               ; preds = %_mdnblocks.exit.us
+79:                                               ; preds = %_mdnblocks.argprom.exit.us
   %80 = load i8, ptr @InRecovery, align 1
   %81 = trunc i8 %80 to i1
   %.not72.us = icmp eq i32 %77, 131072
@@ -964,7 +964,7 @@ _mdnblocks.exit.us:                               ; preds = %.lr.ph.split.us.spl
   %92 = load i32, ptr %.189, align 4
   %93 = tail call i64 @FileSize(i32 noundef %92) #14
   %94 = icmp slt i64 %93, 0
-  br i1 %94, label %.split91.us, label %_mdnblocks.exit
+  br i1 %94, label %.split91.us, label %_mdnblocks.argprom.exit
 
 .split91.us:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us.split.us, %.lr.ph.split.us.split.us.split
   %.us-phi = phi ptr [ %.189.us.us, %.lr.ph.split.us.split.us.split ], [ %.189.us.us.us, %.lr.ph.split.us.split.us.split.us ], [ %.189.us, %.lr.ph.split.us.split.split ], [ %.189.us.us107, %.lr.ph.split.us.split.split.us ], [ %.189, %.lr.ph.split ]
@@ -977,20 +977,20 @@ _mdnblocks.exit.us:                               ; preds = %.lr.ph.split.us.spl
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1727, ptr noundef nonnull @__func__._mdnblocks) #14
   unreachable
 
-_mdnblocks.exit:                                  ; preds = %.lr.ph.split
+_mdnblocks.argprom.exit:                          ; preds = %.lr.ph.split
   %100 = lshr i64 %93, 13
   %101 = trunc i64 %100 to i32
   %102 = icmp ugt i32 %101, 131072
   br i1 %102, label %.split93.us, label %105
 
-.split93.us:                                      ; preds = %_mdnblocks.exit, %_mdnblocks.exit.us.us109, %_mdnblocks.exit.us, %_mdnblocks.exit.us.us.us, %_mdnblocks.exit.us.us
+.split93.us:                                      ; preds = %_mdnblocks.argprom.exit, %_mdnblocks.argprom.exit.us.us109, %_mdnblocks.argprom.exit.us, %_mdnblocks.argprom.exit.us.us.us, %_mdnblocks.argprom.exit.us.us
   %103 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
   tail call void @llvm.assume(i1 %103)
   %104 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1637, ptr noundef nonnull @__func__._mdfd_getseg) #14
   unreachable
 
-105:                                              ; preds = %_mdnblocks.exit
+105:                                              ; preds = %_mdnblocks.argprom.exit
   %.not72 = icmp eq i32 %101, 131072
   br i1 %.not72, label %.split61, label %106
 
@@ -1645,7 +1645,7 @@ define dso_local i32 @mdnblocks(ptr nocapture noundef %0, i32 noundef %1) local_
   %15 = load i32, ptr %.021, align 4
   %16 = tail call i64 @FileSize(i32 noundef %15) #14
   %17 = icmp slt i64 %16, 0
-  br i1 %17, label %18, label %_mdnblocks.exit
+  br i1 %17, label %18, label %_mdnblocks.argprom.exit
 
 18:                                               ; preds = %14
   %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -1657,20 +1657,20 @@ define dso_local i32 @mdnblocks(ptr nocapture noundef %0, i32 noundef %1) local_
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1727, ptr noundef nonnull @__func__._mdnblocks) #14
   unreachable
 
-_mdnblocks.exit:                                  ; preds = %14
+_mdnblocks.argprom.exit:                          ; preds = %14
   %24 = lshr i64 %16, 13
   %25 = trunc i64 %24 to i32
   %26 = icmp ugt i32 %25, 131072
   br i1 %26, label %27, label %30
 
-27:                                               ; preds = %_mdnblocks.exit
+27:                                               ; preds = %_mdnblocks.argprom.exit
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
   tail call void @llvm.assume(i1 %28)
   %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1123, ptr noundef nonnull @__func__.mdnblocks) #14
   unreachable
 
-30:                                               ; preds = %_mdnblocks.exit
+30:                                               ; preds = %_mdnblocks.argprom.exit
   %.not = icmp eq i32 %25, 131072
   br i1 %.not, label %34, label %31
 

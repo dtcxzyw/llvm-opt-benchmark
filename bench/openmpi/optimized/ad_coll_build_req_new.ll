@@ -257,7 +257,7 @@ view_state_add_region.exit:                       ; preds = %.loopexit.i, %107
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @view_state_add_region(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @view_state_add_region.retelim(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef %4) unnamed_addr #0 {
   switch i32 %4, label %10 [
     i32 0, label %6
     i32 1, label %8
@@ -478,7 +478,7 @@ define range(i32 -1, 1) i32 @ADIOI_Build_agg_reqs(ptr nocapture noundef readonly
   %63 = getelementptr inbounds i8, ptr %57, i64 24
   %64 = load i64, ptr %63, align 8
   %65 = icmp slt i64 %62, %64
-  br i1 %65, label %66, label %find_next_off.exit.thread
+  br i1 %65, label %66, label %find_next_off.argprom.exit.thread
 
 66:                                               ; preds = %56
   %67 = load i64, ptr %.0.i, align 8
@@ -499,7 +499,7 @@ define range(i32 -1, 1) i32 @ADIOI_Build_agg_reqs(ptr nocapture noundef readonly
   %77 = getelementptr inbounds i8, ptr %69, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = load i64, ptr %78, align 8
-  br label %get_next_fr_off.exit260
+  br label %get_next_fr_off.argprom.exit260
 
 80:                                               ; preds = %66
   %81 = load ptr, ptr %47, align 8
@@ -539,7 +539,7 @@ define range(i32 -1, 1) i32 @ADIOI_Build_agg_reqs(ptr nocapture noundef readonly
   %102 = load ptr, ptr %91, align 8
   %103 = getelementptr inbounds i64, ptr %102, i64 %indvars.iv.i255
   %104 = load i64, ptr %103, align 8
-  br label %get_next_fr_off.exit260
+  br label %get_next_fr_off.argprom.exit260
 
 105:                                              ; preds = %93
   %106 = load ptr, ptr %91, align 8
@@ -552,14 +552,14 @@ define range(i32 -1, 1) i32 @ADIOI_Build_agg_reqs(ptr nocapture noundef readonly
 111:                                              ; preds = %105
   %.neg.i258 = sub i64 %95, %85
   %112 = add i64 %.neg.i258, %108
-  br label %get_next_fr_off.exit260
+  br label %get_next_fr_off.argprom.exit260
 
 ._crit_edge.i252:                                 ; preds = %92, %80
   %113 = load ptr, ptr @stderr, align 8
   %114 = call i64 @fwrite(ptr nonnull @.str.31, i64 92, i64 1, ptr %113) #9
-  br label %get_next_fr_off.exit260
+  br label %get_next_fr_off.argprom.exit260
 
-get_next_fr_off.exit260:                          ; preds = %72, %97, %111, %._crit_edge.i252
+get_next_fr_off.argprom.exit260:                  ; preds = %72, %97, %111, %._crit_edge.i252
   %.2321 = phi i64 [ %76, %72 ], [ %101, %97 ], [ %67, %111 ], [ -1, %._crit_edge.i252 ]
   %.3318 = phi i64 [ %79, %72 ], [ %104, %97 ], [ %112, %111 ], [ -1, %._crit_edge.i252 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -568,7 +568,7 @@ get_next_fr_off.exit260:                          ; preds = %72, %97, %111, %._c
   %116 = icmp slt i64 %115, %.2321
   br i1 %116, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %get_next_fr_off.exit260
+.lr.ph.i:                                         ; preds = %get_next_fr_off.argprom.exit260
   %117 = getelementptr inbounds i8, ptr %60, i64 8
   %118 = getelementptr inbounds i8, ptr %57, i64 32
   %119 = getelementptr inbounds i8, ptr %57, i64 40
@@ -576,10 +576,10 @@ get_next_fr_off.exit260:                          ; preds = %72, %97, %111, %._c
   %121 = getelementptr inbounds i8, ptr %.0.i, i64 24
   br label %122
 
-122:                                              ; preds = %get_next_fr_off.exit, %.lr.ph.i
-  %.0319 = phi i64 [ %.2321, %.lr.ph.i ], [ %.1320, %get_next_fr_off.exit ]
-  %.1316 = phi i64 [ %.3318, %.lr.ph.i ], [ %.2317, %get_next_fr_off.exit ]
-  %123 = phi i64 [ %115, %.lr.ph.i ], [ %246, %get_next_fr_off.exit ]
+122:                                              ; preds = %get_next_fr_off.argprom.exit, %.lr.ph.i
+  %.0319 = phi i64 [ %.2321, %.lr.ph.i ], [ %.1320, %get_next_fr_off.argprom.exit ]
+  %.1316 = phi i64 [ %.3318, %.lr.ph.i ], [ %.2317, %get_next_fr_off.argprom.exit ]
+  %123 = phi i64 [ %115, %.lr.ph.i ], [ %246, %get_next_fr_off.argprom.exit ]
   %124 = load i64, ptr %61, align 8
   %125 = load i64, ptr %63, align 8
   %.not.i = icmp eq i64 %124, %125
@@ -722,7 +722,7 @@ view_state_add_region.exit251:                    ; preds = %.loopexit.i249, %19
   %208 = getelementptr inbounds i8, ptr %200, i64 16
   %209 = load ptr, ptr %208, align 8
   %210 = load i64, ptr %209, align 8
-  br label %get_next_fr_off.exit
+  br label %get_next_fr_off.argprom.exit
 
 211:                                              ; preds = %view_state_add_region.exit251
   %212 = load ptr, ptr %47, align 8
@@ -762,7 +762,7 @@ view_state_add_region.exit251:                    ; preds = %.loopexit.i249, %19
   %233 = load ptr, ptr %222, align 8
   %234 = getelementptr inbounds i64, ptr %233, i64 %indvars.iv.i
   %235 = load i64, ptr %234, align 8
-  br label %get_next_fr_off.exit
+  br label %get_next_fr_off.argprom.exit
 
 236:                                              ; preds = %224
   %237 = load ptr, ptr %222, align 8
@@ -775,14 +775,14 @@ view_state_add_region.exit251:                    ; preds = %.loopexit.i249, %19
 242:                                              ; preds = %236
   %.neg.i = sub i64 %226, %216
   %243 = add i64 %.neg.i, %239
-  br label %get_next_fr_off.exit
+  br label %get_next_fr_off.argprom.exit
 
 ._crit_edge.i:                                    ; preds = %223, %211
   %244 = load ptr, ptr @stderr, align 8
   %245 = call i64 @fwrite(ptr nonnull @.str.31, i64 92, i64 1, ptr %244) #9
-  br label %get_next_fr_off.exit
+  br label %get_next_fr_off.argprom.exit
 
-get_next_fr_off.exit:                             ; preds = %203, %228, %242, %._crit_edge.i
+get_next_fr_off.argprom.exit:                     ; preds = %203, %228, %242, %._crit_edge.i
   %.1320 = phi i64 [ %207, %203 ], [ %232, %228 ], [ %198, %242 ], [ %.0319, %._crit_edge.i ]
   %.2317 = phi i64 [ %210, %203 ], [ %235, %228 ], [ %243, %242 ], [ %.1316, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
@@ -791,21 +791,21 @@ get_next_fr_off.exit:                             ; preds = %203, %228, %242, %.
   %247 = icmp slt i64 %246, %.1320
   br i1 %247, label %122, label %.critedge.i, !llvm.loop !10
 
-.critedge.i:                                      ; preds = %get_next_fr_off.exit, %122, %140, %get_next_fr_off.exit260
-  %.0315 = phi i64 [ %.1316, %140 ], [ %.3318, %get_next_fr_off.exit260 ], [ %.2317, %get_next_fr_off.exit ], [ %.1316, %122 ]
-  %248 = phi i64 [ %123, %140 ], [ %115, %get_next_fr_off.exit260 ], [ %246, %get_next_fr_off.exit ], [ %123, %122 ]
-  %249 = phi i64 [ %.0319, %140 ], [ %.2321, %get_next_fr_off.exit260 ], [ %.1320, %get_next_fr_off.exit ], [ %.0319, %122 ]
+.critedge.i:                                      ; preds = %get_next_fr_off.argprom.exit, %122, %140, %get_next_fr_off.argprom.exit260
+  %.0315 = phi i64 [ %.1316, %140 ], [ %.3318, %get_next_fr_off.argprom.exit260 ], [ %.2317, %get_next_fr_off.argprom.exit ], [ %.1316, %122 ]
+  %248 = phi i64 [ %123, %140 ], [ %115, %get_next_fr_off.argprom.exit260 ], [ %246, %get_next_fr_off.argprom.exit ], [ %123, %122 ]
+  %249 = phi i64 [ %.0319, %140 ], [ %.2321, %get_next_fr_off.argprom.exit260 ], [ %.1320, %get_next_fr_off.argprom.exit ], [ %.0319, %122 ]
   %250 = load i64, ptr %61, align 8
   %251 = load i64, ptr %63, align 8
   %.not51.i = icmp eq i64 %250, %251
-  br i1 %.not51.i, label %find_next_off.exit.thread, label %find_next_off.exit
+  br i1 %.not51.i, label %find_next_off.argprom.exit.thread, label %find_next_off.argprom.exit
 
-find_next_off.exit.thread:                        ; preds = %.critedge.i, %56
+find_next_off.argprom.exit.thread:                ; preds = %.critedge.i, %56
   store i64 -1, ptr %17, align 8
   store i64 -1, ptr %18, align 8
   br label %258
 
-find_next_off.exit:                               ; preds = %.critedge.i
+find_next_off.argprom.exit:                       ; preds = %.critedge.i
   %252 = sub i64 %249, %248
   %253 = add i64 %252, %.0315
   store i64 %248, ptr %17, align 8
@@ -815,12 +815,12 @@ find_next_off.exit:                               ; preds = %.critedge.i
   %or.cond = select i1 %254, i1 %255, i1 false
   br i1 %or.cond, label %256, label %258
 
-256:                                              ; preds = %find_next_off.exit
+256:                                              ; preds = %find_next_off.argprom.exit
   %257 = trunc nuw nsw i64 %indvars.iv to i32
   call void @ADIOI_Heap_insert(ptr noundef nonnull %20, i64 noundef %248, i32 noundef %257, i64 noundef %253) #10
   br label %258
 
-258:                                              ; preds = %find_next_off.exit.thread, %find_next_off.exit, %256
+258:                                              ; preds = %find_next_off.argprom.exit.thread, %find_next_off.argprom.exit, %256
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %56, !llvm.loop !11
@@ -1130,7 +1130,7 @@ view_state_add_region.exit:                       ; preds = %.loopexit.i, %351
   %429 = getelementptr inbounds i8, ptr %423, i64 24
   %430 = load i64, ptr %429, align 8
   %431 = icmp slt i64 %428, %430
-  br i1 %431, label %432, label %find_next_off.exit243
+  br i1 %431, label %432, label %find_next_off.argprom.exit243
 
 432:                                              ; preds = %420
   %433 = load i64, ptr %.0.i232, align 8
@@ -1151,7 +1151,7 @@ view_state_add_region.exit:                       ; preds = %.loopexit.i, %351
   %443 = getelementptr inbounds i8, ptr %435, i64 16
   %444 = load ptr, ptr %443, align 8
   %445 = load i64, ptr %444, align 8
-  br label %get_next_fr_off.exit285
+  br label %get_next_fr_off.argprom.exit285
 
 446:                                              ; preds = %432
   %447 = load ptr, ptr %47, align 8
@@ -1191,7 +1191,7 @@ view_state_add_region.exit:                       ; preds = %.loopexit.i, %351
   %468 = load ptr, ptr %457, align 8
   %469 = getelementptr inbounds i64, ptr %468, i64 %indvars.iv.i280
   %470 = load i64, ptr %469, align 8
-  br label %get_next_fr_off.exit285
+  br label %get_next_fr_off.argprom.exit285
 
 471:                                              ; preds = %459
   %472 = load ptr, ptr %457, align 8
@@ -1204,14 +1204,14 @@ view_state_add_region.exit:                       ; preds = %.loopexit.i, %351
 477:                                              ; preds = %471
   %.neg.i283 = sub i64 %461, %451
   %478 = add i64 %.neg.i283, %474
-  br label %get_next_fr_off.exit285
+  br label %get_next_fr_off.argprom.exit285
 
 ._crit_edge.i277:                                 ; preds = %458, %446
   %479 = load ptr, ptr @stderr, align 8
   %480 = call i64 @fwrite(ptr nonnull @.str.31, i64 92, i64 1, ptr %479) #9
-  br label %get_next_fr_off.exit285
+  br label %get_next_fr_off.argprom.exit285
 
-get_next_fr_off.exit285:                          ; preds = %438, %463, %477, %._crit_edge.i277
+get_next_fr_off.argprom.exit285:                  ; preds = %438, %463, %477, %._crit_edge.i277
   %.3314 = phi i64 [ %445, %438 ], [ %470, %463 ], [ %478, %477 ], [ -1, %._crit_edge.i277 ]
   %.2310 = phi i64 [ %442, %438 ], [ %467, %463 ], [ %433, %477 ], [ -1, %._crit_edge.i277 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -1220,7 +1220,7 @@ get_next_fr_off.exit285:                          ; preds = %438, %463, %477, %.
   %482 = icmp slt i64 %481, %.2310
   br i1 %482, label %.lr.ph.i239, label %.critedge.i236
 
-.lr.ph.i239:                                      ; preds = %get_next_fr_off.exit285
+.lr.ph.i239:                                      ; preds = %get_next_fr_off.argprom.exit285
   %483 = getelementptr inbounds i8, ptr %426, i64 8
   %484 = getelementptr inbounds i8, ptr %423, i64 32
   %485 = getelementptr inbounds i8, ptr %423, i64 40
@@ -1230,10 +1230,10 @@ get_next_fr_off.exit285:                          ; preds = %438, %463, %477, %.
   %488 = getelementptr inbounds i8, ptr %.047.i270, i64 8
   br label %489
 
-489:                                              ; preds = %get_next_fr_off.exit269, %.lr.ph.i239
-  %.1312 = phi i64 [ %.3314, %.lr.ph.i239 ], [ %.2313, %get_next_fr_off.exit269 ]
-  %.0308 = phi i64 [ %.2310, %.lr.ph.i239 ], [ %.1309, %get_next_fr_off.exit269 ]
-  %490 = phi i64 [ %481, %.lr.ph.i239 ], [ %615, %get_next_fr_off.exit269 ]
+489:                                              ; preds = %get_next_fr_off.argprom.exit269, %.lr.ph.i239
+  %.1312 = phi i64 [ %.3314, %.lr.ph.i239 ], [ %.2313, %get_next_fr_off.argprom.exit269 ]
+  %.0308 = phi i64 [ %.2310, %.lr.ph.i239 ], [ %.1309, %get_next_fr_off.argprom.exit269 ]
+  %490 = phi i64 [ %481, %.lr.ph.i239 ], [ %615, %get_next_fr_off.argprom.exit269 ]
   %491 = load i64, ptr %427, align 8
   %492 = load i64, ptr %429, align 8
   %.not.i241 = icmp eq i64 %491, %492
@@ -1378,7 +1378,7 @@ view_state_add_region.exit276:                    ; preds = %.loopexit.i274, %56
   %577 = getelementptr inbounds i8, ptr %569, i64 16
   %578 = load ptr, ptr %577, align 8
   %579 = load i64, ptr %578, align 8
-  br label %get_next_fr_off.exit269
+  br label %get_next_fr_off.argprom.exit269
 
 580:                                              ; preds = %view_state_add_region.exit276
   %581 = load ptr, ptr %47, align 8
@@ -1418,7 +1418,7 @@ view_state_add_region.exit276:                    ; preds = %.loopexit.i274, %56
   %602 = load ptr, ptr %591, align 8
   %603 = getelementptr inbounds i64, ptr %602, i64 %indvars.iv.i264
   %604 = load i64, ptr %603, align 8
-  br label %get_next_fr_off.exit269
+  br label %get_next_fr_off.argprom.exit269
 
 605:                                              ; preds = %593
   %606 = load ptr, ptr %591, align 8
@@ -1431,14 +1431,14 @@ view_state_add_region.exit276:                    ; preds = %.loopexit.i274, %56
 611:                                              ; preds = %605
   %.neg.i267 = sub i64 %595, %585
   %612 = add i64 %.neg.i267, %608
-  br label %get_next_fr_off.exit269
+  br label %get_next_fr_off.argprom.exit269
 
 ._crit_edge.i261:                                 ; preds = %592, %580
   %613 = load ptr, ptr @stderr, align 8
   %614 = call i64 @fwrite(ptr nonnull @.str.31, i64 92, i64 1, ptr %613) #9
-  br label %get_next_fr_off.exit269
+  br label %get_next_fr_off.argprom.exit269
 
-get_next_fr_off.exit269:                          ; preds = %572, %597, %611, %._crit_edge.i261
+get_next_fr_off.argprom.exit269:                  ; preds = %572, %597, %611, %._crit_edge.i261
   %.2313 = phi i64 [ %579, %572 ], [ %604, %597 ], [ %612, %611 ], [ %.1312, %._crit_edge.i261 ]
   %.1309 = phi i64 [ %576, %572 ], [ %601, %597 ], [ %567, %611 ], [ %.0308, %._crit_edge.i261 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
@@ -1447,21 +1447,21 @@ get_next_fr_off.exit269:                          ; preds = %572, %597, %611, %.
   %616 = icmp slt i64 %615, %.1309
   br i1 %616, label %489, label %.critedge.i236, !llvm.loop !10
 
-.critedge.i236:                                   ; preds = %get_next_fr_off.exit269, %489, %507, %get_next_fr_off.exit285
-  %.0311 = phi i64 [ %.1312, %507 ], [ %.3314, %get_next_fr_off.exit285 ], [ %.2313, %get_next_fr_off.exit269 ], [ %.1312, %489 ]
-  %617 = phi i64 [ %490, %507 ], [ %481, %get_next_fr_off.exit285 ], [ %615, %get_next_fr_off.exit269 ], [ %490, %489 ]
-  %618 = phi i64 [ %.0308, %507 ], [ %.2310, %get_next_fr_off.exit285 ], [ %.1309, %get_next_fr_off.exit269 ], [ %.0308, %489 ]
+.critedge.i236:                                   ; preds = %get_next_fr_off.argprom.exit269, %489, %507, %get_next_fr_off.argprom.exit285
+  %.0311 = phi i64 [ %.1312, %507 ], [ %.3314, %get_next_fr_off.argprom.exit285 ], [ %.2313, %get_next_fr_off.argprom.exit269 ], [ %.1312, %489 ]
+  %617 = phi i64 [ %490, %507 ], [ %481, %get_next_fr_off.argprom.exit285 ], [ %615, %get_next_fr_off.argprom.exit269 ], [ %490, %489 ]
+  %618 = phi i64 [ %.0308, %507 ], [ %.2310, %get_next_fr_off.argprom.exit285 ], [ %.1309, %get_next_fr_off.argprom.exit269 ], [ %.0308, %489 ]
   %619 = load i64, ptr %427, align 8
   %620 = load i64, ptr %429, align 8
   %.not51.i238 = icmp eq i64 %619, %620
-  br i1 %.not51.i238, label %find_next_off.exit243, label %621
+  br i1 %.not51.i238, label %find_next_off.argprom.exit243, label %621
 
 621:                                              ; preds = %.critedge.i236
   %622 = sub i64 %.0311, %617
   %623 = add i64 %622, %618
-  br label %find_next_off.exit243
+  br label %find_next_off.argprom.exit243
 
-find_next_off.exit243:                            ; preds = %420, %.critedge.i236, %621
+find_next_off.argprom.exit243:                    ; preds = %420, %.critedge.i236, %621
   %.044.i233 = phi i64 [ %617, %621 ], [ -1, %.critedge.i236 ], [ -1, %420 ]
   %.043.i234 = phi i64 [ %623, %621 ], [ -1, %.critedge.i236 ], [ -1, %420 ]
   %624 = icmp eq i64 %.044.i233, -1
@@ -1470,12 +1470,12 @@ find_next_off.exit243:                            ; preds = %420, %.critedge.i23
   %or.cond7 = select i1 %624, i1 %626, i1 false
   br i1 %or.cond7, label %629, label %627
 
-627:                                              ; preds = %find_next_off.exit243
+627:                                              ; preds = %find_next_off.argprom.exit243
   %628 = load i32, ptr %19, align 4
   call void @ADIOI_Heap_insert(ptr noundef nonnull %20, i64 noundef %.044.i233, i32 noundef %628, i64 noundef %.043.i234) #10
   br label %629
 
-629:                                              ; preds = %find_next_off.exit243, %627
+629:                                              ; preds = %find_next_off.argprom.exit243, %627
   %630 = load ptr, ptr %48, align 8
   %631 = getelementptr inbounds i8, ptr %630, i64 24
   %632 = load i32, ptr %631, align 8
@@ -1729,7 +1729,7 @@ declare ptr @ADIOI_Calloc_fn(i64 noundef, i64 noundef, i32 noundef, ptr noundef)
 declare i32 @ADIOI_Heap_create(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @find_next_off(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #2 {
+define internal fastcc void @find_next_off.argprom.retelim(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #2 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -1750,7 +1750,7 @@ define internal fastcc void @find_next_off(ptr nocapture noundef %0, i64 noundef
 
 18:                                               ; preds = %6
   %19 = load i64, ptr %.0, align 8
-  %20 = call fastcc i32 @get_next_fr_off(i64 noundef %19, i64 noundef %1, ptr noundef %2, ptr noundef %7, ptr noundef %8)
+  %20 = call fastcc i32 @get_next_fr_off.argprom(i64 noundef %19, i64 noundef %1, ptr noundef %2, ptr noundef %7, ptr noundef %8)
   %21 = load i64, ptr %.0, align 8
   %22 = load i64, ptr %7, align 8
   %23 = icmp slt i64 %21, %22
@@ -1805,9 +1805,9 @@ define internal fastcc void @find_next_off(ptr nocapture noundef %0, i64 noundef
 50:                                               ; preds = %35, %47, %32
   %51 = phi i64 [ %29, %35 ], [ %49, %47 ], [ %29, %32 ]
   %52 = sub nsw i64 %28, %51
-  call fastcc void @view_state_add_region(i64 noundef %52, ptr noundef nonnull %0, ptr noundef %9, ptr noundef %10, i32 noundef %3)
+  call fastcc void @view_state_add_region.retelim(i64 noundef %52, ptr noundef nonnull %0, ptr noundef %9, ptr noundef %10, i32 noundef %3)
   %53 = load i64, ptr %.0, align 8
-  %54 = call fastcc i32 @get_next_fr_off(i64 noundef %53, i64 noundef %1, ptr noundef %2, ptr noundef %7, ptr noundef %8)
+  %54 = call fastcc i32 @get_next_fr_off.argprom(i64 noundef %53, i64 noundef %1, ptr noundef %2, ptr noundef %7, ptr noundef %8)
   %55 = load i64, ptr %.0, align 8
   %56 = load i64, ptr %7, align 8
   %57 = icmp slt i64 %55, %56
@@ -1969,7 +1969,7 @@ define range(i32 -1, 1) i32 @ADIOI_Build_client_reqs(ptr noundef %0, i32 noundef
   %exitcond466.not = icmp eq i64 %indvars.iv.next463, %wide.trip.count465
   br i1 %exitcond466.not, label %.loopexit294.us, label %.lr.ph358.us, !llvm.loop !19
 
-._crit_edge.us:                                   ; preds = %find_next_off.exit.thread.us
+._crit_edge.us:                                   ; preds = %find_next_off.argprom.exit.thread.us
   %63 = sext i32 %.3.us to i64
   %64 = getelementptr inbounds i64, ptr %4, i64 %63
   %65 = load i64, ptr %64, align 8
@@ -2323,15 +2323,15 @@ view_state_add_region.exit208.us:                 ; preds = %246, %.loopexit.i20
   %.not182.us = icmp eq i64 %251, %.0.i187.us
   br i1 %.not182.us, label %.loopexit.us, label %196, !llvm.loop !21
 
-.lr.ph338.us:                                     ; preds = %.preheader292.us, %find_next_off.exit.thread.us
-  %indvars.iv457 = phi i64 [ %indvars.iv.next458, %find_next_off.exit.thread.us ], [ 0, %.preheader292.us ]
-  %.2152336.us = phi i32 [ %.3.us, %find_next_off.exit.thread.us ], [ %.1151351.us, %.preheader292.us ]
-  %.2158335.us = phi i64 [ %.3159.us, %find_next_off.exit.thread.us ], [ %.1157350.us, %.preheader292.us ]
-  %.0160334.us = phi i64 [ %.1161.us, %find_next_off.exit.thread.us ], [ -1, %.preheader292.us ]
+.lr.ph338.us:                                     ; preds = %.preheader292.us, %find_next_off.argprom.exit.thread.us
+  %indvars.iv457 = phi i64 [ %indvars.iv.next458, %find_next_off.argprom.exit.thread.us ], [ 0, %.preheader292.us ]
+  %.2152336.us = phi i32 [ %.3.us, %find_next_off.argprom.exit.thread.us ], [ %.1151351.us, %.preheader292.us ]
+  %.2158335.us = phi i64 [ %.3159.us, %find_next_off.argprom.exit.thread.us ], [ %.1157350.us, %.preheader292.us ]
+  %.0160334.us = phi i64 [ %.1161.us, %find_next_off.argprom.exit.thread.us ], [ -1, %.preheader292.us ]
   %280 = trunc nuw nsw i64 %indvars.iv457 to i32
   %281 = call i32 @ADIOI_Agg_idx(i32 noundef %280, ptr noundef %0) #10
   %282 = icmp slt i32 %281, 0
-  br i1 %282, label %find_next_off.exit.thread.us, label %283
+  br i1 %282, label %find_next_off.argprom.exit.thread.us, label %283
 
 283:                                              ; preds = %.lr.ph338.us
   %284 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv457
@@ -2339,7 +2339,7 @@ view_state_add_region.exit208.us:                 ; preds = %246, %.loopexit.i20
   %286 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv457
   %287 = load i64, ptr %286, align 8
   %288 = icmp eq i64 %285, %287
-  br i1 %288, label %find_next_off.exit.thread.us, label %289
+  br i1 %288, label %find_next_off.argprom.exit.thread.us, label %289
 
 289:                                              ; preds = %283
   %290 = getelementptr inbounds %struct.view_state, ptr %3, i64 %indvars.iv457
@@ -2355,7 +2355,7 @@ view_state_add_region.exit208.us:                 ; preds = %246, %.loopexit.i20
   %299 = getelementptr inbounds i8, ptr %290, i64 24
   %300 = load i64, ptr %299, align 8
   %301 = icmp slt i64 %298, %300
-  br i1 %301, label %302, label %find_next_off.exit.thread.us
+  br i1 %301, label %302, label %find_next_off.argprom.exit.thread.us
 
 302:                                              ; preds = %289
   %303 = load i64, ptr %.0.i.us, align 8
@@ -2408,12 +2408,12 @@ view_state_add_region.exit208.us:                 ; preds = %246, %.loopexit.i20
 ._crit_edge.i217.us:                              ; preds = %330, %308
   %331 = load ptr, ptr @stderr, align 8
   %332 = call i64 @fwrite(ptr nonnull @.str.31, i64 92, i64 1, ptr %331) #9
-  br label %get_next_fr_off.exit225.us
+  br label %get_next_fr_off.argprom.exit225.us
 
 333:                                              ; preds = %324
   %.neg.i223.us = sub i64 %322, %313
   %334 = add i64 %.neg.i223.us, %327
-  br label %get_next_fr_off.exit225.us
+  br label %get_next_fr_off.argprom.exit225.us
 
 335:                                              ; preds = %320
   %sext.i224.us = shl i64 %312, 32
@@ -2424,7 +2424,7 @@ view_state_add_region.exit208.us:                 ; preds = %246, %.loopexit.i20
   %340 = load ptr, ptr %319, align 8
   %341 = getelementptr inbounds i64, ptr %340, i64 %indvars.iv.i220.us
   %342 = load i64, ptr %341, align 8
-  br label %get_next_fr_off.exit225.us
+  br label %get_next_fr_off.argprom.exit225.us
 
 343:                                              ; preds = %302
   %344 = getelementptr inbounds i8, ptr %305, i64 24
@@ -2434,9 +2434,9 @@ view_state_add_region.exit208.us:                 ; preds = %246, %.loopexit.i20
   %348 = getelementptr inbounds i8, ptr %305, i64 16
   %349 = load ptr, ptr %348, align 8
   %350 = load i64, ptr %349, align 8
-  br label %get_next_fr_off.exit225.us
+  br label %get_next_fr_off.argprom.exit225.us
 
-get_next_fr_off.exit225.us:                       ; preds = %343, %335, %333, %._crit_edge.i217.us
+get_next_fr_off.argprom.exit225.us:               ; preds = %343, %335, %333, %._crit_edge.i217.us
   %.3249.us = phi i64 [ %350, %343 ], [ %342, %335 ], [ %334, %333 ], [ -1, %._crit_edge.i217.us ]
   %.2245.us = phi i64 [ %347, %343 ], [ %339, %335 ], [ %303, %333 ], [ -1, %._crit_edge.i217.us ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -2445,7 +2445,7 @@ get_next_fr_off.exit225.us:                       ; preds = %343, %335, %333, %.
   %352 = icmp slt i64 %351, %.2245.us
   br i1 %352, label %.lr.ph.i.us, label %.critedge.i.us
 
-.lr.ph.i.us:                                      ; preds = %get_next_fr_off.exit225.us
+.lr.ph.i.us:                                      ; preds = %get_next_fr_off.argprom.exit225.us
   %353 = getelementptr inbounds i8, ptr %296, i64 8
   %354 = getelementptr inbounds i8, ptr %290, i64 32
   %355 = getelementptr inbounds i8, ptr %290, i64 40
@@ -2453,10 +2453,10 @@ get_next_fr_off.exit225.us:                       ; preds = %343, %335, %333, %.
   %357 = getelementptr inbounds i8, ptr %.0.i.us, i64 24
   br label %358
 
-358:                                              ; preds = %get_next_fr_off.exit.us, %.lr.ph.i.us
-  %.1247.us = phi i64 [ %.3249.us, %.lr.ph.i.us ], [ %.2248.us, %get_next_fr_off.exit.us ]
-  %.0243.us = phi i64 [ %.2245.us, %.lr.ph.i.us ], [ %.1244.us, %get_next_fr_off.exit.us ]
-  %359 = phi i64 [ %351, %.lr.ph.i.us ], [ %482, %get_next_fr_off.exit.us ]
+358:                                              ; preds = %get_next_fr_off.argprom.exit.us, %.lr.ph.i.us
+  %.1247.us = phi i64 [ %.3249.us, %.lr.ph.i.us ], [ %.2248.us, %get_next_fr_off.argprom.exit.us ]
+  %.0243.us = phi i64 [ %.2245.us, %.lr.ph.i.us ], [ %.1244.us, %get_next_fr_off.argprom.exit.us ]
+  %359 = phi i64 [ %351, %.lr.ph.i.us ], [ %482, %get_next_fr_off.argprom.exit.us ]
   %360 = load i64, ptr %297, align 8
   %361 = load i64, ptr %299, align 8
   %.not.i.us = icmp eq i64 %360, %361
@@ -2631,12 +2631,12 @@ view_state_add_region.exit216.us:                 ; preds = %431, %.loopexit.i21
 ._crit_edge.i.us:                                 ; preds = %461, %439
   %462 = load ptr, ptr @stderr, align 8
   %463 = call i64 @fwrite(ptr nonnull @.str.31, i64 92, i64 1, ptr %462) #9
-  br label %get_next_fr_off.exit.us
+  br label %get_next_fr_off.argprom.exit.us
 
 464:                                              ; preds = %455
   %.neg.i.us = sub i64 %453, %444
   %465 = add i64 %.neg.i.us, %458
-  br label %get_next_fr_off.exit.us
+  br label %get_next_fr_off.argprom.exit.us
 
 466:                                              ; preds = %451
   %sext.i.us = shl i64 %443, 32
@@ -2647,7 +2647,7 @@ view_state_add_region.exit216.us:                 ; preds = %431, %.loopexit.i21
   %471 = load ptr, ptr %450, align 8
   %472 = getelementptr inbounds i64, ptr %471, i64 %indvars.iv.i.us
   %473 = load i64, ptr %472, align 8
-  br label %get_next_fr_off.exit.us
+  br label %get_next_fr_off.argprom.exit.us
 
 474:                                              ; preds = %view_state_add_region.exit216.us
   %475 = getelementptr inbounds i8, ptr %436, i64 24
@@ -2657,9 +2657,9 @@ view_state_add_region.exit216.us:                 ; preds = %431, %.loopexit.i21
   %479 = getelementptr inbounds i8, ptr %436, i64 16
   %480 = load ptr, ptr %479, align 8
   %481 = load i64, ptr %480, align 8
-  br label %get_next_fr_off.exit.us
+  br label %get_next_fr_off.argprom.exit.us
 
-get_next_fr_off.exit.us:                          ; preds = %474, %466, %464, %._crit_edge.i.us
+get_next_fr_off.argprom.exit.us:                  ; preds = %474, %466, %464, %._crit_edge.i.us
   %.2248.us = phi i64 [ %481, %474 ], [ %473, %466 ], [ %465, %464 ], [ %.1247.us, %._crit_edge.i.us ]
   %.1244.us = phi i64 [ %478, %474 ], [ %470, %466 ], [ %434, %464 ], [ %.0243.us, %._crit_edge.i.us ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -2668,34 +2668,34 @@ get_next_fr_off.exit.us:                          ; preds = %474, %466, %464, %.
   %483 = icmp slt i64 %482, %.1244.us
   br i1 %483, label %358, label %.critedge.i.us, !llvm.loop !10
 
-.critedge.i.us:                                   ; preds = %358, %get_next_fr_off.exit.us, %376, %get_next_fr_off.exit225.us
-  %.0246.us = phi i64 [ %.1247.us, %376 ], [ %.3249.us, %get_next_fr_off.exit225.us ], [ %.2248.us, %get_next_fr_off.exit.us ], [ %.1247.us, %358 ]
-  %484 = phi i64 [ %359, %376 ], [ %351, %get_next_fr_off.exit225.us ], [ %482, %get_next_fr_off.exit.us ], [ %359, %358 ]
-  %485 = phi i64 [ %.0243.us, %376 ], [ %.2245.us, %get_next_fr_off.exit225.us ], [ %.1244.us, %get_next_fr_off.exit.us ], [ %.0243.us, %358 ]
+.critedge.i.us:                                   ; preds = %358, %get_next_fr_off.argprom.exit.us, %376, %get_next_fr_off.argprom.exit225.us
+  %.0246.us = phi i64 [ %.1247.us, %376 ], [ %.3249.us, %get_next_fr_off.argprom.exit225.us ], [ %.2248.us, %get_next_fr_off.argprom.exit.us ], [ %.1247.us, %358 ]
+  %484 = phi i64 [ %359, %376 ], [ %351, %get_next_fr_off.argprom.exit225.us ], [ %482, %get_next_fr_off.argprom.exit.us ], [ %359, %358 ]
+  %485 = phi i64 [ %.0243.us, %376 ], [ %.2245.us, %get_next_fr_off.argprom.exit225.us ], [ %.1244.us, %get_next_fr_off.argprom.exit.us ], [ %.0243.us, %358 ]
   %486 = load i64, ptr %297, align 8
   %487 = load i64, ptr %299, align 8
   %.not51.i.us = icmp eq i64 %486, %487
-  br i1 %.not51.i.us, label %find_next_off.exit.thread.us, label %find_next_off.exit.us
+  br i1 %.not51.i.us, label %find_next_off.argprom.exit.thread.us, label %find_next_off.argprom.exit.us
 
-find_next_off.exit.us:                            ; preds = %.critedge.i.us
+find_next_off.argprom.exit.us:                    ; preds = %.critedge.i.us
   %488 = sub i64 %.0246.us, %484
   %489 = add i64 %488, %485
   %490 = icmp eq i64 %484, -1
-  br i1 %490, label %find_next_off.exit.thread.us, label %491
+  br i1 %490, label %find_next_off.argprom.exit.thread.us, label %491
 
-491:                                              ; preds = %find_next_off.exit.us
+491:                                              ; preds = %find_next_off.argprom.exit.us
   %492 = icmp eq i64 %.0160334.us, -1
   %493 = icmp sgt i64 %.0160334.us, %484
   %or.cond.us = or i1 %492, %493
-  br i1 %or.cond.us, label %494, label %find_next_off.exit.thread.us
+  br i1 %or.cond.us, label %494, label %find_next_off.argprom.exit.thread.us
 
 494:                                              ; preds = %491
-  br label %find_next_off.exit.thread.us
+  br label %find_next_off.argprom.exit.thread.us
 
-find_next_off.exit.thread.us:                     ; preds = %494, %491, %find_next_off.exit.us, %.critedge.i.us, %289, %283, %.lr.ph338.us
-  %.1161.us = phi i64 [ %.0160334.us, %.lr.ph338.us ], [ %.0160334.us, %283 ], [ %.0160334.us, %find_next_off.exit.us ], [ %484, %494 ], [ %.0160334.us, %491 ], [ %.0160334.us, %.critedge.i.us ], [ %.0160334.us, %289 ]
-  %.3159.us = phi i64 [ %.2158335.us, %.lr.ph338.us ], [ %.2158335.us, %283 ], [ %.2158335.us, %find_next_off.exit.us ], [ %489, %494 ], [ %.2158335.us, %491 ], [ %.2158335.us, %.critedge.i.us ], [ %.2158335.us, %289 ]
-  %.3.us = phi i32 [ %.2152336.us, %.lr.ph338.us ], [ %.2152336.us, %283 ], [ %.2152336.us, %find_next_off.exit.us ], [ %280, %494 ], [ %.2152336.us, %491 ], [ %.2152336.us, %.critedge.i.us ], [ %.2152336.us, %289 ]
+find_next_off.argprom.exit.thread.us:             ; preds = %494, %491, %find_next_off.argprom.exit.us, %.critedge.i.us, %289, %283, %.lr.ph338.us
+  %.1161.us = phi i64 [ %.0160334.us, %.lr.ph338.us ], [ %.0160334.us, %283 ], [ %.0160334.us, %find_next_off.argprom.exit.us ], [ %484, %494 ], [ %.0160334.us, %491 ], [ %.0160334.us, %.critedge.i.us ], [ %.0160334.us, %289 ]
+  %.3159.us = phi i64 [ %.2158335.us, %.lr.ph338.us ], [ %.2158335.us, %283 ], [ %.2158335.us, %find_next_off.argprom.exit.us ], [ %489, %494 ], [ %.2158335.us, %491 ], [ %.2158335.us, %.critedge.i.us ], [ %.2158335.us, %289 ]
+  %.3.us = phi i32 [ %.2152336.us, %.lr.ph338.us ], [ %.2152336.us, %283 ], [ %.2152336.us, %find_next_off.argprom.exit.us ], [ %280, %494 ], [ %.2152336.us, %491 ], [ %.2152336.us, %.critedge.i.us ], [ %.2152336.us, %289 ]
   %indvars.iv.next458 = add nuw nsw i64 %indvars.iv457, 1
   %exitcond461.not = icmp eq i64 %indvars.iv.next458, %wide.trip.count455
   br i1 %exitcond461.not, label %._crit_edge.us, label %.lr.ph338.us, !llvm.loop !22
@@ -3078,7 +3078,7 @@ define range(i32 -1, 1) i32 @ADIOI_Build_client_pre_req(ptr nocapture noundef re
   %.2160263 = phi i64 [ %.1159, %.lr.ph267 ], [ %96, %95 ]
   %.2164262 = phi i32 [ %.1163, %.lr.ph267 ], [ %.3165.lcssa, %95 ]
   %99 = load i64, ptr %42, align 8
-  call fastcc void @find_next_off(ptr noundef %4, i64 noundef %99, ptr noundef %43, i32 noundef %.0161279, ptr noundef %8, ptr noundef %9)
+  call fastcc void @find_next_off.argprom.retelim(ptr noundef %4, i64 noundef %99, ptr noundef %43, i32 noundef %.0161279, ptr noundef %8, ptr noundef %9)
   %100 = load i64, ptr %8, align 8
   %101 = icmp eq i64 %100, -1
   br i1 %101, label %._crit_edge268, label %.preheader
@@ -3393,7 +3393,7 @@ view_state_add_region.exit202:                    ; preds = %.loopexit.i200, %24
   %.3155.lcssa = phi i64 [ %.2154264, %._crit_edge ], [ %.4156, %268 ]
   %.3151.lcssa = phi i32 [ %.2150265, %._crit_edge ], [ %.5, %268 ]
   %.0147.lcssa = phi i64 [ 0, %._crit_edge ], [ %247, %268 ]
-  call fastcc void @view_state_add_region(i64 noundef %.0147.lcssa, ptr noundef %4, ptr noundef %10, ptr noundef %11, i32 noundef %.0161279)
+  call fastcc void @view_state_add_region.retelim(i64 noundef %.0147.lcssa, ptr noundef %4, ptr noundef %10, ptr noundef %11, i32 noundef %.0161279)
   %270 = load i64, ptr %11, align 8
   %.not186 = icmp eq i64 %270, %.0147.lcssa
   br i1 %.not186, label %95, label %271
@@ -3503,7 +3503,7 @@ define range(i32 -1, 1) i32 @ADIOI_Build_client_req(ptr nocapture noundef readon
   %38 = select i1 %.078319, i64 48, i64 80
   %39 = load i64, ptr %22, align 8
   %40 = icmp sgt i64 %39, 0
-  br i1 %40, label %41, label %process_pre_req.exit
+  br i1 %40, label %41, label %process_pre_req.argprom.exit
 
 41:                                               ; preds = %36
   br i1 %.078319, label %.preheader.i, label %44
@@ -3535,7 +3535,7 @@ define range(i32 -1, 1) i32 @ADIOI_Build_client_req(ptr nocapture noundef readon
   %53 = sext i32 %52 to i64
   %54 = add nsw i64 %50, %53
   %55 = icmp sgt i64 %54, %5
-  br i1 %55, label %process_pre_req.exit.thread, label %56
+  br i1 %55, label %process_pre_req.argprom.exit.thread, label %56
 
 56:                                               ; preds = %49
   %57 = icmp eq i64 %54, %5
@@ -3551,7 +3551,7 @@ define range(i32 -1, 1) i32 @ADIOI_Build_client_req(ptr nocapture noundef readon
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %48
   br i1 %exitcond.not, label %.loopexit6.i, label %49, !llvm.loop !30
 
-process_pre_req.exit.thread:                      ; preds = %49
+process_pre_req.argprom.exit.thread:              ; preds = %49
   %62 = trunc nuw nsw i64 %indvars.iv.i to i32
   %63 = add nuw nsw i32 %62, 1
   br label %._crit_edge313
@@ -3568,7 +3568,7 @@ process_pre_req.exit.thread:                      ; preds = %49
   %70 = load i32, ptr %69, align 4
   %71 = sext i32 %70 to i64
   %72 = add nsw i64 %68, %71
-  br label %process_pre_req.exit
+  br label %process_pre_req.argprom.exit
 
 73:                                               ; preds = %44
   %74 = load ptr, ptr %24, align 8
@@ -3581,7 +3581,7 @@ process_pre_req.exit.thread:                      ; preds = %49
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
   %83 = add nsw i64 %78, %82
-  br label %process_pre_req.exit
+  br label %process_pre_req.argprom.exit
 
 .lr.ph35.i:                                       ; preds = %.preheader.i, %118
   %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %118 ], [ 0, %.preheader.i ]
@@ -3674,7 +3674,7 @@ process_pre_req.exit.thread:                      ; preds = %49
 141:                                              ; preds = %134
   %142 = load ptr, ptr @stderr, align 8
   %143 = call i64 @fwrite(ptr nonnull @.str.32, i64 48, i64 1, ptr %142) #9
-  br label %process_pre_req.exit
+  br label %process_pre_req.argprom.exit
 
 144:                                              ; preds = %134
   %145 = shl nsw i64 %137, 2
@@ -3685,7 +3685,7 @@ process_pre_req.exit.thread:                      ; preds = %49
 148:                                              ; preds = %144
   %149 = load ptr, ptr @stderr, align 8
   %150 = call i64 @fwrite(ptr nonnull @.str.33, i64 47, i64 1, ptr %149) #9
-  br label %process_pre_req.exit
+  br label %process_pre_req.argprom.exit
 
 151:                                              ; preds = %144
   %152 = load ptr, ptr %24, align 8
@@ -3714,7 +3714,7 @@ process_pre_req.exit.thread:                      ; preds = %49
   %162 = load i64, ptr %22, align 8
   %163 = sub nsw i64 %162, %.0176318
   store i64 %163, ptr %22, align 8
-  br label %process_pre_req.exit
+  br label %process_pre_req.argprom.exit
 
 164:                                              ; preds = %.loopexit.i
   %165 = load ptr, ptr %24, align 8
@@ -3724,9 +3724,9 @@ process_pre_req.exit.thread:                      ; preds = %49
   store i32 0, ptr %23, align 8
   store i64 0, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  br label %process_pre_req.exit
+  br label %process_pre_req.argprom.exit
 
-process_pre_req.exit:                             ; preds = %164, %159, %148, %141, %73, %.loopexit6.i, %36
+process_pre_req.argprom.exit:                     ; preds = %164, %159, %148, %141, %73, %.loopexit6.i, %36
   %.1191 = phi i32 [ %.0190316, %36 ], [ %.0190316, %141 ], [ %.0190316, %148 ], [ %.0190316, %159 ], [ %.0190316, %164 ], [ %46, %73 ], [ %.1147.ph.i, %.loopexit6.i ]
   %.1186 = phi i32 [ %.0185317, %36 ], [ %.3.i, %141 ], [ %.3.i, %148 ], [ %.3.i, %159 ], [ %.3.i, %164 ], [ %.0185317, %73 ], [ %.0185317, %.loopexit6.i ]
   %.0181 = phi i64 [ -1, %36 ], [ %131, %141 ], [ %131, %148 ], [ %131, %159 ], [ %131, %164 ], [ %83, %73 ], [ %72, %.loopexit6.i ]
@@ -3735,7 +3735,7 @@ process_pre_req.exit:                             ; preds = %164, %159, %148, %1
   %167 = icmp slt i64 %.0177, %5
   br i1 %167, label %.lr.ph312, label %._crit_edge313
 
-.lr.ph312:                                        ; preds = %process_pre_req.exit
+.lr.ph312:                                        ; preds = %process_pre_req.argprom.exit
   %.0.i94 = getelementptr inbounds i8, ptr %4, i64 %38
   %168 = getelementptr inbounds i8, ptr %.0.i94, i64 8
   %169 = getelementptr inbounds i8, ptr %.0.i94, i64 16
@@ -3765,7 +3765,7 @@ process_pre_req.exit:                             ; preds = %164, %159, %148, %1
   %179 = load i64, ptr %30, align 8
   %180 = icmp slt i64 %178, %179
   %.pre361 = load i64, ptr %.0.i94, align 8
-  br i1 %180, label %181, label %find_next_off.exit
+  br i1 %180, label %181, label %find_next_off.argprom.exit
 
 181:                                              ; preds = %175
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -3785,7 +3785,7 @@ process_pre_req.exit:                             ; preds = %164, %159, %148, %1
   %191 = getelementptr inbounds i8, ptr %183, i64 16
   %192 = load ptr, ptr %191, align 8
   %193 = load i64, ptr %192, align 8
-  br label %get_next_fr_off.exit133
+  br label %get_next_fr_off.argprom.exit133
 
 194:                                              ; preds = %181
   %195 = load ptr, ptr %28, align 8
@@ -3825,7 +3825,7 @@ process_pre_req.exit:                             ; preds = %164, %159, %148, %1
   %216 = load ptr, ptr %205, align 8
   %217 = getelementptr inbounds i64, ptr %216, i64 %indvars.iv.i128
   %218 = load i64, ptr %217, align 8
-  br label %get_next_fr_off.exit133
+  br label %get_next_fr_off.argprom.exit133
 
 219:                                              ; preds = %207
   %220 = load ptr, ptr %205, align 8
@@ -3838,14 +3838,14 @@ process_pre_req.exit:                             ; preds = %164, %159, %148, %1
 225:                                              ; preds = %219
   %.neg.i131 = sub i64 %209, %199
   %226 = add i64 %.neg.i131, %222
-  br label %get_next_fr_off.exit133
+  br label %get_next_fr_off.argprom.exit133
 
 ._crit_edge.i125:                                 ; preds = %206, %194
   %227 = load ptr, ptr @stderr, align 8
   %228 = call i64 @fwrite(ptr nonnull @.str.31, i64 92, i64 1, ptr %227) #9
-  br label %get_next_fr_off.exit133
+  br label %get_next_fr_off.argprom.exit133
 
-get_next_fr_off.exit133:                          ; preds = %186, %211, %225, %._crit_edge.i125
+get_next_fr_off.argprom.exit133:                  ; preds = %186, %211, %225, %._crit_edge.i125
   %.3204 = phi i64 [ %193, %186 ], [ %218, %211 ], [ %226, %225 ], [ -1, %._crit_edge.i125 ]
   %.2200 = phi i64 [ %190, %186 ], [ %215, %211 ], [ %.pre361, %225 ], [ -1, %._crit_edge.i125 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -3854,14 +3854,14 @@ get_next_fr_off.exit133:                          ; preds = %186, %211, %225, %.
   %230 = icmp slt i64 %229, %.2200
   br i1 %230, label %.lr.ph.i95, label %.critedge.i
 
-.lr.ph.i95:                                       ; preds = %get_next_fr_off.exit133
+.lr.ph.i95:                                       ; preds = %get_next_fr_off.argprom.exit133
   %231 = getelementptr inbounds i8, ptr %177, i64 8
   br label %232
 
-232:                                              ; preds = %get_next_fr_off.exit, %.lr.ph.i95
-  %.1202 = phi i64 [ %.3204, %.lr.ph.i95 ], [ %.2203, %get_next_fr_off.exit ]
-  %.0198 = phi i64 [ %.2200, %.lr.ph.i95 ], [ %.1199, %get_next_fr_off.exit ]
-  %233 = phi i64 [ %229, %.lr.ph.i95 ], [ %356, %get_next_fr_off.exit ]
+232:                                              ; preds = %get_next_fr_off.argprom.exit, %.lr.ph.i95
+  %.1202 = phi i64 [ %.3204, %.lr.ph.i95 ], [ %.2203, %get_next_fr_off.argprom.exit ]
+  %.0198 = phi i64 [ %.2200, %.lr.ph.i95 ], [ %.1199, %get_next_fr_off.argprom.exit ]
+  %233 = phi i64 [ %229, %.lr.ph.i95 ], [ %356, %get_next_fr_off.argprom.exit ]
   %234 = load i64, ptr %168, align 8
   %235 = load i64, ptr %30, align 8
   %.not.i = icmp eq i64 %234, %235
@@ -4004,7 +4004,7 @@ view_state_add_region.exit124:                    ; preds = %.loopexit.i122, %30
   %318 = getelementptr inbounds i8, ptr %310, i64 16
   %319 = load ptr, ptr %318, align 8
   %320 = load i64, ptr %319, align 8
-  br label %get_next_fr_off.exit
+  br label %get_next_fr_off.argprom.exit
 
 321:                                              ; preds = %view_state_add_region.exit124
   %322 = load ptr, ptr %28, align 8
@@ -4044,7 +4044,7 @@ view_state_add_region.exit124:                    ; preds = %.loopexit.i122, %30
   %343 = load ptr, ptr %332, align 8
   %344 = getelementptr inbounds i64, ptr %343, i64 %indvars.iv.i115
   %345 = load i64, ptr %344, align 8
-  br label %get_next_fr_off.exit
+  br label %get_next_fr_off.argprom.exit
 
 346:                                              ; preds = %334
   %347 = load ptr, ptr %332, align 8
@@ -4057,14 +4057,14 @@ view_state_add_region.exit124:                    ; preds = %.loopexit.i122, %30
 352:                                              ; preds = %346
   %.neg.i = sub i64 %336, %326
   %353 = add i64 %.neg.i, %349
-  br label %get_next_fr_off.exit
+  br label %get_next_fr_off.argprom.exit
 
 ._crit_edge.i:                                    ; preds = %333, %321
   %354 = load ptr, ptr @stderr, align 8
   %355 = call i64 @fwrite(ptr nonnull @.str.31, i64 92, i64 1, ptr %354) #9
-  br label %get_next_fr_off.exit
+  br label %get_next_fr_off.argprom.exit
 
-get_next_fr_off.exit:                             ; preds = %313, %338, %352, %._crit_edge.i
+get_next_fr_off.argprom.exit:                     ; preds = %313, %338, %352, %._crit_edge.i
   %.2203 = phi i64 [ %320, %313 ], [ %345, %338 ], [ %353, %352 ], [ %.1202, %._crit_edge.i ]
   %.1199 = phi i64 [ %317, %313 ], [ %342, %338 ], [ %308, %352 ], [ %.0198, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -4073,21 +4073,21 @@ get_next_fr_off.exit:                             ; preds = %313, %338, %352, %.
   %357 = icmp slt i64 %356, %.1199
   br i1 %357, label %232, label %.critedge.i, !llvm.loop !10
 
-.critedge.i:                                      ; preds = %get_next_fr_off.exit, %232, %250, %get_next_fr_off.exit133
-  %.0201 = phi i64 [ %.1202, %250 ], [ %.3204, %get_next_fr_off.exit133 ], [ %.2203, %get_next_fr_off.exit ], [ %.1202, %232 ]
-  %358 = phi i64 [ %233, %250 ], [ %229, %get_next_fr_off.exit133 ], [ %356, %get_next_fr_off.exit ], [ %233, %232 ]
-  %359 = phi i64 [ %.0198, %250 ], [ %.2200, %get_next_fr_off.exit133 ], [ %.1199, %get_next_fr_off.exit ], [ %.0198, %232 ]
+.critedge.i:                                      ; preds = %get_next_fr_off.argprom.exit, %232, %250, %get_next_fr_off.argprom.exit133
+  %.0201 = phi i64 [ %.1202, %250 ], [ %.3204, %get_next_fr_off.argprom.exit133 ], [ %.2203, %get_next_fr_off.argprom.exit ], [ %.1202, %232 ]
+  %358 = phi i64 [ %233, %250 ], [ %229, %get_next_fr_off.argprom.exit133 ], [ %356, %get_next_fr_off.argprom.exit ], [ %233, %232 ]
+  %359 = phi i64 [ %.0198, %250 ], [ %.2200, %get_next_fr_off.argprom.exit133 ], [ %.1199, %get_next_fr_off.argprom.exit ], [ %.0198, %232 ]
   %360 = load i64, ptr %168, align 8
   %361 = load i64, ptr %30, align 8
   %.not51.i = icmp eq i64 %360, %361
-  br i1 %.not51.i, label %find_next_off.exit, label %362
+  br i1 %.not51.i, label %find_next_off.argprom.exit, label %362
 
 362:                                              ; preds = %.critedge.i
   %363 = sub i64 %.0201, %358
   %364 = add i64 %363, %359
-  br label %find_next_off.exit
+  br label %find_next_off.argprom.exit
 
-find_next_off.exit:                               ; preds = %175, %.critedge.i, %362
+find_next_off.argprom.exit:                       ; preds = %175, %.critedge.i, %362
   %365 = phi i64 [ %360, %362 ], [ %360, %.critedge.i ], [ %178, %175 ]
   %366 = phi i64 [ %358, %362 ], [ %358, %.critedge.i ], [ %.pre361, %175 ]
   %.043.i = phi i64 [ %364, %362 ], [ -1, %.critedge.i ], [ -1, %175 ]
@@ -4104,7 +4104,7 @@ find_next_off.exit:                               ; preds = %175, %.critedge.i, 
   %.not.i96 = icmp sgt i64 %375, %spec.select
   br i1 %.not.i96, label %414, label %376
 
-376:                                              ; preds = %find_next_off.exit
+376:                                              ; preds = %find_next_off.argprom.exit
   %377 = add nsw i64 %365, %375
   store i64 %377, ptr %168, align 8
   %378 = getelementptr inbounds i8, ptr %368, i64 8
@@ -4166,7 +4166,7 @@ find_next_off.exit:                               ; preds = %175, %.critedge.i, 
   store i64 0, ptr %170, align 8
   br label %view_state_add_region.exit
 
-414:                                              ; preds = %find_next_off.exit
+414:                                              ; preds = %find_next_off.argprom.exit
   %415 = add nsw i64 %374, %spec.select
   store i64 %415, ptr %170, align 8
   %416 = add nsw i64 %366, %spec.select
@@ -4461,10 +4461,10 @@ view_state_add_region.exit113:                    ; preds = %.loopexit.i111, %55
   %.not88 = icmp eq i64 %557, %.0.i99
   br i1 %.not88, label %.loopexit, label %.lr.ph304, !llvm.loop !34
 
-._crit_edge313:                                   ; preds = %.loopexit, %process_pre_req.exit.thread, %process_pre_req.exit
-  %.1371 = phi i64 [ %.1, %process_pre_req.exit ], [ %5, %process_pre_req.exit.thread ], [ %.1, %.loopexit ]
-  %.2192.lcssa = phi i32 [ %.1191, %process_pre_req.exit ], [ %63, %process_pre_req.exit.thread ], [ %.3193.lcssa, %.loopexit ]
-  %.2187.lcssa = phi i32 [ %.1186, %process_pre_req.exit ], [ %.0185317, %process_pre_req.exit.thread ], [ %.3188.lcssa, %.loopexit ]
+._crit_edge313:                                   ; preds = %.loopexit, %process_pre_req.argprom.exit.thread, %process_pre_req.argprom.exit
+  %.1371 = phi i64 [ %.1, %process_pre_req.argprom.exit ], [ %5, %process_pre_req.argprom.exit.thread ], [ %.1, %.loopexit ]
+  %.2192.lcssa = phi i32 [ %.1191, %process_pre_req.argprom.exit ], [ %63, %process_pre_req.argprom.exit.thread ], [ %.3193.lcssa, %.loopexit ]
+  %.2187.lcssa = phi i32 [ %.1186, %process_pre_req.argprom.exit ], [ %.0185317, %process_pre_req.argprom.exit.thread ], [ %.3188.lcssa, %.loopexit ]
   br i1 %37, label %576, label %591
 
 576:                                              ; preds = %._crit_edge313
@@ -4515,7 +4515,7 @@ view_state_add_region.exit113:                    ; preds = %.loopexit.i111, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @get_next_fr_off(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #2 {
+define internal fastcc noundef i32 @get_next_fr_off.argprom(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   store i64 -1, ptr %7, align 8

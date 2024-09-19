@@ -86,7 +86,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_wimax_fch_decoder(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @bs_address, i64 4), align 4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %copy_address.exit
+  br i1 %.not, label %6, label %copy_address.argprom.exit
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %1, i64 208
@@ -98,7 +98,7 @@ define internal i32 @dissect_wimax_fch_decoder(ptr noundef %0, ptr nocapture nou
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @bs_address, i8 0, i64 24, i1 false)
   store i32 %8, ptr @bs_address, align 8
   %13 = icmp eq i32 %10, 0
-  br i1 %13, label %copy_address.exit, label %14
+  br i1 %13, label %copy_address.argprom.exit, label %14
 
 14:                                               ; preds = %6
   %15 = sext i32 %10 to i64
@@ -106,16 +106,16 @@ define internal i32 @dissect_wimax_fch_decoder(ptr noundef %0, ptr nocapture nou
   store ptr %16, ptr getelementptr inbounds (i8, ptr @bs_address, i64 16), align 8
   store ptr %16, ptr getelementptr inbounds (i8, ptr @bs_address, i64 8), align 8
   store i32 %10, ptr getelementptr inbounds (i8, ptr @bs_address, i64 4), align 4
-  br label %copy_address.exit
+  br label %copy_address.argprom.exit
 
-copy_address.exit:                                ; preds = %14, %6, %4
+copy_address.argprom.exit:                        ; preds = %14, %6, %4
   %17 = getelementptr inbounds i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_append_sep_str(ptr noundef %18, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.34) #3
   %.not40 = icmp eq ptr %2, null
   br i1 %.not40, label %46, label %19
 
-19:                                               ; preds = %copy_address.exit
+19:                                               ; preds = %copy_address.argprom.exit
   %20 = load i32, ptr @proto_wimax_fch_decoder, align 4
   %21 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str.35) #3
   %22 = load i32, ptr @ett_wimax_fch_decoder, align 4
@@ -144,7 +144,7 @@ copy_address.exit:                                ; preds = %14, %6, %4
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %44, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef 0) #3
   br label %46
 
-46:                                               ; preds = %19, %copy_address.exit
+46:                                               ; preds = %19, %copy_address.argprom.exit
   %47 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %47
 }

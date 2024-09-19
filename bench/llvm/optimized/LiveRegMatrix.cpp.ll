@@ -1147,7 +1147,7 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
   %87 = load i32, ptr %86, align 4
   %88 = load i32, ptr %76, align 8
   %.not.i.i.i.i = icmp eq i32 %87, %88
-  br i1 %.not.i.i.i.i, label %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.exit.i", label %89
+  br i1 %.not.i.i.i.i, label %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.argprom.exit.i", label %89
 
 89:                                               ; preds = %85, %70
   store ptr %76, ptr %73, align 8
@@ -1164,9 +1164,9 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
   %96 = getelementptr inbounds nuw i8, ptr %73, i64 164
   store i32 %95, ptr %96, align 4
   store i32 %74, ptr %77, align 8
-  br label %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.exit.i"
+  br label %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.argprom.exit.i"
 
-"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.exit.i": ; preds = %89, %85
+"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.argprom.exit.i": ; preds = %89, %85
   %97 = tail call noundef i32 @_ZN4llvm17LiveIntervalUnion5Query23collectInterferingVRegsEj(ptr noundef nonnull align 8 dereferenceable(172) %73, i32 noundef 1) #14
   %.not61.i = icmp eq i32 %97, 0
   br i1 %.not61.i, label %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit"
@@ -1177,7 +1177,7 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
   %.not59.i = icmp eq ptr %.sroa.042.0.i, null
   br i1 %.not59.i, label %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.i, label %.lr.ph.i
 
-_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.i:       ; preds = %98, %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.exit.i", %.lr.ph73.split.i
+_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.i:       ; preds = %98, %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.argprom.exit.i", %.lr.ph73.split.i
   %100 = getelementptr inbounds i8, ptr %.sroa.14.072.i, i64 8
   %101 = getelementptr inbounds i8, ptr %.sroa.4.071.i, i64 2
   %102 = load i16, ptr %.sroa.4.071.i, align 2
@@ -1233,7 +1233,7 @@ _ZN4llvm21MCRegUnitMaskIteratorppEv.exit.i:       ; preds = %98, %"_ZZN4llvm13Li
   %137 = load i32, ptr %136, align 4
   %138 = load i32, ptr %126, align 8
   %.not.i.i.i29.i = icmp eq i32 %137, %138
-  br i1 %.not.i.i.i29.i, label %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.exit30.i", label %139
+  br i1 %.not.i.i.i29.i, label %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.argprom.exit30.i", label %139
 
 139:                                              ; preds = %135, %120
   store ptr %126, ptr %123, align 8
@@ -1250,14 +1250,14 @@ _ZN4llvm21MCRegUnitMaskIteratorppEv.exit.i:       ; preds = %98, %"_ZZN4llvm13Li
   %146 = getelementptr inbounds nuw i8, ptr %123, i64 164
   store i32 %145, ptr %146, align 4
   store i32 %124, ptr %127, align 8
-  br label %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.exit30.i"
+  br label %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.argprom.exit30.i"
 
-"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.exit30.i": ; preds = %139, %135
+"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.argprom.exit30.i": ; preds = %139, %135
   %147 = tail call noundef i32 @_ZN4llvm17LiveIntervalUnion5Query23collectInterferingVRegsEj(ptr noundef nonnull align 8 dereferenceable(172) %123, i32 noundef 1) #14
   %.not57.not.i = icmp eq i32 %147, 0
   br i1 %.not57.not.i, label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit"
 
-_ZN4llvm17MCRegUnitIteratorppEv.exit.i:           ; preds = %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.exit30.i"
+_ZN4llvm17MCRegUnitIteratorppEv.exit.i:           ; preds = %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.argprom.exit30.i"
   %148 = getelementptr inbounds i8, ptr %.sroa.333.077.i, i64 2
   %149 = load i16, ptr %.sroa.333.077.i, align 2
   %150 = sext i16 %149 to i32
@@ -1265,8 +1265,8 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i:           ; preds = %"_ZZN4llvm13LiveReg
   %.not.i.i.i = icmp eq i16 %149, 0
   br i1 %.not.i.i.i, label %"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit", label %120
 
-"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit": ; preds = %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.i, %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.exit.i", %_ZN4llvm17MCRegUnitIteratorppEv.exit.i, %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.exit30.i", %44, %105, %28, %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit.thread13, %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit, %3
-  %.0 = phi i32 [ 0, %3 ], [ 3, %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit ], [ 2, %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit.thread13 ], [ 3, %28 ], [ 0, %105 ], [ 0, %44 ], [ 0, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ], [ 1, %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.exit30.i" ], [ 0, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.i ], [ 1, %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.exit.i" ]
+"_ZL11foreachUnitIZN4llvm13LiveRegMatrix17checkInterferenceERKNS0_12LiveIntervalENS0_10MCRegisterEE3$_0EbPKNS0_18TargetRegisterInfoES4_S5_T_.exit": ; preds = %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.i, %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.argprom.exit.i", %_ZN4llvm17MCRegUnitIteratorppEv.exit.i, %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.argprom.exit30.i", %44, %105, %28, %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit.thread13, %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit, %3
+  %.0 = phi i32 [ 0, %3 ], [ 3, %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit ], [ 2, %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit.thread13 ], [ 3, %28 ], [ 0, %105 ], [ 0, %44 ], [ 0, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ], [ 1, %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.argprom.exit30.i" ], [ 0, %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.i ], [ 1, %"_ZZN4llvm13LiveRegMatrix17checkInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clES4_RKNS_9LiveRangeE.argprom.exit.i" ]
   ret i32 %.0
 }
 

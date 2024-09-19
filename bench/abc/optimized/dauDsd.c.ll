@@ -4780,7 +4780,7 @@ Abc_Clock.exit:                                   ; preds = %4, %13
   %.1.us.i = phi i32 [ %61, %..thread_crit_edge.i.us.i ], [ %.0181.us.i, %.lr.ph.split.us.i ]
   %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv5.i, 1
   %exitcond9.not.i = icmp eq i64 %indvars.iv.next6.i, %wide.trip.count8.i
-  br i1 %exitcond9.not.i, label %Dau_Dsd6FindSupports.exit, label %.lr.ph.split.us.i, !llvm.loop !77
+  br i1 %exitcond9.not.i, label %Dau_Dsd6FindSupports.argprom.exit, label %.lr.ph.split.us.i, !llvm.loop !77
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %92
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %92 ], [ 0, %.lr.ph.i ]
@@ -4837,9 +4837,9 @@ Dau_Dsd6FindSupportOne.exit.i:                    ; preds = %.Dau_Dsd6FindSuppor
   %.1.i = phi i32 [ %91, %Dau_Dsd6FindSupportOne.exit.i ], [ %.0181.i, %.lr.ph.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count8.i
-  br i1 %exitcond.not.i, label %Dau_Dsd6FindSupports.exit, label %.lr.ph.split.i, !llvm.loop !77
+  br i1 %exitcond.not.i, label %Dau_Dsd6FindSupports.argprom.exit, label %.lr.ph.split.i, !llvm.loop !77
 
-Dau_Dsd6FindSupports.exit:                        ; preds = %92, %62
+Dau_Dsd6FindSupports.argprom.exit:                ; preds = %92, %62
   %.018.lcssa.i = phi i32 [ %.1.us.i, %62 ], [ %.1.i, %92 ]
   %93 = lshr i32 %.018.lcssa.i, 1
   %94 = and i32 %.018.lcssa.i, 1431655765
@@ -4847,7 +4847,7 @@ Dau_Dsd6FindSupports.exit:                        ; preds = %92, %62
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %Dau_DsdWriteString.exit68, label %177
 
-Dau_DsdWriteString.exit68:                        ; preds = %Dau_Dsd6FindSupports.exit
+Dau_DsdWriteString.exit68:                        ; preds = %Dau_Dsd6FindSupports.argprom.exit
   call void @llvm.lifetime.start.p0(i64 3320, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -5008,7 +5008,7 @@ Dau_Dsd6DecomposeTripleVarsOuter.exit:            ; preds = %Dau_DsdTranslate.ex
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %326
 
-177:                                              ; preds = %Dau_Dsd6FindSupports.exit
+177:                                              ; preds = %Dau_Dsd6FindSupports.argprom.exit
   %178 = xor i32 %.018.lcssa.i, -1
   %179 = lshr i32 %178, 1
   %180 = and i32 %94, %179

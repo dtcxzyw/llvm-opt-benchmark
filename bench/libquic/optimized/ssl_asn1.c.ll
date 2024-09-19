@@ -772,7 +772,7 @@ lor.lhs.false99:                                  ; preds = %lor.lhs.false96
 
 lor.lhs.false102:                                 ; preds = %lor.lhs.false99
   %tlsext_tick_lifetime_hint = getelementptr inbounds i8, ptr %call, i64 372
-  %call103 = call fastcc i32 @SSL_SESSION_parse_u32(ptr noundef %session, ptr noundef %tlsext_tick_lifetime_hint, i32 noundef 169)
+  %call103 = call fastcc i32 @SSL_SESSION_parse_u32.argelim(ptr noundef %session, ptr noundef %tlsext_tick_lifetime_hint, i32 noundef 169)
   %tobool104.not = icmp eq i32 %call103, 0
   br i1 %tobool104.not, label %err, label %lor.lhs.false105
 
@@ -869,7 +869,7 @@ if.end150:                                        ; preds = %if.end146
   %bf.set156 = or disjoint i8 %bf.clear155, %6
   store i8 %bf.set156, ptr %extended_master_secret153, align 8
   %key_exchange_info = getelementptr inbounds i8, ptr %call, i64 8
-  %call157 = call fastcc i32 @SSL_SESSION_parse_u32(ptr noundef %session, ptr noundef %key_exchange_info, i32 noundef 178)
+  %call157 = call fastcc i32 @SSL_SESSION_parse_u32.argelim(ptr noundef %session, ptr noundef %key_exchange_info, i32 noundef 178)
   %tobool158.not = icmp eq i32 %call157, 0
   br i1 %tobool158.not, label %if.then159, label %if.end160
 
@@ -1208,7 +1208,7 @@ return:                                           ; preds = %if.else, %if.end6, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_u32(ptr noundef nonnull %cbs, ptr nocapture noundef nonnull writeonly %out, i32 noundef range(i32 169, 179) %tag) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_u32.argelim(ptr noundef nonnull %cbs, ptr nocapture noundef nonnull writeonly %out, i32 noundef range(i32 169, 179) %tag) unnamed_addr #0 {
 entry:
   %value = alloca i64, align 8
   %call = call i32 @CBS_get_optional_asn1_uint64(ptr noundef nonnull %cbs, ptr noundef nonnull %value, i32 noundef %tag, i64 noundef 0) #6

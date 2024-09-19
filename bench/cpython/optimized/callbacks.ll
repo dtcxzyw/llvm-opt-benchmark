@@ -545,14 +545,14 @@ if.end21:                                         ; preds = %_PyObject_CallNoArg
   %15 = getelementptr i8, ptr %retval.0.i.i, i64 8
   %call18.val = load ptr, ptr %15, align 8
   %cmp.i.not.i = icmp eq ptr %call18.val, @PyCData_Type
-  br i1 %cmp.i.not.i, label %if.end25, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end25, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end21
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end21
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %call18.val, ptr noundef nonnull @PyCData_Type) #6
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then24, label %if.end25
 
-if.then24:                                        ; preds = %PyObject_TypeCheck.exit
+if.then24:                                        ; preds = %PyObject_TypeCheck.argprom.exit
   %16 = load i64, ptr %retval.0.i.i, align 8
   %17 = and i64 %16, 2147483648
   %cmp.i108.not = icmp eq i64 %17, 0
@@ -572,7 +572,7 @@ Py_DECREF.exit106:                                ; preds = %if.then24, %if.then
   tail call void (ptr, ...) @PrintError(ptr noundef nonnull @.str.6, i64 noundef %i.075)
   br label %Done
 
-if.end25:                                         ; preds = %if.end21, %PyObject_TypeCheck.exit
+if.end25:                                         ; preds = %if.end21, %PyObject_TypeCheck.argprom.exit
   %b_ptr = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
   %18 = load ptr, ptr %b_ptr, align 16
   %19 = load ptr, ptr %pArgs.addr.076, align 8

@@ -714,7 +714,7 @@ if.end27:                                         ; preds = %if.end23
   %context.val = load ptr, ptr %context, align 8
   %32 = getelementptr i8, ptr %context, i64 8
   %context.val25 = load ptr, ptr %32, align 8
-  %call31 = tail call fastcc i32 @write_archive_entry(ptr noundef %oid, ptr noundef %30, i32 noundef %conv30, ptr noundef %filename, i32 noundef %mode, ptr %context.val, ptr %context.val25)
+  %call31 = tail call fastcc i32 @write_archive_entry.argprom(ptr noundef %oid, ptr noundef %30, i32 noundef %conv30, ptr noundef %filename, i32 noundef %mode, ptr %context.val, ptr %context.val25)
   br label %return
 
 return:                                           ; preds = %if.end23, %check_attr_export_ignore.exit, %if.end27, %queue_directory.exit
@@ -1433,7 +1433,7 @@ if.end26.i:                                       ; preds = %if.then23.i, %if.en
   %archive_time.1.i = phi i64 [ %call25.i, %if.then23.i ], [ %archive_time.0.i, %if.end21.i ]
   %call27.i = call ptr @parse_tree_indirect(ptr noundef nonnull %oid.i) #18
   %tobool28.not.i = icmp eq ptr %call27.i, null
-  br i1 %tobool28.not.i, label %if.then29.i, label %parse_treeish_arg.exit
+  br i1 %tobool28.not.i, label %if.then29.i, label %parse_treeish_arg.argprom.exit
 
 if.then29.i:                                      ; preds = %if.end26.i
   %call30.i = call fastcc ptr @_(ptr noundef nonnull @.str.68)
@@ -1441,7 +1441,7 @@ if.then29.i:                                      ; preds = %if.end26.i
   call void (ptr, ...) @die(ptr noundef %call30.i, ptr noundef %call31.i) #17
   unreachable
 
-parse_treeish_arg.exit:                           ; preds = %if.end26.i
+parse_treeish_arg.argprom.exit:                   ; preds = %if.end26.i
   %57 = load ptr, ptr %ref.i, align 8
   %refname.i = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %57, ptr %refname.i, align 8
@@ -1467,7 +1467,7 @@ parse_treeish_arg.exit:                           ; preds = %if.end26.i
   %tobool3.not14.i = icmp eq ptr %59, null
   br i1 %tobool3.not14.i, label %parse_pathspec_arg.exit, label %while.body.lr.ph.i
 
-while.body.lr.ph.i:                               ; preds = %parse_treeish_arg.exit
+while.body.lr.ph.i:                               ; preds = %parse_treeish_arg.argprom.exit
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %paths.i.i, i64 8
   %args1.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 24
   %recursive.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 4
@@ -1529,7 +1529,7 @@ if.end.i15:                                       ; preds = %path_exists.exit.i,
   %tobool3.not.i16 = icmp eq ptr %69, null
   br i1 %tobool3.not.i16, label %parse_pathspec_arg.exit, label %while.body.i, !llvm.loop !13
 
-parse_pathspec_arg.exit:                          ; preds = %if.end.i15, %parse_treeish_arg.exit
+parse_pathspec_arg.exit:                          ; preds = %if.end.i15, %parse_treeish_arg.argprom.exit
   %write_archive = getelementptr inbounds i8, ptr %34, i64 8
   %70 = load ptr, ptr %write_archive, align 8
   %call6 = call i32 %70(ptr noundef nonnull %34, ptr noundef nonnull %args) #18
@@ -1654,7 +1654,7 @@ lor.rhs:                                          ; preds = %if.end
   %c.val = load ptr, ptr %c, align 8
   %5 = getelementptr i8, ptr %c, i64 8
   %c.val14 = load ptr, ptr %5, align 8
-  %call7 = tail call fastcc i32 @write_archive_entry(ptr noundef nonnull %oid, ptr noundef nonnull %path, i32 noundef %3, ptr noundef nonnull %add.ptr, i32 noundef %4, ptr %c.val, ptr %c.val14)
+  %call7 = tail call fastcc i32 @write_archive_entry.argprom(ptr noundef nonnull %oid, ptr noundef nonnull %path, i32 noundef %3, ptr noundef nonnull %add.ptr, i32 noundef %4, ptr %c.val, ptr %c.val14)
   %cmp = icmp ne i32 %call7, 1
   %6 = sext i1 %cmp to i32
   br label %lor.end
@@ -1670,7 +1670,7 @@ return:                                           ; preds = %entry, %lor.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_archive_entry(ptr noundef %oid, ptr noundef %base, i32 noundef %baselen, ptr noundef %filename, i32 noundef %mode, ptr %context.0.val, ptr nocapture readonly %context.8.val) unnamed_addr #0 {
+define internal fastcc i32 @write_archive_entry.argprom(ptr noundef %oid, ptr noundef %base, i32 noundef %baselen, ptr noundef %filename, i32 noundef %mode, ptr %context.0.val, ptr nocapture readonly %context.8.val) unnamed_addr #0 {
 entry:
   %fmt.i.i = alloca %struct.strbuf, align 8
   %ca.i.i = alloca %struct.conv_attrs, align 8

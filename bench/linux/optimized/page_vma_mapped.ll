@@ -101,7 +101,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
 
 52:                                               ; preds = %33
   %.val = load i32, ptr %44, align 8
-  %53 = tail call fastcc ptr @huge_pte_lock(i32 %.val, ptr noundef %10, ptr noundef nonnull %50)
+  %53 = tail call fastcc ptr @huge_pte_lock.argprom(i32 %.val, ptr noundef %10, ptr noundef nonnull %50)
   %54 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %53, ptr %54, align 8
   %55 = tail call fastcc zeroext i1 @check_pte(ptr noundef %0)
@@ -512,7 +512,7 @@ define internal fastcc void @not_found(ptr nocapture noundef readonly %0) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @huge_pte_lock(i32 %.40.val, ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #3 align 16 {
+define internal fastcc noundef ptr @huge_pte_lock.argprom(i32 %.40.val, ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #3 align 16 {
   %3 = icmp eq i32 %.40.val, 9
   br i1 %3, label %4, label %18
 

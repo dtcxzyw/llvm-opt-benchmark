@@ -400,7 +400,7 @@ define internal fastcc ptr @enumInterfaces(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not, label %openSocket.exit, label %34
 
 13:                                               ; preds = %1
-  %14 = tail call fastcc ptr @enumIPv4Interfaces(ptr noundef %0, i32 noundef %2)
+  %14 = tail call fastcc ptr @enumIPv4Interfaces.argprom(ptr noundef %0, i32 noundef %2)
   %15 = tail call i32 @close(i32 noundef %2) #14
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 120
@@ -953,7 +953,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_boundInetAddres
   br i1 %.not45, label %find_bound_interface.exit, label %openSocket.exit51.thread
 
 22:                                               ; preds = %10
-  %23 = tail call fastcc ptr @enumIPv4Interfaces(ptr noundef nonnull %0, i32 noundef %11)
+  %23 = tail call fastcc ptr @enumIPv4Interfaces.argprom(ptr noundef nonnull %0, i32 noundef %11)
   %24 = tail call i32 @close(i32 noundef %11) #14
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 120
@@ -1061,7 +1061,7 @@ openSocket.exit51.thread:                         ; preds = %9, %57, %54, %54, %
 declare i32 @getInetAddress_family(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @enumIPv4Interfaces(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc ptr @enumIPv4Interfaces.argprom(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 {
   %3 = alloca %struct.ifconf, align 8
   %4 = alloca %struct.sockaddr, align 2
   %5 = alloca %struct.sockaddr, align 2
@@ -1644,7 +1644,7 @@ define ptr @Java_java_net_NetworkInterface_getMacAddr0(ptr noundef %0, ptr nocap
   br label %28
 
 28:                                               ; preds = %22, %24
-  %29 = call fastcc i32 @getMacAddress(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %7)
+  %29 = call fastcc i32 @getMacAddress.argprom(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %7)
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %41
 
@@ -1680,7 +1680,7 @@ define ptr @Java_java_net_NetworkInterface_getMacAddr0(ptr noundef %0, ptr nocap
 declare i32 @htonl(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 7) i32 @getMacAddress(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 7) i32 @getMacAddress.argprom(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.ifreq, align 8
   %5 = tail call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #14
   %6 = icmp slt i32 %5, 0
@@ -1689,7 +1689,7 @@ define internal fastcc range(i32 -1, 7) i32 @getMacAddress(ptr noundef %0, ptr n
 7:                                                ; preds = %3
   %8 = tail call ptr @__errno_location() #16
   %9 = load i32, ptr %8, align 4
-  switch i32 %9, label %openSocketWithFallback.exit [
+  switch i32 %9, label %openSocketWithFallback.argprom.exit [
     i32 93, label %10
     i32 97, label %10
   ]
@@ -1697,9 +1697,9 @@ define internal fastcc range(i32 -1, 7) i32 @getMacAddress(ptr noundef %0, ptr n
 10:                                               ; preds = %7, %7
   %11 = tail call i32 @socket(i32 noundef 10, i32 noundef 2, i32 noundef 0) #14
   %12 = icmp slt i32 %11, 0
-  br i1 %12, label %openSocketWithFallback.exit, label %13
+  br i1 %12, label %openSocketWithFallback.argprom.exit, label %13
 
-openSocketWithFallback.exit:                      ; preds = %7, %10
+openSocketWithFallback.argprom.exit:              ; preds = %7, %10
   %.str.30.sink.i = phi ptr [ @.str.29, %10 ], [ @.str.30, %7 ]
   tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %.str.30.sink.i) #14
   br label %.loopexit
@@ -1736,8 +1736,8 @@ openSocketWithFallback.exit:                      ; preds = %7, %10
   %.not = icmp eq i8 %26, 0
   br i1 %.not, label %23, label %.loopexit
 
-.loopexit:                                        ; preds = %23, %24, %openSocketWithFallback.exit, %18
-  %.0 = phi i32 [ -1, %18 ], [ -1, %openSocketWithFallback.exit ], [ -1, %23 ], [ 6, %24 ]
+.loopexit:                                        ; preds = %23, %24, %openSocketWithFallback.argprom.exit, %18
+  %.0 = phi i32 [ -1, %18 ], [ -1, %openSocketWithFallback.argprom.exit ], [ -1, %23 ], [ 6, %24 ]
   ret i32 %.0
 }
 

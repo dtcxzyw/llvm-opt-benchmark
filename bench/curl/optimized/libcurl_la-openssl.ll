@@ -5460,7 +5460,7 @@ if.then273.i.i:                                   ; preds = %land.lhs.true267.i.
 
 if.then.i189.i.i:                                 ; preds = %if.then273.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.204) #13
-  br label %verifystatus.exit.thread.i.i
+  br label %verifystatus.argprom.argprom.exit.thread.i.i
 
 if.end.i180.i.i:                                  ; preds = %if.then273.i.i
   store ptr %166, ptr %p.i.i.i, align 8
@@ -5470,7 +5470,7 @@ if.end.i180.i.i:                                  ; preds = %if.then273.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i180.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.205) #13
-  br label %verifystatus.exit.thread.i.i
+  br label %verifystatus.argprom.argprom.exit.thread.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end.i180.i.i
   %call6.i.i.i = call i32 @OCSP_response_status(ptr noundef nonnull %call2.i181.i.i) #13
@@ -5481,7 +5481,7 @@ if.then7.i.i.i:                                   ; preds = %if.end5.i.i.i
   %conv.i.i.i74 = sext i32 %call6.i.i.i to i64
   %call8.i183.i.i = call ptr @OCSP_response_status_str(i64 noundef %conv.i.i.i74) #13
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.206, ptr noundef %call8.i183.i.i, i32 noundef %call6.i.i.i) #13
-  br label %verifystatus.exit.thread.i.i
+  br label %verifystatus.argprom.argprom.exit.thread.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.end5.i.i.i
   %call10.i184.i.i = call ptr @OCSP_response_get1_basic(ptr noundef nonnull %call2.i181.i.i) #13
@@ -5490,7 +5490,7 @@ if.end9.i.i.i:                                    ; preds = %if.end5.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.205) #13
-  br label %verifystatus.exit.thread.i.i
+  br label %verifystatus.argprom.argprom.exit.thread.i.i
 
 if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %167 = load ptr, ptr %handle.i.i.i, align 8
@@ -5500,7 +5500,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
 
 if.then17.i.i.i:                                  ; preds = %if.end13.i.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.207) #13
-  br label %verifystatus.exit.i.i
+  br label %verifystatus.argprom.argprom.exit.i.i
 
 if.end18.i.i.i:                                   ; preds = %if.end13.i.i.i
   %168 = load ptr, ptr %cf.val.val.i.i, align 8
@@ -5511,7 +5511,7 @@ if.end18.i.i.i:                                   ; preds = %if.end13.i.i.i
 
 if.then24.i.i.i:                                  ; preds = %if.end18.i.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.208) #13
-  br label %verifystatus.exit.i.i
+  br label %verifystatus.argprom.argprom.exit.i.i
 
 if.end25.i.i.i:                                   ; preds = %if.end18.i.i.i
   %169 = load ptr, ptr %handle.i.i.i, align 8
@@ -5526,7 +5526,7 @@ for.cond.preheader.i.i.i:                         ; preds = %if.end25.i.i.i
 
 if.then29.i.i.i:                                  ; preds = %if.end25.i.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.209) #13
-  br label %verifystatus.exit.i.i
+  br label %verifystatus.argprom.argprom.exit.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i185.i.i
   %inc.i186.i.i = add nuw nsw i32 %i.020.i.i.i, 1
@@ -5554,7 +5554,7 @@ for.end.i.i.i:                                    ; preds = %for.body.i185.i.i
 
 if.then45.i.i.i:                                  ; preds = %for.end.i.i.i, %for.end.thread.i.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.210) #13
-  br label %verifystatus.exit.i.i
+  br label %verifystatus.argprom.argprom.exit.i.i
 
 if.end46.i.i.i:                                   ; preds = %for.end.i.i.i
   %call47.i.i.i = call i32 @OCSP_resp_find_status(ptr noundef nonnull %call10.i184.i.i, ptr noundef nonnull %call42.i.i.i, ptr noundef nonnull %cert_status.i.i.i, ptr noundef nonnull %crl_reason.i.i.i, ptr noundef nonnull %rev.i.i.i, ptr noundef nonnull %thisupd.i.i.i, ptr noundef nonnull %nextupd.i.i.i) #13
@@ -5564,7 +5564,7 @@ if.end46.i.i.i:                                   ; preds = %for.end.i.i.i
 
 if.then50.i.i.i:                                  ; preds = %if.end46.i.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.211) #13
-  br label %verifystatus.exit.i.i
+  br label %verifystatus.argprom.argprom.exit.i.i
 
 if.end51.i.i.i:                                   ; preds = %if.end46.i.i.i
   %170 = load ptr, ptr %thisupd.i.i.i, align 8
@@ -5575,7 +5575,7 @@ if.end51.i.i.i:                                   ; preds = %if.end46.i.i.i
 
 if.then54.i.i.i:                                  ; preds = %if.end51.i.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.212) #13
-  br label %verifystatus.exit.i.i
+  br label %verifystatus.argprom.argprom.exit.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end51.i.i.i
   %bf.load.i188.i.i = load i64, ptr %verbose.i55, align 2
@@ -5594,7 +5594,7 @@ if.then59.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
 do.end63.i.i.i:                                   ; preds = %if.then59.i.i.i, %land.lhs.true.i.i.i
   %175 = load i32, ptr %cert_status.i.i.i, align 4
   switch i32 %175, label %sw.default.i.i.i [
-    i32 0, label %verifystatus.exit.i.i
+    i32 0, label %verifystatus.argprom.argprom.exit.i.i
     i32 1, label %sw.bb64.i.i.i
   ]
 
@@ -5604,12 +5604,12 @@ sw.bb64.i.i.i:                                    ; preds = %do.end63.i.i.i
   %call66.i.i.i = call ptr @OCSP_crl_reason_str(i64 noundef %conv65.i.i.i) #13
   %177 = load i32, ptr %crl_reason.i.i.i, align 4
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.214, ptr noundef %call66.i.i.i, i32 noundef %177) #13
-  br label %verifystatus.exit.i.i
+  br label %verifystatus.argprom.argprom.exit.i.i
 
 sw.default.i.i.i:                                 ; preds = %do.end63.i.i.i
-  br label %verifystatus.exit.i.i
+  br label %verifystatus.argprom.argprom.exit.i.i
 
-verifystatus.exit.thread.i.i:                     ; preds = %if.then12.i.i.i, %if.then7.i.i.i, %if.then4.i.i.i, %if.then.i189.i.i
+verifystatus.argprom.argprom.exit.thread.i.i:     ; preds = %if.then12.i.i.i, %if.then7.i.i.i, %if.then4.i.i.i, %if.then.i189.i.i
   %rsp.07.i.ph.i.i = phi ptr [ null, %if.then.i189.i.i ], [ null, %if.then4.i.i.i ], [ %call2.i181.i.i, %if.then12.i.i.i ], [ %call2.i181.i.i, %if.then7.i.i.i ]
   call void @OCSP_RESPONSE_free(ptr noundef %rsp.07.i.ph.i.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %status.i.i.i)
@@ -5621,7 +5621,7 @@ verifystatus.exit.thread.i.i:                     ; preds = %if.then12.i.i.i, %i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nextupd.i.i.i)
   br label %if.then276.i.i
 
-verifystatus.exit.i.i:                            ; preds = %sw.default.i.i.i, %sw.bb64.i.i.i, %do.end63.i.i.i, %if.then54.i.i.i, %if.then50.i.i.i, %if.then45.i.i.i, %if.then29.i.i.i, %if.then24.i.i.i, %if.then17.i.i.i
+verifystatus.argprom.argprom.exit.i.i:            ; preds = %sw.default.i.i.i, %sw.bb64.i.i.i, %do.end63.i.i.i, %if.then54.i.i.i, %if.then50.i.i.i, %if.then45.i.i.i, %if.then29.i.i.i, %if.then24.i.i.i, %if.then17.i.i.i
   %tobool275.not.i.i = phi i1 [ false, %if.then24.i.i.i ], [ false, %if.then29.i.i.i ], [ false, %if.then17.i.i.i ], [ false, %if.then50.i.i.i ], [ false, %sw.default.i.i.i ], [ false, %sw.bb64.i.i.i ], [ true, %do.end63.i.i.i ], [ false, %if.then54.i.i.i ], [ false, %if.then45.i.i.i ]
   %result.017.i.i.i = phi i32 [ 91, %if.then24.i.i.i ], [ 91, %if.then29.i.i.i ], [ 91, %if.then17.i.i.i ], [ 91, %if.then50.i.i.i ], [ 91, %sw.default.i.i.i ], [ 91, %sw.bb64.i.i.i ], [ %175, %do.end63.i.i.i ], [ 91, %if.then54.i.i.i ], [ 91, %if.then45.i.i.i ]
   call void @OCSP_BASICRESP_free(ptr noundef nonnull %call10.i184.i.i) #13
@@ -5635,15 +5635,15 @@ verifystatus.exit.i.i:                            ; preds = %sw.default.i.i.i, %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nextupd.i.i.i)
   br i1 %tobool275.not.i.i, label %if.end280.i.i, label %if.then276.i.i
 
-if.then276.i.i:                                   ; preds = %verifystatus.exit.i.i, %verifystatus.exit.thread.i.i
-  %result.08.i203.i.i = phi i32 [ 91, %verifystatus.exit.thread.i.i ], [ %result.017.i.i.i, %verifystatus.exit.i.i ]
+if.then276.i.i:                                   ; preds = %verifystatus.argprom.argprom.exit.i.i, %verifystatus.argprom.argprom.exit.thread.i.i
+  %result.08.i203.i.i = phi i32 [ 91, %verifystatus.argprom.argprom.exit.thread.i.i ], [ %result.017.i.i.i, %verifystatus.argprom.argprom.exit.i.i ]
   %178 = load ptr, ptr %server_cert.i.i, align 8
   call void @X509_free(ptr noundef %178) #13
   store ptr null, ptr %server_cert.i.i, align 8
   br label %servercert.exit.i
 
-if.end280.i.i:                                    ; preds = %verifystatus.exit.i.i, %land.lhs.true267.i.i, %infof_certstack.exit.i.i
-  %result.2.i.i = phi i32 [ %result.1.i.i, %land.lhs.true267.i.i ], [ 0, %verifystatus.exit.i.i ], [ %result.1.i.i, %infof_certstack.exit.i.i ]
+if.end280.i.i:                                    ; preds = %verifystatus.argprom.argprom.exit.i.i, %land.lhs.true267.i.i, %infof_certstack.exit.i.i
+  %result.2.i.i = phi i32 [ %result.1.i.i, %land.lhs.true267.i.i ], [ 0, %verifystatus.argprom.argprom.exit.i.i ], [ %result.1.i.i, %infof_certstack.exit.i.i ]
   %spec.select.i.i = select i1 %.not.i, i32 0, i32 %result.2.i.i
   %call284.i.i = call zeroext i1 @Curl_ssl_cf_is_proxy(ptr noundef %cf) #13
   %cond293.in.v.i.i = select i1 %call284.i.i, i64 2064, i64 2056

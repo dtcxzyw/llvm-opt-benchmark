@@ -2563,13 +2563,13 @@ if.end:                                           ; preds = %entry
   %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
   %cmp.i = icmp eq ptr %2, null
-  br i1 %cmp.i, label %if.then.i, label %_Py_EnsureFuncTstateNotNULL.exit
+  br i1 %cmp.i, label %if.then.i, label %_Py_EnsureFuncTstateNotNULL.argprom.exit
 
 if.then.i:                                        ; preds = %if.end
   call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.PyOS_AfterFork_Child, ptr noundef nonnull @.str.10) #23
   unreachable
 
-_Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %if.end
+_Py_EnsureFuncTstateNotNULL.argprom.exit:         ; preds = %if.end
   %call1 = call i64 @PyThread_get_thread_native_id() #22
   %native_thread_id = getelementptr inbounds i8, ptr %2, i64 152
   store i64 %call1, ptr %native_thread_id, align 8
@@ -2579,7 +2579,7 @@ _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %if.end
   %cmp4.not = icmp eq i32 %3, 0
   br i1 %cmp4.not, label %if.end6, label %fatal_error
 
-if.end6:                                          ; preds = %_Py_EnsureFuncTstateNotNULL.exit
+if.end6:                                          ; preds = %_Py_EnsureFuncTstateNotNULL.argprom.exit
   %interp = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %interp, align 8
   call void @_PyImport_ReInitLock(ptr nonnull sret(%struct.PyStatus) align 8 %tmp7, ptr noundef %4) #22
@@ -2610,7 +2610,7 @@ if.end21:                                         ; preds = %if.end16
   call fastcc void @run_at_forkers(ptr noundef %9, i32 noundef 0)
   ret void
 
-fatal_error:                                      ; preds = %if.end16, %if.end11, %if.end6, %_Py_EnsureFuncTstateNotNULL.exit, %entry
+fatal_error:                                      ; preds = %if.end16, %if.end11, %if.end6, %_Py_EnsureFuncTstateNotNULL.argprom.exit, %entry
   call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
   unreachable
 }
@@ -3734,7 +3734,7 @@ if.end30:                                         ; preds = %if.end26, %if.end18
 skip_optional_kwonly:                             ; preds = %if.end30, %if.end26, %if.end15
   %follow_symlinks.0 = phi i32 [ %call32, %if.end30 ], [ 1, %if.end26 ], [ 1, %if.end15 ]
   %8 = load i32, ptr %dir_fd, align 4
-  %call.i18 = call fastcc ptr @posix_do_stat(ptr noundef readonly %module, ptr noundef readonly %path, i32 noundef %8, i32 noundef %follow_symlinks.0)
+  %call.i18 = call fastcc ptr @posix_do_stat.argprom(ptr noundef readonly %module, ptr noundef readonly %path, i32 noundef %8, i32 noundef %follow_symlinks.0)
   br label %exit
 
 exit:                                             ; preds = %dir_fd_converter.exit.thread, %if.end30, %dir_fd_converter.exit, %if.end, %cond.end9, %skip_optional_kwonly
@@ -3923,15 +3923,15 @@ if.then.i28:                                      ; preds = %skip_optional_kwonl
   %narrow.i = getelementptr inbounds i8, ptr %path, i64 32
   %11 = load ptr, ptr %narrow.i, align 8
   %call9.i = call i32 @faccessat(i32 noundef %10, ptr noundef %11, i32 noundef %call17, i32 noundef %flags.1.i) #22
-  br label %os_access_impl.exit
+  br label %os_access_impl.argprom.exit
 
 if.else.i29:                                      ; preds = %skip_optional_kwonly
   %narrow10.i = getelementptr inbounds i8, ptr %path, i64 32
   %12 = load ptr, ptr %narrow10.i, align 8
   %call11.i = call i32 @access(ptr noundef %12, i32 noundef %call17) #22
-  br label %os_access_impl.exit
+  br label %os_access_impl.argprom.exit
 
-os_access_impl.exit:                              ; preds = %if.then.i28, %if.else.i29
+os_access_impl.argprom.exit:                      ; preds = %if.then.i28, %if.else.i29
   %result.0.i = phi i32 [ %call11.i, %if.else.i29 ], [ %call9.i, %if.then.i28 ]
   call void @PyEval_RestoreThread(ptr noundef %call.i26) #22
   %tobool26.not.i = icmp eq i32 %result.0.i, 0
@@ -3939,8 +3939,8 @@ os_access_impl.exit:                              ; preds = %if.then.i28, %if.el
   %call64 = call ptr @PyBool_FromLong(i64 noundef %conv) #22
   br label %exit
 
-exit:                                             ; preds = %dir_fd_converter.exit.thread, %if.end51, %if.then41, %dir_fd_converter.exit, %land.lhs.true19, %if.end, %cond.end9, %os_access_impl.exit
-  %return_value.0 = phi ptr [ null, %land.lhs.true19 ], [ null, %if.then41 ], [ null, %if.end51 ], [ %call64, %os_access_impl.exit ], [ null, %dir_fd_converter.exit ], [ null, %if.end ], [ null, %cond.end9 ], [ null, %dir_fd_converter.exit.thread ]
+exit:                                             ; preds = %dir_fd_converter.exit.thread, %if.end51, %if.then41, %dir_fd_converter.exit, %land.lhs.true19, %if.end, %cond.end9, %os_access_impl.argprom.exit
+  %return_value.0 = phi ptr [ null, %land.lhs.true19 ], [ null, %if.then41 ], [ null, %if.end51 ], [ %call64, %os_access_impl.argprom.exit ], [ null, %dir_fd_converter.exit ], [ null, %if.end ], [ null, %cond.end9 ], [ null, %dir_fd_converter.exit.thread ]
   %wide1.i = getelementptr inbounds i8, ptr %path, i64 24
   %13 = load ptr, ptr %wide1.i, align 8
   call void @PyMem_Free(ptr noundef %13) #22
@@ -4005,7 +4005,7 @@ land.lhs.true:                                    ; preds = %entry
 
 exit.sink.split:                                  ; preds = %land.lhs.true, %entry
   %call.sink = phi i32 [ %call, %entry ], [ -1, %land.lhs.true ]
-  %call22 = tail call fastcc ptr @os_ttyname_impl(i32 noundef %call.sink)
+  %call22 = tail call fastcc ptr @os_ttyname_impl.argprom(i32 noundef %call.sink)
   br label %exit
 
 exit:                                             ; preds = %exit.sink.split, %land.lhs.true
@@ -4389,7 +4389,7 @@ land.lhs.true16:                                  ; preds = %if.end12
 
 exit.sink.split:                                  ; preds = %land.lhs.true16, %if.end12
   %call14.sink = phi i32 [ %call14, %if.end12 ], [ -1, %land.lhs.true16 ]
-  %call2113 = call fastcc ptr @os_fchmod_impl(i32 noundef %call6, i32 noundef %call14.sink)
+  %call2113 = call fastcc ptr @os_fchmod_impl.argprom(i32 noundef %call6, i32 noundef %call14.sink)
   br label %exit
 
 exit:                                             ; preds = %exit.sink.split, %land.lhs.true16, %land.lhs.true8, %cond.end
@@ -4932,13 +4932,13 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %0) #22
-  br label %os_ctermid_impl.exit
+  br label %os_ctermid_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call3.i = call ptr @PyUnicode_DecodeFSDefault(ptr noundef nonnull %buffer.i) #22
-  br label %os_ctermid_impl.exit
+  br label %os_ctermid_impl.argprom.exit
 
-os_ctermid_impl.exit:                             ; preds = %if.then.i, %if.end.i
+os_ctermid_impl.argprom.exit:                     ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %call.i.i, %if.then.i ], [ %call3.i, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %buffer.i)
   ret ptr %retval.0.i
@@ -5708,7 +5708,7 @@ dir_fd_converter.exit.skip_optional_kwonly_crit_edge: ; preds = %dir_fd_converte
 
 skip_optional_kwonly:                             ; preds = %if.end18, %dir_fd_converter.exit.skip_optional_kwonly_crit_edge, %if.end15
   %7 = phi i32 [ %.pre, %dir_fd_converter.exit.skip_optional_kwonly_crit_edge ], [ -100, %if.end15 ], [ -100, %if.end18 ]
-  %call.i14 = call fastcc ptr @posix_do_stat(ptr noundef readonly %module, ptr noundef readonly %path, i32 noundef %7, i32 noundef 0)
+  %call.i14 = call fastcc ptr @posix_do_stat.argprom(ptr noundef readonly %module, ptr noundef readonly %path, i32 noundef %7, i32 noundef 0)
   br label %exit
 
 exit:                                             ; preds = %dir_fd_converter.exit.thread, %dir_fd_converter.exit, %if.end, %cond.end9, %skip_optional_kwonly
@@ -6648,7 +6648,7 @@ if.then8.i:                                       ; preds = %if.end.i
   %path.val.i = load ptr, ptr %10, align 8
   %11 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i.i.i = call ptr @PyErr_SetFromErrnoWithFilenameObject(ptr noundef %11, ptr noundef %path.val.i) #22
-  br label %os_readlink_impl.exit
+  br label %os_readlink_impl.argprom.exit
 
 if.end10.i:                                       ; preds = %if.end.i
   %arrayidx.i = getelementptr [4097 x i8], ptr %buffer.i, i64 0, i64 %length.0.i
@@ -6665,19 +6665,19 @@ if.end10.i:                                       ; preds = %if.end.i
 
 if.then14.i:                                      ; preds = %if.end10.i
   %call16.i = call ptr @PyUnicode_DecodeFSDefaultAndSize(ptr noundef nonnull %buffer.i, i64 noundef %length.0.i) #22
-  br label %os_readlink_impl.exit
+  br label %os_readlink_impl.argprom.exit
 
 if.else17.i:                                      ; preds = %if.end10.i
   %call19.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %buffer.i, i64 noundef %length.0.i) #22
-  br label %os_readlink_impl.exit
+  br label %os_readlink_impl.argprom.exit
 
-os_readlink_impl.exit:                            ; preds = %if.then8.i, %if.then14.i, %if.else17.i
+os_readlink_impl.argprom.exit:                    ; preds = %if.then8.i, %if.then14.i, %if.else17.i
   %retval.0.i16 = phi ptr [ %call.i.i.i.i, %if.then8.i ], [ %call16.i, %if.then14.i ], [ %call19.i, %if.else17.i ]
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %buffer.i)
   br label %exit
 
-exit:                                             ; preds = %dir_fd_converter.exit.thread, %dir_fd_converter.exit, %if.end, %cond.end9, %os_readlink_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i16, %os_readlink_impl.exit ], [ null, %dir_fd_converter.exit ], [ null, %if.end ], [ null, %cond.end9 ], [ null, %dir_fd_converter.exit.thread ]
+exit:                                             ; preds = %dir_fd_converter.exit.thread, %dir_fd_converter.exit, %if.end, %cond.end9, %os_readlink_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i16, %os_readlink_impl.argprom.exit ], [ null, %dir_fd_converter.exit ], [ null, %if.end ], [ null, %cond.end9 ], [ null, %dir_fd_converter.exit.thread ]
   %wide1.i = getelementptr inbounds i8, ptr %path, i64 24
   %16 = load ptr, ptr %wide1.i, align 8
   call void @PyMem_Free(ptr noundef %16) #22
@@ -6861,7 +6861,7 @@ skip_optional_pos.thread:                         ; preds = %if.end38
 if.then.i:                                        ; preds = %skip_optional_pos.thread.thread, %skip_optional_pos.thread, %skip_optional_pos
   %10 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.256) #22
-  br label %os_copy_file_range_impl.exit
+  br label %os_copy_file_range_impl.argprom.exit
 
 if.end.i27:                                       ; preds = %skip_optional_pos
   %cmp1.not.i = icmp eq ptr %offset_src.0, @_Py_NoneStruct
@@ -6872,7 +6872,7 @@ if.then2.i:                                       ; preds = %if.end.i27
   store i64 %call.i.i, ptr %offset_src_val.i, align 8
   %call1.i.i = call ptr @PyErr_Occurred() #22
   %tobool.not.i.not.i = icmp eq ptr %call1.i.i, null
-  br i1 %tobool.not.i.not.i, label %if.end5.i, label %os_copy_file_range_impl.exit
+  br i1 %tobool.not.i.not.i, label %if.end5.i, label %os_copy_file_range_impl.argprom.exit
 
 if.end5.i:                                        ; preds = %if.then2.i, %if.end.i27
   %p_offset_src.0.i = phi ptr [ null, %if.end.i27 ], [ %offset_src_val.i, %if.then2.i ]
@@ -6884,7 +6884,7 @@ if.then7.i:                                       ; preds = %if.end5.i
   store i64 %call.i6.i, ptr %offset_dst_val.i, align 8
   %call1.i7.i = call ptr @PyErr_Occurred() #22
   %tobool.not.i8.not.i = icmp eq ptr %call1.i7.i, null
-  br i1 %tobool.not.i8.not.i, label %if.end12.i, label %os_copy_file_range_impl.exit
+  br i1 %tobool.not.i8.not.i, label %if.end12.i, label %os_copy_file_range_impl.argprom.exit
 
 if.end12.i:                                       ; preds = %skip_optional_pos.thread, %if.then7.i, %if.end5.i
   %ival.04264 = phi i64 [ %ival.04263, %if.end5.i ], [ %ival.04263, %if.then7.i ], [ %call31, %skip_optional_pos.thread ]
@@ -6908,25 +6908,25 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call18.i = call i32 @PyErr_CheckSignals() #22
   %tobool19.not.i = icmp eq i32 %call18.i, 0
-  br i1 %tobool19.not.i, label %do.body.i, label %os_copy_file_range_impl.exit, !llvm.loop !9
+  br i1 %tobool19.not.i, label %do.body.i, label %os_copy_file_range_impl.argprom.exit, !llvm.loop !9
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %12 = load ptr, ptr @PyExc_OSError, align 8
   %call.i10.i = call ptr @PyErr_SetFromErrno(ptr noundef %12) #22
-  br label %os_copy_file_range_impl.exit
+  br label %os_copy_file_range_impl.argprom.exit
 
 if.end24.i:                                       ; preds = %do.body.i
   %call25.i = call ptr @PyLong_FromSsize_t(i64 noundef %call14.i) #22
-  br label %os_copy_file_range_impl.exit
+  br label %os_copy_file_range_impl.argprom.exit
 
-os_copy_file_range_impl.exit:                     ; preds = %land.rhs.i, %if.then.i, %if.then2.i, %if.then7.i, %cond.true.i, %if.end24.i
+os_copy_file_range_impl.argprom.exit:             ; preds = %land.rhs.i, %if.then.i, %if.then2.i, %if.then7.i, %cond.true.i, %if.end24.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call25.i, %if.end24.i ], [ null, %if.then2.i ], [ null, %if.then7.i ], [ %call.i10.i, %cond.true.i ], [ null, %land.rhs.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset_src_val.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset_dst_val.i)
   br label %exit
 
-exit:                                             ; preds = %land.lhs.true34, %land.lhs.true22, %land.lhs.true14, %cond.end9, %os_copy_file_range_impl.exit
-  %return_value.0 = phi ptr [ null, %land.lhs.true14 ], [ null, %land.lhs.true22 ], [ null, %land.lhs.true34 ], [ %retval.0.i, %os_copy_file_range_impl.exit ], [ null, %cond.end9 ]
+exit:                                             ; preds = %land.lhs.true34, %land.lhs.true22, %land.lhs.true14, %cond.end9, %os_copy_file_range_impl.argprom.exit
+  %return_value.0 = phi ptr [ null, %land.lhs.true14 ], [ null, %land.lhs.true22 ], [ null, %land.lhs.true34 ], [ %retval.0.i, %os_copy_file_range_impl.argprom.exit ], [ null, %cond.end9 ]
   ret ptr %return_value.0
 }
 
@@ -7086,7 +7086,7 @@ skip_optional_pos.thread:                         ; preds = %if.end38
 if.then.i:                                        ; preds = %skip_optional_pos.thread.thread, %skip_optional_pos.thread, %skip_optional_pos
   %13 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.256) #22
-  br label %os_splice_impl.exit
+  br label %os_splice_impl.argprom.exit
 
 if.end.i31:                                       ; preds = %skip_optional_pos
   %cmp1.not.i = icmp eq ptr %offset_src.0, @_Py_NoneStruct
@@ -7097,7 +7097,7 @@ if.then2.i:                                       ; preds = %if.end.i31
   store i64 %call.i.i, ptr %offset_src_val.i, align 8
   %call1.i.i = call ptr @PyErr_Occurred() #22
   %tobool.not.i.not.i = icmp eq ptr %call1.i.i, null
-  br i1 %tobool.not.i.not.i, label %if.end5.i, label %os_splice_impl.exit
+  br i1 %tobool.not.i.not.i, label %if.end5.i, label %os_splice_impl.argprom.exit
 
 if.end5.i:                                        ; preds = %if.then2.i, %if.end.i31
   %p_offset_src.0.i = phi ptr [ null, %if.end.i31 ], [ %offset_src_val.i, %if.then2.i ]
@@ -7109,7 +7109,7 @@ if.then7.i:                                       ; preds = %if.end5.i
   store i64 %call.i6.i, ptr %offset_dst_val.i, align 8
   %call1.i7.i = call ptr @PyErr_Occurred() #22
   %tobool.not.i8.not.i = icmp eq ptr %call1.i7.i, null
-  br i1 %tobool.not.i8.not.i, label %if.end12.i, label %os_splice_impl.exit
+  br i1 %tobool.not.i8.not.i, label %if.end12.i, label %os_splice_impl.argprom.exit
 
 if.end12.i:                                       ; preds = %skip_optional_pos.thread, %if.then7.i, %if.end5.i
   %ival.03759 = phi i64 [ %ival.03758, %if.end5.i ], [ %ival.03758, %if.then7.i ], [ %call31, %skip_optional_pos.thread ]
@@ -7134,25 +7134,25 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call18.i = call i32 @PyErr_CheckSignals() #22
   %tobool19.not.i = icmp eq i32 %call18.i, 0
-  br i1 %tobool19.not.i, label %do.body.i, label %os_splice_impl.exit, !llvm.loop !10
+  br i1 %tobool19.not.i, label %do.body.i, label %os_splice_impl.argprom.exit, !llvm.loop !10
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %16 = load ptr, ptr @PyExc_OSError, align 8
   %call.i10.i = call ptr @PyErr_SetFromErrno(ptr noundef %16) #22
-  br label %os_splice_impl.exit
+  br label %os_splice_impl.argprom.exit
 
 if.end24.i:                                       ; preds = %do.body.i
   %call25.i = call ptr @PyLong_FromSsize_t(i64 noundef %call14.i) #22
-  br label %os_splice_impl.exit
+  br label %os_splice_impl.argprom.exit
 
-os_splice_impl.exit:                              ; preds = %land.rhs.i, %if.then.i, %if.then2.i, %if.then7.i, %cond.true.i, %if.end24.i
+os_splice_impl.argprom.exit:                      ; preds = %land.rhs.i, %if.then.i, %if.then2.i, %if.then7.i, %cond.true.i, %if.end24.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call25.i, %if.end24.i ], [ null, %if.then2.i ], [ null, %if.then7.i ], [ %call.i10.i, %cond.true.i ], [ null, %land.rhs.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset_src_val.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset_dst_val.i)
   br label %exit
 
-exit:                                             ; preds = %if.end58, %land.lhs.true34, %land.lhs.true22, %land.lhs.true14, %cond.end9, %os_splice_impl.exit
-  %return_value.0 = phi ptr [ null, %land.lhs.true14 ], [ null, %land.lhs.true22 ], [ null, %land.lhs.true34 ], [ %retval.0.i, %os_splice_impl.exit ], [ null, %if.end58 ], [ null, %cond.end9 ]
+exit:                                             ; preds = %if.end58, %land.lhs.true34, %land.lhs.true22, %land.lhs.true14, %cond.end9, %os_splice_impl.argprom.exit
+  %return_value.0 = phi ptr [ null, %land.lhs.true14 ], [ null, %land.lhs.true22 ], [ null, %land.lhs.true34 ], [ %retval.0.i, %os_splice_impl.argprom.exit ], [ null, %if.end58 ], [ null, %cond.end9 ]
   ret ptr %return_value.0
 }
 
@@ -8037,9 +8037,9 @@ if.end9:                                          ; preds = %if.end
   %call.i = call ptr @PyBytes_AsString(ptr noundef %2) #22
   %call1.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.204, ptr noundef %2) #22
   %cmp.i = icmp slt i32 %call1.i, 0
-  br i1 %cmp.i, label %land.lhs.true12, label %os_system_impl.exit
+  br i1 %cmp.i, label %land.lhs.true12, label %os_system_impl.argprom.exit
 
-os_system_impl.exit:                              ; preds = %if.end9
+os_system_impl.argprom.exit:                      ; preds = %if.end9
   %call2.i = call ptr @PyEval_SaveThread() #22
   %call3.i = call i32 @system(ptr noundef %call.i) #22
   %conv.i = sext i32 %call3.i to i64
@@ -8047,13 +8047,13 @@ os_system_impl.exit:                              ; preds = %if.end9
   %cmp11 = icmp eq i32 %call3.i, -1
   br i1 %cmp11, label %land.lhs.true12, label %if.end16
 
-land.lhs.true12:                                  ; preds = %if.end9, %os_system_impl.exit
+land.lhs.true12:                                  ; preds = %if.end9, %os_system_impl.argprom.exit
   %call13 = call ptr @PyErr_Occurred() #22
   %tobool14.not = icmp eq ptr %call13, null
   br i1 %tobool14.not, label %if.end16, label %exit
 
-if.end16:                                         ; preds = %land.lhs.true12, %os_system_impl.exit
-  %retval.0.i17 = phi i64 [ -1, %land.lhs.true12 ], [ %conv.i, %os_system_impl.exit ]
+if.end16:                                         ; preds = %land.lhs.true12, %os_system_impl.argprom.exit
+  %retval.0.i17 = phi i64 [ -1, %land.lhs.true12 ], [ %conv.i, %os_system_impl.argprom.exit ]
   %call17 = call ptr @PyLong_FromLong(i64 noundef %retval.0.i17) #22
   br label %exit
 
@@ -8828,7 +8828,7 @@ if.end25.i:                                       ; preds = %lor.lhs.false21.i
   %26 = getelementptr i8, ptr %module, i64 32
   %module.val.i = load ptr, ptr %26, align 8
   %module.val.val.i = load ptr, ptr %module.val.i, align 8
-  %call31.i = call fastcc i32 @split_py_long_to_s_and_ns(ptr %module.val.val.i, ptr noundef %25, ptr noundef %atime_s29.i, ptr noundef %atime_ns30.i)
+  %call31.i = call fastcc i32 @split_py_long_to_s_and_ns.argprom.argprom(ptr %module.val.val.i, ptr noundef %25, ptr noundef %atime_s29.i, ptr noundef %atime_ns30.i)
   %tobool32.not.i = icmp eq i32 %call31.i, 0
   br i1 %tobool32.not.i, label %os_utime_impl.exit, label %lor.lhs.false33.i
 
@@ -8839,7 +8839,7 @@ lor.lhs.false33.i:                                ; preds = %if.end25.i
   %mtime_ns37.i = getelementptr inbounds i8, ptr %utime.i, i64 32
   %module.val35.i = load ptr, ptr %26, align 8
   %module.val35.val.i = load ptr, ptr %module.val35.i, align 8
-  %call38.i = call fastcc i32 @split_py_long_to_s_and_ns(ptr %module.val35.val.i, ptr noundef %27, ptr noundef %mtime_s36.i, ptr noundef %mtime_ns37.i)
+  %call38.i = call fastcc i32 @split_py_long_to_s_and_ns.argprom.argprom(ptr %module.val35.val.i, ptr noundef %27, ptr noundef %mtime_s36.i, ptr noundef %mtime_ns37.i)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %os_utime_impl.exit, label %if.end45.i
 
@@ -9275,7 +9275,7 @@ if.end5:                                          ; preds = %if.end
 if.then.i:                                        ; preds = %if.end5
   %5 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.278) #22
-  br label %os_execv_impl.exit
+  br label %os_execv_impl.argprom.exit
 
 if.end.i:                                         ; preds = %if.end5
   %6 = getelementptr i8, ptr %1, i64 8
@@ -9289,7 +9289,7 @@ if.end.i:                                         ; preds = %if.end5
 if.then8.i:                                       ; preds = %if.end.i
   %9 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.279) #22
-  br label %os_execv_impl.exit
+  br label %os_execv_impl.argprom.exit
 
 if.end9.i:                                        ; preds = %if.end.i
   %call10.i = tail call i64 @PySequence_Size(ptr noundef nonnull %1) #22
@@ -9300,12 +9300,12 @@ if.end9.i:                                        ; preds = %if.end.i
 if.then11.i:                                      ; preds = %if.end9.i
   %10 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.280) #22
-  br label %os_execv_impl.exit
+  br label %os_execv_impl.argprom.exit
 
 if.end12.i:                                       ; preds = %if.end9.i
   %call13.i = call fastcc ptr @parse_arglist(ptr noundef nonnull %1, ptr noundef %argc.i)
   %cmp14.i = icmp eq ptr %call13.i, null
-  br i1 %cmp14.i, label %os_execv_impl.exit, label %if.end16.i
+  br i1 %cmp14.i, label %os_execv_impl.argprom.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end12.i
   %11 = load ptr, ptr %call13.i, align 8
@@ -9331,7 +9331,7 @@ for.body.i.i:                                     ; preds = %if.then19.i, %for.b
 
 free_string_array.exit.i:                         ; preds = %for.body.i.i, %if.then19.i
   tail call void @PyMem_Free(ptr noundef nonnull %call13.i) #22
-  br label %os_execv_impl.exit
+  br label %os_execv_impl.argprom.exit
 
 if.end20.i:                                       ; preds = %if.end16.i
   %object.i = getelementptr inbounds i8, ptr %path, i64 56
@@ -9356,7 +9356,7 @@ for.body.i16.i:                                   ; preds = %if.then23.i, %for.b
 
 free_string_array.exit21.i:                       ; preds = %for.body.i16.i, %if.then23.i
   tail call void @PyMem_Free(ptr noundef nonnull %call13.i) #22
-  br label %os_execv_impl.exit
+  br label %os_execv_impl.argprom.exit
 
 if.end24.i:                                       ; preds = %if.end20.i
   %narrow.i = getelementptr inbounds i8, ptr %path, i64 32
@@ -9379,13 +9379,13 @@ for.body.i23.i:                                   ; preds = %if.end24.i, %for.bo
 
 free_string_array.exit28.i:                       ; preds = %for.body.i23.i, %if.end24.i
   tail call void @PyMem_Free(ptr noundef nonnull %call13.i) #22
-  br label %os_execv_impl.exit
+  br label %os_execv_impl.argprom.exit
 
-os_execv_impl.exit:                               ; preds = %if.then.i, %if.then8.i, %if.then11.i, %if.end12.i, %free_string_array.exit.i, %free_string_array.exit21.i, %free_string_array.exit28.i
+os_execv_impl.argprom.exit:                       ; preds = %if.then.i, %if.then8.i, %if.then11.i, %if.end12.i, %free_string_array.exit.i, %free_string_array.exit21.i, %free_string_array.exit28.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %argc.i)
   br label %exit
 
-exit:                                             ; preds = %if.end, %lor.lhs.false, %os_execv_impl.exit
+exit:                                             ; preds = %if.end, %lor.lhs.false, %os_execv_impl.argprom.exit
   %wide1.i = getelementptr inbounds i8, ptr %path, i64 24
   %23 = load ptr, ptr %wide1.i, align 8
   tail call void @PyMem_Free(ptr noundef %23) #22
@@ -9481,7 +9481,7 @@ if.end9:                                          ; preds = %if.end
 if.then.i:                                        ; preds = %if.end9
   %7 = load ptr, ptr @PyExc_RuntimeError, align 8
   call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.278) #22
-  br label %os_execve_impl.exit
+  br label %os_execve_impl.argprom.exit
 
 if.end.i:                                         ; preds = %if.end9
   %8 = getelementptr i8, ptr %2, i64 8
@@ -9495,7 +9495,7 @@ if.end.i:                                         ; preds = %if.end9
 if.then8.i:                                       ; preds = %if.end.i
   %11 = load ptr, ptr @PyExc_TypeError, align 8
   call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.285) #22
-  br label %os_execve_impl.exit
+  br label %os_execve_impl.argprom.exit
 
 if.end9.i:                                        ; preds = %if.end.i
   %call10.i = call i64 @PySequence_Size(ptr noundef nonnull %2) #22
@@ -9506,7 +9506,7 @@ if.end9.i:                                        ; preds = %if.end.i
 if.then11.i:                                      ; preds = %if.end9.i
   %12 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.286) #22
-  br label %os_execve_impl.exit
+  br label %os_execve_impl.argprom.exit
 
 if.end12.i:                                       ; preds = %if.end9.i
   %call13.i = call i32 @PyMapping_Check(ptr noundef %3) #22
@@ -9516,12 +9516,12 @@ if.end12.i:                                       ; preds = %if.end9.i
 if.then15.i:                                      ; preds = %if.end12.i
   %13 = load ptr, ptr @PyExc_TypeError, align 8
   call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.287) #22
-  br label %os_execve_impl.exit
+  br label %os_execve_impl.argprom.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
   %call17.i = call fastcc ptr @parse_arglist(ptr noundef nonnull %2, ptr noundef %argc.i)
   %cmp18.i = icmp eq ptr %call17.i, null
-  br i1 %cmp18.i, label %os_execve_impl.exit, label %if.end20.i
+  br i1 %cmp18.i, label %os_execve_impl.argprom.exit, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end16.i
   %14 = load ptr, ptr %call17.i, align 8
@@ -9605,14 +9605,14 @@ for.body.i24.i:                                   ; preds = %if.then41.i, %for.b
 
 free_string_array.exit29.i:                       ; preds = %for.body.i24.i, %if.then41.i
   call void @PyMem_Free(ptr noundef nonnull %call17.i) #22
-  br label %os_execve_impl.exit
+  br label %os_execve_impl.argprom.exit
 
-os_execve_impl.exit:                              ; preds = %if.then.i, %if.then8.i, %if.then11.i, %if.then15.i, %if.end16.i, %free_string_array.exit29.i
+os_execve_impl.argprom.exit:                      ; preds = %if.then.i, %if.then8.i, %if.then11.i, %if.then15.i, %if.end16.i, %free_string_array.exit29.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %argc.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %envc.i)
   br label %exit
 
-exit:                                             ; preds = %if.end, %cond.end, %os_execve_impl.exit
+exit:                                             ; preds = %if.end, %cond.end, %os_execve_impl.argprom.exit
   %wide1.i = getelementptr inbounds i8, ptr %path, i64 24
   %25 = load ptr, ptr %wide1.i, align 8
   call void @PyMem_Free(ptr noundef %25) #22
@@ -9678,7 +9678,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %4 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.289) #22
-  br label %os_fork_impl.exit
+  br label %os_fork_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call i32 @_PyInterpreterState_HasFeature(ptr noundef nonnull %2, i64 noundef 32768) #22
@@ -9688,12 +9688,12 @@ if.end.i:                                         ; preds = %entry
 if.then3.i:                                       ; preds = %if.end.i
   %5 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.290) #22
-  br label %os_fork_impl.exit
+  br label %os_fork_impl.argprom.exit
 
 if.end4.i:                                        ; preds = %if.end.i
   %call5.i = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.291, ptr noundef null) #22
   %cmp.i = icmp slt i32 %call5.i, 0
-  br i1 %cmp.i, label %os_fork_impl.exit, label %if.end7.i
+  br i1 %cmp.i, label %os_fork_impl.argprom.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end4.i
   %6 = load ptr, ptr %0, align 8
@@ -9737,14 +9737,14 @@ if.then14.i:                                      ; preds = %if.end12.i
   store i32 %9, ptr %call9.i, align 4
   %13 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %13) #22
-  br label %os_fork_impl.exit
+  br label %os_fork_impl.argprom.exit
 
 if.end17.i:                                       ; preds = %if.end12.i, %if.end12.thread.i
   %conv.i = sext i32 %call8.i to i64
   %call18.i = tail call ptr @PyLong_FromLong(i64 noundef %conv.i) #22
-  br label %os_fork_impl.exit
+  br label %os_fork_impl.argprom.exit
 
-os_fork_impl.exit:                                ; preds = %if.then.i, %if.then3.i, %if.end4.i, %if.then14.i, %if.end17.i
+os_fork_impl.argprom.exit:                        ; preds = %if.then.i, %if.then3.i, %if.end4.i, %if.then14.i, %if.end17.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call.i.i, %if.then14.i ], [ %call18.i, %if.end17.i ], [ null, %if.then3.i ], [ null, %if.end4.i ]
   ret ptr %retval.0.i
 }
@@ -10191,15 +10191,15 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %interval.i)
   %call.i = call i32 @sched_rr_get_interval(i32 noundef %0, ptr noundef nonnull %interval.i) #22
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %os_sched_rr_get_interval_impl.exit, label %os_sched_rr_get_interval_impl.exit.thread
+  br i1 %tobool.not.i, label %os_sched_rr_get_interval_impl.argprom.exit, label %os_sched_rr_get_interval_impl.argprom.exit.thread
 
-os_sched_rr_get_interval_impl.exit.thread:        ; preds = %if.end
+os_sched_rr_get_interval_impl.argprom.exit.thread: ; preds = %if.end
   %1 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %1) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %interval.i)
   br label %land.lhs.true
 
-os_sched_rr_get_interval_impl.exit:               ; preds = %if.end
+os_sched_rr_get_interval_impl.argprom.exit:       ; preds = %if.end
   %2 = load i64, ptr %interval.i, align 8
   %conv.i = sitofp i64 %2 to double
   %tv_nsec.i = getelementptr inbounds i8, ptr %interval.i, i64 8
@@ -10210,13 +10210,13 @@ os_sched_rr_get_interval_impl.exit:               ; preds = %if.end
   %cmp = fcmp oeq double %4, -1.000000e+00
   br i1 %cmp, label %land.lhs.true, label %if.end5
 
-land.lhs.true:                                    ; preds = %os_sched_rr_get_interval_impl.exit.thread, %os_sched_rr_get_interval_impl.exit
+land.lhs.true:                                    ; preds = %os_sched_rr_get_interval_impl.argprom.exit.thread, %os_sched_rr_get_interval_impl.argprom.exit
   %call2 = call ptr @PyErr_Occurred() #22
   %tobool3.not = icmp eq ptr %call2, null
   br i1 %tobool3.not, label %if.end5, label %exit
 
-if.end5:                                          ; preds = %land.lhs.true, %os_sched_rr_get_interval_impl.exit
-  %retval.0.i4 = phi double [ -1.000000e+00, %land.lhs.true ], [ %4, %os_sched_rr_get_interval_impl.exit ]
+if.end5:                                          ; preds = %land.lhs.true, %os_sched_rr_get_interval_impl.argprom.exit
+  %retval.0.i4 = phi double [ -1.000000e+00, %land.lhs.true ], [ %4, %os_sched_rr_get_interval_impl.argprom.exit ]
   %call6 = call ptr @PyFloat_FromDouble(double noundef %retval.0.i4) #22
   br label %exit
 
@@ -10251,7 +10251,7 @@ if.end:                                           ; preds = %entry
 if.then.i.i:                                      ; preds = %if.end
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.251) #22
-  br label %os_sched_setparam_impl.exit
+  br label %os_sched_setparam_impl.argprom.argprom.exit
 
 if.end.i.i:                                       ; preds = %if.end
   %call2.i.i = call ptr @PyStructSequence_GetItem(ptr noundef nonnull %1, i64 noundef 0) #22
@@ -10262,7 +10262,7 @@ if.end.i.i:                                       ; preds = %if.end
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %call4.i.i = call ptr @PyErr_Occurred() #22
   %tobool5.not.i.i = icmp eq ptr %call4.i.i, null
-  br i1 %tobool5.not.i.i, label %if.end.i, label %os_sched_setparam_impl.exit
+  br i1 %tobool5.not.i.i, label %if.end.i, label %os_sched_setparam_impl.argprom.argprom.exit
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
   %6 = add i64 %call3.i.i, -2147483648
@@ -10272,27 +10272,27 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
 if.then10.i.i:                                    ; preds = %if.end7.i.i
   %7 = load ptr, ptr @PyExc_OverflowError, align 8
   call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.252) #22
-  br label %os_sched_setparam_impl.exit
+  br label %os_sched_setparam_impl.argprom.argprom.exit
 
 if.end.i:                                         ; preds = %if.end7.i.i, %land.lhs.true.i.i
   %conv.i.i = trunc nsw i64 %call3.i.i to i32
   store i32 %conv.i.i, ptr %param.i, align 4
   %call1.i = call i32 @sched_setparam(i32 noundef %0, ptr noundef nonnull %param.i) #22
   %tobool2.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool2.not.i, label %os_sched_setparam_impl.exit, label %if.then3.i
+  br i1 %tobool2.not.i, label %os_sched_setparam_impl.argprom.argprom.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %8 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %8) #22
-  br label %os_sched_setparam_impl.exit
+  br label %os_sched_setparam_impl.argprom.argprom.exit
 
-os_sched_setparam_impl.exit:                      ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.then10.i.i, %if.end.i, %if.then3.i
+os_sched_setparam_impl.argprom.argprom.exit:      ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.then10.i.i, %if.end.i, %if.then3.i
   %retval.0.i = phi ptr [ %call.i.i, %if.then3.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.then10.i.i ], [ null, %if.then.i.i ], [ null, %land.lhs.true.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %param.i)
   br label %exit
 
-exit:                                             ; preds = %entry, %os_sched_setparam_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %os_sched_setparam_impl.exit ], [ null, %entry ]
+exit:                                             ; preds = %entry, %os_sched_setparam_impl.argprom.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %os_sched_setparam_impl.argprom.argprom.exit ], [ null, %entry ]
   ret ptr %return_value.0
 }
 
@@ -10324,7 +10324,7 @@ if.end:                                           ; preds = %entry
 if.then.i.i:                                      ; preds = %if.end
   %6 = load ptr, ptr @PyExc_TypeError, align 8
   call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.251) #22
-  br label %os_sched_setscheduler_impl.exit
+  br label %os_sched_setscheduler_impl.argprom.argprom.exit
 
 if.end.i.i:                                       ; preds = %if.end
   %call2.i.i = call ptr @PyStructSequence_GetItem(ptr noundef nonnull %2, i64 noundef 0) #22
@@ -10335,7 +10335,7 @@ if.end.i.i:                                       ; preds = %if.end
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %call4.i.i = call ptr @PyErr_Occurred() #22
   %tobool5.not.i.i = icmp eq ptr %call4.i.i, null
-  br i1 %tobool5.not.i.i, label %if.end.i, label %os_sched_setscheduler_impl.exit
+  br i1 %tobool5.not.i.i, label %if.end.i, label %os_sched_setscheduler_impl.argprom.argprom.exit
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
   %7 = add i64 %call3.i.i, -2147483648
@@ -10345,27 +10345,27 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
 if.then10.i.i:                                    ; preds = %if.end7.i.i
   %8 = load ptr, ptr @PyExc_OverflowError, align 8
   call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.252) #22
-  br label %os_sched_setscheduler_impl.exit
+  br label %os_sched_setscheduler_impl.argprom.argprom.exit
 
 if.end.i:                                         ; preds = %if.end7.i.i, %land.lhs.true.i.i
   %conv.i.i = trunc nsw i64 %call3.i.i to i32
   store i32 %conv.i.i, ptr %param.i, align 4
   %call1.i = call i32 @sched_setscheduler(i32 noundef %0, i32 noundef %1, ptr noundef nonnull %param.i) #22
   %cmp.i = icmp eq i32 %call1.i, -1
-  br i1 %cmp.i, label %if.then2.i, label %os_sched_setscheduler_impl.exit
+  br i1 %cmp.i, label %if.then2.i, label %os_sched_setscheduler_impl.argprom.argprom.exit
 
 if.then2.i:                                       ; preds = %if.end.i
   %9 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %9) #22
-  br label %os_sched_setscheduler_impl.exit
+  br label %os_sched_setscheduler_impl.argprom.argprom.exit
 
-os_sched_setscheduler_impl.exit:                  ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.then10.i.i, %if.end.i, %if.then2.i
+os_sched_setscheduler_impl.argprom.argprom.exit:  ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.then10.i.i, %if.end.i, %if.then2.i
   %retval.0.i = phi ptr [ %call.i.i, %if.then2.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.then10.i.i ], [ null, %if.then.i.i ], [ null, %land.lhs.true.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %param.i)
   br label %exit
 
-exit:                                             ; preds = %entry, %os_sched_setscheduler_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %os_sched_setscheduler_impl.exit ], [ null, %entry ]
+exit:                                             ; preds = %entry, %os_sched_setscheduler_impl.argprom.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %os_sched_setscheduler_impl.argprom.argprom.exit ], [ null, %entry ]
   ret ptr %return_value.0
 }
 
@@ -10376,14 +10376,14 @@ entry:
   %call1.i = tail call i32 @sched_yield() #22
   tail call void @PyEval_RestoreThread(ptr noundef %call.i) #22
   %cmp.i = icmp slt i32 %call1.i, 0
-  br i1 %cmp.i, label %if.then.i, label %os_sched_yield_impl.exit
+  br i1 %cmp.i, label %if.then.i, label %os_sched_yield_impl.argprom.exit
 
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %0) #22
-  br label %os_sched_yield_impl.exit
+  br label %os_sched_yield_impl.argprom.exit
 
-os_sched_yield_impl.exit:                         ; preds = %entry, %if.then.i
+os_sched_yield_impl.argprom.exit:                 ; preds = %entry, %if.then.i
   %retval.0.i = phi ptr [ %call.i.i, %if.then.i ], [ @_Py_NoneStruct, %entry ]
   ret ptr %retval.0.i
 }
@@ -10811,7 +10811,7 @@ if.end8.i:                                        ; preds = %if.end4.i
   %2 = load i32, ptr %master_fd.i, align 4
   %3 = load i32, ptr %slave_fd.i, align 4
   %call9.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.313, i32 noundef %2, i32 noundef %3) #22
-  br label %os_openpty_impl.exit
+  br label %os_openpty_impl.argprom.exit
 
 posix_error.i:                                    ; preds = %entry
   %4 = load ptr, ptr @PyExc_OSError, align 8
@@ -10830,13 +10830,13 @@ if.then12.i:                                      ; preds = %error.i
 if.end14.i:                                       ; preds = %if.then12.i, %error.i
   %6 = load i32, ptr %slave_fd.i, align 4
   %cmp15.not.i = icmp eq i32 %6, -1
-  br i1 %cmp15.not.i, label %os_openpty_impl.exit, label %if.then16.i
+  br i1 %cmp15.not.i, label %os_openpty_impl.argprom.exit, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end14.i
   %call17.i = call i32 @close(i32 noundef %6) #22
-  br label %os_openpty_impl.exit
+  br label %os_openpty_impl.argprom.exit
 
-os_openpty_impl.exit:                             ; preds = %if.end8.i, %if.end14.i, %if.then16.i
+os_openpty_impl.argprom.exit:                     ; preds = %if.end8.i, %if.end14.i, %if.then16.i
   %retval.0.i = phi ptr [ %call9.i, %if.end8.i ], [ null, %if.then16.i ], [ null, %if.end14.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %master_fd.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %slave_fd.i)
@@ -10885,7 +10885,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %4 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.289) #22
-  br label %os_forkpty_impl.exit
+  br label %os_forkpty_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
@@ -10895,12 +10895,12 @@ if.end.i:                                         ; preds = %entry
 if.then3.i:                                       ; preds = %if.end.i
   %6 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.314) #22
-  br label %os_forkpty_impl.exit
+  br label %os_forkpty_impl.argprom.exit
 
 if.end4.i:                                        ; preds = %if.end.i
   %call5.i = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.315, ptr noundef null) #22
   %cmp.i = icmp slt i32 %call5.i, 0
-  br i1 %cmp.i, label %os_forkpty_impl.exit, label %if.end7.i
+  br i1 %cmp.i, label %os_forkpty_impl.argprom.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end4.i
   %7 = load ptr, ptr %0, align 8
@@ -10941,16 +10941,16 @@ if.end11.i:                                       ; preds = %if.else.i
 if.then13.i:                                      ; preds = %if.end11.i
   %13 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %13) #22
-  br label %os_forkpty_impl.exit
+  br label %os_forkpty_impl.argprom.exit
 
 if.end15.i:                                       ; preds = %if.end11.i, %if.end11.thread.i
   %conv.i = sext i32 %call8.i to i64
   %call16.i = call ptr @PyLong_FromLong(i64 noundef %conv.i) #22
   %14 = load i32, ptr %master_fd.i, align 4
   %call17.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.316, ptr noundef %call16.i, i32 noundef %14) #22
-  br label %os_forkpty_impl.exit
+  br label %os_forkpty_impl.argprom.exit
 
-os_forkpty_impl.exit:                             ; preds = %if.then.i, %if.then3.i, %if.end4.i, %if.then13.i, %if.end15.i
+os_forkpty_impl.argprom.exit:                     ; preds = %if.then.i, %if.then3.i, %if.end4.i, %if.then13.i, %if.end15.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call.i.i, %if.then13.i ], [ %call17.i, %if.end15.i ], [ null, %if.then3.i ], [ null, %if.end4.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %master_fd.i)
   ret ptr %retval.0.i
@@ -10965,14 +10965,14 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %call.i.i = tail call ptr @PyLong_FromLong(i64 noundef -1) #22
-  br label %os_getegid_impl.exit
+  br label %os_getegid_impl.argprom.exit
 
 if.end.i.i:                                       ; preds = %entry
   %conv.i.i = zext i32 %call.i to i64
   %call1.i.i = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %conv.i.i) #22
-  br label %os_getegid_impl.exit
+  br label %os_getegid_impl.argprom.exit
 
-os_getegid_impl.exit:                             ; preds = %if.then.i.i, %if.end.i.i
+os_getegid_impl.argprom.exit:                     ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call1.i.i, %if.end.i.i ]
   ret ptr %retval.0.i.i
 }
@@ -10986,14 +10986,14 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %call.i.i = tail call ptr @PyLong_FromLong(i64 noundef -1) #22
-  br label %os_geteuid_impl.exit
+  br label %os_geteuid_impl.argprom.exit
 
 if.end.i.i:                                       ; preds = %entry
   %conv.i.i = zext i32 %call.i to i64
   %call1.i.i = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %conv.i.i) #22
-  br label %os_geteuid_impl.exit
+  br label %os_geteuid_impl.argprom.exit
 
-os_geteuid_impl.exit:                             ; preds = %if.then.i.i, %if.end.i.i
+os_geteuid_impl.argprom.exit:                     ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call1.i.i, %if.end.i.i ]
   ret ptr %retval.0.i.i
 }
@@ -11007,14 +11007,14 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %call.i.i = tail call ptr @PyLong_FromLong(i64 noundef -1) #22
-  br label %os_getgid_impl.exit
+  br label %os_getgid_impl.argprom.exit
 
 if.end.i.i:                                       ; preds = %entry
   %conv.i.i = zext i32 %call.i to i64
   %call1.i.i = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %conv.i.i) #22
-  br label %os_getgid_impl.exit
+  br label %os_getgid_impl.argprom.exit
 
-os_getgid_impl.exit:                              ; preds = %if.then.i.i, %if.end.i.i
+os_getgid_impl.argprom.exit:                      ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call1.i.i, %if.end.i.i ]
   ret ptr %retval.0.i.i
 }
@@ -11086,7 +11086,7 @@ cond.end.i:                                       ; preds = %if.end20.i, %if.end
 
 if.then.i:                                        ; preds = %if.end20.i, %cond.end.i
   %call5.i = call ptr @PyErr_NoMemory() #22
-  br label %os_getgrouplist_impl.exit
+  br label %os_getgrouplist_impl.argprom.exit
 
 if.end.i:                                         ; preds = %cond.end.i
   %9 = load i32, ptr %ngroups.i, align 4
@@ -11106,7 +11106,7 @@ if.else.i:                                        ; preds = %if.end10.i
 
 if.then16.i:                                      ; preds = %if.else.i
   %call17.i = call ptr @PyErr_NoMemory() #22
-  br label %os_getgrouplist_impl.exit
+  br label %os_getgrouplist_impl.argprom.exit
 
 if.end18.i:                                       ; preds = %if.else.i
   %mul19.i = shl i32 %10, 1
@@ -11136,7 +11136,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 
 if.then25.i:                                      ; preds = %while.end.i
   call void @PyMem_Free(ptr noundef nonnull %call.i) #22
-  br label %os_getgrouplist_impl.exit
+  br label %os_getgrouplist_impl.argprom.exit
 
 for.body.i:                                       ; preds = %if.end33.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %if.end33.i ]
@@ -11177,7 +11177,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i, %if.then32.i
   call void @PyMem_Free(ptr noundef nonnull %call.i) #22
-  br label %os_getgrouplist_impl.exit
+  br label %os_getgrouplist_impl.argprom.exit
 
 if.end33.i:                                       ; preds = %_PyLong_FromGid.exit.i
   %call22.val.i = load ptr, ptr %13, align 8
@@ -11191,15 +11191,15 @@ if.end33.i:                                       ; preds = %_PyLong_FromGid.exi
 
 for.end.i:                                        ; preds = %if.end33.i, %for.cond.preheader.i
   call void @PyMem_Free(ptr noundef nonnull %call.i) #22
-  br label %os_getgrouplist_impl.exit
+  br label %os_getgrouplist_impl.argprom.exit
 
-os_getgrouplist_impl.exit:                        ; preds = %if.then.i, %if.then16.i, %if.then25.i, %Py_DECREF.exit.i, %for.end.i
+os_getgrouplist_impl.argprom.exit:                ; preds = %if.then.i, %if.then16.i, %if.then25.i, %Py_DECREF.exit.i, %for.end.i
   %retval.0.i = phi ptr [ %call5.i, %if.then.i ], [ null, %if.then25.i ], [ null, %Py_DECREF.exit.i ], [ %call22.i, %for.end.i ], [ %call17.i, %if.then16.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ngroups.i)
   br label %exit
 
-exit:                                             ; preds = %if.end16, %if.end7, %lor.lhs.false, %os_getgrouplist_impl.exit, %if.then15, %if.then5
-  %return_value.0 = phi ptr [ null, %if.end7 ], [ null, %if.then15 ], [ %retval.0.i, %os_getgrouplist_impl.exit ], [ null, %if.end16 ], [ null, %if.then5 ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %if.end16, %if.end7, %lor.lhs.false, %os_getgrouplist_impl.argprom.exit, %if.then15, %if.then5
+  %return_value.0 = phi ptr [ null, %if.end7 ], [ null, %if.then15 ], [ %retval.0.i, %os_getgrouplist_impl.argprom.exit ], [ null, %if.end16 ], [ null, %if.then5 ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -11213,7 +11213,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %0) #22
-  br label %os_getgroups_impl.exit
+  br label %os_getgroups_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %cmp2.i = icmp eq i32 %call.i, 0
@@ -11221,7 +11221,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.end.i
   %call4.i = tail call ptr @PyList_New(i64 noundef 0) #22
-  br label %os_getgroups_impl.exit
+  br label %os_getgroups_impl.argprom.exit
 
 cond.false.i:                                     ; preds = %if.end.i
   %conv.i = zext nneg i32 %call.i to i64
@@ -11232,7 +11232,7 @@ cond.false.i:                                     ; preds = %if.end.i
 
 if.then12.i:                                      ; preds = %cond.false.i
   %call13.i = tail call ptr @PyErr_NoMemory() #22
-  br label %os_getgroups_impl.exit
+  br label %os_getgroups_impl.argprom.exit
 
 if.end14.i:                                       ; preds = %cond.false.i
   %call15.i = tail call i32 @getgroups(i32 noundef %call.i, ptr noundef nonnull %call9.i) #22
@@ -11243,7 +11243,7 @@ if.then18.i:                                      ; preds = %if.end14.i
   %1 = load ptr, ptr @PyExc_OSError, align 8
   %call.i20.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %1) #22
   tail call void @PyMem_Free(ptr noundef nonnull %call9.i) #22
-  br label %os_getgroups_impl.exit
+  br label %os_getgroups_impl.argprom.exit
 
 if.end20.i:                                       ; preds = %if.end14.i
   %conv21.i = sext i32 %call15.i to i64
@@ -11262,7 +11262,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 
 if.end20.split.i:                                 ; preds = %if.end20.i
   tail call void @PyMem_Free(ptr noundef nonnull %call9.i) #22
-  br label %os_getgroups_impl.exit
+  br label %os_getgroups_impl.argprom.exit
 
 for.body.i:                                       ; preds = %if.end33.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %if.end33.i ]
@@ -11290,17 +11290,17 @@ if.then.i22.i:                                    ; preds = %_PyLong_FromGid.exi
   %4 = load i64, ptr %call22.i, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %5, 0
-  br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %os_getgroups_impl.exit
+  br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %os_getgroups_impl.argprom.exit
 
 if.end.i.i.i:                                     ; preds = %if.then.i22.i
   %dec.i.i.i = add i64 %4, -1
   store i64 %dec.i.i.i, ptr %call22.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %os_getgroups_impl.exit
+  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %os_getgroups_impl.argprom.exit
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call22.i) #22
-  br label %os_getgroups_impl.exit
+  br label %os_getgroups_impl.argprom.exit
 
 if.end33.i:                                       ; preds = %_PyLong_FromGid.exit.i
   %call22.val.i = load ptr, ptr %2, align 8
@@ -11312,9 +11312,9 @@ if.end33.i:                                       ; preds = %_PyLong_FromGid.exi
 
 for.end.i:                                        ; preds = %if.end33.i, %for.cond.preheader.i
   tail call void @PyMem_Free(ptr noundef nonnull %call9.i) #22
-  br label %os_getgroups_impl.exit
+  br label %os_getgroups_impl.argprom.exit
 
-os_getgroups_impl.exit:                           ; preds = %if.then.i, %if.then3.i, %if.then12.i, %if.then18.i, %if.end20.split.i, %if.then.i22.i, %if.end.i.i.i, %if.then1.i.i.i, %for.end.i
+os_getgroups_impl.argprom.exit:                   ; preds = %if.then.i, %if.then3.i, %if.then12.i, %if.then18.i, %if.end20.split.i, %if.then.i22.i, %if.end.i.i.i, %if.then1.i.i.i, %for.end.i
   %retval.0.i = phi ptr [ %call.i.i, %if.then.i ], [ %call4.i, %if.then3.i ], [ %call13.i, %if.then12.i ], [ null, %if.then18.i ], [ %call22.i, %for.end.i ], [ null, %if.end20.split.i ], [ null, %if.then.i22.i ], [ null, %if.end.i.i.i ], [ null, %if.then1.i.i.i ]
   ret ptr %retval.0.i
 }
@@ -11355,14 +11355,14 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %call.i.i = tail call ptr @PyLong_FromLong(i64 noundef -1) #22
-  br label %os_getuid_impl.exit
+  br label %os_getuid_impl.argprom.exit
 
 if.end.i.i:                                       ; preds = %entry
   %conv.i.i = zext i32 %call.i to i64
   %call1.i.i = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %conv.i.i) #22
-  br label %os_getuid_impl.exit
+  br label %os_getuid_impl.argprom.exit
 
-os_getuid_impl.exit:                              ; preds = %if.then.i.i, %if.end.i.i
+os_getuid_impl.argprom.exit:                      ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call1.i.i, %if.end.i.i ]
   ret ptr %retval.0.i.i
 }
@@ -11385,17 +11385,17 @@ if.then.i:                                        ; preds = %entry
 
 if.then4.i:                                       ; preds = %if.then.i
   %call.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %2) #22
-  br label %os_getlogin_impl.exit
+  br label %os_getlogin_impl.argprom.exit
 
 if.else.i:                                        ; preds = %if.then.i
   tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.320) #22
-  br label %os_getlogin_impl.exit
+  br label %os_getlogin_impl.argprom.exit
 
 if.else6.i:                                       ; preds = %entry
   %call7.i = tail call ptr @PyUnicode_DecodeFSDefault(ptr noundef nonnull %call2.i) #22
-  br label %os_getlogin_impl.exit
+  br label %os_getlogin_impl.argprom.exit
 
-os_getlogin_impl.exit:                            ; preds = %if.then4.i, %if.else.i, %if.else6.i
+os_getlogin_impl.argprom.exit:                    ; preds = %if.then4.i, %if.else.i, %if.else6.i
   %result.0.i = phi ptr [ null, %if.then4.i ], [ null, %if.else.i ], [ %call7.i, %if.else6.i ]
   store i32 %0, ptr %call.i, align 4
   ret ptr %result.0.i
@@ -11898,14 +11898,14 @@ define internal ptr @os_setpgrp(ptr nocapture readnone %module, ptr nocapture re
 entry:
   %call.i = tail call i32 @setpgrp() #22
   %cmp.i = icmp slt i32 %call.i, 0
-  br i1 %cmp.i, label %if.then.i, label %os_setpgrp_impl.exit
+  br i1 %cmp.i, label %if.then.i, label %os_setpgrp_impl.argprom.exit
 
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %0) #22
-  br label %os_setpgrp_impl.exit
+  br label %os_setpgrp_impl.argprom.exit
 
-os_setpgrp_impl.exit:                             ; preds = %entry, %if.then.i
+os_setpgrp_impl.argprom.exit:                     ; preds = %entry, %if.then.i
   %retval.0.i = phi ptr [ %call.i.i, %if.then.i ], [ @_Py_NoneStruct, %entry ]
   ret ptr %retval.0.i
 }
@@ -11934,21 +11934,21 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call4.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i, label %do.body.i, label %os_wait_impl.exit, !llvm.loop !18
+  br i1 %tobool.not.i, label %do.body.i, label %os_wait_impl.argprom.exit, !llvm.loop !18
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %1 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %1) #22
-  br label %os_wait_impl.exit
+  br label %os_wait_impl.argprom.exit
 
 if.end.i:                                         ; preds = %do.body.i
   %conv.i = zext nneg i32 %call1.i to i64
   %call8.i = call ptr @PyLong_FromLong(i64 noundef %conv.i) #22
   %2 = load i32, ptr %status.i, align 4
   %call9.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.332, ptr noundef %call8.i, i32 noundef %2) #22
-  br label %os_wait_impl.exit
+  br label %os_wait_impl.argprom.exit
 
-os_wait_impl.exit:                                ; preds = %land.rhs.i, %cond.true.i, %if.end.i
+os_wait_impl.argprom.exit:                        ; preds = %land.rhs.i, %cond.true.i, %if.end.i
   %retval.0.i = phi ptr [ %call9.i, %if.end.i ], [ %call.i.i, %cond.true.i ], [ null, %land.rhs.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
   ret ptr %retval.0.i
@@ -11984,7 +11984,7 @@ land.lhs.true8:                                   ; preds = %if.end
 
 exit.sink.split:                                  ; preds = %land.lhs.true8, %if.end
   %call6.sink = phi i32 [ %call6, %if.end ], [ -1, %land.lhs.true8 ]
-  %call1311 = call fastcc ptr @os_wait3_impl(i32 noundef %call6.sink)
+  %call1311 = call fastcc ptr @os_wait3_impl.argprom(i32 noundef %call6.sink)
   br label %exit
 
 exit:                                             ; preds = %exit.sink.split, %land.lhs.true8, %cond.end
@@ -12027,26 +12027,26 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call4.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i, label %do.body.i, label %os_wait4_impl.exit, !llvm.loop !19
+  br i1 %tobool.not.i, label %do.body.i, label %os_wait4_impl.argprom.exit, !llvm.loop !19
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %3 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %3) #22
-  br label %os_wait4_impl.exit
+  br label %os_wait4_impl.argprom.exit
 
 if.end.i:                                         ; preds = %do.body.i
   %4 = load i32, ptr %status.i, align 4
-  %call8.i = call fastcc ptr @wait_helper(i32 noundef %call1.i, i32 noundef %4, ptr noundef %ru.i)
-  br label %os_wait4_impl.exit
+  %call8.i = call fastcc ptr @wait_helper.argprom(i32 noundef %call1.i, i32 noundef %4, ptr noundef %ru.i)
+  br label %os_wait4_impl.argprom.exit
 
-os_wait4_impl.exit:                               ; preds = %land.rhs.i, %cond.true.i, %if.end.i
+os_wait4_impl.argprom.exit:                       ; preds = %land.rhs.i, %cond.true.i, %if.end.i
   %retval.0.i = phi ptr [ %call8.i, %if.end.i ], [ %call.i.i, %cond.true.i ], [ null, %land.rhs.i ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %ru.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
   br label %exit
 
-exit:                                             ; preds = %entry, %os_wait4_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %os_wait4_impl.exit ], [ null, %entry ]
+exit:                                             ; preds = %entry, %os_wait4_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %os_wait4_impl.argprom.exit ], [ null, %entry ]
   ret ptr %return_value.0
 }
 
@@ -12206,27 +12206,27 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call4.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i, label %do.body.i, label %os_waitpid_impl.exit, !llvm.loop !21
+  br i1 %tobool.not.i, label %do.body.i, label %os_waitpid_impl.argprom.exit, !llvm.loop !21
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %3 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %3) #22
-  br label %os_waitpid_impl.exit
+  br label %os_waitpid_impl.argprom.exit
 
 if.end.i:                                         ; preds = %do.body.i
   %conv.i = zext nneg i32 %call1.i to i64
   %call8.i = call ptr @PyLong_FromLong(i64 noundef %conv.i) #22
   %4 = load i32, ptr %status.i, align 4
   %call9.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.332, ptr noundef %call8.i, i32 noundef %4) #22
-  br label %os_waitpid_impl.exit
+  br label %os_waitpid_impl.argprom.exit
 
-os_waitpid_impl.exit:                             ; preds = %land.rhs.i, %cond.true.i, %if.end.i
+os_waitpid_impl.argprom.exit:                     ; preds = %land.rhs.i, %cond.true.i, %if.end.i
   %retval.0.i = phi ptr [ %call9.i, %if.end.i ], [ %call.i.i, %cond.true.i ], [ null, %land.rhs.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
   br label %exit
 
-exit:                                             ; preds = %entry, %os_waitpid_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %os_waitpid_impl.exit ], [ null, %entry ]
+exit:                                             ; preds = %entry, %os_waitpid_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %os_waitpid_impl.argprom.exit ], [ null, %entry ]
   ret ptr %return_value.0
 }
 
@@ -12297,14 +12297,14 @@ define internal ptr @os_setsid(ptr nocapture readnone %module, ptr nocapture rea
 entry:
   %call.i = tail call i32 @setsid() #22
   %cmp.i = icmp slt i32 %call.i, 0
-  br i1 %cmp.i, label %if.then.i, label %os_setsid_impl.exit
+  br i1 %cmp.i, label %if.then.i, label %os_setsid_impl.argprom.exit
 
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %0) #22
-  br label %os_setsid_impl.exit
+  br label %os_setsid_impl.argprom.exit
 
-os_setsid_impl.exit:                              ; preds = %entry, %if.then.i
+os_setsid_impl.argprom.exit:                      ; preds = %entry, %if.then.i
   %retval.0.i = phi ptr [ %call.i.i, %if.then.i ], [ @_Py_NoneStruct, %entry ]
   ret ptr %retval.0.i
 }
@@ -13160,7 +13160,7 @@ if.end14:                                         ; preds = %if.end.i, %if.then1
   br i1 %cmp15, label %land.lhs.true16, label %if.end14.split
 
 if.end14.split:                                   ; preds = %if.end14
-  %call2110 = tail call fastcc ptr @os_read_impl(i32 noundef %call2, i64 noundef %call13)
+  %call2110 = tail call fastcc ptr @os_read_impl.argprom(i32 noundef %call2, i64 noundef %call13)
   br label %exit
 
 land.lhs.true16:                                  ; preds = %if.end8, %if.end14
@@ -13206,7 +13206,7 @@ if.end8:                                          ; preds = %land.lhs.true4, %if
   %.sink = phi i32 [ %call2, %if.end ], [ -1, %land.lhs.true4 ]
   %arrayidx98 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx98, align 8
-  %call109 = tail call fastcc i64 @os_readv_impl(i32 noundef %.sink, ptr noundef %1)
+  %call109 = tail call fastcc i64 @os_readv_impl.argprom(i32 noundef %.sink, ptr noundef %1)
   %cmp11 = icmp eq i64 %call109, -1
   br i1 %cmp11, label %land.lhs.true12, label %if.end16
 
@@ -13299,13 +13299,13 @@ if.then.i:                                        ; preds = %if.end25
   store i32 22, ptr %call.i14, align 4
   %5 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %5) #22
-  br label %os_pread_impl.exit
+  br label %os_pread_impl.argprom.exit
 
 if.end.i12:                                       ; preds = %if.end25
   %call2.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %ival.017) #22
   store ptr %call2.i, ptr %buffer.i, align 8
   %cmp3.i = icmp eq ptr %call2.i, null
-  br i1 %cmp3.i, label %os_pread_impl.exit, label %do.body.preheader.i
+  br i1 %cmp3.i, label %os_pread_impl.argprom.exit, label %do.body.preheader.i
 
 do.body.preheader.i:                              ; preds = %if.end.i12
   %ob_sval.i.i = getelementptr inbounds i8, ptr %call2.i, i64 32
@@ -13338,34 +13338,34 @@ if.end18.i:                                       ; preds = %land.rhs.i, %if.the
   %8 = load i64, ptr %call2.i, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i25.not.i = icmp eq i64 %9, 0
-  br i1 %cmp.i25.not.i, label %if.end.i.i, label %os_pread_impl.exit
+  br i1 %cmp.i25.not.i, label %if.end.i.i, label %os_pread_impl.argprom.exit
 
 if.end.i.i:                                       ; preds = %if.end18.i
   %dec.i.i = add i64 %8, -1
   store i64 %dec.i.i, ptr %call2.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %os_pread_impl.exit
+  br i1 %cmp.i.i, label %if.then1.i.i, label %os_pread_impl.argprom.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call2.i) #22
-  br label %os_pread_impl.exit
+  br label %os_pread_impl.argprom.exit
 
 if.end19.i:                                       ; preds = %do.body.i
   %cmp20.not.i = icmp eq i64 %call8.i, %ival.017
-  br i1 %cmp20.not.i, label %os_pread_impl.exit, label %if.then21.i
+  br i1 %cmp20.not.i, label %os_pread_impl.argprom.exit, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end19.i
   %call22.i = call i32 @_PyBytes_Resize(ptr noundef nonnull %buffer.i, i64 noundef %call8.i) #22
   %.pre.i = load ptr, ptr %buffer.i, align 8
-  br label %os_pread_impl.exit
+  br label %os_pread_impl.argprom.exit
 
-os_pread_impl.exit:                               ; preds = %if.then.i, %if.end.i12, %if.end18.i, %if.end.i.i, %if.then1.i.i, %if.end19.i, %if.then21.i
+os_pread_impl.argprom.exit:                       ; preds = %if.then.i, %if.end.i12, %if.end18.i, %if.end.i.i, %if.then1.i.i, %if.end19.i, %if.then21.i
   %retval.0.i = phi ptr [ %call.i.i, %if.then.i ], [ null, %if.end.i12 ], [ null, %if.end18.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i ], [ %.pre.i, %if.then21.i ], [ %call2.i, %if.end19.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
   br label %exit
 
-exit:                                             ; preds = %if.end20, %land.lhs.true16, %land.lhs.true4, %lor.lhs.false, %os_pread_impl.exit
-  %return_value.0 = phi ptr [ null, %land.lhs.true4 ], [ null, %land.lhs.true16 ], [ %retval.0.i, %os_pread_impl.exit ], [ null, %if.end20 ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %if.end20, %land.lhs.true16, %land.lhs.true4, %lor.lhs.false, %os_pread_impl.argprom.exit
+  %return_value.0 = phi ptr [ null, %land.lhs.true4 ], [ null, %land.lhs.true16 ], [ %retval.0.i, %os_pread_impl.argprom.exit ], [ null, %if.end20 ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -13431,17 +13431,17 @@ skip_optional:                                    ; preds = %if.end17, %land.lhs
 if.then.i:                                        ; preds = %skip_optional
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.349) #22
-  br label %os_preadv_impl.exit.thread
+  br label %os_preadv_impl.argprom.exit.thread
 
 if.end.i:                                         ; preds = %skip_optional
   %call1.i12 = tail call i64 @PySequence_Size(ptr noundef %2) #22
   %cmp.i = icmp slt i64 %call1.i12, 0
-  br i1 %cmp.i, label %os_preadv_impl.exit.thread, label %if.end3.i
+  br i1 %cmp.i, label %os_preadv_impl.argprom.exit.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %call4.i = call fastcc i32 @iov_setup(ptr noundef %iov.i, ptr noundef %buf.i, ptr noundef %2, i64 noundef %call1.i12, i32 noundef 1)
   %cmp5.i = icmp slt i32 %call4.i, 0
-  br i1 %cmp5.i, label %os_preadv_impl.exit.thread, label %do.body.preheader.i
+  br i1 %cmp5.i, label %os_preadv_impl.argprom.exit.thread, label %do.body.preheader.i
 
 do.body.preheader.i:                              ; preds = %if.end3.i
   %6 = load ptr, ptr %iov.i, align 8
@@ -13489,32 +13489,32 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 iov_cleanup.exit.i:                               ; preds = %for.body.i.i, %do.end.i
   tail call void @PyMem_Free(ptr noundef %9) #22
   %brmerge.i = or i1 %cmp10.i, %async_err.1.not.i
-  br i1 %brmerge.i, label %os_preadv_impl.exit, label %if.then23.i
+  br i1 %brmerge.i, label %os_preadv_impl.argprom.exit, label %if.then23.i
 
 if.then23.i:                                      ; preds = %iov_cleanup.exit.i
   store i32 %8, ptr %.pre.i, align 4
   %10 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %10) #22
-  br label %os_preadv_impl.exit.thread
+  br label %os_preadv_impl.argprom.exit.thread
 
-os_preadv_impl.exit.thread:                       ; preds = %if.then.i, %if.end.i, %if.end3.i, %if.then23.i
+os_preadv_impl.argprom.exit.thread:               ; preds = %if.then.i, %if.end.i, %if.end3.i, %if.then23.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
   br label %land.lhs.true28
 
-os_preadv_impl.exit:                              ; preds = %iov_cleanup.exit.i
+os_preadv_impl.argprom.exit:                      ; preds = %iov_cleanup.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
   %cmp27 = icmp slt i64 %call9.i, 0
   br i1 %cmp27, label %land.lhs.true28, label %if.end32
 
-land.lhs.true28:                                  ; preds = %os_preadv_impl.exit.thread, %os_preadv_impl.exit
+land.lhs.true28:                                  ; preds = %os_preadv_impl.argprom.exit.thread, %os_preadv_impl.argprom.exit
   %call29 = tail call ptr @PyErr_Occurred() #22
   %tobool30.not = icmp eq ptr %call29, null
   br i1 %tobool30.not, label %if.end32, label %exit
 
-if.end32:                                         ; preds = %land.lhs.true28, %os_preadv_impl.exit
-  %retval.0.i15 = phi i64 [ -1, %land.lhs.true28 ], [ %call9.i, %os_preadv_impl.exit ]
+if.end32:                                         ; preds = %land.lhs.true28, %os_preadv_impl.argprom.exit
+  %retval.0.i15 = phi i64 [ -1, %land.lhs.true28 ], [ %call9.i, %os_preadv_impl.argprom.exit ]
   %call33 = tail call ptr @PyLong_FromSsize_t(i64 noundef %retval.0.i15) #22
   br label %exit
 
@@ -13612,7 +13612,7 @@ if.end8:                                          ; preds = %land.lhs.true4, %if
   %.sink = phi i32 [ %call2, %if.end ], [ -1, %land.lhs.true4 ]
   %arrayidx98 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx98, align 8
-  %call109 = tail call fastcc i64 @os_writev_impl(i32 noundef %.sink, ptr noundef %1)
+  %call109 = tail call fastcc i64 @os_writev_impl.argprom(i32 noundef %.sink, ptr noundef %1)
   %cmp11 = icmp eq i64 %call109, -1
   br i1 %cmp11, label %land.lhs.true12, label %if.end16
 
@@ -13691,23 +13691,23 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call4.i = call i32 @PyErr_CheckSignals() #22
   %tobool.not.i9 = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i9, label %do.body.i, label %os_pwrite_impl.exit, !llvm.loop !26
+  br i1 %tobool.not.i9, label %do.body.i, label %os_pwrite_impl.argprom.exit, !llvm.loop !26
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %6 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %6) #22
-  br label %os_pwrite_impl.exit
+  br label %os_pwrite_impl.argprom.exit
 
-os_pwrite_impl.exit:                              ; preds = %land.rhs.i, %if.then.i
+os_pwrite_impl.argprom.exit:                      ; preds = %land.rhs.i, %if.then.i
   %cmp20 = icmp eq i64 %call1.i8, -1
   br i1 %cmp20, label %land.lhs.true21, label %if.end25
 
-land.lhs.true21:                                  ; preds = %os_pwrite_impl.exit
+land.lhs.true21:                                  ; preds = %os_pwrite_impl.argprom.exit
   %call22 = call ptr @PyErr_Occurred() #22
   %tobool23.not = icmp eq ptr %call22, null
   br i1 %tobool23.not, label %if.end25, label %exit
 
-if.end25:                                         ; preds = %do.body.i, %land.lhs.true21, %os_pwrite_impl.exit
+if.end25:                                         ; preds = %do.body.i, %land.lhs.true21, %os_pwrite_impl.argprom.exit
   %call26 = call ptr @PyLong_FromSsize_t(i64 noundef %call1.i8) #22
   br label %exit
 
@@ -13788,17 +13788,17 @@ skip_optional:                                    ; preds = %if.end17, %land.lhs
 if.then.i:                                        ; preds = %skip_optional
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.351) #22
-  br label %os_pwritev_impl.exit.thread
+  br label %os_pwritev_impl.argprom.exit.thread
 
 if.end.i:                                         ; preds = %skip_optional
   %call1.i12 = tail call i64 @PySequence_Size(ptr noundef %2) #22
   %cmp.i = icmp slt i64 %call1.i12, 0
-  br i1 %cmp.i, label %os_pwritev_impl.exit.thread, label %if.end3.i
+  br i1 %cmp.i, label %os_pwritev_impl.argprom.exit.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %call4.i = call fastcc i32 @iov_setup(ptr noundef %iov.i, ptr noundef %buf.i, ptr noundef %2, i64 noundef %call1.i12, i32 noundef 0)
   %cmp5.i = icmp slt i32 %call4.i, 0
-  br i1 %cmp5.i, label %os_pwritev_impl.exit.thread, label %do.body.preheader.i
+  br i1 %cmp5.i, label %os_pwritev_impl.argprom.exit.thread, label %do.body.preheader.i
 
 do.body.preheader.i:                              ; preds = %if.end3.i
   %6 = load ptr, ptr %iov.i, align 8
@@ -13833,7 +13833,7 @@ if.end24.i:                                       ; preds = %land.rhs.i, %do.bod
   %9 = load ptr, ptr %buf.i, align 8
   tail call void @PyMem_Free(ptr noundef %6) #22
   %cmp4.i.i = icmp sgt i32 %conv.i, 0
-  br i1 %cmp4.i.i, label %for.body.preheader.i.i, label %os_pwritev_impl.exit
+  br i1 %cmp4.i.i, label %for.body.preheader.i.i, label %os_pwritev_impl.argprom.exit
 
 for.body.preheader.i.i:                           ; preds = %if.end24.i
   %wide.trip.count.i.i = and i64 %call1.i12, 2147483647
@@ -13845,27 +13845,27 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   tail call void @PyBuffer_Release(ptr noundef %arrayidx.i.i) #22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %os_pwritev_impl.exit, label %for.body.i.i, !llvm.loop !25
+  br i1 %exitcond.not.i.i, label %os_pwritev_impl.argprom.exit, label %for.body.i.i, !llvm.loop !25
 
-os_pwritev_impl.exit.thread:                      ; preds = %if.then.i, %if.end.i, %if.end3.i
+os_pwritev_impl.argprom.exit.thread:              ; preds = %if.then.i, %if.end.i, %if.end3.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
   br label %land.lhs.true28
 
-os_pwritev_impl.exit:                             ; preds = %for.body.i.i, %if.end24.i
+os_pwritev_impl.argprom.exit:                     ; preds = %for.body.i.i, %if.end24.i
   tail call void @PyMem_Free(ptr noundef %9) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
   %cmp27 = icmp eq i64 %result.0.i, -1
   br i1 %cmp27, label %land.lhs.true28, label %if.end32
 
-land.lhs.true28:                                  ; preds = %os_pwritev_impl.exit.thread, %os_pwritev_impl.exit
+land.lhs.true28:                                  ; preds = %os_pwritev_impl.argprom.exit.thread, %os_pwritev_impl.argprom.exit
   %call29 = tail call ptr @PyErr_Occurred() #22
   %tobool30.not = icmp eq ptr %call29, null
   br i1 %tobool30.not, label %if.end32, label %exit
 
-if.end32:                                         ; preds = %land.lhs.true28, %os_pwritev_impl.exit
-  %retval.0.i15 = phi i64 [ -1, %land.lhs.true28 ], [ %result.0.i, %os_pwritev_impl.exit ]
+if.end32:                                         ; preds = %land.lhs.true28, %os_pwritev_impl.argprom.exit
+  %retval.0.i15 = phi i64 [ -1, %land.lhs.true28 ], [ %result.0.i, %os_pwritev_impl.argprom.exit ]
   %call33 = tail call ptr @PyLong_FromSsize_t(i64 noundef %retval.0.i15) #22
   br label %exit
 
@@ -13951,7 +13951,7 @@ land.lhs.true29:                                  ; preds = %if.end20, %if.end27
 
 exit.sink.split:                                  ; preds = %land.lhs.true29, %if.end27
   %call26.sink = phi i64 [ %call26, %if.end27 ], [ -1, %land.lhs.true29 ]
-  %call3420 = call fastcc ptr @os_sendfile_impl(i32 noundef %call6, i32 noundef %call14, ptr noundef %3, i64 noundef %call26.sink)
+  %call3420 = call fastcc ptr @os_sendfile_impl.argprom(i32 noundef %call6, i32 noundef %call14, ptr noundef %3, i64 noundef %call26.sink)
   br label %exit
 
 exit:                                             ; preds = %exit.sink.split, %land.lhs.true29, %land.lhs.true16, %land.lhs.true8, %cond.end
@@ -14137,7 +14137,7 @@ if.then12.i:                                      ; preds = %if.then9.i
   %arrayidx15.i = getelementptr inbounds i8, ptr %fds.i, i64 4
   %3 = load i32, ptr %arrayidx15.i, align 4
   %call16.i = call i32 @close(i32 noundef %3) #22
-  br label %os_pipe_impl.exit
+  br label %os_pipe_impl.argprom.exit
 
 if.end.i:                                         ; preds = %if.then9.i
   %arrayidx17.i = getelementptr inbounds i8, ptr %fds.i, i64 4
@@ -14151,21 +14151,21 @@ if.then20.i:                                      ; preds = %if.end.i
   %call22.i = call i32 @close(i32 noundef %5) #22
   %6 = load i32, ptr %arrayidx17.i, align 4
   %call24.i = call i32 @close(i32 noundef %6) #22
-  br label %os_pipe_impl.exit
+  br label %os_pipe_impl.argprom.exit
 
 if.then29.i:                                      ; preds = %if.then.i, %land.lhs.true.i
   %7 = load ptr, ptr @PyExc_OSError, align 8
   %call30.i = call ptr @PyErr_SetFromErrno(ptr noundef %7) #22
-  br label %os_pipe_impl.exit
+  br label %os_pipe_impl.argprom.exit
 
 if.end31.i:                                       ; preds = %if.end.i, %entry
   %8 = load i32, ptr %fds.i, align 4
   %arrayidx33.i = getelementptr inbounds i8, ptr %fds.i, i64 4
   %9 = load i32, ptr %arrayidx33.i, align 4
   %call34.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.313, i32 noundef %8, i32 noundef %9) #22
-  br label %os_pipe_impl.exit
+  br label %os_pipe_impl.argprom.exit
 
-os_pipe_impl.exit:                                ; preds = %if.then12.i, %if.then20.i, %if.then29.i, %if.end31.i
+os_pipe_impl.argprom.exit:                        ; preds = %if.then12.i, %if.then20.i, %if.then29.i, %if.end31.i
   %retval.0.i = phi ptr [ null, %if.then12.i ], [ null, %if.then20.i ], [ %call30.i, %if.then29.i ], [ %call34.i, %if.end31.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %fds.i)
   ret ptr %retval.0.i
@@ -14189,16 +14189,16 @@ entry.split:                                      ; preds = %entry
 if.then.i:                                        ; preds = %entry.split
   %0 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %0) #22
-  br label %os_pipe2_impl.exit
+  br label %os_pipe2_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry.split
   %1 = load i32, ptr %fds.i, align 4
   %arrayidx2.i = getelementptr inbounds i8, ptr %fds.i, i64 4
   %2 = load i32, ptr %arrayidx2.i, align 4
   %call3.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.313, i32 noundef %1, i32 noundef %2) #22
-  br label %os_pipe2_impl.exit
+  br label %os_pipe2_impl.argprom.exit
 
-os_pipe2_impl.exit:                               ; preds = %if.then.i, %if.end.i
+os_pipe2_impl.argprom.exit:                       ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %call.i.i, %if.then.i ], [ %call3.i, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %fds.i)
   br label %exit
@@ -14217,22 +14217,22 @@ land.lhs.true.split:                              ; preds = %land.lhs.true
 if.then.i7:                                       ; preds = %land.lhs.true.split
   %3 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i8 = call ptr @PyErr_SetFromErrno(ptr noundef %3) #22
-  br label %os_pipe2_impl.exit13
+  br label %os_pipe2_impl.argprom.exit13
 
 if.end.i10:                                       ; preds = %land.lhs.true.split
   %4 = load i32, ptr %fds.i4, align 4
   %arrayidx2.i11 = getelementptr inbounds i8, ptr %fds.i4, i64 4
   %5 = load i32, ptr %arrayidx2.i11, align 4
   %call3.i12 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.313, i32 noundef %4, i32 noundef %5) #22
-  br label %os_pipe2_impl.exit13
+  br label %os_pipe2_impl.argprom.exit13
 
-os_pipe2_impl.exit13:                             ; preds = %if.then.i7, %if.end.i10
+os_pipe2_impl.argprom.exit13:                     ; preds = %if.then.i7, %if.end.i10
   %retval.0.i9 = phi ptr [ %call.i.i8, %if.then.i7 ], [ %call3.i12, %if.end.i10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %fds.i4)
   br label %exit
 
-exit:                                             ; preds = %os_pipe2_impl.exit, %os_pipe2_impl.exit13, %land.lhs.true
-  %return_value.0 = phi ptr [ null, %land.lhs.true ], [ %retval.0.i, %os_pipe2_impl.exit ], [ %retval.0.i9, %os_pipe2_impl.exit13 ]
+exit:                                             ; preds = %os_pipe2_impl.argprom.exit, %os_pipe2_impl.argprom.exit13, %land.lhs.true
+  %return_value.0 = phi ptr [ null, %land.lhs.true ], [ %retval.0.i, %os_pipe2_impl.argprom.exit ], [ %retval.0.i9, %os_pipe2_impl.argprom.exit13 ]
   ret ptr %return_value.0
 }
 
@@ -14801,7 +14801,7 @@ if.end8:                                          ; preds = %land.lhs.true4, %if
   br i1 %tobool.not.i.not, label %if.end13, label %exit
 
 if.end13:                                         ; preds = %if.end8
-  %call14 = tail call fastcc ptr @os_ftruncate_impl(i32 noundef %call2, i64 noundef %call.i)
+  %call14 = tail call fastcc ptr @os_ftruncate_impl.argprom(i32 noundef %call2, i64 noundef %call.i)
   br label %exit
 
 exit:                                             ; preds = %if.end8, %land.lhs.true4, %lor.lhs.false, %if.end13
@@ -14849,7 +14849,7 @@ if.end14:                                         ; preds = %if.end9
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end14
-  %call.i11 = call fastcc ptr @os_ftruncate_impl(i32 noundef %3, i64 noundef %call.i)
+  %call.i11 = call fastcc ptr @os_ftruncate_impl.argprom(i32 noundef %3, i64 noundef %call.i)
   br label %exit
 
 if.end.i:                                         ; preds = %if.end14
@@ -15879,7 +15879,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %module.val.i = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %module.val.i, i64 48
   %module.val.val.i = load ptr, ptr %7, align 8
-  %call7.i = call fastcc ptr @_pystatvfs_fromstructstatvfs(ptr %module.val.val.i, ptr noundef nonnull byval(%struct.statvfs) align 8 %st.i)
+  %call7.i = call fastcc ptr @_pystatvfs_fromstructstatvfs.argprom.argprom(ptr %module.val.val.i, ptr noundef nonnull byval(%struct.statvfs) align 8 %st.i)
   br label %os_statvfs_impl.exit
 
 os_statvfs_impl.exit:                             ; preds = %if.then4.i, %if.end6.i
@@ -15960,12 +15960,12 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   %1 = load i32, ptr %call.i1, align 4
   %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %os_confstr_impl.exit, label %if.then3.i
+  br i1 %tobool.not.i, label %os_confstr_impl.argprom.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %2 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %2) #22
-  br label %os_confstr_impl.exit
+  br label %os_confstr_impl.argprom.exit
 
 if.end.i:                                         ; preds = %if.end
   %cmp5.i = icmp ugt i64 %call1.i, 254
@@ -15978,27 +15978,27 @@ if.then6.i:                                       ; preds = %if.end.i
 
 if.then9.i:                                       ; preds = %if.then6.i
   %call10.i = call ptr @PyErr_NoMemory() #22
-  br label %os_confstr_impl.exit
+  br label %os_confstr_impl.argprom.exit
 
 if.end11.i:                                       ; preds = %if.then6.i
   %call12.i = call i64 @confstr(i32 noundef %0, ptr noundef nonnull %call7.i, i64 noundef %call1.i) #22
   %sub.i = add i64 %call12.i, -1
   %call13.i = call ptr @PyUnicode_DecodeFSDefaultAndSize(ptr noundef nonnull %call7.i, i64 noundef %sub.i) #22
   call void @PyMem_Free(ptr noundef nonnull %call7.i) #22
-  br label %os_confstr_impl.exit
+  br label %os_confstr_impl.argprom.exit
 
 if.else14.i:                                      ; preds = %if.end.i
   %sub16.i = add nsw i64 %call1.i, -1
   %call17.i = call ptr @PyUnicode_DecodeFSDefaultAndSize(ptr noundef nonnull %buffer.i, i64 noundef %sub16.i) #22
-  br label %os_confstr_impl.exit
+  br label %os_confstr_impl.argprom.exit
 
-os_confstr_impl.exit:                             ; preds = %if.then.i, %if.then3.i, %if.then9.i, %if.end11.i, %if.else14.i
+os_confstr_impl.argprom.exit:                     ; preds = %if.then.i, %if.then3.i, %if.then9.i, %if.end11.i, %if.else14.i
   %retval.0.i = phi ptr [ null, %if.then3.i ], [ %call10.i, %if.then9.i ], [ @_Py_NoneStruct, %if.then.i ], [ %call13.i, %if.end11.i ], [ %call17.i, %if.else14.i ]
   call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %buffer.i)
   br label %exit
 
-exit:                                             ; preds = %entry, %os_confstr_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %os_confstr_impl.exit ], [ null, %entry ]
+exit:                                             ; preds = %entry, %os_confstr_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %os_confstr_impl.argprom.exit ], [ null, %entry ]
   ret ptr %return_value.0
 }
 
@@ -16281,12 +16281,12 @@ if.then.i:                                        ; preds = %if.end
   %tp_name.i = getelementptr inbounds i8, ptr %path.val5.i, i64 24
   %6 = load ptr, ptr %tp_name.i, align 8
   %call3.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.550, ptr noundef %6) #22
-  br label %os__path_normpath_impl.exit
+  br label %os__path_normpath_impl.argprom.exit
 
 if.end.i:                                         ; preds = %if.end
   %call4.i = call ptr @PyUnicode_AsWideCharString(ptr noundef nonnull %1, ptr noundef nonnull %len.i) #22
   %tobool5.not.i = icmp eq ptr %call4.i, null
-  br i1 %tobool5.not.i, label %os__path_normpath_impl.exit, label %if.end7.i
+  br i1 %tobool5.not.i, label %os__path_normpath_impl.argprom.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
   %7 = load i64, ptr %len.i, align 8
@@ -16294,16 +16294,16 @@ if.end7.i:                                        ; preds = %if.end.i
   %8 = load i64, ptr %norm_len.i, align 8
   %call9.i = call ptr @PyUnicode_FromWideChar(ptr noundef %call8.i, i64 noundef %8) #22
   call void @PyMem_Free(ptr noundef nonnull %call4.i) #22
-  br label %os__path_normpath_impl.exit
+  br label %os__path_normpath_impl.argprom.exit
 
-os__path_normpath_impl.exit:                      ; preds = %if.then.i, %if.end.i, %if.end7.i
+os__path_normpath_impl.argprom.exit:              ; preds = %if.then.i, %if.end.i, %if.end7.i
   %retval.0.i = phi ptr [ %call9.i, %if.end7.i ], [ null, %if.then.i ], [ null, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %norm_len.i)
   br label %exit
 
-exit:                                             ; preds = %cond.end, %os__path_normpath_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %os__path_normpath_impl.exit ], [ null, %cond.end ]
+exit:                                             ; preds = %cond.end, %os__path_normpath_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %os__path_normpath_impl.argprom.exit ], [ null, %cond.end ]
   ret ptr %return_value.0
 }
 
@@ -16319,7 +16319,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyExc_OSError, align 8
   call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.551) #22
-  br label %os_getloadavg_impl.exit
+  br label %os_getloadavg_impl.argprom.exit
 
 if.else.i:                                        ; preds = %entry
   %1 = load double, ptr %loadavg.i, align 16
@@ -16328,9 +16328,9 @@ if.else.i:                                        ; preds = %entry
   %arrayidx2.i = getelementptr inbounds i8, ptr %loadavg.i, i64 16
   %3 = load double, ptr %arrayidx2.i, align 16
   %call3.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.552, double noundef %1, double noundef %2, double noundef %3) #22
-  br label %os_getloadavg_impl.exit
+  br label %os_getloadavg_impl.argprom.exit
 
-os_getloadavg_impl.exit:                          ; preds = %if.then.i, %if.else.i
+os_getloadavg_impl.argprom.exit:                  ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call3.i, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %loadavg.i)
   ret ptr %retval.0.i
@@ -16537,7 +16537,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %0) #22
-  br label %os_getresuid_impl.exit
+  br label %os_getresuid_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %1 = load i32, ptr %ruid.i, align 4
@@ -16586,9 +16586,9 @@ if.end.i11.i:                                     ; preds = %_PyLong_FromUid.exi
 _PyLong_FromUid.exit17.i:                         ; preds = %if.end.i11.i, %if.then.i15.i
   %retval.0.i14.i = phi ptr [ %call.i16.i, %if.then.i15.i ], [ %call1.i13.i, %if.end.i11.i ]
   %call5.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.554, ptr noundef %retval.0.i.i, ptr noundef %retval.0.i6.i, ptr noundef %retval.0.i14.i) #22
-  br label %os_getresuid_impl.exit
+  br label %os_getresuid_impl.argprom.exit
 
-os_getresuid_impl.exit:                           ; preds = %if.then.i, %_PyLong_FromUid.exit17.i
+os_getresuid_impl.argprom.exit:                   ; preds = %if.then.i, %_PyLong_FromUid.exit17.i
   %retval.0.i = phi ptr [ %call.i.i, %if.then.i ], [ %call5.i, %_PyLong_FromUid.exit17.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ruid.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %euid.i)
@@ -16612,7 +16612,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %0) #22
-  br label %os_getresgid_impl.exit
+  br label %os_getresgid_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %1 = load i32, ptr %rgid.i, align 4
@@ -16661,9 +16661,9 @@ if.end.i11.i:                                     ; preds = %_PyLong_FromGid.exi
 _PyLong_FromGid.exit17.i:                         ; preds = %if.end.i11.i, %if.then.i15.i
   %retval.0.i14.i = phi ptr [ %call.i16.i, %if.then.i15.i ], [ %call1.i13.i, %if.end.i11.i ]
   %call5.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.554, ptr noundef %retval.0.i.i, ptr noundef %retval.0.i6.i, ptr noundef %retval.0.i14.i) #22
-  br label %os_getresgid_impl.exit
+  br label %os_getresgid_impl.argprom.exit
 
-os_getresgid_impl.exit:                           ; preds = %if.then.i, %_PyLong_FromGid.exit17.i
+os_getresgid_impl.argprom.exit:                   ; preds = %if.then.i, %_PyLong_FromGid.exit17.i
   %retval.0.i = phi ptr [ %call.i.i, %if.then.i ], [ %call5.i, %_PyLong_FromGid.exit17.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %rgid.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %egid.i)
@@ -16745,7 +16745,7 @@ skip_optional_kwonly:                             ; preds = %if.end23
 fd_and_follow_symlinks_invalid.exit.i:            ; preds = %skip_optional_kwonly
   %8 = load ptr, ptr @PyExc_ValueError, align 8
   %call.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.199, ptr noundef nonnull @.str.158) #22
-  br label %os_getxattr_impl.exit
+  br label %os_getxattr_impl.argprom.exit
 
 if.end.i:                                         ; preds = %skip_optional_kwonly.thread, %skip_optional_kwonly
   %9 = phi i32 [ %5, %skip_optional_kwonly.thread ], [ %7, %skip_optional_kwonly ]
@@ -16757,7 +16757,7 @@ if.end.i:                                         ; preds = %skip_optional_kwonl
   %11 = load ptr, ptr %object1.i, align 8
   %call2.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.556, ptr noundef nonnull @.str.360, ptr noundef %10, ptr noundef %11) #22
   %cmp.i = icmp slt i32 %call2.i, 0
-  br i1 %cmp.i, label %os_getxattr_impl.exit, label %for.cond.preheader.i
+  br i1 %cmp.i, label %os_getxattr_impl.argprom.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
   %tobool20.not.i = icmp eq i32 %follow_symlinks.048, 0
@@ -16777,7 +16777,7 @@ if.end8.i.us:                                     ; preds = %if.end8.i.preheader
   %call9.i.us = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %14) #22
   store ptr %call9.i.us, ptr %buffer.i, align 8
   %tobool10.not.i.us = icmp eq ptr %call9.i.us, null
-  br i1 %tobool10.not.i.us, label %os_getxattr_impl.exit, label %if.end12.i.us
+  br i1 %tobool10.not.i.us, label %os_getxattr_impl.argprom.exit, label %if.end12.i.us
 
 if.end12.i.us:                                    ; preds = %if.end8.i.us
   %ob_sval.i.i.us = getelementptr inbounds i8, ptr %call9.i.us, i64 32
@@ -16825,7 +16825,7 @@ if.end8.us.i.us:                                  ; preds = %if.end8.us.i.prehea
   %call9.us.i.us = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %19) #22
   store ptr %call9.us.i.us, ptr %buffer.i, align 8
   %tobool10.not.us.i.us = icmp eq ptr %call9.us.i.us, null
-  br i1 %tobool10.not.us.i.us, label %os_getxattr_impl.exit, label %if.end12.us.i.us
+  br i1 %tobool10.not.us.i.us, label %os_getxattr_impl.argprom.exit, label %if.end12.us.i.us
 
 if.end12.us.i.us:                                 ; preds = %if.end8.us.i.us
   %ob_sval.i.us.i.us = getelementptr inbounds i8, ptr %call9.us.i.us, i64 32
@@ -16870,7 +16870,7 @@ if.end8.us.i:                                     ; preds = %if.end8.us.i.prehea
   %call9.us.i = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %24) #22
   store ptr %call9.us.i, ptr %buffer.i, align 8
   %tobool10.not.us.i = icmp eq ptr %call9.us.i, null
-  br i1 %tobool10.not.us.i, label %os_getxattr_impl.exit, label %if.end12.us.i
+  br i1 %tobool10.not.us.i, label %os_getxattr_impl.argprom.exit, label %if.end12.us.i
 
 if.end12.us.i:                                    ; preds = %if.end8.us.i
   %ob_sval.i.us.i = getelementptr inbounds i8, ptr %call9.us.i, i64 32
@@ -16912,7 +16912,7 @@ for.inc.us.i:                                     ; preds = %if.then1.i49.us.i, 
 if.then6.i:                                       ; preds = %for.inc.i, %for.inc.i.us, %for.inc.us.i, %for.inc.us.i.us
   %29 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i.i.i = call ptr @PyErr_SetFromErrnoWithFilenameObject(ptr noundef %29, ptr noundef %10) #22
-  br label %os_getxattr_impl.exit
+  br label %os_getxattr_impl.argprom.exit
 
 if.end8.i:                                        ; preds = %if.end8.i.preheader, %for.inc.i
   %30 = phi i64 [ %39, %for.inc.i ], [ 128, %if.end8.i.preheader ]
@@ -16920,7 +16920,7 @@ if.end8.i:                                        ; preds = %if.end8.i.preheader
   %call9.i = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %30) #22
   store ptr %call9.i, ptr %buffer.i, align 8
   %tobool10.not.i = icmp eq ptr %call9.i, null
-  br i1 %tobool10.not.i, label %os_getxattr_impl.exit, label %if.end12.i
+  br i1 %tobool10.not.i, label %os_getxattr_impl.argprom.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end8.i
   %ob_sval.i.i = getelementptr inbounds i8, ptr %call9.i, i64 32
@@ -16959,29 +16959,29 @@ if.end36.i:                                       ; preds = %if.then32.i, %if.th
   %36 = load i64, ptr %34, align 8
   %37 = and i64 %36, 2147483648
   %cmp.i56.not.i = icmp eq i64 %37, 0
-  br i1 %cmp.i56.not.i, label %if.end.i.i, label %os_getxattr_impl.exit
+  br i1 %cmp.i56.not.i, label %if.end.i.i, label %os_getxattr_impl.argprom.exit
 
 if.end.i.i:                                       ; preds = %if.end36.i
   %dec.i.i = add i64 %36, -1
   store i64 %dec.i.i, ptr %34, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %os_getxattr_impl.exit
+  br i1 %cmp.i.i, label %if.then1.i.i, label %os_getxattr_impl.argprom.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %34) #22
-  br label %os_getxattr_impl.exit
+  br label %os_getxattr_impl.argprom.exit
 
 if.end38.i:                                       ; preds = %if.end12.i, %if.end12.i.us, %if.end12.us.i, %if.end12.us.i.us
   %38 = phi ptr [ %call9.us.i.us, %if.end12.us.i.us ], [ %call9.us.i, %if.end12.us.i ], [ %call9.i.us, %if.end12.i.us ], [ %call9.i, %if.end12.i ]
   %.us-phi.i = phi i64 [ %call19.us.i.us, %if.end12.us.i.us ], [ %call28.us.i, %if.end12.us.i ], [ %call19.i.us, %if.end12.i.us ], [ %call24.i, %if.end12.i ]
   %.us-phi8.i = phi i64 [ %19, %if.end12.us.i.us ], [ %24, %if.end12.us.i ], [ %14, %if.end12.i.us ], [ %30, %if.end12.i ]
   %cmp39.not.i = icmp eq i64 %.us-phi.i, %.us-phi8.i
-  br i1 %cmp39.not.i, label %os_getxattr_impl.exit, label %if.then40.i
+  br i1 %cmp39.not.i, label %os_getxattr_impl.argprom.exit, label %if.then40.i
 
 if.then40.i:                                      ; preds = %if.end38.i
   %call41.i = call i32 @_PyBytes_Resize(ptr noundef nonnull %buffer.i, i64 noundef %.us-phi.i) #22
   %.pre.i = load ptr, ptr %buffer.i, align 8
-  br label %os_getxattr_impl.exit
+  br label %os_getxattr_impl.argprom.exit
 
 for.inc.i:                                        ; preds = %if.then1.i49.i, %if.end.i46.i, %if.then35.i
   %inc.i = add nuw nsw i64 %i.07.i, 1
@@ -16990,13 +16990,13 @@ for.inc.i:                                        ; preds = %if.then1.i49.i, %if
   %exitcond.i = icmp eq i64 %inc.i, 2
   br i1 %exitcond.i, label %if.then6.i, label %if.end8.i
 
-os_getxattr_impl.exit:                            ; preds = %if.end8.i, %if.end8.i.us, %if.end8.us.i, %if.end8.us.i.us, %fd_and_follow_symlinks_invalid.exit.i, %if.end.i, %if.then6.i, %if.end36.i, %if.end.i.i, %if.then1.i.i, %if.end38.i, %if.then40.i
+os_getxattr_impl.argprom.exit:                    ; preds = %if.end8.i, %if.end8.i.us, %if.end8.us.i, %if.end8.us.i.us, %fd_and_follow_symlinks_invalid.exit.i, %if.end.i, %if.then6.i, %if.end36.i, %if.end.i.i, %if.then1.i.i, %if.end38.i, %if.then40.i
   %retval.0.i = phi ptr [ null, %if.then6.i ], [ null, %fd_and_follow_symlinks_invalid.exit.i ], [ null, %if.end.i ], [ null, %if.end36.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i ], [ %38, %if.end38.i ], [ %.pre.i, %if.then40.i ], [ null, %if.end8.us.i.us ], [ null, %if.end8.us.i ], [ null, %if.end8.i.us ], [ null, %if.end8.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
   br label %exit
 
-exit:                                             ; preds = %if.end23, %if.end15, %if.end, %cond.end9, %os_getxattr_impl.exit
-  %return_value.0 = phi ptr [ null, %if.end23 ], [ %retval.0.i, %os_getxattr_impl.exit ], [ null, %if.end15 ], [ null, %if.end ], [ null, %cond.end9 ]
+exit:                                             ; preds = %if.end23, %if.end15, %if.end, %cond.end9, %os_getxattr_impl.argprom.exit
+  %return_value.0 = phi ptr [ null, %if.end23 ], [ %retval.0.i, %os_getxattr_impl.argprom.exit ], [ null, %if.end15 ], [ null, %if.end ], [ null, %cond.end9 ]
   %wide1.i = getelementptr inbounds i8, ptr %path, i64 24
   %40 = load ptr, ptr %wide1.i, align 8
   call void @PyMem_Free(ptr noundef %40) #22
@@ -18067,7 +18067,7 @@ if.end.i:                                         ; preds = %entry
   %call3.i = tail call i64 @sysconf(i32 noundef 84) #22
   %conv4.i = trunc i64 %call3.i to i32
   %cmp5.i = icmp slt i32 %conv4.i, 1
-  br i1 %cmp5.i, label %os_cpu_count_impl.exit, label %if.end8.i
+  br i1 %cmp5.i, label %os_cpu_count_impl.argprom.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
   %conv9.i = and i64 %call3.i, 2147483647
@@ -18076,9 +18076,9 @@ if.end8.i:                                        ; preds = %if.end.i
 return.sink.split.i:                              ; preds = %if.end8.i, %if.then.i
   %conv9.sink.i = phi i64 [ %conv9.i, %if.end8.i ], [ %conv.i, %if.then.i ]
   %call10.i = tail call ptr @PyLong_FromLong(i64 noundef %conv9.sink.i) #22
-  br label %os_cpu_count_impl.exit
+  br label %os_cpu_count_impl.argprom.exit
 
-os_cpu_count_impl.exit:                           ; preds = %if.end.i, %return.sink.split.i
+os_cpu_count_impl.argprom.exit:                   ; preds = %if.end.i, %return.sink.split.i
   %retval.0.i = phi ptr [ @_Py_NoneStruct, %if.end.i ], [ %call10.i, %return.sink.split.i ]
   ret ptr %retval.0.i
 }
@@ -18536,7 +18536,7 @@ if.then.i:                                        ; preds = %skip_optional_pos
   store i32 22, ptr %call.i, align 4
   %7 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %7) #22
-  br label %os_getrandom_impl.exit
+  br label %os_getrandom_impl.argprom.exit
 
 if.end.i21:                                       ; preds = %skip_optional_pos
   %call2.i = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %ival.036) #22
@@ -18551,7 +18551,7 @@ while.body.preheader.i:                           ; preds = %if.end.i21
 
 if.then4.i:                                       ; preds = %if.end.i21
   %call5.i = call ptr @PyErr_NoMemory() #22
-  br label %os_getrandom_impl.exit
+  br label %os_getrandom_impl.argprom.exit
 
 while.body.i:                                     ; preds = %if.then13.i, %while.body.preheader.i
   %.val.i = load i64, ptr %8, align 8
@@ -18577,36 +18577,36 @@ if.then20.i:                                      ; preds = %land.lhs.true.i
 
 if.end22.i:                                       ; preds = %while.body.i
   %cmp23.not.i = icmp eq i64 %call9.i, %ival.036
-  br i1 %cmp23.not.i, label %os_getrandom_impl.exit, label %if.then24.i
+  br i1 %cmp23.not.i, label %os_getrandom_impl.argprom.exit, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.end22.i
   %call25.i = call i32 @_PyBytes_Resize(ptr noundef nonnull %bytes.i, i64 noundef %call9.i) #22
   %.pre.i = load ptr, ptr %bytes.i, align 8
-  br label %os_getrandom_impl.exit
+  br label %os_getrandom_impl.argprom.exit
 
 error.i:                                          ; preds = %if.then13.i, %if.then20.i
   %11 = load i64, ptr %call2.i, align 8
   %12 = and i64 %11, 2147483648
   %cmp.i28.not.i = icmp eq i64 %12, 0
-  br i1 %cmp.i28.not.i, label %if.end.i.i, label %os_getrandom_impl.exit
+  br i1 %cmp.i28.not.i, label %if.end.i.i, label %os_getrandom_impl.argprom.exit
 
 if.end.i.i:                                       ; preds = %error.i
   %dec.i.i = add i64 %11, -1
   store i64 %dec.i.i, ptr %call2.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %os_getrandom_impl.exit
+  br i1 %cmp.i.i, label %if.then1.i.i, label %os_getrandom_impl.argprom.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call2.i) #22
-  br label %os_getrandom_impl.exit
+  br label %os_getrandom_impl.argprom.exit
 
-os_getrandom_impl.exit:                           ; preds = %if.then.i, %if.then4.i, %if.end22.i, %if.then24.i, %error.i, %if.end.i.i, %if.then1.i.i
+os_getrandom_impl.argprom.exit:                   ; preds = %if.then.i, %if.then4.i, %if.end22.i, %if.then24.i, %error.i, %if.end.i.i, %if.then1.i.i
   %retval.0.i = phi ptr [ %call.i.i, %if.then.i ], [ null, %if.then4.i ], [ null, %error.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i ], [ %.pre.i, %if.then24.i ], [ %call2.i, %if.end22.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.i)
   br label %exit
 
-exit:                                             ; preds = %land.lhs.true29, %land.lhs.true18, %cond.end9, %os_getrandom_impl.exit
-  %return_value.0 = phi ptr [ null, %land.lhs.true18 ], [ null, %land.lhs.true29 ], [ %retval.0.i, %os_getrandom_impl.exit ], [ null, %cond.end9 ]
+exit:                                             ; preds = %land.lhs.true29, %land.lhs.true18, %cond.end9, %os_getrandom_impl.argprom.exit
+  %return_value.0 = phi ptr [ null, %land.lhs.true18 ], [ null, %land.lhs.true29 ], [ %retval.0.i, %os_getrandom_impl.argprom.exit ], [ null, %cond.end9 ]
   ret ptr %return_value.0
 }
 
@@ -18821,20 +18821,20 @@ if.end9:                                          ; preds = %if.end
 if.then.i:                                        ; preds = %if.end9
   %3 = load ptr, ptr @PyExc_OSError, align 8
   %call2.i = call ptr @PyErr_SetFromErrno(ptr noundef %3) #22
-  br label %os_eventfd_read_impl.exit
+  br label %os_eventfd_read_impl.argprom.exit
 
 if.end.i:                                         ; preds = %if.end9
   %4 = load i64, ptr %value.i, align 8
   %call3.i = call ptr @PyLong_FromUnsignedLongLong(i64 noundef %4) #22
-  br label %os_eventfd_read_impl.exit
+  br label %os_eventfd_read_impl.argprom.exit
 
-os_eventfd_read_impl.exit:                        ; preds = %if.then.i, %if.end.i
+os_eventfd_read_impl.argprom.exit:                ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %call2.i, %if.then.i ], [ %call3.i, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   br label %exit
 
-exit:                                             ; preds = %if.end, %cond.end, %os_eventfd_read_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %os_eventfd_read_impl.exit ], [ null, %if.end ], [ null, %cond.end ]
+exit:                                             ; preds = %if.end, %cond.end, %os_eventfd_read_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %os_eventfd_read_impl.argprom.exit ], [ null, %if.end ], [ null, %cond.end ]
   ret ptr %return_value.0
 }
 
@@ -19302,7 +19302,7 @@ skip_optional_kwonly:                             ; preds = %if.then60, %land.lh
 if.then.i:                                        ; preds = %skip_optional_kwonly
   %11 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.572) #22
-  br label %os_timerfd_settime_impl.exit
+  br label %os_timerfd_settime_impl.argprom.exit
 
 if.end.i:                                         ; preds = %skip_optional_kwonly
   %call2.i = call i64 @_PyTime_FromSecondsDouble(double noundef %interval.0, i32 noundef 0) #22
@@ -19313,7 +19313,7 @@ if.end.i:                                         ; preds = %skip_optional_kwonl
 if.then5.i:                                       ; preds = %if.end.i
   %12 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.573) #22
-  br label %os_timerfd_settime_impl.exit
+  br label %os_timerfd_settime_impl.argprom.exit
 
 if.end6.i:                                        ; preds = %if.end.i
   %call7.i = call ptr @PyEval_SaveThread() #22
@@ -19325,20 +19325,20 @@ if.end6.i:                                        ; preds = %if.end.i
 if.then10.i:                                      ; preds = %if.end6.i
   %13 = load ptr, ptr @PyExc_OSError, align 8
   %call11.i = call ptr @PyErr_SetFromErrno(ptr noundef %13) #22
-  br label %os_timerfd_settime_impl.exit
+  br label %os_timerfd_settime_impl.argprom.exit
 
 if.end12.i:                                       ; preds = %if.end6.i
   %call13.i = call fastcc ptr @build_itimerspec(ptr noundef %old_value.i)
-  br label %os_timerfd_settime_impl.exit
+  br label %os_timerfd_settime_impl.argprom.exit
 
-os_timerfd_settime_impl.exit:                     ; preds = %if.then.i, %if.then5.i, %if.then10.i, %if.end12.i
+os_timerfd_settime_impl.argprom.exit:             ; preds = %if.then.i, %if.then5.i, %if.then10.i, %if.end12.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then5.i ], [ %call11.i, %if.then10.i ], [ %call13.i, %if.end12.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %new_value.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %old_value.i)
   br label %exit
 
-exit:                                             ; preds = %land.lhs.true67, %land.lhs.true46, %land.lhs.true25, %if.end, %cond.end9, %os_timerfd_settime_impl.exit
-  %return_value.0 = phi ptr [ null, %land.lhs.true25 ], [ %retval.0.i, %os_timerfd_settime_impl.exit ], [ null, %land.lhs.true67 ], [ null, %land.lhs.true46 ], [ null, %if.end ], [ null, %cond.end9 ]
+exit:                                             ; preds = %land.lhs.true67, %land.lhs.true46, %land.lhs.true25, %if.end, %cond.end9, %os_timerfd_settime_impl.argprom.exit
+  %return_value.0 = phi ptr [ null, %land.lhs.true25 ], [ %retval.0.i, %os_timerfd_settime_impl.argprom.exit ], [ null, %land.lhs.true67 ], [ null, %land.lhs.true46 ], [ null, %if.end ], [ null, %cond.end9 ]
   ret ptr %return_value.0
 }
 
@@ -19457,7 +19457,7 @@ skip_optional_kwonly:                             ; preds = %if.end49, %land.lhs
 if.then.i:                                        ; preds = %skip_optional_kwonly
   %7 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.572) #22
-  br label %os_timerfd_settime_ns_impl.exit
+  br label %os_timerfd_settime_ns_impl.argprom.exit
 
 if.end.i:                                         ; preds = %skip_optional_kwonly
   %call1.i = call i32 @_PyTime_AsTimespec(i64 noundef %interval.0, ptr noundef nonnull %new_value.i) #22
@@ -19467,7 +19467,7 @@ if.end.i:                                         ; preds = %skip_optional_kwonl
 if.then3.i:                                       ; preds = %if.end.i
   %8 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.573) #22
-  br label %os_timerfd_settime_ns_impl.exit
+  br label %os_timerfd_settime_ns_impl.argprom.exit
 
 if.end4.i:                                        ; preds = %if.end.i
   %call5.i = call ptr @PyEval_SaveThread() #22
@@ -19479,7 +19479,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then8.i:                                       ; preds = %if.end4.i
   %9 = load ptr, ptr @PyExc_OSError, align 8
   %call9.i = call ptr @PyErr_SetFromErrno(ptr noundef %9) #22
-  br label %os_timerfd_settime_ns_impl.exit
+  br label %os_timerfd_settime_ns_impl.argprom.exit
 
 if.end10.i:                                       ; preds = %if.end4.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i.i)
@@ -19504,16 +19504,16 @@ build_itimerspec_ns.exit.i:                       ; preds = %if.end4.i.i, %if.en
   %retval.0.i.i = phi ptr [ %call5.i.i, %if.end4.i.i ], [ null, %if.end10.i ], [ null, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %interval.i.i)
-  br label %os_timerfd_settime_ns_impl.exit
+  br label %os_timerfd_settime_ns_impl.argprom.exit
 
-os_timerfd_settime_ns_impl.exit:                  ; preds = %if.then.i, %if.then3.i, %if.then8.i, %build_itimerspec_ns.exit.i
+os_timerfd_settime_ns_impl.argprom.exit:          ; preds = %if.then.i, %if.then3.i, %if.then8.i, %build_itimerspec_ns.exit.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then3.i ], [ %call9.i, %if.then8.i ], [ %retval.0.i.i, %build_itimerspec_ns.exit.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %new_value.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %old_value.i)
   br label %exit
 
-exit:                                             ; preds = %land.lhs.true53, %land.lhs.true40, %land.lhs.true25, %if.end, %cond.end9, %os_timerfd_settime_ns_impl.exit
-  %return_value.0 = phi ptr [ null, %land.lhs.true25 ], [ null, %land.lhs.true40 ], [ null, %land.lhs.true53 ], [ %retval.0.i, %os_timerfd_settime_ns_impl.exit ], [ null, %if.end ], [ null, %cond.end9 ]
+exit:                                             ; preds = %land.lhs.true53, %land.lhs.true40, %land.lhs.true25, %if.end, %cond.end9, %os_timerfd_settime_ns_impl.argprom.exit
+  %return_value.0 = phi ptr [ null, %land.lhs.true25 ], [ null, %land.lhs.true40 ], [ null, %land.lhs.true53 ], [ %retval.0.i, %os_timerfd_settime_ns_impl.argprom.exit ], [ null, %if.end ], [ null, %cond.end9 ]
   ret ptr %return_value.0
 }
 
@@ -19538,19 +19538,19 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   %1 = load ptr, ptr @PyExc_OSError, align 8
   %call2.i = call ptr @PyErr_SetFromErrno(ptr noundef %1) #22
-  br label %os_timerfd_gettime_impl.exit
+  br label %os_timerfd_gettime_impl.argprom.exit
 
 if.end.i:                                         ; preds = %if.end
   %call3.i = call fastcc ptr @build_itimerspec(ptr noundef %curr_value.i)
-  br label %os_timerfd_gettime_impl.exit
+  br label %os_timerfd_gettime_impl.argprom.exit
 
-os_timerfd_gettime_impl.exit:                     ; preds = %if.then.i, %if.end.i
+os_timerfd_gettime_impl.argprom.exit:             ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %call2.i, %if.then.i ], [ %call3.i, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %curr_value.i)
   br label %exit
 
-exit:                                             ; preds = %entry, %os_timerfd_gettime_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %os_timerfd_gettime_impl.exit ], [ null, %entry ]
+exit:                                             ; preds = %entry, %os_timerfd_gettime_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %os_timerfd_gettime_impl.argprom.exit ], [ null, %entry ]
   ret ptr %return_value.0
 }
 
@@ -19577,7 +19577,7 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   %1 = load ptr, ptr @PyExc_OSError, align 8
   %call2.i = call ptr @PyErr_SetFromErrno(ptr noundef %1) #22
-  br label %os_timerfd_gettime_ns_impl.exit
+  br label %os_timerfd_gettime_ns_impl.argprom.exit
 
 if.end.i:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i.i)
@@ -19602,15 +19602,15 @@ build_itimerspec_ns.exit.i:                       ; preds = %if.end4.i.i, %if.en
   %retval.0.i.i = phi ptr [ %call5.i.i, %if.end4.i.i ], [ null, %if.end.i ], [ null, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %interval.i.i)
-  br label %os_timerfd_gettime_ns_impl.exit
+  br label %os_timerfd_gettime_ns_impl.argprom.exit
 
-os_timerfd_gettime_ns_impl.exit:                  ; preds = %if.then.i, %build_itimerspec_ns.exit.i
+os_timerfd_gettime_ns_impl.argprom.exit:          ; preds = %if.then.i, %build_itimerspec_ns.exit.i
   %retval.0.i = phi ptr [ %call2.i, %if.then.i ], [ %retval.0.i.i, %build_itimerspec_ns.exit.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %curr_value.i)
   br label %exit
 
-exit:                                             ; preds = %entry, %os_timerfd_gettime_ns_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %os_timerfd_gettime_ns_impl.exit ], [ null, %entry ]
+exit:                                             ; preds = %entry, %os_timerfd_gettime_ns_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %os_timerfd_gettime_ns_impl.argprom.exit ], [ null, %entry ]
   ret ptr %return_value.0
 }
 
@@ -20088,7 +20088,7 @@ return:                                           ; preds = %entry, %if.end10, %
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @posix_do_stat(ptr nocapture noundef readonly %module, ptr nocapture noundef nonnull readonly %path, i32 noundef %dir_fd, i32 noundef range(i32 0, -2147483648) %follow_symlinks) unnamed_addr #0 {
+define internal fastcc ptr @posix_do_stat.argprom(ptr nocapture noundef readonly %module, ptr nocapture noundef nonnull readonly %path, i32 noundef %dir_fd, i32 noundef range(i32 0, -2147483648) %follow_symlinks) unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %wide.i = getelementptr inbounds i8, ptr %path, i64 24
@@ -20543,7 +20543,7 @@ declare i32 @faccessat(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local
 declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @os_ttyname_impl(i32 noundef %fd) unnamed_addr #0 {
+define internal fastcc ptr @os_ttyname_impl.argprom(i32 noundef %fd) unnamed_addr #0 {
 entry:
   %call = tail call i64 @sysconf(i32 noundef 72) #22
   %cmp = icmp eq i64 %call, -1
@@ -20618,7 +20618,7 @@ declare i32 @fchmodat(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_
 declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @os_fchmod_impl(i32 noundef %fd, i32 noundef %mode) unnamed_addr #0 {
+define internal fastcc ptr @os_fchmod_impl.argprom(i32 noundef %fd, i32 noundef %mode) unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.205, ptr noundef nonnull @.str.209, i32 noundef %fd, i32 noundef %mode, i32 noundef -1) #22
   %cmp = icmp slt i32 %call, 0
@@ -21236,7 +21236,7 @@ if.end46:                                         ; preds = %parse_file_actions.
 if.then.i:                                        ; preds = %if.end46
   %54 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i49 = call ptr @PyErr_SetFromErrno(ptr noundef %54) #22
-  br label %parse_posix_spawn_flags.exit.thread
+  br label %parse_posix_spawn_flags.argprom.exit.thread
 
 if.end.i51:                                       ; preds = %if.end46
   %tobool4.not.i = icmp eq ptr %setpgroup, null
@@ -21429,9 +21429,9 @@ if.then103.i:                                     ; preds = %if.end97.i
 
 fail.i54:                                         ; preds = %if.then103.i, %if.then93.i, %if.then84.i, %land.lhs.true75.i, %if.then10.i.i, %land.lhs.true.i.i, %if.then.i.i, %if.then60.i, %if.then54.i, %if.then44.i, %if.then38.i, %if.then29.i, %if.then16.i, %land.lhs.true.i62
   %call106.i = call i32 @posix_spawnattr_destroy(ptr noundef nonnull %attr) #22
-  br label %parse_posix_spawn_flags.exit.thread
+  br label %parse_posix_spawn_flags.argprom.exit.thread
 
-parse_posix_spawn_flags.exit.thread:              ; preds = %if.then.i, %fail.i54
+parse_posix_spawn_flags.argprom.exit.thread:      ; preds = %if.then.i, %fail.i54
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %set.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %set45.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %py_schedpolicy.i)
@@ -21482,9 +21482,9 @@ if.end67:                                         ; preds = %if.end61
   %call68 = call ptr @PyLong_FromLong(i64 noundef %conv) #22
   br label %exit
 
-exit:                                             ; preds = %parse_posix_spawn_flags.exit.thread, %if.end50, %if.end67, %if.then63
-  %attrp.0 = phi ptr [ %attr, %if.end50 ], [ %attr, %if.then63 ], [ %attr, %if.end67 ], [ null, %parse_posix_spawn_flags.exit.thread ]
-  %result.0 = phi ptr [ null, %if.end50 ], [ null, %if.then63 ], [ %call68, %if.end67 ], [ null, %parse_posix_spawn_flags.exit.thread ]
+exit:                                             ; preds = %parse_posix_spawn_flags.argprom.exit.thread, %if.end50, %if.end67, %if.then63
+  %attrp.0 = phi ptr [ %attr, %if.end50 ], [ %attr, %if.then63 ], [ %attr, %if.end67 ], [ null, %parse_posix_spawn_flags.argprom.exit.thread ]
+  %result.0 = phi ptr [ null, %if.end50 ], [ null, %if.then63 ], [ %call68, %if.end67 ], [ null, %parse_posix_spawn_flags.argprom.exit.thread ]
   %tobool69.not = icmp eq ptr %file_actionsp.1, null
   br i1 %tobool69.not, label %if.end72, label %if.then70
 
@@ -22313,7 +22313,7 @@ declare i64 @PyTuple_Size(ptr noundef) local_unnamed_addr #1
 declare i32 @_PyTime_ObjectToTimespec(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @split_py_long_to_s_and_ns(ptr %module.32.val.0.val, ptr noundef %py_long, ptr nocapture noundef nonnull writeonly %s, ptr nocapture noundef nonnull writeonly %ns) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @split_py_long_to_s_and_ns.argprom.argprom(ptr %module.32.val.0.val, ptr noundef %py_long, ptr nocapture noundef nonnull writeonly %s, ptr nocapture noundef nonnull writeonly %ns) unnamed_addr #0 {
 entry:
   %call1 = tail call ptr @PyNumber_Divmod(ptr noundef %py_long, ptr noundef %module.32.val.0.val) #22
   %tobool.not = icmp eq ptr %call1, null
@@ -22862,7 +22862,7 @@ declare i32 @setpgrp() local_unnamed_addr #4
 declare i32 @wait(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @os_wait3_impl(i32 noundef %options) unnamed_addr #0 {
+define internal fastcc ptr @os_wait3_impl.argprom(i32 noundef %options) unnamed_addr #0 {
 entry:
   %ru = alloca %struct.rusage, align 8
   %status = alloca i32, align 4
@@ -22894,7 +22894,7 @@ cond.true:                                        ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %do.body
   %2 = load i32, ptr %status, align 4
-  %call8 = call fastcc ptr @wait_helper(i32 noundef %call1, i32 noundef %2, ptr noundef %ru)
+  %call8 = call fastcc ptr @wait_helper.argprom(i32 noundef %call1, i32 noundef %2, ptr noundef %ru)
   br label %return
 
 return:                                           ; preds = %land.rhs, %cond.true, %if.end
@@ -22906,7 +22906,7 @@ return:                                           ; preds = %land.rhs, %cond.tru
 declare i32 @wait3(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @wait_helper(i32 noundef range(i32 0, -2147483648) %pid, i32 noundef %status, ptr nocapture noundef nonnull %ru) unnamed_addr #0 {
+define internal fastcc ptr @wait_helper.argprom(i32 noundef range(i32 0, -2147483648) %pid, i32 noundef %status, ptr nocapture noundef nonnull %ru) unnamed_addr #0 {
 entry:
   %cmp1 = icmp eq i32 %pid, 0
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -23094,7 +23094,7 @@ declare i32 @lockf64(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #
 declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @os_read_impl(i32 noundef %fd, i64 noundef %length) unnamed_addr #0 {
+define internal fastcc ptr @os_read_impl.argprom(i32 noundef %fd, i64 noundef %length) unnamed_addr #0 {
 entry:
   %buffer = alloca ptr, align 8
   %cmp = icmp slt i64 %length, 0
@@ -23154,7 +23154,7 @@ declare i64 @_Py_read(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare i32 @_PyBytes_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, -9223372036854775808) i64 @os_readv_impl(i32 noundef %fd, ptr noundef %buffers) unnamed_addr #0 {
+define internal fastcc range(i64 -1, -9223372036854775808) i64 @os_readv_impl.argprom(i32 noundef %fd, ptr noundef %buffers) unnamed_addr #0 {
 entry:
   %iov = alloca ptr, align 8
   %buf = alloca ptr, align 8
@@ -23380,7 +23380,7 @@ declare i64 @preadv64v2(i32 noundef, ptr noundef, i32 noundef, i64 noundef, i32 
 declare i64 @_Py_write(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @os_writev_impl(i32 noundef %fd, ptr noundef %buffers) unnamed_addr #0 {
+define internal fastcc i64 @os_writev_impl.argprom(i32 noundef %fd, ptr noundef %buffers) unnamed_addr #0 {
 entry:
   %iov = alloca ptr, align 8
   %buf = alloca ptr, align 8
@@ -23465,7 +23465,7 @@ declare i64 @pwrite64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_
 declare i64 @pwritev64v2(i32 noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @os_sendfile_impl(i32 noundef %out_fd, i32 noundef %in_fd, ptr noundef %offobj, i64 noundef %count) unnamed_addr #0 {
+define internal fastcc ptr @os_sendfile_impl.argprom(i32 noundef %out_fd, i32 noundef %in_fd, ptr noundef %offobj, i64 noundef %count) unnamed_addr #0 {
 entry:
   %offset = alloca i64, align 8
   %cmp = icmp eq ptr %offobj, @_Py_NoneStruct
@@ -23573,7 +23573,7 @@ declare i32 @gnu_dev_minor(i64 noundef) local_unnamed_addr #5
 declare i64 @gnu_dev_makedev(i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @os_ftruncate_impl(i32 noundef %fd, i64 noundef %length) unnamed_addr #0 {
+define internal fastcc ptr @os_ftruncate_impl.argprom(i32 noundef %fd, i64 noundef %length) unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.356, ptr noundef nonnull @.str.323, i32 noundef %fd, i64 noundef %length) #22
   %cmp = icmp slt i32 %call, 0
@@ -23670,7 +23670,7 @@ if.end:                                           ; preds = %do.body
   %module.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %module.val, i64 48
   %module.val.val = load ptr, ptr %3, align 8
-  %call8 = tail call fastcc ptr @_pystatvfs_fromstructstatvfs(ptr %module.val.val, ptr noundef nonnull byval(%struct.statvfs) align 8 %st)
+  %call8 = tail call fastcc ptr @_pystatvfs_fromstructstatvfs.argprom.argprom(ptr %module.val.val, ptr noundef nonnull byval(%struct.statvfs) align 8 %st)
   br label %return
 
 return:                                           ; preds = %land.rhs, %cond.true, %if.end
@@ -23682,7 +23682,7 @@ return:                                           ; preds = %land.rhs, %cond.tru
 declare noundef i32 @fstatvfs64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_pystatvfs_fromstructstatvfs(ptr %module.32.val.48.val, ptr nocapture noundef readonly byval(%struct.statvfs) align 8 %st) unnamed_addr #0 {
+define internal fastcc ptr @_pystatvfs_fromstructstatvfs.argprom.argprom(ptr %module.32.val.48.val, ptr nocapture noundef readonly byval(%struct.statvfs) align 8 %st) unnamed_addr #0 {
 entry:
   %call2 = tail call ptr @PyStructSequence_New(ptr noundef %module.32.val.48.val) #22
   %cmp = icmp eq ptr %call2, null
@@ -25797,12 +25797,12 @@ if.end.i.i.i:                                     ; preds = %if.then42.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.then42.i
   store ptr %23, ptr %path5.i, align 8
-  br label %DirEntry_from_posix_info.exit
+  br label %DirEntry_from_posix_info.argprom.argprom.exit
 
 if.else46.i:                                      ; preds = %if.end39.i
   %26 = load ptr, ptr %path5.i, align 8
   %tobool48.not.i = icmp eq ptr %26, null
-  br i1 %tobool48.not.i, label %if.then.i.i, label %DirEntry_from_posix_info.exit
+  br i1 %tobool48.not.i, label %if.then.i.i, label %DirEntry_from_posix_info.argprom.argprom.exit
 
 if.then.i.i:                                      ; preds = %if.else46.i, %if.end35.i, %join_path_filename.exit.thread.i
   %27 = load i64, ptr %call3.i, align 8
@@ -25820,7 +25820,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i36.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call3.i) #22
   br label %while.end
 
-DirEntry_from_posix_info.exit:                    ; preds = %_Py_NewRef.exit.i, %if.else46.i
+DirEntry_from_posix_info.argprom.argprom.exit:    ; preds = %_Py_NewRef.exit.i, %if.else46.i
   %d_type52.i = getelementptr inbounds i8, ptr %call3.i, i64 48
   store i8 %11, ptr %d_type52.i, align 8
   %d_ino53.i = getelementptr inbounds i8, ptr %call3.i, i64 56
@@ -25849,8 +25849,8 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   tail call void @PyEval_RestoreThread(ptr noundef %call.i) #22
   br label %return
 
-return:                                           ; preds = %if.end4.i, %while.end, %DirEntry_from_posix_info.exit, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %call3.i, %DirEntry_from_posix_info.exit ], [ null, %while.end ], [ null, %if.end4.i ]
+return:                                           ; preds = %if.end4.i, %while.end, %DirEntry_from_posix_info.argprom.argprom.exit, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %call3.i, %DirEntry_from_posix_info.argprom.argprom.exit ], [ null, %while.end ], [ null, %if.end4.i ]
   ret ptr %retval.0
 }
 
@@ -26300,13 +26300,13 @@ entry:
   %1 = load i32, ptr %self.val, align 8
   %add.i.i.i = add i32 %1, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %os_DirEntry___fspath___impl.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %os_DirEntry___fspath___impl.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   store i32 %add.i.i.i, ptr %self.val, align 8
-  br label %os_DirEntry___fspath___impl.exit
+  br label %os_DirEntry___fspath___impl.argprom.exit
 
-os_DirEntry___fspath___impl.exit:                 ; preds = %entry, %if.end.i.i.i
+os_DirEntry___fspath___impl.argprom.exit:         ; preds = %entry, %if.end.i.i.i
   ret ptr %self.val
 }
 

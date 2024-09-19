@@ -127,7 +127,7 @@ define hidden noundef i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$G
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE"(ptr readonly %.0.val, ptr readonly %.8.val, double noundef %0, i64 noundef %1) unnamed_addr #3 {
+define internal fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE.argprom"(ptr readonly %.0.val, ptr readonly %.8.val, double noundef %0, i64 noundef %1) unnamed_addr #3 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 8
@@ -182,7 +182,7 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i: ; preds =
   %32 = load i64, ptr %31, align 8, !noundef !4
   %33 = sub i64 %32, %1
   %34 = icmp ugt i64 %33, %30
-  br i1 %34, label %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$2sf28_$u7b$$u7b$closure$u7d$$u7d$17h54d459cad559915cE.exit", label %35
+  br i1 %34, label %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$2sf28_$u7b$$u7b$closure$u7d$$u7d$17h54d459cad559915cE.argprom.exit", label %35
 
 35:                                               ; preds = %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -209,9 +209,9 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i: ; preds =
   %46 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %47 = fsub double %42, %46
-  br label %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$2sf28_$u7b$$u7b$closure$u7d$$u7d$17h54d459cad559915cE.exit"
+  br label %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$2sf28_$u7b$$u7b$closure$u7d$$u7d$17h54d459cad559915cE.argprom.exit"
 
-"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$2sf28_$u7b$$u7b$closure$u7d$$u7d$17h54d459cad559915cE.exit": ; preds = %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i, %35
+"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$2sf28_$u7b$$u7b$closure$u7d$$u7d$17h54d459cad559915cE.argprom.exit": ; preds = %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i, %35
   %.sroa.0.0.i4.i = phi double [ %47, %35 ], [ 0xFFF0000000000000, %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i ]
   %48 = fadd double %.sroa.0.0.i.i, %.sroa.0.0.i4.i
   %49 = icmp ne ptr %.8.val, null
@@ -1081,9 +1081,9 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   %.sroa.0.0.i.i.i1.i.i = select i1 %39, ptr %40, ptr null
   br label %41
 
-41:                                               ; preds = %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i", %.lr.ph.i
-  %.sroa.0.017.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %71, %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i" ]
-  %.sroa.0.01016.i = phi i64 [ 0, %.lr.ph.i ], [ %42, %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i" ]
+41:                                               ; preds = %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.argprom.exit.i", %.lr.ph.i
+  %.sroa.0.017.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %71, %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.argprom.exit.i" ]
+  %.sroa.0.01016.i = phi i64 [ 0, %.lr.ph.i ], [ %42, %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.argprom.exit.i" ]
   %42 = add nuw i64 %.sroa.0.01016.i, 1
   %43 = icmp ugt i64 %.sroa.0.01016.i, %15
   br i1 %43, label %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i, label %44
@@ -1116,7 +1116,7 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i: ; preds
   %.sroa.0.0.i.i8.i = phi double [ %54, %44 ], [ 0xFFF0000000000000, %41 ]
   %55 = sub i64 %13, %.sroa.0.01016.i
   %56 = icmp ugt i64 %55, %38
-  br i1 %56, label %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i", label %57
+  br i1 %56, label %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.argprom.exit.i", label %57
 
 57:                                               ; preds = %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !191
@@ -1140,9 +1140,9 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i: ; preds
   %66 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !191
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !191
   %67 = fsub double %62, %66
-  br label %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i"
+  br label %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.argprom.exit.i"
 
-"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i": ; preds = %57, %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i
+"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.argprom.exit.i": ; preds = %57, %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i
   %.sroa.0.0.i4.i.i = phi double [ %67, %57 ], [ 0xFFF0000000000000, %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i ]
   %68 = fadd double %.sroa.0.0.i.i8.i, %.sroa.0.0.i4.i.i
   %69 = fsub double %68, %.sroa.0.0.i
@@ -1151,8 +1151,8 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i: ; preds
   %exitcond.not.i = icmp eq i64 %.sroa.0.01016.i, %1
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17hb666c70ed2b734eaE.exit, label %41
 
-_ZN4core4iter6traits8iterator8Iterator4fold17hb666c70ed2b734eaE.exit: ; preds = %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i", %20, %2
-  %.sroa.0.0 = phi double [ 0.000000e+00, %2 ], [ 1.000000e+00, %20 ], [ %71, %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i" ]
+_ZN4core4iter6traits8iterator8Iterator4fold17hb666c70ed2b734eaE.exit: ; preds = %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.argprom.exit.i", %20, %2
+  %.sroa.0.0 = phi double [ 0.000000e+00, %2 ], [ 1.000000e+00, %20 ], [ %71, %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.argprom.exit.i" ]
   ret double %.sroa.0.0
 }
 
@@ -1222,13 +1222,13 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   %.sroa.01.018.i.i = phi double [ %36, %.lr.ph.i.i ], [ 0.000000e+00, %.preheader.i.i ]
   %34 = phi i64 [ %35, %.lr.ph.i.i ], [ %32, %.preheader.i.i ]
   %35 = add i64 %34, 1
-  %36 = call fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE"(ptr nonnull readonly %7, ptr nonnull readonly %6, double noundef %.sroa.01.018.i.i, i64 noundef %34), !noalias !195
+  %36 = call fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE.argprom"(ptr nonnull readonly %7, ptr nonnull readonly %6, double noundef %.sroa.01.018.i.i, i64 noundef %34), !noalias !195
   %exitcond.not.i.i = icmp eq i64 %35, %.sroa.0.0.sroa.speculated.i.i
   br i1 %exitcond.not.i.i, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4fold17h7fafd5117c0a51ddE.exit", label %.lr.ph.i.i
 
 "_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4fold17h7fafd5117c0a51ddE.exit": ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.sroa.01.0.lcssa24.i.i = phi double [ 0.000000e+00, %.preheader.i.i ], [ %36, %.lr.ph.i.i ]
-  %37 = call fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE"(ptr nonnull readonly %7, ptr nonnull readonly %6, double noundef %.sroa.01.0.lcssa24.i.i, i64 noundef %.sroa.0.0.sroa.speculated.i.i), !noalias !195
+  %37 = call fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE.argprom"(ptr nonnull readonly %7, ptr nonnull readonly %6, double noundef %.sroa.01.0.lcssa24.i.i, i64 noundef %.sroa.0.0.sroa.speculated.i.i), !noalias !195
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %38
 
@@ -1904,8 +1904,8 @@ attributes #25 = { nounwind }
 !88 = !{!89, !78}
 !89 = distinct !{!89, !87, !"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$16generic_view_mut17h1aca1fff716b5f86E.llvm.4752837998330011175: argument 0"}
 !90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN51_$LT$f64$u20$as$u20$core..ops..arith..DivAssign$GT$10div_assign17hf1d0fee666a8474aE: argument 0"}
-!92 = distinct !{!92, !"_ZN51_$LT$f64$u20$as$u20$core..ops..arith..DivAssign$GT$10div_assign17hf1d0fee666a8474aE"}
+!91 = distinct !{!91, !92, !"_ZN51_$LT$f64$u20$as$u20$core..ops..arith..DivAssign$GT$10div_assign17hf1d0fee666a8474aE.argprom: argument 0"}
+!92 = distinct !{!92, !"_ZN51_$LT$f64$u20$as$u20$core..ops..arith..DivAssign$GT$10div_assign17hf1d0fee666a8474aE.argprom"}
 !93 = !{!94}
 !94 = distinct !{!94, !95, !"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E: argument 0"}
 !95 = distinct !{!95, !"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E"}
@@ -2002,8 +2002,8 @@ attributes #25 = { nounwind }
 !186 = !{!180}
 !187 = !{!180, !172, !169}
 !188 = !{!189}
-!189 = distinct !{!189, !190, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!190 = distinct !{!190, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!189 = distinct !{!189, !190, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!190 = distinct !{!190, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !191 = !{!192, !194}
 !192 = distinct !{!192, !193, !"_ZN4core4iter6traits8iterator8Iterator4fold17hb666c70ed2b734eaE: argument 0"}
 !193 = distinct !{!193, !"_ZN4core4iter6traits8iterator8Iterator4fold17hb666c70ed2b734eaE"}

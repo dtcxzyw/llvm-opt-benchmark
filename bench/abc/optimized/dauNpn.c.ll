@@ -940,8 +940,8 @@ define void @Dau_NetworkEnum(i32 noundef %0) local_unnamed_addr #0 {
   %33 = load i32, ptr %32, align 4
   %34 = or i32 %33, -2147483648
   store i32 %34, ptr %32, align 4
-  call fastcc void @Vec_IntPushTwo(ptr noundef %20, i32 noundef %26)
-  call fastcc void @Vec_IntPushTwo(ptr noundef %21, i32 noundef %26)
+  call fastcc void @Vec_IntPushTwo.argelim(ptr noundef %20, i32 noundef %26)
+  call fastcc void @Vec_IntPushTwo.argelim(ptr noundef %21, i32 noundef %26)
   %35 = getelementptr i8, ptr %20, i64 4
   %.val372 = load i32, ptr %35, align 4
   br label %36
@@ -1528,7 +1528,7 @@ Abc_Clock.exit437:                                ; preds = %Vec_WecFree.exit435
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntPushTwo(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc void @Vec_IntPushTwo.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -2400,7 +2400,7 @@ Abc_Clock.exit41:                                 ; preds = %Abc_Clock.exit, %21
   %.val37 = load i32, ptr %33, align 4
   %.val39 = load ptr, ptr %34, align 8
   %43 = getelementptr inbounds i64, ptr %.val39, i64 %indvars.iv
-  call fastcc void @Vec_MemHashInsert(ptr noundef nonnull %15, ptr noundef %43)
+  call fastcc void @Vec_MemHashInsert.argelim(ptr noundef nonnull %15, ptr noundef %43)
   %.val38 = load i32, ptr %33, align 4
   %44 = icmp ne i32 %.val37, %.val38
   %45 = zext i1 %44 to i32
@@ -2595,7 +2595,7 @@ Vec_IntStartFull.exit:                            ; preds = %Abc_PrimeCudd.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_MemHashInsert(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Vec_MemHashInsert.argelim(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3509,7 +3509,7 @@ define range(i32 0, 2) i32 @Dau_InsertFunction(ptr noundef %0, ptr noundef %1, i
   %11 = alloca [16 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = icmp sgt i32 %5, 0
-  br i1 %12, label %.lr.ph.i, label %Abc_TtMinBase.exit
+  br i1 %12, label %.lr.ph.i, label %Abc_TtMinBase.argprom.exit
 
 .lr.ph.i:                                         ; preds = %10
   %13 = icmp slt i32 %3, 7
@@ -3581,7 +3581,7 @@ Abc_TtHasVar.exit.thread.us.i:                    ; preds = %Abc_TtSwapVars.exit
   %.1.us.i = phi i32 [ %45, %Abc_TtSwapVars.exit.us.i ], [ %.019.us.i, %Abc_TtHasVar.exit.us.i ]
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next31.i, %wide.trip.count33.i
-  br i1 %exitcond34.not.i, label %Abc_TtMinBase.exit, label %Abc_TtHasVar.exit.us.i, !llvm.loop !56
+  br i1 %exitcond34.not.i, label %Abc_TtMinBase.argprom.exit, label %Abc_TtHasVar.exit.us.i, !llvm.loop !56
 
 .lr.ph.split.i:                                   ; preds = %Abc_TtHasVar.exit.thread.i, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %Abc_TtHasVar.exit.thread.i ]
@@ -3822,19 +3822,19 @@ Abc_TtHasVar.exit.thread.i:                       ; preds = %._crit_edge.us.i.i,
   %.1.i = phi i32 [ %158, %Abc_TtSwapVars.exit.i ], [ %.019.i, %48 ], [ %.019.i, %61 ], [ %.019.i, %.preheader.lr.ph.i.i ], [ %.019.i, %54 ], [ %.019.i, %._crit_edge.us.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Abc_TtMinBase.exit, label %.lr.ph.split.i, !llvm.loop !56
+  br i1 %exitcond.not.i, label %Abc_TtMinBase.argprom.exit, label %.lr.ph.split.i, !llvm.loop !56
 
-Abc_TtMinBase.exit:                               ; preds = %Abc_TtHasVar.exit.thread.i, %Abc_TtHasVar.exit.thread.us.i, %10
+Abc_TtMinBase.argprom.exit:                       ; preds = %Abc_TtHasVar.exit.thread.i, %Abc_TtHasVar.exit.thread.us.i, %10
   %.0.lcssa.i = phi i32 [ 0, %10 ], [ %.1.us.i, %Abc_TtHasVar.exit.thread.us.i ], [ %.1.i, %Abc_TtHasVar.exit.thread.i ]
   %159 = call i32 @Abc_TtCanonicizeWrap(ptr noundef nonnull @Abc_TtCanonicizeAda, ptr noundef %0, ptr noundef %1, i32 noundef %.0.lcssa.i, ptr noundef nonnull %11, i32 noundef 99) #22
   %160 = getelementptr i8, ptr %6, i64 4
   %.val23 = load i32, ptr %160, align 4
-  call fastcc void @Vec_MemHashInsert(ptr noundef %6, ptr noundef %1)
+  call fastcc void @Vec_MemHashInsert.argelim(ptr noundef %6, ptr noundef %1)
   %.val22 = load i32, ptr %160, align 4
   %161 = icmp eq i32 %.val23, %.val22
   br i1 %161, label %199, label %162
 
-162:                                              ; preds = %Abc_TtMinBase.exit
+162:                                              ; preds = %Abc_TtMinBase.argprom.exit
   %163 = shl i32 %2, 16
   %164 = or i32 %.0.lcssa.i, %163
   %165 = getelementptr inbounds i8, ptr %7, i64 4
@@ -3912,8 +3912,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   call void @Dau_TablesSave(i32 noundef %3, i32 noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %8, i64 noundef %9)
   br label %199
 
-199:                                              ; preds = %Vec_IntPush.exit, %198, %Abc_TtMinBase.exit
-  %.0 = phi i32 [ 0, %Abc_TtMinBase.exit ], [ 1, %198 ], [ 1, %Vec_IntPush.exit ]
+199:                                              ; preds = %Vec_IntPush.exit, %198, %Abc_TtMinBase.argprom.exit
+  %.0 = phi i32 [ 0, %Abc_TtMinBase.argprom.exit ], [ 1, %198 ], [ 1, %Vec_IntPush.exit ]
   ret i32 %.0
 }
 
@@ -3975,7 +3975,7 @@ Vec_IntPush.exit:                                 ; preds = %6, %19
   store i32 2, ptr %39, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   call fastcc void @Vec_MemHashAlloc(ptr noundef %31, i32 noundef 65536)
-  call fastcc void @Vec_MemHashInsert(ptr noundef %31, ptr noundef nonnull %13)
+  call fastcc void @Vec_MemHashInsert.argelim(ptr noundef %31, ptr noundef nonnull %13)
   store i32 0, ptr %37, align 4
   %40 = icmp sgt i32 %29, 0
   br i1 %40, label %.lr.ph.preheader.i427, label %Vec_IntPush.exit434
@@ -3997,7 +3997,7 @@ Vec_IntPush.exit:                                 ; preds = %6, %19
   br i1 %exitcond.not.i, label %Vec_IntPush.exit434, label %.lr.ph.i, !llvm.loop !64
 
 Vec_IntPush.exit434:                              ; preds = %.lr.ph.i, %Vec_IntPush.exit
-  call fastcc void @Vec_MemHashInsert(ptr noundef %31, ptr noundef nonnull %13)
+  call fastcc void @Vec_MemHashInsert.argelim(ptr noundef %31, ptr noundef nonnull %13)
   store i32 2, ptr %36, align 4
   %46 = getelementptr inbounds i8, ptr %37, i64 4
   store i32 1, ptr %46, align 4

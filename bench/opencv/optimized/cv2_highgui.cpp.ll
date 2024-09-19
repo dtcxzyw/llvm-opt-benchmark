@@ -753,9 +753,9 @@ _ZN14PyAllowThreadsC2Ev.exit:                     ; preds = %91
 
 .noexc37:                                         ; preds = %96
   invoke void @_ZN2cv14setTrackbarPosERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_i(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef %97)
-          to label %_ZL15_createTrackbarRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_iiPFviPvEP7_object.exit unwind label %111
+          to label %_ZL15_createTrackbarRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_iiPFviPvEP7_object.argprom.exit unwind label %111
 
-_ZL15_createTrackbarRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_iiPFviPvEP7_object.exit: ; preds = %.noexc37
+_ZL15_createTrackbarRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_iiPFviPvEP7_object.argprom.exit: ; preds = %.noexc37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #12
@@ -763,14 +763,14 @@ _ZL15_createTrackbarRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_iiP
   invoke void @PyEval_RestoreThread(ptr noundef %92)
           to label %_ZN14PyAllowThreadsD2Ev.exit unwind label %100
 
-100:                                              ; preds = %_ZL15_createTrackbarRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_iiPFviPvEP7_object.exit
+100:                                              ; preds = %_ZL15_createTrackbarRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_iiPFviPvEP7_object.argprom.exit
   %101 = landingpad { ptr, i32 }
           catch ptr null
   %102 = extractvalue { ptr, i32 } %101, 0
   call void @__clang_call_terminate(ptr %102) #13
   unreachable
 
-_ZN14PyAllowThreadsD2Ev.exit:                     ; preds = %_ZL15_createTrackbarRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_iiPFviPvEP7_object.exit
+_ZN14PyAllowThreadsD2Ev.exit:                     ; preds = %_ZL15_createTrackbarRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_iiPFviPvEP7_object.argprom.exit
   %103 = load i64, ptr @_Py_NoneStruct, align 8
   %104 = add nsw i64 %103, 1
   store i64 %104, ptr @_Py_NoneStruct, align 8

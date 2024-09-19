@@ -136,13 +136,13 @@ if.then8:                                         ; preds = %if.end
   %3 = load i16, ptr @_TRACE_COLO_PROXY_MAIN_VNET_INFO_DSTATE, align 2
   %tobool4.i.i = icmp ne i16 %3, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
-  br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_colo_proxy_main_vnet_info.exit
+  br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_colo_proxy_main_vnet_info.argprom.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.then8
   %4 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i = and i32 %4, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.i.not.i.i, label %trace_colo_proxy_main_vnet_info.exit, label %if.then.i.i
+  br i1 %cmp.i.not.i.i, label %trace_colo_proxy_main_vnet_info.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %5 = load i8, ptr @message_with_timestamp, align 1
@@ -156,13 +156,13 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull @.str.2, i32 noundef %1, i32 noundef %.pre) #15
-  br label %trace_colo_proxy_main_vnet_info.exit
+  br label %trace_colo_proxy_main_vnet_info.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef %1, i32 noundef %.pre) #15
-  br label %trace_colo_proxy_main_vnet_info.exit
+  br label %trace_colo_proxy_main_vnet_info.argprom.exit
 
-trace_colo_proxy_main_vnet_info.exit:             ; preds = %if.then8, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
+trace_colo_proxy_main_vnet_info.argprom.exit:     ; preds = %if.then8, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   br label %return
 
@@ -298,8 +298,8 @@ if.end36:                                         ; preds = %if.end24
   store ptr %add.ptr38, ptr %transport_header, align 8
   br label %return
 
-return:                                           ; preds = %if.end17, %if.end36, %trace_colo_proxy_main.exit50, %trace_colo_proxy_main.exit, %trace_colo_proxy_main_vnet_info.exit
-  %retval.0 = phi i32 [ 1, %trace_colo_proxy_main_vnet_info.exit ], [ 1, %trace_colo_proxy_main.exit50 ], [ 0, %if.end36 ], [ 1, %trace_colo_proxy_main.exit ], [ 1, %if.end17 ]
+return:                                           ; preds = %if.end17, %if.end36, %trace_colo_proxy_main.exit50, %trace_colo_proxy_main.exit, %trace_colo_proxy_main_vnet_info.argprom.exit
+  %retval.0 = phi i32 [ 1, %trace_colo_proxy_main_vnet_info.argprom.exit ], [ 1, %trace_colo_proxy_main.exit50 ], [ 0, %if.end36 ], [ 1, %trace_colo_proxy_main.exit ], [ 1, %if.end17 ]
   ret i32 %retval.0
 }
 

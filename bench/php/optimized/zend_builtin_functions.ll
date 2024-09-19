@@ -1977,7 +1977,7 @@ define hidden void @zif_define(ptr noundef %0, ptr nocapture noundef writeonly %
 
 63:                                               ; preds = %60
   %64 = load ptr, ptr %20, align 8
-  %65 = call fastcc zeroext i1 @validate_constant_array_argument(ptr noundef %64)
+  %65 = call fastcc zeroext i1 @validate_constant_array_argument.argelim(ptr noundef %64)
   br i1 %65, label %69, label %66
 
 66:                                               ; preds = %63
@@ -2049,7 +2049,7 @@ define hidden void @zif_define(ptr noundef %0, ptr nocapture noundef writeonly %
 declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @validate_constant_array_argument(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @validate_constant_array_argument.argelim(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = or i32 %3, 32
@@ -2113,7 +2113,7 @@ define internal fastcc noundef zeroext i1 @validate_constant_array_argument(ptr 
   br label %.loopexit
 
 32:                                               ; preds = %26
-  %33 = tail call fastcc zeroext i1 @validate_constant_array_argument(ptr noundef nonnull %27)
+  %33 = tail call fastcc zeroext i1 @validate_constant_array_argument.argelim(ptr noundef nonnull %27)
   br i1 %33, label %34, label %.loopexit
 
 34:                                               ; preds = %.lr.ph, %20, %23, %32
@@ -5105,12 +5105,12 @@ define hidden void @zif_restore_exception_handler(ptr nocapture noundef readonly
 define hidden void @zif_get_declared_traits(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
-  tail call fastcc void @get_declared_class_impl(i32 %.val, ptr noundef %1, i32 noundef 10)
+  tail call fastcc void @get_declared_class_impl.argprom(i32 %.val, ptr noundef %1, i32 noundef 10)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_declared_class_impl(i32 %.44.val, ptr nocapture noundef %0, i32 noundef range(i32 8, 11) %1) unnamed_addr #0 {
+define internal fastcc void @get_declared_class_impl.argprom(i32 %.44.val, ptr nocapture noundef %0, i32 noundef range(i32 8, 11) %1) unnamed_addr #0 {
   %.not = icmp eq i32 %.44.val, 0
   br i1 %.not, label %4, label %3
 
@@ -5278,7 +5278,7 @@ define internal fastcc void @get_declared_class_impl(i32 %.44.val, ptr nocapture
 define hidden void @zif_get_declared_classes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
-  tail call fastcc void @get_declared_class_impl(i32 %.val, ptr noundef %1, i32 noundef 8)
+  tail call fastcc void @get_declared_class_impl.argprom(i32 %.val, ptr noundef %1, i32 noundef 8)
   ret void
 }
 
@@ -5286,7 +5286,7 @@ define hidden void @zif_get_declared_classes(ptr nocapture noundef readonly %0, 
 define hidden void @zif_get_declared_interfaces(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
-  tail call fastcc void @get_declared_class_impl(i32 %.val, ptr noundef %1, i32 noundef 9)
+  tail call fastcc void @get_declared_class_impl.argprom(i32 %.val, ptr noundef %1, i32 noundef 9)
   ret void
 }
 

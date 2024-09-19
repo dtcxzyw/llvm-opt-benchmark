@@ -2288,7 +2288,7 @@ define internal void @_ZN5clang4ento5check13BeginFunction19_checkBeginFunctionIN
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(48) %10) #16
-  br i1 %14, label %15, label %_ZNK12_GLOBAL__N_119NonNullParamChecker18checkBeginFunctionERN5clang4ento14CheckerContextE.exit
+  br i1 %14, label %15, label %_ZNK12_GLOBAL__N_119NonNullParamChecker18checkBeginFunctionERN5clang4ento14CheckerContextE.argprom.exit
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %7, align 8
@@ -2309,7 +2309,7 @@ define internal void @_ZN5clang4ento5check13BeginFunction19_checkBeginFunctionIN
   %28 = icmp ne i32 %25, 15
   %.not.i61.i = and i1 %28, %27
   %or.cond.i = or i1 %.not13.i.i, %.not.i61.i
-  br i1 %or.cond.i, label %_ZNK12_GLOBAL__N_119NonNullParamChecker18checkBeginFunctionERN5clang4ento14CheckerContextE.exit, label %29
+  br i1 %or.cond.i, label %_ZNK12_GLOBAL__N_119NonNullParamChecker18checkBeginFunctionERN5clang4ento14CheckerContextE.argprom.exit, label %29
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 56
@@ -2419,11 +2419,11 @@ _ZNK5clang4Decl14specific_attrsINS_11NonNullAttrEEEN4llvm14iterator_rangeINS_22s
 77:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %78 = getelementptr inbounds i8, ptr %.sroa.07.1.i.i.i.i.i.i, i64 8
   %.not.i.i.i22.i.i.i.i = icmp eq ptr %78, %69
-  br i1 %.not.i.i.i22.i.i.i.i, label %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i22.i.i.i.i, label %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.argprom.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !20
 
 79:                                               ; preds = %70
   %.not2.i3.i.i.i.i.i.i = icmp eq ptr %69, %.sroa.01.0.i.i.i.i
-  br i1 %.not2.i3.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i, label %.lr.ph.i4.i.i.i.i.i.i
+  br i1 %.not2.i3.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.argprom.exit.i.i.i, label %.lr.ph.i4.i.i.i.i.i.i
 
 .lr.ph.i4.i.i.i.i.i.i:                            ; preds = %79, %84
   %.sroa.0.1.i.i.i.i.i.i = phi ptr [ %85, %84 ], [ %69, %79 ]
@@ -2436,13 +2436,13 @@ _ZNK5clang4Decl14specific_attrsINS_11NonNullAttrEEEN4llvm14iterator_rangeINS_22s
 84:                                               ; preds = %.lr.ph.i4.i.i.i.i.i.i
   %85 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i.i.i.i.i, i64 8
   %.not.i5.i.i.i.i.i.i = icmp eq ptr %85, %.sroa.01.0.i.i.i.i
-  br i1 %.not.i5.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i, label %.lr.ph.i4.i.i.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i5.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.argprom.exit.i.i.i, label %.lr.ph.i4.i.i.i.i.i.i, !llvm.loop !20
 
 _ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i: ; preds = %.lr.ph.i4.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.sroa.07.0.i.i.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.01.0.i.i.i.i, %.lr.ph.i4.i.i.i.i.i.i ]
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %69, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i.i.i.i, %.lr.ph.i4.i.i.i.i.i.i ]
   %.not7.i.i.i.i = icmp eq ptr %.sroa.07.0.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i
-  br i1 %.not7.i.i.i.i, label %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i, label %86
+  br i1 %.not7.i.i.i.i, label %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.argprom.exit.i.i.i, label %86
 
 86:                                               ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i
   %87 = load ptr, ptr %.sroa.01.0.i.i.i.i, align 8, !noalias !46
@@ -2480,7 +2480,7 @@ _ZNK5clang22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4Att
   %106 = shl nuw i64 %105, 1
   %107 = and i64 %71, -288230376151711743
   %108 = or i64 %106, %107
-  br label %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i
+  br label %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.argprom.exit.i.i.i
 
 109:                                              ; preds = %100
   %110 = inttoptr i64 %71 to ptr
@@ -2499,7 +2499,7 @@ _ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.pre
   %115 = load i32, ptr %114, align 8, !noalias !46
   %116 = and i32 %115, 63
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %116, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i, label %117
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.argprom.exit.i.i.i, label %117
 
 117:                                              ; preds = %_ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i
   %118 = zext nneg i32 %116 to i64
@@ -2512,7 +2512,7 @@ _ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.pre
   %125 = load i64, ptr %124, align 8, !noalias !46
   %126 = and i64 %125, %120
   store i64 %126, ptr %124, align 8, !noalias !46
-  br label %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i
+  br label %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.argprom.exit.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %_ZNK5clang22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i.i.i.i
   %127 = getelementptr inbounds nuw i8, ptr %97, i64 40
@@ -2586,7 +2586,7 @@ _ZN4llvm14SmallBitVector3setEj.exit.i.i.i.i:      ; preds = %153, %.thread.i.i.i
   %165 = getelementptr inbounds i8, ptr %.sroa.01.1.i.i.i.i, i64 8
   br label %70
 
-_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i: ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i, %79, %84, %77, %117, %_ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i, %102
+_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.argprom.exit.i.i.i: ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i, %79, %84, %77, %117, %_ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i, %102
   %.sroa.09.3.i = phi i64 [ %.sroa.09.0.i, %_ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i ], [ %.sroa.09.0.i, %117 ], [ %108, %102 ], [ %.sroa.09.0.i, %77 ], [ %.sroa.09.0.i, %84 ], [ %.sroa.09.0.i, %79 ], [ %.sroa.09.0.i, %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i ]
   %166 = phi i64 [ %71, %_ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i ], [ %71, %117 ], [ %108, %102 ], [ %71, %77 ], [ %71, %84 ], [ %71, %79 ], [ %71, %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i ]
   %167 = load i32, ptr %23, align 4, !noalias !46
@@ -2595,13 +2595,13 @@ _ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_R
   %170 = icmp ult i32 %169, -6
   br i1 %170, label %175, label %171
 
-171:                                              ; preds = %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i
+171:                                              ; preds = %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.argprom.exit.i.i.i
   %172 = getelementptr inbounds nuw i8, ptr %22, i64 120
   %173 = load ptr, ptr %172, align 8, !noalias !46
   %174 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %22) #16, !noalias !46
   br label %_ZNK5clang7AnyCall10parametersEv.exit.i.i.i.i
 
-175:                                              ; preds = %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i
+175:                                              ; preds = %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.argprom.exit.i.i.i
   switch i32 %168, label %_ZN12_GLOBAL__N_115getNonNullAttrsERKN5clang7AnyCallE.exit.thread.i [
     i32 15, label %176
     i32 7, label %181
@@ -3013,13 +3013,13 @@ _ZN4llvm9BitVectorD2Ev.exit.i.i:                  ; preds = %363, %358
   br label %_ZN4llvm14SmallBitVectorD2Ev.exit.i
 
 _ZN4llvm14SmallBitVectorD2Ev.exit.i:              ; preds = %_ZN4llvm9BitVectorD2Ev.exit.i.i, %355, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48.i
-  br i1 %.not.i.i42.i, label %_ZNK12_GLOBAL__N_119NonNullParamChecker18checkBeginFunctionERN5clang4ento14CheckerContextE.exit, label %364
+  br i1 %.not.i.i42.i, label %_ZNK12_GLOBAL__N_119NonNullParamChecker18checkBeginFunctionERN5clang4ento14CheckerContextE.argprom.exit, label %364
 
 364:                                              ; preds = %_ZN4llvm14SmallBitVectorD2Ev.exit.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.011.0.lcssa.i) #16
-  br label %_ZNK12_GLOBAL__N_119NonNullParamChecker18checkBeginFunctionERN5clang4ento14CheckerContextE.exit
+  br label %_ZNK12_GLOBAL__N_119NonNullParamChecker18checkBeginFunctionERN5clang4ento14CheckerContextE.argprom.exit
 
-_ZNK12_GLOBAL__N_119NonNullParamChecker18checkBeginFunctionERN5clang4ento14CheckerContextE.exit: ; preds = %2, %15, %_ZN4llvm14SmallBitVectorD2Ev.exit.i, %364
+_ZNK12_GLOBAL__N_119NonNullParamChecker18checkBeginFunctionERN5clang4ento14CheckerContextE.argprom.exit: ; preds = %2, %15, %_ZN4llvm14SmallBitVectorD2Ev.exit.i, %364
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret void
 }

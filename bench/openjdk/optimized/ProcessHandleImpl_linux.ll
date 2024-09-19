@@ -31,7 +31,7 @@ define hidden void @os_initNative(ptr nocapture noundef readnone %0, ptr nocaptu
   store i64 0, ptr %5, align 8
   %6 = tail call noalias ptr @fopen64(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1)
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %getBoottime.exit, label %.preheader.i
+  br i1 %7, label %getBoottime.argprom.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2, %9
   %8 = call i64 @getline(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6) #13
@@ -50,9 +50,9 @@ define hidden void @os_initNative(ptr nocapture noundef readnone %0, ptr nocaptu
   %15 = call i32 @fclose(ptr noundef nonnull %6)
   %16 = load i64, ptr %5, align 8
   %17 = mul nsw i64 %16, 1000
-  br label %getBoottime.exit
+  br label %getBoottime.argprom.exit
 
-getBoottime.exit:                                 ; preds = %2, %13
+getBoottime.argprom.exit:                         ; preds = %2, %13
   %.0.i = phi i64 [ %17, %13 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)

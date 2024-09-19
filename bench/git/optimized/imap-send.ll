@@ -239,13 +239,13 @@ if.end16:                                         ; preds = %if.end15, %if.end9
 if.then18:                                        ; preds = %if.end16
   %9 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i = icmp eq i32 %9, 0
-  br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
+  br i1 %tobool1.not.i, label %_.argprom.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then18
   %call.i = call ptr @gettext(ptr noundef nonnull @.str.4) #19
-  br label %_.exit
+  br label %_.argprom.exit
 
-_.exit:                                           ; preds = %if.then18, %if.end3.i
+_.argprom.exit:                                   ; preds = %if.then18, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.4, %if.then18 ]
   %call20 = call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i) #19
   br label %return
@@ -277,19 +277,19 @@ if.then.i:                                        ; preds = %while.body.i
   %add.ptr.i = getelementptr inbounds i8, ptr %p.0.i, i64 5
   %call1.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(1) @.str.27) #22
   %tobool2.not.i = icmp eq ptr %call1.i, null
-  br i1 %tobool2.not.i, label %count_messages.exit, label %if.end.i
+  br i1 %tobool2.not.i, label %count_messages.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
   %add.ptr4.i = getelementptr inbounds i8, ptr %call1.i, i64 7
   %call5.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %add.ptr4.i, ptr noundef nonnull dereferenceable(1) @.str.28) #22
   %tobool6.not.i = icmp eq ptr %call5.i, null
-  br i1 %tobool6.not.i, label %count_messages.exit, label %if.end8.i
+  br i1 %tobool6.not.i, label %count_messages.argprom.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
   %add.ptr9.i = getelementptr inbounds i8, ptr %call5.i, i64 7
   %call10.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %add.ptr9.i, ptr noundef nonnull dereferenceable(1) @.str.29) #22
   %tobool11.not.i = icmp eq ptr %call10.i, null
-  br i1 %tobool11.not.i, label %count_messages.exit, label %if.end13.i
+  br i1 %tobool11.not.i, label %count_messages.argprom.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end8.i
   %add.ptr14.i = getelementptr inbounds i8, ptr %call10.i, i64 10
@@ -303,25 +303,25 @@ if.end15.i:                                       ; preds = %if.end13.i, %while.
   %call17.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %add.ptr16.i, ptr noundef nonnull dereferenceable(1) @.str.30) #22
   %tobool18.not.i = icmp eq ptr %call17.i, null
   %incdec.ptr.i = getelementptr inbounds i8, ptr %call17.i, i64 1
-  br i1 %tobool18.not.i, label %count_messages.exit, label %while.body.i
+  br i1 %tobool18.not.i, label %count_messages.argprom.exit, label %while.body.i
 
-count_messages.exit:                              ; preds = %if.then.i, %if.end.i, %if.end8.i, %if.end15.i
+count_messages.argprom.exit:                      ; preds = %if.then.i, %if.end.i, %if.end8.i, %if.end15.i
   %count.2.i = phi i32 [ %count.1.i, %if.end15.i ], [ %count.0.i, %if.end8.i ], [ %count.0.i, %if.end.i ], [ %count.0.i, %if.then.i ]
   %tobool28.not = icmp eq i32 %count.2.i, 0
   br i1 %tobool28.not, label %if.then29, label %if.end31
 
-if.then29:                                        ; preds = %count_messages.exit
+if.then29:                                        ; preds = %count_messages.argprom.exit
   %14 = load ptr, ptr @stderr, align 8
   %15 = call i64 @fwrite(ptr nonnull @.str.6, i64 20, i64 1, ptr %14) #21
   br label %return
 
-if.end31:                                         ; preds = %count_messages.exit
+if.end31:                                         ; preds = %count_messages.argprom.exit
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 8), align 8
   %tobool32.not = icmp eq ptr %16, null
   br i1 %tobool32.not, label %if.end35, label %if.then33
 
 if.then33:                                        ; preds = %if.end31
-  %call34 = call fastcc i32 @append_msgs_to_imap(ptr noundef %all_msgs, i32 noundef %count.2.i)
+  %call34 = call fastcc i32 @append_msgs_to_imap.argprom(ptr noundef %all_msgs, i32 noundef %count.2.i)
   br label %return
 
 if.end35:                                         ; preds = %if.end31
@@ -354,7 +354,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   unreachable
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
-  call fastcc void @server_fill_credential(ptr noundef %cred.i)
+  call fastcc void @server_fill_credential.argprom(ptr noundef %cred.i)
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 40), align 8
   %call4.i.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call1.i.i, i32 noundef 10173, ptr noundef %18) #19
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 48), align 8
@@ -460,13 +460,13 @@ if.end27.i.i:                                     ; preds = %if.then25.i.i, %if.
 lor.lhs.false35.i.i:                              ; preds = %if.end27.i.i
   %call36.i.i = call ptr @getenv(ptr noundef nonnull @.str.141) #19
   %tobool37.not.i.i = icmp eq ptr %call36.i.i, null
-  br i1 %tobool37.not.i.i, label %setup_curl.exit.i, label %if.then38.i.i
+  br i1 %tobool37.not.i.i, label %setup_curl.argprom.exit.i, label %if.then38.i.i
 
 if.then38.i.i:                                    ; preds = %lor.lhs.false35.i.i, %if.end27.i.i
   call void @http_trace_curl_no_data() #19
-  br label %setup_curl.exit.i
+  br label %setup_curl.argprom.exit.i
 
-setup_curl.exit.i:                                ; preds = %if.then38.i.i, %lor.lhs.false35.i.i
+setup_curl.argprom.exit.i:                        ; preds = %if.then38.i.i, %lor.lhs.false35.i.i
   call void @setup_curl_trace(ptr noundef nonnull %call1.i.i) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i.i)
   %call1.i6 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call1.i.i, i32 noundef 10009, ptr noundef nonnull %msgbuf.i) #19
@@ -481,7 +481,7 @@ setup_curl.exit.i:                                ; preds = %if.then38.i.i, %lor
   %cmp.not.i147.not.i = icmp eq i64 %41, 0
   br i1 %cmp.not.i147.not.i, label %while.end.i, label %if.end.i15.lr.ph.i
 
-if.end.i15.lr.ph.i:                               ; preds = %setup_curl.exit.i
+if.end.i15.lr.ph.i:                               ; preds = %setup_curl.argprom.exit.i
   %42 = load i64, ptr %len.i, align 8
   %buf.i25.i = getelementptr inbounds i8, ptr %msgbuf.i, i64 16
   br label %if.end.i15.i
@@ -639,8 +639,8 @@ if.then18.i:                                      ; preds = %lf_to_crlf.exit.i
   %call20.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.134, ptr noundef %call19.i) #21
   br label %while.end.i
 
-while.end.i:                                      ; preds = %lor.lhs.false.i18.i, %if.end.i15.i, %while.body.i9, %if.then18.i, %setup_curl.exit.i
-  %res.1.i = phi i32 [ %call15.i, %if.then18.i ], [ 0, %setup_curl.exit.i ], [ 0, %while.body.i9 ], [ 0, %if.end.i15.i ], [ 0, %lor.lhs.false.i18.i ]
+while.end.i:                                      ; preds = %lor.lhs.false.i18.i, %if.end.i15.i, %while.body.i9, %if.then18.i, %setup_curl.argprom.exit.i
+  %res.1.i = phi i32 [ %call15.i, %if.then18.i ], [ 0, %setup_curl.argprom.exit.i ], [ 0, %while.body.i9 ], [ 0, %if.end.i15.i ], [ 0, %lor.lhs.false.i18.i ]
   %62 = load ptr, ptr @stderr, align 8
   %fputc.i = call i32 @fputc(i32 10, ptr %62)
   call void @curl_easy_cleanup(ptr noundef nonnull %call1.i.i) #19
@@ -648,23 +648,23 @@ while.end.i:                                      ; preds = %lor.lhs.false.i18.i
   %username.i = getelementptr inbounds i8, ptr %cred.i, i64 72
   %63 = load ptr, ptr %username.i, align 8
   %tobool23.not.i = icmp eq ptr %63, null
-  br i1 %tobool23.not.i, label %curl_append_msgs_to_imap.exit, label %if.then24.i
+  br i1 %tobool23.not.i, label %curl_append_msgs_to_imap.argprom.exit, label %if.then24.i
 
 if.then24.i:                                      ; preds = %while.end.i
-  switch i32 %res.1.i, label %curl_append_msgs_to_imap.exit [
+  switch i32 %res.1.i, label %curl_append_msgs_to_imap.argprom.exit [
     i32 0, label %if.then27.i
     i32 67, label %if.then30.i
   ]
 
 if.then27.i:                                      ; preds = %if.then24.i
   call void @credential_approve(ptr noundef nonnull %cred.i) #19
-  br label %curl_append_msgs_to_imap.exit
+  br label %curl_append_msgs_to_imap.argprom.exit
 
 if.then30.i:                                      ; preds = %if.then24.i
   call void @credential_reject(ptr noundef nonnull %cred.i) #19
-  br label %curl_append_msgs_to_imap.exit
+  br label %curl_append_msgs_to_imap.argprom.exit
 
-curl_append_msgs_to_imap.exit:                    ; preds = %while.end.i, %if.then24.i, %if.then27.i, %if.then30.i
+curl_append_msgs_to_imap.argprom.exit:            ; preds = %while.end.i, %if.then24.i, %if.then27.i, %if.then30.i
   call void @credential_clear(ptr noundef nonnull %cred.i) #19
   %cmp34.i = icmp ne i32 %res.1.i, 0
   %conv35.i = zext i1 %cmp34.i to i32
@@ -673,11 +673,11 @@ curl_append_msgs_to_imap.exit:                    ; preds = %while.end.i, %if.th
   br label %return
 
 if.end39:                                         ; preds = %if.end35
-  %call40 = call fastcc i32 @append_msgs_to_imap(ptr noundef %all_msgs, i32 noundef %count.2.i)
+  %call40 = call fastcc i32 @append_msgs_to_imap.argprom(ptr noundef %all_msgs, i32 noundef %count.2.i)
   br label %return
 
-return:                                           ; preds = %if.end39, %curl_append_msgs_to_imap.exit, %if.then33, %if.then29, %if.then24, %_.exit, %if.then13, %if.then7
-  %retval.0 = phi i32 [ 1, %_.exit ], [ 1, %if.then24 ], [ %call34, %if.then33 ], [ %conv35.i, %curl_append_msgs_to_imap.exit ], [ %call40, %if.end39 ], [ 1, %if.then29 ], [ 1, %if.then13 ], [ 1, %if.then7 ]
+return:                                           ; preds = %if.end39, %curl_append_msgs_to_imap.argprom.exit, %if.then33, %if.then29, %if.then24, %_.argprom.exit, %if.then13, %if.then7
+  %retval.0 = phi i32 [ 1, %_.argprom.exit ], [ 1, %if.then24 ], [ %call34, %if.then33 ], [ %conv35.i, %curl_append_msgs_to_imap.argprom.exit ], [ %call40, %if.end39 ], [ 1, %if.then29 ], [ 1, %if.then13 ], [ 1, %if.then7 ]
   ret i32 %retval.0
 }
 
@@ -830,7 +830,7 @@ declare i64 @strbuf_read(ptr noundef, i32 noundef, i64 noundef) local_unnamed_ad
 declare i32 @error_errno(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @append_msgs_to_imap(ptr nocapture noundef nonnull readonly %all_msgs, i32 noundef range(i32 1, 0) %total) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @append_msgs_to_imap.argprom(ptr nocapture noundef nonnull readonly %all_msgs, i32 noundef range(i32 1, 0) %total) unnamed_addr #0 {
 entry:
   %cb.i19 = alloca %struct.imap_cmd_cb, align 8
   %cred.i = alloca %struct.credential, align 8
@@ -1249,7 +1249,7 @@ if.end128.i:                                      ; preds = %if.end121.i
 
 if.end134.i:                                      ; preds = %if.end128.i, %land.lhs.true113.i, %if.then110.i
   call void (ptr, ...) @imap_info(ptr noundef nonnull @.str.52)
-  call fastcc void @server_fill_credential(ptr noundef %cred.i)
+  call fastcc void @server_fill_credential.argprom(ptr noundef %cred.i)
   %79 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 72), align 8
   %tobool135.not.i = icmp eq ptr %79, null
   br i1 %tobool135.not.i, label %if.else158.i, label %if.then136.i
@@ -2167,17 +2167,17 @@ if.then5.i:                                       ; preds = %if.end.i
 if.then.i.i:                                      ; preds = %if.then5.i
   %call.i.i = tail call i32 @SSL_get_error(ptr noundef nonnull %sock.val.i, i32 noundef %conv6.i) #19
   switch i32 %call.i.i, label %sw.default.i.i [
-    i32 0, label %socket_perror.exit.i
+    i32 0, label %socket_perror.argprom.exit.i
     i32 5, label %sw.bb2.i.i
   ]
 
 sw.bb2.i.i:                                       ; preds = %if.then.i.i
   tail call void @perror(ptr noundef nonnull @.str.74) #21
-  br label %socket_perror.exit.i
+  br label %socket_perror.argprom.exit.i
 
 sw.default.i.i:                                   ; preds = %if.then.i.i
   tail call fastcc void @ssl_socket_perror(ptr noundef nonnull @.str.74)
-  br label %socket_perror.exit.i
+  br label %socket_perror.argprom.exit.i
 
 if.else.i.i:                                      ; preds = %if.then5.i
   %cmp.i.i = icmp slt i32 %conv6.i, 0
@@ -2185,14 +2185,14 @@ if.else.i.i:                                      ; preds = %if.then5.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
   tail call void @perror(ptr noundef nonnull @.str.81) #21
-  br label %socket_perror.exit.i
+  br label %socket_perror.argprom.exit.i
 
 if.else4.i.i:                                     ; preds = %if.else.i.i
   %8 = load ptr, ptr @stderr, align 8
   %call5.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.81) #21
-  br label %socket_perror.exit.i
+  br label %socket_perror.argprom.exit.i
 
-socket_perror.exit.i:                             ; preds = %if.else4.i.i, %if.then3.i.i, %sw.default.i.i, %sw.bb2.i.i, %if.then.i.i
+socket_perror.argprom.exit.i:                     ; preds = %if.else4.i.i, %if.then3.i.i, %sw.default.i.i, %sw.bb2.i.i, %if.then.i.i
   %9 = load i32, ptr %b, align 8
   %call9.i = tail call i32 @close(i32 noundef %9) #19
   %10 = load i32, ptr %arrayidx11.i, align 4
@@ -2201,7 +2201,7 @@ socket_perror.exit.i:                             ; preds = %if.else4.i.i, %if.t
   store i32 -1, ptr %b, align 8
   br label %socket_read.exit
 
-socket_read.exit:                                 ; preds = %if.end.i, %socket_perror.exit.i
+socket_read.exit:                                 ; preds = %if.end.i, %socket_perror.argprom.exit.i
   %cmp27 = icmp slt i32 %conv6.i, 1
   br i1 %cmp27, label %return, label %if.end30
 
@@ -2729,7 +2729,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @server_fill_credential(ptr noundef nonnull %cred) unnamed_addr #0 {
+define internal fastcc void @server_fill_credential.argprom(ptr noundef nonnull %cred) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 40), align 8
   %tobool.not = icmp eq ptr %0, null
@@ -4065,17 +4065,17 @@ if.then5:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.then5
   %call.i = tail call i32 @SSL_get_error(ptr noundef nonnull %sock.val, i32 noundef %n.0) #19
   switch i32 %call.i, label %sw.default.i [
-    i32 0, label %socket_perror.exit
+    i32 0, label %socket_perror.argprom.exit
     i32 5, label %sw.bb2.i
   ]
 
 sw.bb2.i:                                         ; preds = %if.then.i
   tail call void @perror(ptr noundef nonnull @.str.74) #21
-  br label %socket_perror.exit
+  br label %socket_perror.argprom.exit
 
 sw.default.i:                                     ; preds = %if.then.i
   tail call fastcc void @ssl_socket_perror(ptr noundef nonnull @.str.74)
-  br label %socket_perror.exit
+  br label %socket_perror.argprom.exit
 
 if.else.i:                                        ; preds = %if.then5
   %cmp.i = icmp slt i32 %n.0, 0
@@ -4083,14 +4083,14 @@ if.else.i:                                        ; preds = %if.then5
 
 if.then3.i:                                       ; preds = %if.else.i
   tail call void @perror(ptr noundef nonnull @.str.109) #21
-  br label %socket_perror.exit
+  br label %socket_perror.argprom.exit
 
 if.else4.i:                                       ; preds = %if.else.i
   %2 = load ptr, ptr @stderr, align 8
   %call5.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.109) #21
-  br label %socket_perror.exit
+  br label %socket_perror.argprom.exit
 
-socket_perror.exit:                               ; preds = %if.then.i, %sw.bb2.i, %sw.default.i, %if.then3.i, %if.else4.i
+socket_perror.argprom.exit:                       ; preds = %if.then.i, %sw.bb2.i, %sw.default.i, %if.then3.i, %if.else4.i
   %3 = load i32, ptr %sock, align 8
   %call8 = tail call i32 @close(i32 noundef %3) #19
   %arrayidx10 = getelementptr inbounds i8, ptr %sock, i64 4
@@ -4100,7 +4100,7 @@ socket_perror.exit:                               ; preds = %if.then.i, %sw.bb2.
   store i32 -1, ptr %sock, align 8
   br label %if.end16
 
-if.end16:                                         ; preds = %socket_perror.exit, %if.end
+if.end16:                                         ; preds = %socket_perror.argprom.exit, %if.end
   ret i32 %n.0
 }
 

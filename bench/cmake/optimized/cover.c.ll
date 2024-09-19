@@ -310,7 +310,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
 111:                                              ; preds = %106, %103
   %112 = getelementptr inbounds i8, ptr %7, i64 64
   %113 = load ptr, ptr %112, align 8
-  %114 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %7, ptr noundef %113, ptr noundef %8, ptr noundef %0, i64 noundef %1, i32 %16, i32 %14)
+  %114 = call fastcc i64 @COVER_buildDictionary.argprom(ptr noundef nonnull %7, ptr noundef %113, ptr noundef %8, ptr noundef %0, i64 noundef %1, i32 %16, i32 %14)
   %115 = getelementptr inbounds i8, ptr %0, i64 %114
   %116 = sub i64 %1, %114
   %117 = call i64 @ZDICT_finalizeDictionary(ptr noundef %0, i64 noundef %1, ptr noundef %115, i64 noundef %116, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %10) #26
@@ -695,7 +695,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
   %163 = icmp ult i32 %162, 9
   %164 = select i1 %163, ptr @COVER_cmp8, ptr @COVER_cmp
   %.not.i119 = icmp eq i64 %161, 0
-  br i1 %.not.i119, label %COVER_groupBy.exit, label %.preheader.i
+  br i1 %.not.i119, label %COVER_groupBy.argprom.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %159, %COVER_group.exit.i
   %.0192.i = phi i64 [ %.1.lcssa.i, %COVER_group.exit.i ], [ 0, %159 ]
@@ -798,25 +798,25 @@ COVER_group.exit.i:                               ; preds = %204
   %207 = getelementptr inbounds i32, ptr %.pre.i.i, i64 %206
   store i32 %.128.i.i, ptr %207, align 4
   %208 = icmp ult i64 %.1.lcssa.i, %161
-  br i1 %208, label %.preheader.i, label %COVER_groupBy.exit.loopexit, !llvm.loop !13
+  br i1 %208, label %.preheader.i, label %COVER_groupBy.argprom.exit.loopexit, !llvm.loop !13
 
-COVER_groupBy.exit.loopexit:                      ; preds = %COVER_group.exit.i
+COVER_groupBy.argprom.exit.loopexit:              ; preds = %COVER_group.exit.i
   %.pre = load ptr, ptr %89, align 8
-  br label %COVER_groupBy.exit
+  br label %COVER_groupBy.argprom.exit
 
-COVER_groupBy.exit:                               ; preds = %COVER_groupBy.exit.loopexit, %159
-  %209 = phi ptr [ %.pre, %COVER_groupBy.exit.loopexit ], [ %160, %159 ]
+COVER_groupBy.argprom.exit:                       ; preds = %COVER_groupBy.argprom.exit.loopexit, %159
+  %209 = phi ptr [ %.pre, %COVER_groupBy.argprom.exit.loopexit ], [ %160, %159 ]
   store ptr %209, ptr %120, align 8
   store ptr null, ptr %89, align 8
   br label %COVER_ctx_destroy.exit
 
-COVER_ctx_destroy.exit:                           ; preds = %118, %116, %54, %57, %44, %47, %32, %35, %COVER_groupBy.exit
-  %.090 = phi i64 [ 0, %COVER_groupBy.exit ], [ -72, %35 ], [ -72, %32 ], [ -72, %47 ], [ -72, %44 ], [ -72, %57 ], [ -72, %54 ], [ -64, %116 ], [ -64, %118 ]
+COVER_ctx_destroy.exit:                           ; preds = %118, %116, %54, %57, %44, %47, %32, %35, %COVER_groupBy.argprom.exit
+  %.090 = phi i64 [ 0, %COVER_groupBy.argprom.exit ], [ -72, %35 ], [ -72, %32 ], [ -72, %47 ], [ -72, %44 ], [ -72, %57 ], [ -72, %54 ], [ -64, %116 ], [ -64, %118 ]
   ret i64 %.090
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @COVER_buildDictionary(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef writeonly %3, i64 noundef %4, i32 %.0.val, i32 %.4.val) unnamed_addr #4 {
+define internal fastcc i64 @COVER_buildDictionary.argprom(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef writeonly %3, i64 noundef %4, i32 %.0.val, i32 %.4.val) unnamed_addr #4 {
   %6 = trunc i64 %4 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load i64, ptr %7, align 8
@@ -883,7 +883,7 @@ COVER_computeEpochs.exit:                         ; preds = %5, %15
   %43 = shl nuw nsw i64 %42, 3
   tail call void @llvm.memset.p0.i64(ptr align 4 %.val.i, i8 -1, i64 %43, i1 false)
   %44 = icmp ult i32 %40, %41
-  br i1 %44, label %.lr.ph.i, label %COVER_selectSegment.exit.thread
+  br i1 %44, label %.lr.ph.i, label %COVER_selectSegment.argprom.exit.thread
 
 .lr.ph.i:                                         ; preds = %38
   %45 = zext i32 %40 to i64
@@ -892,7 +892,7 @@ COVER_computeEpochs.exit:                         ; preds = %5, %15
 
 .preheader1.i:                                    ; preds = %179
   %.not15.i = icmp eq i32 %.sroa.048.sroa.0.1.i, %.sroa.048.sroa.7.1.i
-  br i1 %.not15.i, label %COVER_selectSegment.exit, label %.lr.ph19.i
+  br i1 %.not15.i, label %COVER_selectSegment.argprom.exit, label %.lr.ph19.i
 
 .lr.ph19.i:                                       ; preds = %.preheader1.i
   %46 = load ptr, ptr %31, align 8
@@ -1140,7 +1140,7 @@ COVER_map_remove.exit.i:                          ; preds = %130, %._crit_edge.i
 
 .preheader.i:                                     ; preds = %181
   %.not6922.i = icmp eq i32 %.168.i, %.1.i
-  br i1 %.not6922.i, label %COVER_selectSegment.exit, label %.lr.ph24.i
+  br i1 %.not6922.i, label %COVER_selectSegment.argprom.exit, label %.lr.ph24.i
 
 181:                                              ; preds = %181, %.lr.ph19.i
   %.06518.i = phi i32 [ %.sroa.048.sroa.0.1.i, %.lr.ph19.i ], [ %189, %181 ]
@@ -1171,21 +1171,21 @@ COVER_map_remove.exit.i:                          ; preds = %130, %._crit_edge.i
   store i32 0, ptr %195, align 4
   %196 = add i32 %.023.i, 1
   %.not69.i = icmp eq i32 %196, %.1.i
-  br i1 %.not69.i, label %COVER_selectSegment.exit, label %.lr.ph24.i, !llvm.loop !16
+  br i1 %.not69.i, label %COVER_selectSegment.argprom.exit, label %.lr.ph24.i, !llvm.loop !16
 
-COVER_selectSegment.exit:                         ; preds = %.lr.ph24.i, %.preheader1.i, %.preheader.i
+COVER_selectSegment.argprom.exit:                 ; preds = %.lr.ph24.i, %.preheader1.i, %.preheader.i
   %.066.lcssa41.i = phi i32 [ %.168.i, %.preheader.i ], [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.1.i, %.lr.ph24.i ]
   %.067.lcssa40.i = phi i32 [ %.168.i, %.preheader.i ], [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.168.i, %.lr.ph24.i ]
   %.sroa.048.sroa.0.0.insert.ext.i = zext i32 %.067.lcssa40.i to i64
   %197 = icmp eq i32 %.sroa.1257.1.i, 0
-  br i1 %197, label %COVER_selectSegment.exit.thread, label %199
+  br i1 %197, label %COVER_selectSegment.argprom.exit.thread, label %199
 
-COVER_selectSegment.exit.thread:                  ; preds = %38, %COVER_selectSegment.exit
+COVER_selectSegment.argprom.exit.thread:          ; preds = %38, %COVER_selectSegment.argprom.exit
   %198 = add i64 %.04016, 1
   %.not47 = icmp ult i64 %198, %21
   br i1 %.not47, label %228, label %._crit_edge
 
-199:                                              ; preds = %COVER_selectSegment.exit
+199:                                              ; preds = %COVER_selectSegment.argprom.exit
   %200 = add i32 %36, %.066.lcssa41.i
   %201 = sub i32 %200, %.067.lcssa40.i
   %202 = zext i32 %201 to i64
@@ -1226,16 +1226,16 @@ COVER_selectSegment.exit.thread:                  ; preds = %38, %COVER_selectSe
   %227 = tail call i32 @fflush(ptr noundef %226)
   br label %228
 
-228:                                              ; preds = %204, %211, %218, %COVER_selectSegment.exit.thread
-  %.141 = phi i64 [ %198, %COVER_selectSegment.exit.thread ], [ 0, %218 ], [ 0, %211 ], [ 0, %204 ]
-  %.1 = phi i64 [ %.017, %COVER_selectSegment.exit.thread ], [ %205, %218 ], [ %205, %211 ], [ %205, %204 ]
+228:                                              ; preds = %204, %211, %218, %COVER_selectSegment.argprom.exit.thread
+  %.141 = phi i64 [ %198, %COVER_selectSegment.argprom.exit.thread ], [ 0, %218 ], [ 0, %211 ], [ 0, %204 ]
+  %.1 = phi i64 [ %.017, %COVER_selectSegment.argprom.exit.thread ], [ %205, %218 ], [ %205, %211 ], [ %205, %204 ]
   %229 = add nsw i64 %.04215, 1
   %230 = urem i64 %229, %.sroa.0.0.insert.ext.i
   %.not = icmp eq i64 %.1, 0
   br i1 %.not, label %._crit_edge, label %38, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %228, %COVER_selectSegment.exit.thread, %199, %29
-  %.0.lcssa = phi i64 [ 0, %29 ], [ %.017, %199 ], [ %.017, %COVER_selectSegment.exit.thread ], [ 0, %228 ]
+._crit_edge:                                      ; preds = %228, %COVER_selectSegment.argprom.exit.thread, %199, %29
+  %.0.lcssa = phi i64 [ 0, %29 ], [ %.017, %199 ], [ %.017, %COVER_selectSegment.argprom.exit.thread ], [ 0, %228 ]
   %231 = load i32, ptr @g_displayLevel, align 4
   %232 = icmp sgt i32 %231, 1
   br i1 %232, label %233, label %238
@@ -2251,7 +2251,7 @@ define internal void @COVER_tryParameters(ptr nocapture noundef %0) #4 {
   %47 = getelementptr inbounds i8, ptr %6, i64 64
   %48 = load ptr, ptr %47, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %14, ptr align 4 %48, i64 %13, i1 false)
-  %49 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef %4, ptr noundef nonnull %10, i64 noundef %9, i32 %15, i32 %17)
+  %49 = call fastcc i64 @COVER_buildDictionary.argprom(ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef %4, ptr noundef nonnull %10, i64 noundef %9, i32 %15, i32 %17)
   %50 = getelementptr inbounds i8, ptr %10, i64 %49
   %51 = sub i64 %9, %49
   %52 = load ptr, ptr %6, align 8

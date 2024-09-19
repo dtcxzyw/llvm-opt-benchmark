@@ -196,7 +196,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %53 = load ptr, ptr @CmdName, align 8
   %54 = call noalias ptr @fopen(ptr noundef %16, ptr noundef nonnull @.str.18)
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %56, label %openFile.exit.i
+  br i1 %55, label %56, label %openFile.argprom.exit.i
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr @stderr, align 8
@@ -205,7 +205,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call fastcc void @graphviz_exit(i32 noundef 1) #15
   unreachable
 
-openFile.exit.i:                                  ; preds = %52
+openFile.argprom.exit.i:                          ; preds = %52
   store ptr %54, ptr @outfile, align 8
   br label %.thread98.i
 
@@ -304,8 +304,8 @@ openFile.exit.i:                                  ; preds = %52
   call void @abort() #16
   unreachable
 
-.thread98.i:                                      ; preds = %60, %.lr.ph.i, %37, %93, %92, %76, %69, %59, %openFile.exit.i
-  %.1 = phi i32 [ %.012, %69 ], [ %.012, %59 ], [ %.012, %openFile.exit.i ], [ %.012, %93 ], [ %.012, %92 ], [ %.012, %76 ], [ 1, %37 ], [ 1, %.lr.ph.i ], [ %.012, %60 ]
+.thread98.i:                                      ; preds = %60, %.lr.ph.i, %37, %93, %92, %76, %69, %59, %openFile.argprom.exit.i
+  %.1 = phi i32 [ %.012, %69 ], [ %.012, %59 ], [ %.012, %openFile.argprom.exit.i ], [ %.012, %93 ], [ %.012, %92 ], [ %.012, %76 ], [ 1, %37 ], [ 1, %.lr.ph.i ], [ %.012, %60 ]
   store i32 0, ptr %3, align 4
   %100 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @init.opts, ptr noundef nonnull %3) #11
   %101 = icmp eq i32 %100, -1

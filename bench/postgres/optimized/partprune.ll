@@ -2535,9 +2535,9 @@ list_length.exit168:                              ; preds = %222
   %224 = getelementptr inbounds i8, ptr %223, i64 4
   %225 = load i32, ptr %224, align 4
   %226 = icmp eq i32 %225, 2
-  br i1 %226, label %get_leftop.exit, label %match_clause_to_partition_key.exit
+  br i1 %226, label %get_leftop.argprom.exit, label %match_clause_to_partition_key.exit
 
-get_leftop.exit:                                  ; preds = %list_length.exit168
+get_leftop.argprom.exit:                          ; preds = %list_length.exit168
   %227 = getelementptr i8, ptr %223, i64 16
   %.val.i165 = load ptr, ptr %227, align 8
   %228 = load ptr, ptr %.val.i165, align 8
@@ -2545,13 +2545,13 @@ get_leftop.exit:                                  ; preds = %list_length.exit168
   %230 = icmp eq i32 %229, 25
   br i1 %230, label %231, label %list_length.exit.i
 
-231:                                              ; preds = %get_leftop.exit
+231:                                              ; preds = %get_leftop.argprom.exit
   %232 = getelementptr inbounds i8, ptr %228, i64 8
   %233 = load ptr, ptr %232, align 8
   br label %list_length.exit.i
 
-list_length.exit.i:                               ; preds = %get_leftop.exit, %231
-  %.0200.i = phi ptr [ %233, %231 ], [ %228, %get_leftop.exit ]
+list_length.exit.i:                               ; preds = %get_leftop.argprom.exit, %231
+  %.0200.i = phi ptr [ %233, %231 ], [ %228, %get_leftop.argprom.exit ]
   %234 = getelementptr i8, ptr %.val.i165, i64 8
   %235 = load ptr, ptr %234, align 8
   %236 = load i32, ptr %235, align 4

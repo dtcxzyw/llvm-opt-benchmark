@@ -852,12 +852,12 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 nounde
 49:                                               ; preds = %48
   %50 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_blob, align 4
   %51 = call i32 @dissect_ndr_datablob(ptr noundef %44, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 1) #5
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 52:                                               ; preds = %48
   %53 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_bop, align 4
   %54 = call i32 @PIDL_dissect_uint32(ptr noundef %44, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, i32 noundef 0) #5
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 55:                                               ; preds = %48
   %56 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_command, align 4
@@ -894,27 +894,27 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 nounde
 
 frsrpc_dissect_element_CommPktChunkData_command.exit.i.i.i: ; preds = %68, %67
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 71:                                               ; preds = %48
   %72 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_to, align 4
   %73 = call i32 @frsrpc_dissect_struct_CommPktChunkGuidName(ptr noundef %44, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, i32 poison)
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 74:                                               ; preds = %48
   %75 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_from, align 4
   %76 = call i32 @frsrpc_dissect_struct_CommPktChunkGuidName(ptr noundef %44, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %75, i32 poison)
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 77:                                               ; preds = %48
   %78 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_replica, align 4
   %79 = call i32 @frsrpc_dissect_struct_CommPktChunkGuidName(ptr noundef %44, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, i32 poison)
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 80:                                               ; preds = %48
   %81 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_connection, align 4
   %82 = call i32 @frsrpc_dissect_struct_CommPktChunkGuidName(ptr noundef %44, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %81, i32 poison)
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 83:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
@@ -949,12 +949,12 @@ frsrpc_dissect_element_CommPktChunkData_command.exit.i.i.i: ; preds = %68, %67
 frsrpc_dissect_element_CommPktChunkData_join_guid.exit.i.i.i: ; preds = %85, %83
   %.0.i.i.i.i = phi i32 [ 0, %83 ], [ %102, %85 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 105:                                              ; preds = %48
   %106 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_last_join_time, align 4
   %107 = call i32 @dissect_ndr_nt_NTTIME(ptr noundef %44, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %106) #5
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 108:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
@@ -989,7 +989,7 @@ frsrpc_dissect_element_CommPktChunkData_join_guid.exit.i.i.i: ; preds = %85, %83
 frsrpc_dissect_element_CommPktChunkData_vvector.exit.i.i.i: ; preds = %110, %108
   %.0.i156.i.i.i = phi i32 [ 0, %108 ], [ %127, %110 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 130:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
@@ -1024,7 +1024,7 @@ frsrpc_dissect_element_CommPktChunkData_vvector.exit.i.i.i: ; preds = %110, %108
 frsrpc_dissect_element_CommPktChunkData_join_time.exit.i.i.i: ; preds = %132, %130
   %.0.i158.i.i.i = phi i32 [ 0, %130 ], [ %149, %132 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 152:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
@@ -1059,32 +1059,32 @@ frsrpc_dissect_element_CommPktChunkData_join_time.exit.i.i.i: ; preds = %132, %1
 frsrpc_dissect_element_CommPktChunkData_replica_version_guid.exit.i.i.i: ; preds = %154, %152
   %.0.i160.i.i.i = phi i32 [ 0, %152 ], [ %171, %154 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 174:                                              ; preds = %48
   %175 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_compression_guid, align 4
   %176 = call i32 @dissect_ndr_uuid_t(ptr noundef %44, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %175, ptr noundef null) #5
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 177:                                              ; preds = %48
   %178 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_block, align 4
   %179 = call i32 @dissect_ndr_datablob(ptr noundef %44, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %178, i32 noundef 1) #5
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 180:                                              ; preds = %48
   %181 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_block_size, align 4
   %182 = call i32 @dissect_ndr_uint64(ptr noundef %44, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %181, ptr noundef null) #5
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 183:                                              ; preds = %48
   %184 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_file_size, align 4
   %185 = call i32 @dissect_ndr_uint64(ptr noundef %44, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %184, ptr noundef null) #5
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 186:                                              ; preds = %48
   %187 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_file_offset, align 4
   %188 = call i32 @dissect_ndr_uint64(ptr noundef %44, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %187, ptr noundef null) #5
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 189:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
@@ -1119,7 +1119,7 @@ frsrpc_dissect_element_CommPktChunkData_replica_version_guid.exit.i.i.i: ; preds
 frsrpc_dissect_element_CommPktChunkData_gvsn.exit.i.i.i: ; preds = %191, %189
   %.0.i162.i.i.i = phi i32 [ 0, %189 ], [ %208, %191 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 211:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -1154,12 +1154,12 @@ frsrpc_dissect_element_CommPktChunkData_gvsn.exit.i.i.i: ; preds = %191, %189
 frsrpc_dissect_element_CommPktChunkData_co_guid.exit.i.i.i: ; preds = %213, %211
   %.0.i164.i.i.i = phi i32 [ 0, %211 ], [ %230, %213 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 233:                                              ; preds = %48
   %234 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_sequnence_number, align 4
   %235 = call i32 @PIDL_dissect_uint32(ptr noundef %44, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %234, i32 noundef 0) #5
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 236:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -1194,7 +1194,7 @@ frsrpc_dissect_element_CommPktChunkData_co_guid.exit.i.i.i: ; preds = %213, %211
 frsrpc_dissect_element_CommPktChunkData_remote_co.exit.i.i.i: ; preds = %238, %236
   %.0.i166.i.i.i = phi i32 [ 0, %236 ], [ %255, %238 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 258:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -1229,19 +1229,19 @@ frsrpc_dissect_element_CommPktChunkData_remote_co.exit.i.i.i: ; preds = %238, %2
 frsrpc_dissect_element_CommPktChunkData_co_ext_win2k.exit.i.i.i: ; preds = %260, %258
   %.0.i168.i.i.i = phi i32 [ 0, %258 ], [ %277, %260 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 280:                                              ; preds = %48
   %281 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_extension2, align 4
   %282 = call i32 @frsrpc_dissect_struct_CommPktChangeOrderRecordExtension(ptr noundef %44, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %281, i32 poison)
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
 283:                                              ; preds = %48
   %284 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_bopend, align 4
   %285 = call i32 @PIDL_dissect_uint32(ptr noundef %44, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %284, i32 noundef 0) #5
-  br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
+  br label %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
 
-frsrpc_dissect_element_CommPktChunk_data_.exit.i: ; preds = %283, %280, %frsrpc_dissect_element_CommPktChunkData_co_ext_win2k.exit.i.i.i, %frsrpc_dissect_element_CommPktChunkData_remote_co.exit.i.i.i, %233, %frsrpc_dissect_element_CommPktChunkData_co_guid.exit.i.i.i, %frsrpc_dissect_element_CommPktChunkData_gvsn.exit.i.i.i, %186, %183, %180, %177, %174, %frsrpc_dissect_element_CommPktChunkData_replica_version_guid.exit.i.i.i, %frsrpc_dissect_element_CommPktChunkData_join_time.exit.i.i.i, %frsrpc_dissect_element_CommPktChunkData_vvector.exit.i.i.i, %105, %frsrpc_dissect_element_CommPktChunkData_join_guid.exit.i.i.i, %80, %77, %74, %71, %frsrpc_dissect_element_CommPktChunkData_command.exit.i.i.i, %52, %49
+frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i: ; preds = %283, %280, %frsrpc_dissect_element_CommPktChunkData_co_ext_win2k.exit.i.i.i, %frsrpc_dissect_element_CommPktChunkData_remote_co.exit.i.i.i, %233, %frsrpc_dissect_element_CommPktChunkData_co_guid.exit.i.i.i, %frsrpc_dissect_element_CommPktChunkData_gvsn.exit.i.i.i, %186, %183, %180, %177, %174, %frsrpc_dissect_element_CommPktChunkData_replica_version_guid.exit.i.i.i, %frsrpc_dissect_element_CommPktChunkData_join_time.exit.i.i.i, %frsrpc_dissect_element_CommPktChunkData_vvector.exit.i.i.i, %105, %frsrpc_dissect_element_CommPktChunkData_join_guid.exit.i.i.i, %80, %77, %74, %71, %frsrpc_dissect_element_CommPktChunkData_command.exit.i.i.i, %52, %49
   %.0.i.i.i = phi i32 [ %51, %49 ], [ %285, %283 ], [ %282, %280 ], [ %.0.i168.i.i.i, %frsrpc_dissect_element_CommPktChunkData_co_ext_win2k.exit.i.i.i ], [ %.0.i166.i.i.i, %frsrpc_dissect_element_CommPktChunkData_remote_co.exit.i.i.i ], [ %235, %233 ], [ %.0.i164.i.i.i, %frsrpc_dissect_element_CommPktChunkData_co_guid.exit.i.i.i ], [ %.0.i162.i.i.i, %frsrpc_dissect_element_CommPktChunkData_gvsn.exit.i.i.i ], [ %188, %186 ], [ %185, %183 ], [ %182, %180 ], [ %179, %177 ], [ %176, %174 ], [ %.0.i160.i.i.i, %frsrpc_dissect_element_CommPktChunkData_replica_version_guid.exit.i.i.i ], [ %.0.i158.i.i.i, %frsrpc_dissect_element_CommPktChunkData_join_time.exit.i.i.i ], [ %.0.i156.i.i.i, %frsrpc_dissect_element_CommPktChunkData_vvector.exit.i.i.i ], [ %107, %105 ], [ %.0.i.i.i.i, %frsrpc_dissect_element_CommPktChunkData_join_guid.exit.i.i.i ], [ %82, %80 ], [ %79, %77 ], [ %76, %74 ], [ %73, %71 ], [ %57, %frsrpc_dissect_element_CommPktChunkData_command.exit.i.i.i ], [ %54, %52 ]
   %286 = load ptr, ptr %18, align 8
   call void @proto_item_set_len(ptr noundef %286, i32 noundef %.0.i.i.i) #5
@@ -1254,8 +1254,8 @@ frsrpc_dissect_element_CommPktChunk_data_.exit.i: ; preds = %283, %280, %frsrpc_
   store i32 %35, ptr %291, align 8
   br label %frsrpc_dissect_element_CommPktChunk_data.exit
 
-frsrpc_dissect_element_CommPktChunk_data.exit:    ; preds = %25, %frsrpc_dissect_element_CommPktChunk_data_.exit.i
-  %.0.i = phi i32 [ %27, %25 ], [ %289, %frsrpc_dissect_element_CommPktChunk_data_.exit.i ]
+frsrpc_dissect_element_CommPktChunk_data.exit:    ; preds = %25, %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i
+  %.0.i = phi i32 [ %27, %25 ], [ %289, %frsrpc_dissect_element_CommPktChunk_data_.argprom.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   br label %292
 
@@ -1804,7 +1804,7 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChangeOrderCommand(ptr noundef %
   %92 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %90, ptr noundef %2, ptr noundef %.0263, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %91, i32 noundef 0) #5
   %.val = load i32, ptr %11, align 4
   %.not.i = icmp eq i32 %.val, 0
-  br i1 %.not.i, label %93, label %frsrpc_dissect_element_CommPktChangeOrderCommand_file_name.exit
+  br i1 %.not.i, label %93, label %frsrpc_dissect_element_CommPktChangeOrderCommand_file_name.argprom.exit
 
 93:                                               ; preds = %20
   %94 = load i32, ptr @hf_frsrpc_CommPktChangeOrderCommand_file_name, align 4
@@ -1819,9 +1819,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChangeOrderCommand(ptr noundef %
 
 99:                                               ; preds = %93
   %100 = add i32 %92, 261
-  br label %frsrpc_dissect_element_CommPktChangeOrderCommand_file_name.exit
+  br label %frsrpc_dissect_element_CommPktChangeOrderCommand_file_name.argprom.exit
 
-frsrpc_dissect_element_CommPktChangeOrderCommand_file_name.exit: ; preds = %20, %99
+frsrpc_dissect_element_CommPktChangeOrderCommand_file_name.argprom.exit: ; preds = %20, %99
   %.0.i = phi i32 [ %92, %20 ], [ %100, %99 ]
   %101 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding1, align 4
   %102 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0263, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %101, i32 noundef 0) #5
@@ -1841,7 +1841,7 @@ frsrpc_dissect_element_CommPktChangeOrderCommand_file_name.exit: ; preds = %20, 
   %.not268 = icmp eq i32 %114, 0
   br i1 %.not268, label %121, label %115
 
-115:                                              ; preds = %frsrpc_dissect_element_CommPktChangeOrderCommand_file_name.exit
+115:                                              ; preds = %frsrpc_dissect_element_CommPktChangeOrderCommand_file_name.argprom.exit
   %116 = load i32, ptr %11, align 4
   %.not269 = icmp ne i32 %116, 0
   %117 = and i32 %108, 7
@@ -1854,8 +1854,8 @@ frsrpc_dissect_element_CommPktChangeOrderCommand_file_name.exit: ; preds = %20, 
   %120 = add i32 %119, 8
   br label %121
 
-121:                                              ; preds = %115, %118, %frsrpc_dissect_element_CommPktChangeOrderCommand_file_name.exit
-  %.1 = phi i32 [ %108, %115 ], [ %120, %118 ], [ %108, %frsrpc_dissect_element_CommPktChangeOrderCommand_file_name.exit ]
+121:                                              ; preds = %115, %118, %frsrpc_dissect_element_CommPktChangeOrderCommand_file_name.argprom.exit
+  %.1 = phi i32 [ %108, %115 ], [ %120, %118 ], [ %108, %frsrpc_dissect_element_CommPktChangeOrderCommand_file_name.argprom.exit ]
   ret i32 %.1
 }
 

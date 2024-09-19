@@ -2395,7 +2395,7 @@ dissect_property_ext_description_service.exit.i.i.i: ; preds = %623, %593
   br label %dissect_extended_app_service.exit.i.i
 
 627:                                              ; preds = %314
-  call fastcc void @dissect_data_security_service(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %.0236378, ptr noundef %.0243375, i16 noundef zeroext %.0240377, ptr noundef %.0241376, i8 noundef zeroext %.0245374, ptr noundef %15, i32 noundef %7, ptr noundef %16, ptr noundef %17)
+  call fastcc void @dissect_data_security_service.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %.0236378, ptr noundef %.0243375, i16 noundef zeroext %.0240377, ptr noundef %.0241376, i8 noundef zeroext %.0245374, ptr noundef %15, i32 noundef %7, ptr noundef %16, ptr noundef %17)
   %.pre.i.i.i = load i8, ptr %16, align 1
   br label %dissect_extended_app_service.exit.i.i
 
@@ -3102,7 +3102,7 @@ get_pid_name.exit.thread:                         ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_data_security_service(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5, ptr noundef %6, i16 noundef zeroext %7, ptr noundef %8, i8 noundef zeroext range(i8 0, 2) %9, ptr nocapture noundef nonnull %10, i32 noundef range(i32 1, -2147483648) %11, ptr nocapture noundef nonnull %12, ptr nocapture noundef nonnull %13) unnamed_addr #0 {
+define internal fastcc void @dissect_data_security_service.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5, ptr noundef %6, i16 noundef zeroext %7, ptr noundef %8, i8 noundef zeroext range(i8 0, 2) %9, ptr nocapture noundef nonnull %10, i32 noundef range(i32 1, -2147483648) %11, ptr nocapture noundef nonnull %12, ptr nocapture noundef nonnull %13) unnamed_addr #0 {
   %15 = alloca %struct.data_security_info, align 8
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8

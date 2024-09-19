@@ -211,9 +211,9 @@ _ZL9TestPrintv.exit:                              ; preds = %for.body.i14
   %22 = load ptr, ptr %file.i17, align 8
   %call1.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #7
   %cmp.i.i = icmp ult i64 %call1.i.i, 11
-  br i1 %cmp.i.i, label %_ZL12TestPutMacrov.exit, label %_ZL9HasSuffixPKcS0_.exit.i
+  br i1 %cmp.i.i, label %_ZL12TestPutMacrov.exit, label %_ZL9HasSuffixPKcS0_.argprom.exit.i
 
-_ZL9HasSuffixPKcS0_.exit.i:                       ; preds = %_ZL9TestPrintv.exit
+_ZL9HasSuffixPKcS0_.argprom.exit.i:               ; preds = %_ZL9TestPrintv.exit
   %add.ptr.i.i = getelementptr inbounds i8, ptr %22, i64 %call1.i.i
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -11
   %call3.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr2.i.i, ptr noundef nonnull dereferenceable(12) @.str.10) #7
@@ -226,14 +226,14 @@ _ZL9HasSuffixPKcS0_.exit.i:                       ; preds = %_ZL9TestPrintv.exit
   %or.cond3.i = select i1 %or.cond.i, i1 %25, i1 false
   br i1 %or.cond3.i, label %if.end, label %_ZL12TestPutMacrov.exit
 
-_ZL12TestPutMacrov.exit:                          ; preds = %_ZL9TestPrintv.exit, %_ZL9HasSuffixPKcS0_.exit.i
+_ZL12TestPutMacrov.exit:                          ; preds = %_ZL9TestPrintv.exit, %_ZL9HasSuffixPKcS0_.argprom.exit.i
   %26 = load ptr, ptr @stderr, align 8
   %27 = call i64 @fwrite(ptr nonnull @.str.7, i64 25, i64 1, ptr %26) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %line.i16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i17)
   br label %return
 
-if.end:                                           ; preds = %_ZL9HasSuffixPKcS0_.exit.i
+if.end:                                           ; preds = %_ZL9HasSuffixPKcS0_.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %line.i16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i17)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)

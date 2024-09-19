@@ -92,7 +92,7 @@ oid_subid2string.exit:                            ; preds = %6, %14
   br label %25
 
 25:                                               ; preds = %oid_subid2string.exit, %20
-  tail call fastcc void @add_oid(ptr noundef %0, i32 noundef %1, ptr noundef %2)
+  tail call fastcc void @add_oid.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   tail call void @wmem_free(ptr noundef null, ptr noundef %.0.i.i) #8
   br label %34
 
@@ -158,7 +158,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_oid(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @add_oid.argprom.argelim(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   tail call fastcc void @prepopulate_oids()
   %4 = add i32 %1, -1
   %5 = zext i32 %4 to i64
@@ -325,7 +325,7 @@ oid_subid2string.exit:                            ; preds = %8, %16
   br label %27
 
 27:                                               ; preds = %oid_subid2string.exit, %22
-  tail call fastcc void @add_oid(ptr noundef %0, i32 noundef %4, ptr noundef %6)
+  tail call fastcc void @add_oid.argprom.argelim(ptr noundef %0, i32 noundef %4, ptr noundef %6)
   tail call void @wmem_free(ptr noundef null, ptr noundef %.0.i.i) #8
   br label %36
 
@@ -693,7 +693,7 @@ oid_subid2string.exit:                            ; preds = %38, %46
   br label %56
 
 56:                                               ; preds = %oid_subid2string.exit, %52
-  tail call fastcc void @add_oid(ptr noundef %0, i32 noundef %.051.i3135, ptr noundef %.03036)
+  tail call fastcc void @add_oid.argprom.argelim(ptr noundef %0, i32 noundef %.051.i3135, ptr noundef %.03036)
   br label %66
 
 57:                                               ; preds = %oid_encoded2subid_sub.exit.thread, %oid_encoded2subid_sub.exit

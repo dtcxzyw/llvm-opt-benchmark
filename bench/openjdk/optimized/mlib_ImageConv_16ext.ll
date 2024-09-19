@@ -96,7 +96,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNext_s16(ptr nocapture noundef rea
   %56 = shl i32 %53, 4
   %57 = tail call ptr @mlib_malloc(i32 noundef %56) #6
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %mlib_ImageConv1xN_ext.exit, label %59
+  br i1 %58, label %mlib_ImageConv1xN_ext.argprom.exit, label %59
 
 59:                                               ; preds = %55, %44
   %.0554.i = phi ptr [ %57, %55 ], [ %12, %44 ]
@@ -849,13 +849,13 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNext_s16(ptr nocapture noundef rea
 
 ._crit_edge.i:                                    ; preds = %._crit_edge85.split.us104.i, %._crit_edge85.split.us.us.us.i, %.lr.ph.i, %59
   %.not.i = icmp eq ptr %.0554.i, %12
-  br i1 %.not.i, label %mlib_ImageConv1xN_ext.exit, label %466
+  br i1 %.not.i, label %mlib_ImageConv1xN_ext.argprom.exit, label %466
 
 466:                                              ; preds = %._crit_edge.i
   call void @mlib_free(ptr noundef nonnull %.0554.i) #6
-  br label %mlib_ImageConv1xN_ext.exit
+  br label %mlib_ImageConv1xN_ext.argprom.exit
 
-mlib_ImageConv1xN_ext.exit:                       ; preds = %55, %._crit_edge.i, %466
+mlib_ImageConv1xN_ext.argprom.exit:               ; preds = %55, %._crit_edge.i, %466
   %.0543.i = phi i32 [ 1, %55 ], [ 0, %466 ], [ 0, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 12800, ptr nonnull %12)
   %.not1293 = icmp eq ptr %.011901750, %15
@@ -2206,13 +2206,13 @@ mlib_ImageConv1xN_ext.exit:                       ; preds = %55, %._crit_edge.i,
   %.not1276 = icmp eq ptr %.011901750, %15
   br i1 %.not1276, label %1158, label %.sink.split
 
-.sink.split:                                      ; preds = %1157, %481, %mlib_ImageConv1xN_ext.exit
-  %.0.ph = phi i32 [ %.0543.i, %mlib_ImageConv1xN_ext.exit ], [ 1, %481 ], [ 0, %1157 ]
+.sink.split:                                      ; preds = %1157, %481, %mlib_ImageConv1xN_ext.argprom.exit
+  %.0.ph = phi i32 [ %.0543.i, %mlib_ImageConv1xN_ext.argprom.exit ], [ 1, %481 ], [ 0, %1157 ]
   call void @mlib_free(ptr noundef nonnull %.011901750) #6
   br label %1158
 
-1158:                                             ; preds = %.sink.split, %1157, %481, %mlib_ImageConv1xN_ext.exit, %32
-  %.0 = phi i32 [ 1, %32 ], [ %.0543.i, %mlib_ImageConv1xN_ext.exit ], [ 1, %481 ], [ 0, %1157 ], [ %.0.ph, %.sink.split ]
+1158:                                             ; preds = %.sink.split, %1157, %481, %mlib_ImageConv1xN_ext.argprom.exit, %32
+  %.0 = phi i32 [ 1, %32 ], [ %.0543.i, %mlib_ImageConv1xN_ext.argprom.exit ], [ 1, %481 ], [ 0, %1157 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

@@ -671,7 +671,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit52.thread.i: ;
   %150 = getelementptr inbounds i8, ptr %148, i64 8
   %151 = load ptr, ptr %150, align 8
   %.not1428.i = icmp eq ptr %149, %151
-  br i1 %.not1428.i, label %"_ZZN4pkpy22add_module_dataclassesEPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.exit", label %.lr.ph.i
+  br i1 %.not1428.i, label %"_ZZN4pkpy22add_module_dataclassesEPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.argprom.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %144
   %152 = getelementptr inbounds i8, ptr %22, i64 14
@@ -788,9 +788,9 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit.i:          ; preds = %.noexc.i
   %.1.i = phi i1 [ %.02330.i, %_ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit.i ], [ false, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit66.thread.i ], [ %.mux.i, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit66.i ]
   %191 = getelementptr inbounds i8, ptr %.sroa.01.029.i, i64 2
   %.not14.i = icmp eq ptr %191, %151
-  br i1 %.not14.i, label %"_ZZN4pkpy22add_module_dataclassesEPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.exit", label %156
+  br i1 %.not14.i, label %"_ZZN4pkpy22add_module_dataclassesEPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.argprom.exit", label %156
 
-"_ZZN4pkpy22add_module_dataclassesEPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.exit": ; preds = %190, %144
+"_ZZN4pkpy22add_module_dataclassesEPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.argprom.exit": ; preds = %190, %144
   %192 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -1130,16 +1130,16 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i.i: ; preds = %43
   %53 = getelementptr inbounds i8, ptr %47, i64 10
   %54 = load i16, ptr %53, align 2
   %55 = icmp eq i16 %54, 5
-  br i1 %55, label %"_ZZZN4pkpyL13patch__init__EPNS_2VMENS_4TypeEENK3$_0clES1_NS_8ArgsViewEENKUlPNS_8PyObjectES6_E_clES6_S6_.exit.i.i", label %56
+  br i1 %55, label %"_ZZZN4pkpyL13patch__init__EPNS_2VMENS_4TypeEENK3$_0clES1_NS_8ArgsViewEENKUlPNS_8PyObjectES6_E_clES6_S6_.argprom.argprom.exit.i.i", label %56
 
 56:                                               ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i.i, %43
   %57 = getelementptr inbounds i8, ptr %47, i64 10
   %58 = select i1 %52, ptr @_ZN4pkpy2VM6tp_intE, ptr %57
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i16, ptr %58, align 2
   invoke void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 5, i16 %.sroa.0.0.copyload.i.i.i.i.i.i.i)
-          to label %"_ZZZN4pkpyL13patch__init__EPNS_2VMENS_4TypeEENK3$_0clES1_NS_8ArgsViewEENKUlPNS_8PyObjectES6_E_clES6_S6_.exit.i.i" unwind label %.loopexit.split-lp.loopexit.i
+          to label %"_ZZZN4pkpyL13patch__init__EPNS_2VMENS_4TypeEENK3$_0clES1_NS_8ArgsViewEENKUlPNS_8PyObjectES6_E_clES6_S6_.argprom.argprom.exit.i.i" unwind label %.loopexit.split-lp.loopexit.i
 
-"_ZZZN4pkpyL13patch__init__EPNS_2VMENS_4TypeEENK3$_0clES1_NS_8ArgsViewEENKUlPNS_8PyObjectES6_E_clES6_S6_.exit.i.i": ; preds = %56, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i.i
+"_ZZZN4pkpyL13patch__init__EPNS_2VMENS_4TypeEENK3$_0clES1_NS_8ArgsViewEENKUlPNS_8PyObjectES6_E_clES6_S6_.argprom.argprom.exit.i.i": ; preds = %56, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i.i
   %59 = getelementptr inbounds i8, ptr %47, i64 24
   %60 = getelementptr inbounds i8, ptr %47, i64 32
   %61 = load ptr, ptr %60, align 8
@@ -1148,7 +1148,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i.i: ; preds = %43
   %64 = invoke i16 @_ZN4pkpy7StrName3getESt17basic_string_viewIcSt11char_traitsIcEE(i64 %63, ptr %61)
           to label %.noexc45.i unwind label %.loopexit.split-lp.loopexit.i
 
-.noexc45.i:                                       ; preds = %"_ZZZN4pkpyL13patch__init__EPNS_2VMENS_4TypeEENK3$_0clES1_NS_8ArgsViewEENKUlPNS_8PyObjectES6_E_clES6_S6_.exit.i.i"
+.noexc45.i:                                       ; preds = %"_ZZZN4pkpyL13patch__init__EPNS_2VMENS_4TypeEENK3$_0clES1_NS_8ArgsViewEENKUlPNS_8PyObjectES6_E_clES6_S6_.argprom.argprom.exit.i.i"
   invoke void @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrNameES2_(ptr noundef nonnull align 8 dereferenceable(88) %4, i16 %64, ptr noundef %49)
           to label %.noexc46.i unwind label %.loopexit.split-lp.loopexit.i
 
@@ -1277,7 +1277,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit.i: ; preds = 
           cleanup
   br label %.body.i
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %.noexc45.i, %"_ZZZN4pkpyL13patch__init__EPNS_2VMENS_4TypeEENK3$_0clES1_NS_8ArgsViewEENKUlPNS_8PyObjectES6_E_clES6_S6_.exit.i.i", %56
+.loopexit.split-lp.loopexit.i:                    ; preds = %.noexc45.i, %"_ZZZN4pkpyL13patch__init__EPNS_2VMENS_4TypeEENK3$_0clES1_NS_8ArgsViewEENKUlPNS_8PyObjectES6_E_clES6_S6_.argprom.argprom.exit.i.i", %56
   %lpad.loopexit20.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -1535,13 +1535,13 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit69.i:        ; preds = %.noexc67.i
   %218 = getelementptr inbounds i8, ptr %0, i64 264520
   %219 = load ptr, ptr %218, align 8
   %220 = trunc i8 %217 to i1
-  br i1 %220, label %"_ZZN4pkpyL13patch__init__EPNS_2VMENS_4TypeEENK3$_0clES1_NS_8ArgsViewE.exit", label %221
+  br i1 %220, label %"_ZZN4pkpyL13patch__init__EPNS_2VMENS_4TypeEENK3$_0clES1_NS_8ArgsViewE.argprom.exit", label %221
 
 221:                                              ; preds = %216
   %222 = getelementptr inbounds i8, ptr %4, i64 16
   %223 = load ptr, ptr %222, align 8
   call void @free(ptr noundef %223) #22
-  br label %"_ZZN4pkpyL13patch__init__EPNS_2VMENS_4TypeEENK3$_0clES1_NS_8ArgsViewE.exit"
+  br label %"_ZZN4pkpyL13patch__init__EPNS_2VMENS_4TypeEENK3$_0clES1_NS_8ArgsViewE.argprom.exit"
 
 .body.i:                                          ; preds = %215, %204, %201, %188, %172, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
   %.pn41.i = phi { ptr, i32 } [ %.pn39.i, %172 ], [ %.pn.i, %215 ], [ %189, %188 ], [ %202, %204 ], [ %202, %201 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp21.i, %.loopexit.split-lp.loopexit.split-lp.i ]
@@ -1558,7 +1558,7 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit69.i:        ; preds = %.noexc67.i
 _ZN4pkpy12NameDictImplIPNS_8PyObjectEED2Ev.exit70.i: ; preds = %226, %.body.i
   resume { ptr, i32 } %.pn41.i
 
-"_ZZN4pkpyL13patch__init__EPNS_2VMENS_4TypeEENK3$_0clES1_NS_8ArgsViewE.exit": ; preds = %216, %221
+"_ZZN4pkpyL13patch__init__EPNS_2VMENS_4TypeEENK3$_0clES1_NS_8ArgsViewE.argprom.exit": ; preds = %216, %221
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -3212,11 +3212,11 @@ define internal void @"_ZZN4pkpyL13patch__repr__EPNS_2VMENS_4TypeEEN3$_08__invok
 47:                                               ; preds = %46
   %48 = load ptr, ptr %20, align 8, !noalias !26
   %.not.i.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i.i, label %"_ZZN4pkpyL13patch__repr__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectE.exit", label %49
+  br i1 %.not.i.i.i, label %"_ZZN4pkpyL13patch__repr__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectE.argprom.exit", label %49
 
 49:                                               ; preds = %47
   call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %48) #22
-  br label %"_ZZN4pkpyL13patch__repr__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectE.exit"
+  br label %"_ZZN4pkpyL13patch__repr__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectE.argprom.exit"
 
 50:                                               ; preds = %43, %.loopexit.split-lp.i, %.loopexit.i
   %.pn.i = phi { ptr, i32 } [ %44, %43 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
@@ -3231,7 +3231,7 @@ define internal void @"_ZZN4pkpyL13patch__repr__EPNS_2VMENS_4TypeEEN3$_08__invok
 _ZN4pkpy7SStreamD2Ev.exit21.i:                    ; preds = %52, %50
   resume { ptr, i32 } %.pn.i
 
-"_ZZN4pkpyL13patch__repr__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectE.exit": ; preds = %47, %49
+"_ZZN4pkpyL13patch__repr__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectE.argprom.exit": ; preds = %47, %49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret void
@@ -3256,7 +3256,7 @@ define internal noundef ptr @"_ZZN4pkpyL11patch__eq__EPNS_2VMENS_4TypeEEN3$_08__
   %13 = select i1 %11, ptr @_ZN4pkpy2VM6tp_intE, ptr %12
   %.sroa.0.0.copyload.i24.i = load i16, ptr %13, align 2
   %.not.i = icmp eq i16 %.sroa.0.0.copyload.i.i, %.sroa.0.0.copyload.i24.i
-  br i1 %.not.i, label %14, label %"_ZZN4pkpyL11patch__eq__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectES5_.exit"
+  br i1 %.not.i, label %14, label %"_ZZN4pkpyL11patch__eq__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectES5_.argprom.exit"
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds i8, ptr %0, i64 264328
@@ -3267,7 +3267,7 @@ define internal noundef ptr @"_ZZN4pkpyL11patch__eq__EPNS_2VMENS_4TypeEEN3$_08__
   %20 = getelementptr inbounds i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not67.i = icmp eq ptr %19, %21
-  br i1 %.not67.i, label %"_ZZN4pkpyL11patch__eq__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectES5_.exit", label %.lr.ph.i
+  br i1 %.not67.i, label %"_ZZN4pkpyL11patch__eq__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectES5_.argprom.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14
   %22 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3277,7 +3277,7 @@ define internal noundef ptr @"_ZZN4pkpyL11patch__eq__EPNS_2VMENS_4TypeEEN3$_08__
 24:                                               ; preds = %26
   %25 = getelementptr inbounds i8, ptr %.sroa.01.08.i, i64 2
   %.not6.i = icmp eq ptr %25, %21
-  br i1 %.not6.i, label %"_ZZN4pkpyL11patch__eq__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectES5_.exit", label %26
+  br i1 %.not6.i, label %"_ZZN4pkpyL11patch__eq__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectES5_.argprom.exit", label %26
 
 26:                                               ; preds = %24, %.lr.ph.i
   %.sroa.01.08.i = phi ptr [ %19, %.lr.ph.i ], [ %25, %24 ]
@@ -3287,9 +3287,9 @@ define internal noundef ptr @"_ZZN4pkpyL11patch__eq__EPNS_2VMENS_4TypeEEN3$_08__
   %29 = load ptr, ptr %23, align 8
   %30 = tail call noundef ptr @_ZNK4pkpy12NameDictImplIPNS_8PyObjectEEixENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(88) %29, i16 %.sroa.03.0.copyload.i)
   %31 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %28, ptr noundef %30)
-  br i1 %31, label %24, label %"_ZZN4pkpyL11patch__eq__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectES5_.exit"
+  br i1 %31, label %24, label %"_ZZN4pkpyL11patch__eq__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectES5_.argprom.exit"
 
-"_ZZN4pkpyL11patch__eq__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectES5_.exit": ; preds = %24, %26, %3, %14
+"_ZZN4pkpyL11patch__eq__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectES5_.argprom.exit": ; preds = %24, %26, %3, %14
   %.sink.i = phi i64 [ 264544, %3 ], [ 264528, %14 ], [ 264528, %24 ], [ 264536, %26 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 %.sink.i
   %.0.i = load ptr, ptr %32, align 8
@@ -3756,9 +3756,9 @@ _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4p
 ._crit_edge.i:                                    ; preds = %53, %3
   %55 = getelementptr inbounds i8, ptr %0, i64 16
   %56 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4DictEJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %55, i16 18, ptr noundef nonnull align 8 dereferenceable(48) %7)
-          to label %"_ZZN4pkpy22add_module_dataclassesEPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.exit" unwind label %.loopexit.split-lp.i
+          to label %"_ZZN4pkpy22add_module_dataclassesEPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.argprom.exit" unwind label %.loopexit.split-lp.i
 
-"_ZZN4pkpy22add_module_dataclassesEPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.exit": ; preds = %._crit_edge.i
+"_ZZN4pkpy22add_module_dataclassesEPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.argprom.exit": ; preds = %._crit_edge.i
   call void @_ZN4pkpy4DictD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #22
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
@@ -4124,6 +4124,6 @@ attributes #27 = { nounwind willreturn memory(read) }
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZZN4pkpyL13patch__repr__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectE: argument 0"}
-!28 = distinct !{!28, !"_ZZN4pkpyL13patch__repr__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectE"}
+!27 = distinct !{!27, !28, !"_ZZN4pkpyL13patch__repr__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectE.argprom: argument 0"}
+!28 = distinct !{!28, !"_ZZN4pkpyL13patch__repr__EPNS_2VMENS_4TypeEENK3$_0clES1_PNS_8PyObjectE.argprom"}
 !29 = distinct !{!29, !5}

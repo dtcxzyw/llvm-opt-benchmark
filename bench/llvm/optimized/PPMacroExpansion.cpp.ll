@@ -6168,7 +6168,7 @@ _ZN4llvm11raw_ostreamlsEc.exit226:                ; preds = %297, %299
 326:                                              ; preds = %322
   store ptr %0, ptr %22, align 8
   %327 = ptrtoint ptr %22 to i64
-  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_0EEilS3_S4_", i64 %327)
+  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_0EEilS3_S4_", i64 %327)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 328:                                              ; preds = %322
@@ -6180,7 +6180,7 @@ _ZN4llvm11raw_ostreamlsEc.exit226:                ; preds = %297, %299
 332:                                              ; preds = %328
   store ptr %0, ptr %23, align 8
   %333 = ptrtoint ptr %23 to i64
-  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_1EEilS3_S4_", i64 %333)
+  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_1EEilS3_S4_", i64 %333)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 334:                                              ; preds = %328
@@ -6192,7 +6192,7 @@ _ZN4llvm11raw_ostreamlsEc.exit226:                ; preds = %297, %299
 338:                                              ; preds = %334
   store ptr %0, ptr %24, align 8
   %339 = ptrtoint ptr %24 to i64
-  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_2EEilS3_S4_", i64 %339)
+  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_2EEilS3_S4_", i64 %339)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 340:                                              ; preds = %334
@@ -6204,7 +6204,7 @@ _ZN4llvm11raw_ostreamlsEc.exit226:                ; preds = %297, %299
 344:                                              ; preds = %340
   store ptr %0, ptr %25, align 8
   %345 = ptrtoint ptr %25 to i64
-  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_3EEilS3_S4_", i64 %345)
+  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_3EEilS3_S4_", i64 %345)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 346:                                              ; preds = %340
@@ -6215,7 +6215,7 @@ _ZN4llvm11raw_ostreamlsEc.exit226:                ; preds = %297, %299
 
 350:                                              ; preds = %346
   %351 = ptrtoint ptr %26 to i64
-  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_4EEilS3_S4_", i64 %351)
+  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_4EEilS3_S4_", i64 %351)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 352:                                              ; preds = %346
@@ -6227,7 +6227,7 @@ _ZN4llvm11raw_ostreamlsEc.exit226:                ; preds = %297, %299
 356:                                              ; preds = %352
   store ptr %0, ptr %27, align 8
   %357 = ptrtoint ptr %27 to i64
-  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext true, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_5EEilS3_S4_", i64 %357)
+  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext true, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_5EEilS3_S4_", i64 %357)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 358:                                              ; preds = %352
@@ -6239,7 +6239,7 @@ _ZN4llvm11raw_ostreamlsEc.exit226:                ; preds = %297, %299
 362:                                              ; preds = %358
   store ptr %0, ptr %28, align 8
   %363 = ptrtoint ptr %28 to i64
-  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext true, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_6EEilS3_S4_", i64 %363)
+  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext true, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_6EEilS3_S4_", i64 %363)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 364:                                              ; preds = %358
@@ -6259,7 +6259,7 @@ _ZN4llvm11raw_ostreamlsEc.exit226:                ; preds = %297, %299
   %373 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %29, ptr %373, align 8
   %374 = ptrtoint ptr %30 to i64
-  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext true, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_7EEilS3_S4_", i64 %374)
+  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext true, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_7EEilS3_S4_", i64 %374)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 375:                                              ; preds = %364
@@ -6321,7 +6321,7 @@ _ZN4llvm11raw_ostreamlsEc.exit226:                ; preds = %297, %299
 406:                                              ; preds = %402
   store ptr %0, ptr %31, align 8
   %407 = ptrtoint ptr %31 to i64
-  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_8EEilS3_S4_", i64 %407)
+  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_8EEilS3_S4_", i64 %407)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 408:                                              ; preds = %402
@@ -6333,7 +6333,7 @@ _ZN4llvm11raw_ostreamlsEc.exit226:                ; preds = %297, %299
 412:                                              ; preds = %408
   store ptr %0, ptr %32, align 8
   %413 = ptrtoint ptr %32 to i64
-  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_9EEilS3_S4_", i64 %413)
+  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_9EEilS3_S4_", i64 %413)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 414:                                              ; preds = %408
@@ -6701,7 +6701,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_3tok9TokenKindEvEERKS0_OT_.exit251: ; preds =
 594:                                              ; preds = %590
   store ptr %0, ptr %39, align 8
   %595 = ptrtoint ptr %39 to i64
-  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E4$_10EEilS3_S4_", i64 %595)
+  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E4$_10EEilS3_S4_", i64 %595)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 596:                                              ; preds = %590
@@ -6713,7 +6713,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_3tok9TokenKindEvEERKS0_OT_.exit251: ; preds =
 600:                                              ; preds = %596
   store ptr %0, ptr %40, align 8
   %601 = ptrtoint ptr %40 to i64
-  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E4$_11EEilS3_S4_", i64 %601)
+  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E4$_11EEilS3_S4_", i64 %601)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 602:                                              ; preds = %596
@@ -6725,7 +6725,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_3tok9TokenKindEvEERKS0_OT_.exit251: ; preds =
 606:                                              ; preds = %602
   store ptr %0, ptr %41, align 8
   %607 = ptrtoint ptr %41 to i64
-  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E4$_12EEilS3_S4_", i64 %607)
+  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E4$_12EEilS3_S4_", i64 %607)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 608:                                              ; preds = %602
@@ -6737,7 +6737,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_3tok9TokenKindEvEERKS0_OT_.exit251: ; preds =
 612:                                              ; preds = %608
   store ptr %0, ptr %42, align 8
   %613 = ptrtoint ptr %42 to i64
-  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E4$_13EEilS3_S4_", i64 %613)
+  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E4$_13EEilS3_S4_", i64 %613)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 614:                                              ; preds = %608
@@ -6749,7 +6749,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_3tok9TokenKindEvEERKS0_OT_.exit251: ; preds =
 618:                                              ; preds = %614
   store ptr %0, ptr %43, align 8
   %619 = ptrtoint ptr %43 to i64
-  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E4$_14EEilS3_S4_", i64 %619)
+  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E4$_14EEilS3_S4_", i64 %619)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 620:                                              ; preds = %614
@@ -6759,7 +6759,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_3tok9TokenKindEvEERKS0_OT_.exit251: ; preds =
   call void @llvm.assume(i1 %623)
   store ptr %0, ptr %44, align 8
   %624 = ptrtoint ptr %44 to i64
-  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E4$_15EEilS3_S4_", i64 %624)
+  call fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(3288) %0, i1 noundef zeroext false, ptr nonnull @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E4$_15EEilS3_S4_", i64 %624)
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 _ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %162, %_ZN4llvm11raw_ostreamlsEc.exit203, %_ZN4llvm11raw_ostreamlsEc.exit226, %316, %332, %344, %356, %371, %399, %412, %600, %612, %620, %618, %606, %594, %418, %406, %389, %362, %350, %338, %326, %305, %311, %.loopexit332, %77
@@ -10509,7 +10509,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(3288) %3, i1 noundef zeroext %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #1 {
+define internal fastcc void @_ZL31EvaluateFeatureLikeBuiltinMacroRN4llvm19raw_svector_ostreamERN5clang5TokenEPNS2_14IdentifierInfoERNS2_12PreprocessorEbNS_12function_refIFiS4_RbEEE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(3288) %3, i1 noundef zeroext %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #1 {
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8
   %8 = alloca i8, align 1
@@ -15127,7 +15127,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %.val = load ptr, ptr %4, align 8
   %5 = tail call fastcc noundef ptr @_ZL27ExpectFeatureIdentifierInfoRN5clang5TokenERNS_12PreprocessorEi(ptr noundef nonnull readonly align 8 dereferenceable(20) %1, ptr noundef nonnull readonly align 8 dereferenceable(3288) %.val, i32 noundef 1041)
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_0clES2_Rb.exit", label %6
+  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_0clES2_Rb.argprom.exit", label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -15139,11 +15139,11 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %.val.i = load ptr, ptr %12, align 8
   %13 = getelementptr i8, ptr %.val, i64 64
   %.val4.i = load ptr, ptr %13, align 8
-  %14 = tail call fastcc noundef zeroext i1 @_ZL10HasFeatureRKN5clang12PreprocessorEN4llvm9StringRefE(ptr %.val.i, ptr %.val4.i, ptr nonnull %9, i64 %11)
+  %14 = tail call fastcc noundef zeroext i1 @_ZL10HasFeatureRKN5clang12PreprocessorEN4llvm9StringRefE.argprom(ptr %.val.i, ptr %.val4.i, ptr nonnull %9, i64 %11)
   %15 = zext i1 %14 to i32
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_0clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_0clES2_Rb.argprom.exit"
 
-"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_0clES2_Rb.exit": ; preds = %3, %6
+"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_0clES2_Rb.argprom.exit": ; preds = %3, %6
   %16 = phi i32 [ 0, %3 ], [ %15, %6 ]
   ret i32 %16
 }
@@ -15226,7 +15226,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %.lr.ph.i.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL10HasFeatureRKN5clang12PreprocessorEN4llvm9StringRefE(ptr nocapture readonly %.56.val, ptr nocapture readonly %.64.val, ptr readonly %0, i64 %1) unnamed_addr #12 {
+define internal fastcc noundef zeroext i1 @_ZL10HasFeatureRKN5clang12PreprocessorEN4llvm9StringRefE.argprom(ptr nocapture readonly %.56.val, ptr nocapture readonly %.64.val, ptr readonly %0, i64 %1) unnamed_addr #12 {
   %.not.i = icmp ult i64 %1, 2
   br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread1155.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
@@ -17903,7 +17903,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %.val = load ptr, ptr %4, align 8
   %5 = tail call fastcc noundef ptr @_ZL27ExpectFeatureIdentifierInfoRN5clang5TokenERNS_12PreprocessorEi(ptr noundef nonnull readonly align 8 dereferenceable(20) %1, ptr noundef nonnull readonly align 8 dereferenceable(3288) %.val, i32 noundef 1041)
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.exit", label %6
+  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.argprom.exit", label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -17915,8 +17915,8 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %.val.i.i = load ptr, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %.val, i64 64
   %.val38.i.i = load ptr, ptr %13, align 8
-  %14 = tail call fastcc noundef zeroext i1 @_ZL10HasFeatureRKN5clang12PreprocessorEN4llvm9StringRefE(ptr %.val.i.i, ptr %.val38.i.i, ptr nonnull %9, i64 %11)
-  br i1 %14, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.exit", label %15
+  %14 = tail call fastcc noundef zeroext i1 @_ZL10HasFeatureRKN5clang12PreprocessorEN4llvm9StringRefE.argprom(ptr %.val.i.i, ptr %.val38.i.i, ptr nonnull %9, i64 %11)
+  br i1 %14, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.argprom.exit", label %15
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -17926,7 +17926,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, 3
-  br i1 %22, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.exit", label %23
+  br i1 %22, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.argprom.exit", label %23
 
 23:                                               ; preds = %15
   %.not.i.i.i = icmp ult i64 %11, 2
@@ -18632,18 +18632,18 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i435.i.i:       ; preds = %_ZN4llvm12StringSwi
   %bcmp.i.i436.i.fr.i = freeze i32 %bcmp.i.i436.i.i
   %163 = icmp eq i32 %bcmp.i.i436.i.fr.i, 0
   %.sroa.0.0.insert.ext.i438.i.i = zext i1 %162 to i8
-  br i1 %163, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit440.i.thread.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.exit"
+  br i1 %163, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit440.i.thread.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.argprom.exit"
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit440.i.i: ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit430.i.i
-  br i1 %50, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit440.i.thread.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.exit"
+  br i1 %50, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit440.i.thread.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.argprom.exit"
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit440.i.thread.i: ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit60.thread.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i65.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i73.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i81.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i89.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i97.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i105.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i113.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i121.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i131.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i141.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i151.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i161.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i171.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i181.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i191.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i201.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i211.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i221.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i231.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i241.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i251.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i261.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i271.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i279.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i287.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i297.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i307.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i317.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i327.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i335.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i343.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i351.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i359.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i369.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i379.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i389.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i399.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i407.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i417.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i427.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit440.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i435.i.i
   %.in.in.i = phi i8 [ %.sroa.90.1.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit440.i.i ], [ %.sroa.0.0.insert.ext.i438.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i435.i.i ], [ %63, %_ZN4llvmeqENS_9StringRefES0_.exit.i121.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i407.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i359.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i351.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i343.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i335.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i287.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i279.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i131.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i113.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i105.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i97.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i89.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i81.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i73.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i65.i.i ], [ %.sroa.0.0.insert.ext.i58.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit60.thread.i.i ], [ %.sroa.0.0.insert.ext.i142.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i141.i.i ], [ %.sroa.0.0.insert.ext.i152.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i151.i.i ], [ %.sroa.0.0.insert.ext.i162.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i161.i.i ], [ %.sroa.0.0.insert.ext.i172.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i171.i.i ], [ %.sroa.0.0.insert.ext.i182.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i181.i.i ], [ %.sroa.0.0.insert.ext.i192.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i191.i.i ], [ %.sroa.0.0.insert.ext.i202.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i201.i.i ], [ %.sroa.0.0.insert.ext.i212.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i211.i.i ], [ %.sroa.0.0.insert.ext.i222.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i221.i.i ], [ %.sroa.0.0.insert.ext.i232.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i231.i.i ], [ %.sroa.0.0.insert.ext.i242.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i241.i.i ], [ %.sroa.0.0.insert.ext.i252.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i251.i.i ], [ %.sroa.0.0.insert.ext.i262.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i261.i.i ], [ %.sroa.0.0.insert.ext.i272.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i271.i.i ], [ %.sroa.0.0.insert.ext.i298.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i297.i.i ], [ %.sroa.0.0.insert.ext.i308.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i307.i.i ], [ %113, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i317.i.i ], [ %116, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i327.i.i ], [ %.sroa.0.0.insert.ext.i370.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i369.i.i ], [ %.sroa.0.0.insert.ext.i380.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i379.i.i ], [ %.sroa.0.0.insert.ext.i390.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i389.i.i ], [ %150, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i399.i.i ], [ %.sroa.0.0.insert.ext.i418.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i417.i.i ], [ %.sroa.0.0.insert.ext.i428.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i427.i.i ]
   %.in.i = and i8 %.in.in.i, 1
   %164 = zext nneg i8 %.in.i to i32
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.argprom.exit"
 
-"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.exit": ; preds = %3, %6, %15, %_ZN4llvmeqENS_9StringRefES0_.exit.i435.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit440.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit440.i.thread.i
+"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.argprom.exit": ; preds = %3, %6, %15, %_ZN4llvmeqENS_9StringRefES0_.exit.i435.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit440.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit440.i.thread.i
   %165 = phi i32 [ 0, %3 ], [ 1, %6 ], [ 0, %15 ], [ %164, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit440.i.thread.i ], [ 0, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit440.i.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i435.i.i ]
   ret i32 %165
 }
@@ -18654,7 +18654,7 @@ define internal noundef range(i32 0, 201803) i32 @"_ZN4llvm12function_refIFiRN5c
   %.val = load ptr, ptr %4, align 8
   %5 = tail call fastcc noundef ptr @_ZL27ExpectFeatureIdentifierInfoRN5clang5TokenERNS_12PreprocessorEi(ptr noundef nonnull readonly align 8 dereferenceable(20) %1, ptr noundef nonnull readonly align 8 dereferenceable(3288) %.val, i32 noundef 1041)
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %6
+  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %6
 
 6:                                                ; preds = %3
   %7 = load i64, ptr %5, align 8
@@ -18671,8 +18671,8 @@ define internal noundef range(i32 0, 201803) i32 @"_ZN4llvm12function_refIFiRN5c
     i32 205, label %14
     i32 204, label %22
     i32 206, label %30
-    i32 224, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit"
-    i32 223, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit"
+    i32 224, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit"
+    i32 223, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit"
   ]
 
 14:                                               ; preds = %6
@@ -18683,7 +18683,7 @@ define internal noundef range(i32 0, 201803) i32 @"_ZN4llvm12function_refIFiRN5c
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(489) %16) #19
   %21 = zext i1 %20 to i32
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit"
 
 22:                                               ; preds = %6
   %23 = getelementptr inbounds nuw i8, ptr %.val, i64 64
@@ -18693,7 +18693,7 @@ define internal noundef range(i32 0, 201803) i32 @"_ZN4llvm12function_refIFiRN5c
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(489) %24) #19
   %29 = zext i1 %28 to i32
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit"
 
 30:                                               ; preds = %6
   %31 = getelementptr inbounds nuw i8, ptr %.val, i64 64
@@ -18703,7 +18703,7 @@ define internal noundef range(i32 0, 201803) i32 @"_ZN4llvm12function_refIFiRN5c
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(489) %32) #19
   %37 = zext i1 %36 to i32
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit"
 
 38:                                               ; preds = %6
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 688
@@ -18727,7 +18727,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %44, %38
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 280
   %52 = tail call noundef zeroext i1 @_ZN5clang7Builtin30evaluateRequiredTargetFeaturesEN4llvm9StringRefERKNS1_9StringMapIbNS1_15MallocAllocatorEEE(ptr %43, i64 %46, ptr noundef nonnull align 8 dereferenceable(24) %51) #19
   %53 = zext i1 %52 to i32
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit"
 
 54:                                               ; preds = %6
   %55 = and i64 %7, 34359738879
@@ -18746,7 +18746,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %44, %38
 _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %60
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %58, ptr noundef nonnull dereferenceable(10) @.str.274, i64 10)
   %62 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %62, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit27.i
+  br i1 %62, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit27.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread120.i: ; preds = %60
   %.not.i25.i = icmp ult i64 %61, 5
@@ -18755,7 +18755,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread120.i: ; preds = %60
 _ZNK4llvm9StringRef11starts_withES0_.exit27.i:    ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread120.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i
   %bcmp.i26.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %58, ptr noundef nonnull dereferenceable(5) @.str.275, i64 5)
   %63 = icmp eq i32 %bcmp.i26.i, 0
-  br i1 %63, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit27.thread121.i
+  br i1 %63, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit27.thread121.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit27.thread121.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit27.i
   %.not.i30.i = icmp ult i64 %61, 6
@@ -18764,7 +18764,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit27.thread121.i: ; preds = %_ZNK4llvm9St
 _ZNK4llvm9StringRef11starts_withES0_.exit32.i:    ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit27.thread121.i
   %bcmp.i31.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %58, ptr noundef nonnull dereferenceable(6) @.str.276, i64 6)
   %64 = icmp eq i32 %bcmp.i31.i, 0
-  br i1 %64, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit32.thread122.i
+  br i1 %64, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit32.thread122.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit32.thread122.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit32.i, %_ZNK4llvm9StringRef11starts_withES0_.exit27.thread121.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread120.i
   %trunc388.i = trunc i64 %59 to i32
@@ -18778,27 +18778,27 @@ _ZNK4llvm9StringRef11starts_withES0_.exit32.thread122.i: ; preds = %_ZNK4llvm9St
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit32.thread122.i
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %58, ptr noundef nonnull dereferenceable(12) @.str.277, i64 12)
   %65 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %65, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
+  br i1 %65, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i39.i:          ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit32.thread122.i
   %bcmp.i.i40.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %58, ptr noundef nonnull dereferenceable(14) @.str.278, i64 14)
   %66 = icmp eq i32 %bcmp.i.i40.i, 0
-  br i1 %66, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.i103.i
+  br i1 %66, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.i103.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i47.i:          ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit32.thread122.i
   %bcmp.i.i48.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %58, ptr noundef nonnull dereferenceable(22) @.str.279, i64 22)
   %67 = icmp eq i32 %bcmp.i.i48.i, 0
-  br i1 %67, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.i63.i
+  br i1 %67, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.i63.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i55.i:          ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit32.thread122.i
   %bcmp.i.i56.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %58, ptr noundef nonnull dereferenceable(13) @.str.280, i64 13)
   %68 = icmp eq i32 %bcmp.i.i56.i, 0
-  br i1 %68, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.i79.i
+  br i1 %68, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.i79.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i63.i:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i47.i
   %bcmp.i.i64.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %58, ptr noundef nonnull dereferenceable(22) @.str.281, i64 22)
   %69 = icmp eq i32 %bcmp.i.i64.i, 0
-  br i1 %69, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
+  br i1 %69, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit66.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit32.thread122.i
   %.not.i.i70.i = icmp eq i64 %61, 7
@@ -18807,12 +18807,12 @@ _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit66.i: ; preds = %_ZNK4l
 _ZN4llvmeqENS_9StringRefES0_.exit.i71.i:          ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit66.i
   %bcmp.i.i72.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %58, ptr noundef nonnull dereferenceable(7) @.str.282, i64 7)
   %70 = icmp eq i32 %bcmp.i.i72.i, 0
-  br i1 %70, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
+  br i1 %70, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i79.i:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i55.i
   %bcmp.i.i80.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %58, ptr noundef nonnull dereferenceable(13) @.str.283, i64 13)
   %71 = icmp eq i32 %bcmp.i.i80.i, 0
-  br i1 %71, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
+  br i1 %71, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit82.i: ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit66.i
   switch i32 %trunc388.i, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i [
@@ -18827,61 +18827,61 @@ _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit82.i: ; preds = %_ZN4ll
 _ZN4llvmeqENS_9StringRefES0_.exit.i87.i:          ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit82.i
   %bcmp.i.i88.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %58, ptr noundef nonnull dereferenceable(15) @.str.284, i64 15)
   %72 = icmp eq i32 %bcmp.i.i88.i, 0
-  br i1 %72, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.i127.i
+  br i1 %72, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.i127.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i95.i:          ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit82.i
   %bcmp.i.i96.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %58, ptr noundef nonnull dereferenceable(20) @.str.285, i64 20)
   %73 = icmp eq i32 %bcmp.i.i96.i, 0
-  br i1 %73, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.i143.i
+  br i1 %73, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.i143.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i103.i:         ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit82.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i39.i
   %bcmp.i.i104.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %58, ptr noundef nonnull dereferenceable(14) @.str.286, i64 14)
   %74 = icmp eq i32 %bcmp.i.i104.i, 0
-  br i1 %74, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.i119.i
+  br i1 %74, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.i119.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i111.i:         ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit82.i
   %bcmp.i.i112.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %58, ptr noundef nonnull dereferenceable(11) @.str.287, i64 11)
   %75 = icmp eq i32 %bcmp.i.i112.i, 0
-  br i1 %75, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
+  br i1 %75, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i119.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i103.i
   %bcmp.i.i120.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %58, ptr noundef nonnull dereferenceable(14) @.str.288, i64 14)
   %76 = icmp eq i32 %bcmp.i.i120.i, 0
-  br i1 %76, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
+  br i1 %76, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i127.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i87.i
   %bcmp.i.i128.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %58, ptr noundef nonnull dereferenceable(15) @.str.289, i64 15)
   %77 = icmp eq i32 %bcmp.i.i128.i, 0
-  br i1 %77, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
+  br i1 %77, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i135.i:         ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit82.i
   %bcmp.i.i136.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %58, ptr noundef nonnull dereferenceable(16) @.str.290, i64 16)
   %78 = icmp eq i32 %bcmp.i.i136.i, 0
-  br i1 %78, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
+  br i1 %78, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i143.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i95.i
   %bcmp.i.i144.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %58, ptr noundef nonnull dereferenceable(20) @.str.291, i64 20)
   %79 = icmp eq i32 %bcmp.i.i144.i, 0
-  br i1 %79, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
+  br i1 %79, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i151.i:         ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit82.i
   %bcmp.i.i152.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %58, ptr noundef nonnull dereferenceable(17) @.str.292, i64 17)
   %80 = icmp eq i32 %bcmp.i.i152.i, 0
-  br i1 %80, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.i159.i
+  br i1 %80, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.i159.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i159.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i151.i
   %bcmp.i.i160.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %58, ptr noundef nonnull dereferenceable(17) @.str.293, i64 17)
   %81 = icmp eq i32 %bcmp.i.i160.i, 0
-  br i1 %81, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.i167.i
+  br i1 %81, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.i167.i
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i143.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i135.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i127.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i119.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i111.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit82.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i79.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i71.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i63.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit"
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i167.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i159.i
   %bcmp.i.i168.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %58, ptr noundef nonnull dereferenceable(17) @.str.294, i64 17)
   %82 = icmp eq i32 %bcmp.i.i168.i, 0
   %83 = zext i1 %82 to i32
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit"
 
 84:                                               ; preds = %54
   %85 = getelementptr inbounds nuw i8, ptr %.val, i64 56
@@ -18954,9 +18954,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i236.i:         ; preds = %84
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit239.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i236.i, %.thread268.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i228.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i220.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i212.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i204.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i196.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i188.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i186.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit181.i, %84
   %.sroa.27.7.i = phi i1 [ false, %.thread268.i ], [ %.sroa.0.0.insert.ext.i189.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i188.i ], [ %.sroa.0.0.insert.ext.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit181.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i196.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i204.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i212.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i220.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i228.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i186.i ], [ %97, %_ZN4llvmeqENS_9StringRefES0_.exit.i236.i ], [ false, %84 ]
   %98 = zext i1 %.sroa.27.7.i to i32
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit"
 
-"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit": ; preds = %3, %6, %6, %14, %22, %30, %_ZN4llvm9StringRefC2EPKc.exit.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZNK4llvm9StringRef11starts_withES0_.exit27.i, %_ZNK4llvm9StringRef11starts_withES0_.exit32.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i39.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i47.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i55.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i63.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i71.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i79.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i87.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i95.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i103.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i111.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i119.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i127.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i135.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i143.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i151.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i159.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i167.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit239.i
+"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.argprom.exit": ; preds = %3, %6, %6, %14, %22, %30, %_ZN4llvm9StringRefC2EPKc.exit.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZNK4llvm9StringRef11starts_withES0_.exit27.i, %_ZNK4llvm9StringRef11starts_withES0_.exit32.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i39.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i47.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i55.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i63.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i71.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i79.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i87.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i95.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i103.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i111.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i119.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i127.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i135.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i143.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i151.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i159.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i167.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit239.i
   %.0.i = phi i32 [ %53, %_ZN4llvm9StringRefC2EPKc.exit.i ], [ %37, %30 ], [ %29, %22 ], [ %21, %14 ], [ %98, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit239.i ], [ 0, %3 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit27.i ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit32.i ], [ 201802, %6 ], [ 201802, %6 ], [ 0, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit162.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i39.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i47.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i55.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i63.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i71.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i79.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i87.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i95.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i103.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i111.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i119.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i127.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i135.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i143.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i151.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i159.i ], [ %83, %_ZN4llvmeqENS_9StringRefES0_.exit.i167.i ]
   ret i32 %.0.i
 }
@@ -18971,7 +18971,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %.val = load ptr, ptr %4, align 8
   %5 = tail call fastcc noundef ptr @_ZL27ExpectFeatureIdentifierInfoRN5clang5TokenERNS_12PreprocessorEi(ptr noundef nonnull readonly align 8 dereferenceable(20) %1, ptr noundef nonnull readonly align 8 dereferenceable(3288) %.val, i32 noundef 1041)
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_3clES2_Rb.exit", label %6
+  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_3clES2_Rb.argprom.exit", label %6
 
 6:                                                ; preds = %3
   %7 = load i64, ptr %5, align 8
@@ -18984,7 +18984,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %13 = add nsw i32 %10, -36
   %.not81.i = icmp eq i32 %13, 0
   %.not8.i = select i1 %or.cond.i.not.i, i1 true, i1 %.not81.i
-  br i1 %.not8.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_3clES2_Rb.exit", label %14
+  br i1 %.not8.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_3clES2_Rb.argprom.exit", label %14
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 688
@@ -18995,9 +18995,9 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %20 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %19, i32 noundef 69) #23
   %21 = icmp ne ptr %20, null
   %22 = zext i1 %21 to i32
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_3clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_3clES2_Rb.argprom.exit"
 
-"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_3clES2_Rb.exit": ; preds = %3, %6, %14
+"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_3clES2_Rb.argprom.exit": ; preds = %3, %6, %14
   %.0.i = phi i32 [ 0, %3 ], [ 0, %6 ], [ %22, %14 ]
   ret i32 %.0.i
 }
@@ -19020,7 +19020,7 @@ define internal noundef i32 @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11call
   %.val = load ptr, ptr %4, align 8
   %5 = tail call fastcc noundef ptr @_ZL27ExpectFeatureIdentifierInfoRN5clang5TokenERNS_12PreprocessorEi(ptr noundef nonnull readonly align 8 dereferenceable(20) %1, ptr noundef nonnull readonly align 8 dereferenceable(3288) %.val, i32 noundef 1041)
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_5clES2_Rb.exit", label %6
+  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_5clES2_Rb.argprom.exit", label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 64
@@ -19028,9 +19028,9 @@ define internal noundef i32 @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11call
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i32 @_ZN5clang12hasAttributeENS_19AttributeCommonInfo6SyntaxEPKNS_14IdentifierInfoES4_RKNS_10TargetInfoERKNS_11LangOptionsE(i32 noundef 1, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(489) %8, ptr noundef nonnull align 8 dereferenceable(841) %10) #19
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_5clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_5clES2_Rb.argprom.exit"
 
-"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_5clES2_Rb.exit": ; preds = %3, %6
+"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_5clES2_Rb.argprom.exit": ; preds = %3, %6
   %12 = phi i32 [ %11, %6 ], [ 0, %3 ]
   ret i32 %12
 }
@@ -19043,7 +19043,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %.val = load ptr, ptr %4, align 8
   %5 = tail call fastcc noundef ptr @_ZL27ExpectFeatureIdentifierInfoRN5clang5TokenERNS_12PreprocessorEi(ptr noundef nonnull readonly align 8 dereferenceable(20) %1, ptr noundef nonnull readonly align 8 dereferenceable(3288) %.val, i32 noundef 1041)
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_6clES2_Rb.exit", label %6
+  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_6clES2_Rb.argprom.exit", label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 56
@@ -19051,7 +19051,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 2147483648
   %.not7.i = icmp eq i64 %10, 0
-  br i1 %.not7.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_6clES2_Rb.exit", label %11
+  br i1 %.not7.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_6clES2_Rb.argprom.exit", label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 64
@@ -19059,9 +19059,9 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %14 = tail call noundef i32 @_ZN5clang12hasAttributeENS_19AttributeCommonInfo6SyntaxEPKNS_14IdentifierInfoES4_RKNS_10TargetInfoERKNS_11LangOptionsE(i32 noundef 4, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(489) %13, ptr noundef nonnull align 8 dereferenceable(841) %8) #19
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i32
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_6clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_6clES2_Rb.argprom.exit"
 
-"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_6clES2_Rb.exit": ; preds = %3, %6, %11
+"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_6clES2_Rb.argprom.exit": ; preds = %3, %6, %11
   %.0.i = phi i32 [ 0, %6 ], [ %16, %11 ], [ 0, %3 ]
   ret i32 %.0.i
 }
@@ -19138,7 +19138,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %12 = zext i1 %11 to i8
   store i8 %12, ptr %2, align 1
   %13 = call noundef zeroext i1 @_ZN5clang12Preprocessor22FinishLexStringLiteralERNS_5TokenERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcb(ptr noundef nonnull align 8 dereferenceable(3288) %.val, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.297, i1 noundef zeroext false) #19
-  br i1 %13, label %14, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_8clES2_Rb.exit"
+  br i1 %13, label %14, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_8clES2_Rb.argprom.exit"
 
 14:                                               ; preds = %3
   %15 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
@@ -19194,7 +19194,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit.i:          ; preds = %.lr.ph.i.i.i.i.i.i,
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 912
   store i32 0, ptr %39, align 8, !noalias !299
   %40 = call noundef zeroext i1 @_ZN5clang17DiagnosticsEngine21EmitCurrentDiagnosticEb(ptr noundef nonnull align 8 dereferenceable(1304) %25, i1 noundef zeroext false) #19
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_8clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_8clES2_Rb.argprom.exit"
 
 41:                                               ; preds = %20
   %42 = getelementptr inbounds i8, ptr %5, i64 16
@@ -19212,13 +19212,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit.i:          ; preds = %.lr.ph.i.i.i.i.i.i,
   %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   %52 = load ptr, ptr %5, align 8
   %53 = icmp eq ptr %52, %42
-  br i1 %53, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_8clES2_Rb.exit", label %54
+  br i1 %53, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_8clES2_Rb.argprom.exit", label %54
 
 54:                                               ; preds = %41
   call void @free(ptr noundef %52) #19
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_8clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_8clES2_Rb.argprom.exit"
 
-"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_8clES2_Rb.exit": ; preds = %3, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i, %41, %54
+"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_8clES2_Rb.argprom.exit": ; preds = %3, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i, %41, %54
   %.0.shrunk.i = phi i1 [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i ], [ false, %3 ], [ %50, %41 ], [ %50, %54 ]
   %.0.i = zext i1 %.0.shrunk.i to i32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
@@ -19252,7 +19252,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %11 = icmp ne i64 %10, 0
   %12 = icmp ne ptr %5, null
   %or.cond.i = and i1 %12, %11
-  br i1 %or.cond.i, label %13, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_9clES2_Rb.exit"
+  br i1 %or.cond.i, label %13, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_9clES2_Rb.argprom.exit"
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -19264,19 +19264,19 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %20 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #19
   %21 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #19
   %.not.i.i = icmp eq i64 %18, %21
-  br i1 %.not.i.i, label %22, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_9clES2_Rb.exit"
+  br i1 %.not.i.i, label %22, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_9clES2_Rb.argprom.exit"
 
 22:                                               ; preds = %13
   %23 = icmp eq i64 %18, 0
-  br i1 %23, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_9clES2_Rb.exit", label %24
+  br i1 %23, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_9clES2_Rb.argprom.exit", label %24
 
 24:                                               ; preds = %22
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %16, ptr %20, i64 %18)
   %25 = icmp eq i32 %bcmp.i.i, 0
   %26 = zext i1 %25 to i32
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_9clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_9clES2_Rb.argprom.exit"
 
-"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_9clES2_Rb.exit": ; preds = %3, %13, %22, %24
+"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_9clES2_Rb.argprom.exit": ; preds = %3, %13, %22, %24
   %27 = phi i32 [ 0, %3 ], [ %26, %24 ], [ 0, %13 ], [ 1, %22 ]
   ret i32 %27
 }
@@ -19292,7 +19292,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %.val = load ptr, ptr %9, align 8
   %10 = tail call fastcc noundef ptr @_ZL27ExpectFeatureIdentifierInfoRN5clang5TokenERNS_12PreprocessorEi(ptr noundef nonnull readonly align 8 dereferenceable(20) %1, ptr noundef nonnull readonly align 8 dereferenceable(3288) %.val, i32 noundef 1041)
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_10clES2_Rb.exit", label %11
+  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_10clES2_Rb.argprom.exit", label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 64
@@ -19349,27 +19349,27 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
 
 36:                                               ; preds = %32
   %37 = icmp eq i32 %35, 1
-  br i1 %37, label %_ZL12isTargetArchRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i, label %40
+  br i1 %37, label %_ZL12isTargetArchRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i, label %40
 
 38:                                               ; preds = %32
   %39 = icmp eq i32 %35, 2
-  br i1 %39, label %_ZL12isTargetArchRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i, label %40
+  br i1 %39, label %_ZL12isTargetArchRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i, label %40
 
 40:                                               ; preds = %38, %36, %27, %._crit_edge.i.i
   %41 = phi i32 [ %.pre7.i.i, %._crit_edge.i.i ], [ %30, %27 ], [ %30, %36 ], [ %30, %38 ]
   %42 = icmp eq i32 %26, 0
   %43 = icmp eq i32 %26, %41
   %or.cond5.i.i = select i1 %42, i1 true, i1 %43
-  br i1 %or.cond5.i.i, label %44, label %_ZL12isTargetArchRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
+  br i1 %or.cond5.i.i, label %44, label %_ZL12isTargetArchRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, %23
   %48 = zext i1 %47 to i32
-  br label %_ZL12isTargetArchRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
+  br label %_ZL12isTargetArchRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i
 
-_ZL12isTargetArchRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i: ; preds = %44, %40, %38, %36
+_ZL12isTargetArchRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i: ; preds = %44, %40, %38, %36
   %.0.i.i = phi i32 [ 1, %38 ], [ 1, %36 ], [ %48, %44 ], [ 0, %40 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
@@ -19378,10 +19378,10 @@ _ZL12isTargetArchRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i: ; preds = 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_10clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_10clES2_Rb.argprom.exit"
 
-"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_10clES2_Rb.exit": ; preds = %3, %_ZL12isTargetArchRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
-  %49 = phi i32 [ 0, %3 ], [ %.0.i.i, %_ZL12isTargetArchRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i ]
+"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_10clES2_Rb.argprom.exit": ; preds = %3, %_ZL12isTargetArchRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i
+  %49 = phi i32 [ 0, %3 ], [ %.0.i.i, %_ZL12isTargetArchRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i ]
   ret i32 %49
 }
 
@@ -19398,7 +19398,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %.val = load ptr, ptr %5, align 8
   %6 = tail call fastcc noundef ptr @_ZL27ExpectFeatureIdentifierInfoRN5clang5TokenERNS_12PreprocessorEi(ptr noundef nonnull readonly align 8 dereferenceable(20) %1, ptr noundef nonnull readonly align 8 dereferenceable(3288) %.val, i32 noundef 1041)
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_11clES2_Rb.exit", label %7
+  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_11clES2_Rb.argprom.exit", label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 64
@@ -19438,9 +19438,9 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
 _ZL14isTargetVendorRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i: ; preds = %24, %17
   %29 = phi i32 [ 0, %17 ], [ %28, %24 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_11clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_11clES2_Rb.argprom.exit"
 
-"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_11clES2_Rb.exit": ; preds = %3, %_ZL14isTargetVendorRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
+"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_11clES2_Rb.argprom.exit": ; preds = %3, %_ZL14isTargetVendorRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
   %30 = phi i32 [ 0, %3 ], [ %29, %_ZL14isTargetVendorRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i ]
   ret i32 %30
 }
@@ -19461,7 +19461,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %.val = load ptr, ptr %10, align 8
   %11 = tail call fastcc noundef ptr @_ZL27ExpectFeatureIdentifierInfoRN5clang5TokenERNS_12PreprocessorEi(ptr noundef nonnull readonly align 8 dereferenceable(20) %1, ptr noundef nonnull readonly align 8 dereferenceable(3288) %.val, i32 noundef 1041)
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_12clES2_Rb.exit", label %12
+  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_12clES2_Rb.argprom.exit", label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 64
@@ -19506,26 +19506,26 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
 30:                                               ; preds = %12
   %31 = and i32 %29, -9
   %spec.select.i.i.i.i = icmp eq i32 %31, 1
-  br i1 %spec.select.i.i.i.i, label %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i, label %32
+  br i1 %spec.select.i.i.i.i, label %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i, label %32
 
 32:                                               ; preds = %30
   switch i32 %29, label %33 [
-    i32 26, label %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
-    i32 5, label %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
-    i32 27, label %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
-    i32 29, label %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
-    i32 30, label %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
+    i32 26, label %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i
+    i32 5, label %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i
+    i32 27, label %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i
+    i32 29, label %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i
+    i32 30, label %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i
   ]
 
 33:                                               ; preds = %32
-  br label %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
+  br label %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i
 
 34:                                               ; preds = %12
   %35 = icmp eq i32 %29, %26
   %36 = zext i1 %35 to i32
-  br label %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
+  br label %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i
 
-_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i: ; preds = %34, %33, %32, %32, %32, %32, %32, %30
+_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i: ; preds = %34, %33, %32, %32, %32, %32, %32, %30
   %.0.i.i = phi i32 [ %36, %34 ], [ 1, %32 ], [ 1, %30 ], [ 0, %33 ], [ 1, %32 ], [ 1, %32 ], [ 1, %32 ], [ 1, %32 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
@@ -19535,10 +19535,10 @@ _ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_12clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_12clES2_Rb.argprom.exit"
 
-"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_12clES2_Rb.exit": ; preds = %3, %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
-  %37 = phi i32 [ 0, %3 ], [ %.0.i.i, %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i ]
+"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_12clES2_Rb.argprom.exit": ; preds = %3, %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i
+  %37 = phi i32 [ 0, %3 ], [ %.0.i.i, %_ZL10isTargetOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i ]
   ret i32 %37
 }
 
@@ -19556,7 +19556,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %.val = load ptr, ptr %10, align 8
   %11 = tail call fastcc noundef ptr @_ZL27ExpectFeatureIdentifierInfoRN5clang5TokenERNS_12PreprocessorEi(ptr noundef nonnull readonly align 8 dereferenceable(20) %1, ptr noundef nonnull readonly align 8 dereferenceable(3288) %.val, i32 noundef 1041)
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_13clES2_Rb.exit", label %12
+  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_13clES2_Rb.argprom.exit", label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 64
@@ -19599,7 +19599,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
 28:                                               ; preds = %12
   %29 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.302) #19
   %.not.i.i = icmp eq i32 %29, 0
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %_ZL19isTargetEnvironmentRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %_ZL19isTargetEnvironmentRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i
 
 ._crit_edge.i.i:                                  ; preds = %28
   %.pre.i.i = load i32, ptr %25, align 8
@@ -19611,9 +19611,9 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, %31
   %35 = zext i1 %34 to i32
-  br label %_ZL19isTargetEnvironmentRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
+  br label %_ZL19isTargetEnvironmentRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i
 
-_ZL19isTargetEnvironmentRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i: ; preds = %30, %28
+_ZL19isTargetEnvironmentRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i: ; preds = %30, %28
   %.0.i.i = phi i32 [ %35, %30 ], [ 0, %28 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
@@ -19623,10 +19623,10 @@ _ZL19isTargetEnvironmentRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i: ; p
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_13clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_13clES2_Rb.argprom.exit"
 
-"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_13clES2_Rb.exit": ; preds = %3, %_ZL19isTargetEnvironmentRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
-  %36 = phi i32 [ 0, %3 ], [ %.0.i.i, %_ZL19isTargetEnvironmentRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i ]
+"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_13clES2_Rb.argprom.exit": ; preds = %3, %_ZL19isTargetEnvironmentRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i
+  %36 = phi i32 [ 0, %3 ], [ %.0.i.i, %_ZL19isTargetEnvironmentRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.argprom.exit.i ]
   ret i32 %36
 }
 
@@ -19645,7 +19645,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %.val = load ptr, ptr %10, align 8
   %11 = tail call fastcc noundef ptr @_ZL27ExpectFeatureIdentifierInfoRN5clang5TokenERNS_12PreprocessorEi(ptr noundef nonnull readonly align 8 dereferenceable(20) %1, ptr noundef nonnull readonly align 8 dereferenceable(3288) %.val, i32 noundef 1041)
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_14clES2_Rb.exit", label %12
+  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_14clES2_Rb.argprom.exit", label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 64
@@ -19745,9 +19745,9 @@ _ZL17isTargetVariantOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i: ; pre
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_14clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_14clES2_Rb.argprom.exit"
 
-"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_14clES2_Rb.exit": ; preds = %3, %_ZL17isTargetVariantOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
+"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_14clES2_Rb.argprom.exit": ; preds = %3, %_ZL17isTargetVariantOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
   %46 = phi i32 [ 0, %3 ], [ %.0.i.i, %_ZL17isTargetVariantOSRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i ]
   ret i32 %46
 }
@@ -19764,7 +19764,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
   %.val = load ptr, ptr %10, align 8
   %11 = tail call fastcc noundef ptr @_ZL27ExpectFeatureIdentifierInfoRN5clang5TokenERNS_12PreprocessorEi(ptr noundef nonnull readonly align 8 dereferenceable(20) %1, ptr noundef nonnull readonly align 8 dereferenceable(3288) %.val, i32 noundef 1041)
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_15clES2_Rb.exit", label %12
+  br i1 %.not.i, label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_15clES2_Rb.argprom.exit", label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 64
@@ -19839,9 +19839,9 @@ _ZL26isTargetVariantEnvironmentRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
-  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_15clES2_Rb.exit"
+  br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_15clES2_Rb.argprom.exit"
 
-"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_15clES2_Rb.exit": ; preds = %3, %_ZL26isTargetVariantEnvironmentRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
+"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK4$_15clES2_Rb.argprom.exit": ; preds = %3, %_ZL26isTargetVariantEnvironmentRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i
   %40 = phi i32 [ 0, %3 ], [ %.0.i.i, %_ZL26isTargetVariantEnvironmentRKN5clang10TargetInfoEPKNS_14IdentifierInfoE.exit.i ]
   ret i32 %40
 }

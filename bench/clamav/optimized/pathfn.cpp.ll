@@ -1846,7 +1846,7 @@ define void @_Z19GenerateArchiveNamePwmPKwb(ptr noundef %0, i64 noundef %1, ptr 
   %6 = alloca i8, align 1
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 2048)
   store i8 0, ptr %6, align 1
-  call fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef %5, ptr noundef %2, i32 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  call fastcc void @_ZL10GenArcNamePwmPKwjRb.argelim(ptr noundef %5, ptr noundef %2, i32 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %6)
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %.lr.ph, label %.loopexit
@@ -1865,14 +1865,14 @@ define void @_Z19GenerateArchiveNamePwmPKwb(ptr noundef %0, i64 noundef %1, ptr 
   %13 = call noundef ptr @_Z11NullToEmptyPKw(ptr noundef %0)
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %5, ptr noundef %13, i64 noundef 2048)
   %14 = add i32 %.013, -1
-  call fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef %5, ptr noundef %2, i32 noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  call fastcc void @_ZL10GenArcNamePwmPKwjRb.argelim(ptr noundef %5, ptr noundef %2, i32 noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %6)
   br label %.loopexit
 
 15:                                               ; preds = %.lr.ph
   %16 = add i32 %.013, 1
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 2048)
   store i8 0, ptr %6, align 1
-  call fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef %5, ptr noundef %2, i32 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  call fastcc void @_ZL10GenArcNamePwmPKwjRb.argelim(ptr noundef %5, ptr noundef %2, i32 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %6)
   %17 = load i8, ptr %6, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !24
@@ -1883,7 +1883,7 @@ define void @_Z19GenerateArchiveNamePwmPKwb(ptr noundef %0, i64 noundef %1, ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) unnamed_addr #3 {
+define internal fastcc void @_ZL10GenArcNamePwmPKwjRb.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) unnamed_addr #3 {
   %5 = alloca [128 x i32], align 16
   %6 = alloca %class.RarTime, align 8
   %7 = alloca %struct.RarLocalTime, align 4

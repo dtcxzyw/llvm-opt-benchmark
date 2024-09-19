@@ -1096,7 +1096,7 @@ define dso_local noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE
 _ZL7isErrorPN4llvm5ErrorE.exit.i:                 ; preds = %3
   %8 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i, label %_ZL9getLEB128ImET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.exit
+  br i1 %.not.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i, label %_ZL9getLEB128ImET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.argprom.exit
 
 _ZL7isErrorPN4llvm5ErrorE.exit.thread.i:          ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.i, %3
   %9 = load i64, ptr %1, align 8
@@ -1137,7 +1137,7 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i:          ; preds = %_ZL7isErrorPN4llvm5
 
 29:                                               ; preds = %20, %13
   %.07.ph.i = phi ptr [ @.str.4, %20 ], [ @.str.3, %13 ]
-  br i1 %.not.i.i, label %_ZL9getLEB128ImET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.exit, label %_ZN4llvm5ErrorD2Ev.exit.i
+  br i1 %.not.i.i, label %_ZL9getLEB128ImET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.argprom.exit, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %29
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #14
@@ -1182,7 +1182,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %29
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   store ptr %41, ptr %2, align 8
-  br label %_ZL9getLEB128ImET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.exit
+  br label %_ZL9getLEB128ImET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.argprom.exit
 
 44:                                               ; preds = %22
   %45 = ptrtoint ptr %27 to i64
@@ -1190,9 +1190,9 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %29
   %47 = and i64 %46, 4294967295
   %48 = add i64 %47, %9
   store i64 %48, ptr %1, align 8
-  br label %_ZL9getLEB128ImET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.exit
+  br label %_ZL9getLEB128ImET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.argprom.exit
 
-_ZL9getLEB128ImET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.exit: ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.i, %29, %_ZN4llvm5ErrorD2Ev.exit.i, %44
+_ZL9getLEB128ImET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.argprom.exit: ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.i, %29, %_ZN4llvm5ErrorD2Ev.exit.i, %44
   %.0.i = phi i64 [ %25, %44 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i ], [ 0, %_ZN4llvm5ErrorD2Ev.exit.i ], [ 0, %29 ]
   ret i64 %.0.i
 }
@@ -1212,7 +1212,7 @@ define dso_local noundef i64 @_ZNK4llvm13DataExtractor10getSLEB128EPmPNS_5ErrorE
 _ZL7isErrorPN4llvm5ErrorE.exit.i:                 ; preds = %3
   %8 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i, label %_ZL9getLEB128IlET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.exit
+  br i1 %.not.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i, label %_ZL9getLEB128IlET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.argprom.exit
 
 _ZL7isErrorPN4llvm5ErrorE.exit.thread.i:          ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.i, %3
   %9 = load i64, ptr %1, align 8
@@ -1264,7 +1264,7 @@ switch.early.test.i.i:                            ; preds = %20
 
 31:                                               ; preds = %.critedge.i.i, %switch.early.test.i.i, %13
   %.07.ph.i = phi ptr [ @.str.6, %switch.early.test.i.i ], [ @.str.6, %.critedge.i.i ], [ @.str.5, %13 ]
-  br i1 %.not.i.i, label %_ZL9getLEB128IlET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.exit, label %_ZN4llvm5ErrorD2Ev.exit.i
+  br i1 %.not.i.i, label %_ZL9getLEB128IlET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.argprom.exit, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %31
   %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #14
@@ -1309,7 +1309,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %31
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   store ptr %43, ptr %2, align 8
-  br label %_ZL9getLEB128IlET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.exit
+  br label %_ZL9getLEB128IlET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.argprom.exit
 
 46:                                               ; preds = %24
   %47 = icmp ugt i32 %28, 63
@@ -1324,9 +1324,9 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %31
   %51 = and i64 %.sink76.i.i, 4294967295
   %52 = add i64 %51, %9
   store i64 %52, ptr %1, align 8
-  br label %_ZL9getLEB128IlET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.exit
+  br label %_ZL9getLEB128IlET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.argprom.exit
 
-_ZL9getLEB128IlET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.exit: ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.i, %31, %_ZN4llvm5ErrorD2Ev.exit.i, %46
+_ZL9getLEB128IlET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.argprom.exit: ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.i, %31, %_ZN4llvm5ErrorD2Ev.exit.i, %46
   %.0.i = phi i64 [ %.1.i.i, %46 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i ], [ 0, %_ZN4llvm5ErrorD2Ev.exit.i ], [ 0, %31 ]
   ret i64 %.0.i
 }

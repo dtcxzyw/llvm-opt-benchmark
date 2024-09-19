@@ -5050,9 +5050,9 @@ if.end5:                                          ; preds = %if.end4.i, %_ZN8fac
   %ranges.val = load ptr, ptr %ranges, align 8
   %ranges.val21 = load ptr, ptr %e_.i, align 8
   %cmp.not1.i = icmp eq ptr %ranges.val, %ranges.val21
-  br i1 %cmp.not1.i, label %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.exit.thread", label %for.body.i
+  br i1 %cmp.not1.i, label %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.argprom.exit.thread", label %for.body.i
 
-"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.exit.thread": ; preds = %if.end5
+"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.argprom.exit.thread": ; preds = %if.end5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %_M_engaged.i.i.i.i.i143 = getelementptr inbounds i8, ptr %rows, i64 37
   store i8 0, ptr %_M_engaged.i.i.i.i.i143, align 1
@@ -5073,9 +5073,9 @@ for.body.i:                                       ; preds = %if.end5, %for.body.
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %maxTargetIndex.0, i32 %add.i.i)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.02.i, i64 12
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %ranges.val21
-  br i1 %cmp.not.i, label %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.exit", label %for.body.i
+  br i1 %cmp.not.i, label %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.argprom.exit", label %for.body.i
 
-"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.exit": ; preds = %for.body.i
+"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.argprom.exit": ; preds = %for.body.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %rows, i64 37
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 1
@@ -5085,10 +5085,10 @@ for.body.i:                                       ; preds = %if.end5, %for.body.
   %cmp.i.not.i = icmp ult i32 %add.i.i.off.i, 127
   br i1 %cmp.i.not.i, label %_ZN8facebook5velox17SelectivityVectorC2Eib.exit, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.exit.thread", %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.exit"
-  %_M_engaged.i.i.i.i.i150 = phi ptr [ %_M_engaged.i.i.i.i.i143, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.exit.thread" ], [ %_M_engaged.i.i.i.i.i, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.exit" ]
-  %maxTargetIndex.1148 = phi i32 [ -2147483648, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.exit.thread" ], [ %.sroa.speculated.i.i, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.exit" ]
-  %minTargetIndex.1146 = phi i32 [ 2147483647, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.exit.thread" ], [ %.sroa.speculated6.i.i, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.exit" ]
+if.then.i.i:                                      ; preds = %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.argprom.exit.thread", %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.argprom.exit"
+  %_M_engaged.i.i.i.i.i150 = phi ptr [ %_M_engaged.i.i.i.i.i143, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.argprom.exit.thread" ], [ %_M_engaged.i.i.i.i.i, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.argprom.exit" ]
+  %maxTargetIndex.1148 = phi i32 [ -2147483648, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.argprom.exit.thread" ], [ %.sroa.speculated.i.i, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.argprom.exit" ]
+  %minTargetIndex.1146 = phi i32 [ 2147483647, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.argprom.exit.thread" ], [ %.sroa.speculated6.i.i, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.argprom.exit" ]
   %add.i.i.i = add nuw i32 %maxTargetIndex.1148, 63
   %div.i.i = sdiv i32 %add.i.i.i, 64
   %conv.i.i = sext i32 %div.i.i to i64
@@ -5112,10 +5112,10 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %12, %lpad.i ], [ %.pn19, %ehcleanup103 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN8facebook5velox17SelectivityVectorC2Eib.exit:  ; preds = %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.exit", %if.then.i.i
-  %_M_engaged.i.i.i.i.i151 = phi ptr [ %_M_engaged.i.i.i.i.i, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.exit" ], [ %_M_engaged.i.i.i.i.i150, %if.then.i.i ]
-  %maxTargetIndex.1149 = phi i32 [ %.sroa.speculated.i.i, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.exit" ], [ %maxTargetIndex.1148, %if.then.i.i ]
-  %minTargetIndex.1147 = phi i32 [ %.sroa.speculated6.i.i, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.exit" ], [ %minTargetIndex.1146, %if.then.i.i ]
+_ZN8facebook5velox17SelectivityVectorC2Eib.exit:  ; preds = %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.argprom.exit", %if.then.i.i
+  %_M_engaged.i.i.i.i.i151 = phi ptr [ %_M_engaged.i.i.i.i.i, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.argprom.exit" ], [ %_M_engaged.i.i.i.i.i150, %if.then.i.i ]
+  %maxTargetIndex.1149 = phi i32 [ %.sroa.speculated.i.i, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.argprom.exit" ], [ %maxTargetIndex.1148, %if.then.i.i ]
+  %minTargetIndex.1147 = phi i32 [ %.sroa.speculated6.i.i, %"_ZN8facebook5velox16applyToEachRangeIZNS0_9RowVector10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS3_9CopyRangeEEEE3$_0EEvSD_RKT_.argprom.exit" ], [ %minTargetIndex.1146, %if.then.i.i ]
   %end_.i = getelementptr inbounds i8, ptr %rows, i64 32
   %begin_.i = getelementptr inbounds i8, ptr %rows, i64 28
   %size_.i = getelementptr inbounds i8, ptr %rows, i64 24
@@ -11304,7 +11304,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i43, %"
 call.i.i.i16.i.i.i.i.i.noexc:                     ; preds = %for.body.i.i.i.i
   %31 = and i64 %call.i.i.i16.i.i.i.i.i46, 4294967296
   %tobool.i.i.not.i.i.i17.i.i.i.i.i = icmp eq i64 %31, 0
-  br i1 %tobool.i.i.not.i.i.i17.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.invoke, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.exit.i.i.i.i.i"
+  br i1 %tobool.i.i.not.i.i.i17.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.invoke, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i.i.i.i.i"
 
 if.end.i.i.i.i.i.i.i.i.i.invoke:                  ; preds = %call.i.i.noexc, %call.i.i.i16.i.i.i.i.i.noexc, %call.i.i.i.i.i.i.i.i.noexc
   invoke void @_ZSt27__throw_bad_optional_accessv() #25
@@ -11313,7 +11313,7 @@ if.end.i.i.i.i.i.i.i.i.i.invoke:                  ; preds = %call.i.i.noexc, %ca
 if.end.i.i.i.i.i.i.i.i.i.cont:                    ; preds = %if.end.i.i.i.i.i.i.i.i.i.invoke
   unreachable
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.exit.i.i.i.i.i": ; preds = %call.i.i.i16.i.i.i.i.i.noexc, %call.i.i.i.i.i.i.i.i.noexc
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i.i.i.i.i": ; preds = %call.i.i.i16.i.i.i.i.i.noexc, %call.i.i.i.i.i.i.i.i.noexc
   %call.i.i.i20.i.i.i.i.i = phi i64 [ %call.i.i.i.i.i.i.i.i48, %call.i.i.i.i.i.i.i.i.noexc ], [ %call.i.i.i16.i.i.i.i.i46, %call.i.i.i16.i.i.i.i.i.noexc ]
   %__next.019.i.i.i.i.i = phi ptr [ %__next.0.i.i.i.i.i, %call.i.i.i.i.i.i.i.i.noexc ], [ %__next.010.i.i.i.i.i, %call.i.i.i16.i.i.i.i.i.noexc ]
   %__last.addr.018.i.i.i.i.i = phi ptr [ %__next.019.i.i.i.i.i, %call.i.i.i.i.i.i.i.i.noexc ], [ %__i.06.i.i.i.i, %call.i.i.i16.i.i.i.i.i.noexc ]
@@ -11321,7 +11321,7 @@ if.end.i.i.i.i.i.i.i.i.i.cont:                    ; preds = %if.end.i.i.i.i.i.i.
   %cmp.i.i.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %cmp.i.i.not.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_.exit.i.i.i.i", label %while.body.i.i.i.i.i
 
-while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.exit.i.i.i.i.i"
+while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i.i.i.i.i"
   %33 = load i32, ptr %__next.019.i.i.i.i.i, align 4
   store i32 %33, ptr %__last.addr.018.i.i.i.i.i, align 4
   %__next.0.i.i.i.i.i = getelementptr inbounds i8, ptr %__next.019.i.i.i.i.i, i64 -4
@@ -11338,9 +11338,9 @@ while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__op
 call.i.i.i.i.i.i.i.i.noexc:                       ; preds = %while.body.i.i.i.i.i
   %36 = and i64 %call.i.i.i.i.i.i.i.i48, 4294967296
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i64 %36, 0
-  br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.invoke, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.exit.i.i.i.i.i", !llvm.loop !90
+  br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.invoke, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i.i.i.i.i", !llvm.loop !90
 
-"_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.exit.i.i.i.i.i"
+"_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i.i.i.i.i"
   store i32 %28, ptr %__last.addr.018.i.i.i.i.i, align 4
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__i.06.i.i.i.i, i64 4
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr34
@@ -18090,7 +18090,7 @@ entry:
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   call void %1(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(99) %call.val.val, i32 noundef %__args1.val)
   %call2.i.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
-          to label %"_ZSt10__invoke_rIvRZNK8facebook5velox11ArrayVector8toStringB5cxx11EiE3$_0JRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit" unwind label %lpad.i.i.i
+          to label %"_ZSt10__invoke_rIvRZNK8facebook5velox11ArrayVector8toStringB5cxx11EiE3$_0JRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.argprom.exit" unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %entry
   %2 = landingpad { ptr, i32 }
@@ -18098,7 +18098,7 @@ lpad.i.i.i:                                       ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #24
   resume { ptr, i32 } %2
 
-"_ZSt10__invoke_rIvRZNK8facebook5velox11ArrayVector8toStringB5cxx11EiE3$_0JRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRZNK8facebook5velox11ArrayVector8toStringB5cxx11EiE3$_0JRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.argprom.exit": ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   ret void
@@ -19364,19 +19364,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call.i.i.i = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val, ptr noundef nonnull %__comp.val.val.val, i32 noundef %__i.0.val, i32 noundef %__first.val, i64 257)
   %2 = and i64 %call.i.i.i, 4294967296
   %tobool.i.i.not.i.i.i = icmp eq i64 %2, 0
-  br i1 %tobool.i.i.not.i.i.i, label %if.end.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit"
+  br i1 %tobool.i.i.not.i.i.i, label %if.end.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit"
 
 if.end.i.i.i.i:                                   ; preds = %for.body
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit": ; preds = %for.body
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit": ; preds = %for.body
   %3 = and i64 %call.i.i.i, 2147483648
   %cmp.i.i.not = icmp eq i64 %3, 0
   %4 = load i32, ptr %__i.017, align 4
   br i1 %cmp.i.i.not, label %if.else, label %if.then3
 
-if.then3:                                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit"
+if.then3:                                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit"
   %add.ptr4 = getelementptr inbounds i8, ptr %__first.pn16, i64 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__i.017 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -19386,7 +19386,7 @@ if.then3:                                         ; preds = %"_ZN9__gnu_cxx5__op
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %for.inc
 
-if.else:                                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit"
+if.else:                                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit"
   %__next.0.val11.i = load i32, ptr %__first.pn16, align 4
   %__comp.val.val12.i = load ptr, ptr %__comp.coerce, align 8
   %5 = getelementptr i8, ptr %__comp.val.val12.i, i64 136
@@ -19397,13 +19397,13 @@ if.else:                                          ; preds = %"_ZN9__gnu_cxx5__op
   %call.i.i.i16.i = tail call i64 %6(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val13.i, ptr noundef nonnull %__comp.val.val.val13.i, i32 noundef %4, i32 noundef %__next.0.val11.i, i64 257)
   %7 = and i64 %call.i.i.i16.i, 4294967296
   %tobool.i.i.not.i.i.i17.i = icmp eq i64 %7, 0
-  br i1 %tobool.i.i.not.i.i.i17.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIiPiEEbRT_T0_.exit.i"
+  br i1 %tobool.i.i.not.i.i.i17.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i"
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else, %while.body.i
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIiPiEEbRT_T0_.exit.i": ; preds = %if.else, %while.body.i
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i": ; preds = %if.else, %while.body.i
   %call.i.i.i20.i = phi i64 [ %call.i.i.i.i, %while.body.i ], [ %call.i.i.i16.i, %if.else ]
   %__next.019.i = phi ptr [ %__next.0.i, %while.body.i ], [ %__first.pn16, %if.else ]
   %__last.addr.018.i = phi ptr [ %__next.019.i, %while.body.i ], [ %__i.017, %if.else ]
@@ -19411,7 +19411,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.else, %while.bod
   %cmp.i.i.not.i = icmp eq i64 %8, 0
   br i1 %cmp.i.i.not.i, label %for.inc, label %while.body.i
 
-while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIiPiEEbRT_T0_.exit.i"
+while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i"
   %9 = load i32, ptr %__next.019.i, align 4
   store i32 %9, ptr %__last.addr.018.i, align 4
   %__next.0.i = getelementptr inbounds i8, ptr %__next.019.i, i64 -4
@@ -19425,10 +19425,10 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
   %call.i.i.i.i = tail call i64 %11(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val.i, ptr noundef nonnull %__comp.val.val.val.i, i32 noundef %4, i32 noundef %__next.0.val.i, i64 257)
   %12 = and i64 %call.i.i.i.i, 4294967296
   %tobool.i.i.not.i.i.i.i = icmp eq i64 %12, 0
-  br i1 %tobool.i.i.not.i.i.i.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIiPiEEbRT_T0_.exit.i", !llvm.loop !136
+  br i1 %tobool.i.i.not.i.i.i.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i", !llvm.loop !136
 
-for.inc:                                          ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIiPiEEbRT_T0_.exit.i", %if.then3
-  %__first.sink = phi ptr [ %__first, %if.then3 ], [ %__last.addr.018.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIiPiEEbRT_T0_.exit.i" ]
+for.inc:                                          ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i", %if.then3
+  %__first.sink = phi ptr [ %__first, %if.then3 ], [ %__last.addr.018.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i" ]
   store i32 %4, ptr %__first.sink, align 4
   %__i.0 = getelementptr inbounds i8, ptr %__i.017, i64 4
   %cmp2.not = icmp eq ptr %__i.0, %__last
@@ -19471,18 +19471,18 @@ if.then4:                                         ; preds = %if.end
   %call.i.i.i = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val, ptr noundef nonnull %__comp.val.val.val, i32 noundef %__middle.val, i32 noundef %__first.val, i64 257)
   %2 = and i64 %call.i.i.i, 4294967296
   %tobool.i.i.not.i.i.i = icmp eq i64 %2, 0
-  br i1 %tobool.i.i.not.i.i.i, label %if.end.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit"
+  br i1 %tobool.i.i.not.i.i.i, label %if.end.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit"
 
 if.end.i.i.i.i:                                   ; preds = %if.then4
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit": ; preds = %if.then4
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit": ; preds = %if.then4
   %3 = and i64 %call.i.i.i, 2147483648
   %cmp.i.i.not = icmp eq i64 %3, 0
   br i1 %cmp.i.i.not, label %return, label %if.then5
 
-if.then5:                                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit"
+if.then5:                                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit"
   %4 = load i32, ptr %__first.tr91, align 4
   %5 = load i32, ptr %__middle.tr93, align 4
   store i32 %5, ptr %__first.tr91, align 4
@@ -19502,9 +19502,9 @@ if.then9:                                         ; preds = %if.end7
   %cmp13.i = icmp sgt i64 %sub.ptr.div.i.i.i, 0
   br i1 %cmp13.i, label %while.body.i, label %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit"
 
-while.body.i:                                     ; preds = %if.then9, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i"
-  %__first.addr.015.i = phi ptr [ %__first.addr.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %__middle.tr93, %if.then9 ]
-  %__len.014.i = phi i64 [ %__len.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %sub.ptr.div.i.i.i, %if.then9 ]
+while.body.i:                                     ; preds = %if.then9, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.argprom.argprom.argprom.exit.i"
+  %__first.addr.015.i = phi ptr [ %__first.addr.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.argprom.argprom.argprom.exit.i" ], [ %__middle.tr93, %if.then9 ]
+  %__len.014.i = phi i64 [ %__len.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.argprom.argprom.argprom.exit.i" ], [ %sub.ptr.div.i.i.i, %if.then9 ]
   %shr.i = lshr i64 %__len.014.i, 1
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %__first.addr.015.i, i64 %shr.i
   %.val.i = load i32, ptr %add.ptr.i.i.i, align 4
@@ -19518,13 +19518,13 @@ while.body.i:                                     ; preds = %if.then9, %"_ZN9__g
   %call.i.i.i.i = tail call i64 %7(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val.i, ptr noundef nonnull %__comp.val.val.val.i, i32 noundef %.val.i, i32 noundef %__val.val.i, i64 257)
   %8 = and i64 %call.i.i.i.i, 4294967296
   %tobool.i.i.not.i.i.i.i = icmp eq i64 %8, 0
-  br i1 %tobool.i.i.not.i.i.i.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i"
+  br i1 %tobool.i.i.not.i.i.i.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.argprom.argprom.argprom.exit.i"
 
 if.end.i.i.i.i.i:                                 ; preds = %while.body.i
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i": ; preds = %while.body.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.argprom.argprom.argprom.exit.i": ; preds = %while.body.i
   %9 = and i64 %call.i.i.i.i, 2147483648
   %cmp.i.i8.not.i = icmp eq i64 %9, 0
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
@@ -19535,7 +19535,7 @@ if.end.i.i.i.i.i:                                 ; preds = %while.body.i
   %cmp.i = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i, label %while.body.i, label %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !138
 
-"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i"
+"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.argprom.argprom.argprom.exit.i"
   %.pre = ptrtoint ptr %__first.addr.1.i to i64
   br label %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit"
 
@@ -19555,9 +19555,9 @@ if.else:                                          ; preds = %if.end7
   %cmp13.i44 = icmp sgt i64 %sub.ptr.div.i.i.i43, 0
   br i1 %cmp13.i44, label %while.body.i46, label %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit"
 
-while.body.i46:                                   ; preds = %if.else, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i"
-  %__first.addr.015.i47 = phi ptr [ %__first.addr.1.i67, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i" ], [ %__first.tr91, %if.else ]
-  %__len.014.i48 = phi i64 [ %__len.1.i66, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i" ], [ %sub.ptr.div.i.i.i43, %if.else ]
+while.body.i46:                                   ; preds = %if.else, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.argprom.argprom.argprom.exit.i"
+  %__first.addr.015.i47 = phi ptr [ %__first.addr.1.i67, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.argprom.argprom.argprom.exit.i" ], [ %__first.tr91, %if.else ]
+  %__len.014.i48 = phi i64 [ %__len.1.i66, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.argprom.argprom.argprom.exit.i" ], [ %sub.ptr.div.i.i.i43, %if.else ]
   %shr.i49 = lshr i64 %__len.014.i48, 1
   %add.ptr.i.i.i52 = getelementptr inbounds i32, ptr %__first.addr.015.i47, i64 %shr.i49
   %__val.val.i55 = load i32, ptr %add.ptr.i.i33, align 4
@@ -19571,13 +19571,13 @@ while.body.i46:                                   ; preds = %if.else, %"_ZN9__gn
   %call.i.i.i.i61 = tail call i64 %12(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val.i58, ptr noundef nonnull %__comp.val.val.val.i58, i32 noundef %__val.val.i55, i32 noundef %.val.i56, i64 257)
   %13 = and i64 %call.i.i.i.i61, 4294967296
   %tobool.i.i.not.i.i.i.i62 = icmp eq i64 %13, 0
-  br i1 %tobool.i.i.not.i.i.i.i62, label %if.end.i.i.i.i.i69, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i"
+  br i1 %tobool.i.i.not.i.i.i.i62, label %if.end.i.i.i.i.i69, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.argprom.argprom.argprom.exit.i"
 
 if.end.i.i.i.i.i69:                               ; preds = %while.body.i46
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i": ; preds = %while.body.i46
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.argprom.argprom.argprom.exit.i": ; preds = %while.body.i46
   %14 = and i64 %call.i.i.i.i61, 2147483648
   %cmp.i.i8.not.i63 = icmp eq i64 %14, 0
   %incdec.ptr.i64 = getelementptr inbounds i8, ptr %add.ptr.i.i.i52, i64 4
@@ -19588,7 +19588,7 @@ if.end.i.i.i.i.i69:                               ; preds = %while.body.i46
   %cmp.i68 = icmp sgt i64 %__len.1.i66, 0
   br i1 %cmp.i68, label %while.body.i46, label %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !139
 
-"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i"
+"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.argprom.argprom.argprom.exit.i"
   %.pre103 = ptrtoint ptr %__first.addr.1.i67 to i64
   br label %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit"
 
@@ -19613,7 +19613,7 @@ if.end32:                                         ; preds = %"_ZSt13__upper_boun
   %or.cond = or i1 %cmp, %cmp2
   br i1 %or.cond, label %return, label %if.end
 
-return:                                           ; preds = %if.end32, %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit", %if.then5
+return:                                           ; preds = %if.end32, %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit", %if.then5
   ret void
 }
 
@@ -19813,10 +19813,10 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %if.then, %if.then.i
   %0 = and i1 %cmp17.i, %cmp218.i
   br i1 %0, label %while.body.i, label %while.end.i
 
-while.body.i:                                     ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i"
-  %__result.addr.021.i = phi ptr [ %incdec.ptr4.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i" ], [ %__first.tr.lcssa, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
-  %__first1.addr.020.i = phi ptr [ %__first1.addr.1.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i" ], [ %__buffer, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
-  %__first2.addr.019.i = phi ptr [ %__first2.addr.1.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i" ], [ %__middle.tr.lcssa, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
+while.body.i:                                     ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i"
+  %__result.addr.021.i = phi ptr [ %incdec.ptr4.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i" ], [ %__first.tr.lcssa, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
+  %__first1.addr.020.i = phi ptr [ %__first1.addr.1.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i" ], [ %__buffer, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
+  %__first2.addr.019.i = phi ptr [ %__first2.addr.1.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i" ], [ %__middle.tr.lcssa, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
   %__first2.addr.0.val.i = load i32, ptr %__first2.addr.019.i, align 4
   %__first1.addr.0.val.i = load i32, ptr %__first1.addr.020.i, align 4
   %__comp.val.val.i = load ptr, ptr %coerce.val.ip, align 8
@@ -19828,13 +19828,13 @@ while.body.i:                                     ; preds = %_ZSt4moveIPiS0_ET0_
   %call.i.i.i.i = tail call i64 %2(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val.i, ptr noundef nonnull %__comp.val.val.val.i, i32 noundef %__first2.addr.0.val.i, i32 noundef %__first1.addr.0.val.i, i64 257)
   %3 = and i64 %call.i.i.i.i, 4294967296
   %tobool.i.i.not.i.i.i.i = icmp eq i64 %3, 0
-  br i1 %tobool.i.i.not.i.i.i.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i"
+  br i1 %tobool.i.i.not.i.i.i.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i"
 
 if.end.i.i.i.i.i:                                 ; preds = %while.body.i
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i": ; preds = %while.body.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i": ; preds = %while.body.i
   %4 = and i64 %call.i.i.i.i, 2147483648
   %cmp.i.i.not.i = icmp eq i64 %4, 0
   %.sink.in.i = select i1 %cmp.i.i.not.i, ptr %__first1.addr.020.i, ptr %__first2.addr.019.i
@@ -19850,10 +19850,10 @@ if.end.i.i.i.i.i:                                 ; preds = %while.body.i
   %5 = select i1 %cmp.i, i1 %cmp2.i, i1 false
   br i1 %5, label %while.body.i, label %while.end.i, !llvm.loop !144
 
-while.end.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i", %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit
-  %__first1.addr.0.lcssa.i = phi ptr [ %__buffer, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %__first1.addr.1.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i" ]
-  %__result.addr.0.lcssa.i = phi ptr [ %__first.tr.lcssa, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %incdec.ptr4.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i" ]
-  %cmp.lcssa.i = phi i1 [ %cmp17.i, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %cmp.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i" ]
+while.end.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i", %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit
+  %__first1.addr.0.lcssa.i = phi ptr [ %__buffer, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %__first1.addr.1.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i" ]
+  %__result.addr.0.lcssa.i = phi ptr [ %__first.tr.lcssa, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %incdec.ptr4.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i" ]
+  %cmp.lcssa.i = phi i1 [ %cmp17.i, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %cmp.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i" ]
   br i1 %cmp.lcssa.i, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i, label %if.end50
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i:               ; preds = %while.end.i
@@ -19905,13 +19905,13 @@ if.end4.i:                                        ; preds = %_ZSt4moveIPiS0_ET0_
   %call.i.i.i38.i = tail call i64 %7(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val35.i, ptr noundef nonnull %__comp.val.val.val35.i, i32 noundef %__last2.addr.0.val32.i, i32 noundef %__last1.addr.0.val33.i, i64 257)
   %8 = and i64 %call.i.i.i38.i, 4294967296
   %tobool.i.i.not.i.i.i39.i = icmp eq i64 %8, 0
-  br i1 %tobool.i.i.not.i.i.i39.i, label %if.end.i.i.i.i.i61, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i53"
+  br i1 %tobool.i.i.not.i.i.i39.i, label %if.end.i.i.i.i.i61, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i53"
 
 if.end.i.i.i.i.i61:                               ; preds = %if.end21.i, %if.end4.i
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i53": ; preds = %if.end4.i, %if.end21.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i53": ; preds = %if.end4.i, %if.end21.i
   %call.i.i.i43.i = phi i64 [ %call.i.i.i.i59, %if.end21.i ], [ %call.i.i.i38.i, %if.end4.i ]
   %__result.addr.042.i = phi ptr [ %incdec.ptr16.i, %if.end21.i ], [ %__last, %if.end4.i ]
   %__last2.addr.041.i = phi ptr [ %__last2.addr.1.i, %if.end21.i ], [ %incdec.ptr5.i, %if.end4.i ]
@@ -19921,7 +19921,7 @@ if.end.i.i.i.i.i61:                               ; preds = %if.end21.i, %if.end
   %incdec.ptr16.i = getelementptr inbounds i8, ptr %__result.addr.042.i, i64 -4
   br i1 %cmp.i.i.not.i54, label %if.else15.i, label %if.then7.i
 
-if.then7.i:                                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i53"
+if.then7.i:                                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i53"
   %10 = load i32, ptr %__last1.addr.040.i, align 4
   store i32 %10, ptr %incdec.ptr16.i, align 4
   %cmp9.i = icmp eq ptr %__first.tr160, %__last1.addr.040.i
@@ -19946,7 +19946,7 @@ if.end13.i:                                       ; preds = %if.then7.i
   %incdec.ptr14.i = getelementptr inbounds i8, ptr %__last1.addr.040.i, i64 -4
   br label %if.end21.i
 
-if.else15.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i53"
+if.else15.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i53"
   %11 = load i32, ptr %__last2.addr.041.i, align 4
   store i32 %11, ptr %incdec.ptr16.i, align 4
   %cmp17.i62 = icmp eq ptr %__buffer, %__last2.addr.041.i
@@ -19970,7 +19970,7 @@ if.end21.i:                                       ; preds = %if.end19.i, %if.end
   %call.i.i.i.i59 = tail call i64 %13(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val.i56, ptr noundef nonnull %__comp.val.val.val.i56, i32 noundef %__last2.addr.0.val.i, i32 noundef %__last1.addr.0.val.i, i64 257)
   %14 = and i64 %call.i.i.i.i59, 4294967296
   %tobool.i.i.not.i.i.i.i60 = icmp eq i64 %14, 0
-  br i1 %tobool.i.i.not.i.i.i.i60, label %if.end.i.i.i.i.i61, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i53", !llvm.loop !145
+  br i1 %tobool.i.i.not.i.i.i.i60, label %if.end.i.i.i.i.i61, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i53", !llvm.loop !145
 
 if.else12:                                        ; preds = %if.else
   br i1 %cmp.not166, label %if.then14, label %if.else26
@@ -19983,9 +19983,9 @@ if.then14:                                        ; preds = %if.else12
   %cmp13.i = icmp sgt i64 %sub.ptr.div.i.i.i, 0
   br i1 %cmp13.i, label %while.body.i67, label %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit"
 
-while.body.i67:                                   ; preds = %if.then14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i"
-  %__first.addr.015.i = phi ptr [ %__first.addr.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %__middle.tr162, %if.then14 ]
-  %__len.014.i = phi i64 [ %__len.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %sub.ptr.div.i.i.i, %if.then14 ]
+while.body.i67:                                   ; preds = %if.then14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.argprom.argprom.argprom.exit.i"
+  %__first.addr.015.i = phi ptr [ %__first.addr.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.argprom.argprom.argprom.exit.i" ], [ %__middle.tr162, %if.then14 ]
+  %__len.014.i = phi i64 [ %__len.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.argprom.argprom.argprom.exit.i" ], [ %sub.ptr.div.i.i.i, %if.then14 ]
   %shr.i = lshr i64 %__len.014.i, 1
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %__first.addr.015.i, i64 %shr.i
   %.val.i = load i32, ptr %add.ptr.i.i.i, align 4
@@ -19999,13 +19999,13 @@ while.body.i67:                                   ; preds = %if.then14, %"_ZN9__
   %call.i.i.i.i72 = tail call i64 %16(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val.i69, ptr noundef nonnull %__comp.val.val.val.i69, i32 noundef %.val.i, i32 noundef %__val.val.i, i64 257)
   %17 = and i64 %call.i.i.i.i72, 4294967296
   %tobool.i.i.not.i.i.i.i73 = icmp eq i64 %17, 0
-  br i1 %tobool.i.i.not.i.i.i.i73, label %if.end.i.i.i.i.i76, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i"
+  br i1 %tobool.i.i.not.i.i.i.i73, label %if.end.i.i.i.i.i76, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.argprom.argprom.argprom.exit.i"
 
 if.end.i.i.i.i.i76:                               ; preds = %while.body.i67
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i": ; preds = %while.body.i67
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.argprom.argprom.argprom.exit.i": ; preds = %while.body.i67
   %18 = and i64 %call.i.i.i.i72, 2147483648
   %cmp.i.i8.not.i = icmp eq i64 %18, 0
   %incdec.ptr.i74 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
@@ -20016,7 +20016,7 @@ if.end.i.i.i.i.i76:                               ; preds = %while.body.i67
   %cmp.i75 = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i75, label %while.body.i67, label %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !138
 
-"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i"
+"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.argprom.argprom.argprom.exit.i"
   %.pre = ptrtoint ptr %__first.addr.1.i to i64
   br label %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit"
 
@@ -20036,9 +20036,9 @@ if.else26:                                        ; preds = %if.else12
   %cmp13.i94 = icmp sgt i64 %sub.ptr.div.i.i.i93, 0
   br i1 %cmp13.i94, label %while.body.i97, label %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit"
 
-while.body.i97:                                   ; preds = %if.else26, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i"
-  %__first.addr.015.i98 = phi ptr [ %__first.addr.1.i118, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i" ], [ %__first.tr160, %if.else26 ]
-  %__len.014.i99 = phi i64 [ %__len.1.i117, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i" ], [ %sub.ptr.div.i.i.i93, %if.else26 ]
+while.body.i97:                                   ; preds = %if.else26, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.argprom.argprom.argprom.exit.i"
+  %__first.addr.015.i98 = phi ptr [ %__first.addr.1.i118, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.argprom.argprom.argprom.exit.i" ], [ %__first.tr160, %if.else26 ]
+  %__len.014.i99 = phi i64 [ %__len.1.i117, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.argprom.argprom.argprom.exit.i" ], [ %sub.ptr.div.i.i.i93, %if.else26 ]
   %shr.i100 = lshr i64 %__len.014.i99, 1
   %add.ptr.i.i.i103 = getelementptr inbounds i32, ptr %__first.addr.015.i98, i64 %shr.i100
   %__val.val.i106 = load i32, ptr %add.ptr.i.i83, align 4
@@ -20052,13 +20052,13 @@ while.body.i97:                                   ; preds = %if.else26, %"_ZN9__
   %call.i.i.i.i112 = tail call i64 %21(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val.i109, ptr noundef nonnull %__comp.val.val.val.i109, i32 noundef %__val.val.i106, i32 noundef %.val.i107, i64 257)
   %22 = and i64 %call.i.i.i.i112, 4294967296
   %tobool.i.i.not.i.i.i.i113 = icmp eq i64 %22, 0
-  br i1 %tobool.i.i.not.i.i.i.i113, label %if.end.i.i.i.i.i120, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i"
+  br i1 %tobool.i.i.not.i.i.i.i113, label %if.end.i.i.i.i.i120, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.argprom.argprom.argprom.exit.i"
 
 if.end.i.i.i.i.i120:                              ; preds = %while.body.i97
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i": ; preds = %while.body.i97
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.argprom.argprom.argprom.exit.i": ; preds = %while.body.i97
   %23 = and i64 %call.i.i.i.i112, 2147483648
   %cmp.i.i8.not.i114 = icmp eq i64 %23, 0
   %incdec.ptr.i115 = getelementptr inbounds i8, ptr %add.ptr.i.i.i103, i64 4
@@ -20069,7 +20069,7 @@ if.end.i.i.i.i.i120:                              ; preds = %while.body.i97
   %cmp.i119 = icmp sgt i64 %__len.1.i117, 0
   br i1 %cmp.i119, label %while.body.i97, label %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !139
 
-"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i"
+"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.argprom.argprom.argprom.exit.i"
   %.pre179 = ptrtoint ptr %__first.addr.1.i118 to i64
   br label %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit"
 
@@ -20210,10 +20210,10 @@ while.body:                                       ; preds = %entry, %"_ZSt12__mo
   %add.ptr3 = getelementptr inbounds i32, ptr %__first.addr.072, i64 %mul
   br label %while.body.i
 
-while.body.i:                                     ; preds = %while.body, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i"
-  %__result.addr.028.i = phi ptr [ %incdec.ptr4.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i" ], [ %__result.addr.071, %while.body ]
-  %__first1.addr.027.i = phi ptr [ %__first1.addr.1.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i" ], [ %__first.addr.072, %while.body ]
-  %__first2.addr.026.i = phi ptr [ %__first2.addr.1.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i" ], [ %add.ptr, %while.body ]
+while.body.i:                                     ; preds = %while.body, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i"
+  %__result.addr.028.i = phi ptr [ %incdec.ptr4.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i" ], [ %__result.addr.071, %while.body ]
+  %__first1.addr.027.i = phi ptr [ %__first1.addr.1.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i" ], [ %__first.addr.072, %while.body ]
+  %__first2.addr.026.i = phi ptr [ %__first2.addr.1.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i" ], [ %add.ptr, %while.body ]
   %__first2.addr.0.val.i = load i32, ptr %__first2.addr.026.i, align 4
   %__first1.addr.0.val.i = load i32, ptr %__first1.addr.027.i, align 4
   %__comp.val.val.i = load ptr, ptr %__comp.coerce, align 8
@@ -20225,13 +20225,13 @@ while.body.i:                                     ; preds = %while.body, %"_ZN9_
   %call.i.i.i.i = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val.i, ptr noundef nonnull %__comp.val.val.val.i, i32 noundef %__first2.addr.0.val.i, i32 noundef %__first1.addr.0.val.i, i64 257)
   %2 = and i64 %call.i.i.i.i, 4294967296
   %tobool.i.i.not.i.i.i.i = icmp eq i64 %2, 0
-  br i1 %tobool.i.i.not.i.i.i.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i"
+  br i1 %tobool.i.i.not.i.i.i.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i"
 
 if.end.i.i.i.i.i:                                 ; preds = %while.body.i
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i": ; preds = %while.body.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i": ; preds = %while.body.i
   %3 = and i64 %call.i.i.i.i, 2147483648
   %cmp.i.i.not.i = icmp eq i64 %3, 0
   %.sink.in.i = select i1 %cmp.i.i.not.i, ptr %__first1.addr.027.i, ptr %__first2.addr.026.i
@@ -20247,7 +20247,7 @@ if.end.i.i.i.i.i:                                 ; preds = %while.body.i
   %4 = select i1 %cmp.i, i1 %cmp2.i, i1 false
   br i1 %4, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !146
 
-while.end.i.loopexit:                             ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i"
+while.end.i.loopexit:                             ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i"
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %__first1.addr.1.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
@@ -20288,10 +20288,10 @@ while.end:                                        ; preds = %"_ZSt12__move_merge
   %5 = and i1 %cmp24.i16, %cmp225.i17
   br i1 %5, label %while.body.i35, label %while.end.i18
 
-while.body.i35:                                   ; preds = %while.end, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i47"
-  %__result.addr.028.i36 = phi ptr [ %incdec.ptr4.i55, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i47" ], [ %__result.addr.0.lcssa, %while.end ]
-  %__first1.addr.027.i37 = phi ptr [ %__first1.addr.1.i53, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i47" ], [ %__first.addr.0.lcssa, %while.end ]
-  %__first2.addr.026.i38 = phi ptr [ %__first2.addr.1.i51, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i47" ], [ %add.ptr12, %while.end ]
+while.body.i35:                                   ; preds = %while.end, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i47"
+  %__result.addr.028.i36 = phi ptr [ %incdec.ptr4.i55, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i47" ], [ %__result.addr.0.lcssa, %while.end ]
+  %__first1.addr.027.i37 = phi ptr [ %__first1.addr.1.i53, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i47" ], [ %__first.addr.0.lcssa, %while.end ]
+  %__first2.addr.026.i38 = phi ptr [ %__first2.addr.1.i51, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i47" ], [ %add.ptr12, %while.end ]
   %__first2.addr.0.val.i39 = load i32, ptr %__first2.addr.026.i38, align 4
   %__first1.addr.0.val.i40 = load i32, ptr %__first1.addr.027.i37, align 4
   %__comp.val.val.i41 = load ptr, ptr %__comp.coerce, align 8
@@ -20303,13 +20303,13 @@ while.body.i35:                                   ; preds = %while.end, %"_ZN9__
   %call.i.i.i.i45 = tail call i64 %7(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val.i42, ptr noundef nonnull %__comp.val.val.val.i42, i32 noundef %__first2.addr.0.val.i39, i32 noundef %__first1.addr.0.val.i40, i64 257)
   %8 = and i64 %call.i.i.i.i45, 4294967296
   %tobool.i.i.not.i.i.i.i46 = icmp eq i64 %8, 0
-  br i1 %tobool.i.i.not.i.i.i.i46, label %if.end.i.i.i.i.i58, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i47"
+  br i1 %tobool.i.i.not.i.i.i.i46, label %if.end.i.i.i.i.i58, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i47"
 
 if.end.i.i.i.i.i58:                               ; preds = %while.body.i35
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i47": ; preds = %while.body.i35
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i47": ; preds = %while.body.i35
   %9 = and i64 %call.i.i.i.i45, 2147483648
   %cmp.i.i.not.i48 = icmp eq i64 %9, 0
   %.sink.in.i49 = select i1 %cmp.i.i.not.i48, ptr %__first1.addr.027.i37, ptr %__first2.addr.026.i38
@@ -20325,10 +20325,10 @@ if.end.i.i.i.i.i58:                               ; preds = %while.body.i35
   %10 = select i1 %cmp.i56, i1 %cmp2.i57, i1 false
   br i1 %10, label %while.body.i35, label %while.end.i18, !llvm.loop !146
 
-while.end.i18:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i47", %while.end
-  %__first2.addr.0.lcssa.i19 = phi ptr [ %add.ptr12, %while.end ], [ %__first2.addr.1.i51, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i47" ]
-  %__first1.addr.0.lcssa.i20 = phi ptr [ %__first.addr.0.lcssa, %while.end ], [ %__first1.addr.1.i53, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i47" ]
-  %__result.addr.0.lcssa.i21 = phi ptr [ %__result.addr.0.lcssa, %while.end ], [ %incdec.ptr4.i55, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.exit.i47" ]
+while.end.i18:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i47", %while.end
+  %__first2.addr.0.lcssa.i19 = phi ptr [ %add.ptr12, %while.end ], [ %__first2.addr.1.i51, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i47" ]
+  %__first1.addr.0.lcssa.i20 = phi ptr [ %__first.addr.0.lcssa, %while.end ], [ %__first1.addr.1.i53, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i47" ]
+  %__result.addr.0.lcssa.i21 = phi ptr [ %__result.addr.0.lcssa, %while.end ], [ %incdec.ptr4.i55, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i47" ]
   %sub.ptr.lhs.cast.i.i.i.i.i.i22 = ptrtoint ptr %add.ptr12 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i23 = ptrtoint ptr %__first1.addr.0.lcssa.i20 to i64
   %sub.ptr.sub.i.i.i.i.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i22, %sub.ptr.rhs.cast.i.i.i.i.i.i23
@@ -20421,13 +20421,13 @@ if.end:                                           ; preds = %while.body
   %call.i.i.i.i.i = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val27.val.val.i.i, ptr noundef nonnull %__comp.val27.val.val.i.i, i32 noundef %__a.val28.i.i, i32 noundef %__b.val29.i.i, i64 257)
   %6 = and i64 %call.i.i.i.i.i, 4294967296
   %tobool.i.i.not.i.i.i.i.i = icmp eq i64 %6, 0
-  br i1 %tobool.i.i.not.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit.i.i"
+  br i1 %tobool.i.i.not.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i.i"
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit.i.i": ; preds = %if.end
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i.i": ; preds = %if.end
   %7 = and i64 %call.i.i.i.i.i, 2147483648
   %cmp.i.i.not.i.i = icmp eq i64 %7, 0
   %__c.val20.i.i = load i32, ptr %add.ptr3.i, align 4
@@ -20439,30 +20439,30 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end
   %9 = load ptr, ptr %vfn.i.i.i45.i.i, align 8
   br i1 %cmp.i.i.not.i.i, label %if.else8.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit.i.i"
+if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i.i"
   %__b.val25.i.i = load i32, ptr %add.ptr.i, align 4
   %call.i.i.i32.i.i = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val19.val.val.i.i, ptr noundef nonnull %__comp.val19.val.val.i.i, i32 noundef %__b.val25.i.i, i32 noundef %__c.val20.i.i, i64 257)
   %10 = and i64 %call.i.i.i32.i.i, 4294967296
   %tobool.i.i.not.i.i.i33.i.i = icmp eq i64 %10, 0
-  br i1 %tobool.i.i.not.i.i.i33.i.i, label %if.end.i.i.i.i35.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit36.i.i"
+  br i1 %tobool.i.i.not.i.i.i33.i.i, label %if.end.i.i.i.i35.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit36.i.i"
 
 if.end.i.i.i.i35.i.i:                             ; preds = %if.then.i.i
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit36.i.i": ; preds = %if.then.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit36.i.i": ; preds = %if.then.i.i
   %11 = and i64 %call.i.i.i32.i.i, 2147483648
   %cmp.i.i34.not.i.i = icmp eq i64 %11, 0
   br i1 %cmp.i.i34.not.i.i, label %if.else.i.i, label %if.then3.i.i
 
-if.then3.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit36.i.i"
+if.then3.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit36.i.i"
   %12 = load i32, ptr %__first, align 4
   %13 = load i32, ptr %add.ptr.i, align 4
   store i32 %13, ptr %__first, align 4
   store i32 %12, ptr %add.ptr.i, align 4
   br label %"_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_SD_SD_T0_.exit.i"
 
-if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit36.i.i"
+if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit36.i.i"
   %__a.val22.i.i = load i32, ptr %add.ptr2.i, align 4
   %__c.val23.i.i = load i32, ptr %add.ptr3.i, align 4
   %__comp.val21.val.i.i = load ptr, ptr %__comp.coerce, align 8
@@ -20474,54 +20474,54 @@ if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
   %call.i.i.i39.i.i = tail call i64 %15(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val21.val.val.i.i, ptr noundef nonnull %__comp.val21.val.val.i.i, i32 noundef %__a.val22.i.i, i32 noundef %__c.val23.i.i, i64 257)
   %16 = and i64 %call.i.i.i39.i.i, 4294967296
   %tobool.i.i.not.i.i.i40.i.i = icmp eq i64 %16, 0
-  br i1 %tobool.i.i.not.i.i.i40.i.i, label %if.end.i.i.i.i42.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit43.i.i"
+  br i1 %tobool.i.i.not.i.i.i40.i.i, label %if.end.i.i.i.i42.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit43.i.i"
 
 if.end.i.i.i.i42.i.i:                             ; preds = %if.else.i.i
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit43.i.i": ; preds = %if.else.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit43.i.i": ; preds = %if.else.i.i
   %17 = and i64 %call.i.i.i39.i.i, 2147483648
   %cmp.i.i41.not.i.i = icmp eq i64 %17, 0
   %18 = load i32, ptr %__first, align 4
   br i1 %cmp.i.i41.not.i.i, label %if.else6.i.i, label %if.then5.i.i
 
-if.then5.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit43.i.i"
+if.then5.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit43.i.i"
   %19 = load i32, ptr %add.ptr3.i, align 4
   store i32 %19, ptr %__first, align 4
   store i32 %18, ptr %add.ptr3.i, align 4
   br label %"_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_SD_SD_T0_.exit.i"
 
-if.else6.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit43.i.i"
+if.else6.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit43.i.i"
   %20 = load i32, ptr %add.ptr2.i, align 4
   store i32 %20, ptr %__first, align 4
   store i32 %18, ptr %add.ptr2.i, align 4
   br label %"_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_SD_SD_T0_.exit.i"
 
-if.else8.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit.i.i"
+if.else8.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i.i"
   %__a.val.i.i = load i32, ptr %add.ptr2.i, align 4
   %call.i.i.i46.i.i = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val19.val.val.i.i, ptr noundef nonnull %__comp.val19.val.val.i.i, i32 noundef %__a.val.i.i, i32 noundef %__c.val20.i.i, i64 257)
   %21 = and i64 %call.i.i.i46.i.i, 4294967296
   %tobool.i.i.not.i.i.i47.i.i = icmp eq i64 %21, 0
-  br i1 %tobool.i.i.not.i.i.i47.i.i, label %if.end.i.i.i.i49.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit50.i.i"
+  br i1 %tobool.i.i.not.i.i.i47.i.i, label %if.end.i.i.i.i49.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit50.i.i"
 
 if.end.i.i.i.i49.i.i:                             ; preds = %if.else8.i.i
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit50.i.i": ; preds = %if.else8.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit50.i.i": ; preds = %if.else8.i.i
   %22 = and i64 %call.i.i.i46.i.i, 2147483648
   %cmp.i.i48.not.i.i = icmp eq i64 %22, 0
   br i1 %cmp.i.i48.not.i.i, label %if.else11.i.i, label %if.then10.i.i
 
-if.then10.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit50.i.i"
+if.then10.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit50.i.i"
   %23 = load i32, ptr %__first, align 4
   %24 = load i32, ptr %add.ptr2.i, align 4
   store i32 %24, ptr %__first, align 4
   store i32 %23, ptr %add.ptr2.i, align 4
   br label %"_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_SD_SD_T0_.exit.i"
 
-if.else11.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit50.i.i"
+if.else11.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit50.i.i"
   %__b.val.i.i = load i32, ptr %add.ptr.i, align 4
   %__c.val.i.i = load i32, ptr %add.ptr3.i, align 4
   %__comp.val.val.i.i = load ptr, ptr %__comp.coerce, align 8
@@ -20533,25 +20533,25 @@ if.else11.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   %call.i.i.i53.i.i = tail call i64 %26(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val.i.i, ptr noundef nonnull %__comp.val.val.val.i.i, i32 noundef %__b.val.i.i, i32 noundef %__c.val.i.i, i64 257)
   %27 = and i64 %call.i.i.i53.i.i, 4294967296
   %tobool.i.i.not.i.i.i54.i.i = icmp eq i64 %27, 0
-  br i1 %tobool.i.i.not.i.i.i54.i.i, label %if.end.i.i.i.i56.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit57.i.i"
+  br i1 %tobool.i.i.not.i.i.i54.i.i, label %if.end.i.i.i.i56.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit57.i.i"
 
 if.end.i.i.i.i56.i.i:                             ; preds = %if.else11.i.i
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit57.i.i": ; preds = %if.else11.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit57.i.i": ; preds = %if.else11.i.i
   %28 = and i64 %call.i.i.i53.i.i, 2147483648
   %cmp.i.i55.not.i.i = icmp eq i64 %28, 0
   %29 = load i32, ptr %__first, align 4
   br i1 %cmp.i.i55.not.i.i, label %if.else14.i.i, label %if.then13.i.i
 
-if.then13.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit57.i.i"
+if.then13.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit57.i.i"
   %30 = load i32, ptr %add.ptr3.i, align 4
   store i32 %30, ptr %__first, align 4
   store i32 %29, ptr %add.ptr3.i, align 4
   br label %"_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_SD_SD_T0_.exit.i"
 
-if.else14.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit57.i.i"
+if.else14.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit57.i.i"
   %31 = load i32, ptr %add.ptr.i, align 4
   store i32 %31, ptr %__first, align 4
   store i32 %29, ptr %add.ptr.i, align 4
@@ -20569,26 +20569,26 @@ if.else14.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   %call.i.i.i2939.i.i = tail call i64 %33(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val11.val.val2636.i.i, ptr noundef nonnull %__comp.val11.val.val2636.i.i, i32 noundef %__first.addr.1.val2333.i.i, i32 noundef %__pivot.val122434.i.i, i64 257)
   %34 = and i64 %call.i.i.i2939.i.i, 4294967296
   %tobool.i.i.not.i.i.i3040.i.i = icmp eq i64 %34, 0
-  br i1 %tobool.i.i.not.i.i.i3040.i.i, label %if.end.i.i.i.i.i15.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit.lr.ph.i.i"
+  br i1 %tobool.i.i.not.i.i.i3040.i.i, label %if.end.i.i.i.i.i15.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.lr.ph.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit.lr.ph.i.i": ; preds = %"_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_SD_SD_T0_.exit.i", %if.end.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.lr.ph.i.i": ; preds = %"_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_SD_SD_T0_.exit.i", %if.end.i.i
   %call.i.i.i2943.i.i = phi i64 [ %call.i.i.i29.i.i, %if.end.i.i ], [ %call.i.i.i2939.i.i, %"_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_SD_SD_T0_.exit.i" ]
   %__first.addr.042.i.i = phi ptr [ %incdec.ptr10.i.i, %if.end.i.i ], [ %add.ptr2.i, %"_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_SD_SD_T0_.exit.i" ]
   %__last.addr.041.i.i = phi ptr [ %__last.addr.1.i.i, %if.end.i.i ], [ %__last.addr.053, %"_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_SD_SD_T0_.exit.i" ]
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit.i8.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i8.i"
 
 if.end.i.i.i.i.i15.i:                             ; preds = %"_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_SD_SD_T0_.exit.i", %if.end.i.i, %while.body3.i.i
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit.i8.i": ; preds = %while.body3.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit.lr.ph.i.i"
-  %call.i.i.i32.i9.i = phi i64 [ %call.i.i.i2943.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit.lr.ph.i.i" ], [ %call.i.i.i.i13.i, %while.body3.i.i ]
-  %__first.addr.131.i.i = phi ptr [ %__first.addr.042.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit.lr.ph.i.i" ], [ %incdec.ptr.i.i, %while.body3.i.i ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i8.i": ; preds = %while.body3.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.lr.ph.i.i"
+  %call.i.i.i32.i9.i = phi i64 [ %call.i.i.i2943.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.lr.ph.i.i" ], [ %call.i.i.i.i13.i, %while.body3.i.i ]
+  %__first.addr.131.i.i = phi ptr [ %__first.addr.042.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.lr.ph.i.i" ], [ %incdec.ptr.i.i, %while.body3.i.i ]
   %35 = and i64 %call.i.i.i32.i9.i, 2147483648
   %cmp.i.i.not.i10.i = icmp eq i64 %35, 0
   br i1 %cmp.i.i.not.i10.i, label %while.cond5.i.i, label %while.body3.i.i
 
-while.body3.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit.i8.i"
+while.body3.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i8.i"
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.131.i.i, i64 4
   %__first.addr.1.val.i.i = load i32, ptr %incdec.ptr.i.i, align 4
   %__pivot.val12.i.i = load i32, ptr %__first, align 4
@@ -20601,10 +20601,10 @@ while.body3.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__op
   %call.i.i.i.i13.i = tail call i64 %37(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val11.val.val.i.i, ptr noundef nonnull %__comp.val11.val.val.i.i, i32 noundef %__first.addr.1.val.i.i, i32 noundef %__pivot.val12.i.i, i64 257)
   %38 = and i64 %call.i.i.i.i13.i, 4294967296
   %tobool.i.i.not.i.i.i.i14.i = icmp eq i64 %38, 0
-  br i1 %tobool.i.i.not.i.i.i.i14.i, label %if.end.i.i.i.i.i15.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit.i8.i", !llvm.loop !150
+  br i1 %tobool.i.i.not.i.i.i.i14.i, label %if.end.i.i.i.i.i15.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i8.i", !llvm.loop !150
 
-while.cond5.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit.i8.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit19.i.i"
-  %__last.addr.0.pn.i.i = phi ptr [ %__last.addr.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit19.i.i" ], [ %__last.addr.041.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit.i8.i" ]
+while.cond5.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i8.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit19.i.i"
+  %__last.addr.0.pn.i.i = phi ptr [ %__last.addr.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit19.i.i" ], [ %__last.addr.041.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.i8.i" ]
   %__last.addr.1.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i, i64 -4
   %__pivot.val.i.i = load i32, ptr %__first, align 4
   %__last.addr.1.val.i.i = load i32, ptr %__last.addr.1.i.i, align 4
@@ -20617,18 +20617,18 @@ while.cond5.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__op
   %call.i.i.i15.i.i = tail call i64 %40(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val.i17.i, ptr noundef nonnull %__comp.val.val.val.i17.i, i32 noundef %__pivot.val.i.i, i32 noundef %__last.addr.1.val.i.i, i64 257)
   %41 = and i64 %call.i.i.i15.i.i, 4294967296
   %tobool.i.i.not.i.i.i16.i.i = icmp eq i64 %41, 0
-  br i1 %tobool.i.i.not.i.i.i16.i.i, label %if.end.i.i.i.i18.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit19.i.i"
+  br i1 %tobool.i.i.not.i.i.i16.i.i, label %if.end.i.i.i.i18.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit19.i.i"
 
 if.end.i.i.i.i18.i.i:                             ; preds = %while.cond5.i.i
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit19.i.i": ; preds = %while.cond5.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit19.i.i": ; preds = %while.cond5.i.i
   %42 = and i64 %call.i.i.i15.i.i, 2147483648
   %cmp.i.i17.not.i.i = icmp eq i64 %42, 0
   br i1 %cmp.i.i17.not.i.i, label %while.end9.i.i, label %while.cond5.i.i, !llvm.loop !151
 
-while.end9.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit19.i.i"
+while.end9.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit19.i.i"
   %cmp.i.i = icmp ult ptr %__first.addr.131.i.i, %__last.addr.1.i.i
   br i1 %cmp.i.i, label %if.end.i.i, label %"_ZSt27__unguarded_partition_pivotIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEET_SD_SD_T0_.exit"
 
@@ -20649,7 +20649,7 @@ if.end.i.i:                                       ; preds = %while.end9.i.i
   %call.i.i.i29.i.i = tail call i64 %46(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val11.val.val26.i.i, ptr noundef nonnull %__comp.val11.val.val26.i.i, i32 noundef %__first.addr.1.val23.i.i, i32 noundef %__pivot.val1224.i.i, i64 257)
   %47 = and i64 %call.i.i.i29.i.i, 4294967296
   %tobool.i.i.not.i.i.i30.i.i = icmp eq i64 %47, 0
-  br i1 %tobool.i.i.not.i.i.i30.i.i, label %if.end.i.i.i.i.i15.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit.lr.ph.i.i", !llvm.loop !152
+  br i1 %tobool.i.i.not.i.i.i30.i.i, label %if.end.i.i.i.i.i15.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit.lr.ph.i.i", !llvm.loop !152
 
 "_ZSt27__unguarded_partition_pivotIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEET_SD_SD_T0_.exit": ; preds = %while.end9.i.i
   tail call fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_T0_T1_"(ptr noundef %__first.addr.131.i.i, ptr noundef %__last.addr.053, i64 noundef %dec, ptr nonnull %__comp.coerce)
@@ -20670,8 +20670,8 @@ entry:
   %cmp25 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp25, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit"
-  %__secondChild.026 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit"
+  %__secondChild.026 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit" ], [ %__holeIndex, %entry ]
   %add = shl i64 %__secondChild.026, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds i32, ptr %__first, i64 %mul
@@ -20688,13 +20688,13 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %call.i.i.i = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val, ptr noundef nonnull %__comp.val.val.val, i32 noundef %add.ptr.val, i32 noundef %add.ptr3.val, i64 257)
   %2 = and i64 %call.i.i.i, 4294967296
   %tobool.i.i.not.i.i.i = icmp eq i64 %2, 0
-  br i1 %tobool.i.i.not.i.i.i, label %if.end.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit"
+  br i1 %tobool.i.i.not.i.i.i, label %if.end.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit"
 
 if.end.i.i.i.i:                                   ; preds = %while.body
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit": ; preds = %while.body
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit": ; preds = %while.body
   %3 = and i64 %call.i.i.i, 2147483648
   %cmp.i.i.not = icmp eq i64 %3, 0
   %spec.select = select i1 %cmp.i.i.not, i64 %mul, i64 %sub2
@@ -20705,8 +20705,8 @@ if.end.i.i.i.i:                                   ; preds = %while.body
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !154
 
-while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit", %entry
-  %__secondChild.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit" ]
+while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit", %entry
+  %__secondChild.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit" ]
   %and = and i64 %__len, 1
   %cmp6 = icmp eq i64 %and, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end17
@@ -20746,26 +20746,26 @@ land.rhs.i:                                       ; preds = %if.end17, %while.bo
   %call.i.i.i.i = tail call i64 %7(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val.i, ptr noundef nonnull %__comp.val.val.val.i, i32 noundef %add.ptr.val.i, i32 noundef %__value, i64 257)
   %8 = and i64 %call.i.i.i.i, 4294967296
   %tobool.i.i.not.i.i.i.i = icmp eq i64 %8, 0
-  br i1 %tobool.i.i.not.i.i.i.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiiEEbT_RT0_.exit.i"
+  br i1 %tobool.i.i.not.i.i.i.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiiEEbT_RT0_.argprom.argprom.argprom.exit.i"
 
 if.end.i.i.i.i.i:                                 ; preds = %land.rhs.i
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiiEEbT_RT0_.exit.i": ; preds = %land.rhs.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiiEEbT_RT0_.argprom.argprom.argprom.exit.i": ; preds = %land.rhs.i
   %9 = and i64 %call.i.i.i.i, 2147483648
   %cmp.i.i.not.i = icmp eq i64 %9, 0
   br i1 %cmp.i.i.not.i, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_SE_T1_RT2_.exit", label %while.body.i
 
-while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiiEEbT_RT0_.exit.i"
+while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiiEEbT_RT0_.argprom.argprom.argprom.exit.i"
   %10 = load i32, ptr %add.ptr.i, align 4
   %add.ptr2.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.015.i
   store i32 %10, ptr %add.ptr2.i, align 4
   %cmp.i = icmp sgt i64 %__parent.016.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_SE_T1_RT2_.exit", !llvm.loop !155
 
-"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_SE_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiiEEbT_RT0_.exit.i", %while.body.i, %if.end17
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end17 ], [ %__holeIndex.addr.015.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiiEEbT_RT0_.exit.i" ], [ %__parent.016.i, %while.body.i ]
+"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_SE_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiiEEbT_RT0_.argprom.argprom.argprom.exit.i", %while.body.i, %if.end17
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end17 ], [ %__holeIndex.addr.015.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiiEEbT_RT0_.argprom.argprom.argprom.exit.i" ], [ %__parent.016.i, %while.body.i ]
   %add.ptr5.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   store i32 %__value, ptr %add.ptr5.i, align 4
   ret void
@@ -20800,19 +20800,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call.i.i.i = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val, ptr noundef nonnull %__comp.val.val.val, i32 noundef %__i.0.val, i32 noundef %__first.val, i64 257)
   %2 = and i64 %call.i.i.i, 4294967296
   %tobool.i.i.not.i.i.i = icmp eq i64 %2, 0
-  br i1 %tobool.i.i.not.i.i.i, label %if.end.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit"
+  br i1 %tobool.i.i.not.i.i.i, label %if.end.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit"
 
 if.end.i.i.i.i:                                   ; preds = %for.body
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit": ; preds = %for.body
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit": ; preds = %for.body
   %3 = and i64 %call.i.i.i, 2147483648
   %cmp.i.i.not = icmp eq i64 %3, 0
   %4 = load i32, ptr %__i.017, align 4
   br i1 %cmp.i.i.not, label %if.else, label %if.then3
 
-if.then3:                                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit"
+if.then3:                                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit"
   %add.ptr4 = getelementptr inbounds i8, ptr %__first.pn16, i64 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__i.017 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -20822,7 +20822,7 @@ if.then3:                                         ; preds = %"_ZN9__gnu_cxx5__op
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %for.inc
 
-if.else:                                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit"
+if.else:                                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.argprom.argprom.argprom.exit"
   %__next.0.val11.i = load i32, ptr %__first.pn16, align 4
   %__comp.val.val12.i = load ptr, ptr %__comp.coerce, align 8
   %5 = getelementptr i8, ptr %__comp.val.val12.i, i64 136
@@ -20833,13 +20833,13 @@ if.else:                                          ; preds = %"_ZN9__gnu_cxx5__op
   %call.i.i.i16.i = tail call i64 %6(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val13.i, ptr noundef nonnull %__comp.val.val.val13.i, i32 noundef %4, i32 noundef %__next.0.val11.i, i64 257)
   %7 = and i64 %call.i.i.i16.i, 4294967296
   %tobool.i.i.not.i.i.i17.i = icmp eq i64 %7, 0
-  br i1 %tobool.i.i.not.i.i.i17.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.exit.i"
+  br i1 %tobool.i.i.not.i.i.i17.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i"
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else, %while.body.i
   tail call void @_ZSt27__throw_bad_optional_accessv() #25
   unreachable
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.exit.i": ; preds = %if.else, %while.body.i
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i": ; preds = %if.else, %while.body.i
   %call.i.i.i20.i = phi i64 [ %call.i.i.i.i, %while.body.i ], [ %call.i.i.i16.i, %if.else ]
   %__next.019.i = phi ptr [ %__next.0.i, %while.body.i ], [ %__first.pn16, %if.else ]
   %__last.addr.018.i = phi ptr [ %__next.019.i, %while.body.i ], [ %__i.017, %if.else ]
@@ -20847,7 +20847,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.else, %while.bod
   %cmp.i.i.not.i = icmp eq i64 %8, 0
   br i1 %cmp.i.i.not.i, label %for.inc, label %while.body.i
 
-while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.exit.i"
+while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i"
   %9 = load i32, ptr %__next.019.i, align 4
   store i32 %9, ptr %__last.addr.018.i, align 4
   %__next.0.i = getelementptr inbounds i8, ptr %__next.019.i, i64 -4
@@ -20861,10 +20861,10 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
   %call.i.i.i.i = tail call i64 %11(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val.i, ptr noundef nonnull %__comp.val.val.val.i, i32 noundef %4, i32 noundef %__next.0.val.i, i64 257)
   %12 = and i64 %call.i.i.i.i, 4294967296
   %tobool.i.i.not.i.i.i.i = icmp eq i64 %12, 0
-  br i1 %tobool.i.i.not.i.i.i.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.exit.i", !llvm.loop !90
+  br i1 %tobool.i.i.not.i.i.i.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i", !llvm.loop !90
 
-for.inc:                                          ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.exit.i", %if.then3
-  %__first.sink = phi ptr [ %__first, %if.then3 ], [ %__last.addr.018.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.exit.i" ]
+for.inc:                                          ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i", %if.then3
+  %__first.sink = phi ptr [ %__first, %if.then3 ], [ %__last.addr.018.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIiPiEEbRT_T0_.argprom.argprom.argprom.exit.i" ]
   store i32 %4, ptr %__first.sink, align 4
   %__i.0 = getelementptr inbounds i8, ptr %__i.017, i64 4
   %cmp2.not = icmp eq ptr %__i.0, %__last
@@ -20908,7 +20908,7 @@ invoke.cont3.i.i.i:                               ; preds = %invoke.cont.i.i.i
 
 invoke.cont9.i.i.i:                               ; preds = %invoke.cont3.i.i.i
   %call12.i.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call4.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i.i.i)
-          to label %"_ZSt10__invoke_rIvRZNK8facebook5velox9MapVector8toStringB5cxx11EiE3$_0JRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit" unwind label %lpad10.i.i.i
+          to label %"_ZSt10__invoke_rIvRZNK8facebook5velox9MapVector8toStringB5cxx11EiE3$_0JRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit" unwind label %lpad10.i.i.i
 
 lpad.i.i.i:                                       ; preds = %invoke.cont3.i.i.i, %invoke.cont.i.i.i, %entry
   %4 = landingpad { ptr, i32 }
@@ -20926,7 +20926,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad10.i.i.i, %lpad
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZNK8facebook5velox9MapVector8toStringB5cxx11EiE3$_0JRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %invoke.cont9.i.i.i
+"_ZSt10__invoke_rIvRZNK8facebook5velox9MapVector8toStringB5cxx11EiE3$_0JRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %invoke.cont9.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i.i.i) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)

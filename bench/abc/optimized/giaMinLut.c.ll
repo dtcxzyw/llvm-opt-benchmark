@@ -3657,7 +3657,7 @@ define void @Gia_ManPermuteSupp_rec(ptr noundef %0, i32 noundef %1, ptr noundef 
   %40 = getelementptr inbounds i8, ptr %.val45, i64 4
   %41 = load i32, ptr %40, align 4
   %.not.i.not.i.i.i = icmp sgt i32 %41, %38
-  br i1 %.not.i.not.i.i.i, label %Gia_ObjLevel.exit, label %42
+  br i1 %.not.i.not.i.i.i, label %Gia_ObjLevel.argprom.exit, label %42
 
 42:                                               ; preds = %32
   %43 = load i32, ptr %.val45, align 8
@@ -3742,9 +3742,9 @@ Vec_IntGrow.exit.i.i.i.i:                         ; preds = %Vec_IntGrow.exit.si
 
 ._crit_edge.i.i.i.i:                              ; preds = %72, %Vec_IntGrow.exit.i.i.i.i
   store i32 %39, ptr %40, align 4
-  br label %Gia_ObjLevel.exit
+  br label %Gia_ObjLevel.argprom.exit
 
-Gia_ObjLevel.exit:                                ; preds = %32, %._crit_edge.i.i.i.i
+Gia_ObjLevel.argprom.exit:                        ; preds = %32, %._crit_edge.i.i.i.i
   %75 = getelementptr i8, ptr %.val45, i64 8
   %.val.i.i.i = load ptr, ptr %75, align 8
   %sext.i = shl i64 %37, 32
@@ -3766,7 +3766,7 @@ Gia_ObjLevel.exit:                                ; preds = %32, %._crit_edge.i.
   store i32 %86, ptr %84, align 4
   br label %87
 
-87:                                               ; preds = %27, %Gia_ObjLevel.exit
+87:                                               ; preds = %27, %Gia_ObjLevel.argprom.exit
   br i1 %.not32, label %27, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %87, %11, %4, %5

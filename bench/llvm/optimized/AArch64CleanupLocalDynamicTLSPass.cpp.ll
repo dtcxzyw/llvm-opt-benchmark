@@ -310,7 +310,7 @@ _ZNK4llvm4Pass11getAnalysisINS_31MachineDominatorTreeWrapperPassEEERT_v.exit: ; 
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
   tail call void @_ZNK4llvm20MachineDominatorTree23applySplitCriticalEdgesEv(ptr noundef nonnull align 8 dereferenceable(1200) %28) #12
   %29 = tail call noundef ptr @_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE11getRootNodeEv(ptr noundef nonnull align 8 dereferenceable(124) %28) #12
-  %30 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112LDTLSCleanup9VisitNodeEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEj(ptr noundef %29, i32 noundef 0)
+  %30 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112LDTLSCleanup9VisitNodeEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEj.argprom(ptr noundef %29, i32 noundef 0)
   br label %31
 
 31:                                               ; preds = %5, %2, %_ZNK4llvm4Pass11getAnalysisINS_31MachineDominatorTreeWrapperPassEEERT_v.exit
@@ -348,7 +348,7 @@ declare noundef nonnull align 8 dereferenceable(161) ptr @_ZN4llvm13AnalysisUsag
 declare noundef zeroext i1 @_ZNK4llvm12FunctionPass12skipFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112LDTLSCleanup9VisitNodeEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEj(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112LDTLSCleanup9VisitNodeEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEj.argprom(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::MachineOperand", align 8
   %4 = alloca %"class.llvm::MIMetadata", align 8
   %5 = alloca %"class.llvm::DebugLoc", align 8
@@ -486,14 +486,14 @@ _ZN4llvm10MIMetadataD2Ev.exit.i:                  ; preds = %64, %_ZN4llvm7Build
 
 _ZN4llvm8DebugLocD2Ev.exit.i:                     ; preds = %66, %_ZN4llvm10MIMetadataD2Ev.exit.i
   %67 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr24shouldUpdateCallSiteInfoEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.03.021) #12
-  br i1 %67, label %68, label %_ZN12_GLOBAL__N_112LDTLSCleanup22replaceTLSBaseAddrCallERN4llvm12MachineInstrEj.exit
+  br i1 %67, label %68, label %_ZN12_GLOBAL__N_112LDTLSCleanup22replaceTLSBaseAddrCallERN4llvm12MachineInstrEj.argprom.exit
 
 68:                                               ; preds = %_ZN4llvm8DebugLocD2Ev.exit.i
   %69 = call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.03.021) #12
   call void @_ZN4llvm15MachineFunction17eraseCallSiteInfoEPKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1041) %69, ptr noundef nonnull %.sroa.03.021) #12
-  br label %_ZN12_GLOBAL__N_112LDTLSCleanup22replaceTLSBaseAddrCallERN4llvm12MachineInstrEj.exit
+  br label %_ZN12_GLOBAL__N_112LDTLSCleanup22replaceTLSBaseAddrCallERN4llvm12MachineInstrEj.argprom.exit
 
-_ZN12_GLOBAL__N_112LDTLSCleanup22replaceTLSBaseAddrCallERN4llvm12MachineInstrEj.exit: ; preds = %_ZN4llvm8DebugLocD2Ev.exit.i, %68
+_ZN12_GLOBAL__N_112LDTLSCleanup22replaceTLSBaseAddrCallERN4llvm12MachineInstrEj.argprom.exit: ; preds = %_ZN4llvm8DebugLocD2Ev.exit.i, %68
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.03.021) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -565,21 +565,21 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i22: ; preds = %_ZN4llv
 _ZN4llvm10MIMetadataD2Ev.exit.i24:                ; preds = %98, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i22
   %99 = load ptr, ptr %5, align 8
   %.not.i.i.i.i12.i25 = icmp eq ptr %99, null
-  br i1 %.not.i.i.i.i12.i25, label %_ZN12_GLOBAL__N_112LDTLSCleanup11setRegisterERN4llvm12MachineInstrEPj.exit, label %100
+  br i1 %.not.i.i.i.i12.i25, label %_ZN12_GLOBAL__N_112LDTLSCleanup11setRegisterERN4llvm12MachineInstrEPj.argprom.exit, label %100
 
 100:                                              ; preds = %_ZN4llvm10MIMetadataD2Ev.exit.i24
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(8) %99) #12
-  br label %_ZN12_GLOBAL__N_112LDTLSCleanup11setRegisterERN4llvm12MachineInstrEPj.exit
+  br label %_ZN12_GLOBAL__N_112LDTLSCleanup11setRegisterERN4llvm12MachineInstrEPj.argprom.exit
 
-_ZN12_GLOBAL__N_112LDTLSCleanup11setRegisterERN4llvm12MachineInstrEPj.exit: ; preds = %_ZN4llvm10MIMetadataD2Ev.exit.i24, %100
+_ZN12_GLOBAL__N_112LDTLSCleanup11setRegisterERN4llvm12MachineInstrEPj.argprom.exit: ; preds = %_ZN4llvm10MIMetadataD2Ev.exit.i24, %100
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %101
 
-101:                                              ; preds = %_ZN12_GLOBAL__N_112LDTLSCleanup22replaceTLSBaseAddrCallERN4llvm12MachineInstrEj.exit, %_ZN12_GLOBAL__N_112LDTLSCleanup11setRegisterERN4llvm12MachineInstrEPj.exit, %29, %23, %20
-  %.sroa.03.1 = phi ptr [ %.sroa.03.021, %29 ], [ %.sroa.03.021, %23 ], [ %.sroa.03.021, %20 ], [ %96, %_ZN12_GLOBAL__N_112LDTLSCleanup11setRegisterERN4llvm12MachineInstrEPj.exit ], [ %62, %_ZN12_GLOBAL__N_112LDTLSCleanup22replaceTLSBaseAddrCallERN4llvm12MachineInstrEj.exit ]
-  %.214 = phi i32 [ %.01219, %29 ], [ %.01219, %23 ], [ %.01219, %20 ], [ %82, %_ZN12_GLOBAL__N_112LDTLSCleanup11setRegisterERN4llvm12MachineInstrEPj.exit ], [ %.01219, %_ZN12_GLOBAL__N_112LDTLSCleanup22replaceTLSBaseAddrCallERN4llvm12MachineInstrEj.exit ]
-  %.1 = phi i1 [ %.020, %29 ], [ %.020, %23 ], [ %.020, %20 ], [ true, %_ZN12_GLOBAL__N_112LDTLSCleanup11setRegisterERN4llvm12MachineInstrEPj.exit ], [ true, %_ZN12_GLOBAL__N_112LDTLSCleanup22replaceTLSBaseAddrCallERN4llvm12MachineInstrEj.exit ]
+101:                                              ; preds = %_ZN12_GLOBAL__N_112LDTLSCleanup22replaceTLSBaseAddrCallERN4llvm12MachineInstrEj.argprom.exit, %_ZN12_GLOBAL__N_112LDTLSCleanup11setRegisterERN4llvm12MachineInstrEPj.argprom.exit, %29, %23, %20
+  %.sroa.03.1 = phi ptr [ %.sroa.03.021, %29 ], [ %.sroa.03.021, %23 ], [ %.sroa.03.021, %20 ], [ %96, %_ZN12_GLOBAL__N_112LDTLSCleanup11setRegisterERN4llvm12MachineInstrEPj.argprom.exit ], [ %62, %_ZN12_GLOBAL__N_112LDTLSCleanup22replaceTLSBaseAddrCallERN4llvm12MachineInstrEj.argprom.exit ]
+  %.214 = phi i32 [ %.01219, %29 ], [ %.01219, %23 ], [ %.01219, %20 ], [ %82, %_ZN12_GLOBAL__N_112LDTLSCleanup11setRegisterERN4llvm12MachineInstrEPj.argprom.exit ], [ %.01219, %_ZN12_GLOBAL__N_112LDTLSCleanup22replaceTLSBaseAddrCallERN4llvm12MachineInstrEj.argprom.exit ]
+  %.1 = phi i1 [ %.020, %29 ], [ %.020, %23 ], [ %.020, %20 ], [ true, %_ZN12_GLOBAL__N_112LDTLSCleanup11setRegisterERN4llvm12MachineInstrEPj.argprom.exit ], [ true, %_ZN12_GLOBAL__N_112LDTLSCleanup22replaceTLSBaseAddrCallERN4llvm12MachineInstrEj.argprom.exit ]
   %102 = icmp ne ptr %.sroa.03.1, null
   call void @llvm.assume(i1 %102)
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.03.1, align 8
@@ -623,7 +623,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   %.225 = phi i1 [ %117, %.lr.ph27 ], [ %.0.lcssa, %._crit_edge ]
   %.01324 = phi ptr [ %118, %.lr.ph27 ], [ %113, %._crit_edge ]
   %115 = load ptr, ptr %.01324, align 8
-  %116 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112LDTLSCleanup9VisitNodeEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEj(ptr noundef %115, i32 noundef %.012.lcssa)
+  %116 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112LDTLSCleanup9VisitNodeEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEj.argprom(ptr noundef %115, i32 noundef %.012.lcssa)
   %117 = or i1 %.225, %116
   %118 = getelementptr inbounds i8, ptr %.01324, i64 8
   %.not = icmp eq ptr %118, %114

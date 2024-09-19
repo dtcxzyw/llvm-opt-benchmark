@@ -1040,7 +1040,7 @@ define i32 @Abc_NodeCollapseSuppSize(ptr noundef readonly %0, ptr nocapture noun
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %11
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %2, ptr noundef %18)
+  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %2, ptr noundef %18)
   %.val21.pre = load i32, ptr %5, align 4
   br label %20
 
@@ -1064,7 +1064,7 @@ define i32 @Abc_NodeCollapseSuppSize(ptr noundef readonly %0, ptr nocapture noun
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds ptr, ptr %.val22.val.val, i64 %27
   %29 = load ptr, ptr %28, align 8
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %2, ptr noundef %29)
+  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %2, ptr noundef %29)
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %.val20 = load i32, ptr %8, align 4
   %30 = sext i32 %.val20 to i64
@@ -1077,7 +1077,7 @@ define i32 @Abc_NodeCollapseSuppSize(ptr noundef readonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_PtrPushUnique.retelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -1379,7 +1379,7 @@ Abc_NodeCheckDupFanin.exit:                       ; preds = %.lr.ph.split.i
   br i1 %.not.i, label %38, label %37
 
 37:                                               ; preds = %.lr.ph.i54
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %2, ptr noundef %36)
+  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %2, ptr noundef %36)
   %.val21.pre.i = load i32, ptr %9, align 4
   br label %38
 
@@ -1403,7 +1403,7 @@ Abc_NodeCheckDupFanin.exit:                       ; preds = %.lr.ph.split.i
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds ptr, ptr %.val22.val.val.i, i64 %45
   %47 = load ptr, ptr %46, align 8
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %2, ptr noundef %47)
+  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %2, ptr noundef %47)
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %.val20.i = load i32, ptr %27, align 4
   %48 = sext i32 %.val20.i to i64
@@ -2362,7 +2362,7 @@ Abc_NodeCheckDupFanin.exit:                       ; preds = %.lr.ph.split.i
   br i1 %.not.i, label %38, label %37
 
 37:                                               ; preds = %.lr.ph.i31
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %2, ptr noundef %36)
+  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %2, ptr noundef %36)
   %.val21.pre.i = load i32, ptr %9, align 4
   br label %38
 
@@ -2386,7 +2386,7 @@ Abc_NodeCheckDupFanin.exit:                       ; preds = %.lr.ph.split.i
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds ptr, ptr %.val22.val.val.i, i64 %45
   %47 = load ptr, ptr %46, align 8
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %2, ptr noundef %47)
+  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %2, ptr noundef %47)
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %.val20.i = load i32, ptr %27, align 4
   %48 = sext i32 %.val20.i to i64
@@ -3363,7 +3363,7 @@ define void @Abc_ObjSortInReverseOrder(ptr noundef %0, ptr nocapture noundef rea
   %14 = getelementptr inbounds i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp slt i32 %15, 2
-  br i1 %16, label %Vec_PtrSort.exit, label %17
+  br i1 %16, label %Vec_PtrSort.argprom.exit, label %17
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3371,14 +3371,14 @@ define void @Abc_ObjSortInReverseOrder(ptr noundef %0, ptr nocapture noundef rea
   %20 = zext nneg i32 %15 to i64
   tail call void @qsort(ptr noundef %19, i64 noundef %20, i64 noundef 8, ptr noundef nonnull @Abc_ObjCompareByNumber) #15
   %.val22.pre = load i32, ptr %4, align 4
-  br label %Vec_PtrSort.exit
+  br label %Vec_PtrSort.argprom.exit
 
-Vec_PtrSort.exit:                                 ; preds = %.critedge, %17
+Vec_PtrSort.argprom.exit:                         ; preds = %.critedge, %17
   %.val22 = phi i32 [ %.val2230, %.critedge ], [ %.val22.pre, %17 ]
   %21 = icmp sgt i32 %.val22, 0
   br i1 %21, label %.lr.ph24, label %.critedge2
 
-.lr.ph24:                                         ; preds = %Vec_PtrSort.exit
+.lr.ph24:                                         ; preds = %Vec_PtrSort.argprom.exit
   %22 = getelementptr i8, ptr %3, i64 8
   br label %23
 
@@ -3395,7 +3395,7 @@ Vec_PtrSort.exit:                                 ; preds = %.critedge, %17
   %28 = icmp slt i64 %indvars.iv.next27, %27
   br i1 %28, label %23, label %.critedge2, !llvm.loop !36
 
-.critedge2:                                       ; preds = %23, %Vec_PtrSort.exit
+.critedge2:                                       ; preds = %23, %Vec_PtrSort.argprom.exit
   %29 = getelementptr inbounds i8, ptr %3, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null

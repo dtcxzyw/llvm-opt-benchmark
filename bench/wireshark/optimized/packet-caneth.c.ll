@@ -123,8 +123,8 @@ test_caneth.exit:                                 ; preds = %13
   %.not2833 = icmp eq i32 %31, 0
   br i1 %.not2833, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %17, %dissect_caneth_can.exit
-  %.02734 = phi i32 [ %69, %dissect_caneth_can.exit ], [ 10, %17 ]
+.lr.ph:                                           ; preds = %17, %dissect_caneth_can.argprom.exit
+  %.02734 = phi i32 [ %69, %dissect_caneth_can.argprom.exit ], [ 10, %17 ]
   %33 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.02734, i32 noundef 15) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -170,16 +170,16 @@ test_caneth.exit:                                 ; preds = %13
   %60 = add i32 %59, 5
   %61 = call i32 @tvb_captured_length_remaining(ptr noundef %33, i32 noundef %60) #3
   %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %63, label %dissect_caneth_can.exit
+  br i1 %62, label %63, label %dissect_caneth_can.argprom.exit
 
 63:                                               ; preds = %58
   %64 = load i32, ptr @hf_caneth_can_padding, align 4
   %65 = load i32, ptr %5, align 4
   %66 = add i32 %65, 5
   %67 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %64, ptr noundef %33, i32 noundef %66, i32 noundef -1, i32 noundef 0) #3
-  br label %dissect_caneth_can.exit
+  br label %dissect_caneth_can.argprom.exit
 
-dissect_caneth_can.exit:                          ; preds = %58, %63
+dissect_caneth_can.argprom.exit:                  ; preds = %58, %63
   %68 = call i32 @tvb_captured_length(ptr noundef %33) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -191,8 +191,8 @@ dissect_caneth_can.exit:                          ; preds = %58, %63
   %.not28 = icmp eq i32 %70, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %dissect_caneth_can.exit, %17
-  %.027.lcssa = phi i32 [ 10, %17 ], [ %69, %dissect_caneth_can.exit ]
+._crit_edge:                                      ; preds = %dissect_caneth_can.argprom.exit, %17
+  %.027.lcssa = phi i32 [ 10, %17 ], [ %69, %dissect_caneth_can.argprom.exit ]
   %72 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.027.lcssa) #3
   %73 = icmp sgt i32 %72, 0
   br i1 %73, label %74, label %77

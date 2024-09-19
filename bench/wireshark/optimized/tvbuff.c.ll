@@ -3550,7 +3550,7 @@ define ptr @tvb_get_string_bytes(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   unreachable
 
 validate_single_byte_ascii_encoding.exit:         ; preds = %6
-  %11 = tail call fastcc ptr @tvb_get_raw_string(ptr noundef %0, i32 noundef %1, i32 noundef %2)
+  %11 = tail call fastcc ptr @tvb_get_raw_string.argprom(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.preheader, label %12
 
@@ -3604,7 +3604,7 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @tvb_get_raw_string(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @tvb_get_raw_string.argprom(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = icmp sgt i32 %1, -1
   br i1 %4, label %6, label %5
 
@@ -3676,7 +3676,7 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   unreachable
 
 20:                                               ; preds = %validate_single_byte_ascii_encoding.exit
-  %21 = tail call fastcc ptr @tvb_get_raw_string(ptr noundef %0, i32 noundef %1, i32 noundef %2)
+  %21 = tail call fastcc ptr @tvb_get_raw_string.argprom(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %22
 
 22:                                               ; preds = %.critedge, %20
@@ -6916,7 +6916,7 @@ tvb_get_string_unichar2.exit257:                  ; preds = %340
   %353 = icmp eq ptr %352, null
   %354 = icmp ne i32 %3, 0
   %or.cond.i.i258 = and i1 %354, %353
-  br i1 %or.cond.i.i258, label %355, label %tvb_get_iso_646_string.exit
+  br i1 %or.cond.i.i258, label %355, label %tvb_get_iso_646_string.argprom.exit
 
 355:                                              ; preds = %351
   %356 = load i32, ptr %14, align 4
@@ -6932,7 +6932,7 @@ tvb_get_string_unichar2.exit257:                  ; preds = %340
   call void @except_throw(i64 noundef 1, i64 noundef %360, ptr noundef null) #16
   unreachable
 
-tvb_get_iso_646_string.exit:                      ; preds = %351
+tvb_get_iso_646_string.argprom.exit:              ; preds = %351
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %361 = call ptr @get_iso_646_string(ptr noundef %0, ptr noundef %352, i32 noundef %3, ptr noundef nonnull @charset_table_iso_646_basic) #17
   br label %507
@@ -7279,8 +7279,8 @@ tvb_get_dect_standard_8bits_string.exit:          ; preds = %490
   %506 = tail call ptr @tvb_get_bcd_string(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @Dgt_dect_standard_4bits_tbcd, i32 noundef %505, i32 noundef %503, i32 noundef 0)
   br label %507
 
-507:                                              ; preds = %501, %tvb_get_dect_standard_8bits_string.exit, %tvb_get_apn_string.exit, %tvb_get_euc_kr_string.exit, %tvb_get_gb18030_string.exit, %439, %437, %430, %423, %416, %tvb_get_t61_string.exit, %tvb_get_nonascii_unichar2_string.exit263, %tvb_get_nonascii_unichar2_string.exit261, %tvb_get_nonascii_unichar2_string.exit, %367, %362, %tvb_get_iso_646_string.exit, %tvb_get_string_unichar2.exit257, %tvb_get_string_unichar2.exit255, %tvb_get_string_unichar2.exit253, %tvb_get_string_unichar2.exit251, %tvb_get_string_unichar2.exit249, %tvb_get_string_unichar2.exit247, %tvb_get_string_unichar2.exit245, %tvb_get_string_unichar2.exit243, %tvb_get_string_unichar2.exit241, %tvb_get_string_unichar2.exit239, %tvb_get_string_unichar2.exit237, %tvb_get_string_unichar2.exit235, %tvb_get_string_unichar2.exit233, %tvb_get_string_unichar2.exit231, %tvb_get_string_unichar2.exit229, %tvb_get_string_unichar2.exit227, %tvb_get_string_unichar2.exit225, %tvb_get_string_unichar2.exit223, %tvb_get_string_unichar2.exit221, %tvb_get_string_unichar2.exit219, %tvb_get_string_unichar2.exit, %tvb_get_string_8859_1.exit, %tvb_get_ucs_4_string.exit, %tvb_get_ucs_2_string.exit, %tvb_get_utf_16_string.exit, %tvb_get_utf_8_string.exit, %tvb_get_ascii_string.exit
-  %.0 = phi ptr [ %61, %tvb_get_ascii_string.exit ], [ %500, %tvb_get_dect_standard_8bits_string.exit ], [ %489, %tvb_get_apn_string.exit ], [ %462, %tvb_get_euc_kr_string.exit ], [ %451, %tvb_get_gb18030_string.exit ], [ %440, %439 ], [ %438, %437 ], [ %436, %430 ], [ %429, %423 ], [ %422, %416 ], [ %415, %tvb_get_t61_string.exit ], [ %404, %tvb_get_nonascii_unichar2_string.exit263 ], [ %393, %tvb_get_nonascii_unichar2_string.exit261 ], [ %382, %tvb_get_nonascii_unichar2_string.exit ], [ %371, %367 ], [ %366, %362 ], [ %361, %tvb_get_iso_646_string.exit ], [ %350, %tvb_get_string_unichar2.exit257 ], [ %339, %tvb_get_string_unichar2.exit255 ], [ %328, %tvb_get_string_unichar2.exit253 ], [ %317, %tvb_get_string_unichar2.exit251 ], [ %306, %tvb_get_string_unichar2.exit249 ], [ %295, %tvb_get_string_unichar2.exit247 ], [ %284, %tvb_get_string_unichar2.exit245 ], [ %273, %tvb_get_string_unichar2.exit243 ], [ %262, %tvb_get_string_unichar2.exit241 ], [ %251, %tvb_get_string_unichar2.exit239 ], [ %240, %tvb_get_string_unichar2.exit237 ], [ %229, %tvb_get_string_unichar2.exit235 ], [ %218, %tvb_get_string_unichar2.exit233 ], [ %207, %tvb_get_string_unichar2.exit231 ], [ %196, %tvb_get_string_unichar2.exit229 ], [ %185, %tvb_get_string_unichar2.exit227 ], [ %174, %tvb_get_string_unichar2.exit225 ], [ %163, %tvb_get_string_unichar2.exit223 ], [ %152, %tvb_get_string_unichar2.exit221 ], [ %141, %tvb_get_string_unichar2.exit219 ], [ %130, %tvb_get_string_unichar2.exit ], [ %119, %tvb_get_string_8859_1.exit ], [ %108, %tvb_get_ucs_4_string.exit ], [ %96, %tvb_get_ucs_2_string.exit ], [ %84, %tvb_get_utf_16_string.exit ], [ %72, %tvb_get_utf_8_string.exit ], [ %506, %501 ]
+507:                                              ; preds = %501, %tvb_get_dect_standard_8bits_string.exit, %tvb_get_apn_string.exit, %tvb_get_euc_kr_string.exit, %tvb_get_gb18030_string.exit, %439, %437, %430, %423, %416, %tvb_get_t61_string.exit, %tvb_get_nonascii_unichar2_string.exit263, %tvb_get_nonascii_unichar2_string.exit261, %tvb_get_nonascii_unichar2_string.exit, %367, %362, %tvb_get_iso_646_string.argprom.exit, %tvb_get_string_unichar2.exit257, %tvb_get_string_unichar2.exit255, %tvb_get_string_unichar2.exit253, %tvb_get_string_unichar2.exit251, %tvb_get_string_unichar2.exit249, %tvb_get_string_unichar2.exit247, %tvb_get_string_unichar2.exit245, %tvb_get_string_unichar2.exit243, %tvb_get_string_unichar2.exit241, %tvb_get_string_unichar2.exit239, %tvb_get_string_unichar2.exit237, %tvb_get_string_unichar2.exit235, %tvb_get_string_unichar2.exit233, %tvb_get_string_unichar2.exit231, %tvb_get_string_unichar2.exit229, %tvb_get_string_unichar2.exit227, %tvb_get_string_unichar2.exit225, %tvb_get_string_unichar2.exit223, %tvb_get_string_unichar2.exit221, %tvb_get_string_unichar2.exit219, %tvb_get_string_unichar2.exit, %tvb_get_string_8859_1.exit, %tvb_get_ucs_4_string.exit, %tvb_get_ucs_2_string.exit, %tvb_get_utf_16_string.exit, %tvb_get_utf_8_string.exit, %tvb_get_ascii_string.exit
+  %.0 = phi ptr [ %61, %tvb_get_ascii_string.exit ], [ %500, %tvb_get_dect_standard_8bits_string.exit ], [ %489, %tvb_get_apn_string.exit ], [ %462, %tvb_get_euc_kr_string.exit ], [ %451, %tvb_get_gb18030_string.exit ], [ %440, %439 ], [ %438, %437 ], [ %436, %430 ], [ %429, %423 ], [ %422, %416 ], [ %415, %tvb_get_t61_string.exit ], [ %404, %tvb_get_nonascii_unichar2_string.exit263 ], [ %393, %tvb_get_nonascii_unichar2_string.exit261 ], [ %382, %tvb_get_nonascii_unichar2_string.exit ], [ %371, %367 ], [ %366, %362 ], [ %361, %tvb_get_iso_646_string.argprom.exit ], [ %350, %tvb_get_string_unichar2.exit257 ], [ %339, %tvb_get_string_unichar2.exit255 ], [ %328, %tvb_get_string_unichar2.exit253 ], [ %317, %tvb_get_string_unichar2.exit251 ], [ %306, %tvb_get_string_unichar2.exit249 ], [ %295, %tvb_get_string_unichar2.exit247 ], [ %284, %tvb_get_string_unichar2.exit245 ], [ %273, %tvb_get_string_unichar2.exit243 ], [ %262, %tvb_get_string_unichar2.exit241 ], [ %251, %tvb_get_string_unichar2.exit239 ], [ %240, %tvb_get_string_unichar2.exit237 ], [ %229, %tvb_get_string_unichar2.exit235 ], [ %218, %tvb_get_string_unichar2.exit233 ], [ %207, %tvb_get_string_unichar2.exit231 ], [ %196, %tvb_get_string_unichar2.exit229 ], [ %185, %tvb_get_string_unichar2.exit227 ], [ %174, %tvb_get_string_unichar2.exit225 ], [ %163, %tvb_get_string_unichar2.exit223 ], [ %152, %tvb_get_string_unichar2.exit221 ], [ %141, %tvb_get_string_unichar2.exit219 ], [ %130, %tvb_get_string_unichar2.exit ], [ %119, %tvb_get_string_8859_1.exit ], [ %108, %tvb_get_ucs_4_string.exit ], [ %96, %tvb_get_ucs_2_string.exit ], [ %84, %tvb_get_utf_16_string.exit ], [ %72, %tvb_get_utf_8_string.exit ], [ %506, %501 ]
   ret ptr %.0
 }
 
@@ -8747,13 +8747,13 @@ tvb_get_stringz_unichar2.exit252:                 ; preds = %ensure_contiguous.e
 ensure_contiguous.exit.i254:                      ; preds = %432
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %.not.i255 = icmp eq ptr %3, null
-  br i1 %.not.i255, label %tvb_get_iso_646_stringz.exit, label %443
+  br i1 %.not.i255, label %tvb_get_iso_646_stringz.argprom.exit, label %443
 
 443:                                              ; preds = %ensure_contiguous.exit.i254
   store i32 %433, ptr %3, align 4
-  br label %tvb_get_iso_646_stringz.exit
+  br label %tvb_get_iso_646_stringz.argprom.exit
 
-tvb_get_iso_646_stringz.exit:                     ; preds = %ensure_contiguous.exit.i254, %443
+tvb_get_iso_646_stringz.argprom.exit:             ; preds = %ensure_contiguous.exit.i254, %443
   %444 = call ptr @get_iso_646_string(ptr noundef %0, ptr noundef %434, i32 noundef %433, ptr noundef nonnull @charset_table_iso_646_basic) #17
   br label %538
 
@@ -9024,8 +9024,8 @@ tvb_get_dect_standard_8bits_stringz.exit:         ; preds = %ensure_contiguous.e
   %537 = call ptr @get_t61_string(ptr noundef %0, ptr noundef %527, i32 noundef %526) #17
   br label %538
 
-538:                                              ; preds = %tvb_get_dect_standard_8bits_stringz.exit, %tvb_get_euc_kr_stringz.exit, %tvb_get_gb18030_stringz.exit, %tvb_get_t61_stringz.exit, %tvb_get_nonascii_unichar2_stringz.exit266, %tvb_get_nonascii_unichar2_stringz.exit262, %tvb_get_nonascii_unichar2_stringz.exit, %tvb_get_iso_646_stringz.exit, %tvb_get_stringz_unichar2.exit252, %tvb_get_stringz_unichar2.exit248, %tvb_get_stringz_unichar2.exit244, %tvb_get_stringz_unichar2.exit240, %tvb_get_stringz_unichar2.exit236, %tvb_get_stringz_unichar2.exit232, %tvb_get_stringz_unichar2.exit228, %tvb_get_stringz_unichar2.exit224, %tvb_get_stringz_unichar2.exit220, %tvb_get_stringz_unichar2.exit216, %tvb_get_stringz_unichar2.exit212, %tvb_get_stringz_unichar2.exit208, %tvb_get_stringz_unichar2.exit204, %tvb_get_stringz_unichar2.exit200, %tvb_get_stringz_unichar2.exit196, %tvb_get_stringz_unichar2.exit192, %tvb_get_stringz_unichar2.exit188, %tvb_get_stringz_unichar2.exit184, %tvb_get_stringz_unichar2.exit180, %tvb_get_stringz_unichar2.exit176, %tvb_get_stringz_unichar2.exit, %tvb_get_stringz_8859_1.exit, %tvb_get_ucs_4_stringz.exit, %tvb_get_ucs_2_stringz.exit, %tvb_get_utf_16_stringz.exit, %tvb_get_utf_8_stringz.exit, %tvb_get_ascii_stringz.exit
-  %.0 = phi ptr [ %59, %tvb_get_ascii_stringz.exit ], [ %524, %tvb_get_euc_kr_stringz.exit ], [ %511, %tvb_get_gb18030_stringz.exit ], [ %498, %tvb_get_t61_stringz.exit ], [ %485, %tvb_get_nonascii_unichar2_stringz.exit266 ], [ %472, %tvb_get_nonascii_unichar2_stringz.exit262 ], [ %459, %tvb_get_nonascii_unichar2_stringz.exit ], [ %444, %tvb_get_iso_646_stringz.exit ], [ %431, %tvb_get_stringz_unichar2.exit252 ], [ %418, %tvb_get_stringz_unichar2.exit248 ], [ %405, %tvb_get_stringz_unichar2.exit244 ], [ %392, %tvb_get_stringz_unichar2.exit240 ], [ %379, %tvb_get_stringz_unichar2.exit236 ], [ %366, %tvb_get_stringz_unichar2.exit232 ], [ %353, %tvb_get_stringz_unichar2.exit228 ], [ %340, %tvb_get_stringz_unichar2.exit224 ], [ %327, %tvb_get_stringz_unichar2.exit220 ], [ %314, %tvb_get_stringz_unichar2.exit216 ], [ %301, %tvb_get_stringz_unichar2.exit212 ], [ %288, %tvb_get_stringz_unichar2.exit208 ], [ %275, %tvb_get_stringz_unichar2.exit204 ], [ %262, %tvb_get_stringz_unichar2.exit200 ], [ %249, %tvb_get_stringz_unichar2.exit196 ], [ %236, %tvb_get_stringz_unichar2.exit192 ], [ %223, %tvb_get_stringz_unichar2.exit188 ], [ %210, %tvb_get_stringz_unichar2.exit184 ], [ %197, %tvb_get_stringz_unichar2.exit180 ], [ %184, %tvb_get_stringz_unichar2.exit176 ], [ %171, %tvb_get_stringz_unichar2.exit ], [ %158, %tvb_get_stringz_8859_1.exit ], [ %145, %tvb_get_ucs_4_stringz.exit ], [ %112, %tvb_get_ucs_2_stringz.exit ], [ %92, %tvb_get_utf_16_stringz.exit ], [ %72, %tvb_get_utf_8_stringz.exit ], [ %537, %tvb_get_dect_standard_8bits_stringz.exit ]
+538:                                              ; preds = %tvb_get_dect_standard_8bits_stringz.exit, %tvb_get_euc_kr_stringz.exit, %tvb_get_gb18030_stringz.exit, %tvb_get_t61_stringz.exit, %tvb_get_nonascii_unichar2_stringz.exit266, %tvb_get_nonascii_unichar2_stringz.exit262, %tvb_get_nonascii_unichar2_stringz.exit, %tvb_get_iso_646_stringz.argprom.exit, %tvb_get_stringz_unichar2.exit252, %tvb_get_stringz_unichar2.exit248, %tvb_get_stringz_unichar2.exit244, %tvb_get_stringz_unichar2.exit240, %tvb_get_stringz_unichar2.exit236, %tvb_get_stringz_unichar2.exit232, %tvb_get_stringz_unichar2.exit228, %tvb_get_stringz_unichar2.exit224, %tvb_get_stringz_unichar2.exit220, %tvb_get_stringz_unichar2.exit216, %tvb_get_stringz_unichar2.exit212, %tvb_get_stringz_unichar2.exit208, %tvb_get_stringz_unichar2.exit204, %tvb_get_stringz_unichar2.exit200, %tvb_get_stringz_unichar2.exit196, %tvb_get_stringz_unichar2.exit192, %tvb_get_stringz_unichar2.exit188, %tvb_get_stringz_unichar2.exit184, %tvb_get_stringz_unichar2.exit180, %tvb_get_stringz_unichar2.exit176, %tvb_get_stringz_unichar2.exit, %tvb_get_stringz_8859_1.exit, %tvb_get_ucs_4_stringz.exit, %tvb_get_ucs_2_stringz.exit, %tvb_get_utf_16_stringz.exit, %tvb_get_utf_8_stringz.exit, %tvb_get_ascii_stringz.exit
+  %.0 = phi ptr [ %59, %tvb_get_ascii_stringz.exit ], [ %524, %tvb_get_euc_kr_stringz.exit ], [ %511, %tvb_get_gb18030_stringz.exit ], [ %498, %tvb_get_t61_stringz.exit ], [ %485, %tvb_get_nonascii_unichar2_stringz.exit266 ], [ %472, %tvb_get_nonascii_unichar2_stringz.exit262 ], [ %459, %tvb_get_nonascii_unichar2_stringz.exit ], [ %444, %tvb_get_iso_646_stringz.argprom.exit ], [ %431, %tvb_get_stringz_unichar2.exit252 ], [ %418, %tvb_get_stringz_unichar2.exit248 ], [ %405, %tvb_get_stringz_unichar2.exit244 ], [ %392, %tvb_get_stringz_unichar2.exit240 ], [ %379, %tvb_get_stringz_unichar2.exit236 ], [ %366, %tvb_get_stringz_unichar2.exit232 ], [ %353, %tvb_get_stringz_unichar2.exit228 ], [ %340, %tvb_get_stringz_unichar2.exit224 ], [ %327, %tvb_get_stringz_unichar2.exit220 ], [ %314, %tvb_get_stringz_unichar2.exit216 ], [ %301, %tvb_get_stringz_unichar2.exit212 ], [ %288, %tvb_get_stringz_unichar2.exit208 ], [ %275, %tvb_get_stringz_unichar2.exit204 ], [ %262, %tvb_get_stringz_unichar2.exit200 ], [ %249, %tvb_get_stringz_unichar2.exit196 ], [ %236, %tvb_get_stringz_unichar2.exit192 ], [ %223, %tvb_get_stringz_unichar2.exit188 ], [ %210, %tvb_get_stringz_unichar2.exit184 ], [ %197, %tvb_get_stringz_unichar2.exit180 ], [ %184, %tvb_get_stringz_unichar2.exit176 ], [ %171, %tvb_get_stringz_unichar2.exit ], [ %158, %tvb_get_stringz_8859_1.exit ], [ %145, %tvb_get_ucs_4_stringz.exit ], [ %112, %tvb_get_ucs_2_stringz.exit ], [ %92, %tvb_get_utf_16_stringz.exit ], [ %72, %tvb_get_utf_8_stringz.exit ], [ %537, %tvb_get_dect_standard_8bits_stringz.exit ]
   ret ptr %.0
 }
 

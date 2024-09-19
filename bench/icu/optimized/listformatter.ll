@@ -1078,16 +1078,16 @@ entry:
   %patternHandler = getelementptr inbounds i8, ptr %this, i64 152
   %patternHandler.val = load ptr, ptr %patternHandler, align 8
   %isnull.i = icmp eq ptr %patternHandler.val, null
-  br i1 %isnull.i, label %_ZN6icu_7512LocalPointerINS_12_GLOBAL__N_114PatternHandlerEED2Ev.exit, label %delete.notnull.i
+  br i1 %isnull.i, label %_ZN6icu_7512LocalPointerINS_12_GLOBAL__N_114PatternHandlerEED2Ev.argprom.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   %vtable.i = load ptr, ptr %patternHandler.val, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(152) %patternHandler.val) #17
-  br label %_ZN6icu_7512LocalPointerINS_12_GLOBAL__N_114PatternHandlerEED2Ev.exit
+  br label %_ZN6icu_7512LocalPointerINS_12_GLOBAL__N_114PatternHandlerEED2Ev.argprom.exit
 
-_ZN6icu_7512LocalPointerINS_12_GLOBAL__N_114PatternHandlerEED2Ev.exit: ; preds = %entry, %delete.notnull.i
+_ZN6icu_7512LocalPointerINS_12_GLOBAL__N_114PatternHandlerEED2Ev.argprom.exit: ; preds = %entry, %delete.notnull.i
   %middlePattern = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %middlePattern) #17
   %startPattern = getelementptr inbounds i8, ptr %this, i64 8

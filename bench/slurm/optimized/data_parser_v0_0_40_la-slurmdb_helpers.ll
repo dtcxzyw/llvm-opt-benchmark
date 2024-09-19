@@ -520,7 +520,7 @@ _needs_to_string.exit:                            ; preds = %14, %21
 
 54:                                               ; preds = %51
   %55 = load i32, ptr %52, align 4
-  tail call fastcc void @_slurmdb_query_failed(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %55, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef %3)
+  tail call fastcc void @_slurmdb_query_failed.retelim(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %55, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef %3)
   br label %_prereqs_placeholder.exit
 
 56:                                               ; preds = %51
@@ -594,7 +594,7 @@ _needs_to_string.exit:                            ; preds = %14, %21
 
 db_query_list_funcname.exit:                      ; preds = %85
   %86 = load i32, ptr %68, align 4
-  call fastcc void @_slurmdb_query_failed(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %86, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef %3)
+  call fastcc void @_slurmdb_query_failed.retelim(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %86, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef %3)
   br label %_prereqs_placeholder.exit
 
 87:                                               ; preds = %81, %85
@@ -682,7 +682,7 @@ db_query_list_funcname.exit:                      ; preds = %85
 
 db_query_list_funcname.exit77:                    ; preds = %123
   %124 = load i32, ptr %106, align 4
-  call fastcc void @_slurmdb_query_failed(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %124, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef %3)
+  call fastcc void @_slurmdb_query_failed.retelim(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %124, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef %3)
   br label %_prereqs_placeholder.exit
 
 125:                                              ; preds = %119, %123
@@ -770,7 +770,7 @@ db_query_list_funcname.exit77:                    ; preds = %123
 
 db_query_list_funcname.exit87:                    ; preds = %162
   %163 = load i32, ptr %145, align 4
-  call fastcc void @_slurmdb_query_failed(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %163, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef %3)
+  call fastcc void @_slurmdb_query_failed.retelim(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %163, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef %3)
   br label %_prereqs_placeholder.exit
 
 164:                                              ; preds = %158, %162
@@ -802,7 +802,7 @@ declare void @on_warn(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr no
 declare ptr @slurmdb_connection_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_slurmdb_query_failed(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @_slurmdb_query_failed.retelim(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.list_to_str_args_t, align 8
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8

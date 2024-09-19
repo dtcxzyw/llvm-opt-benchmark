@@ -11352,12 +11352,12 @@ define internal i32 @samr_dissect_element_QueryDomainInfo_info_(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_element_QueryDomainInfo_info__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_samr_samr_QueryDomainInfo_info, align 4
-  %8 = tail call fastcc i32 @samr_dissect_DomainInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @samr_dissect_DomainInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @samr_dissect_DomainInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @samr_dissect_DomainInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   store ptr null, ptr %8, align 8
@@ -11479,7 +11479,7 @@ define internal i32 @samr_dissect_element_SetDomainInfo_domain_handle_(ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_element_SetDomainInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_samr_samr_SetDomainInfo_info, align 4
-  %8 = tail call fastcc i32 @samr_dissect_DomainInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @samr_dissect_DomainInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -11787,12 +11787,12 @@ define internal i32 @samr_dissect_element_QueryGroupInfo_info_(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_element_QueryGroupInfo_info__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_samr_samr_QueryGroupInfo_info, align 4
-  %8 = tail call fastcc i32 @samr_dissect_GroupInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @samr_dissect_GroupInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @samr_dissect_GroupInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @samr_dissect_GroupInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr null, ptr %8, align 8
@@ -11894,7 +11894,7 @@ define internal i32 @samr_dissect_element_SetGroupInfo_group_handle_(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_element_SetGroupInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_samr_samr_SetGroupInfo_info, align 4
-  %8 = tail call fastcc i32 @samr_dissect_GroupInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @samr_dissect_GroupInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -11978,12 +11978,12 @@ define internal i32 @samr_dissect_element_QueryAliasInfo_info_(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_element_QueryAliasInfo_info__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_samr_samr_QueryAliasInfo_info, align 4
-  %8 = tail call fastcc i32 @samr_dissect_AliasInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @samr_dissect_AliasInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @samr_dissect_AliasInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @samr_dissect_AliasInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr null, ptr %8, align 8
@@ -12073,7 +12073,7 @@ define internal i32 @samr_dissect_element_SetAliasInfo_alias_handle_(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_element_SetAliasInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_samr_samr_SetAliasInfo_info, align 4
-  %8 = tail call fastcc i32 @samr_dissect_AliasInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @samr_dissect_AliasInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -12161,12 +12161,12 @@ define internal i32 @samr_dissect_element_QueryUserInfo_info_(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_element_QueryUserInfo_info__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_samr_samr_QueryUserInfo_info, align 4
-  %8 = tail call fastcc i32 @samr_dissect_UserInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @samr_dissect_UserInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @samr_dissect_UserInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @samr_dissect_UserInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   store ptr null, ptr %8, align 8
@@ -12362,7 +12362,7 @@ define internal i32 @samr_dissect_element_SetUserInfo_user_handle_(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_element_SetUserInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_samr_samr_SetUserInfo_info, align 4
-  %8 = tail call fastcc i32 @samr_dissect_UserInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @samr_dissect_UserInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -12610,12 +12610,12 @@ define internal i32 @samr_dissect_element_QueryDisplayInfo_returned_size_(ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_element_QueryDisplayInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_samr_samr_QueryDisplayInfo_info, align 4
-  %8 = tail call fastcc i32 @samr_dissect_DispInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @samr_dissect_DispInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @samr_dissect_DispInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @samr_dissect_DispInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   store ptr null, ptr %8, align 8
@@ -12786,7 +12786,7 @@ define internal i32 @samr_dissect_element_QueryDomainInfo2_info_(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_element_QueryDomainInfo2_info__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_samr_samr_QueryDomainInfo2_info, align 4
-  %8 = tail call fastcc i32 @samr_dissect_DomainInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @samr_dissect_DomainInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -12807,7 +12807,7 @@ define internal i32 @samr_dissect_element_QueryUserInfo2_info_(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_element_QueryUserInfo2_info__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_samr_samr_QueryUserInfo2_info, align 4
-  %8 = tail call fastcc i32 @samr_dissect_UserInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @samr_dissect_UserInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -12835,7 +12835,7 @@ define internal i32 @samr_dissect_element_QueryDisplayInfo2_returned_size_(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_element_QueryDisplayInfo2_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_samr_samr_QueryDisplayInfo2_info, align 4
-  %8 = tail call fastcc i32 @samr_dissect_DispInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @samr_dissect_DispInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -12919,7 +12919,7 @@ define internal i32 @samr_dissect_element_QueryDisplayInfo3_returned_size_(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_element_QueryDisplayInfo3_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_samr_samr_QueryDisplayInfo3_info, align 4
-  %8 = tail call fastcc i32 @samr_dissect_DispInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @samr_dissect_DispInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -13212,7 +13212,7 @@ define internal i32 @samr_dissect_element_SetUserInfo2_user_handle_(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_element_SetUserInfo2_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_samr_samr_SetUserInfo2_info, align 4
-  %8 = tail call fastcc i32 @samr_dissect_UserInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @samr_dissect_UserInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -13486,12 +13486,12 @@ define internal i32 @samr_dissect_element_Connect5_system_name_(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_element_Connect5_info_in_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_samr_samr_Connect5_info_in, align 4
-  %8 = tail call fastcc i32 @samr_dissect_ConnectInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @samr_dissect_ConnectInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @samr_dissect_ConnectInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @samr_dissect_ConnectInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr null, ptr %8, align 8
@@ -13542,7 +13542,7 @@ define internal i32 @samr_dissect_element_Connect5_level_out_(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_element_Connect5_info_out_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_samr_samr_Connect5_info_out, align 4
-  %8 = tail call fastcc i32 @samr_dissect_ConnectInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @samr_dissect_ConnectInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 

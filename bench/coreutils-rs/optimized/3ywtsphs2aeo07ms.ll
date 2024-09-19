@@ -87,7 +87,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h8d35f43057e03b48E(ptr no
   %17 = and i64 %16, 3
   switch i64 %17, label %default.unreachable [
     i64 2, label %18
-    i64 3, label %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
+    i64 3, label %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit
     i64 0, label %20
     i64 1, label %24
   ]
@@ -119,8 +119,8 @@ default.unreachable:                              ; preds = %15
   %31 = icmp ugt i64 %12, %.sroa.4.028
   br i1 %31, label %33, label %34
 
-32:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %24, %20, %18, %11
-  %.1 = phi ptr [ @anon.d697896ea3d3a9fc9bb918579d567577.1, %11 ], [ %.val, %18 ], [ %.val, %20 ], [ %.val, %24 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ]
+32:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit, %24, %20, %18, %11
+  %.1 = phi ptr [ @anon.d697896ea3d3a9fc9bb918579d567577.1, %11 ], [ %.val, %18 ], [ %.val, %20 ], [ %.val, %24 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %.loopexit
 
@@ -143,15 +143,15 @@ default.unreachable:                              ; preds = %15
 39:                                               ; preds = %33
   unreachable
 
-_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %15
+_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit: ; preds = %15
   %.mask20.i = and i64 %16, -4294967296
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %.thread, label %32
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %24, %20, %18, %34
-  %40 = phi ptr [ %14, %34 ], [ %.val, %18 ], [ %.val, %20 ], [ %.val, %24 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ]
-  %.sroa.0.122 = phi ptr [ %36, %34 ], [ %.sroa.0.029, %18 ], [ %.sroa.0.029, %20 ], [ %.sroa.0.029, %24 ], [ %.sroa.0.029, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ]
-  %.sroa.4.120 = phi i64 [ %35, %34 ], [ %.sroa.4.028, %18 ], [ %.sroa.4.028, %20 ], [ %.sroa.4.028, %24 ], [ %.sroa.4.028, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ]
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit, %24, %20, %18, %34
+  %40 = phi ptr [ %14, %34 ], [ %.val, %18 ], [ %.val, %20 ], [ %.val, %24 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit ]
+  %.sroa.0.122 = phi ptr [ %36, %34 ], [ %.sroa.0.029, %18 ], [ %.sroa.0.029, %20 ], [ %.sroa.0.029, %24 ], [ %.sroa.0.029, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit ]
+  %.sroa.4.120 = phi i64 [ %35, %34 ], [ %.sroa.4.028, %18 ], [ %.sroa.4.028, %20 ], [ %.sroa.4.028, %24 ], [ %.sroa.4.028, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !7
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hbf1617cab882e186E.llvm.2603348648179966163(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noundef nonnull %40), !noalias !7
   %41 = load i8, ptr %4, align 8, !range !14, !alias.scope !15, !noalias !7, !noundef !5
@@ -204,7 +204,7 @@ define hidden noundef range(i8 -1, 3) i8 @_ZN4core4iter6traits8iterator12iter_co
 8:                                                ; preds = %11, %4
   %9 = tail call { i1, i8 } %6(ptr noundef nonnull align 1 %0), !noalias !18
   %10 = extractvalue { i1, i8 } %9, 0
-  br i1 %10, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.exit.thread
+  br i1 %10, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.argprom.exit.thread
 
 11:                                               ; preds = %8
   %12 = extractvalue { i1, i8 } %9, 1
@@ -218,17 +218,17 @@ define hidden noundef range(i8 -1, 3) i8 @_ZN4core4iter6traits8iterator12iter_co
 
 .split.loop.exit1.i.i.i:                          ; preds = %11
   %.mux = select i1 %15, i8 2, i8 1
-  br label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.exit.thread15
+  br label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.argprom.exit.thread15
 
-_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.exit.thread: ; preds = %8
+_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.argprom.exit.thread: ; preds = %8
   %.pre = load ptr, ptr %7, align 8, !invariant.load !5
   %18 = tail call { i1, i8 } %.pre(ptr noundef nonnull align 1 %2)
   %19 = extractvalue { i1, i8 } %18, 0
   %spec.select = sext i1 %19 to i8
-  br label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.exit.thread15
+  br label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.argprom.exit.thread15
 
-_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.exit.thread15: ; preds = %.split.loop.exit1.i.i.i, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.exit.thread
-  %.0 = phi i8 [ %spec.select, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.exit.thread ], [ %.mux, %.split.loop.exit1.i.i.i ]
+_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.argprom.exit.thread15: ; preds = %.split.loop.exit1.i.i.i, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.argprom.exit.thread
+  %.0 = phi i8 [ %spec.select, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.argprom.exit.thread ], [ %.mux, %.split.loop.exit1.i.i.i ]
   ret i8 %.0
 }
 
@@ -244,7 +244,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
 8:                                                ; preds = %11, %4
   %9 = tail call { i1, i8 } %6(ptr noundef nonnull align 1 %0), !noalias !29
   %10 = extractvalue { i1, i8 } %9, 0
-  br i1 %10, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.exit.thread.i
+  br i1 %10, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.argprom.exit.thread.i
 
 11:                                               ; preds = %8
   %12 = extractvalue { i1, i8 } %9, 1
@@ -256,15 +256,15 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
   %17 = select i1 %15, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %17, label %8, label %_ZN4core4iter6traits8iterator12iter_compare17hb675cb207326a688E.llvm.2392520393932681634.exit
 
-_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.exit.thread.i: ; preds = %8
+_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.argprom.exit.thread.i: ; preds = %8
   %.pre.i = load ptr, ptr %7, align 8, !invariant.load !5, !alias.scope !24, !noalias !21
   %18 = tail call { i1, i8 } %.pre.i(ptr noundef nonnull align 1 %2), !noalias !30
   %19 = extractvalue { i1, i8 } %18, 0
   %20 = xor i1 %19, true
   br label %_ZN4core4iter6traits8iterator12iter_compare17hb675cb207326a688E.llvm.2392520393932681634.exit
 
-_ZN4core4iter6traits8iterator12iter_compare17hb675cb207326a688E.llvm.2392520393932681634.exit: ; preds = %11, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.exit.thread.i
-  %.0.i = phi i1 [ %20, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.exit.thread.i ], [ false, %11 ]
+_ZN4core4iter6traits8iterator12iter_compare17hb675cb207326a688E.llvm.2392520393932681634.exit: ; preds = %11, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.argprom.exit.thread.i
+  %.0.i = phi i1 [ %20, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hd9f031b9e457ecfbE.argprom.exit.thread.i ], [ false, %11 ]
   ret i1 %.0.i
 }
 
@@ -377,16 +377,16 @@ attributes #12 = { cold noreturn nounwind }
 !16 = distinct !{!16, !17, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17h726195385dbaff00E.llvm.2603348648179966163: argument 0"}
 !17 = distinct !{!17, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17h726195385dbaff00E.llvm.2603348648179966163"}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h868e80c8d99a3b0fE: argument 0"}
-!20 = distinct !{!20, !"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h868e80c8d99a3b0fE"}
+!19 = distinct !{!19, !20, !"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h868e80c8d99a3b0fE.argprom: argument 0"}
+!20 = distinct !{!20, !"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h868e80c8d99a3b0fE.argprom"}
 !21 = !{!22}
 !22 = distinct !{!22, !23, !"_ZN4core4iter6traits8iterator12iter_compare17hb675cb207326a688E.llvm.2392520393932681634: argument 0"}
 !23 = distinct !{!23, !"_ZN4core4iter6traits8iterator12iter_compare17hb675cb207326a688E.llvm.2392520393932681634"}
 !24 = !{!25}
 !25 = distinct !{!25, !23, !"_ZN4core4iter6traits8iterator12iter_compare17hb675cb207326a688E.llvm.2392520393932681634: argument 1"}
 !26 = !{!27, !25}
-!27 = distinct !{!27, !28, !"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h868e80c8d99a3b0fE: argument 0"}
-!28 = distinct !{!28, !"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h868e80c8d99a3b0fE"}
+!27 = distinct !{!27, !28, !"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h868e80c8d99a3b0fE.argprom: argument 0"}
+!28 = distinct !{!28, !"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h868e80c8d99a3b0fE.argprom"}
 !29 = !{!27, !22, !25}
 !30 = !{!22, !25}
 !31 = !{i64 1}

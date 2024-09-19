@@ -25,19 +25,19 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @PMPI_Info_f2c(i32 noundef %0) #0 {
   switch i32 %0, label %3 [
-    i32 0, label %opal_pointer_array_get_item.exit
+    i32 0, label %opal_pointer_array_get_item.argprom.exit
     i32 1, label %2
   ]
 
 2:                                                ; preds = %1
-  br label %opal_pointer_array_get_item.exit
+  br label %opal_pointer_array_get_item.argprom.exit
 
 3:                                                ; preds = %1
   %4 = icmp sgt i32 %0, -1
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_info_f_to_c_table, i64 88), align 8
   %.not = icmp slt i32 %0, %5
   %or.cond = select i1 %4, i1 %.not, i1 false
-  br i1 %or.cond, label %6, label %opal_pointer_array_get_item.exit
+  br i1 %or.cond, label %6, label %opal_pointer_array_get_item.argprom.exit
 
 6:                                                ; preds = %3
   %7 = load i8, ptr @opal_uses_threads, align 1
@@ -56,13 +56,13 @@ define ptr @PMPI_Info_f2c(i32 noundef %0) #0 {
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = trunc i8 %12 to i1
-  br i1 %17, label %18, label %opal_pointer_array_get_item.exit
+  br i1 %17, label %18, label %opal_pointer_array_get_item.argprom.exit
 
 18:                                               ; preds = %11
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_info_f_to_c_table, i64 32)) #2
-  br label %opal_pointer_array_get_item.exit
+  br label %opal_pointer_array_get_item.argprom.exit
 
-opal_pointer_array_get_item.exit:                 ; preds = %18, %11, %3, %1, %2
+opal_pointer_array_get_item.argprom.exit:         ; preds = %18, %11, %3, %1, %2
   %.0 = phi ptr [ @ompi_mpi_info_env, %2 ], [ @ompi_mpi_info_null, %1 ], [ null, %3 ], [ %16, %11 ], [ %16, %18 ]
   ret ptr %.0
 }

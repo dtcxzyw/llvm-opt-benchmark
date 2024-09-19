@@ -2183,7 +2183,7 @@ _ZNSt3mapIiN2cv3dnn14dnn4_v202405216detail9LayerDataESt4lessIiESaISt4pairIKiS4_E
   %.val = load i32, ptr %855, align 4
   %856 = getelementptr i8, ptr %854, i64 64
   %.val605 = load ptr, ptr %856, align 8
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %65, i32 %.val, ptr %.val605)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom(ptr dead_on_unwind noalias writable align 8 %65, i32 %.val, ptr %.val605)
           to label %857 unwind label %.loopexit.split-lp1289.loopexit.split-lp
 
 857:                                              ; preds = %851
@@ -2192,7 +2192,7 @@ _ZNSt3mapIiN2cv3dnn14dnn4_v202405216detail9LayerDataESt4lessIiESaISt4pairIKiS4_E
   %.val606 = load i32, ptr %859, align 4
   %860 = getelementptr i8, ptr %858, i64 64
   %.val607 = load ptr, ptr %860, align 8
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %66, i32 %.val606, ptr %.val607)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom(ptr dead_on_unwind noalias writable align 8 %66, i32 %.val606, ptr %.val607)
           to label %861 unwind label %874
 
 861:                                              ; preds = %857
@@ -7385,7 +7385,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.4.val, ptr %.64.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.4.val, ptr %.64.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !104
   %2 = sext i32 %.4.val to i64
   %3 = getelementptr inbounds i32, ptr %.64.val, i64 %2

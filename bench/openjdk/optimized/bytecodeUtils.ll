@@ -2855,7 +2855,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit113:  ; preds = %44, %48
   %.val = load ptr, ptr %131, align 8
   %132 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %132, align 8
-  tail call fastcc void @_ZL21print_field_and_classP12outputStreamP6MethodiN9Bytecodes4CodeE(ptr noundef %1, ptr %.val.val, i32 noundef %129)
+  tail call fastcc void @_ZL21print_field_and_classP12outputStreamP6MethodiN9Bytecodes4CodeE.argprom.argprom.argelim(ptr noundef %1, ptr %.val.val, i32 noundef %129)
   br label %154
 
 133:                                              ; preds = %63
@@ -2877,7 +2877,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit113:  ; preds = %44, %48
   %.val110 = load ptr, ptr %142, align 8
   %143 = getelementptr i8, ptr %.val110, i64 8
   %.val110.val = load ptr, ptr %143, align 8
-  %144 = tail call fastcc noundef ptr @_ZL14get_field_nameP6MethodiN9Bytecodes4CodeE(ptr %.val110.val, i32 noundef %140, i32 noundef 180)
+  %144 = tail call fastcc noundef ptr @_ZL14get_field_nameP6MethodiN9Bytecodes4CodeE.argprom.argprom(ptr %.val110.val, i32 noundef %140, i32 noundef 180)
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, ptr noundef %144) #12
   br label %154
 
@@ -2900,7 +2900,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit113:  ; preds = %44, %48
   %.val111 = load ptr, ptr %152, align 8
   %153 = getelementptr i8, ptr %.val111, i64 8
   %.val111.val = load ptr, ptr %153, align 8
-  tail call fastcc void @_ZL17print_method_nameP12outputStreamP6MethodiN9Bytecodes4CodeE(ptr noundef %1, ptr %.val111.val, i32 noundef %148, i32 noundef %.0103)
+  tail call fastcc void @_ZL17print_method_nameP12outputStreamP6MethodiN9Bytecodes4CodeE.argprom.argprom(ptr noundef %1, ptr %.val111.val, i32 noundef %148, i32 noundef %.0103)
   br label %154
 
 154:                                              ; preds = %63, %17, %9, %7, %150, %137, %126, %125, %114, %110, %109, %108, %107, %106, %105, %104, %103, %102, %93, %79, %74, %69, %64
@@ -3074,7 +3074,7 @@ define internal fastcc void @_ZL15print_local_varP12outputStreamjP6Methodib(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21print_field_and_classP12outputStreamP6MethodiN9Bytecodes4CodeE(ptr noundef %0, ptr nonnull %.8.val.8.val, i32 noundef range(i32 0, 65536) %1) unnamed_addr #2 {
+define internal fastcc void @_ZL21print_field_and_classP12outputStreamP6MethodiN9Bytecodes4CodeE.argprom.argprom.argelim(ptr noundef %0, ptr nonnull %.8.val.8.val, i32 noundef range(i32 0, 65536) %1) unnamed_addr #2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 800
@@ -3130,7 +3130,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %31, %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL14get_field_nameP6MethodiN9Bytecodes4CodeE(ptr nonnull %.8.val.8.val, i32 noundef range(i32 0, 65536) %0, i32 noundef range(i32 180, 182) %1) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL14get_field_nameP6MethodiN9Bytecodes4CodeE.argprom.argprom(ptr nonnull %.8.val.8.val, i32 noundef range(i32 0, 65536) %0, i32 noundef range(i32 180, 182) %1) unnamed_addr #2 {
   %3 = tail call noundef zeroext i16 @_ZN12ConstantPool26name_and_type_ref_index_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %.8.val.8.val, i32 noundef %0, i32 noundef %1) #12
   %4 = zext i16 %3 to i32
   %5 = tail call noundef zeroext i16 @_ZN12ConstantPool17name_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %.8.val.8.val, i32 noundef %4) #12
@@ -3143,7 +3143,7 @@ define internal fastcc noundef ptr @_ZL14get_field_nameP6MethodiN9Bytecodes4Code
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17print_method_nameP12outputStreamP6MethodiN9Bytecodes4CodeE(ptr noundef %0, ptr nonnull %.8.val.8.val, i32 noundef range(i32 0, 65536) %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @_ZL17print_method_nameP12outputStreamP6MethodiN9Bytecodes4CodeE.argprom.argprom(ptr noundef %0, ptr nonnull %.8.val.8.val, i32 noundef range(i32 0, 65536) %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca %class.stringStream, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -3481,7 +3481,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit55:   ; preds = %21, %25
   %.val53 = load ptr, ptr %91, align 8
   %92 = getelementptr i8, ptr %.val53, i64 8
   %.val53.val = load ptr, ptr %92, align 8
-  tail call fastcc void @_ZL17print_method_nameP12outputStreamP6MethodiN9Bytecodes4CodeE(ptr noundef %1, ptr %.val53.val, i32 noundef %89, i32 noundef %.0)
+  tail call fastcc void @_ZL17print_method_nameP12outputStreamP6MethodiN9Bytecodes4CodeE.argprom.argprom(ptr noundef %1, ptr %.val53.val, i32 noundef %89, i32 noundef %.0)
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.44) #12
   br label %93
 

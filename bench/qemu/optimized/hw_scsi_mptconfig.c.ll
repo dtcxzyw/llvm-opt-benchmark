@@ -572,7 +572,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %add.ptr = getelementptr i8, ptr %0, i64 %ofs.012
   %cond = select i1 %tobool3.not.i, i32 2, i32 9
   %cond4 = select i1 %tobool3.not.i, i32 0, i32 1025
-  tail call void (ptr, i64, ptr, ...) @fill(ptr noundef %add.ptr, i64 poison, ptr noundef nonnull @.str.28, i32 noundef %i.011, i32 noundef 0, i32 noundef 0, i32 noundef %cond, i32 noundef %cond4, i32 noundef %cond.i, i32 noundef %cond.i, i32 noundef 0)
+  tail call void (ptr, i64, ptr, ...) @fill.argelim(ptr noundef %add.ptr, i64 poison, ptr noundef nonnull @.str.28, i32 noundef %i.011, i32 noundef 0, i32 noundef 0, i32 noundef %cond, i32 noundef %cond4, i32 noundef %cond.i, i32 noundef %cond.i, i32 noundef 0)
   %add = add i64 %ofs.012, 16
   %inc = add nuw nsw i32 %i.011, 1
   %exitcond.not = icmp eq i32 %inc, 8
@@ -602,7 +602,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %add.ptr = getelementptr i8, ptr %0, i64 %ofs.011
   %tobool2.not = icmp eq ptr %call.i, null
   %cond = select i1 %tobool2.not, i32 0, i32 1025
-  tail call void (ptr, i64, ptr, ...) @fill(ptr noundef %add.ptr, i64 poison, ptr noundef nonnull @.str.32, i32 noundef %i.010, i32 noundef 0, i32 noundef 0, i32 noundef 152, i32 noundef %cond, i32 noundef 0, i32 noundef 0)
+  tail call void (ptr, i64, ptr, ...) @fill.argelim(ptr noundef %add.ptr, i64 poison, ptr noundef nonnull @.str.32, i32 noundef %i.010, i32 noundef 0, i32 noundef 0, i32 noundef 152, i32 noundef %cond, i32 noundef 0, i32 noundef 0)
   %add = add i64 %ofs.011, 12
   %inc = add nuw nsw i32 %i.010, 1
   %exitcond.not = icmp eq i32 %inc, 8
@@ -1175,18 +1175,18 @@ entry:
   br i1 %tobool.not.i, label %vpack.exit.thread, label %if.then
 
 vpack.exit.thread:                                ; preds = %entry
-  %call4.i9 = call fastcc i64 @vfill(ptr noundef null, ptr noundef readonly %fmt, ptr noundef %ap)
+  %call4.i9 = call fastcc i64 @vfill.argelim(ptr noundef null, ptr noundef readonly %fmt, ptr noundef %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap2.i)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %if.end6
 
 if.then:                                          ; preds = %entry
   call void @llvm.va_copy.p0(ptr nonnull %ap2.i, ptr nonnull %ap)
-  %call.i = call fastcc i64 @vfill(ptr noundef null, ptr noundef readonly %fmt, ptr noundef %ap2.i)
+  %call.i = call fastcc i64 @vfill.argelim(ptr noundef null, ptr noundef readonly %fmt, ptr noundef %ap2.i)
   %call2.i = call noalias ptr @g_malloc(i64 noundef %call.i) #15
   store ptr %call2.i, ptr %data, align 8
   call void @llvm.va_end.p0(ptr nonnull %ap2.i)
-  %call4.i = call fastcc i64 @vfill(ptr noundef %call2.i, ptr noundef readonly %fmt, ptr noundef %ap)
+  %call4.i = call fastcc i64 @vfill.argelim(ptr noundef %call2.i, ptr noundef readonly %fmt, ptr noundef %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap2.i)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %0 = and i64 %call4.i, -1021
@@ -1211,7 +1211,7 @@ if.end6:                                          ; preds = %vpack.exit.thread, 
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc i64 @vfill(ptr noundef %data, ptr nocapture noundef readonly %fmt, ptr nocapture noundef nonnull %ap) unnamed_addr #4 {
+define internal fastcc i64 @vfill.argelim(ptr noundef %data, ptr nocapture noundef readonly %fmt, ptr nocapture noundef nonnull %ap) unnamed_addr #4 {
 entry:
   %overflow_arg_area_p22 = getelementptr inbounds i8, ptr %ap, i64 8
   %0 = getelementptr inbounds i8, ptr %ap, i64 16
@@ -1446,18 +1446,18 @@ entry:
   br i1 %tobool.not.i, label %vpack.exit.thread, label %if.then
 
 vpack.exit.thread:                                ; preds = %entry
-  %call4.i9 = call fastcc i64 @vfill(ptr noundef null, ptr noundef readonly %fmt, ptr noundef %ap)
+  %call4.i9 = call fastcc i64 @vfill.argelim(ptr noundef null, ptr noundef readonly %fmt, ptr noundef %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap2.i)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %if.end5
 
 if.then:                                          ; preds = %entry
   call void @llvm.va_copy.p0(ptr nonnull %ap2.i, ptr nonnull %ap)
-  %call.i = call fastcc i64 @vfill(ptr noundef null, ptr noundef readonly %fmt, ptr noundef %ap2.i)
+  %call.i = call fastcc i64 @vfill.argelim(ptr noundef null, ptr noundef readonly %fmt, ptr noundef %ap2.i)
   %call2.i = call noalias ptr @g_malloc(i64 noundef %call.i) #15
   store ptr %call2.i, ptr %data, align 8
   call void @llvm.va_end.p0(ptr nonnull %ap2.i)
-  %call4.i = call fastcc i64 @vfill(ptr noundef %call2.i, ptr noundef readonly %fmt, ptr noundef %ap)
+  %call4.i = call fastcc i64 @vfill.argelim(ptr noundef %call2.i, ptr noundef readonly %fmt, ptr noundef %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap2.i)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %0 = and i64 %call4.i, -65533
@@ -1482,11 +1482,11 @@ if.end5:                                          ; preds = %vpack.exit.thread, 
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal void @fill(ptr noundef %data, i64 range(i64 12, 17) %size, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #8 {
+define internal void @fill.argelim(ptr noundef %data, i64 range(i64 12, 17) %size, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #8 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  %call = call fastcc i64 @vfill(ptr noundef %data, ptr noundef %fmt, ptr noundef %ap)
+  %call = call fastcc i64 @vfill.argelim(ptr noundef %data, ptr noundef %fmt, ptr noundef %ap)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }

@@ -2264,16 +2264,16 @@ _ZL13getHeightDataP9rcContextRK20rcCompactHeightfieldPKtiS5_iR13rcHeightPatchR10
   %974 = fdiv float %972, %970
   %.0.i.us.i.i = select i1 %973, float %974, float %972
   %975 = fcmp olt float %.0.i.us.i.i, 0.000000e+00
-  br i1 %975, label %_ZL15distancePtSeg2dPKfS0_S0_.exit.us.i.i, label %976
+  br i1 %975, label %_ZL15distancePtSeg2dPKfS0_S0_.argprom.exit.us.i.i, label %976
 
 976:                                              ; preds = %962
   %977 = fcmp ogt float %.0.i.us.i.i, 1.000000e+00
-  br i1 %977, label %978, label %_ZL15distancePtSeg2dPKfS0_S0_.exit.us.i.i
+  br i1 %977, label %978, label %_ZL15distancePtSeg2dPKfS0_S0_.argprom.exit.us.i.i
 
 978:                                              ; preds = %976
-  br label %_ZL15distancePtSeg2dPKfS0_S0_.exit.us.i.i
+  br label %_ZL15distancePtSeg2dPKfS0_S0_.argprom.exit.us.i.i
 
-_ZL15distancePtSeg2dPKfS0_S0_.exit.us.i.i:        ; preds = %978, %976, %962
+_ZL15distancePtSeg2dPKfS0_S0_.argprom.exit.us.i.i: ; preds = %978, %976, %962
   %.1.i.us.i.i = phi float [ 1.000000e+00, %978 ], [ %.0.i.us.i.i, %976 ], [ 0.000000e+00, %962 ]
   %979 = call float @llvm.fmuladd.f32(float %.1.i.us.i.i, float %965, float %.val29.us.i.i)
   %980 = fsub float %979, %.val.us.i.i
@@ -2285,8 +2285,8 @@ _ZL15distancePtSeg2dPKfS0_S0_.exit.us.i.i:        ; preds = %978, %976, %962
   %986 = select i1 %985, float %.02533.us.i.i, float %984
   br label %987
 
-987:                                              ; preds = %_ZL15distancePtSeg2dPKfS0_S0_.exit.us.i.i, %959
-  %.1.us.i.i = phi float [ %.02533.us.i.i, %959 ], [ %986, %_ZL15distancePtSeg2dPKfS0_S0_.exit.us.i.i ]
+987:                                              ; preds = %_ZL15distancePtSeg2dPKfS0_S0_.argprom.exit.us.i.i, %959
+  %.1.us.i.i = phi float [ %.02533.us.i.i, %959 ], [ %986, %_ZL15distancePtSeg2dPKfS0_S0_.argprom.exit.us.i.i ]
   %indvars.iv.next.i.i379 = add nuw nsw i64 %indvars.iv.i.i378, 1
   %exitcond.not.i.i380 = icmp eq i64 %indvars.iv.next.i.i379, %wide.trip.count.i
   br i1 %exitcond.not.i.i380, label %._crit_edge.us.i.i, label %959, !llvm.loop !23
@@ -3390,13 +3390,13 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i637: ; preds = %
   %.0232460.us.i = phi i32 [ %1493, %.preheader399.us.i ], [ %1751, %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit359.us.i ]
   %1521 = sitofp i32 %.0232460.us.i to float
   %1522 = fmul float %3, %1521
-  br i1 %937, label %_ZL10distToPolyiPKfS0_.exit.us.i, label %.lr.ph.i266.us.i
+  br i1 %937, label %_ZL10distToPolyiPKfS0_.argprom.exit.us.i, label %.lr.ph.i266.us.i
 
-.lr.ph.i266.us.i:                                 ; preds = %1520, %_ZL15distancePtSeg2dPKfS0_S0_.exit.i.us.i
-  %indvars.iv.i267.us.i = phi i64 [ %indvars.iv.next.i270.us.i, %_ZL15distancePtSeg2dPKfS0_S0_.exit.i.us.i ], [ 0, %1520 ]
-  %.04.i.us.i = phi float [ %1565, %_ZL15distancePtSeg2dPKfS0_S0_.exit.i.us.i ], [ 0x47EFFFFFE0000000, %1520 ]
-  %.0282.i.us.i = phi i32 [ %.1.i269.us.i, %_ZL15distancePtSeg2dPKfS0_S0_.exit.i.us.i ], [ 0, %1520 ]
-  %.0291.i.us.i = phi i32 [ %1566, %_ZL15distancePtSeg2dPKfS0_S0_.exit.i.us.i ], [ %1506, %1520 ]
+.lr.ph.i266.us.i:                                 ; preds = %1520, %_ZL15distancePtSeg2dPKfS0_S0_.argprom.exit.i.us.i
+  %indvars.iv.i267.us.i = phi i64 [ %indvars.iv.next.i270.us.i, %_ZL15distancePtSeg2dPKfS0_S0_.argprom.exit.i.us.i ], [ 0, %1520 ]
+  %.04.i.us.i = phi float [ %1565, %_ZL15distancePtSeg2dPKfS0_S0_.argprom.exit.i.us.i ], [ 0x47EFFFFFE0000000, %1520 ]
+  %.0282.i.us.i = phi i32 [ %.1.i269.us.i, %_ZL15distancePtSeg2dPKfS0_S0_.argprom.exit.i.us.i ], [ 0, %1520 ]
+  %.0291.i.us.i = phi i32 [ %1566, %_ZL15distancePtSeg2dPKfS0_S0_.argprom.exit.i.us.i ], [ %1506, %1520 ]
   %.idx.i268.us.i = mul nuw nsw i64 %indvars.iv.i267.us.i, 12
   %1523 = getelementptr inbounds i8, ptr %98, i64 %.idx.i268.us.i
   %1524 = mul nsw i32 %.0291.i.us.i, 3
@@ -3442,16 +3442,16 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i637: ; preds = %
   %1553 = fdiv float %1551, %1549
   %.0.i.i.us.i = select i1 %1552, float %1553, float %1551
   %1554 = fcmp olt float %.0.i.i.us.i, 0.000000e+00
-  br i1 %1554, label %_ZL15distancePtSeg2dPKfS0_S0_.exit.i.us.i, label %1555
+  br i1 %1554, label %_ZL15distancePtSeg2dPKfS0_S0_.argprom.exit.i.us.i, label %1555
 
 1555:                                             ; preds = %1543
   %1556 = fcmp ogt float %.0.i.i.us.i, 1.000000e+00
-  br i1 %1556, label %1557, label %_ZL15distancePtSeg2dPKfS0_S0_.exit.i.us.i
+  br i1 %1556, label %1557, label %_ZL15distancePtSeg2dPKfS0_S0_.argprom.exit.i.us.i
 
 1557:                                             ; preds = %1555
-  br label %_ZL15distancePtSeg2dPKfS0_S0_.exit.i.us.i
+  br label %_ZL15distancePtSeg2dPKfS0_S0_.argprom.exit.i.us.i
 
-_ZL15distancePtSeg2dPKfS0_S0_.exit.i.us.i:        ; preds = %1557, %1555, %1543
+_ZL15distancePtSeg2dPKfS0_S0_.argprom.exit.i.us.i: ; preds = %1557, %1555, %1543
   %.1.i.i.us.i = phi float [ 1.000000e+00, %1557 ], [ %.0.i.i.us.i, %1555 ], [ 0.000000e+00, %1543 ]
   %1558 = call float @llvm.fmuladd.f32(float %.1.i.i.us.i, float %1544, float %.val33.pre.i.us.i)
   %1559 = fsub float %1558, %1522
@@ -3466,20 +3466,20 @@ _ZL15distancePtSeg2dPKfS0_S0_.exit.i.us.i:        ; preds = %1557, %1555, %1543
   %exitcond.not.i271.us.i = icmp eq i64 %indvars.iv.next.i270.us.i, %wide.trip.count.i.i364
   br i1 %exitcond.not.i271.us.i, label %._crit_edge.i.us.i, label %.lr.ph.i266.us.i, !llvm.loop !36
 
-._crit_edge.i.us.i:                               ; preds = %_ZL15distancePtSeg2dPKfS0_S0_.exit.i.us.i
+._crit_edge.i.us.i:                               ; preds = %_ZL15distancePtSeg2dPKfS0_S0_.argprom.exit.i.us.i
   %1567 = icmp eq i32 %.1.i269.us.i, 0
   %1568 = fneg float %1565
-  br i1 %1567, label %1569, label %_ZL10distToPolyiPKfS0_.exit.us.i
+  br i1 %1567, label %1569, label %_ZL10distToPolyiPKfS0_.argprom.exit.us.i
 
 1569:                                             ; preds = %._crit_edge.i.us.i
-  br label %_ZL10distToPolyiPKfS0_.exit.us.i
+  br label %_ZL10distToPolyiPKfS0_.argprom.exit.us.i
 
-_ZL10distToPolyiPKfS0_.exit.us.i:                 ; preds = %1569, %._crit_edge.i.us.i, %1520
+_ZL10distToPolyiPKfS0_.argprom.exit.us.i:         ; preds = %1569, %._crit_edge.i.us.i, %1520
   %1570 = phi float [ %1568, %._crit_edge.i.us.i ], [ %1565, %1569 ], [ 0x47EFFFFFE0000000, %1520 ]
   %1571 = fcmp ogt float %1570, %243
   br i1 %1571, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit359.us.i, label %1572
 
-1572:                                             ; preds = %_ZL10distToPolyiPKfS0_.exit.us.i
+1572:                                             ; preds = %_ZL10distToPolyiPKfS0_.argprom.exit.us.i
   %1573 = load i64, ptr %35, align 8
   %1574 = load i64, ptr %244, align 8
   %1575 = icmp slt i64 %1573, %1574
@@ -3919,7 +3919,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i353.us.i: ; pred
   store i32 0, ptr %1750, align 4
   br label %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit359.us.i
 
-_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit359.us.i: ; preds = %1747, %.noexc404, %_ZL10distToPolyiPKfS0_.exit.us.i
+_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit359.us.i: ; preds = %1747, %.noexc404, %_ZL10distToPolyiPKfS0_.argprom.exit.us.i
   %1751 = add i32 %.0232460.us.i, 1
   %exitcond542.not.i = icmp eq i32 %1751, %1496
   br i1 %exitcond542.not.i, label %._crit_edge463.us.i, label %1520, !llvm.loop !37
@@ -6561,8 +6561,8 @@ define internal fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noun
 122:                                              ; preds = %93
   br i1 %34, label %.lr.ph.i, label %.thread
 
-.lr.ph.i:                                         ; preds = %122, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i ], [ 0, %122 ]
+.lr.ph.i:                                         ; preds = %122, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.argprom.exit.thread.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.argprom.exit.thread.i ], [ 0, %122 ]
   %123 = shl nsw i64 %indvars.iv.i, 2
   %124 = getelementptr inbounds i32, ptr %3, i64 %123
   %125 = load i32, ptr %124, align 4
@@ -6578,7 +6578,7 @@ define internal fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noun
   %134 = icmp eq i64 %indvars.iv, %133
   %135 = or i1 %132, %134
   %or.cond29.i = select i1 %or.cond.i, i1 true, i1 %135
-  br i1 %or.cond29.i, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i, label %136
+  br i1 %or.cond29.i, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.argprom.exit.thread.i, label %136
 
 136:                                              ; preds = %.lr.ph.i
   %137 = mul nsw i32 %125, 3
@@ -6607,7 +6607,7 @@ define internal fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noun
   %156 = tail call noundef float @llvm.fmuladd.f32(float %145, float %153, float %155)
   %157 = fmul float %156, %151
   %158 = fcmp olt float %157, 0.000000e+00
-  br i1 %158, label %159, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i
+  br i1 %158, label %159, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.argprom.exit.thread.i
 
 159:                                              ; preds = %136
   %160 = fsub float %.val.i, %43
@@ -6619,20 +6619,20 @@ define internal fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noun
   %166 = fsub float %165, %151
   %167 = fmul float %164, %166
   %168 = fcmp olt float %167, 0.000000e+00
-  br i1 %168, label %_ZL12circumCirclePKfS0_S0_PfRf.exit, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i
+  br i1 %168, label %_ZL12circumCirclePKfS0_S0_PfRf.exit, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.argprom.exit.thread.i
 
-_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i:   ; preds = %159, %136, %.lr.ph.i
+_ZL15overlapSegSeg2dPKfS0_S0_S0_.argprom.exit.thread.i: ; preds = %159, %136, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.lr.ph.i112, label %.lr.ph.i, !llvm.loop !61
 
-.lr.ph.i112:                                      ; preds = %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i
+.lr.ph.i112:                                      ; preds = %_ZL15overlapSegSeg2dPKfS0_S0_S0_.argprom.exit.thread.i
   %169 = fsub float %48, %42
   %170 = fsub float %51, %45
   br label %171
 
-171:                                              ; preds = %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i125, %.lr.ph.i112
-  %indvars.iv.i114 = phi i64 [ 0, %.lr.ph.i112 ], [ %indvars.iv.next.i126, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i125 ]
+171:                                              ; preds = %_ZL15overlapSegSeg2dPKfS0_S0_S0_.argprom.exit.thread.i125, %.lr.ph.i112
+  %indvars.iv.i114 = phi i64 [ 0, %.lr.ph.i112 ], [ %indvars.iv.next.i126, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.argprom.exit.thread.i125 ]
   %172 = shl nsw i64 %indvars.iv.i114, 2
   %173 = getelementptr inbounds i32, ptr %3, i64 %172
   %174 = load i32, ptr %173, align 4
@@ -6648,7 +6648,7 @@ _ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i:   ; preds = %159, %136, %.lr.ph.
   %183 = icmp eq i64 %indvars.iv, %182
   %184 = or i1 %181, %183
   %or.cond29.i116 = select i1 %or.cond.i115, i1 true, i1 %184
-  br i1 %or.cond29.i116, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i125, label %185
+  br i1 %or.cond29.i116, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.argprom.exit.thread.i125, label %185
 
 185:                                              ; preds = %171
   %186 = mul nsw i32 %174, 3
@@ -6677,7 +6677,7 @@ _ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i:   ; preds = %159, %136, %.lr.ph.
   %205 = tail call noundef float @llvm.fmuladd.f32(float %194, float %202, float %204)
   %206 = fmul float %205, %200
   %207 = fcmp olt float %206, 0.000000e+00
-  br i1 %207, label %208, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i125
+  br i1 %207, label %208, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.argprom.exit.thread.i125
 
 208:                                              ; preds = %185
   %209 = fsub float %.val.i117, %42
@@ -6689,14 +6689,14 @@ _ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i:   ; preds = %159, %136, %.lr.ph.
   %215 = fsub float %214, %200
   %216 = fmul float %213, %215
   %217 = fcmp olt float %216, 0.000000e+00
-  br i1 %217, label %_ZL12circumCirclePKfS0_S0_PfRf.exit, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i125
+  br i1 %217, label %_ZL12circumCirclePKfS0_S0_PfRf.exit, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.argprom.exit.thread.i125
 
-_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i125: ; preds = %208, %185, %171
+_ZL15overlapSegSeg2dPKfS0_S0_S0_.argprom.exit.thread.i125: ; preds = %208, %185, %171
   %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i114, 1
   %exitcond.not.i127 = icmp eq i64 %indvars.iv.next.i126, %wide.trip.count.i
   br i1 %exitcond.not.i127, label %.thread, label %171, !llvm.loop !61
 
-.thread:                                          ; preds = %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i125, %122
+.thread:                                          ; preds = %_ZL15overlapSegSeg2dPKfS0_S0_S0_.argprom.exit.thread.i125, %122
   %218 = fcmp ogt float %55, 0x3EB0C6F7A0000000
   br i1 %218, label %219, label %_ZL12circumCirclePKfS0_S0_PfRf.exit
 

@@ -3499,7 +3499,7 @@ lpad57:                                           ; preds = %invoke.cont55
 ehcleanup60:                                      ; preds = %lpad57, %lpad54
   %.pn = phi { ptr, i32 } [ %99, %lpad57 ], [ %98, %lpad54 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rctx52) #26
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_7futures6detail8CoreBase10doCallbackEONS_8Executor9KeepAliveIS5_EENS3_5StateEE3$_2Lb1EED2Ev"(ptr nonnull %this) #26
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_7futures6detail8CoreBase10doCallbackEONS_8Executor9KeepAliveIS5_EENS3_5StateEE3$_2Lb1EED2Ev.argelim"(ptr nonnull %this) #26
   br label %ehcleanup64
 
 if.end63:                                         ; preds = %delete.notnull.i.i.i.i200, %_ZN5folly8FunctionIFvRNS_7futures6detail8CoreBaseEONS_8Executor9KeepAliveIS5_EEPNS_17exception_wrapperEEEaSEDn.exit.i.i.i196, %_ZN5folly17exception_wrapperD2Ev.exit168
@@ -4136,7 +4136,7 @@ _ZN5folly7futures6detail8CoreBase24CoreAndCallbackReference6detachEv.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_7futures6detail8CoreBase10doCallbackEONS_8Executor9KeepAliveIS5_EENS3_5StateEE3$_2Lb1EED2Ev"(ptr nonnull %this.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_7futures6detail8CoreBase10doCallbackEONS_8Executor9KeepAliveIS5_EENS3_5StateEE3$_2Lb1EED2Ev.argelim"(ptr nonnull %this.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %context_.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 104
   store ptr null, ptr %context_.i.i, align 8, !tbaa !7

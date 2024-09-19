@@ -8780,8 +8780,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %5
   br i1 %cmp.i, label %for.body.i, label %for.cond3.preheader.i, !llvm.loop !169
 
-for.body6.i:                                      ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit.i", %for.body6.lr.ph.i
-  %indvars.iv17.i = phi i64 [ 0, %for.body6.lr.ph.i ], [ %indvars.iv.next18.i, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit.i" ]
+for.body6.i:                                      ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit.i", %for.body6.lr.ph.i
+  %indvars.iv17.i = phi i64 [ 0, %for.body6.lr.ph.i ], [ %indvars.iv.next18.i, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit.i" ]
   %6 = load ptr, ptr %extensions_.i.i, align 8
   %add.ptr.i11.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %6, i64 %indvars.iv17.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %msg.i.i.i)
@@ -8789,7 +8789,7 @@ for.body6.i:                                      ; preds = %"_ZZN6google8protob
   %call.i.i.i = call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i11.i)
   store ptr %call.i.i.i, ptr %msg.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i.i.i, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit.i", label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit.i", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body6.i
   %call2.i.i.i = call noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp19IsImplicitWeakFieldEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef nonnull %add.ptr.i11.i, ptr noundef nonnull align 8 dereferenceable(206) %options_.i.i.i, ptr noundef nonnull %scc_analyzer_.i.i.i)
@@ -8820,13 +8820,13 @@ cond.false.i.i.i.i:                               ; preds = %if.then.i.i.i.i
 
 _ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i.i: ; preds = %lor.lhs.false.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i.i)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit.i"
+  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit.i"
 
 if.then5.i.i.i:                                   ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i.i, %if.end.i.i.i
   call void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIPKN6google8protobuf10DescriptorENS5_8compiler3cpp13FileGenerator19CrossFileReferences11DescCompareESaIS8_ELi256ELb0EEEE13insert_uniqueIS8_JRKS8_EEESt4pairINS1_14btree_iteratorINS1_10btree_nodeISF_EERS8_PS8_EEbERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.260") align 8 %tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %refs, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i.i)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit.i"
+  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit.i"
 
-"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit.i": ; preds = %if.then5.i.i.i, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i.i, %for.body6.i
+"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit.i": ; preds = %if.then5.i.i.i, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i.i, %for.body6.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %msg.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i.i.i)
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
@@ -8835,7 +8835,7 @@ if.then5.i.i.i:                                   ; preds = %_ZN6google8protobuf
   %cmp5.i = icmp slt i64 %indvars.iv.next18.i, %11
   br i1 %cmp5.i, label %for.body6.i, label %"_ZN6google8protobuf8compiler3cpp12ForEachFieldIZNS2_13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS4_19CrossFileReferencesEE3$_0EEvS7_OT_.exit", !llvm.loop !170
 
-"_ZN6google8protobuf8compiler3cpp12ForEachFieldIZNS2_13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS4_19CrossFileReferencesEE3$_0EEvS7_OT_.exit": ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit.i", %for.cond3.preheader.i
+"_ZN6google8protobuf8compiler3cpp12ForEachFieldIZNS2_13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS4_19CrossFileReferencesEE3$_0EEvS7_OT_.exit": ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit.i", %for.cond3.preheader.i
   %options_ = getelementptr inbounds i8, ptr %this, i64 64
   %call.i.i = call noundef i32 @_ZN6google8protobuf8compiler3cpp14GetOptimizeForEPKNS0_14FileDescriptorERKNS2_7OptionsEPb(ptr noundef nonnull %file, ptr noundef nonnull align 8 dereferenceable(206) %options_, ptr noundef null)
   %cmp.i10.not = icmp eq i32 %call.i.i, 3
@@ -10403,7 +10403,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp = icmp slt i64 %indvars.iv.next, %5
   br i1 %cmp, label %for.body, label %for.cond3.preheader, !llvm.loop !183
 
-for.cond12.preheader:                             ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit", %for.cond3.preheader
+for.cond12.preheader:                             ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit", %for.cond3.preheader
   %field_count_.i = getelementptr inbounds i8, ptr %d, i64 4
   %6 = load i32, ptr %field_count_.i, align 4
   %cmp1446 = icmp sgt i32 %6, 0
@@ -10414,8 +10414,8 @@ for.body15.lr.ph:                                 ; preds = %for.cond12.preheade
   %7 = getelementptr inbounds i8, ptr %func, i64 8
   br label %for.body15
 
-for.body6:                                        ; preds = %for.body6.lr.ph, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit"
-  %indvars.iv49 = phi i64 [ 0, %for.body6.lr.ph ], [ %indvars.iv.next50, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit" ]
+for.body6:                                        ; preds = %for.body6.lr.ph, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit"
+  %indvars.iv49 = phi i64 [ 0, %for.body6.lr.ph ], [ %indvars.iv.next50, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit" ]
   %8 = load ptr, ptr %extensions_.i, align 8
   %add.ptr.i18 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %8, i64 %indvars.iv49
   %func.val = load ptr, ptr %func, align 8
@@ -10425,7 +10425,7 @@ for.body6:                                        ; preds = %for.body6.lr.ph, %"
   %call.i.i = call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i18)
   store ptr %call.i.i, ptr %msg.i.i, align 8
   %cmp.i.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp.i.i, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit", label %if.end.i.i
+  br i1 %cmp.i.i, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit", label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body6
   %options_.i.i = getelementptr inbounds i8, ptr %func.val, i64 64
@@ -10459,13 +10459,13 @@ cond.false.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i: ; preds = %lor.lhs.false.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit"
+  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit"
 
 if.then5.i.i:                                     ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i, %if.end.i.i
   call void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIPKN6google8protobuf10DescriptorENS5_8compiler3cpp13FileGenerator19CrossFileReferences11DescCompareESaIS8_ELi256ELb0EEEE13insert_uniqueIS8_JRKS8_EEESt4pairINS1_14btree_iteratorINS1_10btree_nodeISF_EERS8_PS8_EEbERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.260") align 8 %tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %func.val14, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit"
+  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit"
 
-"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit": ; preds = %for.body6, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i, %if.then5.i.i
+"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit": ; preds = %for.body6, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i, %if.then5.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %msg.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i.i)
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
@@ -10474,8 +10474,8 @@ if.then5.i.i:                                     ; preds = %_ZN6google8protobuf
   %cmp5 = icmp slt i64 %indvars.iv.next50, %13
   br i1 %cmp5, label %for.body6, label %for.cond12.preheader, !llvm.loop !184
 
-for.body15:                                       ; preds = %for.body15.lr.ph, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit41"
-  %indvars.iv52 = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next53, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit41" ]
+for.body15:                                       ; preds = %for.body15.lr.ph, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit41"
+  %indvars.iv52 = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next53, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit41" ]
   %14 = load ptr, ptr %fields_.i, align 8
   %add.ptr.i20 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %14, i64 %indvars.iv52
   %func.val15 = load ptr, ptr %func, align 8
@@ -10485,7 +10485,7 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
   %call.i.i24 = call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i20)
   store ptr %call.i.i24, ptr %msg.i.i22, align 8
   %cmp.i.i25 = icmp eq ptr %call.i.i24, null
-  br i1 %cmp.i.i25, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit41", label %if.end.i.i26
+  br i1 %cmp.i.i25, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit41", label %if.end.i.i26
 
 if.end.i.i26:                                     ; preds = %for.body15
   %options_.i.i27 = getelementptr inbounds i8, ptr %func.val15, i64 64
@@ -10519,13 +10519,13 @@ cond.false.i.i.i40:                               ; preds = %if.then.i.i.i35
 
 _ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i34: ; preds = %lor.lhs.false.i.i30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i21)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit41"
+  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit41"
 
 if.then5.i.i39:                                   ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i38, %if.end.i.i26
   call void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIPKN6google8protobuf10DescriptorENS5_8compiler3cpp13FileGenerator19CrossFileReferences11DescCompareESaIS8_ELi256ELb0EEEE13insert_uniqueIS8_JRKS8_EEESt4pairINS1_14btree_iteratorINS1_10btree_nodeISF_EERS8_PS8_EEbERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.260") align 8 %tmp.i.i23, ptr noundef nonnull align 8 dereferenceable(24) %func.val16, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i22, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i22)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit41"
+  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit41"
 
-"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit41": ; preds = %for.body15, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i34, %if.then5.i.i39
+"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit41": ; preds = %for.body15, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i34, %if.then5.i.i39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %msg.i.i22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i.i23)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
@@ -10534,7 +10534,7 @@ if.then5.i.i39:                                   ; preds = %_ZN6google8protobuf
   %cmp14 = icmp slt i64 %indvars.iv.next53, %19
   br i1 %cmp14, label %for.body15, label %for.end19, !llvm.loop !185
 
-for.end19:                                        ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit41", %for.cond12.preheader
+for.end19:                                        ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit41", %for.cond12.preheader
   ret void
 }
 
@@ -32467,17 +32467,17 @@ if.end.i.i.i:                                     ; preds = %entry
   %options_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i, i64 64
   %call.i.i2.i.i.i.i.i = tail call noundef i32 @_ZN6google8protobuf8compiler3cpp14GetOptimizeForEPKNS0_14FileDescriptorERKNS2_7OptionsEPb(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(206) %options_.i.i.i.i.i, ptr noundef null)
   %cmp.i.not.i.i.i.i.i = icmp eq i32 %call.i.i2.i.i.i.i.i, 3
-  br i1 %cmp.i.not.i.i.i.i.i, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_3clEv.exit.i.i.i", label %if.then.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_3clEv.argprom.argprom.exit.i.i.i", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %this.val1.val.i.i.i, ptr null, i64 0, i64 105, ptr nonnull @.str.160)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_3clEv.exit.i.i.i"
+  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_3clEv.argprom.argprom.exit.i.i.i"
 
-"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_3clEv.exit.i.i.i": ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i
+"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_3clEv.argprom.argprom.exit.i.i.i": ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i
   store i8 0, ptr %0, align 8
   br label %"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS1_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS3_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOST_DpOSU_.exit"
 
-"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS1_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS3_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOST_DpOSU_.exit": ; preds = %entry, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_3clEv.exit.i.i.i"
+"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS1_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS3_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOST_DpOSU_.exit": ; preds = %entry, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_3clEv.argprom.argprom.exit.i.i.i"
   %retval.0.i.i.i = xor i1 %tobool.i.i.i, true
   ret i1 %retval.0.i.i.i
 }
@@ -33703,7 +33703,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %4 = load ptr, ptr %enum_generators_.i.i.i.i.i, align 8
   %cmp7.not.i.i.i.i.i = icmp eq ptr %3, %4
-  br i1 %cmp7.not.i.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE_clEv.exit.i.i.i", label %for.body.i.i.i.i.i
+  br i1 %cmp7.not.i.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE_clEv.argprom.argprom.exit.i.i.i", label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.end.i.i.i, %for.body.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %for.body.i.i.i.i.i ], [ 0, %if.end.i.i.i ]
@@ -33719,13 +33719,13 @@ for.body.i.i.i.i.i:                               ; preds = %if.end.i.i.i, %for.
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
   %cmp.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.i.i, %indvars.iv.next.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE_clEv.exit.i.i.i", !llvm.loop !313
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE_clEv.argprom.argprom.exit.i.i.i", !llvm.loop !313
 
-"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE_clEv.exit.i.i.i": ; preds = %for.body.i.i.i.i.i, %if.end.i.i.i
+"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %for.body.i.i.i.i.i, %if.end.i.i.i
   store i8 0, ptr %0, align 8
   br label %"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS1_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS3_ENK3$_7clEvEUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit"
 
-"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS1_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS3_ENK3$_7clEvEUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE_clEv.exit.i.i.i"
+"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS1_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS3_ENK3$_7clEvEUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE_clEv.argprom.argprom.exit.i.i.i"
   %retval.0.i.i.i = xor i1 %tobool.i.i.i, true
   ret i1 %retval.0.i.i.i
 }
@@ -33789,7 +33789,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %4 = load ptr, ptr %message_generators_.i.i.i.i.i, align 8
   %cmp9.not.i.i.i.i.i = icmp eq ptr %3, %4
-  br i1 %cmp9.not.i.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE0_clEv.exit.i.i.i", label %for.body.lr.ph.i.i.i.i.i
+  br i1 %cmp9.not.i.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE0_clEv.argprom.argprom.exit.i.i.i", label %for.body.lr.ph.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.end.i.i.i
   %message_generators_topologically_ordered_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i, i64 656
@@ -33814,13 +33814,13 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
   %cmp.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.i.i, %indvars.iv.next.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE0_clEv.exit.i.i.i", !llvm.loop !312
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE0_clEv.argprom.argprom.exit.i.i.i", !llvm.loop !312
 
-"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE0_clEv.exit.i.i.i": ; preds = %for.body.i.i.i.i.i, %if.end.i.i.i
+"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE0_clEv.argprom.argprom.exit.i.i.i": ; preds = %for.body.i.i.i.i.i, %if.end.i.i.i
   store i8 0, ptr %0, align 8
   br label %"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS1_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS3_ENK3$_7clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit"
 
-"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS1_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS3_ENK3$_7clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE0_clEv.exit.i.i.i"
+"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS1_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS3_ENK3$_7clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE0_clEv.argprom.argprom.exit.i.i.i"
   %retval.0.i.i.i = xor i1 %tobool.i.i.i, true
   ret i1 %retval.0.i.i.i
 }
@@ -33947,7 +33947,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %this.val.val2.i.i.i = load ptr, ptr %4, align 8
   %this.val1.val.i.i.i = load ptr, ptr %this.val1.i.i.i, align 8
   %cmp.i.not5.i.i.i.i.i = icmp eq ptr %this.val.val.i.i.i, %this.val.val2.i.i.i
-  br i1 %cmp.i.not5.i.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE2_clEv.exit.i.i.i", label %for.body.i.i.i.i.i
+  br i1 %cmp.i.not5.i.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE2_clEv.argprom.argprom.exit.i.i.i", label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.end.i.i.i, %for.inc.i.i.i.i.i
   %__begin3.sroa.0.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %this.val.val.i.i.i, %if.end.i.i.i ]
@@ -33963,13 +33963,13 @@ if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i
 for.inc.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i, %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.06.i.i.i.i.i, i64 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %this.val.val2.i.i.i
-  br i1 %cmp.i.not.i.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE2_clEv.exit.i.i.i", label %for.body.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE2_clEv.argprom.argprom.exit.i.i.i", label %for.body.i.i.i.i.i
 
-"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE2_clEv.exit.i.i.i": ; preds = %for.inc.i.i.i.i.i, %if.end.i.i.i
+"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE2_clEv.argprom.argprom.exit.i.i.i": ; preds = %for.inc.i.i.i.i.i, %if.end.i.i.i
   store i8 0, ptr %0, align 8
   br label %"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS1_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS3_ENK3$_7clEvEUlvE2_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit"
 
-"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS1_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS3_ENK3$_7clEvEUlvE2_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE2_clEv.exit.i.i.i"
+"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS1_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS3_ENK3$_7clEvEUlvE2_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE2_clEv.argprom.argprom.exit.i.i.i"
   %retval.0.i.i.i = xor i1 %tobool.i.i.i, true
   ret i1 %retval.0.i.i.i
 }
@@ -34034,7 +34034,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %4 = load ptr, ptr %message_generators_.i.i.i.i.i, align 8
   %cmp14.not.i.i.i.i.i = icmp eq ptr %3, %4
-  br i1 %cmp14.not.i.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE3_clEv.exit.i.i.i", label %for.body.i.i.i.i.i
+  br i1 %cmp14.not.i.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE3_clEv.argprom.argprom.exit.i.i.i", label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.end.i.i.i, %for.body.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %for.body.i.i.i.i.i ], [ 0, %if.end.i.i.i ]
@@ -34051,14 +34051,14 @@ for.body.i.i.i.i.i:                               ; preds = %if.end.i.i.i, %for.
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
   %cmp.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.i.i, %indvars.iv.next.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE3_clEv.exit.i.i.i", !llvm.loop !315
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE3_clEv.argprom.argprom.exit.i.i.i", !llvm.loop !315
 
-"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE3_clEv.exit.i.i.i": ; preds = %for.body.i.i.i.i.i, %if.end.i.i.i
+"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE3_clEv.argprom.argprom.exit.i.i.i": ; preds = %for.body.i.i.i.i.i, %if.end.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %this.val1.val.i.i.i, ptr null, i64 0, i64 84, ptr nonnull @.str.164)
   store i8 0, ptr %0, align 8
   br label %"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS1_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS3_ENK3$_7clEvEUlvE3_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit"
 
-"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS1_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS3_ENK3$_7clEvEUlvE3_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE3_clEv.exit.i.i.i"
+"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS1_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS3_ENK3$_7clEvEUlvE3_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPNS0_2io7PrinterEENK3$_7clEvENKUlvE3_clEv.argprom.argprom.exit.i.i.i"
   %retval.0.i.i.i = xor i1 %tobool.i.i.i, true
   ret i1 %retval.0.i.i.i
 }
@@ -36213,20 +36213,20 @@ if.end.i.i.i:                                     ; preds = %entry
   %transitive_pb_h.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i, i64 258
   %2 = load i8, ptr %transitive_pb_h.i.i.i.i, align 2
   %tobool.i.i.i.i = trunc i8 %2 to i1
-  br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator16GeneratePBHeaderEPNS0_2io7PrinterESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvENKUlvE0_clEv.exit.i.i.i"
+  br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator16GeneratePBHeaderEPNS0_2io7PrinterESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvENKUlvE0_clEv.argprom.exit.i.i.i"
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %3 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %this.val1.i.i.i = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %this.val1.i.i.i, align 8
   tail call void @_ZN6google8protobuf8compiler3cpp13FileGenerator26GenerateDependencyIncludesEPNS0_2io7PrinterE(ptr noundef nonnull align 8 dereferenceable(752) %this.val.i.i.i, ptr noundef %4)
-  br label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator16GeneratePBHeaderEPNS0_2io7PrinterESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvENKUlvE0_clEv.exit.i.i.i"
+  br label %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator16GeneratePBHeaderEPNS0_2io7PrinterESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvENKUlvE0_clEv.argprom.exit.i.i.i"
 
-"_ZZZN6google8protobuf8compiler3cpp13FileGenerator16GeneratePBHeaderEPNS0_2io7PrinterESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvENKUlvE0_clEv.exit.i.i.i": ; preds = %if.then.i.i.i.i, %if.end.i.i.i
+"_ZZZN6google8protobuf8compiler3cpp13FileGenerator16GeneratePBHeaderEPNS0_2io7PrinterESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvENKUlvE0_clEv.argprom.exit.i.i.i": ; preds = %if.then.i.i.i.i, %if.end.i.i.i
   store i8 0, ptr %0, align 8
   br label %"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS1_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS3_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSD_SaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISQ_T0_DpT1_EESQ_E4typeEOSW_DpOSX_.exit"
 
-"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS1_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS3_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSD_SaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISQ_T0_DpT1_EESQ_E4typeEOSW_DpOSX_.exit": ; preds = %entry, %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator16GeneratePBHeaderEPNS0_2io7PrinterESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvENKUlvE0_clEv.exit.i.i.i"
+"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS1_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS3_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSD_SaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISQ_T0_DpT1_EESQ_E4typeEOSW_DpOSX_.exit": ; preds = %entry, %"_ZZZN6google8protobuf8compiler3cpp13FileGenerator16GeneratePBHeaderEPNS0_2io7PrinterESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvENKUlvE0_clEv.argprom.exit.i.i.i"
   %retval.0.i.i.i = xor i1 %tobool.i.i.i, true
   ret i1 %retval.0.i.i.i
 }
@@ -37749,7 +37749,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp = icmp slt i64 %indvars.iv.next, %5
   br i1 %cmp, label %for.body, label %for.cond3.preheader, !llvm.loop !641
 
-for.cond12.preheader:                             ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit", %for.cond3.preheader
+for.cond12.preheader:                             ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit", %for.cond3.preheader
   %field_count_.i = getelementptr inbounds i8, ptr %d, i64 4
   %6 = load i32, ptr %field_count_.i, align 4
   %cmp1446 = icmp sgt i32 %6, 0
@@ -37760,8 +37760,8 @@ for.body15.lr.ph:                                 ; preds = %for.cond12.preheade
   %7 = getelementptr inbounds i8, ptr %func, i64 8
   br label %for.body15
 
-for.body6:                                        ; preds = %for.body6.lr.ph, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit"
-  %indvars.iv49 = phi i64 [ 0, %for.body6.lr.ph ], [ %indvars.iv.next50, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit" ]
+for.body6:                                        ; preds = %for.body6.lr.ph, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit"
+  %indvars.iv49 = phi i64 [ 0, %for.body6.lr.ph ], [ %indvars.iv.next50, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit" ]
   %8 = load ptr, ptr %extensions_.i, align 8
   %add.ptr.i18 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %8, i64 %indvars.iv49
   %func.val = load ptr, ptr %func, align 8
@@ -37771,7 +37771,7 @@ for.body6:                                        ; preds = %for.body6.lr.ph, %"
   %call.i.i = call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i18)
   store ptr %call.i.i, ptr %msg.i.i, align 8
   %cmp.i.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp.i.i, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit", label %if.end.i.i
+  br i1 %cmp.i.i, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit", label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body6
   %options_.i.i = getelementptr inbounds i8, ptr %func.val, i64 64
@@ -37805,13 +37805,13 @@ cond.false.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i: ; preds = %lor.lhs.false.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit"
+  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit"
 
 if.then5.i.i:                                     ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i, %if.end.i.i
   call void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIPKN6google8protobuf10DescriptorENS5_8compiler3cpp13FileGenerator19CrossFileReferences11DescCompareESaIS8_ELi256ELb0EEEE13insert_uniqueIS8_JRKS8_EEESt4pairINS1_14btree_iteratorINS1_10btree_nodeISF_EERS8_PS8_EEbERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.260") align 8 %tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %func.val14, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit"
+  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit"
 
-"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit": ; preds = %for.body6, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i, %if.then5.i.i
+"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit": ; preds = %for.body6, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i, %if.then5.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %msg.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i.i)
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
@@ -37820,8 +37820,8 @@ if.then5.i.i:                                     ; preds = %_ZN6google8protobuf
   %cmp5 = icmp slt i64 %indvars.iv.next50, %13
   br i1 %cmp5, label %for.body6, label %for.cond12.preheader, !llvm.loop !642
 
-for.body15:                                       ; preds = %for.body15.lr.ph, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit41"
-  %indvars.iv52 = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next53, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit41" ]
+for.body15:                                       ; preds = %for.body15.lr.ph, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit41"
+  %indvars.iv52 = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next53, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit41" ]
   %14 = load ptr, ptr %fields_.i, align 8
   %add.ptr.i20 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %14, i64 %indvars.iv52
   %func.val15 = load ptr, ptr %func, align 8
@@ -37831,7 +37831,7 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
   %call.i.i24 = call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i20)
   store ptr %call.i.i24, ptr %msg.i.i22, align 8
   %cmp.i.i25 = icmp eq ptr %call.i.i24, null
-  br i1 %cmp.i.i25, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit41", label %if.end.i.i26
+  br i1 %cmp.i.i25, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit41", label %if.end.i.i26
 
 if.end.i.i26:                                     ; preds = %for.body15
   %options_.i.i27 = getelementptr inbounds i8, ptr %func.val15, i64 64
@@ -37865,13 +37865,13 @@ cond.false.i.i.i40:                               ; preds = %if.then.i.i.i35
 
 _ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i34: ; preds = %lor.lhs.false.i.i30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i21)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit41"
+  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit41"
 
 if.then5.i.i39:                                   ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i38, %if.end.i.i26
   call void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIPKN6google8protobuf10DescriptorENS5_8compiler3cpp13FileGenerator19CrossFileReferences11DescCompareESaIS8_ELi256ELb0EEEE13insert_uniqueIS8_JRKS8_EEESt4pairINS1_14btree_iteratorINS1_10btree_nodeISF_EERS8_PS8_EEbERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.260") align 8 %tmp.i.i23, ptr noundef nonnull align 8 dereferenceable(24) %func.val16, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i22, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i22)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit41"
+  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit41"
 
-"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit41": ; preds = %for.body15, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i34, %if.then5.i.i39
+"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit41": ; preds = %for.body15, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i34, %if.then5.i.i39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %msg.i.i22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i.i23)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
@@ -37880,7 +37880,7 @@ if.then5.i.i39:                                   ; preds = %_ZN6google8protobuf
   %cmp14 = icmp slt i64 %indvars.iv.next53, %19
   br i1 %cmp14, label %for.body15, label %for.end19, !llvm.loop !643
 
-for.end19:                                        ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit41", %for.cond12.preheader
+for.end19:                                        ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.argprom.exit41", %for.cond12.preheader
   ret void
 }
 
@@ -41908,7 +41908,7 @@ invoke.cont9.i.i.i.i.i:                           ; preds = %invoke.cont7.i.i.i.
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 176
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %args, ptr nonnull %ref.tmp.i.i.i.i.i, i64 1, i64 66, ptr nonnull @.str.242)
-          to label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN6google8protobuf8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPNS4_2io7PrinterEE3$_0JSA_EvEEvOT0_DpOT1_.exit" unwind label %lpad12.i.i.i.i.i
+          to label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN6google8protobuf8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPNS4_2io7PrinterEE3$_0JSA_EvEEvOT0_DpOT1_.argprom.exit" unwind label %lpad12.i.i.i.i.i
 
 lpad.i.i.i.i.i:                                   ; preds = %call.i.noexc.i.i.i.i.i, %entry
   %7 = landingpad { ptr, i32 }
@@ -41941,7 +41941,7 @@ ehcleanup22.i.i.i.i.i:                            ; preds = %ehcleanup21.i.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i.i.i.i.i) #24
   resume { ptr, i32 } %.pn.pn.pn.i.i.i.i.i
 
-"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN6google8protobuf8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPNS4_2io7PrinterEE3$_0JSA_EvEEvOT0_DpOT1_.exit": ; preds = %invoke.cont9.i.i.i.i.i
+"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN6google8protobuf8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPNS4_2io7PrinterEE3$_0JSA_EvEEvOT0_DpOT1_.argprom.exit": ; preds = %invoke.cont9.i.i.i.i.i
   call void @_ZN6google8protobuf2io7Printer3SubD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %ref.tmp.i.i.i.i.i) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i.i.i.i.i) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i.i) #24
@@ -43836,33 +43836,33 @@ attributes #29 = { noreturn }
 !138 = distinct !{!138, !139, !"_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE6insertINSt7__cxx1112basic_stringIcS6_SaIcEEETnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S7_ENSC_22SameAsElementReferenceISM_EEEE5valueEiE4typeELi0ETnNSI_IXsr14IsDecomposableISM_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbESM_: %agg.result"}
 !139 = distinct !{!139, !"_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE6insertINSt7__cxx1112basic_stringIcS6_SaIcEEETnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S7_ENSC_22SameAsElementReferenceISM_EEEE5valueEiE4typeELi0ETnNSI_IXsr14IsDecomposableISM_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbESM_"}
 !140 = !{!141}
-!141 = distinct !{!141, !142, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!142 = distinct !{!142, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!141 = distinct !{!141, !142, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!142 = distinct !{!142, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !143 = !{!144}
-!144 = distinct !{!144, !145, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!145 = distinct !{!145, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!144 = distinct !{!144, !145, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!145 = distinct !{!145, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!148 = distinct !{!148, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!147 = distinct !{!147, !148, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!148 = distinct !{!148, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !149 = !{!150}
-!150 = distinct !{!150, !151, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!151 = distinct !{!151, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!150 = distinct !{!150, !151, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!151 = distinct !{!151, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !152 = !{!153}
-!153 = distinct !{!153, !154, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!154 = distinct !{!154, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!153 = distinct !{!153, !154, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!154 = distinct !{!154, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!157 = distinct !{!157, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!156 = distinct !{!156, !157, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!157 = distinct !{!157, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !158 = !{!159}
-!159 = distinct !{!159, !160, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_6vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!160 = distinct !{!160, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_6vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!159 = distinct !{!159, !160, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_6vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!160 = distinct !{!160, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_6vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_7vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!163 = distinct !{!163, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_7vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!162 = distinct !{!162, !163, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_7vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!163 = distinct !{!163, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_E3$_7vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !164 = distinct !{!164, !8}
 !165 = !{!166}
-!166 = distinct !{!166, !167, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator29GenerateSourceDefaultInstanceEiPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!167 = distinct !{!167, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator29GenerateSourceDefaultInstanceEiPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!166 = distinct !{!166, !167, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator29GenerateSourceDefaultInstanceEiPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!167 = distinct !{!167, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator29GenerateSourceDefaultInstanceEiPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !168 = distinct !{!168, !8}
 !169 = distinct !{!169, !8}
 !170 = distinct !{!170, !8}
@@ -43873,39 +43873,39 @@ attributes #29 = { noreturn }
 !175 = distinct !{!175, !8}
 !176 = distinct !{!176, !8}
 !177 = !{!178}
-!178 = distinct !{!178, !179, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!179 = distinct !{!179, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!178 = distinct !{!178, !179, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!179 = distinct !{!179, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !180 = !{!181}
-!181 = distinct !{!181, !182, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!182 = distinct !{!182, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!181 = distinct !{!181, !182, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!182 = distinct !{!182, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !183 = distinct !{!183, !8}
 !184 = distinct !{!184, !8}
 !185 = distinct !{!185, !8}
 !186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator25GenerateStaticInitializerEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!188 = distinct !{!188, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator25GenerateStaticInitializerEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!187 = distinct !{!187, !188, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator25GenerateStaticInitializerEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!188 = distinct !{!188, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator25GenerateStaticInitializerEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !189 = distinct !{!189, !8}
 !190 = !{!191}
-!191 = distinct !{!191, !192, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!192 = distinct !{!192, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!191 = distinct !{!191, !192, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!192 = distinct !{!192, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !193 = !{!194}
-!194 = distinct !{!194, !195, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!195 = distinct !{!195, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!194 = distinct !{!194, !195, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!195 = distinct !{!195, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !196 = !{!197}
-!197 = distinct !{!197, !198, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!198 = distinct !{!198, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!197 = distinct !{!197, !198, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!198 = distinct !{!198, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !199 = !{!200}
-!200 = distinct !{!200, !201, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!201 = distinct !{!201, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!200 = distinct !{!200, !201, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!201 = distinct !{!201, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !202 = !{!203}
 !203 = distinct !{!203, !204, !"_ZN6google8protobuf8compiler3cpp10UniqueNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_14FileDescriptorERKNS2_7OptionsE: %agg.result"}
 !204 = distinct !{!204, !"_ZN6google8protobuf8compiler3cpp10UniqueNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_14FileDescriptorERKNS2_7OptionsE"}
 !205 = !{!206}
-!206 = distinct !{!206, !207, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_6vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!207 = distinct !{!207, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_6vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!206 = distinct !{!206, !207, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_6vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!207 = distinct !{!207, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_6vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !208 = !{!209}
-!209 = distinct !{!209, !210, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_7vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!210 = distinct !{!210, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_7vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!209 = distinct !{!209, !210, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_7vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!210 = distinct !{!210, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13FileGenerator36GenerateReflectionInitializationCodeEPS2_E3$_7vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !211 = !{!212}
 !212 = distinct !{!212, !213, !"_ZN6google8protobuf8compiler3cppL42GetMessagesToPinGloballyForWeakDescriptorsEPKNS0_14FileDescriptorE: %agg.result"}
 !213 = distinct !{!213, !"_ZN6google8protobuf8compiler3cppL42GetMessagesToPinGloballyForWeakDescriptorsEPKNS0_14FileDescriptorE"}
@@ -43917,10 +43917,10 @@ attributes #29 = { noreturn }
 !219 = !{!220, !222, !224}
 !220 = distinct !{!220, !221, !"_ZN4absl12lts_2023080216strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN6google8protobuf8compiler3cpp16MessageGeneratorESt14default_deleteISA_EESt6vectorISD_SaISD_EEEERZNS9_13FileGenerator36GenerateReflectionInitializationCodeEPNS7_2io7PrinterEE3$_8EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SW_St17basic_string_viewIcST_EOT0_: %agg.result"}
 !221 = distinct !{!221, !"_ZN4absl12lts_2023080216strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN6google8protobuf8compiler3cpp16MessageGeneratorESt14default_deleteISA_EESt6vectorISD_SaISD_EEEERZNS9_13FileGenerator36GenerateReflectionInitializationCodeEPNS7_2io7PrinterEE3$_8EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SW_St17basic_string_viewIcST_EOT0_"}
-!222 = distinct !{!222, !223, !"_ZN4absl12lts_2023080216strings_internal9JoinRangeISt6vectorISt10unique_ptrIN6google8protobuf8compiler3cpp16MessageGeneratorESt14default_deleteIS9_EESaISC_EERZNS8_13FileGenerator36GenerateReflectionInitializationCodeEPNS6_2io7PrinterEE3$_8EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_St17basic_string_viewIcSO_EOT0_: %agg.result"}
-!223 = distinct !{!223, !"_ZN4absl12lts_2023080216strings_internal9JoinRangeISt6vectorISt10unique_ptrIN6google8protobuf8compiler3cpp16MessageGeneratorESt14default_deleteIS9_EESaISC_EERZNS8_13FileGenerator36GenerateReflectionInitializationCodeEPNS6_2io7PrinterEE3$_8EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_St17basic_string_viewIcSO_EOT0_"}
-!224 = distinct !{!224, !225, !"_ZN4absl12lts_202308027StrJoinISt6vectorISt10unique_ptrIN6google8protobuf8compiler3cpp16MessageGeneratorESt14default_deleteIS8_EESaISB_EEZNS7_13FileGenerator36GenerateReflectionInitializationCodeEPNS5_2io7PrinterEE3$_8EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_St17basic_string_viewIcSM_EOT0_: %agg.result"}
-!225 = distinct !{!225, !"_ZN4absl12lts_202308027StrJoinISt6vectorISt10unique_ptrIN6google8protobuf8compiler3cpp16MessageGeneratorESt14default_deleteIS8_EESaISB_EEZNS7_13FileGenerator36GenerateReflectionInitializationCodeEPNS5_2io7PrinterEE3$_8EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_St17basic_string_viewIcSM_EOT0_"}
+!222 = distinct !{!222, !223, !"_ZN4absl12lts_2023080216strings_internal9JoinRangeISt6vectorISt10unique_ptrIN6google8protobuf8compiler3cpp16MessageGeneratorESt14default_deleteIS9_EESaISC_EERZNS8_13FileGenerator36GenerateReflectionInitializationCodeEPNS6_2io7PrinterEE3$_8EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_St17basic_string_viewIcSO_EOT0_.argprom: %agg.result"}
+!223 = distinct !{!223, !"_ZN4absl12lts_2023080216strings_internal9JoinRangeISt6vectorISt10unique_ptrIN6google8protobuf8compiler3cpp16MessageGeneratorESt14default_deleteIS9_EESaISC_EERZNS8_13FileGenerator36GenerateReflectionInitializationCodeEPNS6_2io7PrinterEE3$_8EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_St17basic_string_viewIcSO_EOT0_.argprom"}
+!224 = distinct !{!224, !225, !"_ZN4absl12lts_202308027StrJoinISt6vectorISt10unique_ptrIN6google8protobuf8compiler3cpp16MessageGeneratorESt14default_deleteIS8_EESaISB_EEZNS7_13FileGenerator36GenerateReflectionInitializationCodeEPNS5_2io7PrinterEE3$_8EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_St17basic_string_viewIcSM_EOT0_.argprom: %agg.result"}
+!225 = distinct !{!225, !"_ZN4absl12lts_202308027StrJoinISt6vectorISt10unique_ptrIN6google8protobuf8compiler3cpp16MessageGeneratorESt14default_deleteIS8_EESaISB_EEZNS7_13FileGenerator36GenerateReflectionInitializationCodeEPNS5_2io7PrinterEE3$_8EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_St17basic_string_viewIcSM_EOT0_.argprom"}
 !226 = distinct !{!226, !8}
 !227 = distinct !{!227, !8}
 !228 = distinct !{!228, !8}
@@ -44281,45 +44281,45 @@ attributes #29 = { noreturn }
 !583 = distinct !{!583, !584, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_5Rank1E: %agg.result"}
 !584 = distinct !{!584, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_5Rank1E"}
 !585 = !{!586}
-!586 = distinct !{!586, !587, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!587 = distinct !{!587, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!586 = distinct !{!586, !587, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!587 = distinct !{!587, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !588 = !{!589}
-!589 = distinct !{!589, !590, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!590 = distinct !{!590, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!589 = distinct !{!589, !590, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!590 = distinct !{!590, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !591 = !{!592}
-!592 = distinct !{!592, !593, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE1_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!593 = distinct !{!593, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE1_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!592 = distinct !{!592, !593, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE1_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!593 = distinct !{!593, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE1_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !594 = !{!595}
-!595 = distinct !{!595, !596, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE2_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!596 = distinct !{!596, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE2_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!595 = distinct !{!595, !596, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE2_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!596 = distinct !{!596, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE2_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !597 = !{!598}
-!598 = distinct !{!598, !599, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE3_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!599 = distinct !{!599, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE3_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!598 = distinct !{!598, !599, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE3_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!599 = distinct !{!599, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator24GenerateSharedHeaderCodeEPS2_ENK3$_7clEvEUlvE3_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !600 = !{!601}
-!601 = distinct !{!601, !602, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator19GenerateProtoHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!602 = distinct !{!602, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator19GenerateProtoHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!601 = distinct !{!601, !602, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator19GenerateProtoHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!602 = distinct !{!602, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator19GenerateProtoHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !603 = !{!604}
-!604 = distinct !{!604, !605, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator19GenerateProtoHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!605 = distinct !{!605, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator19GenerateProtoHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!604 = distinct !{!604, !605, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator19GenerateProtoHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!605 = distinct !{!605, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator19GenerateProtoHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !606 = !{!607}
-!607 = distinct !{!607, !608, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator19GenerateProtoHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE1_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!608 = distinct !{!608, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator19GenerateProtoHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE1_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!607 = distinct !{!607, !608, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator19GenerateProtoHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE1_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!608 = distinct !{!608, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator19GenerateProtoHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE1_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !609 = !{!610}
-!610 = distinct !{!610, !611, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator19GenerateProtoHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE2_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!611 = distinct !{!611, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator19GenerateProtoHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE2_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!610 = distinct !{!610, !611, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator19GenerateProtoHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE2_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!611 = distinct !{!611, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator19GenerateProtoHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE2_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !612 = distinct !{!612, !8}
 !613 = !{!614}
-!614 = distinct !{!614, !615, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!615 = distinct !{!615, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!614 = distinct !{!614, !615, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!615 = distinct !{!615, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !616 = !{!617}
-!617 = distinct !{!617, !618, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!618 = distinct !{!618, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!617 = distinct !{!617, !618, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!618 = distinct !{!618, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE0_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !619 = !{!620}
-!620 = distinct !{!620, !621, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE1_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!621 = distinct !{!621, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE1_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!620 = distinct !{!620, !621, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE1_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!621 = distinct !{!621, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE1_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !622 = !{!623}
-!623 = distinct !{!623, !624, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE2_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
-!624 = distinct !{!624, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE2_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
+!623 = distinct !{!623, !624, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE2_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
+!624 = distinct !{!624, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZZNS0_8compiler3cpp13FileGenerator16GeneratePBHeaderEPS2_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEvEUlvE2_vEESt7variantIJNSt7__cxx1112basic_stringIcSC_SaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
 !625 = !{!626}
 !626 = distinct !{!626, !627, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_5Rank1E: %agg.result"}
 !627 = distinct !{!627, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_5Rank1E"}

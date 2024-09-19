@@ -1512,13 +1512,13 @@ entry:
   %cmd_done.i = getelementptr inbounds i8, ptr %4, i64 64
   %5 = load ptr, ptr %cmd_done.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i, label %ide_cmd_done.exit, label %if.then.i
+  br i1 %tobool.not.i, label %ide_cmd_done.argprom.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void %5(ptr noundef nonnull %s.val.val) #17
-  br label %ide_cmd_done.exit
+  br label %ide_cmd_done.argprom.argprom.exit
 
-ide_cmd_done.exit:                                ; preds = %entry, %if.then.i
+ide_cmd_done.argprom.argprom.exit:                ; preds = %entry, %if.then.i
   ret void
 }
 
@@ -2221,13 +2221,13 @@ if.end:                                           ; preds = %if.then, %entry
   %cmd_done.i = getelementptr inbounds i8, ptr %9, i64 64
   %10 = load ptr, ptr %cmd_done.i, align 8
   %tobool.not.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i, label %ide_cmd_done.exit, label %if.then.i
+  br i1 %tobool.not.i, label %ide_cmd_done.argprom.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   tail call void %10(ptr noundef nonnull %s.val.val) #17
-  br label %ide_cmd_done.exit
+  br label %ide_cmd_done.argprom.argprom.exit
 
-ide_cmd_done.exit:                                ; preds = %if.end, %if.then.i
+ide_cmd_done.argprom.argprom.exit:                ; preds = %if.end, %if.then.i
   ret void
 }
 
@@ -2753,14 +2753,14 @@ if.end49:                                         ; preds = %if.end37, %if.then4
   %cmd_done.i = getelementptr inbounds i8, ptr %29, i64 64
   %30 = load ptr, ptr %cmd_done.i, align 8
   %tobool.not.i33 = icmp eq ptr %30, null
-  br i1 %tobool.not.i33, label %ide_cmd_done.exit, label %if.then.i34
+  br i1 %tobool.not.i33, label %ide_cmd_done.argprom.argprom.exit, label %if.then.i34
 
 if.then.i34:                                      ; preds = %if.end49
   tail call void %30(ptr noundef nonnull %call.val.val) #17
   %.pre = load ptr, ptr %add.ptr.i, align 8
-  br label %ide_cmd_done.exit
+  br label %ide_cmd_done.argprom.argprom.exit
 
-ide_cmd_done.exit:                                ; preds = %if.end49, %if.then.i34
+ide_cmd_done.argprom.argprom.exit:                ; preds = %if.end49, %if.then.i34
   %31 = phi ptr [ %call.val, %if.end49 ], [ %.pre, %if.then.i34 ]
   %cmd.i35 = getelementptr inbounds i8, ptr %31, i64 2129
   %32 = load i8, ptr %cmd.i35, align 1
@@ -2768,14 +2768,14 @@ ide_cmd_done.exit:                                ; preds = %if.end49, %if.then.
   %tobool.not.i36 = icmp eq i8 %33, 0
   br i1 %tobool.not.i36, label %if.end51.sink.split, label %if.end51
 
-if.end51.sink.split:                              ; preds = %ide_cmd_done.exit, %ide_abort_command.exit
-  %.sink = phi ptr [ %17, %ide_abort_command.exit ], [ %31, %ide_cmd_done.exit ]
+if.end51.sink.split:                              ; preds = %ide_cmd_done.argprom.argprom.exit, %ide_abort_command.exit
+  %.sink = phi ptr [ %17, %ide_abort_command.exit ], [ %31, %ide_cmd_done.argprom.argprom.exit ]
   %irq.i38 = getelementptr inbounds i8, ptr %.sink, i64 2136
   %34 = load ptr, ptr %irq.i38, align 8
   tail call void @qemu_set_irq(ptr noundef %34, i32 noundef 1) #17
   br label %if.end51
 
-if.end51:                                         ; preds = %if.end51.sink.split, %ide_cmd_done.exit, %ide_abort_command.exit, %if.then2, %lor.lhs.false, %land.lhs.true, %if.end13
+if.end51:                                         ; preds = %if.end51.sink.split, %ide_cmd_done.argprom.argprom.exit, %ide_abort_command.exit, %if.then2, %lor.lhs.false, %land.lhs.true, %if.end13
   ret void
 }
 
@@ -8158,14 +8158,14 @@ if.end7.i:                                        ; preds = %entry
   %cmd_done.i.i = getelementptr inbounds i8, ptr %2, i64 64
   %3 = load ptr, ptr %cmd_done.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i, label %ide_cmd_done.exit.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %ide_cmd_done.argprom.argprom.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end7.i
   tail call void %3(ptr noundef nonnull %opaque.val.val.i) #17
   %.pre.i = load ptr, ptr %s, align 8
-  br label %ide_cmd_done.exit.i
+  br label %ide_cmd_done.argprom.argprom.exit.i
 
-ide_cmd_done.exit.i:                              ; preds = %if.then.i.i, %if.end7.i
+ide_cmd_done.argprom.argprom.exit.i:              ; preds = %if.then.i.i, %if.end7.i
   %4 = phi ptr [ %opaque.val.i, %if.end7.i ], [ %.pre.i, %if.then.i.i ]
   %cmd.i.i = getelementptr inbounds i8, ptr %4, i64 2129
   %5 = load i8, ptr %cmd.i.i, align 1
@@ -8173,7 +8173,7 @@ ide_cmd_done.exit.i:                              ; preds = %if.then.i.i, %if.en
   %tobool.not.i9.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i9.i, label %if.then.i10.i, label %return
 
-if.then.i10.i:                                    ; preds = %ide_cmd_done.exit.i
+if.then.i10.i:                                    ; preds = %ide_cmd_done.argprom.argprom.exit.i
   %irq.i.i = getelementptr inbounds i8, ptr %4, i64 2136
   %7 = load ptr, ptr %irq.i.i, align 8
   tail call void @qemu_set_irq(ptr noundef %7, i32 noundef 1) #17
@@ -8288,7 +8288,7 @@ ide_set_retry.exit:                               ; preds = %if.then2.i.i, %if.e
   store ptr %call4, ptr %pio_aiocb, align 8
   br label %return
 
-return:                                           ; preds = %if.then.i10.i, %ide_cmd_done.exit.i, %ide_set_retry.exit
+return:                                           ; preds = %if.then.i10.i, %ide_cmd_done.argprom.argprom.exit.i, %ide_set_retry.exit
   ret void
 }
 
@@ -8328,14 +8328,14 @@ if.end7:                                          ; preds = %if.then4, %if.end2
   %cmd_done.i = getelementptr inbounds i8, ptr %2, i64 64
   %3 = load ptr, ptr %cmd_done.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i, label %ide_cmd_done.exit, label %if.then.i
+  br i1 %tobool.not.i, label %ide_cmd_done.argprom.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end7
   tail call void %3(ptr noundef nonnull %opaque.val.val) #17
   %.pre = load ptr, ptr %opaque, align 8
-  br label %ide_cmd_done.exit
+  br label %ide_cmd_done.argprom.argprom.exit
 
-ide_cmd_done.exit:                                ; preds = %if.end7, %if.then.i
+ide_cmd_done.argprom.argprom.exit:                ; preds = %if.end7, %if.then.i
   %4 = phi ptr [ %opaque.val, %if.end7 ], [ %.pre, %if.then.i ]
   %cmd.i = getelementptr inbounds i8, ptr %4, i64 2129
   %5 = load i8, ptr %cmd.i, align 1
@@ -8343,13 +8343,13 @@ ide_cmd_done.exit:                                ; preds = %if.end7, %if.then.i
   %tobool.not.i9 = icmp eq i8 %6, 0
   br i1 %tobool.not.i9, label %if.then.i10, label %return
 
-if.then.i10:                                      ; preds = %ide_cmd_done.exit
+if.then.i10:                                      ; preds = %ide_cmd_done.argprom.argprom.exit
   %irq.i = getelementptr inbounds i8, ptr %4, i64 2136
   %7 = load ptr, ptr %irq.i, align 8
   tail call void @qemu_set_irq(ptr noundef %7, i32 noundef 1) #17
   br label %return
 
-return:                                           ; preds = %if.then.i10, %ide_cmd_done.exit, %if.then
+return:                                           ; preds = %if.then.i10, %ide_cmd_done.argprom.argprom.exit, %if.then
   ret void
 }
 

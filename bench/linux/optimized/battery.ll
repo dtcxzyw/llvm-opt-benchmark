@@ -156,7 +156,7 @@ define dso_local void @battery_hook_unregister(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__battery_hook_unregister(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @__battery_hook_unregister.argelim(ptr noundef %0) unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @hook_mutex) #11
   %2 = load ptr, ptr @acpi_battery_list, align 8
   %3 = icmp eq ptr %2, @acpi_battery_list
@@ -314,7 +314,7 @@ define internal void @battery_hook_exit() #4 section ".exit.text" align 16 {
   %3 = phi ptr [ %5, %.preheader ], [ %1, %0 ]
   %4 = getelementptr i8, ptr %3, i64 -24
   %5 = load ptr, ptr %3, align 8
-  tail call fastcc void @__battery_hook_unregister(ptr noundef %4)
+  tail call fastcc void @__battery_hook_unregister.argelim(ptr noundef %4)
   %6 = icmp eq ptr %5, @battery_hook_list
   br i1 %6, label %.loopexit, label %.preheader, !llvm.loop !9
 
@@ -341,7 +341,7 @@ define internal void @acpi_battery_exit() #4 section ".exit.text" align 16 {
   %8 = phi ptr [ %10, %.preheader ], [ %6, %5 ]
   %9 = getelementptr i8, ptr %8, i64 -24
   %10 = load ptr, ptr %8, align 8
-  tail call fastcc void @__battery_hook_unregister(ptr noundef %9)
+  tail call fastcc void @__battery_hook_unregister.argelim(ptr noundef %9)
   %11 = icmp eq ptr %10, @battery_hook_list
   br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !9
 
@@ -417,7 +417,7 @@ define internal i32 @acpi_battery_add(ptr noundef %0) #0 align 16 {
 
 24:                                               ; preds = %.preheader, %28
   %25 = phi i32 [ %29, %28 ], [ 5, %.preheader ]
-  %26 = tail call fastcc i32 @acpi_battery_update(ptr noundef nonnull %9)
+  %26 = tail call fastcc i32 @acpi_battery_update.argelim(ptr noundef nonnull %9)
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %31, label %28
 
@@ -595,7 +595,7 @@ define internal void @acpi_battery_notify(ptr nocapture readnone %0, i32 noundef
   br label %25
 
 25:                                               ; preds = %23, %17, %14, %12
-  %26 = tail call fastcc i32 @acpi_battery_update(ptr noundef nonnull %5)
+  %26 = tail call fastcc i32 @acpi_battery_update.argelim(ptr noundef nonnull %5)
   %27 = getelementptr inbounds i8, ptr %2, i64 208
   %28 = getelementptr inbounds i8, ptr %2, i64 696
   %29 = load ptr, ptr %28, align 8
@@ -699,7 +699,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @acpi_battery_update(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @acpi_battery_update.argelim(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @acpi_bus_get_status(ptr noundef %3) #11

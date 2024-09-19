@@ -68,15 +68,15 @@ define dso_local noundef range(i32 0, 11) i32 @_Z17testDynamicLoaderiPPc(i32 nou
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii(ptr noundef %7, ptr noundef %9, i32 noundef 1, i32 noundef 1, i32 noundef 1)
+  %10 = tail call fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii.argelim(ptr noundef %7, ptr noundef %9, i32 noundef 1, i32 noundef 1, i32 noundef 1)
   br label %54
 
 11:                                               ; preds = %2
-  %12 = tail call fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %13 = tail call fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %14 = tail call fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %15 = tail call fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 1, i32 noundef 1, i32 noundef 1)
-  %16 = tail call fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 1, i32 noundef 0, i32 noundef 1)
+  %12 = tail call fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii.argelim(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %13 = tail call fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii.argelim(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %14 = tail call fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii.argelim(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %15 = tail call fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii.argelim(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 1, i32 noundef 1, i32 noundef 1)
+  %16 = tail call fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii.argelim(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 1, i32 noundef 0, i32 noundef 1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
   %17 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.19)
           to label %20 unwind label %18
@@ -105,31 +105,31 @@ common.resume:                                    ; preds = %52, %18
 
 26:                                               ; preds = %24
   %27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.22)
-          to label %_ZL10GetLibNameB5cxx11PKcS0_.exit unwind label %18
+          to label %_ZL10GetLibNameB5cxx11PKcS0_.argprom.exit unwind label %18
 
-_ZL10GetLibNameB5cxx11PKcS0_.exit:                ; preds = %26
+_ZL10GetLibNameB5cxx11PKcS0_.argprom.exit:        ; preds = %26
   %28 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  %29 = invoke fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii(ptr noundef %28, ptr noundef nonnull @.str.9, i32 noundef 1, i32 noundef 0, i32 noundef 1)
+  %29 = invoke fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii.argelim(ptr noundef %28, ptr noundef nonnull @.str.9, i32 noundef 1, i32 noundef 0, i32 noundef 1)
           to label %30 unwind label %52
 
-30:                                               ; preds = %_ZL10GetLibNameB5cxx11PKcS0_.exit
+30:                                               ; preds = %_ZL10GetLibNameB5cxx11PKcS0_.argprom.exit
   %31 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  %32 = invoke fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii(ptr noundef %31, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 1, i32 noundef 1)
+  %32 = invoke fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii.argelim(ptr noundef %31, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 1, i32 noundef 1)
           to label %33 unwind label %52
 
 33:                                               ; preds = %30
   %34 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  %35 = invoke fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii(ptr noundef %34, ptr noundef nonnull @.str.11, i32 noundef 1, i32 noundef 0, i32 noundef 1)
+  %35 = invoke fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii.argelim(ptr noundef %34, ptr noundef nonnull @.str.11, i32 noundef 1, i32 noundef 0, i32 noundef 1)
           to label %36 unwind label %52
 
 36:                                               ; preds = %33
   %37 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  %38 = invoke fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii(ptr noundef %37, ptr noundef nonnull @.str.12, i32 noundef 1, i32 noundef 1, i32 noundef 1)
+  %38 = invoke fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii.argelim(ptr noundef %37, ptr noundef nonnull @.str.12, i32 noundef 1, i32 noundef 1, i32 noundef 1)
           to label %39 unwind label %52
 
 39:                                               ; preds = %36
   %40 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  %41 = invoke fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii(ptr noundef %40, ptr noundef nonnull @.str.13, i32 noundef 1, i32 noundef 0, i32 noundef 1)
+  %41 = invoke fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii.argelim(ptr noundef %40, ptr noundef nonnull @.str.13, i32 noundef 1, i32 noundef 0, i32 noundef 1)
           to label %42 unwind label %52
 
 42:                                               ; preds = %39
@@ -145,7 +145,7 @@ _ZL10GetLibNameB5cxx11PKcS0_.exit:                ; preds = %26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
   br label %54
 
-52:                                               ; preds = %39, %36, %33, %30, %_ZL10GetLibNameB5cxx11PKcS0_.exit
+52:                                               ; preds = %39, %36, %33, %30, %_ZL10GetLibNameB5cxx11PKcS0_.argprom.exit
   %53 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
@@ -156,7 +156,7 @@ _ZL10GetLibNameB5cxx11PKcS0_.exit:                ; preds = %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL17TestDynamicLoaderPKcS0_iiii(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL17TestDynamicLoaderPKcS0_iiii.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8

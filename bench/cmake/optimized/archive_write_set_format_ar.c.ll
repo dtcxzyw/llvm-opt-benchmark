@@ -513,7 +513,7 @@ format_decimal.exit120:                           ; preds = %144, %.preheader32.
 168:                                              ; preds = %161, %.lr.ph.preheader.i118
   %169 = tail call i32 @archive_entry_mode(ptr noundef %1) #11
   %170 = zext i32 %169 to i64
-  %171 = call fastcc i32 @format_octal(i64 noundef %170, ptr noundef %148)
+  %171 = call fastcc i32 @format_octal.argelim(i64 noundef %170, ptr noundef %148)
   %.not98 = icmp eq i32 %171, 0
   br i1 %.not98, label %173, label %172
 
@@ -849,7 +849,7 @@ declare i64 @archive_entry_uid(ptr noundef) local_unnamed_addr #1
 declare i64 @archive_entry_gid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 1) i32 @format_octal(i64 noundef range(i64 0, 4294967296) %0, ptr nocapture noundef nonnull %1) unnamed_addr #9 {
+define internal fastcc range(i32 -1, 1) i32 @format_octal.argelim(i64 noundef range(i64 0, 4294967296) %0, ptr nocapture noundef nonnull %1) unnamed_addr #9 {
   %3 = getelementptr i8, ptr %1, i64 8
   br label %4
 

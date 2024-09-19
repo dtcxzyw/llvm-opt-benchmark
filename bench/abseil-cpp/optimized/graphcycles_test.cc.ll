@@ -879,7 +879,7 @@ lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.lo
           cleanup
   br label %ehcleanup805
 
-lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.end798, %sw.bb596, %invoke.cont366.thread1192, %if.then.i.i.i633, %if.else15.i.i.i618, %if.then.i.i.i596, %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit552, %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit552.thread, %if.end.i.i501, %if.then.i.i502, %if.else15.i.i.i473, %if.then.i.i.i451, %invoke.cont192.thread1185, %if.then.i.i.i372, %if.else15.i.i.i357, %if.then.i.i.i335, %cleanup.cont166, %if.end.i.i281, %if.then.i.i282, %if.else15.i.i.i, %if.then.i.i.i244, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i, %if.end.i.i198, %if.then.i.i199, %if.else.i, %if.then.i, %if.then.i.i162, %invoke.cont614, %if.then613, %invoke.cont379, %invoke.cont374, %invoke.cont369, %invoke.cont355, %invoke.cont352, %cleanup.cont349, %if.then219, %invoke.cont213, %invoke.cont208, %if.then204, %invoke.cont139, %invoke.cont124, %invoke.cont84, %cleanup.cont82, %if.then50, %invoke.cont44, %for.end
+lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.end798, %sw.bb596, %invoke.cont366.thread1192, %if.then.i.i.i633, %if.else15.i.i.i618, %if.then.i.i.i596, %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.argprom.exit552, %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.argprom.exit552.thread, %if.end.i.i501, %if.then.i.i502, %if.else15.i.i.i473, %if.then.i.i.i451, %invoke.cont192.thread1185, %if.then.i.i.i372, %if.else15.i.i.i357, %if.then.i.i.i335, %cleanup.cont166, %if.end.i.i281, %if.then.i.i282, %if.else15.i.i.i, %if.then.i.i.i244, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i, %if.end.i.i198, %if.then.i.i199, %if.else.i, %if.then.i, %if.then.i.i162, %invoke.cont614, %if.then613, %invoke.cont379, %invoke.cont374, %invoke.cont369, %invoke.cont355, %invoke.cont352, %cleanup.cont349, %if.then219, %invoke.cont213, %invoke.cont208, %if.then204, %invoke.cont139, %invoke.cont124, %invoke.cont84, %cleanup.cont82, %if.then50, %invoke.cont44, %for.end
   %lpad.loopexit1234 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup805
@@ -2032,7 +2032,7 @@ invoke.cont285:                                   ; preds = %while.cond.if.end.l
   %sub.ptr.sub.i.i484 = sub i64 %sub.ptr.lhs.cast.i.i482, %sub.ptr.rhs.cast.i.i483
   %sub.ptr.div.i.i485 = ashr exact i64 %sub.ptr.sub.i.i484, 3
   %cmp.not1.i486 = icmp eq ptr %edges.val144, %117
-  br i1 %cmp.not1.i486, label %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit499, label %land.rhs.i487
+  br i1 %cmp.not1.i486, label %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.argprom.exit499, label %land.rhs.i487
 
 land.rhs.i487:                                    ; preds = %invoke.cont285, %while.body.i491
   %indvars.iv.i488 = phi i64 [ %indvars.iv.next.i492, %while.body.i491 ], [ 0, %invoke.cont285 ]
@@ -2050,23 +2050,23 @@ lor.rhs.i495:                                     ; preds = %land.rhs.i487
 while.body.i491:                                  ; preds = %lor.rhs.i495, %land.rhs.i487
   %indvars.iv.next.i492 = add nuw nsw i64 %indvars.iv.i488, 1
   %cmp.not.i493 = icmp eq i64 %sub.ptr.div.i.i485, %indvars.iv.next.i492
-  br i1 %cmp.not.i493, label %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit499, label %land.rhs.i487, !llvm.loop !15
+  br i1 %cmp.not.i493, label %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.argprom.exit499, label %land.rhs.i487, !llvm.loop !15
 
 while.end.loopexit.split.loop.exit6.i498:         ; preds = %lor.rhs.i495
   %123 = trunc nuw nsw i64 %indvars.iv.i488 to i32
-  br label %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit499
+  br label %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.argprom.exit499
 
-_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit499: ; preds = %while.body.i491, %invoke.cont285, %while.end.loopexit.split.loop.exit6.i498
+_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.argprom.exit499: ; preds = %while.body.i491, %invoke.cont285, %while.end.loopexit.split.loop.exit6.i498
   %cond.i494 = phi i32 [ -1, %invoke.cont285 ], [ %123, %while.end.loopexit.split.loop.exit6.i498 ], [ -1, %while.body.i491 ]
   store i32 %cond.i494, ptr %ref.tmp296, align 4
   %cmp.i.i500 = icmp eq i32 %cond.i494, %116
   br i1 %cmp.i.i500, label %if.then.i.i502, label %if.end.i.i501
 
-if.then.i.i502:                                   ; preds = %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit499
+if.then.i.i502:                                   ; preds = %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.argprom.exit499
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar295)
           to label %invoke.cont299 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-if.end.i.i501:                                    ; preds = %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit499
+if.end.i.i501:                                    ; preds = %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.argprom.exit499
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar295, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull align 4 dereferenceable(4) %i284, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp296)
           to label %invoke.cont299 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2190,7 +2190,7 @@ cleanup.cont319:                                  ; preds = %_ZNKSt14default_del
   %sub.ptr.sub.i.i537 = sub i64 %sub.ptr.lhs.cast.i.i535, %sub.ptr.rhs.cast.i.i536
   %sub.ptr.div.i.i538 = ashr exact i64 %sub.ptr.sub.i.i537, 3
   %cmp.not1.i539 = icmp eq ptr %incdec.ptr.i534, %edges.val141
-  br i1 %cmp.not1.i539, label %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit552.thread, label %land.rhs.i540
+  br i1 %cmp.not1.i539, label %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.argprom.exit552.thread, label %land.rhs.i540
 
 land.rhs.i540:                                    ; preds = %cleanup.cont319, %while.body.i544
   %indvars.iv.i541 = phi i64 [ %indvars.iv.next.i545, %while.body.i544 ], [ 0, %cleanup.cont319 ]
@@ -2203,25 +2203,25 @@ lor.rhs.i548:                                     ; preds = %land.rhs.i540
   %to7.i549 = getelementptr inbounds i8, ptr %add.ptr.i.i542, i64 4
   %143 = load i32, ptr %to7.i549, align 4
   %cmp8.not.i550 = icmp eq i32 %143, %141
-  br i1 %cmp8.not.i550, label %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit552, label %while.body.i544
+  br i1 %cmp8.not.i550, label %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.argprom.exit552, label %while.body.i544
 
 while.body.i544:                                  ; preds = %lor.rhs.i548, %land.rhs.i540
   %indvars.iv.next.i545 = add nuw nsw i64 %indvars.iv.i541, 1
   %cmp.not.i546 = icmp eq i64 %sub.ptr.div.i.i538, %indvars.iv.next.i545
-  br i1 %cmp.not.i546, label %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit552.thread, label %land.rhs.i540, !llvm.loop !15
+  br i1 %cmp.not.i546, label %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.argprom.exit552.thread, label %land.rhs.i540, !llvm.loop !15
 
-_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit552.thread: ; preds = %while.body.i544, %cleanup.cont319
+_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.argprom.exit552.thread: ; preds = %while.body.i544, %cleanup.cont319
   store i32 -1, ptr %ref.tmp326, align 4
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar324)
           to label %invoke.cont329 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit552: ; preds = %lor.rhs.i548
+_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.argprom.exit552: ; preds = %lor.rhs.i548
   %144 = trunc nuw nsw i64 %indvars.iv.i541 to i32
   store i32 %144, ptr %ref.tmp326, align 4
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar324, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp325, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp326)
           to label %invoke.cont329 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-invoke.cont329:                                   ; preds = %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit552.thread, %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit552
+invoke.cont329:                                   ; preds = %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.argprom.exit552.thread, %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.argprom.exit552
   %145 = load i8, ptr %gtest_ar324, align 8
   %tobool.i559 = trunc i8 %145 to i1
   br i1 %tobool.i559, label %cleanup.cont349.critedge, label %if.else334

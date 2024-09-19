@@ -4514,7 +4514,7 @@ define internal noundef i64 @"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasur
   fence syncscope("singlethread") seq_cst
   %4 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !36
   %.not4.i.i = icmp eq i32 %1, 0
-  br i1 %.not4.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZNS_14TraceCollector21_MeasureScopeOverheadEvE3$_0EEmRKT_mPbENKUlPKviE_clES8_i.exit", label %.lr.ph.i.i
+  br i1 %.not4.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZNS_14TraceCollector21_MeasureScopeOverheadEvE3$_0EEmRKT_mPbENKUlPKviE_clES8_i.argprom.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %"_ZZN32pxrInternal_v0_24__pxrReserved__14TraceCollector21_MeasureScopeOverheadEvENK3$_0clEv.exit.i.i"
   %.in.i.i = phi i32 [ %5, %"_ZZN32pxrInternal_v0_24__pxrReserved__14TraceCollector21_MeasureScopeOverheadEvENK3$_0clEv.exit.i.i" ], [ %1, %2 ]
@@ -4557,9 +4557,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   fence syncscope("singlethread") seq_cst
   %.not.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZNS_14TraceCollector21_MeasureScopeOverheadEvE3$_0EEmRKT_mPbENKUlPKviE_clES8_i.exit", label %.lr.ph.i.i, !llvm.loop !38
+  br i1 %.not.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZNS_14TraceCollector21_MeasureScopeOverheadEvE3$_0EEmRKT_mPbENKUlPKviE_clES8_i.argprom.exit", label %.lr.ph.i.i, !llvm.loop !38
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZNS_14TraceCollector21_MeasureScopeOverheadEvE3$_0EEmRKT_mPbENKUlPKviE_clES8_i.exit": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14TraceCollector21_MeasureScopeOverheadEvENK3$_0clEv.exit.i.i", %2
+"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZNS_14TraceCollector21_MeasureScopeOverheadEvE3$_0EEmRKT_mPbENKUlPKviE_clES8_i.argprom.exit": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14TraceCollector21_MeasureScopeOverheadEvENK3$_0clEv.exit.i.i", %2
   %20 = extractvalue { i32, i32 } %4, 1
   %21 = extractvalue { i32, i32 } %4, 0
   fence syncscope("singlethread") seq_cst

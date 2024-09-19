@@ -53,7 +53,7 @@ define dso_local range(i32 -2, 1) i32 @divsufsort(ptr noundef %0, ptr noundef %1
   br i1 %or.cond5, label %25, label %construct_SA.exit
 
 25:                                               ; preds = %20
-  %26 = tail call fastcc i32 @sort_typeBstar(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef %22, i32 noundef %2)
+  %26 = tail call fastcc i32 @sort_typeBstar.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef %22, i32 noundef %2)
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.preheader.i, label %..lr.ph112.i_crit_edge
 
@@ -269,7 +269,7 @@ construct_SA.exit:                                ; preds = %127, %20
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 2, -2147483648) %4) unnamed_addr #2 {
+define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 2, -2147483648) %4) unnamed_addr #2 {
 .preheader338.preheader:
   %5 = alloca [64 x %struct.anon.1], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %2, i8 0, i64 1024, i1 false)
@@ -653,7 +653,7 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   br i1 %227, label %.lr.ph161.i, label %._crit_edge162.thread.i
 
 ._crit_edge162.thread.i:                          ; preds = %224
-  tail call fastcc void @ss_mintrosort(ptr noundef %0, ptr noundef %79, ptr noundef %spec.select.i, ptr noundef %.0105.i)
+  tail call fastcc void @ss_mintrosort.argelim(ptr noundef %0, ptr noundef %79, ptr noundef %spec.select.i, ptr noundef %.0105.i)
   br label %._crit_edge170.i
 
 .lr.ph161.i:                                      ; preds = %224
@@ -664,7 +664,7 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   %.0159.i = phi i32 [ 0, %.lr.ph161.i ], [ %243, %._crit_edge.i ]
   %.0107158.i = phi ptr [ %spec.select.i, %.lr.ph161.i ], [ %230, %._crit_edge.i ]
   %230 = getelementptr inbounds i8, ptr %.0107158.i, i64 4096
-  tail call fastcc void @ss_mintrosort(ptr noundef %0, ptr noundef %79, ptr noundef %.0107158.i, ptr noundef %230)
+  tail call fastcc void @ss_mintrosort.argelim(ptr noundef %0, ptr noundef %79, ptr noundef %.0107158.i, ptr noundef %230)
   %231 = ptrtoint ptr %230 to i64
   %232 = sub i64 %228, %231
   %233 = lshr exact i64 %232, 2
@@ -684,7 +684,7 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   %237 = sub nsw i64 0, %236
   %238 = getelementptr inbounds i32, ptr %.0106155.i, i64 %237
   %239 = getelementptr inbounds i32, ptr %.0106155.i, i64 %236
-  tail call fastcc void @ss_swapmerge(ptr noundef %0, ptr noundef %79, ptr noundef %238, ptr noundef %.0106155.i, ptr noundef %239, ptr noundef %spec.select122.i, i32 noundef %spec.select123.i)
+  tail call fastcc void @ss_swapmerge.argelim(ptr noundef %0, ptr noundef %79, ptr noundef %238, ptr noundef %.0106155.i, ptr noundef %239, ptr noundef %spec.select122.i, i32 noundef %spec.select123.i)
   %240 = shl i32 %.0101157.i, 1
   %241 = lshr i32 %.0103156.i, 1
   %242 = and i32 %.0103156.i, 2
@@ -698,7 +698,7 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   br i1 %245, label %229, label %.lr.ph169.preheader.i, !llvm.loop !16
 
 .lr.ph169.preheader.i:                            ; preds = %._crit_edge.i
-  tail call fastcc void @ss_mintrosort(ptr noundef %0, ptr noundef %79, ptr noundef %230, ptr noundef %.0105.i)
+  tail call fastcc void @ss_mintrosort.argelim(ptr noundef %0, ptr noundef %79, ptr noundef %230, ptr noundef %.0105.i)
   br label %.lr.ph169.i
 
 .lr.ph169.i:                                      ; preds = %251, %.lr.ph169.preheader.i
@@ -713,7 +713,7 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   %248 = sext i32 %.1102166.i to i64
   %249 = sub nsw i64 0, %248
   %250 = getelementptr inbounds i32, ptr %.1108165.i, i64 %249
-  tail call fastcc void @ss_swapmerge(ptr noundef %0, ptr noundef %79, ptr noundef %250, ptr noundef %.1108165.i, ptr noundef %.0105.i, ptr noundef %.0110.i, i32 noundef %.0111.i)
+  tail call fastcc void @ss_swapmerge.argelim(ptr noundef %0, ptr noundef %79, ptr noundef %250, ptr noundef %.1108165.i, ptr noundef %.0105.i, ptr noundef %.0110.i, i32 noundef %.0111.i)
   br label %251
 
 251:                                              ; preds = %247, %.lr.ph169.i
@@ -727,7 +727,7 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   br i1 %.099.i, label %ss_inplacemerge.exit.i, label %254
 
 254:                                              ; preds = %._crit_edge170.i
-  tail call fastcc void @ss_mintrosort(ptr noundef %0, ptr noundef %79, ptr noundef %.0105.i, ptr noundef %135)
+  tail call fastcc void @ss_mintrosort.argelim(ptr noundef %0, ptr noundef %79, ptr noundef %.0105.i, ptr noundef %135)
   br label %255
 
 255:                                              ; preds = %.loopexit.i.i, %254
@@ -758,10 +758,10 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   %268 = icmp ult ptr %266, %gep79.i.i
   br label %269
 
-269:                                              ; preds = %ss_compare.exit.i.i, %.lr.ph.i.i
-  %.04483.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.1.i127.i, %ss_compare.exit.i.i ]
-  %.04982.i.i = phi i32 [ %262, %.lr.ph.i.i ], [ %.148.i.i, %ss_compare.exit.i.i ]
-  %.05281.i.i = phi ptr [ %spec.select.i, %.lr.ph.i.i ], [ %.153.i.i, %ss_compare.exit.i.i ]
+269:                                              ; preds = %ss_compare.argprom.exit.i.i, %.lr.ph.i.i
+  %.04483.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.1.i127.i, %ss_compare.argprom.exit.i.i ]
+  %.04982.i.i = phi i32 [ %262, %.lr.ph.i.i ], [ %.148.i.i, %ss_compare.argprom.exit.i.i ]
+  %.05281.i.i = phi ptr [ %spec.select.i, %.lr.ph.i.i ], [ %.153.i.i, %ss_compare.argprom.exit.i.i ]
   %.04784.i.i = lshr i32 %.04982.i.i, 1
   %270 = zext nneg i32 %.04784.i.i to i64
   %271 = getelementptr inbounds i32, ptr %.05281.i.i, i64 %270
@@ -805,7 +805,7 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   br i1 %.lcssa5.i.i.i, label %289, label %295
 
 289:                                              ; preds = %.critedge.i.i.i
-  br i1 %.lcssa.i.i.i, label %..thread.i_crit_edge.i.i, label %ss_compare.exit.i.i
+  br i1 %.lcssa.i.i.i, label %..thread.i_crit_edge.i.i, label %ss_compare.argprom.exit.i.i
 
 ..thread.i_crit_edge.i.i:                         ; preds = %289
   %.pre.i.i = load i8, ptr %.0.lcssa.i.i.i, align 1
@@ -818,13 +818,13 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   %292 = zext i8 %291 to i32
   %293 = zext i8 %290 to i32
   %294 = sub nsw i32 %292, %293
-  br label %ss_compare.exit.i.i
+  br label %ss_compare.argprom.exit.i.i
 
 295:                                              ; preds = %.critedge.i.i.i
   %296 = sext i1 %.lcssa.i.i.i to i32
-  br label %ss_compare.exit.i.i
+  br label %ss_compare.argprom.exit.i.i
 
-ss_compare.exit.i.i:                              ; preds = %295, %.thread.i.i.i, %289
+ss_compare.argprom.exit.i.i:                      ; preds = %295, %.thread.i.i.i, %289
   %297 = phi i32 [ %296, %295 ], [ %294, %.thread.i.i.i ], [ 1, %289 ]
   %298 = icmp slt i32 %297, 0
   %299 = getelementptr inbounds i8, ptr %271, i64 4
@@ -837,7 +837,7 @@ ss_compare.exit.i.i:                              ; preds = %295, %.thread.i.i.i
   %303 = icmp sgt i32 %.148.i.i, 0
   br i1 %303, label %269, label %._crit_edge.i.i, !llvm.loop !19
 
-._crit_edge.i.i:                                  ; preds = %ss_compare.exit.i.i
+._crit_edge.i.i:                                  ; preds = %ss_compare.argprom.exit.i.i
   %304 = icmp ult ptr %.153.i.i, %.045.i.i
   br i1 %304, label %306, label %361
 
@@ -1053,7 +1053,7 @@ ss_inplacemerge.exit.i:                           ; preds = %.loopexit.i.i, %ss_
   %391 = load i8, ptr %.08.i.i, align 1
   %392 = load i8, ptr %.0257.i.i, align 1
   %393 = icmp eq i8 %391, %392
-  br i1 %393, label %394, label %ss_compare.exit.i
+  br i1 %393, label %394, label %ss_compare.argprom.exit.i
 
 394:                                              ; preds = %.lr.ph.i129.i
   %395 = getelementptr inbounds i8, ptr %.08.i.i, i64 1
@@ -1067,28 +1067,28 @@ ss_inplacemerge.exit.i:                           ; preds = %.loopexit.i.i, %ss_
   br i1 %397, label %399, label %.critedge.i
 
 399:                                              ; preds = %.critedge.i.i
-  br i1 %398, label %.ss_compare.exit_crit_edge.i, label %.critedge2.i
+  br i1 %398, label %.ss_compare.argprom.exit_crit_edge.i, label %.critedge2.i
 
-.ss_compare.exit_crit_edge.i:                     ; preds = %399
+.ss_compare.argprom.exit_crit_edge.i:             ; preds = %399
   %.pre205.i = load i8, ptr %395, align 1
   %.pre = load i8, ptr %396, align 1
-  br label %ss_compare.exit.i
+  br label %ss_compare.argprom.exit.i
 
-ss_compare.exit.i:                                ; preds = %.lr.ph.i129.i, %.ss_compare.exit_crit_edge.i
-  %400 = phi i8 [ %.pre, %.ss_compare.exit_crit_edge.i ], [ %392, %.lr.ph.i129.i ]
-  %401 = phi i8 [ %.pre205.i, %.ss_compare.exit_crit_edge.i ], [ %391, %.lr.ph.i129.i ]
+ss_compare.argprom.exit.i:                        ; preds = %.lr.ph.i129.i, %.ss_compare.argprom.exit_crit_edge.i
+  %400 = phi i8 [ %.pre, %.ss_compare.argprom.exit_crit_edge.i ], [ %392, %.lr.ph.i129.i ]
+  %401 = phi i8 [ %.pre205.i, %.ss_compare.argprom.exit_crit_edge.i ], [ %391, %.lr.ph.i129.i ]
   %402 = icmp ugt i8 %401, %400
   br i1 %402, label %.critedge2.i, label %.critedge.i
 
-.critedge2.i:                                     ; preds = %ss_compare.exit.i, %399, %383, %.lr.ph173.split.i
+.critedge2.i:                                     ; preds = %ss_compare.argprom.exit.i, %399, %383, %.lr.ph173.split.i
   %403 = getelementptr inbounds i8, ptr %.3171.i, i64 -4
   store i32 %381, ptr %403, align 4
   %404 = getelementptr inbounds i8, ptr %.3171.i, i64 4
   %405 = icmp ult ptr %404, %135
   br i1 %405, label %.lr.ph173.split.i, label %.critedge.i, !llvm.loop !23
 
-.critedge.i:                                      ; preds = %.critedge2.us.i, %.lr.ph173.split.us.i, %.critedge2.i, %ss_compare.exit.i, %.critedge.i.i, %367
-  %.3.lcssa.i = phi ptr [ %137, %367 ], [ %.3171.i, %ss_compare.exit.i ], [ %404, %.critedge2.i ], [ %.3171.i, %.critedge.i.i ], [ %.3171.us.i, %.lr.ph173.split.us.i ], [ %379, %.critedge2.us.i ]
+.critedge.i:                                      ; preds = %.critedge2.us.i, %.lr.ph173.split.us.i, %.critedge2.i, %ss_compare.argprom.exit.i, %.critedge.i.i, %367
+  %.3.lcssa.i = phi ptr [ %137, %367 ], [ %.3171.i, %ss_compare.argprom.exit.i ], [ %404, %.critedge2.i ], [ %.3171.i, %.critedge.i.i ], [ %.3171.us.i, %.lr.ph173.split.us.i ], [ %379, %.critedge2.us.i ]
   %406 = getelementptr inbounds i8, ptr %.3.lcssa.i, i64 -4
   store i32 %368, ptr %406, align 4
   br label %sssort.exit
@@ -4313,7 +4313,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @divbwt(ptr noundef %0,
   br i1 %or.cond7, label %30, label %326
 
 30:                                               ; preds = %24
-  %31 = tail call fastcc i32 @sort_typeBstar(ptr noundef %0, ptr noundef %.071, ptr noundef %25, ptr noundef %26, i32 noundef %3)
+  %31 = tail call fastcc i32 @sort_typeBstar.argelim(ptr noundef %0, ptr noundef %.071, ptr noundef %25, ptr noundef %26, i32 noundef %3)
   %32 = icmp eq ptr %4, null
   %33 = icmp eq ptr %5, null
   %or.cond9 = or i1 %32, %33
@@ -4915,7 +4915,7 @@ construct_BWT.exit:                               ; preds = %304, %140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ss_mintrosort(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #2 {
+define internal fastcc void @ss_mintrosort.argelim(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #2 {
   %5 = alloca [16 x %struct.anon], align 16
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %2 to i64
@@ -5013,7 +5013,7 @@ ss_ilg.exit:                                      ; preds = %10, %16
   %51 = load i8, ptr %.08.i.i, align 1
   %52 = load i8, ptr %.0257.i.i, align 1
   %53 = icmp eq i8 %51, %52
-  br i1 %53, label %54, label %ss_compare.exit.i
+  br i1 %53, label %54, label %ss_compare.argprom.exit.i
 
 54:                                               ; preds = %.lr.ph.i.i
   %55 = getelementptr inbounds i8, ptr %.08.i.i, i64 1
@@ -5028,7 +5028,7 @@ ss_ilg.exit:                                      ; preds = %10, %16
   %.0.lcssa.i.i = phi ptr [ %44, %.critedge.i ], [ %55, %54 ]
   %.lcssa5.i.i = phi i1 [ %49, %.critedge.i ], [ %57, %54 ]
   %.lcssa.i.i = phi i1 [ %50, %.critedge.i ], [ %58, %54 ]
-  br i1 %.lcssa5.i.i, label %59, label %ss_compare.exit.thread.i
+  br i1 %.lcssa5.i.i, label %59, label %ss_compare.argprom.exit.thread.i
 
 59:                                               ; preds = %.critedge.i.i
   br i1 %.lcssa.i.i, label %..thread.i_crit_edge.i, label %.preheader.i.preheader
@@ -5036,13 +5036,13 @@ ss_ilg.exit:                                      ; preds = %10, %16
 ..thread.i_crit_edge.i:                           ; preds = %59
   %.pre59.i = load i8, ptr %.0.lcssa.i.i, align 1
   %.pre693 = load i8, ptr %.025.lcssa.i.i, align 1
-  br label %ss_compare.exit.i
+  br label %ss_compare.argprom.exit.i
 
-ss_compare.exit.thread.i:                         ; preds = %.critedge.i.i
+ss_compare.argprom.exit.thread.i:                 ; preds = %.critedge.i.i
   %60 = sext i1 %.lcssa.i.i to i32
   br label %.critedge.thread.i
 
-ss_compare.exit.i:                                ; preds = %.lr.ph.i.i, %..thread.i_crit_edge.i
+ss_compare.argprom.exit.i:                        ; preds = %.lr.ph.i.i, %..thread.i_crit_edge.i
   %61 = phi i8 [ %.pre693, %..thread.i_crit_edge.i ], [ %52, %.lr.ph.i.i ]
   %62 = phi i8 [ %.pre59.i, %..thread.i_crit_edge.i ], [ %51, %.lr.ph.i.i ]
   %63 = zext i8 %62 to i32
@@ -5051,7 +5051,7 @@ ss_compare.exit.i:                                ; preds = %.lr.ph.i.i, %..thre
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %.preheader.i.preheader, label %.critedge.thread.i
 
-.preheader.i.preheader:                           ; preds = %ss_compare.exit.i, %59
+.preheader.i.preheader:                           ; preds = %ss_compare.argprom.exit.i, %59
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %71
@@ -5068,8 +5068,8 @@ ss_compare.exit.i:                                ; preds = %.lr.ph.i.i, %..thre
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %.preheader.i, label %.critedge.loopexit.i, !llvm.loop !72
 
-.critedge.thread.i:                               ; preds = %ss_compare.exit.i, %ss_compare.exit.thread.i
-  %74 = phi i32 [ %60, %ss_compare.exit.thread.i ], [ %65, %ss_compare.exit.i ]
+.critedge.thread.i:                               ; preds = %ss_compare.argprom.exit.i, %ss_compare.argprom.exit.thread.i
+  %74 = phi i32 [ %60, %ss_compare.argprom.exit.thread.i ], [ %65, %ss_compare.argprom.exit.i ]
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %.critedge.thread.thread.i
 
@@ -6762,7 +6762,7 @@ ss_ilg.exit551:                                   ; preds = %1101, %1095, %1047
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ss_swapmerge(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef range(i32 -2147483645, -2147483648) %6) unnamed_addr #2 {
+define internal fastcc void @ss_swapmerge.argelim(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef range(i32 -2147483645, -2147483648) %6) unnamed_addr #2 {
   %8 = alloca [32 x %struct.anon.0], align 16
   %9 = sext i32 %6 to i64
   %invariant.gep553 = getelementptr i8, ptr %5, i64 -4
@@ -6875,7 +6875,7 @@ ss_blockswap.exit.i:                              ; preds = %.lr.ph.i.i, %17
   %45 = load i8, ptr %.08.i.i, align 1
   %46 = load i8, ptr %.0257.i.i, align 1
   %47 = icmp eq i8 %45, %46
-  br i1 %47, label %48, label %ss_compare.exit.i
+  br i1 %47, label %48, label %ss_compare.argprom.exit.i
 
 48:                                               ; preds = %.lr.ph.i184.i
   %49 = getelementptr inbounds i8, ptr %.08.i.i, i64 1
@@ -6890,39 +6890,39 @@ ss_blockswap.exit.i:                              ; preds = %.lr.ph.i.i, %17
   %.0.lcssa.i.i = phi ptr [ %38, %35 ], [ %49, %48 ]
   %.lcssa5.i.i = phi i1 [ %43, %35 ], [ %51, %48 ]
   %.lcssa.i.i = phi i1 [ %44, %35 ], [ %52, %48 ]
-  br i1 %.lcssa5.i.i, label %53, label %ss_compare.exit.thread185.i
+  br i1 %.lcssa5.i.i, label %53, label %ss_compare.argprom.exit.thread185.i
 
 53:                                               ; preds = %.critedge.i.i
-  br i1 %.lcssa.i.i, label %.ss_compare.exit_crit_edge.i, label %ss_compare.exit.thread.i
+  br i1 %.lcssa.i.i, label %.ss_compare.argprom.exit_crit_edge.i, label %ss_compare.argprom.exit.thread.i
 
-.ss_compare.exit_crit_edge.i:                     ; preds = %53
+.ss_compare.argprom.exit_crit_edge.i:             ; preds = %53
   %.pre.i = load i8, ptr %.0.lcssa.i.i, align 1
   %.pre = load i8, ptr %.025.lcssa.i.i, align 1
-  br label %ss_compare.exit.i
+  br label %ss_compare.argprom.exit.i
 
-ss_compare.exit.thread185.i:                      ; preds = %.critedge.i.i
+ss_compare.argprom.exit.thread185.i:              ; preds = %.critedge.i.i
   %54 = sext i1 %.lcssa.i.i to i32
   br label %85
 
-ss_compare.exit.i:                                ; preds = %.lr.ph.i184.i, %.ss_compare.exit_crit_edge.i
-  %55 = phi i8 [ %.pre, %.ss_compare.exit_crit_edge.i ], [ %46, %.lr.ph.i184.i ]
-  %56 = phi i8 [ %.pre.i, %.ss_compare.exit_crit_edge.i ], [ %45, %.lr.ph.i184.i ]
+ss_compare.argprom.exit.i:                        ; preds = %.lr.ph.i184.i, %.ss_compare.argprom.exit_crit_edge.i
+  %55 = phi i8 [ %.pre, %.ss_compare.argprom.exit_crit_edge.i ], [ %46, %.lr.ph.i184.i ]
+  %56 = phi i8 [ %.pre.i, %.ss_compare.argprom.exit_crit_edge.i ], [ %45, %.lr.ph.i184.i ]
   %57 = zext i8 %56 to i32
   %58 = zext i8 %55 to i32
   %59 = sub nsw i32 %57, %58
   %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %ss_compare.exit.thread.i, label %85
+  br i1 %60, label %ss_compare.argprom.exit.thread.i, label %85
 
-ss_compare.exit.thread.i:                         ; preds = %ss_compare.exit.i, %53
+ss_compare.argprom.exit.thread.i:                 ; preds = %ss_compare.argprom.exit.i, %53
   %61 = and i32 %.2.i, 1
   %.not180.i = icmp eq i32 %61, 0
   %.pre257.i = load i32, ptr %.0149.i.ph, align 4
-  br i1 %.not180.i, label %ss_compare.exit.thread._crit_edge.i, label %.preheader190.i
+  br i1 %.not180.i, label %ss_compare.argprom.exit.thread._crit_edge.i, label %.preheader190.i
 
-.preheader190.i:                                  ; preds = %ss_compare.exit.thread.i, %.preheader190.i
-  %62 = phi i32 [ %66, %.preheader190.i ], [ %.pre257.i, %ss_compare.exit.thread.i ]
-  %.2151.i = phi ptr [ %65, %.preheader190.i ], [ %.0149.i.ph, %ss_compare.exit.thread.i ]
-  %.2136.i = phi ptr [ %63, %.preheader190.i ], [ %.0134.i, %ss_compare.exit.thread.i ]
+.preheader190.i:                                  ; preds = %ss_compare.argprom.exit.thread.i, %.preheader190.i
+  %62 = phi i32 [ %66, %.preheader190.i ], [ %.pre257.i, %ss_compare.argprom.exit.thread.i ]
+  %.2151.i = phi ptr [ %65, %.preheader190.i ], [ %.0149.i.ph, %ss_compare.argprom.exit.thread.i ]
+  %.2136.i = phi ptr [ %63, %.preheader190.i ], [ %.0134.i, %ss_compare.argprom.exit.thread.i ]
   %63 = getelementptr inbounds i8, ptr %.2136.i, i64 -4
   store i32 %62, ptr %.2136.i, align 4
   %64 = load i32, ptr %63, align 4
@@ -6934,19 +6934,19 @@ ss_compare.exit.thread.i:                         ; preds = %ss_compare.exit.i, 
 
 68:                                               ; preds = %.preheader190.i
   %69 = and i32 %.2.i, -2
-  br label %ss_compare.exit.thread._crit_edge.i
+  br label %ss_compare.argprom.exit.thread._crit_edge.i
 
-ss_compare.exit.thread._crit_edge.i:              ; preds = %68, %ss_compare.exit.thread.i
-  %70 = phi i32 [ %66, %68 ], [ %.pre257.i, %ss_compare.exit.thread.i ]
-  %.1150.i = phi ptr [ %65, %68 ], [ %.0149.i.ph, %ss_compare.exit.thread.i ]
-  %.1135.i = phi ptr [ %63, %68 ], [ %.0134.i, %ss_compare.exit.thread.i ]
-  %.3.i = phi i32 [ %69, %68 ], [ %.2.i, %ss_compare.exit.thread.i ]
+ss_compare.argprom.exit.thread._crit_edge.i:      ; preds = %68, %ss_compare.argprom.exit.thread.i
+  %70 = phi i32 [ %66, %68 ], [ %.pre257.i, %ss_compare.argprom.exit.thread.i ]
+  %.1150.i = phi ptr [ %65, %68 ], [ %.0149.i.ph, %ss_compare.argprom.exit.thread.i ]
+  %.1135.i = phi ptr [ %63, %68 ], [ %.0134.i, %ss_compare.argprom.exit.thread.i ]
+  %.3.i = phi i32 [ %69, %68 ], [ %.2.i, %ss_compare.argprom.exit.thread.i ]
   %71 = getelementptr inbounds i8, ptr %.1135.i, i64 -4
   store i32 %70, ptr %.1135.i, align 4
   %.not181.i = icmp ugt ptr %.1150.i, %5
   br i1 %.not181.i, label %72, label %ss_mergebackward.exit
 
-72:                                               ; preds = %ss_compare.exit.thread._crit_edge.i
+72:                                               ; preds = %ss_compare.argprom.exit.thread._crit_edge.i
   %73 = load i32, ptr %71, align 4
   %74 = getelementptr inbounds i8, ptr %.1150.i, i64 -4
   store i32 %73, ptr %.1150.i, align 4
@@ -6975,8 +6975,8 @@ ss_compare.exit.thread._crit_edge.i:              ; preds = %68, %ss_compare.exi
   %84 = getelementptr inbounds i32, ptr %1, i64 %83
   br label %.outer.backedge
 
-85:                                               ; preds = %ss_compare.exit.i, %ss_compare.exit.thread185.i
-  %86 = phi i32 [ %54, %ss_compare.exit.thread185.i ], [ %59, %ss_compare.exit.i ]
+85:                                               ; preds = %ss_compare.argprom.exit.i, %ss_compare.argprom.exit.thread185.i
+  %86 = phi i32 [ %54, %ss_compare.argprom.exit.thread185.i ], [ %59, %ss_compare.argprom.exit.i ]
   %87 = icmp slt i32 %86, 0
   br i1 %87, label %88, label %113
 
@@ -7159,8 +7159,8 @@ ss_compare.exit.thread._crit_edge.i:              ; preds = %68, %ss_compare.exi
   store i32 %160, ptr %.11.lcssa.sink.i, align 4
   br label %ss_mergebackward.exit
 
-ss_mergebackward.exit:                            ; preds = %ss_compare.exit.thread._crit_edge.i, %._crit_edge248.i, %.sink.split.i
-  %.7156.lcssa.sink.i = phi ptr [ %.7156.lcssa.sink286.i, %.sink.split.i ], [ %5, %._crit_edge248.i ], [ %5, %ss_compare.exit.thread._crit_edge.i ]
+ss_mergebackward.exit:                            ; preds = %ss_compare.argprom.exit.thread._crit_edge.i, %._crit_edge248.i, %.sink.split.i
+  %.7156.lcssa.sink.i = phi ptr [ %.7156.lcssa.sink286.i, %.sink.split.i ], [ %5, %._crit_edge248.i ], [ %5, %ss_compare.argprom.exit.thread._crit_edge.i ]
   store i32 %33, ptr %.7156.lcssa.sink.i, align 4
   br label %161
 
@@ -7176,7 +7176,7 @@ ss_mergebackward.exit:                            ; preds = %ss_compare.exit.thr
 163:                                              ; preds = %161
   %164 = and i32 %.0215, 2
   %.not268 = icmp eq i32 %164, 0
-  br i1 %.not268, label %ss_compare.exit.thread, label %165
+  br i1 %.not268, label %ss_compare.argprom.exit.thread, label %165
 
 165:                                              ; preds = %163
   %166 = getelementptr inbounds i8, ptr %.0224, i64 -4
@@ -7231,7 +7231,7 @@ ss_mergebackward.exit:                            ; preds = %ss_compare.exit.thr
   br i1 %.lcssa5.i, label %192, label %198
 
 192:                                              ; preds = %.critedge.i
-  br i1 %.lcssa.i, label %..thread.i_crit_edge, label %ss_compare.exit.thread
+  br i1 %.lcssa.i, label %..thread.i_crit_edge, label %ss_compare.argprom.exit.thread
 
 ..thread.i_crit_edge:                             ; preds = %192
   %.pre693 = load i8, ptr %.0.lcssa.i, align 1
@@ -7244,29 +7244,29 @@ ss_mergebackward.exit:                            ; preds = %ss_compare.exit.thr
   %195 = load i8, ptr %.025.lcssa2128.i, align 1
   %196 = zext i8 %195 to i32
   %197 = sub nsw i32 %194, %196
-  br label %ss_compare.exit
+  br label %ss_compare.argprom.exit
 
 198:                                              ; preds = %.critedge.i
   %199 = sext i1 %.lcssa.i to i32
-  br label %ss_compare.exit
+  br label %ss_compare.argprom.exit
 
-ss_compare.exit:                                  ; preds = %.thread.i, %198
+ss_compare.argprom.exit:                          ; preds = %.thread.i, %198
   %200 = phi i32 [ %199, %198 ], [ %197, %.thread.i ]
   %201 = icmp eq i32 %200, 0
-  br i1 %201, label %202, label %ss_compare.exit.thread
+  br i1 %201, label %202, label %ss_compare.argprom.exit.thread
 
-202:                                              ; preds = %._crit_edge694, %ss_compare.exit
-  %203 = phi i32 [ %.pre695, %._crit_edge694 ], [ %171, %ss_compare.exit ]
+202:                                              ; preds = %._crit_edge694, %ss_compare.argprom.exit
+  %203 = phi i32 [ %.pre695, %._crit_edge694 ], [ %171, %ss_compare.argprom.exit ]
   %204 = xor i32 %203, -1
   store i32 %204, ptr %.0224, align 4
-  br label %ss_compare.exit.thread
+  br label %ss_compare.argprom.exit.thread
 
-ss_compare.exit.thread:                           ; preds = %192, %202, %ss_compare.exit, %163
+ss_compare.argprom.exit.thread:                   ; preds = %192, %202, %ss_compare.argprom.exit, %163
   %205 = and i32 %.0215, 4
   %.not269 = icmp eq i32 %205, 0
-  br i1 %.not269, label %ss_compare.exit316.thread, label %206
+  br i1 %.not269, label %ss_compare.argprom.exit316.thread, label %206
 
-206:                                              ; preds = %ss_compare.exit.thread
+206:                                              ; preds = %ss_compare.argprom.exit.thread
   %207 = getelementptr inbounds i8, ptr %.0233.ph, i64 -4
   %208 = load i32, ptr %207, align 4
   %.lobit430 = ashr i32 %208, 31
@@ -7319,7 +7319,7 @@ ss_compare.exit.thread:                           ; preds = %192, %202, %ss_comp
   br i1 %.lcssa5.i307, label %233, label %239
 
 233:                                              ; preds = %.critedge.i304
-  br i1 %.lcssa.i308, label %..thread.i309_crit_edge, label %ss_compare.exit316.thread
+  br i1 %.lcssa.i308, label %..thread.i309_crit_edge, label %ss_compare.argprom.exit316.thread
 
 ..thread.i309_crit_edge:                          ; preds = %233
   %.pre696 = load i8, ptr %.0.lcssa.i306, align 1
@@ -7332,27 +7332,27 @@ ss_compare.exit.thread:                           ; preds = %192, %202, %ss_comp
   %236 = load i8, ptr %.025.lcssa2128.i310, align 1
   %237 = zext i8 %236 to i32
   %238 = sub nsw i32 %235, %237
-  br label %ss_compare.exit316
+  br label %ss_compare.argprom.exit316
 
 239:                                              ; preds = %.critedge.i304
   %240 = sext i1 %.lcssa.i308 to i32
-  br label %ss_compare.exit316
+  br label %ss_compare.argprom.exit316
 
-ss_compare.exit316:                               ; preds = %.thread.i309, %239
+ss_compare.argprom.exit316:                       ; preds = %.thread.i309, %239
   %241 = phi i32 [ %240, %239 ], [ %238, %.thread.i309 ]
   %242 = icmp eq i32 %241, 0
-  br i1 %242, label %243, label %ss_compare.exit316.thread
+  br i1 %242, label %243, label %ss_compare.argprom.exit316.thread
 
-243:                                              ; preds = %ss_compare.exit316
+243:                                              ; preds = %ss_compare.argprom.exit316
   %244 = xor i32 %212, -1
   store i32 %244, ptr %.0233.ph, align 4
-  br label %ss_compare.exit316.thread
+  br label %ss_compare.argprom.exit316.thread
 
-ss_compare.exit316.thread:                        ; preds = %233, %243, %ss_compare.exit316, %ss_compare.exit.thread
+ss_compare.argprom.exit316.thread:                ; preds = %233, %243, %ss_compare.argprom.exit316, %ss_compare.argprom.exit.thread
   %245 = icmp eq i32 %.0217, 0
   br i1 %245, label %686, label %246
 
-246:                                              ; preds = %ss_compare.exit316.thread
+246:                                              ; preds = %ss_compare.argprom.exit316.thread
   %247 = add nsw i32 %.0217, -1
   %248 = sext i32 %247 to i64
   %249 = getelementptr inbounds [32 x %struct.anon.0], ptr %8, i64 0, i64 %248
@@ -7486,21 +7486,21 @@ ss_blockswap.exit.i317:                           ; preds = %.lr.ph.i.i341, %263
   %301 = zext i8 %300 to i32
   %302 = zext i8 %299 to i32
   %303 = sub nsw i32 %301, %302
-  br label %ss_compare.exit.i325
+  br label %ss_compare.argprom.exit.i325
 
 304:                                              ; preds = %.critedge.i.i320
   %305 = sext i1 %.lcssa.i.i324 to i32
-  br label %ss_compare.exit.i325
+  br label %ss_compare.argprom.exit.i325
 
-ss_compare.exit.i325:                             ; preds = %304, %.thread.i.i
+ss_compare.argprom.exit.i325:                     ; preds = %304, %.thread.i.i
   %306 = phi i32 [ %305, %304 ], [ %303, %.thread.i.i ]
   %307 = icmp slt i32 %306, 0
-  br i1 %307, label %.preheader96.i, label %ss_compare.exit.thread.i326
+  br i1 %307, label %.preheader96.i, label %ss_compare.argprom.exit.thread.i326
 
-.preheader96.i:                                   ; preds = %ss_compare.exit.i325, %309
-  %308 = phi i32 [ %313, %309 ], [ %274, %ss_compare.exit.i325 ]
-  %.172.i = phi ptr [ %312, %309 ], [ %.071.i, %ss_compare.exit.i325 ]
-  %.1.i335 = phi ptr [ %310, %309 ], [ %.0.i, %ss_compare.exit.i325 ]
+.preheader96.i:                                   ; preds = %ss_compare.argprom.exit.i325, %309
+  %308 = phi i32 [ %313, %309 ], [ %274, %ss_compare.argprom.exit.i325 ]
+  %.172.i = phi ptr [ %312, %309 ], [ %.071.i, %ss_compare.argprom.exit.i325 ]
+  %.1.i335 = phi ptr [ %310, %309 ], [ %.0.i, %ss_compare.argprom.exit.i325 ]
   store i32 %308, ptr %.1.i335, align 4
   %.not90.i = icmp ugt ptr %gep564, %.172.i
   br i1 %.not90.i, label %309, label %ss_mergeforward.exit
@@ -7514,11 +7514,11 @@ ss_compare.exit.i325:                             ; preds = %304, %.thread.i.i
   %314 = icmp slt i32 %313, 0
   br i1 %314, label %.preheader96.i, label %.loopexit.i, !llvm.loop !94
 
-ss_compare.exit.thread.i326:                      ; preds = %ss_compare.exit.i325
+ss_compare.argprom.exit.thread.i326:              ; preds = %ss_compare.argprom.exit.i325
   %.not.i327 = icmp eq i32 %306, 0
   br i1 %.not.i327, label %328, label %.preheader99.i.preheader
 
-.preheader99.i.preheader:                         ; preds = %298, %ss_compare.exit.thread.i326
+.preheader99.i.preheader:                         ; preds = %298, %ss_compare.argprom.exit.thread.i326
   br label %.preheader99.i
 
 .preheader99.i:                                   ; preds = %.preheader99.i.preheader, %325
@@ -7554,7 +7554,7 @@ ss_compare.exit.thread.i326:                      ; preds = %ss_compare.exit.i32
   %327 = icmp slt i32 %326, 0
   br i1 %327, label %.preheader99.i, label %.loopexit.i.outer.backedge, !llvm.loop !96
 
-328:                                              ; preds = %ss_compare.exit.thread.i326
+328:                                              ; preds = %ss_compare.argprom.exit.thread.i326
   %329 = xor i32 %277, -1
   store i32 %329, ptr %.077.i.ph, align 4
   %.pre158.i = load i32, ptr %.071.i, align 4
@@ -7638,7 +7638,7 @@ ss_mergeforward.exit:                             ; preds = %330, %.preheader96.
 355:                                              ; preds = %353
   %356 = and i32 %.0215, 2
   %.not265 = icmp eq i32 %356, 0
-  br i1 %.not265, label %ss_compare.exit358.thread, label %357
+  br i1 %.not265, label %ss_compare.argprom.exit358.thread, label %357
 
 357:                                              ; preds = %355
   %358 = getelementptr inbounds i8, ptr %.0224, i64 -4
@@ -7693,7 +7693,7 @@ ss_mergeforward.exit:                             ; preds = %330, %.preheader96.
   br i1 %.lcssa5.i349, label %384, label %390
 
 384:                                              ; preds = %.critedge.i346
-  br i1 %.lcssa.i350, label %..thread.i351_crit_edge, label %ss_compare.exit358.thread
+  br i1 %.lcssa.i350, label %..thread.i351_crit_edge, label %ss_compare.argprom.exit358.thread
 
 ..thread.i351_crit_edge:                          ; preds = %384
   %.pre698 = load i8, ptr %.0.lcssa.i348, align 1
@@ -7706,29 +7706,29 @@ ss_mergeforward.exit:                             ; preds = %330, %.preheader96.
   %387 = load i8, ptr %.025.lcssa2128.i352, align 1
   %388 = zext i8 %387 to i32
   %389 = sub nsw i32 %386, %388
-  br label %ss_compare.exit358
+  br label %ss_compare.argprom.exit358
 
 390:                                              ; preds = %.critedge.i346
   %391 = sext i1 %.lcssa.i350 to i32
-  br label %ss_compare.exit358
+  br label %ss_compare.argprom.exit358
 
-ss_compare.exit358:                               ; preds = %.thread.i351, %390
+ss_compare.argprom.exit358:                       ; preds = %.thread.i351, %390
   %392 = phi i32 [ %391, %390 ], [ %389, %.thread.i351 ]
   %393 = icmp eq i32 %392, 0
-  br i1 %393, label %394, label %ss_compare.exit358.thread
+  br i1 %393, label %394, label %ss_compare.argprom.exit358.thread
 
-394:                                              ; preds = %._crit_edge699, %ss_compare.exit358
-  %395 = phi i32 [ %.pre700, %._crit_edge699 ], [ %363, %ss_compare.exit358 ]
+394:                                              ; preds = %._crit_edge699, %ss_compare.argprom.exit358
+  %395 = phi i32 [ %.pre700, %._crit_edge699 ], [ %363, %ss_compare.argprom.exit358 ]
   %396 = xor i32 %395, -1
   store i32 %396, ptr %.0224, align 4
-  br label %ss_compare.exit358.thread
+  br label %ss_compare.argprom.exit358.thread
 
-ss_compare.exit358.thread:                        ; preds = %384, %394, %ss_compare.exit358, %355
+ss_compare.argprom.exit358.thread:                ; preds = %384, %394, %ss_compare.argprom.exit358, %355
   %397 = and i32 %.0215, 4
   %.not266 = icmp eq i32 %397, 0
-  br i1 %.not266, label %ss_compare.exit372.thread, label %398
+  br i1 %.not266, label %ss_compare.argprom.exit372.thread, label %398
 
-398:                                              ; preds = %ss_compare.exit358.thread
+398:                                              ; preds = %ss_compare.argprom.exit358.thread
   %399 = getelementptr inbounds i8, ptr %.0233.ph, i64 -4
   %400 = load i32, ptr %399, align 4
   %.lobit432 = ashr i32 %400, 31
@@ -7781,7 +7781,7 @@ ss_compare.exit358.thread:                        ; preds = %384, %394, %ss_comp
   br i1 %.lcssa5.i363, label %425, label %431
 
 425:                                              ; preds = %.critedge.i360
-  br i1 %.lcssa.i364, label %..thread.i365_crit_edge, label %ss_compare.exit372.thread
+  br i1 %.lcssa.i364, label %..thread.i365_crit_edge, label %ss_compare.argprom.exit372.thread
 
 ..thread.i365_crit_edge:                          ; preds = %425
   %.pre701 = load i8, ptr %.0.lcssa.i362, align 1
@@ -7794,27 +7794,27 @@ ss_compare.exit358.thread:                        ; preds = %384, %394, %ss_comp
   %428 = load i8, ptr %.025.lcssa2128.i366, align 1
   %429 = zext i8 %428 to i32
   %430 = sub nsw i32 %427, %429
-  br label %ss_compare.exit372
+  br label %ss_compare.argprom.exit372
 
 431:                                              ; preds = %.critedge.i360
   %432 = sext i1 %.lcssa.i364 to i32
-  br label %ss_compare.exit372
+  br label %ss_compare.argprom.exit372
 
-ss_compare.exit372:                               ; preds = %.thread.i365, %431
+ss_compare.argprom.exit372:                       ; preds = %.thread.i365, %431
   %433 = phi i32 [ %432, %431 ], [ %430, %.thread.i365 ]
   %434 = icmp eq i32 %433, 0
-  br i1 %434, label %435, label %ss_compare.exit372.thread
+  br i1 %434, label %435, label %ss_compare.argprom.exit372.thread
 
-435:                                              ; preds = %ss_compare.exit372
+435:                                              ; preds = %ss_compare.argprom.exit372
   %436 = xor i32 %404, -1
   store i32 %436, ptr %.0233.ph, align 4
-  br label %ss_compare.exit372.thread
+  br label %ss_compare.argprom.exit372.thread
 
-ss_compare.exit372.thread:                        ; preds = %425, %435, %ss_compare.exit372, %ss_compare.exit358.thread
+ss_compare.argprom.exit372.thread:                ; preds = %425, %435, %ss_compare.argprom.exit372, %ss_compare.argprom.exit358.thread
   %437 = icmp eq i32 %.0217, 0
   br i1 %437, label %686, label %438
 
-438:                                              ; preds = %ss_compare.exit372.thread
+438:                                              ; preds = %ss_compare.argprom.exit372.thread
   %439 = add nsw i32 %.0217, -1
   %440 = sext i32 %439 to i64
   %441 = getelementptr inbounds [32 x %struct.anon.0], ptr %8, i64 0, i64 %440
@@ -7833,9 +7833,9 @@ ss_compare.exit372.thread:                        ; preds = %425, %435, %ss_comp
   %451 = icmp sgt i32 %450, 0
   br i1 %451, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %449, %ss_compare.exit386.thread
-  %.0221551 = phi i32 [ %.1220, %ss_compare.exit386.thread ], [ %450, %449 ]
-  %.0222550 = phi i32 [ %.1223, %ss_compare.exit386.thread ], [ 0, %449 ]
+.lr.ph:                                           ; preds = %449, %ss_compare.argprom.exit386.thread
+  %.0221551 = phi i32 [ %.1220, %ss_compare.argprom.exit386.thread ], [ %450, %449 ]
+  %.0222550 = phi i32 [ %.1223, %ss_compare.argprom.exit386.thread ], [ 0, %449 ]
   %.0219552 = lshr i32 %.0221551, 1
   %452 = sext i32 %.0222550 to i64
   %453 = getelementptr inbounds i32, ptr %.0226, i64 %452
@@ -7896,10 +7896,10 @@ ss_compare.exit372.thread:                        ; preds = %425, %435, %ss_comp
   %.0.lcssa.i376 = phi ptr [ %472, %.lr.ph ], [ %483, %482 ]
   %.lcssa5.i377 = phi i1 [ %477, %.lr.ph ], [ %485, %482 ]
   %.lcssa.i378 = phi i1 [ %478, %.lr.ph ], [ %486, %482 ]
-  br i1 %.lcssa5.i377, label %487, label %ss_compare.exit386
+  br i1 %.lcssa5.i377, label %487, label %ss_compare.argprom.exit386
 
 487:                                              ; preds = %.critedge.i374
-  br i1 %.lcssa.i378, label %..thread.i379_crit_edge, label %ss_compare.exit386.thread
+  br i1 %.lcssa.i378, label %..thread.i379_crit_edge, label %ss_compare.argprom.exit386.thread
 
 ..thread.i379_crit_edge:                          ; preds = %487
   %.pre702 = load i8, ptr %.0.lcssa.i376, align 1
@@ -7910,26 +7910,26 @@ ss_compare.exit372.thread:                        ; preds = %425, %435, %ss_comp
   %.025.lcssa2128.i380 = phi ptr [ %.025.lcssa.i375, %..thread.i379_crit_edge ], [ %.0257.i384, %.lr.ph.i382 ]
   %489 = load i8, ptr %.025.lcssa2128.i380, align 1
   %490 = icmp ult i8 %488, %489
-  br i1 %490, label %491, label %ss_compare.exit386.thread
+  br i1 %490, label %491, label %ss_compare.argprom.exit386.thread
 
-ss_compare.exit386:                               ; preds = %.critedge.i374
-  br i1 %.lcssa.i378, label %491, label %ss_compare.exit386.thread
+ss_compare.argprom.exit386:                       ; preds = %.critedge.i374
+  br i1 %.lcssa.i378, label %491, label %ss_compare.argprom.exit386.thread
 
-491:                                              ; preds = %.thread.i379, %ss_compare.exit386
+491:                                              ; preds = %.thread.i379, %ss_compare.argprom.exit386
   %492 = add i32 %.0222550, 1
   %493 = add i32 %492, %.0219552
   %494 = and i32 %.0221551, 1
   %495 = xor i32 %494, 1
   %496 = sub nsw i32 %.0219552, %495
-  br label %ss_compare.exit386.thread
+  br label %ss_compare.argprom.exit386.thread
 
-ss_compare.exit386.thread:                        ; preds = %.thread.i379, %487, %ss_compare.exit386, %491
-  %.1223 = phi i32 [ %493, %491 ], [ %.0222550, %ss_compare.exit386 ], [ %.0222550, %487 ], [ %.0222550, %.thread.i379 ]
-  %.1220 = phi i32 [ %496, %491 ], [ %.0219552, %ss_compare.exit386 ], [ %.0219552, %487 ], [ %.0219552, %.thread.i379 ]
+ss_compare.argprom.exit386.thread:                ; preds = %.thread.i379, %487, %ss_compare.argprom.exit386, %491
+  %.1223 = phi i32 [ %493, %491 ], [ %.0222550, %ss_compare.argprom.exit386 ], [ %.0222550, %487 ], [ %.0222550, %.thread.i379 ]
+  %.1220 = phi i32 [ %496, %491 ], [ %.0219552, %ss_compare.argprom.exit386 ], [ %.0219552, %487 ], [ %.0219552, %.thread.i379 ]
   %497 = icmp sgt i32 %.1220, 0
   br i1 %497, label %.lr.ph, label %._crit_edge, !llvm.loop !100
 
-._crit_edge:                                      ; preds = %ss_compare.exit386.thread
+._crit_edge:                                      ; preds = %ss_compare.argprom.exit386.thread
   %498 = icmp sgt i32 %.1223, 0
   br i1 %498, label %499, label %._crit_edge.thread
 
@@ -8102,7 +8102,7 @@ ss_blockswap.exit:                                ; preds = %.lr.ph.i387
   br i1 %.lcssa5.i392, label %579, label %585
 
 579:                                              ; preds = %.critedge.i389
-  br i1 %.lcssa.i393, label %..thread.i394_crit_edge, label %ss_compare.exit401.thread
+  br i1 %.lcssa.i393, label %..thread.i394_crit_edge, label %ss_compare.argprom.exit401.thread
 
 ..thread.i394_crit_edge:                          ; preds = %579
   %.pre703 = load i8, ptr %.0.lcssa.i391, align 1
@@ -8115,35 +8115,35 @@ ss_blockswap.exit:                                ; preds = %.lr.ph.i387
   %582 = load i8, ptr %.025.lcssa2128.i395, align 1
   %583 = zext i8 %582 to i32
   %584 = sub nsw i32 %581, %583
-  br label %ss_compare.exit401
+  br label %ss_compare.argprom.exit401
 
 585:                                              ; preds = %.critedge.i389
   %586 = sext i1 %.lcssa.i393 to i32
-  br label %ss_compare.exit401
+  br label %ss_compare.argprom.exit401
 
-ss_compare.exit401:                               ; preds = %.thread.i394, %585
+ss_compare.argprom.exit401:                       ; preds = %.thread.i394, %585
   %587 = phi i32 [ %586, %585 ], [ %584, %.thread.i394 ]
   %588 = icmp eq i32 %587, 0
-  br i1 %588, label %589, label %ss_compare.exit401.thread
+  br i1 %588, label %589, label %ss_compare.argprom.exit401.thread
 
-589:                                              ; preds = %ss_compare.exit401
+589:                                              ; preds = %ss_compare.argprom.exit401
   %590 = xor i32 %558, -1
   store i32 %590, ptr %.0226, align 4
-  br label %ss_compare.exit401.thread
+  br label %ss_compare.argprom.exit401.thread
 
-ss_compare.exit401.thread:                        ; preds = %579, %ss_compare.exit401, %589
+ss_compare.argprom.exit401.thread:                ; preds = %579, %ss_compare.argprom.exit401, %589
   %591 = and i32 %.0215, 1
   %.not259 = icmp eq i32 %591, 0
-  br i1 %.not259, label %592, label %ss_compare.exit401.thread._crit_edge
+  br i1 %.not259, label %592, label %ss_compare.argprom.exit401.thread._crit_edge
 
-ss_compare.exit401.thread._crit_edge:             ; preds = %ss_compare.exit401.thread
+ss_compare.argprom.exit401.thread._crit_edge:     ; preds = %ss_compare.argprom.exit401.thread
   %.pre705 = load i32, ptr %.0224, align 4
   br label %631
 
-592:                                              ; preds = %ss_compare.exit401.thread
+592:                                              ; preds = %ss_compare.argprom.exit401.thread
   %593 = and i32 %.0215, 2
   %.not260 = icmp eq i32 %593, 0
-  br i1 %.not260, label %ss_compare.exit415.thread, label %594
+  br i1 %.not260, label %ss_compare.argprom.exit415.thread, label %594
 
 594:                                              ; preds = %592
   %595 = getelementptr inbounds i8, ptr %.0224, i64 -4
@@ -8198,7 +8198,7 @@ ss_compare.exit401.thread._crit_edge:             ; preds = %ss_compare.exit401.
   br i1 %.lcssa5.i406, label %621, label %627
 
 621:                                              ; preds = %.critedge.i403
-  br i1 %.lcssa.i407, label %..thread.i408_crit_edge, label %ss_compare.exit415.thread
+  br i1 %.lcssa.i407, label %..thread.i408_crit_edge, label %ss_compare.argprom.exit415.thread
 
 ..thread.i408_crit_edge:                          ; preds = %621
   %.pre704 = load i8, ptr %.0.lcssa.i405, align 1
@@ -8211,29 +8211,29 @@ ss_compare.exit401.thread._crit_edge:             ; preds = %ss_compare.exit401.
   %624 = load i8, ptr %.025.lcssa2128.i409, align 1
   %625 = zext i8 %624 to i32
   %626 = sub nsw i32 %623, %625
-  br label %ss_compare.exit415
+  br label %ss_compare.argprom.exit415
 
 627:                                              ; preds = %.critedge.i403
   %628 = sext i1 %.lcssa.i407 to i32
-  br label %ss_compare.exit415
+  br label %ss_compare.argprom.exit415
 
-ss_compare.exit415:                               ; preds = %.thread.i408, %627
+ss_compare.argprom.exit415:                       ; preds = %.thread.i408, %627
   %629 = phi i32 [ %628, %627 ], [ %626, %.thread.i408 ]
   %630 = icmp eq i32 %629, 0
-  br i1 %630, label %631, label %ss_compare.exit415.thread
+  br i1 %630, label %631, label %ss_compare.argprom.exit415.thread
 
-631:                                              ; preds = %ss_compare.exit401.thread._crit_edge, %ss_compare.exit415
-  %632 = phi i32 [ %.pre705, %ss_compare.exit401.thread._crit_edge ], [ %600, %ss_compare.exit415 ]
+631:                                              ; preds = %ss_compare.argprom.exit401.thread._crit_edge, %ss_compare.argprom.exit415
+  %632 = phi i32 [ %.pre705, %ss_compare.argprom.exit401.thread._crit_edge ], [ %600, %ss_compare.argprom.exit415 ]
   %633 = xor i32 %632, -1
   store i32 %633, ptr %.0224, align 4
-  br label %ss_compare.exit415.thread
+  br label %ss_compare.argprom.exit415.thread
 
-ss_compare.exit415.thread:                        ; preds = %621, %631, %ss_compare.exit415, %592
+ss_compare.argprom.exit415.thread:                ; preds = %621, %631, %ss_compare.argprom.exit415, %592
   %634 = and i32 %.0215, 4
   %.not261 = icmp eq i32 %634, 0
-  br i1 %.not261, label %ss_compare.exit429.thread, label %635
+  br i1 %.not261, label %ss_compare.argprom.exit429.thread, label %635
 
-635:                                              ; preds = %ss_compare.exit415.thread
+635:                                              ; preds = %ss_compare.argprom.exit415.thread
   %636 = getelementptr inbounds i8, ptr %.0233.ph, i64 -4
   %637 = load i32, ptr %636, align 4
   %.lobit435 = ashr i32 %637, 31
@@ -8286,7 +8286,7 @@ ss_compare.exit415.thread:                        ; preds = %621, %631, %ss_comp
   br i1 %.lcssa5.i420, label %662, label %668
 
 662:                                              ; preds = %.critedge.i417
-  br i1 %.lcssa.i421, label %..thread.i422_crit_edge, label %ss_compare.exit429.thread
+  br i1 %.lcssa.i421, label %..thread.i422_crit_edge, label %ss_compare.argprom.exit429.thread
 
 ..thread.i422_crit_edge:                          ; preds = %662
   %.pre706 = load i8, ptr %.0.lcssa.i419, align 1
@@ -8299,27 +8299,27 @@ ss_compare.exit415.thread:                        ; preds = %621, %631, %ss_comp
   %665 = load i8, ptr %.025.lcssa2128.i423, align 1
   %666 = zext i8 %665 to i32
   %667 = sub nsw i32 %664, %666
-  br label %ss_compare.exit429
+  br label %ss_compare.argprom.exit429
 
 668:                                              ; preds = %.critedge.i417
   %669 = sext i1 %.lcssa.i421 to i32
-  br label %ss_compare.exit429
+  br label %ss_compare.argprom.exit429
 
-ss_compare.exit429:                               ; preds = %.thread.i422, %668
+ss_compare.argprom.exit429:                       ; preds = %.thread.i422, %668
   %670 = phi i32 [ %669, %668 ], [ %667, %.thread.i422 ]
   %671 = icmp eq i32 %670, 0
-  br i1 %671, label %672, label %ss_compare.exit429.thread
+  br i1 %671, label %672, label %ss_compare.argprom.exit429.thread
 
-672:                                              ; preds = %ss_compare.exit429
+672:                                              ; preds = %ss_compare.argprom.exit429
   %673 = xor i32 %641, -1
   store i32 %673, ptr %.0233.ph, align 4
-  br label %ss_compare.exit429.thread
+  br label %ss_compare.argprom.exit429.thread
 
-ss_compare.exit429.thread:                        ; preds = %662, %672, %ss_compare.exit429, %ss_compare.exit415.thread
+ss_compare.argprom.exit429.thread:                ; preds = %662, %672, %ss_compare.argprom.exit429, %ss_compare.argprom.exit415.thread
   %674 = icmp eq i32 %.0217, 0
   br i1 %674, label %686, label %675
 
-675:                                              ; preds = %ss_compare.exit429.thread
+675:                                              ; preds = %ss_compare.argprom.exit429.thread
   %676 = add nsw i32 %.0217, -1
   %677 = sext i32 %676 to i64
   %678 = getelementptr inbounds [32 x %struct.anon.0], ptr %8, i64 0, i64 %677
@@ -8332,7 +8332,7 @@ ss_compare.exit429.thread:                        ; preds = %662, %672, %ss_comp
   %685 = load i32, ptr %684, align 8
   br label %.backedge.outer.backedge
 
-686:                                              ; preds = %ss_compare.exit429.thread, %ss_compare.exit372.thread, %ss_compare.exit316.thread
+686:                                              ; preds = %ss_compare.argprom.exit429.thread, %ss_compare.argprom.exit372.thread, %ss_compare.argprom.exit316.thread
   ret void
 }
 

@@ -1834,7 +1834,7 @@ define internal i32 @dissect_unistim(ptr noundef %0, ptr noundef %1, ptr noundef
   %45 = load ptr, ptr %9, align 8
   %46 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #4
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.1284, i32 noundef %46) #4
-  tail call fastcc void @dissect_payload(ptr noundef %15, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @dissect_payload.argelim(ptr noundef %15, ptr noundef %0, ptr noundef nonnull %1)
   br label %47
 
 47:                                               ; preds = %44, %41, %38
@@ -1887,7 +1887,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_payload.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct._address, align 8
   %6 = alloca ptr, align 8
@@ -1899,7 +1899,7 @@ define internal fastcc void @dissect_payload(ptr noundef %0, ptr noundef %1, ptr
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
   %12 = load i32, ptr @ett_unistim, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #4
-  switch i8 %7, label %dissect_uftp_message.exit [
+  switch i8 %7, label %dissect_uftp_message.argprom.exit [
     i8 0, label %.loopexit
     i8 1, label %14
     i8 2, label %49
@@ -1964,7 +1964,7 @@ copy_address.exit30:                              ; preds = %copy_address.exit, 
   %47 = load i32, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %45, i64 40
   store i32 %47, ptr %48, align 8
-  br label %dissect_uftp_message.exit
+  br label %dissect_uftp_message.argprom.exit
 
 49:                                               ; preds = %3
   %50 = load ptr, ptr @uinfo, align 8
@@ -2030,7 +2030,7 @@ copy_address.exit32:                              ; preds = %copy_address.exit31
   store i32 %84, ptr %86, align 8
   %87 = load i32, ptr @hf_terminal_id, align 4
   %88 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %87, ptr noundef %1, i32 noundef 6, i32 noundef 4, i32 noundef 0) #4
-  br label %dissect_uftp_message.exit
+  br label %dissect_uftp_message.argprom.exit
 
 89:                                               ; preds = %3
   %90 = load i32, ptr @ett_unistim, align 4
@@ -2038,7 +2038,7 @@ copy_address.exit32:                              ; preds = %copy_address.exit31
   %92 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 6) #4
   %93 = load i32, ptr @hf_uftp_command, align 4
   %94 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %93, ptr noundef %1, i32 noundef 6, i32 noundef 1, i32 noundef 0) #4
-  switch i8 %92, label %dissect_uftp_message.exit [
+  switch i8 %92, label %dissect_uftp_message.argprom.exit [
     i8 2, label %.sink.split.i
     i8 -127, label %95
   ]
@@ -2057,15 +2057,15 @@ copy_address.exit32:                              ; preds = %copy_address.exit31
   %101 = load i32, ptr %hf_uftp_datablock.sink.i, align 4
   %102 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %101, ptr noundef %1, i32 noundef %.sink5.i, i32 noundef %100, i32 noundef 0) #4
   %103 = add i32 %100, %.sink5.i
-  br label %dissect_uftp_message.exit
+  br label %dissect_uftp_message.argprom.exit
 
-dissect_uftp_message.exit:                        ; preds = %.sink.split.i, %89, %copy_address.exit32, %copy_address.exit30, %3
+dissect_uftp_message.argprom.exit:                ; preds = %.sink.split.i, %89, %copy_address.exit32, %copy_address.exit30, %3
   %.0 = phi i32 [ 6, %3 ], [ 10, %copy_address.exit32 ], [ 6, %copy_address.exit30 ], [ 7, %89 ], [ %103, %.sink.split.i ]
   %104 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.0) #4
   %105 = icmp sgt i32 %104, 0
   br i1 %105, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %dissect_uftp_message.exit
+.lr.ph:                                           ; preds = %dissect_uftp_message.argprom.exit
   %106 = getelementptr inbounds i8, ptr %2, i64 408
   %107 = getelementptr inbounds i8, ptr %5, i64 4
   %108 = getelementptr inbounds i8, ptr %5, i64 8
@@ -4693,7 +4693,7 @@ dissect_unistim_message.exit:                     ; preds = %.lr.ph.i, %1543, %.
   %1873 = icmp sgt i32 %1872, 0
   br i1 %1873, label %111, label %.loopexit, !llvm.loop !16
 
-.loopexit:                                        ; preds = %dissect_unistim_message.exit, %dissect_uftp_message.exit, %3
+.loopexit:                                        ; preds = %dissect_unistim_message.exit, %dissect_uftp_message.argprom.exit, %3
   ret void
 }
 

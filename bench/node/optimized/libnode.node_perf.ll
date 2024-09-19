@@ -4680,16 +4680,16 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i.i.i.i:
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i.i.i.i, %arraydestroy.body.i.i.i.i.i
   store ptr null, ptr %arraydestroy.element.i.i.i.i.i, align 8
   %arraydestroy.done.i.i.i.i.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i, %arg_convertibles.i.i.i.i.i
-  br i1 %arraydestroy.done.i.i.i.i.i, label %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit.i.i.i, label %arraydestroy.body.i.i.i.i.i
+  br i1 %arraydestroy.done.i.i.i.i.i, label %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.argprom.exit.i.i.i, label %arraydestroy.body.i.i.i.i.i
 
-_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i
+_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.argprom.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg1_name.addr.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %arg_type.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg_value.i.i.i.i)
   br label %do.body9.i.i.i
 
-do.body9.i.i.i:                                   ; preds = %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit.i.i.i, %if.end.i.i.i
+do.body9.i.i.i:                                   ; preds = %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.argprom.exit.i.i.i, %if.end.i.i.i
   %13 = load atomic i64, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic270.0" seq_cst, align 8
   %14 = inttoptr i64 %13 to ptr
   %tobool11.not.i.i.i = icmp eq i64 %13, 0
@@ -4768,16 +4768,16 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i75.i.i.
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i78.i.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i75.i.i.i, %arraydestroy.body.i.i71.i.i.i
   store ptr null, ptr %arraydestroy.element.i.i73.i.i.i, align 8
   %arraydestroy.done.i.i79.i.i.i = icmp eq ptr %arraydestroy.element.i.i73.i.i.i, %arg_convertibles.i.i57.i.i.i
-  br i1 %arraydestroy.done.i.i79.i.i.i, label %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit80.i.i.i, label %arraydestroy.body.i.i71.i.i.i
+  br i1 %arraydestroy.done.i.i79.i.i.i, label %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.argprom.exit80.i.i.i, label %arraydestroy.body.i.i71.i.i.i
 
-_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit80.i.i.i: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i78.i.i.i
+_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.argprom.exit80.i.i.i: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i78.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i57.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg1_name.addr.i58.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %arg_type.i59.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg_value.i60.i.i.i)
   br label %do.body25.i.i.i
 
-do.body25.i.i.i:                                  ; preds = %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit80.i.i.i, %if.end14.i.i.i
+do.body25.i.i.i:                                  ; preds = %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.argprom.exit80.i.i.i, %if.end14.i.i.i
   %23 = load atomic i64, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic272.0" seq_cst, align 8
   %24 = inttoptr i64 %23 to ptr
   %tobool27.not.i.i.i = icmp eq i64 %23, 0
@@ -4856,16 +4856,16 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i110.i.i
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i113.i.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i110.i.i.i, %arraydestroy.body.i.i106.i.i.i
   store ptr null, ptr %arraydestroy.element.i.i108.i.i.i, align 8
   %arraydestroy.done.i.i114.i.i.i = icmp eq ptr %arraydestroy.element.i.i108.i.i.i, %arg_convertibles.i.i92.i.i.i
-  br i1 %arraydestroy.done.i.i114.i.i.i, label %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit115.i.i.i, label %arraydestroy.body.i.i106.i.i.i
+  br i1 %arraydestroy.done.i.i114.i.i.i, label %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.argprom.exit115.i.i.i, label %arraydestroy.body.i.i106.i.i.i
 
-_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit115.i.i.i: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i113.i.i.i
+_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.argprom.exit115.i.i.i: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i113.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i92.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg1_name.addr.i93.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %arg_type.i94.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg_value.i95.i.i.i)
   br label %do.body41.i.i.i
 
-do.body41.i.i.i:                                  ; preds = %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit115.i.i.i, %if.end30.i.i.i
+do.body41.i.i.i:                                  ; preds = %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.argprom.exit115.i.i.i, %if.end30.i.i.i
   %33 = load atomic i64, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic274.0" seq_cst, align 8
   %34 = inttoptr i64 %33 to ptr
   %tobool43.not.i.i.i = icmp eq i64 %33, 0
@@ -4944,16 +4944,16 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i145.i.i
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i148.i.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i145.i.i.i, %arraydestroy.body.i.i141.i.i.i
   store ptr null, ptr %arraydestroy.element.i.i143.i.i.i, align 8
   %arraydestroy.done.i.i149.i.i.i = icmp eq ptr %arraydestroy.element.i.i143.i.i.i, %arg_convertibles.i.i127.i.i.i
-  br i1 %arraydestroy.done.i.i149.i.i.i, label %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit150.i.i.i, label %arraydestroy.body.i.i141.i.i.i
+  br i1 %arraydestroy.done.i.i149.i.i.i, label %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.argprom.exit150.i.i.i, label %arraydestroy.body.i.i141.i.i.i
 
-_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit150.i.i.i: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i148.i.i.i
+_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.argprom.exit150.i.i.i: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i148.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i127.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg1_name.addr.i128.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %arg_type.i129.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg_value.i130.i.i.i)
   br label %do.body57.i.i.i
 
-do.body57.i.i.i:                                  ; preds = %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit150.i.i.i, %if.end46.i.i.i
+do.body57.i.i.i:                                  ; preds = %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.argprom.exit150.i.i.i, %if.end46.i.i.i
   %43 = load atomic i64, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic276.0" seq_cst, align 8
   %44 = inttoptr i64 %43 to ptr
   %tobool59.not.i.i.i = icmp eq i64 %43, 0
@@ -4982,7 +4982,7 @@ if.end62.i.i.i:                                   ; preds = %_ZN4node7tracing16T
   %47 = load i8, ptr %trace_event_unique_category_group_enabled276.0.i.i.i, align 1
   %48 = and i8 %47, 5
   %tobool65.not.i.i.i = icmp eq i8 %48, 0
-  br i1 %tobool65.not.i.i.i, label %"_ZSt10__invoke_rIvRZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0JRNS0_9HistogramEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", label %if.then66.i.i.i
+  br i1 %tobool65.not.i.i.i, label %"_ZSt10__invoke_rIvRZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0JRNS0_9HistogramEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit", label %if.then66.i.i.i
 
 if.then66.i.i.i:                                  ; preds = %if.end62.i.i.i
   call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i.i.i.i) #20
@@ -5032,16 +5032,16 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i179.i.i
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i182.i.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i179.i.i.i, %arraydestroy.body.i.i175.i.i.i
   store ptr null, ptr %arraydestroy.element.i.i177.i.i.i, align 8
   %arraydestroy.done.i.i183.i.i.i = icmp eq ptr %arraydestroy.element.i.i177.i.i.i, %arg_convertibles.i.i161.i.i.i
-  br i1 %arraydestroy.done.i.i183.i.i.i, label %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit184.i.i.i, label %arraydestroy.body.i.i175.i.i.i
+  br i1 %arraydestroy.done.i.i183.i.i.i, label %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.argprom.exit184.i.i.i, label %arraydestroy.body.i.i175.i.i.i
 
-_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit184.i.i.i: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i182.i.i.i
+_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.argprom.exit184.i.i.i: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i182.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i161.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg1_name.addr.i162.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %arg_type.i163.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg_value.i164.i.i.i)
-  br label %"_ZSt10__invoke_rIvRZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0JRNS0_9HistogramEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0JRNS0_9HistogramEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0JRNS0_9HistogramEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %if.end62.i.i.i, %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit184.i.i.i
+"_ZSt10__invoke_rIvRZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0JRNS0_9HistogramEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %if.end62.i.i.i, %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.argprom.exit184.i.i.i
   ret void
 }
 
@@ -5187,10 +5187,10 @@ attributes #24 = { builtin nounwind }
 !9 = distinct !{!9, !10, !"_ZSt11make_uniqueIN4node11performance16PerformanceEntryINS1_24GCPerformanceEntryTraitsEEEJRA3_KcRdS8_NS3_7DetailsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !10 = distinct !{!10, !"_ZSt11make_uniqueIN4node11performance16PerformanceEntryINS1_24GCPerformanceEntryTraitsEEEJRA3_KcRdS8_NS3_7DetailsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !11 = !{!12, !14}
-!12 = distinct !{!12, !13, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_11performance24MarkGarbageCollectionEndEPN2v87IsolateENS7_6GCTypeENS7_15GCCallbackFlagsEPvE3$_0EEJSD_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!13 = distinct !{!13, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_11performance24MarkGarbageCollectionEndEPN2v87IsolateENS7_6GCTypeENS7_15GCCallbackFlagsEPvE3$_0EEJSD_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!14 = distinct !{!14, !15, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_11performance24MarkGarbageCollectionEndEPN2v87IsolateENS6_6GCTypeENS6_15GCCallbackFlagsEPvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISE_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
-!15 = distinct !{!15, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_11performance24MarkGarbageCollectionEndEPN2v87IsolateENS6_6GCTypeENS6_15GCCallbackFlagsEPvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISE_EEOT_NS_13CallbackFlags5FlagsE"}
+!12 = distinct !{!12, !13, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_11performance24MarkGarbageCollectionEndEPN2v87IsolateENS7_6GCTypeENS7_15GCCallbackFlagsEPvE3$_0EEJSD_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!13 = distinct !{!13, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_11performance24MarkGarbageCollectionEndEPN2v87IsolateENS7_6GCTypeENS7_15GCCallbackFlagsEPvE3$_0EEJSD_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!14 = distinct !{!14, !15, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_11performance24MarkGarbageCollectionEndEPN2v87IsolateENS6_6GCTypeENS6_15GCCallbackFlagsEPvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISE_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
+!15 = distinct !{!15, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_11performance24MarkGarbageCollectionEndEPN2v87IsolateENS6_6GCTypeENS6_15GCCallbackFlagsEPvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISE_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}

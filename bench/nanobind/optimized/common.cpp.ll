@@ -2217,13 +2217,13 @@ define noundef zeroext i1 @_ZN8nanobind6detail7load_u8EP7_objecthPh(ptr noundef 
 
 26:                                               ; preds = %24
   %27 = invoke i32 @PyType_IsSubtype(ptr noundef %.val62, ptr noundef nonnull @PyFloat_Type)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %60
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit unwind label %60
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %26
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %26
   %.not70 = icmp eq i32 %27, 0
   br i1 %.not70, label %28, label %_ZL10_Py_DECREFP7_object.exit
 
-28:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+28:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %29 = invoke ptr @PyNumber_Long(ptr noundef nonnull %0)
           to label %30 unwind label %60
 
@@ -2318,8 +2318,8 @@ _ZL10_Py_DECREFP7_object.exit.sink.split:         ; preds = %23, %10
   store i8 %63, ptr %2, align 1
   br label %_ZL10_Py_DECREFP7_object.exit
 
-_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.invoke, %22, %.thread68, %59, %24, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %23, %10
-  %.052 = phi i1 [ false, %10 ], [ false, %23 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ], [ false, %24 ], [ %.0, %59 ], [ %.0, %.thread68 ], [ false, %22 ], [ false, %.invoke ], [ true, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
+_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.invoke, %22, %.thread68, %59, %24, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit, %23, %10
+  %.052 = phi i1 [ false, %10 ], [ false, %23 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ], [ false, %24 ], [ %.0, %59 ], [ %.0, %.thread68 ], [ false, %22 ], [ false, %.invoke ], [ true, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
   ret i1 %.052
 }
 
@@ -2376,13 +2376,13 @@ define noundef zeroext i1 @_ZN8nanobind6detail7load_i8EP7_objecthPa(ptr noundef 
 
 27:                                               ; preds = %25
   %28 = invoke i32 @PyType_IsSubtype(ptr noundef %.val62, ptr noundef nonnull @PyFloat_Type)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %63
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit unwind label %63
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %27
   %.not70 = icmp eq i32 %28, 0
   br i1 %.not70, label %29, label %_ZL10_Py_DECREFP7_object.exit
 
-29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %30 = invoke ptr @PyNumber_Long(ptr noundef nonnull %0)
           to label %31 unwind label %63
 
@@ -2479,8 +2479,8 @@ _ZL10_Py_DECREFP7_object.exit.sink.split:         ; preds = %23, %22, %10
   store i8 %66, ptr %2, align 1
   br label %_ZL10_Py_DECREFP7_object.exit
 
-_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.invoke, %59, %62, %25, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %23, %10
-  %.050 = phi i1 [ false, %10 ], [ false, %23 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ], [ false, %25 ], [ %.0, %62 ], [ %.0, %59 ], [ false, %.invoke ], [ true, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
+_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.invoke, %59, %62, %25, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit, %23, %10
+  %.050 = phi i1 [ false, %10 ], [ false, %23 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ], [ false, %25 ], [ %.0, %62 ], [ %.0, %59 ], [ false, %.invoke ], [ true, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
   ret i1 %.050
 }
 
@@ -2535,13 +2535,13 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_u16EP7_objecthPt(ptr noundef
 
 26:                                               ; preds = %24
   %27 = invoke i32 @PyType_IsSubtype(ptr noundef %.val62, ptr noundef nonnull @PyFloat_Type)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %60
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit unwind label %60
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %26
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %26
   %.not70 = icmp eq i32 %27, 0
   br i1 %.not70, label %28, label %_ZL10_Py_DECREFP7_object.exit
 
-28:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+28:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %29 = invoke ptr @PyNumber_Long(ptr noundef nonnull %0)
           to label %30 unwind label %60
 
@@ -2636,8 +2636,8 @@ _ZL10_Py_DECREFP7_object.exit.sink.split:         ; preds = %23, %10
   store i16 %63, ptr %2, align 2
   br label %_ZL10_Py_DECREFP7_object.exit
 
-_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.invoke, %22, %.thread68, %59, %24, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %23, %10
-  %.052 = phi i1 [ false, %10 ], [ false, %23 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ], [ false, %24 ], [ %.0, %59 ], [ %.0, %.thread68 ], [ false, %22 ], [ false, %.invoke ], [ true, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
+_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.invoke, %22, %.thread68, %59, %24, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit, %23, %10
+  %.052 = phi i1 [ false, %10 ], [ false, %23 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ], [ false, %24 ], [ %.0, %59 ], [ %.0, %.thread68 ], [ false, %22 ], [ false, %.invoke ], [ true, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
   ret i1 %.052
 }
 
@@ -2694,13 +2694,13 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_i16EP7_objecthPs(ptr noundef
 
 27:                                               ; preds = %25
   %28 = invoke i32 @PyType_IsSubtype(ptr noundef %.val62, ptr noundef nonnull @PyFloat_Type)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %63
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit unwind label %63
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %27
   %.not70 = icmp eq i32 %28, 0
   br i1 %.not70, label %29, label %_ZL10_Py_DECREFP7_object.exit
 
-29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %30 = invoke ptr @PyNumber_Long(ptr noundef nonnull %0)
           to label %31 unwind label %63
 
@@ -2797,8 +2797,8 @@ _ZL10_Py_DECREFP7_object.exit.sink.split:         ; preds = %23, %22, %10
   store i16 %66, ptr %2, align 2
   br label %_ZL10_Py_DECREFP7_object.exit
 
-_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.invoke, %59, %62, %25, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %23, %10
-  %.050 = phi i1 [ false, %10 ], [ false, %23 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ], [ false, %25 ], [ %.0, %62 ], [ %.0, %59 ], [ false, %.invoke ], [ true, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
+_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.invoke, %59, %62, %25, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit, %23, %10
+  %.050 = phi i1 [ false, %10 ], [ false, %23 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ], [ false, %25 ], [ %.0, %62 ], [ %.0, %59 ], [ false, %.invoke ], [ true, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
   ret i1 %.050
 }
 
@@ -2853,13 +2853,13 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_u32EP7_objecthPj(ptr noundef
 
 26:                                               ; preds = %24
   %27 = invoke i32 @PyType_IsSubtype(ptr noundef %.val62, ptr noundef nonnull @PyFloat_Type)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %60
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit unwind label %60
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %26
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %26
   %.not70 = icmp eq i32 %27, 0
   br i1 %.not70, label %28, label %_ZL10_Py_DECREFP7_object.exit
 
-28:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+28:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %29 = invoke ptr @PyNumber_Long(ptr noundef nonnull %0)
           to label %30 unwind label %60
 
@@ -2954,8 +2954,8 @@ _ZL10_Py_DECREFP7_object.exit.sink.split:         ; preds = %23, %10
   store i32 %63, ptr %2, align 4
   br label %_ZL10_Py_DECREFP7_object.exit
 
-_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.invoke, %22, %.thread68, %59, %24, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %23, %10
-  %.052 = phi i1 [ false, %10 ], [ false, %23 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ], [ false, %24 ], [ %.0, %59 ], [ %.0, %.thread68 ], [ false, %22 ], [ false, %.invoke ], [ true, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
+_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.invoke, %22, %.thread68, %59, %24, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit, %23, %10
+  %.052 = phi i1 [ false, %10 ], [ false, %23 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ], [ false, %24 ], [ %.0, %59 ], [ %.0, %.thread68 ], [ false, %22 ], [ false, %.invoke ], [ true, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
   ret i1 %.052
 }
 
@@ -3012,13 +3012,13 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_i32EP7_objecthPi(ptr noundef
 
 27:                                               ; preds = %25
   %28 = invoke i32 @PyType_IsSubtype(ptr noundef %.val62, ptr noundef nonnull @PyFloat_Type)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %63
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit unwind label %63
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %27
   %.not70 = icmp eq i32 %28, 0
   br i1 %.not70, label %29, label %_ZL10_Py_DECREFP7_object.exit
 
-29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+29:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %30 = invoke ptr @PyNumber_Long(ptr noundef nonnull %0)
           to label %31 unwind label %63
 
@@ -3115,8 +3115,8 @@ _ZL10_Py_DECREFP7_object.exit.sink.split:         ; preds = %23, %22, %10
   store i32 %66, ptr %2, align 4
   br label %_ZL10_Py_DECREFP7_object.exit
 
-_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.invoke, %59, %62, %25, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %23, %10
-  %.050 = phi i1 [ false, %10 ], [ false, %23 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ], [ false, %25 ], [ %.0, %62 ], [ %.0, %59 ], [ false, %.invoke ], [ true, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
+_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.invoke, %59, %62, %25, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit, %23, %10
+  %.050 = phi i1 [ false, %10 ], [ false, %23 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ], [ false, %25 ], [ %.0, %62 ], [ %.0, %59 ], [ false, %.invoke ], [ true, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
   ret i1 %.050
 }
 
@@ -3167,13 +3167,13 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_u64EP7_objecthPm(ptr noundef
 
 25:                                               ; preds = %23
   %26 = invoke i32 @PyType_IsSubtype(ptr noundef %.val55, ptr noundef nonnull @PyFloat_Type)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %58
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit unwind label %58
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %25
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %25
   %.not60 = icmp eq i32 %26, 0
   br i1 %.not60, label %27, label %_ZL10_Py_DECREFP7_object.exit
 
-27:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+27:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %28 = invoke ptr @PyNumber_Long(ptr noundef nonnull %0)
           to label %29 unwind label %58
 
@@ -3262,8 +3262,8 @@ _ZL10_Py_DECREFP7_object.exit.sink.split:         ; preds = %18, %22, %10
   store i64 %.sink62, ptr %2, align 8
   br label %_ZL10_Py_DECREFP7_object.exit
 
-_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.invoke, %54, %57, %23, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %10
-  %.045 = phi i1 [ false, %10 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ], [ false, %23 ], [ %.0, %57 ], [ %.0, %54 ], [ false, %.invoke ], [ true, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
+_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.invoke, %54, %57, %23, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit, %10
+  %.045 = phi i1 [ false, %10 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ], [ false, %23 ], [ %.0, %57 ], [ %.0, %54 ], [ false, %.invoke ], [ true, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
   ret i1 %.045
 }
 
@@ -3313,13 +3313,13 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_i64EP7_objecthPl(ptr noundef
 
 24:                                               ; preds = %22
   %25 = invoke i32 @PyType_IsSubtype(ptr noundef %.val50, ptr noundef nonnull @PyFloat_Type)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %56
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit unwind label %56
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %24
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %24
   %.not55 = icmp eq i32 %25, 0
   br i1 %.not55, label %26, label %_ZL10_Py_DECREFP7_object.exit
 
-26:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+26:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %27 = invoke ptr @PyNumber_Long(ptr noundef nonnull %0)
           to label %28 unwind label %56
 
@@ -3407,8 +3407,8 @@ _ZL10_Py_DECREFP7_object.exit.sink.split:         ; preds = %17, %21, %10
   store i64 %.sink57, ptr %2, align 8
   br label %_ZL10_Py_DECREFP7_object.exit
 
-_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.invoke, %52, %55, %22, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %.042 = phi i1 [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ], [ false, %22 ], [ %.0, %55 ], [ %.0, %52 ], [ false, %.invoke ], [ true, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
+_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.invoke, %52, %55, %22, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
+  %.042 = phi i1 [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ], [ false, %22 ], [ %.0, %55 ], [ %.0, %52 ], [ false, %.invoke ], [ true, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
   ret i1 %.042
 }
 
@@ -5350,15 +5350,15 @@ declare void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereference
 define internal void @"_ZZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvEEN3$_08__invokeEP7_object"(ptr noundef %0) #1 align 2 {
   %2 = tail call ptr @PyCapsule_GetContext(ptr noundef %0)
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %"_ZZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvEENK3$_0clEP7_object.exit", label %3
+  br i1 %.not.i, label %"_ZZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvEENK3$_0clEP7_object.argprom.exit", label %3
 
 3:                                                ; preds = %1
   %4 = tail call ptr @PyCapsule_GetName(ptr noundef %0)
   %5 = tail call ptr @PyCapsule_GetPointer(ptr noundef %0, ptr noundef %4)
   tail call void %2(ptr noundef %5)
-  br label %"_ZZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvEENK3$_0clEP7_object.exit"
+  br label %"_ZZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvEENK3$_0clEP7_object.argprom.exit"
 
-"_ZZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvEENK3$_0clEP7_object.exit": ; preds = %1, %3
+"_ZZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvEENK3$_0clEP7_object.argprom.exit": ; preds = %1, %3
   ret void
 }
 

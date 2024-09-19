@@ -491,7 +491,7 @@ declare dso_local void @sk_error_report(ptr noundef) local_unnamed_addr #1
 declare dso_local void @__rcu_read_lock() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @packet_dev_mc(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #2 align 16 {
+define internal fastcc void @packet_dev_mc.retelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   switch i16 %5, label %38 [
@@ -667,7 +667,7 @@ define internal fastcc void @__register_prot_hook(ptr noundef %0) unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__fanout_link(ptr noundef %0, ptr %.744.val) unnamed_addr #2 align 16 {
+define internal fastcc void @__fanout_link.argprom(ptr noundef %0, ptr %.744.val) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %.744.val, i64 48
   tail call void @_raw_spin_lock(ptr noundef %2) #19
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !19
@@ -4075,7 +4075,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
 
 613:                                              ; preds = %.thread
   %.val = load i32, ptr %126, align 32
-  call fastcc void @__packet_set_status(i32 %.val, ptr noundef nonnull %.us-phi, i32 noundef 0)
+  call fastcc void @__packet_set_status.argprom(i32 %.val, ptr noundef nonnull %.us-phi, i32 noundef 0)
   %614 = load i32, ptr %123, align 8
   %615 = load i32, ptr %142, align 4
   %616 = icmp eq i32 %614, %615
@@ -4122,7 +4122,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
   %634 = getelementptr inbounds i8, ptr %312, i64 96
   store ptr @tpacket_destruct_skb, ptr %634, align 8
   %.val64 = load i32, ptr %126, align 32
-  call fastcc void @__packet_set_status(i32 %.val64, ptr noundef nonnull %.us-phi, i32 noundef 2)
+  call fastcc void @__packet_set_status.argprom(i32 %.val64, ptr noundef nonnull %.us-phi, i32 noundef 2)
   %635 = load ptr, ptr %141, align 8
   call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %635, ptr elementtype(i32) %635) #19, !srcloc !71
   %636 = call fastcc i32 @packet_xmit(ptr noundef %10, ptr noundef nonnull %312)
@@ -4174,7 +4174,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
   %653 = phi i32 [ 1, %314 ], [ %.ph174, %.loopexit100.sink.split ], [ 1, %.thread76 ]
   %654 = phi ptr [ null, %314 ], [ %.ph175, %.loopexit100.sink.split ], [ null, %.thread76 ]
   %.val65 = load i32, ptr %126, align 32
-  call fastcc void @__packet_set_status(i32 %.val65, ptr noundef nonnull %.us-phi, i32 noundef %653)
+  call fastcc void @__packet_set_status.argprom(i32 %.val65, ptr noundef nonnull %.us-phi, i32 noundef %653)
   call void @kfree_skb_reason(ptr noundef %654, i32 noundef 2) #19
   br label %655
 
@@ -6579,7 +6579,7 @@ define internal noundef i32 @tpacket_rcv(ptr noundef %0, ptr nocapture noundef r
   br label %select.unfold.sink.split
 
 377:                                              ; preds = %319
-  call fastcc void @prb_retire_current_block(ptr noundef %251, ptr noundef %17)
+  call fastcc void @prb_retire_current_block.argelim(ptr noundef %251, ptr noundef %17)
   %378 = call fastcc ptr @prb_dispatch_next_block(ptr noundef %251, ptr noundef %17)
   %379 = icmp eq ptr %378, null
   br i1 %379, label %.thread, label %380
@@ -6744,7 +6744,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
 
 464:                                              ; preds = %461
   %465 = getelementptr inbounds i8, ptr %17, i64 768
-  call fastcc void @packet_increment_rx_head(i32 %462, ptr noundef %465)
+  call fastcc void @packet_increment_rx_head.argprom(i32 %462, ptr noundef %465)
   %466 = getelementptr inbounds i8, ptr %17, i64 1472
   %467 = load volatile i32, ptr %466, align 4
   %468 = icmp eq i32 %467, 0
@@ -6968,7 +6968,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
   call void @_raw_spin_lock(ptr noundef %229) #19
   %605 = trunc nuw i64 %566 to i32
   %.val15 = load i32, ptr %166, align 32
-  call fastcc void @__packet_set_status(i32 %.val15, ptr noundef nonnull %434, i32 noundef %605)
+  call fastcc void @__packet_set_status.argprom(i32 %.val15, ptr noundef nonnull %434, i32 noundef %605)
   %606 = getelementptr inbounds i8, ptr %17, i64 816
   %607 = load ptr, ptr %606, align 16
   call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %607, i64 %449) #19, !srcloc !105
@@ -7312,7 +7312,7 @@ declare dso_local void @_raw_write_lock(ptr noundef) local_unnamed_addr #1 secti
 declare dso_local void @_raw_write_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @prb_retire_current_block(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @prb_retire_current_block.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = alloca %struct.timespec64, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 18
@@ -7927,7 +7927,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_from_skb(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @packet_increment_rx_head(i32 %.1248.val, ptr nocapture noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc void @packet_increment_rx_head.argprom(i32 %.1248.val, ptr nocapture noundef %0) unnamed_addr #2 align 16 {
   %2 = icmp ult i32 %.1248.val, 2
   br i1 %2, label %3, label %11
 
@@ -8040,7 +8040,7 @@ define internal fastcc noundef range(i32 0, -2147483647) i32 @tpacket_get_timest
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__packet_set_status(i32 %.1248.val, ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @__packet_set_status.argprom(i32 %.1248.val, ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
   switch i32 %.1248.val, label %11 [
     i32 0, label %3
     i32 1, label %6
@@ -8691,7 +8691,7 @@ define internal fastcc void @packet_mc_drop(ptr nocapture noundef %0, ptr nocapt
   br i1 %44, label %46, label %45
 
 45:                                               ; preds = %37
-  tail call fastcc void @packet_dev_mc(ptr noundef nonnull %43, ptr noundef nonnull %12, i32 noundef -1)
+  tail call fastcc void @packet_dev_mc.retelim(ptr noundef nonnull %43, ptr noundef nonnull %12, i32 noundef -1)
   br label %46
 
 46:                                               ; preds = %45, %37
@@ -9012,7 +9012,7 @@ define internal fastcc noundef range(i32 -114, 1) i32 @fanout_add(ptr noundef %0
   %174 = add i32 %173, 1
   store volatile i32 %174, ptr %166, align 4
   %.val = load ptr, ptr %15, align 8
-  tail call fastcc void @__fanout_link(ptr noundef %0, ptr %.val)
+  tail call fastcc void @__fanout_link.argprom(ptr noundef %0, ptr %.val)
   tail call void @_raw_spin_unlock(ptr noundef %144) #19
   br label %.loopexit19
 
@@ -10114,7 +10114,7 @@ define internal void @tpacket_destruct_skb(ptr noundef %0) #2 align 16 {
   %77 = phi i32 [ %48, %76 ], [ 0, %35 ], [ 0, %43 ], [ 0, %38 ]
   %78 = getelementptr i8, ptr %3, i64 1248
   %.val = load i32, ptr %78, align 32
-  tail call fastcc void @__packet_set_status(i32 %.val, ptr noundef %18, i32 noundef %77)
+  tail call fastcc void @__packet_set_status.argprom(i32 %.val, ptr noundef %18, i32 noundef %77)
   %79 = load ptr, ptr %19, align 8
   %80 = icmp eq ptr %79, null
   br i1 %80, label %106, label %81

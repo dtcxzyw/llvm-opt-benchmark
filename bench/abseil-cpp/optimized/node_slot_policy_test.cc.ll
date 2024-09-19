@@ -304,7 +304,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_18NodeTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef range(i32 54, 61) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_18NodeTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef range(i32 54, 61) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -346,7 +346,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_18NodeTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef range(i32 54, 61) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_18NodeTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef range(i32 54, 61) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -560,13 +560,13 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i, align 8
   %a.val = load ptr, ptr %a, align 8
   %isnull.i.i.i = icmp eq ptr %a.val, null
-  br i1 %isnull.i.i.i, label %_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE7destroyISaIiEEEvPT_PPi.exit, label %delete.notnull.i.i.i
+  br i1 %isnull.i.i.i, label %_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE7destroyISaIiEEEvPT_PPi.argprom.exit, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %a.val) #17
-  br label %_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE7destroyISaIiEEEvPT_PPi.exit
+  br label %_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE7destroyISaIiEEEvPT_PPi.argprom.exit
 
-_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE7destroyISaIiEEEvPT_PPi.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %delete.notnull.i.i.i
+_ZN4absl18container_internal20common_policy_traitsINS0_12_GLOBAL__N_16PolicyEvE7destroyISaIiEEEvPT_PPi.argprom.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %delete.notnull.i.i.i
   ret void
 
 ehcleanup19:                                      ; preds = %_ZN7testing7MessageD2Ev.exit7, %lpad
@@ -2661,11 +2661,11 @@ invoke.cont.i:                                    ; preds = %.noexc.i
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
   %line.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
   store i32 54, ptr %line.i.i, align 8
-  %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_18NodeTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 54)
+  %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_18NodeTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 54)
           to label %invoke.cont6.i unwind label %lpad4.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont3.i
-  %call9.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_18NodeTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 54)
+  %call9.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_18NodeTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 54)
           to label %invoke.cont8.i unwind label %lpad4.i
 
 invoke.cont8.i:                                   ; preds = %invoke.cont6.i
@@ -2740,11 +2740,11 @@ invoke.cont.i10:                                  ; preds = %.noexc.i8
 invoke.cont3.i13:                                 ; preds = %invoke.cont.i10
   %line.i.i14 = getelementptr inbounds i8, ptr %agg.tmp.i1, i64 32
   store i32 60, ptr %line.i.i14, align 8
-  %call7.i15 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_18NodeTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 60)
+  %call7.i15 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_18NodeTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 60)
           to label %invoke.cont6.i17 unwind label %lpad4.i16
 
 invoke.cont6.i17:                                 ; preds = %invoke.cont3.i13
-  %call9.i18 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_18NodeTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 60)
+  %call9.i18 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_18NodeTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 60)
           to label %invoke.cont8.i19 unwind label %lpad4.i16
 
 invoke.cont8.i19:                                 ; preds = %invoke.cont6.i17

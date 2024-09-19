@@ -11617,13 +11617,13 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit.i.i:          ; preds = %14, %3
   %15 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   %16 = load ptr, ptr %4, align 8
   %17 = icmp eq ptr %16, %8
-  br i1 %17, label %"_ZZN5clang36RecursiveCloneTypeIIVerifyConstraint9constrainERSt6vectorIN4llvm11SmallVectorINS_12StmtSequenceELj8EEESaIS5_EEENK3$_0clERKS4_SB_.exit", label %18
+  br i1 %17, label %"_ZZN5clang36RecursiveCloneTypeIIVerifyConstraint9constrainERSt6vectorIN4llvm11SmallVectorINS_12StmtSequenceELj8EEESaIS5_EEENK3$_0clERKS4_SB_.argprom.exit", label %18
 
 18:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit.i.i
   call void @free(ptr noundef %16) #21
-  br label %"_ZZN5clang36RecursiveCloneTypeIIVerifyConstraint9constrainERSt6vectorIN4llvm11SmallVectorINS_12StmtSequenceELj8EEESaIS5_EEENK3$_0clERKS4_SB_.exit"
+  br label %"_ZZN5clang36RecursiveCloneTypeIIVerifyConstraint9constrainERSt6vectorIN4llvm11SmallVectorINS_12StmtSequenceELj8EEESaIS5_EEENK3$_0clERKS4_SB_.argprom.exit"
 
-"_ZZN5clang36RecursiveCloneTypeIIVerifyConstraint9constrainERSt6vectorIN4llvm11SmallVectorINS_12StmtSequenceELj8EEESaIS5_EEENK3$_0clERKS4_SB_.exit": ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit.i.i, %18
+"_ZZN5clang36RecursiveCloneTypeIIVerifyConstraint9constrainERSt6vectorIN4llvm11SmallVectorINS_12StmtSequenceELj8EEESaIS5_EEENK3$_0clERKS4_SB_.argprom.exit": ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit.i.i, %18
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -17233,7 +17233,7 @@ _ZN5clang15VariablePatternD2Ev.exit.i:            ; preds = %59, %_ZNSt6vectorIP
 
 _ZNSt6vectorIPKN5clang7VarDeclESaIS3_EED2Ev.exit.i12.i: ; preds = %67, %_ZN5clang15VariablePatternD2Ev.exit.i
   %.not.i.i.i1.i13.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i1.i13.i, label %"_ZZN5clang33MatchingVariablePatternConstraint9constrainERSt6vectorIN4llvm11SmallVectorINS_12StmtSequenceELj8EEESaIS5_EEENK3$_0clERKS4_SB_.exit", label %73
+  br i1 %.not.i.i.i1.i13.i, label %"_ZZN5clang33MatchingVariablePatternConstraint9constrainERSt6vectorIN4llvm11SmallVectorINS_12StmtSequenceELj8EEESaIS5_EEENK3$_0clERKS4_SB_.argprom.exit", label %73
 
 73:                                               ; preds = %_ZNSt6vectorIPKN5clang7VarDeclESaIS3_EED2Ev.exit.i12.i
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -17242,9 +17242,9 @@ _ZNSt6vectorIPKN5clang7VarDeclESaIS3_EED2Ev.exit.i12.i: ; preds = %67, %_ZN5clan
   %77 = ptrtoint ptr %34 to i64
   %78 = sub i64 %76, %77
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %78) #24
-  br label %"_ZZN5clang33MatchingVariablePatternConstraint9constrainERSt6vectorIN4llvm11SmallVectorINS_12StmtSequenceELj8EEESaIS5_EEENK3$_0clERKS4_SB_.exit"
+  br label %"_ZZN5clang33MatchingVariablePatternConstraint9constrainERSt6vectorIN4llvm11SmallVectorINS_12StmtSequenceELj8EEESaIS5_EEENK3$_0clERKS4_SB_.argprom.exit"
 
-"_ZZN5clang33MatchingVariablePatternConstraint9constrainERSt6vectorIN4llvm11SmallVectorINS_12StmtSequenceELj8EEESaIS5_EEENK3$_0clERKS4_SB_.exit": ; preds = %_ZNSt6vectorIPKN5clang7VarDeclESaIS3_EED2Ev.exit.i12.i, %73
+"_ZZN5clang33MatchingVariablePatternConstraint9constrainERSt6vectorIN4llvm11SmallVectorINS_12StmtSequenceELj8EEESaIS5_EEENK3$_0clERKS4_SB_.argprom.exit": ; preds = %_ZNSt6vectorIPKN5clang7VarDeclESaIS3_EED2Ev.exit.i12.i, %73
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   ret i1 %.029.lcssa.i.i

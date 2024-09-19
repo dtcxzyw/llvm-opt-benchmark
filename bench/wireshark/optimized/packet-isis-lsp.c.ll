@@ -1490,20 +1490,20 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_isis_l1_lsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  tail call fastcc void @dissect_isis_lsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_l1_lsp_opts, ptr noundef %3)
+  tail call fastcc void @dissect_isis_lsp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_l1_lsp_opts, ptr noundef %3)
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_isis_l2_lsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  tail call fastcc void @dissect_isis_lsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_l2_lsp_opts, ptr noundef %3)
+  tail call fastcc void @dissect_isis_lsp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @clv_l2_lsp_opts, ptr noundef %3)
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isis_lsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_isis_lsp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i16, align 2
   store i16 0, ptr %6, align 2
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3258,7 +3258,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
 
 27:                                               ; preds = %25
   %28 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %.064, i32 noundef %.02363, ptr noundef nonnull @.str.898, i32 noundef %.02363) #3
-  br label %dissect_lsp_srv6_locator_entry.exit.thread
+  br label %dissect_lsp_srv6_locator_entry.argprom.exit.thread
 
 29:                                               ; preds = %25
   %30 = add i32 %.064, 6
@@ -3270,7 +3270,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
 
 34:                                               ; preds = %29
   %35 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %30, i32 noundef 1, ptr noundef nonnull @.str.899, i32 noundef %32) #3
-  br label %dissect_lsp_srv6_locator_entry.exit.thread
+  br label %dissect_lsp_srv6_locator_entry.argprom.exit.thread
 
 36:                                               ; preds = %29
   %37 = add nuw nsw i32 %32, 7
@@ -3281,7 +3281,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
 
 41:                                               ; preds = %36
   %42 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %.064, i32 noundef %.02363, ptr noundef nonnull @.str.900, i32 noundef %.02363, i32 noundef %39) #3
-  br label %dissect_lsp_srv6_locator_entry.exit.thread
+  br label %dissect_lsp_srv6_locator_entry.argprom.exit.thread
 
 43:                                               ; preds = %36
   %44 = add i32 %.064, 7
@@ -3294,7 +3294,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
 
 50:                                               ; preds = %43
   %51 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %.064, i32 noundef %.02363, ptr noundef nonnull @.str.901, i32 noundef %48, i32 noundef %.02363) #3
-  br label %dissect_lsp_srv6_locator_entry.exit.thread
+  br label %dissect_lsp_srv6_locator_entry.argprom.exit.thread
 
 52:                                               ; preds = %43
   %53 = load i32, ptr @ett_isis_lsp_clv_srv6_loc_entry, align 4
@@ -3356,7 +3356,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
 
 95:                                               ; preds = %.lr.ph.i
   %96 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %88, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %82, i32 noundef 1, ptr noundef nonnull @.str.904, i32 noundef %84, i32 noundef %93) #3
-  br label %dissect_lsp_srv6_locator_entry.exit.thread
+  br label %dissect_lsp_srv6_locator_entry.argprom.exit.thread
 
 97:                                               ; preds = %.lr.ph.i
   %98 = add i32 %.012910.i, 2
@@ -3461,7 +3461,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
   br i1 %cond.i.i, label %154, label %155
 
 154:                                              ; preds = %153
-  call fastcc void @dissect_srv6_sid_struct_subsubclv(ptr noundef %0, ptr noundef %1, ptr noundef %147, i32 noundef %148, i32 noundef %143)
+  call fastcc void @dissect_srv6_sid_struct_subsubclv.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %147, i32 noundef %148, i32 noundef %143)
   br label %157
 
 155:                                              ; preds = %153
@@ -3485,7 +3485,7 @@ dissect_lsp_srv6_locator_subclv.exit.i:           ; preds = %157, %161, %151, %1
   %165 = icmp sgt i32 %164, 1
   br i1 %165, label %.lr.ph.i, label %.loopexit, !llvm.loop !26
 
-dissect_lsp_srv6_locator_entry.exit.thread:       ; preds = %27, %34, %41, %50, %95
+dissect_lsp_srv6_locator_entry.argprom.exit.thread: ; preds = %27, %34, %41, %50, %95
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
@@ -3502,7 +3502,7 @@ dissect_lsp_srv6_locator_entry.exit.thread:       ; preds = %27, %34, %41, %50, 
   %168 = icmp sgt i32 %167, 0
   br i1 %168, label %25, label %.loopexit27, !llvm.loop !27
 
-.loopexit27:                                      ; preds = %.loopexit, %dissect_lsp_srv6_locator_entry.exit.thread, %13
+.loopexit27:                                      ; preds = %.loopexit, %dissect_lsp_srv6_locator_entry.argprom.exit.thread, %13
   ret void
 }
 
@@ -4491,7 +4491,7 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
   br i1 %cond1, label %365, label %366
 
 365:                                              ; preds = %364
-  call fastcc void @dissect_srv6_sid_struct_subsubclv(ptr noundef %0, ptr noundef %1, ptr noundef %358, i32 noundef %360, i32 noundef %354)
+  call fastcc void @dissect_srv6_sid_struct_subsubclv.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %358, i32 noundef %360, i32 noundef %354)
   br label %368
 
 366:                                              ; preds = %364
@@ -4561,7 +4561,7 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
   br i1 %cond, label %413, label %414
 
 413:                                              ; preds = %412
-  call fastcc void @dissect_srv6_sid_struct_subsubclv(ptr noundef %0, ptr noundef %1, ptr noundef %406, i32 noundef %408, i32 noundef %402)
+  call fastcc void @dissect_srv6_sid_struct_subsubclv.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %406, i32 noundef %408, i32 noundef %402)
   br label %416
 
 414:                                              ; preds = %412
@@ -4600,7 +4600,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @tvb_get_guint24(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_srv6_sid_struct_subsubclv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 254) %4) unnamed_addr #0 {
+define internal fastcc void @dissect_srv6_sid_struct_subsubclv.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 254) %4) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 4
   br i1 %.not, label %9, label %6
 

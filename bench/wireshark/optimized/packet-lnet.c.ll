@@ -456,7 +456,7 @@ define internal noundef i32 @get_noop_message_len(ptr nocapture readnone %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal noundef range(i32 24, 33) i32 @dissect_ksock_msg_noop(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_ksock_msg(ptr noundef %0, ptr noundef %2)
+  %5 = tail call fastcc i32 @dissect_ksock_msg.argprom.argelim(ptr noundef %0, ptr noundef %2)
   ret i32 %5
 }
 
@@ -514,13 +514,13 @@ define internal i32 @dissect_lnet_message(ptr noundef %0, ptr noundef %1, ptr no
   %33 = load i32, ptr @hf_lnet_ksm_csum, align 4
   %34 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %33, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648) #5
   %35 = icmp eq i32 %32, 0
-  br i1 %35, label %36, label %dissect_ib_msg.exit
+  br i1 %35, label %36, label %dissect_ib_msg.argprom.exit
 
 36:                                               ; preds = %21
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %34, ptr noundef nonnull @.str.208) #5
-  br label %dissect_ib_msg.exit
+  br label %dissect_ib_msg.argprom.exit
 
-dissect_ib_msg.exit:                              ; preds = %21, %36
+dissect_ib_msg.argprom.exit:                      ; preds = %21, %36
   %37 = load i32, ptr @hf_lnet_src_nid, align 4
   %38 = call i32 @lnet_dissect_struct_nid(ptr noundef %0, ptr noundef %20, i32 noundef 16, i32 noundef %37)
   %39 = load i32, ptr @hf_lnet_ib_srcstamp, align 4
@@ -542,7 +542,7 @@ dissect_ib_msg.exit:                              ; preds = %21, %36
     i32 211, label %78
   ]
 
-48:                                               ; preds = %dissect_ib_msg.exit, %dissect_ib_msg.exit
+48:                                               ; preds = %dissect_ib_msg.argprom.exit, %dissect_ib_msg.argprom.exit
   %49 = load ptr, ptr %14, align 8
   %50 = call ptr @val_to_str(i32 noundef %47, ptr noundef nonnull @lnet_ib_type, ptr noundef nonnull @.str.207) #5
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %49, i32 noundef 25, ptr noundef nonnull @.str.210, ptr noundef %50) #5
@@ -562,13 +562,13 @@ dissect_ib_msg.exit:                              ; preds = %21, %36
   %64 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %63) #5
   br label %.thread
 
-65:                                               ; preds = %dissect_ib_msg.exit
+65:                                               ; preds = %dissect_ib_msg.argprom.exit
   %66 = load ptr, ptr %14, align 8
   %67 = call ptr @val_to_str(i32 noundef 208, ptr noundef nonnull @lnet_ib_type, ptr noundef nonnull @.str.207) #5
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %66, i32 noundef 25, ptr noundef nonnull @.str.210, ptr noundef %67) #5
   br label %.thread.thread
 
-68:                                               ; preds = %dissect_ib_msg.exit
+68:                                               ; preds = %dissect_ib_msg.argprom.exit
   %69 = load ptr, ptr %14, align 8
   %70 = call ptr @val_to_str(i32 noundef 212, ptr noundef nonnull @lnet_ib_type, ptr noundef nonnull @.str.207) #5
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.210, ptr noundef %70) #5
@@ -581,7 +581,7 @@ dissect_ib_msg.exit:                              ; preds = %21, %36
   %77 = call fastcc i32 @dissect_struct_rdma_desc(ptr noundef %0, ptr noundef %20, i32 noundef %76)
   br label %.thread.thread
 
-78:                                               ; preds = %dissect_ib_msg.exit, %dissect_ib_msg.exit, %dissect_ib_msg.exit
+78:                                               ; preds = %dissect_ib_msg.argprom.exit, %dissect_ib_msg.argprom.exit, %dissect_ib_msg.argprom.exit
   %79 = load ptr, ptr %14, align 8
   %80 = call ptr @val_to_str(i32 noundef %47, ptr noundef nonnull @lnet_ib_type, ptr noundef nonnull @.str.207) #5
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.210, ptr noundef %80) #5
@@ -594,11 +594,11 @@ dissect_ib_msg.exit:                              ; preds = %21, %36
   br label %.thread.thread
 
 87:                                               ; preds = %4
-  %88 = tail call fastcc i32 @dissect_ksock_msg(ptr noundef %0, ptr noundef %20)
+  %88 = tail call fastcc i32 @dissect_ksock_msg.argprom.argelim(ptr noundef %0, ptr noundef %20)
   br label %89
 
-89:                                               ; preds = %87, %dissect_ib_msg.exit
-  %.0 = phi i32 [ %46, %dissect_ib_msg.exit ], [ %88, %87 ]
+89:                                               ; preds = %87, %dissect_ib_msg.argprom.exit
+  %.0 = phi i32 [ %46, %dissect_ib_msg.argprom.exit ], [ %88, %87 ]
   %90 = load i32, ptr @hf_lnet_dest_nid, align 4
   %91 = call i32 @lnet_dissect_struct_nid(ptr noundef %0, ptr noundef %20, i32 noundef %.0, i32 noundef %90)
   %92 = load i32, ptr @hf_lnet_src_nid, align 4
@@ -864,7 +864,7 @@ get_lnet_conv.exit:                               ; preds = %230, %235
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 24, 33) i32 @dissect_ksock_msg(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 24, 33) i32 @dissect_ksock_msg.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = load i32, ptr @hf_lnet_ksm_type, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #5

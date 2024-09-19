@@ -1661,7 +1661,7 @@ define dso_local noundef ptr @_ZN4llvm12SCEVExpander11InsertBinopENS_11Instructi
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr @_ZN4llvm28ConstantFoldBinaryOpOperandsEjPNS_8ConstantES1_RKNS_10DataLayoutE(i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(512) %19) #18
   %.not47 = icmp eq ptr %20, null
-  br i1 %.not47, label %21, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit"
+  br i1 %.not47, label %21, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit"
 
 21:                                               ; preds = %14, %17, %6
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -1680,9 +1680,9 @@ define dso_local noundef ptr @_ZN4llvm12SCEVExpander11InsertBinopENS_11Instructi
   %29 = and i32 %4, 2
   br label %30
 
-30:                                               ; preds = %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit.thread", %.preheader94
-  %.sroa.075.098.in = phi ptr [ %.sroa.0.0.copyload.i, %.preheader94 ], [ %.sroa.075.098, %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit.thread" ]
-  %.04097 = phi i32 [ 6, %.preheader94 ], [ %87, %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit.thread" ]
+30:                                               ; preds = %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit.thread", %.preheader94
+  %.sroa.075.098.in = phi ptr [ %.sroa.0.0.copyload.i, %.preheader94 ], [ %.sroa.075.098, %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit.thread" ]
+  %.04097 = phi i32 [ 6, %.preheader94 ], [ %87, %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit.thread" ]
   %.sroa.075.098 = load ptr, ptr %.sroa.075.098.in, align 8
   %31 = icmp eq ptr %.sroa.075.098, null
   %32 = getelementptr inbounds i8, ptr %.sroa.075.098, i64 -24
@@ -1732,7 +1732,7 @@ _ZN4llvm3isaINS_16DbgInfoIntrinsicENS_21ilist_iterator_w_bitsINS_12ilist_detail1
   %54 = zext i8 %34 to i32
   %55 = add nsw i32 %54, -29
   %56 = icmp eq i32 %55, %1
-  br i1 %56, label %57, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit.thread"
+  br i1 %56, label %57, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit.thread"
 
 57:                                               ; preds = %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEEEbRKT0_.exit.thread
   %58 = getelementptr inbounds nuw i8, ptr %33, i64 4
@@ -1748,21 +1748,21 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %57
   %64 = getelementptr inbounds %"class.llvm::Use", ptr %33, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, %2
-  br i1 %66, label %_ZNK4llvm4User10getOperandEj.exit56, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit.thread"
+  br i1 %66, label %_ZNK4llvm4User10getOperandEj.exit56, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit.thread"
 
 _ZNK4llvm4User10getOperandEj.exit.thread:         ; preds = %57
   %67 = getelementptr inbounds i8, ptr %33, i64 -8
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, %2
-  br i1 %70, label %_ZNK4llvm4User10getOperandEj.exit56, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit.thread"
+  br i1 %70, label %_ZNK4llvm4User10getOperandEj.exit56, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit.thread"
 
 _ZNK4llvm4User10getOperandEj.exit56:              ; preds = %_ZNK4llvm4User10getOperandEj.exit, %_ZNK4llvm4User10getOperandEj.exit.thread
   %71 = phi ptr [ %68, %_ZNK4llvm4User10getOperandEj.exit.thread ], [ %64, %_ZNK4llvm4User10getOperandEj.exit ]
   %72 = getelementptr inbounds i8, ptr %71, i64 32
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, %3
-  br i1 %74, label %75, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit.thread"
+  br i1 %74, label %75, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit.thread"
 
 75:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit56
   %76 = add nsw i32 %54, -42
@@ -1778,16 +1778,16 @@ _ZNK4llvm4User10getOperandEj.exit56:              ; preds = %_ZNK4llvm4User10get
   %79 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction15hasNoSignedWrapEv(ptr noundef nonnull align 8 dereferenceable(72) %33) #19
   %80 = zext i1 %79 to i32
   %.not.i = icmp eq i32 %28, %80
-  br i1 %.not.i, label %81, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit.thread"
+  br i1 %.not.i, label %81, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit.thread"
 
 81:                                               ; preds = %78
   %82 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction17hasNoUnsignedWrapEv(ptr noundef nonnull align 8 dereferenceable(72) %33) #19
   %83 = zext i1 %82 to i32
   %.not2.i = icmp eq i32 %29, %83
-  br i1 %.not2.i, label %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit.i, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit.thread"
+  br i1 %.not2.i, label %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit.i, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit.thread"
 
 _ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit.i: ; preds = %81, %75
-  switch i8 %34, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit" [
+  switch i8 %34, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit" [
     i8 56, label %84
     i8 49, label %84
     i8 48, label %84
@@ -1796,16 +1796,16 @@ _ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit.i: ;
 
 84:                                               ; preds = %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit.i, %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit.i, %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit.i, %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit.i
   %85 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction7isExactEv(ptr noundef nonnull align 8 dereferenceable(72) %33) #19
-  br i1 %85, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit.thread", label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit"
+  br i1 %85, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit.thread", label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit"
 
-"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit.thread": ; preds = %84, %81, %78, %_ZNK4llvm4User10getOperandEj.exit.thread, %_ZNK4llvm4User10getOperandEj.exit56, %_ZNK4llvm4User10getOperandEj.exit, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEEEbRKT0_.exit.thread
+"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit.thread": ; preds = %84, %81, %78, %_ZNK4llvm4User10getOperandEj.exit.thread, %_ZNK4llvm4User10getOperandEj.exit56, %_ZNK4llvm4User10getOperandEj.exit, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEEEbRKT0_.exit.thread
   %86 = icmp eq ptr %.sroa.075.098, %26
   %87 = add i32 %53, -1
   %.not48 = icmp eq i32 %87, 0
   %or.cond = select i1 %86, i1 true, i1 %.not48
   br i1 %or.cond, label %.loopexit95, label %30, !llvm.loop !10
 
-.loopexit95:                                      ; preds = %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit.thread", %21
+.loopexit95:                                      ; preds = %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit.thread", %21
   %88 = icmp eq ptr %.sroa.0.0.copyload.i, null
   %89 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 -24
   %90 = select i1 %88, ptr null, ptr %89
@@ -1970,13 +1970,13 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %146, %_ZN4llvm13Tra
   call void @_ZN4llvm12SCEVExpander20SCEVInsertPointGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #18
   %155 = load ptr, ptr %7, align 8
   %.not.i.i.i.i70 = icmp eq ptr %155, null
-  br i1 %.not.i.i.i.i70, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit", label %156
+  br i1 %.not.i.i.i.i70, label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit", label %156
 
 156:                                              ; preds = %154
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %7, ptr noundef nonnull align 4 dereferenceable(8) %155) #18
-  br label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit"
+  br label %"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit"
 
-"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.exit": ; preds = %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit.i, %84, %156, %154, %17
+"_ZZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEbENK3$_0clEPS1_.argprom.exit": ; preds = %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit.i, %84, %156, %154, %17
   %.0 = phi ptr [ %20, %17 ], [ %123, %154 ], [ %123, %156 ], [ %32, %84 ], [ %32, %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit.i ]
   ret ptr %.0
 }
@@ -2260,23 +2260,23 @@ define dso_local noundef ptr @_ZN4llvm12SCEVExpander6expandEPKNS_4SCEVE(ptr noun
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %35 = load i32, ptr %34, align 8
   %36 = icmp ult i32 %35, 65
-  br i1 %36, label %37, label %"_ZZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_ENKUlS3_E_clES3_.exit.i.i.i.i.i"
+  br i1 %36, label %37, label %"_ZZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_ENKUlS3_E_clES3_.argprom.exit.i.i.i.i.i"
 
 37:                                               ; preds = %30
   %38 = load i64, ptr %33, align 8
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %"_ZZN4llvm16SCEVExprContainsIZZNS_12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES4_EUlS4_E_EEbS4_T_EN11FindClosure6followES4_.exit.i.i.i.i", label %42
 
-"_ZZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_ENKUlS3_E_clES3_.exit.i.i.i.i.i": ; preds = %30
+"_ZZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_ENKUlS3_E_clES3_.argprom.exit.i.i.i.i.i": ; preds = %30
   %40 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %33) #19
   %41 = icmp eq i32 %40, %35
   br i1 %41, label %"_ZZN4llvm16SCEVExprContainsIZZNS_12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES4_EUlS4_E_EEbS4_T_EN11FindClosure6followES4_.exit.i.i.i.i", label %42
 
-"_ZZN4llvm16SCEVExprContainsIZZNS_12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES4_EUlS4_E_EEbS4_T_EN11FindClosure6followES4_.exit.i.i.i.i": ; preds = %"_ZZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_ENKUlS3_E_clES3_.exit.i.i.i.i.i", %37, %24
+"_ZZN4llvm16SCEVExprContainsIZZNS_12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES4_EUlS4_E_EEbS4_T_EN11FindClosure6followES4_.exit.i.i.i.i": ; preds = %"_ZZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_ENKUlS3_E_clES3_.argprom.exit.i.i.i.i.i", %37, %24
   store i8 1, ptr %20, align 1
   br label %"_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZZNS_12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES5_EUlS5_E_EEbS5_T_E11FindClosureE4pushES5_.exit.i.i.i"
 
-42:                                               ; preds = %"_ZZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_ENKUlS3_E_clES3_.exit.i.i.i.i.i", %37, %2
+42:                                               ; preds = %"_ZZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_ENKUlS3_E_clES3_.argprom.exit.i.i.i.i.i", %37, %2
   %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
   %44 = add i64 %43, 1
   %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
@@ -2400,23 +2400,23 @@ _ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i.i.i.i.i: ; preds = %._c
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %104 = load i32, ptr %103, align 8
   %105 = icmp ult i32 %104, 65
-  br i1 %105, label %106, label %"_ZZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_ENKUlS3_E_clES3_.exit.i.i.i.i.i.i"
+  br i1 %105, label %106, label %"_ZZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_ENKUlS3_E_clES3_.argprom.exit.i.i.i.i.i.i"
 
 106:                                              ; preds = %99
   %107 = load i64, ptr %102, align 8
   %108 = icmp eq i64 %107, 0
   br i1 %108, label %"_ZZN4llvm16SCEVExprContainsIZZNS_12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES4_EUlS4_E_EEbS4_T_EN11FindClosure6followES4_.exit.i.i.i.i.i", label %111
 
-"_ZZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_ENKUlS3_E_clES3_.exit.i.i.i.i.i.i": ; preds = %99
+"_ZZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_ENKUlS3_E_clES3_.argprom.exit.i.i.i.i.i.i": ; preds = %99
   %109 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %102) #19
   %110 = icmp eq i32 %109, %104
   br i1 %110, label %"_ZZN4llvm16SCEVExprContainsIZZNS_12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES4_EUlS4_E_EEbS4_T_EN11FindClosure6followES4_.exit.i.i.i.i.i", label %111
 
-"_ZZN4llvm16SCEVExprContainsIZZNS_12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES4_EUlS4_E_EEbS4_T_EN11FindClosure6followES4_.exit.i.i.i.i.i": ; preds = %"_ZZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_ENKUlS3_E_clES3_.exit.i.i.i.i.i.i", %106, %93
+"_ZZN4llvm16SCEVExprContainsIZZNS_12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES4_EUlS4_E_EEbS4_T_EN11FindClosure6followES4_.exit.i.i.i.i.i": ; preds = %"_ZZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_ENKUlS3_E_clES3_.argprom.exit.i.i.i.i.i.i", %106, %93
   store i8 1, ptr %89, align 1
   br label %"_ZN4llvm13SCEVTraversalIZNS_16SCEVExprContainsIZZNS_12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES5_EUlS5_E_EEbS5_T_E11FindClosureE4pushES5_.exit.i.i.i.i"
 
-111:                                              ; preds = %"_ZZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_ENKUlS3_E_clES3_.exit.i.i.i.i.i.i", %106, %88
+111:                                              ; preds = %"_ZZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_ENKUlS3_E_clES3_.argprom.exit.i.i.i.i.i.i", %106, %88
   %112 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
   %113 = add i64 %112, 1
   %114 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
@@ -2465,20 +2465,20 @@ _ZN4llvm11SmallPtrSetIPKNS_4SCEVELj8EED2Ev.exit.i.i.i.i: ; preds = %129, %"_ZN4l
   %130 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
   %131 = load ptr, ptr %12, align 8
   %132 = icmp eq ptr %131, %13
-  br i1 %132, label %"_ZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_.exit", label %133
+  br i1 %132, label %"_ZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_.argprom.exit", label %133
 
 133:                                              ; preds = %_ZN4llvm11SmallPtrSetIPKNS_4SCEVELj8EED2Ev.exit.i.i.i.i
   call void @free(ptr noundef %131) #18
-  br label %"_ZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_.exit"
+  br label %"_ZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_.argprom.exit"
 
-"_ZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_.exit": ; preds = %_ZN4llvm11SmallPtrSetIPKNS_4SCEVELj8EED2Ev.exit.i.i.i.i, %133
+"_ZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_.argprom.exit": ; preds = %_ZN4llvm11SmallPtrSetIPKNS_4SCEVELj8EED2Ev.exit.i.i.i.i, %133
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %5)
   %134 = load i8, ptr %6, align 1
   %135 = trunc i8 %134 to i1
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   br i1 %135, label %.critedge, label %136
 
-136:                                              ; preds = %"_ZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_.exit"
+136:                                              ; preds = %"_ZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_.argprom.exit"
   %137 = load ptr, ptr %0, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 48
   %139 = load ptr, ptr %138, align 8
@@ -2770,9 +2770,9 @@ _ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit: ; preds = %_
   %280 = call noundef zeroext i1 @_ZN4llvm15ScalarEvolution15isLoopInvariantEPKNS_4SCEVEPKNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(1392) %279, ptr noundef %1, ptr noundef %278) #18
   br i1 %280, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
-.critedge:                                        ; preds = %.lr.ph, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit, %.critedge2, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %_ZNK4llvm12SCEVExpander21isInsertedInstructionEPNS_11InstructionE.exit, %259, %262, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.preheader, %203, %"_ZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_.exit"
-  %.sroa.0132.0 = phi ptr [ %.sroa.0.0.copyload.i, %"_ZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_.exit" ], [ %.sroa.0132.2, %203 ], [ %.sroa.0.0.copyload.i, %.lr.ph.preheader ], [ %.sroa.0132.3180, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit ], [ %276, %.critedge2 ], [ %.sroa.0132.3180, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i ], [ %.sroa.0132.3180, %_ZNK4llvm12SCEVExpander21isInsertedInstructionEPNS_11InstructionE.exit ], [ %.sroa.0132.3180, %259 ], [ %.sroa.0132.3180, %262 ], [ %.sroa.0132.3180, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn158, %.lr.ph ]
-  %.sroa.13.0 = phi i16 [ %.sroa.269.0.extract.trunc, %"_ZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_.exit" ], [ %.sroa.13.2, %203 ], [ %.sroa.269.0.extract.trunc, %.lr.ph.preheader ], [ %.sroa.13.3181, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit ], [ 0, %.critedge2 ], [ %.sroa.13.3181, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i ], [ %.sroa.13.3181, %_ZNK4llvm12SCEVExpander21isInsertedInstructionEPNS_11InstructionE.exit ], [ %.sroa.13.3181, %259 ], [ %.sroa.13.3181, %262 ], [ %.sroa.13.3181, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.4.0.i.i.pn, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit, %.critedge2, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %_ZNK4llvm12SCEVExpander21isInsertedInstructionEPNS_11InstructionE.exit, %259, %262, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.preheader, %203, %"_ZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_.argprom.exit"
+  %.sroa.0132.0 = phi ptr [ %.sroa.0.0.copyload.i, %"_ZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_.argprom.exit" ], [ %.sroa.0132.2, %203 ], [ %.sroa.0.0.copyload.i, %.lr.ph.preheader ], [ %.sroa.0132.3180, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit ], [ %276, %.critedge2 ], [ %.sroa.0132.3180, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i ], [ %.sroa.0132.3180, %_ZNK4llvm12SCEVExpander21isInsertedInstructionEPNS_11InstructionE.exit ], [ %.sroa.0132.3180, %259 ], [ %.sroa.0132.3180, %262 ], [ %.sroa.0132.3180, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn158, %.lr.ph ]
+  %.sroa.13.0 = phi i16 [ %.sroa.269.0.extract.trunc, %"_ZZN4llvm12SCEVExpander6expandEPKNS_4SCEVEENK3$_0clES3_.argprom.exit" ], [ %.sroa.13.2, %203 ], [ %.sroa.269.0.extract.trunc, %.lr.ph.preheader ], [ %.sroa.13.3181, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit ], [ 0, %.critedge2 ], [ %.sroa.13.3181, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i ], [ %.sroa.13.3181, %_ZNK4llvm12SCEVExpander21isInsertedInstructionEPNS_11InstructionE.exit ], [ %.sroa.13.3181, %259 ], [ %.sroa.13.3181, %262 ], [ %.sroa.13.3181, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.4.0.i.i.pn, %.lr.ph ]
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %282 = icmp eq ptr %.sroa.0132.0, null
   %283 = getelementptr inbounds i8, ptr %.sroa.0132.0, i64 -24
@@ -4420,7 +4420,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12SCEVExpander10hoistIVIncEPNS_11In
   br i1 %3, label %11, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj4EED2Ev.exit
 
 11:                                               ; preds = %10
-  tail call fastcc void @"_ZZN4llvm12SCEVExpander10hoistIVIncEPNS_11InstructionES2_bENK3$_0clES2_"(ptr nonnull %0, ptr noundef %1)
+  tail call fastcc void @"_ZZN4llvm12SCEVExpander10hoistIVIncEPNS_11InstructionES2_bENK3$_0clES2_.argprom"(ptr nonnull %0, ptr noundef %1)
   br label %_ZN4llvm11SmallVectorIPNS_11InstructionELj4EED2Ev.exit
 
 12:                                               ; preds = %4
@@ -4543,7 +4543,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit: ; 
 
 _ZN4llvm12SCEVExpander17fixupInsertPointsEPNS_11InstructionE.exit.us: ; preds = %74, %66
   call void @_ZN4llvm11Instruction10moveBeforeEPS0_(ptr noundef nonnull align 8 dereferenceable(72) %57, ptr noundef nonnull %2) #18
-  call fastcc void @"_ZZN4llvm12SCEVExpander10hoistIVIncEPNS_11InstructionES2_bENK3$_0clES2_"(ptr nonnull %0, ptr noundef nonnull %57)
+  call fastcc void @"_ZZN4llvm12SCEVExpander10hoistIVIncEPNS_11InstructionES2_bENK3$_0clES2_.argprom"(ptr nonnull %0, ptr noundef nonnull %57)
   %.not30.us = icmp eq ptr %56, %52
   br i1 %.not30.us, label %.loopexit, label %.lr.ph.split.us
 
@@ -4612,7 +4612,7 @@ _ZN4llvm11SmallVectorIPNS_11InstructionELj4EED2Ev.exit: ; preds = %99, %.loopexi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm12SCEVExpander10hoistIVIncEPNS_11InstructionES2_bENK3$_0clES2_"(ptr %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm12SCEVExpander10hoistIVIncEPNS_11InstructionES2_bENK3$_0clES2_.argprom"(ptr %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::PoisoningVH", align 8
   %3 = alloca %"struct.llvm::PoisonFlags", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -6406,7 +6406,7 @@ define dso_local void @_ZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueE(p
   %24 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %12, i64 %23
   %25 = load ptr, ptr %24, align 8, !noalias !106
   %26 = icmp eq ptr %1, %25
-  br i1 %26, label %"_ZZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueEENK3$_0clES2_.exit", label %.lr.ph.i.i.i.i.i
+  br i1 %26, label %"_ZZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueEENK3$_0clES2_.argprom.exit", label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %16, %32
   %27 = phi ptr [ %39, %32 ], [ %25, %16 ]
@@ -6434,7 +6434,7 @@ define dso_local void @_ZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueE(p
   %38 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %12, i64 %37
   %39 = load ptr, ptr %38, align 8, !noalias !106
   %40 = icmp eq ptr %1, %39
-  br i1 %40, label %"_ZZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueEENK3$_0clES2_.exit", label %.lr.ph.i.i.i.i.i, !llvm.loop !86
+  br i1 %40, label %"_ZZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueEENK3$_0clES2_.argprom.exit", label %.lr.ph.i.i.i.i.i, !llvm.loop !86
 
 41:                                               ; preds = %30, %10
   %.sink.i.i.i.i.i = phi ptr [ %31, %30 ], [ null, %10 ]
@@ -6462,7 +6462,7 @@ define dso_local void @_ZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueE(p
   %57 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %45, i64 %56
   %58 = load ptr, ptr %57, align 8, !noalias !111
   %59 = icmp eq ptr %1, %58
-  br i1 %59, label %"_ZZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueEENK3$_0clES2_.exit", label %.lr.ph.i.i.i.i4.i
+  br i1 %59, label %"_ZZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueEENK3$_0clES2_.argprom.exit", label %.lr.ph.i.i.i.i4.i
 
 .lr.ph.i.i.i.i4.i:                                ; preds = %49, %65
   %60 = phi ptr [ %72, %65 ], [ %58, %49 ]
@@ -6490,7 +6490,7 @@ define dso_local void @_ZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueE(p
   %71 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %45, i64 %70
   %72 = load ptr, ptr %71, align 8, !noalias !111
   %73 = icmp eq ptr %1, %72
-  br i1 %73, label %"_ZZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueEENK3$_0clES2_.exit", label %.lr.ph.i.i.i.i4.i, !llvm.loop !86
+  br i1 %73, label %"_ZZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueEENK3$_0clES2_.argprom.exit", label %.lr.ph.i.i.i.i4.i, !llvm.loop !86
 
 74:                                               ; preds = %63, %43
   %.sink.i.i.i.i17.i = phi ptr [ %64, %63 ], [ null, %43 ]
@@ -6502,9 +6502,9 @@ _ZN4llvm6detail12DenseSetImplINS_11AssertingVHINS_5ValueEEENS_8DenseMapIS4_NS0_1
   %.sink22.i = phi ptr [ %75, %74 ], [ %42, %41 ]
   %76 = load ptr, ptr %.sink23.i, align 8, !noalias !90
   store ptr %76, ptr %.sink22.i, align 8, !noalias !90
-  br label %"_ZZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueEENK3$_0clES2_.exit"
+  br label %"_ZZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueEENK3$_0clES2_.argprom.exit"
 
-"_ZZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueEENK3$_0clES2_.exit": ; preds = %32, %65, %16, %49, %_ZN4llvm6detail12DenseSetImplINS_11AssertingVHINS_5ValueEEENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertEOS4_.exit.sink.split.i
+"_ZZN4llvm12SCEVExpander19rememberInstructionEPNS_5ValueEENK3$_0clES2_.argprom.exit": ; preds = %32, %65, %16, %49, %_ZN4llvm6detail12DenseSetImplINS_11AssertingVHINS_5ValueEEENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertEOS4_.exit.sink.split.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
@@ -9282,18 +9282,18 @@ _ZN4llvm11SmallVectorIPNS_7PHINodeELj16EED2Ev.exit62: ; preds = %_ZN4llvm11Small
   %169 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
   %170 = load ptr, ptr %4, align 8
   %171 = icmp eq ptr %170, %48
-  br i1 %171, label %"_ZN4llvm6detail10scope_exitIZNS_12SCEVExpander17fixupLCSSAFormForEPNS_5ValueEE3$_0ED2Ev.exit", label %172
+  br i1 %171, label %"_ZN4llvm6detail10scope_exitIZNS_12SCEVExpander17fixupLCSSAFormForEPNS_5ValueEE3$_0ED2Ev.argprom.exit", label %172
 
 172:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_7PHINodeELj16EED2Ev.exit62
   call void @free(ptr noundef %170) #18
-  br label %"_ZN4llvm6detail10scope_exitIZNS_12SCEVExpander17fixupLCSSAFormForEPNS_5ValueEE3$_0ED2Ev.exit"
+  br label %"_ZN4llvm6detail10scope_exitIZNS_12SCEVExpander17fixupLCSSAFormForEPNS_5ValueEE3$_0ED2Ev.argprom.exit"
 
-"_ZN4llvm6detail10scope_exitIZNS_12SCEVExpander17fixupLCSSAFormForEPNS_5ValueEE3$_0ED2Ev.exit": ; preds = %_ZN4llvm11SmallVectorIPNS_7PHINodeELj16EED2Ev.exit62, %172
+"_ZN4llvm6detail10scope_exitIZNS_12SCEVExpander17fixupLCSSAFormForEPNS_5ValueEE3$_0ED2Ev.argprom.exit": ; preds = %_ZN4llvm11SmallVectorIPNS_7PHINodeELj16EED2Ev.exit62, %172
   %173 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %47) #18
   br label %174
 
-174:                                              ; preds = %12, %30, %2, %"_ZN4llvm6detail10scope_exitIZNS_12SCEVExpander17fixupLCSSAFormForEPNS_5ValueEE3$_0ED2Ev.exit"
-  %.0 = phi ptr [ %160, %"_ZN4llvm6detail10scope_exitIZNS_12SCEVExpander17fixupLCSSAFormForEPNS_5ValueEE3$_0ED2Ev.exit" ], [ %1, %2 ], [ %1, %30 ], [ %1, %12 ]
+174:                                              ; preds = %12, %30, %2, %"_ZN4llvm6detail10scope_exitIZNS_12SCEVExpander17fixupLCSSAFormForEPNS_5ValueEE3$_0ED2Ev.argprom.exit"
+  %.0 = phi ptr [ %160, %"_ZN4llvm6detail10scope_exitIZNS_12SCEVExpander17fixupLCSSAFormForEPNS_5ValueEE3$_0ED2Ev.argprom.exit" ], [ %1, %2 ], [ %1, %30 ], [ %1, %12 ]
   ret ptr %.0
 }
 
@@ -10140,9 +10140,9 @@ _ZNSt17_Temporary_bufferIPPN4llvm7PHINodeES2_EC2ES3_l.exit.i.i.i: ; preds = %.lr
   store i8 1, ptr %61, align 1
   %89 = call noundef ptr @_ZN4llvm19simplifyInstructionEPNS_11InstructionERKNS_13SimplifyQueryE(ptr noundef %80, ptr noundef nonnull align 8 dereferenceable(58) %8) #18
   %.not.i = icmp eq ptr %89, null
-  br i1 %.not.i, label %90, label %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.exit.thread73"
+  br i1 %.not.i, label %90, label %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.argprom.exit.thread73"
 
-"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.exit.thread73": ; preds = %79
+"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.argprom.exit.thread73": ; preds = %79
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %103
 
@@ -10151,7 +10151,7 @@ _ZNSt17_Temporary_bufferIPPN4llvm7PHINodeES2_EC2ES3_l.exit.i.i.i: ; preds = %.lr
   %92 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %93 = load ptr, ptr %92, align 8
   %94 = call noundef zeroext i1 @_ZNK4llvm15ScalarEvolution10isSCEVableEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(1392) %91, ptr noundef %93) #18
-  br i1 %94, label %95, label %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.exit.thread"
+  br i1 %94, label %95, label %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.argprom.exit.thread"
 
 95:                                               ; preds = %90
   %96 = load ptr, ptr %0, align 8
@@ -10161,21 +10161,21 @@ _ZNSt17_Temporary_bufferIPPN4llvm7PHINodeES2_EC2ES3_l.exit.i.i.i: ; preds = %.lr
   %100 = icmp ne i16 %99, 0
   %.not111.i = icmp eq ptr %97, null
   %.not11.i = or i1 %.not111.i, %100
-  br i1 %.not11.i, label %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.exit.thread", label %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.exit"
+  br i1 %.not11.i, label %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.argprom.exit.thread", label %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.argprom.exit"
 
-"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.exit.thread": ; preds = %90, %95
+"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.argprom.exit.thread": ; preds = %90, %95
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %114
 
-"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.exit": ; preds = %95
+"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.argprom.exit": ; preds = %95
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %102 = load ptr, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   %.not42 = icmp eq ptr %102, null
   br i1 %.not42, label %114, label %103
 
-103:                                              ; preds = %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.exit.thread73", %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.exit"
-  %.0.i76 = phi ptr [ %89, %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.exit.thread73" ], [ %102, %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.exit" ]
+103:                                              ; preds = %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.argprom.exit.thread73", %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.argprom.exit"
+  %.0.i76 = phi ptr [ %89, %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.argprom.exit.thread73" ], [ %102, %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.argprom.exit" ]
   %104 = getelementptr inbounds nuw i8, ptr %.0.i76, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = load ptr, ptr %11, align 8
@@ -10193,7 +10193,7 @@ _ZNSt17_Temporary_bufferIPPN4llvm7PHINodeES2_EC2ES3_l.exit.i.i.i: ; preds = %.lr
   %113 = add i32 %.096, 1
   br label %290
 
-114:                                              ; preds = %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.exit.thread", %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.exit"
+114:                                              ; preds = %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.argprom.exit.thread", %"_ZZN4llvm12SCEVExpander19replaceCongruentIVsEPNS_4LoopEPKNS_13DominatorTreeERNS_15SmallVectorImplINS_14WeakTrackingVHEEEPKNS_19TargetTransformInfoEENK3$_1clEPNS_7PHINodeE.argprom.exit"
   %115 = load ptr, ptr %0, align 8
   %116 = load ptr, ptr %11, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
@@ -10989,7 +10989,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %._ZN4llvm15Instruct
   %138 = icmp ne i16 %137, 0
   %.not1.i.i.i.i.i.i = icmp eq ptr %.05.val.i.i.i141.i, null
   %.not.i.i.i.i.i.i = or i1 %.not1.i.i.i.i.i.i, %138
-  br i1 %.not.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i.i, label %206
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i.i, label %206
 
 139:                                              ; preds = %124
   %140 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljE_clEj(ptr noundef nonnull align 8 dereferenceable(32) %66, i32 noundef 47)
@@ -11058,7 +11058,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i:      ; preds = %166, %163, %160, %1
   store i32 %.0.i67, ptr %59, align 4
   store i32 0, ptr %60, align 4
   store i32 1, ptr %61, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(4) %59, ptr noundef nonnull align 4 dereferenceable(4) %60, ptr noundef nonnull align 4 dereferenceable(4) %61)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(4) %59, ptr noundef nonnull align 4 dereferenceable(4) %60, ptr noundef nonnull align 4 dereferenceable(4) %61)
   %167 = load ptr, ptr %64, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 40
   %169 = load ptr, ptr %168, align 8
@@ -11083,7 +11083,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i:      ; preds = %166, %163, %160, %1
   store i32 13, ptr %55, align 4
   store i32 0, ptr %56, align 4
   store i32 1, ptr %57, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(4) %55, ptr noundef nonnull align 4 dereferenceable(4) %56, ptr noundef nonnull align 4 dereferenceable(4) %57)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(4) %55, ptr noundef nonnull align 4 dereferenceable(4) %56, ptr noundef nonnull align 4 dereferenceable(4) %57)
   %174 = load ptr, ptr %64, align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 40
   %176 = load ptr, ptr %175, align 8
@@ -11107,7 +11107,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i:      ; preds = %166, %163, %160, %1
   store i32 17, ptr %51, align 4
   store i32 0, ptr %52, align 4
   store i32 1, ptr %53, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(4) %51, ptr noundef nonnull align 4 dereferenceable(4) %52, ptr noundef nonnull align 4 dereferenceable(4) %53)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(4) %51, ptr noundef nonnull align 4 dereferenceable(4) %52, ptr noundef nonnull align 4 dereferenceable(4) %53)
   %181 = load ptr, ptr %64, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 40
   %183 = load ptr, ptr %182, align 8
@@ -11124,11 +11124,11 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i:      ; preds = %166, %163, %160, %1
   br label %239
 
 _ZN4llvm15InstructionCostpLERKS0_.exit.i:         ; preds = %124, %124, %124, %124, %124
-  %187 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %67, i32 noundef 53, i32 noundef 0, i32 noundef 1)
+  %187 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr noundef nonnull align 8 dereferenceable(32) %67, i32 noundef 53, i32 noundef 0, i32 noundef 1)
   %.fca.0.extract43.i = extractvalue { i64, i32 } %187, 0
   %.fca.1.extract44.i = extractvalue { i64, i32 } %187, 1
   %188 = icmp eq i32 %.fca.1.extract44.i, 1
-  %189 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %67, i32 noundef 57, i32 noundef 0, i32 noundef 2)
+  %189 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr noundef nonnull align 8 dereferenceable(32) %67, i32 noundef 57, i32 noundef 0, i32 noundef 2)
   %.fca.0.extract39.i = extractvalue { i64, i32 } %189, 0
   %.fca.1.extract40.i = extractvalue { i64, i32 } %189, 1
   %190 = icmp eq i32 %.fca.1.extract40.i, 1
@@ -11142,7 +11142,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit.i:         ; preds = %124, %124, %124, %1
   br i1 %cond.i, label %_ZN4llvm15InstructionCostpLERKS0_.exit134.i, label %239
 
 _ZN4llvm15InstructionCostpLERKS0_.exit134.i:      ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit.i
-  %194 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %67, i32 noundef 53, i32 noundef 0, i32 noundef 0)
+  %194 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr noundef nonnull align 8 dereferenceable(32) %67, i32 noundef 53, i32 noundef 0, i32 noundef 0)
   %.fca.0.extract35.i = extractvalue { i64, i32 } %194, 0
   %.fca.1.extract36.i = extractvalue { i64, i32 } %194, 1
   %195 = icmp eq i32 %.fca.1.extract36.i, 1
@@ -11154,7 +11154,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit134.i:      ; preds = %_ZN4llvm15Instructi
   store i32 29, ptr %47, align 4
   store i32 0, ptr %48, align 4
   store i32 1, ptr %49, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(4) %47, ptr noundef nonnull align 4 dereferenceable(4) %48, ptr noundef nonnull align 4 dereferenceable(4) %49)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(4) %47, ptr noundef nonnull align 4 dereferenceable(4) %48, ptr noundef nonnull align 4 dereferenceable(4) %49)
   %196 = load ptr, ptr %64, align 8
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 40
   %198 = load ptr, ptr %197, align 8
@@ -11167,7 +11167,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit134.i:      ; preds = %_ZN4llvm15Instructi
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50)
-  %202 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %67, i32 noundef 57, i32 noundef 1, i32 noundef 1)
+  %202 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr noundef nonnull align 8 dereferenceable(32) %67, i32 noundef 57, i32 noundef 1, i32 noundef 1)
   %.fca.0.extract27.i = extractvalue { i64, i32 } %202, 0
   %.fca.1.extract28.i = extractvalue { i64, i32 } %202, 1
   %203 = icmp eq i32 %.fca.1.extract28.i, 1
@@ -11184,25 +11184,25 @@ _ZN4llvm15InstructionCostpLERKS0_.exit134.i:      ; preds = %_ZN4llvm15Instructi
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %211 = load i32, ptr %210, align 8
   %212 = icmp ult i32 %211, 65
-  br i1 %212, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i
+  br i1 %212, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i: ; preds = %206
   %213 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %209) #19
   %214 = sub i32 %211, %213
   %215 = icmp ugt i32 %214, 64
-  br i1 %215, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i.i
+  br i1 %215, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i.i: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i, %206
+_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i.i: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i, %206
   %216 = load ptr, ptr %209, align 8
   %.0.in.i.i.i.i.i.i.i.i = select i1 %212, ptr %209, ptr %216
   %.0.i.i.i.i.i.i.i.i = load i64, ptr %.0.in.i.i.i.i.i.i.i.i, align 8
   %.0.i.i.i.i.fr.i.i.i.i = freeze i64 %.0.i.i.i.i.i.i.i.i
   %217 = icmp ugt i64 %.0.i.i.i.i.fr.i.i.i.i, 1
   %218 = zext i1 %217 to i64
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.preheader.i
-  %.sink.i.i.i.i = phi i64 [ %218, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i.i ], [ 1, %.lr.ph.i.i.i.preheader.i ], [ 1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i ]
+_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.preheader.i
+  %.sink.i.i.i.i = phi i64 [ %218, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i.i ], [ 1, %.lr.ph.i.i.i.preheader.i ], [ 1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45)
@@ -11210,7 +11210,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprE
   store i32 13, ptr %43, align 4
   store i32 1, ptr %44, align 4
   store i32 1, ptr %45, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 4 dereferenceable(4) %44, ptr noundef nonnull align 4 dereferenceable(4) %45)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 4 dereferenceable(4) %44, ptr noundef nonnull align 4 dereferenceable(4) %45)
   %219 = select i1 %134, i64 4294967295, i64 0
   %220 = load ptr, ptr %64, align 8
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 40
@@ -11239,7 +11239,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprE
   store i32 17, ptr %39, align 4
   store i32 0, ptr %40, align 4
   store i32 1, ptr %41, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(4) %39, ptr noundef nonnull align 4 dereferenceable(4) %40, ptr noundef nonnull align 4 dereferenceable(4) %41)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(4) %39, ptr noundef nonnull align 4 dereferenceable(4) %40, ptr noundef nonnull align 4 dereferenceable(4) %41)
   %230 = load ptr, ptr %64, align 8
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 40
   %232 = load ptr, ptr %231, align 8
@@ -11263,9 +11263,9 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprE
   %.0.i172.i = call i64 @llvm.sadd.sat.i64(i64 %.0.i.i.i68, i64 %spec.select74.i)
   br label %239
 
-239:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i.i, %_ZN4llvm15InstructionCostpLERKS0_.exit134.i, %_ZN4llvm15InstructionCostpLERKS0_.exit.i, %180, %173, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i, %145, %143, %141, %139, %124
-  %.sroa.063.0.i = phi i64 [ 0, %124 ], [ %.0.i135.i, %_ZN4llvm15InstructionCostpLERKS0_.exit134.i ], [ %.0.i121.i, %_ZN4llvm15InstructionCostpLERKS0_.exit.i ], [ 0, %180 ], [ 0, %173 ], [ %.fca.0.extract1.i.i, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i ], [ %.fca.0.extract68.i, %145 ], [ %.fca.0.extract74.i, %143 ], [ %.fca.0.extract80.i, %141 ], [ %.fca.0.extract86.i, %139 ], [ %.0.i172.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i.i ]
-  %.sroa.22.6.i = phi i32 [ 0, %124 ], [ %.sroa.22.4.i, %_ZN4llvm15InstructionCostpLERKS0_.exit134.i ], [ %.sroa.22.1.i, %_ZN4llvm15InstructionCostpLERKS0_.exit.i ], [ %spec.select.i.i117.i, %180 ], [ %spec.select.i.i109.i, %173 ], [ %spec.select.i.i104.i, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i ], [ %.fca.1.extract69.i, %145 ], [ %.fca.1.extract75.i, %143 ], [ %.fca.1.extract81.i, %141 ], [ %.fca.1.extract87.i, %139 ], [ %.sroa.22.5.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i.i ]
+239:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i.i, %_ZN4llvm15InstructionCostpLERKS0_.exit134.i, %_ZN4llvm15InstructionCostpLERKS0_.exit.i, %180, %173, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i, %145, %143, %141, %139, %124
+  %.sroa.063.0.i = phi i64 [ 0, %124 ], [ %.0.i135.i, %_ZN4llvm15InstructionCostpLERKS0_.exit134.i ], [ %.0.i121.i, %_ZN4llvm15InstructionCostpLERKS0_.exit.i ], [ 0, %180 ], [ 0, %173 ], [ %.fca.0.extract1.i.i, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i ], [ %.fca.0.extract68.i, %145 ], [ %.fca.0.extract74.i, %143 ], [ %.fca.0.extract80.i, %141 ], [ %.fca.0.extract86.i, %139 ], [ %.0.i172.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i.i ]
+  %.sroa.22.6.i = phi i32 [ 0, %124 ], [ %.sroa.22.4.i, %_ZN4llvm15InstructionCostpLERKS0_.exit134.i ], [ %.sroa.22.1.i, %_ZN4llvm15InstructionCostpLERKS0_.exit.i ], [ %spec.select.i.i117.i, %180 ], [ %spec.select.i.i109.i, %173 ], [ %spec.select.i.i104.i, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i ], [ %.fca.1.extract69.i, %145 ], [ %.fca.1.extract75.i, %143 ], [ %.fca.1.extract81.i, %141 ], [ %.fca.1.extract87.i, %139 ], [ %.sroa.22.5.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i.i ]
   %.val.i = load ptr, ptr %65, align 8
   %240 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %65) #18
   %241 = getelementptr inbounds %struct.OperationIndices, ptr %.val.i, i64 %240
@@ -11344,13 +11344,13 @@ _ZN4llvm15SmallVectorImplINS_11SCEVOperandEE12emplace_backIJRjRmRKPKNS_4SCEVEEEE
   %274 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %65) #18
   %275 = load ptr, ptr %65, align 8
   %276 = icmp eq ptr %275, %125
-  br i1 %276, label %_ZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.exit, label %277
+  br i1 %276, label %_ZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom.exit, label %277
 
 277:                                              ; preds = %.loopexit.i
   call void @free(ptr noundef %275) #18
-  br label %_ZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.exit
+  br label %_ZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom.exit
 
-_ZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.exit: ; preds = %.loopexit.i, %277
+_ZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom.exit: ; preds = %.loopexit.i, %277
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %63)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %65)
@@ -11359,11 +11359,11 @@ _ZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11
   %278 = icmp eq i32 %.sroa.370.0.i, 1
   br i1 %278, label %279, label %_ZN4llvm15InstructionCostpLERKS0_.exit70
 
-279:                                              ; preds = %_ZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.exit
+279:                                              ; preds = %_ZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom.exit
   store i32 1, ptr %69, align 8
   br label %_ZN4llvm15InstructionCostpLERKS0_.exit70
 
-_ZN4llvm15InstructionCostpLERKS0_.exit70:         ; preds = %_ZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.exit, %279
+_ZN4llvm15InstructionCostpLERKS0_.exit70:         ; preds = %_ZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom.exit, %279
   %280 = load i64, ptr %4, align 8
   %.0.i69 = call i64 @llvm.sadd.sat.i64(i64 %280, i64 %.sroa.069.0.i)
   br label %.critedge182.sink.split
@@ -11378,7 +11378,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit70:         ; preds = %_ZL22costAndCollect
 
 287:                                              ; preds = %281
   %.val61 = load ptr, ptr %75, align 8
-  %288 = tail call fastcc { i64, i32 } @_ZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE(ptr %.val61, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %106, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %288 = tail call fastcc { i64, i32 } @_ZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom(ptr %.val61, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %106, ptr noundef nonnull align 8 dereferenceable(16) %8)
   %.fca.0.extract5 = extractvalue { i64, i32 } %288, 0
   %.fca.1.extract6 = extractvalue { i64, i32 } %288, 1
   %289 = icmp eq i32 %.fca.1.extract6, 1
@@ -11508,7 +11508,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i115:   ; preds = %331, %328, %325, %3
   store i32 %.0.i116, ptr %30, align 4
   store i32 0, ptr %31, align 4
   store i32 1, ptr %32, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef nonnull align 4 dereferenceable(4) %31, ptr noundef nonnull align 4 dereferenceable(4) %32)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef nonnull align 4 dereferenceable(4) %31, ptr noundef nonnull align 4 dereferenceable(4) %32)
   %332 = load ptr, ptr %35, align 8
   %333 = call noundef ptr @_ZNK4llvm4SCEV7getTypeEv(ptr noundef nonnull align 8 dereferenceable(30) %332) #18
   %334 = load i32, ptr %34, align 4
@@ -11536,7 +11536,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i115:   ; preds = %331, %328, %325, %3
   store i32 13, ptr %26, align 4
   store i32 0, ptr %27, align 4
   store i32 1, ptr %28, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull align 4 dereferenceable(4) %28)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull align 4 dereferenceable(4) %28)
   %342 = zext i32 %341 to i64
   %343 = load ptr, ptr %35, align 8
   %344 = call noundef ptr @_ZNK4llvm4SCEV7getTypeEv(ptr noundef nonnull align 8 dereferenceable(30) %343) #18
@@ -11573,7 +11573,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i115:   ; preds = %331, %328, %325, %3
   store i32 17, ptr %22, align 4
   store i32 0, ptr %23, align 4
   store i32 1, ptr %24, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
   %358 = zext i32 %357 to i64
   %359 = load ptr, ptr %35, align 8
   %360 = call noundef ptr @_ZNK4llvm4SCEV7getTypeEv(ptr noundef nonnull align 8 dereferenceable(30) %359) #18
@@ -11603,7 +11603,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit.i73:       ; preds = %292, %292, %292, %2
   %370 = load i64, ptr %369, align 8
   %371 = trunc i64 %370 to i32
   %372 = add i32 %371, -1
-  %373 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef 53, i32 noundef %372, i32 noundef 1)
+  %373 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef 53, i32 noundef %372, i32 noundef 1)
   %.fca.0.extract43.i74 = extractvalue { i64, i32 } %373, 0
   %.fca.1.extract44.i75 = extractvalue { i64, i32 } %373, 1
   %374 = icmp eq i32 %.fca.1.extract44.i75, 1
@@ -11612,7 +11612,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit.i73:       ; preds = %292, %292, %292, %2
   %377 = load i64, ptr %376, align 8
   %378 = trunc i64 %377 to i32
   %379 = add i32 %378, -1
-  %380 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef 57, i32 noundef %379, i32 noundef 2)
+  %380 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef 57, i32 noundef %379, i32 noundef 2)
   %.fca.0.extract39.i76 = extractvalue { i64, i32 } %380, 0
   %.fca.1.extract40.i77 = extractvalue { i64, i32 } %380, 1
   %381 = icmp eq i32 %.fca.1.extract40.i77, 1
@@ -11630,7 +11630,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit124.i:      ; preds = %_ZN4llvm15Instructi
   %386 = load i64, ptr %385, align 8
   %387 = trunc i64 %386 to i32
   %388 = add i32 %387, -1
-  %389 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef 53, i32 noundef %388, i32 noundef 0)
+  %389 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef 53, i32 noundef %388, i32 noundef 0)
   %.fca.0.extract35.i101 = extractvalue { i64, i32 } %389, 0
   %.fca.1.extract36.i102 = extractvalue { i64, i32 } %389, 1
   %390 = icmp eq i32 %.fca.1.extract36.i102, 1
@@ -11649,7 +11649,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit124.i:      ; preds = %_ZN4llvm15Instructi
   store i32 29, ptr %18, align 4
   store i32 0, ptr %19, align 4
   store i32 1, ptr %20, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
   %398 = zext i32 %397 to i64
   %399 = load ptr, ptr %35, align 8
   %400 = call noundef ptr @_ZNK4llvm4SCEV7getTypeEv(ptr noundef nonnull align 8 dereferenceable(30) %399) #18
@@ -11672,7 +11672,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit124.i:      ; preds = %_ZN4llvm15Instructi
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   %.0.i133.i = call i64 @llvm.sadd.sat.i64(i64 %.0.i123.i103, i64 %.0.i.i.i129.i)
-  %409 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef 57, i32 noundef 1, i32 noundef 1)
+  %409 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef 57, i32 noundef 1, i32 noundef 1)
   %.fca.0.extract27.i105 = extractvalue { i64, i32 } %409, 0
   %.fca.1.extract28.i106 = extractvalue { i64, i32 } %409, 1
   %410 = icmp eq i32 %.fca.1.extract28.i106, 1
@@ -11689,7 +11689,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit124.i:      ; preds = %_ZN4llvm15Instructi
   %417 = load i64, ptr %416, align 8
   %418 = getelementptr inbounds ptr, ptr %415, i64 %417
   %.not6.i.i.i.i = icmp eq i64 %417, 0
-  br i1 %.not6.i.i.i.i, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.i, label %.lr.ph.i.i.i.i
+  br i1 %.not6.i.i.i.i, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %413, %.lr.ph.i.i.i.i
   %.08.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %413 ]
@@ -11701,9 +11701,9 @@ _ZN4llvm15InstructionCostpLERKS0_.exit124.i:      ; preds = %_ZN4llvm15Instructi
   %spec.select.i.i.i.i = add i32 %.08.i.i.i.i, %421
   %422 = getelementptr inbounds i8, ptr %.057.i.i.i.i, i64 8
   %.not.i.i.i137.i = icmp eq ptr %422, %418
-  br i1 %.not.i.i.i137.i, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !136
+  br i1 %.not.i.i.i137.i, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !136
 
-_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i
+_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit.i: ; preds = %.lr.ph.i.i.i.i
   %.pre.i131 = load ptr, ptr %35, align 8
   %.phi.trans.insert.i132 = getelementptr inbounds nuw i8, ptr %.pre.i131, i64 32
   %.pre88.i = load ptr, ptr %.phi.trans.insert.i132, align 8
@@ -11712,18 +11712,18 @@ _ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEV
   %423 = add nsw i32 %spec.select.i.i.i.i, -1
   %424 = getelementptr inbounds ptr, ptr %.pre88.i, i64 %.pre90.i
   %.not7.i.i.i.i = icmp eq i64 %.pre90.i, 0
-  br i1 %.not7.i.i.i.i, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.i, label %.lr.ph.i.i.i140.i
+  br i1 %.not7.i.i.i.i, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.i, label %.lr.ph.i.i.i140.i
 
-.lr.ph.i.i.i140.i:                                ; preds = %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i.i
-  %.09.i.i.i.i = phi i64 [ %spec.select.i.i.i142.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i.i ], [ 0, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit.i ]
-  %.058.i.i.i.i = phi ptr [ %441, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i.i ], [ %.pre88.i, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit.i ]
+.lr.ph.i.i.i140.i:                                ; preds = %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i.i
+  %.09.i.i.i.i = phi i64 [ %spec.select.i.i.i142.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i.i ], [ 0, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit.i ]
+  %.058.i.i.i.i = phi ptr [ %441, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i.i ], [ %.pre88.i, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit.i ]
   %.05.val.i.i.i141.i133 = load ptr, ptr %.058.i.i.i.i, align 8
   %425 = getelementptr inbounds nuw i8, ptr %.05.val.i.i.i141.i133, i64 24
   %426 = load i16, ptr %425, align 8
   %427 = icmp ne i16 %426, 0
   %.not1.i.i.i.i.i.i134 = icmp eq ptr %.05.val.i.i.i141.i133, null
   %.not.i.i.i.i.i.i135 = or i1 %.not1.i.i.i.i.i.i134, %427
-  br i1 %.not.i.i.i.i.i.i135, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i.i, label %428
+  br i1 %.not.i.i.i.i.i.i135, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i.i, label %428
 
 428:                                              ; preds = %.lr.ph.i.i.i140.i
   %429 = getelementptr inbounds nuw i8, ptr %.05.val.i.i.i141.i133, i64 32
@@ -11732,37 +11732,37 @@ _ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEV
   %432 = getelementptr inbounds nuw i8, ptr %430, i64 32
   %433 = load i32, ptr %432, align 8
   %434 = icmp ult i32 %433, 65
-  br i1 %434, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i136
+  br i1 %434, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i136
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i136: ; preds = %428
   %435 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %431) #19
   %436 = sub i32 %433, %435
   %437 = icmp ugt i32 %436, 64
-  br i1 %437, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i.i
+  br i1 %437, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i.i: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i136, %428
+_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i.i: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i136, %428
   %438 = load ptr, ptr %431, align 8
   %.0.in.i.i.i.i.i.i.i.i137 = select i1 %434, ptr %431, ptr %438
   %.0.i.i.i.i.i.i.i.i138 = load i64, ptr %.0.in.i.i.i.i.i.i.i.i137, align 8
   %.0.i.i.i.i.fr.i.i.i.i139 = freeze i64 %.0.i.i.i.i.i.i.i.i138
   %439 = icmp ugt i64 %.0.i.i.i.i.fr.i.i.i.i139, 1
   %440 = zext i1 %439 to i64
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i136, %.lr.ph.i.i.i140.i
-  %.sink.i.i.i.i140 = phi i64 [ %440, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i.i ], [ 1, %.lr.ph.i.i.i140.i ], [ 1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i136 ]
+_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i136, %.lr.ph.i.i.i140.i
+  %.sink.i.i.i.i140 = phi i64 [ %440, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i.i ], [ 1, %.lr.ph.i.i.i140.i ], [ 1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i136 ]
   %spec.select.i.i.i142.i = add nuw nsw i64 %.sink.i.i.i.i140, %.09.i.i.i.i
   %441 = getelementptr inbounds i8, ptr %.058.i.i.i.i, i64 8
   %.not.i.i.i143.i = icmp eq ptr %441, %424
-  br i1 %.not.i.i.i143.i, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.loopexit.i, label %.lr.ph.i.i.i140.i, !llvm.loop !137
+  br i1 %.not.i.i.i143.i, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.loopexit.i, label %.lr.ph.i.i.i140.i, !llvm.loop !137
 
-_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.loopexit.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i.i
+_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.loopexit.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i.i
   %442 = and i64 %spec.select.i.i.i142.i, 4294967295
-  br label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.i
+  br label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.i
 
-_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.i: ; preds = %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.loopexit.i, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit.i, %413
-  %.0.lcssa.i.i.i93.i = phi i32 [ %423, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit.i ], [ %423, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.loopexit.i ], [ -1, %413 ]
-  %.0.lcssa.i.i.i144.i = phi i64 [ 0, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit.i ], [ %442, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.loopexit.i ], [ 0, %413 ]
+_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.i: ; preds = %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.loopexit.i, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit.i, %413
+  %.0.lcssa.i.i.i93.i = phi i32 [ %423, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit.i ], [ %423, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.loopexit.i ], [ -1, %413 ]
+  %.0.lcssa.i.i.i144.i = phi i64 [ 0, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit.i ], [ %442, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.loopexit.i ], [ 0, %413 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
@@ -11770,7 +11770,7 @@ _ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEV
   store i32 13, ptr %14, align 4
   store i32 1, ptr %15, align 4
   store i32 1, ptr %16, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
   %443 = zext i32 %.0.lcssa.i.i.i93.i to i64
   %444 = load ptr, ptr %35, align 8
   %445 = call noundef ptr @_ZNK4llvm4SCEV7getTypeEv(ptr noundef nonnull align 8 dereferenceable(30) %444) #18
@@ -11799,7 +11799,7 @@ _ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEV
   store i32 17, ptr %10, align 4
   store i32 0, ptr %11, align 4
   store i32 1, ptr %12, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   %454 = load ptr, ptr %35, align 8
   %455 = call noundef ptr @_ZNK4llvm4SCEV7getTypeEv(ptr noundef nonnull align 8 dereferenceable(30) %454) #18
   %456 = load i32, ptr %34, align 4
@@ -11832,7 +11832,7 @@ _ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEV
   %471 = extractvalue { i64, i1 } %469, 0
   br i1 %470, label %472, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit.i
 
-472:                                              ; preds = %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.i
+472:                                              ; preds = %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.i
   %473 = icmp sgt i64 %.0.i.i.i157.i, 0
   %474 = icmp sgt i64 %468, 0
   %or.cond.i.i.i = select i1 %473, i1 %474, i1 false
@@ -11845,8 +11845,8 @@ _ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEV
   %spec.select.i.i171.i = select i1 %or.cond7.i.i.i, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit.i
 
-_ZN4llvmmlERKNS_15InstructionCostES2_.exit.i:     ; preds = %475, %472, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.i
-  %.0.i.i167.i = phi i64 [ %471, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.i ], [ 9223372036854775807, %472 ], [ %spec.select.i.i171.i, %475 ]
+_ZN4llvmmlERKNS_15InstructionCostES2_.exit.i:     ; preds = %475, %472, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.i
+  %.0.i.i167.i = phi i64 [ %471, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.i ], [ 9223372036854775807, %472 ], [ %spec.select.i.i171.i, %475 ]
   %narrow77.i = select i1 %463, i1 true, i1 %453
   %spec.select74.i149 = zext i1 %narrow77.i to i32
   %.0.i172.i150 = call i64 @llvm.sadd.sat.i64(i64 %.0.i.i.i148, i64 %.0.i.i167.i)
@@ -11957,32 +11957,32 @@ _ZN4llvm15SmallVectorImplINS_11SCEVOperandEE12emplace_backIJRjRmRKPKNS_4SCEVEEEE
   %524 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #18
   %525 = load ptr, ptr %36, align 8
   %526 = icmp eq ptr %525, %293
-  br i1 %526, label %_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.exit, label %527
+  br i1 %526, label %_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom.exit, label %527
 
 527:                                              ; preds = %.loopexit.i96
   call void @free(ptr noundef %525) #18
-  br label %_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.exit
+  br label %_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom.exit
 
-_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.exit: ; preds = %.loopexit.i96, %527
+_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom.exit: ; preds = %.loopexit.i96, %527
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38)
   %528 = icmp eq i32 %.sroa.370.0.i98, 1
-  br i1 %528, label %530, label %_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.exit._ZN4llvm15InstructionCostpLERKS0_.exit152_crit_edge
+  br i1 %528, label %530, label %_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom.exit._ZN4llvm15InstructionCostpLERKS0_.exit152_crit_edge
 
-_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.exit._ZN4llvm15InstructionCostpLERKS0_.exit152_crit_edge: ; preds = %_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.exit
+_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom.exit._ZN4llvm15InstructionCostpLERKS0_.exit152_crit_edge: ; preds = %_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom.exit
   %.pre = load i32, ptr %69, align 8
   %529 = freeze i32 %.pre
   br label %_ZN4llvm15InstructionCostpLERKS0_.exit152
 
-530:                                              ; preds = %_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.exit
+530:                                              ; preds = %_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom.exit
   store i32 1, ptr %69, align 8
   br label %_ZN4llvm15InstructionCostpLERKS0_.exit152
 
-_ZN4llvm15InstructionCostpLERKS0_.exit152:        ; preds = %_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.exit._ZN4llvm15InstructionCostpLERKS0_.exit152_crit_edge, %530
-  %.fr = phi i32 [ %529, %_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.exit._ZN4llvm15InstructionCostpLERKS0_.exit152_crit_edge ], [ 1, %530 ]
+_ZN4llvm15InstructionCostpLERKS0_.exit152:        ; preds = %_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom.exit._ZN4llvm15InstructionCostpLERKS0_.exit152_crit_edge, %530
+  %.fr = phi i32 [ %529, %_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom.exit._ZN4llvm15InstructionCostpLERKS0_.exit152_crit_edge ], [ 1, %530 ]
   %531 = load i64, ptr %4, align 8
   %.0.i151 = call i64 @llvm.sadd.sat.i64(i64 %531, i64 %.sroa.069.0.i97)
   store i64 %.0.i151, ptr %4, align 8
@@ -11994,7 +11994,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit152:        ; preds = %_ZL22costAndCollect
 
 534:                                              ; preds = %101
   %.val63 = load ptr, ptr %75, align 8
-  %535 = tail call fastcc { i64, i32 } @_ZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE(ptr %.val63, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %106, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %535 = tail call fastcc { i64, i32 } @_ZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom(ptr %.val63, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %106, ptr noundef nonnull align 8 dereferenceable(16) %8)
   %.fca.0.extract = extractvalue { i64, i32 } %535, 0
   %.fca.1.extract = extractvalue { i64, i32 } %535, 1
   %536 = icmp eq i32 %.fca.1.extract, 1
@@ -12036,7 +12036,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit156:        ; preds = %._ZN4llvm15Instruct
 declare { i64, i32 } @_ZNK4llvm19TargetTransformInfo17getIntImmCostInstEjjRKNS_5APIntEPNS_4TypeENS0_14TargetCostKindEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE(ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef range(i32 0, 3) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @_ZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom(ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef range(i32 0, 3) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -12172,7 +12172,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread:        ; preds = %63, %69, %66, %50
   store i32 %.0, ptr %24, align 4
   store i32 0, ptr %25, align 4
   store i32 1, ptr %26, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %26)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %26)
   %70 = load ptr, ptr %29, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 40
   %72 = load ptr, ptr %71, align 8
@@ -12198,7 +12198,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread:        ; preds = %63, %69, %66, %50
   store i32 13, ptr %20, align 4
   store i32 0, ptr %21, align 4
   store i32 1, ptr %22, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 4 dereferenceable(4) %22)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 4 dereferenceable(4) %22)
   %78 = load ptr, ptr %29, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 40
   %80 = load ptr, ptr %79, align 8
@@ -12224,7 +12224,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread:        ; preds = %63, %69, %66, %50
   store i32 17, ptr %16, align 4
   store i32 0, ptr %17, align 4
   store i32 1, ptr %18, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   %86 = load ptr, ptr %29, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 40
   %88 = load ptr, ptr %87, align 8
@@ -12243,11 +12243,11 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread:        ; preds = %63, %69, %66, %50
   br label %160
 
 _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %3, %3, %3, %3, %3
-  %93 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 53, i32 noundef 1, i32 noundef 1)
+  %93 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 53, i32 noundef 1, i32 noundef 1)
   %.fca.0.extract43 = extractvalue { i64, i32 } %93, 0
   %.fca.1.extract44 = extractvalue { i64, i32 } %93, 1
   %94 = icmp eq i32 %.fca.1.extract44, 1
-  %95 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 57, i32 noundef 1, i32 noundef 2)
+  %95 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 57, i32 noundef 1, i32 noundef 2)
   %.fca.0.extract39 = extractvalue { i64, i32 } %95, 0
   %.fca.1.extract40 = extractvalue { i64, i32 } %95, 1
   %96 = icmp eq i32 %.fca.1.extract40, 1
@@ -12261,7 +12261,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %3, %3, %3, %3, %3
   br i1 %cond, label %_ZN4llvm15InstructionCostpLERKS0_.exit132, label %160
 
 _ZN4llvm15InstructionCostpLERKS0_.exit132:        ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit
-  %100 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 53, i32 noundef 1, i32 noundef 0)
+  %100 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 53, i32 noundef 1, i32 noundef 0)
   %.fca.0.extract35 = extractvalue { i64, i32 } %100, 0
   %.fca.1.extract36 = extractvalue { i64, i32 } %100, 1
   %101 = icmp eq i32 %.fca.1.extract36, 1
@@ -12273,7 +12273,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit132:        ; preds = %_ZN4llvm15Instructi
   store i32 29, ptr %12, align 4
   store i32 0, ptr %13, align 4
   store i32 1, ptr %14, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
   %102 = load ptr, ptr %29, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 40
   %104 = load ptr, ptr %103, align 8
@@ -12287,7 +12287,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit132:        ; preds = %_ZN4llvm15Instructi
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
-  %109 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 57, i32 noundef 1, i32 noundef 1)
+  %109 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 57, i32 noundef 1, i32 noundef 1)
   %.fca.0.extract27 = extractvalue { i64, i32 } %109, 0
   %.fca.1.extract28 = extractvalue { i64, i32 } %109, 1
   %110 = icmp eq i32 %.fca.1.extract28, 1
@@ -12308,15 +12308,15 @@ _ZN4llvm15InstructionCostpLERKS0_.exit132:        ; preds = %_ZN4llvm15Instructi
   %spec.select.i.i.i = add i32 %.08.i.i.i, %115
   %.057.i.i.i.add = add nuw nsw i64 %.057.i.i.i.idx, 8
   %.not.i.i.i135 = icmp eq i64 %.057.i.i.i.add, 48
-  br i1 %.not.i.i.i135, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit, label %.lr.ph.i.i.i, !llvm.loop !140
+  br i1 %.not.i.i.i135, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit, label %.lr.ph.i.i.i, !llvm.loop !140
 
-_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i
+_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit: ; preds = %.lr.ph.i.i.i
   %116 = load ptr, ptr %29, align 8
   br label %.lr.ph.i.i.i138
 
-.lr.ph.i.i.i138:                                  ; preds = %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i
-  %.09.i.i.i = phi i64 [ %spec.select.i.i.i140, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i ], [ 0, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit ]
-  %.058.i.i.i.idx = phi i64 [ %.058.i.i.i.add, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i ], [ 32, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit ]
+.lr.ph.i.i.i138:                                  ; preds = %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i
+  %.09.i.i.i = phi i64 [ %spec.select.i.i.i140, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i ], [ 0, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit ]
+  %.058.i.i.i.idx = phi i64 [ %.058.i.i.i.add, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i ], [ 32, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit ]
   %.058.i.i.i.ptr = getelementptr inbounds i8, ptr %116, i64 %.058.i.i.i.idx
   %.05.val.i.i.i139 = load ptr, ptr %.058.i.i.i.ptr, align 8
   %117 = getelementptr inbounds nuw i8, ptr %.05.val.i.i.i139, i64 24
@@ -12324,7 +12324,7 @@ _ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEV
   %119 = icmp ne i16 %118, 0
   %.not1.i.i.i.i.i = icmp eq ptr %.05.val.i.i.i139, null
   %.not.i.i.i.i.i = or i1 %.not1.i.i.i.i.i, %119
-  br i1 %.not.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i, label %120
+  br i1 %.not.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i, label %120
 
 120:                                              ; preds = %.lr.ph.i.i.i138
   %121 = getelementptr inbounds nuw i8, ptr %.05.val.i.i.i139, i64 32
@@ -12333,31 +12333,31 @@ _ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_12SCEV
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %125 = load i32, ptr %124, align 8
   %126 = icmp ult i32 %125, 65
-  br i1 %126, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i
+  br i1 %126, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i: ; preds = %120
   %127 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %123) #19
   %128 = sub i32 %125, %127
   %129 = icmp ugt i32 %128, 64
-  br i1 %129, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i
+  br i1 %129, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i, %120
+_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i, %120
   %130 = load ptr, ptr %123, align 8
   %.0.in.i.i.i.i.i.i.i = select i1 %126, ptr %123, ptr %130
   %.0.i.i.i.i.i.i.i = load i64, ptr %.0.in.i.i.i.i.i.i.i, align 8
   %.0.i.i.i.i.fr.i.i.i = freeze i64 %.0.i.i.i.i.i.i.i
   %131 = icmp ugt i64 %.0.i.i.i.i.fr.i.i.i, 1
   %132 = zext i1 %131 to i64
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i, %.lr.ph.i.i.i138
-  %.sink.i.i.i = phi i64 [ %132, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i ], [ 1, %.lr.ph.i.i.i138 ], [ 1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i ]
+_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i, %.lr.ph.i.i.i138
+  %.sink.i.i.i = phi i64 [ %132, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i ], [ 1, %.lr.ph.i.i.i138 ], [ 1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i ]
   %spec.select.i.i.i140 = add nuw nsw i64 %.sink.i.i.i, %.09.i.i.i
   %.058.i.i.i.add = add nuw nsw i64 %.058.i.i.i.idx, 8
   %.not.i.i.i141 = icmp eq i64 %.058.i.i.i.add, 48
   br i1 %.not.i.i.i141, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit, label %.lr.ph.i.i.i138, !llvm.loop !141
 
-_ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i
+_ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i
   %133 = add nsw i32 %spec.select.i.i.i, -1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
@@ -12366,7 +12366,7 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %_ZN9__gnu_cxx5__ops
   store i32 13, ptr %8, align 4
   store i32 1, ptr %9, align 4
   store i32 1, ptr %10, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   %134 = zext i32 %133 to i64
   %135 = load ptr, ptr %29, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 40
@@ -12397,7 +12397,7 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %_ZN9__gnu_cxx5__ops
   store i32 17, ptr %4, align 4
   store i32 0, ptr %5, align 4
   store i32 1, ptr %6, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %147 = and i64 %spec.select.i.i.i140, 4294967295
   %148 = load ptr, ptr %29, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 40
@@ -12534,7 +12534,7 @@ _ZN4llvm11SmallVectorIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15Instruc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE(ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef range(i32 0, 3) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @_ZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.argprom(ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef range(i32 0, 3) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -12672,7 +12672,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread:        ; preds = %65, %71, %68, %50
   store i32 %.0, ptr %24, align 4
   store i32 0, ptr %25, align 4
   store i32 1, ptr %26, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %26)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %26)
   %72 = load ptr, ptr %29, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load ptr, ptr %73, align 8
@@ -12703,7 +12703,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread:        ; preds = %65, %71, %68, %50
   store i32 13, ptr %20, align 4
   store i32 0, ptr %21, align 4
   store i32 1, ptr %22, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 4 dereferenceable(4) %22)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 4 dereferenceable(4) %22)
   %85 = zext i32 %84 to i64
   %86 = load ptr, ptr %29, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
@@ -12743,7 +12743,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread:        ; preds = %65, %71, %68, %50
   store i32 17, ptr %16, align 4
   store i32 0, ptr %17, align 4
   store i32 1, ptr %18, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   %104 = zext i32 %103 to i64
   %105 = load ptr, ptr %29, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 32
@@ -12776,7 +12776,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %3, %3, %3, %3, %3
   %119 = load i64, ptr %118, align 8
   %120 = trunc i64 %119 to i32
   %121 = add i32 %120, -1
-  %122 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 53, i32 noundef %121, i32 noundef 1)
+  %122 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 53, i32 noundef %121, i32 noundef 1)
   %.fca.0.extract43 = extractvalue { i64, i32 } %122, 0
   %.fca.1.extract44 = extractvalue { i64, i32 } %122, 1
   %123 = icmp eq i32 %.fca.1.extract44, 1
@@ -12785,7 +12785,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %3, %3, %3, %3, %3
   %126 = load i64, ptr %125, align 8
   %127 = trunc i64 %126 to i32
   %128 = add i32 %127, -1
-  %129 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 57, i32 noundef %128, i32 noundef 2)
+  %129 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 57, i32 noundef %128, i32 noundef 2)
   %.fca.0.extract39 = extractvalue { i64, i32 } %129, 0
   %.fca.1.extract40 = extractvalue { i64, i32 } %129, 1
   %130 = icmp eq i32 %.fca.1.extract40, 1
@@ -12803,7 +12803,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit124:        ; preds = %_ZN4llvm15Instructi
   %135 = load i64, ptr %134, align 8
   %136 = trunc i64 %135 to i32
   %137 = add i32 %136, -1
-  %138 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 53, i32 noundef %137, i32 noundef 0)
+  %138 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 53, i32 noundef %137, i32 noundef 0)
   %.fca.0.extract35 = extractvalue { i64, i32 } %138, 0
   %.fca.1.extract36 = extractvalue { i64, i32 } %138, 1
   %139 = icmp eq i32 %.fca.1.extract36, 1
@@ -12822,7 +12822,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit124:        ; preds = %_ZN4llvm15Instructi
   store i32 29, ptr %12, align 4
   store i32 0, ptr %13, align 4
   store i32 1, ptr %14, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
   %147 = zext i32 %146 to i64
   %148 = load ptr, ptr %29, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 32
@@ -12848,7 +12848,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit124:        ; preds = %_ZN4llvm15Instructi
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   %.0.i133 = call i64 @llvm.sadd.sat.i64(i64 %.0.i123, i64 %.0.i.i.i129)
-  %161 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 57, i32 noundef 1, i32 noundef 1)
+  %161 = call fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 57, i32 noundef 1, i32 noundef 1)
   %.fca.0.extract27 = extractvalue { i64, i32 } %161, 0
   %.fca.1.extract28 = extractvalue { i64, i32 } %161, 1
   %162 = icmp eq i32 %.fca.1.extract28, 1
@@ -12865,7 +12865,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit124:        ; preds = %_ZN4llvm15Instructi
   %169 = load i64, ptr %168, align 8
   %170 = getelementptr inbounds ptr, ptr %167, i64 %169
   %.not6.i.i.i = icmp eq i64 %169, 0
-  br i1 %.not6.i.i.i, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit, label %.lr.ph.i.i.i
+  br i1 %.not6.i.i.i, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %165, %.lr.ph.i.i.i
   %.08.i.i.i = phi i32 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %165 ]
@@ -12877,9 +12877,9 @@ _ZN4llvm15InstructionCostpLERKS0_.exit124:        ; preds = %_ZN4llvm15Instructi
   %spec.select.i.i.i = add i32 %.08.i.i.i, %173
   %174 = getelementptr inbounds i8, ptr %.057.i.i.i, i64 8
   %.not.i.i.i137 = icmp eq ptr %174, %170
-  br i1 %.not.i.i.i137, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit, label %.lr.ph.i.i.i, !llvm.loop !142
+  br i1 %.not.i.i.i137, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit, label %.lr.ph.i.i.i, !llvm.loop !142
 
-_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i
+_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit: ; preds = %.lr.ph.i.i.i
   %.pre = load ptr, ptr %29, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %.pre88 = load ptr, ptr %.phi.trans.insert, align 8
@@ -12888,18 +12888,18 @@ _ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEV
   %175 = add nsw i32 %spec.select.i.i.i, -1
   %176 = getelementptr inbounds ptr, ptr %.pre88, i64 %.pre90
   %.not7.i.i.i = icmp eq i64 %.pre90, 0
-  br i1 %.not7.i.i.i, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit, label %.lr.ph.i.i.i140
+  br i1 %.not7.i.i.i, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit, label %.lr.ph.i.i.i140
 
-.lr.ph.i.i.i140:                                  ; preds = %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i
-  %.09.i.i.i = phi i64 [ %spec.select.i.i.i142, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i ], [ 0, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit ]
-  %.058.i.i.i = phi ptr [ %193, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i ], [ %.pre88, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit ]
+.lr.ph.i.i.i140:                                  ; preds = %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i
+  %.09.i.i.i = phi i64 [ %spec.select.i.i.i142, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i ], [ 0, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit ]
+  %.058.i.i.i = phi ptr [ %193, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i ], [ %.pre88, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit ]
   %.05.val.i.i.i141 = load ptr, ptr %.058.i.i.i, align 8
   %177 = getelementptr inbounds nuw i8, ptr %.05.val.i.i.i141, i64 24
   %178 = load i16, ptr %177, align 8
   %179 = icmp ne i16 %178, 0
   %.not1.i.i.i.i.i = icmp eq ptr %.05.val.i.i.i141, null
   %.not.i.i.i.i.i = or i1 %.not1.i.i.i.i.i, %179
-  br i1 %.not.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i, label %180
+  br i1 %.not.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i, label %180
 
 180:                                              ; preds = %.lr.ph.i.i.i140
   %181 = getelementptr inbounds nuw i8, ptr %.05.val.i.i.i141, i64 32
@@ -12908,37 +12908,37 @@ _ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEV
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 32
   %185 = load i32, ptr %184, align 8
   %186 = icmp ult i32 %185, 65
-  br i1 %186, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i
+  br i1 %186, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i: ; preds = %180
   %187 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %183) #19
   %188 = sub i32 %185, %187
   %189 = icmp ugt i32 %188, 64
-  br i1 %189, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i
+  br i1 %189, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i, %180
+_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i, %180
   %190 = load ptr, ptr %183, align 8
   %.0.in.i.i.i.i.i.i.i = select i1 %186, ptr %183, ptr %190
   %.0.i.i.i.i.i.i.i = load i64, ptr %.0.in.i.i.i.i.i.i.i, align 8
   %.0.i.i.i.i.fr.i.i.i = freeze i64 %.0.i.i.i.i.i.i.i
   %191 = icmp ugt i64 %.0.i.i.i.i.fr.i.i.i, 1
   %192 = zext i1 %191 to i64
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i, %.lr.ph.i.i.i140
-  %.sink.i.i.i = phi i64 [ %192, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.i.i.i ], [ 1, %.lr.ph.i.i.i140 ], [ 1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i ]
+_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i, %.lr.ph.i.i.i140
+  %.sink.i.i.i = phi i64 [ %192, %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.i.i.i ], [ 1, %.lr.ph.i.i.i140 ], [ 1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i ]
   %spec.select.i.i.i142 = add nuw nsw i64 %.sink.i.i.i, %.09.i.i.i
   %193 = getelementptr inbounds i8, ptr %.058.i.i.i, i64 8
   %.not.i.i.i143 = icmp eq ptr %193, %176
-  br i1 %.not.i.i.i143, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.loopexit, label %.lr.ph.i.i.i140, !llvm.loop !143
+  br i1 %.not.i.i.i143, label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.loopexit, label %.lr.ph.i.i.i140, !llvm.loop !143
 
-_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.exit.thread.i.i.i
+_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS3_15InstructionCostERKNS3_11SCEVOperandERKNS3_19TargetTransformInfoENS9_14TargetCostKindERNS3_15SmallVectorImplIS6_EEEUlPKNS3_4SCEVEE0_EclIPKSI_EEbT_.argprom.exit.thread.i.i.i
   %194 = and i64 %spec.select.i.i.i142, 4294967295
-  br label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit
+  br label %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit
 
-_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit: ; preds = %165, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.loopexit, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit
-  %.0.lcssa.i.i.i93 = phi i32 [ %175, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit ], [ %175, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.loopexit ], [ -1, %165 ]
-  %.0.lcssa.i.i.i144 = phi i64 [ 0, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.exit ], [ %194, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit.loopexit ], [ 0, %165 ]
+_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit: ; preds = %165, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.loopexit, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit
+  %.0.lcssa.i.i.i93 = phi i32 [ %175, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit ], [ %175, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.loopexit ], [ -1, %165 ]
+  %.0.lcssa.i.i.i144 = phi i64 [ 0, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E_EEDaOT_T0_.argprom.exit ], [ %194, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit.loopexit ], [ 0, %165 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
@@ -12946,7 +12946,7 @@ _ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEV
   store i32 13, ptr %8, align 4
   store i32 1, ptr %9, align 4
   store i32 1, ptr %10, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   %195 = zext i32 %.0.lcssa.i.i.i93 to i64
   %196 = load ptr, ptr %29, align 8
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
@@ -12978,7 +12978,7 @@ _ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEV
   store i32 17, ptr %4, align 4
   store i32 0, ptr %5, align 4
   store i32 1, ptr %6, align 4
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %209 = load ptr, ptr %29, align 8
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 32
   %211 = load ptr, ptr %210, align 8
@@ -13014,7 +13014,7 @@ _ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEV
   %229 = extractvalue { i64, i1 } %227, 0
   br i1 %228, label %230, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit
 
-230:                                              ; preds = %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit
+230:                                              ; preds = %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit
   %231 = icmp sgt i64 %.0.i.i.i157, 0
   %232 = icmp sgt i64 %226, 0
   %or.cond.i.i = select i1 %231, i1 %232, i1 false
@@ -13027,8 +13027,8 @@ _ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEV
   %spec.select.i.i171 = select i1 %or.cond7.i.i, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit
 
-_ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit, %230, %233
-  %.0.i.i167 = phi i64 [ %229, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.exit ], [ 9223372036854775807, %230 ], [ %spec.select.i.i171, %233 ]
+_ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit, %230, %233
+  %.0.i.i167 = phi i64 [ %229, %_ZN4llvm8count_ifINS_8ArrayRefIPKNS_4SCEVEEEZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENSC_14TargetCostKindERNS_15SmallVectorImplIS9_EEEUlS4_E0_EEDaOT_T0_.argprom.exit ], [ 9223372036854775807, %230 ], [ %spec.select.i.i171, %233 ]
   %narrow77 = select i1 %221, i1 true, i1 %208
   %spec.select74 = zext i1 %narrow77 to i32
   %.0.i172 = call i64 @llvm.sadd.sat.i64(i64 %.0.i.i, i64 %.0.i.i167)
@@ -20043,7 +20043,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPN4llvm7PHINodeEN9__gnu_cx
   %12 = icmp eq i32 %.pre5.i.i, 12
   %.not.i.i = xor i1 %12, true
   %brmerge.i.i = select i1 %11, i1 true, i1 %.not.i.i
-  br i1 %brmerge.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit", label %13
+  br i1 %brmerge.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit", label %13
 
 13:                                               ; preds = %5
   %14 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.val.val) #19
@@ -20053,14 +20053,14 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPN4llvm7PHINodeEN9__gnu_cx
   %16 = icmp ult i64 %.fca.0.extract1.i.i, %.fca.0.extract.i.i
   br i1 %16, label %17, label %.preheader22
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit": ; preds = %5
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit": ; preds = %5
   %.mux.i.i = select i1 %11, i1 %12, i1 false
   br i1 %.mux.i.i, label %17, label %.preheader22
 
-.preheader22:                                     ; preds = %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit"
+.preheader22:                                     ; preds = %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit"
   br label %23
 
-17:                                               ; preds = %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit"
+17:                                               ; preds = %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit"
   %18 = getelementptr inbounds i8, ptr %.pn19, i64 16
   %19 = ptrtoint ptr %.020 to i64
   %20 = sub i64 %19, %4
@@ -20086,7 +20086,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPN4llvm7PHINodeEN9__gnu_cx
   %28 = icmp eq i32 %.pre5.i.i.i, 12
   %.not.i.i.i = xor i1 %28, true
   %brmerge.i.i.i = select i1 %27, i1 true, i1 %.not.i.i.i
-  br i1 %brmerge.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i", label %29
+  br i1 %brmerge.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i", label %29
 
 29:                                               ; preds = %23
   %30 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.val.val.i) #19
@@ -20096,19 +20096,19 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPN4llvm7PHINodeEN9__gnu_cx
   %32 = icmp ult i64 %.fca.0.extract1.i.i.i, %.fca.0.extract.i.i.i
   br i1 %32, label %33, label %"_ZSt25__unguarded_linear_insertIPPN4llvm7PHINodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEEvT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i": ; preds = %23
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i": ; preds = %23
   %.mux.i.i.i = select i1 %27, i1 %28, i1 false
   br i1 %.mux.i.i.i, label %33, label %"_ZSt25__unguarded_linear_insertIPPN4llvm7PHINodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEEvT_T0_.exit"
 
-33:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i", %29
+33:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i", %29
   store ptr %.0.val.i, ptr %.09.i, align 8
   %.val.val.i.pre = load ptr, ptr %6, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val.val.i.pre, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %23, !llvm.loop !218
 
-"_ZSt25__unguarded_linear_insertIPPN4llvm7PHINodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEEvT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i", %29, %17
-  %.sink = phi ptr [ %0, %17 ], [ %.09.i, %29 ], [ %.09.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i" ]
+"_ZSt25__unguarded_linear_insertIPPN4llvm7PHINodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEEvT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i", %29, %17
+  %.sink = phi ptr [ %0, %17 ], [ %.09.i, %29 ], [ %.09.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i" ]
   store ptr %.0.val, ptr %.sink, align 8
   %.0 = getelementptr inbounds i8, ptr %.020, i64 8
   %.not = icmp eq ptr %.0, %1
@@ -20155,7 +20155,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPPN4llvm7PHINodeElN9_
   %19 = icmp eq i32 %.pre5.i.i, 12
   %.not.i.i = xor i1 %19, true
   %brmerge.i.i = select i1 %18, i1 true, i1 %.not.i.i
-  br i1 %brmerge.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit", label %20
+  br i1 %brmerge.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit", label %20
 
 20:                                               ; preds = %12
   %21 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.val39.val) #19
@@ -20165,11 +20165,11 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPPN4llvm7PHINodeElN9_
   %23 = icmp ult i64 %.fca.0.extract1.i.i, %.fca.0.extract.i.i
   br i1 %23, label %24, label %.loopexit
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit": ; preds = %12
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit": ; preds = %12
   %.mux.i.i = select i1 %18, i1 %19, i1 false
   br i1 %.mux.i.i, label %24, label %.loopexit
 
-24:                                               ; preds = %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit"
+24:                                               ; preds = %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit"
   store ptr %.val, ptr %.tr87, align 8
   store ptr %.val39, ptr %.tr8088, align 8
   br label %.loopexit
@@ -20185,7 +20185,7 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit:     ; preds = %25
   %30 = sub i64 %8, %27
   %31 = ashr exact i64 %30, 3
   %32 = icmp sgt i64 %31, 0
-  br i1 %32, label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit"
+  br i1 %32, label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit"
 
 _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit
   %.val40 = load ptr, ptr %29, align 8
@@ -20198,9 +20198,9 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPP
   %.not.i.i.i = xor i1 %34, true
   br label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i
 
-_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i:   ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.exit.i", %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i
-  %.05.i = phi ptr [ %.tr8088, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.exit.i" ]
-  %.0114.i = phi i64 [ %31, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.exit.i" ]
+_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i:   ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.argprom.argprom.exit.i", %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i
+  %.05.i = phi ptr [ %.tr8088, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.argprom.argprom.exit.i" ]
+  %.0114.i = phi i64 [ %31, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.argprom.argprom.exit.i" ]
   %35 = lshr i64 %.0114.i, 1
   %36 = getelementptr inbounds ptr, ptr %.05.i, i64 %35
   %.val.i = load ptr, ptr %36, align 8
@@ -20215,7 +20215,7 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i:   ; preds = %"_ZN9__gnu_cxx5__op
 
 ._crit_edge.i.i.i:                                ; preds = %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i
   %.mux.i.i.i = select i1 %41, i1 %34, i1 false
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.exit.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.argprom.argprom.exit.i"
 
 42:                                               ; preds = %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i
   %43 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.val13.val.i) #19
@@ -20223,9 +20223,9 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i:   ; preds = %"_ZN9__gnu_cxx5__op
   %44 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.val.val.i) #19
   %.fca.0.extract.i.i.i = extractvalue { i64, i8 } %44, 0
   %45 = icmp ult i64 %.fca.0.extract1.i.i.i, %.fca.0.extract.i.i.i
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.exit.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.argprom.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.exit.i": ; preds = %42, %._crit_edge.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.argprom.argprom.exit.i": ; preds = %42, %._crit_edge.i.i.i
   %.0.i.i.i = phi i1 [ %45, %42 ], [ %.mux.i.i.i, %._crit_edge.i.i.i ]
   %46 = getelementptr inbounds i8, ptr %36, i64 8
   %47 = xor i64 %35, -1
@@ -20233,15 +20233,15 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i:   ; preds = %"_ZN9__gnu_cxx5__op
   %.112.i = select i1 %.0.i.i.i, i64 %48, i64 %35
   %.1.i = select i1 %.0.i.i.i, ptr %46, ptr %.05.i
   %49 = icmp sgt i64 %.112.i, 0
-  br i1 %49, label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit", !llvm.loop !220
+  br i1 %49, label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit", !llvm.loop !220
 
-"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.exit.i"
+"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.argprom.argprom.exit.i"
   %.pre = ptrtoint ptr %.1.i to i64
-  br label %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit"
+  br label %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit"
 
-"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit" ], [ %27, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit ]
-  %.0.lcssa.i = phi ptr [ %.1.i, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit" ], [ %.tr8088, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit ]
+"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit": ; preds = %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit", %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit" ], [ %27, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit ]
+  %.0.lcssa.i = phi ptr [ %.1.i, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit" ], [ %.tr8088, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit ]
   %50 = sub i64 %.pre-phi, %27
   %51 = ashr exact i64 %50, 3
   br label %tailrecurse
@@ -20253,7 +20253,7 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit45:   ; preds = %25
   %55 = sub i64 %27, %54
   %56 = ashr exact i64 %55, 3
   %57 = icmp sgt i64 %56, 0
-  br i1 %57, label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i47, label %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit"
+  br i1 %57, label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i47, label %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit"
 
 _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i47: ; preds = %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit45
   %.val41 = load ptr, ptr %53, align 8
@@ -20265,9 +20265,9 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i47: ; preds = %_ZSt7advanceI
   %62 = icmp ne i32 %61, 12
   br label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i49
 
-_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i49: ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i", %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i47
-  %.05.i50 = phi ptr [ %.tr87, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i47 ], [ %.1.i64, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i" ]
-  %.0114.i51 = phi i64 [ %56, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i47 ], [ %.112.i63, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i" ]
+_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i49: ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i", %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i47
+  %.05.i50 = phi ptr [ %.tr87, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i47 ], [ %.1.i64, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i" ]
+  %.0114.i51 = phi i64 [ %56, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i47 ], [ %.112.i63, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i" ]
   %63 = lshr i64 %.0114.i51, 1
   %64 = getelementptr inbounds ptr, ptr %.05.i50, i64 %63
   %.val13.i = load ptr, ptr %64, align 8
@@ -20283,7 +20283,7 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i49: ; preds = %"_ZN9__gnu_cxx5__op
 
 ._crit_edge.i.i.i65:                              ; preds = %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i49
   %.mux.i.i.i66 = select i1 %62, i1 %66, i1 false
-  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i"
 
 67:                                               ; preds = %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i49
   %68 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.val13.val.i54) #19
@@ -20291,9 +20291,9 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i49: ; preds = %"_ZN9__gnu_cxx5__op
   %69 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.val.val.i48) #19
   %.fca.0.extract.i.i.i61 = extractvalue { i64, i8 } %69, 0
   %70 = icmp ult i64 %.fca.0.extract1.i.i.i60, %.fca.0.extract.i.i.i61
-  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i": ; preds = %67, %._crit_edge.i.i.i65
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i": ; preds = %67, %._crit_edge.i.i.i65
   %.0.i.i.i62 = phi i1 [ %70, %67 ], [ %.mux.i.i.i66, %._crit_edge.i.i.i65 ]
   %71 = getelementptr inbounds i8, ptr %64, i64 8
   %72 = xor i64 %63, -1
@@ -20301,24 +20301,24 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i49: ; preds = %"_ZN9__gnu_cxx5__op
   %.112.i63 = select i1 %.0.i.i.i62, i64 %63, i64 %73
   %.1.i64 = select i1 %.0.i.i.i62, ptr %.05.i50, ptr %71
   %74 = icmp sgt i64 %.112.i63, 0
-  br i1 %74, label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i49, label %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit", !llvm.loop !221
+  br i1 %74, label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i49, label %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit", !llvm.loop !221
 
-"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i"
+"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i"
   %.pre94 = ptrtoint ptr %.1.i64 to i64
-  br label %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit"
+  br label %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit"
 
-"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit45
-  %.pre-phi95 = phi i64 [ %.pre94, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit" ], [ %54, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit45 ]
-  %.0.lcssa.i46 = phi ptr [ %.1.i64, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit" ], [ %.tr87, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit45 ]
+"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit": ; preds = %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit", %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit45
+  %.pre-phi95 = phi i64 [ %.pre94, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit" ], [ %54, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit45 ]
+  %.0.lcssa.i46 = phi ptr [ %.1.i64, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit" ], [ %.tr87, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit45 ]
   %75 = sub i64 %.pre-phi95, %54
   %76 = ashr exact i64 %75, 3
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit", %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit"
-  %.077 = phi ptr [ %29, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit" ], [ %.0.lcssa.i46, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit" ]
-  %.076 = phi ptr [ %.0.lcssa.i, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit" ], [ %53, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit" ]
-  %.036 = phi i64 [ %51, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit" ], [ %52, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit" ]
-  %.0 = phi i64 [ %28, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit" ], [ %76, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit" ]
+tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit", %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit"
+  %.077 = phi ptr [ %29, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit" ], [ %.0.lcssa.i46, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit" ]
+  %.076 = phi ptr [ %.0.lcssa.i, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit" ], [ %53, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit" ]
+  %.036 = phi i64 [ %51, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit" ], [ %52, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit" ]
+  %.0 = phi i64 [ %28, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit" ], [ %76, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit" ]
   %77 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm7PHINodeEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.077, ptr noundef %.tr8088, ptr noundef %.076)
   tail call fastcc void @"_ZSt22__merge_without_bufferIPPN4llvm7PHINodeElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEEvT_SM_SM_T0_SN_T1_"(ptr noundef %.tr87, ptr noundef %.077, ptr noundef %77, i64 noundef %.0, i64 noundef %.036)
   %78 = sub nsw i64 %.tr8290, %.0
@@ -20328,7 +20328,7 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
   %or.cond = or i1 %80, %81
   br i1 %or.cond, label %.loopexit, label %9
 
-.loopexit:                                        ; preds = %tailrecurse, %5, %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit", %24
+.loopexit:                                        ; preds = %tailrecurse, %5, %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit", %24
   ret void
 }
 
@@ -20551,7 +20551,7 @@ _ZSt4moveIPPN4llvm7PHINodeES3_ET0_T_S5_S4_.exit:  ; preds = %tailrecurse._crit_e
   %23 = icmp eq i32 %.pre5.i.i.i, 12
   %.not.i.i.i = xor i1 %23, true
   %brmerge.i.i.i = select i1 %22, i1 true, i1 %.not.i.i.i
-  br i1 %brmerge.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit.i", label %24
+  br i1 %brmerge.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit.i", label %24
 
 24:                                               ; preds = %.lr.ph.i
   %25 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.018.val.val.i) #19
@@ -20561,16 +20561,16 @@ _ZSt4moveIPPN4llvm7PHINodeES3_ET0_T_S5_S4_.exit:  ; preds = %tailrecurse._crit_e
   %27 = icmp ult i64 %.fca.0.extract1.i.i.i, %.fca.0.extract.i.i.i
   br i1 %27, label %28, label %30
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit.i": ; preds = %.lr.ph.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit.i": ; preds = %.lr.ph.i
   %.mux.i.i.i = select i1 %22, i1 %23, i1 false
   br i1 %.mux.i.i.i, label %28, label %30
 
-28:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit.i", %24
+28:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit.i", %24
   store ptr %.019.val.i, ptr %.024.i, align 8
   %29 = getelementptr inbounds i8, ptr %.01922.i, i64 8
   br label %32
 
-30:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit.i", %24
+30:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit.i", %24
   store ptr %.018.val.i, ptr %.024.i, align 8
   %31 = getelementptr inbounds i8, ptr %.01823.i, i64 8
   br label %32
@@ -20655,7 +20655,7 @@ _ZSt4moveIPPN4llvm7PHINodeES3_ET0_T_S5_S4_.exit74.thread: ; preds = %42
   %58 = icmp eq i32 %.pre5.i.i.i78, 12
   %.not.i.i.i79 = xor i1 %58, true
   %brmerge.i.i.i80 = select i1 %57, i1 true, i1 %.not.i.i.i79
-  br i1 %brmerge.i.i.i80, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit.i84", label %59
+  br i1 %brmerge.i.i.i80, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit.i84", label %59
 
 59:                                               ; preds = %51
   %60 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.026.val.val.i) #19
@@ -20665,11 +20665,11 @@ _ZSt4moveIPPN4llvm7PHINodeES3_ET0_T_S5_S4_.exit74.thread: ; preds = %42
   %62 = icmp ult i64 %.fca.0.extract1.i.i.i81, %.fca.0.extract.i.i.i82
   br i1 %62, label %63, label %74
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit.i84": ; preds = %51
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit.i84": ; preds = %51
   %.mux.i.i.i85 = select i1 %57, i1 %58, i1 false
   br i1 %.mux.i.i.i85, label %63, label %74
 
-63:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit.i84", %59
+63:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit.i84", %59
   %64 = getelementptr inbounds i8, ptr %.0.i, i64 -8
   store ptr %.026.val.i, ptr %64, align 8
   %65 = icmp eq ptr %.tr154, %.026.i.ph
@@ -20690,7 +20690,7 @@ _ZSt4moveIPPN4llvm7PHINodeES3_ET0_T_S5_S4_.exit74.thread: ; preds = %42
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %73, ptr align 8 %5, i64 %71, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPPN4llvm7PHINodeES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEEvT_SM_T0_SN_T1_T2_.exit"
 
-74:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit.i84", %59
+74:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit.i84", %59
   %75 = getelementptr inbounds i8, ptr %.0.i, i64 -8
   store ptr %.024.val.i, ptr %75, align 8
   %76 = icmp eq ptr %5, %.024.i75
@@ -20709,7 +20709,7 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit:     ; preds = %79
   %82 = sub i64 %8, %41
   %83 = ashr exact i64 %82, 3
   %84 = icmp sgt i64 %83, 0
-  br i1 %84, label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit"
+  br i1 %84, label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit"
 
 _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit
   %.val = load ptr, ptr %81, align 8
@@ -20722,9 +20722,9 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPP
   %.not.i.i.i91 = xor i1 %86, true
   br label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i
 
-_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i:   ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.exit.i", %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i
-  %.05.i = phi ptr [ %.tr140155, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i ], [ %.1.i95, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.exit.i" ]
-  %.0114.i = phi i64 [ %83, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.exit.i" ]
+_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i:   ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.argprom.argprom.exit.i", %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i
+  %.05.i = phi ptr [ %.tr140155, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i ], [ %.1.i95, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.argprom.argprom.exit.i" ]
+  %.0114.i = phi i64 [ %83, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.argprom.argprom.exit.i" ]
   %87 = lshr i64 %.0114.i, 1
   %88 = getelementptr inbounds ptr, ptr %.05.i, i64 %87
   %.val.i = load ptr, ptr %88, align 8
@@ -20739,7 +20739,7 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i:   ; preds = %"_ZN9__gnu_cxx5__op
 
 ._crit_edge.i.i.i:                                ; preds = %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i
   %.mux.i.i.i96 = select i1 %93, i1 %86, i1 false
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.exit.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.argprom.argprom.exit.i"
 
 94:                                               ; preds = %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i
   %95 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.val13.val.i) #19
@@ -20747,9 +20747,9 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i:   ; preds = %"_ZN9__gnu_cxx5__op
   %96 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.val.val.i) #19
   %.fca.0.extract.i.i.i94 = extractvalue { i64, i8 } %96, 0
   %97 = icmp ult i64 %.fca.0.extract1.i.i.i93, %.fca.0.extract.i.i.i94
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.exit.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.argprom.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.exit.i": ; preds = %94, %._crit_edge.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.argprom.argprom.exit.i": ; preds = %94, %._crit_edge.i.i.i
   %.0.i.i.i = phi i1 [ %97, %94 ], [ %.mux.i.i.i96, %._crit_edge.i.i.i ]
   %98 = getelementptr inbounds i8, ptr %88, i64 8
   %99 = xor i64 %87, -1
@@ -20757,15 +20757,15 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i:   ; preds = %"_ZN9__gnu_cxx5__op
   %.112.i = select i1 %.0.i.i.i, i64 %100, i64 %87
   %.1.i95 = select i1 %.0.i.i.i, ptr %98, ptr %.05.i
   %101 = icmp sgt i64 %.112.i, 0
-  br i1 %101, label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit", !llvm.loop !220
+  br i1 %101, label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit", !llvm.loop !220
 
-"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.exit.i"
+"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeEKSK_EEbT_RT0_.argprom.argprom.exit.i"
   %.pre = ptrtoint ptr %.1.i95 to i64
-  br label %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit"
+  br label %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit"
 
-"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit" ], [ %41, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit ]
-  %.0.lcssa.i87 = phi ptr [ %.1.i95, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit" ], [ %.tr140155, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit ]
+"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit": ; preds = %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit", %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit" ], [ %41, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit ]
+  %.0.lcssa.i87 = phi ptr [ %.1.i95, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit" ], [ %.tr140155, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit ]
   %102 = sub i64 %.pre-phi, %41
   %103 = ashr exact i64 %102, 3
   br label %129
@@ -20777,7 +20777,7 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit100:  ; preds = %79
   %107 = sub i64 %41, %106
   %108 = ashr exact i64 %107, 3
   %109 = icmp sgt i64 %108, 0
-  br i1 %109, label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i103, label %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit"
+  br i1 %109, label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i103, label %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit"
 
 _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i103: ; preds = %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit100
   %.val72 = load ptr, ptr %105, align 8
@@ -20789,9 +20789,9 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i103: ; preds = %_ZSt7advance
   %114 = icmp ne i32 %113, 12
   br label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i105
 
-_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i105: ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i", %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i103
-  %.05.i106 = phi ptr [ %.tr154, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i103 ], [ %.1.i120, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i" ]
-  %.0114.i107 = phi i64 [ %108, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i103 ], [ %.112.i119, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i" ]
+_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i105: ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i", %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i103
+  %.05.i106 = phi ptr [ %.tr154, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i103 ], [ %.1.i120, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i" ]
+  %.0114.i107 = phi i64 [ %108, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.lr.ph.i103 ], [ %.112.i119, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i" ]
   %115 = lshr i64 %.0114.i107, 1
   %116 = getelementptr inbounds ptr, ptr %.05.i106, i64 %115
   %.val13.i = load ptr, ptr %116, align 8
@@ -20807,7 +20807,7 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i105: ; preds = %"_ZN9__gnu_cxx5__o
 
 ._crit_edge.i.i.i121:                             ; preds = %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i105
   %.mux.i.i.i122 = select i1 %114, i1 %118, i1 false
-  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i"
 
 119:                                              ; preds = %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i105
   %120 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.val13.val.i110) #19
@@ -20815,9 +20815,9 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i105: ; preds = %"_ZN9__gnu_cxx5__o
   %121 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.val.val.i104) #19
   %.fca.0.extract.i.i.i117 = extractvalue { i64, i8 } %121, 0
   %122 = icmp ult i64 %.fca.0.extract1.i.i.i116, %.fca.0.extract.i.i.i117
-  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i": ; preds = %119, %._crit_edge.i.i.i121
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i": ; preds = %119, %._crit_edge.i.i.i121
   %.0.i.i.i118 = phi i1 [ %122, %119 ], [ %.mux.i.i.i122, %._crit_edge.i.i.i121 ]
   %123 = getelementptr inbounds i8, ptr %116, i64 8
   %124 = xor i64 %115, -1
@@ -20825,24 +20825,24 @@ _ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i105: ; preds = %"_ZN9__gnu_cxx5__o
   %.112.i119 = select i1 %.0.i.i.i118, i64 %115, i64 %125
   %.1.i120 = select i1 %.0.i.i.i118, ptr %.05.i106, ptr %123
   %126 = icmp sgt i64 %.112.i119, 0
-  br i1 %126, label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i105, label %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit", !llvm.loop !221
+  br i1 %126, label %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit.i105, label %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit", !llvm.loop !221
 
-"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.exit.i"
+"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIKPNS2_7PHINodeEPSK_EEbRT_T0_.argprom.argprom.exit.i"
   %.pre166 = ptrtoint ptr %.1.i120 to i64
-  br label %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit"
+  br label %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit"
 
-"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit100
-  %.pre-phi167 = phi i64 [ %.pre166, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit" ], [ %106, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit100 ]
-  %.0.lcssa.i102 = phi ptr [ %.1.i120, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit" ], [ %.tr154, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit100 ]
+"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit": ; preds = %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit", %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit100
+  %.pre-phi167 = phi i64 [ %.pre166, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit" ], [ %106, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit100 ]
+  %.0.lcssa.i102 = phi ptr [ %.1.i120, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit.loopexit" ], [ %.tr154, %_ZSt7advanceIPPN4llvm7PHINodeElEvRT_T0_.exit100 ]
   %127 = sub i64 %.pre-phi167, %106
   %128 = ashr exact i64 %127, 3
   br label %129
 
-129:                                              ; preds = %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit", %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit"
-  %.0137 = phi ptr [ %81, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit" ], [ %.0.lcssa.i102, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit" ]
-  %.0136 = phi ptr [ %.0.lcssa.i87, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit" ], [ %105, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit" ]
-  %.066 = phi i64 [ %103, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit" ], [ %104, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit" ]
-  %.0 = phi i64 [ %80, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit" ], [ %128, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.exit" ]
+129:                                              ; preds = %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit", %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit"
+  %.0137 = phi ptr [ %81, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit" ], [ %.0.lcssa.i102, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit" ]
+  %.0136 = phi ptr [ %.0.lcssa.i87, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit" ], [ %105, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit" ]
+  %.066 = phi i64 [ %103, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit" ], [ %104, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit" ]
+  %.0 = phi i64 [ %80, %"_ZSt13__lower_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit" ], [ %128, %"_ZSt13__upper_boundIPPN4llvm7PHINodeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEET_SM_SM_RKT0_T1_.argprom.exit" ]
   %130 = sub nsw i64 %.tr142157, %.0
   %131 = icmp sle i64 %130, %.066
   %.not.i = icmp sgt i64 %.066, %6
@@ -20987,7 +20987,7 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPPN4llvm7PHINodeES3_lN9__g
   %18 = icmp eq i32 %.pre5.i.i.i, 12
   %.not.i.i.i = xor i1 %18, true
   %brmerge.i.i.i = select i1 %17, i1 true, i1 %.not.i.i.i
-  br i1 %brmerge.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit.i", label %19
+  br i1 %brmerge.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit.i", label %19
 
 19:                                               ; preds = %.lr.ph.i
   %20 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.018.val.val.i) #19
@@ -20997,16 +20997,16 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPPN4llvm7PHINodeES3_lN9__g
   %22 = icmp ult i64 %.fca.0.extract1.i.i.i, %.fca.0.extract.i.i.i
   br i1 %22, label %23, label %25
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit.i": ; preds = %.lr.ph.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit.i": ; preds = %.lr.ph.i
   %.mux.i.i.i = select i1 %17, i1 %18, i1 false
   br i1 %.mux.i.i.i, label %23, label %25
 
-23:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit.i", %19
+23:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit.i", %19
   store ptr %.019.val.i, ptr %.025.i, align 8
   %24 = getelementptr inbounds i8, ptr %.01923.i, i64 8
   br label %27
 
-25:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit.i", %19
+25:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit.i", %19
   store ptr %.018.val.i, ptr %.025.i, align 8
   %26 = getelementptr inbounds i8, ptr %.01824.i, i64 8
   br label %27
@@ -21081,7 +21081,7 @@ _ZSt4moveIPPN4llvm7PHINodeES3_ET0_T_S5_S4_.exit.i: ; preds = %35, %._crit_edge.i
   %54 = icmp eq i32 %.pre5.i.i.i40, 12
   %.not.i.i.i41 = xor i1 %54, true
   %brmerge.i.i.i42 = select i1 %53, i1 true, i1 %.not.i.i.i41
-  br i1 %brmerge.i.i.i42, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit.i47", label %55
+  br i1 %brmerge.i.i.i42, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit.i47", label %55
 
 55:                                               ; preds = %.lr.ph.i30
   %56 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.018.val.val.i37) #19
@@ -21091,16 +21091,16 @@ _ZSt4moveIPPN4llvm7PHINodeES3_ET0_T_S5_S4_.exit.i: ; preds = %35, %._crit_edge.i
   %58 = icmp ult i64 %.fca.0.extract1.i.i.i43, %.fca.0.extract.i.i.i44
   br i1 %58, label %59, label %61
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit.i47": ; preds = %.lr.ph.i30
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit.i47": ; preds = %.lr.ph.i30
   %.mux.i.i.i48 = select i1 %53, i1 %54, i1 false
   br i1 %.mux.i.i.i48, label %59, label %61
 
-59:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit.i47", %55
+59:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit.i47", %55
   store ptr %.019.val.i34, ptr %.025.i31, align 8
   %60 = getelementptr inbounds i8, ptr %.01923.i33, i64 8
   br label %63
 
-61:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.exit.i47", %55
+61:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm12SCEVExpander19replaceCongruentIVsEPNS2_4LoopEPKNS2_13DominatorTreeERNS2_15SmallVectorImplINS2_14WeakTrackingVHEEEPKNS2_19TargetTransformInfoEE3$_0EclIPPNS2_7PHINodeESL_EEbT_T0_.argprom.argprom.exit.i47", %55
   store ptr %.018.val.i35, ptr %.025.i31, align 8
   %62 = getelementptr inbounds i8, ptr %.01824.i32, i64 8
   br label %63
@@ -21535,7 +21535,7 @@ _ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15Ins
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 53, 58) %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 align 2 {
+define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 53, 58) %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -21543,7 +21543,7 @@ define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVCa
   store i32 0, ptr %6, align 4
   store i32 %3, ptr %7, align 4
   %8 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -21647,7 +21647,7 @@ _ZN4llvm23SmallVectorTemplateBaseIZL22costAndCollectOperandsINS_12SCEVCastExprEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
   %5 = alloca %struct.OperationIndices, align 8
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
@@ -21756,7 +21756,7 @@ _ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15Ins
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 53, 58) %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 align 2 {
+define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 53, 58) %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -21764,7 +21764,7 @@ define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVUD
   store i32 0, ptr %6, align 4
   store i32 %3, ptr %7, align 4
   %8 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -21867,7 +21867,7 @@ _ZN4llvm23SmallVectorTemplateBaseIZL22costAndCollectOperandsINS_12SCEVUDivExprEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
   %5 = alloca %struct.OperationIndices.447, align 8
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
@@ -21968,7 +21968,7 @@ _ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15Ins
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 53, 58) %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 align 2 {
+define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 53, 58) %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -21976,7 +21976,7 @@ define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVNA
   store i32 0, ptr %6, align 4
   store i32 %3, ptr %7, align 4
   %8 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -22077,7 +22077,7 @@ _ZN4llvm23SmallVectorTemplateBaseIZL22costAndCollectOperandsINS_12SCEVNAryExprEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
   %5 = alloca %struct.OperationIndices.462, align 8
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
@@ -22181,7 +22181,7 @@ _ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15I
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 53, 58) %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 align 2 {
+define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 53, 58) %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -22189,7 +22189,7 @@ define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm14SCEVAd
   store i32 0, ptr %6, align 4
   store i32 %3, ptr %7, align 4
   %8 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -22293,7 +22293,7 @@ _ZN4llvm23SmallVectorTemplateBaseIZL22costAndCollectOperandsINS_14SCEVAddRecExpr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS0_IS4_EEE16OperationIndicesE12emplace_backIJRjSG_SG_EEERSD_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
   %5 = alloca %struct.OperationIndices.477, align 8
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18

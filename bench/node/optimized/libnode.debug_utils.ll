@@ -3306,13 +3306,13 @@ entry:
   %vfn19.i = getelementptr inbounds i8, ptr %vtable18.i, i64 24
   %9 = load ptr, ptr %vfn19.i, align 8
   %call20.i = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %8) #17
-  br i1 %call20.i, label %if.end.i, label %"_ZZN4node27PrintLibuvHandleInformationEP9uv_loop_sP8_IO_FILEENK3$_0clEP11uv_handle_sPv.exit"
+  br i1 %call20.i, label %if.end.i, label %"_ZZN4node27PrintLibuvHandleInformationEP9uv_loop_sP8_IO_FILEENK3$_0clEP11uv_handle_sPv.argprom.exit"
 
 if.end.i:                                         ; preds = %entry
   %10 = load ptr, ptr %handle, align 8
   %11 = load ptr, ptr %10, align 8
   %cmp.not.i = icmp eq ptr %11, null
-  br i1 %cmp.not.i, label %"_ZZN4node27PrintLibuvHandleInformationEP9uv_loop_sP8_IO_FILEENK3$_0clEP11uv_handle_sPv.exit", label %if.then22.i
+  br i1 %cmp.not.i, label %"_ZZN4node27PrintLibuvHandleInformationEP9uv_loop_sP8_IO_FILEENK3$_0clEP11uv_handle_sPv.argprom.exit", label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.end.i
   %vtable25.i = load ptr, ptr %0, align 8
@@ -3326,9 +3326,9 @@ if.then22.i:                                      ; preds = %if.end.i
   %filename.i20.i = getelementptr inbounds i8, ptr %ref.tmp24.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename.i20.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24.i) #17
-  br label %"_ZZN4node27PrintLibuvHandleInformationEP9uv_loop_sP8_IO_FILEENK3$_0clEP11uv_handle_sPv.exit"
+  br label %"_ZZN4node27PrintLibuvHandleInformationEP9uv_loop_sP8_IO_FILEENK3$_0clEP11uv_handle_sPv.argprom.exit"
 
-"_ZZN4node27PrintLibuvHandleInformationEP9uv_loop_sP8_IO_FILEENK3$_0clEP11uv_handle_sPv.exit": ; preds = %entry, %if.end.i, %if.then22.i
+"_ZZN4node27PrintLibuvHandleInformationEP9uv_loop_sP8_IO_FILEENK3$_0clEP11uv_handle_sPv.argprom.exit": ; preds = %entry, %if.end.i, %if.then22.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp7.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp10.i)
@@ -3349,13 +3349,13 @@ entry:
   %0 = load ptr, ptr %dlpi_name.i, align 8
   %1 = load i8, ptr %0, align 1
   %cmp.not.i = icmp eq i8 %1, 0
-  br i1 %cmp.not.i, label %"_ZZN4node28NativeSymbolDebuggingContext18GetLoadedLibrariesB5cxx11EvENK3$_0clEP12dl_phdr_infomPv.exit", label %if.then.i
+  br i1 %cmp.not.i, label %"_ZZN4node28NativeSymbolDebuggingContext18GetLoadedLibrariesB5cxx11EvENK3$_0clEP12dl_phdr_infomPv.argprom.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(8) %dlpi_name.i)
-  br label %"_ZZN4node28NativeSymbolDebuggingContext18GetLoadedLibrariesB5cxx11EvENK3$_0clEP12dl_phdr_infomPv.exit"
+  br label %"_ZZN4node28NativeSymbolDebuggingContext18GetLoadedLibrariesB5cxx11EvENK3$_0clEP12dl_phdr_infomPv.argprom.exit"
 
-"_ZZN4node28NativeSymbolDebuggingContext18GetLoadedLibrariesB5cxx11EvENK3$_0clEP12dl_phdr_infomPv.exit": ; preds = %entry, %if.then.i
+"_ZZN4node28NativeSymbolDebuggingContext18GetLoadedLibrariesB5cxx11EvENK3$_0clEP12dl_phdr_infomPv.argprom.exit": ; preds = %entry, %if.then.i
   ret i32 0
 }
 

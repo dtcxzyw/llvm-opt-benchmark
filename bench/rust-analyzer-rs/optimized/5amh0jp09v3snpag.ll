@@ -1013,7 +1013,7 @@ define void @_ZN5salsa7runtime7Runtime21report_synthetic_read17hb9aaca24f39e48e2
   %9 = getelementptr inbounds [3 x { { i32 } }], ptr %8, i64 0, i64 %5
   %10 = load atomic i32, ptr %9 seq_cst, align 4
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %_ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit
+  br i1 %11, label %12, label %_ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.argprom.exit
 
 12:                                               ; preds = %7
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7de7d82832db33b4cff19dffc32e1502.24.llvm.11287192499721329835) #22
@@ -1023,7 +1023,7 @@ define void @_ZN5salsa7runtime7Runtime21report_synthetic_read17hb9aaca24f39e48e2
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %5, i64 noundef 3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab8c5dc8a8f74baf8bf12307007a23e.40) #22
   unreachable
 
-_ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit: ; preds = %7
+_ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.argprom.exit: ; preds = %7
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -1368,7 +1368,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit121
   call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %124 = load i64, ptr %23, align 8, !range !20, !alias.scope !157, !noundef !4
   %.not.i122 = icmp eq i64 %124, -9223372036854775808
-  br i1 %.not.i122, label %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.exit, label %125
+  br i1 %.not.i122, label %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.argprom.exit, label %125
 
 125:                                              ; preds = %.critedge110
   %126 = icmp ne ptr %.val, null
@@ -1379,7 +1379,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit121
   %130 = load i64, ptr %129, align 8, !noalias !160, !noundef !4
   %131 = getelementptr inbounds { i32, i16, i16 }, ptr %128, i64 %130
   %132 = icmp eq i64 %130, 0
-  br i1 %132, label %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.exit, label %.lr.ph.i
+  br i1 %132, label %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %125, %.noexc123
   %.sroa.0.08.i = phi ptr [ %134, %.noexc123 ], [ %128, %125 ]
@@ -1395,7 +1395,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit121
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !167
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !157
   %135 = icmp eq ptr %134, %131
-  br i1 %135, label %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.exit, label %.lr.ph.i
+  br i1 %135, label %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.argprom.exit, label %.lr.ph.i
 
 136:                                              ; preds = %123
   %137 = load ptr, ptr @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw10__CALLSITE17he0e32dc8a99206f3E, align 8, !nonnull !4, !align !111, !noundef !4
@@ -1512,7 +1512,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit121
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   br label %.critedge110
 
-_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.exit: ; preds = %.noexc123, %125, %.critedge110
+_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.argprom.exit: ; preds = %.noexc123, %125, %.critedge110
   %.sroa.047.0.copyload = load i64, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   store ptr %1, ptr %14, align 8
@@ -1525,7 +1525,7 @@ _ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.ex
   invoke void @_ZN5salsa7runtime16dependency_graph15DependencyGraph26for_each_cycle_participant17h9418b3b4585d67daE(ptr noalias noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %71, ptr noalias noundef nonnull align 8 dereferenceable(24) %24, i64 %.sroa.047.0.copyload, i32 noundef %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %14)
           to label %170 unwind label %.loopexit.split-lp
 
-170:                                              ; preds = %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.exit
+170:                                              ; preds = %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.argprom.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   %.sroa.048.0.copyload = load i64, ptr %29, align 8
   %171 = invoke { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31maybe_unblock_runtimes_in_cycle17h0c7e960ef2157e82E(ptr noalias noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %71, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24, i64 %.sroa.048.0.copyload, i32 noundef %5)
@@ -1597,8 +1597,8 @@ _ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.ex
           cleanup
   br label %190
 
-.loopexit.split-lp:                               ; preds = %118, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit121.thread, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit129", %151, %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.exit, %170, %172, %146
-  %.3.ph.ph = phi i1 [ true, %146 ], [ false, %172 ], [ true, %170 ], [ true, %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.exit ], [ true, %151 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit129" ], [ true, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit121.thread ], [ true, %118 ]
+.loopexit.split-lp:                               ; preds = %118, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit121.thread, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit129", %151, %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.argprom.exit, %170, %172, %146
+  %.3.ph.ph = phi i1 [ true, %146 ], [ false, %172 ], [ true, %170 ], [ true, %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.argprom.exit ], [ true, %151 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit129" ], [ true, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit121.thread ], [ true, %118 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %190
@@ -1666,13 +1666,13 @@ define void @_ZN5salsa7runtime7Runtime26unblock_queries_blocked_on17h72a9cef459b
 21:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %22 = cmpxchg ptr %8, i8 1, i8 0 release monotonic, align 1
   %23 = extractvalue { i8, i1 } %22, 1
-  br i1 %23, label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17hdee8126aa2f1bec0E.exit7", label %24
+  br i1 %23, label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17hdee8126aa2f1bec0E.argprom.exit7", label %24
 
 24:                                               ; preds = %21
   tail call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %8, i1 noundef zeroext false)
-  br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17hdee8126aa2f1bec0E.exit7"
+  br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17hdee8126aa2f1bec0E.argprom.exit7"
 
-"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17hdee8126aa2f1bec0E.exit7": ; preds = %24, %21
+"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17hdee8126aa2f1bec0E.argprom.exit7": ; preds = %24, %21
   ret void
 
 25:                                               ; preds = %20, %27
@@ -2716,10 +2716,10 @@ attributes #25 = { cold }
 !138 = distinct !{!138, !"_ZN4core3ptr125drop_in_place$LT$core..cell..RefMut$LT$core..option..Option$LT$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$GT$$GT$$GT$17h054ca8fe47c8d1f6E"}
 !139 = !{i64 1}
 !140 = !{!141}
-!141 = distinct !{!141, !142, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!142 = distinct !{!142, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!141 = distinct !{!141, !142, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 0"}
+!142 = distinct !{!142, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom"}
 !143 = !{!144}
-!144 = distinct !{!144, !142, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!144 = distinct !{!144, !142, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 1"}
 !145 = !{!146}
 !146 = distinct !{!146, !147, !"_ZN5salsa7runtime11ActiveQuery3new17h8da1348acb6df5dfE: argument 0"}
 !147 = distinct !{!147, !"_ZN5salsa7runtime11ActiveQuery3new17h8da1348acb6df5dfE"}
@@ -2733,8 +2733,8 @@ attributes #25 = { cold }
 !155 = distinct !{!155, !156, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8dc1aea8aaf64eeaE: argument 0"}
 !156 = distinct !{!156, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8dc1aea8aaf64eeaE"}
 !157 = !{!158}
-!158 = distinct !{!158, !159, !"_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E: argument 0"}
-!159 = distinct !{!159, !"_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E"}
+!158 = distinct !{!158, !159, !"_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.argprom: argument 0"}
+!159 = distinct !{!159, !"_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.argprom"}
 !160 = !{!161, !158}
 !161 = distinct !{!161, !162, !"_ZN5salsa5Cycle16participant_keys17hc14b65eec5b4ec4dE: argument 0"}
 !162 = distinct !{!162, !"_ZN5salsa5Cycle16participant_keys17hc14b65eec5b4ec4dE"}

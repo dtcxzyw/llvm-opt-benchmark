@@ -404,7 +404,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define void @Dau_DsdTest000() local_unnamed_addr #2 {
-Abc_TtSupportSize.exit:
+Abc_TtSupportSize.argprom.exit:
   %0 = tail call i64 @Dau_Dsd6ToTruth(ptr noundef nonnull @.str.9) #8
   ret void
 }

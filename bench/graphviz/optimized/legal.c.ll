@@ -1018,7 +1018,7 @@ find_intersection.exit.i:                         ; preds = %444, %441
 452:                                              ; preds = %.critedge._crit_edge.i
   %453 = load ptr, ptr @stderr, align 8
   %454 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %453, ptr noundef nonnull @.str.1, i64 noundef 24) #16
-  tail call fastcc void @graphviz_exit() #18
+  tail call fastcc void @graphviz_exit.argelim() #18
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %.critedge._crit_edge.i
@@ -1301,7 +1301,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, i64 noundef %0, i64 noundef %1) #16
-  tail call fastcc void @graphviz_exit() #18
+  tail call fastcc void @graphviz_exit.argelim() #18
   unreachable
 
 8:                                                ; preds = %4
@@ -1313,7 +1313,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul nsw i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.1, i64 noundef %13) #16
-  tail call fastcc void @graphviz_exit() #18
+  tail call fastcc void @graphviz_exit.argelim() #18
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -1328,7 +1328,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #4 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #4 {
   tail call void @exit(i32 noundef 1) #19
   unreachable
 }

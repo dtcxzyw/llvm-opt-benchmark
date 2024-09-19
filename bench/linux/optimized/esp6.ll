@@ -1083,7 +1083,7 @@ define dso_local i32 @esp6_output_tail(ptr noundef %0, ptr noundef %1, ptr nocap
 359:                                              ; preds = %356
   %.val = load i8, ptr %4, align 1
   %.val8 = load ptr, ptr %11, align 8
-  tail call fastcc void @esp_ssg_unref(i8 %.val, ptr %.val8, ptr noundef nonnull %40)
+  tail call fastcc void @esp_ssg_unref.argprom(i8 %.val, ptr %.val8, ptr noundef nonnull %40)
   br label %360
 
 360:                                              ; preds = %359, %356
@@ -1227,7 +1227,7 @@ define internal void @esp_output_done(ptr noundef %0, i32 noundef %1) #0 align 1
   %.val = load i8, ptr %51, align 1
   %52 = getelementptr i8, ptr %48, i64 736
   %.val4 = load ptr, ptr %52, align 8
-  tail call fastcc void @esp_ssg_unref(i8 %.val, ptr %.val4, ptr noundef %50)
+  tail call fastcc void @esp_ssg_unref.argprom(i8 %.val, ptr %.val4, ptr noundef %50)
   tail call void @kfree(ptr noundef %50) #13
   %53 = getelementptr inbounds i8, ptr %0, i64 192
   %54 = load ptr, ptr %53, align 8
@@ -1349,7 +1349,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local i32 @crypto_aead_encrypt(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @esp_ssg_unref(i8 %.225.val, ptr %.736.val, ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @esp_ssg_unref.argprom(i8 %.225.val, ptr %.736.val, ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = lshr i8 %.225.val, 4
   %3 = and i8 %2, 8
   %4 = getelementptr inbounds i8, ptr %.736.val, i64 32

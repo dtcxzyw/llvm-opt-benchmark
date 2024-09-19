@@ -368,7 +368,7 @@ SUNHashMap_Iterate.exit.i.thread:                 ; preds = %sunHashMapLinearPro
 
 48:                                               ; preds = %SUNHashMap_Iterate.exit.i.thread
   %49 = load ptr, ptr @stdout, align 8
-  br label %sunOpenLogFile.exit
+  br label %sunOpenLogFile.argprom.exit
 
 50:                                               ; preds = %SUNHashMap_Iterate.exit.i.thread
   %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.16) #17
@@ -377,20 +377,20 @@ SUNHashMap_Iterate.exit.i.thread:                 ; preds = %sunHashMapLinearPro
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr @stderr, align 8
-  br label %sunOpenLogFile.exit
+  br label %sunOpenLogFile.argprom.exit
 
 54:                                               ; preds = %50
   %55 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.13)
-  br label %sunOpenLogFile.exit
+  br label %sunOpenLogFile.argprom.exit
 
-sunOpenLogFile.exit:                              ; preds = %48, %52, %54
+sunOpenLogFile.argprom.exit:                      ; preds = %48, %52, %54
   %.0.i21 = phi ptr [ %55, %54 ], [ %53, %52 ], [ %49, %48 ]
   %56 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %.0.i21, ptr %56, align 8
   %.not19 = icmp eq ptr %.0.i21, null
   br i1 %.not19, label %SUNHashMap_Insert.exit, label %57
 
-57:                                               ; preds = %sunOpenLogFile.exit
+57:                                               ; preds = %sunOpenLogFile.argprom.exit
   %58 = load ptr, ptr %6, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %SUNHashMap_Insert.exit, label %60
@@ -476,8 +476,8 @@ SUNHashMap_Iterate.exit.i31:                      ; preds = %.lr.ph.i31.i
   store i32 %97, ptr %58, align 8
   br label %SUNHashMap_Insert.exit
 
-SUNHashMap_Insert.exit:                           ; preds = %81, %77, %92, %89, %SUNHashMap_Iterate.exit.i31, %57, %3, %4, %43, %sunOpenLogFile.exit, %2
-  %.0 = phi i32 [ -9999, %2 ], [ -9991, %sunOpenLogFile.exit ], [ 0, %43 ], [ 0, %4 ], [ 0, %3 ], [ 0, %57 ], [ 0, %SUNHashMap_Iterate.exit.i31 ], [ 0, %89 ], [ 0, %92 ], [ 0, %77 ], [ 0, %81 ]
+SUNHashMap_Insert.exit:                           ; preds = %81, %77, %92, %89, %SUNHashMap_Iterate.exit.i31, %57, %3, %4, %43, %sunOpenLogFile.argprom.exit, %2
+  %.0 = phi i32 [ -9999, %2 ], [ -9991, %sunOpenLogFile.argprom.exit ], [ 0, %43 ], [ 0, %4 ], [ 0, %3 ], [ 0, %57 ], [ 0, %SUNHashMap_Iterate.exit.i31 ], [ 0, %89 ], [ 0, %92 ], [ 0, %77 ], [ 0, %81 ]
   ret i32 %.0
 }
 
@@ -584,7 +584,7 @@ SUNHashMap_Iterate.exit.i.thread:                 ; preds = %sunHashMapLinearPro
 
 48:                                               ; preds = %SUNHashMap_Iterate.exit.i.thread
   %49 = load ptr, ptr @stdout, align 8
-  br label %sunOpenLogFile.exit
+  br label %sunOpenLogFile.argprom.exit
 
 50:                                               ; preds = %SUNHashMap_Iterate.exit.i.thread
   %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.16) #17
@@ -593,20 +593,20 @@ SUNHashMap_Iterate.exit.i.thread:                 ; preds = %sunHashMapLinearPro
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr @stderr, align 8
-  br label %sunOpenLogFile.exit
+  br label %sunOpenLogFile.argprom.exit
 
 54:                                               ; preds = %50
   %55 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.13)
-  br label %sunOpenLogFile.exit
+  br label %sunOpenLogFile.argprom.exit
 
-sunOpenLogFile.exit:                              ; preds = %48, %52, %54
+sunOpenLogFile.argprom.exit:                      ; preds = %48, %52, %54
   %.0.i21 = phi ptr [ %55, %54 ], [ %53, %52 ], [ %49, %48 ]
   %56 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.0.i21, ptr %56, align 8
   %.not19 = icmp eq ptr %.0.i21, null
   br i1 %.not19, label %SUNHashMap_Insert.exit, label %57
 
-57:                                               ; preds = %sunOpenLogFile.exit
+57:                                               ; preds = %sunOpenLogFile.argprom.exit
   %58 = load ptr, ptr %6, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %SUNHashMap_Insert.exit, label %60
@@ -692,8 +692,8 @@ SUNHashMap_Iterate.exit.i31:                      ; preds = %.lr.ph.i31.i
   store i32 %97, ptr %58, align 8
   br label %SUNHashMap_Insert.exit
 
-SUNHashMap_Insert.exit:                           ; preds = %81, %77, %92, %89, %SUNHashMap_Iterate.exit.i31, %57, %3, %4, %43, %sunOpenLogFile.exit, %2
-  %.0 = phi i32 [ -9999, %2 ], [ -9991, %sunOpenLogFile.exit ], [ 0, %43 ], [ 0, %4 ], [ 0, %3 ], [ 0, %57 ], [ 0, %SUNHashMap_Iterate.exit.i31 ], [ 0, %89 ], [ 0, %92 ], [ 0, %77 ], [ 0, %81 ]
+SUNHashMap_Insert.exit:                           ; preds = %81, %77, %92, %89, %SUNHashMap_Iterate.exit.i31, %57, %3, %4, %43, %sunOpenLogFile.argprom.exit, %2
+  %.0 = phi i32 [ -9999, %2 ], [ -9991, %sunOpenLogFile.argprom.exit ], [ 0, %43 ], [ 0, %4 ], [ 0, %3 ], [ 0, %57 ], [ 0, %SUNHashMap_Iterate.exit.i31 ], [ 0, %89 ], [ 0, %92 ], [ 0, %77 ], [ 0, %81 ]
   ret i32 %.0
 }
 
@@ -799,19 +799,19 @@ sunCloseLogFile.exit.thread10.i:                  ; preds = %sunCloseLogFile.exi
   tail call void @free(ptr noundef nonnull %34) #14
   %.pre8.i = load ptr, ptr %10, align 8
   %.not30.i = icmp eq ptr %.pre8.i, null
-  br i1 %.not30.i, label %SUNHashMap_Destroy.exit, label %.thread.i
+  br i1 %.not30.i, label %SUNHashMap_Destroy.argprom.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %35, %._crit_edge.i
   %36 = phi ptr [ %.pre8.i, %35 ], [ %.lcssa.i, %._crit_edge.i ]
   tail call void @free(ptr noundef nonnull %36) #14
-  br label %SUNHashMap_Destroy.exit
+  br label %SUNHashMap_Destroy.argprom.exit
 
-SUNHashMap_Destroy.exit:                          ; preds = %35, %.thread.i
+SUNHashMap_Destroy.argprom.exit:                  ; preds = %35, %.thread.i
   tail call void @free(ptr noundef %3) #14
   br label %.critedge
 
-.critedge:                                        ; preds = %7, %SUNHashMap_Destroy.exit, %2, %1
-  %.011 = phi i32 [ 0, %1 ], [ %8, %7 ], [ 0, %SUNHashMap_Destroy.exit ], [ 0, %2 ]
+.critedge:                                        ; preds = %7, %SUNHashMap_Destroy.argprom.exit, %2, %1
+  %.011 = phi i32 [ 0, %1 ], [ %8, %7 ], [ 0, %SUNHashMap_Destroy.argprom.exit ], [ 0, %2 ]
   ret i32 %.011
 }
 

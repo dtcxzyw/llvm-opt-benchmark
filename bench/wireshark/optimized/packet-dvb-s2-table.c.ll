@@ -1722,11 +1722,11 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   br label %dissect_dvb_s2_table_sct.exitthread-pre-split
 
 256:                                              ; preds = %151
-  tail call fastcc void @dissect_dvb_s2_table_tim(ptr noundef %0, i32 noundef %.2, ptr noundef %8, i32 noundef 0, ptr noundef nonnull %1)
+  tail call fastcc void @dissect_dvb_s2_table_tim.retelim(ptr noundef %0, i32 noundef %.2, ptr noundef %8, i32 noundef 0, ptr noundef nonnull %1)
   br label %dissect_dvb_s2_table_sct.exitthread-pre-split
 
 257:                                              ; preds = %151
-  tail call fastcc void @dissect_dvb_s2_table_tim(ptr noundef %0, i32 noundef %.2, ptr noundef %8, i32 noundef 1, ptr noundef nonnull %1)
+  tail call fastcc void @dissect_dvb_s2_table_tim.retelim(ptr noundef %0, i32 noundef %.2, ptr noundef %8, i32 noundef 1, ptr noundef nonnull %1)
   br label %dissect_dvb_s2_table_sct.exitthread-pre-split
 
 258:                                              ; preds = %151
@@ -2939,7 +2939,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dvb_s2_table_tim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_dvb_s2_table_tim.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   %. = select i1 %.not, i32 254, i32 176
   %hf_dvb_s2_table_network_status.val = load i32, ptr @hf_dvb_s2_table_network_status, align 4

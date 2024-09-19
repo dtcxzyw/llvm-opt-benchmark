@@ -493,19 +493,19 @@ entry:
 
 entry.split.i:                                    ; preds = %entry
   %call66.i = tail call fastcc ptr @searchpath(ptr noundef %L, ptr noundef %call, ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21)
-  br label %findfile.exit
+  br label %findfile.argprom.exit
 
 if.then.i:                                        ; preds = %entry
   %call5.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str) #6
   %call67.i = tail call fastcc ptr @searchpath(ptr noundef %L, ptr noundef %call, ptr noundef null, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21)
-  br label %findfile.exit
+  br label %findfile.argprom.exit
 
-findfile.exit:                                    ; preds = %entry.split.i, %if.then.i
+findfile.argprom.exit:                            ; preds = %entry.split.i, %if.then.i
   %phi.call.i = phi ptr [ %call66.i, %entry.split.i ], [ %call67.i, %if.then.i ]
   %cmp = icmp eq ptr %phi.call.i, null
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %findfile.exit
+if.end:                                           ; preds = %findfile.argprom.exit
   %call2 = tail call i32 @luaL_loadfilex(ptr noundef %L, ptr noundef nonnull %phi.call.i, ptr noundef null) #6
   %cmp3.not = icmp eq i32 %call2, 0
   br i1 %cmp3.not, label %if.then.i6, label %if.else.i
@@ -520,8 +520,8 @@ if.else.i:                                        ; preds = %if.end
   %call4.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.31, ptr noundef %call2.i, ptr noundef nonnull %phi.call.i, ptr noundef %call3.i) #6
   br label %return
 
-return:                                           ; preds = %if.else.i, %if.then.i6, %findfile.exit
-  %retval.0 = phi i32 [ 1, %findfile.exit ], [ 2, %if.then.i6 ], [ %call4.i, %if.else.i ]
+return:                                           ; preds = %if.else.i, %if.then.i6, %findfile.argprom.exit
+  %retval.0 = phi i32 [ 1, %findfile.argprom.exit ], [ 2, %if.then.i6 ], [ %call4.i, %if.else.i ]
   ret i32 %retval.0
 }
 
@@ -536,19 +536,19 @@ entry:
 
 entry.split.i:                                    ; preds = %entry
   %call66.i = tail call fastcc ptr @searchpath(ptr noundef %L, ptr noundef %call, ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21)
-  br label %findfile.exit
+  br label %findfile.argprom.exit
 
 if.then.i:                                        ; preds = %entry
   %call5.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.3) #6
   %call67.i = tail call fastcc ptr @searchpath(ptr noundef %L, ptr noundef %call, ptr noundef null, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21)
-  br label %findfile.exit
+  br label %findfile.argprom.exit
 
-findfile.exit:                                    ; preds = %entry.split.i, %if.then.i
+findfile.argprom.exit:                            ; preds = %entry.split.i, %if.then.i
   %phi.call.i = phi ptr [ %call66.i, %entry.split.i ], [ %call67.i, %if.then.i ]
   %cmp = icmp eq ptr %phi.call.i, null
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %findfile.exit
+if.end:                                           ; preds = %findfile.argprom.exit
   %call2 = tail call fastcc i32 @loadfunc(ptr noundef %L, ptr noundef %phi.call.i, ptr noundef %call)
   %cmp3.not = icmp eq i32 %call2, 0
   br i1 %cmp3.not, label %if.then.i7, label %if.else.i
@@ -563,8 +563,8 @@ if.else.i:                                        ; preds = %if.end
   %call4.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.31, ptr noundef %call2.i, ptr noundef nonnull %phi.call.i, ptr noundef %call3.i) #6
   br label %return
 
-return:                                           ; preds = %if.else.i, %if.then.i7, %findfile.exit
-  %retval.0 = phi i32 [ 1, %findfile.exit ], [ 2, %if.then.i7 ], [ %call4.i, %if.else.i ]
+return:                                           ; preds = %if.else.i, %if.then.i7, %findfile.argprom.exit
+  %retval.0 = phi i32 [ 1, %findfile.argprom.exit ], [ 2, %if.then.i7 ], [ %call4.i, %if.else.i ]
   ret i32 %retval.0
 }
 
@@ -589,19 +589,19 @@ if.end:                                           ; preds = %entry
 
 entry.split.i:                                    ; preds = %if.end
   %call66.i = tail call fastcc ptr @searchpath(ptr noundef %L, ptr noundef %call3, ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21)
-  br label %findfile.exit
+  br label %findfile.argprom.exit
 
 if.then.i:                                        ; preds = %if.end
   %call5.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.3) #6
   %call67.i = tail call fastcc ptr @searchpath(ptr noundef %L, ptr noundef %call3, ptr noundef null, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21)
-  br label %findfile.exit
+  br label %findfile.argprom.exit
 
-findfile.exit:                                    ; preds = %entry.split.i, %if.then.i
+findfile.argprom.exit:                            ; preds = %entry.split.i, %if.then.i
   %phi.call.i = phi ptr [ %call66.i, %entry.split.i ], [ %call67.i, %if.then.i ]
   %cmp5 = icmp eq ptr %phi.call.i, null
   br i1 %cmp5, label %return, label %if.end7
 
-if.end7:                                          ; preds = %findfile.exit
+if.end7:                                          ; preds = %findfile.argprom.exit
   %call8 = tail call fastcc i32 @loadfunc(ptr noundef %L, ptr noundef %phi.call.i, ptr noundef %call)
   switch i32 %call8, label %if.then12 [
     i32 0, label %if.end15
@@ -622,8 +622,8 @@ if.end15:                                         ; preds = %if.end7
   %call16 = tail call ptr @lua_pushstring(ptr noundef %L, ptr noundef nonnull %phi.call.i) #6
   br label %return
 
-return:                                           ; preds = %findfile.exit, %entry, %if.end15, %if.else, %if.then12
-  %retval.0 = phi i32 [ %call4.i, %if.then12 ], [ 1, %if.else ], [ 2, %if.end15 ], [ 0, %entry ], [ 1, %findfile.exit ]
+return:                                           ; preds = %findfile.argprom.exit, %entry, %if.end15, %if.else, %if.then12
+  %retval.0 = phi i32 [ %call4.i, %if.then12 ], [ 1, %if.else ], [ 2, %if.end15 ], [ 0, %entry ], [ 1, %findfile.argprom.exit ]
   ret i32 %retval.0
 }
 

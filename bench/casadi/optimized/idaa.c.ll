@@ -950,7 +950,7 @@ IDAAGettnSolutionYp.exit:                         ; preds = %40, %32, %35
 53:                                               ; preds = %IDAAGettnSolutionYp.exit
   %54 = getelementptr inbounds i8, ptr %6, i64 24
   %55 = load ptr, ptr %54, align 8
-  tail call fastcc void @IDAAGettnSolutionYpS(ptr noundef nonnull %0, ptr noundef %55)
+  tail call fastcc void @IDAAGettnSolutionYpS.retelim(ptr noundef nonnull %0, ptr noundef %55)
   br label %56
 
 56:                                               ; preds = %53, %IDAAGettnSolutionYp.exit
@@ -1980,7 +1980,7 @@ IDAAGettnSolutionYp.exit:                         ; preds = %24, %19, %16, %2
   br i1 %.not22, label %56, label %55
 
 55:                                               ; preds = %._crit_edge
-  tail call fastcc void @IDAAGettnSolutionYpS(ptr noundef nonnull %0, ptr noundef nonnull %54)
+  tail call fastcc void @IDAAGettnSolutionYpS.retelim(ptr noundef nonnull %0, ptr noundef nonnull %54)
   br label %56
 
 56:                                               ; preds = %._crit_edge, %55, %IDAAGettnSolutionYp.exit
@@ -5381,7 +5381,7 @@ declare i32 @IDASensReInit(ptr noundef, i32 noundef, ptr noundef, ptr noundef) l
 declare i32 @IDAQuadSensReInit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @IDAAGettnSolutionYpS(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @IDAAGettnSolutionYpS.retelim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1320
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0

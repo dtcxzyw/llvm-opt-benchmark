@@ -151,7 +151,7 @@ _ZNK5ZXing11PatternView7isValidEv.exit.thread:    ; preds = %5, %_ZNK5ZXing11Pat
 
 39:                                               ; preds = %_ZNK5ZXing11PatternView7isValidEv.exit
   store i32 6, ptr %16, align 8
-  %40 = call fastcc noundef i32 @"_ZZNK5ZXing4OneD13Code128Reader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EEENK3$_0clERKS2_b"(ptr nonnull %13, i32 6, i1 noundef zeroext true)
+  %40 = call fastcc noundef i32 @"_ZZNK5ZXing4OneD13Code128Reader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EEENK3$_0clERKS2_b.argprom"(ptr nonnull %13, i32 6, i1 noundef zeroext true)
   %41 = add i32 %40, -103
   %or.cond = icmp ult i32 %41, 3
   br i1 %or.cond, label %60, label %42
@@ -315,7 +315,7 @@ _ZN5ZXing6ResultC2Ev.exit:                        ; preds = %_ZN5ZXing11PatternV
   br label %.body
 
 101:                                              ; preds = %_ZN5ZXing11PatternView10skipSymbolEv.exit
-  %102 = call fastcc noundef i32 @"_ZZNK5ZXing4OneD13Code128Reader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EEENK3$_0clERKS2_b"(ptr nonnull %81, i32 %79, i1 noundef zeroext false)
+  %102 = call fastcc noundef i32 @"_ZZNK5ZXing4OneD13Code128Reader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EEENK3$_0clERKS2_b.argprom"(ptr nonnull %81, i32 %79, i1 noundef zeroext false)
   switch i32 %102, label %121 [
     i32 -1, label %103
     i32 106, label %184
@@ -819,7 +819,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @"_ZZNK5ZXing4OneD13Code128Reader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EEENK3$_0clERKS2_b"(ptr readonly %.0.val, i32 %.8.val, i1 noundef zeroext %0) unnamed_addr #3 align 2 {
+define internal fastcc noundef i32 @"_ZZNK5ZXing4OneD13Code128Reader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EEENK3$_0clERKS2_b.argprom"(ptr readonly %.0.val, i32 %.8.val, i1 noundef zeroext %0) unnamed_addr #3 align 2 {
   %2 = alloca %"struct.std::array.13", align 8
   %3 = alloca %"struct.std::array.13", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)

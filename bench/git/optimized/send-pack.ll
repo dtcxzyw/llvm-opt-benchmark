@@ -1095,13 +1095,13 @@ if.then8:                                         ; preds = %sw.default
 if.else:                                          ; preds = %sw.default
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i = icmp eq i32 %0, 0
-  br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
+  br i1 %tobool1.not.i, label %_.argprom.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.else
   %call.i = tail call ptr @gettext(ptr noundef nonnull @.str.48) #10
-  br label %_.exit
+  br label %_.argprom.exit
 
-_.exit:                                           ; preds = %if.else, %if.end3.i
+_.argprom.exit:                                   ; preds = %if.else, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.48, %if.else ]
   %call13 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i, ptr noundef %k) #10
   br label %return
@@ -1115,8 +1115,8 @@ if.end15:                                         ; preds = %if.end15.sink.split
   %call16 = tail call i32 @git_default_config(ptr noundef %k, ptr noundef %v, ptr noundef %ctx, ptr noundef %cb) #10
   br label %return
 
-return:                                           ; preds = %if.end15, %_.exit
-  %retval.0 = phi i32 [ %call16, %if.end15 ], [ -1, %_.exit ]
+return:                                           ; preds = %if.end15, %_.argprom.exit
+  %retval.0 = phi i32 [ %call16, %if.end15 ], [ -1, %_.argprom.exit ]
   ret i32 %retval.0
 }
 

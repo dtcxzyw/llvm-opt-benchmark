@@ -36,15 +36,15 @@ land.lhs.true.i:                                  ; preds = %entry
   %sub.i = add i64 %env.val, -832
   %call2.i = tail call i32 @on_sig_stack(i64 noundef %sub.i) #6
   %tobool3.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool3.not.i, label %get_sigframe.exit, label %if.end.i
+  br i1 %tobool3.not.i, label %get_sigframe.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   %call6.i = tail call i64 @target_sigsp(i64 noundef %env.val, ptr noundef %ka) #6
   %1 = and i64 %call6.i, -16
   %and.i = add i64 %1, -832
-  br label %get_sigframe.exit
+  br label %get_sigframe.argprom.exit
 
-get_sigframe.exit:                                ; preds = %land.lhs.true.i, %if.end.i
+get_sigframe.argprom.exit:                        ; preds = %land.lhs.true.i, %if.end.i
   %retval.0.i = phi i64 [ %and.i, %if.end.i ], [ -1, %land.lhs.true.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -54,7 +54,7 @@ get_sigframe.exit:                                ; preds = %land.lhs.true.i, %i
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_user_setup_rt_frame.exit
 
-land.lhs.true5.i.i:                               ; preds = %get_sigframe.exit
+land.lhs.true5.i.i:                               ; preds = %get_sigframe.argprom.exit
   %4 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i = and i32 %4, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
@@ -78,7 +78,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, ptr noundef nonnull %env, i64 noundef %retval.0.i) #6
   br label %trace_user_setup_rt_frame.exit
 
-trace_user_setup_rt_frame.exit:                   ; preds = %get_sigframe.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
+trace_user_setup_rt_frame.exit:                   ; preds = %get_sigframe.argprom.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %call1 = tail call ptr @lock_user(i32 noundef 3, i64 noundef %retval.0.i, i64 noundef 832, i1 noundef zeroext false) #6
   %tobool.not = icmp eq ptr %call1, null

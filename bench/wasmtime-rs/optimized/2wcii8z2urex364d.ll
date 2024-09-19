@@ -2901,10 +2901,10 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
   %10 = trunc nuw i8 %9 to i1
   %. = select i1 %10, i16 1, i16 2
   %11 = getelementptr inbounds i8, ptr %1, i64 18
-  %12 = tail call fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %11, i16 %., i16 256, i16 1)
+  %12 = tail call fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E.argelim(ptr nonnull align 2 %11, i16 %., i16 256, i16 1)
   call fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_set17hba086c1342bbec2bE(ptr noalias align 8 %7, i48 %12)
   %13 = getelementptr inbounds i8, ptr %1, i64 24
-  %14 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %13, i16 2, i16 256, i16 0)
+  %14 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E.argelim(ptr nonnull align 2 %13, i16 2, i16 256, i16 0)
           to label %17 unwind label %15
 
 15:                                               ; preds = %2, %17
@@ -2917,7 +2917,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
           to label %18 unwind label %15
 
 18:                                               ; preds = %17
-  %19 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %1, i16 8, i16 128, i16 0)
+  %19 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E.argelim(ptr nonnull align 2 %1, i16 8, i16 128, i16 0)
           to label %22 unwind label %20
 
 20:                                               ; preds = %18, %22
@@ -2931,7 +2931,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds i8, ptr %1, i64 6
-  %25 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %24, i16 32, i16 64, i16 0)
+  %25 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E.argelim(ptr nonnull align 2 %24, i16 32, i16 64, i16 0)
           to label %28 unwind label %26
 
 26:                                               ; preds = %23, %28
@@ -2945,7 +2945,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds i8, ptr %1, i64 12
-  %31 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %30, i16 32, i16 64, i16 0)
+  %31 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E.argelim(ptr nonnull align 2 %30, i16 32, i16 64, i16 0)
           to label %32 unwind label %38
 
 32:                                               ; preds = %29
@@ -2996,7 +2996,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc range(i48 0, -140737488355328) i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nocapture readonly align 2 %0, i16 range(i16 1, 33) %1, i16 range(i16 64, 257) %2, i16 range(i16 0, 2) %3) unnamed_addr #0 {
+define internal fastcc range(i48 0, -140737488355328) i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E.argelim(ptr nocapture readonly align 2 %0, i16 range(i16 1, 33) %1, i16 range(i16 64, 257) %2, i16 range(i16 0, 2) %3) unnamed_addr #0 {
   %5 = load i16, ptr %0, align 2, !range !31, !noundef !3
   switch i16 %5, label %default.unreachable11 [
     i16 0, label %6

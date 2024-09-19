@@ -1699,14 +1699,14 @@ if.end:                                           ; preds = %entry
   %3 = getelementptr i8, ptr %orig, i64 8
   %orig.val = load ptr, ptr %3, align 8
   %cmp.i.not.i = icmp eq ptr %orig.val, %2
-  br i1 %cmp.i.not.i, label %if.end5, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end5, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %orig.val, ptr noundef %2) #10
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then3, label %if.end5
 
-if.then3:                                         ; preds = %PyObject_TypeCheck.exit
+if.then3:                                         ; preds = %PyObject_TypeCheck.argprom.exit
   %ob_item = getelementptr inbounds i8, ptr %excs, i64 24
   %4 = load ptr, ptr %ob_item, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1719,7 +1719,7 @@ if.end.i.i34:                                     ; preds = %if.then3
   store i32 %add.i.i32, ptr %5, align 8
   br label %return
 
-if.end5:                                          ; preds = %if.end, %PyObject_TypeCheck.exit
+if.end5:                                          ; preds = %if.end, %PyObject_TypeCheck.argprom.exit
   %call6 = tail call ptr @PyList_New(i64 noundef 0) #10
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %return, label %if.end9
@@ -2261,7 +2261,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @PyExc_TypeError, align 8
   %call.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.194, ptr noundef nonnull @.str.6) #10
-  br label %get_string.exit
+  br label %get_string.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %2 = getelementptr i8, ptr %0, i64 8
@@ -2275,19 +2275,19 @@ if.end.i:                                         ; preds = %entry
 if.then4.i:                                       ; preds = %if.end.i
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   %call5.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.196, ptr noundef nonnull @.str.6) #10
-  br label %get_string.exit
+  br label %get_string.argprom.exit
 
 if.end6.i:                                        ; preds = %if.end.i
   %6 = load i32, ptr %0, align 8
   %add.i.i.i = add i32 %6, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %get_string.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %get_string.argprom.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end6.i
   store i32 %add.i.i.i, ptr %0, align 8
-  br label %get_string.exit
+  br label %get_string.argprom.exit
 
-get_string.exit:                                  ; preds = %if.then.i, %if.then4.i, %if.end6.i, %if.end.i.i.i
+get_string.argprom.exit:                          ; preds = %if.then.i, %if.then4.i, %if.end6.i, %if.end.i.i.i
   %retval.0.i = phi ptr [ null, %if.then4.i ], [ null, %if.then.i ], [ %0, %if.end6.i ], [ %0, %if.end.i.i.i ]
   ret ptr %retval.0.i
 }
@@ -3116,7 +3116,7 @@ if.end3:                                          ; preds = %if.end5.i, %if.then
 declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_memory_error(i32 noundef range(i32 0, 2) %allow_allocation, ptr noundef %args) unnamed_addr #1 {
+define internal fastcc ptr @get_memory_error.argprom(i32 noundef range(i32 0, 2) %allow_allocation, ptr noundef %args) unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3639,7 +3639,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc ptr @get_memory_error(i32 noundef 1, ptr noundef %args)
+  %call1 = tail call fastcc ptr @get_memory_error.argprom(i32 noundef 1, ptr noundef %args)
   br label %return
 
 return:                                           ; preds = %if.then1.i.i, %if.end.i.i, %if.then10.i, %if.end5.i, %_Py_NewRef.exit.i, %if.then, %if.end
@@ -3686,7 +3686,7 @@ for.cond.i:                                       ; preds = %MemoryError_new.exi
 
 MemoryError_new.exit.i:                           ; preds = %for.cond.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.cond.i ]
-  %call1.i.i = tail call fastcc ptr @get_memory_error(i32 noundef 1, ptr noundef null)
+  %call1.i.i = tail call fastcc ptr @get_memory_error.argprom(i32 noundef 1, ptr noundef null)
   %arrayidx.i = getelementptr [16 x ptr], ptr %errors.i, i64 0, i64 %indvars.iv.i
   store ptr %call1.i.i, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %call1.i.i, null
@@ -6269,14 +6269,14 @@ if.end:                                           ; preds = %entry
   %1 = getelementptr i8, ptr %exc, i64 8
   %exc.val = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %exc.val, %0
-  br i1 %cmp.i.not.i, label %if.end7, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end7, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val, ptr noundef %0) #10
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then1, label %if.end7
 
-if.then1:                                         ; preds = %PyObject_TypeCheck.exit
+if.then1:                                         ; preds = %PyObject_TypeCheck.argprom.exit
   %call2 = tail call ptr @PyLong_FromVoidPtr(ptr noundef %exc) #10
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %return, label %if.end5
@@ -6298,7 +6298,7 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call2) #10
   br label %return
 
-if.end7:                                          ; preds = %if.end, %PyObject_TypeCheck.exit
+if.end7:                                          ; preds = %if.end, %PyObject_TypeCheck.argprom.exit
   %excs = getelementptr inbounds i8, ptr %exc, i64 80
   %4 = load ptr, ptr %excs, align 8
   %5 = getelementptr i8, ptr %4, i64 16
@@ -6395,14 +6395,14 @@ sw.bb4.i:                                         ; preds = %entry
   %3 = getelementptr i8, ptr %exc, i64 8
   %exc.val.i = load ptr, ptr %3, align 8
   %cmp.i.not.i.i = icmp eq ptr %exc.val.i, %2
-  br i1 %cmp.i.not.i.i, label %if.else, label %PyObject_TypeCheck.exit.i
+  br i1 %cmp.i.not.i.i, label %if.else, label %PyObject_TypeCheck.argprom.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %sw.bb4.i
+PyObject_TypeCheck.argprom.exit.i:                ; preds = %sw.bb4.i
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val.i, ptr noundef %2) #10
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.then6.i, label %if.else
 
-if.then6.i:                                       ; preds = %PyObject_TypeCheck.exit.i
+if.then6.i:                                       ; preds = %PyObject_TypeCheck.argprom.exit.i
   %call7.i = tail call ptr @PyLong_FromVoidPtr(ptr noundef nonnull %exc) #10
   %cmp8.i = icmp eq ptr %call7.i, null
   br i1 %cmp8.i, label %return, label %if.end10.i
@@ -6447,19 +6447,19 @@ _Py_NewRef.exit:                                  ; preds = %if.then1, %if.end.i
   store ptr %exc, ptr %result, align 8
   br label %return
 
-if.else:                                          ; preds = %PyObject_TypeCheck.exit.i, %entry, %sw.bb4.i, %if.end
+if.else:                                          ; preds = %PyObject_TypeCheck.argprom.exit.i, %entry, %sw.bb4.i, %if.end
   %7 = load ptr, ptr @PyExc_BaseExceptionGroup, align 8
   %8 = getelementptr i8, ptr %exc, i64 8
   %exc.val = load ptr, ptr %8, align 8
   %cmp.i.not.i = icmp eq ptr %exc.val, %7
-  br i1 %cmp.i.not.i, label %if.end13, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end13, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.else
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.else
   %call2.i63 = tail call i32 @PyType_IsSubtype(ptr noundef %exc.val, ptr noundef %7) #10
   %tobool3.i.not = icmp eq i32 %call2.i63, 0
   br i1 %tobool3.i.not, label %if.then6, label %if.end13
 
-if.then6:                                         ; preds = %PyObject_TypeCheck.exit
+if.then6:                                         ; preds = %PyObject_TypeCheck.argprom.exit
   br i1 %construct_rest, label %if.then8, label %return
 
 if.then8:                                         ; preds = %if.then6
@@ -6476,7 +6476,7 @@ _Py_NewRef.exit67:                                ; preds = %if.then8, %if.end.i
   store ptr %exc, ptr %rest, align 8
   br label %return
 
-if.end13:                                         ; preds = %if.else, %PyObject_TypeCheck.exit
+if.end13:                                         ; preds = %if.else, %PyObject_TypeCheck.argprom.exit
   %excs = getelementptr inbounds i8, ptr %exc, i64 80
   %10 = load ptr, ptr %excs, align 8
   %call15 = tail call i64 @PyTuple_Size(ptr noundef %10) #10
@@ -6782,19 +6782,19 @@ if.end6:                                          ; preds = %if.end3
   %1 = getelementptr i8, ptr %call4, i64 8
   %call4.val = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %call4.val, %0
-  br i1 %cmp.i.not.i, label %if.end10, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end10, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end6
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end6
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %call4.val, ptr noundef %0) #10
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then9, label %if.end10
 
-if.then9:                                         ; preds = %PyObject_TypeCheck.exit
+if.then9:                                         ; preds = %PyObject_TypeCheck.argprom.exit
   %2 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.63) #10
   br label %error
 
-if.end10:                                         ; preds = %if.end6, %PyObject_TypeCheck.exit
+if.end10:                                         ; preds = %if.end6, %PyObject_TypeCheck.argprom.exit
   %traceback.i = getelementptr inbounds i8, ptr %_orig, i64 40
   %3 = load ptr, ptr %traceback.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %3, null
@@ -8976,7 +8976,7 @@ Py_INCREF.exit:                                   ; preds = %if.end6, %if.end.i
 if.then.i:                                        ; preds = %Py_INCREF.exit
   %call2.i = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef nonnull %args, ptr noundef nonnull @.str.97, i64 noundef 2, i64 noundef 5, ptr noundef nonnull %myerrno, ptr noundef nonnull %strerror, ptr noundef nonnull %filename, ptr noundef nonnull %_winerror.i, ptr noundef nonnull %filename2) #10
   %tobool.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i, label %oserror_parse_args.exit, label %if.then.i.if.end10_crit_edge
+  br i1 %tobool.not.i, label %oserror_parse_args.argprom.exit, label %if.then.i.if.end10_crit_edge
 
 if.then.i.if.end10_crit_edge:                     ; preds = %if.then.i
   %.pre = load ptr, ptr %myerrno, align 8
@@ -8985,7 +8985,7 @@ if.then.i.if.end10_crit_edge:                     ; preds = %if.then.i
   %.pre17 = load ptr, ptr %filename2, align 8
   br label %if.end10
 
-oserror_parse_args.exit:                          ; preds = %if.then.i
+oserror_parse_args.argprom.exit:                  ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_winerror.i)
   br label %error
 
@@ -9003,8 +9003,8 @@ if.end10.error_crit_edge:                         ; preds = %if.end10
   %.pre18 = load ptr, ptr %args.addr, align 8
   br label %error
 
-error:                                            ; preds = %if.end10.error_crit_edge, %oserror_parse_args.exit
-  %11 = phi ptr [ %.pre18, %if.end10.error_crit_edge ], [ %args, %oserror_parse_args.exit ]
+error:                                            ; preds = %if.end10.error_crit_edge, %oserror_parse_args.argprom.exit
+  %11 = phi ptr [ %.pre18, %if.end10.error_crit_edge ], [ %args, %oserror_parse_args.argprom.exit ]
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 2147483648
   %cmp.i20.not = icmp eq i64 %13, 0
@@ -9087,9 +9087,9 @@ if.end7.thread:                                   ; preds = %if.end
 if.then.i:                                        ; preds = %if.end
   %call2.i = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef nonnull %args, ptr noundef nonnull @.str.97, i64 noundef 2, i64 noundef 5, ptr noundef nonnull %myerrno, ptr noundef nonnull %strerror, ptr noundef nonnull %filename, ptr noundef nonnull %_winerror.i, ptr noundef nonnull %filename2) #10
   %tobool.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i, label %oserror_parse_args.exit, label %if.end7
+  br i1 %tobool.not.i, label %oserror_parse_args.argprom.exit, label %if.end7
 
-oserror_parse_args.exit:                          ; preds = %if.then.i
+oserror_parse_args.argprom.exit:                  ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_winerror.i)
   br label %if.then.i37
 
@@ -9194,9 +9194,9 @@ if.end.i.i:                                       ; preds = %if.then.i34
 error:                                            ; preds = %if.then35
   br i1 %cmp.not.i33, label %if.then.i46, label %if.then.i37
 
-if.then.i37:                                      ; preds = %lor.lhs.false, %if.else, %oserror_parse_args.exit, %if.end28, %if.else40, %error
-  %self.068 = phi ptr [ %call29, %error ], [ null, %lor.lhs.false ], [ null, %if.else ], [ null, %oserror_parse_args.exit ], [ null, %if.end28 ], [ %call29, %if.else40 ]
-  %24 = phi ptr [ %.pre61, %error ], [ %args, %lor.lhs.false ], [ %args, %if.else ], [ %args, %oserror_parse_args.exit ], [ %args, %if.end28 ], [ %args, %if.else40 ]
+if.then.i37:                                      ; preds = %lor.lhs.false, %if.else, %oserror_parse_args.argprom.exit, %if.end28, %if.else40, %error
+  %self.068 = phi ptr [ %call29, %error ], [ null, %lor.lhs.false ], [ null, %if.else ], [ null, %oserror_parse_args.argprom.exit ], [ null, %if.end28 ], [ %call29, %if.else40 ]
+  %24 = phi ptr [ %.pre61, %error ], [ %args, %lor.lhs.false ], [ %args, %if.else ], [ %args, %oserror_parse_args.argprom.exit ], [ %args, %if.end28 ], [ %args, %if.else40 ]
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 2147483648
   %cmp.i2.not.i38 = icmp eq i64 %26, 0

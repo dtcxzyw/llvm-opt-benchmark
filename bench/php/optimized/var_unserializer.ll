@@ -1286,7 +1286,7 @@ parse_uiv.exit:                                   ; preds = %.lr.ph.i
 284:                                              ; preds = %parse_uiv.exit
   %285 = add i64 %279, -1
   %.val = load ptr, ptr %3, align 8
-  %286 = tail call fastcc ptr @var_access(ptr %.val, i64 noundef %285)
+  %286 = tail call fastcc ptr @var_access.argprom(ptr %.val, i64 noundef %285)
   %287 = icmp eq ptr %286, null
   %288 = icmp eq ptr %286, %0
   %or.cond1191 = or i1 %287, %288
@@ -1506,7 +1506,7 @@ parse_uiv.exit1202:                               ; preds = %.lr.ph.i1198
 391:                                              ; preds = %parse_uiv.exit1202
   %392 = add i64 %386, -1
   %.val1194 = load ptr, ptr %3, align 8
-  %393 = tail call fastcc ptr @var_access(ptr %.val1194, i64 noundef %392)
+  %393 = tail call fastcc ptr @var_access.argprom(ptr %.val1194, i64 noundef %392)
   %394 = icmp eq ptr %393, null
   %395 = icmp eq ptr %393, %0
   %or.cond1192 = or i1 %394, %395
@@ -1667,21 +1667,21 @@ parse_uiv.exit1209:                               ; preds = %.lr.ph.i1205, %420
   %473 = getelementptr inbounds i8, ptr %.val1195.val, i64 28
   %474 = load i32, ptr %473, align 4
   %.not.i = icmp eq i32 %474, 0
-  br i1 %.not.i, label %unserialize_allowed_class.exit.thread, label %unserialize_allowed_class.exit
+  br i1 %.not.i, label %unserialize_allowed_class.argprom.argprom.exit.thread, label %unserialize_allowed_class.argprom.argprom.exit
 
-unserialize_allowed_class.exit:                   ; preds = %472
+unserialize_allowed_class.argprom.argprom.exit:   ; preds = %472
   %475 = tail call ptr @zend_hash_find(ptr noundef nonnull %.val1195.val, ptr noundef %469) #13
   %.not1259 = icmp eq ptr %475, null
-  br i1 %.not1259, label %unserialize_allowed_class.exit.thread, label %unserialize_allowed_class.exit.thread1244
+  br i1 %.not1259, label %unserialize_allowed_class.argprom.argprom.exit.thread, label %unserialize_allowed_class.argprom.argprom.exit.thread1244
 
-unserialize_allowed_class.exit.thread:            ; preds = %472, %unserialize_allowed_class.exit
+unserialize_allowed_class.argprom.argprom.exit.thread: ; preds = %472, %unserialize_allowed_class.argprom.argprom.exit
   %476 = getelementptr inbounds i8, ptr %469, i64 4
   %477 = load i32, ptr %476, align 4
   %478 = and i32 %477, 64
   %.not1153 = icmp eq i32 %478, 0
   br i1 %.not1153, label %479, label %485
 
-479:                                              ; preds = %unserialize_allowed_class.exit.thread
+479:                                              ; preds = %unserialize_allowed_class.argprom.argprom.exit.thread
   %480 = load i32, ptr %469, align 4
   %481 = icmp ne i32 %480, 0
   tail call void @llvm.assume(i1 %481)
@@ -1694,7 +1694,7 @@ unserialize_allowed_class.exit.thread:            ; preds = %472, %unserialize_a
   tail call void @_efree(ptr noundef nonnull %469) #13
   br label %485
 
-485:                                              ; preds = %479, %484, %unserialize_allowed_class.exit.thread
+485:                                              ; preds = %479, %484, %unserialize_allowed_class.argprom.argprom.exit.thread
   %486 = tail call zeroext i1 @zend_is_valid_class_name(ptr noundef %449) #13
   br i1 %486, label %497, label %487
 
@@ -1722,14 +1722,14 @@ unserialize_allowed_class.exit.thread:            ; preds = %472, %unserialize_a
   %498 = load ptr, ptr @php_ce_incomplete_class, align 8
   br label %645
 
-unserialize_allowed_class.exit.thread1244:        ; preds = %unserialize_allowed_class.exit
+unserialize_allowed_class.argprom.argprom.exit.thread1244: ; preds = %unserialize_allowed_class.argprom.argprom.exit
   %.pre1416 = load ptr, ptr %3, align 8
   %.phi.trans.insert1417 = getelementptr inbounds i8, ptr %.pre1416, i64 24
   %.pre1418 = load ptr, ptr %.phi.trans.insert1417, align 8
   %499 = icmp eq ptr %.pre1418, null
   br i1 %499, label %.thread1247, label %500
 
-500:                                              ; preds = %unserialize_allowed_class.exit.thread1244
+500:                                              ; preds = %unserialize_allowed_class.argprom.argprom.exit.thread1244
   %501 = getelementptr inbounds i8, ptr %449, i64 4
   %502 = load i32, ptr %501, align 4
   %503 = and i32 %502, 32
@@ -1773,7 +1773,7 @@ unserialize_allowed_class.exit.thread1244:        ; preds = %unserialize_allowed
   tail call void @_efree(ptr noundef nonnull %469) #13
   br label %645
 
-.thread1247:                                      ; preds = %.thread1240, %504, %511, %500, %unserialize_allowed_class.exit.thread1244
+.thread1247:                                      ; preds = %.thread1240, %504, %511, %500, %unserialize_allowed_class.argprom.argprom.exit.thread1244
   %526 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
   %527 = tail call ptr @zend_hash_find(ptr noundef %526, ptr noundef %469) #13
   %.not1158 = icmp eq ptr %527, null
@@ -3103,7 +3103,7 @@ declare void @gc_possible_root(ptr noundef) local_unnamed_addr #2
 declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @var_access(ptr nocapture readonly %.0.val, i64 noundef range(i64 0, -1) %0) unnamed_addr #7 {
+define internal fastcc ptr @var_access.argprom(ptr nocapture readonly %.0.val, i64 noundef range(i64 0, -1) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 56
   %3 = icmp sgt i64 %0, 1017
   br i1 %3, label %.lr.ph, label %.critedge
@@ -3461,7 +3461,7 @@ define internal fastcc range(i32 0, 2) i32 @object_common(ptr nocapture noundef 
 
 16:                                               ; preds = %6
   %17 = icmp ugt i64 %4, 1073741823
-  br i1 %17, label %finish_nested_data.exit, label %18
+  br i1 %17, label %finish_nested_data.argprom.exit, label %18
 
 18:                                               ; preds = %16
   %19 = trunc nuw nsw i64 %4 to i32
@@ -3811,7 +3811,7 @@ var_push_dtor_value.exit384:                      ; preds = %105, %107, %128
   %180 = or i32 %179, 256
   store i32 %180, ptr %178, align 4
   call void @zval_ptr_dtor(ptr noundef nonnull %15) #13
-  br label %finish_nested_data.exit
+  br label %finish_nested_data.argprom.exit
 
 181:                                              ; preds = %._crit_edge428
   %182 = load ptr, ptr %0, align 8
@@ -3908,17 +3908,17 @@ var_push_dtor_value.exit384:                      ; preds = %105, %107, %128
   store i32 775, ptr %227, align 8
   %228 = load ptr, ptr %1, align 8
   %.not.i385 = icmp ult ptr %228, %2
-  br i1 %.not.i385, label %229, label %finish_nested_data.exit
+  br i1 %.not.i385, label %229, label %finish_nested_data.argprom.exit
 
 229:                                              ; preds = %224
   %230 = load i8, ptr %228, align 1
   %.not5.i = icmp eq i8 %230, 125
-  br i1 %.not5.i, label %231, label %finish_nested_data.exit
+  br i1 %.not5.i, label %231, label %finish_nested_data.argprom.exit
 
 231:                                              ; preds = %229
   %232 = getelementptr inbounds i8, ptr %228, i64 1
   store ptr %232, ptr %1, align 8
-  br label %finish_nested_data.exit
+  br label %finish_nested_data.argprom.exit
 
 233:                                              ; preds = %6
   %234 = load ptr, ptr %0, align 8
@@ -3951,7 +3951,7 @@ var_push_dtor_value.exit384:                      ; preds = %105, %107, %128
   %255 = sub i32 1073741824, %254
   %256 = zext i32 %255 to i64
   %.not329 = icmp ult i64 %4, %256
-  br i1 %.not329, label %257, label %finish_nested_data.exit
+  br i1 %.not329, label %257, label %finish_nested_data.argprom.exit
 
 257:                                              ; preds = %245
   %258 = trunc i64 %4 to i32
@@ -4538,7 +4538,7 @@ var_push_dtor_value.exit408:                      ; preds = %449, %451, %472
   br label %.critedge377
 
 .critedge377:                                     ; preds = %.loopexit416, %271
-  br i1 %247, label %552, label %finish_nested_data.exit
+  br i1 %247, label %552, label %finish_nested_data.argprom.exit
 
 552:                                              ; preds = %.critedge377
   %553 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4558,7 +4558,7 @@ var_push_dtor_value.exit408:                      ; preds = %449, %451, %472
   %562 = load i32, ptr %561, align 4
   %563 = or i32 %562, 256
   store i32 %563, ptr %561, align 4
-  br label %finish_nested_data.exit
+  br label %finish_nested_data.argprom.exit
 
 564:                                              ; preds = %._crit_edge
   %565 = load ptr, ptr %0, align 8
@@ -4595,19 +4595,19 @@ var_push_dtor_value.exit408:                      ; preds = %449, %451, %472
 580:                                              ; preds = %578, %567
   %581 = load ptr, ptr %1, align 8
   %.not.i409 = icmp ult ptr %581, %2
-  br i1 %.not.i409, label %582, label %finish_nested_data.exit
+  br i1 %.not.i409, label %582, label %finish_nested_data.argprom.exit
 
 582:                                              ; preds = %580
   %583 = load i8, ptr %581, align 1
   %.not5.i411 = icmp eq i8 %583, 125
-  br i1 %.not5.i411, label %584, label %finish_nested_data.exit
+  br i1 %.not5.i411, label %584, label %finish_nested_data.argprom.exit
 
 584:                                              ; preds = %582
   %585 = getelementptr inbounds i8, ptr %581, i64 1
   store ptr %585, ptr %1, align 8
-  br label %finish_nested_data.exit
+  br label %finish_nested_data.argprom.exit
 
-finish_nested_data.exit:                          ; preds = %584, %582, %580, %231, %229, %224, %.critedge377, %559, %245, %16, %176
+finish_nested_data.argprom.exit:                  ; preds = %584, %582, %580, %231, %229, %224, %.critedge377, %559, %245, %16, %176
   %.0303 = phi i32 [ 0, %176 ], [ 0, %16 ], [ 0, %245 ], [ 0, %559 ], [ 0, %.critedge377 ], [ 1, %231 ], [ 0, %229 ], [ 0, %224 ], [ 1, %584 ], [ 0, %582 ], [ 0, %580 ]
   ret i32 %.0303
 }

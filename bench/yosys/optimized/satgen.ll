@@ -2341,7 +2341,7 @@ define noundef zeroext i1 @_ZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEi(ptr no
 1521:                                             ; preds = %1519, %1515, %3
   %1522 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEvE2id", align 4, !noalias !6
   %.not.i.i.i = icmp eq i32 %1522, 0
-  br i1 %.not.i.i.i, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEv.exit", label %1523
+  br i1 %.not.i.i.i, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEv.argprom.exit", label %1523
 
 1523:                                             ; preds = %1521
   %1524 = sext i32 %1522 to i64
@@ -2350,7 +2350,7 @@ define noundef zeroext i1 @_ZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEi(ptr no
   %1527 = load i32, ptr %1526, align 4, !noalias !6
   %1528 = add nsw i32 %1527, 1
   store i32 %1528, ptr %1526, align 4, !noalias !6
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEv.argprom.exit"
 
 common.resume:                                    ; preds = %.body, %1950, %.body2226, %2903, %.body2802, %.body2826, %.body2837, %_ZNSt6vectorIiSaIiEED2Ev.exit2951, %_ZNSt6vectorIiSaIiEED2Ev.exit2953, %_ZNSt6vectorIiSaIiEED2Ev.exit2955, %_ZNSt6vectorIiSaIiEED2Ev.exit2959, %.body2938, %4814, %4869, %_ZNSt6vectorIiSaIiEED2Ev.exit3121, %_ZNSt6vectorIiSaIiEED2Ev.exit3123, %_ZNSt6vectorIiSaIiEED2Ev.exit3125, %_ZNSt6vectorIiSaIiEED2Ev.exit3129, %5271, %5279, %5287, %5295, %5296, %5298, %5310, %5321, %5326, %5331, %5342, %5343, %5591, %5596, %5601, %5606, %5607, %5609, %5621, %5632, %5640, %5648, %5659, %5660, %.body3189, %5852, %6073, %.body3425, %6428, %6716, %7195, %7704, %8026, %8028, %8207, %8208, %8667, %8669, %9194, %9195, %9806, %9807, %10269, %10489, %10899, %10900, %11581, %11924, %12396, %12598, %12985, %13366, %13403, %_ZNSt6vectorIiSaIiEED2Ev.exit5623, %13846, %13911, %13982, %14044, %14046, %_ZNSt6vectorIiSaIiEED2Ev.exit5849, %14235, %14323, %.body2093, %_ZNSt6vectorIiSaIiEED2Ev.exit2957, %_ZNSt6vectorIiSaIiEED2Ev.exit3127, %14222, %14221, %14310, %14309, %_ZNSt6vectorIiSaIiEED2Ev.exit2219, %2254, %_ZNSt6vectorIiSaIiEED2Ev.exit2795, %4275, %_ZNSt6vectorIiSaIiEED2Ev.exit3276, %5889, %_ZNSt6vectorIiSaIiEED2Ev.exit3418, %6160, %_ZNSt6vectorIiSaIiEED2Ev.exit3600, %6640, %_ZNSt6vectorIiSaIiEED2Ev.exit3826, %7123, %_ZNSt6vectorIiSaIiEED2Ev.exit3947, %7618, %_ZNSt6vectorIiSaIiEED2Ev.exit4081, %7988, %_ZNSt6vectorIiSaIiEED2Ev.exit4130, %8137, %_ZNSt6vectorIiSaIiEED2Ev.exit4227, %8613, %_ZNSt6vectorIiSaIiEED2Ev.exit4312, %9070, %_ZNSt6vectorIiSaIiEED2Ev.exit4474, %9751, %_ZNSt6vectorIiSaIiEED2Ev.exit4593, %10185, %_ZNSt6vectorIiSaIiEED2Ev.exit4655, %10361, %_ZNSt6vectorIiSaIiEED2Ev.exit4793, %10805, %_ZNSt6vectorIiSaIiEED2Ev.exit5021, %11557, %_ZNSt6vectorIiSaIiEED2Ev.exit5144, %11884, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit5278, %12275, %_ZNSt6vectorIiSaIiEED2Ev.exit5392, %12511, %_ZNSt6vectorIiSaIiEED2Ev.exit5452, %12735, %_ZNSt6vectorIiSaIiEED2Ev.exit5613, %13334, %13852, %13854, %_ZNSt6vectorIiSaIiEED2Ev.exit5796, %13956, %13984, %13987, %_ZNSt6vectorIiSaIiEED2Ev.exit5833, %14079, %6654, %6178, %5903, %5680, %4678, %4499, %4432, %4293, %2271, %1671, %1529
   %common.resume.op = phi { ptr, i32 } [ %1530, %1529 ], [ %1672, %1671 ], [ %2272, %2271 ], [ %4294, %4293 ], [ %4433, %4432 ], [ %4500, %4499 ], [ %4679, %4678 ], [ %5681, %5680 ], [ %5904, %5903 ], [ %6179, %6178 ], [ %6655, %6654 ], [ %2904, %2903 ], [ %5344, %5343 ], [ %.pn1977.pn.pn, %5342 ], [ %.pn1975, %5331 ], [ %.pn1973, %5326 ], [ %.pn1969.pn.pn, %5321 ], [ %.pn1965.pn.pn, %5310 ], [ %5299, %5298 ], [ %5297, %5296 ], [ %.pn1962.pn, %5295 ], [ %.pn1959.pn, %5287 ], [ %.pn1956.pn, %5279 ], [ %.pn1953.pn, %5271 ], [ %5661, %5660 ], [ %.pn1949.pn.pn, %5659 ], [ %.pn1946.pn, %5648 ], [ %.pn1943.pn, %5640 ], [ %.pn1939.pn.pn, %5632 ], [ %.pn1935.pn.pn, %5621 ], [ %5610, %5609 ], [ %5608, %5607 ], [ %.pn1933, %5606 ], [ %.pn1931, %5601 ], [ %.pn1929, %5596 ], [ %.pn1927, %5591 ], [ %.pn1925, %_ZNSt6vectorIiSaIiEED2Ev.exit3129 ], [ %.pn1922, %_ZNSt6vectorIiSaIiEED2Ev.exit3127 ], [ %.pn1920, %_ZNSt6vectorIiSaIiEED2Ev.exit3125 ], [ %.pn1918, %_ZNSt6vectorIiSaIiEED2Ev.exit3123 ], [ %.pn1916, %_ZNSt6vectorIiSaIiEED2Ev.exit3121 ], [ %.pn1911.pn.pn.pn, %4814 ], [ %.pn1906.pn.pn.pn, %4869 ], [ %4696, %.body2938 ], [ %.pn1902, %_ZNSt6vectorIiSaIiEED2Ev.exit2959 ], [ %.pn1900, %_ZNSt6vectorIiSaIiEED2Ev.exit2957 ], [ %.pn1898, %_ZNSt6vectorIiSaIiEED2Ev.exit2955 ], [ %.pn1896, %_ZNSt6vectorIiSaIiEED2Ev.exit2953 ], [ %.pn1894, %_ZNSt6vectorIiSaIiEED2Ev.exit2951 ], [ %4517, %.body2837 ], [ %4450, %.body2826 ], [ %5853, %5852 ], [ %6074, %6073 ], [ %6429, %6428 ], [ %6717, %6716 ], [ %7196, %7195 ], [ %7705, %7704 ], [ %8029, %8028 ], [ %8209, %8208 ], [ %8670, %8669 ], [ %9196, %9195 ], [ %9808, %9807 ], [ %10270, %10269 ], [ %10490, %10489 ], [ %10901, %10900 ], [ %11582, %11581 ], [ %11925, %11924 ], [ %12397, %12396 ], [ %12599, %12598 ], [ %12986, %12985 ], [ %.pn1458.pn.pn, %13366 ], [ %.pn1452.pn.pn.pn.pn, %13403 ], [ %.pn1449.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5623 ], [ %13847, %13846 ], [ %13912, %13911 ], [ %13983, %13982 ], [ %14047, %14046 ], [ %.pn1409.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5849 ], [ %.pn1404.pn, %14235 ], [ %.pn1400, %14222 ], [ %.pn1400, %14221 ], [ %.pn1397.pn, %14323 ], [ %.pn1393, %14310 ], [ %.pn1393, %14309 ], [ %14045, %14044 ], [ %.pn1388.pn, %10899 ], [ %.pn1383.pn.pn.pn, %9806 ], [ %.pn1376.pn.pn.pn.pn.pn, %9194 ], [ %8668, %8667 ], [ %.pn1369.pn.pn.pn, %8207 ], [ %8027, %8026 ], [ %.pn1364.pn, %.body3425 ], [ %5698, %.body3189 ], [ %.pn1359.pn, %.body2802 ], [ %.pn1346.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2226 ], [ %1951, %1950 ], [ %.pn1332.pn.pn.pn.pn, %.body2093 ], [ %.pn.pn, %.body ], [ %.pn2047.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit2219 ], [ %.pn2047.pn.pn.pn, %2254 ], [ %.pn2042.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit2795 ], [ %.pn2042.pn.pn.pn, %4275 ], [ %.pn1885.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3276 ], [ %.pn1885.pn.pn.pn, %5889 ], [ %.pn1875.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3418 ], [ %.pn1875.pn.pn.pn.pn.pn.pn.pn.pn, %6160 ], [ %.pn1861.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3600 ], [ %.pn1861.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %6640 ], [ %.pn1855.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3826 ], [ %.pn1855.pn.pn, %7123 ], [ %.pn1839.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3947 ], [ %.pn1839.pn.pn.pn, %7618 ], [ %.pn1811.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4081 ], [ %.pn1811.pn.pn.pn.pn.pn, %7988 ], [ %.pn1790.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4130 ], [ %.pn1790.pn.pn.pn.pn, %8137 ], [ %.pn1783.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4227 ], [ %.pn1783.pn.pn.pn, %8613 ], [ %.pn1740.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4312 ], [ %.pn1740.pn.pn.pn.pn, %9070 ], [ %.pn1699.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4474 ], [ %.pn1699.pn.pn.pn.pn, %9751 ], [ %.pn1651.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4593 ], [ %.pn1651.pn.pn, %10185 ], [ %.pn1629.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4655 ], [ %.pn1629.pn.pn.pn.pn.pn, %10361 ], [ %.pn1621.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4793 ], [ %.pn1621.pn.pn.pn.pn.pn.pn, %10805 ], [ %.pn1603.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5021 ], [ %.pn1603.pn.pn.pn.pn.pn.pn, %11557 ], [ %.pn1575.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5144 ], [ %.pn1575.pn, %11884 ], [ %.pn1556.pn, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit5278 ], [ %.pn1556.pn, %12275 ], [ %.pn1516.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5392 ], [ %.pn1516.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %12511 ], [ %.pn1506.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5452 ], [ %.pn1506.pn.pn.pn.pn.pn.pn, %12735 ], [ %.pn1484.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5613 ], [ %.pn1484.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %13334 ], [ %.pn1423, %13852 ], [ %.pn1423, %13854 ], [ %.pn1417.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5796 ], [ %.pn1417.pn.pn.pn.pn, %13956 ], [ %13985, %13984 ], [ %13985, %13987 ], [ %.pn1412.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5833 ], [ %.pn1412.pn.pn.pn, %14079 ]
@@ -2362,14 +2362,14 @@ common.resume:                                    ; preds = %.body, %1950, %.bod
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEvE2id") #23, !noalias !6
   br label %common.resume
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEv.exit": ; preds = %1521, %1523
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEv.argprom.exit": ; preds = %1521, %1523
   store i32 %1522, ptr %4, align 4, !alias.scope !6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %1531 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_1clEvE2id" acquire, align 8, !noalias !10
   %1532 = icmp eq i8 %1531, 0
   br i1 %1532, label %1533, label %1539, !prof !9
 
-1533:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEv.exit"
+1533:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEv.argprom.exit"
   %1534 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_1clEvE2id") #23, !noalias !10
   %.not.i2074 = icmp eq i32 %1534, 0
   br i1 %.not.i2074, label %1539, label %1535
@@ -2384,7 +2384,7 @@ common.resume:                                    ; preds = %.body, %1950, %.bod
   tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_1clEvE2id") #23, !noalias !10
   br label %1539
 
-1539:                                             ; preds = %1537, %1533, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEv.exit"
+1539:                                             ; preds = %1537, %1533, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEv.argprom.exit"
   %1540 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_1clEvE2id", align 4, !noalias !10
   %.not.i.i.i2073 = icmp eq i32 %1540, 0
   br i1 %.not.i.i.i2073, label %1549, label %1541
@@ -2470,7 +2470,7 @@ common.resume:                                    ; preds = %.body, %1950, %.bod
 1577:                                             ; preds = %1575, %1571, %1568
   %1578 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_3clEvE2id", align 4, !noalias !16
   %.not.i.i.i2079 = icmp eq i32 %1578, 0
-  br i1 %.not.i.i.i2079, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_3clEv.exit", label %1579
+  br i1 %.not.i.i.i2079, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_3clEv.argprom.exit", label %1579
 
 1579:                                             ; preds = %1577
   %1580 = sext i32 %1578 to i64
@@ -2479,7 +2479,7 @@ common.resume:                                    ; preds = %.body, %1950, %.bod
   %1583 = load i32, ptr %1582, align 4, !noalias !16
   %1584 = add nsw i32 %1583, 1
   store i32 %1584, ptr %1582, align 4, !noalias !16
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_3clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_3clEv.argprom.exit"
 
 .body2081:                                        ; preds = %1573
   %1585 = landingpad { ptr, i32 }
@@ -2488,7 +2488,7 @@ common.resume:                                    ; preds = %.body, %1950, %.bod
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #23
   br label %.body2077
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_3clEv.exit": ; preds = %1579, %1577
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_3clEv.argprom.exit": ; preds = %1579, %1577
   %1586 = load i32, ptr %1512, align 4
   %1587 = load i32, ptr %4, align 4
   %1588 = icmp eq i32 %1586, %1587
@@ -2506,7 +2506,7 @@ common.resume:                                    ; preds = %.body, %1950, %.bod
   %or.cond.i.i = and i1 %1597, %1596
   br i1 %or.cond.i.i, label %1598, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
 
-1598:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_3clEv.exit"
+1598:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_3clEv.argprom.exit"
   %1599 = sext i32 %1578 to i64
   %1600 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1601 = getelementptr inbounds i32, ptr %1600, i64 %1599
@@ -2527,7 +2527,7 @@ common.resume:                                    ; preds = %.body, %1950, %.bod
   tail call void @__clang_call_terminate(ptr %1608) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_3clEv.exit", %1598, %1605
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_3clEv.argprom.exit", %1598, %1605
   %1609 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1610 = trunc i8 %1609 to i1
   %1611 = icmp ne i32 %1591, 0
@@ -2641,7 +2641,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2088:            ; preds = %_ZN5Yosys5RTLIL8IdS
 1663:                                             ; preds = %1661, %1657, %1654
   %1664 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_4clEvE2id", align 4, !noalias !19
   %.not.i.i.i2089 = icmp eq i32 %1664, 0
-  br i1 %.not.i.i.i2089, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_4clEv.exit", label %1665
+  br i1 %.not.i.i.i2089, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_4clEv.argprom.exit", label %1665
 
 1665:                                             ; preds = %1663
   %1666 = sext i32 %1664 to i64
@@ -2650,7 +2650,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2088:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %1669 = load i32, ptr %1668, align 4, !noalias !19
   %1670 = add nsw i32 %1669, 1
   store i32 %1670, ptr %1668, align 4, !noalias !19
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_4clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_4clEv.argprom.exit"
 
 1671:                                             ; preds = %1659
   %1672 = landingpad { ptr, i32 }
@@ -2658,14 +2658,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2088:            ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_4clEvE2id") #23, !noalias !19
   br label %common.resume
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_4clEv.exit": ; preds = %1663, %1665
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_4clEv.argprom.exit": ; preds = %1663, %1665
   store i32 %1664, ptr %7, align 4, !alias.scope !19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %1673 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_5clEvE2id" acquire, align 8, !noalias !22
   %1674 = icmp eq i8 %1673, 0
   br i1 %1674, label %1675, label %1681, !prof !9
 
-1675:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_4clEv.exit"
+1675:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_4clEv.argprom.exit"
   %1676 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_5clEvE2id") #23, !noalias !22
   %.not.i2092 = icmp eq i32 %1676, 0
   br i1 %.not.i2092, label %1681, label %1677
@@ -2680,7 +2680,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2088:            ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_5clEvE2id") #23, !noalias !22
   br label %1681
 
-1681:                                             ; preds = %1679, %1675, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_4clEv.exit"
+1681:                                             ; preds = %1679, %1675, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_4clEv.argprom.exit"
   %1682 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_5clEvE2id", align 4, !noalias !22
   %.not.i.i.i2091 = icmp eq i32 %1682, 0
   br i1 %.not.i.i.i2091, label %1691, label %1683
@@ -2892,7 +2892,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2088:            ; preds = %_ZN5Yosys5RTLIL8IdS
 1776:                                             ; preds = %1774, %1770, %1767
   %1777 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_10clEvE2id", align 4, !noalias !37
   %.not.i.i.i2111 = icmp eq i32 %1777, 0
-  br i1 %.not.i.i.i2111, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_10clEv.exit", label %1778
+  br i1 %.not.i.i.i2111, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_10clEv.argprom.exit", label %1778
 
 1778:                                             ; preds = %1776
   %1779 = sext i32 %1777 to i64
@@ -2901,7 +2901,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2088:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %1782 = load i32, ptr %1781, align 4, !noalias !37
   %1783 = add nsw i32 %1782, 1
   store i32 %1783, ptr %1781, align 4, !noalias !37
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_10clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_10clEv.argprom.exit"
 
 .body2113:                                        ; preds = %1772
   %1784 = landingpad { ptr, i32 }
@@ -2910,7 +2910,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2088:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %12) #23
   br label %.body2109
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_10clEv.exit": ; preds = %1778, %1776
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_10clEv.argprom.exit": ; preds = %1778, %1776
   %1785 = load i32, ptr %1512, align 4
   %1786 = load i32, ptr %7, align 4
   %1787 = icmp eq i32 %1785, %1786
@@ -2938,7 +2938,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2088:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %or.cond.i.i2116 = and i1 %1803, %1802
   br i1 %or.cond.i.i2116, label %1804, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2117
 
-1804:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_10clEv.exit"
+1804:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_10clEv.argprom.exit"
   %1805 = sext i32 %1777 to i64
   %1806 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1807 = getelementptr inbounds i32, ptr %1806, i64 %1805
@@ -2959,7 +2959,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2088:            ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__clang_call_terminate(ptr %1814) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit2117:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_10clEv.exit", %1804, %1811
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit2117:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_10clEv.argprom.exit", %1804, %1811
   %1815 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1816 = trunc i8 %1815 to i1
   %1817 = icmp ne i32 %1796, 0
@@ -3568,7 +3568,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2155:             ; preds = %_ZSt8_DestroyIPN5Yo
 2044:                                             ; preds = %2042, %2038, %2035
   %2045 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_14clEvE2id", align 4, !noalias !51
   %.not.i.i.i2168 = icmp eq i32 %2045, 0
-  br i1 %.not.i.i.i2168, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_14clEv.exit", label %2046
+  br i1 %.not.i.i.i2168, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_14clEv.argprom.exit", label %2046
 
 2046:                                             ; preds = %2044
   %2047 = sext i32 %2045 to i64
@@ -3577,7 +3577,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2155:             ; preds = %_ZSt8_DestroyIPN5Yo
   %2050 = load i32, ptr %2049, align 4, !noalias !51
   %2051 = add nsw i32 %2050, 1
   store i32 %2051, ptr %2049, align 4, !noalias !51
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_14clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_14clEv.argprom.exit"
 
 .body2170:                                        ; preds = %2040
   %2052 = landingpad { ptr, i32 }
@@ -3586,7 +3586,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2155:             ; preds = %_ZSt8_DestroyIPN5Yo
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %27) #23
   br label %.body2166
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_14clEv.exit": ; preds = %2046, %2044
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_14clEv.argprom.exit": ; preds = %2046, %2044
   %2053 = load i32, ptr %1512, align 4
   %2054 = load i32, ptr %25, align 4
   %2055 = icmp eq i32 %2053, %2054
@@ -3604,7 +3604,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2155:             ; preds = %_ZSt8_DestroyIPN5Yo
   %or.cond.i.i2174 = and i1 %2064, %2063
   br i1 %or.cond.i.i2174, label %2065, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2175
 
-2065:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_14clEv.exit"
+2065:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_14clEv.argprom.exit"
   %2066 = sext i32 %2045 to i64
   %2067 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %2068 = getelementptr inbounds i32, ptr %2067, i64 %2066
@@ -3625,7 +3625,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2155:             ; preds = %_ZSt8_DestroyIPN5Yo
   call void @__clang_call_terminate(ptr %2075) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit2175:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_14clEv.exit", %2065, %2072
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit2175:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_14clEv.argprom.exit", %2065, %2072
   %2076 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %2077 = trunc i8 %2076 to i1
   %2078 = icmp ne i32 %2058, 0
@@ -4181,7 +4181,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2215:                ; preds = %_ZN5Yosys5RTLIL8IdS
 2263:                                             ; preds = %2261, %2257, %_ZNSt6vectorIiSaIiEED2Ev.exit2215
   %2264 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_15clEvE2id", align 4, !noalias !56
   %.not.i.i.i2222 = icmp eq i32 %2264, 0
-  br i1 %.not.i.i.i2222, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_15clEv.exit", label %2265
+  br i1 %.not.i.i.i2222, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_15clEv.argprom.exit", label %2265
 
 2265:                                             ; preds = %2263
   %2266 = sext i32 %2264 to i64
@@ -4190,7 +4190,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2215:                ; preds = %_ZN5Yosys5RTLIL8IdS
   %2269 = load i32, ptr %2268, align 4, !noalias !56
   %2270 = add nsw i32 %2269, 1
   store i32 %2270, ptr %2268, align 4, !noalias !56
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_15clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_15clEv.argprom.exit"
 
 2271:                                             ; preds = %2259
   %2272 = landingpad { ptr, i32 }
@@ -4198,14 +4198,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2215:                ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_15clEvE2id") #23, !noalias !56
   br label %common.resume
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_15clEv.exit": ; preds = %2263, %2265
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_15clEv.argprom.exit": ; preds = %2263, %2265
   store i32 %2264, ptr %42, align 4, !alias.scope !56
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %2273 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_16clEvE2id" acquire, align 8, !noalias !59
   %2274 = icmp eq i8 %2273, 0
   br i1 %2274, label %2275, label %2281, !prof !9
 
-2275:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_15clEv.exit"
+2275:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_15clEv.argprom.exit"
   %2276 = call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_16clEvE2id") #23, !noalias !59
   %.not.i2225 = icmp eq i32 %2276, 0
   br i1 %.not.i2225, label %2281, label %2277
@@ -4220,7 +4220,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2215:                ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_16clEvE2id") #23, !noalias !59
   br label %2281
 
-2281:                                             ; preds = %2279, %2275, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_15clEv.exit"
+2281:                                             ; preds = %2279, %2275, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_15clEv.argprom.exit"
   %2282 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_16clEvE2id", align 4, !noalias !59
   %.not.i.i.i2224 = icmp eq i32 %2282, 0
   br i1 %.not.i.i.i2224, label %2291, label %2283
@@ -4726,7 +4726,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2215:                ; preds = %_ZN5Yosys5RTLIL8IdS
 2509:                                             ; preds = %2507, %2503, %2500
   %2510 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_28clEvE2id", align 4, !noalias !95
   %.not.i.i.i2272 = icmp eq i32 %2510, 0
-  br i1 %.not.i.i.i2272, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_28clEv.exit", label %2511
+  br i1 %.not.i.i.i2272, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_28clEv.argprom.exit", label %2511
 
 2511:                                             ; preds = %2509
   %2512 = sext i32 %2510 to i64
@@ -4735,7 +4735,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2215:                ; preds = %_ZN5Yosys5RTLIL8IdS
   %2515 = load i32, ptr %2514, align 4, !noalias !95
   %2516 = add nsw i32 %2515, 1
   store i32 %2516, ptr %2514, align 4, !noalias !95
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_28clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_28clEv.argprom.exit"
 
 .body2274:                                        ; preds = %2505
   %2517 = landingpad { ptr, i32 }
@@ -4744,7 +4744,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2215:                ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %54) #23
   br label %.body2270
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_28clEv.exit": ; preds = %2511, %2509
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_28clEv.argprom.exit": ; preds = %2511, %2509
   %2518 = load i32, ptr %1512, align 4
   %2519 = load i32, ptr %42, align 4
   %2520 = icmp eq i32 %2518, %2519
@@ -4792,7 +4792,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2215:                ; preds = %_ZN5Yosys5RTLIL8IdS
   %or.cond.i.i2277 = and i1 %2549, %2548
   br i1 %or.cond.i.i2277, label %2550, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2278
 
-2550:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_28clEv.exit"
+2550:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_28clEv.argprom.exit"
   %2551 = sext i32 %2510 to i64
   %2552 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %2553 = getelementptr inbounds i32, ptr %2552, i64 %2551
@@ -4813,7 +4813,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2215:                ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__clang_call_terminate(ptr %2560) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit2278:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_28clEv.exit", %2550, %2557
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit2278:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_28clEv.argprom.exit", %2550, %2557
   %2561 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %2562 = trunc i8 %2561 to i1
   %2563 = icmp ne i32 %2543, 0
@@ -5725,9 +5725,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2361:                ; preds = %2902, %2900, %_ZN5Y
 2929:                                             ; preds = %2927, %2923, %_ZNSt6vectorIiSaIiEED2Ev.exit2361
   %2930 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEvE2id", align 4, !noalias !104
   %.not.i.i.i2364 = icmp eq i32 %2930, 0
-  br i1 %.not.i.i.i2364, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.exit"
+  br i1 %.not.i.i.i2364, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.argprom.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.argprom.exit"
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.exit.thread": ; preds = %2929
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.argprom.exit.thread": ; preds = %2929
   %2931 = load i32, ptr %1512, align 4
   %2932 = icmp eq i32 %2931, 0
   br i1 %2932, label %2954, label %_ZNSt6vectorIiSaIiEED2Ev.exit2373
@@ -5738,7 +5738,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2361:                ; preds = %2902, %2900, %_ZN5Y
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEvE2id") #23, !noalias !104
   br label %.body2350
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.exit": ; preds = %2929
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.argprom.exit": ; preds = %2929
   %2935 = sext i32 %2930 to i64
   %2936 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !104
   %2937 = getelementptr inbounds i32, ptr %2936, i64 %2935
@@ -5751,7 +5751,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2361:                ; preds = %2902, %2900, %_ZN5Y
   %2943 = trunc i8 %2942 to i1
   br i1 %2943, label %2944, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2369
 
-2944:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.exit"
+2944:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.argprom.exit"
   %2945 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %2946 = getelementptr inbounds i32, ptr %2945, i64 %2935
   %2947 = load i32, ptr %2946, align 4
@@ -5771,10 +5771,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2361:                ; preds = %2902, %2900, %_ZN5Y
   call void @__clang_call_terminate(ptr %2953) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit2369:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.exit", %2944, %2950
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit2369:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.argprom.exit", %2944, %2950
   br i1 %2941, label %2954, label %_ZNSt6vectorIiSaIiEED2Ev.exit2373
 
-2954:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2369
+2954:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2369
   %2955 = load ptr, ptr %0, align 8
   invoke void @_ZN5ezSAT7vec_andERKSt6vectorIiSaIiEES4_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %65, ptr noundef nonnull align 8 dereferenceable(284) %2955, ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %57)
           to label %2956 unwind label %2915
@@ -5835,7 +5835,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2375:                ; preds = %2970, %2967, %2965
   call void @_ZdlPv(ptr noundef nonnull %2971) #25
   br label %.body2350
 
-_ZNSt6vectorIiSaIiEED2Ev.exit2373:                ; preds = %2964, %_ZNSt6vectorIiSaIiEED2Ev.exit2371, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2369
+_ZNSt6vectorIiSaIiEED2Ev.exit2373:                ; preds = %2964, %_ZNSt6vectorIiSaIiEED2Ev.exit2371, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2369
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
   %2973 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_32clEvE2id" acquire, align 8, !noalias !107
   %2974 = icmp eq i8 %2973, 0
@@ -6038,9 +6038,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2392:                ; preds = %3048, %3046, %_ZN5Y
 3061:                                             ; preds = %3059, %3055, %_ZNSt6vectorIiSaIiEED2Ev.exit2392
   %3062 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEvE2id", align 4, !noalias !113
   %.not.i.i.i2395 = icmp eq i32 %3062, 0
-  br i1 %.not.i.i.i2395, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.exit"
+  br i1 %.not.i.i.i2395, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.argprom.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.argprom.exit"
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.exit.thread": ; preds = %3061
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.argprom.exit.thread": ; preds = %3061
   %3063 = load i32, ptr %1512, align 4
   %3064 = icmp eq i32 %3063, 0
   br i1 %3064, label %3086, label %_ZNSt6vectorIiSaIiEED2Ev.exit2404
@@ -6051,7 +6051,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2392:                ; preds = %3048, %3046, %_ZN5Y
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEvE2id") #23, !noalias !113
   br label %.body2350
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.exit": ; preds = %3061
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.argprom.exit": ; preds = %3061
   %3067 = sext i32 %3062 to i64
   %3068 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !113
   %3069 = getelementptr inbounds i32, ptr %3068, i64 %3067
@@ -6064,7 +6064,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2392:                ; preds = %3048, %3046, %_ZN5Y
   %3075 = trunc i8 %3074 to i1
   br i1 %3075, label %3076, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2400
 
-3076:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.exit"
+3076:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.argprom.exit"
   %3077 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %3078 = getelementptr inbounds i32, ptr %3077, i64 %3067
   %3079 = load i32, ptr %3078, align 4
@@ -6084,10 +6084,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2392:                ; preds = %3048, %3046, %_ZN5Y
   call void @__clang_call_terminate(ptr %3085) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit2400:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.exit", %3076, %3082
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit2400:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.argprom.exit", %3076, %3082
   br i1 %3073, label %3086, label %_ZNSt6vectorIiSaIiEED2Ev.exit2404
 
-3086:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2400
+3086:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2400
   %3087 = load ptr, ptr %0, align 8
   invoke void @_ZN5ezSAT6vec_orERKSt6vectorIiSaIiEES4_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %69, ptr noundef nonnull align 8 dereferenceable(284) %3087, ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %57)
           to label %3088 unwind label %2915
@@ -6148,7 +6148,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2406:                ; preds = %3102, %3099, %3097
   call void @_ZdlPv(ptr noundef nonnull %3103) #25
   br label %.body2350
 
-_ZNSt6vectorIiSaIiEED2Ev.exit2404:                ; preds = %3096, %_ZNSt6vectorIiSaIiEED2Ev.exit2402, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2400
+_ZNSt6vectorIiSaIiEED2Ev.exit2404:                ; preds = %3096, %_ZNSt6vectorIiSaIiEED2Ev.exit2402, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2400
   call void @llvm.experimental.noalias.scope.decl(metadata !116)
   %3105 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_35clEvE2id" acquire, align 8, !noalias !116
   %3106 = icmp eq i8 %3105, 0
@@ -6559,9 +6559,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2442:                ; preds = %3263, %_ZNSt6vector
 3280:                                             ; preds = %3278, %3274, %_ZNSt6vectorIiSaIiEED2Ev.exit2442
   %3281 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEvE2id", align 4, !noalias !128
   %.not.i.i.i2447 = icmp eq i32 %3281, 0
-  br i1 %.not.i.i.i2447, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.exit"
+  br i1 %.not.i.i.i2447, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.argprom.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.argprom.exit"
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.exit.thread": ; preds = %3280
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.argprom.exit.thread": ; preds = %3280
   %3282 = load i32, ptr %1512, align 4
   %3283 = icmp eq i32 %3282, 0
   br i1 %3283, label %3305, label %_ZNSt6vectorIiSaIiEED2Ev.exit2456
@@ -6572,7 +6572,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2442:                ; preds = %3263, %_ZNSt6vector
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEvE2id") #23, !noalias !128
   br label %.body2350
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.exit": ; preds = %3280
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.argprom.exit": ; preds = %3280
   %3286 = sext i32 %3281 to i64
   %3287 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !128
   %3288 = getelementptr inbounds i32, ptr %3287, i64 %3286
@@ -6585,7 +6585,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2442:                ; preds = %3263, %_ZNSt6vector
   %3294 = trunc i8 %3293 to i1
   br i1 %3294, label %3295, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2452
 
-3295:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.exit"
+3295:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.argprom.exit"
   %3296 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %3297 = getelementptr inbounds i32, ptr %3296, i64 %3286
   %3298 = load i32, ptr %3297, align 4
@@ -6605,10 +6605,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2442:                ; preds = %3263, %_ZNSt6vector
   call void @__clang_call_terminate(ptr %3304) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit2452:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.exit", %3295, %3301
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit2452:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.argprom.exit", %3295, %3301
   br i1 %3292, label %3305, label %_ZNSt6vectorIiSaIiEED2Ev.exit2456
 
-3305:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2452
+3305:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2452
   %3306 = load ptr, ptr %0, align 8
   invoke void @_ZN5ezSAT7vec_notERKSt6vectorIiSaIiEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %76, ptr noundef nonnull align 8 dereferenceable(284) %3306, ptr noundef nonnull align 8 dereferenceable(24) %57)
           to label %3307 unwind label %2915
@@ -6669,7 +6669,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2458:                ; preds = %3321, %3318, %3316
   call void @_ZdlPv(ptr noundef nonnull %3322) #25
   br label %.body2350
 
-_ZNSt6vectorIiSaIiEED2Ev.exit2456:                ; preds = %3315, %_ZNSt6vectorIiSaIiEED2Ev.exit2454, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2452
+_ZNSt6vectorIiSaIiEED2Ev.exit2456:                ; preds = %3315, %_ZNSt6vectorIiSaIiEED2Ev.exit2454, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2452
   %3324 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEvE2id" acquire, align 8, !noalias !131
   %3325 = icmp eq i8 %3324, 0
   br i1 %3325, label %3326, label %3332, !prof !9
@@ -6692,9 +6692,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2456:                ; preds = %3315, %_ZNSt6vector
 3332:                                             ; preds = %3330, %3326, %_ZNSt6vectorIiSaIiEED2Ev.exit2456
   %3333 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEvE2id", align 4, !noalias !131
   %.not.i.i.i2461 = icmp eq i32 %3333, 0
-  br i1 %.not.i.i.i2461, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.exit"
+  br i1 %.not.i.i.i2461, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.argprom.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.argprom.exit"
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.exit.thread": ; preds = %3332
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.argprom.exit.thread": ; preds = %3332
   %3334 = load i32, ptr %1512, align 4
   %3335 = icmp eq i32 %3334, 0
   br i1 %3335, label %3357, label %_ZNSt6vectorIiSaIiEED2Ev.exit2470
@@ -6705,7 +6705,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2456:                ; preds = %3315, %_ZNSt6vector
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEvE2id") #23, !noalias !131
   br label %.body2350
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.exit": ; preds = %3332
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.argprom.exit": ; preds = %3332
   %3338 = sext i32 %3333 to i64
   %3339 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !131
   %3340 = getelementptr inbounds i32, ptr %3339, i64 %3338
@@ -6718,7 +6718,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2456:                ; preds = %3315, %_ZNSt6vector
   %3346 = trunc i8 %3345 to i1
   br i1 %3346, label %3347, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2466
 
-3347:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.exit"
+3347:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.argprom.exit"
   %3348 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %3349 = getelementptr inbounds i32, ptr %3348, i64 %3338
   %3350 = load i32, ptr %3349, align 4
@@ -6738,10 +6738,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2456:                ; preds = %3315, %_ZNSt6vector
   call void @__clang_call_terminate(ptr %3356) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit2466:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.exit", %3347, %3353
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit2466:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.argprom.exit", %3347, %3353
   br i1 %3344, label %3357, label %_ZNSt6vectorIiSaIiEED2Ev.exit2470
 
-3357:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2466
+3357:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2466
   %3358 = load ptr, ptr %0, align 8
   invoke void @_ZN5ezSAT7vec_notERKSt6vectorIiSaIiEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %78, ptr noundef nonnull align 8 dereferenceable(284) %3358, ptr noundef nonnull align 8 dereferenceable(24) %57)
           to label %3359 unwind label %2915
@@ -6802,7 +6802,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2472:                ; preds = %3373, %3370, %3368
   call void @_ZdlPv(ptr noundef nonnull %3374) #25
   br label %.body2350
 
-_ZNSt6vectorIiSaIiEED2Ev.exit2470:                ; preds = %3367, %_ZNSt6vectorIiSaIiEED2Ev.exit2468, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2466
+_ZNSt6vectorIiSaIiEED2Ev.exit2470:                ; preds = %3367, %_ZNSt6vectorIiSaIiEED2Ev.exit2468, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2466
   %3376 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEvE2id" acquire, align 8, !noalias !134
   %3377 = icmp eq i8 %3376, 0
   br i1 %3377, label %3378, label %3384, !prof !9
@@ -6825,9 +6825,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2470:                ; preds = %3367, %_ZNSt6vector
 3384:                                             ; preds = %3382, %3378, %_ZNSt6vectorIiSaIiEED2Ev.exit2470
   %3385 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEvE2id", align 4, !noalias !134
   %.not.i.i.i2475 = icmp eq i32 %3385, 0
-  br i1 %.not.i.i.i2475, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.exit"
+  br i1 %.not.i.i.i2475, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.argprom.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.argprom.exit"
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.exit.thread": ; preds = %3384
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.argprom.exit.thread": ; preds = %3384
   %3386 = load i32, ptr %1512, align 4
   %3387 = icmp eq i32 %3386, 0
   br i1 %3387, label %3409, label %_ZNSt6vectorIiSaIiEED2Ev.exit2482
@@ -6838,7 +6838,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2470:                ; preds = %3367, %_ZNSt6vector
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEvE2id") #23, !noalias !134
   br label %.body2350
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.exit": ; preds = %3384
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.argprom.exit": ; preds = %3384
   %3390 = sext i32 %3385 to i64
   %3391 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !134
   %3392 = getelementptr inbounds i32, ptr %3391, i64 %3390
@@ -6851,7 +6851,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2470:                ; preds = %3367, %_ZNSt6vector
   %3398 = trunc i8 %3397 to i1
   br i1 %3398, label %3399, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2480
 
-3399:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.exit"
+3399:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.argprom.exit"
   %3400 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %3401 = getelementptr inbounds i32, ptr %3400, i64 %3390
   %3402 = load i32, ptr %3401, align 4
@@ -6871,10 +6871,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2470:                ; preds = %3367, %_ZNSt6vector
   call void @__clang_call_terminate(ptr %3408) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit2480:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.exit", %3399, %3405
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit2480:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.argprom.exit", %3399, %3405
   br i1 %3396, label %3409, label %_ZNSt6vectorIiSaIiEED2Ev.exit2482
 
-3409:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2480
+3409:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2480
   %3410 = load ptr, ptr %0, align 8
   invoke void @_ZN5ezSAT7vec_addERKSt6vectorIiSaIiEES4_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %79, ptr noundef nonnull align 8 dereferenceable(284) %3410, ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %57)
           to label %3411 unwind label %2915
@@ -6907,7 +6907,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2480:            ; preds = %"_ZZN5Yosys6SatGen1
   call void @_ZdlPv(ptr noundef nonnull %3419) #25
   br label %.body2350
 
-_ZNSt6vectorIiSaIiEED2Ev.exit2482:                ; preds = %3416, %3414, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2480
+_ZNSt6vectorIiSaIiEED2Ev.exit2482:                ; preds = %3416, %3414, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2480
   %3421 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEvE2id" acquire, align 8, !noalias !137
   %3422 = icmp eq i8 %3421, 0
   br i1 %3422, label %3423, label %3429, !prof !9
@@ -6930,9 +6930,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2482:                ; preds = %3416, %3414, %"_ZZN
 3429:                                             ; preds = %3427, %3423, %_ZNSt6vectorIiSaIiEED2Ev.exit2482
   %3430 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEvE2id", align 4, !noalias !137
   %.not.i.i.i2485 = icmp eq i32 %3430, 0
-  br i1 %.not.i.i.i2485, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.exit"
+  br i1 %.not.i.i.i2485, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.argprom.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.argprom.exit"
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.exit.thread": ; preds = %3429
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.argprom.exit.thread": ; preds = %3429
   %3431 = load i32, ptr %1512, align 4
   %3432 = icmp eq i32 %3431, 0
   br i1 %3432, label %3454, label %_ZNSt6vectorIiSaIiEED2Ev.exit2492
@@ -6943,7 +6943,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2482:                ; preds = %3416, %3414, %"_ZZN
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEvE2id") #23, !noalias !137
   br label %.body2350
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.exit": ; preds = %3429
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.argprom.exit": ; preds = %3429
   %3435 = sext i32 %3430 to i64
   %3436 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !137
   %3437 = getelementptr inbounds i32, ptr %3436, i64 %3435
@@ -6956,7 +6956,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2482:                ; preds = %3416, %3414, %"_ZZN
   %3443 = trunc i8 %3442 to i1
   br i1 %3443, label %3444, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2490
 
-3444:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.exit"
+3444:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.argprom.exit"
   %3445 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %3446 = getelementptr inbounds i32, ptr %3445, i64 %3435
   %3447 = load i32, ptr %3446, align 4
@@ -6976,10 +6976,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2482:                ; preds = %3416, %3414, %"_ZZN
   call void @__clang_call_terminate(ptr %3453) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit2490:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.exit", %3444, %3450
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit2490:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.argprom.exit", %3444, %3450
   br i1 %3441, label %3454, label %_ZNSt6vectorIiSaIiEED2Ev.exit2492
 
-3454:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2490
+3454:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2490
   %3455 = load ptr, ptr %0, align 8
   invoke void @_ZN5ezSAT7vec_subERKSt6vectorIiSaIiEES4_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %80, ptr noundef nonnull align 8 dereferenceable(284) %3455, ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %57)
           to label %3456 unwind label %2915
@@ -7012,7 +7012,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2490:            ; preds = %"_ZZN5Yosys6SatGen1
   call void @_ZdlPv(ptr noundef nonnull %3464) #25
   br label %.body2350
 
-_ZNSt6vectorIiSaIiEED2Ev.exit2492:                ; preds = %3461, %3459, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2490
+_ZNSt6vectorIiSaIiEED2Ev.exit2492:                ; preds = %3461, %3459, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2490
   %3466 = load i8, ptr %1651, align 1
   %3467 = trunc i8 %3466 to i1
   %brmerge.not = and i1 %.not6355, %3467
@@ -7306,7 +7306,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2533:             ; preds = %_ZSt8_DestroyIPN5Yo
 3567:                                             ; preds = %3565, %3561, %3558
   %3568 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_45clEvE2id", align 4, !noalias !146
   %.not.i.i.i2542 = icmp eq i32 %3568, 0
-  br i1 %.not.i.i.i2542, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_45clEv.exit", label %3569
+  br i1 %.not.i.i.i2542, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_45clEv.argprom.exit", label %3569
 
 3569:                                             ; preds = %3567
   %3570 = sext i32 %3568 to i64
@@ -7315,7 +7315,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2533:             ; preds = %_ZSt8_DestroyIPN5Yo
   %3573 = load i32, ptr %3572, align 4, !noalias !146
   %3574 = add nsw i32 %3573, 1
   store i32 %3574, ptr %3572, align 4, !noalias !146
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_45clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_45clEv.argprom.exit"
 
 .body2544:                                        ; preds = %3563
   %3575 = landingpad { ptr, i32 }
@@ -7324,7 +7324,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2533:             ; preds = %_ZSt8_DestroyIPN5Yo
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %88) #23
   br label %.body2540
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_45clEv.exit": ; preds = %3569, %3567
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_45clEv.argprom.exit": ; preds = %3569, %3567
   %3576 = load i32, ptr %1512, align 4
   %3577 = load i32, ptr %87, align 4
   %3578 = icmp eq i32 %3576, %3577
@@ -7339,7 +7339,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2533:             ; preds = %_ZSt8_DestroyIPN5Yo
   %or.cond.i.i2547 = and i1 %3584, %3583
   br i1 %or.cond.i.i2547, label %3585, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2548
 
-3585:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_45clEv.exit"
+3585:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_45clEv.argprom.exit"
   %3586 = sext i32 %3568 to i64
   %3587 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %3588 = getelementptr inbounds i32, ptr %3587, i64 %3586
@@ -7360,7 +7360,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2533:             ; preds = %_ZSt8_DestroyIPN5Yo
   call void @__clang_call_terminate(ptr %3595) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit2548:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_45clEv.exit", %3585, %3592
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit2548:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_45clEv.argprom.exit", %3585, %3592
   %3596 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %3597 = trunc i8 %3596 to i1
   %3598 = icmp ne i32 %3579, 0
@@ -7839,7 +7839,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2580:                ; preds = %3713, %_ZNSt6vector
 3763:                                             ; preds = %3761, %3757, %3754
   %3764 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_48clEvE2id", align 4, !noalias !155
   %.not.i.i.i2601 = icmp eq i32 %3764, 0
-  br i1 %.not.i.i.i2601, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_48clEv.exit", label %3765
+  br i1 %.not.i.i.i2601, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_48clEv.argprom.exit", label %3765
 
 3765:                                             ; preds = %3763
   %3766 = sext i32 %3764 to i64
@@ -7848,7 +7848,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2580:                ; preds = %3713, %_ZNSt6vector
   %3769 = load i32, ptr %3768, align 4, !noalias !155
   %3770 = add nsw i32 %3769, 1
   store i32 %3770, ptr %3768, align 4, !noalias !155
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_48clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_48clEv.argprom.exit"
 
 .body2603:                                        ; preds = %3759
   %3771 = landingpad { ptr, i32 }
@@ -7857,7 +7857,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2580:                ; preds = %3713, %_ZNSt6vector
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %100) #23
   br label %.body2599
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_48clEv.exit": ; preds = %3765, %3763
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_48clEv.argprom.exit": ; preds = %3765, %3763
   %3772 = load i32, ptr %1512, align 4
   %3773 = load i32, ptr %99, align 4
   %3774 = icmp eq i32 %3772, %3773
@@ -7872,7 +7872,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2580:                ; preds = %3713, %_ZNSt6vector
   %or.cond.i.i2607 = and i1 %3780, %3779
   br i1 %or.cond.i.i2607, label %3781, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2608
 
-3781:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_48clEv.exit"
+3781:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_48clEv.argprom.exit"
   %3782 = sext i32 %3764 to i64
   %3783 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %3784 = getelementptr inbounds i32, ptr %3783, i64 %3782
@@ -7893,7 +7893,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2580:                ; preds = %3713, %_ZNSt6vector
   call void @__clang_call_terminate(ptr %3791) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit2608:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_48clEv.exit", %3781, %3788
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit2608:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_48clEv.argprom.exit", %3781, %3788
   %3792 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %3793 = trunc i8 %3792 to i1
   %3794 = icmp ne i32 %3775, 0
@@ -8323,7 +8323,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2632:                ; preds = %3881, %_ZNSt6vector
 3950:                                             ; preds = %3948, %3944, %3941
   %3951 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_52clEvE2id", align 4, !noalias !167
   %.not.i.i.i2657 = icmp eq i32 %3951, 0
-  br i1 %.not.i.i.i2657, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_52clEv.exit", label %3952
+  br i1 %.not.i.i.i2657, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_52clEv.argprom.exit", label %3952
 
 3952:                                             ; preds = %3950
   %3953 = sext i32 %3951 to i64
@@ -8332,7 +8332,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2632:                ; preds = %3881, %_ZNSt6vector
   %3956 = load i32, ptr %3955, align 4, !noalias !167
   %3957 = add nsw i32 %3956, 1
   store i32 %3957, ptr %3955, align 4, !noalias !167
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_52clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_52clEv.argprom.exit"
 
 .body2659:                                        ; preds = %3946
   %3958 = landingpad { ptr, i32 }
@@ -8341,7 +8341,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2632:                ; preds = %3881, %_ZNSt6vector
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %111) #23
   br label %.body2655
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_52clEv.exit": ; preds = %3952, %3950
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_52clEv.argprom.exit": ; preds = %3952, %3950
   %3959 = load i32, ptr %1512, align 4
   %3960 = load i32, ptr %109, align 4
   %3961 = icmp eq i32 %3959, %3960
@@ -8359,7 +8359,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2632:                ; preds = %3881, %_ZNSt6vector
   %or.cond.i.i2663 = and i1 %3970, %3969
   br i1 %or.cond.i.i2663, label %3971, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2664
 
-3971:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_52clEv.exit"
+3971:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_52clEv.argprom.exit"
   %3972 = sext i32 %3951 to i64
   %3973 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %3974 = getelementptr inbounds i32, ptr %3973, i64 %3972
@@ -8380,7 +8380,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2632:                ; preds = %3881, %_ZNSt6vector
   call void @__clang_call_terminate(ptr %3981) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit2664:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_52clEv.exit", %3971, %3978
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit2664:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_52clEv.argprom.exit", %3971, %3978
   %3982 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %3983 = trunc i8 %3982 to i1
   %3984 = icmp ne i32 %3964, 0
@@ -8530,9 +8530,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2670:            ; preds = %_ZN5Yosys5RTLIL8IdS
 4045:                                             ; preds = %4043, %4039, %4036
   %4046 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEvE2id", align 4, !noalias !170
   %.not.i.i.i2675 = icmp eq i32 %4046, 0
-  br i1 %.not.i.i.i2675, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.exit"
+  br i1 %.not.i.i.i2675, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.argprom.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.argprom.exit"
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.exit.thread": ; preds = %4045
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.argprom.exit.thread": ; preds = %4045
   %4047 = load i32, ptr %1512, align 4
   %4048 = icmp eq i32 %4047, 0
   br i1 %4048, label %4070, label %4142
@@ -8543,7 +8543,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2670:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEvE2id") #23, !noalias !170
   br label %.body2536
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.exit": ; preds = %4045
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.argprom.exit": ; preds = %4045
   %4051 = sext i32 %4046 to i64
   %4052 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !170
   %4053 = getelementptr inbounds i32, ptr %4052, i64 %4051
@@ -8556,7 +8556,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2670:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %4059 = trunc i8 %4058 to i1
   br i1 %4059, label %4060, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2680
 
-4060:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.exit"
+4060:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.argprom.exit"
   %4061 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %4062 = getelementptr inbounds i32, ptr %4061, i64 %4051
   %4063 = load i32, ptr %4062, align 4
@@ -8576,10 +8576,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2670:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__clang_call_terminate(ptr %4069) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit2680:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.exit", %4060, %4066
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit2680:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.argprom.exit", %4060, %4066
   br i1 %4057, label %4070, label %4142
 
-4070:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2680
+4070:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2680
   %4071 = load ptr, ptr %0, align 8
   invoke void @_ZN5ezSAT7vec_notERKSt6vectorIiSaIiEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %114, ptr noundef nonnull align 8 dereferenceable(284) %4071, ptr noundef nonnull align 8 dereferenceable(24) %55)
           to label %4072 unwind label %3674
@@ -8825,8 +8825,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2704:                ; preds = %4139, %_ZNSt6vector
   call void @_ZdlPv(ptr noundef nonnull %4140) #25
   br label %.body2536
 
-4142:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2680
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_54clEv"(ptr dead_on_unwind noalias writable align 4 %122)
+4142:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2680
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_54clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %122)
           to label %4143 unwind label %3674
 
 4143:                                             ; preds = %4142
@@ -9344,7 +9344,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2795:                ; preds = %4273, %_ZNSt6vector
 4285:                                             ; preds = %4283, %4279, %4276
   %4286 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_55clEvE2id", align 4, !noalias !173
   %.not.i.i.i2798 = icmp eq i32 %4286, 0
-  br i1 %.not.i.i.i2798, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_55clEv.exit", label %4287
+  br i1 %.not.i.i.i2798, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_55clEv.argprom.exit", label %4287
 
 4287:                                             ; preds = %4285
   %4288 = sext i32 %4286 to i64
@@ -9353,7 +9353,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2795:                ; preds = %4273, %_ZNSt6vector
   %4291 = load i32, ptr %4290, align 4, !noalias !173
   %4292 = add nsw i32 %4291, 1
   store i32 %4292, ptr %4290, align 4, !noalias !173
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_55clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_55clEv.argprom.exit"
 
 4293:                                             ; preds = %4281
   %4294 = landingpad { ptr, i32 }
@@ -9361,14 +9361,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2795:                ; preds = %4273, %_ZNSt6vector
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_55clEvE2id") #23, !noalias !173
   br label %common.resume
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_55clEv.exit": ; preds = %4285, %4287
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_55clEv.argprom.exit": ; preds = %4285, %4287
   store i32 %4286, ptr %134, align 4, !alias.scope !173
   call void @llvm.experimental.noalias.scope.decl(metadata !176)
   %4295 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_56clEvE2id" acquire, align 8, !noalias !176
   %4296 = icmp eq i8 %4295, 0
   br i1 %4296, label %4297, label %4303, !prof !9
 
-4297:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_55clEv.exit"
+4297:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_55clEv.argprom.exit"
   %4298 = call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_56clEvE2id") #23, !noalias !176
   %.not.i2801 = icmp eq i32 %4298, 0
   br i1 %.not.i2801, label %4303, label %4299
@@ -9383,7 +9383,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2795:                ; preds = %4273, %_ZNSt6vector
   call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_56clEvE2id") #23, !noalias !176
   br label %4303
 
-4303:                                             ; preds = %4301, %4297, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_55clEv.exit"
+4303:                                             ; preds = %4301, %4297, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_55clEv.argprom.exit"
   %4304 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_56clEvE2id", align 4, !noalias !176
   %.not.i.i.i2800 = icmp eq i32 %4304, 0
   br i1 %.not.i.i.i2800, label %4313, label %4305
@@ -9469,7 +9469,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2795:                ; preds = %4273, %_ZNSt6vector
 4341:                                             ; preds = %4339, %4335, %4332
   %4342 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_58clEvE2id", align 4, !noalias !182
   %.not.i.i.i2808 = icmp eq i32 %4342, 0
-  br i1 %.not.i.i.i2808, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_58clEv.exit", label %4343
+  br i1 %.not.i.i.i2808, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_58clEv.argprom.exit", label %4343
 
 4343:                                             ; preds = %4341
   %4344 = sext i32 %4342 to i64
@@ -9478,7 +9478,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2795:                ; preds = %4273, %_ZNSt6vector
   %4347 = load i32, ptr %4346, align 4, !noalias !182
   %4348 = add nsw i32 %4347, 1
   store i32 %4348, ptr %4346, align 4, !noalias !182
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_58clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_58clEv.argprom.exit"
 
 .body2810:                                        ; preds = %4337
   %4349 = landingpad { ptr, i32 }
@@ -9487,7 +9487,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2795:                ; preds = %4273, %_ZNSt6vector
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %136) #23
   br label %.body2806
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_58clEv.exit": ; preds = %4343, %4341
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_58clEv.argprom.exit": ; preds = %4343, %4341
   %4350 = load i32, ptr %1512, align 4
   %4351 = load i32, ptr %134, align 4
   %4352 = icmp eq i32 %4350, %4351
@@ -9505,7 +9505,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2795:                ; preds = %4273, %_ZNSt6vector
   %or.cond.i.i2814 = and i1 %4361, %4360
   br i1 %or.cond.i.i2814, label %4362, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2815
 
-4362:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_58clEv.exit"
+4362:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_58clEv.argprom.exit"
   %4363 = sext i32 %4342 to i64
   %4364 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %4365 = getelementptr inbounds i32, ptr %4364, i64 %4363
@@ -9526,7 +9526,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2795:                ; preds = %4273, %_ZNSt6vector
   call void @__clang_call_terminate(ptr %4372) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit2815:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_58clEv.exit", %4362, %4369
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit2815:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_58clEv.argprom.exit", %4362, %4369
   %4373 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %4374 = trunc i8 %4373 to i1
   %4375 = icmp ne i32 %4355, 0
@@ -9637,7 +9637,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2821:            ; preds = %_ZN5Yosys5RTLIL8IdS
 4424:                                             ; preds = %4422, %4418, %4415
   %4425 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_59clEvE2id", align 4, !noalias !185
   %.not.i.i.i2822 = icmp eq i32 %4425, 0
-  br i1 %.not.i.i.i2822, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_59clEv.exit", label %4426
+  br i1 %.not.i.i.i2822, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_59clEv.argprom.exit", label %4426
 
 4426:                                             ; preds = %4424
   %4427 = sext i32 %4425 to i64
@@ -9646,7 +9646,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2821:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %4430 = load i32, ptr %4429, align 4, !noalias !185
   %4431 = add nsw i32 %4430, 1
   store i32 %4431, ptr %4429, align 4, !noalias !185
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_59clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_59clEv.argprom.exit"
 
 4432:                                             ; preds = %4420
   %4433 = landingpad { ptr, i32 }
@@ -9654,13 +9654,13 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2821:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_59clEvE2id") #23, !noalias !185
   br label %common.resume
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_59clEv.exit": ; preds = %4424, %4426
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_59clEv.argprom.exit": ; preds = %4424, %4426
   store i32 %4425, ptr %137, align 4, !alias.scope !185
   %4434 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_60clEvE2id" acquire, align 8, !noalias !188
   %4435 = icmp eq i8 %4434, 0
   br i1 %4435, label %4436, label %4442, !prof !9
 
-4436:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_59clEv.exit"
+4436:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_59clEv.argprom.exit"
   %4437 = call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_60clEvE2id") #23, !noalias !188
   %.not.i2825 = icmp eq i32 %4437, 0
   br i1 %.not.i2825, label %4442, label %4438
@@ -9675,7 +9675,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2821:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_60clEvE2id") #23, !noalias !188
   br label %4442
 
-4442:                                             ; preds = %4440, %4436, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_59clEv.exit"
+4442:                                             ; preds = %4440, %4436, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_59clEv.argprom.exit"
   %4443 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_60clEvE2id", align 4, !noalias !188
   %.not.i.i.i2824 = icmp eq i32 %4443, 0
   br i1 %.not.i.i.i2824, label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2828, label %4444
@@ -9781,7 +9781,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2832:            ; preds = %_ZN5Yosys5RTLIL8IdS
 4491:                                             ; preds = %4489, %4485, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2832
   %4492 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_61clEvE2id", align 4, !noalias !191
   %.not.i.i.i2833 = icmp eq i32 %4492, 0
-  br i1 %.not.i.i.i2833, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_61clEv.exit", label %4493
+  br i1 %.not.i.i.i2833, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_61clEv.argprom.exit", label %4493
 
 4493:                                             ; preds = %4491
   %4494 = sext i32 %4492 to i64
@@ -9790,7 +9790,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2832:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %4497 = load i32, ptr %4496, align 4, !noalias !191
   %4498 = add nsw i32 %4497, 1
   store i32 %4498, ptr %4496, align 4, !noalias !191
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_61clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_61clEv.argprom.exit"
 
 4499:                                             ; preds = %4487
   %4500 = landingpad { ptr, i32 }
@@ -9798,13 +9798,13 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2832:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_61clEvE2id") #23, !noalias !191
   br label %common.resume
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_61clEv.exit": ; preds = %4491, %4493
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_61clEv.argprom.exit": ; preds = %4491, %4493
   store i32 %4492, ptr %138, align 4, !alias.scope !191
   %4501 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_62clEvE2id" acquire, align 8, !noalias !194
   %4502 = icmp eq i8 %4501, 0
   br i1 %4502, label %4503, label %4509, !prof !9
 
-4503:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_61clEv.exit"
+4503:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_61clEv.argprom.exit"
   %4504 = call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_62clEvE2id") #23, !noalias !194
   %.not.i2836 = icmp eq i32 %4504, 0
   br i1 %.not.i2836, label %4509, label %4505
@@ -9819,7 +9819,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2832:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_62clEvE2id") #23, !noalias !194
   br label %4509
 
-4509:                                             ; preds = %4507, %4503, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_61clEv.exit"
+4509:                                             ; preds = %4507, %4503, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_61clEv.argprom.exit"
   %4510 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_62clEvE2id", align 4, !noalias !194
   %.not.i.i.i2835 = icmp eq i32 %4510, 0
   br i1 %.not.i.i.i2835, label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2839, label %4511
@@ -10291,7 +10291,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2933:             ; preds = %_ZSt8_DestroyIPN5Yo
 4670:                                             ; preds = %4668, %4664, %4660
   %4671 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_63clEvE2id", align 4, !noalias !197
   %.not.i.i.i2934 = icmp eq i32 %4671, 0
-  br i1 %.not.i.i.i2934, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_63clEv.exit", label %4672
+  br i1 %.not.i.i.i2934, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_63clEv.argprom.exit", label %4672
 
 4672:                                             ; preds = %4670
   %4673 = sext i32 %4671 to i64
@@ -10300,7 +10300,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2933:             ; preds = %_ZSt8_DestroyIPN5Yo
   %4676 = load i32, ptr %4675, align 4, !noalias !197
   %4677 = add nsw i32 %4676, 1
   store i32 %4677, ptr %4675, align 4, !noalias !197
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_63clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_63clEv.argprom.exit"
 
 4678:                                             ; preds = %4666
   %4679 = landingpad { ptr, i32 }
@@ -10308,13 +10308,13 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2933:             ; preds = %_ZSt8_DestroyIPN5Yo
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_63clEvE2id") #23, !noalias !197
   br label %common.resume
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_63clEv.exit": ; preds = %4670, %4672
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_63clEv.argprom.exit": ; preds = %4670, %4672
   store i32 %4671, ptr %149, align 4, !alias.scope !197
   %4680 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_64clEvE2id" acquire, align 8, !noalias !200
   %4681 = icmp eq i8 %4680, 0
   br i1 %4681, label %4682, label %4688, !prof !9
 
-4682:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_63clEv.exit"
+4682:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_63clEv.argprom.exit"
   %4683 = call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_64clEvE2id") #23, !noalias !200
   %.not.i2937 = icmp eq i32 %4683, 0
   br i1 %.not.i2937, label %4688, label %4684
@@ -10329,7 +10329,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2933:             ; preds = %_ZSt8_DestroyIPN5Yo
   call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_64clEvE2id") #23, !noalias !200
   br label %4688
 
-4688:                                             ; preds = %4686, %4682, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_63clEv.exit"
+4688:                                             ; preds = %4686, %4682, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_63clEv.argprom.exit"
   %4689 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_64clEvE2id", align 4, !noalias !200
   %.not.i.i.i2936 = icmp eq i32 %4689, 0
   br i1 %.not.i.i.i2936, label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2940, label %4690
@@ -13677,7 +13677,7 @@ _ZN5ezSAT3NOTENS_2_VE.exit3184:                   ; preds = %_ZN5ezSAT2_V3getEPS
 5672:                                             ; preds = %5670, %5666, %5663
   %5673 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_65clEvE2id", align 4, !noalias !203
   %.not.i.i.i3185 = icmp eq i32 %5673, 0
-  br i1 %.not.i.i.i3185, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_65clEv.exit", label %5674
+  br i1 %.not.i.i.i3185, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_65clEv.argprom.exit", label %5674
 
 5674:                                             ; preds = %5672
   %5675 = sext i32 %5673 to i64
@@ -13686,7 +13686,7 @@ _ZN5ezSAT3NOTENS_2_VE.exit3184:                   ; preds = %_ZN5ezSAT2_V3getEPS
   %5678 = load i32, ptr %5677, align 4, !noalias !203
   %5679 = add nsw i32 %5678, 1
   store i32 %5679, ptr %5677, align 4, !noalias !203
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_65clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_65clEv.argprom.exit"
 
 5680:                                             ; preds = %5668
   %5681 = landingpad { ptr, i32 }
@@ -13694,13 +13694,13 @@ _ZN5ezSAT3NOTENS_2_VE.exit3184:                   ; preds = %_ZN5ezSAT2_V3getEPS
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_65clEvE2id") #23, !noalias !203
   br label %common.resume
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_65clEv.exit": ; preds = %5672, %5674
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_65clEv.argprom.exit": ; preds = %5672, %5674
   store i32 %5673, ptr %450, align 4, !alias.scope !203
   %5682 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_66clEvE2id" acquire, align 8, !noalias !206
   %5683 = icmp eq i8 %5682, 0
   br i1 %5683, label %5684, label %5690, !prof !9
 
-5684:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_65clEv.exit"
+5684:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_65clEv.argprom.exit"
   %5685 = call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_66clEvE2id") #23, !noalias !206
   %.not.i3188 = icmp eq i32 %5685, 0
   br i1 %.not.i3188, label %5690, label %5686
@@ -13715,7 +13715,7 @@ _ZN5ezSAT3NOTENS_2_VE.exit3184:                   ; preds = %_ZN5ezSAT2_V3getEPS
   call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_66clEvE2id") #23, !noalias !206
   br label %5690
 
-5690:                                             ; preds = %5688, %5684, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_65clEv.exit"
+5690:                                             ; preds = %5688, %5684, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_65clEv.argprom.exit"
   %5691 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_66clEvE2id", align 4, !noalias !206
   %.not.i.i.i3187 = icmp eq i32 %5691, 0
   br i1 %.not.i.i.i3187, label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit3191, label %5692
@@ -14321,9 +14321,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3276:                ; preds = %5887, %_ZNSt6vector
 5899:                                             ; preds = %5897, %5893, %5890
   %5900 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEvE2id", align 4, !noalias !209
   %.not.i.i.i3279 = icmp eq i32 %5900, 0
-  br i1 %.not.i.i.i3279, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.exit"
+  br i1 %.not.i.i.i3279, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.argprom.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.argprom.exit"
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.exit.thread": ; preds = %5899
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.argprom.exit.thread": ; preds = %5899
   %5901 = load i32, ptr %1512, align 4
   %5902 = icmp eq i32 %5901, 0
   br i1 %5902, label %5924, label %6161
@@ -14334,7 +14334,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3276:                ; preds = %5887, %_ZNSt6vector
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEvE2id") #23, !noalias !209
   br label %common.resume
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.exit": ; preds = %5899
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.argprom.exit": ; preds = %5899
   %5905 = sext i32 %5900 to i64
   %5906 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !209
   %5907 = getelementptr inbounds i32, ptr %5906, i64 %5905
@@ -14347,7 +14347,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3276:                ; preds = %5887, %_ZNSt6vector
   %5913 = trunc i8 %5912 to i1
   br i1 %5913, label %5914, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3282
 
-5914:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.exit"
+5914:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.argprom.exit"
   %5915 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %5916 = getelementptr inbounds i32, ptr %5915, i64 %5905
   %5917 = load i32, ptr %5916, align 4
@@ -14367,10 +14367,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3276:                ; preds = %5887, %_ZNSt6vector
   call void @__clang_call_terminate(ptr %5923) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit3282:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.exit", %5914, %5920
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit3282:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.argprom.exit", %5914, %5920
   br i1 %5911, label %5924, label %6161
 
-5924:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3282
+5924:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3282
   %5925 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1AE)
   call void @_ZN5Yosys5RTLIL7SigSpecC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %462, ptr noundef nonnull align 8 dereferenceable(64) %5925)
   invoke void @_ZN5Yosys6SatGen16importDefSigSpecENS_5RTLIL7SigSpecEi(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %461, ptr noundef nonnull align 8 dereferenceable(395) %0, ptr noundef nonnull %462, i32 noundef %2)
@@ -15180,7 +15180,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3418:                ; preds = %6158, %_ZNSt6vector
   call void @_ZdlPv(ptr noundef nonnull %6159) #25
   br label %common.resume
 
-6161:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3282
+6161:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3282
   call void @llvm.experimental.noalias.scope.decl(metadata !212)
   %6162 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEvE2id" acquire, align 8, !noalias !212
   %6163 = icmp eq i8 %6162, 0
@@ -15204,7 +15204,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3418:                ; preds = %6158, %_ZNSt6vector
 6170:                                             ; preds = %6168, %6164, %6161
   %6171 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEvE2id", align 4, !noalias !212
   %.not.i.i.i3421 = icmp eq i32 %6171, 0
-  br i1 %.not.i.i.i3421, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEv.exit", label %6172
+  br i1 %.not.i.i.i3421, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEv.argprom.exit", label %6172
 
 6172:                                             ; preds = %6170
   %6173 = sext i32 %6171 to i64
@@ -15213,7 +15213,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3418:                ; preds = %6158, %_ZNSt6vector
   %6176 = load i32, ptr %6175, align 4, !noalias !212
   %6177 = add nsw i32 %6176, 1
   store i32 %6177, ptr %6175, align 4, !noalias !212
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEv.argprom.exit"
 
 6178:                                             ; preds = %6166
   %6179 = landingpad { ptr, i32 }
@@ -15221,14 +15221,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3418:                ; preds = %6158, %_ZNSt6vector
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEvE2id") #23, !noalias !212
   br label %common.resume
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEv.exit": ; preds = %6170, %6172
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEv.argprom.exit": ; preds = %6170, %6172
   store i32 %6171, ptr %482, align 4, !alias.scope !212
   call void @llvm.experimental.noalias.scope.decl(metadata !215)
   %6180 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_69clEvE2id" acquire, align 8, !noalias !215
   %6181 = icmp eq i8 %6180, 0
   br i1 %6181, label %6182, label %6188, !prof !9
 
-6182:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEv.exit"
+6182:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEv.argprom.exit"
   %6183 = call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_69clEvE2id") #23, !noalias !215
   %.not.i3424 = icmp eq i32 %6183, 0
   br i1 %.not.i3424, label %6188, label %6184
@@ -15243,7 +15243,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3418:                ; preds = %6158, %_ZNSt6vector
   call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_69clEvE2id") #23, !noalias !215
   br label %6188
 
-6188:                                             ; preds = %6186, %6182, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEv.exit"
+6188:                                             ; preds = %6186, %6182, %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEv.argprom.exit"
   %6189 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_69clEvE2id", align 4, !noalias !215
   %.not.i.i.i3423 = icmp eq i32 %6189, 0
   br i1 %.not.i.i.i3423, label %6198, label %6190
@@ -15329,7 +15329,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3418:                ; preds = %6158, %_ZNSt6vector
 6226:                                             ; preds = %6224, %6220, %6217
   %6227 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_71clEvE2id", align 4, !noalias !221
   %.not.i.i.i3431 = icmp eq i32 %6227, 0
-  br i1 %.not.i.i.i3431, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_71clEv.exit", label %6228
+  br i1 %.not.i.i.i3431, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_71clEv.argprom.exit", label %6228
 
 6228:                                             ; preds = %6226
   %6229 = sext i32 %6227 to i64
@@ -15338,7 +15338,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3418:                ; preds = %6158, %_ZNSt6vector
   %6232 = load i32, ptr %6231, align 4, !noalias !221
   %6233 = add nsw i32 %6232, 1
   store i32 %6233, ptr %6231, align 4, !noalias !221
-  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_71clEv.exit"
+  br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_71clEv.argprom.exit"
 
 .body3433:                                        ; preds = %6222
   %6234 = landingpad { ptr, i32 }
@@ -15347,7 +15347,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3418:                ; preds = %6158, %_ZNSt6vector
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %484) #23
   br label %.body3429
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_71clEv.exit": ; preds = %6228, %6226
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_71clEv.argprom.exit": ; preds = %6228, %6226
   %6235 = load i32, ptr %1512, align 4
   %6236 = load i32, ptr %482, align 4
   %6237 = icmp eq i32 %6235, %6236
@@ -15365,7 +15365,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3418:                ; preds = %6158, %_ZNSt6vector
   %or.cond.i.i3437 = and i1 %6246, %6245
   br i1 %or.cond.i.i3437, label %6247, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3438
 
-6247:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_71clEv.exit"
+6247:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_71clEv.argprom.exit"
   %6248 = sext i32 %6227 to i64
   %6249 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %6250 = getelementptr inbounds i32, ptr %6249, i64 %6248
@@ -15386,7 +15386,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3418:                ; preds = %6158, %_ZNSt6vector
   call void @__clang_call_terminate(ptr %6257) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit3438:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_71clEv.exit", %6247, %6254
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit3438:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_71clEv.argprom.exit", %6247, %6254
   %6258 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %6259 = trunc i8 %6258 to i1
   %6260 = icmp ne i32 %6240, 0
@@ -15748,9 +15748,9 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit3496:             ; preds = %_ZSt8_DestroyIPN5Yo
 6389:                                             ; preds = %6387, %6383, %6380
   %6390 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEvE2id", align 4, !noalias !224
   %.not.i.i.i3497 = icmp eq i32 %6390, 0
-  br i1 %.not.i.i.i3497, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.exit"
+  br i1 %.not.i.i.i3497, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.argprom.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.argprom.exit"
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.exit.thread": ; preds = %6389
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.argprom.exit.thread": ; preds = %6389
   %6391 = load i32, ptr %1512, align 4
   %6392 = icmp eq i32 %6391, 0
   br i1 %6392, label %6414, label %6454
@@ -15761,7 +15761,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit3496:             ; preds = %_ZSt8_DestroyIPN5Yo
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEvE2id") #23, !noalias !224
   br label %.body3499
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.exit": ; preds = %6389
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.argprom.exit": ; preds = %6389
   %6395 = sext i32 %6390 to i64
   %6396 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !224
   %6397 = getelementptr inbounds i32, ptr %6396, i64 %6395
@@ -15774,7 +15774,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit3496:             ; preds = %_ZSt8_DestroyIPN5Yo
   %6403 = trunc i8 %6402 to i1
   br i1 %6403, label %6404, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3502
 
-6404:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.exit"
+6404:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.argprom.exit"
   %6405 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %6406 = getelementptr inbounds i32, ptr %6405, i64 %6395
   %6407 = load i32, ptr %6406, align 4
@@ -15794,10 +15794,10 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit3496:             ; preds = %_ZSt8_DestroyIPN5Yo
   call void @__clang_call_terminate(ptr %6413) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit3502:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.exit", %6404, %6410
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit3502:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.argprom.exit", %6404, %6410
   br i1 %6401, label %6414, label %6454
 
-6414:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3502
+6414:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3502
   %6415 = load ptr, ptr %0, align 8
   %6416 = getelementptr inbounds i8, ptr %489, i64 8
   %6417 = load ptr, ptr %6416, align 8
@@ -15921,8 +15921,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3511:                ; preds = %6451, %6448, %6446
   call void @_ZdlPv(ptr noundef nonnull %6452) #25
   br label %.body3499
 
-6454:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3502
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_73clEv"(ptr dead_on_unwind noalias writable align 4 %496)
+6454:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3502
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_73clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %496)
           to label %6455 unwind label %6444
 
 6455:                                             ; preds = %6454
@@ -16104,7 +16104,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3526:                ; preds = %6505, %6507
 
 _ZNSt6vectorIiSaIiEED2Ev.exit3528:                ; preds = %6510, %6512
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %511, i8 0, i64 24, i1 false)
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_74clEv"(ptr dead_on_unwind noalias writable align 4 %512)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_74clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %512)
           to label %6513 unwind label %6557
 
 6513:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3528
@@ -16582,9 +16582,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3600:                ; preds = %6638, %_ZNSt6vector
 6650:                                             ; preds = %6648, %6644, %6641
   %6651 = load i32, ptr @"_ZZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEvE2id", align 4, !noalias !227
   %.not.i.i.i3603 = icmp eq i32 %6651, 0
-  br i1 %.not.i.i.i3603, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.exit"
+  br i1 %.not.i.i.i3603, label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.argprom.exit.thread", label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.argprom.exit"
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.exit.thread": ; preds = %6650
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.argprom.exit.thread": ; preds = %6650
   %6652 = load i32, ptr %1512, align 4
   %6653 = icmp eq i32 %6652, 0
   br i1 %6653, label %6675, label %7124
@@ -16595,7 +16595,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3600:                ; preds = %6638, %_ZNSt6vector
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEvE2id") #23, !noalias !227
   br label %common.resume
 
-"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.exit": ; preds = %6650
+"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.argprom.exit": ; preds = %6650
   %6656 = sext i32 %6651 to i64
   %6657 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !227
   %6658 = getelementptr inbounds i32, ptr %6657, i64 %6656
@@ -16608,7 +16608,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3600:                ; preds = %6638, %_ZNSt6vector
   %6664 = trunc i8 %6663 to i1
   br i1 %6664, label %6665, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3606
 
-6665:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.exit"
+6665:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.argprom.exit"
   %6666 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %6667 = getelementptr inbounds i32, ptr %6666, i64 %6656
   %6668 = load i32, ptr %6667, align 4
@@ -16628,10 +16628,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3600:                ; preds = %6638, %_ZNSt6vector
   call void @__clang_call_terminate(ptr %6674) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit3606:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.exit", %6665, %6671
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit3606:            ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.argprom.exit", %6665, %6671
   br i1 %6662, label %6675, label %7124
 
-6675:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3606
+6675:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3606
   %6676 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1AE)
   call void @_ZN5Yosys5RTLIL7SigSpecC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %518, ptr noundef nonnull align 8 dereferenceable(64) %6676)
   invoke void @_ZN5Yosys6SatGen16importDefSigSpecENS_5RTLIL7SigSpecEi(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %517, ptr noundef nonnull align 8 dereferenceable(395) %0, ptr noundef nonnull %518, i32 noundef %2)
@@ -17964,8 +17964,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3826:                ; preds = %7121, %_ZNSt6vector
   call void @_ZdlPv(ptr noundef nonnull %7122) #25
   br label %common.resume
 
-7124:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3606
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_76clEv"(ptr dead_on_unwind noalias writable align 4 %545)
+7124:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3606
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_76clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %545)
   %7125 = load i32, ptr %1512, align 4
   %7126 = load i32, ptr %545, align 4
   %7127 = icmp eq i32 %7125, %7126
@@ -19318,7 +19318,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3947:                ; preds = %7616, %_ZNSt6vector
   br label %common.resume
 
 7619:                                             ; preds = %7124
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_77clEv"(ptr dead_on_unwind noalias writable align 4 %611)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_77clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %611)
   %7620 = load i32, ptr %1512, align 4
   %7621 = load i32, ptr %611, align 4
   %7622 = icmp eq i32 %7620, %7621
@@ -20405,8 +20405,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4081:                ; preds = %7986, %_ZNSt6vector
   br label %common.resume
 
 7989:                                             ; preds = %7619
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_78clEv"(ptr dead_on_unwind noalias writable align 4 %663)
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_79clEv"(ptr dead_on_unwind noalias writable align 4 %664)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_78clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %663)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_79clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %664)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4085 unwind label %8026
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4085: ; preds = %7989
@@ -20467,7 +20467,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4085: ; preds = %7989
           to label %8017 unwind label %8034
 
 8017:                                             ; preds = %8016, %8006
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_80clEv"(ptr dead_on_unwind noalias writable align 4 %670)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_80clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %670)
           to label %8018 unwind label %8036
 
 8018:                                             ; preds = %8017
@@ -20628,7 +20628,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4091:                ; preds = %8055, %_ZNSt6vector
           to label %8077 unwind label %8092
 
 8077:                                             ; preds = %8076
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_81clEv"(ptr dead_on_unwind noalias writable align 4 %678)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_81clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %678)
           to label %8078 unwind label %8092
 
 8078:                                             ; preds = %8077
@@ -20819,24 +20819,24 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4130:                ; preds = %8135, %_ZNSt6vector
   br label %common.resume
 
 8138:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4085
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_82clEv"(ptr dead_on_unwind noalias writable align 4 %682)
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_83clEv"(ptr dead_on_unwind noalias writable align 4 %683)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_82clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %682)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_83clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %683)
           to label %8139 unwind label %8194
 
 8139:                                             ; preds = %8138
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_84clEv"(ptr dead_on_unwind noalias writable align 4 %684)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_84clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %684)
           to label %8140 unwind label %8196
 
 8140:                                             ; preds = %8139
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_85clEv"(ptr dead_on_unwind noalias writable align 4 %685)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_85clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %685)
           to label %8141 unwind label %8198
 
 8141:                                             ; preds = %8140
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_86clEv"(ptr dead_on_unwind noalias writable align 4 %686)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_86clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %686)
           to label %8142 unwind label %8200
 
 8142:                                             ; preds = %8141
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_87clEv"(ptr dead_on_unwind noalias writable align 4 %687)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_87clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %687)
           to label %8143 unwind label %8202
 
 8143:                                             ; preds = %8142
@@ -20920,7 +20920,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_EEEbDpT_.exit: ; preds = %8143
           to label %8177 unwind label %8214
 
 8177:                                             ; preds = %8176, %8166
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_88clEv"(ptr dead_on_unwind noalias writable align 4 %693)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_88clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %693)
           to label %8178 unwind label %8216
 
 8178:                                             ; preds = %8177
@@ -21055,11 +21055,11 @@ _ZNSt6vectorIiSaIiEE2atEm.exit4139:               ; preds = %8185
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4212
 
 8223:                                             ; preds = %8193, %8178
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_89clEv"(ptr dead_on_unwind noalias writable align 4 %696)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_89clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %696)
           to label %8224 unwind label %8216
 
 8224:                                             ; preds = %8223
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_90clEv"(ptr dead_on_unwind noalias writable align 4 %697)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_90clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %697)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4140 unwind label %8243
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4140: ; preds = %8224
@@ -21131,7 +21131,7 @@ _ZNSt6vectorIiSaIiEE2atEm.exit4143:               ; preds = %8234
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4212
 
 8250:                                             ; preds = %8242, %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4140
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_91clEv"(ptr dead_on_unwind noalias writable align 4 %700)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_91clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %700)
           to label %8251 unwind label %8216
 
 8251:                                             ; preds = %8250
@@ -21193,7 +21193,7 @@ _ZNSt6vectorIiSaIiEE2atEm.exit4146:               ; preds = %8258
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4212
 
 8272:                                             ; preds = %8266, %8251
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_92clEv"(ptr dead_on_unwind noalias writable align 4 %703)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_92clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %703)
           to label %8273 unwind label %8216
 
 8273:                                             ; preds = %8272
@@ -21273,7 +21273,7 @@ _ZNSt6vectorIiSaIiEE2atEm.exit4149:               ; preds = %8283
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4212
 
 8300:                                             ; preds = %8291, %8273
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_93clEv"(ptr dead_on_unwind noalias writable align 4 %707)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_93clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %707)
           to label %8301 unwind label %8216
 
 8301:                                             ; preds = %8300
@@ -21464,7 +21464,7 @@ _ZNSt6vectorIiSaIiEE2atEm.exit4152:               ; preds = %8311
           to label %8379 unwind label %8429
 
 8379:                                             ; preds = %8376
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_94clEv"(ptr dead_on_unwind noalias writable align 4 %717)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_94clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %717)
           to label %8380 unwind label %8429
 
 8380:                                             ; preds = %8379
@@ -21699,15 +21699,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4173:                ; preds = %8440, %_ZNSt6vector
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4176
 
 8454:                                             ; preds = %8380
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_95clEv"(ptr dead_on_unwind noalias writable align 4 %734)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_95clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %734)
           to label %8455 unwind label %8429
 
 8455:                                             ; preds = %8454
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_96clEv"(ptr dead_on_unwind noalias writable align 4 %735)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_96clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %735)
           to label %8456 unwind label %8500
 
 8456:                                             ; preds = %8455
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_97clEv"(ptr dead_on_unwind noalias writable align 4 %736)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_97clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %736)
           to label %8457 unwind label %8502
 
 8457:                                             ; preds = %8456
@@ -21923,11 +21923,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4190:                ; preds = %8510, %8507, %8505
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4176
 
 8524:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit4178
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_98clEv"(ptr dead_on_unwind noalias writable align 4 %752)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_98clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %752)
           to label %8525 unwind label %8429
 
 8525:                                             ; preds = %8524
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_99clEv"(ptr dead_on_unwind noalias writable align 4 %753)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_99clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %753)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4194 unwind label %8547
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4194: ; preds = %8525
@@ -22225,8 +22225,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4227:                ; preds = %8611, %_ZNSt6vector
   br label %common.resume
 
 8614:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_EEEbDpT_.exit
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_100clEv"(ptr dead_on_unwind noalias writable align 4 %762)
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_101clEv"(ptr dead_on_unwind noalias writable align 4 %763)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_100clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %762)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_101clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %763)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4231 unwind label %8667
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4231: ; preds = %8614
@@ -22306,7 +22306,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4231: ; preds = %8614
           to label %8651 unwind label %8679
 
 8651:                                             ; preds = %8650, %8640
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_102clEv"(ptr dead_on_unwind noalias writable align 4 %771)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_102clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %771)
           to label %8652 unwind label %8681
 
 8652:                                             ; preds = %8651
@@ -22739,7 +22739,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4252:                ; preds = %_ZNSt6vectorIiSaIiE
           to label %8813 unwind label %8873
 
 8813:                                             ; preds = %8810
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_103clEv"(ptr dead_on_unwind noalias writable align 4 %802)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_103clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %802)
           to label %8814 unwind label %8873
 
 8814:                                             ; preds = %8813
@@ -23102,7 +23102,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4264:                ; preds = %8904, %8901, %8899
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4261
 
 8930:                                             ; preds = %8814
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_104clEv"(ptr dead_on_unwind noalias writable align 4 %826)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_104clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %826)
           to label %8931 unwind label %8873
 
 8931:                                             ; preds = %8930
@@ -23584,32 +23584,32 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4312:                ; preds = %9068, %_ZNSt6vector
   br label %common.resume
 
 9071:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4231
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_105clEv"(ptr dead_on_unwind noalias writable align 4 %852)
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_106clEv"(ptr dead_on_unwind noalias writable align 4 %853)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_105clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %852)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_106clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %853)
           to label %9072 unwind label %9175
 
 9072:                                             ; preds = %9071
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_107clEv"(ptr dead_on_unwind noalias writable align 4 %854)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_107clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %854)
           to label %9073 unwind label %9177
 
 9073:                                             ; preds = %9072
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_108clEv"(ptr dead_on_unwind noalias writable align 4 %855)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_108clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %855)
           to label %9074 unwind label %9179
 
 9074:                                             ; preds = %9073
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_109clEv"(ptr dead_on_unwind noalias writable align 4 %856)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_109clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %856)
           to label %9075 unwind label %9181
 
 9075:                                             ; preds = %9074
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_110clEv"(ptr dead_on_unwind noalias writable align 4 %857)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_110clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %857)
           to label %9076 unwind label %9183
 
 9076:                                             ; preds = %9075
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_111clEv"(ptr dead_on_unwind noalias writable align 4 %858)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_111clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %858)
           to label %9077 unwind label %9185
 
 9077:                                             ; preds = %9076
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_112clEv"(ptr dead_on_unwind noalias writable align 4 %859)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_112clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %859)
           to label %9078 unwind label %9187
 
 9078:                                             ; preds = %9077
@@ -23737,11 +23737,11 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_S1_S1_EEEbDpT_.exit: ; preds = %
   br i1 %9131, label %9132, label %_ZNSt6vectorIiSaIiEED2Ev.exit4335
 
 9132:                                             ; preds = %9129
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_113clEv"(ptr dead_on_unwind noalias writable align 4 %867)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_113clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %867)
           to label %9133 unwind label %9207
 
 9133:                                             ; preds = %9132
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_114clEv"(ptr dead_on_unwind noalias writable align 4 %868)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_114clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %868)
           to label %.critedge2064 unwind label %9209
 
 .critedge2064:                                    ; preds = %9133
@@ -24014,7 +24014,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4338:                ; preds = %9220, %9217, %9215,
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4341
 
 _ZNSt6vectorIiSaIiEED2Ev.exit4335:                ; preds = %9129, %9174, %_ZNSt6vectorIiSaIiEED2Ev.exit4332, %.critedge2064
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_115clEv"(ptr dead_on_unwind noalias writable align 4 %875)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_115clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %875)
           to label %9223 unwind label %9207
 
 9223:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4335
@@ -24084,7 +24084,7 @@ _ZNSt6vectorIiSaIiEE2atEm.exit4344:               ; preds = %9233
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4341
 
 9248:                                             ; preds = %9242, %9223
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_116clEv"(ptr dead_on_unwind noalias writable align 4 %878)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_116clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %878)
           to label %9249 unwind label %9207
 
 9249:                                             ; preds = %9248
@@ -24154,11 +24154,11 @@ _ZNSt6vectorIiSaIiEE2atEm.exit4347:               ; preds = %9259
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4341
 
 9274:                                             ; preds = %9268, %9249
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_117clEv"(ptr dead_on_unwind noalias writable align 4 %881)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_117clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %881)
           to label %9275 unwind label %9207
 
 9275:                                             ; preds = %9274
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_118clEv"(ptr dead_on_unwind noalias writable align 4 %882)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_118clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %882)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4348 unwind label %9294
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4348: ; preds = %9275
@@ -24230,11 +24230,11 @@ _ZNSt6vectorIiSaIiEE2atEm.exit4351:               ; preds = %9285
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4341
 
 9301:                                             ; preds = %9293, %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4348
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_119clEv"(ptr dead_on_unwind noalias writable align 4 %885)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_119clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %885)
           to label %9302 unwind label %9207
 
 9302:                                             ; preds = %9301
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_120clEv"(ptr dead_on_unwind noalias writable align 4 %886)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_120clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %886)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4352 unwind label %9321
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4352: ; preds = %9302
@@ -24306,7 +24306,7 @@ _ZNSt6vectorIiSaIiEE2atEm.exit4355:               ; preds = %9312
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4341
 
 9328:                                             ; preds = %9320, %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4352
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_121clEv"(ptr dead_on_unwind noalias writable align 4 %889)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_121clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %889)
           to label %9329 unwind label %9207
 
 9329:                                             ; preds = %9328
@@ -24376,7 +24376,7 @@ _ZNSt6vectorIiSaIiEE2atEm.exit4358:               ; preds = %9339
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4341
 
 9354:                                             ; preds = %9348, %9329
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_122clEv"(ptr dead_on_unwind noalias writable align 4 %892)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_122clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %892)
           to label %9355 unwind label %9207
 
 9355:                                             ; preds = %9354
@@ -24526,11 +24526,11 @@ _ZNSt6vectorIiSaIiEE2atEm.exit4361:               ; preds = %9365
   br i1 %9419, label %9420, label %.critedge2066.thread
 
 9420:                                             ; preds = %._crit_edge7843
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_123clEv"(ptr dead_on_unwind noalias writable align 4 %897)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_123clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %897)
           to label %9421 unwind label %9207
 
 9421:                                             ; preds = %9420
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_124clEv"(ptr dead_on_unwind noalias writable align 4 %898)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_124clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %898)
           to label %.critedge2066 unwind label %9465
 
 .critedge2066:                                    ; preds = %9421
@@ -24592,7 +24592,7 @@ _ZNSt6vectorIiSaIiEE2atEm.exit4361:               ; preds = %9365
           to label %9440 unwind label %9477
 
 9440:                                             ; preds = %9439
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_125clEv"(ptr dead_on_unwind noalias writable align 4 %905)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_125clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %905)
           to label %9441 unwind label %9477
 
 9441:                                             ; preds = %9440
@@ -24940,11 +24940,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4395:                ; preds = %9551, %_ZNSt6vector
   br i1 %9555, label %9556, label %.critedge2068.thread
 
 9556:                                             ; preds = %.critedge2066.thread
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_126clEv"(ptr dead_on_unwind noalias writable align 4 %920)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_126clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %920)
           to label %9557 unwind label %9207
 
 9557:                                             ; preds = %9556
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_127clEv"(ptr dead_on_unwind noalias writable align 4 %921)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_127clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %921)
           to label %.critedge2068 unwind label %9649
 
 .critedge2068:                                    ; preds = %9557
@@ -25564,24 +25564,24 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4474:                ; preds = %9749, %_ZNSt6vector
   br label %common.resume
 
 9752:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_S1_S1_EEEbDpT_.exit
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_128clEv"(ptr dead_on_unwind noalias writable align 4 %951)
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_129clEv"(ptr dead_on_unwind noalias writable align 4 %952)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_128clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %951)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_129clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %952)
           to label %9753 unwind label %9793
 
 9753:                                             ; preds = %9752
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_130clEv"(ptr dead_on_unwind noalias writable align 4 %953)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_130clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %953)
           to label %9754 unwind label %9795
 
 9754:                                             ; preds = %9753
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_131clEv"(ptr dead_on_unwind noalias writable align 4 %954)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_131clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %954)
           to label %9755 unwind label %9797
 
 9755:                                             ; preds = %9754
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_132clEv"(ptr dead_on_unwind noalias writable align 4 %955)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_132clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %955)
           to label %9756 unwind label %9799
 
 9756:                                             ; preds = %9755
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_133clEv"(ptr dead_on_unwind noalias writable align 4 %956)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_133clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %956)
           to label %9757 unwind label %9801
 
 9757:                                             ; preds = %9756
@@ -25831,11 +25831,11 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_EEEbDpT_.exit4482: ; preds = %97
 
 9856:                                             ; preds = %9855, %9851
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %966, i8 0, i64 24, i1 false)
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_134clEv"(ptr dead_on_unwind noalias writable align 4 %967)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_134clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %967)
           to label %9857 unwind label %9876
 
 9857:                                             ; preds = %9856
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_135clEv"(ptr dead_on_unwind noalias writable align 4 %968)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_135clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %968)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4483 unwind label %9878
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4483: ; preds = %9857
@@ -25892,7 +25892,7 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit4485:             ; preds = %9866
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4566
 
 _ZNSt6vectorIiSaIiEED2Ev.exit4488:                ; preds = %9866, %9875, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit4485, %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4483
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_136clEv"(ptr dead_on_unwind noalias writable align 4 %970)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_136clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %970)
           to label %9880 unwind label %9876
 
 9880:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4488
@@ -25934,7 +25934,7 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit4490:             ; preds = %9886
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4493
 
 _ZNSt6vectorIiSaIiEED2Ev.exit4493:                ; preds = %9886, %9895, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit4490, %9880
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_137clEv"(ptr dead_on_unwind noalias writable align 4 %972)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_137clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %972)
           to label %9896 unwind label %9876
 
 9896:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4493
@@ -25988,11 +25988,11 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit4495:             ; preds = %9909
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4498
 
 _ZNSt6vectorIiSaIiEED2Ev.exit4498:                ; preds = %9909, %9918, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit4495, %9896
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_138clEv"(ptr dead_on_unwind noalias writable align 4 %974)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_138clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %974)
           to label %9919 unwind label %9876
 
 9919:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4498
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_139clEv"(ptr dead_on_unwind noalias writable align 4 %975)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_139clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %975)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4499 unwind label %9942
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4499: ; preds = %9919
@@ -26106,7 +26106,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4504:                ; preds = %9932, %9941, %_ZNSt
 9962:                                             ; preds = %9961
   call void @_ZN5Yosys5RTLIL7SigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %982) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %983, i8 0, i64 24, i1 false)
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_140clEv"(ptr dead_on_unwind noalias writable align 4 %984)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_140clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %984)
           to label %9963 unwind label %.loopexit.split-lp6417.loopexit.split-lp
 
 9963:                                             ; preds = %9962
@@ -26226,11 +26226,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4504:                ; preds = %9932, %9941, %_ZNSt
           to label %.preheader6415 unwind label %.loopexit6416, !llvm.loop !247
 
 10019:                                            ; preds = %.preheader6415
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_141clEv"(ptr dead_on_unwind noalias writable align 4 %986)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_141clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %986)
           to label %10020 unwind label %.loopexit.split-lp6417.loopexit.split-lp
 
 10020:                                            ; preds = %10019
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_142clEv"(ptr dead_on_unwind noalias writable align 4 %987)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_142clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %987)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4505 unwind label %10039
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4505: ; preds = %10020
@@ -26282,7 +26282,7 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit4507:             ; preds = %10029
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4554
 
 _ZNSt6vectorIiSaIiEED2Ev.exit4510:                ; preds = %10029, %10038, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit4507, %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4505
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_143clEv"(ptr dead_on_unwind noalias writable align 4 %989)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_143clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %989)
           to label %10041 unwind label %.loopexit.split-lp6417.loopexit.split-lp
 
 10041:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4510
@@ -26324,7 +26324,7 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit4512:             ; preds = %10047
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4515
 
 _ZNSt6vectorIiSaIiEED2Ev.exit4515:                ; preds = %10047, %10056, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit4512, %10041
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_144clEv"(ptr dead_on_unwind noalias writable align 4 %991)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_144clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %991)
           to label %10057 unwind label %.loopexit.split-lp6417.loopexit.split-lp
 
 10057:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4515
@@ -26378,7 +26378,7 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit4517:             ; preds = %10070
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4520
 
 _ZNSt6vectorIiSaIiEED2Ev.exit4520:                ; preds = %10070, %10079, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit4517, %10057
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_145clEv"(ptr dead_on_unwind noalias writable align 4 %993)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_145clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %993)
           to label %10080 unwind label %.loopexit.split-lp6417.loopexit.split-lp
 
 10080:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4520
@@ -26428,7 +26428,7 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit4522:             ; preds = %10090
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit4525
 
 _ZNSt6vectorIiSaIiEED2Ev.exit4525:                ; preds = %10090, %10099, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit4522, %10080
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_146clEv"(ptr dead_on_unwind noalias writable align 4 %995)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_146clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %995)
           to label %10100 unwind label %.loopexit.split-lp6417.loopexit.split-lp
 
 10100:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4525
@@ -26729,7 +26729,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4593:                ; preds = %10183, %_ZNSt6vecto
   br label %common.resume
 
 10186:                                            ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_EEEbDpT_.exit4482
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_147clEv"(ptr dead_on_unwind noalias writable align 4 %1001)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_147clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1001)
   %10187 = load i32, ptr %1512, align 4
   %10188 = load i32, ptr %1001, align 4
   %10189 = icmp eq i32 %10187, %10188
@@ -27193,7 +27193,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4655:                ; preds = %10359, %_ZNSt6vecto
   br label %common.resume
 
 10362:                                            ; preds = %10186
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_148clEv"(ptr dead_on_unwind noalias writable align 4 %1017)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_148clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1017)
   %10363 = load i32, ptr %1512, align 4
   %10364 = load i32, ptr %1017, align 4
   %10365 = icmp eq i32 %10363, %10364
@@ -28358,16 +28358,16 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4793:                ; preds = %10803, %_ZNSt6vecto
   br label %common.resume
 
 10806:                                            ; preds = %10362
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_149clEv"(ptr dead_on_unwind noalias writable align 4 %1057)
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_150clEv"(ptr dead_on_unwind noalias writable align 4 %1058)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_149clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1057)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_150clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1058)
           to label %10807 unwind label %10892
 
 10807:                                            ; preds = %10806
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_151clEv"(ptr dead_on_unwind noalias writable align 4 %1059)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_151clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1059)
           to label %10808 unwind label %10894
 
 10808:                                            ; preds = %10807
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_152clEv"(ptr dead_on_unwind noalias writable align 4 %1060)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_152clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1060)
           to label %10809 unwind label %10896
 
 10809:                                            ; preds = %10808
@@ -29158,7 +29158,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4857:                ; preds = %_ZNSt6vectorIiSaIiE
 
 11131:                                            ; preds = %11129, %11109
   %.01325 = phi i32 [ %11108, %11109 ], [ %11130, %11129 ]
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_153clEv"(ptr dead_on_unwind noalias writable align 4 %1098)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_153clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1098)
           to label %11132 unwind label %11110
 
 11132:                                            ; preds = %11131
@@ -29311,7 +29311,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4872:                ; preds = %11182, %_ZNSt6vecto
           to label %.invoke8991 unwind label %11110
 
 11186:                                            ; preds = %11132
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_154clEv"(ptr dead_on_unwind noalias writable align 4 %1107)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_154clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1107)
           to label %11187 unwind label %11110
 
 11187:                                            ; preds = %11186
@@ -29327,7 +29327,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4872:                ; preds = %11182, %_ZNSt6vecto
           to label %.invoke8991 unwind label %11110
 
 11194:                                            ; preds = %11187
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_155clEv"(ptr dead_on_unwind noalias writable align 4 %1108)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_155clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1108)
           to label %11195 unwind label %11110
 
 11195:                                            ; preds = %11194
@@ -29583,7 +29583,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4902:                ; preds = %11277, %_ZNSt6vecto
           to label %_ZNSt6vectorIiSaIiEED2Ev.exit4908 unwind label %11110
 
 11283:                                            ; preds = %11195
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_156clEv"(ptr dead_on_unwind noalias writable align 4 %1120)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_156clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1120)
           to label %11284 unwind label %11110
 
 11284:                                            ; preds = %11283
@@ -29670,11 +29670,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4908:                ; preds = %.invoke8991, %11298
 
 11313:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4908
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1123, i8 0, i64 24, i1 false)
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_157clEv"(ptr dead_on_unwind noalias writable align 4 %1124)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_157clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1124)
           to label %11314 unwind label %11370
 
 11314:                                            ; preds = %11313
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_158clEv"(ptr dead_on_unwind noalias writable align 4 %1125)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_158clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1125)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4915 unwind label %11372
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4915: ; preds = %11314
@@ -29877,11 +29877,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4932:                ; preds = %11381, %11378, %113
   br label %.invoke8992
 
 11412:                                            ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4915
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_159clEv"(ptr dead_on_unwind noalias writable align 4 %1131)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_159clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1131)
           to label %11413 unwind label %11370
 
 11413:                                            ; preds = %11412
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_160clEv"(ptr dead_on_unwind noalias writable align 4 %1132)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_160clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1132)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4940 unwind label %11464
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4940: ; preds = %11413
@@ -30284,7 +30284,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5021:                ; preds = %11555, %_ZNSt6vecto
   br label %common.resume
 
 11558:                                            ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_EEEbDpT_.exit4798
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_161clEv"(ptr dead_on_unwind noalias writable align 4 %1136)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_161clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1136)
   %11559 = load i32, ptr %1512, align 4
   %11560 = load i32, ptr %1136, align 4
   %11561 = icmp eq i32 %11559, %11560
@@ -31151,7 +31151,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5144:                ; preds = %11882, %_ZNSt6vecto
   br label %common.resume
 
 11885:                                            ; preds = %11558
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_162clEv"(ptr dead_on_unwind noalias writable align 4 %1169)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_162clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1169)
   %11886 = load i32, ptr %1512, align 4
   %11887 = load i32, ptr %1169, align 4
   %11888 = icmp eq i32 %11886, %11887
@@ -32292,7 +32292,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit5278: ; preds = %12273, %12271
   br label %common.resume
 
 12276:                                            ; preds = %11885
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_163clEv"(ptr dead_on_unwind noalias writable align 4 %1222)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_163clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1222)
   %12277 = load i32, ptr %1512, align 4
   %12278 = load i32, ptr %1222, align 4
   %12279 = icmp eq i32 %12277, %12278
@@ -33052,7 +33052,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5392:                ; preds = %12509, %_ZNSt6vecto
   br label %common.resume
 
 12512:                                            ; preds = %12276
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_164clEv"(ptr dead_on_unwind noalias writable align 4 %1252)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_164clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1252)
   %12513 = load i32, ptr %1512, align 4
   %12514 = load i32, ptr %1252, align 4
   %12515 = icmp eq i32 %12513, %12514
@@ -33706,7 +33706,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5452:                ; preds = %12733, %_ZNSt6vecto
   br label %common.resume
 
 12736:                                            ; preds = %12512
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_165clEv"(ptr dead_on_unwind noalias writable align 4 %1293)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_165clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1293)
   %12737 = load i32, ptr %1512, align 4
   %12738 = load i32, ptr %1293, align 4
   %12739 = icmp eq i32 %12737, %12738
@@ -35366,7 +35366,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5613:                ; preds = %13332, %_ZNSt6vecto
   br label %common.resume
 
 13335:                                            ; preds = %12736
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_166clEv"(ptr dead_on_unwind noalias writable align 4 %1386)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_166clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1386)
   %13336 = load i32, ptr %1512, align 4
   %13337 = load i32, ptr %1386, align 4
   %13338 = icmp eq i32 %13336, %13337
@@ -35454,7 +35454,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5613:                ; preds = %13332, %_ZNSt6vecto
   br label %common.resume
 
 13367:                                            ; preds = %13335
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_167clEv"(ptr dead_on_unwind noalias writable align 4 %1391)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_167clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1391)
   %13368 = load i32, ptr %1512, align 4
   %13369 = load i32, ptr %1391, align 4
   %13370 = icmp eq i32 %13368, %13369
@@ -35580,7 +35580,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5613:                ; preds = %13332, %_ZNSt6vecto
   br i1 %.not, label %13409, label %.thread6210.thread
 
 13409:                                            ; preds = %13406
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_168clEv"(ptr dead_on_unwind noalias writable align 4 %1398)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_168clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1398)
   %13410 = load i32, ptr %1512, align 4
   %13411 = load i32, ptr %1398, align 4
   %13412 = icmp eq i32 %13410, %13411
@@ -36772,7 +36772,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5623:                ; preds = %13821, %_ZNSt6vecto
   br label %common.resume
 
 .thread6210:                                      ; preds = %13404, %13409
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_169clEv"(ptr dead_on_unwind noalias writable align 4 %1454)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_169clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1454)
   %13822 = load i32, ptr %1512, align 4
   %13823 = load i32, ptr %1454, align 4
   %13824 = icmp eq i32 %13822, %13823
@@ -37149,7 +37149,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5796:                ; preds = %13954, %_ZNSt6vecto
   br label %common.resume
 
 13957:                                            ; preds = %.thread6210
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_170clEv"(ptr dead_on_unwind noalias writable align 4 %1469)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_170clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1469)
   %13958 = load i32, ptr %1512, align 4
   %13959 = load i32, ptr %1469, align 4
   %13960 = icmp eq i32 %13958, %13959
@@ -37238,8 +37238,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5796:                ; preds = %13954, %_ZNSt6vecto
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit2789
 
 13990:                                            ; preds = %13957
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_171clEv"(ptr dead_on_unwind noalias writable align 4 %1474)
-  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_172clEv"(ptr dead_on_unwind noalias writable align 4 %1475)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_171clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1474)
+  invoke fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_172clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1475)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit5806 unwind label %14044
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit5806: ; preds = %13990
@@ -37503,7 +37503,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5833:                ; preds = %14077, %_ZNSt6vecto
   br label %common.resume
 
 14080:                                            ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit5806
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_173clEv"(ptr dead_on_unwind noalias writable align 4 %1485)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_173clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1485)
   %14081 = load i32, ptr %1512, align 4
   %14082 = load i32, ptr %1485, align 4
   %14083 = icmp eq i32 %14081, %14082
@@ -37691,7 +37691,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5849:                ; preds = %14147, %_ZNSt6vecto
   br label %common.resume
 
 14148:                                            ; preds = %14080
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_174clEv"(ptr dead_on_unwind noalias writable align 4 %1495)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_174clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1495)
   %14149 = load i32, ptr %1512, align 4
   %14150 = load i32, ptr %1495, align 4
   %14151 = icmp eq i32 %14149, %14150
@@ -37896,7 +37896,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5849:                ; preds = %14147, %_ZNSt6vecto
   br label %common.resume
 
 14236:                                            ; preds = %14148
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_175clEv"(ptr dead_on_unwind noalias writable align 4 %1503)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_175clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1503)
   %14237 = load i32, ptr %1512, align 4
   %14238 = load i32, ptr %1503, align 4
   %14239 = icmp eq i32 %14237, %14238
@@ -38101,7 +38101,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5849:                ; preds = %14147, %_ZNSt6vecto
   br label %common.resume
 
 14324:                                            ; preds = %14236
-  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_176clEv"(ptr dead_on_unwind noalias writable align 4 %1511)
+  call fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_176clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %1511)
   %14325 = load i32, ptr %1512, align 4
   %14326 = load i32, ptr %1511, align 4
   %14327 = icmp eq i32 %14325, %14326
@@ -39563,7 +39563,7 @@ declare void @_ZN5ezSAT7vec_addERKSt6vectorIiSaIiEES4_(ptr dead_on_unwind writab
 declare void @_ZN5ezSAT7vec_subERKSt6vectorIiSaIiEES4_(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(284), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_54clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_54clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_54clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -40438,7 +40438,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %127, %_ZNSt6vectorI
 declare void @_ZN5ezSAT7vec_iteEiRKSt6vectorIiSaIiEES4_(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(284), i32 noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_73clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_73clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_73clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -40488,7 +40488,7 @@ declare void @_ZN5ezSAT7vec_iteERKSt6vectorIiSaIiEES4_S4_(ptr dead_on_unwind wri
 declare void @_ZN5ezSAT7vec_iffERKSt6vectorIiSaIiEES4_(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(284), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_74clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_74clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_74clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -40706,7 +40706,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_76clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_76clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_76clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -40906,7 +40906,7 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJiEEEvDpOT_.exit: ; preds = %7, %_ZNSt6vector
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_77clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_77clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_77clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -40952,7 +40952,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_78clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_78clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_78clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -40998,7 +40998,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_79clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_79clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_79clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41044,7 +41044,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_80clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_80clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_80clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41090,7 +41090,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_81clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_81clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_81clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41136,7 +41136,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_82clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_82clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_82clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41182,7 +41182,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_83clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_83clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_83clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41228,7 +41228,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_84clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_84clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_84clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41274,7 +41274,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_85clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_85clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_85clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41320,7 +41320,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_86clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_86clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_86clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41366,7 +41366,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_87clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_87clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_87clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41412,7 +41412,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_88clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_88clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_88clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41458,7 +41458,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_89clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_89clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_89clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41504,7 +41504,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_90clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_90clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_90clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41550,7 +41550,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_91clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_91clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_91clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41596,7 +41596,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_92clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_92clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_92clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41642,7 +41642,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_93clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_93clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_93clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41688,7 +41688,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_94clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_94clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_94clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41734,7 +41734,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_95clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_95clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_95clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41780,7 +41780,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_96clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_96clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_96clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41826,7 +41826,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_97clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_97clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_97clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41872,7 +41872,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_98clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_98clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_98clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41918,7 +41918,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_99clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_99clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_99clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -41964,7 +41964,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_100clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_100clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_100clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42010,7 +42010,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_101clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_101clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_101clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42056,7 +42056,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_102clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_102clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_102clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42104,7 +42104,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 declare noundef i32 @_ZN5ezSAT10expressionENS_4OpIdEiiiiii(ptr noundef nonnull align 8 dereferenceable(284), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_103clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_103clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_103clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42150,7 +42150,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_104clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_104clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_104clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42196,7 +42196,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_105clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_105clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_105clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42242,7 +42242,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_106clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_106clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_106clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42288,7 +42288,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_107clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_107clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_107clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42334,7 +42334,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_108clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_108clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_108clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42380,7 +42380,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_109clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_109clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_109clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42426,7 +42426,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_110clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_110clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_110clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42472,7 +42472,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_111clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_111clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_111clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42518,7 +42518,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_112clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_112clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_112clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42729,7 +42729,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE9do_lo
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL5Const7as_boolEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_113clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_113clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_113clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42775,7 +42775,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_114clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_114clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_114clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42821,7 +42821,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_115clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_115clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_115clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42871,7 +42871,7 @@ declare noundef i32 @_ZN5ezSAT13vec_lt_signedERKSt6vectorIiSaIiEES4_(ptr noundef
 declare noundef i32 @_ZN5ezSAT15vec_lt_unsignedERKSt6vectorIiSaIiEES4_(ptr noundef nonnull align 8 dereferenceable(284), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_116clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_116clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_116clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42921,7 +42921,7 @@ declare noundef i32 @_ZN5ezSAT13vec_le_signedERKSt6vectorIiSaIiEES4_(ptr noundef
 declare noundef i32 @_ZN5ezSAT15vec_le_unsignedERKSt6vectorIiSaIiEES4_(ptr noundef nonnull align 8 dereferenceable(284), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_117clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_117clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_117clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -42967,7 +42967,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_118clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_118clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_118clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43013,7 +43013,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_119clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_119clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_119clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43059,7 +43059,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_120clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_120clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_120clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43107,7 +43107,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 declare noundef i32 @_ZN5ezSAT6vec_neERKSt6vectorIiSaIiEES4_(ptr noundef nonnull align 8 dereferenceable(284), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_121clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_121clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_121clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43157,7 +43157,7 @@ declare noundef i32 @_ZN5ezSAT13vec_ge_signedERKSt6vectorIiSaIiEES4_(ptr noundef
 declare noundef i32 @_ZN5ezSAT15vec_ge_unsignedERKSt6vectorIiSaIiEES4_(ptr noundef nonnull align 8 dereferenceable(284), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_122clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_122clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_122clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43207,7 +43207,7 @@ declare noundef i32 @_ZN5ezSAT13vec_gt_signedERKSt6vectorIiSaIiEES4_(ptr noundef
 declare noundef i32 @_ZN5ezSAT15vec_gt_unsignedERKSt6vectorIiSaIiEES4_(ptr noundef nonnull align 8 dereferenceable(284), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_123clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_123clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_123clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43253,7 +43253,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_124clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_124clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_124clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43299,7 +43299,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_125clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_125clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_125clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43345,7 +43345,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_126clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_126clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_126clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43391,7 +43391,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_127clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_127clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_127clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43437,7 +43437,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_128clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_128clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_128clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43483,7 +43483,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_129clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_129clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_129clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43529,7 +43529,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_130clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_130clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_130clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43575,7 +43575,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_131clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_131clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_131clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43621,7 +43621,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_132clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_132clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_132clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43667,7 +43667,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_133clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_133clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_133clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43713,7 +43713,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_134clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_134clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_134clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43759,7 +43759,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_135clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_135clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_135clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43807,7 +43807,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 declare void @_ZN5ezSAT14vec_shift_leftERKSt6vectorIiSaIiEES4_bii(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(284), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_136clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_136clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_136clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43855,7 +43855,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 declare void @_ZN5ezSAT15vec_shift_rightERKSt6vectorIiSaIiEES4_bii(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(284), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_137clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_137clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_137clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43901,7 +43901,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_138clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_138clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_138clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43947,7 +43947,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_139clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_139clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_139clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -43993,7 +43993,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_140clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_140clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_140clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -44039,7 +44039,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_141clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_141clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_141clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -44085,7 +44085,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_142clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_142clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_142clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -44131,7 +44131,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_143clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_143clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_143clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -44177,7 +44177,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_144clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_144clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_144clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -44223,7 +44223,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_145clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_145clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_145clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -44269,7 +44269,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_146clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_146clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_146clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -44315,7 +44315,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_147clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_147clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_147clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -44361,7 +44361,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_148clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_148clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_148clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -45088,7 +45088,7 @@ _ZNSt6vectorIN5Yosys4Macc6port_tESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_149clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_149clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_149clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -45134,7 +45134,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_150clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_150clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_150clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -45180,7 +45180,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_151clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_151clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_151clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -45226,7 +45226,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_152clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_152clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_152clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -45274,7 +45274,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 declare void @_ZN5ezSAT7vec_negERKSt6vectorIiSaIiEE(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(284), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_153clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_153clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_153clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -45410,7 +45410,7 @@ _ZN5ezSAT2_V3getEPS_.exit10:                      ; preds = %40, %42
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_154clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_154clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_154clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -45456,7 +45456,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_155clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_155clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_155clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -45506,7 +45506,7 @@ declare noundef i32 @_ZN5ezSAT13vec_reduce_orERKSt6vectorIiSaIiEE(ptr noundef no
 declare void @_ZN5ezSAT18vec_const_unsignedEmi(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(284), i64 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_156clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_156clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_156clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -45552,7 +45552,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_157clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_157clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_157clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -45598,7 +45598,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_158clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_158clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_158clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -45644,7 +45644,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_159clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_159clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_159clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -45690,7 +45690,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_160clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_160clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_160clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -45736,7 +45736,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_161clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_161clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_161clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -45784,7 +45784,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Yosys5RTLIL4Cell8getParamERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_162clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_162clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_162clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -46033,7 +46033,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_163clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_163clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_163clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -46079,7 +46079,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_164clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_164clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_164clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -46125,7 +46125,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_165clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_165clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_165clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -46171,7 +46171,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_166clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_166clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_166clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -47212,7 +47212,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE9do_lo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_167clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_167clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_167clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -47344,7 +47344,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE9do_lookupERKS3_R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_168clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_168clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_168clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -48293,7 +48293,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys5RTLIL7Sig
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_169clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_169clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_169clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -48339,7 +48339,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_170clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_170clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_170clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -48385,7 +48385,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_171clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_171clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_171clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -48431,7 +48431,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_172clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_172clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_172clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -48477,7 +48477,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_173clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_173clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_173clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -48642,7 +48642,7 @@ _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEclERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_174clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_174clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_174clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -48786,7 +48786,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_175clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_175clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_175clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -48832,7 +48832,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_176clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_176clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK5$_176clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -51064,7 +51064,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   %81 = getelementptr inbounds i32, ptr %74, i64 %70
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
-.loopexit:                                        ; preds = %55, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit, %117, %119, %37, %71, %98, %115
+.loopexit:                                        ; preds = %55, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit, %117, %119, %37, %71, %98, %115
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store ptr %32, ptr %16, align 8
@@ -51148,9 +51148,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 115:                                              ; preds = %110
   %116 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %114)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit unwind label %.loopexit
+          to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit unwind label %.loopexit
 
-_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit: ; preds = %115
+_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit: ; preds = %115
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.25, ptr noundef %116)
           to label %122 unwind label %.loopexit
 
@@ -51164,7 +51164,7 @@ _ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit: ; preds = %115
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.26, ptr noundef %118, i32 noundef %121)
           to label %122 unwind label %.loopexit
 
-122:                                              ; preds = %119, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit
+122:                                              ; preds = %119, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit
   %123 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %124 unwind label %161
 
@@ -57644,229 +57644,229 @@ attributes #28 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEv: argument 0"}
-!8 = distinct !{!8, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEv"}
+!7 = distinct !{!7, !8, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEv.argprom: argument 0"}
+!8 = distinct !{!8, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEv.argprom"}
 !9 = !{!"branch_weights", i32 1, i32 1048575}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_1clEv: argument 0"}
-!12 = distinct !{!12, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_1clEv"}
+!11 = distinct !{!11, !12, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_1clEv.argprom: argument 0"}
+!12 = distinct !{!12, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_1clEv.argprom"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_2clEv: argument 0"}
-!15 = distinct !{!15, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_2clEv"}
+!14 = distinct !{!14, !15, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_2clEv.argprom: argument 0"}
+!15 = distinct !{!15, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_2clEv.argprom"}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_3clEv: argument 0"}
-!18 = distinct !{!18, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_3clEv"}
+!17 = distinct !{!17, !18, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_3clEv.argprom: argument 0"}
+!18 = distinct !{!18, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_3clEv.argprom"}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_4clEv: argument 0"}
-!21 = distinct !{!21, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_4clEv"}
+!20 = distinct !{!20, !21, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_4clEv.argprom: argument 0"}
+!21 = distinct !{!21, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_4clEv.argprom"}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_5clEv: argument 0"}
-!24 = distinct !{!24, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_5clEv"}
+!23 = distinct !{!23, !24, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_5clEv.argprom: argument 0"}
+!24 = distinct !{!24, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_5clEv.argprom"}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_6clEv: argument 0"}
-!27 = distinct !{!27, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_6clEv"}
+!26 = distinct !{!26, !27, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_6clEv.argprom: argument 0"}
+!27 = distinct !{!27, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_6clEv.argprom"}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_7clEv: argument 0"}
-!30 = distinct !{!30, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_7clEv"}
+!29 = distinct !{!29, !30, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_7clEv.argprom: argument 0"}
+!30 = distinct !{!30, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_7clEv.argprom"}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_8clEv: argument 0"}
-!33 = distinct !{!33, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_8clEv"}
+!32 = distinct !{!32, !33, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_8clEv.argprom: argument 0"}
+!33 = distinct !{!33, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_8clEv.argprom"}
 !34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_9clEv: argument 0"}
-!36 = distinct !{!36, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_9clEv"}
+!35 = distinct !{!35, !36, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_9clEv.argprom: argument 0"}
+!36 = distinct !{!36, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_9clEv.argprom"}
 !37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_10clEv: argument 0"}
-!39 = distinct !{!39, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_10clEv"}
+!38 = distinct !{!38, !39, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_10clEv.argprom: argument 0"}
+!39 = distinct !{!39, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_10clEv.argprom"}
 !40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
 !42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_11clEv: argument 0"}
-!44 = distinct !{!44, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_11clEv"}
+!43 = distinct !{!43, !44, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_11clEv.argprom: argument 0"}
+!44 = distinct !{!44, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_11clEv.argprom"}
 !45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_12clEv: argument 0"}
-!47 = distinct !{!47, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_12clEv"}
+!46 = distinct !{!46, !47, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_12clEv.argprom: argument 0"}
+!47 = distinct !{!47, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_12clEv.argprom"}
 !48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_13clEv: argument 0"}
-!50 = distinct !{!50, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_13clEv"}
+!49 = distinct !{!49, !50, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_13clEv.argprom: argument 0"}
+!50 = distinct !{!50, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_13clEv.argprom"}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_14clEv: argument 0"}
-!53 = distinct !{!53, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_14clEv"}
+!52 = distinct !{!52, !53, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_14clEv.argprom: argument 0"}
+!53 = distinct !{!53, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_14clEv.argprom"}
 !54 = distinct !{!54, !41}
 !55 = distinct !{!55, !41}
 !56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_15clEv: argument 0"}
-!58 = distinct !{!58, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_15clEv"}
+!57 = distinct !{!57, !58, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_15clEv.argprom: argument 0"}
+!58 = distinct !{!58, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_15clEv.argprom"}
 !59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_16clEv: argument 0"}
-!61 = distinct !{!61, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_16clEv"}
+!60 = distinct !{!60, !61, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_16clEv.argprom: argument 0"}
+!61 = distinct !{!61, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_16clEv.argprom"}
 !62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_17clEv: argument 0"}
-!64 = distinct !{!64, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_17clEv"}
+!63 = distinct !{!63, !64, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_17clEv.argprom: argument 0"}
+!64 = distinct !{!64, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_17clEv.argprom"}
 !65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_18clEv: argument 0"}
-!67 = distinct !{!67, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_18clEv"}
+!66 = distinct !{!66, !67, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_18clEv.argprom: argument 0"}
+!67 = distinct !{!67, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_18clEv.argprom"}
 !68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_19clEv: argument 0"}
-!70 = distinct !{!70, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_19clEv"}
+!69 = distinct !{!69, !70, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_19clEv.argprom: argument 0"}
+!70 = distinct !{!70, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_19clEv.argprom"}
 !71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_20clEv: argument 0"}
-!73 = distinct !{!73, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_20clEv"}
+!72 = distinct !{!72, !73, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_20clEv.argprom: argument 0"}
+!73 = distinct !{!73, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_20clEv.argprom"}
 !74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_21clEv: argument 0"}
-!76 = distinct !{!76, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_21clEv"}
+!75 = distinct !{!75, !76, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_21clEv.argprom: argument 0"}
+!76 = distinct !{!76, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_21clEv.argprom"}
 !77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_22clEv: argument 0"}
-!79 = distinct !{!79, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_22clEv"}
+!78 = distinct !{!78, !79, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_22clEv.argprom: argument 0"}
+!79 = distinct !{!79, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_22clEv.argprom"}
 !80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_23clEv: argument 0"}
-!82 = distinct !{!82, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_23clEv"}
+!81 = distinct !{!81, !82, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_23clEv.argprom: argument 0"}
+!82 = distinct !{!82, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_23clEv.argprom"}
 !83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_24clEv: argument 0"}
-!85 = distinct !{!85, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_24clEv"}
+!84 = distinct !{!84, !85, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_24clEv.argprom: argument 0"}
+!85 = distinct !{!85, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_24clEv.argprom"}
 !86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_25clEv: argument 0"}
-!88 = distinct !{!88, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_25clEv"}
+!87 = distinct !{!87, !88, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_25clEv.argprom: argument 0"}
+!88 = distinct !{!88, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_25clEv.argprom"}
 !89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_26clEv: argument 0"}
-!91 = distinct !{!91, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_26clEv"}
+!90 = distinct !{!90, !91, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_26clEv.argprom: argument 0"}
+!91 = distinct !{!91, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_26clEv.argprom"}
 !92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_27clEv: argument 0"}
-!94 = distinct !{!94, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_27clEv"}
+!93 = distinct !{!93, !94, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_27clEv.argprom: argument 0"}
+!94 = distinct !{!94, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_27clEv.argprom"}
 !95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_28clEv: argument 0"}
-!97 = distinct !{!97, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_28clEv"}
+!96 = distinct !{!96, !97, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_28clEv.argprom: argument 0"}
+!97 = distinct !{!97, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_28clEv.argprom"}
 !98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_29clEv: argument 0"}
-!100 = distinct !{!100, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_29clEv"}
+!99 = distinct !{!99, !100, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_29clEv.argprom: argument 0"}
+!100 = distinct !{!100, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_29clEv.argprom"}
 !101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_30clEv: argument 0"}
-!103 = distinct !{!103, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_30clEv"}
+!102 = distinct !{!102, !103, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_30clEv.argprom: argument 0"}
+!103 = distinct !{!103, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_30clEv.argprom"}
 !104 = !{!105}
-!105 = distinct !{!105, !106, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv: argument 0"}
-!106 = distinct !{!106, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv"}
+!105 = distinct !{!105, !106, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.argprom: argument 0"}
+!106 = distinct !{!106, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_31clEv.argprom"}
 !107 = !{!108}
-!108 = distinct !{!108, !109, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_32clEv: argument 0"}
-!109 = distinct !{!109, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_32clEv"}
+!108 = distinct !{!108, !109, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_32clEv.argprom: argument 0"}
+!109 = distinct !{!109, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_32clEv.argprom"}
 !110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_33clEv: argument 0"}
-!112 = distinct !{!112, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_33clEv"}
+!111 = distinct !{!111, !112, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_33clEv.argprom: argument 0"}
+!112 = distinct !{!112, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_33clEv.argprom"}
 !113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv: argument 0"}
-!115 = distinct !{!115, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv"}
+!114 = distinct !{!114, !115, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.argprom: argument 0"}
+!115 = distinct !{!115, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_34clEv.argprom"}
 !116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_35clEv: argument 0"}
-!118 = distinct !{!118, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_35clEv"}
+!117 = distinct !{!117, !118, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_35clEv.argprom: argument 0"}
+!118 = distinct !{!118, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_35clEv.argprom"}
 !119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_36clEv: argument 0"}
-!121 = distinct !{!121, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_36clEv"}
+!120 = distinct !{!120, !121, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_36clEv.argprom: argument 0"}
+!121 = distinct !{!121, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_36clEv.argprom"}
 !122 = !{!123}
-!123 = distinct !{!123, !124, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_37clEv: argument 0"}
-!124 = distinct !{!124, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_37clEv"}
+!123 = distinct !{!123, !124, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_37clEv.argprom: argument 0"}
+!124 = distinct !{!124, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_37clEv.argprom"}
 !125 = !{!126}
-!126 = distinct !{!126, !127, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_38clEv: argument 0"}
-!127 = distinct !{!127, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_38clEv"}
+!126 = distinct !{!126, !127, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_38clEv.argprom: argument 0"}
+!127 = distinct !{!127, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_38clEv.argprom"}
 !128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv: argument 0"}
-!130 = distinct !{!130, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv"}
+!129 = distinct !{!129, !130, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.argprom: argument 0"}
+!130 = distinct !{!130, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_39clEv.argprom"}
 !131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv: argument 0"}
-!133 = distinct !{!133, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv"}
+!132 = distinct !{!132, !133, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.argprom: argument 0"}
+!133 = distinct !{!133, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_40clEv.argprom"}
 !134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv: argument 0"}
-!136 = distinct !{!136, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv"}
+!135 = distinct !{!135, !136, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.argprom: argument 0"}
+!136 = distinct !{!136, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_41clEv.argprom"}
 !137 = !{!138}
-!138 = distinct !{!138, !139, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv: argument 0"}
-!139 = distinct !{!139, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv"}
+!138 = distinct !{!138, !139, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.argprom: argument 0"}
+!139 = distinct !{!139, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_42clEv.argprom"}
 !140 = !{!141}
-!141 = distinct !{!141, !142, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_43clEv: argument 0"}
-!142 = distinct !{!142, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_43clEv"}
+!141 = distinct !{!141, !142, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_43clEv.argprom: argument 0"}
+!142 = distinct !{!142, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_43clEv.argprom"}
 !143 = !{!144}
-!144 = distinct !{!144, !145, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_44clEv: argument 0"}
-!145 = distinct !{!145, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_44clEv"}
+!144 = distinct !{!144, !145, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_44clEv.argprom: argument 0"}
+!145 = distinct !{!145, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_44clEv.argprom"}
 !146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_45clEv: argument 0"}
-!148 = distinct !{!148, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_45clEv"}
+!147 = distinct !{!147, !148, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_45clEv.argprom: argument 0"}
+!148 = distinct !{!148, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_45clEv.argprom"}
 !149 = !{!150}
-!150 = distinct !{!150, !151, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_46clEv: argument 0"}
-!151 = distinct !{!151, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_46clEv"}
+!150 = distinct !{!150, !151, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_46clEv.argprom: argument 0"}
+!151 = distinct !{!151, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_46clEv.argprom"}
 !152 = !{!153}
-!153 = distinct !{!153, !154, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_47clEv: argument 0"}
-!154 = distinct !{!154, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_47clEv"}
+!153 = distinct !{!153, !154, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_47clEv.argprom: argument 0"}
+!154 = distinct !{!154, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_47clEv.argprom"}
 !155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_48clEv: argument 0"}
-!157 = distinct !{!157, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_48clEv"}
+!156 = distinct !{!156, !157, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_48clEv.argprom: argument 0"}
+!157 = distinct !{!157, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_48clEv.argprom"}
 !158 = !{!159}
-!159 = distinct !{!159, !160, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_49clEv: argument 0"}
-!160 = distinct !{!160, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_49clEv"}
+!159 = distinct !{!159, !160, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_49clEv.argprom: argument 0"}
+!160 = distinct !{!160, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_49clEv.argprom"}
 !161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_50clEv: argument 0"}
-!163 = distinct !{!163, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_50clEv"}
+!162 = distinct !{!162, !163, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_50clEv.argprom: argument 0"}
+!163 = distinct !{!163, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_50clEv.argprom"}
 !164 = !{!165}
-!165 = distinct !{!165, !166, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_51clEv: argument 0"}
-!166 = distinct !{!166, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_51clEv"}
+!165 = distinct !{!165, !166, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_51clEv.argprom: argument 0"}
+!166 = distinct !{!166, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_51clEv.argprom"}
 !167 = !{!168}
-!168 = distinct !{!168, !169, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_52clEv: argument 0"}
-!169 = distinct !{!169, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_52clEv"}
+!168 = distinct !{!168, !169, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_52clEv.argprom: argument 0"}
+!169 = distinct !{!169, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_52clEv.argprom"}
 !170 = !{!171}
-!171 = distinct !{!171, !172, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv: argument 0"}
-!172 = distinct !{!172, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv"}
+!171 = distinct !{!171, !172, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.argprom: argument 0"}
+!172 = distinct !{!172, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_53clEv.argprom"}
 !173 = !{!174}
-!174 = distinct !{!174, !175, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_55clEv: argument 0"}
-!175 = distinct !{!175, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_55clEv"}
+!174 = distinct !{!174, !175, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_55clEv.argprom: argument 0"}
+!175 = distinct !{!175, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_55clEv.argprom"}
 !176 = !{!177}
-!177 = distinct !{!177, !178, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_56clEv: argument 0"}
-!178 = distinct !{!178, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_56clEv"}
+!177 = distinct !{!177, !178, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_56clEv.argprom: argument 0"}
+!178 = distinct !{!178, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_56clEv.argprom"}
 !179 = !{!180}
-!180 = distinct !{!180, !181, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_57clEv: argument 0"}
-!181 = distinct !{!181, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_57clEv"}
+!180 = distinct !{!180, !181, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_57clEv.argprom: argument 0"}
+!181 = distinct !{!181, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_57clEv.argprom"}
 !182 = !{!183}
-!183 = distinct !{!183, !184, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_58clEv: argument 0"}
-!184 = distinct !{!184, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_58clEv"}
+!183 = distinct !{!183, !184, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_58clEv.argprom: argument 0"}
+!184 = distinct !{!184, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_58clEv.argprom"}
 !185 = !{!186}
-!186 = distinct !{!186, !187, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_59clEv: argument 0"}
-!187 = distinct !{!187, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_59clEv"}
+!186 = distinct !{!186, !187, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_59clEv.argprom: argument 0"}
+!187 = distinct !{!187, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_59clEv.argprom"}
 !188 = !{!189}
-!189 = distinct !{!189, !190, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_60clEv: argument 0"}
-!190 = distinct !{!190, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_60clEv"}
+!189 = distinct !{!189, !190, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_60clEv.argprom: argument 0"}
+!190 = distinct !{!190, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_60clEv.argprom"}
 !191 = !{!192}
-!192 = distinct !{!192, !193, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_61clEv: argument 0"}
-!193 = distinct !{!193, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_61clEv"}
+!192 = distinct !{!192, !193, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_61clEv.argprom: argument 0"}
+!193 = distinct !{!193, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_61clEv.argprom"}
 !194 = !{!195}
-!195 = distinct !{!195, !196, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_62clEv: argument 0"}
-!196 = distinct !{!196, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_62clEv"}
+!195 = distinct !{!195, !196, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_62clEv.argprom: argument 0"}
+!196 = distinct !{!196, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_62clEv.argprom"}
 !197 = !{!198}
-!198 = distinct !{!198, !199, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_63clEv: argument 0"}
-!199 = distinct !{!199, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_63clEv"}
+!198 = distinct !{!198, !199, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_63clEv.argprom: argument 0"}
+!199 = distinct !{!199, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_63clEv.argprom"}
 !200 = !{!201}
-!201 = distinct !{!201, !202, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_64clEv: argument 0"}
-!202 = distinct !{!202, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_64clEv"}
+!201 = distinct !{!201, !202, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_64clEv.argprom: argument 0"}
+!202 = distinct !{!202, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_64clEv.argprom"}
 !203 = !{!204}
-!204 = distinct !{!204, !205, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_65clEv: argument 0"}
-!205 = distinct !{!205, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_65clEv"}
+!204 = distinct !{!204, !205, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_65clEv.argprom: argument 0"}
+!205 = distinct !{!205, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_65clEv.argprom"}
 !206 = !{!207}
-!207 = distinct !{!207, !208, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_66clEv: argument 0"}
-!208 = distinct !{!208, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_66clEv"}
+!207 = distinct !{!207, !208, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_66clEv.argprom: argument 0"}
+!208 = distinct !{!208, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_66clEv.argprom"}
 !209 = !{!210}
-!210 = distinct !{!210, !211, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv: argument 0"}
-!211 = distinct !{!211, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv"}
+!210 = distinct !{!210, !211, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.argprom: argument 0"}
+!211 = distinct !{!211, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.argprom"}
 !212 = !{!213}
-!213 = distinct !{!213, !214, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEv: argument 0"}
-!214 = distinct !{!214, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEv"}
+!213 = distinct !{!213, !214, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEv.argprom: argument 0"}
+!214 = distinct !{!214, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_68clEv.argprom"}
 !215 = !{!216}
-!216 = distinct !{!216, !217, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_69clEv: argument 0"}
-!217 = distinct !{!217, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_69clEv"}
+!216 = distinct !{!216, !217, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_69clEv.argprom: argument 0"}
+!217 = distinct !{!217, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_69clEv.argprom"}
 !218 = !{!219}
-!219 = distinct !{!219, !220, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_70clEv: argument 0"}
-!220 = distinct !{!220, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_70clEv"}
+!219 = distinct !{!219, !220, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_70clEv.argprom: argument 0"}
+!220 = distinct !{!220, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_70clEv.argprom"}
 !221 = !{!222}
-!222 = distinct !{!222, !223, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_71clEv: argument 0"}
-!223 = distinct !{!223, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_71clEv"}
+!222 = distinct !{!222, !223, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_71clEv.argprom: argument 0"}
+!223 = distinct !{!223, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_71clEv.argprom"}
 !224 = !{!225}
-!225 = distinct !{!225, !226, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv: argument 0"}
-!226 = distinct !{!226, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv"}
+!225 = distinct !{!225, !226, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.argprom: argument 0"}
+!226 = distinct !{!226, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_72clEv.argprom"}
 !227 = !{!228}
-!228 = distinct !{!228, !229, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv: argument 0"}
-!229 = distinct !{!229, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv"}
+!228 = distinct !{!228, !229, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.argprom: argument 0"}
+!229 = distinct !{!229, !"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.argprom"}
 !230 = distinct !{!230, !41}
 !231 = distinct !{!231, !41}
 !232 = distinct !{!232, !41}

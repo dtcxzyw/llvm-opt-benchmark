@@ -5282,18 +5282,18 @@ if.then6.i30.i:                                   ; preds = %for.end.i27.i
 if.then8.i32.i:                                   ; preds = %if.then6.i30.i
   %conv.i33.i = trunc i64 %flags.addr.1.i21.i to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, ptr noundef %sep.1.i22.i, i32 noundef %conv.i33.i, ptr noundef nonnull @.str.24) #9
-  br label %print_mmap_both.exit
+  br label %print_mmap_both.argprom.exit
 
 if.else.i34.i:                                    ; preds = %if.then6.i30.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #9
-  br label %print_mmap_both.exit
+  br label %print_mmap_both.argprom.exit
 
 if.else11.i28.i:                                  ; preds = %for.end.i27.i
   %conv12.i29.i = trunc i64 %flags.addr.1.i21.i to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %conv12.i29.i, ptr noundef nonnull @.str.24) #9
-  br label %print_mmap_both.exit
+  br label %print_mmap_both.argprom.exit
 
-print_mmap_both.exit:                             ; preds = %if.then8.i32.i, %if.else.i34.i, %if.else11.i28.i
+print_mmap_both.argprom.exit:                     ; preds = %if.then8.i32.i, %if.else.i34.i, %if.else11.i28.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %format.i40.i)
   %call1.i41.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %format.i40.i, i64 noundef 64, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.423, ptr noundef nonnull @.str.24) #9
   call void (ptr, ...) @qemu_log(ptr noundef nonnull %format.i40.i, i64 noundef %arg4) #9

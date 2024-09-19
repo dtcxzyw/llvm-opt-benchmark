@@ -816,7 +816,7 @@ if.then63.i:                                      ; preds = %for.body.i
   %takes_arg.i = getelementptr inbounds i8, ptr %i.07.i, i64 8
   %16 = load i32, ptr %takes_arg.i, align 8
   %tobool69.not.i = icmp eq i32 %16, 0
-  br i1 %tobool69.not.i, label %mygetopt_long.exit, label %if.then70.i
+  br i1 %tobool69.not.i, label %mygetopt_long.argprom.exit, label %if.then70.i
 
 if.then70.i:                                      ; preds = %if.then63.i
   %cmp71.i = icmp slt i32 %inc64.i, %0
@@ -832,13 +832,13 @@ if.then73.i:                                      ; preds = %if.then70.i
 lor.lhs.false77.i:                                ; preds = %if.then73.i
   %17 = load i8, ptr %.pre11.i, align 1
   %cmp82.not.i = icmp eq i8 %17, 45
-  br i1 %cmp82.not.i, label %mygetopt_long.exit, label %if.then84.i
+  br i1 %cmp82.not.i, label %mygetopt_long.argprom.exit, label %if.then84.i
 
 if.then84.i:                                      ; preds = %lor.lhs.false77.i, %if.then73.i
   store ptr %.pre11.i, ptr @myoptarg, align 8
   %inc87.i = add nsw i32 %6, 2
   store i32 %inc87.i, ptr @myoptind, align 4
-  br label %mygetopt_long.exit
+  br label %mygetopt_long.argprom.exit
 
 if.else.i:                                        ; preds = %if.then70.i
   %cmp90.not.i = icmp ne i32 %16, 2
@@ -936,12 +936,12 @@ if.then157.i:                                     ; preds = %land.lhs.true.i
   store i32 %inc160.i, ptr @myoptind, align 4
   br label %while.body
 
-mygetopt_long.exit:                               ; preds = %if.then63.i, %lor.lhs.false77.i, %if.then84.i
+mygetopt_long.argprom.exit:                       ; preds = %if.then63.i, %lor.lhs.false77.i, %if.then84.i
   %cmp.not.old = icmp eq i32 %15, -1
   br i1 %cmp.not.old, label %while.end, label %while.body
 
-while.body:                                       ; preds = %if.else.i, %if.then128.i, %if.then124.i, %if.then143.i, %if.then147.i, %land.lhs.true.i, %if.then157.i, %if.else144.i, %if.end115.i, %mygetopt_long.exit
-  %retval.0.i495 = phi i32 [ %15, %mygetopt_long.exit ], [ %conv104.i, %if.then128.i ], [ %conv104.i, %if.then124.i ], [ %conv104.i, %if.then143.i ], [ %conv104.i, %if.then147.i ], [ %conv104.i, %land.lhs.true.i ], [ %conv104.i, %if.then157.i ], [ %conv104.i, %if.else144.i ], [ %conv104.i, %if.end115.i ], [ %15, %if.else.i ]
+while.body:                                       ; preds = %if.else.i, %if.then128.i, %if.then124.i, %if.then143.i, %if.then147.i, %land.lhs.true.i, %if.then157.i, %if.else144.i, %if.end115.i, %mygetopt_long.argprom.exit
+  %retval.0.i495 = phi i32 [ %15, %mygetopt_long.argprom.exit ], [ %conv104.i, %if.then128.i ], [ %conv104.i, %if.then124.i ], [ %conv104.i, %if.then143.i ], [ %conv104.i, %if.then147.i ], [ %conv104.i, %land.lhs.true.i ], [ %conv104.i, %if.then157.i ], [ %conv104.i, %if.else144.i ], [ %conv104.i, %if.end115.i ], [ %15, %if.else.i ]
   switch i32 %retval.0.i495, label %sw.default [
     i32 63, label %sw.bb
     i32 257, label %sw.bb9
@@ -1474,7 +1474,7 @@ while.end.sink.split:                             ; preds = %if.end11.i, %while.
   store ptr %.sink, ptr @myoptarg, align 8
   br label %while.end
 
-while.end:                                        ; preds = %if.else.i, %mygetopt_long.exit, %for.inc.i, %while.end.sink.split, %if.then43.i
+while.end:                                        ; preds = %if.else.i, %mygetopt_long.argprom.exit, %for.inc.i, %while.end.sink.split, %if.then43.i
   store i32 0, ptr @myoptind, align 4
   %cmp275 = icmp eq i32 %version.01459, -99
   %tobool278.not = icmp eq i32 %doDTLS.01443, 0
@@ -2310,7 +2310,7 @@ if.then550:                                       ; preds = %do.end546
 if.else552:                                       ; preds = %if.then532
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %groups.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %groups.i, i8 0, i64 16, i1 false)
-  switch i32 %onlyKeyShare.09262479, label %SetKeyShare.exit [
+  switch i32 %onlyKeyShare.09262479, label %SetKeyShare.argprom.exit [
     i32 2, label %do.body8.i
     i32 1, label %do.body20.i
   ]
@@ -2338,17 +2338,17 @@ if.then37.i:                                      ; preds = %do.body20.i, %do.bo
   store i32 %storemerge.i, ptr %groups.i, align 16
   %call38.i = call i32 @wolfSSL_set_groups(ptr noundef %call490, ptr noundef nonnull %groups.i, i32 noundef 1) #25
   %cmp39.not.i = icmp eq i32 %call38.i, 1
-  br i1 %cmp39.not.i, label %SetKeyShare.exit, label %if.then40.i
+  br i1 %cmp39.not.i, label %SetKeyShare.argprom.exit, label %if.then40.i
 
 if.then40.i:                                      ; preds = %if.then37.i
   call fastcc void @err_sys(ptr noundef nonnull @.str.190) #24
   unreachable
 
-SetKeyShare.exit:                                 ; preds = %if.else552, %if.then37.i
+SetKeyShare.argprom.exit:                         ; preds = %if.else552, %if.then37.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %groups.i)
   br label %if.end554
 
-if.end554:                                        ; preds = %SetKeyShare.exit, %do.end546, %if.end522
+if.end554:                                        ; preds = %SetKeyShare.argprom.exit, %do.end546, %if.end522
   br i1 %tobool555.not, label %if.end558, label %if.then556
 
 if.then556:                                       ; preds = %if.end554
@@ -2374,7 +2374,7 @@ if.then.i386:                                     ; preds = %if.end561
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on2.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len15.i.i)
-  call fastcc void @build_addr(ptr noundef %addr.i.i, ptr noundef %cond.i.i, i16 noundef zeroext %port.2)
+  call fastcc void @build_addr.argelim(ptr noundef %addr.i.i, ptr noundef %cond.i.i, i16 noundef zeroext %port.2)
   %call.i.i.i = call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 17) #25
   %cmp6.i.i.i = icmp slt i32 %call.i.i.i, -1
   br i1 %cmp6.i.i.i, label %if.then2.i.i.i, label %tcp_socket.exit.i.i
@@ -2497,7 +2497,7 @@ if.then2.i:                                       ; preds = %if.end.i387
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i27.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on2.i28.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len22.i.i)
-  call fastcc void @build_addr(ptr noundef %addr.i26.i, ptr noundef %cond.i.i, i16 noundef zeroext %port.2)
+  call fastcc void @build_addr.argelim(ptr noundef %addr.i26.i, ptr noundef %cond.i.i, i16 noundef zeroext %port.2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i.i.i)
   %call1.i.i.i = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #25
   %cmp.i.i.i = icmp slt i32 %call1.i.i.i, -1
@@ -3152,7 +3152,7 @@ if.end688:                                        ; preds = %if.end688.sink.spli
   br i1 %or.cond31, label %if.then694, label %if.end697
 
 if.then694:                                       ; preds = %if.end688
-  call fastcc void @ServerRead(ptr noundef %call490, ptr noundef %input)
+  call fastcc void @ServerRead.argelim(ptr noundef %call490, ptr noundef %input)
   %call696 = call i32 @wolfSSL_get_error(ptr noundef %call490, i32 noundef 0) #25
   br label %if.end697
 
@@ -3185,7 +3185,7 @@ if.end714:                                        ; preds = %if.else713.split, %
   br i1 %tobool707.not, label %if.end744, label %if.then718
 
 if.then718:                                       ; preds = %if.end714
-  call fastcc void @ServerRead(ptr noundef %call490, ptr noundef %input)
+  call fastcc void @ServerRead.argelim(ptr noundef %call490, ptr noundef %input)
   br label %if.end744
 
 if.else721:                                       ; preds = %if.end697
@@ -3663,7 +3663,7 @@ declare ptr @wolfSSL_get_cipher_name_from_suite(i8 noundef zeroext, i8 noundef z
 declare ptr @wolfSSL_get_cipher_name_iana_from_suite(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ServerRead(ptr noundef %ssl, ptr noundef nonnull %input) unnamed_addr #0 {
+define internal fastcc void @ServerRead.argelim(ptr noundef %ssl, ptr noundef nonnull %input) unnamed_addr #0 {
 entry:
   %fds.i.i = alloca %struct.fd_set, align 8
   %errfds.i.i = alloca %struct.fd_set, align 8
@@ -3953,7 +3953,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 declare i32 @wolfIO_Send(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_addr(ptr nocapture noundef nonnull writeonly %addr, ptr noundef %peer, i16 noundef zeroext %port) unnamed_addr #0 {
+define internal fastcc void @build_addr.argelim(ptr nocapture noundef nonnull writeonly %addr, ptr noundef %peer, i16 noundef zeroext %port) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr, i8 0, i64 16, i1 false)
   %cmp1.not = icmp eq ptr %peer, null

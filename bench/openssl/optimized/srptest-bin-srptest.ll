@@ -74,14 +74,14 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal range(i32 0, 2) i32 @run_srp_tests() #0 {
 entry:
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 260, ptr noundef nonnull @.str.3) #2
-  %call = tail call fastcc i32 @run_srp(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
+  %call = tail call fastcc i32 @run_srp.argprom(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   %call1 = tail call i32 @test_false(ptr noundef nonnull @.str.2, i32 noundef 261, ptr noundef nonnull @.str.4, i32 noundef %call) #2
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 265, ptr noundef nonnull @.str.8) #2
-  %call2 = tail call fastcc i32 @run_srp(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.10)
+  %call2 = tail call fastcc i32 @run_srp.argprom(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.10)
   %call5 = tail call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 266, ptr noundef nonnull @.str.9, i32 noundef %call2) #2
   %tobool6.not = icmp ne i32 %call5, 0
   %. = zext i1 %tobool6.not to i32
@@ -254,7 +254,7 @@ declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unname
 declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @run_srp(ptr noundef %client_pass, ptr noundef %server_pass) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @run_srp.argprom(ptr noundef %client_pass, ptr noundef %server_pass) unnamed_addr #0 {
 entry:
   %s = alloca ptr, align 8
   %v = alloca ptr, align 8

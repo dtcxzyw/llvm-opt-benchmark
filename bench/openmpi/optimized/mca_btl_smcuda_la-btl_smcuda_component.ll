@@ -408,7 +408,7 @@ define internal noalias noundef ptr @mca_btl_smcuda_component_init(ptr nocapture
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
   %6 = icmp eq ptr %5, null
   %or.cond = select i1 %.not, i1 true, i1 %6
-  br i1 %or.cond, label %backing_store_init.exit.thread, label %7
+  br i1 %or.cond, label %backing_store_init.argprom.exit.thread, label %7
 
 7:                                                ; preds = %3
   %8 = load i16, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 308), align 4
@@ -416,7 +416,7 @@ define internal noalias noundef ptr @mca_btl_smcuda_component_init(ptr nocapture
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 304), align 8
   %11 = add i32 %10, 1
   %12 = icmp slt i32 %11, 2
-  br i1 %12, label %backing_store_init.exit.thread, label %13
+  br i1 %12, label %backing_store_init.argprom.exit.thread, label %13
 
 13:                                               ; preds = %7
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 292), align 4
@@ -460,7 +460,7 @@ calc_sm_max_procs.exit:                           ; preds = %13, %.sink.split.i
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   %38 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2368), ptr noundef nonnull @.str.27, ptr noundef %36, ptr noundef %37) #14
   %39 = icmp sgt i32 %38, -1
-  br i1 %39, label %set_uniq_paths_for_init_rndv.exit.i, label %.thread.i.i
+  br i1 %39, label %set_uniq_paths_for_init_rndv.argprom.exit.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %35, %30, %25, %calc_sm_max_procs.exit
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2344), align 8
@@ -492,45 +492,45 @@ calc_sm_max_procs.exit:                           ; preds = %13, %.sink.split.i
 48:                                               ; preds = %47, %45
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2368), align 16
   %.not24.i.i = icmp eq ptr %49, null
-  br i1 %.not24.i.i, label %set_uniq_paths_for_init_rndv.exit.i, label %50
+  br i1 %.not24.i.i, label %set_uniq_paths_for_init_rndv.argprom.exit.i, label %50
 
 50:                                               ; preds = %48
   tail call void @free(ptr noundef nonnull %49) #14
-  br label %set_uniq_paths_for_init_rndv.exit.i
+  br label %set_uniq_paths_for_init_rndv.argprom.exit.i
 
-set_uniq_paths_for_init_rndv.exit.i:              ; preds = %50, %48, %35
+set_uniq_paths_for_init_rndv.argprom.exit.i:      ; preds = %50, %48, %35
   %.04.i.i = phi i32 [ -2, %48 ], [ -2, %50 ], [ 0, %35 ]
   %51 = or i32 %.04.i.i, %9
   %or.cond.i = icmp eq i32 %51, 0
-  br i1 %or.cond.i, label %52, label %backing_store_init.exit
+  br i1 %or.cond.i, label %52, label %backing_store_init.argprom.exit
 
-52:                                               ; preds = %set_uniq_paths_for_init_rndv.exit.i
-  %53 = tail call fastcc i32 @create_rndv_file(i32 noundef 1)
+52:                                               ; preds = %set_uniq_paths_for_init_rndv.argprom.exit.i
+  %53 = tail call fastcc i32 @create_rndv_file.argprom(i32 noundef 1)
   %.not.i = icmp eq i32 %53, 0
-  br i1 %.not.i, label %54, label %backing_store_init.exit.thread
+  br i1 %.not.i, label %54, label %backing_store_init.argprom.exit.thread
 
 54:                                               ; preds = %52
-  %55 = tail call fastcc i32 @create_rndv_file(i32 noundef 0)
-  br label %backing_store_init.exit
+  %55 = tail call fastcc i32 @create_rndv_file.argprom(i32 noundef 0)
+  br label %backing_store_init.argprom.exit
 
-backing_store_init.exit:                          ; preds = %set_uniq_paths_for_init_rndv.exit.i, %54
-  %.0.i = phi i32 [ %55, %54 ], [ %.04.i.i, %set_uniq_paths_for_init_rndv.exit.i ]
+backing_store_init.argprom.exit:                  ; preds = %set_uniq_paths_for_init_rndv.argprom.exit.i, %54
+  %.0.i = phi i32 [ %55, %54 ], [ %.04.i.i, %set_uniq_paths_for_init_rndv.argprom.exit.i ]
   %.not10 = icmp eq i32 %.0.i, 0
-  br i1 %.not10, label %56, label %backing_store_init.exit.thread
+  br i1 %.not10, label %56, label %backing_store_init.argprom.exit.thread
 
-56:                                               ; preds = %backing_store_init.exit
+56:                                               ; preds = %backing_store_init.argprom.exit
   %57 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2312), align 8
   %58 = shl i64 %57, 3
   %59 = tail call noalias ptr @malloc(i64 noundef %58) #15
   store ptr %59, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2288), align 16
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %backing_store_init.exit.thread, label %61
+  br i1 %60, label %backing_store_init.argprom.exit.thread, label %61
 
 61:                                               ; preds = %56
   store i32 1, ptr %0, align 4
   %62 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #15
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %backing_store_init.exit.thread, label %64
+  br i1 %63, label %backing_store_init.argprom.exit.thread, label %64
 
 64:                                               ; preds = %61
   store ptr @mca_btl_smcuda, ptr %62, align 8
@@ -544,10 +544,10 @@ backing_store_init.exit:                          ; preds = %set_uniq_paths_for_
   store ptr @btl_smcuda_control, ptr getelementptr inbounds (i8, ptr @mca_btl_base_active_message_trigger, i64 544), align 16
   store ptr null, ptr getelementptr inbounds (i8, ptr @mca_btl_base_active_message_trigger, i64 552), align 8
   tail call void @opal_finalize_append_cleanup(ptr noundef nonnull @mca_btl_smcuda_component_fini, ptr noundef nonnull @.str.23, ptr noundef null) #14
-  br label %backing_store_init.exit.thread
+  br label %backing_store_init.argprom.exit.thread
 
-backing_store_init.exit.thread:                   ; preds = %52, %61, %56, %backing_store_init.exit, %7, %3, %64
-  %.0 = phi ptr [ %62, %64 ], [ null, %3 ], [ null, %7 ], [ null, %backing_store_init.exit ], [ null, %56 ], [ null, %61 ], [ null, %52 ]
+backing_store_init.argprom.exit.thread:           ; preds = %52, %61, %56, %backing_store_init.argprom.exit, %7, %3, %64
+  %.0 = phi ptr [ %62, %64 ], [ null, %3 ], [ null, %7 ], [ null, %backing_store_init.argprom.exit ], [ null, %56 ], [ null, %61 ], [ null, %52 ]
   ret ptr %.0
 }
 
@@ -1828,7 +1828,7 @@ define internal void @btl_smcuda_control(ptr noundef %0, ptr nocapture noundef r
   br label %94
 
 94:                                               ; preds = %83, %88
-  call fastcc void @mca_btl_smcuda_send_cuda_ipc_ack(ptr noundef nonnull %7)
+  call fastcc void @mca_btl_smcuda_send_cuda_ipc_ack.argprom.argelim(ptr noundef nonnull %7)
   br label %144
 
 95:                                               ; preds = %17, %20
@@ -2018,7 +2018,7 @@ opal_obj_run_destructors.exit7:                   ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -18, 1) i32 @create_rndv_file(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -18, 1) i32 @create_rndv_file.argprom(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %.not = icmp eq i32 %0, 0
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 292), align 4
@@ -2069,9 +2069,9 @@ define internal fastcc range(i32 -18, 1) i32 @create_rndv_file(i32 noundef range
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2344), align 8
   %43 = tail call ptr @mca_common_sm_module_create_and_attach(i64 noundef %spec.store.select, ptr noundef %42, i64 noundef 4208, i64 noundef 8) #14
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %create_and_attach.exit, label %55
+  br i1 %44, label %create_and_attach.argprom.exit, label %55
 
-create_and_attach.exit:                           ; preds = %38
+create_and_attach.argprom.exit:                   ; preds = %38
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.31, i64 noundef %spec.store.select) #14
   br label %get_mpool_res_size.exit.thread10
 
@@ -2087,9 +2087,9 @@ create_and_attach.exit:                           ; preds = %38
   %53 = tail call ptr @mca_common_sm_module_create_and_attach(i64 noundef %51, ptr noundef %52, i64 noundef 32, i64 noundef %50) #14
   store ptr %53, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %create_and_attach.exit47, label %55
+  br i1 %54, label %create_and_attach.argprom.exit47, label %55
 
-create_and_attach.exit47:                         ; preds = %45
+create_and_attach.argprom.exit47:                 ; preds = %45
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.31, i64 noundef %51) #14
   br label %get_mpool_res_size.exit.thread10
 
@@ -2192,8 +2192,8 @@ get_mpool_res_size.exit.thread17:                 ; preds = %get_mpool_res_size.
   %102 = tail call i32 @close(i32 noundef %56) #14
   br label %get_mpool_res_size.exit.thread10
 
-get_mpool_res_size.exit.thread10:                 ; preds = %4, %create_and_attach.exit47, %58, %create_and_attach.exit, %get_mpool_res_size.exit.thread17
-  %.02714 = phi i32 [ %.02722, %get_mpool_res_size.exit.thread17 ], [ -18, %4 ], [ -1, %create_and_attach.exit47 ], [ -11, %58 ], [ -1, %create_and_attach.exit ]
+get_mpool_res_size.exit.thread10:                 ; preds = %4, %create_and_attach.argprom.exit47, %58, %create_and_attach.argprom.exit, %get_mpool_res_size.exit.thread17
+  %.02714 = phi i32 [ %.02722, %get_mpool_res_size.exit.thread17 ], [ -18, %4 ], [ -1, %create_and_attach.argprom.exit47 ], [ -11, %58 ], [ -1, %create_and_attach.argprom.exit ]
   ret i32 %.02714
 }
 
@@ -2219,7 +2219,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 declare ptr @mca_common_sm_module_create_and_attach(i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_btl_smcuda_send_cuda_ipc_ack(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @mca_btl_smcuda_send_cuda_ipc_ack.argprom.argelim(ptr noundef %0) unnamed_addr #0 {
   %2 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
   %3 = shl nsw i32 %2, 1
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 464), align 16

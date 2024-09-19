@@ -96,7 +96,7 @@ define hidden noundef zeroext i1 @run_ascend_parser(ptr noundef %0, ptr noundef 
   store i8 0, ptr %23, align 4
   %24 = call dereferenceable_or_null(8032) ptr @g_malloc(i64 noundef 8032) #11
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %AscendParserAlloc.exit, label %25
+  br i1 %.not.i, label %AscendParserAlloc.argprom.exit, label %25
 
 25:                                               ; preds = %12
   %26 = getelementptr inbounds i8, ptr %24, i64 8
@@ -109,9 +109,9 @@ define hidden noundef zeroext i1 @run_ascend_parser(ptr noundef %0, ptr noundef 
   %29 = getelementptr i8, ptr %24, i64 7944
   %30 = getelementptr inbounds i8, ptr %24, i64 8024
   store ptr %29, ptr %30, align 8
-  br label %AscendParserAlloc.exit
+  br label %AscendParserAlloc.argprom.exit
 
-AscendParserAlloc.exit:                           ; preds = %12, %25
+AscendParserAlloc.argprom.exit:                   ; preds = %12, %25
   %31 = getelementptr inbounds i8, ptr %1, i64 92
   %32 = getelementptr inbounds i8, ptr %24, i64 16
   %33 = getelementptr inbounds i8, ptr %5, i64 4
@@ -125,7 +125,7 @@ AscendParserAlloc.exit:                           ; preds = %12, %25
   %41 = getelementptr inbounds i8, ptr %24, i64 8024
   br label %42
 
-42:                                               ; preds = %421, %AscendParserAlloc.exit
+42:                                               ; preds = %421, %AscendParserAlloc.argprom.exit
   %43 = load ptr, ptr %7, align 8
   %44 = call i32 @ascend_lex(ptr noundef %43) #11
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %6)
@@ -138,8 +138,8 @@ AscendParserAlloc.exit:                           ; preds = %12, %25
   %48 = zext nneg i32 %.mask.i to i64
   br label %49
 
-49:                                               ; preds = %yy_reduce.exit.i, %42
-  %.0.i = phi i16 [ %46, %42 ], [ %377, %yy_reduce.exit.i ]
+49:                                               ; preds = %yy_reduce.argprom.exit.i, %42
+  %.0.i = phi i16 [ %46, %42 ], [ %377, %yy_reduce.argprom.exit.i ]
   %50 = icmp ugt i16 %.0.i, 131
   br i1 %50, label %yy_find_shift_action.exit.i, label %.sink.split.i.i
 
@@ -169,7 +169,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %65 = load ptr, ptr %32, align 8
   %66 = load ptr, ptr %24, align 8
-  switch i16 %.0.i.i, label %yy_reduce.exit.i [
+  switch i16 %.0.i.i, label %yy_reduce.argprom.exit.i [
     i16 206, label %67
     i16 207, label %67
     i16 208, label %67
@@ -193,14 +193,14 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   %69 = getelementptr inbounds i8, ptr %66, i64 12
   %70 = load i16, ptr %69, align 4
   store i16 %70, ptr %68, align 4
-  br label %yy_reduce.exit.i
+  br label %yy_reduce.argprom.exit.i
 
 71:                                               ; preds = %62, %62, %62
   %72 = getelementptr inbounds i8, ptr %66, i64 4
   %73 = getelementptr inbounds i8, ptr %66, i64 8
   %74 = load i32, ptr %73, align 4
   store i32 %74, ptr %72, align 4
-  br label %yy_reduce.exit.i
+  br label %yy_reduce.argprom.exit.i
 
 75:                                               ; preds = %62
   %76 = getelementptr i8, ptr %66, i64 -156
@@ -248,7 +248,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
 105:                                              ; preds = %90, %75
   %106 = getelementptr inbounds i8, ptr %65, i64 64
   store i64 0, ptr %106, align 8
-  br label %yy_reduce.exit.i
+  br label %yy_reduce.argprom.exit.i
 
 107:                                              ; preds = %62
   %108 = getelementptr i8, ptr %66, i64 -156
@@ -296,7 +296,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
 137:                                              ; preds = %122, %107
   %138 = getelementptr inbounds i8, ptr %65, i64 64
   store i64 0, ptr %138, align 8
-  br label %yy_reduce.exit.i
+  br label %yy_reduce.argprom.exit.i
 
 139:                                              ; preds = %62
   %140 = getelementptr i8, ptr %66, i64 -156
@@ -317,7 +317,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   %152 = getelementptr inbounds i8, ptr %65, i64 32
   %153 = load ptr, ptr %152, align 8
   %.not264.i.i = icmp eq ptr %153, null
-  br i1 %.not264.i.i, label %yy_reduce.exit.i, label %154
+  br i1 %.not264.i.i, label %yy_reduce.argprom.exit.i, label %154
 
 154:                                              ; preds = %139
   %155 = getelementptr i8, ptr %66, i64 -876
@@ -334,7 +334,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   %163 = load ptr, ptr %152, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 140
   store i32 %162, ptr %164, align 4
-  br label %yy_reduce.exit.i
+  br label %yy_reduce.argprom.exit.i
 
 165:                                              ; preds = %62
   %166 = getelementptr i8, ptr %66, i64 -156
@@ -355,7 +355,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   %178 = getelementptr inbounds i8, ptr %65, i64 32
   %179 = load ptr, ptr %178, align 8
   %.not263.i.i = icmp eq ptr %179, null
-  br i1 %.not263.i.i, label %yy_reduce.exit.i, label %180
+  br i1 %.not263.i.i, label %yy_reduce.argprom.exit.i, label %180
 
 180:                                              ; preds = %165
   %181 = getelementptr i8, ptr %66, i64 -796
@@ -377,7 +377,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   %193 = load ptr, ptr %178, align 8
   %194 = getelementptr inbounds i8, ptr %193, i64 140
   store i32 %192, ptr %194, align 4
-  br label %yy_reduce.exit.i
+  br label %yy_reduce.argprom.exit.i
 
 195:                                              ; preds = %62
   %196 = getelementptr i8, ptr %66, i64 -156
@@ -398,7 +398,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   %208 = getelementptr inbounds i8, ptr %65, i64 32
   %209 = load ptr, ptr %208, align 8
   %.not262.i.i = icmp eq ptr %209, null
-  br i1 %.not262.i.i, label %yy_reduce.exit.i, label %210
+  br i1 %.not262.i.i, label %yy_reduce.argprom.exit.i, label %210
 
 210:                                              ; preds = %195
   %211 = getelementptr i8, ptr %66, i64 -956
@@ -420,7 +420,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   %223 = load ptr, ptr %208, align 8
   %224 = getelementptr inbounds i8, ptr %223, i64 140
   store i32 %222, ptr %224, align 4
-  br label %yy_reduce.exit.i
+  br label %yy_reduce.argprom.exit.i
 
 225:                                              ; preds = %62
   %226 = getelementptr i8, ptr %66, i64 -156
@@ -441,7 +441,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   %238 = getelementptr inbounds i8, ptr %65, i64 32
   %239 = load ptr, ptr %238, align 8
   %.not261.i.i = icmp eq ptr %239, null
-  br i1 %.not261.i.i, label %yy_reduce.exit.i, label %240
+  br i1 %.not261.i.i, label %yy_reduce.argprom.exit.i, label %240
 
 240:                                              ; preds = %225
   %241 = getelementptr i8, ptr %66, i64 -716
@@ -463,7 +463,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   %253 = load ptr, ptr %238, align 8
   %254 = getelementptr inbounds i8, ptr %253, i64 140
   store i32 %252, ptr %254, align 4
-  br label %yy_reduce.exit.i
+  br label %yy_reduce.argprom.exit.i
 
 255:                                              ; preds = %62
   %256 = getelementptr i8, ptr %66, i64 -156
@@ -484,7 +484,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   %268 = getelementptr inbounds i8, ptr %65, i64 32
   %269 = load ptr, ptr %268, align 8
   %.not260.i.i = icmp eq ptr %269, null
-  br i1 %.not260.i.i, label %yy_reduce.exit.i, label %270
+  br i1 %.not260.i.i, label %yy_reduce.argprom.exit.i, label %270
 
 270:                                              ; preds = %255
   %271 = getelementptr i8, ptr %66, i64 -876
@@ -506,7 +506,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   %283 = load ptr, ptr %268, align 8
   %284 = getelementptr inbounds i8, ptr %283, i64 140
   store i32 %282, ptr %284, align 4
-  br label %yy_reduce.exit.i
+  br label %yy_reduce.argprom.exit.i
 
 285:                                              ; preds = %62
   %286 = getelementptr i8, ptr %66, i64 -156
@@ -543,7 +543,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   %307 = getelementptr inbounds i8, ptr %306, i64 72
   %308 = getelementptr inbounds i8, ptr %66, i64 15
   %309 = call i64 @g_strlcpy(ptr noundef nonnull %307, ptr noundef nonnull %308, i64 noundef 64) #11
-  br label %yy_reduce.exit.i
+  br label %yy_reduce.argprom.exit.i
 
 310:                                              ; preds = %62
   %311 = getelementptr i8, ptr %66, i64 -156
@@ -562,7 +562,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   %321 = getelementptr inbounds i8, ptr %65, i64 32
   %322 = load ptr, ptr %321, align 8
   %.not.i33.i = icmp eq ptr %322, null
-  br i1 %.not.i33.i, label %yy_reduce.exit.i, label %323
+  br i1 %.not.i33.i, label %yy_reduce.argprom.exit.i, label %323
 
 323:                                              ; preds = %310
   store i16 3, ptr %322, align 4
@@ -582,7 +582,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   %334 = load ptr, ptr %321, align 8
   %335 = getelementptr inbounds i8, ptr %334, i64 140
   store i32 %333, ptr %335, align 4
-  br label %yy_reduce.exit.i
+  br label %yy_reduce.argprom.exit.i
 
 336:                                              ; preds = %62
   %337 = getelementptr inbounds i8, ptr %65, i64 64
@@ -606,7 +606,7 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   %350 = getelementptr inbounds i8, ptr %65, i64 72
   %351 = load i32, ptr %350, align 8
   %352 = icmp ult i32 %349, %351
-  br i1 %352, label %353, label %yy_reduce.exit.i
+  br i1 %352, label %353, label %yy_reduce.argprom.exit.i
 
 353:                                              ; preds = %347
   %354 = getelementptr inbounds i8, ptr %66, i64 14
@@ -619,9 +619,9 @@ yy_find_shift_action.exit.i:                      ; preds = %.sink.split.i.i, %4
   %360 = load i32, ptr %348, align 4
   %361 = add i32 %360, 1
   store i32 %361, ptr %348, align 4
-  br label %yy_reduce.exit.i
+  br label %yy_reduce.argprom.exit.i
 
-yy_reduce.exit.i:                                 ; preds = %353, %347, %323, %310, %285, %270, %255, %240, %225, %210, %195, %180, %165, %154, %139, %137, %105, %71, %67, %62
+yy_reduce.argprom.exit.i:                         ; preds = %353, %347, %323, %310, %285, %270, %255, %240, %225, %210, %195, %180, %165, %154, %139, %137, %105, %71, %67, %62
   %362 = and i64 %64, 4294967295
   %363 = getelementptr [51 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %362
   %364 = load i8, ptr %363, align 1
@@ -759,7 +759,7 @@ AscendParser.exit:                                ; preds = %412, %._crit_edge.i
 .critedge.thread:                                 ; preds = %AscendParser.exit, %417, %419, %421
   %.promoted.i.i35 = load ptr, ptr %24, align 8
   %424 = icmp ugt ptr %.promoted.i.i35, %40
-  br i1 %424, label %.lr.ph.i.i36, label %AscendParserFree.exit
+  br i1 %424, label %.lr.ph.i.i36, label %AscendParserFree.argprom.exit
 
 .lr.ph.i.i36:                                     ; preds = %.critedge.thread, %.lr.ph.i.i36
   %425 = phi ptr [ %426, %.lr.ph.i.i36 ], [ %.promoted.i.i35, %.critedge.thread ]
@@ -769,9 +769,9 @@ AscendParser.exit:                                ; preds = %412, %._crit_edge.i
 
 ._crit_edge.i.i37:                                ; preds = %.lr.ph.i.i36
   store ptr %426, ptr %24, align 8
-  br label %AscendParserFree.exit
+  br label %AscendParserFree.argprom.exit
 
-AscendParserFree.exit:                            ; preds = %.critedge.thread, %._crit_edge.i.i37
+AscendParserFree.argprom.exit:                    ; preds = %.critedge.thread, %._crit_edge.i.i37
   call void @g_free(ptr noundef nonnull %24) #11
   %428 = load ptr, ptr %7, align 8
   %429 = call i32 @ascend_lex_destroy(ptr noundef %428) #11
@@ -779,7 +779,7 @@ AscendParserFree.exit:                            ; preds = %.critedge.thread, %
   %.not34 = icmp eq i32 %430, 0
   br i1 %.not34, label %433, label %431
 
-431:                                              ; preds = %AscendParserFree.exit
+431:                                              ; preds = %AscendParserFree.argprom.exit
   store i32 %430, ptr %2, align 4
   %432 = load ptr, ptr %16, align 8
   br label %.sink.split
@@ -789,8 +789,8 @@ AscendParserFree.exit:                            ; preds = %.critedge.thread, %
   store ptr %.sink44, ptr %3, align 8
   br label %433
 
-433:                                              ; preds = %.sink.split, %AscendParserFree.exit
-  %.0 = phi i1 [ true, %AscendParserFree.exit ], [ false, %.sink.split ]
+433:                                              ; preds = %.sink.split, %AscendParserFree.argprom.exit
+  %.0 = phi i1 [ true, %AscendParserFree.argprom.exit ], [ false, %.sink.split ]
   ret i1 %.0
 }
 

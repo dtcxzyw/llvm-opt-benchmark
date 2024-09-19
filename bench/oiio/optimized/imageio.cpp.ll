@@ -1300,7 +1300,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp17.i)
   %2 = load i32, ptr @_ZN18OpenImageIO_v2_6_03pvt14oiio_log_timesE, align 4
   %tobool.not.i = icmp eq i32 %2, 0
-  br i1 %tobool.not.i, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_19TimingLogclENS_17basic_string_viewIcSt11char_traitsIcEEERKNS_5TimerEi.exit, label %if.then.i
+  br i1 %tobool.not.i, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_19TimingLogclENS_17basic_string_viewIcSt11char_traitsIcEEERKNS_5TimerEi.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %3 = load i8, ptr %timer, align 8
@@ -1503,14 +1503,14 @@ if.else.i:                                        ; preds = %_ZNKSt4lessINSt7__c
 
 if.end.i:                                         ; preds = %if.else.i, %invoke.cont20.i
   store atomic i8 0, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110timing_logE release, align 8
-  br label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_19TimingLogclENS_17basic_string_viewIcSt11char_traitsIcEEERKNS_5TimerEi.exit
+  br label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_19TimingLogclENS_17basic_string_viewIcSt11char_traitsIcEEERKNS_5TimerEi.argprom.exit
 
 ehcleanup.i:                                      ; preds = %lpad19.i, %lpad.i10.i, %lpad.i.i
   %.pn.i = phi { ptr, i32 } [ %19, %lpad19.i ], [ %12, %lpad.i.i ], [ %18, %lpad.i10.i ]
   store atomic i8 0, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110timing_logE release, align 8
   resume { ptr, i32 } %.pn.i
 
-_ZN18OpenImageIO_v2_6_012_GLOBAL__N_19TimingLogclENS_17basic_string_viewIcSt11char_traitsIcEEERKNS_5TimerEi.exit: ; preds = %entry, %if.end.i
+_ZN18OpenImageIO_v2_6_012_GLOBAL__N_19TimingLogclENS_17basic_string_viewIcSt11char_traitsIcEEERKNS_5TimerEi.argprom.exit: ; preds = %entry, %if.end.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp17.i)
   ret void

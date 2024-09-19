@@ -840,7 +840,7 @@ define hidden void @_ZN22ObjectSampleCheckpoint11on_rotationEPK13ObjectSampler(p
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZNK13ObjectSampler13last_resolvedEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #11
   %.not4.i = icmp eq ptr %5, null
-  br i1 %.not4.i, label %_ZL22reset_blob_write_statePK13ObjectSamplerP10JavaThread.exit, label %.lr.ph.i
+  br i1 %.not4.i, label %_ZL22reset_blob_write_statePK13ObjectSamplerP10JavaThread.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %20
   %.05.i = phi ptr [ %21, %20 ], [ %5, %1 ]
@@ -879,13 +879,13 @@ define hidden void @_ZN22ObjectSampleCheckpoint11on_rotationEPK13ObjectSampler(p
 20:                                               ; preds = %18, %15
   %21 = load ptr, ptr %.05.i, align 8
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %_ZL22reset_blob_write_statePK13ObjectSamplerP10JavaThread.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %.not.i, label %_ZL22reset_blob_write_statePK13ObjectSamplerP10JavaThread.argprom.exit, label %.lr.ph.i, !llvm.loop !23
 
-_ZL22reset_blob_write_statePK13ObjectSamplerP10JavaThread.exit: ; preds = %20, %1
+_ZL22reset_blob_write_statePK13ObjectSamplerP10JavaThread.argprom.exit: ; preds = %20, %1
   %22 = tail call noundef zeroext i1 @_ZN13ObjectSampler20has_unresolved_entryEv() #11
   br i1 %22, label %23, label %63
 
-23:                                               ; preds = %_ZL22reset_blob_write_statePK13ObjectSamplerP10JavaThread.exit
+23:                                               ; preds = %_ZL22reset_blob_write_statePK13ObjectSamplerP10JavaThread.argprom.exit
   %24 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %25 = trunc i8 %24 to i1
   %26 = getelementptr inbounds i8, ptr %4, i64 1092
@@ -999,7 +999,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZL20install_stack_
   call void @_ZN23JfrStackTraceRepository19clear_leak_profilerEv() #11
   br label %63
 
-63:                                               ; preds = %_ZL22reset_blob_write_statePK13ObjectSamplerP10JavaThread.exit, %_ZN11MutexLockerD2Ev.exit
+63:                                               ; preds = %_ZL22reset_blob_write_statePK13ObjectSamplerP10JavaThread.argprom.exit, %_ZN11MutexLockerD2Ev.exit
   ret void
 }
 
@@ -2200,20 +2200,20 @@ _ZNK12ObjectSample23is_alive_and_older_thanEl.exit: ; preds = %2
   %17 = getelementptr i8, ptr %1, i64 16
   %.val.i = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %_ZL21write_stacktrace_blobPK12ObjectSampleR19JfrCheckpointWriter.exit.i, label %18
+  br i1 %.not.i.i, label %_ZL21write_stacktrace_blobPK12ObjectSampleR19JfrCheckpointWriter.argprom.exit.i, label %18
 
 18:                                               ; preds = %14
   %.val.val.i.i = load ptr, ptr %.val.i, align 8
   tail call void @_ZNK7JfrBlob15exclusive_writeI19JfrCheckpointWriterEEvRT_(ptr noundef nonnull align 8 dereferenceable(25) %.val.val.i.i, ptr noundef nonnull align 8 dereferenceable(73) %16)
-  br label %_ZL21write_stacktrace_blobPK12ObjectSampleR19JfrCheckpointWriter.exit.i
+  br label %_ZL21write_stacktrace_blobPK12ObjectSampleR19JfrCheckpointWriter.argprom.exit.i
 
-_ZL21write_stacktrace_blobPK12ObjectSampleR19JfrCheckpointWriter.exit.i: ; preds = %18, %14
+_ZL21write_stacktrace_blobPK12ObjectSampleR19JfrCheckpointWriter.argprom.exit.i: ; preds = %18, %14
   %19 = getelementptr inbounds i8, ptr %1, i64 116
   %20 = load i8, ptr %19, align 4
   %21 = trunc i8 %20 to i1
   br i1 %21, label %47, label %22
 
-22:                                               ; preds = %_ZL21write_stacktrace_blobPK12ObjectSampleR19JfrCheckpointWriter.exit.i
+22:                                               ; preds = %_ZL21write_stacktrace_blobPK12ObjectSampleR19JfrCheckpointWriter.argprom.exit.i
   %23 = getelementptr inbounds i8, ptr %1, i64 64
   %24 = load i64, ptr %23, align 8
   %25 = load ptr, ptr @_ZL22unloaded_thread_id_set, align 8
@@ -2270,7 +2270,7 @@ _ZL17has_thread_exitedm.exit.i.i:                 ; preds = %42
   tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) @_ZN23ThreadIdExclusiveAccess16_mutex_semaphoreE, i32 noundef 1) #11
   br label %47
 
-47:                                               ; preds = %_ZL17has_thread_exitedm.exit.i.i, %_ZL21write_stacktrace_blobPK12ObjectSampleR19JfrCheckpointWriter.exit.i
+47:                                               ; preds = %_ZL17has_thread_exitedm.exit.i.i, %_ZL21write_stacktrace_blobPK12ObjectSampleR19JfrCheckpointWriter.argprom.exit.i
   %48 = getelementptr inbounds i8, ptr %1, i64 24
   %.val.i.i = load ptr, ptr %48, align 8
   %.val.val.i7.i = load ptr, ptr %.val.i.i, align 8

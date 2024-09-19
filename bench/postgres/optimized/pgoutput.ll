@@ -2227,7 +2227,7 @@ list_length.exit:                                 ; preds = %97
   %177 = load i32, ptr %158, align 8
   %178 = load i32, ptr %11, align 8
   %.not.i145 = icmp eq i32 %177, %178
-  br i1 %.not.i145, label %init_tuple_slot.exit, label %179
+  br i1 %.not.i145, label %init_tuple_slot.argprom.exit, label %179
 
 179:                                              ; preds = %167
   %180 = call ptr @RelationIdGetRelation(i32 noundef %177) #13
@@ -2242,9 +2242,9 @@ list_length.exit:                                 ; preds = %97
   store ptr %185, ptr @CurrentMemoryContext, align 8
   call void @RelationClose(ptr noundef %180) #13
   %.pre199 = load i32, ptr %158, align 8
-  br label %init_tuple_slot.exit
+  br label %init_tuple_slot.argprom.exit
 
-init_tuple_slot.exit:                             ; preds = %167, %179
+init_tuple_slot.argprom.exit:                     ; preds = %167, %179
   %187 = phi i32 [ %177, %167 ], [ %.pre199, %179 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6)
@@ -2256,7 +2256,7 @@ init_tuple_slot.exit:                             ; preds = %167, %179
   %.not.i146 = icmp eq ptr %.0119.lcssa, null
   br i1 %.not.i146, label %.thread.i, label %.lr.ph.i147
 
-.lr.ph.i147:                                      ; preds = %init_tuple_slot.exit
+.lr.ph.i147:                                      ; preds = %init_tuple_slot.argprom.exit
   %190 = getelementptr inbounds i8, ptr %.0119.lcssa, i64 16
   %191 = zext i32 %188 to i64
   %192 = getelementptr inbounds i8, ptr %6, i64 1
@@ -2404,10 +2404,10 @@ init_tuple_slot.exit:                             ; preds = %167, %179
   %.not112.i = icmp slt i64 %indvars.iv.next.i149, %278
   br i1 %.not112.i, label %.lr.ph185, label %.thread.i
 
-.thread.i:                                        ; preds = %274, %223, %.lr.ph.i147, %init_tuple_slot.exit
-  %.lcssa.i = phi ptr [ null, %init_tuple_slot.exit ], [ null, %.lr.ph.i147 ], [ %275, %274 ], [ %197, %223 ]
-  %279 = phi i8 [ 0, %init_tuple_slot.exit ], [ 0, %.lr.ph.i147 ], [ %276, %274 ], [ %227, %223 ]
-  %.not6675.i = phi i1 [ true, %init_tuple_slot.exit ], [ true, %.lr.ph.i147 ], [ true, %274 ], [ false, %223 ]
+.thread.i:                                        ; preds = %274, %223, %.lr.ph.i147, %init_tuple_slot.argprom.exit
+  %.lcssa.i = phi ptr [ null, %init_tuple_slot.argprom.exit ], [ null, %.lr.ph.i147 ], [ %275, %274 ], [ %197, %223 ]
+  %279 = phi i8 [ 0, %init_tuple_slot.argprom.exit ], [ 0, %.lr.ph.i147 ], [ %276, %274 ], [ %227, %223 ]
+  %.not6675.i = phi i1 [ true, %init_tuple_slot.argprom.exit ], [ true, %.lr.ph.i147 ], [ true, %274 ], [ false, %223 ]
   store i8 %279, ptr %6, align 1
   store ptr %.lcssa.i, ptr %5, align 16
   br label %280

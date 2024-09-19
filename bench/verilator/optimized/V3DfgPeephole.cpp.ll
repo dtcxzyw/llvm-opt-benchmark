@@ -1426,267 +1426,267 @@ define dso_local void @_ZN20V3DfgPeepholeContextC2ERKNSt7__cxx1112basic_stringIc
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %3, i8 0, i64 528, i1 false)
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 0)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 0)
           to label %4 unwind label %70
 
 4:                                                ; preds = %2
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 1)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 1)
           to label %5 unwind label %70
 
 5:                                                ; preds = %4
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 2)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 2)
           to label %6 unwind label %70
 
 6:                                                ; preds = %5
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 3)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 3)
           to label %7 unwind label %70
 
 7:                                                ; preds = %6
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 4)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 4)
           to label %8 unwind label %70
 
 8:                                                ; preds = %7
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 5)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 5)
           to label %9 unwind label %70
 
 9:                                                ; preds = %8
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 6)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 6)
           to label %10 unwind label %70
 
 10:                                               ; preds = %9
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 7)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 7)
           to label %11 unwind label %70
 
 11:                                               ; preds = %10
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 8)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 8)
           to label %12 unwind label %70
 
 12:                                               ; preds = %11
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 9)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 9)
           to label %13 unwind label %70
 
 13:                                               ; preds = %12
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 10)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 10)
           to label %14 unwind label %70
 
 14:                                               ; preds = %13
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 11)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 11)
           to label %15 unwind label %70
 
 15:                                               ; preds = %14
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 12)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 12)
           to label %16 unwind label %70
 
 16:                                               ; preds = %15
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 13)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 13)
           to label %17 unwind label %70
 
 17:                                               ; preds = %16
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 14)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 14)
           to label %18 unwind label %70
 
 18:                                               ; preds = %17
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 15)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 15)
           to label %19 unwind label %70
 
 19:                                               ; preds = %18
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 16)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 16)
           to label %20 unwind label %70
 
 20:                                               ; preds = %19
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 17)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 17)
           to label %21 unwind label %70
 
 21:                                               ; preds = %20
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 18)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 18)
           to label %22 unwind label %70
 
 22:                                               ; preds = %21
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 19)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 19)
           to label %23 unwind label %70
 
 23:                                               ; preds = %22
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 20)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 20)
           to label %24 unwind label %70
 
 24:                                               ; preds = %23
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 21)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 21)
           to label %25 unwind label %70
 
 25:                                               ; preds = %24
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 22)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 22)
           to label %26 unwind label %70
 
 26:                                               ; preds = %25
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 23)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 23)
           to label %27 unwind label %70
 
 27:                                               ; preds = %26
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 24)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 24)
           to label %28 unwind label %70
 
 28:                                               ; preds = %27
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 25)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 25)
           to label %29 unwind label %70
 
 29:                                               ; preds = %28
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 26)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 26)
           to label %30 unwind label %70
 
 30:                                               ; preds = %29
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 27)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 27)
           to label %31 unwind label %70
 
 31:                                               ; preds = %30
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 28)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 28)
           to label %32 unwind label %70
 
 32:                                               ; preds = %31
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 29)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 29)
           to label %33 unwind label %70
 
 33:                                               ; preds = %32
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 30)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 30)
           to label %34 unwind label %70
 
 34:                                               ; preds = %33
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 31)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 31)
           to label %35 unwind label %70
 
 35:                                               ; preds = %34
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 32)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 32)
           to label %36 unwind label %70
 
 36:                                               ; preds = %35
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 33)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 33)
           to label %37 unwind label %70
 
 37:                                               ; preds = %36
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 34)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 34)
           to label %38 unwind label %70
 
 38:                                               ; preds = %37
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 35)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 35)
           to label %39 unwind label %70
 
 39:                                               ; preds = %38
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 36)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 36)
           to label %40 unwind label %70
 
 40:                                               ; preds = %39
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 37)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 37)
           to label %41 unwind label %70
 
 41:                                               ; preds = %40
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 38)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 38)
           to label %42 unwind label %70
 
 42:                                               ; preds = %41
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 39)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 39)
           to label %43 unwind label %70
 
 43:                                               ; preds = %42
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 40)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 40)
           to label %44 unwind label %70
 
 44:                                               ; preds = %43
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 41)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 41)
           to label %45 unwind label %70
 
 45:                                               ; preds = %44
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 42)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 42)
           to label %46 unwind label %70
 
 46:                                               ; preds = %45
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 43)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 43)
           to label %47 unwind label %70
 
 47:                                               ; preds = %46
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 44)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 44)
           to label %48 unwind label %70
 
 48:                                               ; preds = %47
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 45)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 45)
           to label %49 unwind label %70
 
 49:                                               ; preds = %48
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 46)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 46)
           to label %50 unwind label %70
 
 50:                                               ; preds = %49
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 47)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 47)
           to label %51 unwind label %70
 
 51:                                               ; preds = %50
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 48)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 48)
           to label %52 unwind label %70
 
 52:                                               ; preds = %51
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 49)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 49)
           to label %53 unwind label %70
 
 53:                                               ; preds = %52
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 50)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 50)
           to label %54 unwind label %70
 
 54:                                               ; preds = %53
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 51)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 51)
           to label %55 unwind label %70
 
 55:                                               ; preds = %54
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 52)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 52)
           to label %56 unwind label %70
 
 56:                                               ; preds = %55
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 53)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 53)
           to label %57 unwind label %70
 
 57:                                               ; preds = %56
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 54)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 54)
           to label %58 unwind label %70
 
 58:                                               ; preds = %57
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 55)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 55)
           to label %59 unwind label %70
 
 59:                                               ; preds = %58
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 56)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 56)
           to label %60 unwind label %70
 
 60:                                               ; preds = %59
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 57)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 57)
           to label %61 unwind label %70
 
 61:                                               ; preds = %60
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 58)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 58)
           to label %62 unwind label %70
 
 62:                                               ; preds = %61
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 59)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 59)
           to label %63 unwind label %70
 
 63:                                               ; preds = %62
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 60)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 60)
           to label %64 unwind label %70
 
 64:                                               ; preds = %63
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 61)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 61)
           to label %65 unwind label %70
 
 65:                                               ; preds = %64
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 62)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 62)
           to label %66 unwind label %70
 
 66:                                               ; preds = %65
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 63)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 63)
           to label %67 unwind label %70
 
 67:                                               ; preds = %66
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 64)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 64)
           to label %68 unwind label %70
 
 68:                                               ; preds = %67
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 65)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 65)
           to label %69 unwind label %70
 
 69:                                               ; preds = %68
@@ -1702,7 +1702,7 @@ define dso_local void @_ZN20V3DfgPeepholeContextC2ERKNSt7__cxx1112basic_stringIc
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern"(ptr nocapture writeonly %.0.val, i32 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nocapture writeonly %.0.val, i32 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = zext i32 %0 to i64
@@ -1736,20 +1736,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.not6.i = icmp eq ptr %12, %13
   br i1 %.not6.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZZN20V3DfgPeepholeContextC1ERKS8_ENK3$_0clE19VDfgPeepholePatternEUlhE_ET0_T_SH_SG_T1_.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, %"_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i"
-  %.sroa.0.08.i = phi ptr [ %23, %"_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i" ], [ %14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
-  %.sroa.03.07.i = phi ptr [ %22, %"_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i" ], [ %12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
+.lr.ph.i:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, %"_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.argprom.exit.i"
+  %.sroa.0.08.i = phi ptr [ %23, %"_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.argprom.exit.i" ], [ %14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
+  %.sroa.03.07.i = phi ptr [ %22, %"_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.argprom.exit.i" ], [ %12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
   %15 = load i8, ptr %.sroa.03.07.i, align 1
   %16 = icmp eq i8 %15, 95
-  br i1 %16, label %"_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i", label %17
+  br i1 %16, label %"_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.argprom.exit.i", label %17
 
 17:                                               ; preds = %.lr.ph.i
   %18 = zext i8 %15 to i32
   %19 = call i32 @tolower(i32 noundef %18) #21
   %20 = trunc i32 %19 to i8
-  br label %"_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i"
+  br label %"_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.argprom.exit.i"
 
-"_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i": ; preds = %17, %.lr.ph.i
+"_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.argprom.exit.i": ; preds = %17, %.lr.ph.i
   %21 = phi i8 [ %20, %17 ], [ 45, %.lr.ph.i ]
   store i8 %21, ptr %.sroa.0.08.i, align 1
   %22 = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 1
@@ -1757,7 +1757,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.not.i = icmp eq ptr %22, %13
   br i1 %.not.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZZN20V3DfgPeepholeContextC1ERKS8_ENK3$_0clE19VDfgPeepholePatternEUlhE_ET0_T_SH_SG_T1_.exit", label %.lr.ph.i, !llvm.loop !5
 
-"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZZN20V3DfgPeepholeContextC1ERKS8_ENK3$_0clE19VDfgPeepholePatternEUlhE_ET0_T_SH_SG_T1_.exit": ; preds = %"_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i", %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZZN20V3DfgPeepholeContextC1ERKS8_ENK3$_0clE19VDfgPeepholePatternEUlhE_ET0_T_SH_SG_T1_.exit": ; preds = %"_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.argprom.exit.i", %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @v3Global, i64 824), align 8
   %.not11.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not11.i.i.i.i, label %39, label %.lr.ph.i.i.i.i
@@ -1832,267 +1832,267 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN20V3DfgPeepholeContextD2Ev(ptr noundef nonnull align 8 dereferenceable(632) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 0)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 0)
           to label %2 unwind label %68
 
 2:                                                ; preds = %1
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 1)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 1)
           to label %3 unwind label %68
 
 3:                                                ; preds = %2
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 2)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 2)
           to label %4 unwind label %68
 
 4:                                                ; preds = %3
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 3)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 3)
           to label %5 unwind label %68
 
 5:                                                ; preds = %4
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 4)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 4)
           to label %6 unwind label %68
 
 6:                                                ; preds = %5
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 5)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 5)
           to label %7 unwind label %68
 
 7:                                                ; preds = %6
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 6)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 6)
           to label %8 unwind label %68
 
 8:                                                ; preds = %7
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 7)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 7)
           to label %9 unwind label %68
 
 9:                                                ; preds = %8
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 8)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 8)
           to label %10 unwind label %68
 
 10:                                               ; preds = %9
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 9)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 9)
           to label %11 unwind label %68
 
 11:                                               ; preds = %10
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 10)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 10)
           to label %12 unwind label %68
 
 12:                                               ; preds = %11
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 11)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 11)
           to label %13 unwind label %68
 
 13:                                               ; preds = %12
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 12)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 12)
           to label %14 unwind label %68
 
 14:                                               ; preds = %13
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 13)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 13)
           to label %15 unwind label %68
 
 15:                                               ; preds = %14
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 14)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 14)
           to label %16 unwind label %68
 
 16:                                               ; preds = %15
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 15)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 15)
           to label %17 unwind label %68
 
 17:                                               ; preds = %16
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 16)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 16)
           to label %18 unwind label %68
 
 18:                                               ; preds = %17
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 17)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 17)
           to label %19 unwind label %68
 
 19:                                               ; preds = %18
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 18)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 18)
           to label %20 unwind label %68
 
 20:                                               ; preds = %19
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 19)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 19)
           to label %21 unwind label %68
 
 21:                                               ; preds = %20
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 20)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 20)
           to label %22 unwind label %68
 
 22:                                               ; preds = %21
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 21)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 21)
           to label %23 unwind label %68
 
 23:                                               ; preds = %22
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 22)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 22)
           to label %24 unwind label %68
 
 24:                                               ; preds = %23
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 23)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 23)
           to label %25 unwind label %68
 
 25:                                               ; preds = %24
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 24)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 24)
           to label %26 unwind label %68
 
 26:                                               ; preds = %25
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 25)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 25)
           to label %27 unwind label %68
 
 27:                                               ; preds = %26
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 26)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 26)
           to label %28 unwind label %68
 
 28:                                               ; preds = %27
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 27)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 27)
           to label %29 unwind label %68
 
 29:                                               ; preds = %28
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 28)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 28)
           to label %30 unwind label %68
 
 30:                                               ; preds = %29
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 29)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 29)
           to label %31 unwind label %68
 
 31:                                               ; preds = %30
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 30)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 30)
           to label %32 unwind label %68
 
 32:                                               ; preds = %31
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 31)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 31)
           to label %33 unwind label %68
 
 33:                                               ; preds = %32
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 32)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 32)
           to label %34 unwind label %68
 
 34:                                               ; preds = %33
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 33)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 33)
           to label %35 unwind label %68
 
 35:                                               ; preds = %34
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 34)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 34)
           to label %36 unwind label %68
 
 36:                                               ; preds = %35
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 35)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 35)
           to label %37 unwind label %68
 
 37:                                               ; preds = %36
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 36)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 36)
           to label %38 unwind label %68
 
 38:                                               ; preds = %37
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 37)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 37)
           to label %39 unwind label %68
 
 39:                                               ; preds = %38
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 38)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 38)
           to label %40 unwind label %68
 
 40:                                               ; preds = %39
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 39)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 39)
           to label %41 unwind label %68
 
 41:                                               ; preds = %40
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 40)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 40)
           to label %42 unwind label %68
 
 42:                                               ; preds = %41
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 41)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 41)
           to label %43 unwind label %68
 
 43:                                               ; preds = %42
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 42)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 42)
           to label %44 unwind label %68
 
 44:                                               ; preds = %43
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 43)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 43)
           to label %45 unwind label %68
 
 45:                                               ; preds = %44
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 44)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 44)
           to label %46 unwind label %68
 
 46:                                               ; preds = %45
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 45)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 45)
           to label %47 unwind label %68
 
 47:                                               ; preds = %46
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 46)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 46)
           to label %48 unwind label %68
 
 48:                                               ; preds = %47
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 47)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 47)
           to label %49 unwind label %68
 
 49:                                               ; preds = %48
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 48)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 48)
           to label %50 unwind label %68
 
 50:                                               ; preds = %49
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 49)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 49)
           to label %51 unwind label %68
 
 51:                                               ; preds = %50
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 50)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 50)
           to label %52 unwind label %68
 
 52:                                               ; preds = %51
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 51)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 51)
           to label %53 unwind label %68
 
 53:                                               ; preds = %52
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 52)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 52)
           to label %54 unwind label %68
 
 54:                                               ; preds = %53
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 53)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 53)
           to label %55 unwind label %68
 
 55:                                               ; preds = %54
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 54)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 54)
           to label %56 unwind label %68
 
 56:                                               ; preds = %55
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 55)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 55)
           to label %57 unwind label %68
 
 57:                                               ; preds = %56
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 56)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 56)
           to label %58 unwind label %68
 
 58:                                               ; preds = %57
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 57)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 57)
           to label %59 unwind label %68
 
 59:                                               ; preds = %58
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 58)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 58)
           to label %60 unwind label %68
 
 60:                                               ; preds = %59
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 59)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 59)
           to label %61 unwind label %68
 
 61:                                               ; preds = %60
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 60)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 60)
           to label %62 unwind label %68
 
 62:                                               ; preds = %61
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 61)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 61)
           to label %63 unwind label %68
 
 63:                                               ; preds = %62
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 62)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 62)
           to label %64 unwind label %68
 
 64:                                               ; preds = %63
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 63)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 63)
           to label %65 unwind label %68
 
 65:                                               ; preds = %64
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 64)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 64)
           to label %66 unwind label %68
 
 66:                                               ; preds = %65
-  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr nonnull %0, i32 65)
+  invoke fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr nonnull %0, i32 65)
           to label %67 unwind label %68
 
 67:                                               ; preds = %66
@@ -2108,7 +2108,7 @@ define dso_local void @_ZN20V3DfgPeepholeContextD2Ev(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern"(ptr %.0.val, i32 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePattern.argprom"(ptr %.0.val, i32 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2145,20 +2145,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.not6.i = icmp eq ptr %15, %16
   br i1 %.not6.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternEUlhE_ET0_T_SF_SE_T1_.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, %"_ZZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i"
-  %.sroa.0.08.i = phi ptr [ %26, %"_ZZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i" ], [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
-  %.sroa.03.07.i = phi ptr [ %25, %"_ZZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i" ], [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
+.lr.ph.i:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, %"_ZZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.argprom.exit.i"
+  %.sroa.0.08.i = phi ptr [ %26, %"_ZZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.argprom.exit.i" ], [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
+  %.sroa.03.07.i = phi ptr [ %25, %"_ZZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.argprom.exit.i" ], [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
   %18 = load i8, ptr %.sroa.03.07.i, align 1
   %19 = icmp eq i8 %18, 95
-  br i1 %19, label %"_ZZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i", label %20
+  br i1 %19, label %"_ZZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.argprom.exit.i", label %20
 
 20:                                               ; preds = %.lr.ph.i
   %21 = zext i8 %18 to i32
   %22 = call i32 @tolower(i32 noundef %21) #21
   %23 = trunc i32 %22 to i8
-  br label %"_ZZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i"
+  br label %"_ZZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.argprom.exit.i"
 
-"_ZZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i": ; preds = %20, %.lr.ph.i
+"_ZZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.argprom.exit.i": ; preds = %20, %.lr.ph.i
   %24 = phi i8 [ %23, %20 ], [ 32, %.lr.ph.i ]
   store i8 %24, ptr %.sroa.0.08.i, align 1
   %25 = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 1
@@ -2166,7 +2166,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.not.i = icmp eq ptr %25, %16
   br i1 %.not.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternEUlhE_ET0_T_SF_SE_T1_.exit", label %.lr.ph.i, !llvm.loop !8
 
-"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternEUlhE_ET0_T_SF_SE_T1_.exit": ; preds = %"_ZZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i", %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternEUlhE_ET0_T_SF_SE_T1_.exit": ; preds = %"_ZZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.argprom.exit.i", %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.68, ptr noundef nonnull align 8 dereferenceable(32) %.0.val)
           to label %27 unwind label %38
 

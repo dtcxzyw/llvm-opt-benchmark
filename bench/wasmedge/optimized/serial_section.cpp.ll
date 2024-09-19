@@ -1564,7 +1564,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   store i8 0, ptr %0, align 4, !alias.scope !13
   %67 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %66, ptr %67, align 4, !alias.scope !13
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ImportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ImportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 ._crit_edge.i:                                    ; preds = %60
   %68 = load ptr, ptr %15, align 8, !noalias !13
@@ -1611,7 +1611,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
 
 87:                                               ; preds = %_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i, %4
   store i64 1, ptr %0, align 4, !alias.scope !13
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ImportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ImportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 88:                                               ; preds = %33, %28
   %89 = landingpad { ptr, i32 }
@@ -1620,7 +1620,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   tail call void @__clang_call_terminate(ptr %90) #21
   unreachable
 
-"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ImportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %64, %87
+"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ImportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit": ; preds = %64, %87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 }
@@ -1640,7 +1640,7 @@ define void @_ZNK8WasmEdge6Loader10Serializer16serializeSectionERKNS_3AST15Funct
   %12 = sub i64 %10, %11
   %13 = lshr exact i64 %12, 2
   %.not.i = icmp eq ptr %.val3, %.val
-  br i1 %.not.i, label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST15FunctionSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit", label %14
+  br i1 %.not.i, label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST15FunctionSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit", label %14
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1841,7 +1841,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i: ; preds = %91
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5), !noalias !19
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST15FunctionSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST15FunctionSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 98:                                               ; preds = %33, %28
   %99 = landingpad { ptr, i32 }
@@ -1850,7 +1850,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   tail call void @__clang_call_terminate(ptr %100) #21
   unreachable
 
-"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST15FunctionSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %4, %_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i
+"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST15FunctionSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit": ; preds = %4, %_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i
   store i64 1, ptr %0, align 4, !alias.scope !19
   ret void
 }
@@ -2004,7 +2004,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   store i8 0, ptr %0, align 4, !alias.scope !25
   %67 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %66, ptr %67, align 4, !alias.scope !25
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST12TableSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST12TableSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 ._crit_edge.i:                                    ; preds = %60
   %68 = load ptr, ptr %15, align 8, !noalias !25
@@ -2051,7 +2051,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
 
 87:                                               ; preds = %_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i, %4
   store i64 1, ptr %0, align 4, !alias.scope !25
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST12TableSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST12TableSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 88:                                               ; preds = %33, %28
   %89 = landingpad { ptr, i32 }
@@ -2060,7 +2060,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   tail call void @__clang_call_terminate(ptr %90) #21
   unreachable
 
-"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST12TableSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %64, %87
+"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST12TableSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit": ; preds = %64, %87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 }
@@ -2214,7 +2214,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   store i8 0, ptr %0, align 4, !alias.scope !31
   %67 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %66, ptr %67, align 4, !alias.scope !31
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13MemorySectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13MemorySectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 ._crit_edge.i:                                    ; preds = %60
   %68 = load ptr, ptr %15, align 8, !noalias !31
@@ -2261,7 +2261,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
 
 87:                                               ; preds = %_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i, %4
   store i64 1, ptr %0, align 4, !alias.scope !31
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13MemorySectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13MemorySectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 88:                                               ; preds = %33, %28
   %89 = landingpad { ptr, i32 }
@@ -2270,7 +2270,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   tail call void @__clang_call_terminate(ptr %90) #21
   unreachable
 
-"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13MemorySectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %64, %87
+"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13MemorySectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit": ; preds = %64, %87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 }
@@ -2424,7 +2424,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   store i8 0, ptr %0, align 4, !alias.scope !37
   %67 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %66, ptr %67, align 4, !alias.scope !37
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13GlobalSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13GlobalSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 ._crit_edge.i:                                    ; preds = %60
   %68 = load ptr, ptr %15, align 8, !noalias !37
@@ -2471,7 +2471,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
 
 87:                                               ; preds = %_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i, %4
   store i64 1, ptr %0, align 4, !alias.scope !37
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13GlobalSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13GlobalSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 88:                                               ; preds = %33, %28
   %89 = landingpad { ptr, i32 }
@@ -2480,7 +2480,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   tail call void @__clang_call_terminate(ptr %90) #21
   unreachable
 
-"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13GlobalSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %64, %87
+"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13GlobalSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit": ; preds = %64, %87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 }
@@ -2634,7 +2634,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   store i8 0, ptr %0, align 4, !alias.scope !43
   %67 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %66, ptr %67, align 4, !alias.scope !43
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ExportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ExportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 ._crit_edge.i:                                    ; preds = %60
   %68 = load ptr, ptr %15, align 8, !noalias !43
@@ -2681,7 +2681,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
 
 87:                                               ; preds = %_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i, %4
   store i64 1, ptr %0, align 4, !alias.scope !43
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ExportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ExportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 88:                                               ; preds = %33, %28
   %89 = landingpad { ptr, i32 }
@@ -2690,7 +2690,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   tail call void @__clang_call_terminate(ptr %90) #21
   unreachable
 
-"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ExportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %64, %87
+"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ExportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit": ; preds = %64, %87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 }
@@ -3020,7 +3020,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   store i8 0, ptr %0, align 4, !alias.scope !49
   %67 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %66, ptr %67, align 4, !alias.scope !49
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST14ElementSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST14ElementSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 ._crit_edge.i:                                    ; preds = %60
   %68 = load ptr, ptr %15, align 8, !noalias !49
@@ -3067,7 +3067,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
 
 87:                                               ; preds = %_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i, %4
   store i64 1, ptr %0, align 4, !alias.scope !49
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST14ElementSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST14ElementSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 88:                                               ; preds = %33, %28
   %89 = landingpad { ptr, i32 }
@@ -3076,7 +3076,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   tail call void @__clang_call_terminate(ptr %90) #21
   unreachable
 
-"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST14ElementSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %64, %87
+"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST14ElementSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit": ; preds = %64, %87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 }
@@ -3230,7 +3230,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   store i8 0, ptr %0, align 4, !alias.scope !55
   %67 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %66, ptr %67, align 4, !alias.scope !55
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11CodeSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11CodeSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 ._crit_edge.i:                                    ; preds = %60
   %68 = load ptr, ptr %15, align 8, !noalias !55
@@ -3277,7 +3277,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
 
 87:                                               ; preds = %_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i, %4
   store i64 1, ptr %0, align 4, !alias.scope !55
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11CodeSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11CodeSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 88:                                               ; preds = %33, %28
   %89 = landingpad { ptr, i32 }
@@ -3286,7 +3286,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   tail call void @__clang_call_terminate(ptr %90) #21
   unreachable
 
-"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11CodeSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %64, %87
+"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11CodeSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit": ; preds = %64, %87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 }
@@ -3440,7 +3440,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   store i8 0, ptr %0, align 4, !alias.scope !61
   %67 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %66, ptr %67, align 4, !alias.scope !61
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11DataSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11DataSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 ._crit_edge.i:                                    ; preds = %60
   %68 = load ptr, ptr %15, align 8, !noalias !61
@@ -3487,7 +3487,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
 
 87:                                               ; preds = %_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i, %4
   store i64 1, ptr %0, align 4, !alias.scope !61
-  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11DataSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit"
+  br label %"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11DataSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit"
 
 88:                                               ; preds = %33, %28
   %89 = landingpad { ptr, i32 }
@@ -3496,7 +3496,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   tail call void @__clang_call_terminate(ptr %90) #21
   unreachable
 
-"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11DataSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %64, %87
+"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11DataSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom.exit": ; preds = %64, %87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 }
@@ -31804,56 +31804,56 @@ attributes #22 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !12, !"_ZN8WasmEdge8UnexpectERKNS_7ErrCodeE: argument 0"}
 !12 = distinct !{!12, !"_ZN8WasmEdge8UnexpectERKNS_7ErrCodeE"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ImportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_: argument 0"}
-!15 = distinct !{!15, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ImportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_"}
+!14 = distinct !{!14, !15, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ImportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom: argument 0"}
+!15 = distinct !{!15, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ImportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom"}
 !16 = !{!17, !14}
 !17 = distinct !{!17, !18, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE: argument 0"}
 !18 = distinct !{!18, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE"}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST15FunctionSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_: argument 0"}
-!21 = distinct !{!21, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST15FunctionSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_"}
+!20 = distinct !{!20, !21, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST15FunctionSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom: argument 0"}
+!21 = distinct !{!21, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST15FunctionSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom"}
 !22 = !{!23, !20}
-!23 = distinct !{!23, !24, !"_ZZNK8WasmEdge6Loader10Serializer16serializeSectionERKNS_3AST15FunctionSectionERSt6vectorIhSaIhEEENK3$_0clERKjS9_: argument 0"}
-!24 = distinct !{!24, !"_ZZNK8WasmEdge6Loader10Serializer16serializeSectionERKNS_3AST15FunctionSectionERSt6vectorIhSaIhEEENK3$_0clERKjS9_"}
+!23 = distinct !{!23, !24, !"_ZZNK8WasmEdge6Loader10Serializer16serializeSectionERKNS_3AST15FunctionSectionERSt6vectorIhSaIhEEENK3$_0clERKjS9_.argprom.argprom: argument 0"}
+!24 = distinct !{!24, !"_ZZNK8WasmEdge6Loader10Serializer16serializeSectionERKNS_3AST15FunctionSectionERSt6vectorIhSaIhEEENK3$_0clERKjS9_.argprom.argprom"}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST12TableSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_: argument 0"}
-!27 = distinct !{!27, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST12TableSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_"}
+!26 = distinct !{!26, !27, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST12TableSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom: argument 0"}
+!27 = distinct !{!27, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST12TableSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom"}
 !28 = !{!29, !26}
 !29 = distinct !{!29, !30, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE: argument 0"}
 !30 = distinct !{!30, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE"}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13MemorySectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_: argument 0"}
-!33 = distinct !{!33, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13MemorySectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_"}
+!32 = distinct !{!32, !33, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13MemorySectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom: argument 0"}
+!33 = distinct !{!33, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13MemorySectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom"}
 !34 = !{!35, !32}
 !35 = distinct !{!35, !36, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE: argument 0"}
 !36 = distinct !{!36, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE"}
 !37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13GlobalSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_: argument 0"}
-!39 = distinct !{!39, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13GlobalSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_"}
+!38 = distinct !{!38, !39, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13GlobalSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom: argument 0"}
+!39 = distinct !{!39, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13GlobalSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom"}
 !40 = !{!41, !38}
 !41 = distinct !{!41, !42, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE: argument 0"}
 !42 = distinct !{!42, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE"}
 !43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ExportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_: argument 0"}
-!45 = distinct !{!45, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ExportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_"}
+!44 = distinct !{!44, !45, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ExportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom: argument 0"}
+!45 = distinct !{!45, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ExportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom"}
 !46 = !{!47, !44}
 !47 = distinct !{!47, !48, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE: argument 0"}
 !48 = distinct !{!48, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE"}
 !49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST14ElementSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_: argument 0"}
-!51 = distinct !{!51, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST14ElementSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_"}
+!50 = distinct !{!50, !51, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST14ElementSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom: argument 0"}
+!51 = distinct !{!51, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST14ElementSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom"}
 !52 = !{!53, !50}
 !53 = distinct !{!53, !54, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE: argument 0"}
 !54 = distinct !{!54, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE"}
 !55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11CodeSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_: argument 0"}
-!57 = distinct !{!57, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11CodeSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_"}
+!56 = distinct !{!56, !57, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11CodeSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom: argument 0"}
+!57 = distinct !{!57, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11CodeSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom"}
 !58 = !{!59, !56}
 !59 = distinct !{!59, !60, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE: argument 0"}
 !60 = distinct !{!60, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE"}
 !61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11DataSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_: argument 0"}
-!63 = distinct !{!63, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11DataSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_"}
+!62 = distinct !{!62, !63, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11DataSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom: argument 0"}
+!63 = distinct !{!63, !"_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11DataSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.argprom"}
 !64 = !{!65, !62}
 !65 = distinct !{!65, !66, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE: argument 0"}
 !66 = distinct !{!66, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE"}

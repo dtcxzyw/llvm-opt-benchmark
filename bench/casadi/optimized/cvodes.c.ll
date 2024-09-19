@@ -572,85 +572,85 @@ define range(i32 -22, 1) i32 @CVodeInit(ptr noundef %0, ptr noundef %1, double n
   %.val = load ptr, ptr %16, align 8
   %17 = load ptr, ptr %.val, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %cvCheckNvector.exit.thread, label %19
+  br i1 %18, label %cvCheckNvector.argprom.exit.thread, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %.val, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %cvCheckNvector.exit.thread, label %23
+  br i1 %22, label %cvCheckNvector.argprom.exit.thread, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %.val, i64 48
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %cvCheckNvector.exit.thread, label %27
+  br i1 %26, label %cvCheckNvector.argprom.exit.thread, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %.val, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %cvCheckNvector.exit.thread, label %31
+  br i1 %30, label %cvCheckNvector.argprom.exit.thread, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %.val, i64 64
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %cvCheckNvector.exit.thread, label %35
+  br i1 %34, label %cvCheckNvector.argprom.exit.thread, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %.val, i64 72
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %cvCheckNvector.exit.thread, label %39
+  br i1 %38, label %cvCheckNvector.argprom.exit.thread, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %.val, i64 80
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %cvCheckNvector.exit.thread, label %43
+  br i1 %42, label %cvCheckNvector.argprom.exit.thread, label %43
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds i8, ptr %.val, i64 88
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %cvCheckNvector.exit.thread, label %47
+  br i1 %46, label %cvCheckNvector.argprom.exit.thread, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %.val, i64 96
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %cvCheckNvector.exit.thread, label %51
+  br i1 %50, label %cvCheckNvector.argprom.exit.thread, label %51
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds i8, ptr %.val, i64 104
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %cvCheckNvector.exit.thread, label %55
+  br i1 %54, label %cvCheckNvector.argprom.exit.thread, label %55
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds i8, ptr %.val, i64 120
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %cvCheckNvector.exit.thread, label %59
+  br i1 %58, label %cvCheckNvector.argprom.exit.thread, label %59
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds i8, ptr %.val, i64 128
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %cvCheckNvector.exit.thread, label %cvCheckNvector.exit
+  br i1 %62, label %cvCheckNvector.argprom.exit.thread, label %cvCheckNvector.argprom.exit
 
-cvCheckNvector.exit:                              ; preds = %59
+cvCheckNvector.argprom.exit:                      ; preds = %59
   %63 = getelementptr inbounds i8, ptr %.val, i64 144
   %64 = load ptr, ptr %63, align 8
   %.not71 = icmp eq ptr %64, null
-  br i1 %.not71, label %cvCheckNvector.exit.thread, label %65
+  br i1 %.not71, label %cvCheckNvector.argprom.exit.thread, label %65
 
-cvCheckNvector.exit.thread:                       ; preds = %15, %19, %23, %27, %31, %35, %39, %43, %47, %51, %55, %59, %cvCheckNvector.exit
+cvCheckNvector.argprom.exit.thread:               ; preds = %15, %19, %23, %27, %31, %35, %39, %43, %47, %51, %55, %59, %cvCheckNvector.argprom.exit
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.9)
   br label %152
 
-65:                                               ; preds = %cvCheckNvector.exit
+65:                                               ; preds = %cvCheckNvector.argprom.exit
   %66 = getelementptr inbounds i8, ptr %.val, i64 24
   %67 = load ptr, ptr %66, align 8
   %.not65 = icmp eq ptr %67, null
@@ -855,8 +855,8 @@ cvCheckNvector.exit.thread:                       ; preds = %15, %19, %23, %27, 
   store i32 1, ptr %151, align 4
   br label %152
 
-152:                                              ; preds = %150, %.loopexit, %cvCheckNvector.exit.thread, %14, %11, %8
-  %.061 = phi i32 [ -21, %8 ], [ -22, %11 ], [ -22, %14 ], [ 0, %150 ], [ -20, %.loopexit ], [ -22, %cvCheckNvector.exit.thread ]
+152:                                              ; preds = %150, %.loopexit, %cvCheckNvector.argprom.exit.thread, %14, %11, %8
+  %.061 = phi i32 [ -21, %8 ], [ -22, %11 ], [ -22, %14 ], [ 0, %150 ], [ -20, %.loopexit ], [ -22, %cvCheckNvector.argprom.exit.thread ]
   ret i32 %.061
 }
 

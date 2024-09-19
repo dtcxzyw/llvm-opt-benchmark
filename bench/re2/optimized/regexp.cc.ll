@@ -614,7 +614,7 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load atomic i32, ptr @_ZZN3re26Regexp6IncrefEvE8ref_once acquire, align 4
   %cmp.not.i = icmp eq i32 %1, 221
-  br i1 %cmp.not.i, label %"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit", label %if.then.i
+  br i1 %cmp.not.i, label %"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %2 = cmpxchg ptr @_ZZN3re26Regexp6IncrefEvE8ref_once, i32 0, i32 1707250555 monotonic monotonic, align 4
@@ -624,7 +624,7 @@ if.then.i:                                        ; preds = %if.then
 lor.lhs.false.i.i:                                ; preds = %if.then.i
   %call1.i.i = tail call noundef i32 @_ZN4absl7debian213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull @_ZZN3re26Regexp6IncrefEvE8ref_once, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl7debian213base_internal12CallOnceImplIZN3re26Regexp6IncrefEvE3$_0JEEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 1)
   %cmp.i.i = icmp eq i32 %call1.i.i, 0
-  br i1 %cmp.i.i, label %release.i.i.i, label %"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit"
+  br i1 %cmp.i.i, label %release.i.i.i, label %"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
 
 release.i.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.then.i
   store i64 0, ptr @_ZN3re2L11ref_storageE, align 8
@@ -632,19 +632,19 @@ release.i.i.i:                                    ; preds = %lor.lhs.false.i.i, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 16), i8 0, i64 32, i1 false)
   %4 = atomicrmw xchg ptr @_ZZN3re26Regexp6IncrefEvE8ref_once, i32 221 release, align 4
   %cmp4.i.i = icmp eq i32 %4, 94570706
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit"
+  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
 
 if.then5.i.i:                                     ; preds = %release.i.i.i
   tail call void @AbslInternalSpinLockWake_debian2(ptr noundef nonnull @_ZZN3re26Regexp6IncrefEvE8ref_once, i1 noundef zeroext true)
-  br label %"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit"
+  br label %"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
 
-"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit": ; preds = %if.then, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
+"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit": ; preds = %if.then, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
   tail call void @_ZN4absl7debian25Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN3re2L11ref_storageE)
   %5 = load i16, ptr %ref_, align 4
   %cmp4 = icmp eq i16 %5, -1
   br i1 %cmp4, label %if.then5, label %if.else
 
-if.then5:                                         ; preds = %"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit"
+if.then5:                                         ; preds = %"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
   store ptr %this, ptr %ref.tmp7, align 8
   %call9 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEEixIS6_S7_TnPT_LPS6_0EEEDTclsrT0_5valueclL_ZSt9addressofISE_ESJ_RSI_EclL_ZSt7declvalIRSE_EDTcl9__declvalISI_ELi0EEEvEEEEEOSI_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7)
           to label %invoke.cont8 unwind label %lpad
@@ -671,7 +671,7 @@ terminate.lpad.i:                                 ; preds = %lpad
 _ZN4absl7debian29MutexLockD2Ev.exit:              ; preds = %lpad
   resume { ptr, i32 } %7
 
-if.else:                                          ; preds = %"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit"
+if.else:                                          ; preds = %"_ZN4absl7debian29call_onceIZN3re26Regexp6IncrefEvE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
   store ptr %this, ptr %ref.tmp12, align 8
   %call14 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEEixIS6_S7_TnPT_LPS6_0EEEDTclsrT0_5valueclL_ZSt9addressofISE_ESJ_RSI_EclL_ZSt7declvalIRSE_EDTcl9__declvalISI_ELi0EEEvEEEEEOSI_(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN3re2L11ref_storageE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12)
           to label %invoke.cont13 unwind label %lpad

@@ -336,15 +336,15 @@ define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getCommittedVir
   %5 = load i64, ptr %3, align 8
   %6 = icmp eq i64 %5, -1
   %or.cond = select i1 %.not.i, i1 true, i1 %6
-  br i1 %or.cond, label %read_vmem_usage.exit.thread, label %7
+  br i1 %or.cond, label %read_vmem_usage.argprom.exit.thread, label %7
 
-read_vmem_usage.exit.thread:                      ; preds = %2
+read_vmem_usage.argprom.exit.thread:              ; preds = %2
   call void @throw_internal_error(ptr noundef %0, ptr noundef nonnull @.str.1) #9
   %.pre = load i64, ptr %3, align 8
   br label %7
 
-7:                                                ; preds = %2, %read_vmem_usage.exit.thread
-  %8 = phi i64 [ %5, %2 ], [ %.pre, %read_vmem_usage.exit.thread ]
+7:                                                ; preds = %2, %read_vmem_usage.argprom.exit.thread
+  %8 = phi i64 [ %5, %2 ], [ %.pre, %read_vmem_usage.argprom.exit.thread ]
   ret i64 %8
 }
 
@@ -505,7 +505,7 @@ define internal i32 @read_statdata(ptr nocapture readnone %0, ptr noundef %1, ..
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3)
   %5 = call noalias ptr @fopen64(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3)
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %vread_statdata.exit, label %7
+  br i1 %6, label %vread_statdata.argprom.exit, label %7
 
 7:                                                ; preds = %2
   %8 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 2048, ptr noundef nonnull %5)
@@ -537,9 +537,9 @@ define internal i32 @read_statdata(ptr nocapture readnone %0, ptr noundef %1, ..
 22:                                               ; preds = %20, %15, %10, %7
   %.0.i = phi i32 [ %21, %20 ], [ %9, %15 ], [ %9, %10 ], [ -1, %7 ]
   %23 = call i32 @fclose(ptr noundef nonnull %5)
-  br label %vread_statdata.exit
+  br label %vread_statdata.argprom.exit
 
-vread_statdata.exit:                              ; preds = %2, %22
+vread_statdata.argprom.exit:                      ; preds = %2, %22
   %.011.i = phi i32 [ %.0.i, %22 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)

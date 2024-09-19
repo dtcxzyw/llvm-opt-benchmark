@@ -2276,7 +2276,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %45, %47
   %71 = getelementptr inbounds i8, ptr %0, i64 48
   %.val = load ptr, ptr %71, align 8
   %.not13.i = icmp eq ptr %.val, null
-  br i1 %.not13.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L28TraceEventTree_WriteCountersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImdESaIS4_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S6_EEERNS_8JsWriterE.exit, label %.lr.ph16.i
+  br i1 %.not13.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L28TraceEventTree_WriteCountersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImdESaIS4_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S6_EEERNS_8JsWriterE.argprom.exit, label %.lr.ph16.i
 
 .lr.ph16.i:                                       ; preds = %._crit_edge58, %._crit_edge.i
   %.sroa.06.014.i = phi ptr [ %112, %._crit_edge.i ], [ %.val, %._crit_edge58 ]
@@ -2339,16 +2339,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i: ; pred
 ._crit_edge.i:                                    ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i, %.lr.ph16.i
   %112 = load ptr, ptr %.sroa.06.014.i, align 8
   %.not.i30 = icmp eq ptr %112, null
-  br i1 %.not.i30, label %_ZN32pxrInternal_v0_24__pxrReserved__L28TraceEventTree_WriteCountersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImdESaIS4_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S6_EEERNS_8JsWriterE.exit, label %.lr.ph16.i
+  br i1 %.not.i30, label %_ZN32pxrInternal_v0_24__pxrReserved__L28TraceEventTree_WriteCountersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImdESaIS4_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S6_EEERNS_8JsWriterE.argprom.exit, label %.lr.ph16.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L28TraceEventTree_WriteCountersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImdESaIS4_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S6_EEERNS_8JsWriterE.exit: ; preds = %._crit_edge.i, %._crit_edge58
+_ZN32pxrInternal_v0_24__pxrReserved__L28TraceEventTree_WriteCountersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImdESaIS4_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S6_EEERNS_8JsWriterE.argprom.exit: ; preds = %._crit_edge.i, %._crit_edge58
   %113 = getelementptr inbounds i8, ptr %0, i64 104
   %.val20 = load ptr, ptr %113, align 8
   %.not11.i = icmp eq ptr %.val20, null
-  br i1 %.not11.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L27TraceEventTree_WriteMarkersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImNS_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEERNS_8JsWriterE.exit, label %.lr.ph14.i
+  br i1 %.not11.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L27TraceEventTree_WriteMarkersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImNS_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEERNS_8JsWriterE.argprom.exit, label %.lr.ph14.i
 
-.lr.ph14.i:                                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L28TraceEventTree_WriteCountersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImdESaIS4_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S6_EEERNS_8JsWriterE.exit, %._crit_edge.i34
-  %.sroa.05.012.i = phi ptr [ %150, %._crit_edge.i34 ], [ %.val20, %_ZN32pxrInternal_v0_24__pxrReserved__L28TraceEventTree_WriteCountersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImdESaIS4_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S6_EEERNS_8JsWriterE.exit ]
+.lr.ph14.i:                                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L28TraceEventTree_WriteCountersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImdESaIS4_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S6_EEERNS_8JsWriterE.argprom.exit, %._crit_edge.i34
+  %.sroa.05.012.i = phi ptr [ %150, %._crit_edge.i34 ], [ %.val20, %_ZN32pxrInternal_v0_24__pxrReserved__L28TraceEventTree_WriteCountersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImdESaIS4_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S6_EEERNS_8JsWriterE.argprom.exit ]
   %114 = getelementptr inbounds i8, ptr %.sroa.05.012.i, i64 8
   %115 = getelementptr inbounds i8, ptr %.sroa.05.012.i, i64 16
   %116 = load ptr, ptr %115, align 8
@@ -2404,22 +2404,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i33: ; pr
 ._crit_edge.i34:                                  ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i33, %.lr.ph14.i
   %150 = load ptr, ptr %.sroa.05.012.i, align 8
   %.not.i35 = icmp eq ptr %150, null
-  br i1 %.not.i35, label %_ZN32pxrInternal_v0_24__pxrReserved__L27TraceEventTree_WriteMarkersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImNS_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEERNS_8JsWriterE.exit, label %.lr.ph14.i
+  br i1 %.not.i35, label %_ZN32pxrInternal_v0_24__pxrReserved__L27TraceEventTree_WriteMarkersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImNS_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEERNS_8JsWriterE.argprom.exit, label %.lr.ph14.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L27TraceEventTree_WriteMarkersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImNS_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEERNS_8JsWriterE.exit: ; preds = %._crit_edge.i34, %_ZN32pxrInternal_v0_24__pxrReserved__L28TraceEventTree_WriteCountersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImdESaIS4_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S6_EEERNS_8JsWriterE.exit
+_ZN32pxrInternal_v0_24__pxrReserved__L27TraceEventTree_WriteMarkersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImNS_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEERNS_8JsWriterE.argprom.exit: ; preds = %._crit_edge.i34, %_ZN32pxrInternal_v0_24__pxrReserved__L28TraceEventTree_WriteCountersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImdESaIS4_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S6_EEERNS_8JsWriterE.argprom.exit
   %151 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8EndArrayEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %152 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %153 = load ptr, ptr %152, align 8
   %.not.i.i36.not = icmp eq ptr %153, null
   br i1 %.not.i.i36.not, label %156, label %_ZNKSt8functionIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEEclES2_.exit
 
-_ZNKSt8functionIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEEclES2_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27TraceEventTree_WriteMarkersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImNS_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEERNS_8JsWriterE.exit
+_ZNKSt8functionIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEEclES2_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L27TraceEventTree_WriteMarkersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImNS_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEERNS_8JsWriterE.argprom.exit
   %154 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %155 = load ptr, ptr %154, align 8
   call void %155(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %156
 
-156:                                              ; preds = %_ZNKSt8functionIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEEclES2_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__L27TraceEventTree_WriteMarkersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImNS_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEERNS_8JsWriterE.exit
+156:                                              ; preds = %_ZNKSt8functionIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEEclES2_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__L27TraceEventTree_WriteMarkersEiRKSt13unordered_mapINS_7TfTokenESt6vectorISt4pairImNS_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEERNS_8JsWriterE.argprom.exit
   %157 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter9EndObjectEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 
@@ -4788,11 +4788,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %27, %40, %_
   %43 = inttoptr i64 %.in.i to ptr
   %44 = and i64 %.sroa.02.0.i, 7
   %.not.i.i8.i = icmp eq i64 %44, 0
-  br i1 %.not.i.i8.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14TraceEventTree5MergeERKNS_8TfRefPtrIS0_EEENK3$_0clERKNS1_INS_14TraceEventNodeEEE.exit", label %45
+  br i1 %.not.i.i8.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14TraceEventTree5MergeERKNS_8TfRefPtrIS0_EEENK3$_0clERKNS1_INS_14TraceEventNodeEEE.argprom.exit", label %45
 
 45:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i
   %46 = atomicrmw sub ptr %43, i32 2 release, align 4
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__14TraceEventTree5MergeERKNS_8TfRefPtrIS0_EEENK3$_0clERKNS1_INS_14TraceEventNodeEEE.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__14TraceEventTree5MergeERKNS_8TfRefPtrIS0_EEENK3$_0clERKNS1_INS_14TraceEventNodeEEE.argprom.exit"
 
 47:                                               ; preds = %22
   %48 = landingpad { ptr, i32 }
@@ -4810,7 +4810,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %27, %40, %_
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit11.i: ; preds = %50, %47
   resume { ptr, i32 } %48
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__14TraceEventTree5MergeERKNS_8TfRefPtrIS0_EEENK3$_0clERKNS1_INS_14TraceEventNodeEEE.exit": ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i, %45
+"_ZZN32pxrInternal_v0_24__pxrReserved__14TraceEventTree5MergeERKNS_8TfRefPtrIS0_EEENK3$_0clERKNS1_INS_14TraceEventNodeEEE.argprom.exit": ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i, %45
   %54 = icmp eq ptr %42, %43
   ret i1 %54
 }

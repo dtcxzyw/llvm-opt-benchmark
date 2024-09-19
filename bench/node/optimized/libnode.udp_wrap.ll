@@ -7583,14 +7583,14 @@ entry:
   %listener_.i.i = getelementptr inbounds i8, ptr %2, i64 96
   %3 = load ptr, ptr %listener_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i.i, label %do.body4.i.i, label %"_ZZN4node7UDPWrap4SendEP8uv_buf_tmPK8sockaddrENK3$_0clEP13uv_udp_send_si.exit"
+  br i1 %cmp.not.i.i, label %do.body4.i.i, label %"_ZZN4node7UDPWrap4SendEP8uv_buf_tmPK8sockaddrENK3$_0clEP13uv_udp_send_si.argprom.exit"
 
 do.body4.i.i:                                     ; preds = %entry
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node11UDPWrapBase8listenerEvE4args) #19
   tail call void @abort() #20
   unreachable
 
-"_ZZN4node7UDPWrap4SendEP8uv_buf_tmPK8sockaddrENK3$_0clEP13uv_udp_send_si.exit": ; preds = %entry
+"_ZZN4node7UDPWrap4SendEP8uv_buf_tmPK8sockaddrENK3$_0clEP13uv_udp_send_si.argprom.exit": ; preds = %entry
   %4 = ptrtoint ptr %req to i64
   %sub.i.i.i.i = add i64 %4, -88
   %5 = inttoptr i64 %sub.i.i.i.i to ptr

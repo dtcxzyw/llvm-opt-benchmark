@@ -1471,12 +1471,12 @@ define noundef zeroext i1 @"_ZN60_$LT$softposit..p8e0..P8E0$u20$as$u20$core..fmt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %6 = load i8, ptr %0, align 1, !noundef !4
   switch i8 %6, label %8 [
-    i8 0, label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
+    i8 0, label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit
     i8 -128, label %7
   ]
 
 7:                                                ; preds = %2
-  br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
+  br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit
 
 8:                                                ; preds = %2
   %9 = and i8 %6, -128
@@ -1531,9 +1531,9 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.729031739036
   %31 = add i64 %30, %27
   %32 = or disjoint i64 %31, %25
   %33 = bitcast i64 %32 to double
-  br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
+  br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit
 
-_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %7, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.7290317390364524356.exit.i
+_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit: ; preds = %2, %7, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.7290317390364524356.exit.i
   %.0.i = phi double [ %33, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.7290317390364524356.exit.i ], [ 0x7FF8000000000000, %7 ], [ 0.000000e+00, %2 ]
   store double %.0.i, ptr %4, align 8
   store ptr %4, ptr %5, align 8
@@ -3602,11 +3602,11 @@ attributes #9 = { noreturn }
 !3 = !{!"rustc version 1.78.0 (9b00956e5 2024-04-29)"}
 !4 = !{}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E: argument 0"}
-!7 = distinct !{!7, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E"}
+!6 = distinct !{!6, !7, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom: argument 0"}
+!7 = distinct !{!7, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom"}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E: argument 0"}
-!10 = distinct !{!10, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E"}
+!9 = distinct !{!9, !10, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom: argument 0"}
+!10 = distinct !{!10, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom"}
 !11 = !{i8 0, i8 2}
 !12 = !{!13}
 !13 = distinct !{!13, !14, !"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..sign..Signed$GT$11is_negative17h8657ea840bba0144E: argument 0"}

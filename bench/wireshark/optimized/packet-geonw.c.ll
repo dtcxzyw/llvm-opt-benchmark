@@ -731,7 +731,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.456 = private unnamed_addr constant [31 x i8] c"No response seen to LS Request\00", align 1
 @.str.457 = private unnamed_addr constant [15 x i8] c" (reply in %u)\00", align 1
 @gbl_resolv_flags = external local_unnamed_addr global %struct._e_addr_resolve, align 4
-@switch.table.dissect_geonw_internal = private unnamed_addr constant [6 x ptr] [ptr @hf_geonw_beacon, ptr @hf_geonw_guc, ptr @hf_geonw_gac, ptr @hf_geonw_gbc, ptr @hf_geonw_tsb, ptr @hf_geonw_ls], align 8
+@switch.table.dissect_geonw_internal.argprom = private unnamed_addr constant [6 x ptr] [ptr @hf_geonw_beacon, ptr @hf_geonw_guc, ptr @hf_geonw_gac, ptr @hf_geonw_gbc, ptr @hf_geonw_tsb, ptr @hf_geonw_ls], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_btpa() local_unnamed_addr #0 {
@@ -1281,19 +1281,19 @@ define internal void @display_elevation(ptr nocapture noundef writeonly %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_geonw(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 0)
+  %5 = tail call fastcc i32 @dissect_geonw_internal.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 0)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_geonw_comm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 1)
+  %5 = tail call fastcc i32 @dissect_geonw_internal.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 1)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_geonw_sec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
+  %5 = tail call fastcc i32 @dissect_geonw_internal.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
   ret i32 %5
 }
 
@@ -1515,7 +1515,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 3) %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_geonw_internal.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 3) %3) unnamed_addr #0 {
   %5 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %6 = alloca i32, align 4
   %7 = alloca [3 x %struct._wmem_tree_key_t], align 16
@@ -1697,7 +1697,7 @@ define internal fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %
   %114 = load ptr, ptr @ieee1609dot2_handle, align 8
   %115 = call i32 @call_dissector(ptr noundef %114, ptr noundef %113, ptr noundef nonnull %1, ptr noundef %109) #12
   %116 = call i32 @tvb_captured_length(ptr noundef %0) #12
-  br label %dissect_secured_message.exit
+  br label %dissect_secured_message.argprom.exit
 
 117:                                              ; preds = %105
   %118 = load i32, ptr @hf_sgeonw_version, align 4
@@ -1706,7 +1706,7 @@ define internal fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %
   store i32 %120, ptr %13, align 4
   %121 = add i8 %110, -3
   %or.cond.i = icmp ult i8 %121, -2
-  br i1 %or.cond.i, label %dissect_secured_message.exit, label %122
+  br i1 %or.cond.i, label %dissect_secured_message.argprom.exit, label %122
 
 122:                                              ; preds = %117
   %123 = icmp eq i8 %110, 1
@@ -1883,7 +1883,7 @@ define internal fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %
   br i1 %cond.i.i, label %220, label %228
 
 220:                                              ; preds = %.lr.ph.i
-  call fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %142)
+  call fastcc void @dissect_sec_eccpoint.argelim(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %142)
   %221 = load i32, ptr @hf_sgeonw_encrypted_key, align 4
   %222 = load i32, ptr %13, align 4
   %223 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %221, ptr noundef %0, i32 noundef %222, i32 noundef 16, i32 noundef 0) #12
@@ -1996,14 +1996,14 @@ dissect_sec_encryption_parameters.exit.i:         ; preds = %250, %247
 .lr.ph20.i:                                       ; preds = %276, %278
   %280 = phi i32 [ %281, %278 ], [ %.pre31.i, %276 ]
   %.118.i = phi i32 [ %279, %278 ], [ %277, %276 ]
-  call fastcc void @dissect_sec_payload(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %275)
+  call fastcc void @dissect_sec_payload.retelim(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %275)
   %281 = load i32, ptr %13, align 4
   %282 = sub i32 %281, %280
   %283 = icmp ult i32 %.118.i, %282
-  br i1 %283, label %dissect_secured_message.exit, label %278
+  br i1 %283, label %dissect_secured_message.argprom.exit, label %278
 
 284:                                              ; preds = %._crit_edge.i
-  call fastcc void @dissect_sec_payload(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %275)
+  call fastcc void @dissect_sec_payload.retelim(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %275)
   %.pre30.i = load i32, ptr %13, align 4
   br label %.loopexit.i
 
@@ -2038,7 +2038,7 @@ dissect_sec_encryption_parameters.exit.i:         ; preds = %250, %247
   br i1 %cond.i, label %303, label %304
 
 303:                                              ; preds = %.lr.ph24.i
-  call fastcc void @dissect_sec_signature(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %296)
+  call fastcc void @dissect_sec_signature.retelim(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %296)
   %.pre32.i = load i32, ptr %13, align 4
   br label %311
 
@@ -2066,9 +2066,9 @@ dissect_sec_encryption_parameters.exit.i:         ; preds = %250, %247
   call void @proto_item_set_end(ptr noundef %288, ptr noundef %0, i32 noundef %315) #12
   %316 = load i32, ptr %13, align 4
   call void @proto_item_set_end(ptr noundef %107, ptr noundef %0, i32 noundef %316) #12
-  br label %dissect_secured_message.exit
+  br label %dissect_secured_message.argprom.exit
 
-dissect_secured_message.exit:                     ; preds = %.lr.ph20.i, %112, %117, %._crit_edge25.i
+dissect_secured_message.argprom.exit:             ; preds = %.lr.ph20.i, %112, %117, %._crit_edge25.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
@@ -2078,7 +2078,7 @@ dissect_secured_message.exit:                     ; preds = %.lr.ph20.i, %112, %
   %.not546 = icmp eq ptr %319, null
   br i1 %.not546, label %1017, label %320
 
-320:                                              ; preds = %dissect_secured_message.exit
+320:                                              ; preds = %dissect_secured_message.argprom.exit
   %321 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %319, i32 noundef 1) #12
   %322 = zext i8 %321 to i32
   store i32 %322, ptr %17, align 4
@@ -2333,7 +2333,7 @@ dissect_secured_message.exit:                     ; preds = %.lr.ph20.i, %112, %
 switch.lookup:                                    ; preds = %459
   %466 = lshr exact i32 %462, 4
   %467 = zext nneg i32 %466 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.dissect_geonw_internal, i64 0, i64 %467
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.dissect_geonw_internal.argprom, i64 0, i64 %467
   %switch.load = load ptr, ptr %switch.gep, align 8
   %468 = load i32, ptr %switch.load, align 4
   %469 = sub nsw i32 %.25165, %443
@@ -3292,8 +3292,8 @@ transaction_start.exit:                           ; preds = %966, %proto_item_se
   %1016 = call i32 @call_data_dissector(ptr noundef %1001, ptr noundef nonnull %1, ptr noundef %2) #12
   br label %1017
 
-1017:                                             ; preds = %dissect_secured_message.exit, %104, %997, %1012, %1015, %1009, %1006, %1003
-  %.05088 = phi ptr [ %.05087, %997 ], [ %.05087, %1012 ], [ %.05087, %1015 ], [ %.05087, %1009 ], [ %.05087, %1006 ], [ %.05087, %1003 ], [ %0, %104 ], [ %0, %dissect_secured_message.exit ]
+1017:                                             ; preds = %dissect_secured_message.argprom.exit, %104, %997, %1012, %1015, %1009, %1006, %1003
+  %.05088 = phi ptr [ %.05087, %997 ], [ %.05087, %1012 ], [ %.05087, %1015 ], [ %.05087, %1009 ], [ %.05087, %1006 ], [ %.05087, %1003 ], [ %0, %104 ], [ %0, %dissect_secured_message.argprom.exit ]
   %1018 = call i32 @tvb_captured_length(ptr noundef %.05088) #12
   br label %1019
 
@@ -3672,7 +3672,7 @@ define internal fastcc i32 @dissect_sec_signer_info(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sec_payload(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_sec_payload.retelim(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #12
   %7 = icmp eq i8 %6, 3
@@ -3746,7 +3746,7 @@ define internal fastcc void @dissect_sec_payload(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sec_signature(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_sec_signature.retelim(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr %1, align 4
   %7 = load i32, ptr @hf_sgeonw_signature, align 4
@@ -3764,7 +3764,7 @@ define internal fastcc void @dissect_sec_signature(ptr noundef %0, ptr nocapture
   br i1 %cond, label %17, label %18
 
 17:                                               ; preds = %4
-  call fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10)
+  call fastcc void @dissect_sec_eccpoint.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10)
   br label %20
 
 18:                                               ; preds = %4
@@ -3912,7 +3912,7 @@ dissect_sec_subject_info.exit:                    ; preds = %.loopexit, %40
   ]
 
 69:                                               ; preds = %58
-  call fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %62)
+  call fastcc void @dissect_sec_eccpoint.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %62)
   br label %dissect_sec_publickey.exit.i
 
 70:                                               ; preds = %58
@@ -3921,7 +3921,7 @@ dissect_sec_subject_info.exit:                    ; preds = %.loopexit, %40
   %73 = load i32, ptr %1, align 4
   %74 = add i32 %73, 1
   store i32 %74, ptr %1, align 4
-  call fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %62)
+  call fastcc void @dissect_sec_eccpoint.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %62)
   br label %dissect_sec_publickey.exit.i
 
 75:                                               ; preds = %58
@@ -3960,7 +3960,7 @@ dissect_sec_publickey.exit.i:                     ; preds = %75, %70, %69
   br label %.loopexit.i
 
 99:                                               ; preds = %.lr.ph60
-  call fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %49)
+  call fastcc void @dissect_sec_eccpoint.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %49)
   br label %.loopexit.i
 
 100:                                              ; preds = %.lr.ph60
@@ -4346,7 +4346,7 @@ dissect_sec_validity_restrictions.exit:           ; preds = %199, %204, %213, %d
   br i1 %.not52, label %._crit_edge64, label %.lr.ph63, !llvm.loop !20
 
 ._crit_edge64:                                    ; preds = %dissect_sec_validity_restrictions.exit, %._crit_edge
-  call fastcc void @dissect_sec_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  call fastcc void @dissect_sec_signature.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %306 = load i32, ptr %1, align 4
   %307 = sub i32 %306, %12
   ret i32 %307
@@ -4355,7 +4355,7 @@ dissect_sec_validity_restrictions.exit:           ; preds = %199, %204, %213, %d
 declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_sec_eccpoint.argelim(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr %1, align 4
   %7 = load i32, ptr @hf_sgeonw_eccpoint, align 4

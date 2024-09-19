@@ -8917,12 +8917,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i230:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit71.i: ; preds = %3129
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  invoke fastcc void @"_ZZN10open_spiel10battleship12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_"(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %30)
+  invoke fastcc void @"_ZZN10open_spiel10battleship12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_.argprom"(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %30)
           to label %3131 unwind label %3177
 
 3131:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit71.i
   %.val.i = load ptr, ptr %27, align 8
-  invoke fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias writable align 4 %26, ptr %.val.i)
+  invoke fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE.argprom(ptr dead_on_unwind noalias writable align 4 %26, ptr %.val.i)
           to label %3132 unwind label %3179
 
 3132:                                             ; preds = %3131
@@ -9235,12 +9235,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit76.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit81.i: ; preds = %3233
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  invoke fastcc void @"_ZZN10open_spiel10battleship12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_"(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(32) %54, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %56)
+  invoke fastcc void @"_ZZN10open_spiel10battleship12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_.argprom"(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(32) %54, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %56)
           to label %3235 unwind label %3281
 
 3235:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit81.i
   %.val60.i = load ptr, ptr %53, align 8
-  invoke fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias writable align 4 %52, ptr %.val60.i)
+  invoke fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE.argprom(ptr dead_on_unwind noalias writable align 4 %52, ptr %.val60.i)
           to label %3236 unwind label %3283
 
 3236:                                             ; preds = %3235
@@ -9550,12 +9550,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit93.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit98.i: ; preds = %3333
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  invoke fastcc void @"_ZZN10open_spiel10battleship12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_"(ptr dead_on_unwind noalias writable align 8 %79, ptr noundef nonnull align 8 dereferenceable(32) %80, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %82)
+  invoke fastcc void @"_ZZN10open_spiel10battleship12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_.argprom"(ptr dead_on_unwind noalias writable align 8 %79, ptr noundef nonnull align 8 dereferenceable(32) %80, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %82)
           to label %3335 unwind label %3381
 
 3335:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit98.i
   %.val61.i = load ptr, ptr %79, align 8
-  invoke fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias writable align 4 %78, ptr %.val61.i)
+  invoke fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE.argprom(ptr dead_on_unwind noalias writable align 4 %78, ptr %.val61.i)
           to label %3336 unwind label %3383
 
 3336:                                             ; preds = %3335
@@ -9865,12 +9865,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit110.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit115.i: ; preds = %3433
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  invoke fastcc void @"_ZZN10open_spiel10battleship12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_"(ptr dead_on_unwind noalias writable align 8 %105, ptr noundef nonnull align 8 dereferenceable(32) %106, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %108)
+  invoke fastcc void @"_ZZN10open_spiel10battleship12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_.argprom"(ptr dead_on_unwind noalias writable align 8 %105, ptr noundef nonnull align 8 dereferenceable(32) %106, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %108)
           to label %3435 unwind label %3481
 
 3435:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit115.i
   %.val62.i = load ptr, ptr %105, align 8
-  invoke fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias writable align 4 %104, ptr %.val62.i)
+  invoke fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE.argprom(ptr dead_on_unwind noalias writable align 4 %104, ptr %.val62.i)
           to label %3436 unwind label %3483
 
 3436:                                             ; preds = %3435
@@ -10180,12 +10180,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit127.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit132.i: ; preds = %3533
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  invoke fastcc void @"_ZZN10open_spiel10battleship12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_"(ptr dead_on_unwind noalias writable align 8 %131, ptr noundef nonnull align 8 dereferenceable(32) %132, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %134)
+  invoke fastcc void @"_ZZN10open_spiel10battleship12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_.argprom"(ptr dead_on_unwind noalias writable align 8 %131, ptr noundef nonnull align 8 dereferenceable(32) %132, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %134)
           to label %3535 unwind label %3581
 
 3535:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit132.i
   %.val63.i = load ptr, ptr %131, align 8
-  invoke fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias writable align 4 %130, ptr %.val63.i)
+  invoke fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE.argprom(ptr dead_on_unwind noalias writable align 4 %130, ptr %.val63.i)
           to label %3536 unwind label %3583
 
 3536:                                             ; preds = %3535
@@ -10495,12 +10495,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit144.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit149.i: ; preds = %3633
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  invoke fastcc void @"_ZZN10open_spiel10battleship12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_"(ptr dead_on_unwind noalias writable align 8 %157, ptr noundef nonnull align 8 dereferenceable(32) %158, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %160)
+  invoke fastcc void @"_ZZN10open_spiel10battleship12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_.argprom"(ptr dead_on_unwind noalias writable align 8 %157, ptr noundef nonnull align 8 dereferenceable(32) %158, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %160)
           to label %3635 unwind label %3681
 
 3635:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit149.i
   %.val64.i = load ptr, ptr %157, align 8
-  invoke fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias writable align 4 %156, ptr %.val64.i)
+  invoke fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE.argprom(ptr dead_on_unwind noalias writable align 4 %156, ptr %.val64.i)
           to label %3636 unwind label %3683
 
 3636:                                             ; preds = %3635
@@ -10810,12 +10810,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit161.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit166.i: ; preds = %3733
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  invoke fastcc void @"_ZZN10open_spiel10battleship12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_"(ptr dead_on_unwind noalias writable align 8 %183, ptr noundef nonnull align 8 dereferenceable(32) %184, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %186)
+  invoke fastcc void @"_ZZN10open_spiel10battleship12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_.argprom"(ptr dead_on_unwind noalias writable align 8 %183, ptr noundef nonnull align 8 dereferenceable(32) %184, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %186)
           to label %3735 unwind label %3781
 
 3735:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit166.i
   %.val65.i = load ptr, ptr %183, align 8
-  invoke fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias writable align 4 %182, ptr %.val65.i)
+  invoke fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE.argprom(ptr dead_on_unwind noalias writable align 4 %182, ptr %.val65.i)
           to label %3736 unwind label %3783
 
 3736:                                             ; preds = %3735
@@ -15827,7 +15827,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias nocapture nonnull writable align 4 %0, ptr nonnull %.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable align 4 %0, ptr nonnull %.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::map.101", align 8
   %3 = alloca %"class.absl::debian2::flat_hash_set", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16106,7 +16106,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @"_ZZN10open_spiel10battleship12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef range(i32 2, 5) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN10open_spiel10battleship12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef range(i32 2, 5) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8

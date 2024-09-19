@@ -11237,16 +11237,16 @@ _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14def
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 4
   %35 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i14 = icmp eq i32 %35, 0
-  br i1 %cmp.i14, label %if.then4.i15, label %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit"
+  br i1 %cmp.i14, label %if.then4.i15, label %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.argprom.exit"
 
 if.then4.i15:                                     ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
   call void @_ZN4node11Environment18ToggleImmediateRefEb(ptr noundef nonnull align 8 dereferenceable(2872) %27, i1 noundef zeroext true) #28
   %.pre.i = load ptr, ptr %buffer_.i.i.i.i, align 8
   %arrayidx.i.i.i5.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 4
   %.pre12.i = load i32, ptr %arrayidx.i.i.i5.phi.trans.insert.i, align 4
-  br label %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit"
+  br label %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.argprom.exit"
 
-"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit": ; preds = %if.then4.i15, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
+"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.argprom.exit": ; preds = %if.then4.i15, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
   %36 = phi i32 [ %35, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ], [ %.pre12.i, %if.then4.i15 ]
   %37 = phi ptr [ %34, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ], [ %.pre.i, %if.then4.i15 ]
   %arrayidx.i.i.i5.i = getelementptr inbounds i8, ptr %37, i64 4
@@ -11254,7 +11254,7 @@ if.then4.i15:                                     ; preds = %_ZNSt10unique_ptrIN
   store i32 %add.i.i.i, ptr %arrayidx.i.i.i5.i, align 4
   br label %if.end12
 
-if.end12:                                         ; preds = %_ZN4node5http212Http2Session12RemoveStreamEi.exit.thread53, %_ZN4node5http212Http2Session12RemoveStreamEi.exit.thread, %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit"
+if.end12:                                         ; preds = %_ZN4node5http212Http2Session12RemoveStreamEi.exit.thread53, %_ZN4node5http212Http2Session12RemoveStreamEi.exit.thread, %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.argprom.exit"
   %call13 = call i64 @uv_hrtime() #28
   %statistics_ = getelementptr inbounds i8, ptr %this, i64 120
   %end_time = getelementptr inbounds i8, ptr %this, i64 128
@@ -34576,15 +34576,15 @@ entry:
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.not.i = icmp eq i32 %2, 0
-  br i1 %cmp.i.not.i, label %"_ZZN4node5http211Http2Stream14EmitStatisticsEvENK3$_0clEPNS_11EnvironmentE.exit", label %if.then.i
+  br i1 %cmp.i.not.i, label %"_ZZN4node5http211Http2Stream14EmitStatisticsEvENK3$_0clEPNS_11EnvironmentE.argprom.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %callback_ = getelementptr inbounds i8, ptr %this, i64 24
   %callback_.val = load ptr, ptr %callback_, align 8
   tail call void @_ZN4node11performance16PerformanceEntryINS_5http233Http2StreamPerformanceEntryTraitsEE6NotifyEPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(112) %callback_.val, ptr noundef nonnull %args)
-  br label %"_ZZN4node5http211Http2Stream14EmitStatisticsEvENK3$_0clEPNS_11EnvironmentE.exit"
+  br label %"_ZZN4node5http211Http2Stream14EmitStatisticsEvENK3$_0clEPNS_11EnvironmentE.argprom.exit"
 
-"_ZZN4node5http211Http2Stream14EmitStatisticsEvENK3$_0clEPNS_11EnvironmentE.exit": ; preds = %entry, %if.then.i
+"_ZZN4node5http211Http2Stream14EmitStatisticsEvENK3$_0clEPNS_11EnvironmentE.argprom.exit": ; preds = %entry, %if.then.i
   ret void
 }
 
@@ -34794,15 +34794,15 @@ entry:
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.not.i = icmp eq i32 %2, 0
-  br i1 %cmp.i.not.i, label %"_ZZN4node5http212Http2Session14EmitStatisticsEvENK3$_0clEPNS_11EnvironmentE.exit", label %if.then.i
+  br i1 %cmp.i.not.i, label %"_ZZN4node5http212Http2Session14EmitStatisticsEvENK3$_0clEPNS_11EnvironmentE.argprom.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %callback_ = getelementptr inbounds i8, ptr %this, i64 24
   %callback_.val = load ptr, ptr %callback_, align 8
   tail call void @_ZN4node11performance16PerformanceEntryINS_5http234Http2SessionPerformanceEntryTraitsEE6NotifyEPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(128) %callback_.val, ptr noundef nonnull %args)
-  br label %"_ZZN4node5http212Http2Session14EmitStatisticsEvENK3$_0clEPNS_11EnvironmentE.exit"
+  br label %"_ZZN4node5http212Http2Session14EmitStatisticsEvENK3$_0clEPNS_11EnvironmentE.argprom.exit"
 
-"_ZZN4node5http212Http2Session14EmitStatisticsEvENK3$_0clEPNS_11EnvironmentE.exit": ; preds = %entry, %if.then.i
+"_ZZN4node5http212Http2Session14EmitStatisticsEvENK3$_0clEPNS_11EnvironmentE.argprom.exit": ; preds = %entry, %if.then.i
   ret void
 }
 
@@ -35284,27 +35284,27 @@ entry:
   %callback_ = getelementptr inbounds i8, ptr %this, i64 24
   %callback_.val = load ptr, ptr %callback_, align 8
   %cmp.not.i.i = icmp eq ptr %callback_.val, null
-  br i1 %cmp.not.i.i, label %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val) #28
-  br label %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.exit"
+  br label %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.argprom.exit"
 
-"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.exit": ; preds = %entry, %if.then.i.i
+"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.argprom.exit": ; preds = %entry, %if.then.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %0, null
   br i1 %cmp.not.i.i1, label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit, label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.exit"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.argprom.exit"
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
   br label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit
 
-_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
+_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.argprom.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
   store ptr null, ptr %next_.i, align 8
   ret void
 }
@@ -35315,27 +35315,27 @@ entry:
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 24
   %callback_.val.i = load ptr, ptr %callback_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %callback_.val.i, null
-  br i1 %cmp.not.i.i.i, label %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.exit.i", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.argprom.exit.i", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val.i) #28
-  br label %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.exit.i"
+  br label %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.argprom.exit.i"
 
-"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.exit.i": ; preds = %if.then.i.i.i, %entry
+"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.argprom.exit.i": ; preds = %if.then.i.i.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i1.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i1.i, label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session5CloseEjbE3$_0ED2Ev.exit", label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.exit.i"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.argprom.exit.i"
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
   br label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session5CloseEjbE3$_0ED2Ev.exit"
 
-"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session5CloseEjbE3$_0ED2Ev.exit": ; preds = %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
+"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session5CloseEjbE3$_0ED2Ev.exit": ; preds = %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.argprom.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
   ret void
 }
@@ -40117,27 +40117,27 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val = load ptr, ptr %0, align 8
   %cmp.not.i.i = icmp eq ptr %callback_.val, null
-  br i1 %cmp.not.i.i, label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val) #28
-  br label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.exit"
+  br label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.argprom.exit"
 
-"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.exit": ; preds = %entry, %if.then.i.i
+"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.argprom.exit": ; preds = %entry, %if.then.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %1, null
   br i1 %cmp.not.i.i1, label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit, label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.exit"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.argprom.exit"
   %vtable.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #28
   br label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit
 
-_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
+_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.argprom.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
   store ptr null, ptr %next_.i, align 8
   ret void
 }
@@ -40148,27 +40148,27 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val.i = load ptr, ptr %0, align 8
   %cmp.not.i.i.i = icmp eq ptr %callback_.val.i, null
-  br i1 %cmp.not.i.i.i, label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.exit.i", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.argprom.exit.i", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val.i) #28
-  br label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.exit.i"
+  br label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.argprom.exit.i"
 
-"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.exit.i": ; preds = %if.then.i.i.i, %entry
+"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.argprom.exit.i": ; preds = %if.then.i.i.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i1.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i1.i, label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session18MaybeScheduleWriteEvE3$_0ED2Ev.exit", label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.exit.i"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.argprom.exit.i"
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #28
   br label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session18MaybeScheduleWriteEvE3$_0ED2Ev.exit"
 
-"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session18MaybeScheduleWriteEvE3$_0ED2Ev.exit": ; preds = %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
+"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session18MaybeScheduleWriteEvE3$_0ED2Ev.exit": ; preds = %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.argprom.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
   ret void
 }
@@ -40185,26 +40185,26 @@ entry:
   %session_.i = getelementptr inbounds i8, ptr %callback_.val, i64 168
   %0 = load ptr, ptr %session_.i, align 8
   %cmp.i.not.i = icmp eq ptr %0, null
-  br i1 %cmp.i.not.i, label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvENK3$_0clEPNS_11EnvironmentE.exit", label %lor.lhs.false.i
+  br i1 %cmp.i.not.i, label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvENK3$_0clEPNS_11EnvironmentE.argprom.exit", label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
   %flags_.i.i = getelementptr inbounds i8, ptr %callback_.val, i64 304
   %1 = load i32, ptr %flags_.i.i, align 8
   %and.i.i = and i32 %1, 2
   %tobool.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvENK3$_0clEPNS_11EnvironmentE.exit", label %if.end.i
+  br i1 %tobool.i.not.i, label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvENK3$_0clEPNS_11EnvironmentE.argprom.exit", label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %can_call_into_js_.i.i = getelementptr inbounds i8, ptr %args, i64 873
   %2 = load atomic i8, ptr %can_call_into_js_.i.i seq_cst, align 1
   %tobool.i.i.i.i = trunc i8 %2 to i1
-  br i1 %tobool.i.i.i.i, label %_ZNK4node11Environment16can_call_into_jsEv.exit.i, label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvENK3$_0clEPNS_11EnvironmentE.exit"
+  br i1 %tobool.i.i.i.i, label %_ZNK4node11Environment16can_call_into_jsEv.exit.i, label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvENK3$_0clEPNS_11EnvironmentE.argprom.exit"
 
 _ZNK4node11Environment16can_call_into_jsEv.exit.i: ; preds = %if.end.i
   %is_stopping_.i.i.i = getelementptr inbounds i8, ptr %args, i64 872
   %3 = load atomic i8, ptr %is_stopping_.i.i.i seq_cst, align 1
   %tobool.i.i.i.i.i = trunc i8 %3 to i1
-  br i1 %tobool.i.i.i.i.i, label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvENK3$_0clEPNS_11EnvironmentE.exit", label %if.then4.i
+  br i1 %tobool.i.i.i.i.i, label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvENK3$_0clEPNS_11EnvironmentE.argprom.exit", label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZNK4node11Environment16can_call_into_jsEv.exit.i
   %isolate_.i.i = getelementptr inbounds i8, ptr %args, i64 88
@@ -40214,9 +40214,9 @@ if.then4.i:                                       ; preds = %_ZNK4node11Environm
   %call6.i = call noundef zeroext i8 @_ZN4node5http212Http2Session15SendPendingDataEv(ptr noundef nonnull align 8 dereferenceable(640) %callback_.val)
   call void @_ZN4node21InternalCallbackScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(37) %callback_scope.i) #28
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #28
-  br label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvENK3$_0clEPNS_11EnvironmentE.exit"
+  br label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvENK3$_0clEPNS_11EnvironmentE.argprom.exit"
 
-"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvENK3$_0clEPNS_11EnvironmentE.exit": ; preds = %entry, %lor.lhs.false.i, %if.end.i, %_ZNK4node11Environment16can_call_into_jsEv.exit.i, %if.then4.i
+"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvENK3$_0clEPNS_11EnvironmentE.argprom.exit": ; preds = %entry, %lor.lhs.false.i, %if.end.i, %_ZNK4node11Environment16can_call_into_jsEv.exit.i, %if.then4.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %callback_scope.i)
   ret void
@@ -41874,27 +41874,27 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val = load ptr, ptr %0, align 8
   %cmp.not.i.i = icmp eq ptr %callback_.val, null
-  br i1 %cmp.not.i.i, label %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val) #28
-  br label %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit"
+  br label %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.argprom.exit"
 
-"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit": ; preds = %entry, %if.then.i.i
+"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.argprom.exit": ; preds = %entry, %if.then.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %1, null
   br i1 %cmp.not.i.i1, label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit, label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.argprom.exit"
   %vtable.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #28
   br label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit
 
-_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
+_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.argprom.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
   store ptr null, ptr %next_.i, align 8
   ret void
 }
@@ -41905,27 +41905,27 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val.i = load ptr, ptr %0, align 8
   %cmp.not.i.i.i = icmp eq ptr %callback_.val.i, null
-  br i1 %cmp.not.i.i.i, label %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit.i", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.argprom.exit.i", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val.i) #28
-  br label %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit.i"
+  br label %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.argprom.exit.i"
 
-"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit.i": ; preds = %if.then.i.i.i, %entry
+"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.argprom.exit.i": ; preds = %if.then.i.i.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i1.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i1.i, label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream7DestroyEvE3$_0ED2Ev.exit", label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit.i"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.argprom.exit.i"
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #28
   br label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream7DestroyEvE3$_0ED2Ev.exit"
 
-"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream7DestroyEvE3$_0ED2Ev.exit": ; preds = %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
+"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream7DestroyEvE3$_0ED2Ev.exit": ; preds = %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.argprom.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
   ret void
 }
@@ -42133,7 +42133,7 @@ _ZN4node9WriteWrap10FromObjectINS_9AsyncWrapELb0EEEPS0_RKNS_17BaseObjectPtrImplI
   %stream_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   %49 = load ptr, ptr %stream_.i.i.i, align 8
   %cmp.i13.i = icmp eq ptr %49, %add.ptr.i.i
-  br i1 %cmp.i13.i, label %"_ZZN4node5http211Http2Stream7DestroyEvENK3$_0clEPNS_11EnvironmentE.exit", label %for.inc.i.i
+  br i1 %cmp.i13.i, label %"_ZZN4node5http211Http2Stream7DestroyEvENK3$_0clEPNS_11EnvironmentE.argprom.exit", label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %_ZN4node9WriteWrap10FromObjectINS_9AsyncWrapELb0EEEPS0_RKNS_17BaseObjectPtrImplIT_XT0_EEE.exit.i.i, %for.body.i.i
   %incdec.ptr.i.i14.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i.i, i64 32
@@ -42155,9 +42155,9 @@ _ZN4node10BaseObject6DetachEv.exit.i:             ; preds = %if.then11.i
   %call6.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val) #28
   %is_detached.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 9
   store i8 1, ptr %is_detached.i.i, align 1
-  br label %"_ZZN4node5http211Http2Stream7DestroyEvENK3$_0clEPNS_11EnvironmentE.exit"
+  br label %"_ZZN4node5http211Http2Stream7DestroyEvENK3$_0clEPNS_11EnvironmentE.argprom.exit"
 
-"_ZZN4node5http211Http2Stream7DestroyEvENK3$_0clEPNS_11EnvironmentE.exit": ; preds = %_ZN4node9WriteWrap10FromObjectINS_9AsyncWrapELb0EEEPS0_RKNS_17BaseObjectPtrImplIT_XT0_EEE.exit.i.i, %_ZN4node10BaseObject6DetachEv.exit.i
+"_ZZN4node5http211Http2Stream7DestroyEvENK3$_0clEPNS_11EnvironmentE.argprom.exit": ; preds = %_ZN4node9WriteWrap10FromObjectINS_9AsyncWrapELb0EEEPS0_RKNS_17BaseObjectPtrImplIT_XT0_EEE.exit.i.i, %_ZN4node10BaseObject6DetachEv.exit.i
   ret void
 }
 
@@ -43796,10 +43796,10 @@ attributes #34 = { nounwind allocsize(1) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6, !8}
-!6 = distinct !{!6, !7, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http212Http2Session18MaybeScheduleWriteEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!7 = distinct !{!7, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http212Http2Session18MaybeScheduleWriteEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!8 = distinct !{!8, !9, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http212Http2Session18MaybeScheduleWriteEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
-!9 = distinct !{!9, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http212Http2Session18MaybeScheduleWriteEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE"}
+!6 = distinct !{!6, !7, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http212Http2Session18MaybeScheduleWriteEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!7 = distinct !{!7, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http212Http2Session18MaybeScheduleWriteEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!8 = distinct !{!8, !9, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http212Http2Session18MaybeScheduleWriteEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
+!9 = distinct !{!9, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http212Http2Session18MaybeScheduleWriteEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
 !10 = !{!11}
 !11 = distinct !{!11, !12, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
 !12 = distinct !{!12, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
@@ -43866,26 +43866,26 @@ attributes #34 = { nounwind allocsize(1) }
 !73 = distinct !{!73, !74, !"_ZSt11make_uniqueIN4node11performance16PerformanceEntryINS0_5http233Http2StreamPerformanceEntryTraitsEEEJRA12_KcdRdRNS3_11Http2Stream10StatisticsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !74 = distinct !{!74, !"_ZSt11make_uniqueIN4node11performance16PerformanceEntryINS0_5http233Http2StreamPerformanceEntryTraitsEEEJRA12_KcdRdRNS3_11Http2Stream10StatisticsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !75 = !{!76, !78}
-!76 = distinct !{!76, !77, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http211Http2Stream14EmitStatisticsEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!77 = distinct !{!77, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http211Http2Stream14EmitStatisticsEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!78 = distinct !{!78, !79, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http211Http2Stream14EmitStatisticsEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
-!79 = distinct !{!79, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http211Http2Stream14EmitStatisticsEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE"}
+!76 = distinct !{!76, !77, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http211Http2Stream14EmitStatisticsEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!77 = distinct !{!77, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http211Http2Stream14EmitStatisticsEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!78 = distinct !{!78, !79, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http211Http2Stream14EmitStatisticsEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
+!79 = distinct !{!79, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http211Http2Stream14EmitStatisticsEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
 !80 = !{!81}
 !81 = distinct !{!81, !82, !"_ZSt11make_uniqueIN4node11performance16PerformanceEntryINS0_5http234Http2SessionPerformanceEntryTraitsEEEJRA13_KcdRdRNS3_12Http2Session10StatisticsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !82 = distinct !{!82, !"_ZSt11make_uniqueIN4node11performance16PerformanceEntryINS0_5http234Http2SessionPerformanceEntryTraitsEEEJRA13_KcdRdRNS3_12Http2Session10StatisticsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !83 = !{!84, !86}
-!84 = distinct !{!84, !85, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http212Http2Session14EmitStatisticsEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!85 = distinct !{!85, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http212Http2Session14EmitStatisticsEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!86 = distinct !{!86, !87, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http212Http2Session14EmitStatisticsEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
-!87 = distinct !{!87, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http212Http2Session14EmitStatisticsEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE"}
+!84 = distinct !{!84, !85, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http212Http2Session14EmitStatisticsEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!85 = distinct !{!85, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http212Http2Session14EmitStatisticsEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!86 = distinct !{!86, !87, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http212Http2Session14EmitStatisticsEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
+!87 = distinct !{!87, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http212Http2Session14EmitStatisticsEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
 !88 = !{!89}
 !89 = distinct !{!89, !90, !"_ZN4node5http212Http2Session7PopPingEv: %agg.result"}
 !90 = distinct !{!90, !"_ZN4node5http212Http2Session7PopPingEv"}
 !91 = !{!92, !94}
-!92 = distinct !{!92, !93, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http212Http2Session5CloseEjbE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!93 = distinct !{!93, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http212Http2Session5CloseEjbE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!94 = distinct !{!94, !95, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http212Http2Session5CloseEjbE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
-!95 = distinct !{!95, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http212Http2Session5CloseEjbE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE"}
+!92 = distinct !{!92, !93, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http212Http2Session5CloseEjbE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!93 = distinct !{!93, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http212Http2Session5CloseEjbE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!94 = distinct !{!94, !95, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http212Http2Session5CloseEjbE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
+!95 = distinct !{!95, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http212Http2Session5CloseEjbE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
 !96 = distinct !{!96, !15}
 !97 = distinct !{!97, !15}
 !98 = distinct !{!98, !15}
@@ -43902,10 +43902,10 @@ attributes #34 = { nounwind allocsize(1) }
 !109 = distinct !{!109, !110, !"_ZN4node5http212Http2Session12RemoveStreamEi: %agg.result"}
 !110 = distinct !{!110, !"_ZN4node5http212Http2Session12RemoveStreamEi"}
 !111 = !{!112, !114}
-!112 = distinct !{!112, !113, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http211Http2Stream7DestroyEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!113 = distinct !{!113, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http211Http2Stream7DestroyEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!114 = distinct !{!114, !115, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http211Http2Stream7DestroyEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
-!115 = distinct !{!115, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http211Http2Stream7DestroyEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE"}
+!112 = distinct !{!112, !113, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http211Http2Stream7DestroyEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!113 = distinct !{!113, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_5http211Http2Stream7DestroyEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!114 = distinct !{!114, !115, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http211Http2Stream7DestroyEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
+!115 = distinct !{!115, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_5http211Http2Stream7DestroyEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
 !116 = distinct !{!116, !15}
 !117 = !{!118}
 !118 = distinct !{!118, !119, !"_ZSt19__relocate_object_aIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}

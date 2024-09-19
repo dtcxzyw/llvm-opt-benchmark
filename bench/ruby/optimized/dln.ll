@@ -95,14 +95,14 @@ init_funcname_len.exit:                           ; preds = %.lr.ph.i, %13
   %26 = alloca i8, i64 %25, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %26, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.2, i64 5, i1 false)
   %.not.i.i = icmp eq ptr %21, %.016.lcssa.i
-  br i1 %.not.i.i, label %concat_funcname.exit, label %27
+  br i1 %.not.i.i, label %concat_funcname.argprom.exit, label %27
 
 27:                                               ; preds = %init_funcname_len.exit
   %28 = getelementptr i8, ptr %26, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr readonly align 1 %.016.lcssa.i, i64 %24, i1 false)
-  br label %concat_funcname.exit
+  br label %concat_funcname.argprom.exit
 
-concat_funcname.exit:                             ; preds = %init_funcname_len.exit, %27
+concat_funcname.argprom.exit:                     ; preds = %init_funcname_len.exit, %27
   %29 = getelementptr i8, ptr %26, i64 %24
   %30 = getelementptr i8, ptr %29, i64 5
   store i8 0, ptr %30, align 1

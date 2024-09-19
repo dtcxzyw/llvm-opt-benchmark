@@ -898,7 +898,7 @@ apply_case_fold2.exit53.thread:                   ; preds = %48, %57, %.lr.ph.i4
 64:                                               ; preds = %._crit_edge45.i34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %65 = call fastcc i32 @apply_case_fold3(ptr noundef %1, ptr noundef %2)
+  %65 = call fastcc i32 @apply_case_fold3.argelim(ptr noundef %1, ptr noundef %2)
   br label %66
 
 66:                                               ; preds = %apply_case_fold2.exit53.thread, %apply_case_fold2.exit.thread, %64, %11, %9, %3
@@ -1087,7 +1087,7 @@ define internal fastcc i32 @apply_case_fold1(i32 noundef %0, i32 noundef range(i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @apply_case_fold3(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @apply_case_fold3.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   br label %5

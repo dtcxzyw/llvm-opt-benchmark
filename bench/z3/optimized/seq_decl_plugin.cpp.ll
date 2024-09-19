@@ -10931,7 +10931,7 @@ if.then:                                          ; preds = %_ZNK8seq_util3str9i
   br label %if.end
 
 if.else:                                          ; preds = %land.rhs.i.i, %while.body, %_ZNK8seq_util3str9is_concatEPK4expr.exit
-  %call4 = tail call fastcc noundef i32 @"_ZZNK8seq_util3str10min_lengthEP4exprENK3$_0clES2_"(ptr nonnull %this, ptr noundef nonnull %7)
+  %call4 = tail call fastcc noundef i32 @"_ZZNK8seq_util3str10min_lengthEP4exprENK3$_0clES2_.argprom"(ptr nonnull %this, ptr noundef nonnull %7)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -10946,13 +10946,13 @@ if.end:                                           ; preds = %if.else, %if.then
 while.end:                                        ; preds = %land.rhs.i.i.i, %if.end, %_ZNK8seq_util3str9is_concatEPK4expr.exit.i, %land.lhs.true.i, %entry
   %s.addr.0.lcssa = phi ptr [ %s, %entry ], [ %s.addr.015, %land.lhs.true.i ], [ %s.addr.015, %_ZNK8seq_util3str9is_concatEPK4expr.exit.i ], [ %8, %if.end ], [ %s.addr.015, %land.rhs.i.i.i ]
   %result.0.lcssa = phi i32 [ 0, %entry ], [ %result.016, %land.lhs.true.i ], [ %result.016, %_ZNK8seq_util3str9is_concatEPK4expr.exit.i ], [ %result.1, %if.end ], [ %result.016, %land.rhs.i.i.i ]
-  %call6 = tail call fastcc noundef i32 @"_ZZNK8seq_util3str10min_lengthEP4exprENK3$_0clES2_"(ptr nonnull %this, ptr noundef nonnull %s.addr.0.lcssa)
+  %call6 = tail call fastcc noundef i32 @"_ZZNK8seq_util3str10min_lengthEP4exprENK3$_0clES2_.argprom"(ptr nonnull %this, ptr noundef nonnull %s.addr.0.lcssa)
   %add7 = add i32 %call6, %result.0.lcssa
   ret i32 %add7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @"_ZZNK8seq_util3str10min_lengthEP4exprENK3$_0clES2_"(ptr nocapture readonly %this.0.val, ptr nocapture noundef readonly %s1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @"_ZZNK8seq_util3str10min_lengthEP4exprENK3$_0clES2_.argprom"(ptr nocapture readonly %this.0.val, ptr nocapture noundef readonly %s1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %st = alloca %class.zstring, align 8
   %m_initial_buffer.i.i = getelementptr inbounds i8, ptr %st, i64 16

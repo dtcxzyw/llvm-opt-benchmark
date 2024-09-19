@@ -2378,7 +2378,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %sigalg3.i = getelementptr inbounds i8, ptr %lu.04.i, i64 8
   %7 = load i16, ptr %sigalg3.i, align 8
   %cmp5.i = icmp eq i16 %7, %sig
-  br i1 %cmp5.i, label %tls1_lookup_sigalg.exit, label %for.inc.i
+  br i1 %cmp5.i, label %tls1_lookup_sigalg.argprom.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %lu.04.i, i64 40
@@ -2386,7 +2386,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %exitcond.not.i = icmp eq i64 %inc.i, %5
   br i1 %exitcond.not.i, label %if.end20.thread, label %for.body.i, !llvm.loop !21
 
-tls1_lookup_sigalg.exit:                          ; preds = %for.body.i
+tls1_lookup_sigalg.argprom.exit:                  ; preds = %for.body.i
   %enabled.i = getelementptr inbounds i8, ptr %lu.04.i, i64 36
   %8 = load i32, ptr %enabled.i, align 4
   %tobool.not.i = icmp eq i32 %8, 0
@@ -2396,13 +2396,13 @@ tls1_lookup_sigalg.exit:                          ; preds = %for.body.i
   %or.cond = select i1 %cmp15, i1 %cmp17, i1 false
   br i1 %or.cond, label %if.then18, label %if.end20
 
-if.then18:                                        ; preds = %tls1_lookup_sigalg.exit
+if.then18:                                        ; preds = %tls1_lookup_sigalg.argprom.exit
   %sig19 = getelementptr inbounds i8, ptr %.lu.0.i, i64 20
   %9 = load i32, ptr %sig19, align 4
   br label %if.end20
 
-if.end20:                                         ; preds = %if.then18, %tls1_lookup_sigalg.exit
-  %pkeyid.1 = phi i32 [ %9, %if.then18 ], [ %pkeyid.0, %tls1_lookup_sigalg.exit ]
+if.end20:                                         ; preds = %if.then18, %tls1_lookup_sigalg.argprom.exit
+  %pkeyid.1 = phi i32 [ %9, %if.then18 ], [ %pkeyid.0, %tls1_lookup_sigalg.argprom.exit ]
   %cmp21 = icmp eq i32 %pkeyid.1, -1
   br i1 %cmp21, label %return, label %if.end23
 
@@ -5262,7 +5262,7 @@ if.end37:                                         ; preds = %if.then33, %if.end3
   %tls12_sigalgs_len.i = getelementptr inbounds i8, ptr %cond11.val, i64 1576
   %9 = load i64, ptr %tls12_sigalgs_len.i, align 8
   %cmp2.not.i = icmp eq i64 %9, 0
-  br i1 %cmp2.not.i, label %tls1_lookup_sigalg.exit, label %for.body.preheader.i
+  br i1 %cmp2.not.i, label %tls1_lookup_sigalg.argprom.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end37
   %sigalg_lookup_cache.i = getelementptr inbounds i8, ptr %cond11.val, i64 1584
@@ -5282,20 +5282,20 @@ if.then.i:                                        ; preds = %for.body.i
   %12 = load i32, ptr %enabled.i, align 4
   %tobool.not.i = icmp eq i32 %12, 0
   %.lu.0.i = select i1 %tobool.not.i, ptr null, ptr %lu.04.i
-  br label %tls1_lookup_sigalg.exit
+  br label %tls1_lookup_sigalg.argprom.exit
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %lu.04.i, i64 40
   %inc.i = add nuw i64 %i.03.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %9
-  br i1 %exitcond.not.i, label %tls1_lookup_sigalg.exit, label %for.body.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %tls1_lookup_sigalg.argprom.exit, label %for.body.i, !llvm.loop !21
 
-tls1_lookup_sigalg.exit:                          ; preds = %for.inc.i, %if.end37, %if.then.i
+tls1_lookup_sigalg.argprom.exit:                  ; preds = %for.inc.i, %if.end37, %if.then.i
   %retval.0.i = phi ptr [ %.lu.0.i, %if.then.i ], [ null, %if.end37 ], [ null, %for.inc.i ]
   %cmp38.not = icmp eq ptr %psign, null
   br i1 %cmp38.not, label %if.end47, label %if.then40
 
-if.then40:                                        ; preds = %tls1_lookup_sigalg.exit
+if.then40:                                        ; preds = %tls1_lookup_sigalg.argprom.exit
   %cmp41.not = icmp eq ptr %retval.0.i, null
   br i1 %cmp41.not, label %cond.end45, label %cond.true43
 
@@ -5309,7 +5309,7 @@ cond.end45:                                       ; preds = %if.then40, %cond.tr
   store i32 %cond46, ptr %psign, align 4
   br label %if.end47
 
-if.end47:                                         ; preds = %cond.end45, %tls1_lookup_sigalg.exit
+if.end47:                                         ; preds = %cond.end45, %tls1_lookup_sigalg.argprom.exit
   %cmp48.not = icmp eq ptr %phash, null
   br i1 %cmp48.not, label %if.end57, label %if.then50
 
@@ -6537,7 +6537,7 @@ has_usable_cert.exit:                             ; preds = %ssl_has_cert.exit.i
   %privatekey.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %17 = load ptr, ptr %privatekey.i, align 8
   %sig.val.i = load i32, ptr %hash, align 4
-  %call7.i = call fastcc i32 @check_cert_usable(ptr noundef nonnull readonly %s, i32 %sig.val.i, ptr noundef %16, ptr noundef %17)
+  %call7.i = call fastcc i32 @check_cert_usable.argprom(ptr noundef nonnull readonly %s, i32 %sig.val.i, ptr noundef %16, ptr noundef %17)
   %tobool13.not = icmp eq i32 %call7.i, 0
   br i1 %tobool13.not, label %for.inc, label %cond.false
 
@@ -6562,7 +6562,7 @@ is_cert_usable.exit.thread:                       ; preds = %land.lhs.true16, %i
 
 is_cert_usable.exit:                              ; preds = %if.end.i37
   %sig.val.i40 = load i32, ptr %hash, align 4
-  %call5.i = call fastcc i32 @check_cert_usable(ptr noundef nonnull readonly %s, i32 %sig.val.i40, ptr noundef %x, ptr noundef nonnull %pkey)
+  %call5.i = call fastcc i32 @check_cert_usable.argprom(ptr noundef nonnull readonly %s, i32 %sig.val.i40, ptr noundef %x, ptr noundef nonnull %pkey)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %idx.i)
   %tobool18.not = icmp eq i32 %call5.i, 0
   br i1 %tobool18.not, label %for.inc, label %cond.end
@@ -7695,7 +7695,7 @@ has_usable_cert.exit:                             ; preds = %ssl_has_cert.exit.i
   %52 = load ptr, ptr %privatekey.i93, align 8
   %53 = getelementptr i8, ptr %21, i64 12
   %sig.val.i = load i32, ptr %53, align 4
-  %call7.i = call fastcc i32 @check_cert_usable(ptr noundef nonnull readonly %s, i32 %sig.val.i, ptr noundef %51, ptr noundef %52)
+  %call7.i = call fastcc i32 @check_cert_usable.argprom(ptr noundef nonnull readonly %s, i32 %sig.val.i, ptr noundef %51, ptr noundef %52)
   %tobool78.not = icmp eq i32 %call7.i, 0
   br i1 %tobool78.not, label %for.inc, label %if.end80
 
@@ -7968,7 +7968,7 @@ has_usable_cert.exit154:                          ; preds = %ssl_has_cert.exit.i
   %privatekey.i141 = getelementptr inbounds i8, ptr %arrayidx.i140, i64 8
   %88 = load ptr, ptr %privatekey.i141, align 8
   %sig.val.i142 = load i32, ptr %75, align 4
-  %call7.i143 = tail call fastcc i32 @check_cert_usable(ptr noundef nonnull readonly %s, i32 %sig.val.i142, ptr noundef %87, ptr noundef %88)
+  %call7.i143 = tail call fastcc i32 @check_cert_usable.argprom(ptr noundef nonnull readonly %s, i32 %sig.val.i142, ptr noundef %87, ptr noundef %88)
   %tobool153.not = icmp eq i32 %call7.i143, 0
   br i1 %tobool153.not, label %for.inc156, label %for.end158
 
@@ -9187,7 +9187,7 @@ declare i32 @X509_get_extension_flags(ptr noundef) local_unnamed_addr #0
 declare i32 @X509_get_signature_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_cert_usable(ptr nocapture noundef readonly %s, i32 %sig.12.val, ptr noundef %x, ptr noundef %pkey) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @check_cert_usable.argprom(ptr nocapture noundef readonly %s, i32 %sig.12.val, ptr noundef %x, ptr noundef %pkey) unnamed_addr #2 {
 entry:
   %mdnid = alloca i32, align 4
   %pknid = alloca i32, align 4

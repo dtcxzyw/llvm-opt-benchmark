@@ -1905,14 +1905,14 @@ sub_1393:                                         ; preds = %.tail.thread, %.thr
     i32 16, label %201
   ]
 
-.backedge:                                        ; preds = %110, %110, %197, %185, %181, %184, %177, %134, %read_dump_filters.exit, %195, %193, %191, %189, %176, %173, %171, %169, %166, %163, %161, %160, %159, %158, %157, %154, %152, %150, %147, %146, %143, %142, %140, %138, %131, %128, %125, %122, %120, %117, %116, %115, %114, %113, %112
-  %.0155.be = phi ptr [ %.0155, %read_dump_filters.exit ], [ %.0155, %197 ], [ %.0155, %195 ], [ %.0155, %193 ], [ %.0155, %191 ], [ %.0155, %189 ], [ %.0155, %185 ], [ %.0155, %184 ], [ %.0155, %181 ], [ %.0155, %177 ], [ %.0155, %176 ], [ %.0155, %173 ], [ %.0155, %171 ], [ %.0155, %169 ], [ %.0155, %166 ], [ %.0155, %163 ], [ %.0155, %161 ], [ %.0155, %160 ], [ %.0155, %159 ], [ %.0155, %158 ], [ %.0155, %157 ], [ %.0155, %154 ], [ %.0155, %152 ], [ %.0155, %150 ], [ %.0155, %147 ], [ %.0155, %146 ], [ %.0155, %143 ], [ %.0155, %142 ], [ %.0155, %140 ], [ %.0155, %138 ], [ %.0155, %134 ], [ %.0155, %131 ], [ %130, %128 ], [ %.0155, %125 ], [ %.0155, %122 ], [ %.0155, %120 ], [ %.0155, %117 ], [ %.0155, %116 ], [ %.0155, %115 ], [ %.0155, %114 ], [ %.0155, %113 ], [ %.0155, %112 ], [ %.0155, %110 ], [ %.0155, %110 ]
-  %.0153.be = phi ptr [ %.0153, %read_dump_filters.exit ], [ %.0153, %197 ], [ %.0153, %195 ], [ %.0153, %193 ], [ %.0153, %191 ], [ %.0153, %189 ], [ %.0153, %185 ], [ %.0153, %184 ], [ %.0153, %181 ], [ %.0153, %177 ], [ %.0153, %176 ], [ %.0153, %173 ], [ %.0153, %171 ], [ %.0153, %169 ], [ %.0153, %166 ], [ %.0153, %163 ], [ %.0153, %161 ], [ %.0153, %160 ], [ %.0153, %159 ], [ %.0153, %158 ], [ %.0153, %157 ], [ %.0153, %154 ], [ %.0153, %152 ], [ %.0153, %150 ], [ %.0153, %147 ], [ %.0153, %146 ], [ %.0153, %143 ], [ %.0153, %142 ], [ %.0153, %140 ], [ %.0153, %138 ], [ %.0153, %134 ], [ %.0153, %131 ], [ %.0153, %128 ], [ %127, %125 ], [ %.0153, %122 ], [ %.0153, %120 ], [ %.0153, %117 ], [ %.0153, %116 ], [ %.0153, %115 ], [ %.0153, %114 ], [ %.0153, %113 ], [ %.0153, %112 ], [ %.0153, %110 ], [ %.0153, %110 ]
-  %.0151.be = phi i8 [ %.0151, %read_dump_filters.exit ], [ %.0151, %197 ], [ %.0151, %195 ], [ %.0151, %193 ], [ %.0151, %191 ], [ %.0151, %189 ], [ %.0151, %185 ], [ %.0151, %184 ], [ %.0151, %181 ], [ %.0151, %177 ], [ %.0151, %176 ], [ %.0151, %173 ], [ %.0151, %171 ], [ %.0151, %169 ], [ %.0151, %166 ], [ %.0151, %163 ], [ %.0151, %161 ], [ %.0151, %160 ], [ %.0151, %159 ], [ %.0151, %158 ], [ 1, %157 ], [ %.0151, %154 ], [ %.0151, %152 ], [ %.0151, %150 ], [ %.0151, %147 ], [ %.0151, %146 ], [ %.0151, %143 ], [ %.0151, %142 ], [ %.0151, %140 ], [ %.0151, %138 ], [ %.0151, %134 ], [ %.0151, %131 ], [ %.0151, %128 ], [ %.0151, %125 ], [ %.0151, %122 ], [ %.0151, %120 ], [ %.0151, %117 ], [ %.0151, %116 ], [ %.0151, %115 ], [ %.0151, %114 ], [ %.0151, %113 ], [ %.0151, %112 ], [ %.0151, %110 ], [ %.0151, %110 ]
-  %.0149.be = phi ptr [ %.0149, %read_dump_filters.exit ], [ %.0149, %197 ], [ %.0149, %195 ], [ %.0149, %193 ], [ %.0149, %191 ], [ %.0149, %189 ], [ %.0149, %185 ], [ %.0149, %184 ], [ %.0149, %181 ], [ %.0149, %177 ], [ %.0149, %176 ], [ %.0149, %173 ], [ %.0149, %171 ], [ %.0149, %169 ], [ %.0149, %166 ], [ %.0149, %163 ], [ %.0149, %161 ], [ %.0149, %160 ], [ %.0149, %159 ], [ %.0149, %158 ], [ %.0149, %157 ], [ %.0149, %154 ], [ %.0149, %152 ], [ %.0149, %150 ], [ %.0149, %147 ], [ %.0149, %146 ], [ %.0149, %143 ], [ %.0149, %142 ], [ %.0149, %140 ], [ %.0149, %138 ], [ %.0149, %134 ], [ %.0149, %131 ], [ %.0149, %128 ], [ %.0149, %125 ], [ %124, %122 ], [ %.0149, %120 ], [ %.0149, %117 ], [ %.0149, %116 ], [ %.0149, %115 ], [ %.0149, %114 ], [ %.0149, %113 ], [ %.0149, %112 ], [ %.0149, %110 ], [ %.0149, %110 ]
-  %.0147.be = phi ptr [ %.0147, %read_dump_filters.exit ], [ %.0147, %197 ], [ %.0147, %195 ], [ %.0147, %193 ], [ %.0147, %191 ], [ %.0147, %189 ], [ %.0147, %185 ], [ %.0147, %184 ], [ %.0147, %181 ], [ %.0147, %177 ], [ %.0147, %176 ], [ %175, %173 ], [ %.0147, %171 ], [ %.0147, %169 ], [ %.0147, %166 ], [ %.0147, %163 ], [ %.0147, %161 ], [ %.0147, %160 ], [ %.0147, %159 ], [ %.0147, %158 ], [ %.0147, %157 ], [ %.0147, %154 ], [ %.0147, %152 ], [ %.0147, %150 ], [ %.0147, %147 ], [ %.0147, %146 ], [ %.0147, %143 ], [ %.0147, %142 ], [ %.0147, %140 ], [ %.0147, %138 ], [ %.0147, %134 ], [ %.0147, %131 ], [ %.0147, %128 ], [ %.0147, %125 ], [ %.0147, %122 ], [ %.0147, %120 ], [ %.0147, %117 ], [ %.0147, %116 ], [ %.0147, %115 ], [ %.0147, %114 ], [ %.0147, %113 ], [ %.0147, %112 ], [ %.0147, %110 ], [ %.0147, %110 ]
-  %.0145.be = phi ptr [ %.0145, %read_dump_filters.exit ], [ %.0145, %197 ], [ %.0145, %195 ], [ %.0145, %193 ], [ %.0145, %191 ], [ %.0145, %189 ], [ %.0145, %185 ], [ %.0145, %184 ], [ %.0145, %181 ], [ %.0145, %177 ], [ %.0145, %176 ], [ %.0145, %173 ], [ %.0145, %171 ], [ %.0145, %169 ], [ %168, %166 ], [ %.0145, %163 ], [ %.0145, %161 ], [ %.0145, %160 ], [ %.0145, %159 ], [ %.0145, %158 ], [ %.0145, %157 ], [ %.0145, %154 ], [ %.0145, %152 ], [ %.0145, %150 ], [ %.0145, %147 ], [ %.0145, %146 ], [ %.0145, %143 ], [ %.0145, %142 ], [ %.0145, %140 ], [ %.0145, %138 ], [ %.0145, %134 ], [ %.0145, %131 ], [ %.0145, %128 ], [ %.0145, %125 ], [ %.0145, %122 ], [ %.0145, %120 ], [ %.0145, %117 ], [ %.0145, %116 ], [ %.0145, %115 ], [ %.0145, %114 ], [ %.0145, %113 ], [ %.0145, %112 ], [ %.0145, %110 ], [ %.0145, %110 ]
-  %.0.be = phi i1 [ %.0, %read_dump_filters.exit ], [ %.0, %197 ], [ %.0, %195 ], [ %.0, %193 ], [ %.0, %191 ], [ %.0, %189 ], [ %.0, %185 ], [ %.0, %184 ], [ %.0, %181 ], [ %.0, %177 ], [ %.0, %176 ], [ %.0, %173 ], [ %.0, %171 ], [ %.0, %169 ], [ %.0, %166 ], [ %.0, %163 ], [ true, %161 ], [ %.0, %160 ], [ %.0, %159 ], [ %.0, %158 ], [ %.0, %157 ], [ %.0, %154 ], [ %.0, %152 ], [ %.0, %150 ], [ %.0, %147 ], [ %.0, %146 ], [ %.0, %143 ], [ %.0, %142 ], [ %.0, %140 ], [ %.0, %138 ], [ %.0, %134 ], [ %.0, %131 ], [ %.0, %128 ], [ %.0, %125 ], [ %.0, %122 ], [ %.0, %120 ], [ %.0, %117 ], [ %.0, %116 ], [ %.0, %115 ], [ %.0, %114 ], [ %.0, %113 ], [ %.0, %112 ], [ %.0, %110 ], [ %.0, %110 ]
+.backedge:                                        ; preds = %110, %110, %197, %185, %181, %184, %177, %134, %read_dump_filters.argprom.exit, %195, %193, %191, %189, %176, %173, %171, %169, %166, %163, %161, %160, %159, %158, %157, %154, %152, %150, %147, %146, %143, %142, %140, %138, %131, %128, %125, %122, %120, %117, %116, %115, %114, %113, %112
+  %.0155.be = phi ptr [ %.0155, %read_dump_filters.argprom.exit ], [ %.0155, %197 ], [ %.0155, %195 ], [ %.0155, %193 ], [ %.0155, %191 ], [ %.0155, %189 ], [ %.0155, %185 ], [ %.0155, %184 ], [ %.0155, %181 ], [ %.0155, %177 ], [ %.0155, %176 ], [ %.0155, %173 ], [ %.0155, %171 ], [ %.0155, %169 ], [ %.0155, %166 ], [ %.0155, %163 ], [ %.0155, %161 ], [ %.0155, %160 ], [ %.0155, %159 ], [ %.0155, %158 ], [ %.0155, %157 ], [ %.0155, %154 ], [ %.0155, %152 ], [ %.0155, %150 ], [ %.0155, %147 ], [ %.0155, %146 ], [ %.0155, %143 ], [ %.0155, %142 ], [ %.0155, %140 ], [ %.0155, %138 ], [ %.0155, %134 ], [ %.0155, %131 ], [ %130, %128 ], [ %.0155, %125 ], [ %.0155, %122 ], [ %.0155, %120 ], [ %.0155, %117 ], [ %.0155, %116 ], [ %.0155, %115 ], [ %.0155, %114 ], [ %.0155, %113 ], [ %.0155, %112 ], [ %.0155, %110 ], [ %.0155, %110 ]
+  %.0153.be = phi ptr [ %.0153, %read_dump_filters.argprom.exit ], [ %.0153, %197 ], [ %.0153, %195 ], [ %.0153, %193 ], [ %.0153, %191 ], [ %.0153, %189 ], [ %.0153, %185 ], [ %.0153, %184 ], [ %.0153, %181 ], [ %.0153, %177 ], [ %.0153, %176 ], [ %.0153, %173 ], [ %.0153, %171 ], [ %.0153, %169 ], [ %.0153, %166 ], [ %.0153, %163 ], [ %.0153, %161 ], [ %.0153, %160 ], [ %.0153, %159 ], [ %.0153, %158 ], [ %.0153, %157 ], [ %.0153, %154 ], [ %.0153, %152 ], [ %.0153, %150 ], [ %.0153, %147 ], [ %.0153, %146 ], [ %.0153, %143 ], [ %.0153, %142 ], [ %.0153, %140 ], [ %.0153, %138 ], [ %.0153, %134 ], [ %.0153, %131 ], [ %.0153, %128 ], [ %127, %125 ], [ %.0153, %122 ], [ %.0153, %120 ], [ %.0153, %117 ], [ %.0153, %116 ], [ %.0153, %115 ], [ %.0153, %114 ], [ %.0153, %113 ], [ %.0153, %112 ], [ %.0153, %110 ], [ %.0153, %110 ]
+  %.0151.be = phi i8 [ %.0151, %read_dump_filters.argprom.exit ], [ %.0151, %197 ], [ %.0151, %195 ], [ %.0151, %193 ], [ %.0151, %191 ], [ %.0151, %189 ], [ %.0151, %185 ], [ %.0151, %184 ], [ %.0151, %181 ], [ %.0151, %177 ], [ %.0151, %176 ], [ %.0151, %173 ], [ %.0151, %171 ], [ %.0151, %169 ], [ %.0151, %166 ], [ %.0151, %163 ], [ %.0151, %161 ], [ %.0151, %160 ], [ %.0151, %159 ], [ %.0151, %158 ], [ 1, %157 ], [ %.0151, %154 ], [ %.0151, %152 ], [ %.0151, %150 ], [ %.0151, %147 ], [ %.0151, %146 ], [ %.0151, %143 ], [ %.0151, %142 ], [ %.0151, %140 ], [ %.0151, %138 ], [ %.0151, %134 ], [ %.0151, %131 ], [ %.0151, %128 ], [ %.0151, %125 ], [ %.0151, %122 ], [ %.0151, %120 ], [ %.0151, %117 ], [ %.0151, %116 ], [ %.0151, %115 ], [ %.0151, %114 ], [ %.0151, %113 ], [ %.0151, %112 ], [ %.0151, %110 ], [ %.0151, %110 ]
+  %.0149.be = phi ptr [ %.0149, %read_dump_filters.argprom.exit ], [ %.0149, %197 ], [ %.0149, %195 ], [ %.0149, %193 ], [ %.0149, %191 ], [ %.0149, %189 ], [ %.0149, %185 ], [ %.0149, %184 ], [ %.0149, %181 ], [ %.0149, %177 ], [ %.0149, %176 ], [ %.0149, %173 ], [ %.0149, %171 ], [ %.0149, %169 ], [ %.0149, %166 ], [ %.0149, %163 ], [ %.0149, %161 ], [ %.0149, %160 ], [ %.0149, %159 ], [ %.0149, %158 ], [ %.0149, %157 ], [ %.0149, %154 ], [ %.0149, %152 ], [ %.0149, %150 ], [ %.0149, %147 ], [ %.0149, %146 ], [ %.0149, %143 ], [ %.0149, %142 ], [ %.0149, %140 ], [ %.0149, %138 ], [ %.0149, %134 ], [ %.0149, %131 ], [ %.0149, %128 ], [ %.0149, %125 ], [ %124, %122 ], [ %.0149, %120 ], [ %.0149, %117 ], [ %.0149, %116 ], [ %.0149, %115 ], [ %.0149, %114 ], [ %.0149, %113 ], [ %.0149, %112 ], [ %.0149, %110 ], [ %.0149, %110 ]
+  %.0147.be = phi ptr [ %.0147, %read_dump_filters.argprom.exit ], [ %.0147, %197 ], [ %.0147, %195 ], [ %.0147, %193 ], [ %.0147, %191 ], [ %.0147, %189 ], [ %.0147, %185 ], [ %.0147, %184 ], [ %.0147, %181 ], [ %.0147, %177 ], [ %.0147, %176 ], [ %175, %173 ], [ %.0147, %171 ], [ %.0147, %169 ], [ %.0147, %166 ], [ %.0147, %163 ], [ %.0147, %161 ], [ %.0147, %160 ], [ %.0147, %159 ], [ %.0147, %158 ], [ %.0147, %157 ], [ %.0147, %154 ], [ %.0147, %152 ], [ %.0147, %150 ], [ %.0147, %147 ], [ %.0147, %146 ], [ %.0147, %143 ], [ %.0147, %142 ], [ %.0147, %140 ], [ %.0147, %138 ], [ %.0147, %134 ], [ %.0147, %131 ], [ %.0147, %128 ], [ %.0147, %125 ], [ %.0147, %122 ], [ %.0147, %120 ], [ %.0147, %117 ], [ %.0147, %116 ], [ %.0147, %115 ], [ %.0147, %114 ], [ %.0147, %113 ], [ %.0147, %112 ], [ %.0147, %110 ], [ %.0147, %110 ]
+  %.0145.be = phi ptr [ %.0145, %read_dump_filters.argprom.exit ], [ %.0145, %197 ], [ %.0145, %195 ], [ %.0145, %193 ], [ %.0145, %191 ], [ %.0145, %189 ], [ %.0145, %185 ], [ %.0145, %184 ], [ %.0145, %181 ], [ %.0145, %177 ], [ %.0145, %176 ], [ %.0145, %173 ], [ %.0145, %171 ], [ %.0145, %169 ], [ %168, %166 ], [ %.0145, %163 ], [ %.0145, %161 ], [ %.0145, %160 ], [ %.0145, %159 ], [ %.0145, %158 ], [ %.0145, %157 ], [ %.0145, %154 ], [ %.0145, %152 ], [ %.0145, %150 ], [ %.0145, %147 ], [ %.0145, %146 ], [ %.0145, %143 ], [ %.0145, %142 ], [ %.0145, %140 ], [ %.0145, %138 ], [ %.0145, %134 ], [ %.0145, %131 ], [ %.0145, %128 ], [ %.0145, %125 ], [ %.0145, %122 ], [ %.0145, %120 ], [ %.0145, %117 ], [ %.0145, %116 ], [ %.0145, %115 ], [ %.0145, %114 ], [ %.0145, %113 ], [ %.0145, %112 ], [ %.0145, %110 ], [ %.0145, %110 ]
+  %.0.be = phi i1 [ %.0, %read_dump_filters.argprom.exit ], [ %.0, %197 ], [ %.0, %195 ], [ %.0, %193 ], [ %.0, %191 ], [ %.0, %189 ], [ %.0, %185 ], [ %.0, %184 ], [ %.0, %181 ], [ %.0, %177 ], [ %.0, %176 ], [ %.0, %173 ], [ %.0, %171 ], [ %.0, %169 ], [ %.0, %166 ], [ %.0, %163 ], [ true, %161 ], [ %.0, %160 ], [ %.0, %159 ], [ %.0, %158 ], [ %.0, %157 ], [ %.0, %154 ], [ %.0, %152 ], [ %.0, %150 ], [ %.0, %147 ], [ %.0, %146 ], [ %.0, %143 ], [ %.0, %142 ], [ %.0, %140 ], [ %.0, %138 ], [ %.0, %134 ], [ %.0, %131 ], [ %.0, %128 ], [ %.0, %125 ], [ %.0, %122 ], [ %.0, %120 ], [ %.0, %117 ], [ %.0, %116 ], [ %.0, %115 ], [ %.0, %114 ], [ %.0, %113 ], [ %.0, %112 ], [ %.0, %110 ], [ %.0, %110 ]
   br label %110, !llvm.loop !5
 
 112:                                              ; preds = %110
@@ -2142,7 +2142,7 @@ sub_1393:                                         ; preds = %.tail.thread, %.thr
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %69)
   call void @filter_init(ptr noundef nonnull %66, ptr noundef %202, ptr noundef nonnull @exit_nicely) #14
   %203 = call zeroext i1 @filter_read_item(ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef nonnull %69) #14
-  br i1 %203, label %.lr.ph.i, label %read_dump_filters.exit
+  br i1 %203, label %.lr.ph.i, label %read_dump_filters.argprom.exit
 
 .lr.ph.i:                                         ; preds = %201, %236
   %204 = load i32, ptr %68, align 4
@@ -2259,9 +2259,9 @@ sub_1393:                                         ; preds = %.tail.thread, %.thr
 
 236:                                              ; preds = %235, %233
   %237 = call zeroext i1 @filter_read_item(ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef nonnull %69) #14
-  br i1 %237, label %.lr.ph.i, label %read_dump_filters.exit, !llvm.loop !7
+  br i1 %237, label %.lr.ph.i, label %read_dump_filters.argprom.exit, !llvm.loop !7
 
-read_dump_filters.exit:                           ; preds = %236, %201
+read_dump_filters.argprom.exit:                   ; preds = %236, %201
   call void @filter_free(ptr noundef nonnull %66) #14
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %66)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67)
@@ -2563,7 +2563,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
   call fastcc void @expand_table_name_patterns(ptr noundef nonnull %330, ptr noundef nonnull @table_exclude_patterns_and_children, ptr noundef nonnull @table_exclude_oids, i1 noundef zeroext false, i1 noundef zeroext true)
   call fastcc void @expand_table_name_patterns(ptr noundef nonnull %330, ptr noundef nonnull @tabledata_exclude_patterns, ptr noundef nonnull @tabledata_exclude_oids, i1 noundef zeroext false, i1 noundef zeroext false)
   call fastcc void @expand_table_name_patterns(ptr noundef nonnull %330, ptr noundef nonnull @tabledata_exclude_patterns_and_children, ptr noundef nonnull @tabledata_exclude_oids, i1 noundef zeroext false, i1 noundef zeroext true)
-  call fastcc void @expand_foreign_server_name_patterns(ptr noundef nonnull %330)
+  call fastcc void @expand_foreign_server_name_patterns.argprom(ptr noundef nonnull %330)
   %362 = load ptr, ptr @extension_include_patterns, align 8
   %.not174 = icmp eq ptr %362, null
   br i1 %.not174, label %369, label %363
@@ -2571,7 +2571,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
 363:                                              ; preds = %361
   %364 = load i32, ptr @strict_names, align 4
   %365 = icmp ne i32 %364, 0
-  call fastcc void @expand_extension_name_patterns(ptr noundef nonnull %330, i1 noundef zeroext %365)
+  call fastcc void @expand_extension_name_patterns.argprom(ptr noundef nonnull %330, i1 noundef zeroext %365)
   %366 = load ptr, ptr @extension_include_oids, align 8
   %367 = icmp eq ptr %366, null
   br i1 %367, label %368, label %369
@@ -2609,7 +2609,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
 
 383:                                              ; preds = %379
   %384 = load i32, ptr %70, align 4
-  call fastcc void @getTableData(ptr noundef %380, i32 noundef %384, i8 noundef signext 0)
+  call fastcc void @getTableData.argprom(ptr noundef %380, i32 noundef %384, i8 noundef signext 0)
   call fastcc void @buildMatViewRefreshDependencies(ptr noundef nonnull %330)
   %385 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 53), align 1
   %386 = trunc i8 %385 to i1
@@ -2629,7 +2629,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
 
 393:                                              ; preds = %388
   %394 = load i32, ptr %70, align 4
-  call fastcc void @getTableData(ptr noundef %380, i32 noundef %394, i8 noundef signext 83)
+  call fastcc void @getTableData.argprom(ptr noundef %380, i32 noundef %394, i8 noundef signext 83)
   br label %395
 
 395:                                              ; preds = %393, %388
@@ -3225,7 +3225,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
   %848 = getelementptr inbounds i8, ptr %791, i64 12
   %849 = load i32, ptr %848, align 4
   %850 = load i64, ptr %847, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.757, ptr noundef %811, ptr noundef null, ptr noundef %846, i64 %850, i32 noundef %849, ptr noundef %.0.i388)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.757, ptr noundef %811, ptr noundef null, ptr noundef %846, i64 %850, i32 noundef %849, ptr noundef %.0.i388)
   %.pre50.i = load i32, ptr %794, align 8
   br label %851
 
@@ -3242,7 +3242,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
   %858 = getelementptr inbounds i8, ptr %791, i64 12
   %859 = load i32, ptr %858, align 4
   %860 = load i64, ptr %857, align 4
-  call fastcc void @dumpSecLabel(ptr noundef nonnull %330, ptr noundef nonnull @.str.757, ptr noundef %811, ptr noundef null, ptr noundef %856, i64 %860, i32 noundef %859)
+  call fastcc void @dumpSecLabel.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.757, ptr noundef %811, ptr noundef null, ptr noundef %856, i64 %860, i32 noundef %859)
   %.pre51.i = load i32, ptr %794, align 8
   br label %861
 
@@ -3459,7 +3459,7 @@ dumpNamespace.exit:                               ; preds = %800, %871
   %972 = getelementptr inbounds i8, ptr %791, i64 12
   %973 = load i32, ptr %972, align 4
   %974 = load i64, ptr %971, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.779, ptr noundef %883, ptr noundef null, ptr noundef nonnull @.str.452, i64 %974, i32 noundef %973, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.779, ptr noundef %883, ptr noundef null, ptr noundef nonnull @.str.452, i64 %974, i32 noundef %973, ptr noundef null)
   %.pre88.i = load i32, ptr %794, align 8
   br label %975
 
@@ -3474,7 +3474,7 @@ dumpNamespace.exit:                               ; preds = %800, %871
   %980 = getelementptr inbounds i8, ptr %791, i64 12
   %981 = load i32, ptr %980, align 4
   %982 = load i64, ptr %979, align 4
-  call fastcc void @dumpSecLabel(ptr noundef nonnull %330, ptr noundef nonnull @.str.779, ptr noundef %883, ptr noundef null, ptr noundef nonnull @.str.452, i64 %982, i32 noundef %981)
+  call fastcc void @dumpSecLabel.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.779, ptr noundef %883, ptr noundef null, ptr noundef nonnull @.str.452, i64 %982, i32 noundef %981)
   br label %983
 
 983:                                              ; preds = %978, %975
@@ -4171,7 +4171,7 @@ sub_0305.i:                                       ; preds = %1230, %.tail300.thr
   %1311 = getelementptr inbounds i8, ptr %791, i64 12
   %1312 = load i32, ptr %1311, align 4
   %1313 = load i64, ptr %1054, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1145, ptr noundef %1308, ptr noundef %1310, i64 %1313, i32 noundef %1312, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1145, ptr noundef %1308, ptr noundef %1310, i64 %1313, i32 noundef %1312, ptr noundef null)
   %.pre326.i = load i32, ptr %794, align 8
   br label %1314
 
@@ -4190,7 +4190,7 @@ sub_0305.i:                                       ; preds = %1230, %.tail300.thr
   %1323 = getelementptr inbounds i8, ptr %791, i64 12
   %1324 = load i32, ptr %1323, align 4
   %1325 = load i64, ptr %1054, align 4
-  call fastcc void @dumpSecLabel(ptr noundef nonnull %330, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1145, ptr noundef %1320, ptr noundef %1322, i64 %1325, i32 noundef %1324)
+  call fastcc void @dumpSecLabel.argelim(ptr noundef nonnull %330, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1145, ptr noundef %1320, ptr noundef %1322, i64 %1325, i32 noundef %1324)
   %.pre327.i = load i32, ptr %794, align 8
   br label %1326
 
@@ -4777,7 +4777,7 @@ getFormattedOperatorName.exit.thread.i345:        ; preds = %1536, %getFormatted
   %1586 = getelementptr inbounds i8, ptr %791, i64 12
   %1587 = load i32, ptr %1586, align 4
   %1588 = load i64, ptr %1364, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1052, ptr noundef %1437, ptr noundef %1583, ptr noundef %1585, i64 %1588, i32 noundef %1587, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1052, ptr noundef %1437, ptr noundef %1583, ptr noundef %1585, i64 %1588, i32 noundef %1587, ptr noundef null)
   %.pre273.i = load i32, ptr %794, align 8
   br label %1589
 
@@ -4796,7 +4796,7 @@ getFormattedOperatorName.exit.thread.i345:        ; preds = %1536, %getFormatted
   %1598 = getelementptr inbounds i8, ptr %791, i64 12
   %1599 = load i32, ptr %1598, align 4
   %1600 = load i64, ptr %1364, align 4
-  call fastcc void @dumpSecLabel(ptr noundef nonnull %330, ptr noundef nonnull @.str.1052, ptr noundef %1437, ptr noundef %1595, ptr noundef %1597, i64 %1600, i32 noundef %1599)
+  call fastcc void @dumpSecLabel.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1052, ptr noundef %1437, ptr noundef %1595, ptr noundef %1597, i64 %1600, i32 noundef %1599)
   br label %1601
 
 1601:                                             ; preds = %1592, %1589
@@ -5291,7 +5291,7 @@ convertRegProcReference.exit158.thread.i:         ; preds = %1771, %convertRegPr
   %1817 = getelementptr inbounds i8, ptr %791, i64 12
   %1818 = load i32, ptr %1817, align 4
   %1819 = load i64, ptr %1638, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1084, ptr noundef %1811, ptr noundef %1814, ptr noundef %1816, i64 %1819, i32 noundef %1818, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1084, ptr noundef %1811, ptr noundef %1814, ptr noundef %1816, i64 %1819, i32 noundef %1818, ptr noundef null)
   br label %1820
 
 1820:                                             ; preds = %1810, %1807
@@ -5391,7 +5391,7 @@ dumpOpr.exit:                                     ; preds = %1616, %1621, %1820
   %1861 = getelementptr inbounds i8, ptr %791, i64 12
   %1862 = load i32, ptr %1861, align 4
   %1863 = load i64, ptr %1860, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1091, ptr noundef %1832, ptr noundef null, ptr noundef nonnull @.str.452, i64 %1863, i32 noundef %1862, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1091, ptr noundef %1832, ptr noundef null, ptr noundef nonnull @.str.452, i64 %1863, i32 noundef %1862, ptr noundef null)
   br label %dumpAccessMethod.exit.sink.split
 
 dumpAccessMethod.exit.sink.split:                 ; preds = %1856, %1859, %1836
@@ -5679,7 +5679,7 @@ sub_0172.i:                                       ; preds = %1914, %.tail.thread
   %2000 = getelementptr inbounds i8, ptr %791, i64 12
   %2001 = load i32, ptr %2000, align 4
   %2002 = load i64, ptr %1873, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1123, ptr noundef %1994, ptr noundef %1997, ptr noundef %1999, i64 %2002, i32 noundef %2001, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1123, ptr noundef %1994, ptr noundef %1997, ptr noundef %1999, i64 %2002, i32 noundef %2001, ptr noundef null)
   br label %2003
 
 2003:                                             ; preds = %1993, %1990
@@ -5904,7 +5904,7 @@ dumpOpclass.exit:                                 ; preds = %1864, %2003
   %2121 = getelementptr inbounds i8, ptr %791, i64 12
   %2122 = load i32, ptr %2121, align 4
   %2123 = load i64, ptr %2014, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1132, ptr noundef %2115, ptr noundef %2118, ptr noundef %2120, i64 %2123, i32 noundef %2122, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1132, ptr noundef %2115, ptr noundef %2118, ptr noundef %2120, i64 %2123, i32 noundef %2122, ptr noundef null)
   br label %2124
 
 2124:                                             ; preds = %2114, %2111
@@ -6285,7 +6285,7 @@ sub_0.i305:                                       ; preds = %2195, %2194, %2181
   %2300 = getelementptr inbounds i8, ptr %791, i64 12
   %2301 = load i32, ptr %2300, align 4
   %2302 = load i64, ptr %2146, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1162, ptr noundef %2137, ptr noundef %2297, ptr noundef %2299, i64 %2302, i32 noundef %2301, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1162, ptr noundef %2137, ptr noundef %2297, ptr noundef %2299, i64 %2302, i32 noundef %2301, ptr noundef null)
   br label %2303
 
 2303:                                             ; preds = %2294, %2291
@@ -6415,7 +6415,7 @@ dumpCollation.exit:                               ; preds = %2125, %2303
   %2381 = getelementptr inbounds i8, ptr %791, i64 12
   %2382 = load i32, ptr %2381, align 4
   %2383 = load i64, ptr %2317, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1172, ptr noundef %2316, ptr noundef %2378, ptr noundef %2380, i64 %2383, i32 noundef %2382, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1172, ptr noundef %2316, ptr noundef %2378, ptr noundef %2380, i64 %2383, i32 noundef %2382, ptr noundef null)
   br label %2384
 
 2384:                                             ; preds = %2375, %2372
@@ -6829,7 +6829,7 @@ dumpAttrDef.exit:                                 ; preds = %2441, %2450, %2502
   %.in.i = select i1 %.not.i288, ptr %2617, ptr %2507
   %2618 = load i32, ptr %.in.i, align 4
   %2619 = load i64, ptr %2616, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1322, ptr noundef %2518, ptr noundef %2613, ptr noundef %2615, i64 %2619, i32 noundef %2618, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1322, ptr noundef %2518, ptr noundef %2613, ptr noundef %2615, i64 %2619, i32 noundef %2618, ptr noundef null)
   br label %2620
 
 2620:                                             ; preds = %2609, %2606
@@ -7013,7 +7013,7 @@ dumpIndexAttach.exit:                             ; preds = %2621, %2626, %2632
   %2729 = getelementptr inbounds i8, ptr %791, i64 12
   %2730 = load i32, ptr %2729, align 4
   %2731 = load i64, ptr %2681, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1332, ptr noundef %2680, ptr noundef %2726, ptr noundef %2728, i64 %2731, i32 noundef %2730, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1332, ptr noundef %2680, ptr noundef %2726, ptr noundef %2728, i64 %2731, i32 noundef %2730, ptr noundef null)
   br label %2732
 
 2732:                                             ; preds = %2723, %2720
@@ -7155,17 +7155,17 @@ nonemptyReloptions.exit.i:                        ; preds = %2797
   %.val91.i = load i8, ptr %429, align 4
   %2810 = trunc i8 %.val91.i to i1
   %2811 = call zeroext i1 @appendReloptionsArray(ptr noundef %2790, ptr noundef %2809, ptr noundef nonnull @.str.452, i32 noundef %.val.i282, i1 noundef zeroext %2810) #14
-  br i1 %2811, label %appendReloptionsArrayAH.exit.i, label %2812
+  br i1 %2811, label %appendReloptionsArrayAH.argprom.exit.i, label %2812
 
 2812:                                             ; preds = %2808
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.299) #14
-  br label %appendReloptionsArrayAH.exit.i
+  br label %appendReloptionsArrayAH.argprom.exit.i
 
-appendReloptionsArrayAH.exit.i:                   ; preds = %2812, %2808
+appendReloptionsArrayAH.argprom.exit.i:           ; preds = %2812, %2808
   call void @appendPQExpBufferChar(ptr noundef %2790, i8 noundef signext 41) #14
   br label %nonemptyReloptions.exit.thread.i
 
-nonemptyReloptions.exit.thread.i:                 ; preds = %appendReloptionsArrayAH.exit.i, %nonemptyReloptions.exit.i, %2797
+nonemptyReloptions.exit.thread.i:                 ; preds = %appendReloptionsArrayAH.argprom.exit.i, %nonemptyReloptions.exit.i, %2797
   %2813 = call fastcc ptr @createViewAsClause(ptr noundef nonnull %330, ptr noundef nonnull %2771)
   %2814 = load ptr, ptr %2813, align 8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %2790, ptr noundef nonnull @.str.1217, ptr noundef %2814) #14
@@ -7253,7 +7253,7 @@ nonemptyReloptions.exit.thread.i:                 ; preds = %appendReloptionsArr
   %2853 = load ptr, ptr %2793, align 8
   %2854 = call ptr @fmtQualifiedId(ptr noundef %2852, ptr noundef %2853) #14
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %2791, ptr noundef nonnull @.str.1335, ptr noundef %2854) #14
-  %2855 = call fastcc ptr @createDummyViewAsClause(ptr noundef nonnull %2771)
+  %2855 = call fastcc ptr @createDummyViewAsClause.argprom(ptr noundef nonnull %2771)
   %2856 = load ptr, ptr %2855, align 8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %2791, ptr noundef nonnull @.str.1342, ptr noundef %2856) #14
   call void @destroyPQExpBuffer(ptr noundef nonnull %2855) #14
@@ -7331,7 +7331,7 @@ nonemptyReloptions.exit.thread.i:                 ; preds = %appendReloptionsArr
   %2902 = getelementptr inbounds i8, ptr %791, i64 12
   %2903 = load i32, ptr %2902, align 4
   %2904 = load i64, ptr %2901, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef %2894, ptr noundef %2796, ptr noundef %2898, ptr noundef %2900, i64 %2904, i32 noundef %2903, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef %2894, ptr noundef %2796, ptr noundef %2898, ptr noundef %2900, i64 %2904, i32 noundef %2903, ptr noundef null)
   br label %2905
 
 2905:                                             ; preds = %2893, %2890
@@ -7524,7 +7524,7 @@ dumpRule.exit:                                    ; preds = %2768, %2775, %2905
   %3004 = getelementptr inbounds i8, ptr %791, i64 12
   %3005 = load i32, ptr %3004, align 4
   %3006 = load i64, ptr %3003, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef %2997, ptr noundef %2921, ptr noundef %3000, ptr noundef %3002, i64 %3006, i32 noundef %3005, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef %2997, ptr noundef %2921, ptr noundef %3000, ptr noundef %3002, i64 %3006, i32 noundef %3005, ptr noundef null)
   br label %3007
 
 3007:                                             ; preds = %2996, %2993
@@ -7663,7 +7663,7 @@ dumpTrigger.exit:                                 ; preds = %2906, %3007
   %3063 = getelementptr inbounds i8, ptr %791, i64 12
   %3064 = load i32, ptr %3063, align 4
   %3065 = load i64, ptr %3062, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1366, ptr noundef %3019, ptr noundef null, ptr noundef %3061, i64 %3065, i32 noundef %3064, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1366, ptr noundef %3019, ptr noundef null, ptr noundef %3061, i64 %3065, i32 noundef %3064, ptr noundef null)
   br label %3066
 
 3066:                                             ; preds = %3059, %3056
@@ -7880,7 +7880,7 @@ dumpEventTrigger.exit:                            ; preds = %3008, %3066
   %3169 = getelementptr inbounds i8, ptr %791, i64 12
   %3170 = load i32, ptr %3169, align 4
   %3171 = load i64, ptr %3168, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1399, ptr noundef %3111, ptr noundef null, ptr noundef %3167, i64 %3171, i32 noundef %3170, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1399, ptr noundef %3111, ptr noundef null, ptr noundef %3167, i64 %3171, i32 noundef %3170, ptr noundef null)
   %.pre102.i = load i32, ptr %794, align 8
   br label %3172
 
@@ -7897,7 +7897,7 @@ dumpEventTrigger.exit:                            ; preds = %3008, %3066
   %3179 = getelementptr inbounds i8, ptr %791, i64 12
   %3180 = load i32, ptr %3179, align 4
   %3181 = load i64, ptr %3178, align 4
-  call fastcc void @dumpSecLabel(ptr noundef nonnull %330, ptr noundef nonnull @.str.1399, ptr noundef %3111, ptr noundef null, ptr noundef %3177, i64 %3181, i32 noundef %3180)
+  call fastcc void @dumpSecLabel.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1399, ptr noundef %3111, ptr noundef null, ptr noundef %3177, i64 %3181, i32 noundef %3180)
   br label %3182
 
 3182:                                             ; preds = %3175, %3172
@@ -8078,7 +8078,7 @@ dumpProcLang.exit:                                ; preds = %3069, %3196
   %3263 = getelementptr inbounds i8, ptr %791, i64 12
   %3264 = load i32, ptr %3263, align 4
   %3265 = load i64, ptr %3262, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1413, ptr noundef %3261, ptr noundef null, ptr noundef nonnull @.str.452, i64 %3265, i32 noundef %3264, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1413, ptr noundef %3261, ptr noundef null, ptr noundef nonnull @.str.452, i64 %3265, i32 noundef %3264, ptr noundef null)
   br label %3266
 
 3266:                                             ; preds = %3260, %3257
@@ -8282,7 +8282,7 @@ dumpCast.exit:                                    ; preds = %3197, %3266
   %3353 = getelementptr inbounds i8, ptr %791, i64 12
   %3354 = load i32, ptr %3353, align 4
   %3355 = load i64, ptr %3352, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1423, ptr noundef %3351, ptr noundef null, ptr noundef nonnull @.str.452, i64 %3355, i32 noundef %3354, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1423, ptr noundef %3351, ptr noundef null, ptr noundef nonnull @.str.452, i64 %3355, i32 noundef %3354, ptr noundef null)
   br label %3356
 
 3356:                                             ; preds = %3350, %3347
@@ -8399,13 +8399,13 @@ dumpSequenceData.exit:                            ; preds = %.tail.i236, %3395
   %3412 = getelementptr inbounds i8, ptr %3409, i64 211
   %3413 = load i8, ptr %3412, align 1
   %3414 = trunc i8 %3413 to i1
-  br i1 %3414, label %3415, label %forcePartitionRootLoad.exit.i
+  br i1 %3414, label %3415, label %forcePartitionRootLoad.argprom.argprom.exit.i
 
 3415:                                             ; preds = %3406
   %3416 = getelementptr inbounds i8, ptr %3407, i64 136
   %3417 = load i32, ptr %3416, align 8
   %.not.i232 = icmp eq i32 %3417, 0
-  br i1 %.not.i232, label %3418, label %forcePartitionRootLoad.exit.thread.i.preheader
+  br i1 %.not.i232, label %3418, label %forcePartitionRootLoad.argprom.argprom.exit.thread.i.preheader
 
 3418:                                             ; preds = %3415
   %3419 = getelementptr i8, ptr %3409, i64 224
@@ -8414,14 +8414,14 @@ dumpSequenceData.exit:                            ; preds = %.tail.i236, %3395
   %3420 = getelementptr inbounds i8, ptr %.val.val.i, i64 212
   %3421 = load i8, ptr %3420, align 4
   %3422 = trunc i8 %3421 to i1
-  br i1 %3422, label %forcePartitionRootLoad.exit.thread.i.preheader, label %.preheader.i.i
+  br i1 %3422, label %forcePartitionRootLoad.argprom.argprom.exit.thread.i.preheader, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %3418, %3426
   %.0.i.i = phi ptr [ %3429, %3426 ], [ %.val.val.i, %3418 ]
   %3423 = getelementptr inbounds i8, ptr %.0.i.i, i64 211
   %3424 = load i8, ptr %3423, align 1
   %3425 = trunc i8 %3424 to i1
-  br i1 %3425, label %3426, label %forcePartitionRootLoad.exit.i
+  br i1 %3425, label %3426, label %forcePartitionRootLoad.argprom.argprom.exit.i
 
 3426:                                             ; preds = %.preheader.i.i
   %3427 = getelementptr inbounds i8, ptr %.0.i.i, i64 224
@@ -8430,22 +8430,22 @@ dumpSequenceData.exit:                            ; preds = %.tail.i236, %3395
   %3430 = getelementptr inbounds i8, ptr %3429, i64 212
   %3431 = load i8, ptr %3430, align 4
   %3432 = trunc i8 %3431 to i1
-  br i1 %3432, label %forcePartitionRootLoad.exit.thread.i.preheader, label %.preheader.i.i, !llvm.loop !19
+  br i1 %3432, label %forcePartitionRootLoad.argprom.argprom.exit.thread.i.preheader, label %.preheader.i.i, !llvm.loop !19
 
-forcePartitionRootLoad.exit.thread.i.preheader:   ; preds = %3426, %3418, %3415
-  br label %forcePartitionRootLoad.exit.thread.i
+forcePartitionRootLoad.argprom.argprom.exit.thread.i.preheader: ; preds = %3426, %3418, %3415
+  br label %forcePartitionRootLoad.argprom.argprom.exit.thread.i
 
-forcePartitionRootLoad.exit.thread.i:             ; preds = %forcePartitionRootLoad.exit.thread.i.preheader, %forcePartitionRootLoad.exit.thread.i
-  %.pn.i.i = phi ptr [ %.0.i42.i, %forcePartitionRootLoad.exit.thread.i ], [ %3409, %forcePartitionRootLoad.exit.thread.i.preheader ]
+forcePartitionRootLoad.argprom.argprom.exit.thread.i: ; preds = %forcePartitionRootLoad.argprom.argprom.exit.thread.i.preheader, %forcePartitionRootLoad.argprom.argprom.exit.thread.i
+  %.pn.i.i = phi ptr [ %.0.i42.i, %forcePartitionRootLoad.argprom.argprom.exit.thread.i ], [ %3409, %forcePartitionRootLoad.argprom.argprom.exit.thread.i.preheader ]
   %.0.in.in.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 224
   %.0.in.i.i = load ptr, ptr %.0.in.in.i.i, align 8
   %.0.i42.i = load ptr, ptr %.0.in.i.i, align 8
   %3433 = getelementptr inbounds i8, ptr %.0.i42.i, i64 211
   %3434 = load i8, ptr %3433, align 1
   %3435 = trunc i8 %3434 to i1
-  br i1 %3435, label %forcePartitionRootLoad.exit.thread.i, label %getRootTableInfo.exit.i, !llvm.loop !20
+  br i1 %3435, label %forcePartitionRootLoad.argprom.argprom.exit.thread.i, label %getRootTableInfo.exit.i, !llvm.loop !20
 
-getRootTableInfo.exit.i:                          ; preds = %forcePartitionRootLoad.exit.thread.i
+getRootTableInfo.exit.i:                          ; preds = %forcePartitionRootLoad.argprom.argprom.exit.thread.i
   %3436 = getelementptr inbounds i8, ptr %.0.i42.i, i64 24
   %3437 = load ptr, ptr %3436, align 8
   %3438 = getelementptr inbounds i8, ptr %3437, i64 16
@@ -8458,7 +8458,7 @@ getRootTableInfo.exit.i:                          ; preds = %forcePartitionRootL
   %3444 = call ptr @pg_strdup(ptr noundef %3443) #14
   br label %3452
 
-forcePartitionRootLoad.exit.i:                    ; preds = %.preheader.i.i, %3406
+forcePartitionRootLoad.argprom.argprom.exit.i:    ; preds = %.preheader.i.i, %3406
   %3445 = getelementptr inbounds i8, ptr %3409, i64 24
   %3446 = load ptr, ptr %3445, align 8
   %3447 = getelementptr inbounds i8, ptr %3446, i64 16
@@ -8468,9 +8468,9 @@ forcePartitionRootLoad.exit.i:                    ; preds = %.preheader.i.i, %34
   %3451 = call ptr @fmtQualifiedId(ptr noundef %3448, ptr noundef %3450) #14
   br label %3452
 
-3452:                                             ; preds = %forcePartitionRootLoad.exit.i, %getRootTableInfo.exit.i
-  %.039.i = phi ptr [ %3442, %getRootTableInfo.exit.i ], [ %3451, %forcePartitionRootLoad.exit.i ]
-  %.038.i = phi ptr [ %3444, %getRootTableInfo.exit.i ], [ null, %forcePartitionRootLoad.exit.i ]
+3452:                                             ; preds = %forcePartitionRootLoad.argprom.argprom.exit.i, %getRootTableInfo.exit.i
+  %.039.i = phi ptr [ %3442, %getRootTableInfo.exit.i ], [ %3451, %forcePartitionRootLoad.argprom.argprom.exit.i ]
+  %.038.i = phi ptr [ %3444, %getRootTableInfo.exit.i ], [ null, %forcePartitionRootLoad.argprom.argprom.exit.i ]
   %3453 = getelementptr inbounds i8, ptr %3407, i64 72
   %3454 = load i32, ptr %3453, align 8
   %3455 = icmp eq i32 %3454, 0
@@ -8739,7 +8739,7 @@ dumpTableData.exit:                               ; preds = %3484, %3487
   %3594 = getelementptr inbounds i8, ptr %791, i64 12
   %3595 = load i32, ptr %3594, align 4
   %3596 = load i64, ptr %3593, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1468, ptr noundef %3521, ptr noundef %3592, ptr noundef nonnull @.str.452, i64 %3596, i32 noundef %3595, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1468, ptr noundef %3521, ptr noundef %3592, ptr noundef nonnull @.str.452, i64 %3596, i32 noundef %3595, ptr noundef null)
   br label %3597
 
 3597:                                             ; preds = %3589, %3586
@@ -8866,7 +8866,7 @@ dumpTSParser.exit:                                ; preds = %3510, %3597
   %3667 = getelementptr inbounds i8, ptr %791, i64 12
   %3668 = load i32, ptr %3667, align 4
   %3669 = load i64, ptr %3666, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1476, ptr noundef %3610, ptr noundef %3663, ptr noundef %3665, i64 %3669, i32 noundef %3668, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1476, ptr noundef %3610, ptr noundef %3663, ptr noundef %3665, i64 %3669, i32 noundef %3668, ptr noundef null)
   br label %3670
 
 3670:                                             ; preds = %3660, %3657
@@ -8991,7 +8991,7 @@ dumpTSDictionary.exit:                            ; preds = %3598, %3670
   %3737 = getelementptr inbounds i8, ptr %791, i64 12
   %3738 = load i32, ptr %3737, align 4
   %3739 = load i64, ptr %3736, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1481, ptr noundef %3682, ptr noundef %3735, ptr noundef nonnull @.str.452, i64 %3739, i32 noundef %3738, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1481, ptr noundef %3682, ptr noundef %3735, ptr noundef nonnull @.str.452, i64 %3739, i32 noundef %3738, ptr noundef null)
   br label %3740
 
 3740:                                             ; preds = %3732, %3729
@@ -9162,7 +9162,7 @@ dumpTSTemplate.exit:                              ; preds = %3671, %3740
   %3831 = getelementptr inbounds i8, ptr %791, i64 12
   %3832 = load i32, ptr %3831, align 4
   %3833 = load i64, ptr %3769, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1491, ptr noundef %3753, ptr noundef %3828, ptr noundef %3830, i64 %3833, i32 noundef %3832, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1491, ptr noundef %3753, ptr noundef %3828, ptr noundef %3830, i64 %3833, i32 noundef %3832, ptr noundef null)
   br label %3834
 
 3834:                                             ; preds = %3825, %3822
@@ -9290,7 +9290,7 @@ sub_051.i:                                        ; preds = %.tail.thread.i, %.t
   %3887 = getelementptr inbounds i8, ptr %791, i64 12
   %3888 = load i32, ptr %3887, align 4
   %3889 = load i64, ptr %3886, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1495, ptr noundef %3845, ptr noundef null, ptr noundef %3885, i64 %3889, i32 noundef %3888, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1495, ptr noundef %3845, ptr noundef null, ptr noundef %3885, i64 %3889, i32 noundef %3888, ptr noundef null)
   %.pre56.i = load i32, ptr %794, align 8
   br label %3890
 
@@ -9453,7 +9453,7 @@ dumpForeignDataWrapper.exit:                      ; preds = %3835, %3900
   %3967 = getelementptr inbounds i8, ptr %791, i64 12
   %3968 = load i32, ptr %3967, align 4
   %3969 = load i64, ptr %3966, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1502, ptr noundef %3913, ptr noundef null, ptr noundef %3965, i64 %3969, i32 noundef %3968, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1502, ptr noundef %3913, ptr noundef null, ptr noundef %3965, i64 %3969, i32 noundef %3968, ptr noundef null)
   %.pre83.i = load i32, ptr %794, align 8
   br label %3970
 
@@ -9499,7 +9499,7 @@ dumpForeignDataWrapper.exit:                      ; preds = %3835, %3900
   %3996 = call i32 @PQfnumber(ptr noundef %3994, ptr noundef nonnull @.str.1505) #14
   %3997 = call i32 @PQfnumber(ptr noundef %3994, ptr noundef nonnull @.str.1506) #14
   %3998 = icmp sgt i32 %3995, 0
-  br i1 %3998, label %.lr.ph.i.i, label %dumpUserMappings.exit.i
+  br i1 %3998, label %.lr.ph.i.i, label %dumpUserMappings.argprom.exit.i
 
 .lr.ph.i.i:                                       ; preds = %3983, %4005
   %.01.i.i = phi i32 [ %4013, %4005 ], [ 0, %3983 ]
@@ -9547,9 +9547,9 @@ dumpForeignDataWrapper.exit:                      ; preds = %3835, %3900
   %4012 = call ptr @ArchiveEntry(ptr noundef nonnull %330, i64 0, i32 noundef %4008, ptr noundef nonnull %52) #14
   %4013 = add nuw nsw i32 %.01.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %4013, %3995
-  br i1 %exitcond.not.i.i, label %dumpUserMappings.exit.i, label %.lr.ph.i.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %dumpUserMappings.argprom.exit.i, label %.lr.ph.i.i, !llvm.loop !23
 
-dumpUserMappings.exit.i:                          ; preds = %4005, %3983
+dumpUserMappings.argprom.exit.i:                  ; preds = %4005, %3983
   call void @PQclear(ptr noundef %3994) #14
   call void @destroyPQExpBuffer(ptr noundef nonnull %3992) #14
   call void @destroyPQExpBuffer(ptr noundef %3991) #14
@@ -9558,7 +9558,7 @@ dumpUserMappings.exit.i:                          ; preds = %4005, %3983
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %52)
   br label %4014
 
-4014:                                             ; preds = %dumpUserMappings.exit.i, %3980
+4014:                                             ; preds = %dumpUserMappings.argprom.exit.i, %3980
   call void @PQclear(ptr noundef %3917) #14
   call void @free(ptr noundef %3913) #14
   call void @destroyPQExpBuffer(ptr noundef %3907) #14
@@ -9744,7 +9744,7 @@ dumpDefaultACL.exit:                              ; preds = %4015, %4020, %4072
   %4100 = getelementptr inbounds i8, ptr %791, i64 12
   %4101 = load i32, ptr %4100, align 4
   %4102 = load i64, ptr %4099, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef %330, ptr noundef nonnull @.str.708, ptr noundef %4096, ptr noundef null, ptr noundef %4098, i64 %4102, i32 noundef %4101, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef %330, ptr noundef nonnull @.str.708, ptr noundef %4096, ptr noundef null, ptr noundef %4098, i64 %4102, i32 noundef %4101, ptr noundef null)
   %.pre35.i = load i32, ptr %794, align 8
   br label %4103
 
@@ -9762,7 +9762,7 @@ dumpDefaultACL.exit:                              ; preds = %4015, %4020, %4072
   %4111 = getelementptr inbounds i8, ptr %791, i64 12
   %4112 = load i32, ptr %4111, align 4
   %4113 = load i64, ptr %4110, align 4
-  call fastcc void @dumpSecLabel(ptr noundef %330, ptr noundef nonnull @.str.708, ptr noundef %4107, ptr noundef null, ptr noundef %4109, i64 %4113, i32 noundef %4112)
+  call fastcc void @dumpSecLabel.argelim(ptr noundef %330, ptr noundef nonnull @.str.708, ptr noundef %4107, ptr noundef null, ptr noundef %4109, i64 %4113, i32 noundef %4112)
   %.pre36.i = load i32, ptr %794, align 8
   br label %4114
 
@@ -10023,7 +10023,7 @@ dumpLO.exit:                                      ; preds = %4114, %4117
   %4256 = getelementptr inbounds i8, ptr %791, i64 12
   %4257 = load i32, ptr %4256, align 4
   %4258 = load i64, ptr %4255, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef %4249, ptr noundef %4191, ptr noundef %4252, ptr noundef %4254, i64 %4258, i32 noundef %4257, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef %4249, ptr noundef %4191, ptr noundef %4252, ptr noundef %4254, i64 %4258, i32 noundef %4257, ptr noundef null)
   br label %4259
 
 4259:                                             ; preds = %4248, %4245
@@ -10187,7 +10187,7 @@ dumpPolicy.exit:                                  ; preds = %4136, %4174, %4259
   %4331 = getelementptr inbounds i8, ptr %791, i64 12
   %4332 = load i32, ptr %4331, align 4
   %4333 = load i64, ptr %4330, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1555, ptr noundef %4271, ptr noundef null, ptr noundef %4329, i64 %4333, i32 noundef %4332, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1555, ptr noundef %4271, ptr noundef null, ptr noundef %4329, i64 %4333, i32 noundef %4332, ptr noundef null)
   %.pre52.i = load i32, ptr %794, align 8
   br label %4334
 
@@ -10204,7 +10204,7 @@ dumpPolicy.exit:                                  ; preds = %4136, %4174, %4259
   %4341 = getelementptr inbounds i8, ptr %791, i64 12
   %4342 = load i32, ptr %4341, align 4
   %4343 = load i64, ptr %4340, align 4
-  call fastcc void @dumpSecLabel(ptr noundef nonnull %330, ptr noundef nonnull @.str.1555, ptr noundef %4271, ptr noundef null, ptr noundef %4339, i64 %4343, i32 noundef %4342)
+  call fastcc void @dumpSecLabel.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1555, ptr noundef %4271, ptr noundef null, ptr noundef %4339, i64 %4343, i32 noundef %4342)
   br label %4344
 
 4344:                                             ; preds = %4337, %4334
@@ -10690,7 +10690,7 @@ sub_0129.i:                                       ; preds = %4541, %.tail124.i, 
   %4569 = getelementptr inbounds i8, ptr %791, i64 12
   %4570 = load i32, ptr %4569, align 4
   %4571 = load i64, ptr %4568, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %330, ptr noundef nonnull @.str.1582, ptr noundef %4436, ptr noundef null, ptr noundef %4567, i64 %4571, i32 noundef %4570, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1582, ptr noundef %4436, ptr noundef null, ptr noundef %4567, i64 %4571, i32 noundef %4570, ptr noundef null)
   %.pre143.i = load i32, ptr %794, align 8
   br label %4572
 
@@ -10707,7 +10707,7 @@ sub_0129.i:                                       ; preds = %4541, %.tail124.i, 
   %4579 = getelementptr inbounds i8, ptr %791, i64 12
   %4580 = load i32, ptr %4579, align 4
   %4581 = load i64, ptr %4578, align 4
-  call fastcc void @dumpSecLabel(ptr noundef nonnull %330, ptr noundef nonnull @.str.1582, ptr noundef %4436, ptr noundef null, ptr noundef %4577, i64 %4581, i32 noundef %4580)
+  call fastcc void @dumpSecLabel.argelim(ptr noundef nonnull %330, ptr noundef nonnull @.str.1582, ptr noundef %4436, ptr noundef null, ptr noundef %4577, i64 %4581, i32 noundef %4580)
   br label %4582
 
 4582:                                             ; preds = %4575, %4572
@@ -11658,7 +11658,7 @@ prohibit_crossdb_refs.exit:                       ; preds = %28, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expand_foreign_server_name_patterns(ptr noundef %0) unnamed_addr #4 {
+define internal fastcc void @expand_foreign_server_name_patterns.argprom(ptr noundef %0) unnamed_addr #4 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @foreign_servers_include_patterns, align 8
   %4 = icmp eq ptr %3, null
@@ -11729,7 +11729,7 @@ define internal fastcc void @expand_foreign_server_name_patterns(ptr noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expand_extension_name_patterns(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #4 {
+define internal fastcc void @expand_extension_name_patterns.argprom(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr @extension_include_patterns, align 8
   %5 = icmp eq ptr %4, null
@@ -11843,7 +11843,7 @@ define internal fastcc void @collectRoleNames(ptr noundef %0) unnamed_addr #4 {
 declare ptr @getSchemaData(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @getTableData(ptr noundef %0, i32 noundef %1, i8 noundef signext range(i8 0, 84) %2) unnamed_addr #4 {
+define internal fastcc void @getTableData.argprom(ptr noundef %0, i32 noundef %1, i8 noundef signext range(i8 0, 84) %2) unnamed_addr #4 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -14669,37 +14669,37 @@ define dso_local void @getSubscriptions(ptr noundef %0) local_unnamed_addr #4 {
   %.val = load ptr, ptr %10, align 8
   %11 = tail call ptr @PQparameterStatus(ptr noundef %.val, ptr noundef nonnull @.str.736) #14
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %is_superuser.exit, label %sub_0.i
+  br i1 %.not.i, label %is_superuser.argprom.exit, label %sub_0.i
 
 sub_0.i:                                          ; preds = %9
   %12 = load i8, ptr %11, align 1
   %.not1.i = icmp eq i8 %12, 111
-  br i1 %.not1.i, label %sub_1.i, label %is_superuser.exit
+  br i1 %.not1.i, label %sub_1.i, label %is_superuser.argprom.exit
 
 sub_1.i:                                          ; preds = %sub_0.i
   %13 = getelementptr inbounds i8, ptr %11, i64 1
   %14 = load i8, ptr %13, align 1
   %.not2.i = icmp eq i8 %14, 110
-  br i1 %.not2.i, label %.tail.i, label %is_superuser.exit
+  br i1 %.not2.i, label %.tail.i, label %is_superuser.argprom.exit
 
 .tail.i:                                          ; preds = %sub_1.i
   %15 = getelementptr inbounds i8, ptr %11, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %24, label %is_superuser.exit
+  br i1 %17, label %24, label %is_superuser.argprom.exit
 
-is_superuser.exit:                                ; preds = %.tail.i, %sub_1.i, %sub_0.i, %9
+is_superuser.argprom.exit:                        ; preds = %.tail.i, %sub_1.i, %sub_0.i, %9
   %18 = tail call ptr @ExecuteSqlQuery(ptr noundef nonnull %0, ptr noundef nonnull @.str.137, i32 noundef 2) #14
   %19 = tail call ptr @PQgetvalue(ptr noundef %18, i32 noundef 0, i32 noundef 0) #14
   %20 = tail call i32 @atoi(ptr nocapture noundef %19) #15
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %22, label %23
 
-22:                                               ; preds = %is_superuser.exit
+22:                                               ; preds = %is_superuser.argprom.exit
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.138) #14
   br label %23
 
-23:                                               ; preds = %22, %is_superuser.exit
+23:                                               ; preds = %22, %is_superuser.argprom.exit
   tail call void @PQclear(ptr noundef %18) #14
   br label %198
 
@@ -23962,7 +23962,7 @@ sub_0230.i:                                       ; preds = %sub_0230.sink.split
   %233 = getelementptr inbounds i8, ptr %1, i64 12
   %234 = load i32, ptr %233, align 4
   %235 = load i64, ptr %34, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %100, ptr noundef %230, ptr noundef %232, i64 %235, i32 noundef %234, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %100, ptr noundef %230, ptr noundef %232, i64 %235, i32 noundef %234, ptr noundef null)
   %.pre240.i = load i32, ptr %199, align 8
   br label %236
 
@@ -23981,7 +23981,7 @@ sub_0230.i:                                       ; preds = %sub_0230.sink.split
   %245 = getelementptr inbounds i8, ptr %1, i64 12
   %246 = load i32, ptr %245, align 4
   %247 = load i64, ptr %34, align 4
-  call fastcc void @dumpSecLabel(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %100, ptr noundef %242, ptr noundef %244, i64 %247, i32 noundef %246)
+  call fastcc void @dumpSecLabel.argelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %100, ptr noundef %242, ptr noundef %244, i64 %247, i32 noundef %246)
   %.pre241.i = load i32, ptr %199, align 8
   br label %248
 
@@ -24251,7 +24251,7 @@ dumpBaseType.exit:                                ; preds = %248, %251
   %397 = getelementptr inbounds i8, ptr %1, i64 12
   %398 = load i32, ptr %397, align 4
   %399 = load i64, ptr %275, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %0, ptr noundef nonnull @.str.866, ptr noundef %304, ptr noundef %394, ptr noundef %396, i64 %399, i32 noundef %398, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.866, ptr noundef %304, ptr noundef %394, ptr noundef %396, i64 %399, i32 noundef %398, ptr noundef null)
   %.pre145.i = load i32, ptr %363, align 8
   br label %400
 
@@ -24270,7 +24270,7 @@ dumpBaseType.exit:                                ; preds = %248, %251
   %409 = getelementptr inbounds i8, ptr %1, i64 12
   %410 = load i32, ptr %409, align 4
   %411 = load i64, ptr %275, align 4
-  call fastcc void @dumpSecLabel(ptr noundef nonnull %0, ptr noundef nonnull @.str.866, ptr noundef %304, ptr noundef %406, ptr noundef %408, i64 %411, i32 noundef %410)
+  call fastcc void @dumpSecLabel.argelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.866, ptr noundef %304, ptr noundef %406, ptr noundef %408, i64 %411, i32 noundef %410)
   %.pre146.i = load i32, ptr %363, align 8
   br label %412
 
@@ -24327,7 +24327,7 @@ dumpBaseType.exit:                                ; preds = %248, %251
   %447 = getelementptr inbounds i8, ptr %433, i64 4
   %448 = load i32, ptr %430, align 4
   %449 = load i64, ptr %447, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %0, ptr noundef %442, ptr noundef %304, ptr noundef %445, ptr noundef %446, i64 %449, i32 noundef %448, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %0, ptr noundef %442, ptr noundef %304, ptr noundef %445, ptr noundef %446, i64 %449, i32 noundef %448, ptr noundef null)
   br label %450
 
 450:                                              ; preds = %441, %431
@@ -24570,7 +24570,7 @@ dumpDomain.exit:                                  ; preds = %450, %425
   %583 = getelementptr inbounds i8, ptr %1, i64 12
   %584 = load i32, ptr %583, align 4
   %585 = load i64, ptr %469, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %491, ptr noundef %580, ptr noundef %582, i64 %585, i32 noundef %584, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %491, ptr noundef %580, ptr noundef %582, i64 %585, i32 noundef %584, ptr noundef null)
   %.pre157.i = load i32, ptr %549, align 8
   br label %586
 
@@ -24589,7 +24589,7 @@ dumpDomain.exit:                                  ; preds = %450, %425
   %595 = getelementptr inbounds i8, ptr %1, i64 12
   %596 = load i32, ptr %595, align 4
   %597 = load i64, ptr %469, align 4
-  call fastcc void @dumpSecLabel(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %491, ptr noundef %592, ptr noundef %594, i64 %597, i32 noundef %596)
+  call fastcc void @dumpSecLabel.argelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %491, ptr noundef %592, ptr noundef %594, i64 %597, i32 noundef %596)
   %.pre158.i = load i32, ptr %549, align 8
   br label %598
 
@@ -25064,7 +25064,7 @@ dumpCompositeType.exit:                           ; preds = %611, %dumpComposite
   %838 = getelementptr inbounds i8, ptr %1, i64 12
   %839 = load i32, ptr %838, align 4
   %840 = load i64, ptr %745, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %754, ptr noundef %835, ptr noundef %837, i64 %840, i32 noundef %839, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %754, ptr noundef %835, ptr noundef %837, i64 %840, i32 noundef %839, ptr noundef null)
   %.pre114.i = load i32, ptr %804, align 8
   br label %841
 
@@ -25083,7 +25083,7 @@ dumpCompositeType.exit:                           ; preds = %611, %dumpComposite
   %850 = getelementptr inbounds i8, ptr %1, i64 12
   %851 = load i32, ptr %850, align 4
   %852 = load i64, ptr %745, align 4
-  call fastcc void @dumpSecLabel(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %754, ptr noundef %847, ptr noundef %849, i64 %852, i32 noundef %851)
+  call fastcc void @dumpSecLabel.argelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %754, ptr noundef %847, ptr noundef %849, i64 %852, i32 noundef %851)
   %.pre115.i = load i32, ptr %804, align 8
   br label %853
 
@@ -25334,7 +25334,7 @@ sub_0116.i:                                       ; preds = %.tail.thread.i, %.t
   %990 = getelementptr inbounds i8, ptr %1, i64 12
   %991 = load i32, ptr %990, align 4
   %992 = load i64, ptr %883, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %891, ptr noundef %987, ptr noundef %989, i64 %992, i32 noundef %991, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %891, ptr noundef %987, ptr noundef %989, i64 %992, i32 noundef %991, ptr noundef null)
   %.pre121.i = load i32, ptr %956, align 8
   br label %993
 
@@ -25353,7 +25353,7 @@ sub_0116.i:                                       ; preds = %.tail.thread.i, %.t
   %1002 = getelementptr inbounds i8, ptr %1, i64 12
   %1003 = load i32, ptr %1002, align 4
   %1004 = load i64, ptr %883, align 4
-  call fastcc void @dumpSecLabel(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %891, ptr noundef %999, ptr noundef %1001, i64 %1004, i32 noundef %1003)
+  call fastcc void @dumpSecLabel.argelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %891, ptr noundef %999, ptr noundef %1001, i64 %1004, i32 noundef %1003)
   %.pre122.i = load i32, ptr %956, align 8
   br label %1005
 
@@ -25490,7 +25490,7 @@ dumpRangeType.exit:                               ; preds = %1005, %1008
   %1084 = getelementptr inbounds i8, ptr %1, i64 12
   %1085 = load i32, ptr %1084, align 4
   %1086 = load i64, ptr %1083, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %1028, ptr noundef %1080, ptr noundef %1082, i64 %1086, i32 noundef %1085, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %1028, ptr noundef %1080, ptr noundef %1082, i64 %1086, i32 noundef %1085, ptr noundef null)
   %.pre56.i = load i32, ptr %1048, align 8
   br label %1087
 
@@ -25510,7 +25510,7 @@ dumpRangeType.exit:                               ; preds = %1005, %1008
   %1097 = getelementptr inbounds i8, ptr %1, i64 12
   %1098 = load i32, ptr %1097, align 4
   %1099 = load i64, ptr %1096, align 4
-  call fastcc void @dumpSecLabel(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %1028, ptr noundef %1093, ptr noundef %1095, i64 %1099, i32 noundef %1098)
+  call fastcc void @dumpSecLabel.argelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.838, ptr noundef %1028, ptr noundef %1093, ptr noundef %1095, i64 %1099, i32 noundef %1098)
   %.pre57.i = load i32, ptr %1048, align 8
   br label %1100
 
@@ -26017,7 +26017,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   %286 = getelementptr inbounds i8, ptr %1, i64 12
   %287 = load i32, ptr %286, align 4
   %288 = load i64, ptr %285, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %0, ptr noundef nonnull @.str.1173, ptr noundef %30, ptr noundef %282, ptr noundef %284, i64 %288, i32 noundef %287, ptr noundef null)
+  call fastcc void @dumpCommentExtended.argelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.1173, ptr noundef %30, ptr noundef %282, ptr noundef %284, i64 %288, i32 noundef %287, ptr noundef null)
   %.pre.i = load i32, ptr %17, align 8
   br label %289
 
@@ -26038,7 +26038,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   %300 = getelementptr inbounds i8, ptr %1, i64 12
   %301 = load i32, ptr %300, align 4
   %302 = load i64, ptr %299, align 4
-  call fastcc void @dumpSecLabel(ptr noundef nonnull %0, ptr noundef nonnull @.str.1173, ptr noundef %30, ptr noundef %296, ptr noundef %298, i64 %302, i32 noundef %301)
+  call fastcc void @dumpSecLabel.argelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.1173, ptr noundef %30, ptr noundef %296, ptr noundef %298, i64 %302, i32 noundef %301)
   br label %dumpSequence.exit
 
 dumpSequence.exit:                                ; preds = %289, %292
@@ -26080,19 +26080,19 @@ dumpSequence.exit:                                ; preds = %289, %292
   %322 = getelementptr inbounds i8, ptr %12, i64 48
   %323 = load i32, ptr %322, align 8
   %.not.i63 = icmp eq i32 %323, 0
-  br i1 %.not.i63, label %binary_upgrade_set_type_oids_by_rel.exit.i, label %324
+  br i1 %.not.i63, label %binary_upgrade_set_type_oids_by_rel.argprom.exit.i, label %324
 
 324:                                              ; preds = %321
   %325 = getelementptr i8, ptr %1, i64 176
   %.val.i = load i32, ptr %325, align 8
   %.not.i.i = icmp eq i32 %.val.i, 0
-  br i1 %.not.i.i, label %binary_upgrade_set_type_oids_by_rel.exit.i, label %326
+  br i1 %.not.i.i, label %binary_upgrade_set_type_oids_by_rel.argprom.exit.i, label %326
 
 326:                                              ; preds = %324
   tail call fastcc void @binary_upgrade_set_type_oids_by_type_oid(ptr noundef nonnull %0, ptr noundef %304, i32 noundef %.val.i, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %binary_upgrade_set_type_oids_by_rel.exit.i
+  br label %binary_upgrade_set_type_oids_by_rel.argprom.exit.i
 
-binary_upgrade_set_type_oids_by_rel.exit.i:       ; preds = %326, %324, %321
+binary_upgrade_set_type_oids_by_rel.argprom.exit.i: ; preds = %326, %324, %321
   %327 = load i8, ptr %21, align 8
   switch i8 %327, label %381 [
     i8 118, label %328
@@ -26101,7 +26101,7 @@ binary_upgrade_set_type_oids_by_rel.exit.i:       ; preds = %326, %324, %321
     i8 109, label %382
   ]
 
-328:                                              ; preds = %binary_upgrade_set_type_oids_by_rel.exit.i
+328:                                              ; preds = %binary_upgrade_set_type_oids_by_rel.argprom.exit.i
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %305, ptr noundef nonnull @.str.1214, ptr noundef %316) #14
   %329 = load i32, ptr %322, align 8
   %.not600.i = icmp eq i32 %329, 0
@@ -26121,7 +26121,7 @@ binary_upgrade_set_type_oids_by_rel.exit.i:       ; preds = %326, %324, %321
   br i1 %336, label %337, label %339
 
 337:                                              ; preds = %333
-  %338 = tail call fastcc ptr @createDummyViewAsClause(ptr noundef nonnull %1)
+  %338 = tail call fastcc ptr @createDummyViewAsClause.argprom(ptr noundef nonnull %1)
   br label %352
 
 339:                                              ; preds = %333
@@ -26144,17 +26144,17 @@ nonemptyReloptions.exit.i:                        ; preds = %339
   %.val611.i = load i8, ptr %347, align 4
   %348 = trunc i8 %.val611.i to i1
   %349 = tail call zeroext i1 @appendReloptionsArray(ptr noundef %304, ptr noundef %345, ptr noundef nonnull @.str.452, i32 noundef %.val610.i, i1 noundef zeroext %348) #14
-  br i1 %349, label %appendReloptionsArrayAH.exit.i, label %350
+  br i1 %349, label %appendReloptionsArrayAH.argprom.exit.i, label %350
 
 350:                                              ; preds = %344
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.299) #14
-  br label %appendReloptionsArrayAH.exit.i
+  br label %appendReloptionsArrayAH.argprom.exit.i
 
-appendReloptionsArrayAH.exit.i:                   ; preds = %350, %344
+appendReloptionsArrayAH.argprom.exit.i:           ; preds = %350, %344
   tail call void @appendPQExpBufferChar(ptr noundef %304, i8 noundef signext 41) #14
   br label %nonemptyReloptions.exit.thread.i
 
-nonemptyReloptions.exit.thread.i:                 ; preds = %appendReloptionsArrayAH.exit.i, %nonemptyReloptions.exit.i, %339
+nonemptyReloptions.exit.thread.i:                 ; preds = %appendReloptionsArrayAH.argprom.exit.i, %nonemptyReloptions.exit.i, %339
   %351 = tail call fastcc ptr @createViewAsClause(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %352
 
@@ -26181,7 +26181,7 @@ nonemptyReloptions.exit.thread.i:                 ; preds = %appendReloptionsArr
   tail call void @appendPQExpBufferStr(ptr noundef %304, ptr noundef nonnull @.str.682) #14
   br label %970
 
-361:                                              ; preds = %binary_upgrade_set_type_oids_by_rel.exit.i
+361:                                              ; preds = %binary_upgrade_set_type_oids_by_rel.argprom.exit.i
   %362 = tail call ptr @createPQExpBuffer() #14
   %363 = getelementptr inbounds i8, ptr %1, i64 8
   %364 = load i32, ptr %363, align 4
@@ -26194,7 +26194,7 @@ nonemptyReloptions.exit.thread.i:                 ; preds = %appendReloptionsArr
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %362) #14
   br label %382
 
-369:                                              ; preds = %binary_upgrade_set_type_oids_by_rel.exit.i
+369:                                              ; preds = %binary_upgrade_set_type_oids_by_rel.argprom.exit.i
   %370 = tail call ptr @createPQExpBuffer() #14
   %371 = getelementptr inbounds i8, ptr %1, i64 8
   %372 = load i32, ptr %371, align 4
@@ -26211,15 +26211,15 @@ nonemptyReloptions.exit.thread.i:                 ; preds = %appendReloptionsArr
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %370) #14
   br label %382
 
-381:                                              ; preds = %binary_upgrade_set_type_oids_by_rel.exit.i
+381:                                              ; preds = %binary_upgrade_set_type_oids_by_rel.argprom.exit.i
   br label %382
 
-382:                                              ; preds = %381, %369, %361, %binary_upgrade_set_type_oids_by_rel.exit.i
-  %.0546.i = phi ptr [ @.str.452, %381 ], [ @.str.1223, %369 ], [ @.str.452, %361 ], [ @.str.452, %binary_upgrade_set_type_oids_by_rel.exit.i ]
-  %.0545.i = phi ptr [ null, %381 ], [ %378, %369 ], [ null, %361 ], [ null, %binary_upgrade_set_type_oids_by_rel.exit.i ]
-  %.0544.i = phi ptr [ null, %381 ], [ %380, %369 ], [ null, %361 ], [ null, %binary_upgrade_set_type_oids_by_rel.exit.i ]
-  %.0543.i = phi ptr [ null, %381 ], [ null, %369 ], [ %368, %361 ], [ null, %binary_upgrade_set_type_oids_by_rel.exit.i ]
-  %.1532.i = phi ptr [ @.str.1174, %381 ], [ @.str.1220, %369 ], [ @.str.1174, %361 ], [ @.str.1224, %binary_upgrade_set_type_oids_by_rel.exit.i ]
+382:                                              ; preds = %381, %369, %361, %binary_upgrade_set_type_oids_by_rel.argprom.exit.i
+  %.0546.i = phi ptr [ @.str.452, %381 ], [ @.str.1223, %369 ], [ @.str.452, %361 ], [ @.str.452, %binary_upgrade_set_type_oids_by_rel.argprom.exit.i ]
+  %.0545.i = phi ptr [ null, %381 ], [ %378, %369 ], [ null, %361 ], [ null, %binary_upgrade_set_type_oids_by_rel.argprom.exit.i ]
+  %.0544.i = phi ptr [ null, %381 ], [ %380, %369 ], [ null, %361 ], [ null, %binary_upgrade_set_type_oids_by_rel.argprom.exit.i ]
+  %.0543.i = phi ptr [ null, %381 ], [ null, %369 ], [ %368, %361 ], [ null, %binary_upgrade_set_type_oids_by_rel.argprom.exit.i ]
+  %.1532.i = phi ptr [ @.str.1174, %381 ], [ @.str.1220, %369 ], [ @.str.1174, %361 ], [ @.str.1224, %binary_upgrade_set_type_oids_by_rel.argprom.exit.i ]
   %383 = getelementptr inbounds i8, ptr %1, i64 216
   %384 = load i32, ptr %383, align 8
   %385 = getelementptr inbounds i8, ptr %1, i64 224
@@ -26653,12 +26653,12 @@ nonemptyReloptions.exit621.i:                     ; preds = %nonemptyReloptions.
   tail call void @appendPQExpBufferStr(ptr noundef %304, ptr noundef nonnull @.str.1241) #14
   %598 = load ptr, ptr %589, align 8
   %.not.i622.i = icmp eq ptr %598, null
-  br i1 %.not.i622.i, label %appendReloptionsArrayAH.exit624.i, label %nonemptyReloptions.exit623.i
+  br i1 %.not.i622.i, label %appendReloptionsArrayAH.argprom.exit624.i, label %nonemptyReloptions.exit623.i
 
 nonemptyReloptions.exit623.i:                     ; preds = %597
   %599 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %598) #15
   %600 = icmp ugt i64 %599, 2
-  br i1 %600, label %601, label %appendReloptionsArrayAH.exit624.i
+  br i1 %600, label %601, label %appendReloptionsArrayAH.argprom.exit624.i
 
 601:                                              ; preds = %nonemptyReloptions.exit623.i
   %602 = getelementptr i8, ptr %0, i64 64
@@ -26667,23 +26667,23 @@ nonemptyReloptions.exit623.i:                     ; preds = %597
   %.val613.i = load i8, ptr %603, align 4
   %604 = trunc i8 %.val613.i to i1
   %605 = tail call zeroext i1 @appendReloptionsArray(ptr noundef %304, ptr noundef nonnull %598, ptr noundef nonnull @.str.452, i32 noundef %.val612.i, i1 noundef zeroext %604) #14
-  br i1 %605, label %appendReloptionsArrayAH.exit624.i, label %606
+  br i1 %605, label %appendReloptionsArrayAH.argprom.exit624.i, label %606
 
 606:                                              ; preds = %601
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.299) #14
-  br label %appendReloptionsArrayAH.exit624.i
+  br label %appendReloptionsArrayAH.argprom.exit624.i
 
-appendReloptionsArrayAH.exit624.i:                ; preds = %606, %601, %nonemptyReloptions.exit623.i, %597
+appendReloptionsArrayAH.argprom.exit624.i:        ; preds = %606, %601, %nonemptyReloptions.exit623.i, %597
   %607 = phi i1 [ false, %nonemptyReloptions.exit623.i ], [ true, %601 ], [ true, %606 ], [ false, %597 ]
   %608 = getelementptr inbounds i8, ptr %1, i64 136
   %609 = load ptr, ptr %608, align 8
   %.not.i625.i = icmp eq ptr %609, null
-  br i1 %.not.i625.i, label %appendReloptionsArrayAH.exit627.i, label %nonemptyReloptions.exit626.i
+  br i1 %.not.i625.i, label %appendReloptionsArrayAH.argprom.exit627.i, label %nonemptyReloptions.exit626.i
 
-nonemptyReloptions.exit626.i:                     ; preds = %appendReloptionsArrayAH.exit624.i
+nonemptyReloptions.exit626.i:                     ; preds = %appendReloptionsArrayAH.argprom.exit624.i
   %610 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %609) #15
   %611 = icmp ugt i64 %610, 2
-  br i1 %611, label %612, label %appendReloptionsArrayAH.exit627.i
+  br i1 %611, label %612, label %appendReloptionsArrayAH.argprom.exit627.i
 
 612:                                              ; preds = %nonemptyReloptions.exit626.i
   br i1 %607, label %613, label %614
@@ -26701,17 +26701,17 @@ nonemptyReloptions.exit626.i:                     ; preds = %appendReloptionsArr
   %.val615.i = load i8, ptr %617, align 4
   %618 = trunc i8 %.val615.i to i1
   %619 = tail call zeroext i1 @appendReloptionsArray(ptr noundef %304, ptr noundef %615, ptr noundef nonnull @.str.1242, i32 noundef %.val614.i, i1 noundef zeroext %618) #14
-  br i1 %619, label %appendReloptionsArrayAH.exit627.i, label %620
+  br i1 %619, label %appendReloptionsArrayAH.argprom.exit627.i, label %620
 
 620:                                              ; preds = %614
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.299) #14
-  br label %appendReloptionsArrayAH.exit627.i
+  br label %appendReloptionsArrayAH.argprom.exit627.i
 
-appendReloptionsArrayAH.exit627.i:                ; preds = %620, %614, %nonemptyReloptions.exit626.i, %appendReloptionsArrayAH.exit624.i
+appendReloptionsArrayAH.argprom.exit627.i:        ; preds = %620, %614, %nonemptyReloptions.exit626.i, %appendReloptionsArrayAH.argprom.exit624.i
   tail call void @appendPQExpBufferChar(ptr noundef %304, i8 noundef signext 41) #14
   br label %nonemptyReloptions.exit621.thread.i
 
-nonemptyReloptions.exit621.thread.i:              ; preds = %appendReloptionsArrayAH.exit627.i, %nonemptyReloptions.exit621.i, %nonemptyReloptions.exit619.thread.i
+nonemptyReloptions.exit621.thread.i:              ; preds = %appendReloptionsArrayAH.argprom.exit627.i, %nonemptyReloptions.exit621.i, %nonemptyReloptions.exit619.thread.i
   %.not573.i = icmp eq ptr %.0544.i, null
   br i1 %.not573.i, label %624, label %621
 
@@ -28509,17 +28509,17 @@ nonemptyReloptions.exit:                          ; preds = %._crit_edge242
   %.val226 = load i8, ptr %152, align 4
   %153 = trunc i8 %.val226 to i1
   %154 = tail call zeroext i1 @appendReloptionsArray(ptr noundef %14, ptr noundef %150, ptr noundef nonnull @.str.452, i32 noundef %.val, i1 noundef zeroext %153) #14
-  br i1 %154, label %appendReloptionsArrayAH.exit, label %155
+  br i1 %154, label %appendReloptionsArrayAH.argprom.exit, label %155
 
 155:                                              ; preds = %149
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.299) #14
-  br label %appendReloptionsArrayAH.exit
+  br label %appendReloptionsArrayAH.argprom.exit
 
-appendReloptionsArrayAH.exit:                     ; preds = %149, %155
+appendReloptionsArrayAH.argprom.exit:             ; preds = %149, %155
   tail call void @appendPQExpBufferChar(ptr noundef %14, i8 noundef signext 41) #14
   br label %nonemptyReloptions.exit.thread
 
-nonemptyReloptions.exit.thread:                   ; preds = %._crit_edge242, %appendReloptionsArrayAH.exit, %nonemptyReloptions.exit
+nonemptyReloptions.exit.thread:                   ; preds = %._crit_edge242, %appendReloptionsArrayAH.argprom.exit, %nonemptyReloptions.exit
   %156 = getelementptr inbounds i8, ptr %1, i64 104
   %157 = load i8, ptr %156, align 8
   %158 = trunc i8 %157 to i1
@@ -29101,7 +29101,7 @@ define internal fastcc void @binary_upgrade_extension_member(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dumpCommentExtended(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 %5, i32 noundef %6, ptr noundef readonly %7) unnamed_addr #4 {
+define internal fastcc void @dumpCommentExtended.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 %5, i32 noundef %6, ptr noundef readonly %7) unnamed_addr #4 {
   %9 = alloca i32, align 4
   %10 = alloca %struct._archiveOpts, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %5 to i32
@@ -29351,7 +29351,7 @@ findComments.exit:                                ; preds = %.lr.ph78.i, %72, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dumpSecLabel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 %5, i32 noundef %6) unnamed_addr #4 {
+define internal fastcc void @dumpSecLabel.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 %5, i32 noundef %6) unnamed_addr #4 {
   %8 = alloca i32, align 4
   %9 = alloca %struct._archiveOpts, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %5 to i32
@@ -29949,7 +29949,7 @@ declare ptr @findOprByOid(i32 noundef) local_unnamed_addr #2
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @createDummyViewAsClause(ptr nocapture noundef readonly %0) unnamed_addr #4 {
+define internal fastcc noundef ptr @createDummyViewAsClause.argprom(ptr nocapture noundef readonly %0) unnamed_addr #4 {
   %2 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %2, ptr noundef nonnull @.str.1288) #14
   %3 = getelementptr inbounds i8, ptr %0, i64 232
@@ -30103,7 +30103,7 @@ define internal fastcc void @dumpTableConstraintComment(ptr noundef %0, ptr noca
   %.in = getelementptr inbounds i8, ptr %., i64 12
   %28 = load i32, ptr %.in, align 4
   %29 = load i64, ptr %24, align 4
-  tail call fastcc void @dumpCommentExtended(ptr noundef %0, ptr noundef %17, ptr noundef %9, ptr noundef %21, ptr noundef %23, i64 %29, i32 noundef %28, ptr noundef null)
+  tail call fastcc void @dumpCommentExtended.argelim(ptr noundef %0, ptr noundef %17, ptr noundef %9, ptr noundef %21, ptr noundef %23, i64 %29, i32 noundef %28, ptr noundef null)
   br label %30
 
 30:                                               ; preds = %16, %2
@@ -30489,12 +30489,12 @@ define internal noundef i32 @dumpTableData_insert(ptr noundef %0, ptr nocapture 
   %90 = tail call ptr @createPQExpBuffer() #14
   %91 = load i8, ptr %68, align 1
   %92 = trunc i8 %91 to i1
-  br i1 %92, label %93, label %forcePartitionRootLoad.exit
+  br i1 %92, label %93, label %forcePartitionRootLoad.argprom.argprom.exit
 
 93:                                               ; preds = %89
   %94 = load i32, ptr %69, align 8
   %.not151 = icmp eq i32 %94, 0
-  br i1 %.not151, label %95, label %forcePartitionRootLoad.exit.thread.preheader
+  br i1 %.not151, label %95, label %forcePartitionRootLoad.argprom.argprom.exit.thread.preheader
 
 95:                                               ; preds = %93
   %.val = load ptr, ptr %70, align 8
@@ -30502,14 +30502,14 @@ define internal noundef i32 @dumpTableData_insert(ptr noundef %0, ptr nocapture 
   %96 = getelementptr inbounds i8, ptr %.val.val, i64 212
   %97 = load i8, ptr %96, align 4
   %98 = trunc i8 %97 to i1
-  br i1 %98, label %forcePartitionRootLoad.exit.thread.preheader, label %.preheader.i
+  br i1 %98, label %forcePartitionRootLoad.argprom.argprom.exit.thread.preheader, label %.preheader.i
 
 .preheader.i:                                     ; preds = %95, %102
   %.0.i = phi ptr [ %105, %102 ], [ %.val.val, %95 ]
   %99 = getelementptr inbounds i8, ptr %.0.i, i64 211
   %100 = load i8, ptr %99, align 1
   %101 = trunc i8 %100 to i1
-  br i1 %101, label %102, label %forcePartitionRootLoad.exit
+  br i1 %101, label %102, label %forcePartitionRootLoad.argprom.argprom.exit
 
 102:                                              ; preds = %.preheader.i
   %103 = getelementptr inbounds i8, ptr %.0.i, i64 224
@@ -30518,23 +30518,23 @@ define internal noundef i32 @dumpTableData_insert(ptr noundef %0, ptr nocapture 
   %106 = getelementptr inbounds i8, ptr %105, i64 212
   %107 = load i8, ptr %106, align 4
   %108 = trunc i8 %107 to i1
-  br i1 %108, label %forcePartitionRootLoad.exit.thread.preheader, label %.preheader.i, !llvm.loop !19
+  br i1 %108, label %forcePartitionRootLoad.argprom.argprom.exit.thread.preheader, label %.preheader.i, !llvm.loop !19
 
-forcePartitionRootLoad.exit.thread.preheader:     ; preds = %102, %95, %93
-  br label %forcePartitionRootLoad.exit.thread
+forcePartitionRootLoad.argprom.argprom.exit.thread.preheader: ; preds = %102, %95, %93
+  br label %forcePartitionRootLoad.argprom.argprom.exit.thread
 
-forcePartitionRootLoad.exit.thread:               ; preds = %forcePartitionRootLoad.exit.thread.preheader, %forcePartitionRootLoad.exit.thread
-  %.pn.i = phi ptr [ %.0.i164, %forcePartitionRootLoad.exit.thread ], [ %4, %forcePartitionRootLoad.exit.thread.preheader ]
+forcePartitionRootLoad.argprom.argprom.exit.thread: ; preds = %forcePartitionRootLoad.argprom.argprom.exit.thread.preheader, %forcePartitionRootLoad.argprom.argprom.exit.thread
+  %.pn.i = phi ptr [ %.0.i164, %forcePartitionRootLoad.argprom.argprom.exit.thread ], [ %4, %forcePartitionRootLoad.argprom.argprom.exit.thread.preheader ]
   %.0.in.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 224
   %.0.in.i = load ptr, ptr %.0.in.in.i, align 8
   %.0.i164 = load ptr, ptr %.0.in.i, align 8
   %109 = getelementptr inbounds i8, ptr %.0.i164, i64 211
   %110 = load i8, ptr %109, align 1
   %111 = trunc i8 %110 to i1
-  br i1 %111, label %forcePartitionRootLoad.exit.thread, label %forcePartitionRootLoad.exit, !llvm.loop !20
+  br i1 %111, label %forcePartitionRootLoad.argprom.argprom.exit.thread, label %forcePartitionRootLoad.argprom.argprom.exit, !llvm.loop !20
 
-forcePartitionRootLoad.exit:                      ; preds = %.preheader.i, %forcePartitionRootLoad.exit.thread, %89
-  %.0142 = phi ptr [ %4, %89 ], [ %.0.i164, %forcePartitionRootLoad.exit.thread ], [ %4, %.preheader.i ]
+forcePartitionRootLoad.argprom.argprom.exit:      ; preds = %.preheader.i, %forcePartitionRootLoad.argprom.argprom.exit.thread, %89
+  %.0142 = phi ptr [ %4, %89 ], [ %.0.i164, %forcePartitionRootLoad.argprom.argprom.exit.thread ], [ %4, %.preheader.i ]
   %112 = getelementptr inbounds i8, ptr %.0142, i64 24
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 16
@@ -30545,7 +30545,7 @@ forcePartitionRootLoad.exit:                      ; preds = %.preheader.i, %forc
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %90, ptr noundef nonnull @.str.1447, ptr noundef %118) #14
   br i1 %55, label %.sink.split, label %119
 
-119:                                              ; preds = %forcePartitionRootLoad.exit
+119:                                              ; preds = %forcePartitionRootLoad.argprom.argprom.exit
   %120 = load i32, ptr %71, align 8
   %.not152 = icmp eq i32 %120, 0
   br i1 %.not152, label %127, label %121
@@ -30584,8 +30584,8 @@ forcePartitionRootLoad.exit:                      ; preds = %.preheader.i, %forc
   tail call void @appendPQExpBufferStr(ptr noundef %90, ptr noundef nonnull @.str.1450) #14
   br label %.sink.split
 
-.sink.split:                                      ; preds = %127, %130, %forcePartitionRootLoad.exit
-  %.str.1448.sink = phi ptr [ @.str.1448, %forcePartitionRootLoad.exit ], [ @.str.1451, %130 ], [ @.str.1451, %127 ]
+.sink.split:                                      ; preds = %127, %130, %forcePartitionRootLoad.argprom.argprom.exit
+  %.str.1448.sink = phi ptr [ @.str.1448, %forcePartitionRootLoad.argprom.argprom.exit ], [ @.str.1451, %130 ], [ @.str.1451, %127 ]
   tail call void @appendPQExpBufferStr(ptr noundef %90, ptr noundef nonnull %.str.1448.sink) #14
   br label %131
 

@@ -35,12 +35,12 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 12) i32 @MPL_shm_seg_create(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call fastcc i32 @MPL_shm_seg_create_attach_templ(ptr noundef %0, i64 noundef %1, ptr noundef null, i32 noundef 1)
+  %3 = tail call fastcc i32 @MPL_shm_seg_create_attach_templ.argelim(ptr noundef %0, i64 noundef %1, ptr noundef null, i32 noundef 1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 12) i32 @MPL_shm_seg_create_attach_templ(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 0, 4114) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 12) i32 @MPL_shm_seg_create_attach_templ.argelim(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 0, 4114) %3) unnamed_addr #0 {
   %5 = alloca [30 x i8], align 16
   %6 = alloca [26 x i8], align 16
   %7 = and i32 %3, 1
@@ -265,7 +265,7 @@ MPL_shm_seg_create_attach_templ.exit:             ; preds = %MPLI_shm_ghnd_alloc
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 12) i32 @MPL_shm_seg_create_and_attach(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call fastcc i32 @MPL_shm_seg_create_attach_templ(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef 17)
+  %5 = tail call fastcc i32 @MPL_shm_seg_create_attach_templ.argelim(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef 17)
   ret i32 %5
 }
 
@@ -323,13 +323,13 @@ MPL_shm_seg_create_attach_templ.exit:             ; preds = %MPLI_shm_ghnd_alloc
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 12) i32 @MPL_shm_fixed_seg_create_and_attach(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call fastcc i32 @MPL_shm_seg_create_attach_templ(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef 4113)
+  %5 = tail call fastcc i32 @MPL_shm_seg_create_attach_templ.argelim(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef 4113)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 12) i32 @MPL_shm_fixed_seg_attach(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call fastcc i32 @MPL_shm_seg_create_attach_templ(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef 4112)
+  %5 = tail call fastcc i32 @MPL_shm_seg_create_attach_templ.argelim(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef 4112)
   ret i32 %5
 }
 

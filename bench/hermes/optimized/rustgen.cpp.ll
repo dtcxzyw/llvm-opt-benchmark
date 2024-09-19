@@ -1609,7 +1609,7 @@ if.end.i.i183:                                    ; preds = %for.body.i175
   %call.i.i184 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.082.i) #17
   %call2.i.i185 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %call.i.i184, ptr noundef nonnull dereferenceable(6) @.str.384, i64 noundef 5) #19
   %cmp3.i.i = icmp eq i32 %call2.i.i185, 0
-  br i1 %cmp3.i.i, label %"_ZZL10genConvertvENK3$_0clERK9TreeClass.exit.i", label %if.end5.i.i
+  br i1 %cmp3.i.i, label %"_ZZL10genConvertvENK3$_0clERK9TreeClass.argprom.exit.i", label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i183
   %call6.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4outsEv() #17
@@ -2639,7 +2639,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit600.i.i:          ; preds = %if.then4.i.i595.i.i
 
 if.then.i.i613.i.i:                               ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit600.i.i
   %call3.i.i614.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i597.i.i, ptr noundef nonnull @.str.442, i64 noundef 10) #17
-  br label %"_ZZL10genConvertvENK3$_0clERK9TreeClass.exit.i"
+  br label %"_ZZL10genConvertvENK3$_0clERK9TreeClass.argprom.exit.i"
 
 if.then4.i.i610.i.i:                              ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit600.i.i
   %OutBufCur.i6.i603.i.i = getelementptr inbounds i8, ptr %phi.call.i597.i.i, i64 24
@@ -2647,14 +2647,14 @@ if.then4.i.i610.i.i:                              ; preds = %_ZN4llvh11raw_ostre
   %211 = load ptr, ptr %OutBufCur.i6.i603.i.i, align 8
   %add.ptr.i.i611.i.i = getelementptr inbounds i8, ptr %211, i64 10
   store ptr %add.ptr.i.i611.i.i, ptr %OutBufCur.i6.i603.i.i, align 8
-  br label %"_ZZL10genConvertvENK3$_0clERK9TreeClass.exit.i"
+  br label %"_ZZL10genConvertvENK3$_0clERK9TreeClass.argprom.exit.i"
 
-"_ZZL10genConvertvENK3$_0clERK9TreeClass.exit.i": ; preds = %if.then4.i.i610.i.i, %if.then.i.i613.i.i, %if.end.i.i183
+"_ZZL10genConvertvENK3$_0clERK9TreeClass.argprom.exit.i": ; preds = %if.then4.i.i610.i.i, %if.then.i.i613.i.i, %if.end.i.i183
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp165.i.i)
   br label %for.inc.i178
 
-for.inc.i178:                                     ; preds = %"_ZZL10genConvertvENK3$_0clERK9TreeClass.exit.i", %for.body.i175
+for.inc.i178:                                     ; preds = %"_ZZL10genConvertvENK3$_0clERK9TreeClass.argprom.exit.i", %for.body.i175
   %incdec.ptr.i.i179 = getelementptr inbounds i8, ptr %__begin1.sroa.0.082.i, i64 96
   %cmp.i.not.i180 = icmp eq ptr %incdec.ptr.i.i179, %99
   br i1 %cmp.i.not.i180, label %for.end.i181, label %for.body.i175

@@ -21,7 +21,7 @@ define range(i32 0, 2) i32 @fnmatch(ptr noundef %0, ptr nocapture noundef readon
   %.012.lcssa = phi ptr [ %0, %3 ], [ %7, %6 ]
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.012.lcssa) #2
   %11 = trunc i64 %10 to i32
-  %12 = tail call fastcc i32 @fnmatch_one(ptr noundef %.012.lcssa, i32 noundef %11, ptr noundef %1)
+  %12 = tail call fastcc i32 @fnmatch_one.argelim(ptr noundef %.012.lcssa, i32 noundef %11, ptr noundef %1)
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %6
@@ -31,7 +31,7 @@ define range(i32 0, 2) i32 @fnmatch(ptr noundef %0, ptr nocapture noundef readon
   %15 = ptrtoint ptr %.01215 to i64
   %16 = sub i64 %14, %15
   %17 = trunc i64 %16 to i32
-  %18 = tail call fastcc i32 @fnmatch_one(ptr noundef %.01215, i32 noundef %17, ptr noundef %1)
+  %18 = tail call fastcc i32 @fnmatch_one.argelim(ptr noundef %.01215, i32 noundef %17, ptr noundef %1)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit, label %6
 
@@ -44,7 +44,7 @@ define range(i32 0, 2) i32 @fnmatch(ptr noundef %0, ptr nocapture noundef readon
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @fnmatch_one(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fnmatch_one.argelim(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = ptrtoint ptr %0 to i64
   %5 = sext i32 %1 to i64
   %6 = icmp sgt i32 %1, 0
@@ -171,7 +171,7 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_one(ptr noundef %0, i32 noun
 .lr.ph105:                                        ; preds = %.lr.ph105.preheader, %46
   %indvars.iv = phi i64 [ %45, %.lr.ph105.preheader ], [ %indvars.iv.next, %46 ]
   %48 = getelementptr inbounds i8, ptr %.054102, i64 %indvars.iv
-  %49 = tail call fastcc i32 @fnmatch_one(ptr noundef nonnull %.7, i32 noundef %42, ptr noundef %48)
+  %49 = tail call fastcc i32 @fnmatch_one.argelim(ptr noundef nonnull %.7, i32 noundef %42, ptr noundef %48)
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %.critedge2, label %46
 

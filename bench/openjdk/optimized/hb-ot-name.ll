@@ -2715,7 +2715,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT4name13accelerator_t9get_indexEjP
   %7 = getelementptr inbounds i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
   %.not10.i.i = icmp sgt i32 %8, 0
-  br i1 %.not10.i.i, label %.lr.ph.i.i, label %_ZL10hb_bsearchIK18hb_ot_name_entry_tS0_JbEEPT_RKT0_S3_mmPFiPKvS8_DpT1_ESA_.exit
+  br i1 %.not10.i.i, label %.lr.ph.i.i, label %_ZL10hb_bsearchIK18hb_ot_name_entry_tS0_JbEEPT_RKT0_S3_mmPFiPKvS8_DpT1_ESA_.argprom.exit
 
 .lr.ph.i.i:                                       ; preds = %4
   %9 = add nsw i32 %8, -1
@@ -2824,7 +2824,7 @@ _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread3.us.i.i: ; preds = %_ZN2O
   %47 = phi ptr [ %.pre, %.split.us.loopexit37 ], [ %6, %24 ]
   %.pr = phi i32 [ %.pr.pre, %.split.us.loopexit37 ], [ %8, %24 ]
   %.not10.i.i14 = icmp sgt i32 %.pr, 0
-  br i1 %.not10.i.i14, label %.lr.ph.i.i15, label %_ZL10hb_bsearchIK18hb_ot_name_entry_tS0_JbEEPT_RKT0_S3_mmPFiPKvS8_DpT1_ESA_.exit
+  br i1 %.not10.i.i14, label %.lr.ph.i.i15, label %_ZL10hb_bsearchIK18hb_ot_name_entry_tS0_JbEEPT_RKT0_S3_mmPFiPKvS8_DpT1_ESA_.argprom.exit
 
 .lr.ph.i.i15:                                     ; preds = %.split.us
   %48 = add nsw i32 %.pr, -1
@@ -2865,7 +2865,7 @@ _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread3.i.i.us: ; preds = %57, %
   %.122.i.i.us = phi i32 [ %62, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread3.i.i.us ], [ %.02111.i.i.us, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.thread7.i.i.us ]
   %.1.i.i.us = phi i32 [ %.02012.i.i.us, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread3.i.i.us ], [ %61, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.thread7.i.i.us ]
   %.not.not.i.i.us = icmp sgt i32 %.1.i.i.us, %.122.i.i.us
-  br i1 %.not.not.i.i.us, label %_ZL10hb_bsearchIK18hb_ot_name_entry_tS0_JbEEPT_RKT0_S3_mmPFiPKvS8_DpT1_ESA_.exit, label %.lr.ph.split.i.i.us, !llvm.loop !74
+  br i1 %.not.not.i.i.us, label %_ZL10hb_bsearchIK18hb_ot_name_entry_tS0_JbEEPT_RKT0_S3_mmPFiPKvS8_DpT1_ESA_.argprom.exit, label %.lr.ph.split.i.i.us, !llvm.loop !74
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i15, %89
   %.02012.i.i = phi i32 [ %.1.i.i, %89 ], [ 0, %.lr.ph.i.i15 ]
@@ -2928,7 +2928,7 @@ _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.thread7.i.i: ; preds = %_
   %.122.i.i = phi i32 [ %87, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread3.i.i ], [ %.02111.i.i, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.thread7.i.i ]
   %.1.i.i = phi i32 [ %.02012.i.i, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread3.i.i ], [ %88, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.thread7.i.i ]
   %.not.not.i.i = icmp sgt i32 %.1.i.i, %.122.i.i
-  br i1 %.not.not.i.i, label %_ZL10hb_bsearchIK18hb_ot_name_entry_tS0_JbEEPT_RKT0_S3_mmPFiPKvS8_DpT1_ESA_.exit, label %.lr.ph.split.i.i, !llvm.loop !74
+  br i1 %.not.not.i.i, label %_ZL10hb_bsearchIK18hb_ot_name_entry_tS0_JbEEPT_RKT0_S3_mmPFiPKvS8_DpT1_ESA_.argprom.exit, label %.lr.ph.split.i.i, !llvm.loop !74
 
 .loopexit:                                        ; preds = %33, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.us.i.i, %18, %72, %77, %83, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.i.i, %57
   %.0.ph = phi ptr [ %53, %57 ], [ %68, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.i.i ], [ %68, %83 ], [ %68, %77 ], [ %68, %72 ], [ %14, %18 ], [ %29, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.us.i.i ], [ %29, %33 ]
@@ -2947,9 +2947,9 @@ _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.thread7.i.i: ; preds = %_
   %96 = getelementptr inbounds i8, ptr %.0.ph, i64 6
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %97 to i32
-  br label %_ZL10hb_bsearchIK18hb_ot_name_entry_tS0_JbEEPT_RKT0_S3_mmPFiPKvS8_DpT1_ESA_.exit
+  br label %_ZL10hb_bsearchIK18hb_ot_name_entry_tS0_JbEEPT_RKT0_S3_mmPFiPKvS8_DpT1_ESA_.argprom.exit
 
-_ZL10hb_bsearchIK18hb_ot_name_entry_tS0_JbEEPT_RKT0_S3_mmPFiPKvS8_DpT1_ESA_.exit: ; preds = %89, %63, %4, %.split.us, %95
+_ZL10hb_bsearchIK18hb_ot_name_entry_tS0_JbEEPT_RKT0_S3_mmPFiPKvS8_DpT1_ESA_.argprom.exit: ; preds = %89, %63, %4, %.split.us, %95
   %.09 = phi i32 [ %98, %95 ], [ -1, %.split.us ], [ -1, %4 ], [ -1, %63 ], [ -1, %89 ]
   ret i32 %.09
 }

@@ -94,13 +94,13 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %12 = load i64, ptr @H5E_OHDR_g, align 8
   %13 = load i64, ptr @H5E_CANTDECODE_g, align 8
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O__pline_shared_decode, i32 noundef 61, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.5) #11
-  br label %H5O__pline_decode.exit.thread18
+  br label %H5O__pline_decode.argprom.exit.thread18
 
 15:                                               ; preds = %8
   %16 = load i32, ptr %3, align 4
   %17 = and i32 %16, -3
   store i32 %17, ptr %3, align 4
-  br label %H5O__pline_decode.exit.thread18
+  br label %H5O__pline_decode.argprom.exit.thread18
 
 18:                                               ; preds = %6
   %19 = getelementptr i8, ptr %5, i64 %4
@@ -113,7 +113,7 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %23 = load i64, ptr @H5E_RESOURCE_g, align 8
   %24 = load i64, ptr @H5E_NOSPACE_g, align 8
   %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5O__pline_decode, i32 noundef 125, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.7) #11
-  br label %H5O__pline_decode.exit.thread
+  br label %H5O__pline_decode.argprom.exit.thread
 
 26:                                               ; preds = %18
   %27 = icmp ugt ptr %5, %.ptr186.i
@@ -216,7 +216,7 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
 
 .preheader.i:                                     ; preds = %80
   %.not20.i = icmp eq i8 %58, 0
-  br i1 %.not20.i, label %H5O__pline_decode.exit.thread18, label %.lr.ph19.i
+  br i1 %.not20.i, label %H5O__pline_decode.argprom.exit.thread18, label %.lr.ph19.i
 
 .lr.ph19.i:                                       ; preds = %.preheader.i
   %86 = add i64 %29, 1
@@ -529,7 +529,7 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %281 = add nuw nsw i64 %.016817.i, 1
   %282 = getelementptr inbounds i8, ptr %.017015.i, i64 64
   %exitcond.not = icmp eq i64 %281, %59
-  br i1 %exitcond.not, label %H5O__pline_decode.exit.thread18, label %92
+  br i1 %exitcond.not, label %H5O__pline_decode.argprom.exit.thread18, label %92
 
 283:                                              ; preds = %273, %230, %217, %202, %191, %180, %160, %142, %133, %118, %98, %88, %74, %62, %52, %43, %33
   %284 = getelementptr inbounds i8, ptr %20, i64 64
@@ -596,16 +596,16 @@ H5O__pline_reset.exit.i:                          ; preds = %._crit_edge.i.i, %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %313, i8 0, i64 16, i1 false)
   store i32 1, ptr %314, align 8
   %315 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_pline_t_reg_free_list, ptr noundef nonnull %20) #11
-  br label %H5O__pline_decode.exit.thread
+  br label %H5O__pline_decode.argprom.exit.thread
 
-H5O__pline_decode.exit.thread:                    ; preds = %22, %H5O__pline_reset.exit.i
+H5O__pline_decode.argprom.exit.thread:            ; preds = %22, %H5O__pline_reset.exit.i
   %316 = load i64, ptr @H5E_OHDR_g, align 8
   %317 = load i64, ptr @H5E_CANTDECODE_g, align 8
   %318 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O__pline_shared_decode, i32 noundef 74, i64 noundef %316, i64 noundef %317, ptr noundef nonnull @.str.6) #11
-  br label %H5O__pline_decode.exit.thread18
+  br label %H5O__pline_decode.argprom.exit.thread18
 
-H5O__pline_decode.exit.thread18:                  ; preds = %279, %.preheader.i, %15, %H5O__pline_decode.exit.thread, %11
-  %.0 = phi ptr [ null, %11 ], [ %9, %15 ], [ null, %H5O__pline_decode.exit.thread ], [ %20, %.preheader.i ], [ %20, %279 ]
+H5O__pline_decode.argprom.exit.thread18:          ; preds = %279, %.preheader.i, %15, %H5O__pline_decode.argprom.exit.thread, %11
+  %.0 = phi ptr [ null, %11 ], [ %9, %15 ], [ null, %H5O__pline_decode.argprom.exit.thread ], [ %20, %.preheader.i ], [ %20, %279 ]
   ret ptr %.0
 }
 
@@ -620,13 +620,13 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
 8:                                                ; preds = %5
   %9 = tail call i32 @H5O__shared_encode(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4) #11
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %H5O__pline_encode.exit
+  br i1 %10, label %11, label %H5O__pline_encode.argprom.exit
 
 11:                                               ; preds = %8
   %12 = load i64, ptr @H5E_OHDR_g, align 8
   %13 = load i64, ptr @H5E_CANTENCODE_g, align 8
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O__pline_shared_encode, i32 noundef 119, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.15) #11
-  br label %H5O__pline_encode.exit
+  br label %H5O__pline_encode.argprom.exit
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds i8, ptr %4, i64 40
@@ -652,7 +652,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
   %.0.i = phi ptr [ %27, %26 ], [ %23, %15 ]
   %29 = load i64, ptr %20, align 8
   %.not23.i = icmp eq i64 %29, 0
-  br i1 %.not23.i, label %H5O__pline_encode.exit, label %.lr.ph20.preheader.i
+  br i1 %.not23.i, label %H5O__pline_encode.argprom.exit, label %.lr.ph20.preheader.i
 
 .lr.ph20.preheader.i:                             ; preds = %28
   %30 = getelementptr inbounds i8, ptr %4, i64 64
@@ -835,9 +835,9 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
   %131 = getelementptr inbounds i8, ptr %.09516.i, i64 64
   %132 = load i64, ptr %20, align 8
   %133 = icmp ult i64 %130, %132
-  br i1 %133, label %.lr.ph20.i, label %H5O__pline_encode.exit
+  br i1 %133, label %.lr.ph20.i, label %H5O__pline_encode.argprom.exit
 
-H5O__pline_encode.exit:                           ; preds = %._crit_edge.thread.i, %28, %8, %11
+H5O__pline_encode.argprom.exit:                   ; preds = %._crit_edge.thread.i, %28, %8, %11
   %.0 = phi i32 [ -1, %11 ], [ 0, %8 ], [ 0, %28 ], [ 0, %._crit_edge.thread.i ]
   ret i32 %.0
 }
@@ -1081,13 +1081,13 @@ define internal i64 @H5O__pline_shared_size(ptr noundef %0, i1 noundef zeroext %
 6:                                                ; preds = %3
   %7 = tail call i64 @H5O__shared_size(ptr noundef %0, ptr noundef nonnull %2) #11
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %H5O__pline_size.exit.thread
+  br i1 %8, label %9, label %H5O__pline_size.argprom.exit.thread
 
 9:                                                ; preds = %6
   %10 = load i64, ptr @H5E_OHDR_g, align 8
   %11 = load i64, ptr @H5E_CANTGET_g, align 8
   %12 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O__pline_shared_size, i32 noundef 167, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.17) #11
-  br label %H5O__pline_size.exit.thread
+  br label %H5O__pline_size.argprom.exit.thread
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %2, i64 40
@@ -1097,7 +1097,7 @@ define internal i64 @H5O__pline_shared_size(ptr noundef %0, i1 noundef zeroext %
   %18 = getelementptr inbounds i8, ptr %2, i64 56
   %19 = load i64, ptr %18, align 8
   %.not9.i = icmp eq i64 %19, 0
-  br i1 %.not9.i, label %H5O__pline_size.exit.thread, label %.lr.ph.i
+  br i1 %.not9.i, label %H5O__pline_size.argprom.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13
   %20 = getelementptr inbounds i8, ptr %2, i64 64
@@ -1177,20 +1177,20 @@ define internal i64 @H5O__pline_shared_size(ptr noundef %0, i1 noundef zeroext %
   %62 = add nuw i64 %.08.i, 1
   %63 = load i64, ptr %18, align 8
   %64 = icmp ult i64 %62, %63
-  br i1 %64, label %21, label %H5O__pline_size.exit
+  br i1 %64, label %21, label %H5O__pline_size.argprom.exit
 
-H5O__pline_size.exit:                             ; preds = %48
+H5O__pline_size.argprom.exit:                     ; preds = %48
   %65 = icmp eq i64 %.1.i, 0
-  br i1 %65, label %66, label %H5O__pline_size.exit.thread
+  br i1 %65, label %66, label %H5O__pline_size.argprom.exit.thread
 
-66:                                               ; preds = %H5O__pline_size.exit
+66:                                               ; preds = %H5O__pline_size.argprom.exit
   %67 = load i64, ptr @H5E_OHDR_g, align 8
   %68 = load i64, ptr @H5E_CANTGET_g, align 8
   %69 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O__pline_shared_size, i32 noundef 172, i64 noundef %67, i64 noundef %68, ptr noundef nonnull @.str.18) #11
-  br label %H5O__pline_size.exit.thread
+  br label %H5O__pline_size.argprom.exit.thread
 
-H5O__pline_size.exit.thread:                      ; preds = %13, %6, %H5O__pline_size.exit, %66, %9
-  %.0 = phi i64 [ 0, %66 ], [ %.1.i, %H5O__pline_size.exit ], [ 0, %9 ], [ %7, %6 ], [ %17, %13 ]
+H5O__pline_size.argprom.exit.thread:              ; preds = %13, %6, %H5O__pline_size.argprom.exit, %66, %9
+  %.0 = phi i64 [ 0, %66 ], [ %.1.i, %H5O__pline_size.argprom.exit ], [ 0, %9 ], [ %7, %6 ], [ %17, %13 ]
   ret i64 %.0
 }
 
@@ -1433,7 +1433,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_debug(ptr nocapture read
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.26, i32 noundef %3, ptr noundef nonnull @.str.27, i32 noundef %4, ptr noundef nonnull @.str.28, i64 noundef %18, i64 noundef %20) #11
   %22 = load i64, ptr %17, align 8
   %.not6.i = icmp eq i64 %22, 0
-  br i1 %.not6.i, label %H5O__pline_debug.exit, label %.lr.ph4.i
+  br i1 %.not6.i, label %H5O__pline_debug.argprom.exit, label %.lr.ph4.i
 
 .lr.ph4.i:                                        ; preds = %16
   %23 = add nsw i32 %3, 3
@@ -1503,15 +1503,15 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_debug(ptr nocapture read
   %68 = add nuw i64 %.0542.i, 1
   %69 = load i64, ptr %17, align 8
   %70 = icmp ult i64 %68, %69
-  br i1 %70, label %30, label %H5O__pline_debug.exit
+  br i1 %70, label %30, label %H5O__pline_debug.argprom.exit
 
-H5O__pline_debug.exit:                            ; preds = %._crit_edge.i, %16
+H5O__pline_debug.argprom.exit:                    ; preds = %._crit_edge.i, %16
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %71
 
-71:                                               ; preds = %H5O__pline_debug.exit, %12
-  %.0 = phi i32 [ -1, %12 ], [ 0, %H5O__pline_debug.exit ]
+71:                                               ; preds = %H5O__pline_debug.argprom.exit, %12
+  %.0 = phi i32 [ -1, %12 ], [ 0, %H5O__pline_debug.argprom.exit ]
   ret i32 %.0
 }
 

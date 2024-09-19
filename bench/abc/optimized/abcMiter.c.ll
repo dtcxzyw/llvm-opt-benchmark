@@ -2666,13 +2666,13 @@ define ptr @Abc_NtkFrames(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 77:                                               ; preds = %76
   %78 = load i32, ptr %69, align 4
   %79 = icmp slt i32 %.2102, %78
-  br i1 %79, label %Extra_ProgressBarUpdate.exit, label %80
+  br i1 %79, label %Extra_ProgressBarUpdate.argprom.exit, label %80
 
 80:                                               ; preds = %77, %76
   call void @Extra_ProgressBarUpdate_int(ptr noundef %69, i32 noundef %.2102, ptr noundef null) #16
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %77, %80
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %77, %80
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %81 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef %.2102) #16
   %.val65103.i = load ptr, ptr %71, align 8
@@ -2681,16 +2681,16 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %77, %80
   %83 = icmp sgt i32 %.val65.val104.i, 0
   br i1 %83, label %.lr.ph.i, label %.critedge.preheader.i
 
-.critedge.preheader.i:                            ; preds = %.lr.ph.i, %Extra_ProgressBarUpdate.exit
+.critedge.preheader.i:                            ; preds = %.lr.ph.i, %Extra_ProgressBarUpdate.argprom.exit
   %84 = load ptr, ptr %72, align 8
   %85 = getelementptr i8, ptr %84, i64 4
   %.val64107.i = load i32, ptr %85, align 4
   %86 = icmp sgt i32 %.val64107.i, 0
   br i1 %86, label %.lr.ph109.i, label %.critedge2.preheader.i
 
-.lr.ph.i:                                         ; preds = %Extra_ProgressBarUpdate.exit, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %Extra_ProgressBarUpdate.exit ]
-  %.val65106.i = phi ptr [ %.val65.i, %.lr.ph.i ], [ %.val65103.i, %Extra_ProgressBarUpdate.exit ]
+.lr.ph.i:                                         ; preds = %Extra_ProgressBarUpdate.argprom.exit, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %Extra_ProgressBarUpdate.argprom.exit ]
+  %.val65106.i = phi ptr [ %.val65.i, %.lr.ph.i ], [ %.val65103.i, %Extra_ProgressBarUpdate.argprom.exit ]
   %87 = getelementptr i8, ptr %.val65106.i, i64 8
   %.val66.val.i = load ptr, ptr %87, align 8
   %88 = getelementptr inbounds ptr, ptr %.val66.val.i, i64 %indvars.iv.i

@@ -598,7 +598,7 @@ init.check.i:                                     ; preds = %cond.end9
   br i1 %tobool.not.i, label %_ZN6hermes6parserL15getHTMLEntitiesEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  tail call fastcc void @_ZN6hermes6parserL22initializeHTMLEntitiesEv()
+  tail call fastcc void @_ZN6hermes6parserL22initializeHTMLEntitiesEv.argprom()
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvh8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_jEEED2Ev, ptr nonnull @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr nonnull @__dso_handle) #20
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6hermes6parserL15getHTMLEntitiesEvE8entities) #20
   br label %_ZN6hermes6parserL15getHTMLEntitiesEv.exit
@@ -912,7 +912,7 @@ init.check.i:                                     ; preds = %cond.end9
   br i1 %tobool.not.i, label %_ZN6hermes6parserL15getHTMLEntitiesEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  tail call fastcc void @_ZN6hermes6parserL22initializeHTMLEntitiesEv()
+  tail call fastcc void @_ZN6hermes6parserL22initializeHTMLEntitiesEv.argprom()
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvh8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_jEEED2Ev, ptr nonnull @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr nonnull @__dso_handle) #20
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6hermes6parserL15getHTMLEntitiesEvE8entities) #20
   br label %_ZN6hermes6parserL15getHTMLEntitiesEv.exit
@@ -9122,7 +9122,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6parserL22initializeHTMLEntitiesEv() unnamed_addr #1 {
+define internal fastcc void @_ZN6hermes6parserL22initializeHTMLEntitiesEv.argprom() unnamed_addr #1 {
 entry:
   %ConstFoundBucket.i.i.i3267 = alloca ptr, align 8
   %ConstFoundBucket.i.i.i3254 = alloca ptr, align 8

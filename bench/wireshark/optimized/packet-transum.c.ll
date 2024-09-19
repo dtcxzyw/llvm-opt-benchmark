@@ -328,7 +328,7 @@ define internal noundef i32 @dissect_transum(ptr noundef %0, ptr noundef %1, ptr
   %28 = getelementptr inbounds i8, ptr %22, i64 40
   %29 = load i32, ptr %28, align 8
   %.not.i = icmp eq i32 %29, 0
-  br i1 %.not.i, label %write_rte.exit, label %30
+  br i1 %.not.i, label %write_rte.argprom.exit, label %30
 
 30:                                               ; preds = %25
   %31 = load i32, ptr @proto_transum, align 4
@@ -617,7 +617,7 @@ proto_item_set_generated.exit124.i:               ; preds = %154, %151, %147
 proto_item_set_generated.exit127.i:               ; preds = %165, %162, %proto_item_set_generated.exit124.i
   %169 = load i32, ptr getelementptr inbounds (i8, ptr @preferences, i64 60), align 4
   %.not97.i = icmp eq i32 %169, 0
-  br i1 %.not97.i, label %write_rte.exit, label %170
+  br i1 %.not97.i, label %write_rte.argprom.exit, label %170
 
 170:                                              ; preds = %proto_item_set_generated.exit127.i
   %171 = load i32, ptr @hf_tsum_req_search, align 4
@@ -646,22 +646,22 @@ proto_item_set_generated.exit130.i:               ; preds = %178, %175, %170
   %184 = load i32, ptr %183, align 8
   %185 = call ptr @proto_tree_add_uint(ptr noundef %34, i32 noundef %182, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %184) #6
   %.not.i131.i = icmp eq ptr %185, null
-  br i1 %.not.i131.i, label %write_rte.exit, label %186
+  br i1 %.not.i131.i, label %write_rte.argprom.exit, label %186
 
 186:                                              ; preds = %proto_item_set_generated.exit130.i
   %187 = getelementptr inbounds i8, ptr %185, i64 32
   %188 = load ptr, ptr %187, align 8
   %.not5.i132.i = icmp eq ptr %188, null
-  br i1 %.not5.i132.i, label %write_rte.exit, label %189
+  br i1 %.not5.i132.i, label %write_rte.argprom.exit, label %189
 
 189:                                              ; preds = %186
   %190 = getelementptr inbounds i8, ptr %188, i64 28
   %191 = load i32, ptr %190, align 4
   %192 = or i32 %191, 2
   store i32 %192, ptr %190, align 4
-  br label %write_rte.exit
+  br label %write_rte.argprom.exit
 
-write_rte.exit:                                   ; preds = %25, %proto_item_set_generated.exit127.i, %proto_item_set_generated.exit130.i, %186, %189
+write_rte.argprom.exit:                           ; preds = %25, %proto_item_set_generated.exit127.i, %proto_item_set_generated.exit130.i, %186, %189
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -1223,7 +1223,7 @@ update_rrpd_rte_data.exit:                        ; preds = %353, %append_to_rrp
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.preheader, %update_rrpd_rte_data.exit, %set_proto_values.exit, %16, %write_rte.exit
+.loopexit:                                        ; preds = %.preheader, %update_rrpd_rte_data.exit, %set_proto_values.exit, %16, %write_rte.argprom.exit
   ret i32 0
 }
 

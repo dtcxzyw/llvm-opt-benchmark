@@ -2476,22 +2476,22 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %245 = load ptr, ptr %240, align 8, !noalias !4
   %246 = getelementptr inbounds i8, ptr %245, i64 8
   store ptr %246, ptr %240, align 8, !noalias !4
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_21MachineModuleAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_21MachineModuleAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.i.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i.i
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %238, ptr %241, ptr noundef nonnull align 8 dereferenceable(8) %39), !noalias !4
   %.pr2.i.i = load ptr, ptr %39, align 8, !noalias !4
   %.not.i.i6.i.i = icmp eq ptr %.pr2.i.i, null
-  br i1 %.not.i.i6.i.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_21MachineModuleAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i.i
+  br i1 %.not.i.i6.i.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_21MachineModuleAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i.i
 
 _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.i.i
   %247 = load ptr, ptr %.pr2.i.i, align 8, !noalias !4
   %248 = getelementptr inbounds i8, ptr %247, i64 8
   %249 = load ptr, ptr %248, align 8, !noalias !4
   call void %249(ptr noundef nonnull align 8 dereferenceable(8) %.pr2.i.i) #17, !noalias !4
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_21MachineModuleAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_21MachineModuleAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_21MachineModuleAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.thread.i.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_21MachineModuleAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.thread.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39), !noalias !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42), !noalias !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38), !noalias !4
@@ -2513,7 +2513,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i33.i = icmp ult i64 %.sroa.speculated.i.i.i.i32.i, 6
   br i1 %.not.i.i.i33.i, label %_ZN4llvm13PassInfoMixinINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i34.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i34.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_21MachineModuleAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i34.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_21MachineModuleAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i35.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %256, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6), !noalias !4
   %259 = icmp eq i32 %bcmp.i.i.i35.i, 0
   br i1 %259, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i40.i, label %_ZN4llvm13PassInfoMixinINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEEE4nameEv.exit.i
@@ -2523,9 +2523,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i40.i: ; preds = %_ZNK4llvm9S
   %261 = add i64 %.sroa.speculated.i.i.i.i32.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i40.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i34.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_21MachineModuleAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i
-  %.sroa.01.0.i36.i = phi ptr [ %256, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_21MachineModuleAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i ], [ %260, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i40.i ], [ %256, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i34.i ]
-  %.sroa.4.0.i37.i = phi i64 [ %.sroa.speculated.i.i.i.i32.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_21MachineModuleAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i ], [ %261, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i40.i ], [ %.sroa.speculated.i.i.i.i32.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i34.i ]
+_ZN4llvm13PassInfoMixinINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i40.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i34.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_21MachineModuleAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i36.i = phi ptr [ %256, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_21MachineModuleAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %260, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i40.i ], [ %256, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i34.i ]
+  %.sroa.4.0.i37.i = phi i64 [ %.sroa.speculated.i.i.i.i32.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_21MachineModuleAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %261, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i40.i ], [ %.sroa.speculated.i.i.i.i32.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i34.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37), !noalias !4
   %262 = load ptr, ptr %164, align 8, !noalias !4
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 152
@@ -2711,22 +2711,22 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %330 = load ptr, ptr %325, align 8, !noalias !4
   %331 = getelementptr inbounds i8, ptr %330, i64 8
   store ptr %331, ptr %325, align 8, !noalias !4
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.i80.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i77.i
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %323, ptr %326, ptr noundef nonnull align 8 dereferenceable(8) %34), !noalias !4
   %.pr2.i81.i = load ptr, ptr %34, align 8, !noalias !4
   %.not.i.i6.i82.i = icmp eq ptr %.pr2.i81.i, null
-  br i1 %.not.i.i6.i82.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i83.i
+  br i1 %.not.i.i6.i82.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i83.i
 
 _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i83.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.i80.i
   %332 = load ptr, ptr %.pr2.i81.i, align 8, !noalias !4
   %333 = getelementptr inbounds i8, ptr %332, i64 8
   %334 = load ptr, ptr %333, align 8, !noalias !4
   call void %334(ptr noundef nonnull align 8 dereferenceable(8) %.pr2.i81.i) #17, !noalias !4
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i83.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.i80.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.thread.i79.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i83.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.i80.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.thread.i79.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34), !noalias !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37), !noalias !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33), !noalias !4
@@ -2748,7 +2748,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i91.i = icmp ult i64 %.sroa.speculated.i.i.i.i90.i, 6
   br i1 %.not.i.i.i91.i, label %_ZN4llvm13PassInfoMixinINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i93.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %341, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6), !noalias !4
   %344 = icmp eq i32 %bcmp.i.i.i93.i, 0
   br i1 %344, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i98.i, label %_ZN4llvm13PassInfoMixinINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEEE4nameEv.exit.i
@@ -2758,9 +2758,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i98.i: ; preds = %_ZNK4llvm9S
   %346 = add i64 %.sroa.speculated.i.i.i.i90.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i98.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i
-  %.sroa.01.0.i94.i = phi ptr [ %341, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i ], [ %345, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i98.i ], [ %341, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i ]
-  %.sroa.4.0.i95.i = phi i64 [ %.sroa.speculated.i.i.i.i90.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i ], [ %346, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i98.i ], [ %.sroa.speculated.i.i.i.i90.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i ]
+_ZN4llvm13PassInfoMixinINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS3_JEEEJEEEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i98.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i94.i = phi ptr [ %341, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %345, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i98.i ], [ %341, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i ]
+  %.sroa.4.0.i95.i = phi i64 [ %.sroa.speculated.i.i.i.i90.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_22ProfileSummaryAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %346, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i98.i ], [ %.sroa.speculated.i.i.i.i90.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32), !noalias !4
   %347 = load ptr, ptr %164, align 8, !noalias !4
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 152
@@ -2946,29 +2946,29 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   %415 = load ptr, ptr %410, align 8, !noalias !4
   %416 = getelementptr inbounds i8, ptr %415, i64 8
   store ptr %416, ptr %410, align 8, !noalias !4
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.i138.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i135.i
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %408, ptr %411, ptr noundef nonnull align 8 dereferenceable(8) %29), !noalias !4
   %.pr2.i139.i = load ptr, ptr %29, align 8, !noalias !4
   %.not.i.i6.i140.i = icmp eq ptr %.pr2.i139.i, null
-  br i1 %.not.i.i6.i140.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i141.i
+  br i1 %.not.i.i6.i140.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i, label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i141.i
 
 _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i141.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.i138.i
   %417 = load ptr, ptr %.pr2.i139.i, align 8, !noalias !4
   %418 = getelementptr inbounds i8, ptr %417, i64 8
   %419 = load ptr, ptr %418, align 8, !noalias !4
   call void %419(ptr noundef nonnull align 8 dereferenceable(8) %.pr2.i139.i) #17, !noalias !4
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i141.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.i138.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.thread.i137.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i141.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.i138.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.thread.i137.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29), !noalias !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32), !noalias !4
   call fastcc void @_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE13addISelPassesERNS4_9AddIRPassE(ptr noundef nonnull align 8 dereferenceable(442) %50, ptr noundef nonnull align 8 dereferenceable(40) %47), !noalias !4
   %420 = call noundef zeroext i1 @_ZNK4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %163) #17, !noalias !4
   br i1 %420, label %454, label %421
 
-421:                                              ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i
+421:                                              ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i
   %422 = load ptr, ptr %47, align 8, !noalias !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28), !noalias !4
   %423 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18, !noalias !22
@@ -3062,7 +3062,7 @@ _ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit.i159.i: ; preds = %_ZNKSt14defaul
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27), !noalias !4
   br label %454
 
-454:                                              ; preds = %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit.i159.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.exit.i
+454:                                              ; preds = %_ZN4llvm27ModuleToFunctionPassAdaptorD2Ev.exit.i159.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_19RequireAnalysisPassINS_25CollectorMetadataAnalysisENS_6ModuleENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_NS_9StringRefE.argprom.exit.i
   %455 = load ptr, ptr %163, align 8, !noalias !4
   %456 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %457 = load ptr, ptr %456, align 8, !noalias !4
@@ -3825,7 +3825,7 @@ _ZN4llvm5ErrorD2Ev.exit206.i:                     ; preds = %_ZN4llvm5ErrorD2Ev.
   br label %829
 
 _ZN4llvm5ErrorD2Ev.exit207.i:                     ; preds = %_ZN4llvm5ErrorD2Ev.exit205.i
-  br i1 %.not23.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_12PrintMIRPassEEEvOT_bNS_9StringRefE.exit.i, label %752
+  br i1 %.not23.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_12PrintMIRPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %752
 
 752:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit207.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19), !noalias !4
@@ -3954,7 +3954,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %803 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %801) #17, !noalias !4
   %804 = getelementptr inbounds %"class.llvm::unique_function", ptr %802, i64 %803
   %.not2.i.i = icmp eq i64 %803, 0
-  br i1 %.not2.i.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_12PrintMIRPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i220.i
+  br i1 %.not2.i.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_12PrintMIRPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i220.i
 
 .lr.ph.i220.i:                                    ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12PrintMIRPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i220.i
   %.03.i.i = phi ptr [ %809, %.lr.ph.i220.i ], [ %802, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12PrintMIRPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -3970,9 +3970,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %806(ptr noundef %spec.select.i.i.i224.i, ptr %.sroa.01.0.i215.i, i64 %.sroa.4.0.i216.i, ptr noundef nonnull align 8 dereferenceable(24) %470) #17, !noalias !4
   %809 = getelementptr inbounds i8, ptr %.03.i.i, i64 32
   %.not.i225.i = icmp eq ptr %809, %804
-  br i1 %.not.i225.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_12PrintMIRPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i220.i
+  br i1 %.not.i225.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_12PrintMIRPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i220.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_12PrintMIRPassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i220.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12PrintMIRPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZN4llvm5ErrorD2Ev.exit207.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_12PrintMIRPassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i220.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_12PrintMIRPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZN4llvm5ErrorD2Ev.exit207.i
   %.val26.i = load i8, ptr %63, align 8, !noalias !4
   %.val27.i = load i8, ptr %64, align 1, !noalias !4
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
@@ -3983,11 +3983,11 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %810 = trunc i8 %.val26.i to i1
   br i1 %810, label %811, label %_ZN4llvmplERKNS_5TwineES2_.exit.i.i
 
-811:                                              ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_12PrintMIRPassEEEvOT_bNS_9StringRefE.exit.i
+811:                                              ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_12PrintMIRPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %812 = trunc i8 %.val27.i to i1
-  br i1 %812, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.exit.i, label %_ZN4llvmplERKNS_5TwineES2_.exit17.i.i
+  br i1 %812, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.argprom.exit.i, label %_ZN4llvmplERKNS_5TwineES2_.exit17.i.i
 
-_ZN4llvmplERKNS_5TwineES2_.exit.i.i:              ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_12PrintMIRPassEEEvOT_bNS_9StringRefE.exit.i
+_ZN4llvmplERKNS_5TwineES2_.exit.i.i:              ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_12PrintMIRPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %813 = getelementptr inbounds nuw i8, ptr %46, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %814 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -4002,7 +4002,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i.i:              ; preds = %_ZN4llvm18CodeGenPa
   %819 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 %818, ptr %819, align 8, !alias.scope !75, !noalias !78
   store ptr %16, ptr %15, align 8, !alias.scope !80, !noalias !78
-  br label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.exit.sink.split.i
+  br label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.argprom.exit.sink.split.i
 
 _ZN4llvmplERKNS_5TwineES2_.exit17.i.i:            ; preds = %811
   %820 = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -4019,9 +4019,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit17.i.i:            ; preds = %811
   %826 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 %825, ptr %826, align 8, !alias.scope !85, !noalias !78
   store ptr %18, ptr %17, align 8, !alias.scope !89, !noalias !78
-  br label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.exit.sink.split.i
+  br label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.argprom.exit.sink.split.i
 
-_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.exit.sink.split.i: ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit17.i.i, %_ZN4llvmplERKNS_5TwineES2_.exit.i.i
+_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.argprom.exit.sink.split.i: ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit17.i.i, %_ZN4llvmplERKNS_5TwineES2_.exit.i.i
   %.sink355.sroa.phi.i = phi ptr [ %.sink355.sroa.gep.i, %_ZN4llvmplERKNS_5TwineES2_.exit.i.i ], [ %.sink355.sroa.gep356.i, %_ZN4llvmplERKNS_5TwineES2_.exit17.i.i ]
   %.sink355.sroa.phi357.i = phi ptr [ %.sink355.sroa.gep358.i, %_ZN4llvmplERKNS_5TwineES2_.exit.i.i ], [ %.sink355.sroa.gep359.i, %_ZN4llvmplERKNS_5TwineES2_.exit17.i.i ]
   %.sink355.sroa.phi360.i = phi ptr [ %.sink355.sroa.gep361.i, %_ZN4llvmplERKNS_5TwineES2_.exit.i.i ], [ %.sink355.sroa.gep362.i, %_ZN4llvmplERKNS_5TwineES2_.exit17.i.i ]
@@ -4032,10 +4032,10 @@ _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Tar
   %827 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #21
   %828 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18, !noalias !78
   call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %828, ptr noundef nonnull align 8 dereferenceable(34) %.sink355.i, i32 22, ptr nonnull %827) #17, !noalias !78
-  br label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.exit.i
+  br label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.argprom.exit.i
 
-_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.exit.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.exit.sink.split.i, %811
-  %.sink.i229.i = phi ptr [ null, %811 ], [ %828, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.exit.sink.split.i ]
+_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.argprom.exit.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.argprom.exit.sink.split.i, %811
+  %.sink.i229.i = phi ptr [ null, %811 ], [ %828, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.argprom.exit.sink.split.i ]
   store ptr %.sink.i229.i, ptr %0, align 8, !alias.scope !78
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15), !noalias !4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16), !noalias !4
@@ -4043,7 +4043,7 @@ _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Tar
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18), !noalias !4
   br label %829
 
-829:                                              ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.exit.i, %_ZN4llvm5ErrorD2Ev.exit206.i, %_ZN4llvm5ErrorD2Ev.exit.i
+829:                                              ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.argprom.exit.i, %_ZN4llvm5ErrorD2Ev.exit206.i, %_ZN4llvm5ErrorD2Ev.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !4
   %830 = call noundef zeroext i1 @_ZNK4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %470) #17, !noalias !4
   br i1 %830, label %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit.i258.i, label %831
@@ -5873,19 +5873,19 @@ define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJEE8CallImplIZNS_16X
   %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %11, i64 %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %.not.i.i.i.i = icmp ult i64 %.sroa.speculated.i.i.i.i.i, 6
-  br i1 %.not.i.i.i.i, label %"_ZZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS_11PassBuilderEENK4$_12clEv.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i
+  br i1 %.not.i.i.i.i, label %"_ZZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS_11PassBuilderEENK4$_12clEv.argprom.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %1
   %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %10, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %13 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %13, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i, label %"_ZZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS_11PassBuilderEENK4$_12clEv.exit"
+  br i1 %13, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i, label %"_ZZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS_11PassBuilderEENK4$_12clEv.argprom.exit"
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i
   %14 = getelementptr inbounds i8, ptr %10, i64 6
   %15 = add i64 %.sroa.speculated.i.i.i.i.i, -6
-  br label %"_ZZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS_11PassBuilderEENK4$_12clEv.exit"
+  br label %"_ZZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS_11PassBuilderEENK4$_12clEv.argprom.exit"
 
-"_ZZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS_11PassBuilderEENK4$_12clEv.exit": ; preds = %1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i
+"_ZZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS_11PassBuilderEENK4$_12clEv.argprom.exit": ; preds = %1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i
   %.sroa.01.0.i.i = phi ptr [ %10, %1 ], [ %14, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i ], [ %10, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ]
   %.sroa.4.0.i.i = phi i64 [ %.sroa.speculated.i.i.i.i.i, %1 ], [ %15, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i ], [ %.sroa.speculated.i.i.i.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ]
   call void @_ZN4llvm28PassInstrumentationCallbacks18addClassToPassNameENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(1464) %.val, ptr %.sroa.01.0.i.i, i64 %.sroa.4.0.i.i, ptr nonnull @.str, i64 8) #17
@@ -5903,20 +5903,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #7 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -5927,20 +5927,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #7 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -5951,20 +5951,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_2E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #7 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -5975,20 +5975,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_3E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #7 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -5999,20 +5999,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERSD_E3$_4E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #7 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -6026,12 +6026,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRef
   %.val5 = load i64, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %.not.i.i.i.i = icmp eq i64 %.val5, 8
-  br i1 %.not.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_5JNS0_9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS8_JEEEJEEENS0_8ArrayRefINS2_15PipelineElementEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
+  br i1 %.not.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_5JNS0_9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS8_JEEEJEEENS0_8ArrayRefINS2_15PipelineElementEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit"
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i:          ; preds = %4
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %.val4, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
   %8 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %8, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_5JNS0_9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS8_JEEEJEEENS0_8ArrayRefINS2_15PipelineElementEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
+  br i1 %8, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_5JNS0_9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS8_JEEEJEEENS0_8ArrayRefINS2_15PipelineElementEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit"
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
   call void @_ZN4llvm19X86ISelDAGToDAGPassC1ERNS_16X86TargetMachineE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(1272) %.val) #17
@@ -6075,16 +6075,16 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %22 = load ptr, ptr %6, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_5JNS0_9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS8_JEEEJEEENS0_8ArrayRefINS2_15PipelineElementEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %_ZNKSt14default_deleteIN4llvm16SelectionDAGISelEEclEPS1_.exit.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_5JNS0_9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS8_JEEEJEEENS0_8ArrayRefINS2_15PipelineElementEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm16SelectionDAGISelEEclEPS1_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm16SelectionDAGISelEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19X86ISelDAGToDAGPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(272) %22) #17
-  br label %"_ZSt10__invoke_rIbRZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_5JNS0_9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS8_JEEEJEEENS0_8ArrayRefINS2_15PipelineElementEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_5JNS0_9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS8_JEEEJEEENS0_8ArrayRefINS2_15PipelineElementEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_5JNS0_9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS8_JEEEJEEENS0_8ArrayRefINS2_15PipelineElementEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19X86ISelDAGToDAGPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm16SelectionDAGISelEEclEPS1_.exit.i.i.i.i.i.i
+"_ZSt10__invoke_rIbRZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_5JNS0_9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS8_JEEEJEEENS0_8ArrayRefINS2_15PipelineElementEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit": ; preds = %4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19X86ISelDAGToDAGPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm16SelectionDAGISelEEclEPS1_.exit.i.i.i.i.i.i
   %.0.i2.i.i.i = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ false, %4 ], [ true, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19X86ISelDAGToDAGPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i ], [ true, %_ZNKSt14default_deleteIN4llvm16SelectionDAGISelEEclEPS1_.exit.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret i1 %.0.i2.i.i.i
@@ -6092,7 +6092,7 @@ _ZNKSt14default_deleteIN4llvm16SelectionDAGISelEEclEPS1_.exit.i.i.i.i.i.i: ; pre
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_5E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_5E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_5E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -6100,18 +6100,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRef
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_5E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_5E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_5E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_5E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_5E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_5E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_5E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_5E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -6391,20 +6391,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_6E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #7 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -6415,20 +6415,20 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_6ModuleEJEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #7 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -6439,20 +6439,20 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_8FunctionEJEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #7 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -6463,20 +6463,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_9AAManagerEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #7 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -6487,20 +6487,20 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_4LoopEJRNS0_27LoopStandardAnalysisResultsEEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #7 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -6511,20 +6511,20 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_15MachineFunctionEJEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #7 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16X86TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -6686,7 +6686,7 @@ _ZN4llvm13PassInfoMixinINS_15LowerEmuTLSPassEE4nameEv.exit: ; preds = %91, %_ZNK
   br i1 %.not.i.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i, label %.lr.ph.i.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i: ; preds = %.lr.ph.i.i
-  br i1 %115, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerEmuTLSPassEEEvOT_NS_9StringRefE.exit
+  br i1 %115, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerEmuTLSPassEEEvOT_NS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i, %_ZN4llvm13PassInfoMixinINS_15LowerEmuTLSPassEE4nameEv.exit
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6866,13 +6866,13 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisMana
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15LowerEmuTLSPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84)
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerEmuTLSPassEEEvOT_NS_9StringRefE.exit
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerEmuTLSPassEEEvOT_NS_9StringRefE.argprom.exit
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerEmuTLSPassEEEvOT_NS_9StringRefE.exit: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15LowerEmuTLSPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerEmuTLSPassEEEvOT_NS_9StringRefE.argprom.exit: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15LowerEmuTLSPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %87)
   br label %180
 
-180:                                              ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerEmuTLSPassEEEvOT_NS_9StringRefE.exit, %2
+180:                                              ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerEmuTLSPassEEEvOT_NS_9StringRefE.argprom.exit, %2
   %181 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %83)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_28PreISelIntrinsicLoweringPassEEENS_9StringRefEv, ptr %83, align 8
@@ -7765,7 +7765,7 @@ _ZN4llvm13PassInfoMixinINS_17PrintFunctionPassEE4nameEv.exit.i: ; preds = %_ZNK4
   %509 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %510 = load i8, ptr %509, align 1
   %511 = trunc i8 %510 to i1
-  br i1 %511, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14MergeICmpsPassEEEvOT_NS_9StringRefE.exit.i, label %512
+  br i1 %511, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14MergeICmpsPassEEEvOT_NS_9StringRefE.argprom.exit.i, label %512
 
 512:                                              ; preds = %508
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62)
@@ -7827,7 +7827,7 @@ _ZN4llvm13PassInfoMixinINS_14MergeICmpsPassEE4nameEv.exit.i: ; preds = %_ZNK4llv
   br i1 %.not.i.i119.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i120.i, label %.lr.ph.i.i112.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i120.i: ; preds = %.lr.ph.i.i112.i
-  br i1 %535, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14MergeICmpsPassEEEvOT_NS_9StringRefE.exit.i
+  br i1 %535, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14MergeICmpsPassEEEvOT_NS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i120.i, %_ZN4llvm13PassInfoMixinINS_14MergeICmpsPassEE4nameEv.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61)
@@ -7865,9 +7865,9 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MergeICmpsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i126.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i123.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i122.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61)
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14MergeICmpsPassEEEvOT_NS_9StringRefE.exit.i
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14MergeICmpsPassEEEvOT_NS_9StringRefE.argprom.exit.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14MergeICmpsPassEEEvOT_NS_9StringRefE.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MergeICmpsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i120.i, %508
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14MergeICmpsPassEEEvOT_NS_9StringRefE.argprom.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MergeICmpsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i120.i, %508
   %549 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_16ExpandMemCmpPassEEENS_9StringRefEv, ptr %60, align 8
@@ -7888,7 +7888,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i130.i = icmp ult i64 %.sroa.speculated.i.i.i.i129.i, 6
   br i1 %.not.i.i.i130.i, label %_ZN4llvm13PassInfoMixinINS_16ExpandMemCmpPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i131.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i131.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14MergeICmpsPassEEEvOT_NS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i131.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14MergeICmpsPassEEEvOT_NS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i132.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %556, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %559 = icmp eq i32 %bcmp.i.i.i132.i, 0
   br i1 %559, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i137.i, label %_ZN4llvm13PassInfoMixinINS_16ExpandMemCmpPassEE4nameEv.exit.i
@@ -7898,9 +7898,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i137.i: ; preds = %_ZNK4llvm9
   %561 = add i64 %.sroa.speculated.i.i.i.i129.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_16ExpandMemCmpPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_16ExpandMemCmpPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i137.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i131.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14MergeICmpsPassEEEvOT_NS_9StringRefE.exit.i
-  %.sroa.01.0.i133.i = phi ptr [ %556, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14MergeICmpsPassEEEvOT_NS_9StringRefE.exit.i ], [ %560, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i137.i ], [ %556, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i131.i ]
-  %.sroa.4.0.i134.i = phi i64 [ %.sroa.speculated.i.i.i.i129.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14MergeICmpsPassEEEvOT_NS_9StringRefE.exit.i ], [ %561, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i137.i ], [ %.sroa.speculated.i.i.i.i129.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i131.i ]
+_ZN4llvm13PassInfoMixinINS_16ExpandMemCmpPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i137.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i131.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14MergeICmpsPassEEEvOT_NS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i133.i = phi ptr [ %556, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14MergeICmpsPassEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %560, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i137.i ], [ %556, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i131.i ]
+  %.sroa.4.0.i134.i = phi i64 [ %.sroa.speculated.i.i.i.i129.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14MergeICmpsPassEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %561, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i137.i ], [ %.sroa.speculated.i.i.i.i129.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i131.i ]
   %562 = load ptr, ptr %194, align 8
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 152
   %564 = load ptr, ptr %563, align 8
@@ -8030,7 +8030,7 @@ _ZN4llvm13PassInfoMixinINS_14GCLoweringPassEE4nameEv.exit.i: ; preds = %_ZNK4llv
   br i1 %.not.i.i177.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i178.i, label %.lr.ph.i.i169.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i178.i: ; preds = %.lr.ph.i.i169.i
-  br i1 %609, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i179.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14GCLoweringPassEEEvOT_NS_9StringRefE.exit.i
+  br i1 %609, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i179.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14GCLoweringPassEEEvOT_NS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i179.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i178.i, %_ZN4llvm13PassInfoMixinINS_14GCLoweringPassEE4nameEv.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57)
@@ -8068,9 +8068,9 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14GCLoweringPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i185.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i182.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i181.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14GCLoweringPassEEEvOT_NS_9StringRefE.exit.i
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14GCLoweringPassEEEvOT_NS_9StringRefE.argprom.exit.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14GCLoweringPassEEEvOT_NS_9StringRefE.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14GCLoweringPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i178.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14GCLoweringPassEEEvOT_NS_9StringRefE.argprom.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14GCLoweringPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i178.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_25ShadowStackGCLoweringPassEEENS_9StringRefEv, ptr %56, align 8
   %623 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -8090,7 +8090,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i189.i = icmp ult i64 %.sroa.speculated.i.i.i.i188.i, 6
   br i1 %.not.i.i.i189.i, label %_ZN4llvm13PassInfoMixinINS_25ShadowStackGCLoweringPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i190.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i190.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14GCLoweringPassEEEvOT_NS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i190.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14GCLoweringPassEEEvOT_NS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i191.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %629, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %632 = icmp eq i32 %bcmp.i.i.i191.i, 0
   br i1 %632, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i196.i, label %_ZN4llvm13PassInfoMixinINS_25ShadowStackGCLoweringPassEE4nameEv.exit.i
@@ -8100,9 +8100,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i196.i: ; preds = %_ZNK4llvm9
   %634 = add i64 %.sroa.speculated.i.i.i.i188.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_25ShadowStackGCLoweringPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_25ShadowStackGCLoweringPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i196.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i190.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14GCLoweringPassEEEvOT_NS_9StringRefE.exit.i
-  %.sroa.01.0.i192.i = phi ptr [ %629, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14GCLoweringPassEEEvOT_NS_9StringRefE.exit.i ], [ %633, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i196.i ], [ %629, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i190.i ]
-  %.sroa.4.0.i193.i = phi i64 [ %.sroa.speculated.i.i.i.i188.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14GCLoweringPassEEEvOT_NS_9StringRefE.exit.i ], [ %634, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i196.i ], [ %.sroa.speculated.i.i.i.i188.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i190.i ]
+_ZN4llvm13PassInfoMixinINS_25ShadowStackGCLoweringPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i196.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i190.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14GCLoweringPassEEEvOT_NS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i192.i = phi ptr [ %629, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14GCLoweringPassEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %633, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i196.i ], [ %629, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i190.i ]
+  %.sroa.4.0.i193.i = phi i64 [ %.sroa.speculated.i.i.i.i188.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_14GCLoweringPassEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %634, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i196.i ], [ %.sroa.speculated.i.i.i.i188.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i190.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %55)
   %635 = load ptr, ptr %194, align 8
   %636 = getelementptr inbounds nuw i8, ptr %635, i64 152
@@ -8131,7 +8131,7 @@ _ZN4llvm13PassInfoMixinINS_25ShadowStackGCLoweringPassEE4nameEv.exit.i: ; preds 
   br i1 %.not.i.i206.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i207.i, label %.lr.ph.i.i198.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i207.i: ; preds = %.lr.ph.i.i198.i
-  br i1 %645, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i208.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_25ShadowStackGCLoweringPassEEEvOT_NS_9StringRefE.exit.i
+  br i1 %645, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i208.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_25ShadowStackGCLoweringPassEEEvOT_NS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i208.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i207.i, %_ZN4llvm13PassInfoMixinINS_25ShadowStackGCLoweringPassEE4nameEv.exit.i
   %647 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8311,9 +8311,9 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisMana
 
 _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_25ShadowStackGCLoweringPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i7.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit10.thread.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_25ShadowStackGCLoweringPassEEEvOT_NS_9StringRefE.exit.i
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_25ShadowStackGCLoweringPassEEEvOT_NS_9StringRefE.argprom.exit.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_25ShadowStackGCLoweringPassEEEvOT_NS_9StringRefE.exit.i: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_25ShadowStackGCLoweringPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i207.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_25ShadowStackGCLoweringPassEEEvOT_NS_9StringRefE.argprom.exit.i: ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_25ShadowStackGCLoweringPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i207.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %55)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_27LowerConstantIntrinsicsPassEEENS_9StringRefEv, ptr %51, align 8
@@ -8334,7 +8334,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i236.i = icmp ult i64 %.sroa.speculated.i.i.i.i235.i, 6
   br i1 %.not.i.i.i236.i, label %_ZN4llvm13PassInfoMixinINS_27LowerConstantIntrinsicsPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i237.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i237.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_25ShadowStackGCLoweringPassEEEvOT_NS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i237.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_25ShadowStackGCLoweringPassEEEvOT_NS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i238.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %716, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %719 = icmp eq i32 %bcmp.i.i.i238.i, 0
   br i1 %719, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i243.i, label %_ZN4llvm13PassInfoMixinINS_27LowerConstantIntrinsicsPassEE4nameEv.exit.i
@@ -8344,9 +8344,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i243.i: ; preds = %_ZNK4llvm9
   %721 = add i64 %.sroa.speculated.i.i.i.i235.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_27LowerConstantIntrinsicsPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_27LowerConstantIntrinsicsPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i243.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i237.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_25ShadowStackGCLoweringPassEEEvOT_NS_9StringRefE.exit.i
-  %.sroa.01.0.i239.i = phi ptr [ %716, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_25ShadowStackGCLoweringPassEEEvOT_NS_9StringRefE.exit.i ], [ %720, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i243.i ], [ %716, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i237.i ]
-  %.sroa.4.0.i240.i = phi i64 [ %.sroa.speculated.i.i.i.i235.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_25ShadowStackGCLoweringPassEEEvOT_NS_9StringRefE.exit.i ], [ %721, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i243.i ], [ %.sroa.speculated.i.i.i.i235.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i237.i ]
+_ZN4llvm13PassInfoMixinINS_27LowerConstantIntrinsicsPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i243.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i237.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_25ShadowStackGCLoweringPassEEEvOT_NS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i239.i = phi ptr [ %716, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_25ShadowStackGCLoweringPassEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %720, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i243.i ], [ %716, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i237.i ]
+  %.sroa.4.0.i240.i = phi i64 [ %.sroa.speculated.i.i.i.i235.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_25ShadowStackGCLoweringPassEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %721, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i243.i ], [ %.sroa.speculated.i.i.i.i235.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i237.i ]
   %722 = load ptr, ptr %194, align 8
   %723 = getelementptr inbounds nuw i8, ptr %722, i64 152
   %724 = load ptr, ptr %723, align 8
@@ -8374,7 +8374,7 @@ _ZN4llvm13PassInfoMixinINS_27LowerConstantIntrinsicsPassEE4nameEv.exit.i: ; pred
   br i1 %.not.i.i253.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i254.i, label %.lr.ph.i.i245.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i254.i: ; preds = %.lr.ph.i.i245.i
-  br i1 %732, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i255.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27LowerConstantIntrinsicsPassEEEvOT_NS_9StringRefE.exit.i
+  br i1 %732, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i255.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27LowerConstantIntrinsicsPassEEEvOT_NS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i255.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i254.i, %_ZN4llvm13PassInfoMixinINS_27LowerConstantIntrinsicsPassEE4nameEv.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50)
@@ -8412,9 +8412,9 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27LowerConstantIntrinsicsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i261.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i258.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i257.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27LowerConstantIntrinsicsPassEEEvOT_NS_9StringRefE.exit.i
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27LowerConstantIntrinsicsPassEEEvOT_NS_9StringRefE.argprom.exit.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27LowerConstantIntrinsicsPassEEEvOT_NS_9StringRefE.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27LowerConstantIntrinsicsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i254.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27LowerConstantIntrinsicsPassEEEvOT_NS_9StringRefE.argprom.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27LowerConstantIntrinsicsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i254.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_24UnreachableBlockElimPassEEENS_9StringRefEv, ptr %49, align 8
   %746 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -8434,7 +8434,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i265.i = icmp ult i64 %.sroa.speculated.i.i.i.i264.i, 6
   br i1 %.not.i.i.i265.i, label %_ZN4llvm13PassInfoMixinINS_24UnreachableBlockElimPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i266.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i266.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27LowerConstantIntrinsicsPassEEEvOT_NS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i266.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27LowerConstantIntrinsicsPassEEEvOT_NS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i267.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %752, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %755 = icmp eq i32 %bcmp.i.i.i267.i, 0
   br i1 %755, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i272.i, label %_ZN4llvm13PassInfoMixinINS_24UnreachableBlockElimPassEE4nameEv.exit.i
@@ -8444,15 +8444,15 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i272.i: ; preds = %_ZNK4llvm9
   %757 = add i64 %.sroa.speculated.i.i.i.i264.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_24UnreachableBlockElimPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_24UnreachableBlockElimPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i272.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i266.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27LowerConstantIntrinsicsPassEEEvOT_NS_9StringRefE.exit.i
-  %.sroa.01.0.i268.i = phi ptr [ %752, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27LowerConstantIntrinsicsPassEEEvOT_NS_9StringRefE.exit.i ], [ %756, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i272.i ], [ %752, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i266.i ]
-  %.sroa.4.0.i269.i = phi i64 [ %.sroa.speculated.i.i.i.i264.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27LowerConstantIntrinsicsPassEEEvOT_NS_9StringRefE.exit.i ], [ %757, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i272.i ], [ %.sroa.speculated.i.i.i.i264.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i266.i ]
-  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_24UnreachableBlockElimPassEEEvOT_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr %.sroa.01.0.i268.i, i64 %.sroa.4.0.i269.i)
+_ZN4llvm13PassInfoMixinINS_24UnreachableBlockElimPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i272.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i266.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27LowerConstantIntrinsicsPassEEEvOT_NS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i268.i = phi ptr [ %752, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27LowerConstantIntrinsicsPassEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %756, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i272.i ], [ %752, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i266.i ]
+  %.sroa.4.0.i269.i = phi i64 [ %.sroa.speculated.i.i.i.i264.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27LowerConstantIntrinsicsPassEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %757, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i272.i ], [ %.sroa.speculated.i.i.i.i264.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i266.i ]
+  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_24UnreachableBlockElimPassEEEvOT_NS_9StringRefE.argprom(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr %.sroa.01.0.i268.i, i64 %.sroa.4.0.i269.i)
   %.val54.i = load ptr, ptr %0, align 8
   %758 = getelementptr i8, ptr %.val54.i, i64 664
   %.val54.val.i = load i32, ptr %758, align 8
   %.not48.i = icmp eq i32 %.val54.val.i, 0
-  br i1 %.not48.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17ReplaceWithVeclibEEEvOT_NS_9StringRefE.exit.i, label %759
+  br i1 %.not48.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17ReplaceWithVeclibEEEvOT_NS_9StringRefE.argprom.exit.i, label %759
 
 759:                                              ; preds = %_ZN4llvm13PassInfoMixinINS_24UnreachableBlockElimPassEE4nameEv.exit.i
   %760 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -8588,7 +8588,7 @@ _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20
   %.phi.trans.insert.i = getelementptr i8, ptr %.val53.pre.i, i64 664
   %.val53.val.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   %810 = icmp eq i32 %.val53.val.pre.i, 0
-  br i1 %810, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17ReplaceWithVeclibEEEvOT_NS_9StringRefE.exit.i, label %.thread502.i
+  br i1 %810, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17ReplaceWithVeclibEEEvOT_NS_9StringRefE.argprom.exit.i, label %.thread502.i
 
 .thread502.i:                                     ; preds = %809, %759
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
@@ -8650,7 +8650,7 @@ _ZN4llvm13PassInfoMixinINS_17ReplaceWithVeclibEE4nameEv.exit.i: ; preds = %_ZNK4
   br i1 %.not.i.i322.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i323.i, label %.lr.ph.i.i314.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i323.i: ; preds = %.lr.ph.i.i314.i
-  br i1 %833, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i324.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17ReplaceWithVeclibEEEvOT_NS_9StringRefE.exit.i
+  br i1 %833, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i324.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17ReplaceWithVeclibEEEvOT_NS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i324.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i323.i, %_ZN4llvm13PassInfoMixinINS_17ReplaceWithVeclibEE4nameEv.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
@@ -8688,20 +8688,20 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17ReplaceWithVeclibEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i330.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i327.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i326.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17ReplaceWithVeclibEEEvOT_NS_9StringRefE.exit.i
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17ReplaceWithVeclibEEEvOT_NS_9StringRefE.argprom.exit.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17ReplaceWithVeclibEEEvOT_NS_9StringRefE.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17ReplaceWithVeclibEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i323.i, %809, %_ZN4llvm13PassInfoMixinINS_24UnreachableBlockElimPassEE4nameEv.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17ReplaceWithVeclibEEEvOT_NS_9StringRefE.argprom.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17ReplaceWithVeclibEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i323.i, %809, %_ZN4llvm13PassInfoMixinINS_24UnreachableBlockElimPassEE4nameEv.exit.i
   %.val52.i = load ptr, ptr %0, align 8
   %847 = getelementptr i8, ptr %.val52.i, i64 664
   %.val52.val.i = load i32, ptr %847, align 8
   %.not50.i = icmp eq i32 %.val52.val.i, 0
-  br i1 %.not50.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.exit.i, label %848
+  br i1 %.not50.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.argprom.exit.i, label %848
 
-848:                                              ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17ReplaceWithVeclibEEEvOT_NS_9StringRefE.exit.i
+848:                                              ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17ReplaceWithVeclibEEEvOT_NS_9StringRefE.argprom.exit.i
   %849 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %850 = load i8, ptr %849, align 8
   %851 = trunc i8 %850 to i1
-  br i1 %851, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.exit.i, label %852
+  br i1 %851, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.argprom.exit.i, label %852
 
 852:                                              ; preds = %848
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43)
@@ -8763,7 +8763,7 @@ _ZN4llvm13PassInfoMixinINS_27PartiallyInlineLibCallsPassEE4nameEv.exit.i: ; pred
   br i1 %.not.i.i351.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i352.i, label %.lr.ph.i.i343.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i352.i: ; preds = %.lr.ph.i.i343.i
-  br i1 %875, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i353.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.exit.i
+  br i1 %875, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i353.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i353.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i352.i, %_ZN4llvm13PassInfoMixinINS_27PartiallyInlineLibCallsPassEE4nameEv.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42)
@@ -8801,9 +8801,9 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27PartiallyInlineLibCallsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i359.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i356.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i355.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.exit.i
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.argprom.exit.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27PartiallyInlineLibCallsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i352.i, %848, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17ReplaceWithVeclibEEEvOT_NS_9StringRefE.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.argprom.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27PartiallyInlineLibCallsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i352.i, %848, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17ReplaceWithVeclibEEEvOT_NS_9StringRefE.argprom.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_25EntryExitInstrumenterPassEEENS_9StringRefEv, ptr %41, align 8
   %889 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -8823,7 +8823,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i363.i = icmp ult i64 %.sroa.speculated.i.i.i.i362.i, 6
   br i1 %.not.i.i.i363.i, label %_ZN4llvm13PassInfoMixinINS_25EntryExitInstrumenterPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i364.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i364.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i364.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i365.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %895, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %898 = icmp eq i32 %bcmp.i.i.i365.i, 0
   br i1 %898, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i370.i, label %_ZN4llvm13PassInfoMixinINS_25EntryExitInstrumenterPassEE4nameEv.exit.i
@@ -8833,9 +8833,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i370.i: ; preds = %_ZNK4llvm9
   %900 = add i64 %.sroa.speculated.i.i.i.i362.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_25EntryExitInstrumenterPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_25EntryExitInstrumenterPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i370.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i364.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.exit.i
-  %.sroa.01.0.i366.i = phi ptr [ %895, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.exit.i ], [ %899, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i370.i ], [ %895, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i364.i ]
-  %.sroa.4.0.i367.i = phi i64 [ %.sroa.speculated.i.i.i.i362.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.exit.i ], [ %900, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i370.i ], [ %.sroa.speculated.i.i.i.i362.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i364.i ]
+_ZN4llvm13PassInfoMixinINS_25EntryExitInstrumenterPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i370.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i364.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i366.i = phi ptr [ %895, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %899, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i370.i ], [ %895, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i364.i ]
+  %.sroa.4.0.i367.i = phi i64 [ %.sroa.speculated.i.i.i.i362.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_27PartiallyInlineLibCallsPassEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %900, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i370.i ], [ %.sroa.speculated.i.i.i.i362.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i364.i ]
   %901 = load ptr, ptr %194, align 8
   %902 = getelementptr inbounds nuw i8, ptr %901, i64 152
   %903 = load ptr, ptr %902, align 8
@@ -8957,7 +8957,7 @@ _ZN4llvm13PassInfoMixinINS_28ScalarizeMaskedMemIntrinPassEE4nameEv.exit.i: ; pre
   br i1 %.not.i.i408.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i409.i, label %.lr.ph.i.i400.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i409.i: ; preds = %.lr.ph.i.i400.i
-  br i1 %947, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i410.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_28ScalarizeMaskedMemIntrinPassEEEvOT_NS_9StringRefE.exit.i
+  br i1 %947, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i410.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_28ScalarizeMaskedMemIntrinPassEEEvOT_NS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i410.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i409.i, %_ZN4llvm13PassInfoMixinINS_28ScalarizeMaskedMemIntrinPassEE4nameEv.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
@@ -8993,9 +8993,9 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_28ScalarizeMaskedMemIntrinPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i416.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i413.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i412.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_28ScalarizeMaskedMemIntrinPassEEEvOT_NS_9StringRefE.exit.i
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_28ScalarizeMaskedMemIntrinPassEEEvOT_NS_9StringRefE.argprom.exit.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_28ScalarizeMaskedMemIntrinPassEEEvOT_NS_9StringRefE.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_28ScalarizeMaskedMemIntrinPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i409.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_28ScalarizeMaskedMemIntrinPassEEEvOT_NS_9StringRefE.argprom.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_28ScalarizeMaskedMemIntrinPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i409.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_20ExpandReductionsPassEEENS_9StringRefEv, ptr %37, align 8
   %959 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -9015,7 +9015,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i420.i = icmp ult i64 %.sroa.speculated.i.i.i.i419.i, 6
   br i1 %.not.i.i.i420.i, label %_ZN4llvm13PassInfoMixinINS_20ExpandReductionsPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i421.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i421.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_28ScalarizeMaskedMemIntrinPassEEEvOT_NS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i421.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_28ScalarizeMaskedMemIntrinPassEEEvOT_NS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i422.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %965, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %968 = icmp eq i32 %bcmp.i.i.i422.i, 0
   br i1 %968, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i427.i, label %_ZN4llvm13PassInfoMixinINS_20ExpandReductionsPassEE4nameEv.exit.i
@@ -9025,9 +9025,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i427.i: ; preds = %_ZNK4llvm9
   %970 = add i64 %.sroa.speculated.i.i.i.i419.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_20ExpandReductionsPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_20ExpandReductionsPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i427.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i421.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_28ScalarizeMaskedMemIntrinPassEEEvOT_NS_9StringRefE.exit.i
-  %.sroa.01.0.i423.i = phi ptr [ %965, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_28ScalarizeMaskedMemIntrinPassEEEvOT_NS_9StringRefE.exit.i ], [ %969, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i427.i ], [ %965, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i421.i ]
-  %.sroa.4.0.i424.i = phi i64 [ %.sroa.speculated.i.i.i.i419.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_28ScalarizeMaskedMemIntrinPassEEEvOT_NS_9StringRefE.exit.i ], [ %970, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i427.i ], [ %.sroa.speculated.i.i.i.i419.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i421.i ]
+_ZN4llvm13PassInfoMixinINS_20ExpandReductionsPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i427.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i421.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_28ScalarizeMaskedMemIntrinPassEEEvOT_NS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i423.i = phi ptr [ %965, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_28ScalarizeMaskedMemIntrinPassEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %969, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i427.i ], [ %965, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i421.i ]
+  %.sroa.4.0.i424.i = phi i64 [ %.sroa.speculated.i.i.i.i419.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_28ScalarizeMaskedMemIntrinPassEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %970, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i427.i ], [ %.sroa.speculated.i.i.i.i419.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i421.i ]
   %971 = load ptr, ptr %194, align 8
   %972 = getelementptr inbounds nuw i8, ptr %971, i64 152
   %973 = load ptr, ptr %972, align 8
@@ -9055,7 +9055,7 @@ _ZN4llvm13PassInfoMixinINS_20ExpandReductionsPassEE4nameEv.exit.i: ; preds = %_Z
   br i1 %.not.i.i437.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i438.i, label %.lr.ph.i.i429.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i438.i: ; preds = %.lr.ph.i.i429.i
-  br i1 %981, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i439.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_20ExpandReductionsPassEEEvOT_NS_9StringRefE.exit.i
+  br i1 %981, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i439.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_20ExpandReductionsPassEEEvOT_NS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i439.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i438.i, %_ZN4llvm13PassInfoMixinINS_20ExpandReductionsPassEE4nameEv.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
@@ -9091,16 +9091,16 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20ExpandReductionsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i445.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i442.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i441.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_20ExpandReductionsPassEEEvOT_NS_9StringRefE.exit.i
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_20ExpandReductionsPassEEEvOT_NS_9StringRefE.argprom.exit.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_20ExpandReductionsPassEEEvOT_NS_9StringRefE.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20ExpandReductionsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i438.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_20ExpandReductionsPassEEEvOT_NS_9StringRefE.argprom.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20ExpandReductionsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i438.i
   %.val.i = load ptr, ptr %0, align 8
   %993 = getelementptr i8, ptr %.val.i, i64 664
   %.val.val.i = load i32, ptr %993, align 8
   %.not51.i = icmp eq i32 %.val.val.i, 0
   br i1 %.not51.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE11addIRPassesERNS4_9AddIRPassE.exit, label %994
 
-994:                                              ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_20ExpandReductionsPassEEEvOT_NS_9StringRefE.exit.i
+994:                                              ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_20ExpandReductionsPassEEEvOT_NS_9StringRefE.argprom.exit.i
   %995 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %996 = load i8, ptr %995, align 2
   %997 = trunc i8 %996 to i1
@@ -9206,7 +9206,7 @@ _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
   br label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE11addIRPassesERNS4_9AddIRPassE.exit
 
-_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE11addIRPassesERNS4_9AddIRPassE.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_20ExpandReductionsPassEEEvOT_NS_9StringRefE.exit.i, %994, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i467.i, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18SelectOptimizePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i
+_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE11addIRPassesERNS4_9AddIRPassE.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_20ExpandReductionsPassEEEvOT_NS_9StringRefE.argprom.exit.i, %994, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i467.i, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18SelectOptimizePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %70)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %71)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72)
@@ -9216,13 +9216,13 @@ _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Tar
   %1034 = getelementptr i8, ptr %.val, i64 664
   %.val.val.i149 = load i32, ptr %1034, align 8
   %.not.i150 = icmp eq i32 %.val.val.i149, 0
-  br i1 %.not.i150, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.exit, label %1035
+  br i1 %.not.i150, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.argprom.exit, label %1035
 
 1035:                                             ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE11addIRPassesERNS4_9AddIRPassE.exit
   %1036 = getelementptr inbounds i8, ptr %0, i64 21
   %.val16 = load i8, ptr %1036, align 1
   %1037 = trunc i8 %.val16 to i1
-  br i1 %1037, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.exit, label %1038
+  br i1 %1037, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.argprom.exit, label %1038
 
 1038:                                             ; preds = %1035
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
@@ -9284,7 +9284,7 @@ _ZN4llvm13PassInfoMixinINS_18CodeGenPreparePassEE4nameEv.exit.i: ; preds = %_ZNK
   br i1 %.not.i.i.i168, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i169, label %.lr.ph.i.i.i160
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i169: ; preds = %.lr.ph.i.i.i160
-  br i1 %1061, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i170, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.exit
+  br i1 %1061, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i170, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i170: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i169, %_ZN4llvm13PassInfoMixinINS_18CodeGenPreparePassEE4nameEv.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
@@ -9322,9 +9322,9 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18CodeGenPreparePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i175, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i173, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i172
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
-  br label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.exit
+  br label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.argprom.exit
 
-_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.exit: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE11addIRPassesERNS4_9AddIRPassE.exit, %1035, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i169, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18CodeGenPreparePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i
+_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.argprom.exit: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE11addIRPassesERNS4_9AddIRPassE.exit, %1035, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i169, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18CodeGenPreparePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
@@ -9345,7 +9345,7 @@ _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Tar
     i32 0, label %1201
   ]
 
-1079:                                             ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.exit
+1079:                                             ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_17SjLjEHPreparePassEEENS_9StringRefEv, ptr %27, align 8
   %1080 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -9445,7 +9445,7 @@ _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
   br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17SjLjEHPreparePassEEEvOT_NS_9StringRefE.exit.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17SjLjEHPreparePassEEEvOT_NS_9StringRefE.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17SjLjEHPreparePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i216, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.exit, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.exit, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.exit, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.exit
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17SjLjEHPreparePassEEEvOT_NS_9StringRefE.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17SjLjEHPreparePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i216, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.argprom.exit, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.argprom.exit, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.argprom.exit, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.argprom.exit
   %1115 = load ptr, ptr %0, align 8
   store ptr %1115, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25)
@@ -9483,7 +9483,7 @@ _ZN4llvm13PassInfoMixinINS_18DwarfEHPreparePassEE4nameEv.exit.i: ; preds = %_ZNK
   call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_18DwarfEHPreparePassEEEvOT_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr %.sroa.01.0.i31.i, i64 %.sroa.4.0.i32.i)
   br label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE27addPassesToHandleExceptionsERNS4_9AddIRPassE.exit
 
-1128:                                             ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.exit
+1128:                                             ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.argprom.exit
   store i8 0, ptr %29, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_16WinEHPreparePassEEENS_9StringRefEv, ptr %24, align 8
@@ -9555,7 +9555,7 @@ _ZN4llvm13PassInfoMixinINS_18DwarfEHPreparePassEE4nameEv.exit58.i: ; preds = %_Z
   call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_18DwarfEHPreparePassEEEvOT_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr %.sroa.01.0.i53.i, i64 %.sroa.4.0.i54.i)
   br label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE27addPassesToHandleExceptionsERNS4_9AddIRPassE.exit
 
-1154:                                             ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.exit
+1154:                                             ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.argprom.exit
   store i8 0, ptr %31, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_16WinEHPreparePassEEENS_9StringRefEv, ptr %22, align 8
@@ -9687,7 +9687,7 @@ _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   br label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE27addPassesToHandleExceptionsERNS4_9AddIRPassE.exit
 
-1201:                                             ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.exit
+1201:                                             ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_15LowerInvokePassEEENS_9StringRefEv, ptr %19, align 8
   %1202 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -9747,7 +9747,7 @@ _ZN4llvm13PassInfoMixinINS_15LowerInvokePassEE4nameEv.exit.i: ; preds = %_ZNK4ll
   br i1 %.not.i.i120.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i121.i, label %.lr.ph.i.i112.i186
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i121.i: ; preds = %.lr.ph.i.i112.i186
-  br i1 %1224, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i122.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerInvokePassEEEvOT_NS_9StringRefE.exit.i
+  br i1 %1224, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i122.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerInvokePassEEEvOT_NS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i122.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i121.i, %_ZN4llvm13PassInfoMixinINS_15LowerInvokePassEE4nameEv.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
@@ -9783,9 +9783,9 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15LowerInvokePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i128.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i125.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i124.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerInvokePassEEEvOT_NS_9StringRefE.exit.i
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerInvokePassEEEvOT_NS_9StringRefE.argprom.exit.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerInvokePassEEEvOT_NS_9StringRefE.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15LowerInvokePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i121.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerInvokePassEEEvOT_NS_9StringRefE.argprom.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15LowerInvokePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i121.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_24UnreachableBlockElimPassEEENS_9StringRefEv, ptr %17, align 8
   %1236 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -9805,7 +9805,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i132.i = icmp ult i64 %.sroa.speculated.i.i.i.i131.i, 6
   br i1 %.not.i.i.i132.i, label %_ZN4llvm13PassInfoMixinINS_24UnreachableBlockElimPassEE4nameEv.exit.i187, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i133.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i133.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerInvokePassEEEvOT_NS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i133.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerInvokePassEEEvOT_NS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i134.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1242, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %1245 = icmp eq i32 %bcmp.i.i.i134.i, 0
   br i1 %1245, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i139.i, label %_ZN4llvm13PassInfoMixinINS_24UnreachableBlockElimPassEE4nameEv.exit.i187
@@ -9815,13 +9815,13 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i139.i: ; preds = %_ZNK4llvm9
   %1247 = add i64 %.sroa.speculated.i.i.i.i131.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_24UnreachableBlockElimPassEE4nameEv.exit.i187
 
-_ZN4llvm13PassInfoMixinINS_24UnreachableBlockElimPassEE4nameEv.exit.i187: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i139.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i133.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerInvokePassEEEvOT_NS_9StringRefE.exit.i
-  %.sroa.01.0.i135.i = phi ptr [ %1242, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerInvokePassEEEvOT_NS_9StringRefE.exit.i ], [ %1246, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i139.i ], [ %1242, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i133.i ]
-  %.sroa.4.0.i136.i = phi i64 [ %.sroa.speculated.i.i.i.i131.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerInvokePassEEEvOT_NS_9StringRefE.exit.i ], [ %1247, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i139.i ], [ %.sroa.speculated.i.i.i.i131.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i133.i ]
-  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_24UnreachableBlockElimPassEEEvOT_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr %.sroa.01.0.i135.i, i64 %.sroa.4.0.i136.i)
+_ZN4llvm13PassInfoMixinINS_24UnreachableBlockElimPassEE4nameEv.exit.i187: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i139.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i133.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerInvokePassEEEvOT_NS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i135.i = phi ptr [ %1242, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerInvokePassEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %1246, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i139.i ], [ %1242, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i133.i ]
+  %.sroa.4.0.i136.i = phi i64 [ %.sroa.speculated.i.i.i.i131.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_15LowerInvokePassEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %1247, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i139.i ], [ %.sroa.speculated.i.i.i.i131.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i133.i ]
+  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_24UnreachableBlockElimPassEEEvOT_NS_9StringRefE.argprom(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr %.sroa.01.0.i135.i, i64 %.sroa.4.0.i136.i)
   br label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE27addPassesToHandleExceptionsERNS4_9AddIRPassE.exit
 
-_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE27addPassesToHandleExceptionsERNS4_9AddIRPassE.exit: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.exit, %_ZN4llvm13PassInfoMixinINS_18DwarfEHPreparePassEE4nameEv.exit.i, %_ZN4llvm13PassInfoMixinINS_18DwarfEHPreparePassEE4nameEv.exit58.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i92.i, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17WasmEHPreparePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZN4llvm13PassInfoMixinINS_24UnreachableBlockElimPassEE4nameEv.exit.i187
+_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE27addPassesToHandleExceptionsERNS4_9AddIRPassE.exit: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCodeGenPrepareERNS4_9AddIRPassE.argprom.exit, %_ZN4llvm13PassInfoMixinINS_18DwarfEHPreparePassEE4nameEv.exit.i, %_ZN4llvm13PassInfoMixinINS_18DwarfEHPreparePassEE4nameEv.exit58.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i92.i, %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17WasmEHPreparePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZN4llvm13PassInfoMixinINS_24UnreachableBlockElimPassEE4nameEv.exit.i187
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
@@ -9888,7 +9888,7 @@ _ZN4llvm13PassInfoMixinINS_17CallBrPreparePassEE4nameEv.exit.i: ; preds = %_ZNK4
   br i1 %.not.i.i.i241, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i242, label %.lr.ph.i.i.i233
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i242: ; preds = %.lr.ph.i.i.i233
-  br i1 %1270, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i246, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17CallBrPreparePassEEEvOT_NS_9StringRefE.exit.i
+  br i1 %1270, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i246, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17CallBrPreparePassEEEvOT_NS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i246: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i242, %_ZN4llvm13PassInfoMixinINS_17CallBrPreparePassEE4nameEv.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
@@ -9924,9 +9924,9 @@ _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisMa
 
 _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17CallBrPreparePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEEEclEPS6_.exit.i.i.i.i251, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.i.i249, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE9push_backEOSA_.exit.thread.i.i248
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17CallBrPreparePassEEEvOT_NS_9StringRefE.exit.i
+  br label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17CallBrPreparePassEEEvOT_NS_9StringRefE.argprom.exit.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17CallBrPreparePassEEEvOT_NS_9StringRefE.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17CallBrPreparePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i242
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17CallBrPreparePassEEEvOT_NS_9StringRefE.argprom.exit.i: ; preds = %_ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17CallBrPreparePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i242
   %1282 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_13SafeStackPassEEENS_9StringRefEv, ptr %11, align 8
@@ -9947,7 +9947,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i19.i = icmp ult i64 %.sroa.speculated.i.i.i.i18.i, 6
   br i1 %.not.i.i.i19.i, label %_ZN4llvm13PassInfoMixinINS_13SafeStackPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i20.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i20.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17CallBrPreparePassEEEvOT_NS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i20.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17CallBrPreparePassEEEvOT_NS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i21.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1289, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %1292 = icmp eq i32 %bcmp.i.i.i21.i, 0
   br i1 %1292, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i26.i, label %_ZN4llvm13PassInfoMixinINS_13SafeStackPassEE4nameEv.exit.i
@@ -9957,9 +9957,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i26.i: ; preds = %_ZNK4llvm9S
   %1294 = add i64 %.sroa.speculated.i.i.i.i18.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_13SafeStackPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_13SafeStackPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i26.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i20.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17CallBrPreparePassEEEvOT_NS_9StringRefE.exit.i
-  %.sroa.01.0.i22.i = phi ptr [ %1289, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17CallBrPreparePassEEEvOT_NS_9StringRefE.exit.i ], [ %1293, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i26.i ], [ %1289, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i20.i ]
-  %.sroa.4.0.i23.i = phi i64 [ %.sroa.speculated.i.i.i.i18.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17CallBrPreparePassEEEvOT_NS_9StringRefE.exit.i ], [ %1294, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i26.i ], [ %.sroa.speculated.i.i.i.i18.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i20.i ]
+_ZN4llvm13PassInfoMixinINS_13SafeStackPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i26.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i20.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17CallBrPreparePassEEEvOT_NS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i22.i = phi ptr [ %1289, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17CallBrPreparePassEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %1293, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i26.i ], [ %1289, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i20.i ]
+  %.sroa.4.0.i23.i = phi i64 [ %.sroa.speculated.i.i.i.i18.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_17CallBrPreparePassEEEvOT_NS_9StringRefE.argprom.exit.i ], [ %1294, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i26.i ], [ %.sroa.speculated.i.i.i.i18.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i20.i ]
   %1295 = load ptr, ptr %194, align 8
   %1296 = getelementptr inbounds nuw i8, ptr %1295, i64 152
   %1297 = load ptr, ptr %1296, align 8
@@ -10457,7 +10457,7 @@ _ZN4llvm13PassInfoMixinINS_22EarlyTailDuplicatePassEE4nameEv.exit.i: ; preds = %
   br i1 %.not.i.i.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i, label %.lr.ph.i.i.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i.i
-  br i1 %120, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22EarlyTailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %120, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22EarlyTailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i, %_ZN4llvm13PassInfoMixinINS_22EarlyTailDuplicatePassEE4nameEv.exit.i
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10501,7 +10501,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %137 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %135) #17
   %138 = getelementptr inbounds %"class.llvm::unique_function", ptr %136, i64 %137
   %.not3.i.i = icmp eq i64 %137, 0
-  br i1 %.not3.i.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22EarlyTailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i.i
+  br i1 %.not3.i.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22EarlyTailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22EarlyTailDuplicatePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i.i
   %.04.i.i = phi ptr [ %143, %.lr.ph.i.i ], [ %136, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22EarlyTailDuplicatePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -10517,9 +10517,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %140(ptr noundef %spec.select.i.i.i.i, ptr %.sroa.01.0.i.i, i64 %.sroa.4.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %122) #17
   %143 = getelementptr inbounds i8, ptr %.04.i.i, i64 32
   %.not.i.i = icmp eq ptr %143, %138
-  br i1 %.not.i.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22EarlyTailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22EarlyTailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22EarlyTailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22EarlyTailDuplicatePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22EarlyTailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22EarlyTailDuplicatePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %92)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_16OptimizePHIsPassEEENS_9StringRefEv, ptr %92, align 8
   %144 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -10539,7 +10539,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i34.i = icmp ult i64 %.sroa.speculated.i.i.i.i33.i, 6
   br i1 %.not.i.i.i34.i, label %_ZN4llvm13PassInfoMixinINS_16OptimizePHIsPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i35.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i35.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22EarlyTailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i35.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22EarlyTailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i36.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %150, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %153 = icmp eq i32 %bcmp.i.i.i36.i, 0
   br i1 %153, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i41.i, label %_ZN4llvm13PassInfoMixinINS_16OptimizePHIsPassEE4nameEv.exit.i
@@ -10549,9 +10549,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i41.i: ; preds = %_ZNK4llvm9S
   %155 = add i64 %.sroa.speculated.i.i.i.i33.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_16OptimizePHIsPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_16OptimizePHIsPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i41.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i35.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22EarlyTailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i
-  %.sroa.01.0.i37.i = phi ptr [ %150, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22EarlyTailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i ], [ %154, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i41.i ], [ %150, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i35.i ]
-  %.sroa.4.0.i38.i = phi i64 [ %.sroa.speculated.i.i.i.i33.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22EarlyTailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i ], [ %155, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i41.i ], [ %.sroa.speculated.i.i.i.i33.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i35.i ]
+_ZN4llvm13PassInfoMixinINS_16OptimizePHIsPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i41.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i35.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22EarlyTailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i37.i = phi ptr [ %150, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22EarlyTailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %154, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i41.i ], [ %150, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i35.i ]
+  %.sroa.4.0.i38.i = phi i64 [ %.sroa.speculated.i.i.i.i33.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22EarlyTailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %155, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i41.i ], [ %.sroa.speculated.i.i.i.i33.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i35.i ]
   %156 = load ptr, ptr %109, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 152
   %158 = load ptr, ptr %157, align 8
@@ -10579,7 +10579,7 @@ _ZN4llvm13PassInfoMixinINS_16OptimizePHIsPassEE4nameEv.exit.i: ; preds = %_ZNK4l
   br i1 %.not.i.i51.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i52.i, label %.lr.ph.i.i43.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i52.i: ; preds = %.lr.ph.i.i43.i
-  br i1 %166, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i53.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16OptimizePHIsPassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %166, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i53.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16OptimizePHIsPassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i53.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i52.i, %_ZN4llvm13PassInfoMixinINS_16OptimizePHIsPassEE4nameEv.exit.i
   %168 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10623,7 +10623,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %183 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %181) #17
   %184 = getelementptr inbounds %"class.llvm::unique_function", ptr %182, i64 %183
   %.not3.i56.i = icmp eq i64 %183, 0
-  br i1 %.not3.i56.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16OptimizePHIsPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i57.i
+  br i1 %.not3.i56.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16OptimizePHIsPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i57.i
 
 .lr.ph.i57.i:                                     ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_16OptimizePHIsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i57.i
   %.04.i58.i = phi ptr [ %189, %.lr.ph.i57.i ], [ %182, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_16OptimizePHIsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -10639,9 +10639,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %186(ptr noundef %spec.select.i.i.i63.i, ptr %.sroa.01.0.i37.i, i64 %.sroa.4.0.i38.i, ptr noundef nonnull align 8 dereferenceable(24) %168) #17
   %189 = getelementptr inbounds i8, ptr %.04.i58.i, i64 32
   %.not.i64.i = icmp eq ptr %189, %184
-  br i1 %.not.i64.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16OptimizePHIsPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i57.i
+  br i1 %.not.i64.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16OptimizePHIsPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i57.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16OptimizePHIsPassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i57.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_16OptimizePHIsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i52.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16OptimizePHIsPassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i57.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_16OptimizePHIsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i52.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %90)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_17StackColoringPassEEENS_9StringRefEv, ptr %90, align 8
   %190 = getelementptr inbounds nuw i8, ptr %90, i64 8
@@ -10661,7 +10661,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i72.i = icmp ult i64 %.sroa.speculated.i.i.i.i71.i, 6
   br i1 %.not.i.i.i72.i, label %_ZN4llvm13PassInfoMixinINS_17StackColoringPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i73.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i73.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16OptimizePHIsPassEEEvOT_bNS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i73.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16OptimizePHIsPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i74.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %196, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %199 = icmp eq i32 %bcmp.i.i.i74.i, 0
   br i1 %199, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i79.i, label %_ZN4llvm13PassInfoMixinINS_17StackColoringPassEE4nameEv.exit.i
@@ -10671,9 +10671,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i79.i: ; preds = %_ZNK4llvm9S
   %201 = add i64 %.sroa.speculated.i.i.i.i71.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_17StackColoringPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_17StackColoringPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i79.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i73.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16OptimizePHIsPassEEEvOT_bNS_9StringRefE.exit.i
-  %.sroa.01.0.i75.i = phi ptr [ %196, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16OptimizePHIsPassEEEvOT_bNS_9StringRefE.exit.i ], [ %200, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i79.i ], [ %196, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i73.i ]
-  %.sroa.4.0.i76.i = phi i64 [ %.sroa.speculated.i.i.i.i71.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16OptimizePHIsPassEEEvOT_bNS_9StringRefE.exit.i ], [ %201, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i79.i ], [ %.sroa.speculated.i.i.i.i71.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i73.i ]
+_ZN4llvm13PassInfoMixinINS_17StackColoringPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i79.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i73.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16OptimizePHIsPassEEEvOT_bNS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i75.i = phi ptr [ %196, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16OptimizePHIsPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %200, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i79.i ], [ %196, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i73.i ]
+  %.sroa.4.0.i76.i = phi i64 [ %.sroa.speculated.i.i.i.i71.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16OptimizePHIsPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %201, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i79.i ], [ %.sroa.speculated.i.i.i.i71.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i73.i ]
   %202 = load ptr, ptr %109, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 152
   %204 = load ptr, ptr %203, align 8
@@ -10701,7 +10701,7 @@ _ZN4llvm13PassInfoMixinINS_17StackColoringPassEE4nameEv.exit.i: ; preds = %_ZNK4
   br i1 %.not.i.i89.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i90.i, label %.lr.ph.i.i81.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i90.i: ; preds = %.lr.ph.i.i81.i
-  br i1 %212, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i91.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17StackColoringPassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %212, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i91.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17StackColoringPassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i91.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i90.i, %_ZN4llvm13PassInfoMixinINS_17StackColoringPassEE4nameEv.exit.i
   %214 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10745,7 +10745,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %229 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %227) #17
   %230 = getelementptr inbounds %"class.llvm::unique_function", ptr %228, i64 %229
   %.not3.i94.i = icmp eq i64 %229, 0
-  br i1 %.not3.i94.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17StackColoringPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i95.i
+  br i1 %.not3.i94.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17StackColoringPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i95.i
 
 .lr.ph.i95.i:                                     ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17StackColoringPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i95.i
   %.04.i96.i = phi ptr [ %235, %.lr.ph.i95.i ], [ %228, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17StackColoringPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -10761,9 +10761,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %232(ptr noundef %spec.select.i.i.i101.i, ptr %.sroa.01.0.i75.i, i64 %.sroa.4.0.i76.i, ptr noundef nonnull align 8 dereferenceable(24) %214) #17
   %235 = getelementptr inbounds i8, ptr %.04.i96.i, i64 32
   %.not.i102.i = icmp eq ptr %235, %230
-  br i1 %.not.i102.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17StackColoringPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i95.i
+  br i1 %.not.i102.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17StackColoringPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i95.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17StackColoringPassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i95.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17StackColoringPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i90.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17StackColoringPassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i95.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17StackColoringPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i90.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %88)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_28LocalStackSlotAllocationPassEEENS_9StringRefEv, ptr %88, align 8
   %236 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -10783,7 +10783,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i110.i = icmp ult i64 %.sroa.speculated.i.i.i.i109.i, 6
   br i1 %.not.i.i.i110.i, label %_ZN4llvm13PassInfoMixinINS_28LocalStackSlotAllocationPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i111.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i111.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17StackColoringPassEEEvOT_bNS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i111.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17StackColoringPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i112.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %242, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %245 = icmp eq i32 %bcmp.i.i.i112.i, 0
   br i1 %245, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i117.i, label %_ZN4llvm13PassInfoMixinINS_28LocalStackSlotAllocationPassEE4nameEv.exit.i
@@ -10793,10 +10793,10 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i117.i: ; preds = %_ZNK4llvm9
   %247 = add i64 %.sroa.speculated.i.i.i.i109.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_28LocalStackSlotAllocationPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_28LocalStackSlotAllocationPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i117.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i111.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17StackColoringPassEEEvOT_bNS_9StringRefE.exit.i
-  %.sroa.01.0.i113.i = phi ptr [ %242, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17StackColoringPassEEEvOT_bNS_9StringRefE.exit.i ], [ %246, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i117.i ], [ %242, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i111.i ]
-  %.sroa.4.0.i114.i = phi i64 [ %.sroa.speculated.i.i.i.i109.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17StackColoringPassEEEvOT_bNS_9StringRefE.exit.i ], [ %247, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i117.i ], [ %.sroa.speculated.i.i.i.i109.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i111.i ]
-  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28LocalStackSlotAllocationPassEEEvOT_bNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.01.0.i113.i, i64 %.sroa.4.0.i114.i)
+_ZN4llvm13PassInfoMixinINS_28LocalStackSlotAllocationPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i117.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i111.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17StackColoringPassEEEvOT_bNS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i113.i = phi ptr [ %242, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17StackColoringPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %246, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i117.i ], [ %242, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i111.i ]
+  %.sroa.4.0.i114.i = phi i64 [ %.sroa.speculated.i.i.i.i109.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17StackColoringPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %247, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i117.i ], [ %.sroa.speculated.i.i.i.i109.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i111.i ]
+  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28LocalStackSlotAllocationPassEEEvOT_bNS_9StringRefE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.01.0.i113.i, i64 %.sroa.4.0.i114.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %87)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_30DeadMachineInstructionElimPassEEENS_9StringRefEv, ptr %87, align 8
   %248 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -10829,7 +10829,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i128.i: ; preds = %_ZNK4llvm9
 _ZN4llvm13PassInfoMixinINS_30DeadMachineInstructionElimPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i128.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i122.i, %_ZN4llvm13PassInfoMixinINS_28LocalStackSlotAllocationPassEE4nameEv.exit.i
   %.sroa.01.0.i124.i = phi ptr [ %254, %_ZN4llvm13PassInfoMixinINS_28LocalStackSlotAllocationPassEE4nameEv.exit.i ], [ %258, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i128.i ], [ %254, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i122.i ]
   %.sroa.4.0.i125.i = phi i64 [ %.sroa.speculated.i.i.i.i120.i, %_ZN4llvm13PassInfoMixinINS_28LocalStackSlotAllocationPassEE4nameEv.exit.i ], [ %259, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i128.i ], [ %.sroa.speculated.i.i.i.i120.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i122.i ]
-  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30DeadMachineInstructionElimPassEEEvOT_bNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.01.0.i124.i, i64 %.sroa.4.0.i125.i)
+  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30DeadMachineInstructionElimPassEEEvOT_bNS_9StringRefE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.01.0.i124.i, i64 %.sroa.4.0.i125.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %86)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_20EarlyMachineLICMPassEEENS_9StringRefEv, ptr %86, align 8
   %260 = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -10889,7 +10889,7 @@ _ZN4llvm13PassInfoMixinINS_20EarlyMachineLICMPassEE4nameEv.exit.i: ; preds = %_Z
   br i1 %.not.i.i149.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i150.i, label %.lr.ph.i.i141.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i150.i: ; preds = %.lr.ph.i.i141.i
-  br i1 %282, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i151.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20EarlyMachineLICMPassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %282, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i151.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20EarlyMachineLICMPassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i151.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i150.i, %_ZN4llvm13PassInfoMixinINS_20EarlyMachineLICMPassEE4nameEv.exit.i
   %284 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10933,7 +10933,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %299 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %297) #17
   %300 = getelementptr inbounds %"class.llvm::unique_function", ptr %298, i64 %299
   %.not3.i154.i = icmp eq i64 %299, 0
-  br i1 %.not3.i154.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20EarlyMachineLICMPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i155.i
+  br i1 %.not3.i154.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20EarlyMachineLICMPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i155.i
 
 .lr.ph.i155.i:                                    ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20EarlyMachineLICMPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i155.i
   %.04.i156.i = phi ptr [ %305, %.lr.ph.i155.i ], [ %298, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20EarlyMachineLICMPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -10949,9 +10949,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %302(ptr noundef %spec.select.i.i.i161.i, ptr %.sroa.01.0.i135.i, i64 %.sroa.4.0.i136.i, ptr noundef nonnull align 8 dereferenceable(24) %284) #17
   %305 = getelementptr inbounds i8, ptr %.04.i156.i, i64 32
   %.not.i162.i = icmp eq ptr %305, %300
-  br i1 %.not.i162.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20EarlyMachineLICMPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i155.i
+  br i1 %.not.i162.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20EarlyMachineLICMPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i155.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20EarlyMachineLICMPassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i155.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20EarlyMachineLICMPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i150.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20EarlyMachineLICMPassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i155.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20EarlyMachineLICMPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i150.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %84)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_14MachineCSEPassEEENS_9StringRefEv, ptr %84, align 8
   %306 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -10971,7 +10971,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i170.i = icmp ult i64 %.sroa.speculated.i.i.i.i169.i, 6
   br i1 %.not.i.i.i170.i, label %_ZN4llvm13PassInfoMixinINS_14MachineCSEPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i171.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i171.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20EarlyMachineLICMPassEEEvOT_bNS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i171.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20EarlyMachineLICMPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i172.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %312, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %315 = icmp eq i32 %bcmp.i.i.i172.i, 0
   br i1 %315, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i177.i, label %_ZN4llvm13PassInfoMixinINS_14MachineCSEPassEE4nameEv.exit.i
@@ -10981,9 +10981,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i177.i: ; preds = %_ZNK4llvm9
   %317 = add i64 %.sroa.speculated.i.i.i.i169.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_14MachineCSEPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_14MachineCSEPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i177.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i171.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20EarlyMachineLICMPassEEEvOT_bNS_9StringRefE.exit.i
-  %.sroa.01.0.i173.i = phi ptr [ %312, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20EarlyMachineLICMPassEEEvOT_bNS_9StringRefE.exit.i ], [ %316, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i177.i ], [ %312, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i171.i ]
-  %.sroa.4.0.i174.i = phi i64 [ %.sroa.speculated.i.i.i.i169.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20EarlyMachineLICMPassEEEvOT_bNS_9StringRefE.exit.i ], [ %317, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i177.i ], [ %.sroa.speculated.i.i.i.i169.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i171.i ]
+_ZN4llvm13PassInfoMixinINS_14MachineCSEPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i177.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i171.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20EarlyMachineLICMPassEEEvOT_bNS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i173.i = phi ptr [ %312, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20EarlyMachineLICMPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %316, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i177.i ], [ %312, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i171.i ]
+  %.sroa.4.0.i174.i = phi i64 [ %.sroa.speculated.i.i.i.i169.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20EarlyMachineLICMPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %317, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i177.i ], [ %.sroa.speculated.i.i.i.i169.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i171.i ]
   %318 = load ptr, ptr %109, align 8
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 152
   %320 = load ptr, ptr %319, align 8
@@ -11011,7 +11011,7 @@ _ZN4llvm13PassInfoMixinINS_14MachineCSEPassEE4nameEv.exit.i: ; preds = %_ZNK4llv
   br i1 %.not.i.i187.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i188.i, label %.lr.ph.i.i179.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i188.i: ; preds = %.lr.ph.i.i179.i
-  br i1 %328, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i189.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14MachineCSEPassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %328, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i189.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14MachineCSEPassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i189.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i188.i, %_ZN4llvm13PassInfoMixinINS_14MachineCSEPassEE4nameEv.exit.i
   %330 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11055,7 +11055,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %345 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %343) #17
   %346 = getelementptr inbounds %"class.llvm::unique_function", ptr %344, i64 %345
   %.not3.i192.i = icmp eq i64 %345, 0
-  br i1 %.not3.i192.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14MachineCSEPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i193.i
+  br i1 %.not3.i192.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14MachineCSEPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i193.i
 
 .lr.ph.i193.i:                                    ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MachineCSEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i193.i
   %.04.i194.i = phi ptr [ %351, %.lr.ph.i193.i ], [ %344, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MachineCSEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -11071,9 +11071,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %348(ptr noundef %spec.select.i.i.i199.i, ptr %.sroa.01.0.i173.i, i64 %.sroa.4.0.i174.i, ptr noundef nonnull align 8 dereferenceable(24) %330) #17
   %351 = getelementptr inbounds i8, ptr %.04.i194.i, i64 32
   %.not.i200.i = icmp eq ptr %351, %346
-  br i1 %.not.i200.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14MachineCSEPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i193.i
+  br i1 %.not.i200.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14MachineCSEPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i193.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14MachineCSEPassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i193.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MachineCSEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i188.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14MachineCSEPassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i193.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MachineCSEPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i188.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %82)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_18MachineSinkingPassEEENS_9StringRefEv, ptr %82, align 8
   %352 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -11093,7 +11093,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i208.i = icmp ult i64 %.sroa.speculated.i.i.i.i207.i, 6
   br i1 %.not.i.i.i208.i, label %_ZN4llvm13PassInfoMixinINS_18MachineSinkingPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i209.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i209.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14MachineCSEPassEEEvOT_bNS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i209.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14MachineCSEPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i210.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %358, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %361 = icmp eq i32 %bcmp.i.i.i210.i, 0
   br i1 %361, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i215.i, label %_ZN4llvm13PassInfoMixinINS_18MachineSinkingPassEE4nameEv.exit.i
@@ -11103,9 +11103,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i215.i: ; preds = %_ZNK4llvm9
   %363 = add i64 %.sroa.speculated.i.i.i.i207.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_18MachineSinkingPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_18MachineSinkingPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i215.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i209.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14MachineCSEPassEEEvOT_bNS_9StringRefE.exit.i
-  %.sroa.01.0.i211.i = phi ptr [ %358, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14MachineCSEPassEEEvOT_bNS_9StringRefE.exit.i ], [ %362, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i215.i ], [ %358, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i209.i ]
-  %.sroa.4.0.i212.i = phi i64 [ %.sroa.speculated.i.i.i.i207.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14MachineCSEPassEEEvOT_bNS_9StringRefE.exit.i ], [ %363, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i215.i ], [ %.sroa.speculated.i.i.i.i207.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i209.i ]
+_ZN4llvm13PassInfoMixinINS_18MachineSinkingPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i215.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i209.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14MachineCSEPassEEEvOT_bNS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i211.i = phi ptr [ %358, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14MachineCSEPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %362, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i215.i ], [ %358, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i209.i ]
+  %.sroa.4.0.i212.i = phi i64 [ %.sroa.speculated.i.i.i.i207.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14MachineCSEPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %363, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i215.i ], [ %.sroa.speculated.i.i.i.i207.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i209.i ]
   %364 = load ptr, ptr %109, align 8
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 152
   %366 = load ptr, ptr %365, align 8
@@ -11133,7 +11133,7 @@ _ZN4llvm13PassInfoMixinINS_18MachineSinkingPassEE4nameEv.exit.i: ; preds = %_ZNK
   br i1 %.not.i.i225.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i226.i, label %.lr.ph.i.i217.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i226.i: ; preds = %.lr.ph.i.i217.i
-  br i1 %374, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i227.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18MachineSinkingPassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %374, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i227.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18MachineSinkingPassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i227.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i226.i, %_ZN4llvm13PassInfoMixinINS_18MachineSinkingPassEE4nameEv.exit.i
   %376 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11177,7 +11177,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %391 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %389) #17
   %392 = getelementptr inbounds %"class.llvm::unique_function", ptr %390, i64 %391
   %.not3.i230.i = icmp eq i64 %391, 0
-  br i1 %.not3.i230.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18MachineSinkingPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i231.i
+  br i1 %.not3.i230.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18MachineSinkingPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i231.i
 
 .lr.ph.i231.i:                                    ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18MachineSinkingPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i231.i
   %.04.i232.i = phi ptr [ %397, %.lr.ph.i231.i ], [ %390, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18MachineSinkingPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -11193,9 +11193,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %394(ptr noundef %spec.select.i.i.i237.i, ptr %.sroa.01.0.i211.i, i64 %.sroa.4.0.i212.i, ptr noundef nonnull align 8 dereferenceable(24) %376) #17
   %397 = getelementptr inbounds i8, ptr %.04.i232.i, i64 32
   %.not.i238.i = icmp eq ptr %397, %392
-  br i1 %.not.i238.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18MachineSinkingPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i231.i
+  br i1 %.not.i238.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18MachineSinkingPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i231.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18MachineSinkingPassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i231.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18MachineSinkingPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i226.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18MachineSinkingPassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i231.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18MachineSinkingPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i226.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %80)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_21PeepholeOptimizerPassEEENS_9StringRefEv, ptr %80, align 8
   %398 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -11215,7 +11215,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i246.i = icmp ult i64 %.sroa.speculated.i.i.i.i245.i, 6
   br i1 %.not.i.i.i246.i, label %_ZN4llvm13PassInfoMixinINS_21PeepholeOptimizerPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i247.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i247.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18MachineSinkingPassEEEvOT_bNS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i247.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18MachineSinkingPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i248.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %404, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %407 = icmp eq i32 %bcmp.i.i.i248.i, 0
   br i1 %407, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i253.i, label %_ZN4llvm13PassInfoMixinINS_21PeepholeOptimizerPassEE4nameEv.exit.i
@@ -11225,9 +11225,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i253.i: ; preds = %_ZNK4llvm9
   %409 = add i64 %.sroa.speculated.i.i.i.i245.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_21PeepholeOptimizerPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_21PeepholeOptimizerPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i253.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i247.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18MachineSinkingPassEEEvOT_bNS_9StringRefE.exit.i
-  %.sroa.01.0.i249.i = phi ptr [ %404, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18MachineSinkingPassEEEvOT_bNS_9StringRefE.exit.i ], [ %408, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i253.i ], [ %404, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i247.i ]
-  %.sroa.4.0.i250.i = phi i64 [ %.sroa.speculated.i.i.i.i245.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18MachineSinkingPassEEEvOT_bNS_9StringRefE.exit.i ], [ %409, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i253.i ], [ %.sroa.speculated.i.i.i.i245.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i247.i ]
+_ZN4llvm13PassInfoMixinINS_21PeepholeOptimizerPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i253.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i247.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18MachineSinkingPassEEEvOT_bNS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i249.i = phi ptr [ %404, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18MachineSinkingPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %408, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i253.i ], [ %404, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i247.i ]
+  %.sroa.4.0.i250.i = phi i64 [ %.sroa.speculated.i.i.i.i245.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18MachineSinkingPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %409, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i253.i ], [ %.sroa.speculated.i.i.i.i245.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i247.i ]
   %410 = load ptr, ptr %109, align 8
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 152
   %412 = load ptr, ptr %411, align 8
@@ -11255,7 +11255,7 @@ _ZN4llvm13PassInfoMixinINS_21PeepholeOptimizerPassEE4nameEv.exit.i: ; preds = %_
   br i1 %.not.i.i263.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i264.i, label %.lr.ph.i.i255.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i264.i: ; preds = %.lr.ph.i.i255.i
-  br i1 %420, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i265.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PeepholeOptimizerPassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %420, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i265.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PeepholeOptimizerPassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i265.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i264.i, %_ZN4llvm13PassInfoMixinINS_21PeepholeOptimizerPassEE4nameEv.exit.i
   %422 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11299,7 +11299,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %437 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %435) #17
   %438 = getelementptr inbounds %"class.llvm::unique_function", ptr %436, i64 %437
   %.not3.i268.i = icmp eq i64 %437, 0
-  br i1 %.not3.i268.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PeepholeOptimizerPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i269.i
+  br i1 %.not3.i268.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PeepholeOptimizerPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i269.i
 
 .lr.ph.i269.i:                                    ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_21PeepholeOptimizerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i269.i
   %.04.i270.i = phi ptr [ %443, %.lr.ph.i269.i ], [ %436, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_21PeepholeOptimizerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -11315,9 +11315,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %440(ptr noundef %spec.select.i.i.i275.i, ptr %.sroa.01.0.i249.i, i64 %.sroa.4.0.i250.i, ptr noundef nonnull align 8 dereferenceable(24) %422) #17
   %443 = getelementptr inbounds i8, ptr %.04.i270.i, i64 32
   %.not.i276.i = icmp eq ptr %443, %438
-  br i1 %.not.i276.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PeepholeOptimizerPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i269.i
+  br i1 %.not.i276.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PeepholeOptimizerPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i269.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PeepholeOptimizerPassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i269.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_21PeepholeOptimizerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i264.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PeepholeOptimizerPassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i269.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_21PeepholeOptimizerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i264.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %78)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_30DeadMachineInstructionElimPassEEENS_9StringRefEv, ptr %78, align 8
   %444 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -11335,22 +11335,22 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.sroa.speculated.i.i.i.i283.i = call i64 @llvm.umin.i64(i64 %451, i64 %452)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %78)
   %.not.i.i.i284.i = icmp ult i64 %.sroa.speculated.i.i.i.i283.i, 6
-  br i1 %.not.i.i.i284.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE25addMachineSSAOptimizationERNS4_14AddMachinePassE.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i285.i
+  br i1 %.not.i.i.i284.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE25addMachineSSAOptimizationERNS4_14AddMachinePassE.argprom.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i285.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i285.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PeepholeOptimizerPassEEEvOT_bNS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i285.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PeepholeOptimizerPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i286.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %450, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %453 = icmp eq i32 %bcmp.i.i.i286.i, 0
-  br i1 %453, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i291.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE25addMachineSSAOptimizationERNS4_14AddMachinePassE.exit
+  br i1 %453, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i291.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE25addMachineSSAOptimizationERNS4_14AddMachinePassE.argprom.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i291.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i285.i
   %454 = getelementptr inbounds i8, ptr %450, i64 6
   %455 = add i64 %.sroa.speculated.i.i.i.i283.i, -6
-  br label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE25addMachineSSAOptimizationERNS4_14AddMachinePassE.exit
+  br label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE25addMachineSSAOptimizationERNS4_14AddMachinePassE.argprom.exit
 
-_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE25addMachineSSAOptimizationERNS4_14AddMachinePassE.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PeepholeOptimizerPassEEEvOT_bNS_9StringRefE.exit.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i285.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i291.i
-  %.sroa.01.0.i287.i = phi ptr [ %450, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PeepholeOptimizerPassEEEvOT_bNS_9StringRefE.exit.i ], [ %454, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i291.i ], [ %450, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i285.i ]
-  %.sroa.4.0.i288.i = phi i64 [ %.sroa.speculated.i.i.i.i283.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PeepholeOptimizerPassEEEvOT_bNS_9StringRefE.exit.i ], [ %455, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i291.i ], [ %.sroa.speculated.i.i.i.i283.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i285.i ]
-  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30DeadMachineInstructionElimPassEEEvOT_bNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.01.0.i287.i, i64 %.sroa.4.0.i288.i)
+_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE25addMachineSSAOptimizationERNS4_14AddMachinePassE.argprom.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PeepholeOptimizerPassEEEvOT_bNS_9StringRefE.argprom.exit.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i285.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i291.i
+  %.sroa.01.0.i287.i = phi ptr [ %450, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PeepholeOptimizerPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %454, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i291.i ], [ %450, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i285.i ]
+  %.sroa.4.0.i288.i = phi i64 [ %.sroa.speculated.i.i.i.i283.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PeepholeOptimizerPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %455, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i291.i ], [ %.sroa.speculated.i.i.i.i283.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i285.i ]
+  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30DeadMachineInstructionElimPassEEEvOT_bNS_9StringRefE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.01.0.i287.i, i64 %.sroa.4.0.i288.i)
   br label %469
 
 456:                                              ; preds = %3
@@ -11386,16 +11386,16 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i: ; preds = %_ZNK4llvm9Strin
 _ZN4llvm13PassInfoMixinINS_28LocalStackSlotAllocationPassEE4nameEv.exit: ; preds = %456, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i
   %.sroa.01.0.i = phi ptr [ %463, %456 ], [ %467, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i ], [ %463, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ]
   %.sroa.4.0.i = phi i64 [ %.sroa.speculated.i.i.i.i, %456 ], [ %468, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i ], [ %.sroa.speculated.i.i.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ]
-  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28LocalStackSlotAllocationPassEEEvOT_bNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.01.0.i, i64 %.sroa.4.0.i)
+  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28LocalStackSlotAllocationPassEEEvOT_bNS_9StringRefE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.01.0.i, i64 %.sroa.4.0.i)
   br label %469
 
-469:                                              ; preds = %_ZN4llvm13PassInfoMixinINS_28LocalStackSlotAllocationPassEE4nameEv.exit, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE25addMachineSSAOptimizationERNS4_14AddMachinePassE.exit
+469:                                              ; preds = %_ZN4llvm13PassInfoMixinINS_28LocalStackSlotAllocationPassEE4nameEv.exit, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE25addMachineSSAOptimizationERNS4_14AddMachinePassE.argprom.exit
   %470 = load ptr, ptr %1, align 8
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 892
   %472 = load i32, ptr %471, align 4
   %473 = and i32 %472, 2097152
   %.not71 = icmp eq i32 %473, 0
-  br i1 %.not71, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_27RegUsageInfoPropagationPassEEEvOT_bNS_9StringRefE.exit, label %474
+  br i1 %.not71, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_27RegUsageInfoPropagationPassEEEvOT_bNS_9StringRefE.argprom.exit, label %474
 
 474:                                              ; preds = %469
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %76)
@@ -11458,7 +11458,7 @@ _ZN4llvm13PassInfoMixinINS_27RegUsageInfoPropagationPassEE4nameEv.exit: ; preds 
   br i1 %.not.i.i104, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i, label %.lr.ph.i.i98
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i: ; preds = %.lr.ph.i.i98
-  br i1 %498, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_27RegUsageInfoPropagationPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %498, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_27RegUsageInfoPropagationPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i, %_ZN4llvm13PassInfoMixinINS_27RegUsageInfoPropagationPassEE4nameEv.exit
   %500 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11502,7 +11502,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %515 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %513) #17
   %516 = getelementptr inbounds %"class.llvm::unique_function", ptr %514, i64 %515
   %.not3.i = icmp eq i64 %515, 0
-  br i1 %.not3.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_27RegUsageInfoPropagationPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i
+  br i1 %.not3.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_27RegUsageInfoPropagationPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27RegUsageInfoPropagationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i
   %.04.i = phi ptr [ %521, %.lr.ph.i ], [ %514, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27RegUsageInfoPropagationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -11518,15 +11518,15 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %518(ptr noundef %spec.select.i.i.i, ptr %.sroa.01.0.i93, i64 %.sroa.4.0.i94, ptr noundef nonnull align 8 dereferenceable(24) %500) #17
   %521 = getelementptr inbounds i8, ptr %.04.i, i64 32
   %.not.i = icmp eq ptr %521, %516
-  br i1 %.not.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_27RegUsageInfoPropagationPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_27RegUsageInfoPropagationPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_27RegUsageInfoPropagationPassEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27RegUsageInfoPropagationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i, %469
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_27RegUsageInfoPropagationPassEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_27RegUsageInfoPropagationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i, %469
   %522 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %523 = load i8, ptr %522, align 8
   %524 = trunc i8 %523 to i1
   br i1 %524, label %525, label %969
 
-525:                                              ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_27RegUsageInfoPropagationPassEEEvOT_bNS_9StringRefE.exit
+525:                                              ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_27RegUsageInfoPropagationPassEEEvOT_bNS_9StringRefE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %74)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_19DetectDeadLanesPassEEENS_9StringRefEv, ptr %74, align 8
   %526 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -11587,7 +11587,7 @@ _ZN4llvm13PassInfoMixinINS_19DetectDeadLanesPassEE4nameEv.exit.i: ; preds = %_ZN
   br i1 %.not.i.i.i123, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i124, label %.lr.ph.i.i.i115
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i124: ; preds = %.lr.ph.i.i.i115
-  br i1 %549, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i125, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19DetectDeadLanesPassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %549, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i125, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19DetectDeadLanesPassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i125: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i124, %_ZN4llvm13PassInfoMixinINS_19DetectDeadLanesPassEE4nameEv.exit.i
   %551 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11631,7 +11631,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %566 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %564) #17
   %567 = getelementptr inbounds %"class.llvm::unique_function", ptr %565, i64 %566
   %.not3.i.i128 = icmp eq i64 %566, 0
-  br i1 %.not3.i.i128, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19DetectDeadLanesPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i.i129
+  br i1 %.not3.i.i128, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19DetectDeadLanesPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i.i129
 
 .lr.ph.i.i129:                                    ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19DetectDeadLanesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i.i129
   %.04.i.i130 = phi ptr [ %572, %.lr.ph.i.i129 ], [ %565, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19DetectDeadLanesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -11647,9 +11647,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %569(ptr noundef %spec.select.i.i.i.i135, ptr %.sroa.01.0.i.i112, i64 %.sroa.4.0.i.i113, ptr noundef nonnull align 8 dereferenceable(24) %551) #17
   %572 = getelementptr inbounds i8, ptr %.04.i.i130, i64 32
   %.not.i.i136 = icmp eq ptr %572, %567
-  br i1 %.not.i.i136, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19DetectDeadLanesPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i.i129
+  br i1 %.not.i.i136, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19DetectDeadLanesPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i.i129
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19DetectDeadLanesPassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i.i129, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19DetectDeadLanesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i124
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19DetectDeadLanesPassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i.i129, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19DetectDeadLanesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i124
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_13InitUndefPassEEENS_9StringRefEv, ptr %72, align 8
   %573 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -11669,7 +11669,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i38.i = icmp ult i64 %.sroa.speculated.i.i.i.i37.i, 6
   br i1 %.not.i.i.i38.i, label %_ZN4llvm13PassInfoMixinINS_13InitUndefPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i39.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i39.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19DetectDeadLanesPassEEEvOT_bNS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i39.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19DetectDeadLanesPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i40.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %579, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %582 = icmp eq i32 %bcmp.i.i.i40.i, 0
   br i1 %582, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i45.i, label %_ZN4llvm13PassInfoMixinINS_13InitUndefPassEE4nameEv.exit.i
@@ -11679,9 +11679,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i45.i: ; preds = %_ZNK4llvm9S
   %584 = add i64 %.sroa.speculated.i.i.i.i37.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_13InitUndefPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_13InitUndefPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i45.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i39.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19DetectDeadLanesPassEEEvOT_bNS_9StringRefE.exit.i
-  %.sroa.01.0.i41.i = phi ptr [ %579, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19DetectDeadLanesPassEEEvOT_bNS_9StringRefE.exit.i ], [ %583, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i45.i ], [ %579, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i39.i ]
-  %.sroa.4.0.i42.i = phi i64 [ %.sroa.speculated.i.i.i.i37.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19DetectDeadLanesPassEEEvOT_bNS_9StringRefE.exit.i ], [ %584, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i45.i ], [ %.sroa.speculated.i.i.i.i37.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i39.i ]
+_ZN4llvm13PassInfoMixinINS_13InitUndefPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i45.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i39.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19DetectDeadLanesPassEEEvOT_bNS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i41.i = phi ptr [ %579, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19DetectDeadLanesPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %583, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i45.i ], [ %579, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i39.i ]
+  %.sroa.4.0.i42.i = phi i64 [ %.sroa.speculated.i.i.i.i37.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19DetectDeadLanesPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %584, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i45.i ], [ %.sroa.speculated.i.i.i.i37.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i39.i ]
   %585 = load ptr, ptr %538, align 8
   %586 = getelementptr inbounds nuw i8, ptr %585, i64 152
   %587 = load ptr, ptr %586, align 8
@@ -11709,7 +11709,7 @@ _ZN4llvm13PassInfoMixinINS_13InitUndefPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm
   br i1 %.not.i.i55.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i56.i, label %.lr.ph.i.i47.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i56.i: ; preds = %.lr.ph.i.i47.i
-  br i1 %595, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i57.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_13InitUndefPassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %595, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i57.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_13InitUndefPassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i57.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i56.i, %_ZN4llvm13PassInfoMixinINS_13InitUndefPassEE4nameEv.exit.i
   %597 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11753,7 +11753,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %612 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %610) #17
   %613 = getelementptr inbounds %"class.llvm::unique_function", ptr %611, i64 %612
   %.not3.i60.i = icmp eq i64 %612, 0
-  br i1 %.not3.i60.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_13InitUndefPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i61.i
+  br i1 %.not3.i60.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_13InitUndefPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i61.i
 
 .lr.ph.i61.i:                                     ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13InitUndefPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i61.i
   %.04.i62.i = phi ptr [ %618, %.lr.ph.i61.i ], [ %611, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13InitUndefPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -11769,9 +11769,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %615(ptr noundef %spec.select.i.i.i67.i, ptr %.sroa.01.0.i41.i, i64 %.sroa.4.0.i42.i, ptr noundef nonnull align 8 dereferenceable(24) %597) #17
   %618 = getelementptr inbounds i8, ptr %.04.i62.i, i64 32
   %.not.i68.i = icmp eq ptr %618, %613
-  br i1 %.not.i68.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_13InitUndefPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i61.i
+  br i1 %.not.i68.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_13InitUndefPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i61.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_13InitUndefPassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i61.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13InitUndefPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i56.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_13InitUndefPassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i61.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_13InitUndefPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i56.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_23ProcessImplicitDefsPassEEENS_9StringRefEv, ptr %70, align 8
   %619 = getelementptr inbounds nuw i8, ptr %70, i64 8
@@ -11791,7 +11791,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i76.i = icmp ult i64 %.sroa.speculated.i.i.i.i75.i, 6
   br i1 %.not.i.i.i76.i, label %_ZN4llvm13PassInfoMixinINS_23ProcessImplicitDefsPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i77.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i77.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_13InitUndefPassEEEvOT_bNS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i77.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_13InitUndefPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i78.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %625, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %628 = icmp eq i32 %bcmp.i.i.i78.i, 0
   br i1 %628, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i83.i, label %_ZN4llvm13PassInfoMixinINS_23ProcessImplicitDefsPassEE4nameEv.exit.i
@@ -11801,9 +11801,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i83.i: ; preds = %_ZNK4llvm9S
   %630 = add i64 %.sroa.speculated.i.i.i.i75.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_23ProcessImplicitDefsPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_23ProcessImplicitDefsPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i83.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i77.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_13InitUndefPassEEEvOT_bNS_9StringRefE.exit.i
-  %.sroa.01.0.i79.i = phi ptr [ %625, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_13InitUndefPassEEEvOT_bNS_9StringRefE.exit.i ], [ %629, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i83.i ], [ %625, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i77.i ]
-  %.sroa.4.0.i80.i = phi i64 [ %.sroa.speculated.i.i.i.i75.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_13InitUndefPassEEEvOT_bNS_9StringRefE.exit.i ], [ %630, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i83.i ], [ %.sroa.speculated.i.i.i.i75.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i77.i ]
+_ZN4llvm13PassInfoMixinINS_23ProcessImplicitDefsPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i83.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i77.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_13InitUndefPassEEEvOT_bNS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i79.i = phi ptr [ %625, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_13InitUndefPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %629, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i83.i ], [ %625, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i77.i ]
+  %.sroa.4.0.i80.i = phi i64 [ %.sroa.speculated.i.i.i.i75.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_13InitUndefPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %630, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i83.i ], [ %.sroa.speculated.i.i.i.i75.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i77.i ]
   %631 = load ptr, ptr %538, align 8
   %632 = getelementptr inbounds nuw i8, ptr %631, i64 152
   %633 = load ptr, ptr %632, align 8
@@ -11831,7 +11831,7 @@ _ZN4llvm13PassInfoMixinINS_23ProcessImplicitDefsPassEE4nameEv.exit.i: ; preds = 
   br i1 %.not.i.i93.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i94.i, label %.lr.ph.i.i85.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i94.i: ; preds = %.lr.ph.i.i85.i
-  br i1 %641, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i95.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ProcessImplicitDefsPassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %641, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i95.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ProcessImplicitDefsPassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i95.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i94.i, %_ZN4llvm13PassInfoMixinINS_23ProcessImplicitDefsPassEE4nameEv.exit.i
   %643 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11875,7 +11875,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %658 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %656) #17
   %659 = getelementptr inbounds %"class.llvm::unique_function", ptr %657, i64 %658
   %.not3.i98.i = icmp eq i64 %658, 0
-  br i1 %.not3.i98.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ProcessImplicitDefsPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i99.i
+  br i1 %.not3.i98.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ProcessImplicitDefsPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i99.i
 
 .lr.ph.i99.i:                                     ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23ProcessImplicitDefsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i99.i
   %.04.i100.i = phi ptr [ %664, %.lr.ph.i99.i ], [ %657, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23ProcessImplicitDefsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -11891,9 +11891,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %661(ptr noundef %spec.select.i.i.i105.i, ptr %.sroa.01.0.i79.i, i64 %.sroa.4.0.i80.i, ptr noundef nonnull align 8 dereferenceable(24) %643) #17
   %664 = getelementptr inbounds i8, ptr %.04.i100.i, i64 32
   %.not.i106.i = icmp eq ptr %664, %659
-  br i1 %.not.i106.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ProcessImplicitDefsPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i99.i
+  br i1 %.not.i106.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ProcessImplicitDefsPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i99.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ProcessImplicitDefsPassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i99.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23ProcessImplicitDefsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i94.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ProcessImplicitDefsPassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i99.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23ProcessImplicitDefsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i94.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_18PHIEliminationPassEEENS_9StringRefEv, ptr %68, align 8
   %665 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -11913,7 +11913,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i114.i = icmp ult i64 %.sroa.speculated.i.i.i.i113.i, 6
   br i1 %.not.i.i.i114.i, label %_ZN4llvm13PassInfoMixinINS_18PHIEliminationPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i115.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i115.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ProcessImplicitDefsPassEEEvOT_bNS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i115.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ProcessImplicitDefsPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i116.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %671, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %674 = icmp eq i32 %bcmp.i.i.i116.i, 0
   br i1 %674, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i121.i, label %_ZN4llvm13PassInfoMixinINS_18PHIEliminationPassEE4nameEv.exit.i
@@ -11923,14 +11923,14 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i121.i: ; preds = %_ZNK4llvm9
   %676 = add i64 %.sroa.speculated.i.i.i.i113.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_18PHIEliminationPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_18PHIEliminationPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i121.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i115.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ProcessImplicitDefsPassEEEvOT_bNS_9StringRefE.exit.i
-  %.sroa.01.0.i117.i = phi ptr [ %671, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ProcessImplicitDefsPassEEEvOT_bNS_9StringRefE.exit.i ], [ %675, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i121.i ], [ %671, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i115.i ]
-  %.sroa.4.0.i118.i = phi i64 [ %.sroa.speculated.i.i.i.i113.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ProcessImplicitDefsPassEEEvOT_bNS_9StringRefE.exit.i ], [ %676, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i121.i ], [ %.sroa.speculated.i.i.i.i113.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i115.i ]
-  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18PHIEliminationPassEEEvOT_bNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.01.0.i117.i, i64 %.sroa.4.0.i118.i)
+_ZN4llvm13PassInfoMixinINS_18PHIEliminationPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i121.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i115.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ProcessImplicitDefsPassEEEvOT_bNS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i117.i = phi ptr [ %671, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ProcessImplicitDefsPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %675, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i121.i ], [ %671, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i115.i ]
+  %.sroa.4.0.i118.i = phi i64 [ %.sroa.speculated.i.i.i.i113.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ProcessImplicitDefsPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %676, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i121.i ], [ %.sroa.speculated.i.i.i.i113.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i115.i ]
+  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18PHIEliminationPassEEEvOT_bNS_9StringRefE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.01.0.i117.i, i64 %.sroa.4.0.i118.i)
   %677 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %678 = load i8, ptr %677, align 2
   %679 = trunc i8 %678 to i1
-  br i1 %679, label %680, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %679, label %680, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 680:                                              ; preds = %_ZN4llvm13PassInfoMixinINS_18PHIEliminationPassEE4nameEv.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %67)
@@ -11992,7 +11992,7 @@ _ZN4llvm13PassInfoMixinINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_1
   br i1 %.not.i.i142.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i143.i, label %.lr.ph.i.i134.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i143.i: ; preds = %.lr.ph.i.i134.i
-  br i1 %703, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i144.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %703, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i144.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i144.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i143.i, %_ZN4llvm13PassInfoMixinINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS3_JEEEJEEEE4nameEv.exit.i
   %705 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12036,7 +12036,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %720 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %718) #17
   %721 = getelementptr inbounds %"class.llvm::unique_function", ptr %719, i64 %720
   %.not3.i147.i = icmp eq i64 %720, 0
-  br i1 %.not3.i147.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i148.i
+  br i1 %.not3.i147.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i148.i
 
 .lr.ph.i148.i:                                    ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisES1_S3_JEEEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOSA_.exit.i.i, %.lr.ph.i148.i
   %.04.i149.i = phi ptr [ %726, %.lr.ph.i148.i ], [ %719, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisES1_S3_JEEEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOSA_.exit.i.i ]
@@ -12052,9 +12052,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %723(ptr noundef %spec.select.i.i.i154.i, ptr %.sroa.01.0.i128.i, i64 %.sroa.4.0.i129.i, ptr noundef nonnull align 8 dereferenceable(24) %705) #17
   %726 = getelementptr inbounds i8, ptr %.04.i149.i, i64 32
   %.not.i155.i = icmp eq ptr %726, %721
-  br i1 %.not.i155.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i148.i
+  br i1 %.not.i155.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i148.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i148.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisES1_S3_JEEEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOSA_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i143.i, %_ZN4llvm13PassInfoMixinINS_18PHIEliminationPassEE4nameEv.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i148.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisES1_S3_JEEEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOSA_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i143.i, %_ZN4llvm13PassInfoMixinINS_18PHIEliminationPassEE4nameEv.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %65)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_25TwoAddressInstructionPassEEENS_9StringRefEv, ptr %65, align 8
   %727 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -12074,7 +12074,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i163.i = icmp ult i64 %.sroa.speculated.i.i.i.i162.i, 6
   br i1 %.not.i.i.i163.i, label %_ZN4llvm13PassInfoMixinINS_25TwoAddressInstructionPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i164.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i164.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i164.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i165.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %733, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %736 = icmp eq i32 %bcmp.i.i.i165.i, 0
   br i1 %736, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i170.i, label %_ZN4llvm13PassInfoMixinINS_25TwoAddressInstructionPassEE4nameEv.exit.i
@@ -12084,10 +12084,10 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i170.i: ; preds = %_ZNK4llvm9
   %738 = add i64 %.sroa.speculated.i.i.i.i162.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_25TwoAddressInstructionPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_25TwoAddressInstructionPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i170.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i164.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.exit.i
-  %.sroa.01.0.i166.i = phi ptr [ %733, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.exit.i ], [ %737, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i170.i ], [ %733, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i164.i ]
-  %.sroa.4.0.i167.i = phi i64 [ %.sroa.speculated.i.i.i.i162.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.exit.i ], [ %738, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i170.i ], [ %.sroa.speculated.i.i.i.i162.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i164.i ]
-  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25TwoAddressInstructionPassEEEvOT_bNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.01.0.i166.i, i64 %.sroa.4.0.i167.i)
+_ZN4llvm13PassInfoMixinINS_25TwoAddressInstructionPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i170.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i164.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i166.i = phi ptr [ %733, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %737, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i170.i ], [ %733, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i164.i ]
+  %.sroa.4.0.i167.i = phi i64 [ %.sroa.speculated.i.i.i.i162.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19RequireAnalysisPassINS_21LiveIntervalsAnalysisENS_15MachineFunctionENS_15AnalysisManagerIS9_JEEEJEEEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %738, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i170.i ], [ %.sroa.speculated.i.i.i.i162.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i164.i ]
+  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25TwoAddressInstructionPassEEEvOT_bNS_9StringRefE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.01.0.i166.i, i64 %.sroa.4.0.i167.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_21RegisterCoalescerPassEEENS_9StringRefEv, ptr %64, align 8
   %739 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -12147,7 +12147,7 @@ _ZN4llvm13PassInfoMixinINS_21RegisterCoalescerPassEE4nameEv.exit.i: ; preds = %_
   br i1 %.not.i.i191.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i192.i, label %.lr.ph.i.i183.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i192.i: ; preds = %.lr.ph.i.i183.i
-  br i1 %761, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i193.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21RegisterCoalescerPassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %761, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i193.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21RegisterCoalescerPassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i193.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i192.i, %_ZN4llvm13PassInfoMixinINS_21RegisterCoalescerPassEE4nameEv.exit.i
   %763 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12191,7 +12191,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %778 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %776) #17
   %779 = getelementptr inbounds %"class.llvm::unique_function", ptr %777, i64 %778
   %.not3.i196.i = icmp eq i64 %778, 0
-  br i1 %.not3.i196.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21RegisterCoalescerPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i197.i
+  br i1 %.not3.i196.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21RegisterCoalescerPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i197.i
 
 .lr.ph.i197.i:                                    ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_21RegisterCoalescerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i197.i
   %.04.i198.i = phi ptr [ %784, %.lr.ph.i197.i ], [ %777, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_21RegisterCoalescerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -12207,9 +12207,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %781(ptr noundef %spec.select.i.i.i203.i, ptr %.sroa.01.0.i177.i, i64 %.sroa.4.0.i178.i, ptr noundef nonnull align 8 dereferenceable(24) %763) #17
   %784 = getelementptr inbounds i8, ptr %.04.i198.i, i64 32
   %.not.i204.i = icmp eq ptr %784, %779
-  br i1 %.not.i204.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21RegisterCoalescerPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i197.i
+  br i1 %.not.i204.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21RegisterCoalescerPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i197.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21RegisterCoalescerPassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i197.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_21RegisterCoalescerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i192.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21RegisterCoalescerPassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i197.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_21RegisterCoalescerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i192.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_28RenameIndependentSubregsPassEEENS_9StringRefEv, ptr %62, align 8
   %785 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -12229,7 +12229,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i212.i = icmp ult i64 %.sroa.speculated.i.i.i.i211.i, 6
   br i1 %.not.i.i.i212.i, label %_ZN4llvm13PassInfoMixinINS_28RenameIndependentSubregsPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i213.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i213.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21RegisterCoalescerPassEEEvOT_bNS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i213.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21RegisterCoalescerPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i214.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %791, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %794 = icmp eq i32 %bcmp.i.i.i214.i, 0
   br i1 %794, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i219.i, label %_ZN4llvm13PassInfoMixinINS_28RenameIndependentSubregsPassEE4nameEv.exit.i
@@ -12239,9 +12239,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i219.i: ; preds = %_ZNK4llvm9
   %796 = add i64 %.sroa.speculated.i.i.i.i211.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_28RenameIndependentSubregsPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_28RenameIndependentSubregsPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i219.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i213.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21RegisterCoalescerPassEEEvOT_bNS_9StringRefE.exit.i
-  %.sroa.01.0.i215.i = phi ptr [ %791, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21RegisterCoalescerPassEEEvOT_bNS_9StringRefE.exit.i ], [ %795, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i219.i ], [ %791, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i213.i ]
-  %.sroa.4.0.i216.i = phi i64 [ %.sroa.speculated.i.i.i.i211.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21RegisterCoalescerPassEEEvOT_bNS_9StringRefE.exit.i ], [ %796, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i219.i ], [ %.sroa.speculated.i.i.i.i211.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i213.i ]
+_ZN4llvm13PassInfoMixinINS_28RenameIndependentSubregsPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i219.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i213.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21RegisterCoalescerPassEEEvOT_bNS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i215.i = phi ptr [ %791, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21RegisterCoalescerPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %795, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i219.i ], [ %791, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i213.i ]
+  %.sroa.4.0.i216.i = phi i64 [ %.sroa.speculated.i.i.i.i211.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21RegisterCoalescerPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %796, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i219.i ], [ %.sroa.speculated.i.i.i.i211.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i213.i ]
   %797 = load ptr, ptr %538, align 8
   %798 = getelementptr inbounds nuw i8, ptr %797, i64 152
   %799 = load ptr, ptr %798, align 8
@@ -12269,7 +12269,7 @@ _ZN4llvm13PassInfoMixinINS_28RenameIndependentSubregsPassEE4nameEv.exit.i: ; pre
   br i1 %.not.i.i229.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i230.i, label %.lr.ph.i.i221.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i230.i: ; preds = %.lr.ph.i.i221.i
-  br i1 %807, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i231.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28RenameIndependentSubregsPassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %807, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i231.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28RenameIndependentSubregsPassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i231.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i230.i, %_ZN4llvm13PassInfoMixinINS_28RenameIndependentSubregsPassEE4nameEv.exit.i
   %809 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12313,7 +12313,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %824 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %822) #17
   %825 = getelementptr inbounds %"class.llvm::unique_function", ptr %823, i64 %824
   %.not3.i234.i = icmp eq i64 %824, 0
-  br i1 %.not3.i234.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28RenameIndependentSubregsPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i235.i
+  br i1 %.not3.i234.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28RenameIndependentSubregsPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i235.i
 
 .lr.ph.i235.i:                                    ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_28RenameIndependentSubregsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i235.i
   %.04.i236.i = phi ptr [ %830, %.lr.ph.i235.i ], [ %823, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_28RenameIndependentSubregsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -12329,9 +12329,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %827(ptr noundef %spec.select.i.i.i241.i, ptr %.sroa.01.0.i215.i, i64 %.sroa.4.0.i216.i, ptr noundef nonnull align 8 dereferenceable(24) %809) #17
   %830 = getelementptr inbounds i8, ptr %.04.i236.i, i64 32
   %.not.i242.i = icmp eq ptr %830, %825
-  br i1 %.not.i242.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28RenameIndependentSubregsPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i235.i
+  br i1 %.not.i242.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28RenameIndependentSubregsPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i235.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28RenameIndependentSubregsPassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i235.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_28RenameIndependentSubregsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i230.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28RenameIndependentSubregsPassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i235.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_28RenameIndependentSubregsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i230.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_20MachineSchedulerPassEEENS_9StringRefEv, ptr %60, align 8
   %831 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -12351,7 +12351,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i250.i = icmp ult i64 %.sroa.speculated.i.i.i.i249.i, 6
   br i1 %.not.i.i.i250.i, label %_ZN4llvm13PassInfoMixinINS_20MachineSchedulerPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i251.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i251.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28RenameIndependentSubregsPassEEEvOT_bNS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i251.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28RenameIndependentSubregsPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i252.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %837, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %840 = icmp eq i32 %bcmp.i.i.i252.i, 0
   br i1 %840, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i257.i, label %_ZN4llvm13PassInfoMixinINS_20MachineSchedulerPassEE4nameEv.exit.i
@@ -12361,9 +12361,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i257.i: ; preds = %_ZNK4llvm9
   %842 = add i64 %.sroa.speculated.i.i.i.i249.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_20MachineSchedulerPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_20MachineSchedulerPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i257.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i251.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28RenameIndependentSubregsPassEEEvOT_bNS_9StringRefE.exit.i
-  %.sroa.01.0.i253.i = phi ptr [ %837, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28RenameIndependentSubregsPassEEEvOT_bNS_9StringRefE.exit.i ], [ %841, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i257.i ], [ %837, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i251.i ]
-  %.sroa.4.0.i254.i = phi i64 [ %.sroa.speculated.i.i.i.i249.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28RenameIndependentSubregsPassEEEvOT_bNS_9StringRefE.exit.i ], [ %842, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i257.i ], [ %.sroa.speculated.i.i.i.i249.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i251.i ]
+_ZN4llvm13PassInfoMixinINS_20MachineSchedulerPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i257.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i251.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28RenameIndependentSubregsPassEEEvOT_bNS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i253.i = phi ptr [ %837, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28RenameIndependentSubregsPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %841, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i257.i ], [ %837, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i251.i ]
+  %.sroa.4.0.i254.i = phi i64 [ %.sroa.speculated.i.i.i.i249.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28RenameIndependentSubregsPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %842, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i257.i ], [ %.sroa.speculated.i.i.i.i249.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i251.i ]
   %843 = load ptr, ptr %538, align 8
   %844 = getelementptr inbounds nuw i8, ptr %843, i64 152
   %845 = load ptr, ptr %844, align 8
@@ -12391,7 +12391,7 @@ _ZN4llvm13PassInfoMixinINS_20MachineSchedulerPassEE4nameEv.exit.i: ; preds = %_Z
   br i1 %.not.i.i267.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i268.i, label %.lr.ph.i.i259.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i268.i: ; preds = %.lr.ph.i.i259.i
-  br i1 %853, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i269.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20MachineSchedulerPassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %853, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i269.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20MachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i269.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i268.i, %_ZN4llvm13PassInfoMixinINS_20MachineSchedulerPassEE4nameEv.exit.i
   %855 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12435,7 +12435,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %870 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %868) #17
   %871 = getelementptr inbounds %"class.llvm::unique_function", ptr %869, i64 %870
   %.not3.i272.i = icmp eq i64 %870, 0
-  br i1 %.not3.i272.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20MachineSchedulerPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i273.i
+  br i1 %.not3.i272.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20MachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i273.i
 
 .lr.ph.i273.i:                                    ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20MachineSchedulerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i273.i
   %.04.i274.i = phi ptr [ %876, %.lr.ph.i273.i ], [ %869, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20MachineSchedulerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -12451,9 +12451,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %873(ptr noundef %spec.select.i.i.i279.i, ptr %.sroa.01.0.i253.i, i64 %.sroa.4.0.i254.i, ptr noundef nonnull align 8 dereferenceable(24) %855) #17
   %876 = getelementptr inbounds i8, ptr %.04.i274.i, i64 32
   %.not.i280.i = icmp eq ptr %876, %871
-  br i1 %.not.i280.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20MachineSchedulerPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i273.i
+  br i1 %.not.i280.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20MachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i273.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20MachineSchedulerPassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i273.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20MachineSchedulerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i268.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20MachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i273.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20MachineSchedulerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i268.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58), !noalias !149
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_19VirtRegRewriterPassEEENS_9StringRefEv, ptr %58, align 8, !noalias !149
   %877 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -12473,7 +12473,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i.i286.i = icmp ult i64 %.sroa.speculated.i.i.i.i.i.i, 6
   br i1 %.not.i.i.i.i286.i, label %_ZN4llvm13PassInfoMixinINS_19VirtRegRewriterPassEE4nameEv.exit.i.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20MachineSchedulerPassEEEvOT_bNS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20MachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %883, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6), !noalias !149
   %886 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %886, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i.i, label %_ZN4llvm13PassInfoMixinINS_19VirtRegRewriterPassEE4nameEv.exit.i.i
@@ -12483,9 +12483,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm9S
   %888 = add i64 %.sroa.speculated.i.i.i.i.i.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_19VirtRegRewriterPassEE4nameEv.exit.i.i
 
-_ZN4llvm13PassInfoMixinINS_19VirtRegRewriterPassEE4nameEv.exit.i.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20MachineSchedulerPassEEEvOT_bNS_9StringRefE.exit.i
-  %.sroa.01.0.i.i.i = phi ptr [ %883, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20MachineSchedulerPassEEEvOT_bNS_9StringRefE.exit.i ], [ %887, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i.i ], [ %883, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i.i ]
-  %.sroa.4.0.i.i.i = phi i64 [ %.sroa.speculated.i.i.i.i.i.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20MachineSchedulerPassEEEvOT_bNS_9StringRefE.exit.i ], [ %888, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i.i ]
+_ZN4llvm13PassInfoMixinINS_19VirtRegRewriterPassEE4nameEv.exit.i.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20MachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i.i.i = phi ptr [ %883, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20MachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %887, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i.i ], [ %883, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i.i ]
+  %.sroa.4.0.i.i.i = phi i64 [ %.sroa.speculated.i.i.i.i.i.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20MachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %888, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i.i ]
   %889 = load ptr, ptr %538, align 8, !noalias !149
   %890 = getelementptr inbounds nuw i8, ptr %889, i64 152
   %891 = load ptr, ptr %890, align 8, !noalias !149
@@ -12513,7 +12513,7 @@ _ZN4llvm13PassInfoMixinINS_19VirtRegRewriterPassEE4nameEv.exit.i.i: ; preds = %_
   br i1 %.not.i.i.i287.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  br i1 %899, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19VirtRegRewriterPassEEEvOT_bNS_9StringRefE.exit.i.i
+  br i1 %899, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19VirtRegRewriterPassEEEvOT_bNS_9StringRefE.argprom.exit.i.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i.i, %_ZN4llvm13PassInfoMixinINS_19VirtRegRewriterPassEE4nameEv.exit.i.i
   %901 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12557,7 +12557,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %916 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %914) #17, !noalias !149
   %917 = getelementptr inbounds %"class.llvm::unique_function", ptr %915, i64 %916
   %.not3.i.i.i = icmp eq i64 %916, 0
-  br i1 %.not3.i.i.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19VirtRegRewriterPassEEEvOT_bNS_9StringRefE.exit.i.i, label %.lr.ph.i.i288.i
+  br i1 %.not3.i.i.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19VirtRegRewriterPassEEEvOT_bNS_9StringRefE.argprom.exit.i.i, label %.lr.ph.i.i288.i
 
 .lr.ph.i.i288.i:                                  ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19VirtRegRewriterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i, %.lr.ph.i.i288.i
   %.04.i.i.i = phi ptr [ %922, %.lr.ph.i.i288.i ], [ %915, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19VirtRegRewriterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i ]
@@ -12573,9 +12573,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %919(ptr noundef %spec.select.i.i.i.i292.i, ptr %.sroa.01.0.i.i.i, i64 %.sroa.4.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %901) #17, !noalias !149
   %922 = getelementptr inbounds i8, ptr %.04.i.i.i, i64 32
   %.not.i.i293.i = icmp eq ptr %922, %917
-  br i1 %.not.i.i293.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19VirtRegRewriterPassEEEvOT_bNS_9StringRefE.exit.i.i, label %.lr.ph.i.i288.i
+  br i1 %.not.i.i293.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19VirtRegRewriterPassEEEvOT_bNS_9StringRefE.argprom.exit.i.i, label %.lr.ph.i.i288.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19VirtRegRewriterPassEEEvOT_bNS_9StringRefE.exit.i.i: ; preds = %.lr.ph.i.i288.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19VirtRegRewriterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19VirtRegRewriterPassEEEvOT_bNS_9StringRefE.argprom.exit.i.i: ; preds = %.lr.ph.i.i288.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19VirtRegRewriterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56), !noalias !149
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_21StackSlotColoringPassEEENS_9StringRefEv, ptr %56, align 8, !noalias !149
   %923 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -12595,7 +12595,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i11.i.i = icmp ult i64 %.sroa.speculated.i.i.i.i10.i.i, 6
   br i1 %.not.i.i.i11.i.i, label %_ZN4llvm13PassInfoMixinINS_21StackSlotColoringPassEE4nameEv.exit.i.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i12.i.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i12.i.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19VirtRegRewriterPassEEEvOT_bNS_9StringRefE.exit.i.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i12.i.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19VirtRegRewriterPassEEEvOT_bNS_9StringRefE.argprom.exit.i.i
   %bcmp.i.i.i13.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %929, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6), !noalias !149
   %932 = icmp eq i32 %bcmp.i.i.i13.i.i, 0
   br i1 %932, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i18.i.i, label %_ZN4llvm13PassInfoMixinINS_21StackSlotColoringPassEE4nameEv.exit.i.i
@@ -12605,9 +12605,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i18.i.i: ; preds = %_ZNK4llvm
   %934 = add i64 %.sroa.speculated.i.i.i.i10.i.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_21StackSlotColoringPassEE4nameEv.exit.i.i
 
-_ZN4llvm13PassInfoMixinINS_21StackSlotColoringPassEE4nameEv.exit.i.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i18.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i12.i.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19VirtRegRewriterPassEEEvOT_bNS_9StringRefE.exit.i.i
-  %.sroa.01.0.i14.i.i = phi ptr [ %929, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19VirtRegRewriterPassEEEvOT_bNS_9StringRefE.exit.i.i ], [ %933, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i18.i.i ], [ %929, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i12.i.i ]
-  %.sroa.4.0.i15.i.i = phi i64 [ %.sroa.speculated.i.i.i.i10.i.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19VirtRegRewriterPassEEEvOT_bNS_9StringRefE.exit.i.i ], [ %934, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i18.i.i ], [ %.sroa.speculated.i.i.i.i10.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i12.i.i ]
+_ZN4llvm13PassInfoMixinINS_21StackSlotColoringPassEE4nameEv.exit.i.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i18.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i12.i.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19VirtRegRewriterPassEEEvOT_bNS_9StringRefE.argprom.exit.i.i
+  %.sroa.01.0.i14.i.i = phi ptr [ %929, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19VirtRegRewriterPassEEEvOT_bNS_9StringRefE.argprom.exit.i.i ], [ %933, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i18.i.i ], [ %929, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i12.i.i ]
+  %.sroa.4.0.i15.i.i = phi i64 [ %.sroa.speculated.i.i.i.i10.i.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19VirtRegRewriterPassEEEvOT_bNS_9StringRefE.argprom.exit.i.i ], [ %934, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i18.i.i ], [ %.sroa.speculated.i.i.i.i10.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i12.i.i ]
   %935 = load ptr, ptr %538, align 8, !noalias !149
   %936 = getelementptr inbounds nuw i8, ptr %935, i64 152
   %937 = load ptr, ptr %936, align 8, !noalias !149
@@ -12697,7 +12697,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %.not.i41.i.i = icmp eq ptr %968, %963
   br i1 %.not.i41.i.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE20addOptimizedRegAllocERNS4_14AddMachinePassE.exit, label %.lr.ph.i34.i.i
 
-969:                                              ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_27RegUsageInfoPropagationPassEEEvOT_bNS_9StringRefE.exit
+969:                                              ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_27RegUsageInfoPropagationPassEEEvOT_bNS_9StringRefE.argprom.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !152)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54), !noalias !152
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_18PHIEliminationPassEEENS_9StringRefEv, ptr %54, align 8, !noalias !152
@@ -12731,7 +12731,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i152: ; preds = %_ZNK4llvm9
 _ZN4llvm13PassInfoMixinINS_18PHIEliminationPassEE4nameEv.exit.i148: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i152, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i146, %969
   %.sroa.01.0.i.i149 = phi ptr [ %976, %969 ], [ %980, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i152 ], [ %976, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i146 ]
   %.sroa.4.0.i.i150 = phi i64 [ %.sroa.speculated.i.i.i.i.i144, %969 ], [ %981, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i152 ], [ %.sroa.speculated.i.i.i.i.i144, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i146 ]
-  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18PHIEliminationPassEEEvOT_bNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.01.0.i.i149, i64 %.sroa.4.0.i.i150)
+  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18PHIEliminationPassEEEvOT_bNS_9StringRefE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.01.0.i.i149, i64 %.sroa.4.0.i.i150)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53), !noalias !152
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_25TwoAddressInstructionPassEEENS_9StringRefEv, ptr %53, align 8, !noalias !152
   %982 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -12764,7 +12764,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i16.i: ; preds = %_ZNK4llvm9S
 994:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i16.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i10.i, %_ZN4llvm13PassInfoMixinINS_18PHIEliminationPassEE4nameEv.exit.i148
   %.sroa.01.0.i12.i = phi ptr [ %988, %_ZN4llvm13PassInfoMixinINS_18PHIEliminationPassEE4nameEv.exit.i148 ], [ %992, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i16.i ], [ %988, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i10.i ]
   %.sroa.4.0.i13.i = phi i64 [ %.sroa.speculated.i.i.i.i8.i, %_ZN4llvm13PassInfoMixinINS_18PHIEliminationPassEE4nameEv.exit.i148 ], [ %993, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i16.i ], [ %.sroa.speculated.i.i.i.i8.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i10.i ]
-  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25TwoAddressInstructionPassEEEvOT_bNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.01.0.i12.i, i64 %.sroa.4.0.i13.i)
+  call fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25TwoAddressInstructionPassEEEvOT_bNS_9StringRefE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.01.0.i12.i, i64 %.sroa.4.0.i13.i)
   store ptr null, ptr %0, align 8, !alias.scope !155
   br label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE20addOptimizedRegAllocERNS4_14AddMachinePassE.exit
 
@@ -12829,7 +12829,7 @@ _ZN4llvm13PassInfoMixinINS_30RemoveRedundantDebugValuesPassEE4nameEv.exit: ; pre
   br i1 %.not.i.i173, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i174, label %.lr.ph.i.i165
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i174: ; preds = %.lr.ph.i.i165
-  br i1 %1018, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i175, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30RemoveRedundantDebugValuesPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %1018, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i175, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30RemoveRedundantDebugValuesPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i175: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i174, %_ZN4llvm13PassInfoMixinINS_30RemoveRedundantDebugValuesPassEE4nameEv.exit
   %1020 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12873,7 +12873,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1035 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1033) #17
   %1036 = getelementptr inbounds %"class.llvm::unique_function", ptr %1034, i64 %1035
   %.not3.i178 = icmp eq i64 %1035, 0
-  br i1 %.not3.i178, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30RemoveRedundantDebugValuesPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i179
+  br i1 %.not3.i178, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30RemoveRedundantDebugValuesPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i179
 
 .lr.ph.i179:                                      ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30RemoveRedundantDebugValuesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i179
   %.04.i180 = phi ptr [ %1041, %.lr.ph.i179 ], [ %1034, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30RemoveRedundantDebugValuesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -12889,16 +12889,16 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1038(ptr noundef %spec.select.i.i.i185, ptr %.sroa.01.0.i159, i64 %.sroa.4.0.i160, ptr noundef nonnull align 8 dereferenceable(24) %1020) #17
   %1041 = getelementptr inbounds i8, ptr %.04.i180, i64 32
   %.not.i186 = icmp eq ptr %1041, %1036
-  br i1 %.not.i186, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30RemoveRedundantDebugValuesPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i179
+  br i1 %.not.i186, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30RemoveRedundantDebugValuesPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i179
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30RemoveRedundantDebugValuesPassEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i179, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i174, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30RemoveRedundantDebugValuesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30RemoveRedundantDebugValuesPassEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i179, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i174, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30RemoveRedundantDebugValuesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
   %.val83 = load ptr, ptr %1, align 8
   %1042 = getelementptr i8, ptr %.val83, i64 664
   %.val83.val = load i32, ptr %1042, align 8
   %.not72 = icmp eq i32 %.val83.val, 0
-  br i1 %.not72, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.exit, label %1043
+  br i1 %.not72, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.argprom.exit, label %1043
 
-1043:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30RemoveRedundantDebugValuesPassEEEvOT_bNS_9StringRefE.exit
+1043:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30RemoveRedundantDebugValuesPassEEEvOT_bNS_9StringRefE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_24PostRAMachineSinkingPassEEENS_9StringRefEv, ptr %50, align 8
   %1044 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -12958,7 +12958,7 @@ _ZN4llvm13PassInfoMixinINS_24PostRAMachineSinkingPassEE4nameEv.exit: ; preds = %
   br i1 %.not.i.i211, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i212, label %.lr.ph.i.i203
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i212: ; preds = %.lr.ph.i.i203
-  br i1 %1066, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i213, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostRAMachineSinkingPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %1066, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i213, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostRAMachineSinkingPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i213: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i212, %_ZN4llvm13PassInfoMixinINS_24PostRAMachineSinkingPassEE4nameEv.exit
   %1068 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13002,7 +13002,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1083 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1081) #17
   %1084 = getelementptr inbounds %"class.llvm::unique_function", ptr %1082, i64 %1083
   %.not3.i216 = icmp eq i64 %1083, 0
-  br i1 %.not3.i216, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostRAMachineSinkingPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i217
+  br i1 %.not3.i216, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostRAMachineSinkingPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i217
 
 .lr.ph.i217:                                      ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24PostRAMachineSinkingPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i217
   %.04.i218 = phi ptr [ %1089, %.lr.ph.i217 ], [ %1082, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24PostRAMachineSinkingPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -13018,9 +13018,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1086(ptr noundef %spec.select.i.i.i223, ptr %.sroa.01.0.i197, i64 %.sroa.4.0.i198, ptr noundef nonnull align 8 dereferenceable(24) %1068) #17
   %1089 = getelementptr inbounds i8, ptr %.04.i218, i64 32
   %.not.i224 = icmp eq ptr %1089, %1084
-  br i1 %.not.i224, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostRAMachineSinkingPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i217
+  br i1 %.not.i224, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostRAMachineSinkingPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i217
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostRAMachineSinkingPassEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i217, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i212, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24PostRAMachineSinkingPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostRAMachineSinkingPassEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i217, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i212, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24PostRAMachineSinkingPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_14ShrinkWrapPassEEENS_9StringRefEv, ptr %48, align 8
   %1090 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -13040,7 +13040,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i232 = icmp ult i64 %.sroa.speculated.i.i.i.i231, 6
   br i1 %.not.i.i.i232, label %_ZN4llvm13PassInfoMixinINS_14ShrinkWrapPassEE4nameEv.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i233
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i233: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostRAMachineSinkingPassEEEvOT_bNS_9StringRefE.exit
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i233: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostRAMachineSinkingPassEEEvOT_bNS_9StringRefE.argprom.exit
   %bcmp.i.i.i234 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1096, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %1099 = icmp eq i32 %bcmp.i.i.i234, 0
   br i1 %1099, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i239, label %_ZN4llvm13PassInfoMixinINS_14ShrinkWrapPassEE4nameEv.exit
@@ -13050,9 +13050,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i239: ; preds = %_ZNK4llvm9St
   %1101 = add i64 %.sroa.speculated.i.i.i.i231, -6
   br label %_ZN4llvm13PassInfoMixinINS_14ShrinkWrapPassEE4nameEv.exit
 
-_ZN4llvm13PassInfoMixinINS_14ShrinkWrapPassEE4nameEv.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostRAMachineSinkingPassEEEvOT_bNS_9StringRefE.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i233, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i239
-  %.sroa.01.0.i235 = phi ptr [ %1096, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostRAMachineSinkingPassEEEvOT_bNS_9StringRefE.exit ], [ %1100, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i239 ], [ %1096, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i233 ]
-  %.sroa.4.0.i236 = phi i64 [ %.sroa.speculated.i.i.i.i231, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostRAMachineSinkingPassEEEvOT_bNS_9StringRefE.exit ], [ %1101, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i239 ], [ %.sroa.speculated.i.i.i.i231, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i233 ]
+_ZN4llvm13PassInfoMixinINS_14ShrinkWrapPassEE4nameEv.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostRAMachineSinkingPassEEEvOT_bNS_9StringRefE.argprom.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i233, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i239
+  %.sroa.01.0.i235 = phi ptr [ %1096, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostRAMachineSinkingPassEEEvOT_bNS_9StringRefE.argprom.exit ], [ %1100, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i239 ], [ %1096, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i233 ]
+  %.sroa.4.0.i236 = phi i64 [ %.sroa.speculated.i.i.i.i231, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostRAMachineSinkingPassEEEvOT_bNS_9StringRefE.argprom.exit ], [ %1101, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i239 ], [ %.sroa.speculated.i.i.i.i231, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i233 ]
   %1102 = load ptr, ptr %1007, align 8
   %1103 = getelementptr inbounds nuw i8, ptr %1102, i64 152
   %1104 = load ptr, ptr %1103, align 8
@@ -13080,7 +13080,7 @@ _ZN4llvm13PassInfoMixinINS_14ShrinkWrapPassEE4nameEv.exit: ; preds = %_ZN4llvm18
   br i1 %.not.i.i249, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i250, label %.lr.ph.i.i241
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i250: ; preds = %.lr.ph.i.i241
-  br i1 %1112, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i251, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %1112, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i251, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i251: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i250, %_ZN4llvm13PassInfoMixinINS_14ShrinkWrapPassEE4nameEv.exit
   %1114 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13124,7 +13124,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1129 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1127) #17
   %1130 = getelementptr inbounds %"class.llvm::unique_function", ptr %1128, i64 %1129
   %.not3.i254 = icmp eq i64 %1129, 0
-  br i1 %.not3.i254, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i255
+  br i1 %.not3.i254, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i255
 
 .lr.ph.i255:                                      ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14ShrinkWrapPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i255
   %.04.i256 = phi ptr [ %1135, %.lr.ph.i255 ], [ %1128, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14ShrinkWrapPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -13140,9 +13140,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1132(ptr noundef %spec.select.i.i.i261, ptr %.sroa.01.0.i235, i64 %.sroa.4.0.i236, ptr noundef nonnull align 8 dereferenceable(24) %1114) #17
   %1135 = getelementptr inbounds i8, ptr %.04.i256, i64 32
   %.not.i262 = icmp eq ptr %1135, %1130
-  br i1 %.not.i262, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i255
+  br i1 %.not.i262, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i255
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i255, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14ShrinkWrapPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i250, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30RemoveRedundantDebugValuesPassEEEvOT_bNS_9StringRefE.exit
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i255, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14ShrinkWrapPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i250, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30RemoveRedundantDebugValuesPassEEEvOT_bNS_9StringRefE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_24PrologEpilogInserterPassEEENS_9StringRefEv, ptr %46, align 8
   %1136 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -13162,7 +13162,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i270 = icmp ult i64 %.sroa.speculated.i.i.i.i269, 6
   br i1 %.not.i.i.i270, label %_ZN4llvm13PassInfoMixinINS_24PrologEpilogInserterPassEE4nameEv.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i271
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i271: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.exit
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i271: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.argprom.exit
   %bcmp.i.i.i272 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1142, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %1145 = icmp eq i32 %bcmp.i.i.i272, 0
   br i1 %1145, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i277, label %_ZN4llvm13PassInfoMixinINS_24PrologEpilogInserterPassEE4nameEv.exit
@@ -13172,9 +13172,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i277: ; preds = %_ZNK4llvm9St
   %1147 = add i64 %.sroa.speculated.i.i.i.i269, -6
   br label %_ZN4llvm13PassInfoMixinINS_24PrologEpilogInserterPassEE4nameEv.exit
 
-_ZN4llvm13PassInfoMixinINS_24PrologEpilogInserterPassEE4nameEv.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i271, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i277
-  %.sroa.01.0.i273 = phi ptr [ %1142, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.exit ], [ %1146, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i277 ], [ %1142, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i271 ]
-  %.sroa.4.0.i274 = phi i64 [ %.sroa.speculated.i.i.i.i269, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.exit ], [ %1147, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i277 ], [ %.sroa.speculated.i.i.i.i269, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i271 ]
+_ZN4llvm13PassInfoMixinINS_24PrologEpilogInserterPassEE4nameEv.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.argprom.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i271, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i277
+  %.sroa.01.0.i273 = phi ptr [ %1142, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.argprom.exit ], [ %1146, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i277 ], [ %1142, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i271 ]
+  %.sroa.4.0.i274 = phi i64 [ %.sroa.speculated.i.i.i.i269, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_14ShrinkWrapPassEEEvOT_bNS_9StringRefE.argprom.exit ], [ %1147, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i277 ], [ %.sroa.speculated.i.i.i.i269, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i271 ]
   %1148 = load ptr, ptr %1007, align 8
   %1149 = getelementptr inbounds nuw i8, ptr %1148, i64 152
   %1150 = load ptr, ptr %1149, align 8
@@ -13202,7 +13202,7 @@ _ZN4llvm13PassInfoMixinINS_24PrologEpilogInserterPassEE4nameEv.exit: ; preds = %
   br i1 %.not.i.i287, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i288, label %.lr.ph.i.i279
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i288: ; preds = %.lr.ph.i.i279
-  br i1 %1158, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i289, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PrologEpilogInserterPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %1158, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i289, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PrologEpilogInserterPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i289: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i288, %_ZN4llvm13PassInfoMixinINS_24PrologEpilogInserterPassEE4nameEv.exit
   %1160 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13246,7 +13246,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1175 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1173) #17
   %1176 = getelementptr inbounds %"class.llvm::unique_function", ptr %1174, i64 %1175
   %.not3.i292 = icmp eq i64 %1175, 0
-  br i1 %.not3.i292, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PrologEpilogInserterPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i293
+  br i1 %.not3.i292, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PrologEpilogInserterPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i293
 
 .lr.ph.i293:                                      ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24PrologEpilogInserterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i293
   %.04.i294 = phi ptr [ %1181, %.lr.ph.i293 ], [ %1174, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24PrologEpilogInserterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -13262,16 +13262,16 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1178(ptr noundef %spec.select.i.i.i299, ptr %.sroa.01.0.i273, i64 %.sroa.4.0.i274, ptr noundef nonnull align 8 dereferenceable(24) %1160) #17
   %1181 = getelementptr inbounds i8, ptr %.04.i294, i64 32
   %.not.i300 = icmp eq ptr %1181, %1176
-  br i1 %.not.i300, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PrologEpilogInserterPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i293
+  br i1 %.not.i300, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PrologEpilogInserterPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i293
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PrologEpilogInserterPassEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i293, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i288, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24PrologEpilogInserterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PrologEpilogInserterPassEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i293, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i288, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24PrologEpilogInserterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
   %.val82 = load ptr, ptr %1, align 8
   %1182 = getelementptr i8, ptr %.val82, i64 664
   %.val82.val = load i32, ptr %1182, align 8
   %.not73 = icmp eq i32 %.val82.val, 0
   br i1 %.not73, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE26addMachineLateOptimizationERNS4_14AddMachinePassE.exit, label %1183
 
-1183:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PrologEpilogInserterPassEEEvOT_bNS_9StringRefE.exit
+1183:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PrologEpilogInserterPassEEEvOT_bNS_9StringRefE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_16BranchFolderPassEEENS_9StringRefEv, ptr %44, align 8
   %1184 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -13331,7 +13331,7 @@ _ZN4llvm13PassInfoMixinINS_16BranchFolderPassEE4nameEv.exit.i: ; preds = %_ZNK4l
   br i1 %.not.i.i.i322, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i323, label %.lr.ph.i.i.i314
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i323: ; preds = %.lr.ph.i.i.i314
-  br i1 %1206, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i325, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16BranchFolderPassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %1206, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i325, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16BranchFolderPassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i325: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i323, %_ZN4llvm13PassInfoMixinINS_16BranchFolderPassEE4nameEv.exit.i
   %1208 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13375,7 +13375,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1223 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1221) #17
   %1224 = getelementptr inbounds %"class.llvm::unique_function", ptr %1222, i64 %1223
   %.not3.i.i328 = icmp eq i64 %1223, 0
-  br i1 %.not3.i.i328, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16BranchFolderPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i.i329
+  br i1 %.not3.i.i328, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16BranchFolderPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i.i329
 
 .lr.ph.i.i329:                                    ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_16BranchFolderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i.i329
   %.04.i.i330 = phi ptr [ %1229, %.lr.ph.i.i329 ], [ %1222, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_16BranchFolderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -13391,17 +13391,17 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1226(ptr noundef %spec.select.i.i.i.i335, ptr %.sroa.01.0.i.i311, i64 %.sroa.4.0.i.i312, ptr noundef nonnull align 8 dereferenceable(24) %1208) #17
   %1229 = getelementptr inbounds i8, ptr %.04.i.i330, i64 32
   %.not.i.i336 = icmp eq ptr %1229, %1224
-  br i1 %.not.i.i336, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16BranchFolderPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i.i329
+  br i1 %.not.i.i336, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16BranchFolderPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i.i329
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16BranchFolderPassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i.i329, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_16BranchFolderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i323
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16BranchFolderPassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i.i329, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_16BranchFolderPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i323
   %1230 = load ptr, ptr %1, align 8
   %1231 = getelementptr inbounds nuw i8, ptr %1230, i64 704
   %1232 = load i8, ptr %1231, align 8
   %1233 = and i8 %1232, 1
   %.not.i324 = icmp eq i8 %1233, 0
-  br i1 %.not.i324, label %1234, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %.not.i324, label %1234, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
-1234:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16BranchFolderPassEEEvOT_bNS_9StringRefE.exit.i
+1234:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16BranchFolderPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_17TailDuplicatePassEEENS_9StringRefEv, ptr %42, align 8
   %1235 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -13461,7 +13461,7 @@ _ZN4llvm13PassInfoMixinINS_17TailDuplicatePassEE4nameEv.exit.i: ; preds = %_ZNK4
   br i1 %.not.i.i32.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i33.i, label %.lr.ph.i.i24.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i33.i: ; preds = %.lr.ph.i.i24.i
-  br i1 %1257, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i34.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %1257, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i34.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i34.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i33.i, %_ZN4llvm13PassInfoMixinINS_17TailDuplicatePassEE4nameEv.exit.i
   %1259 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13505,7 +13505,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1274 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1272) #17
   %1275 = getelementptr inbounds %"class.llvm::unique_function", ptr %1273, i64 %1274
   %.not3.i37.i = icmp eq i64 %1274, 0
-  br i1 %.not3.i37.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i38.i
+  br i1 %.not3.i37.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i38.i
 
 .lr.ph.i38.i:                                     ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17TailDuplicatePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i38.i
   %.04.i39.i = phi ptr [ %1280, %.lr.ph.i38.i ], [ %1273, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17TailDuplicatePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -13521,9 +13521,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1277(ptr noundef %spec.select.i.i.i44.i, ptr %.sroa.01.0.i18.i, i64 %.sroa.4.0.i19.i, ptr noundef nonnull align 8 dereferenceable(24) %1259) #17
   %1280 = getelementptr inbounds i8, ptr %.04.i39.i, i64 32
   %.not.i45.i = icmp eq ptr %1280, %1275
-  br i1 %.not.i45.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i38.i
+  br i1 %.not.i45.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i38.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i38.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17TailDuplicatePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i33.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16BranchFolderPassEEEvOT_bNS_9StringRefE.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i38.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17TailDuplicatePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i33.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_16BranchFolderPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_28MachineLateInstrsCleanupPassEEENS_9StringRefEv, ptr %40, align 8
   %1281 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -13543,7 +13543,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i53.i = icmp ult i64 %.sroa.speculated.i.i.i.i52.i, 6
   br i1 %.not.i.i.i53.i, label %_ZN4llvm13PassInfoMixinINS_28MachineLateInstrsCleanupPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i54.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i54.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i54.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i55.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1287, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %1290 = icmp eq i32 %bcmp.i.i.i55.i, 0
   br i1 %1290, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i60.i, label %_ZN4llvm13PassInfoMixinINS_28MachineLateInstrsCleanupPassEE4nameEv.exit.i
@@ -13553,9 +13553,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i60.i: ; preds = %_ZNK4llvm9S
   %1292 = add i64 %.sroa.speculated.i.i.i.i52.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_28MachineLateInstrsCleanupPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_28MachineLateInstrsCleanupPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i60.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i54.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i
-  %.sroa.01.0.i56.i = phi ptr [ %1287, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i ], [ %1291, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i60.i ], [ %1287, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i54.i ]
-  %.sroa.4.0.i57.i = phi i64 [ %.sroa.speculated.i.i.i.i52.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.exit.i ], [ %1292, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i60.i ], [ %.sroa.speculated.i.i.i.i52.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i54.i ]
+_ZN4llvm13PassInfoMixinINS_28MachineLateInstrsCleanupPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i60.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i54.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i56.i = phi ptr [ %1287, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %1291, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i60.i ], [ %1287, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i54.i ]
+  %.sroa.4.0.i57.i = phi i64 [ %.sroa.speculated.i.i.i.i52.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17TailDuplicatePassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %1292, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i60.i ], [ %.sroa.speculated.i.i.i.i52.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i54.i ]
   %1293 = load ptr, ptr %1007, align 8
   %1294 = getelementptr inbounds nuw i8, ptr %1293, i64 152
   %1295 = load ptr, ptr %1294, align 8
@@ -13583,7 +13583,7 @@ _ZN4llvm13PassInfoMixinINS_28MachineLateInstrsCleanupPassEE4nameEv.exit.i: ; pre
   br i1 %.not.i.i70.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i71.i, label %.lr.ph.i.i62.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i71.i: ; preds = %.lr.ph.i.i62.i
-  br i1 %1303, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i72.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28MachineLateInstrsCleanupPassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %1303, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i72.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28MachineLateInstrsCleanupPassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i72.i: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i71.i, %_ZN4llvm13PassInfoMixinINS_28MachineLateInstrsCleanupPassEE4nameEv.exit.i
   %1305 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13627,7 +13627,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1320 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1318) #17
   %1321 = getelementptr inbounds %"class.llvm::unique_function", ptr %1319, i64 %1320
   %.not3.i75.i = icmp eq i64 %1320, 0
-  br i1 %.not3.i75.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28MachineLateInstrsCleanupPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i76.i
+  br i1 %.not3.i75.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28MachineLateInstrsCleanupPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i76.i
 
 .lr.ph.i76.i:                                     ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_28MachineLateInstrsCleanupPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i76.i
   %.04.i77.i = phi ptr [ %1326, %.lr.ph.i76.i ], [ %1319, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_28MachineLateInstrsCleanupPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -13643,9 +13643,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1323(ptr noundef %spec.select.i.i.i82.i, ptr %.sroa.01.0.i56.i, i64 %.sroa.4.0.i57.i, ptr noundef nonnull align 8 dereferenceable(24) %1305) #17
   %1326 = getelementptr inbounds i8, ptr %.04.i77.i, i64 32
   %.not.i83.i = icmp eq ptr %1326, %1321
-  br i1 %.not.i83.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28MachineLateInstrsCleanupPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i76.i
+  br i1 %.not.i83.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28MachineLateInstrsCleanupPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i76.i
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28MachineLateInstrsCleanupPassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i76.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_28MachineLateInstrsCleanupPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i71.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28MachineLateInstrsCleanupPassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i76.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_28MachineLateInstrsCleanupPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i71.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_26MachineCopyPropagationPassEEENS_9StringRefEv, ptr %38, align 8
   %1327 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -13665,7 +13665,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i91.i = icmp ult i64 %.sroa.speculated.i.i.i.i90.i, 6
   br i1 %.not.i.i.i91.i, label %_ZN4llvm13PassInfoMixinINS_26MachineCopyPropagationPassEE4nameEv.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28MachineLateInstrsCleanupPassEEEvOT_bNS_9StringRefE.exit.i
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28MachineLateInstrsCleanupPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   %bcmp.i.i.i93.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1333, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %1336 = icmp eq i32 %bcmp.i.i.i93.i, 0
   br i1 %1336, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i98.i, label %_ZN4llvm13PassInfoMixinINS_26MachineCopyPropagationPassEE4nameEv.exit.i
@@ -13675,9 +13675,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i98.i: ; preds = %_ZNK4llvm9S
   %1338 = add i64 %.sroa.speculated.i.i.i.i90.i, -6
   br label %_ZN4llvm13PassInfoMixinINS_26MachineCopyPropagationPassEE4nameEv.exit.i
 
-_ZN4llvm13PassInfoMixinINS_26MachineCopyPropagationPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i98.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28MachineLateInstrsCleanupPassEEEvOT_bNS_9StringRefE.exit.i
-  %.sroa.01.0.i94.i = phi ptr [ %1333, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28MachineLateInstrsCleanupPassEEEvOT_bNS_9StringRefE.exit.i ], [ %1337, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i98.i ], [ %1333, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i ]
-  %.sroa.4.0.i95.i = phi i64 [ %.sroa.speculated.i.i.i.i90.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28MachineLateInstrsCleanupPassEEEvOT_bNS_9StringRefE.exit.i ], [ %1338, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i98.i ], [ %.sroa.speculated.i.i.i.i90.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i ]
+_ZN4llvm13PassInfoMixinINS_26MachineCopyPropagationPassEE4nameEv.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i98.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28MachineLateInstrsCleanupPassEEEvOT_bNS_9StringRefE.argprom.exit.i
+  %.sroa.01.0.i94.i = phi ptr [ %1333, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28MachineLateInstrsCleanupPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %1337, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i98.i ], [ %1333, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i ]
+  %.sroa.4.0.i95.i = phi i64 [ %.sroa.speculated.i.i.i.i90.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28MachineLateInstrsCleanupPassEEEvOT_bNS_9StringRefE.argprom.exit.i ], [ %1338, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i98.i ], [ %.sroa.speculated.i.i.i.i90.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i92.i ]
   %1339 = load ptr, ptr %1007, align 8
   %1340 = getelementptr inbounds nuw i8, ptr %1339, i64 152
   %1341 = load ptr, ptr %1340, align 8
@@ -13767,7 +13767,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %.not.i121.i = icmp eq ptr %1372, %1367
   br i1 %.not.i121.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE26addMachineLateOptimizationERNS4_14AddMachinePassE.exit, label %.lr.ph.i114.i
 
-_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE26addMachineLateOptimizationERNS4_14AddMachinePassE.exit: ; preds = %.lr.ph.i114.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_26MachineCopyPropagationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i109.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PrologEpilogInserterPassEEEvOT_bNS_9StringRefE.exit
+_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE26addMachineLateOptimizationERNS4_14AddMachinePassE.exit: ; preds = %.lr.ph.i114.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_26MachineCopyPropagationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i109.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PrologEpilogInserterPassEEEvOT_bNS_9StringRefE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_23ExpandPostRAPseudosPassEEENS_9StringRefEv, ptr %36, align 8
   %1373 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -13827,7 +13827,7 @@ _ZN4llvm13PassInfoMixinINS_23ExpandPostRAPseudosPassEE4nameEv.exit: ; preds = %_
   br i1 %.not.i.i361, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i362, label %.lr.ph.i.i353
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i362: ; preds = %.lr.ph.i.i353
-  br i1 %1395, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i363, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ExpandPostRAPseudosPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %1395, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i363, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ExpandPostRAPseudosPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i363: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i362, %_ZN4llvm13PassInfoMixinINS_23ExpandPostRAPseudosPassEE4nameEv.exit
   %1397 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13871,7 +13871,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1412 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1410) #17
   %1413 = getelementptr inbounds %"class.llvm::unique_function", ptr %1411, i64 %1412
   %.not3.i366 = icmp eq i64 %1412, 0
-  br i1 %.not3.i366, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ExpandPostRAPseudosPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i367
+  br i1 %.not3.i366, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ExpandPostRAPseudosPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i367
 
 .lr.ph.i367:                                      ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23ExpandPostRAPseudosPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i367
   %.04.i368 = phi ptr [ %1418, %.lr.ph.i367 ], [ %1411, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23ExpandPostRAPseudosPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -13887,15 +13887,15 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1415(ptr noundef %spec.select.i.i.i373, ptr %.sroa.01.0.i347, i64 %.sroa.4.0.i348, ptr noundef nonnull align 8 dereferenceable(24) %1397) #17
   %1418 = getelementptr inbounds i8, ptr %.04.i368, i64 32
   %.not.i374 = icmp eq ptr %1418, %1413
-  br i1 %.not.i374, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ExpandPostRAPseudosPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i367
+  br i1 %.not.i374, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ExpandPostRAPseudosPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i367
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ExpandPostRAPseudosPassEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i367, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i362, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23ExpandPostRAPseudosPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ExpandPostRAPseudosPassEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i367, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i362, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23ExpandPostRAPseudosPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
   %1419 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %1420 = load i8, ptr %1419, align 2
   %1421 = trunc i8 %1420 to i1
-  br i1 %1421, label %1422, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22ImplicitNullChecksPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %1421, label %1422, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22ImplicitNullChecksPassEEEvOT_bNS_9StringRefE.argprom.exit
 
-1422:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ExpandPostRAPseudosPassEEEvOT_bNS_9StringRefE.exit
+1422:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ExpandPostRAPseudosPassEEEvOT_bNS_9StringRefE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_22ImplicitNullChecksPassEEENS_9StringRefEv, ptr %34, align 8
   %1423 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -13955,7 +13955,7 @@ _ZN4llvm13PassInfoMixinINS_22ImplicitNullChecksPassEE4nameEv.exit: ; preds = %14
   br i1 %.not.i.i399, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i400, label %.lr.ph.i.i391
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i400: ; preds = %.lr.ph.i.i391
-  br i1 %1445, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i401, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22ImplicitNullChecksPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %1445, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i401, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22ImplicitNullChecksPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i401: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i400, %_ZN4llvm13PassInfoMixinINS_22ImplicitNullChecksPassEE4nameEv.exit
   %1447 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13999,7 +13999,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1462 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1460) #17
   %1463 = getelementptr inbounds %"class.llvm::unique_function", ptr %1461, i64 %1462
   %.not3.i404 = icmp eq i64 %1462, 0
-  br i1 %.not3.i404, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22ImplicitNullChecksPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i405
+  br i1 %.not3.i404, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22ImplicitNullChecksPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i405
 
 .lr.ph.i405:                                      ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22ImplicitNullChecksPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i405
   %.04.i406 = phi ptr [ %1468, %.lr.ph.i405 ], [ %1461, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22ImplicitNullChecksPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -14015,16 +14015,16 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1465(ptr noundef %spec.select.i.i.i411, ptr %.sroa.01.0.i385, i64 %.sroa.4.0.i386, ptr noundef nonnull align 8 dereferenceable(24) %1447) #17
   %1468 = getelementptr inbounds i8, ptr %.04.i406, i64 32
   %.not.i412 = icmp eq ptr %1468, %1463
-  br i1 %.not.i412, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22ImplicitNullChecksPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i405
+  br i1 %.not.i412, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22ImplicitNullChecksPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i405
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22ImplicitNullChecksPassEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i405, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22ImplicitNullChecksPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i400, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ExpandPostRAPseudosPassEEEvOT_bNS_9StringRefE.exit
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22ImplicitNullChecksPassEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i405, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_22ImplicitNullChecksPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i400, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23ExpandPostRAPseudosPassEEEvOT_bNS_9StringRefE.argprom.exit
   %.val81 = load ptr, ptr %1, align 8
   %1469 = getelementptr i8, ptr %.val81, i64 664
   %.val81.val = load i32, ptr %1469, align 8
   %.not74 = icmp eq i32 %.val81.val, 0
-  br i1 %.not74, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.exit, label %1470
+  br i1 %.not74, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit, label %1470
 
-1470:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22ImplicitNullChecksPassEEEvOT_bNS_9StringRefE.exit
+1470:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22ImplicitNullChecksPassEEEvOT_bNS_9StringRefE.argprom.exit
   %1471 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %1472 = load i8, ptr %1471, align 1
   %1473 = trunc i8 %1472 to i1
@@ -14090,7 +14090,7 @@ _ZN4llvm13PassInfoMixinINS_24PostMachineSchedulerPassEE4nameEv.exit: ; preds = %
   br i1 %.not.i.i437, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i438, label %.lr.ph.i.i429
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i438: ; preds = %.lr.ph.i.i429
-  br i1 %1497, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i439, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %1497, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i439, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i439: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i438, %_ZN4llvm13PassInfoMixinINS_24PostMachineSchedulerPassEE4nameEv.exit
   %1499 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14134,7 +14134,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1514 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1512) #17
   %1515 = getelementptr inbounds %"class.llvm::unique_function", ptr %1513, i64 %1514
   %.not3.i442 = icmp eq i64 %1514, 0
-  br i1 %.not3.i442, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i443
+  br i1 %.not3.i442, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i443
 
 .lr.ph.i443:                                      ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24PostMachineSchedulerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i443
   %.04.i444 = phi ptr [ %1520, %.lr.ph.i443 ], [ %1513, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24PostMachineSchedulerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -14150,7 +14150,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1517(ptr noundef %spec.select.i.i.i449, ptr %.sroa.01.0.i423, i64 %.sroa.4.0.i424, ptr noundef nonnull align 8 dereferenceable(24) %1499) #17
   %1520 = getelementptr inbounds i8, ptr %.04.i444, i64 32
   %.not.i450 = icmp eq ptr %1520, %1515
-  br i1 %.not.i450, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i443
+  br i1 %.not.i450, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i443
 
 1521:                                             ; preds = %1470
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30)
@@ -14212,7 +14212,7 @@ _ZN4llvm13PassInfoMixinINS_19PostRASchedulerPassEE4nameEv.exit: ; preds = %1521,
   br i1 %.not.i.i475, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i476, label %.lr.ph.i.i467
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i476: ; preds = %.lr.ph.i.i467
-  br i1 %1544, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i477, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %1544, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i477, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i477: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i476, %_ZN4llvm13PassInfoMixinINS_19PostRASchedulerPassEE4nameEv.exit
   %1546 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14256,7 +14256,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1561 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1559) #17
   %1562 = getelementptr inbounds %"class.llvm::unique_function", ptr %1560, i64 %1561
   %.not3.i480 = icmp eq i64 %1561, 0
-  br i1 %.not3.i480, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i481
+  br i1 %.not3.i480, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i481
 
 .lr.ph.i481:                                      ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19PostRASchedulerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i481
   %.04.i482 = phi ptr [ %1567, %.lr.ph.i481 ], [ %1560, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19PostRASchedulerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -14272,16 +14272,16 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1564(ptr noundef %spec.select.i.i.i487, ptr %.sroa.01.0.i461, i64 %.sroa.4.0.i462, ptr noundef nonnull align 8 dereferenceable(24) %1546) #17
   %1567 = getelementptr inbounds i8, ptr %.04.i482, i64 32
   %.not.i488 = icmp eq ptr %1567, %1562
-  br i1 %.not.i488, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i481
+  br i1 %.not.i488, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i481
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i481, %.lr.ph.i443, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19PostRASchedulerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i476, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24PostMachineSchedulerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i438, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22ImplicitNullChecksPassEEEvOT_bNS_9StringRefE.exit
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i481, %.lr.ph.i443, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19PostRASchedulerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i476, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_24PostMachineSchedulerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i438, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_22ImplicitNullChecksPassEEEvOT_bNS_9StringRefE.argprom.exit
   %.val80 = load ptr, ptr %1, align 8
   %1568 = getelementptr i8, ptr %.val80, i64 664
   %.val80.val = load i32, ptr %1568, align 8
   %.not75 = icmp eq i32 %.val80.val, 0
   br i1 %.not75, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addBlockPlacementERNS4_14AddMachinePassE.exit, label %1569
 
-1569:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.exit
+1569:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_25MachineBlockPlacementPassEEENS_9StringRefEv, ptr %28, align 8
   %1570 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -14341,7 +14341,7 @@ _ZN4llvm13PassInfoMixinINS_25MachineBlockPlacementPassEE4nameEv.exit.i: ; preds 
   br i1 %.not.i.i.i510, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i511, label %.lr.ph.i.i.i502
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i511: ; preds = %.lr.ph.i.i.i502
-  br i1 %1592, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i521, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25MachineBlockPlacementPassEEEvOT_bNS_9StringRefE.exit.i
+  br i1 %1592, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i521, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25MachineBlockPlacementPassEEEvOT_bNS_9StringRefE.argprom.exit.i
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i.i521: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i511, %_ZN4llvm13PassInfoMixinINS_25MachineBlockPlacementPassEE4nameEv.exit.i
   %1594 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14385,7 +14385,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1609 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1607) #17
   %1610 = getelementptr inbounds %"class.llvm::unique_function", ptr %1608, i64 %1609
   %.not3.i.i524 = icmp eq i64 %1609, 0
-  br i1 %.not3.i.i524, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25MachineBlockPlacementPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i.i525
+  br i1 %.not3.i.i524, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25MachineBlockPlacementPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i.i525
 
 .lr.ph.i.i525:                                    ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_25MachineBlockPlacementPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %.lr.ph.i.i525
   %.04.i.i526 = phi ptr [ %1615, %.lr.ph.i.i525 ], [ %1608, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_25MachineBlockPlacementPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i ]
@@ -14401,15 +14401,15 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1612(ptr noundef %spec.select.i.i.i.i531, ptr %.sroa.01.0.i.i499, i64 %.sroa.4.0.i.i500, ptr noundef nonnull align 8 dereferenceable(24) %1594) #17
   %1615 = getelementptr inbounds i8, ptr %.04.i.i526, i64 32
   %.not.i.i532 = icmp eq ptr %1615, %1610
-  br i1 %.not.i.i532, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25MachineBlockPlacementPassEEEvOT_bNS_9StringRefE.exit.i, label %.lr.ph.i.i525
+  br i1 %.not.i.i532, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25MachineBlockPlacementPassEEEvOT_bNS_9StringRefE.argprom.exit.i, label %.lr.ph.i.i525
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25MachineBlockPlacementPassEEEvOT_bNS_9StringRefE.exit.i: ; preds = %.lr.ph.i.i525, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_25MachineBlockPlacementPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i511
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25MachineBlockPlacementPassEEEvOT_bNS_9StringRefE.argprom.exit.i: ; preds = %.lr.ph.i.i525, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_25MachineBlockPlacementPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i.i511
   %1616 = getelementptr inbounds nuw i8, ptr %1, i64 15
   %1617 = load i8, ptr %1616, align 1
   %1618 = trunc i8 %1617 to i1
   br i1 %1618, label %1619, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addBlockPlacementERNS4_14AddMachinePassE.exit
 
-1619:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25MachineBlockPlacementPassEEEvOT_bNS_9StringRefE.exit.i
+1619:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25MachineBlockPlacementPassEEEvOT_bNS_9StringRefE.argprom.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_30MachineBlockPlacementStatsPassEEENS_9StringRefEv, ptr %26, align 8
   %1620 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -14531,7 +14531,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %.not.i39.i = icmp eq ptr %1665, %1660
   br i1 %.not.i39.i, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addBlockPlacementERNS4_14AddMachinePassE.exit, label %.lr.ph.i32.i
 
-_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addBlockPlacementERNS4_14AddMachinePassE.exit: ; preds = %.lr.ph.i32.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30MachineBlockPlacementStatsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i27.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25MachineBlockPlacementPassEEEvOT_bNS_9StringRefE.exit.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.exit
+_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addBlockPlacementERNS4_14AddMachinePassE.exit: ; preds = %.lr.ph.i32.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30MachineBlockPlacementStatsPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i27.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25MachineBlockPlacementPassEEEvOT_bNS_9StringRefE.argprom.exit.i, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_24PostMachineSchedulerPassEEEvOT_bNS_9StringRefE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_18FEntryInserterPassEEENS_9StringRefEv, ptr %24, align 8
   %1666 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -14591,7 +14591,7 @@ _ZN4llvm13PassInfoMixinINS_18FEntryInserterPassEE4nameEv.exit: ; preds = %_ZNK4l
   br i1 %.not.i.i557, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i558, label %.lr.ph.i.i549
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i558: ; preds = %.lr.ph.i.i549
-  br i1 %1688, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i559, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18FEntryInserterPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %1688, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i559, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18FEntryInserterPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i559: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i558, %_ZN4llvm13PassInfoMixinINS_18FEntryInserterPassEE4nameEv.exit
   %1690 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14635,7 +14635,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1705 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1703) #17
   %1706 = getelementptr inbounds %"class.llvm::unique_function", ptr %1704, i64 %1705
   %.not3.i562 = icmp eq i64 %1705, 0
-  br i1 %.not3.i562, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18FEntryInserterPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i563
+  br i1 %.not3.i562, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18FEntryInserterPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i563
 
 .lr.ph.i563:                                      ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18FEntryInserterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i563
   %.04.i564 = phi ptr [ %1711, %.lr.ph.i563 ], [ %1704, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18FEntryInserterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -14651,9 +14651,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1708(ptr noundef %spec.select.i.i.i569, ptr %.sroa.01.0.i543, i64 %.sroa.4.0.i544, ptr noundef nonnull align 8 dereferenceable(24) %1690) #17
   %1711 = getelementptr inbounds i8, ptr %.04.i564, i64 32
   %.not.i570 = icmp eq ptr %1711, %1706
-  br i1 %.not.i570, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18FEntryInserterPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i563
+  br i1 %.not.i570, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18FEntryInserterPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i563
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18FEntryInserterPassEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i563, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i558, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18FEntryInserterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18FEntryInserterPassEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i563, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i558, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_18FEntryInserterPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_23XRayInstrumentationPassEEENS_9StringRefEv, ptr %22, align 8
   %1712 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -14673,7 +14673,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i578 = icmp ult i64 %.sroa.speculated.i.i.i.i577, 6
   br i1 %.not.i.i.i578, label %_ZN4llvm13PassInfoMixinINS_23XRayInstrumentationPassEE4nameEv.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i579
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i579: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18FEntryInserterPassEEEvOT_bNS_9StringRefE.exit
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i579: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18FEntryInserterPassEEEvOT_bNS_9StringRefE.argprom.exit
   %bcmp.i.i.i580 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1718, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %1721 = icmp eq i32 %bcmp.i.i.i580, 0
   br i1 %1721, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i585, label %_ZN4llvm13PassInfoMixinINS_23XRayInstrumentationPassEE4nameEv.exit
@@ -14683,9 +14683,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i585: ; preds = %_ZNK4llvm9St
   %1723 = add i64 %.sroa.speculated.i.i.i.i577, -6
   br label %_ZN4llvm13PassInfoMixinINS_23XRayInstrumentationPassEE4nameEv.exit
 
-_ZN4llvm13PassInfoMixinINS_23XRayInstrumentationPassEE4nameEv.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18FEntryInserterPassEEEvOT_bNS_9StringRefE.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i579, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i585
-  %.sroa.01.0.i581 = phi ptr [ %1718, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18FEntryInserterPassEEEvOT_bNS_9StringRefE.exit ], [ %1722, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i585 ], [ %1718, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i579 ]
-  %.sroa.4.0.i582 = phi i64 [ %.sroa.speculated.i.i.i.i577, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18FEntryInserterPassEEEvOT_bNS_9StringRefE.exit ], [ %1723, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i585 ], [ %.sroa.speculated.i.i.i.i577, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i579 ]
+_ZN4llvm13PassInfoMixinINS_23XRayInstrumentationPassEE4nameEv.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18FEntryInserterPassEEEvOT_bNS_9StringRefE.argprom.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i579, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i585
+  %.sroa.01.0.i581 = phi ptr [ %1718, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18FEntryInserterPassEEEvOT_bNS_9StringRefE.argprom.exit ], [ %1722, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i585 ], [ %1718, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i579 ]
+  %.sroa.4.0.i582 = phi i64 [ %.sroa.speculated.i.i.i.i577, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18FEntryInserterPassEEEvOT_bNS_9StringRefE.argprom.exit ], [ %1723, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i585 ], [ %.sroa.speculated.i.i.i.i577, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i579 ]
   %1724 = load ptr, ptr %1007, align 8
   %1725 = getelementptr inbounds nuw i8, ptr %1724, i64 152
   %1726 = load ptr, ptr %1725, align 8
@@ -14713,7 +14713,7 @@ _ZN4llvm13PassInfoMixinINS_23XRayInstrumentationPassEE4nameEv.exit: ; preds = %_
   br i1 %.not.i.i595, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i596, label %.lr.ph.i.i587
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i596: ; preds = %.lr.ph.i.i587
-  br i1 %1734, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i597, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23XRayInstrumentationPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %1734, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i597, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23XRayInstrumentationPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i597: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i596, %_ZN4llvm13PassInfoMixinINS_23XRayInstrumentationPassEE4nameEv.exit
   %1736 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14757,7 +14757,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1751 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1749) #17
   %1752 = getelementptr inbounds %"class.llvm::unique_function", ptr %1750, i64 %1751
   %.not3.i600 = icmp eq i64 %1751, 0
-  br i1 %.not3.i600, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23XRayInstrumentationPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i601
+  br i1 %.not3.i600, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23XRayInstrumentationPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i601
 
 .lr.ph.i601:                                      ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23XRayInstrumentationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i601
   %.04.i602 = phi ptr [ %1757, %.lr.ph.i601 ], [ %1750, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23XRayInstrumentationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -14773,9 +14773,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1754(ptr noundef %spec.select.i.i.i607, ptr %.sroa.01.0.i581, i64 %.sroa.4.0.i582, ptr noundef nonnull align 8 dereferenceable(24) %1736) #17
   %1757 = getelementptr inbounds i8, ptr %.04.i602, i64 32
   %.not.i608 = icmp eq ptr %1757, %1752
-  br i1 %.not.i608, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23XRayInstrumentationPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i601
+  br i1 %.not.i608, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23XRayInstrumentationPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i601
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23XRayInstrumentationPassEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i601, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i596, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23XRayInstrumentationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23XRayInstrumentationPassEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i601, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i596, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_23XRayInstrumentationPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_21PatchableFunctionPassEEENS_9StringRefEv, ptr %20, align 8
   %1758 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -14795,7 +14795,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i616 = icmp ult i64 %.sroa.speculated.i.i.i.i615, 6
   br i1 %.not.i.i.i616, label %_ZN4llvm13PassInfoMixinINS_21PatchableFunctionPassEE4nameEv.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i617
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i617: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23XRayInstrumentationPassEEEvOT_bNS_9StringRefE.exit
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i617: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23XRayInstrumentationPassEEEvOT_bNS_9StringRefE.argprom.exit
   %bcmp.i.i.i618 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1764, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %1767 = icmp eq i32 %bcmp.i.i.i618, 0
   br i1 %1767, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i623, label %_ZN4llvm13PassInfoMixinINS_21PatchableFunctionPassEE4nameEv.exit
@@ -14805,9 +14805,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i623: ; preds = %_ZNK4llvm9St
   %1769 = add i64 %.sroa.speculated.i.i.i.i615, -6
   br label %_ZN4llvm13PassInfoMixinINS_21PatchableFunctionPassEE4nameEv.exit
 
-_ZN4llvm13PassInfoMixinINS_21PatchableFunctionPassEE4nameEv.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23XRayInstrumentationPassEEEvOT_bNS_9StringRefE.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i617, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i623
-  %.sroa.01.0.i619 = phi ptr [ %1764, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23XRayInstrumentationPassEEEvOT_bNS_9StringRefE.exit ], [ %1768, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i623 ], [ %1764, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i617 ]
-  %.sroa.4.0.i620 = phi i64 [ %.sroa.speculated.i.i.i.i615, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23XRayInstrumentationPassEEEvOT_bNS_9StringRefE.exit ], [ %1769, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i623 ], [ %.sroa.speculated.i.i.i.i615, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i617 ]
+_ZN4llvm13PassInfoMixinINS_21PatchableFunctionPassEE4nameEv.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23XRayInstrumentationPassEEEvOT_bNS_9StringRefE.argprom.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i617, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i623
+  %.sroa.01.0.i619 = phi ptr [ %1764, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23XRayInstrumentationPassEEEvOT_bNS_9StringRefE.argprom.exit ], [ %1768, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i623 ], [ %1764, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i617 ]
+  %.sroa.4.0.i620 = phi i64 [ %.sroa.speculated.i.i.i.i615, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_23XRayInstrumentationPassEEEvOT_bNS_9StringRefE.argprom.exit ], [ %1769, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i623 ], [ %.sroa.speculated.i.i.i.i615, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i617 ]
   %1770 = load ptr, ptr %1007, align 8
   %1771 = getelementptr inbounds nuw i8, ptr %1770, i64 152
   %1772 = load ptr, ptr %1771, align 8
@@ -14835,7 +14835,7 @@ _ZN4llvm13PassInfoMixinINS_21PatchableFunctionPassEE4nameEv.exit: ; preds = %_ZN
   br i1 %.not.i.i633, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i634, label %.lr.ph.i.i625
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i634: ; preds = %.lr.ph.i.i625
-  br i1 %1780, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i635, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PatchableFunctionPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %1780, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i635, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PatchableFunctionPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i635: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i634, %_ZN4llvm13PassInfoMixinINS_21PatchableFunctionPassEE4nameEv.exit
   %1782 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14879,7 +14879,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1797 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1795) #17
   %1798 = getelementptr inbounds %"class.llvm::unique_function", ptr %1796, i64 %1797
   %.not3.i638 = icmp eq i64 %1797, 0
-  br i1 %.not3.i638, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PatchableFunctionPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i639
+  br i1 %.not3.i638, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PatchableFunctionPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i639
 
 .lr.ph.i639:                                      ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_21PatchableFunctionPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i639
   %.04.i640 = phi ptr [ %1803, %.lr.ph.i639 ], [ %1796, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_21PatchableFunctionPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -14895,17 +14895,17 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1800(ptr noundef %spec.select.i.i.i645, ptr %.sroa.01.0.i619, i64 %.sroa.4.0.i620, ptr noundef nonnull align 8 dereferenceable(24) %1782) #17
   %1803 = getelementptr inbounds i8, ptr %.04.i640, i64 32
   %.not.i646 = icmp eq ptr %1803, %1798
-  br i1 %.not.i646, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PatchableFunctionPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i639
+  br i1 %.not.i646, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PatchableFunctionPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i639
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PatchableFunctionPassEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i639, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i634, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_21PatchableFunctionPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PatchableFunctionPassEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i639, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i634, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_21PatchableFunctionPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
   %1804 = load ptr, ptr %1, align 8
   %1805 = getelementptr inbounds nuw i8, ptr %1804, i64 892
   %1806 = load i32, ptr %1805, align 4
   %1807 = and i32 %1806, 2097152
   %.not76 = icmp eq i32 %1807, 0
-  br i1 %.not76, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.exit, label %1808
+  br i1 %.not76, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.argprom.exit, label %1808
 
-1808:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PatchableFunctionPassEEEvOT_bNS_9StringRefE.exit
+1808:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PatchableFunctionPassEEEvOT_bNS_9StringRefE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_25RegUsageInfoCollectorPassEEENS_9StringRefEv, ptr %18, align 8
   %1809 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -14965,7 +14965,7 @@ _ZN4llvm13PassInfoMixinINS_25RegUsageInfoCollectorPassEE4nameEv.exit: ; preds = 
   br i1 %.not.i.i671, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i672, label %.lr.ph.i.i663
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i672: ; preds = %.lr.ph.i.i663
-  br i1 %1831, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i673, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %1831, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i673, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i673: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i672, %_ZN4llvm13PassInfoMixinINS_25RegUsageInfoCollectorPassEE4nameEv.exit
   %1833 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15009,7 +15009,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1848 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1846) #17
   %1849 = getelementptr inbounds %"class.llvm::unique_function", ptr %1847, i64 %1848
   %.not3.i676 = icmp eq i64 %1848, 0
-  br i1 %.not3.i676, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i677
+  br i1 %.not3.i676, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i677
 
 .lr.ph.i677:                                      ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_25RegUsageInfoCollectorPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i677
   %.04.i678 = phi ptr [ %1854, %.lr.ph.i677 ], [ %1847, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_25RegUsageInfoCollectorPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -15025,9 +15025,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1851(ptr noundef %spec.select.i.i.i683, ptr %.sroa.01.0.i657, i64 %.sroa.4.0.i658, ptr noundef nonnull align 8 dereferenceable(24) %1833) #17
   %1854 = getelementptr inbounds i8, ptr %.04.i678, i64 32
   %.not.i684 = icmp eq ptr %1854, %1849
-  br i1 %.not.i684, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i677
+  br i1 %.not.i684, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i677
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i677, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_25RegUsageInfoCollectorPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i672, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PatchableFunctionPassEEEvOT_bNS_9StringRefE.exit
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i677, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_25RegUsageInfoCollectorPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i672, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_21PatchableFunctionPassEEEvOT_bNS_9StringRefE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_17FuncletLayoutPassEEENS_9StringRefEv, ptr %16, align 8
   %1855 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -15047,7 +15047,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i692 = icmp ult i64 %.sroa.speculated.i.i.i.i691, 6
   br i1 %.not.i.i.i692, label %_ZN4llvm13PassInfoMixinINS_17FuncletLayoutPassEE4nameEv.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i693
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i693: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.exit
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i693: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.argprom.exit
   %bcmp.i.i.i694 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1861, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %1864 = icmp eq i32 %bcmp.i.i.i694, 0
   br i1 %1864, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i699, label %_ZN4llvm13PassInfoMixinINS_17FuncletLayoutPassEE4nameEv.exit
@@ -15057,9 +15057,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i699: ; preds = %_ZNK4llvm9St
   %1866 = add i64 %.sroa.speculated.i.i.i.i691, -6
   br label %_ZN4llvm13PassInfoMixinINS_17FuncletLayoutPassEE4nameEv.exit
 
-_ZN4llvm13PassInfoMixinINS_17FuncletLayoutPassEE4nameEv.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i693, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i699
-  %.sroa.01.0.i695 = phi ptr [ %1861, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.exit ], [ %1865, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i699 ], [ %1861, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i693 ]
-  %.sroa.4.0.i696 = phi i64 [ %.sroa.speculated.i.i.i.i691, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.exit ], [ %1866, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i699 ], [ %.sroa.speculated.i.i.i.i691, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i693 ]
+_ZN4llvm13PassInfoMixinINS_17FuncletLayoutPassEE4nameEv.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.argprom.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i693, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i699
+  %.sroa.01.0.i695 = phi ptr [ %1861, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.argprom.exit ], [ %1865, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i699 ], [ %1861, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i693 ]
+  %.sroa.4.0.i696 = phi i64 [ %.sroa.speculated.i.i.i.i691, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25RegUsageInfoCollectorPassEEEvOT_bNS_9StringRefE.argprom.exit ], [ %1866, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i699 ], [ %.sroa.speculated.i.i.i.i691, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i693 ]
   %1867 = load ptr, ptr %1007, align 8
   %1868 = getelementptr inbounds nuw i8, ptr %1867, i64 152
   %1869 = load ptr, ptr %1868, align 8
@@ -15087,7 +15087,7 @@ _ZN4llvm13PassInfoMixinINS_17FuncletLayoutPassEE4nameEv.exit: ; preds = %_ZN4llv
   br i1 %.not.i.i709, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i710, label %.lr.ph.i.i701
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i710: ; preds = %.lr.ph.i.i701
-  br i1 %1877, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i711, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17FuncletLayoutPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %1877, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i711, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17FuncletLayoutPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i711: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i710, %_ZN4llvm13PassInfoMixinINS_17FuncletLayoutPassEE4nameEv.exit
   %1879 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15131,7 +15131,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1894 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1892) #17
   %1895 = getelementptr inbounds %"class.llvm::unique_function", ptr %1893, i64 %1894
   %.not3.i714 = icmp eq i64 %1894, 0
-  br i1 %.not3.i714, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17FuncletLayoutPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i715
+  br i1 %.not3.i714, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17FuncletLayoutPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i715
 
 .lr.ph.i715:                                      ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17FuncletLayoutPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i715
   %.04.i716 = phi ptr [ %1900, %.lr.ph.i715 ], [ %1893, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17FuncletLayoutPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -15147,9 +15147,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1897(ptr noundef %spec.select.i.i.i721, ptr %.sroa.01.0.i695, i64 %.sroa.4.0.i696, ptr noundef nonnull align 8 dereferenceable(24) %1879) #17
   %1900 = getelementptr inbounds i8, ptr %.04.i716, i64 32
   %.not.i722 = icmp eq ptr %1900, %1895
-  br i1 %.not.i722, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17FuncletLayoutPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i715
+  br i1 %.not.i722, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17FuncletLayoutPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i715
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17FuncletLayoutPassEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i715, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i710, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17FuncletLayoutPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17FuncletLayoutPassEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i715, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i710, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_17FuncletLayoutPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_20StackMapLivenessPassEEENS_9StringRefEv, ptr %14, align 8
   %1901 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -15169,7 +15169,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i730 = icmp ult i64 %.sroa.speculated.i.i.i.i729, 6
   br i1 %.not.i.i.i730, label %_ZN4llvm13PassInfoMixinINS_20StackMapLivenessPassEE4nameEv.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i731
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i731: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17FuncletLayoutPassEEEvOT_bNS_9StringRefE.exit
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i731: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17FuncletLayoutPassEEEvOT_bNS_9StringRefE.argprom.exit
   %bcmp.i.i.i732 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1907, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %1910 = icmp eq i32 %bcmp.i.i.i732, 0
   br i1 %1910, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i737, label %_ZN4llvm13PassInfoMixinINS_20StackMapLivenessPassEE4nameEv.exit
@@ -15179,9 +15179,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i737: ; preds = %_ZNK4llvm9St
   %1912 = add i64 %.sroa.speculated.i.i.i.i729, -6
   br label %_ZN4llvm13PassInfoMixinINS_20StackMapLivenessPassEE4nameEv.exit
 
-_ZN4llvm13PassInfoMixinINS_20StackMapLivenessPassEE4nameEv.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17FuncletLayoutPassEEEvOT_bNS_9StringRefE.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i731, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i737
-  %.sroa.01.0.i733 = phi ptr [ %1907, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17FuncletLayoutPassEEEvOT_bNS_9StringRefE.exit ], [ %1911, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i737 ], [ %1907, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i731 ]
-  %.sroa.4.0.i734 = phi i64 [ %.sroa.speculated.i.i.i.i729, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17FuncletLayoutPassEEEvOT_bNS_9StringRefE.exit ], [ %1912, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i737 ], [ %.sroa.speculated.i.i.i.i729, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i731 ]
+_ZN4llvm13PassInfoMixinINS_20StackMapLivenessPassEE4nameEv.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17FuncletLayoutPassEEEvOT_bNS_9StringRefE.argprom.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i731, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i737
+  %.sroa.01.0.i733 = phi ptr [ %1907, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17FuncletLayoutPassEEEvOT_bNS_9StringRefE.argprom.exit ], [ %1911, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i737 ], [ %1907, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i731 ]
+  %.sroa.4.0.i734 = phi i64 [ %.sroa.speculated.i.i.i.i729, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_17FuncletLayoutPassEEEvOT_bNS_9StringRefE.argprom.exit ], [ %1912, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i737 ], [ %.sroa.speculated.i.i.i.i729, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i731 ]
   %1913 = load ptr, ptr %1007, align 8
   %1914 = getelementptr inbounds nuw i8, ptr %1913, i64 152
   %1915 = load ptr, ptr %1914, align 8
@@ -15209,7 +15209,7 @@ _ZN4llvm13PassInfoMixinINS_20StackMapLivenessPassEE4nameEv.exit: ; preds = %_ZN4
   br i1 %.not.i.i747, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i748, label %.lr.ph.i.i739
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i748: ; preds = %.lr.ph.i.i739
-  br i1 %1923, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i749, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20StackMapLivenessPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %1923, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i749, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20StackMapLivenessPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i749: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i748, %_ZN4llvm13PassInfoMixinINS_20StackMapLivenessPassEE4nameEv.exit
   %1925 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15253,7 +15253,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1940 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1938) #17
   %1941 = getelementptr inbounds %"class.llvm::unique_function", ptr %1939, i64 %1940
   %.not3.i752 = icmp eq i64 %1940, 0
-  br i1 %.not3.i752, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20StackMapLivenessPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i753
+  br i1 %.not3.i752, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20StackMapLivenessPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i753
 
 .lr.ph.i753:                                      ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20StackMapLivenessPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i753
   %.04.i754 = phi ptr [ %1946, %.lr.ph.i753 ], [ %1939, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20StackMapLivenessPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -15269,9 +15269,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1943(ptr noundef %spec.select.i.i.i759, ptr %.sroa.01.0.i733, i64 %.sroa.4.0.i734, ptr noundef nonnull align 8 dereferenceable(24) %1925) #17
   %1946 = getelementptr inbounds i8, ptr %.04.i754, i64 32
   %.not.i760 = icmp eq ptr %1946, %1941
-  br i1 %.not.i760, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20StackMapLivenessPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i753
+  br i1 %.not.i760, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20StackMapLivenessPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i753
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20StackMapLivenessPassEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i753, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i748, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20StackMapLivenessPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20StackMapLivenessPassEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i753, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i748, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_20StackMapLivenessPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_19LiveDebugValuesPassEEENS_9StringRefEv, ptr %12, align 8
   %1947 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -15291,7 +15291,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i768 = icmp ult i64 %.sroa.speculated.i.i.i.i767, 6
   br i1 %.not.i.i.i768, label %_ZN4llvm13PassInfoMixinINS_19LiveDebugValuesPassEE4nameEv.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i769
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i769: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20StackMapLivenessPassEEEvOT_bNS_9StringRefE.exit
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i769: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20StackMapLivenessPassEEEvOT_bNS_9StringRefE.argprom.exit
   %bcmp.i.i.i770 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1953, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %1956 = icmp eq i32 %bcmp.i.i.i770, 0
   br i1 %1956, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i775, label %_ZN4llvm13PassInfoMixinINS_19LiveDebugValuesPassEE4nameEv.exit
@@ -15301,9 +15301,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i775: ; preds = %_ZNK4llvm9St
   %1958 = add i64 %.sroa.speculated.i.i.i.i767, -6
   br label %_ZN4llvm13PassInfoMixinINS_19LiveDebugValuesPassEE4nameEv.exit
 
-_ZN4llvm13PassInfoMixinINS_19LiveDebugValuesPassEE4nameEv.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20StackMapLivenessPassEEEvOT_bNS_9StringRefE.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i769, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i775
-  %.sroa.01.0.i771 = phi ptr [ %1953, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20StackMapLivenessPassEEEvOT_bNS_9StringRefE.exit ], [ %1957, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i775 ], [ %1953, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i769 ]
-  %.sroa.4.0.i772 = phi i64 [ %.sroa.speculated.i.i.i.i767, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20StackMapLivenessPassEEEvOT_bNS_9StringRefE.exit ], [ %1958, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i775 ], [ %.sroa.speculated.i.i.i.i767, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i769 ]
+_ZN4llvm13PassInfoMixinINS_19LiveDebugValuesPassEE4nameEv.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20StackMapLivenessPassEEEvOT_bNS_9StringRefE.argprom.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i769, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i775
+  %.sroa.01.0.i771 = phi ptr [ %1953, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20StackMapLivenessPassEEEvOT_bNS_9StringRefE.argprom.exit ], [ %1957, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i775 ], [ %1953, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i769 ]
+  %.sroa.4.0.i772 = phi i64 [ %.sroa.speculated.i.i.i.i767, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_20StackMapLivenessPassEEEvOT_bNS_9StringRefE.argprom.exit ], [ %1958, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i775 ], [ %.sroa.speculated.i.i.i.i767, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i769 ]
   %1959 = load ptr, ptr %1007, align 8
   %1960 = getelementptr inbounds nuw i8, ptr %1959, i64 152
   %1961 = load ptr, ptr %1960, align 8
@@ -15331,7 +15331,7 @@ _ZN4llvm13PassInfoMixinINS_19LiveDebugValuesPassEE4nameEv.exit: ; preds = %_ZN4l
   br i1 %.not.i.i785, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i786, label %.lr.ph.i.i777
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i786: ; preds = %.lr.ph.i.i777
-  br i1 %1969, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i787, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19LiveDebugValuesPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %1969, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i787, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19LiveDebugValuesPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i787: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i786, %_ZN4llvm13PassInfoMixinINS_19LiveDebugValuesPassEE4nameEv.exit
   %1971 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15375,7 +15375,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %1986 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1984) #17
   %1987 = getelementptr inbounds %"class.llvm::unique_function", ptr %1985, i64 %1986
   %.not3.i790 = icmp eq i64 %1986, 0
-  br i1 %.not3.i790, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19LiveDebugValuesPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i791
+  br i1 %.not3.i790, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19LiveDebugValuesPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i791
 
 .lr.ph.i791:                                      ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19LiveDebugValuesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i791
   %.04.i792 = phi ptr [ %1992, %.lr.ph.i791 ], [ %1985, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19LiveDebugValuesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -15391,9 +15391,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %1989(ptr noundef %spec.select.i.i.i797, ptr %.sroa.01.0.i771, i64 %.sroa.4.0.i772, ptr noundef nonnull align 8 dereferenceable(24) %1971) #17
   %1992 = getelementptr inbounds i8, ptr %.04.i792, i64 32
   %.not.i798 = icmp eq ptr %1992, %1987
-  br i1 %.not.i798, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19LiveDebugValuesPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i791
+  br i1 %.not.i798, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19LiveDebugValuesPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i791
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19LiveDebugValuesPassEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i791, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i786, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19LiveDebugValuesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19LiveDebugValuesPassEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i791, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i786, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19LiveDebugValuesPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store ptr @__PRETTY_FUNCTION__._ZN4llvm11getTypeNameINS_30MachineSanitizerBinaryMetadataEEENS_9StringRefEv, ptr %10, align 8
   %1993 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -15413,7 +15413,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not.i.i.i806 = icmp ult i64 %.sroa.speculated.i.i.i.i805, 6
   br i1 %.not.i.i.i806, label %_ZN4llvm13PassInfoMixinINS_30MachineSanitizerBinaryMetadataEE4nameEv.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i807
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i807: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19LiveDebugValuesPassEEEvOT_bNS_9StringRefE.exit
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i807: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19LiveDebugValuesPassEEEvOT_bNS_9StringRefE.argprom.exit
   %bcmp.i.i.i808 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1999, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %2002 = icmp eq i32 %bcmp.i.i.i808, 0
   br i1 %2002, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i813, label %_ZN4llvm13PassInfoMixinINS_30MachineSanitizerBinaryMetadataEE4nameEv.exit
@@ -15423,9 +15423,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i813: ; preds = %_ZNK4llvm9St
   %2004 = add i64 %.sroa.speculated.i.i.i.i805, -6
   br label %_ZN4llvm13PassInfoMixinINS_30MachineSanitizerBinaryMetadataEE4nameEv.exit
 
-_ZN4llvm13PassInfoMixinINS_30MachineSanitizerBinaryMetadataEE4nameEv.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19LiveDebugValuesPassEEEvOT_bNS_9StringRefE.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i807, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i813
-  %.sroa.01.0.i809 = phi ptr [ %1999, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19LiveDebugValuesPassEEEvOT_bNS_9StringRefE.exit ], [ %2003, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i813 ], [ %1999, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i807 ]
-  %.sroa.4.0.i810 = phi i64 [ %.sroa.speculated.i.i.i.i805, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19LiveDebugValuesPassEEEvOT_bNS_9StringRefE.exit ], [ %2004, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i813 ], [ %.sroa.speculated.i.i.i.i805, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i807 ]
+_ZN4llvm13PassInfoMixinINS_30MachineSanitizerBinaryMetadataEE4nameEv.exit: ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19LiveDebugValuesPassEEEvOT_bNS_9StringRefE.argprom.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i807, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i813
+  %.sroa.01.0.i809 = phi ptr [ %1999, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19LiveDebugValuesPassEEEvOT_bNS_9StringRefE.argprom.exit ], [ %2003, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i813 ], [ %1999, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i807 ]
+  %.sroa.4.0.i810 = phi i64 [ %.sroa.speculated.i.i.i.i805, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19LiveDebugValuesPassEEEvOT_bNS_9StringRefE.argprom.exit ], [ %2004, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i813 ], [ %.sroa.speculated.i.i.i.i805, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i807 ]
   %2005 = load ptr, ptr %1007, align 8
   %2006 = getelementptr inbounds nuw i8, ptr %2005, i64 152
   %2007 = load ptr, ptr %2006, align 8
@@ -15453,7 +15453,7 @@ _ZN4llvm13PassInfoMixinINS_30MachineSanitizerBinaryMetadataEE4nameEv.exit: ; pre
   br i1 %.not.i.i823, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i824, label %.lr.ph.i.i815
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i824: ; preds = %.lr.ph.i.i815
-  br i1 %2015, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i825, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30MachineSanitizerBinaryMetadataEEEvOT_bNS_9StringRefE.exit
+  br i1 %2015, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i825, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30MachineSanitizerBinaryMetadataEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i825: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i824, %_ZN4llvm13PassInfoMixinINS_30MachineSanitizerBinaryMetadataEE4nameEv.exit
   %2017 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15497,7 +15497,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   %2032 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2030) #17
   %2033 = getelementptr inbounds %"class.llvm::unique_function", ptr %2031, i64 %2032
   %.not3.i828 = icmp eq i64 %2032, 0
-  br i1 %.not3.i828, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30MachineSanitizerBinaryMetadataEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i829
+  br i1 %.not3.i828, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30MachineSanitizerBinaryMetadataEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i829
 
 .lr.ph.i829:                                      ; preds = %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30MachineSanitizerBinaryMetadataEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i829
   %.04.i830 = phi ptr [ %2038, %.lr.ph.i829 ], [ %2031, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30MachineSanitizerBinaryMetadataEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -15513,9 +15513,9 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   call void %2035(ptr noundef %spec.select.i.i.i835, ptr %.sroa.01.0.i809, i64 %.sroa.4.0.i810, ptr noundef nonnull align 8 dereferenceable(24) %2017) #17
   %2038 = getelementptr inbounds i8, ptr %.04.i830, i64 32
   %.not.i836 = icmp eq ptr %2038, %2033
-  br i1 %.not.i836, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30MachineSanitizerBinaryMetadataEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i829
+  br i1 %.not.i836, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30MachineSanitizerBinaryMetadataEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i829
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30MachineSanitizerBinaryMetadataEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i829, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i824, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30MachineSanitizerBinaryMetadataEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30MachineSanitizerBinaryMetadataEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i829, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i824, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_30MachineSanitizerBinaryMetadataEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
   %2039 = load ptr, ptr %1, align 8
   %2040 = getelementptr inbounds nuw i8, ptr %2039, i64 892
   %2041 = load i32, ptr %2040, align 4
@@ -15523,7 +15523,7 @@ _ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Targ
   %.not77 = icmp eq i32 %2042, 0
   br i1 %.not77, label %2150, label %2043
 
-2043:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30MachineSanitizerBinaryMetadataEEEvOT_bNS_9StringRefE.exit
+2043:                                             ; preds = %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30MachineSanitizerBinaryMetadataEEEvOT_bNS_9StringRefE.argprom.exit
   %2044 = getelementptr i8, ptr %2039, i64 664
   %.val.val = load i32, ptr %2044, align 8
   %.not78 = icmp eq i32 %.val.val, 0
@@ -15603,7 +15603,7 @@ _ZN4llvm13PassInfoMixinINS_19MachineOutlinerPassEE4nameEv.exit: ; preds = %.crit
   br i1 %.not.i.i861, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i862, label %.lr.ph.i.i853
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i862: ; preds = %.lr.ph.i.i853
-  br i1 %2072, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i863, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19MachineOutlinerPassEEEvOT_bNS_9StringRefE.exit
+  br i1 %2072, label %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i863, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19MachineOutlinerPassEEEvOT_bNS_9StringRefE.argprom.exit
 
 _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.thread.i863: ; preds = %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i862, %_ZN4llvm13PassInfoMixinINS_19MachineOutlinerPassEE4nameEv.exit
   %2074 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15794,7 +15794,7 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19Ma
   %2143 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2141) #17
   %2144 = getelementptr inbounds %"class.llvm::unique_function", ptr %2142, i64 %2143
   %.not6.i = icmp eq i64 %2143, 0
-  br i1 %.not6.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19MachineOutlinerPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i867
+  br i1 %.not6.i, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19MachineOutlinerPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i867
 
 .lr.ph.i867:                                      ; preds = %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19MachineOutlinerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i, %.lr.ph.i867
   %.07.i = phi ptr [ %2149, %.lr.ph.i867 ], [ %2142, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19MachineOutlinerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i ]
@@ -15810,13 +15810,13 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19Ma
   call void %2146(ptr noundef %spec.select.i.i.i871, ptr %.sroa.01.0.i847, i64 %.sroa.4.0.i848, ptr noundef nonnull align 8 dereferenceable(24) %2074) #17
   %2149 = getelementptr inbounds i8, ptr %.07.i, i64 32
   %.not.i872 = icmp eq ptr %2149, %2144
-  br i1 %.not.i872, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19MachineOutlinerPassEEEvOT_bNS_9StringRefE.exit, label %.lr.ph.i867
+  br i1 %.not.i872, label %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19MachineOutlinerPassEEEvOT_bNS_9StringRefE.argprom.exit, label %.lr.ph.i867
 
-_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19MachineOutlinerPassEEEvOT_bNS_9StringRefE.exit: ; preds = %.lr.ph.i867, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i862, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19MachineOutlinerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
+_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19MachineOutlinerPassEEEvOT_bNS_9StringRefE.argprom.exit: ; preds = %.lr.ph.i867, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i862, %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_19MachineOutlinerPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %2150
 
-2150:                                             ; preds = %2045, %2048, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19MachineOutlinerPassEEEvOT_bNS_9StringRefE.exit, %2043, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30MachineSanitizerBinaryMetadataEEEvOT_bNS_9StringRefE.exit
+2150:                                             ; preds = %2045, %2048, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_19MachineOutlinerPassEEEvOT_bNS_9StringRefE.argprom.exit, %2043, %_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30MachineSanitizerBinaryMetadataEEEvOT_bNS_9StringRefE.argprom.exit
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -17793,7 +17793,7 @@ declare void @_ZN4llvm17PrintFunctionPassC1ERNS_11raw_ostreamERKNSt7__cxx1112bas
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_24UnreachableBlockElimPassEEEvOT_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE9AddIRPassclINS_24UnreachableBlockElimPassEEEvOT_NS_9StringRefE.argprom(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.523", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -24933,7 +24933,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_15M
 declare void @_ZN4llvm16FinalizeISelPass3runERNS_15MachineFunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind writable sret(%"class.llvm::PreservedAnalyses") align 8, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(1041), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28LocalStackSlotAllocationPassEEEvOT_bNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_28LocalStackSlotAllocationPassEEEvOT_bNS_9StringRefE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.324", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -25030,7 +25030,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30DeadMachineInstructionElimPassEEEvOT_bNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_30DeadMachineInstructionElimPassEEEvOT_bNS_9StringRefE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.324", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -26591,7 +26591,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_15M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18PHIEliminationPassEEEvOT_bNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_18PHIEliminationPassEEEvOT_bNS_9StringRefE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.324", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -26688,7 +26688,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25TwoAddressInstructionPassEEEvOT_bNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE14AddMachinePassclINS_25TwoAddressInstructionPassEEEvOT_bNS_9StringRefE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.324", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -32323,8 +32323,8 @@ attributes #21 = { nounwind willreturn memory(none) }
 !33 = distinct !{!33, !34, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCoreISelPassesERNS4_14AddMachinePassE: argument 0"}
 !34 = distinct !{!34, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE17addCoreISelPassesERNS4_14AddMachinePassE"}
 !35 = !{!36, !33, !5}
-!36 = distinct !{!36, !37, !"_ZNK12_GLOBAL__N_121X86CodeGenPassBuilder15addInstSelectorERN4llvm18CodeGenPassBuilderIS0_NS1_16X86TargetMachineEE14AddMachinePassE: argument 0"}
-!37 = distinct !{!37, !"_ZNK12_GLOBAL__N_121X86CodeGenPassBuilder15addInstSelectorERN4llvm18CodeGenPassBuilderIS0_NS1_16X86TargetMachineEE14AddMachinePassE"}
+!36 = distinct !{!36, !37, !"_ZNK12_GLOBAL__N_121X86CodeGenPassBuilder15addInstSelectorERN4llvm18CodeGenPassBuilderIS0_NS1_16X86TargetMachineEE14AddMachinePassE.argprom: argument 0"}
+!37 = distinct !{!37, !"_ZNK12_GLOBAL__N_121X86CodeGenPassBuilder15addInstSelectorERN4llvm18CodeGenPassBuilderIS0_NS1_16X86TargetMachineEE14AddMachinePassE.argprom"}
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm6detail11PassConceptINS1_15MachineFunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_SaISA_EEvPT_PT0_RT1_: argument 0"}
 !40 = distinct !{!40, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm6detail11PassConceptINS1_15MachineFunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESA_SaISA_EEvPT_PT0_RT1_"}
@@ -32343,8 +32343,8 @@ attributes #21 = { nounwind willreturn memory(none) }
 !53 = !{!48, !33, !5}
 !54 = !{!52, !33, !5}
 !55 = !{!56, !33, !5}
-!56 = distinct !{!56, !57, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15addIRTranslatorERNS4_14AddMachinePassE: argument 0"}
-!57 = distinct !{!57, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15addIRTranslatorERNS4_14AddMachinePassE"}
+!56 = distinct !{!56, !57, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15addIRTranslatorERNS4_14AddMachinePassE.argprom: argument 0"}
+!57 = distinct !{!57, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15addIRTranslatorERNS4_14AddMachinePassE.argprom"}
 !58 = !{!59, !56, !33, !5}
 !59 = distinct !{!59, !60, !"_ZN4llvm10make_errorINS_11StringErrorEJRA34_KcSt10error_codeEEENS_5ErrorEDpOT0_: argument 0"}
 !60 = distinct !{!60, !"_ZN4llvm10make_errorINS_11StringErrorEJRA34_KcSt10error_codeEEENS_5ErrorEDpOT0_"}
@@ -32360,8 +32360,8 @@ attributes #21 = { nounwind willreturn memory(none) }
 !70 = !{!66, !5}
 !71 = !{!69, !5}
 !72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE: argument 0"}
-!74 = distinct !{!74, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE"}
+!73 = distinct !{!73, !74, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.argprom: argument 0"}
+!74 = distinct !{!74, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15verifyStartStopERKNS_16TargetPassConfig13StartStopInfoE.argprom"}
 !75 = !{!76}
 !76 = distinct !{!76, !77, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
 !77 = distinct !{!77, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
@@ -32437,14 +32437,14 @@ attributes #21 = { nounwind willreturn memory(none) }
 !147 = distinct !{!147, !148, !"_ZN4llvm33createModuleToFunctionPassAdaptorINS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEEEENS_27ModuleToFunctionPassAdaptorEOT_b: argument 0"}
 !148 = distinct !{!148, !"_ZN4llvm33createModuleToFunctionPassAdaptorINS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS2_JEEEJEEEEENS_27ModuleToFunctionPassAdaptorEOT_b"}
 !149 = !{!150}
-!150 = distinct !{!150, !151, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE25addRegAssignmentOptimizedERNS4_14AddMachinePassE: argument 0"}
-!151 = distinct !{!151, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE25addRegAssignmentOptimizedERNS4_14AddMachinePassE"}
+!150 = distinct !{!150, !151, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE25addRegAssignmentOptimizedERNS4_14AddMachinePassE.argprom: argument 0"}
+!151 = distinct !{!151, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE25addRegAssignmentOptimizedERNS4_14AddMachinePassE.argprom"}
 !152 = !{!153}
-!153 = distinct !{!153, !154, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15addFastRegAllocERNS4_14AddMachinePassE: argument 0"}
-!154 = distinct !{!154, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15addFastRegAllocERNS4_14AddMachinePassE"}
+!153 = distinct !{!153, !154, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15addFastRegAllocERNS4_14AddMachinePassE.argprom: argument 0"}
+!154 = distinct !{!154, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15addFastRegAllocERNS4_14AddMachinePassE.argprom"}
 !155 = !{!156, !153}
-!156 = distinct !{!156, !157, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE20addRegAssignmentFastERNS4_14AddMachinePassE: argument 0"}
-!157 = distinct !{!157, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE20addRegAssignmentFastERNS4_14AddMachinePassE"}
+!156 = distinct !{!156, !157, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE20addRegAssignmentFastERNS4_14AddMachinePassE.argprom: argument 0"}
+!157 = distinct !{!157, !"_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE20addRegAssignmentFastERNS4_14AddMachinePassE.argprom"}
 !158 = !{!159}
 !159 = distinct !{!159, !160, !"_ZN4llvm42createFunctionToMachineFunctionPassAdaptorINS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEEEENS_36FunctionToMachineFunctionPassAdaptorEOT_: argument 0"}
 !160 = distinct !{!160, !"_ZN4llvm42createFunctionToMachineFunctionPassAdaptorINS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEEEENS_36FunctionToMachineFunctionPassAdaptorEOT_"}

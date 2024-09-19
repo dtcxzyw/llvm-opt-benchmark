@@ -826,13 +826,13 @@ do_slabs_alloc.exit:                              ; preds = %entry, %if.end5.i, 
 define dso_local void @slabs_free(ptr noundef %ptr, i64 noundef %size, i32 noundef %id) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @slabs_lock) #22
-  tail call fastcc void @do_slabs_free(ptr noundef %ptr, i32 noundef %id)
+  tail call fastcc void @do_slabs_free.argelim(ptr noundef %ptr, i32 noundef %id)
   %call1 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #22
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @do_slabs_free(ptr noundef %ptr, i32 noundef %id) unnamed_addr #10 {
+define internal fastcc void @do_slabs_free.argelim(ptr noundef %ptr, i32 noundef %id) unnamed_addr #10 {
 entry:
   %0 = load i32, ptr @power_largest, align 4
   %1 = freeze i32 %0
@@ -1686,7 +1686,7 @@ if.else127.i:                                     ; preds = %lor.lhs.false.i16
   br i1 %cmp107.i, label %land.lhs.true139.i, label %land.lhs.true130.i
 
 land.lhs.true130.i:                               ; preds = %if.else127.i
-  %call131.i = tail call fastcc ptr @slab_rebalance_alloc(i32 noundef %55)
+  %call131.i = tail call fastcc ptr @slab_rebalance_alloc.argelim(i32 noundef %55)
   %cmp132.i = icmp eq ptr %call131.i, null
   br i1 %cmp132.i, label %do.body214.sink.split.i, label %if.then156.i
 
@@ -1876,7 +1876,7 @@ if.then223.i:                                     ; preds = %do.body214.i
 if.else228.i:                                     ; preds = %do.body214.i
   %87 = load i32, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 24), align 8
   %call.i.i17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @slabs_lock) #22
-  tail call fastcc void @do_slabs_free(ptr noundef nonnull %it.0.i, i32 noundef %87)
+  tail call fastcc void @do_slabs_free.argelim(ptr noundef nonnull %it.0.i, i32 noundef %87)
   %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #22
   %88 = load i32, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 32), align 8
   %inc248.i = add i32 %88, 1
@@ -2474,7 +2474,7 @@ if.end23:                                         ; preds = %get_page_from_globa
 for.body.i:                                       ; preds = %if.end23, %for.body.i
   %x.07.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end23 ]
   %ptr.addr.06.i = phi ptr [ %add.ptr.i23, %for.body.i ], [ %ptr.0, %if.end23 ]
-  tail call fastcc void @do_slabs_free(ptr noundef %ptr.addr.06.i, i32 noundef %id)
+  tail call fastcc void @do_slabs_free.argelim(ptr noundef %ptr.addr.06.i, i32 noundef %id)
   %19 = load i32, ptr %arrayidx, align 8
   %idx.ext.i = zext i32 %19 to i64
   %add.ptr.i23 = getelementptr inbounds i8, ptr %ptr.addr.06.i, i64 %idx.ext.i
@@ -2537,7 +2537,7 @@ declare void @item_trylock_unlock(ptr noundef) local_unnamed_addr #8
 declare i32 @item_is_flushed(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @slab_rebalance_alloc(i32 noundef %id) unnamed_addr #10 {
+define internal fastcc noundef ptr @slab_rebalance_alloc.argelim(i32 noundef %id) unnamed_addr #10 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 24), align 8
   %idxprom = sext i32 %0 to i64

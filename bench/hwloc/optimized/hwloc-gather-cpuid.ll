@@ -373,7 +373,7 @@ hwloc_get_next_obj_by_type.exit.us:               ; preds = %130, %127
 
 .split.us:                                        ; preds = %hwloc_get_next_obj_by_type.exit.us
   %132 = load ptr, ptr %3, align 8
-  call fastcc void @dump_one_proc(ptr noundef %132, ptr noundef %.0.i.us, ptr noundef null)
+  call fastcc void @dump_one_proc.retelim(ptr noundef %132, ptr noundef %.0.i.us, ptr noundef null)
   %133 = load ptr, ptr %3, align 8
   %134 = call i32 @hwloc_get_type_depth(ptr noundef %133, i32 noundef 3) #14
   %or.cond.i.us = icmp ugt i32 %134, -3
@@ -411,7 +411,7 @@ hwloc_get_next_obj_by_type.exit:                  ; preds = %137, %142
   %146 = load i32, ptr %145, align 8
   %147 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %119, i64 noundef %118, ptr noundef nonnull @.str.28, ptr noundef nonnull %.078, i32 noundef %146) #14
   %148 = load ptr, ptr %3, align 8
-  call fastcc void @dump_one_proc(ptr noundef %148, ptr noundef %.0.i, ptr noundef nonnull %119)
+  call fastcc void @dump_one_proc.retelim(ptr noundef %148, ptr noundef %.0.i, ptr noundef nonnull %119)
   %149 = load ptr, ptr %3, align 8
   %150 = call i32 @hwloc_get_type_depth(ptr noundef %149, i32 noundef 3) #14
   %or.cond.i = icmp ugt i32 %150, -3
@@ -495,13 +495,13 @@ hwloc_get_pu_obj_by_os_index.exit:                ; preds = %177
 
 .split84:                                         ; preds = %hwloc_get_pu_obj_by_os_index.exit
   %184 = load ptr, ptr %3, align 8
-  call fastcc void @dump_one_proc(ptr noundef %184, ptr noundef %.0.i.i, ptr noundef null)
+  call fastcc void @dump_one_proc.retelim(ptr noundef %184, ptr noundef %.0.i.i, ptr noundef null)
   br label %187
 
 .split86:                                         ; preds = %hwloc_get_pu_obj_by_os_index.exit
   %185 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.076120, i64 noundef %.075121, ptr noundef nonnull @.str.28, ptr noundef nonnull %.078, i32 noundef %.073150) #14
   %186 = load ptr, ptr %3, align 8
-  call fastcc void @dump_one_proc(ptr noundef %186, ptr noundef %.0.i.i, ptr noundef nonnull %.076120)
+  call fastcc void @dump_one_proc.retelim(ptr noundef %186, ptr noundef %.0.i.i, ptr noundef nonnull %.076120)
   br label %187
 
 187:                                              ; preds = %.split86, %.split84, %159, %157
@@ -579,7 +579,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dump_one_proc(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @dump_one_proc.retelim(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #2 {
   %4 = alloca [4 x i32], align 16
   %5 = getelementptr inbounds i8, ptr %1, i64 184
   %6 = load ptr, ptr %5, align 8

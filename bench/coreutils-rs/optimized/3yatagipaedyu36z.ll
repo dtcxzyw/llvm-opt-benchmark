@@ -263,7 +263,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h3a12f75c6fc82d08E.9" = private unnamed_addr constant [256 x ptr] [ptr @anon.154ebb479e863579ac523698efcc26ae.139, ptr @anon.154ebb479e863579ac523698efcc26ae.140, ptr @anon.154ebb479e863579ac523698efcc26ae.141, ptr @anon.154ebb479e863579ac523698efcc26ae.142, ptr @anon.154ebb479e863579ac523698efcc26ae.143, ptr @anon.154ebb479e863579ac523698efcc26ae.144, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.14, ptr @anon.154ebb479e863579ac523698efcc26ae.15, ptr @anon.154ebb479e863579ac523698efcc26ae.16, ptr @anon.154ebb479e863579ac523698efcc26ae.17, ptr @anon.154ebb479e863579ac523698efcc26ae.18, ptr @anon.154ebb479e863579ac523698efcc26ae.19, ptr @anon.154ebb479e863579ac523698efcc26ae.20, ptr @anon.154ebb479e863579ac523698efcc26ae.21, ptr @anon.154ebb479e863579ac523698efcc26ae.22, ptr @anon.154ebb479e863579ac523698efcc26ae.23, ptr @anon.154ebb479e863579ac523698efcc26ae.24, ptr @anon.154ebb479e863579ac523698efcc26ae.25, ptr @anon.154ebb479e863579ac523698efcc26ae.26, ptr @anon.154ebb479e863579ac523698efcc26ae.27, ptr @anon.154ebb479e863579ac523698efcc26ae.28, ptr @anon.154ebb479e863579ac523698efcc26ae.29, ptr @anon.154ebb479e863579ac523698efcc26ae.30, ptr @anon.154ebb479e863579ac523698efcc26ae.31, ptr @anon.154ebb479e863579ac523698efcc26ae.32, ptr @anon.154ebb479e863579ac523698efcc26ae.33, ptr @anon.154ebb479e863579ac523698efcc26ae.34, ptr @anon.154ebb479e863579ac523698efcc26ae.35, ptr @anon.154ebb479e863579ac523698efcc26ae.36, ptr @anon.154ebb479e863579ac523698efcc26ae.37, ptr @anon.154ebb479e863579ac523698efcc26ae.38, ptr @anon.154ebb479e863579ac523698efcc26ae.39, ptr @anon.154ebb479e863579ac523698efcc26ae.40, ptr @anon.154ebb479e863579ac523698efcc26ae.41, ptr @anon.154ebb479e863579ac523698efcc26ae.42, ptr @anon.154ebb479e863579ac523698efcc26ae.43, ptr @anon.154ebb479e863579ac523698efcc26ae.44, ptr @anon.154ebb479e863579ac523698efcc26ae.45, ptr @anon.154ebb479e863579ac523698efcc26ae.46, ptr @anon.154ebb479e863579ac523698efcc26ae.47, ptr @anon.154ebb479e863579ac523698efcc26ae.48, ptr @anon.154ebb479e863579ac523698efcc26ae.49, ptr @anon.154ebb479e863579ac523698efcc26ae.50, ptr @anon.154ebb479e863579ac523698efcc26ae.51, ptr @anon.154ebb479e863579ac523698efcc26ae.52, ptr @anon.154ebb479e863579ac523698efcc26ae.53, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.54, ptr @anon.154ebb479e863579ac523698efcc26ae.55, ptr @anon.154ebb479e863579ac523698efcc26ae.56, ptr @anon.154ebb479e863579ac523698efcc26ae.57, ptr @anon.154ebb479e863579ac523698efcc26ae.58, ptr @anon.154ebb479e863579ac523698efcc26ae.59, ptr @anon.154ebb479e863579ac523698efcc26ae.60, ptr @anon.154ebb479e863579ac523698efcc26ae.61, ptr @anon.154ebb479e863579ac523698efcc26ae.62, ptr @anon.154ebb479e863579ac523698efcc26ae.63, ptr @anon.154ebb479e863579ac523698efcc26ae.64, ptr @anon.154ebb479e863579ac523698efcc26ae.65, ptr @anon.154ebb479e863579ac523698efcc26ae.66, ptr @anon.154ebb479e863579ac523698efcc26ae.67, ptr @anon.154ebb479e863579ac523698efcc26ae.68, ptr @anon.154ebb479e863579ac523698efcc26ae.69, ptr @anon.154ebb479e863579ac523698efcc26ae.13, ptr @anon.154ebb479e863579ac523698efcc26ae.70, ptr @anon.154ebb479e863579ac523698efcc26ae.71, ptr @anon.154ebb479e863579ac523698efcc26ae.72, ptr @anon.154ebb479e863579ac523698efcc26ae.73, ptr @anon.154ebb479e863579ac523698efcc26ae.74, ptr @anon.154ebb479e863579ac523698efcc26ae.75, ptr @anon.154ebb479e863579ac523698efcc26ae.76, ptr @anon.154ebb479e863579ac523698efcc26ae.77, ptr @anon.154ebb479e863579ac523698efcc26ae.78, ptr @anon.154ebb479e863579ac523698efcc26ae.79, ptr @anon.154ebb479e863579ac523698efcc26ae.80, ptr @anon.154ebb479e863579ac523698efcc26ae.81, ptr @anon.154ebb479e863579ac523698efcc26ae.82, ptr @anon.154ebb479e863579ac523698efcc26ae.83, ptr @anon.154ebb479e863579ac523698efcc26ae.84, ptr @anon.154ebb479e863579ac523698efcc26ae.85, ptr @anon.154ebb479e863579ac523698efcc26ae.86, ptr @anon.154ebb479e863579ac523698efcc26ae.87, ptr @anon.154ebb479e863579ac523698efcc26ae.88, ptr @anon.154ebb479e863579ac523698efcc26ae.89, ptr @anon.154ebb479e863579ac523698efcc26ae.90, ptr @anon.154ebb479e863579ac523698efcc26ae.91, ptr @anon.154ebb479e863579ac523698efcc26ae.92, ptr @anon.154ebb479e863579ac523698efcc26ae.93, ptr @anon.154ebb479e863579ac523698efcc26ae.94, ptr @anon.154ebb479e863579ac523698efcc26ae.95, ptr @anon.154ebb479e863579ac523698efcc26ae.96, ptr @anon.154ebb479e863579ac523698efcc26ae.97, ptr @anon.154ebb479e863579ac523698efcc26ae.98, ptr @anon.154ebb479e863579ac523698efcc26ae.99, ptr @anon.154ebb479e863579ac523698efcc26ae.100, ptr @anon.154ebb479e863579ac523698efcc26ae.101, ptr @anon.154ebb479e863579ac523698efcc26ae.102, ptr @anon.154ebb479e863579ac523698efcc26ae.103, ptr @anon.154ebb479e863579ac523698efcc26ae.104, ptr @anon.154ebb479e863579ac523698efcc26ae.105, ptr @anon.154ebb479e863579ac523698efcc26ae.106, ptr @anon.154ebb479e863579ac523698efcc26ae.107, ptr @anon.154ebb479e863579ac523698efcc26ae.108, ptr @anon.154ebb479e863579ac523698efcc26ae.109, ptr @anon.154ebb479e863579ac523698efcc26ae.110, ptr @anon.154ebb479e863579ac523698efcc26ae.111, ptr @anon.154ebb479e863579ac523698efcc26ae.112, ptr @anon.154ebb479e863579ac523698efcc26ae.113, ptr @anon.154ebb479e863579ac523698efcc26ae.114, ptr @anon.154ebb479e863579ac523698efcc26ae.115, ptr @anon.154ebb479e863579ac523698efcc26ae.116, ptr @anon.154ebb479e863579ac523698efcc26ae.117, ptr @anon.154ebb479e863579ac523698efcc26ae.118, ptr @anon.154ebb479e863579ac523698efcc26ae.119, ptr @anon.154ebb479e863579ac523698efcc26ae.120, ptr @anon.154ebb479e863579ac523698efcc26ae.121, ptr @anon.154ebb479e863579ac523698efcc26ae.122, ptr @anon.154ebb479e863579ac523698efcc26ae.123, ptr @anon.154ebb479e863579ac523698efcc26ae.124, ptr @anon.154ebb479e863579ac523698efcc26ae.125, ptr @anon.154ebb479e863579ac523698efcc26ae.126, ptr @anon.154ebb479e863579ac523698efcc26ae.127, ptr @anon.154ebb479e863579ac523698efcc26ae.128, ptr @anon.154ebb479e863579ac523698efcc26ae.129, ptr @anon.154ebb479e863579ac523698efcc26ae.130, ptr @anon.154ebb479e863579ac523698efcc26ae.131, ptr @anon.154ebb479e863579ac523698efcc26ae.132, ptr @anon.154ebb479e863579ac523698efcc26ae.133, ptr @anon.154ebb479e863579ac523698efcc26ae.134, ptr @anon.154ebb479e863579ac523698efcc26ae.135, ptr @anon.154ebb479e863579ac523698efcc26ae.136, ptr @anon.154ebb479e863579ac523698efcc26ae.137, ptr @anon.154ebb479e863579ac523698efcc26ae.138], align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef range(i8 0, 41) i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 41) i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom(ptr %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = ptrtoint ptr %.0.val to i64
@@ -4358,7 +4358,7 @@ define void @_ZN6uu_env16debug_print_args17h41b86b97cb4c6f83E(ptr noalias nounde
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6uu_env28check_and_handle_string_args17hf99e49899d2b685dE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr %.8.val, i64 %.16.val, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 2, 15) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable_or_null(24) %4) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6uu_env28check_and_handle_string_args17hf99e49899d2b685dE.argprom(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr %.8.val, i64 %.16.val, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 2, 15) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable_or_null(24) %4) unnamed_addr #2 personality ptr @rust_eh_personality {
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -4770,7 +4770,7 @@ define void @_ZN6uu_env10EnvAppData28process_all_string_arguments17h5f5c91a2e7f2
   %.val42 = load ptr, ptr %26, align 8, !alias.scope !1133, !noalias !1134, !nonnull !5, !noundef !5
   %27 = getelementptr i8, ptr %.sroa.0.04575, i64 16
   %.val43 = load i64, ptr %27, align 8, !alias.scope !1133, !noalias !1134, !noundef !5
-  invoke fastcc void @_ZN6uu_env28check_and_handle_string_args17hf99e49899d2b685dE(ptr noalias nocapture noundef align 8 dereferenceable(16) %8, ptr nonnull %.val42, i64 %.val43, ptr noalias noundef nonnull readonly align 1 @anon.154ebb479e863579ac523698efcc26ae.204, i64 noundef 14, ptr noalias noundef align 8 dereferenceable(24) %9, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null)
+  invoke fastcc void @_ZN6uu_env28check_and_handle_string_args17hf99e49899d2b685dE.argprom(ptr noalias nocapture noundef align 8 dereferenceable(16) %8, ptr nonnull %.val42, i64 %.val43, ptr noalias noundef nonnull readonly align 1 @anon.154ebb479e863579ac523698efcc26ae.204, i64 noundef 14, ptr noalias noundef align 8 dereferenceable(24) %9, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null)
           to label %29 unwind label %22
 
 28:                                               ; preds = %88, %._crit_edge
@@ -4793,7 +4793,7 @@ define void @_ZN6uu_env10EnvAppData28process_all_string_arguments17h5f5c91a2e7f2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %.val40 = load ptr, ptr %26, align 8, !alias.scope !1133, !noalias !1134, !nonnull !5, !noundef !5
   %.val41 = load i64, ptr %27, align 8, !alias.scope !1133, !noalias !1134, !noundef !5
-  invoke fastcc void @_ZN6uu_env28check_and_handle_string_args17hf99e49899d2b685dE(ptr noalias nocapture noundef align 8 dereferenceable(16) %7, ptr nonnull %.val40, i64 %.val41, ptr noalias noundef nonnull readonly align 1 @anon.154ebb479e863579ac523698efcc26ae.205, i64 noundef 2, ptr noalias noundef align 8 dereferenceable(24) %9, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null)
+  invoke fastcc void @_ZN6uu_env28check_and_handle_string_args17hf99e49899d2b685dE.argprom(ptr noalias nocapture noundef align 8 dereferenceable(16) %7, ptr nonnull %.val40, i64 %.val41, ptr noalias noundef nonnull readonly align 1 @anon.154ebb479e863579ac523698efcc26ae.205, i64 noundef 2, ptr noalias noundef align 8 dereferenceable(24) %9, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null)
           to label %38 unwind label %22
 
 37:                                               ; preds = %34
@@ -4816,7 +4816,7 @@ define void @_ZN6uu_env10EnvAppData28process_all_string_arguments17h5f5c91a2e7f2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %.val38 = load ptr, ptr %26, align 8, !alias.scope !1133, !noalias !1134, !nonnull !5, !noundef !5
   %.val39 = load i64, ptr %27, align 8, !alias.scope !1133, !noalias !1134, !noundef !5
-  invoke fastcc void @_ZN6uu_env28check_and_handle_string_args17hf99e49899d2b685dE(ptr noalias nocapture noundef align 8 dereferenceable(16) %6, ptr nonnull %.val38, i64 %.val39, ptr noalias noundef nonnull readonly align 1 @anon.154ebb479e863579ac523698efcc26ae.206, i64 noundef 3, ptr noalias noundef align 8 dereferenceable(24) %9, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null)
+  invoke fastcc void @_ZN6uu_env28check_and_handle_string_args17hf99e49899d2b685dE.argprom(ptr noalias nocapture noundef align 8 dereferenceable(16) %6, ptr nonnull %.val38, i64 %.val39, ptr noalias noundef nonnull readonly align 1 @anon.154ebb479e863579ac523698efcc26ae.206, i64 noundef 3, ptr noalias noundef align 8 dereferenceable(24) %9, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null)
           to label %47 unwind label %22
 
 46:                                               ; preds = %43
@@ -4839,7 +4839,7 @@ define void @_ZN6uu_env10EnvAppData28process_all_string_arguments17h5f5c91a2e7f2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %.val36 = load ptr, ptr %26, align 8, !alias.scope !1133, !noalias !1134, !nonnull !5, !noundef !5
   %.val37 = load i64, ptr %27, align 8, !alias.scope !1133, !noalias !1134, !noundef !5
-  invoke fastcc void @_ZN6uu_env28check_and_handle_string_args17hf99e49899d2b685dE(ptr noalias nocapture noundef align 8 dereferenceable(16) %5, ptr nonnull %.val36, i64 %.val37, ptr noalias noundef nonnull readonly align 1 @anon.154ebb479e863579ac523698efcc26ae.207, i64 noundef 4, ptr noalias noundef align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(24) %2)
+  invoke fastcc void @_ZN6uu_env28check_and_handle_string_args17hf99e49899d2b685dE.argprom(ptr noalias nocapture noundef align 8 dereferenceable(16) %5, ptr nonnull %.val36, i64 %.val37, ptr noalias noundef nonnull readonly align 1 @anon.154ebb479e863579ac523698efcc26ae.207, i64 noundef 4, ptr noalias noundef align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(24) %2)
           to label %56 unwind label %22
 
 55:                                               ; preds = %52
@@ -5305,7 +5305,7 @@ _ZN3std7process7Command4args17h5cd0c0eeb33e80a3E.exit: ; preds = %.noexc92, %74
 144:                                              ; preds = %139
   %145 = getelementptr inbounds i8, ptr %33, i64 8
   %.val88 = load ptr, ptr %145, align 8, !nonnull !5, !noundef !5
-  %146 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr nonnull %.val88)
+  %146 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom(ptr nonnull %.val88)
   %147 = icmp eq i8 %146, 0
   br i1 %147, label %203, label %198
 
@@ -5339,7 +5339,7 @@ _ZN3std7process7Command4args17h5cd0c0eeb33e80a3E.exit: ; preds = %.noexc92, %74
   %157 = lshr i32 %152, 8
   %158 = and i32 %157, 255
   %159 = invoke { ptr, ptr } @"_ZN6uucore4mods5error121_$LT$impl$u20$core..convert..From$LT$i32$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17hc284ef04674ce317E"(i32 noundef %158)
-          to label %_ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.exit unwind label %148
+          to label %_ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.argprom.exit unwind label %148
 
 160:                                              ; preds = %151
   %161 = trunc nuw nsw i32 %153 to i8
@@ -5395,7 +5395,7 @@ _ZN3std7process7Command4args17h5cd0c0eeb33e80a3E.exit: ; preds = %.noexc92, %74
   %172 = invoke noundef i32 @_ZN3nix3sys6signal5raise17h877bb249b92d0845E(i32 noundef %168)
           to label %.invoke unwind label %148, !range !1210
 
-_ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.exit: ; preds = %236, %156
+_ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.argprom.exit: ; preds = %236, %156
   %.pn = phi { ptr, ptr } [ %159, %156 ], [ %237, %236 ]
   %173 = load i32, ptr %33, align 8, !range !1203, !noundef !5
   %.not79 = icmp eq i32 %173, 0
@@ -5477,7 +5477,7 @@ _ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.exit:
   ret { ptr, ptr } %197
 
 198:                                              ; preds = %144
-  %199 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr nonnull %.val88)
+  %199 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom(ptr nonnull %.val88)
   %200 = icmp eq i8 %199, 20
   br i1 %200, label %203, label %201
 
@@ -5614,7 +5614,7 @@ _ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.exit:
 
 236:                                              ; preds = %.noexc128, %.noexc125
   %237 = invoke { ptr, ptr } @_ZN6uucore4mods5error8ExitCode3new17he607e9a1a52bbccaE(i32 noundef 127)
-          to label %_ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.exit unwind label %148
+          to label %_ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.argprom.exit unwind label %148
 
 238:                                              ; preds = %255, %249, %240, %201
   %239 = landingpad { ptr, i32 }
@@ -5694,15 +5694,15 @@ _ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.exit:
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   br label %262
 
-262:                                              ; preds = %.thread163, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4ff938d273f3d387E.exit137", %_ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.exit
-  %.pn173 = phi { ptr, ptr } [ %256, %.thread163 ], [ %.pn, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4ff938d273f3d387E.exit137" ], [ %.pn, %_ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.exit ]
+262:                                              ; preds = %.thread163, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4ff938d273f3d387E.exit137", %_ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.argprom.exit
+  %.pn173 = phi { ptr, ptr } [ %256, %.thread163 ], [ %.pn, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4ff938d273f3d387E.exit137" ], [ %.pn, %_ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.argprom.exit ]
   %.sroa.6.1170 = extractvalue { ptr, ptr } %.pn173, 1
   %.sroa.0.1171 = extractvalue { ptr, ptr } %.pn173, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
   invoke void @"_ZN4core3ptr74drop_in_place$LT$std..sys..pal..unix..process..process_common..Command$GT$17h00b6bb25d0b33617E.llvm.12269880611312064175"(ptr noalias noundef nonnull align 8 dereferenceable(208) %48)
           to label %"_ZN4core3ptr42drop_in_place$LT$std..process..Command$GT$17hde9ee9d6caf4c221E.exit133" unwind label %61
 
-263:                                              ; preds = %_ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.exit
+263:                                              ; preds = %_ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.argprom.exit
   %264 = getelementptr inbounds i8, ptr %33, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1294)
   call void @llvm.experimental.noalias.scope.decl(metadata !1297)
@@ -6499,14 +6499,14 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h45c0acf0ffcfb409E.exit: ; 
   %200 = getelementptr inbounds i8, ptr %193, i64 16
   %.val58 = load i64, ptr %200, align 8, !noundef !5
   %.not.i.i = icmp eq i64 %.val58, 1
-  br i1 %.not.i.i, label %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit", label %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.thread"
+  br i1 %.not.i.i, label %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.argprom.exit", label %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.argprom.exit.thread"
 
-"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit": ; preds = %196
+"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.argprom.exit": ; preds = %196
   %lhsc.i = load i8, ptr %.val, align 1
   %201 = icmp eq i8 %lhsc.i, 45
-  br i1 %201, label %245, label %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.thread"
+  br i1 %201, label %245, label %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.argprom.exit.thread"
 
-"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.thread": ; preds = %196, %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit"
+"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.argprom.exit.thread": ; preds = %196, %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.argprom.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !1471)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1474
   store i64 -9223372036854775808, ptr %6, align 8, !alias.scope !1477, !noalias !1480
@@ -6521,12 +6521,12 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h45c0acf0ffcfb409E.exit: ; 
   invoke void @"_ZN4core3ptr54drop_in_place$LT$uu_env..native_int_str..NativeStr$GT$17h52cc2a9226544c9dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #17
           to label %.body unwind label %243, !noalias !1483
 
-202:                                              ; preds = %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.thread"
+202:                                              ; preds = %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.argprom.exit.thread"
   %203 = landingpad { ptr, i32 }
           cleanup
   br label %.critedge10.i
 
-204:                                              ; preds = %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.thread"
+204:                                              ; preds = %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.argprom.exit.thread"
   %205 = load i64, ptr %5, align 8, !range !59, !noalias !1474, !noundef !5
   %.not.i84 = icmp eq i64 %205, -9223372036854775807
   br i1 %.not.i84, label %215, label %206
@@ -6641,7 +6641,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h45c0acf0ffcfb409E.exit: ; 
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18, !noalias !1483
   unreachable
 
-245:                                              ; preds = %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit"
+245:                                              ; preds = %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.argprom.exit"
   store i8 1, ptr %159, align 8
   br label %188
 
@@ -9047,10 +9047,10 @@ attributes #19 = { noreturn }
 !1202 = distinct !{!1202, !1199, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !1203 = !{i32 0, i32 2}
 !1204 = !{!1205}
-!1205 = distinct !{!1205, !1206, !"_ZN3nix3sys6signal9SigAction3new17h581c5c4e082d84bbE: argument 1"}
-!1206 = distinct !{!1206, !"_ZN3nix3sys6signal9SigAction3new17h581c5c4e082d84bbE"}
+!1205 = distinct !{!1205, !1206, !"_ZN3nix3sys6signal9SigAction3new17h581c5c4e082d84bbE.argprom: argument 1"}
+!1206 = distinct !{!1206, !"_ZN3nix3sys6signal9SigAction3new17h581c5c4e082d84bbE.argprom"}
 !1207 = !{!1208}
-!1208 = distinct !{!1208, !1206, !"_ZN3nix3sys6signal9SigAction3new17h581c5c4e082d84bbE: argument 0"}
+!1208 = distinct !{!1208, !1206, !"_ZN3nix3sys6signal9SigAction3new17h581c5c4e082d84bbE.argprom: argument 0"}
 !1209 = !{!1208, !1205}
 !1210 = !{i32 0, i32 135}
 !1211 = !{!1212}
@@ -9085,8 +9085,8 @@ attributes #19 = { noreturn }
 !1240 = distinct !{!1240, !1241, !"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb1166c1149f5763aE: argument 0"}
 !1241 = distinct !{!1241, !"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb1166c1149f5763aE"}
 !1242 = !{!1243}
-!1243 = distinct !{!1243, !1244, !"_ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E: argument 0"}
-!1244 = distinct !{!1244, !"_ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E"}
+!1243 = distinct !{!1243, !1244, !"_ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.argprom: argument 0"}
+!1244 = distinct !{!1244, !"_ZN6uu_env10EnvAppData30make_error_no_such_file_or_dir17hd461182338a93fd4E.argprom"}
 !1245 = !{!1246}
 !1246 = distinct !{!1246, !1247, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
 !1247 = distinct !{!1247, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}

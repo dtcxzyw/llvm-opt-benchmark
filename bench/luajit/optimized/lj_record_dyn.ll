@@ -1613,7 +1613,7 @@ if.end77:                                         ; preds = %if.else68, %if.end6
   %key = getelementptr inbounds i8, ptr %ix, i64 52
   store i32 %22, ptr %key, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %savetv, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx83, i64 48, i1 false)
-  call fastcc void @rec_mm_arith(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef 8)
+  call fastcc void @rec_mm_arith.retelim(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef 8)
   %23 = load ptr, ptr %L78, align 8
   %base93 = getelementptr inbounds i8, ptr %23, i64 32
   %24 = load ptr, ptr %base93, align 8
@@ -4026,7 +4026,7 @@ if.then523:                                       ; preds = %sw.bb512
 
 if.else526:                                       ; preds = %sw.bb512
   %keyv527 = getelementptr inbounds i8, ptr %ix, i64 8
-  call fastcc void @rec_mm_len(ptr noundef nonnull %J, i32 noundef %rc.1, ptr noundef %keyv527)
+  call fastcc void @rec_mm_len.retelim(ptr noundef nonnull %J, i32 noundef %rc.1, ptr noundef %keyv527)
   br label %if.end986
 
 sw.bb531:                                         ; preds = %sw.epilog247
@@ -4050,7 +4050,7 @@ if.else544:                                       ; preds = %sw.bb531
   %keyv548 = getelementptr inbounds i8, ptr %ix, i64 8
   %131 = load i64, ptr %keyv548, align 8
   store i64 %131, ptr %ix, align 8
-  call fastcc void @rec_mm_arith(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef 16)
+  call fastcc void @rec_mm_arith.retelim(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef 16)
   br label %if.end986
 
 sw.bb551:                                         ; preds = %sw.epilog247, %sw.epilog247, %sw.epilog247, %sw.epilog247, %sw.epilog247
@@ -4099,7 +4099,7 @@ if.then592:                                       ; preds = %land.lhs.true582
   br label %sw.epilog957
 
 if.else598:                                       ; preds = %land.lhs.true582, %sw.bb568
-  call fastcc void @rec_mm_arith(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef %shr572)
+  call fastcc void @rec_mm_arith.retelim(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef %shr572)
   br label %if.end986
 
 recmod:                                           ; preds = %sw.epilog247, %sw.epilog247, %sw.bb551
@@ -4130,7 +4130,7 @@ if.then621:                                       ; preds = %land.lhs.true611
   br label %sw.epilog957
 
 if.else625:                                       ; preds = %land.lhs.true611, %recmod
-  call fastcc void @rec_mm_arith(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef 14)
+  call fastcc void @rec_mm_arith.retelim(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef 14)
   br label %if.end986
 
 sw.bb628:                                         ; preds = %sw.epilog247
@@ -4159,7 +4159,7 @@ if.then648:                                       ; preds = %land.lhs.true638
   br label %sw.epilog957
 
 if.else652:                                       ; preds = %land.lhs.true638, %sw.bb628
-  call fastcc void @rec_mm_arith(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef 15)
+  call fastcc void @rec_mm_arith.retelim(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef 15)
   br label %if.end986
 
 sw.bb655:                                         ; preds = %sw.epilog247
@@ -5081,7 +5081,7 @@ declare hidden i32 @lj_ir_tonum(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare hidden i32 @lj_ir_tostr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_mm_len(ptr noundef %J, i32 noundef %tr, ptr nocapture noundef nonnull readonly %tv) unnamed_addr #0 {
+define internal fastcc void @rec_mm_len.retelim(ptr noundef %J, i32 noundef %tr, ptr nocapture noundef nonnull readonly %tv) unnamed_addr #0 {
 entry:
   %ix = alloca %struct.RecordIndex, align 8
   %tab = getelementptr inbounds i8, ptr %ix, i64 48
@@ -5196,7 +5196,7 @@ if.else:                                          ; preds = %entry
 declare hidden i32 @lj_opt_narrow_unm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_mm_arith(ptr noundef %J, ptr nocapture noundef nonnull %ix, i32 noundef range(i32 0, 32) %mm) unnamed_addr #0 {
+define internal fastcc void @rec_mm_arith.retelim(ptr noundef %J, ptr nocapture noundef nonnull %ix, i32 noundef range(i32 0, 32) %mm) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %mm, 8
   br i1 %cmp, label %cond.true.i, label %cond.false.i

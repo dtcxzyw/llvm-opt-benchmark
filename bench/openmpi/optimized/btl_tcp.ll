@@ -132,7 +132,7 @@ define range(i32 -2, 1) i32 @mca_btl_tcp_add_procs(ptr noundef %0, i64 noundef %
 
 45:                                               ; preds = %44, %._crit_edge
   %.not9.i = icmp eq ptr %41, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %46
+  br i1 %.not9.i, label %opal_obj_new.argprom.exit.thread, label %46
 
 46:                                               ; preds = %45
   store ptr @mca_btl_tcp_endpoint_t_class, ptr %41, align 8
@@ -141,7 +141,7 @@ define range(i32 -2, 1) i32 @mca_btl_tcp_add_procs(ptr noundef %0, i64 noundef %
   %48 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_endpoint_t_class, i64 40), align 8
   %49 = load ptr, ptr %48, align 8
   %.not6.i.i = icmp eq ptr %49, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread54, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit.thread54, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %46, %.lr.ph.i.i
   %50 = phi ptr [ %52, %.lr.ph.i.i ], [ %49, %46 ]
@@ -150,19 +150,19 @@ define range(i32 -2, 1) i32 @mca_btl_tcp_add_procs(ptr noundef %0, i64 noundef %
   %51 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread54, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %opal_obj_new.argprom.exit.thread54, label %.lr.ph.i.i, !llvm.loop !6
 
-opal_obj_new.exit.thread:                         ; preds = %45
+opal_obj_new.argprom.exit.thread:                 ; preds = %45
   %53 = load i8, ptr @opal_uses_threads, align 1
   %54 = trunc i8 %53 to i1
   br i1 %54, label %55, label %.loopexit
 
-55:                                               ; preds = %opal_obj_new.exit.thread
+55:                                               ; preds = %opal_obj_new.argprom.exit.thread
   %56 = getelementptr inbounds i8, ptr %19, i64 168
   %57 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %56) #10
   br label %.loopexit
 
-opal_obj_new.exit.thread54:                       ; preds = %.lr.ph.i.i, %46
+opal_obj_new.argprom.exit.thread54:               ; preds = %.lr.ph.i.i, %46
   %58 = getelementptr inbounds i8, ptr %41, i64 40
   store ptr %0, ptr %58, align 8
   %59 = tail call i32 @mca_btl_tcp_proc_insert(ptr noundef nonnull %19, ptr noundef nonnull %41) #10
@@ -171,7 +171,7 @@ opal_obj_new.exit.thread54:                       ; preds = %.lr.ph.i.i, %46
   %61 = trunc i8 %60 to i1
   br i1 %.not, label %85, label %62
 
-62:                                               ; preds = %opal_obj_new.exit.thread54
+62:                                               ; preds = %opal_obj_new.argprom.exit.thread54
   br i1 %61, label %63, label %66
 
 63:                                               ; preds = %62
@@ -223,7 +223,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %77
   tail call void @free(ptr noundef %41) #10
   br label %111
 
-85:                                               ; preds = %opal_obj_new.exit.thread54
+85:                                               ; preds = %opal_obj_new.argprom.exit.thread54
   br i1 %61, label %86, label %88
 
 86:                                               ; preds = %85
@@ -281,8 +281,8 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %77
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
   br i1 %exitcond67.not, label %.loopexit, label %14, !llvm.loop !8
 
-.loopexit:                                        ; preds = %111, %.preheader, %55, %opal_obj_new.exit.thread, %5
-  %.044 = phi i32 [ -2, %5 ], [ -2, %opal_obj_new.exit.thread ], [ -2, %55 ], [ 0, %.preheader ], [ 0, %111 ]
+.loopexit:                                        ; preds = %111, %.preheader, %55, %opal_obj_new.argprom.exit.thread, %5
+  %.044 = phi i32 [ -2, %5 ], [ -2, %opal_obj_new.argprom.exit.thread ], [ -2, %55 ], [ 0, %.preheader ], [ 0, %111 ]
   ret i32 %.044
 }
 

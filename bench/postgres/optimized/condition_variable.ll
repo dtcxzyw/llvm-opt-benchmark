@@ -177,7 +177,7 @@ define dso_local noundef zeroext i1 @ConditionVariableCancelSleep() local_unname
   %16 = load i32, ptr %12, align 4
   %17 = icmp eq i32 %16, 0
   %or.cond = select i1 %15, i1 %17, i1 false
-  br i1 %or.cond, label %proclist_contains_offset.exit, label %thread-pre-split
+  br i1 %or.cond, label %proclist_contains_offset.argprom.exit, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %7
   %18 = getelementptr inbounds i8, ptr %1, i64 4
@@ -206,16 +206,16 @@ proclist_delete_offset.exit:                      ; preds = %24, %26
   store i32 %23, ptr %.sink16.i, align 4
   store i32 0, ptr %13, align 4
   store i32 0, ptr %12, align 4
-  br label %proclist_contains_offset.exit
+  br label %proclist_contains_offset.argprom.exit
 
-proclist_contains_offset.exit:                    ; preds = %7, %proclist_delete_offset.exit
+proclist_contains_offset.argprom.exit:            ; preds = %7, %proclist_delete_offset.exit
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
   store i8 0, ptr %1, align 4
   store ptr null, ptr @cv_sleep_target, align 8
   br label %31
 
-31:                                               ; preds = %0, %proclist_contains_offset.exit
-  %.07 = phi i1 [ %or.cond, %proclist_contains_offset.exit ], [ false, %0 ]
+31:                                               ; preds = %0, %proclist_contains_offset.argprom.exit
+  %.07 = phi i1 [ %or.cond, %proclist_contains_offset.argprom.exit ], [ false, %0 ]
   ret i1 %.07
 }
 
@@ -289,25 +289,25 @@ define dso_local noundef zeroext i1 @ConditionVariableTimedSleep(ptr noundef %0,
   %32 = getelementptr inbounds i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %proclist_contains_offset.exit.thread
+  br i1 %34, label %35, label %proclist_contains_offset.argprom.exit.thread
 
 35:                                               ; preds = %26
   %36 = load i32, ptr %31, align 4
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %proclist_contains_offset.exit, label %proclist_contains_offset.exit.thread
+  br i1 %37, label %proclist_contains_offset.argprom.exit, label %proclist_contains_offset.argprom.exit.thread
 
-proclist_contains_offset.exit:                    ; preds = %35
+proclist_contains_offset.argprom.exit:            ; preds = %35
   %38 = load i32, ptr %17, align 4
   %39 = icmp eq i32 %38, -1
   br i1 %39, label %40, label %41
 
-40:                                               ; preds = %proclist_contains_offset.exit
+40:                                               ; preds = %proclist_contains_offset.argprom.exit
   store i32 -1, ptr %32, align 4
   store i32 -1, ptr %31, align 4
   store i32 %27, ptr %16, align 4
   br label %proclist_push_tail_offset.exit
 
-41:                                               ; preds = %proclist_contains_offset.exit
+41:                                               ; preds = %proclist_contains_offset.argprom.exit
   store i32 %38, ptr %32, align 4
   %42 = load ptr, ptr @ProcGlobal, align 8
   %43 = load ptr, ptr %42, align 8
@@ -319,9 +319,9 @@ proclist_contains_offset.exit:                    ; preds = %35
 
 proclist_push_tail_offset.exit:                   ; preds = %40, %41
   store i32 %27, ptr %17, align 4
-  br label %proclist_contains_offset.exit.thread
+  br label %proclist_contains_offset.argprom.exit.thread
 
-proclist_contains_offset.exit.thread:             ; preds = %35, %26, %proclist_push_tail_offset.exit
+proclist_contains_offset.argprom.exit.thread:     ; preds = %35, %26, %proclist_push_tail_offset.exit
   %.021.not = phi i1 [ false, %proclist_push_tail_offset.exit ], [ true, %26 ], [ true, %35 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !9
   store i8 0, ptr %0, align 4
@@ -329,11 +329,11 @@ proclist_contains_offset.exit.thread:             ; preds = %35, %26, %proclist_
   %.not31 = icmp eq i32 %46, 0
   br i1 %.not31, label %48, label %47
 
-47:                                               ; preds = %proclist_contains_offset.exit.thread
+47:                                               ; preds = %proclist_contains_offset.argprom.exit.thread
   call void @ProcessInterrupts() #4
   br label %48
 
-48:                                               ; preds = %proclist_contains_offset.exit.thread, %47
+48:                                               ; preds = %proclist_contains_offset.argprom.exit.thread, %47
   %49 = load ptr, ptr @cv_sleep_target, align 8
   %.not32 = icmp eq ptr %0, %49
   %spec.select.not = and i1 %.021.not, %.not32
@@ -672,12 +672,12 @@ proclist_pop_head_node_offset.exit35:             ; preds = %87, %100
 113:                                              ; preds = %106
   %114 = load i32, ptr %109, align 4
   %115 = icmp eq i32 %114, 0
-  br i1 %115, label %proclist_contains_offset.exit, label %116
+  br i1 %115, label %proclist_contains_offset.argprom.exit, label %116
 
 116:                                              ; preds = %113, %106
-  br label %proclist_contains_offset.exit
+  br label %proclist_contains_offset.argprom.exit
 
-proclist_contains_offset.exit:                    ; preds = %113, %116
+proclist_contains_offset.argprom.exit:            ; preds = %113, %116
   %.0.i = phi i1 [ true, %116 ], [ false, %113 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !12
   store i8 0, ptr %0, align 4
@@ -687,12 +687,12 @@ proclist_contains_offset.exit:                    ; preds = %113, %116
   %or.cond = select i1 %.not25, i1 true, i1 %.not26
   br i1 %or.cond, label %120, label %118
 
-118:                                              ; preds = %proclist_contains_offset.exit
+118:                                              ; preds = %proclist_contains_offset.argprom.exit
   %119 = getelementptr inbounds i8, ptr %.121, i64 36
   tail call void @SetLatch(ptr noundef nonnull %119) #4
   br label %120
 
-120:                                              ; preds = %118, %proclist_contains_offset.exit
+120:                                              ; preds = %118, %proclist_contains_offset.argprom.exit
   br i1 %.0.i, label %81, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %120, %.thread, %78

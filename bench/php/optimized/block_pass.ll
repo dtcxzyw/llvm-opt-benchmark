@@ -1000,9 +1000,9 @@ zend_t_usage.exit:                                ; preds = %130, %._crit_edge26
   %501 = getelementptr inbounds %struct._zend_op, ptr %497, i64 %500, i32 6
   %502 = load i8, ptr %501, align 4
   %503 = icmp eq i8 %502, 0
-  br i1 %503, label %.preheader1455.i, label %strip_leading_nops.exit.thread.i
+  br i1 %503, label %.preheader1455.i, label %strip_leading_nops.argprom.exit.thread.i
 
-strip_leading_nops.exit.thread.i:                 ; preds = %496
+strip_leading_nops.argprom.exit.thread.i:         ; preds = %496
   %504 = getelementptr inbounds %struct._zend_op, ptr %497, i64 %500
   br label %.lr.ph1485.i
 
@@ -1021,16 +1021,16 @@ strip_leading_nops.exit.thread.i:                 ; preds = %496
   %511 = getelementptr inbounds %struct._zend_op, ptr %497, i64 %510, i32 6
   %512 = load i8, ptr %511, align 4
   %513 = icmp eq i8 %512, 0
-  br i1 %513, label %.preheader1455.i, label %strip_leading_nops.exit.i
+  br i1 %513, label %.preheader1455.i, label %strip_leading_nops.argprom.exit.i
 
-strip_leading_nops.exit.i:                        ; preds = %509
+strip_leading_nops.argprom.exit.i:                ; preds = %509
   %.pre.i = load ptr, ptr %120, align 8
   %514 = getelementptr inbounds %struct._zend_op, ptr %.pre.i, i64 %510
   br label %.lr.ph1485.i
 
-.lr.ph1485.i:                                     ; preds = %strip_leading_nops.exit.i, %strip_leading_nops.exit.thread.i
-  %.lcssa1543.sink.i = phi i32 [ %508, %strip_leading_nops.exit.i ], [ %494, %strip_leading_nops.exit.thread.i ]
-  %.sink.i359 = phi ptr [ %514, %strip_leading_nops.exit.i ], [ %504, %strip_leading_nops.exit.thread.i ]
+.lr.ph1485.i:                                     ; preds = %strip_leading_nops.argprom.exit.i, %strip_leading_nops.argprom.exit.thread.i
+  %.lcssa1543.sink.i = phi i32 [ %508, %strip_leading_nops.argprom.exit.i ], [ %494, %strip_leading_nops.argprom.exit.thread.i ]
+  %.sink.i359 = phi ptr [ %514, %strip_leading_nops.argprom.exit.i ], [ %504, %strip_leading_nops.argprom.exit.thread.i ]
   %515 = zext i32 %.lcssa1543.sink.i to i64
   %516 = getelementptr inbounds %struct._zend_op, ptr %.sink.i359, i64 %515
   %517 = getelementptr inbounds i8, ptr %.0322543, i64 20
@@ -3899,7 +3899,7 @@ zend_optimizer_is_loop_var_free.exit.thread:      ; preds = %.lr.ph546, %2029, %
   %2058 = getelementptr inbounds %struct._zend_op, ptr %2054, i64 %2057, i32 6
   %2059 = load i8, ptr %2058, align 4
   %2060 = icmp eq i8 %2059, 0
-  br i1 %2060, label %.preheader.i376, label %strip_leading_nops.exit.i367
+  br i1 %2060, label %.preheader.i376, label %strip_leading_nops.argprom.exit.i367
 
 .preheader.i376:                                  ; preds = %2053, %2065
   %2061 = phi i32 [ %2064, %2065 ], [ %2051, %2053 ]
@@ -3916,9 +3916,9 @@ zend_optimizer_is_loop_var_free.exit.thread:      ; preds = %.lr.ph546, %2029, %
   %2067 = getelementptr inbounds %struct._zend_op, ptr %2054, i64 %2066, i32 6
   %2068 = load i8, ptr %2067, align 4
   %2069 = icmp eq i8 %2068, 0
-  br i1 %2069, label %.preheader.i376, label %strip_leading_nops.exit.i367
+  br i1 %2069, label %.preheader.i376, label %strip_leading_nops.argprom.exit.i367
 
-strip_leading_nops.exit.i367:                     ; preds = %2065, %2053
+strip_leading_nops.argprom.exit.i367:             ; preds = %2065, %2053
   %2070 = phi i32 [ %2056, %2053 ], [ %2063, %2065 ]
   %2071 = phi i32 [ %2051, %2053 ], [ %2064, %2065 ]
   %2072 = add i32 %2070, 1
@@ -3926,11 +3926,11 @@ strip_leading_nops.exit.i367:                     ; preds = %2065, %2053
   %2074 = icmp ult i32 %2072, %2073
   br i1 %2074, label %.lr.ph.preheader.i, label %._crit_edge.thread.i
 
-._crit_edge.thread.i:                             ; preds = %strip_leading_nops.exit.i367
+._crit_edge.thread.i:                             ; preds = %strip_leading_nops.argprom.exit.i367
   store i32 1, ptr %2050, align 8
   br label %strip_nops.exit
 
-.lr.ph.preheader.i:                               ; preds = %strip_leading_nops.exit.i367
+.lr.ph.preheader.i:                               ; preds = %strip_leading_nops.argprom.exit.i367
   %2075 = zext i32 %2072 to i64
   br label %.lr.ph.i369
 
@@ -5554,7 +5554,7 @@ zend_merge_blocks.exit:                           ; preds = %2958, %._crit_edge
   br i1 %or.cond763, label %2964, label %130
 
 2964:                                             ; preds = %zend_merge_blocks.exit
-  call fastcc void @assemble_code_blocks(ptr noundef %10, ptr noundef %0)
+  call fastcc void @assemble_code_blocks.argprom(ptr noundef %10, ptr noundef %0)
   %2965 = load i64, ptr %36, align 8
   %2966 = and i64 %2965, 524288
   %.not350 = icmp eq i64 %2966, 0
@@ -5602,7 +5602,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @zend_cfg_remark_reachable_blocks(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @assemble_code_blocks(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @assemble_code_blocks.argprom(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %0, align 8

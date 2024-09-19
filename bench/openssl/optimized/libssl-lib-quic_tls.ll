@@ -272,7 +272,7 @@ if.end59:                                         ; preds = %if.end47
   br i1 %cmp62, label %if.then63, label %if.end65
 
 if.then63:                                        ; preds = %if.end59
-  tail call fastcc void @raise_error(ptr noundef nonnull %qtls, i64 noundef 1, ptr noundef nonnull @.str.1, i32 noundef 772)
+  tail call fastcc void @raise_error.argprom.retelim(ptr noundef nonnull %qtls, i64 noundef 1, ptr noundef nonnull @.str.1, i32 noundef 772)
   br label %return
 
 if.end65:                                         ; preds = %if.end59
@@ -336,7 +336,7 @@ sw.bb:                                            ; preds = %if.then97, %if.then
   br label %return
 
 sw.default:                                       ; preds = %if.then97
-  tail call fastcc void @raise_error(ptr noundef nonnull %qtls, i64 noundef 1, ptr noundef nonnull @.str.1, i32 noundef 811)
+  tail call fastcc void @raise_error.argprom.retelim(ptr noundef nonnull %qtls, i64 noundef 1, ptr noundef nonnull @.str.1, i32 noundef 811)
   br label %return
 
 if.end105:                                        ; preds = %if.end95
@@ -396,7 +396,7 @@ return:                                           ; preds = %entry, %if.end131, 
 declare i32 @ERR_set_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @raise_error(ptr nocapture noundef %qtls, i64 noundef range(i64 1, 377) %error_code, ptr noundef %error_msg, i32 noundef range(i32 746, 821) %src_line) unnamed_addr #0 {
+define internal fastcc void @raise_error.argprom.retelim(ptr nocapture noundef %qtls, i64 noundef range(i64 1, 377) %error_code, ptr noundef %error_msg, i32 noundef range(i32 746, 821) %src_line) unnamed_addr #0 {
 entry:
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %src_line, ptr noundef nonnull @__func__.ossl_quic_tls_tick) #9

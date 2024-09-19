@@ -148,7 +148,7 @@ declare i64 @H5FDregister(ptr noundef) local_unnamed_addr #1
 define i32 @H5Pset_fapl_split(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.H5FD_multi_fapl_t, align 8
   %7 = tail call i32 @H5Eclear2(i64 noundef 0) #16
-  %8 = call fastcc i32 @H5FD_split_populate_config(ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %6)
+  %8 = call fastcc i32 @H5FD_split_populate_config.argelim(ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %6)
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %18
 
@@ -173,7 +173,7 @@ define i32 @H5Pset_fapl_split(i64 noundef %0, ptr noundef %1, i64 noundef %2, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD_split_populate_config(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD_split_populate_config.argelim(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [7 x ptr], align 16
   %7 = alloca [7 x i32], align 16
   %8 = alloca [7 x i64], align 16
@@ -3357,7 +3357,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_delete(ptr noundef %0, i64 noun
   br i1 %.not28, label %32, label %43
 
 32:                                               ; preds = %30
-  %33 = call fastcc i32 @H5FD_split_populate_config(ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef %4)
+  %33 = call fastcc i32 @H5FD_split_populate_config.argelim(ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef %4)
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %54
 

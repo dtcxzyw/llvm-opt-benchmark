@@ -460,13 +460,13 @@ define internal void @"_ZN3$_08__invokeEv"() #0 align 2 personality ptr @__gxx_p
 entry:
   %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_stderrthreshold, i64 80) acquire, align 8
   %cmp.i.not.i.i.i.i = icmp eq i64 %0, 0
-  br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %"_ZNK3$_0clEv.exit"
+  br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %"_ZNK3$_0clEv.argprom.exit"
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %call.i2.i.i.i.i = tail call noundef i64 @_ZNK4absl14flags_internal8FlagImpl11ReadOneWordEv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_stderrthreshold)
-  br label %"_ZNK3$_0clEv.exit"
+  br label %"_ZNK3$_0clEv.argprom.exit"
 
-"_ZNK3$_0clEv.exit":                              ; preds = %entry, %if.then.i.i.i.i
+"_ZNK3$_0clEv.argprom.exit":                      ; preds = %entry, %if.then.i.i.i.i
   %u.sroa.0.0.in.i.i.i.i = phi i64 [ %call.i2.i.i.i.i, %if.then.i.i.i.i ], [ %0, %entry ]
   %u.sroa.0.0.i.i.i.i = trunc i64 %u.sroa.0.0.in.i.i.i.i to i32
   tail call void @_ZN4absl12log_internal21RawSetStderrThresholdENS_18LogSeverityAtLeastE(i32 noundef %u.sroa.0.0.i.i.i.i)
@@ -496,13 +496,13 @@ define internal void @"_ZN3$_18__invokeEv"() #0 align 2 personality ptr @__gxx_p
 entry:
   %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_minloglevel, i64 80) acquire, align 8
   %cmp.i.not.i.i.i.i = icmp eq i64 %0, 0
-  br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %"_ZNK3$_1clEv.exit"
+  br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %"_ZNK3$_1clEv.argprom.exit"
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %call.i2.i.i.i.i = tail call noundef i64 @_ZNK4absl14flags_internal8FlagImpl11ReadOneWordEv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_minloglevel)
-  br label %"_ZNK3$_1clEv.exit"
+  br label %"_ZNK3$_1clEv.argprom.exit"
 
-"_ZNK3$_1clEv.exit":                              ; preds = %entry, %if.then.i.i.i.i
+"_ZNK3$_1clEv.argprom.exit":                      ; preds = %entry, %if.then.i.i.i.i
   %u.sroa.0.0.in.i.i.i.i = phi i64 [ %call.i2.i.i.i.i, %if.then.i.i.i.i ], [ %0, %entry ]
   %u.sroa.0.0.i.i.i.i = trunc i64 %u.sroa.0.0.in.i.i.i.i to i32
   tail call void @_ZN4absl12log_internal17RawSetMinLogLevelENS_18LogSeverityAtLeastE(i32 noundef %u.sroa.0.0.i.i.i.i)
@@ -691,13 +691,13 @@ invoke.cont13.i:                                  ; preds = %invoke.cont11.i
 
 if.then15.invoke.i:                               ; preds = %invoke.cont13.i, %if.end.i, %_ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit.i
   invoke void @_ZN4absl25ClearLogBacktraceLocationEv()
-          to label %"_ZNK3$_2clEv.exit" unwind label %lpad.i
+          to label %"_ZNK3$_2clEv.argprom.exit" unwind label %lpad.i
 
 if.end17.i:                                       ; preds = %invoke.cont13.i
   invoke void @_ZN4absl23SetLogBacktraceLocationESt17basic_string_viewIcSt11char_traitsIcEEi(i64 %.sroa.speculated.i.i, ptr %3, i32 noundef %6)
-          to label %"_ZNK3$_2clEv.exit" unwind label %lpad.i
+          to label %"_ZNK3$_2clEv.argprom.exit" unwind label %lpad.i
 
-"_ZNK3$_2clEv.exit":                              ; preds = %if.then15.invoke.i, %if.end17.i
+"_ZNK3$_2clEv.argprom.exit":                      ; preds = %if.then15.invoke.i, %if.end17.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %log_backtrace_at.i) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %log_backtrace_at.i)
   ret void
@@ -732,13 +732,13 @@ entry:
 
 invoke.cont.thread.i.i.i.i:                       ; preds = %entry
   %tobool.i.i.i.i.i = trunc i64 %0 to i1
-  br label %"_ZNK3$_3clEv.exit"
+  br label %"_ZNK3$_3clEv.argprom.exit"
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %call.i2.i.i.i.i = tail call noundef zeroext i1 @_ZNK4absl14flags_internal8FlagImpl11ReadOneBoolEv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_log_prefix)
-  br label %"_ZNK3$_3clEv.exit"
+  br label %"_ZNK3$_3clEv.argprom.exit"
 
-"_ZNK3$_3clEv.exit":                              ; preds = %invoke.cont.thread.i.i.i.i, %if.then.i.i.i.i
+"_ZNK3$_3clEv.argprom.exit":                      ; preds = %invoke.cont.thread.i.i.i.i, %if.then.i.i.i.i
   %u.sroa.0.0.i.i.i.i = phi i1 [ %call.i2.i.i.i.i, %if.then.i.i.i.i ], [ %tobool.i.i.i.i.i, %invoke.cont.thread.i.i.i.i ]
   tail call void @_ZN4absl12log_internal18RawEnableLogPrefixEb(i1 noundef zeroext %u.sroa.0.0.i.i.i.i)
   ret void
@@ -753,13 +753,13 @@ define internal void @"_ZN3$_48__invokeEv"() #0 align 2 personality ptr @__gxx_p
 entry:
   %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_v, i64 80) acquire, align 8
   %cmp.i.not.i.i.i.i = icmp eq i64 %0, 0
-  br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %"_ZNK3$_4clEv.exit"
+  br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %"_ZNK3$_4clEv.argprom.exit"
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %call.i2.i.i.i.i = tail call noundef i64 @_ZNK4absl14flags_internal8FlagImpl11ReadOneWordEv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_v)
-  br label %"_ZNK3$_4clEv.exit"
+  br label %"_ZNK3$_4clEv.argprom.exit"
 
-"_ZNK3$_4clEv.exit":                              ; preds = %entry, %if.then.i.i.i.i
+"_ZNK3$_4clEv.argprom.exit":                      ; preds = %entry, %if.then.i.i.i.i
   %u.sroa.0.0.in.i.i.i.i = phi i64 [ %call.i2.i.i.i.i, %if.then.i.i.i.i ], [ %0, %entry ]
   %u.sroa.0.0.i.i.i.i = trunc i64 %u.sroa.0.0.in.i.i.i.i to i32
   %call2.i = tail call noundef i32 @_ZN4absl12log_internal21UpdateGlobalVLogLevelEi(i32 noundef %u.sroa.0.0.i.i.i.i)
@@ -797,14 +797,14 @@ _ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKNS_14
   %1 = extractvalue { i64, ptr } %call.i, 0
   %2 = extractvalue { i64, ptr } %call.i, 1
   invoke void @_ZN4absl12log_internal13UpdateVModuleESt17basic_string_viewIcSt11char_traitsIcEE(i64 %1, ptr %2)
-          to label %"_ZNK3$_5clEv.exit" unwind label %lpad.i
+          to label %"_ZNK3$_5clEv.argprom.exit" unwind label %lpad.i
 
 lpad.i:                                           ; preds = %_ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit.i
   %3 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
-"_ZNK3$_5clEv.exit":                              ; preds = %_ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit.i
+"_ZNK3$_5clEv.argprom.exit":                      ; preds = %_ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   ret void

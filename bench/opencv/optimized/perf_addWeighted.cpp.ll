@@ -1006,9 +1006,9 @@ define hidden void @_ZN11opencv_test24Size_MatType_addWeighted12PerfTestBodyEv(p
   store i32 33619968, ptr %2, align 8
   store ptr %5, ptr %43, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1, double noundef 0x3F40000000000000, double noundef 0.000000e+00)
-          to label %_ZN2cvdVERNS_3MatERKd.exit40 unwind label %.loopexit.split-lp
+          to label %_ZN2cvdVERNS_3MatERKd.argprom.exit40 unwind label %.loopexit.split-lp
 
-_ZN2cvdVERNS_3MatERKd.exit40:                     ; preds = %42
+_ZN2cvdVERNS_3MatERKd.argprom.exit40:             ; preds = %42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %53
 
@@ -1042,7 +1042,7 @@ _ZN2cvdVERNS_3MatERKd.exit40:                     ; preds = %42
           cleanup
   br label %87
 
-53:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.exit40, %37
+53:                                               ; preds = %_ZN2cvdVERNS_3MatERKd.argprom.exit40, %37
   %54 = getelementptr inbounds i8, ptr %11, i64 16
   %55 = getelementptr inbounds i8, ptr %11, i64 20
   %56 = getelementptr inbounds i8, ptr %11, i64 8

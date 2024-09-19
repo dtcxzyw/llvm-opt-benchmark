@@ -329,7 +329,7 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBase11ImgHashImplEEaSIN12_GLOBAL__N_19PHashImplE
 90:                                               ; preds = %88, %86
   %.0.i.i.i.i.i6 = phi i32 [ %79, %86 ], [ %89, %88 ]
   %91 = icmp eq i32 %.0.i.i.i.i.i6, 1
-  br i1 %91, label %92, label %_ZN2cv3PtrIN12_GLOBAL__N_19PHashImplEED2Ev.exit
+  br i1 %91, label %92, label %_ZN2cv3PtrIN12_GLOBAL__N_19PHashImplEED2Ev.argprom.exit
 
 92:                                               ; preds = %90
   %93 = load ptr, ptr %22, align 8
@@ -353,16 +353,16 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBase11ImgHashImplEEaSIN12_GLOBAL__N_19PHashImplE
 102:                                              ; preds = %100, %97
   %.0.i.i.i.i.i.i.i8 = phi i32 [ %98, %97 ], [ %101, %100 ]
   %103 = icmp eq i32 %.0.i.i.i.i.i.i.i8, 1
-  br i1 %103, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9, label %_ZN2cv3PtrIN12_GLOBAL__N_19PHashImplEED2Ev.exit
+  br i1 %103, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9, label %_ZN2cv3PtrIN12_GLOBAL__N_19PHashImplEED2Ev.argprom.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9: ; preds = %102, %80
   %104 = load ptr, ptr %22, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 24
   %106 = load ptr, ptr %105, align 8
   tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %22) #17
-  br label %_ZN2cv3PtrIN12_GLOBAL__N_19PHashImplEED2Ev.exit
+  br label %_ZN2cv3PtrIN12_GLOBAL__N_19PHashImplEED2Ev.argprom.exit
 
-_ZN2cv3PtrIN12_GLOBAL__N_19PHashImplEED2Ev.exit:  ; preds = %90, %102, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9
+_ZN2cv3PtrIN12_GLOBAL__N_19PHashImplEED2Ev.argprom.exit: ; preds = %90, %102, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9
   ret void
 
 107:                                              ; preds = %1
@@ -1074,7 +1074,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19PHashImplES
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19PHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19PHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19PHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }

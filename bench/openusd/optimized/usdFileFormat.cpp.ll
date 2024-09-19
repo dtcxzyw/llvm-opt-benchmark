@@ -2124,7 +2124,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdUsdFileFor
   br i1 %.not, label %30, label %10
 
 10:                                               ; preds = %8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdcFileFormatEv()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdcFileFormatEv.retelim()
           to label %11 unwind label %70
 
 11:                                               ; preds = %10
@@ -2151,7 +2151,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   br i1 %18, label %30, label %20
 
 20:                                               ; preds = %19
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdaFileFormatEv()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdaFileFormatEv.retelim()
           to label %21 unwind label %70
 
 21:                                               ; preds = %20
@@ -2293,7 +2293,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10ArResolver9OpenAssetERKNS_14ArResolvedPathE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdcFileFormatEv() unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdcFileFormatEv.retelim() unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", align 8
   %2 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdcFileFormatEvE10usdcFormat acquire, align 8
   %3 = icmp eq i8 %2, 0
@@ -2378,7 +2378,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIKNS_13SdfFileFormatEED2Ev.exit5:
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdUsdcFileFormat17_CanReadFromAssetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_7ArAssetEE(ptr noundef nonnull align 8 dereferenceable(113), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdaFileFormatEv() unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdaFileFormatEv.retelim() unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", align 8
   %2 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdaFileFormatEvE10usdaFormat acquire, align 8
   %3 = icmp eq i8 %2, 0
@@ -2679,11 +2679,11 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16
   br label %136
 
 21:                                               ; preds = %17
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdcFileFormatEv()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdcFileFormatEv.retelim()
           to label %22 unwind label %33
 
 22:                                               ; preds = %21
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdaFileFormatEv()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdaFileFormatEv.retelim()
           to label %23 unwind label %33
 
 23:                                               ; preds = %22
@@ -3158,11 +3158,11 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16
   br label %136
 
 21:                                               ; preds = %17
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdcFileFormatEv()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdcFileFormatEv.retelim()
           to label %22 unwind label %33
 
 22:                                               ; preds = %21
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdaFileFormatEv()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_GetUsdaFileFormatEv.retelim()
           to label %23 unwind label %33
 
 23:                                               ; preds = %22

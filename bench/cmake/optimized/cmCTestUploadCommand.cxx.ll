@@ -296,22 +296,22 @@ define dso_local void @_ZN20cmCTestUploadCommand14CheckArgumentsEv(ptr nocapture
 .lr.ph.i.i.i.i.i:                                 ; preds = %1, %21
   %.043.i.i.i.i.i = phi i64 [ %23, %21 ], [ %9, %1 ]
   %.sroa.032.042.i.i.i.i.i = phi ptr [ %22, %21 ], [ %3, %1 ]
-  %11 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.042.i.i.i.i.i)
+  %11 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_.argprom"(ptr nonnull readonly %0, ptr %.sroa.032.042.i.i.i.i.i)
   br i1 %11, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i", label %12
 
 12:                                               ; preds = %.lr.ph.i.i.i.i.i
   %13 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i.i, i64 32
-  %14 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_"(ptr nonnull readonly %0, ptr %13)
+  %14 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_.argprom"(ptr nonnull readonly %0, ptr %13)
   br i1 %14, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i", label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i.i, i64 64
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_"(ptr nonnull readonly %0, ptr %16)
+  %17 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_.argprom"(ptr nonnull readonly %0, ptr %16)
   br i1 %17, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i", label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i.i, i64 96
-  %20 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_"(ptr nonnull readonly %0, ptr %19)
+  %20 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_.argprom"(ptr nonnull readonly %0, ptr %19)
   br i1 %20, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i", label %21
 
 21:                                               ; preds = %18
@@ -336,7 +336,7 @@ define dso_local void @_ZN20cmCTestUploadCommand14CheckArgumentsEv(ptr nocapture
   ]
 
 26:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %27 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.0.lcssa.i.i.i.i.i)
+  %27 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_.argprom"(ptr nonnull readonly %0, ptr %.sroa.032.0.lcssa.i.i.i.i.i)
   br i1 %27, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i", label %28
 
 28:                                               ; preds = %26
@@ -345,7 +345,7 @@ define dso_local void @_ZN20cmCTestUploadCommand14CheckArgumentsEv(ptr nocapture
 
 30:                                               ; preds = %28, %._crit_edge.i.i.i.i.i
   %.sroa.032.1.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %29, %28 ]
-  %31 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.1.i.i.i.i.i)
+  %31 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_.argprom"(ptr nonnull readonly %0, ptr %.sroa.032.1.i.i.i.i.i)
   br i1 %31, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i", label %32
 
 32:                                               ; preds = %30
@@ -354,7 +354,7 @@ define dso_local void @_ZN20cmCTestUploadCommand14CheckArgumentsEv(ptr nocapture
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i.i.i
   %.sroa.032.2.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %33, %32 ]
-  %35 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.2.i.i.i.i.i)
+  %35 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_.argprom"(ptr nonnull readonly %0, ptr %.sroa.032.2.i.i.i.i.i)
   %spec.select.i.i.i.i.i = select i1 %35, ptr %.sroa.032.2.i.i.i.i.i, ptr %5
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i"
 
@@ -369,7 +369,7 @@ define dso_local void @_ZN20cmCTestUploadCommand14CheckArgumentsEv(ptr nocapture
 .lr.ph.i.i.i:                                     ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i", %41
   %.sroa.07.021.i.i.i = phi ptr [ %.sroa.07.0.i.i.i, %41 ], [ %.sroa.07.018.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i" ]
   %.sroa.013.120.i.i.i = phi ptr [ %.sroa.013.2.i.i.i, %41 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i" ]
-  %37 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.07.021.i.i.i)
+  %37 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_.argprom"(ptr nonnull readonly %0, ptr %.sroa.07.021.i.i.i)
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %.lr.ph.i.i.i
@@ -1192,13 +1192,13 @@ declare void @_ZN14ArgumentParser8Instance4BindERNSt7__cxx1112basic_stringIcSt11
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_"(ptr nocapture readonly %.0.val, ptr nonnull %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_.argprom"(ptr nocapture readonly %.0.val, ptr nonnull %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %4 = tail call noundef zeroext i1 @_ZN5cmsys11SystemTools10FileExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  br i1 %4, label %"_ZZN20cmCTestUploadCommand14CheckArgumentsEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", label %5
+  br i1 %4, label %"_ZZN20cmCTestUploadCommand14CheckArgumentsEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit", label %5
 
 5:                                                ; preds = %1
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2)
@@ -1230,7 +1230,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20
 17:                                               ; preds = %16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #15
-  br label %"_ZZN20cmCTestUploadCommand14CheckArgumentsEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit"
+  br label %"_ZZN20cmCTestUploadCommand14CheckArgumentsEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit"
 
 18:                                               ; preds = %13, %11, %9, %7, %5
   %19 = landingpad { ptr, i32 }
@@ -1248,7 +1248,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #15
   resume { ptr, i32 } %.pn.i
 
-"_ZZN20cmCTestUploadCommand14CheckArgumentsEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit": ; preds = %1, %17
+"_ZZN20cmCTestUploadCommand14CheckArgumentsEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit": ; preds = %1, %17
   %.06.i = xor i1 %4, true
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)

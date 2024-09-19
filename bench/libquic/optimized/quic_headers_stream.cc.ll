@@ -859,7 +859,7 @@ if.then24:                                        ; preds = %invoke.cont20
 lpad25.thread:                                    ; preds = %if.then24
   %12 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit40
+  br label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.argprom.exit40
 
 _ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit: ; preds = %if.then24
   %13 = load i64, ptr %size_.i, align 8
@@ -881,7 +881,7 @@ lpad25:                                           ; preds = %invoke.cont41, %if.
   %16 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i32 = icmp eq ptr %ack_listener.sroa.0.0, null
-  br i1 %tobool.not.i32, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit40, label %if.then.i33
+  br i1 %tobool.not.i32, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.argprom.exit40, label %if.then.i33
 
 if.end35:                                         ; preds = %invoke.cont20.if.end35_crit_edge, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit
   %17 = phi i64 [ %.pre62, %invoke.cont20.if.end35_crit_edge ], [ %13, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit ]
@@ -903,7 +903,7 @@ invoke.cont44:                                    ; preds = %invoke.cont41
   %sub46 = sub i64 %total_length.1, %.sroa.speculated
   %cmp47.not = icmp ugt i64 %total_length.1, %.sroa.speculated50
   %tobool.not.i = icmp eq ptr %ack_listener.sroa.0.0, null
-  br i1 %tobool.not.i, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit, label %if.then.i
+  br i1 %tobool.not.i, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont44
   %add.ptr.i.i25 = getelementptr inbounds i8, ptr %ack_listener.sroa.0.0, i64 8
@@ -911,21 +911,21 @@ if.then.i:                                        ; preds = %invoke.cont44
   %dec.i.i.i.i26 = add nsw i32 %22, -1
   store i32 %dec.i.i.i.i26, ptr %add.ptr.i.i25, align 4
   %cmp.i.i.i.i27 = icmp eq i32 %dec.i.i.i.i26, 0
-  br i1 %cmp.i.i.i.i27, label %delete.notnull.i.i.i28, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit
+  br i1 %cmp.i.i.i.i27, label %delete.notnull.i.i.i28, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.argprom.exit
 
 delete.notnull.i.i.i28:                           ; preds = %if.then.i
   %vtable.i.i.i29 = load ptr, ptr %ack_listener.sroa.0.0, align 8
   %vfn.i.i.i30 = getelementptr inbounds i8, ptr %vtable.i.i.i29, i64 24
   %23 = load ptr, ptr %vfn.i.i.i30, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(12) %ack_listener.sroa.0.0) #22
-  br label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit
+  br label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.argprom.exit
 
-_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit: ; preds = %invoke.cont44, %if.then.i, %delete.notnull.i.i.i28
+_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.argprom.exit: ; preds = %invoke.cont44, %if.then.i, %delete.notnull.i.i.i28
   %24 = load i8, ptr %owns_buffer_.i, align 8
   %tobool.i = trunc i8 %24 to i1
   br i1 %tobool.i, label %if.then.i31, label %_ZN3net19SpdySerializedFrameD2Ev.exit
 
-if.then.i31:                                      ; preds = %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit
+if.then.i31:                                      ; preds = %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.argprom.exit
   %25 = load ptr, ptr %frame, align 8
   %isnull.i = icmp eq ptr %25, null
   br i1 %isnull.i, label %_ZN3net19SpdySerializedFrameD2Ev.exit, label %delete.notnull.i
@@ -934,7 +934,7 @@ delete.notnull.i:                                 ; preds = %if.then.i31
   call void @_ZdaPv(ptr noundef nonnull %25) #21
   br label %_ZN3net19SpdySerializedFrameD2Ev.exit
 
-_ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit, %if.then.i31, %delete.notnull.i
+_ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.argprom.exit, %if.then.i31, %delete.notnull.i
   call void @_ZN3net10SpdyDataIRD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %spdy_data) #22
   br i1 %cmp47.not, label %do.cond, label %return
 
@@ -954,22 +954,22 @@ if.then.i33:                                      ; preds = %lpad25
   %dec.i.i.i.i35 = add nsw i32 %27, -1
   store i32 %dec.i.i.i.i35, ptr %add.ptr.i.i34, align 4
   %cmp.i.i.i.i36 = icmp eq i32 %dec.i.i.i.i35, 0
-  br i1 %cmp.i.i.i.i36, label %delete.notnull.i.i.i37, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit40
+  br i1 %cmp.i.i.i.i36, label %delete.notnull.i.i.i37, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.argprom.exit40
 
 delete.notnull.i.i.i37:                           ; preds = %if.then.i33
   %vtable.i.i.i38 = load ptr, ptr %ack_listener.sroa.0.0, align 8
   %vfn.i.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i.i38, i64 24
   %28 = load ptr, ptr %vfn.i.i.i39, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(12) %ack_listener.sroa.0.0) #22
-  br label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit40
+  br label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.argprom.exit40
 
-_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit40: ; preds = %lpad25.thread, %lpad25, %if.then.i33, %delete.notnull.i.i.i37
+_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.argprom.exit40: ; preds = %lpad25.thread, %lpad25, %if.then.i33, %delete.notnull.i.i.i37
   %29 = phi { ptr, i32 } [ %12, %lpad25.thread ], [ %16, %lpad25 ], [ %16, %if.then.i33 ], [ %16, %delete.notnull.i.i.i37 ]
   %30 = load i8, ptr %owns_buffer_.i, align 8
   %tobool.i42 = trunc i8 %30 to i1
   br i1 %tobool.i42, label %if.then.i43, label %ehcleanup53
 
-if.then.i43:                                      ; preds = %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit40
+if.then.i43:                                      ; preds = %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.argprom.exit40
   %31 = load ptr, ptr %frame, align 8
   %isnull.i44 = icmp eq ptr %31, null
   br i1 %isnull.i44, label %ehcleanup53, label %delete.notnull.i45
@@ -978,8 +978,8 @@ delete.notnull.i45:                               ; preds = %if.then.i43
   call void @_ZdaPv(ptr noundef nonnull %31) #21
   br label %ehcleanup53
 
-ehcleanup53:                                      ; preds = %delete.notnull.i45, %if.then.i43, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit40, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %11, %lpad ], [ %29, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit40 ], [ %29, %if.then.i43 ], [ %29, %delete.notnull.i45 ]
+ehcleanup53:                                      ; preds = %delete.notnull.i45, %if.then.i43, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.argprom.exit40, %lpad
+  %.pn.pn = phi { ptr, i32 } [ %11, %lpad ], [ %29, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.argprom.exit40 ], [ %29, %if.then.i43 ], [ %29, %delete.notnull.i45 ]
   call void @_ZN3net10SpdyDataIRD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %spdy_data) #22
   resume { ptr, i32 } %.pn.pn
 

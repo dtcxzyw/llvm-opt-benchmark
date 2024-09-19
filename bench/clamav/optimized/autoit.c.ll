@@ -3350,7 +3350,7 @@ getbits.exit389.i:                                ; preds = %1086, %1060
   %1394 = load i32, ptr %584, align 4
   %1395 = zext i32 %1394 to i64
   %1396 = getelementptr inbounds i8, ptr %1393, i64 %1395
-  call fastcc void @u2a(ptr noundef %1396, i32 noundef %1342)
+  call fastcc void @u2a.retelim(ptr noundef %1396, i32 noundef %1342)
   %1397 = load i32, ptr %583, align 8
   %1398 = zext i32 %1397 to i64
   %1399 = getelementptr inbounds i8, ptr %.7.i, i64 %1398
@@ -4060,7 +4060,7 @@ LAME_getnext.exit:                                ; preds = %.lr.ph, %LAME_getne
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @u2a(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #6 {
+define internal fastcc void @u2a.retelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #6 {
   %3 = icmp ult i32 %1, 2
   br i1 %3, label %.loopexit, label %4
 

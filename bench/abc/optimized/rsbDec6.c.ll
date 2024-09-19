@@ -3599,7 +3599,7 @@ define void @Rsb_DecPrintFunc(ptr nocapture noundef readonly %0, i32 noundef %1,
   %44 = mul nuw i64 %.429.i40, 4294967297
   %.5.i41 = select i1 %32, i64 %44, i64 %.429.i40
   %45 = xor i64 %.5.i41, -1
-  %46 = tail call fastcc i64 @Abc_Tt6Isop(i64 noundef %.5.i, i64 noundef %45, i32 noundef %.val31)
+  %46 = tail call fastcc i64 @Abc_Tt6Isop.argprom(i64 noundef %.5.i, i64 noundef %45, i32 noundef %.val31)
   store i64 %46, ptr %8, align 8
   %47 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9)
   %48 = icmp slt i32 %.val31, 7
@@ -3814,7 +3814,7 @@ Abc_TtPrintBinary.exit74:                         ; preds = %._crit_edge.us.i72,
 }
 
 ; Function Attrs: nofree nosync nounwind memory(inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @Abc_Tt6Isop(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #8 {
+define internal fastcc noundef i64 @Abc_Tt6Isop.argprom(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #8 {
   %4 = icmp eq i64 %0, 0
   br i1 %4, label %tailrecurse._crit_edge, label %.lr.ph
 
@@ -3883,10 +3883,10 @@ tailrecurse:                                      ; preds = %11, %20, %.tailrecu
   %40 = or i64 %39, %38
   %41 = xor i64 %40, -1
   %42 = and i64 %29, %41
-  %43 = tail call fastcc i64 @Abc_Tt6Isop(i64 noundef %42, i64 noundef %37, i32 noundef %.0.lcssa)
+  %43 = tail call fastcc i64 @Abc_Tt6Isop.argprom(i64 noundef %42, i64 noundef %37, i32 noundef %.0.lcssa)
   %44 = xor i64 %37, -1
   %45 = and i64 %34, %44
-  %46 = tail call fastcc i64 @Abc_Tt6Isop(i64 noundef %45, i64 noundef %40, i32 noundef %.0.lcssa)
+  %46 = tail call fastcc i64 @Abc_Tt6Isop.argprom(i64 noundef %45, i64 noundef %40, i32 noundef %.0.lcssa)
   %47 = or i64 %34, %29
   %48 = and i64 %40, %37
   %49 = icmp eq i64 %47, 0

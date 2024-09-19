@@ -394,7 +394,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %137 = fdiv double %136, 1.000000e+02
   %138 = load i32, ptr @_ZN12_GLOBAL__N_14betaE, align 4
   %139 = add nsw i32 %138, -100
-  invoke fastcc void @_ZN12_GLOBAL__N_120basicLinearTransformERKN2cv3MatEdi(double noundef %137, i32 noundef %139)
+  invoke fastcc void @_ZN12_GLOBAL__N_120basicLinearTransformERKN2cv3MatEdi.argprom(double noundef %137, i32 noundef %139)
           to label %_ZN12_GLOBAL__N_134on_linear_transform_alpha_trackbarEiPv.exit unwind label %82
 
 _ZN12_GLOBAL__N_134on_linear_transform_alpha_trackbarEiPv.exit: ; preds = %134
@@ -708,7 +708,7 @@ define internal void @_ZN12_GLOBAL__N_134on_linear_transform_alpha_trackbarEiPv(
   %5 = fdiv double %4, 1.000000e+02
   %6 = load i32, ptr @_ZN12_GLOBAL__N_14betaE, align 4
   %7 = add nsw i32 %6, -100
-  tail call fastcc void @_ZN12_GLOBAL__N_120basicLinearTransformERKN2cv3MatEdi(double noundef %5, i32 noundef %7)
+  tail call fastcc void @_ZN12_GLOBAL__N_120basicLinearTransformERKN2cv3MatEdi.argprom(double noundef %5, i32 noundef %7)
   ret void
 }
 
@@ -719,7 +719,7 @@ define internal void @_ZN12_GLOBAL__N_133on_linear_transform_beta_trackbarEiPv(i
   %5 = fdiv double %4, 1.000000e+02
   %6 = load i32, ptr @_ZN12_GLOBAL__N_14betaE, align 4
   %7 = add nsw i32 %6, -100
-  tail call fastcc void @_ZN12_GLOBAL__N_120basicLinearTransformERKN2cv3MatEdi(double noundef %5, i32 noundef %7)
+  tail call fastcc void @_ZN12_GLOBAL__N_120basicLinearTransformERKN2cv3MatEdi.argprom(double noundef %5, i32 noundef %7)
   ret void
 }
 
@@ -878,7 +878,7 @@ define internal void @_ZN12_GLOBAL__N_128on_gamma_correction_trackbarEiPv(i32 %0
   %68 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr @_ZN12_GLOBAL__N_119img_gamma_correctedE, ptr %68, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %_ZN12_GLOBAL__N_115gammaCorrectionERKN2cv3MatEd.exit unwind label %75
+          to label %_ZN12_GLOBAL__N_115gammaCorrectionERKN2cv3MatEd.argprom.exit unwind label %75
 
 69:                                               ; preds = %46
   %70 = landingpad { ptr, i32 }
@@ -920,7 +920,7 @@ define internal void @_ZN12_GLOBAL__N_128on_gamma_correction_trackbarEiPv(i32 %0
   %.pn34.pn.i = phi { ptr, i32 } [ %.pn34.i, %79 ], [ %.pn.i, %27 ]
   resume { ptr, i32 } %.pn34.pn.i
 
-_ZN12_GLOBAL__N_115gammaCorrectionERKN2cv3MatEd.exit: ; preds = %65
+_ZN12_GLOBAL__N_115gammaCorrectionERKN2cv3MatEd.argprom.exit: ; preds = %65
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #14
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #14
@@ -952,7 +952,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120basicLinearTransformERKN2cv3MatEdi(double noundef %0, i32 noundef range(i32 -2147483648, 2147483548) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120basicLinearTransformERKN2cv3MatEdi.argprom(double noundef %0, i32 noundef range(i32 -2147483648, 2147483548) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Mat", align 8
   %4 = alloca %"class.cv::_OutputArray", align 8
   %5 = alloca %"class.cv::_InputArray", align 8

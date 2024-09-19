@@ -8078,15 +8078,15 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false5
   %call.i = tail call fastcc ptr @getBN(ptr noundef readonly %s, ptr noundef nonnull @.str.708)
   %call1.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 119, ptr noundef nonnull @.str.713, ptr noundef %call.i) #7
   %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %getint.exit.thread, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %getint.argprom.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false9
   %call2.i = tail call i64 @BN_get_word(ptr noundef %call.i) #7
   %call3.i = tail call i32 @test_ulong_le(ptr noundef nonnull @.str.17, i32 noundef 120, ptr noundef nonnull @.str.714, ptr noundef nonnull @.str.715, i64 noundef %call2.i, i64 noundef 2147483647) #7
   %tobool4.not.i = icmp eq i32 %call3.i, 0
-  br i1 %tobool4.not.i, label %getint.exit.thread, label %if.end
+  br i1 %tobool4.not.i, label %getint.argprom.exit.thread, label %if.end
 
-getint.exit.thread:                               ; preds = %lor.lhs.false.i, %lor.lhs.false9
+getint.argprom.exit.thread:                       ; preds = %lor.lhs.false.i, %lor.lhs.false9
   tail call void @BN_free(ptr noundef %call.i) #7
   br label %err
 
@@ -8128,10 +8128,10 @@ lor.lhs.false24:                                  ; preds = %lor.lhs.false18
   %call1.i17 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 136, ptr noundef nonnull @.str.494, ptr noundef nonnull @.str.495, ptr noundef %call, ptr noundef %call6) #7
   br label %err
 
-err:                                              ; preds = %0, %lor.lhs.false24, %equalBN.exit.thread, %getint.exit.thread, %if.end, %lor.lhs.false18, %entry, %lor.lhs.false, %lor.lhs.false5
-  %lshift.0 = phi ptr [ %call2, %lor.lhs.false18 ], [ %call2, %if.end ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false ], [ null, %entry ], [ %call2, %getint.exit.thread ], [ %call2, %equalBN.exit.thread ], [ %call2, %lor.lhs.false24 ], [ %call2, %0 ]
-  %ret.0 = phi ptr [ %call6, %lor.lhs.false18 ], [ %call6, %if.end ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %getint.exit.thread ], [ %call6, %equalBN.exit.thread ], [ %call6, %lor.lhs.false24 ], [ %call6, %0 ]
-  %st.0 = phi i32 [ 0, %lor.lhs.false18 ], [ 0, %if.end ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %getint.exit.thread ], [ 0, %equalBN.exit.thread ], [ 1, %lor.lhs.false24 ], [ 0, %0 ]
+err:                                              ; preds = %0, %lor.lhs.false24, %equalBN.exit.thread, %getint.argprom.exit.thread, %if.end, %lor.lhs.false18, %entry, %lor.lhs.false, %lor.lhs.false5
+  %lshift.0 = phi ptr [ %call2, %lor.lhs.false18 ], [ %call2, %if.end ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false ], [ null, %entry ], [ %call2, %getint.argprom.exit.thread ], [ %call2, %equalBN.exit.thread ], [ %call2, %lor.lhs.false24 ], [ %call2, %0 ]
+  %ret.0 = phi ptr [ %call6, %lor.lhs.false18 ], [ %call6, %if.end ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %getint.argprom.exit.thread ], [ %call6, %equalBN.exit.thread ], [ %call6, %lor.lhs.false24 ], [ %call6, %0 ]
+  %st.0 = phi i32 [ 0, %lor.lhs.false18 ], [ 0, %if.end ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %getint.argprom.exit.thread ], [ 0, %equalBN.exit.thread ], [ 1, %lor.lhs.false24 ], [ 0, %0 ]
   tail call void @BN_free(ptr noundef %call) #7
   tail call void @BN_free(ptr noundef %lshift.0) #7
   tail call void @BN_free(ptr noundef %ret.0) #7
@@ -8162,15 +8162,15 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false5
   %call.i = tail call fastcc ptr @getBN(ptr noundef readonly %s, ptr noundef nonnull @.str.708)
   %call1.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 119, ptr noundef nonnull @.str.713, ptr noundef %call.i) #7
   %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %getint.exit.thread, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %getint.argprom.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false9
   %call2.i = tail call i64 @BN_get_word(ptr noundef %call.i) #7
   %call3.i = tail call i32 @test_ulong_le(ptr noundef nonnull @.str.17, i32 noundef 120, ptr noundef nonnull @.str.714, ptr noundef nonnull @.str.715, i64 noundef %call2.i, i64 noundef 2147483647) #7
   %tobool4.not.i = icmp eq i32 %call3.i, 0
-  br i1 %tobool4.not.i, label %getint.exit.thread, label %if.end
+  br i1 %tobool4.not.i, label %getint.argprom.exit.thread, label %if.end
 
-getint.exit.thread:                               ; preds = %lor.lhs.false.i, %lor.lhs.false9
+getint.argprom.exit.thread:                       ; preds = %lor.lhs.false.i, %lor.lhs.false9
   tail call void @BN_free(ptr noundef %call.i) #7
   br label %err
 
@@ -8214,10 +8214,10 @@ lor.lhs.false28:                                  ; preds = %if.then22
 if.end33:                                         ; preds = %lor.lhs.false28, %if.end19
   br label %err
 
-err:                                              ; preds = %equalBN.exit.thread, %getint.exit.thread, %if.then22, %lor.lhs.false28, %if.end, %entry, %lor.lhs.false, %lor.lhs.false5, %if.end33
-  %rshift.0 = phi ptr [ %call2, %if.end33 ], [ %call2, %lor.lhs.false28 ], [ %call2, %if.then22 ], [ %call2, %if.end ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false ], [ null, %entry ], [ %call2, %getint.exit.thread ], [ %call2, %equalBN.exit.thread ]
-  %ret.0 = phi ptr [ %call6, %if.end33 ], [ %call6, %lor.lhs.false28 ], [ %call6, %if.then22 ], [ %call6, %if.end ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %getint.exit.thread ], [ %call6, %equalBN.exit.thread ]
-  %st.0 = phi i32 [ 1, %if.end33 ], [ 0, %lor.lhs.false28 ], [ 0, %if.then22 ], [ 0, %if.end ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %getint.exit.thread ], [ 0, %equalBN.exit.thread ]
+err:                                              ; preds = %equalBN.exit.thread, %getint.argprom.exit.thread, %if.then22, %lor.lhs.false28, %if.end, %entry, %lor.lhs.false, %lor.lhs.false5, %if.end33
+  %rshift.0 = phi ptr [ %call2, %if.end33 ], [ %call2, %lor.lhs.false28 ], [ %call2, %if.then22 ], [ %call2, %if.end ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false ], [ null, %entry ], [ %call2, %getint.argprom.exit.thread ], [ %call2, %equalBN.exit.thread ]
+  %ret.0 = phi ptr [ %call6, %if.end33 ], [ %call6, %lor.lhs.false28 ], [ %call6, %if.then22 ], [ %call6, %if.end ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %getint.argprom.exit.thread ], [ %call6, %equalBN.exit.thread ]
+  %st.0 = phi i32 [ 1, %if.end33 ], [ 0, %lor.lhs.false28 ], [ 0, %if.then22 ], [ 0, %if.end ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %getint.argprom.exit.thread ], [ 0, %equalBN.exit.thread ]
   tail call void @BN_free(ptr noundef %call) #7
   tail call void @BN_free(ptr noundef %rshift.0) #7
   tail call void @BN_free(ptr noundef %ret.0) #7

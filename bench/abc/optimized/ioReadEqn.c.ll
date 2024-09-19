@@ -57,21 +57,21 @@ define ptr @Io_ReadEqn(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 25:                                               ; preds = %22
   %26 = load i32, ptr %19, align 4
   %27 = icmp slt i32 %24, %26
-  br i1 %27, label %Extra_ProgressBarUpdate.exit.i, label %28
+  br i1 %27, label %Extra_ProgressBarUpdate.argprom.exit.i, label %28
 
 28:                                               ; preds = %25, %22
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %19, i32 noundef %24, ptr noundef null) #9
-  br label %Extra_ProgressBarUpdate.exit.i
+  br label %Extra_ProgressBarUpdate.argprom.exit.i
 
-Extra_ProgressBarUpdate.exit.i:                   ; preds = %28, %25
+Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %28, %25
   %29 = getelementptr inbounds i8, ptr %23, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
   br label %32
 
-32:                                               ; preds = %36, %Extra_ProgressBarUpdate.exit.i
-  %.010.i.i = phi ptr [ %31, %Extra_ProgressBarUpdate.exit.i ], [ %37, %36 ]
-  %.0.i.i = phi ptr [ %31, %Extra_ProgressBarUpdate.exit.i ], [ %.1.i.i, %36 ]
+32:                                               ; preds = %36, %Extra_ProgressBarUpdate.argprom.exit.i
+  %.010.i.i = phi ptr [ %31, %Extra_ProgressBarUpdate.argprom.exit.i ], [ %37, %36 ]
+  %.0.i.i = phi ptr [ %31, %Extra_ProgressBarUpdate.argprom.exit.i ], [ %.1.i.i, %36 ]
   %33 = load i8, ptr %.010.i.i, align 1
   switch i8 %33, label %34 [
     i8 0, label %Io_ReadEqnStrCompact.exit.i

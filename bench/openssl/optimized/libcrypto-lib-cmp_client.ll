@@ -590,7 +590,7 @@ if.end15:                                         ; preds = %if.else
   br i1 %cmp17, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end15, %initial_certreq.exit
-  %call22 = call fastcc i32 @cert_response(ptr noundef %ctx, i32 noundef 0, i32 noundef %cond, ptr noundef %rep, ptr noundef %checkAfter)
+  %call22 = call fastcc i32 @cert_response.argelim(ptr noundef %ctx, i32 noundef 0, i32 noundef %cond, ptr noundef %rep, ptr noundef %checkAfter)
   br label %err
 
 err:                                              ; preds = %if.end.i, %if.then7, %initial_certreq.exit, %if.end21
@@ -810,7 +810,7 @@ return:                                           ; preds = %if.else73, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @cert_response(ptr noundef nonnull %ctx, i32 noundef range(i32 0, 2) %sleep, i32 noundef range(i32 -1, 1) %rid, ptr nocapture noundef nonnull %resp, ptr noundef %checkAfter) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @cert_response.argelim(ptr noundef nonnull %ctx, i32 noundef range(i32 0, 2) %sleep, i32 noundef range(i32 -1, 1) %rid, ptr nocapture noundef nonnull %resp, ptr noundef %checkAfter) unnamed_addr #0 {
 entry:
   %buf.i = alloca [1024 x i8], align 16
   %txt = alloca ptr, align 8
@@ -1103,7 +1103,7 @@ initial_certreq.exit:                             ; preds = %if.end.i
   br i1 %tobool5.not, label %err, label %if.end7
 
 if.end7:                                          ; preds = %initial_certreq.exit
-  %call8 = call fastcc i32 @cert_response(ptr noundef %ctx, i32 noundef 1, i32 noundef %cond, ptr noundef %rep, ptr noundef null)
+  %call8 = call fastcc i32 @cert_response.argelim(ptr noundef %ctx, i32 noundef 1, i32 noundef %cond, ptr noundef %rep, ptr noundef null)
   %cmp9 = icmp slt i32 %call8, 1
   br i1 %cmp9, label %err, label %if.end12
 

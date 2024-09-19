@@ -456,9 +456,9 @@ entry:
   %owner = getelementptr inbounds i8, ptr %core, i64 132176
   %0 = load ptr, ptr %owner, align 8
   %call = tail call zeroext i1 @e1000x_rx_ready(ptr noundef %0, ptr noundef %core) #13
-  br i1 %call, label %e1000e_rx_ring_init.exit, label %return
+  br i1 %call, label %e1000e_rx_ring_init.argprom.exit, label %return
 
-e1000e_rx_ring_init.exit:                         ; preds = %entry, %for.inc
+e1000e_rx_ring_init.argprom.exit:                 ; preds = %entry, %for.inc
   %cmp = phi i1 [ false, %for.inc ], [ true, %entry ]
   %indvars.iv = phi i64 [ 1, %for.inc ], [ 0, %entry ]
   %arrayidx.i = getelementptr [2 x %struct.E1000ERingInfo], ptr @e1000e_rx_ring_init.i, i64 0, i64 %indvars.iv
@@ -470,7 +470,7 @@ e1000e_rx_ring_init.exit:                         ; preds = %entry, %for.inc
   %cmp.i8.not = icmp eq i32 %2, 0
   br i1 %cmp.i8.not, label %for.inc, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %e1000e_rx_ring_init.exit
+land.lhs.true:                                    ; preds = %e1000e_rx_ring_init.argprom.exit
   %call4 = tail call fastcc zeroext i1 @e1000e_has_rxbufs(ptr noundef nonnull %core, ptr noundef %arrayidx.i, i64 noundef 1)
   br i1 %call4, label %if.then5, label %for.inc
 
@@ -511,8 +511,8 @@ trace_e1000e_rx_can_recv.exit:                    ; preds = %if.then5, %land.lhs
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   br label %return
 
-for.inc:                                          ; preds = %e1000e_rx_ring_init.exit, %land.lhs.true
-  br i1 %cmp, label %e1000e_rx_ring_init.exit, label %for.end, !llvm.loop !7
+for.inc:                                          ; preds = %e1000e_rx_ring_init.argprom.exit, %land.lhs.true
+  br i1 %cmp, label %e1000e_rx_ring_init.argprom.exit, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i9)
@@ -969,7 +969,7 @@ if.else.i.i27.i:                                  ; preds = %if.then.i.i25.i
 
 trace_e1000e_rx_rss_disabled.exit.i:              ; preds = %if.else.i.i27.i, %if.then8.i.i28.i, %land.lhs.true5.i.i22.i, %if.then.i84
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i18.i)
-  br label %e1000e_rx_ring_init.exit
+  br label %e1000e_rx_ring_init.argprom.exit
 
 if.end.i.i:                                       ; preds = %e1000e_rss_enabled.exit.i
   store i8 1, ptr %rss_info, align 4
@@ -1254,7 +1254,7 @@ if.then6.i:                                       ; preds = %trace_e1000e_rx_rss
   store i32 0, ptr %hash7.i, align 4
   %queue8.i = getelementptr inbounds i8, ptr %rss_info, i64 8
   store i32 0, ptr %queue8.i, align 4
-  br label %e1000e_rx_ring_init.exit
+  br label %e1000e_rx_ring_init.argprom.exit
 
 if.end9.i:                                        ; preds = %trace_e1000e_rx_rss_type.exit.i
   %98 = load i32, ptr %arrayidx.i.i, align 8
@@ -1297,9 +1297,9 @@ if.end.i56.i:                                     ; preds = %e1000e_rss_enabled.
   %queue17.i = getelementptr inbounds i8, ptr %rss_info, i64 8
   store i32 %conv16.i, ptr %queue17.i, align 4
   %106 = zext nneg i8 %105 to i64
-  br label %e1000e_rx_ring_init.exit
+  br label %e1000e_rx_ring_init.argprom.exit
 
-e1000e_rx_ring_init.exit:                         ; preds = %if.end.i56.i, %if.then6.i, %trace_e1000e_rx_rss_disabled.exit.i
+e1000e_rx_ring_init.argprom.exit:                 ; preds = %if.end.i56.i, %if.then6.i, %trace_e1000e_rx_rss_disabled.exit.i
   %conv.i93 = phi i64 [ 0, %trace_e1000e_rx_rss_disabled.exit.i ], [ 0, %if.then6.i ], [ %106, %if.end.i56.i ]
   %arrayidx.i94 = getelementptr [2 x %struct.E1000ERingInfo], ptr @e1000e_rx_ring_init.i, i64 0, i64 %conv.i93
   %107 = load ptr, ptr %rx_pkt22, align 8
@@ -1314,19 +1314,19 @@ e1000e_rx_ring_init.exit:                         ; preds = %if.end.i56.i, %if.t
   %call43 = call fastcc zeroext i1 @e1000e_has_rxbufs(ptr noundef nonnull %core, ptr noundef %arrayidx.i94, i64 noundef %add)
   br i1 %call43, label %if.then44, label %if.else72
 
-if.then44:                                        ; preds = %e1000e_rx_ring_init.exit
+if.then44:                                        ; preds = %e1000e_rx_ring_init.argprom.exit
   %110 = load ptr, ptr %rx_pkt22, align 8
   %call.i96 = call ptr @net_rx_pkt_get_vhdr(ptr noundef %110) #13
   %111 = load i8, ptr %call.i96, align 2
   %112 = and i8 %111, 1
   %tobool.not.i = icmp eq i8 %112, 0
-  br i1 %tobool.not.i, label %e1000e_rx_fix_l4_csum.exit, label %if.then.i97
+  br i1 %tobool.not.i, label %e1000e_rx_fix_l4_csum.argprom.exit, label %if.then.i97
 
 if.then.i97:                                      ; preds = %if.then44
   %call1.i = call zeroext i1 @net_rx_pkt_fix_l4_csum(ptr noundef %110) #13
-  br label %e1000e_rx_fix_l4_csum.exit
+  br label %e1000e_rx_fix_l4_csum.argprom.exit
 
-e1000e_rx_fix_l4_csum.exit:                       ; preds = %if.then44, %if.then.i97
+e1000e_rx_fix_l4_csum.argprom.exit:               ; preds = %if.then44, %if.then.i97
   %113 = load ptr, ptr %rx_pkt22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %desc.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ba.i)
@@ -1353,7 +1353,7 @@ e1000e_rx_fix_l4_csum.exit:                       ; preds = %if.then44, %if.then
   %or.cond.i111 = select i1 %tobool1.i.i.i.i109, i1 true, i1 %tobool.i.not.i.i
   br i1 %or.cond.i111, label %e1000e_do_ps.exit.thread.i, label %if.end.i.i112
 
-if.end.i.i112:                                    ; preds = %e1000e_rx_fix_l4_csum.exit
+if.end.i.i112:                                    ; preds = %e1000e_rx_fix_l4_csum.argprom.exit
   call void @net_rx_pkt_get_protocols(ptr noundef %113, ptr noundef nonnull %hasip4.i.i101, ptr noundef nonnull %hasip6.i.i102, ptr noundef nonnull %l4hdr_proto.i.i103) #13
   %118 = load i8, ptr %hasip4.i.i101, align 1
   %tobool.i.i113 = trunc i8 %118 to i1
@@ -1408,8 +1408,8 @@ if.end23.i.i:                                     ; preds = %if.else21.i.i, %if.
   %cmp25.i.i = icmp ugt i64 %storemerge.i.i, %conv.i.i156
   br i1 %cmp25.i.i, label %e1000e_do_ps.exit.thread.i, label %e1000e_do_ps.exit.i
 
-e1000e_do_ps.exit.thread.i:                       ; preds = %if.end23.i.i, %land.lhs.true.i.i160, %if.else.i.i114, %e1000e_rx_fix_l4_csum.exit
-  %ps_hdr_len.0.ph.i = phi i64 [ 0, %if.else.i.i114 ], [ 0, %land.lhs.true.i.i160 ], [ %storemerge.i.i, %if.end23.i.i ], [ 0, %e1000e_rx_fix_l4_csum.exit ]
+e1000e_do_ps.exit.thread.i:                       ; preds = %if.end23.i.i, %land.lhs.true.i.i160, %if.else.i.i114, %e1000e_rx_fix_l4_csum.argprom.exit
+  %ps_hdr_len.0.ph.i = phi i64 [ 0, %if.else.i.i114 ], [ 0, %land.lhs.true.i.i160 ], [ %storemerge.i.i, %if.end23.i.i ], [ 0, %e1000e_rx_fix_l4_csum.argprom.exit ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip4.i.i101)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip6.i.i102)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %l4hdr_proto.i.i103)
@@ -1601,13 +1601,13 @@ for.body.i.i.preheader.i:                         ; preds = %if.else.i89.i
   %152 = load i16, ptr @_TRACE_E1000E_RX_DESC_PS_READ_DSTATE, align 2
   %tobool4.i.i.i.i.i = icmp ne i16 %152, 0
   %or.cond.i.i.i.i.i = select i1 %tobool.i.i.i.i.i, i1 %tobool4.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i.i, label %land.lhs.true5.i.i.i.i.i, label %e1000e_read_ps_rx_descr.exit.i.i
+  br i1 %or.cond.i.i.i.i.i, label %land.lhs.true5.i.i.i.i.i, label %e1000e_read_ps_rx_descr.argprom.exit.i.i
 
 land.lhs.true5.i.i.i.i.i:                         ; preds = %for.body.i.i.preheader.i
   %153 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i.i.i = and i32 %153, 32768
   %cmp.i.not.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i.i.i, label %e1000e_read_ps_rx_descr.exit.i.i, label %if.then.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i, label %e1000e_read_ps_rx_descr.argprom.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %land.lhs.true5.i.i.i.i.i
   %154 = load i8, ptr @message_with_timestamp, align 1
@@ -1620,13 +1620,13 @@ if.then8.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
   %155 = load i64, ptr %_now.i.i.i.i.i, align 8
   %156 = load i64, ptr %tv_usec.i.i.i.i299.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i.i.i.i.i, i64 noundef %155, i64 noundef %156, i64 noundef %147, i64 noundef %148, i64 noundef %149, i64 noundef %150) #13
-  br label %e1000e_read_ps_rx_descr.exit.i.i
+  br label %e1000e_read_ps_rx_descr.argprom.exit.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i64 noundef %147, i64 noundef %148, i64 noundef %149, i64 noundef %150) #13
-  br label %e1000e_read_ps_rx_descr.exit.i.i
+  br label %e1000e_read_ps_rx_descr.argprom.exit.i.i
 
-e1000e_read_ps_rx_descr.exit.i.i:                 ; preds = %if.else.i.i.i.i.i, %if.then8.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i, %for.body.i.i.preheader.i
+e1000e_read_ps_rx_descr.argprom.exit.i.i:         ; preds = %if.else.i.i.i.i.i, %if.then8.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i, %for.body.i.i.preheader.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i.i)
   br label %e1000e_read_rx_descr.exit.i
 
@@ -1636,8 +1636,8 @@ if.else6.i.i:                                     ; preds = %if.else.i89.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx4.i.i296.i, i8 0, i64 24, i1 false)
   br label %e1000e_read_rx_descr.exit.i
 
-e1000e_read_rx_descr.exit.i:                      ; preds = %if.else6.i.i, %e1000e_read_ps_rx_descr.exit.i.i, %if.then.i.i144
-  %157 = phi i64 [ %desc.val.i.i, %if.then.i.i144 ], [ %147, %e1000e_read_ps_rx_descr.exit.i.i ], [ %desc.val15.i.i, %if.else6.i.i ]
+e1000e_read_rx_descr.exit.i:                      ; preds = %if.else6.i.i, %e1000e_read_ps_rx_descr.argprom.exit.i.i, %if.then.i.i144
+  %157 = phi i64 [ %desc.val.i.i, %if.then.i.i144 ], [ %147, %e1000e_read_ps_rx_descr.argprom.exit.i.i ], [ %desc.val15.i.i, %if.else6.i.i ]
   %tobool.not.i124 = icmp eq i64 %157, 0
   br i1 %tobool.not.i124, label %if.else83.i, label %if.then16.i
 
@@ -1656,12 +1656,12 @@ if.then30.i:                                      ; preds = %if.then19.i
   %.pre.i = load i16, ptr %bastate.i, align 2
   br i1 %is_first.0.i, label %do.body33.i, label %if.else.i141
 
-do.body33.i:                                      ; preds = %if.then30.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i
-  %159 = phi i16 [ %conv12.i.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ], [ %.pre.i, %if.then30.i ]
-  %copy_size.2.i = phi i64 [ %sub39.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ], [ %spec.select76.i, %if.then30.i ]
-  %ps_hdr_copied.0.i = phi i64 [ %add40.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ], [ 0, %if.then30.i ]
-  %iov.2.i = phi ptr [ %spec.select77.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ], [ %iov.0.i, %if.then30.i ]
-  %iov_ofs.2.i = phi i64 [ %spec.select78.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ], [ %iov_ofs.0.i, %if.then30.i ]
+do.body33.i:                                      ; preds = %if.then30.i, %e1000e_write_hdr_frag_to_rx_buffers.argprom.exit.i
+  %159 = phi i16 [ %conv12.i.i, %e1000e_write_hdr_frag_to_rx_buffers.argprom.exit.i ], [ %.pre.i, %if.then30.i ]
+  %copy_size.2.i = phi i64 [ %sub39.i, %e1000e_write_hdr_frag_to_rx_buffers.argprom.exit.i ], [ %spec.select76.i, %if.then30.i ]
+  %ps_hdr_copied.0.i = phi i64 [ %add40.i, %e1000e_write_hdr_frag_to_rx_buffers.argprom.exit.i ], [ 0, %if.then30.i ]
+  %iov.2.i = phi ptr [ %spec.select77.i, %e1000e_write_hdr_frag_to_rx_buffers.argprom.exit.i ], [ %iov.0.i, %if.then30.i ]
+  %iov_ofs.2.i = phi i64 [ %spec.select78.i, %e1000e_write_hdr_frag_to_rx_buffers.argprom.exit.i ], [ %iov_ofs.0.i, %if.then30.i ]
   %sub34.i = sub i64 %ps_hdr_len.0286.i, %ps_hdr_copied.0.i
   %iov_len.i142 = getelementptr inbounds i8, ptr %iov.2.i, i64 8
   %160 = load i64, ptr %iov_len.i142, align 8
@@ -1672,13 +1672,13 @@ do.body33.i:                                      ; preds = %if.then30.i, %e1000
   %sub.i.i = sub i32 %161, %conv.i95.i
   %conv2.i.i = zext i32 %sub.i.i to i64
   %cmp.not.i.i = icmp ugt i64 %cond.i143, %conv2.i.i
-  br i1 %cmp.not.i.i, label %if.else.i98.i, label %e1000e_write_hdr_frag_to_rx_buffers.exit.i
+  br i1 %cmp.not.i.i, label %if.else.i98.i, label %e1000e_write_hdr_frag_to_rx_buffers.argprom.exit.i
 
 if.else.i98.i:                                    ; preds = %do.body33.i
   call void @__assert_fail(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.3, i32 noundef 1412, ptr noundef nonnull @__PRETTY_FUNCTION__.e1000e_write_hdr_frag_to_rx_buffers) #14
   unreachable
 
-e1000e_write_hdr_frag_to_rx_buffers.exit.i:       ; preds = %do.body33.i
+e1000e_write_hdr_frag_to_rx_buffers.argprom.exit.i: ; preds = %do.body33.i
   %ba.val.i = load i64, ptr %ba.i, align 16
   %162 = load ptr, ptr %iov.2.i, align 8
   %163 = load ptr, ptr %owner.i, align 8
@@ -1715,11 +1715,11 @@ if.else.i141:                                     ; preds = %if.then30.i
   store i8 1, ptr %cur_idx.i111300.i, align 2
   br label %if.end51.i
 
-if.end51.i:                                       ; preds = %e1000e_write_hdr_frag_to_rx_buffers.exit.i, %if.else.i141, %if.then19.i
-  %copy_size.1.i = phi i64 [ %spec.select76.i, %if.else.i141 ], [ %spec.select76.i, %if.then19.i ], [ %sub39.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ]
-  %is_first.1.i = phi i1 [ false, %if.else.i141 ], [ %is_first.0.i, %if.then19.i ], [ false, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ]
-  %iov.1.i = phi ptr [ %iov.0.i, %if.else.i141 ], [ %iov.0.i, %if.then19.i ], [ %spec.select77.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ]
-  %iov_ofs.1.i = phi i64 [ %iov_ofs.0.i, %if.else.i141 ], [ %iov_ofs.0.i, %if.then19.i ], [ %spec.select78.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ]
+if.end51.i:                                       ; preds = %e1000e_write_hdr_frag_to_rx_buffers.argprom.exit.i, %if.else.i141, %if.then19.i
+  %copy_size.1.i = phi i64 [ %spec.select76.i, %if.else.i141 ], [ %spec.select76.i, %if.then19.i ], [ %sub39.i, %e1000e_write_hdr_frag_to_rx_buffers.argprom.exit.i ]
+  %is_first.1.i = phi i1 [ false, %if.else.i141 ], [ %is_first.0.i, %if.then19.i ], [ false, %e1000e_write_hdr_frag_to_rx_buffers.argprom.exit.i ]
+  %iov.1.i = phi ptr [ %iov.0.i, %if.else.i141 ], [ %iov.0.i, %if.then19.i ], [ %spec.select77.i, %e1000e_write_hdr_frag_to_rx_buffers.argprom.exit.i ]
+  %iov_ofs.1.i = phi i64 [ %iov_ofs.0.i, %if.else.i141 ], [ %iov_ofs.0.i, %if.then19.i ], [ %spec.select78.i, %e1000e_write_hdr_frag_to_rx_buffers.argprom.exit.i ]
   %tobool52.not260.i = icmp eq i64 %copy_size.1.i, 0
   br i1 %tobool52.not260.i, label %while.end.i, label %while.body.i
 
@@ -2308,7 +2308,7 @@ trace_e1000e_rx_written_to_guest.exit:            ; preds = %if.end62, %land.lhs
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i178)
   br label %if.end76
 
-if.else72:                                        ; preds = %e1000e_rx_ring_init.exit
+if.else72:                                        ; preds = %e1000e_rx_ring_init.argprom.exit
   %idx75 = getelementptr inbounds i8, ptr %arrayidx.i94, i64 20
   %258 = load i32, ptr %idx75, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i192)
@@ -8775,7 +8775,7 @@ if.else11.i:                                      ; preds = %trace_e1000e_tx_des
   %dp.val36.i = load i32, ptr %upper, align 4
   %and.i55.i = and i32 %dp.val36.i, 16
   %tobool.not.i56.i = icmp eq i32 %and.i55.i, 0
-  br i1 %tobool.not.i56.i, label %e1000e_process_ts_option.exit72.i, label %if.then.i57.i
+  br i1 %tobool.not.i56.i, label %e1000e_process_ts_option.argprom.exit72.i, label %if.then.i57.i
 
 if.then.i57.i:                                    ; preds = %if.else11.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i54.i)
@@ -8811,14 +8811,14 @@ if.else.i.i.i67.i:                                ; preds = %if.then.i.i.i65.i
 
 trace_e1000e_wrn_no_ts_support.exit.i61.i:        ; preds = %if.else.i.i.i67.i, %if.then8.i.i.i68.i, %land.lhs.true5.i.i.i62.i, %if.then.i57.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i54.i)
-  br label %e1000e_process_ts_option.exit72.i
+  br label %e1000e_process_ts_option.argprom.exit72.i
 
-e1000e_process_ts_option.exit72.i:                ; preds = %trace_e1000e_wrn_no_ts_support.exit.i61.i, %if.else11.i
+e1000e_process_ts_option.argprom.exit72.i:        ; preds = %trace_e1000e_wrn_no_ts_support.exit.i61.i, %if.else11.i
   %cptse12.i = getelementptr inbounds i8, ptr %30, i64 22
   store i8 0, ptr %cptse12.i, align 2
   br label %if.end13.i
 
-if.end13.i:                                       ; preds = %e1000e_process_ts_option.exit72.i, %trace_e1000e_wrn_no_ts_support.exit.i.i, %if.then5.i
+if.end13.i:                                       ; preds = %e1000e_process_ts_option.argprom.exit72.i, %trace_e1000e_wrn_no_ts_support.exit.i.i, %if.then5.i
   %skip_cp.i = getelementptr inbounds i8, ptr %30, i64 20
   %54 = load i8, ptr %skip_cp.i, align 4
   %tobool15.i = trunc i8 %54 to i1

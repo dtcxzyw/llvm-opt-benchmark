@@ -119,19 +119,19 @@ list_length.exit.i.i.i:                           ; preds = %36
   %40 = getelementptr inbounds i8, ptr %.val.i.i, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp sgt i32 %41, 1
-  br i1 %42, label %43, label %get_rightop.exit.i.i
+  br i1 %42, label %43, label %get_rightop.argprom.exit.i.i
 
 43:                                               ; preds = %list_length.exit.i.i.i
   %44 = getelementptr i8, ptr %.val.i.i.i, i64 8
   %45 = load ptr, ptr %44, align 8
-  br label %get_rightop.exit.i.i
+  br label %get_rightop.argprom.exit.i.i
 
-get_rightop.exit.i.i:                             ; preds = %43, %list_length.exit.i.i.i
+get_rightop.argprom.exit.i.i:                     ; preds = %43, %list_length.exit.i.i.i
   %.0.i27.i.i = phi ptr [ %45, %43 ], [ null, %list_length.exit.i.i.i ]
   %.not.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i, label %53, label %46
 
-46:                                               ; preds = %get_rightop.exit.i.i
+46:                                               ; preds = %get_rightop.argprom.exit.i.i
   %47 = load i32, ptr %39, align 4
   %48 = icmp eq i32 %47, 6
   br i1 %48, label %49, label %53
@@ -142,7 +142,7 @@ get_rightop.exit.i.i:                             ; preds = %43, %list_length.ex
   %52 = icmp eq i16 %51, -1
   br i1 %52, label %63, label %53
 
-53:                                               ; preds = %49, %46, %get_rightop.exit.i.i
+53:                                               ; preds = %49, %46, %get_rightop.argprom.exit.i.i
   %.not25.i.i = icmp eq ptr %.0.i27.i.i, null
   br i1 %.not25.i.i, label %.thread.i.i, label %54
 

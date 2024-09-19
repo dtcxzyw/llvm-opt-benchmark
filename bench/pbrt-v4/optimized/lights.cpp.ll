@@ -1862,7 +1862,7 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %if.end51.i
   %nStored.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i28, i64 32
   %cmp.not.i.not.i.i.i.i.i.i = icmp eq i64 %74, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i5.i.i.i.i.i, i8 0, i64 24, i1 false)
-  br i1 %cmp.not.i.not.i.i.i.i.i.i, label %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.exit.i", label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.not.i.i.i.i.i.i, label %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.argprom.exit.i", label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %call.i.i.i.i.i.i.noexc
   %add.ptr.i.idx.i.i.i.i.i = shl nsw i64 %74, 2
@@ -1923,9 +1923,9 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 
 for.end.loopexit.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.i
   %.pre.i.i.i.i.i.i = load i64, ptr %nAlloc.i.i.i.i.i.i, align 8
-  br label %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.exit.i"
+  br label %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.argprom.exit.i"
 
-"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.exit.i": ; preds = %for.end.loopexit.i.i.i.i.i.i, %call.i.i.i.i.i.i.noexc
+"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.argprom.exit.i": ; preds = %for.end.loopexit.i.i.i.i.i.i, %call.i.i.i.i.i.i.noexc
   %87 = phi i64 [ %.pre.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ], [ 0, %call.i.i.i.i.i.i.noexc ]
   store i64 %87, ptr %nStored.i6.i.i.i.i.i, align 8
   invoke void @_ZN4pbrt11InternCacheINS_22DenselySampledSpectrumESt4hashIS1_EE6InsertEPKS1_PN4pstd6vectorIS6_NS7_3pmr21polymorphic_allocatorIS6_EEEE(ptr noundef nonnull align 64 dereferenceable(168) %11, ptr noundef nonnull %call.i.i.i.i.i.i28, ptr noundef nonnull %hashTable.i7)
@@ -1982,8 +1982,8 @@ if.else67.i:                                      ; preds = %for.body.i135.i, %l
   %tobool.not.i9 = icmp eq ptr %95, null
   br i1 %tobool.not.i9, label %if.then.i10, label %if.else58.i, !llvm.loop !13
 
-invoke.cont6:                                     ; preds = %for.cond.preheader.i130.i, %for.cond.i140.i, %for.cond.preheader.i.i, %for.cond.i.i, %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.exit.i"
-  %retval.0.i = phi ptr [ %call.i.i.i.i.i.i28, %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.exit.i" ], [ %44, %for.cond.i.i ], [ %44, %for.cond.preheader.i.i ], [ %88, %for.cond.i140.i ], [ %88, %for.cond.preheader.i130.i ]
+invoke.cont6:                                     ; preds = %for.cond.preheader.i130.i, %for.cond.i140.i, %for.cond.preheader.i.i, %for.cond.i.i, %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.argprom.exit.i"
+  %retval.0.i = phi ptr [ %call.i.i.i.i.i.i28, %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.argprom.exit.i" ], [ %44, %for.cond.i.i ], [ %44, %for.cond.preheader.i.i ], [ %88, %for.cond.i140.i ], [ %88, %for.cond.preheader.i130.i ]
   %call1.i.i.i.i146.i = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %mutex.i8) #29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %newHash.i)
   store i64 0, ptr %nStored.i.i.i5, align 8
@@ -2013,7 +2013,7 @@ terminate.lpad.i.i39:                             ; preds = %if.end.i.i.i.i.i34
 _ZN4pbrt22DenselySampledSpectrumD2Ev.exit:        ; preds = %invoke.cont6, %if.end.i.i.i.i.i34
   ret ptr %retval.0.i
 
-lpad5:                                            ; preds = %if.then.i.i21.i.invoke, %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.exit.i", %if.end.i.i.i9.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i, %if.end51.i, %for.end.i.i.i.i14
+lpad5:                                            ; preds = %if.then.i.i21.i.invoke, %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.argprom.exit.i", %if.end.i.i.i9.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i, %if.end51.i, %for.end.i.i.i.i14
   %102 = landingpad { ptr, i32 }
           cleanup
   br label %lpad5.body
@@ -12079,12 +12079,12 @@ land.lhs.true.i:                                  ; preds = %entry
   %1 = inttoptr i64 %and.i.i.i to ptr
   %2 = load float, ptr %1, align 4
   %cmp.i = fcmp oeq float %2, 0.000000e+00
-  br i1 %cmp.i, label %"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.exit", label %if.end.i
+  br i1 %cmp.i, label %"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.argprom.exit", label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  br label %"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.exit"
+  br label %"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.argprom.exit"
 
-"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.exit": ; preds = %land.lhs.true.i, %if.end.i
+"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.argprom.exit": ; preds = %land.lhs.true.i, %if.end.i
   %cmp = phi i1 [ true, %if.end.i ], [ false, %land.lhs.true.i ]
   %retval.0.i = phi i32 [ 2, %if.end.i ], [ 0, %land.lhs.true.i ]
   store i32 %retval.0.i, ptr %this, align 8
@@ -12110,13 +12110,13 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %e
   %alpha3 = getelementptr inbounds i8, ptr %this, i64 160
   br i1 %cmp, label %cond.true, label %cond.end
 
-cond.true:                                        ; preds = %"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.exit"
+cond.true:                                        ; preds = %"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.argprom.exit"
   store i64 0, ptr %alpha3, align 8
   %8 = load i64, ptr %alpha, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.exit", %cond.true
-  %storemerge = phi i64 [ %8, %cond.true ], [ 0, %"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.exit" ]
+cond.end:                                         ; preds = %"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.argprom.exit", %cond.true
+  %storemerge = phi i64 [ %8, %cond.true ], [ 0, %"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.argprom.exit" ]
   store i64 %storemerge, ptr %alpha3, align 8
   %area = getelementptr inbounds i8, ptr %this, i64 168
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %area.i)
@@ -23633,16 +23633,16 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   store float %mul.i.i.i.i.i.i, ptr %arrayidx.i.i.i1.i.i.i.i, align 4
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i.i.i, label %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_10PointLightEEEDaT_.exit.i.i", label %for.body.i.i.i.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i.i.i.i, label %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_10PointLightEEEDaT_.argprom.exit.i.i", label %for.body.i.i.i.i.i.i, !llvm.loop !17
 
-"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_10PointLightEEEDaT_.exit.i.i": ; preds = %for.body.i.i.i.i.i.i
+"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_10PointLightEEEDaT_.argprom.exit.i.i": ; preds = %for.body.i.i.i.i.i.i
   %.fca.0.load.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i.i.i.i, align 8
   %.fca.0.insert.i.i.i.i.i.i = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.i.i.i.i.i.i, 0
   %.fca.1.load.i.i.i.i.i.i = load <2 x float>, ptr %ref.tmp.sroa.2.0.retval.i.i.sroa_idx.i.i.i.i, align 8
   %.fca.1.insert.i.i.i.i.i.i = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i.i.i.i.i.i, <2 x float> %.fca.1.load.i.i.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
 
 sw.bb2.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i30.i.i)
@@ -23750,32 +23750,32 @@ for.body.i15.i.i.i.i:                             ; preds = %for.body.i15.i.i.i.
   store float %mul.i18.i.i.i.i, ptr %arrayidx.i.i17.i.i.i.i, align 4
   %indvars.iv.next.i19.i.i.i.i = add nuw nsw i64 %indvars.iv.i16.i.i.i.i, 1
   %exitcond.not.i20.i.i.i.i = icmp eq i64 %indvars.iv.next.i19.i.i.i.i, 4
-  br i1 %exitcond.not.i20.i.i.i.i, label %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_12DistantLightEEEDaT_.exit.i.i", label %for.body.i15.i.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i20.i.i.i.i, label %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_12DistantLightEEEDaT_.argprom.exit.i.i", label %for.body.i15.i.i.i.i, !llvm.loop !17
 
-"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_12DistantLightEEEDaT_.exit.i.i": ; preds = %for.body.i15.i.i.i.i
+"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_12DistantLightEEEDaT_.argprom.exit.i.i": ; preds = %for.body.i15.i.i.i.i
   %.fca.0.load.i21.i.i.i.i = load <2 x float>, ptr %retval.i14.i.i.i.i, align 8
   %.fca.0.insert.i22.i.i.i.i = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.i21.i.i.i.i, 0
   %.fca.1.load.i24.i.i.i.i = load <2 x float>, ptr %ref.tmp.sroa.2.0.retval.i14.sroa_idx.i.i.i.i, align 8
   %.fca.1.insert.i25.i.i.i.i = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i22.i.i.i.i, <2 x float> %.fca.1.load.i24.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i14.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i30.i.i)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
 
 sw.bb6.i.i:                                       ; preds = %entry
   %call.i.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt15ProjectionLight3PhiENS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %lambda)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
 
 sw.bb10.i.i:                                      ; preds = %entry
   %call.i62.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt16GoniometricLight3PhiENS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %lambda)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
 
 sw.bb14.i.i:                                      ; preds = %entry
   %call.i64.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt9SpotLight3PhiENS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 dereferenceable(172) %0, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %lambda)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
 
 sw.bb18.i.i:                                      ; preds = %entry
   %call.i66.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt16DiffuseAreaLight3PhiENS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 dereferenceable(352) %0, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %lambda)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
 
 sw.bb22.i.i:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i69.i.i)
@@ -23845,27 +23845,27 @@ for.body.i.i.i.i96.i.i:                           ; preds = %for.body.i.i.i.i96.
   store float %mul.i.i.i.i99.i.i, ptr %arrayidx.i.i.i1.i.i98.i.i, align 4
   %indvars.iv.next.i.i.i.i100.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i97.i.i, 1
   %exitcond.not.i.i.i.i101.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i100.i.i, 4
-  br i1 %exitcond.not.i.i.i.i101.i.i, label %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_20UniformInfiniteLightEEEDaT_.exit.i.i", label %for.body.i.i.i.i96.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i.i101.i.i, label %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_20UniformInfiniteLightEEEDaT_.argprom.exit.i.i", label %for.body.i.i.i.i96.i.i, !llvm.loop !17
 
-"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_20UniformInfiniteLightEEEDaT_.exit.i.i": ; preds = %for.body.i.i.i.i96.i.i
+"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_20UniformInfiniteLightEEEDaT_.argprom.exit.i.i": ; preds = %for.body.i.i.i.i96.i.i
   %.fca.0.load.i.i.i.i102.i.i = load <2 x float>, ptr %retval.i.i.i.i67.i.i, align 8
   %.fca.0.insert.i.i.i.i103.i.i = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.i.i.i.i102.i.i, 0
   %.fca.1.load.i.i.i.i104.i.i = load <2 x float>, ptr %ref.tmp.sroa.2.0.retval.i.i.sroa_idx.i.i95.i.i, align 8
   %.fca.1.insert.i.i.i.i105.i.i = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i.i.i.i103.i.i, <2 x float> %.fca.1.load.i.i.i.i104.i.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i67.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i69.i.i)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
 
 sw.bb26.i.i:                                      ; preds = %entry
   %call.i109.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt18ImageInfiniteLight3PhiENS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 dereferenceable(592) %0, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %lambda)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
 
 sw.default.i.i:                                   ; preds = %entry
   %call.i.i.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt24PortalImageInfiniteLight3PhiENS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 dereferenceable(516) %0, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %lambda)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit"
 
-"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.exit": ; preds = %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_10PointLightEEEDaT_.exit.i.i", %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_12DistantLightEEEDaT_.exit.i.i", %sw.bb6.i.i, %sw.bb10.i.i, %sw.bb14.i.i, %sw.bb18.i.i, %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_20UniformInfiniteLightEEEDaT_.exit.i.i", %sw.bb26.i.i, %sw.default.i.i
-  %call30.pn.i.i = phi { <2 x float>, <2 x float> } [ %call.i.i.i.i, %sw.default.i.i ], [ %call.i109.i.i, %sw.bb26.i.i ], [ %.fca.1.insert.i.i.i.i105.i.i, %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_20UniformInfiniteLightEEEDaT_.exit.i.i" ], [ %call.i66.i.i, %sw.bb18.i.i ], [ %call.i64.i.i, %sw.bb14.i.i ], [ %call.i62.i.i, %sw.bb10.i.i ], [ %call.i.i.i, %sw.bb6.i.i ], [ %.fca.1.insert.i25.i.i.i.i, %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_12DistantLightEEEDaT_.exit.i.i" ], [ %.fca.1.insert.i.i.i.i.i.i, %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_10PointLightEEEDaT_.exit.i.i" ]
+"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light3PhiENS_18SampledWavelengthsEE3$_0EEDcOT_.argprom.exit": ; preds = %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_10PointLightEEEDaT_.argprom.exit.i.i", %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_12DistantLightEEEDaT_.argprom.exit.i.i", %sw.bb6.i.i, %sw.bb10.i.i, %sw.bb14.i.i, %sw.bb18.i.i, %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_20UniformInfiniteLightEEEDaT_.argprom.exit.i.i", %sw.bb26.i.i, %sw.default.i.i
+  %call30.pn.i.i = phi { <2 x float>, <2 x float> } [ %call.i.i.i.i, %sw.default.i.i ], [ %call.i109.i.i, %sw.bb26.i.i ], [ %.fca.1.insert.i.i.i.i105.i.i, %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_20UniformInfiniteLightEEEDaT_.argprom.exit.i.i" ], [ %call.i66.i.i, %sw.bb18.i.i ], [ %call.i64.i.i, %sw.bb14.i.i ], [ %call.i62.i.i, %sw.bb10.i.i ], [ %call.i.i.i, %sw.bb6.i.i ], [ %.fca.1.insert.i25.i.i.i.i, %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_12DistantLightEEEDaT_.argprom.exit.i.i" ], [ %.fca.1.insert.i.i.i.i.i.i, %"_ZZNK4pbrt5Light3PhiENS_18SampledWavelengthsEENK3$_0clIPKNS_10PointLightEEEDaT_.argprom.exit.i.i" ]
   ret { <2 x float>, <2 x float> } %call30.pn.i.i
 }
 
@@ -23878,12 +23878,12 @@ entry:
   %shr.i.i = lshr i64 %this.val, 57
   %conv.i.i = trunc nuw nsw i64 %shr.i.i to i32
   switch i32 %conv.i.i, label %sw.default.i.i [
-    i32 1, label %"_ZN4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNS_5Light10PreprocessERKNS_7Bounds3IfEEE3$_0EEDcOT_.exit"
+    i32 1, label %"_ZN4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNS_5Light10PreprocessERKNS_7Bounds3IfEEE3$_0EEDcOT_.argprom.exit"
     i32 2, label %sw.bb1.i.i
-    i32 3, label %"_ZN4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNS_5Light10PreprocessERKNS_7Bounds3IfEEE3$_0EEDcOT_.exit"
-    i32 4, label %"_ZN4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNS_5Light10PreprocessERKNS_7Bounds3IfEEE3$_0EEDcOT_.exit"
-    i32 5, label %"_ZN4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNS_5Light10PreprocessERKNS_7Bounds3IfEEE3$_0EEDcOT_.exit"
-    i32 6, label %"_ZN4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNS_5Light10PreprocessERKNS_7Bounds3IfEEE3$_0EEDcOT_.exit"
+    i32 3, label %"_ZN4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNS_5Light10PreprocessERKNS_7Bounds3IfEEE3$_0EEDcOT_.argprom.exit"
+    i32 4, label %"_ZN4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNS_5Light10PreprocessERKNS_7Bounds3IfEEE3$_0EEDcOT_.argprom.exit"
+    i32 5, label %"_ZN4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNS_5Light10PreprocessERKNS_7Bounds3IfEEE3$_0EEDcOT_.argprom.exit"
+    i32 6, label %"_ZN4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNS_5Light10PreprocessERKNS_7Bounds3IfEEE3$_0EEDcOT_.argprom.exit"
     i32 7, label %sw.bb6.i.i
     i32 8, label %sw.bb7.i.i
   ]
@@ -24137,9 +24137,9 @@ return.sink.split.i.i:                            ; preds = %cond.true.i.i.i.i.i
   %cond.i.i.i.i.sink.i.i = phi float [ 0.000000e+00, %sw.bb1.i.i ], [ 0.000000e+00, %land.lhs.true5.i.i.i.i.i.i ], [ %sqrt.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ 0.000000e+00, %sw.bb6.i.i ], [ 0.000000e+00, %land.lhs.true5.i.i.i.i46.i.i ], [ %sqrt.i.i.i.i.i69.i.i, %cond.true.i.i.i57.i.i ], [ 0.000000e+00, %sw.bb7.i.i ], [ 0.000000e+00, %land.lhs.true5.i.i.i.i91.i.i ], [ %sqrt.i.i.i.i.i114.i.i, %cond.true.i.i.i102.i.i ], [ 0.000000e+00, %sw.default.i.i ], [ 0.000000e+00, %land.lhs.true5.i.i.i.i.i.i.i ], [ %sqrt.i.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ]
   %sceneRadius.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i
   store float %cond.i.i.i.i.sink.i.i, ptr %sceneRadius.i.i.i.i.i, align 4
-  br label %"_ZN4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNS_5Light10PreprocessERKNS_7Bounds3IfEEE3$_0EEDcOT_.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNS_5Light10PreprocessERKNS_7Bounds3IfEEE3$_0EEDcOT_.argprom.exit"
 
-"_ZN4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNS_5Light10PreprocessERKNS_7Bounds3IfEEE3$_0EEDcOT_.exit": ; preds = %entry, %entry, %entry, %entry, %entry, %return.sink.split.i.i
+"_ZN4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNS_5Light10PreprocessERKNS_7Bounds3IfEEE3$_0EEDcOT_.argprom.exit": ; preds = %entry, %entry, %entry, %entry, %entry, %return.sink.split.i.i
   ret void
 }
 
@@ -24164,41 +24164,41 @@ entry:
 
 sw.bb.i.i:                                        ; preds = %entry
   tail call void @_ZNK4pbrt10PointLight8SampleLeENS_6Point2IfEES2_RNS_18SampledWavelengthsEf(ptr sret(%"class.pstd::optional.24") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(164) %0, <2 x float> %u1.coerce, <2 x float> poison, ptr noundef nonnull align 4 dereferenceable(32) %lambda, float noundef %time)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.argprom.exit"
 
 sw.bb1.i.i:                                       ; preds = %entry
   tail call void @_ZNK4pbrt12DistantLight8SampleLeENS_6Point2IfEES2_RNS_18SampledWavelengthsEf(ptr sret(%"class.pstd::optional.24") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(180) %0, <2 x float> %u1.coerce, <2 x float> poison, ptr noundef nonnull align 4 dereferenceable(32) %lambda, float noundef %time)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.argprom.exit"
 
 sw.bb2.i.i:                                       ; preds = %entry
   tail call void @_ZNK4pbrt15ProjectionLight8SampleLeENS_6Point2IfEES2_RNS_18SampledWavelengthsEf(ptr sret(%"class.pstd::optional.24") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %0, <2 x float> %u1.coerce, <2 x float> poison, ptr noundef nonnull align 4 dereferenceable(32) %lambda, float noundef %time)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.argprom.exit"
 
 sw.bb3.i.i:                                       ; preds = %entry
   tail call void @_ZNK4pbrt16GoniometricLight8SampleLeENS_6Point2IfEES2_RNS_18SampledWavelengthsEf(ptr sret(%"class.pstd::optional.24") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(448) %0, <2 x float> %u1.coerce, <2 x float> poison, ptr noundef nonnull align 4 dereferenceable(32) %lambda, float noundef %time)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.argprom.exit"
 
 sw.bb4.i.i:                                       ; preds = %entry
   tail call void @_ZNK4pbrt9SpotLight8SampleLeENS_6Point2IfEES2_RNS_18SampledWavelengthsEf(ptr sret(%"class.pstd::optional.24") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(172) %0, <2 x float> %u1.coerce, <2 x float> %u2.coerce, ptr noundef nonnull align 4 dereferenceable(32) %lambda, float noundef %time)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.argprom.exit"
 
 sw.bb5.i.i:                                       ; preds = %entry
   tail call void @_ZNK4pbrt16DiffuseAreaLight8SampleLeENS_6Point2IfEES2_RNS_18SampledWavelengthsEf(ptr sret(%"class.pstd::optional.24") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(352) %0, <2 x float> %u1.coerce, <2 x float> %u2.coerce, ptr noundef nonnull align 4 dereferenceable(32) %lambda, float noundef %time)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.argprom.exit"
 
 sw.bb6.i.i:                                       ; preds = %entry
   tail call void @_ZNK4pbrt20UniformInfiniteLight8SampleLeENS_6Point2IfEES2_RNS_18SampledWavelengthsEf(ptr sret(%"class.pstd::optional.24") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(180) %0, <2 x float> %u1.coerce, <2 x float> %u2.coerce, ptr noundef nonnull align 4 dereferenceable(32) %lambda, float noundef %time)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.argprom.exit"
 
 sw.bb7.i.i:                                       ; preds = %entry
   tail call void @_ZNK4pbrt18ImageInfiniteLight8SampleLeENS_6Point2IfEES2_RNS_18SampledWavelengthsEf(ptr sret(%"class.pstd::optional.24") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(592) %0, <2 x float> %u1.coerce, <2 x float> %u2.coerce, ptr noundef nonnull align 4 dereferenceable(32) %lambda, float noundef %time)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.argprom.exit"
 
 sw.default.i.i:                                   ; preds = %entry
   tail call void @_ZNK4pbrt24PortalImageInfiniteLight8SampleLeENS_6Point2IfEES2_RNS_18SampledWavelengthsEf(ptr sret(%"class.pstd::optional.24") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(516) %0, <2 x float> %u1.coerce, <2 x float> %u2.coerce, ptr noundef nonnull align 4 dereferenceable(32) %lambda, float noundef %time)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.argprom.exit"
 
-"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.exit": ; preds = %sw.bb.i.i, %sw.bb1.i.i, %sw.bb2.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.bb5.i.i, %sw.bb6.i.i, %sw.bb7.i.i, %sw.default.i.i
+"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light8SampleLeENS_6Point2IfEESE_RNS_18SampledWavelengthsEfE3$_0EEDcOT_.argprom.exit": ; preds = %sw.bb.i.i, %sw.bb1.i.i, %sw.bb2.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.bb5.i.i, %sw.bb6.i.i, %sw.bb7.i.i, %sw.default.i.i
   ret void
 }
 
@@ -24224,7 +24224,7 @@ entry:
 sw.bb.i.i:                                        ; preds = %entry
   store float 0.000000e+00, ptr %pdfPos, align 4
   store float 0x3FB45F3060000000, ptr %pdfDir, align 4
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.argprom.exit"
 
 sw.bb1.i.i:                                       ; preds = %entry
   %1 = getelementptr i8, ptr %0, i64 176
@@ -24234,11 +24234,11 @@ sw.bb1.i.i:                                       ; preds = %entry
   %div.i.i.i.i = fdiv float 1.000000e+00, %mul3.i.i.i.i
   store float %div.i.i.i.i, ptr %pdfPos, align 4
   store float 0.000000e+00, ptr %pdfDir, align 4
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.argprom.exit"
 
 sw.bb2.i.i:                                       ; preds = %entry
   tail call void @_ZNK4pbrt15ProjectionLight6PDF_LeERKNS_3RayEPfS4_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(40) %ray, ptr noundef %pdfPos, ptr noundef %pdfDir)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.argprom.exit"
 
 sw.bb3.i.i:                                       ; preds = %entry
   store float 0.000000e+00, ptr %pdfPos, align 4
@@ -24327,7 +24327,7 @@ sw.bb3.i.i:                                       ; preds = %entry
   %div.i.i.i.i.i = fdiv float %11, %12
   %div.i.i18.i.i = fdiv float %div.i.i.i.i.i, 0x402921FB60000000
   store float %div.i.i18.i.i, ptr %pdfDir, align 4
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.argprom.exit"
 
 sw.bb4.i.i:                                       ; preds = %entry
   %cosFalloffStart.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 164
@@ -24400,7 +24400,7 @@ _ZN4pbrt13SmoothStepPDFEfff.exit.i.i.i.i:         ; preds = %_ZN4pbrt10SmoothSte
 "_ZZNK4pbrt5Light6PDF_LeERKNS_3RayEPfS4_ENK3$_0clIPKNS_9SpotLightEEEDaT_.exit.i.i": ; preds = %_ZN4pbrt13SmoothStepPDFEfff.exit.i.i.i.i, %if.then.i.i.i.i
   %storemerge.i.i.i.i = phi float [ %div21.i.i.i.i, %_ZN4pbrt13SmoothStepPDFEfff.exit.i.i.i.i ], [ %div11.i.i.i.i, %if.then.i.i.i.i ]
   store float %storemerge.i.i.i.i, ptr %pdfDir, align 4
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.argprom.exit"
 
 sw.bb5.i.i:                                       ; preds = %entry
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.134, i32 noundef 435, ptr noundef nonnull @.str.136) #30
@@ -24414,7 +24414,7 @@ sw.bb6.i.i:                                       ; preds = %entry
   %mul.i.i33.i.i = fmul float %mul.i.i.i32.i.i, 0x400921FB60000000
   %div.i.i34.i.i = fdiv float 1.000000e+00, %mul.i.i33.i.i
   store float %div.i.i34.i.i, ptr %pdfPos, align 4
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.argprom.exit"
 
 sw.bb7.i.i:                                       ; preds = %entry
   %renderFromLight.i.i35.i.i = getelementptr inbounds i8, ptr %0, i64 4
@@ -24499,13 +24499,13 @@ sw.bb7.i.i:                                       ; preds = %entry
   %mul.i.i96.i.i = fmul float %mul.i1.i.i.i.i, 0x400921FB60000000
   %div12.i.i.i.i = fdiv float 1.000000e+00, %mul.i.i96.i.i
   store float %div12.i.i.i.i, ptr %pdfPos, align 4
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.argprom.exit"
 
 sw.default.i.i:                                   ; preds = %entry
   tail call void @_ZNK4pbrt24PortalImageInfiniteLight6PDF_LeERKNS_3RayEPfS4_(ptr noundef nonnull align 8 dereferenceable(516) %0, ptr noundef nonnull align 8 dereferenceable(40) %ray, ptr noundef %pdfPos, ptr noundef %pdfDir)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.argprom.exit"
 
-"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.exit": ; preds = %sw.bb.i.i, %sw.bb1.i.i, %sw.bb2.i.i, %sw.bb3.i.i, %"_ZZNK4pbrt5Light6PDF_LeERKNS_3RayEPfS4_ENK3$_0clIPKNS_9SpotLightEEEDaT_.exit.i.i", %sw.bb6.i.i, %sw.bb7.i.i, %sw.default.i.i
+"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.argprom.exit": ; preds = %sw.bb.i.i, %sw.bb1.i.i, %sw.bb2.i.i, %sw.bb3.i.i, %"_ZZNK4pbrt5Light6PDF_LeERKNS_3RayEPfS4_ENK3$_0clIPKNS_9SpotLightEEEDaT_.exit.i.i", %sw.bb6.i.i, %sw.bb7.i.i, %sw.default.i.i
   ret void
 }
 
@@ -24546,7 +24546,7 @@ sw.bb.i.i:                                        ; preds = %entry
   %add.ptr.i.idx.i.i.i.i.i = shl nsw i64 %4, 2
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %add.ptr.i.idx.i.i.i.i.i
   %or.cond.i.i.i.i.i.i.i = icmp ult i64 %4, 2
-  br i1 %or.cond.i.i.i.i.i.i.i, label %"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_10PointLightEEEDaT_.exit.i.i", label %while.body.preheader.i.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i.i.i, label %"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_10PointLightEEEDaT_.argprom.exit.i.i", label %while.body.preheader.i.i.i.i.i.i.i
 
 while.body.preheader.i.i.i.i.i.i.i:               ; preds = %sw.bb.i.i
   %incdec.ptr8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
@@ -24563,9 +24563,9 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.
   %spec.select.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %incdec.ptr11.i.i.i.i.i.i.i, ptr %__result.010.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr11.i.i.i.i.i.i.i, i64 4
   %cmp1.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp1.not.i.i.i.i.i.i.i, label %"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_10PointLightEEEDaT_.exit.i.i", label %while.body.i.i.i.i.i.i.i, !llvm.loop !18
+  br i1 %cmp1.not.i.i.i.i.i.i.i, label %"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_10PointLightEEEDaT_.argprom.exit.i.i", label %while.body.i.i.i.i.i.i.i, !llvm.loop !18
 
-"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_10PointLightEEEDaT_.exit.i.i": ; preds = %while.body.i.i.i.i.i.i.i, %sw.bb.i.i
+"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_10PointLightEEEDaT_.argprom.exit.i.i": ; preds = %while.body.i.i.i.i.i.i.i, %sw.bb.i.i
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %3, %sw.bb.i.i ], [ %spec.select.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %mul.i.i.i.i = fmul float %1, 0x402921FB60000000
   %call.fca.1.extract.i.i.i.i = extractvalue { <2 x float>, float } %call.i.i.i.i, 1
@@ -24593,41 +24593,41 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.
   store float 0xBE6777A5C0000000, ptr %ref.tmp.sroa.9.0.agg.result.sroa_idx.i.i.i.i, align 4, !alias.scope !152
   %ref.tmp.sroa.10.0.agg.result.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i8 0, ptr %ref.tmp.sroa.10.0.agg.result.sroa_idx.i.i.i.i, align 4, !alias.scope !152
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.argprom.exit"
 
 sw.bb1.i.i:                                       ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %agg.result, i8 0, i64 56, i1 false), !alias.scope !153
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.argprom.exit"
 
 sw.bb2.i.i:                                       ; preds = %entry
   tail call void @_ZNK4pbrt15ProjectionLight6BoundsEv(ptr sret(%"class.pstd::optional.21") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %0)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.argprom.exit"
 
 sw.bb3.i.i:                                       ; preds = %entry
   tail call void @_ZNK4pbrt16GoniometricLight6BoundsEv(ptr sret(%"class.pstd::optional.21") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(448) %0)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.argprom.exit"
 
 sw.bb4.i.i:                                       ; preds = %entry
   tail call void @_ZNK4pbrt9SpotLight6BoundsEv(ptr sret(%"class.pstd::optional.21") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(172) %0)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.argprom.exit"
 
 sw.bb5.i.i:                                       ; preds = %entry
   tail call void @_ZNK4pbrt16DiffuseAreaLight6BoundsEv(ptr sret(%"class.pstd::optional.21") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(352) %0)
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.argprom.exit"
 
 sw.bb6.i.i:                                       ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %agg.result, i8 0, i64 56, i1 false), !alias.scope !158
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.argprom.exit"
 
 sw.bb7.i.i:                                       ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %agg.result, i8 0, i64 56, i1 false), !alias.scope !163
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.argprom.exit"
 
 sw.default.i.i:                                   ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %agg.result, i8 0, i64 56, i1 false), !alias.scope !168
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.argprom.exit"
 
-"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.exit": ; preds = %"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_10PointLightEEEDaT_.exit.i.i", %sw.bb1.i.i, %sw.bb2.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.bb5.i.i, %sw.bb6.i.i, %sw.bb7.i.i, %sw.default.i.i
+"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.argprom.exit": ; preds = %"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_10PointLightEEEDaT_.argprom.exit.i.i", %sw.bb1.i.i, %sw.bb2.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.bb5.i.i, %sw.bb6.i.i, %sw.bb7.i.i, %sw.default.i.i
   ret void
 }
 
@@ -24834,11 +24834,11 @@ cond.true.i.i.i.i:                                ; preds = %do.end.i.i.i.i
   %10 = call noundef float @llvm.fabs.f32(float %9)
   %mul.i.i.i.i.i = fmul float %10, 0x3FD45F3060000000
   %div.i.i.i.i = fmul float %mul.i.i.i.i.i, 5.000000e-01
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_11InteractionENS_7Vector3IfEEPfSI_E3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_11InteractionENS_7Vector3IfEEPfSI_E3$_0EEDcOT_.argprom.exit"
 
 cond.false.i.i.i.i:                               ; preds = %do.end.i.i.i.i
   %mul.i5.i.i.i.i = fmul float %9, 0x3FD45F3060000000
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_11InteractionENS_7Vector3IfEEPfSI_E3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_11InteractionENS_7Vector3IfEEPfSI_E3$_0EEDcOT_.argprom.exit"
 
 sw.bb6.i.i:                                       ; preds = %entry
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.134, i32 noundef 528, ptr noundef nonnull @.str.137) #30
@@ -24852,7 +24852,7 @@ sw.default.i.i:                                   ; preds = %entry
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.134, i32 noundef 664, ptr noundef nonnull @.str.137) #30
   unreachable
 
-"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_11InteractionENS_7Vector3IfEEPfSI_E3$_0EEDcOT_.exit": ; preds = %cond.true.i.i.i.i, %cond.false.i.i.i.i
+"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_11InteractionENS_7Vector3IfEEPfSI_E3$_0EEDcOT_.argprom.exit": ; preds = %cond.true.i.i.i.i, %cond.false.i.i.i.i
   %cond.i.i.i.i = phi float [ %div.i.i.i.i, %cond.true.i.i.i.i ], [ %mul.i5.i.i.i.i, %cond.false.i.i.i.i ]
   store float %cond.i.i.i.i, ptr %pdfDir, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %va.i.i.i.i)
@@ -53651,7 +53651,7 @@ entry:
   %sext.i.i.i = shl i64 %__args.val, 32
   %conv219.i.i.i = ashr exact i64 %sext.i.i.i, 32
   %cmp20.i.i.i = icmp sgt i64 %__args1.val, %conv219.i.i.i
-  br i1 %cmp20.i.i.i, label %for.cond3.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt5Image23GetSamplingDistributionIZNS0_15ProjectionLightC1ENS0_9TransformENS0_15MediumInterfaceES1_PKNS0_13RGBColorSpaceEffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EENS0_7Array2DIfEET_RKNS0_7Bounds2IfEESD_EUlllE_JllEENSt9enable_ifIX16is_invocable_r_vISH_T0_DpT1_EESH_E4typeEOSP_DpOSQ_.exit"
+  br i1 %cmp20.i.i.i, label %for.cond3.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt5Image23GetSamplingDistributionIZNS0_15ProjectionLightC1ENS0_9TransformENS0_15MediumInterfaceES1_PKNS0_13RGBColorSpaceEffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EENS0_7Array2DIfEET_RKNS0_7Bounds2IfEESD_EUlllE_JllEENSt9enable_ifIX16is_invocable_r_vISH_T0_DpT1_EESH_E4typeEOSP_DpOSQ_.argprom.exit"
 
 for.cond3.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %resolution.i.i.i = getelementptr inbounds i8, ptr %0, i64 4
@@ -53665,7 +53665,7 @@ for.cond3.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %5 = load i32, ptr %resolution.i.i.i, align 4
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %for.cond3.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt5Image23GetSamplingDistributionIZNS0_15ProjectionLightC1ENS0_9TransformENS0_15MediumInterfaceES1_PKNS0_13RGBColorSpaceEffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EENS0_7Array2DIfEET_RKNS0_7Bounds2IfEESD_EUlllE_JllEENSt9enable_ifIX16is_invocable_r_vISH_T0_DpT1_EESH_E4typeEOSP_DpOSQ_.exit"
+  br i1 %6, label %for.cond3.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt5Image23GetSamplingDistributionIZNS0_15ProjectionLightC1ENS0_9TransformENS0_15MediumInterfaceES1_PKNS0_13RGBColorSpaceEffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EENS0_7Array2DIfEET_RKNS0_7Bounds2IfEESD_EUlllE_JllEENSt9enable_ifIX16is_invocable_r_vISH_T0_DpT1_EESH_E4typeEOSP_DpOSQ_.argprom.exit"
 
 for.cond3.preheader.i.i.i:                        ; preds = %for.cond3.preheader.lr.ph.i.i.i, %for.inc26.i.i.i
   %7 = phi i32 [ %35, %for.inc26.i.i.i ], [ %5, %for.cond3.preheader.lr.ph.i.i.i ]
@@ -53801,9 +53801,9 @@ for.inc26.i.i.i:                                  ; preds = %_ZN4pbrt18ImageChan
   %35 = phi i32 [ %7, %for.cond3.preheader.i.i.i ], [ %33, %_ZN4pbrt18ImageChannelValuesD2Ev.exit.i.i.i ]
   %indvars.iv.next26.i.i.i = add i64 %indvars.iv25.i.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next26.i.i.i, %__args1.val
-  br i1 %exitcond.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt5Image23GetSamplingDistributionIZNS0_15ProjectionLightC1ENS0_9TransformENS0_15MediumInterfaceES1_PKNS0_13RGBColorSpaceEffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EENS0_7Array2DIfEET_RKNS0_7Bounds2IfEESD_EUlllE_JllEENSt9enable_ifIX16is_invocable_r_vISH_T0_DpT1_EESH_E4typeEOSP_DpOSQ_.exit", label %for.cond3.preheader.i.i.i, !llvm.loop !262
+  br i1 %exitcond.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt5Image23GetSamplingDistributionIZNS0_15ProjectionLightC1ENS0_9TransformENS0_15MediumInterfaceES1_PKNS0_13RGBColorSpaceEffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EENS0_7Array2DIfEET_RKNS0_7Bounds2IfEESD_EUlllE_JllEENSt9enable_ifIX16is_invocable_r_vISH_T0_DpT1_EESH_E4typeEOSP_DpOSQ_.argprom.exit", label %for.cond3.preheader.i.i.i, !llvm.loop !262
 
-"_ZSt10__invoke_rIvRZN4pbrt5Image23GetSamplingDistributionIZNS0_15ProjectionLightC1ENS0_9TransformENS0_15MediumInterfaceES1_PKNS0_13RGBColorSpaceEffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EENS0_7Array2DIfEET_RKNS0_7Bounds2IfEESD_EUlllE_JllEENSt9enable_ifIX16is_invocable_r_vISH_T0_DpT1_EESH_E4typeEOSP_DpOSQ_.exit": ; preds = %for.inc26.i.i.i, %entry, %for.cond3.preheader.lr.ph.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt5Image23GetSamplingDistributionIZNS0_15ProjectionLightC1ENS0_9TransformENS0_15MediumInterfaceES1_PKNS0_13RGBColorSpaceEffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EENS0_7Array2DIfEET_RKNS0_7Bounds2IfEESD_EUlllE_JllEENSt9enable_ifIX16is_invocable_r_vISH_T0_DpT1_EESH_E4typeEOSP_DpOSQ_.argprom.exit": ; preds = %for.inc26.i.i.i, %entry, %for.cond3.preheader.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i)
   ret void
 }
@@ -60699,7 +60699,7 @@ entry:
   %retval.sroa.0.0.copyload.i619.i.i.i = load i64, ptr %resolution.i.i.i.i, align 4
   %ref.tmp.sroa.0.0.extract.trunc620.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i619.i.i.i to i32
   %cmp621.i.i.i = icmp sgt i32 %ref.tmp.sroa.0.0.extract.trunc620.i.i.i, 0
-  br i1 %cmp621.i.i.i, label %for.body.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt24PortalImageInfiniteLightC1ERKNS0_9TransformENS0_5ImageEPKNS0_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_6Point3IfEESaISJ_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.exit"
+  br i1 %cmp621.i.i.i, label %for.body.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt24PortalImageInfiniteLightC1ERKNS0_9TransformENS0_5ImageEPKNS0_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_6Point3IfEESaISJ_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.argprom.exit"
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %__args.val = load i64, ptr %__args, align 8
@@ -61540,9 +61540,9 @@ for.inc45.i.i.i:                                  ; preds = %_ZNK4pbrt5Image10Ge
   %sext.i.i.i = shl i64 %retval.sroa.0.0.copyload.i.i.i.i, 32
   %109 = ashr exact i64 %sext.i.i.i, 32
   %cmp.i.i.i = icmp slt i64 %indvars.iv.next632.i.i.i, %109
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt24PortalImageInfiniteLightC1ERKNS0_9TransformENS0_5ImageEPKNS0_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_6Point3IfEESaISJ_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.exit", !llvm.loop !270
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt24PortalImageInfiniteLightC1ERKNS0_9TransformENS0_5ImageEPKNS0_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_6Point3IfEESaISJ_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.argprom.exit", !llvm.loop !270
 
-"_ZSt10__invoke_rIvRZN4pbrt24PortalImageInfiniteLightC1ERKNS0_9TransformENS0_5ImageEPKNS0_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_6Point3IfEESaISJ_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.exit": ; preds = %for.inc45.i.i.i, %entry
+"_ZSt10__invoke_rIvRZN4pbrt24PortalImageInfiniteLightC1ERKNS0_9TransformENS0_5ImageEPKNS0_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_6Point3IfEESaISJ_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESU_E4typeEOSV_DpOSW_.argprom.exit": ; preds = %for.inc45.i.i.i, %entry
   ret void
 }
 
@@ -61597,7 +61597,7 @@ entry:
   %sext.i.i.i = shl i64 %__args.val, 32
   %conv221.i.i.i = ashr exact i64 %sext.i.i.i, 32
   %cmp22.i.i.i = icmp sgt i64 %__args1.val, %conv221.i.i.i
-  br i1 %cmp22.i.i.i, label %for.cond3.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt5Image23GetSamplingDistributionIZNS0_24PortalImageInfiniteLightC1ERKNS0_9TransformES1_PKNS0_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_6Point3IfEESaISK_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1EENS0_7Array2DIfEET_RKNS0_7Bounds2IfEESR_EUlllE_JllEENSt9enable_ifIX16is_invocable_r_vISV_T0_DpT1_EESV_E4typeEOS13_DpOS14_.exit"
+  br i1 %cmp22.i.i.i, label %for.cond3.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt5Image23GetSamplingDistributionIZNS0_24PortalImageInfiniteLightC1ERKNS0_9TransformES1_PKNS0_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_6Point3IfEESaISK_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1EENS0_7Array2DIfEET_RKNS0_7Bounds2IfEESR_EUlllE_JllEENSt9enable_ifIX16is_invocable_r_vISV_T0_DpT1_EESV_E4typeEOS13_DpOS14_.argprom.exit"
 
 for.cond3.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %resolution.i.i.i = getelementptr inbounds i8, ptr %0, i64 4
@@ -61610,7 +61610,7 @@ for.cond3.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %3 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %4 = load i32, ptr %resolution.i.i.i, align 4
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %for.cond3.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt5Image23GetSamplingDistributionIZNS0_24PortalImageInfiniteLightC1ERKNS0_9TransformES1_PKNS0_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_6Point3IfEESaISK_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1EENS0_7Array2DIfEET_RKNS0_7Bounds2IfEESR_EUlllE_JllEENSt9enable_ifIX16is_invocable_r_vISV_T0_DpT1_EESV_E4typeEOS13_DpOS14_.exit"
+  br i1 %5, label %for.cond3.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt5Image23GetSamplingDistributionIZNS0_24PortalImageInfiniteLightC1ERKNS0_9TransformES1_PKNS0_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_6Point3IfEESaISK_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1EENS0_7Array2DIfEET_RKNS0_7Bounds2IfEESR_EUlllE_JllEENSt9enable_ifIX16is_invocable_r_vISV_T0_DpT1_EESV_E4typeEOS13_DpOS14_.argprom.exit"
 
 for.cond3.preheader.i.i.i:                        ; preds = %for.cond3.preheader.lr.ph.i.i.i, %for.inc28.i.i.i
   %6 = phi i32 [ %30, %for.inc28.i.i.i ], [ %4, %for.cond3.preheader.lr.ph.i.i.i ]
@@ -61748,9 +61748,9 @@ for.inc28.i.i.i:                                  ; preds = %_ZN4pbrt18ImageChan
   %30 = phi i32 [ %6, %for.cond3.preheader.i.i.i ], [ %28, %_ZN4pbrt18ImageChannelValuesD2Ev.exit.i.i.i ]
   %indvars.iv.next28.i.i.i = add i64 %indvars.iv27.i.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next28.i.i.i, %__args1.val
-  br i1 %exitcond.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt5Image23GetSamplingDistributionIZNS0_24PortalImageInfiniteLightC1ERKNS0_9TransformES1_PKNS0_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_6Point3IfEESaISK_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1EENS0_7Array2DIfEET_RKNS0_7Bounds2IfEESR_EUlllE_JllEENSt9enable_ifIX16is_invocable_r_vISV_T0_DpT1_EESV_E4typeEOS13_DpOS14_.exit", label %for.cond3.preheader.i.i.i, !llvm.loop !272
+  br i1 %exitcond.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt5Image23GetSamplingDistributionIZNS0_24PortalImageInfiniteLightC1ERKNS0_9TransformES1_PKNS0_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_6Point3IfEESaISK_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1EENS0_7Array2DIfEET_RKNS0_7Bounds2IfEESR_EUlllE_JllEENSt9enable_ifIX16is_invocable_r_vISV_T0_DpT1_EESV_E4typeEOS13_DpOS14_.argprom.exit", label %for.cond3.preheader.i.i.i, !llvm.loop !272
 
-"_ZSt10__invoke_rIvRZN4pbrt5Image23GetSamplingDistributionIZNS0_24PortalImageInfiniteLightC1ERKNS0_9TransformES1_PKNS0_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_6Point3IfEESaISK_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1EENS0_7Array2DIfEET_RKNS0_7Bounds2IfEESR_EUlllE_JllEENSt9enable_ifIX16is_invocable_r_vISV_T0_DpT1_EESV_E4typeEOS13_DpOS14_.exit": ; preds = %for.inc28.i.i.i, %entry, %for.cond3.preheader.lr.ph.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt5Image23GetSamplingDistributionIZNS0_24PortalImageInfiniteLightC1ERKNS0_9TransformES1_PKNS0_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_6Point3IfEESaISK_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1EENS0_7Array2DIfEET_RKNS0_7Bounds2IfEESR_EUlllE_JllEENSt9enable_ifIX16is_invocable_r_vISV_T0_DpT1_EESV_E4typeEOS13_DpOS14_.argprom.exit": ; preds = %for.inc28.i.i.i, %entry, %for.cond3.preheader.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i)
   ret void
 }
@@ -64583,14 +64583,14 @@ attributes #33 = { noreturn nounwind }
 !138 = distinct !{!138, !139, !"_ZNK4pbrt9TransformclERKNS_3RayEPf: %agg.result"}
 !139 = distinct !{!139, !"_ZNK4pbrt9TransformclERKNS_3RayEPf"}
 !140 = !{!141}
-!141 = distinct !{!141, !142, !"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_: %agg.result"}
-!142 = distinct !{!142, !"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_"}
+!141 = distinct !{!141, !142, !"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.argprom: %agg.result"}
+!142 = distinct !{!142, !"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0EEDcOT_.argprom"}
 !143 = !{!144}
-!144 = distinct !{!144, !145, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0N4pstd8optionalINS_11LightBoundsEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEEDaOT_PKvi: %agg.result"}
-!145 = distinct !{!145, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0N4pstd8optionalINS_11LightBoundsEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEEDaOT_PKvi"}
+!144 = distinct !{!144, !145, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0N4pstd8optionalINS_11LightBoundsEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEEDaOT_PKvi.argprom: %agg.result"}
+!145 = distinct !{!145, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0N4pstd8optionalINS_11LightBoundsEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEEDaOT_PKvi.argprom"}
 !146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_10PointLightEEEDaT_: %agg.result"}
-!148 = distinct !{!148, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_10PointLightEEEDaT_"}
+!147 = distinct !{!147, !148, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_10PointLightEEEDaT_.argprom: %agg.result"}
+!148 = distinct !{!148, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_10PointLightEEEDaT_.argprom"}
 !149 = !{!150}
 !150 = distinct !{!150, !151, !"_ZNK4pbrt10PointLight6BoundsEv: %agg.result"}
 !151 = distinct !{!151, !"_ZNK4pbrt10PointLight6BoundsEv"}
@@ -64598,25 +64598,25 @@ attributes #33 = { noreturn nounwind }
 !153 = !{!154, !156, !144, !141}
 !154 = distinct !{!154, !155, !"_ZNK4pbrt12DistantLight6BoundsEv: %agg.result"}
 !155 = distinct !{!155, !"_ZNK4pbrt12DistantLight6BoundsEv"}
-!156 = distinct !{!156, !157, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_12DistantLightEEEDaT_: %agg.result"}
-!157 = distinct !{!157, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_12DistantLightEEEDaT_"}
+!156 = distinct !{!156, !157, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_12DistantLightEEEDaT_.argprom: %agg.result"}
+!157 = distinct !{!157, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_12DistantLightEEEDaT_.argprom"}
 !158 = !{!159, !161, !144, !141}
 !159 = distinct !{!159, !160, !"_ZNK4pbrt20UniformInfiniteLight6BoundsEv: %agg.result"}
 !160 = distinct !{!160, !"_ZNK4pbrt20UniformInfiniteLight6BoundsEv"}
-!161 = distinct !{!161, !162, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_20UniformInfiniteLightEEEDaT_: %agg.result"}
-!162 = distinct !{!162, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_20UniformInfiniteLightEEEDaT_"}
+!161 = distinct !{!161, !162, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_20UniformInfiniteLightEEEDaT_.argprom: %agg.result"}
+!162 = distinct !{!162, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_20UniformInfiniteLightEEEDaT_.argprom"}
 !163 = !{!164, !166, !144, !141}
 !164 = distinct !{!164, !165, !"_ZNK4pbrt18ImageInfiniteLight6BoundsEv: %agg.result"}
 !165 = distinct !{!165, !"_ZNK4pbrt18ImageInfiniteLight6BoundsEv"}
-!166 = distinct !{!166, !167, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_18ImageInfiniteLightEEEDaT_: %agg.result"}
-!167 = distinct !{!167, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_18ImageInfiniteLightEEEDaT_"}
+!166 = distinct !{!166, !167, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_18ImageInfiniteLightEEEDaT_.argprom: %agg.result"}
+!167 = distinct !{!167, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_18ImageInfiniteLightEEEDaT_.argprom"}
 !168 = !{!169, !171, !173, !144, !141}
 !169 = distinct !{!169, !170, !"_ZNK4pbrt24PortalImageInfiniteLight6BoundsEv: %agg.result"}
 !170 = distinct !{!170, !"_ZNK4pbrt24PortalImageInfiniteLight6BoundsEv"}
-!171 = distinct !{!171, !172, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_24PortalImageInfiniteLightEEEDaT_: %agg.result"}
-!172 = distinct !{!172, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_24PortalImageInfiniteLightEEEDaT_"}
-!173 = distinct !{!173, !174, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0N4pstd8optionalINS_11LightBoundsEEENS_24PortalImageInfiniteLightEEEDaOT_PKvi: %agg.result"}
-!174 = distinct !{!174, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0N4pstd8optionalINS_11LightBoundsEEENS_24PortalImageInfiniteLightEEEDaOT_PKvi"}
+!171 = distinct !{!171, !172, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_24PortalImageInfiniteLightEEEDaT_.argprom: %agg.result"}
+!172 = distinct !{!172, !"_ZZNK4pbrt5Light6BoundsEvENK3$_0clIPKNS_24PortalImageInfiniteLightEEEDaT_.argprom"}
+!173 = distinct !{!173, !174, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0N4pstd8optionalINS_11LightBoundsEEENS_24PortalImageInfiniteLightEEEDaOT_PKvi.argprom: %agg.result"}
+!174 = distinct !{!174, !"_ZN4pbrt6detail11DispatchCPUIRZNKS_5Light6BoundsEvE3$_0N4pstd8optionalINS_11LightBoundsEEENS_24PortalImageInfiniteLightEEEDaOT_PKvi.argprom"}
 !175 = distinct !{!175, !6}
 !176 = distinct !{!176, !6}
 !177 = distinct !{!177, !6}

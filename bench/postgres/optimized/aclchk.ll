@@ -3783,7 +3783,7 @@ define internal fastcc i64 @pg_class_aclmask_ext(i32 noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @object_aclcheck(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call fastcc i64 @object_aclmask_ext(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef null)
+  %5 = tail call fastcc i64 @object_aclmask_ext.argelim(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef null)
   %.not.i = icmp eq i64 %5, 0
   %..i = zext i1 %.not.i to i32
   ret i32 %..i
@@ -3791,14 +3791,14 @@ define dso_local range(i32 0, 2) i32 @object_aclcheck(i32 noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @object_aclcheck_ext(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = tail call fastcc i64 @object_aclmask_ext(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4)
+  %6 = tail call fastcc i64 @object_aclmask_ext.argelim(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4)
   %.not = icmp eq i64 %6, 0
   %. = zext i1 %.not to i32
   ret i32 %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @object_aclmask_ext(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i64 @object_aclmask_ext.argelim(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -3818,7 +3818,7 @@ define internal fastcc i64 @object_aclmask_ext(i32 noundef %0, i32 noundef %1, i
 
 13:                                               ; preds = %11
   %14 = load i32, ptr @MyDatabaseId, align 4
-  %15 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1262, i32 noundef %14, i32 noundef %2, i64 noundef 1024, ptr noundef %4)
+  %15 = tail call fastcc i64 @object_aclmask_ext.argelim(i32 noundef 1262, i32 noundef %14, i32 noundef %2, i64 noundef 1024, ptr noundef %4)
   %.not.i52.not = icmp eq i64 %15, 0
   br i1 %.not.i52.not, label %18, label %16
 
@@ -4146,7 +4146,7 @@ pg_type_aclmask_ext.exit:                         ; preds = %58, %64, %86, %108,
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call fastcc i64 @pg_attribute_aclmask_ext(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, ptr noundef null)
+  %5 = tail call fastcc i64 @pg_attribute_aclmask_ext.argelim(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, ptr noundef null)
   %.not.i = icmp eq i64 %5, 0
   %..i = zext i1 %.not.i to i32
   ret i32 %..i
@@ -4154,14 +4154,14 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck(i32 noundef %0, i16 
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_ext(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = tail call fastcc i64 @pg_attribute_aclmask_ext(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, ptr noundef %4)
+  %6 = tail call fastcc i64 @pg_attribute_aclmask_ext.argelim(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, ptr noundef %4)
   %.not = icmp eq i64 %6, 0
   %. = zext i1 %.not to i32
   ret i32 %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @pg_attribute_aclmask_ext(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i64 @pg_attribute_aclmask_ext.argelim(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = zext i32 %0 to i64
   %8 = sext i16 %1 to i64
@@ -4593,14 +4593,14 @@ pg_parameter_aclmask.exit:                        ; preds = %3, %24
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @pg_largeobject_aclcheck_snapshot(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = tail call fastcc i64 @pg_largeobject_aclmask_snapshot(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3)
+  %5 = tail call fastcc i64 @pg_largeobject_aclmask_snapshot.argelim(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3)
   %.not = icmp eq i64 %5, 0
   %. = zext i1 %.not to i32
   ret i32 %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @pg_largeobject_aclmask_snapshot(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @pg_largeobject_aclmask_snapshot.argelim(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [1 x %struct.ScanKeyData], align 16
   %6 = alloca i8, align 1
   %7 = tail call zeroext i1 @superuser_arg(i32 noundef %1) #8
@@ -5791,7 +5791,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @restrict_and_check_grant(i1
 
 33:                                               ; preds = %32
   %34 = tail call fastcc i64 @pg_class_aclmask_ext(i32 noundef %4, i32 noundef %5, i64 noundef %.0, i32 noundef 1, ptr noundef null)
-  %35 = tail call fastcc i64 @pg_attribute_aclmask_ext(i32 noundef %4, i16 noundef signext %8, i32 noundef %5, i64 noundef %.0, ptr noundef null)
+  %35 = tail call fastcc i64 @pg_attribute_aclmask_ext.argelim(i32 noundef %4, i16 noundef signext %8, i32 noundef %5, i64 noundef %.0, ptr noundef null)
   %36 = or i64 %35, %34
   br label %pg_aclmask.exit
 
@@ -5800,19 +5800,19 @@ define internal fastcc range(i64 0, 4294967296) i64 @restrict_and_check_grant(i1
   br label %pg_aclmask.exit
 
 39:                                               ; preds = %32
-  %40 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1262, i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
+  %40 = tail call fastcc i64 @object_aclmask_ext.argelim(i32 noundef 1262, i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 41:                                               ; preds = %32
-  %42 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1255, i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
+  %42 = tail call fastcc i64 @object_aclmask_ext.argelim(i32 noundef 1255, i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 43:                                               ; preds = %32
-  %44 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 2612, i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
+  %44 = tail call fastcc i64 @object_aclmask_ext.argelim(i32 noundef 2612, i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 45:                                               ; preds = %32
-  %46 = tail call fastcc i64 @pg_largeobject_aclmask_snapshot(i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
+  %46 = tail call fastcc i64 @pg_largeobject_aclmask_snapshot.argelim(i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 47:                                               ; preds = %32
@@ -5872,7 +5872,7 @@ pg_parameter_acl_aclmask.exit.i:                  ; preds = %68, %47
   br label %pg_aclmask.exit
 
 69:                                               ; preds = %32
-  %70 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 2615, i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
+  %70 = tail call fastcc i64 @object_aclmask_ext.argelim(i32 noundef 2615, i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 71:                                               ; preds = %32
@@ -5883,15 +5883,15 @@ pg_parameter_acl_aclmask.exit.i:                  ; preds = %68, %47
   unreachable
 
 74:                                               ; preds = %32
-  %75 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1213, i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
+  %75 = tail call fastcc i64 @object_aclmask_ext.argelim(i32 noundef 1213, i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 76:                                               ; preds = %32
-  %77 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 2328, i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
+  %77 = tail call fastcc i64 @object_aclmask_ext.argelim(i32 noundef 2328, i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 78:                                               ; preds = %32
-  %79 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1417, i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
+  %79 = tail call fastcc i64 @object_aclmask_ext.argelim(i32 noundef 1417, i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 80:                                               ; preds = %32
@@ -5902,7 +5902,7 @@ pg_parameter_acl_aclmask.exit.i:                  ; preds = %68, %47
   unreachable
 
 83:                                               ; preds = %32
-  %84 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1247, i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
+  %84 = tail call fastcc i64 @object_aclmask_ext.argelim(i32 noundef 1247, i32 noundef %4, i32 noundef %5, i64 noundef %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
 85:                                               ; preds = %32

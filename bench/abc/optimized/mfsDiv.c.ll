@@ -10,7 +10,7 @@ define void @Abc_MfsWinMarkTfi_rec(ptr noundef %0, ptr nocapture noundef %1) loc
   %.val3.i = load i32, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %5 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %4, i32 noundef %5)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %4, i32 noundef %5)
   %6 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %6, align 8
   %7 = sext i32 %.val3.i to i64
@@ -26,7 +26,7 @@ define void @Abc_MfsWinMarkTfi_rec(ptr noundef %0, ptr nocapture noundef %1) loc
   %.val14 = load i32, ptr %3, align 8
   %13 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %14 = add nsw i32 %.val14, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %13, i32 noundef %14)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %13, i32 noundef %14)
   %15 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i19 = load ptr, ptr %15, align 8
   %16 = sext i32 %.val14 to i64
@@ -234,7 +234,7 @@ define void @Abc_MfsWinSweepLeafTfo_rec(ptr nocapture noundef readonly %0, i32 n
   %.val3.i = load i32, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %11 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %10, i32 noundef %11)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %10, i32 noundef %11)
   %12 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %12, align 8
   %13 = sext i32 %.val3.i to i64
@@ -250,7 +250,7 @@ define void @Abc_MfsWinSweepLeafTfo_rec(ptr nocapture noundef readonly %0, i32 n
   %.val13 = load i32, ptr %9, align 8
   %19 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %20 = add nsw i32 %.val13, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %19, i32 noundef %20)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %19, i32 noundef %20)
   %21 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i18 = load ptr, ptr %21, align 8
   %22 = sext i32 %.val13 to i64
@@ -307,7 +307,7 @@ define i32 @Abc_MfsNodeDeref_rec(ptr nocapture noundef readonly %0) local_unname
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %.val, i64 224
   %9 = add nsw i32 %.val13, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %8, i32 noundef %9)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %8, i32 noundef %9)
   %10 = getelementptr i8, ptr %.val, i64 232
   %.val.i.i.i = load ptr, ptr %10, align 8
   %11 = sext i32 %.val13 to i64
@@ -571,7 +571,7 @@ Abc_NtkIncrementTravId.exit149:                   ; preds = %Abc_NtkIncrementTra
   %63 = load i32, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %.val, i64 224
   %65 = add nsw i32 %.val109, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %64, i32 noundef %65)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %64, i32 noundef %65)
   %66 = getelementptr i8, ptr %.val, i64 232
   %.val.i.i.i = load ptr, ptr %66, align 8
   %67 = sext i32 %.val109 to i64
@@ -623,7 +623,7 @@ Vec_PtrAlloc.exit:                                ; preds = %.critedge2, %77
   %.val3.i = load i32, ptr %87, align 8
   %88 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %89 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %88, i32 noundef %89)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %88, i32 noundef %89)
   %90 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i151 = load ptr, ptr %90, align 8
   %91 = sext i32 %.val3.i to i64
@@ -752,7 +752,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge4, %137
   %146 = load i32, ptr %145, align 8
   %147 = add nsw i32 %146, %144
   store i32 %147, ptr %145, align 8
-  br label %Vec_PtrSort.exit
+  br label %Vec_PtrSort.argprom.exit
 
 .lr.ph234:                                        ; preds = %.preheader212
   %148 = getelementptr inbounds i8, ptr %0, i64 56
@@ -916,7 +916,7 @@ Vec_IntFillExtra.exit:                            ; preds = %172, %._crit_edge.i
   %.val3.i159 = load i32, ptr %173, align 8
   %219 = getelementptr inbounds i8, ptr %.val.i157, i64 224
   %220 = add nsw i32 %.val3.i159, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %219, i32 noundef %220)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %219, i32 noundef %220)
   %221 = getelementptr i8, ptr %.val.i157, i64 232
   %.val.i.i.i160 = load ptr, ptr %221, align 8
   %222 = sext i32 %.val3.i159 to i64
@@ -1251,7 +1251,7 @@ Vec_PtrPushUnique.exit:                           ; preds = %328, %Vec_PtrPush.e
   %363 = add nsw i32 %362, -1
   %364 = getelementptr inbounds i8, ptr %.val136, i64 224
   %365 = add nsw i32 %.val137, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %364, i32 noundef %365)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %364, i32 noundef %365)
   %366 = getelementptr i8, ptr %.val136, i64 232
   %.val.i.i.i173 = load ptr, ptr %366, align 8
   %367 = sext i32 %.val137 to i64
@@ -1298,20 +1298,20 @@ Vec_PtrPushUnique.exit:                           ; preds = %328, %Vec_PtrPush.e
   %383 = add nsw i32 %382, %380
   store i32 %383, ptr %381, align 8
   %384 = icmp slt i32 %.val131, 2
-  br i1 %384, label %Vec_PtrSort.exit, label %385
+  br i1 %384, label %Vec_PtrSort.argprom.exit, label %385
 
 385:                                              ; preds = %.critedge6
   %386 = load ptr, ptr %82, align 8
   %387 = zext nneg i32 %.val131 to i64
   tail call void @qsort(ptr noundef %386, i64 noundef %387, i64 noundef 8, ptr noundef nonnull @Abc_NodeCompareLevelsIncrease) #9
-  br label %Vec_PtrSort.exit
+  br label %Vec_PtrSort.argprom.exit
 
-Vec_PtrSort.exit:                                 ; preds = %.critedge6.thread, %.critedge6, %385
+Vec_PtrSort.argprom.exit:                         ; preds = %.critedge6.thread, %.critedge6, %385
   %.val111237 = load i32, ptr %50, align 4
   %388 = icmp sgt i32 %.val111237, 0
   br i1 %388, label %.lr.ph239, label %.critedge12
 
-.lr.ph239:                                        ; preds = %Vec_PtrSort.exit
+.lr.ph239:                                        ; preds = %Vec_PtrSort.argprom.exit
   %389 = getelementptr i8, ptr %1, i64 32
   br label %390
 
@@ -1395,14 +1395,14 @@ Vec_PtrPush.exit180:                              ; preds = %.Vec_PtrGrow.exit11
   %426 = icmp slt i64 %indvars.iv.next256, %425
   br i1 %426, label %390, label %.critedge12, !llvm.loop !17
 
-.critedge12:                                      ; preds = %Vec_PtrPush.exit180, %Vec_PtrSort.exit
+.critedge12:                                      ; preds = %Vec_PtrPush.exit180, %Vec_PtrSort.argprom.exit
   ret ptr %74
 }
 
 declare i32 @Abc_NodeCompareLevelsIncrease(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

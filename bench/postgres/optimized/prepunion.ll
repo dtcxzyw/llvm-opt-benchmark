@@ -146,7 +146,7 @@ list_head.exit.i.i:                               ; preds = %73, %70
   %76 = phi ptr [ %75, %73 ], [ null, %70 ]
   %77 = getelementptr inbounds i8, ptr %57, i64 4
   %.not.i.i = icmp eq ptr %57, null
-  br i1 %.not.i.i, label %generate_setop_grouplist.exit.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %generate_setop_grouplist.argprom.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %list_head.exit.i.i
   %78 = getelementptr inbounds i8, ptr %57, i64 16
@@ -154,7 +154,7 @@ list_head.exit.i.i:                               ; preds = %73, %70
   %80 = getelementptr i8, ptr %72, i64 16
   %81 = load i32, ptr %77, align 4
   %82 = icmp sgt i32 %81, 0
-  br i1 %82, label %.lr.ph8.i.i, label %generate_setop_grouplist.exit.i
+  br i1 %82, label %.lr.ph8.i.i, label %generate_setop_grouplist.argprom.exit.i
 
 .lr.ph8.i.i:                                      ; preds = %.lr.ph.i.i, %99
   %83 = phi i32 [ %100, %99 ], [ %81, %.lr.ph.i.i ]
@@ -190,13 +190,13 @@ list_head.exit.i.i:                               ; preds = %73, %70
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next.i.i, %101
-  br i1 %102, label %.lr.ph8.i.i, label %generate_setop_grouplist.exit.i
+  br i1 %102, label %.lr.ph8.i.i, label %generate_setop_grouplist.argprom.exit.i
 
-generate_setop_grouplist.exit.i:                  ; preds = %99, %.lr.ph.i.i, %list_head.exit.i.i
+generate_setop_grouplist.argprom.exit.i:          ; preds = %99, %.lr.ph.i.i, %list_head.exit.i.i
   %103 = tail call zeroext i1 @grouping_is_hashable(ptr noundef %72) #7
   br i1 %103, label %109, label %104
 
-104:                                              ; preds = %generate_setop_grouplist.exit.i
+104:                                              ; preds = %generate_setop_grouplist.argprom.exit.i
   %105 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %105)
   %106 = tail call i32 @errcode(i32 noundef 1088) #7
@@ -205,7 +205,7 @@ generate_setop_grouplist.exit.i:                  ; preds = %99, %.lr.ph.i.i, %l
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 520, ptr noundef nonnull @__func__.generate_recursion_path) #7
   unreachable
 
-109:                                              ; preds = %generate_setop_grouplist.exit.i
+109:                                              ; preds = %generate_setop_grouplist.argprom.exit.i
   %110 = getelementptr inbounds i8, ptr %43, i64 40
   %111 = load double, ptr %110, align 8
   %112 = getelementptr inbounds i8, ptr %51, i64 40
@@ -756,7 +756,7 @@ list_head.exit.i:                                 ; preds = %287, %268
   %290 = phi ptr [ %289, %287 ], [ null, %268 ]
   %291 = getelementptr inbounds i8, ptr %274, i64 4
   %.not.i151 = icmp eq ptr %274, null
-  br i1 %.not.i151, label %generate_setop_grouplist.exit, label %.lr.ph.i
+  br i1 %.not.i151, label %generate_setop_grouplist.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %list_head.exit.i
   %292 = getelementptr inbounds i8, ptr %274, i64 16
@@ -764,7 +764,7 @@ list_head.exit.i:                                 ; preds = %287, %268
   %294 = getelementptr i8, ptr %286, i64 16
   %295 = load i32, ptr %291, align 4
   %296 = icmp sgt i32 %295, 0
-  br i1 %296, label %.lr.ph8.i, label %generate_setop_grouplist.exit
+  br i1 %296, label %.lr.ph8.i, label %generate_setop_grouplist.argprom.exit
 
 .lr.ph8.i:                                        ; preds = %.lr.ph.i, %313
   %297 = phi i32 [ %314, %313 ], [ %295, %.lr.ph.i ]
@@ -800,15 +800,15 @@ list_head.exit.i:                                 ; preds = %287, %268
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %315 = sext i32 %314 to i64
   %316 = icmp slt i64 %indvars.iv.next.i, %315
-  br i1 %316, label %.lr.ph8.i, label %generate_setop_grouplist.exit
+  br i1 %316, label %.lr.ph8.i, label %generate_setop_grouplist.argprom.exit
 
-generate_setop_grouplist.exit:                    ; preds = %313, %list_head.exit.i, %.lr.ph.i
+generate_setop_grouplist.argprom.exit:            ; preds = %313, %list_head.exit.i, %.lr.ph.i
   %317 = load i32, ptr %102, align 4
   %318 = icmp eq i32 %317, 3
   %319 = load double, ptr %13, align 8
   br i1 %318, label %320, label %327
 
-320:                                              ; preds = %generate_setop_grouplist.exit
+320:                                              ; preds = %generate_setop_grouplist.argprom.exit
   %321 = getelementptr inbounds i8, ptr %0, i64 8
   %322 = load i8, ptr %321, align 8
   %323 = trunc i8 %322 to i1
@@ -819,7 +819,7 @@ generate_setop_grouplist.exit:                    ; preds = %313, %list_head.exi
   %326 = load double, ptr %325, align 8
   br label %340
 
-327:                                              ; preds = %generate_setop_grouplist.exit
+327:                                              ; preds = %generate_setop_grouplist.argprom.exit
   %328 = load double, ptr %14, align 8
   %329 = fcmp olt double %319, %328
   %330 = select i1 %329, double %319, double %328
@@ -1522,7 +1522,7 @@ list_head.exit.i:                                 ; preds = %8, %4
   %11 = phi ptr [ %10, %8 ], [ null, %4 ]
   %12 = getelementptr inbounds i8, ptr %2, i64 4
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %generate_setop_grouplist.exit, label %.lr.ph.i
+  br i1 %.not.i, label %generate_setop_grouplist.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %list_head.exit.i
   %13 = getelementptr inbounds i8, ptr %2, i64 16
@@ -1530,7 +1530,7 @@ list_head.exit.i:                                 ; preds = %8, %4
   %15 = getelementptr i8, ptr %7, i64 16
   %16 = load i32, ptr %12, align 4
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph8.i, label %generate_setop_grouplist.exit
+  br i1 %17, label %.lr.ph8.i, label %generate_setop_grouplist.argprom.exit
 
 .lr.ph8.i:                                        ; preds = %.lr.ph.i, %34
   %18 = phi i32 [ %35, %34 ], [ %16, %.lr.ph.i ]
@@ -1566,21 +1566,21 @@ list_head.exit.i:                                 ; preds = %8, %4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next.i, %36
-  br i1 %37, label %.lr.ph8.i, label %generate_setop_grouplist.exit
+  br i1 %37, label %.lr.ph8.i, label %generate_setop_grouplist.argprom.exit
 
-generate_setop_grouplist.exit:                    ; preds = %34, %list_head.exit.i, %.lr.ph.i
+generate_setop_grouplist.argprom.exit:            ; preds = %34, %list_head.exit.i, %.lr.ph.i
   %38 = getelementptr inbounds i8, ptr %1, i64 40
   %39 = load double, ptr %38, align 8
   %40 = tail call fastcc zeroext i1 @choose_hashed_setop(ptr noundef %3, ptr noundef %7, ptr noundef %1, double noundef %39, double noundef %39, ptr noundef nonnull @.str.5)
   br i1 %40, label %41, label %45
 
-41:                                               ; preds = %generate_setop_grouplist.exit
+41:                                               ; preds = %generate_setop_grouplist.argprom.exit
   %42 = tail call ptr @make_pathtarget_from_tlist(ptr noundef %2) #7
   %43 = tail call ptr @set_pathtarget_cost_width(ptr noundef %3, ptr noundef %42) #7
   %44 = tail call ptr @create_agg_path(ptr noundef %3, ptr noundef %5, ptr noundef nonnull %1, ptr noundef %43, i32 noundef 2, i32 noundef 0, ptr noundef %7, ptr noundef null, ptr noundef null, double noundef %39) #7
   br label %57
 
-45:                                               ; preds = %generate_setop_grouplist.exit
+45:                                               ; preds = %generate_setop_grouplist.argprom.exit
   br i1 %.not.i.i, label %49, label %46
 
 46:                                               ; preds = %45

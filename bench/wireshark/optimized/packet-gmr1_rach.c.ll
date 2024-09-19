@@ -811,7 +811,7 @@ dissect_gmr1_rach_kls2.exit:                      ; preds = %_parse_dialed_numbe
   %236 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %235, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #7
   %237 = load i32, ptr @ett_rach_gps_pos, align 4
   %238 = call ptr @proto_tree_add_subtree(ptr noundef %73, ptr noundef %0, i32 noundef 12, i32 noundef 5, i32 noundef %237, ptr noundef null, ptr noundef nonnull @.str.213) #7
-  call fastcc void @dissect_gmr1_rach_gps_pos(ptr noundef %0, ptr noundef %238)
+  call fastcc void @dissect_gmr1_rach_gps_pos.argprom.argelim(ptr noundef %0, ptr noundef %238)
   %239 = load i32, ptr @hf_rach_number_type, align 4
   %240 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %239, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -866,17 +866,17 @@ dissect_gmr1_rach_kls2.exit:                      ; preds = %_parse_dialed_numbe
   %275 = call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %274, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #7
   %276 = load i32, ptr @hf_rach_gmprs_spare2, align 4
   %277 = call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %276, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #7
-  br label %dissect_gmprs_rach_type1_kls2.exit
+  br label %dissect_gmprs_rach_type1_kls2.argprom.exit
 
 278:                                              ; preds = %258
   %279 = load i32, ptr @hf_rach_gps_timestamp, align 4
   %280 = call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %279, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0) #7
-  br label %dissect_gmprs_rach_type1_kls2.exit
+  br label %dissect_gmprs_rach_type1_kls2.argprom.exit
 
-dissect_gmprs_rach_type1_kls2.exit:               ; preds = %269, %278
+dissect_gmprs_rach_type1_kls2.argprom.exit:       ; preds = %269, %278
   %281 = load i32, ptr @ett_rach_gps_pos, align 4
   %282 = call ptr @proto_tree_add_subtree(ptr noundef %245, ptr noundef %0, i32 noundef 12, i32 noundef 5, i32 noundef %281, ptr noundef null, ptr noundef nonnull @.str.213) #7
-  call fastcc void @dissect_gmr1_rach_gps_pos(ptr noundef %0, ptr noundef %282)
+  call fastcc void @dissect_gmr1_rach_gps_pos.argprom.argelim(ptr noundef %0, ptr noundef %282)
   %283 = load i32, ptr @hf_rach_gmprs_rlc_mode, align 4
   %284 = call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %283, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #7
   %285 = load i32, ptr @hf_rach_gmprs_llc_mode, align 4
@@ -885,7 +885,7 @@ dissect_gmprs_rach_type1_kls2.exit:               ; preds = %269, %278
   %288 = call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %287, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #7
   br label %289
 
-289:                                              ; preds = %dissect_gmprs_rach_type1_kls2.exit, %241
+289:                                              ; preds = %dissect_gmprs_rach_type1_kls2.argprom.exit, %241
   br i1 %.not47, label %332, label %290
 
 290:                                              ; preds = %289
@@ -933,7 +933,7 @@ dissect_gmprs_rach_type2_kls2.exit:               ; preds = %306, %314
   %323 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %322, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #7
   %324 = load i32, ptr @ett_rach_gps_pos, align 4
   %325 = call ptr @proto_tree_add_subtree(ptr noundef %292, ptr noundef %0, i32 noundef 12, i32 noundef 5, i32 noundef %324, ptr noundef null, ptr noundef nonnull @.str.213) #7
-  call fastcc void @dissect_gmr1_rach_gps_pos(ptr noundef %0, ptr noundef %325)
+  call fastcc void @dissect_gmr1_rach_gps_pos.argprom.argelim(ptr noundef %0, ptr noundef %325)
   %326 = load i32, ptr @hf_rach_gci, align 4
   %327 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %326, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #7
   %328 = load i32, ptr @hf_rach_r, align 4
@@ -984,7 +984,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gmr1_rach_gps_pos(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_gmr1_rach_gps_pos.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #7
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 13) #7
   %5 = and i32 %3, 2147479552

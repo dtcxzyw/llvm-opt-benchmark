@@ -41,7 +41,7 @@ getModulePath.exit.thread:                        ; preds = %0, %5
   %10 = tail call ptr @strerror(i32 noundef %9) #14
   tail call void (ptr, ...) @jvmLauncherLog(ptr noundef %10) #14
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %1)
-  br label %concat.exit
+  br label %concat.argprom.exit
 
 11:                                               ; preds = %5
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %1)
@@ -105,14 +105,14 @@ createPackageDesc.exit.thread.i:                  ; preds = %11
   %32 = load i32, ptr %31, align 4
   %33 = tail call ptr @strerror(i32 noundef %32) #14
   tail call void (ptr, ...) @jvmLauncherLog(ptr noundef %33) #14
-  br label %concat.exit
+  br label %concat.argprom.exit
 
 34:                                               ; preds = %24
   %35 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %26) #14
   %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %29)
   %endptr.i = getelementptr inbounds i8, ptr %29, i64 %strlen.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %endptr.i, ptr noundef nonnull align 1 dereferenceable(23) @.str, i64 23, i1 false)
-  br label %concat.exit
+  br label %concat.argprom.exit
 
 36:                                               ; preds = %23
   tail call void (ptr, ...) @jvmLauncherLog(ptr noundef nonnull @.str.7, ptr noundef nonnull %.pre.i, i32 noundef %.pr.i) #14
@@ -142,7 +142,7 @@ createPackageDesc.exit.thread.i:                  ; preds = %11
   store ptr null, ptr %2, align 8
   br label %46
 
-concat.exit:                                      ; preds = %34, %30, %getModulePath.exit.thread
+concat.argprom.exit:                              ; preds = %34, %30, %getModulePath.exit.thread
   %45 = phi ptr [ null, %getModulePath.exit.thread ], [ %29, %30 ], [ %29, %34 ]
   %.0.i21 = phi ptr [ null, %getModulePath.exit.thread ], [ %7, %30 ], [ %7, %34 ]
   tail call void @free(ptr noundef %.0.i21) #14
@@ -156,8 +156,8 @@ concat.exit:                                      ; preds = %34, %30, %getModule
   %.pre = load ptr, ptr %2, align 8
   br label %freePackageDesc.exit
 
-freePackageDesc.exit:                             ; preds = %concat.exit, %46
-  %48 = phi ptr [ %45, %concat.exit ], [ %.pre, %46 ]
+freePackageDesc.exit:                             ; preds = %concat.argprom.exit, %46
+  %48 = phi ptr [ %45, %concat.argprom.exit ], [ %.pre, %46 ]
   ret ptr %48
 }
 

@@ -1136,7 +1136,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit235: ;
   %154 = getelementptr inbounds i8, ptr %1, i64 8
   %155 = load i64, ptr %154, align 8
   %156 = trunc i64 %155 to i32
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %21, ptr noundef %23, i32 noundef %156, i32 noundef %6)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %21, ptr noundef %23, i32 noundef %156, i32 noundef %6)
           to label %157 unwind label %630
 
 157:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit235
@@ -1185,7 +1185,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit245: ;
   %164 = getelementptr inbounds i8, ptr %1, i64 16
   %165 = load i64, ptr %164, align 8
   %166 = trunc i64 %165 to i32
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %25, ptr noundef %27, i32 noundef %166, i32 noundef %6)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %25, ptr noundef %27, i32 noundef %166, i32 noundef %6)
           to label %167 unwind label %636
 
 167:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit245
@@ -1234,7 +1234,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit255: ;
   %174 = getelementptr inbounds i8, ptr %2, i64 8
   %175 = load i64, ptr %174, align 8
   %176 = trunc i64 %175 to i32
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %29, ptr noundef %31, i32 noundef %176, i32 noundef %6)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %29, ptr noundef %31, i32 noundef %176, i32 noundef %6)
           to label %177 unwind label %642
 
 177:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit255
@@ -1283,7 +1283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit265: ;
   %184 = getelementptr inbounds i8, ptr %2, i64 16
   %185 = load i64, ptr %184, align 8
   %186 = trunc i64 %185 to i32
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %33, ptr noundef %35, i32 noundef %186, i32 noundef %7)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %33, ptr noundef %35, i32 noundef %186, i32 noundef %7)
           to label %187 unwind label %648
 
 187:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit265
@@ -1332,7 +1332,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit275: ;
   %194 = getelementptr inbounds i8, ptr %3, i64 8
   %195 = load i64, ptr %194, align 8
   %196 = trunc i64 %195 to i32
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %37, ptr noundef %39, i32 noundef %196, i32 noundef %6)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %37, ptr noundef %39, i32 noundef %196, i32 noundef %6)
           to label %197 unwind label %654
 
 197:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit275
@@ -1381,7 +1381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit285: ;
   %204 = getelementptr inbounds i8, ptr %3, i64 16
   %205 = load i64, ptr %204, align 8
   %206 = trunc i64 %205 to i32
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %41, ptr noundef %43, i32 noundef %206, i32 noundef %6)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %41, ptr noundef %43, i32 noundef %206, i32 noundef %6)
           to label %207 unwind label %660
 
 207:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit285
@@ -1430,7 +1430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit295: ;
   %214 = getelementptr inbounds i8, ptr %4, i64 8
   %215 = load i64, ptr %214, align 8
   %216 = trunc i64 %215 to i32
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %45, ptr noundef %47, i32 noundef %216, i32 noundef %7)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %45, ptr noundef %47, i32 noundef %216, i32 noundef %7)
           to label %217 unwind label %666
 
 217:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit295
@@ -1479,7 +1479,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit305: ;
   %224 = getelementptr inbounds i8, ptr %4, i64 16
   %225 = load i64, ptr %224, align 8
   %226 = trunc i64 %225 to i32
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %49, ptr noundef %51, i32 noundef %226, i32 noundef %7)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %49, ptr noundef %51, i32 noundef %226, i32 noundef %7)
           to label %227 unwind label %672
 
 227:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit305
@@ -1528,7 +1528,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit315: ;
   %234 = getelementptr inbounds i8, ptr %9, i64 8
   %235 = load i64, ptr %234, align 8
   %236 = trunc i64 %235 to i32
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %53, ptr noundef %55, i32 noundef %236, i32 noundef %6)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %53, ptr noundef %55, i32 noundef %236, i32 noundef %6)
           to label %237 unwind label %678
 
 237:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit315
@@ -1577,7 +1577,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit325: ;
   %244 = getelementptr inbounds i8, ptr %9, i64 16
   %245 = load i64, ptr %244, align 8
   %246 = trunc i64 %245 to i32
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %57, ptr noundef %59, i32 noundef %246, i32 noundef %8)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %57, ptr noundef %59, i32 noundef %246, i32 noundef %8)
           to label %247 unwind label %684
 
 247:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit325
@@ -1626,7 +1626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit335: ;
   %254 = getelementptr inbounds i8, ptr %10, i64 8
   %255 = load i64, ptr %254, align 8
   %256 = trunc i64 %255 to i32
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %61, ptr noundef %63, i32 noundef %256, i32 noundef %6)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %61, ptr noundef %63, i32 noundef %256, i32 noundef %6)
           to label %257 unwind label %690
 
 257:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit335
@@ -1675,7 +1675,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit345: ;
   %264 = getelementptr inbounds i8, ptr %10, i64 16
   %265 = load i64, ptr %264, align 8
   %266 = trunc i64 %265 to i32
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %65, ptr noundef %67, i32 noundef %266, i32 noundef %8)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %65, ptr noundef %67, i32 noundef %266, i32 noundef %8)
           to label %267 unwind label %696
 
 267:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit345
@@ -1724,7 +1724,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit355: ;
   %274 = getelementptr inbounds i8, ptr %11, i64 8
   %275 = load i64, ptr %274, align 8
   %276 = trunc i64 %275 to i32
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %69, ptr noundef %71, i32 noundef %276, i32 noundef %7)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %69, ptr noundef %71, i32 noundef %276, i32 noundef %7)
           to label %277 unwind label %702
 
 277:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit355
@@ -1773,7 +1773,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit365: ;
   %284 = getelementptr inbounds i8, ptr %11, i64 16
   %285 = load i64, ptr %284, align 8
   %286 = trunc i64 %285 to i32
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %73, ptr noundef %75, i32 noundef %286, i32 noundef %120)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %73, ptr noundef %75, i32 noundef %286, i32 noundef %120)
           to label %287 unwind label %708
 
 287:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit365
@@ -1822,7 +1822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit375: ;
   %294 = getelementptr inbounds i8, ptr %12, i64 8
   %295 = load i64, ptr %294, align 8
   %296 = trunc i64 %295 to i32
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %77, ptr noundef %79, i32 noundef %296, i32 noundef %7)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %77, ptr noundef %79, i32 noundef %296, i32 noundef %7)
           to label %297 unwind label %714
 
 297:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit375
@@ -1871,7 +1871,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit385: ;
   %304 = getelementptr inbounds i8, ptr %12, i64 16
   %305 = load i64, ptr %304, align 8
   %306 = trunc i64 %305 to i32
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %81, ptr noundef %83, i32 noundef %306, i32 noundef %120)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %81, ptr noundef %83, i32 noundef %306, i32 noundef %120)
           to label %307 unwind label %720
 
 307:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit385
@@ -3179,7 +3179,7 @@ define range(i32 0, 2) i32 @tiny_set_default_settings(ptr noundef writeonly %0) 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 {
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %15, label %5
 
@@ -4362,7 +4362,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit26: ; 
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %26, align 8
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %4, ptr noundef %6, i32 noundef %24, i32 noundef %27)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %4, ptr noundef %6, i32 noundef %24, i32 noundef %27)
           to label %28 unwind label %48
 
 28:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit26
@@ -4414,7 +4414,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit36: ; 
   %38 = load ptr, ptr %25, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %8, ptr noundef %10, i32 noundef %37, i32 noundef %40)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %8, ptr noundef %10, i32 noundef %37, i32 noundef %40)
           to label %41 unwind label %54
 
 41:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit36
@@ -4549,7 +4549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit26: ; 
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %4, ptr noundef %6, i32 noundef %24, i32 noundef %28)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %4, ptr noundef %6, i32 noundef %24, i32 noundef %28)
           to label %29 unwind label %50
 
 29:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit26
@@ -4602,7 +4602,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit36: ; 
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = add nsw i32 %41, -1
-  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii(ptr noundef %8, ptr noundef %10, i32 noundef %38, i32 noundef %42)
+  invoke fastcc void @_ZL15check_dimensionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_ii.retelim(ptr noundef %8, ptr noundef %10, i32 noundef %38, i32 noundef %42)
           to label %43 unwind label %56
 
 43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit36

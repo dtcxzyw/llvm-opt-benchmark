@@ -361,7 +361,7 @@ _ZNK2cv11_InputArray6getMatEi.exit45:             ; preds = %69, %72
   %113 = fmul double %104, %104
   %114 = fptrunc double %113 to float
   %115 = icmp sgt i32 %107, 0
-  br i1 %115, label %.lr.ph83.i, label %_ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.exit
+  br i1 %115, label %.lr.ph83.i, label %_ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.argprom.exit
 
 .lr.ph83.i:                                       ; preds = %96
   %116 = getelementptr inbounds i8, ptr %16, i64 16
@@ -376,7 +376,7 @@ _ZNK2cv11_InputArray6getMatEi.exit45:             ; preds = %69, %72
   br i1 %120, label %.lr.ph83.split.us.i, label %.lr.ph83.split.i
 
 .lr.ph83.split.us.i:                              ; preds = %.lr.ph83.i
-  br i1 %124, label %.preheader27.us.us.preheader.i, label %_ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.exit
+  br i1 %124, label %.preheader27.us.us.preheader.i, label %_ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.argprom.exit
 
 .preheader27.us.us.preheader.i:                   ; preds = %.lr.ph83.split.us.i
   %wide.trip.count165.i = zext nneg i32 %107 to i64
@@ -561,10 +561,10 @@ _ZNK2cv11_InputArray6getMatEi.exit45:             ; preds = %69, %72
 ..loopexit28_crit_edge.us.us.i:                   ; preds = %._crit_edge74.us.us.i
   %indvars.iv.next163.i = add nuw nsw i64 %indvars.iv162.i, 1
   %exitcond166.not.i = icmp eq i64 %indvars.iv.next163.i, %wide.trip.count165.i
-  br i1 %exitcond166.not.i, label %_ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.exit, label %.preheader27.us.us.i, !llvm.loop !16
+  br i1 %exitcond166.not.i, label %_ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.argprom.exit, label %.preheader27.us.us.i, !llvm.loop !16
 
 .lr.ph83.split.i:                                 ; preds = %.lr.ph83.i
-  br i1 %124, label %.lr.ph83.split.split.us.i, label %_ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.exit
+  br i1 %124, label %.lr.ph83.split.split.us.i, label %_ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.argprom.exit
 
 .lr.ph83.split.split.us.i:                        ; preds = %.lr.ph83.split.i
   br i1 %121, label %.preheader29.us.us.us.preheader.i, label %.preheader29.us.preheader.i
@@ -667,7 +667,7 @@ _ZNK2cv11_InputArray6getMatEi.exit45:             ; preds = %69, %72
 ..loopexit30_crit_edge.split.us.us.us.split.us.us.i: ; preds = %.thread22.us.us.us.us.us.i
   %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
   %exitcond136.not.i = icmp eq i64 %indvars.iv.next133.i, %wide.trip.count135.i
-  br i1 %exitcond136.not.i, label %_ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.exit, label %.preheader29.us.us.us.i, !llvm.loop !16
+  br i1 %exitcond136.not.i, label %_ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.argprom.exit, label %.preheader29.us.us.us.i, !llvm.loop !16
 
 .preheader29.us.i:                                ; preds = %.preheader29.us.i, %.preheader29.us.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader29.us.preheader.i ], [ %indvars.iv.next.i, %.preheader29.us.i ]
@@ -679,7 +679,7 @@ _ZNK2cv11_InputArray6getMatEi.exit45:             ; preds = %69, %72
   call void @llvm.memset.p0.i64(ptr align 1 %257, i8 -1, i64 %208, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.exit, label %.preheader29.us.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %_ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.argprom.exit, label %.preheader29.us.i, !llvm.loop !16
 
 258:                                              ; preds = %93
   %259 = getelementptr inbounds i8, ptr %0, i64 128
@@ -712,7 +712,7 @@ _ZNK2cv11_InputArray6getMatEi.exit45:             ; preds = %69, %72
   %275 = fmul double %266, %266
   %276 = fptrunc double %275 to float
   %277 = icmp sgt i32 %269, 0
-  br i1 %277, label %.lr.ph107.i, label %_ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.exit
+  br i1 %277, label %.lr.ph107.i, label %_ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.argprom.exit
 
 .lr.ph107.i:                                      ; preds = %258
   %278 = getelementptr inbounds i8, ptr %16, i64 16
@@ -737,7 +737,7 @@ _ZNK2cv11_InputArray6getMatEi.exit45:             ; preds = %69, %72
   br i1 %282, label %.lr.ph107.split.us.i, label %.lr.ph107.split.i
 
 .lr.ph107.split.us.i:                             ; preds = %.lr.ph107.i
-  br i1 %296, label %.preheader45.us.us.preheader.i, label %_ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.exit
+  br i1 %296, label %.preheader45.us.us.preheader.i, label %_ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.argprom.exit
 
 .preheader45.us.us.preheader.i:                   ; preds = %.lr.ph107.split.us.i
   %wide.trip.count206.i = zext nneg i32 %269 to i64
@@ -1053,10 +1053,10 @@ _ZN2cvplIfLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit.us.us.i: ; preds = %362
 ..loopexit46_crit_edge.us.us.i:                   ; preds = %._crit_edge98.us.us.i
   %indvars.iv.next204.i = add nuw nsw i64 %indvars.iv203.i, 1
   %exitcond207.not.i = icmp eq i64 %indvars.iv.next204.i, %wide.trip.count206.i
-  br i1 %exitcond207.not.i, label %_ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.exit, label %.preheader45.us.us.i, !llvm.loop !39
+  br i1 %exitcond207.not.i, label %_ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.argprom.exit, label %.preheader45.us.us.i, !llvm.loop !39
 
 .lr.ph107.split.i:                                ; preds = %.lr.ph107.i
-  br i1 %296, label %.lr.ph107.split.split.us.i, label %_ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.exit
+  br i1 %296, label %.lr.ph107.split.split.us.i, label %_ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.argprom.exit
 
 .lr.ph107.split.split.us.i:                       ; preds = %.lr.ph107.split.i
   %wide.trip.count172.i = zext nneg i32 %269 to i64
@@ -1218,7 +1218,7 @@ _ZNK2cv4MatxIfLi3ELi1EE3dotERKS1_.exit173.us.us.us.i: ; preds = %_ZN2cvmiIfLi3EE
 ..loopexit48_crit_edge.split.us.us.us.i:          ; preds = %.thread40.us.us.us.i
   %indvars.iv.next170.i = add nuw nsw i64 %indvars.iv169.i, 1
   %exitcond173.not.i = icmp eq i64 %indvars.iv.next170.i, %wide.trip.count172.i
-  br i1 %exitcond173.not.i, label %_ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.exit, label %.preheader47.us.us.i, !llvm.loop !39
+  br i1 %exitcond173.not.i, label %_ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.argprom.exit, label %.preheader47.us.us.i, !llvm.loop !39
 
 .preheader47.us.i:                                ; preds = %.lr.ph107.split.split.us.i, %.preheader47.us.i
   %indvars.iv145.i = phi i64 [ %indvars.iv.next146.i, %.preheader47.us.i ], [ 0, %.lr.ph107.split.split.us.i ]
@@ -1230,9 +1230,9 @@ _ZNK2cv4MatxIfLi3ELi1EE3dotERKS1_.exit173.us.us.us.i: ; preds = %_ZN2cvmiIfLi3EE
   call void @llvm.memset.p0.i64(ptr align 1 %510, i8 -1, i64 %wide.trip.count167.i, i1 false)
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %exitcond149.not.i = icmp eq i64 %indvars.iv.next146.i, %wide.trip.count172.i
-  br i1 %exitcond149.not.i, label %_ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.exit, label %.preheader47.us.i, !llvm.loop !39
+  br i1 %exitcond149.not.i, label %_ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.argprom.exit, label %.preheader47.us.i, !llvm.loop !39
 
-_ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.exit: ; preds = %.preheader47.us.i, %..loopexit48_crit_edge.split.us.us.us.i, %..loopexit46_crit_edge.us.us.i, %258, %.lr.ph107.split.us.i, %.lr.ph107.split.i
+_ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.argprom.exit: ; preds = %.preheader47.us.i, %..loopexit48_crit_edge.split.us.us.us.i, %..loopexit46_crit_edge.us.us.i, %258, %.lr.ph107.split.us.i, %.lr.ph107.split.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
@@ -1243,7 +1243,7 @@ _ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.exit: ; preds = %.preheader47
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
-  br label %_ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.exit
+  br label %_ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.argprom.exit
 
 511:                                              ; preds = %93
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #16
@@ -1268,7 +1268,7 @@ _ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.exit: ; preds = %.preheader47
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #16
   br label %518
 
-_ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.exit: ; preds = %.preheader29.us.i, %..loopexit30_crit_edge.split.us.us.us.split.us.us.i, %..loopexit28_crit_edge.us.us.i, %.lr.ph83.split.i, %.lr.ph83.split.us.i, %96, %_ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.exit
+_ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.argprom.exit: ; preds = %.preheader29.us.i, %..loopexit30_crit_edge.split.us.us.us.split.us.us.i, %..loopexit28_crit_edge.us.us.i, %.lr.ph83.split.i, %.lr.ph83.split.us.i, %96, %_ZN2cv6bgsegmL11process8uC3ERKNS_3MatERS1_dS4_iddd.argprom.exit
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #16
   ret void

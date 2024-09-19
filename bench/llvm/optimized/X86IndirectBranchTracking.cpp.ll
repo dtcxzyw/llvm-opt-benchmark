@@ -270,44 +270,44 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_129X86IndirectBranchTracking
   store i32 %24, ptr %25, align 8
   %26 = load ptr, ptr %1, align 8
   %27 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %26, i32 noundef 25) #14
-  br i1 %27, label %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit.thread123, label %28
+  br i1 %27, label %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit.thread123, label %28
 
 28:                                               ; preds = %18
   %29 = load ptr, ptr %13, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 652
   %31 = load i32, ptr %30, align 4
   %cond.i = icmp eq i32 %31, 4
-  br i1 %cond.i, label %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit.thread, label %32
+  br i1 %cond.i, label %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit.thread, label %32
 
 32:                                               ; preds = %28
   %33 = tail call noundef zeroext i1 @_ZNK4llvm8Function15hasAddressTakenEPPKNS_4UserEbbbbb(ptr noundef nonnull align 8 dereferenceable(136) %26, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #14
-  br i1 %33, label %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit.thread, label %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit
+  br i1 %33, label %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit.thread, label %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit
 
-_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit: ; preds = %32
+_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit: ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 15
   %37 = add nsw i32 %36, -9
   %spec.select.i.i.i = icmp ult i32 %37, -2
-  br i1 %spec.select.i.i.i, label %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit.thread, label %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit.thread123
+  br i1 %spec.select.i.i.i, label %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit.thread, label %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit.thread123
 
-_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit.thread: ; preds = %32, %28, %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit
+_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit.thread: ; preds = %32, %28, %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 56
   %41 = load ptr, ptr %40, align 8
   %42 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_129X86IndirectBranchTrackingPass8addENDBRERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(288) %39, ptr %41)
-  br label %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit.thread123
+  br label %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit.thread123
 
-_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit.thread123: ; preds = %18, %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit.thread, %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit
-  %.048 = phi i1 [ %42, %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit.thread ], [ false, %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit ], [ false, %18 ]
+_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit.thread123: ; preds = %18, %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit.thread, %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit
+  %.048 = phi i1 [ %42, %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit.thread ], [ false, %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit ], [ false, %18 ]
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.0116.0160 = load ptr, ptr %43, align 8
   %.not126161 = icmp eq ptr %.sroa.0116.0160, %44
   br i1 %.not126161, label %.loopexit133, label %.lr.ph165
 
-.lr.ph165:                                        ; preds = %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit.thread123
+.lr.ph165:                                        ; preds = %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit.thread123
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 988
@@ -385,18 +385,18 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %66
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %87 = and i32 %.val, 255
   %88 = icmp eq i32 %87, 10
-  br i1 %88, label %89, label %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.exit.thread
+  br i1 %88, label %89, label %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.argprom.exit.thread
 
 89:                                               ; preds = %83
   %90 = load i8, ptr %.val50, align 8
   %.not.i = icmp eq i8 %90, 0
-  br i1 %.not.i, label %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.exit, label %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.exit.thread
+  br i1 %.not.i, label %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.argprom.exit, label %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.argprom.exit.thread
 
-_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.exit.thread: ; preds = %83, %89
+_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.argprom.exit.thread: ; preds = %83, %89
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %144
 
-_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.exit: ; preds = %89
+_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.argprom.exit: ; preds = %89
   %91 = getelementptr inbounds nuw i8, ptr %.val50, i64 120
   %.sroa.0.0.copyload.i.i = load ptr, ptr %91, align 8
   store ptr %.sroa.0.0.copyload.i.i, ptr %6, align 8
@@ -404,7 +404,7 @@ _ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.exit: ; preds = %89
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br i1 %92, label %.preheader.i.i.i.preheader, label %144
 
-.preheader.i.i.i.preheader:                       ; preds = %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.exit
+.preheader.i.i.i.preheader:                       ; preds = %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.argprom.exit
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0111.0149, align 8
   %93 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %93, 0
@@ -547,8 +547,8 @@ _ZNK12_GLOBAL__N_129X86IndirectBranchTrackingPass8addENDBRERN4llvm17MachineBasic
   %143 = or i1 %.3148, %.0.i54
   br label %144
 
-144:                                              ; preds = %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.exit.thread, %73, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit, %80, %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.exit, %_ZNK12_GLOBAL__N_129X86IndirectBranchTrackingPass8addENDBRERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit
-  %.4 = phi i1 [ %143, %_ZNK12_GLOBAL__N_129X86IndirectBranchTrackingPass8addENDBRERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit ], [ %.3148, %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.exit ], [ %.3148, %80 ], [ %.3148, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit ], [ %.3148, %73 ], [ %.3148, %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.exit.thread ]
+144:                                              ; preds = %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.argprom.exit.thread, %73, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit, %80, %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.argprom.exit, %_ZNK12_GLOBAL__N_129X86IndirectBranchTrackingPass8addENDBRERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit
+  %.4 = phi i1 [ %143, %_ZNK12_GLOBAL__N_129X86IndirectBranchTrackingPass8addENDBRERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit ], [ %.3148, %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.argprom.exit ], [ %.3148, %80 ], [ %.3148, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit ], [ %.3148, %73 ], [ %.3148, %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.argprom.exit.thread ]
   %145 = icmp ne ptr %.sroa.0111.0149, null
   call void @llvm.assume(i1 %145)
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0111.0149, align 8
@@ -768,8 +768,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit101: ; pred
   %.not126 = icmp eq ptr %.sroa.0116.0, %44
   br i1 %.not126, label %.loopexit133, label %48
 
-.loopexit133:                                     ; preds = %.loopexit, %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit.thread123, %15
-  %.0 = phi i1 [ false, %15 ], [ %.048, %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.exit.thread123 ], [ %.5, %.loopexit ]
+.loopexit133:                                     ; preds = %.loopexit, %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit.thread123, %15
+  %.0 = phi i1 [ false, %15 ], [ %.048, %_ZL18needsPrologueENDBRRN4llvm15MachineFunctionEPKNS_6ModuleE.argprom.exit.thread123 ], [ %.5, %.loopexit ]
   ret i1 %.0
 }
 

@@ -2026,12 +2026,12 @@ define internal void @_ZNK9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_12
 entry:
   %0 = load atomic i8, ptr @_ZGVZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanism10JsonLoaderERKNS_8JsonArgsEE6loader acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanism10JsonLoaderERKNS_8JsonArgsE.exit, !prof !11
+  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanism10JsonLoaderERKNS_8JsonArgsE.argprom.exit, !prof !11
 
 init.check.i:                                     ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanism10JsonLoaderERKNS_8JsonArgsEE6loader) #29
   %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanism10JsonLoaderERKNS_8JsonArgsE.exit, label %invoke.cont10.i
+  br i1 %tobool.not.i, label %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanism10JsonLoaderERKNS_8JsonArgsE.argprom.exit, label %invoke.cont10.i
 
 invoke.cont10.i:                                  ; preds = %init.check.i
   %call.i16.i = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #28
@@ -2091,7 +2091,7 @@ invoke.cont11.i:                                  ; preds = %invoke.cont10.i
   store ptr null, ptr %ref.tmp.sroa.29.0.elements_.i.i.sroa_idx.i, align 8
   store ptr %call.i16.i, ptr @_ZZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanism10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanism10JsonLoaderERKNS_8JsonArgsEE6loader) #29
-  br label %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanism10JsonLoaderERKNS_8JsonArgsE.exit
+  br label %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanism10JsonLoaderERKNS_8JsonArgsE.argprom.exit
 
 lpad.i:                                           ; preds = %invoke.cont10.i
   %2 = landingpad { ptr, i32 }
@@ -2099,7 +2099,7 @@ lpad.i:                                           ; preds = %invoke.cont10.i
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanism10JsonLoaderERKNS_8JsonArgsEE6loader) #29
   resume { ptr, i32 } %2
 
-_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanism10JsonLoaderERKNS_8JsonArgsE.exit: ; preds = %entry, %init.check.i, %invoke.cont11.i
+_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanism10JsonLoaderERKNS_8JsonArgsE.argprom.exit: ; preds = %entry, %init.check.i, %invoke.cont11.i
   %3 = load ptr, ptr @_ZZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanism10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   %vtable = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %vtable, align 8
@@ -2615,13 +2615,13 @@ if.else.i:                                        ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %this.val.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775584
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.31) #32
   unreachable
 
-_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
+_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 288
   %cmp.i.i.i.i = icmp eq ptr %0, %this.val.i.i
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
@@ -2630,15 +2630,15 @@ _ZNKSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMe
   %3 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 32025597350190193)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 32025597350190193, i64 %3
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_M_allocateEm.argprom.exit.i.i, label %cond.true.i.i.i
 
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 288
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #28
-  br label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_M_allocateEm.exit.i.i
+  br label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_M_allocateEm.argprom.exit.i.i
 
-_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
+_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::XdsClusterResolverLbConfig::DiscoveryMechanism", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %add.ptr.i.i, i8 0, i64 288, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #29
@@ -2652,11 +2652,11 @@ _ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18Disco
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %override_host_statuses.i.i.i.i.i, i8 0, i64 24, i1 false)
   %_M_engaged.i.i.i.i.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 280
   store i8 0, ptr %_M_engaged.i.i.i.i.i1.i.i.i.i.i, align 8
-  br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit, label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_M_allocateEm.exit.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i
-  %__cur.05.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i ], [ %cond.i12.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_M_allocateEm.exit.i.i ]
-  %__first.addr.02.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i ], [ %this.val.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_M_allocateEm.exit.i.i ]
+for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_M_allocateEm.argprom.exit.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i.i
+  %__cur.05.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i.i ], [ %cond.i12.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_M_allocateEm.argprom.exit.i.i ]
+  %__first.addr.02.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i.i ], [ %this.val.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_M_allocateEm.argprom.exit.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.05.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i) #29
@@ -2755,7 +2755,7 @@ _ZNSt8optionalIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerEEC2EOS3_.exit.i.i.i.
   store i8 0, ptr %_M_engaged.i.i.i.i.i8.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !15
   %16 = load i8, ptr %_M_engaged.i.i7.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
   %tobool.i.i.i.i.i9.i.i.i.i.i.i.i = trunc i8 %16 to i1
-  br i1 %tobool.i.i.i.i.i9.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i10.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i
+  br i1 %tobool.i.i.i.i.i9.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i10.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i.i
 
 if.then.i.i.i.i.i10.i.i.i.i.i.i.i:                ; preds = %_ZNSt8optionalIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerEEC2EOS3_.exit.i.i.i.i.i.i.i
   %17 = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 240
@@ -2804,26 +2804,26 @@ _ZNSt22_Optional_payload_baseISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsI
   %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !17
   store i8 1, ptr %_M_engaged.i.i.i.i.i8.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !15
-  br label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i
+  br label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i.i
 
-_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNSt22_Optional_payload_baseISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS6_ESaISt4pairIKS6_S9_EEEE12_M_constructIJSG_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt8optionalIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerEEC2EOS3_.exit.i.i.i.i.i.i.i
+_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i.i: ; preds = %_ZNSt22_Optional_payload_baseISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS6_ESaISt4pairIKS6_S9_EEEE12_M_constructIJSG_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt8optionalIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerEEC2EOS3_.exit.i.i.i.i.i.i.i
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %__first.addr.02.i.i.i) #29
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i, i64 288
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 288
   %cmp.not.i.i.i6 = icmp eq ptr %incdec.ptr.i.i.i, %0
-  br i1 %cmp.not.i.i.i6, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i, !llvm.loop !18
+  br i1 %cmp.not.i.i.i6, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit, label %for.body.i.i.i, !llvm.loop !18
 
-_ZNSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_M_allocateEm.exit.i.i
-  %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i12.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i ]
+_ZNSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit: ; preds = %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_M_allocateEm.argprom.exit.i.i
+  %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i12.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_M_allocateEm.argprom.exit.i.i ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 288
   %tobool.not.i.i.i = icmp eq ptr %this.val.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i13.i.i
 
-if.then.i13.i.i:                                  ; preds = %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
+if.then.i13.i.i:                                  ; preds = %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit
   tail call void @_ZdlPv(ptr noundef nonnull %this.val.i.i) #31
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
-_ZNSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i13.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
+_ZNSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i13.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit
   store ptr %cond.i12.i.i, ptr %dst, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %add.ptr19.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::XdsClusterResolverLbConfig::DiscoveryMechanism", ptr %cond.i12.i.i, i64 %cond.i.i.i
@@ -2962,12 +2962,12 @@ define internal void @_ZNK9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_12
 entry:
   %0 = load atomic i8, ptr @_ZGVZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig10JsonLoaderERKNS_8JsonArgsEE6loader acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig10JsonLoaderERKNS_8JsonArgsE.exit, !prof !11
+  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig10JsonLoaderERKNS_8JsonArgsE.argprom.exit, !prof !11
 
 init.check.i:                                     ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #29
   %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig10JsonLoaderERKNS_8JsonArgsE.exit, label %invoke.cont2.i
+  br i1 %tobool.not.i, label %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig10JsonLoaderERKNS_8JsonArgsE.argprom.exit, label %invoke.cont2.i
 
 invoke.cont2.i:                                   ; preds = %init.check.i
   %call.i1.i = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
@@ -2987,7 +2987,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont2.i
   store ptr null, ptr %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx.i, align 8
   store ptr %call.i1.i, ptr @_ZZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #29
-  br label %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig10JsonLoaderERKNS_8JsonArgsE.exit
+  br label %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig10JsonLoaderERKNS_8JsonArgsE.argprom.exit
 
 lpad.i:                                           ; preds = %invoke.cont2.i
   %2 = landingpad { ptr, i32 }
@@ -2995,7 +2995,7 @@ lpad.i:                                           ; preds = %invoke.cont2.i
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #29
   resume { ptr, i32 } %2
 
-_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig10JsonLoaderERKNS_8JsonArgsE.exit: ; preds = %entry, %init.check.i, %invoke.cont3.i
+_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig10JsonLoaderERKNS_8JsonArgsE.argprom.exit: ; preds = %entry, %init.check.i, %invoke.cont3.i
   %3 = load ptr, ptr @_ZZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   %vtable = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %vtable, align 8
@@ -3333,11 +3333,11 @@ terminate.lpad.i6.i.i.i:                          ; preds = %if.then.i.i5.i.i.i
 if.end47.i:                                       ; preds = %if.then.i.i5.i.i.i, %if.else.i.i.i, %if.then.i.i2.i.i.i, %if.then.i.i.i42.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i, %if.then22.i
   %31 = load ptr, ptr %field5.i, align 8
   %cmp.not.i43.i = icmp eq ptr %31, null
-  br i1 %cmp.not.i43.i, label %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit, label %if.then.i44.i
+  br i1 %cmp.not.i43.i, label %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.argprom.exit, label %if.then.i44.i
 
 if.then.i44.i:                                    ; preds = %if.end47.i
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %31)
-          to label %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit unwind label %terminate.lpad.i45.i
+          to label %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.argprom.exit unwind label %terminate.lpad.i45.i
 
 terminate.lpad.i45.i:                             ; preds = %if.then.i44.i
   %32 = landingpad { ptr, i32 }
@@ -3352,7 +3352,7 @@ eh.resume.i:                                      ; preds = %lpad31.i, %ehcleanu
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %field5.sink.i) #29
   resume { ptr, i32 } %.pn8.pn.i
 
-_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit: ; preds = %if.end47.i, %if.then.i44.i
+_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.argprom.exit: ; preds = %if.end47.i, %if.then.i44.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %field.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %field5.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -3360,7 +3360,7 @@ _ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig12JsonPostLoadERKNS_12exp
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lb_config.i)
   br label %if.end
 
-if.end:                                           ; preds = %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit, %entry
+if.end:                                           ; preds = %_ZN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.argprom.exit, %entry
   ret void
 }
 
@@ -5258,22 +5258,22 @@ entry:
   %1 = load ptr, ptr %dst, align 8
   store ptr %call.i, ptr %dst, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %refs_.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %2, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %1) #29
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit: ; preds = %if.then.i.i.i, %if.then.i.i, %entry
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit: ; preds = %if.then.i.i.i, %if.then.i.i, %entry
   %dst.val = load ptr, ptr %dst, align 8
   ret ptr %dst.val
 }
@@ -5886,27 +5886,27 @@ cleanup.thread.i:                                 ; preds = %invoke.cont3.i
   store ptr %9, ptr %8, align 8, !alias.scope !47
   store ptr null, ptr %result.i, align 8, !noalias !47
   store i64 0, ptr %ref.tmp, align 8, !alias.scope !47
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit.i
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit.i
 
 cleanup.i:                                        ; preds = %if.then.i.i.i, %invoke.cont8.i, %invoke.cont6.i
   %result.val2.pr.i = load ptr, ptr %result.i, align 8, !noalias !47
   %cmp.not.i.i = icmp eq ptr %result.val2.pr.i, null
-  br i1 %cmp.not.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit.i, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup.i
   %refs_.i.i.i = getelementptr inbounds i8, ptr %result.val2.pr.i, i64 8
   %10 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i4.i = icmp eq i64 %10, 1
-  br i1 %cmp.i.i.i4.i, label %if.then.i.i5.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit.i
+  br i1 %cmp.i.i.i4.i, label %if.then.i.i5.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit.i
 
 if.then.i.i5.i:                                   ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %result.val2.pr.i, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) %result.val2.pr.i) #29
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit.i
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit.i
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit.i: ; preds = %if.then.i.i5.i, %if.then.i.i, %cleanup.i, %cleanup.thread.i
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit.i: ; preds = %if.then.i.i5.i, %if.then.i.i, %cleanup.i, %cleanup.thread.i
   %fields_.i.i = getelementptr inbounds i8, ptr %errors.i, i64 48
   %12 = load ptr, ptr %fields_.i.i, align 8, !noalias !47
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %errors.i, i64 56
@@ -5914,8 +5914,8 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %12, %13
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit.i, %for.body.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %12, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit.i ]
+for.body.i.i.i.i.i.i:                             ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit.i, %for.body.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %12, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i) #29
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %13
@@ -5925,8 +5925,8 @@ invoke.contthread-pre-split.i.i.i:                ; preds = %for.body.i.i.i.i.i.
   %.pr.i.i.i = load ptr, ptr %fields_.i.i, align 8, !noalias !47
   br label %invoke.cont.i.i.i
 
-invoke.cont.i.i.i:                                ; preds = %invoke.contthread-pre-split.i.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit.i
-  %14 = phi ptr [ %.pr.i.i.i, %invoke.contthread-pre-split.i.i.i ], [ %12, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit.i ]
+invoke.cont.i.i.i:                                ; preds = %invoke.contthread-pre-split.i.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit.i
+  %14 = phi ptr [ %.pr.i.i.i, %invoke.contthread-pre-split.i.i.i ], [ %12, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit.i ]
   %tobool.not.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
@@ -5950,22 +5950,22 @@ ehcleanup.i:                                      ; preds = %lpad1.i, %lpad.i.i.
   %.pn.i = phi { ptr, i32 } [ %7, %lpad1.i ], [ %4, %lpad.i.i.i ]
   %result.val.i = load ptr, ptr %result.i, align 8, !noalias !47
   %cmp.not.i6.i = icmp eq ptr %result.val.i, null
-  br i1 %cmp.not.i6.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit13.i, label %if.then.i7.i
+  br i1 %cmp.not.i6.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit13.i, label %if.then.i7.i
 
 if.then.i7.i:                                     ; preds = %ehcleanup.i
   %refs_.i.i8.i = getelementptr inbounds i8, ptr %result.val.i, i64 8
   %18 = atomicrmw sub ptr %refs_.i.i8.i, i64 1 acq_rel, align 8
   %cmp.i.i.i9.i = icmp eq i64 %18, 1
-  br i1 %cmp.i.i.i9.i, label %if.then.i.i10.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit13.i
+  br i1 %cmp.i.i.i9.i, label %if.then.i.i10.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit13.i
 
 if.then.i.i10.i:                                  ; preds = %if.then.i7.i
   %vtable.i.i.i11.i = load ptr, ptr %result.val.i, align 8
   %vfn.i.i.i12.i = getelementptr inbounds i8, ptr %vtable.i.i.i11.i, i64 8
   %19 = load ptr, ptr %vfn.i.i.i12.i, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(16) %result.val.i) #29
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit13.i
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit13.i
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit13.i: ; preds = %if.then.i.i10.i, %if.then.i7.i, %ehcleanup.i
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit13.i: ; preds = %if.then.i.i10.i, %if.then.i7.i, %ehcleanup.i
   call void @_ZN9grpc_core16ValidationErrorsD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %errors.i) #29
   resume { ptr, i32 } %.pn.i
 
@@ -5975,16 +5975,16 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorINSt7__
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %other.val.i.i = load i64, ptr %ref.tmp, align 8
   %cmp.i.i.i.i5 = icmp eq i64 %other.val.i.i, 0
-  br i1 %cmp.i.i.i.i5, label %invoke.cont4, label %_ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_12_GLOBAL__N_126XdsClusterResolverLbConfigEEEED2Ev.exit
+  br i1 %cmp.i.i.i.i5, label %invoke.cont4, label %_ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_12_GLOBAL__N_126XdsClusterResolverLbConfigEEEED2Ev.argprom.exit
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %20 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %21 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %22 = load ptr, ptr %20, align 8
   store ptr %22, ptr %21, align 8
-  br label %_ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_12_GLOBAL__N_126XdsClusterResolverLbConfigEEEED2Ev.exit
+  br label %_ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_12_GLOBAL__N_126XdsClusterResolverLbConfigEEEED2Ev.argprom.exit
 
-_ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_12_GLOBAL__N_126XdsClusterResolverLbConfigEEEED2Ev.exit: ; preds = %invoke.cont, %invoke.cont4
+_ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_12_GLOBAL__N_126XdsClusterResolverLbConfigEEEED2Ev.argprom.exit: ; preds = %invoke.cont, %invoke.cont4
   %.sink = phi i64 [ 0, %invoke.cont4 ], [ %other.val.i.i, %invoke.cont ]
   store i64 %.sink, ptr %agg.result, align 8
   ret void
@@ -6833,27 +6833,27 @@ lpad6.i.i:                                        ; preds = %if.then.i.i
   call fastcc void @_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %discovery_mechanisms_.i.i) #29, !noalias !55
   %config_.val.i.i = load ptr, ptr %config_.i.i, align 8, !noalias !55
   %cmp.not.i.i.i = icmp eq ptr %config_.val.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit.i.i, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad6.i.i
   %refs_.i.i.i.i = getelementptr inbounds i8, ptr %config_.val.i.i, i64 8
   %27 = atomicrmw sub ptr %refs_.i.i.i.i, i64 1 acq_rel, align 8, !noalias !55
   %cmp.i.i.i.i.i = icmp eq i64 %27, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i6.i.i = load ptr, ptr %config_.val.i.i, align 8, !noalias !55
   %vfn.i.i.i7.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i6.i.i, i64 8
   %28 = load ptr, ptr %vfn.i.i.i7.i.i, align 8, !noalias !55
   call void %28(ptr noundef nonnull align 8 dereferenceable(16) %config_.val.i.i) #29, !noalias !55
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit.i.i
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit.i.i
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %if.then.i.i.i, %lpad6.i.i
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit.i.i: ; preds = %if.then.i.i.i.i, %if.then.i.i.i, %lpad6.i.i
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %args_.i.i) #29, !noalias !55
   br label %ehcleanup12.i.i
 
-ehcleanup12.i.i:                                  ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit.i.i, %lpad2.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %26, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit.i.i ], [ %25, %lpad2.i.i ]
+ehcleanup12.i.i:                                  ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit.i.i, %lpad2.i.i
+  %.pn.i.i = phi { ptr, i32 } [ %26, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit.i.i ], [ %25, %lpad2.i.i ]
   call void @_ZN9grpc_core13RefCountedPtrINS_9XdsClientEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %xds_client_.i.i) #29, !noalias !55
   call void @_ZN9grpc_core19LoadBalancingPolicyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i1) #29, !noalias !55
   br label %lpad.body.i
@@ -7108,13 +7108,13 @@ invoke.contthread-pre-split:                      ; preds = %for.body.i.i.i
 invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
   %this.val = phi ptr [ %this.val.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
   %tobool.not.i.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EED2Ev.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   tail call void @_ZdlPv(ptr noundef nonnull %this.val) #31
-  br label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EED2Ev.exit
+  br label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EED2Ev.argprom.exit
 
-_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
+_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EED2Ev.argprom.exit: ; preds = %invoke.cont, %if.then.i.i
   ret void
 }
 
@@ -7185,22 +7185,22 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanism
   %config_ = getelementptr inbounds i8, ptr %this, i64 72
   %config_.val = load ptr, ptr %config_, align 8
   %cmp.not.i1 = icmp eq ptr %config_.val, null
-  br i1 %cmp.not.i1, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit, label %if.then.i2
+  br i1 %cmp.not.i1, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit, label %if.then.i2
 
 if.then.i2:                                       ; preds = %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EED2Ev.exit
   %refs_.i.i = getelementptr inbounds i8, ptr %config_.val, i64 8
   %7 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %7, 1
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit
 
 if.then.i.i:                                      ; preds = %if.then.i2
   %vtable.i.i.i = load ptr, ptr %config_.val, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %config_.val) #29
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit: ; preds = %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EED2Ev.exit, %if.then.i2, %if.then.i.i
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit: ; preds = %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EED2Ev.exit, %if.then.i2, %if.then.i.i
   %args_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %args_) #29
   %xds_client_ = getelementptr inbounds i8, ptr %this, i64 56
@@ -7208,7 +7208,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev
   %cmp.not.i3 = icmp eq ptr %9, null
   br i1 %cmp.not.i3, label %_ZN9grpc_core13RefCountedPtrINS_9XdsClientEED2Ev.exit, label %if.then.i4
 
-if.then.i4:                                       ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit
+if.then.i4:                                       ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit
   %refs_.i.i5 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = atomicrmw add ptr %refs_.i.i5, i64 -4294967295 acq_rel, align 8
   %shr.i.mask.i.i = and i64 %10, -4294967296
@@ -7240,7 +7240,7 @@ terminate.lpad.i10:                               ; preds = %if.then.i.i8
   tail call void @__clang_call_terminate(ptr %15) #30
   unreachable
 
-_ZN9grpc_core13RefCountedPtrINS_9XdsClientEED2Ev.exit: ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit, %if.end.i.i, %delete.notnull.i.i.i
+_ZN9grpc_core13RefCountedPtrINS_9XdsClientEED2Ev.exit: ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit, %if.end.i.i, %delete.notnull.i.i.i
   tail call void @_ZN9grpc_core19LoadBalancingPolicyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #29
   ret void
 
@@ -7557,7 +7557,7 @@ if.else.i.i:                                      ; preds = %if.end61
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %this.val10.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i71, label %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i71, label %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
 
 if.then.i.i.i.i71:                                ; preds = %if.else.i.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.31) #32
@@ -7566,7 +7566,7 @@ if.then.i.i.i.i71:                                ; preds = %if.else.i.i
 .noexc72:                                         ; preds = %if.then.i.i.i.i71
   unreachable
 
-_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
+_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i, 88
   %cmp.i.i.i.i.i70 = icmp eq ptr %28, %this.val10.i.i.i
   %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i70, i64 1, i64 %sub.ptr.div.i.i.i.i.i
@@ -7575,15 +7575,15 @@ _ZNKSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanis
   %37 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 104811045873349725)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 104811045873349725, i64 %37
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i, label %cond.true.i.i.i.i
 
-cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i.i, 88
   %call5.i.i.i.i.i.i73 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #28
-          to label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_M_allocateEm.exit.i.i.i unwind label %lpad35.loopexit
+          to label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i unwind label %lpad35.loopexit
 
-_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i73, %cond.true.i.i.i.i ]
+_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+  %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ], [ %call5.i.i.i.i.i.i73, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::XdsClusterResolverLb::DiscoveryMechanismEntry", ptr %cond.i12.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   %__u.val.i.i.i.i.i.i.i.i.i = load i64, ptr %entry30, align 8
   store i64 %__u.val.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i, align 8
@@ -7611,11 +7611,11 @@ _ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMe
   %next_available_child_number.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 80
   %43 = load i64, ptr %next_available_child_number6.i.i.i.i.i, align 8
   store i64 %43, ptr %next_available_child_number.i.i.i.i.i.i, align 8
-  br i1 %cmp.i.i.i.i.i70, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit36.i.i.i, label %for.body.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i70, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit36.i.i.i, label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_M_allocateEm.exit.i.i.i, %_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryD2Ev.exit
-  %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryD2Ev.exit ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_M_allocateEm.exit.i.i.i ]
-  %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryD2Ev.exit ], [ %this.val10.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_M_allocateEm.exit.i.i.i ]
+for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i, %_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryD2Ev.exit
+  %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryD2Ev.exit ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i ]
+  %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryD2Ev.exit ], [ %this.val10.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !71)
   call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %__u.val.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %__first.addr.02.i.i.i.i.i.i, align 8, !alias.scope !74, !noalias !71
@@ -7756,19 +7756,19 @@ _ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryD2Ev.e
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 88
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i, i64 88
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %28
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit36.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !76
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit36.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !76
 
-_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit36.i.i.i: ; preds = %_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryD2Ev.exit, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_M_allocateEm.exit.i.i.i
-  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryD2Ev.exit ]
+_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit36.i.i.i: ; preds = %_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryD2Ev.exit, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i
+  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryD2Ev.exit ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 88
   %tobool.not.i.i.i.i = icmp eq ptr %this.val10.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i37.i.i.i
 
-if.then.i37.i.i.i:                                ; preds = %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit36.i.i.i
+if.then.i37.i.i.i:                                ; preds = %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit36.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %this.val10.i.i.i) #31
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i37.i.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit36.i.i.i
+_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i37.i.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit36.i.i.i
   store ptr %cond.i12.i.i.i, ptr %discovery_mechanisms_52, align 8
   store ptr %incdec.ptr.i.i.i, ptr %10, align 8
   %add.ptr19.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::XdsClusterResolverLb::DiscoveryMechanismEntry", ptr %cond.i12.i.i.i, i64 %cond.i.i.i.i
@@ -7810,22 +7810,22 @@ for.inc81:                                        ; preds = %for.body75
 
 nrvo.skipdtor:                                    ; preds = %for.inc81, %for.end, %if.end18
   %cmp.not.i76 = icmp eq ptr %1, null
-  br i1 %cmp.not.i76, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit, label %if.then.i77
+  br i1 %cmp.not.i76, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit, label %if.then.i77
 
 if.then.i77:                                      ; preds = %nrvo.skipdtor
   %refs_.i.i78 = getelementptr inbounds i8, ptr %1, i64 8
   %68 = atomicrmw sub ptr %refs_.i.i78, i64 1 acq_rel, align 8
   %cmp.i.i.i79 = icmp eq i64 %68, 1
-  br i1 %cmp.i.i.i79, label %if.then.i.i80, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit
+  br i1 %cmp.i.i.i79, label %if.then.i.i80, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit
 
 if.then.i.i80:                                    ; preds = %if.then.i77
   %vtable.i.i.i81 = load ptr, ptr %1, align 8
   %vfn.i.i.i82 = getelementptr inbounds i8, ptr %vtable.i.i.i81, i64 8
   %69 = load ptr, ptr %vfn.i.i.i82, align 8
   call void %69(ptr noundef nonnull align 8 dereferenceable(16) %1) #29
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.exit: ; preds = %nrvo.skipdtor, %if.then.i77, %if.then.i.i80
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEED2Ev.argprom.exit: ; preds = %nrvo.skipdtor, %if.then.i77, %if.then.i.i80
   ret void
 
 ehcleanup85:                                      ; preds = %lpad13.loopexit, %lpad13.loopexit.split-lp, %ehcleanup
@@ -8338,14 +8338,14 @@ if.then.i.cont.i:                                 ; preds = %if.then.i.invoke.i
 if.end.i.i:                                       ; preds = %if.end7
   %15 = getelementptr inbounds i8, ptr %entries.i, i64 16
   %cmp3.i.not.i = icmp eq ptr %discovery_mechanisms_.val8.i, %discovery_mechanisms_.val7.i
-  br i1 %cmp3.i.not.i, label %for.end.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.exit.i.i
+  br i1 %cmp3.i.not.i, label %for.end.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.argprom.exit.i.i
 
-_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %if.end.i.i
+_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %if.end.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %sub.ptr.div.i.i, 72
   %call5.i.i.i.i10.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #28
           to label %invoke.cont8.lr.ph.i unwind label %lpad.loopexit.split-lp.i, !noalias !83
 
-invoke.cont8.lr.ph.i:                             ; preds = %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.exit.i.i
+invoke.cont8.lr.ph.i:                             ; preds = %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.argprom.exit.i.i
   %16 = getelementptr inbounds i8, ptr %entries.i, i64 8
   store ptr %call5.i.i.i.i10.i, ptr %entries.i, align 8, !noalias !83
   store ptr %call5.i.i.i.i10.i, ptr %16, align 8, !noalias !83
@@ -8377,7 +8377,7 @@ invoke.cont8.i:                                   ; preds = %for.inc.i, %invoke.
   br i1 %cmp.not.i.i11, label %if.else.i.i, label %if.then.i12.i
 
 if.then.i12.i:                                    ; preds = %invoke.cont8.i
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvRS4_PT_DpOT0_(ptr noundef nonnull %17, ptr %latest_update.val.i, ptr %latest_update.val9.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %priority_child_numbers.i)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvRS4_PT_DpOT0_.argprom(ptr noundef nonnull %17, ptr %latest_update.val.i, ptr %latest_update.val9.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %priority_child_numbers.i)
           to label %.noexc16.i unwind label %lpad.loopexit.i, !noalias !83
 
 .noexc16.i:                                       ; preds = %if.then.i12.i
@@ -8391,9 +8391,9 @@ if.else.i.i:                                      ; preds = %invoke.cont8.i
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %this.val.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i12 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i12, label %if.then.i.invoke.i, label %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+  br i1 %cmp.i.i.i.i12, label %if.then.i.invoke.i, label %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
 
-_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
+_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i, 72
   %cmp.i.i.i.i.i = icmp eq ptr %17, %this.val.i.i.i
   %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i
@@ -8402,30 +8402,30 @@ _ZNKSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMech
   %24 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 128102389400760775)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 128102389400760775, i64 %24
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i, label %cond.true.i.i.i.i
 
-cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i.i, 72
   %call5.i.i.i.i.i18.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #28
-          to label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.exit.i.i.i unwind label %lpad.loopexit.i, !noalias !83
+          to label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i unwind label %lpad.loopexit.i, !noalias !83
 
-_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i20.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i18.i, %cond.true.i.i.i.i ]
+_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+  %cond.i20.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ], [ %call5.i.i.i.i.i18.i, %cond.true.i.i.i.i ]
   %add.ptr.i.i14.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::PriorityEndpointIterator::DiscoveryMechanismResult", ptr %cond.i20.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvRS4_PT_DpOT0_(ptr noundef %add.ptr.i.i14.i, ptr %latest_update.val.i, ptr %latest_update.val9.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %priority_child_numbers.i)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvRS4_PT_DpOT0_.argprom(ptr noundef %add.ptr.i.i14.i, ptr %latest_update.val.i, ptr %latest_update.val9.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %priority_child_numbers.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i, !noalias !83
 
-invoke.cont.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.exit.i.i.i
-  %call14.i.i.i = call fastcc noundef ptr @_ZNSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_(ptr noundef %this.val.i.i.i, ptr noundef nonnull %17, ptr noundef %cond.i20.i.i.i) #29, !noalias !83
+invoke.cont.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i
+  %call14.i.i.i = call fastcc noundef ptr @_ZNSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom(ptr noundef %this.val.i.i.i, ptr noundef nonnull %17, ptr noundef %cond.i20.i.i.i) #29, !noalias !83
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call14.i.i.i, i64 72
   %tobool.not.i.i.i.i = icmp eq ptr %this.val.i.i.i, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE17_M_realloc_insertIJRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS_ImSaImEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE17_M_realloc_insertIJRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS_ImSaImEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i, label %if.then.i21.i.i.i
 
 if.then.i21.i.i.i:                                ; preds = %invoke.cont.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %this.val.i.i.i) #31, !noalias !83
-  br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE17_M_realloc_insertIJRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS_ImSaImEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
+  br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE17_M_realloc_insertIJRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS_ImSaImEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i
 
-lpad.i.i.i:                                       ; preds = %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.exit.i.i.i
+lpad.i.i.i:                                       ; preds = %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
@@ -8434,7 +8434,7 @@ lpad.i.i.i:                                       ; preds = %_ZNSt12_Vector_base
   br i1 %tobool.not.i.i15.i, label %if.end.thread.i.i.i, label %if.then.i23.i.i.i
 
 if.end.thread.i.i.i:                              ; preds = %lpad.i.i.i
-  call fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE7destroyIS3_EEvRS4_PT_(ptr noundef %add.ptr.i.i14.i) #29, !noalias !83
+  call fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE7destroyIS3_EEvRS4_PT_.argprom(ptr noundef %add.ptr.i.i14.i) #29, !noalias !83
   br label %invoke.cont23.i.i.i
 
 lpad21.i.i.i:                                     ; preds = %invoke.cont23.i.i.i
@@ -8461,15 +8461,15 @@ terminate.lpad.i.i.i:                             ; preds = %lpad21.i.i.i
 unreachable.i.i.i:                                ; preds = %invoke.cont23.i.i.i
   unreachable
 
-_ZNSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE17_M_realloc_insertIJRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS_ImSaImEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i21.i.i.i, %invoke.cont.i.i.i
+_ZNSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE17_M_realloc_insertIJRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS_ImSaImEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i: ; preds = %if.then.i21.i.i.i, %invoke.cont.i.i.i
   store ptr %cond.i20.i.i.i, ptr %entries.i, align 8, !noalias !83
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !noalias !83
   %add.ptr30.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::PriorityEndpointIterator::DiscoveryMechanismResult", ptr %cond.i20.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr30.i.i.i, ptr %15, align 8, !noalias !83
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE17_M_realloc_insertIJRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS_ImSaImEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %.noexc16.i
-  %31 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE17_M_realloc_insertIJRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS_ImSaImEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %.noexc16.i ]
+for.inc.i:                                        ; preds = %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE17_M_realloc_insertIJRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS_ImSaImEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i, %.noexc16.i
+  %31 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE17_M_realloc_insertIJRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS_ImSaImEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i ], [ %incdec.ptr.i.i, %.noexc16.i ]
   %incdec.ptr.i19.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.031.i, i64 88
   %cmp.i11.not.i = icmp eq ptr %incdec.ptr.i19.i, %discovery_mechanisms_.val8.i
   br i1 %cmp.i11.not.i, label %for.end.i, label %invoke.cont8.i
@@ -8479,7 +8479,7 @@ lpad.loopexit.i:                                  ; preds = %cond.true.i.i.i.i, 
           cleanup
   br label %lpad.body.i
 
-lpad.loopexit.split-lp.i:                         ; preds = %for.end.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.exit.i.i, %if.then.i.invoke.i
+lpad.loopexit.split-lp.i:                         ; preds = %for.end.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_M_allocateEm.argprom.exit.i.i, %if.then.i.invoke.i
   %lpad.loopexit.split-lp29.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i
@@ -20297,25 +20297,25 @@ invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyIN9grp
 invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
   %this.val = phi ptr [ %this.val.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
   %tobool.not.i.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EED2Ev.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   tail call void @_ZdlPv(ptr noundef nonnull %this.val) #31
-  br label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EED2Ev.exit
+  br label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EED2Ev.argprom.exit
 
-_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
+_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EED2Ev.argprom.exit: ; preds = %invoke.cont, %if.then.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZNSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_(ptr noundef %__first, ptr noundef readnone %__last, ptr noundef %__result) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZNSt6vectorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom(ptr noundef %__first, ptr noundef readnone %__last, ptr noundef %__result) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not1.i.i = icmp eq ptr %__first, %__last
-  br i1 %cmp.not1.i.i, label %_ZSt12__relocate_aIPN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %for.body.i.i
+  br i1 %cmp.not1.i.i, label %_ZSt12__relocate_aIPN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES4_SaIS3_EET0_T_S7_S6_RT1_.argprom.exit, label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %entry, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i
-  %__cur.03.i.i = phi ptr [ %incdec.ptr1.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i ], [ %__result, %entry ]
-  %__first.addr.02.i.i = phi ptr [ %incdec.ptr.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i ], [ %__first, %entry ]
+for.body.i.i:                                     ; preds = %entry, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i
+  %__cur.03.i.i = phi ptr [ %incdec.ptr1.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i ], [ %__result, %entry ]
+  %__first.addr.02.i.i = phi ptr [ %incdec.ptr.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i ], [ %__first, %entry ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
   %0 = load ptr, ptr %__first.addr.02.i.i, align 8, !alias.scope !237, !noalias !234
@@ -20345,7 +20345,7 @@ for.body.i.i:                                     ; preds = %entry, %_ZSt19__rel
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cluster_name3.i.i.i.i.i.i) #29
   %5 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !alias.scope !237, !noalias !234
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i, label %if.then.i.i.i1.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i, label %if.then.i.i.i1.i.i.i.i.i.i
 
 if.then.i.i.i1.i.i.i.i.i.i:                       ; preds = %for.body.i.i
   %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -20381,7 +20381,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %10, %if.else.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i
+  br i1 %cmp6.i.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i
 
 if.then7.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
@@ -20406,28 +20406,28 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %13, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %14, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
-  br label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i
+  br label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i
 
-_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i
+_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i, i64 72
   %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i, i64 72
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
-  br i1 %cmp.not.i.i, label %_ZSt12__relocate_aIPN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %for.body.i.i, !llvm.loop !240
+  br i1 %cmp.not.i.i, label %_ZSt12__relocate_aIPN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES4_SaIS3_EET0_T_S7_S6_RT1_.argprom.exit, label %for.body.i.i, !llvm.loop !240
 
-_ZSt12__relocate_aIPN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i, %entry
-  %__cur.0.lcssa.i.i = phi ptr [ %__result, %entry ], [ %incdec.ptr1.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i ]
+_ZSt12__relocate_aIPN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES4_SaIS3_EET0_T_S7_S6_RT1_.argprom.exit: ; preds = %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i, %entry
+  %__cur.0.lcssa.i.i = phi ptr [ %__result, %entry ], [ %incdec.ptr1.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.argprom.exit.i.i ]
   ret ptr %__cur.0.lcssa.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE7destroyIS3_EEvRS4_PT_(ptr noundef %__p) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE7destroyIS3_EEvRS4_PT_.argprom(ptr noundef %__p) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %priority_child_numbers.i.i = getelementptr inbounds i8, ptr %__p, i64 48
   %0 = load ptr, ptr %priority_child_numbers.i.i, align 8
@@ -20444,7 +20444,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i, 
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %__p, i64 8
   %1 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE7destroyIS3_EEvPT_.exit, label %if.then.i.i.i1.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE7destroyIS3_EEvPT_.argprom.exit, label %if.then.i.i.i1.i.i
 
 if.then.i.i.i1.i.i:                               ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i.i
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
@@ -20480,7 +20480,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %3, %if.then.i.i.i.i.i.i.i ], [ %6, %if.else.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i, label %_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE7destroyIS3_EEvPT_.exit
+  br i1 %cmp6.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i, label %_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE7destroyIS3_EEvPT_.argprom.exit
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
@@ -20505,21 +20505,21 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i = phi i32 [ %9, %if.then.i.i.i.i.i.i.i.i.i ], [ %10, %if.else.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i, label %_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE7destroyIS3_EEvPT_.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i, label %_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE7destroyIS3_EEvPT_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %11 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %1) #29
-  br label %_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE7destroyIS3_EEvPT_.exit
+  br label %_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE7destroyIS3_EEvPT_.argprom.exit
 
-_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE7destroyIS3_EEvPT_.exit: ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
+_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE7destroyIS3_EEvPT_.argprom.exit: ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvRS4_PT_DpOT0_(ptr noundef %__p, ptr %__args.0.val, ptr %__args.8.val, ptr noundef nonnull align 8 dereferenceable(32) %__args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %__args3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvRS4_PT_DpOT0_.argprom(ptr noundef %__p, ptr %__args.0.val, ptr %__args.8.val, ptr noundef nonnull align 8 dereferenceable(32) %__args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %__args3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::shared_ptr.334", align 8
   %agg.tmp6.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20559,7 +20559,7 @@ invoke.cont.i:                                    ; preds = %_ZNSt10shared_ptrIK
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.not.i.i.i.i.i = icmp eq ptr %3, %4
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvPT_DpOT0_.exit, label %cond.true.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvPT_DpOT0_.argprom.exit, label %cond.true.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %invoke.cont.i
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, 9223372036854775800
@@ -20578,7 +20578,7 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %cond.tr
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i2.i, ptr align 8 %4, i64 %sub.ptr.sub.i.i.i, i1 false)
-  br label %_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvPT_DpOT0_.exit
+  br label %_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvPT_DpOT0_.argprom.exit
 
 lpad.i:                                           ; preds = %_ZNSt10shared_ptrIKN9grpc_core19XdsEndpointResourceEEC2ERKS3_.exit.i
   %5 = landingpad { ptr, i32 }
@@ -20596,7 +20596,7 @@ ehcleanup12.i:                                    ; preds = %lpad8.i, %lpad.i
   call void @_ZNSt10shared_ptrIKN9grpc_core19XdsEndpointResourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i) #29
   resume { ptr, i32 } %.pn.i
 
-_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvPT_DpOT0_.exit: ; preds = %invoke.cont.i, %if.then.i.i.i.i.i.i.i.i.i.i
+_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvPT_DpOT0_.argprom.exit: ; preds = %invoke.cont.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %cond.i.i.i.i7.i = phi ptr [ %call5.i.i.i.i2.i6.i2.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %invoke.cont.i ]
   %add.ptr.i.i.i8.i = getelementptr inbounds i8, ptr %cond.i.i.i.i7.i, i64 %sub.ptr.sub.i.i.i
   %7 = load ptr, ptr %agg.tmp.i, align 8
@@ -20646,7 +20646,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN9grpc_core12_GLOBAL__N_124PriorityEndpointIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core12_GLOBAL__N_124PriorityEndpointIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core12_GLOBAL__N_124PriorityEndpointIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
@@ -22521,22 +22521,22 @@ invoke.cont21:                                    ; preds = %if.end
 invoke.cont25:                                    ; preds = %invoke.cont21
   %22 = load ptr, ptr %agg.tmp23, align 8
   %cmp.not.i22 = icmp eq ptr %22, null
-  br i1 %cmp.not.i22, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit, label %if.then.i23
+  br i1 %cmp.not.i22, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit, label %if.then.i23
 
 if.then.i23:                                      ; preds = %invoke.cont25
   %refs_.i.i24 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = atomicrmw sub ptr %refs_.i.i24, i64 1 acq_rel, align 8
   %cmp.i.i.i25 = icmp eq i64 %23, 1
-  br i1 %cmp.i.i.i25, label %if.then.i.i26, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit
+  br i1 %cmp.i.i.i25, label %if.then.i.i26, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit
 
 if.then.i.i26:                                    ; preds = %if.then.i23
   %vtable.i.i.i27 = load ptr, ptr %22, align 8
   %vfn.i.i.i28 = getelementptr inbounds i8, ptr %vtable.i.i.i27, i64 8
   %24 = load ptr, ptr %vfn.i.i.i28, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22) #29
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit: ; preds = %if.then.i.i26, %if.then.i23, %invoke.cont25
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit: ; preds = %if.then.i.i26, %if.then.i23, %invoke.cont25
   ret void
 
 if.then.i37:                                      ; preds = %if.end
@@ -22598,22 +22598,22 @@ entry:
   %parent_ = getelementptr inbounds i8, ptr %this, i64 16
   %parent_.val = load ptr, ptr %parent_, align 8
   %cmp.not.i = icmp eq ptr %parent_.val, null
-  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLbEED2Ev.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLbEED2Ev.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %refs_.i.i = getelementptr inbounds i8, ptr %parent_.val, i64 8
   %0 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %0, 1
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLbEED2Ev.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLbEED2Ev.argprom.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %parent_.val, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(56) %parent_.val) #29
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLbEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLbEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLbEED2Ev.exit: ; preds = %entry, %if.then.i, %if.then.i.i
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLbEED2Ev.argprom.exit: ; preds = %entry, %if.then.i, %if.then.i.i
   ret void
 }
 
@@ -22725,7 +22725,7 @@ entry:
   %0 = load ptr, ptr %discovery_mechanism_, align 8
   store ptr null, ptr %discovery_mechanism_, align 8
   %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanismEED2Ev.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanismEED2Ev.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %refs_.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -22743,22 +22743,22 @@ if.then.i.i:                                      ; preds = %if.then.i
 invoke.cont2:                                     ; preds = %if.then.i.i, %if.then.i
   %discovery_mechanism_.val.pr = load ptr, ptr %discovery_mechanism_, align 8
   %cmp.not.i1 = icmp eq ptr %discovery_mechanism_.val.pr, null
-  br i1 %cmp.not.i1, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanismEED2Ev.exit, label %if.then.i2
+  br i1 %cmp.not.i1, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanismEED2Ev.argprom.exit, label %if.then.i2
 
 if.then.i2:                                       ; preds = %invoke.cont2
   %refs_.i.i3 = getelementptr inbounds i8, ptr %discovery_mechanism_.val.pr, i64 8
   %3 = atomicrmw sub ptr %refs_.i.i3, i64 1 acq_rel, align 8
   %cmp.i.i.i4 = icmp eq i64 %3, 1
-  br i1 %cmp.i.i.i4, label %if.then.i.i5, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanismEED2Ev.exit
+  br i1 %cmp.i.i.i4, label %if.then.i.i5, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanismEED2Ev.argprom.exit
 
 if.then.i.i5:                                     ; preds = %if.then.i2
   %vtable.i.i.i6 = load ptr, ptr %discovery_mechanism_.val.pr, align 8
   %vfn.i.i.i7 = getelementptr inbounds i8, ptr %vtable.i.i.i6, i64 16
   %4 = load ptr, ptr %vfn.i.i.i7, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(32) %discovery_mechanism_.val.pr) #29
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanismEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanismEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanismEED2Ev.exit: ; preds = %entry, %invoke.cont2, %if.then.i2, %if.then.i.i5
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanismEED2Ev.argprom.exit: ; preds = %entry, %invoke.cont2, %if.then.i2, %if.then.i.i5
   ret void
 }
 
@@ -23013,7 +23013,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i7
 _ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher7OnErrorEN4absl12lts_202308026StatusEENUlvE_D2Ev.exit: ; preds = %invoke.cont12, %if.then.i.i7
   %14 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %14, null
-  br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit, label %if.then.i.i.i10
+  br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit, label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher7OnErrorEN4absl12lts_202308026StatusEENUlvE_D2Ev.exit
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
@@ -23049,7 +23049,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %16, %if.then.i.i.i.i.i ], [ %19, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %14, align 8
@@ -23074,16 +23074,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %22, %if.then.i.i.i.i.i.i.i ], [ %23, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i12
   %vtable2.i.i.i.i.i.i = load ptr, ptr %14, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #29
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher7OnErrorEN4absl12lts_202308026StatusEENUlvE_D2Ev.exit
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit: ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher7OnErrorEN4absl12lts_202308026StatusEENUlvE_D2Ev.exit
   ret void
 
 lpad7:                                            ; preds = %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit
@@ -23175,11 +23175,11 @@ invoke.cont7:                                     ; preds = %_ZNK9grpc_core19Loa
 invoke.cont11:                                    ; preds = %invoke.cont7
   %8 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i, label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.exit, label %if.then.i.i8
+  br i1 %tobool.not.i.i, label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.argprom.exit, label %if.then.i.i8
 
 if.then.i.i8:                                     ; preds = %invoke.cont11
   %call.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
-          to label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.exit unwind label %terminate.lpad.i.i
+          to label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.argprom.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i8
   %9 = landingpad { ptr, i32 }
@@ -23188,12 +23188,12 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i8
   call void @__clang_call_terminate(ptr %10) #30
   unreachable
 
-_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.exit: ; preds = %if.then.i.i8, %invoke.cont11
+_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.argprom.exit: ; preds = %if.then.i.i8, %invoke.cont11
   %11 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %11, null
-  br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit, label %if.then.i.i.i10
+  br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit, label %if.then.i.i.i10
 
-if.then.i.i.i10:                                  ; preds = %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.exit
+if.then.i.i.i10:                                  ; preds = %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.argprom.exit
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i11 = icmp eq i64 %12, 4294967297
@@ -23227,7 +23227,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %13, %if.then.i.i.i.i.i ], [ %16, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %11, align 8
@@ -23252,16 +23252,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %19, %if.then.i.i.i.i.i.i.i ], [ %20, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i12
   %vtable2.i.i.i.i.i.i = load ptr, ptr %11, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %21 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(16) %11) #29
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.exit
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit: ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.argprom.exit
   ret void
 
 lpad9:                                            ; preds = %invoke.cont7
@@ -23269,11 +23269,11 @@ lpad9:                                            ; preds = %invoke.cont7
           cleanup
   %23 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i23 = icmp eq ptr %23, null
-  br i1 %tobool.not.i.i23, label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.exit35, label %if.then.i.i24
+  br i1 %tobool.not.i.i23, label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.argprom.exit35, label %if.then.i.i24
 
 if.then.i.i24:                                    ; preds = %lpad9
   %call.i.i25 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
-          to label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.exit35 unwind label %terminate.lpad.i.i26
+          to label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.argprom.exit35 unwind label %terminate.lpad.i.i26
 
 terminate.lpad.i.i26:                             ; preds = %if.then.i.i24
   %24 = landingpad { ptr, i32 }
@@ -23287,16 +23287,16 @@ if.then.i.i29:                                    ; preds = %_ZNK9grpc_core19Loa
           cleanup
   %27 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i31 = icmp eq i64 %27, 1
-  br i1 %cmp.i.i.i.i31, label %if.then.i.i.i32, label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.exit35
+  br i1 %cmp.i.i.i.i31, label %if.then.i.i.i32, label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.argprom.exit35
 
 if.then.i.i.i32:                                  ; preds = %if.then.i.i29
   %vtable.i.i.i.i33 = load ptr, ptr %this, align 8
   %vfn.i.i.i.i34 = getelementptr inbounds i8, ptr %vtable.i.i.i.i33, i64 8
   %28 = load ptr, ptr %vfn.i.i.i.i34, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %this) #29
-  br label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.exit35
+  br label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.argprom.exit35
 
-_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.exit35: ; preds = %if.then.i.i24, %lpad9, %if.then.i.i29, %if.then.i.i.i32
+_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.argprom.exit35: ; preds = %if.then.i.i24, %lpad9, %if.then.i.i29, %if.then.i.i.i32
   %.pn48 = phi { ptr, i32 } [ %26, %if.then.i.i29 ], [ %26, %if.then.i.i.i32 ], [ %22, %lpad9 ], [ %22, %if.then.i.i24 ]
   call void @_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2) #29
   resume { ptr, i32 } %.pn48
@@ -23395,7 +23395,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i7
 _ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher17OnResourceChangedESt10shared_ptrIKNS_19XdsEndpointResourceEEENUlvE_D2Ev.exit: ; preds = %if.then.i.i7, %invoke.cont11
   %.pre45 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre45, null
-  br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit, label %if.then.i.i.i17
+  br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit, label %if.then.i.i.i17
 
 if.then.i.i.i17:                                  ; preds = %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher17OnResourceChangedESt10shared_ptrIKNS_19XdsEndpointResourceEEENUlvE_D2Ev.exit
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %.pre45, i64 8
@@ -23431,7 +23431,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i19
   %retval.i.0.i.i.i.i = phi i32 [ %16, %if.then.i.i.i.i.i19 ], [ %19, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %.pre45, align 8
@@ -23456,16 +23456,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %22, %if.then.i.i.i.i.i.i.i ], [ %23, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i20
   %vtable2.i.i.i.i.i.i = load ptr, ptr %.pre45, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(16) %.pre45) #29
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher17OnResourceChangedESt10shared_ptrIKNS_19XdsEndpointResourceEEENUlvE_D2Ev.exit
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit: ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher17OnResourceChangedESt10shared_ptrIKNS_19XdsEndpointResourceEEENUlvE_D2Ev.exit
   ret void
 
 lpad6:                                            ; preds = %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit
@@ -23523,22 +23523,22 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %entry, %if.then.i.i
   %this.val = load ptr, ptr %this, align 8
   %cmp.not.i = icmp eq ptr %this.val, null
-  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
   %refs_.i.i = getelementptr inbounds i8, ptr %this.val, i64 8
   %4 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i1 = icmp eq i64 %4, 1
-  br i1 %cmp.i.i.i1, label %if.then.i.i2, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit
+  br i1 %cmp.i.i.i1, label %if.then.i.i2, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit
 
 if.then.i.i2:                                     ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %this.val, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %this.val) #29
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.then.i, %if.then.i.i2
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.then.i, %if.then.i.i2
   ret void
 }
 
@@ -26812,7 +26812,7 @@ entry:
   store ptr @.str.102, ptr %8, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11.i.i.i.i)
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb22OnResourceDoesNotExistEmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %call.val.val.val, i64 noundef %call.val.val.val1, ptr noundef %agg.tmp.i.i.i.i)
-          to label %_ZSt10__invoke_rIvRZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit unwind label %lpad.i.i.i.i
+          to label %_ZSt10__invoke_rIvRZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.argprom.argprom.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %entry
   %9 = landingpad { ptr, i32 }
@@ -26820,7 +26820,7 @@ lpad.i.i.i.i:                                     ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i) #29
   resume { ptr, i32 } %9
 
-_ZSt10__invoke_rIvRZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit: ; preds = %entry
+_ZSt10__invoke_rIvRZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.argprom.argprom.exit: ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i) #29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i.i)
@@ -26879,26 +26879,26 @@ sw.bb6.i:                                         ; preds = %sw.default
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
   %.val.i.i = load ptr, ptr %__dest.val.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.exit.i.i, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.argprom.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull.i.i
   %refs_.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i, i64 8
   %3 = atomicrmw sub ptr %refs_.i.i.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %3, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i6.i, label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.exit.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i6.i, label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.argprom.exit.i.i
 
 if.then.i.i.i.i6.i:                               ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %.val.i.i, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #29
-  br label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.exit.i.i
+  br label %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.argprom.exit.i.i
 
-_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.exit.i.i: ; preds = %if.then.i.i.i.i6.i, %if.then.i.i.i.i, %delete.notnull.i.i
+_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.argprom.exit.i.i: ; preds = %if.then.i.i.i.i6.i, %if.then.i.i.i.i, %delete.notnull.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #31
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.exit.i.i, %sw.bb6.i, %_ZNSt14_Function_base13_Base_managerIZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvEUlvE_E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i, %sw.default, %sw.bb1, %sw.bb
+sw.epilog:                                        ; preds = %_ZZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvENUlvE_D2Ev.argprom.exit.i.i, %sw.bb6.i, %_ZNSt14_Function_base13_Base_managerIZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvEUlvE_E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i, %sw.default, %sw.bb1, %sw.bb
   ret i1 false
 }
 
@@ -27174,22 +27174,22 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIKN9grpc_core19XdsEndpointResourceEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %this.val = load ptr, ptr %this, align 8
   %cmp.not.i = icmp eq ptr %this.val, null
-  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt10shared_ptrIKN9grpc_core19XdsEndpointResourceEED2Ev.exit
   %refs_.i.i = getelementptr inbounds i8, ptr %this.val, i64 8
   %11 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %11, 1
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %this.val, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %12 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %this.val) #29
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN9grpc_core19XdsEndpointResourceEED2Ev.exit, %if.then.i, %if.then.i.i
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEED2Ev.argprom.exit: ; preds = %_ZNSt10shared_ptrIKN9grpc_core19XdsEndpointResourceEED2Ev.exit, %if.then.i, %if.then.i.i
   ret void
 }
 
@@ -28417,22 +28417,22 @@ _ZNSt10unique_ptrIN9grpc_core8ResolverENS0_16OrphanableDeleteEED2Ev.exit: ; pred
   store ptr null, ptr %ref.tmp31, align 8
   %43 = load ptr, ptr %agg.tmp44, align 8
   %cmp.not.i44 = icmp eq ptr %43, null
-  br i1 %cmp.not.i44, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismEED2Ev.exit, label %_ZNKSt14default_deleteIN9grpc_core8Resolver13ResultHandlerEEclEPS2_.exit.i
+  br i1 %cmp.not.i44, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismEED2Ev.argprom.exit, label %_ZNKSt14default_deleteIN9grpc_core8Resolver13ResultHandlerEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN9grpc_core8Resolver13ResultHandlerEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN9grpc_core8ResolverENS0_16OrphanableDeleteEED2Ev.exit
   %vtable.i.i45 = load ptr, ptr %43, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i45, i64 8
   %44 = load ptr, ptr %vfn.i.i, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(8) %43) #29
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN9grpc_core8ResolverENS0_16OrphanableDeleteEED2Ev.exit, %_ZNKSt14default_deleteIN9grpc_core8Resolver13ResultHandlerEEclEPS2_.exit.i
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismEED2Ev.argprom.exit: ; preds = %_ZNSt10unique_ptrIN9grpc_core8ResolverENS0_16OrphanableDeleteEED2Ev.exit, %_ZNKSt14default_deleteIN9grpc_core8Resolver13ResultHandlerEEclEPS2_.exit.i
   store ptr null, ptr %agg.tmp44, align 8
   %45 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %45, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismEED2Ev.exit
+if.then.i.i.i:                                    ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismEED2Ev.argprom.exit
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %45, i64 8
   %46 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %46, 4294967297
@@ -28500,7 +28500,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   call void %55(ptr noundef nonnull align 8 dereferenceable(16) %45) #29
   br label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit
 
-_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit: ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit: ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismEED2Ev.argprom.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %56 = load ptr, ptr %resolver_, align 8
   %cmp.i.not.i = icmp eq ptr %56, null
   br i1 %cmp.i.not.i, label %invoke.cont68, label %if.end75
@@ -28867,22 +28867,22 @@ entry:
   %discovery_mechanism_ = getelementptr inbounds i8, ptr %this, i64 8
   %discovery_mechanism_.val = load ptr, ptr %discovery_mechanism_, align 8
   %cmp.not.i = icmp eq ptr %discovery_mechanism_.val, null
-  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb28LogicalDNSDiscoveryMechanismEED2Ev.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb28LogicalDNSDiscoveryMechanismEED2Ev.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %refs_.i.i = getelementptr inbounds i8, ptr %discovery_mechanism_.val, i64 8
   %0 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %0, 1
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb28LogicalDNSDiscoveryMechanismEED2Ev.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb28LogicalDNSDiscoveryMechanismEED2Ev.argprom.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %discovery_mechanism_.val, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %discovery_mechanism_.val) #29
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb28LogicalDNSDiscoveryMechanismEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb28LogicalDNSDiscoveryMechanismEED2Ev.argprom.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb28LogicalDNSDiscoveryMechanismEED2Ev.exit: ; preds = %entry, %if.then.i, %if.then.i.i
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120XdsClusterResolverLb28LogicalDNSDiscoveryMechanismEED2Ev.argprom.exit: ; preds = %entry, %if.then.i, %if.then.i.i
   ret void
 }
 
@@ -30785,10 +30785,10 @@ attributes #34 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !8}
 !11 = !{!"branch_weights", i32 1, i32 1048575}
 !12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
-!14 = distinct !{!14, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_"}
+!13 = distinct !{!13, !14, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.argprom: %__dest"}
+!14 = distinct !{!14, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.argprom"}
 !15 = !{!16}
-!16 = distinct !{!16, !14, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
+!16 = distinct !{!16, !14, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_126XdsClusterResolverLbConfig18DiscoveryMechanismES3_SaIS3_EEvPT_PT0_RT1_.argprom: %__orig"}
 !17 = !{!13, !16}
 !18 = distinct !{!18, !8}
 !19 = distinct !{!19, !8}
@@ -30844,10 +30844,10 @@ attributes #34 = { nounwind willreturn memory(read) }
 !69 = distinct !{!69, !70, !"_ZN9grpc_core14MakeOrphanableINS_12_GLOBAL__N_120XdsClusterResolverLb28LogicalDNSDiscoveryMechanismEJNS_13RefCountedPtrINS_19LoadBalancingPolicyEEEmEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_: %agg.result"}
 !70 = distinct !{!70, !"_ZN9grpc_core14MakeOrphanableINS_12_GLOBAL__N_120XdsClusterResolverLb28LogicalDNSDiscoveryMechanismEJNS_13RefCountedPtrINS_19LoadBalancingPolicyEEEmEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_"}
 !71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
-!73 = distinct !{!73, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryES3_SaIS3_EEvPT_PT0_RT1_"}
+!72 = distinct !{!72, !73, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryES3_SaIS3_EEvPT_PT0_RT1_.argprom: %__dest"}
+!73 = distinct !{!73, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryES3_SaIS3_EEvPT_PT0_RT1_.argprom"}
 !74 = !{!75}
-!75 = distinct !{!75, !73, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
+!75 = distinct !{!75, !73, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23DiscoveryMechanismEntryES3_SaIS3_EEvPT_PT0_RT1_.argprom: %__orig"}
 !76 = distinct !{!76, !8}
 !77 = !{!78}
 !78 = distinct !{!78, !79, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
@@ -30862,8 +30862,8 @@ attributes #34 = { nounwind willreturn memory(read) }
 !87 = distinct !{!87, !88, !"_ZSt11make_sharedIN9grpc_core12_GLOBAL__N_124PriorityEndpointIteratorEJSt6vectorINS2_24DiscoveryMechanismResultESaIS4_EEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: %agg.result"}
 !88 = distinct !{!88, !"_ZSt11make_sharedIN9grpc_core12_GLOBAL__N_124PriorityEndpointIteratorEJSt6vectorINS2_24DiscoveryMechanismResultESaIS4_EEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
 !89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb37CreateChildPolicyResolutionNoteLockedB5cxx11Ev: %agg.result"}
-!91 = distinct !{!91, !"_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb37CreateChildPolicyResolutionNoteLockedB5cxx11Ev"}
+!90 = distinct !{!90, !91, !"_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb37CreateChildPolicyResolutionNoteLockedB5cxx11Ev.argprom: %agg.result"}
+!91 = distinct !{!91, !"_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb37CreateChildPolicyResolutionNoteLockedB5cxx11Ev.argprom"}
 !92 = !{!93, !95}
 !93 = distinct !{!93, !94, !"_ZSt19__relocate_object_aISt17basic_string_viewIcSt11char_traitsIcEES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
 !94 = distinct !{!94, !"_ZSt19__relocate_object_aISt17basic_string_viewIcSt11char_traitsIcEES3_SaIS3_EEvPT_PT0_RT1_"}
@@ -31007,10 +31007,10 @@ attributes #34 = { nounwind willreturn memory(read) }
 !232 = distinct !{!232, !8}
 !233 = distinct !{!233, !8}
 !234 = !{!235}
-!235 = distinct !{!235, !236, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
-!236 = distinct !{!236, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_"}
+!235 = distinct !{!235, !236, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.argprom: %__dest"}
+!236 = distinct !{!236, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.argprom"}
 !237 = !{!238}
-!238 = distinct !{!238, !236, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
+!238 = distinct !{!238, !236, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultES3_SaIS3_EEvPT_PT0_RT1_.argprom: %__orig"}
 !239 = !{!235, !238}
 !240 = distinct !{!240, !8}
 !241 = !{!242}
@@ -31053,8 +31053,8 @@ attributes #34 = { nounwind willreturn memory(read) }
 !278 = distinct !{!278, !279, !"_ZN9grpc_core10RefCountedINS_15XdsLocalityNameENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc: %agg.result"}
 !279 = distinct !{!279, !"_ZN9grpc_core10RefCountedINS_15XdsLocalityNameENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc"}
 !280 = !{!281}
-!281 = distinct !{!281, !282, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc: %agg.result"}
-!282 = distinct !{!282, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc"}
+!281 = distinct !{!281, !282, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc.argprom: %agg.result"}
+!282 = distinct !{!282, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc.argprom"}
 !283 = !{!284}
 !284 = distinct !{!284, !285, !"_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEJNS_13RefCountedPtrINS2_18DiscoveryMechanismEEEEEENS5_IT_EEDpOT0_: %agg.result"}
 !285 = distinct !{!285, !"_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcherEJNS_13RefCountedPtrINS2_18DiscoveryMechanismEEEEEENS5_IT_EEDpOT0_"}
@@ -31129,8 +31129,8 @@ attributes #34 = { nounwind willreturn memory(read) }
 !354 = distinct !{!354, !355, !"_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv: %agg.result"}
 !355 = distinct !{!355, !"_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv"}
 !356 = !{!357}
-!357 = distinct !{!357, !358, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc: %agg.result"}
-!358 = distinct !{!358, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc"}
+!357 = distinct !{!357, !358, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc.argprom: %agg.result"}
+!358 = distinct !{!358, !"_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_120XdsClusterResolverLb18DiscoveryMechanismENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc.argprom"}
 !359 = !{!360}
 !360 = distinct !{!360, !361, !"_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb28LogicalDNSDiscoveryMechanism21ResolverResultHandlerEJNS0_13RefCountedPtrINS2_18DiscoveryMechanismEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !361 = distinct !{!361, !"_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb28LogicalDNSDiscoveryMechanism21ResolverResultHandlerEJNS0_13RefCountedPtrINS2_18DiscoveryMechanismEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}

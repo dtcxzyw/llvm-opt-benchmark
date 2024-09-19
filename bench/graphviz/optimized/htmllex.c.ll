@@ -437,7 +437,7 @@ define internal void @startElement(ptr nocapture noundef readonly %0, ptr nounde
 17:                                               ; preds = %14
   %18 = load ptr, ptr @stderr, align 8
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.5, i64 noundef 176) #22
-  tail call fastcc void @graphviz_exit() #23
+  tail call fastcc void @graphviz_exit.argelim() #23
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %14
@@ -513,7 +513,7 @@ mkTbl.exit:                                       ; preds = %36, %gv_alloc.exit.
 51:                                               ; preds = %48
   %52 = load ptr, ptr @stderr, align 8
   %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.5, i64 noundef 144) #22
-  tail call fastcc void @graphviz_exit() #23
+  tail call fastcc void @graphviz_exit.argelim() #23
   unreachable
 
 gv_alloc.exit.i32:                                ; preds = %48
@@ -1115,14 +1115,14 @@ define i32 @clearHTMLlexer() local_unnamed_addr #0 {
   tail call void @XML_ParserFree(ptr noundef %3) #19
   %4 = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
   %5 = icmp eq i8 %4, -1
-  br i1 %5, label %6, label %agxbfree.exit
+  br i1 %5, label %6, label %agxbfree.argprom.exit
 
 6:                                                ; preds = %0
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @state, i64 32), align 8
   tail call void @free(ptr noundef %7) #19
-  br label %agxbfree.exit
+  br label %agxbfree.argprom.exit
 
-agxbfree.exit:                                    ; preds = %0, %6
+agxbfree.argprom.exit:                            ; preds = %0, %6
   %.not = icmp eq i32 %1, 0
   %8 = select i1 %.not, i32 %2, i32 3
   ret i32 %8
@@ -1261,18 +1261,18 @@ sub_0.i.i:                                        ; preds = %21
   %.03.i = phi ptr [ %.0.i, %.critedge.i ], [ %.01319.i.ptr.i.le, %.critedge.i.i ], [ %.01319.i.ptr.i.le64, %.critedge.thread.i.loopexit ]
   %32 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.101) #19
   store i32 1, ptr getelementptr inbounds (i8, ptr @state, i64 64), align 8
-  br label %findNext.exit
+  br label %findNext.argprom.exit
 
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  br label %findNext.exit
+  br label %findNext.argprom.exit
 
 .preheader9.i:                                    ; preds = %4, %58
   %35 = phi i8 [ %.pr4.i, %58 ], [ %6, %4 ]
   %.3.i = phi ptr [ %.4.i, %58 ], [ %5, %4 ]
   switch i8 %35, label %agxbsizeof.exit.i.i [
-    i8 60, label %findNext.exit
-    i8 0, label %findNext.exit
+    i8 60, label %findNext.argprom.exit
+    i8 0, label %findNext.argprom.exit
     i8 38, label %36
   ]
 
@@ -1335,24 +1335,24 @@ agxbputc.exit.i:                                  ; preds = %51, %46
   %.pr4.i = load i8, ptr %.4.i, align 1
   br label %.preheader9.i
 
-findNext.exit:                                    ; preds = %.preheader9.i, %.preheader9.i, %.critedge.thread.i, %33
+findNext.argprom.exit:                            ; preds = %.preheader9.i, %.preheader9.i, %.critedge.thread.i, %33
   %.2.i = phi ptr [ %.03.i, %.critedge.thread.i ], [ %34, %33 ], [ %.3.i, %.preheader9.i ], [ %.3.i, %.preheader9.i ]
   %59 = ptrtoint ptr %.2.i to i64
   %60 = ptrtoint ptr %5 to i64
   %61 = sub i64 %59, %60
   br label %62
 
-62:                                               ; preds = %7, %findNext.exit, %3
-  %.020 = phi ptr [ @.str.1, %3 ], [ @.str.2, %7 ], [ %5, %findNext.exit ]
-  %.1 = phi ptr [ null, %3 ], [ %.019, %7 ], [ %.2.i, %findNext.exit ]
-  %.018 = phi i64 [ 6, %3 ], [ 7, %7 ], [ %61, %findNext.exit ]
+62:                                               ; preds = %7, %findNext.argprom.exit, %3
+  %.020 = phi ptr [ @.str.1, %3 ], [ @.str.2, %7 ], [ %5, %findNext.argprom.exit ]
+  %.1 = phi ptr [ null, %3 ], [ %.019, %7 ], [ %.2.i, %findNext.argprom.exit ]
+  %.018 = phi i64 [ 6, %3 ], [ 7, %7 ], [ %61, %findNext.argprom.exit ]
   %.val.i.i = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
   switch i8 %.val.i.i, label %agxblen.exit.i.i.i [
     i8 -1, label %agxblen.exit.i
-    i8 0, label %protect_rsqb.exit.thread58
+    i8 0, label %protect_rsqb.argprom.exit.thread58
   ]
 
-protect_rsqb.exit.thread58:                       ; preds = %62
+protect_rsqb.argprom.exit.thread58:               ; preds = %62
   %63 = load ptr, ptr getelementptr inbounds (i8, ptr @state, i64 80), align 8
   store ptr %63, ptr getelementptr inbounds (i8, ptr @state, i64 88), align 8
   %64 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 96), align 8
@@ -1364,9 +1364,9 @@ protect_rsqb.exit.thread58:                       ; preds = %62
 agxblen.exit.i:                                   ; preds = %62
   %65 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8
   %66 = icmp eq i64 %65, 0
-  br i1 %66, label %protect_rsqb.exit.thread, label %70
+  br i1 %66, label %protect_rsqb.argprom.exit.thread, label %70
 
-protect_rsqb.exit.thread:                         ; preds = %agxblen.exit.i
+protect_rsqb.argprom.exit.thread:                 ; preds = %agxblen.exit.i
   %67 = load ptr, ptr getelementptr inbounds (i8, ptr @state, i64 80), align 8
   store ptr %67, ptr getelementptr inbounds (i8, ptr @state, i64 88), align 8
   %68 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 96), align 8
@@ -1443,12 +1443,12 @@ agxbuse.exit.i:                                   ; preds = %85, %agxbclear.exit
   br i1 %.not.i27, label %agxblen.exit.i.i11.i, label %92
 
 92:                                               ; preds = %agxbuse.exit.i
-  tail call fastcc void @agxbput_move(ptr noundef nonnull %87)
-  br label %protect_rsqb.exitthread-pre-split
+  tail call fastcc void @agxbput_move.argprom(ptr noundef nonnull %87)
+  br label %protect_rsqb.argprom.exitthread-pre-split
 
 agxblen.exit.i.i11.i:                             ; preds = %agxbuse.exit.i
   store i8 0, ptr %90, align 1
-  tail call fastcc void @agxbput_move(ptr noundef nonnull %87)
+  tail call fastcc void @agxbput_move.argprom(ptr noundef nonnull %87)
   %.val.i.i.i12.i = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
   %.not.i.i.i13.i = icmp eq i8 %.val.i.i.i12.i, -1
   %93 = zext i8 %.val.i.i.i12.i to i64
@@ -1477,7 +1477,7 @@ agxblen.exit.i.i11.i:                             ; preds = %agxbuse.exit.i
   %103 = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
   %104 = add i8 %103, 5
   store i8 %104, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
-  br label %protect_rsqb.exit
+  br label %protect_rsqb.argprom.exit
 
 105:                                              ; preds = %99
   %106 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8
@@ -1487,14 +1487,14 @@ agxblen.exit.i.i11.i:                             ; preds = %agxbuse.exit.i
   %109 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8
   %110 = add i64 %109, 5
   store i64 %110, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8
-  br label %protect_rsqb.exitthread-pre-split
+  br label %protect_rsqb.argprom.exitthread-pre-split
 
-protect_rsqb.exitthread-pre-split:                ; preds = %105, %92
+protect_rsqb.argprom.exitthread-pre-split:        ; preds = %105, %92
   %.val.i.pr = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
-  br label %protect_rsqb.exit
+  br label %protect_rsqb.argprom.exit
 
-protect_rsqb.exit:                                ; preds = %protect_rsqb.exitthread-pre-split, %100
-  %.val.i = phi i8 [ %.val.i.pr, %protect_rsqb.exitthread-pre-split ], [ %104, %100 ]
+protect_rsqb.argprom.exit:                        ; preds = %protect_rsqb.argprom.exitthread-pre-split, %100
+  %.val.i = phi i8 [ %.val.i.pr, %protect_rsqb.argprom.exitthread-pre-split ], [ %104, %100 ]
   %111 = load ptr, ptr getelementptr inbounds (i8, ptr @state, i64 80), align 8
   store ptr %111, ptr getelementptr inbounds (i8, ptr @state, i64 88), align 8
   %112 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 96), align 8
@@ -1506,12 +1506,12 @@ protect_rsqb.exit:                                ; preds = %protect_rsqb.exitth
     i8 0, label %136
   ]
 
-agxblen.exit:                                     ; preds = %protect_rsqb.exit.thread, %protect_rsqb.exit
+agxblen.exit:                                     ; preds = %protect_rsqb.argprom.exit.thread, %protect_rsqb.argprom.exit
   %113 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8
   %.not = icmp eq i64 %113, 0
   br i1 %.not, label %136, label %115
 
-agxblen.exit.i.i:                                 ; preds = %protect_rsqb.exit
+agxblen.exit.i.i:                                 ; preds = %protect_rsqb.argprom.exit
   %114 = zext i8 %.val.i to i64
   br label %agxbsizeof.exit.i.i32
 
@@ -1577,7 +1577,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %135 = tail call i32 @XML_Parse(ptr noundef %117, ptr noundef %133, i32 noundef %134, i32 noundef 0) #19
   br label %141
 
-136:                                              ; preds = %protect_rsqb.exit.thread58, %protect_rsqb.exit, %agxblen.exit
+136:                                              ; preds = %protect_rsqb.argprom.exit.thread58, %protect_rsqb.argprom.exit, %agxblen.exit
   %137 = load ptr, ptr @state, align 8
   %138 = trunc i64 %.018 to i32
   %.not24 = icmp eq i64 %.018, 0
@@ -1665,7 +1665,7 @@ agxbsizeof.exit:                                  ; preds = %2
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.5, i64 noundef %spec.select34) #22
-  tail call fastcc void @graphviz_exit() #23
+  tail call fastcc void @graphviz_exit.argelim() #23
   unreachable
 
 18:                                               ; preds = %12
@@ -1688,7 +1688,7 @@ agxbsizeof.exit:                                  ; preds = %2
 27:                                               ; preds = %23
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.5, i64 noundef %spec.select) #22
-  tail call fastcc void @graphviz_exit() #23
+  tail call fastcc void @graphviz_exit.argelim() #23
   unreachable
 
 gv_calloc.exit:                                   ; preds = %23
@@ -1712,7 +1712,7 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #6 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #6 {
   tail call void @exit(i32 noundef 1) #25
   unreachable
 }
@@ -1781,7 +1781,7 @@ define internal fastcc noundef ptr @mkImg(ptr nocapture noundef readonly %0) unn
 4:                                                ; preds = %1
   %5 = load ptr, ptr @stderr, align 8
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.5, i64 noundef 48) #22
-  tail call fastcc void @graphviz_exit() #23
+  tail call fastcc void @graphviz_exit.argelim() #23
   unreachable
 
 gv_alloc.exit:                                    ; preds = %1
@@ -2881,7 +2881,7 @@ define internal noundef i32 @srcfn(ptr nocapture noundef writeonly %0, ptr nocap
 declare ptr @scanEntity(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbput_move(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @agxbput_move.argprom(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = tail call noalias ptr @strdup(ptr noundef readonly %0) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_strdup.exit
@@ -2891,13 +2891,13 @@ define internal fastcc void @agxbput_move(ptr nocapture noundef readonly %0) unn
   %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #20
   %7 = add i64 %6, 1
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.5, i64 noundef %7) #22
-  tail call fastcc void @graphviz_exit() #23
+  tail call fastcc void @graphviz_exit.argelim() #23
   unreachable
 
 gv_strdup.exit:                                   ; preds = %1
   %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #20
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %agxbput.exit, label %agxblen.exit.i.i
+  br i1 %10, label %agxbput.argprom.exit, label %agxblen.exit.i.i
 
 agxblen.exit.i.i:                                 ; preds = %gv_strdup.exit
   %.val.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
@@ -2929,7 +2929,7 @@ agxblen.exit.i.i:                                 ; preds = %gv_strdup.exit
   %22 = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
   %23 = add i8 %22, %21
   store i8 %23, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
-  br label %agxbput.exit
+  br label %agxbput.argprom.exit
 
 24:                                               ; preds = %17
   %25 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8
@@ -2939,9 +2939,9 @@ agxblen.exit.i.i:                                 ; preds = %gv_strdup.exit
   %28 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8
   %29 = add i64 %28, %9
   store i64 %29, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8
-  br label %agxbput.exit
+  br label %agxbput.argprom.exit
 
-agxbput.exit:                                     ; preds = %gv_strdup.exit, %18, %24
+agxbput.argprom.exit:                             ; preds = %gv_strdup.exit, %18, %24
   tail call void @free(ptr noundef nonnull %2) #19
   ret void
 }
@@ -2992,5 +2992,5 @@ attributes #25 = { cold noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"tok: argument 0"}
-!6 = distinct !{!6, !"tok"}
+!5 = distinct !{!5, !6, !"tok.argprom: argument 0"}
+!6 = distinct !{!6, !"tok.argprom"}

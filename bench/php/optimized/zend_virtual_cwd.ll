@@ -109,9 +109,9 @@ define void @virtual_cwd_shutdown() local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 1024
-  br i1 %exitcond.not.i.i, label %cwd_globals_dtor.exit, label %1
+  br i1 %exitcond.not.i.i, label %cwd_globals_dtor.argprom.exit, label %1
 
-cwd_globals_dtor.exit:                            ; preds = %._crit_edge.i.i
+cwd_globals_dtor.argprom.exit:                    ; preds = %._crit_edge.i.i
   store i64 0, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 16), align 8
   %6 = load ptr, ptr @main_cwd_state.0, align 8
   tail call void @free(ptr noundef %6) #21
@@ -281,9 +281,9 @@ define void @realpath_cache_clean() local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 1024
-  br i1 %exitcond.not.i, label %realpath_cache_clean_helper.exit, label %1
+  br i1 %exitcond.not.i, label %realpath_cache_clean_helper.argprom.exit, label %1
 
-realpath_cache_clean_helper.exit:                 ; preds = %._crit_edge.i
+realpath_cache_clean_helper.argprom.exit:         ; preds = %._crit_edge.i
   store i64 0, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 16), align 8
   ret void
 }

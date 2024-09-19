@@ -337,7 +337,7 @@ egfx_get_conversation_data.exit:                  ; preds = %4, %17, %.thread.i
   tail call void @col_clear(ptr noundef %68, i32 noundef 25) #5
   %69 = tail call i32 @tvb_captured_length_remaining(ptr noundef nonnull %.03559, i32 noundef 0) #5
   %70 = icmp sgt i32 %69, 8
-  br i1 %70, label %.lr.ph15.i, label %dissect_rdp_egfx_payload.exit
+  br i1 %70, label %.lr.ph15.i, label %dissect_rdp_egfx_payload.argprom.exit
 
 .lr.ph15.i:                                       ; preds = %65
   %71 = getelementptr inbounds i8, ptr %.1.i, i64 8
@@ -366,7 +366,7 @@ egfx_get_conversation_data.exit:                  ; preds = %4, %17, %.thread.i
 
 90:                                               ; preds = %74
   %91 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %78, ptr noundef nonnull @ei_egfx_pdulen_invalid, ptr noundef nonnull @.str.99, i32 noundef %76) #5
-  br label %dissect_rdp_egfx_payload.exit
+  br label %dissect_rdp_egfx_payload.argprom.exit
 
 92:                                               ; preds = %74
   %93 = add i32 %76, -8
@@ -938,9 +938,9 @@ proto_item_set_generated.exit313.i:               ; preds = %362, %359, %356, %3
 proto_item_set_generated.exit.i:                  ; preds = %.lr.ph.i, %find_egfx_version.exit.i, %413, %411, %409, %407, %405, %403, %401, %399, %397, %395, %393, %391, %389, %387, %385, %383, %379, %376, %373, %370, %proto_item_set_generated.exit313.i, %313, %310, %307, %304, %proto_item_set_generated.exit307.i, %250, %247, %244, %241, %234, %212, %209, %206, %203, %198, %133, %124, %96, %92
   %415 = call i32 @tvb_captured_length_remaining(ptr noundef nonnull %.03559, i32 noundef %94) #5
   %416 = icmp sgt i32 %415, 8
-  br i1 %416, label %74, label %dissect_rdp_egfx_payload.exit, !llvm.loop !8
+  br i1 %416, label %74, label %dissect_rdp_egfx_payload.argprom.exit, !llvm.loop !8
 
-dissect_rdp_egfx_payload.exit:                    ; preds = %proto_item_set_generated.exit.i, %65, %90
+dissect_rdp_egfx_payload.argprom.exit:            ; preds = %proto_item_set_generated.exit.i, %65, %90
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -960,7 +960,7 @@ dissect_rdp_egfx_payload.exit:                    ; preds = %proto_item_set_gene
   %420 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %419, ptr noundef nonnull @ei_egfx_invalid_compression, ptr noundef nonnull @.str.98) #5
   br label %421
 
-421:                                              ; preds = %.thread53, %417, %dissect_rdp_egfx_payload.exit
+421:                                              ; preds = %.thread53, %417, %dissect_rdp_egfx_payload.argprom.exit
   %422 = call i32 @tvb_reported_length(ptr noundef %0) #5
   ret i32 %422
 }

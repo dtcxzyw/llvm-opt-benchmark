@@ -773,7 +773,7 @@ mi_heap_reallocf.exit:                            ; preds = %entry, %if.then.i
 ; Function Attrs: nounwind uwtable
 define i64 @mi_usable_size(ptr noundef %p) #0 {
 entry:
-  %call = tail call fastcc i64 @_mi_usable_size(ptr noundef %p) #15
+  %call = tail call fastcc i64 @_mi_usable_size.argprom(ptr noundef %p) #15
   ret i64 %call
 }
 
@@ -1598,7 +1598,7 @@ declare zeroext i1 @_mi_page_try_use_delayed_free(ptr noundef, i32 noundef, i1 n
 declare void @_mi_page_free_collect(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_mi_usable_size(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc i64 @_mi_usable_size.argprom(ptr noundef %p) unnamed_addr #0 {
 entry:
   %psize.i.i.i.i = alloca i64, align 8
   %psize.i.i.i8 = alloca i64, align 8
@@ -1635,7 +1635,7 @@ if.then5:                                         ; preds = %if.end
 
 if.then.i.i.i:                                    ; preds = %if.then5
   %conv.i.i.i = zext nneg i32 %5 to i64
-  br label %mi_page_usable_size_of.exit
+  br label %mi_page_usable_size_of.argprom.exit
 
 if.else.i.i.i:                                    ; preds = %if.then5
   %6 = ptrtoint ptr %add.ptr.i.i to i64
@@ -1644,9 +1644,9 @@ if.else.i.i.i:                                    ; preds = %if.then5
   %7 = inttoptr i64 %and.i.i.i.i.i to ptr
   %call4.i.i.i = call ptr @_mi_segment_page_start(ptr noundef %7, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %psize.i.i.i) #14
   %8 = load i64, ptr %psize.i.i.i, align 8
-  br label %mi_page_usable_size_of.exit
+  br label %mi_page_usable_size_of.argprom.exit
 
-mi_page_usable_size_of.exit:                      ; preds = %if.then.i.i.i, %if.else.i.i.i
+mi_page_usable_size_of.argprom.exit:              ; preds = %if.then.i.i.i, %if.else.i.i.i
   %retval.0.i.i.i = phi i64 [ %conv.i.i.i, %if.then.i.i.i ], [ %8, %if.else.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %psize.i.i.i)
   br label %return
@@ -1697,8 +1697,8 @@ mi_page_usable_aligned_size_of.exit:              ; preds = %_mi_page_ptr_unalig
   %sub.i = sub i64 %retval.0.i.i.i.i, %rem.i.i
   br label %return
 
-return:                                           ; preds = %entry, %mi_page_usable_aligned_size_of.exit, %mi_page_usable_size_of.exit
-  %retval.0 = phi i64 [ %retval.0.i.i.i, %mi_page_usable_size_of.exit ], [ %sub.i, %mi_page_usable_aligned_size_of.exit ], [ 0, %entry ]
+return:                                           ; preds = %entry, %mi_page_usable_aligned_size_of.exit, %mi_page_usable_size_of.argprom.exit
+  %retval.0 = phi i64 [ %retval.0.i.i.i, %mi_page_usable_size_of.argprom.exit ], [ %sub.i, %mi_page_usable_aligned_size_of.exit ], [ 0, %entry ]
   ret i64 %retval.0
 }
 
@@ -1880,7 +1880,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i64 @_mi_usable_size(ptr noundef nonnull %p) #15
+  %call = tail call fastcc i64 @_mi_usable_size.argprom(ptr noundef nonnull %p) #15
   %cmp1 = icmp ugt i64 %newsize, %call
   %.p = select i1 %cmp1, ptr null, ptr %p
   br label %return
@@ -1893,7 +1893,7 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_mi_heap_realloc_zero(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i1 noundef zeroext %zero) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i64 @_mi_usable_size(ptr noundef %p) #15
+  %call = tail call fastcc i64 @_mi_usable_size.argprom(ptr noundef %p) #15
   %cmp.not = icmp ugt i64 %newsize, %call
   %div24 = lshr i64 %call, 1
   %cmp1.not = icmp ult i64 %newsize, %div24

@@ -1307,7 +1307,7 @@ invoke.cont.i.i.i:                                ; preds = %invoke.cont.i8.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i), !noalias !10
   %_name.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
-          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_0EEEPS1_DpOT_.exit.i.i" unwind label %lpad80.i.i.i, !noalias !10
+          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_0EEEPS1_DpOT_.argprom.exit.i.i" unwind label %lpad80.i.i.i, !noalias !10
 
 lpad.i.i.i:                                       ; preds = %call.i.noexc.i.i.i, %if.end76.i.i.i
   %30 = landingpad { ptr, i32 }
@@ -1325,7 +1325,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad80.i.i.i, %lpad
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78.i.i.i) #29, !noalias !10
   br label %ehcleanup71
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_0EEEPS1_DpOT_.exit.i.i": ; preds = %invoke.cont.i.i.i
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_0EEEPS1_DpOT_.argprom.exit.i.i": ; preds = %invoke.cont.i.i.i
   %_priority.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 40
   store i32 0, ptr %_priority.i.i.i.i, align 8, !noalias !10
   %_topology.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 48
@@ -1371,14 +1371,14 @@ ehcleanup.i.i.i:                                  ; preds = %lpad80.i.i.i, %lpad
   %cmp.not.i.i.i.i = icmp eq ptr %33, %34
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i2.i.i, label %if.then.i.i1.i.i
 
-if.then.i.i1.i.i:                                 ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_0EEEPS1_DpOT_.exit.i.i"
+if.then.i.i1.i.i:                                 ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_0EEEPS1_DpOT_.argprom.exit.i.i"
   store ptr %retval.0.i.i.i.i, ptr %33, align 8, !noalias !10
   %35 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !10
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !noalias !10
   br label %invoke.cont7
 
-if.else.i.i2.i.i:                                 ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_0EEEPS1_DpOT_.exit.i.i"
+if.else.i.i2.i.i:                                 ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_0EEEPS1_DpOT_.argprom.exit.i.i"
   %36 = load ptr, ptr %taskflow.val, align 8, !noalias !10
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %36 to i64
@@ -1681,7 +1681,7 @@ invoke.cont.i.i.i99:                              ; preds = %invoke.cont.i8.i.i9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i37), !noalias !14
   %_name.i.i.i.i100 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i71, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i.i.i100, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i39)
-          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_1EEEPS1_DpOT_.exit.i.i" unwind label %lpad80.i.i.i101, !noalias !14
+          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_1EEEPS1_DpOT_.argprom.exit.i.i" unwind label %lpad80.i.i.i101, !noalias !14
 
 lpad.i.i.i88:                                     ; preds = %call.i.noexc.i.i.i91, %if.end76.i.i.i85
   %69 = landingpad { ptr, i32 }
@@ -1699,7 +1699,7 @@ ehcleanup.i.i.i89:                                ; preds = %lpad80.i.i.i101, %l
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78.i.i.i40) #29, !noalias !14
   br label %ehcleanup71
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_1EEEPS1_DpOT_.exit.i.i": ; preds = %invoke.cont.i.i.i99
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_1EEEPS1_DpOT_.argprom.exit.i.i": ; preds = %invoke.cont.i.i.i99
   %_priority.i.i.i.i102 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i71, i64 40
   store i32 0, ptr %_priority.i.i.i.i102, align 8, !noalias !14
   %_topology.i.i.i.i103 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i71, i64 48
@@ -1744,14 +1744,14 @@ ehcleanup.i.i.i89:                                ; preds = %lpad80.i.i.i101, %l
   %cmp.not.i.i.i.i122 = icmp eq ptr %71, %72
   br i1 %cmp.not.i.i.i.i122, label %if.else.i.i2.i.i125, label %if.then.i.i1.i.i123
 
-if.then.i.i1.i.i123:                              ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_1EEEPS1_DpOT_.exit.i.i"
+if.then.i.i1.i.i123:                              ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_1EEEPS1_DpOT_.argprom.exit.i.i"
   store ptr %retval.0.i.i.i.i71, ptr %71, align 8, !noalias !14
   %73 = load ptr, ptr %_M_finish.i.i.i.i120, align 8, !noalias !14
   %incdec.ptr.i.i.i.i124 = getelementptr inbounds i8, ptr %73, i64 8
   store ptr %incdec.ptr.i.i.i.i124, ptr %_M_finish.i.i.i.i120, align 8, !noalias !14
   br label %invoke.cont20
 
-if.else.i.i2.i.i125:                              ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_1EEEPS1_DpOT_.exit.i.i"
+if.else.i.i2.i.i125:                              ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_1EEEPS1_DpOT_.argprom.exit.i.i"
   %74 = load ptr, ptr %taskflow.val13, align 8, !noalias !14
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i126 = ptrtoint ptr %71 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i127 = ptrtoint ptr %74 to i64
@@ -2054,7 +2054,7 @@ invoke.cont.i.i.i277:                             ; preds = %invoke.cont.i8.i.i2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i215), !noalias !18
   %_name.i.i.i.i278 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i249, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i.i.i278, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i217)
-          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZ4mainE3$_2EEEPS1_DpOT_.exit.i.i" unwind label %lpad80.i.i.i279, !noalias !18
+          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZ4mainE3$_2EEEPS1_DpOT_.argprom.exit.i.i" unwind label %lpad80.i.i.i279, !noalias !18
 
 lpad.i.i.i266:                                    ; preds = %call.i.noexc.i.i.i269, %if.end76.i.i.i263
   %107 = landingpad { ptr, i32 }
@@ -2072,7 +2072,7 @@ ehcleanup.i.i.i267:                               ; preds = %lpad80.i.i.i279, %l
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78.i.i.i218) #29, !noalias !18
   br label %ehcleanup71
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZ4mainE3$_2EEEPS1_DpOT_.exit.i.i": ; preds = %invoke.cont.i.i.i277
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZ4mainE3$_2EEEPS1_DpOT_.argprom.exit.i.i": ; preds = %invoke.cont.i.i.i277
   %_priority.i.i.i.i280 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i249, i64 40
   store i32 0, ptr %_priority.i.i.i.i280, align 8, !noalias !18
   %_topology.i.i.i.i281 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i249, i64 48
@@ -2117,14 +2117,14 @@ ehcleanup.i.i.i267:                               ; preds = %lpad80.i.i.i279, %l
   %cmp.not.i.i.i.i296 = icmp eq ptr %109, %110
   br i1 %cmp.not.i.i.i.i296, label %if.else.i.i2.i.i299, label %if.then.i.i1.i.i297
 
-if.then.i.i1.i.i297:                              ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZ4mainE3$_2EEEPS1_DpOT_.exit.i.i"
+if.then.i.i1.i.i297:                              ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZ4mainE3$_2EEEPS1_DpOT_.argprom.exit.i.i"
   store ptr %retval.0.i.i.i.i249, ptr %109, align 8, !noalias !18
   %111 = load ptr, ptr %_M_finish.i.i.i.i294, align 8, !noalias !18
   %incdec.ptr.i.i.i.i298 = getelementptr inbounds i8, ptr %111, i64 8
   store ptr %incdec.ptr.i.i.i.i298, ptr %_M_finish.i.i.i.i294, align 8, !noalias !18
   br label %invoke.cont33
 
-if.else.i.i2.i.i299:                              ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZ4mainE3$_2EEEPS1_DpOT_.exit.i.i"
+if.else.i.i2.i.i299:                              ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_9ConditionEEZ4mainE3$_2EEEPS1_DpOT_.argprom.exit.i.i"
   %112 = load ptr, ptr %taskflow.val14, align 8, !noalias !18
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i300 = ptrtoint ptr %109 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i301 = ptrtoint ptr %112 to i64
@@ -2435,7 +2435,7 @@ invoke.cont.i.i.i451:                             ; preds = %invoke.cont.i8.i.i4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i389), !noalias !22
   %_name.i.i.i.i452 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i423, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i.i.i452, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i391)
-          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_3EEEPS1_DpOT_.exit.i.i" unwind label %lpad80.i.i.i453, !noalias !22
+          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_3EEEPS1_DpOT_.argprom.exit.i.i" unwind label %lpad80.i.i.i453, !noalias !22
 
 lpad.i.i.i440:                                    ; preds = %call.i.noexc.i.i.i443, %if.end76.i.i.i437
   %146 = landingpad { ptr, i32 }
@@ -2453,7 +2453,7 @@ ehcleanup.i.i.i441:                               ; preds = %lpad80.i.i.i453, %l
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78.i.i.i392) #29, !noalias !22
   br label %ehcleanup71
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_3EEEPS1_DpOT_.exit.i.i": ; preds = %invoke.cont.i.i.i451
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_3EEEPS1_DpOT_.argprom.exit.i.i": ; preds = %invoke.cont.i.i.i451
   %_priority.i.i.i.i454 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i423, i64 40
   store i32 0, ptr %_priority.i.i.i.i454, align 8, !noalias !22
   %_topology.i.i.i.i455 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i423, i64 48
@@ -2498,14 +2498,14 @@ ehcleanup.i.i.i441:                               ; preds = %lpad80.i.i.i453, %l
   %cmp.not.i.i.i.i474 = icmp eq ptr %148, %149
   br i1 %cmp.not.i.i.i.i474, label %if.else.i.i2.i.i477, label %if.then.i.i1.i.i475
 
-if.then.i.i1.i.i475:                              ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_3EEEPS1_DpOT_.exit.i.i"
+if.then.i.i1.i.i475:                              ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_3EEEPS1_DpOT_.argprom.exit.i.i"
   store ptr %retval.0.i.i.i.i423, ptr %148, align 8, !noalias !22
   %150 = load ptr, ptr %_M_finish.i.i.i.i472, align 8, !noalias !22
   %incdec.ptr.i.i.i.i476 = getelementptr inbounds i8, ptr %150, i64 8
   store ptr %incdec.ptr.i.i.i.i476, ptr %_M_finish.i.i.i.i472, align 8, !noalias !22
   br label %invoke.cont46
 
-if.else.i.i2.i.i477:                              ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_3EEEPS1_DpOT_.exit.i.i"
+if.else.i.i2.i.i477:                              ; preds = %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRA1_KciDnDniSt15in_place_type_tINS1_6StaticEEZ4mainE3$_3EEEPS1_DpOT_.argprom.exit.i.i"
   %151 = load ptr, ptr %taskflow.val15, align 8, !noalias !22
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i478 = ptrtoint ptr %148 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i479 = ptrtoint ptr %151 to i64
@@ -23432,20 +23432,20 @@ attributes #37 = { cold }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_0TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_: %agg.result"}
-!12 = distinct !{!12, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_0TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_"}
+!11 = distinct !{!11, !12, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_0TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.argprom: %agg.result"}
+!12 = distinct !{!12, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_0TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.argprom"}
 !13 = distinct !{!13, !6}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_1TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_: %agg.result"}
-!16 = distinct !{!16, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_1TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_"}
+!15 = distinct !{!15, !16, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_1TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.argprom: %agg.result"}
+!16 = distinct !{!16, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_1TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.argprom"}
 !17 = distinct !{!17, !6}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_2TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_: %agg.result"}
-!20 = distinct !{!20, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_2TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_"}
+!19 = distinct !{!19, !20, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_2TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.argprom: %agg.result"}
+!20 = distinct !{!20, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_2TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.argprom"}
 !21 = distinct !{!21, !6}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_3TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_: %agg.result"}
-!24 = distinct !{!24, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_3TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_"}
+!23 = distinct !{!23, !24, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_3TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.argprom: %agg.result"}
+!24 = distinct !{!24, !"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_3TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.argprom"}
 !25 = distinct !{!25, !6}
 !26 = !{!27}
 !27 = distinct !{!27, !28, !"_ZN2tf8Executor3runERNS_8TaskflowE: %agg.result"}

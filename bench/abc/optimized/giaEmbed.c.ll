@@ -216,7 +216,7 @@ Vec_IntAlloc.exit228:                             ; preds = %Vec_IntAlloc.exit, 
   %62 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val203295, i64 %61
   br label %68
 
-.lr.ph:                                           ; preds = %Gia_ObjIsRo.exit
+.lr.ph:                                           ; preds = %Gia_ObjIsRo.argprom.exit
   %.val203 = load ptr, ptr %42, align 8
   %63 = getelementptr i8, ptr %132, i64 8
   %.val204.val = load ptr, ptr %63, align 8
@@ -308,7 +308,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val209 = load i64, ptr %69, align 4
   %106 = and i64 %.val209, 2684354559
   %narrow.i.not.i = icmp eq i64 %106, 2684354559
-  br i1 %narrow.i.not.i, label %107, label %Gia_ObjIsRo.exit
+  br i1 %narrow.i.not.i, label %107, label %Gia_ObjIsRo.argprom.exit
 
 107:                                              ; preds = %Vec_IntPush.exit
   %108 = lshr i64 %.val209, 32
@@ -321,9 +321,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %112 = sub nsw i32 %.val5.val.i, %.val4.i
   %.not247 = icmp slt i32 %110, %112
   %113 = select i1 %.not247, i32 0, i32 16
-  br label %Gia_ObjIsRo.exit
+  br label %Gia_ObjIsRo.argprom.exit
 
-Gia_ObjIsRo.exit:                                 ; preds = %Vec_IntPush.exit, %107
+Gia_ObjIsRo.argprom.exit:                         ; preds = %Vec_IntPush.exit, %107
   %114 = phi i32 [ 0, %Vec_IntPush.exit ], [ %113, %107 ]
   %115 = load i32, ptr %104, align 4
   %116 = and i32 %115, 15
@@ -358,9 +358,9 @@ Gia_ObjIsRo.exit:                                 ; preds = %Vec_IntPush.exit, %
   %135 = icmp slt i64 %indvars.iv.next, %134
   br i1 %135, label %.lr.ph, label %.critedge, !llvm.loop !4
 
-.critedge:                                        ; preds = %Gia_ObjIsRo.exit, %.lr.ph, %.lr.ph.preheader, %Vec_IntAlloc.exit228
-  %.val179 = phi ptr [ %40, %Vec_IntAlloc.exit228 ], [ %40, %.lr.ph.preheader ], [ %.val178, %.lr.ph ], [ %.val178, %Gia_ObjIsRo.exit ]
-  %.0.lcssa = phi i32 [ %54, %Vec_IntAlloc.exit228 ], [ %54, %.lr.ph.preheader ], [ %129, %.lr.ph ], [ %129, %Gia_ObjIsRo.exit ]
+.critedge:                                        ; preds = %Gia_ObjIsRo.argprom.exit, %.lr.ph, %.lr.ph.preheader, %Vec_IntAlloc.exit228
+  %.val179 = phi ptr [ %40, %Vec_IntAlloc.exit228 ], [ %40, %.lr.ph.preheader ], [ %.val178, %.lr.ph ], [ %.val178, %Gia_ObjIsRo.argprom.exit ]
+  %.0.lcssa = phi i32 [ %54, %Vec_IntAlloc.exit228 ], [ %54, %.lr.ph.preheader ], [ %129, %.lr.ph ], [ %129, %Gia_ObjIsRo.argprom.exit ]
   %136 = load i32, ptr %29, align 8
   %137 = icmp sgt i32 %136, 0
   br i1 %137, label %.lr.ph258, label %.critedge2
@@ -505,7 +505,7 @@ Gia_ObjIsRo.exit:                                 ; preds = %Vec_IntPush.exit, %
   %223 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val218304, i64 %222
   br label %229
 
-.lr.ph265:                                        ; preds = %Gia_ObjIsRi.exit
+.lr.ph265:                                        ; preds = %Gia_ObjIsRi.argprom.exit
   %.val218 = load ptr, ptr %42, align 8
   %224 = getelementptr i8, ptr %312, i64 8
   %.val219.val = load ptr, ptr %224, align 8
@@ -604,7 +604,7 @@ Vec_IntPush.exit241:                              ; preds = %.Vec_IntGrow.exit10
   %271 = and i64 %.val224, 536870911
   %272 = icmp eq i64 %271, 536870911
   %narrow.i.not.i242 = or i1 %.not.i.i, %272
-  br i1 %narrow.i.not.i242, label %Gia_ObjIsRi.exit, label %273
+  br i1 %narrow.i.not.i242, label %Gia_ObjIsRi.argprom.exit, label %273
 
 273:                                              ; preds = %Vec_IntPush.exit241
   %274 = lshr i64 %.val224, 32
@@ -617,9 +617,9 @@ Vec_IntPush.exit241:                              ; preds = %.Vec_IntGrow.exit10
   %278 = sub nsw i32 %.val5.val.i245, %.val4.i243
   %.not249 = icmp slt i32 %276, %278
   %279 = select i1 %.not249, i32 1, i32 2
-  br label %Gia_ObjIsRi.exit
+  br label %Gia_ObjIsRi.argprom.exit
 
-Gia_ObjIsRi.exit:                                 ; preds = %Vec_IntPush.exit241, %273
+Gia_ObjIsRi.argprom.exit:                         ; preds = %Vec_IntPush.exit241, %273
   %280 = phi i32 [ 1, %Vec_IntPush.exit241 ], [ %279, %273 ]
   %281 = getelementptr inbounds i8, ptr %265, i64 4
   store i32 %280, ptr %281, align 4
@@ -671,9 +671,9 @@ Gia_ObjIsRi.exit:                                 ; preds = %Vec_IntPush.exit241
   %315 = icmp slt i64 %indvars.iv.next283, %314
   br i1 %315, label %.lr.ph265, label %.critedge4, !llvm.loop !7
 
-.critedge4:                                       ; preds = %Gia_ObjIsRi.exit, %.lr.ph265, %.lr.ph265.preheader, %.critedge2
-  %.val186 = phi ptr [ %.val179, %.critedge2 ], [ %.val179, %.lr.ph265.preheader ], [ %.val182, %.lr.ph265 ], [ %.val182, %Gia_ObjIsRi.exit ]
-  %.3.lcssa = phi i32 [ %.1.lcssa, %.critedge2 ], [ %.1.lcssa, %.lr.ph265.preheader ], [ %309, %.lr.ph265 ], [ %309, %Gia_ObjIsRi.exit ]
+.critedge4:                                       ; preds = %Gia_ObjIsRi.argprom.exit, %.lr.ph265, %.lr.ph265.preheader, %.critedge2
+  %.val186 = phi ptr [ %.val179, %.critedge2 ], [ %.val179, %.lr.ph265.preheader ], [ %.val182, %.lr.ph265 ], [ %.val182, %Gia_ObjIsRi.argprom.exit ]
+  %.3.lcssa = phi i32 [ %.1.lcssa, %.critedge2 ], [ %.1.lcssa, %.lr.ph265.preheader ], [ %309, %.lr.ph265 ], [ %309, %Gia_ObjIsRi.argprom.exit ]
   %.val166269 = load i32, ptr %3, align 8
   %316 = icmp sgt i32 %.val166269, 0
   br i1 %316, label %.lr.ph273, label %.critedge6
@@ -1715,7 +1715,7 @@ Vec_IntAlloc.exit244:                             ; preds = %Vec_IntAlloc.exit, 
   %62 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val222325, i64 %61
   br label %68
 
-.lr.ph:                                           ; preds = %Gia_ObjIsRo.exit
+.lr.ph:                                           ; preds = %Gia_ObjIsRo.argprom.exit
   %.val222 = load ptr, ptr %42, align 8
   %63 = getelementptr i8, ptr %132, i64 8
   %.val223.val = load ptr, ptr %63, align 8
@@ -1807,7 +1807,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val226 = load i64, ptr %69, align 4
   %106 = and i64 %.val226, 2684354559
   %narrow.i.not.i = icmp eq i64 %106, 2684354559
-  br i1 %narrow.i.not.i, label %107, label %Gia_ObjIsRo.exit
+  br i1 %narrow.i.not.i, label %107, label %Gia_ObjIsRo.argprom.exit
 
 107:                                              ; preds = %Vec_IntPush.exit
   %108 = lshr i64 %.val226, 32
@@ -1820,9 +1820,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %112 = sub nsw i32 %.val5.val.i, %.val4.i
   %.not267 = icmp slt i32 %110, %112
   %113 = select i1 %.not267, i32 0, i32 16
-  br label %Gia_ObjIsRo.exit
+  br label %Gia_ObjIsRo.argprom.exit
 
-Gia_ObjIsRo.exit:                                 ; preds = %Vec_IntPush.exit, %107
+Gia_ObjIsRo.argprom.exit:                         ; preds = %Vec_IntPush.exit, %107
   %114 = phi i32 [ 0, %Vec_IntPush.exit ], [ %113, %107 ]
   %115 = load i32, ptr %104, align 4
   %116 = and i32 %115, 15
@@ -1857,9 +1857,9 @@ Gia_ObjIsRo.exit:                                 ; preds = %Vec_IntPush.exit, %
   %135 = icmp slt i64 %indvars.iv.next, %134
   br i1 %135, label %.lr.ph, label %.critedge, !llvm.loop !21
 
-.critedge:                                        ; preds = %Gia_ObjIsRo.exit, %.lr.ph, %.lr.ph.preheader, %Vec_IntAlloc.exit244
-  %.val199 = phi ptr [ %40, %Vec_IntAlloc.exit244 ], [ %40, %.lr.ph.preheader ], [ %.val200, %.lr.ph ], [ %.val200, %Gia_ObjIsRo.exit ]
-  %.0.lcssa = phi i32 [ %54, %Vec_IntAlloc.exit244 ], [ %54, %.lr.ph.preheader ], [ %129, %.lr.ph ], [ %129, %Gia_ObjIsRo.exit ]
+.critedge:                                        ; preds = %Gia_ObjIsRo.argprom.exit, %.lr.ph, %.lr.ph.preheader, %Vec_IntAlloc.exit244
+  %.val199 = phi ptr [ %40, %Vec_IntAlloc.exit244 ], [ %40, %.lr.ph.preheader ], [ %.val200, %.lr.ph ], [ %.val200, %Gia_ObjIsRo.argprom.exit ]
+  %.0.lcssa = phi i32 [ %54, %Vec_IntAlloc.exit244 ], [ %54, %.lr.ph.preheader ], [ %129, %.lr.ph ], [ %129, %Gia_ObjIsRo.argprom.exit ]
   %136 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
   %137 = getelementptr inbounds i8, ptr %136, i64 4
   store i32 100, ptr %136, align 8
@@ -2073,7 +2073,7 @@ Vec_IntFree.exit253:                              ; preds = %Vec_IntFree.exit, %
   %229 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val236334, i64 %228
   br label %235
 
-.lr.ph288:                                        ; preds = %Gia_ObjIsRi.exit
+.lr.ph288:                                        ; preds = %Gia_ObjIsRi.argprom.exit
   %.val236 = load ptr, ptr %42, align 8
   %230 = getelementptr i8, ptr %318, i64 8
   %.val237.val = load ptr, ptr %230, align 8
@@ -2172,7 +2172,7 @@ Vec_IntPush.exit260:                              ; preds = %.Vec_IntGrow.exit10
   %277 = and i64 %.val240, 536870911
   %278 = icmp eq i64 %277, 536870911
   %narrow.i.not.i261 = or i1 %.not.i.i, %278
-  br i1 %narrow.i.not.i261, label %Gia_ObjIsRi.exit, label %279
+  br i1 %narrow.i.not.i261, label %Gia_ObjIsRi.argprom.exit, label %279
 
 279:                                              ; preds = %Vec_IntPush.exit260
   %280 = lshr i64 %.val240, 32
@@ -2185,9 +2185,9 @@ Vec_IntPush.exit260:                              ; preds = %.Vec_IntGrow.exit10
   %284 = sub nsw i32 %.val5.val.i264, %.val4.i262
   %.not269 = icmp slt i32 %282, %284
   %285 = select i1 %.not269, i32 1, i32 2
-  br label %Gia_ObjIsRi.exit
+  br label %Gia_ObjIsRi.argprom.exit
 
-Gia_ObjIsRi.exit:                                 ; preds = %Vec_IntPush.exit260, %279
+Gia_ObjIsRi.argprom.exit:                         ; preds = %Vec_IntPush.exit260, %279
   %286 = phi i32 [ 1, %Vec_IntPush.exit260 ], [ %285, %279 ]
   %287 = getelementptr inbounds i8, ptr %271, i64 4
   store i32 %286, ptr %287, align 4
@@ -2239,9 +2239,9 @@ Gia_ObjIsRi.exit:                                 ; preds = %Vec_IntPush.exit260
   %321 = icmp slt i64 %indvars.iv.next310, %320
   br i1 %321, label %.lr.ph288, label %.critedge6, !llvm.loop !24
 
-.critedge6:                                       ; preds = %Gia_ObjIsRi.exit, %.lr.ph288, %.lr.ph288.preheader, %Vec_IntFree.exit253
-  %.val193 = phi ptr [ %.val199, %Vec_IntFree.exit253 ], [ %.val199, %.lr.ph288.preheader ], [ %.val197, %.lr.ph288 ], [ %.val197, %Gia_ObjIsRi.exit ]
-  %.3.lcssa = phi i32 [ %.1.lcssa, %Vec_IntFree.exit253 ], [ %.1.lcssa, %.lr.ph288.preheader ], [ %315, %.lr.ph288 ], [ %315, %Gia_ObjIsRi.exit ]
+.critedge6:                                       ; preds = %Gia_ObjIsRi.argprom.exit, %.lr.ph288, %.lr.ph288.preheader, %Vec_IntFree.exit253
+  %.val193 = phi ptr [ %.val199, %Vec_IntFree.exit253 ], [ %.val199, %.lr.ph288.preheader ], [ %.val197, %.lr.ph288 ], [ %.val197, %Gia_ObjIsRi.argprom.exit ]
+  %.3.lcssa = phi i32 [ %.1.lcssa, %Vec_IntFree.exit253 ], [ %.1.lcssa, %.lr.ph288.preheader ], [ %315, %.lr.ph288 ], [ %315, %Gia_ObjIsRi.argprom.exit ]
   %.val292 = load i32, ptr %5, align 8
   %322 = icmp sgt i32 %.val292, 0
   br i1 %322, label %.lr.ph296, label %.critedge8

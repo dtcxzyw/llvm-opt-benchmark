@@ -453,7 +453,7 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17h6d468b6687f1f0bb
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !108
   %10 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !108
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h54265419aed6131cE.exit"
+  br i1 %11, label %12, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h54265419aed6131cE.argprom.exit"
 
 12:                                               ; preds = %3
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 24) #29
@@ -477,7 +477,7 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17h6d468b6687f1f0bb
 17:                                               ; preds = %13
   resume { ptr, i32 } %14
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h54265419aed6131cE.exit": ; preds = %3
+"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h54265419aed6131cE.argprom.exit": ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !103
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !103
   %18 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h0bf40e37c33fa406E(i8 noundef %0, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ac1622ddb42e58df41b416f183c6cfca.9)
@@ -492,7 +492,7 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17he081b3f0ea420b6c
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !116
   %5 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !116
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h30aee14eb67bcf1eE.exit"
+  br i1 %6, label %7, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h30aee14eb67bcf1eE.argprom.exit"
 
 7:                                                ; preds = %2
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 24) #29
@@ -516,7 +516,7 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17he081b3f0ea420b6c
 12:                                               ; preds = %8
   resume { ptr, i32 } %9
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h30aee14eb67bcf1eE.exit": ; preds = %2
+"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h30aee14eb67bcf1eE.argprom.exit": ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !111
   %13 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h0bf40e37c33fa406E(i8 noundef %0, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ac1622ddb42e58df41b416f183c6cfca.9)
@@ -2456,16 +2456,16 @@ attributes #32 = { cold }
 !103 = !{!104, !106}
 !104 = distinct !{!104, !105, !"_ZN152_$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h69a5956a8b6f17d9E: argument 0"}
 !105 = distinct !{!105, !"_ZN152_$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h69a5956a8b6f17d9E"}
-!106 = distinct !{!106, !107, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h54265419aed6131cE: argument 0"}
-!107 = distinct !{!107, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h54265419aed6131cE"}
+!106 = distinct !{!106, !107, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h54265419aed6131cE.argprom: argument 0"}
+!107 = distinct !{!107, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h54265419aed6131cE.argprom"}
 !108 = !{!109, !104, !106}
 !109 = distinct !{!109, !110, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0cd77fae9278b62aE: argument 0"}
 !110 = distinct !{!110, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0cd77fae9278b62aE"}
 !111 = !{!112, !114}
 !112 = distinct !{!112, !113, !"_ZN166_$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h2c18ad41ffae8604E: argument 0"}
 !113 = distinct !{!113, !"_ZN166_$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h2c18ad41ffae8604E"}
-!114 = distinct !{!114, !115, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h30aee14eb67bcf1eE: argument 0"}
-!115 = distinct !{!115, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h30aee14eb67bcf1eE"}
+!114 = distinct !{!114, !115, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h30aee14eb67bcf1eE.argprom: argument 0"}
+!115 = distinct !{!115, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h30aee14eb67bcf1eE.argprom"}
 !116 = !{!117, !112, !114}
 !117 = distinct !{!117, !118, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0cd77fae9278b62aE: argument 0"}
 !118 = distinct !{!118, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0cd77fae9278b62aE"}

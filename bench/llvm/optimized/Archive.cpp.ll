@@ -8272,7 +8272,7 @@ _ZN4llvm5ErrorD2Ev.exit147:                       ; preds = %152
   %.val = load ptr, ptr %52, align 8
   %154 = getelementptr inbounds i8, ptr %52, i64 8
   %.val35 = load i64, ptr %154, align 8
-  call fastcc void @_ZL25getGlobalSymtabLocAndSizeRKN4llvm15MemoryBufferRefEmRPKcRmS4_(ptr dead_on_unwind noalias writable align 8 %53, ptr %.val, i64 %.val35, i64 noundef %133, ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull @.str.58)
+  call fastcc void @_ZL25getGlobalSymtabLocAndSizeRKN4llvm15MemoryBufferRefEmRPKcRmS4_.argprom(ptr dead_on_unwind noalias writable align 8 %53, ptr %.val, i64 %.val35, i64 noundef %133, ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull @.str.58)
   %155 = load ptr, ptr %53, align 8
   store ptr %155, ptr %2, align 8
   %.not356 = icmp eq ptr %155, null
@@ -8290,7 +8290,7 @@ _ZN4llvm5ErrorD2Ev.exit148:                       ; preds = %157
   %.val36 = load ptr, ptr %52, align 8
   %158 = getelementptr inbounds i8, ptr %52, i64 8
   %.val37 = load i64, ptr %158, align 8
-  call fastcc void @_ZL25getGlobalSymtabLocAndSizeRKN4llvm15MemoryBufferRefEmRPKcRmS4_(ptr dead_on_unwind noalias writable align 8 %54, ptr %.val36, i64 %.val37, i64 noundef %153, ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull @.str.59)
+  call fastcc void @_ZL25getGlobalSymtabLocAndSizeRKN4llvm15MemoryBufferRefEmRPKcRmS4_.argprom(ptr dead_on_unwind noalias writable align 8 %54, ptr %.val36, i64 %.val37, i64 noundef %153, ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull @.str.59)
   %159 = load ptr, ptr %54, align 8
   store ptr %159, ptr %2, align 8
   %.not357 = icmp eq ptr %159, null
@@ -8558,7 +8558,7 @@ _ZN4llvm11SmallVectorI16GlobalSymtabInfoLj1EED2Ev.exit: ; preds = %274, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25getGlobalSymtabLocAndSizeRKN4llvm15MemoryBufferRefEmRPKcRmS4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, i64 %.8.val, i64 noundef range(i64 1, 0) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @_ZL25getGlobalSymtabLocAndSizeRKN4llvm15MemoryBufferRefEmRPKcRmS4_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, i64 %.8.val, i64 noundef range(i64 1, 0) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8

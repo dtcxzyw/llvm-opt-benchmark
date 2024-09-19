@@ -1515,7 +1515,7 @@ if.end76.i.i.i75:                                 ; preds = %if.then71.i.i.i67, 
   %_semaphores.i.i.i.i91 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i61, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %_semaphores.i.i.i.i91, i8 0, i64 40, i1 false), !noalias !24
   %call.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i7.i.i.i.i92 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
-          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZNS_19make_transform_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESN_SN_Z4mainE3$_1NS_17GuidedPartitionerETnPNSt9enable_ifIX16is_partitioner_vINSt5decayIT3_E4typeEEEvE4typeELPv0EEEDaT_T0_T1_T2_OSS_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.exit.i.i" unwind label %lpad6.i.i.i.i93, !noalias !24
+          to label %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZNS_19make_transform_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESN_SN_Z4mainE3$_1NS_17GuidedPartitionerETnPNSt9enable_ifIX16is_partitioner_vINSt5decayIT3_E4typeEEEvE4typeELPv0EEEDaT_T0_T1_T2_OSS_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.argprom.exit.i.i" unwind label %lpad6.i.i.i.i93, !noalias !24
 
 lpad6.i.i.i.i93:                                  ; preds = %.noexc8.i78
   %69 = landingpad { ptr, i32 }
@@ -1542,7 +1542,7 @@ ehcleanup8.i.i.i.i99:                             ; preds = %if.then.i.i10.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i.i.i77) #29, !noalias !24
   br label %lpad3.body.i25
 
-"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZNS_19make_transform_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESN_SN_Z4mainE3$_1NS_17GuidedPartitionerETnPNSt9enable_ifIX16is_partitioner_vINSt5decayIT3_E4typeEEEvE4typeELPv0EEEDaT_T0_T1_T2_OSS_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.exit.i.i": ; preds = %.noexc8.i78
+"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZNS_19make_transform_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESN_SN_Z4mainE3$_1NS_17GuidedPartitionerETnPNSt9enable_ifIX16is_partitioner_vINSt5decayIT3_E4typeEEEvE4typeELPv0EEEDaT_T0_T1_T2_OSS_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.argprom.exit.i.i": ; preds = %.noexc8.i78
   %_handle.i.i.i.i100 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i61, i64 176
   %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i101 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i61, i64 200
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i102 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i61, i64 192
@@ -1576,7 +1576,7 @@ ehcleanup8.i.i.i.i99:                             ; preds = %if.then.i.i10.i.i.i
   %state2.i.i.i = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 48
   br label %add_successor.i.i.i
 
-add_successor.i.i.i:                              ; preds = %if.else.i4.i.i, %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZNS_19make_transform_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESN_SN_Z4mainE3$_1NS_17GuidedPartitionerETnPNSt9enable_ifIX16is_partitioner_vINSt5decayIT3_E4typeEEEvE4typeELPv0EEEDaT_T0_T1_T2_OSS_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.exit.i.i"
+add_successor.i.i.i:                              ; preds = %if.else.i4.i.i, %"_ZN2tf10ObjectPoolINS_4NodeELm65536EE7animateIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiDnDnRmSt15in_place_type_tINS1_14DependentAsyncEEZNS_19make_transform_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESN_SN_Z4mainE3$_1NS_17GuidedPartitionerETnPNSt9enable_ifIX16is_partitioner_vINSt5decayIT3_E4typeEEEvE4typeELPv0EEEDaT_T0_T1_T2_OSS_EUlRNS_7RuntimeEE_EEEPS1_DpOT_.argprom.exit.i.i"
   %75 = cmpxchg weak ptr %state2.i.i.i, i32 0, i32 1 acq_rel acquire, align 4, !noalias !24
   %76 = extractvalue { i32, i1 } %75, 1
   br i1 %76, label %if.then.i.i.i118, label %if.else.i4.i.i

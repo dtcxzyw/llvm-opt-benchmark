@@ -806,26 +806,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30: ; 
 69:                                               ; preds = %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   %.val = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.exit, label %70
+  br i1 %.not.i, label %_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.argprom.exit, label %70
 
 70:                                               ; preds = %69
   call void @freeifaddrs(ptr noundef nonnull %.val) #8
-  br label %_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.exit
+  br label %_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.argprom.exit
 
-_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.exit: ; preds = %69, %70
+_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.argprom.exit: ; preds = %69, %70
   ret void
 
 71:                                               ; preds = %.body28, %60, %58, %.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %61, %60 ], [ %59, %58 ], [ %eh.lpad-body29, %.body28 ]
   %.val24 = load ptr, ptr %2, align 8
   %.not.i31 = icmp eq ptr %.val24, null
-  br i1 %.not.i31, label %_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.exit32, label %72
+  br i1 %.not.i31, label %_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.argprom.exit32, label %72
 
 72:                                               ; preds = %71
   call void @freeifaddrs(ptr noundef nonnull %.val24) #8
-  br label %_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.exit32
+  br label %_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.argprom.exit32
 
-_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.exit32: ; preds = %71, %72
+_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.argprom.exit32: ; preds = %71, %72
   resume { ptr, i32 } %.pn
 }
 

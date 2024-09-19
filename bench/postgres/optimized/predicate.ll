@@ -1764,8 +1764,8 @@ CoarserLockCovers.exit.thread:                    ; preds = %27
   %.0.i14.ph = phi i1 [ true, %80 ], [ false, %41 ]
   br label %46
 
-46:                                               ; preds = %.outer, %MaxPredicateChildLocks.exit
-  %47 = phi i32 [ %.val7.i, %MaxPredicateChildLocks.exit ], [ %.ph, %.outer ]
+46:                                               ; preds = %.outer, %MaxPredicateChildLocks.argprom.exit
+  %47 = phi i32 [ %.val7.i, %MaxPredicateChildLocks.argprom.exit ], [ %.ph, %.outer ]
   %.not.i18 = icmp eq i32 %47, 0
   br i1 %.not.i18, label %48, label %.thread.i
 
@@ -1813,7 +1813,7 @@ CoarserLockCovers.exit.thread:                    ; preds = %27
   %67 = phi i32 [ %65, %62 ], [ 1, %59 ]
   %.val7.i = load i32, ptr %44, align 4
   %.not.i16 = icmp eq i32 %.val7.i, 0
-  br i1 %.not.i16, label %68, label %MaxPredicateChildLocks.exit
+  br i1 %.not.i16, label %68, label %MaxPredicateChildLocks.argprom.exit
 
 68:                                               ; preds = %66
   %.val.i = load i32, ptr %43, align 4
@@ -1823,25 +1823,25 @@ CoarserLockCovers.exit.thread:                    ; preds = %27
 69:                                               ; preds = %68
   %70 = load i32, ptr @max_predicate_locks_per_relation, align 4
   %71 = icmp slt i32 %70, 0
-  br i1 %71, label %72, label %MaxPredicateChildLocks.exit
+  br i1 %71, label %72, label %MaxPredicateChildLocks.argprom.exit
 
 72:                                               ; preds = %69
   %73 = load i32, ptr @max_predicate_locks_per_xact, align 4
   %74 = sub i32 0, %70
   %75 = sdiv i32 %73, %74
   %76 = add i32 %75, -1
-  br label %MaxPredicateChildLocks.exit
+  br label %MaxPredicateChildLocks.argprom.exit
 
 77:                                               ; preds = %68
   %78 = load i32, ptr @max_predicate_locks_per_page, align 4
-  br label %MaxPredicateChildLocks.exit
+  br label %MaxPredicateChildLocks.argprom.exit
 
-MaxPredicateChildLocks.exit:                      ; preds = %66, %69, %72, %77
+MaxPredicateChildLocks.argprom.exit:              ; preds = %66, %69, %72, %77
   %.0.i17 = phi i32 [ %78, %77 ], [ %76, %72 ], [ %70, %69 ], [ 0, %66 ]
   %79 = icmp sgt i32 %67, %.0.i17
   br i1 %79, label %80, label %46, !llvm.loop !18
 
-80:                                               ; preds = %MaxPredicateChildLocks.exit
+80:                                               ; preds = %MaxPredicateChildLocks.argprom.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
   br label %.outer, !llvm.loop !18
 

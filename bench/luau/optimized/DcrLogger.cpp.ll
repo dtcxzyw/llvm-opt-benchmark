@@ -7259,7 +7259,7 @@ _ZN4Luau18ConstraintSnapshotD2Ev.exit:            ; preds = %_ZSt8_DestroyIPN4Lu
   %.val = load ptr, ptr %73, align 8
   %76 = getelementptr inbounds i8, ptr %0, i64 64
   %.val12 = load ptr, ptr %76, align 8
-  call fastcc void @_ZN4LuauL19snapshotTypeStringsERKSt6vectorINS_19ExprTypesAtLocationESaIS1_EERKS0_INS_25AnnotationTypesAtLocationESaIS6_EERNS_12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toISD_EEERNS_15ToStringOptionsE(ptr %.val, ptr %.val12, ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(40) %75, ptr noundef nonnull align 8 dereferenceable(184) %8)
+  call fastcc void @_ZN4LuauL19snapshotTypeStringsERKSt6vectorINS_19ExprTypesAtLocationESaIS1_EERKS0_INS_25AnnotationTypesAtLocationESaIS6_EERNS_12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toISD_EEERNS_15ToStringOptionsE.argprom(ptr %.val, ptr %.val12, ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(40) %75, ptr noundef nonnull align 8 dereferenceable(184) %8)
   ret void
 
 77:                                               ; preds = %71, %69
@@ -8698,7 +8698,7 @@ _ZNSt6vectorIN4Luau15ConstraintBlockESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL19snapshotTypeStringsERKSt6vectorINS_19ExprTypesAtLocationESaIS1_EERKS0_INS_25AnnotationTypesAtLocationESaIS6_EERNS_12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toISD_EEERNS_15ToStringOptionsE(ptr readonly %.0.val, ptr readnone %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(184) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL19snapshotTypeStringsERKSt6vectorINS_19ExprTypesAtLocationESaIS1_EERKS0_INS_25AnnotationTypesAtLocationESaIS6_EERNS_12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toISD_EEERNS_15ToStringOptionsE.argprom(ptr readonly %.0.val, ptr readnone %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(184) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8977,7 +8977,7 @@ _ZN4Luau18ConstraintSnapshotD2Ev.exit:            ; preds = %_ZSt8_DestroyIPN4Lu
   %.val = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %1, i64 64
   %.val16 = load ptr, ptr %83, align 8
-  invoke fastcc void @_ZN4LuauL19snapshotTypeStringsERKSt6vectorINS_19ExprTypesAtLocationESaIS1_EERKS0_INS_25AnnotationTypesAtLocationESaIS6_EERNS_12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toISD_EEERNS_15ToStringOptionsE(ptr %.val, ptr %.val16, ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(184) %13)
+  invoke fastcc void @_ZN4LuauL19snapshotTypeStringsERKSt6vectorINS_19ExprTypesAtLocationESaIS1_EERKS0_INS_25AnnotationTypesAtLocationESaIS6_EERNS_12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toISD_EEERNS_15ToStringOptionsE.argprom(ptr %.val, ptr %.val16, ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(184) %13)
           to label %84 unwind label %112
 
 84:                                               ; preds = %._crit_edge
@@ -9978,7 +9978,7 @@ _ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_trait
   %15 = getelementptr inbounds i8, ptr %14, i64 9
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKPKNS_4TypeEEEDaOT_.exit", label %18
+  br i1 %17, label %"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKPKNS_4TypeEEEDaOT_.argprom.exit", label %18
 
 18:                                               ; preds = %_ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt17basic_string_viewIcS6_ET_.exit.i
   %19 = load ptr, ptr %14, align 8
@@ -9989,7 +9989,7 @@ _ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_trait
   call void @_ZN4Luau4Json11JsonEmitter8writeRawEc(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 noundef signext 58)
   %22 = load ptr, ptr %14, align 8
   call void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEPKc(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull @.str.81)
-  br label %"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKPKNS_4TypeEEEDaOT_.exit"
+  br label %"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKPKNS_4TypeEEEDaOT_.argprom.exit"
 
 23:                                               ; preds = %.noexc4.i, %.noexc3.i, %.noexc.i, %9
   %24 = landingpad { ptr, i32 }
@@ -9997,7 +9997,7 @@ _ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_trait
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   resume { ptr, i32 } %24
 
-"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKPKNS_4TypeEEEDaOT_.exit": ; preds = %_ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt17basic_string_viewIcS6_ET_.exit.i, %18
+"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKPKNS_4TypeEEEDaOT_.argprom.exit": ; preds = %_ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt17basic_string_viewIcS6_ET_.exit.i, %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }
@@ -10041,7 +10041,7 @@ _ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_trait
   %15 = getelementptr inbounds i8, ptr %14, i64 9
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKPKNS_11TypePackVarEEEDaOT_.exit", label %18
+  br i1 %17, label %"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKPKNS_11TypePackVarEEEDaOT_.argprom.exit", label %18
 
 18:                                               ; preds = %_ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt17basic_string_viewIcS6_ET_.exit.i
   %19 = load ptr, ptr %14, align 8
@@ -10052,7 +10052,7 @@ _ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_trait
   call void @_ZN4Luau4Json11JsonEmitter8writeRawEc(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 noundef signext 58)
   %22 = load ptr, ptr %14, align 8
   call void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEPKc(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull @.str.82)
-  br label %"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKPKNS_11TypePackVarEEEDaOT_.exit"
+  br label %"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKPKNS_11TypePackVarEEEDaOT_.argprom.exit"
 
 23:                                               ; preds = %.noexc4.i, %.noexc3.i, %.noexc.i, %9
   %24 = landingpad { ptr, i32 }
@@ -10060,7 +10060,7 @@ _ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_trait
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   resume { ptr, i32 } %24
 
-"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKPKNS_11TypePackVarEEEDaOT_.exit": ; preds = %_ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt17basic_string_viewIcS6_ET_.exit.i, %18
+"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKPKNS_11TypePackVarEEEDaOT_.argprom.exit": ; preds = %_ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt17basic_string_viewIcS6_ET_.exit.i, %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }
@@ -10104,7 +10104,7 @@ _ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_trait
   %15 = getelementptr inbounds i8, ptr %14, i64 9
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKNS_7NotNullIKNS_10ConstraintEEEEEDaOT_.exit", label %18
+  br i1 %17, label %"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKNS_7NotNullIKNS_10ConstraintEEEEEDaOT_.argprom.exit", label %18
 
 18:                                               ; preds = %_ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt17basic_string_viewIcS6_ET_.exit.i
   %19 = load ptr, ptr %14, align 8
@@ -10115,7 +10115,7 @@ _ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_trait
   call void @_ZN4Luau4Json11JsonEmitter8writeRawEc(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 noundef signext 58)
   %22 = load ptr, ptr %14, align 8
   call void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEPKc(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull @.str.83)
-  br label %"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKNS_7NotNullIKNS_10ConstraintEEEEEDaOT_.exit"
+  br label %"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKNS_7NotNullIKNS_10ConstraintEEEEEDaOT_.argprom.exit"
 
 23:                                               ; preds = %.noexc4.i, %.noexc3.i, %.noexc.i, %9
   %24 = landingpad { ptr, i32 }
@@ -10123,7 +10123,7 @@ _ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_trait
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   resume { ptr, i32 } %24
 
-"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKNS_7NotNullIKNS_10ConstraintEEEEEDaOT_.exit": ; preds = %_ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt17basic_string_viewIcS6_ET_.exit.i, %18
+"_ZZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15ConstraintBlockEENK3$_0clIRKNS_7NotNullIKNS_10ConstraintEEEEEDaOT_.argprom.exit": ; preds = %_ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt17basic_string_viewIcS6_ET_.exit.i, %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }

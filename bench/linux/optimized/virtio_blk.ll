@@ -2411,7 +2411,7 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
   br i1 %143, label %.thread8, label %.thread9, !prof !36
 
 .thread8:                                         ; preds = %134, %138
-  call fastcc void @virtblk_fail_to_queue(ptr noundef %1)
+  call fastcc void @virtblk_fail_to_queue.argelim(ptr noundef %1)
   br label %146
 
 .thread9:                                         ; preds = %120, %138
@@ -2433,7 +2433,7 @@ declare dso_local zeroext i1 @virtqueue_kick(ptr noundef) local_unnamed_addr #1
 declare dso_local void @blk_mq_stop_hw_queue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @virtblk_fail_to_queue(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc void @virtblk_fail_to_queue.argelim(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 262144

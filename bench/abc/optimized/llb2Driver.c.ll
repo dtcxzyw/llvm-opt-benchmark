@@ -55,8 +55,8 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %19 = getelementptr i8, ptr %.pre, i64 8
   br label %20
 
-20:                                               ; preds = %.lr.ph, %Aig_ObjFaninId0.exit
-  %.016 = phi i32 [ 0, %.lr.ph ], [ %37, %Aig_ObjFaninId0.exit ]
+20:                                               ; preds = %.lr.ph, %Aig_ObjFaninId0.argprom.exit
+  %.016 = phi i32 [ 0, %.lr.ph ], [ %37, %Aig_ObjFaninId0.argprom.exit ]
   %21 = add nsw i32 %.val10.pre, %.016
   %.val11 = load ptr, ptr %19, align 8
   %22 = sext i32 %21 to i64
@@ -65,7 +65,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %25 = getelementptr i8, ptr %24, i64 8
   %.val12 = load ptr, ptr %25, align 8
   %.not.i14 = icmp eq ptr %.val12, null
-  br i1 %.not.i14, label %Aig_ObjFaninId0.exit, label %26
+  br i1 %.not.i14, label %Aig_ObjFaninId0.argprom.exit, label %26
 
 26:                                               ; preds = %20
   %27 = ptrtoint ptr %.val12 to i64
@@ -74,9 +74,9 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %30 = getelementptr inbounds i8, ptr %29, i64 36
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
-  br label %Aig_ObjFaninId0.exit
+  br label %Aig_ObjFaninId0.argprom.exit
 
-Aig_ObjFaninId0.exit:                             ; preds = %20, %26
+Aig_ObjFaninId0.argprom.exit:                     ; preds = %20, %26
   %33 = phi i64 [ %32, %26 ], [ -1, %20 ]
   %34 = getelementptr inbounds i32, ptr %.val13, i64 %33
   %35 = load i32, ptr %34, align 4
@@ -86,7 +86,7 @@ Aig_ObjFaninId0.exit:                             ; preds = %20, %26
   %38 = icmp slt i32 %37, %.val915
   br i1 %38, label %20, label %.critedge, !llvm.loop !4
 
-.critedge:                                        ; preds = %Aig_ObjFaninId0.exit, %Vec_IntStart.exit
+.critedge:                                        ; preds = %Aig_ObjFaninId0.argprom.exit, %Vec_IntStart.exit
   ret ptr %4
 }
 
@@ -440,7 +440,7 @@ define noundef ptr @Llb_DriverPhaseCube(ptr nocapture noundef readonly %0, ptr n
   %19 = getelementptr i8, ptr %18, i64 8
   %.val29 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %.val29, null
-  br i1 %.not.i, label %Aig_ObjFaninId0.exit, label %20
+  br i1 %.not.i, label %Aig_ObjFaninId0.argprom.exit, label %20
 
 20:                                               ; preds = %12
   %21 = ptrtoint ptr %.val29 to i64
@@ -449,9 +449,9 @@ define noundef ptr @Llb_DriverPhaseCube(ptr nocapture noundef readonly %0, ptr n
   %24 = getelementptr inbounds i8, ptr %23, i64 36
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  br label %Aig_ObjFaninId0.exit
+  br label %Aig_ObjFaninId0.argprom.exit
 
-Aig_ObjFaninId0.exit:                             ; preds = %12, %20
+Aig_ObjFaninId0.argprom.exit:                     ; preds = %12, %20
   %27 = phi i64 [ %26, %20 ], [ -1, %12 ]
   %.val30 = load ptr, ptr %11, align 8
   %28 = getelementptr inbounds i32, ptr %.val30, i64 %27
@@ -459,23 +459,23 @@ Aig_ObjFaninId0.exit:                             ; preds = %12, %20
   %.not = icmp eq i32 %29, 1
   br i1 %.not, label %30, label %42
 
-30:                                               ; preds = %Aig_ObjFaninId0.exit
+30:                                               ; preds = %Aig_ObjFaninId0.argprom.exit
   %31 = ptrtoint ptr %.val29 to i64
   %32 = and i64 %31, 1
   %.not25 = icmp eq i64 %32, 0
   br i1 %.not25, label %42, label %33
 
 33:                                               ; preds = %30
-  br i1 %.not.i, label %Aig_ObjFaninId0.exit33, label %34
+  br i1 %.not.i, label %Aig_ObjFaninId0.argprom.exit33, label %34
 
 34:                                               ; preds = %33
   %35 = and i64 %31, -2
   %36 = inttoptr i64 %35 to ptr
   %37 = getelementptr inbounds i8, ptr %36, i64 36
   %38 = load i32, ptr %37, align 4
-  br label %Aig_ObjFaninId0.exit33
+  br label %Aig_ObjFaninId0.argprom.exit33
 
-Aig_ObjFaninId0.exit33:                           ; preds = %33, %34
+Aig_ObjFaninId0.argprom.exit33:                   ; preds = %33, %34
   %39 = phi i32 [ %38, %34 ], [ -1, %33 ]
   %40 = tail call ptr @Cudd_bddIthVar(ptr noundef %2, i32 noundef %39) #8
   %41 = tail call ptr @Cudd_bddAnd(ptr noundef %2, ptr noundef %.036, ptr noundef %40) #8
@@ -484,9 +484,9 @@ Aig_ObjFaninId0.exit33:                           ; preds = %33, %34
   %.val.pre = load i32, ptr %7, align 8
   br label %42
 
-42:                                               ; preds = %30, %Aig_ObjFaninId0.exit, %Aig_ObjFaninId0.exit33
-  %.val = phi i32 [ %.val37, %Aig_ObjFaninId0.exit ], [ %.val.pre, %Aig_ObjFaninId0.exit33 ], [ %.val37, %30 ]
-  %.1 = phi ptr [ %.036, %Aig_ObjFaninId0.exit ], [ %41, %Aig_ObjFaninId0.exit33 ], [ %.036, %30 ]
+42:                                               ; preds = %30, %Aig_ObjFaninId0.argprom.exit, %Aig_ObjFaninId0.argprom.exit33
+  %.val = phi i32 [ %.val37, %Aig_ObjFaninId0.argprom.exit ], [ %.val.pre, %Aig_ObjFaninId0.argprom.exit33 ], [ %.val37, %30 ]
+  %.1 = phi ptr [ %.036, %Aig_ObjFaninId0.argprom.exit ], [ %41, %Aig_ObjFaninId0.argprom.exit33 ], [ %.036, %30 ]
   %43 = add nuw nsw i32 %.02435, 1
   %44 = icmp slt i32 %43, %.val
   br i1 %44, label %12, label %.critedge, !llvm.loop !8
@@ -538,7 +538,7 @@ define noundef ptr @Llb_DriverLastPartition(ptr nocapture noundef readonly %0, p
   %.04664 = phi ptr [ %8, %.lr.ph ], [ %.1, %Saig_ObjIsLi.exit.thread ]
   %.val56 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.val56, null
-  br i1 %.not.i, label %Aig_ManObj.exit, label %14
+  br i1 %.not.i, label %Aig_ManObj.argprom.exit, label %14
 
 14:                                               ; preds = %13
   %.val52 = load ptr, ptr %11, align 8
@@ -549,9 +549,9 @@ define noundef ptr @Llb_DriverLastPartition(ptr nocapture noundef readonly %0, p
   %18 = sext i32 %16 to i64
   %19 = getelementptr inbounds ptr, ptr %.val.i, i64 %18
   %20 = load ptr, ptr %19, align 8
-  br label %Aig_ManObj.exit
+  br label %Aig_ManObj.argprom.exit
 
-Aig_ManObj.exit:                                  ; preds = %13, %14
+Aig_ManObj.argprom.exit:                          ; preds = %13, %14
   %21 = phi ptr [ %20, %14 ], [ null, %13 ]
   %22 = getelementptr i8, ptr %21, i64 24
   %.val4.i = load i64, ptr %22, align 8
@@ -559,7 +559,7 @@ Aig_ManObj.exit:                                  ; preds = %13, %14
   %.not.i57 = icmp eq i64 %23, 3
   br i1 %.not.i57, label %Saig_ObjIsLi.exit, label %Saig_ObjIsLi.exit.thread
 
-Saig_ObjIsLi.exit:                                ; preds = %Aig_ManObj.exit
+Saig_ObjIsLi.exit:                                ; preds = %Aig_ManObj.argprom.exit
   %.val3.i = load i32, ptr %21, align 8
   %.val.i58 = load i32, ptr %12, align 8
   %.not61 = icmp slt i32 %.val3.i, %.val.i58
@@ -572,7 +572,7 @@ Saig_ObjIsLi.exit:                                ; preds = %Aig_ManObj.exit
   %27 = getelementptr i8, ptr %21, i64 8
   %.val49 = load ptr, ptr %27, align 8
   %.not.i59 = icmp eq ptr %.val49, null
-  br i1 %.not.i59, label %Aig_ObjFaninId0.exit, label %28
+  br i1 %.not.i59, label %Aig_ObjFaninId0.argprom.exit, label %28
 
 28:                                               ; preds = %24
   %29 = ptrtoint ptr %.val49 to i64
@@ -580,9 +580,9 @@ Saig_ObjIsLi.exit:                                ; preds = %Aig_ManObj.exit
   %31 = inttoptr i64 %30 to ptr
   %32 = getelementptr inbounds i8, ptr %31, i64 36
   %33 = load i32, ptr %32, align 4
-  br label %Aig_ObjFaninId0.exit
+  br label %Aig_ObjFaninId0.argprom.exit
 
-Aig_ObjFaninId0.exit:                             ; preds = %24, %28
+Aig_ObjFaninId0.argprom.exit:                     ; preds = %24, %28
   %34 = phi i32 [ %33, %28 ], [ -1, %24 ]
   %35 = tail call ptr @Cudd_bddIthVar(ptr noundef %6, i32 noundef %34) #8
   %.val50 = load ptr, ptr %27, align 8
@@ -595,15 +595,15 @@ Aig_ObjFaninId0.exit:                             ; preds = %24, %28
   %.not = icmp eq i64 %40, 1
   br i1 %.not, label %41, label %43
 
-41:                                               ; preds = %Aig_ObjFaninId0.exit
+41:                                               ; preds = %Aig_ObjFaninId0.argprom.exit
   %42 = tail call ptr @Cudd_ReadOne(ptr noundef %6) #8
   %.val54.pre = load ptr, ptr %27, align 8
   %.pre = ptrtoint ptr %.val54.pre to i64
   br label %43
 
-43:                                               ; preds = %41, %Aig_ObjFaninId0.exit
-  %.pre-phi = phi i64 [ %.pre, %41 ], [ %36, %Aig_ObjFaninId0.exit ]
-  %.045 = phi ptr [ %42, %41 ], [ %35, %Aig_ObjFaninId0.exit ]
+43:                                               ; preds = %41, %Aig_ObjFaninId0.argprom.exit
+  %.pre-phi = phi i64 [ %.pre, %41 ], [ %36, %Aig_ObjFaninId0.argprom.exit ]
+  %.045 = phi ptr [ %42, %41 ], [ %35, %Aig_ObjFaninId0.argprom.exit ]
   %44 = ptrtoint ptr %.045 to i64
   %45 = and i64 %.pre-phi, 1
   %46 = xor i64 %45, %44
@@ -626,9 +626,9 @@ Aig_ObjFaninId0.exit:                             ; preds = %24, %28
   %.val55.pre = load i32, ptr %9, align 4
   br label %Saig_ObjIsLi.exit.thread
 
-Saig_ObjIsLi.exit.thread:                         ; preds = %Aig_ManObj.exit, %Saig_ObjIsLi.exit, %52
-  %.val55 = phi i32 [ %.val55.pre, %52 ], [ %.val5569, %Saig_ObjIsLi.exit ], [ %.val5569, %Aig_ManObj.exit ]
-  %.1 = phi ptr [ %49, %52 ], [ %.04664, %Saig_ObjIsLi.exit ], [ %.04664, %Aig_ManObj.exit ]
+Saig_ObjIsLi.exit.thread:                         ; preds = %Aig_ManObj.argprom.exit, %Saig_ObjIsLi.exit, %52
+  %.val55 = phi i32 [ %.val55.pre, %52 ], [ %.val5569, %Saig_ObjIsLi.exit ], [ %.val5569, %Aig_ManObj.argprom.exit ]
+  %.1 = phi ptr [ %49, %52 ], [ %.04664, %Saig_ObjIsLi.exit ], [ %.04664, %Aig_ManObj.argprom.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = sext i32 %.val55 to i64
   %54 = icmp slt i64 %indvars.iv.next, %53

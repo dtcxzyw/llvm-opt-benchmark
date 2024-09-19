@@ -39,7 +39,7 @@ define dso_local noundef i32 @_ZN4absl13base_internal7NumCPUsEv() local_unnamed_
 entry:
   %0 = load atomic i32, ptr @_ZN4absl13base_internalL18init_num_cpus_onceE acquire, align 4
   %cmp.not.i = icmp eq i32 %0, 221
-  br i1 %cmp.not.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_7NumCPUsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit", label %if.then.i
+  br i1 %cmp.not.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_7NumCPUsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %1 = cmpxchg ptr @_ZN4absl13base_internalL18init_num_cpus_onceE, i32 0, i32 1707250555 monotonic monotonic, align 4
@@ -49,20 +49,20 @@ if.then.i:                                        ; preds = %entry
 lor.lhs.false.i.i:                                ; preds = %if.then.i
   %call1.i.i = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull @_ZN4absl13base_internalL18init_num_cpus_onceE, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl13base_internal12CallOnceImplIZNS0_7NumCPUsEvE3$_0JEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 0)
   %cmp.i.i = icmp eq i32 %call1.i.i, 0
-  br i1 %cmp.i.i, label %release.i.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_7NumCPUsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit"
+  br i1 %cmp.i.i, label %release.i.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_7NumCPUsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit"
 
 release.i.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.then.i
   %call.i.i.i.i.i.i.i = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #13
   store i32 %call.i.i.i.i.i.i.i, ptr @_ZN4absl13base_internalL8num_cpusE, align 4
   %3 = atomicrmw xchg ptr @_ZN4absl13base_internalL18init_num_cpus_onceE, i32 221 release, align 4
   %cmp4.i.i = icmp eq i32 %3, 94570706
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_7NumCPUsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit"
+  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_7NumCPUsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit"
 
 if.then5.i.i:                                     ; preds = %release.i.i.i
   tail call void @AbslInternalSpinLockWake(ptr noundef nonnull @_ZN4absl13base_internalL18init_num_cpus_onceE, i1 noundef zeroext true)
-  br label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_7NumCPUsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit"
+  br label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_7NumCPUsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit"
 
-"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_7NumCPUsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
+"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_7NumCPUsEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
   %4 = load i32, ptr @_ZN4absl13base_internalL8num_cpusE, align 4
   ret i32 %4
 }
@@ -75,7 +75,7 @@ entry:
   %err.i.i.i.i.i.i.i.i = alloca ptr, align 8
   %0 = load atomic i32, ptr @_ZN4absl13base_internalL31init_nominal_cpu_frequency_onceE acquire, align 4
   %cmp.not.i = icmp eq i32 %0, 221
-  br i1 %cmp.not.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_19NominalCPUFrequencyEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit", label %if.then.i
+  br i1 %cmp.not.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_19NominalCPUFrequencyEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %1 = cmpxchg ptr @_ZN4absl13base_internalL31init_nominal_cpu_frequency_onceE, i32 0, i32 1707250555 monotonic monotonic, align 4
@@ -85,7 +85,7 @@ if.then.i:                                        ; preds = %entry
 lor.lhs.false.i.i:                                ; preds = %if.then.i
   %call1.i.i = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull @_ZN4absl13base_internalL31init_nominal_cpu_frequency_onceE, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl13base_internal12CallOnceImplIZNS0_19NominalCPUFrequencyEvE3$_0JEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 0)
   %cmp.i.i = icmp eq i32 %call1.i.i, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_19NominalCPUFrequencyEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit"
+  br i1 %cmp.i.i, label %if.then.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_19NominalCPUFrequencyEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit"
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %line.i.i.i.i.i.i.i.i)
@@ -107,27 +107,27 @@ land.rhs.i.i.i.i.i.i.i.i:                         ; preds = %do.body.i.i.i.i.i.i
   %call4.i.i.i.i.i.i.i.i = tail call ptr @__errno_location() #14
   %3 = load i32, ptr %call4.i.i.i.i.i.i.i.i, align 4
   %cmp5.i.i.i.i.i.i.i.i = icmp eq i32 %3, 4
-  br i1 %cmp5.i.i.i.i.i.i.i.i, label %do.body.i.i.i.i.i.i.i.i, label %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread4.i.i.i.i.i.i.i, !llvm.loop !5
+  br i1 %cmp5.i.i.i.i.i.i.i.i, label %do.body.i.i.i.i.i.i.i.i, label %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.argprom.exit.thread4.i.i.i.i.i.i.i, !llvm.loop !5
 
 do.end.i.i.i.i.i.i.i.i:                           ; preds = %do.body.i.i.i.i.i.i.i.i
   %cmp6.i.i.i.i.i.i.i.i = icmp eq i64 %call2.i.i.i.i.i.i40.i.i, 0
-  br i1 %cmp6.i.i.i.i.i.i.i.i, label %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread4.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
+  br i1 %cmp6.i.i.i.i.i.i.i.i, label %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.argprom.exit.thread4.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %do.end.i.i.i.i.i.i.i.i
   %call9.i.i.i.i.i.i.i.i = call i64 @strtol(ptr noundef nonnull %line.i.i.i.i.i.i.i.i, ptr noundef nonnull %err.i.i.i.i.i.i.i.i, i32 noundef 10) #13
   %4 = load i8, ptr %line.i.i.i.i.i.i.i.i, align 16
   %cmp10.not.i.i.i.i.i.i.i.i = icmp eq i8 %4, 0
-  br i1 %cmp10.not.i.i.i.i.i.i.i.i, label %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread4.i.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i.i.i
+  br i1 %cmp10.not.i.i.i.i.i.i.i.i, label %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.argprom.exit.thread4.i.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i.i.i:                    ; preds = %if.else.i.i.i.i.i.i.i.i
   %5 = load ptr, ptr %err.i.i.i.i.i.i.i.i, align 8
   %6 = load i8, ptr %5, align 1
-  switch i8 %6, label %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread4.i.i.i.i.i.i.i [
+  switch i8 %6, label %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.argprom.exit.thread4.i.i.i.i.i.i.i [
     i8 10, label %if.then.i.i.i.i.i.i.i
     i8 0, label %if.then.i.i.i.i.i.i.i
   ]
 
-_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread4.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i, %do.end.i.i.i.i.i.i.i.i
+_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.argprom.exit.thread4.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i, %do.end.i.i.i.i.i.i.i.i
   %call17.i7.i.i.i.i.i41.i.i = call i32 @close(i32 noundef %call.i.i.i.i.i.i39.i.i)
   br label %if.end.i.i.i.i.i.i.i
 
@@ -139,7 +139,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i
   %mul.i.i.i.i.i.i.i = fmul double %conv.i.i.i.i.i.i.i, 1.000000e+03
   br label %release.i.i.i
 
-if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread4.i.i.i.i.i.i.i, %if.then.i.i
+if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.argprom.exit.thread4.i.i.i.i.i.i.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %line.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i.i.i.i.i.i.i.i)
   %tv_nsec.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ts.i.i.i.i.i.i.i.i.i, i64 8
@@ -240,13 +240,13 @@ release.i.i.i:                                    ; preds = %if.end.i.i.i.i.i.i.
   store double %retval.0.i.i.i.i.i.i.i, ptr @_ZN4absl13base_internalL21nominal_cpu_frequencyE, align 8
   %10 = atomicrmw xchg ptr @_ZN4absl13base_internalL31init_nominal_cpu_frequency_onceE, i32 221 release, align 4
   %cmp4.i.i = icmp eq i32 %10, 94570706
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_19NominalCPUFrequencyEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit"
+  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_19NominalCPUFrequencyEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit"
 
 if.then5.i.i:                                     ; preds = %release.i.i.i
   call void @AbslInternalSpinLockWake(ptr noundef nonnull @_ZN4absl13base_internalL31init_nominal_cpu_frequency_onceE, i1 noundef zeroext true)
-  br label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_19NominalCPUFrequencyEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit"
+  br label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_19NominalCPUFrequencyEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit"
 
-"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_19NominalCPUFrequencyEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
+"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_19NominalCPUFrequencyEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.argprom.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
   %11 = load double, ptr @_ZN4absl13base_internalL21nominal_cpu_frequencyE, align 8
   ret double %11
 }

@@ -596,20 +596,20 @@ define hidden zeroext i1 @rb_c_method_tracing_currently_enabled(ptr nocapture no
   %4 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %rb_ec_ractor_hooks.exit, label %5
+  br i1 %.not.i.i, label %rb_ec_ractor_hooks.argprom.exit, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %.val, i64 24
   %7 = load ptr, ptr %6, align 8
-  br label %rb_ec_ractor_hooks.exit
+  br label %rb_ec_ractor_hooks.argprom.exit
 
-rb_ec_ractor_hooks.exit:                          ; preds = %3, %5
+rb_ec_ractor_hooks.argprom.exit:                  ; preds = %3, %5
   %.0.i.i = phi ptr [ %7, %5 ], [ null, %3 ]
   %8 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
   br label %9
 
-9:                                                ; preds = %1, %rb_ec_ractor_hooks.exit
-  %.0.in = phi ptr [ %8, %rb_ec_ractor_hooks.exit ], [ @ruby_vm_event_enabled_global_flags, %1 ]
+9:                                                ; preds = %1, %rb_ec_ractor_hooks.argprom.exit
+  %.0.in = phi ptr [ %8, %rb_ec_ractor_hooks.argprom.exit ], [ @ruby_vm_event_enabled_global_flags, %1 ]
   %.0 = load i32, ptr %.0.in, align 4
   %10 = and i32 %.0, 96
   %11 = icmp ne i32 %10, 0
@@ -652,13 +652,13 @@ define hidden void @rb_full_cfunc_return(ptr noundef %0, i64 noundef %1) local_u
   %22 = load i8, ptr %21, align 8
   %23 = and i8 %22, 15
   %24 = icmp eq i8 %23, 1
-  br i1 %24, label %rb_ec_ractor_hooks.exit, label %25
+  br i1 %24, label %rb_ec_ractor_hooks.argprom.exit, label %25
 
 25:                                               ; preds = %19
   tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 373, ptr noundef nonnull @__func__.rb_full_cfunc_return, ptr noundef nonnull @.str.13) #22
   unreachable
 
-rb_ec_ractor_hooks.exit:                          ; preds = %19
+rb_ec_ractor_hooks.argprom.exit:                  ; preds = %19
   tail call void @rb_vm_pop_frame(ptr noundef nonnull %0) #5
   %26 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %26, align 8, !nonnull !12, !noundef !12
@@ -670,7 +670,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %19
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %53, label %32
 
-32:                                               ; preds = %rb_ec_ractor_hooks.exit
+32:                                               ; preds = %rb_ec_ractor_hooks.argprom.exit
   %33 = getelementptr inbounds i8, ptr %28, i64 16
   %34 = getelementptr inbounds i8, ptr %6, i64 24
   %35 = load i64, ptr %34, align 8
@@ -706,7 +706,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %19
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
   br label %53
 
-53:                                               ; preds = %32, %rb_ec_ractor_hooks.exit
+53:                                               ; preds = %32, %rb_ec_ractor_hooks.argprom.exit
   %54 = load i16, ptr @ruby_cmethod__return_semaphore, align 2
   %.not20 = icmp eq i16 %54, 0
   br i1 %.not20, label %70, label %55
@@ -2478,13 +2478,13 @@ define hidden void @rb_yjit_obj_written(i64 noundef %0, i64 noundef %1, ptr noca
   %6 = icmp ne i64 %5, 0
   %7 = icmp eq i64 %1, 0
   %8 = or i1 %7, %6
-  br i1 %8, label %rb_obj_written.exit, label %9
+  br i1 %8, label %rb_obj_written.argprom.exit, label %9
 
 9:                                                ; preds = %4
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %1) #5
-  br label %rb_obj_written.exit
+  br label %rb_obj_written.argprom.exit
 
-rb_obj_written.exit:                              ; preds = %4, %9
+rb_obj_written.argprom.exit:                      ; preds = %4, %9
   ret void
 }
 
@@ -2492,13 +2492,13 @@ rb_obj_written.exit:                              ; preds = %4, %9
 define hidden void @rb_yjit_vm_lock_then_barrier(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i, label %5, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %5, label %rb_vm_lock_enter.argprom.exit
 
 5:                                                ; preds = %3
   tail call void @rb_vm_lock_enter_body(ptr noundef %0) #5
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %3, %5
+rb_vm_lock_enter.argprom.exit:                    ; preds = %3, %5
   tail call void @rb_vm_barrier() #5
   ret void
 }
@@ -2509,13 +2509,13 @@ declare void @rb_vm_barrier() local_unnamed_addr #3
 define hidden void @rb_yjit_vm_unlock(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i, label %5, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i, label %5, label %rb_vm_lock_leave.argprom.exit
 
 5:                                                ; preds = %3
   tail call void @rb_vm_lock_leave_body(ptr noundef %0) #5
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %3, %5
+rb_vm_lock_leave.argprom.exit:                    ; preds = %3, %5
   ret void
 }
 
@@ -2524,13 +2524,13 @@ define hidden void @rb_yjit_compile_iseq(ptr noundef %0, ptr noundef %1, i1 noun
   %4 = alloca i32, align 4
   %5 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %6, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %6, label %rb_vm_lock_enter.argprom.exit
 
 6:                                                ; preds = %3
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #5
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %3, %6
+rb_vm_lock_enter.argprom.exit:                    ; preds = %3, %6
   call void @rb_vm_barrier() #5
   %7 = call ptr @rb_yjit_iseq_gen_entry_point(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #5
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2540,13 +2540,13 @@ rb_vm_lock_enter.exit:                            ; preds = %3, %6
   store ptr %7, ptr %10, align 8
   %11 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7 = icmp eq ptr %11, null
-  br i1 %.not.i.i7, label %12, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i7, label %12, label %rb_vm_lock_leave.argprom.exit
 
-12:                                               ; preds = %rb_vm_lock_enter.exit
+12:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #5
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter.exit, %12
+rb_vm_lock_leave.argprom.exit:                    ; preds = %rb_vm_lock_enter.argprom.exit, %12
   ret void
 }
 

@@ -9470,14 +9470,14 @@ terminate.lpad.i1013:                             ; preds = %if.then2.i.i.i1018,
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit1022: ; preds = %if.then.i1006, %if.then2.i.i.i1018, %delete.notnull.i.i.i1020
   %.pr1290 = load ptr, ptr %runEndsHolder.i, align 8
   %cmp.not.i1001 = icmp eq ptr %.pr1290, null
-  br i1 %cmp.not.i1001, label %_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderESt14default_deleteIS3_EED2Ev.exit1004, label %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderEEclEPS3_.exit.i1002
+  br i1 %cmp.not.i1001, label %_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderESt14default_deleteIS3_EED2Ev.exit1004, label %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderEEclEPS3_.argprom.exit.i1002
 
-_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderEEclEPS3_.exit.i1002: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit1022
+_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderEEclEPS3_.argprom.exit.i1002: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit1022
   call fastcc void @_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %.pr1290) #39
   call void @_ZdlPv(ptr noundef nonnull %.pr1290) #37
   br label %_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderESt14default_deleteIS3_EED2Ev.exit1004
 
-_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderESt14default_deleteIS3_EED2Ev.exit1004: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit1022.thread, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit1022, %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderEEclEPS3_.exit.i1002
+_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderESt14default_deleteIS3_EED2Ev.exit1004: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit1022.thread, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit1022, %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderEEclEPS3_.argprom.exit.i1002
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %runEndsHolder.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %runsBuffer.i)
   br label %_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderESt14default_deleteIS3_EED2Ev.exit
@@ -9548,7 +9548,7 @@ if.then4:                                         ; preds = %if.then
   %dictionary = getelementptr inbounds i8, ptr %arrowSchema, i64 48
   store ptr null, ptr %dictionary, align 8
   %call1.val = load ptr, ptr %type_.i, align 8
-  %call7 = invoke fastcc noundef ptr @_ZN8facebook5velox12_GLOBAL__N_120exportArrowFormatStrERKSt10shared_ptrIKNS0_4TypeEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %call1.val, ptr noundef nonnull align 8 dereferenceable(32) %formatBuffer.i.i)
+  %call7 = invoke fastcc noundef ptr @_ZN8facebook5velox12_GLOBAL__N_120exportArrowFormatStrERKSt10shared_ptrIKNS0_4TypeEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %call1.val, ptr noundef nonnull align 8 dereferenceable(32) %formatBuffer.i.i)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %if.then4
@@ -9640,7 +9640,7 @@ lpad38:                                           ; preds = %if.then.i.i125, %if
 
 if.else45:                                        ; preds = %invoke.cont39
   %call1.val93 = load ptr, ptr %type_.i, align 8
-  %call49 = invoke fastcc noundef ptr @_ZN8facebook5velox12_GLOBAL__N_120exportArrowFormatStrERKSt10shared_ptrIKNS0_4TypeEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %call1.val93, ptr noundef nonnull align 8 dereferenceable(32) %formatBuffer.i.i)
+  %call49 = invoke fastcc noundef ptr @_ZN8facebook5velox12_GLOBAL__N_120exportArrowFormatStrERKSt10shared_ptrIKNS0_4TypeEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %call1.val93, ptr noundef nonnull align 8 dereferenceable(32) %formatBuffer.i.i)
           to label %invoke.cont48 unwind label %lpad38
 
 invoke.cont48:                                    ; preds = %if.else45
@@ -9777,7 +9777,7 @@ _ZNSt10unique_ptrI11ArrowSchemaSt14default_deleteIS0_EED2Ev.exit150: ; preds = %
 
 if.else62:                                        ; preds = %entry, %land.lhs.true
   %call1.val94 = load ptr, ptr %type_.i, align 8
-  %call66 = invoke fastcc noundef ptr @_ZN8facebook5velox12_GLOBAL__N_120exportArrowFormatStrERKSt10shared_ptrIKNS0_4TypeEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %call1.val94, ptr noundef nonnull align 8 dereferenceable(32) %formatBuffer.i.i)
+  %call66 = invoke fastcc noundef ptr @_ZN8facebook5velox12_GLOBAL__N_120exportArrowFormatStrERKSt10shared_ptrIKNS0_4TypeEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %call1.val94, ptr noundef nonnull align 8 dereferenceable(32) %formatBuffer.i.i)
           to label %invoke.cont65 unwind label %lpad
 
 invoke.cont65:                                    ; preds = %if.else62
@@ -11388,7 +11388,7 @@ unreachable:                                      ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8facebook5velox12_GLOBAL__N_120exportArrowFormatStrERKSt10shared_ptrIKNS0_4TypeEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %type.0.val, ptr noundef nonnull align 8 dereferenceable(32) %formatBuffer) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZN8facebook5velox12_GLOBAL__N_120exportArrowFormatStrERKSt10shared_ptrIKNS0_4TypeEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %type.0.val, ptr noundef nonnull align 8 dereferenceable(32) %formatBuffer) unnamed_addr #0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store", align 16
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12301,14 +12301,14 @@ define internal fastcc void @_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_130V
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_130VeloxToArrowSchemaBridgeHolderEEclEPS3_.exit
+  br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_130VeloxToArrowSchemaBridgeHolderEEclEPS3_.argprom.exit
 
-_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_130VeloxToArrowSchemaBridgeHolderEEclEPS3_.exit: ; preds = %entry
+_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_130VeloxToArrowSchemaBridgeHolderEEclEPS3_.argprom.exit: ; preds = %entry
   tail call fastcc void @_ZN8facebook5velox12_GLOBAL__N_130VeloxToArrowSchemaBridgeHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #39
   tail call void @_ZdlPv(ptr noundef nonnull %0) #37
   br label %if.end
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_130VeloxToArrowSchemaBridgeHolderEEclEPS3_.exit, %entry
+if.end:                                           ; preds = %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_130VeloxToArrowSchemaBridgeHolderEEclEPS3_.argprom.exit, %entry
   store ptr null, ptr %this, align 8
   ret void
 }
@@ -14395,20 +14395,20 @@ sw.bb:                                            ; preds = %entry, %entry, %ent
 
 land.lhs.true.i:                                  ; preds = %sw.bb
   %2 = icmp eq ptr %call.val11.pr.pre.i, null
-  br i1 %2, label %_ZN8facebook5velox12_GLOBAL__N_120isFlatScalarZeroCopyERKSt10shared_ptrIKNS0_4TypeEE.exit.i, label %dynamic_cast.notnull.i.i.i
+  br i1 %2, label %_ZN8facebook5velox12_GLOBAL__N_120isFlatScalarZeroCopyERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i, label %dynamic_cast.notnull.i.i.i
 
 dynamic_cast.notnull.i.i.i:                       ; preds = %land.lhs.true.i
   %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %call.val11.pr.pre.i, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox16ShortDecimalTypeE, i64 0) #39
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %_ZN8facebook5velox12_GLOBAL__N_120isFlatScalarZeroCopyERKSt10shared_ptrIKNS0_4TypeEE.exit.i, label %dynamic_cast.notnull.i.i12.i
+  br i1 %4, label %_ZN8facebook5velox12_GLOBAL__N_120isFlatScalarZeroCopyERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i, label %dynamic_cast.notnull.i.i12.i
 
-_ZN8facebook5velox12_GLOBAL__N_120isFlatScalarZeroCopyERKSt10shared_ptrIKNS0_4TypeEE.exit.i: ; preds = %dynamic_cast.notnull.i.i.i, %land.lhs.true.i
+_ZN8facebook5velox12_GLOBAL__N_120isFlatScalarZeroCopyERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i: ; preds = %dynamic_cast.notnull.i.i.i, %land.lhs.true.i
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %call.val11.pr.pre.i, i64 16
   %5 = load i8, ptr %kind_.i.i.i.i, align 8
   %cmp.i.i.not.i = icmp eq i8 %5, 9
   br i1 %cmp.i.i.not.i, label %dynamic_cast.notnull.i.i12.i, label %if.then.i
 
-if.then.i:                                        ; preds = %_ZN8facebook5velox12_GLOBAL__N_120isFlatScalarZeroCopyERKSt10shared_ptrIKNS0_4TypeEE.exit.i
+if.then.i:                                        ; preds = %_ZN8facebook5velox12_GLOBAL__N_120isFlatScalarZeroCopyERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i
   %vtable.i = load ptr, ptr %vec, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 272
   %6 = load ptr, ptr %vfn.i, align 8
@@ -14480,16 +14480,16 @@ if.then.i.i:                                      ; preds = %_ZN5boost13intrusiv
   store ptr %18, ptr %arrayidx5.i.i, align 8
   br label %_ZN8facebook5velox12_GLOBAL__N_112exportValuesERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE.exit
 
-dynamic_cast.notnull.i.i12.i:                     ; preds = %_ZN8facebook5velox12_GLOBAL__N_120isFlatScalarZeroCopyERKSt10shared_ptrIKNS0_4TypeEE.exit.i, %dynamic_cast.notnull.i.i.i, %sw.bb
+dynamic_cast.notnull.i.i12.i:                     ; preds = %_ZN8facebook5velox12_GLOBAL__N_120isFlatScalarZeroCopyERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i, %dynamic_cast.notnull.i.i.i, %sw.bb
   %19 = tail call ptr @__dynamic_cast(ptr nonnull %call.val11.pr.pre.i, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox16ShortDecimalTypeE, i64 0) #39
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %if.else.i.i, label %_ZN8facebook5velox12_GLOBAL__N_119getArrowElementSizeERKSt10shared_ptrIKNS0_4TypeEE.exit.i
+  br i1 %20, label %if.else.i.i, label %_ZN8facebook5velox12_GLOBAL__N_119getArrowElementSizeERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i
 
 if.else.i.i:                                      ; preds = %dynamic_cast.notnull.i.i12.i
   %kind_.i.i.i13.i = getelementptr inbounds i8, ptr %call.val11.pr.pre.i, i64 16
   %21 = load i8, ptr %kind_.i.i.i13.i, align 8
   %cmp.i.i14.i = icmp eq i8 %21, 9
-  br i1 %cmp.i.i14.i, label %_ZN8facebook5velox12_GLOBAL__N_119getArrowElementSizeERKSt10shared_ptrIKNS0_4TypeEE.exit.i, label %if.else5.i.i
+  br i1 %cmp.i.i14.i, label %_ZN8facebook5velox12_GLOBAL__N_119getArrowElementSizeERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i, label %if.else5.i.i
 
 if.else5.i.i:                                     ; preds = %if.else.i.i
   %vtable.i.i = load ptr, ptr %call.val11.pr.pre.i, align 8
@@ -14497,9 +14497,9 @@ if.else5.i.i:                                     ; preds = %if.else.i.i
   %22 = load ptr, ptr %vfn.i.i, align 8
   %call7.i.i = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(17) %call.val11.pr.pre.i)
   %.pre.i = load ptr, ptr %type_.i.i, align 8
-  br label %_ZN8facebook5velox12_GLOBAL__N_119getArrowElementSizeERKSt10shared_ptrIKNS0_4TypeEE.exit.i
+  br label %_ZN8facebook5velox12_GLOBAL__N_119getArrowElementSizeERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i
 
-_ZN8facebook5velox12_GLOBAL__N_119getArrowElementSizeERKSt10shared_ptrIKNS0_4TypeEE.exit.i: ; preds = %if.else5.i.i, %if.else.i.i, %dynamic_cast.notnull.i.i12.i
+_ZN8facebook5velox12_GLOBAL__N_119getArrowElementSizeERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i: ; preds = %if.else5.i.i, %if.else.i.i, %dynamic_cast.notnull.i.i12.i
   %23 = phi ptr [ %.pre.i, %if.else5.i.i ], [ %call.val11.pr.pre.i, %dynamic_cast.notnull.i.i12.i ], [ %call.val11.pr.pre.i, %if.else.i.i ]
   %retval.0.i.i = phi i64 [ %call7.i.i, %if.else5.i.i ], [ 16, %dynamic_cast.notnull.i.i12.i ], [ 8, %if.else.i.i ]
   %kind_.i.i.i = getelementptr inbounds i8, ptr %23, i64 16
@@ -14508,7 +14508,7 @@ _ZN8facebook5velox12_GLOBAL__N_119getArrowElementSizeERKSt10shared_ptrIKNS0_4Typ
   %25 = load i64, ptr %out, align 8
   br i1 %cmp.i.i, label %cond.true.i, label %cond.false.i
 
-cond.true.i:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_119getArrowElementSizeERKSt10shared_ptrIKNS0_4TypeEE.exit.i
+cond.true.i:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_119getArrowElementSizeERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
   %conv.i.i = trunc i64 %25 to i32
   %add.i.i.i.i = add i32 %conv.i.i, 7
@@ -14560,7 +14560,7 @@ if.then.i12.i.i.i:                                ; preds = %_ZN5boost13intrusiv
   tail call void @llvm.trap()
   unreachable
 
-cond.false.i:                                     ; preds = %_ZN8facebook5velox12_GLOBAL__N_119getArrowElementSizeERKSt10shared_ptrIKNS0_4TypeEE.exit.i
+cond.false.i:                                     ; preds = %_ZN8facebook5velox12_GLOBAL__N_119getArrowElementSizeERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i
   %33 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %25, i64 %retval.0.i.i)
   %34 = extractvalue { i64, i1 } %33, 1
   br i1 %34, label %if.then.i16.i, label %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i
@@ -14833,9 +14833,9 @@ for.body11.preheader.i.i:                         ; preds = %for.body.i.i
   %78 = ashr exact i64 %sext.i.i, 32
   br label %for.body11.i.i
 
-for.body11.i.i:                                   ; preds = %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit.i.i", %for.body11.preheader.i.i
-  %bufSize.4.i = phi i64 [ %bufSize.2.i, %for.body11.preheader.i.i ], [ %bufSize.5.i, %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit.i.i" ]
-  %indvars.iv38.i.i = phi i64 [ 0, %for.body11.preheader.i.i ], [ %indvars.iv.next39.i.i, %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit.i.i" ]
+for.body11.i.i:                                   ; preds = %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.argprom.exit.i.i", %for.body11.preheader.i.i
+  %bufSize.4.i = phi i64 [ %bufSize.2.i, %for.body11.preheader.i.i ], [ %bufSize.5.i, %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.argprom.exit.i.i" ]
+  %indvars.iv38.i.i = phi i64 [ 0, %for.body11.preheader.i.i ], [ %indvars.iv.next39.i.i, %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.argprom.exit.i.i" ]
   %79 = add nsw i64 %indvars.iv38.i.i, %78
   %div2.i.i.i.i.i.i = lshr i64 %79, 6
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i64, ptr %.fr.i, i64 %div2.i.i.i.i.i.i
@@ -14844,30 +14844,30 @@ for.body11.i.i:                                   ; preds = %"_ZZN8facebook5velo
   %shl.i.i.i.i.i.i = shl nuw i64 1, %and.i.i.i.i.i.i
   %and2.i.i.i.i.i.i = and i64 %shl.i.i.i.i.i.i, %80
   %tobool.i.not.i.i.i.i.i = icmp eq i64 %and2.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i.i.i, label %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit.i.i", label %if.then.i.i.i
+  br i1 %tobool.i.not.i.i.i.i.i, label %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.argprom.exit.i.i", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body11.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %74, i64 %79
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx.i.i.i.i, align 8
   %conv.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i, 4294967295
   %add.i.i.i = add i64 %conv.i.i.i.i, %bufSize.4.i
-  br label %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit.i.i"
+  br label %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.argprom.exit.i.i"
 
-"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit.i.i": ; preds = %if.then.i.i.i, %for.body11.i.i
+"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.argprom.exit.i.i": ; preds = %if.then.i.i.i, %for.body11.i.i
   %bufSize.5.i = phi i64 [ %add.i.i.i, %if.then.i.i.i ], [ %bufSize.4.i, %for.body11.i.i ]
   %indvars.iv.next39.i.i = add nuw nsw i64 %indvars.iv38.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next39.i.i, %.sroa.2.0.extract.shift.i.i
   br i1 %exitcond.not.i.i, label %for.inc12.i.i, label %for.body11.i.i, !llvm.loop !164
 
-for.inc12.i.i:                                    ; preds = %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit.i.i", %for.body.i.i
-  %bufSize.3.i = phi i64 [ %bufSize.2.i, %for.body.i.i ], [ %bufSize.5.i, %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit.i.i" ]
+for.inc12.i.i:                                    ; preds = %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.argprom.exit.i.i", %for.body.i.i
+  %bufSize.3.i = phi i64 [ %bufSize.2.i, %for.body.i.i ], [ %bufSize.5.i, %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.argprom.exit.i.i" ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.035.i.i, i64 8
   %cmp.i.not.i.i61 = icmp eq ptr %incdec.ptr.i.i.i, %72
   br i1 %cmp.i.not.i.i61, label %"_ZNK8facebook5velox12_GLOBAL__N_19Selection5applyIZNS1_13exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKS2_R10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEE3$_0EEvOT_.exit.i", label %for.body.i.i
 
-for.body18.i.i:                                   ; preds = %for.body18.i.preheader.i, %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit26.i.i"
-  %bufSize.0.i = phi i64 [ %bufSize.1.i, %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit26.i.i" ], [ 0, %for.body18.i.preheader.i ]
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit26.i.i" ], [ 0, %for.body18.i.preheader.i ]
+for.body18.i.i:                                   ; preds = %for.body18.i.preheader.i, %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.argprom.exit26.i.i"
+  %bufSize.0.i = phi i64 [ %bufSize.1.i, %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.argprom.exit26.i.i" ], [ 0, %for.body18.i.preheader.i ]
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.argprom.exit26.i.i" ], [ 0, %for.body18.i.preheader.i ]
   %div2.i.i.i.i14.i.i = lshr i64 %indvars.iv.i.i, 6
   %arrayidx.i.i.i.i15.i.i = getelementptr inbounds i64, ptr %68, i64 %div2.i.i.i.i14.i.i
   %81 = load i64, ptr %arrayidx.i.i.i.i15.i.i, align 8
@@ -14875,23 +14875,23 @@ for.body18.i.i:                                   ; preds = %for.body18.i.prehea
   %shl.i.i.i.i17.i.i = shl nuw i64 1, %and.i.i.i.i16.i.i
   %and2.i.i.i.i18.i.i = and i64 %shl.i.i.i.i17.i.i, %81
   %tobool.i.not.i.i.i19.i.i = icmp eq i64 %and2.i.i.i.i18.i.i, 0
-  br i1 %tobool.i.not.i.i.i19.i.i, label %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit26.i.i", label %if.then.i20.i.i
+  br i1 %tobool.i.not.i.i.i19.i.i, label %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.argprom.exit26.i.i", label %if.then.i20.i.i
 
 if.then.i20.i.i:                                  ; preds = %for.body18.i.i
   %arrayidx.i.i22.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %70, i64 %indvars.iv.i.i
   %retval.sroa.0.0.copyload.i.i23.i.i = load i64, ptr %arrayidx.i.i22.i.i, align 8
   %conv.i.i24.i.i = and i64 %retval.sroa.0.0.copyload.i.i23.i.i, 4294967295
   %add.i25.i.i = add i64 %conv.i.i24.i.i, %bufSize.0.i
-  br label %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit26.i.i"
+  br label %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.argprom.exit26.i.i"
 
-"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit26.i.i": ; preds = %if.then.i20.i.i, %for.body18.i.i
+"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.argprom.exit26.i.i": ; preds = %if.then.i20.i.i, %for.body18.i.i
   %bufSize.1.i = phi i64 [ %add.i25.i.i, %if.then.i20.i.i ], [ %bufSize.0.i, %for.body18.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %69
   br i1 %exitcond.not.i, label %"_ZNK8facebook5velox12_GLOBAL__N_19Selection5applyIZNS1_13exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKS2_R10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEE3$_0EEvOT_.exit.i", label %for.body18.i.i, !llvm.loop !163
 
-"_ZNK8facebook5velox12_GLOBAL__N_19Selection5applyIZNS1_13exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKS2_R10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEE3$_0EEvOT_.exit.i": ; preds = %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit26.i.i", %for.body18.i.us.i, %for.inc12.i.i, %for.inc12.i.us.i, %if.then.i.i59, %for.cond16.preheader.i.i
-  %bufSize.6.i = phi i64 [ 0, %if.then.i.i59 ], [ 0, %for.cond16.preheader.i.i ], [ %bufSize.3.us.i, %for.inc12.i.us.i ], [ %bufSize.3.i, %for.inc12.i.i ], [ %add.i25.i.us.i, %for.body18.i.us.i ], [ %bufSize.1.i, %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.exit26.i.i" ]
+"_ZNK8facebook5velox12_GLOBAL__N_19Selection5applyIZNS1_13exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKS2_R10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEE3$_0EEvOT_.exit.i": ; preds = %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.argprom.exit26.i.i", %for.body18.i.us.i, %for.inc12.i.i, %for.inc12.i.us.i, %if.then.i.i59, %for.cond16.preheader.i.i
+  %bufSize.6.i = phi i64 [ 0, %if.then.i.i59 ], [ 0, %for.cond16.preheader.i.i ], [ %bufSize.3.us.i, %for.inc12.i.us.i ], [ %bufSize.3.i, %for.inc12.i.i ], [ %add.i25.i.us.i, %for.body18.i.us.i ], [ %bufSize.1.i, %"_ZZN8facebook5velox12_GLOBAL__N_113exportStringsERKNS0_10FlatVectorINS0_10StringViewEEERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENK3$_0clEi.argprom.exit26.i.i" ]
   %82 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %bufSize.6.i, i64 96)
   %83 = extractvalue { i64, i1 } %82, 1
   br i1 %83, label %if.then.i6.i.i58, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i10
@@ -15029,23 +15029,23 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i: ; preds = %delete
   %vfn.i.i.i37 = getelementptr inbounds i8, ptr %vtable.i.i.i36, i64 24
   %106 = load ptr, ptr %vfn.i.i.i37, align 8
   %call.i.i.i = tail call noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(64) %holder.val.i)
-  br i1 %call.i.i.i, label %if.then.i.i24.i, label %_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIcEEPT_m.exit.i
+  br i1 %call.i.i.i, label %if.then.i.i24.i, label %_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIcEEPT_m.argprom.exit.i
 
 if.then.i.i24.i:                                  ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i
   tail call void @llvm.trap()
   unreachable
 
-_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIcEEPT_m.exit.i: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i
+_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIcEEPT_m.argprom.exit.i: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i
   %data_.i.i23.i = getelementptr inbounds i8, ptr %holder.val.i, i64 16
   %107 = load ptr, ptr %data_.i.i23.i, align 8
   %cmp.not.i = icmp ult i64 %bufSize.6.i, 2147483647
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i38
 
-if.then.i38:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIcEEPT_m.exit.i
+if.then.i38:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIcEEPT_m.argprom.exit.i
   tail call void @llvm.trap()
   unreachable
 
-if.end.i:                                         ; preds = %_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIcEEPT_m.exit.i
+if.end.i:                                         ; preds = %_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIcEEPT_m.argprom.exit.i
   %108 = load i64, ptr %out, align 8
   %109 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %108, i64 1)
   %110 = extractvalue { i64, i1 } %109, 1
@@ -15203,13 +15203,13 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit103.i: ; preds = %del
   %vfn.i.i105.i = getelementptr inbounds i8, ptr %vtable.i.i104.i, i64 24
   %138 = load ptr, ptr %vfn.i.i105.i, align 8
   %call.i.i106.i = tail call noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(64) %holder.val9.i)
-  br i1 %call.i.i106.i, label %if.then.i.i108.i, label %_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIiEEPT_m.exit.i
+  br i1 %call.i.i106.i, label %if.then.i.i108.i, label %_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIiEEPT_m.argprom.exit.i
 
 if.then.i.i108.i:                                 ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit103.i
   tail call void @llvm.trap()
   unreachable
 
-_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIiEEPT_m.exit.i: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit103.i
+_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIiEEPT_m.argprom.exit.i: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit103.i
   %data_.i.i107.i = getelementptr inbounds i8, ptr %holder.val9.i, i64 16
   %139 = load ptr, ptr %data_.i.i107.i, align 8
   store i32 0, ptr %139, align 4
@@ -15217,7 +15217,7 @@ _ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIiEEPT_m.
   %tobool.i.i.i.i110.i = trunc i8 %this.val.i109.i to i1
   br i1 %tobool.i.i.i.i110.i, label %if.then.i118.i, label %for.cond16.preheader.i111.i
 
-for.cond16.preheader.i111.i:                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIiEEPT_m.exit.i
+for.cond16.preheader.i111.i:                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIiEEPT_m.argprom.exit.i
   %total_.i112.i = getelementptr inbounds i8, ptr %rows, i64 32
   %140 = load i32, ptr %total_.i112.i, align 8
   %cmp1739.i.i = icmp sgt i32 %140, 0
@@ -15230,7 +15230,7 @@ for.body18.lr.ph.i113.i:                          ; preds = %for.cond16.preheade
   %rawValues_.i.i20.i.i = getelementptr inbounds i8, ptr %vec, i64 216
   br label %for.body18.i114.i
 
-if.then.i118.i:                                   ; preds = %_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIiEEPT_m.exit.i
+if.then.i118.i:                                   ; preds = %_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolder11getBufferAsIiEEPT_m.argprom.exit.i
   %142 = load ptr, ptr %rows, align 8
   %_M_finish.i.i119.i = getelementptr inbounds i8, ptr %rows, i64 8
   %143 = load ptr, ptr %_M_finish.i.i119.i, align 8
@@ -15477,14 +15477,14 @@ define internal fastcc void @_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_124V
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderEEclEPS3_.exit
+  br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderEEclEPS3_.argprom.exit
 
-_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderEEclEPS3_.exit: ; preds = %entry
+_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderEEclEPS3_.argprom.exit: ; preds = %entry
   tail call fastcc void @_ZN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #39
   tail call void @_ZdlPv(ptr noundef nonnull %0) #37
   br label %if.end
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderEEclEPS3_.exit, %entry
+if.end:                                           ; preds = %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderEEclEPS3_.argprom.exit, %entry
   store ptr null, ptr %this, align 8
   ret void
 }
@@ -17254,7 +17254,7 @@ if.then.i.i:                                      ; preds = %_ZNK8facebook5velox
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %.noexc28.i
   %row.012.i.i = phi i32 [ %inc.i.i, %.noexc28.i ], [ %47, %if.then.i.i ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i, ptr nonnull readonly %flatVector.i, i32 noundef %row.012.i.i)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i, ptr nonnull readonly %flatVector.i, i32 noundef %row.012.i.i)
           to label %.noexc28.i unwind label %lpad7.loopexit.i
 
 .noexc28.i:                                       ; preds = %for.body.i.i
@@ -17304,7 +17304,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i,
   %56 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %56 to i32
   %add.i26.i.i.i.i.i = or disjoint i32 %54, %cast.i.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i, ptr nonnull readonly %flatVector.i, i32 noundef %add.i26.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i, ptr nonnull readonly %flatVector.i, i32 noundef %add.i26.i.i.i.i.i)
           to label %.noexc29.i unwind label %lpad7.loopexit.split-lp.loopexit.i
 
 .noexc29.i:                                       ; preds = %while.body.i.i.i.i.i.i
@@ -17342,7 +17342,7 @@ while.body.i42.i.i.i.i.i:                         ; preds = %.noexc30.i, %while.
   %58 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %58 to i32
   %add.i45.i.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i.i, %cast.i44.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i, ptr nonnull readonly %flatVector.i, i32 noundef %add.i45.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i, ptr nonnull readonly %flatVector.i, i32 noundef %add.i45.i.i.i.i.i)
           to label %.noexc30.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc30.i:                                       ; preds = %while.body.i42.i.i.i.i.i
@@ -17395,7 +17395,7 @@ for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i:                             ; preds = %.noexc31.i, %for.body.lr.ph.i.i.i.i.i.i
   %row.018.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i, %.noexc31.i ]
   %conv7.i.i.i.i.i.i = trunc i64 %row.018.i.i.i.i.i.i to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i, ptr nonnull readonly %flatVector.i, i32 noundef %conv7.i.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i, ptr nonnull readonly %flatVector.i, i32 noundef %conv7.i.i.i.i.i.i)
           to label %.noexc31.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc31.i:                                       ; preds = %for.body.i.i.i.i.i.i
@@ -17403,8 +17403,8 @@ for.body.i.i.i.i.i.i:                             ; preds = %.noexc31.i, %for.bo
   %cmp6.i.i.i.i.i23.i = icmp ult i64 %inc.i.i.i.i.i.i, %conv5.i.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i23.i, label %for.body.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !198
 
-while.body.i57.i.i.i.i.i:                         ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
-  %word.016.i.i.i.i.i.i = phi i64 [ %59, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i61.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i ]
+while.body.i57.i.i.i.i.i:                         ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
+  %word.016.i.i.i.i.i.i = phi i64 [ %59, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i61.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i ]
   %60 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i, i1 true)
   %cast.i58.i.i.i.i.i = trunc nuw nsw i64 %60 to i32
   %add10.i.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i.i, %cast.i58.i.i.i.i.i
@@ -17499,7 +17499,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i: ; preds = %call.i
   %77 = load i8, ptr %arrayidx2.i.i.i.i.i.i.i.i.i, align 1
   %and3.i.i.i.i.i.i.i.i.i = and i8 %77, %76
   store i8 %and3.i.i.i.i.i.i.i.i.i, ptr %arrayidx2.i.i.i.i.i.i.i.i.i, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
 if.else.i.thread.i.i.i.i.i:                       ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i
   %78 = load ptr, ptr %flatVector.i, align 8
@@ -17542,15 +17542,15 @@ _ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit.i.i.i.i.i.i: ; preds = %i
   %and2.i.i.i.i.i.i.i.i = and i64 %shl.i.i.i.i.i.i.i.i, %90
   %tobool.i2.i.i.i.i.i.i.i = icmp ne i64 %and2.i.i.i.i.i.i.i.i, 0
   invoke void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %89, i32 noundef %add10.i.i.i.i.i.i, i1 noundef zeroext %tobool.i2.i.i.i.i.i.i.i)
-          to label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
+          to label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i
   %sub.i60.i.i.i.i.i = add i64 %word.016.i.i.i.i.i.i, -1
   %and.i61.i.i.i.i.i = and i64 %sub.i60.i.i.i.i.i, %word.016.i.i.i.i.i.i
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %and.i61.i.i.i.i.i, 0
   br i1 %tobool8.not.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i57.i.i.i.i.i, !llvm.loop !199
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc31.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i, %for.body.i.i.i6.i.i
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc31.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i, %for.body.i.i.i6.i.i
   %add.i.i.i.i.i = add nsw i32 %add89.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i, %54
   br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i7.i.i, label %for.body.i.i.i6.i.i, !llvm.loop !200
@@ -17577,7 +17577,7 @@ while.body.i73.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
   %92 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i, i1 true)
   %cast.i75.i.i.i.i.i = trunc nuw nsw i64 %92 to i32
   %add.i76.i.i.i.i.i = or disjoint i32 %54, %cast.i75.i.i.i.i.i
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i, ptr nonnull readonly %flatVector.i, i32 noundef %add.i76.i.i.i.i.i)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i, ptr nonnull readonly %flatVector.i, i32 noundef %add.i76.i.i.i.i.i)
           to label %.noexc35.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc35.i:                                       ; preds = %while.body.i73.i.i.i.i.i
@@ -17626,32 +17626,32 @@ lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.lo
           cleanup
   br label %lpad7.i
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
   %lpad.loopexit208.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
   %lpad.loopexit210.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i133.i.i.i.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i133.i.i.i.i.i
   %lpad.loopexit214.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit34.i.i.i.i.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit34.i.i.i.i.i.i
   %lpad.loopexit217.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i88.i.i.i.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i88.i.i.i.i.i
   %lpad.loopexit220.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i
   %lpad.loopexit223.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i
@@ -17756,7 +17756,7 @@ for.body.i130.i:                                  ; preds = %.noexc160.i, %for.b
   %111 = load i8, ptr %isIdentityMapping_.i.i.i.i.i, align 2
   %tobool.i.i.i4.i.i = trunc i8 %111 to i1
   %112 = trunc nsw i64 %indvars.iv.i.i to i32
-  br i1 %tobool.i.i.i4.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, label %if.end.i.i.i5.i.i
+  br i1 %tobool.i.i.i4.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, label %if.end.i.i.i5.i.i
 
 if.end.i.i.i5.i.i:                                ; preds = %for.body.i130.i
   %113 = load i8, ptr %isConstantMapping_.i.i.i.i.i, align 1
@@ -17765,15 +17765,15 @@ if.end.i.i.i5.i.i:                                ; preds = %for.body.i130.i
 
 if.then3.i.i.i.i132.i:                            ; preds = %if.end.i.i.i5.i.i
   %114 = load i32, ptr %constantIndex_.i.i, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
 
 if.end4.i.i.i.i.i:                                ; preds = %if.end.i.i.i5.i.i
   %115 = load ptr, ptr %indices_.i.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i32, ptr %115, i64 %indvars.iv.i.i
   %116 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i: ; preds = %if.end4.i.i.i.i.i, %if.then3.i.i.i.i132.i, %for.body.i130.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i: ; preds = %if.end4.i.i.i.i.i, %if.then3.i.i.i.i132.i, %for.body.i130.i
   %retval.0.i.i.i.i.i = phi i32 [ %114, %if.then3.i.i.i.i132.i ], [ %116, %if.end4.i.i.i.i.i ], [ %112, %for.body.i130.i ]
   %conv.i.i.i.i.i = sext i32 %retval.0.i.i.i.i.i to i64
   %div2.i.i.i.i.i = lshr i64 %conv.i.i.i.i.i, 6
@@ -17786,7 +17786,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %func.val.val.i.pre.i, i32 noundef %112, i1 noundef zeroext %tobool.i2.i.i.i.i)
           to label %.noexc160.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
-.noexc160.i:                                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+.noexc160.i:                                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %118 = load i32, ptr %end_.i.i, align 8
   %119 = sext i32 %118 to i64
@@ -17844,7 +17844,7 @@ while.body.i.i.i.i.i114.i:                        ; preds = %.noexc161.i, %while
   %127 = load ptr, ptr %data_.i.i.i.i.i.i.i.i, align 8
   %128 = load i8, ptr %isIdentityMapping_.i.i.i.i.i.i.i.i.i, align 2
   %tobool.i.i.i.i.i.i.i.i.i = trunc i8 %128 to i1
-  br i1 %tobool.i.i.i.i.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.i.i.i.i.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i114.i
   %129 = load i8, ptr %isConstantMapping_.i.i.i.i.i.i.i.i.i, align 1
@@ -17853,16 +17853,16 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.
 
 if.then3.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.i.i.i
   %130 = load i32, ptr %constantIndex_.i.i, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.i.i.i
   %131 = load ptr, ptr %indices_.i.i, align 8
   %idxprom.i.i.i.i.i.i.i.i.i = sext i32 %add.i26.i.i.i.i117.i to i64
   %arrayidx.i.i.i.i.i.i.i.i118.i = getelementptr inbounds i32, ptr %131, i64 %idxprom.i.i.i.i.i.i.i.i.i
   %132 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i118.i, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i114.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i114.i
   %retval.0.i.i.i.i.i.i.i.i.i = phi i32 [ %130, %if.then3.i.i.i.i.i.i.i.i.i ], [ %132, %if.end4.i.i.i.i.i.i.i.i.i ], [ %add.i26.i.i.i.i117.i, %while.body.i.i.i.i.i114.i ]
   %conv.i.i.i.i.i.i.i.i119.i = sext i32 %retval.0.i.i.i.i.i.i.i.i.i to i64
   %div2.i.i.i.i.i.i.i.i120.i = lshr i64 %conv.i.i.i.i.i.i.i.i119.i, 6
@@ -17875,7 +17875,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %.val.val.i.i.i.i.i.pre.i, i32 noundef %add.i26.i.i.i.i117.i, i1 noundef zeroext %tobool.i2.i.i.i.i.i.i.i.i)
           to label %.noexc161.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
-.noexc161.i:                                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+.noexc161.i:                                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
   %sub.i27.i.i.i.i124.i = add nsw i64 %word.0.i.i.i.i.i115.i, -1
   %and6.i.i.i.i.i125.i = and i64 %sub.i27.i.i.i.i124.i, %word.0.i.i.i.i.i115.i
   %tobool5.old.not.i.i.i.i.i126.i = icmp eq i64 %and6.i.i.i.i.i125.i, 0
@@ -17917,7 +17917,7 @@ while.body.i42.i.i.i.i70.i:                       ; preds = %.noexc162.i, %while
   %136 = load ptr, ptr %data_.i.i.i49.i.i.i.i.i, align 8
   %137 = load i8, ptr %isIdentityMapping_.i.i.i.i50.i.i.i.i.i, align 2
   %tobool.i.i.i.i51.i.i.i.i.i = trunc i8 %137 to i1
-  br i1 %tobool.i.i.i.i51.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i, label %if.end.i.i.i.i52.i.i.i.i.i
+  br i1 %tobool.i.i.i.i51.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i, label %if.end.i.i.i.i52.i.i.i.i.i
 
 if.end.i.i.i.i52.i.i.i.i.i:                       ; preds = %while.body.i42.i.i.i.i70.i
   %138 = load i8, ptr %isConstantMapping_.i.i.i.i53.i.i.i.i.i, align 1
@@ -17926,16 +17926,16 @@ if.end.i.i.i.i52.i.i.i.i.i:                       ; preds = %while.body.i42.i.i.
 
 if.then3.i.i.i.i71.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i52.i.i.i.i.i
   %139 = load i32, ptr %constantIndex_.i.i, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i
 
 if.end4.i.i.i.i55.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i52.i.i.i.i.i
   %140 = load ptr, ptr %indices_.i.i, align 8
   %idxprom.i.i.i.i57.i.i.i.i.i = sext i32 %add.i45.i.i.i.i73.i to i64
   %arrayidx.i.i.i.i58.i.i.i.i.i = getelementptr inbounds i32, ptr %140, i64 %idxprom.i.i.i.i57.i.i.i.i.i
   %141 = load i32, ptr %arrayidx.i.i.i.i58.i.i.i.i.i, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i, %if.then3.i.i.i.i71.i.i.i.i.i, %while.body.i42.i.i.i.i70.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i, %if.then3.i.i.i.i71.i.i.i.i.i, %while.body.i42.i.i.i.i70.i
   %retval.0.i.i.i.i60.i.i.i.i.i = phi i32 [ %139, %if.then3.i.i.i.i71.i.i.i.i.i ], [ %141, %if.end4.i.i.i.i55.i.i.i.i.i ], [ %add.i45.i.i.i.i73.i, %while.body.i42.i.i.i.i70.i ]
   %conv.i.i.i.i61.i.i.i.i.i = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i to i64
   %div2.i.i.i.i62.i.i.i.i.i = lshr i64 %conv.i.i.i.i61.i.i.i.i.i, 6
@@ -17948,7 +17948,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %.val.val.i48.i.i.i.i.pre.i, i32 noundef %add.i45.i.i.i.i73.i, i1 noundef zeroext %tobool.i2.i.i.i67.i.i.i.i.i)
           to label %.noexc162.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
-.noexc162.i:                                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i
+.noexc162.i:                                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i
   %sub.i68.i.i.i.i.i = add i64 %word.0.i43.i.i.i.i71.i, -1
   %and6.i69.i.i.i.i.i = and i64 %sub.i68.i.i.i.i.i, %word.0.i43.i.i.i.i71.i
   %tobool5.old.not.i70.i.i.i.i.i = icmp eq i64 %and6.i69.i.i.i.i.i, 0
@@ -18001,7 +18001,7 @@ for.body.i.i.i.i.i89.i:                           ; preds = %.noexc163.i, %for.b
   %144 = load ptr, ptr %data_.i.i.i79.i.i.i.i.i, align 8
   %145 = load i8, ptr %isIdentityMapping_.i.i.i.i80.i.i.i.i.i, align 2
   %tobool.i.i.i.i81.i.i.i.i.i = trunc i8 %145 to i1
-  br i1 %tobool.i.i.i.i81.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i88.i.i.i.i.i, label %if.end.i.i.i.i82.i.i.i.i.i
+  br i1 %tobool.i.i.i.i81.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i88.i.i.i.i.i, label %if.end.i.i.i.i82.i.i.i.i.i
 
 if.end.i.i.i.i82.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i89.i
   %146 = load i8, ptr %isConstantMapping_.i.i.i.i83.i.i.i.i.i, align 1
@@ -18010,7 +18010,7 @@ if.end.i.i.i.i82.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i8
 
 if.then3.i.i.i.i97.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i82.i.i.i.i.i
   %147 = load i32, ptr %constantIndex_.i.i, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i88.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i88.i.i.i.i.i
 
 if.end4.i.i.i.i85.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i82.i.i.i.i.i
   %148 = load ptr, ptr %indices_.i.i, align 8
@@ -18018,9 +18018,9 @@ if.end4.i.i.i.i85.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i82.i.
   %149 = ashr exact i64 %sext.i.i.i.i.i.i, 30
   %arrayidx.i.i.i.i87.i.i.i.i.i = getelementptr inbounds i8, ptr %148, i64 %149
   %150 = load i32, ptr %arrayidx.i.i.i.i87.i.i.i.i.i, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i88.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i88.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i88.i.i.i.i.i: ; preds = %if.end4.i.i.i.i85.i.i.i.i.i, %if.then3.i.i.i.i97.i.i.i.i.i, %for.body.i.i.i.i.i89.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i88.i.i.i.i.i: ; preds = %if.end4.i.i.i.i85.i.i.i.i.i, %if.then3.i.i.i.i97.i.i.i.i.i, %for.body.i.i.i.i.i89.i
   %retval.0.i.i.i.i89.i.i.i.i.i = phi i32 [ %147, %if.then3.i.i.i.i97.i.i.i.i.i ], [ %150, %if.end4.i.i.i.i85.i.i.i.i.i ], [ %conv7.i.i.i.i.i90.i, %for.body.i.i.i.i.i89.i ]
   %conv.i.i.i.i90.i.i.i.i.i = sext i32 %retval.0.i.i.i.i89.i.i.i.i.i to i64
   %div2.i.i.i.i91.i.i.i.i.i = lshr i64 %conv.i.i.i.i90.i.i.i.i.i, 6
@@ -18033,7 +18033,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %.val12.val.i.i.i.i.i.pre.i, i32 noundef %conv7.i.i.i.i.i90.i, i1 noundef zeroext %tobool.i2.i.i.i96.i.i.i.i.i)
           to label %.noexc163.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
-.noexc163.i:                                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i88.i.i.i.i.i
+.noexc163.i:                                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i88.i.i.i.i.i
   %inc.i.i.i.i.i91.i = add nuw i64 %row.039.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i92.i = icmp ult i64 %inc.i.i.i.i.i91.i, %conv5.i.i.i.i.i85.i
   br i1 %cmp6.i.i.i.i.i92.i, label %for.body.i.i.i.i.i89.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !202
@@ -18046,7 +18046,7 @@ while.body.i99.i.i.i.i.i:                         ; preds = %.noexc164.i, %while
   %153 = load ptr, ptr %data_.i.i.i79.i.i.i.i.i, align 8
   %154 = load i8, ptr %isIdentityMapping_.i.i.i.i80.i.i.i.i.i, align 2
   %tobool.i.i.i16.i.i.i.i.i.i = trunc i8 %154 to i1
-  br i1 %tobool.i.i.i16.i.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit34.i.i.i.i.i.i, label %if.end.i.i.i17.i.i.i.i.i.i
+  br i1 %tobool.i.i.i16.i.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit34.i.i.i.i.i.i, label %if.end.i.i.i17.i.i.i.i.i.i
 
 if.end.i.i.i17.i.i.i.i.i.i:                       ; preds = %while.body.i99.i.i.i.i.i
   %155 = load i8, ptr %isConstantMapping_.i.i.i.i83.i.i.i.i.i, align 1
@@ -18055,16 +18055,16 @@ if.end.i.i.i17.i.i.i.i.i.i:                       ; preds = %while.body.i99.i.i.
 
 if.then3.i.i.i32.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i17.i.i.i.i.i.i
   %156 = load i32, ptr %constantIndex_.i.i, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit34.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit34.i.i.i.i.i.i
 
 if.end4.i.i.i20.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i17.i.i.i.i.i.i
   %157 = load ptr, ptr %indices_.i.i, align 8
   %idxprom.i.i.i22.i.i.i.i.i.i = sext i32 %add10.i.i.i.i.i95.i to i64
   %arrayidx.i.i.i23.i.i.i.i.i.i = getelementptr inbounds i32, ptr %157, i64 %idxprom.i.i.i22.i.i.i.i.i.i
   %158 = load i32, ptr %arrayidx.i.i.i23.i.i.i.i.i.i, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit34.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit34.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit34.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i, %if.then3.i.i.i32.i.i.i.i.i.i, %while.body.i99.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit34.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i, %if.then3.i.i.i32.i.i.i.i.i.i, %while.body.i99.i.i.i.i.i
   %retval.0.i.i.i24.i.i.i.i.i.i = phi i32 [ %156, %if.then3.i.i.i32.i.i.i.i.i.i ], [ %158, %if.end4.i.i.i20.i.i.i.i.i.i ], [ %add10.i.i.i.i.i95.i, %while.body.i99.i.i.i.i.i ]
   %conv.i.i.i25.i.i.i.i.i.i = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i to i64
   %div2.i.i.i26.i.i.i.i.i.i = lshr i64 %conv.i.i.i25.i.i.i.i.i.i, 6
@@ -18077,7 +18077,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %.val.val.i102.i.i.i.i.pre.i, i32 noundef %add10.i.i.i.i.i95.i, i1 noundef zeroext %tobool.i2.i.i31.i.i.i.i.i.i)
           to label %.noexc164.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
-.noexc164.i:                                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit34.i.i.i.i.i.i
+.noexc164.i:                                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit34.i.i.i.i.i.i
   %sub.i103.i.i.i.i.i = add i64 %word.037.i.i.i.i.i.i, -1
   %and.i104.i.i.i.i.i = and i64 %sub.i103.i.i.i.i.i, %word.037.i.i.i.i.i.i
   %tobool8.not.i.i.i.i.i96.i = icmp eq i64 %and.i104.i.i.i.i.i, 0
@@ -18120,7 +18120,7 @@ while.body.i116.i.i.i.i.i:                        ; preds = %.noexc165.i, %while
   %162 = load ptr, ptr %data_.i.i.i123.i.i.i.i.i, align 8
   %163 = load i8, ptr %isIdentityMapping_.i.i.i.i124.i.i.i.i.i, align 2
   %tobool.i.i.i.i125.i.i.i.i.i = trunc i8 %163 to i1
-  br i1 %tobool.i.i.i.i125.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i133.i.i.i.i.i, label %if.end.i.i.i.i126.i.i.i.i.i
+  br i1 %tobool.i.i.i.i125.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i133.i.i.i.i.i, label %if.end.i.i.i.i126.i.i.i.i.i
 
 if.end.i.i.i.i126.i.i.i.i.i:                      ; preds = %while.body.i116.i.i.i.i.i
   %164 = load i8, ptr %isConstantMapping_.i.i.i.i127.i.i.i.i.i, align 1
@@ -18129,16 +18129,16 @@ if.end.i.i.i.i126.i.i.i.i.i:                      ; preds = %while.body.i116.i.i
 
 if.then3.i.i.i.i145.i.i.i.i.i:                    ; preds = %if.end.i.i.i.i126.i.i.i.i.i
   %165 = load i32, ptr %constantIndex_.i.i, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i133.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i133.i.i.i.i.i
 
 if.end4.i.i.i.i129.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i126.i.i.i.i.i
   %166 = load ptr, ptr %indices_.i.i, align 8
   %idxprom.i.i.i.i131.i.i.i.i.i = sext i32 %add.i119.i.i.i.i.i to i64
   %arrayidx.i.i.i.i132.i.i.i.i.i = getelementptr inbounds i32, ptr %166, i64 %idxprom.i.i.i.i131.i.i.i.i.i
   %167 = load i32, ptr %arrayidx.i.i.i.i132.i.i.i.i.i, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i133.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i133.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i133.i.i.i.i.i: ; preds = %if.end4.i.i.i.i129.i.i.i.i.i, %if.then3.i.i.i.i145.i.i.i.i.i, %while.body.i116.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i133.i.i.i.i.i: ; preds = %if.end4.i.i.i.i129.i.i.i.i.i, %if.then3.i.i.i.i145.i.i.i.i.i, %while.body.i116.i.i.i.i.i
   %retval.0.i.i.i.i134.i.i.i.i.i = phi i32 [ %165, %if.then3.i.i.i.i145.i.i.i.i.i ], [ %167, %if.end4.i.i.i.i129.i.i.i.i.i ], [ %add.i119.i.i.i.i.i, %while.body.i116.i.i.i.i.i ]
   %conv.i.i.i.i135.i.i.i.i.i = sext i32 %retval.0.i.i.i.i134.i.i.i.i.i to i64
   %div2.i.i.i.i136.i.i.i.i.i = lshr i64 %conv.i.i.i.i135.i.i.i.i.i, 6
@@ -18151,7 +18151,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %.val.val.i122.i.i.i.i.pre.i, i32 noundef %add.i119.i.i.i.i.i, i1 noundef zeroext %tobool.i2.i.i.i141.i.i.i.i.i)
           to label %.noexc165.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
-.noexc165.i:                                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i133.i.i.i.i.i
+.noexc165.i:                                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i133.i.i.i.i.i
   %sub.i142.i.i.i.i.i = add nsw i64 %word.0.i117.i.i.i.i.i, -1
   %and6.i143.i.i.i.i.i = and i64 %sub.i142.i.i.i.i.i, %word.0.i117.i.i.i.i.i
   %tobool5.old.not.i144.i.i.i.i.i = icmp eq i64 %and6.i143.i.i.i.i.i, 0
@@ -18562,7 +18562,7 @@ if.then.i.i311:                                   ; preds = %_ZNK8facebook5velox
 
 for.body.i.i313:                                  ; preds = %if.then.i.i311, %.noexc32.i317
   %row.012.i.i314 = phi i32 [ %inc.i.i318, %.noexc32.i317 ], [ %231, %if.then.i.i311 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4, ptr nonnull readonly %flatVector.i5, i32 noundef %row.012.i.i314)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i4, ptr nonnull readonly %flatVector.i5, i32 noundef %row.012.i.i314)
           to label %.noexc32.i317 unwind label %lpad7.loopexit.i315
 
 .noexc32.i317:                                    ; preds = %for.body.i.i313
@@ -18612,7 +18612,7 @@ while.body.i.i.i.i.i.i303:                        ; preds = %if.then3.i.i.i.i.i2
   %240 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i304, i1 true)
   %cast.i.i.i.i.i.i305 = trunc nuw nsw i64 %240 to i32
   %add.i26.i.i.i.i.i306 = or disjoint i32 %238, %cast.i.i.i.i.i.i305
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4, ptr nonnull readonly %flatVector.i5, i32 noundef %add.i26.i.i.i.i.i306)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i4, ptr nonnull readonly %flatVector.i5, i32 noundef %add.i26.i.i.i.i.i306)
           to label %.noexc33.i unwind label %lpad7.loopexit.split-lp.loopexit.i307
 
 .noexc33.i:                                       ; preds = %while.body.i.i.i.i.i.i303
@@ -18650,7 +18650,7 @@ while.body.i42.i.i.i.i.i159:                      ; preds = %.noexc34.i, %while.
   %242 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i160, i1 true)
   %cast.i44.i.i.i.i.i161 = trunc nuw nsw i64 %242 to i32
   %add.i45.i.i.i.i.i162 = or disjoint i32 %mul.i41.i.i.i.i.i158, %cast.i44.i.i.i.i.i161
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4, ptr nonnull readonly %flatVector.i5, i32 noundef %add.i45.i.i.i.i.i162)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i4, ptr nonnull readonly %flatVector.i5, i32 noundef %add.i45.i.i.i.i.i162)
           to label %.noexc34.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i163
 
 .noexc34.i:                                       ; preds = %while.body.i42.i.i.i.i.i159
@@ -18703,7 +18703,7 @@ for.body.lr.ph.i.i.i.i.i.i211:                    ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i213:                          ; preds = %.noexc35.i218, %for.body.lr.ph.i.i.i.i.i.i211
   %row.018.i.i.i.i.i.i214 = phi i64 [ %conv.i.i.i.i.i.i212, %for.body.lr.ph.i.i.i.i.i.i211 ], [ %inc.i.i.i.i.i.i219, %.noexc35.i218 ]
   %conv7.i.i.i.i.i.i215 = trunc i64 %row.018.i.i.i.i.i.i214 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4, ptr nonnull readonly %flatVector.i5, i32 noundef %conv7.i.i.i.i.i.i215)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i4, ptr nonnull readonly %flatVector.i5, i32 noundef %conv7.i.i.i.i.i.i215)
           to label %.noexc35.i218 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i216
 
 .noexc35.i218:                                    ; preds = %for.body.i.i.i.i.i.i213
@@ -18711,8 +18711,8 @@ for.body.i.i.i.i.i.i213:                          ; preds = %.noexc35.i218, %for
   %cmp6.i.i.i.i.i23.i220 = icmp ult i64 %inc.i.i.i.i.i.i219, %conv5.i.i.i.i.i.i208
   br i1 %cmp6.i.i.i.i.i23.i220, label %for.body.i.i.i.i.i.i213, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !213
 
-while.body.i57.i.i.i.i.i223:                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i221
-  %word.016.i.i.i.i.i.i224 = phi i64 [ %243, %while.body.lr.ph.i.i.i.i.i.i221 ], [ %and.i61.i.i.i.i.i256, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i ]
+while.body.i57.i.i.i.i.i223:                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i221
+  %word.016.i.i.i.i.i.i224 = phi i64 [ %243, %while.body.lr.ph.i.i.i.i.i.i221 ], [ %and.i61.i.i.i.i.i256, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i ]
   %244 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i224, i1 true)
   %cast.i58.i.i.i.i.i225 = trunc nuw nsw i64 %244 to i32
   %add10.i.i.i.i.i.i226 = or disjoint i32 %mul9.i.i.i.i.i.i222, %cast.i58.i.i.i.i.i225
@@ -18807,7 +18807,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i265: ; preds = %cal
   %261 = load i8, ptr %arrayidx2.i.i.i.i.i.i.i.i.i271, align 1
   %and3.i.i.i.i.i.i.i.i.i272 = and i8 %261, %260
   store i8 %and3.i.i.i.i.i.i.i.i.i272, ptr %arrayidx2.i.i.i.i.i.i.i.i.i271, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
 if.else.i.thread.i.i.i.i.i245:                    ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i235, %if.then8.i.i.i.i.i.i.i273
   %262 = load ptr, ptr %flatVector.i5, align 8
@@ -18865,7 +18865,7 @@ _ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i.i.i.i.i.i: ; preds = 
   %nulls_.i12.i.i.i.i.i.i = getelementptr inbounds i8, ptr %273, i64 32
   %277 = load ptr, ptr %nulls_.i12.i.i.i.i.i.i, align 8
   %cmp.i5.not.i.i.i.i.i.i.i = icmp eq ptr %277, null
-  br i1 %cmp.i5.not.i.i.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, label %if.end.i.i13.i.i.i.i.i.i
+  br i1 %cmp.i5.not.i.i.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, label %if.end.i.i13.i.i.i.i.i.i
 
 if.end.i.i13.i.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i.i.i.i.i.i
   %length_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %273, i64 56
@@ -18900,15 +18900,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i: ; preds = %call
   %283 = trunc nuw i32 %shl.i.i.i.i.i.i.i.i.i.i to i8
   %conv1.i.i.i.i.i.i.i.i.i.i = or i8 %282, %283
   store i8 %conv1.i.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i, %_ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i265
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i, %_ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i265
   %sub.i60.i.i.i.i.i255 = add i64 %word.016.i.i.i.i.i.i224, -1
   %and.i61.i.i.i.i.i256 = and i64 %sub.i60.i.i.i.i.i255, %word.016.i.i.i.i.i.i224
   %tobool8.not.i.i.i.i.i.i257 = icmp eq i64 %and.i61.i.i.i.i.i256, 0
   br i1 %tobool8.not.i.i.i.i.i.i257, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i57.i.i.i.i.i223, !llvm.loop !214
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc35.i218, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i205, %for.body.i.i.i6.i.i177
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc35.i218, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i205, %for.body.i.i.i6.i.i177
   %add.i.i.i.i.i183 = add nsw i32 %add89.i.i.i.i.i178, 64
   %cmp15.not.i.i.i.i.i184 = icmp sgt i32 %add.i.i.i.i.i183, %238
   br i1 %cmp15.not.i.i.i.i.i184, label %for.end.i.i.i7.i.i185, label %for.body.i.i.i6.i.i177, !llvm.loop !215
@@ -18935,7 +18935,7 @@ while.body.i73.i.i.i.i.i197:                      ; preds = %if.then19.i.i.i.i.i
   %285 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i198, i1 true)
   %cast.i75.i.i.i.i.i199 = trunc nuw nsw i64 %285 to i32
   %add.i76.i.i.i.i.i200 = or disjoint i32 %238, %cast.i75.i.i.i.i.i199
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4, ptr nonnull readonly %flatVector.i5, i32 noundef %add.i76.i.i.i.i.i200)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i4, ptr nonnull readonly %flatVector.i5, i32 noundef %add.i76.i.i.i.i.i200)
           to label %.noexc41.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i201
 
 .noexc41.i:                                       ; preds = %while.body.i73.i.i.i.i.i197
@@ -18949,7 +18949,7 @@ invoke.cont8.i:                                   ; preds = %.noexc41.i, %.noexc
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %286, ptr noundef nonnull readonly align 8 dereferenceable(36) %187, ptr noundef nonnull align 8 dereferenceable(80) %189, ptr noundef %192, ptr noundef nonnull align 8 dereferenceable(88) %194)
           to label %invoke.cont10.invoke.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
-invoke.cont10.invoke.i:                           ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %if.then.i111.i, %invoke.cont8.i
+invoke.cont10.invoke.i:                           ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %if.then.i111.i, %invoke.cont8.i
   %287 = load ptr, ptr %flatVector.i5, align 8
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %287, ptr noundef nonnull readonly align 8 dereferenceable(36) %187, ptr noundef nonnull align 8 dereferenceable(80) %189, ptr noundef %192, ptr noundef nonnull align 8 dereferenceable(88) %194)
           to label %if.end.i72 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
@@ -19097,8 +19097,8 @@ for.body.lr.ph.i.i111:                            ; preds = %if.then.i111.i
   %303 = sext i32 %301 to i64
   br label %for.body.i115.i
 
-for.body.i115.i:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %for.body.lr.ph.i.i111
-  %indvars.iv.i.i115 = phi i64 [ %303, %for.body.lr.ph.i.i111 ], [ %indvars.iv.next.i.i127, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i ]
+for.body.i115.i:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, %for.body.lr.ph.i.i111
+  %indvars.iv.i.i115 = phi i64 [ %303, %for.body.lr.ph.i.i111 ], [ %indvars.iv.next.i.i127, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i ]
   %func.val.val.i.i = load ptr, ptr %flatVector.i5, align 8
   %304 = load ptr, ptr %data_.i.i.i.i112, align 8
   %305 = load i8, ptr %isIdentityMapping_.i.i.i.i.i113, align 2
@@ -19146,7 +19146,7 @@ _ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i.i.i: ; preds = %call.
   %nulls_.i.i.i.i = getelementptr inbounds i8, ptr %func.val.val.i.i, i64 32
   %314 = load ptr, ptr %nulls_.i.i.i.i, align 8
   %cmp.i5.not.i.i.i.i = icmp eq ptr %314, null
-  br i1 %cmp.i5.not.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, label %if.end.i.i4.i.i.i
+  br i1 %cmp.i5.not.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, label %if.end.i.i4.i.i.i
 
 if.end.i.i4.i.i.i:                                ; preds = %_ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i.i.i
   %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %func.val.val.i.i, i64 56
@@ -19181,9 +19181,9 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i: ; preds = %call.i.i.i
   %320 = trunc nuw i32 %shl.i.i.i.i.i.i.i to i8
   %conv1.i.i.i.i.i.i.i = or i8 %319, %320
   store i8 %conv1.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i117.i, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i, %_ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i, %_ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i.i.i
   %indvars.iv.next.i.i127 = add nsw i64 %indvars.iv.i.i115, 1
   %321 = load i32, ptr %end_.i.i22, align 8
   %322 = sext i32 %321 to i64
@@ -19289,8 +19289,8 @@ for.body.lr.ph.i.i.i.i.i81.i:                     ; preds = %if.then.i.i.i.i.i77
   %conv.i.i.i.i.i82.i = sext i32 %mul.i31.i.i.i.i.i to i64
   br label %for.body.i.i.i.i.i83.i
 
-for.body.i.i.i.i.i83.i:                           ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i81.i
-  %row.060.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i82.i, %for.body.lr.ph.i.i.i.i.i81.i ], [ %inc.i.i.i.i.i88.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i ]
+for.body.i.i.i.i.i83.i:                           ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i81.i
+  %row.060.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i82.i, %for.body.lr.ph.i.i.i.i.i81.i ], [ %inc.i.i.i.i.i88.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i ]
   %conv7.i.i.i.i.i84.i = trunc i64 %row.060.i.i.i.i.i.i to i32
   %.val12.val.i.i.i.i.i.i = load ptr, ptr %flatVector.i5, align 8
   %331 = load ptr, ptr %data_.i.i.i.i.i.i.i67.i, align 8
@@ -19342,7 +19342,7 @@ _ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i.i.i.i.i.i.i: ; preds 
   %nulls_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val12.val.i.i.i.i.i.i, i64 32
   %341 = load ptr, ptr %nulls_.i.i.i.i.i.i.i.i, align 8
   %cmp.i5.not.i.i.i.i.i.i.i.i = icmp eq ptr %341, null
-  br i1 %cmp.i5.not.i.i.i.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, label %if.end.i.i4.i.i.i.i.i.i.i
+  br i1 %cmp.i5.not.i.i.i.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, label %if.end.i.i4.i.i.i.i.i.i.i
 
 if.end.i.i4.i.i.i.i.i.i.i:                        ; preds = %_ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
   %length_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val12.val.i.i.i.i.i.i, i64 56
@@ -19377,15 +19377,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i: ; preds = %ca
   %347 = trunc nuw i32 %shl.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv1.i.i.i.i.i.i.i.i.i.i.i = or i8 %346, %347
   store i8 %conv1.i.i.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i, %_ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i, %_ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
   %inc.i.i.i.i.i88.i = add nuw i64 %row.060.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i89.i = icmp ult i64 %inc.i.i.i.i.i88.i, %conv5.i.i.i.i.i79.i
   br i1 %cmp6.i.i.i.i.i89.i, label %for.body.i.i.i.i.i83.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !217
 
-while.body.i.i.i.i.i93.i:                         ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i91.i
-  %word.058.i.i.i.i.i.i = phi i64 [ %330, %while.body.lr.ph.i.i.i.i.i91.i ], [ %and.i.i.i.i.i96.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i ]
+while.body.i.i.i.i.i93.i:                         ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i91.i
+  %word.058.i.i.i.i.i.i = phi i64 [ %330, %while.body.lr.ph.i.i.i.i.i91.i ], [ %and.i.i.i.i.i96.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i ]
   %348 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.058.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i94.i = trunc nuw nsw i64 %348 to i32
   %add10.i.i.i.i.i95.i103 = or disjoint i32 %mul9.i.i.i.i.i92.i, %cast.i.i.i.i.i94.i
@@ -19437,7 +19437,7 @@ _ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i: ; pred
   %nulls_.i.i33.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.val.i.i.i.i.i.i, i64 32
   %358 = load ptr, ptr %nulls_.i.i33.i.i.i.i.i.i, align 8
   %cmp.i5.not.i.i34.i.i.i.i.i.i = icmp eq ptr %358, null
-  br i1 %cmp.i5.not.i.i34.i.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, label %if.end.i.i4.i35.i.i.i.i.i.i
+  br i1 %cmp.i5.not.i.i34.i.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, label %if.end.i.i4.i35.i.i.i.i.i.i
 
 if.end.i.i4.i35.i.i.i.i.i.i:                      ; preds = %_ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
   %length_.i.i.i36.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.val.i.i.i.i.i.i, i64 56
@@ -19472,15 +19472,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i: ; preds = %
   %364 = trunc nuw i32 %shl.i.i.i.i.i43.i.i.i.i.i.i to i8
   %conv1.i.i.i.i.i47.i.i.i.i.i.i = or i8 %363, %364
   store i8 %conv1.i.i.i.i.i47.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i46.i.i.i.i.i.i, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i, %_ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i, %_ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
   %sub.i32.i.i.i.i.i = add i64 %word.058.i.i.i.i.i.i, -1
   %and.i.i.i.i.i96.i = and i64 %sub.i32.i.i.i.i.i, %word.058.i.i.i.i.i.i
   %tobool8.not.i.i.i.i.i97.i = icmp eq i64 %and.i.i.i.i.i96.i, 0
   br i1 %tobool8.not.i.i.i.i.i97.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i.i.i.i.i93.i, !llvm.loop !218
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, %if.then.i.i.i.i.i77.i, %for.body.i.i.i7.i.i
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, %if.then.i.i.i.i.i77.i, %for.body.i.i.i7.i.i
   %add.i.i.i.i71.i = add nsw i32 %add40.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i72.i = icmp sgt i32 %add.i.i.i.i71.i, %327
   br i1 %cmp15.not.i.i.i.i72.i, label %for.end.i.i.i8.i.i, label %for.body.i.i.i7.i.i, !llvm.loop !219
@@ -19896,7 +19896,7 @@ if.then.i.i938:                                   ; preds = %_ZNK8facebook5velox
 
 for.body.i.i940:                                  ; preds = %if.then.i.i938, %.noexc32.i944
   %row.012.i.i941 = phi i32 [ %inc.i.i945, %.noexc32.i944 ], [ %425, %if.then.i.i938 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i369, ptr nonnull readonly %flatVector.i370, i32 noundef %row.012.i.i941)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i369, ptr nonnull readonly %flatVector.i370, i32 noundef %row.012.i.i941)
           to label %.noexc32.i944 unwind label %lpad7.loopexit.i942
 
 .noexc32.i944:                                    ; preds = %for.body.i.i940
@@ -19946,7 +19946,7 @@ while.body.i.i.i.i.i.i928:                        ; preds = %if.then3.i.i.i.i.i9
   %434 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i929, i1 true)
   %cast.i.i.i.i.i.i930 = trunc nuw nsw i64 %434 to i32
   %add.i26.i.i.i.i.i931 = or disjoint i32 %432, %cast.i.i.i.i.i.i930
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i369, ptr nonnull readonly %flatVector.i370, i32 noundef %add.i26.i.i.i.i.i931)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i369, ptr nonnull readonly %flatVector.i370, i32 noundef %add.i26.i.i.i.i.i931)
           to label %.noexc33.i934 unwind label %lpad7.loopexit.split-lp.loopexit.i932
 
 .noexc33.i934:                                    ; preds = %while.body.i.i.i.i.i.i928
@@ -19984,7 +19984,7 @@ while.body.i42.i.i.i.i.i750:                      ; preds = %.noexc34.i756, %whi
   %436 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i751, i1 true)
   %cast.i44.i.i.i.i.i752 = trunc nuw nsw i64 %436 to i32
   %add.i45.i.i.i.i.i753 = or disjoint i32 %mul.i41.i.i.i.i.i749, %cast.i44.i.i.i.i.i752
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i369, ptr nonnull readonly %flatVector.i370, i32 noundef %add.i45.i.i.i.i.i753)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i369, ptr nonnull readonly %flatVector.i370, i32 noundef %add.i45.i.i.i.i.i753)
           to label %.noexc34.i756 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i754
 
 .noexc34.i756:                                    ; preds = %while.body.i42.i.i.i.i.i750
@@ -20037,7 +20037,7 @@ for.body.lr.ph.i.i.i.i.i.i805:                    ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i807:                          ; preds = %.noexc35.i812, %for.body.lr.ph.i.i.i.i.i.i805
   %row.018.i.i.i.i.i.i808 = phi i64 [ %conv.i.i.i.i.i.i806, %for.body.lr.ph.i.i.i.i.i.i805 ], [ %inc.i.i.i.i.i.i813, %.noexc35.i812 ]
   %conv7.i.i.i.i.i.i809 = trunc i64 %row.018.i.i.i.i.i.i808 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i369, ptr nonnull readonly %flatVector.i370, i32 noundef %conv7.i.i.i.i.i.i809)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i369, ptr nonnull readonly %flatVector.i370, i32 noundef %conv7.i.i.i.i.i.i809)
           to label %.noexc35.i812 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i810
 
 .noexc35.i812:                                    ; preds = %for.body.i.i.i.i.i.i807
@@ -20045,8 +20045,8 @@ for.body.i.i.i.i.i.i807:                          ; preds = %.noexc35.i812, %for
   %cmp6.i.i.i.i.i23.i814 = icmp ult i64 %inc.i.i.i.i.i.i813, %conv5.i.i.i.i.i.i802
   br i1 %cmp6.i.i.i.i.i23.i814, label %for.body.i.i.i.i.i.i807, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !228
 
-while.body.i57.i.i.i.i.i817:                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i815
-  %word.016.i.i.i.i.i.i818 = phi i64 [ %437, %while.body.lr.ph.i.i.i.i.i.i815 ], [ %and.i61.i.i.i.i.i872, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i ]
+while.body.i57.i.i.i.i.i817:                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i815
+  %word.016.i.i.i.i.i.i818 = phi i64 [ %437, %while.body.lr.ph.i.i.i.i.i.i815 ], [ %and.i61.i.i.i.i.i872, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i ]
   %438 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i818, i1 true)
   %cast.i58.i.i.i.i.i819 = trunc nuw nsw i64 %438 to i32
   %add10.i.i.i.i.i.i820 = or disjoint i32 %mul9.i.i.i.i.i.i816, %cast.i58.i.i.i.i.i819
@@ -20141,7 +20141,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i888: ; preds = %cal
   %455 = load i8, ptr %arrayidx2.i.i.i.i.i.i.i.i.i894, align 1
   %and3.i.i.i.i.i.i.i.i.i895 = and i8 %455, %454
   store i8 %and3.i.i.i.i.i.i.i.i.i895, ptr %arrayidx2.i.i.i.i.i.i.i.i.i894, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
 if.else.i.thread.i.i.i.i.i839:                    ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i829, %if.then8.i.i.i.i.i.i.i897
   %456 = load ptr, ptr %flatVector.i370, align 8
@@ -20199,7 +20199,7 @@ _ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i.i.i.i.i.i: ; preds = 
   %nulls_.i12.i.i.i.i.i.i852 = getelementptr inbounds i8, ptr %467, i64 32
   %471 = load ptr, ptr %nulls_.i12.i.i.i.i.i.i852, align 8
   %cmp.i5.not.i.i.i.i.i.i.i853 = icmp eq ptr %471, null
-  br i1 %cmp.i5.not.i.i.i.i.i.i.i853, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, label %if.end.i.i13.i.i.i.i.i.i854
+  br i1 %cmp.i5.not.i.i.i.i.i.i.i853, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, label %if.end.i.i13.i.i.i.i.i.i854
 
 if.end.i.i13.i.i.i.i.i.i854:                      ; preds = %_ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i.i.i.i.i.i
   %length_.i.i.i.i.i.i.i.i855 = getelementptr inbounds i8, ptr %467, i64 56
@@ -20234,15 +20234,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i863: ; preds = %c
   %477 = trunc nuw i32 %shl.i.i.i.i.i.i.i.i.i.i866 to i8
   %conv1.i.i.i.i.i.i.i.i.i.i870 = or i8 %476, %477
   store i8 %conv1.i.i.i.i.i.i.i.i.i.i870, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i869, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i863, %_ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i888
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i863, %_ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i888
   %sub.i60.i.i.i.i.i871 = add i64 %word.016.i.i.i.i.i.i818, -1
   %and.i61.i.i.i.i.i872 = and i64 %sub.i60.i.i.i.i.i871, %word.016.i.i.i.i.i.i818
   %tobool8.not.i.i.i.i.i.i873 = icmp eq i64 %and.i61.i.i.i.i.i872, 0
   br i1 %tobool8.not.i.i.i.i.i.i873, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i57.i.i.i.i.i817, !llvm.loop !229
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc35.i812, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i799, %for.body.i.i.i6.i.i769
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc35.i812, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i799, %for.body.i.i.i6.i.i769
   %add.i.i.i.i.i775 = add nsw i32 %add89.i.i.i.i.i770, 64
   %cmp15.not.i.i.i.i.i776 = icmp sgt i32 %add.i.i.i.i.i775, %432
   br i1 %cmp15.not.i.i.i.i.i776, label %for.end.i.i.i7.i.i777, label %for.body.i.i.i6.i.i769, !llvm.loop !230
@@ -20269,7 +20269,7 @@ while.body.i73.i.i.i.i.i789:                      ; preds = %if.then19.i.i.i.i.i
   %479 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i790, i1 true)
   %cast.i75.i.i.i.i.i791 = trunc nuw nsw i64 %479 to i32
   %add.i76.i.i.i.i.i792 = or disjoint i32 %432, %cast.i75.i.i.i.i.i791
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i369, ptr nonnull readonly %flatVector.i370, i32 noundef %add.i76.i.i.i.i.i792)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i369, ptr nonnull readonly %flatVector.i370, i32 noundef %add.i76.i.i.i.i.i792)
           to label %.noexc41.i795 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i793
 
 .noexc41.i795:                                    ; preds = %while.body.i73.i.i.i.i.i789
@@ -20283,7 +20283,7 @@ invoke.cont8.i728:                                ; preds = %.noexc41.i795, %.no
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %480, ptr noundef nonnull readonly align 8 dereferenceable(36) %381, ptr noundef nonnull align 8 dereferenceable(80) %383, ptr noundef %386, ptr noundef nonnull align 8 dereferenceable(88) %388)
           to label %invoke.cont10.invoke.i449 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i450
 
-invoke.cont10.invoke.i449:                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %if.then.i111.i646, %invoke.cont8.i728
+invoke.cont10.invoke.i449:                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %if.then.i111.i646, %invoke.cont8.i728
   %481 = load ptr, ptr %flatVector.i370, align 8
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %481, ptr noundef nonnull readonly align 8 dereferenceable(36) %381, ptr noundef nonnull align 8 dereferenceable(80) %383, ptr noundef %386, ptr noundef nonnull align 8 dereferenceable(88) %388)
           to label %if.end.i454 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i450
@@ -20431,8 +20431,8 @@ for.body.lr.ph.i.i648:                            ; preds = %if.then.i111.i646
   %497 = sext i32 %495 to i64
   br label %for.body.i115.i652
 
-for.body.i115.i652:                               ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %for.body.lr.ph.i.i648
-  %indvars.iv.i.i653 = phi i64 [ %497, %for.body.lr.ph.i.i648 ], [ %indvars.iv.next.i.i685, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i ]
+for.body.i115.i652:                               ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, %for.body.lr.ph.i.i648
+  %indvars.iv.i.i653 = phi i64 [ %497, %for.body.lr.ph.i.i648 ], [ %indvars.iv.next.i.i685, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i ]
   %func.val.val.i.i654 = load ptr, ptr %flatVector.i370, align 8
   %498 = load ptr, ptr %data_.i.i.i.i649, align 8
   %499 = load i8, ptr %isIdentityMapping_.i.i.i.i.i650, align 2
@@ -20480,7 +20480,7 @@ _ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i.i.i: ; preds = %call.
   %nulls_.i.i.i.i666 = getelementptr inbounds i8, ptr %func.val.val.i.i654, i64 32
   %508 = load ptr, ptr %nulls_.i.i.i.i666, align 8
   %cmp.i5.not.i.i.i.i667 = icmp eq ptr %508, null
-  br i1 %cmp.i5.not.i.i.i.i667, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, label %if.end.i.i4.i.i.i668
+  br i1 %cmp.i5.not.i.i.i.i667, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, label %if.end.i.i4.i.i.i668
 
 if.end.i.i4.i.i.i668:                             ; preds = %_ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i.i.i
   %length_.i.i.i.i.i669 = getelementptr inbounds i8, ptr %func.val.val.i.i654, i64 56
@@ -20515,9 +20515,9 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i677: ; preds = %call.i.
   %514 = trunc nuw i32 %shl.i.i.i.i.i.i.i680 to i8
   %conv1.i.i.i.i.i.i.i684 = or i8 %513, %514
   store i8 %conv1.i.i.i.i.i.i.i684, ptr %arrayidx.i.i.i.i.i.i117.i683, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i677, %_ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i677, %_ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i.i.i
   %indvars.iv.next.i.i685 = add nsw i64 %indvars.iv.i.i653, 1
   %515 = load i32, ptr %end_.i.i387, align 8
   %516 = sext i32 %515 to i64
@@ -20623,8 +20623,8 @@ for.body.lr.ph.i.i.i.i.i81.i538:                  ; preds = %if.then.i.i.i.i.i77
   %conv.i.i.i.i.i82.i539 = sext i32 %mul.i31.i.i.i.i.i533 to i64
   br label %for.body.i.i.i.i.i83.i540
 
-for.body.i.i.i.i.i83.i540:                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i81.i538
-  %row.060.i.i.i.i.i.i541 = phi i64 [ %conv.i.i.i.i.i82.i539, %for.body.lr.ph.i.i.i.i.i81.i538 ], [ %inc.i.i.i.i.i88.i577, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i ]
+for.body.i.i.i.i.i83.i540:                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i81.i538
+  %row.060.i.i.i.i.i.i541 = phi i64 [ %conv.i.i.i.i.i82.i539, %for.body.lr.ph.i.i.i.i.i81.i538 ], [ %inc.i.i.i.i.i88.i577, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i ]
   %conv7.i.i.i.i.i84.i542 = trunc i64 %row.060.i.i.i.i.i.i541 to i32
   %.val12.val.i.i.i.i.i.i543 = load ptr, ptr %flatVector.i370, align 8
   %525 = load ptr, ptr %data_.i.i.i.i.i.i.i67.i513, align 8
@@ -20676,7 +20676,7 @@ _ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i.i.i.i.i.i.i: ; preds 
   %nulls_.i.i.i.i.i.i.i.i558 = getelementptr inbounds i8, ptr %.val12.val.i.i.i.i.i.i543, i64 32
   %535 = load ptr, ptr %nulls_.i.i.i.i.i.i.i.i558, align 8
   %cmp.i5.not.i.i.i.i.i.i.i.i559 = icmp eq ptr %535, null
-  br i1 %cmp.i5.not.i.i.i.i.i.i.i.i559, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, label %if.end.i.i4.i.i.i.i.i.i.i560
+  br i1 %cmp.i5.not.i.i.i.i.i.i.i.i559, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, label %if.end.i.i4.i.i.i.i.i.i.i560
 
 if.end.i.i4.i.i.i.i.i.i.i560:                     ; preds = %_ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
   %length_.i.i.i.i.i.i.i.i.i561 = getelementptr inbounds i8, ptr %.val12.val.i.i.i.i.i.i543, i64 56
@@ -20711,15 +20711,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i569: ; preds = 
   %541 = trunc nuw i32 %shl.i.i.i.i.i.i.i.i.i.i.i572 to i8
   %conv1.i.i.i.i.i.i.i.i.i.i.i576 = or i8 %540, %541
   store i8 %conv1.i.i.i.i.i.i.i.i.i.i.i576, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i575, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i569, %_ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i569, %_ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
   %inc.i.i.i.i.i88.i577 = add nuw i64 %row.060.i.i.i.i.i.i541, 1
   %cmp6.i.i.i.i.i89.i578 = icmp ult i64 %inc.i.i.i.i.i88.i577, %conv5.i.i.i.i.i79.i535
   br i1 %cmp6.i.i.i.i.i89.i578, label %for.body.i.i.i.i.i83.i540, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !232
 
-while.body.i.i.i.i.i93.i587:                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i91.i585
-  %word.058.i.i.i.i.i.i588 = phi i64 [ %524, %while.body.lr.ph.i.i.i.i.i91.i585 ], [ %and.i.i.i.i.i96.i625, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i ]
+while.body.i.i.i.i.i93.i587:                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i91.i585
+  %word.058.i.i.i.i.i.i588 = phi i64 [ %524, %while.body.lr.ph.i.i.i.i.i91.i585 ], [ %and.i.i.i.i.i96.i625, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i ]
   %542 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.058.i.i.i.i.i.i588, i1 true)
   %cast.i.i.i.i.i94.i589 = trunc nuw nsw i64 %542 to i32
   %add10.i.i.i.i.i95.i590 = or disjoint i32 %mul9.i.i.i.i.i92.i586, %cast.i.i.i.i.i94.i589
@@ -20771,7 +20771,7 @@ _ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i: ; pred
   %nulls_.i.i33.i.i.i.i.i.i605 = getelementptr inbounds i8, ptr %.val.val.i.i.i.i.i.i591, i64 32
   %552 = load ptr, ptr %nulls_.i.i33.i.i.i.i.i.i605, align 8
   %cmp.i5.not.i.i34.i.i.i.i.i.i606 = icmp eq ptr %552, null
-  br i1 %cmp.i5.not.i.i34.i.i.i.i.i.i606, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, label %if.end.i.i4.i35.i.i.i.i.i.i607
+  br i1 %cmp.i5.not.i.i34.i.i.i.i.i.i606, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, label %if.end.i.i4.i35.i.i.i.i.i.i607
 
 if.end.i.i4.i35.i.i.i.i.i.i607:                   ; preds = %_ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
   %length_.i.i.i36.i.i.i.i.i.i608 = getelementptr inbounds i8, ptr %.val.val.i.i.i.i.i.i591, i64 56
@@ -20806,15 +20806,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i616: ; preds 
   %558 = trunc nuw i32 %shl.i.i.i.i.i43.i.i.i.i.i.i619 to i8
   %conv1.i.i.i.i.i47.i.i.i.i.i.i623 = or i8 %557, %558
   store i8 %conv1.i.i.i.i.i47.i.i.i.i.i.i623, ptr %arrayidx.i.i.i.i.i46.i.i.i.i.i.i622, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i616, %_ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i616, %_ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
   %sub.i32.i.i.i.i.i624 = add i64 %word.058.i.i.i.i.i.i588, -1
   %and.i.i.i.i.i96.i625 = and i64 %sub.i32.i.i.i.i.i624, %word.058.i.i.i.i.i.i588
   %tobool8.not.i.i.i.i.i97.i626 = icmp eq i64 %and.i.i.i.i.i96.i625, 0
   br i1 %tobool8.not.i.i.i.i.i97.i626, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i.i.i.i.i93.i587, !llvm.loop !233
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, %if.then.i.i.i.i.i77.i532, %for.body.i.i.i7.i.i516
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, %if.then.i.i.i.i.i77.i532, %for.body.i.i.i7.i.i516
   %add.i.i.i.i71.i522 = add nsw i32 %add40.i.i.i.i.i517, 64
   %cmp15.not.i.i.i.i72.i523 = icmp sgt i32 %add.i.i.i.i71.i522, %521
   br i1 %cmp15.not.i.i.i.i72.i523, label %for.end.i.i.i8.i.i524, label %for.body.i.i.i7.i.i516, !llvm.loop !234
@@ -21230,7 +21230,7 @@ if.then.i.i1565:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i1567:                                 ; preds = %if.then.i.i1565, %.noexc32.i1571
   %row.012.i.i1568 = phi i32 [ %inc.i.i1572, %.noexc32.i1571 ], [ %619, %if.then.i.i1565 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i996, ptr nonnull readonly %flatVector.i997, i32 noundef %row.012.i.i1568)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i996, ptr nonnull readonly %flatVector.i997, i32 noundef %row.012.i.i1568)
           to label %.noexc32.i1571 unwind label %lpad7.loopexit.i1569
 
 .noexc32.i1571:                                   ; preds = %for.body.i.i1567
@@ -21280,7 +21280,7 @@ while.body.i.i.i.i.i.i1555:                       ; preds = %if.then3.i.i.i.i.i1
   %628 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i1556, i1 true)
   %cast.i.i.i.i.i.i1557 = trunc nuw nsw i64 %628 to i32
   %add.i26.i.i.i.i.i1558 = or disjoint i32 %626, %cast.i.i.i.i.i.i1557
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i996, ptr nonnull readonly %flatVector.i997, i32 noundef %add.i26.i.i.i.i.i1558)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i996, ptr nonnull readonly %flatVector.i997, i32 noundef %add.i26.i.i.i.i.i1558)
           to label %.noexc33.i1561 unwind label %lpad7.loopexit.split-lp.loopexit.i1559
 
 .noexc33.i1561:                                   ; preds = %while.body.i.i.i.i.i.i1555
@@ -21318,7 +21318,7 @@ while.body.i42.i.i.i.i.i1377:                     ; preds = %.noexc34.i1383, %wh
   %630 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i1378, i1 true)
   %cast.i44.i.i.i.i.i1379 = trunc nuw nsw i64 %630 to i32
   %add.i45.i.i.i.i.i1380 = or disjoint i32 %mul.i41.i.i.i.i.i1376, %cast.i44.i.i.i.i.i1379
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i996, ptr nonnull readonly %flatVector.i997, i32 noundef %add.i45.i.i.i.i.i1380)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i996, ptr nonnull readonly %flatVector.i997, i32 noundef %add.i45.i.i.i.i.i1380)
           to label %.noexc34.i1383 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1381
 
 .noexc34.i1383:                                   ; preds = %while.body.i42.i.i.i.i.i1377
@@ -21371,7 +21371,7 @@ for.body.lr.ph.i.i.i.i.i.i1432:                   ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i1434:                         ; preds = %.noexc35.i1439, %for.body.lr.ph.i.i.i.i.i.i1432
   %row.018.i.i.i.i.i.i1435 = phi i64 [ %conv.i.i.i.i.i.i1433, %for.body.lr.ph.i.i.i.i.i.i1432 ], [ %inc.i.i.i.i.i.i1440, %.noexc35.i1439 ]
   %conv7.i.i.i.i.i.i1436 = trunc i64 %row.018.i.i.i.i.i.i1435 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i996, ptr nonnull readonly %flatVector.i997, i32 noundef %conv7.i.i.i.i.i.i1436)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i996, ptr nonnull readonly %flatVector.i997, i32 noundef %conv7.i.i.i.i.i.i1436)
           to label %.noexc35.i1439 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1437
 
 .noexc35.i1439:                                   ; preds = %for.body.i.i.i.i.i.i1434
@@ -21379,8 +21379,8 @@ for.body.i.i.i.i.i.i1434:                         ; preds = %.noexc35.i1439, %fo
   %cmp6.i.i.i.i.i23.i1441 = icmp ult i64 %inc.i.i.i.i.i.i1440, %conv5.i.i.i.i.i.i1429
   br i1 %cmp6.i.i.i.i.i23.i1441, label %for.body.i.i.i.i.i.i1434, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !243
 
-while.body.i57.i.i.i.i.i1444:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i1442
-  %word.016.i.i.i.i.i.i1445 = phi i64 [ %631, %while.body.lr.ph.i.i.i.i.i.i1442 ], [ %and.i61.i.i.i.i.i1499, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i ]
+while.body.i57.i.i.i.i.i1444:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i1442
+  %word.016.i.i.i.i.i.i1445 = phi i64 [ %631, %while.body.lr.ph.i.i.i.i.i.i1442 ], [ %and.i61.i.i.i.i.i1499, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i ]
   %632 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i1445, i1 true)
   %cast.i58.i.i.i.i.i1446 = trunc nuw nsw i64 %632 to i32
   %add10.i.i.i.i.i.i1447 = or disjoint i32 %mul9.i.i.i.i.i.i1443, %cast.i58.i.i.i.i.i1446
@@ -21475,7 +21475,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i1515: ; preds = %ca
   %649 = load i8, ptr %arrayidx2.i.i.i.i.i.i.i.i.i1521, align 1
   %and3.i.i.i.i.i.i.i.i.i1522 = and i8 %649, %648
   store i8 %and3.i.i.i.i.i.i.i.i.i1522, ptr %arrayidx2.i.i.i.i.i.i.i.i.i1521, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
 if.else.i.thread.i.i.i.i.i1466:                   ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i1456, %if.then8.i.i.i.i.i.i.i1524
   %650 = load ptr, ptr %flatVector.i997, align 8
@@ -21533,7 +21533,7 @@ _ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i.i.i.i.i.i: ; preds = 
   %nulls_.i12.i.i.i.i.i.i1479 = getelementptr inbounds i8, ptr %661, i64 32
   %665 = load ptr, ptr %nulls_.i12.i.i.i.i.i.i1479, align 8
   %cmp.i5.not.i.i.i.i.i.i.i1480 = icmp eq ptr %665, null
-  br i1 %cmp.i5.not.i.i.i.i.i.i.i1480, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, label %if.end.i.i13.i.i.i.i.i.i1481
+  br i1 %cmp.i5.not.i.i.i.i.i.i.i1480, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, label %if.end.i.i13.i.i.i.i.i.i1481
 
 if.end.i.i13.i.i.i.i.i.i1481:                     ; preds = %_ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i.i.i.i.i.i
   %length_.i.i.i.i.i.i.i.i1482 = getelementptr inbounds i8, ptr %661, i64 56
@@ -21568,15 +21568,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i1490: ; preds = %
   %671 = trunc nuw i32 %shl.i.i.i.i.i.i.i.i.i.i1493 to i8
   %conv1.i.i.i.i.i.i.i.i.i.i1497 = or i8 %670, %671
   store i8 %conv1.i.i.i.i.i.i.i.i.i.i1497, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i1496, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i1490, %_ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i1515
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i1490, %_ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i1515
   %sub.i60.i.i.i.i.i1498 = add i64 %word.016.i.i.i.i.i.i1445, -1
   %and.i61.i.i.i.i.i1499 = and i64 %sub.i60.i.i.i.i.i1498, %word.016.i.i.i.i.i.i1445
   %tobool8.not.i.i.i.i.i.i1500 = icmp eq i64 %and.i61.i.i.i.i.i1499, 0
   br i1 %tobool8.not.i.i.i.i.i.i1500, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i57.i.i.i.i.i1444, !llvm.loop !244
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc35.i1439, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i1426, %for.body.i.i.i6.i.i1396
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc35.i1439, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i1426, %for.body.i.i.i6.i.i1396
   %add.i.i.i.i.i1402 = add nsw i32 %add89.i.i.i.i.i1397, 64
   %cmp15.not.i.i.i.i.i1403 = icmp sgt i32 %add.i.i.i.i.i1402, %626
   br i1 %cmp15.not.i.i.i.i.i1403, label %for.end.i.i.i7.i.i1404, label %for.body.i.i.i6.i.i1396, !llvm.loop !245
@@ -21603,7 +21603,7 @@ while.body.i73.i.i.i.i.i1416:                     ; preds = %if.then19.i.i.i.i.i
   %673 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i1417, i1 true)
   %cast.i75.i.i.i.i.i1418 = trunc nuw nsw i64 %673 to i32
   %add.i76.i.i.i.i.i1419 = or disjoint i32 %626, %cast.i75.i.i.i.i.i1418
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i996, ptr nonnull readonly %flatVector.i997, i32 noundef %add.i76.i.i.i.i.i1419)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i996, ptr nonnull readonly %flatVector.i997, i32 noundef %add.i76.i.i.i.i.i1419)
           to label %.noexc41.i1422 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i1420
 
 .noexc41.i1422:                                   ; preds = %while.body.i73.i.i.i.i.i1416
@@ -21617,7 +21617,7 @@ invoke.cont8.i1355:                               ; preds = %.noexc41.i1422, %.n
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %674, ptr noundef nonnull readonly align 8 dereferenceable(36) %575, ptr noundef nonnull align 8 dereferenceable(80) %577, ptr noundef %580, ptr noundef nonnull align 8 dereferenceable(88) %582)
           to label %invoke.cont10.invoke.i1076 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1077
 
-invoke.cont10.invoke.i1076:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %if.then.i111.i1273, %invoke.cont8.i1355
+invoke.cont10.invoke.i1076:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %if.then.i111.i1273, %invoke.cont8.i1355
   %675 = load ptr, ptr %flatVector.i997, align 8
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %675, ptr noundef nonnull readonly align 8 dereferenceable(36) %575, ptr noundef nonnull align 8 dereferenceable(80) %577, ptr noundef %580, ptr noundef nonnull align 8 dereferenceable(88) %582)
           to label %if.end.i1081 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1077
@@ -21765,8 +21765,8 @@ for.body.lr.ph.i.i1275:                           ; preds = %if.then.i111.i1273
   %691 = sext i32 %689 to i64
   br label %for.body.i115.i1279
 
-for.body.i115.i1279:                              ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %for.body.lr.ph.i.i1275
-  %indvars.iv.i.i1280 = phi i64 [ %691, %for.body.lr.ph.i.i1275 ], [ %indvars.iv.next.i.i1312, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i ]
+for.body.i115.i1279:                              ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, %for.body.lr.ph.i.i1275
+  %indvars.iv.i.i1280 = phi i64 [ %691, %for.body.lr.ph.i.i1275 ], [ %indvars.iv.next.i.i1312, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i ]
   %func.val.val.i.i1281 = load ptr, ptr %flatVector.i997, align 8
   %692 = load ptr, ptr %data_.i.i.i.i1276, align 8
   %693 = load i8, ptr %isIdentityMapping_.i.i.i.i.i1277, align 2
@@ -21814,7 +21814,7 @@ _ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i.i.i: ; preds = %call.
   %nulls_.i.i.i.i1293 = getelementptr inbounds i8, ptr %func.val.val.i.i1281, i64 32
   %702 = load ptr, ptr %nulls_.i.i.i.i1293, align 8
   %cmp.i5.not.i.i.i.i1294 = icmp eq ptr %702, null
-  br i1 %cmp.i5.not.i.i.i.i1294, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, label %if.end.i.i4.i.i.i1295
+  br i1 %cmp.i5.not.i.i.i.i1294, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, label %if.end.i.i4.i.i.i1295
 
 if.end.i.i4.i.i.i1295:                            ; preds = %_ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i.i.i
   %length_.i.i.i.i.i1296 = getelementptr inbounds i8, ptr %func.val.val.i.i1281, i64 56
@@ -21849,9 +21849,9 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i1304: ; preds = %call.i
   %708 = trunc nuw i32 %shl.i.i.i.i.i.i.i1307 to i8
   %conv1.i.i.i.i.i.i.i1311 = or i8 %707, %708
   store i8 %conv1.i.i.i.i.i.i.i1311, ptr %arrayidx.i.i.i.i.i.i117.i1310, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i1304, %_ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i1304, %_ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i.i.i
   %indvars.iv.next.i.i1312 = add nsw i64 %indvars.iv.i.i1280, 1
   %709 = load i32, ptr %end_.i.i1014, align 8
   %710 = sext i32 %709 to i64
@@ -21957,8 +21957,8 @@ for.body.lr.ph.i.i.i.i.i81.i1165:                 ; preds = %if.then.i.i.i.i.i77
   %conv.i.i.i.i.i82.i1166 = sext i32 %mul.i31.i.i.i.i.i1160 to i64
   br label %for.body.i.i.i.i.i83.i1167
 
-for.body.i.i.i.i.i83.i1167:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i81.i1165
-  %row.060.i.i.i.i.i.i1168 = phi i64 [ %conv.i.i.i.i.i82.i1166, %for.body.lr.ph.i.i.i.i.i81.i1165 ], [ %inc.i.i.i.i.i88.i1204, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i ]
+for.body.i.i.i.i.i83.i1167:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i81.i1165
+  %row.060.i.i.i.i.i.i1168 = phi i64 [ %conv.i.i.i.i.i82.i1166, %for.body.lr.ph.i.i.i.i.i81.i1165 ], [ %inc.i.i.i.i.i88.i1204, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i ]
   %conv7.i.i.i.i.i84.i1169 = trunc i64 %row.060.i.i.i.i.i.i1168 to i32
   %.val12.val.i.i.i.i.i.i1170 = load ptr, ptr %flatVector.i997, align 8
   %719 = load ptr, ptr %data_.i.i.i.i.i.i.i67.i1140, align 8
@@ -22010,7 +22010,7 @@ _ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i.i.i.i.i.i.i: ; preds 
   %nulls_.i.i.i.i.i.i.i.i1185 = getelementptr inbounds i8, ptr %.val12.val.i.i.i.i.i.i1170, i64 32
   %729 = load ptr, ptr %nulls_.i.i.i.i.i.i.i.i1185, align 8
   %cmp.i5.not.i.i.i.i.i.i.i.i1186 = icmp eq ptr %729, null
-  br i1 %cmp.i5.not.i.i.i.i.i.i.i.i1186, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, label %if.end.i.i4.i.i.i.i.i.i.i1187
+  br i1 %cmp.i5.not.i.i.i.i.i.i.i.i1186, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, label %if.end.i.i4.i.i.i.i.i.i.i1187
 
 if.end.i.i4.i.i.i.i.i.i.i1187:                    ; preds = %_ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
   %length_.i.i.i.i.i.i.i.i.i1188 = getelementptr inbounds i8, ptr %.val12.val.i.i.i.i.i.i1170, i64 56
@@ -22045,15 +22045,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i1196: ; preds =
   %735 = trunc nuw i32 %shl.i.i.i.i.i.i.i.i.i.i.i1199 to i8
   %conv1.i.i.i.i.i.i.i.i.i.i.i1203 = or i8 %734, %735
   store i8 %conv1.i.i.i.i.i.i.i.i.i.i.i1203, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i1202, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i1196, %_ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i1196, %_ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
   %inc.i.i.i.i.i88.i1204 = add nuw i64 %row.060.i.i.i.i.i.i1168, 1
   %cmp6.i.i.i.i.i89.i1205 = icmp ult i64 %inc.i.i.i.i.i88.i1204, %conv5.i.i.i.i.i79.i1162
   br i1 %cmp6.i.i.i.i.i89.i1205, label %for.body.i.i.i.i.i83.i1167, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !247
 
-while.body.i.i.i.i.i93.i1214:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i91.i1212
-  %word.058.i.i.i.i.i.i1215 = phi i64 [ %718, %while.body.lr.ph.i.i.i.i.i91.i1212 ], [ %and.i.i.i.i.i96.i1252, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i ]
+while.body.i.i.i.i.i93.i1214:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i91.i1212
+  %word.058.i.i.i.i.i.i1215 = phi i64 [ %718, %while.body.lr.ph.i.i.i.i.i91.i1212 ], [ %and.i.i.i.i.i96.i1252, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i ]
   %736 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.058.i.i.i.i.i.i1215, i1 true)
   %cast.i.i.i.i.i94.i1216 = trunc nuw nsw i64 %736 to i32
   %add10.i.i.i.i.i95.i1217 = or disjoint i32 %mul9.i.i.i.i.i92.i1213, %cast.i.i.i.i.i94.i1216
@@ -22105,7 +22105,7 @@ _ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i: ; pred
   %nulls_.i.i33.i.i.i.i.i.i1232 = getelementptr inbounds i8, ptr %.val.val.i.i.i.i.i.i1218, i64 32
   %746 = load ptr, ptr %nulls_.i.i33.i.i.i.i.i.i1232, align 8
   %cmp.i5.not.i.i34.i.i.i.i.i.i1233 = icmp eq ptr %746, null
-  br i1 %cmp.i5.not.i.i34.i.i.i.i.i.i1233, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, label %if.end.i.i4.i35.i.i.i.i.i.i1234
+  br i1 %cmp.i5.not.i.i34.i.i.i.i.i.i1233, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, label %if.end.i.i4.i35.i.i.i.i.i.i1234
 
 if.end.i.i4.i35.i.i.i.i.i.i1234:                  ; preds = %_ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
   %length_.i.i.i36.i.i.i.i.i.i1235 = getelementptr inbounds i8, ptr %.val.val.i.i.i.i.i.i1218, i64 56
@@ -22140,15 +22140,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i1243: ; preds
   %752 = trunc nuw i32 %shl.i.i.i.i.i43.i.i.i.i.i.i1246 to i8
   %conv1.i.i.i.i.i47.i.i.i.i.i.i1250 = or i8 %751, %752
   store i8 %conv1.i.i.i.i.i47.i.i.i.i.i.i1250, ptr %arrayidx.i.i.i.i.i46.i.i.i.i.i.i1249, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i1243, %_ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i1243, %_ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
   %sub.i32.i.i.i.i.i1251 = add i64 %word.058.i.i.i.i.i.i1215, -1
   %and.i.i.i.i.i96.i1252 = and i64 %sub.i32.i.i.i.i.i1251, %word.058.i.i.i.i.i.i1215
   %tobool8.not.i.i.i.i.i97.i1253 = icmp eq i64 %and.i.i.i.i.i96.i1252, 0
   br i1 %tobool8.not.i.i.i.i.i97.i1253, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i.i.i.i.i93.i1214, !llvm.loop !248
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, %if.then.i.i.i.i.i77.i1159, %for.body.i.i.i7.i.i1143
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, %if.then.i.i.i.i.i77.i1159, %for.body.i.i.i7.i.i1143
   %add.i.i.i.i71.i1149 = add nsw i32 %add40.i.i.i.i.i1144, 64
   %cmp15.not.i.i.i.i72.i1150 = icmp sgt i32 %add.i.i.i.i71.i1149, %715
   br i1 %cmp15.not.i.i.i.i72.i1150, label %for.end.i.i.i8.i.i1151, label %for.body.i.i.i7.i.i1143, !llvm.loop !249
@@ -22564,7 +22564,7 @@ if.then.i.i2192:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i2194:                                 ; preds = %if.then.i.i2192, %.noexc32.i2198
   %row.012.i.i2195 = phi i32 [ %inc.i.i2199, %.noexc32.i2198 ], [ %813, %if.then.i.i2192 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i1623, ptr nonnull readonly %flatVector.i1624, i32 noundef %row.012.i.i2195)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i1623, ptr nonnull readonly %flatVector.i1624, i32 noundef %row.012.i.i2195)
           to label %.noexc32.i2198 unwind label %lpad7.loopexit.i2196
 
 .noexc32.i2198:                                   ; preds = %for.body.i.i2194
@@ -22614,7 +22614,7 @@ while.body.i.i.i.i.i.i2182:                       ; preds = %if.then3.i.i.i.i.i2
   %822 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i2183, i1 true)
   %cast.i.i.i.i.i.i2184 = trunc nuw nsw i64 %822 to i32
   %add.i26.i.i.i.i.i2185 = or disjoint i32 %820, %cast.i.i.i.i.i.i2184
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i1623, ptr nonnull readonly %flatVector.i1624, i32 noundef %add.i26.i.i.i.i.i2185)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i1623, ptr nonnull readonly %flatVector.i1624, i32 noundef %add.i26.i.i.i.i.i2185)
           to label %.noexc33.i2188 unwind label %lpad7.loopexit.split-lp.loopexit.i2186
 
 .noexc33.i2188:                                   ; preds = %while.body.i.i.i.i.i.i2182
@@ -22652,7 +22652,7 @@ while.body.i42.i.i.i.i.i2004:                     ; preds = %.noexc34.i2010, %wh
   %824 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i2005, i1 true)
   %cast.i44.i.i.i.i.i2006 = trunc nuw nsw i64 %824 to i32
   %add.i45.i.i.i.i.i2007 = or disjoint i32 %mul.i41.i.i.i.i.i2003, %cast.i44.i.i.i.i.i2006
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i1623, ptr nonnull readonly %flatVector.i1624, i32 noundef %add.i45.i.i.i.i.i2007)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i1623, ptr nonnull readonly %flatVector.i1624, i32 noundef %add.i45.i.i.i.i.i2007)
           to label %.noexc34.i2010 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2008
 
 .noexc34.i2010:                                   ; preds = %while.body.i42.i.i.i.i.i2004
@@ -22705,7 +22705,7 @@ for.body.lr.ph.i.i.i.i.i.i2059:                   ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i2061:                         ; preds = %.noexc35.i2066, %for.body.lr.ph.i.i.i.i.i.i2059
   %row.018.i.i.i.i.i.i2062 = phi i64 [ %conv.i.i.i.i.i.i2060, %for.body.lr.ph.i.i.i.i.i.i2059 ], [ %inc.i.i.i.i.i.i2067, %.noexc35.i2066 ]
   %conv7.i.i.i.i.i.i2063 = trunc i64 %row.018.i.i.i.i.i.i2062 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i1623, ptr nonnull readonly %flatVector.i1624, i32 noundef %conv7.i.i.i.i.i.i2063)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i1623, ptr nonnull readonly %flatVector.i1624, i32 noundef %conv7.i.i.i.i.i.i2063)
           to label %.noexc35.i2066 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2064
 
 .noexc35.i2066:                                   ; preds = %for.body.i.i.i.i.i.i2061
@@ -22713,8 +22713,8 @@ for.body.i.i.i.i.i.i2061:                         ; preds = %.noexc35.i2066, %fo
   %cmp6.i.i.i.i.i23.i2068 = icmp ult i64 %inc.i.i.i.i.i.i2067, %conv5.i.i.i.i.i.i2056
   br i1 %cmp6.i.i.i.i.i23.i2068, label %for.body.i.i.i.i.i.i2061, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !258
 
-while.body.i57.i.i.i.i.i2071:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i2069
-  %word.016.i.i.i.i.i.i2072 = phi i64 [ %825, %while.body.lr.ph.i.i.i.i.i.i2069 ], [ %and.i61.i.i.i.i.i2126, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i ]
+while.body.i57.i.i.i.i.i2071:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i2069
+  %word.016.i.i.i.i.i.i2072 = phi i64 [ %825, %while.body.lr.ph.i.i.i.i.i.i2069 ], [ %and.i61.i.i.i.i.i2126, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i ]
   %826 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i2072, i1 true)
   %cast.i58.i.i.i.i.i2073 = trunc nuw nsw i64 %826 to i32
   %add10.i.i.i.i.i.i2074 = or disjoint i32 %mul9.i.i.i.i.i.i2070, %cast.i58.i.i.i.i.i2073
@@ -22809,7 +22809,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i2142: ; preds = %ca
   %843 = load i8, ptr %arrayidx2.i.i.i.i.i.i.i.i.i2148, align 1
   %and3.i.i.i.i.i.i.i.i.i2149 = and i8 %843, %842
   store i8 %and3.i.i.i.i.i.i.i.i.i2149, ptr %arrayidx2.i.i.i.i.i.i.i.i.i2148, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
 if.else.i.thread.i.i.i.i.i2093:                   ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i2083, %if.then8.i.i.i.i.i.i.i2151
   %844 = load ptr, ptr %flatVector.i1624, align 8
@@ -22867,7 +22867,7 @@ _ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i.i.i.i.i.i: ; preds = 
   %nulls_.i12.i.i.i.i.i.i2106 = getelementptr inbounds i8, ptr %855, i64 32
   %859 = load ptr, ptr %nulls_.i12.i.i.i.i.i.i2106, align 8
   %cmp.i5.not.i.i.i.i.i.i.i2107 = icmp eq ptr %859, null
-  br i1 %cmp.i5.not.i.i.i.i.i.i.i2107, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, label %if.end.i.i13.i.i.i.i.i.i2108
+  br i1 %cmp.i5.not.i.i.i.i.i.i.i2107, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, label %if.end.i.i13.i.i.i.i.i.i2108
 
 if.end.i.i13.i.i.i.i.i.i2108:                     ; preds = %_ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i.i.i.i.i.i
   %length_.i.i.i.i.i.i.i.i2109 = getelementptr inbounds i8, ptr %855, i64 56
@@ -22902,15 +22902,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i2117: ; preds = %
   %865 = trunc nuw i32 %shl.i.i.i.i.i.i.i.i.i.i2120 to i8
   %conv1.i.i.i.i.i.i.i.i.i.i2124 = or i8 %864, %865
   store i8 %conv1.i.i.i.i.i.i.i.i.i.i2124, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i2123, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i2117, %_ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i2142
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i2117, %_ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i2142
   %sub.i60.i.i.i.i.i2125 = add i64 %word.016.i.i.i.i.i.i2072, -1
   %and.i61.i.i.i.i.i2126 = and i64 %sub.i60.i.i.i.i.i2125, %word.016.i.i.i.i.i.i2072
   %tobool8.not.i.i.i.i.i.i2127 = icmp eq i64 %and.i61.i.i.i.i.i2126, 0
   br i1 %tobool8.not.i.i.i.i.i.i2127, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i57.i.i.i.i.i2071, !llvm.loop !259
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc35.i2066, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i2053, %for.body.i.i.i6.i.i2023
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc35.i2066, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i2053, %for.body.i.i.i6.i.i2023
   %add.i.i.i.i.i2029 = add nsw i32 %add89.i.i.i.i.i2024, 64
   %cmp15.not.i.i.i.i.i2030 = icmp sgt i32 %add.i.i.i.i.i2029, %820
   br i1 %cmp15.not.i.i.i.i.i2030, label %for.end.i.i.i7.i.i2031, label %for.body.i.i.i6.i.i2023, !llvm.loop !260
@@ -22937,7 +22937,7 @@ while.body.i73.i.i.i.i.i2043:                     ; preds = %if.then19.i.i.i.i.i
   %867 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i2044, i1 true)
   %cast.i75.i.i.i.i.i2045 = trunc nuw nsw i64 %867 to i32
   %add.i76.i.i.i.i.i2046 = or disjoint i32 %820, %cast.i75.i.i.i.i.i2045
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i1623, ptr nonnull readonly %flatVector.i1624, i32 noundef %add.i76.i.i.i.i.i2046)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i1623, ptr nonnull readonly %flatVector.i1624, i32 noundef %add.i76.i.i.i.i.i2046)
           to label %.noexc41.i2049 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i2047
 
 .noexc41.i2049:                                   ; preds = %while.body.i73.i.i.i.i.i2043
@@ -22951,7 +22951,7 @@ invoke.cont8.i1982:                               ; preds = %.noexc41.i2049, %.n
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %868, ptr noundef nonnull readonly align 8 dereferenceable(36) %769, ptr noundef nonnull align 8 dereferenceable(80) %771, ptr noundef %774, ptr noundef nonnull align 8 dereferenceable(88) %776)
           to label %invoke.cont10.invoke.i1703 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1704
 
-invoke.cont10.invoke.i1703:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %if.then.i111.i1900, %invoke.cont8.i1982
+invoke.cont10.invoke.i1703:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %if.then.i111.i1900, %invoke.cont8.i1982
   %869 = load ptr, ptr %flatVector.i1624, align 8
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %869, ptr noundef nonnull readonly align 8 dereferenceable(36) %769, ptr noundef nonnull align 8 dereferenceable(80) %771, ptr noundef %774, ptr noundef nonnull align 8 dereferenceable(88) %776)
           to label %if.end.i1708 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1704
@@ -23099,8 +23099,8 @@ for.body.lr.ph.i.i1902:                           ; preds = %if.then.i111.i1900
   %885 = sext i32 %883 to i64
   br label %for.body.i115.i1906
 
-for.body.i115.i1906:                              ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %for.body.lr.ph.i.i1902
-  %indvars.iv.i.i1907 = phi i64 [ %885, %for.body.lr.ph.i.i1902 ], [ %indvars.iv.next.i.i1939, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i ]
+for.body.i115.i1906:                              ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, %for.body.lr.ph.i.i1902
+  %indvars.iv.i.i1907 = phi i64 [ %885, %for.body.lr.ph.i.i1902 ], [ %indvars.iv.next.i.i1939, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i ]
   %func.val.val.i.i1908 = load ptr, ptr %flatVector.i1624, align 8
   %886 = load ptr, ptr %data_.i.i.i.i1903, align 8
   %887 = load i8, ptr %isIdentityMapping_.i.i.i.i.i1904, align 2
@@ -23148,7 +23148,7 @@ _ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i.i.i: ; preds = %call.
   %nulls_.i.i.i.i1920 = getelementptr inbounds i8, ptr %func.val.val.i.i1908, i64 32
   %896 = load ptr, ptr %nulls_.i.i.i.i1920, align 8
   %cmp.i5.not.i.i.i.i1921 = icmp eq ptr %896, null
-  br i1 %cmp.i5.not.i.i.i.i1921, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, label %if.end.i.i4.i.i.i1922
+  br i1 %cmp.i5.not.i.i.i.i1921, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, label %if.end.i.i4.i.i.i1922
 
 if.end.i.i4.i.i.i1922:                            ; preds = %_ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i.i.i
   %length_.i.i.i.i.i1923 = getelementptr inbounds i8, ptr %func.val.val.i.i1908, i64 56
@@ -23183,9 +23183,9 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i1931: ; preds = %call.i
   %902 = trunc nuw i32 %shl.i.i.i.i.i.i.i1934 to i8
   %conv1.i.i.i.i.i.i.i1938 = or i8 %901, %902
   store i8 %conv1.i.i.i.i.i.i.i1938, ptr %arrayidx.i.i.i.i.i.i117.i1937, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i1931, %_ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i1931, %_ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i.i.i
   %indvars.iv.next.i.i1939 = add nsw i64 %indvars.iv.i.i1907, 1
   %903 = load i32, ptr %end_.i.i1641, align 8
   %904 = sext i32 %903 to i64
@@ -23291,8 +23291,8 @@ for.body.lr.ph.i.i.i.i.i81.i1792:                 ; preds = %if.then.i.i.i.i.i77
   %conv.i.i.i.i.i82.i1793 = sext i32 %mul.i31.i.i.i.i.i1787 to i64
   br label %for.body.i.i.i.i.i83.i1794
 
-for.body.i.i.i.i.i83.i1794:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i81.i1792
-  %row.060.i.i.i.i.i.i1795 = phi i64 [ %conv.i.i.i.i.i82.i1793, %for.body.lr.ph.i.i.i.i.i81.i1792 ], [ %inc.i.i.i.i.i88.i1831, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i ]
+for.body.i.i.i.i.i83.i1794:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i81.i1792
+  %row.060.i.i.i.i.i.i1795 = phi i64 [ %conv.i.i.i.i.i82.i1793, %for.body.lr.ph.i.i.i.i.i81.i1792 ], [ %inc.i.i.i.i.i88.i1831, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i ]
   %conv7.i.i.i.i.i84.i1796 = trunc i64 %row.060.i.i.i.i.i.i1795 to i32
   %.val12.val.i.i.i.i.i.i1797 = load ptr, ptr %flatVector.i1624, align 8
   %913 = load ptr, ptr %data_.i.i.i.i.i.i.i67.i1767, align 8
@@ -23344,7 +23344,7 @@ _ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i.i.i.i.i.i.i: ; preds 
   %nulls_.i.i.i.i.i.i.i.i1812 = getelementptr inbounds i8, ptr %.val12.val.i.i.i.i.i.i1797, i64 32
   %923 = load ptr, ptr %nulls_.i.i.i.i.i.i.i.i1812, align 8
   %cmp.i5.not.i.i.i.i.i.i.i.i1813 = icmp eq ptr %923, null
-  br i1 %cmp.i5.not.i.i.i.i.i.i.i.i1813, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, label %if.end.i.i4.i.i.i.i.i.i.i1814
+  br i1 %cmp.i5.not.i.i.i.i.i.i.i.i1813, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, label %if.end.i.i4.i.i.i.i.i.i.i1814
 
 if.end.i.i4.i.i.i.i.i.i.i1814:                    ; preds = %_ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
   %length_.i.i.i.i.i.i.i.i.i1815 = getelementptr inbounds i8, ptr %.val12.val.i.i.i.i.i.i1797, i64 56
@@ -23379,15 +23379,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i1823: ; preds =
   %929 = trunc nuw i32 %shl.i.i.i.i.i.i.i.i.i.i.i1826 to i8
   %conv1.i.i.i.i.i.i.i.i.i.i.i1830 = or i8 %928, %929
   store i8 %conv1.i.i.i.i.i.i.i.i.i.i.i1830, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i1829, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i1823, %_ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i1823, %_ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
   %inc.i.i.i.i.i88.i1831 = add nuw i64 %row.060.i.i.i.i.i.i1795, 1
   %cmp6.i.i.i.i.i89.i1832 = icmp ult i64 %inc.i.i.i.i.i88.i1831, %conv5.i.i.i.i.i79.i1789
   br i1 %cmp6.i.i.i.i.i89.i1832, label %for.body.i.i.i.i.i83.i1794, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !262
 
-while.body.i.i.i.i.i93.i1841:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i91.i1839
-  %word.058.i.i.i.i.i.i1842 = phi i64 [ %912, %while.body.lr.ph.i.i.i.i.i91.i1839 ], [ %and.i.i.i.i.i96.i1879, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i ]
+while.body.i.i.i.i.i93.i1841:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i91.i1839
+  %word.058.i.i.i.i.i.i1842 = phi i64 [ %912, %while.body.lr.ph.i.i.i.i.i91.i1839 ], [ %and.i.i.i.i.i96.i1879, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i ]
   %930 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.058.i.i.i.i.i.i1842, i1 true)
   %cast.i.i.i.i.i94.i1843 = trunc nuw nsw i64 %930 to i32
   %add10.i.i.i.i.i95.i1844 = or disjoint i32 %mul9.i.i.i.i.i92.i1840, %cast.i.i.i.i.i94.i1843
@@ -23439,7 +23439,7 @@ _ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i: ; pred
   %nulls_.i.i33.i.i.i.i.i.i1859 = getelementptr inbounds i8, ptr %.val.val.i.i.i.i.i.i1845, i64 32
   %940 = load ptr, ptr %nulls_.i.i33.i.i.i.i.i.i1859, align 8
   %cmp.i5.not.i.i34.i.i.i.i.i.i1860 = icmp eq ptr %940, null
-  br i1 %cmp.i5.not.i.i34.i.i.i.i.i.i1860, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, label %if.end.i.i4.i35.i.i.i.i.i.i1861
+  br i1 %cmp.i5.not.i.i34.i.i.i.i.i.i1860, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, label %if.end.i.i4.i35.i.i.i.i.i.i1861
 
 if.end.i.i4.i35.i.i.i.i.i.i1861:                  ; preds = %_ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
   %length_.i.i.i36.i.i.i.i.i.i1862 = getelementptr inbounds i8, ptr %.val.val.i.i.i.i.i.i1845, i64 56
@@ -23474,15 +23474,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i1870: ; preds
   %946 = trunc nuw i32 %shl.i.i.i.i.i43.i.i.i.i.i.i1873 to i8
   %conv1.i.i.i.i.i47.i.i.i.i.i.i1877 = or i8 %945, %946
   store i8 %conv1.i.i.i.i.i47.i.i.i.i.i.i1877, ptr %arrayidx.i.i.i.i.i46.i.i.i.i.i.i1876, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i1870, %_ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i1870, %_ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
   %sub.i32.i.i.i.i.i1878 = add i64 %word.058.i.i.i.i.i.i1842, -1
   %and.i.i.i.i.i96.i1879 = and i64 %sub.i32.i.i.i.i.i1878, %word.058.i.i.i.i.i.i1842
   %tobool8.not.i.i.i.i.i97.i1880 = icmp eq i64 %and.i.i.i.i.i96.i1879, 0
   br i1 %tobool8.not.i.i.i.i.i97.i1880, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i.i.i.i.i93.i1841, !llvm.loop !263
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, %if.then.i.i.i.i.i77.i1786, %for.body.i.i.i7.i.i1770
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, %if.then.i.i.i.i.i77.i1786, %for.body.i.i.i7.i.i1770
   %add.i.i.i.i71.i1776 = add nsw i32 %add40.i.i.i.i.i1771, 64
   %cmp15.not.i.i.i.i72.i1777 = icmp sgt i32 %add.i.i.i.i71.i1776, %909
   br i1 %cmp15.not.i.i.i.i72.i1777, label %for.end.i.i.i8.i.i1778, label %for.body.i.i.i7.i.i1770, !llvm.loop !264
@@ -23898,7 +23898,7 @@ if.then.i.i2778:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i2780:                                 ; preds = %if.then.i.i2778, %.noexc32.i2784
   %row.012.i.i2781 = phi i32 [ %inc.i.i2785, %.noexc32.i2784 ], [ %1007, %if.then.i.i2778 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2250, ptr nonnull readonly %flatVector.i2251, i32 noundef %row.012.i.i2781)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i2250, ptr nonnull readonly %flatVector.i2251, i32 noundef %row.012.i.i2781)
           to label %.noexc32.i2784 unwind label %lpad7.loopexit.i2782
 
 .noexc32.i2784:                                   ; preds = %for.body.i.i2780
@@ -23948,7 +23948,7 @@ while.body.i.i.i.i.i.i2768:                       ; preds = %if.then3.i.i.i.i.i2
   %1016 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i2769, i1 true)
   %cast.i.i.i.i.i.i2770 = trunc nuw nsw i64 %1016 to i32
   %add.i26.i.i.i.i.i2771 = or disjoint i32 %1014, %cast.i.i.i.i.i.i2770
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2250, ptr nonnull readonly %flatVector.i2251, i32 noundef %add.i26.i.i.i.i.i2771)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i2250, ptr nonnull readonly %flatVector.i2251, i32 noundef %add.i26.i.i.i.i.i2771)
           to label %.noexc33.i2774 unwind label %lpad7.loopexit.split-lp.loopexit.i2772
 
 .noexc33.i2774:                                   ; preds = %while.body.i.i.i.i.i.i2768
@@ -23986,7 +23986,7 @@ while.body.i42.i.i.i.i.i2594:                     ; preds = %.noexc34.i2600, %wh
   %1018 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i2595, i1 true)
   %cast.i44.i.i.i.i.i2596 = trunc nuw nsw i64 %1018 to i32
   %add.i45.i.i.i.i.i2597 = or disjoint i32 %mul.i41.i.i.i.i.i2593, %cast.i44.i.i.i.i.i2596
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2250, ptr nonnull readonly %flatVector.i2251, i32 noundef %add.i45.i.i.i.i.i2597)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i2250, ptr nonnull readonly %flatVector.i2251, i32 noundef %add.i45.i.i.i.i.i2597)
           to label %.noexc34.i2600 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2598
 
 .noexc34.i2600:                                   ; preds = %while.body.i42.i.i.i.i.i2594
@@ -24039,7 +24039,7 @@ for.body.lr.ph.i.i.i.i.i.i2649:                   ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i2651:                         ; preds = %.noexc35.i2656, %for.body.lr.ph.i.i.i.i.i.i2649
   %row.018.i.i.i.i.i.i2652 = phi i64 [ %conv.i.i.i.i.i.i2650, %for.body.lr.ph.i.i.i.i.i.i2649 ], [ %inc.i.i.i.i.i.i2657, %.noexc35.i2656 ]
   %conv7.i.i.i.i.i.i2653 = trunc i64 %row.018.i.i.i.i.i.i2652 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2250, ptr nonnull readonly %flatVector.i2251, i32 noundef %conv7.i.i.i.i.i.i2653)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i2250, ptr nonnull readonly %flatVector.i2251, i32 noundef %conv7.i.i.i.i.i.i2653)
           to label %.noexc35.i2656 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2654
 
 .noexc35.i2656:                                   ; preds = %for.body.i.i.i.i.i.i2651
@@ -24047,8 +24047,8 @@ for.body.i.i.i.i.i.i2651:                         ; preds = %.noexc35.i2656, %fo
   %cmp6.i.i.i.i.i23.i2658 = icmp ult i64 %inc.i.i.i.i.i.i2657, %conv5.i.i.i.i.i.i2646
   br i1 %cmp6.i.i.i.i.i23.i2658, label %for.body.i.i.i.i.i.i2651, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !273
 
-while.body.i57.i.i.i.i.i2661:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i2659
-  %word.016.i.i.i.i.i.i2662 = phi i64 [ %1019, %while.body.lr.ph.i.i.i.i.i.i2659 ], [ %and.i61.i.i.i.i.i2712, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i ]
+while.body.i57.i.i.i.i.i2661:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i2659
+  %word.016.i.i.i.i.i.i2662 = phi i64 [ %1019, %while.body.lr.ph.i.i.i.i.i.i2659 ], [ %and.i61.i.i.i.i.i2712, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i ]
   %1020 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i2662, i1 true)
   %cast.i58.i.i.i.i.i2663 = trunc nuw nsw i64 %1020 to i32
   %add10.i.i.i.i.i.i2664 = or disjoint i32 %mul9.i.i.i.i.i.i2660, %cast.i58.i.i.i.i.i2663
@@ -24143,7 +24143,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i2728: ; preds = %ca
   %1037 = load i8, ptr %arrayidx2.i.i.i.i.i.i.i.i.i2734, align 1
   %and3.i.i.i.i.i.i.i.i.i2735 = and i8 %1037, %1036
   store i8 %and3.i.i.i.i.i.i.i.i.i2735, ptr %arrayidx2.i.i.i.i.i.i.i.i.i2734, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
 if.else.i.thread.i.i.i.i.i2683:                   ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i2673, %if.then8.i.i.i.i.i.i.i2737
   %1038 = load ptr, ptr %flatVector.i2251, align 8
@@ -24202,7 +24202,7 @@ _ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i.i.i.i.i.i: ; preds = 
   %nulls_.i10.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1049, i64 32
   %1052 = load ptr, ptr %nulls_.i10.i.i.i.i.i.i, align 8
   %cmp.i5.not.i.i.i.i.i.i.i2694 = icmp eq ptr %1052, null
-  br i1 %cmp.i5.not.i.i.i.i.i.i.i2694, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, label %if.end.i.i11.i.i.i.i.i.i
+  br i1 %cmp.i5.not.i.i.i.i.i.i.i2694, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, label %if.end.i.i11.i.i.i.i.i.i
 
 if.end.i.i11.i.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i.i.i.i.i.i
   %length_.i.i.i.i.i.i.i.i2695 = getelementptr inbounds i8, ptr %1049, i64 56
@@ -24237,15 +24237,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i2703: ; preds = %
   %1058 = trunc nuw i32 %shl.i.i.i.i.i.i.i.i.i.i2706 to i8
   %conv1.i.i.i.i.i.i.i.i.i.i2710 = or i8 %1057, %1058
   store i8 %conv1.i.i.i.i.i.i.i.i.i.i2710, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i2709, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i2703, %_ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i2728
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i2703, %_ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i2728
   %sub.i60.i.i.i.i.i2711 = add i64 %word.016.i.i.i.i.i.i2662, -1
   %and.i61.i.i.i.i.i2712 = and i64 %sub.i60.i.i.i.i.i2711, %word.016.i.i.i.i.i.i2662
   %tobool8.not.i.i.i.i.i.i2713 = icmp eq i64 %and.i61.i.i.i.i.i2712, 0
   br i1 %tobool8.not.i.i.i.i.i.i2713, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i57.i.i.i.i.i2661, !llvm.loop !274
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc35.i2656, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i2643, %for.body.i.i.i6.i.i2613
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc35.i2656, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i2643, %for.body.i.i.i6.i.i2613
   %add.i.i.i.i.i2619 = add nsw i32 %add89.i.i.i.i.i2614, 64
   %cmp15.not.i.i.i.i.i2620 = icmp sgt i32 %add.i.i.i.i.i2619, %1014
   br i1 %cmp15.not.i.i.i.i.i2620, label %for.end.i.i.i7.i.i2621, label %for.body.i.i.i6.i.i2613, !llvm.loop !275
@@ -24272,7 +24272,7 @@ while.body.i73.i.i.i.i.i2633:                     ; preds = %if.then19.i.i.i.i.i
   %1060 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i2634, i1 true)
   %cast.i75.i.i.i.i.i2635 = trunc nuw nsw i64 %1060 to i32
   %add.i76.i.i.i.i.i2636 = or disjoint i32 %1014, %cast.i75.i.i.i.i.i2635
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2250, ptr nonnull readonly %flatVector.i2251, i32 noundef %add.i76.i.i.i.i.i2636)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i2250, ptr nonnull readonly %flatVector.i2251, i32 noundef %add.i76.i.i.i.i.i2636)
           to label %.noexc41.i2639 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i2637
 
 .noexc41.i2639:                                   ; preds = %while.body.i73.i.i.i.i.i2633
@@ -24286,7 +24286,7 @@ invoke.cont8.i2572:                               ; preds = %.noexc41.i2639, %.n
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1061, ptr noundef nonnull readonly align 8 dereferenceable(36) %963, ptr noundef nonnull align 8 dereferenceable(80) %965, ptr noundef %968, ptr noundef nonnull align 8 dereferenceable(88) %970)
           to label %invoke.cont10.invoke.i2330 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2331
 
-invoke.cont10.invoke.i2330:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %if.then.i111.i2493, %invoke.cont8.i2572
+invoke.cont10.invoke.i2330:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %if.then.i111.i2493, %invoke.cont8.i2572
   %1062 = load ptr, ptr %flatVector.i2251, align 8
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1062, ptr noundef nonnull readonly align 8 dereferenceable(36) %963, ptr noundef nonnull align 8 dereferenceable(80) %965, ptr noundef %968, ptr noundef nonnull align 8 dereferenceable(88) %970)
           to label %if.end.i2335 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2331
@@ -24434,8 +24434,8 @@ for.body.lr.ph.i.i2495:                           ; preds = %if.then.i111.i2493
   %1078 = sext i32 %1076 to i64
   br label %for.body.i115.i2499
 
-for.body.i115.i2499:                              ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %for.body.lr.ph.i.i2495
-  %indvars.iv.i.i2500 = phi i64 [ %1078, %for.body.lr.ph.i.i2495 ], [ %indvars.iv.next.i.i2529, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i ]
+for.body.i115.i2499:                              ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, %for.body.lr.ph.i.i2495
+  %indvars.iv.i.i2500 = phi i64 [ %1078, %for.body.lr.ph.i.i2495 ], [ %indvars.iv.next.i.i2529, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i ]
   %func.val.val.i.i2501 = load ptr, ptr %flatVector.i2251, align 8
   %1079 = load ptr, ptr %data_.i.i.i.i2496, align 8
   %1080 = load i8, ptr %isIdentityMapping_.i.i.i.i.i2497, align 2
@@ -24484,7 +24484,7 @@ _ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i.i.i: ; preds = %call.
   %nulls_.i.i.i.i2511 = getelementptr inbounds i8, ptr %func.val.val.i.i2501, i64 32
   %1088 = load ptr, ptr %nulls_.i.i.i.i2511, align 8
   %cmp.i5.not.i.i.i.i2512 = icmp eq ptr %1088, null
-  br i1 %cmp.i5.not.i.i.i.i2512, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, label %if.end.i.i2.i.i.i
+  br i1 %cmp.i5.not.i.i.i.i2512, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, label %if.end.i.i2.i.i.i
 
 if.end.i.i2.i.i.i:                                ; preds = %_ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i.i.i
   %length_.i.i.i.i.i2513 = getelementptr inbounds i8, ptr %func.val.val.i.i2501, i64 56
@@ -24519,9 +24519,9 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i2521: ; preds = %call.i
   %1094 = trunc nuw i32 %shl.i.i.i.i.i.i.i2524 to i8
   %conv1.i.i.i.i.i.i.i2528 = or i8 %1093, %1094
   store i8 %conv1.i.i.i.i.i.i.i2528, ptr %arrayidx.i.i.i.i.i.i117.i2527, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i2521, %_ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i2521, %_ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i.i.i
   %indvars.iv.next.i.i2529 = add nsw i64 %indvars.iv.i.i2500, 1
   %1095 = load i32, ptr %end_.i.i2268, align 8
   %1096 = sext i32 %1095 to i64
@@ -24627,8 +24627,8 @@ for.body.lr.ph.i.i.i.i.i81.i2418:                 ; preds = %if.then.i.i.i.i.i77
   %conv.i.i.i.i.i82.i2419 = sext i32 %mul.i31.i.i.i.i.i2414 to i64
   br label %for.body.i.i.i.i.i83.i2420
 
-for.body.i.i.i.i.i83.i2420:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i81.i2418
-  %row.062.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i82.i2419, %for.body.lr.ph.i.i.i.i.i81.i2418 ], [ %inc.i.i.i.i.i88.i2453, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i ]
+for.body.i.i.i.i.i83.i2420:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i81.i2418
+  %row.062.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i82.i2419, %for.body.lr.ph.i.i.i.i.i81.i2418 ], [ %inc.i.i.i.i.i88.i2453, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i ]
   %conv7.i.i.i.i.i84.i2421 = trunc i64 %row.062.i.i.i.i.i.i to i32
   %.val12.val.i.i.i.i.i.i2422 = load ptr, ptr %flatVector.i2251, align 8
   %1105 = load ptr, ptr %data_.i.i.i.i.i.i.i67.i2394, align 8
@@ -24681,7 +24681,7 @@ _ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i.i.i.i.i.i.i: ; preds 
   %nulls_.i.i.i.i.i.i.i.i2435 = getelementptr inbounds i8, ptr %.val12.val.i.i.i.i.i.i2422, i64 32
   %1114 = load ptr, ptr %nulls_.i.i.i.i.i.i.i.i2435, align 8
   %cmp.i5.not.i.i.i.i.i.i.i.i2436 = icmp eq ptr %1114, null
-  br i1 %cmp.i5.not.i.i.i.i.i.i.i.i2436, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, label %if.end.i.i2.i.i.i.i.i.i.i
+  br i1 %cmp.i5.not.i.i.i.i.i.i.i.i2436, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, label %if.end.i.i2.i.i.i.i.i.i.i
 
 if.end.i.i2.i.i.i.i.i.i.i:                        ; preds = %_ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
   %length_.i.i.i.i.i.i.i.i.i2437 = getelementptr inbounds i8, ptr %.val12.val.i.i.i.i.i.i2422, i64 56
@@ -24716,15 +24716,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i2445: ; preds =
   %1120 = trunc nuw i32 %shl.i.i.i.i.i.i.i.i.i.i.i2448 to i8
   %conv1.i.i.i.i.i.i.i.i.i.i.i2452 = or i8 %1119, %1120
   store i8 %conv1.i.i.i.i.i.i.i.i.i.i.i2452, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i2451, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i2445, %_ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i2445, %_ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
   %inc.i.i.i.i.i88.i2453 = add nuw i64 %row.062.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i89.i2454 = icmp ult i64 %inc.i.i.i.i.i88.i2453, %conv5.i.i.i.i.i79.i2416
   br i1 %cmp6.i.i.i.i.i89.i2454, label %for.body.i.i.i.i.i83.i2420, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !277
 
-while.body.i.i.i.i.i93.i2463:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit56.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i91.i2461
-  %word.060.i.i.i.i.i.i = phi i64 [ %1104, %while.body.lr.ph.i.i.i.i.i91.i2461 ], [ %and.i.i.i.i.i96.i2478, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit56.i.i.i.i.i.i ]
+while.body.i.i.i.i.i93.i2463:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit56.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i91.i2461
+  %word.060.i.i.i.i.i.i = phi i64 [ %1104, %while.body.lr.ph.i.i.i.i.i91.i2461 ], [ %and.i.i.i.i.i96.i2478, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit56.i.i.i.i.i.i ]
   %1121 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.060.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i94.i2464 = trunc nuw nsw i64 %1121 to i32
   %add10.i.i.i.i.i95.i2465 = or disjoint i32 %mul9.i.i.i.i.i92.i2462, %cast.i.i.i.i.i94.i2464
@@ -24777,7 +24777,7 @@ _ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i32.i.i.i.i.i.i: ; pred
   %nulls_.i.i35.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.val.i.i.i.i.i.i2466, i64 32
   %1130 = load ptr, ptr %nulls_.i.i35.i.i.i.i.i.i, align 8
   %cmp.i5.not.i.i36.i.i.i.i.i.i = icmp eq ptr %1130, null
-  br i1 %cmp.i5.not.i.i36.i.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit56.i.i.i.i.i.i, label %if.end.i.i2.i37.i.i.i.i.i.i
+  br i1 %cmp.i5.not.i.i36.i.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit56.i.i.i.i.i.i, label %if.end.i.i2.i37.i.i.i.i.i.i
 
 if.end.i.i2.i37.i.i.i.i.i.i:                      ; preds = %_ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i32.i.i.i.i.i.i
   %length_.i.i.i38.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.val.i.i.i.i.i.i2466, i64 56
@@ -24812,15 +24812,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i42.i.i.i.i.i.i: ; preds = %
   %1136 = trunc nuw i32 %shl.i.i.i.i.i45.i.i.i.i.i.i to i8
   %conv1.i.i.i.i.i49.i.i.i.i.i.i = or i8 %1135, %1136
   store i8 %conv1.i.i.i.i.i49.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i48.i.i.i.i.i.i, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit56.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit56.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit56.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i42.i.i.i.i.i.i, %_ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i32.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit56.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i42.i.i.i.i.i.i, %_ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i32.i.i.i.i.i.i
   %sub.i32.i.i.i.i.i2477 = add i64 %word.060.i.i.i.i.i.i, -1
   %and.i.i.i.i.i96.i2478 = and i64 %sub.i32.i.i.i.i.i2477, %word.060.i.i.i.i.i.i
   %tobool8.not.i.i.i.i.i97.i2479 = icmp eq i64 %and.i.i.i.i.i96.i2478, 0
   br i1 %tobool8.not.i.i.i.i.i97.i2479, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i.i.i.i.i93.i2463, !llvm.loop !278
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit56.i.i.i.i.i.i, %if.then.i.i.i.i.i77.i2413, %for.body.i.i.i7.i.i2397
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit56.i.i.i.i.i.i, %if.then.i.i.i.i.i77.i2413, %for.body.i.i.i7.i.i2397
   %add.i.i.i.i71.i2403 = add nsw i32 %add40.i.i.i.i.i2398, 64
   %cmp15.not.i.i.i.i72.i2404 = icmp sgt i32 %add.i.i.i.i71.i2403, %1101
   br i1 %cmp15.not.i.i.i.i72.i2404, label %for.end.i.i.i8.i.i2405, label %for.body.i.i.i7.i.i2397, !llvm.loop !279
@@ -25236,7 +25236,7 @@ if.then.i.i3405:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i3407:                                 ; preds = %if.then.i.i3405, %.noexc32.i3411
   %row.012.i.i3408 = phi i32 [ %inc.i.i3412, %.noexc32.i3411 ], [ %1197, %if.then.i.i3405 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2836, ptr nonnull readonly %flatVector.i2837, i32 noundef %row.012.i.i3408)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i2836, ptr nonnull readonly %flatVector.i2837, i32 noundef %row.012.i.i3408)
           to label %.noexc32.i3411 unwind label %lpad7.loopexit.i3409
 
 .noexc32.i3411:                                   ; preds = %for.body.i.i3407
@@ -25286,7 +25286,7 @@ while.body.i.i.i.i.i.i3395:                       ; preds = %if.then3.i.i.i.i.i3
   %1206 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i3396, i1 true)
   %cast.i.i.i.i.i.i3397 = trunc nuw nsw i64 %1206 to i32
   %add.i26.i.i.i.i.i3398 = or disjoint i32 %1204, %cast.i.i.i.i.i.i3397
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2836, ptr nonnull readonly %flatVector.i2837, i32 noundef %add.i26.i.i.i.i.i3398)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i2836, ptr nonnull readonly %flatVector.i2837, i32 noundef %add.i26.i.i.i.i.i3398)
           to label %.noexc33.i3401 unwind label %lpad7.loopexit.split-lp.loopexit.i3399
 
 .noexc33.i3401:                                   ; preds = %while.body.i.i.i.i.i.i3395
@@ -25324,7 +25324,7 @@ while.body.i42.i.i.i.i.i3217:                     ; preds = %.noexc34.i3223, %wh
   %1208 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i3218, i1 true)
   %cast.i44.i.i.i.i.i3219 = trunc nuw nsw i64 %1208 to i32
   %add.i45.i.i.i.i.i3220 = or disjoint i32 %mul.i41.i.i.i.i.i3216, %cast.i44.i.i.i.i.i3219
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2836, ptr nonnull readonly %flatVector.i2837, i32 noundef %add.i45.i.i.i.i.i3220)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i2836, ptr nonnull readonly %flatVector.i2837, i32 noundef %add.i45.i.i.i.i.i3220)
           to label %.noexc34.i3223 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3221
 
 .noexc34.i3223:                                   ; preds = %while.body.i42.i.i.i.i.i3217
@@ -25377,7 +25377,7 @@ for.body.lr.ph.i.i.i.i.i.i3272:                   ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i3274:                         ; preds = %.noexc35.i3279, %for.body.lr.ph.i.i.i.i.i.i3272
   %row.018.i.i.i.i.i.i3275 = phi i64 [ %conv.i.i.i.i.i.i3273, %for.body.lr.ph.i.i.i.i.i.i3272 ], [ %inc.i.i.i.i.i.i3280, %.noexc35.i3279 ]
   %conv7.i.i.i.i.i.i3276 = trunc i64 %row.018.i.i.i.i.i.i3275 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2836, ptr nonnull readonly %flatVector.i2837, i32 noundef %conv7.i.i.i.i.i.i3276)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i2836, ptr nonnull readonly %flatVector.i2837, i32 noundef %conv7.i.i.i.i.i.i3276)
           to label %.noexc35.i3279 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3277
 
 .noexc35.i3279:                                   ; preds = %for.body.i.i.i.i.i.i3274
@@ -25385,8 +25385,8 @@ for.body.i.i.i.i.i.i3274:                         ; preds = %.noexc35.i3279, %fo
   %cmp6.i.i.i.i.i23.i3281 = icmp ult i64 %inc.i.i.i.i.i.i3280, %conv5.i.i.i.i.i.i3269
   br i1 %cmp6.i.i.i.i.i23.i3281, label %for.body.i.i.i.i.i.i3274, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !288
 
-while.body.i57.i.i.i.i.i3284:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i3282
-  %word.016.i.i.i.i.i.i3285 = phi i64 [ %1209, %while.body.lr.ph.i.i.i.i.i.i3282 ], [ %and.i61.i.i.i.i.i3339, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i ]
+while.body.i57.i.i.i.i.i3284:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i3282
+  %word.016.i.i.i.i.i.i3285 = phi i64 [ %1209, %while.body.lr.ph.i.i.i.i.i.i3282 ], [ %and.i61.i.i.i.i.i3339, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i ]
   %1210 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i3285, i1 true)
   %cast.i58.i.i.i.i.i3286 = trunc nuw nsw i64 %1210 to i32
   %add10.i.i.i.i.i.i3287 = or disjoint i32 %mul9.i.i.i.i.i.i3283, %cast.i58.i.i.i.i.i3286
@@ -25481,7 +25481,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i3355: ; preds = %ca
   %1227 = load i8, ptr %arrayidx2.i.i.i.i.i.i.i.i.i3361, align 1
   %and3.i.i.i.i.i.i.i.i.i3362 = and i8 %1227, %1226
   store i8 %and3.i.i.i.i.i.i.i.i.i3362, ptr %arrayidx2.i.i.i.i.i.i.i.i.i3361, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
 if.else.i.thread.i.i.i.i.i3306:                   ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i3296, %if.then8.i.i.i.i.i.i.i3364
   %1228 = load ptr, ptr %flatVector.i2837, align 8
@@ -25539,7 +25539,7 @@ _ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i.i.i.i.i.i: ; preds = 
   %nulls_.i12.i.i.i.i.i.i3319 = getelementptr inbounds i8, ptr %1239, i64 32
   %1243 = load ptr, ptr %nulls_.i12.i.i.i.i.i.i3319, align 8
   %cmp.i5.not.i.i.i.i.i.i.i3320 = icmp eq ptr %1243, null
-  br i1 %cmp.i5.not.i.i.i.i.i.i.i3320, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, label %if.end.i.i13.i.i.i.i.i.i3321
+  br i1 %cmp.i5.not.i.i.i.i.i.i.i3320, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, label %if.end.i.i13.i.i.i.i.i.i3321
 
 if.end.i.i13.i.i.i.i.i.i3321:                     ; preds = %_ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i.i.i.i.i.i
   %length_.i.i.i.i.i.i.i.i3322 = getelementptr inbounds i8, ptr %1239, i64 56
@@ -25574,15 +25574,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i3330: ; preds = %
   %1249 = trunc nuw i32 %shl.i.i.i.i.i.i.i.i.i.i3333 to i8
   %conv1.i.i.i.i.i.i.i.i.i.i3337 = or i8 %1248, %1249
   store i8 %conv1.i.i.i.i.i.i.i.i.i.i3337, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i3336, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i3330, %_ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i3355
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i3330, %_ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i3355
   %sub.i60.i.i.i.i.i3338 = add i64 %word.016.i.i.i.i.i.i3285, -1
   %and.i61.i.i.i.i.i3339 = and i64 %sub.i60.i.i.i.i.i3338, %word.016.i.i.i.i.i.i3285
   %tobool8.not.i.i.i.i.i.i3340 = icmp eq i64 %and.i61.i.i.i.i.i3339, 0
   br i1 %tobool8.not.i.i.i.i.i.i3340, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i57.i.i.i.i.i3284, !llvm.loop !289
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc35.i3279, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i3266, %for.body.i.i.i6.i.i3236
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc35.i3279, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i3266, %for.body.i.i.i6.i.i3236
   %add.i.i.i.i.i3242 = add nsw i32 %add89.i.i.i.i.i3237, 64
   %cmp15.not.i.i.i.i.i3243 = icmp sgt i32 %add.i.i.i.i.i3242, %1204
   br i1 %cmp15.not.i.i.i.i.i3243, label %for.end.i.i.i7.i.i3244, label %for.body.i.i.i6.i.i3236, !llvm.loop !290
@@ -25609,7 +25609,7 @@ while.body.i73.i.i.i.i.i3256:                     ; preds = %if.then19.i.i.i.i.i
   %1251 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i3257, i1 true)
   %cast.i75.i.i.i.i.i3258 = trunc nuw nsw i64 %1251 to i32
   %add.i76.i.i.i.i.i3259 = or disjoint i32 %1204, %cast.i75.i.i.i.i.i3258
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i2836, ptr nonnull readonly %flatVector.i2837, i32 noundef %add.i76.i.i.i.i.i3259)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i2836, ptr nonnull readonly %flatVector.i2837, i32 noundef %add.i76.i.i.i.i.i3259)
           to label %.noexc41.i3262 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i3260
 
 .noexc41.i3262:                                   ; preds = %while.body.i73.i.i.i.i.i3256
@@ -25623,7 +25623,7 @@ invoke.cont8.i3195:                               ; preds = %.noexc41.i3262, %.n
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1252, ptr noundef nonnull readonly align 8 dereferenceable(36) %1153, ptr noundef nonnull align 8 dereferenceable(80) %1155, ptr noundef %1158, ptr noundef nonnull align 8 dereferenceable(88) %1160)
           to label %invoke.cont10.invoke.i2916 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2917
 
-invoke.cont10.invoke.i2916:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %if.then.i111.i3113, %invoke.cont8.i3195
+invoke.cont10.invoke.i2916:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %if.then.i111.i3113, %invoke.cont8.i3195
   %1253 = load ptr, ptr %flatVector.i2837, align 8
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1253, ptr noundef nonnull readonly align 8 dereferenceable(36) %1153, ptr noundef nonnull align 8 dereferenceable(80) %1155, ptr noundef %1158, ptr noundef nonnull align 8 dereferenceable(88) %1160)
           to label %if.end.i2921 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2917
@@ -25771,8 +25771,8 @@ for.body.lr.ph.i.i3115:                           ; preds = %if.then.i111.i3113
   %1269 = sext i32 %1267 to i64
   br label %for.body.i115.i3119
 
-for.body.i115.i3119:                              ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %for.body.lr.ph.i.i3115
-  %indvars.iv.i.i3120 = phi i64 [ %1269, %for.body.lr.ph.i.i3115 ], [ %indvars.iv.next.i.i3152, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i ]
+for.body.i115.i3119:                              ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, %for.body.lr.ph.i.i3115
+  %indvars.iv.i.i3120 = phi i64 [ %1269, %for.body.lr.ph.i.i3115 ], [ %indvars.iv.next.i.i3152, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i ]
   %func.val.val.i.i3121 = load ptr, ptr %flatVector.i2837, align 8
   %1270 = load ptr, ptr %data_.i.i.i.i3116, align 8
   %1271 = load i8, ptr %isIdentityMapping_.i.i.i.i.i3117, align 2
@@ -25820,7 +25820,7 @@ _ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i.i.i: ; preds = %call.
   %nulls_.i.i.i.i3133 = getelementptr inbounds i8, ptr %func.val.val.i.i3121, i64 32
   %1280 = load ptr, ptr %nulls_.i.i.i.i3133, align 8
   %cmp.i5.not.i.i.i.i3134 = icmp eq ptr %1280, null
-  br i1 %cmp.i5.not.i.i.i.i3134, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, label %if.end.i.i4.i.i.i3135
+  br i1 %cmp.i5.not.i.i.i.i3134, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, label %if.end.i.i4.i.i.i3135
 
 if.end.i.i4.i.i.i3135:                            ; preds = %_ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i.i.i
   %length_.i.i.i.i.i3136 = getelementptr inbounds i8, ptr %func.val.val.i.i3121, i64 56
@@ -25855,9 +25855,9 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i3144: ; preds = %call.i
   %1286 = trunc nuw i32 %shl.i.i.i.i.i.i.i3147 to i8
   %conv1.i.i.i.i.i.i.i3151 = or i8 %1285, %1286
   store i8 %conv1.i.i.i.i.i.i.i3151, ptr %arrayidx.i.i.i.i.i.i117.i3150, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i3144, %_ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i3144, %_ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i.i.i
   %indvars.iv.next.i.i3152 = add nsw i64 %indvars.iv.i.i3120, 1
   %1287 = load i32, ptr %end_.i.i2854, align 8
   %1288 = sext i32 %1287 to i64
@@ -25963,8 +25963,8 @@ for.body.lr.ph.i.i.i.i.i81.i3005:                 ; preds = %if.then.i.i.i.i.i77
   %conv.i.i.i.i.i82.i3006 = sext i32 %mul.i31.i.i.i.i.i3000 to i64
   br label %for.body.i.i.i.i.i83.i3007
 
-for.body.i.i.i.i.i83.i3007:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i81.i3005
-  %row.060.i.i.i.i.i.i3008 = phi i64 [ %conv.i.i.i.i.i82.i3006, %for.body.lr.ph.i.i.i.i.i81.i3005 ], [ %inc.i.i.i.i.i88.i3044, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i ]
+for.body.i.i.i.i.i83.i3007:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i81.i3005
+  %row.060.i.i.i.i.i.i3008 = phi i64 [ %conv.i.i.i.i.i82.i3006, %for.body.lr.ph.i.i.i.i.i81.i3005 ], [ %inc.i.i.i.i.i88.i3044, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i ]
   %conv7.i.i.i.i.i84.i3009 = trunc i64 %row.060.i.i.i.i.i.i3008 to i32
   %.val12.val.i.i.i.i.i.i3010 = load ptr, ptr %flatVector.i2837, align 8
   %1297 = load ptr, ptr %data_.i.i.i.i.i.i.i67.i2980, align 8
@@ -26016,7 +26016,7 @@ _ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i.i.i.i.i.i.i: ; preds 
   %nulls_.i.i.i.i.i.i.i.i3025 = getelementptr inbounds i8, ptr %.val12.val.i.i.i.i.i.i3010, i64 32
   %1307 = load ptr, ptr %nulls_.i.i.i.i.i.i.i.i3025, align 8
   %cmp.i5.not.i.i.i.i.i.i.i.i3026 = icmp eq ptr %1307, null
-  br i1 %cmp.i5.not.i.i.i.i.i.i.i.i3026, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, label %if.end.i.i4.i.i.i.i.i.i.i3027
+  br i1 %cmp.i5.not.i.i.i.i.i.i.i.i3026, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, label %if.end.i.i4.i.i.i.i.i.i.i3027
 
 if.end.i.i4.i.i.i.i.i.i.i3027:                    ; preds = %_ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
   %length_.i.i.i.i.i.i.i.i.i3028 = getelementptr inbounds i8, ptr %.val12.val.i.i.i.i.i.i3010, i64 56
@@ -26051,15 +26051,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i3036: ; preds =
   %1313 = trunc nuw i32 %shl.i.i.i.i.i.i.i.i.i.i.i3039 to i8
   %conv1.i.i.i.i.i.i.i.i.i.i.i3043 = or i8 %1312, %1313
   store i8 %conv1.i.i.i.i.i.i.i.i.i.i.i3043, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i3042, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i3036, %_ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i3036, %_ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
   %inc.i.i.i.i.i88.i3044 = add nuw i64 %row.060.i.i.i.i.i.i3008, 1
   %cmp6.i.i.i.i.i89.i3045 = icmp ult i64 %inc.i.i.i.i.i88.i3044, %conv5.i.i.i.i.i79.i3002
   br i1 %cmp6.i.i.i.i.i89.i3045, label %for.body.i.i.i.i.i83.i3007, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !292
 
-while.body.i.i.i.i.i93.i3054:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i91.i3052
-  %word.058.i.i.i.i.i.i3055 = phi i64 [ %1296, %while.body.lr.ph.i.i.i.i.i91.i3052 ], [ %and.i.i.i.i.i96.i3092, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i ]
+while.body.i.i.i.i.i93.i3054:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i91.i3052
+  %word.058.i.i.i.i.i.i3055 = phi i64 [ %1296, %while.body.lr.ph.i.i.i.i.i91.i3052 ], [ %and.i.i.i.i.i96.i3092, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i ]
   %1314 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.058.i.i.i.i.i.i3055, i1 true)
   %cast.i.i.i.i.i94.i3056 = trunc nuw nsw i64 %1314 to i32
   %add10.i.i.i.i.i95.i3057 = or disjoint i32 %mul9.i.i.i.i.i92.i3053, %cast.i.i.i.i.i94.i3056
@@ -26111,7 +26111,7 @@ _ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i: ; pred
   %nulls_.i.i33.i.i.i.i.i.i3072 = getelementptr inbounds i8, ptr %.val.val.i.i.i.i.i.i3058, i64 32
   %1324 = load ptr, ptr %nulls_.i.i33.i.i.i.i.i.i3072, align 8
   %cmp.i5.not.i.i34.i.i.i.i.i.i3073 = icmp eq ptr %1324, null
-  br i1 %cmp.i5.not.i.i34.i.i.i.i.i.i3073, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, label %if.end.i.i4.i35.i.i.i.i.i.i3074
+  br i1 %cmp.i5.not.i.i34.i.i.i.i.i.i3073, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, label %if.end.i.i4.i35.i.i.i.i.i.i3074
 
 if.end.i.i4.i35.i.i.i.i.i.i3074:                  ; preds = %_ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
   %length_.i.i.i36.i.i.i.i.i.i3075 = getelementptr inbounds i8, ptr %.val.val.i.i.i.i.i.i3058, i64 56
@@ -26146,15 +26146,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i3083: ; preds
   %1330 = trunc nuw i32 %shl.i.i.i.i.i43.i.i.i.i.i.i3086 to i8
   %conv1.i.i.i.i.i47.i.i.i.i.i.i3090 = or i8 %1329, %1330
   store i8 %conv1.i.i.i.i.i47.i.i.i.i.i.i3090, ptr %arrayidx.i.i.i.i.i46.i.i.i.i.i.i3089, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i3083, %_ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i3083, %_ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
   %sub.i32.i.i.i.i.i3091 = add i64 %word.058.i.i.i.i.i.i3055, -1
   %and.i.i.i.i.i96.i3092 = and i64 %sub.i32.i.i.i.i.i3091, %word.058.i.i.i.i.i.i3055
   %tobool8.not.i.i.i.i.i97.i3093 = icmp eq i64 %and.i.i.i.i.i96.i3092, 0
   br i1 %tobool8.not.i.i.i.i.i97.i3093, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i.i.i.i.i93.i3054, !llvm.loop !293
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, %if.then.i.i.i.i.i77.i2999, %for.body.i.i.i7.i.i2983
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, %if.then.i.i.i.i.i77.i2999, %for.body.i.i.i7.i.i2983
   %add.i.i.i.i71.i2989 = add nsw i32 %add40.i.i.i.i.i2984, 64
   %cmp15.not.i.i.i.i72.i2990 = icmp sgt i32 %add.i.i.i.i71.i2989, %1293
   br i1 %cmp15.not.i.i.i.i72.i2990, label %for.end.i.i.i8.i.i2991, label %for.body.i.i.i7.i.i2983, !llvm.loop !294
@@ -26570,7 +26570,7 @@ if.then.i.i4032:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i4034:                                 ; preds = %if.then.i.i4032, %.noexc32.i4038
   %row.012.i.i4035 = phi i32 [ %inc.i.i4039, %.noexc32.i4038 ], [ %1391, %if.then.i.i4032 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i3463, ptr nonnull readonly %flatVector.i3464, i32 noundef %row.012.i.i4035)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i3463, ptr nonnull readonly %flatVector.i3464, i32 noundef %row.012.i.i4035)
           to label %.noexc32.i4038 unwind label %lpad7.loopexit.i4036
 
 .noexc32.i4038:                                   ; preds = %for.body.i.i4034
@@ -26620,7 +26620,7 @@ while.body.i.i.i.i.i.i4022:                       ; preds = %if.then3.i.i.i.i.i4
   %1400 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i4023, i1 true)
   %cast.i.i.i.i.i.i4024 = trunc nuw nsw i64 %1400 to i32
   %add.i26.i.i.i.i.i4025 = or disjoint i32 %1398, %cast.i.i.i.i.i.i4024
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i3463, ptr nonnull readonly %flatVector.i3464, i32 noundef %add.i26.i.i.i.i.i4025)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i3463, ptr nonnull readonly %flatVector.i3464, i32 noundef %add.i26.i.i.i.i.i4025)
           to label %.noexc33.i4028 unwind label %lpad7.loopexit.split-lp.loopexit.i4026
 
 .noexc33.i4028:                                   ; preds = %while.body.i.i.i.i.i.i4022
@@ -26658,7 +26658,7 @@ while.body.i42.i.i.i.i.i3844:                     ; preds = %.noexc34.i3850, %wh
   %1402 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i3845, i1 true)
   %cast.i44.i.i.i.i.i3846 = trunc nuw nsw i64 %1402 to i32
   %add.i45.i.i.i.i.i3847 = or disjoint i32 %mul.i41.i.i.i.i.i3843, %cast.i44.i.i.i.i.i3846
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i3463, ptr nonnull readonly %flatVector.i3464, i32 noundef %add.i45.i.i.i.i.i3847)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i3463, ptr nonnull readonly %flatVector.i3464, i32 noundef %add.i45.i.i.i.i.i3847)
           to label %.noexc34.i3850 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3848
 
 .noexc34.i3850:                                   ; preds = %while.body.i42.i.i.i.i.i3844
@@ -26711,7 +26711,7 @@ for.body.lr.ph.i.i.i.i.i.i3899:                   ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i3901:                         ; preds = %.noexc35.i3906, %for.body.lr.ph.i.i.i.i.i.i3899
   %row.018.i.i.i.i.i.i3902 = phi i64 [ %conv.i.i.i.i.i.i3900, %for.body.lr.ph.i.i.i.i.i.i3899 ], [ %inc.i.i.i.i.i.i3907, %.noexc35.i3906 ]
   %conv7.i.i.i.i.i.i3903 = trunc i64 %row.018.i.i.i.i.i.i3902 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i3463, ptr nonnull readonly %flatVector.i3464, i32 noundef %conv7.i.i.i.i.i.i3903)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i3463, ptr nonnull readonly %flatVector.i3464, i32 noundef %conv7.i.i.i.i.i.i3903)
           to label %.noexc35.i3906 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3904
 
 .noexc35.i3906:                                   ; preds = %for.body.i.i.i.i.i.i3901
@@ -26719,8 +26719,8 @@ for.body.i.i.i.i.i.i3901:                         ; preds = %.noexc35.i3906, %fo
   %cmp6.i.i.i.i.i23.i3908 = icmp ult i64 %inc.i.i.i.i.i.i3907, %conv5.i.i.i.i.i.i3896
   br i1 %cmp6.i.i.i.i.i23.i3908, label %for.body.i.i.i.i.i.i3901, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !303
 
-while.body.i57.i.i.i.i.i3911:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i3909
-  %word.016.i.i.i.i.i.i3912 = phi i64 [ %1403, %while.body.lr.ph.i.i.i.i.i.i3909 ], [ %and.i61.i.i.i.i.i3966, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i ]
+while.body.i57.i.i.i.i.i3911:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i3909
+  %word.016.i.i.i.i.i.i3912 = phi i64 [ %1403, %while.body.lr.ph.i.i.i.i.i.i3909 ], [ %and.i61.i.i.i.i.i3966, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i ]
   %1404 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i3912, i1 true)
   %cast.i58.i.i.i.i.i3913 = trunc nuw nsw i64 %1404 to i32
   %add10.i.i.i.i.i.i3914 = or disjoint i32 %mul9.i.i.i.i.i.i3910, %cast.i58.i.i.i.i.i3913
@@ -26815,7 +26815,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i3982: ; preds = %ca
   %1421 = load i8, ptr %arrayidx2.i.i.i.i.i.i.i.i.i3988, align 1
   %and3.i.i.i.i.i.i.i.i.i3989 = and i8 %1421, %1420
   store i8 %and3.i.i.i.i.i.i.i.i.i3989, ptr %arrayidx2.i.i.i.i.i.i.i.i.i3988, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
 if.else.i.thread.i.i.i.i.i3933:                   ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i3923, %if.then8.i.i.i.i.i.i.i3991
   %1422 = load ptr, ptr %flatVector.i3464, align 8
@@ -26873,7 +26873,7 @@ _ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i.i.i.i.i.i: ; preds = 
   %nulls_.i12.i.i.i.i.i.i3946 = getelementptr inbounds i8, ptr %1433, i64 32
   %1437 = load ptr, ptr %nulls_.i12.i.i.i.i.i.i3946, align 8
   %cmp.i5.not.i.i.i.i.i.i.i3947 = icmp eq ptr %1437, null
-  br i1 %cmp.i5.not.i.i.i.i.i.i.i3947, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, label %if.end.i.i13.i.i.i.i.i.i3948
+  br i1 %cmp.i5.not.i.i.i.i.i.i.i3947, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, label %if.end.i.i13.i.i.i.i.i.i3948
 
 if.end.i.i13.i.i.i.i.i.i3948:                     ; preds = %_ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i.i.i.i.i.i
   %length_.i.i.i.i.i.i.i.i3949 = getelementptr inbounds i8, ptr %1433, i64 56
@@ -26908,15 +26908,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i3957: ; preds = %
   %1443 = trunc nuw i32 %shl.i.i.i.i.i.i.i.i.i.i3960 to i8
   %conv1.i.i.i.i.i.i.i.i.i.i3964 = or i8 %1442, %1443
   store i8 %conv1.i.i.i.i.i.i.i.i.i.i3964, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i3963, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i3957, %_ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i3982
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i3957, %_ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i3982
   %sub.i60.i.i.i.i.i3965 = add i64 %word.016.i.i.i.i.i.i3912, -1
   %and.i61.i.i.i.i.i3966 = and i64 %sub.i60.i.i.i.i.i3965, %word.016.i.i.i.i.i.i3912
   %tobool8.not.i.i.i.i.i.i3967 = icmp eq i64 %and.i61.i.i.i.i.i3966, 0
   br i1 %tobool8.not.i.i.i.i.i.i3967, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i57.i.i.i.i.i3911, !llvm.loop !304
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc35.i3906, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i3893, %for.body.i.i.i6.i.i3863
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc35.i3906, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i3893, %for.body.i.i.i6.i.i3863
   %add.i.i.i.i.i3869 = add nsw i32 %add89.i.i.i.i.i3864, 64
   %cmp15.not.i.i.i.i.i3870 = icmp sgt i32 %add.i.i.i.i.i3869, %1398
   br i1 %cmp15.not.i.i.i.i.i3870, label %for.end.i.i.i7.i.i3871, label %for.body.i.i.i6.i.i3863, !llvm.loop !305
@@ -26943,7 +26943,7 @@ while.body.i73.i.i.i.i.i3883:                     ; preds = %if.then19.i.i.i.i.i
   %1445 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i3884, i1 true)
   %cast.i75.i.i.i.i.i3885 = trunc nuw nsw i64 %1445 to i32
   %add.i76.i.i.i.i.i3886 = or disjoint i32 %1398, %cast.i75.i.i.i.i.i3885
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i3463, ptr nonnull readonly %flatVector.i3464, i32 noundef %add.i76.i.i.i.i.i3886)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i3463, ptr nonnull readonly %flatVector.i3464, i32 noundef %add.i76.i.i.i.i.i3886)
           to label %.noexc41.i3889 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i3887
 
 .noexc41.i3889:                                   ; preds = %while.body.i73.i.i.i.i.i3883
@@ -26957,7 +26957,7 @@ invoke.cont8.i3822:                               ; preds = %.noexc41.i3889, %.n
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1446, ptr noundef nonnull readonly align 8 dereferenceable(36) %1347, ptr noundef nonnull align 8 dereferenceable(80) %1349, ptr noundef %1352, ptr noundef nonnull align 8 dereferenceable(88) %1354)
           to label %invoke.cont10.invoke.i3543 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3544
 
-invoke.cont10.invoke.i3543:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %if.then.i111.i3740, %invoke.cont8.i3822
+invoke.cont10.invoke.i3543:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %if.then.i111.i3740, %invoke.cont8.i3822
   %1447 = load ptr, ptr %flatVector.i3464, align 8
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1447, ptr noundef nonnull readonly align 8 dereferenceable(36) %1347, ptr noundef nonnull align 8 dereferenceable(80) %1349, ptr noundef %1352, ptr noundef nonnull align 8 dereferenceable(88) %1354)
           to label %if.end.i3548 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3544
@@ -27105,8 +27105,8 @@ for.body.lr.ph.i.i3742:                           ; preds = %if.then.i111.i3740
   %1463 = sext i32 %1461 to i64
   br label %for.body.i115.i3746
 
-for.body.i115.i3746:                              ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %for.body.lr.ph.i.i3742
-  %indvars.iv.i.i3747 = phi i64 [ %1463, %for.body.lr.ph.i.i3742 ], [ %indvars.iv.next.i.i3779, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i ]
+for.body.i115.i3746:                              ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, %for.body.lr.ph.i.i3742
+  %indvars.iv.i.i3747 = phi i64 [ %1463, %for.body.lr.ph.i.i3742 ], [ %indvars.iv.next.i.i3779, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i ]
   %func.val.val.i.i3748 = load ptr, ptr %flatVector.i3464, align 8
   %1464 = load ptr, ptr %data_.i.i.i.i3743, align 8
   %1465 = load i8, ptr %isIdentityMapping_.i.i.i.i.i3744, align 2
@@ -27154,7 +27154,7 @@ _ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i.i.i: ; preds = %call.
   %nulls_.i.i.i.i3760 = getelementptr inbounds i8, ptr %func.val.val.i.i3748, i64 32
   %1474 = load ptr, ptr %nulls_.i.i.i.i3760, align 8
   %cmp.i5.not.i.i.i.i3761 = icmp eq ptr %1474, null
-  br i1 %cmp.i5.not.i.i.i.i3761, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, label %if.end.i.i4.i.i.i3762
+  br i1 %cmp.i5.not.i.i.i.i3761, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, label %if.end.i.i4.i.i.i3762
 
 if.end.i.i4.i.i.i3762:                            ; preds = %_ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i.i.i
   %length_.i.i.i.i.i3763 = getelementptr inbounds i8, ptr %func.val.val.i.i3748, i64 56
@@ -27189,9 +27189,9 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i3771: ; preds = %call.i
   %1480 = trunc nuw i32 %shl.i.i.i.i.i.i.i3774 to i8
   %conv1.i.i.i.i.i.i.i3778 = or i8 %1479, %1480
   store i8 %conv1.i.i.i.i.i.i.i3778, ptr %arrayidx.i.i.i.i.i.i117.i3777, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i3771, %_ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i3771, %_ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i.i.i
   %indvars.iv.next.i.i3779 = add nsw i64 %indvars.iv.i.i3747, 1
   %1481 = load i32, ptr %end_.i.i3481, align 8
   %1482 = sext i32 %1481 to i64
@@ -27297,8 +27297,8 @@ for.body.lr.ph.i.i.i.i.i81.i3632:                 ; preds = %if.then.i.i.i.i.i77
   %conv.i.i.i.i.i82.i3633 = sext i32 %mul.i31.i.i.i.i.i3627 to i64
   br label %for.body.i.i.i.i.i83.i3634
 
-for.body.i.i.i.i.i83.i3634:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i81.i3632
-  %row.060.i.i.i.i.i.i3635 = phi i64 [ %conv.i.i.i.i.i82.i3633, %for.body.lr.ph.i.i.i.i.i81.i3632 ], [ %inc.i.i.i.i.i88.i3671, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i ]
+for.body.i.i.i.i.i83.i3634:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i81.i3632
+  %row.060.i.i.i.i.i.i3635 = phi i64 [ %conv.i.i.i.i.i82.i3633, %for.body.lr.ph.i.i.i.i.i81.i3632 ], [ %inc.i.i.i.i.i88.i3671, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i ]
   %conv7.i.i.i.i.i84.i3636 = trunc i64 %row.060.i.i.i.i.i.i3635 to i32
   %.val12.val.i.i.i.i.i.i3637 = load ptr, ptr %flatVector.i3464, align 8
   %1491 = load ptr, ptr %data_.i.i.i.i.i.i.i67.i3607, align 8
@@ -27350,7 +27350,7 @@ _ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i.i.i.i.i.i.i: ; preds 
   %nulls_.i.i.i.i.i.i.i.i3652 = getelementptr inbounds i8, ptr %.val12.val.i.i.i.i.i.i3637, i64 32
   %1501 = load ptr, ptr %nulls_.i.i.i.i.i.i.i.i3652, align 8
   %cmp.i5.not.i.i.i.i.i.i.i.i3653 = icmp eq ptr %1501, null
-  br i1 %cmp.i5.not.i.i.i.i.i.i.i.i3653, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, label %if.end.i.i4.i.i.i.i.i.i.i3654
+  br i1 %cmp.i5.not.i.i.i.i.i.i.i.i3653, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, label %if.end.i.i4.i.i.i.i.i.i.i3654
 
 if.end.i.i4.i.i.i.i.i.i.i3654:                    ; preds = %_ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
   %length_.i.i.i.i.i.i.i.i.i3655 = getelementptr inbounds i8, ptr %.val12.val.i.i.i.i.i.i3637, i64 56
@@ -27385,15 +27385,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i3663: ; preds =
   %1507 = trunc nuw i32 %shl.i.i.i.i.i.i.i.i.i.i.i3666 to i8
   %conv1.i.i.i.i.i.i.i.i.i.i.i3670 = or i8 %1506, %1507
   store i8 %conv1.i.i.i.i.i.i.i.i.i.i.i3670, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i3669, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i3663, %_ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i3663, %_ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
   %inc.i.i.i.i.i88.i3671 = add nuw i64 %row.060.i.i.i.i.i.i3635, 1
   %cmp6.i.i.i.i.i89.i3672 = icmp ult i64 %inc.i.i.i.i.i88.i3671, %conv5.i.i.i.i.i79.i3629
   br i1 %cmp6.i.i.i.i.i89.i3672, label %for.body.i.i.i.i.i83.i3634, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !307
 
-while.body.i.i.i.i.i93.i3681:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i91.i3679
-  %word.058.i.i.i.i.i.i3682 = phi i64 [ %1490, %while.body.lr.ph.i.i.i.i.i91.i3679 ], [ %and.i.i.i.i.i96.i3719, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i ]
+while.body.i.i.i.i.i93.i3681:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i91.i3679
+  %word.058.i.i.i.i.i.i3682 = phi i64 [ %1490, %while.body.lr.ph.i.i.i.i.i91.i3679 ], [ %and.i.i.i.i.i96.i3719, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i ]
   %1508 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.058.i.i.i.i.i.i3682, i1 true)
   %cast.i.i.i.i.i94.i3683 = trunc nuw nsw i64 %1508 to i32
   %add10.i.i.i.i.i95.i3684 = or disjoint i32 %mul9.i.i.i.i.i92.i3680, %cast.i.i.i.i.i94.i3683
@@ -27445,7 +27445,7 @@ _ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i: ; pred
   %nulls_.i.i33.i.i.i.i.i.i3699 = getelementptr inbounds i8, ptr %.val.val.i.i.i.i.i.i3685, i64 32
   %1518 = load ptr, ptr %nulls_.i.i33.i.i.i.i.i.i3699, align 8
   %cmp.i5.not.i.i34.i.i.i.i.i.i3700 = icmp eq ptr %1518, null
-  br i1 %cmp.i5.not.i.i34.i.i.i.i.i.i3700, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, label %if.end.i.i4.i35.i.i.i.i.i.i3701
+  br i1 %cmp.i5.not.i.i34.i.i.i.i.i.i3700, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, label %if.end.i.i4.i35.i.i.i.i.i.i3701
 
 if.end.i.i4.i35.i.i.i.i.i.i3701:                  ; preds = %_ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
   %length_.i.i.i36.i.i.i.i.i.i3702 = getelementptr inbounds i8, ptr %.val.val.i.i.i.i.i.i3685, i64 56
@@ -27480,15 +27480,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i3710: ; preds
   %1524 = trunc nuw i32 %shl.i.i.i.i.i43.i.i.i.i.i.i3713 to i8
   %conv1.i.i.i.i.i47.i.i.i.i.i.i3717 = or i8 %1523, %1524
   store i8 %conv1.i.i.i.i.i47.i.i.i.i.i.i3717, ptr %arrayidx.i.i.i.i.i46.i.i.i.i.i.i3716, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i3710, %_ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i40.i.i.i.i.i.i3710, %_ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i30.i.i.i.i.i.i
   %sub.i32.i.i.i.i.i3718 = add i64 %word.058.i.i.i.i.i.i3682, -1
   %and.i.i.i.i.i96.i3719 = and i64 %sub.i32.i.i.i.i.i3718, %word.058.i.i.i.i.i.i3682
   %tobool8.not.i.i.i.i.i97.i3720 = icmp eq i64 %and.i.i.i.i.i96.i3719, 0
   br i1 %tobool8.not.i.i.i.i.i97.i3720, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i.i.i.i.i93.i3681, !llvm.loop !308
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit54.i.i.i.i.i.i, %if.then.i.i.i.i.i77.i3626, %for.body.i.i.i7.i.i3610
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit54.i.i.i.i.i.i, %if.then.i.i.i.i.i77.i3626, %for.body.i.i.i7.i.i3610
   %add.i.i.i.i71.i3616 = add nsw i32 %add40.i.i.i.i.i3611, 64
   %cmp15.not.i.i.i.i72.i3617 = icmp sgt i32 %add.i.i.i.i71.i3616, %1487
   br i1 %cmp15.not.i.i.i.i72.i3617, label %for.end.i.i.i8.i.i3618, label %for.body.i.i.i7.i.i3610, !llvm.loop !309
@@ -27904,7 +27904,7 @@ if.then.i.i4529:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i4531:                                 ; preds = %if.then.i.i4529, %.noexc28.i4535
   %row.012.i.i4532 = phi i32 [ %inc.i.i4536, %.noexc28.i4535 ], [ %1585, %if.then.i.i4529 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4089, ptr nonnull readonly %flatVector.i4090, i32 noundef %row.012.i.i4532)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i4089, ptr nonnull readonly %flatVector.i4090, i32 noundef %row.012.i.i4532)
           to label %.noexc28.i4535 unwind label %lpad7.loopexit.i4533
 
 .noexc28.i4535:                                   ; preds = %for.body.i.i4531
@@ -27954,7 +27954,7 @@ while.body.i.i.i.i.i.i4519:                       ; preds = %if.then3.i.i.i.i.i4
   %1594 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i4520, i1 true)
   %cast.i.i.i.i.i.i4521 = trunc nuw nsw i64 %1594 to i32
   %add.i26.i.i.i.i.i4522 = or disjoint i32 %1592, %cast.i.i.i.i.i.i4521
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4089, ptr nonnull readonly %flatVector.i4090, i32 noundef %add.i26.i.i.i.i.i4522)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i4089, ptr nonnull readonly %flatVector.i4090, i32 noundef %add.i26.i.i.i.i.i4522)
           to label %.noexc29.i4525 unwind label %lpad7.loopexit.split-lp.loopexit.i4523
 
 .noexc29.i4525:                                   ; preds = %while.body.i.i.i.i.i.i4519
@@ -27992,7 +27992,7 @@ while.body.i42.i.i.i.i.i4367:                     ; preds = %.noexc30.i4373, %wh
   %1596 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i4368, i1 true)
   %cast.i44.i.i.i.i.i4369 = trunc nuw nsw i64 %1596 to i32
   %add.i45.i.i.i.i.i4370 = or disjoint i32 %mul.i41.i.i.i.i.i4366, %cast.i44.i.i.i.i.i4369
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4089, ptr nonnull readonly %flatVector.i4090, i32 noundef %add.i45.i.i.i.i.i4370)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i4089, ptr nonnull readonly %flatVector.i4090, i32 noundef %add.i45.i.i.i.i.i4370)
           to label %.noexc30.i4373 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4371
 
 .noexc30.i4373:                                   ; preds = %while.body.i42.i.i.i.i.i4367
@@ -28045,7 +28045,7 @@ for.body.lr.ph.i.i.i.i.i.i4422:                   ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i4424:                         ; preds = %.noexc31.i4429, %for.body.lr.ph.i.i.i.i.i.i4422
   %row.018.i.i.i.i.i.i4425 = phi i64 [ %conv.i.i.i.i.i.i4423, %for.body.lr.ph.i.i.i.i.i.i4422 ], [ %inc.i.i.i.i.i.i4430, %.noexc31.i4429 ]
   %conv7.i.i.i.i.i.i4426 = trunc i64 %row.018.i.i.i.i.i.i4425 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4089, ptr nonnull readonly %flatVector.i4090, i32 noundef %conv7.i.i.i.i.i.i4426)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i4089, ptr nonnull readonly %flatVector.i4090, i32 noundef %conv7.i.i.i.i.i.i4426)
           to label %.noexc31.i4429 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4427
 
 .noexc31.i4429:                                   ; preds = %for.body.i.i.i.i.i.i4424
@@ -28053,8 +28053,8 @@ for.body.i.i.i.i.i.i4424:                         ; preds = %.noexc31.i4429, %fo
   %cmp6.i.i.i.i.i23.i4431 = icmp ult i64 %inc.i.i.i.i.i.i4430, %conv5.i.i.i.i.i.i4419
   br i1 %cmp6.i.i.i.i.i23.i4431, label %for.body.i.i.i.i.i.i4424, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !318
 
-while.body.i57.i.i.i.i.i4434:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i4432
-  %word.016.i.i.i.i.i.i4435 = phi i64 [ %1597, %while.body.lr.ph.i.i.i.i.i.i4432 ], [ %and.i61.i.i.i.i.i4468, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i ]
+while.body.i57.i.i.i.i.i4434:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i4432
+  %word.016.i.i.i.i.i.i4435 = phi i64 [ %1597, %while.body.lr.ph.i.i.i.i.i.i4432 ], [ %and.i61.i.i.i.i.i4468, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i ]
   %1598 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i4435, i1 true)
   %cast.i58.i.i.i.i.i4436 = trunc nuw nsw i64 %1598 to i32
   %add10.i.i.i.i.i.i4437 = or disjoint i32 %mul9.i.i.i.i.i.i4433, %cast.i58.i.i.i.i.i4436
@@ -28149,7 +28149,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i4479: ; preds = %ca
   %1615 = load i8, ptr %arrayidx2.i.i.i.i.i.i.i.i.i4485, align 1
   %and3.i.i.i.i.i.i.i.i.i4486 = and i8 %1615, %1614
   store i8 %and3.i.i.i.i.i.i.i.i.i4486, ptr %arrayidx2.i.i.i.i.i.i.i.i.i4485, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
 if.else.i.thread.i.i.i.i.i4456:                   ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i4446, %if.then8.i.i.i.i.i.i.i4488
   %1616 = load ptr, ptr %flatVector.i4090, align 8
@@ -28189,15 +28189,15 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i9.i.i.i.i.i.i4464, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i, align 8
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280) %1627, i32 noundef %add10.i.i.i.i.i.i4437, i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i.i.i.i.i)
-          to label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4465
+          to label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4465
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i4479
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i4479
   %sub.i60.i.i.i.i.i4467 = add i64 %word.016.i.i.i.i.i.i4435, -1
   %and.i61.i.i.i.i.i4468 = and i64 %sub.i60.i.i.i.i.i4467, %word.016.i.i.i.i.i.i4435
   %tobool8.not.i.i.i.i.i.i4469 = icmp eq i64 %and.i61.i.i.i.i.i4468, 0
   br i1 %tobool8.not.i.i.i.i.i.i4469, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i57.i.i.i.i.i4434, !llvm.loop !319
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc31.i4429, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i4416, %for.body.i.i.i6.i.i4386
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc31.i4429, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i4416, %for.body.i.i.i6.i.i4386
   %add.i.i.i.i.i4392 = add nsw i32 %add89.i.i.i.i.i4387, 64
   %cmp15.not.i.i.i.i.i4393 = icmp sgt i32 %add.i.i.i.i.i4392, %1592
   br i1 %cmp15.not.i.i.i.i.i4393, label %for.end.i.i.i7.i.i4394, label %for.body.i.i.i6.i.i4386, !llvm.loop !320
@@ -28224,7 +28224,7 @@ while.body.i73.i.i.i.i.i4406:                     ; preds = %if.then19.i.i.i.i.i
   %1629 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i4407, i1 true)
   %cast.i75.i.i.i.i.i4408 = trunc nuw nsw i64 %1629 to i32
   %add.i76.i.i.i.i.i4409 = or disjoint i32 %1592, %cast.i75.i.i.i.i.i4408
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4089, ptr nonnull readonly %flatVector.i4090, i32 noundef %add.i76.i.i.i.i.i4409)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i4089, ptr nonnull readonly %flatVector.i4090, i32 noundef %add.i76.i.i.i.i.i4409)
           to label %.noexc35.i4412 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i4410
 
 .noexc35.i4412:                                   ; preds = %while.body.i73.i.i.i.i.i4406
@@ -28273,32 +28273,32 @@ lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.lo
           cleanup
   br label %lpad7.i4167
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4331: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4331: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
   %lpad.loopexit205.i4332 = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i4167
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4313: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4313: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
   %lpad.loopexit207.i4314 = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i4167
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4248: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i129.i.i.i.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4248: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i129.i.i.i.i.i
   %lpad.loopexit211.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i4167
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4275: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit32.i.i.i.i.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4275: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit32.i.i.i.i.i.i
   %lpad.loopexit214.i4276 = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i4167
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4260: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i86.i.i.i.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4260: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i86.i.i.i.i.i
   %lpad.loopexit217.i4261 = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i4167
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4234: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4234: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i
   %lpad.loopexit220.i4235 = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i4167
@@ -28403,7 +28403,7 @@ for.body.i127.i:                                  ; preds = %.noexc157.i4333, %f
   %1648 = load i8, ptr %isIdentityMapping_.i.i.i.i.i4319, align 2
   %tobool.i.i.i4.i.i4323 = trunc i8 %1648 to i1
   %1649 = trunc nsw i64 %indvars.iv.i.i4322 to i32
-  br i1 %tobool.i.i.i4.i.i4323, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, label %if.end.i.i.i5.i.i4324
+  br i1 %tobool.i.i.i4.i.i4323, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, label %if.end.i.i.i5.i.i4324
 
 if.end.i.i.i5.i.i4324:                            ; preds = %for.body.i127.i
   %1650 = load i8, ptr %isConstantMapping_.i.i.i.i.i4320, align 1
@@ -28412,15 +28412,15 @@ if.end.i.i.i5.i.i4324:                            ; preds = %for.body.i127.i
 
 if.then3.i.i.i.i129.i:                            ; preds = %if.end.i.i.i5.i.i4324
   %1651 = load i32, ptr %constantIndex_.i.i4114, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
 
 if.end4.i.i.i.i.i4326:                            ; preds = %if.end.i.i.i5.i.i4324
   %1652 = load ptr, ptr %indices_.i.i4111, align 8
   %arrayidx.i.i.i.i.i4327 = getelementptr inbounds i32, ptr %1652, i64 %indvars.iv.i.i4322
   %1653 = load i32, ptr %arrayidx.i.i.i.i.i4327, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i: ; preds = %if.end4.i.i.i.i.i4326, %if.then3.i.i.i.i129.i, %for.body.i127.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i: ; preds = %if.end4.i.i.i.i.i4326, %if.then3.i.i.i.i129.i, %for.body.i127.i
   %retval.0.i.i.i.i.i4328 = phi i32 [ %1651, %if.then3.i.i.i.i129.i ], [ %1653, %if.end4.i.i.i.i.i4326 ], [ %1649, %for.body.i127.i ]
   %idxprom.i.i.i.i4329 = sext i32 %retval.0.i.i.i.i.i4328 to i64
   %arrayidx.i.i.i.i4330 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %1647, i64 %idxprom.i.i.i.i4329
@@ -28430,7 +28430,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280) %func.val.val.i.pre.i4321, i32 noundef %1649, i64 %retval.sroa.0.0.copyload.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i.i)
           to label %.noexc157.i4333 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4331
 
-.noexc157.i4333:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+.noexc157.i4333:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
   %indvars.iv.next.i.i4334 = add nsw i64 %indvars.iv.i.i4322, 1
   %1654 = load i32, ptr %end_.i.i4107, align 8
   %1655 = sext i32 %1654 to i64
@@ -28488,7 +28488,7 @@ while.body.i.i.i.i.i114.i4302:                    ; preds = %.noexc158.i, %while
   %1663 = load ptr, ptr %data_.i.i.i.i.i.i.i.i4298, align 8
   %1664 = load i8, ptr %isIdentityMapping_.i.i.i.i.i.i.i.i.i4299, align 2
   %tobool.i.i.i.i.i.i.i.i.i4306 = trunc i8 %1664 to i1
-  br i1 %tobool.i.i.i.i.i.i.i.i.i4306, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i4307
+  br i1 %tobool.i.i.i.i.i.i.i.i.i4306, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i4307
 
 if.end.i.i.i.i.i.i.i.i.i4307:                     ; preds = %while.body.i.i.i.i.i114.i4302
   %1665 = load i8, ptr %isConstantMapping_.i.i.i.i.i.i.i.i.i4300, align 1
@@ -28497,16 +28497,16 @@ if.end.i.i.i.i.i.i.i.i.i4307:                     ; preds = %while.body.i.i.i.i.
 
 if.then3.i.i.i.i.i.i.i.i.i4315:                   ; preds = %if.end.i.i.i.i.i.i.i.i.i4307
   %1666 = load i32, ptr %constantIndex_.i.i4114, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i.i.i.i4309:                    ; preds = %if.end.i.i.i.i.i.i.i.i.i4307
   %1667 = load ptr, ptr %indices_.i.i4111, align 8
   %idxprom.i.i.i.i.i.i.i.i.i4310 = sext i32 %add.i26.i.i.i.i117.i4305 to i64
   %arrayidx.i.i.i.i.i.i.i.i118.i4311 = getelementptr inbounds i32, ptr %1667, i64 %idxprom.i.i.i.i.i.i.i.i.i4310
   %1668 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i118.i4311, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i4309, %if.then3.i.i.i.i.i.i.i.i.i4315, %while.body.i.i.i.i.i114.i4302
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i4309, %if.then3.i.i.i.i.i.i.i.i.i4315, %while.body.i.i.i.i.i114.i4302
   %retval.0.i.i.i.i.i.i.i.i.i4312 = phi i32 [ %1666, %if.then3.i.i.i.i.i.i.i.i.i4315 ], [ %1668, %if.end4.i.i.i.i.i.i.i.i.i4309 ], [ %add.i26.i.i.i.i117.i4305, %while.body.i.i.i.i.i114.i4302 ]
   %idxprom.i.i.i.i.i.i.i119.i = sext i32 %retval.0.i.i.i.i.i.i.i.i.i4312 to i64
   %arrayidx.i.i.i.i.i.i.i120.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %1663, i64 %idxprom.i.i.i.i.i.i.i119.i
@@ -28516,7 +28516,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280) %.val.val.i.i.i.i.i.pre.i4301, i32 noundef %add.i26.i.i.i.i117.i4305, i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i)
           to label %.noexc158.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4313
 
-.noexc158.i:                                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+.noexc158.i:                                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
   %sub.i27.i.i.i.i121.i = add nsw i64 %word.0.i.i.i.i.i115.i4303, -1
   %and6.i.i.i.i.i122.i = and i64 %sub.i27.i.i.i.i121.i, %word.0.i.i.i.i.i115.i4303
   %tobool5.old.not.i.i.i.i.i123.i = icmp eq i64 %and6.i.i.i.i.i122.i, 0
@@ -28558,7 +28558,7 @@ while.body.i42.i.i.i.i70.i4223:                   ; preds = %.noexc159.i, %while
   %1671 = load ptr, ptr %data_.i.i.i49.i.i.i.i.i4219, align 8
   %1672 = load i8, ptr %isIdentityMapping_.i.i.i.i50.i.i.i.i.i4220, align 2
   %tobool.i.i.i.i51.i.i.i.i.i4227 = trunc i8 %1672 to i1
-  br i1 %tobool.i.i.i.i51.i.i.i.i.i4227, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i, label %if.end.i.i.i.i52.i.i.i.i.i4228
+  br i1 %tobool.i.i.i.i51.i.i.i.i.i4227, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i, label %if.end.i.i.i.i52.i.i.i.i.i4228
 
 if.end.i.i.i.i52.i.i.i.i.i4228:                   ; preds = %while.body.i42.i.i.i.i70.i4223
   %1673 = load i8, ptr %isConstantMapping_.i.i.i.i53.i.i.i.i.i4221, align 1
@@ -28567,16 +28567,16 @@ if.end.i.i.i.i52.i.i.i.i.i4228:                   ; preds = %while.body.i42.i.i.
 
 if.then3.i.i.i.i69.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i52.i.i.i.i.i4228
   %1674 = load i32, ptr %constantIndex_.i.i4114, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i
 
 if.end4.i.i.i.i55.i.i.i.i.i4230:                  ; preds = %if.end.i.i.i.i52.i.i.i.i.i4228
   %1675 = load ptr, ptr %indices_.i.i4111, align 8
   %idxprom.i.i.i.i57.i.i.i.i.i4231 = sext i32 %add.i45.i.i.i.i73.i4226 to i64
   %arrayidx.i.i.i.i58.i.i.i.i.i4232 = getelementptr inbounds i32, ptr %1675, i64 %idxprom.i.i.i.i57.i.i.i.i.i4231
   %1676 = load i32, ptr %arrayidx.i.i.i.i58.i.i.i.i.i4232, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i4230, %if.then3.i.i.i.i69.i.i.i.i.i, %while.body.i42.i.i.i.i70.i4223
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i4230, %if.then3.i.i.i.i69.i.i.i.i.i, %while.body.i42.i.i.i.i70.i4223
   %retval.0.i.i.i.i60.i.i.i.i.i4233 = phi i32 [ %1674, %if.then3.i.i.i.i69.i.i.i.i.i ], [ %1676, %if.end4.i.i.i.i55.i.i.i.i.i4230 ], [ %add.i45.i.i.i.i73.i4226, %while.body.i42.i.i.i.i70.i4223 ]
   %idxprom.i.i.i61.i.i.i.i.i = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i4233 to i64
   %arrayidx.i.i.i62.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %1671, i64 %idxprom.i.i.i61.i.i.i.i.i
@@ -28586,7 +28586,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280) %.val.val.i48.i.i.i.i.pre.i4222, i32 noundef %add.i45.i.i.i.i73.i4226, i64 %retval.sroa.0.0.copyload.i.i.i63.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i65.i.i.i.i.i)
           to label %.noexc159.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4234
 
-.noexc159.i:                                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i
+.noexc159.i:                                      ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i
   %sub.i66.i.i.i.i.i = add i64 %word.0.i43.i.i.i.i71.i4224, -1
   %and6.i67.i.i.i.i.i = and i64 %sub.i66.i.i.i.i.i, %word.0.i43.i.i.i.i71.i4224
   %tobool5.old.not.i68.i.i.i.i.i = icmp eq i64 %and6.i67.i.i.i.i.i, 0
@@ -28639,7 +28639,7 @@ for.body.i.i.i.i.i89.i4257:                       ; preds = %.noexc160.i4262, %f
   %1678 = load ptr, ptr %data_.i.i.i77.i.i.i.i.i, align 8
   %1679 = load i8, ptr %isIdentityMapping_.i.i.i.i78.i.i.i.i.i, align 2
   %tobool.i.i.i.i79.i.i.i.i.i = trunc i8 %1679 to i1
-  br i1 %tobool.i.i.i.i79.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i86.i.i.i.i.i, label %if.end.i.i.i.i80.i.i.i.i.i
+  br i1 %tobool.i.i.i.i79.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i86.i.i.i.i.i, label %if.end.i.i.i.i80.i.i.i.i.i
 
 if.end.i.i.i.i80.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i89.i4257
   %1680 = load i8, ptr %isConstantMapping_.i.i.i.i81.i.i.i.i.i, align 1
@@ -28648,7 +28648,7 @@ if.end.i.i.i.i80.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i8
 
 if.then3.i.i.i.i93.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i80.i.i.i.i.i
   %1681 = load i32, ptr %constantIndex_.i.i4114, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i86.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i86.i.i.i.i.i
 
 if.end4.i.i.i.i83.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i80.i.i.i.i.i
   %1682 = load ptr, ptr %indices_.i.i4111, align 8
@@ -28656,9 +28656,9 @@ if.end4.i.i.i.i83.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i80.i.
   %1683 = ashr exact i64 %sext.i.i.i.i.i.i4259, 30
   %arrayidx.i.i.i.i85.i.i.i.i.i = getelementptr inbounds i8, ptr %1682, i64 %1683
   %1684 = load i32, ptr %arrayidx.i.i.i.i85.i.i.i.i.i, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i86.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i86.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i86.i.i.i.i.i: ; preds = %if.end4.i.i.i.i83.i.i.i.i.i, %if.then3.i.i.i.i93.i.i.i.i.i, %for.body.i.i.i.i.i89.i4257
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i86.i.i.i.i.i: ; preds = %if.end4.i.i.i.i83.i.i.i.i.i, %if.then3.i.i.i.i93.i.i.i.i.i, %for.body.i.i.i.i.i89.i4257
   %retval.0.i.i.i.i87.i.i.i.i.i = phi i32 [ %1681, %if.then3.i.i.i.i93.i.i.i.i.i ], [ %1684, %if.end4.i.i.i.i83.i.i.i.i.i ], [ %conv7.i.i.i.i.i90.i4258, %for.body.i.i.i.i.i89.i4257 ]
   %idxprom.i.i.i88.i.i.i.i.i = sext i32 %retval.0.i.i.i.i87.i.i.i.i.i to i64
   %arrayidx.i.i.i89.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %1678, i64 %idxprom.i.i.i88.i.i.i.i.i
@@ -28668,7 +28668,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280) %.val12.val.i.i.i.i.i.pre.i4256, i32 noundef %conv7.i.i.i.i.i90.i4258, i64 %retval.sroa.0.0.copyload.i.i.i90.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i92.i.i.i.i.i)
           to label %.noexc160.i4262 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4260
 
-.noexc160.i4262:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i86.i.i.i.i.i
+.noexc160.i4262:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i86.i.i.i.i.i
   %inc.i.i.i.i.i91.i4263 = add nuw i64 %row.037.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i92.i4264 = icmp ult i64 %inc.i.i.i.i.i91.i4263, %conv5.i.i.i.i.i85.i4252
   br i1 %cmp6.i.i.i.i.i92.i4264, label %for.body.i.i.i.i.i89.i4257, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !322
@@ -28681,7 +28681,7 @@ while.body.i95.i.i.i.i.i:                         ; preds = %.noexc161.i4277, %w
   %1686 = load ptr, ptr %data_.i.i.i77.i.i.i.i.i, align 8
   %1687 = load i8, ptr %isIdentityMapping_.i.i.i.i78.i.i.i.i.i, align 2
   %tobool.i.i.i16.i.i.i.i.i.i4268 = trunc i8 %1687 to i1
-  br i1 %tobool.i.i.i16.i.i.i.i.i.i4268, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit32.i.i.i.i.i.i, label %if.end.i.i.i17.i.i.i.i.i.i4269
+  br i1 %tobool.i.i.i16.i.i.i.i.i.i4268, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit32.i.i.i.i.i.i, label %if.end.i.i.i17.i.i.i.i.i.i4269
 
 if.end.i.i.i17.i.i.i.i.i.i4269:                   ; preds = %while.body.i95.i.i.i.i.i
   %1688 = load i8, ptr %isConstantMapping_.i.i.i.i81.i.i.i.i.i, align 1
@@ -28690,16 +28690,16 @@ if.end.i.i.i17.i.i.i.i.i.i4269:                   ; preds = %while.body.i95.i.i.
 
 if.then3.i.i.i30.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i17.i.i.i.i.i.i4269
   %1689 = load i32, ptr %constantIndex_.i.i4114, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit32.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit32.i.i.i.i.i.i
 
 if.end4.i.i.i20.i.i.i.i.i.i4271:                  ; preds = %if.end.i.i.i17.i.i.i.i.i.i4269
   %1690 = load ptr, ptr %indices_.i.i4111, align 8
   %idxprom.i.i.i22.i.i.i.i.i.i4272 = sext i32 %add10.i.i.i.i.i95.i4267 to i64
   %arrayidx.i.i.i23.i.i.i.i.i.i4273 = getelementptr inbounds i32, ptr %1690, i64 %idxprom.i.i.i22.i.i.i.i.i.i4272
   %1691 = load i32, ptr %arrayidx.i.i.i23.i.i.i.i.i.i4273, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit32.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit32.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit32.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i4271, %if.then3.i.i.i30.i.i.i.i.i.i, %while.body.i95.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit32.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i4271, %if.then3.i.i.i30.i.i.i.i.i.i, %while.body.i95.i.i.i.i.i
   %retval.0.i.i.i24.i.i.i.i.i.i4274 = phi i32 [ %1689, %if.then3.i.i.i30.i.i.i.i.i.i ], [ %1691, %if.end4.i.i.i20.i.i.i.i.i.i4271 ], [ %add10.i.i.i.i.i95.i4267, %while.body.i95.i.i.i.i.i ]
   %idxprom.i.i25.i.i.i.i.i.i = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i4274 to i64
   %arrayidx.i.i26.i.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %1686, i64 %idxprom.i.i25.i.i.i.i.i.i
@@ -28709,7 +28709,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280) %.val.val.i98.i.i.i.i.pre.i, i32 noundef %add10.i.i.i.i.i95.i4267, i64 %retval.sroa.0.0.copyload.i.i27.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i29.i.i.i.i.i.i)
           to label %.noexc161.i4277 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4275
 
-.noexc161.i4277:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit32.i.i.i.i.i.i
+.noexc161.i4277:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit32.i.i.i.i.i.i
   %sub.i99.i.i.i.i.i = add i64 %word.035.i.i.i.i.i.i, -1
   %and.i100.i.i.i.i.i = and i64 %sub.i99.i.i.i.i.i, %word.035.i.i.i.i.i.i
   %tobool8.not.i.i.i.i.i96.i4278 = icmp eq i64 %and.i100.i.i.i.i.i, 0
@@ -28752,7 +28752,7 @@ while.body.i112.i.i.i.i.i:                        ; preds = %.noexc162.i4249, %w
   %1694 = load ptr, ptr %data_.i.i.i119.i.i.i.i.i, align 8
   %1695 = load i8, ptr %isIdentityMapping_.i.i.i.i120.i.i.i.i.i, align 2
   %tobool.i.i.i.i121.i.i.i.i.i = trunc i8 %1695 to i1
-  br i1 %tobool.i.i.i.i121.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i129.i.i.i.i.i, label %if.end.i.i.i.i122.i.i.i.i.i
+  br i1 %tobool.i.i.i.i121.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i129.i.i.i.i.i, label %if.end.i.i.i.i122.i.i.i.i.i
 
 if.end.i.i.i.i122.i.i.i.i.i:                      ; preds = %while.body.i112.i.i.i.i.i
   %1696 = load i8, ptr %isConstantMapping_.i.i.i.i123.i.i.i.i.i, align 1
@@ -28761,16 +28761,16 @@ if.end.i.i.i.i122.i.i.i.i.i:                      ; preds = %while.body.i112.i.i
 
 if.then3.i.i.i.i139.i.i.i.i.i:                    ; preds = %if.end.i.i.i.i122.i.i.i.i.i
   %1697 = load i32, ptr %constantIndex_.i.i4114, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i129.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i129.i.i.i.i.i
 
 if.end4.i.i.i.i125.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i122.i.i.i.i.i
   %1698 = load ptr, ptr %indices_.i.i4111, align 8
   %idxprom.i.i.i.i127.i.i.i.i.i = sext i32 %add.i115.i.i.i.i.i to i64
   %arrayidx.i.i.i.i128.i.i.i.i.i = getelementptr inbounds i32, ptr %1698, i64 %idxprom.i.i.i.i127.i.i.i.i.i
   %1699 = load i32, ptr %arrayidx.i.i.i.i128.i.i.i.i.i, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i129.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i129.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i129.i.i.i.i.i: ; preds = %if.end4.i.i.i.i125.i.i.i.i.i, %if.then3.i.i.i.i139.i.i.i.i.i, %while.body.i112.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i129.i.i.i.i.i: ; preds = %if.end4.i.i.i.i125.i.i.i.i.i, %if.then3.i.i.i.i139.i.i.i.i.i, %while.body.i112.i.i.i.i.i
   %retval.0.i.i.i.i130.i.i.i.i.i = phi i32 [ %1697, %if.then3.i.i.i.i139.i.i.i.i.i ], [ %1699, %if.end4.i.i.i.i125.i.i.i.i.i ], [ %add.i115.i.i.i.i.i, %while.body.i112.i.i.i.i.i ]
   %idxprom.i.i.i131.i.i.i.i.i = sext i32 %retval.0.i.i.i.i130.i.i.i.i.i to i64
   %arrayidx.i.i.i132.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %1694, i64 %idxprom.i.i.i131.i.i.i.i.i
@@ -28780,7 +28780,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280) %.val.val.i118.i.i.i.i.pre.i, i32 noundef %add.i115.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i.i.i133.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i135.i.i.i.i.i)
           to label %.noexc162.i4249 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4248
 
-.noexc162.i4249:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i129.i.i.i.i.i
+.noexc162.i4249:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i129.i.i.i.i.i
   %sub.i136.i.i.i.i.i = add nsw i64 %word.0.i113.i.i.i.i.i, -1
   %and6.i137.i.i.i.i.i = and i64 %sub.i136.i.i.i.i.i, %word.0.i113.i.i.i.i.i
   %tobool5.old.not.i138.i.i.i.i.i = icmp eq i64 %and6.i137.i.i.i.i.i, 0
@@ -29191,7 +29191,7 @@ if.then.i.i5165:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i5167:                                 ; preds = %if.then.i.i5165, %.noexc28.i5171
   %row.012.i.i5168 = phi i32 [ %inc.i.i5172, %.noexc28.i5171 ], [ %1762, %if.then.i.i5165 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4586, ptr nonnull readonly %flatVector.i4587, i32 noundef %row.012.i.i5168)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i4586, ptr nonnull readonly %flatVector.i4587, i32 noundef %row.012.i.i5168)
           to label %.noexc28.i5171 unwind label %lpad7.loopexit.i5169
 
 .noexc28.i5171:                                   ; preds = %for.body.i.i5167
@@ -29241,7 +29241,7 @@ while.body.i.i.i.i.i.i5155:                       ; preds = %if.then3.i.i.i.i.i5
   %1771 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i5156, i1 true)
   %cast.i.i.i.i.i.i5157 = trunc nuw nsw i64 %1771 to i32
   %add.i26.i.i.i.i.i5158 = or disjoint i32 %1769, %cast.i.i.i.i.i.i5157
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4586, ptr nonnull readonly %flatVector.i4587, i32 noundef %add.i26.i.i.i.i.i5158)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i4586, ptr nonnull readonly %flatVector.i4587, i32 noundef %add.i26.i.i.i.i.i5158)
           to label %.noexc29.i5161 unwind label %lpad7.loopexit.split-lp.loopexit.i5159
 
 .noexc29.i5161:                                   ; preds = %while.body.i.i.i.i.i.i5155
@@ -29279,7 +29279,7 @@ while.body.i42.i.i.i.i.i4999:                     ; preds = %.noexc30.i5005, %wh
   %1773 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i5000, i1 true)
   %cast.i44.i.i.i.i.i5001 = trunc nuw nsw i64 %1773 to i32
   %add.i45.i.i.i.i.i5002 = or disjoint i32 %mul.i41.i.i.i.i.i4998, %cast.i44.i.i.i.i.i5001
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4586, ptr nonnull readonly %flatVector.i4587, i32 noundef %add.i45.i.i.i.i.i5002)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i4586, ptr nonnull readonly %flatVector.i4587, i32 noundef %add.i45.i.i.i.i.i5002)
           to label %.noexc30.i5005 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5003
 
 .noexc30.i5005:                                   ; preds = %while.body.i42.i.i.i.i.i4999
@@ -29332,7 +29332,7 @@ for.body.lr.ph.i.i.i.i.i.i5054:                   ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i5056:                         ; preds = %.noexc31.i5061, %for.body.lr.ph.i.i.i.i.i.i5054
   %row.018.i.i.i.i.i.i5057 = phi i64 [ %conv.i.i.i.i.i.i5055, %for.body.lr.ph.i.i.i.i.i.i5054 ], [ %inc.i.i.i.i.i.i5062, %.noexc31.i5061 ]
   %conv7.i.i.i.i.i.i5058 = trunc i64 %row.018.i.i.i.i.i.i5057 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4586, ptr nonnull readonly %flatVector.i4587, i32 noundef %conv7.i.i.i.i.i.i5058)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i4586, ptr nonnull readonly %flatVector.i4587, i32 noundef %conv7.i.i.i.i.i.i5058)
           to label %.noexc31.i5061 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5059
 
 .noexc31.i5061:                                   ; preds = %for.body.i.i.i.i.i.i5056
@@ -29340,8 +29340,8 @@ for.body.i.i.i.i.i.i5056:                         ; preds = %.noexc31.i5061, %fo
   %cmp6.i.i.i.i.i23.i5063 = icmp ult i64 %inc.i.i.i.i.i.i5062, %conv5.i.i.i.i.i.i5051
   br i1 %cmp6.i.i.i.i.i23.i5063, label %for.body.i.i.i.i.i.i5056, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !333
 
-while.body.i57.i.i.i.i.i5066:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i5064
-  %word.016.i.i.i.i.i.i5067 = phi i64 [ %1774, %while.body.lr.ph.i.i.i.i.i.i5064 ], [ %and.i61.i.i.i.i.i5104, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i ]
+while.body.i57.i.i.i.i.i5066:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i5064
+  %word.016.i.i.i.i.i.i5067 = phi i64 [ %1774, %while.body.lr.ph.i.i.i.i.i.i5064 ], [ %and.i61.i.i.i.i.i5104, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i ]
   %1775 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i5067, i1 true)
   %cast.i58.i.i.i.i.i5068 = trunc nuw nsw i64 %1775 to i32
   %add10.i.i.i.i.i.i5069 = or disjoint i32 %mul9.i.i.i.i.i.i5065, %cast.i58.i.i.i.i.i5068
@@ -29436,7 +29436,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i5115: ; preds = %ca
   %1792 = load i8, ptr %arrayidx2.i.i.i.i.i.i.i.i.i5121, align 1
   %and3.i.i.i.i.i.i.i.i.i5122 = and i8 %1792, %1791
   store i8 %and3.i.i.i.i.i.i.i.i.i5122, ptr %arrayidx2.i.i.i.i.i.i.i.i.i5121, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
 if.else.i.thread.i.i.i.i.i5088:                   ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i5078, %if.then8.i.i.i.i.i.i.i5124
   %1793 = load ptr, ptr %flatVector.i4587, align 8
@@ -29476,15 +29476,15 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i5099 = getelementptr inbounds i8, ptr %arrayidx.i9.i.i.i.i.i.i5097, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i5100 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i5099, align 8
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280) %1804, i32 noundef %add10.i.i.i.i.i.i5069, i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i5098, ptr %retval.sroa.2.0.copyload.i.i.i.i.i.i.i5100)
-          to label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5101
+          to label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5101
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i.i5094, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i5115
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i.i5094, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i5115
   %sub.i60.i.i.i.i.i5103 = add i64 %word.016.i.i.i.i.i.i5067, -1
   %and.i61.i.i.i.i.i5104 = and i64 %sub.i60.i.i.i.i.i5103, %word.016.i.i.i.i.i.i5067
   %tobool8.not.i.i.i.i.i.i5105 = icmp eq i64 %and.i61.i.i.i.i.i5104, 0
   br i1 %tobool8.not.i.i.i.i.i.i5105, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i57.i.i.i.i.i5066, !llvm.loop !334
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc31.i5061, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i5048, %for.body.i.i.i6.i.i5018
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc31.i5061, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i5048, %for.body.i.i.i6.i.i5018
   %add.i.i.i.i.i5024 = add nsw i32 %add89.i.i.i.i.i5019, 64
   %cmp15.not.i.i.i.i.i5025 = icmp sgt i32 %add.i.i.i.i.i5024, %1769
   br i1 %cmp15.not.i.i.i.i.i5025, label %for.end.i.i.i7.i.i5026, label %for.body.i.i.i6.i.i5018, !llvm.loop !335
@@ -29511,7 +29511,7 @@ while.body.i73.i.i.i.i.i5038:                     ; preds = %if.then19.i.i.i.i.i
   %1806 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i5039, i1 true)
   %cast.i75.i.i.i.i.i5040 = trunc nuw nsw i64 %1806 to i32
   %add.i76.i.i.i.i.i5041 = or disjoint i32 %1769, %cast.i75.i.i.i.i.i5040
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i4586, ptr nonnull readonly %flatVector.i4587, i32 noundef %add.i76.i.i.i.i.i5041)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i4586, ptr nonnull readonly %flatVector.i4587, i32 noundef %add.i76.i.i.i.i.i5041)
           to label %.noexc35.i5044 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i5042
 
 .noexc35.i5044:                                   ; preds = %while.body.i73.i.i.i.i.i5038
@@ -29560,32 +29560,32 @@ lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.lo
           cleanup
   br label %lpad7.i4668
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4936: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4936: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
   %lpad.loopexit205.i4937 = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i4668
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4909: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4909: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
   %lpad.loopexit207.i4910 = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i4668
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4806: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i129.i.i.i.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4806: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i129.i.i.i.i.i
   %lpad.loopexit211.i4807 = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i4668
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4862: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit32.i.i.i.i.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4862: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit32.i.i.i.i.i.i
   %lpad.loopexit214.i4863 = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i4668
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4837: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i86.i.i.i.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4837: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i86.i.i.i.i.i
   %lpad.loopexit217.i4838 = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i4668
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4752: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4752: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i
   %lpad.loopexit220.i4753 = landingpad { ptr, i32 }
           cleanup
   br label %lpad7.i4668
@@ -29690,7 +29690,7 @@ for.body.i127.i4923:                              ; preds = %.noexc157.i4938, %f
   %1825 = load i8, ptr %isIdentityMapping_.i.i.i.i.i4920, align 2
   %tobool.i.i.i4.i.i4925 = trunc i8 %1825 to i1
   %1826 = trunc nsw i64 %indvars.iv.i.i4924 to i32
-  br i1 %tobool.i.i.i4.i.i4925, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, label %if.end.i.i.i5.i.i4926
+  br i1 %tobool.i.i.i4.i.i4925, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, label %if.end.i.i.i5.i.i4926
 
 if.end.i.i.i5.i.i4926:                            ; preds = %for.body.i127.i4923
   %1827 = load i8, ptr %isConstantMapping_.i.i.i.i.i4921, align 1
@@ -29699,15 +29699,15 @@ if.end.i.i.i5.i.i4926:                            ; preds = %for.body.i127.i4923
 
 if.then3.i.i.i.i129.i4941:                        ; preds = %if.end.i.i.i5.i.i4926
   %1828 = load i32, ptr %constantIndex_.i.i4611, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
 
 if.end4.i.i.i.i.i4928:                            ; preds = %if.end.i.i.i5.i.i4926
   %1829 = load ptr, ptr %indices_.i.i4608, align 8
   %arrayidx.i.i.i.i.i4929 = getelementptr inbounds i32, ptr %1829, i64 %indvars.iv.i.i4924
   %1830 = load i32, ptr %arrayidx.i.i.i.i.i4929, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i: ; preds = %if.end4.i.i.i.i.i4928, %if.then3.i.i.i.i129.i4941, %for.body.i127.i4923
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i: ; preds = %if.end4.i.i.i.i.i4928, %if.then3.i.i.i.i129.i4941, %for.body.i127.i4923
   %retval.0.i.i.i.i.i4930 = phi i32 [ %1828, %if.then3.i.i.i.i129.i4941 ], [ %1830, %if.end4.i.i.i.i.i4928 ], [ %1826, %for.body.i127.i4923 ]
   %idxprom.i.i.i.i4931 = sext i32 %retval.0.i.i.i.i.i4930 to i64
   %arrayidx.i.i.i.i4932 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %1824, i64 %idxprom.i.i.i.i4931
@@ -29717,7 +29717,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280) %func.val.val.i.pre.i4922, i32 noundef %1826, i64 %retval.sroa.0.0.copyload.i.i.i.i4933, ptr %retval.sroa.2.0.copyload.i.i.i.i4935)
           to label %.noexc157.i4938 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4936
 
-.noexc157.i4938:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+.noexc157.i4938:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
   %indvars.iv.next.i.i4939 = add nsw i64 %indvars.iv.i.i4924, 1
   %1831 = load i32, ptr %end_.i.i4604, align 8
   %1832 = sext i32 %1831 to i64
@@ -29775,7 +29775,7 @@ while.body.i.i.i.i.i114.i4893:                    ; preds = %.noexc158.i4911, %w
   %1840 = load ptr, ptr %data_.i.i.i.i.i.i.i.i4889, align 8
   %1841 = load i8, ptr %isIdentityMapping_.i.i.i.i.i.i.i.i.i4890, align 2
   %tobool.i.i.i.i.i.i.i.i.i4897 = trunc i8 %1841 to i1
-  br i1 %tobool.i.i.i.i.i.i.i.i.i4897, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i4898
+  br i1 %tobool.i.i.i.i.i.i.i.i.i4897, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i4898
 
 if.end.i.i.i.i.i.i.i.i.i4898:                     ; preds = %while.body.i.i.i.i.i114.i4893
   %1842 = load i8, ptr %isConstantMapping_.i.i.i.i.i.i.i.i.i4891, align 1
@@ -29784,16 +29784,16 @@ if.end.i.i.i.i.i.i.i.i.i4898:                     ; preds = %while.body.i.i.i.i.
 
 if.then3.i.i.i.i.i.i.i.i.i4915:                   ; preds = %if.end.i.i.i.i.i.i.i.i.i4898
   %1843 = load i32, ptr %constantIndex_.i.i4611, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i.i.i.i4900:                    ; preds = %if.end.i.i.i.i.i.i.i.i.i4898
   %1844 = load ptr, ptr %indices_.i.i4608, align 8
   %idxprom.i.i.i.i.i.i.i.i.i4901 = sext i32 %add.i26.i.i.i.i117.i4896 to i64
   %arrayidx.i.i.i.i.i.i.i.i118.i4902 = getelementptr inbounds i32, ptr %1844, i64 %idxprom.i.i.i.i.i.i.i.i.i4901
   %1845 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i118.i4902, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i4900, %if.then3.i.i.i.i.i.i.i.i.i4915, %while.body.i.i.i.i.i114.i4893
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i4900, %if.then3.i.i.i.i.i.i.i.i.i4915, %while.body.i.i.i.i.i114.i4893
   %retval.0.i.i.i.i.i.i.i.i.i4903 = phi i32 [ %1843, %if.then3.i.i.i.i.i.i.i.i.i4915 ], [ %1845, %if.end4.i.i.i.i.i.i.i.i.i4900 ], [ %add.i26.i.i.i.i117.i4896, %while.body.i.i.i.i.i114.i4893 ]
   %idxprom.i.i.i.i.i.i.i119.i4904 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i4903 to i64
   %arrayidx.i.i.i.i.i.i.i120.i4905 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %1840, i64 %idxprom.i.i.i.i.i.i.i119.i4904
@@ -29803,7 +29803,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280) %.val.val.i.i.i.i.i.pre.i4892, i32 noundef %add.i26.i.i.i.i117.i4896, i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i4906, ptr %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i4908)
           to label %.noexc158.i4911 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4909
 
-.noexc158.i4911:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+.noexc158.i4911:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
   %sub.i27.i.i.i.i121.i4912 = add nsw i64 %word.0.i.i.i.i.i115.i4894, -1
   %and6.i.i.i.i.i122.i4913 = and i64 %sub.i27.i.i.i.i121.i4912, %word.0.i.i.i.i.i115.i4894
   %tobool5.old.not.i.i.i.i.i123.i4914 = icmp eq i64 %and6.i.i.i.i.i122.i4913, 0
@@ -29845,7 +29845,7 @@ while.body.i42.i.i.i.i70.i4736:                   ; preds = %.noexc159.i4754, %w
   %1848 = load ptr, ptr %data_.i.i.i49.i.i.i.i.i4732, align 8
   %1849 = load i8, ptr %isIdentityMapping_.i.i.i.i50.i.i.i.i.i4733, align 2
   %tobool.i.i.i.i51.i.i.i.i.i4740 = trunc i8 %1849 to i1
-  br i1 %tobool.i.i.i.i51.i.i.i.i.i4740, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i, label %if.end.i.i.i.i52.i.i.i.i.i4741
+  br i1 %tobool.i.i.i.i51.i.i.i.i.i4740, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i, label %if.end.i.i.i.i52.i.i.i.i.i4741
 
 if.end.i.i.i.i52.i.i.i.i.i4741:                   ; preds = %while.body.i42.i.i.i.i70.i4736
   %1850 = load i8, ptr %isConstantMapping_.i.i.i.i53.i.i.i.i.i4734, align 1
@@ -29854,16 +29854,16 @@ if.end.i.i.i.i52.i.i.i.i.i4741:                   ; preds = %while.body.i42.i.i.
 
 if.then3.i.i.i.i69.i.i.i.i.i4869:                 ; preds = %if.end.i.i.i.i52.i.i.i.i.i4741
   %1851 = load i32, ptr %constantIndex_.i.i4611, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i
 
 if.end4.i.i.i.i55.i.i.i.i.i4743:                  ; preds = %if.end.i.i.i.i52.i.i.i.i.i4741
   %1852 = load ptr, ptr %indices_.i.i4608, align 8
   %idxprom.i.i.i.i57.i.i.i.i.i4744 = sext i32 %add.i45.i.i.i.i73.i4739 to i64
   %arrayidx.i.i.i.i58.i.i.i.i.i4745 = getelementptr inbounds i32, ptr %1852, i64 %idxprom.i.i.i.i57.i.i.i.i.i4744
   %1853 = load i32, ptr %arrayidx.i.i.i.i58.i.i.i.i.i4745, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i4743, %if.then3.i.i.i.i69.i.i.i.i.i4869, %while.body.i42.i.i.i.i70.i4736
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i4743, %if.then3.i.i.i.i69.i.i.i.i.i4869, %while.body.i42.i.i.i.i70.i4736
   %retval.0.i.i.i.i60.i.i.i.i.i4746 = phi i32 [ %1851, %if.then3.i.i.i.i69.i.i.i.i.i4869 ], [ %1853, %if.end4.i.i.i.i55.i.i.i.i.i4743 ], [ %add.i45.i.i.i.i73.i4739, %while.body.i42.i.i.i.i70.i4736 ]
   %idxprom.i.i.i61.i.i.i.i.i4747 = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i4746 to i64
   %arrayidx.i.i.i62.i.i.i.i.i4748 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %1848, i64 %idxprom.i.i.i61.i.i.i.i.i4747
@@ -29873,7 +29873,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280) %.val.val.i48.i.i.i.i.pre.i4735, i32 noundef %add.i45.i.i.i.i73.i4739, i64 %retval.sroa.0.0.copyload.i.i.i63.i.i.i.i.i4749, ptr %retval.sroa.2.0.copyload.i.i.i65.i.i.i.i.i4751)
           to label %.noexc159.i4754 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4752
 
-.noexc159.i4754:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i59.i.i.i.i.i
+.noexc159.i4754:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i59.i.i.i.i.i
   %sub.i66.i.i.i.i.i4755 = add i64 %word.0.i43.i.i.i.i71.i4737, -1
   %and6.i67.i.i.i.i.i4756 = and i64 %sub.i66.i.i.i.i.i4755, %word.0.i43.i.i.i.i71.i4737
   %tobool5.old.not.i68.i.i.i.i.i4757 = icmp eq i64 %and6.i67.i.i.i.i.i4756, 0
@@ -29926,7 +29926,7 @@ for.body.i.i.i.i.i89.i4822:                       ; preds = %.noexc160.i4839, %f
   %1855 = load ptr, ptr %data_.i.i.i77.i.i.i.i.i4762, align 8
   %1856 = load i8, ptr %isIdentityMapping_.i.i.i.i78.i.i.i.i.i4763, align 2
   %tobool.i.i.i.i79.i.i.i.i.i4825 = trunc i8 %1856 to i1
-  br i1 %tobool.i.i.i.i79.i.i.i.i.i4825, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i86.i.i.i.i.i, label %if.end.i.i.i.i80.i.i.i.i.i4826
+  br i1 %tobool.i.i.i.i79.i.i.i.i.i4825, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i86.i.i.i.i.i, label %if.end.i.i.i.i80.i.i.i.i.i4826
 
 if.end.i.i.i.i80.i.i.i.i.i4826:                   ; preds = %for.body.i.i.i.i.i89.i4822
   %1857 = load i8, ptr %isConstantMapping_.i.i.i.i81.i.i.i.i.i4764, align 1
@@ -29935,7 +29935,7 @@ if.end.i.i.i.i80.i.i.i.i.i4826:                   ; preds = %for.body.i.i.i.i.i8
 
 if.then3.i.i.i.i93.i.i.i.i.i4842:                 ; preds = %if.end.i.i.i.i80.i.i.i.i.i4826
   %1858 = load i32, ptr %constantIndex_.i.i4611, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i86.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i86.i.i.i.i.i
 
 if.end4.i.i.i.i83.i.i.i.i.i4828:                  ; preds = %if.end.i.i.i.i80.i.i.i.i.i4826
   %1859 = load ptr, ptr %indices_.i.i4608, align 8
@@ -29943,9 +29943,9 @@ if.end4.i.i.i.i83.i.i.i.i.i4828:                  ; preds = %if.end.i.i.i.i80.i.
   %1860 = ashr exact i64 %sext.i.i.i.i.i.i4829, 30
   %arrayidx.i.i.i.i85.i.i.i.i.i4830 = getelementptr inbounds i8, ptr %1859, i64 %1860
   %1861 = load i32, ptr %arrayidx.i.i.i.i85.i.i.i.i.i4830, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i86.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i86.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i86.i.i.i.i.i: ; preds = %if.end4.i.i.i.i83.i.i.i.i.i4828, %if.then3.i.i.i.i93.i.i.i.i.i4842, %for.body.i.i.i.i.i89.i4822
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i86.i.i.i.i.i: ; preds = %if.end4.i.i.i.i83.i.i.i.i.i4828, %if.then3.i.i.i.i93.i.i.i.i.i4842, %for.body.i.i.i.i.i89.i4822
   %retval.0.i.i.i.i87.i.i.i.i.i4831 = phi i32 [ %1858, %if.then3.i.i.i.i93.i.i.i.i.i4842 ], [ %1861, %if.end4.i.i.i.i83.i.i.i.i.i4828 ], [ %conv7.i.i.i.i.i90.i4824, %for.body.i.i.i.i.i89.i4822 ]
   %idxprom.i.i.i88.i.i.i.i.i4832 = sext i32 %retval.0.i.i.i.i87.i.i.i.i.i4831 to i64
   %arrayidx.i.i.i89.i.i.i.i.i4833 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %1855, i64 %idxprom.i.i.i88.i.i.i.i.i4832
@@ -29955,7 +29955,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280) %.val12.val.i.i.i.i.i.pre.i4821, i32 noundef %conv7.i.i.i.i.i90.i4824, i64 %retval.sroa.0.0.copyload.i.i.i90.i.i.i.i.i4834, ptr %retval.sroa.2.0.copyload.i.i.i92.i.i.i.i.i4836)
           to label %.noexc160.i4839 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4837
 
-.noexc160.i4839:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i86.i.i.i.i.i
+.noexc160.i4839:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i86.i.i.i.i.i
   %inc.i.i.i.i.i91.i4840 = add nuw i64 %row.037.i.i.i.i.i.i4823, 1
   %cmp6.i.i.i.i.i92.i4841 = icmp ult i64 %inc.i.i.i.i.i91.i4840, %conv5.i.i.i.i.i85.i4816
   br i1 %cmp6.i.i.i.i.i92.i4841, label %for.body.i.i.i.i.i89.i4822, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !337
@@ -29968,7 +29968,7 @@ while.body.i95.i.i.i.i.i4846:                     ; preds = %.noexc161.i4864, %w
   %1863 = load ptr, ptr %data_.i.i.i77.i.i.i.i.i4762, align 8
   %1864 = load i8, ptr %isIdentityMapping_.i.i.i.i78.i.i.i.i.i4763, align 2
   %tobool.i.i.i16.i.i.i.i.i.i4850 = trunc i8 %1864 to i1
-  br i1 %tobool.i.i.i16.i.i.i.i.i.i4850, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit32.i.i.i.i.i.i, label %if.end.i.i.i17.i.i.i.i.i.i4851
+  br i1 %tobool.i.i.i16.i.i.i.i.i.i4850, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit32.i.i.i.i.i.i, label %if.end.i.i.i17.i.i.i.i.i.i4851
 
 if.end.i.i.i17.i.i.i.i.i.i4851:                   ; preds = %while.body.i95.i.i.i.i.i4846
   %1865 = load i8, ptr %isConstantMapping_.i.i.i.i81.i.i.i.i.i4764, align 1
@@ -29977,16 +29977,16 @@ if.end.i.i.i17.i.i.i.i.i.i4851:                   ; preds = %while.body.i95.i.i.
 
 if.then3.i.i.i30.i.i.i.i.i.i4868:                 ; preds = %if.end.i.i.i17.i.i.i.i.i.i4851
   %1866 = load i32, ptr %constantIndex_.i.i4611, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit32.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit32.i.i.i.i.i.i
 
 if.end4.i.i.i20.i.i.i.i.i.i4853:                  ; preds = %if.end.i.i.i17.i.i.i.i.i.i4851
   %1867 = load ptr, ptr %indices_.i.i4608, align 8
   %idxprom.i.i.i22.i.i.i.i.i.i4854 = sext i32 %add10.i.i.i.i.i95.i4849 to i64
   %arrayidx.i.i.i23.i.i.i.i.i.i4855 = getelementptr inbounds i32, ptr %1867, i64 %idxprom.i.i.i22.i.i.i.i.i.i4854
   %1868 = load i32, ptr %arrayidx.i.i.i23.i.i.i.i.i.i4855, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit32.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit32.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit32.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i4853, %if.then3.i.i.i30.i.i.i.i.i.i4868, %while.body.i95.i.i.i.i.i4846
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit32.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i4853, %if.then3.i.i.i30.i.i.i.i.i.i4868, %while.body.i95.i.i.i.i.i4846
   %retval.0.i.i.i24.i.i.i.i.i.i4856 = phi i32 [ %1866, %if.then3.i.i.i30.i.i.i.i.i.i4868 ], [ %1868, %if.end4.i.i.i20.i.i.i.i.i.i4853 ], [ %add10.i.i.i.i.i95.i4849, %while.body.i95.i.i.i.i.i4846 ]
   %idxprom.i.i25.i.i.i.i.i.i4857 = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i4856 to i64
   %arrayidx.i.i26.i.i.i.i.i.i4858 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %1863, i64 %idxprom.i.i25.i.i.i.i.i.i4857
@@ -29996,7 +29996,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280) %.val.val.i98.i.i.i.i.pre.i4845, i32 noundef %add10.i.i.i.i.i95.i4849, i64 %retval.sroa.0.0.copyload.i.i27.i.i.i.i.i.i4859, ptr %retval.sroa.2.0.copyload.i.i29.i.i.i.i.i.i4861)
           to label %.noexc161.i4864 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4862
 
-.noexc161.i4864:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit32.i.i.i.i.i.i
+.noexc161.i4864:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit32.i.i.i.i.i.i
   %sub.i99.i.i.i.i.i4865 = add i64 %word.035.i.i.i.i.i.i4847, -1
   %and.i100.i.i.i.i.i4866 = and i64 %sub.i99.i.i.i.i.i4865, %word.035.i.i.i.i.i.i4847
   %tobool8.not.i.i.i.i.i96.i4867 = icmp eq i64 %and.i100.i.i.i.i.i4866, 0
@@ -30039,7 +30039,7 @@ while.body.i112.i.i.i.i.i4790:                    ; preds = %.noexc162.i4808, %w
   %1871 = load ptr, ptr %data_.i.i.i119.i.i.i.i.i4786, align 8
   %1872 = load i8, ptr %isIdentityMapping_.i.i.i.i120.i.i.i.i.i4787, align 2
   %tobool.i.i.i.i121.i.i.i.i.i4794 = trunc i8 %1872 to i1
-  br i1 %tobool.i.i.i.i121.i.i.i.i.i4794, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i129.i.i.i.i.i, label %if.end.i.i.i.i122.i.i.i.i.i4795
+  br i1 %tobool.i.i.i.i121.i.i.i.i.i4794, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i129.i.i.i.i.i, label %if.end.i.i.i.i122.i.i.i.i.i4795
 
 if.end.i.i.i.i122.i.i.i.i.i4795:                  ; preds = %while.body.i112.i.i.i.i.i4790
   %1873 = load i8, ptr %isConstantMapping_.i.i.i.i123.i.i.i.i.i4788, align 1
@@ -30048,16 +30048,16 @@ if.end.i.i.i.i122.i.i.i.i.i4795:                  ; preds = %while.body.i112.i.i
 
 if.then3.i.i.i.i139.i.i.i.i.i4812:                ; preds = %if.end.i.i.i.i122.i.i.i.i.i4795
   %1874 = load i32, ptr %constantIndex_.i.i4611, align 8
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i129.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i129.i.i.i.i.i
 
 if.end4.i.i.i.i125.i.i.i.i.i4797:                 ; preds = %if.end.i.i.i.i122.i.i.i.i.i4795
   %1875 = load ptr, ptr %indices_.i.i4608, align 8
   %idxprom.i.i.i.i127.i.i.i.i.i4798 = sext i32 %add.i115.i.i.i.i.i4793 to i64
   %arrayidx.i.i.i.i128.i.i.i.i.i4799 = getelementptr inbounds i32, ptr %1875, i64 %idxprom.i.i.i.i127.i.i.i.i.i4798
   %1876 = load i32, ptr %arrayidx.i.i.i.i128.i.i.i.i.i4799, align 4
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i129.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i129.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i129.i.i.i.i.i: ; preds = %if.end4.i.i.i.i125.i.i.i.i.i4797, %if.then3.i.i.i.i139.i.i.i.i.i4812, %while.body.i112.i.i.i.i.i4790
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i129.i.i.i.i.i: ; preds = %if.end4.i.i.i.i125.i.i.i.i.i4797, %if.then3.i.i.i.i139.i.i.i.i.i4812, %while.body.i112.i.i.i.i.i4790
   %retval.0.i.i.i.i130.i.i.i.i.i4800 = phi i32 [ %1874, %if.then3.i.i.i.i139.i.i.i.i.i4812 ], [ %1876, %if.end4.i.i.i.i125.i.i.i.i.i4797 ], [ %add.i115.i.i.i.i.i4793, %while.body.i112.i.i.i.i.i4790 ]
   %idxprom.i.i.i131.i.i.i.i.i4801 = sext i32 %retval.0.i.i.i.i130.i.i.i.i.i4800 to i64
   %arrayidx.i.i.i132.i.i.i.i.i4802 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %1871, i64 %idxprom.i.i.i131.i.i.i.i.i4801
@@ -30067,7 +30067,7 @@ _ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280) %.val.val.i118.i.i.i.i.pre.i4789, i32 noundef %add.i115.i.i.i.i.i4793, i64 %retval.sroa.0.0.copyload.i.i.i133.i.i.i.i.i4803, ptr %retval.sroa.2.0.copyload.i.i.i135.i.i.i.i.i4805)
           to label %.noexc162.i4808 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4806
 
-.noexc162.i4808:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i129.i.i.i.i.i
+.noexc162.i4808:                                  ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i129.i.i.i.i.i
   %sub.i136.i.i.i.i.i4809 = add nsw i64 %word.0.i113.i.i.i.i.i4791, -1
   %and6.i137.i.i.i.i.i4810 = and i64 %sub.i136.i.i.i.i.i4809, %word.0.i113.i.i.i.i.i4791
   %tobool5.old.not.i138.i.i.i.i.i4811 = icmp eq i64 %and6.i137.i.i.i.i.i4810, 0
@@ -30478,7 +30478,7 @@ if.then.i.i5771:                                  ; preds = %_ZNK8facebook5velox
 
 for.body.i.i5773:                                 ; preds = %if.then.i.i5771, %.noexc32.i5777
   %row.012.i.i5774 = phi i32 [ %inc.i.i5778, %.noexc32.i5777 ], [ %1939, %if.then.i.i5771 ]
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i5223, ptr nonnull readonly %flatVector.i5224, i32 noundef %row.012.i.i5774)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i5223, ptr nonnull readonly %flatVector.i5224, i32 noundef %row.012.i.i5774)
           to label %.noexc32.i5777 unwind label %lpad7.loopexit.i5775
 
 .noexc32.i5777:                                   ; preds = %for.body.i.i5773
@@ -30528,7 +30528,7 @@ while.body.i.i.i.i.i.i5761:                       ; preds = %if.then3.i.i.i.i.i5
   %1948 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i5762, i1 true)
   %cast.i.i.i.i.i.i5763 = trunc nuw nsw i64 %1948 to i32
   %add.i26.i.i.i.i.i5764 = or disjoint i32 %1946, %cast.i.i.i.i.i.i5763
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i5223, ptr nonnull readonly %flatVector.i5224, i32 noundef %add.i26.i.i.i.i.i5764)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i5223, ptr nonnull readonly %flatVector.i5224, i32 noundef %add.i26.i.i.i.i.i5764)
           to label %.noexc33.i5767 unwind label %lpad7.loopexit.split-lp.loopexit.i5765
 
 .noexc33.i5767:                                   ; preds = %while.body.i.i.i.i.i.i5761
@@ -30566,7 +30566,7 @@ while.body.i42.i.i.i.i.i5580:                     ; preds = %.noexc34.i5586, %wh
   %1950 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i5581, i1 true)
   %cast.i44.i.i.i.i.i5582 = trunc nuw nsw i64 %1950 to i32
   %add.i45.i.i.i.i.i5583 = or disjoint i32 %mul.i41.i.i.i.i.i5579, %cast.i44.i.i.i.i.i5582
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i5223, ptr nonnull readonly %flatVector.i5224, i32 noundef %add.i45.i.i.i.i.i5583)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i5223, ptr nonnull readonly %flatVector.i5224, i32 noundef %add.i45.i.i.i.i.i5583)
           to label %.noexc34.i5586 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5584
 
 .noexc34.i5586:                                   ; preds = %while.body.i42.i.i.i.i.i5580
@@ -30619,7 +30619,7 @@ for.body.lr.ph.i.i.i.i.i.i5635:                   ; preds = %if.then.i.i.i.i.i22
 for.body.i.i.i.i.i.i5637:                         ; preds = %.noexc35.i5642, %for.body.lr.ph.i.i.i.i.i.i5635
   %row.018.i.i.i.i.i.i5638 = phi i64 [ %conv.i.i.i.i.i.i5636, %for.body.lr.ph.i.i.i.i.i.i5635 ], [ %inc.i.i.i.i.i.i5643, %.noexc35.i5642 ]
   %conv7.i.i.i.i.i.i5639 = trunc i64 %row.018.i.i.i.i.i.i5638 to i32
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i5223, ptr nonnull readonly %flatVector.i5224, i32 noundef %conv7.i.i.i.i.i.i5639)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i5223, ptr nonnull readonly %flatVector.i5224, i32 noundef %conv7.i.i.i.i.i.i5639)
           to label %.noexc35.i5642 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5640
 
 .noexc35.i5642:                                   ; preds = %for.body.i.i.i.i.i.i5637
@@ -30627,8 +30627,8 @@ for.body.i.i.i.i.i.i5637:                         ; preds = %.noexc35.i5642, %fo
   %cmp6.i.i.i.i.i23.i5644 = icmp ult i64 %inc.i.i.i.i.i.i5643, %conv5.i.i.i.i.i.i5632
   br i1 %cmp6.i.i.i.i.i23.i5644, label %for.body.i.i.i.i.i.i5637, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !348
 
-while.body.i57.i.i.i.i.i5647:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i5645
-  %word.016.i.i.i.i.i.i5648 = phi i64 [ %1951, %while.body.lr.ph.i.i.i.i.i.i5645 ], [ %and.i61.i.i.i.i.i5705, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i ]
+while.body.i57.i.i.i.i.i5647:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i5645
+  %word.016.i.i.i.i.i.i5648 = phi i64 [ %1951, %while.body.lr.ph.i.i.i.i.i.i5645 ], [ %and.i61.i.i.i.i.i5705, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i ]
   %1952 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.016.i.i.i.i.i.i5648, i1 true)
   %cast.i58.i.i.i.i.i5649 = trunc nuw nsw i64 %1952 to i32
   %add10.i.i.i.i.i.i5650 = or disjoint i32 %mul9.i.i.i.i.i.i5646, %cast.i58.i.i.i.i.i5649
@@ -30723,7 +30723,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i5721: ; preds = %ca
   %1969 = load i8, ptr %arrayidx2.i.i.i.i.i.i.i.i.i5727, align 1
   %and3.i.i.i.i.i.i.i.i.i5728 = and i8 %1969, %1968
   store i8 %and3.i.i.i.i.i.i.i.i.i5728, ptr %arrayidx2.i.i.i.i.i.i.i.i.i5727, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
 if.else.i.thread.i.i.i.i.i5669:                   ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i5659, %if.then8.i.i.i.i.i.i.i5730
   %1970 = load ptr, ptr %flatVector.i5224, align 8
@@ -30785,7 +30785,7 @@ _ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i.i.i.i.i
   %nulls_.i12.i.i.i.i.i.i5685 = getelementptr inbounds i8, ptr %1981, i64 32
   %1984 = load ptr, ptr %nulls_.i12.i.i.i.i.i.i5685, align 8
   %cmp.i5.not.i.i.i.i.i.i.i5686 = icmp eq ptr %1984, null
-  br i1 %cmp.i5.not.i.i.i.i.i.i.i5686, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, label %if.end.i.i13.i.i.i.i.i.i5687
+  br i1 %cmp.i5.not.i.i.i.i.i.i.i5686, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, label %if.end.i.i13.i.i.i.i.i.i5687
 
 if.end.i.i13.i.i.i.i.i.i5687:                     ; preds = %_ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i.i.i.i.i.i
   %length_.i.i.i.i.i.i.i.i5688 = getelementptr inbounds i8, ptr %1981, i64 56
@@ -30820,15 +30820,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i5696: ; preds = %
   %1990 = trunc nuw i32 %shl.i.i.i.i.i.i.i.i.i.i5699 to i8
   %conv1.i.i.i.i.i.i.i.i.i.i5703 = or i8 %1989, %1990
   store i8 %conv1.i.i.i.i.i.i.i.i.i.i5703, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i5702, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i5696, %_ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i5721
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i5696, %_ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i.i.i.i.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i5721
   %sub.i60.i.i.i.i.i5704 = add i64 %word.016.i.i.i.i.i.i5648, -1
   %and.i61.i.i.i.i.i5705 = and i64 %sub.i60.i.i.i.i.i5704, %word.016.i.i.i.i.i.i5648
   %tobool8.not.i.i.i.i.i.i5706 = icmp eq i64 %and.i61.i.i.i.i.i5705, 0
   br i1 %tobool8.not.i.i.i.i.i.i5706, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i57.i.i.i.i.i5647, !llvm.loop !349
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc35.i5642, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i5629, %for.body.i.i.i6.i.i5599
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %.noexc35.i5642, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom.exit.i.i.i.i.i, %if.then.i.i.i.i.i22.i5629, %for.body.i.i.i6.i.i5599
   %add.i.i.i.i.i5605 = add nsw i32 %add89.i.i.i.i.i5600, 64
   %cmp15.not.i.i.i.i.i5606 = icmp sgt i32 %add.i.i.i.i.i5605, %1946
   br i1 %cmp15.not.i.i.i.i.i5606, label %for.end.i.i.i7.i.i5607, label %for.body.i.i.i6.i.i5599, !llvm.loop !350
@@ -30855,7 +30855,7 @@ while.body.i73.i.i.i.i.i5619:                     ; preds = %if.then19.i.i.i.i.i
   %1992 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i74.i.i.i.i.i5620, i1 true)
   %cast.i75.i.i.i.i.i5621 = trunc nuw nsw i64 %1992 to i32
   %add.i76.i.i.i.i.i5622 = or disjoint i32 %1946, %cast.i75.i.i.i.i.i5621
-  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nonnull readonly %decoded.i5223, ptr nonnull readonly %flatVector.i5224, i32 noundef %add.i76.i.i.i.i.i5622)
+  invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nonnull readonly %decoded.i5223, ptr nonnull readonly %flatVector.i5224, i32 noundef %add.i76.i.i.i.i.i5622)
           to label %.noexc41.i5625 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.i5623
 
 .noexc41.i5625:                                   ; preds = %while.body.i73.i.i.i.i.i5619
@@ -30869,7 +30869,7 @@ invoke.cont8.i5558:                               ; preds = %.noexc41.i5625, %.n
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_120exportValidityBitmapERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1993, ptr noundef nonnull readonly align 8 dereferenceable(36) %1895, ptr noundef nonnull align 8 dereferenceable(80) %1897, ptr noundef %1900, ptr noundef nonnull align 8 dereferenceable(88) %1902)
           to label %invoke.cont10.invoke.i5303 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i5304
 
-invoke.cont10.invoke.i5303:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %if.then.i111.i5473, %invoke.cont8.i5558
+invoke.cont10.invoke.i5303:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiiT_.exit.i.i, %if.then.i111.i5473, %invoke.cont8.i5558
   %1994 = load ptr, ptr %flatVector.i5224, align 8
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %1994, ptr noundef nonnull readonly align 8 dereferenceable(36) %1895, ptr noundef nonnull align 8 dereferenceable(80) %1897, ptr noundef %1900, ptr noundef nonnull align 8 dereferenceable(88) %1902)
           to label %if.end.i5308 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i5304
@@ -31017,8 +31017,8 @@ for.body.lr.ph.i.i5475:                           ; preds = %if.then.i111.i5473
   %2010 = sext i32 %2008 to i64
   br label %for.body.i115.i5479
 
-for.body.i115.i5479:                              ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, %for.body.lr.ph.i.i5475
-  %indvars.iv.i.i5480 = phi i64 [ %2010, %for.body.lr.ph.i.i5475 ], [ %indvars.iv.next.i.i5515, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i ]
+for.body.i115.i5479:                              ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, %for.body.lr.ph.i.i5475
+  %indvars.iv.i.i5480 = phi i64 [ %2010, %for.body.lr.ph.i.i5475 ], [ %indvars.iv.next.i.i5515, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i ]
   %func.val.val.i.i5481 = load ptr, ptr %flatVector.i5224, align 8
   %2011 = load ptr, ptr %data_.i.i.i.i5476, align 8
   %2012 = load i8, ptr %isIdentityMapping_.i.i.i.i.i5477, align 2
@@ -31070,7 +31070,7 @@ _ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i.i.i: ; 
   %nulls_.i.i.i.i5496 = getelementptr inbounds i8, ptr %func.val.val.i.i5481, i64 32
   %2020 = load ptr, ptr %nulls_.i.i.i.i5496, align 8
   %cmp.i5.not.i.i.i.i5497 = icmp eq ptr %2020, null
-  br i1 %cmp.i5.not.i.i.i.i5497, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i, label %if.end.i.i4.i.i.i5498
+  br i1 %cmp.i5.not.i.i.i.i5497, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i, label %if.end.i.i4.i.i.i5498
 
 if.end.i.i4.i.i.i5498:                            ; preds = %_ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i.i.i
   %length_.i.i.i.i.i5499 = getelementptr inbounds i8, ptr %func.val.val.i.i5481, i64 56
@@ -31105,9 +31105,9 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i5507: ; preds = %call.i
   %2026 = trunc nuw i32 %shl.i.i.i.i.i.i.i5510 to i8
   %conv1.i.i.i.i.i.i.i5514 = or i8 %2025, %2026
   store i8 %conv1.i.i.i.i.i.i.i5514, ptr %arrayidx.i.i.i.i.i.i117.i5513, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i5507, %_ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i5507, %_ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i.i.i
   %indvars.iv.next.i.i5515 = add nsw i64 %indvars.iv.i.i5480, 1
   %2027 = load i32, ptr %end_.i.i5241, align 8
   %2028 = sext i32 %2027 to i64
@@ -31213,8 +31213,8 @@ for.body.lr.ph.i.i.i.i.i81.i5391:                 ; preds = %if.then.i.i.i.i.i77
   %conv.i.i.i.i.i82.i5392 = sext i32 %mul.i31.i.i.i.i.i5387 to i64
   br label %for.body.i.i.i.i.i83.i5393
 
-for.body.i.i.i.i.i83.i5393:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i81.i5391
-  %row.064.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i82.i5392, %for.body.lr.ph.i.i.i.i.i81.i5391 ], [ %inc.i.i.i.i.i88.i5431, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i ]
+for.body.i.i.i.i.i83.i5393:                       ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i81.i5391
+  %row.064.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i82.i5392, %for.body.lr.ph.i.i.i.i.i81.i5391 ], [ %inc.i.i.i.i.i88.i5431, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i ]
   %conv7.i.i.i.i.i84.i5394 = trunc i64 %row.064.i.i.i.i.i.i to i32
   %.val12.val.i.i.i.i.i.i5395 = load ptr, ptr %flatVector.i5224, align 8
   %2037 = load ptr, ptr %data_.i.i.i.i.i.i.i67.i5367, align 8
@@ -31270,7 +31270,7 @@ _ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i.i.i.i.i
   %nulls_.i.i.i.i.i.i.i.i5412 = getelementptr inbounds i8, ptr %.val12.val.i.i.i.i.i.i5395, i64 32
   %2046 = load ptr, ptr %nulls_.i.i.i.i.i.i.i.i5412, align 8
   %cmp.i5.not.i.i.i.i.i.i.i.i5413 = icmp eq ptr %2046, null
-  br i1 %cmp.i5.not.i.i.i.i.i.i.i.i5413, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, label %if.end.i.i4.i.i.i.i.i.i.i5414
+  br i1 %cmp.i5.not.i.i.i.i.i.i.i.i5413, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, label %if.end.i.i4.i.i.i.i.i.i.i5414
 
 if.end.i.i4.i.i.i.i.i.i.i5414:                    ; preds = %_ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
   %length_.i.i.i.i.i.i.i.i.i5415 = getelementptr inbounds i8, ptr %.val12.val.i.i.i.i.i.i5395, i64 56
@@ -31305,15 +31305,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i5423: ; preds =
   %2052 = trunc nuw i32 %shl.i.i.i.i.i.i.i.i.i.i.i5426 to i8
   %conv1.i.i.i.i.i.i.i.i.i.i.i5430 = or i8 %2051, %2052
   store i8 %conv1.i.i.i.i.i.i.i.i.i.i.i5430, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i5429, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i5423, %_ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i.i.i.i.i.i.i5423, %_ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i.i.i.i.i.i.i
   %inc.i.i.i.i.i88.i5431 = add nuw i64 %row.064.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i89.i5432 = icmp ult i64 %inc.i.i.i.i.i88.i5431, %conv5.i.i.i.i.i79.i5389
   br i1 %cmp6.i.i.i.i.i89.i5432, label %for.body.i.i.i.i.i83.i5393, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !352
 
-while.body.i.i.i.i.i93.i5441:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit58.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i91.i5439
-  %word.062.i.i.i.i.i.i = phi i64 [ %2036, %while.body.lr.ph.i.i.i.i.i91.i5439 ], [ %and.i.i.i.i.i96.i5458, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit58.i.i.i.i.i.i ]
+while.body.i.i.i.i.i93.i5441:                     ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit58.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i91.i5439
+  %word.062.i.i.i.i.i.i = phi i64 [ %2036, %while.body.lr.ph.i.i.i.i.i91.i5439 ], [ %and.i.i.i.i.i96.i5458, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit58.i.i.i.i.i.i ]
   %2053 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.062.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i94.i5442 = trunc nuw nsw i64 %2053 to i32
   %add10.i.i.i.i.i95.i5443 = or disjoint i32 %mul9.i.i.i.i.i92.i5440, %cast.i.i.i.i.i94.i5442
@@ -31369,7 +31369,7 @@ _ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i33.i.i.i
   %nulls_.i.i37.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.val.i.i.i.i.i.i5444, i64 32
   %2062 = load ptr, ptr %nulls_.i.i37.i.i.i.i.i.i, align 8
   %cmp.i5.not.i.i38.i.i.i.i.i.i = icmp eq ptr %2062, null
-  br i1 %cmp.i5.not.i.i38.i.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit58.i.i.i.i.i.i, label %if.end.i.i4.i39.i.i.i.i.i.i
+  br i1 %cmp.i5.not.i.i38.i.i.i.i.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit58.i.i.i.i.i.i, label %if.end.i.i4.i39.i.i.i.i.i.i
 
 if.end.i.i4.i39.i.i.i.i.i.i:                      ; preds = %_ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i33.i.i.i.i.i.i
   %length_.i.i.i40.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.val.i.i.i.i.i.i5444, i64 56
@@ -31404,15 +31404,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i44.i.i.i.i.i.i: ; preds = %
   %2068 = trunc nuw i32 %shl.i.i.i.i.i47.i.i.i.i.i.i to i8
   %conv1.i.i.i.i.i51.i.i.i.i.i.i = or i8 %2067, %2068
   store i8 %conv1.i.i.i.i.i51.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i50.i.i.i.i.i.i, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit58.i.i.i.i.i.i
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit58.i.i.i.i.i.i
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit58.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i44.i.i.i.i.i.i, %_ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i33.i.i.i.i.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit58.i.i.i.i.i.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i44.i.i.i.i.i.i, %_ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i33.i.i.i.i.i.i
   %sub.i32.i.i.i.i.i5457 = add i64 %word.062.i.i.i.i.i.i, -1
   %and.i.i.i.i.i96.i5458 = and i64 %sub.i32.i.i.i.i.i5457, %word.062.i.i.i.i.i.i
   %tobool8.not.i.i.i.i.i97.i5459 = icmp eq i64 %and.i.i.i.i.i96.i5458, 0
   br i1 %tobool8.not.i.i.i.i.i97.i5459, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i.i.i.i.i93.i5441, !llvm.loop !353
 
-_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit.i.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit58.i.i.i.i.i.i, %if.then.i.i.i.i.i77.i5386, %for.body.i.i.i7.i.i5370
+_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS3_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS3_24VeloxToArrowBridgeHolderEEUliE0_EEvPKmiibT_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit.i.i.i.i.i.i, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit58.i.i.i.i.i.i, %if.then.i.i.i.i.i77.i5386, %for.body.i.i.i7.i.i5370
   %add.i.i.i.i71.i5376 = add nsw i32 %add40.i.i.i.i.i5371, 64
   %cmp15.not.i.i.i.i72.i5377 = icmp sgt i32 %add.i.i.i.i71.i5376, %2033
   br i1 %cmp15.not.i.i.i.i72.i5377, label %for.end.i.i.i8.i.i5378, label %for.body.i.i.i7.i.i5370, !llvm.loop !354
@@ -31850,7 +31850,7 @@ declare void @_ZN8facebook5velox13DecodedVector6decodeERKNS0_10BaseVectorEPKNS0_
 declare void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
 entry:
   %nulls_.i5 = getelementptr inbounds i8, ptr %this.0.val, i64 24
   %0 = load ptr, ptr %nulls_.i5, align 8
@@ -32166,7 +32166,7 @@ _ZNSt12__shared_ptrIN8facebook5velox10FlatVectorIiEELN9__gnu_cxx12_Lock_policyE2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
 entry:
   %nulls_.i5 = getelementptr inbounds i8, ptr %this.0.val, i64 24
   %0 = load ptr, ptr %nulls_.i5, align 8
@@ -32600,8 +32600,8 @@ while.body.preheader:                             ; preds = %entry
   %8 = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit
-  %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit ], [ %and, %while.body.preheader ]
+while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit
+  %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit ], [ %and, %while.body.preheader ]
   %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0, i1 true)
   %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
@@ -32657,7 +32657,7 @@ _ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i: ; preds = %if.then.i
   %nulls_.i.i = getelementptr inbounds i8, ptr %.val.val, i64 32
   %19 = load ptr, ptr %nulls_.i.i, align 8
   %cmp.i5.not.i.i = icmp eq ptr %19, null
-  br i1 %cmp.i5.not.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit, label %if.end.i.i4.i
+  br i1 %cmp.i5.not.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit, label %if.end.i.i4.i
 
 if.end.i.i4.i:                                    ; preds = %_ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i
   %length_.i.i.i = getelementptr inbounds i8, ptr %.val.val, i64 56
@@ -32686,15 +32686,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i: ; preds = %if.end.i.i4.i
   %25 = trunc nuw i32 %shl.i.i.i.i.i to i8
   %conv1.i.i.i.i.i = or i8 %24, %25
   store i8 %conv1.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit: ; preds = %_ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit: ; preds = %_ZN8facebook5velox10FlatVectorIiE12ensureValuesEv.exit.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i
   %sub = add i64 %word.0, -1
   %and6 = and i64 %sub, %word.0
   %tobool5.old.not = icmp eq i64 %and6, 0
   br i1 %tobool5.old.not, label %while.end, label %while.body
 
-while.end:                                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit, %entry
+while.end:                                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit, %entry
   ret void
 }
 
@@ -32779,7 +32779,7 @@ _ZNSt12__shared_ptrIN8facebook5velox10FlatVectorIaEELN9__gnu_cxx12_Lock_policyE2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
 entry:
   %nulls_.i5 = getelementptr inbounds i8, ptr %this.0.val, i64 24
   %0 = load ptr, ptr %nulls_.i5, align 8
@@ -33211,8 +33211,8 @@ while.body.preheader:                             ; preds = %entry
   %8 = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit
-  %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit ], [ %and, %while.body.preheader ]
+while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit
+  %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit ], [ %and, %while.body.preheader ]
   %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0, i1 true)
   %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
@@ -33268,7 +33268,7 @@ _ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i: ; preds = %if.then.i
   %nulls_.i.i = getelementptr inbounds i8, ptr %.val.val, i64 32
   %19 = load ptr, ptr %nulls_.i.i, align 8
   %cmp.i5.not.i.i = icmp eq ptr %19, null
-  br i1 %cmp.i5.not.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit, label %if.end.i.i4.i
+  br i1 %cmp.i5.not.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit, label %if.end.i.i4.i
 
 if.end.i.i4.i:                                    ; preds = %_ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i
   %length_.i.i.i = getelementptr inbounds i8, ptr %.val.val, i64 56
@@ -33297,15 +33297,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i: ; preds = %if.end.i.i4.i
   %25 = trunc nuw i32 %shl.i.i.i.i.i to i8
   %conv1.i.i.i.i.i = or i8 %24, %25
   store i8 %conv1.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit: ; preds = %_ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit: ; preds = %_ZN8facebook5velox10FlatVectorIaE12ensureValuesEv.exit.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i
   %sub = add i64 %word.0, -1
   %and6 = and i64 %sub, %word.0
   %tobool5.old.not = icmp eq i64 %and6, 0
   br i1 %tobool5.old.not, label %while.end, label %while.body
 
-while.end:                                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit, %entry
+while.end:                                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit, %entry
   ret void
 }
 
@@ -33390,7 +33390,7 @@ _ZNSt12__shared_ptrIN8facebook5velox10FlatVectorIsEELN9__gnu_cxx12_Lock_policyE2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
 entry:
   %nulls_.i5 = getelementptr inbounds i8, ptr %this.0.val, i64 24
   %0 = load ptr, ptr %nulls_.i5, align 8
@@ -33824,8 +33824,8 @@ while.body.preheader:                             ; preds = %entry
   %8 = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit
-  %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit ], [ %and, %while.body.preheader ]
+while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit
+  %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit ], [ %and, %while.body.preheader ]
   %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0, i1 true)
   %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
@@ -33881,7 +33881,7 @@ _ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i: ; preds = %if.then.i
   %nulls_.i.i = getelementptr inbounds i8, ptr %.val.val, i64 32
   %19 = load ptr, ptr %nulls_.i.i, align 8
   %cmp.i5.not.i.i = icmp eq ptr %19, null
-  br i1 %cmp.i5.not.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit, label %if.end.i.i4.i
+  br i1 %cmp.i5.not.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit, label %if.end.i.i4.i
 
 if.end.i.i4.i:                                    ; preds = %_ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i
   %length_.i.i.i = getelementptr inbounds i8, ptr %.val.val, i64 56
@@ -33910,15 +33910,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i: ; preds = %if.end.i.i4.i
   %25 = trunc nuw i32 %shl.i.i.i.i.i to i8
   %conv1.i.i.i.i.i = or i8 %24, %25
   store i8 %conv1.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit: ; preds = %_ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit: ; preds = %_ZN8facebook5velox10FlatVectorIsE12ensureValuesEv.exit.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i
   %sub = add i64 %word.0, -1
   %and6 = and i64 %sub, %word.0
   %tobool5.old.not = icmp eq i64 %and6, 0
   br i1 %tobool5.old.not, label %while.end, label %while.body
 
-while.end:                                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit, %entry
+while.end:                                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit, %entry
   ret void
 }
 
@@ -34003,7 +34003,7 @@ _ZNSt12__shared_ptrIN8facebook5velox10FlatVectorIlEELN9__gnu_cxx12_Lock_policyE2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
 entry:
   %nulls_.i5 = getelementptr inbounds i8, ptr %this.0.val, i64 24
   %0 = load ptr, ptr %nulls_.i5, align 8
@@ -34437,8 +34437,8 @@ while.body.preheader:                             ; preds = %entry
   %8 = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit
-  %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit ], [ %and, %while.body.preheader ]
+while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit
+  %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit ], [ %and, %while.body.preheader ]
   %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0, i1 true)
   %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
@@ -34494,7 +34494,7 @@ _ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i: ; preds = %if.then.i
   %nulls_.i.i = getelementptr inbounds i8, ptr %.val.val, i64 32
   %19 = load ptr, ptr %nulls_.i.i, align 8
   %cmp.i5.not.i.i = icmp eq ptr %19, null
-  br i1 %cmp.i5.not.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit, label %if.end.i.i4.i
+  br i1 %cmp.i5.not.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit, label %if.end.i.i4.i
 
 if.end.i.i4.i:                                    ; preds = %_ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i
   %length_.i.i.i = getelementptr inbounds i8, ptr %.val.val, i64 56
@@ -34523,15 +34523,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i: ; preds = %if.end.i.i4.i
   %25 = trunc nuw i32 %shl.i.i.i.i.i to i8
   %conv1.i.i.i.i.i = or i8 %24, %25
   store i8 %conv1.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit: ; preds = %_ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit: ; preds = %_ZN8facebook5velox10FlatVectorIlE12ensureValuesEv.exit.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i
   %sub = add i64 %word.0, -1
   %and6 = and i64 %sub, %word.0
   %tobool5.old.not = icmp eq i64 %and6, 0
   br i1 %tobool5.old.not, label %while.end, label %while.body
 
-while.end:                                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit, %entry
+while.end:                                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit, %entry
   ret void
 }
 
@@ -34616,7 +34616,7 @@ _ZNSt12__shared_ptrIN8facebook5velox10FlatVectorInEELN9__gnu_cxx12_Lock_policyE2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
 entry:
   %nulls_.i5 = getelementptr inbounds i8, ptr %this.0.val, i64 24
   %0 = load ptr, ptr %nulls_.i5, align 8
@@ -35051,8 +35051,8 @@ while.body.preheader:                             ; preds = %entry
   %8 = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit
-  %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit ], [ %and, %while.body.preheader ]
+while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit
+  %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit ], [ %and, %while.body.preheader ]
   %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0, i1 true)
   %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
@@ -35109,7 +35109,7 @@ _ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i: ; preds = %if.then.i
   %nulls_.i.i = getelementptr inbounds i8, ptr %.val.val, i64 32
   %18 = load ptr, ptr %nulls_.i.i, align 8
   %cmp.i5.not.i.i = icmp eq ptr %18, null
-  br i1 %cmp.i5.not.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit, label %if.end.i.i2.i
+  br i1 %cmp.i5.not.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit, label %if.end.i.i2.i
 
 if.end.i.i2.i:                                    ; preds = %_ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i
   %length_.i.i.i = getelementptr inbounds i8, ptr %.val.val, i64 56
@@ -35138,15 +35138,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i: ; preds = %if.end.i.i2.i
   %24 = trunc nuw i32 %shl.i.i.i.i.i to i8
   %conv1.i.i.i.i.i = or i8 %23, %24
   store i8 %conv1.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit: ; preds = %_ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit: ; preds = %_ZN8facebook5velox10FlatVectorInE12ensureValuesEv.exit.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i
   %sub = add i64 %word.0, -1
   %and6 = and i64 %sub, %word.0
   %tobool5.old.not = icmp eq i64 %and6, 0
   br i1 %tobool5.old.not, label %while.end, label %while.body
 
-while.end:                                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit, %entry
+while.end:                                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit, %entry
   ret void
 }
 
@@ -35231,7 +35231,7 @@ _ZNSt12__shared_ptrIN8facebook5velox10FlatVectorIfEELN9__gnu_cxx12_Lock_policyE2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
 entry:
   %nulls_.i5 = getelementptr inbounds i8, ptr %this.0.val, i64 24
   %0 = load ptr, ptr %nulls_.i5, align 8
@@ -35665,8 +35665,8 @@ while.body.preheader:                             ; preds = %entry
   %8 = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit
-  %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit ], [ %and, %while.body.preheader ]
+while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit
+  %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit ], [ %and, %while.body.preheader ]
   %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0, i1 true)
   %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
@@ -35722,7 +35722,7 @@ _ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i: ; preds = %if.then.i
   %nulls_.i.i = getelementptr inbounds i8, ptr %.val.val, i64 32
   %19 = load ptr, ptr %nulls_.i.i, align 8
   %cmp.i5.not.i.i = icmp eq ptr %19, null
-  br i1 %cmp.i5.not.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit, label %if.end.i.i4.i
+  br i1 %cmp.i5.not.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit, label %if.end.i.i4.i
 
 if.end.i.i4.i:                                    ; preds = %_ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i
   %length_.i.i.i = getelementptr inbounds i8, ptr %.val.val, i64 56
@@ -35751,15 +35751,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i: ; preds = %if.end.i.i4.i
   %25 = trunc nuw i32 %shl.i.i.i.i.i to i8
   %conv1.i.i.i.i.i = or i8 %24, %25
   store i8 %conv1.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit: ; preds = %_ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit: ; preds = %_ZN8facebook5velox10FlatVectorIfE12ensureValuesEv.exit.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i
   %sub = add i64 %word.0, -1
   %and6 = and i64 %sub, %word.0
   %tobool5.old.not = icmp eq i64 %and6, 0
   br i1 %tobool5.old.not, label %while.end, label %while.body
 
-while.end:                                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit, %entry
+while.end:                                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit, %entry
   ret void
 }
 
@@ -35844,7 +35844,7 @@ _ZNSt12__shared_ptrIN8facebook5velox10FlatVectorIdEELN9__gnu_cxx12_Lock_policyE2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
 entry:
   %nulls_.i5 = getelementptr inbounds i8, ptr %this.0.val, i64 24
   %0 = load ptr, ptr %nulls_.i5, align 8
@@ -36278,8 +36278,8 @@ while.body.preheader:                             ; preds = %entry
   %8 = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit
-  %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit ], [ %and, %while.body.preheader ]
+while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit
+  %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit ], [ %and, %while.body.preheader ]
   %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0, i1 true)
   %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
@@ -36335,7 +36335,7 @@ _ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i: ; preds = %if.then.i
   %nulls_.i.i = getelementptr inbounds i8, ptr %.val.val, i64 32
   %19 = load ptr, ptr %nulls_.i.i, align 8
   %cmp.i5.not.i.i = icmp eq ptr %19, null
-  br i1 %cmp.i5.not.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit, label %if.end.i.i4.i
+  br i1 %cmp.i5.not.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit, label %if.end.i.i4.i
 
 if.end.i.i4.i:                                    ; preds = %_ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i
   %length_.i.i.i = getelementptr inbounds i8, ptr %.val.val, i64 56
@@ -36364,15 +36364,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i: ; preds = %if.end.i.i4.i
   %25 = trunc nuw i32 %shl.i.i.i.i.i to i8
   %conv1.i.i.i.i.i = or i8 %24, %25
   store i8 %conv1.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit: ; preds = %_ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit: ; preds = %_ZN8facebook5velox10FlatVectorIdE12ensureValuesEv.exit.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i
   %sub = add i64 %word.0, -1
   %and6 = and i64 %sub, %word.0
   %tobool5.old.not = icmp eq i64 %and6, 0
   br i1 %tobool5.old.not, label %while.end, label %while.body
 
-while.end:                                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit, %entry
+while.end:                                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit, %entry
   ret void
 }
 
@@ -36457,7 +36457,7 @@ _ZNSt12__shared_ptrIN8facebook5velox10FlatVectorINS1_10StringViewEEELN9__gnu_cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
 entry:
   %nulls_.i5 = getelementptr inbounds i8, ptr %this.0.val, i64 24
   %0 = load ptr, ptr %nulls_.i5, align 8
@@ -36590,7 +36590,7 @@ if.end:                                           ; preds = %_ZNK8facebook5velox
 declare void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280), i32 noundef, i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
 entry:
   %nulls_.i5 = getelementptr inbounds i8, ptr %this.0.val, i64 24
   %0 = load ptr, ptr %nulls_.i5, align 8
@@ -36801,7 +36801,7 @@ _ZNSt12__shared_ptrIN8facebook5velox10FlatVectorINS1_9TimestampEEELN9__gnu_cxx12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE_clEi.argprom(ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #0 align 2 {
 entry:
   %nulls_.i5 = getelementptr inbounds i8, ptr %this.0.val, i64 24
   %0 = load ptr, ptr %nulls_.i5, align 8
@@ -37239,8 +37239,8 @@ while.body.preheader:                             ; preds = %entry
   %8 = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit
-  %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit ], [ %and, %while.body.preheader ]
+while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit
+  %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit ], [ %and, %while.body.preheader ]
   %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0, i1 true)
   %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
@@ -37300,7 +37300,7 @@ _ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i: ; pred
   %nulls_.i.i = getelementptr inbounds i8, ptr %.val.val, i64 32
   %18 = load ptr, ptr %nulls_.i.i, align 8
   %cmp.i5.not.i.i = icmp eq ptr %18, null
-  br i1 %cmp.i5.not.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit, label %if.end.i.i4.i
+  br i1 %cmp.i5.not.i.i, label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit, label %if.end.i.i4.i
 
 if.end.i.i4.i:                                    ; preds = %_ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i
   %length_.i.i.i = getelementptr inbounds i8, ptr %.val.val, i64 56
@@ -37329,15 +37329,15 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i: ; preds = %if.end.i.i4.i
   %24 = trunc nuw i32 %shl.i.i.i.i.i to i8
   %conv1.i.i.i.i.i = or i8 %23, %24
   store i8 %conv1.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
-  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit
+  br label %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit
 
-_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit: ; preds = %_ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i
+_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit: ; preds = %_ZN8facebook5velox10FlatVectorINS0_9TimestampEE12ensureValuesEv.exit.i.i, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i.i
   %sub = add i64 %word.0, -1
   %and6 = and i64 %sub, %word.0
   %tobool5.old.not = icmp eq i64 %and6, 0
   br i1 %tobool5.old.not, label %while.end, label %while.body
 
-while.end:                                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.exit, %entry
+while.end:                                        ; preds = %_ZZN8facebook5velox12_GLOBAL__N_116flattenAndExportILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderEENKUliE0_clEi.argprom.argprom.exit, %entry
   ret void
 }
 
@@ -37620,7 +37620,7 @@ if.else.i.i.i.i.i10.i:                            ; preds = %if.then.i.i.i5.i
   br label %_ZN8facebook5velox12_GLOBAL__N_118BufferViewReleaserC2ERKS2_.exit
 
 _ZN8facebook5velox12_GLOBAL__N_118BufferViewReleaserC2ERKS2_.exit: ; preds = %_ZNSt10shared_ptrI11ArrowSchemaEC2ERKS1_.exit.i, %if.then.i.i.i.i.i8.i, %if.else.i.i.i.i.i10.i
-  invoke fastcc void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_118BufferViewReleaserEE6createEPKhmS3_b(ptr noalias align 8 %agg.result, ptr noundef %buffer, i64 noundef %length, ptr noundef %agg.tmp)
+  invoke fastcc void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_118BufferViewReleaserEE6createEPKhmS3_b.argelim(ptr noalias align 8 %agg.result, ptr noundef %buffer, i64 noundef %length, ptr noundef %agg.tmp)
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %_ZN8facebook5velox12_GLOBAL__N_118BufferViewReleaserC2ERKS2_.exit
@@ -70047,7 +70047,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #24
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_118BufferViewReleaserEE6createEPKhmS3_b(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %data, i64 noundef %size, ptr nocapture noundef nonnull readonly %releaser) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_118BufferViewReleaserEE6createEPKhmS3_b.argelim(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %data, i64 noundef %size, ptr nocapture noundef nonnull readonly %releaser) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.facebook::velox::(anonymous namespace)::BufferViewReleaser", align 8
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #38
@@ -203075,7 +203075,7 @@ terminate.lpad:                                   ; preds = %if.then3.i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt19_Sp_counted_deleterIP11ArrowSchemaZN8facebook5velox12_GLOBAL__N_119importFromArrowImplERS0_R10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_1SaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIP11ArrowSchemaZN8facebook5velox12_GLOBAL__N_119importFromArrowImplERS1_R10ArrowArrayPNS4_6memory10MemoryPoolEbE3$_1SaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit":
+"_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIP11ArrowSchemaZN8facebook5velox12_GLOBAL__N_119importFromArrowImplERS1_R10ArrowArrayPNS4_6memory10MemoryPoolEbE3$_1SaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit":
   tail call void @_ZdlPv(ptr noundef nonnull %this) #37
   ret void
 }
@@ -203155,7 +203155,7 @@ terminate.lpad:                                   ; preds = %if.then3.i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt19_Sp_counted_deleterIP10ArrowArrayZN8facebook5velox12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaRS0_PNS3_6memory10MemoryPoolEbE3$_2SaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIP10ArrowArrayZN8facebook5velox12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaRS1_PNS4_6memory10MemoryPoolEbE3$_2SaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit":
+"_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIP10ArrowArrayZN8facebook5velox12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaRS1_PNS4_6memory10MemoryPoolEbE3$_2SaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit":
   tail call void @_ZdlPv(ptr noundef nonnull %this) #37
   ret void
 }
@@ -203278,8 +203278,8 @@ _ZNSt10shared_ptrI10ArrowArrayEC2ERKS1_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i
   store ptr null, ptr %_M_refcount.i.i1.i.i.i.i, align 8, !noalias !1882
   store ptr %13, ptr %_M_refcount.i.i1.i.i.i.i.i, align 8, !noalias !1882
   store ptr null, ptr %agg.tmp2.i.i.i.i, align 8, !noalias !1882
-  invoke fastcc void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_118BufferViewReleaserEE6createEPKhmS3_b(ptr noalias align 8 %agg.result, ptr noundef %__args.val, i64 noundef %__args1.val, ptr noundef %agg.tmp.i.i.i.i)
-          to label %"_ZSt10__invoke_rIN5boost13intrusive_ptrIN8facebook5velox6BufferEEERZNS3_12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaR10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_0JPKvmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit" unwind label %lpad3.i.i.i.i
+  invoke fastcc void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_118BufferViewReleaserEE6createEPKhmS3_b.argelim(ptr noalias align 8 %agg.result, ptr noundef %__args.val, i64 noundef %__args1.val, ptr noundef %agg.tmp.i.i.i.i)
+          to label %"_ZSt10__invoke_rIN5boost13intrusive_ptrIN8facebook5velox6BufferEEERZNS3_12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaR10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_0JPKvmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit" unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %_ZNSt10shared_ptrI10ArrowArrayEC2ERKS1_.exit.i.i.i
   %17 = landingpad { ptr, i32 }
@@ -203291,7 +203291,7 @@ lpad3.i.i.i.i:                                    ; preds = %_ZNSt10shared_ptrI1
   call void @_ZNSt10shared_ptrI11ArrowSchemaED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i) #39, !noalias !1879
   resume { ptr, i32 } %17
 
-"_ZSt10__invoke_rIN5boost13intrusive_ptrIN8facebook5velox6BufferEEERZNS3_12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaR10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_0JPKvmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %_ZNSt10shared_ptrI10ArrowArrayEC2ERKS1_.exit.i.i.i
+"_ZSt10__invoke_rIN5boost13intrusive_ptrIN8facebook5velox6BufferEEERZNS3_12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaR10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_0JPKvmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit": ; preds = %_ZNSt10shared_ptrI10ArrowArrayEC2ERKS1_.exit.i.i.i
   call void @_ZN8facebook5velox12_GLOBAL__N_118BufferViewReleaserD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i) #39, !noalias !1882
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i), !noalias !1879
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp1.i.i.i.i), !noalias !1879
@@ -205791,10 +205791,10 @@ attributes #45 = { nounwind willreturn memory(none) }
 !1872 = distinct !{!1872, !1873, !"_ZSt10__invoke_rIN5boost13intrusive_ptrIN8facebook5velox6BufferEEERPFS5_PKvmEJS7_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_: %agg.result"}
 !1873 = distinct !{!1873, !"_ZSt10__invoke_rIN5boost13intrusive_ptrIN8facebook5velox6BufferEEERPFS5_PKvmEJS7_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_"}
 !1874 = !{!1875, !1877}
-!1875 = distinct !{!1875, !1876, !"_ZSt13__invoke_implIN5boost13intrusive_ptrIN8facebook5velox6BufferEEERZNS3_12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaR10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_0JPKvmEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!1876 = distinct !{!1876, !"_ZSt13__invoke_implIN5boost13intrusive_ptrIN8facebook5velox6BufferEEERZNS3_12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaR10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_0JPKvmEET_St14__invoke_otherOT0_DpOT1_"}
-!1877 = distinct !{!1877, !1878, !"_ZSt10__invoke_rIN5boost13intrusive_ptrIN8facebook5velox6BufferEEERZNS3_12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaR10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_0JPKvmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_: %agg.result"}
-!1878 = distinct !{!1878, !"_ZSt10__invoke_rIN5boost13intrusive_ptrIN8facebook5velox6BufferEEERZNS3_12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaR10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_0JPKvmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_"}
+!1875 = distinct !{!1875, !1876, !"_ZSt13__invoke_implIN5boost13intrusive_ptrIN8facebook5velox6BufferEEERZNS3_12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaR10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_0JPKvmEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!1876 = distinct !{!1876, !"_ZSt13__invoke_implIN5boost13intrusive_ptrIN8facebook5velox6BufferEEERZNS3_12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaR10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_0JPKvmEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!1877 = distinct !{!1877, !1878, !"_ZSt10__invoke_rIN5boost13intrusive_ptrIN8facebook5velox6BufferEEERZNS3_12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaR10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_0JPKvmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom: %agg.result"}
+!1878 = distinct !{!1878, !"_ZSt10__invoke_rIN5boost13intrusive_ptrIN8facebook5velox6BufferEEERZNS3_12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaR10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_0JPKvmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom"}
 !1879 = !{!1880, !1875, !1877}
 !1880 = distinct !{!1880, !1881, !"_ZZN8facebook5velox12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaR10ArrowArrayPNS0_6memory10MemoryPoolEbENK3$_0clEPKvm: %agg.result"}
 !1881 = distinct !{!1881, !"_ZZN8facebook5velox12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaR10ArrowArrayPNS0_6memory10MemoryPoolEbENK3$_0clEPKvm"}

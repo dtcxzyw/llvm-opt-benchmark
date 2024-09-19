@@ -289,7 +289,7 @@ index_getattr.exit.thread:                        ; preds = %57, %54, %51, %48, 
   br label %gistSplitHalf.exit.thread
 
 .thread:                                          ; preds = %._crit_edge.thread, %117
-  %153 = tail call fastcc zeroext i1 @gistUserPicksplit(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %6, ptr noundef %5, ptr noundef %2, ptr noundef %4)
+  %153 = tail call fastcc zeroext i1 @gistUserPicksplit.argelim(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %6, ptr noundef %5, ptr noundef %2, ptr noundef %4)
   br i1 %153, label %154, label %gistSplitHalf.exit
 
 154:                                              ; preds = %.thread
@@ -582,7 +582,7 @@ gistunionsubkeyvec.exit28:                        ; preds = %46, %.lr.ph.i15.us,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @gistUserPicksplit(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @gistUserPicksplit.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [32 x %struct.GISTENTRY], align 16
   %8 = alloca [32 x i8], align 16
   %9 = alloca %struct.GISTENTRY, align 8

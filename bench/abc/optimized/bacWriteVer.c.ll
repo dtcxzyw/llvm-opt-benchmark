@@ -959,22 +959,22 @@ Bac_ManWriteAssign.exit:                          ; preds = %Bac_BoxBiNum.exit.i
   %116 = getelementptr inbounds i32, ptr %.val202, i64 %indvars.iv301
   %117 = load i32, ptr %116, align 4
   %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_BoxNtk.exit
+  br i1 %118, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_BoxNtk.argprom.exit
 
 Bac_ManNtkIsOk.exit.i.i:                          ; preds = %115
   %119 = getelementptr i8, ptr %.val201, i64 36
   %.val.i.i.i = load i32, ptr %119, align 4
   %.not4.i.i = icmp sgt i32 %117, %.val.i.i.i
-  br i1 %.not4.i.i, label %Bac_BoxNtk.exit, label %120
+  br i1 %.not4.i.i, label %Bac_BoxNtk.argprom.exit, label %120
 
 120:                                              ; preds = %Bac_ManNtkIsOk.exit.i.i
   %121 = getelementptr inbounds i8, ptr %.val201, i64 40
   %122 = load ptr, ptr %121, align 8
   %123 = zext nneg i32 %117 to i64
   %124 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %122, i64 %123
-  br label %Bac_BoxNtk.exit
+  br label %Bac_BoxNtk.argprom.exit
 
-Bac_BoxNtk.exit:                                  ; preds = %115, %Bac_ManNtkIsOk.exit.i.i, %120
+Bac_BoxNtk.argprom.exit:                          ; preds = %115, %Bac_ManNtkIsOk.exit.i.i, %120
   %125 = phi ptr [ %124, %120 ], [ null, %Bac_ManNtkIsOk.exit.i.i ], [ null, %115 ]
   tail call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.6)
   %.val203 = load ptr, ptr %125, align 8
@@ -992,7 +992,7 @@ Bac_BoxNtk.exit:                                  ; preds = %115, %Bac_ManNtkIsO
   %narrow.i.not.i = icmp eq i8 %131, 4
   br i1 %narrow.i.not.i, label %Bac_ObjName.exit, label %Bac_ObjName.exit.thread
 
-Bac_ObjName.exit:                                 ; preds = %Bac_BoxNtk.exit
+Bac_ObjName.exit:                                 ; preds = %Bac_BoxNtk.argprom.exit
   %.val6.i = load ptr, ptr %11, align 8
   %132 = getelementptr inbounds i32, ptr %.val6.i, i64 %indvars.iv301
   %133 = load i32, ptr %132, align 4
@@ -1003,7 +1003,7 @@ Bac_ObjName.exit:                                 ; preds = %Bac_BoxNtk.exit
   %.not176 = icmp eq i32 %136, 0
   br i1 %.not176, label %143, label %Bac_ObjNameStr.exit
 
-Bac_ObjName.exit.thread:                          ; preds = %Bac_BoxNtk.exit
+Bac_ObjName.exit.thread:                          ; preds = %Bac_BoxNtk.argprom.exit
   %.val8.i = load ptr, ptr %12, align 8
   %137 = getelementptr inbounds i32, ptr %.val8.i, i64 %indvars.iv301
   %138 = load i32, ptr %137, align 4
@@ -1149,11 +1149,11 @@ Bac_BoxBiRange.exit.i:                            ; preds = %.preheader, %.crite
   %192 = load i32, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 4), align 4
   %193 = load i32, ptr @Bac_BoxCollectRanges.Bits, align 8
   %194 = icmp eq i32 %192, %193
-  br i1 %194, label %195, label %.Vec_IntGrow.exit10_crit_edge.i.i
+  br i1 %194, label %195, label %.Vec_IntGrow.argprom.exit10_crit_edge.i.i
 
-.Vec_IntGrow.exit10_crit_edge.i.i:                ; preds = %Bac_BoxBiRange.exit.i
+.Vec_IntGrow.argprom.exit10_crit_edge.i.i:        ; preds = %Bac_BoxBiRange.exit.i
   %.pre.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
-  br label %Vec_IntPush.exit.i
+  br label %Vec_IntPush.argprom.exit.i
 
 195:                                              ; preds = %Bac_BoxBiRange.exit.i
   %196 = icmp slt i32 %192, 16
@@ -1166,17 +1166,17 @@ Bac_BoxBiRange.exit.i:                            ; preds = %.preheader, %.crite
 
 199:                                              ; preds = %197
   %200 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %198, i64 noundef 64) #11
-  br label %Vec_IntGrow.exit.i.i
+  br label %Vec_IntGrow.argprom.exit.i.i
 
 201:                                              ; preds = %197
   %202 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #12
-  br label %Vec_IntGrow.exit.i.i
+  br label %Vec_IntGrow.argprom.exit.i.i
 
-Vec_IntGrow.exit.i.i:                             ; preds = %201, %199
+Vec_IntGrow.argprom.exit.i.i:                     ; preds = %201, %199
   %203 = phi ptr [ %200, %199 ], [ %202, %201 ]
   store ptr %203, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
   store i32 16, ptr @Bac_BoxCollectRanges.Bits, align 8
-  br label %Vec_IntPush.exit.i
+  br label %Vec_IntPush.argprom.exit.i
 
 204:                                              ; preds = %195
   %205 = shl nuw nsw i32 %192, 1
@@ -1198,10 +1198,10 @@ Vec_IntGrow.exit.i.i:                             ; preds = %201, %199
   %214 = phi ptr [ %210, %209 ], [ %212, %211 ]
   store ptr %214, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
   store i32 %205, ptr @Bac_BoxCollectRanges.Bits, align 8
-  br label %Vec_IntPush.exit.i
+  br label %Vec_IntPush.argprom.exit.i
 
-Vec_IntPush.exit.i:                               ; preds = %213, %Vec_IntGrow.exit.i.i, %.Vec_IntGrow.exit10_crit_edge.i.i
-  %215 = phi ptr [ %.pre.i.i, %.Vec_IntGrow.exit10_crit_edge.i.i ], [ %214, %213 ], [ %203, %Vec_IntGrow.exit.i.i ]
+Vec_IntPush.argprom.exit.i:                       ; preds = %213, %Vec_IntGrow.argprom.exit.i.i, %.Vec_IntGrow.argprom.exit10_crit_edge.i.i
+  %215 = phi ptr [ %.pre.i.i, %.Vec_IntGrow.argprom.exit10_crit_edge.i.i ], [ %214, %213 ], [ %203, %Vec_IntGrow.argprom.exit.i.i ]
   %216 = load i32, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 4), align 4
   %217 = add nsw i32 %216, 1
   store i32 %217, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 4), align 4
@@ -1210,7 +1210,7 @@ Vec_IntPush.exit.i:                               ; preds = %213, %Vec_IntGrow.e
   store i32 %191, ptr %219, align 4
   br label %220
 
-220:                                              ; preds = %Vec_IntPush.exit.i, %183
+220:                                              ; preds = %Vec_IntPush.argprom.exit.i, %183
   %221 = icmp sgt i64 %indvars.iv.i223, 1
   br i1 %221, label %.lr.ph.i222, label %.critedge.i219, !llvm.loop !18
 
@@ -1263,11 +1263,11 @@ Bac_BoxBoRange.exit.i:                            ; preds = %231, %.critedge.spl
   %239 = load i32, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 4), align 4
   %240 = load i32, ptr @Bac_BoxCollectRanges.Bits, align 8
   %241 = icmp eq i32 %239, %240
-  br i1 %241, label %242, label %.Vec_IntGrow.exit10_crit_edge.i38.i
+  br i1 %241, label %242, label %.Vec_IntGrow.argprom.exit10_crit_edge.i38.i
 
-.Vec_IntGrow.exit10_crit_edge.i38.i:              ; preds = %Bac_BoxBoRange.exit.i
+.Vec_IntGrow.argprom.exit10_crit_edge.i38.i:      ; preds = %Bac_BoxBoRange.exit.i
   %.pre.i39.i = load ptr, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
-  br label %Vec_IntPush.exit43.i
+  br label %Vec_IntPush.argprom.exit43.i
 
 242:                                              ; preds = %Bac_BoxBoRange.exit.i
   %243 = icmp slt i32 %239, 16
@@ -1280,17 +1280,17 @@ Bac_BoxBoRange.exit.i:                            ; preds = %231, %.critedge.spl
 
 246:                                              ; preds = %244
   %247 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %245, i64 noundef 64) #11
-  br label %Vec_IntGrow.exit.i42.i
+  br label %Vec_IntGrow.argprom.exit.i42.i
 
 248:                                              ; preds = %244
   %249 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #12
-  br label %Vec_IntGrow.exit.i42.i
+  br label %Vec_IntGrow.argprom.exit.i42.i
 
-Vec_IntGrow.exit.i42.i:                           ; preds = %248, %246
+Vec_IntGrow.argprom.exit.i42.i:                   ; preds = %248, %246
   %250 = phi ptr [ %247, %246 ], [ %249, %248 ]
   store ptr %250, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
   store i32 16, ptr @Bac_BoxCollectRanges.Bits, align 8
-  br label %Vec_IntPush.exit43.i
+  br label %Vec_IntPush.argprom.exit43.i
 
 251:                                              ; preds = %242
   %252 = shl nuw nsw i32 %239, 1
@@ -1312,10 +1312,10 @@ Vec_IntGrow.exit.i42.i:                           ; preds = %248, %246
   %261 = phi ptr [ %257, %256 ], [ %259, %258 ]
   store ptr %261, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 8), align 8
   store i32 %252, ptr @Bac_BoxCollectRanges.Bits, align 8
-  br label %Vec_IntPush.exit43.i
+  br label %Vec_IntPush.argprom.exit43.i
 
-Vec_IntPush.exit43.i:                             ; preds = %260, %Vec_IntGrow.exit.i42.i, %.Vec_IntGrow.exit10_crit_edge.i38.i
-  %262 = phi ptr [ %.pre.i39.i, %.Vec_IntGrow.exit10_crit_edge.i38.i ], [ %261, %260 ], [ %250, %Vec_IntGrow.exit.i42.i ]
+Vec_IntPush.argprom.exit43.i:                     ; preds = %260, %Vec_IntGrow.argprom.exit.i42.i, %.Vec_IntGrow.argprom.exit10_crit_edge.i38.i
+  %262 = phi ptr [ %.pre.i39.i, %.Vec_IntGrow.argprom.exit10_crit_edge.i38.i ], [ %261, %260 ], [ %250, %Vec_IntGrow.argprom.exit.i42.i ]
   %263 = load i32, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 4), align 4
   %264 = add nsw i32 %263, 1
   store i32 %264, ptr getelementptr inbounds (i8, ptr @Bac_BoxCollectRanges.Bits, i64 4), align 4
@@ -1325,8 +1325,8 @@ Vec_IntPush.exit43.i:                             ; preds = %260, %Vec_IntGrow.e
   %.val.pre.i = load i32, ptr %6, align 4
   br label %267
 
-267:                                              ; preds = %Vec_IntPush.exit43.i, %227
-  %.val.i220 = phi i32 [ %.val.pre.i, %Vec_IntPush.exit43.i ], [ %.val60.i, %227 ]
+267:                                              ; preds = %Vec_IntPush.argprom.exit43.i, %227
+  %.val.i220 = phi i32 [ %.val.pre.i, %Vec_IntPush.argprom.exit43.i ], [ %.val60.i, %227 ]
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %268 = sext i32 %.val.i220 to i64
   %269 = icmp slt i64 %indvars.iv.next58.i, %268
@@ -1943,23 +1943,23 @@ Bac_ManFindRealNameId.exit:                       ; preds = %67, %70
   %101 = load i8, ptr %100, align 1
   %.mask.i.i = and i8 %101, -2
   %.not.i = icmp eq i8 %.mask.i.i, 8
-  br i1 %.not.i, label %102, label %Bac_ObjGetConst.exit.thread
+  br i1 %.not.i, label %102, label %Bac_ObjGetConst.argprom.exit.thread
 
 102:                                              ; preds = %95
   %103 = getelementptr i8, ptr %100, i64 -1
   %104 = load i8, ptr %103, align 1
   %105 = add i8 %104, -20
   %narrow.i.i = icmp ult i8 %105, -8
-  br i1 %narrow.i.i, label %Bac_ObjGetConst.exit.thread, label %Bac_ObjGetConst.exit
+  br i1 %narrow.i.i, label %Bac_ObjGetConst.argprom.exit.thread, label %Bac_ObjGetConst.argprom.exit
 
-Bac_ObjGetConst.exit:                             ; preds = %102
+Bac_ObjGetConst.argprom.exit:                     ; preds = %102
   %106 = and i8 %104, 28
   %narrow.i = icmp eq i8 %106, 12
   %.0144307 = add nsw i32 %.0141344, 1
   %.not161.not308 = icmp slt i32 %.0141344, %1
-  br i1 %.not161.not308, label %.lr.ph.preheader, label %Bac_ObjGetConst.exit215.thread
+  br i1 %.not161.not308, label %.lr.ph.preheader, label %Bac_ObjGetConst.argprom.exit215.thread
 
-.lr.ph.preheader:                                 ; preds = %Bac_ObjGetConst.exit
+.lr.ph.preheader:                                 ; preds = %Bac_ObjGetConst.argprom.exit
   %indvars.iv397 = add nsw i64 %96, 1
   %107 = getelementptr inbounds i32, ptr %.val170, i64 %indvars.iv397
   %108 = load i32, ptr %107, align 4
@@ -1969,14 +1969,14 @@ Bac_ObjGetConst.exit:                             ; preds = %102
   %.mask.i.i212398 = and i8 %111, -2
   %.not.i213399 = icmp eq i8 %.mask.i.i212398, 8
   %112 = trunc nsw i64 %indvars.iv397 to i32
-  br i1 %.not.i213399, label %.lr.ph403.preheader, label %Bac_ObjGetConst.exit215.thread
+  br i1 %.not.i213399, label %.lr.ph403.preheader, label %Bac_ObjGetConst.argprom.exit215.thread
 
 .lr.ph403.preheader:                              ; preds = %.lr.ph.preheader
   %113 = zext i1 %narrow.i to i32
   %invariant.gep = getelementptr i8, ptr %.val186, i64 -1
   br label %.lr.ph403
 
-.lr.ph:                                           ; preds = %Bac_ObjGetConst.exit215
+.lr.ph:                                           ; preds = %Bac_ObjGetConst.argprom.exit215
   %indvars.iv = add nsw i64 %indvars.iv402, 1
   %114 = getelementptr inbounds i32, ptr %.val170, i64 %indvars.iv
   %115 = load i32, ptr %114, align 4
@@ -1986,7 +1986,7 @@ Bac_ObjGetConst.exit:                             ; preds = %102
   %.mask.i.i212 = and i8 %118, -2
   %.not.i213 = icmp eq i8 %.mask.i.i212, 8
   %119 = trunc nsw i64 %indvars.iv to i32
-  br i1 %.not.i213, label %.lr.ph403, label %Bac_ObjGetConst.exit215.thread.loopexit.loopexit, !llvm.loop !26
+  br i1 %.not.i213, label %.lr.ph403, label %Bac_ObjGetConst.argprom.exit215.thread.loopexit.loopexit, !llvm.loop !26
 
 .lr.ph403:                                        ; preds = %.lr.ph403.preheader, %.lr.ph
   %120 = phi i32 [ %119, %.lr.ph ], [ %112, %.lr.ph403.preheader ]
@@ -1998,26 +1998,26 @@ Bac_ObjGetConst.exit:                             ; preds = %102
   %122 = load i8, ptr %gep, align 1
   %123 = add i8 %122, -20
   %narrow.i.i214 = icmp ult i8 %123, -8
-  br i1 %narrow.i.i214, label %Bac_ObjGetConst.exit215.thread.loopexit.loopexit, label %Bac_ObjGetConst.exit215
+  br i1 %narrow.i.i214, label %Bac_ObjGetConst.argprom.exit215.thread.loopexit.loopexit, label %Bac_ObjGetConst.argprom.exit215
 
-Bac_ObjGetConst.exit215:                          ; preds = %.lr.ph403
+Bac_ObjGetConst.argprom.exit215:                  ; preds = %.lr.ph403
   %124 = and i8 %122, 28
   %narrow.i216.not = icmp eq i8 %124, 12
   %spec.select = select i1 %narrow.i216.not, i32 %.0139310400, i32 0
   %exitcond.not = icmp eq i64 %indvars.iv402, %11
-  br i1 %exitcond.not, label %Bac_ObjGetConst.exit215.thread.loopexit.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %Bac_ObjGetConst.argprom.exit215.thread.loopexit.loopexit, label %.lr.ph, !llvm.loop !26
 
-Bac_ObjGetConst.exit215.thread.loopexit.loopexit: ; preds = %.lr.ph, %.lr.ph403, %Bac_ObjGetConst.exit215
-  %.0144.in.lcssa.ph.ph = phi i32 [ %1, %Bac_ObjGetConst.exit215 ], [ %.0144.in309401, %.lr.ph403 ], [ %120, %.lr.ph ]
-  %.0139.lcssa.ph.ph = phi i32 [ %spec.select, %Bac_ObjGetConst.exit215 ], [ %.0139310400, %.lr.ph403 ], [ %spec.select, %.lr.ph ]
-  %.0144.lcssa.ph.ph = phi i32 [ %81, %Bac_ObjGetConst.exit215 ], [ %120, %.lr.ph403 ], [ %119, %.lr.ph ]
+Bac_ObjGetConst.argprom.exit215.thread.loopexit.loopexit: ; preds = %.lr.ph, %.lr.ph403, %Bac_ObjGetConst.argprom.exit215
+  %.0144.in.lcssa.ph.ph = phi i32 [ %1, %Bac_ObjGetConst.argprom.exit215 ], [ %.0144.in309401, %.lr.ph403 ], [ %120, %.lr.ph ]
+  %.0139.lcssa.ph.ph = phi i32 [ %spec.select, %Bac_ObjGetConst.argprom.exit215 ], [ %.0139310400, %.lr.ph403 ], [ %spec.select, %.lr.ph ]
+  %.0144.lcssa.ph.ph = phi i32 [ %81, %Bac_ObjGetConst.argprom.exit215 ], [ %120, %.lr.ph403 ], [ %119, %.lr.ph ]
   %125 = icmp ne i32 %.0139.lcssa.ph.ph, 0
-  br label %Bac_ObjGetConst.exit215.thread
+  br label %Bac_ObjGetConst.argprom.exit215.thread
 
-Bac_ObjGetConst.exit215.thread:                   ; preds = %.lr.ph.preheader, %Bac_ObjGetConst.exit215.thread.loopexit.loopexit, %Bac_ObjGetConst.exit
-  %.0144.in.lcssa = phi i32 [ %.0141344, %Bac_ObjGetConst.exit ], [ %.0141344, %.lr.ph.preheader ], [ %.0144.in.lcssa.ph.ph, %Bac_ObjGetConst.exit215.thread.loopexit.loopexit ]
-  %.0139.lcssa = phi i1 [ %narrow.i, %Bac_ObjGetConst.exit ], [ %narrow.i, %.lr.ph.preheader ], [ %125, %Bac_ObjGetConst.exit215.thread.loopexit.loopexit ]
-  %.0144.lcssa = phi i32 [ %.0144307, %Bac_ObjGetConst.exit ], [ %112, %.lr.ph.preheader ], [ %.0144.lcssa.ph.ph, %Bac_ObjGetConst.exit215.thread.loopexit.loopexit ]
+Bac_ObjGetConst.argprom.exit215.thread:           ; preds = %.lr.ph.preheader, %Bac_ObjGetConst.argprom.exit215.thread.loopexit.loopexit, %Bac_ObjGetConst.argprom.exit
+  %.0144.in.lcssa = phi i32 [ %.0141344, %Bac_ObjGetConst.argprom.exit ], [ %.0141344, %.lr.ph.preheader ], [ %.0144.in.lcssa.ph.ph, %Bac_ObjGetConst.argprom.exit215.thread.loopexit.loopexit ]
+  %.0139.lcssa = phi i1 [ %narrow.i, %Bac_ObjGetConst.argprom.exit ], [ %narrow.i, %.lr.ph.preheader ], [ %125, %Bac_ObjGetConst.argprom.exit215.thread.loopexit.loopexit ]
+  %.0144.lcssa = phi i32 [ %.0144307, %Bac_ObjGetConst.argprom.exit ], [ %112, %.lr.ph.preheader ], [ %.0144.lcssa.ph.ph, %Bac_ObjGetConst.argprom.exit215.thread.loopexit.loopexit ]
   %126 = sub nsw i32 %.0144.lcssa, %.0141344
   tail call fastcc void @Vec_StrPrintNum(ptr noundef %6, i32 noundef %126)
   %127 = icmp sgt i32 %126, 8
@@ -2025,7 +2025,7 @@ Bac_ObjGetConst.exit215.thread:                   ; preds = %.lr.ph.preheader, %
   %.not166325 = icmp sgt i32 %.0141344, %.0144.in.lcssa
   br i1 %or.cond, label %128, label %182
 
-128:                                              ; preds = %Bac_ObjGetConst.exit215.thread
+128:                                              ; preds = %Bac_ObjGetConst.argprom.exit215.thread
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %6, ptr noundef nonnull @.str.77)
   br i1 %.not166325, label %.backedge, label %.lr.ph329.preheader
 
@@ -2050,21 +2050,21 @@ Bac_ObjGetConst.exit215.thread:                   ; preds = %.lr.ph.preheader, %
   %137 = load i8, ptr %136, align 1
   %.mask.i.i217 = and i8 %137, -2
   %.not.i218 = icmp eq i8 %.mask.i.i217, 8
-  br i1 %.not.i218, label %138, label %Bac_ObjGetConst.exit220
+  br i1 %.not.i218, label %138, label %Bac_ObjGetConst.argprom.exit220
 
 138:                                              ; preds = %.lr.ph329
   %139 = getelementptr i8, ptr %136, i64 -1
   %140 = load i8, ptr %139, align 1
   %141 = add i8 %140, -20
   %narrow.i.i219 = icmp ult i8 %141, -8
-  br i1 %narrow.i.i219, label %Bac_ObjGetConst.exit220, label %142
+  br i1 %narrow.i.i219, label %Bac_ObjGetConst.argprom.exit220, label %142
 
 142:                                              ; preds = %138
   %143 = lshr i8 %140, 1
   %144 = zext nneg i8 %143 to i32
-  br label %Bac_ObjGetConst.exit220
+  br label %Bac_ObjGetConst.argprom.exit220
 
-Bac_ObjGetConst.exit220:                          ; preds = %.lr.ph329, %138, %142
+Bac_ObjGetConst.argprom.exit220:                  ; preds = %.lr.ph329, %138, %142
   %145 = phi i32 [ %144, %142 ], [ 0, %138 ], [ 0, %.lr.ph329 ]
   %146 = add nsw i32 %145, %132
   %147 = add nsw i32 %146, -6
@@ -2072,7 +2072,7 @@ Bac_ObjGetConst.exit220:                          ; preds = %.lr.ph329, %138, %1
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %150, label %181
 
-150:                                              ; preds = %Bac_ObjGetConst.exit220
+150:                                              ; preds = %Bac_ObjGetConst.argprom.exit220
   %151 = icmp slt i32 %146, 16
   %.v = select i1 %151, i32 42, i32 81
   %152 = add nsw i32 %.v, %146
@@ -2140,15 +2140,15 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   store i8 %153, ptr %180, align 1
   br label %181
 
-181:                                              ; preds = %Bac_ObjGetConst.exit220, %Vec_StrPush.exit
-  %.1138 = phi i32 [ 0, %Vec_StrPush.exit ], [ %147, %Bac_ObjGetConst.exit220 ]
-  %.1 = phi i32 [ 4, %Vec_StrPush.exit ], [ %148, %Bac_ObjGetConst.exit220 ]
+181:                                              ; preds = %Bac_ObjGetConst.argprom.exit220, %Vec_StrPush.exit
+  %.1138 = phi i32 [ 0, %Vec_StrPush.exit ], [ %147, %Bac_ObjGetConst.argprom.exit220 ]
+  %.1 = phi i32 [ 4, %Vec_StrPush.exit ], [ %148, %Bac_ObjGetConst.argprom.exit220 ]
   %indvars.iv.next362 = add nsw i64 %indvars.iv361, 1
   %lftr.wideiv364 = trunc i64 %indvars.iv.next362 to i32
   %exitcond365.not = icmp eq i32 %131, %lftr.wideiv364
   br i1 %exitcond365.not, label %.backedge, label %.lr.ph329, !llvm.loop !27
 
-182:                                              ; preds = %Bac_ObjGetConst.exit215.thread
+182:                                              ; preds = %Bac_ObjGetConst.argprom.exit215.thread
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %6, ptr noundef nonnull @.str.78)
   br i1 %.not166325, label %.backedge, label %.lr.ph324.preheader
 
@@ -2165,24 +2165,24 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %.val190 = load ptr, ptr %10, align 8
   %186 = getelementptr i8, ptr %.val189, i64 48
   %.val189.val = load ptr, ptr %186, align 8
-  tail call fastcc void @Bac_ManWriteConstBit(ptr %.val189.val, ptr %.val190, i32 noundef %185, i32 noundef 0)
+  tail call fastcc void @Bac_ManWriteConstBit.argprom.argprom(ptr %.val189.val, ptr %.val190, i32 noundef %185, i32 noundef 0)
   %indvars.iv.next358 = add nsw i64 %indvars.iv357, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next358 to i32
   %exitcond360.not = icmp eq i32 %183, %lftr.wideiv
   br i1 %exitcond360.not, label %.backedge, label %.lr.ph324, !llvm.loop !28
 
-.backedge:                                        ; preds = %.lr.ph324, %181, %Bac_ManFindRealIndex.exit, %Bac_ManWriteRange.exit, %Bac_ObjGetRange.exit, %128, %182, %194, %207
-  %.0141.be = phi i32 [ %.1145.lcssa, %194 ], [ %187, %207 ], [ %.0144.lcssa, %182 ], [ %.0144.lcssa, %128 ], [ %.2.lcssa, %Bac_ObjGetRange.exit ], [ %.2.lcssa, %Bac_ManWriteRange.exit ], [ %187, %Bac_ManFindRealIndex.exit ], [ %.0144.lcssa, %181 ], [ %.0144.lcssa, %.lr.ph324 ]
+.backedge:                                        ; preds = %.lr.ph324, %181, %Bac_ManFindRealIndex.exit, %Bac_ManWriteRange.argprom.argprom.exit, %Bac_ObjGetRange.exit, %128, %182, %194, %207
+  %.0141.be = phi i32 [ %.1145.lcssa, %194 ], [ %187, %207 ], [ %.0144.lcssa, %182 ], [ %.0144.lcssa, %128 ], [ %.2.lcssa, %Bac_ObjGetRange.exit ], [ %.2.lcssa, %Bac_ManWriteRange.argprom.argprom.exit ], [ %187, %Bac_ManFindRealIndex.exit ], [ %.0144.lcssa, %181 ], [ %.0144.lcssa, %.lr.ph324 ]
   %.not153 = icmp sgt i32 %.0141.be, %1
   br i1 %.not153, label %.loopexit, label %89, !llvm.loop !29
 
-Bac_ObjGetConst.exit.thread:                      ; preds = %95, %102
+Bac_ObjGetConst.argprom.exit.thread:              ; preds = %95, %102
   %187 = add nsw i32 %.0141344, 1
   %.not156330.not = icmp slt i32 %.0141344, %1
   br i1 %.not156330.not, label %.lr.ph332, label %._crit_edge.thread
 
-.lr.ph332:                                        ; preds = %Bac_ObjGetConst.exit.thread, %190
-  %indvars.iv366.in = phi i64 [ %indvars.iv366, %190 ], [ %96, %Bac_ObjGetConst.exit.thread ]
+.lr.ph332:                                        ; preds = %Bac_ObjGetConst.argprom.exit.thread, %190
+  %indvars.iv366.in = phi i64 [ %indvars.iv366, %190 ], [ %96, %Bac_ObjGetConst.argprom.exit.thread ]
   %indvars.iv366 = add nsw i64 %indvars.iv366.in, 1
   %188 = getelementptr inbounds i32, ptr %.val170, i64 %indvars.iv366
   %189 = load i32, ptr %188, align 4
@@ -2211,7 +2211,7 @@ Bac_ObjGetConst.exit.thread:                      ; preds = %95, %102
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %6, ptr noundef nonnull @.str.34)
   br label %.backedge
 
-._crit_edge.thread:                               ; preds = %Bac_ObjGetConst.exit.thread, %._crit_edge
+._crit_edge.thread:                               ; preds = %Bac_ObjGetConst.argprom.exit.thread, %._crit_edge
   %196 = and i8 %101, -4
   %narrow.i.not.i = icmp eq i8 %196, 4
   br i1 %narrow.i.not.i, label %197, label %202
@@ -2644,14 +2644,14 @@ Bac_ManFindRealIndex.exit298:                     ; preds = %390, %393
   %.val198.val = load ptr, ptr %405, align 8
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %.val198.val, ptr noundef nonnull @.str.79)
   %406 = icmp sgt i32 %.012.i288, -1
-  br i1 %406, label %407, label %Bac_ManWriteRange.exit
+  br i1 %406, label %407, label %Bac_ManWriteRange.argprom.argprom.exit
 
 407:                                              ; preds = %Bac_ManFindRealIndex.exit298
   tail call fastcc void @Vec_StrPrintNum(ptr noundef %.val198.val, i32 noundef %.012.i288)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %.val198.val, ptr noundef nonnull @.str.80)
-  br label %Bac_ManWriteRange.exit
+  br label %Bac_ManWriteRange.argprom.argprom.exit
 
-Bac_ManWriteRange.exit:                           ; preds = %Bac_ManFindRealIndex.exit298, %407
+Bac_ManWriteRange.argprom.argprom.exit:           ; preds = %Bac_ManFindRealIndex.exit298, %407
   tail call fastcc void @Vec_StrPrintNum(ptr noundef %.val198.val, i32 noundef %.012.i269)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %.val198.val, ptr noundef nonnull @.str.81)
   br label %.backedge
@@ -2777,19 +2777,19 @@ define void @Bac_ManWriteVerilogNtk(ptr noundef %0, i32 noundef %1) local_unname
   %.val197.val = load ptr, ptr %47, align 8
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %.val197.val, ptr noundef nonnull @.str.79)
   %48 = icmp sgt i32 %39, -1
-  br i1 %48, label %49, label %Bac_ManWriteRange.exit
+  br i1 %48, label %49, label %Bac_ManWriteRange.argprom.argprom.exit
 
 49:                                               ; preds = %46
   tail call fastcc void @Vec_StrPrintNum(ptr noundef %.val197.val, i32 noundef %39)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %.val197.val, ptr noundef nonnull @.str.80)
-  br label %Bac_ManWriteRange.exit
+  br label %Bac_ManWriteRange.argprom.argprom.exit
 
-Bac_ManWriteRange.exit:                           ; preds = %46, %49
+Bac_ManWriteRange.argprom.argprom.exit:           ; preds = %46, %49
   tail call fastcc void @Vec_StrPrintNum(ptr noundef %.val197.val, i32 noundef %37)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %.val197.val, ptr noundef nonnull @.str.81)
   br label %50
 
-50:                                               ; preds = %Bac_ManWriteRange.exit, %41
+50:                                               ; preds = %Bac_ManWriteRange.argprom.argprom.exit, %41
   %51 = ashr i32 %35, 2
   %.val192 = load ptr, ptr %0, align 8
   %52 = getelementptr i8, ptr %.val192, i64 16
@@ -3213,25 +3213,25 @@ Vec_StrPush.exit.i312:                            ; preds = %231, %Vec_StrGrow.e
   %237 = getelementptr inbounds i8, ptr %233, i64 %236
   store i8 91, ptr %237, align 1
   %238 = icmp sgt i32 %.012.i227, -1
-  br i1 %238, label %239, label %Bac_ManWriteRange.exit238
+  br i1 %238, label %239, label %Bac_ManWriteRange.argprom.argprom.exit238
 
 239:                                              ; preds = %Vec_StrPush.exit.i312
   tail call fastcc void @Vec_StrPrintNum(ptr noundef nonnull %.val198.val, i32 noundef %.012.i227)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %.val198.val, ptr noundef nonnull @.str.80)
-  br label %Bac_ManWriteRange.exit238
+  br label %Bac_ManWriteRange.argprom.argprom.exit238
 
-Bac_ManWriteRange.exit238:                        ; preds = %Vec_StrPush.exit.i312, %239
+Bac_ManWriteRange.argprom.argprom.exit238:        ; preds = %Vec_StrPush.exit.i312, %239
   tail call fastcc void @Vec_StrPrintNum(ptr noundef nonnull %.val198.val, i32 noundef %.012.i)
   %240 = load i32, ptr %210, align 4
   %241 = load i32, ptr %.val198.val, align 8
   %242 = icmp eq i32 %240, %241
   br i1 %242, label %243, label %.Vec_StrGrow.exit10_crit_edge.i.i297
 
-.Vec_StrGrow.exit10_crit_edge.i.i297:             ; preds = %Bac_ManWriteRange.exit238
+.Vec_StrGrow.exit10_crit_edge.i.i297:             ; preds = %Bac_ManWriteRange.argprom.argprom.exit238
   %.pre.i.i298 = load ptr, ptr %.phi.trans.insert.i.i307, align 8
   br label %Vec_StrPush.exit.i299
 
-243:                                              ; preds = %Bac_ManWriteRange.exit238
+243:                                              ; preds = %Bac_ManWriteRange.argprom.argprom.exit238
   %244 = icmp slt i32 %240, 16
   br i1 %244, label %245, label %252
 
@@ -3930,7 +3930,7 @@ define internal fastcc void @Bac_ManWriteSig(ptr nocapture noundef readonly %0, 
   %.0 = phi i32 [ %11, %8 ], [ %1, %2 ]
   %.mask.i.i = and i8 %13, -2
   %.not.i = icmp eq i8 %.mask.i.i, 8
-  br i1 %.not.i, label %14, label %Bac_ObjGetConst.exit.thread
+  br i1 %.not.i, label %14, label %Bac_ObjGetConst.argprom.exit.thread
 
 14:                                               ; preds = %12
   %15 = getelementptr i8, ptr %.val, i64 %.pre-phi
@@ -3938,21 +3938,21 @@ define internal fastcc void @Bac_ManWriteSig(ptr nocapture noundef readonly %0, 
   %17 = load i8, ptr %16, align 1
   %18 = add i8 %17, -20
   %narrow.i.i = icmp ult i8 %18, -8
-  br i1 %narrow.i.i, label %Bac_ObjGetConst.exit.thread, label %Bac_ObjGetConst.exit
+  br i1 %narrow.i.i, label %Bac_ObjGetConst.argprom.exit.thread, label %Bac_ObjGetConst.argprom.exit
 
-Bac_ObjGetConst.exit:                             ; preds = %14
+Bac_ObjGetConst.argprom.exit:                     ; preds = %14
   %.val21 = load ptr, ptr %0, align 8
   %19 = getelementptr i8, ptr %.val21, i64 48
   %.val21.val = load ptr, ptr %19, align 8
-  tail call fastcc void @Bac_ManWriteConstBit(ptr %.val21.val, ptr nonnull %.val, i32 noundef %.0, i32 noundef 1)
+  tail call fastcc void @Bac_ManWriteConstBit.argprom.argprom(ptr %.val21.val, ptr nonnull %.val, i32 noundef %.0, i32 noundef 1)
   br label %116
 
-Bac_ObjGetConst.exit.thread:                      ; preds = %12, %14
+Bac_ObjGetConst.argprom.exit.thread:              ; preds = %12, %14
   %20 = and i8 %13, -4
   %narrow.i.not.i = icmp eq i8 %20, 4
   br i1 %narrow.i.not.i, label %Bac_ObjName.exit, label %Bac_ObjName.exit.thread
 
-Bac_ObjName.exit:                                 ; preds = %Bac_ObjGetConst.exit.thread
+Bac_ObjName.exit:                                 ; preds = %Bac_ObjGetConst.argprom.exit.thread
   %21 = getelementptr i8, ptr %0, i64 104
   %.val6.i = load ptr, ptr %21, align 8
   %22 = getelementptr inbounds i32, ptr %.val6.i, i64 %.pre-phi
@@ -3966,7 +3966,7 @@ Bac_ObjName.exit:                                 ; preds = %Bac_ObjGetConst.exi
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %35, label %Bac_ObjName.exit.i
 
-Bac_ObjName.exit.thread:                          ; preds = %Bac_ObjGetConst.exit.thread
+Bac_ObjName.exit.thread:                          ; preds = %Bac_ObjGetConst.argprom.exit.thread
   %30 = getelementptr i8, ptr %0, i64 136
   %.val8.i = load ptr, ptr %30, align 8
   %31 = getelementptr inbounds i32, ptr %.val8.i, i64 %.pre-phi
@@ -4134,43 +4134,43 @@ Bac_ManFindRealIndex.exit:                        ; preds = %99, %102
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %.val27.val, ptr noundef nonnull @.str.81)
   br label %116
 
-116:                                              ; preds = %35, %Bac_ManFindRealIndex.exit, %Bac_ObjGetConst.exit
+116:                                              ; preds = %35, %Bac_ManFindRealIndex.exit, %Bac_ObjGetConst.argprom.exit
   ret void
 }
 
 declare ptr @Mio_GateReadOutName(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Bac_ManWriteConstBit(ptr nocapture %.0.val.48.val, ptr nocapture readonly %.88.val, i32 noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @Bac_ManWriteConstBit.argprom.argprom(ptr nocapture %.0.val.48.val, ptr nocapture readonly %.88.val, i32 noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr i8, ptr %.88.val, i64 %3
   %5 = load i8, ptr %4, align 1
   %.mask.i.i = and i8 %5, -2
   %.not.i = icmp eq i8 %.mask.i.i, 8
-  br i1 %.not.i, label %6, label %Bac_ObjGetConst.exit
+  br i1 %.not.i, label %6, label %Bac_ObjGetConst.argprom.exit
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %4, i64 -1
   %8 = load i8, ptr %7, align 1
   %9 = add i8 %8, -20
   %narrow.i.i = icmp ult i8 %9, -8
-  br i1 %narrow.i.i, label %Bac_ObjGetConst.exit, label %10
+  br i1 %narrow.i.i, label %Bac_ObjGetConst.argprom.exit, label %10
 
 10:                                               ; preds = %6
   %11 = lshr i8 %8, 1
   %12 = zext nneg i8 %11 to i32
-  br label %Bac_ObjGetConst.exit
+  br label %Bac_ObjGetConst.argprom.exit
 
-Bac_ObjGetConst.exit:                             ; preds = %2, %6, %10
+Bac_ObjGetConst.argprom.exit:                     ; preds = %2, %6, %10
   %13 = phi i32 [ %12, %10 ], [ 0, %6 ], [ 0, %2 ]
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %15, label %14
 
-14:                                               ; preds = %Bac_ObjGetConst.exit
+14:                                               ; preds = %Bac_ObjGetConst.argprom.exit
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %.0.val.48.val, ptr noundef nonnull @.str.66)
   br label %15
 
-15:                                               ; preds = %14, %Bac_ObjGetConst.exit
+15:                                               ; preds = %14, %Bac_ObjGetConst.argprom.exit
   switch i32 %13, label %124 [
     i32 6, label %16
     i32 7, label %42

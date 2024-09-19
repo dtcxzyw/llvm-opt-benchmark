@@ -4650,12 +4650,12 @@ _xml_xmlchar_zval.exit:                           ; preds = %17, %_xml_xmlcharle
 define hidden void @zif_xml_parser_create(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
-  tail call fastcc void @php_xml_parser_create_impl(i32 %.val, ptr noundef %1, i32 noundef 0)
+  tail call fastcc void @php_xml_parser_create_impl.argprom(i32 %.val, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_xml_parser_create_impl(i32 %.44.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @php_xml_parser_create_impl.argprom(i32 %.44.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -4790,7 +4790,7 @@ define internal fastcc void @php_xml_parser_create_impl(i32 %.44.val, ptr nounde
 define hidden void @zif_xml_parser_create_ns(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
-  tail call fastcc void @php_xml_parser_create_impl(i32 %.val, ptr noundef %1, i32 noundef 1)
+  tail call fastcc void @php_xml_parser_create_impl.argprom(i32 %.val, ptr noundef %1, i32 noundef 1)
   ret void
 }
 
@@ -7799,7 +7799,7 @@ define hidden void @zif_xml_set_character_data_handler(ptr nocapture noundef rea
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef %3, ptr noundef %4)
+  call fastcc void @php_xml_set_handler_parse_callable.argprom(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
@@ -7819,7 +7819,7 @@ define hidden void @zif_xml_set_character_data_handler(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_xml_set_handler_parse_callable(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc void @php_xml_set_handler_parse_callable.argprom(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct._zend_fcall_info, align 8
   %6 = alloca %struct._zend_fcall_info_cache, align 8
@@ -7904,7 +7904,7 @@ define hidden void @zif_xml_set_processing_instruction_handler(ptr nocapture nou
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef %3, ptr noundef %4)
+  call fastcc void @php_xml_set_handler_parse_callable.argprom(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
@@ -7931,7 +7931,7 @@ define hidden void @zif_xml_set_default_handler(ptr nocapture noundef readonly %
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef %3, ptr noundef %4)
+  call fastcc void @php_xml_set_handler_parse_callable.argprom(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
@@ -7958,7 +7958,7 @@ define hidden void @zif_xml_set_unparsed_entity_decl_handler(ptr nocapture nound
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef %3, ptr noundef %4)
+  call fastcc void @php_xml_set_handler_parse_callable.argprom(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
@@ -7985,7 +7985,7 @@ define hidden void @zif_xml_set_notation_decl_handler(ptr nocapture noundef read
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef %3, ptr noundef %4)
+  call fastcc void @php_xml_set_handler_parse_callable.argprom(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
@@ -8012,7 +8012,7 @@ define hidden void @zif_xml_set_external_entity_ref_handler(ptr nocapture nounde
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef %3, ptr noundef %4)
+  call fastcc void @php_xml_set_handler_parse_callable.argprom(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
@@ -8039,7 +8039,7 @@ define hidden void @zif_xml_set_start_namespace_decl_handler(ptr nocapture nound
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef %3, ptr noundef %4)
+  call fastcc void @php_xml_set_handler_parse_callable.argprom(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
@@ -8066,7 +8066,7 @@ define hidden void @zif_xml_set_end_namespace_decl_handler(ptr nocapture noundef
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef %3, ptr noundef %4)
+  call fastcc void @php_xml_set_handler_parse_callable.argprom(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11

@@ -377,7 +377,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
 
 170:                                              ; preds = %162, %164, %165
   %171 = phi i32 [ -2, %162 ], [ %169, %165 ], [ 2, %164 ]
-  %172 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %6, ptr nonnull %5, ptr nonnull %.0173.ptr.le, i32 %171)
+  %172 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t.argprom(ptr noundef %6, ptr nonnull %5, ptr nonnull %.0173.ptr.le, i32 %171)
   switch i32 %172, label %181 [
     i32 0, label %173
     i32 -1, label %174
@@ -393,7 +393,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   br i1 %.not205, label %180, label %177
 
 177:                                              ; preds = %174
-  %178 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %6, ptr nonnull %176, ptr nonnull %.0173.ptr.le, i32 %171)
+  %178 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t.argprom(ptr noundef %6, ptr nonnull %176, ptr nonnull %.0173.ptr.le, i32 %171)
   %179 = icmp eq i32 %178, -2
   br label %181
 
@@ -445,7 +445,7 @@ declare noundef ptr @_ZN29cmCommandArgumentParserHelper14ExpandVariableEPKc(ptr 
 declare noundef ptr @_ZN29cmCommandArgumentParserHelper19ExpandVariableForAtEPKc(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #2 {
+define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t.argprom(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #2 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6, label %3

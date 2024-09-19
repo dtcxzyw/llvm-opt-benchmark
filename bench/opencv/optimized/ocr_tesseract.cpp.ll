@@ -1219,5 +1219,5 @@ attributes #16 = { noreturn nounwind }
 !17 = !{!18, !20}
 !18 = distinct !{!18, !19, !"_ZSt11make_sharedIN2cv4text16OCRTesseractImplEJRKPKcS6_S6_RKiS8_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
 !19 = distinct !{!19, !"_ZSt11make_sharedIN2cv4text16OCRTesseractImplEJRKPKcS6_S6_RKiS8_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
-!20 = distinct !{!20, !21, !"_ZN2cvL7makePtrINS_4text16OCRTesseractImplEJPKcS4_S4_iiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!21 = distinct !{!21, !"_ZN2cvL7makePtrINS_4text16OCRTesseractImplEJPKcS4_S4_iiEEENS_3PtrIT_EEDpRKT0_"}
+!20 = distinct !{!20, !21, !"_ZN2cvL7makePtrINS_4text16OCRTesseractImplEJPKcS4_S4_iiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!21 = distinct !{!21, !"_ZN2cvL7makePtrINS_4text16OCRTesseractImplEJPKcS4_S4_iiEEENS_3PtrIT_EEDpRKT0_.argprom"}

@@ -2930,11 +2930,11 @@ _ZN4llvm5APIntD2Ev.exit837:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %1217, label %_ZN4llvm5APIntD2Ev.exit840, label %1218
 
 1218:                                             ; preds = %1216
-  %1219 = call fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_0clES2_jS5_"(ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(12) %2)
+  %1219 = call fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_0clES2_jS5_.argprom"(ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(12) %2)
   br i1 %1219, label %_ZN4llvm5APIntD2Ev.exit840, label %1220
 
 1220:                                             ; preds = %1218
-  %1221 = call fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_0clES2_jS5_"(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %2)
+  %1221 = call fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_0clES2_jS5_.argprom"(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %2)
   br i1 %1221, label %_ZN4llvm5APIntD2Ev.exit840, label %1222
 
 1222:                                             ; preds = %1220
@@ -4051,12 +4051,12 @@ _ZN4llvm5APInt13getLowBitsSetEjj.exit:            ; preds = %_ZN4llvm5APIntC2Ejm
 
 1789:                                             ; preds = %1786, %_ZN4llvm5APInt13getLowBitsSetEjj.exit
   %.not.i = icmp eq i32 %.0.i923, 0
-  br i1 %.not.i, label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.exit", label %1790
+  br i1 %.not.i, label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom.exit", label %1790
 
 1790:                                             ; preds = %1789
   call void @_ZN4llvm11Instruction18setHasNoSignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext false) #19
   call void @_ZN4llvm11Instruction20setHasNoUnsignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext false) #19
-  br label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.exit"
+  br label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom.exit"
 
 1791:                                             ; preds = %1786
   %1792 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -4155,7 +4155,7 @@ _ZN4llvm5APIntC2ERKS0_.exit931:                   ; preds = %1826, %1828
   br i1 %1831, label %1832, label %1834
 
 1832:                                             ; preds = %1830, %_ZN4llvm5APIntC2ERKS0_.exit931
-  %1833 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j"(ptr noundef nonnull %1, i32 noundef %.0.i923)
+  %1833 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom"(ptr noundef nonnull %1, i32 noundef %.0.i923)
   br label %1943
 
 1834:                                             ; preds = %1830
@@ -4356,25 +4356,25 @@ _ZNK4llvm4User10getOperandEj.exit953:             ; preds = %1922, %1925
   %.5 = phi ptr [ %1, %1832 ], [ %1857, %_ZNK4llvm4User10getOperandEj.exit935 ], [ %1878, %_ZNK4llvm4User10getOperandEj.exit939 ], [ %1935, %_ZNK4llvm4User10getOperandEj.exit953 ], [ undef, %.critedge25 ]
   %1945 = load i32, ptr %1823, align 8
   %1946 = icmp ugt i32 %1945, 64
-  br i1 %1946, label %1947, label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.exit"
+  br i1 %1946, label %1947, label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom.exit"
 
 1947:                                             ; preds = %1943
   %1948 = load ptr, ptr %101, align 8
   %1949 = icmp eq ptr %1948, null
-  br i1 %1949, label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.exit", label %1950
+  br i1 %1949, label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom.exit", label %1950
 
 1950:                                             ; preds = %1947
   call void @_ZdaPv(ptr noundef nonnull %1948) #20
-  br label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.exit"
+  br label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom.exit"
 
-"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.exit": ; preds = %1950, %1947, %1943, %1790, %1789
+"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom.exit": ; preds = %1950, %1947, %1943, %1790, %1789
   %.3609 = phi i1 [ false, %1789 ], [ false, %1790 ], [ %1944, %1943 ], [ %1944, %1947 ], [ %1944, %1950 ]
   %.4 = phi ptr [ %1, %1789 ], [ %1, %1790 ], [ %.5, %1943 ], [ %.5, %1947 ], [ %.5, %1950 ]
   %1951 = load i32, ptr %1765, align 8
   %1952 = icmp ugt i32 %1951, 64
   br i1 %1952, label %1953, label %_ZN4llvm5APIntD2Ev.exit955
 
-1953:                                             ; preds = %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.exit"
+1953:                                             ; preds = %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom.exit"
   %1954 = load ptr, ptr %97, align 8
   %1955 = icmp eq ptr %1954, null
   br i1 %1955, label %_ZN4llvm5APIntD2Ev.exit955, label %1956
@@ -4383,7 +4383,7 @@ _ZNK4llvm4User10getOperandEj.exit953:             ; preds = %1922, %1925
   call void @_ZdaPv(ptr noundef nonnull %1954) #20
   br label %_ZN4llvm5APIntD2Ev.exit955
 
-_ZN4llvm5APIntD2Ev.exit955:                       ; preds = %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.exit", %1953, %1956
+_ZN4llvm5APIntD2Ev.exit955:                       ; preds = %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom.exit", %1953, %1956
   br i1 %.3609, label %.critedge680.thread, label %_ZN4llvm5APIntD2Ev.exit840
 
 1957:                                             ; preds = %_ZN4llvm9KnownBitsC2Ej.exit693
@@ -4462,12 +4462,12 @@ _ZN4llvm5APInt13getLowBitsSetEjj.exit960:         ; preds = %_ZN4llvm5APIntC2Ejm
 
 1992:                                             ; preds = %1989, %_ZN4llvm5APInt13getLowBitsSetEjj.exit960
   %.not.i961 = icmp eq i32 %.0.i956, 0
-  br i1 %.not.i961, label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.exit962", label %1993
+  br i1 %.not.i961, label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom.exit962", label %1993
 
 1993:                                             ; preds = %1992
   call void @_ZN4llvm11Instruction18setHasNoSignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext false) #19
   call void @_ZN4llvm11Instruction20setHasNoUnsignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext false) #19
-  br label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.exit962"
+  br label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom.exit962"
 
 1994:                                             ; preds = %1989
   %1995 = getelementptr inbounds nuw i8, ptr %110, i64 8
@@ -4566,7 +4566,7 @@ _ZN4llvm5APIntC2ERKS0_.exit969:                   ; preds = %2029, %2031
   br i1 %2034, label %2035, label %2037
 
 2035:                                             ; preds = %2033, %_ZN4llvm5APIntC2ERKS0_.exit969
-  %2036 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j"(ptr noundef nonnull %1, i32 noundef %.0.i956)
+  %2036 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom"(ptr noundef nonnull %1, i32 noundef %.0.i956)
   br label %2093
 
 2037:                                             ; preds = %2033
@@ -4672,25 +4672,25 @@ _ZNK4llvm4User10getOperandEj.exit978:             ; preds = %2074, %2077
   %.7 = phi ptr [ %1, %2035 ], [ %2060, %_ZNK4llvm4User10getOperandEj.exit973 ], [ %2084, %_ZNK4llvm4User10getOperandEj.exit978 ], [ undef, %2085 ]
   %2095 = load i32, ptr %2026, align 8
   %2096 = icmp ugt i32 %2095, 64
-  br i1 %2096, label %2097, label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.exit962"
+  br i1 %2096, label %2097, label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom.exit962"
 
 2097:                                             ; preds = %2093
   %2098 = load ptr, ptr %111, align 8
   %2099 = icmp eq ptr %2098, null
-  br i1 %2099, label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.exit962", label %2100
+  br i1 %2099, label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom.exit962", label %2100
 
 2100:                                             ; preds = %2097
   call void @_ZdaPv(ptr noundef nonnull %2098) #20
-  br label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.exit962"
+  br label %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom.exit962"
 
-"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.exit962": ; preds = %2100, %2097, %2093, %1993, %1992
+"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom.exit962": ; preds = %2100, %2097, %2093, %1993, %1992
   %.5611 = phi i1 [ false, %1992 ], [ false, %1993 ], [ %2094, %2093 ], [ %2094, %2097 ], [ %2094, %2100 ]
   %.6 = phi ptr [ %1, %1992 ], [ %1, %1993 ], [ %.7, %2093 ], [ %.7, %2097 ], [ %.7, %2100 ]
   %2101 = load i32, ptr %1968, align 8
   %2102 = icmp ugt i32 %2101, 64
   br i1 %2102, label %2103, label %_ZN4llvm5APIntD2Ev.exit980
 
-2103:                                             ; preds = %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.exit962"
+2103:                                             ; preds = %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom.exit962"
   %2104 = load ptr, ptr %107, align 8
   %2105 = icmp eq ptr %2104, null
   br i1 %2105, label %_ZN4llvm5APIntD2Ev.exit980, label %2106
@@ -4699,7 +4699,7 @@ _ZNK4llvm4User10getOperandEj.exit978:             ; preds = %2074, %2077
   call void @_ZdaPv(ptr noundef nonnull %2104) #20
   br label %_ZN4llvm5APIntD2Ev.exit980
 
-_ZN4llvm5APIntD2Ev.exit980:                       ; preds = %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.exit962", %2103, %2106
+_ZN4llvm5APIntD2Ev.exit980:                       ; preds = %"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom.exit962", %2103, %2106
   br i1 %.5611, label %.critedge680.thread, label %_ZN4llvm5APIntD2Ev.exit840
 
 2107:                                             ; preds = %_ZN4llvm9KnownBitsC2Ej.exit693
@@ -12138,7 +12138,7 @@ _ZNK4llvm5APInteqEm.exit:                         ; preds = %_ZNK4llvm5APInt13ge
 declare noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeERKNS_5APIntE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_0clES2_jS5_"(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef nonnull align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_0clES2_jS5_.argprom"(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef nonnull align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
@@ -12991,7 +12991,7 @@ _ZN4llvm5APInt10setLowBitsEj.exit:                ; preds = %_ZN4llvm5APIntC2Ejm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j"(ptr noundef returned %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_1clES2_j.argprom"(ptr noundef returned %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %3
 
@@ -15520,7 +15520,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %204, %_ZNK4llvm5Val
   ]
 
 219:                                              ; preds = %215
-  %220 = call fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_1clERNS_17GetElementPtrInstE"(ptr noundef nonnull align 8 dereferenceable(88) %spec.select.i.i360)
+  %220 = call fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_1clERNS_17GetElementPtrInstE.argprom"(ptr noundef nonnull align 8 dereferenceable(88) %spec.select.i.i360)
   br i1 %220, label %_ZN4llvm5APIntD2Ev.exit371, label %.preheader
 
 .preheader:                                       ; preds = %219
@@ -15952,7 +15952,7 @@ _ZN4llvm5APIntD2Ev.exit382:                       ; preds = %434, %437, %440
   %448 = getelementptr inbounds nuw i8, ptr %spec.select.i.i360, i64 72
   %449 = load ptr, ptr %448, align 8
   %450 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %448) #19
-  %451 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_8ArrayRefIiEEZNS_16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS6_jbE3$_2EEbOT_T0_"(ptr %449, i64 %450)
+  %451 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_8ArrayRefIiEEZNS_16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS6_jbE3$_2EEbOT_T0_.argprom"(ptr %449, i64 %450)
   br i1 %451, label %452, label %.critedge3
 
 452:                                              ; preds = %441
@@ -17837,7 +17837,7 @@ declare noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnu
 declare noundef ptr @_ZN4llvm14ConstantVector3getENS_8ArrayRefIPNS_8ConstantEEE(ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_1clERNS_17GetElementPtrInstE"(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_1clERNS_17GetElementPtrInstE.argprom"(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZNK4llvm11GEPOperator20getSourceElementTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -18254,7 +18254,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_8ArrayRefIiEEZNS_16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS6_jbE3$_2EEbOT_T0_"(ptr readonly %.0.val, i64 %.8.val) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_8ArrayRefIiEEZNS_16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS6_jbE3$_2EEbOT_T0_.argprom"(ptr readonly %.0.val, i64 %.8.val) unnamed_addr #6 {
   %.idx1 = shl nsw i64 %.8.val, 2
   %1 = getelementptr inbounds i8, ptr %.0.val, i64 %.idx1
   %2 = ashr i64 %.8.val, 2
@@ -23151,25 +23151,25 @@ define internal void @"_ZNSt17_Function_handlerIFvPN4llvm11InstructionEjNS0_5API
   call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val, ptr noundef %.val5, i32 noundef %.val6, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(12) %4)
   %11 = load i32, ptr %7, align 8
   %12 = icmp ugt i32 %11, 64
-  br i1 %12, label %13, label %"_ZSt10__invoke_rIvRZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS0_5ValueENS0_5APIntERS4_jbE3$_0JPNS0_11InstructionEjS4_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
+  br i1 %12, label %13, label %"_ZSt10__invoke_rIvRZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS0_5ValueENS0_5APIntERS4_jbE3$_0JPNS0_11InstructionEjS4_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr %6, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %"_ZSt10__invoke_rIvRZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS0_5ValueENS0_5APIntERS4_jbE3$_0JPNS0_11InstructionEjS4_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %16
+  br i1 %15, label %"_ZSt10__invoke_rIvRZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS0_5ValueENS0_5APIntERS4_jbE3$_0JPNS0_11InstructionEjS4_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %16
 
 16:                                               ; preds = %13
   call void @_ZdaPv(ptr noundef nonnull %14) #20
-  br label %"_ZSt10__invoke_rIvRZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS0_5ValueENS0_5APIntERS4_jbE3$_0JPNS0_11InstructionEjS4_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS0_5ValueENS0_5APIntERS4_jbE3$_0JPNS0_11InstructionEjS4_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS0_5ValueENS0_5APIntERS4_jbE3$_0JPNS0_11InstructionEjS4_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %5, %13, %16
+"_ZSt10__invoke_rIvRZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS0_5ValueENS0_5APIntERS4_jbE3$_0JPNS0_11InstructionEjS4_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %5, %13, %16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN4llvm11InstructionEjNS0_5APIntERS3_EZNS0_16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS0_5ValueES3_S4_jbE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS1_5ValueENS1_5APIntERS5_jbE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS1_5ValueENS1_5APIntERS5_jbE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -23179,29 +23179,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN4llvm11Instruc
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS1_5ValueENS1_5APIntERS5_jbE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS1_5ValueENS1_5APIntERS5_jbE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS1_5ValueENS1_5APIntERS5_jbE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS1_5ValueENS1_5APIntERS5_jbE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS1_5ValueENS1_5APIntERS5_jbE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS1_5ValueENS1_5APIntERS5_jbE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS1_5ValueENS1_5APIntERS5_jbE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS1_5ValueENS1_5APIntERS5_jbE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #20
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS1_5ValueENS1_5APIntERS5_jbE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS1_5ValueENS1_5APIntERS5_jbE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS1_5ValueENS1_5APIntERS5_jbE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS1_5ValueENS1_5APIntERS5_jbE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

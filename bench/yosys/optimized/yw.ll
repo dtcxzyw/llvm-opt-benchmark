@@ -234,7 +234,7 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i:         ; preds = %.lr.ph._crit_edge
   %22 = load ptr, ptr %21, align 8
   %23 = load i8, ptr %22, align 1
   %.not.i = icmp eq i8 %23, 92
-  br i1 %.not.i, label %24, label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit
+  br i1 %.not.i, label %24, label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.argprom.exit
 
 24:                                               ; preds = %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i
   %25 = getelementptr inbounds i8, ptr %22, i64 1
@@ -256,13 +256,13 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i:         ; preds = %.lr.ph._crit_edge
 
 .critedge.i:                                      ; preds = %30
   %.not44.i = icmp eq i8 %31, 93
-  br i1 %.not44.i, label %34, label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit
+  br i1 %.not44.i, label %34, label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.argprom.exit
 
 34:                                               ; preds = %.critedge.i
   %35 = load i8, ptr %33, align 1
   %.not45.i = icmp eq i8 %35, 0
   %spec.select.i = select i1 %.not45.i, ptr %25, ptr %22
-  br label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit
+  br label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.argprom.exit
 
 36:                                               ; preds = %24
   %37 = add i8 %26, -97
@@ -274,7 +274,7 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i:         ; preds = %.lr.ph._crit_edge
   %or.cond47.i = icmp ult i8 %39, 26
   %.not42.i = icmp eq i8 %26, 95
   %or.cond1.i = or i1 %.not42.i, %or.cond47.i
-  br i1 %or.cond1.i, label %40, label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit
+  br i1 %or.cond1.i, label %40, label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.argprom.exit
 
 40:                                               ; preds = %38, %36
   %41 = getelementptr inbounds i8, ptr %22, i64 2
@@ -292,27 +292,27 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i:         ; preds = %.lr.ph._crit_edge
   br i1 %or.cond3.i, label %.critedge2.i, label %48
 
 48:                                               ; preds = %42
-  switch i8 %43, label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit [
+  switch i8 %43, label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.argprom.exit [
     i8 95, label %.critedge2.i
-    i8 0, label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit.loopexit
+    i8 0, label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.argprom.exit.loopexit
   ]
 
 .critedge2.i:                                     ; preds = %48, %42
   %49 = getelementptr inbounds i8, ptr %.1.i, i64 1
   br label %42, !llvm.loop !8
 
-_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit.loopexit: ; preds = %48
-  br label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit
+_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.argprom.exit.loopexit: ; preds = %48
+  br label %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.argprom.exit
 
-_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit:     ; preds = %48, %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit.loopexit, %38, %34, %.critedge.i, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i
-  %.034.i = phi ptr [ %22, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i ], [ %22, %.critedge.i ], [ %spec.select.i, %34 ], [ %22, %38 ], [ %25, %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit.loopexit ], [ %22, %48 ]
+_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.argprom.exit: ; preds = %48, %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.argprom.exit.loopexit, %38, %34, %.critedge.i, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i
+  %.034.i = phi ptr [ %22, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i ], [ %22, %.critedge.i ], [ %spec.select.i, %34 ], [ %22, %38 ], [ %25, %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.argprom.exit.loopexit ], [ %22, %48 ]
   %50 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %51 = trunc i8 %50 to i1
   %52 = icmp ne i32 %7, 0
   %or.cond.i.i = and i1 %52, %51
   br i1 %or.cond.i.i, label %53, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
 
-53:                                               ; preds = %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit
+53:                                               ; preds = %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.argprom.exit
   %54 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %55 = getelementptr inbounds i32, ptr %54, i64 %.pre-phi
   %56 = load i32, ptr %55, align 4
@@ -332,7 +332,7 @@ _ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit:     ; preds = %48, %_ZL11pretty_na
   tail call void @__clang_call_terminate(ptr %62) #22
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.exit, %53, %59
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZL11pretty_nameN5Yosys5RTLIL8IdStringE.argprom.exit, %53, %59
   %63 = load i8, ptr %.034.i, align 1
   %64 = icmp eq i8 %63, 91
   br i1 %64, label %65, label %71

@@ -360,7 +360,7 @@ define { i32, ptr } @"_ZN113_$LT$cranelift_frontend..frontend..FuncInstBuilder$u
     i8 17, label %50
   ]
 
-24:                                               ; preds = %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.exit26, %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.exit, %"_ZN4core3ptr99drop_in_place$LT$cranelift_entity..set..EntitySet$LT$cranelift_codegen..ir..entities..Block$GT$$GT$17hf58ab37f8e949877E.exit", %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.exit19, %19
+24:                                               ; preds = %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.argprom.exit26, %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.argprom.exit, %"_ZN4core3ptr99drop_in_place$LT$cranelift_entity..set..EntitySet$LT$cranelift_codegen..ir..entities..Block$GT$$GT$17hf58ab37f8e949877E.exit", %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.argprom.exit19, %19
   %25 = call noundef i8 @_ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2), !range !34
   %26 = call noundef zeroext i1 @_ZN17cranelift_codegen2ir12instructions6Opcode13is_terminator17hffc2d395505617f2E(i8 noundef %25)
   br i1 %26, label %157, label %171
@@ -385,15 +385,15 @@ define { i32, ptr } @"_ZN113_$LT$cranelift_frontend..frontend..FuncInstBuilder$u
 40:                                               ; preds = %27
   %41 = getelementptr inbounds i8, ptr %.val, i64 56
   %42 = tail call noundef align 4 dereferenceable(16) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17h3bfee1b07f0488b0E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %41, i64 noundef %37)
-  br label %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.exit
+  br label %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.argprom.exit
 
 43:                                               ; preds = %27
   %44 = getelementptr inbounds i8, ptr %.val, i64 64
   %45 = load ptr, ptr %44, align 8, !alias.scope !35, !nonnull !4, !noundef !4
   %46 = getelementptr inbounds [0 x { { i32, [1 x i32] }, i32, i32 }], ptr %45, i64 0, i64 %37
-  br label %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.exit
+  br label %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.argprom.exit
 
-_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.exit: ; preds = %40, %43
+_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.argprom.exit: ; preds = %40, %43
   %.0.i.i.i = phi ptr [ %42, %40 ], [ %46, %43 ]
   %47 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
   %48 = getelementptr inbounds i8, ptr %.val, i64 248
@@ -417,15 +417,15 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e58
 59:                                               ; preds = %50
   %60 = getelementptr inbounds i8, ptr %.val13, i64 56
   %61 = tail call noundef align 4 dereferenceable(16) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17h3bfee1b07f0488b0E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %60, i64 noundef %56)
-  br label %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.exit19
+  br label %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.argprom.exit19
 
 62:                                               ; preds = %50
   %63 = getelementptr inbounds i8, ptr %.val13, i64 64
   %64 = load ptr, ptr %63, align 8, !alias.scope !40, !nonnull !4, !noundef !4
   %65 = getelementptr inbounds [0 x { { i32, [1 x i32] }, i32, i32 }], ptr %64, i64 0, i64 %56
-  br label %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.exit19
+  br label %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.argprom.exit19
 
-_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.exit19: ; preds = %59, %62
+_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.argprom.exit19: ; preds = %59, %62
   %.0.i.i.i18 = phi ptr [ %61, %59 ], [ %65, %62 ]
   %66 = getelementptr inbounds i8, ptr %.0.i.i.i18, i64 8
   %67 = getelementptr inbounds i8, ptr %.val13, i64 248
@@ -617,7 +617,7 @@ _ZN18cranelift_frontend3ssa10SSABuilder25declare_block_predecessor17hf22514fd2b1
 144:                                              ; preds = %69
   resume { ptr, i32 } %lpad.phi
 
-145:                                              ; preds = %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.exit
+145:                                              ; preds = %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.argprom.exit
   %146 = zext i32 %35 to i64
   %147 = load i64, ptr %38, align 8, !alias.scope !72, !noundef !4
   %.not.i.i.i24 = icmp ugt i64 %147, %146
@@ -626,15 +626,15 @@ _ZN18cranelift_frontend3ssa10SSABuilder25declare_block_predecessor17hf22514fd2b1
 148:                                              ; preds = %145
   %149 = getelementptr inbounds i8, ptr %.val, i64 56
   %150 = tail call noundef align 4 dereferenceable(16) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17h3bfee1b07f0488b0E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %149, i64 noundef %146)
-  br label %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.exit26
+  br label %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.argprom.exit26
 
 151:                                              ; preds = %145
   %152 = getelementptr inbounds i8, ptr %.val, i64 64
   %153 = load ptr, ptr %152, align 8, !alias.scope !72, !nonnull !4, !noundef !4
   %154 = getelementptr inbounds [0 x { { i32, [1 x i32] }, i32, i32 }], ptr %153, i64 0, i64 %146
-  br label %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.exit26
+  br label %_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.argprom.exit26
 
-_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.exit26: ; preds = %148, %151
+_ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e586864190E.argprom.exit26: ; preds = %148, %151
   %.0.i.i.i25 = phi ptr [ %150, %148 ], [ %154, %151 ]
   %155 = getelementptr inbounds i8, ptr %.0.i.i.i25, i64 8
   %156 = tail call noundef i64 @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$4push17h2cff4099125b823cE"(ptr noalias noundef nonnull align 4 dereferenceable(4) %155, i32 noundef %10, ptr noalias noundef nonnull align 8 dereferenceable(48) %48)
@@ -662,20 +662,20 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e58
 
 165:                                              ; preds = %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit.i"
   %166 = call noundef align 1 dereferenceable(1) ptr @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17hf16da9fbf9bdf2c7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %160, i64 noundef %162)
-  br label %_ZN18cranelift_frontend8frontend15FunctionBuilder18fill_current_block17h28a160bb6720f1ebE.exit
+  br label %_ZN18cranelift_frontend8frontend15FunctionBuilder18fill_current_block17h28a160bb6720f1ebE.argprom.exit
 
 167:                                              ; preds = %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit.i"
   %168 = getelementptr inbounds i8, ptr %.val15, i64 304
   %169 = load ptr, ptr %168, align 8, !alias.scope !77, !nonnull !4, !noundef !4
   %170 = getelementptr inbounds [0 x i8], ptr %169, i64 0, i64 %162
-  br label %_ZN18cranelift_frontend8frontend15FunctionBuilder18fill_current_block17h28a160bb6720f1ebE.exit
+  br label %_ZN18cranelift_frontend8frontend15FunctionBuilder18fill_current_block17h28a160bb6720f1ebE.argprom.exit
 
-_ZN18cranelift_frontend8frontend15FunctionBuilder18fill_current_block17h28a160bb6720f1ebE.exit: ; preds = %165, %167
+_ZN18cranelift_frontend8frontend15FunctionBuilder18fill_current_block17h28a160bb6720f1ebE.argprom.exit: ; preds = %165, %167
   %.0.i.i28 = phi ptr [ %166, %165 ], [ %170, %167 ]
   store i8 2, ptr %.0.i.i28, align 1
   br label %171
 
-171:                                              ; preds = %24, %_ZN18cranelift_frontend8frontend15FunctionBuilder18fill_current_block17h28a160bb6720f1ebE.exit
+171:                                              ; preds = %24, %_ZN18cranelift_frontend8frontend15FunctionBuilder18fill_current_block17h28a160bb6720f1ebE.argprom.exit
   %172 = call noundef align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %8)
   %173 = insertvalue { i32, ptr } poison, i32 %10, 0
   %174 = insertvalue { i32, ptr } %173, ptr %172, 1

@@ -301,7 +301,7 @@ if.then113:                                       ; preds = %if.then110
 
 if.then116:                                       ; preds = %if.then110
   %bags.val67 = load ptr, ptr %bags, align 8
-  call fastcc void @pkcs12_remove_bag(ptr %bags.val67, ptr noundef nonnull %call84)
+  call fastcc void @pkcs12_remove_bag.argprom.retelim(ptr %bags.val67, ptr noundef nonnull %call84)
   br label %if.end121
 
 if.end121:                                        ; preds = %if.then110, %if.end108, %if.then116
@@ -472,7 +472,7 @@ return:                                           ; preds = %if.end6.i, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pkcs12_remove_bag(ptr %pbags.0.val, ptr noundef %bag) unnamed_addr #0 {
+define internal fastcc void @pkcs12_remove_bag.argprom.retelim(ptr %pbags.0.val, ptr noundef %bag) unnamed_addr #0 {
 entry:
   %cmp1 = icmp eq ptr %bag, null
   br i1 %cmp1, label %return, label %if.end

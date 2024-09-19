@@ -1896,62 +1896,62 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %1 = load ptr, ptr %key_data, align 8
-  %call1 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_114AES_CTR_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_(ptr noundef %1, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
+  %call1 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_114AES_CTR_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_.argprom(ptr noundef %1, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
   br label %return
 
 sw.bb2:                                           ; preds = %entry
   %2 = load ptr, ptr %key_data, align 8
-  %call4 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_114AES_CTR_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_(ptr noundef %2, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
+  %call4 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_114AES_CTR_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_.argprom(ptr noundef %2, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
   br label %return
 
 sw.bb5:                                           ; preds = %entry
   %3 = load ptr, ptr %key_data, align 8
-  %call7 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_114AES_CTR_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_(ptr noundef %3, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
+  %call7 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_114AES_CTR_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_.argprom(ptr noundef %3, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
   br label %return
 
 sw.bb8:                                           ; preds = %entry
   %4 = load ptr, ptr %key_data, align 8
-  %call10 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_(ptr noundef %4, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
+  %call10 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_.argprom(ptr noundef %4, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
   br label %return
 
 sw.bb11:                                          ; preds = %entry
   %5 = load ptr, ptr %key_data, align 8
-  %call13 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_(ptr noundef %5, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
+  %call13 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_.argprom(ptr noundef %5, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
   br label %return
 
 sw.bb14:                                          ; preds = %entry
   %6 = load ptr, ptr %key_data, align 8
-  %call16 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_(ptr noundef %6, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
+  %call16 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_.argprom(ptr noundef %6, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
   br label %return
 
 sw.bb17:                                          ; preds = %entry
   %7 = load ptr, ptr %key_data, align 8
-  %call19 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_(ptr noundef %7, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
+  %call19 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_.argprom(ptr noundef %7, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
   br label %return
 
 sw.bb20:                                          ; preds = %entry
   %8 = load ptr, ptr %key_data, align 8
-  %call22 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_(ptr noundef %8, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
+  %call22 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_.argprom(ptr noundef %8, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
   br label %return
 
 sw.bb23:                                          ; preds = %entry
   %9 = load ptr, ptr %key_data, align 8
-  %call25 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_(ptr noundef %9, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
+  %call25 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_.argprom(ptr noundef %9, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
   br label %return
 
 sw.bb26:                                          ; preds = %entry
   %10 = load ptr, ptr %key_data, align 8
-  %call28 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_(ptr noundef %10, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
+  %call28 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_.argprom(ptr noundef %10, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
   br label %return
 
 sw.bb29:                                          ; preds = %entry
   %11 = load ptr, ptr %key_data, align 8
-  %call31 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_(ptr noundef %11, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
+  %call31 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_.argprom(ptr noundef %11, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
   br label %return
 
 sw.bb32:                                          ; preds = %entry
   %12 = load ptr, ptr %key_data, align 8
-  %call34 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_(ptr noundef %12, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
+  %call34 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_.argprom(ptr noundef %12, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %out)
   br label %return
 
 do.body:                                          ; preds = %entry
@@ -1965,7 +1965,7 @@ return:                                           ; preds = %sw.bb32, %sw.bb29, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZN4node6crypto12_GLOBAL__N_114AES_CTR_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_(ptr noundef %key_data, i32 noundef %cipher_mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, ptr noundef %out) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZN4node6crypto12_GLOBAL__N_114AES_CTR_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_.argprom(ptr noundef %key_data, i32 noundef %cipher_mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, ptr noundef %out) unnamed_addr #3 {
 entry:
   %buf = alloca %"class.node::crypto::ByteSource::Builder", align 8
   %ref.tmp = alloca %"class.node::crypto::ByteSource", align 8
@@ -2192,7 +2192,7 @@ _ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_(ptr noundef %key_data, i32 noundef %cipher_mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, ptr noundef %out) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZN4node6crypto12_GLOBAL__N_110AES_CipherEPNS_11EnvironmentEPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPSA_.argprom(ptr noundef %key_data, i32 noundef %cipher_mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, ptr noundef %out) unnamed_addr #3 {
 entry:
   %out_len = alloca i32, align 4
   %ref.tmp = alloca %"class.node::crypto::ByteSource", align 8
@@ -4532,16 +4532,16 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i: ; pre
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i, %arraydestroy.body.i.i
   store ptr null, ptr %arraydestroy.element.i.i, align 8
   %arraydestroy.done.i.i = icmp eq ptr %arraydestroy.element.i.i, %arg_convertibles.i.i
-  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit, label %arraydestroy.body.i.i
+  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.argprom.exit, label %arraydestroy.body.i.i
 
-_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
+_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg1_name.addr.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %arg_type.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg_value.i)
   br label %do.end
 
-do.end:                                           ; preds = %if.end, %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit
+do.end:                                           ; preds = %if.end, %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.argprom.exit
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %14 = load ptr, ptr %vfn, align 8

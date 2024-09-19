@@ -1652,33 +1652,33 @@ define ptr @Io_ReadPla(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nound
 25:                                               ; preds = %22
   %26 = load i32, ptr %15, align 4
   %27 = icmp slt i32 %24, %26
-  br i1 %27, label %Extra_ProgressBarUpdate.exit.i, label %28
+  br i1 %27, label %Extra_ProgressBarUpdate.argprom.exit.i, label %28
 
 28:                                               ; preds = %25, %22
   call void @Extra_ProgressBarUpdate_int(ptr noundef %15, i32 noundef %24, ptr noundef null) #16
-  br label %Extra_ProgressBarUpdate.exit.i
+  br label %Extra_ProgressBarUpdate.argprom.exit.i
 
-Extra_ProgressBarUpdate.exit.i:                   ; preds = %28, %25
+Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %28, %25
   %29 = call i32 @Extra_FileReaderGetLineNumber(ptr noundef nonnull %8, i32 noundef 0) #16
   %30 = getelementptr inbounds i8, ptr %23, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i8, ptr %32, align 1
   %.not409.i = icmp eq i8 %33, 46
-  br i1 %.not409.i, label %Extra_ProgressBarUpdate.exit.tail.i, label %Extra_ProgressBarUpdate.exit.tail.thread.i
+  br i1 %.not409.i, label %Extra_ProgressBarUpdate.argprom.exit.tail.i, label %Extra_ProgressBarUpdate.argprom.exit.tail.thread.i
 
-Extra_ProgressBarUpdate.exit.tail.i:              ; preds = %Extra_ProgressBarUpdate.exit.i
+Extra_ProgressBarUpdate.argprom.exit.tail.i:      ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
   %34 = getelementptr inbounds i8, ptr %32, i64 1
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 101
-  br i1 %36, label %.outer._crit_edge.i, label %Extra_ProgressBarUpdate.exit.tail.thread.i
+  br i1 %36, label %.outer._crit_edge.i, label %Extra_ProgressBarUpdate.argprom.exit.tail.thread.i
 
-Extra_ProgressBarUpdate.exit.tail.thread.i:       ; preds = %Extra_ProgressBarUpdate.exit.tail.i, %Extra_ProgressBarUpdate.exit.i
+Extra_ProgressBarUpdate.argprom.exit.tail.thread.i: ; preds = %Extra_ProgressBarUpdate.argprom.exit.tail.i, %Extra_ProgressBarUpdate.argprom.exit.i
   %37 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(6) @.str.10, i64 noundef 5) #18
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.backedge.i, label %39
 
-39:                                               ; preds = %Extra_ProgressBarUpdate.exit.tail.thread.i
+39:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit.tail.thread.i
   %40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(7) @.str.11) #18
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %51
@@ -1702,7 +1702,7 @@ Extra_ProgressBarUpdate.exit.tail.thread.i:       ; preds = %Extra_ProgressBarUp
   store ptr %49, ptr %17, align 8
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %45, %Extra_ProgressBarUpdate.exit.tail.thread.i
+.backedge.i:                                      ; preds = %45, %Extra_ProgressBarUpdate.argprom.exit.tail.thread.i
   %50 = call ptr @Extra_FileReaderGetTokens(ptr noundef nonnull %8) #16
   %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %.outer._crit_edge.i, label %22, !llvm.loop !28
@@ -2225,10 +2225,10 @@ Abc_ObjFanout0Ntk.exit.i:                         ; preds = %182, %.lr.ph372.i
   %.not355.i = icmp eq ptr %256, null
   br i1 %.not355.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
-.outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge.i, %Extra_ProgressBarUpdate.exit.tail.i, %10
-  %.0221.ph.lcssa.i = phi ptr [ null, %10 ], [ %.0221.ph394.i, %Extra_ProgressBarUpdate.exit.tail.i ], [ %.0221.ph394.i, %.backedge.i ], [ %.1222.i, %.outer.i ]
-  %.0215.ph.lcssa.i = phi i32 [ -1, %10 ], [ %.0215.ph398.i, %Extra_ProgressBarUpdate.exit.tail.i ], [ %.0215.ph398.i, %.backedge.i ], [ %.1216.i, %.outer.i ]
-  %.0.ph.lcssa.i = phi i32 [ 0, %10 ], [ %.0.ph399.i, %Extra_ProgressBarUpdate.exit.tail.i ], [ %.0.ph399.i, %.backedge.i ], [ %.1.i, %.outer.i ]
+.outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge.i, %Extra_ProgressBarUpdate.argprom.exit.tail.i, %10
+  %.0221.ph.lcssa.i = phi ptr [ null, %10 ], [ %.0221.ph394.i, %Extra_ProgressBarUpdate.argprom.exit.tail.i ], [ %.0221.ph394.i, %.backedge.i ], [ %.1222.i, %.outer.i ]
+  %.0215.ph.lcssa.i = phi i32 [ -1, %10 ], [ %.0215.ph398.i, %Extra_ProgressBarUpdate.argprom.exit.tail.i ], [ %.0215.ph398.i, %.backedge.i ], [ %.1216.i, %.outer.i ]
+  %.0.ph.lcssa.i = phi i32 [ 0, %10 ], [ %.0.ph399.i, %Extra_ProgressBarUpdate.argprom.exit.tail.i ], [ %.0.ph399.i, %.backedge.i ], [ %.1.i, %.outer.i ]
   call void @Extra_ProgressBarStop(ptr noundef %15) #16
   %.not246.i = icmp eq i32 %.0215.ph.lcssa.i, -1
   %.not247.i = icmp eq i32 %.0.ph.lcssa.i, %.0215.ph.lcssa.i

@@ -1363,7 +1363,7 @@ for.body.i16:                                     ; preds = %load_block.exit30.i
   %conv8.i.i23 = trunc nuw i32 %shr7.i.i22 to i8
   store i8 %conv8.i.i23, ptr %arrayidx9.i19.i, align 1
   %31 = load ptr, ptr %md.i15, align 8
-  call fastcc void @blake2b_long(ptr noundef %31, ptr noundef nonnull %blockhash_bytes.i, i64 noundef 1024, ptr noundef %blockhash, i64 noundef 72)
+  call fastcc void @blake2b_long.argprom.retelim(ptr noundef %31, ptr noundef nonnull %blockhash_bytes.i, i64 noundef 1024, ptr noundef %blockhash, i64 noundef 72)
   %32 = load ptr, ptr %2, align 8
   %33 = load i32, ptr %lane_length.i, align 4
   %mul.i = mul i32 %33, %l.032.i
@@ -1388,7 +1388,7 @@ load_block.exit.i:                                ; preds = %for.body.i.i
   store i8 0, ptr %arrayidx6.i.i13, align 2
   store i8 0, ptr %arrayidx9.i.i14, align 1
   %35 = load ptr, ptr %md.i15, align 8
-  call fastcc void @blake2b_long(ptr noundef %35, ptr noundef nonnull %blockhash_bytes.i, i64 noundef 1024, ptr noundef %blockhash, i64 noundef 72)
+  call fastcc void @blake2b_long.argprom.retelim(ptr noundef %35, ptr noundef nonnull %blockhash_bytes.i, i64 noundef 1024, ptr noundef %blockhash, i64 noundef 72)
   %36 = load ptr, ptr %2, align 8
   %37 = load i32, ptr %lane_length.i, align 4
   %mul11.i = mul i32 %37, %l.032.i
@@ -1786,7 +1786,7 @@ store_block.exit:                                 ; preds = %for.body.i17
   %outlen = getelementptr inbounds i8, ptr %ctx, i64 8
   %8 = load i32, ptr %outlen, align 8
   %conv = zext i32 %8 to i64
-  call fastcc void @blake2b_long(ptr noundef %7, ptr noundef %out, i64 noundef %conv, ptr noundef %blockhash_bytes, i64 noundef 1024)
+  call fastcc void @blake2b_long.argprom.retelim(ptr noundef %7, ptr noundef %out, i64 noundef %conv, ptr noundef %blockhash_bytes, i64 noundef 1024)
   call void @OPENSSL_cleanse(ptr noundef nonnull %blockhash, i64 noundef 1024) #9
   call void @OPENSSL_cleanse(ptr noundef nonnull %blockhash_bytes, i64 noundef 1024) #9
   %type = getelementptr inbounds i8, ptr %ctx, i64 100
@@ -1826,7 +1826,7 @@ declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @blake2b_long(ptr noundef %md, ptr noundef %out, i64 noundef range(i64 0, 4294967296) %outlen, ptr noundef nonnull %in, i64 noundef range(i64 72, 1025) %inlen) unnamed_addr #0 {
+define internal fastcc void @blake2b_long.argprom.retelim(ptr noundef %md, ptr noundef %out, i64 noundef range(i64 0, 4294967296) %outlen, ptr noundef nonnull %in, i64 noundef range(i64 72, 1025) %inlen) unnamed_addr #0 {
 entry:
   %outbuf = alloca [64 x i8], align 16
   %inbuf = alloca [64 x i8], align 16
@@ -1901,7 +1901,7 @@ while.body:                                       ; preds = %if.then38, %if.end5
   %out.addr.010 = phi ptr [ %out.addr.0, %if.end51 ], [ %out.addr.07, %if.then38 ]
   %outlen_curr.09 = phi i32 [ %outlen_curr.0, %if.end51 ], [ %outlen_curr.06, %if.then38 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %inbuf, ptr noundef nonnull align 16 dereferenceable(64) %outbuf, i64 64, i1 false)
-  %call47 = call fastcc i32 @blake2b(ptr noundef %md, ptr noundef %outbuf, i64 noundef 64, ptr noundef %inbuf)
+  %call47 = call fastcc i32 @blake2b.argprom.argelim(ptr noundef %md, ptr noundef %outbuf, i64 noundef 64, ptr noundef %inbuf)
   %cmp48.not.not = icmp eq i32 %call47, 0
   br i1 %cmp48.not.not, label %fail, label %if.end51
 
@@ -1917,7 +1917,7 @@ while.end:                                        ; preds = %if.end51, %if.then3
   %out.addr.0.lcssa = phi ptr [ %out.addr.07, %if.then38 ], [ %out.addr.0, %if.end51 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %inbuf, ptr noundef nonnull align 16 dereferenceable(64) %outbuf, i64 64, i1 false)
   %conv58 = zext nneg i32 %outlen_curr.0.lcssa to i64
-  %call60 = call fastcc i32 @blake2b(ptr noundef %md, ptr noundef %outbuf, i64 noundef %conv58, ptr noundef %inbuf)
+  %call60 = call fastcc i32 @blake2b.argprom.argelim(ptr noundef %md, ptr noundef %outbuf, i64 noundef %conv58, ptr noundef %inbuf)
   %cmp61.not.not = icmp eq i32 %call60, 0
   br i1 %cmp61.not.not, label %fail, label %if.end64
 
@@ -1943,7 +1943,7 @@ declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) 
 declare i32 @EVP_DigestInit_ex2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blake2b(ptr noundef %md, ptr noundef nonnull %out, i64 noundef range(i64 0, 65) %outlen, ptr noundef nonnull %in) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @blake2b.argprom.argelim(ptr noundef %md, ptr noundef nonnull %out, i64 noundef range(i64 0, 65) %outlen, ptr noundef nonnull %in) unnamed_addr #0 {
 entry:
   %outlen.addr.i = alloca i64, align 8
   %par.i = alloca [2 x %struct.ossl_param_st], align 16
@@ -2016,16 +2016,16 @@ if.end:                                           ; preds = %entry
   %ctx.val = load i32, ptr %0, align 4
   switch i32 %ctx.val, label %if.end17 [
     i32 1, label %if.then1
-    i32 2, label %data_indep_addressing.exit
+    i32 2, label %data_indep_addressing.argprom.exit
   ]
 
-data_indep_addressing.exit:                       ; preds = %if.end
+data_indep_addressing.argprom.exit:               ; preds = %if.end
   %cmp.i = icmp ne i32 %pass, 0
   %cmp2.i = icmp ugt i8 %slice, 1
   %.not = or i1 %cmp.i, %cmp2.i
   br i1 %.not, label %if.end17, label %if.then1
 
-if.then1:                                         ; preds = %if.end, %data_indep_addressing.exit
+if.then1:                                         ; preds = %if.end, %data_indep_addressing.argprom.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %zero_block, i8 0, i64 1024, i1 false)
   %1 = getelementptr inbounds i8, ptr %input_block, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %1, i8 0, i64 976, i1 false)
@@ -2052,7 +2052,7 @@ if.then1:                                         ; preds = %if.end, %data_indep
   store i64 %conv14, ptr %arrayidx16, align 8
   br label %if.end17
 
-if.end17:                                         ; preds = %if.end, %if.then1, %data_indep_addressing.exit
+if.end17:                                         ; preds = %if.end, %if.then1, %data_indep_addressing.argprom.exit
   %cmp18 = icmp eq i32 %pass, 0
   %conv20 = zext i8 %slice to i32
   %cmp21 = icmp eq i8 %slice, 0
@@ -2117,13 +2117,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %ctx.val60 = load i32, ptr %0, align 4
   switch i32 %ctx.val60, label %if.else61 [
     i32 1, label %if.then52
-    i32 2, label %data_indep_addressing.exit73
+    i32 2, label %data_indep_addressing.argprom.exit73
   ]
 
-data_indep_addressing.exit73:                     ; preds = %for.body
+data_indep_addressing.argprom.exit73:             ; preds = %for.body
   br i1 %7, label %if.then52, label %if.else61
 
-if.then52:                                        ; preds = %for.body, %data_indep_addressing.exit73
+if.then52:                                        ; preds = %for.body, %data_indep_addressing.argprom.exit73
   %rem53 = and i32 %j.096, 127
   %cmp54 = icmp eq i32 %rem53, 0
   br i1 %cmp54, label %if.then56, label %if.end57
@@ -2141,7 +2141,7 @@ if.end57:                                         ; preds = %if.then56, %if.then
   %arrayidx60 = getelementptr inbounds [128 x i64], ptr %address_block, i64 0, i64 %idxprom
   br label %if.end66
 
-if.else61:                                        ; preds = %for.body, %data_indep_addressing.exit73
+if.else61:                                        ; preds = %for.body, %data_indep_addressing.argprom.exit73
   %10 = load ptr, ptr %memory, align 8
   %idxprom62 = zext i32 %spec.select to i64
   %arrayidx63 = getelementptr inbounds %struct.BLOCK, ptr %10, i64 %idxprom62

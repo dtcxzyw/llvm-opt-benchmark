@@ -1355,15 +1355,15 @@ for.body.i:                                       ; preds = %for.body.i, %while.
   %xor2.i = xor i32 %85, %shr.i413
   %inc.i = add nuw nsw i64 %i.02.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 4
-  br i1 %exitcond.not.i, label %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.exit", label %for.body.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.argprom.exit", label %for.body.i, !llvm.loop !18
 
-"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.exit": ; preds = %for.body.i
+"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.argprom.exit": ; preds = %for.body.i
   %xor.i417 = xor i32 %xor2.i, %buf1.2.lcssa
   br label %for.body.i419
 
-for.body.i419:                                    ; preds = %for.body.i419, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.exit"
-  %i.02.i420 = phi i64 [ 0, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.exit" ], [ %inc.i427, %for.body.i419 ]
-  %w.addr.01.i421 = phi i32 [ %xor.i417, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.exit" ], [ %xor2.i426, %for.body.i419 ]
+for.body.i419:                                    ; preds = %for.body.i419, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.argprom.exit"
+  %i.02.i420 = phi i64 [ 0, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.argprom.exit" ], [ %inc.i427, %for.body.i419 ]
+  %w.addr.01.i421 = phi i32 [ %xor.i417, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.argprom.exit" ], [ %xor2.i426, %for.body.i419 ]
   %shr.i422 = lshr i32 %w.addr.01.i421, 8
   %and.i423 = and i32 %w.addr.01.i421, 255
   %idxprom.i424 = zext nneg i32 %and.i423 to i64
@@ -1372,15 +1372,15 @@ for.body.i419:                                    ; preds = %for.body.i419, %"_Z
   %xor2.i426 = xor i32 %86, %shr.i422
   %inc.i427 = add nuw nsw i64 %i.02.i420, 1
   %exitcond.not.i428 = icmp eq i64 %inc.i427, 4
-  br i1 %exitcond.not.i428, label %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.exit429", label %for.body.i419, !llvm.loop !18
+  br i1 %exitcond.not.i428, label %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.argprom.exit429", label %for.body.i419, !llvm.loop !18
 
-"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.exit429": ; preds = %for.body.i419
+"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.argprom.exit429": ; preds = %for.body.i419
   %xor.i430 = xor i32 %xor2.i426, %buf2.2.lcssa
   br label %for.body.i432
 
-for.body.i432:                                    ; preds = %for.body.i432, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.exit429"
-  %i.02.i433 = phi i64 [ 0, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.exit429" ], [ %inc.i440, %for.body.i432 ]
-  %w.addr.01.i434 = phi i32 [ %xor.i430, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.exit429" ], [ %xor2.i439, %for.body.i432 ]
+for.body.i432:                                    ; preds = %for.body.i432, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.argprom.exit429"
+  %i.02.i433 = phi i64 [ 0, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.argprom.exit429" ], [ %inc.i440, %for.body.i432 ]
+  %w.addr.01.i434 = phi i32 [ %xor.i430, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.argprom.exit429" ], [ %xor2.i439, %for.body.i432 ]
   %shr.i435 = lshr i32 %w.addr.01.i434, 8
   %and.i436 = and i32 %w.addr.01.i434, 255
   %idxprom.i437 = zext nneg i32 %and.i436 to i64
@@ -1389,15 +1389,15 @@ for.body.i432:                                    ; preds = %for.body.i432, %"_Z
   %xor2.i439 = xor i32 %87, %shr.i435
   %inc.i440 = add nuw nsw i64 %i.02.i433, 1
   %exitcond.not.i441 = icmp eq i64 %inc.i440, 4
-  br i1 %exitcond.not.i441, label %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.exit442", label %for.body.i432, !llvm.loop !18
+  br i1 %exitcond.not.i441, label %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.argprom.exit442", label %for.body.i432, !llvm.loop !18
 
-"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.exit442": ; preds = %for.body.i432
+"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.argprom.exit442": ; preds = %for.body.i432
   %xor.i443 = xor i32 %xor2.i439, %buf3.2.lcssa
   br label %for.body.i445
 
-for.body.i445:                                    ; preds = %for.body.i445, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.exit442"
-  %i.02.i446 = phi i64 [ 0, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.exit442" ], [ %inc.i453, %for.body.i445 ]
-  %w.addr.01.i447 = phi i32 [ %xor.i443, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.exit442" ], [ %xor2.i452, %for.body.i445 ]
+for.body.i445:                                    ; preds = %for.body.i445, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.argprom.exit442"
+  %i.02.i446 = phi i64 [ 0, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.argprom.exit442" ], [ %inc.i453, %for.body.i445 ]
+  %w.addr.01.i447 = phi i32 [ %xor.i443, %"_ZZNK4absl12crc_internal5CRC326ExtendEPjPKvmENK3$_2clEjj.argprom.exit442" ], [ %xor2.i452, %for.body.i445 ]
   %shr.i448 = lshr i32 %w.addr.01.i447, 8
   %and.i449 = and i32 %w.addr.01.i447, 255
   %idxprom.i450 = zext nneg i32 %and.i449 to i64

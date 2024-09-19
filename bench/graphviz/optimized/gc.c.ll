@@ -225,7 +225,7 @@ init.exit:                                        ; preds = %42, %45
   br label %71
 
 71:                                               ; preds = %66, %._crit_edge
-  call fastcc void @stack_reset()
+  call fastcc void @stack_reset.argprom()
   call fastcc void @graphviz_exit(i32 noundef %.0.lcssa) #15
   unreachable
 }
@@ -631,7 +631,7 @@ define internal fastcc void @wcp(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @stack_reset() unnamed_addr #5 {
+define internal fastcc void @stack_reset.argprom() unnamed_addr #5 {
   store i64 0, ptr getelementptr inbounds (i8, ptr @Stk, i64 8), align 8
   %1 = load ptr, ptr @Stk, align 8
   tail call void @free(ptr noundef %1) #14

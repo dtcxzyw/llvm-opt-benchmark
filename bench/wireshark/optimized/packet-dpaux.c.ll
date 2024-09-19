@@ -382,8 +382,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %131 = getelementptr inbounds i8, ptr %.078.i, i64 4
   br label %132
 
-132:                                              ; preds = %dissect_dpaux_register.exit.i, %.preheader.i
-  %.06683.i = phi i32 [ 0, %.preheader.i ], [ %134, %dissect_dpaux_register.exit.i ]
+132:                                              ; preds = %dissect_dpaux_register.argprom.exit.i, %.preheader.i
+  %.06683.i = phi i32 [ 0, %.preheader.i ], [ %134, %dissect_dpaux_register.argprom.exit.i ]
   %133 = load i32, ptr @hf_dpaux_reg_addr, align 4
   %134 = add nuw nsw i32 %.06683.i, 1
   %135 = load i32, ptr %131, align 4
@@ -400,7 +400,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 144:                                              ; preds = %145
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %dissect_dpaux_register.exit.i, label %145, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %dissect_dpaux_register.argprom.exit.i, label %145, !llvm.loop !4
 
 145:                                              ; preds = %144, %132
   %indvars.iv.i.i = phi i64 [ 0, %132 ], [ %indvars.iv.next.i.i, %144 ]
@@ -413,7 +413,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %150 = getelementptr inbounds i8, ptr %146, i64 4
   %151 = load i8, ptr %150, align 4
   %cond.i.i = icmp eq i8 %151, 0
-  br i1 %cond.i.i, label %152, label %dissect_dpaux_register.exit.i
+  br i1 %cond.i.i, label %152, label %dissect_dpaux_register.argprom.exit.i
 
 152:                                              ; preds = %149
   %153 = getelementptr inbounds i8, ptr %146, i64 8
@@ -422,13 +422,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %156 = getelementptr inbounds i8, ptr %146, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %141, ptr noundef %0, i32 noundef %134, i32 noundef %155, i32 noundef 0, ptr noundef %157, i32 noundef 0, i32 noundef 0) #2
-  br label %dissect_dpaux_register.exit.i
+  br label %dissect_dpaux_register.argprom.exit.i
 
-dissect_dpaux_register.exit.i:                    ; preds = %144, %152, %149
+dissect_dpaux_register.argprom.exit.i:            ; preds = %144, %152, %149
   %exitcond.not.i = icmp eq i32 %134, %115
   br i1 %exitcond.not.i, label %dissect_dpaux_from_source.exit, label %132, !llvm.loop !6
 
-dissect_dpaux_from_source.exit:                   ; preds = %dissect_dpaux_register.exit.i, %129, %124, %110, %69, %64
+dissect_dpaux_from_source.exit:                   ; preds = %dissect_dpaux_register.argprom.exit.i, %129, %124, %110, %69, %64
   %159 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   ret i32 %159
 }

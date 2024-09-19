@@ -2723,7 +2723,7 @@ thread-pre-split:                                 ; preds = %1343
   br i1 %254, label %255, label %284
 
 255:                                              ; preds = %252
-  %256 = invoke fastcc noundef i64 @"_ZZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEv"(ptr %189)
+  %256 = invoke fastcc noundef i64 @"_ZZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEv.argprom.argprom"(ptr %189)
           to label %257 unwind label %.loopexit823
 
 257:                                              ; preds = %255
@@ -2830,7 +2830,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %._ZNSt6vectorImSaIm
   br label %.body
 
 284:                                              ; preds = %252
-  %285 = invoke fastcc noundef i64 @"_ZZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEv"(ptr %189)
+  %285 = invoke fastcc noundef i64 @"_ZZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEv.argprom.argprom"(ptr %189)
           to label %286 unwind label %.loopexit823
 
 286:                                              ; preds = %284
@@ -2936,7 +2936,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %.body
 
 317:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
-  %318 = invoke fastcc noundef i64 @"_ZZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEv"(ptr %189)
+  %318 = invoke fastcc noundef i64 @"_ZZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEv.argprom.argprom"(ptr %189)
           to label %319 unwind label %.loopexit823
 
 319:                                              ; preds = %317
@@ -7835,7 +7835,7 @@ _ZNSt3anyD2Ev.exit99.i:                           ; preds = %2099, %2096
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %92)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %93)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %94)
-  %2112 = invoke fastcc noundef i64 @"_ZZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEv"(ptr nonnull %189)
+  %2112 = invoke fastcc noundef i64 @"_ZZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEv.argprom.argprom"(ptr nonnull %189)
           to label %2113 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 2113:                                             ; preds = %2111
@@ -9418,7 +9418,7 @@ _ZNSt3anyD2Ev.exit99.i316:                        ; preds = %2649, %2646
   br label %.body195
 
 2669:                                             ; preds = %2666, %2661
-  %2670 = invoke fastcc noundef i64 @"_ZZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEv"(ptr nonnull %189)
+  %2670 = invoke fastcc noundef i64 @"_ZZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEv.argprom.argprom"(ptr nonnull %189)
           to label %2671 unwind label %.loopexit.split-lp.loopexit
 
 2671:                                             ; preds = %2669
@@ -10702,7 +10702,7 @@ _ZNSt3anyD2Ev.exit97.i:                           ; preds = %3094, %3091
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
-  %3107 = invoke fastcc noundef i64 @"_ZZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEv"(ptr nonnull %189)
+  %3107 = invoke fastcc noundef i64 @"_ZZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEv.argprom.argprom"(ptr nonnull %189)
           to label %3108 unwind label %.loopexit
 
 3108:                                             ; preds = %3106
@@ -12565,7 +12565,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 declare void @_ZN7xgboost6common13HistogramCutsC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @"_ZZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEv"(ptr %.0.val.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @"_ZZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEv.argprom.argprom"(ptr %.0.val.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"union.std::any::_Arg", align 8
   %2 = alloca %"union.std::any::_Arg", align 8
   %3 = alloca %"union.std::any::_Arg", align 8
@@ -12864,7 +12864,7 @@ _ZNSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEED2Ev.exit.i: ; preds = %_ZNSt
 
 _ZNSt3anyD2Ev.exit37.i:                           ; preds = %113, %_ZNSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEED2Ev.exit.i
   %117 = zext i32 %.sroa.14.0.copyload.i to i64
-  br label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.exit"
+  br label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.argprom.exit"
 
 118:                                              ; preds = %_ZSt8any_castISt10shared_ptrIN7xgboost4data15CSRArrayAdapterEEEPT_PSt3any.exit.thread.i.i
   %119 = landingpad { ptr, i32 }
@@ -13124,11 +13124,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt10shared_ptrIN7xgboost4data12ArrayAdapterEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i62.i, %203, %190, %173
   %208 = load ptr, ptr %20, align 8
   %.not.i.i63.i = icmp eq ptr %208, null
-  br i1 %.not.i.i63.i, label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.exit", label %209
+  br i1 %.not.i.i63.i, label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.argprom.exit", label %209
 
 209:                                              ; preds = %_ZNSt10shared_ptrIN7xgboost4data12ArrayAdapterEED2Ev.exit.i
   invoke void %208(i32 noundef 3, ptr noundef nonnull %20, ptr noundef null)
-          to label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.exit" unwind label %210
+          to label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.argprom.exit" unwind label %210
 
 210:                                              ; preds = %209
   %211 = landingpad { ptr, i32 }
@@ -13394,11 +13394,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt10shared_ptrIN7xgboost4data15ColumnarAdapterEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i89.i, %299, %286, %268
   %304 = load ptr, ptr %23, align 8
   %.not.i.i90.i = icmp eq ptr %304, null
-  br i1 %.not.i.i90.i, label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.exit", label %305
+  br i1 %.not.i.i90.i, label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.argprom.exit", label %305
 
 305:                                              ; preds = %_ZNSt10shared_ptrIN7xgboost4data15ColumnarAdapterEED2Ev.exit.i
   invoke void %304(i32 noundef 3, ptr noundef nonnull %23, ptr noundef null)
-          to label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.exit" unwind label %306
+          to label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.argprom.exit" unwind label %306
 
 306:                                              ; preds = %305
   %307 = landingpad { ptr, i32 }
@@ -13525,7 +13525,7 @@ _ZNKSt3any4typeEv.exit98.i:                       ; preds = %330, %328, %.thread
 
 _ZNSt3anyD2Ev.exit100.i:                          ; preds = %344, %341
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %24)
-  br label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.exit"
+  br label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.argprom.exit"
 
 348:                                              ; preds = %327, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i, %321
   %349 = landingpad { ptr, i32 }
@@ -13560,7 +13560,7 @@ _ZNSt3anyD2Ev.exit100.i:                          ; preds = %344, %341
   call void @__clang_call_terminate(ptr %356) #29
   unreachable
 
-"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.exit": ; preds = %_ZNSt3anyD2Ev.exit37.i, %_ZNSt10shared_ptrIN7xgboost4data12ArrayAdapterEED2Ev.exit.i, %209, %_ZNSt10shared_ptrIN7xgboost4data15ColumnarAdapterEED2Ev.exit.i, %305, %_ZNSt3anyD2Ev.exit100.i
+"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_1clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.argprom.exit": ; preds = %_ZNSt3anyD2Ev.exit37.i, %_ZNSt10shared_ptrIN7xgboost4data12ArrayAdapterEED2Ev.exit.i, %209, %_ZNSt10shared_ptrIN7xgboost4data15ColumnarAdapterEED2Ev.exit.i, %305, %_ZNSt3anyD2Ev.exit100.i
   %.016.i = phi i64 [ %117, %_ZNSt3anyD2Ev.exit37.i ], [ 0, %_ZNSt3anyD2Ev.exit100.i ], [ %.sroa.1.0.copyload.i, %_ZNSt10shared_ptrIN7xgboost4data12ArrayAdapterEED2Ev.exit.i ], [ %269, %_ZNSt10shared_ptrIN7xgboost4data15ColumnarAdapterEED2Ev.exit.i ], [ %.sroa.1.0.copyload.i, %209 ], [ %269, %305 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
@@ -13595,7 +13595,7 @@ _ZNSt10unique_ptrIN7xgboost10collective6detail10ResultImplESt14default_deleteIS3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @"_ZZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEv"(ptr %.0.val.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @"_ZZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEv.argprom.argprom"(ptr %.0.val.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"union.std::any::_Arg", align 8
   %2 = alloca %"union.std::any::_Arg", align 8
   %3 = alloca %"union.std::any::_Arg", align 8
@@ -13894,7 +13894,7 @@ _ZNSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEED2Ev.exit.i: ; preds = %_ZNSt
 
 _ZNSt3anyD2Ev.exit38.i:                           ; preds = %113, %_ZNSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEED2Ev.exit.i
   %117 = call noundef range(i64 0, -1) i64 @llvm.usub.sat.i64(i64 %.sroa.14.0.copyload.i, i64 1)
-  br label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.exit"
+  br label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.argprom.exit"
 
 118:                                              ; preds = %_ZSt8any_castISt10shared_ptrIN7xgboost4data15CSRArrayAdapterEEEPT_PSt3any.exit.thread.i.i
   %119 = landingpad { ptr, i32 }
@@ -14154,11 +14154,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt10shared_ptrIN7xgboost4data12ArrayAdapterEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i63.i, %203, %190, %173
   %208 = load ptr, ptr %20, align 8
   %.not.i.i64.i = icmp eq ptr %208, null
-  br i1 %.not.i.i64.i, label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.exit", label %209
+  br i1 %.not.i.i64.i, label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.argprom.exit", label %209
 
 209:                                              ; preds = %_ZNSt10shared_ptrIN7xgboost4data12ArrayAdapterEED2Ev.exit.i
   invoke void %208(i32 noundef 3, ptr noundef nonnull %20, ptr noundef null)
-          to label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.exit" unwind label %210
+          to label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.argprom.exit" unwind label %210
 
 210:                                              ; preds = %209
   %211 = landingpad { ptr, i32 }
@@ -14441,12 +14441,12 @@ _ZNSt10shared_ptrIN7xgboost4data15ColumnarAdapterEED2Ev.exit.i: ; preds = %_ZNSt
 
 _ZNSt3anyD2Ev.exit92.i:                           ; preds = %307, %_ZNSt10shared_ptrIN7xgboost4data15ColumnarAdapterEED2Ev.exit.i
   %311 = icmp eq i64 %269, 0
-  br i1 %311, label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.exit", label %_ZNK7xgboost6common4SpanINS_14ArrayInterfaceILi1ELb0EEELm18446744073709551615EE5frontEv.exit.i.i.i
+  br i1 %311, label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.argprom.exit", label %_ZNK7xgboost6common4SpanINS_14ArrayInterfaceILi1ELb0EEELm18446744073709551615EE5frontEv.exit.i.i.i
 
 _ZNK7xgboost6common4SpanINS_14ArrayInterfaceILi1ELb0EEELm18446744073709551615EE5frontEv.exit.i.i.i: ; preds = %_ZNSt3anyD2Ev.exit92.i
   %312 = getelementptr inbounds i8, ptr %271, i64 24
   %313 = load i64, ptr %312, align 8
-  br label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.exit"
+  br label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.argprom.exit"
 
 314:                                              ; preds = %_ZSt8any_castISt10shared_ptrIN7xgboost4data15ColumnarAdapterEEEPT_PSt3any.exit.thread.i.i
   %315 = landingpad { ptr, i32 }
@@ -14566,7 +14566,7 @@ _ZNKSt3any4typeEv.exit99.i:                       ; preds = %335, %333, %.thread
 
 _ZNSt3anyD2Ev.exit101.i:                          ; preds = %349, %346
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %24)
-  br label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.exit"
+  br label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.argprom.exit"
 
 353:                                              ; preds = %332, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i, %326
   %354 = landingpad { ptr, i32 }
@@ -14601,7 +14601,7 @@ _ZNSt3anyD2Ev.exit101.i:                          ; preds = %349, %346
   call void @__clang_call_terminate(ptr %361) #29
   unreachable
 
-"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.exit": ; preds = %_ZNSt3anyD2Ev.exit38.i, %_ZNSt10shared_ptrIN7xgboost4data12ArrayAdapterEED2Ev.exit.i, %209, %_ZNSt3anyD2Ev.exit92.i, %_ZNK7xgboost6common4SpanINS_14ArrayInterfaceILi1ELb0EEELm18446744073709551615EE5frontEv.exit.i.i.i, %_ZNSt3anyD2Ev.exit101.i
+"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_10BatchParamEPvfSt10shared_ptrINS_7DMatrixEEENK3$_0clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.argprom.exit": ; preds = %_ZNSt3anyD2Ev.exit38.i, %_ZNSt10shared_ptrIN7xgboost4data12ArrayAdapterEED2Ev.exit.i, %209, %_ZNSt3anyD2Ev.exit92.i, %_ZNK7xgboost6common4SpanINS_14ArrayInterfaceILi1ELb0EEELm18446744073709551615EE5frontEv.exit.i.i.i, %_ZNSt3anyD2Ev.exit101.i
   %.016.i = phi i64 [ %117, %_ZNSt3anyD2Ev.exit38.i ], [ 0, %_ZNSt3anyD2Ev.exit101.i ], [ %.sroa.1.0.copyload.i, %_ZNSt10shared_ptrIN7xgboost4data12ArrayAdapterEED2Ev.exit.i ], [ %313, %_ZNK7xgboost6common4SpanINS_14ArrayInterfaceILi1ELb0EEELm18446744073709551615EE5frontEv.exit.i.i.i ], [ 0, %_ZNSt3anyD2Ev.exit92.i ], [ %.sroa.1.0.copyload.i, %209 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)

@@ -658,7 +658,7 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
   %260 = add i32 %78, -1
   call void @pdfobj_flag(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 7) #10
   %.not.i151.i = icmp eq i32 %260, 0
-  br i1 %.not.i151.i, label %filter_flatedecode.exit.i, label %261
+  br i1 %.not.i151.i, label %filter_flatedecode.argprom.exit.i, label %261
 
 261:                                              ; preds = %258, %255
   %.083.i.i = phi ptr [ %259, %258 ], [ %79, %255 ]
@@ -669,7 +669,7 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
 
 263:                                              ; preds = %261
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.34) #10
-  br label %filter_flatedecode.exit.i
+  br label %filter_flatedecode.argprom.exit.i
 
 264:                                              ; preds = %261
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %73, i8 0, i64 104, i1 false)
@@ -684,7 +684,7 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
 266:                                              ; preds = %264
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.50) #10
   call void @free(ptr noundef nonnull %262) #10
-  br label %filter_flatedecode.exit.i
+  br label %filter_flatedecode.argprom.exit.i
 
 267:                                              ; preds = %264
   %268 = call i32 @inflate(ptr noundef nonnull %13, i32 noundef 0) #10
@@ -747,7 +747,7 @@ decode_nextlinestart.exit.thread.i.i:             ; preds = %275, %decode_nextli
 285:                                              ; preds = %decode_nextlinestart.exit.thread.i.i
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.50) #10
   call void @free(ptr noundef %262) #10
-  br label %filter_flatedecode.exit.i
+  br label %filter_flatedecode.argprom.exit.i
 
 286:                                              ; preds = %decode_nextlinestart.exit.thread.i.i
   call void @pdfobj_flag(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 6) #10
@@ -924,7 +924,7 @@ decode_nextlinestart.exit.thread.i.i:             ; preds = %275, %decode_nextli
   call void @free(ptr noundef %354) #10
   store ptr %.29024.i.i, ptr %35, align 8
   store i32 %353, ptr %37, align 8
-  br label %filter_flatedecode.exit.i
+  br label %filter_flatedecode.argprom.exit.i
 
 .thread14.i.i:                                    ; preds = %352, %337, %.thread10.i.i
   %.08835.i.i = phi ptr [ %.088.lcssa.i.i, %.thread10.i.i ], [ %.08834.i.i, %352 ], [ %.08837.i.i, %337 ]
@@ -936,9 +936,9 @@ decode_nextlinestart.exit.thread.i.i:             ; preds = %275, %decode_nextli
   %359 = zext i32 %358 to i64
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.42, i64 noundef %357, i64 noundef %359) #10
   call void @free(ptr noundef %.08835.i.i) #10
-  br label %filter_flatedecode.exit.i
+  br label %filter_flatedecode.argprom.exit.i
 
-filter_flatedecode.exit.i:                        ; preds = %.thread14.i.i, %.thread21.i.i, %285, %266, %263, %258
+filter_flatedecode.argprom.exit.i:                ; preds = %.thread14.i.i, %.thread21.i.i, %285, %266, %263, %258
   %.0.i145.i = phi i32 [ 20, %266 ], [ 20, %285 ], [ 20, %263 ], [ 0, %258 ], [ %.418.i.i, %.thread14.i.i ], [ %.425.i.i, %.thread21.i.i ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %13)
   br label %filter_ascii85decode.exitthread-pre-split.i
@@ -1512,8 +1512,8 @@ filter_lzwdecode.exit.i:                          ; preds = %.thread151.i.i, %.t
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18, i32 noundef %81) #10
   br label %filter_ascii85decode.exitthread-pre-split.i
 
-filter_ascii85decode.exitthread-pre-split.i:      ; preds = %565, %564, %filter_lzwdecode.exit.i, %filter_decrypt.exit164.i, %392, %366, %filter_flatedecode.exit.i, %.thread19.i.i, %174, %167, %87
-  %.0111.ph.i = phi i32 [ 26, %392 ], [ 20, %366 ], [ %.517.i.i, %.thread19.i.i ], [ 20, %174 ], [ 26, %167 ], [ 20, %87 ], [ %.0.i145.i, %filter_flatedecode.exit.i ], [ %.030.i162.i, %filter_decrypt.exit164.i ], [ %.0.i169.i, %filter_lzwdecode.exit.i ], [ 22, %564 ], [ 22, %565 ]
+filter_ascii85decode.exitthread-pre-split.i:      ; preds = %565, %564, %filter_lzwdecode.exit.i, %filter_decrypt.exit164.i, %392, %366, %filter_flatedecode.argprom.exit.i, %.thread19.i.i, %174, %167, %87
+  %.0111.ph.i = phi i32 [ 26, %392 ], [ 20, %366 ], [ %.517.i.i, %.thread19.i.i ], [ 20, %174 ], [ 26, %167 ], [ 20, %87 ], [ %.0.i145.i, %filter_flatedecode.argprom.exit.i ], [ %.030.i162.i, %filter_decrypt.exit164.i ], [ %.0.i169.i, %filter_lzwdecode.exit.i ], [ 22, %564 ], [ 22, %565 ]
   %.pr.i = load ptr, ptr %35, align 8
   br label %filter_ascii85decode.exit.i
 

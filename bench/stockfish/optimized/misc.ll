@@ -453,7 +453,7 @@ define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cx
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
-  tail call fastcc void @_ZN9Stockfish12_GLOBAL__N_16LoggerC2Ev()
+  tail call fastcc void @_ZN9Stockfish12_GLOBAL__N_16LoggerC2Ev.argprom()
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN9Stockfish12_GLOBAL__N_16LoggerD2Ev, ptr nonnull @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, ptr nonnull @__dso_handle) #21
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l) #21
   br label %8
@@ -709,7 +709,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_16LoggerC2Ev() unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_16LoggerC2Ev.argprom() unnamed_addr #3 align 2 {
   tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248) @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l) #21
   %1 = load ptr, ptr @_ZSt3cin, align 8
   %2 = getelementptr i8, ptr %1, i64 -24

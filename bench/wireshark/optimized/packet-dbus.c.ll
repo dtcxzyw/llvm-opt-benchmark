@@ -1974,7 +1974,7 @@ is_dbus_object_path_valid.exit.thread363:         ; preds = %129, %is_dbus_objec
   %.val355 = load ptr, ptr %156, align 8
   %157 = getelementptr i8, ptr %.val355, i64 408
   %.val355.val = load ptr, ptr %157, align 8
-  %158 = tail call fastcc i32 @is_dbus_signature_valid(ptr noundef %154, ptr %.val355.val)
+  %158 = tail call fastcc i32 @is_dbus_signature_valid.argprom.argprom(ptr noundef %154, ptr %.val355.val)
   %.not319 = icmp eq i32 %158, 0
   br i1 %.not319, label %159, label %163
 
@@ -2172,7 +2172,7 @@ add_uint.exit:                                    ; preds = %175, %180
   %.val356 = load ptr, ptr %251, align 8
   %252 = getelementptr i8, ptr %.val356, i64 408
   %.val356.val = load ptr, ptr %252, align 8
-  %253 = tail call fastcc i32 @is_dbus_signature_valid(ptr noundef %249, ptr %.val356.val)
+  %253 = tail call fastcc i32 @is_dbus_signature_valid.argprom.argprom(ptr noundef %249, ptr %.val356.val)
   %.not307 = icmp eq i32 %253, 0
   br i1 %.not307, label %277, label %254
 
@@ -2952,7 +2952,7 @@ define internal fastcc ptr @add_dbus_string(ptr nocapture noundef %0, i32 nounde
 declare i32 @g_utf8_validate(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_dbus_signature_valid(ptr noundef nonnull readonly %0, ptr %.8.val.408.val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_dbus_signature_valid.argprom.argprom(ptr noundef nonnull readonly %0, ptr %.8.val.408.val) unnamed_addr #0 {
   %2 = tail call noalias ptr @wmem_list_new(ptr noundef %.8.val.408.val) #9
   %3 = load i8, ptr %0, align 1
   %.not3 = icmp eq i8 %3, 0

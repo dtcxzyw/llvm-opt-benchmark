@@ -512,22 +512,22 @@ declare i32 @mbedtls_chachapoly_update_aad(ptr noundef, ptr noundef, i64 noundef
 define hidden i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #7 {
   %6 = load ptr, ptr %0, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %mbedtls_cipher_get_block_size.exit.thread, label %8
+  br i1 %7, label %mbedtls_cipher_get_block_size.argprom.exit.thread, label %8
 
 8:                                                ; preds = %5
   store i64 0, ptr %4, align 8
   %.val = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val, null
-  br i1 %9, label %mbedtls_cipher_get_block_size.exit.thread, label %mbedtls_cipher_get_block_size.exit
+  br i1 %9, label %mbedtls_cipher_get_block_size.argprom.exit.thread, label %mbedtls_cipher_get_block_size.argprom.exit
 
-mbedtls_cipher_get_block_size.exit:               ; preds = %8
+mbedtls_cipher_get_block_size.argprom.exit:       ; preds = %8
   %10 = getelementptr inbounds i8, ptr %.val, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = icmp eq i32 %11, 0
-  br i1 %13, label %mbedtls_cipher_get_block_size.exit.thread, label %14
+  br i1 %13, label %mbedtls_cipher_get_block_size.argprom.exit.thread, label %14
 
-14:                                               ; preds = %mbedtls_cipher_get_block_size.exit
+14:                                               ; preds = %mbedtls_cipher_get_block_size.argprom.exit
   %15 = getelementptr inbounds i8, ptr %.val, i64 4
   %16 = load i32, ptr %15, align 4
   switch i32 %16, label %37 [
@@ -538,7 +538,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
 
 17:                                               ; preds = %14
   %.not204 = icmp eq i64 %2, %12
-  br i1 %.not204, label %18, label %mbedtls_cipher_get_block_size.exit.thread
+  br i1 %.not204, label %18, label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 18:                                               ; preds = %17
   store i64 %2, ptr %4, align 8
@@ -552,19 +552,19 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   %26 = getelementptr inbounds i8, ptr %0, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = tail call i32 %23(ptr noundef %25, i32 noundef %27, ptr noundef %1, ptr noundef %3) #16
-  br label %mbedtls_cipher_get_block_size.exit.thread
+  br label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 29:                                               ; preds = %14
   %30 = getelementptr inbounds i8, ptr %0, i64 80
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @mbedtls_gcm_update(ptr noundef %31, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %2, ptr noundef nonnull %4) #16
-  br label %mbedtls_cipher_get_block_size.exit.thread
+  br label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 33:                                               ; preds = %14
   %34 = getelementptr inbounds i8, ptr %0, i64 80
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 @mbedtls_ccm_update(ptr noundef %35, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %2, ptr noundef nonnull %4) #16
-  br label %mbedtls_cipher_get_block_size.exit.thread
+  br label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 37:                                               ; preds = %14
   %38 = load i32, ptr %.val, align 8
@@ -576,7 +576,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   %41 = getelementptr inbounds i8, ptr %0, i64 80
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @mbedtls_chachapoly_update(ptr noundef %42, i64 noundef %2, ptr noundef %1, ptr noundef %3) #16
-  br label %mbedtls_cipher_get_block_size.exit.thread
+  br label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 44:                                               ; preds = %37
   %45 = icmp eq ptr %1, %3
@@ -586,15 +586,15 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   %47 = getelementptr inbounds i8, ptr %0, i64 48
   %48 = load i64, ptr %47, align 8
   %.not = icmp eq i64 %48, 0
-  br i1 %.not, label %49, label %mbedtls_cipher_get_block_size.exit.thread
+  br i1 %.not, label %49, label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 49:                                               ; preds = %46
   %50 = urem i64 %2, %12
   %.not189 = icmp eq i64 %50, 0
-  br i1 %.not189, label %51, label %mbedtls_cipher_get_block_size.exit.thread
+  br i1 %.not189, label %51, label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 51:                                               ; preds = %49, %44
-  switch i32 %16, label %mbedtls_cipher_get_block_size.exit.thread [
+  switch i32 %16, label %mbedtls_cipher_get_block_size.argprom.exit.thread [
     i32 2, label %52
     i32 3, label %128
     i32 4, label %141
@@ -644,7 +644,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   %74 = load i64, ptr %72, align 8
   %75 = add i64 %74, %2
   store i64 %75, ptr %72, align 8
-  br label %mbedtls_cipher_get_block_size.exit.thread
+  br label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 .thread208:                                       ; preds = %61, %52, %62, %64
   %76 = getelementptr inbounds i8, ptr %0, i64 48
@@ -668,7 +668,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   %90 = getelementptr inbounds i8, ptr %0, i64 56
   %91 = tail call i32 %86(ptr noundef %88, i32 noundef %89, i64 noundef %12, ptr noundef nonnull %90, ptr noundef nonnull %80, ptr noundef %3) #16
   %.not199 = icmp eq i32 %91, 0
-  br i1 %.not199, label %92, label %mbedtls_cipher_get_block_size.exit.thread
+  br i1 %.not199, label %92, label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 92:                                               ; preds = %78
   %93 = load i64, ptr %4, align 8
@@ -685,7 +685,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   %.0172 = phi ptr [ %95, %92 ], [ %3, %.thread208 ]
   %.0171 = phi ptr [ %96, %92 ], [ %1, %.thread208 ]
   %.not200 = icmp eq i64 %.0173, 0
-  br i1 %.not200, label %mbedtls_cipher_get_block_size.exit.thread, label %99
+  br i1 %.not200, label %mbedtls_cipher_get_block_size.argprom.exit.thread, label %99
 
 99:                                               ; preds = %98
   %100 = urem i64 %.0173, %12
@@ -714,7 +714,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   %113 = add i64 %112, %.0
   store i64 %113, ptr %76, align 8
   %.not202 = icmp eq i64 %.0173, %.0
-  br i1 %.not202, label %mbedtls_cipher_get_block_size.exit.thread, label %114
+  br i1 %.not202, label %mbedtls_cipher_get_block_size.argprom.exit.thread, label %114
 
 114:                                              ; preds = %108
   %115 = load ptr, ptr %0, align 8
@@ -728,13 +728,13 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   %123 = getelementptr inbounds i8, ptr %0, i64 56
   %124 = tail call i32 %119(ptr noundef %121, i32 noundef %122, i64 noundef %110, ptr noundef nonnull %123, ptr noundef %.0171, ptr noundef %.0172) #16
   %.not203 = icmp eq i32 %124, 0
-  br i1 %.not203, label %125, label %mbedtls_cipher_get_block_size.exit.thread
+  br i1 %.not203, label %125, label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 125:                                              ; preds = %114
   %126 = load i64, ptr %4, align 8
   %127 = add i64 %126, %110
   store i64 %127, ptr %4, align 8
-  br label %mbedtls_cipher_get_block_size.exit.thread
+  br label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 128:                                              ; preds = %51
   %129 = getelementptr inbounds i8, ptr %.val, i64 40
@@ -749,11 +749,11 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   %138 = getelementptr inbounds i8, ptr %0, i64 56
   %139 = tail call i32 %132(ptr noundef %134, i32 noundef %136, i64 noundef %2, ptr noundef nonnull %137, ptr noundef nonnull %138, ptr noundef %1, ptr noundef %3) #16
   %.not195 = icmp eq i32 %139, 0
-  br i1 %.not195, label %140, label %mbedtls_cipher_get_block_size.exit.thread
+  br i1 %.not195, label %140, label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 140:                                              ; preds = %128
   store i64 %2, ptr %4, align 8
-  br label %mbedtls_cipher_get_block_size.exit.thread
+  br label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 141:                                              ; preds = %51
   %142 = getelementptr inbounds i8, ptr %.val, i64 40
@@ -766,11 +766,11 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   %149 = getelementptr inbounds i8, ptr %0, i64 56
   %150 = tail call i32 %145(ptr noundef %147, i64 noundef %2, ptr noundef nonnull %148, ptr noundef nonnull %149, ptr noundef %1, ptr noundef %3) #16
   %.not194 = icmp eq i32 %150, 0
-  br i1 %.not194, label %151, label %mbedtls_cipher_get_block_size.exit.thread
+  br i1 %.not194, label %151, label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 151:                                              ; preds = %141
   store i64 %2, ptr %4, align 8
-  br label %mbedtls_cipher_get_block_size.exit.thread
+  br label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 152:                                              ; preds = %51
   %153 = getelementptr inbounds i8, ptr %.val, i64 40
@@ -784,17 +784,17 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   %161 = getelementptr inbounds i8, ptr %0, i64 32
   %162 = tail call i32 %156(ptr noundef %158, i64 noundef %2, ptr noundef nonnull %159, ptr noundef nonnull %160, ptr noundef nonnull %161, ptr noundef %1, ptr noundef %3) #16
   %.not193 = icmp eq i32 %162, 0
-  br i1 %.not193, label %163, label %mbedtls_cipher_get_block_size.exit.thread
+  br i1 %.not193, label %163, label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 163:                                              ; preds = %152
   store i64 %2, ptr %4, align 8
-  br label %mbedtls_cipher_get_block_size.exit.thread
+  br label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 164:                                              ; preds = %51
   %165 = getelementptr inbounds i8, ptr %0, i64 48
   %166 = load i64, ptr %165, align 8
   %.not191 = icmp eq i64 %166, 0
-  br i1 %.not191, label %167, label %mbedtls_cipher_get_block_size.exit.thread
+  br i1 %.not191, label %167, label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 167:                                              ; preds = %164
   %168 = getelementptr inbounds i8, ptr %.val, i64 40
@@ -808,11 +808,11 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   %176 = getelementptr inbounds i8, ptr %0, i64 56
   %177 = tail call i32 %171(ptr noundef %173, i32 noundef %175, i64 noundef %2, ptr noundef nonnull %176, ptr noundef %1, ptr noundef %3) #16
   %.not192 = icmp eq i32 %177, 0
-  br i1 %.not192, label %178, label %mbedtls_cipher_get_block_size.exit.thread
+  br i1 %.not192, label %178, label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 178:                                              ; preds = %167
   store i64 %2, ptr %4, align 8
-  br label %mbedtls_cipher_get_block_size.exit.thread
+  br label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 179:                                              ; preds = %51
   %180 = getelementptr inbounds i8, ptr %.val, i64 40
@@ -823,14 +823,14 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   %185 = load ptr, ptr %184, align 8
   %186 = tail call i32 %183(ptr noundef %185, i64 noundef %2, ptr noundef %1, ptr noundef %3) #16
   %.not190 = icmp eq i32 %186, 0
-  br i1 %.not190, label %187, label %mbedtls_cipher_get_block_size.exit.thread
+  br i1 %.not190, label %187, label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
 187:                                              ; preds = %179
   store i64 %2, ptr %4, align 8
-  br label %mbedtls_cipher_get_block_size.exit.thread
+  br label %mbedtls_cipher_get_block_size.argprom.exit.thread
 
-mbedtls_cipher_get_block_size.exit.thread:        ; preds = %98, %8, %51, %179, %167, %164, %152, %141, %128, %108, %125, %114, %78, %46, %49, %18, %17, %mbedtls_cipher_get_block_size.exit, %5, %187, %178, %163, %151, %140, %69, %40, %33, %29
-  %.0170 = phi i32 [ %32, %29 ], [ %36, %33 ], [ %43, %40 ], [ 0, %69 ], [ 0, %140 ], [ 0, %151 ], [ 0, %163 ], [ 0, %178 ], [ 0, %187 ], [ -24832, %5 ], [ -25472, %mbedtls_cipher_get_block_size.exit ], [ -25216, %17 ], [ %28, %18 ], [ -24832, %49 ], [ -24832, %46 ], [ %91, %78 ], [ %124, %114 ], [ 0, %125 ], [ 0, %108 ], [ %139, %128 ], [ %150, %141 ], [ %162, %152 ], [ -24704, %164 ], [ %177, %167 ], [ %186, %179 ], [ -24704, %51 ], [ -25472, %8 ], [ 0, %98 ]
+mbedtls_cipher_get_block_size.argprom.exit.thread: ; preds = %98, %8, %51, %179, %167, %164, %152, %141, %128, %108, %125, %114, %78, %46, %49, %18, %17, %mbedtls_cipher_get_block_size.argprom.exit, %5, %187, %178, %163, %151, %140, %69, %40, %33, %29
+  %.0170 = phi i32 [ %32, %29 ], [ %36, %33 ], [ %43, %40 ], [ 0, %69 ], [ 0, %140 ], [ 0, %151 ], [ 0, %163 ], [ 0, %178 ], [ 0, %187 ], [ -24832, %5 ], [ -25472, %mbedtls_cipher_get_block_size.argprom.exit ], [ -25216, %17 ], [ %28, %18 ], [ -24832, %49 ], [ -24832, %46 ], [ %91, %78 ], [ %124, %114 ], [ 0, %125 ], [ 0, %108 ], [ %139, %128 ], [ %150, %141 ], [ %162, %152 ], [ -24704, %164 ], [ %177, %167 ], [ %186, %179 ], [ -24704, %51 ], [ -25472, %8 ], [ 0, %98 ]
   ret i32 %.0170
 }
 
@@ -878,7 +878,7 @@ define hidden i32 @mbedtls_cipher_finish(ptr noundef %0, ptr noundef %1, ptr nou
   %19 = getelementptr inbounds i8, ptr %0, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 1
-  br i1 %21, label %22, label %mbedtls_cipher_get_block_size.exit
+  br i1 %21, label %22, label %mbedtls_cipher_get_block_size.argprom.exit
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %0, i64 16
@@ -920,18 +920,18 @@ mbedtls_cipher_get_iv_size.exit:                  ; preds = %33, %35
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
   %.pre60 = load i32, ptr %.phi.trans.insert, align 8
   %.pre61 = zext i32 %.pre60 to i64
-  br label %mbedtls_cipher_get_block_size.exit54
+  br label %mbedtls_cipher_get_block_size.argprom.exit54
 
-mbedtls_cipher_get_block_size.exit:               ; preds = %18
+mbedtls_cipher_get_block_size.argprom.exit:       ; preds = %18
   %41 = getelementptr inbounds i8, ptr %7, i64 32
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %0, i64 48
   %45 = load i64, ptr %44, align 8
   %.not = icmp eq i64 %45, %43
-  br i1 %.not, label %mbedtls_cipher_get_block_size.exit54, label %46
+  br i1 %.not, label %mbedtls_cipher_get_block_size.argprom.exit54, label %46
 
-46:                                               ; preds = %mbedtls_cipher_get_block_size.exit
+46:                                               ; preds = %mbedtls_cipher_get_block_size.argprom.exit
   %47 = getelementptr inbounds i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
@@ -940,10 +940,10 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %18
   %spec.select = select i1 %or.cond, i32 0, i32 -25216
   br label %switch.lookup
 
-mbedtls_cipher_get_block_size.exit54:             ; preds = %mbedtls_cipher_get_block_size.exit, %mbedtls_cipher_get_iv_size.exit
-  %.pre-phi = phi i64 [ %43, %mbedtls_cipher_get_block_size.exit ], [ %.pre61, %mbedtls_cipher_get_iv_size.exit ]
-  %51 = phi i32 [ %20, %mbedtls_cipher_get_block_size.exit ], [ %.pre59, %mbedtls_cipher_get_iv_size.exit ]
-  %52 = phi ptr [ %7, %mbedtls_cipher_get_block_size.exit ], [ %.pre, %mbedtls_cipher_get_iv_size.exit ]
+mbedtls_cipher_get_block_size.argprom.exit54:     ; preds = %mbedtls_cipher_get_block_size.argprom.exit, %mbedtls_cipher_get_iv_size.exit
+  %.pre-phi = phi i64 [ %43, %mbedtls_cipher_get_block_size.argprom.exit ], [ %.pre61, %mbedtls_cipher_get_iv_size.exit ]
+  %51 = phi i32 [ %20, %mbedtls_cipher_get_block_size.argprom.exit ], [ %.pre59, %mbedtls_cipher_get_iv_size.exit ]
+  %52 = phi ptr [ %7, %mbedtls_cipher_get_block_size.argprom.exit ], [ %.pre, %mbedtls_cipher_get_iv_size.exit ]
   %53 = getelementptr inbounds i8, ptr %52, i64 40
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 16
@@ -956,7 +956,7 @@ mbedtls_cipher_get_block_size.exit54:             ; preds = %mbedtls_cipher_get_
   %.not45 = icmp eq i32 %61, 0
   br i1 %.not45, label %62, label %switch.lookup
 
-62:                                               ; preds = %mbedtls_cipher_get_block_size.exit54
+62:                                               ; preds = %mbedtls_cipher_get_block_size.argprom.exit54
   %63 = load i32, ptr %19, align 4
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %74
@@ -966,15 +966,15 @@ mbedtls_cipher_get_block_size.exit54:             ; preds = %mbedtls_cipher_get_
   %67 = load ptr, ptr %66, align 8
   %.val49 = load ptr, ptr %0, align 8
   %68 = icmp eq ptr %.val49, null
-  br i1 %68, label %mbedtls_cipher_get_block_size.exit56, label %69
+  br i1 %68, label %mbedtls_cipher_get_block_size.argprom.exit56, label %69
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds i8, ptr %.val49, i64 32
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
-  br label %mbedtls_cipher_get_block_size.exit56
+  br label %mbedtls_cipher_get_block_size.argprom.exit56
 
-mbedtls_cipher_get_block_size.exit56:             ; preds = %65, %69
+mbedtls_cipher_get_block_size.argprom.exit56:     ; preds = %65, %69
   %.0.i55 = phi i64 [ %72, %69 ], [ 0, %65 ]
   %73 = tail call i32 %67(ptr noundef %1, i64 noundef %.0.i55, ptr noundef nonnull %2) #16
   br label %switch.lookup
@@ -982,15 +982,15 @@ mbedtls_cipher_get_block_size.exit56:             ; preds = %65, %69
 74:                                               ; preds = %62
   %.val = load ptr, ptr %0, align 8
   %75 = icmp eq ptr %.val, null
-  br i1 %75, label %mbedtls_cipher_get_block_size.exit58, label %76
+  br i1 %75, label %mbedtls_cipher_get_block_size.argprom.exit58, label %76
 
 76:                                               ; preds = %74
   %77 = getelementptr inbounds i8, ptr %.val, i64 32
   %78 = load i32, ptr %77, align 8
   %79 = zext i32 %78 to i64
-  br label %mbedtls_cipher_get_block_size.exit58
+  br label %mbedtls_cipher_get_block_size.argprom.exit58
 
-mbedtls_cipher_get_block_size.exit58:             ; preds = %74, %76
+mbedtls_cipher_get_block_size.argprom.exit58:     ; preds = %74, %76
   %.0.i57 = phi i64 [ %79, %76 ], [ 0, %74 ]
   store i64 %.0.i57, ptr %2, align 8
   br label %switch.lookup
@@ -1001,8 +1001,8 @@ switch.hole_check:                                ; preds = %6
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %11
 
-switch.lookup:                                    ; preds = %switch.hole_check, %46, %11, %14, %mbedtls_cipher_get_block_size.exit54, %26, %15, %3, %mbedtls_cipher_get_block_size.exit58, %mbedtls_cipher_get_block_size.exit56
-  %.0 = phi i32 [ %73, %mbedtls_cipher_get_block_size.exit56 ], [ 0, %mbedtls_cipher_get_block_size.exit58 ], [ -24832, %3 ], [ 0, %11 ], [ %., %15 ], [ %.48, %26 ], [ %61, %mbedtls_cipher_get_block_size.exit54 ], [ -24704, %14 ], [ %spec.select, %46 ], [ 0, %switch.hole_check ]
+switch.lookup:                                    ; preds = %switch.hole_check, %46, %11, %14, %mbedtls_cipher_get_block_size.argprom.exit54, %26, %15, %3, %mbedtls_cipher_get_block_size.argprom.exit58, %mbedtls_cipher_get_block_size.argprom.exit56
+  %.0 = phi i32 [ %73, %mbedtls_cipher_get_block_size.argprom.exit56 ], [ 0, %mbedtls_cipher_get_block_size.argprom.exit58 ], [ -24832, %3 ], [ 0, %11 ], [ %., %15 ], [ %.48, %26 ], [ %61, %mbedtls_cipher_get_block_size.argprom.exit54 ], [ -24704, %14 ], [ %spec.select, %46 ], [ 0, %switch.hole_check ]
   ret i32 %.0
 }
 

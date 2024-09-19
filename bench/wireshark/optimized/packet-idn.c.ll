@@ -1181,7 +1181,7 @@ dissect_idn_laser_gts.exit175.i.i.i:              ; preds = %434
   %.val.i.i.i = load ptr, ptr %321, align 8
   %443 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.i.i.i) #8
   switch i16 %329, label %449 [
-    i16 21118, label %determine_color.exit.i.i.i
+    i16 21118, label %determine_color.argprom.exit.i.i.i
     i16 21012, label %444
     i16 20940, label %445
     i16 20925, label %446
@@ -1190,24 +1190,24 @@ dissect_idn_laser_gts.exit175.i.i.i:              ; preds = %434
   ]
 
 444:                                              ; preds = %dissect_idn_laser_gts.exit175.i.i.i
-  br label %determine_color.exit.i.i.i
+  br label %determine_color.argprom.exit.i.i.i
 
 445:                                              ; preds = %dissect_idn_laser_gts.exit175.i.i.i
-  br label %determine_color.exit.i.i.i
+  br label %determine_color.argprom.exit.i.i.i
 
 446:                                              ; preds = %dissect_idn_laser_gts.exit175.i.i.i
-  br label %determine_color.exit.i.i.i
+  br label %determine_color.argprom.exit.i.i.i
 
 447:                                              ; preds = %dissect_idn_laser_gts.exit175.i.i.i
-  br label %determine_color.exit.i.i.i
+  br label %determine_color.argprom.exit.i.i.i
 
 448:                                              ; preds = %dissect_idn_laser_gts.exit175.i.i.i
-  br label %determine_color.exit.i.i.i
+  br label %determine_color.argprom.exit.i.i.i
 
 449:                                              ; preds = %dissect_idn_laser_gts.exit175.i.i.i
-  br label %determine_color.exit.i.i.i
+  br label %determine_color.argprom.exit.i.i.i
 
-determine_color.exit.i.i.i:                       ; preds = %449, %448, %447, %446, %445, %444, %dissect_idn_laser_gts.exit175.i.i.i
+determine_color.argprom.exit.i.i.i:               ; preds = %449, %448, %447, %446, %445, %444, %dissect_idn_laser_gts.exit175.i.i.i
   %.str.250.sink.i.i.i.i = phi ptr [ @.str.250, %449 ], [ @.str.249, %448 ], [ @.str.248, %447 ], [ @.str.247, %446 ], [ @.str.246, %445 ], [ @.str.245, %444 ], [ @.str.244, %dissect_idn_laser_gts.exit175.i.i.i ]
   %sext34.i.i.i.i = shl i64 %443, 32
   %sext35.i.i.i.i = sub i64 8796093022208, %sext34.i.i.i.i
@@ -1273,9 +1273,9 @@ dissect_idn_laser_gts.exit179.i.i.i:              ; preds = %454
   %482 = add i32 %481, %337
   br label %.loopexit.i24.i.i
 
-.loopexit.i24.i.i:                                ; preds = %.loopexit.loopexit.i.i.i, %dissect_idn_laser_gts.exit179.i.i.i, %dissect_idn_laser_gts.exit178.i.i.i, %dissect_idn_laser_gts.exit177.i.i.i, %dissect_idn_laser_gts.exit176.i.i.i, %determine_color.exit.i.i.i, %dissect_idn_laser_gts.exit174.i.i.i, %dissect_idn_laser_gts.exit173.i.i.i, %398, %dissect_idn_laser_gts.exit172.i.i.i, %dissect_idn_laser_gts.exit171.i.i.i, %365, %357, %dissect_idn_laser_gts.exit.i.i.i, %333
-  %.2197.i.i.i = phi i32 [ %337, %333 ], [ %349, %dissect_idn_laser_gts.exit.i.i.i ], [ %361, %357 ], [ %369, %365 ], [ %376, %dissect_idn_laser_gts.exit171.i.i.i ], [ %389, %dissect_idn_laser_gts.exit172.i.i.i ], [ %408, %398 ], [ %415, %dissect_idn_laser_gts.exit173.i.i.i ], [ %426, %dissect_idn_laser_gts.exit174.i.i.i ], [ %439, %determine_color.exit.i.i.i ], [ %456, %dissect_idn_laser_gts.exit179.i.i.i ], [ %456, %dissect_idn_laser_gts.exit178.i.i.i ], [ %456, %dissect_idn_laser_gts.exit177.i.i.i ], [ %456, %dissect_idn_laser_gts.exit176.i.i.i ], [ %482, %.loopexit.loopexit.i.i.i ]
-  %.2.i25.i.i = phi i32 [ %338, %333 ], [ %352, %dissect_idn_laser_gts.exit.i.i.i ], [ %362, %357 ], [ %370, %365 ], [ %379, %dissect_idn_laser_gts.exit171.i.i.i ], [ %392, %dissect_idn_laser_gts.exit172.i.i.i ], [ %.0.i.i.i.i, %398 ], [ %418, %dissect_idn_laser_gts.exit173.i.i.i ], [ %429, %dissect_idn_laser_gts.exit174.i.i.i ], [ %442, %determine_color.exit.i.i.i ], [ %457, %dissect_idn_laser_gts.exit179.i.i.i ], [ %457, %dissect_idn_laser_gts.exit178.i.i.i ], [ %457, %dissect_idn_laser_gts.exit177.i.i.i ], [ %457, %dissect_idn_laser_gts.exit176.i.i.i ], [ %342, %.loopexit.loopexit.i.i.i ]
+.loopexit.i24.i.i:                                ; preds = %.loopexit.loopexit.i.i.i, %dissect_idn_laser_gts.exit179.i.i.i, %dissect_idn_laser_gts.exit178.i.i.i, %dissect_idn_laser_gts.exit177.i.i.i, %dissect_idn_laser_gts.exit176.i.i.i, %determine_color.argprom.exit.i.i.i, %dissect_idn_laser_gts.exit174.i.i.i, %dissect_idn_laser_gts.exit173.i.i.i, %398, %dissect_idn_laser_gts.exit172.i.i.i, %dissect_idn_laser_gts.exit171.i.i.i, %365, %357, %dissect_idn_laser_gts.exit.i.i.i, %333
+  %.2197.i.i.i = phi i32 [ %337, %333 ], [ %349, %dissect_idn_laser_gts.exit.i.i.i ], [ %361, %357 ], [ %369, %365 ], [ %376, %dissect_idn_laser_gts.exit171.i.i.i ], [ %389, %dissect_idn_laser_gts.exit172.i.i.i ], [ %408, %398 ], [ %415, %dissect_idn_laser_gts.exit173.i.i.i ], [ %426, %dissect_idn_laser_gts.exit174.i.i.i ], [ %439, %determine_color.argprom.exit.i.i.i ], [ %456, %dissect_idn_laser_gts.exit179.i.i.i ], [ %456, %dissect_idn_laser_gts.exit178.i.i.i ], [ %456, %dissect_idn_laser_gts.exit177.i.i.i ], [ %456, %dissect_idn_laser_gts.exit176.i.i.i ], [ %482, %.loopexit.loopexit.i.i.i ]
+  %.2.i25.i.i = phi i32 [ %338, %333 ], [ %352, %dissect_idn_laser_gts.exit.i.i.i ], [ %362, %357 ], [ %370, %365 ], [ %379, %dissect_idn_laser_gts.exit171.i.i.i ], [ %392, %dissect_idn_laser_gts.exit172.i.i.i ], [ %.0.i.i.i.i, %398 ], [ %418, %dissect_idn_laser_gts.exit173.i.i.i ], [ %429, %dissect_idn_laser_gts.exit174.i.i.i ], [ %442, %determine_color.argprom.exit.i.i.i ], [ %457, %dissect_idn_laser_gts.exit179.i.i.i ], [ %457, %dissect_idn_laser_gts.exit178.i.i.i ], [ %457, %dissect_idn_laser_gts.exit177.i.i.i ], [ %457, %dissect_idn_laser_gts.exit176.i.i.i ], [ %342, %.loopexit.loopexit.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %483 = load i8, ptr %.077.i.i.i, align 8
   %484 = zext i8 %483 to i64
@@ -1381,7 +1381,7 @@ dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, 
   %.077.ph89.ph.i = phi ptr [ %.077.ph90.i, %.thread86.i ], [ %.077.i.i.i, %233 ]
   %528 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.048.ph91.ph.i) #7
   %529 = lshr i8 %528, 4
-  br label %dissect_idn_chunk_header.exit.thread.i
+  br label %dissect_idn_chunk_header.argprom.exit.thread.i
 
 530:                                              ; preds = %523
   switch i8 %119, label %531 [
@@ -1392,11 +1392,11 @@ dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, 
 531:                                              ; preds = %530
   %532 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.048.ph.ph.i) #7
   %533 = lshr i8 %532, 4
-  switch i8 %119, label %dissect_idn_chunk_header.exit.i [
+  switch i8 %119, label %dissect_idn_chunk_header.argprom.exit.i [
     i8 1, label %534
     i8 2, label %544
     i8 3, label %554
-    i8 16, label %dissect_idn_chunk_header.exit.thread.i
+    i8 16, label %dissect_idn_chunk_header.argprom.exit.thread.i
     i8 17, label %564
     i8 24, label %580
   ]
@@ -1411,7 +1411,7 @@ dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, 
   %541 = load i32, ptr @hf_idn_duration, align 4
   %542 = tail call ptr @proto_tree_add_item(ptr noundef %536, i32 noundef %541, ptr noundef %0, i32 noundef %540, i32 noundef 3, i32 noundef 0) #7
   %543 = add i32 %.048.ph.ph.i, 4
-  br label %dissect_idn_chunk_header.exit.i
+  br label %dissect_idn_chunk_header.argprom.exit.i
 
 544:                                              ; preds = %531
   %545 = load i32, ptr @ett_chunk_header_tree, align 4
@@ -1423,7 +1423,7 @@ dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, 
   %551 = load i32, ptr @hf_idn_duration, align 4
   %552 = tail call ptr @proto_tree_add_item(ptr noundef %546, i32 noundef %551, ptr noundef %0, i32 noundef %550, i32 noundef 3, i32 noundef 0) #7
   %553 = add i32 %.048.ph.ph.i, 4
-  br label %dissect_idn_chunk_header.exit.i
+  br label %dissect_idn_chunk_header.argprom.exit.i
 
 554:                                              ; preds = %531
   %555 = load i32, ptr @ett_chunk_header_tree, align 4
@@ -1435,7 +1435,7 @@ dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, 
   %561 = load i32, ptr @hf_idn_duration, align 4
   %562 = tail call ptr @proto_tree_add_item(ptr noundef %556, i32 noundef %561, ptr noundef %0, i32 noundef %560, i32 noundef 3, i32 noundef 0) #7
   %563 = add i32 %.048.ph.ph.i, 4
-  br label %dissect_idn_chunk_header.exit.i
+  br label %dissect_idn_chunk_header.argprom.exit.i
 
 564:                                              ; preds = %531
   %565 = load i32, ptr @ett_chunk_header_tree, align 4
@@ -1453,7 +1453,7 @@ dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, 
   %577 = load i32, ptr @hf_idn_reserved, align 4
   %578 = tail call ptr @proto_tree_add_item(ptr noundef %566, i32 noundef %577, ptr noundef %0, i32 noundef %576, i32 noundef 1, i32 noundef 0) #7
   %579 = add i32 %.048.ph.ph.i, 4
-  br label %dissect_idn_chunk_header.exit.i
+  br label %dissect_idn_chunk_header.argprom.exit.i
 
 580:                                              ; preds = %531
   %581 = load i32, ptr @ett_chunk_header_tree, align 4
@@ -1471,16 +1471,16 @@ dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, 
   %593 = load i32, ptr @hf_idn_reserved, align 4
   %594 = tail call ptr @proto_tree_add_item(ptr noundef %582, i32 noundef %593, ptr noundef %0, i32 noundef %592, i32 noundef 1, i32 noundef 0) #7
   %595 = add i32 %.048.ph.ph.i, 4
-  br label %dissect_idn_chunk_header.exit.i
+  br label %dissect_idn_chunk_header.argprom.exit.i
 
-dissect_idn_chunk_header.exit.i:                  ; preds = %580, %564, %554, %544, %534, %531
+dissect_idn_chunk_header.argprom.exit.i:          ; preds = %580, %564, %554, %544, %534, %531
   %.0.i61.i = phi i32 [ %.048.ph.ph.i, %531 ], [ %595, %580 ], [ %579, %564 ], [ %563, %554 ], [ %553, %544 ], [ %543, %534 ]
   %596 = getelementptr inbounds i8, ptr %.077.ph.ph.i, i64 1
   %597 = load i8, ptr %596, align 1
   %.not57.i = icmp eq i8 %533, %597
   br i1 %.not57.i, label %614, label %612
 
-dissect_idn_chunk_header.exit.thread.i:           ; preds = %531, %.thread105.i
+dissect_idn_chunk_header.argprom.exit.thread.i:   ; preds = %531, %.thread105.i
   %.in.i = phi i8 [ %529, %.thread105.i ], [ %533, %531 ]
   %.048.ph91102110.i = phi i32 [ %.048.ph91.ph.i, %.thread105.i ], [ %.048.ph.ph.i, %531 ]
   %.077.ph89104108.i = phi ptr [ %.077.ph89.ph.i, %.thread105.i ], [ %.077.ph.ph.i, %531 ]
@@ -1501,18 +1501,18 @@ dissect_idn_chunk_header.exit.thread.i:           ; preds = %531, %.thread105.i
   %.not57132.i = icmp eq i8 %.in.i, %611
   br i1 %.not57132.i, label %.thread.i, label %612
 
-612:                                              ; preds = %dissect_idn_chunk_header.exit.thread.i, %dissect_idn_chunk_header.exit.i
-  %.0.i61134.i = phi i32 [ %609, %dissect_idn_chunk_header.exit.thread.i ], [ %.0.i61.i, %dissect_idn_chunk_header.exit.i ]
+612:                                              ; preds = %dissect_idn_chunk_header.argprom.exit.thread.i, %dissect_idn_chunk_header.argprom.exit.i
+  %.0.i61134.i = phi i32 [ %609, %dissect_idn_chunk_header.argprom.exit.thread.i ], [ %.0.i61.i, %dissect_idn_chunk_header.argprom.exit.i ]
   %613 = load ptr, ptr %14, align 8
   tail call void @col_append_str(ptr noundef %613, i32 noundef 25, ptr noundef nonnull @.str.219) #7
   br label %dissect_idn_servicemap_response.exit
 
-614:                                              ; preds = %dissect_idn_chunk_header.exit.i
+614:                                              ; preds = %dissect_idn_chunk_header.argprom.exit.i
   %615 = icmp eq i8 %119, 16
   br i1 %615, label %.thread.i, label %.thread111.i
 
-.thread.i:                                        ; preds = %614, %dissect_idn_chunk_header.exit.thread.i
-  %.0.i61135138.i = phi i32 [ %.0.i61.i, %614 ], [ %609, %dissect_idn_chunk_header.exit.thread.i ]
+.thread.i:                                        ; preds = %614, %dissect_idn_chunk_header.argprom.exit.thread.i
+  %.0.i61135138.i = phi i32 [ %.0.i61.i, %614 ], [ %609, %dissect_idn_chunk_header.argprom.exit.thread.i ]
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %7)
   store i8 0, ptr %7, align 16
   %616 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i61135138.i) #7

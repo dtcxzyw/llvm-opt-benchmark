@@ -58736,7 +58736,7 @@ entry:
   %shr.i.i.i = lshr i64 %conv2.i, %sh_prom.i.i.i
   %and.i.i.i = and i64 %shr.i.i.i, 1
   %cmp.i.i = icmp eq i8 %2, 0
-  br i1 %cmp.i.i, label %vssrl8.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %vssrl8.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %sub.i.i = add nsw i32 %conv.i.i, -1
@@ -58744,7 +58744,7 @@ if.end.i.i:                                       ; preds = %entry
   %sh_prom.i19.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i20.i.i = lshr i64 %conv2.i, %sh_prom.i19.i.i
   %and.i21.i.i = and i64 %shr.i20.i.i, 1
-  switch i32 %vxrm, label %vssrl8.exit [
+  switch i32 %vxrm, label %vssrl8.argprom.exit [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
     i32 3, label %if.then38.i.i
@@ -58752,7 +58752,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then14.i.i:                                    ; preds = %if.end.i.i
   %conv9.i.i = trunc nuw nsw i64 %and.i21.i.i to i8
-  br label %vssrl8.exit
+  br label %vssrl8.argprom.exit
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %2, 1
@@ -58777,12 +58777,12 @@ extract64.exit34.i.i:                             ; preds = %if.then21.i.i
   %5 = trunc nuw nsw i64 %shr.i.i.i to i8
   %or.i.i = or i8 %conv27.i.i, %5
   %and.i.i = and i8 %or.i.i, %4
-  br label %vssrl8.exit
+  br label %vssrl8.argprom.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
   %and3317.i.i = and i64 %and.i21.i.i, %shr.i.i.i
   %and33.i.i = trunc nuw nsw i64 %and3317.i.i to i8
-  br label %vssrl8.exit
+  br label %vssrl8.argprom.exit
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
   %sub4.i.i.i = sub nuw nsw i32 64, %conv.i.i
@@ -58793,9 +58793,9 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
   %and4116.i.i = and i1 %tobool.not.i.i, %cmp39.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i8
-  br label %vssrl8.exit
+  br label %vssrl8.argprom.exit
 
-vssrl8.exit:                                      ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
+vssrl8.argprom.exit:                              ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
   %retval.0.i.i = phi i8 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %extract64.exit34.i.i ], [ %and33.i.i, %if.else30.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
   %shr.i = lshr i8 %1, %2
   %add.i = add i8 %retval.0.i.i, %shr.i
@@ -58827,7 +58827,7 @@ entry:
   %shr.i.i.i = lshr i64 %conv2.i, %sh_prom.i.i.i
   %and.i.i.i = and i64 %shr.i.i.i, 1
   %cmp.i.i = icmp eq i8 %conv1.i, 0
-  br i1 %cmp.i.i, label %vssrl16.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %vssrl16.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %sub.i.i = add nsw i32 %conv.i.i, -1
@@ -58835,7 +58835,7 @@ if.end.i.i:                                       ; preds = %entry
   %sh_prom.i19.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i20.i.i = lshr i64 %conv2.i, %sh_prom.i19.i.i
   %and.i21.i.i = and i64 %shr.i20.i.i, 1
-  switch i32 %vxrm, label %vssrl16.exit [
+  switch i32 %vxrm, label %vssrl16.argprom.exit [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
     i32 3, label %if.then38.i.i
@@ -58843,7 +58843,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then14.i.i:                                    ; preds = %if.end.i.i
   %conv9.i.i = trunc nuw nsw i64 %and.i21.i.i to i16
-  br label %vssrl16.exit
+  br label %vssrl16.argprom.exit
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv1.i, 1
@@ -58868,12 +58868,12 @@ extract64.exit34.i.i:                             ; preds = %if.then21.i.i
   %5 = trunc nuw nsw i64 %shr.i.i.i to i16
   %or.i.i = or i16 %conv27.i.i, %5
   %and.i.i = and i16 %or.i.i, %4
-  br label %vssrl16.exit
+  br label %vssrl16.argprom.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
   %and3317.i.i = and i64 %and.i21.i.i, %shr.i.i.i
   %and33.i.i = trunc nuw nsw i64 %and3317.i.i to i16
-  br label %vssrl16.exit
+  br label %vssrl16.argprom.exit
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
   %sub4.i.i.i = sub nuw nsw i32 64, %conv.i.i
@@ -58884,9 +58884,9 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
   %and4116.i.i = and i1 %tobool.not.i.i, %cmp39.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i16
-  br label %vssrl16.exit
+  br label %vssrl16.argprom.exit
 
-vssrl16.exit:                                     ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
+vssrl16.argprom.exit:                             ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
   %retval.0.i.i = phi i16 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %extract64.exit34.i.i ], [ %and33.i.i, %if.else30.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
   %conv4.i = and i16 %0, 15
   %shr.i = lshr i16 %1, %conv4.i
@@ -58919,7 +58919,7 @@ entry:
   %shr.i.i.i = lshr i64 %conv1.i, %sh_prom.i.i.i
   %and.i.i.i = and i64 %shr.i.i.i, 1
   %cmp.i.i = icmp eq i8 %conv.i, 0
-  br i1 %cmp.i.i, label %vssrl32.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %vssrl32.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %sub.i.i = add nsw i32 %conv.i.i, -1
@@ -58927,7 +58927,7 @@ if.end.i.i:                                       ; preds = %entry
   %sh_prom.i19.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i20.i.i = lshr i64 %conv1.i, %sh_prom.i19.i.i
   %and.i21.i.i = and i64 %shr.i20.i.i, 1
-  switch i32 %vxrm, label %vssrl32.exit [
+  switch i32 %vxrm, label %vssrl32.argprom.exit [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
     i32 3, label %if.then38.i.i
@@ -58935,7 +58935,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then14.i.i:                                    ; preds = %if.end.i.i
   %conv9.i.i = trunc nuw nsw i64 %and.i21.i.i to i32
-  br label %vssrl32.exit
+  br label %vssrl32.argprom.exit
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
@@ -58960,12 +58960,12 @@ extract64.exit34.i.i:                             ; preds = %if.then21.i.i
   %5 = trunc nuw nsw i64 %shr.i.i.i to i32
   %or.i.i = or i32 %conv27.i.i, %5
   %and.i.i = and i32 %or.i.i, %4
-  br label %vssrl32.exit
+  br label %vssrl32.argprom.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
   %and3317.i.i = and i64 %and.i21.i.i, %shr.i.i.i
   %and33.i.i = trunc nuw nsw i64 %and3317.i.i to i32
-  br label %vssrl32.exit
+  br label %vssrl32.argprom.exit
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
   %sub4.i.i.i = sub nuw nsw i32 64, %conv.i.i
@@ -58976,9 +58976,9 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
   %and4116.i.i = and i1 %tobool.not.i.i, %cmp39.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i32
-  br label %vssrl32.exit
+  br label %vssrl32.argprom.exit
 
-vssrl32.exit:                                     ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
+vssrl32.argprom.exit:                             ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
   %retval.0.i.i = phi i32 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %extract64.exit34.i.i ], [ %and33.i.i, %if.else30.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
   %shr.i = lshr i32 %1, %conv.i.i
   %add.i = add i32 %retval.0.i.i, %shr.i
@@ -59009,7 +59009,7 @@ entry:
   %shr.i.i.i = lshr i64 %1, %sh_prom.i.i.i
   %and.i.i.i = and i64 %shr.i.i.i, 1
   %cmp.i.i = icmp eq i8 %conv.i, 0
-  br i1 %cmp.i.i, label %vssrl64.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %vssrl64.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %sub.i.i = add nsw i32 %conv.i.i, -1
@@ -59017,14 +59017,14 @@ if.end.i.i:                                       ; preds = %entry
   %sh_prom.i19.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i20.i.i = lshr i64 %1, %sh_prom.i19.i.i
   %and.i21.i.i = and i64 %shr.i20.i.i, 1
-  switch i32 %vxrm, label %vssrl64.exit [
+  switch i32 %vxrm, label %vssrl64.argprom.exit [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
     i32 3, label %if.then38.i.i
   ]
 
 if.then14.i.i:                                    ; preds = %if.end.i.i
-  br label %vssrl64.exit
+  br label %vssrl64.argprom.exit
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
@@ -59047,11 +59047,11 @@ extract64.exit34.i.i:                             ; preds = %if.then21.i.i
   %conv27.i.i = zext i1 %cmp26.i.i to i64
   %or.i.i = or i64 %shr.i.i.i, %conv27.i.i
   %and.i.i = and i64 %or.i.i, %and.i21.i.i
-  br label %vssrl64.exit
+  br label %vssrl64.argprom.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
   %and3317.i.i = and i64 %and.i21.i.i, %shr.i.i.i
-  br label %vssrl64.exit
+  br label %vssrl64.argprom.exit
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
   %sub4.i.i.i = sub nuw nsw i32 64, %conv.i.i
@@ -59062,9 +59062,9 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
   %and4116.i.i = and i1 %tobool.not.i.i, %cmp39.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i64
-  br label %vssrl64.exit
+  br label %vssrl64.argprom.exit
 
-vssrl64.exit:                                     ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
+vssrl64.argprom.exit:                             ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
   %retval.0.i.i = phi i64 [ %and.i21.i.i, %if.then14.i.i ], [ %and.i.i, %extract64.exit34.i.i ], [ %and3317.i.i, %if.else30.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
   %add.i = add i64 %retval.0.i.i, %shr.i.i.i
   %add.ptr4 = getelementptr i64, ptr %vd, i64 %idx.ext
@@ -59093,7 +59093,7 @@ entry:
   %shr.i.i.i = lshr i64 %conv2.i, %sh_prom.i.i.i
   %and.i.i.i = and i64 %shr.i.i.i, 1
   %cmp.i.i = icmp eq i8 %1, 0
-  br i1 %cmp.i.i, label %vssrl8.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %vssrl8.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %sub.i.i = add nsw i32 %conv.i.i, -1
@@ -59101,7 +59101,7 @@ if.end.i.i:                                       ; preds = %entry
   %sh_prom.i19.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i20.i.i = lshr i64 %conv2.i, %sh_prom.i19.i.i
   %and.i21.i.i = and i64 %shr.i20.i.i, 1
-  switch i32 %vxrm, label %vssrl8.exit [
+  switch i32 %vxrm, label %vssrl8.argprom.exit [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
     i32 3, label %if.then38.i.i
@@ -59109,7 +59109,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then14.i.i:                                    ; preds = %if.end.i.i
   %conv9.i.i = trunc nuw nsw i64 %and.i21.i.i to i8
-  br label %vssrl8.exit
+  br label %vssrl8.argprom.exit
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %1, 1
@@ -59134,12 +59134,12 @@ extract64.exit34.i.i:                             ; preds = %if.then21.i.i
   %4 = trunc nuw nsw i64 %shr.i.i.i to i8
   %or.i.i = or i8 %conv27.i.i, %4
   %and.i.i = and i8 %or.i.i, %3
-  br label %vssrl8.exit
+  br label %vssrl8.argprom.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
   %and3317.i.i = and i64 %and.i21.i.i, %shr.i.i.i
   %and33.i.i = trunc nuw nsw i64 %and3317.i.i to i8
-  br label %vssrl8.exit
+  br label %vssrl8.argprom.exit
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
   %sub4.i.i.i = sub nuw nsw i32 64, %conv.i.i
@@ -59150,9 +59150,9 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
   %and4116.i.i = and i1 %cmp39.i.i, %tobool.not.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i8
-  br label %vssrl8.exit
+  br label %vssrl8.argprom.exit
 
-vssrl8.exit:                                      ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
+vssrl8.argprom.exit:                              ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
   %retval.0.i.i = phi i8 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %extract64.exit34.i.i ], [ %and33.i.i, %if.else30.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
   %shr.i = lshr i8 %0, %1
   %add.i = add i8 %retval.0.i.i, %shr.i
@@ -59182,7 +59182,7 @@ entry:
   %shr.i.i.i = lshr i64 %conv2.i, %sh_prom.i.i.i
   %and.i.i.i = and i64 %shr.i.i.i, 1
   %cmp.i.i = icmp eq i8 %conv1.i, 0
-  br i1 %cmp.i.i, label %vssrl16.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %vssrl16.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %sub.i.i = add nsw i32 %conv.i.i, -1
@@ -59190,7 +59190,7 @@ if.end.i.i:                                       ; preds = %entry
   %sh_prom.i19.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i20.i.i = lshr i64 %conv2.i, %sh_prom.i19.i.i
   %and.i21.i.i = and i64 %shr.i20.i.i, 1
-  switch i32 %vxrm, label %vssrl16.exit [
+  switch i32 %vxrm, label %vssrl16.argprom.exit [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
     i32 3, label %if.then38.i.i
@@ -59198,7 +59198,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then14.i.i:                                    ; preds = %if.end.i.i
   %conv9.i.i = trunc nuw nsw i64 %and.i21.i.i to i16
-  br label %vssrl16.exit
+  br label %vssrl16.argprom.exit
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv1.i, 1
@@ -59223,12 +59223,12 @@ extract64.exit34.i.i:                             ; preds = %if.then21.i.i
   %4 = trunc nuw nsw i64 %shr.i.i.i to i16
   %or.i.i = or i16 %conv27.i.i, %4
   %and.i.i = and i16 %or.i.i, %3
-  br label %vssrl16.exit
+  br label %vssrl16.argprom.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
   %and3317.i.i = and i64 %and.i21.i.i, %shr.i.i.i
   %and33.i.i = trunc nuw nsw i64 %and3317.i.i to i16
-  br label %vssrl16.exit
+  br label %vssrl16.argprom.exit
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
   %sub4.i.i.i = sub nuw nsw i32 64, %conv.i.i
@@ -59239,9 +59239,9 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
   %and4116.i.i = and i1 %cmp39.i.i, %tobool.not.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i16
-  br label %vssrl16.exit
+  br label %vssrl16.argprom.exit
 
-vssrl16.exit:                                     ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
+vssrl16.argprom.exit:                             ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
   %retval.0.i.i = phi i16 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %extract64.exit34.i.i ], [ %and33.i.i, %if.else30.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
   %conv = trunc i64 %s1 to i16
   %conv4.i = and i16 %conv, 15
@@ -59274,7 +59274,7 @@ entry:
   %shr.i.i.i = lshr i64 %conv1.i, %sh_prom.i.i.i
   %and.i.i.i = and i64 %shr.i.i.i, 1
   %cmp.i.i = icmp eq i8 %conv.i, 0
-  br i1 %cmp.i.i, label %vssrl32.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %vssrl32.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %sub.i.i = add nsw i32 %conv.i.i, -1
@@ -59282,7 +59282,7 @@ if.end.i.i:                                       ; preds = %entry
   %sh_prom.i19.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i20.i.i = lshr i64 %conv1.i, %sh_prom.i19.i.i
   %and.i21.i.i = and i64 %shr.i20.i.i, 1
-  switch i32 %vxrm, label %vssrl32.exit [
+  switch i32 %vxrm, label %vssrl32.argprom.exit [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
     i32 3, label %if.then38.i.i
@@ -59290,7 +59290,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then14.i.i:                                    ; preds = %if.end.i.i
   %conv9.i.i = trunc nuw nsw i64 %and.i21.i.i to i32
-  br label %vssrl32.exit
+  br label %vssrl32.argprom.exit
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
@@ -59315,12 +59315,12 @@ extract64.exit34.i.i:                             ; preds = %if.then21.i.i
   %4 = trunc nuw nsw i64 %shr.i.i.i to i32
   %or.i.i = or i32 %conv27.i.i, %4
   %and.i.i = and i32 %or.i.i, %3
-  br label %vssrl32.exit
+  br label %vssrl32.argprom.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
   %and3317.i.i = and i64 %and.i21.i.i, %shr.i.i.i
   %and33.i.i = trunc nuw nsw i64 %and3317.i.i to i32
-  br label %vssrl32.exit
+  br label %vssrl32.argprom.exit
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
   %sub4.i.i.i = sub nuw nsw i32 64, %conv.i.i
@@ -59331,9 +59331,9 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
   %and4116.i.i = and i1 %cmp39.i.i, %tobool.not.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i32
-  br label %vssrl32.exit
+  br label %vssrl32.argprom.exit
 
-vssrl32.exit:                                     ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
+vssrl32.argprom.exit:                             ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
   %retval.0.i.i = phi i32 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %extract64.exit34.i.i ], [ %and33.i.i, %if.else30.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
   %shr.i = lshr i32 %0, %conv.i.i
   %add.i = add i32 %retval.0.i.i, %shr.i
@@ -59362,7 +59362,7 @@ entry:
   %shr.i.i.i = lshr i64 %0, %sh_prom.i.i.i
   %and.i.i.i = and i64 %shr.i.i.i, 1
   %cmp.i.i = icmp eq i8 %conv.i, 0
-  br i1 %cmp.i.i, label %vssrl64.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %vssrl64.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %sub.i.i = add nsw i32 %conv.i.i, -1
@@ -59370,14 +59370,14 @@ if.end.i.i:                                       ; preds = %entry
   %sh_prom.i19.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i20.i.i = lshr i64 %0, %sh_prom.i19.i.i
   %and.i21.i.i = and i64 %shr.i20.i.i, 1
-  switch i32 %vxrm, label %vssrl64.exit [
+  switch i32 %vxrm, label %vssrl64.argprom.exit [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
     i32 3, label %if.then38.i.i
   ]
 
 if.then14.i.i:                                    ; preds = %if.end.i.i
-  br label %vssrl64.exit
+  br label %vssrl64.argprom.exit
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
@@ -59400,11 +59400,11 @@ extract64.exit34.i.i:                             ; preds = %if.then21.i.i
   %conv27.i.i = zext i1 %cmp26.i.i to i64
   %or.i.i = or i64 %shr.i.i.i, %conv27.i.i
   %and.i.i = and i64 %or.i.i, %and.i21.i.i
-  br label %vssrl64.exit
+  br label %vssrl64.argprom.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
   %and3317.i.i = and i64 %and.i21.i.i, %shr.i.i.i
-  br label %vssrl64.exit
+  br label %vssrl64.argprom.exit
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
   %sub4.i.i.i = sub nuw nsw i32 64, %conv.i.i
@@ -59415,9 +59415,9 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
   %and4116.i.i = and i1 %cmp39.i.i, %tobool.not.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i64
-  br label %vssrl64.exit
+  br label %vssrl64.argprom.exit
 
-vssrl64.exit:                                     ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
+vssrl64.argprom.exit:                             ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
   %retval.0.i.i = phi i64 [ %and.i21.i.i, %if.then14.i.i ], [ %and.i.i, %extract64.exit34.i.i ], [ %and3317.i.i, %if.else30.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
   %add.i = add i64 %retval.0.i.i, %shr.i.i.i
   %add.ptr2 = getelementptr i64, ptr %vd, i64 %idx.ext
@@ -59447,7 +59447,7 @@ entry:
   %shr.i.i.i = lshr i64 %conv2.i, %sh_prom.i.i.i
   %and.i.i.i = and i64 %shr.i.i.i, 1
   %cmp.i.i = icmp eq i8 %2, 0
-  br i1 %cmp.i.i, label %vssra8.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %vssra8.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %sub.i.i = add nsw i32 %conv.i.i, -1
@@ -59455,7 +59455,7 @@ if.end.i.i:                                       ; preds = %entry
   %sh_prom.i19.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i20.i.i = lshr i64 %conv2.i, %sh_prom.i19.i.i
   %and.i21.i.i = and i64 %shr.i20.i.i, 1
-  switch i32 %vxrm, label %vssra8.exit [
+  switch i32 %vxrm, label %vssra8.argprom.exit [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
     i32 3, label %if.then38.i.i
@@ -59463,7 +59463,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then14.i.i:                                    ; preds = %if.end.i.i
   %conv9.i.i = trunc nuw nsw i64 %and.i21.i.i to i8
-  br label %vssra8.exit
+  br label %vssra8.argprom.exit
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %2, 1
@@ -59488,12 +59488,12 @@ extract64.exit34.i.i:                             ; preds = %if.then21.i.i
   %5 = trunc i64 %shr.i.i.i to i8
   %or.i.i = or i8 %conv27.i.i, %5
   %and.i.i = and i8 %or.i.i, %4
-  br label %vssra8.exit
+  br label %vssra8.argprom.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
   %and3317.i.i = and i64 %and.i21.i.i, %shr.i.i.i
   %and33.i.i = trunc nuw nsw i64 %and3317.i.i to i8
-  br label %vssra8.exit
+  br label %vssra8.argprom.exit
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
   %sub4.i.i.i = sub nuw nsw i32 64, %conv.i.i
@@ -59504,9 +59504,9 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
   %and4116.i.i = and i1 %tobool.not.i.i, %cmp39.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i8
-  br label %vssra8.exit
+  br label %vssra8.argprom.exit
 
-vssra8.exit:                                      ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
+vssra8.argprom.exit:                              ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
   %retval.0.i.i = phi i8 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %extract64.exit34.i.i ], [ %and33.i.i, %if.else30.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
   %shr.i = ashr i8 %1, %2
   %add.i = add i8 %retval.0.i.i, %shr.i
@@ -59538,7 +59538,7 @@ entry:
   %shr.i.i.i = lshr i64 %conv2.i, %sh_prom.i.i.i
   %and.i.i.i = and i64 %shr.i.i.i, 1
   %cmp.i.i = icmp eq i8 %conv1.i, 0
-  br i1 %cmp.i.i, label %vssra16.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %vssra16.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %sub.i.i = add nsw i32 %conv.i.i, -1
@@ -59546,7 +59546,7 @@ if.end.i.i:                                       ; preds = %entry
   %sh_prom.i19.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i20.i.i = lshr i64 %conv2.i, %sh_prom.i19.i.i
   %and.i21.i.i = and i64 %shr.i20.i.i, 1
-  switch i32 %vxrm, label %vssra16.exit [
+  switch i32 %vxrm, label %vssra16.argprom.exit [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
     i32 3, label %if.then38.i.i
@@ -59554,7 +59554,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then14.i.i:                                    ; preds = %if.end.i.i
   %conv9.i.i = trunc nuw nsw i64 %and.i21.i.i to i16
-  br label %vssra16.exit
+  br label %vssra16.argprom.exit
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv1.i, 1
@@ -59579,12 +59579,12 @@ extract64.exit34.i.i:                             ; preds = %if.then21.i.i
   %5 = trunc i64 %shr.i.i.i to i16
   %or.i.i = or i16 %conv27.i.i, %5
   %and.i.i = and i16 %or.i.i, %4
-  br label %vssra16.exit
+  br label %vssra16.argprom.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
   %and3317.i.i = and i64 %and.i21.i.i, %shr.i.i.i
   %and33.i.i = trunc nuw nsw i64 %and3317.i.i to i16
-  br label %vssra16.exit
+  br label %vssra16.argprom.exit
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
   %sub4.i.i.i = sub nuw nsw i32 64, %conv.i.i
@@ -59595,9 +59595,9 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
   %and4116.i.i = and i1 %tobool.not.i.i, %cmp39.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i16
-  br label %vssra16.exit
+  br label %vssra16.argprom.exit
 
-vssra16.exit:                                     ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
+vssra16.argprom.exit:                             ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
   %retval.0.i.i = phi i16 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %extract64.exit34.i.i ], [ %and33.i.i, %if.else30.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
   %conv4.i = and i16 %0, 15
   %shr.i = ashr i16 %1, %conv4.i
@@ -59630,7 +59630,7 @@ entry:
   %shr.i.i.i = lshr i64 %conv1.i, %sh_prom.i.i.i
   %and.i.i.i = and i64 %shr.i.i.i, 1
   %cmp.i.i = icmp eq i8 %conv.i, 0
-  br i1 %cmp.i.i, label %vssra32.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %vssra32.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %sub.i.i = add nsw i32 %conv.i.i, -1
@@ -59638,7 +59638,7 @@ if.end.i.i:                                       ; preds = %entry
   %sh_prom.i19.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i20.i.i = lshr i64 %conv1.i, %sh_prom.i19.i.i
   %and.i21.i.i = and i64 %shr.i20.i.i, 1
-  switch i32 %vxrm, label %vssra32.exit [
+  switch i32 %vxrm, label %vssra32.argprom.exit [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
     i32 3, label %if.then38.i.i
@@ -59646,7 +59646,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then14.i.i:                                    ; preds = %if.end.i.i
   %conv9.i.i = trunc nuw nsw i64 %and.i21.i.i to i32
-  br label %vssra32.exit
+  br label %vssra32.argprom.exit
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
@@ -59671,12 +59671,12 @@ extract64.exit34.i.i:                             ; preds = %if.then21.i.i
   %5 = trunc i64 %shr.i.i.i to i32
   %or.i.i = or i32 %conv27.i.i, %5
   %and.i.i = and i32 %or.i.i, %4
-  br label %vssra32.exit
+  br label %vssra32.argprom.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
   %and3317.i.i = and i64 %and.i21.i.i, %shr.i.i.i
   %and33.i.i = trunc nuw nsw i64 %and3317.i.i to i32
-  br label %vssra32.exit
+  br label %vssra32.argprom.exit
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
   %sub4.i.i.i = sub nuw nsw i32 64, %conv.i.i
@@ -59687,9 +59687,9 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
   %and4116.i.i = and i1 %tobool.not.i.i, %cmp39.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i32
-  br label %vssra32.exit
+  br label %vssra32.argprom.exit
 
-vssra32.exit:                                     ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
+vssra32.argprom.exit:                             ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
   %retval.0.i.i = phi i32 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %extract64.exit34.i.i ], [ %and33.i.i, %if.else30.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
   %shr.i = ashr i32 %1, %conv.i.i
   %add.i = add i32 %retval.0.i.i, %shr.i
@@ -59720,7 +59720,7 @@ entry:
   %shr.i.i.i = lshr i64 %1, %sh_prom.i.i.i
   %and.i.i.i = and i64 %shr.i.i.i, 1
   %cmp.i.i = icmp eq i8 %conv.i, 0
-  br i1 %cmp.i.i, label %vssra64.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %vssra64.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %sub.i.i = add nsw i32 %conv.i.i, -1
@@ -59728,14 +59728,14 @@ if.end.i.i:                                       ; preds = %entry
   %sh_prom.i19.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i20.i.i = lshr i64 %1, %sh_prom.i19.i.i
   %and.i21.i.i = and i64 %shr.i20.i.i, 1
-  switch i32 %vxrm, label %vssra64.exit [
+  switch i32 %vxrm, label %vssra64.argprom.exit [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
     i32 3, label %if.then38.i.i
   ]
 
 if.then14.i.i:                                    ; preds = %if.end.i.i
-  br label %vssra64.exit
+  br label %vssra64.argprom.exit
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
@@ -59758,11 +59758,11 @@ extract64.exit34.i.i:                             ; preds = %if.then21.i.i
   %conv27.i.i = zext i1 %cmp26.i.i to i64
   %or.i.i = or i64 %shr.i.i.i, %conv27.i.i
   %and.i.i = and i64 %or.i.i, %and.i21.i.i
-  br label %vssra64.exit
+  br label %vssra64.argprom.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
   %and3317.i.i = and i64 %and.i21.i.i, %shr.i.i.i
-  br label %vssra64.exit
+  br label %vssra64.argprom.exit
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
   %sub4.i.i.i = sub nuw nsw i32 64, %conv.i.i
@@ -59773,9 +59773,9 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
   %and4116.i.i = and i1 %tobool.not.i.i, %cmp39.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i64
-  br label %vssra64.exit
+  br label %vssra64.argprom.exit
 
-vssra64.exit:                                     ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
+vssra64.argprom.exit:                             ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
   %retval.0.i.i = phi i64 [ %and.i21.i.i, %if.then14.i.i ], [ %and.i.i, %extract64.exit34.i.i ], [ %and3317.i.i, %if.else30.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
   %shr.i = ashr i64 %1, %sh_prom.i.i.i
   %add.i = add i64 %retval.0.i.i, %shr.i
@@ -59805,7 +59805,7 @@ entry:
   %shr.i.i.i = lshr i64 %conv2.i, %sh_prom.i.i.i
   %and.i.i.i = and i64 %shr.i.i.i, 1
   %cmp.i.i = icmp eq i8 %1, 0
-  br i1 %cmp.i.i, label %vssra8.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %vssra8.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %sub.i.i = add nsw i32 %conv.i.i, -1
@@ -59813,7 +59813,7 @@ if.end.i.i:                                       ; preds = %entry
   %sh_prom.i19.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i20.i.i = lshr i64 %conv2.i, %sh_prom.i19.i.i
   %and.i21.i.i = and i64 %shr.i20.i.i, 1
-  switch i32 %vxrm, label %vssra8.exit [
+  switch i32 %vxrm, label %vssra8.argprom.exit [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
     i32 3, label %if.then38.i.i
@@ -59821,7 +59821,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then14.i.i:                                    ; preds = %if.end.i.i
   %conv9.i.i = trunc nuw nsw i64 %and.i21.i.i to i8
-  br label %vssra8.exit
+  br label %vssra8.argprom.exit
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %1, 1
@@ -59846,12 +59846,12 @@ extract64.exit34.i.i:                             ; preds = %if.then21.i.i
   %4 = trunc i64 %shr.i.i.i to i8
   %or.i.i = or i8 %conv27.i.i, %4
   %and.i.i = and i8 %or.i.i, %3
-  br label %vssra8.exit
+  br label %vssra8.argprom.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
   %and3317.i.i = and i64 %and.i21.i.i, %shr.i.i.i
   %and33.i.i = trunc nuw nsw i64 %and3317.i.i to i8
-  br label %vssra8.exit
+  br label %vssra8.argprom.exit
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
   %sub4.i.i.i = sub nuw nsw i32 64, %conv.i.i
@@ -59862,9 +59862,9 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
   %and4116.i.i = and i1 %cmp39.i.i, %tobool.not.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i8
-  br label %vssra8.exit
+  br label %vssra8.argprom.exit
 
-vssra8.exit:                                      ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
+vssra8.argprom.exit:                              ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
   %retval.0.i.i = phi i8 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %extract64.exit34.i.i ], [ %and33.i.i, %if.else30.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
   %shr.i = ashr i8 %0, %1
   %add.i = add i8 %retval.0.i.i, %shr.i
@@ -59894,7 +59894,7 @@ entry:
   %shr.i.i.i = lshr i64 %conv2.i, %sh_prom.i.i.i
   %and.i.i.i = and i64 %shr.i.i.i, 1
   %cmp.i.i = icmp eq i8 %conv1.i, 0
-  br i1 %cmp.i.i, label %vssra16.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %vssra16.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %sub.i.i = add nsw i32 %conv.i.i, -1
@@ -59902,7 +59902,7 @@ if.end.i.i:                                       ; preds = %entry
   %sh_prom.i19.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i20.i.i = lshr i64 %conv2.i, %sh_prom.i19.i.i
   %and.i21.i.i = and i64 %shr.i20.i.i, 1
-  switch i32 %vxrm, label %vssra16.exit [
+  switch i32 %vxrm, label %vssra16.argprom.exit [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
     i32 3, label %if.then38.i.i
@@ -59910,7 +59910,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then14.i.i:                                    ; preds = %if.end.i.i
   %conv9.i.i = trunc nuw nsw i64 %and.i21.i.i to i16
-  br label %vssra16.exit
+  br label %vssra16.argprom.exit
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv1.i, 1
@@ -59935,12 +59935,12 @@ extract64.exit34.i.i:                             ; preds = %if.then21.i.i
   %4 = trunc i64 %shr.i.i.i to i16
   %or.i.i = or i16 %conv27.i.i, %4
   %and.i.i = and i16 %or.i.i, %3
-  br label %vssra16.exit
+  br label %vssra16.argprom.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
   %and3317.i.i = and i64 %and.i21.i.i, %shr.i.i.i
   %and33.i.i = trunc nuw nsw i64 %and3317.i.i to i16
-  br label %vssra16.exit
+  br label %vssra16.argprom.exit
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
   %sub4.i.i.i = sub nuw nsw i32 64, %conv.i.i
@@ -59951,9 +59951,9 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
   %and4116.i.i = and i1 %cmp39.i.i, %tobool.not.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i16
-  br label %vssra16.exit
+  br label %vssra16.argprom.exit
 
-vssra16.exit:                                     ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
+vssra16.argprom.exit:                             ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
   %retval.0.i.i = phi i16 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %extract64.exit34.i.i ], [ %and33.i.i, %if.else30.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
   %conv = trunc i64 %s1 to i16
   %conv4.i = and i16 %conv, 15
@@ -59986,7 +59986,7 @@ entry:
   %shr.i.i.i = lshr i64 %conv1.i, %sh_prom.i.i.i
   %and.i.i.i = and i64 %shr.i.i.i, 1
   %cmp.i.i = icmp eq i8 %conv.i, 0
-  br i1 %cmp.i.i, label %vssra32.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %vssra32.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %sub.i.i = add nsw i32 %conv.i.i, -1
@@ -59994,7 +59994,7 @@ if.end.i.i:                                       ; preds = %entry
   %sh_prom.i19.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i20.i.i = lshr i64 %conv1.i, %sh_prom.i19.i.i
   %and.i21.i.i = and i64 %shr.i20.i.i, 1
-  switch i32 %vxrm, label %vssra32.exit [
+  switch i32 %vxrm, label %vssra32.argprom.exit [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
     i32 3, label %if.then38.i.i
@@ -60002,7 +60002,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then14.i.i:                                    ; preds = %if.end.i.i
   %conv9.i.i = trunc nuw nsw i64 %and.i21.i.i to i32
-  br label %vssra32.exit
+  br label %vssra32.argprom.exit
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
@@ -60027,12 +60027,12 @@ extract64.exit34.i.i:                             ; preds = %if.then21.i.i
   %4 = trunc i64 %shr.i.i.i to i32
   %or.i.i = or i32 %conv27.i.i, %4
   %and.i.i = and i32 %or.i.i, %3
-  br label %vssra32.exit
+  br label %vssra32.argprom.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
   %and3317.i.i = and i64 %and.i21.i.i, %shr.i.i.i
   %and33.i.i = trunc nuw nsw i64 %and3317.i.i to i32
-  br label %vssra32.exit
+  br label %vssra32.argprom.exit
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
   %sub4.i.i.i = sub nuw nsw i32 64, %conv.i.i
@@ -60043,9 +60043,9 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
   %and4116.i.i = and i1 %cmp39.i.i, %tobool.not.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i32
-  br label %vssra32.exit
+  br label %vssra32.argprom.exit
 
-vssra32.exit:                                     ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
+vssra32.argprom.exit:                             ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
   %retval.0.i.i = phi i32 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %extract64.exit34.i.i ], [ %and33.i.i, %if.else30.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
   %shr.i = ashr i32 %0, %conv.i.i
   %add.i = add i32 %retval.0.i.i, %shr.i
@@ -60074,7 +60074,7 @@ entry:
   %shr.i.i.i = lshr i64 %0, %sh_prom.i.i.i
   %and.i.i.i = and i64 %shr.i.i.i, 1
   %cmp.i.i = icmp eq i8 %conv.i, 0
-  br i1 %cmp.i.i, label %vssra64.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %vssra64.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %sub.i.i = add nsw i32 %conv.i.i, -1
@@ -60082,14 +60082,14 @@ if.end.i.i:                                       ; preds = %entry
   %sh_prom.i19.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i20.i.i = lshr i64 %0, %sh_prom.i19.i.i
   %and.i21.i.i = and i64 %shr.i20.i.i, 1
-  switch i32 %vxrm, label %vssra64.exit [
+  switch i32 %vxrm, label %vssra64.argprom.exit [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
     i32 3, label %if.then38.i.i
   ]
 
 if.then14.i.i:                                    ; preds = %if.end.i.i
-  br label %vssra64.exit
+  br label %vssra64.argprom.exit
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
@@ -60112,11 +60112,11 @@ extract64.exit34.i.i:                             ; preds = %if.then21.i.i
   %conv27.i.i = zext i1 %cmp26.i.i to i64
   %or.i.i = or i64 %shr.i.i.i, %conv27.i.i
   %and.i.i = and i64 %or.i.i, %and.i21.i.i
-  br label %vssra64.exit
+  br label %vssra64.argprom.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
   %and3317.i.i = and i64 %and.i21.i.i, %shr.i.i.i
-  br label %vssra64.exit
+  br label %vssra64.argprom.exit
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
   %sub4.i.i.i = sub nuw nsw i32 64, %conv.i.i
@@ -60127,9 +60127,9 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
   %and4116.i.i = and i1 %cmp39.i.i, %tobool.not.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i64
-  br label %vssra64.exit
+  br label %vssra64.argprom.exit
 
-vssra64.exit:                                     ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
+vssra64.argprom.exit:                             ; preds = %entry, %if.end.i.i, %if.then14.i.i, %extract64.exit34.i.i, %if.else30.i.i, %if.then38.i.i
   %retval.0.i.i = phi i64 [ %and.i21.i.i, %if.then14.i.i ], [ %and.i.i, %extract64.exit34.i.i ], [ %and3317.i.i, %if.else30.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
   %shr.i = ashr i64 %0, %sh_prom.i.i.i
   %add.i = add i64 %retval.0.i.i, %shr.i

@@ -273,7 +273,7 @@ for.body79:                                       ; preds = %for.body79.lr.ph, %
 if.then85:                                        ; preds = %for.body79
   %call86 = call ptr @ENGINE_get_name(ptr noundef nonnull %call82) #7
   %call87 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call3, ptr noundef nonnull @.str.30, ptr noundef %call81, ptr noundef %call86) #7
-  call fastcc void @util_do_cmds(ptr noundef %call82, ptr noundef %call1, ptr noundef %call3)
+  call fastcc void @util_do_cmds.argprom(ptr noundef %call82, ptr noundef %call1, ptr noundef %call3)
   %call88 = call ptr @ENGINE_get_id(ptr noundef nonnull %call82) #7
   %call89 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call88, ptr noundef nonnull dereferenceable(1) %call81) #8
   %cmp90.not = icmp eq i32 %call89, 0
@@ -458,7 +458,7 @@ if.then207:                                       ; preds = %if.end205
 
 if.then211:                                       ; preds = %if.then207
   %call212 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call3, ptr noundef nonnull @.str.39) #7
-  call fastcc void @util_do_cmds(ptr noundef %call82, ptr noundef %call2, ptr noundef %call3)
+  call fastcc void @util_do_cmds.argprom(ptr noundef %call82, ptr noundef %call2, ptr noundef %call3)
   %call213 = call i32 @ENGINE_finish(ptr noundef nonnull %call82) #7
   br label %if.end219
 
@@ -586,7 +586,7 @@ if.else74.i:                                      ; preds = %if.end55.i
 land.lhs.true80.i:                                ; preds = %if.else74.i
   %call.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call3, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.27) #7
   %cmp.i.i = icmp eq i32 %call6.i, 0
-  br i1 %cmp.i.i, label %util_flags.exit.i, label %if.end.i.i
+  br i1 %cmp.i.i, label %util_flags.argprom.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true80.i
   br i1 %tobool11.i, label %if.end4.i.i, label %if.then2.i.i
@@ -649,7 +649,7 @@ if.end27.i.i:                                     ; preds = %if.end25.i.i, %if.e
 if.end27.thread.i.i:                              ; preds = %if.end18.thread.i.i
   %and3115.i.i = and i32 %call6.i, 2147483632
   %tobool32.not16.i.i = icmp eq i32 %and3115.i.i, 0
-  br i1 %tobool32.not16.i.i, label %util_flags.exit.i, label %if.end37.i.i
+  br i1 %tobool32.not16.i.i, label %util_flags.argprom.exit.i, label %if.end37.i.i
 
 if.then35.i.i:                                    ; preds = %if.end27.i.i
   %call36.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call3, ptr noundef nonnull @.str.58) #7
@@ -664,21 +664,21 @@ if.end37.i.i:                                     ; preds = %if.then35.i.i, %if.
 if.end39.i.i:                                     ; preds = %if.end37.i.i, %if.end27.i.i
   %err.219.i.i = phi i32 [ %err.21826.i.i, %if.end37.i.i ], [ %err.2.i.i, %if.end27.i.i ]
   %tobool40.not.i.i = icmp eq i32 %err.219.i.i, 0
-  br i1 %tobool40.not.i.i, label %util_flags.exit.i, label %if.then41.i.i
+  br i1 %tobool40.not.i.i, label %util_flags.argprom.exit.i, label %if.then41.i.i
 
 if.then41.i.i:                                    ; preds = %if.end39.i.i
   %call42.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call3, ptr noundef nonnull @.str.62) #7
-  br label %util_flags.exit.i
+  br label %util_flags.argprom.exit.i
 
-util_flags.exit.i:                                ; preds = %if.then41.i.i, %if.end39.i.i, %if.end27.thread.i.i, %land.lhs.true80.i
+util_flags.argprom.exit.i:                        ; preds = %if.then41.i.i, %if.end39.i.i, %if.end27.thread.i.i, %land.lhs.true80.i
   %.str.51.sink.i.i = phi ptr [ @.str.55, %land.lhs.true80.i ], [ @.str.51, %if.end27.thread.i.i ], [ @.str.51, %if.then41.i.i ], [ @.str.51, %if.end39.i.i ]
   %call44.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call3, ptr noundef nonnull %.str.51.sink.i.i) #7
   br label %if.end86.i
 
-if.end86.i:                                       ; preds = %util_flags.exit.i, %if.else74.i, %if.end71.i, %if.end10.i
-  %name.2.i = phi ptr [ %call23.i, %if.end71.i ], [ null, %if.end10.i ], [ %call23.i, %util_flags.exit.i ], [ %call23.i, %if.else74.i ]
-  %desc.2.i = phi ptr [ %desc.3.i, %if.end71.i ], [ null, %if.end10.i ], [ %desc.3.i, %util_flags.exit.i ], [ %desc.3.i, %if.else74.i ]
-  %xpos.1.i = phi i32 [ %add73.i, %if.end71.i ], [ %xpos.0.i, %if.end10.i ], [ 0, %util_flags.exit.i ], [ 0, %if.else74.i ]
+if.end86.i:                                       ; preds = %util_flags.argprom.exit.i, %if.else74.i, %if.end71.i, %if.end10.i
+  %name.2.i = phi ptr [ %call23.i, %if.end71.i ], [ null, %if.end10.i ], [ %call23.i, %util_flags.argprom.exit.i ], [ %call23.i, %if.else74.i ]
+  %desc.2.i = phi ptr [ %desc.3.i, %if.end71.i ], [ null, %if.end10.i ], [ %desc.3.i, %util_flags.argprom.exit.i ], [ %desc.3.i, %if.else74.i ]
+  %xpos.1.i = phi i32 [ %add73.i, %if.end71.i ], [ %xpos.0.i, %if.end10.i ], [ 0, %util_flags.argprom.exit.i ], [ 0, %if.else74.i ]
   call void @CRYPTO_free(ptr noundef %name.2.i, ptr noundef nonnull @.str.37, i32 noundef 222) #7
   call void @CRYPTO_free(ptr noundef %desc.2.i, ptr noundef nonnull @.str.37, i32 noundef 224) #7
   %call88.i = call i32 @ENGINE_ctrl(ptr noundef nonnull %call82, i32 noundef 12, i64 noundef %conv.i, ptr noundef null, ptr noundef null) #7
@@ -687,19 +687,19 @@ if.end86.i:                                       ; preds = %util_flags.exit.i, 
 
 do.end.i:                                         ; preds = %if.end86.i
   %cmp91.i = icmp sgt i32 %xpos.1.i, 0
-  br i1 %cmp91.i, label %if.then93.i, label %util_verbose.exit
+  br i1 %cmp91.i, label %if.then93.i, label %util_verbose.argprom.exit
 
 if.then93.i:                                      ; preds = %do.end.i
   %call94.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call3, ptr noundef nonnull @.str.51) #7
-  br label %util_verbose.exit
+  br label %util_verbose.argprom.exit
 
-util_verbose.exit:                                ; preds = %do.end.i, %if.then93.i
+util_verbose.argprom.exit:                        ; preds = %do.end.i, %if.then93.i
   call void @OPENSSL_sk_free(ptr noundef nonnull %call2.i) #7
   call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 234) #7
   call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 235) #7
   br label %if.end226
 
-if.end226:                                        ; preds = %util_verbose.exit, %land.lhs.true222, %lor.lhs.false.i, %if.end219
+if.end226:                                        ; preds = %util_verbose.argprom.exit, %land.lhs.true222, %lor.lhs.false.i, %if.end219
   %call227 = call i32 @ENGINE_free(ptr noundef nonnull %call82) #7
   br label %for.inc235
 
@@ -771,7 +771,7 @@ declare ptr @ENGINE_by_id(ptr noundef) local_unnamed_addr #1
 declare ptr @ENGINE_get_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @util_do_cmds(ptr noundef nonnull %e, ptr noundef nonnull %cmds, ptr noundef %out) unnamed_addr #0 {
+define internal fastcc void @util_do_cmds.argprom(ptr noundef nonnull %e, ptr noundef nonnull %cmds, ptr noundef %out) unnamed_addr #0 {
 entry:
   %buf = alloca [256 x i8], align 16
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %cmds) #7

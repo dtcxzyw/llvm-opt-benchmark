@@ -3363,7 +3363,7 @@ if.then60:                                        ; preds = %for.end
   %width62 = getelementptr inbounds i8, ptr %this, i64 20
   %32 = load i32, ptr %width62, align 4
   %33 = load ptr, ptr %readdata, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11cmyk_to_rgbEiPKhmPhm(i32 noundef %32, ptr noundef %33, ptr noundef %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11cmyk_to_rgbEiPKhmPhm.argelim(i32 noundef %32, ptr noundef %33, ptr noundef %data)
   br label %cleanup65
 
 cleanup65:                                        ; preds = %if.then60, %call.i.noexc, %if.then.i.i.i3.i62, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i59, %for.end, %if.then52, %if.end33, %lor.lhs.false, %if.end, %invoke.cont
@@ -3432,7 +3432,7 @@ entry:
 declare i32 @jpeg_read_scanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11cmyk_to_rgbEiPKhmPhm(i32 noundef %n, ptr nocapture noundef readonly %cmyk, ptr nocapture noundef writeonly %rgb) unnamed_addr #13 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11cmyk_to_rgbEiPKhmPhm.argelim(i32 noundef %n, ptr nocapture noundef readonly %cmyk, ptr nocapture noundef writeonly %rgb) unnamed_addr #13 {
 entry:
   %tobool.not35 = icmp eq i32 %n, 0
   br i1 %tobool.not35, label %for.end, label %for.body

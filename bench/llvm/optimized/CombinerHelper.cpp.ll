@@ -3121,12 +3121,12 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit72: ; preds = %132, %13
   %155 = icmp eq i32 %154, %150
   %156 = icmp eq i32 %154, 126
   %or.cond36.i = or i1 %155, %156
-  br i1 %or.cond36.i, label %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.exit, label %157
+  br i1 %or.cond36.i, label %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.argprom.exit, label %157
 
 157:                                              ; preds = %153
   %.sroa.13.0.copyload96 = load i32, ptr %.sroa.3125.0..sroa_idx, align 4
   %.sroa.1397.0.copyload105 = load ptr, ptr %.sroa.3126.0..sroa_idx, align 8
-  br label %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.exit
+  br label %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.argprom.exit
 
 158:                                              ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit72
   %159 = icmp ne i16 %149, 126
@@ -3138,11 +3138,11 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit72: ; preds = %132, %13
 161:                                              ; preds = %158
   %.sroa.13.0.copyload90 = load i32, ptr %.sroa.3125.0..sroa_idx, align 4
   %.sroa.1397.0.copyload99 = load ptr, ptr %.sroa.3126.0..sroa_idx, align 8
-  br label %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.exit
+  br label %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.argprom.exit
 
 162:                                              ; preds = %158
   %or.cond.i74 = and i1 %159, %.not.i73
-  br i1 %or.cond.i74, label %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.exit, label %163
+  br i1 %or.cond.i74, label %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.argprom.exit, label %163
 
 163:                                              ; preds = %162
   %164 = icmp ne i16 %.val, 92
@@ -3159,13 +3159,13 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit72: ; preds = %132, %13
 168:                                              ; preds = %165
   %.sroa.13.0.copyload94 = load i32, ptr %.sroa.3125.0..sroa_idx, align 4
   %.sroa.1397.0.copyload103 = load ptr, ptr %.sroa.3126.0..sroa_idx, align 8
-  br label %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.exit
+  br label %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.argprom.exit
 
 169:                                              ; preds = %165
   %170 = icmp eq i32 %160, 134
   %171 = icmp eq i16 %149, 132
   %or.cond5.i = and i1 %171, %170
-  br i1 %or.cond5.i, label %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.exit, label %172
+  br i1 %or.cond5.i, label %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.argprom.exit, label %172
 
 172:                                              ; preds = %169, %163
   %173 = and i64 %.sroa.04.0.i71, -7
@@ -3288,16 +3288,16 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit58.i:          ; preds = %_ZNK4llvm3LLT19getS
   store i8 %.sroa.3.0.i51.i, ptr %.sroa.2.0..sroa_idx.i75, align 8, !noalias !11
   %225 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #27, !noalias !11
   %226 = icmp ugt i64 %198, %225
-  br i1 %226, label %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.exit, label %227
+  br i1 %226, label %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.argprom.exit, label %227
 
 227:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58.i
   %.sroa.0.0.copyload78 = load i64, ptr %2, align 8
   %.sroa.9.0.copyload84 = load i32, ptr %.sroa.2124.0..sroa_idx, align 8
   %.sroa.13.0.copyload92 = load i32, ptr %.sroa.3125.0..sroa_idx, align 4
   %.sroa.1397.0.copyload101 = load ptr, ptr %.sroa.3126.0..sroa_idx, align 8
-  br label %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.exit
+  br label %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.argprom.exit
 
-_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.exit: ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58.i, %169, %162, %153, %157, %161, %168, %227
+_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.argprom.exit: ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58.i, %169, %162, %153, %157, %161, %168, %227
   %.sroa.1397.0 = phi ptr [ %.sroa.1397.0.copyload105, %157 ], [ %.sroa.1397.0.copyload103, %168 ], [ %.sroa.1397.0.copyload101, %227 ], [ %.sroa.1397.0.copyload99, %161 ], [ %62, %153 ], [ %62, %162 ], [ %62, %169 ], [ %62, %_ZNK4llvm3LLT13getSizeInBitsEv.exit58.i ]
   %.sroa.13.2 = phi i32 [ %.sroa.13.0.copyload96, %157 ], [ %.sroa.13.0.copyload94, %168 ], [ %.sroa.13.0.copyload92, %227 ], [ %.sroa.13.0.copyload90, %161 ], [ %.sroa.13.0140, %153 ], [ %.sroa.13.0140, %162 ], [ %.sroa.13.0140, %169 ], [ %.sroa.13.0140, %_ZNK4llvm3LLT13getSizeInBitsEv.exit58.i ]
   %.sroa.9.0 = phi i32 [ %154, %157 ], [ 132, %168 ], [ %.sroa.9.0.copyload84, %227 ], [ %160, %161 ], [ %150, %153 ], [ %150, %162 ], [ 132, %169 ], [ %150, %_ZNK4llvm3LLT13getSizeInBitsEv.exit58.i ]
@@ -3310,8 +3310,8 @@ _ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupl
   store ptr %.sroa.1397.0, ptr %.sroa.3126.0..sroa_idx, align 8
   br label %228
 
-228:                                              ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit, %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit69, %_ZNK4llvm13GMemOperation6getMMOEv.exit
-  %.sroa.13.1 = phi i32 [ %.sroa.13.0140, %_ZNK4llvm13GMemOperation6getMMOEv.exit ], [ %.sroa.13.2, %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.exit ], [ %.sroa.13.0140, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit69 ], [ %.sroa.13.0140, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit ]
+228:                                              ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit, %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.argprom.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit69, %_ZNK4llvm13GMemOperation6getMMOEv.exit
+  %.sroa.13.1 = phi i32 [ %.sroa.13.0140, %_ZNK4llvm13GMemOperation6getMMOEv.exit ], [ %.sroa.13.2, %_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.argprom.exit ], [ %.sroa.13.0140, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit69 ], [ %.sroa.13.0140, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit ]
   %229 = load ptr, ptr %61, align 8
   br label %.critedge2.i.i
 
@@ -3742,7 +3742,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit66:            ; preds = %163, %167, %170, %_
   store ptr %196, ptr %11, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm17MachineBasicBlockENS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEERNS0_14MachineOperandEEZNS0_14CombinerHelper26applyCombineExtendingLoadsERS4_RNS0_14PreferredTupleEE3$_0E9_M_invokeERKSt9_Any_dataOS2_OS5_S7_", ptr %78, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm17MachineBasicBlockENS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEERNS0_14MachineOperandEEZNS0_14CombinerHelper26applyCombineExtendingLoadsERS4_RNS0_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %77, align 8
-  call fastcc void @_ZN12_GLOBAL__N_138InsertInsnsWithoutSideEffectsBeforeUseERN4llvm16MachineIRBuilderERNS0_12MachineInstrERNS0_14MachineOperandESt8functionIFvPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS3_Lb0EEES6_EE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef %11)
+  call fastcc void @_ZN12_GLOBAL__N_138InsertInsnsWithoutSideEffectsBeforeUseERN4llvm16MachineIRBuilderERNS0_12MachineInstrERNS0_14MachineOperandESt8functionIFvPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS3_Lb0EEES6_EE.argprom(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef %11)
   %197 = load ptr, ptr %77, align 8
   %.not.i.i67 = icmp eq ptr %197, null
   br i1 %.not.i.i67, label %_ZNSt8functionIFvPN4llvm17MachineBasicBlockENS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEERNS0_14MachineOperandEEED2Ev.exit, label %198
@@ -3775,7 +3775,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit66:            ; preds = %163, %167, %170, %_
   store ptr %208, ptr %12, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm17MachineBasicBlockENS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEERNS0_14MachineOperandEEZNS0_14CombinerHelper26applyCombineExtendingLoadsERS4_RNS0_14PreferredTupleEE3$_0E9_M_invokeERKSt9_Any_dataOS2_OS5_S7_", ptr %76, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm17MachineBasicBlockENS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEERNS0_14MachineOperandEEZNS0_14CombinerHelper26applyCombineExtendingLoadsERS4_RNS0_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %75, align 8
-  call fastcc void @_ZN12_GLOBAL__N_138InsertInsnsWithoutSideEffectsBeforeUseERN4llvm16MachineIRBuilderERNS0_12MachineInstrERNS0_14MachineOperandESt8functionIFvPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS3_Lb0EEES6_EE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef %12)
+  call fastcc void @_ZN12_GLOBAL__N_138InsertInsnsWithoutSideEffectsBeforeUseERN4llvm16MachineIRBuilderERNS0_12MachineInstrERNS0_14MachineOperandESt8functionIFvPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS3_Lb0EEES6_EE.argprom(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef %12)
   %209 = load ptr, ptr %75, align 8
   %.not.i.i68 = icmp eq ptr %209, null
   br i1 %.not.i.i68, label %_ZNSt8functionIFvPN4llvm17MachineBasicBlockENS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEERNS0_14MachineOperandEEED2Ev.exit, label %210
@@ -3927,7 +3927,7 @@ _ZNK4llvm19MachineRegisterInfo21use_instr_nodbg_beginENS_8RegisterE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_138InsertInsnsWithoutSideEffectsBeforeUseERN4llvm16MachineIRBuilderERNS0_12MachineInstrERNS0_14MachineOperandESt8functionIFvPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS3_Lb0EEES6_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_138InsertInsnsWithoutSideEffectsBeforeUseERN4llvm16MachineIRBuilderERNS0_12MachineInstrERNS0_14MachineOperandESt8functionIFvPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS3_Lb0EEES6_EE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::MachineInstrBundleIterator", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::MachineInstrBundleIterator", align 8
@@ -8069,7 +8069,7 @@ _ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit38: ; preds = %
   %75 = add i32 %.029.val30.i.i.i.i.i.i, -1
   %76 = icmp ult i32 %75, 1073741823
   %77 = select i1 %74, i1 %76, i1 false
-  br i1 %77, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit", label %78
+  br i1 %77, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit", label %78
 
 78:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %79 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i.i, i64 32
@@ -8081,7 +8081,7 @@ _ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit38: ; preds = %
   %83 = add i32 %.val31.i.i.i.i.i.i, -1
   %84 = icmp ult i32 %83, 1073741823
   %85 = select i1 %82, i1 %84, i1 false
-  br i1 %85, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %86
+  br i1 %85, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", label %86
 
 86:                                               ; preds = %78
   %87 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i.i, i64 64
@@ -8093,7 +8093,7 @@ _ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit38: ; preds = %
   %91 = add i32 %.val33.i.i.i.i.i.i, -1
   %92 = icmp ult i32 %91, 1073741823
   %93 = select i1 %90, i1 %92, i1 false
-  br i1 %93, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit60", label %94
+  br i1 %93, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit60", label %94
 
 94:                                               ; preds = %86
   %95 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i.i, i64 96
@@ -8105,7 +8105,7 @@ _ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit38: ; preds = %
   %99 = add i32 %.val35.i.i.i.i.i.i, -1
   %100 = icmp ult i32 %99, 1073741823
   %101 = select i1 %98, i1 %100, i1 false
-  br i1 %101, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit62", label %102
+  br i1 %101, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit62", label %102
 
 102:                                              ; preds = %94
   %103 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i.i, i64 128
@@ -8122,7 +8122,7 @@ _ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit38: ; preds = %
   %.pre-phi57.i.i.i.i.i.i = phi i64 [ %.pre56.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %68, %55 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %60, %55 ]
   %106 = ashr exact i64 %.pre-phi57.i.i.i.i.i.i, 5
-  switch i64 %106, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.thread" [
+  switch i64 %106, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.thread" [
     i64 3, label %107
     i64 2, label %116
     i64 1, label %125
@@ -8137,7 +8137,7 @@ _ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit38: ; preds = %
   %111 = add i32 %.029.val37.i.i.i.i.i.i, -1
   %112 = icmp ult i32 %111, 1073741823
   %113 = select i1 %110, i1 %112, i1 false
-  br i1 %113, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit", label %114
+  br i1 %113, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit", label %114
 
 114:                                              ; preds = %107
   %115 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 32
@@ -8153,7 +8153,7 @@ _ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit38: ; preds = %
   %120 = add i32 %.1.val38.i.i.i.i.i.i, -1
   %121 = icmp ult i32 %120, 1073741823
   %122 = select i1 %119, i1 %121, i1 false
-  br i1 %122, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit", label %123
+  br i1 %122, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit", label %123
 
 123:                                              ; preds = %116
   %124 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 32
@@ -8169,30 +8169,30 @@ _ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit38: ; preds = %
   %129 = add i32 %.2.val39.i.i.i.i.i.i, -1
   %130 = icmp ult i32 %129, 1073741823
   %131 = select i1 %128, i1 %130, i1 false
-  br i1 %131, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.thread"
+  br i1 %131, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.thread"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %78
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %78
   %132 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit60": ; preds = %86
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit60": ; preds = %86
   %133 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i.i, i64 64
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit62": ; preds = %94
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit62": ; preds = %94
   %134 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i.i, i64 96
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit60", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit62", %107, %116, %125
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %107 ], [ %.1.i.i.i.i.i.i, %116 ], [ %.2.i.i.i.i.i.i, %125 ], [ %132, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %133, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit60" ], [ %134, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit62" ], [ %.02950.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit60", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit62", %107, %116, %125
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %107 ], [ %.1.i.i.i.i.i.i, %116 ], [ %.2.i.i.i.i.i.i, %125 ], [ %132, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %133, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit60" ], [ %134, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit62" ], [ %.02950.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not47 = icmp eq ptr %65, %.028.i.i.i.i.i.i
-  br i1 %.not47, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.thread", label %135
+  br i1 %.not47, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.thread", label %135
 
-135:                                              ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit"
+135:                                              ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit"
   %136 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr13isIdenticalToERKS0_NS0_11MICheckTypeE(ptr noundef nonnull align 8 dereferenceable(70) %29, ptr noundef nonnull align 8 dereferenceable(70) %30, i32 noundef 0) #27
   br label %.critedge
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.thread": ; preds = %125, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.thread": ; preds = %125, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit"
   %137 = load ptr, ptr %0, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8
@@ -8203,7 +8203,7 @@ _ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit38: ; preds = %
   %144 = call noundef zeroext i1 %143(ptr noundef nonnull align 8 dereferenceable(80) %139, ptr noundef nonnull align 8 dereferenceable(70) %29, ptr noundef nonnull align 8 dereferenceable(70) %30, ptr noundef %140) #27
   br i1 %144, label %145, label %.critedge
 
-145:                                              ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.thread"
+145:                                              ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.thread"
   %146 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.02.0.copyload = load i32, ptr %146, align 8
   %147 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %29, i32 %.sroa.02.0.copyload, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #27
@@ -8213,8 +8213,8 @@ _ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit38: ; preds = %
   %150 = icmp eq i32 %147, %149
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.thread", %52, %50, %_ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit38, %38, %21, %13, %3, %9, %145, %135, %32
-  %.0 = phi i1 [ %35, %32 ], [ %136, %135 ], [ %150, %145 ], [ false, %9 ], [ false, %3 ], [ false, %13 ], [ false, %21 ], [ false, %38 ], [ false, %_ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit38 ], [ false, %50 ], [ false, %52 ], [ false, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.exit.thread" ], [ false, %_ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit ]
+.critedge:                                        ; preds = %_ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.thread", %52, %50, %_ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit38, %38, %21, %13, %3, %9, %145, %135, %32
+  %.0 = phi i1 [ %35, %32 ], [ %136, %135 ], [ %150, %145 ], [ false, %9 ], [ false, %3 ], [ false, %13 ], [ false, %21 ], [ false, %38 ], [ false, %_ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit38 ], [ false, %50 ], [ false, %52 ], [ false, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper14matchEqualDefsERKS2_S7_E3$_0EEbOT_T0_.argprom.exit.thread" ], [ false, %_ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit ]
   ret i1 %.0
 }
 
@@ -9967,7 +9967,7 @@ _ZNK4llvm5APInteqEm.exit.thread:                  ; preds = %_ZNK4llvm5APInt13ge
   %84 = getelementptr inbounds nuw i8, ptr %50, i64 68
   %85 = load i16, ptr %84, align 4
   %.not.i41 = icmp eq i16 %8, %85
-  br i1 %.not.i41, label %86, label %"_ZZN4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit44.thread"
+  br i1 %.not.i41, label %86, label %"_ZZN4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.argprom.argprom.exit44.thread"
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr %13, align 8
@@ -9976,7 +9976,7 @@ _ZNK4llvm5APInteqEm.exit.thread:                  ; preds = %_ZNK4llvm5APInt13ge
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %87, i32 %91) #27
-  br i1 %92, label %93, label %"_ZZN4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit44.thread"
+  br i1 %92, label %93, label %"_ZZN4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.argprom.argprom.exit44.thread"
 
 93:                                               ; preds = %86
   %94 = load ptr, ptr %88, align 8
@@ -9987,7 +9987,7 @@ _ZNK4llvm5APInteqEm.exit.thread:                  ; preds = %_ZNK4llvm5APInt13ge
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %99 = load i8, ptr %98, align 8
   %100 = trunc i8 %99 to i1
-  br i1 %100, label %101, label %"_ZZN4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit44.thread"
+  br i1 %100, label %101, label %"_ZZN4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.argprom.argprom.exit44.thread"
 
 101:                                              ; preds = %93
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -10012,7 +10012,7 @@ _ZNK4llvm5APInteqEm.exit.thread:                  ; preds = %_ZNK4llvm5APInt13ge
   call void @_ZdaPv(ptr noundef nonnull %113) #31
   br label %115
 
-"_ZZN4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit44.thread": ; preds = %86, %83, %93
+"_ZZN4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.argprom.argprom.exit44.thread": ; preds = %86, %83, %93
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %145
 
@@ -10085,8 +10085,8 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit:        ; preds = %133, %137, %.thread
   store ptr %18, ptr %2, align 8
   br label %145
 
-145:                                              ; preds = %"_ZZN4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit44.thread", %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit, %23, %_ZNK4llvm5APInteqEm.exit, %144
-  %.1 = phi i1 [ true, %144 ], [ false, %_ZNK4llvm5APInteqEm.exit ], [ false, %23 ], [ false, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit ], [ false, %"_ZZN4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit44.thread" ]
+145:                                              ; preds = %"_ZZN4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.argprom.argprom.exit44.thread", %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit, %23, %_ZNK4llvm5APInteqEm.exit, %144
+  %.1 = phi i1 [ true, %144 ], [ false, %_ZNK4llvm5APInteqEm.exit ], [ false, %23 ], [ false, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit ], [ false, %"_ZZN4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.argprom.argprom.exit44.thread" ]
   %146 = load i8, ptr %28, align 8
   %147 = trunc i8 %146 to i1
   br i1 %147, label %148, label %_ZNSt8optionalIN4llvm12ValueAndVRegEED2Ev.exit
@@ -12053,13 +12053,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper24matchCombineUnmer
   store ptr %21, ptr %16, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper24matchCombineUnmergeUndefERNS0_12MachineInstrERSt8functionIS3_EE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %20, align 8
   %.not.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i, label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24matchCombineUnmergeUndefERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", label %22
+  br i1 %.not.i.i.i, label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24matchCombineUnmergeUndefERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit", label %22
 
 22:                                               ; preds = %3
   %23 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3) #27
-  br label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24matchCombineUnmergeUndefERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
+  br label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24matchCombineUnmergeUndefERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit"
 
-"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24matchCombineUnmergeUndefERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit": ; preds = %3, %22
+"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24matchCombineUnmergeUndefERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit": ; preds = %3, %22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
@@ -15053,74 +15053,74 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper26matchAnyExplicitU
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %18
 
-18:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.thread.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
-  %.070.i.i.i.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i.i.i.i ], [ %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.thread.i.i.i.i.i.i" ]
-  %.02969.i.i.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i.i.i ], [ %42, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.thread.i.i.i.i.i.i" ]
+18:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.thread.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
+  %.070.i.i.i.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i.i.i.i ], [ %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.thread.i.i.i.i.i.i" ]
+  %.02969.i.i.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i.i.i ], [ %42, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.thread.i.i.i.i.i.i" ]
   %.029.val.i.i.i.i.i.i = load i32, ptr %.02969.i.i.i.i.i.i, align 8
   %19 = and i32 %.029.val.i.i.i.i.i.i, 255
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i.i"
+  br i1 %20, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.i.i.i.i.i.i": ; preds = %18
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %18
   %21 = getelementptr i8, ptr %.02969.i.i.i.i.i.i, i64 4
   %.029.val30.i.i.i.i.i.i = load i32, ptr %21, align 4
   %22 = load ptr, ptr %17, align 8
   %23 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 64, i32 %.029.val30.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(512) %22) #27
   %.not55.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not55.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit"
+  br i1 %.not55.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.i.i.i.i.i.i", %18
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.i.i.i.i.i.i", %18
   %24 = getelementptr inbounds i8, ptr %.02969.i.i.i.i.i.i, i64 32
   %.val32.i.i.i.i.i.i = load i32, ptr %24, align 8
   %25 = and i32 %.val32.i.i.i.i.i.i, 255
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.thread.i.i.i.i.i.i"
+  br i1 %26, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
   %27 = getelementptr i8, ptr %.02969.i.i.i.i.i.i, i64 36
   %.val33.i.i.i.i.i.i = load i32, ptr %27, align 4
   %28 = load ptr, ptr %17, align 8
   %29 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 64, i32 %.val33.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(512) %28) #27
   %.not56.i.i.i.i.i.i = icmp eq ptr %29, null
-  br i1 %.not56.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
+  br i1 %.not56.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
   %30 = getelementptr inbounds i8, ptr %.02969.i.i.i.i.i.i, i64 64
   %.val35.i.i.i.i.i.i = load i32, ptr %30, align 8
   %31 = and i32 %.val35.i.i.i.i.i.i, 255
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.thread.i.i.i.i.i.i"
+  br i1 %32, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.thread.i.i.i.i.i.i"
   %33 = getelementptr i8, ptr %.02969.i.i.i.i.i.i, i64 68
   %.val36.i.i.i.i.i.i = load i32, ptr %33, align 4
   %34 = load ptr, ptr %17, align 8
   %35 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 64, i32 %.val36.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(512) %34) #27
   %.not57.i.i.i.i.i.i = icmp eq ptr %35, null
-  br i1 %.not57.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15"
+  br i1 %.not57.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit15"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.thread.i.i.i.i.i.i"
   %36 = getelementptr inbounds i8, ptr %.02969.i.i.i.i.i.i, i64 96
   %.val38.i.i.i.i.i.i = load i32, ptr %36, align 8
   %37 = and i32 %.val38.i.i.i.i.i.i, 255
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.thread.i.i.i.i.i.i"
+  br i1 %38, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i"
   %39 = getelementptr i8, ptr %.02969.i.i.i.i.i.i, i64 100
   %.val39.i.i.i.i.i.i = load i32, ptr %39, align 4
   %40 = load ptr, ptr %17, align 8
   %41 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 64, i32 %.val39.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(512) %40) #27
   %.not58.i.i.i.i.i.i = icmp eq ptr %41, null
-  br i1 %.not58.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit17"
+  br i1 %.not58.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit17"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i"
   %42 = getelementptr inbounds i8, ptr %.02969.i.i.i.i.i.i, i64 128
   %43 = add nsw i64 %.070.i.i.i.i.i.i, -1
   %44 = icmp sgt i64 %.070.i.i.i.i.i.i, 1
   br i1 %44, label %18, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !85
 
-._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.thread.i.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.thread.i.i.i.i.i.i"
   %.pre.i.i.i.i.i.i = ptrtoint ptr %42 to i64
   %.pre75.i.i.i.i.i.i = sub i64 %12, %.pre.i.i.i.i.i.i
   br label %._crit_edge.i.i.i.i.i.i
@@ -15129,7 +15129,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper26matchAnyExplicitU
   %.pre-phi76.i.i.i.i.i.i = phi i64 [ %.pre75.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %14, %2 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %42, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %7, %2 ]
   %45 = ashr exact i64 %.pre-phi76.i.i.i.i.i.i, 5
-  switch i64 %45, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.thread.i.i.i.i.i.i" [
+  switch i64 %45, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i.i.i" [
     i64 3, label %46
     i64 2, label %54
     i64 1, label %62
@@ -15139,74 +15139,74 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper26matchAnyExplicitU
   %.029.val41.i.i.i.i.i.i = load i32, ptr %.029.lcssa.i.i.i.i.i.i, align 8
   %47 = and i32 %.029.val41.i.i.i.i.i.i, 255
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.thread.i.i.i.i.i.i"
+  br i1 %48, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.i.i.i.i.i.i": ; preds = %46
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.i.i.i.i.i.i": ; preds = %46
   %49 = getelementptr i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 4
   %.029.val42.i.i.i.i.i.i = load i32, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 64, i32 %.029.val42.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(512) %51) #27
   %.not.i.i.i.i.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit"
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.i.i.i.i.i.i", %46
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.i.i.i.i.i.i", %46
   %53 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 32
   br label %54
 
-54:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %53, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.thread.i.i.i.i.i.i" ]
+54:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %53, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.thread.i.i.i.i.i.i" ]
   %.1.val.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i, align 8
   %55 = and i32 %.1.val.i.i.i.i.i.i, 255
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.thread.i.i.i.i.i.i"
+  br i1 %56, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.i.i.i.i.i.i": ; preds = %54
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.i.i.i.i.i.i": ; preds = %54
   %57 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 4
   %.1.val44.i.i.i.i.i.i = load i32, ptr %57, align 4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 64, i32 %.1.val44.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(512) %59) #27
   %.not53.i.i.i.i.i.i = icmp eq ptr %60, null
-  br i1 %.not53.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit"
+  br i1 %.not53.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.i.i.i.i.i.i", %54
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.i.i.i.i.i.i", %54
   %61 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 32
   br label %62
 
-62:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %61, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.thread.i.i.i.i.i.i" ]
+62:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %61, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i.i" ]
   %.2.val.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i, align 8
   %63 = and i32 %.2.val.i.i.i.i.i.i, 255
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.thread.i.i.i.i.i.i"
+  br i1 %64, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.i.i.i.i.i.i": ; preds = %62
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.i.i.i.i.i.i": ; preds = %62
   %65 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 4
   %.2.val46.i.i.i.i.i.i = load i32, ptr %65, align 4
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 64, i32 %.2.val46.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(512) %67) #27
   %.not54.i.i.i.i.i.i = icmp eq ptr %68, null
-  br i1 %.not54.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit"
+  br i1 %.not54.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.i.i.i.i.i.i", %62, %._crit_edge.i.i.i.i.i.i
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.i.i.i.i.i.i", %62, %._crit_edge.i.i.i.i.i.i
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.i.i.i.i.i.i"
   %69 = getelementptr inbounds i8, ptr %.02969.i.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit15": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.i.i.i.i.i.i"
   %70 = getelementptr inbounds i8, ptr %.02969.i.i.i.i.i.i, i64 64
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit17": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit17": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.i.i.i.i.i.i"
   %71 = getelementptr inbounds i8, ptr %.02969.i.i.i.i.i.i, i64 96
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit17", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.thread.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %11, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.i.i.i.i.i.i" ], [ %69, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %70, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15" ], [ %71, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit17" ], [ %.02969.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.i.i.i.i.i.i" ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit15", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit17", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %11, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.i.i.i.i.i.i" ], [ %69, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %70, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit15" ], [ %71, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper26matchAnyExplicitUseIsUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit17" ], [ %.02969.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14CombinerHelper26matchAnyExplicitUseIsUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.i.i.i.i.i.i" ]
   %72 = icmp ne ptr %11, %.028.i.i.i.i.i.i
   ret i1 %72
 }
@@ -15233,74 +15233,74 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper28matchAllExplicitU
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %18
 
-18:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.thread.i.i.i.i.i", %.lr.ph.i.i.i.i.i
-  %.064.i.i.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i.i.i ], [ %47, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.thread.i.i.i.i.i" ]
-  %.02963.i.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i.i ], [ %46, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.thread.i.i.i.i.i" ]
+18:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.thread.i.i.i.i.i", %.lr.ph.i.i.i.i.i
+  %.064.i.i.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i.i.i ], [ %47, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.thread.i.i.i.i.i" ]
+  %.02963.i.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i.i ], [ %46, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.thread.i.i.i.i.i" ]
   %.029.val.i.i.i.i.i = load i32, ptr %.02963.i.i.i.i.i, align 8
   %19 = and i32 %.029.val.i.i.i.i.i, 255
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i"
+  br i1 %20, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.i.i.i.i.i": ; preds = %18
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.i.i.i.i.i": ; preds = %18
   %21 = getelementptr i8, ptr %.02963.i.i.i.i.i, i64 4
   %.029.val30.i.i.i.i.i = load i32, ptr %21, align 4
   %22 = load ptr, ptr %17, align 8
   %23 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 64, i32 %.029.val30.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(512) %22) #27
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i"
+  br i1 %24, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.i.i.i.i.i", %18
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.i.i.i.i.i", %18
   %25 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i, i64 32
   %.val32.i.i.i.i.i = load i32, ptr %25, align 8
   %26 = and i32 %.val32.i.i.i.i.i, 255
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.thread.i.i.i.i.i"
+  br i1 %27, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i"
   %28 = getelementptr i8, ptr %.02963.i.i.i.i.i, i64 36
   %.val33.i.i.i.i.i = load i32, ptr %28, align 4
   %29 = load ptr, ptr %17, align 8
   %30 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 64, i32 %.val33.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(512) %29) #27
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.thread.i.i.i.i.i"
+  br i1 %31, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i"
   %32 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i, i64 64
   %.val35.i.i.i.i.i = load i32, ptr %32, align 8
   %33 = and i32 %.val35.i.i.i.i.i, 255
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.thread.i.i.i.i.i"
+  br i1 %34, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.thread.i.i.i.i.i"
   %35 = getelementptr i8, ptr %.02963.i.i.i.i.i, i64 68
   %.val36.i.i.i.i.i = load i32, ptr %35, align 4
   %36 = load ptr, ptr %17, align 8
   %37 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 64, i32 %.val36.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(512) %36) #27
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.thread.i.i.i.i.i"
+  br i1 %38, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit15", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.thread.i.i.i.i.i"
   %39 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i, i64 96
   %.val38.i.i.i.i.i = load i32, ptr %39, align 8
   %40 = and i32 %.val38.i.i.i.i.i, 255
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.thread.i.i.i.i.i"
+  br i1 %41, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i"
   %42 = getelementptr i8, ptr %.02963.i.i.i.i.i, i64 100
   %.val39.i.i.i.i.i = load i32, ptr %42, align 4
   %43 = load ptr, ptr %17, align 8
   %44 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 64, i32 %.val39.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(512) %43) #27
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit17", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.thread.i.i.i.i.i"
+  br i1 %45, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit17", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i"
   %46 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i, i64 128
   %47 = add nsw i64 %.064.i.i.i.i.i, -1
   %48 = icmp sgt i64 %.064.i.i.i.i.i, 1
   br i1 %48, label %18, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !86
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.thread.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.thread.i.i.i.i.i"
   %.pre.i.i.i.i.i = ptrtoint ptr %46 to i64
   %.pre69.i.i.i.i.i = sub i64 %12, %.pre.i.i.i.i.i
   br label %._crit_edge.i.i.i.i.i
@@ -15309,7 +15309,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper28matchAllExplicitU
   %.pre-phi70.i.i.i.i.i = phi i64 [ %.pre69.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %14, %2 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %46, %._crit_edge.loopexit.i.i.i.i.i ], [ %7, %2 ]
   %49 = ashr exact i64 %.pre-phi70.i.i.i.i.i, 5
-  switch i64 %49, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.thread.i.i.i.i.i" [
+  switch i64 %49, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i.i" [
     i64 3, label %50
     i64 2, label %59
     i64 1, label %68
@@ -15319,74 +15319,74 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper28matchAllExplicitU
   %.029.val41.i.i.i.i.i = load i32, ptr %.029.lcssa.i.i.i.i.i, align 8
   %51 = and i32 %.029.val41.i.i.i.i.i, 255
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.thread.i.i.i.i.i"
+  br i1 %52, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.i.i.i.i.i": ; preds = %50
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.i.i.i.i.i": ; preds = %50
   %53 = getelementptr i8, ptr %.029.lcssa.i.i.i.i.i, i64 4
   %.029.val42.i.i.i.i.i = load i32, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 64, i32 %.029.val42.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(512) %55) #27
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.thread.i.i.i.i.i"
+  br i1 %57, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.i.i.i.i.i", %50
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.i.i.i.i.i", %50
   %58 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 32
   br label %59
 
-59:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %58, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.thread.i.i.i.i.i" ]
+59:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %58, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.thread.i.i.i.i.i" ]
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 8
   %60 = and i32 %.1.val.i.i.i.i.i, 255
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.thread.i.i.i.i.i"
+  br i1 %61, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.i.i.i.i.i": ; preds = %59
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.i.i.i.i.i": ; preds = %59
   %62 = getelementptr i8, ptr %.1.i.i.i.i.i, i64 4
   %.1.val44.i.i.i.i.i = load i32, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 64, i32 %.1.val44.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(512) %64) #27
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.thread.i.i.i.i.i"
+  br i1 %66, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.i.i.i.i.i", %59
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.i.i.i.i.i", %59
   %67 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 32
   br label %68
 
-68:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %67, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.thread.i.i.i.i.i" ]
+68:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %67, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i" ]
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 8
   %69 = and i32 %.2.val.i.i.i.i.i, 255
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.thread.i.i.i.i.i"
+  br i1 %70, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.i.i.i.i.i": ; preds = %68
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.i.i.i.i.i": ; preds = %68
   %71 = getelementptr i8, ptr %.2.i.i.i.i.i, i64 4
   %.2.val46.i.i.i.i.i = load i32, ptr %71, align 4
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 64, i32 %.2.val46.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(512) %73) #27
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.thread.i.i.i.i.i"
+  br i1 %75, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.i.i.i.i.i", %68, %._crit_edge.i.i.i.i.i
-  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit"
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.i.i.i.i.i", %68, %._crit_edge.i.i.i.i.i
+  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit47.i.i.i.i.i"
+"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit47.i.i.i.i.i"
   %76 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit48.i.i.i.i.i"
+"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit15": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit48.i.i.i.i.i"
   %77 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i, i64 64
-  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit17": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit49.i.i.i.i.i"
+"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit17": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit49.i.i.i.i.i"
   %78 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i, i64 96
-  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.i.i.i.i.i", %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15", %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit17", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.thread.i.i.i.i.i"
-  %.028.i.i.i.i.i = phi ptr [ %11, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.thread.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit50.i.i.i.i.i" ], [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit51.i.i.i.i.i" ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit52.i.i.i.i.i" ], [ %76, %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %77, %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15" ], [ %78, %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit17" ], [ %.02963.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.exit.i.i.i.i.i" ]
+"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.i.i.i.i.i", %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit15", %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit17", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i.i"
+  %.028.i.i.i.i.i = phi ptr [ %11, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit50.i.i.i.i.i" ], [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit51.i.i.i.i.i" ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit52.i.i.i.i.i" ], [ %76, %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %77, %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit15" ], [ %78, %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZNS_14CombinerHelper28matchAllExplicitUsesAreUndefERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit17" ], [ %.02963.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm14CombinerHelper28matchAllExplicitUsesAreUndefERNS2_12MachineInstrEE3$_0EclIPNS2_14MachineOperandEEEbT_.argprom.exit.i.i.i.i.i" ]
   %79 = icmp eq ptr %11, %.028.i.i.i.i.i
   ret i1 %79
 }
@@ -15415,25 +15415,25 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper27matchUndefShuffle
   %.02943.i.i.i.i.i = phi ptr [ %21, %20 ], [ %.sroa.0.0.copyload.i, %.lr.ph.preheader.i.i.i.i.i ]
   %.029.val.i.i.i.i.i = load i32, ptr %.02943.i.i.i.i.i, align 4
   %10 = icmp sgt i32 %.029.val.i.i.i.i.i, -1
-  br i1 %10, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit", label %11
+  br i1 %10, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit", label %11
 
 11:                                               ; preds = %.lr.ph.i.i.i.i.i
   %12 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 4
   %.val.i.i.i.i.i = load i32, ptr %12, align 4
   %13 = icmp sgt i32 %.val.i.i.i.i.i, -1
-  br i1 %13, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %14
+  br i1 %13, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 8
   %.val30.i.i.i.i.i = load i32, ptr %15, align 4
   %16 = icmp sgt i32 %.val30.i.i.i.i.i, -1
-  br i1 %16, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit14", label %17
+  br i1 %16, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit14", label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 12
   %.val31.i.i.i.i.i = load i32, ptr %18, align 4
   %19 = icmp sgt i32 %.val31.i.i.i.i.i, -1
-  br i1 %19, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit16", label %20
+  br i1 %19, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit16", label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 16
@@ -15457,7 +15457,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper27matchUndefShuffle
 25:                                               ; preds = %._crit_edge.i.i.i.i.i
   %.029.val32.i.i.i.i.i = load i32, ptr %.029.lcssa.i.i.i.i.i, align 4
   %26 = icmp sgt i32 %.029.val32.i.i.i.i.i, -1
-  br i1 %26, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit", label %27
+  br i1 %26, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit", label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 4
@@ -15467,7 +15467,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper27matchUndefShuffle
   %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %28, %27 ]
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 4
   %30 = icmp sgt i32 %.1.val.i.i.i.i.i, -1
-  br i1 %30, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit", label %31
+  br i1 %30, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit", label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 4
@@ -15477,25 +15477,25 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper27matchUndefShuffle
   %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %32, %31 ]
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 4
   %34 = icmp sgt i32 %.2.val.i.i.i.i.i, -1
-  br i1 %34, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit", label %35
+  br i1 %34, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit", label %35
 
 35:                                               ; preds = %33, %._crit_edge.i.i.i.i.i
-  br label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %11
+"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %11
   %36 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 4
-  br label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit14": ; preds = %14
+"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit14": ; preds = %14
   %37 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 8
-  br label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit16": ; preds = %17
+"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit16": ; preds = %17
   %38 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 12
-  br label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit"
+  br label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit"
 
-"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit14", %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit16", %25, %29, %33, %35
-  %.028.i.i.i.i.i = phi ptr [ %6, %35 ], [ %.029.lcssa.i.i.i.i.i, %25 ], [ %.1.i.i.i.i.i, %29 ], [ %.2.i.i.i.i.i, %33 ], [ %36, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %37, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit14" ], [ %38, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit16" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit14", %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit16", %25, %29, %33, %35
+  %.028.i.i.i.i.i = phi ptr [ %6, %35 ], [ %.029.lcssa.i.i.i.i.i, %25 ], [ %.1.i.i.i.i.i, %29 ], [ %.2.i.i.i.i.i, %33 ], [ %36, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %37, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit14" ], [ %38, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_14CombinerHelper27matchUndefShuffleVectorMaskERNS_12MachineInstrEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit16" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %39 = icmp eq ptr %6, %.028.i.i.i.i.i
   ret i1 %39
 }
@@ -16778,25 +16778,25 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper21matchSimplifyAddT
   %30 = extractvalue { i64, i8 } %27, 0
   %31 = icmp eq i64 %30, 0
   %32 = select i1 %29, i1 %31, i1 false
-  br i1 %32, label %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.exit10.sink.split", label %33
+  br i1 %32, label %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.argprom.exit10.sink.split", label %33
 
 33:                                               ; preds = %14, %18, %3, %22
   %34 = load ptr, ptr %11, align 8
   %35 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %34, i32 %9) #27
   %.not.i.i.i.not.i.i.i8 = icmp eq ptr %35, null
-  br i1 %.not.i.i.i.not.i.i.i8, label %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.exit10", label %36
+  br i1 %.not.i.i.i.not.i.i.i8, label %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.argprom.exit10", label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 68
   %38 = load i16, ptr %37, align 4
   %39 = icmp eq i16 %38, 53
-  br i1 %39, label %40, label %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.exit10"
+  br i1 %39, label %40, label %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.argprom.exit10"
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %42 = load i24, ptr %41, align 8
   %43 = icmp eq i24 %42, 3
-  br i1 %43, label %44, label %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.exit10"
+  br i1 %43, label %44, label %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.argprom.exit10"
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 32
@@ -16809,9 +16809,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper21matchSimplifyAddT
   %52 = extractvalue { i64, i8 } %49, 0
   %53 = icmp eq i64 %52, 0
   %54 = select i1 %51, i1 %53, i1 false
-  br i1 %54, label %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.exit10.sink.split", label %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.exit10"
+  br i1 %54, label %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.argprom.exit10.sink.split", label %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.argprom.exit10"
 
-"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.exit10.sink.split": ; preds = %44, %22
+"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.argprom.exit10.sink.split": ; preds = %44, %22
   %.sink22 = phi ptr [ %23, %22 ], [ %45, %44 ]
   %.sink = phi i32 [ %9, %22 ], [ %7, %44 ]
   %55 = load ptr, ptr %.sink22, align 8
@@ -16819,10 +16819,10 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper21matchSimplifyAddT
   %57 = load i32, ptr %56, align 4
   store i32 %57, ptr %2, align 4
   store i32 %.sink, ptr %10, align 4
-  br label %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.exit10"
+  br label %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.argprom.exit10"
 
-"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.exit10": ; preds = %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.exit10.sink.split", %44, %40, %36, %33
-  %58 = phi i1 [ false, %36 ], [ false, %40 ], [ false, %33 ], [ false, %44 ], [ true, %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.exit10.sink.split" ]
+"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.argprom.exit10": ; preds = %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.argprom.exit10.sink.split", %44, %40, %36, %33
+  %58 = phi i1 [ false, %36 ], [ false, %40 ], [ false, %33 ], [ false, %44 ], [ true, %"_ZZN4llvm14CombinerHelper21matchSimplifyAddToSubERNS_12MachineInstrERSt5tupleIJNS_8RegisterES4_EEENK3$_0clERS4_S8_.argprom.exit10.sink.split" ]
   ret i1 %58
 }
 
@@ -26122,13 +26122,13 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit:        ; preds = %118, %122, %114
   store ptr %137, ptr %133, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper30matchBitfieldExtractFromShrAndERNS0_12MachineInstrERSt8functionIS3_EE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %136, align 8
   %.not.i.i.i = icmp eq ptr %135, null
-  br i1 %.not.i.i.i, label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper30matchBitfieldExtractFromShrAndERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", label %138
+  br i1 %.not.i.i.i, label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper30matchBitfieldExtractFromShrAndERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit", label %138
 
 138:                                              ; preds = %131
   %139 = call noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3) #27
-  br label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper30matchBitfieldExtractFromShrAndERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
+  br label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper30matchBitfieldExtractFromShrAndERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit"
 
-"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper30matchBitfieldExtractFromShrAndERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit": ; preds = %131, %138
+"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper30matchBitfieldExtractFromShrAndERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit": ; preds = %131, %138
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_15BinaryOpc_matchINS0_18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyIS2_EENS0_13ConstantMatchIlEELj61ELb1EEEEES9_Lb0EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.thread
 
@@ -26172,8 +26172,8 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit:        ; preds = %118, %122, %114
   %165 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper30matchBitfieldExtractFromShrAndERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %7)
   br label %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_15BinaryOpc_matchINS0_18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyIS2_EENS0_13ConstantMatchIlEELj61ELb1EEEEES9_Lb0EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.thread
 
-_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_15BinaryOpc_matchINS0_18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyIS2_EENS0_13ConstantMatchIlEELj61ELb1EEEEES9_Lb0EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.thread: ; preds = %_ZN4llvm14MIPatternMatch13ConstantMatchIlE5matchERKNS_19MachineRegisterInfoENS_8RegisterE.exit.i.i, %75, %81, %77, %69, %_ZN4llvm14MIPatternMatch18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj61ELb1EEEE5matchERKNS_19MachineRegisterInfoES4_.exit, %.critedge, %65, %56, %52, %154, %140, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit, %126, %42, %159, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper30matchBitfieldExtractFromShrAndERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
-  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper30matchBitfieldExtractFromShrAndERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %159 ], [ false, %42 ], [ false, %126 ], [ false, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit ], [ false, %140 ], [ false, %154 ], [ false, %52 ], [ false, %56 ], [ false, %65 ], [ false, %.critedge ], [ false, %_ZN4llvm14MIPatternMatch18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj61ELb1EEEE5matchERKNS_19MachineRegisterInfoES4_.exit ], [ false, %69 ], [ false, %77 ], [ false, %81 ], [ false, %75 ], [ false, %_ZN4llvm14MIPatternMatch13ConstantMatchIlE5matchERKNS_19MachineRegisterInfoENS_8RegisterE.exit.i.i ]
+_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_15BinaryOpc_matchINS0_18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyIS2_EENS0_13ConstantMatchIlEELj61ELb1EEEEES9_Lb0EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.thread: ; preds = %_ZN4llvm14MIPatternMatch13ConstantMatchIlE5matchERKNS_19MachineRegisterInfoENS_8RegisterE.exit.i.i, %75, %81, %77, %69, %_ZN4llvm14MIPatternMatch18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj61ELb1EEEE5matchERKNS_19MachineRegisterInfoES4_.exit, %.critedge, %65, %56, %52, %154, %140, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit, %126, %42, %159, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper30matchBitfieldExtractFromShrAndERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit"
+  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper30matchBitfieldExtractFromShrAndERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit" ], [ true, %159 ], [ false, %42 ], [ false, %126 ], [ false, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit ], [ false, %140 ], [ false, %154 ], [ false, %52 ], [ false, %56 ], [ false, %65 ], [ false, %.critedge ], [ false, %_ZN4llvm14MIPatternMatch18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj61ELb1EEEE5matchERKNS_19MachineRegisterInfoES4_.exit ], [ false, %69 ], [ false, %77 ], [ false, %81 ], [ false, %75 ], [ false, %_ZN4llvm14MIPatternMatch13ConstantMatchIlE5matchERKNS_19MachineRegisterInfoENS_8RegisterE.exit.i.i ]
   ret i1 %.0
 }
 
@@ -28291,18 +28291,18 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit13: ; preds = %35, %37,
   store ptr %56, ptr %51, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper12matchMulOBy0ERNS0_12MachineInstrERSt8functionIS3_EE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %55, align 8
   %.not.i.i.i = icmp eq ptr %54, null
-  br i1 %.not.i.i.i, label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper12matchMulOBy0ERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", label %57
+  br i1 %.not.i.i.i, label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper12matchMulOBy0ERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit", label %57
 
 57:                                               ; preds = %49
   %58 = call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3) #27
-  br label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper12matchMulOBy0ERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
+  br label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper12matchMulOBy0ERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit"
 
-"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper12matchMulOBy0ERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit": ; preds = %49, %57
+"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper12matchMulOBy0ERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit": ; preds = %49, %57
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %59
 
-59:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit13, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_28SpecificConstantOrSplatMatchEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper12matchMulOBy0ERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
-  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper12matchMulOBy0ERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_28SpecificConstantOrSplatMatchEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit13 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ]
+59:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit13, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_28SpecificConstantOrSplatMatchEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper12matchMulOBy0ERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit"
+  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper12matchMulOBy0ERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit" ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_28SpecificConstantOrSplatMatchEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit13 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ]
   ret i1 %.0
 }
 
@@ -28512,13 +28512,13 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_28SpecificConstantOrSplatMatc
   store ptr %90, ptr %85, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper18matchSubAddSameRegERNS0_12MachineInstrERSt8functionIS3_EE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %89, align 8
   %.not.i.i.i = icmp eq ptr %88, null
-  br i1 %.not.i.i.i, label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper18matchSubAddSameRegERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", label %91
+  br i1 %.not.i.i.i, label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper18matchSubAddSameRegERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit", label %91
 
 91:                                               ; preds = %83
   %92 = call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3) #27
-  br label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper18matchSubAddSameRegERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
+  br label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper18matchSubAddSameRegERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit"
 
-"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper18matchSubAddSameRegERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit": ; preds = %83, %91
+"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper18matchSubAddSameRegERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit": ; preds = %83, %91
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_14BinaryOp_matchINS0_7bind_tyIS2_EENS3_IS5_S5_Lj52ELb1EEELj53ELb0EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.thread
 
@@ -28669,8 +28669,8 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_28SpecificConstantOrSplatMatc
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_14BinaryOp_matchINS0_7bind_tyIS2_EENS3_IS5_S5_Lj52ELb1EEELj53ELb0EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.thread
 
-_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_14BinaryOp_matchINS0_7bind_tyIS2_EENS3_IS5_S5_Lj52ELb1EEELj53ELb0EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.thread: ; preds = %151, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_28SpecificConstantOrSplatMatchEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit62, %103, %115, %111, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_14BinaryOp_matchINS3_INS0_7bind_tyIS2_EES5_Lj52ELb1EEES5_Lj53ELb0EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.thread, %99, %95, %.critedge14, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper18matchSubAddSameRegERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper18matchSubAddSameRegERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
-  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper18matchSubAddSameRegERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper18matchSubAddSameRegERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %.critedge14 ], [ false, %95 ], [ false, %99 ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_14BinaryOp_matchINS3_INS0_7bind_tyIS2_EES5_Lj52ELb1EEES5_Lj53ELb0EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.thread ], [ false, %111 ], [ false, %115 ], [ false, %103 ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_28SpecificConstantOrSplatMatchEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit62 ], [ false, %151 ]
+_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_14BinaryOp_matchINS0_7bind_tyIS2_EENS3_IS5_S5_Lj52ELb1EEELj53ELb0EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.thread: ; preds = %151, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_28SpecificConstantOrSplatMatchEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit62, %103, %115, %111, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_14BinaryOp_matchINS3_INS0_7bind_tyIS2_EES5_Lj52ELb1EEES5_Lj53ELb0EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.thread, %99, %95, %.critedge14, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper18matchSubAddSameRegERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper18matchSubAddSameRegERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit"
+  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper18matchSubAddSameRegERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.argprom.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper18matchSubAddSameRegERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %.critedge14 ], [ false, %95 ], [ false, %99 ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_14BinaryOp_matchINS3_INS0_7bind_tyIS2_EES5_Lj52ELb1EEES5_Lj53ELb0EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.thread ], [ false, %111 ], [ false, %115 ], [ false, %103 ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_28SpecificConstantOrSplatMatchEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit62 ], [ false, %151 ]
   ret i1 %.0
 }
 
@@ -31734,7 +31734,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper31matchCombineFAddF
   %.val15 = load i16, ptr %29, align 4
   %.not.i = icmp ne i16 %.val15, 175
   %brmerge.i = or i1 %.not.i, %27
-  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit, label %30
+  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit, label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr i8, ptr %19, i64 44
@@ -31743,15 +31743,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper31matchCombineFAddF
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %._crit_edge, label %33
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit: ; preds = %28
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit: ; preds = %28
   br i1 %.not.i, label %._crit_edge, label %33
 
-33:                                               ; preds = %30, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit
+33:                                               ; preds = %30, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit
   %34 = getelementptr i8, ptr %21, i64 68
   %.val17 = load i16, ptr %34, align 4
   %.not.i26 = icmp ne i16 %.val17, 175
   %brmerge.i27 = or i1 %.not.i26, %27
-  br i1 %brmerge.i27, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit30, label %35
+  br i1 %brmerge.i27, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit30, label %35
 
 35:                                               ; preds = %33
   %36 = getelementptr i8, ptr %21, i64 44
@@ -31760,10 +31760,10 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit: ; preds = %28
   %.not68 = icmp eq i32 %37, 0
   br i1 %.not68, label %._crit_edge, label %38
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit30: ; preds = %33
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit30: ; preds = %33
   br i1 %.not.i26, label %._crit_edge, label %38
 
-38:                                               ; preds = %35, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit30
+38:                                               ; preds = %35, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit30
   %39 = load ptr, ptr %17, align 8
   %40 = getelementptr i8, ptr %19, i64 32
   %.val22 = load ptr, ptr %40, align 8
@@ -31775,23 +31775,23 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit30: ; preds = %33
   %.val25 = load ptr, ptr %43, align 8
   %44 = getelementptr i8, ptr %.val22, i64 4
   %.val22.val = load i32, ptr %44, align 4
-  %45 = tail call fastcc noundef zeroext i1 @_ZL11hasMoreUsesRKN4llvm12MachineInstrES2_RKNS_19MachineRegisterInfoE(i32 %.val22.val, ptr %.val23, ptr %.val24, ptr %.val25)
+  %45 = tail call fastcc noundef zeroext i1 @_ZL11hasMoreUsesRKN4llvm12MachineInstrES2_RKNS_19MachineRegisterInfoE.argprom.argprom(i32 %.val22.val, ptr %.val23, ptr %.val24, ptr %.val25)
   br i1 %45, label %46, label %._crit_edge
 
 46:                                               ; preds = %38
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %10, %35, %30, %38, %46, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit30, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit
-  %.pre-phi = phi i1 [ false, %35 ], [ false, %30 ], [ %27, %38 ], [ %27, %46 ], [ %27, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit30 ], [ %27, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %27, %10 ]
-  %.sroa.049.0 = phi ptr [ %21, %35 ], [ %21, %30 ], [ %21, %38 ], [ %19, %46 ], [ %21, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit30 ], [ %21, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %21, %10 ]
-  %.sroa.8.0 = phi i32 [ %16, %35 ], [ %16, %30 ], [ %16, %38 ], [ %14, %46 ], [ %16, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit30 ], [ %16, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %16, %10 ]
-  %.sroa.059.0 = phi ptr [ %19, %35 ], [ %19, %30 ], [ %19, %38 ], [ %21, %46 ], [ %19, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit30 ], [ %19, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %19, %10 ]
-  %.sroa.864.0 = phi i32 [ %14, %35 ], [ %14, %30 ], [ %14, %38 ], [ %16, %46 ], [ %14, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit30 ], [ %14, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %14, %10 ]
+._crit_edge:                                      ; preds = %10, %35, %30, %38, %46, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit30, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit
+  %.pre-phi = phi i1 [ false, %35 ], [ false, %30 ], [ %27, %38 ], [ %27, %46 ], [ %27, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit30 ], [ %27, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %27, %10 ]
+  %.sroa.049.0 = phi ptr [ %21, %35 ], [ %21, %30 ], [ %21, %38 ], [ %19, %46 ], [ %21, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit30 ], [ %21, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %21, %10 ]
+  %.sroa.8.0 = phi i32 [ %16, %35 ], [ %16, %30 ], [ %16, %38 ], [ %14, %46 ], [ %16, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit30 ], [ %16, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %16, %10 ]
+  %.sroa.059.0 = phi ptr [ %19, %35 ], [ %19, %30 ], [ %19, %38 ], [ %21, %46 ], [ %19, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit30 ], [ %19, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %19, %10 ]
+  %.sroa.864.0 = phi i32 [ %14, %35 ], [ %14, %30 ], [ %14, %38 ], [ %16, %46 ], [ %14, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit30 ], [ %14, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %14, %10 ]
   %47 = getelementptr i8, ptr %.sroa.059.0, i64 68
   %.val19 = load i16, ptr %47, align 4
   %.not.i31 = icmp ne i16 %.val19, 175
   %brmerge.i32 = or i1 %.not.i31, %.pre-phi
-  br i1 %brmerge.i32, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit35, label %48
+  br i1 %brmerge.i32, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit35, label %48
 
 48:                                               ; preds = %._crit_edge
   %49 = getelementptr i8, ptr %.sroa.059.0, i64 44
@@ -31800,10 +31800,10 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit30: ; preds = %33
   %.not69 = icmp eq i32 %50, 0
   br i1 %.not69, label %66, label %51
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit35: ; preds = %._crit_edge
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit35: ; preds = %._crit_edge
   br i1 %.not.i31, label %66, label %51
 
-51:                                               ; preds = %48, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit35
+51:                                               ; preds = %48, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit35
   br i1 %26, label %55, label %52
 
 52:                                               ; preds = %51
@@ -31854,12 +31854,12 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit35: ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %86
 
-66:                                               ; preds = %48, %52, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit35
+66:                                               ; preds = %48, %52, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit35
   %67 = getelementptr i8, ptr %.sroa.049.0, i64 68
   %.val21 = load i16, ptr %67, align 4
   %.not.i36 = icmp ne i16 %.val21, 175
   %brmerge.i37 = or i1 %.not.i36, %.pre-phi
-  br i1 %brmerge.i37, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit40, label %68
+  br i1 %brmerge.i37, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit40, label %68
 
 68:                                               ; preds = %66
   %69 = getelementptr i8, ptr %.sroa.049.0, i64 44
@@ -31868,10 +31868,10 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit35: ; preds = %._crit_edge
   %.not70 = icmp eq i32 %70, 0
   br i1 %.not70, label %86, label %71
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit40: ; preds = %66
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit40: ; preds = %66
   br i1 %.not.i36, label %86, label %71
 
-71:                                               ; preds = %68, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit40
+71:                                               ; preds = %68, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit40
   br i1 %26, label %75, label %72
 
 72:                                               ; preds = %71
@@ -31922,13 +31922,13 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit40: ; preds = %66
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %86
 
-86:                                               ; preds = %68, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit40, %72, %3, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
-  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %3 ], [ false, %72 ], [ false, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit40 ], [ false, %68 ]
+86:                                               ; preds = %68, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit40, %72, %3, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
+  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %3 ], [ false, %72 ], [ false, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit40 ], [ false, %68 ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL11hasMoreUsesRKN4llvm12MachineInstrES2_RKNS_19MachineRegisterInfoE(i32 %.32.val.4.val, ptr nocapture readonly %.32.val1, ptr nocapture readonly %.56.val, ptr nocapture readonly %.304.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZL11hasMoreUsesRKN4llvm12MachineInstrES2_RKNS_19MachineRegisterInfoE.argprom.argprom(i32 %.32.val.4.val, ptr nocapture readonly %.32.val1, ptr nocapture readonly %.56.val, ptr nocapture readonly %.304.val) unnamed_addr #2 {
   %1 = icmp slt i32 %.32.val.4.val, 0
   %2 = and i32 %.32.val.4.val, 2147483647
   %3 = zext nneg i32 %2 to i64
@@ -32151,7 +32151,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %10, %33, %
   %.val41 = load i16, ptr %52, align 4
   %.not.i = icmp ne i16 %.val41, 175
   %brmerge.i = or i1 %.not.i, %51
-  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit, label %53
+  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit, label %53
 
 53:                                               ; preds = %49
   %54 = getelementptr i8, ptr %26, i64 44
@@ -32160,15 +32160,15 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %10, %33, %
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %70, label %56
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit: ; preds = %49
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit: ; preds = %49
   br i1 %.not.i, label %70, label %56
 
-56:                                               ; preds = %53, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit
+56:                                               ; preds = %53, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit
   %57 = getelementptr i8, ptr %28, i64 68
   %.val39 = load i16, ptr %57, align 4
   %.not.i46 = icmp ne i16 %.val39, 175
   %brmerge.i47 = or i1 %.not.i46, %51
-  br i1 %brmerge.i47, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit50, label %58
+  br i1 %brmerge.i47, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit50, label %58
 
 58:                                               ; preds = %56
   %59 = getelementptr i8, ptr %28, i64 44
@@ -32177,10 +32177,10 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit: ; preds = %49
   %.not99 = icmp eq i32 %60, 0
   br i1 %.not99, label %70, label %61
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit50: ; preds = %56
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit50: ; preds = %56
   br i1 %.not.i46, label %70, label %61
 
-61:                                               ; preds = %58, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit50
+61:                                               ; preds = %58, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit50
   %62 = load ptr, ptr %24, align 8
   %63 = getelementptr i8, ptr %26, i64 32
   %.val42 = load ptr, ptr %63, align 8
@@ -32192,17 +32192,17 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit50: ; preds = %56
   %.val45 = load ptr, ptr %66, align 8
   %67 = getelementptr i8, ptr %.val42, i64 4
   %.val42.val = load i32, ptr %67, align 4
-  %68 = tail call fastcc noundef zeroext i1 @_ZL11hasMoreUsesRKN4llvm12MachineInstrES2_RKNS_19MachineRegisterInfoE(i32 %.val42.val, ptr %.val43, ptr %.val44, ptr %.val45)
+  %68 = tail call fastcc noundef zeroext i1 @_ZL11hasMoreUsesRKN4llvm12MachineInstrES2_RKNS_19MachineRegisterInfoE.argprom.argprom(i32 %.val42.val, ptr %.val43, ptr %.val44, ptr %.val45)
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %61
   br label %70
 
-70:                                               ; preds = %58, %53, %61, %69, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit50, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
-  %.sroa.081.0 = phi ptr [ %26, %69 ], [ %28, %61 ], [ %28, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit50 ], [ %28, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %28, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %28, %53 ], [ %28, %58 ]
-  %.sroa.685.0 = phi i32 [ %21, %69 ], [ %23, %61 ], [ %23, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit50 ], [ %23, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %23, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %23, %53 ], [ %23, %58 ]
-  %.sroa.089.0 = phi ptr [ %28, %69 ], [ %26, %61 ], [ %26, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit50 ], [ %26, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %26, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %26, %53 ], [ %26, %58 ]
-  %.sroa.692.0 = phi i32 [ %23, %69 ], [ %21, %61 ], [ %21, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit50 ], [ %21, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %21, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %21, %53 ], [ %21, %58 ]
+70:                                               ; preds = %58, %53, %61, %69, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit50, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
+  %.sroa.081.0 = phi ptr [ %26, %69 ], [ %28, %61 ], [ %28, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit50 ], [ %28, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %28, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %28, %53 ], [ %28, %58 ]
+  %.sroa.685.0 = phi i32 [ %21, %69 ], [ %23, %61 ], [ %23, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit50 ], [ %23, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %23, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %23, %53 ], [ %23, %58 ]
+  %.sroa.089.0 = phi ptr [ %28, %69 ], [ %26, %61 ], [ %26, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit50 ], [ %26, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %26, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %26, %53 ], [ %26, %58 ]
+  %.sroa.692.0 = phi i32 [ %23, %69 ], [ %21, %61 ], [ %21, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit50 ], [ %21, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %21, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %21, %53 ], [ %21, %58 ]
   %71 = load ptr, ptr %24, align 8
   %72 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %71, i32 %.sroa.692.0) #27
   %.not.i.i.i.not.i.i = icmp eq ptr %72, null
@@ -32236,7 +32236,7 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.val37 = load i16, ptr %89, align 4
   %.not.i51 = icmp ne i16 %.val37, 175
   %brmerge.i52 = or i1 %.not.i51, %88
-  br i1 %brmerge.i52, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit55, label %90
+  br i1 %brmerge.i52, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit55, label %90
 
 90:                                               ; preds = %86
   %91 = getelementptr i8, ptr %85, i64 44
@@ -32245,10 +32245,10 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.not100 = icmp eq i32 %92, 0
   br i1 %.not100, label %.critedge, label %93
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit55: ; preds = %86
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit55: ; preds = %86
   br i1 %.not.i51, label %.critedge, label %93
 
-93:                                               ; preds = %90, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit55
+93:                                               ; preds = %90, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit55
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 36
@@ -32322,7 +32322,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit57: ; preds = %93, %99,
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %.critedge2
 
-.critedge:                                        ; preds = %70, %77, %73, %90, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit55, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit57
+.critedge:                                        ; preds = %70, %77, %73, %90, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit55, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit57
   %125 = load ptr, ptr %24, align 8
   %126 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %125, i32 %.sroa.685.0) #27
   %.not.i.i.i.not.i.i58 = icmp eq ptr %126, null
@@ -32356,7 +32356,7 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.val35 = load i16, ptr %143, align 4
   %.not.i62 = icmp ne i16 %.val35, 175
   %brmerge.i63 = or i1 %.not.i62, %142
-  br i1 %brmerge.i63, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit66, label %144
+  br i1 %brmerge.i63, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit66, label %144
 
 144:                                              ; preds = %140
   %145 = getelementptr i8, ptr %139, i64 44
@@ -32365,10 +32365,10 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.not101 = icmp eq i32 %146, 0
   br i1 %.not101, label %.critedge2, label %147
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit66: ; preds = %140
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit66: ; preds = %140
   br i1 %.not.i62, label %.critedge2, label %147
 
-147:                                              ; preds = %144, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit66
+147:                                              ; preds = %144, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit66
   %148 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 36
@@ -32442,8 +32442,8 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68: ; preds = %147, %15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge, %131, %127, %144, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit61, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit66, %3, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
-  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %3 ], [ false, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit66 ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit61 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68 ], [ false, %144 ], [ false, %127 ], [ false, %131 ], [ false, %.critedge ]
+.critedge2:                                       ; preds = %.critedge, %131, %127, %144, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit61, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit66, %3, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
+  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %3 ], [ false, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit66 ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit61 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68 ], [ false, %144 ], [ false, %127 ], [ false, %131 ], [ false, %.critedge ]
   ret i1 %.0
 }
 
@@ -32506,7 +32506,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %9, %25, %3
   %.val35 = load i16, ptr %44, align 4
   %.not.i = icmp ne i16 %.val35, 175
   %brmerge.i = or i1 %.not.i, %43
-  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit, label %45
+  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr i8, ptr %18, i64 44
@@ -32515,15 +32515,15 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %9, %25, %3
   %.not = icmp eq i32 %47, 0
   br i1 %.not, label %62, label %48
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit: ; preds = %41
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit: ; preds = %41
   br i1 %.not.i, label %62, label %48
 
-48:                                               ; preds = %45, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit
+48:                                               ; preds = %45, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit
   %49 = getelementptr i8, ptr %20, i64 68
   %.val33 = load i16, ptr %49, align 4
   %.not.i40 = icmp ne i16 %.val33, 175
   %brmerge.i41 = or i1 %.not.i40, %43
-  br i1 %brmerge.i41, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit44, label %50
+  br i1 %brmerge.i41, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit44, label %50
 
 50:                                               ; preds = %48
   %51 = getelementptr i8, ptr %20, i64 44
@@ -32532,10 +32532,10 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit: ; preds = %41
   %.not70 = icmp eq i32 %52, 0
   br i1 %.not70, label %62, label %53
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit44: ; preds = %48
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit44: ; preds = %48
   br i1 %.not.i40, label %62, label %53
 
-53:                                               ; preds = %50, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit44
+53:                                               ; preds = %50, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit44
   %54 = load ptr, ptr %16, align 8
   %55 = getelementptr i8, ptr %18, i64 32
   %.val36 = load ptr, ptr %55, align 8
@@ -32547,17 +32547,17 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit44: ; preds = %48
   %.val39 = load ptr, ptr %58, align 8
   %59 = getelementptr i8, ptr %.val36, i64 4
   %.val36.val = load i32, ptr %59, align 4
-  %60 = tail call fastcc noundef zeroext i1 @_ZL11hasMoreUsesRKN4llvm12MachineInstrES2_RKNS_19MachineRegisterInfoE(i32 %.val36.val, ptr %.val37, ptr %.val38, ptr %.val39)
+  %60 = tail call fastcc noundef zeroext i1 @_ZL11hasMoreUsesRKN4llvm12MachineInstrES2_RKNS_19MachineRegisterInfoE.argprom.argprom(i32 %.val36.val, ptr %.val37, ptr %.val38, ptr %.val39)
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %53
   br label %62
 
-62:                                               ; preds = %50, %45, %53, %61, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit44, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
-  %.sroa.046.0 = phi ptr [ %18, %61 ], [ %20, %53 ], [ %20, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit44 ], [ %20, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %20, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %20, %45 ], [ %20, %50 ]
-  %.sroa.10.0 = phi i32 [ %13, %61 ], [ %15, %53 ], [ %15, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit44 ], [ %15, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %15, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %15, %45 ], [ %15, %50 ]
-  %.sroa.056.0 = phi ptr [ %20, %61 ], [ %18, %53 ], [ %18, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit44 ], [ %18, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %18, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %18, %45 ], [ %18, %50 ]
-  %.sroa.1063.0 = phi i32 [ %15, %61 ], [ %13, %53 ], [ %13, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit44 ], [ %13, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %13, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %13, %45 ], [ %13, %50 ]
+62:                                               ; preds = %50, %45, %53, %61, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit44, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
+  %.sroa.046.0 = phi ptr [ %18, %61 ], [ %20, %53 ], [ %20, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit44 ], [ %20, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %20, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %20, %45 ], [ %20, %50 ]
+  %.sroa.10.0 = phi i32 [ %13, %61 ], [ %15, %53 ], [ %15, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit44 ], [ %15, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %15, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %15, %45 ], [ %15, %50 ]
+  %.sroa.056.0 = phi ptr [ %20, %61 ], [ %18, %53 ], [ %18, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit44 ], [ %18, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %18, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %18, %45 ], [ %18, %50 ]
+  %.sroa.1063.0 = phi i32 [ %15, %61 ], [ %13, %53 ], [ %13, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit44 ], [ %13, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %13, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %13, %45 ], [ %13, %50 ]
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.056.0, i64 68
   %64 = load i16, ptr %63, align 4
   %65 = zext i16 %64 to i32
@@ -32768,7 +32768,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper46matchCombineFAddF
   %.val93 = load i16, ptr %55, align 4
   %.not.i = icmp ne i16 %.val93, 175
   %brmerge.i = or i1 %.not.i, %54
-  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit, label %56
+  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit, label %56
 
 56:                                               ; preds = %40
   %57 = getelementptr i8, ptr %47, i64 44
@@ -32777,15 +32777,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper46matchCombineFAddF
   %.not = icmp eq i32 %58, 0
   br i1 %.not, label %73, label %59
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit: ; preds = %40
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit: ; preds = %40
   br i1 %.not.i, label %73, label %59
 
-59:                                               ; preds = %56, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit
+59:                                               ; preds = %56, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit
   %60 = getelementptr i8, ptr %49, i64 68
   %.val91 = load i16, ptr %60, align 4
   %.not.i98 = icmp ne i16 %.val91, 175
   %brmerge.i99 = or i1 %.not.i98, %54
-  br i1 %brmerge.i99, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit102, label %61
+  br i1 %brmerge.i99, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit102, label %61
 
 61:                                               ; preds = %59
   %62 = getelementptr i8, ptr %49, i64 44
@@ -32794,10 +32794,10 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit: ; preds = %40
   %.not185 = icmp eq i32 %63, 0
   br i1 %.not185, label %73, label %64
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit102: ; preds = %59
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit102: ; preds = %59
   br i1 %.not.i98, label %73, label %64
 
-64:                                               ; preds = %61, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit102
+64:                                               ; preds = %61, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit102
   %65 = load ptr, ptr %23, align 8
   %66 = getelementptr i8, ptr %47, i64 32
   %.val94 = load ptr, ptr %66, align 8
@@ -32809,18 +32809,18 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit102: ; preds = %59
   %.val97 = load ptr, ptr %69, align 8
   %70 = getelementptr i8, ptr %.val94, i64 4
   %.val94.val = load i32, ptr %70, align 4
-  %71 = tail call fastcc noundef zeroext i1 @_ZL11hasMoreUsesRKN4llvm12MachineInstrES2_RKNS_19MachineRegisterInfoE(i32 %.val94.val, ptr %.val95, ptr %.val96, ptr %.val97)
+  %71 = tail call fastcc noundef zeroext i1 @_ZL11hasMoreUsesRKN4llvm12MachineInstrES2_RKNS_19MachineRegisterInfoE.argprom.argprom(i32 %.val94.val, ptr %.val95, ptr %.val96, ptr %.val97)
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %64
   br label %73
 
-73:                                               ; preds = %61, %56, %64, %72, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit102, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit
-  %74 = phi i16 [ 175, %72 ], [ 175, %64 ], [ 175, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit102 ], [ %.val93, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ 175, %56 ], [ 175, %61 ]
-  %.sroa.0150.0 = phi ptr [ %47, %72 ], [ %49, %64 ], [ %49, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit102 ], [ %49, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %49, %56 ], [ %49, %61 ]
-  %.sroa.10.0 = phi i32 [ %43, %72 ], [ %45, %64 ], [ %45, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit102 ], [ %45, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %45, %56 ], [ %45, %61 ]
-  %.sroa.0166.0 = phi ptr [ %49, %72 ], [ %47, %64 ], [ %47, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit102 ], [ %47, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %47, %56 ], [ %47, %61 ]
-  %.sroa.10173.0 = phi i32 [ %45, %72 ], [ %43, %64 ], [ %43, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit102 ], [ %43, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit ], [ %43, %56 ], [ %43, %61 ]
+73:                                               ; preds = %61, %56, %64, %72, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit102, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit
+  %74 = phi i16 [ 175, %72 ], [ 175, %64 ], [ 175, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit102 ], [ %.val93, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ 175, %56 ], [ 175, %61 ]
+  %.sroa.0150.0 = phi ptr [ %47, %72 ], [ %49, %64 ], [ %49, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit102 ], [ %49, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %49, %56 ], [ %49, %61 ]
+  %.sroa.10.0 = phi i32 [ %43, %72 ], [ %45, %64 ], [ %45, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit102 ], [ %45, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %45, %56 ], [ %45, %61 ]
+  %.sroa.0166.0 = phi ptr [ %49, %72 ], [ %47, %64 ], [ %47, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit102 ], [ %47, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %47, %56 ], [ %47, %61 ]
+  %.sroa.10173.0 = phi i32 [ %45, %72 ], [ %43, %64 ], [ %43, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit102 ], [ %43, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit ], [ %43, %56 ], [ %43, %61 ]
   %75 = zext i16 %74 to i32
   %76 = icmp eq i32 %52, %75
   br i1 %76, label %77, label %.critedge
@@ -32861,7 +32861,7 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.val89 = load i16, ptr %98, align 4
   %.not.i103 = icmp ne i16 %.val89, 175
   %brmerge.i104 = or i1 %.not.i103, %54
-  br i1 %brmerge.i104, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit107, label %99
+  br i1 %brmerge.i104, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit107, label %99
 
 99:                                               ; preds = %97
   %100 = getelementptr i8, ptr %96, i64 44
@@ -32870,10 +32870,10 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.not186 = icmp eq i32 %101, 0
   br i1 %.not186, label %.critedge, label %102
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit107: ; preds = %97
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit107: ; preds = %97
   br i1 %.not.i103, label %.critedge, label %102
 
-102:                                              ; preds = %99, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit107
+102:                                              ; preds = %99, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit107
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
@@ -32923,7 +32923,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit109: ; preds = %102, %1
   %127 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(64) %7)
   br label %.critedge6
 
-.critedge:                                        ; preds = %77, %88, %84, %99, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit107, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit, %73, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit109
+.critedge:                                        ; preds = %77, %88, %84, %99, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit107, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit, %73, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit109
   %128 = load ptr, ptr %23, align 8
   %129 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %128, i32 %.sroa.10173.0) #27
   %.not.i.i.i.not.i.i110 = icmp eq ptr %129, null
@@ -32968,7 +32968,7 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.val87 = load i16, ptr %155, align 4
   %.not.i114 = icmp ne i16 %.val87, 175
   %brmerge.i115 = or i1 %.not.i114, %54
-  br i1 %brmerge.i115, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit118, label %156
+  br i1 %brmerge.i115, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit118, label %156
 
 156:                                              ; preds = %148
   %157 = getelementptr i8, ptr %154, i64 44
@@ -32977,10 +32977,10 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.not187 = icmp eq i32 %158, 0
   br i1 %.not187, label %.critedge2, label %159
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit118: ; preds = %148
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit118: ; preds = %148
   br i1 %.not.i114, label %.critedge2, label %159
 
-159:                                              ; preds = %156, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit118
+159:                                              ; preds = %156, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit118
   %160 = load ptr, ptr %150, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %162 = load i32, ptr %161, align 4
@@ -33029,7 +33029,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit120: ; preds = %159, %1
   %184 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(64) %8)
   br label %.critedge6
 
-.critedge2:                                       ; preds = %.critedge, %134, %130, %156, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit113, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit118, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit120, %143
+.critedge2:                                       ; preds = %.critedge, %134, %130, %156, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit113, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit118, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit120, %143
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.0150.0, i64 68
   %186 = load i16, ptr %185, align 4
   %187 = zext i16 %186 to i32
@@ -33072,7 +33072,7 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.val85 = load i16, ptr %210, align 4
   %.not.i125 = icmp ne i16 %.val85, 175
   %brmerge.i126 = or i1 %.not.i125, %54
-  br i1 %brmerge.i126, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit129, label %211
+  br i1 %brmerge.i126, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit129, label %211
 
 211:                                              ; preds = %209
   %212 = getelementptr i8, ptr %208, i64 44
@@ -33081,10 +33081,10 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.not188 = icmp eq i32 %213, 0
   br i1 %.not188, label %.critedge4, label %214
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit129: ; preds = %209
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit129: ; preds = %209
   br i1 %.not.i125, label %.critedge4, label %214
 
-214:                                              ; preds = %211, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit129
+214:                                              ; preds = %211, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit129
   %215 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %216 = load ptr, ptr %215, align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 4
@@ -33134,7 +33134,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit131: ; preds = %214, %2
   %239 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS0_12MachineInstrERS4_E3$_2EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(64) %9)
   br label %.critedge6
 
-.critedge4:                                       ; preds = %189, %200, %196, %211, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit129, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit124, %.critedge2, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit131
+.critedge4:                                       ; preds = %189, %200, %196, %211, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit129, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit124, %.critedge2, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit131
   %240 = load ptr, ptr %23, align 8
   %241 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %240, i32 %.sroa.10.0) #27
   %.not.i.i.i.not.i.i132 = icmp eq ptr %241, null
@@ -33179,7 +33179,7 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.val83 = load i16, ptr %267, align 4
   %.not.i136 = icmp ne i16 %.val83, 175
   %brmerge.i137 = or i1 %.not.i136, %54
-  br i1 %brmerge.i137, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit140, label %268
+  br i1 %brmerge.i137, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit140, label %268
 
 268:                                              ; preds = %260
   %269 = getelementptr i8, ptr %266, i64 44
@@ -33188,10 +33188,10 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.not189 = icmp eq i32 %270, 0
   br i1 %.not189, label %.critedge6, label %271
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit140: ; preds = %260
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit140: ; preds = %260
   br i1 %.not.i136, label %.critedge6, label %271
 
-271:                                              ; preds = %268, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit140
+271:                                              ; preds = %268, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit140
   %272 = load ptr, ptr %262, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 4
   %274 = load i32, ptr %273, align 4
@@ -33240,8 +33240,8 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit142: ; preds = %271, %2
   %296 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS0_12MachineInstrERS4_E3$_3EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(64) %10)
   br label %.critedge6
 
-.critedge6:                                       ; preds = %.critedge4, %246, %242, %268, %255, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit142, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit140, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit135, %12, %3, %291, %235, %179, %123
-  %.0 = phi i1 [ true, %123 ], [ true, %179 ], [ true, %235 ], [ true, %291 ], [ false, %3 ], [ false, %12 ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit135 ], [ false, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit140 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit142 ], [ false, %255 ], [ false, %268 ], [ false, %242 ], [ false, %246 ], [ false, %.critedge4 ]
+.critedge6:                                       ; preds = %.critedge4, %246, %242, %268, %255, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit142, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit140, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit135, %12, %3, %291, %235, %179, %123
+  %.0 = phi i1 [ true, %123 ], [ true, %179 ], [ true, %235 ], [ true, %291 ], [ false, %3 ], [ false, %12 ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit135 ], [ false, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit140 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit142 ], [ false, %255 ], [ false, %268 ], [ false, %242 ], [ false, %246 ], [ false, %.critedge4 ]
   ret i1 %.0
 }
 
@@ -33440,22 +33440,22 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %10, %26, %
   %.val42 = load i16, ptr %40, align 4
   %.not.i = icmp ne i16 %.val42, 175
   %brmerge.i = or i1 %.not.i, %38
-  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit, label %41
+  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit, label %41
 
 41:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
   %42 = and i32 %.val41, 256
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %.thread, label %43
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit: ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit: ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
   br i1 %.not.i, label %.thread, label %43
 
-43:                                               ; preds = %41, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit
+43:                                               ; preds = %41, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit
   %44 = getelementptr i8, ptr %21, i64 68
   %.val40 = load i16, ptr %44, align 4
   %.not.i47 = icmp ne i16 %.val40, 175
   %brmerge.i48 = or i1 %.not.i47, %38
-  br i1 %brmerge.i48, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit51, label %45
+  br i1 %brmerge.i48, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit51, label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr i8, ptr %21, i64 44
@@ -33464,16 +33464,16 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit: ; preds = %_ZNK4llvm19Machi
   %.not78 = icmp eq i32 %47, 0
   br i1 %.not78, label %.thread, label %51
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit51: ; preds = %43
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit51: ; preds = %43
   br i1 %.not.i47, label %.thread, label %51
 
-.thread:                                          ; preds = %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit51, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit, %41, %45
+.thread:                                          ; preds = %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit51, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit, %41, %45
   %48 = load i8, ptr %7, align 1
   %49 = trunc i8 %48 to i1
   %50 = select i1 %49, i32 177, i32 176
   br label %62
 
-51:                                               ; preds = %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit51, %45
+51:                                               ; preds = %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit51, %45
   %52 = load ptr, ptr %17, align 8
   %53 = getelementptr i8, ptr %19, i64 32
   %.val43 = load ptr, ptr %53, align 8
@@ -33485,7 +33485,7 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit51: ; preds = %43
   %.val46 = load ptr, ptr %56, align 8
   %57 = getelementptr i8, ptr %.val43, i64 4
   %.val43.val = load i32, ptr %57, align 4
-  %58 = tail call fastcc noundef zeroext i1 @_ZL11hasMoreUsesRKN4llvm12MachineInstrES2_RKNS_19MachineRegisterInfoE(i32 %.val43.val, ptr %.val44, ptr %.val45, ptr %.val46)
+  %58 = tail call fastcc noundef zeroext i1 @_ZL11hasMoreUsesRKN4llvm12MachineInstrES2_RKNS_19MachineRegisterInfoE.argprom.argprom(i32 %.val43.val, ptr %.val44, ptr %.val45, ptr %.val46)
   %59 = load i8, ptr %7, align 1
   %60 = trunc i8 %59 to i1
   %61 = select i1 %60, i32 177, i32 176
@@ -33493,17 +33493,17 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit51: ; preds = %43
 
 62:                                               ; preds = %.thread, %51
   %63 = phi i32 [ %50, %.thread ], [ %61, %51 ]
-  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit56, label %64
+  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit56, label %64
 
 64:                                               ; preds = %62
   %65 = and i32 %.val41, 256
   %.not79 = icmp eq i32 %65, 0
   br i1 %.not79, label %83, label %66
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit56: ; preds = %62
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit56: ; preds = %62
   br i1 %.not.i, label %83, label %66
 
-66:                                               ; preds = %64, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit56
+66:                                               ; preds = %64, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit56
   %67 = load i8, ptr %8, align 1
   %68 = trunc i8 %67 to i1
   br i1 %68, label %72, label %69
@@ -33558,13 +33558,13 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit56: ; preds = %62
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %106
 
-83:                                               ; preds = %64, %69, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit56, %51
-  %84 = phi i32 [ %63, %69 ], [ %63, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit56 ], [ %61, %51 ], [ %63, %64 ]
+83:                                               ; preds = %64, %69, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit56, %51
+  %84 = phi i32 [ %63, %69 ], [ %63, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit56 ], [ %61, %51 ], [ %63, %64 ]
   %85 = getelementptr i8, ptr %21, i64 68
   %.val36 = load i16, ptr %85, align 4
   %.not.i57 = icmp ne i16 %.val36, 175
   %brmerge.i58 = or i1 %.not.i57, %38
-  br i1 %brmerge.i58, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit61, label %86
+  br i1 %brmerge.i58, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit61, label %86
 
 86:                                               ; preds = %83
   %87 = getelementptr i8, ptr %21, i64 44
@@ -33573,10 +33573,10 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit56: ; preds = %62
   %.not80 = icmp eq i32 %88, 0
   br i1 %.not80, label %106, label %89
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit61: ; preds = %83
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit61: ; preds = %83
   br i1 %.not.i57, label %106, label %89
 
-89:                                               ; preds = %86, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit61
+89:                                               ; preds = %86, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit61
   %90 = load i8, ptr %8, align 1
   %91 = trunc i8 %90 to i1
   br i1 %91, label %95, label %92
@@ -33631,8 +33631,8 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit61: ; preds = %83
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %106
 
-106:                                              ; preds = %86, %92, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit61, %3, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
-  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %3 ], [ false, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit61 ], [ false, %92 ], [ false, %86 ]
+106:                                              ; preds = %86, %92, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit61, %3, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
+  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %3 ], [ false, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit61 ], [ false, %92 ], [ false, %86 ]
   ret i1 %.0
 }
 
@@ -33733,7 +33733,7 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.val26 = load i16, ptr %66, align 4
   %.not.i = icmp ne i16 %.val26, 175
   %brmerge.i = or i1 %.not.i, %65
-  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit, label %67
+  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit, label %67
 
 67:                                               ; preds = %63
   %68 = getelementptr i8, ptr %49, i64 44
@@ -33742,10 +33742,10 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.not = icmp eq i32 %69, 0
   br i1 %.not, label %.critedge, label %70
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit: ; preds = %63
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit: ; preds = %63
   br i1 %.not.i, label %.critedge, label %70
 
-70:                                               ; preds = %67, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit
+70:                                               ; preds = %67, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -33786,7 +33786,7 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit: ; preds = %63
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %.critedge2
 
-.critedge:                                        ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %41, %37, %67, %56, %53, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj190EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit
+.critedge:                                        ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %41, %37, %67, %56, %53, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj190EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit
   %81 = load ptr, ptr %17, align 8
   %82 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %81, i32 %16) #27
   %.not.i.i.i.not.i.i27 = icmp eq ptr %82, null
@@ -33839,7 +33839,7 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.val24 = load i16, ptr %112, align 4
   %.not.i31 = icmp ne i16 %.val24, 175
   %brmerge.i32 = or i1 %.not.i31, %111
-  br i1 %brmerge.i32, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit35, label %113
+  br i1 %brmerge.i32, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit35, label %113
 
 113:                                              ; preds = %109
   %114 = getelementptr i8, ptr %95, i64 44
@@ -33848,10 +33848,10 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.not50 = icmp eq i32 %115, 0
   br i1 %.not50, label %.critedge2, label %116
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit35: ; preds = %109
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit35: ; preds = %109
   br i1 %.not.i31, label %.critedge2, label %116
 
-116:                                              ; preds = %113, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit35
+116:                                              ; preds = %113, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit35
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %117 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -33890,8 +33890,8 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit35: ; preds = %109
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge, %87, %83, %113, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit35, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj190EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit30, %99, %102, %3, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
-  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %3 ], [ false, %102 ], [ false, %99 ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj190EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit30 ], [ false, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit35 ], [ false, %113 ], [ false, %83 ], [ false, %87 ], [ false, %.critedge ]
+.critedge2:                                       ; preds = %.critedge, %87, %83, %113, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit35, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj190EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit30, %99, %102, %3, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
+  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %3 ], [ false, %102 ], [ false, %99 ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj190EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit30 ], [ false, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit35 ], [ false, %113 ], [ false, %83 ], [ false, %87 ], [ false, %.critedge ]
   ret i1 %.0
 }
 
@@ -33973,7 +33973,7 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.val29 = load i16, ptr %53, align 4
   %.not.i = icmp ne i16 %.val29, 175
   %brmerge.i = or i1 %.not.i, %52
-  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit, label %54
+  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit, label %54
 
 54:                                               ; preds = %50
   %55 = getelementptr i8, ptr %49, i64 44
@@ -33982,10 +33982,10 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.not = icmp eq i32 %56, 0
   br i1 %.not, label %.critedge, label %57
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit: ; preds = %50
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit: ; preds = %50
   br i1 %.not.i, label %.critedge, label %57
 
-57:                                               ; preds = %54, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit
+57:                                               ; preds = %54, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit
   %58 = load i8, ptr %8, align 1
   %59 = trunc i8 %58 to i1
   br i1 %59, label %.critedge2, label %60
@@ -34036,7 +34036,7 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit: ; preds = %50
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %.critedge4
 
-.critedge:                                        ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %41, %37, %54, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit, %60
+.critedge:                                        ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %41, %37, %54, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit, %60
   %73 = load ptr, ptr %17, align 8
   %74 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %73, i32 %16) #27
   %.not.i.i.i.not.i.i30 = icmp eq ptr %74, null
@@ -34070,7 +34070,7 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.val27 = load i16, ptr %91, align 4
   %.not.i34 = icmp ne i16 %.val27, 175
   %brmerge.i35 = or i1 %.not.i34, %90
-  br i1 %brmerge.i35, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit38, label %92
+  br i1 %brmerge.i35, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit38, label %92
 
 92:                                               ; preds = %88
   %93 = getelementptr i8, ptr %87, i64 44
@@ -34079,10 +34079,10 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %.not52 = icmp eq i32 %94, 0
   br i1 %.not52, label %.critedge4, label %95
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit38: ; preds = %88
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit38: ; preds = %88
   br i1 %.not.i34, label %.critedge4, label %95
 
-95:                                               ; preds = %92, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit38
+95:                                               ; preds = %92, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit38
   %96 = load i8, ptr %8, align 1
   %97 = trunc i8 %96 to i1
   br i1 %97, label %.critedge6, label %98
@@ -34133,8 +34133,8 @@ _ZL18isContractableFMulRN4llvm12MachineInstrEb.exit38: ; preds = %88
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %.critedge4
 
-.critedge4:                                       ; preds = %.critedge, %79, %75, %92, %98, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit33, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit38, %3, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
-  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %3 ], [ false, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit38 ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit33 ], [ false, %98 ], [ false, %92 ], [ false, %75 ], [ false, %79 ], [ false, %.critedge ]
+.critedge4:                                       ; preds = %.critedge, %79, %75, %92, %98, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit33, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit38, %3, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
+  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %3 ], [ false, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit38 ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIPNS_12MachineInstrEEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit33 ], [ false, %98 ], [ false, %92 ], [ false, %75 ], [ false, %79 ], [ false, %.critedge ]
   ret i1 %.0
 }
 
@@ -34294,7 +34294,7 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS3_INS0_7bin
   %.val43 = load i16, ptr %104, align 4
   %.not.i = icmp ne i16 %.val43, 175
   %brmerge.i = or i1 %.not.i, %103
-  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit, label %105
+  br i1 %brmerge.i, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit, label %105
 
 105:                                              ; preds = %101
   %106 = getelementptr i8, ptr %.098, i64 44
@@ -34303,10 +34303,10 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS3_INS0_7bin
   %.not = icmp eq i32 %107, 0
   br i1 %.not, label %.critedge, label %108
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit: ; preds = %101
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit: ; preds = %101
   br i1 %.not.i, label %.critedge, label %108
 
-108:                                              ; preds = %105, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit
+108:                                              ; preds = %105, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit
   %109 = getelementptr inbounds nuw i8, ptr %.098, i64 32
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
@@ -34382,7 +34382,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit49: ; preds = %108, %11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %.critedge2
 
-.critedge:                                        ; preds = %82, %92, %88, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS3_INS0_7bind_tyIPNS_12MachineInstrEEELj190EEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.thread, %78, %74, %105, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS3_INS0_7bind_tyIPNS_12MachineInstrEEELj191EEELj190EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit49
+.critedge:                                        ; preds = %82, %92, %88, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS3_INS0_7bind_tyIPNS_12MachineInstrEEELj190EEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.thread, %78, %74, %105, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS3_INS0_7bind_tyIPNS_12MachineInstrEEELj191EEELj190EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit49
   %140 = load ptr, ptr %18, align 8
   %141 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %140, i32 %39) #27
   %.not.i.i.i.not.i.i50 = icmp eq ptr %141, null
@@ -34486,7 +34486,7 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS3_INS0_7bin
   %.val41 = load i16, ptr %201, align 4
   %.not.i60 = icmp ne i16 %.val41, 175
   %brmerge.i61 = or i1 %.not.i60, %200
-  br i1 %brmerge.i61, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit64, label %202
+  br i1 %brmerge.i61, label %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit64, label %202
 
 202:                                              ; preds = %198
   %203 = getelementptr i8, ptr %.1, i64 44
@@ -34495,10 +34495,10 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS3_INS0_7bin
   %.not94 = icmp eq i32 %204, 0
   br i1 %.not94, label %.critedge2, label %205
 
-_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit64: ; preds = %198
+_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit64: ; preds = %198
   br i1 %.not.i60, label %.critedge2, label %205
 
-205:                                              ; preds = %202, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit64
+205:                                              ; preds = %202, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit64
   %206 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %207 = load ptr, ptr %206, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
@@ -34570,8 +34570,8 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66: ; preds = %205, %21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %.critedge2
 
-.critedge2:                                       ; preds = %179, %189, %185, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS3_INS0_7bind_tyIPNS_12MachineInstrEEELj190EEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit54.thread, %175, %171, %202, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS3_INS0_7bind_tyIPNS_12MachineInstrEEELj191EEELj190EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit59, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit64, %3, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
-  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %3 ], [ false, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.exit64 ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS3_INS0_7bind_tyIPNS_12MachineInstrEEELj191EEELj190EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit59 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66 ], [ false, %202 ], [ false, %171 ], [ false, %175 ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS3_INS0_7bind_tyIPNS_12MachineInstrEEELj190EEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit54.thread ], [ false, %185 ], [ false, %189 ], [ false, %179 ]
+.critedge2:                                       ; preds = %179, %189, %185, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS3_INS0_7bind_tyIPNS_12MachineInstrEEELj190EEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit54.thread, %175, %171, %202, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS3_INS0_7bind_tyIPNS_12MachineInstrEEELj191EEELj190EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit59, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit64, %3, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
+  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS0_12MachineInstrERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %3 ], [ false, %_ZL18isContractableFMulRN4llvm12MachineInstrEb.argprom.exit64 ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS3_INS0_7bind_tyIPNS_12MachineInstrEEELj191EEELj190EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit59 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66 ], [ false, %202 ], [ false, %171 ], [ false, %175 ], [ false, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS3_INS0_7bind_tyIPNS_12MachineInstrEEELj190EEELj191EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit54.thread ], [ false, %185 ], [ false, %189 ], [ false, %179 ]
   ret i1 %.0
 }
 
@@ -34672,21 +34672,21 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper18matchAddSubSameRe
   %.val.val = load ptr, ptr %10, align 8
   %11 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %.val.val, i32 %7) #27
   %.not.i.i.i.not.i.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i.i.not.i.i.i, label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit.thread", label %12
+  br i1 %.not.i.i.i.not.i.i.i, label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit.thread", label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 68
   %14 = load i16, ptr %13, align 4
   %15 = icmp eq i16 %14, 53
-  br i1 %15, label %16, label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit.thread"
+  br i1 %15, label %16, label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit.thread"
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %18 = load i24, ptr %17, align 8
   %19 = icmp eq i24 %18, 3
-  br i1 %19, label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit", label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit.thread"
+  br i1 %19, label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit", label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit.thread"
 
-"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit": ; preds = %16
+"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit": ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 36
@@ -34696,25 +34696,25 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper18matchAddSubSameRe
   %25 = getelementptr inbounds i8, ptr %24, i64 68
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, %9
-  br i1 %27, label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit15", label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit.thread"
+  br i1 %27, label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit15", label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit.thread"
 
-"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit.thread": ; preds = %3, %16, %12, %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit"
+"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit.thread": ; preds = %3, %16, %12, %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit"
   %.val12.val = load ptr, ptr %10, align 8
   %28 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %.val12.val, i32 %9) #27
   %.not.i.i.i.not.i.i.i14 = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.not.i.i.i14, label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit15", label %29
+  br i1 %.not.i.i.i.not.i.i.i14, label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit15", label %29
 
-29:                                               ; preds = %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit.thread"
+29:                                               ; preds = %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit.thread"
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 68
   %31 = load i16, ptr %30, align 4
   %32 = icmp eq i16 %31, 53
-  br i1 %32, label %33, label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit15"
+  br i1 %32, label %33, label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit15"
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %35 = load i24, ptr %34, align 8
   %36 = icmp eq i24 %35, 3
-  br i1 %36, label %37, label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit15"
+  br i1 %36, label %37, label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit15"
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -34726,10 +34726,10 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper18matchAddSubSameRe
   %43 = getelementptr inbounds i8, ptr %42, i64 68
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, %7
-  br label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit15"
+  br label %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit15"
 
-"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit15": ; preds = %37, %33, %29, %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit.thread", %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit"
-  %46 = phi i1 [ true, %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit" ], [ %45, %37 ], [ false, %29 ], [ false, %33 ], [ false, %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.exit.thread" ]
+"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit15": ; preds = %37, %33, %29, %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit.thread", %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit"
+  %46 = phi i1 [ true, %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit" ], [ %45, %37 ], [ false, %29 ], [ false, %33 ], [ false, %"_ZZN4llvm14CombinerHelper18matchAddSubSameRegERNS_12MachineInstrERNS_8RegisterEENK3$_0clES3_S3_.argprom.argprom.exit.thread" ]
   ret i1 %46
 }
 
@@ -37032,7 +37032,7 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %99
 
 "_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit": ; preds = %107, %114
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit"
+  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit"
 
 116:                                              ; preds = %102, %_ZNK4llvm5APInt6isZeroEv.exit
   %117 = icmp eq i32 %91, 0
@@ -37104,7 +37104,7 @@ _ZNK4llvm5APInt6isZeroEv.exit62:                  ; preds = %_ZNK4llvm5APInt9isA
 
 "_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit": ; preds = %134, %141
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit"
+  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit"
 
 143:                                              ; preds = %129, %_ZNK4llvm5APInt6isZeroEv.exit62
   br i1 %92, label %.thread103thread-pre-split, label %_ZNK4llvm5APInt6isZeroEv.exit65
@@ -37150,7 +37150,7 @@ _ZNK4llvm5APInt5isOneEv.exit67:                   ; preds = %148
   %161 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 %27, ptr %161, align 4
   %162 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERS4_E3$_2EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit"
+  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit"
 
 163:                                              ; preds = %151, %_ZNK4llvm5APInt5isOneEv.exit67
   br i1 %92, label %.thread105, label %_ZNK4llvm5APInt6isZeroEv.exit69
@@ -37185,7 +37185,7 @@ _ZNK4llvm5APInt6isZeroEv.exit69:                  ; preds = %_ZNK4llvm5APInt6isZ
   %174 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 %27, ptr %174, align 4
   %175 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERS4_E3$_3EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %11)
-  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit"
+  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit"
 
 .thread:                                          ; preds = %.thread105, %.thread103
   %176 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -37265,7 +37265,7 @@ _ZN4llvm5APIntD2Ev.exit72:                        ; preds = %194, %_ZN4llvm5APIn
   %207 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %33, ptr %207, align 8
   %208 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERS4_E3$_4EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(36) %14)
-  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit"
+  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit"
 
 209:                                              ; preds = %201, %_ZN4llvm5APIntD2Ev.exit.thread, %_ZN4llvm5APIntD2Ev.exit72
   %210 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -37337,7 +37337,7 @@ _ZN4llvm5APIntD2Ev.exit77:                        ; preds = %224, %_ZN4llvm5APIn
   %237 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 %33, ptr %237, align 8
   %238 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERS4_E3$_5EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(36) %17)
-  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit"
+  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit"
 
 239:                                              ; preds = %231, %_ZN4llvm5APIntD2Ev.exit76.thread, %_ZN4llvm5APIntD2Ev.exit77
   %240 = call noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr noundef nonnull align 8 dereferenceable(12) %8)
@@ -37393,11 +37393,11 @@ _ZN4llvm5APIntC2ERKS0_.exit80:                    ; preds = %257, %259
   %263 = icmp ult i32 %.val54, 65
   %264 = icmp eq ptr %.val, null
   %or.cond.i81 = select i1 %263, i1 true, i1 %264
-  br i1 %or.cond.i81, label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit", label %265
+  br i1 %or.cond.i81, label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit", label %265
 
 265:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit80
   call void @_ZdaPv(ptr noundef nonnull %.val) #31
-  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit"
+  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit"
 
 266:                                              ; preds = %244, %_ZNK4llvm5APInt6isZeroEv.exit79, %239
   %267 = call noundef zeroext i1 @_ZNK4llvm5APInt9isAllOnesEv(ptr noundef nonnull align 8 dereferenceable(12) %8)
@@ -37418,11 +37418,11 @@ _ZN4llvm5APIntC2ERKS0_.exit80:                    ; preds = %257, %259
   %274 = getelementptr inbounds nuw i8, ptr %19, i64 36
   store i32 %23, ptr %274, align 4
   %275 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERS4_E3$_7EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(40) %19)
-  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit"
+  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit"
 
 276:                                              ; preds = %266
   %277 = call noundef zeroext i1 @_ZNK4llvm5APInt9isAllOnesEv(ptr noundef nonnull align 8 dereferenceable(12) %9)
-  br i1 %277, label %278, label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit"
+  br i1 %277, label %278, label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit"
 
 278:                                              ; preds = %276
   store ptr %1, ptr %20, align 8
@@ -37441,15 +37441,15 @@ _ZN4llvm5APIntC2ERKS0_.exit80:                    ; preds = %257, %259
   %285 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store i32 %23, ptr %285, align 8
   %286 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERS4_E3$_8EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(52) %20)
-  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit"
+  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit"
 
-"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit": ; preds = %265, %_ZN4llvm5APIntC2ERKS0_.exit80, %276, %278, %268, %232, %202, %170, %157, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
+"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit": ; preds = %265, %_ZN4llvm5APIntC2ERKS0_.exit80, %276, %278, %268, %232, %202, %170, %157, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
   %.2 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %157 ], [ true, %170 ], [ true, %202 ], [ true, %232 ], [ true, %268 ], [ true, %278 ], [ false, %276 ], [ true, %_ZN4llvm5APIntC2ERKS0_.exit80 ], [ true, %265 ]
   %287 = load i32, ptr %84, align 8
   %288 = icmp ugt i32 %287, 64
   br i1 %288, label %289, label %_ZN4llvm5APIntD2Ev.exit82
 
-289:                                              ; preds = %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit"
+289:                                              ; preds = %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit"
   %290 = load ptr, ptr %9, align 8
   %291 = icmp eq ptr %290, null
   br i1 %291, label %_ZN4llvm5APIntD2Ev.exit82, label %292
@@ -37458,7 +37458,7 @@ _ZN4llvm5APIntC2ERKS0_.exit80:                    ; preds = %257, %259
   call void @_ZdaPv(ptr noundef nonnull %290) #31
   br label %_ZN4llvm5APIntD2Ev.exit82
 
-_ZN4llvm5APIntD2Ev.exit82:                        ; preds = %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit", %289, %292
+_ZN4llvm5APIntD2Ev.exit82:                        ; preds = %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit", %289, %292
   %293 = load i32, ptr %77, align 8
   %294 = icmp ugt i32 %293, 64
   br i1 %294, label %295, label %_ZN4llvm5APIntD2Ev.exit83
@@ -40771,7 +40771,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %148, %150
 
 "_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERS4_E3$_3EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit.thread": ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  br label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.exit"
+  br label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.argprom.exit"
 
 "_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERS4_E3$_3EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit": ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
   %169 = call noundef zeroext i1 %166(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3) #27
@@ -40781,18 +40781,18 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %148, %150
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %171 = icmp eq ptr %.val.pre, null
   %or.cond.i = select i1 %170, i1 true, i1 %171
-  br i1 %or.cond.i, label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.exit", label %172
+  br i1 %or.cond.i, label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.argprom.exit", label %172
 
 172:                                              ; preds = %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERS4_E3$_3EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
   call void @_ZdaPv(ptr noundef nonnull %.val.pre) #31
-  br label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.exit"
+  br label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.argprom.exit"
 
-"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.exit": ; preds = %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERS4_E3$_3EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit.thread", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERS4_E3$_3EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %172
+"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.argprom.exit": ; preds = %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERS4_E3$_3EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit.thread", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERS4_E3$_3EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %172
   %173 = load i32, ptr %145, align 8
   %174 = icmp ugt i32 %173, 64
   br i1 %174, label %175, label %.critedge4
 
-175:                                              ; preds = %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.exit"
+175:                                              ; preds = %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.argprom.exit"
   %176 = load ptr, ptr %19, align 8
   %177 = icmp eq ptr %176, null
   br i1 %177, label %.critedge4, label %178
@@ -41556,8 +41556,8 @@ _ZN4llvm5APIntD2Ev.exit.i168:                     ; preds = %492, %488, %_ZN4llv
   call void @_ZdaPv(ptr noundef nonnull %497) #31
   br label %.critedge4
 
-.critedge4:                                       ; preds = %499, %496, %_ZN4llvm5APIntD2Ev.exit.i168, %400, %397, %_ZN4llvm5APIntD2Ev.exit.i157, %293, %290, %286, %_ZN4llvm5APIntD2Ev.exit147, %178, %175, %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.exit", %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit151.thread, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit151, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERS4_E3$_9EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERS4_E3$_4EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
-  %.1 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERS4_E3$_4EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERS4_E3$_9EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit151 ], [ false, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit151.thread ], [ true, %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.exit" ], [ true, %175 ], [ true, %178 ], [ true, %_ZN4llvm5APIntD2Ev.exit147 ], [ true, %286 ], [ true, %290 ], [ true, %293 ], [ %.5, %_ZN4llvm5APIntD2Ev.exit.i157 ], [ %.5, %397 ], [ %.5, %400 ], [ %.6, %_ZN4llvm5APIntD2Ev.exit.i168 ], [ %.6, %496 ], [ %.6, %499 ]
+.critedge4:                                       ; preds = %499, %496, %_ZN4llvm5APIntD2Ev.exit.i168, %400, %397, %_ZN4llvm5APIntD2Ev.exit.i157, %293, %290, %286, %_ZN4llvm5APIntD2Ev.exit147, %178, %175, %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.argprom.exit", %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit151.thread, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit151, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERS4_E3$_9EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit", %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERS4_E3$_4EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit"
+  %.1 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERS4_E3$_4EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERS4_E3$_9EENSt9enable_ifIXsr9_CallableIT_EE5valueES9_E4typeEOSC_.exit" ], [ false, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit151 ], [ false, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit151.thread ], [ true, %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.argprom.exit" ], [ true, %175 ], [ true, %178 ], [ true, %_ZN4llvm5APIntD2Ev.exit147 ], [ true, %286 ], [ true, %290 ], [ true, %293 ], [ %.5, %_ZN4llvm5APIntD2Ev.exit.i157 ], [ %.5, %397 ], [ %.5, %400 ], [ %.6, %_ZN4llvm5APIntD2Ev.exit.i168 ], [ %.6, %496 ], [ %.6, %499 ]
   %500 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %501 = load i8, ptr %500, align 8
   %502 = trunc i8 %501 to i1
@@ -45459,7 +45459,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -45469,29 +45469,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -45615,7 +45615,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS0_12MachineInstrERSt8functionIS3_EE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -45625,29 +45625,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper37matchFreezeOfSingleMaybePoisonOperandERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -45810,7 +45810,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEPNS_12MachineInstrE
   %53 = getelementptr inbounds i8, ptr %52, i64 40
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(72) %50, ptr noundef nonnull align 8 dereferenceable(70) %51) #27
-  br label %"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS0_12MachineInstrERNS0_14PreferredTupleEE3$_0JPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS2_Lb0EEERNS0_14MachineOperandEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS0_12MachineInstrERNS0_14PreferredTupleEE3$_0JPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS2_Lb0EEERNS0_14MachineOperandEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEPNS_12MachineInstrENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupEPKS2_.exit.thread.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEPNS_12MachineInstrENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupEPKS2_.exit.i.i.i, %4
   %55 = load ptr, ptr %9, align 8
@@ -45916,9 +45916,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEPNS_12MachineInstrEN
   %118 = getelementptr inbounds i8, ptr %117, i64 40
   %119 = load ptr, ptr %118, align 8
   call void %119(ptr noundef nonnull align 8 dereferenceable(72) %115, ptr noundef nonnull align 8 dereferenceable(70) %116) #27
-  br label %"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS0_12MachineInstrERNS0_14PreferredTupleEE3$_0JPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS2_Lb0EEERNS0_14MachineOperandEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS0_12MachineInstrERNS0_14PreferredTupleEE3$_0JPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS2_Lb0EEERNS0_14MachineOperandEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS0_12MachineInstrERNS0_14PreferredTupleEE3$_0JPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS2_Lb0EEERNS0_14MachineOperandEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %38, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEPNS_12MachineInstrENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit.i.i.i
+"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS0_12MachineInstrERNS0_14PreferredTupleEE3$_0JPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS2_Lb0EEERNS0_14MachineOperandEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %38, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEPNS_12MachineInstrENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -45927,7 +45927,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEPNS_12MachineInstrEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN4llvm17MachineBasicBlockENS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEERNS0_14MachineOperandEEZNS0_14CombinerHelper26applyCombineExtendingLoadsERS4_RNS0_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS1_12MachineInstrERNS1_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS1_12MachineInstrERNS1_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -45937,29 +45937,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN4llvm17Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS1_12MachineInstrERNS1_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS1_12MachineInstrERNS1_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS1_12MachineInstrERNS1_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS1_12MachineInstrERNS1_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS1_12MachineInstrERNS1_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS1_12MachineInstrERNS1_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS1_12MachineInstrERNS1_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS1_12MachineInstrERNS1_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS1_12MachineInstrERNS1_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS1_12MachineInstrERNS1_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS1_12MachineInstrERNS1_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26applyCombineExtendingLoadsERNS1_12MachineInstrERNS1_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -46296,7 +46296,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper27matchCombineLoadWithAndMaskERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchCombineLoadWithAndMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchCombineLoadWithAndMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -46306,29 +46306,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchCombineLoadWithAndMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchCombineLoadWithAndMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchCombineLoadWithAndMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchCombineLoadWithAndMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %7, ptr noundef nonnull readonly align 8 dereferenceable(120) %.val5, i64 120, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchCombineLoadWithAndMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchCombineLoadWithAndMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchCombineLoadWithAndMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchCombineLoadWithAndMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 120) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchCombineLoadWithAndMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchCombineLoadWithAndMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchCombineLoadWithAndMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchCombineLoadWithAndMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -46586,7 +46586,7 @@ _ZN4llvm11SmallVectorIPNS_19GISelChangeObserverELj4EED2Ev.exit.i.i.i.i: ; preds 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper31matchCombineExtractedVectorLoadERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineExtractedVectorLoadERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineExtractedVectorLoadERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -46596,29 +46596,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineExtractedVectorLoadERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineExtractedVectorLoadERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineExtractedVectorLoadERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineExtractedVectorLoadERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val5, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineExtractedVectorLoadERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineExtractedVectorLoadERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineExtractedVectorLoadERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineExtractedVectorLoadERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineExtractedVectorLoadERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineExtractedVectorLoadERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineExtractedVectorLoadERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineExtractedVectorLoadERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -46835,7 +46835,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper17matchCommuteShiftERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchCommuteShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchCommuteShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -46845,29 +46845,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchCommuteShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchCommuteShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchCommuteShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchCommuteShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchCommuteShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchCommuteShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchCommuteShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchCommuteShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchCommuteShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchCommuteShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchCommuteShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchCommuteShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -47026,7 +47026,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper24matchCombineUnmergeUndefERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchCombineUnmergeUndefERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchCombineUnmergeUndefERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -47034,18 +47034,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchCombineUnmergeUndefERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchCombineUnmergeUndefERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchCombineUnmergeUndefERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchCombineUnmergeUndefERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchCombineUnmergeUndefERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchCombineUnmergeUndefERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchCombineUnmergeUndefERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchCombineUnmergeUndefERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -47296,7 +47296,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNS0_14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS0_12MachineInstrERNS0_25InstructionStepsMatchInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -47304,18 +47304,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm19Machine
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -47341,7 +47341,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNS0_14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS0_12MachineInstrERNS0_25InstructionStepsMatchInfoEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -47349,18 +47349,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm19Machine
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -47386,7 +47386,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNS0_14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS0_12MachineInstrERNS0_25InstructionStepsMatchInfoEE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -47394,18 +47394,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm19Machine
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -47498,7 +47498,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNS0_14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS0_12MachineInstrERNS0_25InstructionStepsMatchInfoEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -47506,18 +47506,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm19Machine
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -47543,7 +47543,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNS0_14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS0_12MachineInstrERNS0_25InstructionStepsMatchInfoEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -47551,18 +47551,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm19Machine
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -47588,7 +47588,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNS0_14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS0_12MachineInstrERNS0_25InstructionStepsMatchInfoEE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -47596,18 +47596,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm19Machine
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchHoistLogicOpWithSameOpcodeHandsERNS1_12MachineInstrERNS1_25InstructionStepsMatchInfoEE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -47996,7 +47996,7 @@ _ZNK4llvm14CombinerHelper14replaceRegWithERNS_19MachineRegisterInfoENS_8Register
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper19matchOverlappingAndERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19matchOverlappingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19matchOverlappingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -48006,29 +48006,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19matchOverlappingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19matchOverlappingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19matchOverlappingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19matchOverlappingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19matchOverlappingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19matchOverlappingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19matchOverlappingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19matchOverlappingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19matchOverlappingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19matchOverlappingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19matchOverlappingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19matchOverlappingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -48936,7 +48936,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper18matchLoadOrCombineERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchLoadOrCombineERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchLoadOrCombineERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -48946,29 +48946,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchLoadOrCombineERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchLoadOrCombineERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchLoadOrCombineERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchLoadOrCombineERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchLoadOrCombineERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchLoadOrCombineERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchLoadOrCombineERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchLoadOrCombineERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchLoadOrCombineERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchLoadOrCombineERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchLoadOrCombineERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchLoadOrCombineERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -49993,7 +49993,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper25matchOrShiftToFunnelShiftERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchOrShiftToFunnelShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchOrShiftToFunnelShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -50003,29 +50003,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchOrShiftToFunnelShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchOrShiftToFunnelShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchOrShiftToFunnelShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchOrShiftToFunnelShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %7, ptr noundef nonnull readonly align 4 dereferenceable(20) %.val5, i64 20, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchOrShiftToFunnelShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchOrShiftToFunnelShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchOrShiftToFunnelShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchOrShiftToFunnelShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 20) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchOrShiftToFunnelShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchOrShiftToFunnelShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchOrShiftToFunnelShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchOrShiftToFunnelShiftERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -50036,7 +50036,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
   %.val3 = load ptr, ptr %1, align 8
   %4 = load i8, ptr %.val3, align 8
   %.not.i.i.i = icmp eq i8 %4, 17
-  br i1 %.not.i.i.i, label %5, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper21matchRotateOutOfRangeERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %.not.i.i.i, label %5, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper21matchRotateOutOfRangeERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 5:                                                ; preds = %2
   %.val = load i32, ptr %0, align 8
@@ -50067,9 +50067,9 @@ _ZNK4llvm5APInt3ugeEm.exit.i.i.i:                 ; preds = %14, %_ZNK4llvm5APIn
   %20 = and i8 %19, 1
   %21 = or i8 %20, %18
   store i8 %21, ptr %.val2, align 1
-  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper21matchRotateOutOfRangeERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper21matchRotateOutOfRangeERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper21matchRotateOutOfRangeERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %2, %_ZNK4llvm5APInt3ugeEm.exit.i.i.i
+"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper21matchRotateOutOfRangeERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %2, %_ZNK4llvm5APInt3ugeEm.exit.i.i.i
   ret i1 true
 }
 
@@ -50352,7 +50352,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %15, %17
-  br i1 %18, label %19, label %"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS0_12MachineInstrERSt8functionIFvRNS0_16MachineIRBuilderEEEE3$_0JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
+  br i1 %18, label %19, label %"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS0_12MachineInstrERSt8functionIFvRNS0_16MachineIRBuilderEEEE3$_0JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit"
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds i8, ptr %13, i64 64
@@ -50360,9 +50360,9 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
   %.pre.i.i.i = load ptr, ptr %.val, align 8
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 32
   %.pre1.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS0_12MachineInstrERSt8functionIFvRNS0_16MachineIRBuilderEEEE3$_0JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS0_12MachineInstrERSt8functionIFvRNS0_16MachineIRBuilderEEEE3$_0JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS0_12MachineInstrERSt8functionIFvRNS0_16MachineIRBuilderEEEE3$_0JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %2, %19
+"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS0_12MachineInstrERSt8functionIFvRNS0_16MachineIRBuilderEEEE3$_0JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %2, %19
   %21 = phi ptr [ %.pre1.i.i.i, %19 ], [ %13, %2 ]
   %22 = getelementptr inbounds i8, ptr %21, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.val, i64 20
@@ -50379,7 +50379,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper22matchAndOrDisjointMaskERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -50389,29 +50389,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper22matchAndOrDisjointMaskERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -50561,7 +50561,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper33matchBitfieldExtractFromSExtInRegERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper33matchBitfieldExtractFromSExtInRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper33matchBitfieldExtractFromSExtInRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -50571,29 +50571,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper33matchBitfieldExtractFromSExtInRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper33matchBitfieldExtractFromSExtInRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper33matchBitfieldExtractFromSExtInRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper33matchBitfieldExtractFromSExtInRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper33matchBitfieldExtractFromSExtInRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper33matchBitfieldExtractFromSExtInRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper33matchBitfieldExtractFromSExtInRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper33matchBitfieldExtractFromSExtInRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper33matchBitfieldExtractFromSExtInRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper33matchBitfieldExtractFromSExtInRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper33matchBitfieldExtractFromSExtInRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper33matchBitfieldExtractFromSExtInRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -50799,7 +50799,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper27matchBitfieldExtractFromAndERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -50809,29 +50809,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -50999,7 +50999,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper27matchBitfieldExtractFromShrERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromShrERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromShrERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -51009,29 +51009,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromShrERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromShrERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromShrERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromShrERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromShrERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromShrERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromShrERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromShrERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromShrERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromShrERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromShrERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper27matchBitfieldExtractFromShrERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -51050,7 +51050,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper30matchBitfieldExtractFromShrAndERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -51058,18 +51058,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -51137,7 +51137,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper30matchBitfieldExtractFromShrAndERNS0_12MachineInstrERSt8functionIS3_EE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -51147,29 +51147,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30matchBitfieldExtractFromShrAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -51190,7 +51190,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS0_7GPtrAddEPNS0_12MachineInstrERSt8functionIFvRNS0_16MachineIRBuilderEEEE3$_0JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
+  br i1 %13, label %14, label %"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS0_7GPtrAddEPNS0_12MachineInstrERSt8functionIFvRNS0_16MachineIRBuilderEEEE3$_0JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -51200,15 +51200,15 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
   %19 = zext nneg i32 %18 to i64
   %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #27
   %21 = icmp ugt i64 %20, %19
-  br i1 %21, label %22, label %"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS0_7GPtrAddEPNS0_12MachineInstrERSt8functionIFvRNS0_16MachineIRBuilderEEEE3$_0JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
+  br i1 %21, label %22, label %"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS0_7GPtrAddEPNS0_12MachineInstrERSt8functionIFvRNS0_16MachineIRBuilderEEEE3$_0JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
 
 22:                                               ; preds = %14
   %23 = load ptr, ptr %17, align 8
   %24 = getelementptr inbounds %"class.llvm::LLT", ptr %23, i64 %19
   %25 = load i64, ptr %24, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS0_7GPtrAddEPNS0_12MachineInstrERSt8functionIFvRNS0_16MachineIRBuilderEEEE3$_0JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS0_7GPtrAddEPNS0_12MachineInstrERSt8functionIFvRNS0_16MachineIRBuilderEEEE3$_0JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS0_7GPtrAddEPNS0_12MachineInstrERSt8functionIFvRNS0_16MachineIRBuilderEEEE3$_0JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %2, %14, %22
+"_ZSt10__invoke_rIvRZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS0_7GPtrAddEPNS0_12MachineInstrERSt8functionIFvRNS0_16MachineIRBuilderEEEE3$_0JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %2, %14, %22
   %.sroa.04.0.i.i.i.i = phi i64 [ %25, %22 ], [ 0, %14 ], [ 0, %2 ]
   %26 = load ptr, ptr %7, align 8
   store i64 %.sroa.04.0.i.i.i.i, ptr %3, align 8
@@ -51270,7 +51270,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper28matchReassocConstantInnerRHSERNS0_7GPtrAddEPNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS1_7GPtrAddEPNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS1_7GPtrAddEPNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -51280,29 +51280,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS1_7GPtrAddEPNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS1_7GPtrAddEPNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS1_7GPtrAddEPNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS1_7GPtrAddEPNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS1_7GPtrAddEPNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS1_7GPtrAddEPNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS1_7GPtrAddEPNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS1_7GPtrAddEPNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS1_7GPtrAddEPNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS1_7GPtrAddEPNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS1_7GPtrAddEPNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerRHSERNS1_7GPtrAddEPNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -51502,7 +51502,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper28matchReassocConstantInnerLHSERNS0_7GPtrAddEPNS0_12MachineInstrES8_RSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %25
@@ -51511,11 +51511,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
@@ -51556,12 +51556,12 @@ _ZNSt22_Optional_payload_baseIN4llvm12ValueAndVRegEE12_M_constructIJRKS1_EEEvDpO
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSD_EEvRSt9_Any_dataOT_.exit.i": ; preds = %_ZNSt22_Optional_payload_baseIN4llvm12ValueAndVRegEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i, %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
 
 25:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %26 = icmp eq ptr %.val6.i, null
-  br i1 %26, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit", label %27
+  br i1 %26, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit", label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 24
@@ -51588,9 +51588,9 @@ _ZNSt22_Optional_payload_baseIN4llvm12ValueAndVRegEE12_M_constructIJRKS1_EEEvDpO
 
 "_ZZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS_7GPtrAddEPNS_12MachineInstrES4_RSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i": ; preds = %39, %36, %32, %27
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS_7GPtrAddEPNS_12MachineInstrES4_RSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i", %25, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSD_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS_7GPtrAddEPNS_12MachineInstrES4_RSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i", %25, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper28matchReassocConstantInnerLHSERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSD_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -51728,7 +51728,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %42, %39, %_ZN4llvm5
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS0_7GPtrAddEPNS0_12MachineInstrES8_RSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %39
@@ -51737,11 +51737,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #28
@@ -51813,12 +51813,12 @@ _ZNSt22_Optional_payload_baseIN4llvm5APIntEE12_M_constructIJRKS1_EEEvDpOT_.exit.
   %38 = load i32, ptr %37, align 8
   store i32 %38, ptr %36, align 8
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
 
 39:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %40 = icmp eq ptr %.val6.i, null
-  br i1 %40, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit", label %41
+  br i1 %40, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit", label %41
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 48
@@ -51868,9 +51868,9 @@ _ZNSt8optionalIN4llvm5APIntEED2Ev.exit.i.i.i:     ; preds = %53, %50, %46, %41
 
 "_ZZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS_7GPtrAddEPNS_12MachineInstrES4_RSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i": ; preds = %65, %62, %58, %_ZNSt8optionalIN4llvm5APIntEED2Ev.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 80) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS_7GPtrAddEPNS_12MachineInstrES4_RSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i", %39, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSD_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS_7GPtrAddEPNS_12MachineInstrES4_RSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i", %39, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchReassocFoldConstantsInSubTreeERNS1_7GPtrAddEPNS1_12MachineInstrES6_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSD_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -51938,7 +51938,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper15tryReassocBinOpEjNS0_8RegisterES5_S5_RSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -51948,29 +51948,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -52038,7 +52038,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper15tryReassocBinOpEjNS0_8RegisterES5_S5_RSt8functionIS3_EE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -52048,29 +52048,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper15tryReassocBinOpEjNS1_8RegisterES3_S3_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -52194,7 +52194,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper26matchNarrowBinopFeedingAndERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26matchNarrowBinopFeedingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26matchNarrowBinopFeedingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -52204,29 +52204,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26matchNarrowBinopFeedingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26matchNarrowBinopFeedingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26matchNarrowBinopFeedingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26matchNarrowBinopFeedingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26matchNarrowBinopFeedingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26matchNarrowBinopFeedingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26matchNarrowBinopFeedingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26matchNarrowBinopFeedingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26matchNarrowBinopFeedingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26matchNarrowBinopFeedingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26matchNarrowBinopFeedingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper26matchNarrowBinopFeedingAndERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -52272,7 +52272,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper12matchMulOBy2ERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy2ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy2ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -52282,29 +52282,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy2ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy2ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy2ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy2ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy2ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy2ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy2ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy2ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy2ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy2ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy2ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy2ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -52332,7 +52332,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper12matchMulOBy0ERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy0ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy0ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -52340,18 +52340,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy0ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy0ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy0ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy0ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy0ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy0ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy0ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper12matchMulOBy0ERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -52445,7 +52445,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper18matchSubAddSameRegERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchSubAddSameRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchSubAddSameRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -52453,18 +52453,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchSubAddSameRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchSubAddSameRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchSubAddSameRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchSubAddSameRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchSubAddSameRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchSubAddSameRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchSubAddSameRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper18matchSubAddSameRegERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -52624,7 +52624,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit12.i.i.i:
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #27
   %39 = add i64 %38, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %28, i64 noundef %39) #27
-  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 40:                                               ; preds = %10, %2
   %41 = getelementptr inbounds nuw i8, ptr %.val2, i64 24
@@ -52779,18 +52779,18 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit16.i.i.i:
 _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %114, %111, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit16.i.i.i
   %115 = load i32, ptr %42, align 8
   %116 = icmp ugt i32 %115, 64
-  br i1 %116, label %117, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %116, label %117, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 117:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i.i
   %118 = load ptr, ptr %3, align 8
   %119 = icmp eq ptr %118, null
-  br i1 %119, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %120
+  br i1 %119, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %120
 
 120:                                              ; preds = %117
   call void @_ZdaPv(ptr noundef nonnull %118) #31
-  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit12.i.i.i, %_ZN4llvm5APIntD2Ev.exit.i.i.i, %117, %120
+"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit12.i.i.i, %_ZN4llvm5APIntD2Ev.exit.i.i.i, %117, %120
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -52800,7 +52800,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %114, %111, %_ZN4llv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZNS0_14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -52810,29 +52810,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val5, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -53150,18 +53150,18 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit26.i.i.i:
   store i8 %167, ptr %163, align 1
   %168 = load i32, ptr %13, align 8
   %169 = icmp ugt i32 %168, 64
-  br i1 %169, label %170, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_1JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %169, label %170, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_1JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 170:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit26.i.i.i
   %171 = load ptr, ptr %3, align 8
   %172 = icmp eq ptr %171, null
-  br i1 %172, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_1JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %173
+  br i1 %172, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_1JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %173
 
 173:                                              ; preds = %170
   call void @_ZdaPv(ptr noundef nonnull %171) #31
-  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_1JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_1JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_1JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit26.i.i.i, %170, %173
+"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_1JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit26.i.i.i, %170, %173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -53174,7 +53174,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit26.i.i.i:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZNS0_14CombinerHelper17buildUDivUsingMulERNS0_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -53184,29 +53184,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %7, ptr noundef nonnull readonly align 8 dereferenceable(80) %.val5, i64 80, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 80) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildUDivUsingMulERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -53216,34 +53216,34 @@ declare void @_ZN4llvm30UnsignedDivisionByConstantInfo3getERKNS_5APIntEjb(ptr de
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZNS0_14CombinerHelper16matchUDivByConstERNS0_12MachineInstrEE3$_0E9_M_invokeERKSt9_Any_dataOS3_"(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUDivByConstERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %3
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUDivByConstERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %3
 
 3:                                                ; preds = %2
   %4 = tail call noundef zeroext i1 @_ZNK4llvm8Constant11isNullValueEv(ptr noundef nonnull align 8 dereferenceable(24) %.val) #27
   %5 = xor i1 %4, true
-  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUDivByConstERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUDivByConstERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUDivByConstERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %2, %3
+"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUDivByConstERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %2, %3
   %6 = phi i1 [ false, %2 ], [ %5, %3 ]
   ret i1 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZNS0_14CombinerHelper16matchUDivByConstERNS0_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -53253,34 +53253,34 @@ declare noundef zeroext i1 @_ZNK4llvm8Constant11isNullValueEv(ptr noundef nonnul
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZNS0_14CombinerHelper16matchUDivByConstERNS0_12MachineInstrEE3$_1E9_M_invokeERKSt9_Any_dataOS3_"(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUDivByConstERNS0_12MachineInstrEE3$_1JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %3
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUDivByConstERNS0_12MachineInstrEE3$_1JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %3
 
 3:                                                ; preds = %2
   %4 = tail call noundef zeroext i1 @_ZNK4llvm8Constant11isNullValueEv(ptr noundef nonnull align 8 dereferenceable(24) %.val) #27
   %5 = xor i1 %4, true
-  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUDivByConstERNS0_12MachineInstrEE3$_1JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUDivByConstERNS0_12MachineInstrEE3$_1JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUDivByConstERNS0_12MachineInstrEE3$_1JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %2, %3
+"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUDivByConstERNS0_12MachineInstrEE3$_1JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %2, %3
   %6 = phi i1 [ false, %2 ], [ %5, %3 ]
   ret i1 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZNS0_14CombinerHelper16matchUDivByConstERNS0_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUDivByConstERNS1_12MachineInstrEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -53288,34 +53288,34 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZNS0_14CombinerHelper16matchSDivByConstERNS0_12MachineInstrEE3$_0E9_M_invokeERKSt9_Any_dataOS3_"(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchSDivByConstERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %3
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchSDivByConstERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %3
 
 3:                                                ; preds = %2
   %4 = tail call noundef zeroext i1 @_ZNK4llvm8Constant11isNullValueEv(ptr noundef nonnull align 8 dereferenceable(24) %.val) #27
   %5 = xor i1 %4, true
-  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchSDivByConstERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchSDivByConstERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchSDivByConstERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %2, %3
+"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchSDivByConstERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %2, %3
   %6 = phi i1 [ false, %2 ], [ %5, %3 ]
   ret i1 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZNS0_14CombinerHelper16matchSDivByConstERNS0_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchSDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchSDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchSDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchSDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchSDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchSDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchSDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchSDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchSDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchSDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchSDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchSDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchSDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchSDivByConstERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -53388,7 +53388,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit12.i.i.i:
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #27
   %39 = add i64 %38, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %28, i64 noundef %39) #27
-  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildSDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildSDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 40:                                               ; preds = %10, %2
   %41 = getelementptr inbounds nuw i8, ptr %.val2, i64 24
@@ -53547,18 +53547,18 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit16.i.i.i:
 _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %119, %116, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit16.i.i.i
   %120 = load i32, ptr %42, align 8
   %121 = icmp ugt i32 %120, 64
-  br i1 %121, label %122, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildSDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %121, label %122, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildSDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 122:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i.i
   %123 = load ptr, ptr %3, align 8
   %124 = icmp eq ptr %123, null
-  br i1 %124, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildSDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %125
+  br i1 %124, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildSDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %125
 
 125:                                              ; preds = %122
   call void @_ZdaPv(ptr noundef nonnull %123) #31
-  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildSDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildSDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildSDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit12.i.i.i, %_ZN4llvm5APIntD2Ev.exit.i.i.i, %122, %125
+"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17buildSDivUsingMulERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit12.i.i.i, %_ZN4llvm5APIntD2Ev.exit.i.i.i, %122, %125
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -53568,7 +53568,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %119, %116, %_ZN4llv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZNS0_14CombinerHelper17buildSDivUsingMulERNS0_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildSDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildSDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -53578,29 +53578,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildSDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildSDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildSDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildSDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val5, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildSDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildSDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildSDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildSDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildSDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildSDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildSDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17buildSDivUsingMulERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -53612,7 +53612,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
   %.val2 = load ptr, ptr %1, align 8
   %3 = load i8, ptr %.val2, align 8
   %.not.i.i.i = icmp eq i8 %3, 17
-  br i1 %.not.i.i.i, label %4, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper14matchDivByPow2ERNS0_12MachineInstrEbE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %.not.i.i.i, label %4, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper14matchDivByPow2ERNS0_12MachineInstrEbE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.val2, i64 24
@@ -53625,17 +53625,17 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
   %10 = load i64, ptr %5, align 8
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
   %or.cond.i.i.i = icmp eq i64 %11, 1
-  br i1 %or.cond.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper14matchDivByPow2ERNS0_12MachineInstrEbE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i.i.i
+  br i1 %or.cond.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper14matchDivByPow2ERNS0_12MachineInstrEbE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i.i.i
 
 12:                                               ; preds = %4
   %13 = tail call noundef i32 @_ZNK4llvm5APInt23countPopulationSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %5) #30
   %14 = icmp eq i32 %13, 1
-  br i1 %14, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper14matchDivByPow2ERNS0_12MachineInstrEbE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i.i.i
+  br i1 %14, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper14matchDivByPow2ERNS0_12MachineInstrEbE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i.i.i
 
 _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i.i.i:  ; preds = %12, %9
   %15 = load i8, ptr %.val, align 1
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper14matchDivByPow2ERNS0_12MachineInstrEbE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %16, label %17, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper14matchDivByPow2ERNS0_12MachineInstrEbE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 17:                                               ; preds = %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i.i.i
   %18 = add i32 %7, -1
@@ -53651,7 +53651,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i.i.i:  ; preds = %12, %9
   %27 = and i64 %26, %21
   %.not.i.i.i.i.i = icmp eq i64 %27, 0
   %28 = ptrtoint ptr %22 to i64
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper14matchDivByPow2ERNS0_12MachineInstrEbE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %29
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper14matchDivByPow2ERNS0_12MachineInstrEbE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %29
 
 29:                                               ; preds = %17
   br i1 %8, label %30, label %42
@@ -53686,16 +53686,16 @@ _ZNK4llvm5APInt11countr_zeroEv.exit.i.i.i.i:      ; preds = %42, %39
   %.0.i3.i.i.i.i = phi i32 [ %..i.i.i.i.i, %39 ], [ %44, %42 ]
   %45 = add i32 %.0.i3.i.i.i.i, %.0.i5.i.i.i.i
   %46 = icmp eq i32 %45, %7
-  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper14matchDivByPow2ERNS0_12MachineInstrEbE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper14matchDivByPow2ERNS0_12MachineInstrEbE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper14matchDivByPow2ERNS0_12MachineInstrEbE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %2, %9, %12, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i.i.i, %17, %_ZNK4llvm5APInt11countr_zeroEv.exit.i.i.i.i
+"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper14matchDivByPow2ERNS0_12MachineInstrEbE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %2, %9, %12, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i.i.i, %17, %_ZNK4llvm5APInt11countr_zeroEv.exit.i.i.i.i
   %47 = phi i1 [ false, %2 ], [ false, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread.i.i.i ], [ true, %12 ], [ %46, %_ZNK4llvm5APInt11countr_zeroEv.exit.i.i.i.i ], [ false, %17 ], [ true, %9 ]
   ret i1 %47
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZNS0_14CombinerHelper14matchDivByPow2ERNS0_12MachineInstrEbE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper14matchDivByPow2ERNS1_12MachineInstrEbE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper14matchDivByPow2ERNS1_12MachineInstrEbE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -53703,18 +53703,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper14matchDivByPow2ERNS1_12MachineInstrEbE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper14matchDivByPow2ERNS1_12MachineInstrEbE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper14matchDivByPow2ERNS1_12MachineInstrEbE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper14matchDivByPow2ERNS1_12MachineInstrEbE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper14matchDivByPow2ERNS1_12MachineInstrEbE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper14matchDivByPow2ERNS1_12MachineInstrEbE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper14matchDivByPow2ERNS1_12MachineInstrEbE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper14matchDivByPow2ERNS1_12MachineInstrEbE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -53723,7 +53723,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
   %.val = load ptr, ptr %1, align 8
   %3 = load i8, ptr %.val, align 8
   %.not.i.i.i = icmp eq i8 %3, 17
-  br i1 %.not.i.i.i, label %4, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUMulHToLShrERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %.not.i.i.i, label %4, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUMulHToLShrERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 24
@@ -53736,12 +53736,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
   %10 = load i64, ptr %5, align 8
   %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
   %or.cond.i.i.i = icmp eq i64 %11, 1
-  br i1 %or.cond.i.i.i, label %15, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUMulHToLShrERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %or.cond.i.i.i, label %15, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUMulHToLShrERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 12:                                               ; preds = %4
   %13 = tail call noundef i32 @_ZNK4llvm5APInt23countPopulationSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %5) #30
   %14 = icmp eq i32 %13, 1
-  br i1 %14, label %17, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUMulHToLShrERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %14, label %17, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUMulHToLShrERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 15:                                               ; preds = %9
   %16 = icmp eq i64 %10, 1
@@ -53756,29 +53756,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
 _ZNK4llvm5APInt5isOneEv.exit.i.i.i:               ; preds = %17, %15
   %.0.i6.i.i.i = phi i1 [ %16, %15 ], [ %20, %17 ]
   %21 = xor i1 %.0.i6.i.i.i, true
-  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUMulHToLShrERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUMulHToLShrERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUMulHToLShrERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %2, %9, %12, %_ZNK4llvm5APInt5isOneEv.exit.i.i.i
+"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper16matchUMulHToLShrERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %2, %9, %12, %_ZNK4llvm5APInt5isOneEv.exit.i.i.i
   %.0.i.i.i = phi i1 [ %21, %_ZNK4llvm5APInt5isOneEv.exit.i.i.i ], [ false, %2 ], [ false, %12 ], [ false, %9 ]
   ret i1 %.0.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZNS0_14CombinerHelper16matchUMulHToLShrERNS0_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUMulHToLShrERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUMulHToLShrERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUMulHToLShrERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUMulHToLShrERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUMulHToLShrERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUMulHToLShrERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUMulHToLShrERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUMulHToLShrERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUMulHToLShrERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUMulHToLShrERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUMulHToLShrERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUMulHToLShrERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUMulHToLShrERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchUMulHToLShrERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -53925,7 +53925,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper25matchRedundantNegOperandsERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchRedundantNegOperandsERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchRedundantNegOperandsERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -53935,29 +53935,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchRedundantNegOperandsERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchRedundantNegOperandsERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchRedundantNegOperandsERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchRedundantNegOperandsERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchRedundantNegOperandsERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchRedundantNegOperandsERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchRedundantNegOperandsERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchRedundantNegOperandsERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchRedundantNegOperandsERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchRedundantNegOperandsERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchRedundantNegOperandsERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper25matchRedundantNegOperandsERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -54010,7 +54010,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -54020,29 +54020,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -54095,7 +54095,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS0_12MachineInstrERSt8functionIS3_EE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -54105,29 +54105,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFAddFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -54228,7 +54228,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -54238,29 +54238,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -54361,7 +54361,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS0_12MachineInstrERSt8functionIS3_EE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -54371,29 +54371,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFAddFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -54478,7 +54478,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper34matchCombineFAddFMAFMulToFMadOrFMAERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchCombineFAddFMAFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchCombineFAddFMAFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -54488,29 +54488,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchCombineFAddFMAFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchCombineFAddFMAFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchCombineFAddFMAFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchCombineFAddFMAFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchCombineFAddFMAFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchCombineFAddFMAFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchCombineFAddFMAFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchCombineFAddFMAFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchCombineFAddFMAFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchCombineFAddFMAFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchCombineFAddFMAFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper34matchCombineFAddFMAFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -54647,7 +54647,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -54657,29 +54657,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val5, i64 64, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 64) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -54861,7 +54861,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS0_12MachineInstrERSt8functionIS3_EE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -54871,29 +54871,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val5, i64 64, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 64) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -55030,7 +55030,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS0_12MachineInstrERSt8functionIS3_EE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -55040,29 +55040,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val5, i64 64, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 64) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -55244,7 +55244,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS0_12MachineInstrERSt8functionIS3_EE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -55254,29 +55254,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %.val5, i64 64, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 64) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper46matchCombineFAddFpExtFMulToFMadOrFMAAggressiveERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -55352,7 +55352,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -55362,29 +55362,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val5, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -55463,7 +55463,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS0_12MachineInstrERSt8functionIS3_EE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -55473,29 +55473,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val5, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper31matchCombineFSubFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -55596,7 +55596,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -55606,29 +55606,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -55681,7 +55681,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS0_12MachineInstrERSt8functionIS3_EE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -55691,29 +55691,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper35matchCombineFSubFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -55836,7 +55836,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -55846,29 +55846,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -55991,7 +55991,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS0_12MachineInstrERSt8functionIS3_EE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -56001,29 +56001,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper36matchCombineFSubFpExtFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -56144,7 +56144,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -56154,29 +56154,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val5, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -56274,7 +56274,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS0_12MachineInstrERSt8functionIS3_EE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -56284,29 +56284,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchCombineFSubFpExtFNegFMulToFMadOrFMAERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -57132,7 +57132,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper29matchRedundantBinOpInEqualityERNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper29matchRedundantBinOpInEqualityERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper29matchRedundantBinOpInEqualityERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -57142,29 +57142,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper29matchRedundantBinOpInEqualityERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper29matchRedundantBinOpInEqualityERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper29matchRedundantBinOpInEqualityERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper29matchRedundantBinOpInEqualityERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper29matchRedundantBinOpInEqualityERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper29matchRedundantBinOpInEqualityERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper29matchRedundantBinOpInEqualityERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper29matchRedundantBinOpInEqualityERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper29matchRedundantBinOpInEqualityERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper29matchRedundantBinOpInEqualityERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper29matchRedundantBinOpInEqualityERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper29matchRedundantBinOpInEqualityERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -57173,7 +57173,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
   %.val2 = load ptr, ptr %1, align 8
   %3 = load i8, ptr %.val2, align 8
   %.not.i.i.i = icmp eq i8 %3, 17
-  br i1 %.not.i.i.i, label %4, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17matchShiftsTooBigERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %.not.i.i.i, label %4, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17matchShiftsTooBigERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 4:                                                ; preds = %2
   %.val = load ptr, ptr %0, align 8
@@ -57217,23 +57217,23 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i: ; preds = %_ZNK4llvm3LLT19get
   %23 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %19) #30
   %24 = sub i32 %21, %23
   %25 = icmp ult i32 %24, 65
-  br i1 %25, label %26, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17matchShiftsTooBigERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br i1 %25, label %26, label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17matchShiftsTooBigERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
 26:                                               ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i
   %27 = load ptr, ptr %19, align 8
   %.0.in.i.i.i.i.i.i.i = select i1 %22, ptr %19, ptr %27
   %.0.i.i.i.i.i.i.i = load i64, ptr %.0.in.i.i.i.i.i.i.i, align 8
   %28 = icmp uge i64 %.0.i.i.i.i.i.i.i, %18
-  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17matchShiftsTooBigERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17matchShiftsTooBigERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17matchShiftsTooBigERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %2, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i, %26
+"_ZSt10__invoke_rIbRZN4llvm14CombinerHelper17matchShiftsTooBigERNS0_12MachineInstrEE3$_0JPKNS0_8ConstantEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %2, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i, %26
   %29 = phi i1 [ false, %2 ], [ true, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i ], [ %28, %26 ]
   ret i1 %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZNS0_14CombinerHelper17matchShiftsTooBigERNS0_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchShiftsTooBigERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchShiftsTooBigERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -57241,18 +57241,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8Constan
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchShiftsTooBigERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchShiftsTooBigERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchShiftsTooBigERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchShiftsTooBigERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchShiftsTooBigERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchShiftsTooBigERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchShiftsTooBigERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper17matchShiftsTooBigERNS1_12MachineInstrEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -57441,7 +57441,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i.i.i.i: 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERSt8functionIS3_EE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -57451,29 +57451,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -57564,7 +57564,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i.i.i.i: 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERSt8functionIS3_EE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -57574,29 +57574,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -57656,7 +57656,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERSt8functionIS3_EE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -57666,29 +57666,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_4E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -57748,7 +57748,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERSt8functionIS3_EE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -57758,29 +57758,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -57925,7 +57925,7 @@ _ZNK4llvm5APInt8logBase2Ev.exit.i.i.i.i:          ; preds = %51, %47
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERSt8functionIS3_EE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %20
@@ -57934,11 +57934,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
@@ -57967,12 +57967,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
   %19 = load i64, ptr %18, align 8
   store i64 %19, ptr %17, align 8
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 20:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %21 = icmp eq ptr %.val6.i, null
-  br i1 %21, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %22
+  br i1 %21, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr i8, ptr %.val6.i, i64 32
@@ -57982,17 +57982,17 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
   %25 = icmp ult i32 %.val1.i.i, 65
   %26 = icmp eq ptr %.val.i.i, null
   %or.cond.i.i.i = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond.i.i.i, label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit.i.i", label %27
+  br i1 %or.cond.i.i.i, label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit.i.i", label %27
 
 27:                                               ; preds = %22
   tail call void @_ZdaPv(ptr noundef nonnull %.val.i.i) #31
-  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit.i.i"
+  br label %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit.i.i"
 
-"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit.i.i": ; preds = %27, %22
+"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit.i.i": ; preds = %27, %22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit.i.i", %20, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS_7GSelectERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit.i.i", %20, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -58056,7 +58056,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERSt8functionIS3_EE3$_7E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_7E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_7E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -58066,29 +58066,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_7E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_7E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_7E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_7E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_7E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_7E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_7E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_7E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_7E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_7E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_7E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_7E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -58209,7 +58209,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i.i.i.i: 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper24tryFoldSelectOfConstantsEPNS0_7GSelectERSt8functionIS3_EE3$_8E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_8E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_8E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -58219,29 +58219,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_8E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_8E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_8E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_8E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val5, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_8E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_8E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_8E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_8E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_8E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_8E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_8E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldSelectOfConstantsEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_8E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -58326,7 +58326,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper24tryFoldBoolSelectToLogicEPNS0_7GSelectERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -58336,29 +58336,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -58439,7 +58439,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper24tryFoldBoolSelectToLogicEPNS0_7GSelectERSt8functionIS3_EE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -58449,29 +58449,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -58613,7 +58613,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i.i.i.i: 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper24tryFoldBoolSelectToLogicEPNS0_7GSelectERSt8functionIS3_EE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -58623,29 +58623,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val5, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -58783,7 +58783,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i.i.i.i: 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper24tryFoldBoolSelectToLogicEPNS0_7GSelectERSt8functionIS3_EE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -58793,29 +58793,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24tryFoldBoolSelectToLogicEPNS1_7GSelectERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -59649,7 +59649,7 @@ _ZNK4llvm5APInteqEm.exit67.i.i.i:                 ; preds = %_ZNK4llvm5APIntneEm
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS0_13GLogicalBinOpERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %45
@@ -59658,11 +59658,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #28
@@ -59738,12 +59738,12 @@ _ZN4llvm5APIntC2ERKS0_.exit8.i.i.i.i:             ; preds = %30, %28
   %44 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %43, ptr noundef nonnull align 8 dereferenceable(20) %44, i64 20, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 45:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %46 = icmp eq ptr %.val6.i, null
-  br i1 %46, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %47
+  br i1 %46, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %47
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 64
@@ -59795,9 +59795,9 @@ _ZN4llvm5APIntD2Ev.exit1.i.i.i:                   ; preds = %63, %59, %_ZN4llvm5
 
 "_ZZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS_13GLogicalBinOpERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i": ; preds = %71, %67, %_ZN4llvm5APIntD2Ev.exit1.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 96) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS_13GLogicalBinOpERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i", %45, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS_13GLogicalBinOpERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i", %45, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper30tryFoldAndOrOrICmpsUsingRangesEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -59957,7 +59957,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper19tryFoldLogicOfFCmpsEPNS0_13GLogicalBinOpERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19tryFoldLogicOfFCmpsEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19tryFoldLogicOfFCmpsEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -59967,29 +59967,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19tryFoldLogicOfFCmpsEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19tryFoldLogicOfFCmpsEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19tryFoldLogicOfFCmpsEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19tryFoldLogicOfFCmpsEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19tryFoldLogicOfFCmpsEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19tryFoldLogicOfFCmpsEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19tryFoldLogicOfFCmpsEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19tryFoldLogicOfFCmpsEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19tryFoldLogicOfFCmpsEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19tryFoldLogicOfFCmpsEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19tryFoldLogicOfFCmpsEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper19tryFoldLogicOfFCmpsEPNS1_13GLogicalBinOpERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -60209,7 +60209,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERSt8functionIS3_EE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %20
@@ -60218,11 +60218,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
@@ -60251,12 +60251,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %18, ptr noundef nonnull align 8 dereferenceable(5) %19, i64 5, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 20:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %21 = icmp eq ptr %.val6.i, null
-  br i1 %21, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %22
+  br i1 %21, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr i8, ptr %.val6.i, i64 8
@@ -60266,17 +60266,17 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
   %25 = icmp ult i32 %.val1.i.i, 65
   %26 = icmp eq ptr %.val.i.i, null
   %or.cond.i.i.i = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond.i.i.i, label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.exit.i.i", label %27
+  br i1 %or.cond.i.i.i, label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.argprom.exit.i.i", label %27
 
 27:                                               ; preds = %22
   tail call void @_ZdaPv(ptr noundef nonnull %.val.i.i) #31
-  br label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.exit.i.i"
+  br label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.argprom.exit.i.i"
 
-"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.exit.i.i": ; preds = %27, %22
+"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.argprom.exit.i.i": ; preds = %27, %22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.exit.i.i", %20, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_3D2Ev.argprom.exit.i.i", %20, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_3E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -60390,7 +60390,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERSt8functionIS3_EE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %20
@@ -60399,11 +60399,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
@@ -60432,12 +60432,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 20:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %21 = icmp eq ptr %.val6.i, null
-  br i1 %21, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %22
+  br i1 %21, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr i8, ptr %.val6.i, i64 8
@@ -60447,17 +60447,17 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
   %25 = icmp ult i32 %.val1.i.i, 65
   %26 = icmp eq ptr %.val.i.i, null
   %or.cond.i.i.i = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond.i.i.i, label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_5D2Ev.exit.i.i", label %27
+  br i1 %or.cond.i.i.i, label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_5D2Ev.argprom.exit.i.i", label %27
 
 27:                                               ; preds = %22
   tail call void @_ZdaPv(ptr noundef nonnull %.val.i.i) #31
-  br label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_5D2Ev.exit.i.i"
+  br label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_5D2Ev.argprom.exit.i.i"
 
-"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_5D2Ev.exit.i.i": ; preds = %27, %22
+"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_5D2Ev.argprom.exit.i.i": ; preds = %27, %22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_5D2Ev.exit.i.i", %20, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_5D2Ev.argprom.exit.i.i", %20, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_5E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -60517,7 +60517,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper16matchAddOverflowERNS0_12MachineInstrERSt8functionIS3_EE3$_6E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %20
@@ -60526,11 +60526,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
@@ -60559,12 +60559,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 20:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %21 = icmp eq ptr %.val6.i, null
-  br i1 %21, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %22
+  br i1 %21, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr i8, ptr %.val6.i, i64 8
@@ -60574,17 +60574,17 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
   %25 = icmp ult i32 %.val1.i.i, 65
   %26 = icmp eq ptr %.val.i.i, null
   %or.cond.i.i.i = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond.i.i.i, label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit.i.i", label %27
+  br i1 %or.cond.i.i.i, label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit.i.i", label %27
 
 27:                                               ; preds = %22
   tail call void @_ZdaPv(ptr noundef nonnull %.val.i.i) #31
-  br label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit.i.i"
+  br label %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit.i.i"
 
-"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit.i.i": ; preds = %27, %22
+"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit.i.i": ; preds = %27, %22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.exit.i.i", %20, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper16matchAddOverflowERNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_6D2Ev.argprom.exit.i.i", %20, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchAddOverflowERNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_6E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -61013,7 +61013,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %28, %25, %_ZN4llvm5
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %29
@@ -61022,11 +61022,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
@@ -61074,12 +61074,12 @@ _ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i:              ; preds = %17, %15
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 29:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %30 = icmp eq ptr %.val6.i, null
-  br i1 %30, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit", label %31
+  br i1 %30, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit", label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 32
@@ -61115,9 +61115,9 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %39, %35, %31
 
 "_ZZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i": ; preds = %47, %43, %_ZN4llvm5APIntD2Ev.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i", %29, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i", %29, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAPlusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -61231,7 +61231,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %28, %25, %_ZN4llvm5
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %29
@@ -61240,11 +61240,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
@@ -61292,12 +61292,12 @@ _ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i:              ; preds = %17, %15
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 29:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %30 = icmp eq ptr %.val6.i, null
-  br i1 %30, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit", label %31
+  br i1 %30, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit", label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 32
@@ -61333,9 +61333,9 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %39, %35, %31
 
 "_ZZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i": ; preds = %47, %43, %_ZN4llvm5APIntD2Ev.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i", %29, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i", %29, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldC2MinusAPlusC1ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -61449,7 +61449,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %28, %25, %_ZN4llvm5
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %29
@@ -61458,11 +61458,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
@@ -61510,12 +61510,12 @@ _ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i:              ; preds = %17, %15
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 29:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %30 = icmp eq ptr %.val6.i, null
-  br i1 %30, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit", label %31
+  br i1 %30, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit", label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 32
@@ -61551,9 +61551,9 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %39, %35, %31
 
 "_ZZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i": ; preds = %47, %43, %_ZN4llvm5APIntD2Ev.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i", %29, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i", %29, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldAMinusC1MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -61667,7 +61667,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %28, %25, %_ZN4llvm5
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %29
@@ -61676,11 +61676,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
@@ -61728,12 +61728,12 @@ _ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i:              ; preds = %17, %15
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 29:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %30 = icmp eq ptr %.val6.i, null
-  br i1 %30, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit", label %31
+  br i1 %30, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit", label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 32
@@ -61769,9 +61769,9 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %39, %35, %31
 
 "_ZZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i": ; preds = %47, %43, %_ZN4llvm5APIntD2Ev.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i", %29, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i", %29, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper24matchFoldC1Minus2MinusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -61885,7 +61885,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %28, %25, %_ZN4llvm5
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS0_14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS0_12MachineInstrERSt8functionIS3_EE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %29
@@ -61894,11 +61894,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
@@ -61946,12 +61946,12 @@ _ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i:              ; preds = %17, %15
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
 29:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %30 = icmp eq ptr %.val6.i, null
-  br i1 %30, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit", label %31
+  br i1 %30, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit", label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 32
@@ -61987,9 +61987,9 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %39, %35, %31
 
 "_ZZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i": ; preds = %47, %43, %_ZN4llvm5APIntD2Ev.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i", %29, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS_12MachineInstrERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i", %29, %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper23matchFoldAMinusC1PlusC2ERKNS1_12MachineInstrERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -62124,8 +62124,8 @@ attributes #32 = { nounwind willreturn memory(none) }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_: argument 0"}
-!13 = distinct !{!13, !"_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_"}
+!12 = distinct !{!12, !13, !"_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.argprom: argument 0"}
+!13 = distinct !{!13, !"_ZN12_GLOBAL__N_118ChoosePreferredUseERN4llvm12MachineInstrERNS0_14PreferredTupleENS0_3LLTEjPS1_.argprom"}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
